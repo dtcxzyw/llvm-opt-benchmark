@@ -17,10 +17,10 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @intset_create() local_unnamed_addr #0 {
-  %1 = tail call ptr @palloc(i64 noundef 5968) #11
+  %1 = tail call ptr @palloc(i64 noundef 5968) #10
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %2, ptr %1, align 8
-  %3 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %1) #11
+  %3 = tail call i64 @GetMemoryChunkSpace(ptr noundef nonnull %1) #10
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -65,10 +65,9 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 372, ptr noundef nonnull @__func__.intset_add_member) #11
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 372, ptr noundef nonnull @__func__.intset_add_member) #10
   unreachable
 
 9:                                                ; preds = %2
@@ -84,10 +83,9 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   br i1 %.not12, label %18, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.intset_add_member) #11
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 375, ptr noundef nonnull @__func__.intset_add_member) #10
   unreachable
 
 18:                                               ; preds = %12, %9
@@ -106,8 +104,8 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %0, align 8
-  %30 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef 1040) #11
-  %31 = tail call i64 @GetMemoryChunkSpace(ptr noundef %30) #11
+  %30 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef 1040) #10
+  %31 = tail call i64 @GetMemoryChunkSpace(ptr noundef %30) #10
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %31
@@ -247,8 +245,8 @@ simple8b_encode.exit.i:                           ; preds = %90, %.loopexit
 
 97:                                               ; preds = %simple8b_encode.exit.i
   %98 = load ptr, ptr %0, align 8
-  %99 = tail call ptr @MemoryContextAlloc(ptr noundef %98, i64 noundef 1040) #11
-  %100 = tail call i64 @GetMemoryChunkSpace(ptr noundef %99) #11
+  %99 = tail call ptr @MemoryContextAlloc(ptr noundef %98, i64 noundef 1040) #10
+  %100 = tail call i64 @GetMemoryChunkSpace(ptr noundef %99) #10
   %101 = load i64, ptr %40, align 8
   %102 = add i64 %101, %100
   store i64 %102, ptr %40, align 8
@@ -280,10 +278,9 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %107
-  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %110)
-  %111 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.intset_update_upper) #11
+  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %111 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.intset_update_upper) #10
   unreachable
 
 112:                                              ; preds = %107
@@ -296,8 +293,8 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %113, i64 %.0.in.v.i.i
   %.0.i43.i = load i64, ptr %.0.in.i.i, align 8
   %117 = load ptr, ptr %0, align 8
-  %118 = tail call ptr @MemoryContextAlloc(ptr noundef %117, i64 noundef 1032) #11
-  %119 = tail call i64 @GetMemoryChunkSpace(ptr noundef %118) #11
+  %118 = tail call ptr @MemoryContextAlloc(ptr noundef %117, i64 noundef 1032) #10
+  %119 = tail call i64 @GetMemoryChunkSpace(ptr noundef %118) #10
   %120 = load i64, ptr %40, align 8
   %121 = add i64 %120, %119
   store i64 %121, ptr %40, align 8
@@ -326,8 +323,8 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
 133:                                              ; preds = %128
   %134 = getelementptr inbounds ptr, ptr %25, i64 %.pre-phi.i.i
   %135 = load ptr, ptr %0, align 8
-  %136 = tail call ptr @MemoryContextAlloc(ptr noundef %135, i64 noundef 1032) #11
-  %137 = tail call i64 @GetMemoryChunkSpace(ptr noundef %136) #11
+  %136 = tail call ptr @MemoryContextAlloc(ptr noundef %135, i64 noundef 1032) #10
+  %137 = tail call i64 @GetMemoryChunkSpace(ptr noundef %136) #10
   %138 = load i64, ptr %40, align 8
   %139 = add i64 %138, %137
   store i64 %139, ptr %40, align 8
@@ -774,14 +771,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #10
+declare i8 @llvm.umax.i8(i8, i8) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -792,10 +786,9 @@ attributes #5 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

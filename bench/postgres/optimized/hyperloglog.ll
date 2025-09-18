@@ -14,10 +14,9 @@ define dso_local void @initHyperLogLog(ptr noundef captures(none) %0, i8 noundef
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.initHyperLogLog) #11
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.initHyperLogLog) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -29,7 +28,7 @@ define dso_local void @initHyperLogLog(ptr noundef captures(none) %0, i8 noundef
   %11 = add nuw nsw i64 %9, 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %12, align 8
-  %13 = tail call ptr @palloc0(i64 noundef %11) #11
+  %13 = tail call ptr @palloc0(i64 noundef %11) #10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %13, ptr %14, align 8
   %15 = load i64, ptr %10, align 8
@@ -96,10 +95,9 @@ define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, doubl
   br i1 %or.cond.i, label %12, label %.thread
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.initHyperLogLog) #11
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.initHyperLogLog) #10
   unreachable
 
 .thread:                                          ; preds = %3, %9
@@ -112,7 +110,7 @@ define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, doubl
   %18 = or disjoint i64 %16, 1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %18, ptr %19, align 8
-  %20 = tail call ptr @palloc0(i64 noundef %18) #11
+  %20 = tail call ptr @palloc0(i64 noundef %18) #10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %20, ptr %21, align 8
   %22 = load i64, ptr %17, align 8
@@ -149,7 +147,7 @@ initHyperLogLog.exit:                             ; preds = %.thread, %23, %24, 
 define dso_local void @freeHyperLogLog(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  tail call void @pfree(ptr noundef %3) #11
+  tail call void @pfree(ptr noundef %3) #10
   ret void
 }
 
@@ -280,7 +278,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
 ._crit_edge39.thread.sink.split:                  ; preds = %45, %39
   %.sink48 = phi double [ %41, %39 ], [ %47, %45 ]
   %.sink47 = phi double [ %25, %39 ], [ 0xC1F0000000000000, %45 ]
-  %48 = tail call double @log(double noundef %.sink48) #11
+  %48 = tail call double @log(double noundef %.sink48) #10
   %49 = fmul double %48, %.sink47
   br label %._crit_edge39.thread
 
@@ -295,17 +293,14 @@ declare double @log(double noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double, i32) local_unnamed_addr #8
+declare double @ldexp(double, i32) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #9
+declare double @llvm.sqrt.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #9
+declare i8 @llvm.umax.i8(i8, i8) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -314,11 +309,10 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { nofree norecurse nounwind memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind }
+attributes #7 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

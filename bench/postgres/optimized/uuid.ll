@@ -28,7 +28,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @palloc(i64 noundef 16) #15
+  %6 = tail call ptr @palloc(i64 noundef 16) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %5, align 1
@@ -55,7 +55,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
 19:                                               ; preds = %15
   %20 = load i16, ptr %.135.i, align 1
   store i16 %20, ptr %2, align 2
-  %21 = tail call ptr @__ctype_b_loc() #16
+  %21 = tail call ptr @__ctype_b_loc() #15
   %22 = load ptr, ptr %21, align 8
   %23 = and i16 %20, 255
   %24 = zext nneg i16 %23 to i64
@@ -76,7 +76,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
 
 34:                                               ; preds = %28
   store i8 0, ptr %11, align 2
-  %35 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #15
+  %35 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #14
   %36 = trunc i64 %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %36, ptr %37, align 1
@@ -124,13 +124,13 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   br i1 %.not27.i, label %string_to_uuid.exit, label %54
 
 54:                                               ; preds = %52, %48, %.thread.i
-  %55 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
+  %55 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
   br i1 %55, label %56, label %string_to_uuid.exit
 
 56:                                               ; preds = %54
-  %57 = tail call i32 @errcode(i32 noundef 33685634) #15
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #15
-  tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.string_to_uuid) #15
+  %57 = tail call i32 @errcode(i32 noundef 33685634) #14
+  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #14
+  tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.string_to_uuid) #14
   br label %string_to_uuid.exit
 
 string_to_uuid.exit:                              ; preds = %52, %54, %56
@@ -145,7 +145,7 @@ define dso_local i64 @uuid_out(ptr noundef readonly captures(none) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 37) #15
+  %5 = tail call ptr @palloc(i64 noundef 37) #14
   br label %6
 
 6:                                                ; preds = %1, %11
@@ -195,8 +195,8 @@ define dso_local i64 @uuid_recv(ptr noundef readonly captures(none) %0) local_un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #15
-  %6 = tail call ptr @pq_getmsgbytes(ptr noundef %4, i32 noundef 16) #15
+  %5 = tail call ptr @palloc(i64 noundef 16) #14
+  %6 = tail call ptr @pq_getmsgbytes(ptr noundef %4, i32 noundef 16) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %6, i64 16, i1 false)
   %7 = ptrtoint ptr %5 to i64
   ret i64 %7
@@ -214,9 +214,9 @@ define dso_local i64 @uuid_send(ptr noundef readonly captures(none) %0) local_un
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #15
-  call void @pq_sendbytes(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 16) #15
-  %6 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
+  call void @pq_begintypsend(ptr noundef nonnull %2) #14
+  call void @pq_sendbytes(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 16) #14
+  %6 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #14
   %7 = ptrtoint ptr %6 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %7
@@ -236,7 +236,7 @@ define dso_local range(i64 0, 2) i64 @uuid_lt(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #17
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #16
   %.lobit = lshr i32 %8, 31
   %9 = zext nneg i32 %.lobit to i64
   ret i64 %9
@@ -250,7 +250,7 @@ define dso_local range(i64 0, 2) i64 @uuid_le(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #17
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #16
   %9 = icmp slt i32 %8, 1
   %10 = zext i1 %9 to i64
   ret i64 %10
@@ -278,7 +278,7 @@ define dso_local range(i64 0, 2) i64 @uuid_ge(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #17
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #16
   %9 = icmp sgt i32 %8, -1
   %10 = zext i1 %9 to i64
   ret i64 %10
@@ -292,7 +292,7 @@ define dso_local range(i64 0, 2) i64 @uuid_gt(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #17
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #16
   %9 = icmp sgt i32 %8, 0
   %10 = zext i1 %9 to i64
   ret i64 %10
@@ -320,7 +320,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @uuid_cmp(ptr noundef re
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #17
+  %8 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %7, i64 noundef 16) #16
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -343,12 +343,12 @@ define dso_local noundef i64 @uuid_sortsupport(ptr noundef readonly captures(non
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @palloc(i64 noundef 56) #15
+  %13 = tail call ptr @palloc(i64 noundef 56) #14
   store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i8 1, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  tail call void @initHyperLogLog(ptr noundef nonnull %15, i8 noundef zeroext 10) #15
+  tail call void @initHyperLogLog(ptr noundef nonnull %15, i8 noundef zeroext 10) #14
   store ptr %13, ptr %6, align 8
   store ptr @ssup_datum_unsigned_cmp, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -368,7 +368,7 @@ define dso_local noundef i64 @uuid_sortsupport(ptr noundef readonly captures(non
 define internal i32 @uuid_fast_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #3 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
-  %6 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %5, i64 noundef 16) #17
+  %6 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(16) %4, ptr noundef nonnull readonly dereferenceable(16) %5, i64 noundef 16) #16
   ret i32 %6
 }
 
@@ -395,8 +395,8 @@ define internal i64 @uuid_abbrev_convert(i64 noundef %0, ptr noundef readonly ca
   %13 = xor i64 %12, %.0.copyload
   %14 = trunc i64 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = tail call i32 @hash_bytes_uint32(i32 noundef %14) #15
-  tail call void @addHyperLogLog(ptr noundef nonnull %15, i32 noundef %16) #15
+  %16 = tail call i32 @hash_bytes_uint32(i32 noundef %14) #14
+  tail call void @addHyperLogLog(ptr noundef nonnull %15, i32 noundef %16) #14
   br label %17
 
 17:                                               ; preds = %11, %2
@@ -424,7 +424,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %15 = tail call double @estimateHyperLogLog(ptr noundef nonnull %14) #15
+  %15 = tail call double @estimateHyperLogLog(ptr noundef nonnull %14) #14
   %16 = fcmp ogt double %15, 1.000000e+05
   br i1 %16, label %17, label %26
 
@@ -434,13 +434,13 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
-  %21 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %21 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
   %23 = load i64, ptr %4, align 8
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, double noundef %15, i64 noundef %23, i32 noundef %0) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 346, ptr noundef nonnull @__func__.uuid_abbrev_abort) #15
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, double noundef %15, i64 noundef %23, i32 noundef %0) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 346, ptr noundef nonnull @__func__.uuid_abbrev_abort) #14
   br label %25
 
 25:                                               ; preds = %20, %22, %17
@@ -461,7 +461,7 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
   br i1 %33, label %35, label %49
 
 35:                                               ; preds = %34
-  %36 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %36 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %36, label %37, label %49
 
 37:                                               ; preds = %35
@@ -469,21 +469,21 @@ define internal noundef zeroext i1 @uuid_abbrev_abort(i32 noundef %0, ptr nounde
   %39 = sitofp i64 %38 to double
   %40 = fdiv double %39, 2.000000e+03
   %41 = fadd double %40, 5.000000e-01
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, double noundef %15, double noundef %41, i64 noundef %38, i32 noundef %0) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.uuid_abbrev_abort) #15
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, double noundef %15, double noundef %41, i64 noundef %38, i32 noundef %0) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.uuid_abbrev_abort) #14
   br label %49
 
 43:                                               ; preds = %26
   br i1 %33, label %44, label %49
 
 44:                                               ; preds = %43
-  %45 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %45 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %44
   %47 = load i64, ptr %4, align 8
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, double noundef %15, i64 noundef %47, i32 noundef %0) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 371, ptr noundef nonnull @__func__.uuid_abbrev_abort) #15
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, double noundef %15, i64 noundef %47, i32 noundef %0) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 371, ptr noundef nonnull @__func__.uuid_abbrev_abort) #14
   br label %49
 
 49:                                               ; preds = %43, %46, %44, %34, %37, %35, %2, %6, %9, %25
@@ -496,7 +496,7 @@ define dso_local range(i64 0, 4294967296) i64 @uuid_hash(ptr noundef readonly ca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @hash_bytes(ptr noundef %4, i32 noundef 16) #15
+  %5 = tail call i32 @hash_bytes(ptr noundef %4, i32 noundef 16) #14
   %6 = zext i32 %5 to i64
   ret i64 %6
 }
@@ -508,22 +508,21 @@ define dso_local i64 @uuid_hash_extended(ptr noundef readonly captures(none) %0)
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 16, i64 noundef %6) #15
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 16, i64 noundef %6) #14
   ret i64 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @gen_random_uuid(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 16) #15
-  %3 = tail call zeroext i1 @pg_strong_random(ptr noundef %2, i64 noundef 16) #15
+  %2 = tail call ptr @palloc(i64 noundef 16) #14
+  %3 = tail call zeroext i1 @pg_strong_random(ptr noundef %2, i64 noundef 16) #14
   br i1 %3, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 2600) #15
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__func__.gen_random_uuid) #15
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %6 = tail call i32 @errcode(i32 noundef 2600) #14
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__func__.gen_random_uuid) #14
   unreachable
 
 8:                                                ; preds = %1
@@ -558,7 +557,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local noundef i64 @uuidv7(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #15
+  %3 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #14
   %4 = load i64, ptr %2, align 8
   %5 = mul i64 %4, 1000000000
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -576,7 +575,7 @@ define dso_local noundef i64 @uuidv7(ptr noundef readnone captures(none) %0) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @generate_uuidv7(i64 noundef %0) unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 16) #15
+  %2 = tail call ptr @palloc(i64 noundef 16) #14
   %3 = sdiv i64 %0, 1000000
   %4 = lshr i64 %3, 40
   %5 = trunc i64 %4 to i8
@@ -611,15 +610,14 @@ define internal fastcc noundef ptr @generate_uuidv7(i64 noundef %0) unnamed_addr
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %26, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %29 = tail call zeroext i1 @pg_strong_random(ptr noundef nonnull %28, i64 noundef 8) #15
+  %29 = tail call zeroext i1 @pg_strong_random(ptr noundef nonnull %28, i64 noundef 8) #14
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %1
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 2600) #15
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 560, ptr noundef nonnull @__func__.generate_uuidv7) #15
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %32 = tail call i32 @errcode(i32 noundef 2600) #14
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 560, ptr noundef nonnull @__func__.generate_uuidv7) #14
   unreachable
 
 34:                                               ; preds = %1
@@ -640,7 +638,7 @@ define dso_local noundef i64 @uuidv7_interval(ptr noundef readonly captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #15
+  %5 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %2) #14
   %6 = load i64, ptr %2, align 8
   %7 = mul i64 %6, 1000000000
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -653,7 +651,7 @@ define dso_local noundef i64 @uuidv7_interval(ptr noundef readonly captures(none
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %13 = sdiv i64 %spec.select.i, 1000
   %14 = add nsw i64 %13, -946684800000000
-  %15 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamptz_pl_interval, i32 noundef 0, i64 noundef %14, i64 noundef %4) #15
+  %15 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamptz_pl_interval, i32 noundef 0, i64 noundef %14, i64 noundef %4) #14
   %16 = mul i64 %15, 1000
   %17 = srem i64 %spec.select.i, 1000
   %18 = add nsw i64 %17, 946684800000000000
@@ -838,14 +836,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #14
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -859,13 +854,12 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { cold nounwind }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

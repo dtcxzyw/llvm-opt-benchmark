@@ -98,10 +98,10 @@ define hidden void @detect_cpu_features(ptr noundef captures(none) %0) local_unn
   br i1 %4, label %41, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #8, !srcloc !10
+  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !10
   %7 = extractvalue { i32, i32, i32, i32 } %6, 2
   %8 = extractvalue { i32, i32, i32, i32 } %6, 3
-  %9 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #8, !srcloc !11
+  %9 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #7, !srcloc !11
   %10 = extractvalue { i32, i32, i32, i32 } %9, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %12 = lshr i32 %7, 28
@@ -150,7 +150,7 @@ define hidden void @detect_cpu_features(ptr noundef captures(none) %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit__blake2() local_unnamed_addr #1 {
-  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @blake2_module) #9
+  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @blake2_module) #8
   ret ptr %1
 }
 
@@ -165,7 +165,7 @@ define internal i32 @_blake2_traverse(ptr noundef readonly captures(none) %0, pt
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #9
+  %7 = tail call i32 %1(ptr noundef nonnull %5, ptr noundef %2) #8
   %.not20 = icmp eq i32 %7, 0
   br i1 %.not20, label %8, label %14
 
@@ -176,7 +176,7 @@ define internal i32 @_blake2_traverse(ptr noundef readonly captures(none) %0, pt
   br i1 %.not21, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 %1(ptr noundef nonnull %10, ptr noundef %2) #9
+  %12 = tail call i32 %1(ptr noundef nonnull %10, ptr noundef %2) #8
   %.not22 = icmp eq i32 %12, 0
   br i1 %.not22, label %13, label %14
 
@@ -209,7 +209,7 @@ define internal noundef i32 @_blake2_clear(ptr noundef readonly captures(none) %
   br i1 %8, label %9, label %Py_DECREF.exit
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
@@ -231,7 +231,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
   br i1 %16, label %17, label %Py_DECREF.exit14
 
 17:                                               ; preds = %14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #8
   br label %Py_DECREF.exit14
 
 Py_DECREF.exit14:                                 ; preds = %17, %14, %12, %Py_DECREF.exit
@@ -259,7 +259,7 @@ define internal void @_blake2_free(ptr noundef readonly captures(none) %0) #1 {
   br i1 %8, label %9, label %Py_DECREF.exit.i
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #8
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %9, %6, %4, %1
@@ -281,7 +281,7 @@ Py_DECREF.exit.i:                                 ; preds = %9, %6, %4, %1
   br i1 %16, label %17, label %_blake2_clear.exit
 
 17:                                               ; preds = %14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #8
   br label %_blake2_clear.exit
 
 _blake2_clear.exit:                               ; preds = %Py_DECREF.exit.i, %12, %14, %17
@@ -299,10 +299,10 @@ define internal range(i32 -1, 1) i32 @blake2_exec(ptr noundef %0) #1 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %8 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #8, !srcloc !10
+  %8 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !10
   %9 = extractvalue { i32, i32, i32, i32 } %8, 2
   %10 = extractvalue { i32, i32, i32, i32 } %8, 3
-  %11 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #8, !srcloc !11
+  %11 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 7, i32 0) #7, !srcloc !11
   %12 = extractvalue { i32, i32, i32, i32 } %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 22
   %14 = lshr i32 %9, 28
@@ -346,13 +346,13 @@ define internal range(i32 -1, 1) i32 @blake2_exec(ptr noundef %0) #1 {
   br label %detect_cpu_features.exit
 
 detect_cpu_features.exit:                         ; preds = %1, %6
-  %43 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %0, ptr noundef nonnull @blake2b_type_spec, ptr noundef null) #9
+  %43 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %0, ptr noundef nonnull @blake2b_type_spec, ptr noundef null) #8
   store ptr %43, ptr %.val, align 8, !tbaa !27
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %detect_cpu_features.exit
-  %46 = tail call i32 @PyModule_AddType(ptr noundef nonnull %0, ptr noundef nonnull %43) #9
+  %46 = tail call i32 @PyModule_AddType(ptr noundef nonnull %0, ptr noundef nonnull %43) #8
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %.critedge, label %48
 
@@ -360,12 +360,12 @@ detect_cpu_features.exit:                         ; preds = %1, %6
   %49 = load ptr, ptr %.val, align 8, !tbaa !27
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 264
   %51 = load ptr, ptr %50, align 8, !tbaa !32
-  %52 = tail call ptr @PyLong_FromLong(i64 noundef 16) #9
+  %52 = tail call ptr @PyLong_FromLong(i64 noundef 16) #8
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %.critedge, label %53
 
 53:                                               ; preds = %48
-  %54 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.2, ptr noundef nonnull %52) #9
+  %54 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.2, ptr noundef nonnull %52) #8
   %55 = icmp sgt i32 %54, -1
   %56 = load i32, ptr %52, align 8, !tbaa !31
   %.not.i = icmp sgt i32 %56, -1
@@ -378,19 +378,19 @@ detect_cpu_features.exit:                         ; preds = %1, %6
   br i1 %59, label %60, label %Py_DECREF.exit
 
 60:                                               ; preds = %57
-  tail call void @_Py_Dealloc(ptr noundef nonnull %52) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %52) #8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %53, %57, %60
   br i1 %55, label %61, label %.critedge
 
 61:                                               ; preds = %Py_DECREF.exit
-  %62 = tail call ptr @PyLong_FromLong(i64 noundef 16) #9
+  %62 = tail call ptr @PyLong_FromLong(i64 noundef 16) #8
   %.not95 = icmp eq ptr %62, null
   br i1 %.not95, label %.critedge, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.3, ptr noundef nonnull %62) #9
+  %64 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.3, ptr noundef nonnull %62) #8
   %65 = icmp sgt i32 %64, -1
   %66 = load i32, ptr %62, align 8, !tbaa !31
   %.not.i124 = icmp sgt i32 %66, -1
@@ -403,19 +403,19 @@ Py_DECREF.exit:                                   ; preds = %53, %57, %60
   br i1 %69, label %70, label %Py_DECREF.exit125
 
 70:                                               ; preds = %67
-  tail call void @_Py_Dealloc(ptr noundef nonnull %62) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %62) #8
   br label %Py_DECREF.exit125
 
 Py_DECREF.exit125:                                ; preds = %63, %67, %70
   br i1 %65, label %71, label %.critedge
 
 71:                                               ; preds = %Py_DECREF.exit125
-  %72 = tail call ptr @PyLong_FromLong(i64 noundef 64) #9
+  %72 = tail call ptr @PyLong_FromLong(i64 noundef 64) #8
   %.not96 = icmp eq ptr %72, null
   br i1 %.not96, label %.critedge, label %73
 
 73:                                               ; preds = %71
-  %74 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.4, ptr noundef nonnull %72) #9
+  %74 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.4, ptr noundef nonnull %72) #8
   %75 = icmp sgt i32 %74, -1
   %76 = load i32, ptr %72, align 8, !tbaa !31
   %.not.i126 = icmp sgt i32 %76, -1
@@ -428,19 +428,19 @@ Py_DECREF.exit125:                                ; preds = %63, %67, %70
   br i1 %79, label %80, label %Py_DECREF.exit127
 
 80:                                               ; preds = %77
-  tail call void @_Py_Dealloc(ptr noundef nonnull %72) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %72) #8
   br label %Py_DECREF.exit127
 
 Py_DECREF.exit127:                                ; preds = %73, %77, %80
   br i1 %75, label %81, label %.critedge
 
 81:                                               ; preds = %Py_DECREF.exit127
-  %82 = tail call ptr @PyLong_FromLong(i64 noundef 64) #9
+  %82 = tail call ptr @PyLong_FromLong(i64 noundef 64) #8
   %.not97 = icmp eq ptr %82, null
   br i1 %.not97, label %.critedge, label %83
 
 83:                                               ; preds = %81
-  %84 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.5, ptr noundef nonnull %82) #9
+  %84 = tail call i32 @PyDict_SetItemString(ptr noundef %51, ptr noundef nonnull @.str.5, ptr noundef nonnull %82) #8
   %85 = icmp sgt i32 %84, -1
   %86 = load i32, ptr %82, align 8, !tbaa !31
   %.not.i128 = icmp sgt i32 %86, -1
@@ -453,41 +453,41 @@ Py_DECREF.exit127:                                ; preds = %73, %77, %80
   br i1 %89, label %90, label %Py_DECREF.exit129
 
 90:                                               ; preds = %87
-  tail call void @_Py_Dealloc(ptr noundef nonnull %82) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %82) #8
   br label %Py_DECREF.exit129
 
 Py_DECREF.exit129:                                ; preds = %83, %87, %90
   br i1 %85, label %91, label %.critedge
 
 91:                                               ; preds = %Py_DECREF.exit129
-  %92 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 16) #9
+  %92 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 16) #8
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %.critedge, label %94
 
 94:                                               ; preds = %91
-  %95 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef 16) #9
+  %95 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, i64 noundef 16) #8
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %.critedge, label %97
 
 97:                                               ; preds = %94
-  %98 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i64 noundef 64) #9
+  %98 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i64 noundef 64) #8
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %.critedge, label %100
 
 100:                                              ; preds = %97
-  %101 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i64 noundef 64) #9
+  %101 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i64 noundef 64) #8
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %.critedge, label %103
 
 103:                                              ; preds = %100
-  %104 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %0, ptr noundef nonnull @blake2s_type_spec, ptr noundef null) #9
+  %104 = tail call ptr @PyType_FromModuleAndSpec(ptr noundef nonnull %0, ptr noundef nonnull @blake2s_type_spec, ptr noundef null) #8
   %105 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %104, ptr %105, align 8, !tbaa !29
   %106 = icmp eq ptr %104, null
   br i1 %106, label %.critedge, label %107
 
 107:                                              ; preds = %103
-  %108 = tail call i32 @PyModule_AddType(ptr noundef nonnull %0, ptr noundef nonnull %104) #9
+  %108 = tail call i32 @PyModule_AddType(ptr noundef nonnull %0, ptr noundef nonnull %104) #8
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %.critedge, label %110
 
@@ -495,12 +495,12 @@ Py_DECREF.exit129:                                ; preds = %83, %87, %90
   %111 = load ptr, ptr %105, align 8, !tbaa !29
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 264
   %113 = load ptr, ptr %112, align 8, !tbaa !32
-  %114 = tail call ptr @PyLong_FromLong(i64 noundef 8) #9
+  %114 = tail call ptr @PyLong_FromLong(i64 noundef 8) #8
   %.not98 = icmp eq ptr %114, null
   br i1 %.not98, label %.critedge, label %115
 
 115:                                              ; preds = %110
-  %116 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.2, ptr noundef nonnull %114) #9
+  %116 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.2, ptr noundef nonnull %114) #8
   %117 = icmp sgt i32 %116, -1
   %118 = load i32, ptr %114, align 8, !tbaa !31
   %.not.i130 = icmp sgt i32 %118, -1
@@ -513,19 +513,19 @@ Py_DECREF.exit129:                                ; preds = %83, %87, %90
   br i1 %121, label %122, label %Py_DECREF.exit131
 
 122:                                              ; preds = %119
-  tail call void @_Py_Dealloc(ptr noundef nonnull %114) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %114) #8
   br label %Py_DECREF.exit131
 
 Py_DECREF.exit131:                                ; preds = %115, %119, %122
   br i1 %117, label %123, label %.critedge
 
 123:                                              ; preds = %Py_DECREF.exit131
-  %124 = tail call ptr @PyLong_FromLong(i64 noundef 8) #9
+  %124 = tail call ptr @PyLong_FromLong(i64 noundef 8) #8
   %.not99 = icmp eq ptr %124, null
   br i1 %.not99, label %.critedge, label %125
 
 125:                                              ; preds = %123
-  %126 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.3, ptr noundef nonnull %124) #9
+  %126 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.3, ptr noundef nonnull %124) #8
   %127 = icmp sgt i32 %126, -1
   %128 = load i32, ptr %124, align 8, !tbaa !31
   %.not.i132 = icmp sgt i32 %128, -1
@@ -538,19 +538,19 @@ Py_DECREF.exit131:                                ; preds = %115, %119, %122
   br i1 %131, label %132, label %Py_DECREF.exit133
 
 132:                                              ; preds = %129
-  tail call void @_Py_Dealloc(ptr noundef nonnull %124) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %124) #8
   br label %Py_DECREF.exit133
 
 Py_DECREF.exit133:                                ; preds = %125, %129, %132
   br i1 %127, label %133, label %.critedge
 
 133:                                              ; preds = %Py_DECREF.exit133
-  %134 = tail call ptr @PyLong_FromLong(i64 noundef 32) #9
+  %134 = tail call ptr @PyLong_FromLong(i64 noundef 32) #8
   %.not100 = icmp eq ptr %134, null
   br i1 %.not100, label %.critedge, label %135
 
 135:                                              ; preds = %133
-  %136 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.4, ptr noundef nonnull %134) #9
+  %136 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.4, ptr noundef nonnull %134) #8
   %137 = icmp sgt i32 %136, -1
   %138 = load i32, ptr %134, align 8, !tbaa !31
   %.not.i134 = icmp sgt i32 %138, -1
@@ -563,19 +563,19 @@ Py_DECREF.exit133:                                ; preds = %125, %129, %132
   br i1 %141, label %142, label %Py_DECREF.exit135
 
 142:                                              ; preds = %139
-  tail call void @_Py_Dealloc(ptr noundef nonnull %134) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %134) #8
   br label %Py_DECREF.exit135
 
 Py_DECREF.exit135:                                ; preds = %135, %139, %142
   br i1 %137, label %143, label %.critedge
 
 143:                                              ; preds = %Py_DECREF.exit135
-  %144 = tail call ptr @PyLong_FromLong(i64 noundef 32) #9
+  %144 = tail call ptr @PyLong_FromLong(i64 noundef 32) #8
   %.not101 = icmp eq ptr %144, null
   br i1 %.not101, label %.critedge, label %145
 
 145:                                              ; preds = %143
-  %146 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.5, ptr noundef nonnull %144) #9
+  %146 = tail call i32 @PyDict_SetItemString(ptr noundef %113, ptr noundef nonnull @.str.5, ptr noundef nonnull %144) #8
   %147 = icmp sgt i32 %146, -1
   %148 = load i32, ptr %144, align 8, !tbaa !31
   %.not.i136 = icmp sgt i32 %148, -1
@@ -588,29 +588,29 @@ Py_DECREF.exit135:                                ; preds = %135, %139, %142
   br i1 %151, label %152, label %Py_DECREF.exit137
 
 152:                                              ; preds = %149
-  tail call void @_Py_Dealloc(ptr noundef nonnull %144) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %144) #8
   br label %Py_DECREF.exit137
 
 Py_DECREF.exit137:                                ; preds = %145, %149, %152
   br i1 %147, label %153, label %.critedge
 
 153:                                              ; preds = %Py_DECREF.exit137
-  %154 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i64 noundef 8) #9
+  %154 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i64 noundef 8) #8
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %.critedge, label %156
 
 156:                                              ; preds = %153
-  %157 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i64 noundef 8) #9
+  %157 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i64 noundef 8) #8
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %.critedge, label %159
 
 159:                                              ; preds = %156
-  %160 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i64 noundef 32) #9
+  %160 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.12, i64 noundef 32) #8
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %.critedge, label %162
 
 162:                                              ; preds = %159
-  %163 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i64 noundef 32) #9
+  %163 = tail call i32 @PyModule_AddIntConstant(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i64 noundef 32) #8
   %.lobit = ashr i32 %163, 31
   br label %.critedge
 
@@ -647,28 +647,28 @@ define internal noundef i32 @py_blake2_clear(ptr noundef captures(none) %0) #1 {
   br i1 %.not19, label %15, label %7
 
 7:                                                ; preds = %6
-  tail call void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef nonnull %5) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef nonnull %5) #8
   br label %.sink.split
 
 8:                                                ; preds = %1
   br i1 %.not19, label %15, label %9
 
 9:                                                ; preds = %8
-  tail call void @python_hashlib_Hacl_Hash_Blake2s_Simd128_free(ptr noundef nonnull %5) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2s_Simd128_free(ptr noundef nonnull %5) #8
   br label %.sink.split
 
 10:                                               ; preds = %1
   br i1 %.not19, label %15, label %11
 
 11:                                               ; preds = %10
-  tail call void @python_hashlib_Hacl_Hash_Blake2b_free(ptr noundef nonnull %5) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2b_free(ptr noundef nonnull %5) #8
   br label %.sink.split
 
 12:                                               ; preds = %1
   br i1 %.not19, label %15, label %13
 
 13:                                               ; preds = %12
-  tail call void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef nonnull %5) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef nonnull %5) #8
   br label %.sink.split
 
 14:                                               ; preds = %1
@@ -686,7 +686,7 @@ define internal noundef i32 @py_blake2_clear(ptr noundef captures(none) %0) #1 {
 define internal void @py_blake2_dealloc(ptr noundef %0) #1 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !45
-  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #9
+  tail call void @PyObject_GC_UnTrack(ptr noundef %0) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -703,28 +703,28 @@ define internal void @py_blake2_dealloc(ptr noundef %0) #1 {
   br i1 %.not19.i, label %py_blake2_clear.exit, label %8
 
 8:                                                ; preds = %7
-  tail call void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef nonnull %6) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2b_Simd256_free(ptr noundef nonnull %6) #8
   br label %.sink.split.i
 
 9:                                                ; preds = %1
   br i1 %.not19.i, label %py_blake2_clear.exit, label %10
 
 10:                                               ; preds = %9
-  tail call void @python_hashlib_Hacl_Hash_Blake2s_Simd128_free(ptr noundef nonnull %6) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2s_Simd128_free(ptr noundef nonnull %6) #8
   br label %.sink.split.i
 
 11:                                               ; preds = %1
   br i1 %.not19.i, label %py_blake2_clear.exit, label %12
 
 12:                                               ; preds = %11
-  tail call void @python_hashlib_Hacl_Hash_Blake2b_free(ptr noundef nonnull %6) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2b_free(ptr noundef nonnull %6) #8
   br label %.sink.split.i
 
 13:                                               ; preds = %1
   br i1 %.not19.i, label %py_blake2_clear.exit, label %14
 
 14:                                               ; preds = %13
-  tail call void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef nonnull %6) #9
+  tail call void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef nonnull %6) #8
   br label %.sink.split.i
 
 15:                                               ; preds = %1
@@ -737,7 +737,7 @@ define internal void @py_blake2_dealloc(ptr noundef %0) #1 {
 py_blake2_clear.exit:                             ; preds = %7, %9, %11, %13, %.sink.split.i
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 320
   %17 = load ptr, ptr %16, align 8, !tbaa !46
-  tail call void %17(ptr noundef nonnull %0) #9
+  tail call void %17(ptr noundef nonnull %0) #8
   %18 = load i32, ptr %.val, align 8, !tbaa !31
   %.not.i = icmp sgt i32 %18, -1
   br i1 %.not.i, label %19, label %Py_DECREF.exit
@@ -749,7 +749,7 @@ py_blake2_clear.exit:                             ; preds = %7, %9, %11, %13, %.
   br i1 %21, label %22, label %Py_DECREF.exit
 
 22:                                               ; preds = %19
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.val) #9
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.val) #8
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %py_blake2_clear.exit, %19, %22
@@ -764,7 +764,7 @@ define internal i32 @py_blake2_traverse(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val, ptr noundef %2) #9
+  %6 = tail call i32 %1(ptr noundef nonnull %.val, ptr noundef %2) #8
   %.not8.not = icmp eq i32 %6, 0
   br i1 %.not8.not, label %7, label %8
 
@@ -814,7 +814,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %or.cond3, label %.thread, label %18
 
 18:                                               ; preds = %13
-  %19 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %17, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @py_blake2b_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #9
+  %19 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %17, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @py_blake2b_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #8
   %.not114 = icmp eq ptr %19, null
   br i1 %.not114, label %127, label %.thread
 
@@ -841,12 +841,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not116, label %36, label %29
 
 29:                                               ; preds = %26
-  %30 = call i32 @PyLong_AsInt(ptr noundef nonnull %28) #9
+  %30 = call i32 @PyLong_AsInt(ptr noundef nonnull %28) #8
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = call ptr @PyErr_Occurred() #9
+  %33 = call ptr @PyErr_Occurred() #8
   %.not117 = icmp eq ptr %33, null
   br i1 %.not117, label %34, label %127
 
@@ -864,7 +864,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not119, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #9
+  %40 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #8
   %.not120 = icmp eq i32 %40, 0
   br i1 %.not120, label %41, label %127
 
@@ -881,7 +881,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not122, label %50, label %46
 
 46:                                               ; preds = %43
-  %47 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 0) #9
+  %47 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 0) #8
   %.not123 = icmp eq i32 %47, 0
   br i1 %.not123, label %48, label %127
 
@@ -898,7 +898,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not125, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %52, ptr noundef nonnull %7, i32 noundef 0) #9
+  %54 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %52, ptr noundef nonnull %7, i32 noundef 0) #8
   %.not126 = icmp eq i32 %54, 0
   br i1 %.not126, label %55, label %127
 
@@ -915,12 +915,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not128, label %67, label %60
 
 60:                                               ; preds = %57
-  %61 = call i32 @PyLong_AsInt(ptr noundef nonnull %59) #9
+  %61 = call i32 @PyLong_AsInt(ptr noundef nonnull %59) #8
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = call ptr @PyErr_Occurred() #9
+  %64 = call ptr @PyErr_Occurred() #8
   %.not129 = icmp eq ptr %64, null
   br i1 %.not129, label %65, label %127
 
@@ -938,12 +938,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not131, label %77, label %70
 
 70:                                               ; preds = %67
-  %71 = call i32 @PyLong_AsInt(ptr noundef nonnull %69) #9
+  %71 = call i32 @PyLong_AsInt(ptr noundef nonnull %69) #8
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %70
-  %74 = call ptr @PyErr_Occurred() #9
+  %74 = call ptr @PyErr_Occurred() #8
   %.not132 = icmp eq ptr %74, null
   br i1 %.not132, label %75, label %127
 
@@ -961,7 +961,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not134, label %84, label %80
 
 80:                                               ; preds = %77
-  %81 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %79, ptr noundef nonnull %8) #9
+  %81 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %79, ptr noundef nonnull %8) #8
   %.not135 = icmp eq i32 %81, 0
   br i1 %.not135, label %127, label %82
 
@@ -978,7 +978,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not137, label %91, label %87
 
 87:                                               ; preds = %84
-  %88 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %86, ptr noundef nonnull %9) #9
+  %88 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %86, ptr noundef nonnull %9) #8
   %.not138 = icmp eq i32 %88, 0
   br i1 %.not138, label %127, label %89
 
@@ -995,12 +995,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not140, label %101, label %94
 
 94:                                               ; preds = %91
-  %95 = call i32 @PyLong_AsInt(ptr noundef nonnull %93) #9
+  %95 = call i32 @PyLong_AsInt(ptr noundef nonnull %93) #8
   %96 = icmp eq i32 %95, -1
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %94
-  %98 = call ptr @PyErr_Occurred() #9
+  %98 = call ptr @PyErr_Occurred() #8
   %.not141 = icmp eq ptr %98, null
   br i1 %.not141, label %99, label %127
 
@@ -1018,12 +1018,12 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not143, label %111, label %104
 
 104:                                              ; preds = %101
-  %105 = call i32 @PyLong_AsInt(ptr noundef nonnull %103) #9
+  %105 = call i32 @PyLong_AsInt(ptr noundef nonnull %103) #8
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %104
-  %108 = call ptr @PyErr_Occurred() #9
+  %108 = call ptr @PyErr_Occurred() #8
   %.not144 = icmp eq ptr %108, null
   br i1 %.not144, label %109, label %127
 
@@ -1041,7 +1041,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not146, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = call i32 @PyObject_IsTrue(ptr noundef nonnull %113) #9
+  %115 = call i32 @PyObject_IsTrue(ptr noundef nonnull %113) #8
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %127, label %117
 
@@ -1053,7 +1053,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1 = phi i32 [ %115, %117 ], [ 0, %111 ]
   %119 = getelementptr i8, ptr %20, i64 96
   %120 = load ptr, ptr %119, align 8, !tbaa !55
-  %121 = call i32 @PyObject_IsTrue(ptr noundef %120) #9
+  %121 = call i32 @PyObject_IsTrue(ptr noundef %120) #8
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %127, label %123
 
@@ -1077,7 +1077,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not148, label %131, label %130
 
 130:                                              ; preds = %127
-  call void @PyBuffer_Release(ptr noundef nonnull %5) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %5) #8
   br label %131
 
 131:                                              ; preds = %130, %127
@@ -1087,7 +1087,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not149, label %135, label %134
 
 134:                                              ; preds = %131
-  call void @PyBuffer_Release(ptr noundef nonnull %6) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %6) #8
   br label %135
 
 135:                                              ; preds = %134, %131
@@ -1097,7 +1097,7 @@ define internal ptr @py_blake2b_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not150, label %139, label %138
 
 138:                                              ; preds = %135
-  call void @PyBuffer_Release(ptr noundef nonnull %7) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %7) #8
   br label %139
 
 139:                                              ; preds = %138, %135
@@ -1124,7 +1124,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #2
 define internal ptr @_blake2_blake2b_copy(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !45
-  %4 = tail call ptr @_PyObject_GC_New(ptr noundef %.val.i) #9
+  %4 = tail call ptr @_PyObject_GC_New(ptr noundef %.val.i) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_blake2_blake2b_copy_impl.exit, label %6
 
@@ -1133,7 +1133,7 @@ define internal ptr @_blake2_blake2b_copy(ptr noundef %0, ptr readnone captures(
   store i8 0, ptr %7, align 1, !tbaa !31
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 0, ptr %8, align 4, !tbaa !59
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %4) #9
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %4) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i8, ptr %9, align 4, !tbaa !59, !range !8, !noundef !9
   %11 = trunc nuw i8 %10 to i1
@@ -1146,7 +1146,7 @@ define internal ptr @_blake2_blake2b_copy(ptr noundef %0, ptr readnone captures(
   br i1 %15, label %_PyMutex_Lock.exit.i, label %16
 
 16:                                               ; preds = %12
-  tail call void @PyMutex_Lock(ptr noundef nonnull %13) #9
+  tail call void @PyMutex_Lock(ptr noundef nonnull %13) #8
   br label %_PyMutex_Lock.exit.i
 
 _PyMutex_Lock.exit.i:                             ; preds = %16, %12, %6
@@ -1163,19 +1163,19 @@ _PyMutex_Lock.exit.i:                             ; preds = %16, %12, %6
   ]
 
 22:                                               ; preds = %_PyMutex_Lock.exit.i
-  %23 = tail call ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy(ptr noundef %20) #9
+  %23 = tail call ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_copy(ptr noundef %20) #8
   br label %31
 
 24:                                               ; preds = %_PyMutex_Lock.exit.i
-  %25 = tail call ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_copy(ptr noundef %20) #9
+  %25 = tail call ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_copy(ptr noundef %20) #8
   br label %31
 
 26:                                               ; preds = %_PyMutex_Lock.exit.i
-  %27 = tail call ptr @python_hashlib_Hacl_Hash_Blake2b_copy(ptr noundef %20) #9
+  %27 = tail call ptr @python_hashlib_Hacl_Hash_Blake2b_copy(ptr noundef %20) #8
   br label %31
 
 28:                                               ; preds = %_PyMutex_Lock.exit.i
-  %29 = tail call ptr @python_hashlib_Hacl_Hash_Blake2s_copy(ptr noundef %20) #9
+  %29 = tail call ptr @python_hashlib_Hacl_Hash_Blake2s_copy(ptr noundef %20) #8
   br label %31
 
 30:                                               ; preds = %_PyMutex_Lock.exit.i
@@ -1198,7 +1198,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %16, %12, %6
   br i1 %39, label %_blake2_blake2b_copy_impl.exit, label %40
 
 40:                                               ; preds = %36
-  tail call void @PyMutex_Unlock(ptr noundef nonnull %37) #9
+  tail call void @PyMutex_Unlock(ptr noundef nonnull %37) #8
   br label %_blake2_blake2b_copy_impl.exit
 
 _blake2_blake2b_copy_impl.exit:                   ; preds = %2, %31, %36, %40
@@ -1221,7 +1221,7 @@ define internal ptr @_blake2_blake2b_digest(ptr noundef %0, ptr readnone capture
   br i1 %10, label %_PyMutex_Lock.exit.i, label %11
 
 11:                                               ; preds = %7
-  tail call void @PyMutex_Lock(ptr noundef nonnull %8) #9
+  tail call void @PyMutex_Lock(ptr noundef nonnull %8) #8
   br label %_PyMutex_Lock.exit.i
 
 _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
@@ -1237,19 +1237,19 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   ]
 
 16:                                               ; preds = %_PyMutex_Lock.exit.i
-  %17 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %17 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 18:                                               ; preds = %_PyMutex_Lock.exit.i
-  %19 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %19 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 20:                                               ; preds = %_PyMutex_Lock.exit.i
-  %21 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %21 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 22:                                               ; preds = %_PyMutex_Lock.exit.i
-  %23 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %23 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 24:                                               ; preds = %_PyMutex_Lock.exit.i
@@ -1268,12 +1268,12 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   br i1 %31, label %_blake2_blake2b_digest_impl.exit, label %32
 
 32:                                               ; preds = %28
-  call void @PyMutex_Unlock(ptr noundef nonnull %29) #9
+  call void @PyMutex_Unlock(ptr noundef nonnull %29) #8
   br label %_blake2_blake2b_digest_impl.exit
 
 _blake2_blake2b_digest_impl.exit:                 ; preds = %25, %28, %32
   %33 = zext i8 %.0.i to i64
-  %34 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef %33) #9
+  %34 = call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %3, i64 noundef %33) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %34
 }
@@ -1294,7 +1294,7 @@ define internal ptr @_blake2_blake2b_hexdigest(ptr noundef %0, ptr readnone capt
   br i1 %10, label %_PyMutex_Lock.exit.i, label %11
 
 11:                                               ; preds = %7
-  tail call void @PyMutex_Lock(ptr noundef nonnull %8) #9
+  tail call void @PyMutex_Lock(ptr noundef nonnull %8) #8
   br label %_PyMutex_Lock.exit.i
 
 _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
@@ -1310,19 +1310,19 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   ]
 
 16:                                               ; preds = %_PyMutex_Lock.exit.i
-  %17 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %17 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 18:                                               ; preds = %_PyMutex_Lock.exit.i
-  %19 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %19 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 20:                                               ; preds = %_PyMutex_Lock.exit.i
-  %21 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %21 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 22:                                               ; preds = %_PyMutex_Lock.exit.i
-  %23 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef %15, ptr noundef nonnull %3) #9
+  %23 = call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef %15, ptr noundef nonnull %3) #8
   br label %25
 
 24:                                               ; preds = %_PyMutex_Lock.exit.i
@@ -1341,12 +1341,12 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   br i1 %31, label %_blake2_blake2b_hexdigest_impl.exit, label %32
 
 32:                                               ; preds = %28
-  call void @PyMutex_Unlock(ptr noundef nonnull %29) #9
+  call void @PyMutex_Unlock(ptr noundef nonnull %29) #8
   br label %_blake2_blake2b_hexdigest_impl.exit
 
 _blake2_blake2b_hexdigest_impl.exit:              ; preds = %25, %28, %32
   %33 = zext i8 %.0.i to i64
-  %34 = call ptr @_Py_strhex(ptr noundef nonnull %3, i64 noundef %33) #9
+  %34 = call ptr @_Py_strhex(ptr noundef nonnull %3, i64 noundef %33) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %34
 }
@@ -1365,21 +1365,21 @@ define internal noundef ptr @_blake2_blake2b_update(ptr noundef %0, ptr noundef 
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.22) #9
+  tail call void @PyErr_SetString(ptr noundef %8, ptr noundef nonnull @.str.22) #8
   br label %45
 
 9:                                                ; preds = %2
-  %10 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %1) #9
+  %10 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %1) #8
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %11, label %13
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.23) #9
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.23) #8
   br label %45
 
 13:                                               ; preds = %9
-  %14 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 0) #9
+  %14 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef 0) #8
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %45, label %16
 
@@ -1391,8 +1391,8 @@ define internal noundef ptr @_blake2_blake2b_update(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !55
-  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.24) #9
-  call void @PyBuffer_Release(ptr noundef nonnull %3) #9
+  call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.24) #8
+  call void @PyBuffer_Release(ptr noundef nonnull %3) #8
   br label %45
 
 22:                                               ; preds = %16
@@ -1414,14 +1414,14 @@ define internal noundef ptr @_blake2_blake2b_update(ptr noundef %0, ptr noundef 
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %.thread, %29
-  %32 = call ptr @PyEval_SaveThread() #9
+  %32 = call ptr @PyEval_SaveThread() #8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %34 = cmpxchg ptr %33, i8 0, i8 1 seq_cst seq_cst, align 1
   %35 = extractvalue { i8, i1 } %34, 1
   br i1 %35, label %_PyMutex_Lock.exit, label %36
 
 36:                                               ; preds = %31
-  call void @PyMutex_Lock(ptr noundef nonnull %33) #9
+  call void @PyMutex_Lock(ptr noundef nonnull %33) #8
   br label %_PyMutex_Lock.exit
 
 _PyMutex_Lock.exit:                               ; preds = %31, %36
@@ -1433,11 +1433,11 @@ _PyMutex_Lock.exit:                               ; preds = %31, %36
   br i1 %40, label %_PyMutex_Unlock.exit, label %41
 
 41:                                               ; preds = %_PyMutex_Lock.exit
-  call void @PyMutex_Unlock(ptr noundef nonnull %33) #9
+  call void @PyMutex_Unlock(ptr noundef nonnull %33) #8
   br label %_PyMutex_Unlock.exit
 
 _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Lock.exit, %41
-  call void @PyEval_RestoreThread(ptr noundef %32) #9
+  call void @PyEval_RestoreThread(ptr noundef %32) #8
   br label %44
 
 42:                                               ; preds = %29
@@ -1446,7 +1446,7 @@ _PyMutex_Unlock.exit:                             ; preds = %_PyMutex_Lock.exit,
   br label %44
 
 44:                                               ; preds = %42, %_PyMutex_Unlock.exit
-  call void @PyBuffer_Release(ptr noundef nonnull %3) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %3) #8
   br label %45
 
 45:                                               ; preds = %13, %44, %20, %11, %7
@@ -1540,7 +1540,7 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %.055 = phi i64 [ %2, %.lr.ph56 ], [ %14, %11 ]
   %.03254 = phi ptr [ %1, %.lr.ph56 ], [ %15, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !31
-  %13 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef %12, ptr noundef %.03254, i32 noundef -1) #9
+  %13 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef %12, ptr noundef %.03254, i32 noundef -1) #8
   %14 = add nsw i64 %.055, -4294967295
   %15 = getelementptr i8, ptr %.03254, i64 4294967295
   %16 = icmp samesign ugt i64 %.055, 8589934590
@@ -1552,14 +1552,14 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !31
   %19 = trunc i64 %.0.lcssa to i32
-  %20 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef %18, ptr noundef %.032.lcssa, i32 noundef %19) #9
+  %20 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_Simd256_update(ptr noundef %18, ptr noundef %.032.lcssa, i32 noundef %19) #8
   br label %52
 
 21:                                               ; preds = %.lr.ph50, %21
   %.149 = phi i64 [ %2, %.lr.ph50 ], [ %24, %21 ]
   %.13348 = phi ptr [ %1, %.lr.ph50 ], [ %25, %21 ]
   %22 = load ptr, ptr %9, align 8, !tbaa !31
-  %23 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_update(ptr noundef %22, ptr noundef %.13348, i32 noundef -1) #9
+  %23 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_update(ptr noundef %22, ptr noundef %.13348, i32 noundef -1) #8
   %24 = add nsw i64 %.149, -4294967295
   %25 = getelementptr i8, ptr %.13348, i64 4294967295
   %26 = icmp samesign ugt i64 %.149, 8589934590
@@ -1571,14 +1571,14 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !31
   %29 = trunc i64 %.1.lcssa to i32
-  %30 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_update(ptr noundef %28, ptr noundef %.133.lcssa, i32 noundef %29) #9
+  %30 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_Simd128_update(ptr noundef %28, ptr noundef %.133.lcssa, i32 noundef %29) #8
   br label %52
 
 31:                                               ; preds = %.lr.ph44, %31
   %.243 = phi i64 [ %2, %.lr.ph44 ], [ %34, %31 ]
   %.23442 = phi ptr [ %1, %.lr.ph44 ], [ %35, %31 ]
   %32 = load ptr, ptr %8, align 8, !tbaa !31
-  %33 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef %32, ptr noundef %.23442, i32 noundef -1) #9
+  %33 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef %32, ptr noundef %.23442, i32 noundef -1) #8
   %34 = add nsw i64 %.243, -4294967295
   %35 = getelementptr i8, ptr %.23442, i64 4294967295
   %36 = icmp samesign ugt i64 %.243, 8589934590
@@ -1590,14 +1590,14 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !31
   %39 = trunc i64 %.2.lcssa to i32
-  %40 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef %38, ptr noundef %.234.lcssa, i32 noundef %39) #9
+  %40 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2b_update(ptr noundef %38, ptr noundef %.234.lcssa, i32 noundef %39) #8
   br label %52
 
 41:                                               ; preds = %.lr.ph, %41
   %.340 = phi i64 [ %2, %.lr.ph ], [ %44, %41 ]
   %.33539 = phi ptr [ %1, %.lr.ph ], [ %45, %41 ]
   %42 = load ptr, ptr %7, align 8, !tbaa !31
-  %43 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_update(ptr noundef %42, ptr noundef %.33539, i32 noundef -1) #9
+  %43 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_update(ptr noundef %42, ptr noundef %.33539, i32 noundef -1) #8
   %44 = add nsw i64 %.340, -4294967295
   %45 = getelementptr i8, ptr %.33539, i64 4294967295
   %46 = icmp samesign ugt i64 %.340, 8589934590
@@ -1609,7 +1609,7 @@ define internal fastcc void @update(ptr noundef readonly captures(none) %0, ptr 
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !31
   %49 = trunc i64 %.3.lcssa to i32
-  %50 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_update(ptr noundef %48, ptr noundef %.335.lcssa, i32 noundef %49) #9
+  %50 = tail call zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_update(ptr noundef %48, ptr noundef %.335.lcssa, i32 noundef %49) #8
   br label %52
 
 51:                                               ; preds = %3
@@ -1636,7 +1636,7 @@ define internal ptr @py_blake2b_get_name(ptr noundef readonly captures(none) %0,
   %5 = and i32 %4, -3
   %6 = icmp eq i32 %5, 1
   %7 = select i1 %6, ptr @.str.28, ptr @.str.29
-  %8 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %7) #9
+  %8 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %7) #8
   ret ptr %8
 }
 
@@ -1647,7 +1647,7 @@ define internal ptr @py_blake2b_get_block_size(ptr noundef readonly captures(non
   %5 = and i32 %4, -3
   %6 = icmp eq i32 %5, 1
   %7 = select i1 %6, i64 128, i64 64
-  %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #9
+  %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #8
   ret ptr %8
 }
 
@@ -1665,19 +1665,19 @@ define internal ptr @py_blake2b_get_digest_size(ptr noundef readonly captures(no
   ]
 
 7:                                                ; preds = %2
-  %8 = tail call i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256_info(ptr noundef %6) #9
+  %8 = tail call i24 @python_hashlib_Hacl_Hash_Blake2b_Simd256_info(ptr noundef %6) #8
   br label %16
 
 9:                                                ; preds = %2
-  %10 = tail call i24 @python_hashlib_Hacl_Hash_Blake2s_Simd128_info(ptr noundef %6) #9
+  %10 = tail call i24 @python_hashlib_Hacl_Hash_Blake2s_Simd128_info(ptr noundef %6) #8
   br label %16
 
 11:                                               ; preds = %2
-  %12 = tail call i24 @python_hashlib_Hacl_Hash_Blake2b_info(ptr noundef %6) #9
+  %12 = tail call i24 @python_hashlib_Hacl_Hash_Blake2b_info(ptr noundef %6) #8
   br label %16
 
 13:                                               ; preds = %2
-  %14 = tail call i24 @python_hashlib_Hacl_Hash_Blake2s_info(ptr noundef %6) #9
+  %14 = tail call i24 @python_hashlib_Hacl_Hash_Blake2s_info(ptr noundef %6) #8
   br label %16
 
 15:                                               ; preds = %2
@@ -1688,7 +1688,7 @@ define internal ptr @py_blake2b_get_digest_size(ptr noundef readonly captures(no
   %.sroa.1.0.extract.shift = lshr i24 %.sink, 8
   %17 = and i24 %.sroa.1.0.extract.shift, 255
   %18 = zext nneg i24 %17 to i64
-  %19 = tail call ptr @PyLong_FromLong(i64 noundef %18) #9
+  %19 = tail call ptr @PyLong_FromLong(i64 noundef %18) #8
   ret ptr %19
 }
 
@@ -1724,7 +1724,7 @@ define internal fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %1, 
   %16 = alloca [16 x i8], align 16
   %17 = alloca %struct.Hacl_Hash_Blake2b_blake2_params_s, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %18 = tail call ptr @_PyObject_GC_New(ptr noundef %0) #9
+  %18 = tail call ptr @_PyObject_GC_New(ptr noundef %0) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %Py_XDECREF.exit, label %20
 
@@ -1733,7 +1733,7 @@ define internal fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %1, 
   store i8 0, ptr %21, align 1, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i8 0, ptr %22, align 4, !tbaa !59
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %18) #9
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %18) #8
   %23 = getelementptr i8, ptr %0, i64 24
   %.val105 = load ptr, ptr %23, align 8, !tbaa !69
   %24 = getelementptr i8, ptr %0, i64 888
@@ -1741,7 +1741,7 @@ define internal fastcc ptr @py_blake2b_or_s_new(ptr noundef %0, ptr noundef %1, 
   %25 = getelementptr i8, ptr %.val106, i64 32
   %.val106.val = load ptr, ptr %25, align 8, !tbaa !20
   %26 = load ptr, ptr @blake2b_type_spec, align 8, !tbaa !78
-  %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val105, ptr noundef nonnull dereferenceable(1) %26) #10
+  %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val105, ptr noundef nonnull dereferenceable(1) %26) #9
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %28, label %35
 
@@ -1758,362 +1758,358 @@ has_simd256.exit.i:                               ; preds = %28
   br i1 %34, label %.sink.split, label %type_to_impl.exit.thread110
 
 35:                                               ; preds = %20
-  %36 = load ptr, ptr @blake2s_type_spec, align 8, !tbaa !78
-  %37 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val105, ptr noundef nonnull dereferenceable(1) %36) #10
-  %.not5.i = icmp eq i32 %37, 0
-  tail call void @llvm.assume(i1 %.not5.i)
-  %38 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 16
-  %39 = load i8, ptr %38, align 1, !tbaa !14, !range !8, !noundef !9
-  %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %.sink.split
+  %36 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 16
+  %37 = load i8, ptr %36, align 1, !tbaa !14, !range !8, !noundef !9
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %.sink.split
 
-41:                                               ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 17
-  %43 = load i8, ptr %42, align 1, !tbaa !15, !range !8, !noundef !9
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %.sink.split
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 17
+  %41 = load i8, ptr %40, align 1, !tbaa !15, !range !8, !noundef !9
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %43, label %.sink.split
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 18
-  %47 = load i8, ptr %46, align 1, !tbaa !17, !range !8, !noundef !9
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %.sink.split
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 18
+  %45 = load i8, ptr %44, align 1, !tbaa !17, !range !8, !noundef !9
+  %46 = trunc nuw i8 %45 to i1
+  br i1 %46, label %47, label %.sink.split
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 19
-  %51 = load i8, ptr %50, align 1, !tbaa !18, !range !8, !noundef !9
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %.sink.split
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 19
+  %49 = load i8, ptr %48, align 1, !tbaa !18, !range !8, !noundef !9
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %51, label %.sink.split
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 20
-  %55 = load i8, ptr %54, align 1, !tbaa !19, !range !8, !noundef !9
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %type_to_impl.exit, label %.sink.split
+51:                                               ; preds = %47
+  %52 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 20
+  %53 = load i8, ptr %52, align 1, !tbaa !19, !range !8, !noundef !9
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %type_to_impl.exit, label %.sink.split
 
 type_to_impl.exit.thread110:                      ; preds = %28, %has_simd256.exit.i
   br label %.sink.split
 
-type_to_impl.exit:                                ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 21
-  %58 = load i8, ptr %57, align 1, !tbaa !16, !range !8, !noundef !9
-  %59 = shl nuw nsw i8 %58, 1
-  %spec.select4.i = zext nneg i8 %59 to i32
+type_to_impl.exit:                                ; preds = %51
+  %55 = getelementptr inbounds nuw i8, ptr %.val106.val, i64 21
+  %56 = load i8, ptr %55, align 1, !tbaa !16, !range !8, !noundef !9
+  %57 = shl nuw nsw i8 %56, 1
+  %spec.select4.i = zext nneg i8 %57 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %type_to_impl.exit.thread110, %has_simd256.exit.i, %53, %49, %45, %41, %35, %type_to_impl.exit
-  %spec.select4.i.sink = phi i32 [ %spec.select4.i, %type_to_impl.exit ], [ 1, %type_to_impl.exit.thread110 ], [ 3, %has_simd256.exit.i ], [ 0, %53 ], [ 0, %49 ], [ 0, %45 ], [ 0, %41 ], [ 0, %35 ]
-  %60 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i32 %spec.select4.i.sink, ptr %60, align 8, !tbaa !42
-  %61 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr null, ptr %61, align 8, !tbaa !31
+.sink.split:                                      ; preds = %type_to_impl.exit.thread110, %has_simd256.exit.i, %51, %47, %43, %39, %35, %type_to_impl.exit
+  %spec.select4.i.sink = phi i32 [ %spec.select4.i, %type_to_impl.exit ], [ 1, %type_to_impl.exit.thread110 ], [ 3, %has_simd256.exit.i ], [ 0, %51 ], [ 0, %47 ], [ 0, %43 ], [ 0, %39 ], [ 0, %35 ]
+  %58 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store i32 %spec.select4.i.sink, ptr %58, align 8, !tbaa !42
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr null, ptr %59, align 8, !tbaa !31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %62 = icmp slt i32 %2, 1
+  %60 = icmp slt i32 %2, 1
   %.pre119 = and i32 %spec.select4.i.sink, 125
-  br i1 %62, label %._crit_edge118, label %63
+  br i1 %60, label %._crit_edge118, label %61
 
-63:                                               ; preds = %.sink.split
-  %64 = icmp eq i32 %.pre119, 1
-  %65 = select i1 %64, i32 64, i32 32
-  %66 = icmp samesign ugt i32 %2, %65
-  br i1 %66, label %._crit_edge118, label %72
+61:                                               ; preds = %.sink.split
+  %62 = icmp eq i32 %.pre119, 1
+  %63 = select i1 %62, i32 64, i32 32
+  %64 = icmp samesign ugt i32 %2, %63
+  br i1 %64, label %._crit_edge118, label %70
 
-._crit_edge118:                                   ; preds = %.sink.split, %63
-  %67 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  %68 = icmp eq i32 %.pre119, 1
-  %69 = select i1 %68, ptr @.str.43, ptr @.str.44
-  %70 = select i1 %68, i32 64, i32 32
-  %71 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %67, ptr noundef nonnull @.str.42, ptr noundef nonnull %69, i32 noundef %70, i32 noundef %2) #9
-  br label %204
+._crit_edge118:                                   ; preds = %.sink.split, %61
+  %65 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  %66 = icmp eq i32 %.pre119, 1
+  %67 = select i1 %66, ptr @.str.43, ptr @.str.44
+  %68 = select i1 %66, i32 64, i32 32
+  %69 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %65, ptr noundef nonnull @.str.42, ptr noundef nonnull %67, i32 noundef %68, i32 noundef %2) #8
+  br label %202
 
-72:                                               ; preds = %63
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !56
-  %.not = icmp eq ptr %74, null
-  br i1 %.not, label %87, label %75
+70:                                               ; preds = %61
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
+  %.not = icmp eq ptr %72, null
+  br i1 %.not, label %85, label %73
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !63
-  %.not96 = icmp eq i64 %77, 0
-  br i1 %.not96, label %87, label %78
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %75 = load i64, ptr %74, align 8, !tbaa !63
+  %.not96 = icmp eq i64 %75, 0
+  br i1 %.not96, label %85, label %76
 
-78:                                               ; preds = %75
-  %79 = select i1 %64, i64 16, i64 8
-  %80 = icmp ugt i64 %77, %79
-  br i1 %80, label %81, label %85
+76:                                               ; preds = %73
+  %77 = select i1 %62, i64 16, i64 8
+  %78 = icmp ugt i64 %75, %77
+  br i1 %78, label %79, label %83
 
-81:                                               ; preds = %78
-  %82 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  %83 = select i1 %64, i32 16, i32 8
-  %84 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %82, ptr noundef nonnull @.str.45, i32 noundef %83) #9
-  br label %204
+79:                                               ; preds = %76
+  %80 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  %81 = select i1 %62, i32 16, i32 8
+  %82 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %80, ptr noundef nonnull @.str.45, i32 noundef %81) #8
+  br label %202
 
-85:                                               ; preds = %78
-  %86 = load ptr, ptr %4, align 8, !tbaa !62
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %86, i64 %77, i1 false)
-  br label %87
+83:                                               ; preds = %76
+  %84 = load ptr, ptr %4, align 8, !tbaa !62
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %15, ptr align 1 %84, i64 %75, i1 false)
+  br label %85
 
-87:                                               ; preds = %85, %75, %72
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !56
-  %.not97 = icmp eq ptr %89, null
-  br i1 %.not97, label %105, label %90
+85:                                               ; preds = %83, %73, %70
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
+  %.not97 = icmp eq ptr %87, null
+  br i1 %.not97, label %103, label %88
 
-90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !63
-  %.not98 = icmp eq i64 %92, 0
-  br i1 %.not98, label %105, label %93
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !63
+  %.not98 = icmp eq i64 %90, 0
+  br i1 %.not98, label %103, label %91
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %60, align 8, !tbaa !42
-  %95 = and i32 %94, -3
-  %96 = icmp eq i32 %95, 1
-  %97 = select i1 %96, i64 16, i64 8
-  %98 = icmp ugt i64 %92, %97
-  br i1 %98, label %99, label %103
+91:                                               ; preds = %88
+  %92 = load i32, ptr %58, align 8, !tbaa !42
+  %93 = and i32 %92, -3
+  %94 = icmp eq i32 %93, 1
+  %95 = select i1 %94, i64 16, i64 8
+  %96 = icmp ugt i64 %90, %95
+  br i1 %96, label %97, label %101
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  %101 = select i1 %96, i32 16, i32 8
-  %102 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %100, ptr noundef nonnull @.str.46, i32 noundef %101) #9
-  br label %204
+97:                                               ; preds = %91
+  %98 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  %99 = select i1 %94, i32 16, i32 8
+  %100 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %98, ptr noundef nonnull @.str.46, i32 noundef %99) #8
+  br label %202
 
-103:                                              ; preds = %93
-  %104 = load ptr, ptr %5, align 8, !tbaa !62
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr align 1 %104, i64 %92, i1 false)
-  br label %105
+101:                                              ; preds = %91
+  %102 = load ptr, ptr %5, align 8, !tbaa !62
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %16, ptr align 1 %102, i64 %90, i1 false)
+  br label %103
 
-105:                                              ; preds = %103, %90, %87
+103:                                              ; preds = %101, %88, %85
   %or.cond = icmp ugt i32 %6, 255
-  br i1 %or.cond, label %106, label %108
+  br i1 %or.cond, label %104, label %106
 
-106:                                              ; preds = %105
-  %107 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %107, ptr noundef nonnull @.str.47) #9
-  br label %204
+104:                                              ; preds = %103
+  %105 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  tail call void @PyErr_SetString(ptr noundef %105, ptr noundef nonnull @.str.47) #8
+  br label %202
 
-108:                                              ; preds = %105
-  %109 = add i32 %7, -256
-  %or.cond3 = icmp ult i32 %109, -255
-  br i1 %or.cond3, label %110, label %112
+106:                                              ; preds = %103
+  %107 = add i32 %7, -256
+  %or.cond3 = icmp ult i32 %107, -255
+  br i1 %or.cond3, label %108, label %110
 
-110:                                              ; preds = %108
-  %111 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %111, ptr noundef nonnull @.str.48) #9
-  br label %204
+108:                                              ; preds = %106
+  %109 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  tail call void @PyErr_SetString(ptr noundef %109, ptr noundef nonnull @.str.48) #8
+  br label %202
 
-112:                                              ; preds = %108
-  %113 = icmp ugt i64 %8, 4294967295
-  br i1 %113, label %114, label %116
+110:                                              ; preds = %106
+  %111 = icmp ugt i64 %8, 4294967295
+  br i1 %111, label %112, label %114
 
-114:                                              ; preds = %112
-  %115 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %115, ptr noundef nonnull @.str.49) #9
-  br label %204
+112:                                              ; preds = %110
+  %113 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !55
+  tail call void @PyErr_SetString(ptr noundef %113, ptr noundef nonnull @.str.49) #8
+  br label %202
 
-116:                                              ; preds = %112
-  %117 = load i32, ptr %60, align 8, !tbaa !42
-  %118 = and i32 %117, -3
-  %119 = icmp ne i32 %118, 1
-  %120 = icmp ugt i64 %9, 281474976710655
-  %or.cond5 = and i1 %120, %119
-  br i1 %or.cond5, label %121, label %123
+114:                                              ; preds = %110
+  %115 = load i32, ptr %58, align 8, !tbaa !42
+  %116 = and i32 %115, -3
+  %117 = icmp ne i32 %116, 1
+  %118 = icmp ugt i64 %9, 281474976710655
+  %or.cond5 = and i1 %118, %117
+  br i1 %or.cond5, label %119, label %121
 
-121:                                              ; preds = %116
-  %122 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %122, ptr noundef nonnull @.str.50) #9
-  br label %204
+119:                                              ; preds = %114
+  %120 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !55
+  tail call void @PyErr_SetString(ptr noundef %120, ptr noundef nonnull @.str.50) #8
+  br label %202
 
-123:                                              ; preds = %116
+121:                                              ; preds = %114
   %or.cond7 = icmp ugt i32 %10, 255
-  br i1 %or.cond7, label %124, label %126
+  br i1 %or.cond7, label %122, label %124
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  tail call void @PyErr_SetString(ptr noundef %125, ptr noundef nonnull @.str.51) #9
-  br label %204
+122:                                              ; preds = %121
+  %123 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  tail call void @PyErr_SetString(ptr noundef %123, ptr noundef nonnull @.str.51) #8
+  br label %202
 
-126:                                              ; preds = %123
-  %127 = icmp slt i32 %11, 0
-  br i1 %127, label %._crit_edge117, label %128
+124:                                              ; preds = %121
+  %125 = icmp slt i32 %11, 0
+  br i1 %125, label %._crit_edge117, label %126
 
-128:                                              ; preds = %126
-  %129 = icmp eq i32 %118, 1
-  %130 = select i1 %129, i32 64, i32 32
-  %131 = icmp samesign ugt i32 %11, %130
-  br i1 %131, label %._crit_edge117, label %136
+126:                                              ; preds = %124
+  %127 = icmp eq i32 %116, 1
+  %128 = select i1 %127, i32 64, i32 32
+  %129 = icmp samesign ugt i32 %11, %128
+  br i1 %129, label %._crit_edge117, label %134
 
-._crit_edge117:                                   ; preds = %126, %128
-  %132 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  %133 = icmp eq i32 %118, 1
-  %134 = select i1 %133, i32 64, i32 32
-  %135 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %132, ptr noundef nonnull @.str.52, i32 noundef %134) #9
-  br label %204
+._crit_edge117:                                   ; preds = %124, %126
+  %130 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  %131 = icmp eq i32 %116, 1
+  %132 = select i1 %131, i32 64, i32 32
+  %133 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %130, ptr noundef nonnull @.str.52, i32 noundef %132) #8
+  br label %202
 
-136:                                              ; preds = %128
-  %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %138 = load ptr, ptr %137, align 8, !tbaa !56
-  %.not99 = icmp ne ptr %138, null
+134:                                              ; preds = %126
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %136 = load ptr, ptr %135, align 8, !tbaa !56
+  %.not99 = icmp ne ptr %136, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !63
-  %139 = select i1 %129, i64 64, i64 32
-  %140 = icmp ugt i64 %.pre, %139
-  %or.cond134 = select i1 %.not99, i1 %140, i1 false
-  br i1 %or.cond134, label %141, label %._crit_edge
+  %137 = select i1 %127, i64 64, i64 32
+  %138 = icmp ugt i64 %.pre, %137
+  %or.cond134 = select i1 %.not99, i1 %138, i1 false
+  br i1 %or.cond134, label %139, label %._crit_edge
 
-141:                                              ; preds = %136
-  %142 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
-  %143 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %142, ptr noundef nonnull @.str.53, i32 noundef %130) #9
-  br label %204
+139:                                              ; preds = %134
+  %140 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !55
+  %141 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %140, ptr noundef nonnull @.str.53, i32 noundef %128) #8
+  br label %202
 
-._crit_edge:                                      ; preds = %136
-  %144 = trunc nuw nsw i32 %2 to i8
-  store i8 %144, ptr %17, align 8, !tbaa !80
-  %145 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %146 = trunc i64 %.pre to i8
-  store i8 %146, ptr %145, align 1, !tbaa !82
-  %147 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  %148 = trunc nuw i32 %6 to i8
-  store i8 %148, ptr %147, align 2, !tbaa !83
-  %149 = getelementptr inbounds nuw i8, ptr %17, i64 3
-  %150 = trunc nuw i32 %7 to i8
-  store i8 %150, ptr %149, align 1, !tbaa !84
-  %151 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %152 = trunc nuw i64 %8 to i32
-  store i32 %152, ptr %151, align 4, !tbaa !85
-  %153 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %9, ptr %153, align 8, !tbaa !86
-  %154 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %155 = trunc nuw i32 %10 to i8
-  store i8 %155, ptr %154, align 8, !tbaa !87
-  %156 = getelementptr inbounds nuw i8, ptr %17, i64 17
-  %157 = trunc nuw nsw i32 %11 to i8
-  store i8 %157, ptr %156, align 1, !tbaa !88
-  %158 = getelementptr inbounds nuw i8, ptr %17, i64 18
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %158, i8 0, i64 6, i1 false)
-  %159 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr %15, ptr %159, align 8, !tbaa !89
-  %160 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store ptr %16, ptr %160, align 8, !tbaa !90
-  %161 = icmp ne i32 %12, 0
-  %162 = load ptr, ptr %3, align 8, !tbaa !62
-  %163 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  switch i32 %117, label %172 [
-    i32 3, label %164
-    i32 2, label %166
-    i32 1, label %168
-    i32 0, label %170
+._crit_edge:                                      ; preds = %134
+  %142 = trunc nuw nsw i32 %2 to i8
+  store i8 %142, ptr %17, align 8, !tbaa !80
+  %143 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  %144 = trunc i64 %.pre to i8
+  store i8 %144, ptr %143, align 1, !tbaa !82
+  %145 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  %146 = trunc nuw i32 %6 to i8
+  store i8 %146, ptr %145, align 2, !tbaa !83
+  %147 = getelementptr inbounds nuw i8, ptr %17, i64 3
+  %148 = trunc nuw i32 %7 to i8
+  store i8 %148, ptr %147, align 1, !tbaa !84
+  %149 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %150 = trunc nuw i64 %8 to i32
+  store i32 %150, ptr %149, align 4, !tbaa !85
+  %151 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %9, ptr %151, align 8, !tbaa !86
+  %152 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %153 = trunc nuw i32 %10 to i8
+  store i8 %153, ptr %152, align 8, !tbaa !87
+  %154 = getelementptr inbounds nuw i8, ptr %17, i64 17
+  %155 = trunc nuw nsw i32 %11 to i8
+  store i8 %155, ptr %154, align 1, !tbaa !88
+  %156 = getelementptr inbounds nuw i8, ptr %17, i64 18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %156, i8 0, i64 6, i1 false)
+  %157 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %15, ptr %157, align 8, !tbaa !89
+  %158 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store ptr %16, ptr %158, align 8, !tbaa !90
+  %159 = icmp ne i32 %12, 0
+  %160 = load ptr, ptr %3, align 8, !tbaa !62
+  %161 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  switch i32 %115, label %170 [
+    i32 3, label %162
+    i32 2, label %164
+    i32 1, label %166
+    i32 0, label %168
   ]
 
+162:                                              ; preds = %._crit_edge
+  %163 = call ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %159, ptr noundef %160) #8
+  br label %171
+
 164:                                              ; preds = %._crit_edge
-  %165 = call ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %161, ptr noundef %162) #9
-  br label %173
+  %165 = call ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %159, ptr noundef %160) #8
+  br label %171
 
 166:                                              ; preds = %._crit_edge
-  %167 = call ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %161, ptr noundef %162) #9
-  br label %173
+  %167 = call ptr @python_hashlib_Hacl_Hash_Blake2b_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %159, ptr noundef %160) #8
+  br label %171
 
 168:                                              ; preds = %._crit_edge
-  %169 = call ptr @python_hashlib_Hacl_Hash_Blake2b_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %161, ptr noundef %162) #9
-  br label %173
+  %169 = call ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %159, ptr noundef %160) #8
+  br label %171
 
 170:                                              ; preds = %._crit_edge
-  %171 = call ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_params_and_key(ptr noundef nonnull %17, i1 noundef zeroext %161, ptr noundef %162) #9
-  br label %173
-
-172:                                              ; preds = %._crit_edge
   unreachable
 
-173:                                              ; preds = %170, %168, %166, %164
-  %.sink = phi ptr [ %171, %170 ], [ %169, %168 ], [ %167, %166 ], [ %165, %164 ]
-  store ptr %.sink, ptr %163, align 8, !tbaa !31
+171:                                              ; preds = %168, %166, %164, %162
+  %.sink = phi ptr [ %169, %168 ], [ %167, %166 ], [ %165, %164 ], [ %163, %162 ]
+  store ptr %.sink, ptr %161, align 8, !tbaa !31
   %.not101 = icmp eq ptr %1, null
-  br i1 %.not101, label %Py_XDECREF.exit, label %174
+  br i1 %.not101, label %Py_XDECREF.exit, label %172
 
-174:                                              ; preds = %173
-  %175 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %175, align 8, !tbaa !45
-  %176 = getelementptr i8, ptr %.val, i64 168
-  %.val104 = load i64, ptr %176, align 8, !tbaa !60
-  %177 = and i64 %.val104, 268435456
-  %.not102 = icmp eq i64 %177, 0
-  br i1 %.not102, label %180, label %178
+172:                                              ; preds = %171
+  %173 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %173, align 8, !tbaa !45
+  %174 = getelementptr i8, ptr %.val, i64 168
+  %.val104 = load i64, ptr %174, align 8, !tbaa !60
+  %175 = and i64 %.val104, 268435456
+  %.not102 = icmp eq i64 %175, 0
+  br i1 %.not102, label %178, label %176
 
-178:                                              ; preds = %174
-  %179 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !55
-  call void @PyErr_SetString(ptr noundef %179, ptr noundef nonnull @.str.22) #9
-  br label %204
+176:                                              ; preds = %172
+  %177 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !55
+  call void @PyErr_SetString(ptr noundef %177, ptr noundef nonnull @.str.22) #8
+  br label %202
 
-180:                                              ; preds = %174
-  %181 = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %1) #9
-  %.not103 = icmp eq i32 %181, 0
-  br i1 %.not103, label %182, label %184
+178:                                              ; preds = %172
+  %179 = call i32 @PyObject_CheckBuffer(ptr noundef nonnull %1) #8
+  %.not103 = icmp eq i32 %179, 0
+  br i1 %.not103, label %180, label %182
 
-182:                                              ; preds = %180
-  %183 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !55
-  call void @PyErr_SetString(ptr noundef %183, ptr noundef nonnull @.str.23) #9
-  br label %204
+180:                                              ; preds = %178
+  %181 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !55
+  call void @PyErr_SetString(ptr noundef %181, ptr noundef nonnull @.str.23) #8
+  br label %202
 
-184:                                              ; preds = %180
-  %185 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %1, ptr noundef nonnull %14, i32 noundef 0) #9
-  %186 = icmp eq i32 %185, -1
-  br i1 %186, label %204, label %187
+182:                                              ; preds = %178
+  %183 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %1, ptr noundef nonnull %14, i32 noundef 0) #8
+  %184 = icmp eq i32 %183, -1
+  br i1 %184, label %202, label %185
 
-187:                                              ; preds = %184
-  %188 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %189 = load i32, ptr %188, align 4, !tbaa !61
-  %190 = icmp sgt i32 %189, 1
-  br i1 %190, label %191, label %193
+185:                                              ; preds = %182
+  %186 = getelementptr inbounds nuw i8, ptr %14, i64 36
+  %187 = load i32, ptr %186, align 4, !tbaa !61
+  %188 = icmp sgt i32 %187, 1
+  br i1 %188, label %189, label %191
 
-191:                                              ; preds = %187
-  %192 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !55
-  call void @PyErr_SetString(ptr noundef %192, ptr noundef nonnull @.str.24) #9
-  call void @PyBuffer_Release(ptr noundef nonnull %14) #9
-  br label %204
+189:                                              ; preds = %185
+  %190 = load ptr, ptr @PyExc_BufferError, align 8, !tbaa !55
+  call void @PyErr_SetString(ptr noundef %190, ptr noundef nonnull @.str.24) #8
+  call void @PyBuffer_Release(ptr noundef nonnull %14) #8
+  br label %202
 
-193:                                              ; preds = %187
-  %194 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %195 = load i64, ptr %194, align 8, !tbaa !63
-  %196 = icmp sgt i64 %195, 2047
-  br i1 %196, label %197, label %201
+191:                                              ; preds = %185
+  %192 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %193 = load i64, ptr %192, align 8, !tbaa !63
+  %194 = icmp sgt i64 %193, 2047
+  br i1 %194, label %195, label %199
 
-197:                                              ; preds = %193
-  %198 = call ptr @PyEval_SaveThread() #9
-  %199 = load ptr, ptr %14, align 8, !tbaa !62
-  %200 = load i64, ptr %194, align 8, !tbaa !63
-  call fastcc void @update(ptr noundef nonnull %18, ptr noundef %199, i64 noundef %200)
-  call void @PyEval_RestoreThread(ptr noundef %198) #9
-  br label %203
+195:                                              ; preds = %191
+  %196 = call ptr @PyEval_SaveThread() #8
+  %197 = load ptr, ptr %14, align 8, !tbaa !62
+  %198 = load i64, ptr %192, align 8, !tbaa !63
+  call fastcc void @update(ptr noundef nonnull %18, ptr noundef %197, i64 noundef %198)
+  call void @PyEval_RestoreThread(ptr noundef %196) #8
+  br label %201
 
-201:                                              ; preds = %193
-  %202 = load ptr, ptr %14, align 8, !tbaa !62
-  call fastcc void @update(ptr noundef nonnull %18, ptr noundef %202, i64 noundef %195)
-  br label %203
+199:                                              ; preds = %191
+  %200 = load ptr, ptr %14, align 8, !tbaa !62
+  call fastcc void @update(ptr noundef nonnull %18, ptr noundef %200, i64 noundef %193)
+  br label %201
 
-203:                                              ; preds = %201, %197
-  call void @PyBuffer_Release(ptr noundef nonnull %14) #9
+201:                                              ; preds = %199, %195
+  call void @PyBuffer_Release(ptr noundef nonnull %14) #8
   br label %Py_XDECREF.exit
 
-204:                                              ; preds = %184, %191, %182, %178, %141, %._crit_edge117, %124, %121, %114, %110, %106, %99, %81, %._crit_edge118
-  %205 = load i32, ptr %18, align 8, !tbaa !31
-  %.not.i.i = icmp sgt i32 %205, -1
-  br i1 %.not.i.i, label %206, label %Py_XDECREF.exit
+202:                                              ; preds = %182, %189, %180, %176, %139, %._crit_edge117, %122, %119, %112, %108, %104, %97, %79, %._crit_edge118
+  %203 = load i32, ptr %18, align 8, !tbaa !31
+  %.not.i.i = icmp sgt i32 %203, -1
+  br i1 %.not.i.i, label %204, label %Py_XDECREF.exit
 
-206:                                              ; preds = %204
-  %207 = add nsw i32 %205, -1
-  store i32 %207, ptr %18, align 8, !tbaa !31
-  %208 = icmp eq i32 %207, 0
-  br i1 %208, label %209, label %Py_XDECREF.exit
+204:                                              ; preds = %202
+  %205 = add nsw i32 %203, -1
+  store i32 %205, ptr %18, align 8, !tbaa !31
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %Py_XDECREF.exit
 
-209:                                              ; preds = %206
-  call void @_Py_Dealloc(ptr noundef nonnull %18) #9
+207:                                              ; preds = %204
+  call void @_Py_Dealloc(ptr noundef nonnull %18) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %209, %206, %204, %13, %173, %203
-  %.0 = phi ptr [ %18, %203 ], [ %18, %173 ], [ null, %13 ], [ null, %204 ], [ null, %206 ], [ null, %209 ]
+Py_XDECREF.exit:                                  ; preds = %207, %204, %202, %13, %171, %201
+  %.0 = phi ptr [ %18, %201 ], [ %18, %171 ], [ null, %13 ], [ null, %202 ], [ null, %204 ], [ null, %207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret ptr %.0
 }
@@ -2171,7 +2167,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %or.cond3, label %.thread, label %18
 
 18:                                               ; preds = %13
-  %19 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %17, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @py_blake2s_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #9
+  %19 = call ptr @_PyArg_UnpackKeywords(ptr noundef nonnull %17, i64 noundef %.val, ptr noundef %2, ptr noundef null, ptr noundef nonnull @py_blake2s_new._parser, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %4) #8
   %.not114 = icmp eq ptr %19, null
   br i1 %.not114, label %127, label %.thread
 
@@ -2198,12 +2194,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not116, label %36, label %29
 
 29:                                               ; preds = %26
-  %30 = call i32 @PyLong_AsInt(ptr noundef nonnull %28) #9
+  %30 = call i32 @PyLong_AsInt(ptr noundef nonnull %28) #8
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  %33 = call ptr @PyErr_Occurred() #9
+  %33 = call ptr @PyErr_Occurred() #8
   %.not117 = icmp eq ptr %33, null
   br i1 %.not117, label %34, label %127
 
@@ -2221,7 +2217,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not119, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #9
+  %40 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %38, ptr noundef nonnull %5, i32 noundef 0) #8
   %.not120 = icmp eq i32 %40, 0
   br i1 %.not120, label %41, label %127
 
@@ -2238,7 +2234,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not122, label %50, label %46
 
 46:                                               ; preds = %43
-  %47 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 0) #9
+  %47 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %45, ptr noundef nonnull %6, i32 noundef 0) #8
   %.not123 = icmp eq i32 %47, 0
   br i1 %.not123, label %48, label %127
 
@@ -2255,7 +2251,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not125, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %52, ptr noundef nonnull %7, i32 noundef 0) #9
+  %54 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %52, ptr noundef nonnull %7, i32 noundef 0) #8
   %.not126 = icmp eq i32 %54, 0
   br i1 %.not126, label %55, label %127
 
@@ -2272,12 +2268,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not128, label %67, label %60
 
 60:                                               ; preds = %57
-  %61 = call i32 @PyLong_AsInt(ptr noundef nonnull %59) #9
+  %61 = call i32 @PyLong_AsInt(ptr noundef nonnull %59) #8
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %60
-  %64 = call ptr @PyErr_Occurred() #9
+  %64 = call ptr @PyErr_Occurred() #8
   %.not129 = icmp eq ptr %64, null
   br i1 %.not129, label %65, label %127
 
@@ -2295,12 +2291,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not131, label %77, label %70
 
 70:                                               ; preds = %67
-  %71 = call i32 @PyLong_AsInt(ptr noundef nonnull %69) #9
+  %71 = call i32 @PyLong_AsInt(ptr noundef nonnull %69) #8
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %70
-  %74 = call ptr @PyErr_Occurred() #9
+  %74 = call ptr @PyErr_Occurred() #8
   %.not132 = icmp eq ptr %74, null
   br i1 %.not132, label %75, label %127
 
@@ -2318,7 +2314,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not134, label %84, label %80
 
 80:                                               ; preds = %77
-  %81 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %79, ptr noundef nonnull %8) #9
+  %81 = call i32 @_PyLong_UnsignedLong_Converter(ptr noundef nonnull %79, ptr noundef nonnull %8) #8
   %.not135 = icmp eq i32 %81, 0
   br i1 %.not135, label %127, label %82
 
@@ -2335,7 +2331,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not137, label %91, label %87
 
 87:                                               ; preds = %84
-  %88 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %86, ptr noundef nonnull %9) #9
+  %88 = call i32 @_PyLong_UnsignedLongLong_Converter(ptr noundef nonnull %86, ptr noundef nonnull %9) #8
   %.not138 = icmp eq i32 %88, 0
   br i1 %.not138, label %127, label %89
 
@@ -2352,12 +2348,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not140, label %101, label %94
 
 94:                                               ; preds = %91
-  %95 = call i32 @PyLong_AsInt(ptr noundef nonnull %93) #9
+  %95 = call i32 @PyLong_AsInt(ptr noundef nonnull %93) #8
   %96 = icmp eq i32 %95, -1
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %94
-  %98 = call ptr @PyErr_Occurred() #9
+  %98 = call ptr @PyErr_Occurred() #8
   %.not141 = icmp eq ptr %98, null
   br i1 %.not141, label %99, label %127
 
@@ -2375,12 +2371,12 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not143, label %111, label %104
 
 104:                                              ; preds = %101
-  %105 = call i32 @PyLong_AsInt(ptr noundef nonnull %103) #9
+  %105 = call i32 @PyLong_AsInt(ptr noundef nonnull %103) #8
   %106 = icmp eq i32 %105, -1
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %104
-  %108 = call ptr @PyErr_Occurred() #9
+  %108 = call ptr @PyErr_Occurred() #8
   %.not144 = icmp eq ptr %108, null
   br i1 %.not144, label %109, label %127
 
@@ -2398,7 +2394,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not146, label %118, label %114
 
 114:                                              ; preds = %111
-  %115 = call i32 @PyObject_IsTrue(ptr noundef nonnull %113) #9
+  %115 = call i32 @PyObject_IsTrue(ptr noundef nonnull %113) #8
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %127, label %117
 
@@ -2410,7 +2406,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.1 = phi i32 [ %115, %117 ], [ 0, %111 ]
   %119 = getelementptr i8, ptr %20, i64 96
   %120 = load ptr, ptr %119, align 8, !tbaa !55
-  %121 = call i32 @PyObject_IsTrue(ptr noundef %120) #9
+  %121 = call i32 @PyObject_IsTrue(ptr noundef %120) #8
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %127, label %123
 
@@ -2434,7 +2430,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not148, label %131, label %130
 
 130:                                              ; preds = %127
-  call void @PyBuffer_Release(ptr noundef nonnull %5) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %5) #8
   br label %131
 
 131:                                              ; preds = %130, %127
@@ -2444,7 +2440,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not149, label %135, label %134
 
 134:                                              ; preds = %131
-  call void @PyBuffer_Release(ptr noundef nonnull %6) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %6) #8
   br label %135
 
 135:                                              ; preds = %134, %131
@@ -2454,7 +2450,7 @@ define internal ptr @py_blake2s_new(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not150, label %139, label %138
 
 138:                                              ; preds = %135
-  call void @PyBuffer_Release(ptr noundef nonnull %7) #9
+  call void @PyBuffer_Release(ptr noundef nonnull %7) #8
   br label %139
 
 139:                                              ; preds = %138, %135
@@ -2473,9 +2469,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2483,10 +2476,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -908,10 +908,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %30, %2
   br label %_ZNK3ade6HandleINS_4EdgeEEptEv.exit
 
 _ZNK3ade6HandleINS_4EdgeEEptEv.exit:              ; preds = %18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33
-  %.fr.i.i.i.i.i = freeze i32 %13
-  %.not.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i, 0
   %34 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   tail call void @llvm.assume(i1 %34)
   tail call void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle.55") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
   ret void
@@ -983,10 +980,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %30, %2
   br label %_ZNK3ade6HandleINS_4EdgeEEptEv.exit
 
 _ZNK3ade6HandleINS_4EdgeEEptEv.exit:              ; preds = %18, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %33
-  %.fr.i.i.i.i.i = freeze i32 %13
-  %.not.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i, 0
   %34 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i)
   tail call void @llvm.assume(i1 %34)
   tail call void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind writable sret(%"class.ade::Handle.55") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %14)
   ret void

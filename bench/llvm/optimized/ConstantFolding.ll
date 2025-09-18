@@ -16529,102 +16529,99 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115evaluateCompareERKN4llvm7
   %4 = tail call noundef i32 @_ZNK4llvm25ConstrainedFPCmpIntrinsic12getPredicateEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
   %5 = getelementptr inbounds i8, ptr %2, i64 -32
   %6 = load ptr, ptr %5, align 8, !tbaa !15, !nonnull !38, !noundef !38
-  %7 = load i8, ptr %6, align 8, !tbaa !3
-  %8 = icmp eq i8 %7, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !178
-  %11 = icmp eq i32 %10, 104
-  %12 = load ptr, ptr %0, align 8, !tbaa !25
-  %13 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #21
-  %.not.i.i.i = icmp eq ptr %12, %13
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %.0.i.i.i = select i1 %.not.i.i.i, ptr %15, ptr %0
-  br i1 %11, label %16, label %30
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %8 = load i32, ptr %7, align 4, !tbaa !178
+  %9 = icmp eq i32 %8, 104
+  %10 = load ptr, ptr %0, align 8, !tbaa !25
+  %11 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #21
+  %.not.i.i.i = icmp eq ptr %10, %11
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %.0.i.i.i = select i1 %.not.i.i.i, ptr %13, ptr %0
+  br i1 %9, label %14, label %28
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
-  %18 = load i8, ptr %17, align 4
-  %19 = and i8 %18, 7
-  %20 = icmp eq i8 %19, 1
-  br i1 %20, label %29, label %21
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
+  %16 = load i8, ptr %15, align 4
+  %17 = and i8 %16, 7
+  %18 = icmp eq i8 %17, 1
+  br i1 %18, label %27, label %19
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %1, align 8, !tbaa !25
-  %.not.i.i.i15 = icmp eq ptr %22, %13
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.0.i.i.i16 = select i1 %.not.i.i.i15, ptr %24, ptr %1
-  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 20
-  %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, 7
-  %28 = icmp eq i8 %27, 1
-  br i1 %28, label %29, label %38
+19:                                               ; preds = %14
+  %20 = load ptr, ptr %1, align 8, !tbaa !25
+  %.not.i.i.i15 = icmp eq ptr %20, %11
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.0.i.i.i16 = select i1 %.not.i.i.i15, ptr %22, ptr %1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 20
+  %24 = load i8, ptr %23, align 4
+  %25 = and i8 %24, 7
+  %26 = icmp eq i8 %25, 1
+  br i1 %26, label %27, label %36
 
-29:                                               ; preds = %21, %16
-  br label %38
+27:                                               ; preds = %19, %14
+  br label %36
 
-30:                                               ; preds = %3
-  %31 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat11isSignalingEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i) #18
-  br i1 %31, label %37, label %32
+28:                                               ; preds = %3
+  %29 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat11isSignalingEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i) #18
+  br i1 %29, label %35, label %30
 
-32:                                               ; preds = %30
-  %33 = load ptr, ptr %1, align 8, !tbaa !25
-  %.not.i.i17 = icmp eq ptr %33, %13
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %.0.i.i18 = select i1 %.not.i.i17, ptr %35, ptr %1
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat11isSignalingEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i18) #18
-  br i1 %36, label %37, label %38
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %1, align 8, !tbaa !25
+  %.not.i.i17 = icmp eq ptr %31, %11
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %.0.i.i18 = select i1 %.not.i.i17, ptr %33, ptr %1
+  %34 = tail call noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat11isSignalingEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i18) #18
+  br i1 %34, label %35, label %36
 
-37:                                               ; preds = %32, %30
-  br label %38
+35:                                               ; preds = %30, %28
+  br label %36
 
-38:                                               ; preds = %32, %37, %21, %29
-  %39 = phi i1 [ false, %29 ], [ true, %21 ], [ false, %37 ], [ true, %32 ]
-  %40 = tail call noundef zeroext i1 @_ZN4llvm8FCmpInst7compareERKNS_7APFloatES3_NS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %4) #18
-  %41 = tail call i16 @_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
-  %42 = tail call i16 @_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
-  br i1 %39, label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread, label %43
+36:                                               ; preds = %30, %35, %19, %27
+  %37 = phi i1 [ false, %27 ], [ true, %19 ], [ false, %35 ], [ true, %30 ]
+  %38 = tail call noundef zeroext i1 @_ZN4llvm8FCmpInst7compareERKNS_7APFloatES3_NS_7CmpInst9PredicateE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %4) #18
+  %39 = tail call i16 @_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
+  %40 = tail call i16 @_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18
+  br i1 %37, label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread, label %41
 
-43:                                               ; preds = %38
-  %44 = and i16 %41, 511
-  %or.cond.i = icmp eq i16 %44, 263
+41:                                               ; preds = %36
+  %42 = and i16 %39, 511
+  %or.cond.i = icmp eq i16 %42, 263
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread21, label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit
 
-_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit: ; preds = %43
-  %45 = and i16 %42, 256
-  %.not7.i = icmp ne i16 %45, 0
-  %46 = and i16 %42, 255
-  %.not.i = icmp ne i16 %46, 2
+_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit: ; preds = %41
+  %43 = and i16 %40, 256
+  %.not7.i = icmp ne i16 %43, 0
+  %44 = and i16 %40, 255
+  %.not.i = icmp ne i16 %44, 2
   %or.cond6.not.i = and i1 %.not7.i, %.not.i
   br i1 %or.cond6.not.i, label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread, label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread21
 
-_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread: ; preds = %38, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = and i32 %50, 255
-  %52 = add nsw i32 %51, -17
-  %spec.select.i.i = icmp ult i32 %52, 2
-  br i1 %spec.select.i.i, label %53, label %_ZNK4llvm4Type13getScalarTypeEv.exit
+_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread: ; preds = %36, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = and i32 %48, 255
+  %50 = add nsw i32 %49, -17
+  %spec.select.i.i = icmp ult i32 %50, 2
+  br i1 %spec.select.i.i, label %51, label %_ZNK4llvm4Type13getScalarTypeEv.exit
 
-53:                                               ; preds = %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !27
-  %56 = load ptr, ptr %55, align 8, !tbaa !32
+51:                                               ; preds = %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !27
+  %54 = load ptr, ptr %53, align 8, !tbaa !32
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit
 
-_ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread, %53
-  %.0.i19 = phi ptr [ %56, %53 ], [ %48, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread ]
-  %57 = zext i1 %40 to i64
-  %58 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %.0.i19, i64 noundef %57, i1 noundef zeroext false) #18
+_ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread, %51
+  %.0.i19 = phi ptr [ %54, %51 ], [ %46, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread ]
+  %55 = zext i1 %38 to i64
+  %56 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %.0.i19, i64 noundef %55, i1 noundef zeroext false) #18
   br label %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread21
 
-_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread21: ; preds = %43, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit, %_ZNK4llvm4Type13getScalarTypeEv.exit
-  %.0 = phi ptr [ %58, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ null, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit ], [ null, %43 ]
+_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit.thread21: ; preds = %41, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit, %_ZNK4llvm4Type13getScalarTypeEv.exit
+  %.0 = phi ptr [ %56, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ null, %_ZN12_GLOBAL__N_118mayFoldConstrainedEPN4llvm22ConstrainedFPIntrinsicENS0_11APFloatBase8opStatusE.exit ], [ null, %41 ]
   ret ptr %.0
 }
 
@@ -21758,34 +21755,28 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   br i1 %.not.i, label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit, label %23
 
 23:                                               ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp slt i32 %24, 0
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !320
-  %30 = load i32, ptr %8, align 4
-  %31 = icmp slt i32 %30, 0
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
-  %33 = extractvalue { ptr, i64 } %32, 0
-  %34 = extractvalue { ptr, i64 } %32, 1
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 -4
-  %37 = load i32, ptr %36, align 4, !tbaa !323
-  %38 = sub i32 %37, %29
-  %39 = zext i32 %38 to i64
+  %24 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
+  %25 = extractvalue { ptr, i64 } %24, 0
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !320
+  %28 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
+  %29 = extractvalue { ptr, i64 } %28, 0
+  %30 = extractvalue { ptr, i64 } %28, 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 -4
+  %33 = load i32, ptr %32, align 4, !tbaa !323
+  %34 = sub i32 %33, %27
+  %35 = zext i32 %34 to i64
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
 
 _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i, %23
-  %.0.i = phi i64 [ %39, %23 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
-  %40 = sub nsw i64 0, %.0.i.i
-  %41 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 -32
-  %43 = sub nsw i64 0, %.0.i
-  %44 = getelementptr inbounds %"class.llvm::Use", ptr %42, i64 %43
-  ret ptr %44
+  %.0.i = phi i64 [ %35, %23 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
+  %36 = sub nsw i64 0, %.0.i.i
+  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
+  %38 = getelementptr inbounds i8, ptr %37, i64 -32
+  %39 = sub nsw i64 0, %.0.i
+  %40 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %39
+  ret ptr %40
 }
 
 declare noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1

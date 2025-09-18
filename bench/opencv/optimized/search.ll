@@ -112,10 +112,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %37, 
   br label %_ZN3ade12_GLOBAL__N_19dfsHelperIRNS_4util8func_refIFbRKNS_6HandleINS_4NodeEEEEEERNS3_IFvRKS5_NS3_IFvS8_EEEEEEEEvS8_OT_OT0_.exit
 
 _ZN3ade12_GLOBAL__N_19dfsHelperIRNS_4util8func_refIFbRKNS_6HandleINS_4NodeEEEEEERNS3_IFvRKS5_NS3_IFvS8_EEEEEEEEvS8_OT_OT0_.exit: ; preds = %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %40
-  %.fr.i.i.i.i.i.i = freeze i32 %20
-  %.not.i.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i.i, 0
   %41 = icmp ne ptr %21, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
   tail call void @llvm.assume(i1 %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %7, ptr %6, align 8, !tbaa !24
@@ -199,10 +196,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %36, 
   br label %_ZN3ade7details12_GLOBAL__N_127TransitiveClosureHelperImplIRNS_4util8func_refIFvRKNS_4NodeENS4_IFvRKNS_6HandleIS5_EEEEEEEEEEvRSt13unordered_mapIS9_St13unordered_setIS9_NS_12HandleHasherIS5_EESt8equal_toIS9_ESaIS9_EESK_SM_SaISt4pairISA_SO_EEESB_OT_.exit
 
 _ZN3ade7details12_GLOBAL__N_127TransitiveClosureHelperImplIRNS_4util8func_refIFvRKNS_4NodeENS4_IFvRKNS_6HandleIS5_EEEEEEEEEEvRSt13unordered_mapIS9_St13unordered_setIS9_NS_12HandleHasherIS5_EESt8equal_toIS9_ESaIS9_EESK_SM_SaISt4pairISA_SO_EEESB_OT_.exit: ; preds = %24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %39
-  %.fr.i.i.i.i.i.i = freeze i32 %19
-  %.not.i.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i.i, 0
   %40 = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
   tail call void @llvm.assume(i1 %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8, !tbaa !35
@@ -346,10 +340,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %40
   br label %_ZN3ade12_GLOBAL__N_19dfsHelperIRNS_4util8func_refIFbRKNS_6HandleINS_4NodeEEEEEERNS3_IFvRKS5_NS3_IFvS8_EEEEEEEEvS8_OT_OT0_.exit.i
 
 _ZN3ade12_GLOBAL__N_19dfsHelperIRNS_4util8func_refIFbRKNS_6HandleINS_4NodeEEEEEERNS3_IFvRKS5_NS3_IFvS8_EEEEEEEEvS8_OT_OT0_.exit.i: ; preds = %43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %28
-  %.fr.i.i.i.i.i.i.i = freeze i32 %23
-  %.not.i.i.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i.i.i, 0
   %44 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i)
   tail call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %11, ptr %3, align 8, !tbaa !24
@@ -1120,10 +1111,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %40
   br label %_ZN3ade7details12_GLOBAL__N_127TransitiveClosureHelperImplIRNS_4util8func_refIFvRKNS_4NodeENS4_IFvRKNS_6HandleIS5_EEEEEEEEEEvRSt13unordered_mapIS9_St13unordered_setIS9_NS_12HandleHasherIS5_EESt8equal_toIS9_ESaIS9_EESK_SM_SaISt4pairISA_SO_EEESB_OT_.exit.i
 
 _ZN3ade7details12_GLOBAL__N_127TransitiveClosureHelperImplIRNS_4util8func_refIFvRKNS_4NodeENS4_IFvRKNS_6HandleIS5_EEEEEEEEEEvRSt13unordered_mapIS9_St13unordered_setIS9_NS_12HandleHasherIS5_EESt8equal_toIS9_ESaIS9_EESK_SM_SaISt4pairISA_SO_EEESB_OT_.exit.i: ; preds = %43, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %28
-  %.fr.i.i.i.i.i.i.i = freeze i32 %23
-  %.not.i.i.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i.i.i, 0
   %44 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i)
   tail call void @llvm.assume(i1 %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %10, ptr %5, align 8, !tbaa !35

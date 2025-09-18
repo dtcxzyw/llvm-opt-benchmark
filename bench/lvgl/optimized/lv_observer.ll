@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @lv_subject_init_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #9
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -16
@@ -19,7 +19,7 @@ define void @lv_subject_init_int(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i32 %1, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %8, align 8, !tbaa !3
-  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #9
+  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #8
   ret void
 }
 
@@ -88,13 +88,13 @@ define i32 @lv_subject_get_previous_int(ptr noundef readonly captures(none) %0) 
 
 ; Function Attrs: nounwind uwtable
 define void @lv_subject_init_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #9
-  %6 = tail call i64 @lv_strlcpy(ptr noundef %1, ptr noundef %4, i64 noundef %3) #9
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #8
+  %6 = tail call i64 @lv_strlcpy(ptr noundef %1, ptr noundef %4, i64 noundef %3) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i64 @lv_strlcpy(ptr noundef nonnull %2, ptr noundef %4, i64 noundef %3) #9
+  %8 = tail call i64 @lv_strlcpy(ptr noundef nonnull %2, ptr noundef %4, i64 noundef %3) #8
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -111,7 +111,7 @@ define void @lv_subject_init_string(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %1, ptr %18, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %19, align 8, !tbaa !3
-  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #9
+  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #8
   ret void
 }
 
@@ -141,7 +141,7 @@ define void @lv_subject_copy_string(ptr noundef %0, ptr noundef %1) local_unname
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = zext nneg i32 %8 to i64
-  %17 = tail call i64 @lv_strlcpy(ptr noundef nonnull %12, ptr noundef %15, i64 noundef %16) #9
+  %17 = tail call i64 @lv_strlcpy(ptr noundef nonnull %12, ptr noundef %15, i64 noundef %16) #8
   %.pre = load i32, ptr %3, align 8
   %.pre12 = lshr i32 %.pre, 4
   %.pre13 = and i32 %.pre12, 16777215
@@ -152,7 +152,7 @@ define void @lv_subject_copy_string(ptr noundef %0, ptr noundef %1) local_unname
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = zext nneg i32 %.pre-phi14 to i64
-  %22 = tail call i64 @lv_strlcpy(ptr noundef %20, ptr noundef %1, i64 noundef %21) #9
+  %22 = tail call i64 @lv_strlcpy(ptr noundef %20, ptr noundef %1, i64 noundef %21) #8
   %23 = load i32, ptr %3, align 8
   %24 = and i32 %23, 15
   switch i32 %24, label %lv_subject_notify_if_changed.exit [
@@ -172,7 +172,7 @@ define void @lv_subject_copy_string(ptr noundef %0, ptr noundef %1) local_unname
 28:                                               ; preds = %18
   %.0.copyload1.i = load i24, ptr %19, align 8
   %.0.copyload.i = load i24, ptr %11, align 8
-  %29 = tail call zeroext i1 @lv_color_eq(i24 %.0.copyload1.i, i24 %.0.copyload.i) #9
+  %29 = tail call zeroext i1 @lv_color_eq(i24 %.0.copyload1.i, i24 %.0.copyload.i) #8
   br i1 %29, label %lv_subject_notify_if_changed.exit, label %.sink.split.i
 
 30:                                               ; preds = %18
@@ -182,7 +182,7 @@ define void @lv_subject_copy_string(ptr noundef %0, ptr noundef %1) local_unname
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %19, align 8, !tbaa !3
-  %34 = tail call i32 @lv_strcmp(ptr noundef %33, ptr noundef nonnull %31) #9
+  %34 = tail call i32 @lv_strcmp(ptr noundef %33, ptr noundef nonnull %31) #8
   %.not15.i = icmp eq i32 %34, 0
   br i1 %.not15.i, label %lv_subject_notify_if_changed.exit, label %.sink.split.i
 
@@ -219,7 +219,7 @@ define void @lv_subject_snprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = zext nneg i32 %9 to i64
-  %18 = tail call i64 @lv_strlcpy(ptr noundef nonnull %13, ptr noundef %16, i64 noundef %17) #9
+  %18 = tail call i64 @lv_strlcpy(ptr noundef nonnull %13, ptr noundef %16, i64 noundef %17) #8
   br label %19
 
 19:                                               ; preds = %14, %11
@@ -231,7 +231,7 @@ define void @lv_subject_snprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
   %23 = lshr i32 %22, 4
   %24 = and i32 %23, 16777215
   %25 = zext nneg i32 %24 to i64
-  %26 = call i32 @lv_vsnprintf(ptr noundef %21, i64 noundef %25, ptr noundef %1, ptr noundef nonnull %3) #9
+  %26 = call i32 @lv_vsnprintf(ptr noundef %21, i64 noundef %25, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
   %27 = load i32, ptr %4, align 8
   %28 = and i32 %27, 15
@@ -252,7 +252,7 @@ define void @lv_subject_snprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
 32:                                               ; preds = %19
   %.0.copyload1.i = load i24, ptr %20, align 8
   %.0.copyload.i = load i24, ptr %12, align 8
-  %33 = call zeroext i1 @lv_color_eq(i24 %.0.copyload1.i, i24 %.0.copyload.i) #9
+  %33 = call zeroext i1 @lv_color_eq(i24 %.0.copyload1.i, i24 %.0.copyload.i) #8
   br i1 %33, label %lv_subject_notify_if_changed.exit, label %.sink.split.i
 
 34:                                               ; preds = %19
@@ -262,7 +262,7 @@ define void @lv_subject_snprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr %20, align 8, !tbaa !3
-  %38 = call i32 @lv_strcmp(ptr noundef %37, ptr noundef nonnull %35) #9
+  %38 = call i32 @lv_strcmp(ptr noundef %37, ptr noundef nonnull %35) #8
   %.not15.i = icmp eq i32 %38, 0
   br i1 %.not15.i, label %lv_subject_notify_if_changed.exit, label %.sink.split.i
 
@@ -324,7 +324,7 @@ define ptr @lv_subject_get_previous_string(ptr noundef readonly captures(none) %
 
 ; Function Attrs: nounwind uwtable
 define void @lv_subject_init_pointer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #9
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -16
@@ -334,7 +334,7 @@ define void @lv_subject_init_pointer(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr %1, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %8, align 8, !tbaa !3
-  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #9
+  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #8
   ret void
 }
 
@@ -397,7 +397,7 @@ define ptr @lv_subject_get_previous_pointer(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nounwind uwtable
 define void @lv_subject_init_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 {
-  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #9
+  tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 56) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -16
@@ -407,7 +407,7 @@ define void @lv_subject_init_color(ptr noundef %0, i24 %1) local_unnamed_addr #0
   store i24 %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i24 %1, ptr %8, align 8
-  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #9
+  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #8
   ret void
 }
 
@@ -428,7 +428,7 @@ define void @lv_subject_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %7, ptr noundef nonnull align 8 dereferenceable(3) %8, i64 3, i1 false), !tbaa.struct !6
   store i24 %1, ptr %8, align 8
   %.0.copyload.i = load i24, ptr %7, align 8
-  %9 = tail call zeroext i1 @lv_color_eq(i24 %1, i24 %.0.copyload.i) #9
+  %9 = tail call zeroext i1 @lv_color_eq(i24 %1, i24 %.0.copyload.i) #8
   br i1 %9, label %lv_subject_notify_if_changed.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %6
@@ -448,7 +448,7 @@ define i24 @lv_subject_get_color(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i24 @lv_color_black() #9
+  %6 = tail call i24 @lv_color_black() #8
   br label %9
 
 7:                                                ; preds = %1
@@ -472,7 +472,7 @@ define i24 @lv_subject_get_previous_color(ptr noundef readonly captures(none) %0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i24 @lv_color_black() #9
+  %6 = tail call i24 @lv_color_black() #8
   br label %9
 
 7:                                                ; preds = %1
@@ -495,7 +495,7 @@ define void @lv_subject_init_group(ptr noundef %0, ptr noundef %1, i32 noundef %
   %9 = or disjoint i32 %8, %6
   %10 = or disjoint i32 %9, 5
   store i32 %10, ptr %4, align 8
-  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #9
+  tail call void @lv_ll_init(ptr noundef %0, i32 noundef 40) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %11, align 8, !tbaa !3
   %.not = icmp eq i32 %2, 0
@@ -523,7 +523,7 @@ define void @lv_subject_init_group(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %18, label %lv_subject_add_observer.exit, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %13) #9
+  %20 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %13) #8
   %.not28.i.i = icmp eq ptr %20, null
   br i1 %.not28.i.i, label %.preheader31.i.i, label %21
 
@@ -531,7 +531,7 @@ define void @lv_subject_init_group(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %.preheader31.i.i
 
 21:                                               ; preds = %19
-  tail call void @lv_memset(ptr noundef nonnull %20, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %20, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %13, ptr %20, align 8, !tbaa !9
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @group_notify_cb, ptr %22, align 8, !tbaa !12
@@ -574,7 +574,7 @@ define ptr @lv_subject_add_observer(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %8, label %lv_subject_add_observer_obj.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #9
+  %10 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #8
   %.not28.i = icmp eq ptr %10, null
   br i1 %.not28.i, label %.preheader31.i, label %11
 
@@ -582,7 +582,7 @@ define ptr @lv_subject_add_observer(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.preheader31.i
 
 11:                                               ; preds = %9
-  tail call void @lv_memset(ptr noundef nonnull %10, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %10, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %0, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %12, align 8, !tbaa !12
@@ -598,7 +598,7 @@ define ptr @lv_subject_add_observer(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not30.i, label %19, label %18
 
 18:                                               ; preds = %11
-  tail call void %1(ptr noundef nonnull %10, ptr noundef nonnull %0) #9
+  tail call void %1(ptr noundef nonnull %10, ptr noundef nonnull %0) #8
   %.pre = load i8, ptr %15, align 8
   br label %19
 
@@ -623,13 +623,13 @@ define internal void @group_notify_cb(ptr noundef readonly captures(none) %0, pt
 
 ; Function Attrs: nounwind uwtable
 define void @lv_subject_deinit(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @lv_ll_get_head(ptr noundef %0) #9
+  %2 = tail call ptr @lv_ll_get_head(ptr noundef %0) #8
   %.not12 = icmp eq ptr %2, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %lv_observer_remove.exit
   %.013 = phi ptr [ %3, %lv_observer_remove.exit ], [ %2, %1 ]
-  %3 = tail call ptr @lv_ll_get_next(ptr noundef %0, ptr noundef nonnull %.013) #9
+  %3 = tail call ptr @lv_ll_get_next(ptr noundef %0, ptr noundef nonnull %.013) #8
   %4 = getelementptr inbounds nuw i8, ptr %.013, i64 32
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 4
@@ -639,9 +639,9 @@ define void @lv_subject_deinit(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.013, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !14
-  %10 = tail call zeroext i1 @lv_obj_remove_event_cb(ptr noundef %9, ptr noundef nonnull @unsubscribe_on_delete_cb) #9
+  %10 = tail call zeroext i1 @lv_obj_remove_event_cb(ptr noundef %9, ptr noundef nonnull @unsubscribe_on_delete_cb) #8
   %11 = load ptr, ptr %8, align 8, !tbaa !14
-  %12 = tail call i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %11, ptr noundef null, ptr noundef %0) #9
+  %12 = tail call i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %11, ptr noundef null, ptr noundef %0) #8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %7
@@ -651,7 +651,7 @@ define void @lv_subject_deinit(ptr noundef %0) local_unnamed_addr #0 {
   %17 = or i32 %16, 268435456
   store i32 %17, ptr %15, align 8
   %18 = load ptr, ptr %.013, align 8, !tbaa !9
-  tail call void @lv_ll_remove(ptr noundef %18, ptr noundef nonnull %.013) #9
+  tail call void @lv_ll_remove(ptr noundef %18, ptr noundef nonnull %.013) #8
   %19 = load i8, ptr %4, align 8
   %20 = and i8 %19, 1
   %.not7.i = icmp eq i8 %20, 0
@@ -660,16 +660,16 @@ define void @lv_subject_deinit(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !13
-  tail call void @lv_free(ptr noundef %23) #9
+  tail call void @lv_free(ptr noundef %23) #8
   br label %lv_observer_remove.exit
 
 lv_observer_remove.exit:                          ; preds = %13, %21
-  tail call void @lv_free(ptr noundef nonnull %.013) #9
+  tail call void @lv_free(ptr noundef nonnull %.013) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %lv_observer_remove.exit, %1
-  tail call void @lv_ll_clear(ptr noundef %0) #9
+  tail call void @lv_ll_clear(ptr noundef %0) #8
   ret void
 }
 
@@ -681,7 +681,7 @@ declare zeroext i1 @lv_obj_remove_event_cb(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal void @unsubscribe_on_delete_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #9
+  %2 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %.preheader.i, label %3
 
@@ -695,7 +695,7 @@ define internal void @unsubscribe_on_delete_cb(ptr noundef %0) #0 {
   %7 = or i32 %6, 268435456
   store i32 %7, ptr %5, align 8
   %8 = load ptr, ptr %2, align 8, !tbaa !9
-  tail call void @lv_ll_remove(ptr noundef %8, ptr noundef nonnull %2) #9
+  tail call void @lv_ll_remove(ptr noundef %8, ptr noundef nonnull %2) #8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
@@ -705,11 +705,11 @@ define internal void @unsubscribe_on_delete_cb(ptr noundef %0) #0 {
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !13
-  tail call void @lv_free(ptr noundef %14) #9
+  tail call void @lv_free(ptr noundef %14) #8
   br label %lv_observer_remove.exit
 
 lv_observer_remove.exit:                          ; preds = %3, %12
-  tail call void @lv_free(ptr noundef nonnull %2) #9
+  tail call void @lv_free(ptr noundef nonnull %2) #8
   ret void
 }
 
@@ -730,7 +730,7 @@ define void @lv_observer_remove(ptr noundef %0) local_unnamed_addr #0 {
   %6 = or i32 %5, 268435456
   store i32 %6, ptr %4, align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !9
-  tail call void @lv_ll_remove(ptr noundef %7, ptr noundef nonnull %0) #9
+  tail call void @lv_ll_remove(ptr noundef %7, ptr noundef nonnull %0) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, 1
@@ -740,11 +740,11 @@ define void @lv_observer_remove(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !13
-  tail call void @lv_free(ptr noundef %13) #9
+  tail call void @lv_free(ptr noundef %13) #8
   br label %14
 
 14:                                               ; preds = %11, %2
-  tail call void @lv_free(ptr noundef nonnull %0) #9
+  tail call void @lv_free(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -793,7 +793,7 @@ define ptr @lv_subject_add_observer_obj(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #9
+  %11 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #8
   %.not28 = icmp eq ptr %11, null
   br i1 %.not28, label %.preheader31, label %12
 
@@ -801,7 +801,7 @@ define ptr @lv_subject_add_observer_obj(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.preheader31
 
 12:                                               ; preds = %10
-  tail call void @lv_memset(ptr noundef nonnull %11, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %11, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %0, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %13, align 8, !tbaa !12
@@ -817,7 +817,7 @@ define ptr @lv_subject_add_observer_obj(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not29, label %21, label %19
 
 19:                                               ; preds = %12
-  %20 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %2, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %11) #9
+  %20 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %2, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %11) #8
   %.pre = load ptr, ptr %13, align 8, !tbaa !12
   br label %21
 
@@ -827,7 +827,7 @@ define ptr @lv_subject_add_observer_obj(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not30, label %24, label %23
 
 23:                                               ; preds = %21
-  tail call void %22(ptr noundef nonnull %11, ptr noundef nonnull %0) #9
+  tail call void %22(ptr noundef nonnull %11, ptr noundef nonnull %0) #8
   br label %24
 
 24:                                               ; preds = %23, %21, %5
@@ -855,7 +855,7 @@ define ptr @lv_subject_add_observer_with_target(ptr noundef %0, ptr noundef %1, 
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #9
+  %11 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #8
   %.not23 = icmp eq ptr %11, null
   br i1 %.not23, label %.preheader25, label %12
 
@@ -863,7 +863,7 @@ define ptr @lv_subject_add_observer_with_target(ptr noundef %0, ptr noundef %1, 
   br label %.preheader25
 
 12:                                               ; preds = %10
-  tail call void @lv_memset(ptr noundef nonnull %11, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %11, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %0, ptr %11, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %13, align 8, !tbaa !12
@@ -875,7 +875,7 @@ define ptr @lv_subject_add_observer_with_target(ptr noundef %0, ptr noundef %1, 
   br i1 %.not24, label %17, label %16
 
 16:                                               ; preds = %12
-  tail call void %1(ptr noundef nonnull %11, ptr noundef nonnull %0) #9
+  tail call void %1(ptr noundef nonnull %11, ptr noundef nonnull %0) #8
   br label %17
 
 17:                                               ; preds = %16, %12, %5
@@ -896,7 +896,7 @@ define void @lv_obj_remove_from_subject(ptr noundef %0, ptr noundef %1) local_un
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = tail call i32 @lv_event_get_count(ptr noundef nonnull %6) #9
+  %7 = tail call i32 @lv_event_get_count(ptr noundef nonnull %6) #8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -907,7 +907,7 @@ define void @lv_obj_remove_from_subject(ptr noundef %0, ptr noundef %1) local_un
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %29
   %.019.us = phi i32 [ %30, %29 ], [ %9, %.lr.ph ]
-  %11 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %.019.us) #9
+  %11 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %.019.us) #8
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = icmp eq ptr %12, @unsubscribe_on_delete_cb
   br i1 %13, label %14, label %29
@@ -925,7 +925,7 @@ define void @lv_obj_remove_from_subject(ptr noundef %0, ptr noundef %1) local_un
   %20 = or i32 %19, 268435456
   store i32 %20, ptr %18, align 8
   %21 = load ptr, ptr %16, align 8, !tbaa !9
-  tail call void @lv_ll_remove(ptr noundef %21, ptr noundef nonnull %16) #9
+  tail call void @lv_ll_remove(ptr noundef %21, ptr noundef nonnull %16) #8
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %23 = load i8, ptr %22, align 8
   %24 = and i8 %23, 1
@@ -935,12 +935,12 @@ define void @lv_obj_remove_from_subject(ptr noundef %0, ptr noundef %1) local_un
 25:                                               ; preds = %.thread.us
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !13
-  tail call void @lv_free(ptr noundef %27) #9
+  tail call void @lv_free(ptr noundef %27) #8
   br label %lv_observer_remove.exit.us
 
 lv_observer_remove.exit.us:                       ; preds = %25, %.thread.us
-  tail call void @lv_free(ptr noundef nonnull %16) #9
-  %28 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %.019.us) #9
+  tail call void @lv_free(ptr noundef nonnull %16) #8
+  %28 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %.019.us) #8
   br label %29
 
 29:                                               ; preds = %lv_observer_remove.exit.us, %.lr.ph.split.us
@@ -950,7 +950,7 @@ lv_observer_remove.exit.us:                       ; preds = %25, %.thread.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %51
   %.019 = phi i32 [ %52, %51 ], [ %9, %.lr.ph ]
-  %32 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %.019) #9
+  %32 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %.019) #8
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = icmp eq ptr %33, @unsubscribe_on_delete_cb
   br i1 %34, label %35, label %51
@@ -971,7 +971,7 @@ lv_observer_remove.exit.us:                       ; preds = %25, %.thread.us
   %42 = or i32 %41, 268435456
   store i32 %42, ptr %40, align 8
   %43 = load ptr, ptr %37, align 8, !tbaa !9
-  tail call void @lv_ll_remove(ptr noundef %43, ptr noundef nonnull %37) #9
+  tail call void @lv_ll_remove(ptr noundef %43, ptr noundef nonnull %37) #8
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %45 = load i8, ptr %44, align 8
   %46 = and i8 %45, 1
@@ -981,12 +981,12 @@ lv_observer_remove.exit.us:                       ; preds = %25, %.thread.us
 47:                                               ; preds = %.thread
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !13
-  tail call void @lv_free(ptr noundef %49) #9
+  tail call void @lv_free(ptr noundef %49) #8
   br label %lv_observer_remove.exit
 
 lv_observer_remove.exit:                          ; preds = %.thread, %47
-  tail call void @lv_free(ptr noundef nonnull %37) #9
-  %50 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %.019) #9
+  tail call void @lv_free(ptr noundef nonnull %37) #8
+  %50 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %0, i32 noundef %.019) #8
   br label %51
 
 51:                                               ; preds = %35, %lv_observer_remove.exit, %.lr.ph.split
@@ -995,7 +995,7 @@ lv_observer_remove.exit:                          ; preds = %.thread, %47
   br i1 %53, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %51, %29, %2, %5
-  %54 = tail call i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef null, ptr noundef %1) #9
+  %54 = tail call i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef %0, ptr noundef null, ptr noundef %1) #8
   ret void
 }
 
@@ -1028,7 +1028,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %0) #9
+  %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %0) #8
   %.not2127 = icmp eq ptr %3, null
   br i1 %.not2127, label %.preheader26, label %.lr.ph
 
@@ -1043,7 +1043,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, -3
   store i8 %7, ptr %5, align 8
-  %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.028) #9
+  %8 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.028) #8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %.preheader26, label %.lr.ph, !llvm.loop !30
 
@@ -1051,7 +1051,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
   %10 = phi i32 [ %.pre, %.preheader26 ], [ %28, %._crit_edge ]
   %11 = and i32 %10, -268435457
   store i32 %11, ptr %4, align 8
-  %12 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %0) #9
+  %12 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %0) #8
   %.not2229 = icmp eq ptr %12, null
   br i1 %.not2229, label %._crit_edge, label %.lr.ph31
 
@@ -1070,7 +1070,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %15
-  tail call void %14(ptr noundef nonnull %.130, ptr noundef nonnull %0) #9
+  tail call void %14(ptr noundef nonnull %.130, ptr noundef nonnull %0) #8
   %21 = load i32, ptr %4, align 8
   %22 = and i32 %21, 268435456
   %.not24 = icmp eq i32 %22, 0
@@ -1083,7 +1083,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %.lr.ph31, %15, %23
-  %27 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.130) #9
+  %27 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %0, ptr noundef nonnull %.130) #8
   %.not22 = icmp eq ptr %27, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph31, !llvm.loop !31
 
@@ -1123,12 +1123,12 @@ define internal fastcc ptr @bind_to_bitfield(ptr noundef %0, ptr noundef %1, ptr
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 15
   %.not22 = icmp eq i32 %12, 2
-  br i1 %.not22, label %13, label %41
+  br i1 %.not22, label %13, label %38
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @lv_malloc(i64 noundef 24) #9
+  %14 = tail call ptr @lv_malloc(i64 noundef 24) #8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %41, label %16
+  br i1 %15, label %38, label %16
 
 16:                                               ; preds = %13
   store i32 %3, ptr %14, align 8, !tbaa !33
@@ -1143,47 +1143,43 @@ define internal fastcc ptr @bind_to_bitfield(ptr noundef %0, ptr noundef %1, ptr
   %24 = shl nuw nsw i8 %23, 1
   %25 = or disjoint i8 %22, %24
   store i8 %25, ptr %18, align 8
-  %26 = load i32, ptr %10, align 8
-  %27 = and i32 %26, 15
-  %28 = icmp ne i32 %27, 0
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #9
-  %.not28.i = icmp eq ptr %29, null
-  br i1 %.not28.i, label %.preheader31.i, label %30
+  %26 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %0) #8
+  %.not28.i = icmp eq ptr %26, null
+  br i1 %.not28.i, label %.preheader31.i, label %27
 
 .preheader31.i:                                   ; preds = %16, %.preheader31.i
   br label %.preheader31.i
 
-30:                                               ; preds = %16
-  tail call void @lv_memset(ptr noundef nonnull %29, i8 noundef zeroext 0, i64 noundef 40) #9
-  store ptr %0, ptr %29, align 8, !tbaa !9
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %2, ptr %31, align 8, !tbaa !12
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr %14, ptr %32, align 8, !tbaa !13
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %1, ptr %33, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %35 = load i8, ptr %34, align 8
-  %36 = or i8 %35, 4
-  store i8 %36, ptr %34, align 8
-  %37 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %1, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %29) #9
-  %.pre.i = load ptr, ptr %31, align 8, !tbaa !12
+27:                                               ; preds = %16
+  tail call void @lv_memset(ptr noundef nonnull %26, i8 noundef zeroext 0, i64 noundef 40) #8
+  store ptr %0, ptr %26, align 8, !tbaa !9
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store ptr %2, ptr %28, align 8, !tbaa !12
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store ptr %14, ptr %29, align 8, !tbaa !13
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store ptr %1, ptr %30, align 8, !tbaa !14
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %32 = load i8, ptr %31, align 8
+  %33 = or i8 %32, 4
+  store i8 %33, ptr %31, align 8
+  %34 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %1, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %26) #8
+  %.pre.i = load ptr, ptr %28, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %.pre.i, null
-  br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %38
+  br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %35
 
-38:                                               ; preds = %30
-  tail call void %.pre.i(ptr noundef nonnull %29, ptr noundef nonnull %0) #9
+35:                                               ; preds = %27
+  tail call void %.pre.i(ptr noundef nonnull %26, ptr noundef nonnull %0) #8
   br label %lv_subject_add_observer_obj.exit
 
-lv_subject_add_observer_obj.exit:                 ; preds = %30, %38
-  %39 = load i8, ptr %34, align 8
-  %40 = or i8 %39, 1
-  store i8 %40, ptr %34, align 8
-  br label %41
+lv_subject_add_observer_obj.exit:                 ; preds = %27, %35
+  %36 = load i8, ptr %31, align 8
+  %37 = or i8 %36, 1
+  store i8 %37, ptr %31, align 8
+  br label %38
 
-41:                                               ; preds = %lv_subject_add_observer_obj.exit, %13, %9
-  %.0 = phi ptr [ null, %9 ], [ %29, %lv_subject_add_observer_obj.exit ], [ null, %13 ]
+38:                                               ; preds = %lv_subject_add_observer_obj.exit, %13, %9
+  %.0 = phi ptr [ null, %9 ], [ %26, %lv_subject_add_observer_obj.exit ], [ null, %13 ]
   ret ptr %.0
 }
 
@@ -1239,14 +1235,14 @@ define internal void @obj_flag_observer_cb(ptr noundef readonly captures(none) %
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !14
   %33 = load i32, ptr %4, align 8, !tbaa !33
-  tail call void @lv_obj_add_flag(ptr noundef %32, i32 noundef %33) #9
+  tail call void @lv_obj_add_flag(ptr noundef %32, i32 noundef %33) #8
   br label %38
 
 34:                                               ; preds = %._crit_edge, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !14
   %37 = load i32, ptr %4, align 8, !tbaa !33
-  tail call void @lv_obj_remove_flag(ptr noundef %36, i32 noundef %37) #9
+  tail call void @lv_obj_remove_flag(ptr noundef %36, i32 noundef %37) #8
   br label %38
 
 38:                                               ; preds = %34, %30
@@ -1343,7 +1339,7 @@ define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) 
   %32 = load ptr, ptr %31, align 8, !tbaa !14
   %33 = load i32, ptr %4, align 8, !tbaa !33
   %34 = trunc i32 %33 to i16
-  tail call void @lv_obj_add_state(ptr noundef %32, i16 noundef zeroext %34) #9
+  tail call void @lv_obj_add_state(ptr noundef %32, i16 noundef zeroext %34) #8
   br label %40
 
 35:                                               ; preds = %._crit_edge, %28
@@ -1351,7 +1347,7 @@ define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) 
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = load i32, ptr %4, align 8, !tbaa !33
   %39 = trunc i32 %38 to i16
-  tail call void @lv_obj_remove_state(ptr noundef %37, i16 noundef zeroext %39) #9
+  tail call void @lv_obj_remove_state(ptr noundef %37, i16 noundef zeroext %39) #8
   br label %40
 
 40:                                               ; preds = %35, %30
@@ -1396,15 +1392,15 @@ define ptr @lv_obj_bind_state_if_le(ptr noundef %0, ptr noundef %1, i16 noundef 
 ; Function Attrs: nounwind uwtable
 define ptr @lv_obj_bind_checked(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @bind_to_bitfield(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @obj_state_observer_cb, i32 noundef 1, i32 noundef 0, i1 noundef zeroext true, i32 noundef 0)
-  %4 = tail call ptr @lv_obj_add_event_cb(ptr noundef %0, ptr noundef nonnull @obj_value_changed_event_cb, i32 noundef 35, ptr noundef %1) #9
+  %4 = tail call ptr @lv_obj_add_event_cb(ptr noundef %0, ptr noundef nonnull @obj_value_changed_event_cb, i32 noundef 35, ptr noundef %1) #8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @obj_value_changed_event_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #9
-  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #9
-  %4 = tail call zeroext i1 @lv_obj_has_state(ptr noundef %2, i16 noundef zeroext 1) #9
+  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #8
+  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #8
+  %4 = tail call zeroext i1 @lv_obj_has_state(ptr noundef %2, i16 noundef zeroext 1) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -1465,7 +1461,7 @@ define ptr @lv_label_bind_text(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   ]
 
 12:                                               ; preds = %11, %11, %11, %10, %10
-  %13 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #9
+  %13 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #8
   %.not28.i = icmp eq ptr %13, null
   br i1 %.not28.i, label %.preheader31.i, label %14
 
@@ -1473,7 +1469,7 @@ define ptr @lv_label_bind_text(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br label %.preheader31.i
 
 14:                                               ; preds = %12
-  tail call void @lv_memset(ptr noundef nonnull %13, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %13, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %1, ptr %13, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @label_text_observer_cb, ptr %15, align 8, !tbaa !12
@@ -1485,13 +1481,13 @@ define ptr @lv_label_bind_text(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %19 = load i8, ptr %18, align 8
   %20 = or i8 %19, 4
   store i8 %20, ptr %18, align 8
-  %21 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %13) #9
+  %21 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %13) #8
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %.pre.i, null
   br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %22
 
 22:                                               ; preds = %14
-  tail call void %.pre.i(ptr noundef nonnull %13, ptr noundef nonnull %1) #9
+  tail call void %.pre.i(ptr noundef nonnull %13, ptr noundef nonnull %1) #8
   br label %lv_subject_add_observer_obj.exit
 
 lv_subject_add_observer_obj.exit:                 ; preds = %22, %14, %11, %10
@@ -1511,7 +1507,7 @@ define internal void @label_text_observer_cb(ptr noundef readonly captures(none)
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  tail call void @lv_label_set_text(ptr noundef %8, ptr noundef %10) #9
+  tail call void @lv_label_set_text(ptr noundef %8, ptr noundef %10) #8
   br label %25
 
 11:                                               ; preds = %2
@@ -1529,7 +1525,7 @@ define internal void @label_text_observer_cb(ptr noundef readonly captures(none)
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !3
-  tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %17, ptr noundef nonnull %4, i32 noundef %19) #9
+  tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %17, ptr noundef nonnull %4, i32 noundef %19) #8
   br label %25
 
 20:                                               ; preds = %11, %11
@@ -1537,7 +1533,7 @@ define internal void @label_text_observer_cb(ptr noundef readonly captures(none)
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !3
-  tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %22, ptr noundef nonnull %4, ptr noundef %24) #9
+  tail call void (ptr, ptr, ...) @lv_label_set_text_fmt(ptr noundef %22, ptr noundef nonnull %4, ptr noundef %24) #8
   br label %25
 
 25:                                               ; preds = %15, %20, %11, %6
@@ -1567,14 +1563,14 @@ define ptr @lv_arc_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not12, label %8, label %lv_subject_add_observer_obj.exit
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @arc_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #9
+  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @arc_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #8
   %10 = load i32, ptr %5, align 8
   %11 = and i32 %10, 15
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %lv_subject_add_observer_obj.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #9
+  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #8
   %.not28.i = icmp eq ptr %14, null
   br i1 %.not28.i, label %.preheader31.i, label %15
 
@@ -1582,7 +1578,7 @@ define ptr @lv_arc_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br label %.preheader31.i
 
 15:                                               ; preds = %13
-  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %1, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @arc_value_observer_cb, ptr %16, align 8, !tbaa !12
@@ -1594,13 +1590,13 @@ define ptr @lv_arc_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   %20 = load i8, ptr %19, align 8
   %21 = or i8 %20, 4
   store i8 %21, ptr %19, align 8
-  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #9
+  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #8
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %.pre.i, null
   br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %23
 
 23:                                               ; preds = %15
-  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #9
+  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #8
   br label %lv_subject_add_observer_obj.exit
 
 lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
@@ -1610,9 +1606,9 @@ lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @arc_value_changed_event_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #9
-  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #9
-  %4 = tail call i32 @lv_arc_get_value(ptr noundef %2) #9
+  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #8
+  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #8
+  %4 = tail call i32 @lv_arc_get_value(ptr noundef %2) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -1642,7 +1638,7 @@ define internal void @arc_value_observer_cb(ptr noundef readonly captures(none) 
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
-  tail call void @lv_arc_set_value(ptr noundef %4, i32 noundef %6) #9
+  tail call void @lv_arc_set_value(ptr noundef %4, i32 noundef %6) #8
   ret void
 }
 
@@ -1669,14 +1665,14 @@ define ptr @lv_slider_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not12, label %8, label %lv_subject_add_observer_obj.exit
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @slider_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #9
+  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @slider_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #8
   %10 = load i32, ptr %5, align 8
   %11 = and i32 %10, 15
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %lv_subject_add_observer_obj.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #9
+  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #8
   %.not28.i = icmp eq ptr %14, null
   br i1 %.not28.i, label %.preheader31.i, label %15
 
@@ -1684,7 +1680,7 @@ define ptr @lv_slider_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %.preheader31.i
 
 15:                                               ; preds = %13
-  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %1, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @slider_value_observer_cb, ptr %16, align 8, !tbaa !12
@@ -1696,13 +1692,13 @@ define ptr @lv_slider_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %20 = load i8, ptr %19, align 8
   %21 = or i8 %20, 4
   store i8 %21, ptr %19, align 8
-  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #9
+  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #8
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %.pre.i, null
   br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %23
 
 23:                                               ; preds = %15
-  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #9
+  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #8
   br label %lv_subject_add_observer_obj.exit
 
 lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
@@ -1712,9 +1708,9 @@ lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @slider_value_changed_event_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #9
-  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #9
-  %4 = tail call i32 @lv_slider_get_value(ptr noundef %2) #9
+  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #8
+  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #8
+  %4 = tail call i32 @lv_slider_get_value(ptr noundef %2) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -1744,7 +1740,7 @@ define internal void @slider_value_observer_cb(ptr noundef readonly captures(non
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
-  tail call void @lv_slider_set_value(ptr noundef %4, i32 noundef %6, i1 noundef zeroext false) #9
+  tail call void @lv_slider_set_value(ptr noundef %4, i32 noundef %6, i1 noundef zeroext false) #8
   ret void
 }
 
@@ -1771,14 +1767,14 @@ define ptr @lv_roller_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not12, label %8, label %lv_subject_add_observer_obj.exit
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @roller_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #9
+  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @roller_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #8
   %10 = load i32, ptr %5, align 8
   %11 = and i32 %10, 15
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %lv_subject_add_observer_obj.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #9
+  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #8
   %.not28.i = icmp eq ptr %14, null
   br i1 %.not28.i, label %.preheader31.i, label %15
 
@@ -1786,7 +1782,7 @@ define ptr @lv_roller_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %.preheader31.i
 
 15:                                               ; preds = %13
-  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %1, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @roller_value_observer_cb, ptr %16, align 8, !tbaa !12
@@ -1798,13 +1794,13 @@ define ptr @lv_roller_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %20 = load i8, ptr %19, align 8
   %21 = or i8 %20, 4
   store i8 %21, ptr %19, align 8
-  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #9
+  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #8
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %.pre.i, null
   br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %23
 
 23:                                               ; preds = %15
-  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #9
+  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #8
   br label %lv_subject_add_observer_obj.exit
 
 lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
@@ -1814,9 +1810,9 @@ lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @roller_value_changed_event_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #9
-  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #9
-  %4 = tail call i32 @lv_roller_get_selected(ptr noundef %2) #9
+  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #8
+  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #8
+  %4 = tail call i32 @lv_roller_get_selected(ptr noundef %2) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -1844,7 +1840,7 @@ lv_subject_set_int.exit:                          ; preds = %1, %8, %.sink.split
 define internal void @roller_value_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !14
-  %5 = tail call i32 @lv_roller_get_selected(ptr noundef %4) #9
+  %5 = tail call i32 @lv_roller_get_selected(ptr noundef %4) #8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !3
   %.not = icmp eq i32 %5, %7
@@ -1852,7 +1848,7 @@ define internal void @roller_value_observer_cb(ptr noundef readonly captures(non
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8, !tbaa !14
-  tail call void @lv_roller_set_selected(ptr noundef %9, i32 noundef %7, i1 noundef zeroext false) #9
+  tail call void @lv_roller_set_selected(ptr noundef %9, i32 noundef %7, i1 noundef zeroext false) #8
   br label %10
 
 10:                                               ; preds = %8, %2
@@ -1882,14 +1878,14 @@ define ptr @lv_dropdown_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not12, label %8, label %lv_subject_add_observer_obj.exit
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @dropdown_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #9
+  %9 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @dropdown_value_changed_event_cb, i32 noundef 35, ptr noundef nonnull %1) #8
   %10 = load i32, ptr %5, align 8
   %11 = and i32 %10, 15
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %lv_subject_add_observer_obj.exit, label %13
 
 13:                                               ; preds = %8
-  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #9
+  %14 = tail call ptr @lv_ll_ins_tail(ptr noundef nonnull %1) #8
   %.not28.i = icmp eq ptr %14, null
   br i1 %.not28.i, label %.preheader31.i, label %15
 
@@ -1897,7 +1893,7 @@ define ptr @lv_dropdown_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %.preheader31.i
 
 15:                                               ; preds = %13
-  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #9
+  tail call void @lv_memset(ptr noundef nonnull %14, i8 noundef zeroext 0, i64 noundef 40) #8
   store ptr %1, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @dropdown_value_observer_cb, ptr %16, align 8, !tbaa !12
@@ -1909,13 +1905,13 @@ define ptr @lv_dropdown_bind_value(ptr noundef %0, ptr noundef %1) local_unnamed
   %20 = load i8, ptr %19, align 8
   %21 = or i8 %20, 4
   store i8 %21, ptr %19, align 8
-  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #9
+  %22 = tail call ptr @lv_obj_add_event_cb(ptr noundef nonnull %0, ptr noundef nonnull @unsubscribe_on_delete_cb, i32 noundef 41, ptr noundef nonnull %14) #8
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %.pre.i, null
   br i1 %.not30.i, label %lv_subject_add_observer_obj.exit, label %23
 
 23:                                               ; preds = %15
-  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #9
+  tail call void %.pre.i(ptr noundef nonnull %14, ptr noundef nonnull %1) #8
   br label %lv_subject_add_observer_obj.exit
 
 lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
@@ -1925,9 +1921,9 @@ lv_subject_add_observer_obj.exit:                 ; preds = %23, %15, %8, %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @dropdown_value_changed_event_cb(ptr noundef %0) #0 {
-  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #9
-  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #9
-  %4 = tail call i32 @lv_dropdown_get_selected(ptr noundef %2) #9
+  %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #8
+  %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #8
+  %4 = tail call i32 @lv_dropdown_get_selected(ptr noundef %2) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 15
@@ -1957,7 +1953,7 @@ define internal void @dropdown_value_observer_cb(ptr noundef readonly captures(n
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !3
-  tail call void @lv_dropdown_set_selected(ptr noundef %4, i32 noundef %6, i1 noundef zeroext false) #9
+  tail call void @lv_dropdown_set_selected(ptr noundef %4, i32 noundef %6, i1 noundef zeroext false) #8
   ret void
 }
 
@@ -2037,9 +2033,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2048,8 +2041,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

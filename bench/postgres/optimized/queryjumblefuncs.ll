@@ -31,7 +31,7 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
 11:                                               ; preds = %3, %6
   %.sink63 = phi ptr [ %9, %6 ], [ %0, %3 ]
   %.023 = phi i32 [ %4, %6 ], [ 0, %3 ]
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink63) #8
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink63) #7
   %13 = trunc i64 %12 to i32
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.preheader, label %.critedge2
@@ -48,7 +48,7 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
   %.12430 = phi i32 [ %20, %18 ], [ %.02350, %.lr.ph.preheader ]
   %.12629 = phi ptr [ %19, %18 ], [ %.02549, %.lr.ph.preheader ]
   %16 = load i8, ptr %.12629, align 1
-  %17 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %16) #9
+  %17 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %16) #8
   br i1 %17, label %18, label %.lr.ph39.preheader
 
 18:                                               ; preds = %.lr.ph
@@ -67,7 +67,7 @@ define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address,
   %24 = getelementptr i8, ptr %.12629, i64 %indvars.iv
   %25 = getelementptr i8, ptr %24, i64 -1
   %26 = load i8, ptr %25, align 1
-  %27 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %26) #9
+  %27 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %26) #8
   br i1 %27, label %28, label %.critedge2.loopexit.split.loop.exit61
 
 28:                                               ; preds = %.lr.ph39
@@ -95,14 +95,14 @@ declare zeroext i1 @scanner_isspace(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @JumbleQuery(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 40) #9
-  %3 = tail call ptr @palloc(i64 noundef 1024) #9
+  %2 = tail call ptr @palloc(i64 noundef 40) #8
+  %3 = tail call ptr @palloc(i64 noundef 1024) #8
   store ptr %3, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 32, ptr %5, align 8
-  %6 = tail call ptr @palloc(i64 noundef 256) #9
+  %6 = tail call ptr @palloc(i64 noundef 256) #8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -113,7 +113,7 @@ define dso_local ptr @JumbleQuery(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr %2, align 8
   %11 = load i64, ptr %4, align 8
   %12 = trunc i64 %11 to i32
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef %12, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef %12, i64 noundef 0) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %13, ptr %14, align 8
   %15 = icmp eq i64 %13, 0
@@ -139,7 +139,7 @@ define internal fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %2
-  tail call void @check_stack_depth() #9
+  tail call void @check_stack_depth() #8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -153,7 +153,7 @@ define internal fastcc void @_jumbleNode(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -1543,13 +1543,13 @@ AppendJumble.exit:                                ; preds = %11
   br label %320
 
 315:                                              ; preds = %AppendJumble.exit
-  %316 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #9
+  %316 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
   br i1 %316, label %317, label %320
 
 317:                                              ; preds = %315
   %318 = load i32, ptr %1, align 4
-  %319 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %318) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__._jumbleNode) #9
+  %319 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %318) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__._jumbleNode) #8
   br label %320
 
 320:                                              ; preds = %315, %317, %314, %312, %310, %309, %307, %306, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %273, %272, %271, %269, %268, %267, %265, %264, %263, %262, %261, %260, %259, %257, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %243, %242, %241, %240, %239, %238, %237, %236, %235, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %189, %188, %187, %186, %185, %184, %183, %182, %181, %178, %177, %176, %175, %174, %173, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %133, %132, %131, %130, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68, %67, %66, %65, %64, %63, %62, %61, %60, %57, %56, %53, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19
@@ -1605,7 +1605,7 @@ define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr noundef nonnull re
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1621,7 +1621,7 @@ define internal fastcc void @_jumbleAlias(ptr noundef %0, ptr noundef nonnull re
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -1658,7 +1658,7 @@ define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr noundef nonnull
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -1673,7 +1673,7 @@ define internal fastcc void @_jumbleRangeVar(ptr noundef %0, ptr noundef nonnull
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67.pre70, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67.pre70, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre65.pre67.pre70, align 1
   br label %13
 
@@ -1707,7 +1707,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not21, label %38, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
   %25 = add i64 %24, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
@@ -1722,7 +1722,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i24
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %.pre65.pre67, align 1
   br label %31
 
@@ -1761,7 +1761,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   br label %.lr.ph.i41
 
 41:                                               ; preds = %38
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #7
   %43 = add i64 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
@@ -1776,7 +1776,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.lr.ph.i33
-  %48 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65, i32 noundef 1024, i64 noundef 0) #9
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65, i32 noundef 1024, i64 noundef 0) #8
   store i64 %48, ptr %.pre65, align 1
   br label %49
 
@@ -1811,7 +1811,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   br i1 %60, label %.lr.ph.i49.thread, label %.lr.ph.i49
 
 .lr.ph.i49.thread:                                ; preds = %.lr.ph.i41
-  %61 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #8
   store i64 %61, ptr %57, align 1
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %63 = load i8, ptr %58, align 1
@@ -1831,7 +1831,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   br i1 %69, label %70, label %AppendJumble.exit56
 
 70:                                               ; preds = %.lr.ph.i49
-  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #8
   store i64 %71, ptr %68, align 1
   br label %AppendJumble.exit56
 
@@ -1866,7 +1866,7 @@ define internal fastcc void @_jumbleTableFunc(ptr noundef %0, ptr noundef nonnul
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -1910,7 +1910,7 @@ define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr noundef nonnu
   br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %11 = add i64 %10, 1
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1926,7 +1926,7 @@ define internal fastcc void @_jumbleIntoClause(ptr noundef %0, ptr noundef nonnu
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %12, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %12, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %12, align 1
   br label %18
 
@@ -1965,7 +1965,7 @@ AppendJumble.exit:                                ; preds = %18, %9
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i21
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %29, align 1
   br label %35
 
@@ -1990,7 +1990,7 @@ AppendJumble.exit28:                              ; preds = %35
   br i1 %.not20, label %.lr.ph.i38, label %44
 
 44:                                               ; preds = %AppendJumble.exit28
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #8
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #7
   %46 = add i64 %45, 1
   %.not23.i29 = icmp eq i64 %46, 0
   br i1 %.not23.i29, label %AppendJumble.exit37, label %.lr.ph.i30
@@ -2003,7 +2003,7 @@ AppendJumble.exit28:                              ; preds = %35
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph.i30
-  %49 = tail call i64 @hash_bytes_extended(ptr noundef %.pre52, i32 noundef 1024, i64 noundef 0) #9
+  %49 = tail call i64 @hash_bytes_extended(ptr noundef %.pre52, i32 noundef 1024, i64 noundef 0) #8
   store i64 %49, ptr %.pre52, align 1
   br label %50
 
@@ -2036,7 +2036,7 @@ AppendJumble.exit37:                              ; preds = %AppendJumble.exit37
   br i1 %59, label %60, label %AppendJumble.exit45
 
 60:                                               ; preds = %.lr.ph.i38
-  %61 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #9
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #8
   store i64 %61, ptr %58, align 1
   br label %AppendJumble.exit45
 
@@ -2067,7 +2067,7 @@ define internal fastcc void @_jumbleVar(ptr noundef captures(none) %0, ptr nound
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2097,7 +2097,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -2127,7 +2127,7 @@ AppendJumble.exit15:                              ; preds = %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i16
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -2157,7 +2157,7 @@ AppendJumble.exit22:                              ; preds = %34
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.lr.ph.i23
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %45, ptr %42, align 1
   br label %46
 
@@ -2194,7 +2194,7 @@ define internal fastcc void @_jumbleConst(ptr noundef captures(none) %0, ptr nou
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2237,7 +2237,7 @@ AppendJumble.exit:                                ; preds = %10
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %26 to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @repalloc(ptr noundef %28, i64 noundef %30) #9
+  %31 = tail call ptr @repalloc(ptr noundef %28, i64 noundef %30) #8
   store ptr %31, ptr %27, align 8
   %.pre13.i = load i32, ptr %21, align 4
   br label %32
@@ -2280,7 +2280,7 @@ define internal fastcc void @_jumbleParam(ptr noundef captures(none) %0, ptr nou
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2310,7 +2310,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i7
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -2340,7 +2340,7 @@ AppendJumble.exit13:                              ; preds = %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i14
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -2377,7 +2377,7 @@ define internal fastcc void @_jumbleAggref(ptr noundef %0, ptr noundef nonnull r
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2432,7 +2432,7 @@ define internal fastcc void @_jumbleGroupingFunc(ptr noundef %0, ptr noundef non
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -2469,7 +2469,7 @@ define internal fastcc void @_jumbleWindowFunc(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2506,7 +2506,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %22, align 1
   br label %27
 
@@ -2543,7 +2543,7 @@ define internal fastcc void @_jumbleWindowFuncRunCondition(ptr noundef %0, ptr n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2566,7 +2566,7 @@ define internal fastcc void @_jumbleWindowFuncRunCondition(ptr noundef %0, ptr n
   br i1 %18, label %19, label %AppendJumble.exit13
 
 19:                                               ; preds = %.lr.ph.i7
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %17, align 1
   br label %AppendJumble.exit13
 
@@ -2600,7 +2600,7 @@ define internal fastcc void @_jumbleMergeSupportFunc(ptr noundef captures(none) 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2630,7 +2630,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -2684,7 +2684,7 @@ define internal fastcc void @_jumbleFuncExpr(ptr noundef %0, ptr noundef nonnull
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2727,7 +2727,7 @@ define internal fastcc void @_jumbleNamedArgExpr(ptr noundef %0, ptr noundef non
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -2764,7 +2764,7 @@ define internal fastcc void @_jumbleOpExpr(ptr noundef %0, ptr noundef nonnull r
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2804,7 +2804,7 @@ define internal fastcc void @_jumbleDistinctExpr(ptr noundef %0, ptr noundef non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2844,7 +2844,7 @@ define internal fastcc void @_jumbleNullIfExpr(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2884,7 +2884,7 @@ define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nounde
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2907,7 +2907,7 @@ define internal fastcc void @_jumbleScalarArrayOpExpr(ptr noundef %0, ptr nounde
   br i1 %18, label %19, label %AppendJumble.exit13
 
 19:                                               ; preds = %.lr.ph.i7
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %17, align 1
   br label %AppendJumble.exit13
 
@@ -2941,7 +2941,7 @@ define internal fastcc void @_jumbleBoolExpr(ptr noundef %0, ptr noundef nonnull
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -2981,7 +2981,7 @@ define internal fastcc void @_jumbleSubLink(ptr noundef %0, ptr noundef nonnull 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3011,7 +3011,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -3057,7 +3057,7 @@ define internal fastcc void @_jumbleFieldSelect(ptr noundef %0, ptr noundef nonn
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -3108,7 +3108,7 @@ define internal fastcc void @_jumbleRelabelType(ptr noundef %0, ptr noundef nonn
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -3148,7 +3148,7 @@ define internal fastcc void @_jumbleCoerceViaIO(ptr noundef %0, ptr noundef nonn
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -3191,7 +3191,7 @@ define internal fastcc void @_jumbleArrayCoerceExpr(ptr noundef %0, ptr noundef 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -3231,7 +3231,7 @@ define internal fastcc void @_jumbleConvertRowtypeExpr(ptr noundef %0, ptr nound
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -3271,7 +3271,7 @@ define internal fastcc void @_jumbleCollateExpr(ptr noundef %0, ptr noundef nonn
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -3333,7 +3333,7 @@ define internal fastcc void @_jumbleCaseTestExpr(ptr noundef captures(none) %0, 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3370,7 +3370,7 @@ define internal fastcc void @_jumbleRowCompareExpr(ptr noundef %0, ptr noundef n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3413,7 +3413,7 @@ define internal fastcc void @_jumbleMinMaxExpr(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3453,7 +3453,7 @@ define internal fastcc void @_jumbleSQLValueFunction(ptr noundef captures(none) 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3483,7 +3483,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -3520,7 +3520,7 @@ define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr noundef nonnull 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3550,7 +3550,7 @@ define internal fastcc void @_jumbleXmlExpr(ptr noundef %0, ptr noundef nonnull 
   br i1 %23, label %24, label %AppendJumble.exit15
 
 24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %21, align 1
   br label %AppendJumble.exit15
 
@@ -3581,7 +3581,7 @@ define internal fastcc void @_jumbleJsonFormat(ptr noundef captures(none) %0, pt
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3611,7 +3611,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -3651,7 +3651,7 @@ define internal fastcc void @_jumbleJsonReturning(ptr noundef %0, ptr noundef no
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -3681,7 +3681,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -3732,7 +3732,7 @@ define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr noun
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3769,7 +3769,7 @@ define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr noun
   br i1 %28, label %.lr.ph.i22.thread, label %.lr.ph.i22
 
 .lr.ph.i22.thread:                                ; preds = %.lr.ph.i15
-  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #8
   store i64 %29, ptr %26, align 1
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load i8, ptr %25, align 1
@@ -3789,7 +3789,7 @@ define internal fastcc void @_jumbleJsonConstructorExpr(ptr noundef %0, ptr noun
   br i1 %37, label %38, label %AppendJumble.exit28
 
 38:                                               ; preds = %.lr.ph.i22
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #8
   store i64 %39, ptr %36, align 1
   br label %AppendJumble.exit28
 
@@ -3827,7 +3827,7 @@ define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr noundef 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -3850,7 +3850,7 @@ define internal fastcc void @_jumbleJsonIsPredicate(ptr noundef %0, ptr noundef 
   br i1 %22, label %23, label %AppendJumble.exit15
 
 23:                                               ; preds = %.lr.ph.i9
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %21, align 1
   br label %AppendJumble.exit15
 
@@ -3881,7 +3881,7 @@ define internal fastcc void @_jumbleJsonBehavior(ptr noundef %0, ptr noundef non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3908,7 +3908,7 @@ define internal fastcc void @_jumbleJsonBehavior(ptr noundef %0, ptr noundef non
   br i1 %21, label %22, label %AppendJumble.exit13
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %19, align 1
   br label %AppendJumble.exit13
 
@@ -3939,7 +3939,7 @@ define internal fastcc void @_jumbleJsonExpr(ptr noundef %0, ptr noundef nonnull
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -3963,7 +3963,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %.lr.ph.i40, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -3977,7 +3977,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i33
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -4030,7 +4030,7 @@ AppendJumble.exit39:                              ; preds = %26, %19
   br i1 %52, label %.lr.ph.i48.thread, label %.lr.ph.i48
 
 .lr.ph.i48.thread:                                ; preds = %.lr.ph.i40
-  %53 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  %53 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #8
   store i64 %53, ptr %50, align 1
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load i8, ptr %49, align 1
@@ -4050,7 +4050,7 @@ AppendJumble.exit39:                              ; preds = %26, %19
   br i1 %61, label %62, label %AppendJumble.exit55
 
 62:                                               ; preds = %.lr.ph.i48
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #9
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #8
   store i64 %63, ptr %60, align 1
   br label %AppendJumble.exit55
 
@@ -4075,7 +4075,7 @@ AppendJumble.exit55:                              ; preds = %.lr.ph.i48, %62, %.
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %.lr.ph.i56
-  %73 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef 1024, i64 noundef 0) #9
+  %73 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef 1024, i64 noundef 0) #8
   store i64 %73, ptr %70, align 1
   br label %74
 
@@ -4099,7 +4099,7 @@ AppendJumble.exit55:                              ; preds = %.lr.ph.i48, %62, %.
   br i1 %83, label %84, label %AppendJumble.exit71
 
 84:                                               ; preds = %.lr.ph.i64
-  %85 = tail call i64 @hash_bytes_extended(ptr noundef %82, i32 noundef 1024, i64 noundef 0) #9
+  %85 = tail call i64 @hash_bytes_extended(ptr noundef %82, i32 noundef 1024, i64 noundef 0) #8
   store i64 %85, ptr %82, align 1
   br label %AppendJumble.exit71
 
@@ -4122,7 +4122,7 @@ AppendJumble.exit71:                              ; preds = %.lr.ph.i64, %84
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %.lr.ph.i72
-  %93 = tail call i64 @hash_bytes_extended(ptr noundef %90, i32 noundef 1024, i64 noundef 0) #9
+  %93 = tail call i64 @hash_bytes_extended(ptr noundef %90, i32 noundef 1024, i64 noundef 0) #8
   store i64 %93, ptr %90, align 1
   br label %94
 
@@ -4154,7 +4154,7 @@ define internal fastcc void @_jumbleJsonTablePath(ptr noundef %0, ptr noundef no
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4170,7 +4170,7 @@ define internal fastcc void @_jumbleJsonTablePath(ptr noundef %0, ptr noundef no
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -4209,7 +4209,7 @@ define internal fastcc void @_jumbleJsonTablePathScan(ptr noundef %0, ptr nounde
   br i1 %8, label %9, label %AppendJumble.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %AppendJumble.exit
 
@@ -4236,7 +4236,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i11
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %17, align 1
   br label %22
 
@@ -4266,7 +4266,7 @@ AppendJumble.exit17:                              ; preds = %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i18
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -4317,7 +4317,7 @@ define internal fastcc void @_jumbleNullTest(ptr noundef %0, ptr noundef nonnull
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -4357,7 +4357,7 @@ define internal fastcc void @_jumbleBooleanTest(ptr noundef %0, ptr noundef nonn
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -4394,7 +4394,7 @@ define internal fastcc void @_jumbleMergeAction(ptr noundef %0, ptr noundef nonn
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4424,7 +4424,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -4470,7 +4470,7 @@ define internal fastcc void @_jumbleCoerceToDomain(ptr noundef %0, ptr noundef n
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -4507,7 +4507,7 @@ define internal fastcc void @_jumbleCoerceToDomainValue(ptr noundef captures(non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4544,7 +4544,7 @@ define internal fastcc void @_jumbleSetToDefault(ptr noundef captures(none) %0, 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4581,7 +4581,7 @@ define internal fastcc void @_jumbleCurrentOfExpr(ptr noundef captures(none) %0,
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4606,7 +4606,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %32, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %.not23.i = icmp eq i64 %21, 0
   br i1 %.not23.i, label %AppendJumble.exit15, label %.lr.ph.i9
@@ -4619,7 +4619,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i9
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %.pre28, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %.pre28, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %.pre28, align 1
   br label %25
 
@@ -4659,7 +4659,7 @@ AppendJumble.exit15:                              ; preds = %AppendJumble.exit15
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.lr.ph.i16
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
+  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #8
   store i64 %38, ptr %34, align 1
   br label %39
 
@@ -4696,7 +4696,7 @@ define internal fastcc void @_jumbleNextValueExpr(ptr noundef captures(none) %0,
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4726,7 +4726,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i5
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -4766,7 +4766,7 @@ define internal fastcc void @_jumbleInferenceElem(ptr noundef %0, ptr noundef no
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -4796,7 +4796,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -4833,7 +4833,7 @@ define internal fastcc void @_jumbleReturningExpr(ptr noundef %0, ptr noundef no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4856,7 +4856,7 @@ define internal fastcc void @_jumbleReturningExpr(ptr noundef %0, ptr noundef no
   br i1 %18, label %19, label %AppendJumble.exit13
 
 19:                                               ; preds = %.lr.ph.i7
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %17, align 1
   br label %AppendJumble.exit13
 
@@ -4893,7 +4893,7 @@ define internal fastcc void @_jumbleTargetEntry(ptr noundef %0, ptr noundef nonn
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -4923,7 +4923,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -4960,7 +4960,7 @@ define internal fastcc void @_jumbleRangeTblRef(ptr noundef captures(none) %0, p
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -4997,7 +4997,7 @@ define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr noundef nonnull
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -5021,7 +5021,7 @@ define internal fastcc void @_jumbleJoinExpr(ptr noundef %0, ptr noundef nonnull
   br i1 %19, label %20, label %AppendJumble.exit19
 
 20:                                               ; preds = %.lr.ph.i13
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %AppendJumble.exit19
 
@@ -5054,7 +5054,7 @@ AppendJumble.exit19:                              ; preds = %.lr.ph.i13, %20
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.lr.ph.i20
-  %36 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  %36 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #8
   store i64 %36, ptr %32, align 1
   br label %37
 
@@ -5102,7 +5102,7 @@ define internal fastcc void @_jumbleOnConflictExpr(ptr noundef %0, ptr noundef n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -5139,7 +5139,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph.i17
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %22, align 1
   br label %27
 
@@ -5176,7 +5176,7 @@ AppendJumble.exit23:                              ; preds = %27
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.lr.ph.i24
-  %43 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
+  %43 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #8
   store i64 %43, ptr %39, align 1
   br label %44
 
@@ -5216,7 +5216,7 @@ define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr noundef nonnull re
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -5271,7 +5271,7 @@ define internal fastcc void @_jumbleQuery(ptr noundef %0, ptr noundef nonnull re
   br i1 %40, label %41, label %AppendJumble.exit51
 
 41:                                               ; preds = %.lr.ph.i45
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #9
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #8
   store i64 %42, ptr %38, align 1
   br label %AppendJumble.exit51
 
@@ -5316,7 +5316,7 @@ AppendJumble.exit51:                              ; preds = %.lr.ph.i45, %41
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %.lr.ph.i52
-  %65 = tail call i64 @hash_bytes_extended(ptr noundef %61, i32 noundef 1024, i64 noundef 0) #9
+  %65 = tail call i64 @hash_bytes_extended(ptr noundef %61, i32 noundef 1024, i64 noundef 0) #8
   store i64 %65, ptr %61, align 1
   br label %66
 
@@ -5362,7 +5362,7 @@ define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr noundef nonnull
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -5386,7 +5386,7 @@ define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr noundef nonnull
   br i1 %21, label %.lr.ph.i22.thread, label %.lr.ph.i22
 
 .lr.ph.i22.thread:                                ; preds = %.lr.ph.i15
-  %22 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %22 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %22, ptr %20, align 1
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %24 = load i8, ptr %19, align 1
@@ -5406,7 +5406,7 @@ define internal fastcc void @_jumbleTypeName(ptr noundef %0, ptr noundef nonnull
   br i1 %30, label %31, label %AppendJumble.exit28
 
 31:                                               ; preds = %.lr.ph.i22
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %29, align 1
   br label %AppendJumble.exit28
 
@@ -5435,7 +5435,7 @@ AppendJumble.exit28:                              ; preds = %.lr.ph.i22, %31, %.
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.lr.ph.i29
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #8
   store i64 %45, ptr %41, align 1
   br label %46
 
@@ -5475,7 +5475,7 @@ define internal fastcc void @_jumbleParamRef(ptr noundef captures(none) %0, ptr 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -5512,7 +5512,7 @@ define internal fastcc void @_jumbleA_Expr(ptr noundef %0, ptr noundef nonnull r
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -5553,7 +5553,7 @@ define internal fastcc void @_jumbleA_Const(ptr noundef captures(none) %0, ptr n
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -5581,7 +5581,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %.lr.ph.i28
-  %19 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
+  %19 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #8
   store i64 %19, ptr %16, align 1
   br label %20
 
@@ -5621,7 +5621,7 @@ AppendJumble.exit34:                              ; preds = %20
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i35
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -5644,7 +5644,7 @@ AppendJumble.exit34:                              ; preds = %20
   br i1 %.not27, label %104, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #8
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #7
   %46 = add i64 %45, 1
   %47 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %46, 0
@@ -5658,7 +5658,7 @@ AppendJumble.exit34:                              ; preds = %20
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.lr.ph.i42
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
   store i64 %50, ptr %47, align 1
   br label %51
 
@@ -5681,7 +5681,7 @@ AppendJumble.exit34:                              ; preds = %20
   br i1 %60, label %61, label %AppendJumble.exit56
 
 61:                                               ; preds = %.lr.ph.i49
-  %62 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
+  %62 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #8
   store i64 %62, ptr %59, align 1
   br label %AppendJumble.exit56
 
@@ -5700,7 +5700,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   br i1 %.not26, label %104, label %69
 
 69:                                               ; preds = %66
-  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #8
+  %70 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #7
   %71 = add i64 %70, 1
   %72 = load ptr, ptr %0, align 8
   %.not23.i57 = icmp eq i64 %71, 0
@@ -5714,7 +5714,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %.lr.ph.i58
-  %75 = tail call i64 @hash_bytes_extended(ptr noundef %72, i32 noundef 1024, i64 noundef 0) #9
+  %75 = tail call i64 @hash_bytes_extended(ptr noundef %72, i32 noundef 1024, i64 noundef 0) #8
   store i64 %75, ptr %72, align 1
   br label %76
 
@@ -5737,7 +5737,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   br i1 %.not, label %104, label %86
 
 86:                                               ; preds = %83
-  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #8
+  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #7
   %88 = add i64 %87, 1
   %89 = load ptr, ptr %0, align 8
   %.not23.i66 = icmp eq i64 %88, 0
@@ -5751,7 +5751,7 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %.lr.ph.i67
-  %92 = tail call i64 @hash_bytes_extended(ptr noundef %89, i32 noundef 1024, i64 noundef 0) #9
+  %92 = tail call i64 @hash_bytes_extended(ptr noundef %89, i32 noundef 1024, i64 noundef 0) #8
   store i64 %92, ptr %89, align 1
   br label %93
 
@@ -5768,11 +5768,10 @@ AppendJumble.exit56:                              ; preds = %.lr.ph.i49, %61
   br i1 %.not.i72, label %.sink.split, label %.lr.ph.i67, !llvm.loop !7
 
 100:                                              ; preds = %AppendJumble.exit34
-  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %101)
+  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %102 = load i32, ptr %15, align 8
-  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %102) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__._jumbleA_Const) #9
+  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %102) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__._jumbleA_Const) #8
   unreachable
 
 .sink.split:                                      ; preds = %93, %76, %51, %34, %86, %69, %44, %AppendJumble.exit56
@@ -5822,7 +5821,7 @@ define internal fastcc void @_jumbleRoleSpec(ptr noundef captures(none) %0, ptr 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -5846,7 +5845,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -5860,7 +5859,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i7
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -5911,7 +5910,7 @@ define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr noundef nonnull
   br i1 %16, label %.lr.ph.i21.thread, label %.lr.ph.i21
 
 .lr.ph.i21.thread:                                ; preds = %.lr.ph.i
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %13, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %13, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %13, align 1
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load i8, ptr %12, align 1
@@ -5933,7 +5932,7 @@ define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr noundef nonnull
   br i1 %27, label %28, label %.lr.ph.i28
 
 28:                                               ; preds = %.lr.ph.i21
-  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #8
   store i64 %29, ptr %26, align 1
   br label %.lr.ph.i28.thread
 
@@ -5962,7 +5961,7 @@ define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr noundef nonnull
   br i1 %40, label %41, label %.lr.ph.i35
 
 41:                                               ; preds = %.lr.ph.i28
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #8
   store i64 %42, ptr %39, align 1
   br label %.lr.ph.i35.thread
 
@@ -5989,7 +5988,7 @@ define internal fastcc void @_jumbleFuncCall(ptr noundef %0, ptr noundef nonnull
   br i1 %51, label %52, label %AppendJumble.exit41
 
 52:                                               ; preds = %.lr.ph.i35
-  %53 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  %53 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #8
   store i64 %53, ptr %50, align 1
   br label %AppendJumble.exit41
 
@@ -6014,7 +6013,7 @@ AppendJumble.exit41:                              ; preds = %.lr.ph.i35, %52, %.
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph.i42
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #9
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #8
   store i64 %63, ptr %60, align 1
   br label %64
 
@@ -6045,7 +6044,7 @@ define internal fastcc void @_jumbleA_Indices(ptr noundef %0, ptr noundef nonnul
   br i1 %5, label %6, label %AppendJumble.exit
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %2, align 1
   br label %AppendJumble.exit
 
@@ -6085,7 +6084,7 @@ define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr noundef nonnul
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6101,7 +6100,7 @@ define internal fastcc void @_jumbleResTarget(ptr noundef %0, ptr noundef nonnul
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -6151,7 +6150,7 @@ define internal fastcc void @_jumbleMultiAssignRef(ptr noundef %0, ptr noundef n
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -6181,7 +6180,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -6221,7 +6220,7 @@ define internal fastcc void @_jumbleSortBy(ptr noundef %0, ptr noundef nonnull r
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -6251,7 +6250,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i9
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -6283,7 +6282,7 @@ define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr noundef nonnul
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6299,7 +6298,7 @@ define internal fastcc void @_jumbleWindowDef(ptr noundef %0, ptr noundef nonnul
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -6327,7 +6326,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not20, label %40, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6343,7 +6342,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i22
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -6385,7 +6384,7 @@ AppendJumble.exit29:                              ; preds = %33, %24
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %.lr.ph.i30
-  %51 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
+  %51 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #8
   store i64 %51, ptr %46, align 1
   br label %52
 
@@ -6422,7 +6421,7 @@ define internal fastcc void @_jumbleRangeSubselect(ptr noundef %0, ptr noundef n
   br i1 %5, label %6, label %AppendJumble.exit
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %2, align 1
   br label %AppendJumble.exit
 
@@ -6454,7 +6453,7 @@ define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr noundef no
   br i1 %6, label %.lr.ph.i13.thread, label %.lr.ph.i13
 
 .lr.ph.i13.thread:                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %3, align 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i8, ptr %2, align 1
@@ -6476,7 +6475,7 @@ define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr noundef no
   br i1 %17, label %18, label %.lr.ph.i20
 
 18:                                               ; preds = %.lr.ph.i13
-  %19 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
+  %19 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #8
   store i64 %19, ptr %16, align 1
   br label %.lr.ph.i20.thread
 
@@ -6503,7 +6502,7 @@ define internal fastcc void @_jumbleRangeFunction(ptr noundef %0, ptr noundef no
   br i1 %28, label %29, label %AppendJumble.exit26
 
 29:                                               ; preds = %.lr.ph.i20
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %27, align 1
   br label %AppendJumble.exit26
 
@@ -6538,7 +6537,7 @@ define internal fastcc void @_jumbleRangeTableFunc(ptr noundef %0, ptr noundef n
   br i1 %5, label %6, label %AppendJumble.exit
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %2, align 1
   br label %AppendJumble.exit
 
@@ -6576,7 +6575,7 @@ define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nounde
   br i1 %.not, label %.lr.ph.i15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6592,7 +6591,7 @@ define internal fastcc void @_jumbleRangeTableFuncCol(ptr noundef %0, ptr nounde
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -6625,7 +6624,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %27, label %.lr.ph.i23.thread, label %.lr.ph.i23
 
 .lr.ph.i23.thread:                                ; preds = %.lr.ph.i15
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %24, align 1
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load i8, ptr %23, align 1
@@ -6645,7 +6644,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %36, label %37, label %AppendJumble.exit30
 
 37:                                               ; preds = %.lr.ph.i23
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #9
+  %38 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #8
   store i64 %38, ptr %35, align 1
   br label %AppendJumble.exit30
 
@@ -6692,7 +6691,7 @@ define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr noundef nonnul
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6708,7 +6707,7 @@ define internal fastcc void @_jumbleColumnDef(ptr noundef %0, ptr noundef nonnul
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -6745,7 +6744,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %41
 
 26:                                               ; preds = %21
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #7
   %28 = add i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
@@ -6760,7 +6759,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i48
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %.pre149, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %.pre149, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %.pre149, align 1
   br label %34
 
@@ -6801,7 +6800,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.lr.ph.i56
-  %48 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #9
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #8
   store i64 %48, ptr %43, align 1
   br label %49
 
@@ -6825,7 +6824,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   br i1 %58, label %.lr.ph.i72.thread, label %.lr.ph.i72
 
 .lr.ph.i72.thread:                                ; preds = %.lr.ph.i64
-  %59 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
+  %59 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #8
   store i64 %59, ptr %57, align 1
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i8, ptr %56, align 1
@@ -6847,7 +6846,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   br i1 %69, label %70, label %.lr.ph.i80
 
 70:                                               ; preds = %.lr.ph.i72
-  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #8
   store i64 %71, ptr %68, align 1
   br label %.lr.ph.i80.thread
 
@@ -6876,7 +6875,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   br i1 %82, label %83, label %.lr.ph.i88
 
 83:                                               ; preds = %.lr.ph.i80
-  %84 = tail call i64 @hash_bytes_extended(ptr noundef %81, i32 noundef 1024, i64 noundef 0) #9
+  %84 = tail call i64 @hash_bytes_extended(ptr noundef %81, i32 noundef 1024, i64 noundef 0) #8
   store i64 %84, ptr %81, align 1
   br label %.lr.ph.i88.thread
 
@@ -6903,7 +6902,7 @@ AppendJumble.exit55:                              ; preds = %AppendJumble.exit55
   br i1 %93, label %94, label %AppendJumble.exit95
 
 94:                                               ; preds = %.lr.ph.i88
-  %95 = tail call i64 @hash_bytes_extended(ptr noundef %92, i32 noundef 1024, i64 noundef 0) #9
+  %95 = tail call i64 @hash_bytes_extended(ptr noundef %92, i32 noundef 1024, i64 noundef 0) #8
   store i64 %95, ptr %92, align 1
   br label %AppendJumble.exit95
 
@@ -6922,7 +6921,7 @@ AppendJumble.exit95:                              ; preds = %.lr.ph.i88, %94, %.
   br i1 %.not46, label %.lr.ph.i105, label %103
 
 103:                                              ; preds = %AppendJumble.exit95
-  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #8
+  %104 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #7
   %105 = add i64 %104, 1
   %106 = load ptr, ptr %0, align 8
   %.not23.i96 = icmp eq i64 %105, 0
@@ -6936,7 +6935,7 @@ AppendJumble.exit95:                              ; preds = %.lr.ph.i88, %94, %.
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %.lr.ph.i97
-  %109 = tail call i64 @hash_bytes_extended(ptr noundef %106, i32 noundef 1024, i64 noundef 0) #9
+  %109 = tail call i64 @hash_bytes_extended(ptr noundef %106, i32 noundef 1024, i64 noundef 0) #8
   store i64 %109, ptr %106, align 1
   br label %110
 
@@ -6971,7 +6970,7 @@ AppendJumble.exit104:                             ; preds = %110, %103
   br i1 %124, label %125, label %.lr.ph.i113
 
 125:                                              ; preds = %.lr.ph.i105
-  %126 = tail call i64 @hash_bytes_extended(ptr noundef %122, i32 noundef 1024, i64 noundef 0) #9
+  %126 = tail call i64 @hash_bytes_extended(ptr noundef %122, i32 noundef 1024, i64 noundef 0) #8
   store i64 %126, ptr %122, align 1
   br label %.lr.ph.i113
 
@@ -6992,7 +6991,7 @@ AppendJumble.exit104:                             ; preds = %110, %103
   br i1 %135, label %136, label %AppendJumble.exit120
 
 136:                                              ; preds = %.lr.ph.i113
-  %137 = tail call i64 @hash_bytes_extended(ptr noundef %133, i32 noundef 1024, i64 noundef 0) #9
+  %137 = tail call i64 @hash_bytes_extended(ptr noundef %133, i32 noundef 1024, i64 noundef 0) #8
   store i64 %137, ptr %133, align 1
   br label %AppendJumble.exit120
 
@@ -7019,7 +7018,7 @@ AppendJumble.exit120:                             ; preds = %.lr.ph.i113, %136
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %.lr.ph.i121
-  %148 = tail call i64 @hash_bytes_extended(ptr noundef %144, i32 noundef 1024, i64 noundef 0) #9
+  %148 = tail call i64 @hash_bytes_extended(ptr noundef %144, i32 noundef 1024, i64 noundef 0) #8
   store i64 %148, ptr %144, align 1
   br label %149
 
@@ -7065,7 +7064,7 @@ define internal fastcc void @_jumbleTableLikeClause(ptr noundef %0, ptr noundef 
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -7095,7 +7094,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -7124,7 +7123,7 @@ define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr noundef nonnul
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7140,7 +7139,7 @@ define internal fastcc void @_jumbleIndexElem(ptr noundef %0, ptr noundef nonnul
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -7171,7 +7170,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not22, label %42, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #7
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7187,7 +7186,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i24
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %29, align 1
   br label %35
 
@@ -7232,7 +7231,7 @@ AppendJumble.exit31:                              ; preds = %35, %26
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %.lr.ph.i32
-  %55 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  %55 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #8
   store i64 %55, ptr %50, align 1
   br label %56
 
@@ -7262,7 +7261,7 @@ AppendJumble.exit39:                              ; preds = %56
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %.lr.ph.i40
-  %67 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #9
+  %67 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #8
   store i64 %67, ptr %64, align 1
   br label %68
 
@@ -7291,7 +7290,7 @@ define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr noundef nonnull 
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7307,7 +7306,7 @@ define internal fastcc void @_jumbleDefElem(ptr noundef %0, ptr noundef nonnull 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -7335,7 +7334,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not14, label %40, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7351,7 +7350,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i16
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -7390,7 +7389,7 @@ AppendJumble.exit23:                              ; preds = %33, %24
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph.i24
-  %49 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
+  %49 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #8
   store i64 %49, ptr %44, align 1
   br label %50
 
@@ -7430,7 +7429,7 @@ define internal fastcc void @_jumbleLockingClause(ptr noundef %0, ptr noundef no
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -7460,7 +7459,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i7
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -7497,7 +7496,7 @@ define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr noundef non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -7527,7 +7526,7 @@ define internal fastcc void @_jumbleXmlSerialize(ptr noundef %0, ptr noundef non
   br i1 %23, label %24, label %AppendJumble.exit15
 
 24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %21, align 1
   br label %AppendJumble.exit15
 
@@ -7550,7 +7549,7 @@ define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr noundef no
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7566,7 +7565,7 @@ define internal fastcc void @_jumblePartitionElem(ptr noundef %0, ptr noundef no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -7616,7 +7615,7 @@ define internal fastcc void @_jumblePartitionSpec(ptr noundef %0, ptr noundef no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -7651,7 +7650,7 @@ define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nound
   br i1 %6, label %.lr.ph.i15.thread, label %.lr.ph.i15
 
 .lr.ph.i15.thread:                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %3, align 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i8, ptr %2, align 1
@@ -7671,7 +7670,7 @@ define internal fastcc void @_jumblePartitionBoundSpec(ptr noundef %0, ptr nound
   br i1 %15, label %16, label %AppendJumble.exit21
 
 16:                                               ; preds = %.lr.ph.i15
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %14, align 1
   br label %AppendJumble.exit21
 
@@ -7696,7 +7695,7 @@ AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %16, %.
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i22
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %24, align 1
   br label %28
 
@@ -7726,7 +7725,7 @@ AppendJumble.exit28:                              ; preds = %28
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i29
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #8
   store i64 %39, ptr %36, align 1
   br label %40
 
@@ -7772,7 +7771,7 @@ define internal fastcc void @_jumblePartitionRangeDatum(ptr noundef %0, ptr noun
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -7812,7 +7811,7 @@ define internal fastcc void @_jumblePartitionCmd(ptr noundef %0, ptr noundef non
   br i1 %9, label %10, label %AppendJumble.exit
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %AppendJumble.exit
 
@@ -7843,7 +7842,7 @@ define internal fastcc void @_jumbleRangeTblEntry(ptr noundef %0, ptr noundef no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -7873,7 +7872,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i33
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -7897,7 +7896,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %31, label %32, label %AppendJumble.exit46
 
 32:                                               ; preds = %.lr.ph.i40
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %AppendJumble.exit46
 
@@ -7927,7 +7926,7 @@ AppendJumble.exit46:                              ; preds = %.lr.ph.i40, %32
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.lr.ph.i47
-  %46 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %46 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %46, ptr %42, align 1
   br label %47
 
@@ -7955,7 +7954,7 @@ AppendJumble.exit46:                              ; preds = %.lr.ph.i40, %32
   br i1 %59, label %60, label %AppendJumble.exit60
 
 60:                                               ; preds = %.lr.ph.i54
-  %61 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #9
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %57, i32 noundef 1024, i64 noundef 0) #8
   store i64 %61, ptr %57, align 1
   br label %AppendJumble.exit60
 
@@ -7980,7 +7979,7 @@ AppendJumble.exit60:                              ; preds = %.lr.ph.i54, %60
   br i1 %.not, label %84, label %71
 
 71:                                               ; preds = %AppendJumble.exit60
-  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #8
+  %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #7
   %73 = add i64 %72, 1
   %.not23.i = icmp eq i64 %73, 0
   br i1 %.not23.i, label %AppendJumble.exit67, label %.lr.ph.i61
@@ -7993,7 +7992,7 @@ AppendJumble.exit60:                              ; preds = %.lr.ph.i54, %60
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %.lr.ph.i61
-  %76 = tail call i64 @hash_bytes_extended(ptr noundef %.pre99, i32 noundef 1024, i64 noundef 0) #9
+  %76 = tail call i64 @hash_bytes_extended(ptr noundef %.pre99, i32 noundef 1024, i64 noundef 0) #8
   store i64 %76, ptr %.pre99, align 1
   br label %77
 
@@ -8033,7 +8032,7 @@ AppendJumble.exit67:                              ; preds = %AppendJumble.exit67
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %.lr.ph.i68
-  %90 = tail call i64 @hash_bytes_extended(ptr noundef %86, i32 noundef 1024, i64 noundef 0) #9
+  %90 = tail call i64 @hash_bytes_extended(ptr noundef %86, i32 noundef 1024, i64 noundef 0) #8
   store i64 %90, ptr %86, align 1
   br label %91
 
@@ -8057,7 +8056,7 @@ AppendJumble.exit75:                              ; preds = %91
   br i1 %.not32, label %114, label %100
 
 100:                                              ; preds = %AppendJumble.exit75
-  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #8
+  %101 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #7
   %102 = add i64 %101, 1
   %103 = load ptr, ptr %0, align 8
   %.not23.i76 = icmp eq i64 %102, 0
@@ -8071,7 +8070,7 @@ AppendJumble.exit75:                              ; preds = %91
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %.lr.ph.i77
-  %106 = tail call i64 @hash_bytes_extended(ptr noundef %103, i32 noundef 1024, i64 noundef 0) #9
+  %106 = tail call i64 @hash_bytes_extended(ptr noundef %103, i32 noundef 1024, i64 noundef 0) #8
   store i64 %106, ptr %103, align 1
   br label %107
 
@@ -8112,7 +8111,7 @@ define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nounde
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -8136,7 +8135,7 @@ define internal fastcc void @_jumbleRTEPermissionInfo(ptr noundef %0, ptr nounde
   br i1 %19, label %20, label %AppendJumble.exit21
 
 20:                                               ; preds = %.lr.ph.i15
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %AppendJumble.exit21
 
@@ -8159,7 +8158,7 @@ AppendJumble.exit21:                              ; preds = %.lr.ph.i15, %20
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph.i22
-  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  %29 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #8
   store i64 %29, ptr %26, align 1
   br label %30
 
@@ -8189,7 +8188,7 @@ AppendJumble.exit28:                              ; preds = %30
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph.i29
-  %41 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #9
+  %41 = tail call i64 @hash_bytes_extended(ptr noundef %38, i32 noundef 1024, i64 noundef 0) #8
   store i64 %41, ptr %38, align 1
   br label %42
 
@@ -8235,7 +8234,7 @@ define internal fastcc void @_jumbleTableSampleClause(ptr noundef %0, ptr nounde
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -8278,7 +8277,7 @@ define internal fastcc void @_jumbleWithCheckOption(ptr noundef %0, ptr noundef 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -8302,7 +8301,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -8316,7 +8315,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i17
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -8345,7 +8344,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   br i1 %.not16, label %.lr.ph.i33, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #7
   %39 = add i64 %38, 1
   %40 = load ptr, ptr %0, align 8
   %.not23.i24 = icmp eq i64 %39, 0
@@ -8359,7 +8358,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.lr.ph.i25
-  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
+  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #8
   store i64 %43, ptr %40, align 1
   br label %44
 
@@ -8390,7 +8389,7 @@ AppendJumble.exit32:                              ; preds = %44, %37
   br i1 %55, label %56, label %AppendJumble.exit40
 
 56:                                               ; preds = %.lr.ph.i33
-  %57 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #9
+  %57 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #8
   store i64 %57, ptr %53, align 1
   br label %AppendJumble.exit40
 
@@ -8421,7 +8420,7 @@ define internal fastcc void @_jumbleSortGroupClause(ptr noundef captures(none) %
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -8451,7 +8450,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i11
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -8481,7 +8480,7 @@ AppendJumble.exit17:                              ; preds = %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i18
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -8505,7 +8504,7 @@ AppendJumble.exit17:                              ; preds = %22
   br i1 %43, label %44, label %.lr.ph.i32
 
 44:                                               ; preds = %.lr.ph.i25
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %45, ptr %42, align 1
   br label %.lr.ph.i32
 
@@ -8521,7 +8520,7 @@ AppendJumble.exit17:                              ; preds = %22
   br i1 %50, label %51, label %AppendJumble.exit38
 
 51:                                               ; preds = %.lr.ph.i32
-  %52 = tail call i64 @hash_bytes_extended(ptr noundef %49, i32 noundef 1024, i64 noundef 0) #9
+  %52 = tail call i64 @hash_bytes_extended(ptr noundef %49, i32 noundef 1024, i64 noundef 0) #8
   store i64 %52, ptr %49, align 1
   br label %AppendJumble.exit38
 
@@ -8558,7 +8557,7 @@ define internal fastcc void @_jumbleWindowClause(ptr noundef %0, ptr noundef non
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -8595,7 +8594,7 @@ AppendJumble.exit:                                ; preds = %14
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i13
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %26, align 1
   br label %31
 
@@ -8632,7 +8631,7 @@ define internal fastcc void @_jumbleRowMarkClause(ptr noundef captures(none) %0,
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -8662,7 +8661,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -8692,7 +8691,7 @@ AppendJumble.exit15:                              ; preds = %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i16
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -8715,7 +8714,7 @@ AppendJumble.exit15:                              ; preds = %22
   br i1 %42, label %43, label %AppendJumble.exit29
 
 43:                                               ; preds = %.lr.ph.i23
-  %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
+  %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #8
   store i64 %44, ptr %41, align 1
   br label %AppendJumble.exit29
 
@@ -8743,7 +8742,7 @@ define internal fastcc void @_jumbleWithClause(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %AppendJumble.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %AppendJumble.exit
 
@@ -8772,7 +8771,7 @@ define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr noundef nonn
   br i1 %.not, label %25, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %11 = add i64 %10, 1
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8788,7 +8787,7 @@ define internal fastcc void @_jumbleInferClause(ptr noundef %0, ptr noundef nonn
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %12, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %12, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %12, align 1
   br label %18
 
@@ -8829,7 +8828,7 @@ define internal fastcc void @_jumbleOnConflictClause(ptr noundef %0, ptr noundef
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -8873,7 +8872,7 @@ define internal fastcc void @_jumbleCTESearchClause(ptr noundef %0, ptr noundef 
   br i1 %8, label %9, label %AppendJumble.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %AppendJumble.exit
 
@@ -8890,7 +8889,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
   br i1 %.not, label %30, label %16
 
 16:                                               ; preds = %AppendJumble.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
   %18 = add i64 %17, 1
   %19 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %18, 0
@@ -8904,7 +8903,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph.i9
-  %22 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  %22 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %22, ptr %19, align 1
   br label %23
 
@@ -8940,7 +8939,7 @@ define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr noundef n
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8956,7 +8955,7 @@ define internal fastcc void @_jumbleCTECycleClause(ptr noundef %0, ptr noundef n
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -8996,7 +8995,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br label %45
 
 30:                                               ; preds = %23
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #8
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #7
   %32 = add i64 %31, 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
@@ -9011,7 +9010,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %.lr.ph.i26
-  %37 = tail call i64 @hash_bytes_extended(ptr noundef %.pre76, i32 noundef 1024, i64 noundef 0) #9
+  %37 = tail call i64 @hash_bytes_extended(ptr noundef %.pre76, i32 noundef 1024, i64 noundef 0) #8
   store i64 %37, ptr %.pre76, align 1
   br label %38
 
@@ -9052,7 +9051,7 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %.lr.ph.i34
-  %52 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  %52 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
   store i64 %52, ptr %47, align 1
   br label %53
 
@@ -9082,7 +9081,7 @@ AppendJumble.exit41:                              ; preds = %53
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %.lr.ph.i42
-  %64 = tail call i64 @hash_bytes_extended(ptr noundef %61, i32 noundef 1024, i64 noundef 0) #9
+  %64 = tail call i64 @hash_bytes_extended(ptr noundef %61, i32 noundef 1024, i64 noundef 0) #8
   store i64 %64, ptr %61, align 1
   br label %65
 
@@ -9112,7 +9111,7 @@ AppendJumble.exit49:                              ; preds = %65
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %.lr.ph.i50
-  %76 = tail call i64 @hash_bytes_extended(ptr noundef %73, i32 noundef 1024, i64 noundef 0) #9
+  %76 = tail call i64 @hash_bytes_extended(ptr noundef %73, i32 noundef 1024, i64 noundef 0) #8
   store i64 %76, ptr %73, align 1
   br label %77
 
@@ -9142,7 +9141,7 @@ AppendJumble.exit57:                              ; preds = %77
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %.lr.ph.i58
-  %88 = tail call i64 @hash_bytes_extended(ptr noundef %85, i32 noundef 1024, i64 noundef 0) #9
+  %88 = tail call i64 @hash_bytes_extended(ptr noundef %85, i32 noundef 1024, i64 noundef 0) #8
   store i64 %88, ptr %85, align 1
   br label %89
 
@@ -9177,7 +9176,7 @@ define internal fastcc void @_jumbleCommonTableExpr(ptr noundef %0, ptr noundef 
   br label %20
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -9192,7 +9191,7 @@ define internal fastcc void @_jumbleCommonTableExpr(ptr noundef %0, ptr noundef 
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre19, align 1
   br label %13
 
@@ -9232,7 +9231,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %22, align 1
   br label %27
 
@@ -9273,7 +9272,7 @@ define internal fastcc void @_jumbleMergeWhenClause(ptr noundef %0, ptr noundef 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -9303,7 +9302,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i13
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -9333,7 +9332,7 @@ AppendJumble.exit19:                              ; preds = %22
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i20
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %30, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %30, align 1
   br label %34
 
@@ -9379,7 +9378,7 @@ define internal fastcc void @_jumbleReturningOption(ptr noundef captures(none) %
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -9403,7 +9402,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -9417,7 +9416,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i7
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -9467,7 +9466,7 @@ define internal fastcc void @_jumbleTriggerTransition(ptr noundef captures(none)
   br label %.lr.ph.i9
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -9482,7 +9481,7 @@ define internal fastcc void @_jumbleTriggerTransition(ptr noundef captures(none)
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre29, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre29, align 1
   br label %13
 
@@ -9517,7 +9516,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %.lr.ph.i17.thread, label %.lr.ph.i17
 
 .lr.ph.i17.thread:                                ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %21, align 1
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load i8, ptr %22, align 1
@@ -9537,7 +9536,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %33, label %34, label %AppendJumble.exit24
 
 34:                                               ; preds = %.lr.ph.i17
-  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #8
   store i64 %35, ptr %32, align 1
   br label %AppendJumble.exit24
 
@@ -9575,7 +9574,7 @@ define internal fastcc void @_jumbleJsonArgument(ptr noundef %0, ptr noundef non
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9591,7 +9590,7 @@ define internal fastcc void @_jumbleJsonArgument(ptr noundef %0, ptr noundef non
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -9632,7 +9631,7 @@ define internal fastcc void @_jumbleJsonFuncExpr(ptr noundef %0, ptr noundef non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -9656,7 +9655,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -9670,7 +9669,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i23
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -9723,7 +9722,7 @@ AppendJumble.exit29:                              ; preds = %26, %19
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %.lr.ph.i30
-  %51 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  %51 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
   store i64 %51, ptr %47, align 1
   br label %52
 
@@ -9753,7 +9752,7 @@ AppendJumble.exit37:                              ; preds = %52
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph.i38
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #9
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %60, i32 noundef 1024, i64 noundef 0) #8
   store i64 %63, ptr %60, align 1
   br label %64
 
@@ -9785,7 +9784,7 @@ define internal fastcc void @_jumbleJsonTablePathSpec(ptr noundef %0, ptr nounde
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9801,7 +9800,7 @@ define internal fastcc void @_jumbleJsonTablePathSpec(ptr noundef %0, ptr nounde
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -9854,7 +9853,7 @@ define internal fastcc void @_jumbleJsonTable(ptr noundef %0, ptr noundef nonnul
   br i1 %17, label %18, label %AppendJumble.exit
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  %19 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #8
   store i64 %19, ptr %14, align 1
   br label %AppendJumble.exit
 
@@ -9885,7 +9884,7 @@ define internal fastcc void @_jumbleJsonTableColumn(ptr noundef %0, ptr noundef 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -9909,7 +9908,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -9923,7 +9922,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i23
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -9967,7 +9966,7 @@ AppendJumble.exit29:                              ; preds = %26, %19
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %.lr.ph.i30
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #8
   store i64 %45, ptr %41, align 1
   br label %46
 
@@ -9997,7 +9996,7 @@ AppendJumble.exit37:                              ; preds = %46
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %.lr.ph.i38
-  %57 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
+  %57 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #8
   store i64 %57, ptr %54, align 1
   br label %58
 
@@ -10054,7 +10053,7 @@ define internal fastcc void @_jumbleJsonParseExpr(ptr noundef %0, ptr noundef no
   br i1 %9, label %10, label %AppendJumble.exit
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %AppendJumble.exit
 
@@ -10108,7 +10107,7 @@ define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph.i9.thread, label %.lr.ph.i9
 
 .lr.ph.i9.thread:                                 ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %7, align 1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i8, ptr %6, align 1
@@ -10128,7 +10127,7 @@ define internal fastcc void @_jumbleJsonObjectConstructor(ptr noundef %0, ptr no
   br i1 %19, label %20, label %AppendJumble.exit15
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %AppendJumble.exit15
 
@@ -10160,7 +10159,7 @@ define internal fastcc void @_jumbleJsonArrayConstructor(ptr noundef %0, ptr nou
   br i1 %9, label %10, label %AppendJumble.exit
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %AppendJumble.exit
 
@@ -10194,7 +10193,7 @@ define internal fastcc void @_jumbleJsonArrayQueryConstructor(ptr noundef %0, pt
   br i1 %11, label %12, label %AppendJumble.exit
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %AppendJumble.exit
 
@@ -10243,7 +10242,7 @@ define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr noundef no
   br i1 %10, label %.lr.ph.i9.thread, label %.lr.ph.i9
 
 .lr.ph.i9.thread:                                 ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %7, align 1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i8, ptr %6, align 1
@@ -10263,7 +10262,7 @@ define internal fastcc void @_jumbleJsonObjectAgg(ptr noundef %0, ptr noundef no
   br i1 %19, label %20, label %AppendJumble.exit15
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %AppendJumble.exit15
 
@@ -10295,7 +10294,7 @@ define internal fastcc void @_jumbleJsonArrayAgg(ptr noundef %0, ptr noundef non
   br i1 %9, label %10, label %AppendJumble.exit
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %AppendJumble.exit
 
@@ -10344,7 +10343,7 @@ define internal fastcc void @_jumbleInsertStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %16, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %16, align 1
   br label %22
 
@@ -10460,7 +10459,7 @@ define internal fastcc void @_jumbleSelectStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %18, label %19, label %AppendJumble.exit
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %15, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %15, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %15, align 1
   br label %AppendJumble.exit
 
@@ -10502,7 +10501,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %19
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.lr.ph.i41
-  %41 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #9
+  %41 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #8
   store i64 %41, ptr %37, align 1
   br label %42
 
@@ -10539,7 +10538,7 @@ AppendJumble.exit47:                              ; preds = %42
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.lr.ph.i48
-  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
+  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #8
   store i64 %58, ptr %54, align 1
   br label %59
 
@@ -10562,7 +10561,7 @@ AppendJumble.exit47:                              ; preds = %42
   br i1 %67, label %68, label %AppendJumble.exit61
 
 68:                                               ; preds = %.lr.ph.i55
-  %69 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef 1024, i64 noundef 0) #9
+  %69 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef 1024, i64 noundef 0) #8
   store i64 %69, ptr %66, align 1
   br label %AppendJumble.exit61
 
@@ -10599,7 +10598,7 @@ define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr noundef
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -10622,7 +10621,7 @@ define internal fastcc void @_jumbleSetOperationStmt(ptr noundef %0, ptr noundef
   br i1 %18, label %19, label %AppendJumble.exit15
 
 19:                                               ; preds = %.lr.ph.i9
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %17, align 1
   br label %AppendJumble.exit15
 
@@ -10651,7 +10650,7 @@ define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr noundef non
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10667,7 +10666,7 @@ define internal fastcc void @_jumblePLAssignStmt(ptr noundef %0, ptr noundef non
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -10706,7 +10705,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i11
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %25, align 1
   br label %31
 
@@ -10738,7 +10737,7 @@ define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr noundef
   br i1 %.not, label %.lr.ph.i11, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10754,7 +10753,7 @@ define internal fastcc void @_jumbleCreateSchemaStmt(ptr noundef %0, ptr noundef
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -10789,7 +10788,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %28, label %29, label %AppendJumble.exit18
 
 29:                                               ; preds = %.lr.ph.i11
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %25, align 1
   br label %AppendJumble.exit18
 
@@ -10826,7 +10825,7 @@ define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr noundef n
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -10849,7 +10848,7 @@ define internal fastcc void @_jumbleAlterTableStmt(ptr noundef %0, ptr noundef n
   br i1 %22, label %23, label %AppendJumble.exit15
 
 23:                                               ; preds = %.lr.ph.i9
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %21, align 1
   br label %AppendJumble.exit15
 
@@ -10875,7 +10874,7 @@ define internal fastcc void @_jumbleReplicaIdentityStmt(ptr noundef captures(non
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -10892,7 +10891,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %.not, label %28, label %14
 
 14:                                               ; preds = %AppendJumble.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #7
   %16 = add i64 %15, 1
   %17 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %16, 0
@@ -10906,7 +10905,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i7
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %17, align 1
   br label %21
 
@@ -10947,7 +10946,7 @@ define internal fastcc void @_jumbleAlterTableCmd(ptr noundef %0, ptr noundef no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -10972,7 +10971,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %32, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %.not23.i = icmp eq i64 %21, 0
   br i1 %.not23.i, label %AppendJumble.exit25, label %.lr.ph.i19
@@ -10985,7 +10984,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i19
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %.pre68, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %.pre68, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %.pre68, align 1
   br label %25
 
@@ -11025,7 +11024,7 @@ AppendJumble.exit25:                              ; preds = %AppendJumble.exit25
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %.lr.ph.i26
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
+  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #8
   store i64 %38, ptr %34, align 1
   br label %39
 
@@ -11062,7 +11061,7 @@ AppendJumble.exit33:                              ; preds = %39
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %.lr.ph.i34
-  %55 = tail call i64 @hash_bytes_extended(ptr noundef %51, i32 noundef 1024, i64 noundef 0) #9
+  %55 = tail call i64 @hash_bytes_extended(ptr noundef %51, i32 noundef 1024, i64 noundef 0) #8
   store i64 %55, ptr %51, align 1
   br label %56
 
@@ -11086,7 +11085,7 @@ AppendJumble.exit33:                              ; preds = %39
   br i1 %65, label %.lr.ph.i50.thread, label %.lr.ph.i50
 
 .lr.ph.i50.thread:                                ; preds = %.lr.ph.i42
-  %66 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #9
+  %66 = tail call i64 @hash_bytes_extended(ptr noundef %64, i32 noundef 1024, i64 noundef 0) #8
   store i64 %66, ptr %64, align 1
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %68 = load i8, ptr %63, align 1
@@ -11106,7 +11105,7 @@ AppendJumble.exit33:                              ; preds = %39
   br i1 %74, label %75, label %AppendJumble.exit57
 
 75:                                               ; preds = %.lr.ph.i50
-  %76 = tail call i64 @hash_bytes_extended(ptr noundef %73, i32 noundef 1024, i64 noundef 0) #9
+  %76 = tail call i64 @hash_bytes_extended(ptr noundef %73, i32 noundef 1024, i64 noundef 0) #8
   store i64 %76, ptr %73, align 1
   br label %AppendJumble.exit57
 
@@ -11133,7 +11132,7 @@ define internal fastcc void @_jumbleAlterDomainStmt(ptr noundef %0, ptr noundef 
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -11153,7 +11152,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %AppendJumble.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
   %18 = add i64 %17, 1
   %19 = load ptr, ptr %0, align 8
   %20 = load i64, ptr %4, align 8
@@ -11168,7 +11167,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i15
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %19, align 1
   br label %24
 
@@ -11206,7 +11205,7 @@ AppendJumble.exit21:                              ; preds = %24, %16
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i22
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #9
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %35, i32 noundef 1024, i64 noundef 0) #8
   store i64 %39, ptr %35, align 1
   br label %40
 
@@ -11229,7 +11228,7 @@ AppendJumble.exit21:                              ; preds = %24, %16
   br i1 %48, label %49, label %AppendJumble.exit37
 
 49:                                               ; preds = %.lr.ph.i30
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
   store i64 %50, ptr %47, align 1
   br label %AppendJumble.exit37
 
@@ -11255,7 +11254,7 @@ define internal fastcc void @_jumbleGrantStmt(ptr noundef %0, ptr noundef nonnul
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -11278,7 +11277,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %.lr.ph.i19
-  %16 = tail call i64 @hash_bytes_extended(ptr noundef %13, i32 noundef 1024, i64 noundef 0) #9
+  %16 = tail call i64 @hash_bytes_extended(ptr noundef %13, i32 noundef 1024, i64 noundef 0) #8
   store i64 %16, ptr %13, align 1
   br label %17
 
@@ -11308,7 +11307,7 @@ AppendJumble.exit25:                              ; preds = %17
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph.i26
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %25, align 1
   br label %29
 
@@ -11342,7 +11341,7 @@ AppendJumble.exit25:                              ; preds = %17
   br i1 %45, label %46, label %AppendJumble.exit39
 
 46:                                               ; preds = %.lr.ph.i33
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #9
+  %47 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #8
   store i64 %47, ptr %43, align 1
   br label %AppendJumble.exit39
 
@@ -11369,7 +11368,7 @@ AppendJumble.exit39:                              ; preds = %.lr.ph.i33, %46
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.lr.ph.i40
-  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #9
+  %58 = tail call i64 @hash_bytes_extended(ptr noundef %54, i32 noundef 1024, i64 noundef 0) #8
   store i64 %58, ptr %54, align 1
   br label %59
 
@@ -11409,7 +11408,7 @@ define internal fastcc void @_jumbleObjectWithArgs(ptr noundef %0, ptr noundef n
   br i1 %11, label %12, label %AppendJumble.exit
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %AppendJumble.exit
 
@@ -11432,7 +11431,7 @@ define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr noundef nonnu
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11448,7 +11447,7 @@ define internal fastcc void @_jumbleAccessPriv(ptr noundef %0, ptr noundef nonnu
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -11493,7 +11492,7 @@ define internal fastcc void @_jumbleGrantRoleStmt(ptr noundef %0, ptr noundef no
   br i1 %10, label %11, label %AppendJumble.exit
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %7, align 1
   br label %AppendJumble.exit
 
@@ -11523,7 +11522,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %11
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i13
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %21, align 1
   br label %26
 
@@ -11575,7 +11574,7 @@ define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %12, label %.lr.ph.i19.thread, label %.lr.ph.i19
 
 .lr.ph.i19.thread:                                ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %9, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %9, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %9, align 1
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i8, ptr %8, align 1
@@ -11595,7 +11594,7 @@ define internal fastcc void @_jumbleCopyStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %21, label %22, label %AppendJumble.exit25
 
 22:                                               ; preds = %.lr.ph.i19
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %AppendJumble.exit25
 
@@ -11614,7 +11613,7 @@ AppendJumble.exit25:                              ; preds = %.lr.ph.i19, %22, %.
   br i1 %.not, label %45, label %31
 
 31:                                               ; preds = %AppendJumble.exit25
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #8
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #7
   %33 = add i64 %32, 1
   %34 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %33, 0
@@ -11628,7 +11627,7 @@ AppendJumble.exit25:                              ; preds = %.lr.ph.i19, %22, %.
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %.lr.ph.i26
-  %37 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
+  %37 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #8
   store i64 %37, ptr %34, align 1
   br label %38
 
@@ -11675,7 +11674,7 @@ define internal fastcc void @_jumbleVariableSetStmt(ptr noundef %0, ptr noundef 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -11699,7 +11698,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -11713,7 +11712,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i14
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -11756,7 +11755,7 @@ AppendJumble.exit20:                              ; preds = %26, %19
   br i1 %44, label %45, label %AppendJumble.exit28
 
 45:                                               ; preds = %.lr.ph.i21
-  %46 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #9
+  %46 = tail call i64 @hash_bytes_extended(ptr noundef %43, i32 noundef 1024, i64 noundef 0) #8
   store i64 %46, ptr %43, align 1
   br label %AppendJumble.exit28
 
@@ -11792,7 +11791,7 @@ AppendJumble.exit28:                              ; preds = %.lr.ph.i21, %45
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %59 to i64
   %63 = shl nsw i64 %62, 3
-  %64 = tail call ptr @repalloc(ptr noundef %61, i64 noundef %63) #9
+  %64 = tail call ptr @repalloc(ptr noundef %61, i64 noundef %63) #8
   store ptr %64, ptr %60, align 8
   %.pre13.i = load i32, ptr %54, align 4
   br label %65
@@ -11825,7 +11824,7 @@ define internal fastcc void @_jumbleVariableShowStmt(ptr noundef captures(none) 
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11841,7 +11840,7 @@ define internal fastcc void @_jumbleVariableShowStmt(ptr noundef captures(none) 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -11909,7 +11908,7 @@ define internal fastcc void @_jumbleCreateStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %22, align 1
   br label %28
 
@@ -11934,7 +11933,7 @@ AppendJumble.exit:                                ; preds = %28
   br i1 %.not, label %50, label %37
 
 37:                                               ; preds = %AppendJumble.exit
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #7
   %39 = add i64 %38, 1
   %.not23.i = icmp eq i64 %39, 0
   br i1 %.not23.i, label %AppendJumble.exit39, label %.lr.ph.i33
@@ -11947,7 +11946,7 @@ AppendJumble.exit:                                ; preds = %28
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i33
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %.pre63.pre64, i32 noundef 1024, i64 noundef 0) #9
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %.pre63.pre64, i32 noundef 1024, i64 noundef 0) #8
   store i64 %42, ptr %.pre63.pre64, align 1
   br label %43
 
@@ -11982,7 +11981,7 @@ AppendJumble.exit39:                              ; preds = %AppendJumble.exit39
   br i1 %.not32, label %.lr.ph.i49, label %54
 
 54:                                               ; preds = %50
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #8
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #7
   %56 = add i64 %55, 1
   %.not23.i40 = icmp eq i64 %56, 0
   br i1 %.not23.i40, label %AppendJumble.exit48, label %.lr.ph.i41
@@ -11995,7 +11994,7 @@ AppendJumble.exit39:                              ; preds = %AppendJumble.exit39
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.lr.ph.i41
-  %59 = tail call i64 @hash_bytes_extended(ptr noundef %.pre63, i32 noundef 1024, i64 noundef 0) #9
+  %59 = tail call i64 @hash_bytes_extended(ptr noundef %.pre63, i32 noundef 1024, i64 noundef 0) #8
   store i64 %59, ptr %.pre63, align 1
   br label %60
 
@@ -12028,7 +12027,7 @@ AppendJumble.exit48:                              ; preds = %AppendJumble.exit48
   br i1 %69, label %70, label %AppendJumble.exit56
 
 70:                                               ; preds = %.lr.ph.i49
-  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  %71 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #8
   store i64 %71, ptr %68, align 1
   br label %AppendJumble.exit56
 
@@ -12059,7 +12058,7 @@ define internal fastcc void @_jumbleConstraint(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -12084,7 +12083,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %.lr.ph.i94, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %.not23.i = icmp eq i64 %21, 0
   br i1 %.not23.i, label %AppendJumble.exit93, label %.lr.ph.i87
@@ -12097,7 +12096,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i87
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %.pre310, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %.pre310, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %.pre310, align 1
   br label %25
 
@@ -12131,7 +12130,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   br i1 %35, label %.lr.ph.i102.thread, label %.lr.ph.i102
 
 .lr.ph.i102.thread:                               ; preds = %.lr.ph.i94
-  %36 = tail call i64 @hash_bytes_extended(ptr noundef %33, i32 noundef 1024, i64 noundef 0) #9
+  %36 = tail call i64 @hash_bytes_extended(ptr noundef %33, i32 noundef 1024, i64 noundef 0) #8
   store i64 %36, ptr %33, align 1
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i8, ptr %34, align 1
@@ -12153,7 +12152,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   br i1 %46, label %47, label %.lr.ph.i110
 
 47:                                               ; preds = %.lr.ph.i102
-  %48 = tail call i64 @hash_bytes_extended(ptr noundef %45, i32 noundef 1024, i64 noundef 0) #9
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %45, i32 noundef 1024, i64 noundef 0) #8
   store i64 %48, ptr %45, align 1
   br label %.lr.ph.i110.thread
 
@@ -12182,7 +12181,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   br i1 %59, label %60, label %.lr.ph.i118
 
 60:                                               ; preds = %.lr.ph.i110
-  %61 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #9
+  %61 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #8
   store i64 %61, ptr %58, align 1
   br label %.lr.ph.i118.thread
 
@@ -12211,7 +12210,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   br i1 %72, label %73, label %.lr.ph.i126
 
 73:                                               ; preds = %.lr.ph.i118
-  %74 = tail call i64 @hash_bytes_extended(ptr noundef %71, i32 noundef 1024, i64 noundef 0) #9
+  %74 = tail call i64 @hash_bytes_extended(ptr noundef %71, i32 noundef 1024, i64 noundef 0) #8
   store i64 %74, ptr %71, align 1
   br label %.lr.ph.i126.thread
 
@@ -12240,7 +12239,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   br i1 %85, label %86, label %.lr.ph.i134
 
 86:                                               ; preds = %.lr.ph.i126
-  %87 = tail call i64 @hash_bytes_extended(ptr noundef %84, i32 noundef 1024, i64 noundef 0) #9
+  %87 = tail call i64 @hash_bytes_extended(ptr noundef %84, i32 noundef 1024, i64 noundef 0) #8
   store i64 %87, ptr %84, align 1
   br label %.lr.ph.i134.thread
 
@@ -12267,7 +12266,7 @@ AppendJumble.exit93:                              ; preds = %AppendJumble.exit93
   br i1 %96, label %97, label %AppendJumble.exit141
 
 97:                                               ; preds = %.lr.ph.i134
-  %98 = tail call i64 @hash_bytes_extended(ptr noundef %95, i32 noundef 1024, i64 noundef 0) #9
+  %98 = tail call i64 @hash_bytes_extended(ptr noundef %95, i32 noundef 1024, i64 noundef 0) #8
   store i64 %98, ptr %95, align 1
   br label %AppendJumble.exit141
 
@@ -12291,7 +12290,7 @@ AppendJumble.exit141:                             ; preds = %.lr.ph.i134, %97, %
   br i1 %.not83, label %.lr.ph.i151, label %108
 
 108:                                              ; preds = %AppendJumble.exit141
-  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #8
+  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #7
   %110 = add i64 %109, 1
   %.not23.i142 = icmp eq i64 %110, 0
   br i1 %.not23.i142, label %AppendJumble.exit150, label %.lr.ph.i143
@@ -12304,7 +12303,7 @@ AppendJumble.exit141:                             ; preds = %.lr.ph.i134, %97, %
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %.lr.ph.i143
-  %113 = tail call i64 @hash_bytes_extended(ptr noundef %.pre312, i32 noundef 1024, i64 noundef 0) #9
+  %113 = tail call i64 @hash_bytes_extended(ptr noundef %.pre312, i32 noundef 1024, i64 noundef 0) #8
   store i64 %113, ptr %.pre312, align 1
   br label %114
 
@@ -12338,7 +12337,7 @@ AppendJumble.exit150:                             ; preds = %AppendJumble.exit15
   br i1 %124, label %.lr.ph.i159.thread, label %.lr.ph.i159
 
 .lr.ph.i159.thread:                               ; preds = %.lr.ph.i151
-  %125 = tail call i64 @hash_bytes_extended(ptr noundef %122, i32 noundef 1024, i64 noundef 0) #9
+  %125 = tail call i64 @hash_bytes_extended(ptr noundef %122, i32 noundef 1024, i64 noundef 0) #8
   store i64 %125, ptr %122, align 1
   %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %127 = load i8, ptr %123, align 1
@@ -12360,7 +12359,7 @@ AppendJumble.exit150:                             ; preds = %AppendJumble.exit15
   br i1 %135, label %136, label %.lr.ph.i167
 
 136:                                              ; preds = %.lr.ph.i159
-  %137 = tail call i64 @hash_bytes_extended(ptr noundef %134, i32 noundef 1024, i64 noundef 0) #9
+  %137 = tail call i64 @hash_bytes_extended(ptr noundef %134, i32 noundef 1024, i64 noundef 0) #8
   store i64 %137, ptr %134, align 1
   br label %.lr.ph.i167.thread
 
@@ -12387,7 +12386,7 @@ AppendJumble.exit150:                             ; preds = %AppendJumble.exit15
   br i1 %146, label %147, label %.lr.ph.i175
 
 147:                                              ; preds = %.lr.ph.i167
-  %148 = tail call i64 @hash_bytes_extended(ptr noundef %145, i32 noundef 1024, i64 noundef 0) #9
+  %148 = tail call i64 @hash_bytes_extended(ptr noundef %145, i32 noundef 1024, i64 noundef 0) #8
   store i64 %148, ptr %145, align 1
   br label %.lr.ph.i175
 
@@ -12410,7 +12409,7 @@ AppendJumble.exit150:                             ; preds = %AppendJumble.exit15
   br i1 %159, label %160, label %AppendJumble.exit182
 
 160:                                              ; preds = %.lr.ph.i175
-  %161 = tail call i64 @hash_bytes_extended(ptr noundef %157, i32 noundef 1024, i64 noundef 0) #9
+  %161 = tail call i64 @hash_bytes_extended(ptr noundef %157, i32 noundef 1024, i64 noundef 0) #8
   store i64 %161, ptr %157, align 1
   br label %AppendJumble.exit182
 
@@ -12438,7 +12437,7 @@ AppendJumble.exit182:                             ; preds = %.lr.ph.i175, %160
   br i1 %.not84, label %186, label %173
 
 173:                                              ; preds = %AppendJumble.exit182
-  %174 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %172) #8
+  %174 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %172) #7
   %175 = add i64 %174, 1
   %.not23.i183 = icmp eq i64 %175, 0
   br i1 %.not23.i183, label %AppendJumble.exit191, label %.lr.ph.i184
@@ -12451,7 +12450,7 @@ AppendJumble.exit182:                             ; preds = %.lr.ph.i175, %160
   br i1 %176, label %177, label %179
 
 177:                                              ; preds = %.lr.ph.i184
-  %178 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315.pre319, i32 noundef 1024, i64 noundef 0) #9
+  %178 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315.pre319, i32 noundef 1024, i64 noundef 0) #8
   store i64 %178, ptr %.pre315.pre319, align 1
   br label %179
 
@@ -12486,7 +12485,7 @@ AppendJumble.exit191:                             ; preds = %AppendJumble.exit19
   br i1 %.not85, label %.lr.ph.i201, label %189
 
 189:                                              ; preds = %186
-  %190 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %188) #8
+  %190 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %188) #7
   %191 = add i64 %190, 1
   %.not23.i192 = icmp eq i64 %191, 0
   br i1 %.not23.i192, label %AppendJumble.exit200, label %.lr.ph.i193
@@ -12499,7 +12498,7 @@ AppendJumble.exit191:                             ; preds = %AppendJumble.exit19
   br i1 %192, label %193, label %195
 
 193:                                              ; preds = %.lr.ph.i193
-  %194 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315, i32 noundef 1024, i64 noundef 0) #9
+  %194 = tail call i64 @hash_bytes_extended(ptr noundef %.pre315, i32 noundef 1024, i64 noundef 0) #8
   store i64 %194, ptr %.pre315, align 1
   br label %195
 
@@ -12533,7 +12532,7 @@ AppendJumble.exit200:                             ; preds = %AppendJumble.exit20
   br i1 %205, label %206, label %AppendJumble.exit208
 
 206:                                              ; preds = %.lr.ph.i201
-  %207 = tail call i64 @hash_bytes_extended(ptr noundef %203, i32 noundef 1024, i64 noundef 0) #9
+  %207 = tail call i64 @hash_bytes_extended(ptr noundef %203, i32 noundef 1024, i64 noundef 0) #8
   store i64 %207, ptr %203, align 1
   br label %AppendJumble.exit208
 
@@ -12550,7 +12549,7 @@ AppendJumble.exit208:                             ; preds = %.lr.ph.i201, %206
   br i1 %.not86, label %.lr.ph.i218, label %213
 
 213:                                              ; preds = %AppendJumble.exit208
-  %214 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #8
+  %214 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #7
   %215 = add i64 %214, 1
   %216 = load ptr, ptr %0, align 8
   %.not23.i209 = icmp eq i64 %215, 0
@@ -12564,7 +12563,7 @@ AppendJumble.exit208:                             ; preds = %.lr.ph.i201, %206
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %.lr.ph.i210
-  %219 = tail call i64 @hash_bytes_extended(ptr noundef %216, i32 noundef 1024, i64 noundef 0) #9
+  %219 = tail call i64 @hash_bytes_extended(ptr noundef %216, i32 noundef 1024, i64 noundef 0) #8
   store i64 %219, ptr %216, align 1
   br label %220
 
@@ -12605,7 +12604,7 @@ AppendJumble.exit217:                             ; preds = %220, %213
   br i1 %238, label %.lr.ph.i226.thread, label %.lr.ph.i226
 
 .lr.ph.i226.thread:                               ; preds = %.lr.ph.i218
-  %239 = tail call i64 @hash_bytes_extended(ptr noundef %236, i32 noundef 1024, i64 noundef 0) #9
+  %239 = tail call i64 @hash_bytes_extended(ptr noundef %236, i32 noundef 1024, i64 noundef 0) #8
   store i64 %239, ptr %236, align 1
   %240 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %241 = load i8, ptr %235, align 1
@@ -12627,7 +12626,7 @@ AppendJumble.exit217:                             ; preds = %220, %213
   br i1 %249, label %250, label %.lr.ph.i234
 
 250:                                              ; preds = %.lr.ph.i226
-  %251 = tail call i64 @hash_bytes_extended(ptr noundef %248, i32 noundef 1024, i64 noundef 0) #9
+  %251 = tail call i64 @hash_bytes_extended(ptr noundef %248, i32 noundef 1024, i64 noundef 0) #8
   store i64 %251, ptr %248, align 1
   br label %.lr.ph.i234.thread
 
@@ -12656,7 +12655,7 @@ AppendJumble.exit217:                             ; preds = %220, %213
   br i1 %262, label %263, label %.lr.ph.i242
 
 263:                                              ; preds = %.lr.ph.i234
-  %264 = tail call i64 @hash_bytes_extended(ptr noundef %261, i32 noundef 1024, i64 noundef 0) #9
+  %264 = tail call i64 @hash_bytes_extended(ptr noundef %261, i32 noundef 1024, i64 noundef 0) #8
   store i64 %264, ptr %261, align 1
   br label %.lr.ph.i242.thread
 
@@ -12685,7 +12684,7 @@ AppendJumble.exit217:                             ; preds = %220, %213
   br i1 %275, label %276, label %.lr.ph.i250
 
 276:                                              ; preds = %.lr.ph.i242
-  %277 = tail call i64 @hash_bytes_extended(ptr noundef %274, i32 noundef 1024, i64 noundef 0) #9
+  %277 = tail call i64 @hash_bytes_extended(ptr noundef %274, i32 noundef 1024, i64 noundef 0) #8
   store i64 %277, ptr %274, align 1
   br label %.lr.ph.i250.thread
 
@@ -12712,7 +12711,7 @@ AppendJumble.exit217:                             ; preds = %220, %213
   br i1 %286, label %287, label %AppendJumble.exit257
 
 287:                                              ; preds = %.lr.ph.i250
-  %288 = tail call i64 @hash_bytes_extended(ptr noundef %285, i32 noundef 1024, i64 noundef 0) #9
+  %288 = tail call i64 @hash_bytes_extended(ptr noundef %285, i32 noundef 1024, i64 noundef 0) #8
   store i64 %288, ptr %285, align 1
   br label %AppendJumble.exit257
 
@@ -12744,7 +12743,7 @@ AppendJumble.exit257:                             ; preds = %.lr.ph.i250, %287, 
   br i1 %301, label %302, label %304
 
 302:                                              ; preds = %.lr.ph.i258
-  %303 = tail call i64 @hash_bytes_extended(ptr noundef %299, i32 noundef 1024, i64 noundef 0) #9
+  %303 = tail call i64 @hash_bytes_extended(ptr noundef %299, i32 noundef 1024, i64 noundef 0) #8
   store i64 %303, ptr %299, align 1
   br label %304
 
@@ -12773,7 +12772,7 @@ define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr nou
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12789,7 +12788,7 @@ define internal fastcc void @_jumbleCreateTableSpaceStmt(ptr noundef %0, ptr nou
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -12820,7 +12819,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not14, label %42, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #7
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12836,7 +12835,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i16
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %29, align 1
   br label %35
 
@@ -12878,7 +12877,7 @@ define internal fastcc void @_jumbleDropTableSpaceStmt(ptr noundef captures(none
   br label %.lr.ph.i7
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -12893,7 +12892,7 @@ define internal fastcc void @_jumbleDropTableSpaceStmt(ptr noundef captures(none
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre17, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre17, align 1
   br label %13
 
@@ -12926,7 +12925,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %22, label %23, label %AppendJumble.exit14
 
 23:                                               ; preds = %.lr.ph.i7
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %21, align 1
   br label %AppendJumble.exit14
 
@@ -12950,7 +12949,7 @@ define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, p
   br i1 %.not, label %.lr.ph.i9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12966,7 +12965,7 @@ define internal fastcc void @_jumbleAlterTableSpaceOptionsStmt(ptr noundef %0, p
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -12998,7 +12997,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %26, label %27, label %AppendJumble.exit16
 
 27:                                               ; preds = %.lr.ph.i9
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %23, align 1
   br label %AppendJumble.exit16
 
@@ -13027,7 +13026,7 @@ define internal fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef %0, ptr no
   br label %20
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -13042,7 +13041,7 @@ define internal fastcc void @_jumbleAlterTableMoveAllStmt(ptr noundef %0, ptr no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre48, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre48, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre48, align 1
   br label %13
 
@@ -13083,7 +13082,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i17
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %22, align 1
   br label %28
 
@@ -13112,7 +13111,7 @@ AppendJumble.exit24:                              ; preds = %28
   br i1 %.not16, label %.lr.ph.i34, label %39
 
 39:                                               ; preds = %AppendJumble.exit24
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #8
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #7
   %41 = add i64 %40, 1
   %.not23.i25 = icmp eq i64 %41, 0
   br i1 %.not23.i25, label %AppendJumble.exit33, label %.lr.ph.i26
@@ -13125,7 +13124,7 @@ AppendJumble.exit24:                              ; preds = %28
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %.lr.ph.i26
-  %44 = tail call i64 @hash_bytes_extended(ptr noundef %.pre51, i32 noundef 1024, i64 noundef 0) #9
+  %44 = tail call i64 @hash_bytes_extended(ptr noundef %.pre51, i32 noundef 1024, i64 noundef 0) #8
   store i64 %44, ptr %.pre51, align 1
   br label %45
 
@@ -13158,7 +13157,7 @@ AppendJumble.exit33:                              ; preds = %AppendJumble.exit33
   br i1 %54, label %55, label %AppendJumble.exit41
 
 55:                                               ; preds = %.lr.ph.i34
-  %56 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #9
+  %56 = tail call i64 @hash_bytes_extended(ptr noundef %53, i32 noundef 1024, i64 noundef 0) #8
   store i64 %56, ptr %53, align 1
   br label %AppendJumble.exit41
 
@@ -13187,7 +13186,7 @@ define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr noun
   br label %.lr.ph.i9
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -13202,7 +13201,7 @@ define internal fastcc void @_jumbleCreateExtensionStmt(ptr noundef %0, ptr noun
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre19, align 1
   br label %13
 
@@ -13235,7 +13234,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %22, label %23, label %AppendJumble.exit16
 
 23:                                               ; preds = %.lr.ph.i9
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %21, align 1
   br label %AppendJumble.exit16
 
@@ -13262,7 +13261,7 @@ define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nound
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13278,7 +13277,7 @@ define internal fastcc void @_jumbleAlterExtensionStmt(ptr noundef %0, ptr nound
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -13320,7 +13319,7 @@ define internal fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef %0, p
   br label %20
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -13335,7 +13334,7 @@ define internal fastcc void @_jumbleAlterExtensionContentsStmt(ptr noundef %0, p
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre31, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre31, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre31, align 1
   br label %13
 
@@ -13376,7 +13375,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i11
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %22, align 1
   br label %28
 
@@ -13406,7 +13405,7 @@ AppendJumble.exit18:                              ; preds = %28
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i19
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #8
   store i64 %39, ptr %36, align 1
   br label %40
 
@@ -13438,7 +13437,7 @@ define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr noundef no
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13454,7 +13453,7 @@ define internal fastcc void @_jumbleCreateFdwStmt(ptr noundef %0, ptr noundef no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -13493,7 +13492,7 @@ define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr noundef non
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13509,7 +13508,7 @@ define internal fastcc void @_jumbleAlterFdwStmt(ptr noundef %0, ptr noundef non
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -13549,7 +13548,7 @@ define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr 
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -13564,7 +13563,7 @@ define internal fastcc void @_jumbleCreateForeignServerStmt(ptr noundef %0, ptr 
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70.pre72.pre75.pre78, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70.pre72.pre75.pre78, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre70.pre72.pre75.pre78, align 1
   br label %13
 
@@ -13598,7 +13597,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not24, label %38, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
   %25 = add i64 %24, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
@@ -13613,7 +13612,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i28
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70.pre72.pre75, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70.pre72.pre75, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %.pre70.pre72.pre75, align 1
   br label %31
 
@@ -13647,7 +13646,7 @@ AppendJumble.exit35:                              ; preds = %AppendJumble.exit35
   br i1 %.not25, label %56, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #7
   %43 = add i64 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
@@ -13662,7 +13661,7 @@ AppendJumble.exit35:                              ; preds = %AppendJumble.exit35
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.lr.ph.i37
-  %48 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70.pre72, i32 noundef 1024, i64 noundef 0) #9
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70.pre72, i32 noundef 1024, i64 noundef 0) #8
   store i64 %48, ptr %.pre70.pre72, align 1
   br label %49
 
@@ -13701,7 +13700,7 @@ AppendJumble.exit44:                              ; preds = %AppendJumble.exit44
   br label %.lr.ph.i54
 
 59:                                               ; preds = %56
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #8
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #7
   %61 = add i64 %60, 1
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load i64, ptr %62, align 8
@@ -13716,7 +13715,7 @@ AppendJumble.exit44:                              ; preds = %AppendJumble.exit44
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %.lr.ph.i46
-  %66 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70, i32 noundef 1024, i64 noundef 0) #9
+  %66 = tail call i64 @hash_bytes_extended(ptr noundef %.pre70, i32 noundef 1024, i64 noundef 0) #8
   store i64 %66, ptr %.pre70, align 1
   br label %67
 
@@ -13749,7 +13748,7 @@ AppendJumble.exit53:                              ; preds = %AppendJumble.exit53
   br i1 %76, label %77, label %AppendJumble.exit61
 
 77:                                               ; preds = %.lr.ph.i54
-  %78 = tail call i64 @hash_bytes_extended(ptr noundef %75, i32 noundef 1024, i64 noundef 0) #9
+  %78 = tail call i64 @hash_bytes_extended(ptr noundef %75, i32 noundef 1024, i64 noundef 0) #8
   store i64 %78, ptr %75, align 1
   br label %AppendJumble.exit61
 
@@ -13776,7 +13775,7 @@ define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr n
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13792,7 +13791,7 @@ define internal fastcc void @_jumbleAlterForeignServerStmt(ptr noundef %0, ptr n
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -13820,7 +13819,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not14, label %.lr.ph.i24, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13836,7 +13835,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i16
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -13868,7 +13867,7 @@ AppendJumble.exit23:                              ; preds = %33, %24
   br i1 %45, label %46, label %AppendJumble.exit31
 
 46:                                               ; preds = %.lr.ph.i24
-  %47 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %47 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %47, ptr %42, align 1
   br label %AppendJumble.exit31
 
@@ -13926,7 +13925,7 @@ define internal fastcc void @_jumbleCreateForeignTableStmt(ptr noundef %0, ptr n
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %22, align 1
   br label %28
 
@@ -13951,7 +13950,7 @@ AppendJumble.exit:                                ; preds = %28
   br i1 %.not, label %50, label %37
 
 37:                                               ; preds = %AppendJumble.exit
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #7
   %39 = add i64 %38, 1
   %.not23.i = icmp eq i64 %39, 0
   br i1 %.not23.i, label %AppendJumble.exit47, label %.lr.ph.i41
@@ -13964,7 +13963,7 @@ AppendJumble.exit:                                ; preds = %28
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i41
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %.pre82.pre83, i32 noundef 1024, i64 noundef 0) #9
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %.pre82.pre83, i32 noundef 1024, i64 noundef 0) #8
   store i64 %42, ptr %.pre82.pre83, align 1
   br label %43
 
@@ -13999,7 +13998,7 @@ AppendJumble.exit47:                              ; preds = %AppendJumble.exit47
   br i1 %.not39, label %.lr.ph.i57, label %54
 
 54:                                               ; preds = %50
-  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #8
+  %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #7
   %56 = add i64 %55, 1
   %.not23.i48 = icmp eq i64 %56, 0
   br i1 %.not23.i48, label %AppendJumble.exit56, label %.lr.ph.i49
@@ -14012,7 +14011,7 @@ AppendJumble.exit47:                              ; preds = %AppendJumble.exit47
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %.lr.ph.i49
-  %59 = tail call i64 @hash_bytes_extended(ptr noundef %.pre82, i32 noundef 1024, i64 noundef 0) #9
+  %59 = tail call i64 @hash_bytes_extended(ptr noundef %.pre82, i32 noundef 1024, i64 noundef 0) #8
   store i64 %59, ptr %.pre82, align 1
   br label %60
 
@@ -14046,7 +14045,7 @@ AppendJumble.exit56:                              ; preds = %AppendJumble.exit56
   br i1 %70, label %71, label %AppendJumble.exit64
 
 71:                                               ; preds = %.lr.ph.i57
-  %72 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #9
+  %72 = tail call i64 @hash_bytes_extended(ptr noundef %68, i32 noundef 1024, i64 noundef 0) #8
   store i64 %72, ptr %68, align 1
   br label %AppendJumble.exit64
 
@@ -14063,7 +14062,7 @@ AppendJumble.exit64:                              ; preds = %.lr.ph.i57, %71
   br i1 %.not40, label %92, label %78
 
 78:                                               ; preds = %AppendJumble.exit64
-  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #8
+  %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #7
   %80 = add i64 %79, 1
   %81 = load ptr, ptr %0, align 8
   %.not23.i65 = icmp eq i64 %80, 0
@@ -14077,7 +14076,7 @@ AppendJumble.exit64:                              ; preds = %.lr.ph.i57, %71
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %.lr.ph.i66
-  %84 = tail call i64 @hash_bytes_extended(ptr noundef %81, i32 noundef 1024, i64 noundef 0) #9
+  %84 = tail call i64 @hash_bytes_extended(ptr noundef %81, i32 noundef 1024, i64 noundef 0) #8
   store i64 %84, ptr %81, align 1
   br label %85
 
@@ -14122,7 +14121,7 @@ define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr no
   br label %.lr.ph.i11
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
@@ -14137,7 +14136,7 @@ define internal fastcc void @_jumbleCreateUserMappingStmt(ptr noundef %0, ptr no
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre21, i32 noundef 1024, i64 noundef 0) #9
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %14, ptr %.pre21, align 1
   br label %15
 
@@ -14170,7 +14169,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %25, label %AppendJumble.exit18
 
 25:                                               ; preds = %.lr.ph.i11
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %23, align 1
   br label %AppendJumble.exit18
 
@@ -14200,7 +14199,7 @@ define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr nou
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14216,7 +14215,7 @@ define internal fastcc void @_jumbleAlterUserMappingStmt(ptr noundef %0, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -14261,7 +14260,7 @@ define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr noun
   br label %.lr.ph.i9
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
@@ -14276,7 +14275,7 @@ define internal fastcc void @_jumbleDropUserMappingStmt(ptr noundef %0, ptr noun
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #9
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %14, ptr %.pre19, align 1
   br label %15
 
@@ -14309,7 +14308,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %25, label %AppendJumble.exit16
 
 25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %23, align 1
   br label %AppendJumble.exit16
 
@@ -14334,7 +14333,7 @@ define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr 
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -14349,7 +14348,7 @@ define internal fastcc void @_jumbleImportForeignSchemaStmt(ptr noundef %0, ptr 
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre55.pre57.pre60, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre55.pre57.pre60, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre55.pre57.pre60, align 1
   br label %13
 
@@ -14383,7 +14382,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not21, label %38, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
   %25 = add i64 %24, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
@@ -14398,7 +14397,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i24
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %.pre55.pre57, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %.pre55.pre57, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %.pre55.pre57, align 1
   br label %31
 
@@ -14437,7 +14436,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   br label %56
 
 41:                                               ; preds = %38
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #7
   %43 = add i64 %42, 1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
@@ -14452,7 +14451,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.lr.ph.i33
-  %48 = tail call i64 @hash_bytes_extended(ptr noundef %.pre55, i32 noundef 1024, i64 noundef 0) #9
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %.pre55, i32 noundef 1024, i64 noundef 0) #8
   store i64 %48, ptr %.pre55, align 1
   br label %49
 
@@ -14492,7 +14491,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %.lr.ph.i41
-  %62 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #9
+  %62 = tail call i64 @hash_bytes_extended(ptr noundef %58, i32 noundef 1024, i64 noundef 0) #8
   store i64 %62, ptr %58, align 1
   br label %63
 
@@ -14528,7 +14527,7 @@ define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr noundef
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14544,7 +14543,7 @@ define internal fastcc void @_jumbleCreatePolicyStmt(ptr noundef %0, ptr noundef
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -14581,7 +14580,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br label %.lr.ph.i30
 
 26:                                               ; preds = %21
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #7
   %28 = add i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8
@@ -14596,7 +14595,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %.lr.ph.i22
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %.pre42, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %.pre42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %.pre42, align 1
   br label %34
 
@@ -14629,7 +14628,7 @@ AppendJumble.exit29:                              ; preds = %AppendJumble.exit29
   br i1 %43, label %44, label %AppendJumble.exit37
 
 44:                                               ; preds = %.lr.ph.i30
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %45, ptr %42, align 1
   br label %AppendJumble.exit37
 
@@ -14662,7 +14661,7 @@ define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr noundef 
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14678,7 +14677,7 @@ define internal fastcc void @_jumbleAlterPolicyStmt(ptr noundef %0, ptr noundef 
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -14723,7 +14722,7 @@ define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr noundef non
   br i1 %.not, label %.lr.ph.i9, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14739,7 +14738,7 @@ define internal fastcc void @_jumbleCreateAmStmt(ptr noundef %0, ptr noundef non
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -14771,7 +14770,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %26, label %27, label %AppendJumble.exit16
 
 27:                                               ; preds = %.lr.ph.i9
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %23, align 1
   br label %AppendJumble.exit16
 
@@ -14797,7 +14796,7 @@ define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr noundef n
   br i1 %6, label %.lr.ph.i33.thread, label %.lr.ph.i33
 
 .lr.ph.i33.thread:                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %3, align 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i8, ptr %2, align 1
@@ -14817,7 +14816,7 @@ define internal fastcc void @_jumbleCreateTrigStmt(ptr noundef %0, ptr noundef n
   br i1 %15, label %16, label %AppendJumble.exit39
 
 16:                                               ; preds = %.lr.ph.i33
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %14, align 1
   br label %AppendJumble.exit39
 
@@ -14836,7 +14835,7 @@ AppendJumble.exit39:                              ; preds = %.lr.ph.i33, %16, %.
   br i1 %.not, label %.lr.ph.i47, label %25
 
 25:                                               ; preds = %AppendJumble.exit39
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #8
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #7
   %27 = add i64 %26, 1
   %28 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %27, 0
@@ -14850,7 +14849,7 @@ AppendJumble.exit39:                              ; preds = %.lr.ph.i33, %16, %.
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %.lr.ph.i40
-  %31 = tail call i64 @hash_bytes_extended(ptr noundef %28, i32 noundef 1024, i64 noundef 0) #9
+  %31 = tail call i64 @hash_bytes_extended(ptr noundef %28, i32 noundef 1024, i64 noundef 0) #8
   store i64 %31, ptr %28, align 1
   br label %32
 
@@ -14888,7 +14887,7 @@ AppendJumble.exit46:                              ; preds = %32, %25
   br i1 %48, label %49, label %AppendJumble.exit54
 
 49:                                               ; preds = %.lr.ph.i47
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #8
   store i64 %50, ptr %46, align 1
   br label %AppendJumble.exit54
 
@@ -14911,7 +14910,7 @@ AppendJumble.exit54:                              ; preds = %.lr.ph.i47, %49
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %.lr.ph.i55
-  %58 = tail call i64 @hash_bytes_extended(ptr noundef %55, i32 noundef 1024, i64 noundef 0) #9
+  %58 = tail call i64 @hash_bytes_extended(ptr noundef %55, i32 noundef 1024, i64 noundef 0) #8
   store i64 %58, ptr %55, align 1
   br label %59
 
@@ -14941,7 +14940,7 @@ AppendJumble.exit62:                              ; preds = %59
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph.i63
-  %70 = tail call i64 @hash_bytes_extended(ptr noundef %67, i32 noundef 1024, i64 noundef 0) #9
+  %70 = tail call i64 @hash_bytes_extended(ptr noundef %67, i32 noundef 1024, i64 noundef 0) #8
   store i64 %70, ptr %67, align 1
   br label %71
 
@@ -14975,7 +14974,7 @@ AppendJumble.exit62:                              ; preds = %59
   br i1 %87, label %.lr.ph.i79.thread, label %.lr.ph.i79
 
 .lr.ph.i79.thread:                                ; preds = %.lr.ph.i71
-  %88 = tail call i64 @hash_bytes_extended(ptr noundef %85, i32 noundef 1024, i64 noundef 0) #9
+  %88 = tail call i64 @hash_bytes_extended(ptr noundef %85, i32 noundef 1024, i64 noundef 0) #8
   store i64 %88, ptr %85, align 1
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %90 = load i8, ptr %84, align 1
@@ -14995,7 +14994,7 @@ AppendJumble.exit62:                              ; preds = %59
   br i1 %96, label %97, label %AppendJumble.exit86
 
 97:                                               ; preds = %.lr.ph.i79
-  %98 = tail call i64 @hash_bytes_extended(ptr noundef %95, i32 noundef 1024, i64 noundef 0) #9
+  %98 = tail call i64 @hash_bytes_extended(ptr noundef %95, i32 noundef 1024, i64 noundef 0) #8
   store i64 %98, ptr %95, align 1
   br label %AppendJumble.exit86
 
@@ -15022,7 +15021,7 @@ define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr noun
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15038,7 +15037,7 @@ define internal fastcc void @_jumbleCreateEventTrigStmt(ptr noundef %0, ptr noun
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -15066,7 +15065,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not14, label %40, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15082,7 +15081,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i16
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -15127,7 +15126,7 @@ define internal fastcc void @_jumbleAlterEventTrigStmt(ptr noundef captures(none
   br label %.lr.ph.i7
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -15142,7 +15141,7 @@ define internal fastcc void @_jumbleAlterEventTrigStmt(ptr noundef captures(none
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre17, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre17, align 1
   br label %13
 
@@ -15175,7 +15174,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %22, label %23, label %AppendJumble.exit14
 
 23:                                               ; preds = %.lr.ph.i7
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %21, align 1
   br label %AppendJumble.exit14
 
@@ -15202,7 +15201,7 @@ define internal fastcc void @_jumbleCreatePLangStmt(ptr noundef %0, ptr noundef 
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -15219,7 +15218,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %.not, label %.lr.ph.i22, label %14
 
 14:                                               ; preds = %AppendJumble.exit
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #8
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #7
   %16 = add i64 %15, 1
   %17 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %16, 0
@@ -15233,7 +15232,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i15
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %17, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %17, align 1
   br label %21
 
@@ -15270,7 +15269,7 @@ AppendJumble.exit21:                              ; preds = %21, %14
   br i1 %36, label %37, label %AppendJumble.exit29
 
 37:                                               ; preds = %.lr.ph.i22
-  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #9
+  %38 = tail call i64 @hash_bytes_extended(ptr noundef %34, i32 noundef 1024, i64 noundef 0) #8
   store i64 %38, ptr %34, align 1
   br label %AppendJumble.exit29
 
@@ -15301,7 +15300,7 @@ define internal fastcc void @_jumbleCreateRoleStmt(ptr noundef %0, ptr noundef n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -15325,7 +15324,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -15339,7 +15338,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -15389,7 +15388,7 @@ define internal fastcc void @_jumbleAlterRoleStmt(ptr noundef %0, ptr noundef no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -15421,7 +15420,7 @@ define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr noundef
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15437,7 +15436,7 @@ define internal fastcc void @_jumbleAlterRoleSetStmt(ptr noundef %0, ptr noundef
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -15478,7 +15477,7 @@ define internal fastcc void @_jumbleDropRoleStmt(ptr noundef %0, ptr noundef non
   br i1 %7, label %8, label %AppendJumble.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %AppendJumble.exit
 
@@ -15515,7 +15514,7 @@ define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr noundef no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -15539,7 +15538,7 @@ define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr noundef no
   br i1 %23, label %.lr.ph.i18.thread, label %.lr.ph.i18
 
 .lr.ph.i18.thread:                                ; preds = %.lr.ph.i11
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %22, align 1
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i8, ptr %21, align 1
@@ -15559,7 +15558,7 @@ define internal fastcc void @_jumbleCreateSeqStmt(ptr noundef %0, ptr noundef no
   br i1 %32, label %33, label %AppendJumble.exit24
 
 33:                                               ; preds = %.lr.ph.i18
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %31, align 1
   br label %AppendJumble.exit24
 
@@ -15592,7 +15591,7 @@ define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr noundef non
   br i1 %10, label %.lr.ph.i9.thread, label %.lr.ph.i9
 
 .lr.ph.i9.thread:                                 ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %7, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %7, align 1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i8, ptr %6, align 1
@@ -15612,7 +15611,7 @@ define internal fastcc void @_jumbleAlterSeqStmt(ptr noundef %0, ptr noundef non
   br i1 %19, label %20, label %AppendJumble.exit15
 
 20:                                               ; preds = %.lr.ph.i9
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %AppendJumble.exit15
 
@@ -15644,7 +15643,7 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -15668,7 +15667,7 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %19, label %20, label %.lr.ph.i22
 
 20:                                               ; preds = %.lr.ph.i15
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %.lr.ph.i22
 
@@ -15695,7 +15694,7 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %34, label %.lr.ph.i29.thread, label %.lr.ph.i29
 
 .lr.ph.i29.thread:                                ; preds = %.lr.ph.i22
-  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #8
   store i64 %35, ptr %32, align 1
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load i8, ptr %31, align 1
@@ -15715,7 +15714,7 @@ define internal fastcc void @_jumbleDefineStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %43, label %44, label %AppendJumble.exit35
 
 44:                                               ; preds = %.lr.ph.i29
-  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %45 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %45, ptr %42, align 1
   br label %AppendJumble.exit35
 
@@ -15762,7 +15761,7 @@ define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nounde
   br i1 %.not, label %.lr.ph.i15, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #8
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %11 = add i64 %10, 1
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15778,7 +15777,7 @@ define internal fastcc void @_jumbleCreateOpClassStmt(ptr noundef %0, ptr nounde
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %12, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %12, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %12, align 1
   br label %18
 
@@ -15813,7 +15812,7 @@ AppendJumble.exit:                                ; preds = %18, %9
   br i1 %32, label %33, label %AppendJumble.exit22
 
 33:                                               ; preds = %.lr.ph.i15
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %29, align 1
   br label %AppendJumble.exit22
 
@@ -15844,7 +15843,7 @@ define internal fastcc void @_jumbleCreateOpClassItem(ptr noundef %0, ptr nounde
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -15878,7 +15877,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i13
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %20, align 1
   br label %25
 
@@ -15919,7 +15918,7 @@ define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nound
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15935,7 +15934,7 @@ define internal fastcc void @_jumbleCreateOpFamilyStmt(ptr noundef %0, ptr nound
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -15977,7 +15976,7 @@ define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nounde
   br label %.lr.ph.i11
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
@@ -15992,7 +15991,7 @@ define internal fastcc void @_jumbleAlterOpFamilyStmt(ptr noundef %0, ptr nounde
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre21, i32 noundef 1024, i64 noundef 0) #9
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %14, ptr %.pre21, align 1
   br label %15
 
@@ -16025,7 +16024,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %25, label %AppendJumble.exit18
 
 25:                                               ; preds = %.lr.ph.i11
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %23, align 1
   br label %AppendJumble.exit18
 
@@ -16063,7 +16062,7 @@ define internal fastcc void @_jumbleDropStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -16093,7 +16092,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i11
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %20, align 1
   br label %24
 
@@ -16117,7 +16116,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %33, label %34, label %.lr.ph.i25
 
 34:                                               ; preds = %.lr.ph.i18
-  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #9
+  %35 = tail call i64 @hash_bytes_extended(ptr noundef %32, i32 noundef 1024, i64 noundef 0) #8
   store i64 %35, ptr %32, align 1
   br label %.lr.ph.i25
 
@@ -16133,7 +16132,7 @@ AppendJumble.exit:                                ; preds = %12
   br i1 %40, label %41, label %AppendJumble.exit31
 
 41:                                               ; preds = %.lr.ph.i25
-  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #9
+  %42 = tail call i64 @hash_bytes_extended(ptr noundef %39, i32 noundef 1024, i64 noundef 0) #8
   store i64 %42, ptr %39, align 1
   br label %AppendJumble.exit31
 
@@ -16162,7 +16161,7 @@ define internal fastcc void @_jumbleTruncateStmt(ptr noundef %0, ptr noundef non
   br i1 %8, label %9, label %AppendJumble.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %AppendJumble.exit
 
@@ -16185,7 +16184,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %9
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %.lr.ph.i7
-  %18 = tail call i64 @hash_bytes_extended(ptr noundef %15, i32 noundef 1024, i64 noundef 0) #9
+  %18 = tail call i64 @hash_bytes_extended(ptr noundef %15, i32 noundef 1024, i64 noundef 0) #8
   store i64 %18, ptr %15, align 1
   br label %19
 
@@ -16222,7 +16221,7 @@ define internal fastcc void @_jumbleCommentStmt(ptr noundef %0, ptr noundef nonn
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -16249,7 +16248,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %36, label %21
 
 21:                                               ; preds = %AppendJumble.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #7
   %23 = add i64 %22, 1
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %5, align 8
@@ -16264,7 +16263,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph.i9
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %24, align 1
   br label %29
 
@@ -16305,7 +16304,7 @@ define internal fastcc void @_jumbleSecLabelStmt(ptr noundef %0, ptr noundef non
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -16332,7 +16331,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %36, label %21
 
 21:                                               ; preds = %AppendJumble.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #7
   %23 = add i64 %22, 1
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %5, align 8
@@ -16347,7 +16346,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph.i15
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %24, align 1
   br label %29
 
@@ -16375,7 +16374,7 @@ AppendJumble.exit21:                              ; preds = %29, %21
   br i1 %.not14, label %54, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #8
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #7
   %41 = add i64 %40, 1
   %42 = load ptr, ptr %0, align 8
   %43 = load i64, ptr %5, align 8
@@ -16390,7 +16389,7 @@ AppendJumble.exit21:                              ; preds = %29, %21
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.lr.ph.i23
-  %46 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #9
+  %46 = tail call i64 @hash_bytes_extended(ptr noundef %42, i32 noundef 1024, i64 noundef 0) #8
   store i64 %46, ptr %42, align 1
   br label %47
 
@@ -16429,7 +16428,7 @@ define internal fastcc void @_jumbleDeclareCursorStmt(ptr noundef %0, ptr nounde
   br label %20
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -16444,7 +16443,7 @@ define internal fastcc void @_jumbleDeclareCursorStmt(ptr noundef %0, ptr nounde
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre19, align 1
   br label %13
 
@@ -16484,7 +16483,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %22, align 1
   br label %27
 
@@ -16515,7 +16514,7 @@ define internal fastcc void @_jumbleClosePortalStmt(ptr noundef captures(none) %
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16531,7 +16530,7 @@ define internal fastcc void @_jumbleClosePortalStmt(ptr noundef captures(none) %
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -16572,7 +16571,7 @@ define internal fastcc void @_jumbleFetchStmt(ptr noundef captures(none) %0, ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -16602,7 +16601,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i11
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -16627,7 +16626,7 @@ AppendJumble.exit17:                              ; preds = %22
   br i1 %.not, label %.lr.ph.i25, label %31
 
 31:                                               ; preds = %AppendJumble.exit17
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #8
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #7
   %33 = add i64 %32, 1
   %.not23.i = icmp eq i64 %33, 0
   br i1 %.not23.i, label %AppendJumble.exit24, label %.lr.ph.i18
@@ -16640,7 +16639,7 @@ AppendJumble.exit17:                              ; preds = %22
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %.lr.ph.i18
-  %36 = tail call i64 @hash_bytes_extended(ptr noundef %.pre39, i32 noundef 1024, i64 noundef 0) #9
+  %36 = tail call i64 @hash_bytes_extended(ptr noundef %.pre39, i32 noundef 1024, i64 noundef 0) #8
   store i64 %36, ptr %.pre39, align 1
   br label %37
 
@@ -16673,7 +16672,7 @@ AppendJumble.exit24:                              ; preds = %AppendJumble.exit24
   br i1 %46, label %47, label %AppendJumble.exit32
 
 47:                                               ; preds = %.lr.ph.i25
-  %48 = tail call i64 @hash_bytes_extended(ptr noundef %45, i32 noundef 1024, i64 noundef 0) #9
+  %48 = tail call i64 @hash_bytes_extended(ptr noundef %45, i32 noundef 1024, i64 noundef 0) #8
   store i64 %48, ptr %45, align 1
   br label %AppendJumble.exit32
 
@@ -16696,7 +16695,7 @@ define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr noundef nonnul
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16712,7 +16711,7 @@ define internal fastcc void @_jumbleIndexStmt(ptr noundef %0, ptr noundef nonnul
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -16743,7 +16742,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not62, label %42, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #7
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16759,7 +16758,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i66
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %29, align 1
   br label %35
 
@@ -16787,7 +16786,7 @@ AppendJumble.exit73:                              ; preds = %35, %26
   br i1 %.not63, label %61, label %45
 
 45:                                               ; preds = %42
-  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #8
+  %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #7
   %47 = add i64 %46, 1
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16803,7 +16802,7 @@ AppendJumble.exit73:                              ; preds = %35, %26
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %.lr.ph.i75
-  %53 = tail call i64 @hash_bytes_extended(ptr noundef %48, i32 noundef 1024, i64 noundef 0) #9
+  %53 = tail call i64 @hash_bytes_extended(ptr noundef %48, i32 noundef 1024, i64 noundef 0) #8
   store i64 %53, ptr %48, align 1
   br label %54
 
@@ -16852,7 +16851,7 @@ AppendJumble.exit82:                              ; preds = %54, %45
   br label %89
 
 74:                                               ; preds = %61
-  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #8
+  %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #7
   %76 = add i64 %75, 1
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load i64, ptr %77, align 8
@@ -16867,7 +16866,7 @@ AppendJumble.exit82:                              ; preds = %54, %45
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %.lr.ph.i84
-  %81 = tail call i64 @hash_bytes_extended(ptr noundef %.pre248, i32 noundef 1024, i64 noundef 0) #9
+  %81 = tail call i64 @hash_bytes_extended(ptr noundef %.pre248, i32 noundef 1024, i64 noundef 0) #8
   store i64 %81, ptr %.pre248, align 1
   br label %82
 
@@ -16908,7 +16907,7 @@ AppendJumble.exit91:                              ; preds = %AppendJumble.exit91
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %.lr.ph.i92
-  %96 = tail call i64 @hash_bytes_extended(ptr noundef %91, i32 noundef 1024, i64 noundef 0) #9
+  %96 = tail call i64 @hash_bytes_extended(ptr noundef %91, i32 noundef 1024, i64 noundef 0) #8
   store i64 %96, ptr %91, align 1
   br label %97
 
@@ -16938,7 +16937,7 @@ AppendJumble.exit99:                              ; preds = %97
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %.lr.ph.i100
-  %108 = tail call i64 @hash_bytes_extended(ptr noundef %105, i32 noundef 1024, i64 noundef 0) #9
+  %108 = tail call i64 @hash_bytes_extended(ptr noundef %105, i32 noundef 1024, i64 noundef 0) #8
   store i64 %108, ptr %105, align 1
   br label %109
 
@@ -16968,7 +16967,7 @@ AppendJumble.exit107:                             ; preds = %109
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %.lr.ph.i108
-  %120 = tail call i64 @hash_bytes_extended(ptr noundef %117, i32 noundef 1024, i64 noundef 0) #9
+  %120 = tail call i64 @hash_bytes_extended(ptr noundef %117, i32 noundef 1024, i64 noundef 0) #8
   store i64 %120, ptr %117, align 1
   br label %121
 
@@ -16998,7 +16997,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %130, label %131, label %133
 
 131:                                              ; preds = %.lr.ph.i116
-  %132 = tail call i64 @hash_bytes_extended(ptr noundef %129, i32 noundef 1024, i64 noundef 0) #9
+  %132 = tail call i64 @hash_bytes_extended(ptr noundef %129, i32 noundef 1024, i64 noundef 0) #8
   store i64 %132, ptr %129, align 1
   br label %133
 
@@ -17022,7 +17021,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %142, label %143, label %.lr.ph.i132
 
 143:                                              ; preds = %.lr.ph.i124
-  %144 = tail call i64 @hash_bytes_extended(ptr noundef %141, i32 noundef 1024, i64 noundef 0) #9
+  %144 = tail call i64 @hash_bytes_extended(ptr noundef %141, i32 noundef 1024, i64 noundef 0) #8
   store i64 %144, ptr %141, align 1
   br label %.lr.ph.i132
 
@@ -17039,7 +17038,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %150, label %151, label %.lr.ph.i140
 
 151:                                              ; preds = %.lr.ph.i132
-  %152 = tail call i64 @hash_bytes_extended(ptr noundef %149, i32 noundef 1024, i64 noundef 0) #9
+  %152 = tail call i64 @hash_bytes_extended(ptr noundef %149, i32 noundef 1024, i64 noundef 0) #8
   store i64 %152, ptr %149, align 1
   br label %.lr.ph.i140
 
@@ -17056,7 +17055,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %158, label %159, label %.lr.ph.i148
 
 159:                                              ; preds = %.lr.ph.i140
-  %160 = tail call i64 @hash_bytes_extended(ptr noundef %157, i32 noundef 1024, i64 noundef 0) #9
+  %160 = tail call i64 @hash_bytes_extended(ptr noundef %157, i32 noundef 1024, i64 noundef 0) #8
   store i64 %160, ptr %157, align 1
   br label %.lr.ph.i148
 
@@ -17073,7 +17072,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %166, label %167, label %.lr.ph.i156
 
 167:                                              ; preds = %.lr.ph.i148
-  %168 = tail call i64 @hash_bytes_extended(ptr noundef %165, i32 noundef 1024, i64 noundef 0) #9
+  %168 = tail call i64 @hash_bytes_extended(ptr noundef %165, i32 noundef 1024, i64 noundef 0) #8
   store i64 %168, ptr %165, align 1
   br label %.lr.ph.i156
 
@@ -17090,7 +17089,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %174, label %.lr.ph.i164.thread, label %.lr.ph.i164
 
 .lr.ph.i164.thread:                               ; preds = %.lr.ph.i156
-  %175 = tail call i64 @hash_bytes_extended(ptr noundef %173, i32 noundef 1024, i64 noundef 0) #9
+  %175 = tail call i64 @hash_bytes_extended(ptr noundef %173, i32 noundef 1024, i64 noundef 0) #8
   store i64 %175, ptr %173, align 1
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %177 = load i8, ptr %172, align 1
@@ -17112,7 +17111,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %185, label %186, label %.lr.ph.i172
 
 186:                                              ; preds = %.lr.ph.i164
-  %187 = tail call i64 @hash_bytes_extended(ptr noundef %184, i32 noundef 1024, i64 noundef 0) #9
+  %187 = tail call i64 @hash_bytes_extended(ptr noundef %184, i32 noundef 1024, i64 noundef 0) #8
   store i64 %187, ptr %184, align 1
   br label %.lr.ph.i172.thread
 
@@ -17141,7 +17140,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %198, label %199, label %.lr.ph.i180
 
 199:                                              ; preds = %.lr.ph.i172
-  %200 = tail call i64 @hash_bytes_extended(ptr noundef %197, i32 noundef 1024, i64 noundef 0) #9
+  %200 = tail call i64 @hash_bytes_extended(ptr noundef %197, i32 noundef 1024, i64 noundef 0) #8
   store i64 %200, ptr %197, align 1
   br label %.lr.ph.i180.thread
 
@@ -17170,7 +17169,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %211, label %212, label %.lr.ph.i188
 
 212:                                              ; preds = %.lr.ph.i180
-  %213 = tail call i64 @hash_bytes_extended(ptr noundef %210, i32 noundef 1024, i64 noundef 0) #9
+  %213 = tail call i64 @hash_bytes_extended(ptr noundef %210, i32 noundef 1024, i64 noundef 0) #8
   store i64 %213, ptr %210, align 1
   br label %.lr.ph.i188.thread
 
@@ -17199,7 +17198,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %224, label %225, label %.lr.ph.i196
 
 225:                                              ; preds = %.lr.ph.i188
-  %226 = tail call i64 @hash_bytes_extended(ptr noundef %223, i32 noundef 1024, i64 noundef 0) #9
+  %226 = tail call i64 @hash_bytes_extended(ptr noundef %223, i32 noundef 1024, i64 noundef 0) #8
   store i64 %226, ptr %223, align 1
   br label %.lr.ph.i196.thread
 
@@ -17228,7 +17227,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %237, label %238, label %.lr.ph.i204
 
 238:                                              ; preds = %.lr.ph.i196
-  %239 = tail call i64 @hash_bytes_extended(ptr noundef %236, i32 noundef 1024, i64 noundef 0) #9
+  %239 = tail call i64 @hash_bytes_extended(ptr noundef %236, i32 noundef 1024, i64 noundef 0) #8
   store i64 %239, ptr %236, align 1
   br label %.lr.ph.i204.thread
 
@@ -17255,7 +17254,7 @@ AppendJumble.exit115:                             ; preds = %121
   br i1 %248, label %249, label %AppendJumble.exit211
 
 249:                                              ; preds = %.lr.ph.i204
-  %250 = tail call i64 @hash_bytes_extended(ptr noundef %247, i32 noundef 1024, i64 noundef 0) #9
+  %250 = tail call i64 @hash_bytes_extended(ptr noundef %247, i32 noundef 1024, i64 noundef 0) #8
   store i64 %250, ptr %247, align 1
   br label %AppendJumble.exit211
 
@@ -17297,7 +17296,7 @@ define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr noundef 
   br label %.lr.ph.i17
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #7
   %15 = add i64 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
@@ -17312,7 +17311,7 @@ define internal fastcc void @_jumbleCreateStatsStmt(ptr noundef %0, ptr noundef 
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = tail call i64 @hash_bytes_extended(ptr noundef %.pre37, i32 noundef 1024, i64 noundef 0) #9
+  %20 = tail call i64 @hash_bytes_extended(ptr noundef %.pre37, i32 noundef 1024, i64 noundef 0) #8
   store i64 %20, ptr %.pre37, align 1
   br label %21
 
@@ -17347,7 +17346,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %32, label %.lr.ph.i25.thread, label %.lr.ph.i25
 
 .lr.ph.i25.thread:                                ; preds = %.lr.ph.i17
-  %33 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %33 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %33, ptr %29, align 1
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load i8, ptr %30, align 1
@@ -17367,7 +17366,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %41, label %42, label %AppendJumble.exit32
 
 42:                                               ; preds = %.lr.ph.i25
-  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
+  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #8
   store i64 %43, ptr %40, align 1
   br label %AppendJumble.exit32
 
@@ -17391,7 +17390,7 @@ define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr noundef nonnul
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17407,7 +17406,7 @@ define internal fastcc void @_jumbleStatsElem(ptr noundef %0, ptr noundef nonnul
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -17451,7 +17450,7 @@ define internal fastcc void @_jumbleAlterStatsStmt(ptr noundef %0, ptr noundef n
   br i1 %9, label %10, label %AppendJumble.exit
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %AppendJumble.exit
 
@@ -17477,7 +17476,7 @@ define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nound
   br i1 %6, label %.lr.ph.i15.thread, label %.lr.ph.i15
 
 .lr.ph.i15.thread:                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %3, align 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i8, ptr %2, align 1
@@ -17497,7 +17496,7 @@ define internal fastcc void @_jumbleCreateFunctionStmt(ptr noundef %0, ptr nound
   br i1 %15, label %16, label %AppendJumble.exit21
 
 16:                                               ; preds = %.lr.ph.i15
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %14, align 1
   br label %AppendJumble.exit21
 
@@ -17536,7 +17535,7 @@ define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nounde
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17552,7 +17551,7 @@ define internal fastcc void @_jumbleFunctionParameter(ptr noundef %0, ptr nounde
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -17591,7 +17590,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i11
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %25, align 1
   br label %31
 
@@ -17631,7 +17630,7 @@ define internal fastcc void @_jumbleAlterFunctionStmt(ptr noundef %0, ptr nounde
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -17685,7 +17684,7 @@ define internal fastcc void @_jumbleRenameStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -17715,7 +17714,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %.lr.ph.i23
-  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #9
+  %21 = tail call i64 @hash_bytes_extended(ptr noundef %18, i32 noundef 1024, i64 noundef 0) #8
   store i64 %21, ptr %18, align 1
   br label %22
 
@@ -17747,7 +17746,7 @@ AppendJumble.exit29:                              ; preds = %22
   br i1 %.not, label %48, label %35
 
 35:                                               ; preds = %AppendJumble.exit29
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #8
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #7
   %37 = add i64 %36, 1
   %.not23.i = icmp eq i64 %37, 0
   br i1 %.not23.i, label %AppendJumble.exit36, label %.lr.ph.i30
@@ -17760,7 +17759,7 @@ AppendJumble.exit29:                              ; preds = %22
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.lr.ph.i30
-  %40 = tail call i64 @hash_bytes_extended(ptr noundef %.pre72.pre74, i32 noundef 1024, i64 noundef 0) #9
+  %40 = tail call i64 @hash_bytes_extended(ptr noundef %.pre72.pre74, i32 noundef 1024, i64 noundef 0) #8
   store i64 %40, ptr %.pre72.pre74, align 1
   br label %41
 
@@ -17795,7 +17794,7 @@ AppendJumble.exit36:                              ; preds = %AppendJumble.exit36
   br i1 %.not22, label %64, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #8
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #7
   %53 = add i64 %52, 1
   %.not23.i37 = icmp eq i64 %53, 0
   br i1 %.not23.i37, label %AppendJumble.exit45, label %.lr.ph.i38
@@ -17808,7 +17807,7 @@ AppendJumble.exit36:                              ; preds = %AppendJumble.exit36
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %.lr.ph.i38
-  %56 = tail call i64 @hash_bytes_extended(ptr noundef %.pre72, i32 noundef 1024, i64 noundef 0) #9
+  %56 = tail call i64 @hash_bytes_extended(ptr noundef %.pre72, i32 noundef 1024, i64 noundef 0) #8
   store i64 %56, ptr %.pre72, align 1
   br label %57
 
@@ -17848,7 +17847,7 @@ AppendJumble.exit45:                              ; preds = %AppendJumble.exit45
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph.i46
-  %70 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef 1024, i64 noundef 0) #9
+  %70 = tail call i64 @hash_bytes_extended(ptr noundef %66, i32 noundef 1024, i64 noundef 0) #8
   store i64 %70, ptr %66, align 1
   br label %71
 
@@ -17871,7 +17870,7 @@ AppendJumble.exit45:                              ; preds = %AppendJumble.exit45
   br i1 %79, label %80, label %AppendJumble.exit61
 
 80:                                               ; preds = %.lr.ph.i54
-  %81 = tail call i64 @hash_bytes_extended(ptr noundef %78, i32 noundef 1024, i64 noundef 0) #9
+  %81 = tail call i64 @hash_bytes_extended(ptr noundef %78, i32 noundef 1024, i64 noundef 0) #8
   store i64 %81, ptr %78, align 1
   br label %AppendJumble.exit61
 
@@ -17902,7 +17901,7 @@ define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -17935,7 +17934,7 @@ define internal fastcc void @_jumbleAlterObjectDependsStmt(ptr noundef %0, ptr n
   br i1 %25, label %26, label %AppendJumble.exit17
 
 26:                                               ; preds = %.lr.ph.i11
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %23, align 1
   br label %AppendJumble.exit17
 
@@ -17966,7 +17965,7 @@ define internal fastcc void @_jumbleAlterObjectSchemaStmt(ptr noundef %0, ptr no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -17998,7 +17997,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %.lr.ph.i20, label %23
 
 23:                                               ; preds = %AppendJumble.exit
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #8
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #7
   %25 = add i64 %24, 1
   %.not23.i = icmp eq i64 %25, 0
   br i1 %.not23.i, label %AppendJumble.exit19, label %.lr.ph.i13
@@ -18011,7 +18010,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph.i13
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %.pre32, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %.pre32, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %.pre32, align 1
   br label %29
 
@@ -18044,7 +18043,7 @@ AppendJumble.exit19:                              ; preds = %AppendJumble.exit19
   br i1 %38, label %39, label %AppendJumble.exit27
 
 39:                                               ; preds = %.lr.ph.i20
-  %40 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #9
+  %40 = tail call i64 @hash_bytes_extended(ptr noundef %37, i32 noundef 1024, i64 noundef 0) #8
   store i64 %40, ptr %37, align 1
   br label %AppendJumble.exit27
 
@@ -18075,7 +18074,7 @@ define internal fastcc void @_jumbleAlterOwnerStmt(ptr noundef %0, ptr noundef n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -18138,7 +18137,7 @@ define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18154,7 +18153,7 @@ define internal fastcc void @_jumbleRuleStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -18193,7 +18192,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i17
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -18217,7 +18216,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br i1 %42, label %43, label %.lr.ph.i33
 
 43:                                               ; preds = %.lr.ph.i25
-  %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #9
+  %44 = tail call i64 @hash_bytes_extended(ptr noundef %41, i32 noundef 1024, i64 noundef 0) #8
   store i64 %44, ptr %41, align 1
   br label %.lr.ph.i33
 
@@ -18237,7 +18236,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br i1 %52, label %53, label %AppendJumble.exit40
 
 53:                                               ; preds = %.lr.ph.i33
-  %54 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #9
+  %54 = tail call i64 @hash_bytes_extended(ptr noundef %50, i32 noundef 1024, i64 noundef 0) #8
   store i64 %54, ptr %50, align 1
   br label %AppendJumble.exit40
 
@@ -18260,7 +18259,7 @@ define internal fastcc void @_jumbleNotifyStmt(ptr noundef captures(none) %0, pt
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18276,7 +18275,7 @@ define internal fastcc void @_jumbleNotifyStmt(ptr noundef captures(none) %0, pt
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -18304,7 +18303,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not10, label %40, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18320,7 +18319,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i12
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -18351,7 +18350,7 @@ define internal fastcc void @_jumbleListenStmt(ptr noundef captures(none) %0, pt
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18367,7 +18366,7 @@ define internal fastcc void @_jumbleListenStmt(ptr noundef captures(none) %0, pt
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -18398,7 +18397,7 @@ define internal fastcc void @_jumbleUnlistenStmt(ptr noundef captures(none) %0, 
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18414,7 +18413,7 @@ define internal fastcc void @_jumbleUnlistenStmt(ptr noundef captures(none) %0, 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -18455,7 +18454,7 @@ define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr noundef 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -18483,7 +18482,7 @@ define internal fastcc void @_jumbleTransactionStmt(ptr noundef %0, ptr noundef 
   br i1 %22, label %23, label %AppendJumble.exit15
 
 23:                                               ; preds = %.lr.ph.i9
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %20, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %20, align 1
   br label %AppendJumble.exit15
 
@@ -18519,7 +18518,7 @@ AppendJumble.exit15:                              ; preds = %.lr.ph.i9, %23
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %37 to i64
   %41 = shl nsw i64 %40, 3
-  %42 = tail call ptr @repalloc(ptr noundef %39, i64 noundef %41) #9
+  %42 = tail call ptr @repalloc(ptr noundef %39, i64 noundef %41) #8
   store ptr %42, ptr %38, align 8
   %.pre13.i = load i32, ptr %32, align 4
   br label %43
@@ -18591,7 +18590,7 @@ define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr noundef no
   br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
@@ -18606,7 +18605,7 @@ define internal fastcc void @_jumbleAlterEnumStmt(ptr noundef %0, ptr noundef no
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67.pre70, i32 noundef 1024, i64 noundef 0) #9
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67.pre70, i32 noundef 1024, i64 noundef 0) #8
   store i64 %14, ptr %.pre65.pre67.pre70, align 1
   br label %15
 
@@ -18640,7 +18639,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %.not21, label %40, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #8
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #7
   %27 = add i64 %26, 1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
@@ -18655,7 +18654,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i24
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65.pre67, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %.pre65.pre67, align 1
   br label %33
 
@@ -18694,7 +18693,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   br label %.lr.ph.i41
 
 43:                                               ; preds = %40
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #8
+  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #7
   %45 = add i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8
@@ -18709,7 +18708,7 @@ AppendJumble.exit31:                              ; preds = %AppendJumble.exit31
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %.lr.ph.i33
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65, i32 noundef 1024, i64 noundef 0) #9
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %.pre65, i32 noundef 1024, i64 noundef 0) #8
   store i64 %50, ptr %.pre65, align 1
   br label %51
 
@@ -18744,7 +18743,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   br i1 %62, label %.lr.ph.i49.thread, label %.lr.ph.i49
 
 .lr.ph.i49.thread:                                ; preds = %.lr.ph.i41
-  %63 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #9
+  %63 = tail call i64 @hash_bytes_extended(ptr noundef %59, i32 noundef 1024, i64 noundef 0) #8
   store i64 %63, ptr %59, align 1
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %65 = load i8, ptr %60, align 1
@@ -18764,7 +18763,7 @@ AppendJumble.exit40:                              ; preds = %AppendJumble.exit40
   br i1 %71, label %72, label %AppendJumble.exit56
 
 72:                                               ; preds = %.lr.ph.i49
-  %73 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef 1024, i64 noundef 0) #9
+  %73 = tail call i64 @hash_bytes_extended(ptr noundef %70, i32 noundef 1024, i64 noundef 0) #8
   store i64 %73, ptr %70, align 1
   br label %AppendJumble.exit56
 
@@ -18800,7 +18799,7 @@ define internal fastcc void @_jumbleViewStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %12, label %13, label %AppendJumble.exit
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = tail call i64 @hash_bytes_extended(ptr noundef %9, i32 noundef 1024, i64 noundef 0) #9
+  %14 = tail call i64 @hash_bytes_extended(ptr noundef %9, i32 noundef 1024, i64 noundef 0) #8
   store i64 %14, ptr %9, align 1
   br label %AppendJumble.exit
 
@@ -18827,7 +18826,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %13
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i13
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %21, align 1
   br label %26
 
@@ -18854,7 +18853,7 @@ define internal fastcc void @_jumbleLoadStmt(ptr noundef captures(none) %0, ptr 
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18870,7 +18869,7 @@ define internal fastcc void @_jumbleLoadStmt(ptr noundef captures(none) %0, ptr 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -18903,7 +18902,7 @@ define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr noundef non
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18919,7 +18918,7 @@ define internal fastcc void @_jumbleCreatedbStmt(ptr noundef %0, ptr noundef non
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -18955,7 +18954,7 @@ define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nounde
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18971,7 +18970,7 @@ define internal fastcc void @_jumbleAlterDatabaseStmt(ptr noundef %0, ptr nounde
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -19005,7 +19004,7 @@ define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr noundef cap
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19021,7 +19020,7 @@ define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr noundef cap
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -19054,7 +19053,7 @@ define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr nou
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19070,7 +19069,7 @@ define internal fastcc void @_jumbleAlterDatabaseSetStmt(ptr noundef %0, ptr nou
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -19112,7 +19111,7 @@ define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr noundef nonnu
   br label %.lr.ph.i9
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -19127,7 +19126,7 @@ define internal fastcc void @_jumbleDropdbStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre19, align 1
   br label %13
 
@@ -19160,7 +19159,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %22, label %23, label %AppendJumble.exit16
 
 23:                                               ; preds = %.lr.ph.i9
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %21, align 1
   br label %AppendJumble.exit16
 
@@ -19190,7 +19189,7 @@ define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr noundef nonn
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19206,7 +19205,7 @@ define internal fastcc void @_jumbleClusterStmt(ptr noundef %0, ptr noundef nonn
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -19250,7 +19249,7 @@ define internal fastcc void @_jumbleVacuumStmt(ptr noundef %0, ptr noundef nonnu
   br i1 %9, label %10, label %AppendJumble.exit
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %AppendJumble.exit
 
@@ -19284,7 +19283,7 @@ define internal fastcc void @_jumbleVacuumRelation(ptr noundef %0, ptr noundef n
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -19341,7 +19340,7 @@ define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nounde
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -19365,7 +19364,7 @@ define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nounde
   br i1 %23, label %.lr.ph.i18.thread, label %.lr.ph.i18
 
 .lr.ph.i18.thread:                                ; preds = %.lr.ph.i11
-  %24 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %24 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %24, ptr %22, align 1
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i8, ptr %21, align 1
@@ -19385,7 +19384,7 @@ define internal fastcc void @_jumbleCreateTableAsStmt(ptr noundef %0, ptr nounde
   br i1 %32, label %33, label %AppendJumble.exit24
 
 33:                                               ; preds = %.lr.ph.i18
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %31, align 1
   br label %AppendJumble.exit24
 
@@ -19412,7 +19411,7 @@ define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nound
   br i1 %6, label %.lr.ph.i7.thread, label %.lr.ph.i7
 
 .lr.ph.i7.thread:                                 ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %3, align 1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i8, ptr %2, align 1
@@ -19432,7 +19431,7 @@ define internal fastcc void @_jumbleRefreshMatViewStmt(ptr noundef %0, ptr nound
   br i1 %15, label %16, label %AppendJumble.exit13
 
 16:                                               ; preds = %.lr.ph.i7
-  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #9
+  %17 = tail call i64 @hash_bytes_extended(ptr noundef %14, i32 noundef 1024, i64 noundef 0) #8
   store i64 %17, ptr %14, align 1
   br label %AppendJumble.exit13
 
@@ -19467,7 +19466,7 @@ define internal fastcc void @_jumbleDiscardStmt(ptr noundef captures(none) %0, p
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -19507,7 +19506,7 @@ define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -19530,7 +19529,7 @@ define internal fastcc void @_jumbleLockStmt(ptr noundef %0, ptr noundef nonnull
   br i1 %20, label %21, label %AppendJumble.exit13
 
 21:                                               ; preds = %.lr.ph.i7
-  %22 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  %22 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %22, ptr %19, align 1
   br label %AppendJumble.exit13
 
@@ -19558,7 +19557,7 @@ define internal fastcc void @_jumbleConstraintsSetStmt(ptr noundef %0, ptr nound
   br i1 %7, label %8, label %AppendJumble.exit
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %AppendJumble.exit
 
@@ -19589,7 +19588,7 @@ define internal fastcc void @_jumbleReindexStmt(ptr noundef %0, ptr noundef nonn
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -19616,7 +19615,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %36, label %21
 
 21:                                               ; preds = %AppendJumble.exit
-  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
+  %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #7
   %23 = add i64 %22, 1
   %24 = load ptr, ptr %0, align 8
   %25 = load i64, ptr %5, align 8
@@ -19631,7 +19630,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %.lr.ph.i11
-  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  %28 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #8
   store i64 %28, ptr %24, align 1
   br label %29
 
@@ -19670,7 +19669,7 @@ define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr nou
   br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %9 = add i64 %8, 1
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19686,7 +19685,7 @@ define internal fastcc void @_jumbleCreateConversionStmt(ptr noundef %0, ptr nou
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -19714,7 +19713,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br i1 %.not16, label %.lr.ph.i26, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #8
+  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #7
   %28 = add i64 %27, 1
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19730,7 +19729,7 @@ AppendJumble.exit:                                ; preds = %16, %7
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i18
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %29, align 1
   br label %35
 
@@ -19762,7 +19761,7 @@ AppendJumble.exit25:                              ; preds = %35, %26
   br i1 %47, label %48, label %AppendJumble.exit33
 
 48:                                               ; preds = %.lr.ph.i26
-  %49 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #9
+  %49 = tail call i64 @hash_bytes_extended(ptr noundef %44, i32 noundef 1024, i64 noundef 0) #8
   store i64 %49, ptr %44, align 1
   br label %AppendJumble.exit33
 
@@ -19802,7 +19801,7 @@ define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr noundef n
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #9
+  %15 = tail call i64 @hash_bytes_extended(ptr noundef %10, i32 noundef 1024, i64 noundef 0) #8
   store i64 %15, ptr %10, align 1
   br label %16
 
@@ -19825,7 +19824,7 @@ define internal fastcc void @_jumbleCreateCastStmt(ptr noundef %0, ptr noundef n
   br i1 %24, label %25, label %AppendJumble.exit17
 
 25:                                               ; preds = %.lr.ph.i11
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %23, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %23, align 1
   br label %AppendJumble.exit17
 
@@ -19851,7 +19850,7 @@ define internal fastcc void @_jumbleCreateTransformStmt(ptr noundef %0, ptr noun
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -19871,7 +19870,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %.not, label %31, label %16
 
 16:                                               ; preds = %AppendJumble.exit
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
   %18 = add i64 %17, 1
   %19 = load ptr, ptr %0, align 8
   %20 = load i64, ptr %4, align 8
@@ -19886,7 +19885,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph.i13
-  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #9
+  %23 = tail call i64 @hash_bytes_extended(ptr noundef %19, i32 noundef 1024, i64 noundef 0) #8
   store i64 %23, ptr %19, align 1
   br label %24
 
@@ -19925,7 +19924,7 @@ define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr noundef nonn
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19941,7 +19940,7 @@ define internal fastcc void @_jumblePrepareStmt(ptr noundef %0, ptr noundef nonn
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -19980,7 +19979,7 @@ define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr noundef nonn
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19996,7 +19995,7 @@ define internal fastcc void @_jumbleExecuteStmt(ptr noundef %0, ptr noundef nonn
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -20035,7 +20034,7 @@ define internal fastcc void @_jumbleDeallocateStmt(ptr noundef captures(none) %0
   br i1 %6, label %7, label %AppendJumble.exit
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #9
+  %8 = tail call i64 @hash_bytes_extended(ptr noundef %3, i32 noundef 1024, i64 noundef 0) #8
   store i64 %8, ptr %3, align 1
   br label %AppendJumble.exit
 
@@ -20071,7 +20070,7 @@ AppendJumble.exit:                                ; preds = %.lr.ph.i, %7
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %21 to i64
   %25 = shl nsw i64 %24, 3
-  %26 = tail call ptr @repalloc(ptr noundef %23, i64 noundef %25) #9
+  %26 = tail call ptr @repalloc(ptr noundef %23, i64 noundef %25) #8
   store ptr %26, ptr %22, align 8
   %.pre13.i = load i32, ptr %16, align 4
   br label %27
@@ -20117,7 +20116,7 @@ define internal fastcc void @_jumbleDropOwnedStmt(ptr noundef %0, ptr noundef no
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #9
+  %11 = tail call i64 @hash_bytes_extended(ptr noundef %6, i32 noundef 1024, i64 noundef 0) #8
   store i64 %11, ptr %6, align 1
   br label %12
 
@@ -20176,7 +20175,7 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -20210,7 +20209,7 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
   br i1 %26, label %.lr.ph.i22.thread, label %.lr.ph.i22
 
 .lr.ph.i22.thread:                                ; preds = %.lr.ph.i15
-  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #9
+  %27 = tail call i64 @hash_bytes_extended(ptr noundef %24, i32 noundef 1024, i64 noundef 0) #8
   store i64 %27, ptr %24, align 1
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i8, ptr %23, align 1
@@ -20232,7 +20231,7 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
   br i1 %37, label %38, label %.lr.ph.i29
 
 38:                                               ; preds = %.lr.ph.i22
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #8
   store i64 %39, ptr %36, align 1
   br label %.lr.ph.i29.thread
 
@@ -20259,7 +20258,7 @@ define internal fastcc void @_jumbleAlterTSConfigurationStmt(ptr noundef %0, ptr
   br i1 %48, label %49, label %AppendJumble.exit35
 
 49:                                               ; preds = %.lr.ph.i29
-  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #9
+  %50 = tail call i64 @hash_bytes_extended(ptr noundef %47, i32 noundef 1024, i64 noundef 0) #8
   store i64 %50, ptr %47, align 1
   br label %AppendJumble.exit35
 
@@ -20305,7 +20304,7 @@ define internal fastcc void @_jumblePublicationObjSpec(ptr noundef %0, ptr nound
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -20329,7 +20328,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -20343,7 +20342,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i9
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -20379,7 +20378,7 @@ define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr no
   br i1 %.not, label %.lr.ph.i11, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20395,7 +20394,7 @@ define internal fastcc void @_jumbleCreatePublicationStmt(ptr noundef %0, ptr no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -20430,7 +20429,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %28, label %29, label %AppendJumble.exit18
 
 29:                                               ; preds = %.lr.ph.i11
-  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #9
+  %30 = tail call i64 @hash_bytes_extended(ptr noundef %25, i32 noundef 1024, i64 noundef 0) #8
   store i64 %30, ptr %25, align 1
   br label %AppendJumble.exit18
 
@@ -20453,7 +20452,7 @@ define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nou
   br i1 %.not, label %.lr.ph.i13, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20469,7 +20468,7 @@ define internal fastcc void @_jumbleAlterPublicationStmt(ptr noundef %0, ptr nou
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -20505,7 +20504,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %29, label %30, label %AppendJumble.exit20
 
 30:                                               ; preds = %.lr.ph.i13
-  %31 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #9
+  %31 = tail call i64 @hash_bytes_extended(ptr noundef %26, i32 noundef 1024, i64 noundef 0) #8
   store i64 %31, ptr %26, align 1
   br label %AppendJumble.exit20
 
@@ -20528,7 +20527,7 @@ AppendJumble.exit20:                              ; preds = %.lr.ph.i13, %30
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.i21
-  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #9
+  %39 = tail call i64 @hash_bytes_extended(ptr noundef %36, i32 noundef 1024, i64 noundef 0) #8
   store i64 %39, ptr %36, align 1
   br label %40
 
@@ -20557,7 +20556,7 @@ define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr n
   br i1 %.not, label %21, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20573,7 +20572,7 @@ define internal fastcc void @_jumbleCreateSubscriptionStmt(ptr noundef %0, ptr n
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #9
+  %13 = tail call i64 @hash_bytes_extended(ptr noundef %8, i32 noundef 1024, i64 noundef 0) #8
   store i64 %13, ptr %8, align 1
   br label %14
 
@@ -20601,7 +20600,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %.not14, label %40, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
+  %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #7
   %26 = add i64 %25, 1
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20617,7 +20616,7 @@ AppendJumble.exit:                                ; preds = %14, %5
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i16
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %27, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %27, align 1
   br label %33
 
@@ -20664,7 +20663,7 @@ define internal fastcc void @_jumbleAlterSubscriptionStmt(ptr noundef %0, ptr no
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -20688,7 +20687,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %AppendJumble.exit
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #8
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #7
   %21 = add i64 %20, 1
   %22 = load ptr, ptr %0, align 8
   %.not23.i = icmp eq i64 %21, 0
@@ -20702,7 +20701,7 @@ AppendJumble.exit:                                ; preds = %10
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %.lr.ph.i17
-  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #9
+  %25 = tail call i64 @hash_bytes_extended(ptr noundef %22, i32 noundef 1024, i64 noundef 0) #8
   store i64 %25, ptr %22, align 1
   br label %26
 
@@ -20731,7 +20730,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   br i1 %.not16, label %51, label %37
 
 37:                                               ; preds = %33
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #7
   %39 = add i64 %38, 1
   %40 = load ptr, ptr %0, align 8
   %.not23.i24 = icmp eq i64 %39, 0
@@ -20745,7 +20744,7 @@ AppendJumble.exit23:                              ; preds = %26, %19
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.lr.ph.i25
-  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #9
+  %43 = tail call i64 @hash_bytes_extended(ptr noundef %40, i32 noundef 1024, i64 noundef 0) #8
   store i64 %43, ptr %40, align 1
   br label %44
 
@@ -20790,7 +20789,7 @@ define internal fastcc void @_jumbleDropSubscriptionStmt(ptr noundef captures(no
   br label %.lr.ph.i9
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %7 = add i64 %6, 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
@@ -20805,7 +20804,7 @@ define internal fastcc void @_jumbleDropSubscriptionStmt(ptr noundef captures(no
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre29, i32 noundef 1024, i64 noundef 0) #9
+  %12 = tail call i64 @hash_bytes_extended(ptr noundef %.pre29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %12, ptr %.pre29, align 1
   br label %13
 
@@ -20840,7 +20839,7 @@ AppendJumble.exit:                                ; preds = %AppendJumble.exit.l
   br i1 %24, label %25, label %AppendJumble.exit16
 
 25:                                               ; preds = %.lr.ph.i9
-  %26 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #9
+  %26 = tail call i64 @hash_bytes_extended(ptr noundef %21, i32 noundef 1024, i64 noundef 0) #8
   store i64 %26, ptr %21, align 1
   br label %AppendJumble.exit16
 
@@ -20863,7 +20862,7 @@ AppendJumble.exit16:                              ; preds = %.lr.ph.i9, %25
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %.lr.ph.i17
-  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #9
+  %34 = tail call i64 @hash_bytes_extended(ptr noundef %31, i32 noundef 1024, i64 noundef 0) #8
   store i64 %34, ptr %31, align 1
   br label %35
 
@@ -20901,7 +20900,7 @@ define internal fastcc void @_jumbleExtensibleNode(ptr noundef captures(none) %0
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20917,7 +20916,7 @@ define internal fastcc void @_jumbleExtensibleNode(ptr noundef captures(none) %0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -20958,7 +20957,7 @@ define internal fastcc void @_jumbleInteger(ptr noundef captures(none) %0, ptr n
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #9
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef 1024, i64 noundef 0) #8
   store i64 %9, ptr %4, align 1
   br label %10
 
@@ -20985,7 +20984,7 @@ define internal fastcc void @_jumbleFloat(ptr noundef captures(none) %0, ptr rea
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21001,7 +21000,7 @@ define internal fastcc void @_jumbleFloat(ptr noundef captures(none) %0, ptr rea
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -21036,7 +21035,7 @@ define internal fastcc void @_jumbleBoolean(ptr noundef captures(none) %0, ptr n
   br i1 %5, label %6, label %AppendJumble.exit
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #9
+  %7 = tail call i64 @hash_bytes_extended(ptr noundef %2, i32 noundef 1024, i64 noundef 0) #8
   store i64 %7, ptr %2, align 1
   br label %AppendJumble.exit
 
@@ -21057,7 +21056,7 @@ define internal fastcc void @_jumbleString(ptr noundef captures(none) %0, ptr re
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21073,7 +21072,7 @@ define internal fastcc void @_jumbleString(ptr noundef captures(none) %0, ptr re
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -21104,7 +21103,7 @@ define internal fastcc void @_jumbleBitString(ptr noundef captures(none) %0, ptr
   br i1 %.not, label %18, label %2
 
 2:                                                ; preds = %1
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #8
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.8.val) #7
   %4 = add i64 %3, 1
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -21120,7 +21119,7 @@ define internal fastcc void @_jumbleBitString(ptr noundef captures(none) %0, ptr
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #9
+  %10 = tail call i64 @hash_bytes_extended(ptr noundef %5, i32 noundef 1024, i64 noundef 0) #8
   store i64 %10, ptr %5, align 1
   br label %11
 
@@ -21229,7 +21228,7 @@ define internal fastcc void @_jumbleList(ptr noundef %0, ptr noundef nonnull rea
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #9
+  %32 = tail call i64 @hash_bytes_extended(ptr noundef %29, i32 noundef 1024, i64 noundef 0) #8
   store i64 %32, ptr %29, align 1
   br label %33
 
@@ -21269,7 +21268,7 @@ AppendJumble.exit:                                ; preds = %33
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %.lr.ph.i52
-  %49 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #9
+  %49 = tail call i64 @hash_bytes_extended(ptr noundef %46, i32 noundef 1024, i64 noundef 0) #8
   store i64 %49, ptr %46, align 1
   br label %50
 
@@ -21309,7 +21308,7 @@ AppendJumble.exit58:                              ; preds = %50
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %.lr.ph.i59
-  %66 = tail call i64 @hash_bytes_extended(ptr noundef %63, i32 noundef 1024, i64 noundef 0) #9
+  %66 = tail call i64 @hash_bytes_extended(ptr noundef %63, i32 noundef 1024, i64 noundef 0) #8
   store i64 %66, ptr %63, align 1
   br label %67
 
@@ -21334,11 +21333,10 @@ AppendJumble.exit65:                              ; preds = %67
   br i1 %.not, label %59, label %.critedge, !llvm.loop !13
 
 76:                                               ; preds = %2
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %77)
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %78 = load i32, ptr %1, align 8
-  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %78) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__._jumbleList) #9
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %78) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__._jumbleList) #8
   unreachable
 
 .critedge:                                        ; preds = %AppendJumble.exit65, %AppendJumble.exit58, %AppendJumble.exit, %19, %.preheader70, %.preheader68, %.preheader66, %.preheader
@@ -21359,11 +21357,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #7
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21371,11 +21366,10 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

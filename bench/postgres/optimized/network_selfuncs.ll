@@ -39,7 +39,7 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %20 = call zeroext i1 @get_restriction_variable(ptr noundef %10, ptr noundef %16, i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %20 = call zeroext i1 @get_restriction_variable(ptr noundef %10, ptr noundef %16, i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %1
@@ -62,7 +62,7 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull %30) #9
+  call void %33(ptr noundef nonnull %30) #8
   br label %34
 
 34:                                               ; preds = %31, %28
@@ -85,7 +85,7 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %46 = load ptr, ptr %45, align 8
-  call void %46(ptr noundef nonnull %43) #9
+  call void %46(ptr noundef nonnull %43) #8
   br label %105
 
 47:                                               ; preds = %37
@@ -111,13 +111,13 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load float, ptr %61, align 4
   %63 = fpext float %62 to double
-  %64 = call i32 @get_opcode(i32 noundef %13) #9
-  call void @fmgr_info(i32 noundef %64, ptr noundef nonnull %7) #9
+  %64 = call i32 @get_opcode(i32 noundef %13) #8
+  call void @fmgr_info(i32 noundef %64, ptr noundef nonnull %7) #8
   %65 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
-  %67 = call double @mcv_selectivity(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 0, i64 noundef %49, i1 noundef zeroext %66, ptr noundef nonnull %6) #9
+  %67 = call double @mcv_selectivity(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 0, i64 noundef %49, i1 noundef zeroext %66, ptr noundef nonnull %6) #8
   %68 = load ptr, ptr %50, align 8
-  %69 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef %68, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
+  %69 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef %68, i32 noundef 2, i32 noundef 0, i32 noundef 1) #8
   br i1 %69, label %70, label %86
 
 70:                                               ; preds = %55
@@ -142,10 +142,9 @@ define dso_local i64 @networksel(ptr noundef readonly captures(none) %0) local_u
   br label %inet_opr_codenum.exit
 
 75:                                               ; preds = %70
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %13) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #9
+  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %13) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #8
   unreachable
 
 inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, %74
@@ -159,7 +158,7 @@ inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, 
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = call fastcc double @inet_hist_value_sel(ptr noundef %82, i32 noundef %84, i64 noundef %49, i32 noundef %spec.select)
-  call void @free_attstatsslot(ptr noundef nonnull %5) #9
+  call void @free_attstatsslot(ptr noundef nonnull %5) #8
   br label %89
 
 86:                                               ; preds = %55
@@ -192,7 +191,7 @@ inet_opr_codenum.exit:                            ; preds = %70, %71, %72, %73, 
 100:                                              ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull %99) #9
+  call void %102(ptr noundef nonnull %99) #8
   br label %103
 
 103:                                              ; preds = %100, %98
@@ -230,10 +229,10 @@ define internal fastcc double @inet_hist_value_sel(ptr noundef readonly captures
   %8 = lshr i32 %7, 10
   %9 = add nuw nsw i32 %8, 1
   %10 = inttoptr i64 %2 to ptr
-  %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #9
+  %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #8
   %12 = load i64, ptr %0, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call ptr @pg_detoast_datum_packed(ptr noundef %13) #9
+  %14 = tail call ptr @pg_detoast_datum_packed(ptr noundef %13) #8
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
   %.not.i = icmp eq i8 %16, 0
@@ -258,7 +257,7 @@ define internal fastcc double @inet_hist_value_sel(ptr noundef readonly captures
   %30 = load i8, ptr %29, align 1
   %..i = tail call i8 @llvm.umin.i8(i8 %28, i8 %30)
   %31 = zext i8 %..i to i32
-  %32 = tail call i32 @bitncmp(ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %31) #9
+  %32 = tail call i32 @bitncmp(ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %31) #8
   %.not42.i = icmp eq i32 %32, 0
   br i1 %.not42.i, label %33, label %inet_inclusion_cmp.exit
 
@@ -329,7 +328,7 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   %69 = getelementptr inbounds i64, ptr %0, i64 %68
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
-  %72 = tail call ptr @pg_detoast_datum_packed(ptr noundef %71) #9
+  %72 = tail call ptr @pg_detoast_datum_packed(ptr noundef %71) #8
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 1
   %.not.i55 = icmp eq i8 %74, 0
@@ -354,7 +353,7 @@ inet_inclusion_cmp.exit:                          ; preds = %24, %33, %49, %53, 
   %88 = load i8, ptr %87, align 1
   %..i60 = tail call i8 @llvm.umin.i8(i8 %86, i8 %88)
   %89 = zext i8 %..i60 to i32
-  %90 = tail call i32 @bitncmp(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %89) #9
+  %90 = tail call i32 @bitncmp(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %89) #8
   %.not42.i61 = icmp eq i32 %90, 0
   br i1 %.not42.i61, label %91, label %inet_inclusion_cmp.exit70.thread
 
@@ -484,7 +483,7 @@ inet_masklen_inclusion_cmp.exit.thread.i:         ; preds = %144, %142
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %125, i64 2
   %153 = getelementptr inbounds nuw i8, ptr %129, i64 2
-  %154 = tail call i32 @bitncommon(ptr noundef nonnull %152, ptr noundef nonnull %153, i32 noundef %150) #9
+  %154 = tail call i32 @bitncommon(ptr noundef nonnull %152, ptr noundef nonnull %153, i32 noundef %150) #8
   %155 = sub i32 %.0.i, %154
   %.pre = load i8, ptr %11, align 1
   %.pre112 = and i8 %.pre, 1
@@ -555,7 +554,7 @@ inet_masklen_inclusion_cmp.exit.thread.i87:       ; preds = %175, %173
 182:                                              ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %158, i64 2
   %184 = getelementptr inbounds nuw i8, ptr %160, i64 2
-  %185 = tail call i32 @bitncommon(ptr noundef nonnull %183, ptr noundef nonnull %184, i32 noundef %181) #9
+  %185 = tail call i32 @bitncommon(ptr noundef nonnull %183, ptr noundef nonnull %184, i32 noundef %181) #8
   %186 = sub i32 %.0.i93, %185
   br label %inet_hist_match_divider.exit97
 
@@ -622,7 +621,7 @@ define dso_local i64 @networkjoinsel(ptr noundef readonly captures(none) %0) loc
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @get_join_variables(ptr noundef %12, ptr noundef %18, ptr noundef %21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  call void @get_join_variables(ptr noundef %12, ptr noundef %18, ptr noundef %21, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %202 [
@@ -653,9 +652,9 @@ define dso_local i64 @networkjoinsel(ptr noundef readonly captures(none) %0) loc
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load float, ptr %33, align 4
   %35 = fpext float %34 to double
-  %36 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 0, i32 noundef 3) #9
+  %36 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 0, i32 noundef 3) #8
   %37 = load ptr, ptr %25, align 8
-  %38 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef %37, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
+  %38 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef %37, i32 noundef 2, i32 noundef 0, i32 noundef 1) #8
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = call i32 @llvm.smin.i32(i32 %40, i32 1024)
@@ -708,9 +707,9 @@ mcv_population.exit.i:                            ; preds = %.lr.ph.i.i, %50, %4
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load float, ptr %59, align 4
   %61 = fpext float %60 to double
-  %62 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %4, ptr noundef nonnull %52, i32 noundef 1, i32 noundef 0, i32 noundef 3) #9
+  %62 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %4, ptr noundef nonnull %52, i32 noundef 1, i32 noundef 0, i32 noundef 3) #8
   %63 = load ptr, ptr %51, align 8
-  %64 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %6, ptr noundef %63, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
+  %64 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %6, ptr noundef %63, i32 noundef 2, i32 noundef 0, i32 noundef 1) #8
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = call i32 @llvm.smin.i32(i32 %66, i32 1024)
@@ -769,10 +768,9 @@ mcv_population.exit84.i:                          ; preds = %.lr.ph.i79.i, %76, 
   br label %inet_opr_codenum.exit.i
 
 81:                                               ; preds = %mcv_population.exit84.i
-  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %82)
-  %83 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %15) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #9
+  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %83 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %15) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #8
   unreachable
 
 inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, %mcv_population.exit84.i
@@ -790,8 +788,8 @@ inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, 
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %92 = load ptr, ptr %91, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %93 = call i32 @get_opcode(i32 noundef %15) #9
-  call void @fmgr_info(i32 noundef %93, ptr noundef nonnull %2) #9
+  %93 = call i32 @get_opcode(i32 noundef %15) #8
+  call void @fmgr_info(i32 noundef %93, ptr noundef nonnull %2) #8
   %94 = icmp sgt i32 %.061.i, 0
   %95 = icmp sgt i32 %.0.i, 0
   %or.cond.i.i = and i1 %94, %95
@@ -815,7 +813,7 @@ inet_opr_codenum.exit.i:                          ; preds = %80, %79, %78, %77, 
   %99 = load i64, ptr %96, align 8
   %100 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv.i86.i
   %101 = load i64, ptr %100, align 8
-  %102 = call i64 @FunctionCall2Coll(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %99, i64 noundef %101) #9
+  %102 = call i64 @FunctionCall2Coll(ptr noundef nonnull %2, i32 noundef 0, i64 noundef %99, i64 noundef %101) #8
   %.not.us.i.i = icmp eq i64 %102, 0
   br i1 %.not.us.i.i, label %110, label %103
 
@@ -1004,10 +1002,10 @@ inet_hist_inclusion_join_sel.exit.i:              ; preds = %._crit_edge.i.i, %1
 
 networkjoinsel_inner.exit:                        ; preds = %186, %187
   %.4.i = phi double [ %193, %187 ], [ %.3.i, %186 ]
-  call void @free_attstatsslot(ptr noundef nonnull %3) #9
-  call void @free_attstatsslot(ptr noundef nonnull %4) #9
-  call void @free_attstatsslot(ptr noundef nonnull %5) #9
-  call void @free_attstatsslot(ptr noundef nonnull %6) #9
+  call void @free_attstatsslot(ptr noundef nonnull %3) #8
+  call void @free_attstatsslot(ptr noundef nonnull %4) #8
+  call void @free_attstatsslot(ptr noundef nonnull %5) #8
+  call void @free_attstatsslot(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1024,16 +1022,15 @@ networkjoinsel_inner.exit:                        ; preds = %186, %187
   br label %206
 
 199:                                              ; preds = %194
-  %200 = call i32 @get_commutator(i32 noundef %15) #9
+  %200 = call i32 @get_commutator(i32 noundef %15) #8
   %201 = call fastcc double @networkjoinsel_semi(i32 noundef %200, ptr noundef %8, ptr noundef %7)
   br label %206
 
 202:                                              ; preds = %1
-  %203 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %203)
+  %203 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %204 = load i32, ptr %22, align 8
-  %205 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %204) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.networkjoinsel) #9
+  %205 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %204) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.networkjoinsel) #8
   unreachable
 
 206:                                              ; preds = %networkjoinsel_inner.exit, %199, %197
@@ -1046,7 +1043,7 @@ networkjoinsel_inner.exit:                        ; preds = %186, %187
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef nonnull %208) #9
+  call void %211(ptr noundef nonnull %208) #8
   br label %212
 
 212:                                              ; preds = %206, %209
@@ -1058,7 +1055,7 @@ networkjoinsel_inner.exit:                        ; preds = %186, %187
 215:                                              ; preds = %212
   %216 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull %214) #9
+  call void %217(ptr noundef nonnull %214) #8
   br label %218
 
 218:                                              ; preds = %212, %215
@@ -1110,9 +1107,9 @@ define internal fastcc double @networkjoinsel_semi(i32 noundef %0, ptr noundef n
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
-  %20 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 0, i32 noundef 3) #9
+  %20 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %5, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 0, i32 noundef 3) #8
   %21 = load ptr, ptr %9, align 8
-  %22 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %7, ptr noundef %21, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
+  %22 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %7, ptr noundef %21, i32 noundef 2, i32 noundef 0, i32 noundef 1) #8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = call i32 @llvm.smin.i32(i32 %24, i32 1024)
@@ -1165,9 +1162,9 @@ mcv_population.exit:                              ; preds = %.lr.ph.i, %26, %11,
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load float, ptr %43, align 4
   %45 = fpext float %44 to double
-  %46 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %6, ptr noundef nonnull %36, i32 noundef 1, i32 noundef 0, i32 noundef 3) #9
+  %46 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %6, ptr noundef nonnull %36, i32 noundef 1, i32 noundef 0, i32 noundef 3) #8
   %47 = load ptr, ptr %35, align 8
-  %48 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %8, ptr noundef %47, i32 noundef 2, i32 noundef 0, i32 noundef 1) #9
+  %48 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %8, ptr noundef %47, i32 noundef 2, i32 noundef 0, i32 noundef 1) #8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = call i32 @llvm.smin.i32(i32 %50, i32 1024)
@@ -1226,16 +1223,15 @@ mcv_population.exit104:                           ; preds = %.lr.ph.i99, %52, %3
   br label %inet_opr_codenum.exit
 
 65:                                               ; preds = %mcv_population.exit104
-  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %66)
-  %67 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #9
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %67 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 852, ptr noundef nonnull @__func__.inet_opr_codenum) #8
   unreachable
 
 inet_opr_codenum.exit:                            ; preds = %mcv_population.exit104, %61, %62, %63, %64
   %.0.i = phi i32 [ -1, %61 ], [ 0, %62 ], [ 1, %63 ], [ 2, %64 ], [ -2, %mcv_population.exit104 ]
-  %68 = call i32 @get_opcode(i32 noundef %0) #9
-  call void @fmgr_info(i32 noundef %68, ptr noundef nonnull %4) #9
+  %68 = call i32 @get_opcode(i32 noundef %0) #8
+  call void @fmgr_info(i32 noundef %68, ptr noundef nonnull %4) #8
   br i1 %.077.shrunk, label %69, label %78
 
 69:                                               ; preds = %inet_opr_codenum.exit
@@ -1299,7 +1295,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i109, %99 ], [ 0, %88 ]
   %100 = getelementptr inbounds nuw i64, ptr %96, i64 %indvars.iv.i108
   %101 = load i64, ptr %100, align 8
-  %102 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %95, i64 noundef %101) #9
+  %102 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %95, i64 noundef %101) #8
   %.not.i = icmp eq i64 %102, 0
   br i1 %.not.i, label %99, label %inet_semi_join_sel.exit
 
@@ -1371,7 +1367,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i120, %132 ], [ 0, %124 ]
   %133 = getelementptr inbounds nuw i64, ptr %129, i64 %indvars.iv.i118
   %134 = load i64, ptr %133, align 8
-  %135 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %128, i64 noundef %134) #9
+  %135 = call i64 @FunctionCall2Coll(ptr noundef nonnull %4, i32 noundef 0, i64 noundef %128, i64 noundef %134) #8
   %.not.i119 = icmp eq i64 %135, 0
   br i1 %.not.i119, label %132, label %inet_semi_join_sel.exit122
 
@@ -1425,10 +1421,10 @@ inet_semi_join_sel.exit122:                       ; preds = %.lr.ph.i117, %.thre
 
 163:                                              ; preds = %155, %156
   %.3 = phi double [ %162, %156 ], [ %.2, %155 ]
-  call void @free_attstatsslot(ptr noundef nonnull %5) #9
-  call void @free_attstatsslot(ptr noundef nonnull %6) #9
-  call void @free_attstatsslot(ptr noundef nonnull %7) #9
-  call void @free_attstatsslot(ptr noundef nonnull %8) #9
+  call void @free_attstatsslot(ptr noundef nonnull %5) #8
+  call void @free_attstatsslot(ptr noundef nonnull %6) #8
+  call void @free_attstatsslot(ptr noundef nonnull %7) #8
+  call void @free_attstatsslot(ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1463,20 +1459,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @ldexp(double, i32) local_unnamed_addr #8
+declare double @ldexp(double, i32) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #7
+declare i8 @llvm.umin.i8(i8, i8) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1484,11 +1477,10 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

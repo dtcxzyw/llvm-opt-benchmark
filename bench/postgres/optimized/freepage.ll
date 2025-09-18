@@ -1146,10 +1146,9 @@ FreePageBtreeGetRecycled.exit:                    ; preds = %147, %.split.i
   br label %170
 
 167:                                              ; preds = %161
-  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %168)
-  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 1534, ptr noundef nonnull @__func__.FreePageManagerPutInternal) #13
+  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 1534, ptr noundef nonnull @__func__.FreePageManagerPutInternal) #12
   unreachable
 
 170:                                              ; preds = %163, %FreePageBtreeGetRecycled.exit
@@ -1650,10 +1649,9 @@ FreePageBtreeAdjustAncestorKeys.exit.loopexit:    ; preds = %394, %423
   br i1 %437, label %441, label %438
 
 438:                                              ; preds = %436
-  %439 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %439)
-  %440 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 1689, ptr noundef nonnull @__func__.FreePageManagerPutInternal) #13
+  %439 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  %440 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 1689, ptr noundef nonnull @__func__.FreePageManagerPutInternal) #12
   unreachable
 
 441:                                              ; preds = %436
@@ -2390,19 +2388,19 @@ define dso_local ptr @FreePageManagerDump(ptr noundef %0) local_unnamed_addr #1 
   %4 = sub i64 1, %3
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %2) #13
+  call void @initStringInfo(ptr noundef nonnull %2) #12
   %6 = load i64, ptr %0, align 8
   %7 = add i64 %6, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str, i64 noundef %7, i64 noundef %9) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str, i64 noundef %7, i64 noundef %9) #12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %11) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.1, i32 noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
@@ -2421,7 +2419,7 @@ define dso_local ptr @FreePageManagerDump(ptr noundef %0) local_unnamed_addr #1 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, i64 noundef %24, i64 noundef %21) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.2, i64 noundef %24, i64 noundef %21) #12
   br label %25
 
 25:                                               ; preds = %12, %22, %19
@@ -2432,7 +2430,7 @@ define dso_local ptr @FreePageManagerDump(ptr noundef %0) local_unnamed_addr #1 
 
 .lr.ph.i:                                         ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 %27
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #13
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #12
   %30 = load i64, ptr %0, align 8
   %31 = sub i64 1, %30
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
@@ -2451,11 +2449,11 @@ define dso_local ptr @FreePageManagerDump(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not17.i, label %41, label %40
 
 40:                                               ; preds = %34
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i64 noundef %39, i64 noundef %36) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i64 noundef %39, i64 noundef %36) #12
   br label %select.unfold.i
 
 41:                                               ; preds = %34
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i64 noundef %39) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i64 noundef %39) #12
   br label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %41, %40
@@ -2466,7 +2464,7 @@ select.unfold.i:                                  ; preds = %41, %40
   br i1 %44, label %FreePageManagerDumpSpans.exit, label %34
 
 FreePageManagerDumpSpans.exit:                    ; preds = %select.unfold.i
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #12
   br label %46
 
 46:                                               ; preds = %FreePageManagerDumpSpans.exit, %25
@@ -2489,12 +2487,12 @@ FreePageManagerDumpSpans.exit:                    ; preds = %select.unfold.i
   br i1 %.049, label %54, label %53
 
 53:                                               ; preds = %52
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #13
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.4) #12
   br label %54
 
 54:                                               ; preds = %53, %52
   %55 = add nuw nsw i64 %.03348, 1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef %55) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.5, i64 noundef %55) #12
   %56 = load i64, ptr %49, align 8
   %57 = icmp eq i64 %56, 0
   %58 = load i64, ptr %0, align 8
@@ -2519,11 +2517,11 @@ FreePageManagerDumpSpans.exit:                    ; preds = %select.unfold.i
   br i1 %.not17.i44, label %70, label %69
 
 69:                                               ; preds = %63
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i64 noundef %68, i64 noundef %65) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.9, i64 noundef %68, i64 noundef %65) #12
   br label %select.unfold.i45
 
 70:                                               ; preds = %63
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i64 noundef %68) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i64 noundef %68) #12
   br label %select.unfold.i45
 
 select.unfold.i45:                                ; preds = %70, %69
@@ -2534,7 +2532,7 @@ select.unfold.i45:                                ; preds = %70, %69
   br i1 %73, label %FreePageManagerDumpSpans.exit46, label %63
 
 FreePageManagerDumpSpans.exit46:                  ; preds = %select.unfold.i45, %54
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #12
   br label %75
 
 75:                                               ; preds = %._crit_edge, %FreePageManagerDumpSpans.exit46
@@ -2562,7 +2560,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = lshr i64 %11, 12
-  tail call void @check_stack_depth() #13
+  tail call void @check_stack_depth() #12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
@@ -2572,7 +2570,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %19 = load i32, ptr %1, align 8
   %20 = icmp eq i32 %19, 430584521
   %21 = select i1 %20, i32 105, i32 108
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i64 noundef %12, i32 noundef %3, i32 noundef %21) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.6, i64 noundef %12, i32 noundef %3, i32 noundef %21) #12
   %.not = icmp eq ptr %2, %18
   br i1 %.not, label %29, label %22
 
@@ -2583,11 +2581,11 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %26 = ptrtoint ptr %2 to i64
   %27 = sub i64 %26, %10
   %28 = lshr i64 %27, 12
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef %25, i64 noundef %28) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, i64 noundef %25, i64 noundef %28) #12
   br label %29
 
 29:                                               ; preds = %22, %5
-  tail call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 58) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 58) #12
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 8
   %.not54 = icmp eq i64 %31, 0
@@ -2610,7 +2608,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, -1
   %42 = lshr i64 %41, 12
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef %38, i64 noundef %42) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.8, i64 noundef %38, i64 noundef %42) #12
   br label %48
 
 43:                                               ; preds = %33
@@ -2618,7 +2616,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i64, ptr %46, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i64 noundef %45, i64 noundef %47) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.9, i64 noundef %45, i64 noundef %47) #12
   br label %48
 
 48:                                               ; preds = %36, %43
@@ -2628,7 +2626,7 @@ define internal fastcc void @FreePageManagerDumpBtree(ptr noundef %0, ptr nounde
   br i1 %51, label %33, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %48, %29
-  tail call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 10) #12
   %52 = load i32, ptr %1, align 8
   %53 = icmp eq i32 %52, 430584521
   br i1 %53, label %.preheader, label %.loopexit
@@ -3519,20 +3517,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3543,11 +3538,10 @@ attributes #5 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

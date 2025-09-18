@@ -569,7 +569,7 @@ define hidden void @_ZN17duckdb_libpgquery12keyword_listEv(ptr dead_on_unwind no
   br label %9
 
 9:                                                ; preds = %1, %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9
-  %.011 = phi i64 [ 0, %1 ], [ %48, %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9 ]
+  %.011 = phi i64 [ 0, %1 ], [ %44, %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %4, ptr %3, align 8, !tbaa !18
   store i64 0, ptr %5, align 8, !tbaa !20
@@ -580,116 +580,104 @@ define hidden void @_ZN17duckdb_libpgquery12keyword_listEv(ptr dead_on_unwind no
   %13 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %12)
           to label %switch.lookup unwind label %14
 
-14:                                               ; preds = %43, %.noexc.i.i.i.i.i, %9
+14:                                               ; preds = %41, %.noexc.i.i.i.i.i, %9
   %15 = landingpad { ptr, i32 }
           cleanup
   %16 = load ptr, ptr %3, align 8, !tbaa !24
   %17 = icmp eq ptr %16, %4
-  br i1 %17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %14
-  %18 = load i64, ptr %5, align 8, !tbaa !20
-  %19 = icmp ult i64 %18, 16
-  call void @llvm.assume(i1 %19)
-  br label %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit
+  br i1 %17, label %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %14
   call void @_ZdlPv(ptr noundef %16) #16
   br label %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit
 
-_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit:        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit:        ; preds = %14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #15
   resume { ptr, i32 } %15
 
 switch.lookup:                                    ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %10, i64 10
-  %21 = load i16, ptr %20, align 2, !tbaa !15
-  %switch.idx.cast = trunc i16 %21 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 10
+  %19 = load i16, ptr %18, align 2, !tbaa !15
+  %switch.idx.cast = trunc i16 %19 to i8
   store i8 %switch.idx.cast, ptr %6, align 8, !tbaa !25
-  %22 = load ptr, ptr %7, align 8, !tbaa !28
-  %23 = load ptr, ptr %8, align 8, !tbaa !31
-  %.not.i = icmp eq ptr %22, %23
-  br i1 %.not.i, label %43, label %24
+  %20 = load ptr, ptr %7, align 8, !tbaa !28
+  %21 = load ptr, ptr %8, align 8, !tbaa !31
+  %.not.i = icmp eq ptr %20, %21
+  br i1 %.not.i, label %41, label %22
 
-24:                                               ; preds = %switch.lookup
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %25, ptr %22, align 8, !tbaa !18
-  %26 = load ptr, ptr %3, align 8, !tbaa !24
-  %27 = load i64, ptr %5, align 8, !tbaa !20
+22:                                               ; preds = %switch.lookup
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %23, ptr %20, align 8, !tbaa !18
+  %24 = load ptr, ptr %3, align 8, !tbaa !24
+  %25 = load i64, ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 %27, ptr %2, align 8, !tbaa !32
-  %28 = icmp ugt i64 %27, 15
-  br i1 %28, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
+  store i64 %25, ptr %2, align 8, !tbaa !32
+  %26 = icmp ugt i64 %25, 15
+  br i1 %26, label %.noexc.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i
 
-.noexc.i.i.i.i.i:                                 ; preds = %24
-  %29 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %22, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
+.noexc.i.i.i.i.i:                                 ; preds = %22
+  %27 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i.i
-  store ptr %29, ptr %22, align 8, !tbaa !24
-  %30 = load i64, ptr %2, align 8, !tbaa !32
-  store i64 %30, ptr %25, align 8, !tbaa !22
+  store ptr %27, ptr %20, align 8, !tbaa !24
+  %28 = load i64, ptr %2, align 8, !tbaa !32
+  store i64 %28, ptr %23, align 8, !tbaa !22
   br label %._crit_edge.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i:                          ; preds = %.noexc, %24
-  %31 = phi ptr [ %29, %.noexc ], [ %25, %24 ]
-  switch i64 %27, label %34 [
-    i64 1, label %32
+._crit_edge.i.i.i.i.i.i:                          ; preds = %.noexc, %22
+  %29 = phi ptr [ %27, %.noexc ], [ %23, %22 ]
+  switch i64 %25, label %32 [
+    i64 1, label %30
     i64 0, label %_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
   ]
 
+30:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+  %31 = load i8, ptr %24, align 1, !tbaa !22
+  store i8 %31, ptr %29, align 1, !tbaa !22
+  br label %_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
+
 32:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %33 = load i8, ptr %26, align 1, !tbaa !22
-  store i8 %33, ptr %31, align 1, !tbaa !22
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %24, i64 %25, i1 false)
   br label %_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
 
-34:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %26, i64 %27, i1 false)
-  br label %_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
-
-_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %34, %32, %._crit_edge.i.i.i.i.i.i
-  %35 = load i64, ptr %2, align 8, !tbaa !32
-  %36 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %35, ptr %36, align 8, !tbaa !20
-  %37 = load ptr, ptr %22, align 8, !tbaa !24
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
-  store i8 0, ptr %38, align 1, !tbaa !22
+_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i: ; preds = %32, %30, %._crit_edge.i.i.i.i.i.i
+  %33 = load i64, ptr %2, align 8, !tbaa !32
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 %33, ptr %34, align 8, !tbaa !20
+  %35 = load ptr, ptr %20, align 8, !tbaa !24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %33
+  store i8 0, ptr %36, align 1, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %39 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %40 = load i8, ptr %6, align 8, !tbaa !25
-  store i8 %40, ptr %39, align 8, !tbaa !25
-  %41 = load ptr, ptr %7, align 8, !tbaa !28
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store ptr %42, ptr %7, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %38 = load i8, ptr %6, align 8, !tbaa !25
+  store i8 %38, ptr %37, align 8, !tbaa !25
+  %39 = load ptr, ptr %7, align 8, !tbaa !28
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store ptr %40, ptr %7, align 8, !tbaa !28
   br label %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit
 
-43:                                               ; preds = %switch.lookup
-  invoke void @_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %22, ptr noundef nonnull align 8 dereferenceable(33) %3)
+41:                                               ; preds = %switch.lookup
+  invoke void @_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %20, ptr noundef nonnull align 8 dereferenceable(33) %3)
           to label %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit unwind label %14
 
-_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, %43
-  %44 = load ptr, ptr %3, align 8, !tbaa !24
-  %45 = icmp eq ptr %44, %4
-  br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i7
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i8: ; preds = %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit
-  %46 = load i64, ptr %5, align 8, !tbaa !20
-  %47 = icmp ult i64 %46, 16
-  call void @llvm.assume(i1 %47)
-  br label %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9
+_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocator_traitsISaIN17duckdb_libpgquery9PGKeywordEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i, %41
+  %42 = load ptr, ptr %3, align 8, !tbaa !24
+  %43 = icmp eq ptr %42, %4
+  br i1 %43, label %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i7
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i7: ; preds = %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit
-  call void @_ZdlPv(ptr noundef %44) #16
+  call void @_ZdlPv(ptr noundef %42) #16
   br label %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9
 
-_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9:       ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i7
+_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9:       ; preds = %_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaIS1_EE9push_backERKS1_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %48 = add nuw nsw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %48, 480
-  br i1 %exitcond.not, label %49, label %9, !llvm.loop !33
+  %44 = add nuw nsw i64 %.011, 1
+  %exitcond.not = icmp eq i64 %44, 480
+  br i1 %exitcond.not, label %45, label %9, !llvm.loop !33
 
-49:                                               ; preds = %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9
+45:                                               ; preds = %_ZN17duckdb_libpgquery9PGKeywordD2Ev.exit9
   ret void
 }
 
@@ -704,26 +692,19 @@ define linkonce_odr hidden void @_ZNSt6vectorIN17duckdb_libpgquery9PGKeywordESaI
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %11, %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i ], [ %2, %1 ]
+  %.05.i.i.i = phi ptr [ %8, %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %7 = icmp eq ptr %5, %6
-  br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !20
-  %10 = icmp ult i64 %9, 16
-  tail call void @llvm.assume(i1 %10)
-  br label %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i
+  br i1 %7, label %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   tail call void @_ZdlPv(ptr noundef %5) #16
   br label %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
-  %.not.i.i.i = icmp eq ptr %11, %4
+_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 40
+  %.not.i.i.i = icmp eq ptr %8, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !36
 
 _ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN17duckdb_libpgquery9PGKeywordEEvPT_.exit.i.i.i
@@ -731,15 +712,15 @@ _ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exitthread-pre-
   br label %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %1
-  %12 = phi ptr [ %.pr, %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
-  %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev.exit, label %13
+  %9 = phi ptr [ %.pr, %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
+  %.not.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev.exit, label %10
 
-13:                                               ; preds = %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %12) #16
+10:                                               ; preds = %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %9) #16
   br label %_ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit, %13
+_ZNSt12_Vector_baseIN17duckdb_libpgquery9PGKeywordESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN17duckdb_libpgquery9PGKeywordES1_EvT_S3_RSaIT0_E.exit, %10
   ret void
 }
 

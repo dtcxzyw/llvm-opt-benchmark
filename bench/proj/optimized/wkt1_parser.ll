@@ -70,7 +70,7 @@ define hidden void @_Z13pj_wkt1_parseRKNSt7__cxx1112basic_stringIcSt11char_trait
   %.not = icmp eq i32 %11, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !3
-  br i1 %.not, label %36, label %14
+  br i1 %.not, label %34, label %14
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %5, align 8, !tbaa !13
@@ -114,55 +114,43 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
   store i8 0, ptr %27, align 1, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %38
+  br label %36
 
 28:                                               ; preds = %.noexc.i, %2
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = load ptr, ptr %5, align 8, !tbaa !13
   %31 = icmp eq ptr %30, %6
-  br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %28
-  %32 = load i64, ptr %7, align 8, !tbaa !9
-  %33 = icmp ult i64 %32, 16
-  call void @llvm.assume(i1 %33)
-  br label %_ZN20pj_wkt_parse_contextD2Ev.exit
+  br i1 %31, label %_ZN20pj_wkt_parse_contextD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %28
-  %34 = load i64, ptr %6, align 8, !tbaa !12
-  %35 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %30, i64 noundef %35) #10
+  %32 = load i64, ptr %6, align 8, !tbaa !12
+  %33 = add i64 %32, 1
+  call void @_ZdlPvm(ptr noundef %30, i64 noundef %33) #9
   br label %_ZN20pj_wkt_parse_contextD2Ev.exit
 
-_ZN20pj_wkt_parse_contextD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN20pj_wkt_parse_contextD2Ev.exit:               ; preds = %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %29
 
-36:                                               ; preds = %12
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %37, align 8, !tbaa !9
+34:                                               ; preds = %12
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %35, align 8, !tbaa !9
   store i8 0, ptr %13, align 8, !tbaa !12
-  br label %38
+  br label %36
 
-38:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %36
-  %39 = load ptr, ptr %5, align 8, !tbaa !13
-  %40 = icmp eq ptr %39, %6
-  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit, %34
+  %37 = load ptr, ptr %5, align 8, !tbaa !13
+  %38 = icmp eq ptr %37, %6
+  br i1 %38, label %_ZN20pj_wkt_parse_contextD2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %38
-  %41 = load i64, ptr %7, align 8, !tbaa !9
-  %42 = icmp ult i64 %41, 16
-  call void @llvm.assume(i1 %42)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %36
+  %39 = load i64, ptr %6, align 8, !tbaa !12
+  %40 = add i64 %39, 1
+  call void @_ZdlPvm(ptr noundef %37, i64 noundef %40) #9
   br label %_ZN20pj_wkt_parse_contextD2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %38
-  %43 = load i64, ptr %6, align 8, !tbaa !12
-  %44 = add i64 %43, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %44) #10
-  br label %_ZN20pj_wkt_parse_contextD2Ev.exit6
-
-_ZN20pj_wkt_parse_contextD2Ev.exit6:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+_ZN20pj_wkt_parse_contextD2Ev.exit6:              ; preds = %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -204,7 +192,7 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
 
 13:                                               ; preds = %8
   %14 = sext i8 %10 to i32
-  %15 = tail call i32 @isalpha(i32 noundef %14) #11
+  %15 = tail call i32 @isalpha(i32 noundef %14) #10
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %.loopexit, label %.preheader125
 
@@ -212,15 +200,15 @@ define hidden i32 @pj_wkt1_lex(ptr noundef readnone captures(none) %0, ptr nound
   %.087132 = phi i64 [ %30, %29 ], [ 0, %13 ]
   %16 = getelementptr inbounds nuw %struct.osr_cs_wkt_tokens, ptr @_ZL6tokens, i64 %.087132
   %17 = load ptr, ptr %16, align 16, !tbaa !21
-  %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0, ptr noundef %17) #12
+  %18 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal14ci_starts_withEPKcS3_(ptr noundef nonnull %.0, ptr noundef %17) #11
   br i1 %18, label %19, label %29
 
 19:                                               ; preds = %.preheader125
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #11
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #10
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = sext i8 %22 to i32
-  %24 = tail call i32 @isalpha(i32 noundef %23) #11
+  %24 = tail call i32 @isalpha(i32 noundef %23) #10
   %.not108 = icmp eq i32 %24, 0
   br i1 %.not108, label %25, label %29
 
@@ -403,9 +391,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -415,10 +400,9 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { builtin nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind }
+attributes #9 = { builtin nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

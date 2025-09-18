@@ -666,66 +666,63 @@ Vec_IntFree.exit:                                 ; preds = %8, %12
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call void @Kit_DsdPrintFromTruth(ptr noundef %1, i32 noundef %2) #14
   %putchar = tail call i32 @putchar(i32 10)
-  %51 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
-  %52 = icmp sgt i32 %51, 0
-  tail call void @llvm.assume(i1 %52)
   %.not.i21 = icmp eq ptr %4, null
-  %53 = getelementptr i8, ptr %4, i64 8
-  %54 = getelementptr i8, ptr %0, i64 32
-  %55 = getelementptr i8, ptr %0, i64 64
+  %51 = getelementptr i8, ptr %4, i64 8
+  %52 = getelementptr i8, ptr %0, i64 32
+  %53 = getelementptr i8, ptr %0, i64 64
   br i1 %.not.i21, label %.lr.ph.split.us.i27, label %.lr.ph.split.i22
 
 .lr.ph.split.us.i27:                              ; preds = %.split17, %.lr.ph.split.us.i27
   %indvars.iv22.i28 = phi i64 [ %indvars.iv.next23.i33, %.lr.ph.split.us.i27 ], [ 0, %.split17 ]
   %.val.us.i29 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !13
-  %56 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.us.i29, i64 %indvars.iv22.i28
-  %.val16.us.i30 = load ptr, ptr %54, align 8, !tbaa !39
-  %.val17.us.i31 = load ptr, ptr %55, align 8, !tbaa !51
-  %57 = getelementptr i8, ptr %.val17.us.i31, i64 8
-  %.val17.val.us.i32 = load ptr, ptr %57, align 8, !tbaa !43
-  %58 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i32, i64 %indvars.iv22.i28
-  %59 = load i32, ptr %58, align 4, !tbaa !44
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16.us.i30, i64 %60
-  %62 = ptrtoint ptr %61 to i64
-  %63 = and i64 %62, -2
-  %64 = ptrtoint ptr %.val16.us.i30 to i64
-  %65 = sub i64 %63, %64
-  %66 = sdiv exact i64 %65, 12
-  %67 = trunc i64 %66 to i32
-  %68 = trunc i64 %62 to i32
-  %69 = and i32 %68, 1
-  %70 = shl nsw i32 %67, 1
-  %71 = or disjoint i32 %70, %69
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 %71, ptr %72, align 8, !tbaa !14
+  %54 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.us.i29, i64 %indvars.iv22.i28
+  %.val16.us.i30 = load ptr, ptr %52, align 8, !tbaa !39
+  %.val17.us.i31 = load ptr, ptr %53, align 8, !tbaa !51
+  %55 = getelementptr i8, ptr %.val17.us.i31, i64 8
+  %.val17.val.us.i32 = load ptr, ptr %55, align 8, !tbaa !43
+  %56 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i32, i64 %indvars.iv22.i28
+  %57 = load i32, ptr %56, align 4, !tbaa !44
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16.us.i30, i64 %58
+  %60 = ptrtoint ptr %59 to i64
+  %61 = and i64 %60, -2
+  %62 = ptrtoint ptr %.val16.us.i30 to i64
+  %63 = sub i64 %61, %62
+  %64 = sdiv exact i64 %63, 12
+  %65 = trunc i64 %64 to i32
+  %66 = trunc i64 %60 to i32
+  %67 = and i32 %66, 1
+  %68 = shl nsw i32 %65, 1
+  %69 = or disjoint i32 %68, %67
+  %70 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i32 %69, ptr %70, align 8, !tbaa !14
   %indvars.iv.next23.i33 = add nuw nsw i64 %indvars.iv22.i28, 1
-  %73 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
-  %74 = sext i32 %73 to i64
-  %75 = icmp slt i64 %indvars.iv.next23.i33, %74
-  tail call void @llvm.assume(i1 %75)
+  %71 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next23.i33, %72
+  tail call void @llvm.assume(i1 %73)
   br label %.lr.ph.split.us.i27
 
 .lr.ph.split.i22:                                 ; preds = %.split17, %.lr.ph.split.i22
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i26, %.lr.ph.split.i22 ], [ 0, %.split17 ]
   %.val.i24 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !13
-  %76 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.i24, i64 %indvars.iv.i23
-  %.val15.i25 = load ptr, ptr %53, align 8, !tbaa !43
-  %77 = getelementptr inbounds nuw i32, ptr %.val15.i25, i64 %indvars.iv.i23
-  %78 = load i32, ptr %77, align 4, !tbaa !44
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i32 %78, ptr %79, align 8, !tbaa !14
+  %74 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.i24, i64 %indvars.iv.i23
+  %.val15.i25 = load ptr, ptr %51, align 8, !tbaa !43
+  %75 = getelementptr inbounds nuw i32, ptr %.val15.i25, i64 %indvars.iv.i23
+  %76 = load i32, ptr %75, align 4, !tbaa !44
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 %76, ptr %77, align 8, !tbaa !14
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i23, 1
-  %80 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next.i26, %81
-  tail call void @llvm.assume(i1 %82)
+  %78 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next.i26, %79
+  tail call void @llvm.assume(i1 %80)
   br label %.lr.ph.split.i22
 
 Kit_GraphToGia.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.split
-  %83 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %5)
+  %81 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %5)
   tail call void @Kit_GraphFree(ptr noundef nonnull %.0) #14
-  ret i32 %83
+  ret i32 %81
 }
 
 declare ptr @Kit_TruthToGraph(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -832,66 +829,63 @@ Vec_IntFree.exit:                                 ; preds = %9, %13
   %putchar = tail call i32 @putchar(i32 10)
   tail call void @Kit_DsdPrintFromTruth(ptr noundef %2, i32 noundef %3) #14
   %putchar23 = tail call i32 @putchar(i32 10)
-  %52 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
-  %53 = icmp sgt i32 %52, 0
-  tail call void @llvm.assume(i1 %53)
   %.not.i26 = icmp eq ptr %5, null
-  %54 = getelementptr i8, ptr %5, i64 8
-  %55 = getelementptr i8, ptr %0, i64 32
-  %56 = getelementptr i8, ptr %0, i64 64
+  %52 = getelementptr i8, ptr %5, i64 8
+  %53 = getelementptr i8, ptr %0, i64 32
+  %54 = getelementptr i8, ptr %0, i64 64
   br i1 %.not.i26, label %.lr.ph.split.us.i32, label %.lr.ph.split.i27
 
 .lr.ph.split.us.i32:                              ; preds = %.split21, %.lr.ph.split.us.i32
   %indvars.iv22.i33 = phi i64 [ %indvars.iv.next23.i38, %.lr.ph.split.us.i32 ], [ 0, %.split21 ]
   %.val.us.i34 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !13
-  %57 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.us.i34, i64 %indvars.iv22.i33
-  %.val16.us.i35 = load ptr, ptr %55, align 8, !tbaa !39
-  %.val17.us.i36 = load ptr, ptr %56, align 8, !tbaa !51
-  %58 = getelementptr i8, ptr %.val17.us.i36, i64 8
-  %.val17.val.us.i37 = load ptr, ptr %58, align 8, !tbaa !43
-  %59 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i37, i64 %indvars.iv22.i33
-  %60 = load i32, ptr %59, align 4, !tbaa !44
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16.us.i35, i64 %61
-  %63 = ptrtoint ptr %62 to i64
-  %64 = and i64 %63, -2
-  %65 = ptrtoint ptr %.val16.us.i35 to i64
-  %66 = sub i64 %64, %65
-  %67 = sdiv exact i64 %66, 12
-  %68 = trunc i64 %67 to i32
-  %69 = trunc i64 %63 to i32
-  %70 = and i32 %69, 1
-  %71 = shl nsw i32 %68, 1
-  %72 = or disjoint i32 %71, %70
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 %72, ptr %73, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.us.i34, i64 %indvars.iv22.i33
+  %.val16.us.i35 = load ptr, ptr %53, align 8, !tbaa !39
+  %.val17.us.i36 = load ptr, ptr %54, align 8, !tbaa !51
+  %56 = getelementptr i8, ptr %.val17.us.i36, i64 8
+  %.val17.val.us.i37 = load ptr, ptr %56, align 8, !tbaa !43
+  %57 = getelementptr inbounds nuw i32, ptr %.val17.val.us.i37, i64 %indvars.iv22.i33
+  %58 = load i32, ptr %57, align 4, !tbaa !44
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16.us.i35, i64 %59
+  %61 = ptrtoint ptr %60 to i64
+  %62 = and i64 %61, -2
+  %63 = ptrtoint ptr %.val16.us.i35 to i64
+  %64 = sub i64 %62, %63
+  %65 = sdiv exact i64 %64, 12
+  %66 = trunc i64 %65 to i32
+  %67 = trunc i64 %61 to i32
+  %68 = and i32 %67, 1
+  %69 = shl nsw i32 %66, 1
+  %70 = or disjoint i32 %69, %68
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 %70, ptr %71, align 8, !tbaa !14
   %indvars.iv.next23.i38 = add nuw nsw i64 %indvars.iv22.i33, 1
-  %74 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
-  %75 = sext i32 %74 to i64
-  %76 = icmp slt i64 %indvars.iv.next23.i38, %75
-  tail call void @llvm.assume(i1 %76)
+  %72 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
+  %73 = sext i32 %72 to i64
+  %74 = icmp slt i64 %indvars.iv.next23.i38, %73
+  tail call void @llvm.assume(i1 %74)
   br label %.lr.ph.split.us.i32
 
 .lr.ph.split.i27:                                 ; preds = %.split21, %.lr.ph.split.i27
   %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i31, %.lr.ph.split.i27 ], [ 0, %.split21 ]
   %.val.i29 = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !13
-  %77 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.i29, i64 %indvars.iv.i28
-  %.val15.i30 = load ptr, ptr %54, align 8, !tbaa !43
-  %78 = getelementptr inbounds nuw i32, ptr %.val15.i30, i64 %indvars.iv.i28
-  %79 = load i32, ptr %78, align 4, !tbaa !44
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 %79, ptr %80, align 8, !tbaa !14
+  %75 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val.i29, i64 %indvars.iv.i28
+  %.val15.i30 = load ptr, ptr %52, align 8, !tbaa !43
+  %76 = getelementptr inbounds nuw i32, ptr %.val15.i30, i64 %indvars.iv.i28
+  %77 = load i32, ptr %76, align 4, !tbaa !44
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i32 %77, ptr %78, align 8, !tbaa !14
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i28, 1
-  %81 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
-  %82 = sext i32 %81 to i64
-  %83 = icmp slt i64 %indvars.iv.next.i31, %82
-  tail call void @llvm.assume(i1 %83)
+  %79 = load i32, ptr inttoptr (i64 4 to ptr), align 4, !tbaa !11
+  %80 = sext i32 %79 to i64
+  %81 = icmp slt i64 %indvars.iv.next.i31, %80
+  tail call void @llvm.assume(i1 %81)
   br label %.lr.ph.split.i27
 
 Kit_GraphToGia.exit:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.split
-  %84 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %6)
+  %82 = tail call i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %6)
   tail call void @Kit_GraphFree(ptr noundef nonnull %.0) #14
-  ret i32 %84
+  ret i32 %82
 }
 
 declare ptr @Kit_TruthToGraph2(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

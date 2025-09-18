@@ -2192,8 +2192,8 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   br i1 %.not.us.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.i.i.i.preheader.us.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread40.i
-  %.01645.i = phi ptr [ %42, %.thread40.i ], [ null, %.lr.ph.i ]
-  %.02044.i = phi ptr [ %43, %.thread40.i ], [ %6, %.lr.ph.i ]
+  %.01645.i = phi ptr [ %41, %.thread40.i ], [ null, %.lr.ph.i ]
+  %.02044.i = phi ptr [ %42, %.thread40.i ], [ %6, %.lr.ph.i ]
   %28 = load ptr, ptr %.02044.i, align 8, !tbaa !27
   %29 = load i8, ptr %12, align 4, !tbaa !32, !range !33, !noundef !34
   %30 = trunc nuw i8 %29 to i1
@@ -2217,47 +2217,35 @@ define weak_odr noundef ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11Mach
   %.0810.i.i.i.i = phi ptr [ %37, %36 ], [ %32, %31 ]
   %38 = load ptr, ptr %.0810.i.i.i.i, align 8, !tbaa !37
   %39 = icmp eq ptr %38, %28
-  br i1 %39, label %41, label %36
+  br i1 %39, label %.thread40.i, label %36
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i: ; preds = %.lr.ph.split.i
   %40 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %11, ptr noundef %28) #17
   %.not42.i = icmp eq ptr %40, null
-  %.not21.i = icmp eq ptr %.01645.i, null
-  %brmerge.i = select i1 %.not42.i, i1 true, i1 %.not21.i
   %.016.mux.i = select i1 %.not42.i, ptr %.01645.i, ptr %28
-  br label %.thread40.i.sink.split
-
-41:                                               ; preds = %.lr.ph.i.i.i.i
-  %.not2131.i = icmp eq ptr %.01645.i, null
-  br label %.thread40.i.sink.split
-
-.thread40.i.sink.split:                           ; preds = %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %41
-  %.not2131.i.sink = phi i1 [ %.not2131.i, %41 ], [ %brmerge.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
-  %.ph = phi ptr [ %28, %41 ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ]
-  tail call void @llvm.assume(i1 %.not2131.i.sink)
   br label %.thread40.i
 
-.thread40.i:                                      ; preds = %36, %.thread40.i.sink.split, %31
-  %42 = phi ptr [ %.01645.i, %31 ], [ %.ph, %.thread40.i.sink.split ], [ %.01645.i, %36 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
-  %.not.i = icmp eq ptr %43, %10
+.thread40.i:                                      ; preds = %36, %.lr.ph.i.i.i.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i, %31
+  %41 = phi ptr [ %.01645.i, %31 ], [ %.016.mux.i, %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE8containsEPKS1_.exit.i ], [ %.01645.i, %36 ], [ %28, %.lr.ph.i.i.i.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.02044.i, i64 8
+  %.not.i = icmp eq ptr %42, %10
   br i1 %.not.i, label %_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit, label %.lr.ph.split.i, !llvm.loop !66
 
 _ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopLatchEv.exit: ; preds = %.thread40.i, %.thread40.us.i
-  %spec.select.i = phi ptr [ %26, %.thread40.us.i ], [ %42, %.thread40.i ]
+  %spec.select.i = phi ptr [ %26, %.thread40.us.i ], [ %41, %.thread40.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %44 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 112
-  %45 = load ptr, ptr %44, align 8, !tbaa !46
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 120
-  %47 = load i32, ptr %46, align 8, !tbaa !48
-  %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
-  store ptr %45, ptr %1, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %49, ptr %50, align 8
-  %51 = call noundef ptr @_ZN4llvm14find_singletonINS_17MachineBasicBlockENS_14iterator_rangeIPPS1_EEZNKS_8LoopBaseIS1_NS_11MachineLoopEE23getUniqueLatchExitBlockEvEUlS3_bE_EEPT_OT0_T1_b(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull %0, i1 noundef zeroext false)
+  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 112
+  %44 = load ptr, ptr %43, align 8, !tbaa !46
+  %45 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 120
+  %46 = load i32, ptr %45, align 8, !tbaa !48
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  store ptr %44, ptr %1, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %48, ptr %49, align 8
+  %50 = call noundef ptr @_ZN4llvm14find_singletonINS_17MachineBasicBlockENS_14iterator_rangeIPPS1_EEZNKS_8LoopBaseIS1_NS_11MachineLoopEE23getUniqueLatchExitBlockEvEUlS3_bE_EEPT_OT0_T1_b(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nonnull %0, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret ptr %51
+  ret ptr %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

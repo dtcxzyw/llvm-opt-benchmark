@@ -23,12 +23,12 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @LogicalTapeSetCreate(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = zext i1 %0 to i8
-  %6 = tail call ptr @palloc(i64 noundef 88) #10
+  %6 = tail call ptr @palloc(i64 noundef 88) #9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %7, i8 0, i64 25, i1 false)
   store i64 32, ptr %8, align 8
-  %9 = tail call ptr @palloc(i64 noundef 256) #10
+  %9 = tail call ptr @palloc(i64 noundef 256) #9
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -54,14 +54,14 @@ define dso_local ptr @LogicalTapeSetCreate(i1 noundef zeroext %0, ptr noundef %1
 19:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = trunc i32 %2 to i16
-  %21 = call i32 @pg_itoa(i16 noundef signext %20, ptr noundef nonnull %4) #10
-  %22 = call ptr @BufFileCreateFileSet(ptr noundef nonnull %1, ptr noundef nonnull %4) #10
+  %21 = call i32 @pg_itoa(i16 noundef signext %20, ptr noundef nonnull %4) #9
+  %22 = call ptr @BufFileCreateFileSet(ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   store ptr %22, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
 23:                                               ; preds = %18
-  %24 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext false) #10
+  %24 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext false) #9
   store ptr %24, ptr %6, align 8
   br label %25
 
@@ -81,7 +81,7 @@ declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #1
 define dso_local noundef ptr @LogicalTapeImport(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @palloc(i64 noundef 88) #10
+  %5 = tail call ptr @palloc(i64 noundef 88) #9
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %6, align 8
@@ -98,11 +98,11 @@ define dso_local noundef ptr @LogicalTapeImport(ptr noundef %0, i32 noundef %1, 
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %13 = trunc i32 %1 to i16
-  %14 = call i32 @pg_itoa(i16 noundef signext %13, ptr noundef nonnull %4) #10
+  %14 = call i32 @pg_itoa(i16 noundef signext %13, ptr noundef nonnull %4) #9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = call ptr @BufFileOpenFileSet(ptr noundef %16, ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext false) #10
-  %18 = call i64 @BufFileSize(ptr noundef %17) #10
+  %17 = call ptr @BufFileOpenFileSet(ptr noundef %16, ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext false) #9
+  %18 = call i64 @BufFileSize(ptr noundef %17) #9
   %19 = load i64, ptr %2, align 8
   store i64 %19, ptr %9, align 8
   %20 = load ptr, ptr %0, align 8
@@ -114,7 +114,7 @@ define dso_local noundef ptr @LogicalTapeImport(ptr noundef %0, i32 noundef %1, 
   br label %25
 
 23:                                               ; preds = %3
-  %24 = call i64 @BufFileAppend(ptr noundef nonnull %20, ptr noundef %17) #10
+  %24 = call i64 @BufFileAppend(ptr noundef nonnull %20, ptr noundef %17) #9
   br label %25
 
 25:                                               ; preds = %23, %22
@@ -149,11 +149,11 @@ declare i64 @BufFileAppend(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @LogicalTapeSetClose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @BufFileClose(ptr noundef %2) #10
+  tail call void @BufFileClose(ptr noundef %2) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
-  tail call void @pfree(ptr noundef %4) #10
-  tail call void @pfree(ptr noundef nonnull %0) #10
+  tail call void @pfree(ptr noundef %4) #9
+  tail call void @pfree(ptr noundef nonnull %0) #9
   ret void
 }
 
@@ -175,14 +175,13 @@ define dso_local noundef ptr @LogicalTapeCreate(ptr noundef %0) local_unnamed_ad
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %4
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 690, ptr noundef nonnull @__func__.LogicalTapeCreate) #10
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 690, ptr noundef nonnull @__func__.LogicalTapeCreate) #9
   unreachable
 
 11:                                               ; preds = %4, %1
-  %12 = tail call ptr @palloc(i64 noundef 88) #10
+  %12 = tail call ptr @palloc(i64 noundef 88) #9
   store ptr %0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 1, ptr %13, align 8
@@ -216,11 +215,11 @@ define dso_local void @LogicalTapeClose(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %3) #10
+  tail call void @pfree(ptr noundef nonnull %3) #9
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @pfree(ptr noundef nonnull %0) #10
+  tail call void @pfree(ptr noundef nonnull %0) #9
   ret void
 }
 
@@ -240,7 +239,7 @@ define dso_local void @LogicalTapeWrite(ptr noundef captures(none) %0, ptr nound
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @palloc(i64 noundef 8192) #10
+  %9 = tail call ptr @palloc(i64 noundef 8192) #9
   store ptr %9, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 8192, ptr %10, align 8
@@ -286,10 +285,9 @@ define dso_local void @LogicalTapeWrite(ptr noundef captures(none) %0, ptr nound
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 797, ptr noundef nonnull @__func__.LogicalTapeWrite) #10
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 797, ptr noundef nonnull @__func__.LogicalTapeWrite) #9
   unreachable
 
 33:                                               ; preds = %27
@@ -371,7 +369,7 @@ define internal fastcc i64 @ltsGetBlock(ptr noundef captures(none) %0, ptr nound
 
 19:                                               ; preds = %16
   store i32 8, ptr %18, align 4
-  %20 = tail call ptr @palloc(i64 noundef 64) #10
+  %20 = tail call ptr @palloc(i64 noundef 64) #9
   br label %29
 
 21:                                               ; preds = %16
@@ -389,7 +387,7 @@ define internal fastcc i64 @ltsGetBlock(ptr noundef captures(none) %0, ptr nound
   store i32 %spec.select.i, ptr %18, align 4
   %26 = sext i32 %spec.select.i to i64
   %27 = shl nsw i64 %26, 3
-  %28 = tail call ptr @repalloc(ptr noundef nonnull %11, i64 noundef %27) #10
+  %28 = tail call ptr @repalloc(ptr noundef nonnull %11, i64 noundef %27) #9
   br label %29
 
 29:                                               ; preds = %19, %24
@@ -602,21 +600,20 @@ define internal fastcc void @ltsWriteBlock(ptr noundef captures(none) %0, i64 no
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %11 = load ptr, ptr %0, align 8
-  %12 = call i32 @BufFileSeekBlock(ptr noundef %11, i64 noundef %1) #10
+  %12 = call i32 @BufFileSeekBlock(ptr noundef %11, i64 noundef %1) #9
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %17, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %14)
-  %15 = call i32 @errcode_for_file_access() #10
-  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %1) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.ltsWriteBlock) #10
+  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %15 = call i32 @errcode_for_file_access() #9
+  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %1) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.ltsWriteBlock) #9
   unreachable
 
 17:                                               ; preds = %._crit_edge
   %18 = load ptr, ptr %0, align 8
-  call void @BufFileWrite(ptr noundef %18, ptr noundef %2, i64 noundef 8192) #10
+  call void @BufFileWrite(ptr noundef %18, ptr noundef %2, i64 noundef 8192) #9
   %19 = load i64, ptr %5, align 8
   %20 = icmp eq i64 %1, %19
   br i1 %20, label %21, label %23
@@ -691,7 +688,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %34
-  tail call void @pfree(ptr noundef nonnull %36) #10
+  tail call void @pfree(ptr noundef nonnull %36) #9
   br label %38
 
 38:                                               ; preds = %37, %34
@@ -728,7 +725,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
 
 ._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge.loopexit36, %42
   %53 = phi ptr [ %.pre, %._crit_edge.loopexit36 ], [ %41, %42 ], [ %41, %.lr.ph ]
-  tail call void @pfree(ptr noundef %53) #10
+  tail call void @pfree(ptr noundef %53) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   br label %83
 
@@ -761,7 +758,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr noundef captures(none) initi
   %67 = shl i64 %62, 1
   store i64 %67, ptr %48, align 8
   %68 = load ptr, ptr %49, align 8
-  %69 = tail call ptr @repalloc(ptr noundef %68, i64 noundef %64) #10
+  %69 = tail call ptr @repalloc(ptr noundef %68, i64 noundef %64) #9
   store ptr %69, ptr %49, align 8
   %.pre36.i = load i64, ptr %47, align 8
   br label %70
@@ -815,7 +812,7 @@ define dso_local i64 @LogicalTapeRead(ptr noundef captures(none) %0, ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @palloc(i64 noundef %10) #10
+  %11 = tail call ptr @palloc(i64 noundef %10) #9
   store ptr %11, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
@@ -910,21 +907,20 @@ define internal fastcc zeroext i1 @ltsReadFillBuffer(ptr noundef captures(none) 
   %19 = add i64 %18, %11
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 @BufFileSeekBlock(ptr noundef %21, i64 noundef %19) #10
+  %22 = tail call i32 @BufFileSeekBlock(ptr noundef %21, i64 noundef %19) #9
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %ltsReadBlock.exit, label %23
 
 23:                                               ; preds = %17
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode_for_file_access() #10
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %19) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #10
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %25 = tail call i32 @errcode_for_file_access() #9
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %19) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #9
   unreachable
 
 ltsReadBlock.exit:                                ; preds = %17
   %27 = load ptr, ptr %20, align 8
-  tail call void @BufFileReadExact(ptr noundef %27, ptr noundef %15, i64 noundef 8192) #10
+  tail call void @BufFileReadExact(ptr noundef %27, ptr noundef %15, i64 noundef 8192) #9
   %28 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %ltsReleaseBlock.exit, label %30
@@ -959,7 +955,7 @@ ltsReadBlock.exit:                                ; preds = %17
   store i64 %44, ptr %38, align 8
   %45 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %41) #10
+  %47 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %41) #9
   store ptr %47, ptr %45, align 8
   %.pre36.i = load i64, ptr %36, align 8
   br label %48
@@ -1067,11 +1063,11 @@ define dso_local void @LogicalTapeFreeze(ptr noundef captures(none) initializes(
   br i1 %.not38, label %30, label %27
 
 27:                                               ; preds = %24
-  tail call void @pfree(ptr noundef nonnull %23) #10
+  tail call void @pfree(ptr noundef nonnull %23) #9
   br label %.thread
 
 .thread:                                          ; preds = %19, %27
-  %28 = tail call ptr @palloc(i64 noundef 8192) #10
+  %28 = tail call ptr @palloc(i64 noundef 8192) #9
   store ptr %28, ptr %22, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 8192, ptr %29, align 8
@@ -1098,21 +1094,20 @@ define dso_local void @LogicalTapeFreeze(ptr noundef captures(none) initializes(
 40:                                               ; preds = %38, %30
   %41 = load ptr, ptr %0, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @BufFileSeekBlock(ptr noundef %42, i64 noundef %33) #10
+  %43 = tail call i32 @BufFileSeekBlock(ptr noundef %42, i64 noundef %33) #9
   %.not.i = icmp eq i32 %43, 0
   br i1 %.not.i, label %ltsReadBlock.exit, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 @errcode_for_file_access() #10
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %33) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #10
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %46 = tail call i32 @errcode_for_file_access() #9
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %33) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #9
   unreachable
 
 ltsReadBlock.exit:                                ; preds = %40
   %48 = load ptr, ptr %41, align 8
-  tail call void @BufFileReadExact(ptr noundef %48, ptr noundef %31, i64 noundef 8192) #10
+  tail call void @BufFileReadExact(ptr noundef %48, ptr noundef %31, i64 noundef 8192) #9
   %49 = load ptr, ptr %22, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8184
   %51 = load i64, ptr %50, align 8
@@ -1130,7 +1125,7 @@ ltsReadBlock.exit:                                ; preds = %40
 
 58:                                               ; preds = %ltsReadBlock.exit
   %59 = load ptr, ptr %3, align 8
-  tail call void @BufFileExportFileSet(ptr noundef %59) #10
+  tail call void @BufFileExportFileSet(ptr noundef %59) #9
   %60 = load i64, ptr %32, align 8
   store i64 %60, ptr %1, align 8
   br label %61
@@ -1152,7 +1147,7 @@ define dso_local i64 @LogicalTapeBackspace(ptr noundef captures(none) %0, i64 no
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @palloc(i64 noundef %9) #10
+  %10 = tail call ptr @palloc(i64 noundef %9) #9
   store ptr %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
@@ -1200,30 +1195,28 @@ define dso_local i64 @LogicalTapeBackspace(ptr noundef captures(none) %0, i64 no
   br i1 %.not43, label %.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1095, ptr noundef nonnull @__func__.LogicalTapeBackspace) #10
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1095, ptr noundef nonnull @__func__.LogicalTapeBackspace) #9
   unreachable
 
 38:                                               ; preds = %27
   %39 = load ptr, ptr %0, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 @BufFileSeekBlock(ptr noundef %40, i64 noundef %30) #10
+  %41 = tail call i32 @BufFileSeekBlock(ptr noundef %40, i64 noundef %30) #9
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %ltsReadBlock.exit, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode_for_file_access() #10
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %30) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #10
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %44 = tail call i32 @errcode_for_file_access() #9
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %30) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #9
   unreachable
 
 ltsReadBlock.exit:                                ; preds = %38
   %46 = load ptr, ptr %39, align 8
-  tail call void @BufFileReadExact(ptr noundef %46, ptr noundef nonnull %28, i64 noundef 8192) #10
+  tail call void @BufFileReadExact(ptr noundef %46, ptr noundef nonnull %28, i64 noundef 8192) #9
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8184
   %49 = load i64, ptr %48, align 8
@@ -1232,14 +1225,13 @@ ltsReadBlock.exit:                                ; preds = %38
   br i1 %.not42, label %58, label %51
 
 51:                                               ; preds = %ltsReadBlock.exit
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %52)
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8184
   %55 = load i64, ptr %54, align 8
   %56 = load i64, ptr %21, align 8
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i64 noundef %30, i64 noundef %55, i64 noundef %56) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1106, ptr noundef nonnull @__func__.LogicalTapeBackspace) #10
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i64 noundef %30, i64 noundef %55, i64 noundef %56) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1106, ptr noundef nonnull @__func__.LogicalTapeBackspace) #9
   unreachable
 
 58:                                               ; preds = %ltsReadBlock.exit
@@ -1274,7 +1266,7 @@ define dso_local void @LogicalTapeSeek(ptr noundef captures(none) %0, i64 nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @palloc(i64 noundef %10) #10
+  %11 = tail call ptr @palloc(i64 noundef %10) #9
   store ptr %11, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
@@ -1302,21 +1294,20 @@ define dso_local void @LogicalTapeSeek(ptr noundef captures(none) %0, i64 nounde
   %22 = load ptr, ptr %0, align 8
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %22, align 8
-  %25 = tail call i32 @BufFileSeekBlock(ptr noundef %24, i64 noundef %1) #10
+  %25 = tail call i32 @BufFileSeekBlock(ptr noundef %24, i64 noundef %1) #9
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %ltsReadBlock.exit, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode_for_file_access() #10
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %1) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #10
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %28 = tail call i32 @errcode_for_file_access() #9
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %1) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 288, ptr noundef nonnull @__func__.ltsReadBlock) #9
   unreachable
 
 ltsReadBlock.exit:                                ; preds = %21
   %30 = load ptr, ptr %22, align 8
-  tail call void @BufFileReadExact(ptr noundef %30, ptr noundef %23, i64 noundef 8192) #10
+  tail call void @BufFileReadExact(ptr noundef %30, ptr noundef %23, i64 noundef 8192) #9
   store i64 %1, ptr %19, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 8176, ptr %31, align 4
@@ -1333,10 +1324,9 @@ ltsReadBlock.exit:                                ; preds = %21
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1151, ptr noundef nonnull @__func__.LogicalTapeSeek) #10
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1151, ptr noundef nonnull @__func__.LogicalTapeSeek) #9
   unreachable
 
 42:                                               ; preds = %36
@@ -1356,7 +1346,7 @@ define dso_local void @LogicalTapeTell(ptr noundef captures(none) %0, ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @palloc(i64 noundef %10) #10
+  %11 = tail call ptr @palloc(i64 noundef %10) #9
   store ptr %11, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
@@ -1410,20 +1400,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #9
+declare i64 @llvm.smax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1433,10 +1420,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

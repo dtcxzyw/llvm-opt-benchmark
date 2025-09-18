@@ -84,7 +84,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 
 7:                                                ; preds = %1
   %8 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
-  br label %399
+  br label %385
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -184,7 +184,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 75:                                               ; preds = %58
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %76 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  br label %385
 
 77:                                               ; preds = %58
   %78 = tail call double @llvm.fabs.f64(double %72)
@@ -194,7 +194,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 80:                                               ; preds = %77
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.16)
   %81 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  br label %385
 
 82:                                               ; preds = %77
   %83 = fsub double %64, %72
@@ -205,7 +205,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 86:                                               ; preds = %82
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
   %87 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  br label %385
 
 88:                                               ; preds = %82
   %89 = fcmp ugt double %73, 0x3E7AD7F29ABCAF48
@@ -214,7 +214,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 90:                                               ; preds = %88
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
   %91 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  br label %385
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -228,7 +228,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 99:                                               ; preds = %92
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.19)
   %100 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  br label %385
 
 101:                                              ; preds = %92, %47, %.thread
   %.0258.shrunk = phi i1 [ true, %.thread ], [ false, %47 ], [ false, %92 ]
@@ -326,7 +326,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
 162:                                              ; preds = %156, %146
   %.1242 = phi double [ %147, %146 ], [ 1.000000e+00, %156 ]
   %.0240 = phi double [ %138, %146 ], [ 1.000000e+00, %156 ]
-  br i1 %or.cond.not, label %284, label %163
+  br i1 %or.cond.not, label %270, label %163
 
 163:                                              ; preds = %162
   %164 = load ptr, ptr %0, align 8, !tbaa !41
@@ -336,10 +336,10 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
   %166 = tail call double @sin(double noundef %.0254) #14, !tbaa !47
   %167 = fdiv double %166, %.0240
   %168 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %164, double noundef %167)
-  br i1 %.not266, label %169, label %263
+  br i1 %.not266, label %169, label %249
 
 169:                                              ; preds = %165
-  br label %263
+  br label %249
 
 170:                                              ; preds = %163
   %171 = tail call double @sin(double noundef %.0243) #14, !tbaa !47
@@ -347,7 +347,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
   %173 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %164, double noundef %172)
   %174 = tail call i32 @proj_errno(ptr noundef nonnull %0)
   %.not269 = icmp eq i32 %174, 0
-  br i1 %.not269, label %263, label %175
+  br i1 %.not269, label %249, label %175
 
 175:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -359,7 +359,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_omercP8PJconsts(ptr 
   %179 = fmul double %178, 1.800000e+02
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @vsnprintf, i64 noundef 328, ptr noundef nonnull @.str.25, double noundef %179)
   %180 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.22, i64 noundef 65)
-          to label %.noexc unwind label %237
+          to label %.noexc unwind label %230
 
 .noexc:                                           ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -402,14 +402,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 198:                                              ; preds = %191
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.28) #15
-          to label %.noexc275 unwind label %239
+          to label %.noexc275 unwind label %232
 
 .noexc275:                                        ; preds = %198
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %191
   %199 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.23, i64 noundef 2)
-          to label %.noexc276 unwind label %239
+          to label %.noexc276 unwind label %232
 
 .noexc276:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -446,342 +446,304 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
   store i64 0, ptr %213, align 8, !tbaa !59
   store i8 0, ptr %202, align 8, !tbaa !60
   invoke void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef %211)
-          to label %215 unwind label %241
+          to label %215 unwind label %234
 
 215:                                              ; preds = %210
   %216 = load ptr, ptr %2, align 8, !tbaa !58
   %217 = icmp eq ptr %216, %200
-  br i1 %217, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i277
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %215
-  %218 = load i64, ptr %214, align 8, !tbaa !59
-  %219 = icmp ult i64 %218, 16
-  call void @llvm.assume(i1 %219)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %217, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i277
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i277: ; preds = %215
-  %220 = load i64, ptr %200, align 8, !tbaa !60
-  %221 = add i64 %220, 1
-  call void @_ZdlPvm(ptr noundef %216, i64 noundef %221) #16
+  %218 = load i64, ptr %200, align 8, !tbaa !60
+  %219 = add i64 %218, 1
+  call void @_ZdlPvm(ptr noundef %216, i64 noundef %219) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i277
-  %222 = load ptr, ptr %3, align 8, !tbaa !58
-  %223 = icmp eq ptr %222, %181
-  br i1 %223, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i279, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i278
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i279: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %224 = load i64, ptr %194, align 8, !tbaa !59
-  %225 = icmp ult i64 %224, 16
-  call void @llvm.assume(i1 %225)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %215, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i277
+  %220 = load ptr, ptr %3, align 8, !tbaa !58
+  %221 = icmp eq ptr %220, %181
+  br i1 %221, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i278
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i278: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %226 = load i64, ptr %181, align 8, !tbaa !60
-  %227 = add i64 %226, 1
-  call void @_ZdlPvm(ptr noundef %222, i64 noundef %227) #16
+  %222 = load i64, ptr %181, align 8, !tbaa !60
+  %223 = add i64 %222, 1
+  call void @_ZdlPvm(ptr noundef %220, i64 noundef %223) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i279, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i278
-  %228 = load ptr, ptr %4, align 8, !tbaa !58
-  %229 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %230 = icmp eq ptr %228, %229
-  br i1 %230, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i282, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i281
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i282: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280
-  %231 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %232 = load i64, ptr %231, align 8, !tbaa !59
-  %233 = icmp ult i64 %232, 16
-  call void @llvm.assume(i1 %233)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i278
+  %224 = load ptr, ptr %4, align 8, !tbaa !58
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %226 = icmp eq ptr %224, %225
+  br i1 %226, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i281
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i281: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280
-  %234 = load i64, ptr %229, align 8, !tbaa !60
-  %235 = add i64 %234, 1
-  call void @_ZdlPvm(ptr noundef %228, i64 noundef %235) #16
+  %227 = load i64, ptr %225, align 8, !tbaa !60
+  %228 = add i64 %227, 1
+  call void @_ZdlPvm(ptr noundef %224, i64 noundef %228) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i282, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i281
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit280, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i281
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %236 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  %229 = call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %385
 
-237:                                              ; preds = %175
-  %238 = landingpad { ptr, i32 }
+230:                                              ; preds = %175
+  %231 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289
 
-239:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %198
-  %240 = landingpad { ptr, i32 }
+232:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %198
+  %233 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286
 
-241:                                              ; preds = %210
-  %242 = landingpad { ptr, i32 }
+234:                                              ; preds = %210
+  %235 = landingpad { ptr, i32 }
           cleanup
-  %243 = load ptr, ptr %2, align 8, !tbaa !58
-  %244 = icmp eq ptr %243, %200
-  br i1 %244, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i285, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284
+  %236 = load ptr, ptr %2, align 8, !tbaa !58
+  %237 = icmp eq ptr %236, %200
+  br i1 %237, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i285: ; preds = %241
-  %245 = load i64, ptr %214, align 8, !tbaa !59
-  %246 = icmp ult i64 %245, 16
-  call void @llvm.assume(i1 %246)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284: ; preds = %234
+  %238 = load i64, ptr %200, align 8, !tbaa !60
+  %239 = add i64 %238, 1
+  call void @_ZdlPvm(ptr noundef %236, i64 noundef %239) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284: ; preds = %241
-  %247 = load i64, ptr %200, align 8, !tbaa !60
-  %248 = add i64 %247, 1
-  call void @_ZdlPvm(ptr noundef %243, i64 noundef %248) #16
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i285, %239
-  %.pn = phi { ptr, i32 } [ %240, %239 ], [ %242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i285 ], [ %242, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284 ]
-  %249 = load ptr, ptr %3, align 8, !tbaa !58
-  %250 = icmp eq ptr %249, %181
-  br i1 %250, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i288, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i288: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286
-  %251 = load i64, ptr %194, align 8, !tbaa !59
-  %252 = icmp ult i64 %251, 16
-  call void @llvm.assume(i1 %252)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286: ; preds = %234, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284, %232
+  %.pn = phi { ptr, i32 } [ %233, %232 ], [ %235, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i284 ], [ %235, %234 ]
+  %240 = load ptr, ptr %3, align 8, !tbaa !58
+  %241 = icmp eq ptr %240, %181
+  br i1 %241, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286
-  %253 = load i64, ptr %181, align 8, !tbaa !60
-  %254 = add i64 %253, 1
-  call void @_ZdlPvm(ptr noundef %249, i64 noundef %254) #16
+  %242 = load i64, ptr %181, align 8, !tbaa !60
+  %243 = add i64 %242, 1
+  call void @_ZdlPvm(ptr noundef %240, i64 noundef %243) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i288, %237
-  %.pn.pn = phi { ptr, i32 } [ %238, %237 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i288 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287 ]
-  %255 = load ptr, ptr %4, align 8, !tbaa !58
-  %256 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %257 = icmp eq ptr %255, %256
-  br i1 %257, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i291, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i290
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i291: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289
-  %258 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %259 = load i64, ptr %258, align 8, !tbaa !59
-  %260 = icmp ult i64 %259, 16
-  call void @llvm.assume(i1 %260)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287, %230
+  %.pn.pn = phi { ptr, i32 } [ %231, %230 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i287 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286 ]
+  %244 = load ptr, ptr %4, align 8, !tbaa !58
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %246 = icmp eq ptr %244, %245
+  br i1 %246, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i290
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i290: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289
-  %261 = load i64, ptr %256, align 8, !tbaa !60
-  %262 = add i64 %261, 1
-  call void @_ZdlPvm(ptr noundef %255, i64 noundef %262) #16
+  %247 = load i64, ptr %245, align 8, !tbaa !60
+  %248 = add i64 %247, 1
+  call void @_ZdlPvm(ptr noundef %244, i64 noundef %248) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i291, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i290
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit292: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit289, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i290
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn
 
-263:                                              ; preds = %170, %165, %169
+249:                                              ; preds = %170, %165, %169
   %.1255 = phi double [ %.0254, %165 ], [ %.0254, %169 ], [ %173, %170 ]
   %.0245 = phi double [ %168, %165 ], [ %168, %169 ], [ %.0243, %170 ]
   %.1244 = phi double [ %.0243, %165 ], [ %.0254, %169 ], [ %.0243, %170 ]
-  %264 = load double, ptr %111, align 8, !tbaa !45
-  %265 = tail call double @llvm.fabs.f64(double %264)
-  %266 = fadd double %265, 0xBFF921FB54442D18
-  %267 = tail call double @llvm.fabs.f64(double %266)
-  %268 = fcmp ugt double %267, 0x3E7AD7F29ABCAF48
-  br i1 %268, label %271, label %269
+  %250 = load double, ptr %111, align 8, !tbaa !45
+  %251 = tail call double @llvm.fabs.f64(double %250)
+  %252 = fadd double %251, 0xBFF921FB54442D18
+  %253 = tail call double @llvm.fabs.f64(double %252)
+  %254 = fcmp ugt double %253, 0x3E7AD7F29ABCAF48
+  br i1 %254, label %257, label %255
 
-269:                                              ; preds = %263
+255:                                              ; preds = %249
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.19)
-  %270 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
+  %256 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %385
 
-271:                                              ; preds = %263
-  %272 = load ptr, ptr %0, align 8, !tbaa !41
-  %273 = fdiv double 1.000000e+00, %.1242
-  %274 = fsub double %.1242, %273
-  %275 = fmul double %274, 5.000000e-01
-  %276 = tail call double @tan(double noundef %.0245) #14, !tbaa !47
-  %277 = fmul double %275, %276
-  %278 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %272, double noundef %277)
-  %279 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %280 = load double, ptr %279, align 8, !tbaa !49
-  %281 = fdiv double %278, %280
-  %282 = fsub double %.0248, %281
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store double %282, ptr %283, align 8, !tbaa !64
-  br label %351
+257:                                              ; preds = %249
+  %258 = load ptr, ptr %0, align 8, !tbaa !41
+  %259 = fdiv double 1.000000e+00, %.1242
+  %260 = fsub double %.1242, %259
+  %261 = fmul double %260, 5.000000e-01
+  %262 = tail call double @tan(double noundef %.0245) #14, !tbaa !47
+  %263 = fmul double %261, %262
+  %264 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %258, double noundef %263)
+  %265 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %266 = load double, ptr %265, align 8, !tbaa !49
+  %267 = fdiv double %264, %266
+  %268 = fsub double %.0248, %267
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store double %268, ptr %269, align 8, !tbaa !64
+  br label %337
 
-284:                                              ; preds = %162
-  %285 = tail call double @sin(double noundef %.0252) #14, !tbaa !47
-  %286 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %287 = load double, ptr %286, align 8, !tbaa !53
-  %288 = tail call noundef double @_Z7pj_tsfnddd(double noundef %.0252, double noundef %285, double noundef %287)
-  %289 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %290 = load double, ptr %289, align 8, !tbaa !49
-  %291 = tail call double @pow(double noundef %288, double noundef %290) #14, !tbaa !47
-  %292 = tail call double @sin(double noundef %.0253) #14, !tbaa !47
-  %293 = load double, ptr %286, align 8, !tbaa !53
-  %294 = tail call noundef double @_Z7pj_tsfnddd(double noundef %.0253, double noundef %292, double noundef %293)
-  %295 = load double, ptr %289, align 8, !tbaa !49
-  %296 = tail call double @pow(double noundef %294, double noundef %295) #14, !tbaa !47
-  %297 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %298 = load double, ptr %297, align 8, !tbaa !52
-  %299 = fdiv double %298, %291
-  %300 = fsub double %296, %291
-  %301 = fadd double %291, %296
-  %302 = fdiv double %300, %301
-  %303 = fcmp oeq double %302, 0.000000e+00
+270:                                              ; preds = %162
+  %271 = tail call double @sin(double noundef %.0252) #14, !tbaa !47
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %273 = load double, ptr %272, align 8, !tbaa !53
+  %274 = tail call noundef double @_Z7pj_tsfnddd(double noundef %.0252, double noundef %271, double noundef %273)
+  %275 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %276 = load double, ptr %275, align 8, !tbaa !49
+  %277 = tail call double @pow(double noundef %274, double noundef %276) #14, !tbaa !47
+  %278 = tail call double @sin(double noundef %.0253) #14, !tbaa !47
+  %279 = load double, ptr %272, align 8, !tbaa !53
+  %280 = tail call noundef double @_Z7pj_tsfnddd(double noundef %.0253, double noundef %278, double noundef %279)
+  %281 = load double, ptr %275, align 8, !tbaa !49
+  %282 = tail call double @pow(double noundef %280, double noundef %281) #14, !tbaa !47
+  %283 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %284 = load double, ptr %283, align 8, !tbaa !52
+  %285 = fdiv double %284, %277
+  %286 = fsub double %282, %277
+  %287 = fadd double %277, %282
+  %288 = fdiv double %286, %287
+  %289 = fcmp oeq double %288, 0.000000e+00
+  br i1 %289, label %290, label %292
+
+290:                                              ; preds = %270
+  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.24)
+  %291 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %385
+
+292:                                              ; preds = %270
+  %293 = fmul double %284, %284
+  %294 = fneg double %282
+  %295 = tail call double @llvm.fmuladd.f64(double %294, double %277, double %293)
+  %296 = tail call double @llvm.fmuladd.f64(double %282, double %277, double %293)
+  %297 = fdiv double %295, %296
+  %298 = fsub double %.0249, %.0250
+  %299 = fcmp olt double %298, 0xC00921FB54442D18
+  br i1 %299, label %300, label %302
+
+300:                                              ; preds = %292
+  %301 = fadd double %.0250, 0xC01921FB54442D18
+  br label %306
+
+302:                                              ; preds = %292
+  %303 = fcmp ogt double %298, 0x400921FB54442D18
   br i1 %303, label %304, label %306
 
-304:                                              ; preds = %284
+304:                                              ; preds = %302
+  %305 = fadd double %.0250, 0x401921FB54442D18
+  br label %306
+
+306:                                              ; preds = %302, %304, %300
+  %.1251 = phi double [ %301, %300 ], [ %305, %304 ], [ %.0250, %302 ]
+  %307 = fadd double %.0249, %.1251
+  %308 = fmul double %281, 5.000000e-01
+  %309 = fsub double %.0249, %.1251
+  %310 = fmul double %308, %309
+  %311 = tail call double @tan(double noundef %310) #14, !tbaa !47
+  %312 = fmul double %297, %311
+  %313 = fdiv double %312, %288
+  %314 = tail call double @atan(double noundef %313) #14, !tbaa !47
+  %315 = fneg double %314
+  %316 = fdiv double %315, %281
+  %317 = tail call double @llvm.fmuladd.f64(double %307, double 5.000000e-01, double %316)
+  %318 = tail call noundef double @_Z6adjlond(double noundef %317)
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 440
+  store double %318, ptr %319, align 8, !tbaa !64
+  %320 = fdiv double 1.000000e+00, %285
+  %321 = fsub double %285, %320
+  %322 = fcmp une double %321, 0.000000e+00
+  br i1 %322, label %.thread293, label %335
+
+.thread293:                                       ; preds = %306
+  %323 = load double, ptr %275, align 8, !tbaa !49
+  %324 = fsub double %.0249, %318
+  %325 = tail call noundef double @_Z6adjlond(double noundef %324)
+  %326 = fmul double %323, %325
+  %327 = tail call double @sin(double noundef %326) #14, !tbaa !47
+  %328 = fmul double %327, 2.000000e+00
+  %329 = fdiv double %328, %321
+  %330 = tail call double @atan(double noundef %329) #14, !tbaa !47
+  %331 = load ptr, ptr %0, align 8, !tbaa !41
+  %332 = tail call double @sin(double noundef %330) #14, !tbaa !47
+  %333 = fmul double %.0240, %332
+  %334 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %331, double noundef %333)
+  %.pre = load double, ptr %275, align 8, !tbaa !49
+  br label %337
+
+335:                                              ; preds = %306
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.24)
-  %305 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
-
-306:                                              ; preds = %284
-  %307 = fmul double %298, %298
-  %308 = fneg double %296
-  %309 = tail call double @llvm.fmuladd.f64(double %308, double %291, double %307)
-  %310 = tail call double @llvm.fmuladd.f64(double %296, double %291, double %307)
-  %311 = fdiv double %309, %310
-  %312 = fsub double %.0249, %.0250
-  %313 = fcmp olt double %312, 0xC00921FB54442D18
-  br i1 %313, label %314, label %316
-
-314:                                              ; preds = %306
-  %315 = fadd double %.0250, 0xC01921FB54442D18
-  br label %320
-
-316:                                              ; preds = %306
-  %317 = fcmp ogt double %312, 0x400921FB54442D18
-  br i1 %317, label %318, label %320
-
-318:                                              ; preds = %316
-  %319 = fadd double %.0250, 0x401921FB54442D18
-  br label %320
-
-320:                                              ; preds = %316, %318, %314
-  %.1251 = phi double [ %315, %314 ], [ %319, %318 ], [ %.0250, %316 ]
-  %321 = fadd double %.0249, %.1251
-  %322 = fmul double %295, 5.000000e-01
-  %323 = fsub double %.0249, %.1251
-  %324 = fmul double %322, %323
-  %325 = tail call double @tan(double noundef %324) #14, !tbaa !47
-  %326 = fmul double %311, %325
-  %327 = fdiv double %326, %302
-  %328 = tail call double @atan(double noundef %327) #14, !tbaa !47
-  %329 = fneg double %328
-  %330 = fdiv double %329, %295
-  %331 = tail call double @llvm.fmuladd.f64(double %321, double 5.000000e-01, double %330)
-  %332 = tail call noundef double @_Z6adjlond(double noundef %331)
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store double %332, ptr %333, align 8, !tbaa !64
-  %334 = fdiv double 1.000000e+00, %299
-  %335 = fsub double %299, %334
-  %336 = fcmp une double %335, 0.000000e+00
-  br i1 %336, label %.thread293, label %349
-
-.thread293:                                       ; preds = %320
-  %337 = load double, ptr %289, align 8, !tbaa !49
-  %338 = fsub double %.0249, %332
-  %339 = tail call noundef double @_Z6adjlond(double noundef %338)
-  %340 = fmul double %337, %339
-  %341 = tail call double @sin(double noundef %340) #14, !tbaa !47
-  %342 = fmul double %341, 2.000000e+00
-  %343 = fdiv double %342, %335
-  %344 = tail call double @atan(double noundef %343) #14, !tbaa !47
-  %345 = load ptr, ptr %0, align 8, !tbaa !41
-  %346 = tail call double @sin(double noundef %344) #14, !tbaa !47
-  %347 = fmul double %.0240, %346
-  %348 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %345, double noundef %347)
-  %.pre = load double, ptr %289, align 8, !tbaa !49
-  br label %351
-
-349:                                              ; preds = %320
-  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.24)
-  %350 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %399
-
-351:                                              ; preds = %.thread293, %271
-  %352 = phi double [ %280, %271 ], [ %.pre, %.thread293 ]
-  %.2256 = phi double [ %.1255, %271 ], [ %348, %.thread293 ]
-  %.1246 = phi double [ %.0245, %271 ], [ %344, %.thread293 ]
-  %.2 = phi double [ %.1244, %271 ], [ %348, %.thread293 ]
-  %353 = tail call double @sin(double noundef %.1246) #14, !tbaa !47
-  %354 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store double %353, ptr %354, align 8, !tbaa !65
-  %355 = tail call double @cos(double noundef %.1246) #14, !tbaa !47
-  %356 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store double %355, ptr %356, align 8, !tbaa !66
-  %357 = tail call double @sin(double noundef %.2) #14, !tbaa !47
-  %358 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store double %357, ptr %358, align 8, !tbaa !67
-  %359 = tail call double @cos(double noundef %.2) #14, !tbaa !47
-  %360 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store double %359, ptr %360, align 8, !tbaa !68
-  %361 = load double, ptr %5, align 8, !tbaa !51
-  %362 = fdiv double 1.000000e+00, %352
-  %363 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store double %362, ptr %363, align 8, !tbaa !69
-  %364 = fmul double %361, %362
-  %365 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store double %364, ptr %365, align 8, !tbaa !70
-  %366 = fdiv double 1.000000e+00, %364
-  %367 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store double %366, ptr %367, align 8, !tbaa !71
-  %368 = fmul double %361, %352
-  %369 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store double %368, ptr %369, align 8, !tbaa !72
-  br i1 %.0258.shrunk, label %370, label %372
-
-370:                                              ; preds = %351
-  %371 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store double 0.000000e+00, ptr %371, align 8, !tbaa !73
+  %336 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
   br label %385
 
-372:                                              ; preds = %351
-  %373 = tail call double @llvm.fmuladd.f64(double %.0240, double %.0240, double -1.000000e+00)
-  %374 = tail call double @sqrt(double noundef %373) #14, !tbaa !47
-  %375 = tail call double @cos(double noundef %.2256) #14, !tbaa !47
-  %376 = fdiv double %374, %375
-  %377 = tail call double @atan(double noundef %376) #14, !tbaa !47
-  %378 = fmul double %364, %377
-  %379 = tail call double @llvm.fabs.f64(double %378)
-  %380 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store double %379, ptr %380, align 8, !tbaa !73
-  %381 = load double, ptr %111, align 8, !tbaa !45
-  %382 = fcmp olt double %381, 0.000000e+00
-  br i1 %382, label %383, label %385
+337:                                              ; preds = %.thread293, %257
+  %338 = phi double [ %266, %257 ], [ %.pre, %.thread293 ]
+  %.2256 = phi double [ %.1255, %257 ], [ %334, %.thread293 ]
+  %.1246 = phi double [ %.0245, %257 ], [ %330, %.thread293 ]
+  %.2 = phi double [ %.1244, %257 ], [ %334, %.thread293 ]
+  %339 = tail call double @sin(double noundef %.1246) #14, !tbaa !47
+  %340 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store double %339, ptr %340, align 8, !tbaa !65
+  %341 = tail call double @cos(double noundef %.1246) #14, !tbaa !47
+  %342 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store double %341, ptr %342, align 8, !tbaa !66
+  %343 = tail call double @sin(double noundef %.2) #14, !tbaa !47
+  %344 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  store double %343, ptr %344, align 8, !tbaa !67
+  %345 = tail call double @cos(double noundef %.2) #14, !tbaa !47
+  %346 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store double %345, ptr %346, align 8, !tbaa !68
+  %347 = load double, ptr %5, align 8, !tbaa !51
+  %348 = fdiv double 1.000000e+00, %338
+  %349 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store double %348, ptr %349, align 8, !tbaa !69
+  %350 = fmul double %347, %348
+  %351 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store double %350, ptr %351, align 8, !tbaa !70
+  %352 = fdiv double 1.000000e+00, %350
+  %353 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store double %352, ptr %353, align 8, !tbaa !71
+  %354 = fmul double %347, %338
+  %355 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store double %354, ptr %355, align 8, !tbaa !72
+  br i1 %.0258.shrunk, label %356, label %358
 
-383:                                              ; preds = %372
-  %384 = fneg double %379
-  store double %384, ptr %380, align 8, !tbaa !73
+356:                                              ; preds = %337
+  %357 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store double 0.000000e+00, ptr %357, align 8, !tbaa !73
+  br label %371
+
+358:                                              ; preds = %337
+  %359 = tail call double @llvm.fmuladd.f64(double %.0240, double %.0240, double -1.000000e+00)
+  %360 = tail call double @sqrt(double noundef %359) #14, !tbaa !47
+  %361 = tail call double @cos(double noundef %.2256) #14, !tbaa !47
+  %362 = fdiv double %360, %361
+  %363 = tail call double @atan(double noundef %362) #14, !tbaa !47
+  %364 = fmul double %350, %363
+  %365 = tail call double @llvm.fabs.f64(double %364)
+  %366 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store double %365, ptr %366, align 8, !tbaa !73
+  %367 = load double, ptr %111, align 8, !tbaa !45
+  %368 = fcmp olt double %367, 0.000000e+00
+  br i1 %368, label %369, label %371
+
+369:                                              ; preds = %358
+  %370 = fneg double %365
+  store double %370, ptr %366, align 8, !tbaa !73
+  br label %371
+
+371:                                              ; preds = %358, %369, %356
+  %372 = fmul double %.1246, 5.000000e-01
+  %373 = fsub double 0x3FE921FB54442D18, %372
+  %374 = tail call double @tan(double noundef %373) #14, !tbaa !47
+  %375 = tail call double @log(double noundef %374) #14, !tbaa !47
+  %376 = fmul double %350, %375
+  %377 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store double %376, ptr %377, align 8, !tbaa !74
+  %378 = fadd double %372, 0x3FE921FB54442D18
+  %379 = tail call double @tan(double noundef %378) #14, !tbaa !47
+  %380 = tail call double @log(double noundef %379) #14, !tbaa !47
+  %381 = fmul double %350, %380
+  %382 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store double %381, ptr %382, align 8, !tbaa !75
+  %383 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @_ZL15omerc_e_inverse5PJ_XYP8PJconsts, ptr %383, align 8, !tbaa !76
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr @_ZL15omerc_e_forward5PJ_LPP8PJconsts, ptr %384, align 8, !tbaa !77
   br label %385
 
-385:                                              ; preds = %372, %383, %370
-  %386 = fmul double %.1246, 5.000000e-01
-  %387 = fsub double 0x3FE921FB54442D18, %386
-  %388 = tail call double @tan(double noundef %387) #14, !tbaa !47
-  %389 = tail call double @log(double noundef %388) #14, !tbaa !47
-  %390 = fmul double %364, %389
-  %391 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store double %390, ptr %391, align 8, !tbaa !74
-  %392 = fadd double %386, 0x3FE921FB54442D18
-  %393 = tail call double @tan(double noundef %392) #14, !tbaa !47
-  %394 = tail call double @log(double noundef %393) #14, !tbaa !47
-  %395 = fmul double %364, %394
-  %396 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store double %395, ptr %396, align 8, !tbaa !75
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL15omerc_e_inverse5PJ_XYP8PJconsts, ptr %397, align 8, !tbaa !76
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL15omerc_e_forward5PJ_LPP8PJconsts, ptr %398, align 8, !tbaa !77
-  br label %399
-
-399:                                              ; preds = %349, %385, %304, %269, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283, %99, %90, %86, %80, %75, %7
-  %.0 = phi ptr [ %8, %7 ], [ %270, %269 ], [ %0, %385 ], [ %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283 ], [ %305, %304 ], [ %350, %349 ], [ %76, %75 ], [ %81, %80 ], [ %87, %86 ], [ %91, %90 ], [ %100, %99 ]
+385:                                              ; preds = %335, %371, %290, %255, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283, %99, %90, %86, %80, %75, %7
+  %.0 = phi ptr [ %8, %7 ], [ %256, %255 ], [ %0, %371 ], [ %229, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283 ], [ %291, %290 ], [ %336, %335 ], [ %76, %75 ], [ %81, %80 ], [ %87, %86 ], [ %91, %90 ], [ %100, %99 ]
   ret ptr %.0
 }
 

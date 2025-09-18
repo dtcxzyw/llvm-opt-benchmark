@@ -195,7 +195,7 @@ define dso_local void @zend_ini_global_shutdown() local_unnamed_addr #0 {
 define dso_local void @zend_ini_deactivate() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8, !tbaa !50
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %22, label %2
+  br i1 %.not, label %19, label %2
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -205,44 +205,39 @@ define dso_local void @zend_ini_deactivate() local_unnamed_addr #0 {
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 5
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !43
-  %11 = and i32 %10, 4
-  %.not12 = icmp eq i32 %11, 0
-  tail call void @llvm.assume(i1 %.not12)
   %.not1314 = icmp eq i32 %6, 0
   br i1 %.not1314, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %18
-  %.015 = phi ptr [ %19, %18 ], [ %4, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.015, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !43
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %18, label %15, !prof !52
+.lr.ph:                                           ; preds = %2, %15
+  %.015 = phi ptr [ %16, %15 ], [ %4, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %10 = load i8, ptr %9, align 8, !tbaa !43
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %15, label %12, !prof !52
 
-15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr %.015, align 8, !tbaa !43
-  %17 = tail call fastcc i32 @zend_restore_ini_entry_cb(ptr noundef %16, i32 noundef 8)
-  br label %18
+12:                                               ; preds = %.lr.ph
+  %13 = load ptr, ptr %.015, align 8, !tbaa !43
+  %14 = tail call fastcc i32 @zend_restore_ini_entry_cb(ptr noundef %13, i32 noundef 8)
+  br label %15
 
-18:                                               ; preds = %.lr.ph, %15
-  %19 = getelementptr inbounds nuw i8, ptr %.015, i64 32
-  %.not13 = icmp eq ptr %19, %8
+15:                                               ; preds = %.lr.ph, %12
+  %16 = getelementptr inbounds nuw i8, ptr %.015, i64 32
+  %.not13 = icmp eq ptr %16, %8
   br i1 %.not13, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %18
+._crit_edge.loopexit:                             ; preds = %15
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8, !tbaa !50
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %20 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %2 ]
-  tail call void @zend_hash_destroy(ptr noundef %20) #18
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8, !tbaa !50
-  tail call void @_efree_56(ptr noundef %21) #18
+  %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %2 ]
+  tail call void @zend_hash_destroy(ptr noundef %17) #18
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8, !tbaa !50
+  tail call void @_efree_56(ptr noundef %18) #18
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 864), align 8, !tbaa !50
-  br label %22
+  br label %19
 
-22:                                               ; preds = %._crit_edge, %0
+19:                                               ; preds = %._crit_edge, %0
   ret void
 }
 

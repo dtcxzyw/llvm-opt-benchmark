@@ -1180,7 +1180,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129NonnullGlobalCons
   %22 = icmp ne i8 %21, 33
   %.not54 = icmp eq ptr %19, null
   %.not = or i1 %.not54, %22
-  br i1 %.not, label %84, label %23
+  br i1 %.not, label %77, label %23
 
 23:                                               ; preds = %.critedge
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -1281,75 +1281,65 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24: ; preds = %_ZNK5cla
   br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i1.i29, label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i38, label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33
 
 _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33: ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i30 = load i64, ptr %65, align 8, !tbaa !568
-  %66 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i30, -16
-  %67 = inttoptr i64 %66 to ptr
-  %68 = load ptr, ptr %67, align 16, !tbaa !569
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load i8, ptr %69, align 16
-  %71 = and i8 %70, -2
-  %spec.select.i.i.i.i.i.i.i.i5.i.i.i31 = icmp eq i8 %71, 34
-  tail call void @llvm.assume(i1 %spec.select.i.i.i.i.i.i.i.i5.i.i.i31)
-  %72 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %61) #18
-  %.not.i.i34 = icmp ne ptr %72, null
+  %65 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %61) #18
+  %.not.i.i34 = icmp ne ptr %65, null
   tail call void @llvm.assume(i1 %.not.i.i34)
-  %.phi.trans.insert.i.i36 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %.phi.trans.insert.i.i36 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %.pre.i.i37 = load i8, ptr %.phi.trans.insert.i.i36, align 16
   br label %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i38
 
 _ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i38: ; preds = %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24
-  %73 = phi i8 [ %.pre.i.i37, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33 ], [ %63, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24 ]
-  %.1.i19.i.i39 = phi ptr [ %72, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33 ], [ %61, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24 ]
-  %.not31.i.i40 = icmp eq i8 %73, 35
+  %66 = phi i8 [ %.pre.i.i37, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33 ], [ %63, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24 ]
+  %.1.i19.i.i39 = phi ptr [ %65, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i33 ], [ %61, %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24 ]
+  %.not31.i.i40 = icmp eq i8 %66, 35
   br i1 %.not31.i.i40, label %.thread26.i.i41, label %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i24
 
 .thread26.i.i41:                                  ; preds = %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.thread16.i.i38
-  %74 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i19.i.i39) #18
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %76 = load i64, ptr %75, align 8, !tbaa !624
-  %77 = and i64 %76, 7
-  %78 = icmp eq i64 %77, 0
-  %79 = and i64 %76, -8
-  %80 = inttoptr i64 %79 to ptr
-  %.0.i.i = select i1 %78, ptr %80, ptr null
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !187
-  %83 = icmp eq ptr %.0.i.i, %82
+  %67 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i19.i.i39) #18
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %69 = load i64, ptr %68, align 8, !tbaa !624
+  %70 = and i64 %69, 7
+  %71 = icmp eq i64 %70, 0
+  %72 = and i64 %69, -8
+  %73 = inttoptr i64 %72 to ptr
+  %.0.i.i = select i1 %71, ptr %73, ptr null
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %75 = load ptr, ptr %74, align 8, !tbaa !187
+  %76 = icmp eq ptr %.0.i.i, %75
   br label %.thread
 
-84:                                               ; preds = %.critedge
-  %85 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %19) #18
-  %.not16 = icmp eq ptr %85, null
-  br i1 %.not16, label %.thread, label %86
+77:                                               ; preds = %.critedge
+  %78 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %19) #18
+  %.not16 = icmp eq ptr %78, null
+  br i1 %.not16, label %.thread, label %79
 
-86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %88 = load ptr, ptr %87, align 16, !tbaa !572
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %90 = load i64, ptr %89, align 8, !tbaa !624
-  %91 = and i64 %90, 7
-  %92 = icmp eq i64 %91, 0
-  %93 = and i64 %90, -8
-  %94 = inttoptr i64 %93 to ptr
-  %.0.i.i44 = select i1 %92, ptr %94, ptr null
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %96 = load ptr, ptr %95, align 8, !tbaa !544
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %81 = load ptr, ptr %80, align 16, !tbaa !572
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  %83 = load i64, ptr %82, align 8, !tbaa !624
+  %84 = and i64 %83, 7
+  %85 = icmp eq i64 %84, 0
+  %86 = and i64 %83, -8
+  %87 = inttoptr i64 %86 to ptr
+  %.0.i.i44 = select i1 %85, ptr %87, ptr null
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %89 = load ptr, ptr %88, align 8, !tbaa !544
+  %90 = icmp eq ptr %.0.i.i44, %89
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %92 = load ptr, ptr %91, align 8
+  %93 = icmp eq ptr %.0.i.i44, %92
+  %or.cond = select i1 %90, i1 true, i1 %93
+  br i1 %or.cond, label %.thread, label %94
+
+94:                                               ; preds = %79
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %96 = load ptr, ptr %95, align 8, !tbaa !546
   %97 = icmp eq ptr %.0.i.i44, %96
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %.0.i.i44, %99
-  %or.cond = select i1 %97, i1 true, i1 %100
-  br i1 %or.cond, label %.thread, label %101
-
-101:                                              ; preds = %86
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %103 = load ptr, ptr %102, align 8, !tbaa !546
-  %104 = icmp eq ptr %.0.i.i44, %103
   br label %.thread
 
-.thread:                                          ; preds = %39, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %86, %101, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit, %.thread26.i.i41, %84, %13
-  %.0 = phi i1 [ true, %13 ], [ false, %84 ], [ %104, %101 ], [ true, %86 ], [ %83, %.thread26.i.i41 ], [ false, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ false, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ false, %39 ]
+.thread:                                          ; preds = %39, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i, %79, %94, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit, %.thread26.i.i41, %77, %13
+  %.0 = phi i1 [ true, %13 ], [ false, %77 ], [ %97, %94 ], [ true, %79 ], [ %76, %.thread26.i.i41 ], [ false, %_ZNK5clang21ObjCObjectPointerType16getInterfaceDeclEv.exit ], [ false, %_ZNK5clang4Type5getAsINS_14ObjCObjectTypeEEEPKT_v.exit.i.i ], [ false, %39 ]
   ret i1 %.0
 }
 

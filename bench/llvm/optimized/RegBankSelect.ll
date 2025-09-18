@@ -4013,8 +4013,6 @@ define dso_local void @_ZN4llvm13RegBankSelect16InstrInsertPoint11materializeEv(
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(25) %0) #23
-  %6 = xor i1 %5, true
-  tail call void @llvm.assume(i1 %6)
   ret void
 }
 

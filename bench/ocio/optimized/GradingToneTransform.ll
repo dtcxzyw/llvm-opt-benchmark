@@ -97,7 +97,7 @@ $_ZTSPFvPN19OpenColorIO_v2_5dev20GradingToneTransformEE = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev20GradingToneTransform6CreateENS_12GradingStyleE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #17
+  %3 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #16
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 16), ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZN19OpenColorIO_v2_5dev17GradingToneOpDataC1ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(196) %4, i32 noundef %1)
@@ -107,19 +107,19 @@ _ZN19OpenColorIO_v2_5dev24GradingToneTransformImplC2ENS_12GradingStyleE.exit: ; 
   store ptr %3, ptr %0, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8, !tbaa !13
-  %6 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
+  %6 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformEEC2INS0_24GradingToneTransformImplEPFvPS1_EvEEPT_T0_.exit unwind label %7
 
 7:                                                ; preds = %_ZN19OpenColorIO_v2_5dev24GradingToneTransformImplC2ENS_12GradingStyleE.exit
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #18
+  %10 = tail call ptr @__cxa_begin_catch(ptr %9) #17
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(208) %3) #18
-  invoke void @__cxa_rethrow() #19
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(208) %3) #17
+  invoke void @__cxa_rethrow() #18
           to label %19 unwind label %14
 
 14:                                               ; preds = %7
@@ -136,7 +136,7 @@ common.resume:                                    ; preds = %14, %24
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #20
+  tail call void @__clang_call_terminate(ptr %18) #19
   unreachable
 
 19:                                               ; preds = %7
@@ -158,7 +158,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformEEC2INS0_24Grading
 24:                                               ; preds = %2
   %25 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 208) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 208) #20
   br label %common.resume
 }
 
@@ -179,7 +179,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl7deleterEP
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(208) %0) #18
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(208) %0) #17
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -203,11 +203,11 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl18createE
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(208) %1) #18
+  %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(208) %1) #17
   call void @_ZN19OpenColorIO_v2_5dev20GradingToneTransform6CreateENS_12GradingStyleE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, i32 noundef %7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %3, align 8, !tbaa !6, !nonnull !23, !noundef !23
-  %10 = tail call ptr @__dynamic_cast(ptr nonnull %9, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev20GradingToneTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 0) #18
+  %10 = tail call ptr @__dynamic_cast(ptr nonnull %9, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev20GradingToneTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 0) #17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = invoke noundef nonnull align 8 dereferenceable(196) ptr @_ZN19OpenColorIO_v2_5dev17GradingToneOpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(196) %11, ptr noundef nonnull align 8 dereferenceable(196) %8)
           to label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %16
@@ -224,7 +224,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformELN9__gnu_cxx12_
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20GradingToneTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %17
 }
@@ -255,11 +255,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev20Gra
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -282,7 +282,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -292,7 +292,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #18
+  %3 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #17
   ret i32 %3
 }
 
@@ -302,7 +302,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData12getDirectionE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(196) %3, i32 noundef %1) #18
+  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(196) %3, i32 noundef %1) #17
   ret void
 }
 
@@ -322,19 +322,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl8validate
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(196) %5)
-          to label %42 unwind label %9
+          to label %39 unwind label %9
 
 9:                                                ; preds = %4, %1
   %10 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_5dev9ExceptionE
   %11 = extractvalue { ptr, i32 } %10, 1
-  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE) #18
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE) #17
   %13 = icmp eq i32 %11, %12
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %40
 
 14:                                               ; preds = %9
   %15 = extractvalue { ptr, i32 } %10, 0
-  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #18
+  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -345,19 +345,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl8validate
   %18 = load ptr, ptr %16, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
+  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %16) #17
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %21)
           to label %23 unwind label %29
 
 23:                                               ; preds = %17
-  %24 = call ptr @__cxa_allocate_exception(i64 16) #18
+  %24 = call ptr @__cxa_allocate_exception(i64 16) #17
   %25 = load ptr, ptr %2, align 8, !tbaa !30
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %25)
           to label %26 unwind label %31
 
 26:                                               ; preds = %23
-  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #19
-          to label %47 unwind label %29
+  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #18
+          to label %44 unwind label %29
 
 27:                                               ; preds = %14
   %28 = landingpad { ptr, i32 }
@@ -373,7 +373,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl8validate
 31:                                               ; preds = %23
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %24) #18
+  call void @__cxa_free_exception(ptr nonnull %24) #17
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -381,42 +381,35 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl8validate
   %34 = load ptr, ptr %2, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = icmp eq ptr %34, %35
-  br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !35
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %33
-  %40 = load i64, ptr %35, align 8, !tbaa !27
-  %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %34, i64 noundef %41) #21
+  %37 = load i64, ptr %35, align 8, !tbaa !27
+  %38 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %34, i64 noundef %38) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %27
-  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %27
+  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.pn, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @__cxa_end_catch()
-          to label %43 unwind label %44
+          to label %40 unwind label %41
 
-42:                                               ; preds = %4
+39:                                               ; preds = %4
   ret void
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
+40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
   %.merged = phi { ptr, i32 } [ %10, %9 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.merged
 
-44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #20
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #19
   unreachable
 
-47:                                               ; preds = %26
+44:                                               ; preds = %26
   unreachable
 }
 
@@ -449,8 +442,8 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -476,7 +469,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev24GradingToneTransfor
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev20GradingToneTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 0) #18
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev20GradingToneTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 0) #17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_17GradingToneOpDataES2_(ptr noundef nonnull align 8 dereferenceable(196) %5, ptr noundef nonnull align 8 dereferenceable(196) %7)
           to label %9 unwind label %10
@@ -489,7 +482,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev24GradingToneTransfor
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #20
+  tail call void @__clang_call_terminate(ptr %12) #19
   unreachable
 }
 
@@ -498,14 +491,14 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_17GradingToneOpDataE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl8getStyleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load i32, ptr %2, align 8, !tbaa !36
+  %3 = load i32, ptr %2, align 8, !tbaa !35
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpData8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(196) %3, i32 noundef %1) #18
+  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpData8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(196) %3, i32 noundef %1) #17
   ret void
 }
 
@@ -515,7 +508,7 @@ declare void @_ZN19OpenColorIO_v2_5dev17GradingToneOpData8setStyleENS_12GradingS
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(248) ptr @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl8getValueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -526,7 +519,7 @@ define hidden noundef nonnull align 8 dereferenceable(248) ptr @_ZNK19OpenColorI
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl8setValueERKNS_11GradingToneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %4 = load ptr, ptr %3, align 8, !tbaa !58
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -537,7 +530,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl8setValueE
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev24GradingToneTransformImpl9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #18
+  %3 = tail call noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData9isDynamicEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #17
   ret i1 %3
 }
 
@@ -547,36 +540,36 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev17GradingToneOpData9isDynam
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl11makeDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !58, !noalias !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !58
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27, !noalias !59
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27, !noalias !58
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !28, !noalias !59
+  %10 = load i32, ptr %7, align 4, !tbaa !28, !noalias !58
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !28, !noalias !59
+  store i32 %11, ptr %7, align 4, !tbaa !28, !noalias !58
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !59
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !58
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %14, align 4, !tbaa !62
+  store i8 1, ptr %14, align 4, !tbaa !61
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %16, align 4, !tbaa !62
+  store i8 1, ptr %16, align 4, !tbaa !61
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -589,11 +582,11 @@ _ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit:
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -616,7 +609,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -626,36 +619,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImpl14makeNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !58, !noalias !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !66
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27, !noalias !67
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27, !noalias !66
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !28, !noalias !67
+  %10 = load i32, ptr %7, align 4, !tbaa !28, !noalias !66
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !28, !noalias !67
+  store i32 %11, ptr %7, align 4, !tbaa !28, !noalias !66
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !67
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !66
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %14, align 4, !tbaa !62
+  store i8 0, ptr %14, align 4, !tbaa !61
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %16, align 4, !tbaa !62
+  store i8 0, ptr %16, align 4, !tbaa !61
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -668,11 +661,11 @@ _ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit:
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -695,7 +688,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #18
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -715,7 +708,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZStl
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %1) #18
+  %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   %9 = invoke noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef %8)
           to label %10 unwind label %55
 
@@ -729,13 +722,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit11: ; preds = %_ZStl
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !70
+  %17 = load i32, ptr %16, align 8, !tbaa !69
   %18 = or i32 %17, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %15, i32 noundef %18)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 unwind label %55
 
 19:                                               ; preds = %10
-  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9, i64 noundef %20)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit13 unwind label %55
 
@@ -747,7 +740,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %_ZStl
   %23 = load ptr, ptr %1, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %1) #18
+  %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   %27 = invoke noundef ptr @_ZN19OpenColorIO_v2_5dev20GradingStyleToStringENS_12GradingStyleE(i32 noundef %26)
           to label %28 unwind label %55
 
@@ -761,13 +754,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %_ZStl
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !70
+  %35 = load i32, ptr %34, align 8, !tbaa !69
   %36 = or i32 %35, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %33, i32 noundef %36)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19 unwind label %55
 
 37:                                               ; preds = %28
-  %38 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #18
+  %38 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #17
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %27, i64 noundef %38)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit19 unwind label %55
 
@@ -790,7 +783,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit21: ; preds = %_ZStl
   %48 = load ptr, ptr %1, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 112
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %1) #18
+  %51 = tail call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(8) %1) #17
   br i1 %51, label %52, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit23
 
 52:                                               ; preds = %47
@@ -808,7 +801,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit25: ; preds = %_ZStl
   %56 = landingpad { ptr, i32 }
           catch ptr null
   %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #20
+  tail call void @__clang_call_terminate(ptr %57) #19
   unreachable
 }
 
@@ -834,7 +827,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_13GradingRGBMSWE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %15)
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.18, i64 noundef 12)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %19 = load double, ptr %18, align 8, !tbaa !79
+  %19 = load double, ptr %18, align 8, !tbaa !78
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %19)
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.6, i64 noundef 1)
   ret ptr %0
@@ -843,27 +836,27 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_13GradingRGBMSWE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #0 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7, i64 noundef 5)
-  %4 = load double, ptr %1, align 8, !tbaa !83
+  %4 = load double, ptr %1, align 8, !tbaa !82
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.8, i64 noundef 7)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load double, ptr %7, align 8, !tbaa !84
+  %8 = load double, ptr %7, align 8, !tbaa !83
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.9, i64 noundef 6)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !85
+  %12 = load double, ptr %11, align 8, !tbaa !84
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.10, i64 noundef 8)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load double, ptr %15, align 8, !tbaa !86
+  %16 = load double, ptr %15, align 8, !tbaa !85
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.11, i64 noundef 7)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load double, ptr %19, align 8, !tbaa !87
+  %20 = load double, ptr %19, align 8, !tbaa !86
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %20)
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.12, i64 noundef 7)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %24 = load double, ptr %23, align 8, !tbaa !88
+  %24 = load double, ptr %23, align 8, !tbaa !87
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %21, double noundef %24)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str.6, i64 noundef 1)
   ret ptr %0
@@ -878,7 +871,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev20GradingToneTr
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImplD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %2) #18
+  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %2) #17
   ret void
 }
 
@@ -886,8 +879,8 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformI
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev24GradingToneTransformImplD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev24GradingToneTransformImplE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %2) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #21
+  tail call void @_ZN19OpenColorIO_v2_5dev17GradingToneOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(196) %2) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #20
   ret void
 }
 
@@ -896,7 +889,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27
   %.not.i = icmp eq i8 %6, 0
@@ -921,7 +914,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -940,16 +933,16 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS0_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS0_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !89
+  %3 = load ptr, ptr %2, align 8, !tbaa !88
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -960,21 +953,21 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #20
+  tail call void @__clang_call_terminate(ptr %9) #19
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS0_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS1_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #20
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS0_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !92
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev20GradingToneTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -984,7 +977,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColor
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread3, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %6
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(51) @_ZTSPFvPN19OpenColorIO_v2_5dev20GradingToneTransformEE) #18
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(51) @_ZTSPFvPN19OpenColorIO_v2_5dev20GradingToneTransformEE) #17
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread3
 
@@ -1015,9 +1008,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1034,12 +1024,11 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { builtin allocsize(0) }
-attributes #18 = { nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { builtin nounwind }
+attributes #16 = { builtin allocsize(0) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -1078,62 +1067,61 @@ attributes #21 = { builtin nounwind }
 !32 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !33, i64 0}
 !33 = !{!"p1 omnipotent char", !9, i64 0}
 !34 = !{!"long", !10, i64 0}
-!35 = !{!31, !34, i64 8}
-!36 = !{!37, !53, i64 168}
-!37 = !{!"_ZTSN19OpenColorIO_v2_5dev17GradingToneOpDataE", !38, i64 0, !53, i64 168, !54, i64 176, !57, i64 192}
-!38 = !{!"_ZTSN19OpenColorIO_v2_5dev6OpDataE", !39, i64 8, !41, i64 48}
-!39 = !{!"_ZTSSt5mutex", !40, i64 0}
-!40 = !{!"_ZTSSt12__mutex_base", !10, i64 0}
-!41 = !{!"_ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !42, i64 0, !31, i64 8, !31, i64 40, !43, i64 72, !48, i64 96}
-!42 = !{!"_ZTSN19OpenColorIO_v2_5dev14FormatMetadataE"}
-!43 = !{!"_ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !44, i64 0}
-!44 = !{!"_ZTSSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !45, i64 0}
-!45 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_Vector_implE", !46, i64 0}
-!46 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
-!47 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !9, i64 0}
-!48 = !{!"_ZTSSt6vectorIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !49, i64 0}
-!49 = !{!"_ZTSSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !50, i64 0}
-!50 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE12_Vector_implE", !51, i64 0}
-!51 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE17_Vector_impl_dataE", !52, i64 0, !52, i64 8, !52, i64 16}
-!52 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !9, i64 0}
-!53 = !{!"_ZTSN19OpenColorIO_v2_5dev12GradingStyleE", !10, i64 0}
-!54 = !{!"_ZTSSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEE", !55, i64 0}
-!55 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EE", !56, i64 0, !11, i64 8}
-!56 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE", !9, i64 0}
-!57 = !{!"_ZTSN19OpenColorIO_v2_5dev18TransformDirectionE", !10, i64 0}
-!58 = !{!55, !56, i64 0}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv: argument 0"}
-!61 = distinct !{!61, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv"}
-!62 = !{!63, !66, i64 12}
-!63 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyImplE", !64, i64 0, !65, i64 8, !66, i64 12}
-!64 = !{!"_ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE"}
-!65 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyTypeE", !10, i64 0}
-!66 = !{!"bool", !10, i64 0}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv: argument 0"}
-!69 = distinct !{!69, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv"}
-!70 = !{!71, !73, i64 32}
-!71 = !{!"_ZTSSt8ios_base", !34, i64 8, !34, i64 16, !72, i64 24, !73, i64 28, !73, i64 32, !74, i64 40, !75, i64 48, !10, i64 64, !16, i64 192, !76, i64 200, !77, i64 208}
-!72 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!73 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!74 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
-!75 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !34, i64 8}
-!76 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
-!77 = !{!"_ZTSSt6locale", !78, i64 0}
-!78 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!79 = !{!80, !82, i64 240}
-!80 = !{!"_ZTSN19OpenColorIO_v2_5dev11GradingToneE", !81, i64 0, !81, i64 48, !81, i64 96, !81, i64 144, !81, i64 192, !82, i64 240}
-!81 = !{!"_ZTSN19OpenColorIO_v2_5dev13GradingRGBMSWE", !82, i64 0, !82, i64 8, !82, i64 16, !82, i64 24, !82, i64 32, !82, i64 40}
-!82 = !{!"double", !10, i64 0}
-!83 = !{!81, !82, i64 0}
-!84 = !{!81, !82, i64 8}
-!85 = !{!81, !82, i64 16}
-!86 = !{!81, !82, i64 24}
-!87 = !{!81, !82, i64 32}
-!88 = !{!81, !82, i64 40}
-!89 = !{!9, !9, i64 0}
-!90 = !{!91, !22, i64 24}
-!91 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS0_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!92 = !{!93, !33, i64 8}
-!93 = !{!"_ZTSSt9type_info", !33, i64 8}
+!35 = !{!36, !52, i64 168}
+!36 = !{!"_ZTSN19OpenColorIO_v2_5dev17GradingToneOpDataE", !37, i64 0, !52, i64 168, !53, i64 176, !56, i64 192}
+!37 = !{!"_ZTSN19OpenColorIO_v2_5dev6OpDataE", !38, i64 8, !40, i64 48}
+!38 = !{!"_ZTSSt5mutex", !39, i64 0}
+!39 = !{!"_ZTSSt12__mutex_base", !10, i64 0}
+!40 = !{!"_ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !41, i64 0, !31, i64 8, !31, i64 40, !42, i64 72, !47, i64 96}
+!41 = !{!"_ZTSN19OpenColorIO_v2_5dev14FormatMetadataE"}
+!42 = !{!"_ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !43, i64 0}
+!43 = !{!"_ZTSSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !44, i64 0}
+!44 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_Vector_implE", !45, i64 0}
+!45 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
+!46 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !9, i64 0}
+!47 = !{!"_ZTSSt6vectorIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !48, i64 0}
+!48 = !{!"_ZTSSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE12_Vector_implE", !50, i64 0}
+!50 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE17_Vector_impl_dataE", !51, i64 0, !51, i64 8, !51, i64 16}
+!51 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !9, i64 0}
+!52 = !{!"_ZTSN19OpenColorIO_v2_5dev12GradingStyleE", !10, i64 0}
+!53 = !{!"_ZTSSt10shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplEE", !54, i64 0}
+!54 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplELN9__gnu_cxx12_Lock_policyE2EE", !55, i64 0, !11, i64 8}
+!55 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev30DynamicPropertyGradingToneImplE", !9, i64 0}
+!56 = !{!"_ZTSN19OpenColorIO_v2_5dev18TransformDirectionE", !10, i64 0}
+!57 = !{!54, !55, i64 0}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv: argument 0"}
+!60 = distinct !{!60, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv"}
+!61 = !{!62, !65, i64 12}
+!62 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyImplE", !63, i64 0, !64, i64 8, !65, i64 12}
+!63 = !{!"_ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE"}
+!64 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyTypeE", !10, i64 0}
+!65 = !{!"bool", !10, i64 0}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv: argument 0"}
+!68 = distinct !{!68, !"_ZNK19OpenColorIO_v2_5dev17GradingToneOpData26getDynamicPropertyInternalEv"}
+!69 = !{!70, !72, i64 32}
+!70 = !{!"_ZTSSt8ios_base", !34, i64 8, !34, i64 16, !71, i64 24, !72, i64 28, !72, i64 32, !73, i64 40, !74, i64 48, !10, i64 64, !16, i64 192, !75, i64 200, !76, i64 208}
+!71 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!72 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!73 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
+!74 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !34, i64 8}
+!75 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
+!76 = !{!"_ZTSSt6locale", !77, i64 0}
+!77 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
+!78 = !{!79, !81, i64 240}
+!79 = !{!"_ZTSN19OpenColorIO_v2_5dev11GradingToneE", !80, i64 0, !80, i64 48, !80, i64 96, !80, i64 144, !80, i64 192, !81, i64 240}
+!80 = !{!"_ZTSN19OpenColorIO_v2_5dev13GradingRGBMSWE", !81, i64 0, !81, i64 8, !81, i64 16, !81, i64 24, !81, i64 32, !81, i64 40}
+!81 = !{!"double", !10, i64 0}
+!82 = !{!80, !81, i64 0}
+!83 = !{!80, !81, i64 8}
+!84 = !{!80, !81, i64 16}
+!85 = !{!80, !81, i64 24}
+!86 = !{!80, !81, i64 32}
+!87 = !{!80, !81, i64 40}
+!88 = !{!9, !9, i64 0}
+!89 = !{!90, !22, i64 24}
+!90 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev24GradingToneTransformImplEPFvPNS0_20GradingToneTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!91 = !{!92, !33, i64 8}
+!92 = !{!"_ZTSSt9type_info", !33, i64 8}

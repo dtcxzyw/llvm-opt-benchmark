@@ -138,9 +138,6 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17ha7300087f32a9fb6E.llvm.18220254223257102368"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 1 %20, i1 noundef zeroext true), !noalias !14
-  %22 = extractvalue { i64, i64 } %21, 0
-  %23 = icmp eq i64 %22, -9223372036854775807
-  call void @llvm.assume(i1 %23)
   br label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h52bf028587baea2dE.exit"
 
 "_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17h52bf028587baea2dE.exit": ; preds = %15, %19
@@ -194,9 +191,6 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h6836d29eabbca2b3E.llvm.18220254223257102368"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 1 %21, i1 noundef zeroext true), !noalias !40
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = icmp eq i64 %23, -9223372036854775807
-  call void @llvm.assume(i1 %24)
   br label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha6251dc6f0b33118E.exit"
 
 "_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha6251dc6f0b33118E.exit": ; preds = %16, %20

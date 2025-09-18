@@ -33,8 +33,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i32], align 16
-  %5 = tail call ptr @AllocateDir(ptr noundef nonnull @.str) #12
-  %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
+  %5 = tail call ptr @AllocateDir(ptr noundef nonnull @.str) #11
+  %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
   %.not33 = icmp eq ptr %6, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
@@ -53,18 +53,18 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
   %.034.us = phi ptr [ %.1.us, %IsWalSummaryFilename.exit.thread.us ], [ null, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
-  %15 = call i64 @strspn(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #13
+  %15 = call i64 @strspn(ptr noundef nonnull readonly %14, ptr noundef nonnull @.str.12) #12
   %16 = icmp eq i64 %15, 40
   br i1 %16, label %IsWalSummaryFilename.exit.us, label %IsWalSummaryFilename.exit.thread.us
 
 IsWalSummaryFilename.exit.us:                     ; preds = %.lr.ph.split.us
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 59
-  %18 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.13) #13
+  %18 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.13) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %IsWalSummaryFilename.exit.thread.us, !llvm.loop !4
 
 20:                                               ; preds = %IsWalSummaryFilename.exit.us
-  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
+  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %22 = load i32, ptr %7, align 4
   %.fr.us = freeze i32 %22
   %23 = zext i32 %.fr.us to i64
@@ -87,19 +87,19 @@ IsWalSummaryFilename.exit.us:                     ; preds = %.lr.ph.split.us
 
 34:                                               ; preds = %20
   %35 = load i32, ptr %4, align 16
-  %36 = call ptr @palloc(i64 noundef 24) #12
+  %36 = call ptr @palloc(i64 noundef 24) #11
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store i32 %35, ptr %37, align 8
   store i64 %27, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %33, ptr %38, align 8
-  %39 = call ptr @lappend(ptr noundef %.034.us, ptr noundef nonnull %36) #12
+  %39 = call ptr @lappend(ptr noundef %.034.us, ptr noundef nonnull %36) #11
   br label %IsWalSummaryFilename.exit.thread.us
 
 IsWalSummaryFilename.exit.thread.us:              ; preds = %34, %20, %IsWalSummaryFilename.exit.us, %.lr.ph.split.us
   %.1.us = phi ptr [ %39, %34 ], [ %.034.us, %IsWalSummaryFilename.exit.us ], [ %.034.us, %20 ], [ %.034.us, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %40 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
+  %40 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
   %.not.us = icmp eq ptr %40, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
@@ -108,18 +108,18 @@ IsWalSummaryFilename.exit.thread.us:              ; preds = %34, %20, %IsWalSumm
   %.034 = phi ptr [ %.1, %IsWalSummaryFilename.exit.thread ], [ null, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 19
-  %43 = call i64 @strspn(ptr noundef nonnull readonly %42, ptr noundef nonnull @.str.12) #13
+  %43 = call i64 @strspn(ptr noundef nonnull readonly %42, ptr noundef nonnull @.str.12) #12
   %44 = icmp eq i64 %43, 40
   br i1 %44, label %IsWalSummaryFilename.exit, label %IsWalSummaryFilename.exit.thread
 
 IsWalSummaryFilename.exit:                        ; preds = %.lr.ph.split
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 59
-  %46 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %45, ptr noundef nonnull dereferenceable(9) @.str.13) #13
+  %46 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %45, ptr noundef nonnull dereferenceable(9) @.str.13) #12
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %IsWalSummaryFilename.exit.thread, !llvm.loop !4
 
 48:                                               ; preds = %IsWalSummaryFilename.exit
-  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %42, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #12
+  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %42, ptr noundef nonnull @.str.1, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
   %50 = load i32, ptr %4, align 16
   %51 = load i32, ptr %7, align 4
   %.fr = freeze i32 %51
@@ -146,25 +146,25 @@ IsWalSummaryFilename.exit:                        ; preds = %.lr.ph.split
   br i1 %or.cond32, label %IsWalSummaryFilename.exit.thread, label %64, !llvm.loop !4
 
 64:                                               ; preds = %63
-  %65 = call ptr @palloc(i64 noundef 24) #12
+  %65 = call ptr @palloc(i64 noundef 24) #11
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i32 %0, ptr %66, align 8
   store i64 %56, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %62, ptr %67, align 8
-  %68 = call ptr @lappend(ptr noundef %.034, ptr noundef nonnull %65) #12
+  %68 = call ptr @lappend(ptr noundef %.034, ptr noundef nonnull %65) #11
   br label %IsWalSummaryFilename.exit.thread
 
 IsWalSummaryFilename.exit.thread:                 ; preds = %.lr.ph.split, %63, %48, %IsWalSummaryFilename.exit, %64
   %.1 = phi ptr [ %68, %64 ], [ %.034, %IsWalSummaryFilename.exit ], [ %.034, %48 ], [ %.034, %63 ], [ %.034, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %69 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
+  %69 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #11
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %IsWalSummaryFilename.exit.thread, %IsWalSummaryFilename.exit.thread.us, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.1.us, %IsWalSummaryFilename.exit.thread.us ], [ %.1, %IsWalSummaryFilename.exit.thread ]
-  %70 = call i32 @FreeDir(ptr noundef %5) #12
+  %70 = call i32 @FreeDir(ptr noundef %5) #11
   ret ptr %.0.lcssa
 }
 
@@ -211,7 +211,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   %11 = load ptr, ptr %6, align 8
   %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv111
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @lappend(ptr noundef %.026.us73.us.us, ptr noundef %13) #12
+  %14 = tail call ptr @lappend(ptr noundef %.026.us73.us.us, ptr noundef %13) #11
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %15 = load i32, ptr %5, align 4
   %16 = sext i32 %15 to i64
@@ -230,7 +230,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.lr.ph75.split.us.split
-  %25 = tail call ptr @lappend(ptr noundef %.026.us73.us, ptr noundef nonnull %21) #12
+  %25 = tail call ptr @lappend(ptr noundef %.026.us73.us, ptr noundef nonnull %21) #11
   %.pre119 = load i32, ptr %5, align 4
   br label %26
 
@@ -258,7 +258,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %.lr.ph75.split.split.us
-  %38 = tail call ptr @lappend(ptr noundef %.026.us73.us80, ptr noundef nonnull %33) #12
+  %38 = tail call ptr @lappend(ptr noundef %.026.us73.us80, ptr noundef nonnull %33) #11
   %.pre118 = load i32, ptr %5, align 4
   br label %39
 
@@ -288,7 +288,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %52, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call ptr @lappend(ptr noundef %.026.us73, ptr noundef nonnull %46) #12
+  %54 = tail call ptr @lappend(ptr noundef %.026.us73, ptr noundef nonnull %46) #11
   %.pre117 = load i32, ptr %5, align 4
   br label %55
 
@@ -322,7 +322,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %.not24.us.us68, label %65, label %67
 
 65:                                               ; preds = %.lr.ph66.split.us
-  %66 = tail call ptr @lappend(ptr noundef %.026.us3064.us, ptr noundef nonnull %62) #12
+  %66 = tail call ptr @lappend(ptr noundef %.026.us3064.us, ptr noundef nonnull %62) #11
   %.pre116 = load i32, ptr %5, align 4
   br label %67
 
@@ -352,7 +352,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %79, label %82, label %80
 
 80:                                               ; preds = %77
-  %81 = tail call ptr @lappend(ptr noundef %.026.us3064, ptr noundef nonnull %74) #12
+  %81 = tail call ptr @lappend(ptr noundef %.026.us3064, ptr noundef nonnull %74) #11
   %.pre115 = load i32, ptr %5, align 4
   br label %82
 
@@ -389,7 +389,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %92
-  %97 = tail call ptr @lappend(ptr noundef %.026.us3758, ptr noundef nonnull %89) #12
+  %97 = tail call ptr @lappend(ptr noundef %.026.us3758, ptr noundef nonnull %89) #11
   %.pre114 = load i32, ptr %5, align 4
   br label %98
 
@@ -432,7 +432,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly captures(address_i
   br i1 %114, label %117, label %115
 
 115:                                              ; preds = %112
-  %116 = tail call ptr @lappend(ptr noundef %.02653, ptr noundef nonnull %105) #12
+  %116 = tail call ptr @lappend(ptr noundef %.02653, ptr noundef nonnull %105) #11
   %.pre = load i32, ptr %5, align 4
   br label %117
 
@@ -451,8 +451,8 @@ define dso_local noundef zeroext i1 @WalSummariesAreComplete(ptr noundef %0, i64
   br i1 %5, label %.critedge.sink.split, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @list_copy(ptr noundef nonnull %0) #12
-  tail call void @list_sort(ptr noundef %7, ptr noundef nonnull @ListComparatorForWalSummaryFiles) #12
+  %7 = tail call ptr @list_copy(ptr noundef nonnull %0) #11
+  tail call void @list_sort(ptr noundef %7, ptr noundef nonnull @ListComparatorForWalSummaryFiles) #11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge.sink.split, label %.lr.ph
 
@@ -532,24 +532,23 @@ define dso_local i32 @OpenWalSummaryFile(ptr noundef readonly captures(none) %0,
   %12 = lshr i64 %11, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = trunc i64 %11 to i32
-  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %13, i32 noundef %14) #12
-  %16 = call i32 @PathNameOpenFile(ptr noundef nonnull %3, i32 noundef 0) #12
+  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %9, i32 noundef %13, i32 noundef %14) #11
+  %16 = call i32 @PathNameOpenFile(ptr noundef nonnull %3, i32 noundef 0) #11
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %2
-  %19 = tail call ptr @__errno_location() #14
+  %19 = tail call ptr @__errno_location() #13
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 17
   %or.cond = and i1 %1, %21
   br i1 %or.cond, label %26, label %22
 
 22:                                               ; preds = %18
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %23)
-  %24 = call i32 @errcode_for_file_access() #12
-  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 220, ptr noundef nonnull @__func__.OpenWalSummaryFile) #12
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %24 = call i32 @errcode_for_file_access() #11
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 220, ptr noundef nonnull @__func__.OpenWalSummaryFile) #11
   unreachable
 
 26:                                               ; preds = %18, %2
@@ -592,23 +591,22 @@ define dso_local void @RemoveWalSummaryIfOlderThan(ptr noundef readonly captures
   %13 = lshr i64 %12, 32
   %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %12 to i32
-  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %6, i32 noundef %9, i32 noundef %10, i32 noundef %14, i32 noundef %15) #12
-  %17 = call i32 @lstat(ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.2, i32 noundef %6, i32 noundef %9, i32 noundef %10, i32 noundef %14, i32 noundef %15) #11
+  %17 = call i32 @lstat(ptr noundef nonnull %3, ptr noundef nonnull %4) #11
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %26, label %18
 
 18:                                               ; preds = %2
-  %19 = tail call ptr @__errno_location() #14
+  %19 = tail call ptr @__errno_location() #13
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 2
   br i1 %21, label %39, label %22
 
 22:                                               ; preds = %18
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %23)
-  %24 = call i32 @errcode_for_file_access() #12
-  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 247, ptr noundef nonnull @__func__.RemoveWalSummaryIfOlderThan) #12
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %24 = call i32 @errcode_for_file_access() #11
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 247, ptr noundef nonnull @__func__.RemoveWalSummaryIfOlderThan) #11
   unreachable
 
 26:                                               ; preds = %2
@@ -618,25 +616,24 @@ define dso_local void @RemoveWalSummaryIfOlderThan(ptr noundef readonly captures
   br i1 %.not5, label %29, label %39
 
 29:                                               ; preds = %26
-  %30 = call i32 @unlink(ptr noundef nonnull %3) #12
+  %30 = call i32 @unlink(ptr noundef nonnull %3) #11
   %.not6 = icmp eq i32 %30, 0
   br i1 %.not6, label %35, label %31
 
 31:                                               ; preds = %29
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 @errcode_for_file_access() #12
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 254, ptr noundef nonnull @__func__.RemoveWalSummaryIfOlderThan) #12
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %33 = call i32 @errcode_for_file_access() #11
+  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %3) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 254, ptr noundef nonnull @__func__.RemoveWalSummaryIfOlderThan) #11
   unreachable
 
 35:                                               ; preds = %29
-  %36 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #12
+  %36 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #11
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 256, ptr noundef nonnull @__func__.RemoveWalSummaryIfOlderThan) #12
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 256, ptr noundef nonnull @__func__.RemoveWalSummaryIfOlderThan) #11
   br label %39
 
 39:                                               ; preds = %35, %37, %26, %18
@@ -664,20 +661,19 @@ define dso_local range(i32 0, -2147483648) i32 @ReadWalSummary(ptr noundef captu
   store ptr %1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %9, align 8
-  %10 = call i64 @FileReadV(i32 noundef %5, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %8, i32 noundef 167772232) #12
+  %10 = call i64 @FileReadV(i32 noundef %5, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %8, i32 noundef 167772232) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = trunc i64 %10 to i32
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %14)
-  %15 = call i32 @errcode_for_file_access() #12
+  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %15 = call i32 @errcode_for_file_access() #11
   %16 = load i32, ptr %0, align 8
-  %17 = call ptr @FilePathName(i32 noundef %16) #12
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %17) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 284, ptr noundef nonnull @__func__.ReadWalSummary) #12
+  %17 = call ptr @FilePathName(i32 noundef %16) #11
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %17) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 284, ptr noundef nonnull @__func__.ReadWalSummary) #11
   unreachable
 
 19:                                               ; preds = %3
@@ -701,20 +697,19 @@ define dso_local range(i32 0, -2147483648) i32 @WriteWalSummary(ptr noundef capt
   store ptr %1, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %9, align 8
-  %10 = call i64 @FileWriteV(i32 noundef %5, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %8, i32 noundef 167772233) #12
+  %10 = call i64 @FileWriteV(i32 noundef %5, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %8, i32 noundef 167772233) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = trunc i64 %10 to i32
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %3
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %14)
-  %15 = call i32 @errcode_for_file_access() #12
+  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %15 = call i32 @errcode_for_file_access() #11
   %16 = load i32, ptr %0, align 8
-  %17 = call ptr @FilePathName(i32 noundef %16) #12
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %17) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 305, ptr noundef nonnull @__func__.WriteWalSummary) #12
+  %17 = call ptr @FilePathName(i32 noundef %16) #11
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %17) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 305, ptr noundef nonnull @__func__.WriteWalSummary) #11
   unreachable
 
 19:                                               ; preds = %3
@@ -722,16 +717,15 @@ define dso_local range(i32 0, -2147483648) i32 @WriteWalSummary(ptr noundef capt
   br i1 %.not, label %29, label %20
 
 20:                                               ; preds = %19
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 @errcode_for_file_access() #12
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = call i32 @errcode_for_file_access() #11
   %23 = load i32, ptr %0, align 8
-  %24 = call ptr @FilePathName(i32 noundef %23) #12
+  %24 = call ptr @FilePathName(i32 noundef %23) #11
   %25 = load i64, ptr %7, align 8
   %26 = trunc i64 %25 to i32
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %24, i32 noundef %11, i32 noundef %2, i32 noundef %26) #12
-  %28 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 312, ptr noundef nonnull @__func__.WriteWalSummary) #12
+  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %24, i32 noundef %11, i32 noundef %2, i32 noundef %26) #11
+  %28 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 312, ptr noundef nonnull @__func__.WriteWalSummary) #11
   unreachable
 
 29:                                               ; preds = %19
@@ -750,29 +744,28 @@ define dso_local void @ReportWalSummaryError(ptr noundef readnone captures(none)
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @initStringInfo(ptr noundef nonnull %3) #12
+  call void @initStringInfo(ptr noundef nonnull %3) #11
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #12
+  %5 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #11
   call void @llvm.va_end.p0(ptr nonnull %4)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %7 = phi i32 [ %8, %.lr.ph ], [ %5, %2 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef %7) #12
+  call void @enlargeStringInfo(ptr noundef nonnull %3, i32 noundef %7) #11
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #12
+  %8 = call i32 @appendStringInfoVA(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #11
   call void @llvm.va_end.p0(ptr nonnull %4)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %10)
-  %11 = call i32 @errcode(i32 noundef 16779816) #12
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = call i32 @errcode(i32 noundef 16779816) #11
   %12 = load ptr, ptr %3, align 8
-  %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %12) #12
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 340, ptr noundef nonnull @__func__.ReportWalSummaryError) #12
+  %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %12) #11
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 340, ptr noundef nonnull @__func__.ReportWalSummaryError) #11
   unreachable
 }
 
@@ -806,11 +799,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #11
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -822,12 +812,11 @@ attributes #6 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-tra
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { cold nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

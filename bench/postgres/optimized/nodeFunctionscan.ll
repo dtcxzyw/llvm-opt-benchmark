@@ -30,7 +30,7 @@ define dso_local noundef ptr @ExecInitFunctionScan(ptr noundef %0, ptr noundef %
 
 list_length.exit:                                 ; preds = %3, %8
   %11 = phi i32 [ %10, %8 ], [ 0, %3 ]
-  %12 = tail call noundef ptr @palloc0(i64 noundef 264) #6
+  %12 = tail call noundef ptr @palloc0(i64 noundef 264) #5
   store i32 411, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %0, ptr %13, align 8
@@ -63,10 +63,10 @@ list_length.exit:                                 ; preds = %3, %8
   store i8 %.sink133, ptr %27, align 1
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 232
   store i64 0, ptr %28, align 8
-  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef nonnull %12) #6
+  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef nonnull %12) #5
   %29 = sext i32 %11 to i64
   %30 = mul nsw i64 %29, 48
-  %31 = tail call ptr @palloc(i64 noundef %30) #6
+  %31 = tail call ptr @palloc(i64 noundef %30) #5
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 248
   store ptr %31, ptr %32, align 8
   %33 = load ptr, ptr %6, align 8
@@ -96,7 +96,7 @@ list_length.exit:                                 ; preds = %3, %8
   %48 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %47, i64 %indvars.iv136
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = load ptr, ptr %36, align 8
-  %50 = call ptr @ExecInitTableFunctionResult(ptr noundef %44, ptr noundef %49, ptr noundef nonnull %12) #6
+  %50 = call ptr @ExecInitTableFunctionResult(ptr noundef %44, ptr noundef %49, ptr noundef nonnull %12) #5
   store ptr %50, ptr %48, align 8
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr null, ptr %51, align 8
@@ -121,21 +121,21 @@ list_length.exit:                                 ; preds = %3, %8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @BuildDescFromLists(ptr noundef nonnull %54, ptr noundef %60, ptr noundef %62, ptr noundef %64) #6
+  %65 = call ptr @BuildDescFromLists(ptr noundef nonnull %54, ptr noundef %60, ptr noundef %62, ptr noundef %64) #5
   store ptr %65, ptr %4, align 8
-  %66 = call ptr @BlessTupleDesc(ptr noundef %65) #6
+  %66 = call ptr @BlessTupleDesc(ptr noundef %65) #5
   br label %84
 
 67:                                               ; preds = %.lr.ph138
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = call i32 @get_expr_result_type(ptr noundef %44, ptr noundef nonnull %5, ptr noundef nonnull %4) #6
+  %68 = call i32 @get_expr_result_type(ptr noundef %44, ptr noundef nonnull %5, ptr noundef nonnull %4) #5
   %69 = add i32 %68, -1
   %or.cond = icmp ult i32 %69, 2
   br i1 %or.cond, label %70, label %73
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %4, align 8
-  %72 = call ptr @CreateTupleDescCopy(ptr noundef %71) #6
+  %72 = call ptr @CreateTupleDescCopy(ptr noundef %71) #5
   store ptr %72, ptr %4, align 8
   br label %83
 
@@ -144,20 +144,19 @@ list_length.exit:                                 ; preds = %3, %8
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %73
-  %76 = call ptr @CreateTemplateTupleDesc(i32 noundef 1) #6
+  %76 = call ptr @CreateTemplateTupleDesc(i32 noundef 1) #5
   store ptr %76, ptr %4, align 8
   %77 = load i32, ptr %5, align 4
-  call void @TupleDescInitEntry(ptr noundef %76, i16 noundef signext 1, ptr noundef null, i32 noundef %77, i32 noundef -1, i32 noundef 0) #6
+  call void @TupleDescInitEntry(ptr noundef %76, i16 noundef signext 1, ptr noundef null, i32 noundef %77, i32 noundef -1, i32 noundef 0) #5
   %78 = load ptr, ptr %4, align 8
-  %79 = call i32 @exprCollation(ptr noundef %44) #6
-  call void @TupleDescInitEntryCollation(ptr noundef %78, i16 noundef signext 1, i32 noundef %79) #6
+  %79 = call i32 @exprCollation(ptr noundef %44) #5
+  call void @TupleDescInitEntryCollation(ptr noundef %78, i16 noundef signext 1, i32 noundef %79) #5
   br label %83
 
 80:                                               ; preds = %73
-  %81 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %81)
-  %82 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 421, ptr noundef nonnull @__func__.ExecInitFunctionScan) #6
+  %81 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %82 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 421, ptr noundef nonnull @__func__.ExecInitFunctionScan) #5
   unreachable
 
 83:                                               ; preds = %75, %70
@@ -175,7 +174,7 @@ list_length.exit:                                 ; preds = %3, %8
   br i1 %89, label %92, label %90
 
 90:                                               ; preds = %84
-  %91 = call ptr @ExecInitExtraTupleSlot(ptr noundef %1, ptr noundef %85, ptr noundef nonnull @TTSOpsMinimalTuple) #6
+  %91 = call ptr @ExecInitExtraTupleSlot(ptr noundef %1, ptr noundef %85, ptr noundef nonnull @TTSOpsMinimalTuple) #5
   br label %92
 
 92:                                               ; preds = %84, %90
@@ -194,7 +193,7 @@ list_length.exit:                                 ; preds = %3, %8
   %99 = load ptr, ptr %32, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = call ptr @CreateTupleDescCopy(ptr noundef %101) #6
+  %102 = call ptr @CreateTupleDescCopy(ptr noundef %101) #5
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i32 2249, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -205,7 +204,7 @@ list_length.exit:                                 ; preds = %3, %8
   %106 = load i8, ptr %17, align 8, !range !4, !noundef !5
   %107 = zext nneg i8 %106 to i32
   %spec.select = add i32 %.094.lcssa, %107
-  %108 = call ptr @CreateTemplateTupleDesc(i32 noundef %spec.select) #6
+  %108 = call ptr @CreateTemplateTupleDesc(i32 noundef %spec.select) #5
   %109 = icmp sgt i32 %11, 0
   br i1 %109, label %.lr.ph119.preheader, label %._crit_edge120
 
@@ -230,7 +229,7 @@ list_length.exit:                                 ; preds = %3, %8
   %.197112 = phi i16 [ %116, %.lr.ph114 ], [ %.096116, %.lr.ph119 ]
   %116 = add i16 %.197112, 1
   %117 = trunc i32 %.092113 to i16
-  call void @TupleDescCopyEntry(ptr noundef %108, i16 noundef signext %116, ptr noundef %113, i16 noundef signext %117) #6
+  call void @TupleDescCopyEntry(ptr noundef %108, i16 noundef signext %116, ptr noundef %113, i16 noundef signext %117) #5
   %118 = add i32 %.092113, 1
   %.not103 = icmp sgt i32 %118, %115
   br i1 %.not103, label %._crit_edge, label %.lr.ph114, !llvm.loop !6
@@ -252,21 +251,21 @@ list_length.exit:                                 ; preds = %3, %8
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %._crit_edge120
-  call void @TupleDescInitEntry(ptr noundef %108, i16 noundef signext %.096.lcssa, ptr noundef null, i32 noundef 20, i32 noundef -1, i32 noundef 0) #6
+  call void @TupleDescInitEntry(ptr noundef %108, i16 noundef signext %.096.lcssa, ptr noundef null, i32 noundef 20, i32 noundef -1, i32 noundef 0) #5
   br label %123
 
 123:                                              ; preds = %._crit_edge120, %122, %98
   %.0 = phi ptr [ %102, %98 ], [ %108, %122 ], [ %108, %._crit_edge120 ]
-  call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %12, ptr noundef %.0, ptr noundef nonnull @TTSOpsMinimalTuple) #6
-  call void @ExecInitResultTypeTL(ptr noundef nonnull %12) #6
-  call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %12) #6
+  call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %12, ptr noundef %.0, ptr noundef nonnull @TTSOpsMinimalTuple) #5
+  call void @ExecInitResultTypeTL(ptr noundef nonnull %12) #5
+  call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %12) #5
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %125 = load ptr, ptr %124, align 8
-  %126 = call ptr @ExecInitQual(ptr noundef %125, ptr noundef nonnull %12) #6
+  %126 = call ptr @ExecInitQual(ptr noundef %125, ptr noundef nonnull %12) #5
   %127 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %126, ptr %127, align 8
   %128 = load ptr, ptr @CurrentMemoryContext, align 8
-  %129 = call ptr @AllocSetContextCreateInternal(ptr noundef %128, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
+  %129 = call ptr @AllocSetContextCreateInternal(ptr noundef %128, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #5
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 256
   store ptr %129, ptr %130, align 8
   ret ptr %12
@@ -274,7 +273,7 @@ list_length.exit:                                 ; preds = %3, %8
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecFunctionScan(ptr noundef %0) #0 {
-  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @FunctionNext, ptr noundef nonnull @FunctionRecheck) #6
+  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @FunctionNext, ptr noundef nonnull @FunctionRecheck) #5
   ret ptr %2
 }
 
@@ -343,7 +342,7 @@ define dso_local void @ExecEndFunctionScan(ptr noundef readonly captures(none) %
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %6
-  tail call void @tuplestore_end(ptr noundef nonnull %11) #6
+  tail call void @tuplestore_end(ptr noundef nonnull %11) #5
   store ptr null, ptr %10, align 8
   %.pre = load i32, ptr %2, align 8
   br label %13
@@ -377,7 +376,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull %7) #6
+  tail call void %12(ptr noundef nonnull %7) #5
   br label %13
 
 13:                                               ; preds = %8, %1
@@ -405,7 +404,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull %23) #6
+  tail call void %28(ptr noundef nonnull %23) #5
   %.pre = load i32, ptr %14, align 8
   br label %29
 
@@ -417,7 +416,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   br i1 %32, label %18, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %29, %13
-  tail call void @ExecScanReScan(ptr noundef nonnull %0) #6
+  tail call void @ExecScanReScan(ptr noundef nonnull %0) #5
   %.not44 = icmp eq ptr %5, null
   br i1 %.not44, label %.critedge, label %33
 
@@ -442,7 +441,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call zeroext i1 @bms_overlap(ptr noundef nonnull %5, ptr noundef %45) #6
+  %46 = tail call zeroext i1 @bms_overlap(ptr noundef nonnull %5, ptr noundef %45) #5
   br i1 %46, label %47, label %60
 
 47:                                               ; preds = %.lr.ph58
@@ -454,7 +453,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   br i1 %.not48, label %56, label %52
 
 52:                                               ; preds = %47
-  tail call void @tuplestore_end(ptr noundef nonnull %51) #6
+  tail call void @tuplestore_end(ptr noundef nonnull %51) #5
   %53 = load ptr, ptr %38, align 8
   %54 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %53, i64 %indvars.iv63
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
@@ -498,7 +497,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   br i1 %.not47, label %75, label %74
 
 74:                                               ; preds = %68
-  tail call void @tuplestore_rescan(ptr noundef nonnull %73) #6
+  tail call void @tuplestore_rescan(ptr noundef nonnull %73) #5
   %.pre72 = load i32, ptr %14, align 8
   br label %75
 
@@ -556,17 +555,17 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 8
   %28 = icmp ne i32 %27, 0
-  %29 = tail call ptr @ExecMakeTableFunctionResult(ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %24, i1 noundef zeroext %28) #6
+  %29 = tail call ptr @ExecMakeTableFunctionResult(ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef %24, i1 noundef zeroext %28) #5
   %30 = load ptr, ptr %12, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr %29, ptr %31, align 8
-  tail call void @tuplestore_rescan(ptr noundef %29) #6
+  tail call void @tuplestore_rescan(ptr noundef %29) #5
   br label %32
 
 32:                                               ; preds = %17, %11
   %.081 = phi ptr [ %29, %17 ], [ %15, %11 ]
   %33 = icmp eq i32 %5, 1
-  %34 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %.081, i1 noundef zeroext %33, i1 noundef zeroext false, ptr noundef %7) #6
+  %34 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %.081, i1 noundef zeroext %33, i1 noundef zeroext false, ptr noundef %7) #5
   br label %160
 
 35:                                               ; preds = %1
@@ -580,7 +579,7 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef %7) #6
+  tail call void %42(ptr noundef %7) #5
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %44, 0
@@ -615,9 +614,9 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %64 = load i32, ptr %49, align 8
   %65 = and i32 %64, 8
   %66 = icmp ne i32 %65, 0
-  %67 = tail call ptr @ExecMakeTableFunctionResult(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %63, i1 noundef zeroext %66) #6
+  %67 = tail call ptr @ExecMakeTableFunctionResult(ptr noundef %59, ptr noundef %60, ptr noundef %61, ptr noundef %63, i1 noundef zeroext %66) #5
   store ptr %67, ptr %55, align 8
-  tail call void @tuplestore_rescan(ptr noundef %67) #6
+  tail call void @tuplestore_rescan(ptr noundef %67) #5
   br label %68
 
 68:                                               ; preds = %58, %52
@@ -635,14 +634,14 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef %74) #6
+  tail call void %78(ptr noundef %74) #5
   br label %84
 
 79:                                               ; preds = %68
   %80 = load ptr, ptr %55, align 8
   %81 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %80, i1 noundef zeroext %38, i1 noundef zeroext false, ptr noundef %82) #6
+  %83 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %80, i1 noundef zeroext %38, i1 noundef zeroext false, ptr noundef %82) #5
   br label %84
 
 84:                                               ; preds = %79, %72
@@ -704,7 +703,7 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   br i1 %118, label %119, label %slot_getallattrs.exit
 
 119:                                              ; preds = %111
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %86, i32 noundef %114) #6
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %86, i32 noundef %114) #5
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %111, %119
@@ -777,7 +776,7 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   br i1 %.079.lcssa, label %160, label %158
 
 158:                                              ; preds = %157
-  %159 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %7) #6
+  %159 = tail call ptr @ExecStoreVirtualTuple(ptr noundef %7) #5
   br label %160
 
 160:                                              ; preds = %157, %158, %32
@@ -803,17 +802,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

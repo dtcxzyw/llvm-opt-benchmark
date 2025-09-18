@@ -117,7 +117,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection11getTypeNa
 
 5:                                                ; preds = %2
   %6 = tail call { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i32 %1) #15
-  br label %35
+  br label %33
 
 7:                                                ; preds = %2
   %8 = and i32 %1, 2147483647
@@ -135,7 +135,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection11getTypeNa
   %.sroa.3.0.copyload.pre = load i64, ptr %.sroa.3.0..sroa_idx.phi.trans.insert, align 8, !tbaa !30
   %16 = insertvalue { ptr, i64 } poison, ptr %14, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.3.0.copyload.pre, 1
-  br label %35
+  br label %33
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -150,30 +150,24 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection11getTypeNa
   %26 = load ptr, ptr %3, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = icmp eq ptr %26, %27
-  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %18
-  %29 = load i64, ptr %21, align 8, !tbaa !42
-  %30 = icmp ult i64 %29, 16
-  call void @llvm.assume(i1 %30)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %28, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %18
-  %31 = load i64, ptr %27, align 8, !tbaa !43
-  %32 = add i64 %31, 1
-  call void @_ZdlPvm(ptr noundef %26, i64 noundef %32) #16
+  %29 = load i64, ptr %27, align 8, !tbaa !43
+  %30 = add i64 %29, 1
+  call void @_ZdlPvm(ptr noundef %26, i64 noundef %30) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %33 = load ptr, ptr %10, align 8, !tbaa !34
-  %34 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %33, i64 %11
-  store ptr %24, ptr %34, align 8, !tbaa !33
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %31 = load ptr, ptr %10, align 8, !tbaa !34
+  %32 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %31, i64 %11
+  store ptr %24, ptr %32, align 8, !tbaa !33
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %25, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
-  br label %35
+  br label %33
 
-35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %._crit_edge, %5
+33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %._crit_edge, %5
   %.fca.1.insert.merged = phi { ptr, i64 } [ %6, %5 ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %17, %._crit_edge ]
   ret { ptr, i64 } %.fca.1.insert.merged
 }

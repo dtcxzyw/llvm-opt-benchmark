@@ -78,9 +78,9 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %23 = shl nuw nsw i32 %19, 7
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
-  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #9
+  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %7)
-  tail call void @LWLockRelease(ptr noundef %25) #9
+  tail call void @LWLockRelease(ptr noundef %25) #8
   %27 = sub i32 %1, %.0.lcssa
   %28 = zext nneg i32 %.0.lcssa to i64
   %29 = getelementptr inbounds nuw i32, ptr %2, i64 %28
@@ -134,9 +134,9 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %53 = shl nuw nsw i32 %49, 7
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
-  %56 = tail call zeroext i1 @LWLockAcquire(ptr noundef %55, i32 noundef 0) #9
+  %56 = tail call zeroext i1 @LWLockAcquire(ptr noundef %55, i32 noundef 0) #8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i, ptr noundef nonnull readonly %47, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %.026.i)
-  tail call void @LWLockRelease(ptr noundef %55) #9
+  tail call void @LWLockRelease(ptr noundef %55) #8
   %57 = icmp slt i32 %.2.i, %27
   br i1 %57, label %.preheader.i, label %set_status_by_pages.exit, !llvm.loop !7
 
@@ -194,9 +194,9 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %84 = shl nuw nsw i32 %80, 7
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 %85
-  %87 = tail call zeroext i1 @LWLockAcquire(ptr noundef %86, i32 noundef 0) #9
+  %87 = tail call zeroext i1 @LWLockAcquire(ptr noundef %86, i32 noundef 0) #8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i48, ptr noundef nonnull readonly %78, i32 noundef 3, i64 noundef %4, i64 noundef range(i64 0, 131072) %.026.i40)
-  tail call void @LWLockRelease(ptr noundef %86) #9
+  tail call void @LWLockRelease(ptr noundef %86) #8
   %88 = icmp slt i32 %.2.i47, %58
   br i1 %88, label %.preheader.i39, label %set_status_by_pages.exit52, !llvm.loop !7
 
@@ -210,9 +210,9 @@ set_status_by_pages.exit52:                       ; preds = %76, %.split35
   %94 = shl nuw nsw i32 %90, 7
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 %95
-  %97 = tail call zeroext i1 @LWLockAcquire(ptr noundef %96, i32 noundef 0) #9
+  %97 = tail call zeroext i1 @LWLockAcquire(ptr noundef %96, i32 noundef 0) #8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %.0.lcssa, ptr noundef readonly %2, i32 noundef 1, i64 noundef %4, i64 noundef range(i64 0, 131072) %7)
-  tail call void @LWLockRelease(ptr noundef %96) #9
+  tail call void @LWLockRelease(ptr noundef %96) #8
   br i1 %61, label %.preheader.preheader.i54, label %set_status_by_pages.exit
 
 .preheader.preheader.i54:                         ; preds = %set_status_by_pages.exit52
@@ -262,9 +262,9 @@ set_status_by_pages.exit52:                       ; preds = %76, %.split35
   %120 = shl nuw nsw i32 %116, 7
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 %121
-  %123 = tail call zeroext i1 @LWLockAcquire(ptr noundef %122, i32 noundef 0) #9
+  %123 = tail call zeroext i1 @LWLockAcquire(ptr noundef %122, i32 noundef 0) #8
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i64, ptr noundef nonnull readonly %114, i32 noundef 1, i64 noundef %4, i64 noundef range(i64 0, 131072) %.026.i56)
-  tail call void @LWLockRelease(ptr noundef %122) #9
+  tail call void @LWLockRelease(ptr noundef %122) #8
   %124 = icmp slt i32 %.2.i63, %58
   br i1 %124, label %.preheader.i55, label %set_status_by_pages.exit, !llvm.loop !7
 
@@ -315,7 +315,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   br i1 %33, label %34, label %133
 
 34:                                               ; preds = %29, %27
-  %35 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %15, i32 noundef 0) #9
+  %35 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %15, i32 noundef 0) #8
   br i1 %35, label %TransactionGroupUpdateXidStatus.exit.thread.sink.split, label %36
 
 36:                                               ; preds = %34
@@ -355,7 +355,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 56:                                               ; preds = %48, %47
   store volatile i32 %.072.i, ptr %46, align 4
   %57 = load i32, ptr @MyProcNumber, align 4
-  %58 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %.072.i, i32 %57, ptr nonnull elementtype(i32) %44) #9, !srcloc !8
+  %58 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %.072.i, i32 %57, ptr nonnull elementtype(i32) %44) #8, !srcloc !8
   %59 = extractvalue { i32, i8 } %58, 0
   %60 = extractvalue { i32, i8 } %58, 1
   %.not73.i = icmp eq i8 %60, 0
@@ -374,7 +374,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 65:                                               ; preds = %65, %62
   %.054.i = phi i32 [ 0, %62 ], [ %69, %65 ]
   %66 = load ptr, ptr %64, align 8
-  tail call void @PGSemaphoreLock(ptr noundef %66) #9
+  tail call void @PGSemaphoreLock(ptr noundef %66) #8
   %67 = load i8, ptr %39, align 4, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   %69 = add i32 %.054.i, 1
@@ -390,7 +390,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %.15576.i = phi i32 [ %73, %.lr.ph.i ], [ %.054.i, %70 ]
   %73 = add nsw i32 %.15576.i, -1
   %74 = load ptr, ptr %64, align 8
-  tail call void @PGSemaphoreUnlock(ptr noundef %74) #9
+  tail call void @PGSemaphoreUnlock(ptr noundef %74) #8
   %75 = icmp samesign ugt i32 %.15576.i, 1
   br i1 %75, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread, !llvm.loop !11
 
@@ -404,7 +404,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %83 = load ptr, ptr %82, align 8
   %84 = shl nsw i64 %80, 7
   %85 = getelementptr inbounds i8, ptr %83, i64 %84
-  %86 = tail call zeroext i1 @LWLockAcquire(ptr noundef %85, i32 noundef 0) #9
+  %86 = tail call zeroext i1 @LWLockAcquire(ptr noundef %85, i32 noundef 0) #8
   %87 = atomicrmw volatile xchg ptr %44, i32 -1 seq_cst, align 4
   %.not6377.i = icmp eq i32 %87, -1
   br i1 %.not6377.i, label %._crit_edge.i, label %.lr.ph81.i
@@ -435,8 +435,8 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   br i1 %.not68.i, label %105, label %103
 
 103:                                              ; preds = %94
-  tail call void @LWLockRelease(ptr noundef %.05279.i) #9
-  %104 = tail call zeroext i1 @LWLockAcquire(ptr noundef %102, i32 noundef 0) #9
+  tail call void @LWLockRelease(ptr noundef %.05279.i) #8
+  %104 = tail call zeroext i1 @LWLockAcquire(ptr noundef %102, i32 noundef 0) #8
   %.pre.i = load i64, ptr %92, align 8
   br label %105
 
@@ -466,7 +466,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   br i1 %.not64.i, label %120, label %119
 
 119:                                              ; preds = %._crit_edge.i
-  tail call void @LWLockRelease(ptr noundef nonnull %.052.lcssa.i) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %.052.lcssa.i) #8
   br label %120
 
 120:                                              ; preds = %119, %._crit_edge.i
@@ -481,7 +481,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 720
   %126 = load volatile i32, ptr %125, align 4
   store volatile i32 -1, ptr %125, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 716
   store i8 0, ptr %127, align 4
   %128 = load ptr, ptr @MyProc, align 8
@@ -491,7 +491,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 129:                                              ; preds = %.lr.ph85.i
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %131 = load ptr, ptr %130, align 8
-  tail call void @PGSemaphoreUnlock(ptr noundef %131) #9
+  tail call void @PGSemaphoreUnlock(ptr noundef %131) #8
   br label %132
 
 132:                                              ; preds = %129, %.lr.ph85.i
@@ -504,12 +504,12 @@ TransactionGroupUpdateXidStatus.exit:             ; preds = %48
   br label %133
 
 133:                                              ; preds = %TransactionGroupUpdateXidStatus.exit, %29, %22, %16, %7
-  %134 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #9
+  %134 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #8
   br label %TransactionGroupUpdateXidStatus.exit.thread.sink.split
 
 TransactionGroupUpdateXidStatus.exit.thread.sink.split: ; preds = %34, %133
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5)
-  tail call void @LWLockRelease(ptr noundef %15) #9
+  tail call void @LWLockRelease(ptr noundef %15) #8
   br label %TransactionGroupUpdateXidStatus.exit.thread
 
 TransactionGroupUpdateXidStatus.exit.thread:      ; preds = %.lr.ph.i, %132, %TransactionGroupUpdateXidStatus.exit.thread.sink.split, %70, %120
@@ -524,7 +524,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %6 = lshr i32 %5, 2
   %7 = shl i32 %0, 1
   %8 = and i32 %7, 6
-  %9 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @XactCtlData, i64 noundef %4, i32 noundef %0) #9
+  %9 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @XactCtlData, i64 noundef %4, i32 noundef %0) #8
   %10 = load ptr, ptr @XactCtlData, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -555,7 +555,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %35 = shl nuw nsw i32 %31, 7
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
-  tail call void @LWLockRelease(ptr noundef %37) #9
+  tail call void @LWLockRelease(ptr noundef %37) #8
   ret i32 %21
 }
 
@@ -570,7 +570,7 @@ define dso_local i64 @CLOGShmemSize() local_unnamed_addr #0 {
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #9
+  %4 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #8
   br label %CLOGShmemBuffers.exit
 
 5:                                                ; preds = %0
@@ -580,7 +580,7 @@ define dso_local i64 @CLOGShmemSize() local_unnamed_addr #0 {
 
 CLOGShmemBuffers.exit:                            ; preds = %3, %5
   %.0.i = phi i32 [ %4, %3 ], [ %7, %5 ]
-  %8 = tail call i64 @SimpleLruShmemSize(i32 noundef %.0.i, i32 noundef 1024) #9
+  %8 = tail call i64 @SimpleLruShmemSize(i32 noundef %.0.i, i32 noundef 1024) #8
   ret i64 %8
 }
 
@@ -595,9 +595,9 @@ define dso_local void @CLOGShmemInit() local_unnamed_addr #0 {
 
 CLOGShmemBuffers.exit:                            ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %4 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #9
-  %5 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %4) #9
-  call void @SetConfigOption(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 1) #9
+  %4 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #8
+  %5 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %4) #8
+  call void @SetConfigOption(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 1) #8
   %6 = load i32, ptr @transaction_buffers, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.thread3
@@ -607,7 +607,7 @@ CLOGShmemBuffers.exit:                            ; preds = %0
   br label %.sink.split
 
 8:                                                ; preds = %CLOGShmemBuffers.exit
-  call void @SetConfigOption(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 10) #9
+  call void @SetConfigOption(ptr noundef nonnull @.str.1, ptr noundef nonnull %1, i32 noundef 1, i32 noundef 10) #8
   %.pr.pr = load i32, ptr @transaction_buffers, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store ptr @CLOGPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 16), align 8
@@ -615,7 +615,7 @@ CLOGShmemBuffers.exit:                            ; preds = %0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #9
+  %11 = call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #8
   br label %CLOGShmemBuffers.exit2
 
 .sink.split:                                      ; preds = %0, %.thread3
@@ -631,7 +631,7 @@ CLOGShmemBuffers.exit:                            ; preds = %0
 
 CLOGShmemBuffers.exit2:                           ; preds = %10, %12
   %.0.i1 = phi i32 [ %11, %10 ], [ %15, %12 ]
-  call void @SimpleLruInit(ptr noundef nonnull @XactCtlData, ptr noundef nonnull @.str.2, i32 noundef %.0.i1, i32 noundef 1024, ptr noundef nonnull @.str.3, i32 noundef 53, i32 noundef 90, i32 noundef 1, i1 noundef zeroext false) #9
+  call void @SimpleLruInit(ptr noundef nonnull @XactCtlData, ptr noundef nonnull @.str.2, i32 noundef %.0.i1, i32 noundef 1024, ptr noundef nonnull @.str.3, i32 noundef 53, i32 noundef 90, i32 noundef 1, i1 noundef zeroext false) #8
   ret void
 }
 
@@ -647,12 +647,12 @@ define internal zeroext i1 @CLOGPagePrecedes(i64 noundef %0, i64 noundef %1) #0 
   %6 = trunc i64 %1 to i32
   %7 = shl i32 %6, 15
   %8 = or disjoint i32 %7, 4
-  %9 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %8) #9
+  %9 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %8) #8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
   %11 = add i32 %7, 32771
-  %12 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %11) #9
+  %12 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %11) #8
   br label %13
 
 13:                                               ; preds = %10, %2
@@ -664,7 +664,7 @@ declare void @SimpleLruInit(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_transaction_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.1, ptr noundef %0) #9
+  %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.1, ptr noundef %0) #8
   ret i1 %4
 }
 
@@ -675,10 +675,10 @@ define dso_local void @BootStrapCLOG() local_unnamed_addr #0 {
   %1 = load ptr, ptr @XactCtlData, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #9
-  %5 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef 0) #9
-  tail call void @SimpleLruWritePage(ptr noundef nonnull @XactCtlData, i32 noundef %5) #9
-  tail call void @LWLockRelease(ptr noundef %3) #9
+  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #8
+  %5 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef 0) #8
+  tail call void @SimpleLruWritePage(ptr noundef nonnull @XactCtlData, i32 noundef %5) #8
+  tail call void @LWLockRelease(ptr noundef %3) #8
   ret void
 }
 
@@ -717,7 +717,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %12 = shl nuw nsw i32 %8, 7
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
-  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 0) #9
+  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef %14, i32 noundef 0) #8
   %16 = and i32 %4, 32767
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %60, label %17
@@ -726,7 +726,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %18 = lshr i32 %16, 2
   %19 = shl i32 %4, 1
   %20 = and i32 %19, 6
-  %21 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @XactCtlData, i64 noundef %6, i1 noundef zeroext false, i32 noundef %4) #9
+  %21 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @XactCtlData, i64 noundef %6, i1 noundef zeroext false, i32 noundef %4) #8
   %22 = load ptr, ptr @XactCtlData, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -788,7 +788,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   br label %60
 
 60:                                               ; preds = %.loopexit, %0
-  tail call void @LWLockRelease(ptr noundef %14) #9
+  tail call void @LWLockRelease(ptr noundef %14) #8
   ret void
 }
 
@@ -799,7 +799,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckPointCLOG() local_unnamed_addr #0 {
-  tail call void @SimpleLruWriteAll(ptr noundef nonnull @XactCtlData, i1 noundef zeroext true) #9
+  tail call void @SimpleLruWriteAll(ptr noundef nonnull @XactCtlData, i1 noundef zeroext true) #8
   ret void
 }
 
@@ -826,15 +826,15 @@ define dso_local void @ExtendCLOG(i32 noundef %0) local_unnamed_addr #0 {
   %14 = shl nuw nsw i32 %10, 7
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 0) #9
-  %18 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef %8) #9
+  %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 0) #8
+  %18 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef %8) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %8, ptr %2, align 8
-  tail call void @XLogBeginInsert() #9
-  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 8) #9
-  %19 = call i64 @XLogInsert(i8 noundef zeroext 3, i8 noundef zeroext 0) #9
+  tail call void @XLogBeginInsert() #8
+  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 8) #8
+  %19 = call i64 @XLogInsert(i8 noundef zeroext 3, i8 noundef zeroext 0) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @LWLockRelease(ptr noundef %16) #9
+  call void @LWLockRelease(ptr noundef %16) #8
   br label %20
 
 20:                                               ; preds = %1, %6
@@ -849,11 +849,11 @@ define dso_local void @TruncateCLOG(i32 noundef %0, i32 noundef %1) local_unname
   %5 = lshr i32 %0, 15
   %6 = zext nneg i32 %5 to i64
   store i64 %6, ptr %4, align 8
-  %7 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @XactCtlData, ptr noundef nonnull @SlruScanDirCbReportPresence, ptr noundef nonnull %4) #9
+  %7 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @XactCtlData, ptr noundef nonnull @SlruScanDirCbReportPresence, ptr noundef nonnull %4) #8
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %2
-  call void @AdvanceOldestClogXid(i32 noundef %0) #9
+  call void @AdvanceOldestClogXid(i32 noundef %0) #8
   %9 = load i64, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %9, ptr %3, align 8
@@ -861,13 +861,13 @@ define dso_local void @TruncateCLOG(i32 noundef %0, i32 noundef %1) local_unname
   store i32 %0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %1, ptr %11, align 4
-  call void @XLogBeginInsert() #9
-  call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 16) #9
-  %12 = call i64 @XLogInsert(i8 noundef zeroext 3, i8 noundef zeroext 16) #9
-  call void @XLogFlush(i64 noundef %12) #9
+  call void @XLogBeginInsert() #8
+  call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 16) #8
+  %12 = call i64 @XLogInsert(i8 noundef zeroext 3, i8 noundef zeroext 16) #8
+  call void @XLogFlush(i64 noundef %12) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %13 = load i64, ptr %4, align 8
-  call void @SimpleLruTruncate(ptr noundef nonnull @XactCtlData, i64 noundef %13) #9
+  call void @SimpleLruTruncate(ptr noundef nonnull @XactCtlData, i64 noundef %13) #8
   br label %14
 
 14:                                               ; preds = %2, %8
@@ -907,10 +907,10 @@ define dso_local void @clog_redo(ptr noundef readonly captures(none) %0) local_u
   %15 = load ptr, ptr %14, align 8
   %16 = shl nsw i64 %12, 7
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #9
-  %19 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef %.0.copyload) #9
-  tail call void @SimpleLruWritePage(ptr noundef nonnull @XactCtlData, i32 noundef %19) #9
-  tail call void @LWLockRelease(ptr noundef %17) #9
+  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #8
+  %19 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @XactCtlData, i64 noundef %.0.copyload) #8
+  tail call void @SimpleLruWritePage(ptr noundef nonnull @XactCtlData, i32 noundef %19) #8
+  tail call void @LWLockRelease(ptr noundef %17) #8
   br label %27
 
 20:                                               ; preds = %1
@@ -919,16 +919,15 @@ define dso_local void @clog_redo(ptr noundef readonly captures(none) %0) local_u
   %.sroa.0.0.copyload = load i64, ptr %22, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
-  tail call void @AdvanceOldestClogXid(i32 noundef %.sroa.4.0.copyload) #9
-  tail call void @SimpleLruTruncate(ptr noundef nonnull @XactCtlData, i64 noundef %.sroa.0.0.copyload) #9
+  tail call void @AdvanceOldestClogXid(i32 noundef %.sroa.4.0.copyload) #8
+  tail call void @SimpleLruTruncate(ptr noundef nonnull @XactCtlData, i64 noundef %.sroa.0.0.copyload) #8
   br label %27
 
 23:                                               ; preds = %1
   %24 = zext i8 %6 to i32
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %24) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1142, ptr noundef nonnull @__func__.clog_redo) #9
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %24) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.5, i32 noundef 1142, ptr noundef nonnull @__func__.clog_redo) #8
   unreachable
 
 27:                                               ; preds = %20, %7
@@ -944,7 +943,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @clogsyncfiletag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @SlruSyncFileTag(ptr noundef nonnull @XactCtlData, ptr noundef %0, ptr noundef %1) #9
+  %3 = tail call i32 @SlruSyncFileTag(ptr noundef nonnull @XactCtlData, ptr noundef %0, ptr noundef %1) #8
   ret i32 %3
 }
 
@@ -955,7 +954,7 @@ declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i64 %4, 0
-  %8 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @XactCtlData, i64 noundef %5, i1 noundef zeroext %7, i32 noundef %0) #9
+  %8 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @XactCtlData, i64 noundef %5, i1 noundef zeroext %7, i32 noundef %0) #8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %TransactionIdSetStatusBit.exit, label %9
 
@@ -1328,20 +1327,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1349,11 +1345,10 @@ attributes #2 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0"
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

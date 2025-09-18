@@ -48943,53 +48943,47 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h2270a88
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load atomic ptr, ptr %6 acquire, align 8, !noalias !9675
   %.not.i = icmp eq ptr %7, inttoptr (i64 2 to ptr)
-  br i1 %.not.i, label %13, label %8, !prof !47
+  br i1 %.not.i, label %.noexc, label %8, !prof !47
 
 8:                                                ; preds = %3
   invoke void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h6412aa7d0b77dfd8E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(64) %4)
-          to label %.noexc unwind label %11
+          to label %.noexc unwind label %9
 
-.noexc:                                           ; preds = %8
-  %9 = load i64, ptr %1, align 8, !range !46, !noalias !9675, !noundef !7
-  %10 = icmp ne i64 %9, 0
-  call void @llvm.assume(i1 %10)
-  br label %13
-
-11:                                               ; preds = %8
-  %12 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr298drop_in_place$LT$core..option..Option$LT$tokio..sync..mutex..Mutex$LT$std..sync..mpsc..Sender$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h3ed2f04d0f30c641E"(ptr noalias noundef align 8 dereferenceable(64) %4) #25
-          to label %22 unwind label %20
+          to label %19 unwind label %17
 
-13:                                               ; preds = %.noexc, %3
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load i64, ptr %4, align 8, !range !46, !noundef !7
-  %16 = trunc nuw i64 %15 to i1
+.noexc:                                           ; preds = %8, %3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = load i64, ptr %4, align 8, !range !46, !noundef !7
+  %13 = trunc nuw i64 %12 to i1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %16, label %17, label %18
+  br i1 %13, label %14, label %15
 
-17:                                               ; preds = %13
+14:                                               ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
-  br label %19
+  br label %16
 
-18:                                               ; preds = %13
-  store ptr %14, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %19
+15:                                               ; preds = %.noexc
+  store ptr %11, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %16
 
-19:                                               ; preds = %18, %17
-  %.sink = phi ptr [ %14, %17 ], [ null, %18 ]
+16:                                               ; preds = %15, %14
+  %.sink = phi ptr [ %11, %14 ], [ null, %15 ]
   store ptr %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-20:                                               ; preds = %11
-  %21 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-22:                                               ; preds = %11
-  resume { ptr, i32 } %12
+19:                                               ; preds = %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -48999,57 +48993,51 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h545c8b5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(600) %2, i64 600, i1 false)
   %5 = load atomic ptr, ptr %1 acquire, align 8, !noalias !9678
   %.not.i = icmp eq ptr %5, inttoptr (i64 2 to ptr)
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit", label %7, !prof !47
+  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit", label %6, !prof !47
 
-7:                                                ; preds = %3
+6:                                                ; preds = %3
   invoke void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h3ce9576b94fd1210E"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(600) %4)
-          to label %.noexc unwind label %10
+          to label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit" unwind label %7
 
-.noexc:                                           ; preds = %7
-  %8 = load i64, ptr %6, align 8, !range !97, !noalias !9678, !noundef !7
-  %9 = icmp ne i64 %8, -9223372036854775808
-  call void @llvm.assume(i1 %9)
-  br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit"
-
-10:                                               ; preds = %7
-  %11 = landingpad { ptr, i32 }
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %12 = load i64, ptr %4, align 8, !range !97, !alias.scope !9681, !noundef !7
-  %13 = icmp eq i64 %12, -9223372036854775808
-  br i1 %13, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$foundations..telemetry..log..init..LogHarness$GT$$GT$17h644cc0c4e6659399E.exit", label %14
+  %9 = load i64, ptr %4, align 8, !range !97, !alias.scope !9681, !noundef !7
+  %10 = icmp eq i64 %9, -9223372036854775808
+  br i1 %10, label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$foundations..telemetry..log..init..LogHarness$GT$$GT$17h644cc0c4e6659399E.exit", label %11
 
-14:                                               ; preds = %10
+11:                                               ; preds = %7
   invoke void @"_ZN4core3ptr66drop_in_place$LT$foundations..telemetry..log..init..LogHarness$GT$17h2eb90ddfc4746590E"(ptr noalias noundef nonnull align 8 dereferenceable(600) %4)
-          to label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$foundations..telemetry..log..init..LogHarness$GT$$GT$17h644cc0c4e6659399E.exit" unwind label %20
+          to label %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$foundations..telemetry..log..init..LogHarness$GT$$GT$17h644cc0c4e6659399E.exit" unwind label %18
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit": ; preds = %.noexc, %3
-  %15 = load i64, ptr %4, align 8, !range !97, !noundef !7
-  %.not = icmp eq i64 %15, -9223372036854775808
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %18, label %17
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit": ; preds = %6, %3
+  %12 = load i64, ptr %4, align 8, !range !97, !noundef !7
+  %.not = icmp eq i64 %12, -9223372036854775808
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not, label %15, label %14
 
-17:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %16, ptr noundef nonnull align 8 dereferenceable(600) %4, i64 600, i1 false)
-  br label %19
+14:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit"
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(600) %13, ptr noundef nonnull align 8 dereferenceable(600) %4, i64 600, i1 false)
+  br label %16
 
-18:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit"
-  store i64 -9223372036854775808, ptr %16, align 8
-  br label %19
+15:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h53a330916c037ec6E.exit"
+  store i64 -9223372036854775808, ptr %13, align 8
+  br label %16
 
-19:                                               ; preds = %18, %17
-  store ptr %6, ptr %0, align 8
+16:                                               ; preds = %15, %14
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %17, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-20:                                               ; preds = %14
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %11
+  %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$foundations..telemetry..log..init..LogHarness$GT$$GT$17h644cc0c4e6659399E.exit": ; preds = %10, %14
-  resume { ptr, i32 } %11
+"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$foundations..telemetry..log..init..LogHarness$GT$$GT$17h644cc0c4e6659399E.exit": ; preds = %7, %11
+  resume { ptr, i32 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -49064,56 +49052,49 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h93fca81
 
 7:                                                ; preds = %3
   invoke void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h2bbd491f8b7f76dbE"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(1072) %4)
-          to label %.noexc unwind label %11
+          to label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit" unwind label %8
 
-.noexc:                                           ; preds = %7
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !range !148, !noalias !9684, !noundef !7
-  %10 = icmp ne i32 %9, 1000000000
-  call void @llvm.assume(i1 %10)
-  br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit"
-
-11:                                               ; preds = %7
-  %12 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           cleanup
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i32, ptr %13, align 8, !range !148, !alias.scope !9687, !noundef !7
-  %15 = icmp eq i32 %14, 1000000000
-  br i1 %15, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$foundations..telemetry..tracing..init..TracingHarness$GT$$GT$17hecda680490f04e5eE.exit", label %16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %11 = load i32, ptr %10, align 8, !range !148, !alias.scope !9687, !noundef !7
+  %12 = icmp eq i32 %11, 1000000000
+  br i1 %12, label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$foundations..telemetry..tracing..init..TracingHarness$GT$$GT$17hecda680490f04e5eE.exit", label %13
 
-16:                                               ; preds = %11
+13:                                               ; preds = %8
   invoke void @"_ZN4core3ptr74drop_in_place$LT$foundations..telemetry..tracing..init..TracingHarness$GT$17h1a85543cd23b41a4E"(ptr noalias noundef nonnull align 8 dereferenceable(1072) %4)
-          to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$foundations..telemetry..tracing..init..TracingHarness$GT$$GT$17hecda680490f04e5eE.exit" unwind label %23
+          to label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$foundations..telemetry..tracing..init..TracingHarness$GT$$GT$17hecda680490f04e5eE.exit" unwind label %20
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit": ; preds = %.noexc, %3
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = load i32, ptr %17, align 8, !range !148, !noundef !7
-  %.not = icmp eq i32 %18, 1000000000
-  br i1 %.not, label %20, label %19
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit": ; preds = %7, %3
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %15 = load i32, ptr %14, align 8, !range !148, !noundef !7
+  %.not = icmp eq i32 %15, 1000000000
+  br i1 %.not, label %17, label %16
 
-19:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit"
+16:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit"
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1072) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(1072) %4, i64 1072, i1 false)
-  br label %22
+  br label %19
 
-20:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit"
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1000000000, ptr %21, align 8
-  br label %22
+17:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h271be1b2f64e1f84E.exit"
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 1000000000, ptr %18, align 8
+  br label %19
 
-22:                                               ; preds = %20, %19
+19:                                               ; preds = %17, %16
   store ptr %1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-23:                                               ; preds = %16
-  %24 = landingpad { ptr, i32 }
+20:                                               ; preds = %13
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$foundations..telemetry..tracing..init..TracingHarness$GT$$GT$17hecda680490f04e5eE.exit": ; preds = %11, %16
-  resume { ptr, i32 } %12
+"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$foundations..telemetry..tracing..init..TracingHarness$GT$$GT$17hecda680490f04e5eE.exit": ; preds = %8, %13
+  resume { ptr, i32 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -49121,51 +49102,48 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
   %3 = alloca [64 x i8], align 8
   %4 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %6, label %16, !prof !47
+  br i1 %.not, label %5, label %15, !prof !47
 
-6:                                                ; preds = %2
-  %7 = load i64, ptr %1, align 8, !range !97, !alias.scope !9690, !noundef !7
-  %8 = icmp eq i64 %7, -9223372036854775808
-  br i1 %8, label %"_ZN4core3ptr245drop_in_place$LT$once_cell..sync..OnceCell$LT$foundations..telemetry..metrics..internal..Registries$GT$..get_or_init$LT$foundations..telemetry..metrics..internal..Registries..init..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6311dd70bb56c62E.exit", label %9
+5:                                                ; preds = %2
+  %6 = load i64, ptr %1, align 8, !range !97, !alias.scope !9690, !noundef !7
+  %7 = icmp eq i64 %6, -9223372036854775808
+  br i1 %7, label %"_ZN4core3ptr245drop_in_place$LT$once_cell..sync..OnceCell$LT$foundations..telemetry..metrics..internal..Registries$GT$..get_or_init$LT$foundations..telemetry..metrics..internal..Registries..init..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6311dd70bb56c62E.exit", label %8
 
-9:                                                ; preds = %6
+8:                                                ; preds = %5
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf10a24c7fab5d50cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 1, i64 noundef 1)
-          to label %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h845f922bcc418206E.exit.i.i.i" unwind label %10
+          to label %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h845f922bcc418206E.exit.i.i.i" unwind label %9
 
-10:                                               ; preds = %9
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf10a24c7fab5d50cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 1, i64 noundef 1)
-          to label %common.resume unwind label %13
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf10a24c7fab5d50cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 1, i64 noundef 1)
+          to label %common.resume unwind label %12
 
-13:                                               ; preds = %10
-  %14 = landingpad { ptr, i32 }
+12:                                               ; preds = %9
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #23
   unreachable
 
-common.resume:                                    ; preds = %10
-  resume { ptr, i32 } %11
+common.resume:                                    ; preds = %9
+  resume { ptr, i32 } %10
 
-"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h845f922bcc418206E.exit.i.i.i": ; preds = %9
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf10a24c7fab5d50cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, i64 noundef 1)
+"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h845f922bcc418206E.exit.i.i.i": ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17hf10a24c7fab5d50cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr245drop_in_place$LT$once_cell..sync..OnceCell$LT$foundations..telemetry..metrics..internal..Registries$GT$..get_or_init$LT$foundations..telemetry..metrics..internal..Registries..init..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6311dd70bb56c62E.exit"
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h8e775a8fd8579c0fE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = load i64, ptr %5, align 8, !range !289, !noundef !7
-  %18 = icmp ne i64 %17, -9223372036854775807
-  tail call void @llvm.assume(i1 %18)
   br label %"_ZN4core3ptr245drop_in_place$LT$once_cell..sync..OnceCell$LT$foundations..telemetry..metrics..internal..Registries$GT$..get_or_init$LT$foundations..telemetry..metrics..internal..Registries..init..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6311dd70bb56c62E.exit"
 
-"_ZN4core3ptr245drop_in_place$LT$once_cell..sync..OnceCell$LT$foundations..telemetry..metrics..internal..Registries$GT$..get_or_init$LT$foundations..telemetry..metrics..internal..Registries..init..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6311dd70bb56c62E.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h845f922bcc418206E.exit.i.i.i", %6, %16
-  ret ptr %5
+"_ZN4core3ptr245drop_in_place$LT$once_cell..sync..OnceCell$LT$foundations..telemetry..metrics..internal..Registries$GT$..get_or_init$LT$foundations..telemetry..metrics..internal..Registries..init..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb6311dd70bb56c62E.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$17h845f922bcc418206E.exit.i.i.i", %5, %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -49173,16 +49151,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load atomic ptr, ptr %3 acquire, align 8
   %.not = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %8, label %5, !prof !47
+  br i1 %.not, label %6, label %5, !prof !47
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h2b47b2b3292d0d1bE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load ptr, ptr %0, align 8, !noundef !7
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %6
 
-8:                                                ; preds = %2, %5
+6:                                                ; preds = %2, %5
   ret ptr %0
 }
 
@@ -49190,18 +49165,15 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h4699a14546ff2a7cE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5, !prof !47
+  br i1 %.not, label %5, label %4, !prof !47
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h0792b257db777ea8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i64, ptr %4, align 8, !range !97, !noundef !7
-  %7 = icmp ne i64 %6, -9223372036854775808
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -49209,17 +49181,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %4 = load atomic ptr, ptr %3 acquire, align 8
   %.not = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %9, label %5, !prof !47
+  br i1 %.not, label %6, label %5, !prof !47
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h6e707619e482f666E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !range !148, !noundef !7
-  %8 = icmp ne i32 %7, 1000000000
-  tail call void @llvm.assume(i1 %8)
-  br label %9
+  br label %6
 
-9:                                                ; preds = %2, %5
+6:                                                ; preds = %2, %5
   ret ptr %0
 }
 
@@ -49249,36 +49217,30 @@ define hidden { i64, ptr } @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_i
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17ha3bbf7fd10471cf6E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !47
+  br i1 %.not, label %4, label %3, !prof !47
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h17b94acbe8a7a517E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !289, !noundef !7
-  %6 = icmp ne i64 %5, -9223372036854775807
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17haf0a57ed16cee880E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5, !prof !47
+  br i1 %.not, label %5, label %4, !prof !47
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hec5e27e208ff44b8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i64, ptr %4, align 8, !range !97, !noundef !7
-  %7 = icmp ne i64 %6, -9223372036854775808
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

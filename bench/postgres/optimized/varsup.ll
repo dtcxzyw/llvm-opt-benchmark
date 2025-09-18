@@ -43,7 +43,7 @@ define dso_local noundef i64 @VarsupShmemSize() local_unnamed_addr #0 {
 define dso_local void @VarsupShmemInit() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 72, ptr noundef nonnull %1) #8
+  %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 72, ptr noundef nonnull %1) #7
   store ptr %2, ptr @TransamVariables, align 8
   %3 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -65,14 +65,13 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_addr #1 {
-  %2 = tail call zeroext i1 @IsInParallelMode() #8
+  %2 = tail call zeroext i1 @IsInParallelMode() #7
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 87, ptr noundef nonnull @__func__.GetNewTransactionId) #8
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 87, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   unreachable
 
 6:                                                ; preds = %1
@@ -95,27 +94,26 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   br label %133
 
 19:                                               ; preds = %6
-  %20 = tail call zeroext i1 @RecoveryInProgress() #8
+  %20 = tail call zeroext i1 @RecoveryInProgress() #7
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 103, ptr noundef nonnull @__func__.GetNewTransactionId) #8
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 103, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   unreachable
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr @MainLWLockArray, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 384
-  %27 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %26, i32 noundef 0) #8
+  %27 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %26, i32 noundef 0) #7
   %28 = load ptr, ptr @TransamVariables, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.0.0.copyload = load i64, ptr %29, align 8
   %30 = trunc i64 %.sroa.0.0.copyload to i32
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %32 = load i32, ptr %31, align 4
-  %33 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %32) #8
+  %33 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %32) #7
   br i1 %33, label %34, label %FullTransactionIdAdvance.exit
 
 34:                                               ; preds = %24
@@ -130,7 +128,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 384
-  tail call void @LWLockRelease(ptr noundef nonnull %45) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %45) #7
   %46 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %47 = trunc nuw i8 %46 to i1
   %48 = and i32 %30, 65535
@@ -139,7 +137,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   br i1 %or.cond, label %50, label %51
 
 50:                                               ; preds = %34
-  tail call void @SendPostmasterSignal(i32 noundef 3) #8
+  tail call void @SendPostmasterSignal(i32 noundef 3) #7
   %.pre = load i8, ptr @IsUnderPostmaster, align 1, !range !4
   br label %51
 
@@ -149,37 +147,36 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   br i1 %53, label %54, label %66
 
 54:                                               ; preds = %51
-  %55 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %39) #8
+  %55 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %39) #7
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %54
-  %57 = tail call ptr @get_database_name(i32 noundef %43) #8
+  %57 = tail call ptr @get_database_name(i32 noundef %43) #7
   %.not36 = icmp eq ptr %57, null
-  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %58)
-  %59 = tail call i32 @errcode(i32 noundef 261) #8
+  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %59 = tail call i32 @errcode(i32 noundef 261) #7
   br i1 %.not36, label %63, label %60
 
 60:                                               ; preds = %56
-  %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %57) #8
-  %62 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 159, ptr noundef nonnull @__func__.GetNewTransactionId) #8
+  %61 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %57) #7
+  %62 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 159, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   unreachable
 
 63:                                               ; preds = %56
-  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %43) #8
-  %65 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.GetNewTransactionId) #8
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %43) #7
+  %65 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   unreachable
 
 66:                                               ; preds = %54, %51
-  %67 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %37) #8
+  %67 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %30, i32 noundef %37) #7
   br i1 %67, label %68, label %80
 
 68:                                               ; preds = %66
-  %69 = tail call ptr @get_database_name(i32 noundef %43) #8
+  %69 = tail call ptr @get_database_name(i32 noundef %43) #7
   %.not = icmp eq ptr %69, null
-  %70 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  %70 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %.not, label %75, label %71
 
 71:                                               ; preds = %68
@@ -187,7 +184,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
 
 72:                                               ; preds = %71
   %73 = sub i32 %41, %30
-  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %69, i32 noundef %73) #8
+  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %69, i32 noundef %73) #7
   br label %.sink.split
 
 75:                                               ; preds = %68
@@ -195,20 +192,20 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
 
 76:                                               ; preds = %75
   %77 = sub i32 %41, %30
-  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %43, i32 noundef %77) #8
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %43, i32 noundef %77) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %76, %72
   %.str.8.sink = phi ptr [ @.str.8, %72 ], [ @.str.10, %76 ]
   %.sink = phi i32 [ 179, %72 ], [ 186, %76 ]
-  %79 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.8.sink) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.GetNewTransactionId) #8
+  %79 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.8.sink) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.GetNewTransactionId) #7
   br label %80
 
 80:                                               ; preds = %.sink.split, %71, %75, %66
   %81 = load ptr, ptr @MainLWLockArray, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 384
-  %83 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %82, i32 noundef 0) #8
+  %83 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %82, i32 noundef 0) #7
   %84 = load ptr, ptr @TransamVariables, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.sroa.0.0.copyload28 = load i64, ptr %85, align 8
@@ -218,9 +215,9 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
 FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   %.0 = phi i32 [ %86, %80 ], [ %30, %24 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload28, %80 ], [ %.sroa.0.0.copyload, %24 ]
-  tail call void @ExtendCLOG(i32 noundef %.0) #8
-  tail call void @ExtendCommitTs(i32 noundef %.0) #8
-  tail call void @ExtendSUBTRANS(i32 noundef %.0) #8
+  tail call void @ExtendCLOG(i32 noundef %.0) #7
+  tail call void @ExtendCommitTs(i32 noundef %.0) #7
+  tail call void @ExtendSUBTRANS(i32 noundef %.0) #7
   %87 = load ptr, ptr @TransamVariables, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
@@ -270,7 +267,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   %122 = zext nneg i8 %118 to i64
   %123 = getelementptr inbounds nuw i32, ptr %121, i64 %122
   store i32 %.0, ptr %123, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %narrow = add nuw nsw i8 %118, 1
   store i8 %narrow, ptr %116, align 1
   %124 = load ptr, ptr @MyProc, align 8
@@ -289,7 +286,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
 130:                                              ; preds = %120, %126, %98
   %131 = load ptr, ptr @MainLWLockArray, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 384
-  tail call void @LWLockRelease(ptr noundef nonnull %132) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %132) #7
   br label %133
 
 133:                                              ; preds = %130, %9
@@ -336,13 +333,13 @@ declare void @ExtendSUBTRANS(i32 noundef) local_unnamed_addr #2
 define dso_local i64 @ReadNextFullTransactionId() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #8
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #7
   %4 = load ptr, ptr @TransamVariables, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  tail call void @LWLockRelease(ptr noundef nonnull %7) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %7) #7
   ret i64 %.sroa.0.0.copyload
 }
 
@@ -352,7 +349,7 @@ define dso_local void @AdvanceNextFullTransactionIdPastXid(i32 noundef %0) local
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
-  %6 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %5) #8
+  %6 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %5) #7
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %1
@@ -377,13 +374,13 @@ define dso_local void @AdvanceNextFullTransactionIdPastXid(i32 noundef %0) local
   %20 = or disjoint i64 %18, %19
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 384
-  %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %22, i32 noundef 0) #8
+  %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %22, i32 noundef 0) #7
   %24 = load ptr, ptr @TransamVariables, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %20, ptr %25, align 8
   %26 = load ptr, ptr @MainLWLockArray, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 384
-  tail call void @LWLockRelease(ptr noundef nonnull %27) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %27) #7
   br label %28
 
 28:                                               ; preds = %1, %17
@@ -394,11 +391,11 @@ define dso_local void @AdvanceNextFullTransactionIdPastXid(i32 noundef %0) local
 define dso_local void @AdvanceOldestClogXid(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 5632
-  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #8
+  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #7
   %5 = load ptr, ptr @TransamVariables, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
-  %8 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %7, i32 noundef %0) #8
+  %8 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %7, i32 noundef %0) #7
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
@@ -410,7 +407,7 @@ define dso_local void @AdvanceOldestClogXid(i32 noundef %0) local_unnamed_addr #
 12:                                               ; preds = %9, %1
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 5632
-  tail call void @LWLockRelease(ptr noundef nonnull %14) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %14) #7
   ret void
 }
 
@@ -437,7 +434,7 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %.036 = select i1 %14, i32 %15, i32 %13
   %16 = load ptr, ptr @MainLWLockArray, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 384
-  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %17, i32 noundef 0) #8
+  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %17, i32 noundef 0) #7
   %19 = load ptr, ptr @TransamVariables, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %0, ptr %20, align 8
@@ -456,17 +453,17 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   %28 = trunc i64 %27 to i32
   %29 = load ptr, ptr @MainLWLockArray, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 384
-  tail call void @LWLockRelease(ptr noundef nonnull %30) #8
-  %31 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %30) #7
+  %31 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #7
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %2
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %spec.select, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 456, ptr noundef nonnull @__func__.SetTransactionIdLimit) #8
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %spec.select, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 456, ptr noundef nonnull @__func__.SetTransactionIdLimit) #7
   br label %34
 
 34:                                               ; preds = %32, %2
-  %35 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.036) #8
+  %35 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.036) #7
   %36 = load i8, ptr @IsUnderPostmaster, align 1, !range !4
   %37 = trunc nuw i8 %36 to i1
   %or.cond = select i1 %35, i1 %37, i1 false
@@ -477,11 +474,11 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   br i1 %or.cond3, label %41, label %40
 
 40:                                               ; preds = %34
-  tail call void @SendPostmasterSignal(i32 noundef 3) #8
+  tail call void @SendPostmasterSignal(i32 noundef 3) #7
   br label %41
 
 41:                                               ; preds = %40, %34
-  %42 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.039) #8
+  %42 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %28, i32 noundef %.039) #7
   %.not = xor i1 %42, true
   %43 = load i8, ptr @InRecovery, align 1, !range !4
   %44 = trunc nuw i8 %43 to i1
@@ -489,36 +486,36 @@ define dso_local void @SetTransactionIdLimit(i32 noundef %0, i32 noundef %1) loc
   br i1 %or.cond5, label %59, label %45
 
 45:                                               ; preds = %41
-  %46 = tail call zeroext i1 @IsTransactionState() #8
+  %46 = tail call zeroext i1 @IsTransactionState() #7
   br i1 %46, label %47, label %.thread
 
 47:                                               ; preds = %45
-  %48 = tail call ptr @get_database_name(i32 noundef %1) #8
+  %48 = tail call ptr @get_database_name(i32 noundef %1) #7
   %.not47 = icmp eq ptr %48, null
   br i1 %.not47, label %.thread, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  %50 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %49
   %52 = sub i32 %spec.select, %28
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %48, i32 noundef %52) #8
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %48, i32 noundef %52) #7
   br label %.sink.split
 
 .thread:                                          ; preds = %45, %47
-  %54 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  %54 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %.thread
   %56 = sub i32 %spec.select, %28
-  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %1, i32 noundef %56) #8
+  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %1, i32 noundef %56) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %55, %51
   %.sink = phi i32 [ 494, %51 ], [ 501, %55 ]
-  %58 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.SetTransactionIdLimit) #8
+  %58 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.SetTransactionIdLimit) #7
   br label %59
 
 59:                                               ; preds = %.sink.split, %49, %.thread, %41
@@ -531,7 +528,7 @@ declare zeroext i1 @IsTransactionState() local_unnamed_addr #2
 define dso_local zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #8
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #7
   %4 = load ptr, ptr @TransamVariables, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -543,7 +540,7 @@ define dso_local zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr 
   %12 = load i32, ptr %11, align 4
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 384
-  tail call void @LWLockRelease(ptr noundef nonnull %14) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %14) #7
   %15 = icmp ult i32 %10, 3
   %.not = icmp eq i32 %8, 0
   %or.cond = select i1 %15, i1 true, i1 %.not
@@ -551,12 +548,12 @@ define dso_local zeroext i1 @ForceTransactionIdLimitUpdate() local_unnamed_addr 
 
 16:                                               ; preds = %0
   %17 = trunc i64 %6 to i32
-  %18 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %17, i32 noundef %8) #8
+  %18 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %17, i32 noundef %8) #7
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
   %20 = zext i32 %12 to i64
-  %21 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 21, i64 noundef %20, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %21 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 21, i64 noundef %20, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %not. = xor i1 %21, true
   br label %22
 
@@ -569,20 +566,19 @@ declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
-  %1 = tail call zeroext i1 @RecoveryInProgress() #8
+  %1 = tail call zeroext i1 @RecoveryInProgress() #7
   br i1 %1, label %2, label %5
 
 2:                                                ; preds = %0
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 561, ptr noundef nonnull @__func__.GetNewObjectId) #8
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 561, ptr noundef nonnull @__func__.GetNewObjectId) #7
   unreachable
 
 5:                                                ; preds = %0
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
-  %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #8
+  %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #7
   %9 = load ptr, ptr @TransamVariables, align 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 16384
@@ -612,7 +608,7 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
 23:                                               ; preds = %18
   %24 = load i32, ptr %19, align 8
   %25 = add i32 %24, 8192
-  tail call void @XLogPutNextOid(i32 noundef %25) #8
+  tail call void @XLogPutNextOid(i32 noundef %25) #7
   %26 = load ptr, ptr @TransamVariables, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 8192, ptr %27, align 4
@@ -631,7 +627,7 @@ define dso_local i32 @GetNewObjectId() local_unnamed_addr #1 {
   store i32 %35, ptr %33, align 4
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 256
-  tail call void @LWLockRelease(ptr noundef nonnull %37) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %37) #7
   ret i32 %30
 }
 
@@ -644,28 +640,26 @@ define dso_local void @StopGeneratingPinnedObjectIds() local_unnamed_addr #1 {
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 627, ptr noundef nonnull @__func__.SetNextObjectId) #8
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 627, ptr noundef nonnull @__func__.SetNextObjectId) #7
   unreachable
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 256
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #8
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #7
   %10 = load ptr, ptr @TransamVariables, align 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp ugt i32 %11, 12000
   br i1 %12, label %13, label %SetNextObjectId.exit
 
 13:                                               ; preds = %6
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %14)
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %15 = load ptr, ptr @TransamVariables, align 8
   %16 = load i32, ptr %15, align 8
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef 12000, i32 noundef %16) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 634, ptr noundef nonnull @__func__.SetNextObjectId) #8
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef 12000, i32 noundef %16) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 634, ptr noundef nonnull @__func__.SetNextObjectId) #7
   unreachable
 
 SetNextObjectId.exit:                             ; preds = %6
@@ -675,7 +669,7 @@ SetNextObjectId.exit:                             ; preds = %6
   store i32 0, ptr %19, align 4
   %20 = load ptr, ptr @MainLWLockArray, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
-  tail call void @LWLockRelease(ptr noundef nonnull %21) #8
+  tail call void @LWLockRelease(ptr noundef nonnull %21) #7
   ret void
 }
 
@@ -685,11 +679,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -697,10 +688,9 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -7620,9 +7620,6 @@ define hidden noundef align 8 ptr @"_ZN9lsp_types8progress1_95_$LT$impl$u20$serd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noalias noundef align 8 ptr @"_ZN9lsp_types8progress1_95_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$lsp_types..progress..WorkDoneProgressParams$GT$9serialize17hd26cca57da6ffdcdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readnone align 1 captures(none) %1) unnamed_addr #20 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %0, align 8, !range !552, !noundef !4
-  %4 = icmp eq i64 %3, -9223372036854775807
-  tail call void @llvm.assume(i1 %4)
   ret ptr null
 }
 

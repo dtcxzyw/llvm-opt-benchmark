@@ -45980,13 +45980,10 @@ define { ptr, ptr } @"_ZN141_$LT$polars_io..cloud..credential_provider..PlCreden
 14:                                               ; preds = %11, %7
   %.sroa.3.0 = phi ptr [ %10, %7 ], [ @anon.dc672d97ed0207ea221762d5508d22ce.386, %11 ]
   %.pn = phi { ptr, ptr } [ %9, %7 ], [ %13, %11 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %15 = icmp ne ptr %.sroa.0.0, null
+  %15 = icmp ne ptr %.sroa.3.0, null
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %17
+  %16 = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -46012,13 +46009,10 @@ define { ptr, ptr } @"_ZN141_$LT$polars_io..cloud..credential_provider..PlCreden
 14:                                               ; preds = %11, %7
   %.sroa.3.0 = phi ptr [ %10, %7 ], [ @anon.dc672d97ed0207ea221762d5508d22ce.387, %11 ]
   %.pn = phi { ptr, ptr } [ %9, %7 ], [ %13, %11 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %15 = icmp ne ptr %.sroa.0.0, null
+  %15 = icmp ne ptr %.sroa.3.0, null
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %17
+  %16 = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -46044,13 +46038,10 @@ define { ptr, ptr } @"_ZN141_$LT$polars_io..cloud..credential_provider..PlCreden
 14:                                               ; preds = %11, %7
   %.sroa.3.0 = phi ptr [ %10, %7 ], [ @anon.dc672d97ed0207ea221762d5508d22ce.388, %11 ]
   %.pn = phi { ptr, ptr } [ %9, %7 ], [ %13, %11 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %15 = icmp ne ptr %.sroa.0.0, null
+  %15 = icmp ne ptr %.sroa.3.0, null
   tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %17
+  %16 = insertvalue { ptr, ptr } %.pn, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %16
 }
 
 ; Function Attrs: nonlazybind uwtable

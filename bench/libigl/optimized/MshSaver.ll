@@ -79,7 +79,7 @@ define dso_local void @_ZN3igl8MshSaverC2ERKNSt7__cxx1112basic_stringIcSt11char_
 19:                                               ; preds = %.invoke, %21, %13
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %69
 
 21:                                               ; preds = %3
   %22 = invoke noundef ptr @_ZNSt13basic_filebufIcSt11char_traitsIcEE4openEPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(240) %12, ptr noundef %11, i32 noundef 20)
@@ -115,7 +115,7 @@ define dso_local void @_ZN3igl8MshSaverC2ERKNSt7__cxx1112basic_stringIcSt11char_
   %38 = load i32, ptr %37, align 8, !tbaa !31
   %39 = and i32 %38, 5
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %71, label %40
+  br i1 %.not, label %68, label %40
 
 40:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -143,7 +143,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZStl
           to label %_ZNSolsEPFRSoS_E.exit unwind label %55
 
 _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26
-  %50 = call ptr @__cxa_allocate_exception(i64 32) #13
+  %50 = call ptr @__cxa_allocate_exception(i64 32) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(128) %4)
           to label %51 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
@@ -153,24 +153,24 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %_ZStlsISt11char_tra
           to label %52 unwind label %58
 
 52:                                               ; preds = %51
-  invoke void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E, ptr nonnull @_ZNSt8ios_base7failureB5cxx11D1Ev) #14
-          to label %73 unwind label %58
+  invoke void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTINSt8ios_base7failureB5cxx11E, ptr nonnull @_ZNSt8ios_base7failureB5cxx11D1Ev) #13
+          to label %70 unwind label %58
 
 53:                                               ; preds = %40
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %67
 
 55:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %41
   %56 = landingpad { ptr, i32 }
           cleanup
-  br label %69
+  br label %66
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZNSolsEPFRSoS_E.exit
   %57 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %68
+  br label %65
 
 58:                                               ; preds = %52, %51
   %.0 = phi i1 [ false, %52 ], [ true, %51 ]
@@ -182,44 +182,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br i1 %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !38
-  %65 = icmp ult i64 %64, 16
-  call void @llvm.assume(i1 %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0, label %68, label %69
+  br i1 %.0, label %65, label %66
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %58
-  %66 = load i64, ptr %61, align 8, !tbaa !39
-  %67 = add i64 %66, 1
-  call void @_ZdlPvm(ptr noundef %60, i64 noundef %67) #15
+  %63 = load i64, ptr %61, align 8, !tbaa !39
+  %64 = add i64 %63, 1
+  call void @_ZdlPvm(ptr noundef %60, i64 noundef %64) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.0, label %68, label %69
+  br i1 %.0, label %65, label %66
 
-68:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+65:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn30 = phi { ptr, i32 } [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %50) #13
+  call void @__cxa_free_exception(ptr %50) #12
+  br label %66
+
+66:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %65, %55
+  %.pn.pn = phi { ptr, i32 } [ %.pn30, %65 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %56, %55 ], [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #12
+  br label %67
+
+67:                                               ; preds = %66, %53
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %66 ], [ %54, %53 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %69
 
-69:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %68, %55
-  %.pn.pn = phi { ptr, i32 } [ %.pn30, %68 ], [ %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %56, %55 ], [ %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #13
-  br label %70
-
-70:                                               ; preds = %69, %53
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %69 ], [ %54, %53 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %72
-
-71:                                               ; preds = %32
+68:                                               ; preds = %32
   ret void
 
-72:                                               ; preds = %70, %19
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %70 ], [ %20, %19 ]
-  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #13
+69:                                               ; preds = %67, %19
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %67 ], [ %20, %19 ]
+  call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %8) #12
   resume { ptr, i32 } %.pn.pn.pn.pn
 
-73:                                               ; preds = %52
+70:                                               ; preds = %52
   unreachable
 }
 
@@ -278,21 +274,21 @@ define dso_local void @_ZN3igl8MshSaverD2Ev(ptr noundef nonnull align 8 derefere
           to label %_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit unwind label %13
 
 _ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc, %5
-  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #13
+  tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #12
   ret void
 
 13:                                               ; preds = %5, %1
   %14 = landingpad { ptr, i32 }
           catch ptr null
   %15 = extractvalue { ptr, i32 } %14, 0
-  tail call void @__clang_call_terminate(ptr %15) #16
+  tail call void @__clang_call_terminate(ptr %15) #15
   unreachable
 }
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #16
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -329,7 +325,7 @@ define dso_local void @_ZN3igl8MshSaver11save_headerEv(ptr noundef nonnull align
   br i1 %.not.i.i.i11, label %14, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 14:                                               ; preds = %13
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
@@ -367,7 +363,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %17, 
   br i1 %.not.i.i.i1, label %35, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i2
 
 35:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i2: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -404,7 +400,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit5: ; preds = %38,
   br i1 %.not.i.i.i6, label %55, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i7
 
 55:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit5
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i7: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit5
@@ -442,7 +438,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit10: ; preds = %58
   br i1 %.not.i.i.i11, label %74, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12
 
 74:                                               ; preds = %73
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i12: ; preds = %73
@@ -480,7 +476,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15: ; preds = %77
   br i1 %.not.i.i.i16, label %95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i17
 
 95:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i17: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit15
@@ -520,7 +516,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit20: ; preds = %98
   br i1 %.not.i.i.i21, label %116, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i22
 
 116:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit20
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i22: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit20
@@ -580,7 +576,7 @@ define dso_local void @_ZN3igl8MshSaver10save_nodesERKSt6vectorIdSaIdEE(ptr noun
   br i1 %.not.i.i.i, label %21, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 21:                                               ; preds = %2
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %2
@@ -618,7 +614,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %24, 
   br i1 %.not.i.i.i19, label %42, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20
 
 42:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -690,7 +686,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit23: ; preds = %45
   br i1 %.not.i.i.i24, label %86, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i25
 
 86:                                               ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i25: ; preds = %.lr.ph
@@ -760,7 +756,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit28: ; preds = %89
   br i1 %.not.i.i.i29, label %129, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30
 
 129:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30: ; preds = %.loopexit
@@ -818,7 +814,7 @@ define dso_local void @_ZN3igl8MshSaver13save_elementsERKSt6vectorIiSaIiEES5_S5_
   br i1 %.not.i.i.i, label %27, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 27:                                               ; preds = %5
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %5
@@ -856,7 +852,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %30, 
   br i1 %.not.i.i.i66, label %48, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i67
 
 48:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i67: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -932,7 +928,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit70: ; preds = %51
   br i1 %.not.i.i.i71, label %95, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i72
 
 95:                                               ; preds = %._crit_edge
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i72: ; preds = %._crit_edge
@@ -1134,7 +1130,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit75: ; preds = %98
   br i1 %.not.i.i.i76, label %202, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77
 
 202:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77: ; preds = %.loopexit
@@ -1185,7 +1181,7 @@ define dso_local void @_ZN3igl8MshSaver17save_scalar_fieldERKNSt7__cxx1112basic_
   br i1 %.not.i.i.i, label %13, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 13:                                               ; preds = %3
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %3
@@ -1222,7 +1218,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %16, 
   br i1 %.not.i.i.i13, label %33, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i14
 
 33:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i14: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -1264,7 +1260,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17: ; preds = %36
   br i1 %.not.i.i.i18, label %58, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19
 
 58:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17
@@ -1301,7 +1297,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22: ; preds = %61
   br i1 %.not.i.i.i23, label %78, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
 
 78:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22
@@ -1338,7 +1334,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27: ; preds = %81
   br i1 %.not.i.i.i28, label %98, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i29
 
 98:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i29: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
@@ -1375,7 +1371,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit32: ; preds = %10
   br i1 %.not.i.i.i33, label %118, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i34
 
 118:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit32
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i34: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit32
@@ -1412,7 +1408,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit37: ; preds = %12
   br i1 %.not.i.i.i38, label %138, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i39
 
 138:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit37
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i39: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit37
@@ -1449,7 +1445,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42: ; preds = %14
   br i1 %.not.i.i.i43, label %158, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i44
 
 158:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i44: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42
@@ -1488,7 +1484,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47: ; preds = %16
   br i1 %.not.i.i.i48, label %180, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i49
 
 180:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i49: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47
@@ -1561,7 +1557,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit52: ; preds = %18
   br i1 %.not.i.i.i53, label %218, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i54
 
 218:                                              ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i54: ; preds = %.lr.ph
@@ -1603,7 +1599,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit57: ; preds = %22
   br i1 %.not.i.i.i58, label %240, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i59
 
 240:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i59: ; preds = %.loopexit
@@ -1648,7 +1644,7 @@ define dso_local void @_ZN3igl8MshSaver17save_vector_fieldERKNSt7__cxx1112basic_
   br i1 %.not.i.i.i, label %13, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 13:                                               ; preds = %3
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %3
@@ -1685,7 +1681,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %16, 
   br i1 %.not.i.i.i17, label %33, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i18
 
 33:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i18: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -1727,7 +1723,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit21: ; preds = %36
   br i1 %.not.i.i.i22, label %58, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i23
 
 58:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit21
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i23: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit21
@@ -1764,7 +1760,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit26: ; preds = %61
   br i1 %.not.i.i.i27, label %78, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i28
 
 78:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit26
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i28: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit26
@@ -1801,7 +1797,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %81
   br i1 %.not.i.i.i32, label %98, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i33
 
 98:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i33: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31
@@ -1838,7 +1834,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36: ; preds = %10
   br i1 %.not.i.i.i37, label %118, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i38
 
 118:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i38: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
@@ -1875,7 +1871,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41: ; preds = %12
   br i1 %.not.i.i.i42, label %138, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i43
 
 138:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i43: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41
@@ -1912,7 +1908,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit46: ; preds = %14
   br i1 %.not.i.i.i47, label %158, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i48
 
 158:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit46
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i48: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit46
@@ -1951,7 +1947,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit51: ; preds = %16
   br i1 %.not.i.i.i52, label %180, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53
 
 180:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit51
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit51
@@ -2038,7 +2034,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56: ; preds = %18
   br i1 %.not.i.i.i57, label %231, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58
 
 231:                                              ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58: ; preds = %.lr.ph
@@ -2080,7 +2076,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61: ; preds = %23
   br i1 %.not.i.i.i62, label %253, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63
 
 253:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63: ; preds = %.loopexit
@@ -2125,7 +2121,7 @@ define dso_local void @_ZN3igl8MshSaver22save_elem_scalar_fieldERKNSt7__cxx1112b
   br i1 %.not.i.i.i, label %13, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 13:                                               ; preds = %3
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %3
@@ -2162,7 +2158,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %16, 
   br i1 %.not.i.i.i13, label %33, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i14
 
 33:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i14: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -2204,7 +2200,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17: ; preds = %36
   br i1 %.not.i.i.i18, label %58, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19
 
 58:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit17
@@ -2241,7 +2237,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22: ; preds = %61
   br i1 %.not.i.i.i23, label %78, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
 
 78:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22
@@ -2278,7 +2274,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27: ; preds = %81
   br i1 %.not.i.i.i28, label %98, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i29
 
 98:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i29: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit27
@@ -2315,7 +2311,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit32: ; preds = %10
   br i1 %.not.i.i.i33, label %118, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i34
 
 118:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit32
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i34: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit32
@@ -2352,7 +2348,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit37: ; preds = %12
   br i1 %.not.i.i.i38, label %138, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i39
 
 138:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit37
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i39: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit37
@@ -2389,7 +2385,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42: ; preds = %14
   br i1 %.not.i.i.i43, label %158, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i44
 
 158:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i44: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42
@@ -2428,7 +2424,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47: ; preds = %16
   br i1 %.not.i.i.i48, label %180, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i49
 
 180:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i49: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit47
@@ -2501,7 +2497,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit52: ; preds = %18
   br i1 %.not.i.i.i53, label %218, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i54
 
 218:                                              ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i54: ; preds = %.lr.ph
@@ -2543,7 +2539,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit57: ; preds = %22
   br i1 %.not.i.i.i58, label %240, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i59
 
 240:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i59: ; preds = %.loopexit
@@ -2588,7 +2584,7 @@ define dso_local void @_ZN3igl8MshSaver22save_elem_vector_fieldERKNSt7__cxx1112b
   br i1 %.not.i.i.i, label %13, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 13:                                               ; preds = %3
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %3
@@ -2625,7 +2621,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %16, 
   br i1 %.not.i.i.i17, label %33, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i18
 
 33:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i18: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -2667,7 +2663,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit21: ; preds = %36
   br i1 %.not.i.i.i22, label %58, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i23
 
 58:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit21
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i23: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit21
@@ -2704,7 +2700,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit26: ; preds = %61
   br i1 %.not.i.i.i27, label %78, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i28
 
 78:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit26
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i28: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit26
@@ -2741,7 +2737,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31: ; preds = %81
   br i1 %.not.i.i.i32, label %98, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i33
 
 98:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i33: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit31
@@ -2778,7 +2774,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36: ; preds = %10
   br i1 %.not.i.i.i37, label %118, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i38
 
 118:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i38: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit36
@@ -2815,7 +2811,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41: ; preds = %12
   br i1 %.not.i.i.i42, label %138, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i43
 
 138:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i43: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit41
@@ -2852,7 +2848,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit46: ; preds = %14
   br i1 %.not.i.i.i47, label %158, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i48
 
 158:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit46
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i48: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit46
@@ -2891,7 +2887,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit51: ; preds = %16
   br i1 %.not.i.i.i52, label %180, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53
 
 180:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit51
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i53: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit51
@@ -2978,7 +2974,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit56: ; preds = %18
   br i1 %.not.i.i.i57, label %231, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58
 
 231:                                              ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i58: ; preds = %.lr.ph
@@ -3020,7 +3016,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit61: ; preds = %23
   br i1 %.not.i.i.i62, label %253, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63
 
 253:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i63: ; preds = %.loopexit
@@ -3066,7 +3062,7 @@ define dso_local void @_ZN3igl8MshSaver22save_elem_tensor_fieldERKNSt7__cxx1112b
   br i1 %.not.i.i.i, label %14, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 14:                                               ; preds = %3
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %3
@@ -3103,7 +3099,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %17, 
   br i1 %.not.i.i.i31, label %34, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32
 
 34:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -3145,7 +3141,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit35: ; preds = %37
   br i1 %.not.i.i.i36, label %59, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i37
 
 59:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit35
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i37: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit35
@@ -3182,7 +3178,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit40: ; preds = %62
   br i1 %.not.i.i.i41, label %79, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i42
 
 79:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit40
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i42: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit40
@@ -3219,7 +3215,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit45: ; preds = %82
   br i1 %.not.i.i.i46, label %99, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i47
 
 99:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit45
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i47: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit45
@@ -3256,7 +3252,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit50: ; preds = %10
   br i1 %.not.i.i.i51, label %119, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i52
 
 119:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit50
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i52: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit50
@@ -3293,7 +3289,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55: ; preds = %12
   br i1 %.not.i.i.i56, label %139, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i57
 
 139:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i57: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55
@@ -3330,7 +3326,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit60: ; preds = %14
   br i1 %.not.i.i.i61, label %159, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i62
 
 159:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit60
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i62: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit60
@@ -3369,7 +3365,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit65: ; preds = %16
   br i1 %.not.i.i.i66, label %181, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i67
 
 181:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit65
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i67: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit65
@@ -3509,7 +3505,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit70: ; preds = %18
   br i1 %.not.i.i.i71, label %271, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i72
 
 271:                                              ; preds = %.lr.ph
-  tail call void @_ZSt16__throw_bad_castv() #14
+  tail call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i72: ; preds = %.lr.ph
@@ -3551,7 +3547,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit75: ; preds = %27
   br i1 %.not.i.i.i76, label %293, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77
 
 293:                                              ; preds = %.loopexit
-  call void @_ZSt16__throw_bad_castv() #14
+  call void @_ZSt16__throw_bad_castv() #13
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77: ; preds = %.loopexit
@@ -3609,11 +3605,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3626,12 +3619,11 @@ attributes #7 = { cold nofree noreturn }
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind }
-attributes #16 = { noreturn nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

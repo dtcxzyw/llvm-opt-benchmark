@@ -198,11 +198,11 @@ define dso_local void @ReplicationOriginNameForLogicalRep(i32 noundef %0, i32 no
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef %0, i32 noundef %1) #17
+  %6 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str, i32 noundef %0, i32 noundef %1) #16
   br label %9
 
 7:                                                ; preds = %4
-  %8 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.1, i32 noundef %0) #17
+  %8 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @.str.1, i32 noundef %0) #16
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -214,18 +214,18 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local void @stream_start_internal(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %4 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %4 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %4, label %begin_replication_step.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %begin_replication_step.exit
 
 begin_replication_step.exit:                      ; preds = %2, %5
-  %6 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %6) #17
+  %6 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %6) #16
   %7 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %8 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -237,11 +237,11 @@ begin_replication_step.exit:                      ; preds = %2, %5
 11:                                               ; preds = %begin_replication_step.exit
   %12 = load ptr, ptr @ApplyContext, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @palloc(i64 noundef 44) #17
+  %13 = tail call ptr @palloc(i64 noundef 44) #16
   %14 = load ptr, ptr @MyLogicalRepWorker, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr %13, ptr %15, align 8
-  tail call void @FileSetInit(ptr noundef %13) #17
+  tail call void @FileSetInit(ptr noundef %13) #16
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %.pre = load ptr, ptr @MyLogicalRepWorker, align 8
   br label %16
@@ -251,13 +251,13 @@ begin_replication_step.exit:                      ; preds = %2, %5
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %19, i32 noundef %0) #17
-  %21 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %19, i32 noundef %0) #16
+  %21 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %16
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.70, ptr noundef nonnull %3) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4336, ptr noundef nonnull @__func__.stream_open_file) #17
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.70, ptr noundef nonnull %3) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4336, ptr noundef nonnull @__func__.stream_open_file) #16
   br label %24
 
 24:                                               ; preds = %22, %16
@@ -270,16 +270,16 @@ begin_replication_step.exit:                      ; preds = %2, %5
   br i1 %1, label %stream_open_file.exit.thread, label %31
 
 stream_open_file.exit.thread:                     ; preds = %24
-  %30 = call ptr @BufFileCreateFileSet(ptr noundef %29, ptr noundef nonnull %3) #17
+  %30 = call ptr @BufFileCreateFileSet(ptr noundef %29, ptr noundef nonnull %3) #16
   store ptr %30, ptr @stream_fd, align 8
   store ptr %26, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %37
 
 31:                                               ; preds = %24
-  %32 = call ptr @BufFileOpenFileSet(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 2, i1 noundef zeroext false) #17
+  %32 = call ptr @BufFileOpenFileSet(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 2, i1 noundef zeroext false) #16
   store ptr %32, ptr @stream_fd, align 8
-  %33 = call i32 @BufFileSeek(ptr noundef %32, i32 noundef 0, i64 noundef 0, i32 noundef 2) #17
+  %33 = call i32 @BufFileSeek(ptr noundef %32, i32 noundef 0, i64 noundef 0, i32 noundef 2) #16
   store ptr %26, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -289,25 +289,25 @@ stream_open_file.exit.thread:                     ; preds = %24
   br label %37
 
 37:                                               ; preds = %stream_open_file.exit.thread, %31
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @begin_replication_step() unnamed_addr #0 {
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %1 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %1 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %1, label %3, label %2
 
 2:                                                ; preds = %0
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %3
 
 3:                                                ; preds = %2, %0
-  %4 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %4) #17
+  %4 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %4) #16
   %5 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   ret void
@@ -321,19 +321,19 @@ declare void @FileSetInit(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @subxact_info_read(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %0, i32 noundef %1) #17
+  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %0, i32 noundef %1) #16
   %5 = load ptr, ptr @MyLogicalRepWorker, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = call ptr @BufFileOpenFileSet(ptr noundef %7, ptr noundef nonnull %3, i32 noundef 0, i1 noundef zeroext true) #17
+  %8 = call ptr @BufFileOpenFileSet(ptr noundef %7, ptr noundef nonnull %3, i32 noundef 0, i1 noundef zeroext true) #16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %2
-  call void @BufFileReadExact(ptr noundef nonnull %8, ptr noundef nonnull @subxact_data, i64 noundef 4) #17
+  call void @BufFileReadExact(ptr noundef nonnull %8, ptr noundef nonnull @subxact_data, i64 noundef 4) #16
   %11 = load i32, ptr @subxact_data, align 8
   %12 = zext i32 %11 to i64
-  %13 = call i32 @my_log2(i64 noundef %12) #17
+  %13 = call i32 @my_log2(i64 noundef %12) #16
   %14 = shl nuw i32 1, %13
   store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 4), align 4
   %15 = load ptr, ptr @LogicalStreamingContext, align 8
@@ -341,7 +341,7 @@ define internal fastcc void @subxact_info_read(i32 noundef %0, i32 noundef %1) u
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = zext i32 %14 to i64
   %18 = shl nuw nsw i64 %17, 4
-  %19 = call ptr @palloc(i64 noundef %18) #17
+  %19 = call ptr @palloc(i64 noundef %18) #16
   store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 16), align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %.not = icmp eq i32 %11, 0
@@ -349,11 +349,11 @@ define internal fastcc void @subxact_info_read(i32 noundef %0, i32 noundef %1) u
 
 20:                                               ; preds = %10
   %21 = shl nuw nsw i64 %12, 4
-  call void @BufFileReadExact(ptr noundef nonnull %8, ptr noundef %19, i64 noundef %21) #17
+  call void @BufFileReadExact(ptr noundef nonnull %8, ptr noundef %19, i64 noundef %21) #16
   br label %22
 
 22:                                               ; preds = %20, %10
-  call void @BufFileClose(ptr noundef nonnull %8) #17
+  call void @BufFileClose(ptr noundef nonnull %8) #16
   br label %23
 
 23:                                               ; preds = %2, %22
@@ -368,11 +368,11 @@ define dso_local void @stream_stop_internal(i32 noundef %0) local_unnamed_addr #
   %4 = load i32, ptr %3, align 8
   tail call fastcc void @subxact_info_write(i32 noundef %4, i32 noundef %0)
   %5 = load ptr, ptr @stream_fd, align 8
-  tail call void @BufFileClose(ptr noundef %5) #17
+  tail call void @BufFileClose(ptr noundef %5) #16
   store ptr null, ptr @stream_fd, align 8
-  tail call void @CommitTransactionCommand() #17
+  tail call void @CommitTransactionCommand() #16
   %6 = load ptr, ptr @LogicalStreamingContext, align 8
-  tail call void @MemoryContextReset(ptr noundef %6) #17
+  tail call void @MemoryContextReset(ptr noundef %6) #16
   ret void
 }
 
@@ -380,7 +380,7 @@ define dso_local void @stream_stop_internal(i32 noundef %0) local_unnamed_addr #
 define internal fastcc void @subxact_info_write(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %0, i32 noundef %1) #17
+  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %0, i32 noundef %1) #16
   %5 = load i32, ptr @subxact_data, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
@@ -391,7 +391,7 @@ define internal fastcc void @subxact_info_write(i32 noundef %0, i32 noundef %1) 
   br i1 %.not.i, label %cleanup_subxact_info.exit, label %9
 
 9:                                                ; preds = %7
-  call void @pfree(ptr noundef nonnull %8) #17
+  call void @pfree(ptr noundef nonnull %8) #16
   br label %cleanup_subxact_info.exit
 
 cleanup_subxact_info.exit:                        ; preds = %7, %9
@@ -402,14 +402,14 @@ cleanup_subxact_info.exit:                        ; preds = %7, %9
   %10 = load ptr, ptr @MyLogicalRepWorker, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
-  call void @BufFileDeleteFileSet(ptr noundef %12, ptr noundef nonnull %3, i1 noundef zeroext true) #17
+  call void @BufFileDeleteFileSet(ptr noundef %12, ptr noundef nonnull %3, i1 noundef zeroext true) #16
   br label %31
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr @MyLogicalRepWorker, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = call ptr @BufFileOpenFileSet(ptr noundef %16, ptr noundef nonnull %3, i32 noundef 2, i1 noundef zeroext true) #17
+  %17 = call ptr @BufFileOpenFileSet(ptr noundef %16, ptr noundef nonnull %3, i32 noundef 2, i1 noundef zeroext true) #16
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %24
 
@@ -417,7 +417,7 @@ cleanup_subxact_info.exit:                        ; preds = %7, %9
   %20 = load ptr, ptr @MyLogicalRepWorker, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = call ptr @BufFileCreateFileSet(ptr noundef %22, ptr noundef nonnull %3) #17
+  %23 = call ptr @BufFileCreateFileSet(ptr noundef %22, ptr noundef nonnull %3) #16
   br label %24
 
 24:                                               ; preds = %19, %13
@@ -425,16 +425,16 @@ cleanup_subxact_info.exit:                        ; preds = %7, %9
   %25 = load i32, ptr @subxact_data, align 8
   %26 = zext i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 4
-  call void @BufFileWrite(ptr noundef %.0, ptr noundef nonnull @subxact_data, i64 noundef 4) #17
+  call void @BufFileWrite(ptr noundef %.0, ptr noundef nonnull @subxact_data, i64 noundef 4) #16
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 16), align 8
-  call void @BufFileWrite(ptr noundef %.0, ptr noundef %28, i64 noundef %27) #17
-  call void @BufFileClose(ptr noundef %.0) #17
+  call void @BufFileWrite(ptr noundef %.0, ptr noundef %28, i64 noundef %27) #16
+  call void @BufFileClose(ptr noundef %.0) #16
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 16), align 8
   %.not.i7 = icmp eq ptr %29, null
   br i1 %.not.i7, label %cleanup_subxact_info.exit8, label %30
 
 30:                                               ; preds = %24
-  call void @pfree(ptr noundef nonnull %29) #17
+  call void @pfree(ptr noundef nonnull %29) #16
   br label %cleanup_subxact_info.exit8
 
 cleanup_subxact_info.exit8:                       ; preds = %24, %30
@@ -488,7 +488,7 @@ am_parallel_apply_worker.exit.thread:             ; preds = %3, %am_parallel_app
 
 23:                                               ; preds = %am_parallel_apply_worker.exit.thread
   store i64 %2, ptr @skip_xact_finish_lsn, align 8
-  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %24, label %25, label %maybe_start_skipping_changes.exit
 
 25:                                               ; preds = %23
@@ -496,52 +496,52 @@ am_parallel_apply_worker.exit.thread:             ; preds = %3, %am_parallel_app
   %27 = lshr i64 %26, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = trunc i64 %26 to i32
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.83, i32 noundef %28, i32 noundef %29) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4886, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #17
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.83, i32 noundef %28, i32 noundef %29) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4886, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #16
   br label %maybe_start_skipping_changes.exit
 
 maybe_start_skipping_changes.exit:                ; preds = %25, %23, %am_parallel_apply_worker.exit.thread, %am_parallel_apply_worker.exit
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %31 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %31 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %31, label %begin_replication_step.exit, label %32
 
 32:                                               ; preds = %maybe_start_skipping_changes.exit
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %begin_replication_step.exit
 
 begin_replication_step.exit:                      ; preds = %maybe_start_skipping_changes.exit, %32
-  %33 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %33) #17
+  %33 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %33) #16
   %34 = load ptr, ptr @ApplyMessageContext, align 8
   %35 = load ptr, ptr @TopTransactionContext, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
   %36 = load ptr, ptr @MyLogicalRepWorker, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load i32, ptr %37, align 8
-  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %38, i32 noundef %1) #17
-  %40 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %38, i32 noundef %1) #16
+  %40 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %begin_replication_step.exit
-  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2049, ptr noundef nonnull @__func__.apply_spooled_messages) #17
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull %7) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2049, ptr noundef nonnull @__func__.apply_spooled_messages) #16
   br label %43
 
 43:                                               ; preds = %41, %begin_replication_step.exit
   %44 = load ptr, ptr @CurrentResourceOwner, align 8
   %45 = load ptr, ptr @TopTransactionResourceOwner, align 8
   store ptr %45, ptr @CurrentResourceOwner, align 8
-  %46 = call ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext false) #17
+  %46 = call ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext false) #16
   store ptr %46, ptr @stream_fd, align 8
   store ptr %44, ptr @CurrentResourceOwner, align 8
-  %47 = call ptr @palloc(i64 noundef 8192) #17
+  %47 = call ptr @palloc(i64 noundef 8192) #16
   store ptr %34, ptr @CurrentMemoryContext, align 8
   store i64 %2, ptr @remote_final_lsn, align 8
   store i8 1, ptr @in_remote_transaction, align 1
-  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -557,12 +557,12 @@ begin_replication_step.exit:                      ; preds = %maybe_start_skippin
   br i1 %.not, label %54, label %53, !prof !6
 
 53:                                               ; preds = %51
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #16
   br label %54
 
 54:                                               ; preds = %53, %51
   %55 = load ptr, ptr @stream_fd, align 8
-  %56 = call i64 @BufFileReadMaybeEOF(ptr noundef %55, ptr noundef nonnull %11, i64 noundef 4, i1 noundef zeroext true) #17
+  %56 = call i64 @BufFileReadMaybeEOF(ptr noundef %55, ptr noundef nonnull %11, i64 noundef 4, i1 noundef zeroext true) #16
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %.loopexit, label %58
 
@@ -572,22 +572,21 @@ begin_replication_step.exit:                      ; preds = %maybe_start_skippin
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %58
-  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %62)
+  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   %63 = load i32, ptr %11, align 4
-  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %63, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2100, ptr noundef nonnull @__func__.apply_spooled_messages) #17
+  %64 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %63, ptr noundef nonnull %7) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2100, ptr noundef nonnull @__func__.apply_spooled_messages) #16
   unreachable
 
 65:                                               ; preds = %58
   %66 = zext nneg i32 %59 to i64
-  %67 = call ptr @repalloc(ptr noundef %.018, i64 noundef %66) #17
+  %67 = call ptr @repalloc(ptr noundef %.018, i64 noundef %66) #16
   %68 = load ptr, ptr @stream_fd, align 8
   %69 = load i32, ptr %11, align 4
   %70 = sext i32 %69 to i64
-  call void @BufFileReadExact(ptr noundef %68, ptr noundef %67, i64 noundef %70) #17
+  call void @BufFileReadExact(ptr noundef %68, ptr noundef %67, i64 noundef %70) #16
   %71 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileTell(ptr noundef %71, ptr noundef nonnull %8, ptr noundef nonnull %9) #17
+  call void @BufFileTell(ptr noundef %71, ptr noundef nonnull %8, ptr noundef nonnull %9) #16
   %72 = load i32, ptr %11, align 4
   store ptr %67, ptr %10, align 8
   store i32 %72, ptr %48, align 8
@@ -598,7 +597,7 @@ begin_replication_step.exit:                      ; preds = %maybe_start_skippin
   store ptr %73, ptr @CurrentMemoryContext, align 8
   call void @apply_dispatch(ptr noundef nonnull %10)
   %75 = load ptr, ptr @ApplyMessageContext, align 8
-  call void @MemoryContextReset(ptr noundef %75) #17
+  call void @MemoryContextReset(ptr noundef %75) #16
   store ptr %74, ptr @CurrentMemoryContext, align 8
   %76 = add i32 %.017, 1
   %77 = load ptr, ptr @stream_fd, align 8
@@ -611,30 +610,30 @@ begin_replication_step.exit:                      ; preds = %maybe_start_skippin
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @SetCurrentStatementStartTimestamp() #17
-  %81 = call zeroext i1 @IsTransactionState() #17
+  call void @SetCurrentStatementStartTimestamp() #16
+  %81 = call zeroext i1 @IsTransactionState() #16
   br i1 %81, label %begin_replication_step.exit.i, label %82
 
 82:                                               ; preds = %78
-  call void @StartTransactionCommand() #17
+  call void @StartTransactionCommand() #16
   call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i
 
 begin_replication_step.exit.i:                    ; preds = %82, %78
-  %83 = call ptr @GetTransactionSnapshot() #17
-  call void @PushActiveSnapshot(ptr noundef %83) #17
+  %83 = call ptr @GetTransactionSnapshot() #16
+  call void @PushActiveSnapshot(ptr noundef %83) #16
   %84 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %84, ptr @CurrentMemoryContext, align 8
   %85 = load ptr, ptr @MyLogicalRepWorker, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load i32, ptr %86, align 8
-  %88 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %87, i32 noundef %1) #17
-  %89 = call ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext false) #17
-  %90 = call i32 @BufFileSeek(ptr noundef %89, i32 noundef 0, i64 noundef 0, i32 noundef 2) #17
-  call void @BufFileTell(ptr noundef %89, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
-  call void @BufFileClose(ptr noundef %89) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  %88 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %87, i32 noundef %1) #16
+  %89 = call ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0, i1 noundef zeroext false) #16
+  %90 = call i32 @BufFileSeek(ptr noundef %89, i32 noundef 0, i64 noundef 0, i32 noundef 2) #16
+  call void @BufFileTell(ptr noundef %89, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  call void @BufFileClose(ptr noundef %89) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   %91 = load i32, ptr %5, align 4
   %.not.i = icmp eq i32 %91, %79
   %92 = load i64, ptr %6, align 8
@@ -643,10 +642,9 @@ begin_replication_step.exit.i:                    ; preds = %82, %78
   br i1 %or.cond.i, label %ensure_last_message.exit, label %93
 
 93:                                               ; preds = %begin_replication_step.exit.i
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %94)
-  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, ptr noundef nonnull %4) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2016, ptr noundef nonnull @__func__.ensure_last_message) #17
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, ptr noundef nonnull %4) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2016, ptr noundef nonnull @__func__.ensure_last_message) #16
   unreachable
 
 ensure_last_message.exit:                         ; preds = %begin_replication_step.exit.i
@@ -661,12 +659,12 @@ ensure_last_message.exit:                         ; preds = %begin_replication_s
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %96
-  %100 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %100 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %100, label %101, label %103
 
 101:                                              ; preds = %99
-  %102 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %76, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2137, ptr noundef nonnull @__func__.apply_spooled_messages) #17
+  %102 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %76, ptr noundef nonnull %7) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2137, ptr noundef nonnull @__func__.apply_spooled_messages) #16
   br label %103
 
 103:                                              ; preds = %96, %101, %99
@@ -683,17 +681,17 @@ ensure_last_message.exit:                         ; preds = %begin_replication_s
   br i1 %.not22, label %106, label %105
 
 105:                                              ; preds = %.loopexit
-  call void @BufFileClose(ptr noundef nonnull %104) #17
+  call void @BufFileClose(ptr noundef nonnull %104) #16
   store ptr null, ptr @stream_fd, align 8
   br label %106
 
 106:                                              ; preds = %105, %.loopexit
-  %107 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %107 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %.1.ph, ptr noundef nonnull %7) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2144, ptr noundef nonnull @__func__.apply_spooled_messages) #17
+  %109 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %.1.ph, ptr noundef nonnull %7) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2144, ptr noundef nonnull @__func__.apply_spooled_messages) #16
   br label %110
 
 110:                                              ; preds = %108, %106
@@ -765,7 +763,7 @@ define dso_local void @apply_dispatch(ptr noundef %0) local_unnamed_addr #0 {
   %36 = alloca %struct.UserContext, align 4
   %37 = alloca %struct.LogicalRepCommitData, align 8
   %38 = alloca %struct.LogicalRepBeginData, align 8
-  %39 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #17
+  %39 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #16
   %40 = load i32, ptr @apply_error_callback_arg.0, align 8
   store i32 %39, ptr @apply_error_callback_arg.0, align 8
   switch i32 %39, label %1129 [
@@ -792,7 +790,7 @@ define dso_local void @apply_dispatch(ptr noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  call void @logicalrep_read_begin(ptr noundef %0, ptr noundef nonnull %38) #17
+  call void @logicalrep_read_begin(ptr noundef %0, ptr noundef nonnull %38) #16
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = load i64, ptr %38, align 8
@@ -809,7 +807,7 @@ define dso_local void @apply_dispatch(ptr noundef %0) local_unnamed_addr #0 {
 
 50:                                               ; preds = %41
   store i64 %44, ptr @skip_xact_finish_lsn, align 8
-  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %51, label %52, label %apply_handle_begin.exit
 
 52:                                               ; preds = %50
@@ -817,28 +815,27 @@ define dso_local void @apply_dispatch(ptr noundef %0) local_unnamed_addr #0 {
   %54 = lshr i64 %53, 32
   %55 = trunc nuw i64 %54 to i32
   %56 = trunc i64 %53 to i32
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.83, i32 noundef %55, i32 noundef %56) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4886, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #17
+  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.83, i32 noundef %55, i32 noundef %56) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4886, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #16
   br label %apply_handle_begin.exit
 
 apply_handle_begin.exit:                          ; preds = %41, %50, %52
   store i8 1, ptr @in_remote_transaction, align 1
-  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %apply_handle_relation.exit
 
 58:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  call void @logicalrep_read_commit(ptr noundef %0, ptr noundef nonnull %37) #17
+  call void @logicalrep_read_commit(ptr noundef %0, ptr noundef nonnull %37) #16
   %59 = load i64, ptr %37, align 8
   %60 = load i64, ptr @remote_final_lsn, align 8
   %.not.i = icmp eq i64 %59, %60
   br i1 %.not.i, label %apply_handle_commit.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %62)
-  %63 = call i32 @errcode(i32 noundef 16908800) #17
+  %62 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %63 = call i32 @errcode(i32 noundef 16908800) #16
   %64 = load i64, ptr %37, align 8
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
@@ -847,16 +844,16 @@ apply_handle_begin.exit:                          ; preds = %41, %50, %52
   %69 = lshr i64 %68, 32
   %70 = trunc nuw i64 %69 to i32
   %71 = trunc i64 %68 to i32
-  %72 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %66, i32 noundef %67, i32 noundef %70, i32 noundef %71) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1026, ptr noundef nonnull @__func__.apply_handle_commit) #17
+  %72 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %66, i32 noundef %67, i32 noundef %70, i32 noundef %71) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1026, ptr noundef nonnull @__func__.apply_handle_commit) #16
   unreachable
 
 apply_handle_commit.exit:                         ; preds = %58
   call fastcc void @apply_handle_commit_internal(ptr noundef %37)
   %73 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %74 = load i64, ptr %73, align 8
-  call void @process_syncing_tables(i64 noundef %74) #17
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @process_syncing_tables(i64 noundef %74) #16
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
   store i32 0, ptr @apply_error_callback_arg.3, align 4
@@ -876,22 +873,22 @@ apply_handle_commit.exit:                         ; preds = %58
   br i1 %78, label %apply_handle_insert.exit, label %79
 
 79:                                               ; preds = %77
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %80 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %80 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %80, label %begin_replication_step.exit.i, label %81
 
 81:                                               ; preds = %79
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i
 
 begin_replication_step.exit.i:                    ; preds = %81, %79
-  %82 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %82) #17
+  %82 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %82) #16
   %83 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %83, ptr @CurrentMemoryContext, align 8
-  %84 = call i32 @logicalrep_read_insert(ptr noundef %0, ptr noundef nonnull %35) #17
-  %85 = call ptr @logicalrep_rel_open(i32 noundef %84, i32 noundef 3) #17
+  %84 = call i32 @logicalrep_read_insert(ptr noundef %0, ptr noundef nonnull %35) #16
+  %85 = call ptr @logicalrep_rel_open(i32 noundef %84, i32 noundef 3) #16
   %86 = call fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef %85)
   br i1 %86, label %87, label %.sink.split.i
 
@@ -909,7 +906,7 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 80
   %98 = load i32, ptr %97, align 4
-  call void @SwitchToUntrustedUser(i32 noundef %98, ptr noundef nonnull %36) #17
+  call void @SwitchToUntrustedUser(i32 noundef %98, ptr noundef nonnull %36) #16
   br label %99
 
 99:                                               ; preds = %92, %87
@@ -920,14 +917,14 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 64
   %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @ExecInitExtraTupleSlot(ptr noundef %101, ptr noundef %105, ptr noundef nonnull @TTSOpsVirtual) #17
+  %106 = call ptr @ExecInitExtraTupleSlot(ptr noundef %101, ptr noundef %105, ptr noundef nonnull @TTSOpsVirtual) #16
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 264
   %108 = load ptr, ptr %107, align 8
   %.not29.i = icmp eq ptr %108, null
   br i1 %.not29.i, label %109, label %111
 
 109:                                              ; preds = %99
-  %110 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %101) #17
+  %110 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %101) #16
   br label %111
 
 111:                                              ; preds = %109, %99
@@ -946,7 +943,7 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   br i1 %.not.i.i, label %121, label %123
 
 121:                                              ; preds = %111
-  %122 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %101) #17
+  %122 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %101) #16
   br label %123
 
 123:                                              ; preds = %121, %111
@@ -959,9 +956,9 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
 128:                                              ; preds = %123
   %129 = sext i32 %119 to i64
   %130 = shl nsw i64 %129, 2
-  %131 = call ptr @palloc(i64 noundef %130) #17
+  %131 = call ptr @palloc(i64 noundef %130) #16
   %132 = shl nsw i64 %129, 3
-  %133 = call ptr @palloc(i64 noundef %132) #17
+  %133 = call ptr @palloc(i64 noundef %132) #16
   %134 = icmp sgt i32 %119, 0
   br i1 %134, label %.lr.ph.i.i, label %slot_fill_defaults.exit.i
 
@@ -1012,13 +1009,13 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   %159 = load ptr, ptr %102, align 8
   %160 = trunc i64 %indvars.iv.i.i to i32
   %161 = add i32 %160, 1
-  %162 = call ptr @build_column_default(ptr noundef %159, i32 noundef %161) #17
+  %162 = call ptr @build_column_default(ptr noundef %159, i32 noundef %161) #16
   %.not46.i.i = icmp eq ptr %162, null
   br i1 %.not46.i.i, label %170, label %163
 
 163:                                              ; preds = %158
-  %164 = call ptr @expression_planner(ptr noundef nonnull %162) #17
-  %165 = call ptr @ExecInitExpr(ptr noundef %164, ptr noundef null) #17
+  %164 = call ptr @expression_planner(ptr noundef nonnull %162) #16
+  %165 = call ptr @ExecInitExpr(ptr noundef %164, ptr noundef null) #16
   %166 = sext i32 %.04147.i.i to i64
   %167 = getelementptr inbounds ptr, ptr %133, i64 %166
   store ptr %165, ptr %167, align 8
@@ -1044,7 +1041,7 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   %178 = getelementptr inbounds i8, ptr %174, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %180 = load ptr, ptr %179, align 8
-  %181 = call i64 %180(ptr noundef %173, ptr noundef %124, ptr noundef %178) #17
+  %181 = call i64 %180(ptr noundef %173, ptr noundef %124, ptr noundef %178) #16
   %182 = load ptr, ptr %138, align 8
   %183 = load i32, ptr %175, align 4
   %184 = sext i32 %183 to i64
@@ -1072,18 +1069,18 @@ slot_fill_defaults.exit.i:                        ; preds = %171, %.preheader.i.
   %194 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %195 = load ptr, ptr %194, align 8
   %.val.i = load ptr, ptr %100, align 8
-  call void @ExecOpenIndices(ptr noundef %195, i1 noundef zeroext true) #17
-  call void @InitConflictIndexes(ptr noundef %195) #17
+  call void @ExecOpenIndices(ptr noundef %195, i1 noundef zeroext true) #16
+  call void @InitConflictIndexes(ptr noundef %195) #16
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load ptr, ptr %196, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %197, i64 noundef 1)
-  call void @ExecSimpleRelationInsert(ptr noundef %195, ptr noundef %.val.i, ptr noundef %106) #17
-  call void @ExecCloseIndices(ptr noundef %195) #17
+  call void @ExecSimpleRelationInsert(ptr noundef %195, ptr noundef %.val.i, ptr noundef %106) #16
+  call void @ExecCloseIndices(ptr noundef %195) #16
   br label %198
 
 198:                                              ; preds = %193, %192
   %199 = load ptr, ptr %100, align 8
-  call void @AfterTriggerEndQuery(ptr noundef %199) #17
+  call void @AfterTriggerEndQuery(ptr noundef %199) #16
   %200 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %201 = load ptr, ptr %200, align 8
   %.not.i30.i = icmp eq ptr %201, null
@@ -1092,27 +1089,27 @@ slot_fill_defaults.exit.i:                        ; preds = %171, %.preheader.i.
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %204 = load ptr, ptr %203, align 8
-  call void @ExecCleanupTupleRouting(ptr noundef %204, ptr noundef nonnull %201) #17
+  call void @ExecCleanupTupleRouting(ptr noundef %204, ptr noundef nonnull %201) #16
   br label %finish_edata.exit.i
 
 finish_edata.exit.i:                              ; preds = %202, %198
   %205 = getelementptr inbounds nuw i8, ptr %199, i64 200
   %206 = load ptr, ptr %205, align 8
-  call void @ExecResetTupleTable(ptr noundef %206, i1 noundef zeroext false) #17
-  call void @FreeExecutorState(ptr noundef %199) #17
-  call void @pfree(ptr noundef nonnull %100) #17
+  call void @ExecResetTupleTable(ptr noundef %206, i1 noundef zeroext false) #16
+  call void @FreeExecutorState(ptr noundef %199) #16
+  call void @pfree(ptr noundef nonnull %100) #16
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   br i1 %91, label %.sink.split.i, label %207
 
 207:                                              ; preds = %finish_edata.exit.i
-  call void @RestoreUserContext(ptr noundef nonnull %36) #17
+  call void @RestoreUserContext(ptr noundef nonnull %36) #16
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %207, %finish_edata.exit.i, %begin_replication_step.exit.i
   %.sink.i = phi i32 [ 3, %begin_replication_step.exit.i ], [ 0, %207 ], [ 0, %finish_edata.exit.i ]
-  call void @logicalrep_rel_close(ptr noundef %85, i32 noundef %.sink.i) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  call void @logicalrep_rel_close(ptr noundef %85, i32 noundef %.sink.i) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   br label %apply_handle_insert.exit
 
 apply_handle_insert.exit:                         ; preds = %75, %77, %.sink.split.i
@@ -1134,22 +1131,22 @@ apply_handle_insert.exit:                         ; preds = %75, %77, %.sink.spl
   br i1 %211, label %apply_handle_update.exit, label %212
 
 212:                                              ; preds = %210
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %213 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %213 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %213, label %begin_replication_step.exit.i23, label %214
 
 214:                                              ; preds = %212
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i23
 
 begin_replication_step.exit.i23:                  ; preds = %214, %212
-  %215 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %215) #17
+  %215 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %215) #16
   %216 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %216, ptr @CurrentMemoryContext, align 8
-  %217 = call i32 @logicalrep_read_update(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %32, ptr noundef nonnull %33) #17
-  %218 = call ptr @logicalrep_rel_open(i32 noundef %217, i32 noundef 3) #17
+  %217 = call i32 @logicalrep_read_update(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %32, ptr noundef nonnull %33) #16
+  %218 = call ptr @logicalrep_rel_open(i32 noundef %217, i32 noundef 3) #16
   %219 = call fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef %218)
   br i1 %219, label %220, label %.sink.split.i24
 
@@ -1169,7 +1166,7 @@ begin_replication_step.exit.i23:                  ; preds = %214, %212
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 80
   %231 = load i32, ptr %230, align 4
-  call void @SwitchToUntrustedUser(i32 noundef %231, ptr noundef nonnull %31) #17
+  call void @SwitchToUntrustedUser(i32 noundef %231, ptr noundef nonnull %31) #16
   br label %232
 
 232:                                              ; preds = %225, %220
@@ -1179,7 +1176,7 @@ begin_replication_step.exit.i23:                  ; preds = %214, %212
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 64
   %238 = load ptr, ptr %237, align 8
-  %239 = call ptr @ExecInitExtraTupleSlot(ptr noundef %234, ptr noundef %238, ptr noundef nonnull @TTSOpsVirtual) #17
+  %239 = call ptr @ExecInitExtraTupleSlot(ptr noundef %234, ptr noundef %238, ptr noundef nonnull @TTSOpsVirtual) #16
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %241 = load ptr, ptr %240, align 8
   %242 = load i32, ptr %241, align 8
@@ -1234,7 +1231,7 @@ begin_replication_step.exit.i23:                  ; preds = %214, %212
   %273 = load ptr, ptr %249, align 8
   %274 = trunc i64 %indvars.iv.i to i32
   %275 = add i32 %274, 8
-  %276 = call ptr @bms_add_member(ptr noundef %273, i32 noundef %275) #17
+  %276 = call ptr @bms_add_member(ptr noundef %273, i32 noundef %275) #16
   store ptr %276, ptr %249, align 8
   %.pre.i = load ptr, ptr %240, align 8
   %.pre51.i = load i32, ptr %.pre.i, align 8
@@ -1250,7 +1247,7 @@ begin_replication_step.exit.i23:                  ; preds = %214, %212
   br i1 %280, label %252, label %._crit_edge.i, !llvm.loop !10
 
 281:                                              ; preds = %._crit_edge.i
-  %282 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %234) #17
+  %282 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %234) #16
   br label %283
 
 283:                                              ; preds = %281, %._crit_edge.i
@@ -1287,28 +1284,28 @@ begin_replication_step.exit.i23:                  ; preds = %214, %212
   %305 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %306 = load ptr, ptr %305, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  call void @EvalPlanQualInit(ptr noundef nonnull %27, ptr noundef %302, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #17
-  call void @ExecOpenIndices(ptr noundef %299, i1 noundef zeroext true) #17
+  call void @EvalPlanQualInit(ptr noundef nonnull %27, ptr noundef %302, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #16
+  call void @ExecOpenIndices(ptr noundef %299, i1 noundef zeroext true) #16
   %.val.i.i = load ptr, ptr %233, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %306, i64 noundef 2)
   %307 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 200
-  %308 = call ptr @table_slot_create(ptr noundef %306, ptr noundef nonnull %307) #17
+  %308 = call ptr @table_slot_create(ptr noundef %306, ptr noundef nonnull %307) #16
   %.not.i.i.i = icmp eq i32 %301, 0
   br i1 %.not.i.i.i, label %FindReplTupleInLocalRel.exit.i.i, label %309
 
 309:                                              ; preds = %297
-  %310 = call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %306, i32 noundef %301, i32 noundef 3, ptr noundef nonnull %239, ptr noundef %308) #17
+  %310 = call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %306, i32 noundef %301, i32 noundef 3, ptr noundef nonnull %239, ptr noundef %308) #16
   br i1 %310, label %312, label %335
 
 FindReplTupleInLocalRel.exit.i.i:                 ; preds = %297
-  %311 = call zeroext i1 @RelationFindReplTupleSeq(ptr noundef %306, i32 noundef 3, ptr noundef nonnull %239, ptr noundef %308) #17
+  %311 = call zeroext i1 @RelationFindReplTupleSeq(ptr noundef %306, i32 noundef 3, ptr noundef nonnull %239, ptr noundef %308) #16
   br i1 %311, label %312, label %335
 
 312:                                              ; preds = %FindReplTupleInLocalRel.exit.i.i, %309
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %313 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %308, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef nonnull %30) #17
+  %313 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %308, ptr noundef nonnull %29, ptr noundef nonnull %28, ptr noundef nonnull %30) #16
   br i1 %313, label %314, label %323
 
 314:                                              ; preds = %312
@@ -1319,12 +1316,12 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %297
 
 317:                                              ; preds = %314
   %318 = getelementptr inbounds nuw i8, ptr %302, i64 200
-  %319 = call ptr @table_slot_create(ptr noundef %306, ptr noundef nonnull %318) #17
+  %319 = call ptr @table_slot_create(ptr noundef %306, ptr noundef nonnull %318) #16
   call fastcc void @slot_store_data(ptr noundef %319, ptr noundef %304, ptr noundef nonnull readonly %33)
   %320 = load i32, ptr %29, align 4
   %321 = load i16, ptr %28, align 2
   %322 = load i64, ptr %30, align 8
-  call void @ReportApplyConflict(ptr noundef %302, ptr noundef nonnull %299, i32 noundef 15, i32 noundef 1, ptr noundef nonnull %239, ptr noundef %308, ptr noundef %319, i32 noundef 0, i32 noundef %320, i16 noundef zeroext %321, i64 noundef %322) #17
+  call void @ReportApplyConflict(ptr noundef %302, ptr noundef nonnull %299, i32 noundef 15, i32 noundef 1, ptr noundef nonnull %239, ptr noundef %308, ptr noundef %319, i32 noundef 0, i32 noundef %320, i16 noundef zeroext %321, i64 noundef %322) #16
   br label %323
 
 323:                                              ; preds = %317, %314, %312
@@ -1334,7 +1331,7 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %297
   br i1 %.not40.i.i, label %326, label %328
 
 326:                                              ; preds = %323
-  %327 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %302) #17
+  %327 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %302) #16
   br label %328
 
 328:                                              ; preds = %326, %323
@@ -1347,10 +1344,10 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %297
   store ptr %332, ptr @CurrentMemoryContext, align 8
   %333 = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr %239, ptr %333, align 8
-  call void @InitConflictIndexes(ptr noundef nonnull %299) #17
+  call void @InitConflictIndexes(ptr noundef nonnull %299) #16
   %334 = load ptr, ptr %305, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %334, i64 noundef 4)
-  call void @ExecSimpleRelationUpdate(ptr noundef nonnull %299, ptr noundef nonnull %302, ptr noundef nonnull %27, ptr noundef %308, ptr noundef nonnull %239) #17
+  call void @ExecSimpleRelationUpdate(ptr noundef nonnull %299, ptr noundef nonnull %302, ptr noundef nonnull %27, ptr noundef %308, ptr noundef nonnull %239) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -1358,18 +1355,18 @@ FindReplTupleInLocalRel.exit.i.i:                 ; preds = %297
 
 335:                                              ; preds = %FindReplTupleInLocalRel.exit.i.i, %309
   call fastcc void @slot_store_data(ptr noundef %308, ptr noundef %304, ptr noundef nonnull readonly %33)
-  call void @ReportApplyConflict(ptr noundef %302, ptr noundef nonnull %299, i32 noundef 15, i32 noundef 3, ptr noundef nonnull %239, ptr noundef null, ptr noundef %308, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #17
+  call void @ReportApplyConflict(ptr noundef %302, ptr noundef nonnull %299, i32 noundef 15, i32 noundef 3, ptr noundef nonnull %239, ptr noundef null, ptr noundef %308, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #16
   br label %apply_handle_update_internal.exit.i
 
 apply_handle_update_internal.exit.i:              ; preds = %335, %328
-  call void @ExecCloseIndices(ptr noundef nonnull %299) #17
-  call void @EvalPlanQualEnd(ptr noundef nonnull %27) #17
+  call void @ExecCloseIndices(ptr noundef nonnull %299) #16
+  call void @EvalPlanQualEnd(ptr noundef nonnull %27) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %336
 
 336:                                              ; preds = %apply_handle_update_internal.exit.i, %296
   %337 = load ptr, ptr %233, align 8
-  call void @AfterTriggerEndQuery(ptr noundef %337) #17
+  call void @AfterTriggerEndQuery(ptr noundef %337) #16
   %338 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %339 = load ptr, ptr %338, align 8
   %.not.i48.i = icmp eq ptr %339, null
@@ -1378,27 +1375,27 @@ apply_handle_update_internal.exit.i:              ; preds = %335, %328
 340:                                              ; preds = %336
   %341 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %342 = load ptr, ptr %341, align 8
-  call void @ExecCleanupTupleRouting(ptr noundef %342, ptr noundef nonnull %339) #17
+  call void @ExecCleanupTupleRouting(ptr noundef %342, ptr noundef nonnull %339) #16
   br label %finish_edata.exit.i26
 
 finish_edata.exit.i26:                            ; preds = %340, %336
   %343 = getelementptr inbounds nuw i8, ptr %337, i64 200
   %344 = load ptr, ptr %343, align 8
-  call void @ExecResetTupleTable(ptr noundef %344, i1 noundef zeroext false) #17
-  call void @FreeExecutorState(ptr noundef %337) #17
-  call void @pfree(ptr noundef nonnull %233) #17
+  call void @ExecResetTupleTable(ptr noundef %344, i1 noundef zeroext false) #16
+  call void @FreeExecutorState(ptr noundef %337) #16
+  call void @pfree(ptr noundef nonnull %233) #16
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   br i1 %224, label %.sink.split.i24, label %345
 
 345:                                              ; preds = %finish_edata.exit.i26
-  call void @RestoreUserContext(ptr noundef nonnull %31) #17
+  call void @RestoreUserContext(ptr noundef nonnull %31) #16
   br label %.sink.split.i24
 
 .sink.split.i24:                                  ; preds = %345, %finish_edata.exit.i26, %begin_replication_step.exit.i23
   %.sink.i25 = phi i32 [ 3, %begin_replication_step.exit.i23 ], [ 0, %345 ], [ 0, %finish_edata.exit.i26 ]
-  call void @logicalrep_rel_close(ptr noundef %218, i32 noundef %.sink.i25) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  call void @logicalrep_rel_close(ptr noundef %218, i32 noundef %.sink.i25) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   br label %apply_handle_update.exit
 
 apply_handle_update.exit:                         ; preds = %208, %210, %.sink.split.i24
@@ -1420,22 +1417,22 @@ apply_handle_update.exit:                         ; preds = %208, %210, %.sink.s
   br i1 %349, label %apply_handle_delete.exit, label %350
 
 350:                                              ; preds = %348
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %351 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %351 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %351, label %begin_replication_step.exit.i31, label %352
 
 352:                                              ; preds = %350
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i31
 
 begin_replication_step.exit.i31:                  ; preds = %352, %350
-  %353 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %353) #17
+  %353 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %353) #16
   %354 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %354, ptr @CurrentMemoryContext, align 8
-  %355 = call i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef nonnull %25) #17
-  %356 = call ptr @logicalrep_rel_open(i32 noundef %355, i32 noundef 3) #17
+  %355 = call i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef nonnull %25) #16
+  %356 = call ptr @logicalrep_rel_open(i32 noundef %355, i32 noundef 3) #16
   %357 = call fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef %356)
   br i1 %357, label %358, label %.sink.split.i32
 
@@ -1455,7 +1452,7 @@ begin_replication_step.exit.i31:                  ; preds = %352, %350
   %367 = load ptr, ptr %366, align 8
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 80
   %369 = load i32, ptr %368, align 4
-  call void @SwitchToUntrustedUser(i32 noundef %369, ptr noundef nonnull %26) #17
+  call void @SwitchToUntrustedUser(i32 noundef %369, ptr noundef nonnull %26) #16
   br label %370
 
 370:                                              ; preds = %363, %358
@@ -1465,14 +1462,14 @@ begin_replication_step.exit.i31:                  ; preds = %352, %350
   %374 = load ptr, ptr %373, align 8
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 64
   %376 = load ptr, ptr %375, align 8
-  %377 = call ptr @ExecInitExtraTupleSlot(ptr noundef %372, ptr noundef %376, ptr noundef nonnull @TTSOpsVirtual) #17
+  %377 = call ptr @ExecInitExtraTupleSlot(ptr noundef %372, ptr noundef %376, ptr noundef nonnull @TTSOpsVirtual) #16
   %378 = getelementptr inbounds nuw i8, ptr %372, i64 264
   %379 = load ptr, ptr %378, align 8
   %.not28.i = icmp eq ptr %379, null
   br i1 %.not28.i, label %380, label %382
 
 380:                                              ; preds = %370
-  %381 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %372) #17
+  %381 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %372) #16
   br label %382
 
 382:                                              ; preds = %380, %370
@@ -1505,7 +1502,7 @@ begin_replication_step.exit.i31:                  ; preds = %352, %350
 
 399:                                              ; preds = %394, %393
   %400 = load ptr, ptr %371, align 8
-  call void @AfterTriggerEndQuery(ptr noundef %400) #17
+  call void @AfterTriggerEndQuery(ptr noundef %400) #16
   %401 = getelementptr inbounds nuw i8, ptr %371, i64 32
   %402 = load ptr, ptr %401, align 8
   %.not.i.i34 = icmp eq ptr %402, null
@@ -1514,27 +1511,27 @@ begin_replication_step.exit.i31:                  ; preds = %352, %350
 403:                                              ; preds = %399
   %404 = getelementptr inbounds nuw i8, ptr %371, i64 24
   %405 = load ptr, ptr %404, align 8
-  call void @ExecCleanupTupleRouting(ptr noundef %405, ptr noundef nonnull %402) #17
+  call void @ExecCleanupTupleRouting(ptr noundef %405, ptr noundef nonnull %402) #16
   br label %finish_edata.exit.i35
 
 finish_edata.exit.i35:                            ; preds = %403, %399
   %406 = getelementptr inbounds nuw i8, ptr %400, i64 200
   %407 = load ptr, ptr %406, align 8
-  call void @ExecResetTupleTable(ptr noundef %407, i1 noundef zeroext false) #17
-  call void @FreeExecutorState(ptr noundef %400) #17
-  call void @pfree(ptr noundef nonnull %371) #17
+  call void @ExecResetTupleTable(ptr noundef %407, i1 noundef zeroext false) #16
+  call void @FreeExecutorState(ptr noundef %400) #16
+  call void @pfree(ptr noundef nonnull %371) #16
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   br i1 %362, label %.sink.split.i32, label %408
 
 408:                                              ; preds = %finish_edata.exit.i35
-  call void @RestoreUserContext(ptr noundef nonnull %26) #17
+  call void @RestoreUserContext(ptr noundef nonnull %26) #16
   br label %.sink.split.i32
 
 .sink.split.i32:                                  ; preds = %408, %finish_edata.exit.i35, %begin_replication_step.exit.i31
   %.sink.i33 = phi i32 [ 3, %begin_replication_step.exit.i31 ], [ 0, %408 ], [ 0, %finish_edata.exit.i35 ]
-  call void @logicalrep_rel_close(ptr noundef %356, i32 noundef %.sink.i33) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  call void @logicalrep_rel_close(ptr noundef %356, i32 noundef %.sink.i33) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   br label %apply_handle_delete.exit
 
 apply_handle_delete.exit:                         ; preds = %346, %348, %.sink.split.i32
@@ -1556,21 +1553,21 @@ apply_handle_delete.exit:                         ; preds = %346, %348, %.sink.s
   br i1 %412, label %apply_handle_truncate.exit, label %413
 
 413:                                              ; preds = %411
-  tail call void @SetCurrentStatementStartTimestamp() #17
-  %414 = tail call zeroext i1 @IsTransactionState() #17
+  tail call void @SetCurrentStatementStartTimestamp() #16
+  %414 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %414, label %begin_replication_step.exit.i37, label %415
 
 415:                                              ; preds = %413
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   tail call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i37
 
 begin_replication_step.exit.i37:                  ; preds = %415, %413
-  %416 = tail call ptr @GetTransactionSnapshot() #17
-  tail call void @PushActiveSnapshot(ptr noundef %416) #17
+  %416 = tail call ptr @GetTransactionSnapshot() #16
+  tail call void @PushActiveSnapshot(ptr noundef %416) #16
   %417 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %417, ptr @CurrentMemoryContext, align 8
-  %418 = call ptr @logicalrep_read_truncate(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %24) #17
+  %418 = call ptr @logicalrep_read_truncate(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %24) #16
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 4
   %.not107.i = icmp eq ptr %418, null
   br i1 %.not107.i, label %.critedge.i, label %.lr.ph142.i
@@ -1591,7 +1588,7 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   %423 = load ptr, ptr %420, align 8
   %424 = getelementptr inbounds nuw %union.ListCell, ptr %423, i64 %indvars.iv165.i136
   %425 = load i32, ptr %424, align 8
-  %426 = call ptr @logicalrep_rel_open(i32 noundef %425, i32 noundef 8) #17
+  %426 = call ptr @logicalrep_rel_open(i32 noundef %425, i32 noundef 8) #16
   %427 = call fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef %426)
   br i1 %427, label %440, label %439
 
@@ -1608,7 +1605,7 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   %432 = load i8, ptr %431, align 1, !range !4, !noundef !5
   %433 = trunc nuw i8 %432 to i1
   %434 = xor i1 %433, true
-  call void @ExecuteTruncateGuts(ptr noundef %.082.lcssa.i, ptr noundef %.089.lcssa.i, ptr noundef %.094.lcssa.i, i32 noundef 0, i1 noundef zeroext %429, i1 noundef zeroext %434) #17
+  call void @ExecuteTruncateGuts(ptr noundef %.082.lcssa.i, ptr noundef %.089.lcssa.i, ptr noundef %.094.lcssa.i, i32 noundef 0, i1 noundef zeroext %429, i1 noundef zeroext %434) #16
   %435 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 4
   %.not109.i = icmp eq ptr %.0.lcssa.i, null
   br i1 %.not109.i, label %.critedge120.i, label %.lr.ph155.i
@@ -1620,19 +1617,19 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   br i1 %438, label %.lr.ph158.i, label %.critedge120.i
 
 439:                                              ; preds = %.lr.ph142
-  call void @logicalrep_rel_close(ptr noundef %426, i32 noundef 8) #17
+  call void @logicalrep_rel_close(ptr noundef %426, i32 noundef 8) #16
   br label %.critedge118.i
 
 440:                                              ; preds = %.lr.ph142
-  %441 = call ptr @lappend(ptr noundef %.0141.i137, ptr noundef %426) #17
+  %441 = call ptr @lappend(ptr noundef %.0141.i137, ptr noundef %426) #16
   %442 = getelementptr inbounds nuw i8, ptr %426, i64 72
   %443 = load ptr, ptr %442, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %443, i64 noundef 16)
   %444 = load ptr, ptr %442, align 8
-  %445 = call ptr @lappend(ptr noundef %.082140.i138, ptr noundef %444) #17
+  %445 = call ptr @lappend(ptr noundef %.082140.i138, ptr noundef %444) #16
   %446 = getelementptr inbounds nuw i8, ptr %426, i64 68
   %447 = load i32, ptr %446, align 4
-  %448 = call ptr @lappend_oid(ptr noundef %.089138.i140, i32 noundef %447) #17
+  %448 = call ptr @lappend_oid(ptr noundef %.089138.i140, i32 noundef %447) #16
   %449 = load i32, ptr @wal_level, align 4
   %450 = icmp sgt i32 %449, 1
   br i1 %450, label %451, label %466
@@ -1653,12 +1650,12 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   br i1 %.not113.i, label %466, label %461
 
 461:                                              ; preds = %458
-  %462 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %452) #17
+  %462 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %452) #16
   br i1 %462, label %466, label %463
 
 463:                                              ; preds = %461
   %464 = load i32, ptr %446, align 4
-  %465 = call ptr @lappend_oid(ptr noundef %.094137.i141, i32 noundef %464) #17
+  %465 = call ptr @lappend_oid(ptr noundef %.094137.i141, i32 noundef %464) #16
   br label %466
 
 466:                                              ; preds = %463, %461, %458, %451, %440
@@ -1673,7 +1670,7 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
 
 473:                                              ; preds = %466
   %474 = load i32, ptr %446, align 4
-  %475 = call ptr @find_all_inheritors(i32 noundef %474, i32 noundef 8, ptr noundef null) #17
+  %475 = call ptr @find_all_inheritors(i32 noundef %474, i32 noundef 8, ptr noundef null) #16
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 4
   %.not114.i = icmp eq ptr %475, null
   br i1 %.not114.i, label %.critedge118.i, label %.lr.ph.i38
@@ -1693,11 +1690,11 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   %480 = load ptr, ptr %477, align 8
   %481 = getelementptr inbounds nuw %union.ListCell, ptr %480, i64 %indvars.iv.i39128
   %482 = load i32, ptr %481, align 8
-  %483 = call zeroext i1 @list_member_oid(ptr noundef %.392125.i131, i32 noundef %482) #17
+  %483 = call zeroext i1 @list_member_oid(ptr noundef %.392125.i131, i32 noundef %482) #16
   br i1 %483, label %514, label %484
 
 484:                                              ; preds = %.lr.ph
-  %485 = call ptr @table_open(i32 noundef %482, i32 noundef 0) #17
+  %485 = call ptr @table_open(i32 noundef %482, i32 noundef 0) #16
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 56
   %487 = load ptr, ptr %486, align 8
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 114
@@ -1712,14 +1709,14 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   br i1 %494, label %496, label %495
 
 495:                                              ; preds = %491
-  call void @table_close(ptr noundef nonnull %485, i32 noundef 8) #17
+  call void @table_close(ptr noundef nonnull %485, i32 noundef 8) #16
   br label %514
 
 496:                                              ; preds = %491, %484
   call fastcc void @TargetPrivilegesCheck(ptr noundef nonnull %485, i64 noundef 16)
-  %497 = call ptr @lappend(ptr noundef %.3127.i129, ptr noundef nonnull %485) #17
-  %498 = call ptr @lappend(ptr noundef %.387126.i130, ptr noundef nonnull %485) #17
-  %499 = call ptr @lappend_oid(ptr noundef %.392125.i131, i32 noundef %482) #17
+  %497 = call ptr @lappend(ptr noundef %.3127.i129, ptr noundef nonnull %485) #16
+  %498 = call ptr @lappend(ptr noundef %.387126.i130, ptr noundef nonnull %485) #16
+  %499 = call ptr @lappend_oid(ptr noundef %.392125.i131, i32 noundef %482) #16
   %500 = load i32, ptr @wal_level, align 4
   %501 = icmp sgt i32 %500, 1
   br i1 %501, label %502, label %514
@@ -1738,11 +1735,11 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   br i1 %.not116.i, label %514, label %510
 
 510:                                              ; preds = %507
-  %511 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %485) #17
+  %511 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %485) #16
   br i1 %511, label %514, label %512
 
 512:                                              ; preds = %510
-  %513 = call ptr @lappend_oid(ptr noundef %.498124.i132, i32 noundef %482) #17
+  %513 = call ptr @lappend_oid(ptr noundef %.498124.i132, i32 noundef %482) #16
   br label %514
 
 514:                                              ; preds = %512, %510, %507, %502, %496, %495, %.lr.ph
@@ -1773,7 +1770,7 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   %521 = load ptr, ptr %436, align 8
   %522 = getelementptr inbounds nuw %union.ListCell, ptr %521, i64 %indvars.iv168.i
   %523 = load ptr, ptr %522, align 8
-  call void @logicalrep_rel_close(ptr noundef %523, i32 noundef 0) #17
+  call void @logicalrep_rel_close(ptr noundef %523, i32 noundef 0) #16
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 1
   %524 = load i32, ptr %435, align 4
   %525 = sext i32 %524 to i64
@@ -1796,7 +1793,7 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   %531 = load ptr, ptr %528, align 8
   %532 = getelementptr inbounds nuw %union.ListCell, ptr %531, i64 %indvars.iv171.i
   %533 = load ptr, ptr %532, align 8
-  call void @table_close(ptr noundef %533, i32 noundef 0) #17
+  call void @table_close(ptr noundef %533, i32 noundef 0) #16
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %534 = load i32, ptr %527, align 4
   %535 = sext i32 %534 to i64
@@ -1804,8 +1801,8 @@ begin_replication_step.exit.i37:                  ; preds = %415, %413
   br i1 %536, label %.lr.ph163.i, label %.critedge122.i
 
 .critedge122.i:                                   ; preds = %.lr.ph163.i, %.lr.ph160.i, %.critedge120.i
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
   br label %apply_handle_truncate.exit
 
 apply_handle_truncate.exit:                       ; preds = %409, %411, %.critedge122.i
@@ -1818,9 +1815,9 @@ apply_handle_truncate.exit:                       ; preds = %409, %411, %.crited
   br i1 %538, label %apply_handle_relation.exit, label %539
 
 539:                                              ; preds = %537
-  %540 = tail call ptr @logicalrep_read_rel(ptr noundef %0) #17
-  tail call void @logicalrep_relmap_update(ptr noundef %540) #17
-  tail call void @logicalrep_partmap_reset_relmap(ptr noundef %540) #17
+  %540 = tail call ptr @logicalrep_read_rel(ptr noundef %0) #16
+  tail call void @logicalrep_relmap_update(ptr noundef %540) #16
+  tail call void @logicalrep_partmap_reset_relmap(ptr noundef %540) #16
   br label %apply_handle_relation.exit
 
 541:                                              ; preds = %1
@@ -1829,7 +1826,7 @@ apply_handle_truncate.exit:                       ; preds = %409, %411, %.crited
   br i1 %542, label %apply_handle_type.exit, label %543
 
 543:                                              ; preds = %541
-  call void @logicalrep_read_typ(ptr noundef %0, ptr noundef nonnull %22) #17
+  call void @logicalrep_read_typ(ptr noundef %0, ptr noundef nonnull %22) #16
   br label %apply_handle_type.exit
 
 apply_handle_type.exit:                           ; preds = %541, %543
@@ -1846,7 +1843,7 @@ apply_handle_type.exit:                           ; preds = %541, %543
   br i1 %547, label %548, label %am_tablesync_worker.exit.thread.i
 
 548:                                              ; preds = %545
-  %549 = tail call zeroext i1 @IsTransactionState() #17
+  %549 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %549, label %550, label %apply_handle_relation.exit
 
 550:                                              ; preds = %548
@@ -1862,11 +1859,10 @@ am_tablesync_worker.exit.i:                       ; preds = %550
   br i1 %556, label %apply_handle_relation.exit, label %am_tablesync_worker.exit.thread.i
 
 am_tablesync_worker.exit.thread.i:                ; preds = %am_tablesync_worker.exit.i, %550, %545
-  %557 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %557)
-  %558 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %559 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1441, ptr noundef nonnull @__func__.apply_handle_origin) #17
+  %557 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %558 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %559 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1441, ptr noundef nonnull @__func__.apply_handle_origin) #16
   unreachable
 
 560:                                              ; preds = %1
@@ -1880,26 +1876,24 @@ am_tablesync_worker.exit.thread.i:                ; preds = %am_tablesync_worker
   br i1 %.b6.i, label %561, label %565
 
 561:                                              ; preds = %560
-  %562 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %562)
-  %563 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %564 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1501, ptr noundef nonnull @__func__.apply_handle_stream_start) #17
+  %562 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %563 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %564 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1501, ptr noundef nonnull @__func__.apply_handle_stream_start) #16
   unreachable
 
 565:                                              ; preds = %560
   store i1 true, ptr @in_streamed_transaction, align 1
-  %566 = call i32 @logicalrep_read_stream_start(ptr noundef nonnull %0, ptr noundef nonnull %21) #17
+  %566 = call i32 @logicalrep_read_stream_start(ptr noundef nonnull %0, ptr noundef nonnull %21) #16
   store i32 %566, ptr @stream_xid, align 4
   %.not.i41 = icmp eq i32 %566, 0
   br i1 %.not.i41, label %567, label %571
 
 567:                                              ; preds = %565
-  %568 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %568)
-  %569 = call i32 @errcode(i32 noundef 16908800) #17
-  %570 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1515, ptr noundef nonnull @__func__.apply_handle_stream_start) #17
+  %568 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %569 = call i32 @errcode(i32 noundef 16908800) #16
+  %570 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1515, ptr noundef nonnull @__func__.apply_handle_stream_start) #16
   unreachable
 
 571:                                              ; preds = %565
@@ -1910,7 +1904,7 @@ am_tablesync_worker.exit.thread.i:                ; preds = %am_tablesync_worker
   br i1 %573, label %574, label %575
 
 574:                                              ; preds = %571
-  call void @pa_allocate_worker(i32 noundef %566) #17
+  call void @pa_allocate_worker(i32 noundef %566) #16
   %.pre.i43 = load i32, ptr @stream_xid, align 4
   br label %575
 
@@ -1928,7 +1922,7 @@ am_parallel_apply_worker.exit.i.i:                ; preds = %575
   br i1 %582, label %get_transaction_apply_action.exit.thread22.i, label %am_parallel_apply_worker.exit.thread.i.i
 
 am_parallel_apply_worker.exit.thread.i.i:         ; preds = %am_parallel_apply_worker.exit.i.i, %575
-  %583 = call ptr @pa_find_worker(i32 noundef %576) #17
+  %583 = call ptr @pa_find_worker(i32 noundef %576) #16
   %.not.i.i42 = icmp eq ptr %583, null
   br i1 %.not.i.i42, label %get_transaction_apply_action.exit.i, label %584
 
@@ -1953,7 +1947,7 @@ get_transaction_apply_action.exit.thread.i:       ; preds = %584
   %592 = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8
   %593 = sext i32 %592 to i64
   %594 = load ptr, ptr %0, align 8
-  %595 = call zeroext i1 @pa_send_data(ptr noundef nonnull %583, i64 noundef %593, ptr noundef %594) #17
+  %595 = call zeroext i1 @pa_send_data(ptr noundef nonnull %583, i64 noundef %593, ptr noundef %594) #16
   %596 = load i8, ptr %21, align 1, !range !4, !noundef !5
   %597 = trunc nuw i8 %596 to i1
   br i1 %595, label %598, label %609
@@ -1966,20 +1960,20 @@ get_transaction_apply_action.exit.thread.i:       ; preds = %584
   %601 = load ptr, ptr %600, align 8
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 4
   %603 = load i32, ptr %602, align 4
-  call void @pa_unlock_stream(i32 noundef %603, i32 noundef 8) #17
+  call void @pa_unlock_stream(i32 noundef %603, i32 noundef 8) #16
   br label %604
 
 604:                                              ; preds = %599, %598
   %605 = getelementptr inbounds nuw i8, ptr %583, i64 32
   %606 = load ptr, ptr %605, align 8
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 20
-  %608 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %607, i32 1, ptr nonnull elementtype(i32) %607) #17, !srcloc !11
-  call void @pa_set_stream_apply_worker(ptr noundef nonnull %583) #17
+  %608 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %607, i32 1, ptr nonnull elementtype(i32) %607) #16, !srcloc !11
+  call void @pa_set_stream_apply_worker(ptr noundef nonnull %583) #16
   br label %apply_handle_stream_start.exit
 
 609:                                              ; preds = %get_transaction_apply_action.exit.thread.i
   %610 = xor i1 %597, true
-  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %583, i1 noundef zeroext %610) #17
+  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %583, i1 noundef zeroext %610) #16
   br label %614
 
 get_transaction_apply_action.exit.thread25.i:     ; preds = %584
@@ -1997,19 +1991,19 @@ get_transaction_apply_action.exit.thread25.i:     ; preds = %584
   %616 = sub i32 %615, %.sroa.69.0.copyload.i
   store i32 %616, ptr %20, align 4
   %617 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %617, ptr noundef nonnull %20, i64 noundef 4) #17
+  call void @BufFileWrite(ptr noundef %617, ptr noundef nonnull %20, i64 noundef 4) #16
   %618 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %618, ptr noundef nonnull %19, i64 noundef 1) #17
+  call void @BufFileWrite(ptr noundef %618, ptr noundef nonnull %19, i64 noundef 1) #16
   %619 = sub i32 %.sroa.4.0.copyload.i, %.sroa.69.0.copyload.i
   store i32 %619, ptr %20, align 4
   %620 = load ptr, ptr @stream_fd, align 8
   %621 = sext i32 %.sroa.69.0.copyload.i to i64
   %622 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 %621
   %623 = sext i32 %619 to i64
-  call void @BufFileWrite(ptr noundef %620, ptr noundef %622, i64 noundef %623) #17
+  call void @BufFileWrite(ptr noundef %620, ptr noundef %622, i64 noundef %623) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @pa_set_stream_apply_worker(ptr noundef nonnull %583) #17
+  call void @pa_set_stream_apply_worker(ptr noundef nonnull %583) #16
   br label %apply_handle_stream_start.exit
 
 get_transaction_apply_action.exit.thread22.i:     ; preds = %am_parallel_apply_worker.exit.i.i
@@ -2021,13 +2015,13 @@ get_transaction_apply_action.exit.thread22.i:     ; preds = %am_parallel_apply_w
   %627 = load ptr, ptr @MyParallelShared, align 8
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 4
   %629 = load i32, ptr %628, align 4
-  call void @pa_lock_transaction(i32 noundef %629, i32 noundef 8) #17
+  call void @pa_lock_transaction(i32 noundef %629, i32 noundef 8) #16
   %630 = load ptr, ptr @MyParallelShared, align 8
-  call void @pa_set_xact_state(ptr noundef %630, i32 noundef 1) #17
+  call void @pa_set_xact_state(ptr noundef %630, i32 noundef 1) #16
   %631 = load ptr, ptr @MyLogicalRepWorker, align 8
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 40
   %633 = load i32, ptr %632, align 8
-  call void @logicalrep_worker_wakeup(i32 noundef %633, i32 noundef 0) #17
+  call void @logicalrep_worker_wakeup(i32 noundef %633, i32 noundef 0) #16
   br label %634
 
 634:                                              ; preds = %626, %get_transaction_apply_action.exit.thread22.i
@@ -2035,14 +2029,13 @@ get_transaction_apply_action.exit.thread22.i:     ; preds = %am_parallel_apply_w
   br label %apply_handle_stream_start.exit
 
 635:                                              ; preds = %get_transaction_apply_action.exit.i
-  %636 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %636)
-  %637 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 0) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1611, ptr noundef nonnull @__func__.apply_handle_stream_start) #17
+  %636 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %637 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 0) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1611, ptr noundef nonnull @__func__.apply_handle_stream_start) #16
   unreachable
 
 apply_handle_stream_start.exit:                   ; preds = %588, %604, %614, %634
-  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %apply_handle_relation.exit
 
@@ -2051,11 +2044,10 @@ apply_handle_stream_start.exit:                   ; preds = %588, %604, %614, %6
   br i1 %.b4.i, label %643, label %639
 
 639:                                              ; preds = %638
-  %640 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %640)
-  %641 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %642 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1656, ptr noundef nonnull @__func__.apply_handle_stream_stop) #17
+  %640 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %641 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %642 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1656, ptr noundef nonnull @__func__.apply_handle_stream_stop) #16
   unreachable
 
 643:                                              ; preds = %638
@@ -2072,7 +2064,7 @@ am_parallel_apply_worker.exit.i.i50:              ; preds = %643
   br i1 %650, label %get_transaction_apply_action.exit.thread13.i, label %am_parallel_apply_worker.exit.thread.i.i44
 
 am_parallel_apply_worker.exit.thread.i.i44:       ; preds = %am_parallel_apply_worker.exit.i.i50, %643
-  %651 = tail call ptr @pa_find_worker(i32 noundef %644) #17
+  %651 = tail call ptr @pa_find_worker(i32 noundef %644) #16
   %.not.i.i45 = icmp eq ptr %651, null
   br i1 %.not.i.i45, label %get_transaction_apply_action.exit.i48, label %652
 
@@ -2093,11 +2085,11 @@ get_transaction_apply_action.exit.i48:            ; preds = %am_parallel_apply_w
   %660 = load i32, ptr %659, align 8
   tail call fastcc void @subxact_info_write(i32 noundef %660, i32 noundef %657)
   %661 = load ptr, ptr @stream_fd, align 8
-  tail call void @BufFileClose(ptr noundef %661) #17
+  tail call void @BufFileClose(ptr noundef %661) #16
   store ptr null, ptr @stream_fd, align 8
-  tail call void @CommitTransactionCommand() #17
+  tail call void @CommitTransactionCommand() #16
   %662 = load ptr, ptr @LogicalStreamingContext, align 8
-  tail call void @MemoryContextReset(ptr noundef %662) #17
+  tail call void @MemoryContextReset(ptr noundef %662) #16
   br label %apply_handle_stream_stop.exit
 
 get_transaction_apply_action.exit.thread.i46:     ; preds = %652
@@ -2105,20 +2097,20 @@ get_transaction_apply_action.exit.thread.i46:     ; preds = %652
   %664 = load ptr, ptr %663, align 8
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 4
   %666 = load i32, ptr %665, align 4
-  tail call void @pa_lock_stream(i32 noundef %666, i32 noundef 8) #17
+  tail call void @pa_lock_stream(i32 noundef %666, i32 noundef 8) #16
   %667 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %668 = load i32, ptr %667, align 8
   %669 = sext i32 %668 to i64
   %670 = load ptr, ptr %0, align 8
-  %671 = tail call zeroext i1 @pa_send_data(ptr noundef nonnull %651, i64 noundef %669, ptr noundef %670) #17
+  %671 = tail call zeroext i1 @pa_send_data(ptr noundef nonnull %651, i64 noundef %669, ptr noundef %670) #16
   br i1 %671, label %672, label %673
 
 672:                                              ; preds = %get_transaction_apply_action.exit.thread.i46
-  tail call void @pa_set_stream_apply_worker(ptr noundef null) #17
+  tail call void @pa_set_stream_apply_worker(ptr noundef null) #16
   br label %apply_handle_stream_stop.exit
 
 673:                                              ; preds = %get_transaction_apply_action.exit.thread.i46
-  tail call void @pa_switch_to_partial_serialize(ptr noundef nonnull %651, i1 noundef zeroext true) #17
+  tail call void @pa_switch_to_partial_serialize(ptr noundef nonnull %651, i1 noundef zeroext true) #16
   br label %get_transaction_apply_action.exit.thread10.i
 
 get_transaction_apply_action.exit.thread10.i:     ; preds = %673, %652
@@ -2133,9 +2125,9 @@ get_transaction_apply_action.exit.thread10.i:     ; preds = %673, %652
   %679 = sub i32 %678, %677
   store i32 %679, ptr %18, align 4
   %680 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %680, ptr noundef nonnull %18, i64 noundef 4) #17
+  call void @BufFileWrite(ptr noundef %680, ptr noundef nonnull %18, i64 noundef 4) #16
   %681 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %681, ptr noundef nonnull %17, i64 noundef 1) #17
+  call void @BufFileWrite(ptr noundef %681, ptr noundef nonnull %17, i64 noundef 1) #16
   %682 = load i32, ptr %674, align 8
   %683 = load i32, ptr %676, align 8
   %684 = sub i32 %682, %683
@@ -2145,7 +2137,7 @@ get_transaction_apply_action.exit.thread10.i:     ; preds = %673, %652
   %687 = sext i32 %683 to i64
   %688 = getelementptr inbounds i8, ptr %686, i64 %687
   %689 = sext i32 %684 to i64
-  call void @BufFileWrite(ptr noundef %685, ptr noundef %688, i64 noundef %689) #17
+  call void @BufFileWrite(ptr noundef %685, ptr noundef %688, i64 noundef %689) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %690 = load i32, ptr @stream_xid, align 4
@@ -2154,41 +2146,40 @@ get_transaction_apply_action.exit.thread10.i:     ; preds = %673, %652
   %693 = load i32, ptr %692, align 8
   call fastcc void @subxact_info_write(i32 noundef %693, i32 noundef %690)
   %694 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileClose(ptr noundef %694) #17
+  call void @BufFileClose(ptr noundef %694) #16
   store ptr null, ptr @stream_fd, align 8
-  call void @CommitTransactionCommand() #17
+  call void @CommitTransactionCommand() #16
   %695 = load ptr, ptr @LogicalStreamingContext, align 8
-  call void @MemoryContextReset(ptr noundef %695) #17
-  call void @pa_set_stream_apply_worker(ptr noundef null) #17
+  call void @MemoryContextReset(ptr noundef %695) #16
+  call void @pa_set_stream_apply_worker(ptr noundef null) #16
   br label %apply_handle_stream_stop.exit
 
 get_transaction_apply_action.exit.thread13.i:     ; preds = %am_parallel_apply_worker.exit.i.i50
-  %696 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %696 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %696, label %697, label %700
 
 697:                                              ; preds = %get_transaction_apply_action.exit.thread13.i
   %698 = load i32, ptr @parallel_stream_nchanges, align 4
-  %699 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, i32 noundef %698) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1698, ptr noundef nonnull @__func__.apply_handle_stream_stop) #17
+  %699 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, i32 noundef %698) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1698, ptr noundef nonnull @__func__.apply_handle_stream_stop) #16
   br label %700
 
 700:                                              ; preds = %697, %get_transaction_apply_action.exit.thread13.i
-  tail call void @pa_decr_and_wait_stream_block() #17
+  tail call void @pa_decr_and_wait_stream_block() #16
   br label %apply_handle_stream_stop.exit
 
 701:                                              ; preds = %get_transaction_apply_action.exit.i48
-  %702 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %702)
-  %703 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 0) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1727, ptr noundef nonnull @__func__.apply_handle_stream_stop) #17
+  %702 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %703 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 0) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1727, ptr noundef nonnull @__func__.apply_handle_stream_stop) #16
   unreachable
 
 apply_handle_stream_stop.exit:                    ; preds = %656, %672, %get_transaction_apply_action.exit.thread10.i, %700
   store i1 false, ptr @in_streamed_transaction, align 1
   store i32 0, ptr @stream_xid, align 4
-  %704 = call zeroext i1 @IsTransactionOrTransactionBlock() #17
+  %704 = call zeroext i1 @IsTransactionOrTransactionBlock() #16
   %..i47 = select i1 %704, i32 3, i32 1
-  call void @pgstat_report_activity(i32 noundef %..i47, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef %..i47, ptr noundef null) #16
   store i32 0, ptr @apply_error_callback_arg.0, align 8
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
@@ -2204,11 +2195,10 @@ apply_handle_stream_stop.exit:                    ; preds = %656, %672, %get_tra
   br i1 %.b20.i, label %706, label %710
 
 706:                                              ; preds = %705
-  %707 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %707)
-  %708 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %709 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1849, ptr noundef nonnull @__func__.apply_handle_stream_abort) #17
+  %707 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %708 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %709 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1849, ptr noundef nonnull @__func__.apply_handle_stream_abort) #16
   unreachable
 
 710:                                              ; preds = %705
@@ -2216,7 +2206,7 @@ apply_handle_stream_stop.exit:                    ; preds = %656, %672, %get_tra
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 84
   %713 = load i8, ptr %712, align 4, !range !4, !noundef !5
   %714 = trunc nuw i8 %713 to i1
-  call void @logicalrep_read_stream_abort(ptr noundef nonnull %0, ptr noundef nonnull %15, i1 noundef zeroext %714) #17
+  call void @logicalrep_read_stream_abort(ptr noundef nonnull %0, ptr noundef nonnull %15, i1 noundef zeroext %714) #16
   %715 = load i32, ptr %15, align 8
   %716 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %717 = load i32, ptr %716, align 4
@@ -2237,7 +2227,7 @@ am_parallel_apply_worker.exit.i.i57:              ; preds = %710
   br i1 %726, label %get_transaction_apply_action.exit.thread33.i, label %am_parallel_apply_worker.exit.thread.i.i51
 
 am_parallel_apply_worker.exit.thread.i.i51:       ; preds = %am_parallel_apply_worker.exit.i.i57, %710
-  %727 = call ptr @pa_find_worker(i32 noundef %715) #17
+  %727 = call ptr @pa_find_worker(i32 noundef %715) #16
   %.not.i.i52 = icmp eq ptr %727, null
   br i1 %.not.i.i52, label %get_transaction_apply_action.exit.i54, label %728
 
@@ -2259,33 +2249,33 @@ get_transaction_apply_action.exit.i54:            ; preds = %am_parallel_apply_w
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 40
   %736 = load i32, ptr %735, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %737 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %736, i32 noundef %715) #17
+  %737 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %736, i32 noundef %715) #16
   %738 = load ptr, ptr @MyLogicalRepWorker, align 8
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 72
   %740 = load ptr, ptr %739, align 8
-  call void @BufFileDeleteFileSet(ptr noundef %740, ptr noundef nonnull %13, i1 noundef zeroext false) #17
-  %741 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %736, i32 noundef %715) #17
+  call void @BufFileDeleteFileSet(ptr noundef %740, ptr noundef nonnull %13, i1 noundef zeroext false) #16
+  %741 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %736, i32 noundef %715) #16
   %742 = load ptr, ptr @MyLogicalRepWorker, align 8
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 72
   %744 = load ptr, ptr %743, align 8
-  call void @BufFileDeleteFileSet(ptr noundef %744, ptr noundef nonnull %13, i1 noundef zeroext true) #17
+  call void @BufFileDeleteFileSet(ptr noundef %744, ptr noundef nonnull %13, i1 noundef zeroext true) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %stream_abort_internal.exit.i
 
 745:                                              ; preds = %732
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @SetCurrentStatementStartTimestamp() #17
-  %746 = call zeroext i1 @IsTransactionState() #17
+  call void @SetCurrentStatementStartTimestamp() #16
+  %746 = call zeroext i1 @IsTransactionState() #16
   br i1 %746, label %begin_replication_step.exit.i.i, label %747
 
 747:                                              ; preds = %745
-  call void @StartTransactionCommand() #17
+  call void @StartTransactionCommand() #16
   call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i.i
 
 begin_replication_step.exit.i.i:                  ; preds = %747, %745
-  %748 = call ptr @GetTransactionSnapshot() #17
-  call void @PushActiveSnapshot(ptr noundef %748) #17
+  %748 = call ptr @GetTransactionSnapshot() #16
+  call void @PushActiveSnapshot(ptr noundef %748) #16
   %749 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %749, ptr @CurrentMemoryContext, align 8
   %750 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -2314,7 +2304,7 @@ begin_replication_step.exit.i.i:                  ; preds = %747, %745
   br i1 %.not.i.i.i56, label %cleanup_subxact_info.exit.i.i, label %763
 
 763:                                              ; preds = %.critedge.i.i
-  call void @pfree(ptr noundef nonnull %755) #17
+  call void @pfree(ptr noundef nonnull %755) #16
   br label %cleanup_subxact_info.exit.i.i
 
 cleanup_subxact_info.exit.i.i:                    ; preds = %763, %.critedge.i.i
@@ -2328,19 +2318,19 @@ cleanup_subxact_info.exit.i.i:                    ; preds = %763, %.critedge.i.i
   %765 = load ptr, ptr @MyLogicalRepWorker, align 8
   %766 = getelementptr inbounds nuw i8, ptr %765, i64 40
   %767 = load i32, ptr %766, align 8
-  %768 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %767, i32 noundef %715) #17
+  %768 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %767, i32 noundef %715) #16
   %769 = load ptr, ptr @MyLogicalRepWorker, align 8
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 72
   %771 = load ptr, ptr %770, align 8
-  %772 = call ptr @BufFileOpenFileSet(ptr noundef %771, ptr noundef nonnull %14, i32 noundef 2, i1 noundef zeroext false) #17
+  %772 = call ptr @BufFileOpenFileSet(ptr noundef %771, ptr noundef nonnull %14, i32 noundef 2, i1 noundef zeroext false) #16
   %773 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 16), align 8
   %774 = getelementptr inbounds nuw %struct.SubXactInfo, ptr %773, i64 %759
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 4
   %776 = load i32, ptr %775, align 4
   %777 = getelementptr inbounds nuw i8, ptr %774, i64 8
   %778 = load i64, ptr %777, align 8
-  call void @BufFileTruncateFileSet(ptr noundef %772, i32 noundef %776, i64 noundef %778) #17
-  call void @BufFileClose(ptr noundef %772) #17
+  call void @BufFileTruncateFileSet(ptr noundef %772, i32 noundef %776, i64 noundef %778) #16
+  call void @BufFileClose(ptr noundef %772) #16
   %779 = trunc nuw i64 %759 to i32
   store i32 %779, ptr @subxact_data, align 8
   %780 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -2350,19 +2340,19 @@ cleanup_subxact_info.exit.i.i:                    ; preds = %763, %.critedge.i.i
   br label %783
 
 783:                                              ; preds = %764, %cleanup_subxact_info.exit.i.i
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
-  call void @CommitTransactionCommand() #17
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
+  call void @CommitTransactionCommand() #16
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %stream_abort_internal.exit.i
 
 stream_abort_internal.exit.i:                     ; preds = %783, %733
-  %784 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %784 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %784, label %785, label %apply_handle_stream_abort.exit
 
 785:                                              ; preds = %stream_abort_internal.exit.i
-  %786 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1873, ptr noundef nonnull @__func__.apply_handle_stream_abort) #17
+  %786 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1873, ptr noundef nonnull @__func__.apply_handle_stream_abort) #16
   br label %apply_handle_stream_abort.exit
 
 get_transaction_apply_action.exit.thread.i53:     ; preds = %728
@@ -2373,29 +2363,29 @@ get_transaction_apply_action.exit.thread.i53:     ; preds = %728
   %789 = load i32, ptr %788, align 8
   %790 = sext i32 %789 to i64
   %791 = load ptr, ptr %0, align 8
-  %792 = call zeroext i1 @pa_send_data(ptr noundef nonnull %727, i64 noundef %790, ptr noundef %791) #17
+  %792 = call zeroext i1 @pa_send_data(ptr noundef nonnull %727, i64 noundef %790, ptr noundef %791) #16
   br i1 %792, label %802, label %803
 
 .thread.i:                                        ; preds = %get_transaction_apply_action.exit.thread.i53
-  call void @pa_unlock_stream(i32 noundef %715, i32 noundef 8) #17
+  call void @pa_unlock_stream(i32 noundef %715, i32 noundef 8) #16
   %793 = getelementptr inbounds nuw i8, ptr %727, i64 32
   %794 = load ptr, ptr %793, align 8
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 20
-  %796 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %795, i32 1, ptr nonnull elementtype(i32) %795) #17, !srcloc !11
-  call void @pa_lock_stream(i32 noundef %715, i32 noundef 8) #17
+  %796 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %795, i32 1, ptr nonnull elementtype(i32) %795) #16, !srcloc !11
+  call void @pa_lock_stream(i32 noundef %715, i32 noundef 8) #16
   %797 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %798 = load i32, ptr %797, align 8
   %799 = sext i32 %798 to i64
   %800 = load ptr, ptr %0, align 8
-  %801 = call zeroext i1 @pa_send_data(ptr noundef nonnull %727, i64 noundef %799, ptr noundef %800) #17
+  %801 = call zeroext i1 @pa_send_data(ptr noundef nonnull %727, i64 noundef %799, ptr noundef %800) #16
   br i1 %801, label %apply_handle_stream_abort.exit, label %803
 
 802:                                              ; preds = %787
-  call void @pa_xact_finish(ptr noundef nonnull %727, i64 noundef 0) #17
+  call void @pa_xact_finish(ptr noundef nonnull %727, i64 noundef 0) #16
   br label %apply_handle_stream_abort.exit
 
 803:                                              ; preds = %.thread.i, %787
-  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %727, i1 noundef zeroext true) #17
+  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %727, i1 noundef zeroext true) #16
   br label %get_transaction_apply_action.exit.thread30.i
 
 get_transaction_apply_action.exit.thread30.i:     ; preds = %803, %728
@@ -2405,8 +2395,8 @@ get_transaction_apply_action.exit.thread30.i:     ; preds = %803, %728
 804:                                              ; preds = %get_transaction_apply_action.exit.thread30.i
   %805 = getelementptr inbounds nuw i8, ptr %727, i64 32
   %806 = load ptr, ptr %805, align 8
-  call void @pa_set_fileset_state(ptr noundef %806, i32 noundef 2) #17
-  call void @pa_xact_finish(ptr noundef nonnull %727, i64 noundef 0) #17
+  call void @pa_set_fileset_state(ptr noundef %806, i32 noundef 2) #16
+  call void @pa_xact_finish(ptr noundef nonnull %727, i64 noundef 0) #16
   br label %apply_handle_stream_abort.exit
 
 get_transaction_apply_action.exit.thread33.i:     ; preds = %am_parallel_apply_worker.exit.i.i57
@@ -2416,32 +2406,31 @@ get_transaction_apply_action.exit.thread33.i:     ; preds = %am_parallel_apply_w
   br i1 %or.cond.i, label %809, label %810
 
 809:                                              ; preds = %get_transaction_apply_action.exit.thread33.i
-  call void @BufFileClose(ptr noundef nonnull %807) #17
+  call void @BufFileClose(ptr noundef nonnull %807) #16
   store ptr null, ptr @stream_fd, align 8
   br label %810
 
 810:                                              ; preds = %809, %get_transaction_apply_action.exit.thread33.i
-  call void @pa_stream_abort(ptr noundef nonnull %15) #17
+  call void @pa_stream_abort(ptr noundef nonnull %15) #16
   br i1 %718, label %812, label %811
 
 811:                                              ; preds = %810
-  call void @pa_decr_and_wait_stream_block() #17
+  call void @pa_decr_and_wait_stream_block() #16
   br label %812
 
 812:                                              ; preds = %811, %810
-  %813 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %813 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %813, label %814, label %apply_handle_stream_abort.exit
 
 814:                                              ; preds = %812
-  %815 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1976, ptr noundef nonnull @__func__.apply_handle_stream_abort) #17
+  %815 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1976, ptr noundef nonnull @__func__.apply_handle_stream_abort) #16
   br label %apply_handle_stream_abort.exit
 
 816:                                              ; preds = %get_transaction_apply_action.exit.i54
-  %817 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %817)
-  %818 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 1) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1980, ptr noundef nonnull @__func__.apply_handle_stream_abort) #17
+  %817 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %818 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 1) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1980, ptr noundef nonnull @__func__.apply_handle_stream_abort) #16
   unreachable
 
 apply_handle_stream_abort.exit:                   ; preds = %stream_abort_internal.exit.i, %785, %.thread.i, %802, %get_transaction_apply_action.exit.thread30.i, %804, %812, %814
@@ -2462,15 +2451,14 @@ apply_handle_stream_abort.exit:                   ; preds = %stream_abort_intern
   br i1 %.b11.i, label %820, label %824
 
 820:                                              ; preds = %819
-  %821 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %821)
-  %822 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %823 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2166, ptr noundef nonnull @__func__.apply_handle_stream_commit) #17
+  %821 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %822 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %823 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2166, ptr noundef nonnull @__func__.apply_handle_stream_commit) #16
   unreachable
 
 824:                                              ; preds = %819
-  %825 = call i32 @logicalrep_read_stream_commit(ptr noundef nonnull %0, ptr noundef nonnull %11) #17
+  %825 = call i32 @logicalrep_read_stream_commit(ptr noundef nonnull %0, ptr noundef nonnull %11) #16
   %826 = load i64, ptr %11, align 8
   store i32 %825, ptr @apply_error_callback_arg.3, align 4
   store i64 %826, ptr @apply_error_callback_arg.4, align 8
@@ -2486,7 +2474,7 @@ am_parallel_apply_worker.exit.i:                  ; preds = %824
   br i1 %832, label %get_transaction_apply_action.exit.thread113, label %am_parallel_apply_worker.exit.thread.i
 
 am_parallel_apply_worker.exit.thread.i:           ; preds = %am_parallel_apply_worker.exit.i, %824
-  %833 = call ptr @pa_find_worker(i32 noundef %825) #17
+  %833 = call ptr @pa_find_worker(i32 noundef %825) #16
   %.not.i85 = icmp eq ptr %833, null
   br i1 %.not.i85, label %get_transaction_apply_action.exit, label %834
 
@@ -2511,12 +2499,12 @@ get_transaction_apply_action.exit:                ; preds = %am_parallel_apply_w
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 40
   %845 = load i32, ptr %844, align 8
   call void @stream_cleanup_files(i32 noundef %845, i32 noundef %825)
-  %846 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %846 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %846, label %847, label %apply_handle_stream_commit.exit
 
 847:                                              ; preds = %838
-  %848 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2189, ptr noundef nonnull @__func__.apply_handle_stream_commit) #17
+  %848 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2189, ptr noundef nonnull @__func__.apply_handle_stream_commit) #16
   br label %apply_handle_stream_commit.exit
 
 get_transaction_apply_action.exit.thread:         ; preds = %834
@@ -2524,27 +2512,27 @@ get_transaction_apply_action.exit.thread:         ; preds = %834
   %850 = load i32, ptr %849, align 8
   %851 = sext i32 %850 to i64
   %852 = load ptr, ptr %0, align 8
-  %853 = call zeroext i1 @pa_send_data(ptr noundef nonnull %833, i64 noundef %851, ptr noundef %852) #17
+  %853 = call zeroext i1 @pa_send_data(ptr noundef nonnull %833, i64 noundef %851, ptr noundef %852) #16
   br i1 %853, label %854, label %857
 
 854:                                              ; preds = %get_transaction_apply_action.exit.thread
   %855 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %856 = load i64, ptr %855, align 8
-  call void @pa_xact_finish(ptr noundef nonnull %833, i64 noundef %856) #17
+  call void @pa_xact_finish(ptr noundef nonnull %833, i64 noundef %856) #16
   br label %apply_handle_stream_commit.exit
 
 857:                                              ; preds = %get_transaction_apply_action.exit.thread
-  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %833, i1 noundef zeroext true) #17
+  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %833, i1 noundef zeroext true) #16
   br label %get_transaction_apply_action.exit.thread110
 
 get_transaction_apply_action.exit.thread110:      ; preds = %834, %857
   call fastcc void @stream_open_and_write_change(i32 noundef %825, i8 noundef signext 99, ptr noundef %12)
   %858 = getelementptr inbounds nuw i8, ptr %833, i64 32
   %859 = load ptr, ptr %858, align 8
-  call void @pa_set_fileset_state(ptr noundef %859, i32 noundef 2) #17
+  call void @pa_set_fileset_state(ptr noundef %859, i32 noundef 2) #16
   %860 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %861 = load i64, ptr %860, align 8
-  call void @pa_xact_finish(ptr noundef nonnull %833, i64 noundef %861) #17
+  call void @pa_xact_finish(ptr noundef nonnull %833, i64 noundef %861) #16
   br label %apply_handle_stream_commit.exit
 
 get_transaction_apply_action.exit.thread113:      ; preds = %am_parallel_apply_worker.exit.i
@@ -2553,7 +2541,7 @@ get_transaction_apply_action.exit.thread113:      ; preds = %am_parallel_apply_w
   br i1 %.not.i58, label %864, label %863
 
 863:                                              ; preds = %get_transaction_apply_action.exit.thread113
-  call void @BufFileClose(ptr noundef nonnull %862) #17
+  call void @BufFileClose(ptr noundef nonnull %862) #16
   store ptr null, ptr @stream_fd, align 8
   br label %864
 
@@ -2563,29 +2551,28 @@ get_transaction_apply_action.exit.thread113:      ; preds = %am_parallel_apply_w
   %866 = load ptr, ptr @MyParallelShared, align 8
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 24
   store i64 %865, ptr %867, align 8
-  call void @pa_set_xact_state(ptr noundef %866, i32 noundef 2) #17
-  call void @pa_unlock_transaction(i32 noundef %825, i32 noundef 8) #17
-  call void @pa_reset_subtrans() #17
-  %868 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  call void @pa_set_xact_state(ptr noundef %866, i32 noundef 2) #16
+  call void @pa_unlock_transaction(i32 noundef %825, i32 noundef 8) #16
+  call void @pa_reset_subtrans() #16
+  %868 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %868, label %869, label %apply_handle_stream_commit.exit
 
 869:                                              ; preds = %864
-  %870 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2243, ptr noundef nonnull @__func__.apply_handle_stream_commit) #17
+  %870 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2243, ptr noundef nonnull @__func__.apply_handle_stream_commit) #16
   br label %apply_handle_stream_commit.exit
 
 871:                                              ; preds = %get_transaction_apply_action.exit
-  %872 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %872)
-  %873 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 1) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2247, ptr noundef nonnull @__func__.apply_handle_stream_commit) #17
+  %872 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %873 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 1) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2247, ptr noundef nonnull @__func__.apply_handle_stream_commit) #16
   unreachable
 
 apply_handle_stream_commit.exit:                  ; preds = %838, %847, %854, %get_transaction_apply_action.exit.thread110, %864, %869
   %874 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %875 = load i64, ptr %874, align 8
-  call void @process_syncing_tables(i64 noundef %875) #17
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @process_syncing_tables(i64 noundef %875) #16
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   store i32 0, ptr @apply_error_callback_arg.0, align 8
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
@@ -2609,15 +2596,14 @@ am_tablesync_worker.exit.i61:                     ; preds = %876
   br i1 %882, label %883, label %am_tablesync_worker.exit.thread.i59
 
 883:                                              ; preds = %am_tablesync_worker.exit.i61
-  %884 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %884)
-  %885 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %886 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1049, ptr noundef nonnull @__func__.apply_handle_begin_prepare) #17
+  %884 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %885 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %886 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1049, ptr noundef nonnull @__func__.apply_handle_begin_prepare) #16
   unreachable
 
 am_tablesync_worker.exit.thread.i59:              ; preds = %am_tablesync_worker.exit.i61, %876
-  call void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef nonnull %10) #17
+  call void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef nonnull %10) #16
   %887 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %888 = load i32, ptr %887, align 8
   %889 = load i64, ptr %10, align 8
@@ -2634,7 +2620,7 @@ am_tablesync_worker.exit.thread.i59:              ; preds = %am_tablesync_worker
 
 895:                                              ; preds = %am_tablesync_worker.exit.thread.i59
   store i64 %889, ptr @skip_xact_finish_lsn, align 8
-  %896 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %896 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %896, label %897, label %apply_handle_begin_prepare.exit
 
 897:                                              ; preds = %895
@@ -2642,28 +2628,27 @@ am_tablesync_worker.exit.thread.i59:              ; preds = %am_tablesync_worker
   %899 = lshr i64 %898, 32
   %900 = trunc nuw i64 %899 to i32
   %901 = trunc i64 %898 to i32
-  %902 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.83, i32 noundef %900, i32 noundef %901) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4886, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #17
+  %902 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.83, i32 noundef %900, i32 noundef %901) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4886, ptr noundef nonnull @__func__.maybe_start_skipping_changes) #16
   br label %apply_handle_begin_prepare.exit
 
 apply_handle_begin_prepare.exit:                  ; preds = %am_tablesync_worker.exit.thread.i59, %895, %897
   store i8 1, ptr @in_remote_transaction, align 1
-  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 2, ptr noundef null) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %apply_handle_relation.exit
 
 903:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @logicalrep_read_prepare(ptr noundef %0, ptr noundef nonnull %9) #17
+  call void @logicalrep_read_prepare(ptr noundef %0, ptr noundef nonnull %9) #16
   %904 = load i64, ptr %9, align 8
   %905 = load i64, ptr @remote_final_lsn, align 8
   %.not.i62 = icmp eq i64 %904, %905
   br i1 %.not.i62, label %918, label %906
 
 906:                                              ; preds = %903
-  %907 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %907)
-  %908 = call i32 @errcode(i32 noundef 16908800) #17
+  %907 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %908 = call i32 @errcode(i32 noundef 16908800) #16
   %909 = load i64, ptr %9, align 8
   %910 = lshr i64 %909, 32
   %911 = trunc nuw i64 %910 to i32
@@ -2672,23 +2657,23 @@ apply_handle_begin_prepare.exit:                  ; preds = %am_tablesync_worker
   %914 = lshr i64 %913, 32
   %915 = trunc nuw i64 %914 to i32
   %916 = trunc i64 %913 to i32
-  %917 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, i32 noundef %911, i32 noundef %912, i32 noundef %915, i32 noundef %916) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1118, ptr noundef nonnull @__func__.apply_handle_prepare) #17
+  %917 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, i32 noundef %911, i32 noundef %912, i32 noundef %915, i32 noundef %916) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1118, ptr noundef nonnull @__func__.apply_handle_prepare) #16
   unreachable
 
 918:                                              ; preds = %903
-  call void @SetCurrentStatementStartTimestamp() #17
-  %919 = call zeroext i1 @IsTransactionState() #17
+  call void @SetCurrentStatementStartTimestamp() #16
+  %919 = call zeroext i1 @IsTransactionState() #16
   br i1 %919, label %begin_replication_step.exit.i63, label %920
 
 920:                                              ; preds = %918
-  call void @StartTransactionCommand() #17
+  call void @StartTransactionCommand() #16
   call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i63
 
 begin_replication_step.exit.i63:                  ; preds = %920, %918
-  %921 = call ptr @GetTransactionSnapshot() #17
-  call void @PushActiveSnapshot(ptr noundef %921) #17
+  %921 = call ptr @GetTransactionSnapshot() #16
+  call void @PushActiveSnapshot(ptr noundef %921) #16
   %922 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %922, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2696,13 +2681,13 @@ begin_replication_step.exit.i63:                  ; preds = %920, %918
   %924 = load i32, ptr %923, align 8
   %925 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %926 = load i32, ptr %925, align 8
-  call void @TwoPhaseTransactionGid(i32 noundef %924, i32 noundef %926, ptr noundef nonnull %8, i32 noundef 200) #17
-  %927 = call zeroext i1 @IsTransactionBlock() #17
+  call void @TwoPhaseTransactionGid(i32 noundef %924, i32 noundef %926, ptr noundef nonnull %8, i32 noundef 200) #16
+  %927 = call zeroext i1 @IsTransactionBlock() #16
   br i1 %927, label %apply_handle_prepare_internal.exit.i, label %928
 
 928:                                              ; preds = %begin_replication_step.exit.i63
-  call void @BeginTransactionBlock() #17
-  call void @CommitTransactionCommand() #17
+  call void @BeginTransactionBlock() #16
+  call void @CommitTransactionCommand() #16
   br label %apply_handle_prepare_internal.exit.i
 
 apply_handle_prepare_internal.exit.i:             ; preds = %928, %begin_replication_step.exit.i63
@@ -2712,12 +2697,12 @@ apply_handle_prepare_internal.exit.i:             ; preds = %928, %begin_replica
   %931 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %932 = load i64, ptr %931, align 8
   store i64 %932, ptr @replorigin_session_origin_timestamp, align 8
-  %933 = call zeroext i1 @PrepareTransactionBlock(ptr noundef nonnull %8) #17
+  %933 = call zeroext i1 @PrepareTransactionBlock(ptr noundef nonnull %8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
-  call void @CommitTransactionCommand() #17
-  %934 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #17
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
+  call void @CommitTransactionCommand() #16
+  %934 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #16
   %935 = load i64, ptr %929, align 8
   %936 = load ptr, ptr @MyLogicalRepWorker, align 8
   %937 = getelementptr inbounds nuw i8, ptr %936, i64 16
@@ -2733,7 +2718,7 @@ am_parallel_apply_worker.exit.i.i67:              ; preds = %apply_handle_prepar
 am_parallel_apply_worker.exit.thread.i.i64:       ; preds = %am_parallel_apply_worker.exit.i.i67, %apply_handle_prepare_internal.exit.i
   %942 = load ptr, ptr @ApplyContext, align 8
   store ptr %942, ptr @CurrentMemoryContext, align 8
-  %943 = call ptr @palloc(i64 noundef 32) #17
+  %943 = call ptr @palloc(i64 noundef 32) #16
   %944 = getelementptr inbounds nuw i8, ptr %943, i64 16
   store i64 0, ptr %944, align 8
   %945 = getelementptr inbounds nuw i8, ptr %943, i64 24
@@ -2766,13 +2751,13 @@ dlist_push_tail.exit.i.i:                         ; preds = %948, %._crit_edge.i
 store_flush_position.exit.i:                      ; preds = %dlist_push_tail.exit.i.i, %am_parallel_apply_worker.exit.i.i67
   %953 = phi i64 [ %935, %am_parallel_apply_worker.exit.i.i67 ], [ %.pre.i65, %dlist_push_tail.exit.i.i ]
   store i8 0, ptr @in_remote_transaction, align 1
-  call void @process_syncing_tables(i64 noundef %953) #17
+  call void @process_syncing_tables(i64 noundef %953) #16
   %954 = load i64, ptr @skip_xact_finish_lsn, align 8
   %.not.i.i66 = icmp eq i64 %954, 0
   br i1 %.not.i.i66, label %apply_handle_prepare.exit, label %955, !prof !6
 
 955:                                              ; preds = %store_flush_position.exit.i
-  %956 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %956 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %956, label %957, label %963
 
 957:                                              ; preds = %955
@@ -2780,8 +2765,8 @@ store_flush_position.exit.i:                      ; preds = %dlist_push_tail.exi
   %959 = lshr i64 %958, 32
   %960 = trunc nuw i64 %959 to i32
   %961 = trunc i64 %958 to i32
-  %962 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %960, i32 noundef %961) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4900, ptr noundef nonnull @__func__.stop_skipping_changes) #17
+  %962 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %960, i32 noundef %961) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4900, ptr noundef nonnull @__func__.stop_skipping_changes) #16
   br label %963
 
 963:                                              ; preds = %957, %955
@@ -2791,7 +2776,7 @@ store_flush_position.exit.i:                      ; preds = %dlist_push_tail.exi
 apply_handle_prepare.exit:                        ; preds = %store_flush_position.exit.i, %963
   %964 = load i64, ptr %9, align 8
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %964)
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   store i32 0, ptr @apply_error_callback_arg.0, align 8
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
@@ -2803,7 +2788,7 @@ apply_handle_prepare.exit:                        ; preds = %store_flush_positio
 965:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @logicalrep_read_commit_prepared(ptr noundef %0, ptr noundef nonnull %6) #17
+  call void @logicalrep_read_commit_prepared(ptr noundef %0, ptr noundef nonnull %6) #16
   %966 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %967 = load i32, ptr %966, align 8
   %968 = load i64, ptr %6, align 8
@@ -2811,19 +2796,19 @@ apply_handle_prepare.exit:                        ; preds = %store_flush_positio
   store i64 %968, ptr @apply_error_callback_arg.4, align 8
   %969 = load ptr, ptr @MySubscription, align 8
   %970 = load i32, ptr %969, align 8
-  call void @TwoPhaseTransactionGid(i32 noundef %970, i32 noundef %967, ptr noundef nonnull %7, i32 noundef 200) #17
-  call void @SetCurrentStatementStartTimestamp() #17
-  %971 = call zeroext i1 @IsTransactionState() #17
+  call void @TwoPhaseTransactionGid(i32 noundef %970, i32 noundef %967, ptr noundef nonnull %7, i32 noundef 200) #16
+  call void @SetCurrentStatementStartTimestamp() #16
+  %971 = call zeroext i1 @IsTransactionState() #16
   br i1 %971, label %begin_replication_step.exit.i68, label %972
 
 972:                                              ; preds = %965
-  call void @StartTransactionCommand() #17
+  call void @StartTransactionCommand() #16
   call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i68
 
 begin_replication_step.exit.i68:                  ; preds = %972, %965
-  %973 = call ptr @GetTransactionSnapshot() #17
-  call void @PushActiveSnapshot(ptr noundef %973) #17
+  %973 = call ptr @GetTransactionSnapshot() #16
+  call void @PushActiveSnapshot(ptr noundef %973) #16
   %974 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %974, ptr @CurrentMemoryContext, align 8
   %975 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2832,11 +2817,11 @@ begin_replication_step.exit.i68:                  ; preds = %972, %965
   %977 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %978 = load i64, ptr %977, align 8
   store i64 %978, ptr @replorigin_session_origin_timestamp, align 8
-  call void @FinishPreparedTransaction(ptr noundef nonnull %7, i1 noundef zeroext true) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
-  call void @CommitTransactionCommand() #17
-  %979 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #17
+  call void @FinishPreparedTransaction(ptr noundef nonnull %7, i1 noundef zeroext true) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
+  call void @CommitTransactionCommand() #16
+  %979 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #16
   %980 = load i64, ptr %975, align 8
   %981 = load i64, ptr @XactLastCommitEnd, align 8
   %982 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -2853,7 +2838,7 @@ am_parallel_apply_worker.exit.i.i75:              ; preds = %begin_replication_s
 am_parallel_apply_worker.exit.thread.i.i69:       ; preds = %am_parallel_apply_worker.exit.i.i75, %begin_replication_step.exit.i68
   %988 = load ptr, ptr @ApplyContext, align 8
   store ptr %988, ptr @CurrentMemoryContext, align 8
-  %989 = call ptr @palloc(i64 noundef 32) #17
+  %989 = call ptr @palloc(i64 noundef 32) #16
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 16
   store i64 %981, ptr %990, align 8
   %991 = getelementptr inbounds nuw i8, ptr %989, i64 24
@@ -2886,10 +2871,10 @@ dlist_push_tail.exit.i.i72:                       ; preds = %994, %._crit_edge.i
 apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_worker.exit.i.i75, %dlist_push_tail.exit.i.i72
   %999 = phi i64 [ %980, %am_parallel_apply_worker.exit.i.i75 ], [ %.pre.i73, %dlist_push_tail.exit.i.i72 ]
   store i8 0, ptr @in_remote_transaction, align 1
-  call void @process_syncing_tables(i64 noundef %999) #17
+  call void @process_syncing_tables(i64 noundef %999) #16
   %1000 = load i64, ptr %975, align 8
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %1000)
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   store i32 0, ptr @apply_error_callback_arg.0, align 8
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
@@ -2902,7 +2887,7 @@ apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_w
 1001:                                             ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @logicalrep_read_rollback_prepared(ptr noundef %0, ptr noundef nonnull %4) #17
+  call void @logicalrep_read_rollback_prepared(ptr noundef %0, ptr noundef nonnull %4) #16
   %1002 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %1003 = load i32, ptr %1002, align 8
   %1004 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2911,11 +2896,11 @@ apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_w
   store i64 %1005, ptr @apply_error_callback_arg.4, align 8
   %1006 = load ptr, ptr @MySubscription, align 8
   %1007 = load i32, ptr %1006, align 8
-  call void @TwoPhaseTransactionGid(i32 noundef %1007, i32 noundef %1003, ptr noundef nonnull %5, i32 noundef 200) #17
+  call void @TwoPhaseTransactionGid(i32 noundef %1007, i32 noundef %1003, ptr noundef nonnull %5, i32 noundef 200) #16
   %1008 = load i64, ptr %4, align 8
   %1009 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %1010 = load i64, ptr %1009, align 8
-  %1011 = call zeroext i1 @LookupGXact(ptr noundef nonnull %5, i64 noundef %1008, i64 noundef %1010) #17
+  %1011 = call zeroext i1 @LookupGXact(ptr noundef nonnull %5, i64 noundef %1008, i64 noundef %1010) #16
   br i1 %1011, label %1012, label %1021
 
 1012:                                             ; preds = %1001
@@ -2924,30 +2909,30 @@ apply_handle_commit_prepared.exit:                ; preds = %am_parallel_apply_w
   %1014 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %1015 = load i64, ptr %1014, align 8
   store i64 %1015, ptr @replorigin_session_origin_timestamp, align 8
-  call void @SetCurrentStatementStartTimestamp() #17
-  %1016 = call zeroext i1 @IsTransactionState() #17
+  call void @SetCurrentStatementStartTimestamp() #16
+  %1016 = call zeroext i1 @IsTransactionState() #16
   br i1 %1016, label %begin_replication_step.exit.i83, label %1017
 
 1017:                                             ; preds = %1012
-  call void @StartTransactionCommand() #17
+  call void @StartTransactionCommand() #16
   call void @maybe_reread_subscription()
   br label %begin_replication_step.exit.i83
 
 begin_replication_step.exit.i83:                  ; preds = %1017, %1012
-  %1018 = call ptr @GetTransactionSnapshot() #17
-  call void @PushActiveSnapshot(ptr noundef %1018) #17
+  %1018 = call ptr @GetTransactionSnapshot() #16
+  call void @PushActiveSnapshot(ptr noundef %1018) #16
   %1019 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %1019, ptr @CurrentMemoryContext, align 8
-  call void @FinishPreparedTransaction(ptr noundef nonnull %5, i1 noundef zeroext false) #17
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
-  call void @CommitTransactionCommand() #17
+  call void @FinishPreparedTransaction(ptr noundef nonnull %5, i1 noundef zeroext false) #16
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
+  call void @CommitTransactionCommand() #16
   %1020 = load i64, ptr %1004, align 8
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %1020)
   br label %1021
 
 1021:                                             ; preds = %begin_replication_step.exit.i83, %1001
-  %1022 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #17
+  %1022 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #16
   %1023 = load i64, ptr %1004, align 8
   %1024 = load ptr, ptr @MyLogicalRepWorker, align 8
   %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 16
@@ -2963,7 +2948,7 @@ am_parallel_apply_worker.exit.i.i82:              ; preds = %1021
 am_parallel_apply_worker.exit.thread.i.i76:       ; preds = %am_parallel_apply_worker.exit.i.i82, %1021
   %1030 = load ptr, ptr @ApplyContext, align 8
   store ptr %1030, ptr @CurrentMemoryContext, align 8
-  %1031 = call ptr @palloc(i64 noundef 32) #17
+  %1031 = call ptr @palloc(i64 noundef 32) #16
   %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 16
   store i64 0, ptr %1032, align 8
   %1033 = getelementptr inbounds nuw i8, ptr %1031, i64 24
@@ -2996,8 +2981,8 @@ dlist_push_tail.exit.i.i79:                       ; preds = %1036, %._crit_edge.
 apply_handle_rollback_prepared.exit:              ; preds = %am_parallel_apply_worker.exit.i.i82, %dlist_push_tail.exit.i.i79
   %1041 = phi i64 [ %1023, %am_parallel_apply_worker.exit.i.i82 ], [ %.pre.i80, %dlist_push_tail.exit.i.i79 ]
   store i8 0, ptr @in_remote_transaction, align 1
-  call void @process_syncing_tables(i64 noundef %1041) #17
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @process_syncing_tables(i64 noundef %1041) #16
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   store i32 0, ptr @apply_error_callback_arg.0, align 8
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
@@ -3015,11 +3000,10 @@ apply_handle_rollback_prepared.exit:              ; preds = %am_parallel_apply_w
   br i1 %.b5.i, label %1043, label %1047
 
 1043:                                             ; preds = %1042
-  %1044 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %1044)
-  %1045 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %1046 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.65) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1297, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #17
+  %1044 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %1045 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %1046 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.65) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1297, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #16
   unreachable
 
 1047:                                             ; preds = %1042
@@ -3035,15 +3019,14 @@ am_tablesync_worker.exit:                         ; preds = %1047
   br i1 %1053, label %1054, label %am_tablesync_worker.exit.thread
 
 1054:                                             ; preds = %am_tablesync_worker.exit
-  %1055 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %1055)
-  %1056 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %1057 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1303, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #17
+  %1055 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %1056 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %1057 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1303, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #16
   unreachable
 
 am_tablesync_worker.exit.thread:                  ; preds = %1047, %am_tablesync_worker.exit
-  call void @logicalrep_read_stream_prepare(ptr noundef nonnull %0, ptr noundef nonnull %2) #17
+  call void @logicalrep_read_stream_prepare(ptr noundef nonnull %0, ptr noundef nonnull %2) #16
   %1058 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1059 = load i32, ptr %1058, align 8
   %1060 = load i64, ptr %2, align 8
@@ -3061,7 +3044,7 @@ am_parallel_apply_worker.exit.i94:                ; preds = %am_tablesync_worker
   br i1 %1066, label %get_transaction_apply_action.exit95.thread124, label %am_parallel_apply_worker.exit.thread.i88
 
 am_parallel_apply_worker.exit.thread.i88:         ; preds = %am_parallel_apply_worker.exit.i94, %am_tablesync_worker.exit.thread
-  %1067 = call ptr @pa_find_worker(i32 noundef %1059) #17
+  %1067 = call ptr @pa_find_worker(i32 noundef %1059) #16
   %.not.i89 = icmp eq ptr %1067, null
   br i1 %.not.i89, label %get_transaction_apply_action.exit95, label %1068
 
@@ -3083,7 +3066,7 @@ get_transaction_apply_action.exit95:              ; preds = %am_parallel_apply_w
   %1077 = load i64, ptr %2, align 8
   call void @apply_spooled_messages(ptr noundef %1075, i32 noundef %1076, i64 noundef %1077)
   call fastcc void @apply_handle_prepare_internal(ptr noundef %2)
-  call void @CommitTransactionCommand() #17
+  call void @CommitTransactionCommand() #16
   %1078 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1079 = load i64, ptr %1078, align 8
   call void @store_flush_position(i64 noundef %1079, i64 noundef 0)
@@ -3093,12 +3076,12 @@ get_transaction_apply_action.exit95:              ; preds = %am_parallel_apply_w
   %1082 = load i32, ptr %1081, align 8
   %1083 = load i32, ptr %1058, align 8
   call void @stream_cleanup_files(i32 noundef %1082, i32 noundef %1083)
-  %1084 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %1084 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %1084, label %1085, label %apply_handle_stream_prepare.exit
 
 1085:                                             ; preds = %1072
-  %1086 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1337, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #17
+  %1086 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1337, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #16
   br label %apply_handle_stream_prepare.exit
 
 get_transaction_apply_action.exit95.thread:       ; preds = %1068
@@ -3106,17 +3089,17 @@ get_transaction_apply_action.exit95.thread:       ; preds = %1068
   %1088 = load i32, ptr %1087, align 8
   %1089 = sext i32 %1088 to i64
   %1090 = load ptr, ptr %0, align 8
-  %1091 = call zeroext i1 @pa_send_data(ptr noundef nonnull %1067, i64 noundef %1089, ptr noundef %1090) #17
+  %1091 = call zeroext i1 @pa_send_data(ptr noundef nonnull %1067, i64 noundef %1089, ptr noundef %1090) #16
   br i1 %1091, label %1092, label %1095
 
 1092:                                             ; preds = %get_transaction_apply_action.exit95.thread
   %1093 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1094 = load i64, ptr %1093, align 8
-  call void @pa_xact_finish(ptr noundef nonnull %1067, i64 noundef %1094) #17
+  call void @pa_xact_finish(ptr noundef nonnull %1067, i64 noundef %1094) #16
   br label %apply_handle_stream_prepare.exit
 
 1095:                                             ; preds = %get_transaction_apply_action.exit95.thread
-  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %1067, i1 noundef zeroext true) #17
+  call void @pa_switch_to_partial_serialize(ptr noundef nonnull %1067, i1 noundef zeroext true) #16
   br label %get_transaction_apply_action.exit95.thread121
 
 get_transaction_apply_action.exit95.thread121:    ; preds = %1068, %1095
@@ -3124,10 +3107,10 @@ get_transaction_apply_action.exit95.thread121:    ; preds = %1068, %1095
   call fastcc void @stream_open_and_write_change(i32 noundef %1096, i8 noundef signext 112, ptr noundef %3)
   %1097 = getelementptr inbounds nuw i8, ptr %1067, i64 32
   %1098 = load ptr, ptr %1097, align 8
-  call void @pa_set_fileset_state(ptr noundef %1098, i32 noundef 2) #17
+  call void @pa_set_fileset_state(ptr noundef %1098, i32 noundef 2) #16
   %1099 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1100 = load i64, ptr %1099, align 8
-  call void @pa_xact_finish(ptr noundef nonnull %1067, i64 noundef %1100) #17
+  call void @pa_xact_finish(ptr noundef nonnull %1067, i64 noundef %1100) #16
   br label %apply_handle_stream_prepare.exit
 
 get_transaction_apply_action.exit95.thread124:    ; preds = %am_parallel_apply_worker.exit.i94
@@ -3136,51 +3119,50 @@ get_transaction_apply_action.exit95.thread124:    ; preds = %am_parallel_apply_w
   br i1 %.not.i84, label %1103, label %1102
 
 1102:                                             ; preds = %get_transaction_apply_action.exit95.thread124
-  call void @BufFileClose(ptr noundef nonnull %1101) #17
+  call void @BufFileClose(ptr noundef nonnull %1101) #16
   store ptr null, ptr @stream_fd, align 8
   br label %1103
 
 1103:                                             ; preds = %1102, %get_transaction_apply_action.exit95.thread124
   call fastcc void @begin_replication_step()
   call fastcc void @apply_handle_prepare_internal(ptr noundef %2)
-  call void @PopActiveSnapshot() #17
-  call void @CommandCounterIncrement() #17
-  call void @CommitTransactionCommand() #17
+  call void @PopActiveSnapshot() #16
+  call void @CommandCounterIncrement() #16
+  call void @CommitTransactionCommand() #16
   %1104 = load ptr, ptr @MyParallelShared, align 8
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 24
   store i64 0, ptr %1105, align 8
-  call void @pa_set_xact_state(ptr noundef %1104, i32 noundef 2) #17
+  call void @pa_set_xact_state(ptr noundef %1104, i32 noundef 2) #16
   %1106 = load ptr, ptr @MyParallelShared, align 8
   %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 4
   %1108 = load i32, ptr %1107, align 4
-  call void @pa_unlock_transaction(i32 noundef %1108, i32 noundef 8) #17
-  call void @pa_reset_subtrans() #17
-  %1109 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  call void @pa_unlock_transaction(i32 noundef %1108, i32 noundef 8) #16
+  call void @pa_reset_subtrans() #16
+  %1109 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %1109, label %1110, label %apply_handle_stream_prepare.exit
 
 1110:                                             ; preds = %1103
-  %1111 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1399, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #17
+  %1111 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1399, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #16
   br label %apply_handle_stream_prepare.exit
 
 1112:                                             ; preds = %get_transaction_apply_action.exit95
-  %1113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %1113)
-  %1114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 1) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1403, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #17
+  %1113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %1114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef 1) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1403, ptr noundef nonnull @__func__.apply_handle_stream_prepare) #16
   unreachable
 
 apply_handle_stream_prepare.exit:                 ; preds = %1072, %1085, %1092, %get_transaction_apply_action.exit95.thread121, %1103, %1110
-  %1115 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #17
+  %1115 = call i64 @pgstat_report_stat(i1 noundef zeroext false) #16
   %1116 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1117 = load i64, ptr %1116, align 8
-  call void @process_syncing_tables(i64 noundef %1117) #17
+  call void @process_syncing_tables(i64 noundef %1117) #16
   %1118 = load i64, ptr @skip_xact_finish_lsn, align 8
   %.not.i87 = icmp eq i64 %1118, 0
   br i1 %.not.i87, label %stop_skipping_changes.exit, label %1119, !prof !6
 
 1119:                                             ; preds = %apply_handle_stream_prepare.exit
-  %1120 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %1120 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %1120, label %1121, label %1127
 
 1121:                                             ; preds = %1119
@@ -3188,8 +3170,8 @@ apply_handle_stream_prepare.exit:                 ; preds = %1072, %1085, %1092,
   %1123 = lshr i64 %1122, 32
   %1124 = trunc nuw i64 %1123 to i32
   %1125 = trunc i64 %1122 to i32
-  %1126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %1124, i32 noundef %1125) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4900, ptr noundef nonnull @__func__.stop_skipping_changes) #17
+  %1126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %1124, i32 noundef %1125) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4900, ptr noundef nonnull @__func__.stop_skipping_changes) #16
   br label %1127
 
 1127:                                             ; preds = %1121, %1119
@@ -3199,7 +3181,7 @@ apply_handle_stream_prepare.exit:                 ; preds = %1072, %1085, %1092,
 stop_skipping_changes.exit:                       ; preds = %apply_handle_stream_prepare.exit, %1127
   %1128 = load i64, ptr %2, align 8
   call fastcc void @clear_subscription_skip_lsn(i64 noundef %1128)
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   store i32 0, ptr @apply_error_callback_arg.0, align 8
   store ptr null, ptr @apply_error_callback_arg.1, align 8
   store i32 -1, ptr @apply_error_callback_arg.2, align 8
@@ -3210,11 +3192,10 @@ stop_skipping_changes.exit:                       ; preds = %apply_handle_stream
   br label %apply_handle_relation.exit
 
 1129:                                             ; preds = %1
-  %1130 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %1130)
-  %1131 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %1132 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %39) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3464, ptr noundef nonnull @__func__.apply_dispatch) #17
+  %1130 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %1131 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %1132 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %39) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3464, ptr noundef nonnull @__func__.apply_dispatch) #16
   unreachable
 
 apply_handle_relation.exit:                       ; preds = %am_tablesync_worker.exit.i, %548, %544, %539, %537, %stop_skipping_changes.exit, %apply_handle_rollback_prepared.exit, %apply_handle_commit_prepared.exit, %apply_handle_prepare.exit, %apply_handle_begin_prepare.exit, %apply_handle_stream_commit.exit, %apply_handle_stream_abort.exit, %apply_handle_stream_stop.exit, %apply_handle_stream_start.exit, %apply_handle_type.exit, %apply_handle_truncate.exit, %apply_handle_delete.exit, %apply_handle_update.exit, %apply_handle_insert.exit, %apply_handle_commit.exit, %apply_handle_begin.exit, %1
@@ -3244,7 +3225,7 @@ am_parallel_apply_worker.exit:                    ; preds = %2
 am_parallel_apply_worker.exit.thread:             ; preds = %2, %am_parallel_apply_worker.exit
   %9 = load ptr, ptr @ApplyContext, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc(i64 noundef 32) #17
+  %10 = tail call ptr @palloc(i64 noundef 32) #16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -3283,11 +3264,11 @@ define dso_local void @maybe_reread_subscription() local_unnamed_addr #0 {
   br i1 %.b16, label %174, label %1
 
 1:                                                ; preds = %0
-  %2 = tail call zeroext i1 @IsTransactionState() #17
+  %2 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %2, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -3297,20 +3278,20 @@ define dso_local void @maybe_reread_subscription() local_unnamed_addr #0 {
   %7 = load ptr, ptr @MyLogicalRepWorker, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i32, ptr %8, align 8
-  %10 = tail call ptr @GetSubscription(i32 noundef %9, i1 noundef zeroext true) #17
+  %10 = tail call ptr @GetSubscription(i32 noundef %9, i1 noundef zeroext true) #16
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %26
 
 11:                                               ; preds = %4
-  %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr @MySubscription, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %16) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3988, ptr noundef nonnull @__func__.maybe_reread_subscription) #17
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %16) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3988, ptr noundef nonnull @__func__.maybe_reread_subscription) #16
   br label %18
 
 18:                                               ; preds = %13, %11
@@ -3322,11 +3303,11 @@ define dso_local void @maybe_reread_subscription() local_unnamed_addr #0 {
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %24 = load i32, ptr %23, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %24) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %24) #16
   br label %25
 
 25:                                               ; preds = %22, %18
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 
 26:                                               ; preds = %4
@@ -3336,15 +3317,15 @@ define dso_local void @maybe_reread_subscription() local_unnamed_addr #0 {
   br i1 %29, label %apply_worker_exit.exit, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %31 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr @MySubscription, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %35) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4002, ptr noundef nonnull @__func__.maybe_reread_subscription) #17
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %35) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4002, ptr noundef nonnull @__func__.maybe_reread_subscription) #16
   br label %37
 
 37:                                               ; preds = %32, %30
@@ -3364,11 +3345,11 @@ am_parallel_apply_worker.exit.thread.i:           ; preds = %37
 45:                                               ; preds = %am_parallel_apply_worker.exit.thread.i
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %47 = load i32, ptr %46, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %47) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %47) #16
   br label %48
 
 48:                                               ; preds = %45, %am_parallel_apply_worker.exit.thread.i
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 
 apply_worker_exit.exit:                           ; preds = %37, %26
@@ -3377,7 +3358,7 @@ apply_worker_exit.exit:                           ; preds = %37, %26
   %51 = load ptr, ptr @MySubscription, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %53) #20
+  %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %53) #19
   %.not17 = icmp eq i32 %54, 0
   br i1 %.not17, label %55, label %99
 
@@ -3386,7 +3367,7 @@ apply_worker_exit.exit:                           ; preds = %37, %26
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %59) #20
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %59) #19
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %61, label %99
 
@@ -3395,7 +3376,7 @@ apply_worker_exit.exit:                           ; preds = %37, %26
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %65) #20
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %65) #19
   %.not19 = icmp eq i32 %66, 0
   br i1 %.not19, label %67, label %99
 
@@ -3428,7 +3409,7 @@ apply_worker_exit.exit:                           ; preds = %37, %26
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %86) #20
+  %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %86) #19
   %.not23 = icmp eq i32 %87, 0
   br i1 %.not23, label %88, label %99
 
@@ -3445,7 +3426,7 @@ apply_worker_exit.exit:                           ; preds = %37, %26
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %97 = load ptr, ptr %96, align 8
-  %98 = tail call zeroext i1 @equal(ptr noundef %95, ptr noundef %97) #17
+  %98 = tail call zeroext i1 @equal(ptr noundef %95, ptr noundef %97) #16
   br i1 %98, label %apply_worker_exit.exit28, label %99
 
 99:                                               ; preds = %93, %88, %82, %77, %72, %67, %61, %55, %apply_worker_exit.exit
@@ -3461,11 +3442,11 @@ am_parallel_apply_worker.exit:                    ; preds = %99
   br i1 %105, label %106, label %am_parallel_apply_worker.exit.thread
 
 106:                                              ; preds = %am_parallel_apply_worker.exit
-  %107 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %107 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %107, label %.sink.split, label %113
 
 am_parallel_apply_worker.exit.thread:             ; preds = %99, %am_parallel_apply_worker.exit
-  %108 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %108 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %108, label %.sink.split, label %113
 
 .sink.split:                                      ; preds = %am_parallel_apply_worker.exit.thread, %106
@@ -3474,8 +3455,8 @@ am_parallel_apply_worker.exit.thread:             ; preds = %99, %am_parallel_ap
   %109 = load ptr, ptr @MySubscription, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8
-  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.11.sink, ptr noundef %111) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.maybe_reread_subscription) #17
+  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.11.sink, ptr noundef %111) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.maybe_reread_subscription) #16
   br label %113
 
 113:                                              ; preds = %.sink.split, %am_parallel_apply_worker.exit.thread, %106
@@ -3495,11 +3476,11 @@ am_parallel_apply_worker.exit.thread.i27:         ; preds = %113
 121:                                              ; preds = %am_parallel_apply_worker.exit.thread.i27
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %123 = load i32, ptr %122, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %123) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %123) #16
   br label %124
 
 124:                                              ; preds = %121, %am_parallel_apply_worker.exit.thread.i27
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 
 apply_worker_exit.exit28:                         ; preds = %113, %93
@@ -3528,11 +3509,11 @@ am_parallel_apply_worker.exit29:                  ; preds = %132
   br i1 %138, label %139, label %am_parallel_apply_worker.exit29.thread
 
 139:                                              ; preds = %am_parallel_apply_worker.exit29
-  %140 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %140 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %140, label %.sink.split37, label %146
 
 am_parallel_apply_worker.exit29.thread:           ; preds = %132, %am_parallel_apply_worker.exit29
-  %141 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %141 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %141, label %.sink.split37, label %146
 
 .sink.split37:                                    ; preds = %am_parallel_apply_worker.exit29.thread, %139
@@ -3541,8 +3522,8 @@ am_parallel_apply_worker.exit29.thread:           ; preds = %132, %am_parallel_a
   %142 = load ptr, ptr @MySubscription, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.13.sink, ptr noundef %144) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink38, ptr noundef nonnull @__func__.maybe_reread_subscription) #17
+  %145 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.13.sink, ptr noundef %144) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink38, ptr noundef nonnull @__func__.maybe_reread_subscription) #16
   br label %146
 
 146:                                              ; preds = %.sink.split37, %am_parallel_apply_worker.exit29.thread, %139
@@ -3566,11 +3547,11 @@ am_parallel_apply_worker.exit.thread.i31:         ; preds = %146
 154:                                              ; preds = %am_parallel_apply_worker.exit.thread.i31
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 40
   %156 = load i32, ptr %155, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %156) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %156) #16
   br label %157
 
 157:                                              ; preds = %154, %am_parallel_apply_worker.exit.thread.i31
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 
 apply_worker_exit.exit32:                         ; preds = %.apply_worker_exit.exit32_crit_edge, %128, %apply_worker_exit.exit28
@@ -3583,26 +3564,25 @@ apply_worker_exit.exit32:                         ; preds = %.apply_worker_exit.
   br i1 %.not25, label %169, label %163
 
 163:                                              ; preds = %apply_worker_exit.exit32
-  %164 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %164)
+  %164 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   %165 = load ptr, ptr @MyLogicalRepWorker, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 40
   %167 = load i32, ptr %166, align 8
-  %168 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %167) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4064, ptr noundef nonnull @__func__.maybe_reread_subscription) #17
+  %168 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %167) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4064, ptr noundef nonnull @__func__.maybe_reread_subscription) #16
   unreachable
 
 169:                                              ; preds = %apply_worker_exit.exit32
-  tail call void @FreeSubscription(ptr noundef nonnull %158) #17
+  tail call void @FreeSubscription(ptr noundef nonnull %158) #16
   store ptr %10, ptr @MySubscription, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
   %170 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %171 = load ptr, ptr %170, align 8
-  tail call void @SetConfigOption(ptr noundef nonnull @.str.15, ptr noundef %171, i32 noundef 4, i32 noundef 10) #17
+  tail call void @SetConfigOption(ptr noundef nonnull @.str.15, ptr noundef %171, i32 noundef 4, i32 noundef 10) #16
   br i1 %2, label %173, label %172
 
 172:                                              ; preds = %169
-  tail call void @CommitTransactionCommand() #17
+  tail call void @CommitTransactionCommand() #16
   br label %173
 
 173:                                              ; preds = %172, %169
@@ -3637,16 +3617,16 @@ declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 define dso_local void @stream_cleanup_files(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %0, i32 noundef %1) #17
+  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.68, i32 noundef %0, i32 noundef %1) #16
   %5 = load ptr, ptr @MyLogicalRepWorker, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8
-  call void @BufFileDeleteFileSet(ptr noundef %7, ptr noundef nonnull %3, i1 noundef zeroext false) #17
-  %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %0, i32 noundef %1) #17
+  call void @BufFileDeleteFileSet(ptr noundef %7, ptr noundef nonnull %3, i1 noundef zeroext false) #16
+  %8 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.69, i32 noundef %0, i32 noundef %1) #16
   %9 = load ptr, ptr @MyLogicalRepWorker, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
-  call void @BufFileDeleteFileSet(ptr noundef %11, ptr noundef nonnull %3, i1 noundef zeroext true) #17
+  call void @BufFileDeleteFileSet(ptr noundef %11, ptr noundef nonnull %3, i1 noundef zeroext true) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -3665,7 +3645,7 @@ define dso_local void @set_stream_options(ptr noundef writeonly captures(none) i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %11 = tail call i32 %9(ptr noundef %10) #17
+  %11 = tail call i32 %9(ptr noundef %10) #16
   %12 = icmp sgt i32 %11, 159999
   %13 = icmp sgt i32 %11, 149999
   %14 = icmp sgt i32 %11, 139999
@@ -3719,7 +3699,7 @@ define dso_local void @set_stream_options(ptr noundef writeonly captures(none) i
   store i8 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call ptr @pstrdup(ptr noundef %39) #17
+  %40 = tail call ptr @pstrdup(ptr noundef %39) #16
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %40, ptr %41, align 8
   ret void
@@ -3738,22 +3718,22 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr @PG_exception_stack, align 8
   %9 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %10 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #21
+  %10 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #20
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %135
 
 12:                                               ; preds = %1
   store ptr %7, ptr @PG_exception_stack, align 8
-  %13 = call i64 @GetCurrentTimestamp() #17
+  %13 = call i64 @GetCurrentTimestamp() #16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = load ptr, ptr @ApplyContext, align 8
-  %15 = call ptr @AllocSetContextCreateInternal(ptr noundef %14, ptr noundef nonnull @.str.71, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
+  %15 = call ptr @AllocSetContextCreateInternal(ptr noundef %14, ptr noundef nonnull @.str.71, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
   store ptr %15, ptr @ApplyMessageContext, align 8
   %16 = load ptr, ptr @ApplyContext, align 8
-  %17 = call ptr @AllocSetContextCreateInternal(ptr noundef %16, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
+  %17 = call ptr @AllocSetContextCreateInternal(ptr noundef %16, ptr noundef nonnull @.str.72, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
   store ptr %17, ptr @LogicalStreamingContext, align 8
-  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #17
+  call void @pgstat_report_activity(i32 noundef 1, ptr noundef null) #16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @apply_error_callback, ptr %18, align 8
   %19 = load ptr, ptr @error_context_stack, align 8
@@ -3778,7 +3758,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %26, label %25, !prof !6
 
 25:                                               ; preds = %23
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #16
   br label %26
 
 26:                                               ; preds = %25, %23
@@ -3788,7 +3768,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %32 = call i32 %30(ptr noundef %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #17
+  %32 = call i32 %30(ptr noundef %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
   %.not61.i = icmp eq i32 %32, 0
   br i1 %.not61.i, label %.loopexit.i, label %.preheader.i
 
@@ -3802,7 +3782,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not62.i, label %35, label %34, !prof !6
 
 34:                                               ; preds = %.preheader.i
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #16
   br label %35
 
 35:                                               ; preds = %34, %.preheader.i
@@ -3814,12 +3794,12 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %40 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %40, label %41, label %.loopexit.i
 
 41:                                               ; preds = %39
-  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3636, ptr noundef nonnull @__func__.LogicalRepApplyLoop) #17
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3636, ptr noundef nonnull @__func__.LogicalRepApplyLoop) #16
   br label %.loopexit.i
 
 43:                                               ; preds = %37
@@ -3830,11 +3810,11 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %43
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2) #17
+  call void @ProcessConfigFile(i32 noundef 2) #16
   br label %46
 
 46:                                               ; preds = %45, %43
-  %47 = call i64 @GetCurrentTimestamp() #17
+  %47 = call i64 @GetCurrentTimestamp() #16
   %48 = load ptr, ptr @ApplyMessageContext, align 8
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %49 = load ptr, ptr %5, align 8
@@ -3842,16 +3822,16 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   store i32 %.052.i, ptr %20, align 8
   store i32 0, ptr %21, align 4
   store i32 0, ptr %22, align 8
-  %50 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #17
+  %50 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #16
   switch i32 %50, label %74 [
     i32 119, label %51
     i32 107, label %61
   ]
 
 51:                                               ; preds = %46
-  %52 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
-  %53 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
-  %54 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
+  %52 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #16
+  %53 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #16
+  %54 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #16
   %spec.select.i = call i64 @llvm.umax.i64(i64 %.2.i, i64 %52)
   %.4.i = call i64 @llvm.umax.i64(i64 %spec.select.i, i64 %53)
   %55 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -3859,7 +3839,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   store i64 %.4.i, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 96
   store i64 %54, ptr %57, align 8
-  %58 = call i64 @GetCurrentTimestamp() #17
+  %58 = call i64 @GetCurrentTimestamp() #16
   %59 = load ptr, ptr @MyLogicalRepWorker, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 104
   store i64 %58, ptr %60, align 8
@@ -3867,9 +3847,9 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %74
 
 61:                                               ; preds = %46
-  %62 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
-  %63 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
-  %64 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #17
+  %62 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #16
+  %63 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #16
+  %64 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #16
   %65 = icmp ne i32 %64, 0
   %spec.select71.i = call i64 @llvm.umax.i64(i64 %.2.i, i64 %62)
   call fastcc void @send_feedback(i64 noundef %spec.select71.i, i1 noundef zeroext %65, i1 noundef zeroext false)
@@ -3878,7 +3858,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   store i64 %spec.select71.i, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 96
   store i64 %63, ptr %68, align 8
-  %69 = call i64 @GetCurrentTimestamp() #17
+  %69 = call i64 @GetCurrentTimestamp() #16
   %70 = load ptr, ptr @MyLogicalRepWorker, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
   store i64 %69, ptr %71, align 8
@@ -3891,13 +3871,13 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 74:                                               ; preds = %61, %51, %46
   %.5.i = phi i64 [ %.4.i, %51 ], [ %spec.select71.i, %61 ], [ %.2.i, %46 ]
   %75 = load ptr, ptr @ApplyMessageContext, align 8
-  call void @MemoryContextReset(ptr noundef %75) #17
+  call void @MemoryContextReset(ptr noundef %75) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %76 = load ptr, ptr @WalReceiverFunctions, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 80
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %80 = call i32 %78(ptr noundef %79, ptr noundef nonnull %5, ptr noundef nonnull %4) #17
+  %80 = call i32 %78(ptr noundef %79, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
@@ -3913,14 +3893,14 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond.i, label %84, label %83
 
 83:                                               ; preds = %.loopexit.i
-  call void @AcceptInvalidationMessages() #17
+  call void @AcceptInvalidationMessages() #16
   call void @maybe_reread_subscription()
-  call void @process_syncing_tables(i64 noundef %.1.i) #17
+  call void @process_syncing_tables(i64 noundef %.1.i) #16
   br label %84
 
 84:                                               ; preds = %83, %.loopexit.i
   %85 = load ptr, ptr @ApplyMessageContext, align 8
-  call void @MemoryContextReset(ptr noundef %85) #17
+  call void @MemoryContextReset(ptr noundef %85) #16
   %86 = load ptr, ptr @TopMemoryContext, align 8
   store ptr %86, ptr @CurrentMemoryContext, align 8
   br i1 %.053.i, label %LogicalRepApplyLoop.exit, label %87
@@ -3935,20 +3915,20 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %.054.i = select i1 %spec.select.i.i, i64 1000, i64 %92
   %93 = load ptr, ptr @MyLatch, align 8
   %94 = load i32, ptr %4, align 4
-  %95 = call i32 @WaitLatchOrSocket(ptr noundef %93, i32 noundef 43, i32 noundef %94, i64 noundef %.054.i, i32 noundef 83886086) #17
+  %95 = call i32 @WaitLatchOrSocket(ptr noundef %93, i32 noundef 43, i32 noundef %94, i64 noundef %.054.i, i32 noundef 83886086) #16
   %96 = and i32 %95, 1
   %.not65.i = icmp eq i32 %96, 0
   br i1 %.not65.i, label %101, label %97
 
 97:                                               ; preds = %87
   %98 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %98) #17
+  call void @ResetLatch(ptr noundef %98) #16
   %99 = load volatile i32, ptr @InterruptPending, align 4
   %.not66.i = icmp eq i32 %99, 0
   br i1 %.not66.i, label %101, label %100, !prof !6
 
 100:                                              ; preds = %97
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #16
   br label %101
 
 101:                                              ; preds = %100, %97, %87
@@ -3958,7 +3938,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 
 103:                                              ; preds = %101
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2) #17
+  call void @ProcessConfigFile(i32 noundef 2) #16
   br label %104
 
 104:                                              ; preds = %103, %101
@@ -3972,7 +3952,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %108, label %109, label %125
 
 109:                                              ; preds = %106
-  %110 = call i64 @GetCurrentTimestamp() #17
+  %110 = call i64 @GetCurrentTimestamp() #16
   %111 = load i32, ptr @wal_receiver_timeout, align 4
   %112 = sext i32 %111 to i64
   %113 = mul nsw i64 %112, 1000
@@ -3981,11 +3961,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %.not69.i, label %119, label %115
 
 115:                                              ; preds = %109
-  %116 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %116)
-  %117 = call i32 @errcode(i32 noundef 100663808) #17
-  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3790, ptr noundef nonnull @__func__.LogicalRepApplyLoop) #17
+  %116 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %117 = call i32 @errcode(i32 noundef 100663808) #16
+  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3790, ptr noundef nonnull @__func__.LogicalRepApplyLoop) #16
   unreachable
 
 119:                                              ; preds = %109
@@ -4003,11 +3982,11 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %.550.i = phi i1 [ %.146.i, %106 ], [ true, %119 ], [ %.not70.i, %120 ]
   %.039.i = phi i1 [ false, %106 ], [ false, %119 ], [ %.not70.i, %120 ]
   call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext %.039.i, i1 noundef zeroext %.039.i)
-  %126 = call zeroext i1 @IsTransactionState() #17
+  %126 = call zeroext i1 @IsTransactionState() #16
   br i1 %126, label %129, label %127
 
 127:                                              ; preds = %125
-  %128 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #17
+  %128 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #16
   br label %129
 
 129:                                              ; preds = %127, %125, %104
@@ -4026,7 +4005,7 @@ LogicalRepApplyLoop.exit:                         ; preds = %84
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  call void %133(ptr noundef %134, ptr noundef nonnull %2) #17
+  call void %133(ptr noundef %134, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %8, ptr @PG_exception_stack, align 8
@@ -4048,7 +4027,7 @@ LogicalRepApplyLoop.exit:                         ; preds = %84
   unreachable
 
 141:                                              ; preds = %135
-  call void @AbortOutOfAnyTransaction() #17
+  call void @AbortOutOfAnyTransaction() #16
   %142 = load ptr, ptr @MySubscription, align 8
   %143 = load i32, ptr %142, align 8
   %144 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -4064,8 +4043,8 @@ LogicalRepApplyLoop.exit:                         ; preds = %84
 
 am_tablesync_worker.exit:                         ; preds = %141, %148
   %151 = phi i1 [ true, %141 ], [ %150, %148 ]
-  call void @pgstat_report_subscription_error(i32 noundef %143, i1 noundef zeroext %151) #17
-  call void @pg_re_throw() #19
+  call void @pgstat_report_subscription_error(i32 noundef %143, i1 noundef zeroext %151) #16
+  call void @pg_re_throw() #18
   unreachable
 }
 
@@ -4077,9 +4056,9 @@ define dso_local void @DisableSubscriptionAndExit() local_unnamed_addr #6 {
   %1 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %2 = add i32 %1, 1
   store volatile i32 %2, ptr @InterruptHoldoffCount, align 4
-  tail call void @EmitErrorReport() #17
-  tail call void @AbortOutOfAnyTransaction() #17
-  tail call void @FlushErrorState() #17
+  tail call void @EmitErrorReport() #16
+  tail call void @AbortOutOfAnyTransaction() #16
+  tail call void @FlushErrorState() #16
   %3 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %4 = add i32 %3, -1
   store volatile i32 %4, ptr @InterruptHoldoffCount, align 4
@@ -4098,12 +4077,12 @@ define dso_local void @DisableSubscriptionAndExit() local_unnamed_addr #6 {
 
 am_tablesync_worker.exit:                         ; preds = %0, %11
   %14 = phi i1 [ true, %0 ], [ %13, %11 ]
-  tail call void @pgstat_report_subscription_error(i32 noundef %7, i1 noundef zeroext %14) #17
-  tail call void @StartTransactionCommand() #17
+  tail call void @pgstat_report_subscription_error(i32 noundef %7, i1 noundef zeroext %14) #16
+  tail call void @StartTransactionCommand() #16
   %15 = load ptr, ptr @MySubscription, align 8
   %16 = load i32, ptr %15, align 8
-  tail call void @DisableSubscription(i32 noundef %16) #17
-  tail call void @CommitTransactionCommand() #17
+  tail call void @DisableSubscription(i32 noundef %16) #16
+  tail call void @CommitTransactionCommand() #16
   %17 = load ptr, ptr @MyLogicalRepWorker, align 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 2
@@ -4112,23 +4091,23 @@ am_tablesync_worker.exit:                         ; preds = %0, %11
 20:                                               ; preds = %am_tablesync_worker.exit
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %22 = load i32, ptr %21, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %22) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %22) #16
   br label %23
 
 23:                                               ; preds = %20, %am_tablesync_worker.exit
-  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @MySubscription, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %28) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4838, ptr noundef nonnull @__func__.DisableSubscriptionAndExit) #17
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %28) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4838, ptr noundef nonnull @__func__.DisableSubscriptionAndExit) #16
   br label %30
 
 30:                                               ; preds = %23, %25
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 }
 
@@ -4141,39 +4120,39 @@ declare void @pg_re_throw() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitializeLogRepWorker() local_unnamed_addr #0 {
-  tail call void @SetConfigOption(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 5, i32 noundef 10) #17
+  tail call void @SetConfigOption(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 5, i32 noundef 10) #16
   %1 = load ptr, ptr @MyLogicalRepWorker, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
-  tail call void @BackgroundWorkerInitializeConnectionByOid(i32 noundef %3, i32 noundef %5, i32 noundef 0) #17
-  tail call void @SetConfigOption(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, i32 noundef 10) #17
+  tail call void @BackgroundWorkerInitializeConnectionByOid(i32 noundef %3, i32 noundef %5, i32 noundef 0) #16
+  tail call void @SetConfigOption(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, i32 noundef 5, i32 noundef 10) #16
   %6 = load ptr, ptr @TopMemoryContext, align 8
-  %7 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %6, ptr noundef nonnull @.str.22, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
+  %7 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %6, ptr noundef nonnull @.str.22, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
   store ptr %7, ptr @ApplyContext, align 8
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   %8 = load ptr, ptr @ApplyContext, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %10 = load ptr, ptr @MyLogicalRepWorker, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i32, ptr %11, align 8
-  %13 = tail call ptr @GetSubscription(i32 noundef %12, i1 noundef zeroext true) #17
+  %13 = tail call ptr @GetSubscription(i32 noundef %12, i1 noundef zeroext true) #16
   store ptr %13, ptr @MySubscription, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %29
 
 14:                                               ; preds = %0
-  %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @MyLogicalRepWorker, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, i32 noundef %19) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4671, ptr noundef nonnull @__func__.InitializeLogRepWorker) #17
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, i32 noundef %19) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4671, ptr noundef nonnull @__func__.InitializeLogRepWorker) #16
   br label %21
 
 21:                                               ; preds = %16, %14
@@ -4185,11 +4164,11 @@ define dso_local void @InitializeLogRepWorker() local_unnamed_addr #0 {
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %27 = load i32, ptr %26, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %27) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %27) #16
   br label %28
 
 28:                                               ; preds = %25, %21
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 
 29:                                               ; preds = %0
@@ -4201,15 +4180,15 @@ define dso_local void @InitializeLogRepWorker() local_unnamed_addr #0 {
   br i1 %32, label %apply_worker_exit.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %34 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %34, label %35, label %40
 
 35:                                               ; preds = %33
   %36 = load ptr, ptr @MySubscription, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %38) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4687, ptr noundef nonnull @__func__.InitializeLogRepWorker) #17
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %38) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4687, ptr noundef nonnull @__func__.InitializeLogRepWorker) #16
   br label %40
 
 40:                                               ; preds = %35, %33
@@ -4233,20 +4212,20 @@ am_parallel_apply_worker.exit.thread.i:           ; preds = %40
 48:                                               ; preds = %am_parallel_apply_worker.exit.thread.i
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %50 = load i32, ptr %49, align 8
-  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %50) #17
+  tail call void @ApplyLauncherForgetWorkerStartTime(i32 noundef %50) #16
   br label %51
 
 51:                                               ; preds = %48, %am_parallel_apply_worker.exit.thread.i
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 
 apply_worker_exit.exit:                           ; preds = %.apply_worker_exit.exit_crit_edge, %29
   %52 = phi ptr [ %.pre, %.apply_worker_exit.exit_crit_edge ], [ %13, %29 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
-  tail call void @SetConfigOption(ptr noundef nonnull @.str.15, ptr noundef %54, i32 noundef 4, i32 noundef 10) #17
-  tail call void @CacheRegisterSyscacheCallback(i32 noundef 67, ptr noundef nonnull @subscription_change_cb, i64 noundef 0) #17
-  tail call void @CacheRegisterSyscacheCallback(i32 noundef 11, ptr noundef nonnull @subscription_change_cb, i64 noundef 0) #17
+  tail call void @SetConfigOption(ptr noundef nonnull @.str.15, ptr noundef %54, i32 noundef 4, i32 noundef 10) #16
+  tail call void @CacheRegisterSyscacheCallback(i32 noundef 67, ptr noundef nonnull @subscription_change_cb, i64 noundef 0) #16
+  tail call void @CacheRegisterSyscacheCallback(i32 noundef 11, ptr noundef nonnull @subscription_change_cb, i64 noundef 0) #16
   %55 = load ptr, ptr @MyLogicalRepWorker, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i8, ptr %56, align 8, !range !4, !noundef !5
@@ -4259,7 +4238,7 @@ am_tablesync_worker.exit:                         ; preds = %apply_worker_exit.e
   br i1 %60, label %61, label %am_tablesync_worker.exit.thread
 
 61:                                               ; preds = %am_tablesync_worker.exit
-  %62 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %62 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %62, label %63, label %78
 
 63:                                               ; preds = %61
@@ -4269,28 +4248,28 @@ am_tablesync_worker.exit:                         ; preds = %apply_worker_exit.e
   %67 = load ptr, ptr @MyLogicalRepWorker, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %69 = load i32, ptr %68, align 4
-  %70 = tail call ptr @get_rel_name(i32 noundef %69) #17
-  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %66, ptr noundef %70) #17
+  %70 = tail call ptr @get_rel_name(i32 noundef %69) #16
+  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %66, ptr noundef %70) #16
   br label %.sink.split
 
 am_tablesync_worker.exit.thread:                  ; preds = %apply_worker_exit.exit, %am_tablesync_worker.exit
-  %72 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %72 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %am_tablesync_worker.exit.thread
   %74 = load ptr, ptr @MySubscription, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %76) #17
+  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %76) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %63, %73
   %.sink = phi i32 [ 4716, %73 ], [ 4712, %63 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.InitializeLogRepWorker) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.InitializeLogRepWorker) #16
   br label %78
 
 78:                                               ; preds = %.sink.split, %am_tablesync_worker.exit.thread, %61
-  tail call void @CommitTransactionCommand() #17
+  tail call void @CommitTransactionCommand() #16
   ret void
 }
 
@@ -4310,11 +4289,11 @@ declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetupApplyOrSyncWorker(i32 noundef %0) local_unnamed_addr #0 {
-  tail call void @logicalrep_worker_attach(i32 noundef %0) #17
-  tail call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #17
-  tail call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #17
-  tail call void @BackgroundWorkerUnblockSignals() #17
-  %2 = tail call i64 @GetCurrentTimestamp() #17
+  tail call void @logicalrep_worker_attach(i32 noundef %0) #16
+  tail call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #16
+  tail call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #16
+  tail call void @BackgroundWorkerUnblockSignals() #16
+  %2 = tail call i64 @GetCurrentTimestamp() #16
   %3 = load ptr, ptr @MyLogicalRepWorker, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   store i64 %2, ptr %4, align 8
@@ -4322,22 +4301,22 @@ define dso_local void @SetupApplyOrSyncWorker(i32 noundef %0) local_unnamed_addr
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %2, ptr %6, align 8
-  tail call void @load_file(ptr noundef nonnull @.str.27, i1 noundef zeroext false) #17
+  tail call void @load_file(ptr noundef nonnull @.str.27, i1 noundef zeroext false) #16
   tail call void @InitializeLogRepWorker()
-  tail call void @before_shmem_exit(ptr noundef nonnull @replorigin_reset, i64 noundef 0) #17
-  %7 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  tail call void @before_shmem_exit(ptr noundef nonnull @replorigin_reset, i64 noundef 0) #16
+  %7 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @MySubscription, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, ptr noundef %11) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4775, ptr noundef nonnull @__func__.SetupApplyOrSyncWorker) #17
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, ptr noundef %11) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4775, ptr noundef nonnull @__func__.SetupApplyOrSyncWorker) #16
   br label %13
 
 13:                                               ; preds = %1, %8
-  tail call void @CacheRegisterSyscacheCallback(i32 noundef 68, ptr noundef nonnull @invalidate_syncing_table_states, i64 noundef 0) #17
+  tail call void @CacheRegisterSyscacheCallback(i32 noundef 68, ptr noundef nonnull @invalidate_syncing_table_states, i64 noundef 0) #16
   ret void
 }
 
@@ -4374,7 +4353,7 @@ define dso_local void @ApplyWorkerMain(i64 noundef %0) local_unnamed_addr #6 {
   tail call void @SetupApplyOrSyncWorker(i32 noundef %2)
   store i8 0, ptr @InitializingApplyWorker, align 1
   tail call fastcc void @run_apply_worker()
-  tail call void @proc_exit(i32 noundef 0) #19
+  tail call void @proc_exit(i32 noundef 0) #18
   unreachable
 }
 
@@ -4420,7 +4399,7 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   br i1 %3, label %75, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @geterrlevel() #17
+  %5 = tail call i32 @geterrlevel() #16
   %6 = icmp sgt i32 %5, 20
   br i1 %6, label %7, label %8
 
@@ -4441,25 +4420,25 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @set_errcontext_domain(ptr noundef null) #17
+  %14 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
   %15 = load ptr, ptr @apply_error_callback_arg.5, align 8
   %16 = load i32, ptr @apply_error_callback_arg.0, align 8
-  %17 = tail call ptr @logicalrep_message_type(i32 noundef %16) #17
-  %18 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.30, ptr noundef %15, ptr noundef %17) #17
+  %17 = tail call ptr @logicalrep_message_type(i32 noundef %16) #16
+  %18 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.30, ptr noundef %15, ptr noundef %17) #16
   br label %75
 
 19:                                               ; preds = %11
   %20 = load i64, ptr @apply_error_callback_arg.4, align 8
   %21 = icmp eq i64 %20, 0
-  %22 = tail call i32 @set_errcontext_domain(ptr noundef null) #17
+  %22 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
   %23 = load ptr, ptr @apply_error_callback_arg.5, align 8
   %24 = load i32, ptr @apply_error_callback_arg.0, align 8
-  %25 = tail call ptr @logicalrep_message_type(i32 noundef %24) #17
+  %25 = tail call ptr @logicalrep_message_type(i32 noundef %24) #16
   %26 = load i32, ptr @apply_error_callback_arg.3, align 4
   br i1 %21, label %27, label %29
 
 27:                                               ; preds = %19
-  %28 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.31, ptr noundef %23, ptr noundef %25, i32 noundef %26) #17
+  %28 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.31, ptr noundef %23, ptr noundef %25, i32 noundef %26) #16
   br label %75
 
 29:                                               ; preds = %19
@@ -4467,7 +4446,7 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   %31 = lshr i64 %30, 32
   %32 = trunc nuw i64 %31 to i32
   %33 = trunc i64 %30 to i32
-  %34 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.32, ptr noundef %23, ptr noundef %25, i32 noundef %26, i32 noundef %32, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.32, ptr noundef %23, ptr noundef %25, i32 noundef %26, i32 noundef %32, i32 noundef %33) #16
   br label %75
 
 35:                                               ; preds = %8
@@ -4475,10 +4454,10 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   %37 = icmp slt i32 %36, 0
   %38 = load i64, ptr @apply_error_callback_arg.4, align 8
   %39 = icmp eq i64 %38, 0
-  %40 = tail call i32 @set_errcontext_domain(ptr noundef null) #17
+  %40 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
   %41 = load ptr, ptr @apply_error_callback_arg.5, align 8
   %42 = load i32, ptr @apply_error_callback_arg.0, align 8
-  %43 = tail call ptr @logicalrep_message_type(i32 noundef %42) #17
+  %43 = tail call ptr @logicalrep_message_type(i32 noundef %42) #16
   %44 = load ptr, ptr @apply_error_callback_arg.1, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -4491,7 +4470,7 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   br i1 %39, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.33, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, i32 noundef %50) #17
+  %52 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.33, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, i32 noundef %50) #16
   br label %75
 
 53:                                               ; preds = %49
@@ -4499,7 +4478,7 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   %55 = lshr i64 %54, 32
   %56 = trunc nuw i64 %55 to i32
   %57 = trunc i64 %54 to i32
-  %58 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.34, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, i32 noundef %50, i32 noundef %56, i32 noundef %57) #17
+  %58 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.34, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, i32 noundef %50, i32 noundef %56, i32 noundef %57) #16
   br label %75
 
 59:                                               ; preds = %35
@@ -4513,7 +4492,7 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   br i1 %39, label %67, label %69
 
 67:                                               ; preds = %59
-  %68 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.35, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, ptr noundef %65, i32 noundef %66) #17
+  %68 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.35, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, ptr noundef %65, i32 noundef %66) #16
   br label %75
 
 69:                                               ; preds = %59
@@ -4521,7 +4500,7 @@ define dso_local void @apply_error_callback(ptr readnone captures(none) %0) #0 {
   %71 = lshr i64 %70, 32
   %72 = trunc nuw i64 %71 to i32
   %73 = trunc i64 %70 to i32
-  %74 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.36, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, ptr noundef %65, i32 noundef %66, i32 noundef %72, i32 noundef %73) #17
+  %74 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.36, ptr noundef %41, ptr noundef %43, ptr noundef %46, ptr noundef %48, ptr noundef %65, i32 noundef %66, i32 noundef %72, i32 noundef %73) #16
   br label %75
 
 75:                                               ; preds = %27, %29, %13, %67, %69, %51, %53, %1
@@ -4542,7 +4521,7 @@ define dso_local void @LogicalRepWorkersWakeupAtCommit(i32 noundef %0) local_unn
   %3 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
   %4 = load ptr, ptr @on_commit_wakeup_workers_subids, align 8
-  %5 = tail call ptr @list_append_unique_oid(ptr noundef %4, i32 noundef %0) #17
+  %5 = tail call ptr @list_append_unique_oid(ptr noundef %4, i32 noundef %0) #16
   store ptr %5, ptr @on_commit_wakeup_workers_subids, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
   ret void
@@ -4560,7 +4539,7 @@ define dso_local void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext %0) local_u
 4:                                                ; preds = %1
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 5504
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #17
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #16
   %8 = load ptr, ptr @on_commit_wakeup_workers_subids, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.not = icmp eq ptr %8, null
@@ -4577,7 +4556,7 @@ define dso_local void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext %0) local_u
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv37
   %15 = load i32, ptr %14, align 8
-  %16 = tail call ptr @logicalrep_workers_find(i32 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #17
+  %16 = tail call ptr @logicalrep_workers_find(i32 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false) #16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.not21 = icmp eq ptr %16, null
   br i1 %.not21, label %.critedge24, label %.lr.ph
@@ -4591,7 +4570,7 @@ define dso_local void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext %0) local_u
 .critedge:                                        ; preds = %.critedge24, %.lr.ph30, %4
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 5504
-  tail call void @LWLockRelease(ptr noundef nonnull %22) #17
+  tail call void @LWLockRelease(ptr noundef nonnull %22) #16
   br label %32
 
 .lr.ph28:                                         ; preds = %.lr.ph, %.lr.ph28
@@ -4599,7 +4578,7 @@ define dso_local void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext %0) local_u
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  tail call void @logicalrep_worker_wakeup_ptr(ptr noundef %25) #17
+  tail call void @logicalrep_worker_wakeup_ptr(ptr noundef %25) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %17, align 4
   %27 = sext i32 %26 to i64
@@ -4632,7 +4611,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @set_apply_error_context_origin(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @ApplyContext, align 8
-  %3 = tail call ptr @MemoryContextStrdup(ptr noundef %2, ptr noundef %0) #17
+  %3 = tail call ptr @MemoryContextStrdup(ptr noundef %2, ptr noundef %0) #16
   store ptr %3, ptr @apply_error_callback_arg.5, align 8
   ret void
 }
@@ -4665,15 +4644,15 @@ define internal fastcc void @apply_handle_commit_internal(ptr noundef nonnull re
 
 3:                                                ; preds = %1
   tail call fastcc void @stop_skipping_changes()
-  %4 = tail call zeroext i1 @IsTransactionState() #17
+  %4 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   br label %6
 
 6:                                                ; preds = %3, %5, %1
-  %7 = tail call zeroext i1 @IsTransactionState() #17
+  %7 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %7, label %8, label %38
 
 8:                                                ; preds = %6
@@ -4685,17 +4664,17 @@ define internal fastcc void @apply_handle_commit_internal(ptr noundef nonnull re
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr @replorigin_session_origin_timestamp, align 8
-  tail call void @CommitTransactionCommand() #17
-  %14 = tail call zeroext i1 @IsTransactionBlock() #17
+  tail call void @CommitTransactionCommand() #16
+  %14 = tail call zeroext i1 @IsTransactionBlock() #16
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %8
-  %16 = tail call zeroext i1 @EndTransactionBlock(i1 noundef zeroext false) #17
-  tail call void @CommitTransactionCommand() #17
+  %16 = tail call zeroext i1 @EndTransactionBlock(i1 noundef zeroext false) #16
+  tail call void @CommitTransactionCommand() #16
   br label %17
 
 17:                                               ; preds = %15, %8
-  %18 = tail call i64 @pgstat_report_stat(i1 noundef zeroext false) #17
+  %18 = tail call i64 @pgstat_report_stat(i1 noundef zeroext false) #16
   %19 = load i64, ptr %10, align 8
   %20 = load i64, ptr @XactLastCommitEnd, align 8
   %21 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -4712,7 +4691,7 @@ am_parallel_apply_worker.exit.i:                  ; preds = %17
 am_parallel_apply_worker.exit.thread.i:           ; preds = %am_parallel_apply_worker.exit.i, %17
   %27 = load ptr, ptr @ApplyContext, align 8
   store ptr %27, ptr @CurrentMemoryContext, align 8
-  %28 = tail call ptr @palloc(i64 noundef 32) #17
+  %28 = tail call ptr @palloc(i64 noundef 32) #16
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %20, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -4742,7 +4721,7 @@ dlist_push_tail.exit.i:                           ; preds = %33, %._crit_edge.i.
   br label %store_flush_position.exit
 
 38:                                               ; preds = %6
-  tail call void @AcceptInvalidationMessages() #17
+  tail call void @AcceptInvalidationMessages() #16
   tail call void @maybe_reread_subscription()
   br label %store_flush_position.exit
 
@@ -4760,7 +4739,7 @@ define internal fastcc void @stop_skipping_changes() unnamed_addr #0 {
   br i1 %.not, label %11, label %2, !prof !6
 
 2:                                                ; preds = %0
-  %3 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %3 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %3, label %4, label %10
 
 4:                                                ; preds = %2
@@ -4768,8 +4747,8 @@ define internal fastcc void @stop_skipping_changes() unnamed_addr #0 {
   %6 = lshr i64 %5, 32
   %7 = trunc nuw i64 %6 to i32
   %8 = trunc i64 %5 to i32
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %7, i32 noundef %8) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4900, ptr noundef nonnull @__func__.stop_skipping_changes) #17
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, i32 noundef %7, i32 noundef %8) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4900, ptr noundef nonnull @__func__.stop_skipping_changes) #16
   br label %10
 
 10:                                               ; preds = %2, %4
@@ -4804,33 +4783,32 @@ am_parallel_apply_worker.exit:                    ; preds = %9
   br i1 %15, label %64, label %am_parallel_apply_worker.exit.thread
 
 am_parallel_apply_worker.exit.thread:             ; preds = %9, %am_parallel_apply_worker.exit
-  %16 = tail call zeroext i1 @IsTransactionState() #17
+  %16 = tail call zeroext i1 @IsTransactionState() #16
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %am_parallel_apply_worker.exit.thread
-  tail call void @StartTransactionCommand() #17
+  tail call void @StartTransactionCommand() #16
   br label %18
 
 18:                                               ; preds = %17, %am_parallel_apply_worker.exit.thread
   %19 = load ptr, ptr @MySubscription, align 8
   %20 = load i32, ptr %19, align 8
-  tail call void @LockSharedObject(i32 noundef 6100, i32 noundef %20, i16 noundef zeroext 0, i32 noundef 1) #17
-  %21 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #17
+  tail call void @LockSharedObject(i32 noundef 6100, i32 noundef %20, i16 noundef zeroext 0, i32 noundef 1) #16
+  %21 = tail call ptr @table_open(i32 noundef 6100, i32 noundef 3) #16
   %22 = load ptr, ptr @MySubscription, align 8
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = tail call ptr @SearchSysCacheCopy(i32 noundef 67, i64 noundef %24, i64 noundef 0, i64 noundef 0, i64 noundef 0) #17
+  %25 = tail call ptr @SearchSysCacheCopy(i32 noundef 67, i64 noundef %24, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %32
 
 26:                                               ; preds = %18
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %27)
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   %28 = load ptr, ptr @MySubscription, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %30) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4946, ptr noundef nonnull @__func__.clear_subscription_skip_lsn) #17
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %30) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4946, ptr noundef nonnull @__func__.clear_subscription_skip_lsn) #16
   unreachable
 
 32:                                               ; preds = %18
@@ -4856,29 +4834,29 @@ am_parallel_apply_worker.exit.thread:             ; preds = %9, %am_parallel_app
   store i8 1, ptr %42, align 2
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = call ptr @heap_modify_tuple(ptr noundef nonnull %25, ptr noundef %44, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #17
+  %45 = call ptr @heap_modify_tuple(ptr noundef nonnull %25, ptr noundef %44, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %21, ptr noundef nonnull %46, ptr noundef %45) #17
+  call void @CatalogTupleUpdate(ptr noundef %21, ptr noundef nonnull %46, ptr noundef %45) #16
   %.not22 = icmp eq i64 %7, %0
   br i1 %.not22, label %61, label %47
 
 47:                                               ; preds = %41
-  %48 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %48 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %48, label %49, label %61
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr @MySubscription, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef %52) #17
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef %52) #16
   %54 = lshr i64 %0, 32
   %55 = trunc nuw i64 %54 to i32
   %56 = trunc i64 %0 to i32
   %57 = lshr i64 %7, 32
   %58 = trunc nuw i64 %57 to i32
   %59 = trunc i64 %7 to i32
-  %60 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.43, i32 noundef %55, i32 noundef %56, i32 noundef %58, i32 noundef %59) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4984, ptr noundef nonnull @__func__.clear_subscription_skip_lsn) #17
+  %60 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.43, i32 noundef %55, i32 noundef %56, i32 noundef %58, i32 noundef %59) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4984, ptr noundef nonnull @__func__.clear_subscription_skip_lsn) #16
   br label %61
 
 61:                                               ; preds = %47, %49, %41
@@ -4889,12 +4867,12 @@ am_parallel_apply_worker.exit.thread:             ; preds = %9, %am_parallel_app
 
 62:                                               ; preds = %61, %32
   %.0 = phi ptr [ %45, %61 ], [ %25, %32 ]
-  call void @heap_freetuple(ptr noundef nonnull %.0) #17
-  call void @table_close(ptr noundef %21, i32 noundef 0) #17
+  call void @heap_freetuple(ptr noundef nonnull %.0) #16
+  call void @table_close(ptr noundef %21, i32 noundef 0) #16
   br i1 %16, label %64, label %63
 
 63:                                               ; preds = %62
-  call void @CommitTransactionCommand() #17
+  call void @CommitTransactionCommand() #16
   br label %64
 
 64:                                               ; preds = %62, %63, %1, %am_parallel_apply_worker.exit
@@ -4944,7 +4922,7 @@ am_parallel_apply_worker.exit.i:                  ; preds = %2
   br i1 %13, label %get_transaction_apply_action.exit.thread, label %am_parallel_apply_worker.exit.thread.i
 
 am_parallel_apply_worker.exit.thread.i:           ; preds = %am_parallel_apply_worker.exit.i, %2
-  %14 = tail call ptr @pa_find_worker(i32 noundef %7) #17
+  %14 = tail call ptr @pa_find_worker(i32 noundef %7) #16
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %get_transaction_apply_action.exit, label %15
 
@@ -4967,16 +4945,15 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.622.0.copyload = load i32, ptr %.sroa.622.0..sroa_idx, align 8
-  %19 = tail call i32 @pq_getmsgint(ptr noundef nonnull %1, i32 noundef 4) #17
+  %19 = tail call i32 @pq_getmsgint(ptr noundef nonnull %1, i32 noundef 4) #16
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %20, label %24
 
 20:                                               ; preds = %get_transaction_apply_action.exit.thread
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 16908800) #17
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 589, ptr noundef nonnull @__func__.handle_streamed_transaction) #17
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %22 = tail call i32 @errcode(i32 noundef 16908800) #16
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 589, ptr noundef nonnull @__func__.handle_streamed_transaction) #16
   unreachable
 
 24:                                               ; preds = %get_transaction_apply_action.exit.thread
@@ -5029,7 +5006,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   %43 = load ptr, ptr @LogicalStreamingContext, align 8
   %44 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %43, ptr @CurrentMemoryContext, align 8
-  %45 = tail call ptr @palloc(i64 noundef 2048) #17
+  %45 = tail call ptr @palloc(i64 noundef 2048) #16
   store ptr %44, ptr @CurrentMemoryContext, align 8
   br label %51
 
@@ -5038,7 +5015,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   store i32 %47, ptr getelementptr inbounds nuw (i8, ptr @subxact_data, i64 4), align 4
   %48 = zext i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 4
-  %50 = tail call ptr @repalloc(ptr noundef nonnull %26, i64 noundef %49) #17
+  %50 = tail call ptr @repalloc(ptr noundef nonnull %26, i64 noundef %49) #16
   br label %51
 
 51:                                               ; preds = %46, %._crit_edge.i, %._crit_edge.thread.i
@@ -5053,7 +5030,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
   %58 = getelementptr inbounds nuw %struct.SubXactInfo, ptr %.0.i20, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  tail call void @BufFileTell(ptr noundef %55, ptr noundef nonnull %59, ptr noundef nonnull %60) #17
+  tail call void @BufFileTell(ptr noundef %55, ptr noundef nonnull %59, ptr noundef nonnull %60) #16
   %61 = load i32, ptr @subxact_data, align 8
   %62 = add i32 %61, 1
   store i32 %62, ptr @subxact_data, align 8
@@ -5071,9 +5048,9 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   %67 = sub i32 %66, %65
   store i32 %67, ptr %6, align 4
   %68 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %68, ptr noundef nonnull %6, i64 noundef 4) #17
+  call void @BufFileWrite(ptr noundef %68, ptr noundef nonnull %6, i64 noundef 4) #16
   %69 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %69, ptr noundef nonnull %5, i64 noundef 1) #17
+  call void @BufFileWrite(ptr noundef %69, ptr noundef nonnull %5, i64 noundef 1) #16
   %70 = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %71 = load i32, ptr %.sroa.622.0..sroa_idx, align 8
   %72 = sub i32 %70, %71
@@ -5083,7 +5060,7 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   %75 = sext i32 %71 to i64
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
   %77 = sext i32 %72 to i64
-  call void @BufFileWrite(ptr noundef %73, ptr noundef %76, i64 noundef %77) #17
+  call void @BufFileWrite(ptr noundef %73, ptr noundef %76, i64 noundef %77) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %106
@@ -5092,7 +5069,7 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   %79 = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   %80 = sext i32 %79 to i64
   %81 = load ptr, ptr %1, align 8
-  %82 = tail call zeroext i1 @pa_send_data(ptr noundef %.02528, i64 noundef %80, ptr noundef %81) #17
+  %82 = tail call zeroext i1 @pa_send_data(ptr noundef %.02528, i64 noundef %80, ptr noundef %81) #16
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %78
@@ -5102,7 +5079,7 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   br label %106
 
 87:                                               ; preds = %78
-  tail call void @pa_switch_to_partial_serialize(ptr noundef %.02528, i1 noundef zeroext false) #17
+  tail call void @pa_switch_to_partial_serialize(ptr noundef %.02528, i1 noundef zeroext false) #16
   br label %88
 
 88:                                               ; preds = %87, %24
@@ -5114,16 +5091,16 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   %91 = sub i32 %90, %.sroa.622.0.copyload
   store i32 %91, ptr %4, align 4
   %92 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %92, ptr noundef nonnull %4, i64 noundef 4) #17
+  call void @BufFileWrite(ptr noundef %92, ptr noundef nonnull %4, i64 noundef 4) #16
   %93 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %93, ptr noundef nonnull %3, i64 noundef 1) #17
+  call void @BufFileWrite(ptr noundef %93, ptr noundef nonnull %3, i64 noundef 1) #16
   %94 = sub i32 %.sroa.4.0.copyload, %.sroa.622.0.copyload
   store i32 %94, ptr %4, align 4
   %95 = load ptr, ptr @stream_fd, align 8
   %96 = sext i32 %.sroa.622.0.copyload to i64
   %97 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 %96
   %98 = sext i32 %94 to i64
-  call void @BufFileWrite(ptr noundef %95, ptr noundef %97, i64 noundef %98) #17
+  call void @BufFileWrite(ptr noundef %95, ptr noundef %97, i64 noundef %98) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %99 = icmp ne i32 %0, 82
@@ -5136,7 +5113,7 @@ subxact_info_add.exit:                            ; preds = %.lr.ph.i, %25, %51
   %104 = add i32 %103, 1
   store i32 %104, ptr @parallel_stream_nchanges, align 4
   %105 = load i32, ptr @stream_xid, align 4
-  tail call void @pa_start_subtrans(i32 noundef %19, i32 noundef %105) #17
+  tail call void @pa_start_subtrans(i32 noundef %19, i32 noundef %105) #16
   br label %106
 
 default.unreachable33:                            ; preds = %24
@@ -5179,15 +5156,14 @@ define internal fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef read
   ]
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 325) #17
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %15 = tail call i32 @errcode(i32 noundef 325) #16
   %16 = load ptr, ptr @MySubscription, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef %18) #17
-  %20 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.48) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 481, ptr noundef nonnull @__func__.should_apply_changes_for_rel) #17
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef %18) #16
+  %20 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.48) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 481, ptr noundef nonnull @__func__.should_apply_changes_for_rel) #16
   unreachable
 
 21:                                               ; preds = %10, %10
@@ -5213,10 +5189,9 @@ define internal fastcc zeroext i1 @should_apply_changes_for_rel(ptr noundef read
   br label %34
 
 31:                                               ; preds = %1
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 492, ptr noundef nonnull @__func__.should_apply_changes_for_rel) #17
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 492, ptr noundef nonnull @__func__.should_apply_changes_for_rel) #16
   unreachable
 
 34:                                               ; preds = %1, %26, %.fold.split, %23, %21, %4
@@ -5233,12 +5208,12 @@ define internal fastcc ptr @create_edata_for_relation(ptr noundef %0) unnamed_ad
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %3 = tail call ptr @palloc0(i64 noundef 40) #17
+  %3 = tail call ptr @palloc0(i64 noundef 40) #16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
-  %5 = tail call ptr @CreateExecutorState() #17
+  %5 = tail call ptr @CreateExecutorState() #16
   store ptr %5, ptr %3, align 8
-  %6 = tail call noundef ptr @palloc0(i64 noundef 224) #17
+  %6 = tail call noundef ptr @palloc0(i64 noundef 224) #16
   store i32 101, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %7, align 8
@@ -5257,25 +5232,25 @@ define internal fastcc ptr @create_edata_for_relation(ptr noundef %0) unnamed_ad
   store i8 %17, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 1, ptr %19, align 4
-  %20 = call ptr @addRTEPermissionInfo(ptr noundef nonnull %2, ptr noundef nonnull %6) #17
-  %21 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6) #17
+  %20 = call ptr @addRTEPermissionInfo(ptr noundef nonnull %2, ptr noundef nonnull %6) #16
+  %21 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6) #16
   %22 = load ptr, ptr %2, align 8
-  %23 = call ptr @bms_make_singleton(i32 noundef 1) #17
-  call void @ExecInitRangeTable(ptr noundef %5, ptr noundef %21, ptr noundef %22, ptr noundef %23) #17
-  %24 = call noundef ptr @palloc0(i64 noundef 392) #17
+  %23 = call ptr @bms_make_singleton(i32 noundef 1) #16
+  call void @ExecInitRangeTable(ptr noundef %5, ptr noundef %21, ptr noundef %22, ptr noundef %23) #16
+  %24 = call noundef ptr @palloc0(i64 noundef 392) #16
   store i32 387, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr %8, align 8
-  call void @InitResultRelInfo(ptr noundef nonnull %24, ptr noundef %26, i32 noundef 1, ptr noundef null, i32 noundef 0) #17
+  call void @InitResultRelInfo(ptr noundef nonnull %24, ptr noundef %26, i32 noundef 1, ptr noundef null, i32 noundef 0) #16
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %28 = load ptr, ptr %27, align 8
-  %29 = call ptr @lappend(ptr noundef %28, ptr noundef nonnull %24) #17
+  %29 = call ptr @lappend(ptr noundef %28, ptr noundef nonnull %24) #16
   store ptr %29, ptr %27, align 8
-  %30 = call i32 @GetCurrentCommandId(i1 noundef zeroext true) #17
+  %30 = call i32 @GetCurrentCommandId(i1 noundef zeroext true) #16
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i32 %30, ptr %31, align 8
-  call void @AfterTriggerBeginQuery() #17
+  call void @AfterTriggerBeginQuery() #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 }
@@ -5297,7 +5272,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonl
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef %0) #17
+  tail call void %14(ptr noundef %0) #16
   %15 = icmp sgt i32 %10, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -5348,13 +5323,13 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonl
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 68
   %46 = load i32, ptr %45, align 4
-  call void @getTypeInputInfo(i32 noundef %46, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
+  call void @getTypeInputInfo(i32 noundef %46, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
   %47 = load i32, ptr %4, align 4
   %48 = load ptr, ptr %40, align 8
   %49 = load i32, ptr %5, align 4
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 76
   %51 = load i32, ptr %50, align 4
-  %52 = call i64 @OidInputFunctionCall(i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %51) #17
+  %52 = call i64 @OidInputFunctionCall(i32 noundef %47, ptr noundef %48, i32 noundef %49, i32 noundef %51) #16
   %53 = load ptr, ptr %18, align 8
   %54 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv
   store i64 %52, ptr %54, align 8
@@ -5372,12 +5347,12 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonl
   store i32 0, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %27, i64 68
   %60 = load i32, ptr %59, align 4
-  call void @getTypeBinaryInputInfo(i32 noundef %60, ptr noundef nonnull %6, ptr noundef nonnull %7) #17
+  call void @getTypeBinaryInputInfo(i32 noundef %60, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
   %61 = load i32, ptr %6, align 4
   %62 = load i32, ptr %7, align 4
   %63 = getelementptr inbounds nuw i8, ptr %27, i64 76
   %64 = load i32, ptr %63, align 4
-  %65 = call i64 @OidReceiveFunctionCall(i32 noundef %61, ptr noundef %40, i32 noundef %62, i32 noundef %64) #17
+  %65 = call i64 @OidReceiveFunctionCall(i32 noundef %61, ptr noundef %40, i32 noundef %62, i32 noundef %64) #16
   %66 = load ptr, ptr %18, align 8
   %67 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv
   store i64 %65, ptr %67, align 8
@@ -5388,12 +5363,11 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonl
   br i1 %.not, label %76, label %71
 
 71:                                               ; preds = %57
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 @errcode(i32 noundef 50462850) #17
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %73 = call i32 @errcode(i32 noundef 50462850) #16
   %74 = add nuw nsw i32 %32, 1
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, i32 noundef %74) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 852, ptr noundef nonnull @__func__.slot_store_data) #17
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, i32 noundef %74) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 852, ptr noundef nonnull @__func__.slot_store_data) #16
   unreachable
 
 76:                                               ; preds = %57
@@ -5432,7 +5406,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonl
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %90, %3
-  %91 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %0) #17
+  %91 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -5449,7 +5423,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr @palloc0(i64 noundef 464) #17
+  %16 = tail call noundef ptr @palloc0(i64 noundef 464) #16
   store i32 395, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %16, ptr %17, align 8
@@ -5461,7 +5435,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   store i32 %3, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 216
   store ptr %13, ptr %21, align 8
-  %22 = tail call ptr @ExecSetupPartitionTupleRouting(ptr noundef %9, ptr noundef %15) #17
+  %22 = tail call ptr @ExecSetupPartitionTupleRouting(ptr noundef %9, ptr noundef %15) #16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 264
@@ -5470,7 +5444,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   br i1 %.not, label %26, label %28
 
 26:                                               ; preds = %4
-  %27 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #17
+  %27 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #16
   br label %28
 
 28:                                               ; preds = %4, %26
@@ -5479,7 +5453,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %31, ptr @CurrentMemoryContext, align 8
-  %33 = tail call ptr @ExecFindPartition(ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef %22, ptr noundef %1, ptr noundef nonnull %9) #17
+  %33 = tail call ptr @ExecFindPartition(ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef %22, ptr noundef %1, ptr noundef nonnull %9) #16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
@@ -5488,10 +5462,10 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   %39 = load i8, ptr %38, align 1
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 68
   %41 = load i32, ptr %40, align 4
-  %42 = tail call ptr @get_namespace_name(i32 noundef %41) #17
+  %42 = tail call ptr @get_namespace_name(i32 noundef %41) #16
   %43 = load ptr, ptr %36, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  tail call void @CheckSubscriptionRelkind(i8 noundef signext %39, ptr noundef %42, ptr noundef nonnull %44) #17
+  tail call void @CheckSubscriptionRelkind(i8 noundef signext %39, ptr noundef %42, ptr noundef nonnull %44) #16
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 368
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
@@ -5499,19 +5473,19 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
 
 48:                                               ; preds = %28
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 200
-  %50 = tail call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %49) #17
+  %50 = tail call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %49) #16
   br label %51
 
 51:                                               ; preds = %48, %28
   %.0146 = phi ptr [ %50, %48 ], [ %46, %28 ]
-  %52 = tail call ptr @ExecGetRootToChildMap(ptr noundef nonnull %33, ptr noundef nonnull %9) #17
+  %52 = tail call ptr @ExecGetRootToChildMap(ptr noundef nonnull %33, ptr noundef nonnull %9) #16
   %.not158 = icmp eq ptr %52, null
   br i1 %.not158, label %57, label %53
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call ptr @execute_attr_map_slot(ptr noundef %55, ptr noundef %1, ptr noundef %.0146) #17
+  %56 = tail call ptr @execute_attr_map_slot(ptr noundef %55, ptr noundef %1, ptr noundef %.0146) #16
   br label %slot_getallattrs.exit
 
 57:                                               ; preds = %51
@@ -5519,7 +5493,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 8
-  tail call void %61(ptr noundef %.0146, ptr noundef %1) #17
+  tail call void %61(ptr noundef %.0146, ptr noundef %1) #16
   %62 = getelementptr inbounds nuw i8, ptr %.0146, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %63, align 8
@@ -5530,7 +5504,7 @@ define internal fastcc void @apply_handle_tuple_routing(ptr noundef captures(non
   br i1 %68, label %69, label %slot_getallattrs.exit
 
 69:                                               ; preds = %57
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.0146, i32 noundef %64) #17
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %.0146, i32 noundef %64) #16
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %69, %57, %53
@@ -5543,7 +5517,7 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
   ]
 
 70:                                               ; preds = %slot_getallattrs.exit, %slot_getallattrs.exit
-  %71 = tail call ptr @logicalrep_partition_open(ptr noundef %11, ptr noundef nonnull %35, ptr noundef %.0149) #17
+  %71 = tail call ptr @logicalrep_partition_open(ptr noundef %11, ptr noundef nonnull %35, ptr noundef %.0149) #16
   tail call fastcc void @check_relation_updatable(ptr noundef %71)
   br label %72
 
@@ -5557,12 +5531,12 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
 
 73:                                               ; preds = %72
   %.val = load ptr, ptr %0, align 8
-  tail call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext true) #17
-  tail call void @InitConflictIndexes(ptr noundef nonnull %33) #17
+  tail call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext true) #16
+  tail call void @InitConflictIndexes(ptr noundef nonnull %33) #16
   %74 = load ptr, ptr %34, align 8
   tail call fastcc void @TargetPrivilegesCheck(ptr noundef %74, i64 noundef 1)
-  tail call void @ExecSimpleRelationInsert(ptr noundef nonnull %33, ptr noundef %.val, ptr noundef %.1) #17
-  tail call void @ExecCloseIndices(ptr noundef nonnull %33) #17
+  tail call void @ExecSimpleRelationInsert(ptr noundef nonnull %33, ptr noundef %.val, ptr noundef %.1) #16
+  tail call void @ExecCloseIndices(ptr noundef nonnull %33) #16
   br label %197
 
 75:                                               ; preds = %72
@@ -5581,25 +5555,25 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
   %.val165 = load ptr, ptr %0, align 8
   tail call fastcc void @TargetPrivilegesCheck(ptr noundef nonnull %35, i64 noundef 2)
   %81 = getelementptr inbounds nuw i8, ptr %.val165, i64 200
-  %82 = tail call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %81) #17
+  %82 = tail call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %81) #16
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %FindReplTupleInLocalRel.exit, label %83
 
 83:                                               ; preds = %78
-  %84 = tail call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef nonnull %35, i32 noundef %80, i32 noundef 3, ptr noundef %.1, ptr noundef %82) #17
+  %84 = tail call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef nonnull %35, i32 noundef %80, i32 noundef 3, ptr noundef %.1, ptr noundef %82) #16
   br i1 %84, label %87, label %86
 
 FindReplTupleInLocalRel.exit:                     ; preds = %78
-  %85 = tail call zeroext i1 @RelationFindReplTupleSeq(ptr noundef nonnull %35, i32 noundef 3, ptr noundef %.1, ptr noundef %82) #17
+  %85 = tail call zeroext i1 @RelationFindReplTupleSeq(ptr noundef nonnull %35, i32 noundef 3, ptr noundef %.1, ptr noundef %82) #16
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %83, %FindReplTupleInLocalRel.exit
   tail call fastcc void @slot_store_data(ptr noundef %82, ptr noundef nonnull %.0148, ptr noundef %2)
-  tail call void @ReportApplyConflict(ptr noundef nonnull %9, ptr noundef nonnull %33, i32 noundef 15, i32 noundef 3, ptr noundef %.1, ptr noundef null, ptr noundef %82, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #17
+  tail call void @ReportApplyConflict(ptr noundef nonnull %9, ptr noundef nonnull %33, i32 noundef 15, i32 noundef 3, ptr noundef %.1, ptr noundef null, ptr noundef %82, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #16
   br label %196
 
 87:                                               ; preds = %83, %FindReplTupleInLocalRel.exit
-  %88 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %82, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #17
+  %88 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %82, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #16
   br i1 %88, label %89, label %98
 
 89:                                               ; preds = %87
@@ -5610,12 +5584,12 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 200
-  %94 = call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %93) #17
+  %94 = call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %93) #16
   call fastcc void @slot_store_data(ptr noundef %94, ptr noundef nonnull %.0148, ptr noundef %2)
   %95 = load i32, ptr %7, align 4
   %96 = load i16, ptr %6, align 2
   %97 = load i64, ptr %8, align 8
-  call void @ReportApplyConflict(ptr noundef nonnull %9, ptr noundef nonnull %33, i32 noundef 15, i32 noundef 1, ptr noundef %.1, ptr noundef %82, ptr noundef %94, i32 noundef 0, i32 noundef %95, i16 noundef zeroext %96, i64 noundef %97) #17
+  call void @ReportApplyConflict(ptr noundef nonnull %9, ptr noundef nonnull %33, i32 noundef 15, i32 noundef 1, ptr noundef %.1, ptr noundef %82, ptr noundef %94, i32 noundef 0, i32 noundef %95, i16 noundef zeroext %96, i64 noundef %97) #16
   br label %98
 
 98:                                               ; preds = %92, %89, %87
@@ -5624,7 +5598,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   br i1 %.not160, label %100, label %102
 
 100:                                              ; preds = %98
-  %101 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #17
+  %101 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #16
   br label %102
 
 102:                                              ; preds = %98, %100
@@ -5635,7 +5609,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   store ptr %105, ptr @CurrentMemoryContext, align 8
   call fastcc void @slot_modify_data(ptr noundef %.1, ptr noundef %82, ptr noundef nonnull %.0148, ptr noundef %2)
   store ptr %106, ptr @CurrentMemoryContext, align 8
-  call void @EvalPlanQualInit(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #17
+  call void @EvalPlanQualInit(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #16
   %107 = load ptr, ptr %36, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 127
   %109 = load i8, ptr %108, align 1, !range !4, !noundef !5
@@ -5643,17 +5617,17 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %102
-  %112 = call zeroext i1 @ExecPartitionCheck(ptr noundef nonnull %33, ptr noundef %.1, ptr noundef nonnull %9, i1 noundef zeroext false) #17
+  %112 = call zeroext i1 @ExecPartitionCheck(ptr noundef nonnull %33, ptr noundef %.1, ptr noundef nonnull %9, i1 noundef zeroext false) #16
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %111, %102
-  call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext true) #17
-  call void @InitConflictIndexes(ptr noundef nonnull %33) #17
+  call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext true) #16
+  call void @InitConflictIndexes(ptr noundef nonnull %33) #16
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %.1, ptr %114, align 8
   %115 = load ptr, ptr %34, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %115, i64 noundef 4)
-  call void @ExecSimpleRelationUpdate(ptr noundef nonnull %33, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %82, ptr noundef %.1) #17
+  call void @ExecSimpleRelationUpdate(ptr noundef nonnull %33, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %82, ptr noundef %.1) #16
   br label %195
 
 116:                                              ; preds = %111
@@ -5664,10 +5638,10 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %121 = load ptr, ptr %120, align 8
-  %122 = call ptr @convert_tuples_by_name(ptr noundef %119, ptr noundef %121) #17
+  %122 = call ptr @convert_tuples_by_name(ptr noundef %119, ptr noundef %121) #16
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = call ptr @execute_attr_map_slot(ptr noundef %124, ptr noundef %.1, ptr noundef %1) #17
+  %125 = call ptr @execute_attr_map_slot(ptr noundef %124, ptr noundef %.1, ptr noundef %1) #16
   br label %slot_getallattrs.exit166
 
 126:                                              ; preds = %116
@@ -5675,7 +5649,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 64
   %130 = load ptr, ptr %129, align 8
-  call void %130(ptr noundef %1, ptr noundef %.1) #17
+  call void %130(ptr noundef %1, ptr noundef %.1) #16
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %132 = load ptr, ptr %131, align 8
   %133 = load i32, ptr %132, align 8
@@ -5686,7 +5660,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   br i1 %137, label %138, label %slot_getallattrs.exit166
 
 138:                                              ; preds = %126
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %133) #17
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %133) #16
   br label %slot_getallattrs.exit166
 
 slot_getallattrs.exit166:                         ; preds = %138, %126, %117
@@ -5696,7 +5670,7 @@ slot_getallattrs.exit166:                         ; preds = %138, %126, %117
   br i1 %.not161, label %140, label %142
 
 140:                                              ; preds = %slot_getallattrs.exit166
-  %141 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #17
+  %141 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #16
   br label %142
 
 142:                                              ; preds = %slot_getallattrs.exit166, %140
@@ -5705,7 +5679,7 @@ slot_getallattrs.exit166:                         ; preds = %138, %126, %117
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %145, ptr @CurrentMemoryContext, align 8
-  %147 = call ptr @ExecFindPartition(ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef %22, ptr noundef %.0, ptr noundef nonnull %9) #17
+  %147 = call ptr @ExecFindPartition(ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef %22, ptr noundef %.0, ptr noundef nonnull %9) #16
   store ptr %146, ptr @CurrentMemoryContext, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
@@ -5715,22 +5689,22 @@ slot_getallattrs.exit166:                         ; preds = %138, %126, %117
   %153 = load i8, ptr %152, align 1
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 68
   %155 = load i32, ptr %154, align 4
-  %156 = call ptr @get_namespace_name(i32 noundef %155) #17
+  %156 = call ptr @get_namespace_name(i32 noundef %155) #16
   %157 = load ptr, ptr %150, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  call void @CheckSubscriptionRelkind(i8 noundef signext %153, ptr noundef %156, ptr noundef nonnull %158) #17
-  call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext false) #17
+  call void @CheckSubscriptionRelkind(i8 noundef signext %153, ptr noundef %156, ptr noundef nonnull %158) #16
+  call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext false) #16
   %159 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %82, ptr %159, align 8
   %160 = load ptr, ptr %34, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %160, i64 noundef 8)
-  call void @ExecSimpleRelationDelete(ptr noundef nonnull %33, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %82) #17
+  call void @ExecSimpleRelationDelete(ptr noundef nonnull %33, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef %82) #16
   %161 = load ptr, ptr %24, align 8
   %.not162 = icmp eq ptr %161, null
   br i1 %.not162, label %162, label %164
 
 162:                                              ; preds = %142
-  %163 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #17
+  %163 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %9) #16
   br label %164
 
 164:                                              ; preds = %142, %162
@@ -5746,19 +5720,19 @@ slot_getallattrs.exit166:                         ; preds = %138, %126, %117
 
 172:                                              ; preds = %164
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 200
-  %174 = call ptr @table_slot_create(ptr noundef nonnull %149, ptr noundef nonnull %173) #17
+  %174 = call ptr @table_slot_create(ptr noundef nonnull %149, ptr noundef nonnull %173) #16
   br label %175
 
 175:                                              ; preds = %172, %164
   %.2 = phi ptr [ %174, %172 ], [ %170, %164 ]
-  %176 = call ptr @ExecGetRootToChildMap(ptr noundef nonnull %147, ptr noundef nonnull %9) #17
+  %176 = call ptr @ExecGetRootToChildMap(ptr noundef nonnull %147, ptr noundef nonnull %9) #16
   %.not163 = icmp eq ptr %176, null
   br i1 %.not163, label %181, label %177
 
 177:                                              ; preds = %175
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 16
   %179 = load ptr, ptr %178, align 8
-  %180 = call ptr @execute_attr_map_slot(ptr noundef %179, ptr noundef %.0, ptr noundef %.2) #17
+  %180 = call ptr @execute_attr_map_slot(ptr noundef %179, ptr noundef %.0, ptr noundef %.2) #16
   br label %slot_getallattrs.exit167
 
 181:                                              ; preds = %175
@@ -5766,7 +5740,7 @@ slot_getallattrs.exit166:                         ; preds = %138, %126, %117
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef %.2, ptr noundef %.0) #17
+  call void %185(ptr noundef %.2, ptr noundef %.0) #16
   %186 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %187 = load ptr, ptr %186, align 8
   %188 = load i32, ptr %187, align 8
@@ -5777,24 +5751,24 @@ slot_getallattrs.exit166:                         ; preds = %138, %126, %117
   br i1 %192, label %193, label %slot_getallattrs.exit167
 
 193:                                              ; preds = %181
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0, i32 noundef %188) #17
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0, i32 noundef %188) #16
   br label %slot_getallattrs.exit167
 
 slot_getallattrs.exit167:                         ; preds = %193, %181, %177
   %.3 = phi ptr [ %180, %177 ], [ %.2, %181 ], [ %.2, %193 ]
   store ptr %168, ptr @CurrentMemoryContext, align 8
   %.val164 = load ptr, ptr %0, align 8
-  call void @ExecOpenIndices(ptr noundef nonnull %147, i1 noundef zeroext true) #17
-  call void @InitConflictIndexes(ptr noundef nonnull %147) #17
+  call void @ExecOpenIndices(ptr noundef nonnull %147, i1 noundef zeroext true) #16
+  call void @InitConflictIndexes(ptr noundef nonnull %147) #16
   %194 = load ptr, ptr %148, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %194, i64 noundef 1)
-  call void @ExecSimpleRelationInsert(ptr noundef nonnull %147, ptr noundef %.val164, ptr noundef %.3) #17
-  call void @ExecCloseIndices(ptr noundef nonnull %147) #17
+  call void @ExecSimpleRelationInsert(ptr noundef nonnull %147, ptr noundef %.val164, ptr noundef %.3) #16
+  call void @ExecCloseIndices(ptr noundef nonnull %147) #16
   br label %195
 
 195:                                              ; preds = %slot_getallattrs.exit167, %113
-  call void @ExecCloseIndices(ptr noundef nonnull %33) #17
-  call void @EvalPlanQualEnd(ptr noundef nonnull %5) #17
+  call void @ExecCloseIndices(ptr noundef nonnull %33) #16
+  call void @EvalPlanQualEnd(ptr noundef nonnull %5) #16
   br label %196
 
 196:                                              ; preds = %195, %86
@@ -5898,11 +5872,10 @@ define internal fastcc void @check_relation_updatable(ptr noundef readonly captu
   br i1 %12, label %25, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @GetRelationIdentityOrPK(ptr noundef nonnull %3) #17
+  %14 = tail call i32 @GetRelationIdentityOrPK(ptr noundef nonnull %3) #16
   %.not = icmp eq i32 %14, 0
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 325) #17
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %16 = tail call i32 @errcode(i32 noundef 325) #16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5910,13 +5883,13 @@ define internal fastcc void @check_relation_updatable(ptr noundef readonly captu
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %13
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef %18, ptr noundef %20) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2525, ptr noundef nonnull @__func__.check_relation_updatable) #17
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef %18, ptr noundef %20) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2525, ptr noundef nonnull @__func__.check_relation_updatable) #16
   unreachable
 
 23:                                               ; preds = %13
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef %18, ptr noundef %20) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2534, ptr noundef nonnull @__func__.check_relation_updatable) #17
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef %18, ptr noundef %20) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2534, ptr noundef nonnull @__func__.check_relation_updatable) #16
   unreachable
 
 25:                                               ; preds = %9, %1
@@ -5933,28 +5906,28 @@ define internal fastcc void @apply_handle_delete_internal(ptr noundef readonly c
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @EvalPlanQualInit(ptr noundef nonnull %5, ptr noundef %9, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #17
-  call void @ExecOpenIndices(ptr noundef %1, i1 noundef zeroext false) #17
+  call void @EvalPlanQualInit(ptr noundef nonnull %5, ptr noundef %9, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #16
+  call void @ExecOpenIndices(ptr noundef %1, i1 noundef zeroext false) #16
   %.val = load ptr, ptr %0, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %11, i64 noundef 2)
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %13 = call ptr @table_slot_create(ptr noundef %11, ptr noundef nonnull %12) #17
+  %13 = call ptr @table_slot_create(ptr noundef %11, ptr noundef nonnull %12) #16
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %FindReplTupleInLocalRel.exit, label %14
 
 14:                                               ; preds = %4
-  %15 = call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %11, i32 noundef %3, i32 noundef 3, ptr noundef %2, ptr noundef %13) #17
+  %15 = call zeroext i1 @RelationFindReplTupleByIndex(ptr noundef %11, i32 noundef %3, i32 noundef 3, ptr noundef %2, ptr noundef %13) #16
   br i1 %15, label %17, label %28
 
 FindReplTupleInLocalRel.exit:                     ; preds = %4
-  %16 = call zeroext i1 @RelationFindReplTupleSeq(ptr noundef %11, i32 noundef 3, ptr noundef %2, ptr noundef %13) #17
+  %16 = call zeroext i1 @RelationFindReplTupleSeq(ptr noundef %11, i32 noundef 3, ptr noundef %2, ptr noundef %13) #16
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %14, %FindReplTupleInLocalRel.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %18 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #17
+  %18 = call zeroext i1 @GetTupleTransactionInfo(ptr noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %8) #16
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %17
@@ -5966,7 +5939,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %4
 22:                                               ; preds = %19
   %23 = load i32, ptr %7, align 4
   %24 = load i64, ptr %8, align 8
-  call void @ReportApplyConflict(ptr noundef %9, ptr noundef nonnull %1, i32 noundef 15, i32 noundef 4, ptr noundef %2, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef %23, i16 noundef zeroext %20, i64 noundef %24) #17
+  call void @ReportApplyConflict(ptr noundef %9, ptr noundef nonnull %1, i32 noundef 15, i32 noundef 4, ptr noundef %2, ptr noundef %13, ptr noundef null, i32 noundef 0, i32 noundef %23, i16 noundef zeroext %20, i64 noundef %24) #16
   br label %25
 
 25:                                               ; preds = %22, %19, %17
@@ -5974,19 +5947,19 @@ FindReplTupleInLocalRel.exit:                     ; preds = %4
   store ptr %13, ptr %26, align 8
   %27 = load ptr, ptr %10, align 8
   call fastcc void @TargetPrivilegesCheck(ptr noundef %27, i64 noundef 8)
-  call void @ExecSimpleRelationDelete(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull %5, ptr noundef %13) #17
+  call void @ExecSimpleRelationDelete(ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull %5, ptr noundef %13) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %29
 
 28:                                               ; preds = %14, %FindReplTupleInLocalRel.exit
-  call void @ReportApplyConflict(ptr noundef %9, ptr noundef nonnull %1, i32 noundef 15, i32 noundef 5, ptr noundef %2, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #17
+  call void @ReportApplyConflict(ptr noundef %9, ptr noundef nonnull %1, i32 noundef 15, i32 noundef 5, ptr noundef %2, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #16
   br label %29
 
 29:                                               ; preds = %28, %25
-  call void @ExecCloseIndices(ptr noundef nonnull %1) #17
-  call void @EvalPlanQualEnd(ptr noundef nonnull %5) #17
+  call void @ExecCloseIndices(ptr noundef nonnull %1) #16
+  call void @EvalPlanQualEnd(ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -6008,7 +5981,7 @@ define internal fastcc void @slot_modify_data(ptr noundef %0, ptr noundef %1, pt
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef %0) #17
+  tail call void %15(ptr noundef %0) #16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
@@ -6019,7 +5992,7 @@ define internal fastcc void @slot_modify_data(ptr noundef %0, ptr noundef %1, pt
   br i1 %22, label %23, label %slot_getallattrs.exit
 
 23:                                               ; preds = %4
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %18) #17
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %18) #16
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %4, %23
@@ -6083,13 +6056,13 @@ slot_getallattrs.exit:                            ; preds = %4, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 68
   %61 = load i32, ptr %60, align 4
-  call void @getTypeInputInfo(i32 noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
+  call void @getTypeInputInfo(i32 noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %62 = load i32, ptr %5, align 4
   %63 = load ptr, ptr %58, align 8
   %64 = load i32, ptr %6, align 4
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 76
   %66 = load i32, ptr %65, align 4
-  %67 = call i64 @OidInputFunctionCall(i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %66) #17
+  %67 = call i64 @OidInputFunctionCall(i32 noundef %62, ptr noundef %63, i32 noundef %64, i32 noundef %66) #16
   %68 = load ptr, ptr %24, align 8
   %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
   store i64 %67, ptr %69, align 8
@@ -6107,12 +6080,12 @@ slot_getallattrs.exit:                            ; preds = %4, %23
   store i32 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %44, i64 68
   %75 = load i32, ptr %74, align 4
-  call void @getTypeBinaryInputInfo(i32 noundef %75, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
+  call void @getTypeBinaryInputInfo(i32 noundef %75, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %76 = load i32, ptr %7, align 4
   %77 = load i32, ptr %8, align 4
   %78 = getelementptr inbounds nuw i8, ptr %44, i64 76
   %79 = load i32, ptr %78, align 4
-  %80 = call i64 @OidReceiveFunctionCall(i32 noundef %76, ptr noundef %58, i32 noundef %77, i32 noundef %79) #17
+  %80 = call i64 @OidReceiveFunctionCall(i32 noundef %76, ptr noundef %58, i32 noundef %77, i32 noundef %79) #16
   %81 = load ptr, ptr %24, align 8
   %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv
   store i64 %80, ptr %82, align 8
@@ -6123,12 +6096,11 @@ slot_getallattrs.exit:                            ; preds = %4, %23
   br i1 %.not50, label %91, label %86
 
 86:                                               ; preds = %72
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 @errcode(i32 noundef 50462850) #17
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %88 = call i32 @errcode(i32 noundef 50462850) #16
   %89 = add nuw nsw i32 %49, 1
-  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, i32 noundef %89) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 967, ptr noundef nonnull @__func__.slot_modify_data) #17
+  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, i32 noundef %89) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 967, ptr noundef nonnull @__func__.slot_modify_data) #16
   unreachable
 
 91:                                               ; preds = %72
@@ -6158,7 +6130,7 @@ slot_getallattrs.exit:                            ; preds = %4, %23
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %100, %slot_getallattrs.exit
-  %101 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %0) #17
+  %101 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %0) #16
   ret void
 }
 
@@ -6174,8 +6146,8 @@ declare void @InitConflictIndexes(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @TargetPrivilegesCheck(ptr noundef readonly captures(none) %0, i64 noundef range(i64 1, 17) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
-  %5 = tail call i32 @GetUserId() #17
-  %6 = tail call i32 @pg_class_aclcheck(i32 noundef %4, i32 noundef %5, i64 noundef %1) #17
+  %5 = tail call i32 @GetUserId() #16
+  %6 = tail call i32 @pg_class_aclcheck(i32 noundef %4, i32 noundef %5, i64 noundef %1) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
 
@@ -6184,27 +6156,26 @@ define internal fastcc void @TargetPrivilegesCheck(ptr noundef readonly captures
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 115
   %11 = load i8, ptr %10, align 1
-  %12 = tail call i32 @get_relkind_objtype(i8 noundef signext %11) #17
-  %13 = tail call ptr @get_rel_name(i32 noundef %4) #17
-  tail call void @aclcheck_error(i32 noundef %6, i32 noundef %12, ptr noundef %13) #17
+  %12 = tail call i32 @get_relkind_objtype(i8 noundef signext %11) #16
+  %13 = tail call ptr @get_rel_name(i32 noundef %4) #16
+  tail call void @aclcheck_error(i32 noundef %6, i32 noundef %12, ptr noundef %13) #16
   br label %14
 
 14:                                               ; preds = %7, %2
-  %15 = tail call i32 @check_enable_rls(i32 noundef %4, i32 noundef 0, i1 noundef zeroext false) #17
+  %15 = tail call i32 @check_enable_rls(i32 noundef %4, i32 noundef 0, i1 noundef zeroext false) #16
   %16 = icmp eq i32 %15, 2
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %14
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 1088) #17
-  %20 = tail call i32 @GetUserId() #17
-  %21 = tail call ptr @GetUserNameFromId(i32 noundef %20, i1 noundef zeroext true) #17
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %19 = tail call i32 @errcode(i32 noundef 1088) #16
+  %20 = tail call i32 @GetUserId() #16
+  %21 = tail call ptr @GetUserNameFromId(i32 noundef %20, i1 noundef zeroext true) #16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef %21, ptr noundef nonnull %24) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2385, ptr noundef nonnull @__func__.TargetPrivilegesCheck) #17
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef %21, ptr noundef nonnull %24) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2385, ptr noundef nonnull @__func__.TargetPrivilegesCheck) #16
   unreachable
 
 26:                                               ; preds = %14
@@ -6328,9 +6299,9 @@ define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 nou
   %14 = add i32 %11, 1
   %15 = sub i32 %14, %13
   store i32 %15, ptr %5, align 4
-  call void @BufFileWrite(ptr noundef %9, ptr noundef nonnull %5, i64 noundef 4) #17
+  call void @BufFileWrite(ptr noundef %9, ptr noundef nonnull %5, i64 noundef 4) #16
   %16 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileWrite(ptr noundef %16, ptr noundef nonnull %4, i64 noundef 1) #17
+  call void @BufFileWrite(ptr noundef %16, ptr noundef nonnull %4, i64 noundef 1) #16
   %17 = load i32, ptr %10, align 8
   %18 = load i32, ptr %12, align 8
   %19 = sub i32 %17, %18
@@ -6340,7 +6311,7 @@ define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 nou
   %22 = sext i32 %18 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = sext i32 %19 to i64
-  call void @BufFileWrite(ptr noundef %20, ptr noundef %23, i64 noundef %24) #17
+  call void @BufFileWrite(ptr noundef %20, ptr noundef %23, i64 noundef %24) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %25 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -6348,11 +6319,11 @@ define internal fastcc void @stream_open_and_write_change(i32 noundef %0, i8 nou
   %27 = load i32, ptr %26, align 8
   call fastcc void @subxact_info_write(i32 noundef %27, i32 noundef %0)
   %28 = load ptr, ptr @stream_fd, align 8
-  call void @BufFileClose(ptr noundef %28) #17
+  call void @BufFileClose(ptr noundef %28) #16
   store ptr null, ptr @stream_fd, align 8
-  call void @CommitTransactionCommand() #17
+  call void @CommitTransactionCommand() #16
   %29 = load ptr, ptr @LogicalStreamingContext, align 8
-  call void @MemoryContextReset(ptr noundef %29) #17
+  call void @MemoryContextReset(ptr noundef %29) #16
   ret void
 }
 
@@ -6380,13 +6351,13 @@ define internal fastcc void @apply_handle_prepare_internal(ptr noundef nonnull r
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
-  call void @TwoPhaseTransactionGid(i32 noundef %4, i32 noundef %6, ptr noundef nonnull %2, i32 noundef 200) #17
-  %7 = call zeroext i1 @IsTransactionBlock() #17
+  call void @TwoPhaseTransactionGid(i32 noundef %4, i32 noundef %6, ptr noundef nonnull %2, i32 noundef 200) #16
+  %7 = call zeroext i1 @IsTransactionBlock() #16
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %1
-  call void @BeginTransactionBlock() #17
-  call void @CommitTransactionCommand() #17
+  call void @BeginTransactionBlock() #16
+  call void @CommitTransactionCommand() #16
   br label %9
 
 9:                                                ; preds = %8, %1
@@ -6396,7 +6367,7 @@ define internal fastcc void @apply_handle_prepare_internal(ptr noundef nonnull r
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr @replorigin_session_origin_timestamp, align 8
-  %14 = call zeroext i1 @PrepareTransactionBlock(ptr noundef nonnull %2) #17
+  %14 = call zeroext i1 @PrepareTransactionBlock(ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -6436,7 +6407,7 @@ define internal fastcc void @send_feedback(i64 noundef %0, i1 noundef zeroext %1
 7:                                                ; preds = %3
   %8 = load i64, ptr @send_feedback.last_recvpos, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %0, i64 %8)
-  %9 = tail call i64 @GetFlushRecPtr(ptr noundef null) #17
+  %9 = tail call i64 @GetFlushRecPtr(ptr noundef null) #16
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lsn_mapping, i64 8), align 8
   %.not.i = icmp eq ptr %10, null
   %.not212731.i = icmp eq ptr %10, @lsn_mapping
@@ -6473,7 +6444,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i.preheader,
   store ptr %.sroa.9.030.i, ptr %20, align 8
   %21 = load ptr, ptr %.sroa.0.028.i50, align 8
   store ptr %21, ptr %.sroa.9.030.i, align 8
-  tail call void @pfree(ptr noundef nonnull %.sroa.0.028.i50) #17
+  tail call void @pfree(ptr noundef nonnull %.sroa.0.028.i50) #16
   %.not21.i = icmp eq ptr %.sroa.9.030.i, @lsn_mapping
   br i1 %.not21.i, label %select.unfold._crit_edge.loopexit.i, label %.lr.ph.i
 
@@ -6497,7 +6468,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %spec.select42 = tail call i64 @llvm.umax.i64(i64 %.0, i64 %26)
   %27 = load i64, ptr @send_feedback.last_flushpos, align 8
   %.134 = tail call i64 @llvm.umax.i64(i64 %.033, i64 %27)
-  %28 = tail call i64 @GetCurrentTimestamp() #17
+  %28 = tail call i64 @GetCurrentTimestamp() #16
   %.not43 = xor i1 %1, true
   %29 = load i64, ptr @send_feedback.last_writepos, align 8
   %30 = icmp eq i64 %spec.select42, %29
@@ -6511,7 +6482,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %34 = load i64, ptr @send_feedback.send_time, align 8
   %35 = load i32, ptr @wal_receiver_status_interval, align 4
   %36 = mul i32 %35, 1000
-  %37 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %34, i64 noundef %28, i32 noundef %36) #17
+  %37 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %34, i64 noundef %28, i32 noundef %36) #16
   br i1 %37, label %38, label %125
 
 38:                                               ; preds = %33, %25
@@ -6524,19 +6495,19 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %41 = load ptr, ptr @ApplyContext, align 8
   %42 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %41, ptr @CurrentMemoryContext, align 8
-  %43 = tail call ptr @makeStringInfo() #17
+  %43 = tail call ptr @makeStringInfo() #16
   store ptr %43, ptr @send_feedback.reply_message, align 8
   store ptr %42, ptr @CurrentMemoryContext, align 8
   br label %45
 
 44:                                               ; preds = %38
-  tail call void @resetStringInfo(ptr noundef nonnull %39) #17
+  tail call void @resetStringInfo(ptr noundef nonnull %39) #16
   %.pre = load ptr, ptr @send_feedback.reply_message, align 8
   br label %45
 
 45:                                               ; preds = %44, %40
   %46 = phi ptr [ %.pre, %44 ], [ %43, %40 ]
-  tail call void @enlargeStringInfo(ptr noundef %46, i32 noundef 1) #17
+  tail call void @enlargeStringInfo(ptr noundef %46, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %47 = load ptr, ptr %46, align 8, !alias.scope !16
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -6547,7 +6518,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %52 = add i32 %49, 1
   store i32 %52, ptr %48, align 8, !alias.scope !16
   %53 = load ptr, ptr @send_feedback.reply_message, align 8
-  tail call void @enlargeStringInfo(ptr noundef %53, i32 noundef 8) #17
+  tail call void @enlargeStringInfo(ptr noundef %53, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %54 = tail call i64 @llvm.bswap.i64(i64 %spec.select)
   %55 = load ptr, ptr %53, align 8, !alias.scope !19
@@ -6559,7 +6530,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %60 = add i32 %57, 8
   store i32 %60, ptr %56, align 8, !alias.scope !19
   %61 = load ptr, ptr @send_feedback.reply_message, align 8
-  tail call void @enlargeStringInfo(ptr noundef %61, i32 noundef 8) #17
+  tail call void @enlargeStringInfo(ptr noundef %61, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %62 = tail call i64 @llvm.bswap.i64(i64 %.134)
   %63 = load ptr, ptr %61, align 8, !alias.scope !22
@@ -6571,7 +6542,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %68 = add i32 %65, 8
   store i32 %68, ptr %64, align 8, !alias.scope !22
   %69 = load ptr, ptr @send_feedback.reply_message, align 8
-  tail call void @enlargeStringInfo(ptr noundef %69, i32 noundef 8) #17
+  tail call void @enlargeStringInfo(ptr noundef %69, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %70 = tail call i64 @llvm.bswap.i64(i64 %spec.select42)
   %71 = load ptr, ptr %69, align 8, !alias.scope !25
@@ -6583,7 +6554,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %76 = add i32 %73, 8
   store i32 %76, ptr %72, align 8, !alias.scope !25
   %77 = load ptr, ptr @send_feedback.reply_message, align 8
-  tail call void @enlargeStringInfo(ptr noundef %77, i32 noundef 8) #17
+  tail call void @enlargeStringInfo(ptr noundef %77, i32 noundef 8) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %78 = tail call i64 @llvm.bswap.i64(i64 %28)
   %79 = load ptr, ptr %77, align 8, !alias.scope !28
@@ -6595,7 +6566,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %84 = add i32 %81, 8
   store i32 %84, ptr %80, align 8, !alias.scope !28
   %85 = load ptr, ptr @send_feedback.reply_message, align 8
-  tail call void @enlargeStringInfo(ptr noundef %85, i32 noundef 1) #17
+  tail call void @enlargeStringInfo(ptr noundef %85, i32 noundef 1) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %86 = load ptr, ptr %85, align 8, !alias.scope !31
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -6605,7 +6576,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   store i8 %4, ptr %90, align 1, !noalias !31
   %91 = add i32 %88, 1
   store i32 %91, ptr %87, align 8, !alias.scope !31
-  %92 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %92 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
   br i1 %92, label %93, label %105
 
 93:                                               ; preds = %45
@@ -6619,8 +6590,8 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %101 = lshr i64 %.134, 32
   %102 = trunc nuw i64 %101 to i32
   %103 = trunc i64 %.134 to i32
-  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, i32 noundef %94, i32 noundef %96, i32 noundef %97, i32 noundef %99, i32 noundef %100, i32 noundef %102, i32 noundef %103) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3907, ptr noundef nonnull @__func__.send_feedback) #17
+  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, i32 noundef %94, i32 noundef %96, i32 noundef %97, i32 noundef %99, i32 noundef %100, i32 noundef %102, i32 noundef %103) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3907, ptr noundef nonnull @__func__.send_feedback) #16
   br label %105
 
 105:                                              ; preds = %93, %45
@@ -6632,7 +6603,7 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %113 = load i32, ptr %112, align 8
-  tail call void %108(ptr noundef %109, ptr noundef %111, i32 noundef %113) #17
+  tail call void %108(ptr noundef %109, ptr noundef %111, i32 noundef %113) #16
   %114 = load i64, ptr @send_feedback.last_recvpos, align 8
   %115 = icmp ugt i64 %spec.select, %114
   br i1 %115, label %116, label %117
@@ -6697,31 +6668,30 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %0
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 325) #17
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4556, ptr noundef nonnull @__func__.run_apply_worker) #17
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %10 = tail call i32 @errcode(i32 noundef 325) #16
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4556, ptr noundef nonnull @__func__.run_apply_worker) #16
   unreachable
 
 12:                                               ; preds = %0
   %13 = load i32, ptr %5, align 8
-  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %13) #17
-  call void @StartTransactionCommand() #17
-  %15 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %1, i1 noundef zeroext true) #17
+  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 64, ptr noundef nonnull @.str.1, i32 noundef %13) #16
+  call void @StartTransactionCommand() #16
+  %15 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %1, i1 noundef zeroext true) #16
   %.not8 = icmp eq i16 %15, 0
   br i1 %.not8, label %16, label %18
 
 16:                                               ; preds = %12
-  %17 = call zeroext i16 @replorigin_create(ptr noundef nonnull %1) #17
+  %17 = call zeroext i16 @replorigin_create(ptr noundef nonnull %1) #16
   br label %18
 
 18:                                               ; preds = %16, %12
   %.0 = phi i16 [ %15, %12 ], [ %17, %16 ]
-  call void @replorigin_session_setup(i16 noundef zeroext %.0, i32 noundef 0) #17
+  call void @replorigin_session_setup(i16 noundef zeroext %.0, i32 noundef 0) #16
   store i16 %.0, ptr @replorigin_session_origin, align 2
-  %19 = call i64 @replorigin_session_get_progress(i1 noundef zeroext false) #17
-  call void @CommitTransactionCommand() #17
+  %19 = call i64 @replorigin_session_get_progress(i1 noundef zeroext false) #16
+  call void @CommitTransactionCommand() #16
   %20 = load ptr, ptr @MySubscription, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 34
   %22 = load i8, ptr %21, align 2, !range !4, !noundef !5
@@ -6743,30 +6713,29 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = call ptr %32(ptr noundef %34, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext %30, ptr noundef %36, ptr noundef nonnull %4) #17
+  %37 = call ptr %32(ptr noundef %34, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext %30, ptr noundef %36, ptr noundef nonnull %4) #16
   store ptr %37, ptr @LogRepWorkerWalRcvConn, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %29
-  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %40)
-  %41 = call i32 @errcode(i32 noundef 100663808) #17
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
+  %41 = call i32 @errcode(i32 noundef 100663808) #16
   %42 = load ptr, ptr @MySubscription, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %4, align 8
-  %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef %44, ptr noundef %45) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4582, ptr noundef nonnull @__func__.run_apply_worker) #17
+  %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef %44, ptr noundef %45) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4582, ptr noundef nonnull @__func__.run_apply_worker) #16
   unreachable
 
 47:                                               ; preds = %29
   %48 = load ptr, ptr @WalReceiverFunctions, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8
-  %51 = call ptr %50(ptr noundef nonnull %37, ptr noundef nonnull %3) #17
+  %51 = call ptr %50(ptr noundef nonnull %37, ptr noundef nonnull %3) #16
   %52 = load ptr, ptr @ApplyContext, align 8
-  %53 = call ptr @MemoryContextStrdup(ptr noundef %52, ptr noundef nonnull %1) #17
+  %53 = call ptr @MemoryContextStrdup(ptr noundef %52, ptr noundef nonnull %1) #16
   store ptr %53, ptr @apply_error_callback_arg.5, align 8
   store i8 1, ptr %2, align 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -6777,7 +6746,7 @@ define internal fastcc void @run_apply_worker() unnamed_addr #0 {
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %60 = call i32 %58(ptr noundef %59) #17
+  %60 = call i32 %58(ptr noundef %59) #16
   %61 = icmp sgt i32 %60, 159999
   %62 = icmp sgt i32 %60, 149999
   %63 = icmp sgt i32 %60, 139999
@@ -6831,7 +6800,7 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
   store i8 0, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @pstrdup(ptr noundef %87) #17
+  %88 = call ptr @pstrdup(ptr noundef %87) #16
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %88, ptr %89, align 8
   %90 = load ptr, ptr @MySubscription, align 8
@@ -6841,7 +6810,7 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
   br i1 %93, label %94, label %106
 
 94:                                               ; preds = %set_stream_options.exit
-  %95 = call zeroext i1 @AllTablesyncsReady() #17
+  %95 = call zeroext i1 @AllTablesyncsReady() #16
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %94
@@ -6850,15 +6819,15 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %101 = call zeroext i1 %99(ptr noundef %100, ptr noundef nonnull %2) #17
-  call void @StartTransactionCommand() #17
+  %101 = call zeroext i1 %99(ptr noundef %100, ptr noundef nonnull %2) #16
+  call void @StartTransactionCommand() #16
   %102 = load ptr, ptr @MySubscription, align 8
   %103 = load i32, ptr %102, align 8
-  call void @UpdateTwoPhaseState(i32 noundef %103, i8 noundef signext 101) #17
+  call void @UpdateTwoPhaseState(i32 noundef %103, i8 noundef signext 101) #16
   %104 = load ptr, ptr @MySubscription, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store i8 101, ptr %105, align 8
-  call void @CommitTransactionCommand() #17
+  call void @CommitTransactionCommand() #16
   br label %112
 
 106:                                              ; preds = %94, %set_stream_options.exit
@@ -6866,11 +6835,11 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 64
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  %111 = call zeroext i1 %109(ptr noundef %110, ptr noundef nonnull %2) #17
+  %111 = call zeroext i1 %109(ptr noundef %110, ptr noundef nonnull %2) #16
   br label %112
 
 112:                                              ; preds = %106, %96
-  %113 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
+  %113 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
   br i1 %113, label %114, label %126
 
 114:                                              ; preds = %112
@@ -6894,8 +6863,8 @@ set_stream_options.exit:                          ; preds = %75, %.thread.i, %81
 
 123:                                              ; preds = %114, %.fold.split, %120
   %124 = phi ptr [ @.str.79, %114 ], [ %122, %120 ], [ @.str.80, %.fold.split ]
-  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, ptr noundef %117, ptr noundef nonnull %124) #17
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4626, ptr noundef nonnull @__func__.run_apply_worker) #17
+  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, ptr noundef %117, ptr noundef nonnull %124) #16
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4626, ptr noundef nonnull @__func__.run_apply_worker) #16
   br label %126
 
 126:                                              ; preds = %123, %112
@@ -6925,14 +6894,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6948,14 +6914,13 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { cold nounwind }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind returns_twice }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { cold nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind returns_twice }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

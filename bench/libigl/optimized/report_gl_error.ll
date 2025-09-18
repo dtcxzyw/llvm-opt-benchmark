@@ -39,7 +39,7 @@ switch.lookup:                                    ; preds = %4
 
 "_ZZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEj.exit": ; preds = %switch.lookup, %4
   %.0.i = phi ptr [ @.str.3, %4 ], [ %switch.load, %switch.lookup ]
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef %6, ptr noundef nonnull %.0.i) #4
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef %6, ptr noundef nonnull %.0.i) #3
   br label %10
 
 10:                                               ; preds = %"_ZZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEj.exit", %1
@@ -60,7 +60,7 @@ define dso_local noundef i32 @_ZN3igl6opengl15report_gl_errorEv() local_unnamed_
   store i8 0, ptr %1, align 8, !tbaa !17
   %3 = load ptr, ptr @glad_glGetError, align 8, !tbaa !4
   %4 = invoke i32 %3()
-          to label %.noexc3 unwind label %17
+          to label %.noexc3 unwind label %15
 
 .noexc3:                                          ; preds = %._crit_edge.i.i
   %.not.i = icmp eq i32 %4, 0
@@ -81,50 +81,38 @@ switch.lookup:                                    ; preds = %5
 
 "_ZZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEj.exit.i": ; preds = %switch.lookup, %5
   %.0.i.i = phi ptr [ @.str.3, %5 ], [ %switch.load, %switch.lookup ]
-  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, ptr noundef %7, ptr noundef nonnull %.0.i.i) #4
+  %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.1, ptr noundef %7, ptr noundef nonnull %.0.i.i) #3
   br label %_ZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %"_ZZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEj.exit.i", %.noexc3
   %11 = load ptr, ptr %0, align 8, !tbaa !10
   %12 = icmp eq ptr %11, %1
-  br i1 %12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %13 = load i64, ptr %2, align 8, !tbaa !16
-  %14 = icmp ult i64 %13, 16
-  call void @llvm.assume(i1 %14)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %12, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %15 = load i64, ptr %1, align 8, !tbaa !17
-  %16 = add i64 %15, 1
-  call void @_ZdlPvm(ptr noundef %11, i64 noundef %16) #5
+  %13 = load i64, ptr %1, align 8, !tbaa !17
+  %14 = add i64 %13, 1
+  call void @_ZdlPvm(ptr noundef %11, i64 noundef %14) #4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN3igl6opengl15report_gl_errorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   ret i32 %4
 
-17:                                               ; preds = %._crit_edge.i.i
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %._crit_edge.i.i
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %0, align 8, !tbaa !10
-  %20 = icmp eq ptr %19, %1
-  br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
+  %17 = load ptr, ptr %0, align 8, !tbaa !10
+  %18 = icmp eq ptr %17, %1
+  br i1 %18, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %17
-  %21 = load i64, ptr %2, align 8, !tbaa !16
-  %22 = icmp ult i64 %21, 16
-  call void @llvm.assume(i1 %22)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %15
+  %19 = load i64, ptr %1, align 8, !tbaa !17
+  %20 = add i64 %19, 1
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %20) #4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %17
-  %23 = load i64, ptr %1, align 8, !tbaa !17
-  %24 = add i64 %23, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %24) #5
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5
-  resume { ptr, i32 } %18
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
+  resume { ptr, i32 } %16
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -132,15 +120,11 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { cold nounwind }
-attributes #5 = { builtin nounwind }
+attributes #3 = { cold nounwind }
+attributes #4 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

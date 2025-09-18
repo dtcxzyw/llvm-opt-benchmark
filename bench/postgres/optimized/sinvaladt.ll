@@ -32,13 +32,13 @@ define dso_local i64 @SharedInvalShmemSize() local_unnamed_addr #0 {
   %1 = load i32, ptr @MaxBackends, align 4
   %2 = add i32 %1, 6
   %3 = sext i32 %2 to i64
-  %4 = tail call i64 @mul_size(i64 noundef 16, i64 noundef %3) #9
-  %5 = tail call i64 @add_size(i64 noundef 65568, i64 noundef %4) #9
+  %4 = tail call i64 @mul_size(i64 noundef 16, i64 noundef %3) #8
+  %5 = tail call i64 @add_size(i64 noundef 65568, i64 noundef %4) #8
   %6 = load i32, ptr @MaxBackends, align 4
   %7 = add i32 %6, 6
   %8 = sext i32 %7 to i64
-  %9 = tail call i64 @mul_size(i64 noundef 4, i64 noundef %8) #9
-  %10 = tail call i64 @add_size(i64 noundef %5, i64 noundef %9) #9
+  %9 = tail call i64 @mul_size(i64 noundef 4, i64 noundef %8) #8
+  %10 = tail call i64 @add_size(i64 noundef %5, i64 noundef %9) #8
   ret i64 %10
 }
 
@@ -53,14 +53,14 @@ define dso_local void @SharedInvalShmemInit() local_unnamed_addr #0 {
   %2 = load i32, ptr @MaxBackends, align 4
   %3 = add i32 %2, 6
   %4 = sext i32 %3 to i64
-  %5 = tail call i64 @mul_size(i64 noundef 16, i64 noundef %4) #9
-  %6 = tail call i64 @add_size(i64 noundef 65568, i64 noundef %5) #9
+  %5 = tail call i64 @mul_size(i64 noundef 16, i64 noundef %4) #8
+  %6 = tail call i64 @add_size(i64 noundef 65568, i64 noundef %5) #8
   %7 = load i32, ptr @MaxBackends, align 4
   %8 = add i32 %7, 6
   %9 = sext i32 %8 to i64
-  %10 = tail call i64 @mul_size(i64 noundef 4, i64 noundef %9) #9
-  %11 = tail call i64 @add_size(i64 noundef %6, i64 noundef %10) #9
-  %12 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %11, ptr noundef nonnull %1) #9
+  %10 = tail call i64 @mul_size(i64 noundef 4, i64 noundef %9) #8
+  %11 = tail call i64 @add_size(i64 noundef %6, i64 noundef %10) #8
+  %12 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %11, ptr noundef nonnull %1) #8
   store ptr %12, ptr @shmInvalBuffer, align 8
   %13 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -72,7 +72,7 @@ define dso_local void @SharedInvalShmemInit() local_unnamed_addr #0 {
   store i32 0, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 2048, ptr %17, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %18 = load ptr, ptr @shmInvalBuffer, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i8 0, ptr %19, align 4
@@ -130,10 +130,9 @@ define dso_local void @SharedInvalBackendInit(i1 noundef zeroext %0) local_unnam
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.SharedInvalBackendInit) #9
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.SharedInvalBackendInit) #8
   unreachable
 
 8:                                                ; preds = %1
@@ -143,13 +142,12 @@ define dso_local void @SharedInvalBackendInit(i1 noundef zeroext %0) local_unnam
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
   %13 = load i32, ptr @MyProcNumber, align 4
   %14 = load i32, ptr @MaxBackends, align 4
   %15 = add i32 %14, 6
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %13, i32 noundef %15) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 281, ptr noundef nonnull @__func__.SharedInvalBackendInit) #9
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %13, i32 noundef %15) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 281, ptr noundef nonnull @__func__.SharedInvalBackendInit) #8
   unreachable
 
 17:                                               ; preds = %8
@@ -158,7 +156,7 @@ define dso_local void @SharedInvalBackendInit(i1 noundef zeroext %0) local_unnam
   %20 = getelementptr inbounds nuw %struct.ProcState, ptr %18, i64 %19
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 768
-  %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %22, i32 noundef 0) #9
+  %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %22, i32 noundef 0) #8
   %24 = load i32, ptr %20, align 4
   %.not14 = icmp eq i32 %24, 0
   br i1 %.not14, label %31, label %25
@@ -166,12 +164,11 @@ define dso_local void @SharedInvalBackendInit(i1 noundef zeroext %0) local_unnam
 25:                                               ; preds = %17
   %26 = load ptr, ptr @MainLWLockArray, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 768
-  tail call void @LWLockRelease(ptr noundef nonnull %27) #9
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %28)
+  tail call void @LWLockRelease(ptr noundef nonnull %27) #8
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %29 = load i32, ptr @MyProcNumber, align 4
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %29, i32 noundef %24) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.SharedInvalBackendInit) #9
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %29, i32 noundef %24) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.SharedInvalBackendInit) #8
   unreachable
 
 31:                                               ; preds = %17
@@ -206,9 +203,9 @@ define dso_local void @SharedInvalBackendInit(i1 noundef zeroext %0) local_unnam
   store i8 %32, ptr %51, align 1
   %52 = load ptr, ptr @MainLWLockArray, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 768
-  tail call void @LWLockRelease(ptr noundef nonnull %53) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %53) #8
   %54 = ptrtoint ptr %2 to i64
-  tail call void @on_shmem_exit(ptr noundef nonnull @CleanupInvalidationState, i64 noundef %54) #9
+  tail call void @on_shmem_exit(ptr noundef nonnull @CleanupInvalidationState, i64 noundef %54) #8
   ret void
 }
 
@@ -232,7 +229,7 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 768
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #9
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 65568
   %8 = load i32, ptr @MyProcNumber, align 4
   %9 = sext i32 %8 to i64
@@ -279,10 +276,9 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
   br label %38
 
 35:                                               ; preds = %18
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.CleanupInvalidationState) #9
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 358, ptr noundef nonnull @__func__.CleanupInvalidationState) #8
   unreachable
 
 38:                                               ; preds = %27, %29
@@ -291,7 +287,7 @@ define internal void @CleanupInvalidationState(i32 %0, i64 noundef %1) #0 {
   store i32 %40, ptr %13, align 8
   %41 = load ptr, ptr @MainLWLockArray, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 768
-  tail call void @LWLockRelease(ptr noundef nonnull %42) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %42) #8
   ret void
 }
 
@@ -316,7 +312,7 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
   %12 = tail call i32 @llvm.umin.i32(i32 %.03139, i32 64)
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 768
-  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #9
+  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #8
   br label %16
 
 16:                                               ; preds = %24, %11
@@ -352,17 +348,17 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
 
 32:                                               ; preds = %.preheader
   %33 = sub nsw i32 %.03139, %12
-  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #9, !srcloc !11
+  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #8, !srcloc !11
   %.not33 = icmp eq i8 %34, 0
   br i1 %.not33, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @s_lock(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 421, ptr noundef nonnull @__func__.SIInsertDataEntries) #9
+  %36 = tail call i32 @s_lock(ptr noundef nonnull %8, ptr noundef nonnull @.str.2, i32 noundef 421, ptr noundef nonnull @__func__.SIInsertDataEntries) #8
   br label %37
 
 37:                                               ; preds = %32, %35
   store i32 %30, ptr %6, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   store i8 0, ptr %8, align 4
   %38 = load i32, ptr %9, align 8
   %39 = icmp sgt i32 %38, 0
@@ -388,7 +384,7 @@ define dso_local void @SIInsertDataEntries(ptr noundef readonly captures(none) %
 ._crit_edge:                                      ; preds = %.lr.ph, %37
   %48 = load ptr, ptr @MainLWLockArray, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 768
-  tail call void @LWLockRelease(ptr noundef nonnull %49) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %49) #8
   %50 = icmp sgt i32 %33, 0
   br i1 %50, label %11, label %._crit_edge43, !llvm.loop !14
 
@@ -404,13 +400,13 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
 4:                                                ; preds = %2
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 768
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #9
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #8
   br label %8
 
 8:                                                ; preds = %4, %2
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 640
-  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %10, i32 noundef 0) #9
+  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %10, i32 noundef 0) #8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %1, -4096
@@ -550,38 +546,38 @@ define dso_local void @SICleanupQueue(i1 noundef zeroext %0, i32 noundef %1) loc
   store i8 1, ptr %81, align 1
   %82 = load ptr, ptr @MainLWLockArray, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 640
-  tail call void @LWLockRelease(ptr noundef nonnull %83) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %83) #8
   %84 = load ptr, ptr @MainLWLockArray, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 768
-  tail call void @LWLockRelease(ptr noundef nonnull %85) #9
-  %86 = tail call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %85) #8
+  %86 = tail call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #8
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %73
-  %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %74) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 672, ptr noundef nonnull @__func__.SICleanupQueue) #9
+  %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %74) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 672, ptr noundef nonnull @__func__.SICleanupQueue) #8
   br label %89
 
 89:                                               ; preds = %87, %73
-  %90 = tail call i32 @SendProcSignal(i32 noundef %74, i32 noundef 0, i32 noundef %80) #9
+  %90 = tail call i32 @SendProcSignal(i32 noundef %74, i32 noundef 0, i32 noundef %80) #8
   br i1 %0, label %91, label %101
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr @MainLWLockArray, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 768
-  %94 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %93, i32 noundef 0) #9
+  %94 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %93, i32 noundef 0) #8
   br label %101
 
 95:                                               ; preds = %.loopexit
   %96 = load ptr, ptr @MainLWLockArray, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 640
-  tail call void @LWLockRelease(ptr noundef nonnull %97) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %97) #8
   br i1 %0, label %101, label %98
 
 98:                                               ; preds = %95
   %99 = load ptr, ptr @MainLWLockArray, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 768
-  tail call void @LWLockRelease(ptr noundef nonnull %100) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %100) #8
   br label %101
 
 101:                                              ; preds = %89, %91, %95, %98
@@ -608,21 +604,21 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
 11:                                               ; preds = %2
   %12 = load ptr, ptr @MainLWLockArray, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 640
-  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 1) #9
+  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 1) #8
   store i8 0, ptr %8, align 2
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #9, !srcloc !11
+  %16 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %15, i8 1, ptr nonnull elementtype(i8) %15) #8, !srcloc !11
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %11
-  %18 = tail call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef 510, ptr noundef nonnull @__func__.SIGetDataEntries) #9
+  %18 = tail call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.2, i32 noundef 510, ptr noundef nonnull @__func__.SIGetDataEntries) #8
   br label %19
 
 19:                                               ; preds = %11, %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
   store i8 0, ptr %15, align 4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %23 = load i8, ptr %22, align 4, !range !4, !noundef !5
@@ -689,7 +685,7 @@ define dso_local i32 @SIGetDataEntries(ptr noundef writeonly captures(none) %0, 
   %.026.ph = phi i32 [ -1, %28 ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %42 ]
   %45 = load ptr, ptr @MainLWLockArray, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 640
-  tail call void @LWLockRelease(ptr noundef nonnull %46) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %46) #8
   br label %47
 
 47:                                               ; preds = %.sink.split, %2
@@ -721,17 +717,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -739,11 +732,10 @@ attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

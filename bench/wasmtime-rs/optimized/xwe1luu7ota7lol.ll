@@ -1135,16 +1135,12 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   br i1 %.not7.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f203a1923e5f193E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit", %.lr.ph.i.i
-  %17 = phi i64 [ %21, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ]
-  %18 = phi { ptr, ptr } [ %22, %.lr.ph.i.i ], [ %15, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ]
-  %19 = extractvalue { ptr, ptr } %18, 1
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  %21 = add i64 %17, 12
-  store i64 %21, ptr %12, align 8, !alias.scope !522, !noalias !533
-  %22 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b76231bb2b664abE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !519
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %.not.i.i = icmp eq ptr %23, null
+  %17 = phi i64 [ %18, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ]
+  %18 = add i64 %17, 12
+  store i64 %18, ptr %12, align 8, !alias.scope !522, !noalias !533
+  %19 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b76231bb2b664abE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !519
+  %20 = extractvalue { ptr, ptr } %19, 0
+  %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f203a1923e5f193E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f203a1923e5f193E.exit: ; preds = %.lr.ph.i.i, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit"
@@ -1469,16 +1465,12 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   br i1 %.not7.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h39302147dbc0c6d1E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit", %.lr.ph.i.i
-  %17 = phi i64 [ %21, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ]
-  %18 = phi { ptr, ptr } [ %22, %.lr.ph.i.i ], [ %15, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ]
-  %19 = extractvalue { ptr, ptr } %18, 1
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  %21 = add i64 %17, 12
-  store i64 %21, ptr %12, align 8, !alias.scope !825, !noalias !836
-  %22 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b76231bb2b664abE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !822
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %.not.i.i = icmp eq ptr %23, null
+  %17 = phi i64 [ %18, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit" ]
+  %18 = add i64 %17, 12
+  store i64 %18, ptr %12, align 8, !alias.scope !825, !noalias !836
+  %19 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b76231bb2b664abE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !822
+  %20 = extractvalue { ptr, ptr } %19, 0
+  %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h39302147dbc0c6d1E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h39302147dbc0c6d1E.exit: ; preds = %.lr.ph.i.i, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h60e549a116718619E.exit"
@@ -2467,16 +2459,12 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   br i1 %.not7.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hedf4232a966d50bcE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit", %.lr.ph.i.i
-  %17 = phi i64 [ %21, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit" ]
-  %18 = phi { ptr, ptr } [ %22, %.lr.ph.i.i ], [ %15, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit" ]
-  %19 = extractvalue { ptr, ptr } %18, 1
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  %21 = add i64 %17, 12
-  store i64 %21, ptr %12, align 8, !alias.scope !1911, !noalias !1920
-  %22 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac5c155b29a606ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !1908
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %.not.i.i = icmp eq ptr %23, null
+  %17 = phi i64 [ %18, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit" ]
+  %18 = add i64 %17, 12
+  store i64 %18, ptr %12, align 8, !alias.scope !1911, !noalias !1920
+  %19 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac5c155b29a606ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !1908
+  %20 = extractvalue { ptr, ptr } %19, 0
+  %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hedf4232a966d50bcE.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hedf4232a966d50bcE.exit: ; preds = %.lr.ph.i.i, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit"
@@ -2829,16 +2817,12 @@ define hidden noalias noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_ma
   br i1 %.not7.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f93e232036589d8E.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit", %.lr.ph.i.i
-  %17 = phi i64 [ %21, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit" ]
-  %18 = phi { ptr, ptr } [ %22, %.lr.ph.i.i ], [ %15, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit" ]
-  %19 = extractvalue { ptr, ptr } %18, 1
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  %21 = add i64 %17, 12
-  store i64 %21, ptr %12, align 8, !alias.scope !2259, !noalias !2268
-  %22 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac5c155b29a606ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !2256
-  %23 = extractvalue { ptr, ptr } %22, 0
-  %.not.i.i = icmp eq ptr %23, null
+  %17 = phi i64 [ %18, %.lr.ph.i.i ], [ %14, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit" ]
+  %18 = add i64 %17, 12
+  store i64 %18, ptr %12, align 8, !alias.scope !2259, !noalias !2268
+  %19 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hac5c155b29a606ceE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !2256
+  %20 = extractvalue { ptr, ptr } %19, 0
+  %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f93e232036589d8E.exit, label %.lr.ph.i.i
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h5f93e232036589d8E.exit: ; preds = %.lr.ph.i.i, %"_ZN123_$LT$$RF$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hde376331c3d8db54E.exit"

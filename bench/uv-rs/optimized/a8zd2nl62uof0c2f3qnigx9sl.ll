@@ -948,9 +948,6 @@ define { ptr, i64 } @"_ZN83_$LT$uv_fs..path..PortablePathBuf$u20$as$u20$core..co
 7:                                                ; preds = %6, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h95782f766f939062E.exit.thread"
   %.sink7 = phi ptr [ %4, %6 ], [ %3, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h95782f766f939062E.exit.thread" ]
   %8 = call { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17hca300b0c192dab1dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %.sink7)
-  %9 = extractvalue { ptr, i64 } %8, 0
-  %10 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %10)
   ret { ptr, i64 } %8
 }
 

@@ -83,7 +83,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local zeroext i1 @op_in_opfamily(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = zext i32 %1 to i64
-  %5 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 3, i64 noundef %3, i64 noundef 115, i64 noundef %4, i64 noundef 0) #8
+  %5 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 3, i64 noundef %3, i64 noundef 115, i64 noundef %4, i64 noundef 0) #7
   ret i1 %5
 }
 
@@ -93,7 +93,7 @@ declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, 
 define dso_local range(i32 -32768, 32768) i32 @get_op_opfamily_strategy(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = zext i32 %1 to i64
-  %5 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %3, i64 noundef 115, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %3, i64 noundef 115, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %15, label %6
 
@@ -107,7 +107,7 @@ define dso_local range(i32 -32768, 32768) i32 @get_op_opfamily_strategy(i32 noun
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i16, ptr %12, align 4
   %14 = sext i16 %13 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   br label %15
 
 15:                                               ; preds = %2, %6
@@ -123,7 +123,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @get_op_opfamily_sortfamily(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = zext i32 %1 to i64
-  %5 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %3, i64 noundef 111, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %3, i64 noundef 111, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6
 
@@ -136,7 +136,7 @@ define dso_local i32 @get_op_opfamily_sortfamily(i32 noundef %0, i32 noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %13 = load i32, ptr %12, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   br label %14
 
 14:                                               ; preds = %2, %6
@@ -149,15 +149,14 @@ define dso_local void @get_op_opfamily_properties(i32 noundef %0, i32 noundef %1
   %7 = zext i32 %0 to i64
   %8 = select i1 %2, i64 111, i64 115
   %9 = zext i32 %1 to i64
-  %10 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %7, i64 noundef %8, i64 noundef %9) #8
+  %10 = tail call ptr @SearchSysCache3(i32 noundef 3, i64 noundef %7, i64 noundef %8, i64 noundef %9) #7
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__func__.get_op_opfamily_properties) #8
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__func__.get_op_opfamily_properties) #7
   unreachable
 
 14:                                               ; preds = %6
@@ -177,7 +176,7 @@ define dso_local void @get_op_opfamily_properties(i32 noundef %0, i32 noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %5, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %10) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %10) #7
   ret void
 }
 
@@ -194,7 +193,7 @@ define dso_local i32 @get_opfamily_member(i32 noundef %0, i32 noundef %1, i32 no
   %6 = zext i32 %1 to i64
   %7 = zext i32 %2 to i64
   %8 = sext i16 %3 to i64
-  %9 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) #7
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %18, label %10
 
@@ -207,7 +206,7 @@ define dso_local i32 @get_opfamily_member(i32 noundef %0, i32 noundef %1, i32 no
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %9) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %9) #7
   br label %18
 
 18:                                               ; preds = %4, %10
@@ -223,7 +222,7 @@ define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, 
   store i32 0, ptr %2, align 4
   store i16 0, ptr %3, align 2
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
+  %6 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %5, i64 noundef 0, i64 noundef 0) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
@@ -284,7 +283,7 @@ define dso_local noundef zeroext i1 @get_ordering_op_properties(i32 noundef %0, 
 
 .loopexit:                                        ; preds = %37, %4, %30
   %38 = phi i1 [ true, %30 ], [ false, %4 ], [ false, %37 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %6) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %6) #7
   ret i1 %38
 }
 
@@ -295,7 +294,7 @@ declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_equality_op_for_ordering_op(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %3, i64 noundef 0, i64 noundef 0) #8
+  %4 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %3, i64 noundef 0, i64 noundef 0) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -343,16 +342,16 @@ define dso_local i32 @get_equality_op_for_ordering_op(i32 noundef %0, ptr nounde
   br i1 %exitcond.not.i, label %get_ordering_op_properties.exit.thread, label %9, !llvm.loop !4
 
 get_ordering_op_properties.exit.thread:           ; preds = %28, %2
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #7
   br label %46
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %31 = load i32, ptr %30, align 4
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #7
   %32 = zext i32 %31 to i64
   %33 = zext i32 %24 to i64
-  %34 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %32, i64 noundef %33, i64 noundef %33, i64 noundef 3) #8
+  %34 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %32, i64 noundef %33, i64 noundef %33, i64 noundef 3) #7
   %.not.i4 = icmp eq ptr %34, null
   br i1 %.not.i4, label %get_opfamily_member.exit, label %35
 
@@ -365,7 +364,7 @@ get_ordering_op_properties.exit.thread:           ; preds = %28, %2
   %40 = getelementptr inbounds nuw i8, ptr %.val.i5, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %42 = load i32, ptr %41, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %34) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %34) #7
   br label %get_opfamily_member.exit
 
 get_opfamily_member.exit:                         ; preds = %29, %35
@@ -387,7 +386,7 @@ get_opfamily_member.exit:                         ; preds = %29, %35
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @get_ordering_op_for_equality_op(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %3, i64 noundef 0, i64 noundef 0) #8
+  %4 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %3, i64 noundef 0, i64 noundef 0) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -426,7 +425,7 @@ define dso_local noundef i32 @get_ordering_op_for_equality_op(i32 noundef %0, i1
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = zext i32 %24 to i64
-  %29 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %27, i64 noundef %28, i64 noundef %28, i64 noundef 1) #8
+  %29 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %27, i64 noundef %28, i64 noundef %28, i64 noundef 1) #7
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %get_opfamily_member.exit.thread, label %get_opfamily_member.exit
 
@@ -440,7 +439,7 @@ get_opfamily_member.exit:                         ; preds = %23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
   %.fr = freeze i32 %36
-  tail call void @ReleaseSysCache(ptr noundef nonnull %29) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %29) #7
   %.not22 = icmp eq i32 %.fr, 0
   br i1 %.not22, label %get_opfamily_member.exit.thread, label %get_opfamily_member.exit._crit_edge
 
@@ -453,14 +452,14 @@ get_opfamily_member.exit.thread:                  ; preds = %get_opfamily_member
 
 get_opfamily_member.exit._crit_edge:              ; preds = %get_opfamily_member.exit.thread, %get_opfamily_member.exit, %2
   %.1 = phi i32 [ 0, %2 ], [ %.fr, %get_opfamily_member.exit ], [ 0, %get_opfamily_member.exit.thread ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #7
   ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_mergejoin_opfamilies(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %2, i64 noundef 0, i64 noundef 0) #8
+  %3 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %2, i64 noundef 0, i64 noundef 0) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -496,7 +495,7 @@ define dso_local ptr @get_mergejoin_opfamilies(i32 noundef %0) local_unnamed_add
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @lappend_oid(ptr noundef %.014, i32 noundef %26) #8
+  %27 = tail call ptr @lappend_oid(ptr noundef %.014, i32 noundef %26) #7
   %.pre = load i32, ptr %4, align 8
   br label %28
 
@@ -510,7 +509,7 @@ define dso_local ptr @get_mergejoin_opfamilies(i32 noundef %0) local_unnamed_add
 
 ._crit_edge:                                      ; preds = %28, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %28 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #7
   ret ptr %.0.lcssa
 }
 
@@ -535,7 +534,7 @@ define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %
 
 7:                                                ; preds = %6, %5
   %8 = zext i32 %0 to i64
-  %9 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %8, i64 noundef 0, i64 noundef 0) #8
+  %9 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %8, i64 noundef 0, i64 noundef 0) #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 0
@@ -621,7 +620,7 @@ define dso_local noundef zeroext i1 @get_compatible_hash_operators(i32 noundef %
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %58 to i64
   %60 = zext i32 %55 to i64
-  %61 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %59, i64 noundef %60, i64 noundef %60, i64 noundef 1) #8
+  %61 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %59, i64 noundef %60, i64 noundef %60, i64 noundef 1) #7
   %.not.i53.us = icmp eq ptr %61, null
   br i1 %.not.i53.us, label %get_opfamily_member.exit56.us.thread, label %get_opfamily_member.exit56.us
 
@@ -638,7 +637,7 @@ get_opfamily_member.exit56.us:                    ; preds = %.critedge.us
   %66 = getelementptr inbounds nuw i8, ptr %.val.i54.us, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 20
   %68 = load i32, ptr %67, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %61) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %61) #7
   store i32 %68, ptr %2, align 4
   %.not49.us.not = icmp eq i32 %68, 0
   br i1 %.not49.us.not, label %get_opfamily_member.exit56.us..thread.us_crit_edge, label %.thread68
@@ -691,7 +690,7 @@ get_opfamily_member.exit56.us..thread.us_crit_edge: ; preds = %get_opfamily_memb
   %94 = load i32, ptr %93, align 4
   %95 = zext i32 %94 to i64
   %96 = zext i32 %88 to i64
-  %97 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %95, i64 noundef %96, i64 noundef %96, i64 noundef 1) #8
+  %97 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %95, i64 noundef %96, i64 noundef %96, i64 noundef 1) #7
   %.not.i.us = icmp eq ptr %97, null
   br i1 %.not.i.us, label %get_opfamily_member.exit.thread.us, label %get_opfamily_member.exit.us
 
@@ -704,7 +703,7 @@ get_opfamily_member.exit.us:                      ; preds = %92
   %102 = getelementptr inbounds nuw i8, ptr %.val.i.us, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 20
   %104 = load i32, ptr %103, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %97) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %97) #7
   store i32 %104, ptr %1, align 4
   %.not48.us.not = icmp eq i32 %104, 0
   br i1 %.not48.us.not, label %.thread.us84, label %.thread68
@@ -768,7 +767,7 @@ get_opfamily_member.exit.thread.us:               ; preds = %92
   %133 = load i32, ptr %132, align 4
   %134 = zext i32 %133 to i64
   %135 = zext i32 %124 to i64
-  %136 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %134, i64 noundef %135, i64 noundef %135, i64 noundef 1) #8
+  %136 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %134, i64 noundef %135, i64 noundef %135, i64 noundef 1) #7
   %.not.i = icmp eq ptr %136, null
   br i1 %.not.i, label %.thread.sink.split, label %get_opfamily_member.exit
 
@@ -781,7 +780,7 @@ get_opfamily_member.exit:                         ; preds = %131
   %141 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 20
   %143 = load i32, ptr %142, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %136) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %136) #7
   store i32 %143, ptr %1, align 4
   %.not48.not = icmp eq i32 %143, 0
   br i1 %.not48.not, label %.thread, label %.critedge
@@ -791,7 +790,7 @@ get_opfamily_member.exit:                         ; preds = %131
   %145 = load i32, ptr %125, align 4
   %146 = zext i32 %144 to i64
   %147 = zext i32 %145 to i64
-  %148 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %146, i64 noundef %147, i64 noundef %147, i64 noundef 1) #8
+  %148 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %146, i64 noundef %147, i64 noundef %147, i64 noundef 1) #7
   %.not.i53 = icmp eq ptr %148, null
   br i1 %.not.i53, label %get_opfamily_member.exit56.thread, label %get_opfamily_member.exit56
 
@@ -808,7 +807,7 @@ get_opfamily_member.exit56:                       ; preds = %.critedge
   %153 = getelementptr inbounds nuw i8, ptr %.val.i54, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 20
   %155 = load i32, ptr %154, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %148) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %148) #7
   store i32 %155, ptr %2, align 4
   %.not49.not = icmp eq i32 %155, 0
   br i1 %.not49.not, label %.thread.sink.split, label %.thread68
@@ -826,7 +825,7 @@ get_opfamily_member.exit56:                       ; preds = %.critedge
 
 .thread68:                                        ; preds = %get_opfamily_member.exit56, %.thread, %.thread.us84, %get_opfamily_member.exit.us, %.thread.us, %get_opfamily_member.exit56.us, %.thread.us.us, %7, %129, %130
   %.1 = phi i1 [ true, %130 ], [ true, %129 ], [ false, %7 ], [ false, %.thread.us.us ], [ false, %.thread.us ], [ true, %get_opfamily_member.exit56.us ], [ false, %.thread.us84 ], [ true, %get_opfamily_member.exit.us ], [ true, %get_opfamily_member.exit56 ], [ false, %.thread ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #7
   ret i1 %.1
 }
 
@@ -849,7 +848,7 @@ define dso_local noundef zeroext i1 @get_op_hash_functions(i32 noundef %0, ptr n
 
 7:                                                ; preds = %6, %5
   %8 = zext i32 %0 to i64
-  %9 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %8, i64 noundef 0, i64 noundef 0) #8
+  %9 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %8, i64 noundef 0, i64 noundef 0) #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 0
@@ -891,7 +890,7 @@ define dso_local noundef zeroext i1 @get_op_hash_functions(i32 noundef %0, ptr n
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %30 to i64
   %34 = zext i32 %32 to i64
-  %35 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %33, i64 noundef %34, i64 noundef %34, i64 noundef 1) #8
+  %35 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %33, i64 noundef %34, i64 noundef %34, i64 noundef 1) #7
   %.not.i49.us = icmp eq ptr %35, null
   br i1 %.not.i49.us, label %get_opfamily_proc.exit52.us.thread, label %get_opfamily_proc.exit52.us
 
@@ -908,7 +907,7 @@ get_opfamily_proc.exit52.us:                      ; preds = %.thread.us
   %40 = getelementptr inbounds nuw i8, ptr %.val.i50.us, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %42 = load i32, ptr %41, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %35) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %35) #7
   store i32 %42, ptr %2, align 4
   %.not45.us.not = icmp eq i32 %42, 0
   br i1 %.not45.us.not, label %get_opfamily_proc.exit52.us..thread58.us_crit_edge, label %.loopexit
@@ -955,7 +954,7 @@ get_opfamily_proc.exit52.us..thread58.us_crit_edge: ; preds = %get_opfamily_proc
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %62 to i64
   %66 = zext i32 %64 to i64
-  %67 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %65, i64 noundef %66, i64 noundef %66, i64 noundef 1) #8
+  %67 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %65, i64 noundef %66, i64 noundef %66, i64 noundef 1) #7
   %.not.i.us = icmp eq ptr %67, null
   br i1 %.not.i.us, label %get_opfamily_proc.exit.thread.us, label %get_opfamily_proc.exit.us
 
@@ -968,7 +967,7 @@ get_opfamily_proc.exit.us:                        ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %.val.i.us, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %74 = load i32, ptr %73, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %67) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %67) #7
   store i32 %74, ptr %1, align 4
   %.not44.us.not = icmp eq i32 %74, 0
   br i1 %.not44.us.not, label %.thread58.us80, label %.loopexit
@@ -1012,7 +1011,7 @@ get_opfamily_proc.exit.thread.us:                 ; preds = %60
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %94 to i64
   %98 = zext i32 %96 to i64
-  %99 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %97, i64 noundef %98, i64 noundef %98, i64 noundef 1) #8
+  %99 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %97, i64 noundef %98, i64 noundef %98, i64 noundef 1) #7
   %.not.i = icmp eq ptr %99, null
   br i1 %.not.i, label %.thread58.sink.split, label %get_opfamily_proc.exit
 
@@ -1025,7 +1024,7 @@ get_opfamily_proc.exit:                           ; preds = %92
   %104 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 20
   %106 = load i32, ptr %105, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %99) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %99) #7
   store i32 %106, ptr %1, align 4
   %.not44.not = icmp eq i32 %106, 0
   br i1 %.not44.not, label %.thread58, label %107
@@ -1045,7 +1044,7 @@ get_opfamily_proc.exit:                           ; preds = %92
   %112 = load i32, ptr %93, align 4
   %113 = zext i32 %112 to i64
   %114 = zext i32 %110 to i64
-  %115 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %113, i64 noundef %114, i64 noundef %114, i64 noundef 1) #8
+  %115 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %113, i64 noundef %114, i64 noundef %114, i64 noundef 1) #7
   %.not.i49 = icmp eq ptr %115, null
   br i1 %.not.i49, label %get_opfamily_proc.exit52.thread, label %get_opfamily_proc.exit52
 
@@ -1062,7 +1061,7 @@ get_opfamily_proc.exit52:                         ; preds = %.thread
   %120 = getelementptr inbounds nuw i8, ptr %.val.i50, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 20
   %122 = load i32, ptr %121, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %115) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %115) #7
   store i32 %122, ptr %2, align 4
   %.not45.not = icmp eq i32 %122, 0
   br i1 %.not45.not, label %.thread58.sink.split, label %.loopexit
@@ -1080,7 +1079,7 @@ get_opfamily_proc.exit52:                         ; preds = %.thread
 
 .loopexit:                                        ; preds = %get_opfamily_proc.exit52, %.thread58, %.thread58.us80, %get_opfamily_proc.exit.us, %.thread58.us, %get_opfamily_proc.exit52.us, %.lr.ph.split.us, %7, %.thread64
   %.1 = phi i1 [ true, %.thread64 ], [ false, %7 ], [ false, %.lr.ph.split.us ], [ false, %.thread58.us ], [ true, %get_opfamily_proc.exit52.us ], [ false, %.thread58.us80 ], [ true, %get_opfamily_proc.exit.us ], [ true, %get_opfamily_proc.exit52 ], [ false, %.thread58 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %9) #7
   ret i1 %.1
 }
 
@@ -1090,7 +1089,7 @@ define dso_local i32 @get_opfamily_proc(i32 noundef %0, i32 noundef %1, i32 noun
   %6 = zext i32 %1 to i64
   %7 = zext i32 %2 to i64
   %8 = sext i16 %3 to i64
-  %9 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call ptr @SearchSysCache4(i32 noundef 5, i64 noundef %5, i64 noundef %6, i64 noundef %7, i64 noundef %8) #7
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %18, label %10
 
@@ -1103,7 +1102,7 @@ define dso_local i32 @get_opfamily_proc(i32 noundef %0, i32 noundef %1, i32 noun
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i32, ptr %16, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %9) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %9) #7
   br label %18
 
 18:                                               ; preds = %4, %10
@@ -1114,14 +1113,14 @@ define dso_local i32 @get_opfamily_proc(i32 noundef %0, i32 noundef %1, i32 noun
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_op_btree_interpretation(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %2, i64 noundef 0, i64 noundef 0) #8
+  %3 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %2, i64 noundef 0, i64 noundef 0) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #7
   br label %39
 
 .lr.ph:                                           ; preds = %1
@@ -1148,7 +1147,7 @@ define dso_local ptr @get_op_btree_interpretation(i32 noundef %0) local_unnamed_
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load i16, ptr %20, align 4
-  %22 = tail call ptr @palloc(i64 noundef 16) #8
+  %22 = tail call ptr @palloc(i64 noundef 16) #7
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %22, align 4
@@ -1163,7 +1162,7 @@ define dso_local ptr @get_op_btree_interpretation(i32 noundef %0) local_unnamed_
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %31, ptr %32, align 4
-  %33 = tail call ptr @lappend(ptr noundef %.053, ptr noundef nonnull %22) #8
+  %33 = tail call ptr @lappend(ptr noundef %.053, ptr noundef nonnull %22) #7
   %.pre = load i32, ptr %4, align 8
   br label %34
 
@@ -1176,12 +1175,12 @@ define dso_local ptr @get_op_btree_interpretation(i32 noundef %0) local_unnamed_
   br i1 %37, label %8, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #7
   %38 = icmp eq ptr %.1, null
   br i1 %38, label %39, label %get_negator.exit.thread
 
 39:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %40 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %40 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %get_negator.exit.thread, label %get_negator.exit
 
@@ -1194,13 +1193,13 @@ get_negator.exit:                                 ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load i32, ptr %46, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %40) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %40) #7
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %get_negator.exit.thread, label %48
 
 48:                                               ; preds = %get_negator.exit
   %49 = zext i32 %47 to i64
-  %50 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %49, i64 noundef 0, i64 noundef 0) #8
+  %50 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %49, i64 noundef 0, i64 noundef 0) #7
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load i32, ptr %51, align 8
   %53 = icmp sgt i32 %52, 0
@@ -1234,7 +1233,7 @@ get_negator.exit:                                 ; preds = %39
   br i1 %.not47, label %69, label %81
 
 69:                                               ; preds = %66
-  %70 = tail call ptr @palloc(i64 noundef 16) #8
+  %70 = tail call ptr @palloc(i64 noundef 16) #7
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %72 = load i32, ptr %71, align 4
   store i32 %72, ptr %70, align 4
@@ -1248,7 +1247,7 @@ get_negator.exit:                                 ; preds = %39
   %78 = load i32, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 %78, ptr %79, align 4
-  %80 = tail call ptr @lappend(ptr noundef %.455, ptr noundef nonnull %70) #8
+  %80 = tail call ptr @lappend(ptr noundef %.455, ptr noundef nonnull %70) #7
   %.pre64 = load i32, ptr %51, align 8
   br label %81
 
@@ -1262,7 +1261,7 @@ get_negator.exit:                                 ; preds = %39
 
 ._crit_edge58:                                    ; preds = %81, %48
   %.4.lcssa = phi ptr [ null, %48 ], [ %.5, %81 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %50) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %50) #7
   br label %get_negator.exit.thread
 
 get_negator.exit.thread:                          ; preds = %39, %get_negator.exit, %._crit_edge58, %._crit_edge
@@ -1277,7 +1276,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_negator(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -1290,7 +1289,7 @@ define dso_local i32 @get_negator(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -1305,7 +1304,7 @@ define dso_local noundef zeroext i1 @equality_ops_are_compatible(i32 noundef %0,
 
 4:                                                ; preds = %2
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
+  %6 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %5, i64 noundef 0, i64 noundef 0) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
@@ -1338,7 +1337,7 @@ define dso_local noundef zeroext i1 @equality_ops_are_compatible(i32 noundef %0,
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 3, i64 noundef %11, i64 noundef 115, i64 noundef %26, i64 noundef 0) #8
+  %27 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 3, i64 noundef %11, i64 noundef 115, i64 noundef %26, i64 noundef 0) #7
   br i1 %27, label %._crit_edge, label %._crit_edge30
 
 ._crit_edge30:                                    ; preds = %23
@@ -1354,7 +1353,7 @@ define dso_local noundef zeroext i1 @equality_ops_are_compatible(i32 noundef %0,
 
 ._crit_edge:                                      ; preds = %28, %23, %4
   %.lcssa = phi i1 [ false, %4 ], [ true, %23 ], [ false, %28 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %6) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %6) #7
   br label %32
 
 32:                                               ; preds = %2, %._crit_edge
@@ -1369,7 +1368,7 @@ define dso_local noundef zeroext i1 @comparison_ops_are_compatible(i32 noundef %
 
 4:                                                ; preds = %2
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
+  %6 = tail call ptr @SearchSysCacheList(i32 noundef 3, i32 noundef 1, i64 noundef %5, i64 noundef 0, i64 noundef 0) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
@@ -1400,7 +1399,7 @@ define dso_local noundef zeroext i1 @comparison_ops_are_compatible(i32 noundef %
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
-  %28 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 3, i64 noundef %11, i64 noundef 115, i64 noundef %27, i64 noundef 0) #8
+  %28 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 3, i64 noundef %11, i64 noundef 115, i64 noundef %27, i64 noundef 0) #7
   br i1 %28, label %._crit_edge, label %._crit_edge28
 
 ._crit_edge28:                                    ; preds = %24
@@ -1416,7 +1415,7 @@ define dso_local noundef zeroext i1 @comparison_ops_are_compatible(i32 noundef %
 
 ._crit_edge:                                      ; preds = %29, %24, %4
   %.lcssa = phi i1 [ false, %4 ], [ true, %24 ], [ false, %29 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %6) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %6) #7
   br label %33
 
 33:                                               ; preds = %2, %._crit_edge
@@ -1428,7 +1427,7 @@ define dso_local noundef zeroext i1 @comparison_ops_are_compatible(i32 noundef %
 define dso_local ptr @get_attname(i32 noundef %0, i16 noundef signext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = sext i16 %1 to i64
-  %6 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %4, i64 noundef %5) #8
+  %6 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %4, i64 noundef %5) #7
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %15, label %7
 
@@ -1440,19 +1439,18 @@ define dso_local ptr @get_attname(i32 noundef %0, i16 noundef signext %1, i1 nou
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = tail call ptr @pstrdup(ptr noundef nonnull %13) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
+  %14 = tail call ptr @pstrdup(ptr noundef nonnull %13) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #7
   br label %20
 
 15:                                               ; preds = %3
   br i1 %2, label %20, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %17)
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %18 = sext i16 %1 to i32
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %18, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 846, ptr noundef nonnull @__func__.get_attname) #8
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %18, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 846, ptr noundef nonnull @__func__.get_attname) #7
   unreachable
 
 20:                                               ; preds = %15, %7
@@ -1466,7 +1464,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i16 @get_attnum(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) #8
+  %3 = tail call ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -1479,7 +1477,7 @@ define dso_local signext i16 @get_attnum(i32 noundef %0, ptr noundef %1) local_u
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 74
   %11 = load i16, ptr %10, align 2
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %2, %4
@@ -1493,16 +1491,15 @@ declare ptr @SearchSysCacheAttName(i32 noundef, ptr noundef) local_unnamed_addr 
 define dso_local signext i8 @get_attgenerated(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = sext i16 %1 to i64
-  %5 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %3, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %3, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %8 = sext i16 %1 to i32
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 900, ptr noundef nonnull @__func__.get_attgenerated) #8
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 900, ptr noundef nonnull @__func__.get_attgenerated) #7
   unreachable
 
 10:                                               ; preds = %2
@@ -1514,7 +1511,7 @@ define dso_local signext i8 @get_attgenerated(i32 noundef %0, i16 noundef signex
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 90
   %17 = load i8, ptr %16, align 2
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret i8 %17
 }
 
@@ -1522,7 +1519,7 @@ define dso_local signext i8 @get_attgenerated(i32 noundef %0, i16 noundef signex
 define dso_local i32 @get_atttype(i32 noundef %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = sext i16 %1 to i64
-  %5 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %3, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %3, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %14, label %6
 
@@ -1535,7 +1532,7 @@ define dso_local i32 @get_atttype(i32 noundef %0, i16 noundef signext %1) local_
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %13 = load i32, ptr %12, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   br label %14
 
 14:                                               ; preds = %2, %6
@@ -1547,16 +1544,15 @@ define dso_local i32 @get_atttype(i32 noundef %0, i16 noundef signext %1) local_
 define dso_local void @get_atttypetypmodcoll(i32 noundef %0, i16 noundef signext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = zext i32 %0 to i64
   %7 = sext i16 %1 to i64
-  %8 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %6, i64 noundef %7) #8
+  %8 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %6, i64 noundef %7) #7
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %11 = sext i16 %1 to i32
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 955, ptr noundef nonnull @__func__.get_atttypetypmodcoll) #8
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 955, ptr noundef nonnull @__func__.get_atttypetypmodcoll) #7
   unreachable
 
 13:                                               ; preds = %5
@@ -1575,7 +1571,7 @@ define dso_local void @get_atttypetypmodcoll(i32 noundef %0, i16 noundef signext
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %4, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   ret void
 }
 
@@ -1585,31 +1581,30 @@ define dso_local i64 @get_attoptions(i32 noundef %0, i16 noundef signext %1) loc
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
   %5 = sext i16 %1 to i64
-  %6 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %4, i64 noundef %5) #8
+  %6 = tail call ptr @SearchSysCache2(i32 noundef 7, i64 noundef %4, i64 noundef %5) #7
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %9 = sext i16 %1 to i32
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %9, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.get_attoptions) #8
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %9, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.get_attoptions) #7
   unreachable
 
 11:                                               ; preds = %2
-  %12 = call i64 @SysCacheGetAttr(i32 noundef 6, ptr noundef nonnull %6, i16 noundef signext 23, ptr noundef nonnull %3) #8
+  %12 = call i64 @SysCacheGetAttr(i32 noundef 6, ptr noundef nonnull %6, i16 noundef signext 23, ptr noundef nonnull %3) #7
   %13 = load i8, ptr %3, align 1, !range !14, !noundef !15
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = call i64 @datumCopy(i64 noundef %12, i1 noundef zeroext false, i32 noundef -1) #8
+  %16 = call i64 @datumCopy(i64 noundef %12, i1 noundef zeroext false, i32 noundef -1) #7
   br label %17
 
 17:                                               ; preds = %11, %15
   %.0 = phi i64 [ %16, %15 ], [ 0, %11 ]
-  call void @ReleaseSysCache(ptr noundef nonnull %6) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.0
 }
@@ -1622,19 +1617,18 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 define dso_local i32 @get_cast_oid(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
   %5 = zext i32 %1 to i64
-  %6 = tail call i32 @GetSysCacheOid(i32 noundef 12, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
+  %6 = tail call i32 @GetSysCacheOid(i32 noundef 12, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #7
   %7 = icmp ne i32 %6, 0
   %or.cond = or i1 %2, %7
   br i1 %or.cond, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %11 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %12 = tail call ptr @format_type_be(i32 noundef %1) #8
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef %12) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1020, ptr noundef nonnull @__func__.get_cast_oid) #8
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %10 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %11 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %12 = tail call ptr @format_type_be(i32 noundef %1) #7
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef %12) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1020, ptr noundef nonnull @__func__.get_cast_oid) #7
   unreachable
 
 14:                                               ; preds = %3
@@ -1652,7 +1646,7 @@ declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_collation_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 16, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 16, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -1664,8 +1658,8 @@ define dso_local ptr @get_collation_name(i32 noundef %0) local_unnamed_addr #0 {
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -1678,15 +1672,14 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_collation_isdeterministic(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 16, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 16, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1063, ptr noundef nonnull @__func__.get_collation_isdeterministic) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1063, ptr noundef nonnull @__func__.get_collation_isdeterministic) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -1699,14 +1692,14 @@ define dso_local zeroext i1 @get_collation_isdeterministic(i32 noundef %0) local
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 77
   %14 = load i8, ptr %13, align 1, !range !14, !noundef !15
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_constraint_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -1718,8 +1711,8 @@ define dso_local ptr @get_constraint_name(i32 noundef %0) local_unnamed_addr #0 
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -1730,7 +1723,7 @@ define dso_local ptr @get_constraint_name(i32 noundef %0) local_unnamed_addr #0 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_constraint_index(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %16, label %4
 
@@ -1756,7 +1749,7 @@ define dso_local i32 @get_constraint_index(i32 noundef %0) local_unnamed_addr #0
 
 15:                                               ; preds = %4, %12
   %.0 = phi i32 [ %14, %12 ], [ 0, %4 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %16
 
 16:                                               ; preds = %1, %15
@@ -1767,15 +1760,14 @@ define dso_local i32 @get_constraint_index(i32 noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @get_constraint_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1151, ptr noundef nonnull @__func__.get_constraint_type) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1151, ptr noundef nonnull @__func__.get_constraint_type) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -1787,14 +1779,14 @@ define dso_local signext i8 @get_constraint_type(i32 noundef %0) local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i8, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i8 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_language_name(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 36, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 36, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
 
@@ -1806,18 +1798,17 @@ define dso_local ptr @get_language_name(i32 noundef %0, i1 noundef zeroext %1) l
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = tail call ptr @pstrdup(ptr noundef nonnull %11) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  %12 = tail call ptr @pstrdup(ptr noundef nonnull %11) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %17
 
 13:                                               ; preds = %2
   br i1 %1, label %17, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1179, ptr noundef nonnull @__func__.get_language_name) #8
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1179, ptr noundef nonnull @__func__.get_language_name) #7
   unreachable
 
 17:                                               ; preds = %13, %5
@@ -1828,15 +1819,14 @@ define dso_local ptr @get_language_name(i32 noundef %0, i1 noundef zeroext %1) l
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_opclass_family(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1199, ptr noundef nonnull @__func__.get_opclass_family) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1199, ptr noundef nonnull @__func__.get_opclass_family) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -1848,22 +1838,21 @@ define dso_local i32 @get_opclass_family(i32 noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load i32, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_opclass_input_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.get_opclass_input_type) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.get_opclass_input_type) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -1875,14 +1864,14 @@ define dso_local i32 @get_opclass_input_type(i32 noundef %0) local_unnamed_addr 
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %4) #7
   %.not = icmp ne ptr %5, null
   br i1 %.not, label %6, label %16
 
@@ -1899,7 +1888,7 @@ define dso_local noundef zeroext i1 @get_opclass_opfamily_and_input_type(i32 nou
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %2, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   br label %16
 
 16:                                               ; preds = %3, %6
@@ -1909,15 +1898,14 @@ define dso_local noundef zeroext i1 @get_opclass_opfamily_and_input_type(i32 nou
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_opclass_method(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1269, ptr noundef nonnull @__func__.get_opclass_method) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1269, ptr noundef nonnull @__func__.get_opclass_method) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -1929,14 +1917,14 @@ define dso_local i32 @get_opclass_method(i32 noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_opfamily_name(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 42, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 42, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
 
@@ -1944,10 +1932,9 @@ define dso_local ptr @get_opfamily_name(i32 noundef %0, i1 noundef zeroext %1) l
   br i1 %1, label %17, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1291, ptr noundef nonnull @__func__.get_opfamily_name) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1291, ptr noundef nonnull @__func__.get_opfamily_name) #7
   unreachable
 
 9:                                                ; preds = %2
@@ -1958,8 +1945,8 @@ define dso_local ptr @get_opfamily_name(i32 noundef %0, i1 noundef zeroext %1) l
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = tail call ptr @pstrdup(ptr noundef nonnull %15) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  %16 = tail call ptr @pstrdup(ptr noundef nonnull %15) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %17
 
 17:                                               ; preds = %5, %9
@@ -1970,7 +1957,7 @@ define dso_local ptr @get_opfamily_name(i32 noundef %0, i1 noundef zeroext %1) l
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_opcode(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -1983,7 +1970,7 @@ define dso_local i32 @get_opcode(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -1994,7 +1981,7 @@ define dso_local i32 @get_opcode(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_opname(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2006,8 +1993,8 @@ define dso_local ptr @get_opname(i32 noundef %0) local_unnamed_addr #0 {
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2018,7 +2005,7 @@ define dso_local ptr @get_opname(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_op_rettype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2031,7 +2018,7 @@ define dso_local i32 @get_op_rettype(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2042,15 +2029,14 @@ define dso_local i32 @get_op_rettype(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @op_input_types(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1392, ptr noundef nonnull @__func__.op_input_types) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1392, ptr noundef nonnull @__func__.op_input_types) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -2066,7 +2052,7 @@ define dso_local void @op_input_types(i32 noundef %0, ptr noundef writeonly capt
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %2, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
@@ -2078,14 +2064,14 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
   ]
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 8) #8
+  %4 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 8) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 382
   br label %25
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 8) #8
+  %9 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 8) #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 60
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 2987
@@ -2093,7 +2079,7 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
 
 13:                                               ; preds = %2
   %14 = zext i32 %0 to i64
-  %15 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %14) #8
+  %15 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %14) #7
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %25, label %16
 
@@ -2106,7 +2092,7 @@ define dso_local zeroext i1 @op_mergejoinable(i32 noundef %0, i32 noundef %1) lo
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 77
   %23 = load i8, ptr %22, align 1, !range !14, !noundef !15
-  tail call void @ReleaseSysCache(ptr noundef nonnull %15) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %15) #7
   %24 = trunc nuw i8 %23 to i1
   br label %25
 
@@ -2125,14 +2111,14 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
   ]
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 16) #8
+  %4 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 16) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 626
   br label %25
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 16) #8
+  %9 = tail call ptr @lookup_type_cache(i32 noundef %1, i32 noundef 16) #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 6192
@@ -2140,7 +2126,7 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
 
 13:                                               ; preds = %2
   %14 = zext i32 %0 to i64
-  %15 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %14) #8
+  %15 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %14) #7
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %25, label %16
 
@@ -2153,7 +2139,7 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 78
   %23 = load i8, ptr %22, align 2, !range !14, !noundef !15
-  tail call void @ReleaseSysCache(ptr noundef nonnull %15) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %15) #7
   %24 = trunc nuw i8 %23 to i1
   br label %25
 
@@ -2165,7 +2151,7 @@ define dso_local zeroext i1 @op_hashjoinable(i32 noundef %0, i32 noundef %1) loc
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @op_strict(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_opcode.exit.thread, label %get_opcode.exit
 
@@ -2178,28 +2164,26 @@ get_opcode.exit:                                  ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 100
   %10 = load i32, ptr %9, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %get_opcode.exit.thread, label %14
 
 get_opcode.exit.thread:                           ; preds = %1, %get_opcode.exit
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1509, ptr noundef nonnull @__func__.op_strict) #8
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1509, ptr noundef nonnull @__func__.op_strict) #7
   unreachable
 
 14:                                               ; preds = %get_opcode.exit
   %15 = zext i32 %10 to i64
-  %16 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %15) #8
+  %16 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %15) #7
   %.not.i4 = icmp eq ptr %16, null
   br i1 %.not.i4, label %17, label %func_strict.exit
 
 17:                                               ; preds = %14
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %10) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1795, ptr noundef nonnull @__func__.func_strict) #8
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %10) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1795, ptr noundef nonnull @__func__.func_strict) #7
   unreachable
 
 func_strict.exit:                                 ; preds = %14
@@ -2212,22 +2196,21 @@ func_strict.exit:                                 ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 99
   %26 = load i8, ptr %25, align 1, !range !14, !noundef !15
   %27 = trunc nuw i8 %26 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %16) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %16) #7
   ret i1 %27
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @func_strict(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1795, ptr noundef nonnull @__func__.func_strict) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1795, ptr noundef nonnull @__func__.func_strict) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2240,14 +2223,14 @@ define dso_local zeroext i1 @func_strict(i32 noundef %0) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 99
   %14 = load i8, ptr %13, align 1, !range !14, !noundef !15
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @op_volatile(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_opcode.exit.thread, label %get_opcode.exit
 
@@ -2260,28 +2243,26 @@ get_opcode.exit:                                  ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 100
   %10 = load i32, ptr %9, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %get_opcode.exit.thread, label %14
 
 get_opcode.exit.thread:                           ; preds = %1, %get_opcode.exit
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1525, ptr noundef nonnull @__func__.op_volatile) #8
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1525, ptr noundef nonnull @__func__.op_volatile) #7
   unreachable
 
 14:                                               ; preds = %get_opcode.exit
   %15 = zext i32 %10 to i64
-  %16 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %15) #8
+  %16 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %15) #7
   %.not.i4 = icmp eq ptr %16, null
   br i1 %.not.i4, label %17, label %func_volatile.exit
 
 17:                                               ; preds = %14
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %10) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1814, ptr noundef nonnull @__func__.func_volatile) #8
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %10) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1814, ptr noundef nonnull @__func__.func_volatile) #7
   unreachable
 
 func_volatile.exit:                               ; preds = %14
@@ -2293,22 +2274,21 @@ func_volatile.exit:                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %.val.i5, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 101
   %26 = load i8, ptr %25, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %16) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %16) #7
   ret i8 %26
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @func_volatile(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1814, ptr noundef nonnull @__func__.func_volatile) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1814, ptr noundef nonnull @__func__.func_volatile) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2320,14 +2300,14 @@ define dso_local signext i8 @func_volatile(i32 noundef %0) local_unnamed_addr #0
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 101
   %14 = load i8, ptr %13, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i8 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_commutator(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2340,7 +2320,7 @@ define dso_local i32 @get_commutator(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 92
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2351,7 +2331,7 @@ define dso_local i32 @get_commutator(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_oprrest(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2364,7 +2344,7 @@ define dso_local i32 @get_oprrest(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2375,7 +2355,7 @@ define dso_local i32 @get_oprrest(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_oprjoin(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2388,7 +2368,7 @@ define dso_local i32 @get_oprjoin(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2399,7 +2379,7 @@ define dso_local i32 @get_oprjoin(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_func_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2411,8 +2391,8 @@ define dso_local ptr @get_func_name(i32 noundef %0) local_unnamed_addr #0 {
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2423,7 +2403,7 @@ define dso_local ptr @get_func_name(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_func_namespace(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2436,7 +2416,7 @@ define dso_local i32 @get_func_namespace(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2447,15 +2427,14 @@ define dso_local i32 @get_func_namespace(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_func_rettype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1689, ptr noundef nonnull @__func__.get_func_rettype) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1689, ptr noundef nonnull @__func__.get_func_rettype) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2467,22 +2446,21 @@ define dso_local i32 @get_func_rettype(i32 noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 108
   %14 = load i32, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -32768, 32768) i32 @get_func_nargs(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1708, ptr noundef nonnull @__func__.get_func_nargs) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1708, ptr noundef nonnull @__func__.get_func_nargs) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2495,22 +2473,21 @@ define dso_local range(i32 -32768, 32768) i32 @get_func_nargs(i32 noundef %0) lo
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load i16, ptr %13, align 4
   %15 = sext i16 %14 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_func_signature(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1731, ptr noundef nonnull @__func__.get_func_signature) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1731, ptr noundef nonnull @__func__.get_func_signature) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -2528,14 +2505,14 @@ define dso_local i32 @get_func_signature(i32 noundef %0, ptr noundef writeonly c
   store i32 %19, ptr %2, align 4
   %20 = sext i16 %18 to i64
   %21 = shl nsw i64 %20, 2
-  %22 = tail call ptr @palloc(i64 noundef %21) #8
+  %22 = tail call ptr @palloc(i64 noundef %21) #7
   store ptr %22, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %24 = load i32, ptr %2, align 4
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %22, ptr nonnull align 4 %23, i64 %26, i1 false)
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret i32 %16
 }
 
@@ -2545,15 +2522,14 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_func_variadictype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1757, ptr noundef nonnull @__func__.get_func_variadictype) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1757, ptr noundef nonnull @__func__.get_func_variadictype) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2565,22 +2541,21 @@ define dso_local i32 @get_func_variadictype(i32 noundef %0) local_unnamed_addr #
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load i32, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_func_retset(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1776, ptr noundef nonnull @__func__.get_func_retset) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1776, ptr noundef nonnull @__func__.get_func_retset) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2593,22 +2568,21 @@ define dso_local zeroext i1 @get_func_retset(i32 noundef %0) local_unnamed_addr 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
   %14 = load i8, ptr %13, align 4, !range !14, !noundef !15
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @func_parallel(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1833, ptr noundef nonnull @__func__.func_parallel) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1833, ptr noundef nonnull @__func__.func_parallel) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2620,22 +2594,21 @@ define dso_local signext i8 @func_parallel(i32 noundef %0) local_unnamed_addr #0
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 102
   %14 = load i8, ptr %13, align 2
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i8 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @get_func_prokind(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1852, ptr noundef nonnull @__func__.get_func_prokind) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1852, ptr noundef nonnull @__func__.get_func_prokind) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2647,22 +2620,21 @@ define dso_local signext i8 @get_func_prokind(i32 noundef %0) local_unnamed_addr
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i8, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i8 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_func_leakproof(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1871, ptr noundef nonnull @__func__.get_func_leakproof) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1871, ptr noundef nonnull @__func__.get_func_leakproof) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2675,14 +2647,14 @@ define dso_local zeroext i1 @get_func_leakproof(i32 noundef %0) local_unnamed_ad
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 98
   %14 = load i8, ptr %13, align 2, !range !14, !noundef !15
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_func_support(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2695,7 +2667,7 @@ define dso_local i32 @get_func_support(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 92
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2707,14 +2679,14 @@ define dso_local i32 @get_func_support(i32 noundef %0) local_unnamed_addr #0 {
 define dso_local i32 @get_relname_relid(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = zext i32 %1 to i64
-  %5 = tail call i32 @GetSysCacheOid(i32 noundef 56, i16 noundef signext 1, i64 noundef %3, i64 noundef %4, i64 noundef 0, i64 noundef 0) #8
+  %5 = tail call i32 @GetSysCacheOid(i32 noundef 56, i16 noundef signext 1, i64 noundef %3, i64 noundef %4, i64 noundef 0, i64 noundef 0) #7
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_rel_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2726,8 +2698,8 @@ define dso_local ptr @get_rel_name(i32 noundef %0) local_unnamed_addr #0 {
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2738,7 +2710,7 @@ define dso_local ptr @get_rel_name(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_rel_namespace(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2751,7 +2723,7 @@ define dso_local i32 @get_rel_namespace(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2762,7 +2734,7 @@ define dso_local i32 @get_rel_namespace(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_rel_type_id(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2775,7 +2747,7 @@ define dso_local i32 @get_rel_type_id(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2786,7 +2758,7 @@ define dso_local i32 @get_rel_type_id(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @get_rel_relkind(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2799,7 +2771,7 @@ define dso_local signext i8 @get_rel_relkind(i32 noundef %0) local_unnamed_addr 
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 115
   %11 = load i8, ptr %10, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2810,7 +2782,7 @@ define dso_local signext i8 @get_rel_relkind(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_rel_relispartition(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -2824,7 +2796,7 @@ define dso_local zeroext i1 @get_rel_relispartition(i32 noundef %0) local_unname
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 127
   %11 = load i8, ptr %10, align 1, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %13
 
 13:                                               ; preds = %1, %4
@@ -2835,7 +2807,7 @@ define dso_local zeroext i1 @get_rel_relispartition(i32 noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_rel_tablespace(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -2848,7 +2820,7 @@ define dso_local i32 @get_rel_tablespace(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 92
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -2859,15 +2831,14 @@ define dso_local i32 @get_rel_tablespace(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @get_rel_persistence(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2113, ptr noundef nonnull @__func__.get_rel_persistence) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2113, ptr noundef nonnull @__func__.get_rel_persistence) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2879,22 +2850,21 @@ define dso_local signext i8 @get_rel_persistence(i32 noundef %0) local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 114
   %14 = load i8, ptr %13, align 2
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i8 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_rel_relam(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2135, ptr noundef nonnull @__func__.get_rel_relam) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2135, ptr noundef nonnull @__func__.get_rel_relam) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -2906,19 +2876,19 @@ define dso_local i32 @get_rel_relam(i32 noundef %0) local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i32 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_transform_fromsql(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @list_member_oid(ptr noundef %2, i32 noundef %0) #8
+  %4 = tail call zeroext i1 @list_member_oid(ptr noundef %2, i32 noundef %0) #7
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %3
   %6 = zext i32 %0 to i64
   %7 = zext i32 %1 to i64
-  %8 = tail call ptr @SearchSysCache2(i32 noundef 71, i64 noundef %6, i64 noundef %7) #8
+  %8 = tail call ptr @SearchSysCache2(i32 noundef 71, i64 noundef %6, i64 noundef %7) #7
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %17, label %9
 
@@ -2931,7 +2901,7 @@ define dso_local i32 @get_transform_fromsql(i32 noundef %0, i32 noundef %1, ptr 
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   br label %17
 
 17:                                               ; preds = %5, %3, %9
@@ -2943,13 +2913,13 @@ declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_transform_tosql(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @list_member_oid(ptr noundef %2, i32 noundef %0) #8
+  %4 = tail call zeroext i1 @list_member_oid(ptr noundef %2, i32 noundef %0) #7
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %3
   %6 = zext i32 %0 to i64
   %7 = zext i32 %1 to i64
-  %8 = tail call ptr @SearchSysCache2(i32 noundef 71, i64 noundef %6, i64 noundef %7) #8
+  %8 = tail call ptr @SearchSysCache2(i32 noundef 71, i64 noundef %6, i64 noundef %7) #7
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %17, label %9
 
@@ -2962,7 +2932,7 @@ define dso_local i32 @get_transform_tosql(i32 noundef %0, i32 noundef %1, ptr no
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   br label %17
 
 17:                                               ; preds = %5, %3, %9
@@ -2973,7 +2943,7 @@ define dso_local i32 @get_transform_tosql(i32 noundef %0, i32 noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_typisdefined(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -2987,7 +2957,7 @@ define dso_local zeroext i1 @get_typisdefined(i32 noundef %0) local_unnamed_addr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 82
   %11 = load i8, ptr %10, align 2, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %13
 
 13:                                               ; preds = %1, %4
@@ -2998,7 +2968,7 @@ define dso_local zeroext i1 @get_typisdefined(i32 noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local signext i16 @get_typlen(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -3011,7 +2981,7 @@ define dso_local signext i16 @get_typlen(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %11 = load i16, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -3022,7 +2992,7 @@ define dso_local signext i16 @get_typlen(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -3036,7 +3006,7 @@ define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 78
   %11 = load i8, ptr %10, align 2, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %13
 
 13:                                               ; preds = %1, %4
@@ -3047,15 +3017,14 @@ define dso_local zeroext i1 @get_typbyval(i32 noundef %0) local_unnamed_addr #0 
 ; Function Attrs: nounwind uwtable
 define dso_local void @get_typlenbyval(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2285, ptr noundef nonnull @__func__.get_typlenbyval) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2285, ptr noundef nonnull @__func__.get_typlenbyval) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -3071,22 +3040,21 @@ define dso_local void @get_typlenbyval(i32 noundef %0, ptr noundef writeonly cap
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 78
   %18 = load i8, ptr %17, align 2, !range !14, !noundef !15
   store i8 %18, ptr %2, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @get_typlenbyvalalign(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %5) #8
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %5) #7
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2306, ptr noundef nonnull @__func__.get_typlenbyvalalign) #8
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2306, ptr noundef nonnull @__func__.get_typlenbyvalalign) #7
   unreachable
 
 10:                                               ; preds = %4
@@ -3105,7 +3073,7 @@ define dso_local void @get_typlenbyvalalign(i32 noundef %0, ptr noundef writeonl
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %21 = load i8, ptr %20, align 4
   store i8 %21, ptr %3, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #7
   ret void
 }
 
@@ -3142,7 +3110,7 @@ define dso_local void @get_type_io_data(i32 noundef %0, i32 noundef %1, ptr noun
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @boot_get_type_io_data(i32 noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  call void @boot_get_type_io_data(i32 noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   switch i32 %1, label %15 [
     i32 0, label %18
     i32 1, label %14
@@ -3152,10 +3120,9 @@ define dso_local void @get_type_io_data(i32 noundef %0, i32 noundef %1, ptr noun
   br label %18
 
 15:                                               ; preds = %13
-  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %16)
-  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2390, ptr noundef nonnull @__func__.get_type_io_data) #8
+  %16 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %17 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2390, ptr noundef nonnull @__func__.get_type_io_data) #7
   unreachable
 
 18:                                               ; preds = %13, %14
@@ -3168,15 +3135,14 @@ define dso_local void @get_type_io_data(i32 noundef %0, i32 noundef %1, ptr noun
 
 19:                                               ; preds = %8
   %20 = zext i32 %0 to i64
-  %21 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %20) #8
+  %21 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %20) #7
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2398, ptr noundef nonnull @__func__.get_type_io_data) #8
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2398, ptr noundef nonnull @__func__.get_type_io_data) #7
   unreachable
 
 25:                                               ; preds = %19
@@ -3228,7 +3194,7 @@ switch.lookup:                                    ; preds = %getTypeIOParam.exit
   br label %53
 
 53:                                               ; preds = %getTypeIOParam.exit, %switch.lookup
-  tail call void @ReleaseSysCache(ptr noundef nonnull %21) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %21) #7
   br label %54
 
 54:                                               ; preds = %53, %18
@@ -3240,7 +3206,7 @@ declare void @boot_get_type_io_data(i32 noundef, ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @get_typstorage(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -3253,7 +3219,7 @@ define dso_local signext i8 @get_typstorage(i32 noundef %0) local_unnamed_addr #
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 129
   %11 = load i8, ptr %10, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -3266,15 +3232,14 @@ define dso_local ptr @get_typdefault(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2485, ptr noundef nonnull @__func__.get_typdefault) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2485, ptr noundef nonnull @__func__.get_typdefault) #7
   unreachable
 
 8:                                                ; preds = %1
@@ -3284,26 +3249,26 @@ define dso_local ptr @get_typdefault(i32 noundef %0) local_unnamed_addr #0 {
   %11 = load i8, ptr %10, align 2
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 %12
-  %14 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %4, i16 noundef signext 30, ptr noundef nonnull %2) #8
+  %14 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %4, i16 noundef signext 30, ptr noundef nonnull %2) #7
   %15 = load i8, ptr %2, align 1, !range !14, !noundef !15
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %8
   %18 = inttoptr i64 %14 to ptr
-  %19 = call ptr @text_to_cstring(ptr noundef %18) #8
-  %20 = call ptr @stringToNode(ptr noundef %19) #8
+  %19 = call ptr @text_to_cstring(ptr noundef %18) #7
+  %20 = call ptr @stringToNode(ptr noundef %19) #7
   br label %48
 
 21:                                               ; preds = %8
-  %22 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %4, i16 noundef signext 31, ptr noundef nonnull %2) #8
+  %22 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %4, i16 noundef signext 31, ptr noundef nonnull %2) #7
   %23 = load i8, ptr %2, align 1, !range !14, !noundef !15
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %48, label %25
 
 25:                                               ; preds = %21
   %26 = inttoptr i64 %22 to ptr
-  %27 = call ptr @text_to_cstring(ptr noundef %26) #8
+  %27 = call ptr @text_to_cstring(ptr noundef %26) #7
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 100
   %29 = load i32, ptr %28, align 4
   %.val.i = load ptr, ptr %9, align 8
@@ -3322,7 +3287,7 @@ define dso_local ptr @get_typdefault(i32 noundef %0) local_unnamed_addr #0 {
 
 getTypeIOParam.exit:                              ; preds = %25, %36
   %.0.i = phi i32 [ %37, %36 ], [ %35, %25 ]
-  %38 = call i64 @OidInputFunctionCall(i32 noundef %29, ptr noundef %27, i32 noundef %.0.i, i32 noundef -1) #8
+  %38 = call i64 @OidInputFunctionCall(i32 noundef %29, ptr noundef %27, i32 noundef %.0.i, i32 noundef -1) #7
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 76
@@ -3331,13 +3296,13 @@ getTypeIOParam.exit:                              ; preds = %25, %36
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 78
   %45 = load i8, ptr %44, align 2, !range !14, !noundef !15
   %46 = trunc nuw i8 %45 to i1
-  %47 = call ptr @makeConst(i32 noundef %0, i32 noundef -1, i32 noundef %40, i32 noundef %43, i64 noundef %38, i1 noundef zeroext false, i1 noundef zeroext %46) #8
-  call void @pfree(ptr noundef %27) #8
+  %47 = call ptr @makeConst(i32 noundef %0, i32 noundef -1, i32 noundef %40, i32 noundef %43, i64 noundef %38, i1 noundef zeroext false, i1 noundef zeroext %46) #7
+  call void @pfree(ptr noundef %27) #7
   br label %48
 
 48:                                               ; preds = %21, %getTypeIOParam.exit, %17
   %.0 = phi ptr [ %47, %getTypeIOParam.exit ], [ %20, %17 ], [ null, %21 ]
-  call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %.0
 }
@@ -3364,7 +3329,7 @@ define dso_local i32 @getBaseType(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #7
   %.not20 = icmp eq ptr %4, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph.preheader
 
@@ -3382,10 +3347,9 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %2
   %.011.lcssa = phi i32 [ %0, %2 ], [ %24, %.lr.ph34 ]
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %.011.lcssa) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2577, ptr noundef nonnull @__func__.getBaseTypeAndTypmod) #8
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %.011.lcssa) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2577, ptr noundef nonnull @__func__.getBaseTypeAndTypmod) #7
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph34
@@ -3408,23 +3372,23 @@ define dso_local i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef writeonly
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 136
   %26 = load i32, ptr %25, align 4
   store i32 %26, ptr %1, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %22) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %22) #7
   %27 = zext i32 %24 to i64
-  %28 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %27) #8
+  %28 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %27) #7
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %4, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.01121.lcssa = phi i32 [ %0, %.lr.ph.preheader ], [ %24, %.lr.ph ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %.lcssa) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %.lcssa) #7
   ret i32 %.01121.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 1, -2147483648) i32 @get_typavgwidth(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #7
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %get_typlen.exit.thread, label %get_typlen.exit
 
@@ -3437,7 +3401,7 @@ get_typlen.exit:                                  ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %11 = load i16, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   %12 = icmp sgt i16 %11, 0
   br i1 %12, label %13, label %get_typlen.exit.thread
 
@@ -3446,7 +3410,7 @@ get_typlen.exit:                                  ; preds = %2
   br label %26
 
 get_typlen.exit.thread:                           ; preds = %2, %get_typlen.exit
-  %15 = tail call i32 @type_maximum_size(i32 noundef %0, i32 noundef %1) #8
+  %15 = tail call i32 @type_maximum_size(i32 noundef %0, i32 noundef %1) #7
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %26
 
@@ -3476,7 +3440,7 @@ declare i32 @type_maximum_size(i32 noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local signext i8 @get_typtype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -3489,7 +3453,7 @@ define dso_local signext i8 @get_typtype(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79
   %11 = load i8, ptr %10, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -3505,7 +3469,7 @@ define dso_local noundef zeroext i1 @type_is_rowtype(i32 noundef %0) local_unnam
 
 4:                                                ; preds = %1
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %5) #8
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %5) #7
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %get_typtype.exit.thread, label %get_typtype.exit
 
@@ -3518,7 +3482,7 @@ get_typtype.exit:                                 ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 79
   %13 = load i8, ptr %12, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #7
   switch i8 %13, label %get_typtype.exit.thread [
     i8 99, label %26
     i8 100, label %14
@@ -3529,7 +3493,7 @@ get_typtype.exit:                                 ; preds = %4
   %15 = call i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = zext i32 %15 to i64
-  %17 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %16) #8
+  %17 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %16) #7
   %.not.i4 = icmp eq ptr %17, null
   br i1 %.not.i4, label %get_typtype.exit.thread, label %get_typtype.exit7
 
@@ -3542,7 +3506,7 @@ get_typtype.exit7:                                ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %.val.i5, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 79
   %24 = load i8, ptr %23, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %17) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %17) #7
   %25 = icmp eq i8 %24, 99
   br i1 %25, label %26, label %get_typtype.exit.thread
 
@@ -3557,7 +3521,7 @@ get_typtype.exit.thread:                          ; preds = %14, %4, %get_typtyp
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_is_enum(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_typtype.exit, label %4
 
@@ -3570,7 +3534,7 @@ define dso_local zeroext i1 @type_is_enum(i32 noundef %0) local_unnamed_addr #0 
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79
   %11 = load i8, ptr %10, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %12 = icmp eq i8 %11, 101
   br label %get_typtype.exit
 
@@ -3582,7 +3546,7 @@ get_typtype.exit:                                 ; preds = %1, %4
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_is_range(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_typtype.exit, label %4
 
@@ -3595,7 +3559,7 @@ define dso_local zeroext i1 @type_is_range(i32 noundef %0) local_unnamed_addr #0
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79
   %11 = load i8, ptr %10, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %12 = icmp eq i8 %11, 114
   br label %get_typtype.exit
 
@@ -3607,7 +3571,7 @@ get_typtype.exit:                                 ; preds = %1, %4
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_is_multirange(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_typtype.exit, label %4
 
@@ -3620,7 +3584,7 @@ define dso_local zeroext i1 @type_is_multirange(i32 noundef %0) local_unnamed_ad
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 79
   %11 = load i8, ptr %10, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %12 = icmp eq i8 %11, 109
   br label %get_typtype.exit
 
@@ -3632,15 +3596,14 @@ get_typtype.exit:                                 ; preds = %1, %4
 ; Function Attrs: nounwind uwtable
 define dso_local void @get_type_category_preferred(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2744, ptr noundef nonnull @__func__.get_type_category_preferred) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2744, ptr noundef nonnull @__func__.get_type_category_preferred) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -3656,14 +3619,14 @@ define dso_local void @get_type_category_preferred(i32 noundef %0, ptr noundef w
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 81
   %18 = load i8, ptr %17, align 1, !range !14, !noundef !15
   store i8 %18, ptr %2, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_typ_typrelid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -3676,7 +3639,7 @@ define dso_local i32 @get_typ_typrelid(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -3687,7 +3650,7 @@ define dso_local i32 @get_typ_typrelid(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_element_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
 
@@ -3714,7 +3677,7 @@ define dso_local i32 @get_element_type(i32 noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %12, %16
   %.0 = phi i32 [ 0, %16 ], [ %11, %12 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %18
 
 18:                                               ; preds = %1, %17
@@ -3725,7 +3688,7 @@ define dso_local i32 @get_element_type(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_array_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -3738,7 +3701,7 @@ define dso_local i32 @get_array_type(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %4, %1
@@ -3749,7 +3712,7 @@ define dso_local i32 @get_array_type(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_promoted_array_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_array_type.exit.thread, label %get_array_type.exit
 
@@ -3762,12 +3725,12 @@ get_array_type.exit:                              ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load i32, ptr %9, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %get_array_type.exit.thread, label %get_element_type.exit.thread
 
 get_array_type.exit.thread:                       ; preds = %1, %get_array_type.exit
-  %11 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %11 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not.i8 = icmp eq ptr %11, null
   br i1 %.not.i8, label %get_element_type.exit.thread, label %12
 
@@ -3792,7 +3755,7 @@ get_array_type.exit.thread:                       ; preds = %1, %get_array_type.
 
 get_element_type.exit.thread.sink.split:          ; preds = %20, %12
   %.0.ph = phi i32 [ 0, %12 ], [ %spec.select, %20 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %11) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %11) #7
   br label %get_element_type.exit.thread
 
 get_element_type.exit.thread:                     ; preds = %get_element_type.exit.thread.sink.split, %get_array_type.exit.thread, %get_array_type.exit
@@ -3803,7 +3766,7 @@ get_element_type.exit.thread:                     ; preds = %get_element_type.ex
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_base_element_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not29 = icmp eq ptr %3, null
   br i1 %.not29, label %.loopexit, label %.lr.ph
 
@@ -3837,15 +3800,15 @@ define dso_local i32 @get_base_element_type(i32 noundef %0) local_unnamed_addr #
 
 .thread23:                                        ; preds = %19, %15
   %.0 = phi i32 [ 0, %19 ], [ %14, %15 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %.loopexit
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %22 = load i32, ptr %21, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   %23 = zext i32 %22 to i64
-  %24 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %23) #8
+  %24 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %23) #7
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -3857,15 +3820,14 @@ define dso_local i32 @get_base_element_type(i32 noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local void @getTypeInputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2908, ptr noundef nonnull @__func__.getTypeInputInfo) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2908, ptr noundef nonnull @__func__.getTypeInputInfo) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -3881,12 +3843,11 @@ define dso_local void @getTypeInputInfo(i32 noundef %0, ptr noundef writeonly ca
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %9
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %21 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2915, ptr noundef nonnull @__func__.getTypeInputInfo) #8
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %20 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %21 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2915, ptr noundef nonnull @__func__.getTypeInputInfo) #7
   unreachable
 
 23:                                               ; preds = %9
@@ -3896,12 +3857,11 @@ define dso_local void @getTypeInputInfo(i32 noundef %0, ptr noundef writeonly ca
   br i1 %.not13, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 52461700) #8
-  %29 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %29) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2920, ptr noundef nonnull @__func__.getTypeInputInfo) #8
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %28 = tail call i32 @errcode(i32 noundef 52461700) #7
+  %29 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %29) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2920, ptr noundef nonnull @__func__.getTypeInputInfo) #7
   unreachable
 
 31:                                               ; preds = %23
@@ -3923,22 +3883,21 @@ define dso_local void @getTypeInputInfo(i32 noundef %0, ptr noundef writeonly ca
 getTypeIOParam.exit:                              ; preds = %31, %38
   %.0.i = phi i32 [ %39, %38 ], [ %37, %31 ]
   store i32 %.0.i, ptr %2, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2941, ptr noundef nonnull @__func__.getTypeOutputInfo) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2941, ptr noundef nonnull @__func__.getTypeOutputInfo) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -3954,12 +3913,11 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly c
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %9
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %21 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2948, ptr noundef nonnull @__func__.getTypeOutputInfo) #8
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %20 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %21 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2948, ptr noundef nonnull @__func__.getTypeOutputInfo) #7
   unreachable
 
 23:                                               ; preds = %9
@@ -3969,12 +3927,11 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly c
   br i1 %.not14, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 52461700) #8
-  %29 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %29) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2953, ptr noundef nonnull @__func__.getTypeOutputInfo) #8
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %28 = tail call i32 @errcode(i32 noundef 52461700) #7
+  %29 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %29) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2953, ptr noundef nonnull @__func__.getTypeOutputInfo) #7
   unreachable
 
 31:                                               ; preds = %23
@@ -3994,22 +3951,21 @@ define dso_local void @getTypeOutputInfo(i32 noundef %0, ptr noundef writeonly c
 40:                                               ; preds = %35, %31
   %41 = phi i8 [ 0, %31 ], [ %39, %35 ]
   store i8 %41, ptr %2, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2974, ptr noundef nonnull @__func__.getTypeBinaryInputInfo) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2974, ptr noundef nonnull @__func__.getTypeBinaryInputInfo) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -4025,12 +3981,11 @@ define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr noundef writeo
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %9
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %21 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.getTypeBinaryInputInfo) #8
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %20 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %21 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2981, ptr noundef nonnull @__func__.getTypeBinaryInputInfo) #7
   unreachable
 
 23:                                               ; preds = %9
@@ -4040,12 +3995,11 @@ define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr noundef writeo
   br i1 %.not13, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 52461700) #8
-  %29 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %29) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2986, ptr noundef nonnull @__func__.getTypeBinaryInputInfo) #8
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %28 = tail call i32 @errcode(i32 noundef 52461700) #7
+  %29 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %29) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2986, ptr noundef nonnull @__func__.getTypeBinaryInputInfo) #7
   unreachable
 
 31:                                               ; preds = %23
@@ -4067,22 +4021,21 @@ define dso_local void @getTypeBinaryInputInfo(i32 noundef %0, ptr noundef writeo
 getTypeIOParam.exit:                              ; preds = %31, %38
   %.0.i = phi i32 [ %39, %38 ], [ %37, %31 ]
   store i32 %.0.i, ptr %2, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #8
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %4) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3007, ptr noundef nonnull @__func__.getTypeBinaryOutputInfo) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3007, ptr noundef nonnull @__func__.getTypeBinaryOutputInfo) #7
   unreachable
 
 9:                                                ; preds = %3
@@ -4098,12 +4051,11 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef write
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %9
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %21 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3014, ptr noundef nonnull @__func__.getTypeBinaryOutputInfo) #8
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %20 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %21 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %21) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3014, ptr noundef nonnull @__func__.getTypeBinaryOutputInfo) #7
   unreachable
 
 23:                                               ; preds = %9
@@ -4113,12 +4065,11 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef write
   br i1 %.not14, label %26, label %31
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 52461700) #8
-  %29 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %29) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3019, ptr noundef nonnull @__func__.getTypeBinaryOutputInfo) #8
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %28 = tail call i32 @errcode(i32 noundef 52461700) #7
+  %29 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %29) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3019, ptr noundef nonnull @__func__.getTypeBinaryOutputInfo) #7
   unreachable
 
 31:                                               ; preds = %23
@@ -4138,14 +4089,14 @@ define dso_local void @getTypeBinaryOutputInfo(i32 noundef %0, ptr noundef write
 40:                                               ; preds = %35, %31
   %41 = phi i8 [ 0, %31 ], [ %39, %35 ]
   store i8 %41, ptr %2, align 1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_typmodin(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -4158,7 +4109,7 @@ define dso_local i32 @get_typmodin(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 116
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -4169,7 +4120,7 @@ define dso_local i32 @get_typmodin(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_typcollation(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -4182,7 +4133,7 @@ define dso_local i32 @get_typcollation(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -4193,7 +4144,7 @@ define dso_local i32 @get_typcollation(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @type_is_collatable(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %2) #7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %get_typcollation.exit, label %4
 
@@ -4206,7 +4157,7 @@ define dso_local zeroext i1 @type_is_collatable(i32 noundef %0) local_unnamed_ad
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   %12 = icmp ne i32 %11, 0
   br label %get_typcollation.exit
 
@@ -4218,7 +4169,7 @@ get_typcollation.exit:                            ; preds = %1, %4
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_typsubscript(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %17, label %5
 
@@ -4241,7 +4192,7 @@ define dso_local i32 @get_typsubscript(i32 noundef %0, ptr noundef writeonly cap
   br label %16
 
 16:                                               ; preds = %13, %5
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %19
 
 17:                                               ; preds = %2
@@ -4260,7 +4211,7 @@ define dso_local i32 @get_typsubscript(i32 noundef %0, ptr noundef writeonly cap
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @getSubscriptingRoutines(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %3) #7
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %16, label %5
 
@@ -4291,12 +4242,12 @@ define dso_local ptr @getSubscriptingRoutines(i32 noundef %0, ptr noundef writeo
   br label %get_typsubscript.exit.thread
 
 get_typsubscript.exit:                            ; preds = %5, %13
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %get_typsubscript.exit.thread, label %18
 
 18:                                               ; preds = %get_typsubscript.exit
-  %19 = tail call i64 @OidFunctionCall0Coll(i32 noundef %12, i32 noundef 0) #8
+  %19 = tail call i64 @OidFunctionCall0Coll(i32 noundef %12, i32 noundef 0) #7
   %20 = inttoptr i64 %19 to ptr
   br label %get_typsubscript.exit.thread
 
@@ -4314,14 +4265,14 @@ define dso_local range(i32 0, -2147483648) i32 @get_attavgwidth(i32 noundef %0, 
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 %3(i32 noundef %0, i16 noundef signext %1) #8
+  %5 = tail call i32 %3(i32 noundef %0, i16 noundef signext %1) #7
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %21, label %7
 
 7:                                                ; preds = %4, %2
   %8 = zext i32 %0 to i64
   %9 = sext i16 %1 to i64
-  %10 = tail call ptr @SearchSysCache3(i32 noundef 65, i64 noundef %8, i64 noundef %9, i64 noundef 0) #8
+  %10 = tail call ptr @SearchSysCache3(i32 noundef 65, i64 noundef %8, i64 noundef %9, i64 noundef 0) #7
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %20, label %11
 
@@ -4334,7 +4285,7 @@ define dso_local range(i32 0, -2147483648) i32 @get_attavgwidth(i32 noundef %0, 
   %16 = getelementptr inbounds nuw i8, ptr %.val, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %10) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %10) #7
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %21, label %20
 
@@ -4424,23 +4375,22 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 41:                                               ; preds = %.split74.us
   %42 = trunc nuw nsw i32 %.us-phi to i16
   %43 = add nuw nsw i16 %42, 27
-  %44 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef %1, i16 noundef signext %43) #8
+  %44 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef %1, i16 noundef signext %43) #7
   %45 = inttoptr i64 %44 to ptr
-  %46 = tail call ptr @pg_detoast_datum_copy(ptr noundef %45) #8
+  %46 = tail call ptr @pg_detoast_datum_copy(ptr noundef %45) #7
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %48, ptr %49, align 8
   %50 = zext i32 %48 to i64
-  %51 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %50) #8
+  %51 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %50) #7
   %.not65 = icmp eq ptr %51, null
   br i1 %.not65, label %52, label %55
 
 52:                                               ; preds = %41
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %48) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3308, ptr noundef nonnull @__func__.get_attstatsslot) #8
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %48) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3308, ptr noundef nonnull @__func__.get_attstatsslot) #7
   unreachable
 
 55:                                               ; preds = %41
@@ -4460,7 +4410,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   %68 = load i8, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @deconstruct_array(ptr noundef nonnull %46, i32 noundef %48, i32 noundef %63, i1 noundef zeroext %66, i8 noundef signext %68, ptr noundef nonnull %69, ptr noundef null, ptr noundef nonnull %70) #8
+  tail call void @deconstruct_array(ptr noundef nonnull %46, i32 noundef %48, i32 noundef %63, i1 noundef zeroext %66, i8 noundef signext %68, ptr noundef nonnull %69, ptr noundef null, ptr noundef nonnull %70) #7
   %71 = load i8, ptr %64, align 2, !range !14, !noundef !15
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %75, label %73
@@ -4471,11 +4421,11 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br label %76
 
 75:                                               ; preds = %55
-  tail call void @pfree(ptr noundef nonnull %46) #8
+  tail call void @pfree(ptr noundef nonnull %46) #7
   br label %76
 
 76:                                               ; preds = %75, %73
-  tail call void @ReleaseSysCache(ptr noundef nonnull %51) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %51) #7
   br label %77
 
 77:                                               ; preds = %76, %.split74.us
@@ -4486,9 +4436,9 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
 79:                                               ; preds = %77
   %80 = trunc nuw nsw i32 %.us-phi to i16
   %81 = add nuw nsw i16 %80, 22
-  %82 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef %1, i16 noundef signext %81) #8
+  %82 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef %1, i16 noundef signext %81) #7
   %83 = inttoptr i64 %82 to ptr
-  %84 = tail call ptr @pg_detoast_datum_copy(ptr noundef %83) #8
+  %84 = tail call ptr @pg_detoast_datum_copy(ptr noundef %83) #7
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -4511,10 +4461,9 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br i1 %.not68, label %100, label %97
 
 97:                                               ; preds = %94, %91, %79
-  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %98)
-  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3353, ptr noundef nonnull @__func__.get_attstatsslot) #8
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3353, ptr noundef nonnull @__func__.get_attstatsslot) #7
   unreachable
 
 100:                                              ; preds = %94
@@ -4549,7 +4498,7 @@ define dso_local void @free_attstatsslot(ptr noundef readonly captures(none) %0)
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %3) #8
+  tail call void @pfree(ptr noundef nonnull %3) #7
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -4559,7 +4508,7 @@ define dso_local void @free_attstatsslot(ptr noundef readonly captures(none) %0)
   br i1 %.not8, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @pfree(ptr noundef nonnull %7) #8
+  tail call void @pfree(ptr noundef nonnull %7) #7
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -4569,7 +4518,7 @@ define dso_local void @free_attstatsslot(ptr noundef readonly captures(none) %0)
   br i1 %.not9, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @pfree(ptr noundef nonnull %11) #8
+  tail call void @pfree(ptr noundef nonnull %11) #7
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -4579,7 +4528,7 @@ define dso_local void @free_attstatsslot(ptr noundef readonly captures(none) %0)
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_namespace_name(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -4591,8 +4540,8 @@ define dso_local ptr @get_namespace_name(i32 noundef %0) local_unnamed_addr #0 {
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  %11 = tail call ptr @pstrdup(ptr noundef nonnull %10) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -4602,16 +4551,16 @@ define dso_local ptr @get_namespace_name(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_namespace_name_or_temp(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @isTempNamespace(i32 noundef %0) #8
+  %2 = tail call zeroext i1 @isTempNamespace(i32 noundef %0) #7
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @pstrdup(ptr noundef nonnull @.str.21) #8
+  %4 = tail call ptr @pstrdup(ptr noundef nonnull @.str.21) #7
   br label %get_namespace_name.exit
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
-  %7 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %6) #8
+  %7 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %6) #7
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %get_namespace_name.exit, label %8
 
@@ -4623,8 +4572,8 @@ define dso_local ptr @get_namespace_name_or_temp(i32 noundef %0) local_unnamed_a
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call ptr @pstrdup(ptr noundef nonnull %14) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %7) #8
+  %15 = tail call ptr @pstrdup(ptr noundef nonnull %14) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %7) #7
   br label %get_namespace_name.exit
 
 get_namespace_name.exit:                          ; preds = %8, %5, %3
@@ -4637,7 +4586,7 @@ declare zeroext i1 @isTempNamespace(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_range_subtype(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -4650,7 +4599,7 @@ define dso_local i32 @get_range_subtype(i32 noundef %0) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -4661,7 +4610,7 @@ define dso_local i32 @get_range_subtype(i32 noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_range_collation(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -4674,7 +4623,7 @@ define dso_local i32 @get_range_collation(i32 noundef %0) local_unnamed_addr #0 
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -4685,7 +4634,7 @@ define dso_local i32 @get_range_collation(i32 noundef %0) local_unnamed_addr #0 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_range_multirange(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
@@ -4698,7 +4647,7 @@ define dso_local i32 @get_range_multirange(i32 noundef %0) local_unnamed_addr #0
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %1, %4
@@ -4709,7 +4658,7 @@ define dso_local i32 @get_range_multirange(i32 noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_multirange_range(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 54, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 54, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
@@ -4721,7 +4670,7 @@ define dso_local i32 @get_multirange_range(i32 noundef %0) local_unnamed_addr #0
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 %8
   %10 = load i32, ptr %9, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %11
 
 11:                                               ; preds = %1, %4
@@ -4732,7 +4681,7 @@ define dso_local i32 @get_multirange_range(i32 noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %23, label %5
 
@@ -4750,7 +4699,7 @@ define dso_local i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) l
   br i1 %14, label %.sink.split, label %15
 
 15:                                               ; preds = %5
-  %16 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 34, ptr noundef nonnull %4, i16 noundef signext 18) #8
+  %16 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 34, ptr noundef nonnull %4, i16 noundef signext 18) #7
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = add i32 %1, -1
@@ -4761,7 +4710,7 @@ define dso_local i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) l
 
 .sink.split:                                      ; preds = %5, %15
   %.0.ph = phi i32 [ %22, %15 ], [ 0, %5 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %23
 
 23:                                               ; preds = %.sink.split, %2
@@ -4772,7 +4721,7 @@ define dso_local i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) l
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_index_isreplident(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
@@ -4786,7 +4735,7 @@ define dso_local zeroext i1 @get_index_isreplident(i32 noundef %0) local_unnamed
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
   %11 = load i8, ptr %10, align 2, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   br label %13
 
 13:                                               ; preds = %1, %4
@@ -4797,15 +4746,14 @@ define dso_local zeroext i1 @get_index_isreplident(i32 noundef %0) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_index_isvalid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3613, ptr noundef nonnull @__func__.get_index_isvalid) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3613, ptr noundef nonnull @__func__.get_index_isvalid) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -4818,22 +4766,21 @@ define dso_local zeroext i1 @get_index_isvalid(i32 noundef %0) local_unnamed_add
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %14 = load i8, ptr %13, align 2, !range !14, !noundef !15
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @get_index_isclustered(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %2) #8
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 34, i64 noundef %2) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3636, ptr noundef nonnull @__func__.get_index_isclustered) #8
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3636, ptr noundef nonnull @__func__.get_index_isclustered) #7
   unreachable
 
 7:                                                ; preds = %1
@@ -4846,24 +4793,23 @@ define dso_local zeroext i1 @get_index_isclustered(i32 noundef %0) local_unnamed
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 17
   %14 = load i8, ptr %13, align 1, !range !14, !noundef !15
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
   ret i1 %15
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_publication_oid(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = tail call i32 @GetSysCacheOid(i32 noundef 48, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %4 = tail call i32 @GetSysCacheOid(i32 noundef 48, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %5 = icmp ne i32 %4, 0
   %or.cond = or i1 %1, %5
   br i1 %or.cond, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3661, ptr noundef nonnull @__func__.get_publication_oid) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3661, ptr noundef nonnull @__func__.get_publication_oid) #7
   unreachable
 
 10:                                               ; preds = %2
@@ -4873,7 +4819,7 @@ define dso_local i32 @get_publication_oid(ptr noundef %0, i1 noundef zeroext %1)
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_publication_name(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 51, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 51, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
 
@@ -4881,10 +4827,9 @@ define dso_local ptr @get_publication_name(i32 noundef %0, i1 noundef zeroext %1
   br i1 %1, label %17, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3683, ptr noundef nonnull @__func__.get_publication_name) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3683, ptr noundef nonnull @__func__.get_publication_name) #7
   unreachable
 
 9:                                                ; preds = %2
@@ -4895,8 +4840,8 @@ define dso_local ptr @get_publication_name(i32 noundef %0, i1 noundef zeroext %1
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = tail call ptr @pstrdup(ptr noundef nonnull %15) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  %16 = tail call ptr @pstrdup(ptr noundef nonnull %15) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %17
 
 17:                                               ; preds = %5, %9
@@ -4909,17 +4854,16 @@ define dso_local i32 @get_subscription_oid(ptr noundef %0, i1 noundef zeroext %1
   %3 = load i32, ptr @MyDatabaseId, align 4
   %4 = zext i32 %3 to i64
   %5 = ptrtoint ptr %0 to i64
-  %6 = tail call i32 @GetSysCacheOid(i32 noundef 66, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
+  %6 = tail call i32 @GetSysCacheOid(i32 noundef 66, i16 noundef signext 1, i64 noundef %4, i64 noundef %5, i64 noundef 0, i64 noundef 0) #7
   %7 = icmp ne i32 %6, 0
   %or.cond = or i1 %1, %7
   br i1 %or.cond, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 67137668) #8
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3711, ptr noundef nonnull @__func__.get_subscription_oid) #8
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %10 = tail call i32 @errcode(i32 noundef 67137668) #7
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3711, ptr noundef nonnull @__func__.get_subscription_oid) #7
   unreachable
 
 12:                                               ; preds = %2
@@ -4929,7 +4873,7 @@ define dso_local i32 @get_subscription_oid(ptr noundef %0, i1 noundef zeroext %1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_subscription_name(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
-  %4 = tail call ptr @SearchSysCache1(i32 noundef 67, i64 noundef %3) #8
+  %4 = tail call ptr @SearchSysCache1(i32 noundef 67, i64 noundef %3) #7
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %9
 
@@ -4937,10 +4881,9 @@ define dso_local ptr @get_subscription_name(i32 noundef %0, i1 noundef zeroext %
   br i1 %1, label %17, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3733, ptr noundef nonnull @__func__.get_subscription_name) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3733, ptr noundef nonnull @__func__.get_subscription_name) #7
   unreachable
 
 9:                                                ; preds = %2
@@ -4951,8 +4894,8 @@ define dso_local ptr @get_subscription_name(i32 noundef %0, i1 noundef zeroext %
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = tail call ptr @pstrdup(ptr noundef nonnull %15) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #8
+  %16 = tail call ptr @pstrdup(ptr noundef nonnull %15) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %4) #7
   br label %17
 
 17:                                               ; preds = %5, %9
@@ -4966,9 +4909,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4976,9 +4916,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

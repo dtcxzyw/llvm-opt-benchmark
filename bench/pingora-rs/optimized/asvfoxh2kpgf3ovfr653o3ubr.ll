@@ -994,38 +994,31 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %10 = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %10, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17hec57939b342f902eE.exit", label %13
+  br i1 %10, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17hec57939b342f902eE.exit", label %11
 
 "_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17hec57939b342f902eE.exit": ; preds = %9
   tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17hcc09f66fc4b5d360E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17hc38b02d1f09ffdedE)
-  %11 = load i64, ptr %0, align 8, !range !23, !noundef !4
-  %12 = icmp eq i64 %11, 1
-  tail call void @llvm.assume(i1 %12)
   br label %"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit22"
 
-13:                                               ; preds = %9
+11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload, ptr %3, align 8
   %.sroa.5.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx26, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5, i64 24, i1 false)
-  %14 = icmp eq i64 %.sroa.0.0.copyload, 1
-  br i1 %14, label %15, label %"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit"
+  %12 = icmp eq i64 %.sroa.0.0.copyload, 1
+  br i1 %12, label %13, label %"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit"
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr52drop_in_place$LT$arc_swap..debt..list..LocalNode$GT$17hdac09cc6703f9746E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-  %.pre = load i64, ptr %0, align 8, !range !23
-  %17 = icmp eq i64 %.pre, 1
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr52drop_in_place$LT$arc_swap..debt..list..LocalNode$GT$17hdac09cc6703f9746E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   br label %"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit"
 
 "_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit22": ; preds = %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17hec57939b342f902eE.exit", %"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret ptr %.sroa.4.0..sroa_idx
 
-"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit": ; preds = %15, %13
-  %18 = phi i1 [ %17, %15 ], [ true, %13 ]
+"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit": ; preds = %13, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 %18)
   br label %"_ZN4core3ptr114drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$arc_swap..debt..list..LocalNode$C$$LP$$RP$$GT$$GT$17h51893ffc2cdee280E.exit22"
 }
 

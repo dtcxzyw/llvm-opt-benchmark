@@ -51,7 +51,7 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
   br i1 %.not26.i, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = call ptr %19(ptr noundef nonnull %.val, i32 noundef %11, i1 noundef zeroext false, ptr noundef nonnull %5) #7
+  %21 = call ptr %19(ptr noundef nonnull %.val, i32 noundef %11, i1 noundef zeroext false, ptr noundef nonnull %5) #6
   br label %26
 
 22:                                               ; preds = %18
@@ -78,14 +78,13 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
   br i1 %.not28.i, label %fetch_cursor_param_value.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode(i32 noundef 67141764) #7
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %36 = call i32 @errcode(i32 noundef 67141764) #6
   %37 = load i32, ptr %27, align 4
-  %38 = call ptr @format_type_be(i32 noundef %37) #7
-  %39 = call ptr @format_type_be(i32 noundef 1790) #7
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %11, ptr noundef %38, ptr noundef %39) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__func__.fetch_cursor_param_value) #7
+  %38 = call ptr @format_type_be(i32 noundef %37) #6
+  %39 = call ptr @format_type_be(i32 noundef 1790) #6
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %11, ptr noundef %38, ptr noundef %39) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 283, ptr noundef nonnull @__func__.fetch_cursor_param_value) #6
   unreachable
 
 .critedge.i:                                      ; preds = %29, %26
@@ -93,44 +92,41 @@ define dso_local noundef zeroext i1 @execCurrentOf(ptr noundef readonly captures
   br label %41
 
 41:                                               ; preds = %.critedge.i, %15, %9
-  %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %42)
-  %43 = call i32 @errcode(i32 noundef 67137668) #7
-  %44 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %11) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.fetch_cursor_param_value) #7
+  %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %43 = call i32 @errcode(i32 noundef 67137668) #6
+  %44 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %11) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.fetch_cursor_param_value) #6
   unreachable
 
 fetch_cursor_param_value.exit:                    ; preds = %33
   %45 = load i64, ptr %.020.i, align 8
   %46 = inttoptr i64 %45 to ptr
-  %47 = call ptr @text_to_cstring(ptr noundef %46) #7
+  %47 = call ptr @text_to_cstring(ptr noundef %46) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %48
 
 48:                                               ; preds = %4, %fetch_cursor_param_value.exit
   %.060 = phi ptr [ %47, %fetch_cursor_param_value.exit ], [ %8, %4 ]
-  %49 = call ptr @get_rel_name(i32 noundef %2) #7
+  %49 = call ptr @get_rel_name(i32 noundef %2) #6
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %52)
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %2) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %2) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 54:                                               ; preds = %48
-  %55 = call ptr @GetPortalByName(ptr noundef %.060) #7
+  %55 = call ptr @GetPortalByName(ptr noundef %.060) #6
   %.not73 = icmp eq ptr %55, null
   br i1 %.not73, label %56, label %60
 
 56:                                               ; preds = %54
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 @errcode(i32 noundef 259) #7
-  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %.060) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %58 = call i32 @errcode(i32 noundef 259) #6
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %.060) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 60:                                               ; preds = %54
@@ -140,11 +136,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %.not74, label %67, label %63
 
 63:                                               ; preds = %60
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %64)
-  %65 = call i32 @errcode(i32 noundef 258) #7
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %.060) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %65 = call i32 @errcode(i32 noundef 258) #6
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %.060) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 67:                                               ; preds = %60
@@ -160,11 +155,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %71, %67
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 @errcode(i32 noundef 258) #7
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %.060) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %77 = call i32 @errcode(i32 noundef 258) #6
+  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %.060) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 79:                                               ; preds = %71
@@ -208,11 +202,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %.not77, label %100, label %96
 
 96:                                               ; preds = %95
-  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %97)
-  %98 = call i32 @errcode(i32 noundef 258) #7
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %.060, ptr noundef nonnull %49) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %98 = call i32 @errcode(i32 noundef 258) #6
+  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %.060, ptr noundef nonnull %49) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 100:                                              ; preds = %91, %95, %.lr.ph, %87
@@ -226,11 +219,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %101, label %._crit_edge.thread, label %105
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %102 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %102)
-  %103 = call i32 @errcode(i32 noundef 258) #7
-  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %.060, ptr noundef nonnull %49) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %102 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %103 = call i32 @errcode(i32 noundef 258) #6
+  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %.060, ptr noundef nonnull %49) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 105:                                              ; preds = %._crit_edge
@@ -246,11 +238,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %109, %105
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %114)
-  %115 = call i32 @errcode(i32 noundef 258) #7
-  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %.060) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 138, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %115 = call i32 @errcode(i32 noundef 258) #6
+  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %.060) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 138, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 117:                                              ; preds = %109
@@ -274,11 +265,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %.not76, label %125, label %129
 
 125:                                              ; preds = %121
-  %126 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %126)
-  %127 = call i32 @errcode(i32 noundef 258) #7
-  %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %.060, ptr noundef nonnull %49) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %126 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %127 = call i32 @errcode(i32 noundef 258) #6
+  %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %.060, ptr noundef nonnull %49) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 170, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 129:                                              ; preds = %121
@@ -294,11 +284,10 @@ fetch_cursor_param_value.exit:                    ; preds = %33
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %133, %129
-  %138 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %138)
-  %139 = call i32 @errcode(i32 noundef 258) #7
-  %140 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %.060) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.execCurrentOf) #7
+  %138 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %139 = call i32 @errcode(i32 noundef 258) #6
+  %140 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %.060) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.execCurrentOf) #6
   unreachable
 
 141:                                              ; preds = %133
@@ -476,18 +465,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

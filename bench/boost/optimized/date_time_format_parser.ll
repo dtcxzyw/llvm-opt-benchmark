@@ -110,51 +110,39 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux17parse_date_formatIcEEvPKT_
   store i64 0, ptr %6, align 8, !tbaa !8
   store i8 0, ptr %5, align 8, !tbaa !11
   invoke void @_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIcNS3_10date_flagsINS3_12common_flagsINS2_27date_format_parser_callbackIcEEEEEES8_EEvPKT_SD_RT0_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %7 unwind label %14
+          to label %7 unwind label %12
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !12
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %7
-  %10 = load i64, ptr %6, align 8, !tbaa !8
-  %11 = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %11)
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit
+  br i1 %9, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %7
-  %12 = load i64, ptr %5, align 8, !tbaa !11
-  %13 = add i64 %12, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %13) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = add i64 %10, 1
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %11) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit
 
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %4, align 8, !tbaa !12
-  %17 = icmp eq ptr %16, %5
-  br i1 %17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = icmp eq ptr %14, %5
+  br i1 %15, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %14
-  %18 = load i64, ptr %6, align 8, !tbaa !8
-  %19 = icmp ult i64 %18, 16
-  call void @llvm.assume(i1 %19)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %12
+  %16 = load i64, ptr %5, align 8, !tbaa !11
+  %17 = add i64 %16, 1
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %17) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %14
-  %20 = load i64, ptr %5, align 8, !tbaa !11
-  %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %16, i64 noundef %21) #10
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit6
-
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIcEEED2Ev.exit6: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -329,51 +317,39 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux17parse_time_formatIcEEvPKT_
   store i64 0, ptr %6, align 8, !tbaa !8
   store i8 0, ptr %5, align 8, !tbaa !11
   invoke void @_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIcNS3_10time_flagsINS3_12common_flagsINS2_27time_format_parser_callbackIcEEEEEES8_EEvPKT_SD_RT0_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %7 unwind label %14
+          to label %7 unwind label %12
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !12
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %7
-  %10 = load i64, ptr %6, align 8, !tbaa !8
-  %11 = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %11)
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit
+  br i1 %9, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %7
-  %12 = load i64, ptr %5, align 8, !tbaa !11
-  %13 = add i64 %12, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %13) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = add i64 %10, 1
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %11) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit
 
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %4, align 8, !tbaa !12
-  %17 = icmp eq ptr %16, %5
-  br i1 %17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = icmp eq ptr %14, %5
+  br i1 %15, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %14
-  %18 = load i64, ptr %6, align 8, !tbaa !8
-  %19 = icmp ult i64 %18, 16
-  call void @llvm.assume(i1 %19)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %12
+  %16 = load i64, ptr %5, align 8, !tbaa !11
+  %17 = add i64 %16, 1
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %17) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %14
-  %20 = load i64, ptr %5, align 8, !tbaa !11
-  %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %16, i64 noundef %21) #10
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit6
-
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIcEEED2Ev.exit6: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -546,51 +522,39 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux22parse_date_time_formatIcEE
   store i64 0, ptr %6, align 8, !tbaa !8
   store i8 0, ptr %5, align 8, !tbaa !11
   invoke void @_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIcNS3_10date_flagsINS3_10time_flagsINS3_12common_flagsINS2_32date_time_format_parser_callbackIcEEEEEEEES9_EEvPKT_SF_RT0_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %7 unwind label %14
+          to label %7 unwind label %12
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !12
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %7
-  %10 = load i64, ptr %6, align 8, !tbaa !8
-  %11 = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %11)
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit
+  br i1 %9, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %7
-  %12 = load i64, ptr %5, align 8, !tbaa !11
-  %13 = add i64 %12, 1
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %13) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = add i64 %10, 1
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %11) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit
 
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-14:                                               ; preds = %3
-  %15 = landingpad { ptr, i32 }
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %4, align 8, !tbaa !12
-  %17 = icmp eq ptr %16, %5
-  br i1 %17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
+  %15 = icmp eq ptr %14, %5
+  br i1 %15, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %14
-  %18 = load i64, ptr %6, align 8, !tbaa !8
-  %19 = icmp ult i64 %18, 16
-  call void @llvm.assume(i1 %19)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %12
+  %16 = load i64, ptr %5, align 8, !tbaa !11
+  %17 = add i64 %16, 1
+  call void @_ZdlPvm(ptr noundef %14, i64 noundef %17) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4: ; preds = %14
-  %20 = load i64, ptr %5, align 8, !tbaa !11
-  %21 = add i64 %20, 1
-  call void @_ZdlPvm(ptr noundef %16, i64 noundef %21) #10
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit6
-
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIcEEED2Ev.exit6: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %13
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -857,53 +821,41 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux17parse_date_formatIwEEvPKT_
   store i64 0, ptr %6, align 8, !tbaa !41
   store i32 0, ptr %5, align 8, !tbaa !43
   invoke void @_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIwNS3_10date_flagsINS3_12common_flagsINS2_27date_format_parser_callbackIwEEEEEES8_EEvPKT_SD_RT0_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %7 unwind label %15
+          to label %7 unwind label %13
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !45
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %7
-  %10 = load i64, ptr %6, align 8, !tbaa !41
-  %11 = icmp ult i64 %10, 4
-  call void @llvm.assume(i1 %11)
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit
+  br i1 %9, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i: ; preds = %7
-  %12 = load i64, ptr %5, align 8, !tbaa !11
-  %13 = shl i64 %12, 2
-  %14 = add i64 %13, 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %14) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = shl i64 %10, 2
+  %12 = add i64 %11, 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit
 
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %4, align 8, !tbaa !45
-  %18 = icmp eq ptr %17, %5
-  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = icmp eq ptr %15, %5
+  br i1 %16, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %15
-  %19 = load i64, ptr %6, align 8, !tbaa !41
-  %20 = icmp ult i64 %19, 4
-  call void @llvm.assume(i1 %20)
+_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4: ; preds = %13
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = shl i64 %17, 2
+  %19 = add i64 %18, 4
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4: ; preds = %15
-  %21 = load i64, ptr %5, align 8, !tbaa !11
-  %22 = shl i64 %21, 2
-  %23 = add i64 %22, 4
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %23) #10
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit6
-
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27date_format_parser_callbackIwEEED2Ev.exit6: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -1079,53 +1031,41 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux17parse_time_formatIwEEvPKT_
   store i64 0, ptr %6, align 8, !tbaa !41
   store i32 0, ptr %5, align 8, !tbaa !43
   invoke void @_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIwNS3_10time_flagsINS3_12common_flagsINS2_27time_format_parser_callbackIwEEEEEES8_EEvPKT_SD_RT0_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %7 unwind label %15
+          to label %7 unwind label %13
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !45
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %7
-  %10 = load i64, ptr %6, align 8, !tbaa !41
-  %11 = icmp ult i64 %10, 4
-  call void @llvm.assume(i1 %11)
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit
+  br i1 %9, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i: ; preds = %7
-  %12 = load i64, ptr %5, align 8, !tbaa !11
-  %13 = shl i64 %12, 2
-  %14 = add i64 %13, 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %14) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = shl i64 %10, 2
+  %12 = add i64 %11, 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit
 
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %4, align 8, !tbaa !45
-  %18 = icmp eq ptr %17, %5
-  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = icmp eq ptr %15, %5
+  br i1 %16, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %15
-  %19 = load i64, ptr %6, align 8, !tbaa !41
-  %20 = icmp ult i64 %19, 4
-  call void @llvm.assume(i1 %20)
+_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4: ; preds = %13
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = shl i64 %17, 2
+  %19 = add i64 %18, 4
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4: ; preds = %15
-  %21 = load i64, ptr %5, align 8, !tbaa !11
-  %22 = shl i64 %21, 2
-  %23 = add i64 %22, 4
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %23) #10
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit6
-
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_27time_format_parser_callbackIwEEED2Ev.exit6: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -1301,53 +1241,41 @@ define weak_odr void @_ZN5boost3log11v2_mt_posix3aux22parse_date_time_formatIwEE
   store i64 0, ptr %6, align 8, !tbaa !41
   store i32 0, ptr %5, align 8, !tbaa !43
   invoke void @_ZN5boost3log11v2_mt_posix3aux9anonymous12parse_formatIwNS3_10date_flagsINS3_10time_flagsINS3_12common_flagsINS2_32date_time_format_parser_callbackIwEEEEEEEES9_EEvPKT_SF_RT0_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %7 unwind label %15
+          to label %7 unwind label %13
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %4, align 8, !tbaa !45
   %9 = icmp eq ptr %8, %5
-  br i1 %9, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %7
-  %10 = load i64, ptr %6, align 8, !tbaa !41
-  %11 = icmp ult i64 %10, 4
-  call void @llvm.assume(i1 %11)
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit
+  br i1 %9, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i: ; preds = %7
-  %12 = load i64, ptr %5, align 8, !tbaa !11
-  %13 = shl i64 %12, 2
-  %14 = add i64 %13, 4
-  call void @_ZdlPvm(ptr noundef %8, i64 noundef %14) #10
+  %10 = load i64, ptr %5, align 8, !tbaa !11
+  %11 = shl i64 %10, 2
+  %12 = add i64 %11, 4
+  call void @_ZdlPvm(ptr noundef %8, i64 noundef %12) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit
 
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit: ; preds = %7, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %3
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %4, align 8, !tbaa !45
-  %18 = icmp eq ptr %17, %5
-  br i1 %18, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = icmp eq ptr %15, %5
+  br i1 %16, label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5: ; preds = %15
-  %19 = load i64, ptr %6, align 8, !tbaa !41
-  %20 = icmp ult i64 %19, 4
-  call void @llvm.assume(i1 %20)
+_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4: ; preds = %13
+  %17 = load i64, ptr %5, align 8, !tbaa !11
+  %18 = shl i64 %17, 2
+  %19 = add i64 %18, 4
+  call void @_ZdlPvm(ptr noundef %15, i64 noundef %19) #10
   br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4: ; preds = %15
-  %21 = load i64, ptr %5, align 8, !tbaa !11
-  %22 = shl i64 %21, 2
-  %23 = add i64 %22, 4
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %23) #10
-  br label %_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit6
-
-_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
+_ZN5boost3log11v2_mt_posix3aux9anonymous12common_flagsINS2_32date_time_format_parser_callbackIwEEED2Ev.exit6: ; preds = %13, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

@@ -39,7 +39,7 @@ define dso_local void @pq_redirect_to_shm_mq(ptr noundef %0, ptr noundef %1) loc
   store ptr %1, ptr @pq_mq_handle, align 8
   store i32 2, ptr @whereToSendOutput, align 4
   store i32 196608, ptr @FrontendProtocol, align 4
-  tail call void @on_dsm_detach(ptr noundef %0, ptr noundef nonnull @pq_cleanup_redirect_to_shm_mq, i64 noundef 0) #10
+  tail call void @on_dsm_detach(ptr noundef %0, ptr noundef nonnull @pq_cleanup_redirect_to_shm_mq, i64 noundef 0) #9
   ret void
 }
 
@@ -80,7 +80,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %8, ptr %9, align 8
-  %10 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #10
+  %10 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #9
   %sext91 = shl i32 %10, 24
   %11 = icmp eq i32 %sext91, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -107,7 +107,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
 28:                                               ; preds = %.lr.ph, %137
   %.in = phi i32 [ %sext91, %.lr.ph ], [ %sext, %137 ]
   %29 = ashr exact i32 %.in, 24
-  %30 = tail call ptr @pq_getmsgrawstring(ptr noundef %0) #10
+  %30 = tail call ptr @pq_getmsgrawstring(ptr noundef %0) #9
   switch i32 %29, label %134 [
     i32 83, label %137
     i32 86, label %31
@@ -130,7 +130,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   ]
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str) #11
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str) #10
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
@@ -139,7 +139,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(4) @.str.1) #11
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(4) @.str.1) #10
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %39
 
@@ -148,7 +148,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(5) @.str.2) #11
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(5) @.str.2) #10
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %43
 
@@ -157,7 +157,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(7) @.str.3) #11
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(7) @.str.3) #10
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %47
 
@@ -166,7 +166,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 47:                                               ; preds = %43
-  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(8) @.str.4) #11
+  %48 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(8) @.str.4) #10
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %51
 
@@ -175,7 +175,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 51:                                               ; preds = %47
-  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.5) #11
+  %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.5) #10
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %55
 
@@ -184,7 +184,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 55:                                               ; preds = %51
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.6) #11
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.6) #10
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %59
 
@@ -193,7 +193,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 59:                                               ; preds = %55
-  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.7) #11
+  %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(6) @.str.7) #10
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %63
 
@@ -202,22 +202,20 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 63:                                               ; preds = %59
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %30) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 272, ptr noundef nonnull @__func__.pq_parse_errornotice) #10
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %30) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 272, ptr noundef nonnull @__func__.pq_parse_errornotice) #9
   unreachable
 
 66:                                               ; preds = %28
-  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #11
+  %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #10
   %.not = icmp eq i64 %67, 5
   br i1 %.not, label %71, label %68
 
 68:                                               ; preds = %66
-  %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %69)
-  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %30) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 276, ptr noundef nonnull @__func__.pq_parse_errornotice) #10
+  %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %30) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 276, ptr noundef nonnull @__func__.pq_parse_errornotice) #9
   unreachable
 
 71:                                               ; preds = %66
@@ -257,95 +255,94 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %137
 
 104:                                              ; preds = %28
-  %105 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %105 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %105, ptr %26, align 8
   br label %137
 
 106:                                              ; preds = %28
-  %107 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %107 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %107, ptr %25, align 8
   br label %137
 
 108:                                              ; preds = %28
-  %109 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %109 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %109, ptr %24, align 8
   br label %137
 
 110:                                              ; preds = %28
-  %111 = tail call i32 @pg_strtoint32(ptr noundef %30) #10
+  %111 = tail call i32 @pg_strtoint32(ptr noundef %30) #9
   store i32 %111, ptr %23, align 8
   br label %137
 
 112:                                              ; preds = %28
-  %113 = tail call i32 @pg_strtoint32(ptr noundef %30) #10
+  %113 = tail call i32 @pg_strtoint32(ptr noundef %30) #9
   store i32 %113, ptr %22, align 4
   br label %137
 
 114:                                              ; preds = %28
-  %115 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %115 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %115, ptr %21, align 8
   br label %137
 
 116:                                              ; preds = %28
-  %117 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %117 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %117, ptr %20, align 8
   br label %137
 
 118:                                              ; preds = %28
-  %119 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %119 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %119, ptr %19, align 8
   br label %137
 
 120:                                              ; preds = %28
-  %121 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %121 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %121, ptr %18, align 8
   br label %137
 
 122:                                              ; preds = %28
-  %123 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %123 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %123, ptr %17, align 8
   br label %137
 
 124:                                              ; preds = %28
-  %125 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %125 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %125, ptr %16, align 8
   br label %137
 
 126:                                              ; preds = %28
-  %127 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %127 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %127, ptr %15, align 8
   br label %137
 
 128:                                              ; preds = %28
-  %129 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %129 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %129, ptr %14, align 8
   br label %137
 
 130:                                              ; preds = %28
-  %131 = tail call i32 @pg_strtoint32(ptr noundef %30) #10
+  %131 = tail call i32 @pg_strtoint32(ptr noundef %30) #9
   store i32 %131, ptr %13, align 8
   br label %137
 
 132:                                              ; preds = %28
-  %133 = tail call ptr @pstrdup(ptr noundef %30) #10
+  %133 = tail call ptr @pstrdup(ptr noundef %30) #9
   store ptr %133, ptr %12, align 8
   br label %137
 
 134:                                              ; preds = %28
-  %135 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %135)
-  %136 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %29) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 326, ptr noundef nonnull @__func__.pq_parse_errornotice) #10
+  %135 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %136 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %29) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 326, ptr noundef nonnull @__func__.pq_parse_errornotice) #9
   unreachable
 
 137:                                              ; preds = %28, %71, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %38, %46, %54, %62, %58, %50, %42, %34
-  %138 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #10
+  %138 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #9
   %sext = shl i32 %138, 24
   %139 = icmp eq i32 %sext, 0
   br i1 %139, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %137, %.loopexit
-  tail call void @pq_getmsgend(ptr noundef %0) #10
+  tail call void @pq_getmsgend(ptr noundef %0) #9
   ret void
 }
 
@@ -410,7 +407,7 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   br i1 %.not10, label %9, label %8
 
 8:                                                ; preds = %7
-  tail call void @shm_mq_detach(ptr noundef nonnull %6) #10
+  tail call void @shm_mq_detach(ptr noundef nonnull %6) #9
   br label %9
 
 9:                                                ; preds = %8, %7
@@ -433,17 +430,17 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 
 15:                                               ; preds = %30, %11
   %16 = phi ptr [ %.pre, %30 ], [ %6, %11 ]
-  %17 = call i32 @shm_mq_sendv(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #10
+  %17 = call i32 @shm_mq_sendv(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #9
   %18 = load i32, ptr @pq_mq_parallel_leader_pid, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %15
-  %19 = call zeroext i1 @IsLogicalParallelApplyWorker() #10
+  %19 = call zeroext i1 @IsLogicalParallelApplyWorker() #9
   %20 = load i32, ptr @pq_mq_parallel_leader_pid, align 4
   %21 = load i32, ptr @pq_mq_parallel_leader_proc_number, align 4
   %.14 = select i1 %19, i32 6, i32 2
-  %22 = call i32 @SendProcSignal(i32 noundef %20, i32 noundef %.14, i32 noundef %21) #10
+  %22 = call i32 @SendProcSignal(i32 noundef %20, i32 noundef %.14, i32 noundef %21) #9
   br label %23
 
 23:                                               ; preds = %.sink.split, %15
@@ -452,15 +449,15 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr @MyLatch, align 8
-  %26 = call i32 @WaitLatch(ptr noundef %25, i32 noundef 33, i64 noundef 0, i32 noundef 134217762) #10
+  %26 = call i32 @WaitLatch(ptr noundef %25, i32 noundef 33, i64 noundef 0, i32 noundef 134217762) #9
   %27 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %27) #10
+  call void @ResetLatch(ptr noundef %27) #9
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not8 = icmp eq i32 %28, 0
   br i1 %.not8, label %30, label %29, !prof !4
 
 29:                                               ; preds = %24
-  call void @ProcessInterrupts() #10
+  call void @ProcessInterrupts() #9
   br label %30
 
 30:                                               ; preds = %29, %24
@@ -481,10 +478,9 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal void @mq_putmessage_noblock(i8 signext %0, ptr readnone captures(none) %1, i64 %2) #7 {
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 208, ptr noundef nonnull @__func__.mq_putmessage_noblock) #10
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.9, i32 noundef 208, ptr noundef nonnull @__func__.mq_putmessage_noblock) #9
   unreachable
 }
 
@@ -508,9 +504,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -520,10 +513,9 @@ attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { cold nounwind }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -49,14 +49,14 @@ define dso_local void @get_row_security_policies(ptr noundef readonly captures(n
 30:                                               ; preds = %7, %7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @getRTEPermissionInfo(ptr noundef %32, ptr noundef nonnull %1) #7
+  %33 = tail call ptr @getRTEPermissionInfo(ptr noundef %32, ptr noundef nonnull %1) #6
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 8
   %.not138 = icmp eq i32 %35, 0
   br i1 %.not138, label %36, label %38
 
 36:                                               ; preds = %30
-  %37 = tail call i32 @GetUserId() #7
+  %37 = tail call i32 @GetUserId() #6
   %.pre = load i32, ptr %34, align 8
   br label %38
 
@@ -65,7 +65,7 @@ define dso_local void @get_row_security_policies(ptr noundef readonly captures(n
   %40 = phi i32 [ %37, %36 ], [ %35, %30 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %42 = load i32, ptr %41, align 4
-  %43 = tail call i32 @check_enable_rls(i32 noundef %42, i32 noundef %39, i1 noundef zeroext false) #7
+  %43 = tail call i32 @check_enable_rls(i32 noundef %42, i32 noundef %39, i1 noundef zeroext false) #6
   switch i32 %43, label %44 [
     i32 0, label %139
     i32 1, label %.sink.split
@@ -73,7 +73,7 @@ define dso_local void @get_row_security_policies(ptr noundef readonly captures(n
 
 44:                                               ; preds = %38
   %45 = load i32, ptr %41, align 4
-  %46 = tail call ptr @table_open(i32 noundef %45, i32 noundef 0) #7
+  %46 = tail call ptr @table_open(i32 noundef %45, i32 noundef 0) #6
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %2, %48
@@ -300,13 +300,13 @@ define dso_local void @get_row_security_policies(ptr noundef readonly captures(n
   br label %.thread150
 
 .thread150:                                       ; preds = %110, %92, %89, %88, %134, %111
-  tail call void @table_close(ptr noundef %46, i32 noundef 0) #7
+  tail call void @table_close(ptr noundef %46, i32 noundef 0) #6
   %135 = load ptr, ptr %3, align 8
   %136 = load i32, ptr %34, align 8
-  tail call void @setRuleCheckAsUser(ptr noundef %135, i32 noundef %136) #7
+  tail call void @setRuleCheckAsUser(ptr noundef %135, i32 noundef %136) #6
   %137 = load ptr, ptr %4, align 8
   %138 = load i32, ptr %34, align 8
-  tail call void @setRuleCheckAsUser(ptr noundef %137, i32 noundef %138) #7
+  tail call void @setRuleCheckAsUser(ptr noundef %137, i32 noundef %138) #6
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %.thread150
@@ -361,7 +361,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 .critedge:                                        ; preds = %.critedge.loopexit, %5
   %20 = phi ptr [ %.pre, %.critedge.loopexit ], [ null, %5 ]
-  tail call void @list_sort(ptr noundef %20, ptr noundef nonnull @row_security_policy_cmp) #7
+  tail call void @list_sort(ptr noundef %20, ptr noundef nonnull @row_security_policy_cmp) #6
   %21 = load ptr, ptr @row_security_policy_hook_restrictive, align 8
   %.not66 = icmp eq ptr %21, null
   br i1 %.not66, label %.critedge80, label %70
@@ -388,10 +388,9 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br i1 %28, label %.critedge78, label %.critedge76
 
 29:                                               ; preds = %22
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 590, ptr noundef nonnull @__func__.get_policies_for_relation) #7
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 590, ptr noundef nonnull @__func__.get_policies_for_relation) #6
   unreachable
 
 32:                                               ; preds = %22
@@ -443,7 +442,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %55 ], [ 0, %.preheader.i ]
   %59 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4
-  %61 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %60) #7
+  %61 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %60) #6
   br i1 %61, label %.loopexit101, label %55
 
 .loopexit101:                                     ; preds = %.lr.ph.i, %47
@@ -452,7 +451,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %64 = trunc nuw i8 %63 to i1
   %. = select i1 %64, ptr %3, ptr %4
   %65 = load ptr, ptr %., align 8
-  %66 = tail call ptr @lappend(ptr noundef %65, ptr noundef nonnull %16) #7
+  %66 = tail call ptr @lappend(ptr noundef %65, ptr noundef nonnull %16) #6
   store ptr %66, ptr %., align 8
   br label %.critedge76
 
@@ -464,8 +463,8 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br i1 %69, label %.lr.ph132, label %.critedge.loopexit
 
 70:                                               ; preds = %.critedge
-  %71 = tail call ptr %21(i32 noundef %1, ptr noundef %0) #7
-  tail call void @list_sort(ptr noundef %71, ptr noundef nonnull @row_security_policy_cmp) #7
+  %71 = tail call ptr %21(i32 noundef %1, ptr noundef %0) #6
+  tail call void @list_sort(ptr noundef %71, ptr noundef nonnull @row_security_policy_cmp) #6
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.not67 = icmp eq ptr %71, null
   br i1 %.not67, label %.critedge80, label %.lr.ph105
@@ -525,12 +524,12 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %100 ], [ 0, %.preheader.i84 ]
   %104 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv.i87
   %105 = load i32, ptr %104, align 4
-  %106 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %105) #7
+  %106 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %105) #6
   br i1 %106, label %.loopexit100, label %100
 
 .loopexit100:                                     ; preds = %.lr.ph.i86, %92
   %107 = load ptr, ptr %4, align 8
-  %108 = tail call ptr @lappend(ptr noundef %107, ptr noundef %78) #7
+  %108 = tail call ptr @lappend(ptr noundef %107, ptr noundef %78) #6
   store ptr %108, ptr %4, align 8
   br label %check_role_for_policy.exit89
 
@@ -547,7 +546,7 @@ check_role_for_policy.exit89:                     ; preds = %100, %.preheader.i8
   br i1 %.not69, label %.critedge82, label %113
 
 113:                                              ; preds = %.critedge80
-  %114 = tail call ptr %112(i32 noundef %1, ptr noundef %0) #7
+  %114 = tail call ptr %112(i32 noundef %1, ptr noundef %0) #6
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %.not70 = icmp eq ptr %114, null
   br i1 %.not70, label %.critedge82, label %.lr.ph110
@@ -607,12 +606,12 @@ check_role_for_policy.exit89:                     ; preds = %100, %.preheader.i8
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %143 ], [ 0, %.preheader.i91 ]
   %147 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv.i94
   %148 = load i32, ptr %147, align 4
-  %149 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %148) #7
+  %149 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %148) #6
   br i1 %149, label %.loopexit, label %143
 
 .loopexit:                                        ; preds = %.lr.ph.i93, %135
   %150 = load ptr, ptr %3, align 8
-  %151 = tail call ptr @lappend(ptr noundef %150, ptr noundef %121) #7
+  %151 = tail call ptr @lappend(ptr noundef %150, ptr noundef %121) #6
   store ptr %151, ptr %3, align 8
   br label %check_role_for_policy.exit96
 
@@ -667,8 +666,8 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   br i1 %19, label %.lr.ph67, label %.critedge53
 
 20:                                               ; preds = %.lr.ph62
-  %21 = tail call ptr @copyObjectImpl(ptr noundef nonnull %15) #7
-  %22 = tail call ptr @lappend(ptr noundef %.0395660, ptr noundef %21) #7
+  %21 = tail call ptr @copyObjectImpl(ptr noundef nonnull %15) #6
+  %22 = tail call ptr @lappend(ptr noundef %.0395660, ptr noundef %21) #6
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
   %25 = load i8, ptr %4, align 1, !range !6, !noundef !7
@@ -703,10 +702,10 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   br i1 %38, label %51, label %54
 
 39:                                               ; preds = %.lr.ph67
-  %40 = tail call ptr @copyObjectImpl(ptr noundef nonnull %36) #7
-  tail call void @ChangeVarNodes(ptr noundef %40, i32 noundef 1, i32 noundef %0, i32 noundef 0) #7
+  %40 = tail call ptr @copyObjectImpl(ptr noundef nonnull %36) #6
+  tail call void @ChangeVarNodes(ptr noundef %40, i32 noundef 1, i32 noundef %0, i32 noundef 0) #6
   %41 = load ptr, ptr %3, align 8
-  %42 = tail call ptr @list_append_unique(ptr noundef %41, ptr noundef %40) #7
+  %42 = tail call ptr @list_append_unique(ptr noundef %41, ptr noundef %40) #6
   store ptr %42, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %44 = load i8, ptr %43, align 8, !range !6, !noundef !7
@@ -730,20 +729,20 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   br label %56
 
 54:                                               ; preds = %.critedge53
-  %55 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef nonnull %.140, i32 noundef -1) #7
+  %55 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef nonnull %.140, i32 noundef -1) #6
   br label %56
 
 56:                                               ; preds = %54, %51
   %.041 = phi ptr [ %53, %51 ], [ %55, %54 ]
-  tail call void @ChangeVarNodes(ptr noundef %.041, i32 noundef 1, i32 noundef %0, i32 noundef 0) #7
+  tail call void @ChangeVarNodes(ptr noundef %.041, i32 noundef 1, i32 noundef %0, i32 noundef 0) #6
   %57 = load ptr, ptr %3, align 8
-  %58 = tail call ptr @list_append_unique(ptr noundef %57, ptr noundef %.041) #7
+  %58 = tail call ptr @list_append_unique(ptr noundef %57, ptr noundef %.041) #6
   br label %62
 
 .critedge.thread:                                 ; preds = %.lr.ph, %5, %.critedge
   %59 = load ptr, ptr %3, align 8
-  %60 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #7
-  %61 = tail call ptr @lappend(ptr noundef %59, ptr noundef %60) #7
+  %60 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #6
+  %61 = tail call ptr @lappend(ptr noundef %59, ptr noundef %60) #6
   br label %62
 
 62:                                               ; preds = %.critedge.thread, %56
@@ -780,8 +779,8 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   br i1 %.not87.us, label %25, label %.thread.us
 
 .thread.us:                                       ; preds = %.lr.ph115
-  %19 = tail call ptr @copyObjectImpl(ptr noundef nonnull %18) #7
-  %20 = tail call ptr @lappend(ptr noundef %.07295.us113, ptr noundef %19) #7
+  %19 = tail call ptr @copyObjectImpl(ptr noundef nonnull %18) #6
+  %20 = tail call ptr @lappend(ptr noundef %.07295.us113, ptr noundef %19) #6
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = load i8, ptr %6, align 1, !range !6, !noundef !7
@@ -826,8 +825,8 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
 
 .thread:                                          ; preds = %.lr.ph110, %35
   %38 = phi ptr [ %37, %35 ], [ %34, %.lr.ph110 ]
-  %39 = tail call ptr @copyObjectImpl(ptr noundef nonnull %38) #7
-  %40 = tail call ptr @lappend(ptr noundef %.07295108, ptr noundef %39) #7
+  %39 = tail call ptr @copyObjectImpl(ptr noundef nonnull %38) #6
+  %40 = tail call ptr @lappend(ptr noundef %.07295108, ptr noundef %39) #6
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %42 = load i8, ptr %41, align 8, !range !6, !noundef !7
   %43 = load i8, ptr %6, align 1, !range !6, !noundef !7
@@ -845,14 +844,14 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   br i1 %48, label %.lr.ph110, label %.critedge
 
 49:                                               ; preds = %.critedge
-  %50 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %50 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 105, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %2, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = tail call ptr @pstrdup(ptr noundef nonnull %54) #7
+  %55 = tail call ptr @pstrdup(ptr noundef nonnull %54) #6
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %55, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -871,16 +870,16 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   br label %66
 
 64:                                               ; preds = %49
-  %65 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef nonnull %.072.lcssa, i32 noundef -1) #7
+  %65 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef nonnull %.072.lcssa, i32 noundef -1) #6
   br label %66
 
 66:                                               ; preds = %64, %61
   %.sink = phi ptr [ %63, %61 ], [ %65, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %.sink, ptr %67, align 8
-  tail call void @ChangeVarNodes(ptr noundef %.sink, i32 noundef 1, i32 noundef %1, i32 noundef 0) #7
+  tail call void @ChangeVarNodes(ptr noundef %.sink, i32 noundef 1, i32 noundef %1, i32 noundef 0) #6
   %68 = load ptr, ptr %5, align 8
-  %69 = tail call ptr @list_append_unique(ptr noundef %68, ptr noundef nonnull %50) #7
+  %69 = tail call ptr @list_append_unique(ptr noundef %68, ptr noundef nonnull %50) #6
   store ptr %69, ptr %5, align 8
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.not82 = icmp eq ptr %4, null
@@ -907,19 +906,19 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   br i1 %.not85.us, label %98, label %.thread92.us
 
 .thread92.us:                                     ; preds = %.lr.ph126
-  %80 = tail call ptr @copyObjectImpl(ptr noundef nonnull %79) #7
-  tail call void @ChangeVarNodes(ptr noundef %80, i32 noundef 1, i32 noundef %1, i32 noundef 0) #7
-  %81 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %80 = tail call ptr @copyObjectImpl(ptr noundef nonnull %79) #6
+  tail call void @ChangeVarNodes(ptr noundef %80, i32 noundef 1, i32 noundef %1, i32 noundef 0) #6
+  %81 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 105, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %2, ptr %82, align 4
   %83 = load ptr, ptr %52, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %85 = tail call ptr @pstrdup(ptr noundef nonnull %84) #7
+  %85 = tail call ptr @pstrdup(ptr noundef nonnull %84) #6
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %85, ptr %86, align 8
   %87 = load ptr, ptr %77, align 8
-  %88 = tail call ptr @pstrdup(ptr noundef %87) #7
+  %88 = tail call ptr @pstrdup(ptr noundef %87) #6
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -927,7 +926,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store i8 0, ptr %91, align 8
   %92 = load ptr, ptr %5, align 8
-  %93 = tail call ptr @list_append_unique(ptr noundef %92, ptr noundef nonnull %81) #7
+  %93 = tail call ptr @list_append_unique(ptr noundef %92, ptr noundef nonnull %81) #6
   store ptr %93, ptr %5, align 8
   %94 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %95 = load i8, ptr %94, align 8, !range !6, !noundef !7
@@ -966,19 +965,19 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
 
 .thread92:                                        ; preds = %.lr.ph124, %108
   %111 = phi ptr [ %110, %108 ], [ %107, %.lr.ph124 ]
-  %112 = tail call ptr @copyObjectImpl(ptr noundef nonnull %111) #7
-  tail call void @ChangeVarNodes(ptr noundef %112, i32 noundef 1, i32 noundef %1, i32 noundef 0) #7
-  %113 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %112 = tail call ptr @copyObjectImpl(ptr noundef nonnull %111) #6
+  tail call void @ChangeVarNodes(ptr noundef %112, i32 noundef 1, i32 noundef %1, i32 noundef 0) #6
+  %113 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 105, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %2, ptr %114, align 4
   %115 = load ptr, ptr %52, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %117 = tail call ptr @pstrdup(ptr noundef nonnull %116) #7
+  %117 = tail call ptr @pstrdup(ptr noundef nonnull %116) #6
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %117, ptr %118, align 8
   %119 = load ptr, ptr %105, align 8
-  %120 = tail call ptr @pstrdup(ptr noundef %119) #7
+  %120 = tail call ptr @pstrdup(ptr noundef %119) #6
   %121 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %113, i64 24
@@ -986,7 +985,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %123 = getelementptr inbounds nuw i8, ptr %113, i64 32
   store i8 0, ptr %123, align 8
   %124 = load ptr, ptr %5, align 8
-  %125 = tail call ptr @list_append_unique(ptr noundef %124, ptr noundef nonnull %113) #7
+  %125 = tail call ptr @list_append_unique(ptr noundef %124, ptr noundef nonnull %113) #6
   store ptr %125, ptr %5, align 8
   %126 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %127 = load i8, ptr %126, align 8, !range !6, !noundef !7
@@ -1004,25 +1003,25 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   br i1 %133, label %.lr.ph124, label %.critedge89
 
 .critedge.thread:                                 ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split, %8, %.critedge
-  %134 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %134 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 105, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store i32 %2, ptr %135, align 4
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %139 = tail call ptr @pstrdup(ptr noundef nonnull %138) #7
+  %139 = tail call ptr @pstrdup(ptr noundef nonnull %138) #6
   %140 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %139, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store ptr null, ptr %141, align 8
-  %142 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #7
+  %142 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #6
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store ptr %142, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %134, i64 32
   store i8 0, ptr %144, align 8
   %145 = load ptr, ptr %5, align 8
-  %146 = tail call ptr @lappend(ptr noundef %145, ptr noundef nonnull %134) #7
+  %146 = tail call ptr @lappend(ptr noundef %145, ptr noundef nonnull %134) #6
   store ptr %146, ptr %5, align 8
   br label %.critedge89
 
@@ -1066,7 +1065,7 @@ define internal i32 @row_security_policy_cmp(ptr noundef readonly captures(none)
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %7) #9
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %7) #8
   br label %15
 
 15:                                               ; preds = %11, %13, %8
@@ -1097,19 +1096,15 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

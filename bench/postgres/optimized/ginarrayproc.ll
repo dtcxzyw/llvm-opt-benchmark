@@ -23,7 +23,7 @@ define dso_local i64 @ginarrayextract(ptr noundef readonly captures(none) %0) lo
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #5
+  %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -38,14 +38,14 @@ define dso_local i64 @ginarrayextract(ptr noundef readonly captures(none) %0) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %19 = load i32, ptr %18, align 4
-  call void @get_typlenbyvalalign(i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  call void @get_typlenbyvalalign(i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %20 = load i32, ptr %18, align 4
   %21 = load i16, ptr %2, align 2
   %22 = sext i16 %21 to i32
   %23 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   %25 = load i8, ptr %4, align 1
-  call void @deconstruct_array(ptr noundef %11, i32 noundef %20, i32 noundef %22, i1 noundef zeroext %24, i8 noundef signext %25, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  call void @deconstruct_array(ptr noundef %11, i32 noundef %20, i32 noundef %22, i1 noundef zeroext %24, i8 noundef signext %25, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %26 = load i32, ptr %7, align 4
   store i32 %26, ptr %14, align 4
   %27 = load ptr, ptr %6, align 8
@@ -81,17 +81,16 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) 
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.ginarrayextract_2args) #5
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.ginarrayextract_2args) #4
   unreachable
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @pg_detoast_datum_copy(ptr noundef %17) #5
+  %18 = tail call ptr @pg_detoast_datum_copy(ptr noundef %17) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
@@ -106,14 +105,14 @@ define dso_local i64 @ginarrayextract_2args(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %26 = load i32, ptr %25, align 4
-  call void @get_typlenbyvalalign(i32 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  call void @get_typlenbyvalalign(i32 noundef %26, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %27 = load i32, ptr %25, align 4
   %28 = load i16, ptr %2, align 2
   %29 = sext i16 %28 to i32
   %30 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %31 = trunc nuw i8 %30 to i1
   %32 = load i8, ptr %4, align 1
-  call void @deconstruct_array(ptr noundef %18, i32 noundef %27, i32 noundef %29, i1 noundef zeroext %31, i8 noundef signext %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  call void @deconstruct_array(ptr noundef %18, i32 noundef %27, i32 noundef %29, i1 noundef zeroext %31, i8 noundef signext %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %33 = load i32, ptr %7, align 4
   store i32 %33, ptr %21, align 4
   %34 = load ptr, ptr %6, align 8
@@ -147,7 +146,7 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #5
+  %11 = tail call ptr @pg_detoast_datum_copy(ptr noundef %10) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -167,14 +166,14 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %24 = load i32, ptr %23, align 4
-  call void @get_typlenbyvalalign(i32 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  call void @get_typlenbyvalalign(i32 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %25 = load i32, ptr %23, align 4
   %26 = load i16, ptr %2, align 2
   %27 = sext i16 %26 to i32
   %28 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %29 = trunc nuw i8 %28 to i1
   %30 = load i8, ptr %4, align 1
-  call void @deconstruct_array(ptr noundef %11, i32 noundef %25, i32 noundef %27, i1 noundef zeroext %29, i8 noundef signext %30, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  call void @deconstruct_array(ptr noundef %11, i32 noundef %25, i32 noundef %27, i1 noundef zeroext %29, i8 noundef signext %30, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #4
   %31 = load i32, ptr %7, align 4
   store i32 %31, ptr %14, align 4
   %32 = load ptr, ptr %6, align 8
@@ -202,10 +201,9 @@ define dso_local i64 @ginqueryarrayextract(ptr noundef readonly captures(none) %
 38:                                               ; preds = %1
   %39 = trunc i64 %16 to i32
   %40 = and i32 %39, 65535
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %40) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.ginqueryarrayextract) #5
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %40) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.ginqueryarrayextract) #4
   unreachable
 
 43:                                               ; preds = %36, %33, %1, %35
@@ -329,10 +327,9 @@ define dso_local range(i64 0, 2) i64 @ginarrayconsistent(ptr noundef readonly ca
 44:                                               ; preds = %1
   %45 = trunc i64 %6 to i32
   %46 = and i32 %45, 65535
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %46) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 215, ptr noundef nonnull @__func__.ginarrayconsistent) #5
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %46) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 215, ptr noundef nonnull @__func__.ginarrayconsistent) #4
   unreachable
 
 .loopexit:                                        ; preds = %40, %.lr.ph, %29, %33, %.lr.ph39, %26, %22, %38, %27, %17, %37
@@ -448,10 +445,9 @@ define dso_local range(i64 0, 3) i64 @ginarraytriconsistent(ptr noundef readonly
 41:                                               ; preds = %1
   %42 = trunc i64 %6 to i32
   %43 = and i32 %42, 65535
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %43) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 300, ptr noundef nonnull @__func__.ginarraytriconsistent) #5
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %43) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 300, ptr noundef nonnull @__func__.ginarraytriconsistent) #4
   unreachable
 
 .loopexit:                                        ; preds = %37, %.lr.ph, %35, %31, %.lr.ph48, %27, %20, %.preheader40, %.preheader37, %.preheader, %1
@@ -466,16 +462,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

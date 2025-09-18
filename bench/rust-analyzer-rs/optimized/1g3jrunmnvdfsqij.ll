@@ -842,7 +842,7 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %23 = load i64, ptr %17, align 8, !alias.scope !287, !noundef !9
   %24 = sub i64 %22, %23
   %25 = icmp ugt i64 %.0, %24
-  br i1 %25, label %34, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h3b4ecf7f73dd6efaE.exit"
+  br i1 %25, label %32, label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h3b4ecf7f73dd6efaE.exit"
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -850,16 +850,13 @@ define hidden void @"_ZN117_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !287, !nonnull !9, !noundef !9
   %31 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h6df17cc3e2d0189eE.llvm.2527558994870742631"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %.0, ptr noalias noundef nonnull readonly align 8 %30, i64 noundef %28, i1 noundef zeroext true)
-  %32 = extractvalue { i64, i64 } %31, 0
-  %33 = icmp eq i64 %32, -9223372036854775807
-  tail call void @llvm.assume(i1 %33)
   br label %21
 
-34:                                               ; preds = %21
+32:                                               ; preds = %21
   tail call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17he95e12440895afb7E.llvm.2527558994870742631"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %.0)
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h3b4ecf7f73dd6efaE.exit"
 
-"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h3b4ecf7f73dd6efaE.exit": ; preds = %21, %34
+"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$7reserve17h3b4ecf7f73dd6efaE.exit": ; preds = %21, %32
   %.sroa.6.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !290

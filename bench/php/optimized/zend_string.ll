@@ -1024,26 +1024,24 @@ zend_string_equals_cstr.exit.thread:              ; preds = %129, %zend_string_e
   br i1 %.not.i26, label %.loopexit, label %.lr.ph53
 
 .loopexit:                                        ; preds = %zend_string_equals_cstr.exit.thread, %._crit_edge48
-  %137 = xor i1 %2, true
-  tail call void @llvm.assume(i1 %137)
-  %138 = and i64 %1, -8
-  %139 = add i64 %138, 32
-  %140 = tail call noalias ptr @_emalloc(i64 noundef %139) #18
-  store i32 1, ptr %140, align 4, !tbaa !19
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  store i32 22, ptr %141, align 4, !tbaa !12
-  %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %143 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  store i64 %1, ptr %143, align 8, !tbaa !4
-  %144 = getelementptr inbounds nuw i8, ptr %140, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %144, ptr align 1 %0, i64 %1, i1 false)
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %1
-  store i8 0, ptr %145, align 1, !tbaa !12
-  store i64 %99, ptr %142, align 8, !tbaa !11
+  %137 = and i64 %1, -8
+  %138 = add i64 %137, 32
+  %139 = tail call noalias ptr @_emalloc(i64 noundef %138) #18
+  store i32 1, ptr %139, align 4, !tbaa !19
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
+  store i32 22, ptr %140, align 4, !tbaa !12
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  store i64 %1, ptr %142, align 8, !tbaa !4
+  %143 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %143, ptr align 1 %0, i64 %1, i1 false)
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %1
+  store i8 0, ptr %144, align 1, !tbaa !12
+  store i64 %99, ptr %141, align 8, !tbaa !11
   br label %zend_interned_string_ht_lookup_ex.exit
 
 zend_interned_string_ht_lookup_ex.exit:           ; preds = %zend_string_equals_cstr.exit32, %zend_string_equals_cstr.exit, %.loopexit
-  %.0 = phi ptr [ %140, %.loopexit ], [ %131, %zend_string_equals_cstr.exit ], [ %113, %zend_string_equals_cstr.exit32 ]
+  %.0 = phi ptr [ %139, %.loopexit ], [ %131, %zend_string_equals_cstr.exit ], [ %113, %zend_string_equals_cstr.exit32 ]
   ret ptr %.0
 }
 
@@ -1359,7 +1357,6 @@ zend_string_equals_cstr.exit.thread:              ; preds = %112, %zend_string_e
   br i1 %.not.i15, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %zend_string_equals_cstr.exit.thread, %zend_inline_hash_func.exit
-  tail call void @llvm.assume(i1 %2)
   %120 = and i64 %1, -8
   %121 = add i64 %120, 32
   %122 = tail call noalias ptr @__zend_malloc(i64 noundef %121) #18
@@ -1560,7 +1557,6 @@ zend_string_equals_cstr.exit.thread:              ; preds = %111, %zend_string_e
   br i1 %.not.i15, label %._crit_edge29, label %.lr.ph28
 
 ._crit_edge29:                                    ; preds = %zend_string_equals_cstr.exit.thread, %zend_inline_hash_func.exit
-  tail call void @llvm.assume(i1 %2)
   %119 = and i64 %1, -8
   %120 = add i64 %119, 32
   %121 = tail call noalias ptr @__zend_malloc(i64 noundef %120) #18

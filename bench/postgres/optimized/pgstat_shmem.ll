@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @StatsShmemSize() local_unnamed_addr #0 {
-  %1 = tail call i64 @add_size(i64 noundef 51504, i64 noundef 262144) #15
+  %1 = tail call i64 @add_size(i64 noundef 51504, i64 noundef 262144) #14
   br label %3
 
 2:                                                ; preds = %15
@@ -52,7 +52,7 @@ define dso_local i64 @StatsShmemSize() local_unnamed_addr #0 {
 3:                                                ; preds = %0, %15
   %.011 = phi i64 [ %1, %0 ], [ %.1, %15 ]
   %.0810 = phi i32 [ 128, %0 ], [ %16, %15 ]
-  %4 = tail call ptr @pgstat_get_kind_info(i32 noundef %.0810) #15
+  %4 = tail call ptr @pgstat_get_kind_info(i32 noundef %.0810) #14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %15, label %5
 
@@ -85,13 +85,13 @@ declare ptr @pgstat_get_kind_info(i32 noundef) local_unnamed_addr #1
 define dso_local void @StatsShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = tail call i64 @add_size(i64 noundef 51504, i64 noundef 262144) #15
+  %2 = tail call i64 @add_size(i64 noundef 51504, i64 noundef 262144) #14
   br label %3
 
 3:                                                ; preds = %15, %0
   %.011.i = phi i64 [ %2, %0 ], [ %.1.i, %15 ]
   %.0810.i = phi i32 [ 128, %0 ], [ %16, %15 ]
-  %4 = tail call ptr @pgstat_get_kind_info(i32 noundef %.0810.i) #15
+  %4 = tail call ptr @pgstat_get_kind_info(i32 noundef %.0810.i) #14
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %15, label %5
 
@@ -116,7 +116,7 @@ define dso_local void @StatsShmemInit() local_unnamed_addr #0 {
   br i1 %exitcond.not.i, label %StatsShmemSize.exit, label %3, !llvm.loop !4
 
 StatsShmemSize.exit:                              ; preds = %15
-  %17 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %.1.i, ptr noundef nonnull %1) #15
+  %17 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %.1.i, ptr noundef nonnull %1) #14
   store ptr %17, ptr @pgStatLocal, align 8
   %18 = load i8, ptr @IsUnderPostmaster, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
@@ -125,16 +125,16 @@ StatsShmemSize.exit:                              ; preds = %15
 20:                                               ; preds = %StatsShmemSize.exit
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 51504
   store ptr %21, ptr %17, align 8
-  %22 = call ptr @dsa_create_in_place_ext(ptr noundef nonnull %21, i64 noundef 262144, i32 noundef 77, ptr noundef null, i64 noundef 1048576, i64 noundef 1099511627776) #15
-  call void @dsa_pin(ptr noundef %22) #15
-  call void @dsa_set_size_limit(ptr noundef %22, i64 noundef 262144) #15
-  %23 = call ptr @dshash_create(ptr noundef %22, ptr noundef nonnull @dsh_params, ptr noundef null) #15
-  %24 = call i64 @dshash_get_hash_table_handle(ptr noundef %23) #15
+  %22 = call ptr @dsa_create_in_place_ext(ptr noundef nonnull %21, i64 noundef 262144, i32 noundef 77, ptr noundef null, i64 noundef 1048576, i64 noundef 1099511627776) #14
+  call void @dsa_pin(ptr noundef %22) #14
+  call void @dsa_set_size_limit(ptr noundef %22, i64 noundef 262144) #14
+  %23 = call ptr @dshash_create(ptr noundef %22, ptr noundef nonnull @dsh_params, ptr noundef null) #14
+  %24 = call i64 @dshash_get_hash_table_handle(ptr noundef %23) #14
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %24, ptr %25, align 8
-  call void @dsa_set_size_limit(ptr noundef %22, i64 noundef -1) #15
-  call void @dshash_detach(ptr noundef %23) #15
-  call void @dsa_detach(ptr noundef %22) #15
+  call void @dsa_set_size_limit(ptr noundef %22, i64 noundef -1) #14
+  call void @dshash_detach(ptr noundef %23) #14
+  call void @dsa_detach(ptr noundef %22) #14
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store volatile i64 1, ptr %26, align 8
   br label %27
@@ -142,7 +142,7 @@ StatsShmemSize.exit:                              ; preds = %15
 27:                                               ; preds = %20, %50
   %indvars.iv = phi i64 [ 1, %20 ], [ %indvars.iv.next, %50 ]
   %28 = trunc nuw nsw i64 %indvars.iv to i32
-  %29 = call ptr @pgstat_get_kind_info(i32 noundef %28) #15
+  %29 = call ptr @pgstat_get_kind_info(i32 noundef %28) #14
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %50, label %30
 
@@ -166,7 +166,7 @@ StatsShmemSize.exit:                              ; preds = %15
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %42 to i64
-  %44 = call ptr @ShmemAlloc(i64 noundef %43) #15
+  %44 = call ptr @ShmemAlloc(i64 noundef %43) #14
   %45 = getelementptr ptr, ptr %17, i64 %indvars.iv
   %46 = getelementptr i8, ptr %45, i64 49448
   store ptr %44, ptr %46, align 8
@@ -176,7 +176,7 @@ StatsShmemSize.exit:                              ; preds = %15
   %.031 = phi ptr [ %39, %35 ], [ %44, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef %.031) #15
+  call void %49(ptr noundef %.031) #14
   br label %50
 
 50:                                               ; preds = %27, %30, %47
@@ -214,14 +214,14 @@ define dso_local void @pgstat_attach_shmem() local_unnamed_addr #0 {
   store ptr %1, ptr @CurrentMemoryContext, align 8
   %3 = load ptr, ptr @pgStatLocal, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @dsa_attach_in_place(ptr noundef %4, ptr noundef null) #15
+  %5 = tail call ptr @dsa_attach_in_place(ptr noundef %4, ptr noundef null) #14
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  tail call void @dsa_pin_mapping(ptr noundef %5) #15
+  tail call void @dsa_pin_mapping(ptr noundef %5) #14
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %7 = load ptr, ptr @pgStatLocal, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = tail call ptr @dshash_attach(ptr noundef %6, ptr noundef nonnull @dsh_params, i64 noundef %9, ptr noundef null) #15
+  %10 = tail call ptr @dshash_attach(ptr noundef %6, ptr noundef nonnull @dsh_params, i64 noundef %9, ptr noundef null) #14
   store ptr %10, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
   ret void
@@ -309,20 +309,20 @@ pgstat_entry_ref_hash_iterate.exit.us.i.i:        ; preds = %22
   br label %pgstat_entry_ref_hash_start_iterate.exit.split.us.i.i, !llvm.loop !10
 
 pgstat_release_matching_entry_refs.exit.i:        ; preds = %20
-  tail call void @pfree(ptr noundef %19) #15
-  tail call void @pfree(ptr noundef %16) #15
+  tail call void @pfree(ptr noundef %19) #14
+  tail call void @pfree(ptr noundef %16) #14
   store ptr null, ptr @pgStatEntryRefHash, align 8
   br label %pgstat_release_all_entry_refs.exit
 
 pgstat_release_all_entry_refs.exit:               ; preds = %0, %pgstat_release_matching_entry_refs.exit.i
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  tail call void @dshash_detach(ptr noundef %38) #15
+  tail call void @dshash_detach(ptr noundef %38) #14
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  tail call void @dsa_detach(ptr noundef %39) #15
+  tail call void @dsa_detach(ptr noundef %39) #14
   %40 = load ptr, ptr @pgStatLocal, align 8
   %41 = load ptr, ptr %40, align 8
-  tail call void @dsa_release_in_place(ptr noundef %41) #15
+  tail call void @dsa_release_in_place(ptr noundef %41) #14
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   ret void
 }
@@ -338,18 +338,18 @@ define dso_local noundef ptr @pgstat_init_entry(i32 noundef %0, ptr noundef %1) 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i8 0, ptr %5, align 8
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %7 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #15
+  %7 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
-  %11 = tail call i64 @dsa_allocate_extended(ptr noundef %6, i64 noundef %10, i32 noundef 4) #15
+  %11 = tail call i64 @dsa_allocate_extended(ptr noundef %6, i64 noundef %10, i32 noundef 4) #14
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %13 = tail call ptr @dsa_get_address(ptr noundef %12, i64 noundef %11) #15
+  %13 = tail call ptr @dsa_get_address(ptr noundef %12, i64 noundef %11) #14
   store i32 -559038737, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %11, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  tail call void @LWLockInitialize(ptr noundef nonnull %15, i32 noundef 79) #15
+  tail call void @LWLockInitialize(ptr noundef nonnull %15, i32 noundef 79) #14
   ret ptr %13
 }
 
@@ -377,7 +377,7 @@ define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 n
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @TopMemoryContext, align 8
-  %15 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %14, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
+  %15 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %14, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #14
   store ptr %15, ptr @pgStatSharedRefContext, align 8
   br label %16
 
@@ -388,7 +388,7 @@ define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 n
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @TopMemoryContext, align 8
-  %20 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %19, ptr noundef nonnull @.str.11, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #15
+  %20 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %19, ptr noundef nonnull @.str.11, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #14
   store ptr %20, ptr @pgStatEntryRefHashContext, align 8
   br label %pgstat_setup_memcxt.exit
 
@@ -592,10 +592,9 @@ pgstat_hash_hash_key.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i.i
   br i1 %116, label %117, label %120, !prof !11
 
 117:                                              ; preds = %114
-  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 630, ptr noundef nonnull @__func__.pgstat_entry_ref_hash_insert_hash_internal) #15
+  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %119 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 630, ptr noundef nonnull @__func__.pgstat_entry_ref_hash_insert_hash_internal) #14
   unreachable
 
 120:                                              ; preds = %114
@@ -777,7 +776,7 @@ pgstat_entry_ref_hash_insert.exit.thread.i:       ; preds = %._crit_edge.i.i.i, 
 pgstat_get_entry_ref_cached.exit.thread:          ; preds = %pgstat_entry_ref_hash_insert.exit.thread.i, %201
   %204 = phi ptr [ %.ph.i, %pgstat_entry_ref_hash_insert.exit.thread.i ], [ %132, %201 ]
   %205 = load ptr, ptr @pgStatSharedRefContext, align 8
-  %206 = tail call ptr @MemoryContextAlloc(ptr noundef %205, i64 noundef 48) #15
+  %206 = tail call ptr @MemoryContextAlloc(ptr noundef %205, i64 noundef 48) #14
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 24
   store ptr %206, ptr %207, align 8
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 24
@@ -795,7 +794,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
 211:                                              ; preds = %pgstat_get_entry_ref_cached.exit.thread, %pgstat_get_entry_ref_cached.exit
   %212 = phi ptr [ %.pre.i41, %pgstat_get_entry_ref_cached.exit.thread ], [ %203, %pgstat_get_entry_ref_cached.exit ]
   %213 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  %214 = call ptr @dshash_find(ptr noundef %213, ptr noundef nonnull %8, i1 noundef zeroext false) #15
+  %214 = call ptr @dshash_find(ptr noundef %213, ptr noundef nonnull %8, i1 noundef zeroext false) #14
   %215 = icmp eq ptr %214, null
   %or.cond.not = select i1 %3, i1 %215, i1 false
   br i1 %or.cond.not, label %216, label %242
@@ -803,7 +802,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
 216:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %217 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  %218 = call ptr @dshash_find_or_insert(ptr noundef %217, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
+  %218 = call ptr @dshash_find_or_insert(ptr noundef %217, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
   %219 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %220 = trunc nuw i8 %219 to i1
   br i1 %220, label %241, label %221
@@ -816,21 +815,21 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
   %224 = getelementptr inbounds nuw i8, ptr %218, i64 16
   store i8 0, ptr %224, align 8
   %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %226 = call ptr @pgstat_get_kind_info(i32 noundef %0) #15
+  %226 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %228 = load i32, ptr %227, align 4
   %229 = zext i32 %228 to i64
-  %230 = call i64 @dsa_allocate_extended(ptr noundef %225, i64 noundef %229, i32 noundef 4) #15
+  %230 = call i64 @dsa_allocate_extended(ptr noundef %225, i64 noundef %229, i32 noundef 4) #14
   %231 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  %232 = call ptr @dsa_get_address(ptr noundef %231, i64 noundef %230) #15
+  %232 = call ptr @dsa_get_address(ptr noundef %231, i64 noundef %230) #14
   store i32 -559038737, ptr %232, align 4
   %233 = getelementptr inbounds nuw i8, ptr %218, i64 32
   store i64 %230, ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 4
-  call void @LWLockInitialize(ptr noundef nonnull %234, i32 noundef 79) #15
-  %235 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %222, i32 1, ptr nonnull elementtype(i32) %222) #15, !srcloc !16
+  call void @LWLockInitialize(ptr noundef nonnull %234, i32 noundef 79) #14
+  %235 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %222, i32 1, ptr nonnull elementtype(i32) %222) #14, !srcloc !16
   %236 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %236, ptr noundef %218) #15
+  call void @dshash_release_lock(ptr noundef %236, ptr noundef %218) #14
   %237 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %232, ptr %237, align 8
   store ptr %218, ptr %212, align 8
@@ -873,25 +872,25 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
   %251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %252 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %253 = load i64, ptr %252, align 8
-  %254 = call ptr @dsa_get_address(ptr noundef %251, i64 noundef %253) #15
+  %254 = call ptr @dsa_get_address(ptr noundef %251, i64 noundef %253) #14
   %255 = getelementptr inbounds nuw i8, ptr %.031, i64 20
-  %256 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %255, i32 1, ptr nonnull elementtype(i32) %255) #15, !srcloc !16
+  %256 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %255, i32 1, ptr nonnull elementtype(i32) %255) #14, !srcloc !16
   %257 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  %258 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %257, i32 1, ptr nonnull elementtype(i32) %257) #15, !srcloc !16
+  %258 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %257, i32 1, ptr nonnull elementtype(i32) %257) #14, !srcloc !16
   store i8 0, ptr %247, align 8
-  %259 = call ptr @pgstat_get_kind_info(i32 noundef %0) #15
+  %259 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load i32, ptr %260, align 8
   %262 = zext i32 %261 to i64
   %263 = getelementptr inbounds nuw i8, ptr %254, i64 %262
-  %264 = call ptr @pgstat_get_kind_info(i32 noundef %0) #15
+  %264 = call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 20
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %263, i8 0, i64 %267, i1 false)
-  %268 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %255, i32 1, ptr nonnull elementtype(i32) %255) #15, !srcloc !16
+  %268 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %255, i32 1, ptr nonnull elementtype(i32) %255) #14, !srcloc !16
   %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %269, ptr noundef nonnull %.031) #15
+  call void @dshash_release_lock(ptr noundef %269, ptr noundef nonnull %.031) #14
   %270 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %254, ptr %270, align 8
   store ptr %.031, ptr %212, align 8
@@ -909,7 +908,7 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
 
 275:                                              ; preds = %274
   %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %276, ptr noundef nonnull %.031) #15
+  call void @dshash_release_lock(ptr noundef %276, ptr noundef nonnull %.031) #14
   %277 = load i64, ptr %8, align 8
   %278 = load i64, ptr %11, align 8
   call fastcc void @pgstat_release_entry_ref(i64 %277, i64 %278, ptr noundef %212, i1 noundef zeroext false)
@@ -919,11 +918,11 @@ pgstat_get_entry_ref_cached.exit:                 ; preds = %201
   %280 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %281 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %282 = load i64, ptr %281, align 8
-  %283 = call ptr @dsa_get_address(ptr noundef %280, i64 noundef %282) #15
+  %283 = call ptr @dsa_get_address(ptr noundef %280, i64 noundef %282) #14
   %284 = getelementptr inbounds nuw i8, ptr %.031, i64 20
-  %285 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %284, i32 1, ptr nonnull elementtype(i32) %284) #15, !srcloc !16
+  %285 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %284, i32 1, ptr nonnull elementtype(i32) %284) #14, !srcloc !16
   %286 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %286, ptr noundef nonnull %.031) #15
+  call void @dshash_release_lock(ptr noundef %286, ptr noundef nonnull %.031) #14
   %287 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %283, ptr %287, align 8
   store ptr %.031, ptr %212, align 8
@@ -962,14 +961,13 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i64 %1, ptr nounde
   br i1 %3, label %10, label %11
 
 10:                                               ; preds = %9
-  tail call void @pgstat_delete_pending_entry(ptr noundef nonnull %2) #15
+  tail call void @pgstat_delete_pending_entry(ptr noundef nonnull %2) #14
   br label %14
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 584, ptr noundef nonnull @__func__.pgstat_release_entry_ref) #15
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 584, ptr noundef nonnull @__func__.pgstat_release_entry_ref) #14
   unreachable
 
 14:                                               ; preds = %6, %10
@@ -988,15 +986,14 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i64 %1, ptr nounde
 22:                                               ; preds = %17
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   %24 = load ptr, ptr %2, align 8
-  %25 = tail call ptr @dshash_find(ptr noundef %23, ptr noundef %24, i1 noundef zeroext true) #15
+  %25 = tail call ptr @dshash_find(ptr noundef %23, ptr noundef %24, i1 noundef zeroext true) #14
   %.not17 = icmp eq ptr %25, null
   br i1 %.not17, label %26, label %29
 
 26:                                               ; preds = %22
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 613, ptr noundef nonnull @__func__.pgstat_release_entry_ref) #15
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 613, ptr noundef nonnull @__func__.pgstat_release_entry_ref) #14
   unreachable
 
 29:                                               ; preds = %22
@@ -1012,14 +1009,14 @@ define internal fastcc void @pgstat_release_entry_ref(i64 %0, i64 %1, ptr nounde
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %38 = load i64, ptr %37, align 8
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  tail call void @dshash_delete_entry(ptr noundef %39, ptr noundef nonnull %25) #15
+  tail call void @dshash_delete_entry(ptr noundef %39, ptr noundef nonnull %25) #14
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  tail call void @dsa_free(ptr noundef %40, i64 noundef %38) #15
+  tail call void @dsa_free(ptr noundef %40, i64 noundef %38) #14
   br label %.critedge
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  tail call void @dshash_release_lock(ptr noundef %42, ptr noundef nonnull %25) #15
+  tail call void @dshash_release_lock(ptr noundef %42, ptr noundef nonnull %25) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %4, %36, %41, %17, %14
@@ -1149,10 +1146,9 @@ pgstat_entry_ref_hash_entry_hash.exit.i:          ; preds = %.lr.ph.i.i.i.i.i
 
 113:                                              ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %114)
-  %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 640, ptr noundef nonnull @__func__.pgstat_release_entry_ref) #15
+  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 640, ptr noundef nonnull @__func__.pgstat_release_entry_ref) #14
   unreachable
 
 .loopexit:                                        ; preds = %pgstat_entry_ref_hash_entry_hash.exit.i, %103, %72
@@ -1163,7 +1159,7 @@ pgstat_entry_ref_hash_entry_hash.exit.i:          ; preds = %.lr.ph.i.i.i.i.i
   br i1 %.not, label %118, label %117
 
 117:                                              ; preds = %.loopexit
-  tail call void @pfree(ptr noundef nonnull %2) #15
+  tail call void @pfree(ptr noundef nonnull %2) #14
   br label %118
 
 118:                                              ; preds = %117, %.loopexit
@@ -1180,11 +1176,11 @@ define dso_local zeroext i1 @pgstat_lock_entry(ptr noundef readonly captures(non
   br i1 %1, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %5, i32 noundef 0) #15
+  %7 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %5, i32 noundef 0) #14
   br label %10
 
 8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #15
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #14
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -1204,11 +1200,11 @@ define dso_local zeroext i1 @pgstat_lock_entry_shared(ptr noundef readonly captu
   br i1 %1, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %5, i32 noundef 1) #15
+  %7 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %5, i32 noundef 1) #14
   br label %10
 
 8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #15
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #14
   br label %10
 
 10:                                               ; preds = %8, %6
@@ -1221,7 +1217,7 @@ define dso_local void @pgstat_unlock_entry(ptr noundef readonly captures(none) %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  tail call void @LWLockRelease(ptr noundef nonnull %4) #15
+  tail call void @LWLockRelease(ptr noundef nonnull %4) #14
   ret void
 }
 
@@ -1236,11 +1232,11 @@ define dso_local ptr @pgstat_get_entry_ref_locked(i32 noundef %0, i32 noundef %1
   br i1 %3, label %pgstat_lock_entry.exit, label %pgstat_lock_entry.exit.thread
 
 pgstat_lock_entry.exit.thread:                    ; preds = %4
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #15
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #14
   br label %11
 
 pgstat_lock_entry.exit:                           ; preds = %4
-  %10 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %8, i32 noundef 0) #15
+  %10 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %8, i32 noundef 0) #14
   %cond.fr = freeze i1 %10
   br i1 %cond.fr, label %11, label %12
 
@@ -1256,7 +1252,7 @@ pgstat_lock_entry.exit:                           ; preds = %4
 define dso_local void @pgstat_request_entry_refs_gc() local_unnamed_addr #0 {
   %1 = load ptr, ptr @pgStatLocal, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %3 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 1, ptr nonnull elementtype(i64) %2) #15, !srcloc !17
+  %3 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 1, ptr nonnull elementtype(i64) %2) #14, !srcloc !17
   ret void
 }
 
@@ -1361,7 +1357,7 @@ pgstat_entry_ref_hash_lookup.exit.thread:         ; preds = %40, %pgstat_hash_ha
 
 55:                                               ; preds = %pgstat_entry_ref_hash_lookup.exit.thread, %49, %3
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  %57 = call ptr @dshash_find(ptr noundef %56, ptr noundef nonnull %7, i1 noundef zeroext true) #15
+  %57 = call ptr @dshash_find(ptr noundef %56, ptr noundef nonnull %7, i1 noundef zeroext true) #14
   %.not12 = icmp eq ptr %57, null
   br i1 %.not12, label %123, label %58
 
@@ -1460,13 +1456,13 @@ pgstat_entry_ref_hash_iterate.exit.i.i.i:         ; preds = %83
 
 pgstat_release_db_entry_refs.exit.i:              ; preds = %81, %62
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %104, i1 noundef zeroext true) #15
-  %105 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #15
+  call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %104, i1 noundef zeroext true) #14
+  %105 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not1113.i = icmp eq ptr %105, null
   br i1 %.not1113.i, label %.outer._crit_edge.thread.i, label %.lr.ph.i
 
 .outer._crit_edge.thread.i:                       ; preds = %pgstat_release_db_entry_refs.exit.i
-  call void @dshash_seq_term(ptr noundef nonnull %4) #15
+  call void @dshash_seq_term(ptr noundef nonnull %4) #14
   br label %pgstat_drop_database_and_contents.exit
 
 .lr.ph.i:                                         ; preds = %pgstat_release_db_entry_refs.exit.i, %.outer.i
@@ -1482,7 +1478,7 @@ pgstat_release_db_entry_refs.exit.i:              ; preds = %81, %62
   br i1 %111, label %.backedge.i, label %113
 
 .backedge.i:                                      ; preds = %113, %107
-  %112 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #15
+  %112 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not.i14 = icmp eq ptr %112, null
   br i1 %.not.i14, label %.outer._crit_edge.i, label %107, !llvm.loop !18
 
@@ -1497,20 +1493,20 @@ pgstat_release_db_entry_refs.exit.i:              ; preds = %81, %62
   %not..i = xor i1 %116, true
   %117 = zext i1 %not..i to i64
   %spec.select.i = add i64 %.0.ph14.i, %117
-  %118 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #15
+  %118 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not11.i = icmp eq ptr %118, null
   br i1 %.not11.i, label %.outer._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 .outer._crit_edge.i:                              ; preds = %.outer.i, %.backedge.i
   %.0.ph.lcssa.i = phi i64 [ %.0.ph14.i, %.backedge.i ], [ %spec.select.i, %.outer.i ]
-  call void @dshash_seq_term(ptr noundef nonnull %4) #15
+  call void @dshash_seq_term(ptr noundef nonnull %4) #14
   %.not7.i = icmp eq i64 %.0.ph.lcssa.i, 0
   br i1 %.not7.i, label %pgstat_drop_database_and_contents.exit, label %119
 
 119:                                              ; preds = %.outer._crit_edge.i
   %120 = load ptr, ptr @pgStatLocal, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %122 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %121, i64 1, ptr nonnull elementtype(i64) %121) #15, !srcloc !17
+  %122 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %121, i64 1, ptr nonnull elementtype(i64) %121) #14, !srcloc !17
   br label %pgstat_drop_database_and_contents.exit
 
 pgstat_drop_database_and_contents.exit:           ; preds = %.outer._crit_edge.thread.i, %.outer._crit_edge.i, %119
@@ -1531,10 +1527,9 @@ define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr nounde
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %7)
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   %8 = load i32, ptr %0, align 8
-  %9 = tail call ptr @pgstat_get_kind_info(i32 noundef %8) #15
+  %9 = tail call ptr @pgstat_get_kind_info(i32 noundef %8) #14
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1543,8 +1538,8 @@ define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr nounde
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %17 = load volatile i32, ptr %16, align 4
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %11, i32 noundef %13, i64 noundef %15, i32 noundef %17) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 871, ptr noundef nonnull @__func__.pgstat_drop_entry_internal) #15
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %11, i32 noundef %13, i64 noundef %15, i32 noundef %17) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 871, ptr noundef nonnull @__func__.pgstat_drop_entry_internal) #14
   unreachable
 
 19:                                               ; preds = %2
@@ -1562,16 +1557,16 @@ define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr nounde
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  tail call void @dshash_delete_entry(ptr noundef %27, ptr noundef nonnull %0) #15
+  tail call void @dshash_delete_entry(ptr noundef %27, ptr noundef nonnull %0) #14
   br label %pgstat_free_entry.exit
 
 28:                                               ; preds = %23
-  tail call void @dshash_delete_current(ptr noundef nonnull %1) #15
+  tail call void @dshash_delete_current(ptr noundef nonnull %1) #14
   br label %pgstat_free_entry.exit
 
 pgstat_free_entry.exit:                           ; preds = %26, %28
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
-  tail call void @dsa_free(ptr noundef %29, i64 noundef %25) #15
+  tail call void @dsa_free(ptr noundef %29, i64 noundef %25) #14
   br label %33
 
 30:                                               ; preds = %19
@@ -1580,7 +1575,7 @@ pgstat_free_entry.exit:                           ; preds = %26, %28
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  tail call void @dshash_release_lock(ptr noundef %32, ptr noundef nonnull %0) #15
+  tail call void @dshash_release_lock(ptr noundef %32, ptr noundef nonnull %0) #14
   br label %33
 
 33:                                               ; preds = %30, %31, %pgstat_free_entry.exit
@@ -1594,13 +1589,13 @@ define dso_local void @pgstat_drop_matching_entries(ptr noundef readonly capture
   %5 = alloca %struct.dshash_seq_status, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_seq_init(ptr noundef nonnull %5, ptr noundef %6, i1 noundef zeroext true) #15
-  %7 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #15
+  call void @dshash_seq_init(ptr noundef nonnull %5, ptr noundef %6, i1 noundef zeroext true) #14
+  %7 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #14
   %.not2328 = icmp eq ptr %7, null
   br i1 %.not2328, label %.outer._crit_edge.thread, label %.lr.ph.lr.ph
 
 .outer._crit_edge.thread:                         ; preds = %2
-  call void @dshash_seq_term(ptr noundef nonnull %5) #15
+  call void @dshash_seq_term(ptr noundef nonnull %5) #14
   br label %75
 
 .lr.ph.lr.ph:                                     ; preds = %2
@@ -1622,7 +1617,7 @@ define dso_local void @pgstat_drop_matching_entries(ptr noundef readonly capture
   br i1 %14, label %.backedge.us, label %.split.us
 
 .backedge.us:                                     ; preds = %.lr.ph.split.us
-  %15 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #15
+  %15 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #14
   %.not.us = icmp eq ptr %15, null
   br i1 %.not.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
 
@@ -1634,12 +1629,12 @@ define dso_local void @pgstat_drop_matching_entries(ptr noundef readonly capture
   br i1 %19, label %.backedge, label %21
 
 .backedge:                                        ; preds = %.lr.ph.split, %21
-  %20 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #15
+  %20 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #14
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 21:                                               ; preds = %.lr.ph.split
-  %22 = call zeroext i1 %0(ptr noundef nonnull %16, i64 noundef %1) #15
+  %22 = call zeroext i1 %0(ptr noundef nonnull %16, i64 noundef %1) #14
   br i1 %22, label %.split.us, label %.backedge
 
 .split.us:                                        ; preds = %21, %.lr.ph.split.us
@@ -1736,20 +1731,20 @@ pgstat_entry_ref_hash_lookup.exit.thread:         ; preds = %53, %pgstat_hash_ha
   %not. = xor i1 %68, true
   %69 = zext i1 %not. to i64
   %spec.select = add i64 %.0.ph29, %69
-  %70 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #15
+  %70 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #14
   %.not23 = icmp eq ptr %70, null
   br i1 %.not23, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.backedge.us
   %.0.ph.lcssa = phi i64 [ %.0.ph29, %.backedge.us ], [ %.0.ph29, %.backedge ], [ %spec.select, %.outer ]
-  call void @dshash_seq_term(ptr noundef nonnull %5) #15
+  call void @dshash_seq_term(ptr noundef nonnull %5) #14
   %.not15 = icmp eq i64 %.0.ph.lcssa, 0
   br i1 %.not15, label %75, label %71
 
 71:                                               ; preds = %.outer._crit_edge
   %72 = load ptr, ptr @pgStatLocal, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %74 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %73, i64 1, ptr nonnull elementtype(i64) %73) #15, !srcloc !17
+  %74 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %73, i64 1, ptr nonnull elementtype(i64) %73) #14, !srcloc !17
   br label %75
 
 75:                                               ; preds = %.outer._crit_edge.thread, %71, %.outer._crit_edge
@@ -1786,15 +1781,15 @@ define dso_local void @pgstat_reset_entry(i32 noundef %0, i32 noundef %1, i64 no
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #15
+  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 0) #14
   %16 = load ptr, ptr %12, align 8
-  %17 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #15
-  %18 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #15
+  %17 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
+  %18 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %21
-  %23 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #15
+  %23 = tail call ptr @pgstat_get_kind_info(i32 noundef %0) #14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
@@ -1805,13 +1800,13 @@ define dso_local void @pgstat_reset_entry(i32 noundef %0, i32 noundef %1, i64 no
   br i1 %.not.i, label %shared_stat_reset_contents.exit, label %29
 
 29:                                               ; preds = %11
-  tail call void %28(ptr noundef %16, i64 noundef %3) #15
+  tail call void %28(ptr noundef %16, i64 noundef %3) #14
   br label %shared_stat_reset_contents.exit
 
 shared_stat_reset_contents.exit:                  ; preds = %11, %29
   %30 = load ptr, ptr %12, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  tail call void @LWLockRelease(ptr noundef nonnull %31) #15
+  tail call void @LWLockRelease(ptr noundef nonnull %31) #14
   br label %32
 
 32:                                               ; preds = %4, %6, %shared_stat_reset_contents.exit
@@ -1823,8 +1818,8 @@ define dso_local void @pgstat_reset_matching_entries(ptr noundef readonly captur
   %4 = alloca %struct.dshash_seq_status, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false) #15
-  %6 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #15
+  call void @dshash_seq_init(ptr noundef nonnull %4, ptr noundef %5, i1 noundef zeroext false) #14
+  %6 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1836,24 +1831,24 @@ define dso_local void @pgstat_reset_matching_entries(ptr noundef readonly captur
   br i1 %10, label %34, label %11, !llvm.loop !20
 
 11:                                               ; preds = %.lr.ph
-  %12 = call zeroext i1 %0(ptr noundef nonnull %7, i64 noundef %1) #15
+  %12 = call zeroext i1 %0(ptr noundef nonnull %7, i64 noundef %1) #14
   br i1 %12, label %13, label %34, !llvm.loop !20
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %16 = load i64, ptr %15, align 8
-  %17 = call ptr @dsa_get_address(ptr noundef %14, i64 noundef %16) #15
+  %17 = call ptr @dsa_get_address(ptr noundef %14, i64 noundef %16) #14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %19 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %18, i32 noundef 0) #15
+  %19 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %18, i32 noundef 0) #14
   %20 = load i32, ptr %7, align 8
-  %21 = call ptr @pgstat_get_kind_info(i32 noundef %20) #15
-  %22 = call ptr @pgstat_get_kind_info(i32 noundef %20) #15
+  %21 = call ptr @pgstat_get_kind_info(i32 noundef %20) #14
+  %22 = call ptr @pgstat_get_kind_info(i32 noundef %20) #14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 %25
-  %27 = call ptr @pgstat_get_kind_info(i32 noundef %20) #15
+  %27 = call ptr @pgstat_get_kind_info(i32 noundef %20) #14
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
@@ -1864,20 +1859,20 @@ define dso_local void @pgstat_reset_matching_entries(ptr noundef readonly captur
   br i1 %.not.i, label %shared_stat_reset_contents.exit, label %33
 
 33:                                               ; preds = %13
-  call void %32(ptr noundef nonnull %17, i64 noundef %2) #15
+  call void %32(ptr noundef nonnull %17, i64 noundef %2) #14
   br label %shared_stat_reset_contents.exit
 
 shared_stat_reset_contents.exit:                  ; preds = %13, %33
-  call void @LWLockRelease(ptr noundef nonnull %18) #15
+  call void @LWLockRelease(ptr noundef nonnull %18) #14
   br label %34
 
 34:                                               ; preds = %11, %.lr.ph, %shared_stat_reset_contents.exit
-  %35 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #15
+  %35 = call ptr @dshash_seq_next(ptr noundef nonnull %4) #14
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %34, %3
-  call void @dshash_seq_term(ptr noundef nonnull %4) #15
+  call void @dshash_seq_term(ptr noundef nonnull %4) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1899,7 +1894,7 @@ define internal zeroext i1 @match_kind(ptr noundef readonly captures(none) %0, i
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @pgstat_cmp_hash_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 %2, ptr readnone captures(none) %3) #4 {
-  %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 noundef 16) #17
+  %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) %1, i64 noundef 16) #16
   ret i32 %5
 }
 
@@ -2033,12 +2028,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @pgstat_entry_ref_hash_create(ptr noundef %0) unnamed_addr #8 {
-  %2 = tail call ptr @MemoryContextAllocZero(ptr noundef %0, i64 noundef 48) #15
+  %2 = tail call ptr @MemoryContextAllocZero(ptr noundef %0, i64 noundef 48) #14
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr null, ptr %4, align 8
-  %5 = tail call ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef 8192, i32 noundef 5) #15
+  %5 = tail call ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef 8192, i32 noundef 5) #14
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %6, align 8
   store i64 256, ptr %2, align 8
@@ -2082,16 +2077,15 @@ define internal fastcc void @pgstat_entry_ref_hash_grow(ptr noundef captures(non
   br i1 %13, label %14, label %pgstat_entry_ref_hash_compute_size.exit, !prof !11
 
 14:                                               ; preds = %2
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_entry_ref_hash_compute_size) #15
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_entry_ref_hash_compute_size) #14
   unreachable
 
 pgstat_entry_ref_hash_compute_size.exit:          ; preds = %2
   %17 = getelementptr i8, ptr %0, i64 32
   %.val58 = load ptr, ptr %17, align 8
-  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val58, i64 noundef %12, i32 noundef 5) #15
+  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val58, i64 noundef %12, i32 noundef 5) #14
   store ptr %18, ptr %4, align 8
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
   %20 = icmp samesign ult i64 %19, 2
@@ -2104,10 +2098,9 @@ pgstat_entry_ref_hash_compute_size.exit:          ; preds = %2
   br i1 %25, label %26, label %pgstat_entry_ref_hash_update_parameters.exit, !prof !11
 
 26:                                               ; preds = %pgstat_entry_ref_hash_compute_size.exit
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_entry_ref_hash_compute_size) #15
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_entry_ref_hash_compute_size) #14
   unreachable
 
 pgstat_entry_ref_hash_update_parameters.exit:     ; preds = %pgstat_entry_ref_hash_compute_size.exit
@@ -2247,7 +2240,7 @@ pgstat_entry_ref_hash_entry_hash.exit65:          ; preds = %.lr.ph.i.i.i.i59
   br i1 %104, label %.lr.ph78, label %._crit_edge79, !llvm.loop !22
 
 ._crit_edge79:                                    ; preds = %99, %pgstat_entry_ref_hash_update_parameters.exit
-  tail call void @pfree(ptr noundef %5) #15
+  tail call void @pfree(ptr noundef %5) #14
   ret void
 }
 
@@ -2269,17 +2262,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #13
+declare i64 @llvm.ctpop.i64(i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2293,12 +2283,11 @@ attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-t
 attributes #9 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { nounwind }
-attributes #16 = { cold nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

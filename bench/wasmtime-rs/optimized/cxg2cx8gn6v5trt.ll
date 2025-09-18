@@ -5738,14 +5738,14 @@ define internal void @"_ZN84_$LT$wasi_common..pipe..ReadPipe$LT$R$GT$$u20$as$u20
   %8 = load i8, ptr %7, align 8, !range !324, !noundef !4
   switch i8 %8, label %default.unreachable32 [
     i8 0, label %10
-    i8 1, label %65
-    i8 2, label %66
+    i8 1, label %63
+    i8 2, label %64
   ]
 
 default.unreachable32:                            ; preds = %3
   unreachable
 
-9:                                                ; preds = %60, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i
+9:                                                ; preds = %58, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i8 1, ptr %7, align 8
@@ -5844,69 +5844,66 @@ _ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock5write17h77e98b0a677572beE.exit.i
   %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr84drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..io..util..Empty$GT$$GT$17h81270c30e2692fd2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #26
-          to label %.body unwind label %63
+          to label %.body unwind label %61
 
 47:                                               ; preds = %.noexc14
-  %48 = extractvalue { ptr, i64 } %44, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !485
-  %49 = icmp ne ptr %48, null
-  call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %51 = trunc nuw i8 %23 to i1
-  br i1 %51, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %52
+  %48 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %49 = trunc nuw i8 %23 to i1
+  br i1 %49, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %50
 
-52:                                               ; preds = %47
-  %53 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E.llvm.1938814379164664089(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
-          to label %.noexc16 unwind label %61
+50:                                               ; preds = %47
+  %51 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h92486b112d444dc0E.llvm.1938814379164664089(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
+          to label %.noexc16 unwind label %59
 
-.noexc16:                                         ; preds = %52
-  %54 = and i64 %53, 9223372036854775807
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
+.noexc16:                                         ; preds = %50
+  %52 = and i64 %51, 9223372036854775807
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
 
 _ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i: ; preds = %.noexc16
-  %56 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
-          to label %.noexc17 unwind label %61
+  %54 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17hce355016e1a01eb0E()
+          to label %.noexc17 unwind label %59
 
 .noexc17:                                         ; preds = %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i
-  br i1 %56, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %57
+  br i1 %54, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i, label %55
 
-57:                                               ; preds = %.noexc17
-  invoke void @_ZN4core4sync6atomic12atomic_store17hfcc1263006202b91E.llvm.1938814379164664089(ptr noundef nonnull align 1 %50, i8 noundef 1, i8 noundef 0)
-          to label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i unwind label %61
+55:                                               ; preds = %.noexc17
+  invoke void @_ZN4core4sync6atomic12atomic_store17hfcc1263006202b91E.llvm.1938814379164664089(ptr noundef nonnull align 1 %48, i8 noundef 1, i8 noundef 0)
+          to label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i unwind label %59
 
-_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i: ; preds = %57, %.noexc17, %.noexc16, %47
-  %58 = atomicrmw sub ptr %12, i32 1073741823 release, align 4, !noalias !492
-  %59 = add i32 %58, -1073741823
-  %or.cond.i.i = icmp ult i32 %59, 1073741824
-  br i1 %or.cond.i.i, label %9, label %60
+_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i: ; preds = %55, %.noexc17, %.noexc16, %47
+  %56 = atomicrmw sub ptr %12, i32 1073741823 release, align 4, !noalias !492
+  %57 = add i32 %56, -1073741823
+  %or.cond.i.i = icmp ult i32 %57, 1073741824
+  br i1 %or.cond.i.i, label %9, label %58
 
-60:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i
-  invoke void @_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h575f97e0f5cd276fE(ptr noundef nonnull align 4 %12, i32 noundef %59)
-          to label %9 unwind label %61
+58:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i
+  invoke void @_ZN3std3sys3pal4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h575f97e0f5cd276fE(ptr noundef nonnull align 4 %12, i32 noundef %57)
+          to label %9 unwind label %59
 
-.body:                                            ; preds = %33, %28, %45, %61
-  %.pn5 = phi { ptr, i32 } [ %62, %61 ], [ %46, %45 ], [ %34, %33 ], [ %29, %28 ]
+.body:                                            ; preds = %33, %28, %45, %59
+  %.pn5 = phi { ptr, i32 } [ %60, %59 ], [ %46, %45 ], [ %34, %33 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i8 2, ptr %7, align 8
   resume { ptr, i32 } %.pn5
 
-61:                                               ; preds = %60, %57, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i, %52
-  %62 = landingpad { ptr, i32 }
+59:                                               ; preds = %58, %55, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.1938814379164664089.exit.i.i.i, %50
+  %60 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-63:                                               ; preds = %45
-  %64 = landingpad { ptr, i32 }
+61:                                               ; preds = %45
+  %62 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #27
   unreachable
 
-65:                                               ; preds = %3
+63:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.0, i64 noundef 35, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.671675c1a4a640a3c56f13f914c22246.111) #25
   unreachable
 
-66:                                               ; preds = %3
+64:                                               ; preds = %3
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.671675c1a4a640a3c56f13f914c22246.111) #25
   unreachable
 }

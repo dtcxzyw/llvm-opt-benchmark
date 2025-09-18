@@ -141,7 +141,7 @@ define void @_ZN2cv3ocl6DeviceC2Ev(ptr noundef nonnull writeonly align 8 capture
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl6DeviceC2EPv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr readnone captures(none) %1) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !3
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -165,7 +165,7 @@ define internal fastcc void @_ZN2cv3oclL12throw_no_oclEv() unnamed_addr #2 perso
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i8 0, ptr %6, align 1, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -220, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZN2cv3oclL12throw_no_oclEv, ptr noundef nonnull @.str.1, i32 noundef 24) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -220, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZN2cv3oclL12throw_no_oclEv, ptr noundef nonnull @.str.1, i32 noundef 24) #13
           to label %7 unwind label %8
 
 7:                                                ; preds = %.noexc.i
@@ -176,19 +176,13 @@ define internal fastcc void @_ZN2cv3oclL12throw_no_oclEv() unnamed_addr #2 perso
           cleanup
   %10 = load ptr, ptr %1, align 8, !tbaa !14
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %8
-  %12 = load i64, ptr %5, align 8, !tbaa !17
-  %13 = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %13)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %8
-  call void @_ZdlPv(ptr noundef %10) #15
+  call void @_ZdlPv(ptr noundef %10) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %9
 }
@@ -222,67 +216,67 @@ define void @_ZN2cv3ocl6DeviceD2Ev(ptr nonnull readnone align 8 captures(none) %
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl6Device3setEPv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device4nameB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device10extensionsB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device20isExtensionSupportedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device7versionB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device10vendorNameB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device16OpenCL_C_VersionB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device13OpenCLVersionB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device18deviceVersionMajorEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device18deviceVersionMinorEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device13driverVersionB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -293,109 +287,109 @@ define noalias noundef ptr @_ZNK2cv3ocl6Device3ptrEv(ptr noundef nonnull readnon
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device4typeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device11addressBitsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device9availableEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device17compilerAvailableEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device15linkerAvailableEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device14doubleFPConfigEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device14singleFPConfigEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device12halfFPConfigEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device7hasFP64Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device7hasFP16Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device12endianLittleEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device22errorCorrectionSupportEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device21executionCapabilitiesEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device18globalMemCacheSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device18globalMemCacheTypeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device22globalMemCacheLineSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device13globalMemSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device12localMemSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -406,259 +400,259 @@ define noundef i32 @_ZNK2cv3ocl6Device12localMemTypeEv(ptr noundef nonnull readn
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device17hostUnifiedMemoryEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device12imageSupportEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device22imageFromBufferSupportEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device19imagePitchAlignmentEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device25imageBaseAddressAlignmentEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Device21intelSubgroupsSupportEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device15image2DMaxWidthEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device16image2DMaxHeightEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device15image3DMaxWidthEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device16image3DMaxHeightEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device15image3DMaxDepthEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device18imageMaxBufferSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device17imageMaxArraySizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device8vendorIDEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device17maxClockFrequencyEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device15maxComputeUnitsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device15maxConstantArgsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device21maxConstantBufferSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device15maxMemAllocSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device16maxParameterSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device16maxReadImageArgsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device17maxWriteImageArgsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device11maxSamplersEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device16maxWorkGroupSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device15maxWorkItemDimsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl6Device16maxWorkItemSizesEPm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device16memBaseAddrAlignEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device21nativeVectorWidthCharEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device22nativeVectorWidthShortEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device20nativeVectorWidthIntEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device21nativeVectorWidthLongEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device22nativeVectorWidthFloatEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device23nativeVectorWidthDoubleEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device21nativeVectorWidthHalfEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device24preferredVectorWidthCharEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device25preferredVectorWidthShortEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device23preferredVectorWidthIntEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device24preferredVectorWidthLongEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device25preferredVectorWidthFloatEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device26preferredVectorWidthDoubleEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl6Device24preferredVectorWidthHalfEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device16printfBufferSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Device24profilingTimerResolutionEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -669,14 +663,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl6Device10getDef
   br i1 %2, label %3, label %7, !prof !18
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl6Device10getDefaultEvE5dummy) #16
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl6Device10getDefaultEvE5dummy) #15
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN2cv3ocl6DeviceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl6Device10getDefaultEvE5dummy) #16
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl6DeviceD1Ev, ptr nonnull @_ZZN2cv3ocl6Device10getDefaultEvE5dummy, ptr nonnull @__dso_handle) #16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl6Device10getDefaultEvE5dummy) #16
+  tail call void @_ZN2cv3ocl6DeviceC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl6Device10getDefaultEvE5dummy) #15
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl6DeviceD1Ev, ptr nonnull @_ZZN2cv3ocl6Device10getDefaultEvE5dummy, ptr nonnull @__dso_handle) #15
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl6Device10getDefaultEvE5dummy) #15
   br label %7
 
 7:                                                ; preds = %5, %3, %0
@@ -694,7 +688,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl6Device10fromHandleEPv(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::Device") align 8 captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -754,13 +748,13 @@ define noundef i64 @_ZNK2cv3ocl7Context8ndevicesEv(ptr noundef nonnull readnone 
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl7Context6deviceEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Context7getProgERKNS0_13ProgramSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::Program") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %4) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -776,14 +770,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7Context10getDe
   br i1 %3, label %4, label %8, !prof !18
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl7Context10getDefaultEbE5dummy) #16
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl7Context10getDefaultEbE5dummy) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  tail call void @_ZN2cv3ocl7ContextC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl7Context10getDefaultEbE5dummy) #16
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl7ContextD1Ev, ptr nonnull @_ZZN2cv3ocl7Context10getDefaultEbE5dummy, ptr nonnull @__dso_handle) #16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl7Context10getDefaultEbE5dummy) #16
+  tail call void @_ZN2cv3ocl7ContextC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl7Context10getDefaultEbE5dummy) #15
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl7ContextD1Ev, ptr nonnull @_ZZN2cv3ocl7Context10getDefaultEbE5dummy, ptr nonnull @__dso_handle) #15
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl7Context10getDefaultEbE5dummy) #15
   br label %8
 
 8:                                                ; preds = %6, %4, %1
@@ -797,7 +791,7 @@ define noalias noundef ptr @_ZNK2cv3ocl7Context3ptrEv(ptr noundef nonnull readno
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZNK2cv3ocl7Context24getOpenCLContextPropertyEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -818,8 +812,8 @@ define void @_ZN2cv3ocl7Context11UserContextD2Ev(ptr nonnull readnone align 8 ca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN2cv3ocl7Context11UserContextD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZN2cv3ocl7Context11UserContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #15
+  tail call void @_ZN2cv3ocl7Context11UserContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -828,31 +822,31 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Context14setUserContextESt10type_indexRKSt10shared_ptrINS1_11UserContextEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Context14getUserContextESt10type_index(ptr dead_on_unwind noalias readnone sret(%"class.std::shared_ptr") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr readnone captures(none) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Context10fromHandleEPv(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::Context") align 8 captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Context10fromDeviceERKNS0_6DeviceE(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::Context") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Context6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::Context") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -906,14 +900,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl8Platform10getD
   br i1 %2, label %3, label %7, !prof !18
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl8Platform10getDefaultEvE5dummy) #16
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl8Platform10getDefaultEvE5dummy) #15
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN2cv3ocl8PlatformC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl8Platform10getDefaultEvE5dummy) #16
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl8PlatformD1Ev, ptr nonnull @_ZZN2cv3ocl8Platform10getDefaultEvE5dummy, ptr nonnull @__dso_handle) #16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl8Platform10getDefaultEvE5dummy) #16
+  tail call void @_ZN2cv3ocl8PlatformC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl8Platform10getDefaultEvE5dummy) #15
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl8PlatformD1Ev, ptr nonnull @_ZZN2cv3ocl8Platform10getDefaultEvE5dummy, ptr nonnull @__dso_handle) #15
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl8Platform10getDefaultEvE5dummy) #15
   br label %7
 
 7:                                                ; preds = %5, %3, %0
@@ -922,25 +916,25 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl8Platform10getD
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl13attachContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvS9_S9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl17convertFromBufferEPvmiiiRNS_4UMatE(ptr noundef readnone captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %5) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl16convertFromImageEPvRNS_4UMatE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %1) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define hidden void @_ZN2cv3ocl27initializeContextFromHandleERNS0_7ContextEPvS3_S3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -953,7 +947,7 @@ define void @_ZN2cv3ocl5QueueC2Ev(ptr noundef nonnull writeonly align 8 captures
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl5QueueC2ERKNS0_7ContextERKNS0_6DeviceE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !25
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -985,7 +979,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5QueueaSEOS1_(p
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl5Queue6createERKNS0_7ContextERKNS0_6DeviceE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1006,14 +1000,14 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5Queue10getDefa
   br i1 %2, label %3, label %7, !prof !18
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl5Queue10getDefaultEvE5dummy) #16
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3ocl5Queue10getDefaultEvE5dummy) #15
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @_ZN2cv3ocl5QueueC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl5Queue10getDefaultEvE5dummy) #16
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl5QueueD1Ev, ptr nonnull @_ZZN2cv3ocl5Queue10getDefaultEvE5dummy, ptr nonnull @__dso_handle) #16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl5Queue10getDefaultEvE5dummy) #16
+  tail call void @_ZN2cv3ocl5QueueC1Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv3ocl5Queue10getDefaultEvE5dummy) #15
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl5QueueD1Ev, ptr nonnull @_ZZN2cv3ocl5Queue10getDefaultEvE5dummy, ptr nonnull @__dso_handle) #15
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3ocl5Queue10getDefaultEvE5dummy) #15
   br label %7
 
 7:                                                ; preds = %5, %3, %0
@@ -1022,7 +1016,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl5Queue10getDefa
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl5Queue17getProfilingQueueEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1051,13 +1045,13 @@ define void @_ZN2cv3ocl9KernelArgC2EiPNS_4UMatEiiPKvm(ptr noundef nonnull writeo
   store i32 %3, ptr %11, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %4, ptr %12, align 4, !tbaa !33
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl9KernelArg8ConstantERKNS_3MatE(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::KernelArg") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1070,14 +1064,14 @@ define void @_ZN2cv3ocl6KernelC2Ev(ptr noundef nonnull writeonly align 8 capture
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl6KernelC2EPKcRKNS0_7ProgramE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !37
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl6KernelC2EPKcRKNS0_13ProgramSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSC_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr readnone captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr readnone captures(none) %4) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !37
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1115,79 +1109,79 @@ define noundef zeroext i1 @_ZNK2cv3ocl6Kernel5emptyEv(ptr noundef nonnull readno
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl6Kernel6createEPKcRKNS0_7ProgramE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl6Kernel6createEPKcRKNS0_13ProgramSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSC_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl6Kernel3setEiPKvm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl6Kernel3setEiRKNS0_7Image2DE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl6Kernel3setEiRKNS_4UMatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl6Kernel3setEiRKNS0_9KernelArgE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl6Kernel3runEiPmS2_bRKNS0_5QueueE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i1 noundef zeroext %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %5) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl6Kernel7runTaskEbRKNS0_5QueueE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZN2cv3ocl6Kernel12runProfilingEiPmS2_RKNS0_5QueueE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Kernel13workGroupSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Kernel29preferedWorkGroupSizeMultipleEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl6Kernel20compileWorkGroupSizeEPm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl6Kernel12localMemSizeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1205,7 +1199,7 @@ define void @_ZN2cv3ocl7ProgramC2Ev(ptr noundef nonnull writeonly align 8 captur
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7ProgramC2ERKNS0_13ProgramSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !40
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1238,7 +1232,7 @@ define void @_ZN2cv3ocl7ProgramD2Ev(ptr nonnull readnone align 8 captures(none) 
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl7Program6createERKNS0_13ProgramSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSA_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %3) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1249,37 +1243,37 @@ define noalias noundef ptr @_ZNK2cv3ocl7Program3ptrEv(ptr noundef nonnull readno
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl7Program9getBinaryERSt6vectorIcSaIcEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(none) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl7Program4readERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv3ocl7Program5writeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl7Program6sourceEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl7Program9getPrefixB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Program9getPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1336,25 +1330,25 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl13ProgramSource
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2cv3ocl13ProgramSource6sourceB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl13ProgramSource4hashEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl13ProgramSource10fromBinaryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PKhmS9_(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::ProgramSource") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %5) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl13ProgramSource8fromSPIRERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_PKhmS9_(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::ProgramSource") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %2, ptr noundef readnone captures(none) %3, i64 noundef %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %5) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1367,7 +1361,7 @@ define void @_ZN2cv3ocl12PlatformInfoC2Ev(ptr noundef nonnull writeonly align 8 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl12PlatformInfoC2EPv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr readnone captures(none) %1) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !46
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1400,97 +1394,97 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl12PlatformInfoa
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl12PlatformInfo4nameB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl12PlatformInfo6vendorB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl12PlatformInfo7versionB5cxx11Ev(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv3ocl12PlatformInfo12deviceNumberEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl12PlatformInfo9getDeviceERNS0_6DeviceEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZN2cv3ocl14convertTypeStrEiiiPc(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZN2cv3ocl9typeToStrEi(i32 noundef %0) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZN2cv3ocl14memopTypeToStrEi(i32 noundef %0) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZN2cv3ocl14vecopTypeToStrEi(i32 noundef %0) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZN2cv3ocl20getOpenCLErrorStringEi(i32 noundef %0) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl11kernelToStrB5cxx11ERKNS_11_InputArrayEiPKc(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl15getPlatfomsInfoERSt6vectorINS0_12PlatformInfoESaIS2_EE(ptr noundef nonnull readnone align 1 captures(none) %0) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl25predictOptimalVectorWidthERKNS_11_InputArrayES3_S3_S3_S3_S3_S3_S3_S3_NS0_17OclVectorStrategyE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %8, i32 noundef %9) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl23checkOptimalVectorWidthEPKiRKNS_11_InputArrayES5_S5_S5_S5_S5_S5_S5_S5_NS0_17OclVectorStrategyE(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %9, i32 noundef %10) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv3ocl28predictOptimalVectorWidthMaxERKNS_11_InputArrayES3_S3_S3_S3_S3_S3_S3_S3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %8) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl32buildOptionsAddMatrixDescriptionERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS6_RKNS_11_InputArrayE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1502,14 +1496,14 @@ define void @_ZN2cv3ocl7Image2DC2Ev(ptr noundef nonnull writeonly align 8 captur
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Image2DC2ERKNS_4UMatEbb(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i1 zeroext %2, i1 zeroext %3) unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl7Image2DC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !49
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1536,13 +1530,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv3ocl7Image2DaSEOS1_
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl7Image2D14canCreateAliasERKNS_4UMatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv3ocl7Image2D17isFormatSupportedEiib(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1564,19 +1558,19 @@ define void @_ZN2cv3ocl5TimerD2Ev(ptr nonnull readnone align 8 captures(none) %0
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl5Timer5startEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl5Timer4stopEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv3ocl5Timer10durationNSEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1587,25 +1581,25 @@ define noalias noundef ptr @_ZN2cv3ocl18getOpenCLAllocatorEv() local_unnamed_add
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl8internal12ProgramEntrycvRNS0_13ProgramSourceEEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl22OpenCLExecutionContext10getContextEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl22OpenCLExecutionContext9getDeviceEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2cv3ocl22OpenCLExecutionContext8getQueueEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1626,13 +1620,13 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3ocl22OpenCLExecut
   br i1 %2, label %3, label %_ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit, !prof !18
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #16
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #15
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl22OpenCLExecutionContextD2Ev, ptr nonnull @_ZZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy, ptr nonnull @__dso_handle) #16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #16
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl22OpenCLExecutionContextD2Ev, ptr nonnull @_ZZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy, ptr nonnull @__dso_handle) #15
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #15
   br label %_ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit
 
 _ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit: ; preds = %0, %3, %5
@@ -1646,13 +1640,13 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv3ocl22OpenCLExecut
   br i1 %2, label %3, label %_ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit, !prof !18
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #16
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #15
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl22OpenCLExecutionContextD2Ev, ptr nonnull @_ZZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy, ptr nonnull @__dso_handle) #16
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #16
+  %6 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2cv3ocl22OpenCLExecutionContextD2Ev, ptr nonnull @_ZZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy, ptr nonnull @__dso_handle) #15
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cv3oclL30getDummyOpenCLExecutionContextEvE5dummy) #15
   br label %_ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit
 
 _ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit: ; preds = %0, %3, %5
@@ -1661,37 +1655,37 @@ _ZN2cv3oclL30getDummyOpenCLExecutionContextEv.exit: ; preds = %0, %3, %5
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl22OpenCLExecutionContext4bindEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl22OpenCLExecutionContext17cloneWithNewQueueERKNS0_5QueueE(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::OpenCLExecutionContext") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv3ocl22OpenCLExecutionContext17cloneWithNewQueueEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::OpenCLExecutionContext") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl22OpenCLExecutionContext6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvSA_SA_(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::OpenCLExecutionContext") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl22OpenCLExecutionContext6createERKNS0_7ContextERKNS0_6DeviceERKNS0_5QueueE(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::OpenCLExecutionContext") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %3) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv3ocl22OpenCLExecutionContext6createERKNS0_7ContextERKNS0_6DeviceE(ptr dead_on_unwind noalias readnone sret(%"class.cv::ocl::OpenCLExecutionContext") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
-  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #14
+  tail call fastcc void @_ZN2cv3oclL12throw_no_oclEv() #13
   unreachable
 }
 
@@ -1731,11 +1725,11 @@ define linkonce_odr hidden void @_ZN2cv3ocl22OpenCLExecutionContextD2Ev(ptr noun
   %11 = load ptr, ptr %3, align 8, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   %14 = load ptr, ptr %3, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt12__shared_ptrIN2cv3ocl22OpenCLExecutionContext4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -1758,7 +1752,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt12__shared_ptrIN2cv3ocl22OpenCLExecutionContext4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !64
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
   br label %_ZNSt12__shared_ptrIN2cv3ocl22OpenCLExecutionContext4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv3ocl22OpenCLExecutionContext4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %24
@@ -1770,7 +1764,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = load ptr, ptr %0, align 8, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %.not.i = icmp eq i8 %6, 0
@@ -1795,7 +1789,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -1808,11 +1802,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -1826,11 +1817,10 @@ attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { noreturn }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

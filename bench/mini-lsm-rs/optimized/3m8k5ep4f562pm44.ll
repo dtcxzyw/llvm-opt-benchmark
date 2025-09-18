@@ -802,9 +802,6 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys6commo
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h2ea195162978bfb0E.llvm.15938600225882126526.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h2ea195162978bfb0E.llvm.15938600225882126526.exit": ; preds = %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17ha968210a7773f52fE.llvm.15938600225882126526.exit", %13, %21
-  %22 = load i64, ptr %0, align 8, !range !41, !noundef !21
-  %23 = icmp ne i64 %22, 0
-  tail call void @llvm.assume(i1 %23)
   ret ptr %10
 }
 
@@ -855,9 +852,6 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 
 "_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$core..cell..Cell$LT$core..option..Option$LT$crossbeam_channel..context..Context$GT$$GT$$GT$$GT$17hac9169a766c96064E.llvm.15938600225882126526.exit": ; preds = %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h8d6232f623c6a60cE.llvm.15938600225882126526.exit", %15, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %19 = load i64, ptr %0, align 8, !range !41, !noundef !21
-  %20 = icmp ne i64 %19, 0
-  call void @llvm.assume(i1 %20)
   ret ptr %10
 }
 

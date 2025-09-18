@@ -489,7 +489,7 @@ define hidden noundef i32 @_ZN2cv7barcode12patternMatchERKNS0_7CounterERKSt6vect
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = icmp eq i64 %11, %18
-  br i1 %19, label %30, label %20
+  br i1 %19, label %27, label %20
 
 20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -507,81 +507,74 @@ define hidden noundef i32 @_ZN2cv7barcode12patternMatchERKNS0_7CounterERKSt6vect
   %24 = load ptr, ptr %4, align 8, !tbaa !51
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = icmp eq ptr %24, %25
-  br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !55
-  %29 = icmp ult i64 %28, 16
-  call void @llvm.assume(i1 %29)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %26, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %22
   call void @_ZdlPv(ptr noundef %24) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %23
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load i32, ptr %31, align 8, !tbaa !40
+27:                                               ; preds = %3
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %29 = load i32, ptr %28, align 8, !tbaa !40
   %.not5.i.i = icmp eq ptr %15, %14
   br i1 %.not5.i.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %30, %.lr.ph.i.i
-  %.07.i.i = phi i32 [ %34, %.lr.ph.i.i ], [ 0, %30 ]
-  %.sroa.02.06.i.i = phi ptr [ %35, %.lr.ph.i.i ], [ %15, %30 ]
-  %33 = load i32, ptr %.sroa.02.06.i.i, align 4, !tbaa !34
-  %34 = add nsw i32 %33, %.07.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
-  %.not.i.i = icmp eq ptr %35, %14
-  br i1 %.not.i.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i, label %.lr.ph.i.i, !llvm.loop !56
+.lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
+  %.07.i.i = phi i32 [ %31, %.lr.ph.i.i ], [ 0, %27 ]
+  %.sroa.02.06.i.i = phi ptr [ %32, %.lr.ph.i.i ], [ %15, %27 ]
+  %30 = load i32, ptr %.sroa.02.06.i.i, align 4, !tbaa !34
+  %31 = add nsw i32 %30, %.07.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 4
+  %.not.i.i = icmp eq ptr %32, %14
+  br i1 %.not.i.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i, label %.lr.ph.i.i, !llvm.loop !55
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i, %30
-  %.0.lcssa.i.i = phi i32 [ 0, %30 ], [ %34, %.lr.ph.i.i ]
-  %36 = icmp slt i32 %32, %.0.lcssa.i.i
-  br i1 %36, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %37
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i: ; preds = %.lr.ph.i.i, %27
+  %.0.lcssa.i.i = phi i32 [ 0, %27 ], [ %31, %.lr.ph.i.i ]
+  %33 = icmp slt i32 %29, %.0.lcssa.i.i
+  br i1 %33, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %34
 
-37:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i
-  %38 = shl i32 %32, 8
-  %39 = sdiv i32 %38, %.0.lcssa.i.i
-  %40 = mul i32 %39, %2
-  %41 = lshr i32 %40, 8
+34:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i
+  %35 = shl i32 %29, 8
+  %36 = sdiv i32 %35, %.0.lcssa.i.i
+  %37 = mul i32 %36, %2
+  %38 = lshr i32 %37, 8
   %.not403.not.i = icmp eq ptr %7, %8
   br i1 %.not403.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %37, %51
-  %42 = phi i64 [ %54, %51 ], [ 0, %37 ]
-  %.0325.i = phi i32 [ %53, %51 ], [ 0, %37 ]
-  %.0334.i = phi i32 [ %52, %51 ], [ 0, %37 ]
-  %43 = getelementptr inbounds nuw i32, ptr %8, i64 %42
+.lr.ph.i:                                         ; preds = %34, %48
+  %39 = phi i64 [ %51, %48 ], [ 0, %34 ]
+  %.0325.i = phi i32 [ %50, %48 ], [ 0, %34 ]
+  %.0334.i = phi i32 [ %49, %48 ], [ 0, %34 ]
+  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !34
+  %42 = shl i32 %41, 8
+  %43 = getelementptr inbounds nuw i32, ptr %15, i64 %39
   %44 = load i32, ptr %43, align 4, !tbaa !34
-  %45 = shl i32 %44, 8
-  %46 = getelementptr inbounds nuw i32, ptr %15, i64 %42
-  %47 = load i32, ptr %46, align 4, !tbaa !34
-  %48 = mul nsw i32 %47, %39
-  %49 = sub nsw i32 %45, %48
-  %50 = tail call i32 @llvm.abs.i32(i32 %49, i1 true)
-  %.not.i = icmp samesign ugt i32 %50, %41
-  br i1 %.not.i, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %51
+  %45 = mul nsw i32 %44, %36
+  %46 = sub nsw i32 %42, %45
+  %47 = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
+  %.not.i = icmp samesign ugt i32 %47, %38
+  br i1 %.not.i, label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit, label %48
 
-51:                                               ; preds = %.lr.ph.i
-  %52 = add i32 %50, %.0334.i
-  %53 = add i32 %.0325.i, 1
-  %54 = zext i32 %53 to i64
-  %.not40.i = icmp ugt i64 %12, %54
-  br i1 %.not40.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !57
+48:                                               ; preds = %.lr.ph.i
+  %49 = add i32 %47, %.0334.i
+  %50 = add i32 %.0325.i, 1
+  %51 = zext i32 %50 to i64
+  %.not40.i = icmp ugt i64 %12, %51
+  br i1 %.not40.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !56
 
-._crit_edge.i:                                    ; preds = %51, %37
-  %.033.lcssa.i = phi i32 [ 0, %37 ], [ %52, %51 ]
-  %55 = udiv i32 %.033.lcssa.i, %32
+._crit_edge.i:                                    ; preds = %48, %34
+  %.033.lcssa.i = phi i32 [ 0, %34 ], [ %49, %48 ]
+  %52 = udiv i32 %.033.lcssa.i, %29
   br label %_ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit
 
 _ZN2cv7barcodeL20patternMatchVarianceERKNS0_7CounterERKSt6vectorIiSaIiEEj.exit: ; preds = %.lr.ph.i, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i, %._crit_edge.i
-  %.0.i = phi i32 [ 255, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i ], [ %55, %._crit_edge.i ], [ 255, %.lr.ph.i ]
+  %.0.i = phi i32 [ 255, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiET0_T_S9_S8_.exit.i ], [ %52, %._crit_edge.i ], [ 255, %.lr.ph.i ]
   ret i32 %.0.i
 }
 
@@ -710,6 +703,5 @@ attributes #18 = { nounwind }
 !52 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !53, i64 0, !54, i64 8, !7, i64 16}
 !53 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !47, i64 0}
 !54 = !{!"long", !7, i64 0}
-!55 = !{!52, !54, i64 8}
+!55 = distinct !{!55, !13}
 !56 = distinct !{!56, !13}
-!57 = distinct !{!57, !13}

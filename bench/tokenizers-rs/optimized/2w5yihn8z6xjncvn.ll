@@ -10882,16 +10882,10 @@ define { ptr, ptr } @"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokeni
 
 6:                                                ; preds = %2
   %7 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h50dabca46d39d26dE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  br label %11
+  br label %8
 
-8:                                                ; preds = %2
-  %9 = extractvalue { ptr, ptr } %3, 1
-  %10 = icmp ne ptr %9, null
-  tail call void @llvm.assume(i1 %10)
-  br label %11
-
-11:                                               ; preds = %8, %6
-  %.merged = phi { ptr, ptr } [ %7, %6 ], [ %3, %8 ]
+8:                                                ; preds = %2, %6
+  %.merged = phi { ptr, ptr } [ %7, %6 ], [ %3, %2 ]
   ret { ptr, ptr } %.merged
 }
 

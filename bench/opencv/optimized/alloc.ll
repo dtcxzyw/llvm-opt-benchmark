@@ -67,7 +67,7 @@ define noundef ptr @_ZN2cv10fastMallocEm(i64 noundef %0) local_unnamed_addr #6 p
   br i1 %5, label %6, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit, !prof !3
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit, label %8
 
@@ -78,7 +78,7 @@ define noundef ptr @_ZN2cv10fastMallocEm(i64 noundef %0) local_unnamed_addr #6 p
 _ZN2cvL28readMemoryAlignmentParameterEv.exit.i:   ; preds = %8
   %10 = zext i1 %9 to i8
   store i8 %10, ptr @_ZZN2cvL26isAlignedAllocationEnabledEvE11useMemalign, align 1, !tbaa !4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   br label %_ZN2cvL26isAlignedAllocationEnabledEv.exit
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %11
@@ -88,18 +88,18 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   br label %common.resume
 
 _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %6, %_ZN2cvL28readMemoryAlignmentParameterEv.exit.i
   %13 = load i8, ptr @_ZZN2cvL26isAlignedAllocationEnabledEvE11useMemalign, align 1, !tbaa !4, !range !8, !noundef !9
   %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %15, label %29
+  br i1 %14, label %15, label %26
 
 15:                                               ; preds = %_ZN2cvL26isAlignedAllocationEnabledEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !10
-  %16 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 64, i64 noundef %0) #16
+  %16 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef 64, i64 noundef %0) #15
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %.thread
 
@@ -110,12 +110,12 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %6, %_ZN2cvL28re
 17:                                               ; preds = %15
   %.pr = load ptr, ptr %3, align 8, !tbaa !10
   %.not12 = icmp eq ptr %.pr, null
-  br i1 %.not12, label %18, label %28
+  br i1 %.not12, label %18, label %25
 
 18:                                               ; preds = %.thread, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.3, i64 noundef %0)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cvL16OutOfMemoryErrorEm, ptr noundef nonnull @.str.4, i32 noundef 73) #17
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cvL16OutOfMemoryErrorEm, ptr noundef nonnull @.str.4, i32 noundef 73) #16
           to label %19 unwind label %20
 
 19:                                               ; preds = %18
@@ -127,49 +127,42 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %6, %_ZN2cvL28re
   %22 = load ptr, ptr %2, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = icmp eq ptr %22, %23
-  br i1 %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !17
-  %27 = icmp ult i64 %26, 16
-  call void @llvm.assume(i1 %27)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %20
-  call void @_ZdlPv(ptr noundef %22) #18
+  call void @_ZdlPv(ptr noundef %22) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %common.resume
 
-28:                                               ; preds = %17
+25:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %40
+  br label %37
 
-29:                                               ; preds = %_ZN2cvL26isAlignedAllocationEnabledEv.exit
-  %30 = add i64 %0, 72
-  %31 = tail call noalias ptr @malloc(i64 noundef %30) #19
-  %.not = icmp eq ptr %31, null
-  br i1 %.not, label %32, label %33
+26:                                               ; preds = %_ZN2cvL26isAlignedAllocationEnabledEv.exit
+  %27 = add i64 %0, 72
+  %28 = tail call noalias ptr @malloc(i64 noundef %27) #18
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %29, label %30
 
-32:                                               ; preds = %29
+29:                                               ; preds = %26
   tail call fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0)
   unreachable
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = add i64 %35, 63
-  %37 = and i64 %36, -64
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 -8
-  store ptr %31, ptr %39, align 8, !tbaa !18
-  br label %40
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = add i64 %32, 63
+  %34 = and i64 %33, -64
+  %35 = inttoptr i64 %34 to ptr
+  %36 = getelementptr inbounds i8, ptr %35, i64 -8
+  store ptr %28, ptr %36, align 8, !tbaa !17
+  br label %37
 
-40:                                               ; preds = %33, %28
-  %.1 = phi ptr [ %.pr, %28 ], [ %38, %33 ]
+37:                                               ; preds = %30, %25
+  %.1 = phi ptr [ %.pr, %25 ], [ %35, %30 ]
   ret ptr %.1
 }
 
@@ -181,7 +174,7 @@ define internal fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0) unnamed
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull @.str.3, i64 noundef %0)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cvL16OutOfMemoryErrorEm, ptr noundef nonnull @.str.4, i32 noundef 73) #17
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -4, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__func__._ZN2cvL16OutOfMemoryErrorEm, ptr noundef nonnull @.str.4, i32 noundef 73) #16
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
@@ -193,20 +186,13 @@ define internal fastcc void @_ZN2cvL16OutOfMemoryErrorEm(i64 noundef %0) unnamed
   %6 = load ptr, ptr %2, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = icmp eq ptr %6, %7
-  br i1 %8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !17
-  %11 = icmp ult i64 %10, 16
-  call void @llvm.assume(i1 %11)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %4
-  call void @_ZdlPv(ptr noundef %6) #18
+  call void @_ZdlPv(ptr noundef %6) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %5
 }
@@ -221,7 +207,7 @@ define void @_ZN2cv8fastFreeEPv(ptr noundef captures(address_is_null) %0) local_
   br i1 %3, label %4, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit, !prof !3
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit, label %6
 
@@ -232,13 +218,13 @@ define void @_ZN2cv8fastFreeEPv(ptr noundef captures(address_is_null) %0) local_
 _ZN2cvL28readMemoryAlignmentParameterEv.exit.i:   ; preds = %6
   %8 = zext i1 %7 to i8
   store i8 %8, ptr @_ZZN2cvL26isAlignedAllocationEnabledEvE11useMemalign, align 1, !tbaa !4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   br label %_ZN2cvL26isAlignedAllocationEnabledEv.exit
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   resume { ptr, i32 } %10
 
 _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %4, %_ZN2cvL28readMemoryAlignmentParameterEv.exit.i
@@ -252,12 +238,12 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit:       ; preds = %1, %4, %_ZN2cvL28re
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %0, i64 -8
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN2cvL26isAlignedAllocationEnabledEv.exit, %14
   %.sink = phi ptr [ %16, %14 ], [ %0, %_ZN2cvL26isAlignedAllocationEnabledEv.exit ]
-  tail call void @free(ptr noundef %.sink) #16
+  tail call void @free(ptr noundef %.sink) #15
   br label %17
 
 17:                                               ; preds = %.sink.split, %13
@@ -280,7 +266,7 @@ define void @cvFree_(ptr noundef captures(address_is_null) %0) local_unnamed_add
   br i1 %3, label %4, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit.i, !prof !3
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN2cvL26isAlignedAllocationEnabledEv.exit.i, label %6
 
@@ -291,13 +277,13 @@ define void @cvFree_(ptr noundef captures(address_is_null) %0) local_unnamed_add
 _ZN2cvL28readMemoryAlignmentParameterEv.exit.i.i: ; preds = %6
   %8 = zext i1 %7 to i8
   store i8 %8, ptr @_ZZN2cvL26isAlignedAllocationEnabledEvE11useMemalign, align 1, !tbaa !4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   br label %_ZN2cvL26isAlignedAllocationEnabledEv.exit.i
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   resume { ptr, i32 } %10
 
 _ZN2cvL26isAlignedAllocationEnabledEv.exit.i:     ; preds = %_ZN2cvL28readMemoryAlignmentParameterEv.exit.i.i, %4, %1
@@ -311,12 +297,12 @@ _ZN2cvL26isAlignedAllocationEnabledEv.exit.i:     ; preds = %_ZN2cvL28readMemory
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds i8, ptr %0, i64 -8
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %_ZN2cvL26isAlignedAllocationEnabledEv.exit.i
   %.sink.i = phi ptr [ %16, %14 ], [ %0, %_ZN2cvL26isAlignedAllocationEnabledEv.exit.i ]
-  tail call void @free(ptr noundef %.sink.i) #16
+  tail call void @free(ptr noundef %.sink.i) #15
   br label %_ZN2cv8fastFreeEPv.exit
 
 _ZN2cv8fastFreeEPv.exit:                          ; preds = %13, %.sink.split.i
@@ -325,7 +311,7 @@ _ZN2cv8fastFreeEPv.exit:                          ; preds = %13, %.sink.split.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN2cv5utils12_GLOBAL__N_119AllocatorStatisticsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
 
@@ -390,14 +376,14 @@ declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_alloc.cpp() #14 section ".text.startup" personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv5utils12_GLOBAL__N_119AllocatorStatisticsE, i64 16), ptr @_ZN2cvL15allocator_statsE, align 8, !tbaa !19
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #15
+  store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN2cv5utils12_GLOBAL__N_119AllocatorStatisticsE, i64 16), ptr @_ZN2cvL15allocator_statsE, align 8, !tbaa !18
   %2 = load atomic i8, ptr @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %__cxx_global_var_init.2.exit, !prof !3
 
 4:                                                ; preds = %0
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %__cxx_global_var_init.2.exit, label %6
 
@@ -408,13 +394,13 @@ define internal void @_GLOBAL__sub_I_alloc.cpp() #14 section ".text.startup" per
 _ZN2cvL28readMemoryAlignmentParameterEv.exit.i.i: ; preds = %6
   %8 = zext i1 %7 to i8
   store i8 %8, ptr @_ZZN2cvL26isAlignedAllocationEnabledEvE11useMemalign, align 1, !tbaa !4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   br label %__cxx_global_var_init.2.exit
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #16
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN2cvL26isAlignedAllocationEnabledEvE11useMemalign) #15
   resume { ptr, i32 } %10
 
 __cxx_global_var_init.2.exit:                     ; preds = %0, %4, %_ZN2cvL28readMemoryAlignmentParameterEv.exit.i.i
@@ -429,9 +415,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -448,11 +431,10 @@ attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(argm
 attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #14 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn }
-attributes #18 = { builtin nounwind }
-attributes #19 = { nounwind allocsize(0) }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -473,7 +455,6 @@ attributes #19 = { nounwind allocsize(0) }
 !14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !15, i64 0}
 !15 = !{!"p1 omnipotent char", !11, i64 0}
 !16 = !{!"long", !6, i64 0}
-!17 = !{!13, !16, i64 8}
-!18 = !{!15, !15, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"vtable pointer", !7, i64 0}
+!17 = !{!15, !15, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"vtable pointer", !7, i64 0}

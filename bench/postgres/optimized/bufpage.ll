@@ -93,11 +93,11 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @DataChecksumsEnabled() #12
+  %7 = tail call zeroext i1 @DataChecksumsEnabled() #11
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #12
+  %9 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i16, ptr %10, align 4
   %.not34 = icmp ne i16 %9, %11
@@ -247,17 +247,17 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %.not37, label %85, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  %77 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %77, label %78, label %85
 
 78:                                               ; preds = %76
-  %79 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %79 = tail call i32 @errcode(i32 noundef 16779816) #11
   %80 = zext i16 %.0 to i32
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load i16, ptr %81, align 4
   %83 = zext i16 %82 to i32
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %80, i32 noundef %83) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.PageIsVerifiedExtended) #12
+  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %80, i32 noundef %83) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.PageIsVerifiedExtended) #11
   br label %85
 
 85:                                               ; preds = %76, %78, %74
@@ -266,7 +266,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %.not38, label %88, label %87
 
 87:                                               ; preds = %85
-  tail call void @pgstat_report_checksum_failure() #12
+  tail call void @pgstat_report_checksum_failure() #11
   br label %88
 
 88:                                               ; preds = %87, %85
@@ -322,9 +322,8 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br i1 %or.cond90, label %18, label %30
 
 18:                                               ; preds = %13, %9, %5
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #12
+  %20 = tail call i32 @errcode(i32 noundef 16779816) #11
   %21 = load i16, ptr %6, align 4
   %22 = zext i16 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -333,8 +332,8 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i32
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22, i32 noundef %25, i32 noundef %28) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.PageAddItemExtended) #12
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %22, i32 noundef %25, i32 noundef %28) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 207, ptr noundef nonnull @__func__.PageAddItemExtended) #11
   unreachable
 
 30:                                               ; preds = %13
@@ -367,12 +366,12 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br i1 %or.cond91, label %.loopexit, label %46
 
 46:                                               ; preds = %41
-  %47 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  %47 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %47, label %48, label %101
 
 48:                                               ; preds = %46
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 225, ptr noundef nonnull @__func__.PageAddItemExtended) #12
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 225, ptr noundef nonnull @__func__.PageAddItemExtended) #11
   br label %101
 
 50:                                               ; preds = %38
@@ -420,12 +419,12 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br i1 %62, label %63, label %.thread94
 
 63:                                               ; preds = %.loopexit
-  %64 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  %64 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %64, label %65, label %101
 
 65:                                               ; preds = %63
-  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.PageAddItemExtended) #12
+  %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 282, ptr noundef nonnull @__func__.PageAddItemExtended) #11
   br label %101
 
 .thread94:                                        ; preds = %51, %.loopexit
@@ -440,12 +439,12 @@ define dso_local zeroext range(i16 0, 16379) i16 @PageAddItemExtended(ptr nounde
   br i1 %or.cond, label %72, label %76
 
 72:                                               ; preds = %.thread94
-  %73 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #12
+  %73 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
   br i1 %73, label %74, label %101
 
 74:                                               ; preds = %72
-  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 289, ptr noundef nonnull @__func__.PageAddItemExtended) #12
+  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 289, ptr noundef nonnull @__func__.PageAddItemExtended) #11
   br label %101
 
 76:                                               ; preds = %.thread94
@@ -507,7 +506,7 @@ define dso_local ptr @PageGetTempPage(ptr noundef readonly captures(none) %0) lo
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
   %4 = zext i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #12
+  %5 = tail call ptr @palloc(i64 noundef %4) #11
   ret ptr %5
 }
 
@@ -519,7 +518,7 @@ define dso_local ptr @PageGetTempPageCopy(ptr noundef readonly captures(none) %0
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
   %4 = zext i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #12
+  %5 = tail call ptr @palloc(i64 noundef %4) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %0, i64 %4, i1 false)
   ret ptr %5
 }
@@ -530,7 +529,7 @@ define dso_local ptr @PageGetTempPageCopySpecial(ptr noundef readonly captures(n
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
   %4 = zext i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #12
+  %5 = tail call ptr @palloc(i64 noundef %4) #11
   %6 = getelementptr i8, ptr %0, i64 16
   %.val12 = load i16, ptr %6, align 4
   %.val13 = load i16, ptr %2, align 2
@@ -597,7 +596,7 @@ define dso_local void @PageRestoreTempPage(ptr noundef %0, ptr noundef writeonly
   %4 = and i16 %.val, -256
   %5 = zext i16 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %0, i64 %5, i1 false)
-  tail call void @pfree(ptr noundef %0) #12
+  tail call void @pfree(ptr noundef %0) #11
   ret void
 }
 
@@ -635,11 +634,10 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %17, %14, %1
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %11) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 720, ptr noundef nonnull @__func__.PageRepairFragmentation) #12
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %23 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %5, i32 noundef %8, i32 noundef %11) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 720, ptr noundef nonnull @__func__.PageRepairFragmentation) #11
   unreachable
 
 25:                                               ; preds = %17
@@ -693,13 +691,12 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
 
 49:                                               ; preds = %39
   %50 = getelementptr inbounds nuw i8, ptr %.082105, i64 2
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %52 = tail call i32 @errcode(i32 noundef 16779816) #11
   %53 = load i16, ptr %50, align 2
   %54 = sext i16 %53 to i32
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %54) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.PageRepairFragmentation) #12
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %54) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.PageRepairFragmentation) #11
   unreachable
 
 56:                                               ; preds = %39
@@ -759,12 +756,11 @@ define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) lo
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %77
-  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %82)
-  %83 = call i32 @errcode(i32 noundef 16779816) #12
+  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %83 = call i32 @errcode(i32 noundef 16779816) #11
   %84 = trunc i64 %.073.lcssa to i32
-  %85 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %84, i32 noundef %78) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 779, ptr noundef nonnull @__func__.PageRepairFragmentation) #12
+  %85 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %84, i32 noundef %78) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 779, ptr noundef nonnull @__func__.PageRepairFragmentation) #11
   unreachable
 
 86:                                               ; preds = %77
@@ -1287,9 +1283,8 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   br i1 %.not, label %31, label %19
 
 19:                                               ; preds = %15, %10, %6, %2
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %21 = tail call i32 @errcode(i32 noundef 16779816) #11
   %22 = load i16, ptr %3, align 4
   %23 = zext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1298,8 +1293,8 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1063, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1063, ptr noundef nonnull @__func__.PageIndexTupleDelete) #11
   unreachable
 
 31:                                               ; preds = %15
@@ -1315,10 +1310,9 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
 
 38:                                               ; preds = %31
   %39 = zext i16 %1 to i32
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %39) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1067, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %39) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1067, ptr noundef nonnull @__func__.PageIndexTupleDelete) #11
   unreachable
 
 42:                                               ; preds = %31
@@ -1346,11 +1340,10 @@ define dso_local void @PageIndexTupleDelete(ptr noundef captures(none) %0, i16 n
   br i1 %.not72, label %63, label %59
 
 59:                                               ; preds = %56, %52, %42
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %49, i32 noundef %47) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1082, ptr noundef nonnull @__func__.PageIndexTupleDelete) #12
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %61 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %49, i32 noundef %47) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1082, ptr noundef nonnull @__func__.PageIndexTupleDelete) #11
   unreachable
 
 63:                                               ; preds = %56
@@ -1487,11 +1480,10 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   br i1 %.not, label %35, label %31
 
 31:                                               ; preds = %27, %24, %21
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef %14) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %33 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %8, i32 noundef %11, i32 noundef %14) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1198, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
   unreachable
 
 35:                                               ; preds = %27
@@ -1534,11 +1526,10 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   br i1 %.not102, label %57, label %53
 
 53:                                               ; preds = %49, %41
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %46, i32 noundef %45) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1223, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %55 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %46, i32 noundef %45) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1223, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
   unreachable
 
 57:                                               ; preds = %49
@@ -1596,10 +1587,9 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   br i1 %84, label %87, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %35, %._crit_edge
-  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %85)
-  %86 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1250, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %86 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1250, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
   unreachable
 
 87:                                               ; preds = %._crit_edge
@@ -1609,12 +1599,11 @@ define dso_local void @PageIndexMultiDelete(ptr noundef captures(none) %0, ptr n
   br i1 %90, label %91, label %96
 
 91:                                               ; preds = %87
-  %92 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %92)
-  %93 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %92 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %93 = tail call i32 @errcode(i32 noundef 16779816) #11
   %94 = trunc i64 %.185 to i32
-  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %94, i32 noundef %88) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1256, ptr noundef nonnull @__func__.PageIndexMultiDelete) #12
+  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %94, i32 noundef %88) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1256, ptr noundef nonnull @__func__.PageIndexMultiDelete) #11
   unreachable
 
 96:                                               ; preds = %87
@@ -1672,9 +1661,8 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   br i1 %.not, label %31, label %19
 
 19:                                               ; preds = %15, %10, %6, %2
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %21 = tail call i32 @errcode(i32 noundef 16779816) #11
   %22 = load i16, ptr %3, align 4
   %23 = zext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1683,8 +1671,8 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i16, ptr %27, align 4
   %29 = zext i16 %28 to i32
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %23, i32 noundef %26, i32 noundef %29) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #11
   unreachable
 
 31:                                               ; preds = %15
@@ -1701,10 +1689,9 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
 
 39:                                               ; preds = %31
   %40 = zext i16 %1 to i32
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %40) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %40) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #11
   unreachable
 
 43:                                               ; preds = %31
@@ -1732,11 +1719,10 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) 
   br i1 %.not67, label %64, label %60
 
 60:                                               ; preds = %57, %53, %43
-  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %61)
-  %62 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %50, i32 noundef %48) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1320, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #12
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %62 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %50, i32 noundef %48) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1320, ptr noundef nonnull @__func__.PageIndexTupleDeleteNoCompact) #11
   unreachable
 
 64:                                               ; preds = %57
@@ -1846,9 +1832,8 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   br i1 %.not, label %33, label %21
 
 21:                                               ; preds = %17, %12, %8, %4
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 16779816) #12
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %23 = tail call i32 @errcode(i32 noundef 16779816) #11
   %24 = load i16, ptr %5, align 4
   %25 = zext i16 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 14
@@ -1857,8 +1842,8 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i16, ptr %29, align 4
   %31 = zext i16 %30 to i32
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %28, i32 noundef %31) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1416, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %25, i32 noundef %28, i32 noundef %31) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1416, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #11
   unreachable
 
 33:                                               ; preds = %17
@@ -1875,10 +1860,9 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 
 41:                                               ; preds = %33
   %42 = zext i16 %1 to i32
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %42) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %42) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1420, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #11
   unreachable
 
 45:                                               ; preds = %33
@@ -1904,11 +1888,10 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
   br i1 %.not77, label %65, label %61
 
 61:                                               ; preds = %57, %45
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 16779816) #12
-  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %50) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #12
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %63 = tail call i32 @errcode(i32 noundef 16779816) #11
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %51, i32 noundef %50) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.PageIndexTupleOverwrite) #11
   unreachable
 
 65:                                               ; preds = %57
@@ -1992,7 +1975,7 @@ define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: add
   br i1 %4, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @DataChecksumsEnabled() #12
+  %6 = tail call zeroext i1 @DataChecksumsEnabled() #11
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %5
@@ -2002,14 +1985,14 @@ define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: add
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @TopMemoryContext, align 8
-  %12 = tail call ptr @MemoryContextAllocAligned(ptr noundef %11, i64 noundef 8192, i64 noundef 4096, i32 noundef 0) #12
+  %12 = tail call ptr @MemoryContextAllocAligned(ptr noundef %11, i64 noundef 8192, i64 noundef 4096, i32 noundef 0) #11
   store ptr %12, ptr @PageSetChecksumCopy.pageCopy, align 8
   br label %13
 
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %12, %10 ], [ %8, %7 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %14, ptr noundef nonnull align 1 dereferenceable(8192) %0, i64 8192, i1 false)
-  %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %14, i32 noundef %1) #12
+  %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %14, i32 noundef %1) #11
   %16 = load ptr, ptr @PageSetChecksumCopy.pageCopy, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %15, ptr %17, align 4
@@ -2030,11 +2013,11 @@ define dso_local void @PageSetChecksumInplace(ptr noundef %0, i32 noundef %1) lo
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @DataChecksumsEnabled() #12
+  %6 = tail call zeroext i1 @DataChecksumsEnabled() #11
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #12
+  %8 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %0, i32 noundef %1) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %8, ptr %9, align 4
   br label %10
@@ -2049,17 +2032,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2071,10 +2051,9 @@ attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

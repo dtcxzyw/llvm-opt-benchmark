@@ -11908,8 +11908,6 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option
   br i1 %4, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit", label %5
 
 5:                                                ; preds = %1, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit"
-  %6 = phi i1 [ true, %1 ], [ %7, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit" ]
-  tail call void @llvm.assume(i1 %6)
   ret ptr %0
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit": ; preds = %1
@@ -11917,8 +11915,6 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option
   call void @"_ZN75_$LT$gpui..style..TextStyleRefinement$u20$as$u20$core..default..Default$GT$7default17h1b13b3ade9f768b8E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %2, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.pre = load i64, ptr %0, align 8, !range !2347
-  %7 = icmp ne i64 %.pre, 3
   br label %5
 }
 
@@ -12264,14 +12260,14 @@ define hidden void @_ZN4gpui6styled6Styled13text_ellipsis17he3ef5bb490b34693E(pt
   %6 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h30f3289b38f39b67E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #31
-          to label %17 unwind label %15
+          to label %15 unwind label %13
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3219)
   %9 = load i64, ptr %8, align 8, !range !2347, !alias.scope !3219, !noundef !46
   %10 = icmp eq i64 %9, 3
-  br i1 %10, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit.i", label %12
+  br i1 %10, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit.i", label %11
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit.i": ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3219
@@ -12281,25 +12277,21 @@ define hidden void @_ZN4gpui6styled6Styled13text_ellipsis17he3ef5bb490b34693E(pt
 .noexc:                                           ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17hc71fe0b18713a3f1E.llvm.14043690149999047724.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, ptr noundef nonnull align 8 dereferenceable(160) %3, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3219
-  %.pre.i = load i64, ptr %8, align 8, !range !2347, !alias.scope !3219
-  %11 = icmp ne i64 %.pre.i, 3
-  br label %12
+  br label %11
 
-12:                                               ; preds = %.noexc, %7
-  %13 = phi i1 [ true, %7 ], [ %11, %.noexc ]
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 237
-  store i8 1, ptr %14, align 1
+11:                                               ; preds = %.noexc, %7
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 237
+  store i8 1, ptr %12, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %0, ptr noundef nonnull align 8 dereferenceable(720) %1, i64 720, i1 false)
   ret void
 
-15:                                               ; preds = %5
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %5
+  %14 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
   unreachable
 
-17:                                               ; preds = %5
+15:                                               ; preds = %5
   resume { ptr, i32 } %6
 }
 

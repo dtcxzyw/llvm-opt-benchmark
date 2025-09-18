@@ -155,14 +155,10 @@ default.unreachable:                              ; preds = %2
 
 19:                                               ; preds = %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h39093bb7f84fff17E.llvm.3849484896252022153.exit.i"
   call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ef64d88aacf993cE.llvm.8684371289217427975"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16), !noalias !30
-  %.pre.i = load i64, ptr %0, align 8, !range !36, !noalias !30
-  %20 = icmp ne i64 %.pre.i, 0
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit"
 
 "_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit": ; preds = %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h39093bb7f84fff17E.llvm.3849484896252022153.exit.i", %19
-  %21 = phi i1 [ true, %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h39093bb7f84fff17E.llvm.3849484896252022153.exit.i" ], [ %20, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !30
-  call void @llvm.assume(i1 %21)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h1c14f662561fd376E.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h1c14f662561fd376E.exit": ; preds = %2, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit"
@@ -215,7 +211,7 @@ default.unreachable:                              ; preds = %2
   store i64 1, ptr %0, align 8, !noalias !38
   store ptr %.0.i.i, ptr %14, align 8, !noalias !38
   %16 = icmp eq i64 %13, 0
-  br i1 %16, label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit", label %17
+  br i1 %16, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h31c7068b20889d90E.exit", label %17
 
 17:                                               ; preds = %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i"
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 2080
@@ -227,20 +223,14 @@ default.unreachable:                              ; preds = %2
   %23 = icmp eq i64 %19, 0
   %24 = icmp eq i64 %21, 1
   %or.cond.i.i.i.i.i = and i1 %23, %24
-  br i1 %or.cond.i.i.i.i.i, label %25, label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit"
+  br i1 %or.cond.i.i.i.i.i, label %25, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h31c7068b20889d90E.exit"
 
 25:                                               ; preds = %17
   tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hd225ab3da20dad9cE(ptr noundef nonnull align 8 %15), !noalias !45
-  br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit"
-
-"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit": ; preds = %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i", %17, %25
-  %26 = load i64, ptr %0, align 8, !range !36, !noalias !38, !noundef !11
-  %27 = icmp ne i64 %26, 0
-  tail call void @llvm.assume(i1 %27)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h31c7068b20889d90E.exit"
 
-"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h31c7068b20889d90E.exit": ; preds = %2, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit"
-  %.0 = phi ptr [ %14, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit" ], [ null, %2 ]
+"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h31c7068b20889d90E.exit": ; preds = %25, %17, %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i", %2
+  %.0 = phi ptr [ null, %2 ], [ %14, %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i" ], [ %14, %17 ], [ %14, %25 ]
   ret ptr %.0
 }
 
@@ -305,14 +295,10 @@ default.unreachable:                              ; preds = %6
 
 21:                                               ; preds = %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h39093bb7f84fff17E.llvm.3849484896252022153.exit.i.i"
   call void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7ef64d88aacf993cE.llvm.8684371289217427975"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18), !noalias !62
-  %.pre.i.i = load i64, ptr %0, align 8, !range !36, !noalias !62
-  %22 = icmp ne i64 %.pre.i.i, 0
   br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i"
 
 "_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i": ; preds = %21, %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h39093bb7f84fff17E.llvm.3849484896252022153.exit.i.i"
-  %23 = phi i1 [ true, %"_ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h39093bb7f84fff17E.llvm.3849484896252022153.exit.i.i" ], [ %22, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !62
-  call void @llvm.assume(i1 %23)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit"
 
 "_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hd0ffc9b095270f0cE.llvm.1533238098547642317.exit": ; preds = %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h0586d09cebdc4b41E.exit.i", %6, %2
@@ -371,7 +357,7 @@ default.unreachable:                              ; preds = %5
   store i64 1, ptr %0, align 8, !noalias !73
   store ptr %.0.i.i.i, ptr %4, align 8, !noalias !73
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i", label %19
+  br i1 %18, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit", label %19
 
 19:                                               ; preds = %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i.i"
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 2080
@@ -383,20 +369,14 @@ default.unreachable:                              ; preds = %5
   %25 = icmp eq i64 %21, 0
   %26 = icmp eq i64 %23, 1
   %or.cond.i.i.i.i.i.i = and i1 %25, %26
-  br i1 %or.cond.i.i.i.i.i.i, label %27, label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i"
+  br i1 %or.cond.i.i.i.i.i.i, label %27, label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit"
 
 27:                                               ; preds = %19
   tail call void @_ZN15crossbeam_epoch8internal5Local8finalize17hd225ab3da20dad9cE(ptr noundef nonnull align 8 %17), !noalias !74
-  br label %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i"
-
-"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i": ; preds = %27, %19, %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i.i"
-  %28 = load i64, ptr %0, align 8, !range !36, !noalias !73, !noundef !11
-  %29 = icmp ne i64 %28, 0
-  tail call void @llvm.assume(i1 %29)
   br label %"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit"
 
-"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit": ; preds = %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i", %5, %2
-  %.0 = phi ptr [ %4, %2 ], [ %4, %"_ZN3std3sys6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h3ec88125a67883b3E.exit.i" ], [ null, %5 ]
+"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17he6fc582a07496eb2E.llvm.1533238098547642317.exit": ; preds = %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i.i", %19, %27, %5, %2
+  %.0 = phi ptr [ %4, %2 ], [ null, %5 ], [ %4, %27 ], [ %4, %19 ], [ %4, %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17he57c0a3aee6cd8b6E.llvm.3849484896252022153.exit.i.i" ]
   ret ptr %.0
 }
 

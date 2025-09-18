@@ -50,10 +50,10 @@ zend_string_alloc.exit14:
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
+  %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %7 = and i64 %6, -8
   %8 = add i64 %7, 32
-  %9 = call noalias ptr @_emalloc(i64 noundef %8) #9
+  %9 = call noalias ptr @_emalloc(i64 noundef %8) #8
   store i32 1, ptr %9, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 22, ptr %10, align 4, !tbaa !9
@@ -69,10 +69,10 @@ zend_string_alloc.exit14:
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 262, ptr %15, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
+  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %18 = and i64 %17, -8
   %19 = add i64 %18, 32
-  %20 = call noalias ptr @_emalloc(i64 noundef %19) #9
+  %20 = call noalias ptr @_emalloc(i64 noundef %19) #8
   store i32 1, ptr %20, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 22, ptr %21, align 4, !tbaa !9
@@ -90,63 +90,61 @@ zend_string_alloc.exit14:
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
-  %28 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #10
-  %29 = icmp eq i32 %28, 0
-  call void @llvm.assume(i1 %29)
-  %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47, !range !58, !noundef !59
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %34
+  %28 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #9
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47, !range !58, !noundef !59
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %zend_string_alloc.exit14
+31:                                               ; preds = %zend_string_alloc.exit14
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %33, align 8, !tbaa !9
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %32, align 8, !tbaa !9
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
-34:                                               ; preds = %zend_string_alloc.exit14
+33:                                               ; preds = %zend_string_alloc.exit14
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %35 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 192), ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #11
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %37, label %39
+  %34 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 192), ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %3, ptr noundef null) #10
+  %35 = icmp eq i32 %34, -1
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %34
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %38, align 8, !tbaa !9
-  br label %44
+36:                                               ; preds = %33
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %37, align 8, !tbaa !9
+  br label %43
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %41 = load i8, ptr %40, align 8, !tbaa !9
-  %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %44
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %40 = load i8, ptr %39, align 8, !tbaa !9
+  %41 = icmp eq i8 %40, 0
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %39
-  store i32 1, ptr %40, align 8, !tbaa !9
-  br label %44
+42:                                               ; preds = %38
+  store i32 1, ptr %39, align 8, !tbaa !9
+  br label %43
 
-44:                                               ; preds = %43, %39, %37
+43:                                               ; preds = %42, %38, %36
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %44
-  %indvars.iv.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %45 = getelementptr inbounds nuw %struct._zval_struct, ptr %3, i64 %indvars.iv.i
-  call void @zval_ptr_dtor(ptr noundef nonnull %45) #11
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %43
+  %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %3, i64 %indvars.iv.i
+  call void @zval_ptr_dtor(ptr noundef nonnull %44) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
-ps_call_handler.exit:                             ; preds = %.lr.ph.i, %32
+ps_call_handler.exit:                             ; preds = %.lr.ph.i, %31
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !60
-  %46 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
+  %45 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %46
+  ret i32 %45
 }
 
 ; Function Attrs: nounwind uwtable
@@ -162,9 +160,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr readnone captures(none) %0
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !14
-  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #10
-  %.not = icmp eq i32 %8, 0
-  call void @llvm.assume(i1 %.not)
+  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #9
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47, !range !58, !noundef !59
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %13
@@ -173,17 +169,17 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr readnone captures(none) %0
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8, !tbaa !9
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %24
 
 13:                                               ; preds = %6
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %14 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 208), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #11
+  %14 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 208), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %17, align 8, !tbaa !9
   br label %23
@@ -207,7 +203,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr readnone captures(none) %0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 344), align 8, !tbaa !60
   %25 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %2)
-  call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   br label %26
 
 26:                                               ; preds = %1, %24
@@ -245,17 +241,17 @@ define hidden range(i32 -1, 1) i32 @ps_read_user(ptr readnone captures(none) %0,
 
 ps_call_handler.exit.thread:                      ; preds = %13
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %36
 
 17:                                               ; preds = %13
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 224), ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #11
+  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 224), ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #10
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %21, align 8, !tbaa !9
   br label %ps_call_handler.exit
@@ -272,7 +268,7 @@ ps_call_handler.exit.thread:                      ; preds = %13
 
 ps_call_handler.exit:                             ; preds = %20, %22, %26
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !9
   switch i8 %.pre, label %35 [
@@ -300,7 +296,7 @@ zend_string_copy.exit:                            ; preds = %27, %32
 
 35:                                               ; preds = %ps_call_handler.exit, %zend_string_copy.exit
   %.1 = phi i32 [ 0, %zend_string_copy.exit ], [ -1, %ps_call_handler.exit ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   br label %36
 
 36:                                               ; preds = %ps_call_handler.exit.thread, %ps_call_handler.exit, %35
@@ -359,17 +355,17 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr readnone captures(none) %0
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %27, align 8, !tbaa !9
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 28:                                               ; preds = %22
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %29 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #11
+  %29 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
   %30 = icmp eq i32 %29, -1
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %32, align 8, !tbaa !9
   br label %38
@@ -391,14 +387,14 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr readnone captures(none) %0
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i
-  call void @zval_ptr_dtor(ptr noundef nonnull %39) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %39) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %26
   %40 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %6)
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %40
@@ -435,17 +431,17 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr readnone captures(none) %
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %16, align 8, !tbaa !9
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 17:                                               ; preds = %11
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 256), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #11
+  %18 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 256), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %21, align 8, !tbaa !9
   br label %.lr.ph.i
@@ -462,12 +458,12 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr readnone captures(none) %
 
 .lr.ph.i:                                         ; preds = %26, %22, %20
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %15
   %27 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %27
@@ -488,17 +484,17 @@ define hidden i64 @ps_gc_user(ptr readnone captures(none) %0, i64 noundef %1, pt
 
 ps_call_handler.exit.thread:                      ; preds = %3
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %21
 
 9:                                                ; preds = %3
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 272), ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #11
+  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 272), ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %4, ptr noundef null) #10
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %13, align 8, !tbaa !9
   br label %ps_call_handler.exit
@@ -515,7 +511,7 @@ ps_call_handler.exit.thread:                      ; preds = %3
 
 ps_call_handler.exit:                             ; preds = %12, %14, %18
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !9
   switch i8 %.pre, label %21 [
@@ -555,17 +551,17 @@ ps_call_handler.exit.thread:                      ; preds = %5
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %8, align 8, !tbaa !9
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %25
 
 9:                                                ; preds = %5
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 288), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #11
+  %10 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 288), ptr noundef nonnull %2, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %ps_call_handler.exit.thread8, label %13
 
 ps_call_handler.exit.thread8:                     ; preds = %9
-  call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8, !tbaa !9
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
@@ -602,16 +598,16 @@ ps_call_handler.exit:                             ; preds = %13
   br label %zend_string_copy.exit.thread
 
 zend_string_copy.exit.thread:                     ; preds = %17, %22
-  call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
   br label %27
 
 25:                                               ; preds = %ps_call_handler.exit.thread8, %ps_call_handler.exit.thread
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #11
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.2) #10
   br label %27
 
 26:                                               ; preds = %ps_call_handler.exit, %ps_call_handler.exit.thread7
-  call void @zval_ptr_dtor(ptr noundef nonnull %2) #11
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.3) #10
   br label %27
 
 27:                                               ; preds = %zend_string_copy.exit.thread, %26, %25
@@ -620,7 +616,7 @@ zend_string_copy.exit.thread:                     ; preds = %17, %22
   br label %30
 
 28:                                               ; preds = %1
-  %29 = tail call ptr @php_session_create_id(ptr noundef %0) #11
+  %29 = tail call ptr @php_session_create_id(ptr noundef %0) #10
   br label %30
 
 30:                                               ; preds = %28, %27
@@ -664,17 +660,17 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8, !tbaa !9
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 20:                                               ; preds = %14
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %21 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 304), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #11
+  %21 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 304), ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %3, ptr noundef null) #10
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %24, align 8, !tbaa !9
   br label %.lr.ph.i
@@ -691,18 +687,18 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
 
 .lr.ph.i:                                         ; preds = %29, %25, %23
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  call void @zval_ptr_dtor(ptr noundef nonnull %3) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %3) #10
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %18
   %30 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %4)
-  call void @zval_ptr_dtor(ptr noundef nonnull %4) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %33
 
 31:                                               ; preds = %2
-  %32 = tail call i32 @php_session_validate_sid(ptr noundef %0, ptr noundef %1) #11
+  %32 = tail call i32 @php_session_validate_sid(ptr noundef %0, ptr noundef %1) #10
   br label %33
 
 33:                                               ; preds = %31, %ps_call_handler.exit
@@ -762,12 +758,12 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
 
 29:                                               ; preds = %28
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %30 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 320), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #11
+  %30 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 320), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %33, align 8, !tbaa !9
   br label %39
@@ -789,7 +785,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %39
   %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %40 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i
-  call void @zval_ptr_dtor(ptr noundef nonnull %40) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %40) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %ps_call_handler.exit, label %.lr.ph.i
@@ -799,12 +795,12 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
 
 42:                                               ; preds = %41
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
-  %43 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #11
+  %43 = call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ps_globals, i64 240), ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %42
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %46, align 8, !tbaa !9
   br label %52
@@ -826,7 +822,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %52
   %indvars.iv.i16 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
   %53 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i16
-  call void @zval_ptr_dtor(ptr noundef nonnull %53) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %53) #10
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 2
   br i1 %exitcond.not.i18, label %ps_call_handler.exit, label %.lr.ph.i15
@@ -835,12 +831,12 @@ ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 436), align 4, !tbaa !47
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %54, align 8, !tbaa !9
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #11
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
 
 ps_call_handler.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i15, %ps_call_handler.exit.sink.split
   %55 = call fastcc i32 @verify_bool_return_type_userland_calls(ptr noundef %6)
-  call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %55
@@ -878,8 +874,8 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br i1 %.not11, label %8, label %18
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %0) #11
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.5, ptr noundef %9) #11
+  %9 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %0) #10
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.5, ptr noundef %9) #10
   br label %18
 
 10:                                               ; preds = %4
@@ -888,8 +884,8 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br i1 %.not10, label %12, label %18
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %0) #11
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.5, ptr noundef %13) #11
+  %13 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %0) #10
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.5, ptr noundef %13) #10
   br label %18
 
 14:                                               ; preds = %4, %1
@@ -898,8 +894,8 @@ define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_ca
   br i1 %.not, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %0) #11
-  tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.5, ptr noundef %17) #11
+  %17 = tail call ptr @zend_zval_value_name(ptr noundef nonnull %0) #10
+  tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.5, ptr noundef %17) #10
   br label %18
 
 .fold.split:                                      ; preds = %1
@@ -936,9 +932,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -946,11 +939,10 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind returns_twice }
-attributes #11 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind returns_twice }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

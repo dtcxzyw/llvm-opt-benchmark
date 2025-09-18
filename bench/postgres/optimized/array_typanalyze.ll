@@ -24,26 +24,25 @@ define dso_local range(i64 0, 2) i64 @array_typanalyze(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call zeroext i1 @std_typanalyze(ptr noundef %4) #7
+  %5 = tail call zeroext i1 @std_typanalyze(ptr noundef %4) #6
   br i1 %5, label %6, label %51
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 @get_base_element_type(i32 noundef %8) #7
+  %9 = tail call i32 @get_base_element_type(i32 noundef %8) #6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %12 = load i32, ptr %7, align 4
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %12) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.array_typanalyze) #7
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %12) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 118, ptr noundef nonnull @__func__.array_typanalyze) #6
   unreachable
 
 14:                                               ; preds = %6
-  %15 = tail call ptr @lookup_type_cache(i32 noundef %9, i32 noundef 193) #7
+  %15 = tail call ptr @lookup_type_cache(i32 noundef %9, i32 noundef 193) #6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8
   %.not33 = icmp eq i32 %17, 0
@@ -64,7 +63,7 @@ define dso_local range(i64 0, 2) i64 @array_typanalyze(ptr noundef readonly capt
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 168
-  %27 = tail call ptr @palloc(i64 noundef 56) #7
+  %27 = tail call ptr @palloc(i64 noundef 56) #6
   %28 = load i32, ptr %15, align 8
   store i32 %28, ptr %27, align 8
   %29 = load i32, ptr %16, align 8
@@ -148,7 +147,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   store ptr %20, ptr %17, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3) #7
+  tail call void %22(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3) #6
   store ptr %18, ptr %17, align 8
   store ptr %18, ptr @array_extra_data, align 8
   %23 = load i32, ptr %0, align 8
@@ -167,7 +166,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %31, ptr %32, align 8
   %33 = sext i32 %24 to i64
-  %34 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef %33, ptr noundef nonnull %6, i32 noundef 1224) #7
+  %34 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef %33, ptr noundef nonnull %6, i32 noundef 1224) #6
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 4, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -175,7 +174,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %37 = load ptr, ptr @CurrentMemoryContext, align 8
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %37, ptr %38, align 8
-  %39 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef 64, ptr noundef nonnull %8, i32 noundef 1064) #7
+  %39 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef 64, ptr noundef nonnull %8, i32 noundef 1064) #6
   %40 = icmp sgt i32 %2, 0
   br i1 %40, label %.lr.ph277, label %.preheader256
 
@@ -209,28 +208,28 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @vacuum_delay_point(i1 noundef zeroext true) #7
-  %48 = call i64 %1(ptr noundef nonnull %0, i32 noundef %.0228271, ptr noundef nonnull %9) #7
+  call void @vacuum_delay_point(i1 noundef zeroext true) #6
+  %48 = call i64 %1(ptr noundef nonnull %0, i32 noundef %.0228271, ptr noundef nonnull %9) #6
   %49 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %145, label %51
 
 51:                                               ; preds = %47
-  %52 = call i64 @toast_raw_datum_size(i64 noundef %48) #7
+  %52 = call i64 @toast_raw_datum_size(i64 noundef %48) #6
   %53 = icmp ugt i64 %52, 65536
   br i1 %53, label %145, label %54
 
 54:                                               ; preds = %51
   %55 = add i32 %.0223274, 1
   %56 = inttoptr i64 %48 to ptr
-  %57 = call ptr @pg_detoast_datum(ptr noundef %56) #7
+  %57 = call ptr @pg_detoast_datum(ptr noundef %56) #6
   %58 = load i32, ptr %18, align 8
   %59 = load i16, ptr %41, align 2
   %60 = sext i16 %59 to i32
   %61 = load i8, ptr %42, align 4, !range !4, !noundef !5
   %62 = trunc nuw i8 %61 to i1
   %63 = load i8, ptr %43, align 8
-  call void @deconstruct_array(ptr noundef %57, i32 noundef %58, i32 noundef %60, i1 noundef zeroext %62, i8 noundef signext %63, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #7
+  call void @deconstruct_array(ptr noundef %57, i32 noundef %58, i32 noundef %60, i1 noundef zeroext %62, i8 noundef signext %63, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #6
   %64 = load i32, ptr %10, align 4
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph, label %._crit_edge
@@ -253,7 +252,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8
   store i64 %73, ptr %15, align 8
-  %74 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %16) #7
+  %74 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %15, i32 noundef 1, ptr noundef nonnull %16) #6
   %75 = load i8, ptr %16, align 1, !range !4, !noundef !5
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %85
@@ -278,7 +277,7 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
   %88 = trunc nuw i8 %87 to i1
   %89 = load i16, ptr %41, align 2
   %90 = sext i16 %89 to i32
-  %91 = call i64 @datumCopy(i64 noundef %86, i1 noundef zeroext %88, i32 noundef %90) #7
+  %91 = call i64 @datumCopy(i64 noundef %86, i1 noundef zeroext %88, i32 noundef %90) #6
   store i64 %91, ptr %74, align 8
   %92 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 1, ptr %92, align 8
@@ -297,8 +296,8 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 100:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @hash_seq_init(ptr noundef nonnull %5, ptr noundef %34) #7
-  %101 = call ptr @hash_seq_search(ptr noundef nonnull %5) #7
+  call void @hash_seq_init(ptr noundef nonnull %5, ptr noundef %34) #6
+  %101 = call ptr @hash_seq_search(ptr noundef nonnull %5) #6
   %.not8.i = icmp eq ptr %101, null
   br i1 %.not8.i, label %prune_element_hashtable.exit, label %.lr.ph.i
 
@@ -314,15 +313,14 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 108:                                              ; preds = %.lr.ph.i
   %109 = load i64, ptr %102, align 8
-  %110 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %102, i32 noundef 2, ptr noundef null) #7
+  %110 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %102, i32 noundef 2, ptr noundef null) #6
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %108
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %113)
-  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 695, ptr noundef nonnull @__func__.prune_element_hashtable) #7
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 695, ptr noundef nonnull @__func__.prune_element_hashtable) #6
   unreachable
 
 115:                                              ; preds = %108
@@ -334,11 +332,11 @@ define internal void @compute_array_stats(ptr noundef %0, ptr noundef %1, i32 no
 
 120:                                              ; preds = %115
   %121 = inttoptr i64 %109 to ptr
-  call void @pfree(ptr noundef %121) #7
+  call void @pfree(ptr noundef %121) #6
   br label %122
 
 122:                                              ; preds = %120, %115, %.lr.ph.i
-  %123 = call ptr @hash_seq_search(ptr noundef nonnull %5) #7
+  %123 = call ptr @hash_seq_search(ptr noundef nonnull %5) #6
   %.not.i = icmp eq ptr %123, null
   br i1 %.not.i, label %prune_element_hashtable.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -371,7 +369,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %130 = sub i64 %.2231.lcssa, %.0229270
   %131 = trunc i64 %130 to i32
   store i32 %131, ptr %13, align 4
-  %132 = call ptr @hash_search(ptr noundef %39, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %14) #7
+  %132 = call ptr @hash_search(ptr noundef %39, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %14) #6
   %133 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %134 = trunc nuw i8 %133 to i1
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 4
@@ -390,14 +388,14 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br i1 %.not255, label %142, label %141
 
 141:                                              ; preds = %139
-  call void @pfree(ptr noundef %57) #7
+  call void @pfree(ptr noundef %57) #6
   br label %142
 
 142:                                              ; preds = %141, %139
   %143 = load ptr, ptr %11, align 8
-  call void @pfree(ptr noundef %143) #7
+  call void @pfree(ptr noundef %143) #6
   %144 = load ptr, ptr %12, align 8
-  call void @pfree(ptr noundef %144) #7
+  call void @pfree(ptr noundef %144) #6
   br label %145
 
 145:                                              ; preds = %51, %47, %142
@@ -432,10 +430,9 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   br i1 %151, label %.critedge.thread, label %154
 
 .critedge.thread:                                 ; preds = %150, %.critedge
-  %152 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %152)
-  %153 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.compute_array_stats) #7
+  %152 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %153 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.compute_array_stats) #6
   unreachable
 
 154:                                              ; preds = %.critedge
@@ -446,13 +443,13 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %157 = mul i64 %.0229.lcssa, 9
   %158 = sext i32 %26 to i64
   %159 = sdiv i64 %157, %158
-  %160 = call i64 @hash_get_num_entries(ptr noundef %34) #7
+  %160 = call i64 @hash_get_num_entries(ptr noundef %34) #6
   %161 = trunc i64 %160 to i32
   %sext = shl i64 %160, 32
   %162 = ashr exact i64 %sext, 29
-  %163 = call ptr @palloc(i64 noundef %162) #7
-  call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %34) #7
-  %164 = call ptr @hash_seq_search(ptr noundef nonnull %7) #7
+  %163 = call ptr @palloc(i64 noundef %162) #6
+  call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %34) #6
+  %164 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
   %.not253282 = icmp eq ptr %164, null
   br i1 %.not253282, label %._crit_edge288, label %.lr.ph287
 
@@ -482,7 +479,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.1241 = phi i32 [ %171, %170 ], [ %.0240283, %.lr.ph287 ]
   %.1236 = phi i64 [ %.0235., %170 ], [ %.0235284, %.lr.ph287 ]
   %.1234 = phi i64 [ %176, %170 ], [ %.0233285, %.lr.ph287 ]
-  %178 = call ptr @hash_seq_search(ptr noundef nonnull %7) #7
+  %178 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
   %.not253 = icmp eq ptr %178, null
   br i1 %.not253, label %._crit_edge288.loopexit, label %.lr.ph287, !llvm.loop !11
 
@@ -494,12 +491,12 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.0240.lcssa = phi i32 [ 0, %156 ], [ %.1241, %._crit_edge288.loopexit ]
   %.0235.lcssa = phi i64 [ %.0229.lcssa, %156 ], [ %.1236, %._crit_edge288.loopexit ]
   %.0233.lcssa = phi double [ 0.000000e+00, %156 ], [ %179, %._crit_edge288.loopexit ]
-  %180 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #7
+  %180 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #6
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %._crit_edge288
-  %182 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %24, i32 noundef %26, i64 noundef %.0229.lcssa, i32 noundef %161, i32 noundef %.0240.lcssa) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__func__.compute_array_stats) #7
+  %182 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %24, i32 noundef %26, i64 noundef %.0229.lcssa, i32 noundef %161, i32 noundef %.0240.lcssa) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__func__.compute_array_stats) #6
   br label %183
 
 183:                                              ; preds = %181, %._crit_edge288
@@ -508,7 +505,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 185:                                              ; preds = %183
   %186 = sext i32 %.0240.lcssa to i64
-  call void @qsort_interruptible(ptr noundef %163, i64 noundef %186, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #7
+  call void @qsort_interruptible(ptr noundef %163, i64 noundef %186, i64 noundef 8, ptr noundef nonnull @trackitem_compare_frequencies_desc, ptr noundef null) #6
   %187 = add i32 %24, -1
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds ptr, ptr %163, i64 %188
@@ -526,17 +523,17 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 196:                                              ; preds = %194
   %197 = zext nneg i32 %.0 to i64
-  call void @qsort_interruptible(ptr noundef %163, i64 noundef %197, i64 noundef 8, ptr noundef nonnull @trackitem_compare_element, ptr noundef null) #7
+  call void @qsort_interruptible(ptr noundef %163, i64 noundef %197, i64 noundef 8, ptr noundef nonnull @trackitem_compare_element, ptr noundef null) #6
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %199 = load ptr, ptr %198, align 8
   %200 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %199, ptr @CurrentMemoryContext, align 8
   %201 = shl nuw nsw i64 %197, 3
-  %202 = call ptr @palloc(i64 noundef %201) #7
+  %202 = call ptr @palloc(i64 noundef %201) #6
   %203 = add nuw i32 %.0, 3
   %204 = sext i32 %203 to i64
   %205 = shl nsw i64 %204, 2
-  %206 = call ptr @palloc(i64 noundef %205) #7
+  %206 = call ptr @palloc(i64 noundef %205) #6
   %207 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %208 = getelementptr inbounds nuw i8, ptr %18, i64 14
   %209 = uitofp nneg i32 %.0223.lcssa to double
@@ -551,7 +548,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %215 = trunc nuw i8 %214 to i1
   %216 = load i16, ptr %208, align 2
   %217 = sext i16 %216 to i32
-  %218 = call i64 @datumCopy(i64 noundef %213, i1 noundef zeroext %215, i32 noundef %217) #7
+  %218 = call i64 @datumCopy(i64 noundef %213, i1 noundef zeroext %215, i32 noundef %217) #6
   %219 = getelementptr inbounds nuw i64, ptr %202, i64 %indvars.iv314
   store i64 %218, ptr %219, align 8
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 8
@@ -633,7 +630,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 
 273:                                              ; preds = %226, %194
   %.1239 = phi i64 [ %272, %226 ], [ %indvars.iv310, %194 ]
-  %274 = call i64 @hash_get_num_entries(ptr noundef %39) #7
+  %274 = call i64 @hash_get_num_entries(ptr noundef %39) #6
   %275 = trunc i64 %274 to i32
   %276 = icmp sgt i32 %275, 0
   br i1 %276, label %277, label %341
@@ -643,9 +640,9 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %279 = call i32 @llvm.smax.i32(i32 %278, i32 2)
   %280 = and i64 %274, 2147483647
   %281 = shl nuw nsw i64 %280, 3
-  %282 = call ptr @palloc(i64 noundef %281) #7
-  call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %39) #7
-  %283 = call ptr @hash_seq_search(ptr noundef nonnull %7) #7
+  %282 = call ptr @palloc(i64 noundef %281) #6
+  call void @hash_seq_init(ptr noundef nonnull %7, ptr noundef %39) #6
+  %283 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
   %.not254293 = icmp eq ptr %283, null
   br i1 %.not254293, label %._crit_edge297, label %.lr.ph296
 
@@ -656,18 +653,18 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %286 = sext i32 %.0220294 to i64
   %287 = getelementptr inbounds ptr, ptr %282, i64 %286
   store ptr %284, ptr %287, align 8
-  %288 = call ptr @hash_seq_search(ptr noundef nonnull %7) #7
+  %288 = call ptr @hash_seq_search(ptr noundef nonnull %7) #6
   %.not254 = icmp eq ptr %288, null
   br i1 %.not254, label %._crit_edge297, label %.lr.ph296, !llvm.loop !13
 
 ._crit_edge297:                                   ; preds = %.lr.ph296, %277
-  call void @qsort_interruptible(ptr noundef %282, i64 noundef %280, i64 noundef 8, ptr noundef nonnull @countitem_compare_count, ptr noundef null) #7
+  call void @qsort_interruptible(ptr noundef %282, i64 noundef %280, i64 noundef 8, ptr noundef nonnull @countitem_compare_count, ptr noundef null) #6
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %290 = load ptr, ptr %289, align 8
   %291 = add nuw i32 %279, 1
   %292 = sext i32 %291 to i64
   %293 = shl nsw i64 %292, 2
-  %294 = call ptr @MemoryContextAlloc(ptr noundef %290, i64 noundef %293) #7
+  %294 = call ptr @MemoryContextAlloc(ptr noundef %290, i64 noundef %293) #6
   %295 = sitofp i64 %.0229.lcssa to double
   %296 = uitofp nneg i32 %.0223.lcssa to double
   %297 = fdiv double %295, %296
@@ -765,7 +762,7 @@ define internal i32 @element_hash(ptr noundef readonly captures(none) %0, i64 %1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = tail call i64 @FunctionCall1Coll(ptr noundef %6, i32 noundef %8, i64 noundef %3) #7
+  %9 = tail call i64 @FunctionCall1Coll(ptr noundef %6, i32 noundef %8, i64 noundef %3) #6
   %10 = trunc i64 %9 to i32
   ret i32 %10
 }
@@ -779,7 +776,7 @@ define internal i32 @element_match(ptr noundef readonly captures(none) %0, ptr n
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = tail call i64 @FunctionCall2Coll(ptr noundef %6, i32 noundef %8, i64 noundef %.val, i64 noundef %.val2) #7
+  %9 = tail call i64 @FunctionCall2Coll(ptr noundef %6, i32 noundef %8, i64 noundef %.val, i64 noundef %.val2) #6
   %10 = trunc i64 %9 to i32
   ret i32 %10
 }
@@ -831,7 +828,7 @@ define internal i32 @trackitem_compare_element(ptr noundef readonly captures(non
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call i64 @FunctionCall2Coll(ptr noundef %8, i32 noundef %10, i64 noundef %.val, i64 noundef %.val4) #7
+  %11 = tail call i64 @FunctionCall2Coll(ptr noundef %8, i32 noundef %10, i64 noundef %.val, i64 noundef %.val4) #6
   %12 = trunc i64 %11 to i32
   ret i32 %12
 }
@@ -858,30 +855,26 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #6
+declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #6
+declare i64 @llvm.smax.i64(i64, i64) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

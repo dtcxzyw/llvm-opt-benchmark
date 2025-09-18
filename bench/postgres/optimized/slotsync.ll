@@ -115,16 +115,15 @@ define dso_local nonnull ptr @CheckAndGetDbnameFromConninfo() local_unnamed_addr
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @PrimaryConnInfo, align 8
-  %5 = tail call ptr %3(ptr noundef %4) #15
+  %5 = tail call ptr %3(ptr noundef %4) #14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %0
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1028, ptr noundef nonnull @__func__.CheckAndGetDbnameFromConninfo) #15
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %9 = tail call i32 @errcode(i32 noundef 50856066) #14
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1028, ptr noundef nonnull @__func__.CheckAndGetDbnameFromConninfo) #14
   unreachable
 
 11:                                               ; preds = %0
@@ -149,11 +148,10 @@ define dso_local noundef zeroext i1 @ValidateSlotSyncParams(i32 noundef %0) loca
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1048, ptr noundef nonnull @__func__.ValidateSlotSyncParams) #15
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %6 = tail call i32 @errcode(i32 noundef 50856066) #14
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1048, ptr noundef nonnull @__func__.ValidateSlotSyncParams) #14
   unreachable
 
 8:                                                ; preds = %1
@@ -167,12 +165,12 @@ define dso_local noundef zeroext i1 @ValidateSlotSyncParams(i32 noundef %0) loca
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11, %8
-  %15 = tail call zeroext i1 @errstart(i32 noundef %0, ptr noundef null) #15
+  %15 = tail call zeroext i1 @errstart(i32 noundef %0, ptr noundef null) #14
   br i1 %15, label %16, label %.sink.split
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #15
+  %17 = tail call i32 @errcode(i32 noundef 50856066) #14
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #14
   br label %.sink.split.sink.split
 
 19:                                               ; preds = %11
@@ -181,12 +179,12 @@ define dso_local noundef zeroext i1 @ValidateSlotSyncParams(i32 noundef %0) loca
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @errstart(i32 noundef %0, ptr noundef null) #15
+  %23 = tail call zeroext i1 @errstart(i32 noundef %0, ptr noundef null) #14
   br i1 %23, label %24, label %.sink.split
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #15
+  %25 = tail call i32 @errcode(i32 noundef 50856066) #14
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #14
   br label %.sink.split.sink.split
 
 27:                                               ; preds = %19
@@ -200,17 +198,17 @@ define dso_local noundef zeroext i1 @ValidateSlotSyncParams(i32 noundef %0) loca
   br i1 %32, label %33, label %.sink.split
 
 33:                                               ; preds = %30, %27
-  %34 = tail call zeroext i1 @errstart(i32 noundef %0, ptr noundef null) #15
+  %34 = tail call zeroext i1 @errstart(i32 noundef %0, ptr noundef null) #14
   br i1 %34, label %35, label %.sink.split
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @errcode(i32 noundef 50856066) #15
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2) #15
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #14
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2) #14
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %16, %24, %35
   %.sink = phi i32 [ 1090, %35 ], [ 1076, %24 ], [ 1061, %16 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ValidateSlotSyncParams) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ValidateSlotSyncParams) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %22, %33, %.sink.split.sink.split, %30
@@ -227,10 +225,10 @@ define dso_local void @ReplSlotSyncWorkerMain(ptr noundef readnone captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 7, ptr @MyBackendType, align 4
-  call void @init_ps_display(ptr noundef null) #15
-  call void @InitProcess() #15
-  call void @BaseInit() #15
-  %6 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 1) #17
+  call void @init_ps_display(ptr noundef null) #14
+  call void @InitProcess() #14
+  call void @BaseInit() #14
+  %6 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 1) #16
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
@@ -239,67 +237,66 @@ define dso_local void @ReplSlotSyncWorkerMain(ptr noundef readnone captures(none
   %8 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %9 = add i32 %8, 1
   store volatile i32 %9, ptr @InterruptHoldoffCount, align 4
-  call void @EmitErrorReport() #15
-  call void @proc_exit(i32 noundef 0) #18
+  call void @EmitErrorReport() #14
+  call void @proc_exit(i32 noundef 0) #17
   unreachable
 
 10:                                               ; preds = %2
   store ptr %4, ptr @PG_exception_stack, align 8
-  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #15
-  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @SignalHandlerForShutdownRequest) #15
-  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #15
-  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull @FloatExceptionHandler) #15
-  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #15
-  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
-  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #15
-  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #15
+  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #14
+  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @SignalHandlerForShutdownRequest) #14
+  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #14
+  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull @FloatExceptionHandler) #14
+  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #14
+  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
+  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
+  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #14
   %11 = load i32, ptr @MyProcPid, align 4
   call fastcc void @check_and_set_sync_info(i32 noundef %11)
-  %12 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %12 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
-  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1401, ptr noundef nonnull @__func__.ReplSlotSyncWorkerMain) #15
+  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1401, ptr noundef nonnull @__func__.ReplSlotSyncWorkerMain) #14
   br label %15
 
 15:                                               ; preds = %13, %10
-  call void @before_shmem_exit(ptr noundef nonnull @slotsync_worker_onexit, i64 noundef 0) #15
-  call void @InitializeTimeouts() #15
-  call void @load_file(ptr noundef nonnull @.str.10, i1 noundef zeroext false) #15
-  %16 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #15
-  call void @SetConfigOption(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 5, i32 noundef 10) #15
+  call void @before_shmem_exit(ptr noundef nonnull @slotsync_worker_onexit, i64 noundef 0) #14
+  call void @InitializeTimeouts() #14
+  call void @load_file(ptr noundef nonnull @.str.10, i1 noundef zeroext false) #14
+  %16 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #14
+  call void @SetConfigOption(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 5, i32 noundef 10) #14
   %17 = load ptr, ptr @WalReceiverFunctions, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @PrimaryConnInfo, align 8
-  %21 = call ptr %19(ptr noundef %20) #15
+  %21 = call ptr %19(ptr noundef %20) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %CheckAndGetDbnameFromConninfo.exit
 
 23:                                               ; preds = %15
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %24)
-  %25 = call i32 @errcode(i32 noundef 50856066) #15
-  %26 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1028, ptr noundef nonnull @__func__.CheckAndGetDbnameFromConninfo) #15
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %25 = call i32 @errcode(i32 noundef 50856066) #14
+  %26 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1028, ptr noundef nonnull @__func__.CheckAndGetDbnameFromConninfo) #14
   unreachable
 
 CheckAndGetDbnameFromConninfo.exit:               ; preds = %15
-  call void @InitPostgres(ptr noundef nonnull %21, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null) #15
+  call void @InitPostgres(ptr noundef nonnull %21, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null) #14
   store i32 2, ptr @Mode, align 4
-  call void @initStringInfo(ptr noundef nonnull %5) #15
+  call void @initStringInfo(ptr noundef nonnull %5) #14
   %27 = load ptr, ptr @cluster_name, align 8
   %28 = load i8, ptr %27, align 1
   %.not6 = icmp eq i8 %28, 0
   br i1 %.not6, label %30, label %29
 
 29:                                               ; preds = %CheckAndGetDbnameFromConninfo.exit
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.13, ptr noundef nonnull %27, ptr noundef nonnull @.str.14) #15
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.13, ptr noundef nonnull %27, ptr noundef nonnull @.str.14) #14
   br label %31
 
 30:                                               ; preds = %CheckAndGetDbnameFromConninfo.exit
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #15
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.14) #14
   br label %31
 
 31:                                               ; preds = %30, %29
@@ -307,25 +304,24 @@ CheckAndGetDbnameFromConninfo.exit:               ; preds = %15
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @PrimaryConnInfo, align 8
   %35 = load ptr, ptr %5, align 8
-  %36 = call ptr %33(ptr noundef %34, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %35, ptr noundef nonnull %3) #15
+  %36 = call ptr %33(ptr noundef %34, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %35, ptr noundef nonnull %3) #14
   %37 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %37) #15
+  call void @pfree(ptr noundef %37) #14
   %.not7 = icmp eq ptr %36, null
   br i1 %.not7, label %38, label %44
 
 38:                                               ; preds = %31
-  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %39)
-  %40 = call i32 @errcode(i32 noundef 100663808) #15
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %40 = call i32 @errcode(i32 noundef 100663808) #14
   %41 = load ptr, ptr %5, align 8
   %42 = load ptr, ptr %3, align 8
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %41, ptr noundef %42) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1465, ptr noundef nonnull @__func__.ReplSlotSyncWorkerMain) #15
+  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %41, ptr noundef %42) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1465, ptr noundef nonnull @__func__.ReplSlotSyncWorkerMain) #14
   unreachable
 
 44:                                               ; preds = %31
   %45 = ptrtoint ptr %36 to i64
-  call void @before_shmem_exit(ptr noundef nonnull @slotsync_worker_disconnect, i64 noundef %45) #15
+  call void @before_shmem_exit(ptr noundef nonnull @slotsync_worker_disconnect, i64 noundef %45) #14
   call fastcc void @validate_remote_info(ptr noundef nonnull %36)
   br label %wait_for_slot_activity.exit
 
@@ -335,7 +331,7 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
   br i1 %.not.i, label %48, label %47, !prof !6
 
 47:                                               ; preds = %wait_for_slot_activity.exit
-  call void @ProcessInterrupts() #15
+  call void @ProcessInterrupts() #14
   br label %48
 
 48:                                               ; preds = %47, %wait_for_slot_activity.exit
@@ -344,16 +340,16 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
   br i1 %.not1.i, label %55, label %50
 
 50:                                               ; preds = %48
-  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1160, ptr noundef nonnull @__func__.ProcessSlotSyncInterrupts) #15
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1160, ptr noundef nonnull @__func__.ProcessSlotSyncInterrupts) #14
   br label %54
 
 54:                                               ; preds = %52, %50
-  call void @proc_exit(i32 noundef 0) #18
+  call void @proc_exit(i32 noundef 0) #17
   unreachable
 
 55:                                               ; preds = %48
@@ -363,34 +359,34 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr @PrimaryConnInfo, align 8
-  %59 = call ptr @pstrdup(ptr noundef %58) #15
+  %59 = call ptr @pstrdup(ptr noundef %58) #14
   %60 = load ptr, ptr @PrimarySlotName, align 8
-  %61 = call ptr @pstrdup(ptr noundef %60) #15
+  %61 = call ptr @pstrdup(ptr noundef %60) #14
   %62 = load i8, ptr @sync_replication_slots, align 1, !range !4, !noundef !5
   %63 = load i8, ptr @hot_standby_feedback, align 1, !range !4, !noundef !5
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2) #15
+  call void @ProcessConfigFile(i32 noundef 2) #14
   %64 = load ptr, ptr @PrimaryConnInfo, align 8
-  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %64) #19
+  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %64) #18
   %66 = load ptr, ptr @PrimarySlotName, align 8
-  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %66) #19
-  call void @pfree(ptr noundef nonnull %59) #15
-  call void @pfree(ptr noundef nonnull %61) #15
+  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %66) #18
+  call void @pfree(ptr noundef nonnull %59) #14
+  call void @pfree(ptr noundef nonnull %61) #14
   %68 = load i8, ptr @sync_replication_slots, align 1, !range !4, !noundef !5
   %.not.i.i = icmp eq i8 %62, %68
   br i1 %.not.i.i, label %74, label %69
 
 69:                                               ; preds = %57
-  %70 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %70 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1127, ptr noundef nonnull @__func__.slotsync_reread_config) #15
+  %72 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1127, ptr noundef nonnull @__func__.slotsync_reread_config) #14
   br label %73
 
 73:                                               ; preds = %71, %69
-  call void @proc_exit(i32 noundef 0) #18
+  call void @proc_exit(i32 noundef 0) #17
   unreachable
 
 74:                                               ; preds = %57
@@ -403,19 +399,19 @@ wait_for_slot_activity.exit:                      ; preds = %wait_for_slot_activ
   br i1 %or.cond9.i.i, label %ProcessSlotSyncInterrupts.exit, label %78
 
 78:                                               ; preds = %74
-  %79 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %79 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %78
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1136, ptr noundef nonnull @__func__.slotsync_reread_config) #15
+  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1136, ptr noundef nonnull @__func__.slotsync_reread_config) #14
   br label %82
 
 82:                                               ; preds = %80, %78
   %83 = load ptr, ptr @SlotSyncCtx, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 0, ptr %84, align 8
-  call void @proc_exit(i32 noundef 0) #18
+  call void @proc_exit(i32 noundef 0) #17
   unreachable
 
 ProcessSlotSyncInterrupts.exit:                   ; preds = %55, %74
@@ -432,7 +428,7 @@ ProcessSlotSyncInterrupts.exit:                   ; preds = %55, %74
   %storemerge.i = phi i64 [ %89, %86 ], [ 200, %ProcessSlotSyncInterrupts.exit ]
   store i64 %storemerge.i, ptr @sleep_ms, align 8
   %91 = load ptr, ptr @MyLatch, align 8
-  %92 = call i32 @WaitLatch(ptr noundef %91, i32 noundef 41, i64 noundef %storemerge.i, i32 noundef 83886090) #15
+  %92 = call i32 @WaitLatch(ptr noundef %91, i32 noundef 41, i64 noundef %storemerge.i, i32 noundef 83886090) #14
   %93 = and i32 %92, 1
   %.not.i8 = icmp eq i32 %93, 0
   br i1 %.not.i8, label %wait_for_slot_activity.exit.backedge, label %94
@@ -442,7 +438,7 @@ wait_for_slot_activity.exit.backedge:             ; preds = %90, %94
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %95) #15
+  call void @ResetLatch(ptr noundef %95) #14
   br label %wait_for_slot_activity.exit.backedge
 }
 
@@ -477,14 +473,14 @@ declare void @procsignal_sigusr1_handler(i32 noundef) #2
 define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @SlotSyncCtx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #15, !srcloc !7
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #14, !srcloc !7
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @SlotSyncCtx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, i32 noundef 1271, ptr noundef nonnull @__func__.check_and_set_sync_info) #15
+  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, i32 noundef 1271, ptr noundef nonnull @__func__.check_and_set_sync_info) #14
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -495,15 +491,14 @@ define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_add
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !8
   %15 = load ptr, ptr @SlotSyncCtx, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 0, ptr %16, align 8
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 325) #15
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1285, ptr noundef nonnull @__func__.check_and_set_sync_info) #15
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %18 = tail call i32 @errcode(i32 noundef 325) #14
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1285, ptr noundef nonnull @__func__.check_and_set_sync_info) #14
   unreachable
 
 20:                                               ; preds = %9
@@ -513,21 +508,20 @@ define internal fastcc void @check_and_set_sync_info(i32 noundef %0) unnamed_add
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %20
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
   %25 = load ptr, ptr @SlotSyncCtx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 0, ptr %26, align 8
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 325) #15
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1293, ptr noundef nonnull @__func__.check_and_set_sync_info) #15
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %28 = tail call i32 @errcode(i32 noundef 325) #14
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1293, ptr noundef nonnull @__func__.check_and_set_sync_info) #14
   unreachable
 
 30:                                               ; preds = %20
   store i8 1, ptr %21, align 1
   store i32 %0, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %31 = load ptr, ptr @SlotSyncCtx, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i8 0, ptr %32, align 8
@@ -544,21 +538,21 @@ define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @ReplicationSlotRelease() #15
+  tail call void @ReplicationSlotRelease() #14
   br label %5
 
 5:                                                ; preds = %4, %2
-  tail call void @ReplicationSlotCleanup(i1 noundef zeroext false) #15
+  tail call void @ReplicationSlotCleanup(i1 noundef zeroext false) #14
   %6 = load ptr, ptr @SlotSyncCtx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #15, !srcloc !7
+  %8 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %7, i8 1, ptr nonnull elementtype(i8) %7) #14, !srcloc !7
   %.not1 = icmp eq i8 %8, 0
   br i1 %.not1, label %13, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @SlotSyncCtx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = tail call i32 @s_lock(ptr noundef nonnull %11, ptr noundef nonnull @.str.3, i32 noundef 1207, ptr noundef nonnull @__func__.slotsync_worker_onexit) #15
+  %12 = tail call i32 @s_lock(ptr noundef nonnull %11, ptr noundef nonnull @.str.3, i32 noundef 1207, ptr noundef nonnull @__func__.slotsync_worker_onexit) #14
   br label %13
 
 13:                                               ; preds = %5, %9
@@ -574,7 +568,7 @@ define internal void @slotsync_worker_onexit(i32 %0, i64 %1) #0 {
   br label %17
 
 17:                                               ; preds = %13, %15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   %18 = load ptr, ptr @SlotSyncCtx, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i8 0, ptr %19, align 8
@@ -606,7 +600,7 @@ define internal void @slotsync_worker_disconnect(i32 %0, i64 noundef %1) #0 {
   %4 = load ptr, ptr @WalReceiverFunctions, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef %3) #15
+  tail call void %6(ptr noundef %3) #14
   ret void
 }
 
@@ -617,15 +611,15 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 68719476752, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @initStringInfo(ptr noundef nonnull %3) #15
+  call void @initStringInfo(ptr noundef nonnull %3) #14
   %4 = load ptr, ptr @PrimarySlotName, align 8
-  %5 = call ptr @quote_literal_cstr(ptr noundef %4) #15
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef %5) #15
-  %6 = call zeroext i1 @IsTransactionState() #15
+  %5 = call ptr @quote_literal_cstr(ptr noundef %4) #14
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.19, ptr noundef %5) #14
+  %6 = call zeroext i1 @IsTransactionState() #14
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %1
-  call void @StartTransactionCommand() #15
+  call void @StartTransactionCommand() #14
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -633,38 +627,36 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = call ptr %11(ptr noundef %0, ptr noundef %12, i32 noundef 2, ptr noundef nonnull %2) #15
+  %13 = call ptr %11(ptr noundef %0, ptr noundef %12, i32 noundef 2, ptr noundef nonnull %2) #14
   %14 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %14) #15
+  call void @pfree(ptr noundef %14) #14
   %15 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %15, 2
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %8
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %17)
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   %18 = load ptr, ptr @PrimarySlotName, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %18, ptr noundef %20) #15
-  %22 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 965, ptr noundef nonnull @__func__.validate_remote_info) #15
+  %21 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %18, ptr noundef %20) #14
+  %22 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.21) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 965, ptr noundef nonnull @__func__.validate_remote_info) #14
   unreachable
 
 23:                                               ; preds = %8
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @MakeSingleTupleTableSlot(ptr noundef %25, ptr noundef nonnull @TTSOpsMinimalTuple) #15
+  %26 = call ptr @MakeSingleTupleTableSlot(ptr noundef %25, ptr noundef nonnull @TTSOpsMinimalTuple) #14
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %28, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %26) #15
+  %29 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %28, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %26) #14
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %23
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %31)
-  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 970, ptr noundef nonnull @__func__.validate_remote_info) #15
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %32 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 970, ptr noundef nonnull @__func__.validate_remote_info) #14
   unreachable
 
 33:                                               ; preds = %23
@@ -674,7 +666,7 @@ define internal fastcc void @validate_remote_info(ptr noundef %0) unnamed_addr #
   br i1 %36, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %33
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef range(i32 1, 10) 1) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef range(i32 1, 10) 1) #14
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %33, %slot_getsomeattrs.exit.i
@@ -685,11 +677,10 @@ slot_getattr.exit:                                ; preds = %33, %slot_getsomeat
   br i1 %.not14, label %44, label %40
 
 40:                                               ; preds = %slot_getattr.exit
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 @errcode(i32 noundef 1088) #15
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 985, ptr noundef nonnull @__func__.validate_remote_info) #15
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %42 = call i32 @errcode(i32 noundef 1088) #14
+  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 985, ptr noundef nonnull @__func__.validate_remote_info) #14
   unreachable
 
 44:                                               ; preds = %slot_getattr.exit
@@ -698,7 +689,7 @@ slot_getattr.exit:                                ; preds = %33, %slot_getsomeat
   br i1 %46, label %slot_getsomeattrs.exit.i12, label %slot_getattr.exit13
 
 slot_getsomeattrs.exit.i12:                       ; preds = %44
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef range(i32 1, 10) 2) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %26, i32 noundef range(i32 1, 10) 2) #14
   %.pre = load ptr, ptr %37, align 8
   br label %slot_getattr.exit13
 
@@ -710,12 +701,11 @@ slot_getattr.exit13:                              ; preds = %44, %slot_getsomeat
   br i1 %.not15, label %50, label %55
 
 50:                                               ; preds = %slot_getattr.exit13
-  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %51)
-  %52 = call i32 @errcode(i32 noundef 50856066) #15
+  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %52 = call i32 @errcode(i32 noundef 50856066) #14
   %53 = load ptr, ptr @PrimarySlotName, align 8
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %53, ptr noundef nonnull @.str.6) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 995, ptr noundef nonnull @__func__.validate_remote_info) #15
+  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %53, ptr noundef nonnull @.str.6) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 995, ptr noundef nonnull @__func__.validate_remote_info) #14
   unreachable
 
 55:                                               ; preds = %slot_getattr.exit13
@@ -723,14 +713,14 @@ slot_getattr.exit13:                              ; preds = %44, %slot_getsomeat
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef nonnull %26) #15
+  call void %59(ptr noundef nonnull %26) #14
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not11.i = icmp eq ptr %61, null
   br i1 %.not11.i, label %63, label %62
 
 62:                                               ; preds = %55
-  call void @pfree(ptr noundef nonnull %61) #15
+  call void @pfree(ptr noundef nonnull %61) #14
   br label %63
 
 63:                                               ; preds = %62, %55
@@ -739,7 +729,7 @@ slot_getattr.exit13:                              ; preds = %44, %slot_getsomeat
   br i1 %.not12.i, label %66, label %65
 
 65:                                               ; preds = %63
-  call void @tuplestore_end(ptr noundef nonnull %64) #15
+  call void @tuplestore_end(ptr noundef nonnull %64) #14
   br label %66
 
 66:                                               ; preds = %65, %63
@@ -748,15 +738,15 @@ slot_getattr.exit13:                              ; preds = %44, %slot_getsomeat
   br i1 %.not13.i, label %walrcv_clear_result.exit, label %68
 
 68:                                               ; preds = %66
-  call void @FreeTupleDesc(ptr noundef nonnull %67) #15
+  call void @FreeTupleDesc(ptr noundef nonnull %67) #14
   br label %walrcv_clear_result.exit
 
 walrcv_clear_result.exit:                         ; preds = %66, %68
-  call void @pfree(ptr noundef nonnull %13) #15
+  call void @pfree(ptr noundef nonnull %13) #14
   br i1 %6, label %70, label %69
 
 69:                                               ; preds = %walrcv_clear_result.exit
-  call void @CommitTransactionCommand() #15
+  call void @CommitTransactionCommand() #14
   br label %70
 
 70:                                               ; preds = %69, %walrcv_clear_result.exit
@@ -772,38 +762,37 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
   %4 = alloca [9 x i32], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %4, ptr noundef nonnull align 16 dereferenceable(36) @__const.synchronize_slots.slotRow, i64 36, i1 false)
-  %5 = tail call zeroext i1 @IsTransactionState() #15
+  %5 = tail call zeroext i1 @IsTransactionState() #14
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @StartTransactionCommand() #15
+  tail call void @StartTransactionCommand() #14
   br label %7
 
 7:                                                ; preds = %6, %1
   %8 = load ptr, ptr @WalReceiverFunctions, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %10 = load ptr, ptr %9, align 8
-  %11 = call ptr %10(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 9, ptr noundef nonnull %4) #15
+  %11 = call ptr %10(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 9, ptr noundef nonnull %4) #14
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 2
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %7
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %14)
+  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %16) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 818, ptr noundef nonnull @__func__.synchronize_slots) #15
+  %17 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %16) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 818, ptr noundef nonnull @__func__.synchronize_slots) #14
   unreachable
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = call ptr @MakeSingleTupleTableSlot(ptr noundef %20, ptr noundef nonnull @TTSOpsMinimalTuple) #15
+  %21 = call ptr @MakeSingleTupleTableSlot(ptr noundef %20, ptr noundef nonnull @TTSOpsMinimalTuple) #14
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %21) #15
+  %24 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %23, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %21) #14
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
@@ -815,27 +804,27 @@ define internal fastcc zeroext i1 @synchronize_slots(ptr noundef %0) unnamed_add
 
 29:                                               ; preds = %.lr.ph, %129
   %.0101 = phi ptr [ null, %.lr.ph ], [ %.1, %129 ]
-  %30 = call ptr @palloc0(i64 noundef 56) #15
+  %30 = call ptr @palloc0(i64 noundef 56) #14
   %31 = load i16, ptr %25, align 2
   %32 = icmp slt i16 %31, 1
   br i1 %32, label %slot_getsomeattrs.exit.i, label %slot_getattr.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %29
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 1) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 1) #14
   br label %slot_getattr.exit
 
 slot_getattr.exit:                                ; preds = %29, %slot_getsomeattrs.exit.i
   %33 = load ptr, ptr %27, align 8
   %34 = load i64, ptr %33, align 8
   %35 = inttoptr i64 %34 to ptr
-  %36 = call ptr @text_to_cstring(ptr noundef %35) #15
+  %36 = call ptr @text_to_cstring(ptr noundef %35) #14
   store ptr %36, ptr %30, align 8
   %37 = load i16, ptr %25, align 2
   %38 = icmp slt i16 %37, 2
   br i1 %38, label %slot_getsomeattrs.exit.i69, label %slot_getattr.exit70
 
 slot_getsomeattrs.exit.i69:                       ; preds = %slot_getattr.exit
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 2) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 2) #14
   br label %slot_getattr.exit70
 
 slot_getattr.exit70:                              ; preds = %slot_getattr.exit, %slot_getsomeattrs.exit.i69
@@ -843,7 +832,7 @@ slot_getattr.exit70:                              ; preds = %slot_getattr.exit, 
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = inttoptr i64 %41 to ptr
-  %43 = call ptr @text_to_cstring(ptr noundef %42) #15
+  %43 = call ptr @text_to_cstring(ptr noundef %42) #14
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %43, ptr %44, align 8
   %45 = load i16, ptr %25, align 2
@@ -851,7 +840,7 @@ slot_getattr.exit70:                              ; preds = %slot_getattr.exit, 
   br i1 %46, label %slot_getsomeattrs.exit.i71, label %slot_getattr.exit72
 
 slot_getsomeattrs.exit.i71:                       ; preds = %slot_getattr.exit70
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 3) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 3) #14
   br label %slot_getattr.exit72
 
 slot_getattr.exit72:                              ; preds = %slot_getattr.exit70, %slot_getsomeattrs.exit.i71
@@ -870,7 +859,7 @@ slot_getattr.exit72:                              ; preds = %slot_getattr.exit70
   br i1 %56, label %slot_getsomeattrs.exit.i73, label %slot_getattr.exit74
 
 slot_getsomeattrs.exit.i73:                       ; preds = %slot_getattr.exit72
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 4) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 4) #14
   br label %slot_getattr.exit74
 
 slot_getattr.exit74:                              ; preds = %slot_getattr.exit72, %slot_getsomeattrs.exit.i73
@@ -889,7 +878,7 @@ slot_getattr.exit74:                              ; preds = %slot_getattr.exit72
   br i1 %66, label %slot_getsomeattrs.exit.i75, label %slot_getattr.exit76
 
 slot_getsomeattrs.exit.i75:                       ; preds = %slot_getattr.exit74
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 5) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 5) #14
   br label %slot_getattr.exit76
 
 slot_getattr.exit76:                              ; preds = %slot_getattr.exit74, %slot_getsomeattrs.exit.i75
@@ -909,7 +898,7 @@ slot_getattr.exit76:                              ; preds = %slot_getattr.exit74
   br i1 %78, label %slot_getsomeattrs.exit.i77, label %slot_getattr.exit78
 
 slot_getsomeattrs.exit.i77:                       ; preds = %slot_getattr.exit76
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 6) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 6) #14
   br label %slot_getattr.exit78
 
 slot_getattr.exit78:                              ; preds = %slot_getattr.exit76, %slot_getsomeattrs.exit.i77
@@ -925,7 +914,7 @@ slot_getattr.exit78:                              ; preds = %slot_getattr.exit76
   br i1 %86, label %slot_getsomeattrs.exit.i79, label %slot_getattr.exit80
 
 slot_getsomeattrs.exit.i79:                       ; preds = %slot_getattr.exit78
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 7) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 7) #14
   br label %slot_getattr.exit80
 
 slot_getattr.exit80:                              ; preds = %slot_getattr.exit78, %slot_getsomeattrs.exit.i79
@@ -941,7 +930,7 @@ slot_getattr.exit80:                              ; preds = %slot_getattr.exit78
   br i1 %94, label %slot_getsomeattrs.exit.i81, label %slot_getattr.exit82
 
 slot_getsomeattrs.exit.i81:                       ; preds = %slot_getattr.exit80
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 8) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 8) #14
   br label %slot_getattr.exit82
 
 slot_getattr.exit82:                              ; preds = %slot_getattr.exit80, %slot_getsomeattrs.exit.i81
@@ -949,7 +938,7 @@ slot_getattr.exit82:                              ; preds = %slot_getattr.exit80
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %97 = load i64, ptr %96, align 8
   %98 = inttoptr i64 %97 to ptr
-  %99 = call ptr @text_to_cstring(ptr noundef %98) #15
+  %99 = call ptr @text_to_cstring(ptr noundef %98) #14
   %100 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %99, ptr %100, align 8
   %101 = load i16, ptr %25, align 2
@@ -957,7 +946,7 @@ slot_getattr.exit82:                              ; preds = %slot_getattr.exit80
   br i1 %102, label %slot_getsomeattrs.exit.i83, label %slot_getattr.exit84
 
 slot_getsomeattrs.exit.i83:                       ; preds = %slot_getattr.exit82
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 9) #15
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %21, i32 noundef range(i32 1, 10) 9) #14
   br label %slot_getattr.exit84
 
 slot_getattr.exit84:                              ; preds = %slot_getattr.exit82, %slot_getsomeattrs.exit.i83
@@ -972,8 +961,8 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = load i64, ptr %109, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = call ptr @text_to_cstring(ptr noundef %111) #15
-  %113 = call i32 @GetSlotInvalidationCause(ptr noundef %112) #15
+  %112 = call ptr @text_to_cstring(ptr noundef %111) #14
+  %113 = call i32 @GetSlotInvalidationCause(ptr noundef %112) #14
   br label %114
 
 114:                                              ; preds = %slot_getattr.exit84, %107
@@ -1001,11 +990,11 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   br i1 %.old, label %126, label %127
 
 126:                                              ; preds = %122, %125
-  call void @pfree(ptr noundef nonnull %30) #15
+  call void @pfree(ptr noundef nonnull %30) #14
   br label %129
 
 127:                                              ; preds = %125, %122
-  %128 = call ptr @lappend(ptr noundef %.0101, ptr noundef nonnull %30) #15
+  %128 = call ptr @lappend(ptr noundef %.0101, ptr noundef nonnull %30) #14
   br label %129
 
 129:                                              ; preds = %127, %126
@@ -1013,16 +1002,16 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   %130 = load ptr, ptr %28, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8
-  call void %132(ptr noundef nonnull %21) #15
+  call void %132(ptr noundef nonnull %21) #14
   %133 = load ptr, ptr %22, align 8
-  %134 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %133, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %21) #15
+  %134 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %133, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %21) #14
   br i1 %134, label %29, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %129, %18
   %.0.lcssa = phi ptr [ null, %18 ], [ %.1, %129 ]
   %135 = load ptr, ptr @MainLWLockArray, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4736
-  %137 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %136, i32 noundef 1) #15
+  %137 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %136, i32 noundef 1) #14
   %138 = load i32, ptr @max_replication_slots, align 4
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %.lr.ph.preheader.i.i, label %get_local_synced_slots.exit.i
@@ -1049,7 +1038,7 @@ slot_getattr.exit84:                              ; preds = %slot_getattr.exit82
   br i1 %.not.i.i, label %151, label %149
 
 149:                                              ; preds = %146
-  %150 = call ptr @lappend(ptr noundef %.09.i.i, ptr noundef nonnull %142) #15
+  %150 = call ptr @lappend(ptr noundef %.09.i.i, ptr noundef nonnull %142) #14
   %.pre.i.i = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre12.i.i = load i32, ptr @max_replication_slots, align 4
   br label %151
@@ -1067,7 +1056,7 @@ get_local_synced_slots.exit.i:                    ; preds = %151, %._crit_edge
   %.0.lcssa.i.i = phi ptr [ null, %._crit_edge ], [ %.1.i.i, %151 ]
   %156 = load ptr, ptr @MainLWLockArray, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4736
-  call void @LWLockRelease(ptr noundef nonnull %157) #15
+  call void @LWLockRelease(ptr noundef nonnull %157) #14
   %158 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 4
   %.not19.i = icmp eq ptr %.0.lcssa.i.i, null
   %159 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 16
@@ -1110,17 +1099,17 @@ get_local_synced_slots.exit.i:                    ; preds = %151, %._crit_edge
   %174 = getelementptr inbounds nuw %union.ListCell, ptr %171, i64 %indvars.iv.i23.i
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %175, align 8
-  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(1) %167) #19
+  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %176, ptr noundef nonnull dereferenceable(1) %167) #18
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %.split.i.i, label %172
 
 .split.i.i:                                       ; preds = %173
-  %179 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %166, i8 1, ptr nonnull elementtype(i8) %166) #15, !srcloc !7
+  %179 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %166, i8 1, ptr nonnull elementtype(i8) %166) #14, !srcloc !7
   %.not19.i.i = icmp eq i8 %179, 0
   br i1 %.not19.i.i, label %182, label %180
 
 180:                                              ; preds = %.split.i.i
-  %181 = call i32 @s_lock(ptr noundef nonnull %166, ptr noundef nonnull @.str.3, i32 noundef 377, ptr noundef nonnull @__func__.local_sync_slot_required) #15
+  %181 = call i32 @s_lock(ptr noundef nonnull %166, ptr noundef nonnull @.str.3, i32 noundef 377, ptr noundef nonnull @__func__.local_sync_slot_required) #14
   br label %182
 
 182:                                              ; preds = %180, %.split.i.i
@@ -1130,27 +1119,27 @@ get_local_synced_slots.exit.i:                    ; preds = %151, %._crit_edge
   br i1 %185, label %local_sync_slot_required.exit.i, label %local_sync_slot_required.exit.thread26.i
 
 local_sync_slot_required.exit.thread26.i:         ; preds = %182
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !15
   store i8 0, ptr %166, align 8
   br label %.preheader.i
 
 local_sync_slot_required.exit.i:                  ; preds = %182
   %186 = load i32, ptr %168, align 8
   %187 = icmp eq i32 %186, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !15
   store i8 0, ptr %166, align 8
   br i1 %187, label %.preheader.i, label %local_sync_slot_required.exit.thread.i
 
 local_sync_slot_required.exit.thread.i:           ; preds = %172, %local_sync_slot_required.exit.i, %.preheader.i.i, %.lr.ph103
   %188 = getelementptr inbounds nuw i8, ptr %166, i64 88
   %189 = load i32, ptr %188, align 8
-  call void @LockSharedObject(i32 noundef 1262, i32 noundef %189, i16 noundef zeroext 0, i32 noundef 1) #15
-  %190 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %166, i8 1, ptr elementtype(i8) %166) #15, !srcloc !7
+  call void @LockSharedObject(i32 noundef 1262, i32 noundef %189, i16 noundef zeroext 0, i32 noundef 1) #14
+  %190 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %166, i8 1, ptr elementtype(i8) %166) #14, !srcloc !7
   %.not20.i = icmp eq i8 %190, 0
   br i1 %.not20.i, label %193, label %191
 
 191:                                              ; preds = %local_sync_slot_required.exit.thread.i
-  %192 = call i32 @s_lock(ptr noundef nonnull %166, ptr noundef nonnull @.str.3, i32 noundef 443, ptr noundef nonnull @__func__.drop_local_obsolete_slots) #15
+  %192 = call i32 @s_lock(ptr noundef nonnull %166, ptr noundef nonnull @.str.3, i32 noundef 443, ptr noundef nonnull @__func__.drop_local_obsolete_slots) #14
   br label %193
 
 193:                                              ; preds = %191, %local_sync_slot_required.exit.thread.i
@@ -1163,30 +1152,30 @@ local_sync_slot_required.exit.thread.i:           ; preds = %172, %local_sync_sl
   %198 = getelementptr inbounds nuw i8, ptr %166, i64 201
   %199 = load i8, ptr %198, align 1
   %.not27.i = icmp eq i8 %199, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   store i8 0, ptr %166, align 8
   br i1 %.not27.i, label %201, label %200
 
 200:                                              ; preds = %197
-  call void @ReplicationSlotAcquire(ptr noundef nonnull %167, i1 noundef zeroext true, i1 noundef zeroext false) #15
-  call void @ReplicationSlotDropAcquired() #15
+  call void @ReplicationSlotAcquire(ptr noundef nonnull %167, i1 noundef zeroext true, i1 noundef zeroext false) #14
+  call void @ReplicationSlotDropAcquired() #14
   br label %201
 
 .critedge22.i:                                    ; preds = %193
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
   store i8 0, ptr %166, align 8
   br label %201
 
 201:                                              ; preds = %.critedge22.i, %200, %197
   %202 = load i32, ptr %188, align 8
-  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %202, i16 noundef zeroext 0, i32 noundef 1) #15
-  %203 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %202, i16 noundef zeroext 0, i32 noundef 1) #14
+  %203 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %203, label %204, label %.preheader.i
 
 204:                                              ; preds = %201
   %205 = load i32, ptr %188, align 8
-  %206 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %167, i32 noundef %205) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 459, ptr noundef nonnull @__func__.drop_local_obsolete_slots) #15
+  %206 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %167, i32 noundef %205) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 459, ptr noundef nonnull @__func__.drop_local_obsolete_slots) #14
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %204, %201, %local_sync_slot_required.exit.i, %local_sync_slot_required.exit.thread26.i
@@ -1205,7 +1194,7 @@ local_sync_slot_required.exit.thread.i:           ; preds = %172, %local_sync_sl
   br i1 %211, label %.lr.ph142, label %.critedge
 
 212:                                              ; preds = %.critedge
-  call void @pfree(ptr noundef nonnull %367) #15
+  call void @pfree(ptr noundef nonnull %367) #14
   br label %213
 
 213:                                              ; preds = %212, %.critedge
@@ -1214,7 +1203,7 @@ local_sync_slot_required.exit.thread.i:           ; preds = %172, %local_sync_sl
   br i1 %.not12.i, label %216, label %215
 
 215:                                              ; preds = %213
-  call void @tuplestore_end(ptr noundef nonnull %214) #15
+  call void @tuplestore_end(ptr noundef nonnull %214) #14
   br label %216
 
 216:                                              ; preds = %215, %213
@@ -1223,11 +1212,11 @@ local_sync_slot_required.exit.thread.i:           ; preds = %172, %local_sync_sl
   br i1 %.not13.i, label %walrcv_clear_result.exit, label %218
 
 218:                                              ; preds = %216
-  call void @FreeTupleDesc(ptr noundef nonnull %217) #15
+  call void @FreeTupleDesc(ptr noundef nonnull %217) #14
   br label %walrcv_clear_result.exit
 
 walrcv_clear_result.exit:                         ; preds = %216, %218
-  call void @pfree(ptr noundef nonnull %11) #15
+  call void @pfree(ptr noundef nonnull %11) #14
   br i1 %5, label %369, label %368
 
 .lr.ph142:                                        ; preds = %.lr.ph107.preheader, %synchronize_one_slot.exit
@@ -1238,9 +1227,9 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = load ptr, ptr %222, align 8
-  %224 = call i32 @get_database_oid(ptr noundef %223, i1 noundef zeroext false) #15
-  call void @LockSharedObject(i32 noundef 1262, i32 noundef %224, i16 noundef zeroext 0, i32 noundef 1) #15
-  %225 = call i64 @GetStandbyFlushRecPtr(ptr noundef null) #15
+  %224 = call i32 @get_database_oid(ptr noundef %223, i1 noundef zeroext false) #14
+  call void @LockSharedObject(i32 noundef 1262, i32 noundef %224, i16 noundef zeroext 0, i32 noundef 1) #14
+  %225 = call i64 @GetStandbyFlushRecPtr(ptr noundef null) #14
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 40
   %227 = load i64, ptr %226, align 8
   %228 = icmp ugt i64 %227, %225
@@ -1250,11 +1239,11 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   %230 = load i32, ptr @MyBackendType, align 4
   %.not77.i.not = icmp eq i32 %230, 7
   %231 = select i1 %.not77.i.not, i32 15, i32 21
-  %232 = call zeroext i1 @errstart(i32 noundef %231, ptr noundef null) #15
+  %232 = call zeroext i1 @errstart(i32 noundef %231, ptr noundef null) #14
   br i1 %232, label %233, label %synchronize_one_slot.exit
 
 233:                                              ; preds = %229
-  %234 = call i32 @errcode(i32 noundef 325) #15
+  %234 = call i32 @errcode(i32 noundef 325) #14
   %235 = load i64, ptr %226, align 8
   %236 = lshr i64 %235, 32
   %237 = trunc nuw i64 %236 to i32
@@ -1263,45 +1252,44 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   %240 = lshr i64 %225, 32
   %241 = trunc nuw i64 %240 to i32
   %242 = trunc i64 %225 to i32
-  %243 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %238, ptr noundef %239, i32 noundef %241, i32 noundef %242) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 630, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %243 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, i32 noundef %237, i32 noundef %238, ptr noundef %239, i32 noundef %241, i32 noundef %242) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 630, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   br label %synchronize_one_slot.exit
 
 244:                                              ; preds = %.lr.ph142
   %245 = load ptr, ptr %221, align 8
-  %246 = call ptr @SearchNamedReplicationSlot(ptr noundef %245, i1 noundef zeroext true) #15
+  %246 = call ptr @SearchNamedReplicationSlot(ptr noundef %245, i1 noundef zeroext true) #14
   %.not.i85 = icmp eq ptr %246, null
   br i1 %.not.i85, label %300, label %247
 
 247:                                              ; preds = %244
-  %248 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %246, i8 1, ptr nonnull elementtype(i8) %246) #15, !srcloc !7
+  %248 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %246, i8 1, ptr nonnull elementtype(i8) %246) #14, !srcloc !7
   %.not72.i = icmp eq i8 %248, 0
   br i1 %.not72.i, label %251, label %249
 
 249:                                              ; preds = %247
-  %250 = call i32 @s_lock(ptr noundef nonnull %246, ptr noundef nonnull @.str.3, i32 noundef 640, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %250 = call i32 @s_lock(ptr noundef nonnull %246, ptr noundef nonnull @.str.3, i32 noundef 640, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   br label %251
 
 251:                                              ; preds = %249, %247
   %252 = getelementptr inbounds nuw i8, ptr %246, i64 201
   %253 = load i8, ptr %252, align 1
   %.not73.i = icmp eq i8 %253, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
   store i8 0, ptr %246, align 8
   br i1 %.not73.i, label %254, label %259
 
 254:                                              ; preds = %251
-  %255 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %255)
-  %256 = call i32 @errcode(i32 noundef 325) #15
+  %255 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %256 = call i32 @errcode(i32 noundef 325) #14
   %257 = load ptr, ptr %221, align 8
-  %258 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %257) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 650, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %258 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %257) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 650, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   unreachable
 
 259:                                              ; preds = %251
   %260 = load ptr, ptr %221, align 8
-  call void @ReplicationSlotAcquire(ptr noundef %260, i1 noundef zeroext true, i1 noundef zeroext false) #15
+  call void @ReplicationSlotAcquire(ptr noundef %260, i1 noundef zeroext true, i1 noundef zeroext false) #14
   %261 = getelementptr inbounds nuw i8, ptr %246, i64 112
   %262 = load i32, ptr %261, align 8
   %263 = icmp eq i32 %262, 0
@@ -1314,21 +1302,21 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   br i1 %.not74.not.i, label %.thread92.i, label %267
 
 267:                                              ; preds = %264
-  %268 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %246, i8 1, ptr nonnull elementtype(i8) %246) #15, !srcloc !7
+  %268 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %246, i8 1, ptr nonnull elementtype(i8) %246) #14, !srcloc !7
   %.not75.i = icmp eq i8 %268, 0
   br i1 %.not75.i, label %271, label %269
 
 269:                                              ; preds = %267
-  %270 = call i32 @s_lock(ptr noundef nonnull %246, ptr noundef nonnull @.str.3, i32 noundef 679, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %270 = call i32 @s_lock(ptr noundef nonnull %246, ptr noundef nonnull @.str.3, i32 noundef 679, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   br label %271
 
 271:                                              ; preds = %269, %267
   %272 = load i32, ptr %265, align 4
   store i32 %272, ptr %261, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   store i8 0, ptr %246, align 8
-  call void @ReplicationSlotMarkDirty() #15
-  call void @ReplicationSlotSave() #15
+  call void @ReplicationSlotMarkDirty() #14
+  call void @ReplicationSlotSave() #14
   %.pr.pre.i = load i32, ptr %261, align 8
   %273 = icmp eq i32 %.pr.pre.i, 0
   br i1 %273, label %.thread92.i, label %.thread.i
@@ -1352,10 +1340,9 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
 
 284:                                              ; preds = %279
   %285 = getelementptr inbounds nuw i8, ptr %246, i64 120
-  %286 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %286)
+  %286 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   %287 = load ptr, ptr %221, align 8
-  %288 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %287) #15
+  %288 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %287) #14
   %289 = load i64, ptr %285, align 8
   %290 = lshr i64 %289, 32
   %291 = trunc nuw i64 %290 to i32
@@ -1364,8 +1351,8 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   %294 = lshr i64 %293, 32
   %295 = trunc nuw i64 %294 to i32
   %296 = trunc i64 %293 to i32
-  %297 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.35, i32 noundef %291, i32 noundef %292, i32 noundef %295, i32 noundef %296) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 720, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %297 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.35, i32 noundef %291, i32 noundef %292, i32 noundef %295, i32 noundef %296) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 720, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   unreachable
 
 298:                                              ; preds = %279
@@ -1373,7 +1360,7 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   br label %.thread85.i
 
 .thread.i:                                        ; preds = %271, %259
-  call void @ReplicationSlotRelease() #15
+  call void @ReplicationSlotRelease() #14
   br label %synchronize_one_slot.exit
 
 300:                                              ; preds = %244
@@ -1391,17 +1378,17 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   %308 = getelementptr inbounds nuw i8, ptr %221, i64 25
   %309 = load i8, ptr %308, align 1, !range !4, !noundef !5
   %310 = trunc nuw i8 %309 to i1
-  call void @ReplicationSlotCreate(ptr noundef %304, i1 noundef zeroext true, i32 noundef 2, i1 noundef zeroext %307, i1 noundef zeroext %310, i1 noundef zeroext true) #15
+  call void @ReplicationSlotCreate(ptr noundef %304, i1 noundef zeroext true, i32 noundef 2, i1 noundef zeroext %307, i1 noundef zeroext %310, i1 noundef zeroext true) #14
   %311 = load ptr, ptr @MyReplicationSlot, align 8
   %312 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %313 = load ptr, ptr %312, align 8
-  call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %313) #15
-  %314 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %311, i8 1, ptr elementtype(i8) %311) #15, !srcloc !7
+  call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %313) #14
+  %314 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %311, i8 1, ptr elementtype(i8) %311) #14, !srcloc !7
   %.not70.i = icmp eq i8 %314, 0
   br i1 %.not70.i, label %317, label %315
 
 315:                                              ; preds = %303
-  %316 = call i32 @s_lock(ptr noundef %311, ptr noundef nonnull @.str.3, i32 noundef 754, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %316 = call i32 @s_lock(ptr noundef %311, ptr noundef nonnull @.str.3, i32 noundef 754, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   br label %317
 
 317:                                              ; preds = %315, %303
@@ -1409,7 +1396,7 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
   store i32 %224, ptr %318, align 8
   %319 = getelementptr inbounds nuw i8, ptr %311, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %319, ptr noundef nonnull align 1 dereferenceable(64) %3, i64 64, i1 false)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !20
   store i8 0, ptr %311, align 8
   %320 = getelementptr inbounds nuw i8, ptr %221, i64 32
   %321 = load i64, ptr %320, align 8
@@ -1419,44 +1406,44 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
 
 324:                                              ; preds = %345, %317
   %.0.i.i = phi i64 [ %321, %317 ], [ %348, %345 ]
-  %325 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %322, i8 1, ptr elementtype(i8) %322) #15, !srcloc !7
+  %325 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %322, i8 1, ptr elementtype(i8) %322) #14, !srcloc !7
   %.not.i.i86 = icmp eq i8 %325, 0
   br i1 %.not.i.i86, label %328, label %326
 
 326:                                              ; preds = %324
-  %327 = call i32 @s_lock(ptr noundef %322, ptr noundef nonnull @.str.3, i32 noundef 483, ptr noundef nonnull @__func__.reserve_wal_for_local_slot) #15
+  %327 = call i32 @s_lock(ptr noundef %322, ptr noundef nonnull @.str.3, i32 noundef 483, ptr noundef nonnull @__func__.reserve_wal_for_local_slot) #14
   br label %328
 
 328:                                              ; preds = %326, %324
   store i64 %.0.i.i, ptr %323, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !21
   store i8 0, ptr %322, align 8
-  call void @ReplicationSlotsComputeRequiredLSN() #15
+  call void @ReplicationSlotsComputeRequiredLSN() #14
   %329 = load i64, ptr %323, align 8
   %330 = load i32, ptr @wal_segment_size, align 4
   %331 = sext i32 %330 to i64
   %332 = udiv i64 %329, %331
-  %333 = call i64 @XLogGetLastRemovedSegno() #15
+  %333 = call i64 @XLogGetLastRemovedSegno() #14
   %334 = add i64 %333, 1
   %335 = icmp eq i64 %333, 0
   br i1 %335, label %336, label %340
 
 336:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %337 = call i64 @GetWalRcvFlushRecPtr(ptr noundef null, ptr noundef nonnull %2) #15
+  %337 = call i64 @GetWalRcvFlushRecPtr(ptr noundef null, ptr noundef nonnull %2) #14
   %338 = load i32, ptr %2, align 4
-  %339 = call i64 @XLogGetOldestSegno(i32 noundef %338) #15
+  %339 = call i64 @XLogGetOldestSegno(i32 noundef %338) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %340
 
 340:                                              ; preds = %336, %328
   %.011.i.i = phi i64 [ %339, %336 ], [ %334, %328 ]
-  %341 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  %341 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %341, label %342, label %344
 
 342:                                              ; preds = %340
-  %343 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i64 noundef %332, i64 noundef %.011.i.i) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 517, ptr noundef nonnull @__func__.reserve_wal_for_local_slot) #15
+  %343 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i64 noundef %332, i64 noundef %.011.i.i) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 517, ptr noundef nonnull @__func__.reserve_wal_for_local_slot) #14
   br label %344
 
 344:                                              ; preds = %342, %340
@@ -1472,14 +1459,14 @@ walrcv_clear_result.exit:                         ; preds = %216, %218
 reserve_wal_for_local_slot.exit.i:                ; preds = %344
   %349 = load ptr, ptr @MainLWLockArray, align 8
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 512
-  %351 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %350, i32 noundef 0) #15
-  %352 = call i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext true) #15
-  %353 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #15, !srcloc !7
+  %351 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %350, i32 noundef 0) #14
+  %352 = call i32 @GetOldestSafeDecodingTransactionId(i1 noundef zeroext true) #14
+  %353 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #14, !srcloc !7
   %.not71.i = icmp eq i8 %353, 0
   br i1 %.not71.i, label %356, label %354
 
 354:                                              ; preds = %reserve_wal_for_local_slot.exit.i
-  %355 = call i32 @s_lock(ptr noundef nonnull %311, ptr noundef nonnull @.str.3, i32 noundef 763, ptr noundef nonnull @__func__.synchronize_one_slot) #15
+  %355 = call i32 @s_lock(ptr noundef nonnull %311, ptr noundef nonnull @.str.3, i32 noundef 763, ptr noundef nonnull @__func__.synchronize_one_slot) #14
   br label %356
 
 356:                                              ; preds = %354, %reserve_wal_for_local_slot.exit.i
@@ -1487,19 +1474,19 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %344
   store i32 %352, ptr %357, align 8
   %358 = getelementptr inbounds nuw i8, ptr %311, i64 100
   store i32 %352, ptr %358, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
   store i8 0, ptr %311, align 8
-  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext true) #15
+  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext true) #14
   %359 = load ptr, ptr @MainLWLockArray, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 512
-  call void @LWLockRelease(ptr noundef nonnull %360) #15
+  call void @LWLockRelease(ptr noundef nonnull %360) #14
   %361 = call fastcc zeroext i1 @update_and_persist_local_synced_slot(ptr noundef nonnull readonly %221, i32 noundef %224)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread85.i
 
 .thread85.i:                                      ; preds = %356, %298, %277
   %.3.i = phi i1 [ true, %356 ], [ %278, %277 ], [ %299, %298 ]
-  call void @ReplicationSlotRelease() #15
+  call void @ReplicationSlotRelease() #14
   br label %synchronize_one_slot.exit
 
 .critedge.i:                                      ; preds = %300
@@ -1509,7 +1496,7 @@ reserve_wal_for_local_slot.exit.i:                ; preds = %344
 synchronize_one_slot.exit:                        ; preds = %229, %233, %.thread.i, %.thread85.i, %.critedge.i
   %.0.i = phi i1 [ %.3.i, %.thread85.i ], [ %263, %.thread.i ], [ false, %.critedge.i ], [ false, %233 ], [ false, %229 ]
   %362 = or i1 %.163106141, %.0.i
-  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %224, i16 noundef zeroext 0, i32 noundef 1) #15
+  call void @UnlockSharedObject(i32 noundef 1262, i32 noundef %224, i16 noundef zeroext 0, i32 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv140, 1
   %363 = load i32, ptr %161, align 4
   %364 = sext i32 %363 to i64
@@ -1518,14 +1505,14 @@ synchronize_one_slot.exit:                        ; preds = %229, %233, %.thread
 
 .critedge:                                        ; preds = %synchronize_one_slot.exit, %.lr.ph107.preheader, %.preheader
   %.163.lcssa = phi i1 [ false, %.preheader ], [ false, %.lr.ph107.preheader ], [ %362, %synchronize_one_slot.exit ]
-  call void @list_free_deep(ptr noundef %.0.lcssa) #15
+  call void @list_free_deep(ptr noundef %.0.lcssa) #14
   %366 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %367 = load ptr, ptr %366, align 8
   %.not11.i = icmp eq ptr %367, null
   br i1 %.not11.i, label %213, label %212
 
 368:                                              ; preds = %walrcv_clear_result.exit
-  call void @CommitTransactionCommand() #15
+  call void @CommitTransactionCommand() #14
   br label %369
 
 369:                                              ; preds = %368, %walrcv_clear_result.exit
@@ -1537,14 +1524,14 @@ synchronize_one_slot.exit:                        ; preds = %229, %233, %.thread
 define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %1 = load ptr, ptr @SlotSyncCtx, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #15, !srcloc !7
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #14, !srcloc !7
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @SlotSyncCtx, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 1563, ptr noundef nonnull @__func__.ShutDownSlotSync) #15
+  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 1563, ptr noundef nonnull @__func__.ShutDownSlotSync) #14
   br label %8
 
 8:                                                ; preds = %0, %4
@@ -1557,7 +1544,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   %15 = load ptr, ptr @SlotSyncCtx, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 0, ptr %16, align 8
@@ -1565,7 +1552,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
 
 17:                                               ; preds = %8
   %18 = load i32, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
   %19 = load ptr, ptr @SlotSyncCtx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %20, align 8
@@ -1573,7 +1560,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   br i1 %.not5, label %.preheader, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @kill(i32 noundef %18, i32 noundef 2) #15
+  %22 = tail call i32 @kill(i32 noundef %18, i32 noundef 2) #14
   br label %.preheader
 
 .preheader:                                       ; preds = %21, %17
@@ -1581,33 +1568,33 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
 
 23:                                               ; preds = %.preheader, %39
   %24 = load ptr, ptr @MyLatch, align 8
-  %25 = tail call i32 @WaitLatch(ptr noundef %24, i32 noundef 41, i64 noundef 10, i32 noundef 83886091) #15
+  %25 = tail call i32 @WaitLatch(ptr noundef %24, i32 noundef 41, i64 noundef 10, i32 noundef 83886091) #14
   %26 = and i32 %25, 1
   %.not6 = icmp eq i32 %26, 0
   br i1 %.not6, label %31, label %27
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr @MyLatch, align 8
-  tail call void @ResetLatch(ptr noundef %28) #15
+  tail call void @ResetLatch(ptr noundef %28) #14
   %29 = load volatile i32, ptr @InterruptPending, align 4
   %.not7 = icmp eq i32 %29, 0
   br i1 %.not7, label %31, label %30, !prof !6
 
 30:                                               ; preds = %27
-  tail call void @ProcessInterrupts() #15
+  tail call void @ProcessInterrupts() #14
   br label %31
 
 31:                                               ; preds = %27, %30, %23
   %32 = load ptr, ptr @SlotSyncCtx, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #15, !srcloc !7
+  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #14, !srcloc !7
   %.not8 = icmp eq i8 %34, 0
   br i1 %.not8, label %39, label %35
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr @SlotSyncCtx, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %38 = tail call i32 @s_lock(ptr noundef nonnull %37, ptr noundef nonnull @.str.3, i32 noundef 1601, ptr noundef nonnull @__func__.ShutDownSlotSync) #15
+  %38 = tail call i32 @s_lock(ptr noundef nonnull %37, ptr noundef nonnull @.str.3, i32 noundef 1601, ptr noundef nonnull @__func__.ShutDownSlotSync) #14
   br label %39
 
 39:                                               ; preds = %31, %35
@@ -1615,7 +1602,7 @@ define dso_local void @ShutDownSlotSync() local_unnamed_addr #0 {
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 5
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = trunc nuw i8 %42 to i1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14
   %44 = load ptr, ptr @SlotSyncCtx, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store i8 0, ptr %45, align 8
@@ -1637,7 +1624,7 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
 3:                                                ; preds = %0
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4736
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #15
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #14
   %7 = load i32, ptr @max_replication_slots, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
@@ -1649,7 +1636,7 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
 ._crit_edge:                                      ; preds = %34, %3
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4736
-  tail call void @LWLockRelease(ptr noundef nonnull %10) #15
+  tail call void @LWLockRelease(ptr noundef nonnull %10) #14
   br label %39
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
@@ -1674,17 +1661,17 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = tail call i64 @GetCurrentTimestamp() #15
+  %23 = tail call i64 @GetCurrentTimestamp() #14
   br label %24
 
 24:                                               ; preds = %22, %20
   %.2 = phi i64 [ %23, %22 ], [ %.09, %20 ]
-  %25 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #15, !srcloc !7
+  %25 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #14, !srcloc !7
   %.not.i = icmp eq i8 %25, 0
   br i1 %.not.i, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @s_lock(ptr noundef nonnull %13, ptr noundef nonnull @.str.44, i32 noundef 239, ptr noundef nonnull @__func__.ReplicationSlotSetInactiveSince) #15
+  %27 = tail call i32 @s_lock(ptr noundef nonnull %13, ptr noundef nonnull @.str.44, i32 noundef 239, ptr noundef nonnull @__func__.ReplicationSlotSetInactiveSince) #14
   br label %28
 
 28:                                               ; preds = %26, %24
@@ -1699,7 +1686,7 @@ define internal fastcc void @update_synced_slots_inactive_since() unnamed_addr #
   br label %ReplicationSlotSetInactiveSince.exit
 
 ReplicationSlotSetInactiveSince.exit:             ; preds = %28, %32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !25
   store i8 0, ptr %13, align 8
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre12 = load i32, ptr @max_replication_slots, align 4
@@ -1729,7 +1716,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @SlotSyncWorkerCanRestart() local_unnamed_addr #0 {
-  %1 = tail call i64 @time(ptr noundef null) #15
+  %1 = tail call i64 @time(ptr noundef null) #14
   %2 = load ptr, ptr @SlotSyncCtx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1764,7 +1751,7 @@ define dso_local noundef i64 @SlotSyncShmemSize() local_unnamed_addr #8 {
 define dso_local void @SlotSyncShmemInit() local_unnamed_addr #0 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.16, i64 noundef 24, ptr noundef nonnull %1) #15
+  %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.16, i64 noundef 24, ptr noundef nonnull %1) #14
   store ptr %2, ptr @SlotSyncCtx, align 8
   %3 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -1773,7 +1760,7 @@ define dso_local void @SlotSyncShmemInit() local_unnamed_addr #0 {
 5:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   store i32 -1, ptr %2, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !27
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !27
   %6 = load ptr, ptr @SlotSyncCtx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 0, ptr %7, align 8
@@ -1793,11 +1780,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local void @SyncReplicationSlots(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = ptrtoint ptr %0 to i64
-  call void @before_shmem_exit(ptr noundef nonnull @slotsync_failure_callback, i64 noundef %3) #15
+  call void @before_shmem_exit(ptr noundef nonnull @slotsync_failure_callback, i64 noundef %3) #14
   %4 = load ptr, ptr @PG_exception_stack, align 8
   %5 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %6 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #17
+  %6 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %21
 
@@ -1806,29 +1793,29 @@ define dso_local void @SyncReplicationSlots(ptr noundef %0) local_unnamed_addr #
   call fastcc void @check_and_set_sync_info(i32 noundef -1)
   call fastcc void @validate_remote_info(ptr noundef %0)
   %9 = call fastcc zeroext i1 @synchronize_slots(ptr noundef %0)
-  call void @ReplicationSlotCleanup(i1 noundef zeroext true) #15
+  call void @ReplicationSlotCleanup(i1 noundef zeroext true) #14
   %10 = load ptr, ptr @SlotSyncCtx, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i8 1, ptr nonnull elementtype(i8) %11) #15, !srcloc !7
+  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %11, i8 1, ptr nonnull elementtype(i8) %11) #14, !srcloc !7
   %.not.i = icmp eq i8 %12, 0
   br i1 %.not.i, label %reset_syncing_flag.exit, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr @SlotSyncCtx, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, i32 noundef 1315, ptr noundef nonnull @__func__.reset_syncing_flag) #15
+  %16 = call i32 @s_lock(ptr noundef nonnull %15, ptr noundef nonnull @.str.3, i32 noundef 1315, ptr noundef nonnull @__func__.reset_syncing_flag) #14
   br label %reset_syncing_flag.exit
 
 reset_syncing_flag.exit:                          ; preds = %8, %13
   %17 = load ptr, ptr @SlotSyncCtx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 5
   store i8 0, ptr %18, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !28
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !28
   %19 = load ptr, ptr @SlotSyncCtx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i8 0, ptr %20, align 8
   store i1 false, ptr @syncing_slots, align 1
-  call void @cancel_before_shmem_exit(ptr noundef nonnull @slotsync_failure_callback, i64 noundef %3) #15
+  call void @cancel_before_shmem_exit(ptr noundef nonnull @slotsync_failure_callback, i64 noundef %3) #14
   store ptr %4, ptr @PG_exception_stack, align 8
   store ptr %5, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1837,9 +1824,9 @@ reset_syncing_flag.exit:                          ; preds = %8, %13
 21:                                               ; preds = %1
   store ptr %4, ptr @PG_exception_stack, align 8
   store ptr %5, ptr @error_context_stack, align 8
-  call void @cancel_before_shmem_exit(ptr noundef nonnull @slotsync_failure_callback, i64 noundef %3) #15
+  call void @cancel_before_shmem_exit(ptr noundef nonnull @slotsync_failure_callback, i64 noundef %3) #14
   call void @slotsync_failure_callback(i32 poison, i64 noundef %3)
-  call void @pg_re_throw() #18
+  call void @pg_re_throw() #17
   unreachable
 }
 
@@ -1850,32 +1837,32 @@ define internal void @slotsync_failure_callback(i32 %0, i64 noundef %1) #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @ReplicationSlotRelease() #15
+  tail call void @ReplicationSlotRelease() #14
   br label %5
 
 5:                                                ; preds = %4, %2
-  tail call void @ReplicationSlotCleanup(i1 noundef zeroext true) #15
+  tail call void @ReplicationSlotCleanup(i1 noundef zeroext true) #14
   %.b1 = load i1, ptr @syncing_slots, align 1
   br i1 %.b1, label %6, label %18
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr @SlotSyncCtx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #15, !srcloc !7
+  %9 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %8, i8 1, ptr nonnull elementtype(i8) %8) #14, !srcloc !7
   %.not.i = icmp eq i8 %9, 0
   br i1 %.not.i, label %reset_syncing_flag.exit, label %10
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @SlotSyncCtx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = tail call i32 @s_lock(ptr noundef nonnull %12, ptr noundef nonnull @.str.3, i32 noundef 1315, ptr noundef nonnull @__func__.reset_syncing_flag) #15
+  %13 = tail call i32 @s_lock(ptr noundef nonnull %12, ptr noundef nonnull @.str.3, i32 noundef 1315, ptr noundef nonnull @__func__.reset_syncing_flag) #14
   br label %reset_syncing_flag.exit
 
 reset_syncing_flag.exit:                          ; preds = %6, %10
   %14 = load ptr, ptr @SlotSyncCtx, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 5
   store i8 0, ptr %15, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !28
   %16 = load ptr, ptr @SlotSyncCtx, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i8 0, ptr %17, align 8
@@ -1887,7 +1874,7 @@ reset_syncing_flag.exit:                          ; preds = %6, %10
   %20 = load ptr, ptr @WalReceiverFunctions, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef %19) #15
+  tail call void %22(ptr noundef %19) #14
   ret void
 }
 
@@ -1984,33 +1971,33 @@ define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(
   br i1 %11, label %23, label %12
 
 12:                                               ; preds = %9
-  %13 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %13 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %0, align 8
-  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %15) #15
+  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %15) #14
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %18 = load i64, ptr %17, align 8
   %19 = lshr i64 %18, 32
   %20 = trunc nuw i64 %19 to i32
   %21 = trunc i64 %18 to i32
-  %22 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.37, i32 noundef %20, i32 noundef %21) #15
+  %22 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.37, i32 noundef %20, i32 noundef %21) #14
   br label %.sink.split
 
 23:                                               ; preds = %9
-  call void @ReplicationSlotPersist() #15
-  %24 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  call void @ReplicationSlotPersist() #14
+  %24 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %0, align 8
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %26) #15
+  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %26) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %25
   %.sink = phi i32 [ 588, %25 ], [ 579, %14 ]
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.update_and_persist_local_synced_slot) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.update_and_persist_local_synced_slot) #14
   br label %28
 
 28:                                               ; preds = %.sink.split, %23, %12, %2
@@ -2054,7 +2041,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %20 = load i32, ptr %19, align 4
-  %21 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %18, i32 noundef %20) #15
+  %21 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %18, i32 noundef %20) #14
   br i1 %21, label %22, label %45
 
 22:                                               ; preds = %10, %16
@@ -2062,12 +2049,12 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 2
   %26 = select i1 %25, i32 15, i32 14
-  %27 = tail call zeroext i1 @errstart(i32 noundef %26, ptr noundef null) #15
+  %27 = tail call zeroext i1 @errstart(i32 noundef %26, ptr noundef null) #14
   br i1 %27, label %28, label %44
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %0, align 8
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef %29) #15
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef %29) #14
   %31 = load i64, ptr %11, align 8
   %32 = lshr i64 %31, 32
   %33 = trunc nuw i64 %32 to i32
@@ -2080,8 +2067,8 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %40 = trunc i64 %37 to i32
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 100
   %42 = load i32, ptr %41, align 4
-  %43 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.40, i32 noundef %33, i32 noundef %34, i32 noundef %36, i32 noundef %39, i32 noundef %40, i32 noundef %42) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 219, ptr noundef nonnull @__func__.update_local_synced_slot) #15
+  %43 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.40, i32 noundef %33, i32 noundef %34, i32 noundef %36, i32 noundef %39, i32 noundef %40, i32 noundef %42) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 219, ptr noundef nonnull @__func__.update_local_synced_slot) #14
   br label %44
 
 44:                                               ; preds = %28, %22
@@ -2104,7 +2091,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
 54:                                               ; preds = %51
   %55 = load i32, ptr %17, align 8
   %56 = load i32, ptr %19, align 4
-  %57 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %55, i32 noundef %56) #15
+  %57 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %55, i32 noundef %56) #14
   br i1 %57, label %._crit_edge, label %87
 
 ._crit_edge:                                      ; preds = %54
@@ -2113,16 +2100,16 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
 
 58:                                               ; preds = %._crit_edge, %51, %45
   %59 = phi i64 [ %.pre, %._crit_edge ], [ %.pre96, %51 ], [ %.pre96, %45 ]
-  %60 = tail call zeroext i1 @SnapBuildSnapshotExists(i64 noundef %59) #15
+  %60 = tail call zeroext i1 @SnapBuildSnapshotExists(i64 noundef %59) #14
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %58
-  %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !7
+  %62 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #14, !srcloc !7
   %.not85 = icmp eq i8 %62, 0
   br i1 %.not85, label %65, label %63
 
 63:                                               ; preds = %61
-  %64 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 249, ptr noundef nonnull @__func__.update_local_synced_slot) #15
+  %64 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 249, ptr noundef nonnull @__func__.update_local_synced_slot) #14
   br label %65
 
 65:                                               ; preds = %61, %63
@@ -2132,23 +2119,22 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   store i64 %67, ptr %48, align 8
   %68 = load i32, ptr %17, align 8
   store i32 %68, ptr %19, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   store i8 0, ptr %6, align 8
   br i1 %.not, label %87, label %.sink.split
 
 69:                                               ; preds = %58
   %70 = load i64, ptr %46, align 8
-  %71 = tail call i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %70, ptr noundef %2) #15
+  %71 = tail call i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %70, ptr noundef %2) #14
   %72 = load i64, ptr %48, align 8
   %73 = load i64, ptr %46, align 8
   %.not84 = icmp eq i64 %72, %73
   br i1 %.not84, label %87, label %74
 
 74:                                               ; preds = %69
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %75)
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   %76 = load ptr, ptr %0, align 8
-  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %76) #15
+  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %76) #14
   %78 = load i64, ptr %46, align 8
   %79 = lshr i64 %78, 32
   %80 = trunc nuw i64 %79 to i32
@@ -2157,8 +2143,8 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %83 = lshr i64 %82, 32
   %84 = trunc nuw i64 %83 to i32
   %85 = trunc i64 %82 to i32
-  %86 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.42, i32 noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %85) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 270, ptr noundef nonnull @__func__.update_local_synced_slot) #15
+  %86 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.42, i32 noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %85) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 270, ptr noundef nonnull @__func__.update_local_synced_slot) #14
   unreachable
 
 .sink.split:                                      ; preds = %65, %44
@@ -2194,7 +2180,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 137
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %103) #19
+  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %103) #18
   %.not89 = icmp eq i32 %104, 0
   br i1 %.not89, label %118, label %105
 
@@ -2202,13 +2188,13 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %107 = load ptr, ptr %106, align 8
-  call void @namestrcpy(ptr noundef nonnull %5, ptr noundef %107) #15
-  %108 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !7
+  call void @namestrcpy(ptr noundef nonnull %5, ptr noundef %107) #14
+  %108 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #14, !srcloc !7
   %.not90 = icmp eq i8 %108, 0
   br i1 %.not90, label %.thread, label %109
 
 109:                                              ; preds = %105
-  %110 = call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 286, ptr noundef nonnull @__func__.update_local_synced_slot) #15
+  %110 = call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 286, ptr noundef nonnull @__func__.update_local_synced_slot) #14
   br label %.thread
 
 .thread:                                          ; preds = %109, %105
@@ -2223,28 +2209,28 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %116 = load i8, ptr %115, align 1, !range !4, !noundef !5
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 202
   store i8 %116, ptr %117, align 2
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
   store i8 0, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @ReplicationSlotMarkDirty() #15
-  call void @ReplicationSlotSave() #15
+  call void @ReplicationSlotMarkDirty() #14
+  call void @ReplicationSlotSave() #14
   br i1 %.0, label %119, label %.thread100
 
 118:                                              ; preds = %100
   br i1 %.0, label %.critedge, label %.thread100
 
 .critedge:                                        ; preds = %118
-  tail call void @ReplicationSlotMarkDirty() #15
-  tail call void @ReplicationSlotSave() #15
+  tail call void @ReplicationSlotMarkDirty() #14
+  tail call void @ReplicationSlotSave() #14
   br label %119
 
 119:                                              ; preds = %.critedge, %.thread
-  %120 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #15, !srcloc !7
+  %120 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i8 1, ptr nonnull elementtype(i8) %6) #14, !srcloc !7
   %.not91 = icmp eq i8 %120, 0
   br i1 %.not91, label %123, label %121
 
 121:                                              ; preds = %119
-  %122 = call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 315, ptr noundef nonnull @__func__.update_local_synced_slot) #15
+  %122 = call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.3, i32 noundef 315, ptr noundef nonnull @__func__.update_local_synced_slot) #14
   br label %123
 
 123:                                              ; preds = %119, %121
@@ -2252,10 +2238,10 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %125 = load i32, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %125, ptr %126, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !31
   store i8 0, ptr %6, align 8
-  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #15
-  call void @ReplicationSlotsComputeRequiredLSN() #15
+  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #14
+  call void @ReplicationSlotsComputeRequiredLSN() #14
   br label %.thread100
 
 .thread100:                                       ; preds = %118, %123, %.thread
@@ -2299,11 +2285,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #14
+declare i64 @llvm.smin.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2318,13 +2301,12 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { cold nounwind }
-attributes #17 = { nounwind returns_twice }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
+attributes #16 = { nounwind returns_twice }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

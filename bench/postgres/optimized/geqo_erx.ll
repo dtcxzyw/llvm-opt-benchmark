@@ -20,7 +20,7 @@ define dso_local ptr @alloc_edge_table(ptr noundef readnone captures(none) %0, i
   %3 = add i32 %1, 1
   %4 = sext i32 %3 to i64
   %5 = mul nsw i64 %4, 24
-  %6 = tail call ptr @palloc(i64 noundef %5) #9
+  %6 = tail call ptr @palloc(i64 noundef %5) #8
   ret ptr %6
 }
 
@@ -28,7 +28,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_edge_table(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %1) #9
+  tail call void @pfree(ptr noundef %1) #8
   ret void
 }
 
@@ -278,7 +278,7 @@ gimme_edge.exit68:                                ; preds = %98, %._crit_edge.i6
 define dso_local i32 @gimme_tour(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) initializes((0, 4)) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Edge, align 8
   %6 = alloca %struct.Edge, align 8
-  %7 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %3, i32 noundef 1) #9
+  %7 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %3, i32 noundef 1) #8
   store i32 %7, ptr %2, align 4
   %8 = icmp sgt i32 %3, 1
   br i1 %8, label %.lr.ph, label %._crit_edge
@@ -377,7 +377,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   br i1 %46, label %.lr.ph.preheader.i36, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %44
-  %47 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef -2, i32 noundef 0) #9
+  %47 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef -2, i32 noundef 0) #8
   br label %._crit_edge55.i
 
 .lr.ph.preheader.i36:                             ; preds = %44
@@ -410,10 +410,9 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %59
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.gimme_gene) #9
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %63 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.gimme_gene) #8
   unreachable
 
 64:                                               ; preds = %59
@@ -431,7 +430,7 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
 
 ._crit_edge.i:                                    ; preds = %67
   %68 = add i32 %.1.i, -1
-  %69 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %68, i32 noundef 0) #9
+  %69 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %68, i32 noundef 0) #8
   br label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %80, %._crit_edge.i
@@ -458,10 +457,9 @@ remove_gene.exit:                                 ; preds = %remove_gene.exit.lo
   br i1 %exitcond65.not.i, label %._crit_edge55.i, label %.lr.ph54.i, !llvm.loop !11
 
 ._crit_edge55.i:                                  ; preds = %80, %._crit_edge.thread.i
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %81)
-  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.gimme_gene) #9
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.gimme_gene) #8
   unreachable
 
 gimme_gene.exit:                                  ; preds = %77, %51
@@ -508,7 +506,7 @@ gimme_gene.exit:                                  ; preds = %77, %51
 
 95:                                               ; preds = %._crit_edge.i50
   %96 = add i32 %.1.i48, -1
-  %97 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %96, i32 noundef 0) #9
+  %97 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %96, i32 noundef 0) #8
   br label %.lr.ph86.i
 
 .lr.ph86.i:                                       ; preds = %110, %95
@@ -543,7 +541,7 @@ gimme_gene.exit:                                  ; preds = %77, %51
   br i1 %.not67.i, label %._crit_edge87.i, label %.lr.ph86.i, !llvm.loop !13
 
 ._crit_edge87.i:                                  ; preds = %110
-  %112 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %112 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
   br i1 %112, label %.sink.split.i, label %137
 
 113:                                              ; preds = %._crit_edge.i50
@@ -552,7 +550,7 @@ gimme_gene.exit:                                  ; preds = %77, %51
 
 114:                                              ; preds = %113
   %115 = add i32 %.150.i, -1
-  %116 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %115, i32 noundef 0) #9
+  %116 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %115, i32 noundef 0) #8
   br label %.lr.ph92.i
 
 .lr.ph92.i:                                       ; preds = %125, %114
@@ -581,7 +579,7 @@ gimme_gene.exit:                                  ; preds = %77, %51
   br i1 %.not64.i, label %._crit_edge93.i, label %.lr.ph92.i, !llvm.loop !14
 
 ._crit_edge93.i:                                  ; preds = %125
-  %127 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %127 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
   br i1 %127, label %.sink.split.i, label %137
 
 .lr.ph96.i:                                       ; preds = %113, %133
@@ -599,21 +597,20 @@ gimme_gene.exit:                                  ; preds = %77, %51
   br i1 %.not63.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !15
 
 ._crit_edge97.i:                                  ; preds = %133
-  %135 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %135 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
   br i1 %135, label %.sink.split.i, label %137
 
 .sink.split.i:                                    ; preds = %._crit_edge97.i, %._crit_edge93.i, %._crit_edge87.i
   %.str.4.sink.i = phi ptr [ @.str.3, %._crit_edge87.i ], [ @.str.4, %._crit_edge93.i ], [ @.str.5, %._crit_edge97.i ]
   %.sink.i = phi i32 [ 422, %._crit_edge87.i ], [ 443, %._crit_edge93.i ], [ 461, %._crit_edge97.i ]
-  %136 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.4.sink.i) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.edge_failure) #9
+  %136 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.4.sink.i) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink.i, ptr noundef nonnull @__func__.edge_failure) #8
   br label %137
 
 137:                                              ; preds = %.sink.split.i, %._crit_edge97.i, %._crit_edge93.i, %._crit_edge87.i
-  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %138)
-  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__func__.edge_failure) #9
+  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 466, ptr noundef nonnull @__func__.edge_failure) #8
   unreachable
 
 edge_failure.exit:                                ; preds = %107, %122, %.lr.ph96.i, %gimme_gene.exit
@@ -658,11 +655,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -671,10 +665,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

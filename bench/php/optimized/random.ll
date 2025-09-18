@@ -1239,7 +1239,7 @@ php_mt_rand.exit:                                 ; preds = %8, %12
   store i64 %16, ptr %1, align 8, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %17, align 8, !tbaa !71
-  br label %64
+  br label %62
 
 18:                                               ; preds = %2
   %19 = icmp eq i32 %6, 1
@@ -1292,66 +1292,63 @@ zend_parse_arg_long_ex.exit62..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   %.05474 = phi i32 [ 1, %zend_parse_arg_long_ex.exit ], [ 0, %21 ], [ 2, %zend_parse_arg_long_ex.exit62 ]
   %.05673 = phi ptr [ %23, %zend_parse_arg_long_ex.exit ], [ null, %21 ], [ %30, %zend_parse_arg_long_ex.exit62 ]
   call void @zend_wrong_parameter_error(i32 noundef %.05375, i32 noundef %.05474, ptr noundef null, i32 noundef 0, ptr noundef %.05673) #17
-  br label %64
+  br label %62
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit62..critedge_crit_edge, %.thread76
   %36 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit62..critedge_crit_edge ], [ %34, %.thread76 ]
   %37 = load i64, ptr %3, align 8, !tbaa !86
   %38 = icmp slt i64 %36, %37
-  br i1 %38, label %39, label %42, !prof !44
+  br i1 %38, label %39, label %40, !prof !44
 
 39:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #17
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !10
-  %41 = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %41)
-  br label %64
+  br label %62
 
-42:                                               ; preds = %.critedge
-  %43 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 1), align 1, !tbaa !73, !range !77, !noundef !78
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %php_random_default_status.exit.i, label %45
+40:                                               ; preds = %.critedge
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 1), align 1, !tbaa !73, !range !77, !noundef !78
+  %42 = trunc nuw i8 %41 to i1
+  br i1 %42, label %php_random_default_status.exit.i, label %43
 
-45:                                               ; preds = %42
+43:                                               ; preds = %40
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 36), align 4, !tbaa !79
   call void @php_random_mt19937_seed_default(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @random_globals, i64 32)) #17
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 1), align 1, !tbaa !73
   br label %php_random_default_status.exit.i
 
-php_random_default_status.exit.i:                 ; preds = %45, %42
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 36), align 4, !tbaa !79
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %php_mt_rand_range.exit.i, label %php_random_default_status.exit8.i
+php_random_default_status.exit.i:                 ; preds = %43, %40
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @random_globals, i64 36), align 4, !tbaa !79
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %php_mt_rand_range.exit.i, label %php_random_default_status.exit8.i
 
 php_mt_rand_range.exit.i:                         ; preds = %php_random_default_status.exit.i
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8, !tbaa !87
-  %49 = call i64 %48(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @random_globals, i64 32), i64 noundef %37, i64 noundef %36) #17
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8, !tbaa !87
+  %47 = call i64 %46(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @random_globals, i64 32), i64 noundef %37, i64 noundef %36) #17
   br label %php_mt_rand_common.exit
 
 php_random_default_status.exit8.i:                ; preds = %php_random_default_status.exit.i
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8, !tbaa !4
-  %51 = call { i64, i64 } %50(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @random_globals, i64 32)) #17
-  %52 = extractvalue { i64, i64 } %51, 0
-  %53 = lshr i64 %52, 1
-  %54 = sitofp i64 %36 to double
-  %55 = sitofp i64 %37 to double
-  %56 = fsub double %54, %55
-  %57 = fadd double %56, 1.000000e+00
-  %58 = uitofp nneg i64 %53 to double
-  %59 = fmul double %58, 0x3E00000000000000
-  %60 = fmul double %57, %59
-  %61 = fptoui double %60 to i64
-  %62 = add i64 %37, %61
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 8), align 8, !tbaa !4
+  %49 = call { i64, i64 } %48(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @random_globals, i64 32)) #17
+  %50 = extractvalue { i64, i64 } %49, 0
+  %51 = lshr i64 %50, 1
+  %52 = sitofp i64 %36 to double
+  %53 = sitofp i64 %37 to double
+  %54 = fsub double %52, %53
+  %55 = fadd double %54, 1.000000e+00
+  %56 = uitofp nneg i64 %51 to double
+  %57 = fmul double %56, 0x3E00000000000000
+  %58 = fmul double %55, %57
+  %59 = fptoui double %58 to i64
+  %60 = add i64 %37, %59
   br label %php_mt_rand_common.exit
 
 php_mt_rand_common.exit:                          ; preds = %php_mt_rand_range.exit.i, %php_random_default_status.exit8.i
-  %.0.i63 = phi i64 [ %49, %php_mt_rand_range.exit.i ], [ %62, %php_random_default_status.exit8.i ]
+  %.0.i63 = phi i64 [ %47, %php_mt_rand_range.exit.i ], [ %60, %php_random_default_status.exit8.i ]
   store i64 %.0.i63, ptr %1, align 8, !tbaa !71
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %63, align 8, !tbaa !71
-  br label %64
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %61, align 8, !tbaa !71
+  br label %62
 
-64:                                               ; preds = %.thread, %php_mt_rand_common.exit, %39, %php_mt_rand.exit
+62:                                               ; preds = %.thread, %php_mt_rand_common.exit, %39, %php_mt_rand.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -1598,7 +1595,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
   %.04163 = phi i32 [ 1, %.thread57 ], [ 9, %zend_parse_arg_long_ex.exit ]
   %.04262 = phi ptr [ null, %.thread57 ], [ %7, %zend_parse_arg_long_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.04163, i32 noundef %.064, ptr noundef null, i32 noundef 0, ptr noundef %.04262) #17
-  br label %47
+  br label %zend_string_release_ex.exit
 
 .critedgethread-pre-split:                        ; preds = %zend_parse_arg_long_ex.exit
   %.pr = load i64, ptr %3, align 8, !tbaa !86
@@ -1611,67 +1608,58 @@ zend_parse_arg_long_ex.exit:                      ; preds = %6
 
 16:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.3) #17
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !10
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %47
-
-zend_string_alloc.exit:                           ; preds = %.critedge
-  %19 = and i64 %14, 9223372036854775800
-  %20 = add nuw i64 %19, 32
-  %21 = call noalias ptr @_emalloc(i64 noundef %20) #19
-  store i32 1, ptr %21, align 4, !tbaa !80
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 22, ptr %22, align 4, !tbaa !71
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 0, ptr %23, align 8, !tbaa !81
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %14, ptr %24, align 8, !tbaa !83
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %26 = load i64, ptr %3, align 8, !tbaa !86
-  %27 = call i32 @php_random_bytes(ptr noundef nonnull %25, i64 noundef %26, i1 noundef zeroext true) #17
-  %28 = icmp eq i32 %27, -1
-  br i1 %28, label %29, label %40
-
-29:                                               ; preds = %zend_string_alloc.exit
-  %30 = load i32, ptr %22, align 4, !tbaa !71
-  %31 = and i32 %30, 64
-  %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %32, label %zend_string_release_ex.exit
-
-32:                                               ; preds = %29
-  %33 = load i32, ptr %21, align 4, !tbaa !80
-  %34 = icmp ne i32 %33, 0
-  call void @llvm.assume(i1 %34)
-  %35 = add i32 %33, -1
-  store i32 %35, ptr %21, align 4, !tbaa !80
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %zend_string_release_ex.exit
-
-37:                                               ; preds = %32
-  call void @_efree(ptr noundef nonnull %21) #17
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %29, %32, %37
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !10
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  br label %47
+zend_string_alloc.exit:                           ; preds = %.critedge
+  %17 = and i64 %14, 9223372036854775800
+  %18 = add nuw i64 %17, 32
+  %19 = call noalias ptr @_emalloc(i64 noundef %18) #19
+  store i32 1, ptr %19, align 4, !tbaa !80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 22, ptr %20, align 4, !tbaa !71
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 0, ptr %21, align 8, !tbaa !81
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i64 %14, ptr %22, align 8, !tbaa !83
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %24 = load i64, ptr %3, align 8, !tbaa !86
+  %25 = call i32 @php_random_bytes(ptr noundef nonnull %23, i64 noundef %24, i1 noundef zeroext true) #17
+  %26 = icmp eq i32 %25, -1
+  br i1 %26, label %27, label %36
 
-40:                                               ; preds = %zend_string_alloc.exit
-  %41 = load i64, ptr %3, align 8, !tbaa !86
-  %42 = getelementptr inbounds i8, ptr %25, i64 %41
-  store i8 0, ptr %42, align 1, !tbaa !71
-  store ptr %21, ptr %1, align 8, !tbaa !71
-  %43 = load i32, ptr %22, align 4, !tbaa !71
-  %44 = and i32 %43, 64
-  %.not47 = icmp eq i32 %44, 0
-  %45 = select i1 %.not47, i32 262, i32 6
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 8, !tbaa !71
-  br label %47
+27:                                               ; preds = %zend_string_alloc.exit
+  %28 = load i32, ptr %20, align 4, !tbaa !71
+  %29 = and i32 %28, 64
+  %.not.i = icmp eq i32 %29, 0
+  br i1 %.not.i, label %30, label %zend_string_release_ex.exit
 
-47:                                               ; preds = %13, %40, %zend_string_release_ex.exit, %16
+30:                                               ; preds = %27
+  %31 = load i32, ptr %19, align 4, !tbaa !80
+  %32 = icmp ne i32 %31, 0
+  call void @llvm.assume(i1 %32)
+  %33 = add i32 %31, -1
+  store i32 %33, ptr %19, align 4, !tbaa !80
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %35, label %zend_string_release_ex.exit
+
+35:                                               ; preds = %30
+  call void @_efree(ptr noundef nonnull %19) #17
+  br label %zend_string_release_ex.exit
+
+36:                                               ; preds = %zend_string_alloc.exit
+  %37 = load i64, ptr %3, align 8, !tbaa !86
+  %38 = getelementptr inbounds i8, ptr %23, i64 %37
+  store i8 0, ptr %38, align 1, !tbaa !71
+  store ptr %19, ptr %1, align 8, !tbaa !71
+  %39 = load i32, ptr %20, align 4, !tbaa !71
+  %40 = and i32 %39, 64
+  %.not47 = icmp eq i32 %40, 0
+  %41 = select i1 %.not47, i32 262, i32 6
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 8, !tbaa !71
+  br label %zend_string_release_ex.exit
+
+zend_string_release_ex.exit:                      ; preds = %35, %30, %27, %13, %36, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1734,40 +1722,31 @@ zend_parse_arg_long_ex.exit58..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   %.04969 = phi i32 [ 9, %zend_parse_arg_long_ex.exit ], [ 1, %8 ], [ 9, %zend_parse_arg_long_ex.exit58 ]
   %.05068 = phi ptr [ %10, %zend_parse_arg_long_ex.exit ], [ null, %8 ], [ %17, %zend_parse_arg_long_ex.exit58 ]
   call void @zend_wrong_parameter_error(i32 noundef %.04969, i32 noundef %.070, ptr noundef null, i32 noundef 0, ptr noundef %.05068) #17
-  br label %38
+  br label %33
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit58..critedge_crit_edge, %.thread71
   %23 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit58..critedge_crit_edge ], [ %21, %.thread71 ]
   %24 = load i64, ptr %3, align 8, !tbaa !86
   %25 = icmp sgt i64 %24, %23
-  br i1 %25, label %26, label %29
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.4) #17
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !10
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %38
+  br label %33
 
-29:                                               ; preds = %.critedge
-  %30 = call i32 @php_random_int(i64 noundef %24, i64 noundef %23, ptr noundef nonnull %5, i1 noundef zeroext true) #17
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %35
+27:                                               ; preds = %.critedge
+  %28 = call i32 @php_random_int(i64 noundef %24, i64 noundef %23, ptr noundef nonnull %5, i1 noundef zeroext true) #17
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %33, label %30
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !10
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %38
+30:                                               ; preds = %27
+  %31 = load i64, ptr %5, align 8, !tbaa !86
+  store i64 %31, ptr %1, align 8, !tbaa !71
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %32, align 8, !tbaa !71
+  br label %33
 
-35:                                               ; preds = %29
-  %36 = load i64, ptr %5, align 8, !tbaa !86
-  store i64 %36, ptr %1, align 8, !tbaa !71
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %37, align 8, !tbaa !71
-  br label %38
-
-38:                                               ; preds = %.thread, %35, %32, %26
+33:                                               ; preds = %27, %.thread, %30, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

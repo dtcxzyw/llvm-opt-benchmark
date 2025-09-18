@@ -400,48 +400,34 @@ if.then.i.i.i52:                                  ; preds = %cleanup
   %20 = load ptr, ptr %decode_info, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %decode_info, i64 16
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %20, %21
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i52
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %decode_info, i64 8
-  %22 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %22, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
-  br label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i52
   call void @_ZdlPv(ptr noundef %20) #22
   br label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %cleanup
+_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit: ; preds = %if.then.i.i.i52, %if.then.i.i.i.i.i.i.i, %cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %decode_info)
   ret void
 
 ehcleanup:                                        ; preds = %lpad14, %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %16, %lpad10 ], [ %18, %lpad14 ], [ %13, %lpad ]
-  %23 = load i8, ptr %_M_engaged.i.i, align 8, !tbaa !8, !range !11, !noundef !12
-  %tobool.not.i.i.i54 = icmp eq i8 %23, 0
+  %22 = load i8, ptr %_M_engaged.i.i, align 8, !tbaa !8, !range !11, !noundef !12
+  %tobool.not.i.i.i54 = icmp eq i8 %22, 0
   br i1 %tobool.not.i.i.i54, label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %ehcleanup
   store i8 0, ptr %_M_engaged.i.i, align 8, !tbaa !8
-  %24 = load ptr, ptr %decode_info, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %decode_info, i64 16
-  %cmp.i.i.i.i.i.i.i.i56 = icmp eq ptr %24, %25
-  br i1 %cmp.i.i.i.i.i.i.i.i56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i58, label %if.then.i.i.i.i.i.i.i57
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i58: ; preds = %if.then.i.i.i55
-  %_M_string_length.i.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %decode_info, i64 8
-  %26 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i59, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i.i.i.i60 = icmp ult i64 %26, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i60)
-  br label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61
+  %23 = load ptr, ptr %decode_info, align 8, !tbaa !27
+  %24 = getelementptr inbounds nuw i8, ptr %decode_info, i64 16
+  %cmp.i.i.i.i.i.i.i.i56 = icmp eq ptr %23, %24
+  br i1 %cmp.i.i.i.i.i.i.i.i56, label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61, label %if.then.i.i.i.i.i.i.i57
 
 if.then.i.i.i.i.i.i.i57:                          ; preds = %if.then.i.i.i55
-  call void @_ZdlPv(ptr noundef %24) #22
+  call void @_ZdlPv(ptr noundef %23) #22
   br label %_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61
 
-_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61: ; preds = %if.then.i.i.i.i.i.i.i57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i58, %ehcleanup
+_ZNSt14_Optional_baseIN5sound17OggFileDecodeInfoELb0ELb0EED2Ev.exit61: ; preds = %if.then.i.i.i55, %if.then.i.i.i.i.i.i.i57, %ehcleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %decode_info)
   resume { ptr, i32 } %.pn
 }
@@ -773,20 +759,13 @@ delete.notnull.i:                                 ; preds = %entry
   %1 = load ptr, ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %1, %2
-  br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %delete.notnull.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i = icmp ult i64 %3, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
-  br label %_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit
+  br i1 %cmp.i.i.i.i.i, label %_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %delete.notnull.i
   tail call void @_ZdlPv(ptr noundef %1) #22
   br label %_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit
 
-_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit: ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+_ZNKSt14default_deleteIN5sound21OggVorbisBufferSourceEEclEPS1_.exit: ; preds = %delete.notnull.i, %if.then.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   br label %if.end
 
@@ -1181,19 +1160,13 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5sound14ISoundDataOpenE, i64 16), ptr %this, align 8, !tbaa !24
   %24 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %cmp.i.i.i.i.i = icmp eq ptr %24, %0
-  br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i30
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %ehcleanup
-  %25 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i = icmp ult i64 %25, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
-  br label %_ZN5sound14ISoundDataOpenD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %_ZN5sound14ISoundDataOpenD2Ev.exit, label %if.then.i.i.i.i30
 
 if.then.i.i.i.i30:                                ; preds = %ehcleanup
   call void @_ZdlPv(ptr noundef %24) #22
   br label %_ZN5sound14ISoundDataOpenD2Ev.exit
 
-_ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %if.then.i.i.i.i30, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+_ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %ehcleanup, %if.then.i.i.i.i30
   resume { ptr, i32 } %.pn
 }
 
@@ -1670,20 +1643,13 @@ entry:
   %0 = load ptr, ptr %m_buffer, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
   ret void
 }
 
@@ -1694,20 +1660,13 @@ entry:
   %0 = load ptr, ptr %m_buffer.i, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN5sound21SoundDataUnopenBufferD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %_ZN5sound21SoundDataUnopenBufferD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZN5sound21SoundDataUnopenBufferD2Ev.exit
 
-_ZN5sound21SoundDataUnopenBufferD2Ev.exit:        ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZN5sound21SoundDataUnopenBufferD2Ev.exit:        ; preds = %entry, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -1719,20 +1678,13 @@ entry:
   %0 = load ptr, ptr %m_path, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %cmp.i.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %entry, %if.then.i.i
   ret void
 }
 
@@ -1743,20 +1695,13 @@ entry:
   %0 = load ptr, ptr %m_path.i, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN5sound19SoundDataUnopenFileD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %_ZN5sound19SoundDataUnopenFileD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZN5sound19SoundDataUnopenFileD2Ev.exit
 
-_ZN5sound19SoundDataUnopenFileD2Ev.exit:          ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZN5sound19SoundDataUnopenFileD2Ev.exit:          ; preds = %entry, %if.then.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -1853,20 +1798,13 @@ _ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit: ; pred
   %10 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %12 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i = icmp ult i64 %12, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
-  br label %_ZN5sound14ISoundDataOpenD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %_ZN5sound14ISoundDataOpenD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit
   tail call void @_ZdlPv(ptr noundef %10) #22
   br label %_ZN5sound14ISoundDataOpenD2Ev.exit
 
-_ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+_ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %_ZNSt10unique_ptrIN5sound11RAIIOggFileESt14default_deleteIS1_EED2Ev.exit, %if.then.i.i.i.i
   ret void
 }
 
@@ -1894,20 +1832,13 @@ entry:
   %0 = load ptr, ptr %m_decode_info.i, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
-  br label %_ZN5sound14ISoundDataOpenD2Ev.exit
+  br i1 %cmp.i.i.i.i.i, label %_ZN5sound14ISoundDataOpenD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZN5sound14ISoundDataOpenD2Ev.exit
 
-_ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+_ZN5sound14ISoundDataOpenD2Ev.exit:               ; preds = %entry, %if.then.i.i.i.i
   ret void
 }
 
@@ -1921,20 +1852,13 @@ entry:
   %0 = load ptr, ptr %m_decode_info.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
-  br label %_ZN5sound19SoundDataOpenBufferD2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i, label %_ZN5sound19SoundDataOpenBufferD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZN5sound19SoundDataOpenBufferD2Ev.exit
 
-_ZN5sound19SoundDataOpenBufferD2Ev.exit:          ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
+_ZN5sound19SoundDataOpenBufferD2Ev.exit:          ; preds = %entry, %if.then.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
   ret void
 }
@@ -1986,20 +1910,13 @@ entry:
   %0 = load ptr, ptr %m_decode_info, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN5sound17OggFileDecodeInfoD2Ev.exit
+  br i1 %cmp.i.i.i.i, label %_ZN5sound17OggFileDecodeInfoD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZN5sound17OggFileDecodeInfoD2Ev.exit
 
-_ZN5sound17OggFileDecodeInfoD2Ev.exit:            ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZN5sound17OggFileDecodeInfoD2Ev.exit:            ; preds = %entry, %if.then.i.i.i
   ret void
 }
 
@@ -2110,20 +2027,13 @@ entry:
   %0 = load ptr, ptr %m_decode_info.i.i.i.i, align 8, !tbaa !27
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !31
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %2, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
-  br label %_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %entry
   tail call void @_ZdlPv(ptr noundef %0) #22
   br label %_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit
 
-_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
+_ZNSt16allocator_traitsISaIvEE7destroyIN5sound19SoundDataOpenBufferEEEvRS0_PT_.exit: ; preds = %entry, %if.then.i.i.i.i.i.i.i
   ret void
 }
 

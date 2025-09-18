@@ -60,9 +60,6 @@ _ZN4llvmeqENS_9StringRefES0_.exit22:              ; preds = %6
 _ZN4llvmeqENS_9StringRefES0_.exit22.thread44:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit18, %_ZN4llvmeqENS_9StringRefES0_.exit, %6, %_ZN4llvmeqENS_9StringRefES0_.exit22
   %.not.i23 = icmp eq i64 %10, 8
   call void @llvm.assume(i1 %.not.i23)
-  %bcmp.i25 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %9, ptr noundef nonnull dereferenceable(8) @.str.4, i64 8)
-  %19 = icmp eq i32 %bcmp.i25, 0
-  call void @llvm.assume(i1 %19)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit18.thread, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit22.thread44, %_ZN4llvmeqENS_9StringRefES0_.exit22, %2

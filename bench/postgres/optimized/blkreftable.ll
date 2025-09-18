@@ -22,16 +22,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @CreateEmptyBlockRefTable() local_unnamed_addr #0 {
-  %1 = tail call ptr @palloc(i64 noundef 16) #14
+  %1 = tail call ptr @palloc(i64 noundef 16) #13
   %2 = load ptr, ptr @CurrentMemoryContext, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %3, align 8
-  %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %2, i64 noundef 48) #14
+  %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %2, i64 noundef 48) #13
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr null, ptr %6, align 8
-  %7 = tail call ptr @MemoryContextAllocExtended(ptr noundef %2, i64 noundef 458752, i32 noundef 5) #14
+  %7 = tail call ptr @MemoryContextAllocExtended(ptr noundef %2, i64 noundef 458752, i32 noundef 5) #13
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %7, ptr %8, align 8
   store i64 8192, ptr %4, align 8
@@ -195,7 +195,7 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(no
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
-  %7 = call i32 @hash_bytes(ptr noundef nonnull %5, i32 noundef 16) #14
+  %7 = call i32 @hash_bytes(ptr noundef nonnull %5, i32 noundef 16) #13
   %8 = load i64, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -221,10 +221,9 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(no
   br i1 %18, label %19, label %22, !prof !11
 
 19:                                               ; preds = %16
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %20)
-  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 630, ptr noundef nonnull @__func__.blockreftable_insert_hash_internal) #14
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #13
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 630, ptr noundef nonnull @__func__.blockreftable_insert_hash_internal) #13
   unreachable
 
 22:                                               ; preds = %16
@@ -262,7 +261,7 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(no
   br i1 %36, label %blockreftable_insert_hash_internal.exit, label %37
 
 37:                                               ; preds = %.lr.ph
-  %38 = call i32 @hash_bytes(ptr noundef nonnull %35, i32 noundef 16) #14
+  %38 = call i32 @hash_bytes(ptr noundef nonnull %35, i32 noundef 16) #13
   %.val86.i = load i32, ptr %14, align 4
   %39 = and i32 %.val86.i, %38
   %.not.i.i = icmp ugt i32 %39, %.068.i24
@@ -549,14 +548,14 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 13:                                               ; preds = %11
   %14 = zext nneg i32 %.0108 to i64
   %15 = shl nuw nsw i64 %14, 1
-  %16 = tail call ptr @palloc0(i64 noundef %15) #14
+  %16 = tail call ptr @palloc0(i64 noundef %15) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %16, ptr %17, align 8
-  %18 = tail call ptr @palloc0(i64 noundef %15) #14
+  %18 = tail call ptr @palloc0(i64 noundef %15) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %18, ptr %19, align 8
   %20 = shl nuw nsw i64 %14, 3
-  %21 = tail call ptr @palloc0(i64 noundef %20) #14
+  %21 = tail call ptr @palloc0(i64 noundef %20) #13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8
   br label %49
@@ -567,7 +566,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %.0108 to i64
   %28 = shl nuw nsw i64 %27, 1
-  %29 = tail call ptr @repalloc(ptr noundef %26, i64 noundef %28) #14
+  %29 = tail call ptr @repalloc(ptr noundef %26, i64 noundef %28) #13
   store ptr %29, ptr %25, align 8
   %30 = load i32, ptr %6, align 8
   %31 = zext i32 %30 to i64
@@ -577,7 +576,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   tail call void @llvm.memset.p0.i64(ptr align 2 %32, i8 0, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call ptr @repalloc(ptr noundef %36, i64 noundef %28) #14
+  %37 = tail call ptr @repalloc(ptr noundef %36, i64 noundef %28) #13
   store ptr %37, ptr %35, align 8
   %38 = load i32, ptr %6, align 8
   %39 = zext i32 %38 to i64
@@ -586,7 +585,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = shl nuw nsw i64 %27, 3
-  %44 = tail call ptr @repalloc(ptr noundef %42, i64 noundef %43) #14
+  %44 = tail call ptr @repalloc(ptr noundef %42, i64 noundef %43) #13
   store ptr %44, ptr %41, align 8
   %45 = load i32, ptr %6, align 8
   %46 = zext i32 %45 to i64
@@ -609,7 +608,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   br i1 %56, label %57, label %71
 
 57:                                               ; preds = %50
-  %58 = tail call ptr @palloc(i64 noundef 32) #14
+  %58 = tail call ptr @palloc(i64 noundef 32) #13
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %53
@@ -680,7 +679,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   br i1 %99, label %100, label %._crit_edge.thread
 
 100:                                              ; preds = %._crit_edge
-  %101 = tail call ptr @palloc0(i64 noundef 8192) #14
+  %101 = tail call ptr @palloc0(i64 noundef 8192) #13
   %102 = load ptr, ptr %72, align 8
   %103 = getelementptr inbounds nuw i16, ptr %102, i64 %53
   %104 = load i16, ptr %103, align 2
@@ -728,7 +727,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %53
   %135 = load ptr, ptr %134, align 8
-  tail call void @pfree(ptr noundef %135) #14
+  tail call void @pfree(ptr noundef %135) #13
   %136 = load ptr, ptr %132, align 8
   %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %53
   store ptr %101, ptr %137, align 8
@@ -752,7 +751,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %53
   %149 = load ptr, ptr %148, align 8
   %150 = shl nuw nsw i64 %144, 2
-  %151 = tail call ptr @repalloc(ptr noundef %149, i64 noundef %150) #14
+  %151 = tail call ptr @repalloc(ptr noundef %149, i64 noundef %150) #13
   %152 = load ptr, ptr %146, align 8
   %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %53
   store ptr %151, ptr %153, align 8
@@ -801,7 +800,7 @@ define dso_local noundef ptr @BlockRefTableGetEntry(ptr noundef readonly capture
   store i64 %.sroa.0.0.copyload, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.5.12.insert.insert, ptr %8, align 8
-  %9 = call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef 16) #14
+  %9 = call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef 16) #13
   %10 = load i64, ptr %6, align 8
   %11 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -995,7 +994,7 @@ BlockRefTableWrite.exit:
   store ptr %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 65560
   %10 = load ptr, ptr @pg_comp_crc32c, align 8
-  %11 = call i32 %10(i32 noundef -1, ptr noundef nonnull %6, i64 noundef 4) #14
+  %11 = call i32 %10(i32 noundef -1, ptr noundef nonnull %6, i64 noundef 4) #13
   store i32 %11, ptr %9, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 65552
   %.pre74 = load ptr, ptr %0, align 8
@@ -1011,7 +1010,7 @@ BlockRefTableWrite.exit:
 16:                                               ; preds = %BlockRefTableWrite.exit
   %17 = zext i32 %15 to i64
   %18 = mul nuw nsw i64 %17, 24
-  %19 = call ptr @palloc(i64 noundef %18) #14
+  %19 = call ptr @palloc(i64 noundef %18) #13
   %20 = load ptr, ptr %0, align 8
   %21 = load i64, ptr %20, align 8
   %.not18.i = icmp eq i64 %21, 0
@@ -1113,7 +1112,7 @@ blockreftable_iterate.exit:                       ; preds = %39
 
 73:                                               ; preds = %37
   %74 = zext i32 %.043 to i64
-  call void @pg_qsort(ptr noundef %19, i64 noundef %74, i64 noundef 24, ptr noundef nonnull @BlockRefTableComparator) #14
+  call void @pg_qsort(ptr noundef %19, i64 noundef %74, i64 noundef 24, ptr noundef nonnull @BlockRefTableComparator) #13
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
@@ -1130,7 +1129,7 @@ blockreftable_iterate.exit:                       ; preds = %39
   %81 = getelementptr inbounds nuw %struct.BlockRefTableSerializedEntry, ptr %19, i64 %indvars.iv71
   %82 = load ptr, ptr @pg_comp_crc32c, align 8
   %83 = load i32, ptr %9, align 8
-  %84 = call i32 %82(i32 noundef %83, ptr noundef %81, i64 noundef 24) #14
+  %84 = call i32 %82(i32 noundef %83, ptr noundef %81, i64 noundef 24) #13
   store i32 %84, ptr %9, align 8
   %85 = load i32, ptr %12, align 8
   %86 = add i32 %85, 24
@@ -1140,7 +1139,7 @@ blockreftable_iterate.exit:                       ; preds = %39
 88:                                               ; preds = %80
   %89 = load ptr, ptr %5, align 8
   %90 = load ptr, ptr %8, align 8
-  %91 = call i32 %89(ptr noundef %90, ptr noundef nonnull %13, i32 noundef %85) #14
+  %91 = call i32 %89(ptr noundef %90, ptr noundef nonnull %13, i32 noundef %85) #13
   store i32 0, ptr %12, align 8
   br label %BlockRefTableWrite.exit51
 
@@ -1159,7 +1158,7 @@ BlockRefTableWrite.exit51:                        ; preds = %80, %88
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   store i64 %.sroa.5.0.copyload, ptr %78, align 8
-  %98 = call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef 16) #14
+  %98 = call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef 16) #13
   %99 = load i64, ptr %4, align 8
   %100 = load i64, ptr %78, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1210,7 +1209,7 @@ blockreftable_lookup.exit:                        ; preds = %109, %.lr.ph.i.i, %
   %124 = load ptr, ptr @pg_comp_crc32c, align 8
   %125 = load i32, ptr %9, align 8
   %126 = sext i32 %123 to i64
-  %127 = call i32 %124(i32 noundef %125, ptr noundef %122, i64 noundef %126) #14
+  %127 = call i32 %124(i32 noundef %125, ptr noundef %122, i64 noundef %126) #13
   store i32 %127, ptr %9, align 8
   %128 = load i32, ptr %12, align 8
   %129 = add i32 %128, %123
@@ -1220,7 +1219,7 @@ blockreftable_lookup.exit:                        ; preds = %109, %.lr.ph.i.i, %
 131:                                              ; preds = %120
   %132 = load ptr, ptr %5, align 8
   %133 = load ptr, ptr %8, align 8
-  %134 = call i32 %132(ptr noundef %133, ptr noundef nonnull %13, i32 noundef %128) #14
+  %134 = call i32 %132(ptr noundef %133, ptr noundef nonnull %13, i32 noundef %128) #13
   store i32 0, ptr %12, align 8
   br label %135
 
@@ -1232,7 +1231,7 @@ blockreftable_lookup.exit:                        ; preds = %109, %.lr.ph.i.i, %
 138:                                              ; preds = %135
   %139 = load ptr, ptr %5, align 8
   %140 = load ptr, ptr %8, align 8
-  %141 = call i32 %139(ptr noundef %140, ptr noundef %122, i32 noundef %123) #14
+  %141 = call i32 %139(ptr noundef %140, ptr noundef %122, i32 noundef %123) #13
   br label %BlockRefTableWrite.exit52
 
 142:                                              ; preds = %135
@@ -1272,7 +1271,7 @@ BlockRefTableWrite.exit52:                        ; preds = %142, %138, %blockre
   %162 = load ptr, ptr @pg_comp_crc32c, align 8
   %163 = load i32, ptr %9, align 8
   %164 = zext nneg i32 %161 to i64
-  %165 = call i32 %162(i32 noundef %163, ptr noundef %159, i64 noundef %164) #14
+  %165 = call i32 %162(i32 noundef %163, ptr noundef %159, i64 noundef %164) #13
   store i32 %165, ptr %9, align 8
   %166 = load i32, ptr %12, align 8
   %167 = add i32 %166, %161
@@ -1282,7 +1281,7 @@ BlockRefTableWrite.exit52:                        ; preds = %142, %138, %blockre
 169:                                              ; preds = %156
   %170 = load ptr, ptr %5, align 8
   %171 = load ptr, ptr %8, align 8
-  %172 = call i32 %170(ptr noundef %171, ptr noundef nonnull %13, i32 noundef %166) #14
+  %172 = call i32 %170(ptr noundef %171, ptr noundef nonnull %13, i32 noundef %166) #13
   store i32 0, ptr %12, align 8
   br label %173
 
@@ -1294,7 +1293,7 @@ BlockRefTableWrite.exit52:                        ; preds = %142, %138, %blockre
 176:                                              ; preds = %173
   %177 = load ptr, ptr %5, align 8
   %178 = load ptr, ptr %8, align 8
-  %179 = call i32 %177(ptr noundef %178, ptr noundef %159, i32 noundef %161) #14
+  %179 = call i32 %177(ptr noundef %178, ptr noundef %159, i32 noundef %161) #13
   br label %BlockRefTableWrite.exit53
 
 180:                                              ; preds = %173
@@ -1394,7 +1393,7 @@ define internal fastcc void @BlockRefTableFileTerminate(ptr noundef %0) unnamed_
   %4 = load ptr, ptr @pg_comp_crc32c, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65560
   %6 = load i32, ptr %5, align 8
-  %7 = call i32 %4(i32 noundef %6, ptr noundef nonnull %2, i64 noundef 24) #14
+  %7 = call i32 %4(i32 noundef %6, ptr noundef nonnull %2, i64 noundef 24) #13
   store i32 %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 65552
   %9 = load i32, ptr %8, align 8
@@ -1407,7 +1406,7 @@ define internal fastcc void @BlockRefTableFileTerminate(ptr noundef %0) unnamed_
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = call i32 %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %9) #14
+  %17 = call i32 %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %9) #13
   store i32 0, ptr %8, align 8
   br label %BlockRefTableWrite.exit
 
@@ -1424,7 +1423,7 @@ BlockRefTableWrite.exit:                          ; preds = %1, %12
   %25 = xor i32 %24, -1
   store i32 %25, ptr %3, align 4
   %26 = load ptr, ptr @pg_comp_crc32c, align 8
-  %27 = call i32 %26(i32 noundef %24, ptr noundef nonnull %3, i64 noundef 4) #14
+  %27 = call i32 %26(i32 noundef %24, ptr noundef nonnull %3, i64 noundef 4) #13
   store i32 %27, ptr %5, align 8
   %28 = load i32, ptr %8, align 8
   %29 = add i32 %28, 4
@@ -1435,7 +1434,7 @@ BlockRefTableWrite.exit:                          ; preds = %1, %12
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 %32(ptr noundef %34, ptr noundef nonnull %19, i32 noundef %28) #14
+  %35 = call i32 %32(ptr noundef %34, ptr noundef nonnull %19, i32 noundef %28) #13
   store i32 0, ptr %8, align 8
   br label %BlockRefTableWrite.exit4
 
@@ -1451,7 +1450,7 @@ BlockRefTableWrite.exit4:                         ; preds = %BlockRefTableWrite.
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = call i32 %42(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %41) #14
+  %45 = call i32 %42(ptr noundef %44, ptr noundef nonnull %19, i32 noundef %41) #13
   store i32 0, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1462,7 +1461,7 @@ BlockRefTableWrite.exit4:                         ; preds = %BlockRefTableWrite.
 define dso_local noundef ptr @CreateBlockRefTableReader(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call ptr @palloc0(i64 noundef 73808) #14
+  %7 = tail call ptr @palloc0(i64 noundef 73808) #13
   store ptr %0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %8, align 8
@@ -1480,7 +1479,7 @@ define dso_local noundef ptr @CreateBlockRefTableReader(ptr noundef %0, ptr noun
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %5
-  call void (ptr, ptr, ...) %3(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef 1697321851, i32 noundef %13) #14
+  call void (ptr, ptr, ...) %3(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %2, i32 noundef 1697321851, i32 noundef %13) #13
   br label %15
 
 15:                                               ; preds = %14, %5
@@ -1526,7 +1525,7 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   %24 = load i32, ptr %5, align 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %8, i64 %25
-  %27 = tail call i32 %22(i32 noundef %23, ptr noundef nonnull %26, i64 noundef %21) #14
+  %27 = tail call i32 %22(i32 noundef %23, ptr noundef nonnull %26, i64 noundef %21) #13
   store i32 %27, ptr %12, align 8
   %28 = load i32, ptr %5, align 4
   %29 = add i32 %28, %.050.
@@ -1542,11 +1541,11 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   br i1 %33, label %36, label %49
 
 36:                                               ; preds = %32
-  %37 = tail call i32 %34(ptr noundef %35, ptr noundef %.056, i32 noundef %.05055) #14
+  %37 = tail call i32 %34(ptr noundef %35, ptr noundef %.056, i32 noundef %.05055) #13
   %38 = load ptr, ptr @pg_comp_crc32c, align 8
   %39 = load i32, ptr %12, align 8
   %40 = sext i32 %37 to i64
-  %41 = tail call i32 %38(i32 noundef %39, ptr noundef %.056, i64 noundef %40) #14
+  %41 = tail call i32 %38(i32 noundef %39, ptr noundef %.056, i64 noundef %40) #13
   store i32 %41, ptr %12, align 8
   %42 = getelementptr inbounds i8, ptr %.056, i64 %40
   %43 = sub i32 %.05055, %37
@@ -1557,11 +1556,11 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   %46 = load ptr, ptr %9, align 8
   %47 = load ptr, ptr %10, align 8
   %48 = load ptr, ptr %11, align 8
-  tail call void (ptr, ptr, ...) %46(ptr noundef %47, ptr noundef nonnull @.str.5, ptr noundef %48) #14
+  tail call void (ptr, ptr, ...) %46(ptr noundef %47, ptr noundef nonnull @.str.5, ptr noundef %48) #13
   br label %56
 
 49:                                               ; preds = %32
-  %50 = tail call i32 %34(ptr noundef %35, ptr noundef nonnull %8, i32 noundef 65536) #14
+  %50 = tail call i32 %34(ptr noundef %35, ptr noundef nonnull %8, i32 noundef 65536) #13
   store i32 %50, ptr %6, align 8
   store i32 0, ptr %5, align 4
   %51 = icmp eq i32 %50, 0
@@ -1571,7 +1570,7 @@ define internal fastcc void @BlockRefTableRead(ptr noundef %0, ptr noundef %1, i
   %53 = load ptr, ptr %9, align 8
   %54 = load ptr, ptr %10, align 8
   %55 = load ptr, ptr %11, align 8
-  tail call void (ptr, ptr, ...) %53(ptr noundef %54, ptr noundef nonnull @.str.5, ptr noundef %55) #14
+  tail call void (ptr, ptr, ...) %53(ptr noundef %54, ptr noundef nonnull @.str.5, ptr noundef %55) #13
   br label %56
 
 56:                                               ; preds = %36, %45, %52, %49, %17
@@ -1614,7 +1613,7 @@ define dso_local noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 65568
   %21 = load ptr, ptr %20, align 8
-  call void (ptr, ptr, ...) %17(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef %21, i32 noundef %12, i32 noundef %13) #14
+  call void (ptr, ptr, ...) %17(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef %21, i32 noundef %12, i32 noundef %13) #13
   br label %22
 
 22:                                               ; preds = %15, %9
@@ -1628,7 +1627,7 @@ define dso_local noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef
   br i1 %.not, label %27, label %26
 
 26:                                               ; preds = %23
-  call void @pfree(ptr noundef nonnull %25) #14
+  call void @pfree(ptr noundef nonnull %25) #13
   br label %27
 
 27:                                               ; preds = %26, %23
@@ -1636,7 +1635,7 @@ define dso_local noundef zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 1
-  %32 = call ptr @palloc(i64 noundef %31) #14
+  %32 = call ptr @palloc(i64 noundef %31) #13
   store ptr %32, ptr %24, align 8
   %33 = load i32, ptr %28, align 4
   %34 = shl i32 %33, 1
@@ -1814,12 +1813,12 @@ define dso_local void @DestroyBlockRefTableReader(ptr noundef %0) local_unnamed_
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %3) #14
+  tail call void @pfree(ptr noundef nonnull %3) #13
   store ptr null, ptr %2, align 8
   br label %5
 
 5:                                                ; preds = %4, %1
-  tail call void @pfree(ptr noundef nonnull %0) #14
+  tail call void @pfree(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -1828,14 +1827,14 @@ define dso_local noundef ptr @CreateBlockRefTableWriter(ptr noundef %0, ptr noun
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1697321851, ptr %3, align 4
-  %4 = tail call ptr @palloc0(i64 noundef 65568) #14
+  %4 = tail call ptr @palloc0(i64 noundef 65568) #13
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 65560
   store i32 -1, ptr %6, align 8
   %7 = load ptr, ptr @pg_comp_crc32c, align 8
-  %8 = call i32 %7(i32 noundef -1, ptr noundef nonnull %3, i64 noundef 4) #14
+  %8 = call i32 %7(i32 noundef -1, ptr noundef nonnull %3, i64 noundef 4) #13
   store i32 %8, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 65552
   %10 = load i32, ptr %9, align 8
@@ -1847,7 +1846,7 @@ define dso_local noundef ptr @CreateBlockRefTableWriter(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %17 = call i32 %14(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %10) #14
+  %17 = call i32 %14(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %10) #13
   store i32 0, ptr %9, align 8
   br label %BlockRefTableWrite.exit
 
@@ -1904,7 +1903,7 @@ define dso_local void @BlockRefTableWriteEntry(ptr noundef %0, ptr noundef reado
   %23 = load ptr, ptr @pg_comp_crc32c, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 65560
   %25 = load i32, ptr %24, align 8
-  %26 = call i32 %23(i32 noundef %25, ptr noundef nonnull %3, i64 noundef 24) #14
+  %26 = call i32 %23(i32 noundef %25, ptr noundef nonnull %3, i64 noundef 24) #13
   store i32 %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 65552
   %28 = load i32, ptr %27, align 8
@@ -1917,7 +1916,7 @@ define dso_local void @BlockRefTableWriteEntry(ptr noundef %0, ptr noundef reado
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = call i32 %32(ptr noundef %34, ptr noundef nonnull %35, i32 noundef %28) #14
+  %36 = call i32 %32(ptr noundef %34, ptr noundef nonnull %35, i32 noundef %28) #13
   store i32 0, ptr %27, align 8
   br label %BlockRefTableWrite.exit
 
@@ -1940,7 +1939,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
   %47 = load ptr, ptr @pg_comp_crc32c, align 8
   %48 = load i32, ptr %24, align 8
   %49 = sext i32 %46 to i64
-  %50 = call i32 %47(i32 noundef %48, ptr noundef %45, i64 noundef %49) #14
+  %50 = call i32 %47(i32 noundef %48, ptr noundef %45, i64 noundef %49) #13
   store i32 %50, ptr %24, align 8
   %51 = load i32, ptr %27, align 8
   %52 = add i32 %51, %46
@@ -1951,7 +1950,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
   %55 = load ptr, ptr %0, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = call i32 %55(ptr noundef %57, ptr noundef nonnull %38, i32 noundef %51) #14
+  %58 = call i32 %55(ptr noundef %57, ptr noundef nonnull %38, i32 noundef %51) #13
   store i32 0, ptr %27, align 8
   br label %59
 
@@ -1964,7 +1963,7 @@ BlockRefTableWrite.exit:                          ; preds = %.critedge, %31
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 %63(ptr noundef %65, ptr noundef %45, i32 noundef %46) #14
+  %66 = call i32 %63(ptr noundef %65, ptr noundef %45, i32 noundef %46) #13
   br label %BlockRefTableWrite.exit20
 
 67:                                               ; preds = %59
@@ -2003,7 +2002,7 @@ BlockRefTableWrite.exit20:                        ; preds = %67, %62, %BlockRefT
   %86 = load ptr, ptr @pg_comp_crc32c, align 8
   %87 = load i32, ptr %24, align 8
   %88 = zext nneg i32 %85 to i64
-  %89 = call i32 %86(i32 noundef %87, ptr noundef %83, i64 noundef %88) #14
+  %89 = call i32 %86(i32 noundef %87, ptr noundef %83, i64 noundef %88) #13
   store i32 %89, ptr %24, align 8
   %90 = load i32, ptr %27, align 8
   %91 = add i32 %90, %85
@@ -2013,7 +2012,7 @@ BlockRefTableWrite.exit20:                        ; preds = %67, %62, %BlockRefT
 93:                                               ; preds = %80
   %94 = load ptr, ptr %0, align 8
   %95 = load ptr, ptr %74, align 8
-  %96 = call i32 %94(ptr noundef %95, ptr noundef nonnull %38, i32 noundef %90) #14
+  %96 = call i32 %94(ptr noundef %95, ptr noundef nonnull %38, i32 noundef %90) #13
   store i32 0, ptr %27, align 8
   br label %97
 
@@ -2025,7 +2024,7 @@ BlockRefTableWrite.exit20:                        ; preds = %67, %62, %BlockRefT
 100:                                              ; preds = %97
   %101 = load ptr, ptr %0, align 8
   %102 = load ptr, ptr %74, align 8
-  %103 = call i32 %101(ptr noundef %102, ptr noundef %83, i32 noundef %85) #14
+  %103 = call i32 %101(ptr noundef %102, ptr noundef %83, i32 noundef %85) #13
   br label %BlockRefTableWrite.exit21
 
 104:                                              ; preds = %97
@@ -2052,13 +2051,13 @@ BlockRefTableWrite.exit21:                        ; preds = %104, %100, %75
 ; Function Attrs: nounwind uwtable
 define dso_local void @DestroyBlockRefTableWriter(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @BlockRefTableFileTerminate(ptr noundef %0)
-  tail call void @pfree(ptr noundef %0) #14
+  tail call void @pfree(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateBlockRefTableEntry(i64 %0, i32 %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @palloc0(i64 noundef 56) #14
+  %4 = tail call ptr @palloc0(i64 noundef 56) #13
   store i64 %0, ptr %4, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1, ptr %.sroa.25.0..sroa_idx, align 8
@@ -2079,7 +2078,7 @@ define dso_local void @BlockRefTableFreeEntry(ptr noundef %0) local_unnamed_addr
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %3) #14
+  tail call void @pfree(ptr noundef nonnull %3) #13
   store ptr null, ptr %2, align 8
   br label %5
 
@@ -2090,7 +2089,7 @@ define dso_local void @BlockRefTableFreeEntry(ptr noundef %0) local_unnamed_addr
   br i1 %.not12, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @pfree(ptr noundef nonnull %7) #14
+  tail call void @pfree(ptr noundef nonnull %7) #13
   store ptr null, ptr %6, align 8
   br label %9
 
@@ -2101,12 +2100,12 @@ define dso_local void @BlockRefTableFreeEntry(ptr noundef %0) local_unnamed_addr
   br i1 %.not13, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @pfree(ptr noundef nonnull %11) #14
+  tail call void @pfree(ptr noundef nonnull %11) #13
   store ptr null, ptr %10, align 8
   br label %13
 
 13:                                               ; preds = %12, %9
-  tail call void @pfree(ptr noundef nonnull %0) #14
+  tail call void @pfree(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -2143,16 +2142,15 @@ define internal fastcc void @blockreftable_grow(ptr noundef captures(none) %0, i
   br i1 %13, label %14, label %blockreftable_compute_size.exit, !prof !11
 
 14:                                               ; preds = %2
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.blockreftable_compute_size) #14
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.blockreftable_compute_size) #13
   unreachable
 
 blockreftable_compute_size.exit:                  ; preds = %2
   %17 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %17, align 8
-  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #14
+  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #13
   store ptr %18, ptr %4, align 8
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
   %20 = icmp samesign ult i64 %19, 2
@@ -2165,10 +2163,9 @@ blockreftable_compute_size.exit:                  ; preds = %2
   br i1 %25, label %26, label %blockreftable_update_parameters.exit, !prof !11
 
 26:                                               ; preds = %blockreftable_compute_size.exit
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.blockreftable_compute_size) #14
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 327, ptr noundef nonnull @__func__.blockreftable_compute_size) #13
   unreachable
 
 blockreftable_update_parameters.exit:             ; preds = %blockreftable_compute_size.exit
@@ -2197,7 +2194,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   br i1 %.not, label %41, label %.lr.ph69.preheader
 
 41:                                               ; preds = %.lr.ph
-  %42 = tail call i32 @hash_bytes(ptr noundef nonnull %38, i32 noundef 16) #14
+  %42 = tail call i32 @hash_bytes(ptr noundef nonnull %38, i32 noundef 16) #13
   %.val56 = load i32, ptr %31, align 4
   %43 = and i32 %.val56, %42
   %44 = icmp eq i32 %43, %.062
@@ -2224,7 +2221,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   br i1 %53, label %54, label %64
 
 54:                                               ; preds = %.lr.ph69
-  %55 = tail call i32 @hash_bytes(ptr noundef nonnull %50, i32 noundef 16) #14
+  %55 = tail call i32 @hash_bytes(ptr noundef nonnull %50, i32 noundef 16) #13
   %.val57 = load i32, ptr %31, align 4
   br label %56
 
@@ -2254,7 +2251,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   br i1 %69, label %.lr.ph69, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %64, %blockreftable_update_parameters.exit
-  tail call void @pfree(ptr noundef %5) #14
+  tail call void @pfree(ptr noundef %5) #13
   ret void
 }
 
@@ -2264,26 +2261,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #13
+declare i64 @llvm.ctpop.i64(i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2296,11 +2290,10 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

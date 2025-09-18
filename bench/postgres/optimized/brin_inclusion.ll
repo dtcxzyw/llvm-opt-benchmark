@@ -19,8 +19,8 @@ define dso_local noundef i64 @brin_inclusion_opcinfo(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @lookup_type_cache(i32 noundef 16, i32 noundef 0) #4
-  %6 = tail call ptr @palloc0(i64 noundef 1680) #4
+  %5 = tail call ptr @lookup_type_cache(i32 noundef 16, i32 noundef 0) #3
+  %6 = tail call ptr @palloc0(i64 noundef 1680) #3
   store i16 3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 1, ptr %7, align 2
@@ -31,7 +31,7 @@ define dso_local noundef i64 @brin_inclusion_opcinfo(ptr noundef readonly captur
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #4
+  %14 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -76,7 +76,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr noundef reado
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %26 = load i16, ptr %25, align 4
   %27 = sext i16 %26 to i32
-  %28 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %24, i32 noundef %27) #4
+  %28 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %24, i32 noundef %27) #3
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   store i64 %28, ptr %30, align 8
@@ -119,15 +119,15 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr noundef reado
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call i32 @index_getprocid(ptr noundef %57, i16 noundef signext %12, i16 noundef zeroext 14) #4
+  %58 = tail call i32 @index_getprocid(ptr noundef %57, i16 noundef signext %12, i16 noundef zeroext 14) #3
   %.not.i = icmp eq i32 %58, 0
   br i1 %.not.i, label %63, label %59
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %56, align 8
-  %61 = tail call ptr @index_getprocinfo(ptr noundef %60, i16 noundef signext %12, i16 noundef zeroext 14) #4
+  %61 = tail call ptr @index_getprocinfo(ptr noundef %60, i16 noundef signext %12, i16 noundef zeroext 14) #3
   %62 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %51, ptr noundef %61, ptr noundef %62) #4
+  tail call void @fmgr_info_copy(ptr noundef nonnull %51, ptr noundef %61, ptr noundef %62) #3
   br label %inclusion_get_procinfo.exit
 
 63:                                               ; preds = %55
@@ -135,7 +135,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr noundef reado
   br label %inclusion_get_procinfo.exit.thread
 
 inclusion_get_procinfo.exit:                      ; preds = %59, %50
-  %64 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %51, i32 noundef %11, i64 noundef %9) #4
+  %64 = tail call i64 @FunctionCall1Coll(ptr noundef nonnull %51, i32 noundef %11, i64 noundef %9) #3
   %.not82 = icmp eq i64 %64, 0
   br i1 %.not82, label %inclusion_get_procinfo.exit.thread, label %65
 
@@ -172,15 +172,15 @@ inclusion_get_procinfo.exit.thread:               ; preds = %40, %63, %inclusion
 82:                                               ; preds = %77
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 @index_getprocid(ptr noundef %84, i16 noundef signext %12, i16 noundef zeroext 13) #4
+  %85 = tail call i32 @index_getprocid(ptr noundef %84, i16 noundef signext %12, i16 noundef zeroext 13) #3
   %.not.i68 = icmp eq i32 %85, 0
   br i1 %.not.i68, label %90, label %86
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %83, align 8
-  %88 = tail call ptr @index_getprocinfo(ptr noundef %87, i16 noundef signext %12, i16 noundef zeroext 13) #4
+  %88 = tail call ptr @index_getprocinfo(ptr noundef %87, i16 noundef signext %12, i16 noundef zeroext 13) #3
   %89 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %78, ptr noundef %88, ptr noundef %89) #4
+  tail call void @fmgr_info_copy(ptr noundef nonnull %78, ptr noundef %88, ptr noundef %89) #3
   br label %inclusion_get_procinfo.exit69
 
 90:                                               ; preds = %82
@@ -190,7 +190,7 @@ inclusion_get_procinfo.exit.thread:               ; preds = %40, %63, %inclusion
 inclusion_get_procinfo.exit69:                    ; preds = %86, %77
   %91 = load ptr, ptr %36, align 8
   %92 = load i64, ptr %91, align 8
-  %93 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %78, i32 noundef %11, i64 noundef %92, i64 noundef %9) #4
+  %93 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %78, i32 noundef %11, i64 noundef %92, i64 noundef %9) #3
   %.not84 = icmp eq i64 %93, 0
   br i1 %.not84, label %inclusion_get_procinfo.exit69.thread, label %160
 
@@ -213,15 +213,15 @@ inclusion_get_procinfo.exit69.thread:             ; preds = %70, %90, %inclusion
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call i32 @index_getprocid(ptr noundef %107, i16 noundef signext %12, i16 noundef zeroext 12) #4
+  %108 = tail call i32 @index_getprocid(ptr noundef %107, i16 noundef signext %12, i16 noundef zeroext 12) #3
   %.not.i71 = icmp eq i32 %108, 0
   br i1 %.not.i71, label %113, label %109
 
 109:                                              ; preds = %105
   %110 = load ptr, ptr %106, align 8
-  %111 = tail call ptr @index_getprocinfo(ptr noundef %110, i16 noundef signext %12, i16 noundef zeroext 12) #4
+  %111 = tail call ptr @index_getprocinfo(ptr noundef %110, i16 noundef signext %12, i16 noundef zeroext 12) #3
   %112 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %101, ptr noundef %111, ptr noundef %112) #4
+  tail call void @fmgr_info_copy(ptr noundef nonnull %101, ptr noundef %111, ptr noundef %112) #3
   br label %inclusion_get_procinfo.exit72
 
 113:                                              ; preds = %105
@@ -231,7 +231,7 @@ inclusion_get_procinfo.exit69.thread:             ; preds = %70, %90, %inclusion
 inclusion_get_procinfo.exit72:                    ; preds = %109, %100
   %114 = load ptr, ptr %36, align 8
   %115 = load i64, ptr %114, align 8
-  %116 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %101, i32 noundef %11, i64 noundef %115, i64 noundef %9) #4
+  %116 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %101, i32 noundef %11, i64 noundef %115, i64 noundef %9) #3
   %.not85 = icmp eq i64 %116, 0
   br i1 %.not85, label %117, label %inclusion_get_procinfo.exit72.thread
 
@@ -259,15 +259,15 @@ inclusion_get_procinfo.exit72.thread:             ; preds = %inclusion_get_proci
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %132 = load ptr, ptr %131, align 8
-  %133 = tail call i32 @index_getprocid(ptr noundef %132, i16 noundef signext %12, i16 noundef zeroext 11) #4
+  %133 = tail call i32 @index_getprocid(ptr noundef %132, i16 noundef signext %12, i16 noundef zeroext 11) #3
   %.not.i74 = icmp eq i32 %133, 0
   br i1 %.not.i74, label %138, label %134
 
 134:                                              ; preds = %130
   %135 = load ptr, ptr %131, align 8
-  %136 = tail call ptr @index_getprocinfo(ptr noundef %135, i16 noundef signext %12, i16 noundef zeroext 11) #4
+  %136 = tail call ptr @index_getprocinfo(ptr noundef %135, i16 noundef signext %12, i16 noundef zeroext 11) #3
   %137 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %122, ptr noundef %136, ptr noundef %137) #4
+  tail call void @fmgr_info_copy(ptr noundef nonnull %122, ptr noundef %136, ptr noundef %137) #3
   br label %inclusion_get_procinfo.exit75
 
 138:                                              ; preds = %130
@@ -278,7 +278,7 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
   %.0.i73 = phi ptr [ null, %138 ], [ null, %inclusion_get_procinfo.exit72.thread ], [ %122, %134 ], [ %122, %126 ]
   %139 = load ptr, ptr %36, align 8
   %140 = load i64, ptr %139, align 8
-  %141 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i73, i32 noundef %11, i64 noundef %140, i64 noundef %9) #4
+  %141 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i73, i32 noundef %11, i64 noundef %140, i64 noundef %9) #3
   %142 = getelementptr inbounds nuw i8, ptr %17, i64 6
   %143 = load i8, ptr %142, align 2, !range !4, !noundef !5
   %144 = trunc nuw i8 %143 to i1
@@ -292,7 +292,7 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
 
 148:                                              ; preds = %145
   %149 = inttoptr i64 %147 to ptr
-  tail call void @pfree(ptr noundef %149) #4
+  tail call void @pfree(ptr noundef %149) #3
   %150 = icmp eq i64 %141, %9
   br i1 %150, label %151, label %158
 
@@ -302,7 +302,7 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
   %154 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %155 = load i16, ptr %154, align 4
   %156 = sext i16 %155 to i32
-  %157 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %153, i32 noundef %156) #4
+  %157 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %153, i32 noundef %156) #3
   br label %158
 
 158:                                              ; preds = %148, %151, %145, %inclusion_get_procinfo.exit75
@@ -382,68 +382,68 @@ define dso_local i64 @brin_inclusion_consistent(ptr noundef readonly captures(no
 
 27:                                               ; preds = %14
   %28 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 4)
-  %29 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %29 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not157 = icmp eq i64 %29, 0
   %30 = zext i1 %.not157 to i64
   br label %105
 
 31:                                               ; preds = %14
   %32 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 5)
-  %33 = tail call i64 @FunctionCall2Coll(ptr noundef %32, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %33 = tail call i64 @FunctionCall2Coll(ptr noundef %32, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not156 = icmp eq i64 %33, 0
   %34 = zext i1 %.not156 to i64
   br label %105
 
 35:                                               ; preds = %14
   %36 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 1)
-  %37 = tail call i64 @FunctionCall2Coll(ptr noundef %36, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %37 = tail call i64 @FunctionCall2Coll(ptr noundef %36, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not155 = icmp eq i64 %37, 0
   %38 = zext i1 %.not155 to i64
   br label %105
 
 39:                                               ; preds = %14
   %40 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 2)
-  %41 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %41 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not154 = icmp eq i64 %41, 0
   %42 = zext i1 %.not154 to i64
   br label %105
 
 43:                                               ; preds = %14
   %44 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 12)
-  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %44, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %44, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not153 = icmp eq i64 %45, 0
   %46 = zext i1 %.not153 to i64
   br label %105
 
 47:                                               ; preds = %14
   %48 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 11)
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef %48, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef %48, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not152 = icmp eq i64 %49, 0
   %50 = zext i1 %.not152 to i64
   br label %105
 
 51:                                               ; preds = %14
   %52 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 10)
-  %53 = tail call i64 @FunctionCall2Coll(ptr noundef %52, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %53 = tail call i64 @FunctionCall2Coll(ptr noundef %52, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not151 = icmp eq i64 %53, 0
   %54 = zext i1 %.not151 to i64
   br label %105
 
 55:                                               ; preds = %14
   %56 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 9)
-  %57 = tail call i64 @FunctionCall2Coll(ptr noundef %56, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %57 = tail call i64 @FunctionCall2Coll(ptr noundef %56, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not150 = icmp eq i64 %57, 0
   %58 = zext i1 %.not150 to i64
   br label %105
 
 59:                                               ; preds = %14, %14, %14, %14, %14
   %60 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext %26)
-  %61 = tail call i64 @FunctionCall2Coll(ptr noundef %60, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %61 = tail call i64 @FunctionCall2Coll(ptr noundef %60, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   br label %105
 
 62:                                               ; preds = %14, %14, %14
   %63 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 3)
-  %64 = tail call i64 @FunctionCall2Coll(ptr noundef %63, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %64 = tail call i64 @FunctionCall2Coll(ptr noundef %63, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not149 = icmp eq i64 %64, 0
   br i1 %.not149, label %65, label %105
 
@@ -455,18 +455,18 @@ define dso_local i64 @brin_inclusion_consistent(ptr noundef readonly captures(no
 
 69:                                               ; preds = %14
   %70 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 3)
-  %71 = tail call i64 @FunctionCall2Coll(ptr noundef %70, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %71 = tail call i64 @FunctionCall2Coll(ptr noundef %70, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not148 = icmp eq i64 %71, 0
   br i1 %.not148, label %72, label %105
 
 72:                                               ; preds = %69
   %73 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 17)
-  %74 = tail call i64 @FunctionCall2Coll(ptr noundef %73, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %74 = tail call i64 @FunctionCall2Coll(ptr noundef %73, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   br label %105
 
 75:                                               ; preds = %14, %14
   %76 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 5)
-  %77 = tail call i64 @FunctionCall2Coll(ptr noundef %76, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %77 = tail call i64 @FunctionCall2Coll(ptr noundef %76, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not147 = icmp eq i64 %77, 0
   br i1 %.not147, label %105, label %78
 
@@ -478,7 +478,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr noundef readonly captures(no
 
 82:                                               ; preds = %14, %14
   %83 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 7)
-  %84 = tail call i64 @FunctionCall2Coll(ptr noundef %83, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %84 = tail call i64 @FunctionCall2Coll(ptr noundef %83, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not146 = icmp eq i64 %84, 0
   br i1 %.not146, label %85, label %105
 
@@ -490,7 +490,7 @@ define dso_local i64 @brin_inclusion_consistent(ptr noundef readonly captures(no
 
 89:                                               ; preds = %14
   %90 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 1)
-  %91 = tail call i64 @FunctionCall2Coll(ptr noundef %90, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %91 = tail call i64 @FunctionCall2Coll(ptr noundef %90, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not145 = icmp eq i64 %91, 0
   br i1 %.not145, label %105, label %92
 
@@ -502,18 +502,17 @@ define dso_local i64 @brin_inclusion_consistent(ptr noundef readonly captures(no
 
 96:                                               ; preds = %14
   %97 = tail call fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %19, i32 noundef %21, i16 noundef zeroext 1)
-  %98 = tail call i64 @FunctionCall2Coll(ptr noundef %97, i32 noundef %9, i64 noundef %24, i64 noundef %23) #4
+  %98 = tail call i64 @FunctionCall2Coll(ptr noundef %97, i32 noundef %9, i64 noundef %24, i64 noundef %23) #3
   %.not144 = icmp eq i64 %98, 0
   %99 = zext i1 %.not144 to i64
   br label %105
 
 100:                                              ; preds = %14
-  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %101)
+  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   %102 = load i16, ptr %25, align 2
   %103 = zext i16 %102 to i32
-  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %103) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__func__.brin_inclusion_consistent) #4
+  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %103) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 463, ptr noundef nonnull @__func__.brin_inclusion_consistent) #3
   unreachable
 
 105:                                              ; preds = %89, %82, %75, %69, %62, %1, %96, %92, %85, %78, %72, %65, %59, %55, %51, %47, %43, %39, %35, %31, %27
@@ -577,26 +576,25 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %41 = zext i32 %40 to i64
   %42 = zext i32 %2 to i64
   %43 = sext i16 %3 to i64
-  %44 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %38, i64 noundef %41, i64 noundef %42, i64 noundef %43) #4
+  %44 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %38, i64 noundef %41, i64 noundef %42, i64 noundef %43) #3
   %.not35 = icmp eq ptr %44, null
   br i1 %.not35, label %45, label %50
 
 45:                                               ; preds = %24
   %46 = zext i16 %3 to i32
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %47)
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   %48 = load i32, ptr %39, align 4
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %46, i32 noundef %48, i32 noundef %2, i32 noundef %30) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.inclusion_get_strategy_procinfo) #4
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %46, i32 noundef %48, i32 noundef %2, i32 noundef %30) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.inclusion_get_strategy_procinfo) #3
   unreachable
 
 50:                                               ; preds = %24
-  %51 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %44, i16 noundef signext 7) #4
+  %51 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %44, i16 noundef signext 7) #3
   %52 = trunc i64 %51 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %44) #4
-  %53 = tail call i32 @get_opcode(i32 noundef %52) #4
+  tail call void @ReleaseSysCache(ptr noundef nonnull %44) #3
+  %53 = tail call i32 @get_opcode(i32 noundef %52) #3
   %54 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %53, ptr noundef %20, ptr noundef %54) #4
+  tail call void @fmgr_info_cxt(i32 noundef %53, ptr noundef %20, ptr noundef %54) #3
   br label %55
 
 55:                                               ; preds = %50, %17
@@ -690,15 +688,15 @@ define dso_local noundef i64 @brin_inclusion_union(ptr noundef readonly captures
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 @index_getprocid(ptr noundef %56, i16 noundef signext %13, i16 noundef zeroext 12) #4
+  %57 = tail call i32 @index_getprocid(ptr noundef %56, i16 noundef signext %13, i16 noundef zeroext 12) #3
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %62, label %58
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %55, align 8
-  %60 = tail call ptr @index_getprocinfo(ptr noundef %59, i16 noundef signext %13, i16 noundef zeroext 12) #4
+  %60 = tail call ptr @index_getprocinfo(ptr noundef %59, i16 noundef signext %13, i16 noundef zeroext 12) #3
   %61 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %50, ptr noundef %60, ptr noundef %61) #4
+  tail call void @fmgr_info_copy(ptr noundef nonnull %50, ptr noundef %60, ptr noundef %61) #3
   %.pre51 = load ptr, ptr %19, align 8
   %.pre52 = load ptr, ptr %34, align 8
   br label %inclusion_get_procinfo.exit
@@ -712,7 +710,7 @@ inclusion_get_procinfo.exit:                      ; preds = %58, %49
   %64 = phi ptr [ %.pre51, %58 ], [ %30, %49 ]
   %65 = load i64, ptr %64, align 8
   %66 = load i64, ptr %63, align 8
-  %67 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %50, i32 noundef %12, i64 noundef %65, i64 noundef %66) #4
+  %67 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %50, i32 noundef %12, i64 noundef %65, i64 noundef %66) #3
   %.not50 = icmp eq i64 %67, 0
   br i1 %.not50, label %68, label %inclusion_get_procinfo.exit.thread
 
@@ -740,15 +738,15 @@ inclusion_get_procinfo.exit.thread:               ; preds = %39, %62, %inclusion
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 @index_getprocid(ptr noundef %83, i16 noundef signext %13, i16 noundef zeroext 11) #4
+  %84 = tail call i32 @index_getprocid(ptr noundef %83, i16 noundef signext %13, i16 noundef zeroext 11) #3
   %.not.i43 = icmp eq i32 %84, 0
   br i1 %.not.i43, label %89, label %85
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %82, align 8
-  %87 = tail call ptr @index_getprocinfo(ptr noundef %86, i16 noundef signext %13, i16 noundef zeroext 11) #4
+  %87 = tail call ptr @index_getprocinfo(ptr noundef %86, i16 noundef signext %13, i16 noundef zeroext 11) #3
   %88 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %73, ptr noundef %87, ptr noundef %88) #4
+  tail call void @fmgr_info_copy(ptr noundef nonnull %73, ptr noundef %87, ptr noundef %88) #3
   br label %inclusion_get_procinfo.exit44
 
 89:                                               ; preds = %81
@@ -761,7 +759,7 @@ inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_proci
   %91 = load i64, ptr %90, align 8
   %92 = load ptr, ptr %34, align 8
   %93 = load i64, ptr %92, align 8
-  %94 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i42, i32 noundef %12, i64 noundef %91, i64 noundef %93) #4
+  %94 = tail call i64 @FunctionCall2Coll(ptr noundef %.0.i42, i32 noundef %12, i64 noundef %91, i64 noundef %93) #3
   %95 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %96 = load i8, ptr %95, align 2, !range !4, !noundef !5
   %97 = trunc nuw i8 %96 to i1
@@ -775,7 +773,7 @@ inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_proci
 
 101:                                              ; preds = %98
   %102 = inttoptr i64 %100 to ptr
-  tail call void @pfree(ptr noundef %102) #4
+  tail call void @pfree(ptr noundef %102) #3
   %103 = load ptr, ptr %34, align 8
   %104 = load i64, ptr %103, align 8
   %105 = icmp eq i64 %94, %104
@@ -787,7 +785,7 @@ inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_proci
   %109 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %110 = load i16, ptr %109, align 4
   %111 = sext i16 %110 to i32
-  %112 = tail call i64 @datumCopy(i64 noundef %94, i1 noundef zeroext %108, i32 noundef %111) #4
+  %112 = tail call i64 @datumCopy(i64 noundef %94, i1 noundef zeroext %108, i32 noundef %111) #3
   br label %113
 
 113:                                              ; preds = %101, %106, %98, %inclusion_get_procinfo.exit44
@@ -816,15 +814,11 @@ declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 
 declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { cold nounwind }
+attributes #3 = { nounwind }
+attributes #4 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

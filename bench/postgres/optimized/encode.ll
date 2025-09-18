@@ -40,11 +40,11 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #7
+  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #6
   br label %11
 
 10:                                               ; preds = %11
@@ -56,16 +56,15 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
   %12 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @pg_strcasecmp(ptr noundef %13, ptr noundef %9) #7
+  %14 = tail call i32 @pg_strcasecmp(ptr noundef %13, ptr noundef %9) #6
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %10
 
 16:                                               ; preds = %10
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.binary_encode) #7
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %18 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.binary_encode) #6
   unreachable
 
 20:                                               ; preds = %11
@@ -108,33 +107,31 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
 45:                                               ; preds = %36, %40, %29
   %46 = phi i64 [ %34, %29 ], [ %39, %36 ], [ %44, %40 ]
   %47 = load ptr, ptr %21, align 8
-  %48 = tail call i64 %47(ptr noundef nonnull %27, i64 noundef %46) #7
+  %48 = tail call i64 %47(ptr noundef nonnull %27, i64 noundef %46) #6
   %49 = icmp ugt i64 %48, 1073741819
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %45
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 261) #7
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.binary_encode) #7
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %52 = tail call i32 @errcode(i32 noundef 261) #6
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 80, ptr noundef nonnull @__func__.binary_encode) #6
   unreachable
 
 54:                                               ; preds = %45
   %55 = add nuw nsw i64 %48, 4
-  %56 = tail call ptr @palloc(i64 noundef %55) #7
+  %56 = tail call ptr @palloc(i64 noundef %55) #6
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %60 = tail call i64 %58(ptr noundef nonnull %27, i64 noundef %46, ptr noundef nonnull %59) #7
+  %60 = tail call i64 %58(ptr noundef nonnull %27, i64 noundef %46, ptr noundef nonnull %59) #6
   %61 = icmp ugt i64 %60, %48
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %54
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.binary_encode) #7
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.binary_encode) #6
   unreachable
 
 65:                                               ; preds = %54
@@ -168,11 +165,11 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #7
+  %9 = tail call ptr @text_to_cstring(ptr noundef %8) #6
   br label %11
 
 10:                                               ; preds = %11
@@ -184,16 +181,15 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %10 ]
   %12 = getelementptr inbounds nuw %struct.anon.1, ptr @enclist, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @pg_strcasecmp(ptr noundef %13, ptr noundef %9) #7
+  %14 = tail call i32 @pg_strcasecmp(ptr noundef %13, ptr noundef %9) #6
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %10
 
 16:                                               ; preds = %10
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__func__.binary_decode) #7
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %18 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %9) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 114, ptr noundef nonnull @__func__.binary_decode) #6
   unreachable
 
 20:                                               ; preds = %11
@@ -236,33 +232,31 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   %45 = phi i64 [ %33, %28 ], [ %38, %35 ], [ %43, %39 ]
   %46 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i64 %47(ptr noundef nonnull %26, i64 noundef %45) #7
+  %48 = tail call i64 %47(ptr noundef nonnull %26, i64 noundef %45) #6
   %49 = icmp ugt i64 %48, 1073741819
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %44
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 @errcode(i32 noundef 261) #7
-  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.binary_decode) #7
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %52 = tail call i32 @errcode(i32 noundef 261) #6
+  %53 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 128, ptr noundef nonnull @__func__.binary_decode) #6
   unreachable
 
 54:                                               ; preds = %44
   %55 = add nuw nsw i64 %48, 4
-  %56 = tail call ptr @palloc(i64 noundef %55) #7
+  %56 = tail call ptr @palloc(i64 noundef %55) #6
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %60 = tail call i64 %58(ptr noundef nonnull %26, i64 noundef %45, ptr noundef nonnull %59) #7
+  %60 = tail call i64 %58(ptr noundef nonnull %26, i64 noundef %45, ptr noundef nonnull %59) #6
   %61 = icmp ugt i64 %60, %48
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %54
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.binary_decode) #7
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.binary_decode) #6
   unreachable
 
 65:                                               ; preds = %54
@@ -343,14 +337,14 @@ get_hex.exit:                                     ; preds = %11
   br i1 %16, label %22, label %get_hex.exit.thread
 
 get_hex.exit.thread:                              ; preds = %11, %get_hex.exit
-  %17 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
+  %17 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #6
   br i1 %17, label %18, label %48
 
 18:                                               ; preds = %get_hex.exit.thread
-  %19 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %20 = tail call i32 @pg_mblen(ptr noundef nonnull %.03351) #7
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %20, ptr noundef nonnull %.03351) #7
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__func__.hex_decode_safe) #7
+  %19 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %20 = tail call i32 @pg_mblen(ptr noundef nonnull %.03351) #6
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %20, ptr noundef nonnull %.03351) #6
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 239, ptr noundef nonnull @__func__.hex_decode_safe) #6
   br label %48
 
 22:                                               ; preds = %get_hex.exit
@@ -359,13 +353,13 @@ get_hex.exit.thread:                              ; preds = %11, %get_hex.exit
   br i1 %.not, label %29, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
+  %25 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #6
   br i1 %25, label %26, label %48
 
 26:                                               ; preds = %24
-  %27 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #7
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.hex_decode_safe) #7
+  %27 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #6
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.hex_decode_safe) #6
   br label %48
 
 29:                                               ; preds = %22
@@ -381,14 +375,14 @@ get_hex.exit39:                                   ; preds = %29
   br i1 %34, label %.outer, label %get_hex.exit39.thread
 
 get_hex.exit39.thread:                            ; preds = %29, %get_hex.exit39
-  %35 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
+  %35 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #6
   br i1 %35, label %36, label %48
 
 36:                                               ; preds = %get_hex.exit39.thread
-  %37 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %38 = tail call i32 @pg_mblen(ptr noundef nonnull %23) #7
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %38, ptr noundef nonnull %23) #7
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.hex_decode_safe) #7
+  %37 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %38 = tail call i32 @pg_mblen(ptr noundef nonnull %23) #6
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %38, ptr noundef nonnull %23) #6
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.hex_decode_safe) #6
   br label %48
 
 .outer:                                           ; preds = %get_hex.exit39
@@ -625,11 +619,10 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   br label %.outer
 
 19:                                               ; preds = %10
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.pg_base64_decode) #7
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %21 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 365, ptr noundef nonnull @__func__.pg_base64_decode) #6
   unreachable
 
 23:                                               ; preds = %5
@@ -646,12 +639,11 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %30, label %.thread, label %35
 
 .thread:                                          ; preds = %23, %25
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %33 = tail call i32 @pg_mblen(ptr noundef nonnull %.05892) #7
-  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %33, ptr noundef nonnull %.05892) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef nonnull @__func__.pg_base64_decode) #7
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %32 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %33 = tail call i32 @pg_mblen(ptr noundef nonnull %.05892) #6
+  %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %33, ptr noundef nonnull %.05892) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef nonnull @__func__.pg_base64_decode) #6
   unreachable
 
 35:                                               ; preds = %9, %25
@@ -699,12 +691,11 @@ define internal i64 @pg_base64_decode(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %.not, label %.outer._crit_edge.thread, label %53
 
 53:                                               ; preds = %.outer._crit_edge
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #7
-  %57 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.pg_base64_decode) #7
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %55 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #6
+  %57 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.pg_base64_decode) #6
   unreachable
 
 .outer._crit_edge.thread:                         ; preds = %3, %.outer._crit_edge
@@ -788,11 +779,10 @@ define internal i64 @esc_dec_len(ptr noundef readonly captures(address) %0, i64 
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %22, %19
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 33685634) #7
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @__func__.esc_dec_len) #7
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %27 = tail call i32 @errcode(i32 noundef 33685634) #6
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 578, ptr noundef nonnull @__func__.esc_dec_len) #6
   unreachable
 
 29:                                               ; preds = %22, %16, %.lr.ph
@@ -939,11 +929,10 @@ define internal i64 @esc_decode(ptr noundef readonly captures(address) %0, i64 n
   br label %41
 
 37:                                               ; preds = %32, %29
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 @errcode(i32 noundef 33685634) #7
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 513, ptr noundef nonnull @__func__.esc_decode) #7
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %39 = tail call i32 @errcode(i32 noundef 33685634) #6
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 513, ptr noundef nonnull @__func__.esc_decode) #6
   unreachable
 
 41:                                               ; preds = %22, %35, %6
@@ -960,18 +949,14 @@ define internal i64 @esc_decode(ptr noundef readonly captures(address) %0, i64 n
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

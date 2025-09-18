@@ -45,7 +45,7 @@ define void @_ZN6open3d7utility6random4SeedEi(i32 noundef %0) local_unnamed_addr
   br i1 %4, label %5, label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit, !prof !4
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit, label %7
 
@@ -54,13 +54,13 @@ define void @_ZN6open3d7utility6random4SeedEi(i32 noundef %0) local_unnamed_addr
           to label %8 unwind label %9
 
 8:                                                ; preds = %7
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit
 
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   resume { ptr, i32 } %10
 
 _ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit: ; preds = %1, %5, %8
@@ -133,111 +133,99 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 23
   store i8 0, ptr %18, align 1, !tbaa !19
   invoke void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(5000) %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %19 unwind label %26
+          to label %19 unwind label %24
 
 19:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit
   %20 = load ptr, ptr %3, align 8, !tbaa !26
   %21 = icmp eq ptr %20, %16
-  br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %19
-  %22 = load i64, ptr %17, align 8, !tbaa !24
-  %23 = icmp ult i64 %22, 16
-  call void @llvm.assume(i1 %23)
-  br label %_ZNSt13random_deviceC2Ev.exit
+  br i1 %21, label %_ZNSt13random_deviceC2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %19
-  %24 = load i64, ptr %16, align 8, !tbaa !19
-  %25 = add i64 %24, 1
-  call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #14
+  %22 = load i64, ptr %16, align 8, !tbaa !19
+  %23 = add i64 %22, 1
+  call void @_ZdlPvm(ptr noundef %20, i64 noundef %23) #13
   br label %_ZNSt13random_deviceC2Ev.exit
 
-26:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEC2Ev.exit
+  %25 = landingpad { ptr, i32 }
           cleanup
-  %28 = load ptr, ptr %3, align 8, !tbaa !26
-  %29 = icmp eq ptr %28, %16
-  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i
+  %26 = load ptr, ptr %3, align 8, !tbaa !26
+  %27 = icmp eq ptr %26, %16
+  br i1 %27, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i: ; preds = %26
-  %30 = load i64, ptr %17, align 8, !tbaa !24
-  %31 = icmp ult i64 %30, 16
-  call void @llvm.assume(i1 %31)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i: ; preds = %26
-  %32 = load i64, ptr %16, align 8, !tbaa !19
-  %33 = add i64 %32, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %33) #14
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i: ; preds = %24
+  %28 = load i64, ptr %16, align 8, !tbaa !19
+  %29 = add i64 %28, 1
+  call void @_ZdlPvm(ptr noundef %26, i64 noundef %29) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
 
 common.resume:                                    ; preds = %_ZNSt13random_deviceD2Ev.exit4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i
-  %common.resume.op = phi { ptr, i32 } [ %27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %50, %_ZNSt13random_deviceD2Ev.exit4 ]
+  %common.resume.op = phi { ptr, i32 } [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i ], [ %46, %_ZNSt13random_deviceD2Ev.exit4 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 
-_ZNSt13random_deviceC2Ev.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZNSt13random_deviceC2Ev.exit:                    ; preds = %19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %34 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZNSt13random_deviceclEv.exit unwind label %49
+  %30 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
+          to label %_ZNSt13random_deviceclEv.exit unwind label %45
 
 _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_deviceC2Ev.exit
-  store i32 %34, ptr %0, align 8, !tbaa !5
+  store i32 %30, ptr %0, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %35 = zext i32 %34 to i64
-  store i64 %35, ptr %2, align 8, !tbaa !14
-  br label %36
+  %31 = zext i32 %30 to i64
+  store i64 %31, ptr %2, align 8, !tbaa !14
+  br label %32
 
-36:                                               ; preds = %36, %_ZNSt13random_deviceclEv.exit
-  %store_forwarded = phi i64 [ %35, %_ZNSt13random_deviceclEv.exit ], [ %42, %36 ]
-  %.011.i.i.i2 = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %43, %36 ]
-  %37 = getelementptr i64, ptr %2, i64 %.011.i.i.i2
-  %38 = lshr i64 %store_forwarded, 30
-  %39 = xor i64 %38, %store_forwarded
-  %40 = mul nuw nsw i64 %39, 1812433253
-  %41 = add nuw i64 %40, %.011.i.i.i2
-  %42 = and i64 %41, 4294967295
-  store i64 %42, ptr %37, align 8, !tbaa !14
-  %43 = add nuw nsw i64 %.011.i.i.i2, 1
-  %exitcond.not.i.i.i3 = icmp eq i64 %43, 624
-  br i1 %exitcond.not.i.i.i3, label %44, label %36, !llvm.loop !15
+32:                                               ; preds = %32, %_ZNSt13random_deviceclEv.exit
+  %store_forwarded = phi i64 [ %31, %_ZNSt13random_deviceclEv.exit ], [ %38, %32 ]
+  %.011.i.i.i2 = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %39, %32 ]
+  %33 = getelementptr i64, ptr %2, i64 %.011.i.i.i2
+  %34 = lshr i64 %store_forwarded, 30
+  %35 = xor i64 %34, %store_forwarded
+  %36 = mul nuw nsw i64 %35, 1812433253
+  %37 = add nuw i64 %36, %.011.i.i.i2
+  %38 = and i64 %37, 4294967295
+  store i64 %38, ptr %33, align 8, !tbaa !14
+  %39 = add nuw nsw i64 %.011.i.i.i2, 1
+  %exitcond.not.i.i.i3 = icmp eq i64 %39, 624
+  br i1 %exitcond.not.i.i.i3, label %40, label %32, !llvm.loop !15
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 4992
-  store i64 624, ptr %45, align 8, !tbaa !17
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 4992
+  store i64 624, ptr %41, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5000) %5, ptr noundef nonnull align 8 dereferenceable(5000) %2, i64 5000, i1 false), !tbaa.struct !18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZNSt13random_deviceD2Ev.exit unwind label %46
+          to label %_ZNSt13random_deviceD2Ev.exit unwind label %42
 
-46:                                               ; preds = %44
-  %47 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %48 = extractvalue { ptr, i32 } %47, 0
-  call void @__clang_call_terminate(ptr %48) #15
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #14
   unreachable
 
-_ZNSt13random_deviceD2Ev.exit:                    ; preds = %44
+_ZNSt13random_deviceD2Ev.exit:                    ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-49:                                               ; preds = %_ZNSt13random_deviceC2Ev.exit
-  %50 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZNSt13random_deviceC2Ev.exit
+  %46 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZNSt13random_deviceD2Ev.exit4 unwind label %51
+          to label %_ZNSt13random_deviceD2Ev.exit4 unwind label %47
 
-51:                                               ; preds = %49
-  %52 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #15
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #14
   unreachable
 
-_ZNSt13random_deviceD2Ev.exit4:                   ; preds = %49
+_ZNSt13random_deviceD2Ev.exit4:                   ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 }
@@ -257,8 +245,8 @@ declare void @_ZNSt13random_device7_M_initERKNSt7__cxx1112basic_stringIcSt11char
 
 ; Function Attrs: noinline noreturn nounwind ssp uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  tail call void @_ZSt9terminatev() #14
   unreachable
 }
 
@@ -284,7 +272,7 @@ define noundef nonnull ptr @_ZN6open3d7utility6random9GetEngineEv() local_unname
   br i1 %2, label %3, label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit, !prof !4
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit, label %5
 
@@ -293,13 +281,13 @@ define noundef nonnull ptr @_ZN6open3d7utility6random9GetEngineEv() local_unname
           to label %6 unwind label %7
 
 6:                                                ; preds = %5
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   resume { ptr, i32 } %8
 
 _ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit: ; preds = %0, %3, %6
@@ -313,7 +301,7 @@ define noundef nonnull ptr @_ZN6open3d7utility6random8GetMutexEv() local_unnamed
   br i1 %2, label %3, label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit, !prof !4
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit, label %5
 
@@ -322,13 +310,13 @@ define noundef nonnull ptr @_ZN6open3d7utility6random8GetMutexEv() local_unnamed
           to label %6 unwind label %7
 
 6:                                                ; preds = %5
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %_ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   resume { ptr, i32 } %8
 
 _ZN6open3d7utility6random13RandomContext11GetInstanceEv.exit: ; preds = %0, %3, %6
@@ -342,7 +330,7 @@ define noundef i32 @_ZN6open3d7utility6random10RandUint32Ev() local_unnamed_addr
   br i1 %2, label %3, label %_ZN6open3d7utility6random8GetMutexEv.exit, !prof !4
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %_ZN6open3d7utility6random8GetMutexEv.exit, label %5
 
@@ -351,7 +339,7 @@ define noundef i32 @_ZN6open3d7utility6random10RandUint32Ev() local_unnamed_addr
           to label %6 unwind label %7
 
 6:                                                ; preds = %5
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %_ZN6open3d7utility6random8GetMutexEv.exit
 
 common.resume:                                    ; preds = %.body, %7
@@ -361,16 +349,16 @@ common.resume:                                    ; preds = %.body, %7
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %common.resume
 
 _ZN6open3d7utility6random8GetMutexEv.exit:        ; preds = %0, %3, %6
-  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 5008)) #13
+  %9 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 5008)) #12
   %.not.i.i1 = icmp eq i32 %9, 0
   br i1 %.not.i.i1, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %10
 
 10:                                               ; preds = %_ZN6open3d7utility6random8GetMutexEv.exit
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %9) #16
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %9) #15
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN6open3d7utility6random8GetMutexEv.exit
@@ -379,7 +367,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN6open3d7utility6
   br i1 %12, label %13, label %_ZN6open3d7utility6random9GetEngineEv.exit, !prof !4
 
 13:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  %14 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   %.not.i.i2 = icmp eq i32 %14, 0
   br i1 %.not.i.i2, label %_ZN6open3d7utility6random9GetEngineEv.exit, label %15
 
@@ -388,13 +376,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN6open3d7utility6
           to label %16 unwind label %17
 
 16:                                               ; preds = %15
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %_ZN6open3d7utility6random9GetEngineEv.exit
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #13
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance) #12
   br label %.body
 
 _ZN6open3d7utility6random9GetEngineEv.exit:       ; preds = %16, %13, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
@@ -403,7 +391,7 @@ _ZN6open3d7utility6random9GetEngineEv.exit:       ; preds = %16, %13, %_ZNSt10lo
 
 20:                                               ; preds = %_ZN6open3d7utility6random9GetEngineEv.exit
   %21 = trunc i64 %19 to i32
-  %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 5008)) #13
+  %22 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 5008)) #12
   ret i32 %21
 
 23:                                               ; preds = %_ZN6open3d7utility6random9GetEngineEv.exit
@@ -413,7 +401,7 @@ _ZN6open3d7utility6random9GetEngineEv.exit:       ; preds = %16, %13, %_ZNSt10lo
 
 .body:                                            ; preds = %17, %23
   %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ]
-  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 5008)) #13
+  %25 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @_ZZN6open3d7utility6random13RandomContext11GetInstanceEvE8instance, i64 5008)) #12
   br label %common.resume
 }
 
@@ -544,9 +532,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 attributes #0 = { mustprogress ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -559,11 +544,10 @@ attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { noreturn }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

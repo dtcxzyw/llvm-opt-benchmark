@@ -77,7 +77,7 @@ define dso_local i64 @getmissingattr(ptr noundef readonly captures(none) %0, i32
   store ptr @missing_hash, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr @missing_match, ptr %35, align 8
-  %36 = call ptr @hash_create(ptr noundef nonnull @.str.4, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1224) #12
+  %36 = call ptr @hash_create(ptr noundef nonnull @.str.4, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1224) #11
   store ptr %36, ptr @missing_cache, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
@@ -134,7 +134,7 @@ define dso_local i64 @getmissingattr(ptr noundef readonly captures(none) %0, i32
   store i32 %storemerge, ptr %5, align 8
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %66, ptr %67, align 8
-  %68 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #12
+  %68 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #11
   %69 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %.thread, label %71
@@ -147,7 +147,7 @@ define dso_local i64 @getmissingattr(ptr noundef readonly captures(none) %0, i32
   %75 = load i64, ptr %72, align 8
   %76 = load i16, ptr %39, align 4
   %77 = sext i16 %76 to i32
-  %78 = call i64 @datumCopy(i64 noundef %75, i1 noundef zeroext false, i32 noundef %77) #12
+  %78 = call i64 @datumCopy(i64 noundef %75, i1 noundef zeroext false, i32 noundef %77) #11
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 %78, ptr %79, align 8
   store ptr %74, ptr @CurrentMemoryContext, align 8
@@ -252,8 +252,8 @@ thread-pre-split:                                 ; preds = %18, %27
   %49 = add i64 %48, %47
   %50 = sub nsw i64 0, %47
   %51 = and i64 %49, %50
-  %52 = tail call ptr @DatumGetEOHP(i64 noundef %13) #12
-  %53 = tail call i64 @EOH_get_flat_size(ptr noundef %52) #12
+  %52 = tail call ptr @DatumGetEOHP(i64 noundef %13) #11
+  %53 = tail call i64 @EOH_get_flat_size(ptr noundef %52) #11
   %54 = add i64 %51, %53
   br label %97
 
@@ -314,7 +314,7 @@ thread-pre-split:                                 ; preds = %18, %27
 
 90:                                               ; preds = %57
   %91 = inttoptr i64 %13 to ptr
-  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #13
+  %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #12
   %93 = add i64 %92, 1
   br label %94
 
@@ -523,10 +523,9 @@ define internal fastcc void @fill_val(ptr noundef readonly captures(none) %0, pt
 
 48:                                               ; preds = %29
   %49 = sext i16 %40 to i32
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %49) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @__func__.store_att_byval) #12
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %49) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef nonnull @__func__.store_att_byval) #11
   unreachable
 
 store_att_byval.exit:                             ; preds = %41, %43, %45, %47
@@ -560,7 +559,7 @@ store_att_byval.exit:                             ; preds = %41, %43, %45, %47
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %64
-  %70 = tail call ptr @DatumGetEOHP(i64 noundef %5) #12
+  %70 = tail call ptr @DatumGetEOHP(i64 noundef %5) #11
   %71 = ptrtoint ptr %8 to i64
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %73 = load i8, ptr %72, align 4
@@ -570,8 +569,8 @@ store_att_byval.exit:                             ; preds = %41, %43, %45, %47
   %77 = sub nsw i64 0, %74
   %78 = and i64 %76, %77
   %79 = inttoptr i64 %78 to ptr
-  %80 = tail call i64 @EOH_get_flat_size(ptr noundef %70) #12
-  tail call void @EOH_flatten_into(ptr noundef %70, ptr noundef %79, i64 noundef %80) #12
+  %80 = tail call i64 @EOH_get_flat_size(ptr noundef %70) #11
+  tail call void @EOH_flatten_into(ptr noundef %70, ptr noundef %79, i64 noundef %80) #11
   br label %139
 
 81:                                               ; preds = %64
@@ -644,7 +643,7 @@ store_att_byval.exit:                             ; preds = %41, %43, %45, %47
   %123 = or i16 %122, 2
   store i16 %123, ptr %4, align 2
   %124 = inttoptr i64 %5 to ptr
-  %125 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #13
+  %125 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #12
   %126 = add i64 %125, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %8, ptr nonnull align 1 %124, i64 %126, i1 false)
   br label %139
@@ -731,10 +730,9 @@ define dso_local zeroext i1 @heap_attisnull(ptr noundef readonly captures(none) 
   br i1 %switch, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 491, ptr noundef nonnull @__func__.heap_attisnull) #12
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 491, ptr noundef nonnull @__func__.heap_attisnull) #11
   unreachable
 
 39:                                               ; preds = %35, %21, %12, %24, %18
@@ -851,10 +849,9 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 
 54:                                               ; preds = %42
   %55 = sext i16 %41 to i32
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %55) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #12
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %55) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 58:                                               ; preds = %34
@@ -1127,7 +1124,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   br label %208
 
 204:                                              ; preds = %176
-  %205 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %179) #13
+  %205 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %179) #12
   %206 = add nsw i64 %178, 1
   %207 = add i64 %206, %205
   br label %208
@@ -1196,10 +1193,9 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 
 236:                                              ; preds = %224
   %237 = sext i16 %223 to i32
-  %238 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %238)
-  %239 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %237) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #12
+  %238 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %239 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %237) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 240:                                              ; preds = %.loopexit
@@ -1258,10 +1254,9 @@ define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr nounde
   br label %29
 
 26:                                               ; preds = %4
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 761, ptr noundef nonnull @__func__.heap_getsysattr) #12
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 761, ptr noundef nonnull @__func__.heap_getsysattr) #11
   unreachable
 
 29:                                               ; preds = %22, %17, %12, %8, %5
@@ -1284,7 +1279,7 @@ define dso_local noundef ptr @heap_copytuple(ptr noundef readonly captures(addre
   %7 = load i32, ptr %0, align 8
   %8 = zext i32 %7 to i64
   %9 = add nuw nsw i64 %8, 24
-  %10 = tail call ptr @palloc(i64 noundef %9) #12
+  %10 = tail call ptr @palloc(i64 noundef %9) #11
   %11 = load i32, ptr %0, align 8
   store i32 %11, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -1341,7 +1336,7 @@ define dso_local void @heap_copytuple_with_tuple(ptr noundef readonly captures(a
   store i32 %14, ptr %15, align 4
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
-  %18 = tail call ptr @palloc(i64 noundef %17) #12
+  %18 = tail call ptr @palloc(i64 noundef %17) #11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %4, align 8
@@ -1538,7 +1533,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %95 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %96 = load i64, ptr %95, align 8
   %97 = inttoptr i64 %96 to ptr
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #13
+  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #12
   %99 = add i64 %98, 1
   br label %100
 
@@ -1582,7 +1577,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %111 = and i64 %110, -8
   %112 = add i64 %111, %.2176
   %113 = add i64 %112, 24
-  %114 = tail call ptr @palloc0(i64 noundef %113) #12
+  %114 = tail call ptr @palloc0(i64 noundef %113) #11
   store ptr %114, ptr %0, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -1647,7 +1642,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %152 = add nsw i64 %.0144, 22
   %153 = and i64 %152, -8
   %154 = add i64 %153, %.2176
-  %155 = tail call ptr @palloc0(i64 noundef %154) #12
+  %155 = tail call ptr @palloc0(i64 noundef %154) #11
   store ptr %155, ptr %1, align 8
   %156 = trunc i64 %154 to i32
   store i32 %156, ptr %155, align 4
@@ -1859,12 +1854,12 @@ define dso_local i64 @heap_copy_tuple_as_datum(ptr noundef readonly captures(non
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @toast_flatten_tuple_to_datum(ptr noundef nonnull %.val, i32 noundef %6, ptr noundef %1) #12
+  %8 = tail call i64 @toast_flatten_tuple_to_datum(ptr noundef nonnull %.val, i32 noundef %6, ptr noundef %1) #11
   br label %24
 
 9:                                                ; preds = %2
   %10 = zext i32 %6 to i64
-  %11 = tail call ptr @palloc(i64 noundef %10) #12
+  %11 = tail call ptr @palloc(i64 noundef %10) #11
   %12 = load ptr, ptr %3, align 8
   %13 = load i32, ptr %0, align 8
   %14 = zext i32 %13 to i64
@@ -1905,11 +1900,10 @@ define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none
   br label %.lr.ph
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 17039621) #12
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1134, ptr noundef nonnull @__func__.heap_form_tuple) #12
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %9 = tail call i32 @errcode(i32 noundef 17039621) #11
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1134, ptr noundef nonnull @__func__.heap_form_tuple) #11
   unreachable
 
 11:                                               ; preds = %.lr.ph
@@ -1938,7 +1932,7 @@ define dso_local noundef ptr @heap_form_tuple(ptr noundef readonly captures(none
   %21 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %22 = add i64 %21, %.045
   %23 = add i64 %22, 24
-  %24 = tail call ptr @palloc0(i64 noundef %23) #12
+  %24 = tail call ptr @palloc0(i64 noundef %23) #11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %25, ptr %26, align 8
@@ -1996,8 +1990,8 @@ define dso_local noundef ptr @heap_modify_tuple(ptr noundef readonly captures(no
   %6 = load i32, ptr %1, align 8
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call ptr @palloc(i64 noundef %8) #12
-  %10 = tail call ptr @palloc(i64 noundef %7) #12
+  %9 = tail call ptr @palloc(i64 noundef %8) #11
+  %10 = tail call ptr @palloc(i64 noundef %7) #11
   tail call void @heap_deform_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %9, ptr noundef %10)
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.lr.ph.preheader, label %._crit_edge
@@ -2031,8 +2025,8 @@ define dso_local noundef ptr @heap_modify_tuple(ptr noundef readonly captures(no
 
 ._crit_edge:                                      ; preds = %22, %5
   %23 = tail call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef %9, ptr noundef %10)
-  tail call void @pfree(ptr noundef %9) #12
-  tail call void @pfree(ptr noundef %10) #12
+  tail call void @pfree(ptr noundef %9) #11
+  tail call void @pfree(ptr noundef %10) #11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
@@ -2235,10 +2229,9 @@ define dso_local void @heap_deform_tuple(ptr noundef readonly captures(none) %0,
 
 109:                                              ; preds = %96
   %110 = sext i16 %97 to i32
-  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %111)
-  %112 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %110) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #12
+  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %112 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %110) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #11
   unreachable
 
 113:                                              ; preds = %89
@@ -2304,7 +2297,7 @@ fetch_att.exit:                                   ; preds = %98, %101, %104, %10
   br label %152
 
 148:                                              ; preds = %122
-  %149 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #13
+  %149 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #12
   %150 = add nuw nsw i64 %90, 1
   %151 = add i64 %150, %149
   br label %152
@@ -2345,8 +2338,8 @@ define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr noundef readonly cap
   %7 = load i32, ptr %1, align 8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call ptr @palloc(i64 noundef %9) #12
-  %11 = tail call ptr @palloc(i64 noundef %8) #12
+  %10 = tail call ptr @palloc(i64 noundef %9) #11
+  %11 = tail call ptr @palloc(i64 noundef %8) #11
   tail call void @heap_deform_tuple(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %10, ptr noundef %11)
   %12 = icmp sgt i32 %2, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
@@ -2365,10 +2358,9 @@ define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr noundef readonly cap
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %.lr.ph
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %14) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1305, ptr noundef nonnull @__func__.heap_modify_tuple_by_cols) #12
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %14) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1305, ptr noundef nonnull @__func__.heap_modify_tuple_by_cols) #11
   unreachable
 
 20:                                               ; preds = %.lr.ph
@@ -2388,8 +2380,8 @@ define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr noundef readonly cap
 
 ._crit_edge:                                      ; preds = %20, %6
   %29 = tail call ptr @heap_form_tuple(ptr noundef nonnull %1, ptr noundef %10, ptr noundef %11)
-  tail call void @pfree(ptr noundef %10) #12
-  tail call void @pfree(ptr noundef %11) #12
+  tail call void @pfree(ptr noundef %10) #11
+  tail call void @pfree(ptr noundef %11) #11
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
@@ -2409,7 +2401,7 @@ define dso_local noundef ptr @heap_modify_tuple_by_cols(ptr noundef readonly cap
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_freetuple(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #12
+  tail call void @pfree(ptr noundef %0) #11
   ret void
 }
 
@@ -2428,11 +2420,10 @@ define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captu
   br label %.lr.ph
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 17039621) #12
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1469, ptr noundef nonnull @__func__.heap_form_minimal_tuple) #12
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %9 = tail call i32 @errcode(i32 noundef 17039621) #11
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4, i32 noundef 1664) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1469, ptr noundef nonnull @__func__.heap_form_minimal_tuple) #11
   unreachable
 
 11:                                               ; preds = %.lr.ph
@@ -2460,7 +2451,7 @@ define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captu
   %.034 = phi i64 [ %19, %15 ], [ 16, %.preheader ], [ 16, %11 ]
   %21 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %22 = add i64 %21, %.034
-  %23 = tail call ptr @palloc0(i64 noundef %22) #12
+  %23 = tail call ptr @palloc0(i64 noundef %22) #11
   %24 = trunc i64 %22 to i32
   store i32 %24, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 10
@@ -2483,7 +2474,7 @@ define dso_local noundef ptr @heap_form_minimal_tuple(ptr noundef readonly captu
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_free_minimal_tuple(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #12
+  tail call void @pfree(ptr noundef %0) #11
   ret void
 }
 
@@ -2491,7 +2482,7 @@ define dso_local void @heap_free_minimal_tuple(ptr noundef %0) local_unnamed_add
 define dso_local ptr @heap_copy_minimal_tuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
-  %4 = tail call ptr @palloc(i64 noundef %3) #12
+  %4 = tail call ptr @palloc(i64 noundef %3) #11
   %5 = load i32, ptr %0, align 4
   %6 = zext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %4, ptr nonnull align 4 %0, i64 %6, i1 false)
@@ -2504,7 +2495,7 @@ define dso_local noundef ptr @heap_tuple_from_minimal_tuple(ptr noundef readonly
   %3 = add i32 %2, 8
   %4 = zext i32 %3 to i64
   %5 = add nuw nsw i64 %4, 24
-  %6 = tail call ptr @palloc(i64 noundef %5) #12
+  %6 = tail call ptr @palloc(i64 noundef %5) #11
   store i32 %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 -1, ptr %7, align 4
@@ -2533,7 +2524,7 @@ define dso_local noundef ptr @minimal_tuple_from_heap_tuple(ptr noundef readonly
   %2 = load i32, ptr %0, align 8
   %3 = add i32 %2, -8
   %4 = zext i32 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #12
+  %5 = tail call ptr @palloc(i64 noundef %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2589,7 +2580,7 @@ define internal i32 @missing_hash(ptr noundef readonly captures(none) %0, i64 %1
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = load i32, ptr %0, align 8
-  %7 = tail call i32 @hash_bytes(ptr noundef %5, i32 noundef %6) #12
+  %7 = tail call i32 @hash_bytes(ptr noundef %5, i32 noundef %6) #11
   ret i32 %7
 }
 
@@ -2613,7 +2604,7 @@ define internal i32 @missing_match(ptr noundef readonly captures(none) %0, ptr n
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
   %16 = sext i32 %4 to i64
-  %17 = tail call i32 @memcmp(ptr noundef %12, ptr noundef %15, i64 noundef %16) #13
+  %17 = tail call i32 @memcmp(ptr noundef %12, ptr noundef %15, i64 noundef %16) #12
   br label %18
 
 18:                                               ; preds = %9, %6
@@ -2636,11 +2627,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2652,11 +2640,10 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { cold nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

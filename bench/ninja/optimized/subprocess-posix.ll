@@ -78,7 +78,7 @@ define dso_local void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 captures(
 
 5:                                                ; preds = %1
   %6 = invoke i32 @close(i32 noundef %3)
-          to label %7 unwind label %21
+          to label %7 unwind label %18
 
 7:                                                ; preds = %5, %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -88,35 +88,28 @@ define dso_local void @_ZN10SubprocessD2Ev(ptr noundef nonnull align 8 captures(
 
 10:                                               ; preds = %7
   %11 = invoke noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %12 unwind label %21
+          to label %12 unwind label %18
 
 12:                                               ; preds = %10, %7
   %13 = load ptr, ptr %0, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = icmp eq ptr %13, %14
-  br i1 %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !10
-  %18 = icmp ult i64 %17, 16
-  tail call void @llvm.assume(i1 %18)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %15, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %12
-  %19 = load i64, ptr %14, align 8, !tbaa !13
-  %20 = add i64 %19, 1
-  tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %20) #22
+  %16 = load i64, ptr %14, align 8, !tbaa !13
+  %17 = add i64 %16, 1
+  tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %17) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   ret void
 
-21:                                               ; preds = %10, %5
-  %22 = landingpad { ptr, i32 }
+18:                                               ; preds = %10, %5
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #23
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #23
   unreachable
 }
 
@@ -823,9 +816,9 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
   %.not = icmp eq ptr %18, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
-._crit_edge18:                                    ; preds = %47
+._crit_edge18:                                    ; preds = %44
   %.pre22 = load ptr, ptr %0, align 8, !tbaa !28
-  %19 = icmp eq ptr %48, %.pre22
+  %19 = icmp eq ptr %45, %.pre22
   br i1 %19, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge18
@@ -835,12 +828,12 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
 _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge18, %20
   ret void
 
-.lr.ph17:                                         ; preds = %._crit_edge, %47
-  %21 = phi ptr [ %48, %47 ], [ %17, %._crit_edge ]
-  %.sroa.01.015 = phi ptr [ %49, %47 ], [ %.pre20, %._crit_edge ]
+.lr.ph17:                                         ; preds = %._crit_edge, %44
+  %21 = phi ptr [ %45, %44 ], [ %17, %._crit_edge ]
+  %.sroa.01.015 = phi ptr [ %46, %44 ], [ %.pre20, %._crit_edge ]
   %22 = load ptr, ptr %.sroa.01.015, align 8, !tbaa !43
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %47, label %24
+  br i1 %23, label %44, label %24
 
 24:                                               ; preds = %.lr.ph17
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -850,7 +843,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %.
 
 28:                                               ; preds = %24
   %29 = invoke i32 @close(i32 noundef %26)
-          to label %30 unwind label %44
+          to label %30 unwind label %41
 
 30:                                               ; preds = %28, %24
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 36
@@ -860,43 +853,36 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %.
 
 33:                                               ; preds = %30
   %34 = invoke noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %22)
-          to label %35 unwind label %44
+          to label %35 unwind label %41
 
 35:                                               ; preds = %33, %30
   %36 = load ptr, ptr %22, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %38 = icmp eq ptr %36, %37
-  br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %35
-  %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !10
-  %41 = icmp ult i64 %40, 16
-  tail call void @llvm.assume(i1 %41)
-  br label %_ZN10SubprocessD2Ev.exit
+  br i1 %38, label %_ZN10SubprocessD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %35
-  %42 = load i64, ptr %37, align 8, !tbaa !13
-  %43 = add i64 %42, 1
-  tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %43) #22
+  %39 = load i64, ptr %37, align 8, !tbaa !13
+  %40 = add i64 %39, 1
+  tail call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #22
   br label %_ZN10SubprocessD2Ev.exit
 
-44:                                               ; preds = %33, %28
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %33, %28
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #23
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #23
   unreachable
 
-_ZN10SubprocessD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN10SubprocessD2Ev.exit:                         ; preds = %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %22, i64 noundef 48) #22
   %.pre21 = load ptr, ptr %3, align 8, !tbaa !39
-  br label %47
+  br label %44
 
-47:                                               ; preds = %.lr.ph17, %_ZN10SubprocessD2Ev.exit
-  %48 = phi ptr [ %21, %.lr.ph17 ], [ %.pre21, %_ZN10SubprocessD2Ev.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.01.015, i64 8
-  %.not9 = icmp eq ptr %49, %48
+44:                                               ; preds = %.lr.ph17, %_ZN10SubprocessD2Ev.exit
+  %45 = phi ptr [ %21, %.lr.ph17 ], [ %.pre21, %_ZN10SubprocessD2Ev.exit ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.01.015, i64 8
+  %.not9 = icmp eq ptr %46, %45
   br i1 %.not9, label %._crit_edge18, label %.lr.ph17, !llvm.loop !47
 }
 

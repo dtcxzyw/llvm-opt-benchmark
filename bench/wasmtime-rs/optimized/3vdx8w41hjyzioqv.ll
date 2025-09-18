@@ -11946,7 +11946,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9429c8a01f
   %7 = load i64, ptr %6, align 8, !alias.scope !3133, !noundef !4
   %.promoted = load i64, ptr %0, align 8, !alias.scope !3133
   %.not.i4 = icmp eq i64 %7, %.promoted
-  br i1 %.not.i4, label %57, label %.lr.ph
+  br i1 %.not.i4, label %56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -12062,7 +12062,7 @@ _ZN8wasmtime7runtime5types7ValType12to_wasm_type17hab652b79e6a674c9E.exit.i.i.i.
   store i8 %.sroa.10.0.i.i.i.us, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i.i.us, align 4, !noalias !3175
   %39 = add i64 %.promoted5, 1
   store i64 %39, ptr %14, align 8, !alias.scope !3176, !noalias !3179
-  br label %57
+  br label %56
 
 .split.us:                                        ; preds = %27, %21, %19
   %40 = landingpad { ptr, i32 }
@@ -12080,11 +12080,7 @@ default.unreachable:                              ; preds = %23
 
 44:                                               ; preds = %41
   %45 = invoke { i32, i32 } @_ZN8wasmtime7runtime5types8HeapType12to_wasm_type17h35c8304bfcf052c1E.llvm.14851531119274094909(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
-          to label %.noexc.i.i.i.i unwind label %.split, !noalias !3154
-
-.noexc.i.i.i.i:                                   ; preds = %44
-  %.pr.i.i.i.i = load i64, ptr %5, align 8, !alias.scope !3169, !noalias !3154
-  br label %_ZN8wasmtime7runtime5types7ValType12to_wasm_type17hab652b79e6a674c9E.exit.i.i.i.i
+          to label %_ZN8wasmtime7runtime5types7ValType12to_wasm_type17hab652b79e6a674c9E.exit.i.i.i.i unwind label %.split, !noalias !3154
 
 .split:                                           ; preds = %52, %50, %44
   %46 = landingpad { ptr, i32 }
@@ -12099,7 +12095,7 @@ default.unreachable:                              ; preds = %23
 
 49:                                               ; preds = %47
   invoke void @"_ZN4core3ptr69drop_in_place$LT$wasmtime..runtime..type_registry..RegisteredType$GT$17ha59c381b239b0dd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
-          to label %"_ZN4core3ptr54drop_in_place$LT$wasmtime..runtime..types..ValType$GT$17hcb6eec4705d363fcE.llvm.14851531119274094909.exit.i.i.i.i" unwind label %55, !noalias !3154
+          to label %"_ZN4core3ptr54drop_in_place$LT$wasmtime..runtime..types..ValType$GT$17hcb6eec4705d363fcE.llvm.14851531119274094909.exit.i.i.i.i" unwind label %54, !noalias !3154
 
 50:                                               ; preds = %.lr.ph.split.preheader
   %51 = load ptr, ptr %9, align 8, !alias.scope !3148, !noalias !3156, !nonnull !4, !align !20, !noundef !4
@@ -12116,15 +12112,12 @@ default.unreachable:                              ; preds = %23
   %.pre.i.i.i.i = load i64, ptr %5, align 8, !range !3153, !alias.scope !3151, !noalias !3154
   br label %41
 
-_ZN8wasmtime7runtime5types7ValType12to_wasm_type17hab652b79e6a674c9E.exit.i.i.i.i: ; preds = %41, %.noexc.i.i.i.i
-  %54 = phi i64 [ %.pr.i.i.i.i, %.noexc.i.i.i.i ], [ %42, %41 ]
-  %cond.i.i.i6.i.i.i.i = icmp eq i64 %54, 2
-  call void @llvm.assume(i1 %cond.i.i.i6.i.i.i.i)
+_ZN8wasmtime7runtime5types7ValType12to_wasm_type17hab652b79e6a674c9E.exit.i.i.i.i: ; preds = %41, %44
   call void @"_ZN4core3ptr69drop_in_place$LT$wasmtime..runtime..type_registry..RegisteredType$GT$17ha59c381b239b0dd4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10), !noalias !3154
   unreachable
 
-55:                                               ; preds = %49
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %49
+  %55 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #56, !noalias !3154
   unreachable
@@ -12132,7 +12125,7 @@ _ZN8wasmtime7runtime5types7ValType12to_wasm_type17hab652b79e6a674c9E.exit.i.i.i.
 "_ZN4core3ptr54drop_in_place$LT$wasmtime..runtime..types..ValType$GT$17hcb6eec4705d363fcE.llvm.14851531119274094909.exit.i.i.i.i": ; preds = %49, %47
   resume { ptr, i32 } %.us-phi
 
-57:                                               ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h503126aad8f37640E.exit.us", %3
+56:                                               ; preds = %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_228_$u7b$$u7b$closure$u7d$$u7d$17h503126aad8f37640E.exit.us", %3
   ret void
 }
 
@@ -25983,7 +25976,7 @@ _ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %49 = load i64, ptr %48, align 8, !noundef !4
   %.not.i.i8 = icmp eq i64 %49, 0
-  br i1 %.not.i.i8, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not.i.i8, label %.loopexit23, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit, %56
   %.027.i.i = phi i64 [ %60, %56 ], [ %49, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
@@ -26007,19 +26000,10 @@ _ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875
   %.022.i.i = select i1 %58, i64 %59, i64 %.01926.i.i
   %60 = sub i64 %.021.i.i, %.022.i.i
   %61 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %61, label %.lr.ph.i.i, label %.loopexit.loopexit
+  br i1 %61, label %.lr.ph.i.i, label %.loopexit23
 
-.loopexit.loopexit:                               ; preds = %56
-  %62 = icmp ule i64 %.022.i.i, %49
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit
-  %.019.lcssa.i.i = phi i1 [ true, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ], [ %62, %.loopexit.loopexit ]
-  tail call void @llvm.assume(i1 %.019.lcssa.i.i)
-  br label %.loopexit23
-
-.loopexit23:                                      ; preds = %.lr.ph.i.i, %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ null, %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit ], [ %53, %.lr.ph.i.i ]
+.loopexit23:                                      ; preds = %.lr.ph.i.i, %56, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit, %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit
+  %.0 = phi ptr [ null, %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit ], [ null, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ], [ %53, %.lr.ph.i.i ], [ null, %56 ]
   ret ptr %.0
 }
 

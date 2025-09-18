@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @tbm_create(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 160) #14
+  %3 = tail call noundef ptr @palloc0(i64 noundef 160) #13
   store i32 477, ptr %3, align 4
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -70,7 +70,7 @@ define dso_local void @tbm_free(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
-  tail call void @pfree(ptr noundef %11) #14
+  tail call void @pfree(ptr noundef %11) #13
   br label %pagetable_destroy.exit
 
 12:                                               ; preds = %4
@@ -80,12 +80,12 @@ define dso_local void @tbm_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %pagetable_destroy.exit, label %15
 
 15:                                               ; preds = %12
-  tail call void @dsa_free(ptr noundef nonnull %7, i64 noundef %14) #14
+  tail call void @dsa_free(ptr noundef nonnull %7, i64 noundef %14) #13
   store i64 0, ptr %13, align 8
   br label %pagetable_destroy.exit
 
 pagetable_destroy.exit:                           ; preds = %9, %12, %15
-  tail call void @pfree(ptr noundef nonnull %3) #14
+  tail call void @pfree(ptr noundef nonnull %3) #13
   br label %16
 
 16:                                               ; preds = %pagetable_destroy.exit, %1
@@ -95,7 +95,7 @@ pagetable_destroy.exit:                           ; preds = %9, %12, %15
   br i1 %.not9, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @pfree(ptr noundef nonnull %18) #14
+  tail call void @pfree(ptr noundef nonnull %18) #13
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -105,11 +105,11 @@ pagetable_destroy.exit:                           ; preds = %9, %12, %15
   br i1 %.not10, label %24, label %23
 
 23:                                               ; preds = %20
-  tail call void @pfree(ptr noundef nonnull %22) #14
+  tail call void @pfree(ptr noundef nonnull %22) #13
   br label %24
 
 24:                                               ; preds = %23, %20
-  tail call void @pfree(ptr noundef nonnull %0) #14
+  tail call void @pfree(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -117,21 +117,21 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_free_shared_area(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) #14
+  %3 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %5) #14
+  %7 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %5) #13
   %8 = atomicrmw sub ptr %7, i32 1 seq_cst, align 4
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
   %11 = load i64, ptr %4, align 8
-  tail call void @dsa_free(ptr noundef %0, i64 noundef %11) #14
+  tail call void @dsa_free(ptr noundef %0, i64 noundef %11) #13
   br label %12
 
 12:                                               ; preds = %6, %10, %2
@@ -141,14 +141,14 @@ define dso_local void @tbm_free_shared_area(ptr noundef %0, i64 noundef %1) loca
   br i1 %.not23, label %21, label %15
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %14) #14
+  %16 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %14) #13
   %17 = atomicrmw sub ptr %16, i32 1 seq_cst, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
   %20 = load i64, ptr %13, align 8
-  tail call void @dsa_free(ptr noundef %0, i64 noundef %20) #14
+  tail call void @dsa_free(ptr noundef %0, i64 noundef %20) #13
   br label %21
 
 21:                                               ; preds = %15, %19, %12
@@ -158,18 +158,18 @@ define dso_local void @tbm_free_shared_area(ptr noundef %0, i64 noundef %1) loca
   br i1 %.not24, label %30, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %23) #14
+  %25 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %23) #13
   %26 = atomicrmw sub ptr %25, i32 1 seq_cst, align 4
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
   %29 = load i64, ptr %22, align 8
-  tail call void @dsa_free(ptr noundef %0, i64 noundef %29) #14
+  tail call void @dsa_free(ptr noundef %0, i64 noundef %29) #13
   br label %30
 
 30:                                               ; preds = %24, %28, %21
-  tail call void @dsa_free(ptr noundef %0, i64 noundef %1) #14
+  tail call void @dsa_free(ptr noundef %0, i64 noundef %1) #13
   ret void
 }
 
@@ -216,10 +216,9 @@ define dso_local void @tbm_add_tuples(ptr noundef %0, ptr noundef readonly captu
   br i1 %or.cond, label %26, label %29
 
 26:                                               ; preds = %16
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %24) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__func__.tbm_add_tuples) #14
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %24) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__func__.tbm_add_tuples) #13
   unreachable
 
 29:                                               ; preds = %16
@@ -1418,10 +1417,9 @@ pagetable_delete.exit.thread:                     ; preds = %.lr.ph.i20, %111, %
   br label %124
 
 pagetable_delete.exit:                            ; preds = %81
-  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %122)
-  %123 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__func__.tbm_intersect) #14
+  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %123 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 577, ptr noundef nonnull @__func__.tbm_intersect) #13
   unreachable
 
 124:                                              ; preds = %pagetable_delete.exit.thread, %pagetable_iterate.exit
@@ -1804,7 +1802,7 @@ define dso_local zeroext i1 @tbm_is_empty(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @tbm_begin_private_iterate(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 614) #14
+  %2 = tail call ptr @palloc(i64 noundef 614) #13
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8
@@ -1840,7 +1838,7 @@ define dso_local noundef ptr @tbm_begin_private_iterate(ptr noundef %0) local_un
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %18 to i64
   %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call ptr @MemoryContextAlloc(ptr noundef %22, i64 noundef %24) #14
+  %25 = tail call ptr @MemoryContextAlloc(ptr noundef %22, i64 noundef %24) #13
   store ptr %25, ptr %14, align 8
   br label %26
 
@@ -1861,7 +1859,7 @@ define dso_local noundef ptr @tbm_begin_private_iterate(ptr noundef %0) local_un
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i32 %31 to i64
   %37 = shl nuw nsw i64 %36, 3
-  %38 = tail call ptr @MemoryContextAlloc(ptr noundef %35, i64 noundef %37) #14
+  %38 = tail call ptr @MemoryContextAlloc(ptr noundef %35, i64 noundef %37) #13
   store ptr %38, ptr %27, align 8
   br label %39
 
@@ -1961,7 +1959,7 @@ pagetable_iterate.exit:                           ; preds = %60
 84:                                               ; preds = %82
   %85 = load ptr, ptr %14, align 8
   %86 = zext nneg i32 %.033 to i64
-  tail call void @pg_qsort(ptr noundef %85, i64 noundef %86, i64 noundef 8, ptr noundef nonnull @tbm_comparator) #14
+  tail call void @pg_qsort(ptr noundef %85, i64 noundef %86, i64 noundef 8, ptr noundef nonnull @tbm_comparator) #13
   br label %87
 
 87:                                               ; preds = %84, %82
@@ -1971,7 +1969,7 @@ pagetable_iterate.exit:                           ; preds = %60
 89:                                               ; preds = %87
   %90 = load ptr, ptr %27, align 8
   %91 = zext nneg i32 %.0 to i64
-  tail call void @pg_qsort(ptr noundef %90, i64 noundef %91, i64 noundef 8, ptr noundef nonnull @tbm_comparator) #14
+  tail call void @pg_qsort(ptr noundef %90, i64 noundef %91, i64 noundef 8, ptr noundef nonnull @tbm_comparator) #13
   br label %92
 
 92:                                               ; preds = %87, %89, %9, %1
@@ -2000,9 +1998,9 @@ define internal noundef range(i32 -1, 2) i32 @tbm_comparator(ptr noundef readonl
 define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @dsa_allocate_extended(ptr noundef %3, i64 noundef 72, i32 noundef 4) #14
+  %4 = tail call i64 @dsa_allocate_extended(ptr noundef %3, i64 noundef 72, i32 noundef 4) #13
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call ptr @dsa_get_address(ptr noundef %5, i64 noundef %4) #14
+  %6 = tail call ptr @dsa_get_address(ptr noundef %5, i64 noundef %4) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
@@ -2019,11 +2017,11 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr noundef captures(no
   %15 = sext i32 %12 to i64
   %16 = shl nsw i64 %15, 2
   %17 = add nsw i64 %16, 4
-  %18 = tail call i64 @dsa_allocate_extended(ptr noundef %14, i64 noundef %17, i32 noundef 0) #14
+  %18 = tail call i64 @dsa_allocate_extended(ptr noundef %14, i64 noundef %17, i32 noundef 0) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %2, align 8
-  %21 = tail call ptr @dsa_get_address(ptr noundef %20, i64 noundef %18) #14
+  %21 = tail call ptr @dsa_get_address(ptr noundef %20, i64 noundef %18) #13
   store volatile i32 0, ptr %21, align 4
   br label %22
 
@@ -2039,11 +2037,11 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr noundef captures(no
   %27 = sext i32 %24 to i64
   %28 = shl nsw i64 %27, 2
   %29 = add nsw i64 %28, 4
-  %30 = tail call i64 @dsa_allocate_extended(ptr noundef %26, i64 noundef %29, i32 noundef 0) #14
+  %30 = tail call i64 @dsa_allocate_extended(ptr noundef %26, i64 noundef %29, i32 noundef 0) #13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %30, ptr %31, align 8
   %32 = load ptr, ptr %2, align 8
-  %33 = tail call ptr @dsa_get_address(ptr noundef %32, i64 noundef %30) #14
+  %33 = tail call ptr @dsa_get_address(ptr noundef %32, i64 noundef %30) #13
   store volatile i32 0, ptr %33, align 4
   br label %34
 
@@ -2060,7 +2058,7 @@ define dso_local noundef i64 @tbm_prepare_shared_iterate(ptr noundef captures(no
   %38 = load ptr, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %40 = load i64, ptr %39, align 8
-  %41 = tail call ptr @dsa_get_address(ptr noundef %38, i64 noundef %40) #14
+  %41 = tail call ptr @dsa_get_address(ptr noundef %38, i64 noundef %40) #13
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = load i64, ptr %43, align 8
@@ -2157,11 +2155,11 @@ pagetable_iterate.exit:                           ; preds = %64
 
 .thread112:                                       ; preds = %34
   %90 = load ptr, ptr %2, align 8
-  %91 = tail call i64 @dsa_allocate_extended(ptr noundef %90, i64 noundef 56, i32 noundef 0) #14
+  %91 = tail call i64 @dsa_allocate_extended(ptr noundef %90, i64 noundef 56, i32 noundef 0) #13
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %91, ptr %92, align 8
   %93 = load ptr, ptr %2, align 8
-  %94 = tail call ptr @dsa_get_address(ptr noundef %93, i64 noundef %91) #14
+  %94 = tail call ptr @dsa_get_address(ptr noundef %93, i64 noundef %91) #13
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %95, ptr noundef nonnull align 8 dereferenceable(48) %96, i64 48, i1 false)
@@ -2191,7 +2189,7 @@ pagetable_iterate.exit:                           ; preds = %64
   %103 = getelementptr inbounds nuw i8, ptr %.085, i64 4
   %104 = zext nneg i32 %.283110 to i64
   %105 = getelementptr inbounds nuw i8, ptr %.084109, i64 8
-  tail call void @qsort_arg(ptr noundef nonnull %103, i64 noundef %104, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %105) #14
+  tail call void @qsort_arg(ptr noundef nonnull %103, i64 noundef %104, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %105) #13
   br label %106
 
 106:                                              ; preds = %102, %100
@@ -2202,7 +2200,7 @@ pagetable_iterate.exit:                           ; preds = %64
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 4
   %110 = zext nneg i32 %.2111 to i64
   %111 = getelementptr inbounds nuw i8, ptr %.084109, i64 8
-  tail call void @qsort_arg(ptr noundef nonnull %109, i64 noundef %110, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %111) #14
+  tail call void @qsort_arg(ptr noundef nonnull %109, i64 noundef %110, i64 noundef 4, ptr noundef nonnull @tbm_shared_comparator, ptr noundef nonnull %111) #13
   br label %.thread126
 
 .thread126:                                       ; preds = %34, %106, %108, %1
@@ -2235,18 +2233,18 @@ pagetable_iterate.exit:                           ; preds = %64
   store i64 %130, ptr %131, align 8
   %132 = load ptr, ptr %2, align 8
   %133 = load i64, ptr %123, align 8
-  %134 = tail call ptr @dsa_get_address(ptr noundef %132, i64 noundef %133) #14
+  %134 = tail call ptr @dsa_get_address(ptr noundef %132, i64 noundef %133) #13
   %135 = load ptr, ptr %2, align 8
   %136 = load i64, ptr %126, align 8
-  %137 = tail call ptr @dsa_get_address(ptr noundef %135, i64 noundef %136) #14
+  %137 = tail call ptr @dsa_get_address(ptr noundef %135, i64 noundef %136) #13
   %138 = load ptr, ptr %2, align 8
   %139 = load i64, ptr %129, align 8
-  %140 = tail call ptr @dsa_get_address(ptr noundef %138, i64 noundef %139) #14
+  %140 = tail call ptr @dsa_get_address(ptr noundef %138, i64 noundef %139) #13
   %.not97 = icmp eq ptr %134, null
   br i1 %.not97, label %143, label %141
 
 141:                                              ; preds = %.thread126
-  %142 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %134, i32 1, ptr nonnull elementtype(i32) %134) #14, !srcloc !20
+  %142 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %134, i32 1, ptr nonnull elementtype(i32) %134) #13, !srcloc !20
   br label %143
 
 143:                                              ; preds = %141, %.thread126
@@ -2254,7 +2252,7 @@ pagetable_iterate.exit:                           ; preds = %64
   br i1 %.not98, label %146, label %144
 
 144:                                              ; preds = %143
-  %145 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %137, i32 1, ptr nonnull elementtype(i32) %137) #14, !srcloc !20
+  %145 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %137, i32 1, ptr nonnull elementtype(i32) %137) #13, !srcloc !20
   br label %146
 
 146:                                              ; preds = %144, %143
@@ -2262,12 +2260,12 @@ pagetable_iterate.exit:                           ; preds = %64
   br i1 %.not99, label %149, label %147
 
 147:                                              ; preds = %146
-  %148 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %140, i32 1, ptr nonnull elementtype(i32) %140) #14, !srcloc !20
+  %148 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %140, i32 1, ptr nonnull elementtype(i32) %140) #13, !srcloc !20
   br label %149
 
 149:                                              ; preds = %147, %146
   %150 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  tail call void @LWLockInitialize(ptr noundef nonnull %150, i32 noundef 74) #14
+  tail call void @LWLockInitialize(ptr noundef nonnull %150, i32 noundef 74) #13
   %151 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %151, align 8
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 60
@@ -2521,7 +2519,7 @@ define dso_local ptr @tbm_shared_iterate(ptr noundef captures(ret: address, prov
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #14
+  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #13
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %17 = load i32, ptr %16, align 4
@@ -2703,7 +2701,7 @@ tbm_extract_page_tuple.exit:                      ; preds = %.loopexit.i
 
 103:                                              ; preds = %.thread81, %66, %tbm_extract_page_tuple.exit
   %.1 = phi ptr [ %2, %tbm_extract_page_tuple.exit ], [ %2, %66 ], [ null, %.thread81 ]
-  tail call void @LWLockRelease(ptr noundef nonnull %13) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %13) #13
   ret ptr %.1
 }
 
@@ -2713,24 +2711,24 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_end_private_iterate(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #14
+  tail call void @pfree(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tbm_end_shared_iterate(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #14
+  tail call void @pfree(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tbm_attach_shared_iterate(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @palloc0(i64 noundef 630) #14
-  %4 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) #14
+  %3 = tail call ptr @palloc0(i64 noundef 630) #13
+  %4 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) #13
   store ptr %4, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %6) #14
+  %7 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %6) #13
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2741,7 +2739,7 @@ define dso_local ptr @tbm_attach_shared_iterate(ptr noundef %0, i64 noundef %1) 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %13) #14
+  %14 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %13) #13
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %14, ptr %15, align 8
   br label %16
@@ -2755,7 +2753,7 @@ define dso_local ptr @tbm_attach_shared_iterate(ptr noundef %0, i64 noundef %1) 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %21 = load i64, ptr %20, align 8
-  %22 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %21) #14
+  %22 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %21) #13
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %22, ptr %23, align 8
   br label %24
@@ -2772,12 +2770,12 @@ define dso_local { i8, ptr } @tbm_begin_iterate(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %26, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call ptr @palloc0(i64 noundef 630) #14
-  %6 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %2) #14
+  %5 = tail call ptr @palloc0(i64 noundef 630) #13
+  %6 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %2) #13
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %8) #14
+  %9 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %8) #13
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2788,7 +2786,7 @@ define dso_local { i8, ptr } @tbm_begin_iterate(ptr noundef %0, ptr noundef %1, 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %15) #14
+  %16 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %15) #13
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %16, ptr %17, align 8
   br label %18
@@ -2802,7 +2800,7 @@ define dso_local { i8, ptr } @tbm_begin_iterate(ptr noundef %0, ptr noundef %1, 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = load i64, ptr %22, align 8
-  %24 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %23) #14
+  %24 = tail call ptr @dsa_get_address(ptr noundef %1, i64 noundef %23) #13
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %24, ptr %25, align 8
   br label %tbm_attach_shared_iterate.exit
@@ -2826,7 +2824,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local void @tbm_end_iterate(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @pfree(ptr noundef %3) #14
+  tail call void @pfree(ptr noundef %3) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -2857,7 +2855,7 @@ define internal fastcc void @tbm_create_pagetable(ptr noundef %0) unnamed_addr #
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 48) #14
+  %5 = tail call ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 48) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2868,7 +2866,7 @@ define internal fastcc void @tbm_create_pagetable(ptr noundef %0) unnamed_addr #
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %1
-  %12 = tail call ptr @MemoryContextAllocExtended(ptr noundef %4, i64 noundef 12288, i32 noundef 5) #14
+  %12 = tail call ptr @MemoryContextAllocExtended(ptr noundef %4, i64 noundef 12288, i32 noundef 5) #13
   br label %pagetable_create.exit
 
 13:                                               ; preds = %1
@@ -2876,10 +2874,10 @@ define internal fastcc void @tbm_create_pagetable(ptr noundef %0) unnamed_addr #
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %15, ptr %16, align 8
-  %17 = tail call i64 @dsa_allocate_extended(ptr noundef nonnull %9, i64 noundef 12296, i32 noundef 5) #14
+  %17 = tail call i64 @dsa_allocate_extended(ptr noundef nonnull %9, i64 noundef 12296, i32 noundef 5) #13
   store i64 %17, ptr %14, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = tail call ptr @dsa_get_address(ptr noundef %18, i64 noundef %17) #14
+  %19 = tail call ptr @dsa_get_address(ptr noundef %18, i64 noundef %17) #13
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %pagetable_create.exit
 
@@ -2946,10 +2944,9 @@ define internal fastcc noundef ptr @pagetable_insert(ptr noundef captures(none) 
   br i1 %18, label %19, label %22, !prof !24
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 630, ptr noundef nonnull @__func__.pagetable_insert_hash_internal) #14
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 630, ptr noundef nonnull @__func__.pagetable_insert_hash_internal) #13
   unreachable
 
 22:                                               ; preds = %16
@@ -3128,10 +3125,9 @@ define internal fastcc void @pagetable_grow(ptr noundef captures(none) %0, i64 n
   br i1 %13, label %14, label %pagetable_compute_size.exit, !prof !24
 
 14:                                               ; preds = %2
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 327, ptr noundef nonnull @__func__.pagetable_compute_size) #14
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 327, ptr noundef nonnull @__func__.pagetable_compute_size) #13
   unreachable
 
 pagetable_compute_size.exit:                      ; preds = %2
@@ -3145,7 +3141,7 @@ pagetable_compute_size.exit:                      ; preds = %2
 22:                                               ; preds = %pagetable_compute_size.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr @MemoryContextAllocExtended(ptr noundef %24, i64 noundef %12, i32 noundef 5) #14
+  %25 = tail call ptr @MemoryContextAllocExtended(ptr noundef %24, i64 noundef %12, i32 noundef 5) #13
   br label %pagetable_allocate.exit
 
 26:                                               ; preds = %pagetable_compute_size.exit
@@ -3154,10 +3150,10 @@ pagetable_compute_size.exit:                      ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 128
   store i64 %28, ptr %29, align 8
   %30 = or disjoint i64 %12, 8
-  %31 = tail call i64 @dsa_allocate_extended(ptr noundef nonnull %20, i64 noundef %30, i32 noundef 5) #14
+  %31 = tail call i64 @dsa_allocate_extended(ptr noundef nonnull %20, i64 noundef %30, i32 noundef 5) #13
   store i64 %31, ptr %27, align 8
   %32 = load ptr, ptr %19, align 8
-  %33 = tail call ptr @dsa_get_address(ptr noundef %32, i64 noundef %31) #14
+  %33 = tail call ptr @dsa_get_address(ptr noundef %32, i64 noundef %31) #13
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %pagetable_allocate.exit
 
@@ -3175,10 +3171,9 @@ pagetable_allocate.exit:                          ; preds = %22, %26
   br i1 %41, label %42, label %pagetable_update_parameters.exit, !prof !24
 
 42:                                               ; preds = %pagetable_allocate.exit
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 327, ptr noundef nonnull @__func__.pagetable_compute_size) #14
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 327, ptr noundef nonnull @__func__.pagetable_compute_size) #13
   unreachable
 
 pagetable_update_parameters.exit:                 ; preds = %pagetable_allocate.exit
@@ -3286,7 +3281,7 @@ pagetable_update_parameters.exit:                 ; preds = %pagetable_allocate.
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %._crit_edge
-  tail call void @pfree(ptr noundef %5) #14
+  tail call void @pfree(ptr noundef %5) #13
   br label %pagetable_free.exit
 
 104:                                              ; preds = %._crit_edge
@@ -3296,7 +3291,7 @@ pagetable_update_parameters.exit:                 ; preds = %pagetable_allocate.
   br i1 %.not.i, label %pagetable_free.exit, label %107
 
 107:                                              ; preds = %104
-  tail call void @dsa_free(ptr noundef nonnull %101, i64 noundef %106) #14
+  tail call void @dsa_free(ptr noundef nonnull %101, i64 noundef %106) #13
   store i64 0, ptr %105, align 8
   br label %pagetable_free.exit
 
@@ -3310,26 +3305,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.ctpop.i64(i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #13
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3343,10 +3335,9 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -9792,9 +9792,6 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std3sys3pal6c
   br label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h80b90c1898bdaca6E.llvm.17514045976136648023.exit"
 
 "_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$crossbeam_epoch..collector..LocalHandle$GT$$GT$17h80b90c1898bdaca6E.llvm.17514045976136648023.exit": ; preds = %"_ZN15crossbeam_epoch7default6HANDLE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h5a5dfc21826d0ed9E.llvm.17514045976136648023.exit", %13, %21
-  %22 = load i64, ptr %0, align 8, !range !414, !noundef !4
-  %23 = icmp ne i64 %22, 0
-  tail call void @llvm.assume(i1 %23)
   ret ptr %10
 }
 

@@ -81,17 +81,17 @@ define void @_PG_init() local_unnamed_addr #1 {
   br i1 %.b1, label %3, label %1
 
 1:                                                ; preds = %0
-  tail call void @pg_bindtextdomain(ptr noundef nonnull @.str) #11
-  tail call void @DefineCustomEnumVariable(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @plpgsql_variable_conflict, i32 noundef 0, ptr noundef nonnull @variable_conflict_options, i32 noundef 5, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  tail call void @DefineCustomBoolVariable(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull @plpgsql_print_strict_params, i1 noundef zeroext false, i32 noundef 6, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  tail call void @DefineCustomBoolVariable(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @plpgsql_check_asserts, i1 noundef zeroext true, i32 noundef 6, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #11
-  tail call void @DefineCustomStringVariable(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @plpgsql_extra_warnings_string, ptr noundef nonnull @.str.9, i32 noundef 6, i32 noundef 1, ptr noundef nonnull @plpgsql_extra_checks_check_hook, ptr noundef nonnull @plpgsql_extra_warnings_assign_hook, ptr noundef null) #11
-  tail call void @DefineCustomStringVariable(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull @plpgsql_extra_errors_string, ptr noundef nonnull @.str.9, i32 noundef 6, i32 noundef 1, ptr noundef nonnull @plpgsql_extra_checks_check_hook, ptr noundef nonnull @plpgsql_extra_errors_assign_hook, ptr noundef null) #11
-  tail call void @MarkGUCPrefixReserved(ptr noundef nonnull @.str.12) #11
-  tail call void @plpgsql_HashTableInit() #11
-  tail call void @RegisterXactCallback(ptr noundef nonnull @plpgsql_xact_cb, ptr noundef null) #11
-  tail call void @RegisterSubXactCallback(ptr noundef nonnull @plpgsql_subxact_cb, ptr noundef null) #11
-  %2 = tail call ptr @find_rendezvous_variable(ptr noundef nonnull @.str.13) #11
+  tail call void @pg_bindtextdomain(ptr noundef nonnull @.str) #10
+  tail call void @DefineCustomEnumVariable(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef nonnull @plpgsql_variable_conflict, i32 noundef 0, ptr noundef nonnull @variable_conflict_options, i32 noundef 5, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  tail call void @DefineCustomBoolVariable(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull @plpgsql_print_strict_params, i1 noundef zeroext false, i32 noundef 6, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  tail call void @DefineCustomBoolVariable(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef null, ptr noundef nonnull @plpgsql_check_asserts, i1 noundef zeroext true, i32 noundef 6, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null) #10
+  tail call void @DefineCustomStringVariable(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull @plpgsql_extra_warnings_string, ptr noundef nonnull @.str.9, i32 noundef 6, i32 noundef 1, ptr noundef nonnull @plpgsql_extra_checks_check_hook, ptr noundef nonnull @plpgsql_extra_warnings_assign_hook, ptr noundef null) #10
+  tail call void @DefineCustomStringVariable(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull @plpgsql_extra_errors_string, ptr noundef nonnull @.str.9, i32 noundef 6, i32 noundef 1, ptr noundef nonnull @plpgsql_extra_checks_check_hook, ptr noundef nonnull @plpgsql_extra_errors_assign_hook, ptr noundef null) #10
+  tail call void @MarkGUCPrefixReserved(ptr noundef nonnull @.str.12) #10
+  tail call void @plpgsql_HashTableInit() #10
+  tail call void @RegisterXactCallback(ptr noundef nonnull @plpgsql_xact_cb, ptr noundef null) #10
+  tail call void @RegisterSubXactCallback(ptr noundef nonnull @plpgsql_subxact_cb, ptr noundef null) #10
+  %2 = tail call ptr @find_rendezvous_variable(ptr noundef nonnull @.str.13) #10
   store ptr %2, ptr @plpgsql_plugin_ptr, align 8
   store i1 true, ptr @_PG_init.inited, align 1
   br label %3
@@ -113,31 +113,31 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef 
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %0, align 8
-  %6 = tail call i32 @pg_strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.25) #11
+  %6 = tail call i32 @pg_strcasecmp(ptr noundef %5, ptr noundef nonnull @.str.25) #10
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %59, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 @pg_strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.9) #11
+  %10 = tail call i32 @pg_strcasecmp(ptr noundef %9, ptr noundef nonnull @.str.9) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %59, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = tail call ptr @pstrdup(ptr noundef %13) #11
-  %15 = call zeroext i1 @SplitIdentifierString(ptr noundef %14, i8 noundef signext 44, ptr noundef nonnull %4) #11
+  %14 = tail call ptr @pstrdup(ptr noundef %13) #10
+  %15 = call zeroext i1 @SplitIdentifierString(ptr noundef %14, i8 noundef signext 44, ptr noundef nonnull %4) #10
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @__errno_location() #12
+  %17 = tail call ptr @__errno_location() #11
   %18 = load i32, ptr %17, align 4
-  call void @pre_format_elog_string(i32 noundef %18, ptr noundef nonnull @.str) #11
-  %19 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.26) #11
+  call void @pre_format_elog_string(i32 noundef %18, ptr noundef nonnull @.str) #10
+  %19 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.26) #10
   store ptr %19, ptr @GUC_check_errdetail_string, align 8
-  call void @pfree(ptr noundef %14) #11
+  call void @pfree(ptr noundef %14) #10
   %20 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %20) #11
+  call void @list_free(ptr noundef %20) #10
   br label %.thread51
 
 21:                                               ; preds = %12
@@ -158,50 +158,50 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef 
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.27) #11
+  %30 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.27) #10
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %53, label %32
 
 32:                                               ; preds = %.lr.ph63
-  %33 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.28) #11
+  %33 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.28) #10
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %53, label %35
 
 35:                                               ; preds = %32
-  %36 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.29) #11
+  %36 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.29) #10
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %53, label %.split
 
 .split:                                           ; preds = %35
-  %38 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.25) #11
+  %38 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.25) #10
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %.split
-  %41 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.9) #11
+  %41 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.9) #10
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %48
 
 43:                                               ; preds = %40, %.split
-  %44 = tail call ptr @__errno_location() #12
+  %44 = tail call ptr @__errno_location() #11
   %45 = load i32, ptr %44, align 4
-  call void @pre_format_elog_string(i32 noundef %45, ptr noundef nonnull @.str) #11
-  %46 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.30, ptr noundef %29) #11
+  call void @pre_format_elog_string(i32 noundef %45, ptr noundef nonnull @.str) #10
+  %46 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.30, ptr noundef %29) #10
   store ptr %46, ptr @GUC_check_errdetail_string, align 8
-  call void @pfree(ptr noundef %14) #11
+  call void @pfree(ptr noundef %14) #10
   %47 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %47) #11
+  call void @list_free(ptr noundef %47) #10
   br label %.thread51
 
 48:                                               ; preds = %40
-  %49 = tail call ptr @__errno_location() #12
+  %49 = tail call ptr @__errno_location() #11
   %50 = load i32, ptr %49, align 4
-  call void @pre_format_elog_string(i32 noundef %50, ptr noundef nonnull @.str) #11
-  %51 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.31, ptr noundef %29) #11
+  call void @pre_format_elog_string(i32 noundef %50, ptr noundef nonnull @.str) #10
+  %51 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.31, ptr noundef %29) #10
   store ptr %51, ptr @GUC_check_errdetail_string, align 8
-  call void @pfree(ptr noundef %14) #11
+  call void @pfree(ptr noundef %14) #10
   %52 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %52) #11
+  call void @list_free(ptr noundef %52) #10
   br label %.thread51
 
 53:                                               ; preds = %35, %32, %.lr.ph63
@@ -215,14 +215,14 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef 
 
 ._crit_edge57:                                    ; preds = %53, %.lr.ph, %21
   %.133.lcssa = phi i32 [ 0, %21 ], [ 0, %.lr.ph ], [ %54, %53 ]
-  call void @pfree(ptr noundef %14) #11
+  call void @pfree(ptr noundef %14) #10
   %58 = load ptr, ptr %4, align 8
-  call void @list_free(ptr noundef %58) #11
+  call void @list_free(ptr noundef %58) #10
   br label %59
 
 59:                                               ; preds = %8, %3, %._crit_edge57
   %.032 = phi i32 [ %.133.lcssa, %._crit_edge57 ], [ -1, %3 ], [ 0, %8 ]
-  %60 = call ptr @guc_malloc(i32 noundef 15, i64 noundef 4) #11
+  %60 = call ptr @guc_malloc(i32 noundef 15, i64 noundef 4) #10
   %.not41 = icmp eq ptr %60, null
   br i1 %.not41, label %.thread51, label %61
 
@@ -296,8 +296,8 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
 14:                                               ; preds = %9, %6, %1
   %15 = phi i1 [ false, %6 ], [ false, %1 ], [ %13, %9 ]
   %16 = zext i1 %15 to i32
-  %17 = call i32 @SPI_connect_ext(i32 noundef %16) #11
-  %18 = call ptr @plpgsql_compile(ptr noundef nonnull %0, i1 noundef zeroext false) #11
+  %17 = call i32 @SPI_connect_ext(i32 noundef %16) #10
+  %18 = call ptr @plpgsql_compile(ptr noundef nonnull %0, i1 noundef zeroext false) #10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 536
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 544
@@ -313,7 +313,7 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.14) #11
+  %29 = call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.14) #10
   br label %30
 
 30:                                               ; preds = %14, %24, %28
@@ -321,7 +321,7 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   %32 = load ptr, ptr @PG_exception_stack, align 8
   %33 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #13
+  %34 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #12
   %.not41 = icmp eq i32 %34, 0
   br i1 %.not41, label %35, label %45
 
@@ -339,18 +339,18 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   ]
 
 39:                                               ; preds = %37
-  %40 = call ptr @plpgsql_exec_trigger(ptr noundef nonnull %18, ptr noundef nonnull %36) #11
+  %40 = call ptr @plpgsql_exec_trigger(ptr noundef nonnull %18, ptr noundef nonnull %36) #10
   %41 = ptrtoint ptr %40 to i64
   store volatile i64 %41, ptr %2, align 8
   br label %45
 
 42:                                               ; preds = %37
-  call void @plpgsql_exec_event_trigger(ptr noundef nonnull %18, ptr noundef nonnull %36) #11
+  call void @plpgsql_exec_event_trigger(ptr noundef nonnull %18, ptr noundef nonnull %36) #10
   br label %45
 
 .thread:                                          ; preds = %37, %35
   %43 = xor i1 %15, true
-  %44 = call i64 @plpgsql_exec_function(ptr noundef nonnull %18, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef %31, i1 noundef zeroext %43) #11
+  %44 = call i64 @plpgsql_exec_function(ptr noundef nonnull %18, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef %31, i1 noundef zeroext %43) #10
   store volatile i64 %44, ptr %2, align 8
   br label %45
 
@@ -365,31 +365,30 @@ define i64 @plpgsql_call_handler(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not40, label %49, label %48
 
 48:                                               ; preds = %45
-  call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef nonnull %31) #11
-  call void @ResourceOwnerDelete(ptr noundef nonnull %31) #11
+  call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef nonnull %31) #10
+  call void @ResourceOwnerDelete(ptr noundef nonnull %31) #10
   br label %49
 
 49:                                               ; preds = %48, %45
   br i1 %.not41, label %51, label %50
 
 50:                                               ; preds = %49
-  call void @pg_re_throw() #14
+  call void @pg_re_throw() #13
   unreachable
 
 51:                                               ; preds = %49
   store ptr %32, ptr @PG_exception_stack, align 8
   store ptr %33, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %52 = call i32 @SPI_finish() #11
+  %52 = call i32 @SPI_finish() #10
   %.not42 = icmp eq i32 %52, 2
   br i1 %.not42, label %57, label %53
 
 53:                                               ; preds = %51
-  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #15
-  call void @llvm.assume(i1 %54)
-  %55 = call ptr @SPI_result_code_string(i32 noundef %52) #11
-  %56 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %55) #11
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 300, ptr noundef nonnull @__func__.plpgsql_call_handler) #11
+  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
+  %55 = call ptr @SPI_result_code_string(i32 noundef %52) #10
+  %56 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %55) #10
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 300, ptr noundef nonnull @__func__.plpgsql_call_handler) #10
   unreachable
 
 57:                                               ; preds = %51
@@ -451,10 +450,10 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   %8 = load i8, ptr %7, align 1, !range !3, !noundef !4
   %9 = xor i8 %8, 1
   %not. = zext nneg i8 %9 to i32
-  %10 = call i32 @SPI_connect_ext(i32 noundef %not.) #11
+  %10 = call i32 @SPI_connect_ext(i32 noundef %not.) #10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = call ptr @plpgsql_compile_inline(ptr noundef %12) #11
+  %13 = call ptr @plpgsql_compile_inline(ptr noundef %12) #10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 544
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, 1
@@ -466,12 +465,12 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %18, ptr %19, align 8
-  %20 = call ptr @CreateExecutorState() #11
-  %21 = call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.17) #11
+  %20 = call ptr @CreateExecutorState() #10
+  %21 = call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.17) #10
   %22 = load ptr, ptr @PG_exception_stack, align 8
   %23 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #13
+  %24 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #12
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %33
 
@@ -479,42 +478,41 @@ define i64 @plpgsql_inline_handler(ptr noundef readonly captures(none) %0) local
   store ptr %3, ptr @PG_exception_stack, align 8
   %27 = load i8, ptr %7, align 1, !range !3, !noundef !4
   %28 = trunc nuw i8 %27 to i1
-  %29 = call i64 @plpgsql_exec_function(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %20, ptr noundef %21, ptr noundef %21, i1 noundef zeroext %28) #11
+  %29 = call i64 @plpgsql_exec_function(ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef %20, ptr noundef %21, ptr noundef %21, i1 noundef zeroext %28) #10
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @FreeExecutorState(ptr noundef %20) #11
-  call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef %21) #11
-  call void @ResourceOwnerDelete(ptr noundef %21) #11
+  call void @FreeExecutorState(ptr noundef %20) #10
+  call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef %21) #10
+  call void @ResourceOwnerDelete(ptr noundef %21) #10
   %30 = load i64, ptr %14, align 8
   %31 = add i64 %30, -1
   store i64 %31, ptr %14, align 8
-  call void @plpgsql_free_function_memory(ptr noundef nonnull %13) #11
-  %32 = call i32 @SPI_finish() #11
+  call void @plpgsql_free_function_memory(ptr noundef nonnull %13) #10
+  %32 = call i32 @SPI_finish() #10
   %.not = icmp eq i32 %32, 2
   br i1 %.not, label %41, label %37
 
 33:                                               ; preds = %.preheader.preheader
   store ptr %22, ptr @PG_exception_stack, align 8
   store ptr %23, ptr @error_context_stack, align 8
-  %34 = call i32 @GetCurrentSubTransactionId() #11
-  call void @plpgsql_subxact_cb(i32 noundef 2, i32 noundef %34, i32 noundef 0, ptr noundef null) #11
-  call void @FreeExecutorState(ptr noundef %20) #11
-  call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef %21) #11
-  call void @ResourceOwnerDelete(ptr noundef %21) #11
+  %34 = call i32 @GetCurrentSubTransactionId() #10
+  call void @plpgsql_subxact_cb(i32 noundef 2, i32 noundef %34, i32 noundef 0, ptr noundef null) #10
+  call void @FreeExecutorState(ptr noundef %20) #10
+  call void @ReleaseAllPlanCacheRefsInOwner(ptr noundef %21) #10
+  call void @ResourceOwnerDelete(ptr noundef %21) #10
   %35 = load i64, ptr %14, align 8
   %36 = add i64 %35, -1
   store i64 %36, ptr %14, align 8
-  call void @plpgsql_free_function_memory(ptr noundef nonnull %13) #11
-  call void @pg_re_throw() #14
+  call void @plpgsql_free_function_memory(ptr noundef nonnull %13) #10
+  call void @pg_re_throw() #13
   unreachable
 
 37:                                               ; preds = %26
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #15
-  call void @llvm.assume(i1 %38)
-  %39 = call ptr @SPI_result_code_string(i32 noundef %32) #11
-  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %39) #11
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 425, ptr noundef nonnull @__func__.plpgsql_inline_handler) #11
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
+  %39 = call ptr @SPI_result_code_string(i32 noundef %32) #10
+  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %39) #10
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 425, ptr noundef nonnull @__func__.plpgsql_inline_handler) #10
   unreachable
 
 41:                                               ; preds = %26
@@ -559,20 +557,19 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = tail call zeroext i1 @CheckFunctionValidatorAccess(i32 noundef %14, i32 noundef %11) #11
+  %15 = tail call zeroext i1 @CheckFunctionValidatorAccess(i32 noundef %14, i32 noundef %11) #10
   br i1 %15, label %16, label %80
 
 16:                                               ; preds = %1
   %17 = and i64 %10, 4294967295
-  %18 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %17) #11
+  %18 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %17) #10
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #15
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 460, ptr noundef nonnull @__func__.plpgsql_validator) #11
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %11) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 460, ptr noundef nonnull @__func__.plpgsql_validator) #10
   unreachable
 
 22:                                               ; preds = %16
@@ -584,7 +581,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 108
   %29 = load i32, ptr %28, align 4
-  %30 = tail call signext i8 @get_typtype(i32 noundef %29) #11
+  %30 = tail call signext i8 @get_typtype(i32 noundef %29) #10
   %31 = icmp eq i8 %30, 112
   br i1 %31, label %32, label %41
 
@@ -612,13 +609,12 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   br label %41
 
 35:                                               ; preds = %32
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #15
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 @errcode(i32 noundef 1088) #11
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
+  %37 = tail call i32 @errcode(i32 noundef 1088) #10
   %38 = load i32, ptr %28, align 4
-  %39 = tail call ptr @format_type_be(i32 noundef %38) #11
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %39) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 479, ptr noundef nonnull @__func__.plpgsql_validator) #11
+  %39 = tail call ptr @format_type_be(i32 noundef %38) #10
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %39) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 479, ptr noundef nonnull @__func__.plpgsql_validator) #10
   unreachable
 
 .fold.split:                                      ; preds = %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32, %32
@@ -627,7 +623,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
 41:                                               ; preds = %32, %.fold.split, %34, %22
   %.0122 = phi i1 [ true, %34 ], [ false, %22 ], [ false, %32 ], [ false, %.fold.split ]
   %.0121 = phi i1 [ false, %34 ], [ false, %22 ], [ true, %32 ], [ false, %.fold.split ]
-  %42 = call i32 @get_func_arg_info(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %42 = call i32 @get_func_arg_info(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.preheader, label %._crit_edge
 
@@ -640,7 +636,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   %44 = load ptr, ptr %2, align 8
   %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
-  %47 = call signext i8 @get_typtype(i32 noundef %46) #11
+  %47 = call signext i8 @get_typtype(i32 noundef %46) #10
   %48 = icmp eq i8 %47, 112
   br i1 %48, label %49, label %61
 
@@ -664,15 +660,14 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   ]
 
 53:                                               ; preds = %49
-  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #15
-  call void @llvm.assume(i1 %54)
-  %55 = call i32 @errcode(i32 noundef 1088) #11
+  %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
+  %55 = call i32 @errcode(i32 noundef 1088) #10
   %56 = load ptr, ptr %2, align 8
   %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
-  %59 = call ptr @format_type_be(i32 noundef %58) #11
-  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %59) #11
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 495, ptr noundef nonnull @__func__.plpgsql_validator) #11
+  %59 = call ptr @format_type_be(i32 noundef %58) #10
+  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %59) #10
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 495, ptr noundef nonnull @__func__.plpgsql_validator) #10
   unreachable
 
 61:                                               ; preds = %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %49, %.lr.ph
@@ -690,7 +685,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %64 = call i32 @SPI_connect() #11
+  %64 = call i32 @SPI_connect() #10
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
@@ -722,17 +717,16 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   br label %71
 
 71:                                               ; preds = %.sink.split, %69
-  %72 = call ptr @plpgsql_compile(ptr noundef nonnull %5, i1 noundef zeroext true) #11
-  %73 = call i32 @SPI_finish() #11
+  %72 = call ptr @plpgsql_compile(ptr noundef nonnull %5, i1 noundef zeroext true) #10
+  %73 = call i32 @SPI_finish() #10
   %.not132 = icmp eq i32 %73, 2
   br i1 %.not132, label %78, label %74
 
 74:                                               ; preds = %71
-  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #15
-  call void @llvm.assume(i1 %75)
-  %76 = call ptr @SPI_result_code_string(i32 noundef %73) #11
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %76) #11
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 542, ptr noundef nonnull @__func__.plpgsql_validator) #11
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
+  %76 = call ptr @SPI_result_code_string(i32 noundef %73) #10
+  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %76) #10
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 542, ptr noundef nonnull @__func__.plpgsql_validator) #10
   unreachable
 
 78:                                               ; preds = %71
@@ -743,7 +737,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   br label %79
 
 79:                                               ; preds = %78, %._crit_edge
-  call void @ReleaseSysCache(ptr noundef nonnull %18) #11
+  call void @ReleaseSysCache(ptr noundef nonnull %18) #10
   br label %80
 
 80:                                               ; preds = %1, %79
@@ -796,9 +790,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -809,12 +800,11 @@ attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { nounwind returns_twice }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { cold nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { nounwind returns_twice }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

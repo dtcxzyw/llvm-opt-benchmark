@@ -45,8 +45,8 @@ define dso_local i64 @ProcSignalShmemSize() local_unnamed_addr #0 {
   %1 = load i32, ptr @MaxBackends, align 4
   %2 = add i32 %1, 6
   %3 = sext i32 %2 to i64
-  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 96) #11
-  %5 = tail call i64 @add_size(i64 noundef %4, i64 noundef 8) #11
+  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 96) #10
+  %5 = tail call i64 @add_size(i64 noundef %4, i64 noundef 8) #10
   ret i64 %5
 }
 
@@ -60,10 +60,10 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %2 = load i32, ptr @MaxBackends, align 4
   %3 = add i32 %2, 6
   %4 = sext i32 %3 to i64
-  %5 = tail call i64 @mul_size(i64 noundef %4, i64 noundef 96) #11
-  %6 = tail call i64 @add_size(i64 noundef %5, i64 noundef 8) #11
+  %5 = tail call i64 @mul_size(i64 noundef %4, i64 noundef 96) #10
+  %6 = tail call i64 @add_size(i64 noundef %5, i64 noundef 8) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %7 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %6, ptr noundef nonnull %1) #11
+  %7 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %6, ptr noundef nonnull %1) #10
   store ptr %7, ptr @ProcSignal, align 8
   %8 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %9 = trunc nuw i8 %8 to i1
@@ -81,7 +81,7 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %14 = load ptr, ptr @ProcSignal, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %15, i64 %indvar
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i8 0, ptr %17, align 4
   store volatile i32 0, ptr %16, align 4
@@ -103,7 +103,7 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 80
   store volatile i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 84
-  call void @ConditionVariableInit(ptr noundef nonnull %27) #11
+  call void @ConditionVariableInit(ptr noundef nonnull %27) #10
   %indvar.next = add nuw nsw i64 %indvar, 1
   %28 = load i32, ptr @MaxBackends, align 4
   %29 = add i32 %28, 6
@@ -130,10 +130,9 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 172, ptr noundef nonnull @__func__.ProcSignalInit) #11
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 172, ptr noundef nonnull @__func__.ProcSignalInit) #10
   unreachable
 
 8:                                                ; preds = %2
@@ -143,13 +142,12 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %12)
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %13 = load i32, ptr @MyProcNumber, align 4
   %14 = load i32, ptr @MaxBackends, align 4
   %15 = add i32 %14, 6
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %13, i32 noundef %15) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 174, ptr noundef nonnull @__func__.ProcSignalInit) #11
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %13, i32 noundef %15) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 174, ptr noundef nonnull @__func__.ProcSignalInit) #10
   unreachable
 
 17:                                               ; preds = %8
@@ -158,12 +156,12 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   %20 = zext nneg i32 %3 to i64
   %21 = getelementptr inbounds nuw %struct.ProcSignalSlot, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #11, !srcloc !9
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #10, !srcloc !9
   %.not31 = icmp eq i8 %23, 0
   br i1 %.not31, label %26, label %24
 
 24:                                               ; preds = %17
-  %25 = tail call i32 @s_lock(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__.ProcSignalInit) #11
+  %25 = tail call i32 @s_lock(ptr noundef nonnull %22, ptr noundef nonnull @.str.2, i32 noundef 178, ptr noundef nonnull @__func__.ProcSignalInit) #10
   br label %26
 
 26:                                               ; preds = %17, %24
@@ -172,16 +170,16 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   br i1 %.not32, label %34, label %28
 
 28:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   store i8 0, ptr %22, align 4
-  %29 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %29 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %28
   %31 = load i32, ptr @MyProcPid, align 4
   %32 = load i32, ptr @MyProcNumber, align 4
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %31, i32 noundef %32) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 183, ptr noundef nonnull @__func__.ProcSignalInit) #11
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %31, i32 noundef %32) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 183, ptr noundef nonnull @__func__.ProcSignalInit) #10
   br label %34
 
 34:                                               ; preds = %26, %30, %28
@@ -216,10 +214,10 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
   store i32 %1, ptr %47, align 8
   %48 = load i32, ptr @MyProcPid, align 4
   store volatile i32 %48, ptr %21, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   store i8 0, ptr %22, align 4
   store ptr %21, ptr @MyProcSignalSlot, align 8
-  tail call void @on_shmem_exit(ptr noundef nonnull @CleanupProcSignalState, i64 noundef 0) #11
+  tail call void @on_shmem_exit(ptr noundef nonnull @CleanupProcSignalState, i64 noundef 0) #10
   ret void
 }
 
@@ -241,12 +239,12 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @MyProcSignalSlot, align 8
   store ptr null, ptr @MyProcSignalSlot, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #11, !srcloc !9
+  %5 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %4, i8 1, ptr nonnull elementtype(i8) %4) #10, !srcloc !9
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @s_lock(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i32 noundef 239, ptr noundef nonnull @__func__.CleanupProcSignalState) #11
+  %7 = tail call i32 @s_lock(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, i32 noundef 239, ptr noundef nonnull @__func__.CleanupProcSignalState) #10
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -256,9 +254,9 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   br i1 %.not12, label %23, label %11
 
 11:                                               ; preds = %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store i8 0, ptr %4, align 4
-  %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %12, label %13, label %28
 
 13:                                               ; preds = %11
@@ -270,8 +268,8 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 96
   %21 = trunc i64 %20 to i32
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %14, i32 noundef %21, i32 noundef %9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.CleanupProcSignalState) #11
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %14, i32 noundef %21, i32 noundef %9) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.CleanupProcSignalState) #10
   br label %28
 
 23:                                               ; preds = %8
@@ -282,10 +280,10 @@ define internal void @CleanupProcSignalState(i32 %0, i64 %1) #0 {
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store volatile i64 -1, ptr %26, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   store i8 0, ptr %4, align 4
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %27) #11
+  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %27) #10
   br label %28
 
 28:                                               ; preds = %11, %13, %23
@@ -303,12 +301,12 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %7 = sext i32 %2 to i64
   %8 = getelementptr inbounds %struct.ProcSignalSlot, ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 68
-  %10 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %9, i8 1, ptr nonnull elementtype(i8) %9) #11, !srcloc !9
+  %10 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %9, i8 1, ptr nonnull elementtype(i8) %9) #10, !srcloc !9
   %.not32 = icmp eq i8 %10, 0
   br i1 %.not32, label %13, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef 290, ptr noundef nonnull @__func__.SendProcSignal) #11
+  %12 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef 290, ptr noundef nonnull @__func__.SendProcSignal) #10
   br label %13
 
 13:                                               ; preds = %4, %11
@@ -321,13 +319,13 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %18 = zext i32 %1 to i64
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
   store volatile i32 1, ptr %19, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   store volatile i8 0, ptr %9, align 4
-  %20 = tail call i32 @kill(i32 noundef %0, i32 noundef 10) #11
+  %20 = tail call i32 @kill(i32 noundef %0, i32 noundef 10) #10
   br label %50
 
 21:                                               ; preds = %13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
   store volatile i8 0, ptr %9, align 4
   br label %.thread
 
@@ -353,12 +351,12 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
 
 32:                                               ; preds = %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 68
-  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #11, !srcloc !9
+  %34 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #10, !srcloc !9
   %.not31 = icmp eq i8 %34, 0
   br i1 %.not31, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @s_lock(ptr noundef nonnull %33, ptr noundef nonnull @.str.2, i32 noundef 318, ptr noundef nonnull @__func__.SendProcSignal) #11
+  %36 = tail call i32 @s_lock(ptr noundef nonnull %33, ptr noundef nonnull @.str.2, i32 noundef 318, ptr noundef nonnull @__func__.SendProcSignal) #10
   br label %37
 
 37:                                               ; preds = %32, %35
@@ -367,7 +365,7 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
   store volatile i8 0, ptr %33, align 4
   %.pre = load ptr, ptr @ProcSignal, align 8
   br label %41
@@ -383,13 +381,13 @@ define dso_local i32 @SendProcSignal(i32 noundef %0, i32 noundef %1, i32 noundef
   %46 = zext i32 %1 to i64
   %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   store volatile i32 1, ptr %47, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
   store volatile i8 0, ptr %33, align 4
-  %48 = tail call i32 @kill(i32 noundef %0, i32 noundef 10) #11
+  %48 = tail call i32 @kill(i32 noundef %0, i32 noundef 10) #10
   br label %50
 
 .thread:                                          ; preds = %41, %22, %21
-  %49 = tail call ptr @__errno_location() #13
+  %49 = tail call ptr @__errno_location() #12
   store i32 3, ptr %49, align 4
   br label %50
 
@@ -414,7 +412,7 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = load ptr, ptr @ProcSignal, align 8
-  %7 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 1, ptr elementtype(i64) %6) #11, !srcloc !19
+  %7 = tail call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, i64 1, ptr elementtype(i64) %6) #10, !srcloc !19
   %8 = load i32, ptr @MaxBackends, align 4
   %9 = add i32 %8, 5
   %10 = icmp sgt i32 %9, -1
@@ -452,12 +450,12 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 
 25:                                               ; preds = %.lr.ph26
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 68
-  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #11, !srcloc !9
+  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #10, !srcloc !9
   %.not21 = icmp eq i8 %27, 0
   br i1 %.not21, label %30, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @s_lock(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.EmitProcSignalBarrier) #11
+  %29 = tail call i32 @s_lock(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.EmitProcSignalBarrier) #10
   br label %30
 
 30:                                               ; preds = %25, %28
@@ -468,13 +466,13 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 28
   store volatile i32 1, ptr %33, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !21
   store volatile i8 0, ptr %26, align 4
-  %34 = tail call i32 @kill(i32 noundef %31, i32 noundef 10) #11
+  %34 = tail call i32 @kill(i32 noundef %31, i32 noundef 10) #10
   br label %36
 
 35:                                               ; preds = %30
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !22
   store volatile i8 0, ptr %26, align 4
   br label %36
 
@@ -486,12 +484,12 @@ define dso_local i64 @EmitProcSignalBarrier(i32 noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
+  %2 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %1
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i64 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 428, ptr noundef nonnull @__func__.WaitForProcSignalBarrier) #11
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i64 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 428, ptr noundef nonnull @__func__.WaitForProcSignalBarrier) #10
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -505,7 +503,7 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
   br label %.lr.ph14
 
 ._crit_edge15:                                    ; preds = %._crit_edge, %5
-  %10 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
+  %10 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %10, label %28, label %30
 
 .lr.ph14:                                         ; preds = %.lr.ph14.preheader, %._crit_edge
@@ -523,17 +521,17 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
   br label %17
 
 17:                                               ; preds = %.lr.ph, %24
-  %18 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %16, i64 noundef 5000, i32 noundef 134217770) #11
+  %18 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %16, i64 noundef 5000, i32 noundef 134217770) #10
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %20 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
   %22 = load volatile i32, ptr %13, align 4
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %22) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.WaitForProcSignalBarrier) #11
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %22) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.WaitForProcSignalBarrier) #10
   br label %24
 
 24:                                               ; preds = %19, %21, %17
@@ -542,18 +540,18 @@ define dso_local void @WaitForProcSignalBarrier(i64 noundef %0) local_unnamed_ad
   br i1 %25, label %17, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %24, %.lr.ph14
-  %26 = tail call zeroext i1 @ConditionVariableCancelSleep() #11
+  %26 = tail call zeroext i1 @ConditionVariableCancelSleep() #10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %27 = icmp sgt i64 %indvars.iv, 0
   br i1 %27, label %.lr.ph14, label %._crit_edge15, !llvm.loop !25
 
 28:                                               ; preds = %._crit_edge15
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i64 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 458, ptr noundef nonnull @__func__.WaitForProcSignalBarrier) #11
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i64 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 458, ptr noundef nonnull @__func__.WaitForProcSignalBarrier) #10
   br label %30
 
 30:                                               ; preds = %._crit_edge15, %28
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !26
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !26
   ret void
 }
 
@@ -594,7 +592,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   %15 = load ptr, ptr @PG_exception_stack, align 8
   %16 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %17 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #14
+  %17 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #13
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %31
 
@@ -615,7 +613,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   br i1 %cond1, label %21, label %.critedge
 
 21:                                               ; preds = %.lr.ph
-  %22 = call zeroext i1 @ProcessBarrierSmgrRelease() #11
+  %22 = call zeroext i1 @ProcessBarrierSmgrRelease() #10
   %.0..0..0..0.14 = load volatile i32, ptr %1, align 4
   %23 = and i32 %.0..0..0..0.14, -2
   store volatile i32 %23, ptr %1, align 4
@@ -659,7 +657,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   %34 = atomicrmw or ptr %33, i32 %.0..0..0..0.15 seq_cst, align 4
   store volatile i32 1, ptr @ProcSignalBarrierPending, align 4
   store volatile i32 1, ptr @InterruptPending, align 4
-  call void @pg_re_throw() #15
+  call void @pg_re_throw() #14
   unreachable
 
 ._crit_edge:                                      ; preds = %27
@@ -679,7 +677,7 @@ define dso_local void @ProcessProcSignalBarrier() local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store volatile i64 %9, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 84
-  call void @ConditionVariableBroadcast(ptr noundef nonnull %38) #11
+  call void @ConditionVariableBroadcast(ptr noundef nonnull %38) #10
   br label %39
 
 39:                                               ; preds = %._crit_edge.thread, %4, %0, %._crit_edge, %35
@@ -711,7 +709,7 @@ define dso_local void @procsignal_sigusr1_handler(i32 noundef %0) local_unnamed_
 
 CheckProcSignal.exit.thread:                      ; preds = %3
   store volatile i32 0, ptr %4, align 4
-  tail call void @HandleCatchupInterrupt() #11
+  tail call void @HandleCatchupInterrupt() #10
   %.pr.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i1 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i1, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit.thread.thread
@@ -725,7 +723,7 @@ CheckProcSignal.exit.thread.thread:               ; preds = %3, %CheckProcSignal
 
 CheckProcSignal.exit4.thread:                     ; preds = %CheckProcSignal.exit.thread.thread
   store volatile i32 0, ptr %6, align 4
-  tail call void @HandleNotifyInterrupt() #11
+  tail call void @HandleNotifyInterrupt() #10
   %.pr69.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i5 = icmp eq ptr %.pr69.pre, null
   br i1 %.not.i5, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit4.thread.thread
@@ -739,7 +737,7 @@ CheckProcSignal.exit4.thread.thread:              ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit8.thread:                     ; preds = %CheckProcSignal.exit4.thread.thread
   store volatile i32 0, ptr %8, align 4
-  tail call void @HandleParallelMessageInterrupt() #11
+  tail call void @HandleParallelMessageInterrupt() #10
   %.pr71.pr.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i9 = icmp eq ptr %.pr71.pr.pre, null
   br i1 %.not.i9, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit8.thread.thread
@@ -753,7 +751,7 @@ CheckProcSignal.exit8.thread.thread:              ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit12.thread:                    ; preds = %CheckProcSignal.exit8.thread.thread
   store volatile i32 0, ptr %10, align 4
-  tail call void @HandleWalSndInitStopping() #11
+  tail call void @HandleWalSndInitStopping() #10
   %.pr73.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i13 = icmp eq ptr %.pr73.pre, null
   br i1 %.not.i13, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit12.thread.thread
@@ -779,7 +777,7 @@ CheckProcSignal.exit12.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit20.thread:                    ; preds = %14
   store volatile i32 0, ptr %15, align 4
-  tail call void @HandleLogMemoryContextInterrupt() #11
+  tail call void @HandleLogMemoryContextInterrupt() #10
   %.pr75.pr.pr.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i21 = icmp eq ptr %.pr75.pr.pr.pre, null
   br i1 %.not.i21, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit20.thread.thread
@@ -793,7 +791,7 @@ CheckProcSignal.exit20.thread.thread:             ; preds = %14, %CheckProcSigna
 
 CheckProcSignal.exit24.thread:                    ; preds = %CheckProcSignal.exit20.thread.thread
   store volatile i32 0, ptr %17, align 4
-  tail call void @HandleParallelApplyMessageInterrupt() #11
+  tail call void @HandleParallelApplyMessageInterrupt() #10
   %.pr77.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i25 = icmp eq ptr %.pr77.pre, null
   br i1 %.not.i25, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit24.thread.thread
@@ -807,7 +805,7 @@ CheckProcSignal.exit24.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit28.thread:                    ; preds = %CheckProcSignal.exit24.thread.thread
   store volatile i32 0, ptr %19, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 7) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 7) #10
   %.pr79.pr.pr.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i29 = icmp eq ptr %.pr79.pr.pr.pre, null
   br i1 %.not.i29, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit28.thread.thread
@@ -821,7 +819,7 @@ CheckProcSignal.exit28.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit32.thread:                    ; preds = %CheckProcSignal.exit28.thread.thread
   store volatile i32 0, ptr %21, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 8) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 8) #10
   %.pr81.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i33 = icmp eq ptr %.pr81.pre, null
   br i1 %.not.i33, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit32.thread.thread
@@ -835,7 +833,7 @@ CheckProcSignal.exit32.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit36.thread:                    ; preds = %CheckProcSignal.exit32.thread.thread
   store volatile i32 0, ptr %23, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 9) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 9) #10
   %.pr83.pr.pr.pr.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i37 = icmp eq ptr %.pr83.pr.pr.pr.pre, null
   br i1 %.not.i37, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit36.thread.thread
@@ -849,7 +847,7 @@ CheckProcSignal.exit36.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit40.thread:                    ; preds = %CheckProcSignal.exit36.thread.thread
   store volatile i32 0, ptr %25, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 10) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 10) #10
   %.pr85.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i41 = icmp eq ptr %.pr85.pre, null
   br i1 %.not.i41, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit40.thread.thread
@@ -863,7 +861,7 @@ CheckProcSignal.exit40.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit44.thread:                    ; preds = %CheckProcSignal.exit40.thread.thread
   store volatile i32 0, ptr %27, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 11) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 11) #10
   %.pr87.pr.pr.pr.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i45 = icmp eq ptr %.pr87.pr.pr.pr.pre, null
   br i1 %.not.i45, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit44.thread.thread
@@ -877,7 +875,7 @@ CheckProcSignal.exit44.thread.thread:             ; preds = %CheckProcSignal.exi
 
 CheckProcSignal.exit48.thread:                    ; preds = %CheckProcSignal.exit44.thread.thread
   store volatile i32 0, ptr %29, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 13) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 13) #10
   %.pr89.pre = load ptr, ptr @MyProcSignalSlot, align 8
   %.not.i49 = icmp eq ptr %.pr89.pre, null
   br i1 %.not.i49, label %CheckProcSignal.exit52.thread, label %CheckProcSignal.exit48.thread.thread
@@ -891,12 +889,12 @@ CheckProcSignal.exit48.thread.thread:             ; preds = %CheckProcSignal.exi
 
 33:                                               ; preds = %CheckProcSignal.exit48.thread.thread
   store volatile i32 0, ptr %31, align 4
-  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 12) #11
+  tail call void @HandleRecoveryConflictInterrupt(i32 noundef 12) #10
   br label %CheckProcSignal.exit52.thread
 
 CheckProcSignal.exit52.thread:                    ; preds = %CheckProcSignal.exit8.thread, %CheckProcSignal.exit4.thread, %CheckProcSignal.exit.thread, %1, %CheckProcSignal.exit24.thread, %CheckProcSignal.exit28.thread, %CheckProcSignal.exit12.thread, %CheckProcSignal.exit20.thread, %CheckProcSignal.exit36.thread, %CheckProcSignal.exit32.thread, %CheckProcSignal.exit40.thread, %CheckProcSignal.exit44.thread, %CheckProcSignal.exit48.thread, %CheckProcSignal.exit48.thread.thread, %33
   %34 = load ptr, ptr @MyLatch, align 8
-  tail call void @SetLatch(ptr noundef %34) #11
+  tail call void @SetLatch(ptr noundef %34) #10
   ret void
 }
 
@@ -939,12 +937,12 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #11, !srcloc !9
+  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #10, !srcloc !9
   %.not22 = icmp eq i8 %13, 0
   br i1 %.not22, label %16, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @s_lock(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i32 noundef 747, ptr noundef nonnull @__func__.SendCancelRequest) #11
+  %15 = tail call i32 @s_lock(ptr noundef nonnull %12, ptr noundef nonnull @.str.2, i32 noundef 747, ptr noundef nonnull @__func__.SendCancelRequest) #10
   br label %16
 
 16:                                               ; preds = %11, %14
@@ -953,7 +951,7 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   br i1 %.not23, label %19, label %18
 
 18:                                               ; preds = %16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !28
   store i8 0, ptr %12, align 4
   %.pre = load ptr, ptr @ProcSignal, align 8
   %.pre36 = load i32, ptr @MaxBackends, align 4
@@ -969,36 +967,36 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, %1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
   store i8 0, ptr %12, align 4
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %23
-  %28 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #11
+  %28 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #10
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %27
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 764, ptr noundef nonnull @__func__.SendCancelRequest) #11
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 764, ptr noundef nonnull @__func__.SendCancelRequest) #10
   br label %31
 
 31:                                               ; preds = %29, %27
   %32 = sub i32 0, %0
-  %33 = tail call i32 @kill(i32 noundef %32, i32 noundef 2) #11
+  %33 = tail call i32 @kill(i32 noundef %32, i32 noundef 2) #10
   br label %47
 
 .critedge:                                        ; preds = %19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !29
   store i8 0, ptr %12, align 4
   br label %34
 
 34:                                               ; preds = %.critedge, %23
-  %35 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %35 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %35, label %36, label %47
 
 36:                                               ; preds = %34
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 781, ptr noundef nonnull @__func__.SendCancelRequest) #11
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 781, ptr noundef nonnull @__func__.SendCancelRequest) #10
   br label %47
 
 38:                                               ; preds = %18, %.lr.ph
@@ -1011,12 +1009,12 @@ define dso_local void @SendCancelRequest(i32 noundef %0, i32 noundef %1) local_u
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %38, %2
-  %44 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %44 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %._crit_edge
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 790, ptr noundef nonnull @__func__.SendCancelRequest) #11
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 790, ptr noundef nonnull @__func__.SendCancelRequest) #10
   br label %47
 
 47:                                               ; preds = %31, %36, %34, %._crit_edge, %45
@@ -1032,9 +1030,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1045,12 +1040,11 @@ attributes #6 = { nounwind returns_twice "no-trapping-math"="true" "stack-protec
 attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { nounwind returns_twice }
-attributes #15 = { noreturn nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { nounwind returns_twice }
+attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

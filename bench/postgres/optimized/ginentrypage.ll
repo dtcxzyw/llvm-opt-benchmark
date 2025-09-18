@@ -61,7 +61,7 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
   %24 = getelementptr i8, ptr %0, i64 16
   %25 = getelementptr ptr, ptr %24, i64 %.pre-phi
   %26 = load ptr, ptr %25, align 8
-  %27 = call ptr @index_form_tuple(ptr noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10) #11
+  %27 = call ptr @index_form_tuple(ptr noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
   %28 = getelementptr i8, ptr %27, i64 6
   %.val = load i16, ptr %28, align 2
   %29 = and i16 %.val, 8191
@@ -99,19 +99,18 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
   br i1 %7, label %51, label %59
 
 51:                                               ; preds = %50
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %52)
-  %53 = call i32 @errcode(i32 noundef 261) #11
+  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %53 = call i32 @errcode(i32 noundef 261) #10
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %48, i64 noundef 2712, ptr noundef nonnull %57) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 111, ptr noundef nonnull @__func__.GinFormTuple) #11
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %48, i64 noundef 2712, ptr noundef nonnull %57) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 111, ptr noundef nonnull @__func__.GinFormTuple) #10
   unreachable
 
 59:                                               ; preds = %50
-  call void @pfree(ptr noundef nonnull %27) #11
+  call void @pfree(ptr noundef nonnull %27) #10
   br label %89
 
 60:                                               ; preds = %37
@@ -119,7 +118,7 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
   br i1 %.not, label %72, label %61
 
 61:                                               ; preds = %60
-  %62 = call ptr @repalloc(ptr noundef nonnull %27, i64 noundef %48) #11
+  %62 = call ptr @repalloc(ptr noundef nonnull %27, i64 noundef %48) #10
   %63 = getelementptr i8, ptr %62, i64 6
   %.val59 = load i16, ptr %63, align 2
   %64 = and i16 %.val59, 8191
@@ -222,27 +221,26 @@ define dso_local ptr @ginReadTuple(ptr noundef readnone captures(none) %0, i16 n
   br i1 %.not15, label %23, label %16
 
 16:                                               ; preds = %15
-  %17 = call ptr @ginPostingListDecode(ptr noundef nonnull %12, ptr noundef nonnull %5) #11
+  %17 = call ptr @ginPostingListDecode(ptr noundef nonnull %12, ptr noundef nonnull %5) #10
   %18 = load i32, ptr %5, align 4
   %.not16 = icmp eq i32 %18, %14
   br i1 %.not16, label %29, label %19
 
 19:                                               ; preds = %16
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %20)
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %21 = load i32, ptr %5, align 4
-  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %14, i32 noundef %21) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @__func__.ginReadTuple) #11
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %14, i32 noundef %21) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @__func__.ginReadTuple) #10
   unreachable
 
 23:                                               ; preds = %15
-  %24 = tail call ptr @palloc(i64 noundef 0) #11
+  %24 = tail call ptr @palloc(i64 noundef 0) #10
   br label %29
 
 25:                                               ; preds = %4
   %26 = zext i16 %.val20 to i64
   %27 = mul nuw nsw i64 %26, 6
-  %28 = tail call ptr @palloc(i64 noundef %27) #11
+  %28 = tail call ptr @palloc(i64 noundef %27) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr nonnull align 1 %12, i64 %27, i1 false)
   br label %29
 
@@ -303,7 +301,7 @@ define dso_local void @ginEntryFillRoot(ptr readnone captures(none) %0, ptr noun
   %narrow.i = add nuw i32 %34, %.masked.i
   %35 = and i32 %narrow.i, -8
   %36 = zext i32 %35 to i64
-  %37 = tail call ptr @palloc(i64 noundef %36) #11
+  %37 = tail call ptr @palloc(i64 noundef %36) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %37, ptr nonnull readonly align 2 %18, i64 %36, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   %39 = load i16, ptr %38, align 2
@@ -318,7 +316,7 @@ define dso_local void @ginEntryFillRoot(ptr readnone captures(none) %0, ptr noun
   %.val19.i = load i16, ptr %44, align 2
   %45 = and i16 %.val19.i, 8191
   %46 = zext nneg i16 %45 to i64
-  %47 = tail call ptr @palloc(i64 noundef %46) #11
+  %47 = tail call ptr @palloc(i64 noundef %46) #10
   %.val.i14 = load i16, ptr %44, align 2
   %48 = and i16 %.val.i14, 8191
   %49 = zext nneg i16 %48 to i64
@@ -340,19 +338,18 @@ GinFormInteriorTuple.exit:                        ; preds = %29, %43
   store i16 0, ptr %54, align 2
   %55 = and i16 %.val13, 8191
   %56 = zext nneg i16 %55 to i64
-  %57 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %1, ptr noundef nonnull %.0.i, i64 noundef %56, i16 noundef zeroext 0, i32 noundef 0) #11
+  %57 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %1, ptr noundef nonnull %.0.i, i64 noundef %56, i16 noundef zeroext 0, i32 noundef 0) #10
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %GinFormInteriorTuple.exit
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @__func__.ginEntryFillRoot) #11
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 731, ptr noundef nonnull @__func__.ginEntryFillRoot) #10
   unreachable
 
 62:                                               ; preds = %GinFormInteriorTuple.exit
-  tail call void @pfree(ptr noundef nonnull %.0.i) #11
+  tail call void @pfree(ptr noundef nonnull %.0.i) #10
   %63 = getelementptr i8, ptr %5, i64 12
   %.val.i15 = load i16, ptr %63, align 4
   %64 = icmp ult i16 %.val.i15, 25
@@ -395,7 +392,7 @@ GinFormInteriorTuple.exit:                        ; preds = %29, %43
   %narrow.i22 = add nuw i32 %90, %.masked.i21
   %91 = and i32 %narrow.i22, -8
   %92 = zext i32 %91 to i64
-  %93 = tail call ptr @palloc(i64 noundef %92) #11
+  %93 = tail call ptr @palloc(i64 noundef %92) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %93, ptr nonnull readonly align 2 %74, i64 %92, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 6
   %95 = load i16, ptr %94, align 2
@@ -410,7 +407,7 @@ GinFormInteriorTuple.exit:                        ; preds = %29, %43
   %.val19.i24 = load i16, ptr %100, align 2
   %101 = and i16 %.val19.i24, 8191
   %102 = zext nneg i16 %101 to i64
-  %103 = tail call ptr @palloc(i64 noundef %102) #11
+  %103 = tail call ptr @palloc(i64 noundef %102) #10
   %.val.i25 = load i16, ptr %100, align 2
   %104 = and i16 %.val.i25, 8191
   %105 = zext nneg i16 %104 to i64
@@ -432,19 +429,18 @@ GinFormInteriorTuple.exit26:                      ; preds = %85, %99
   store i16 0, ptr %110, align 2
   %111 = and i16 %.val, 8191
   %112 = zext nneg i16 %111 to i64
-  %113 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %1, ptr noundef nonnull %.0.i23, i64 noundef %112, i16 noundef zeroext 0, i32 noundef 0) #11
+  %113 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %1, ptr noundef nonnull %.0.i23, i64 noundef %112, i16 noundef zeroext 0, i32 noundef 0) #10
   %114 = icmp eq i16 %113, 0
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %GinFormInteriorTuple.exit26
-  %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %116)
-  %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 736, ptr noundef nonnull @__func__.ginEntryFillRoot) #11
+  %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %117 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 736, ptr noundef nonnull @__func__.ginEntryFillRoot) #10
   unreachable
 
 118:                                              ; preds = %GinFormInteriorTuple.exit26
-  tail call void @pfree(ptr noundef nonnull %.0.i23) #11
+  tail call void @pfree(ptr noundef nonnull %.0.i23) #10
   ret void
 }
 
@@ -540,7 +536,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   store i32 %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef %.0.i.i) #11
+  %36 = tail call i32 %35(ptr noundef nonnull %0, ptr noundef %.0.i.i) #10
   br label %99
 
 37:                                               ; preds = %BufferGetPage.exit
@@ -591,15 +587,15 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %66
   %68 = load ptr, ptr %48, align 8
-  %69 = call zeroext i16 @gintuple_get_attrnum(ptr noundef %68, ptr noundef %67) #11
+  %69 = call zeroext i16 @gintuple_get_attrnum(ptr noundef %68, ptr noundef %67) #10
   %70 = load ptr, ptr %48, align 8
-  %71 = call i64 @gintuple_get_key(ptr noundef %70, ptr noundef %67, ptr noundef nonnull %3) #11
+  %71 = call i64 @gintuple_get_key(ptr noundef %70, ptr noundef %67, ptr noundef nonnull %3) #10
   %72 = load ptr, ptr %48, align 8
   %73 = load i16, ptr %49, align 2
   %74 = load i64, ptr %50, align 8
   %75 = load i8, ptr %51, align 8
   %76 = load i8, ptr %3, align 1
-  %77 = call i32 @ginCompareAttEntries(ptr noundef %72, i16 noundef zeroext %73, i64 noundef %74, i8 noundef signext %75, i16 noundef zeroext %69, i64 noundef %71, i8 noundef signext %76) #11
+  %77 = call i32 @ginCompareAttEntries(ptr noundef %72, i16 noundef zeroext %73, i64 noundef %74, i8 noundef signext %75, i16 noundef zeroext %69, i64 noundef %71, i8 noundef signext %76) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq i32 %77, 0
   br i1 %.not, label %.thread74, label %.thread
@@ -696,9 +692,9 @@ define internal zeroext i1 @entryIsMoveRight(ptr noundef readonly captures(none)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call zeroext i16 @gintuple_get_attrnum(ptr noundef %24, ptr noundef %22) #11
+  %25 = tail call zeroext i16 @gintuple_get_attrnum(ptr noundef %24, ptr noundef %22) #10
   %26 = load ptr, ptr %23, align 8
-  %27 = call i64 @gintuple_get_key(ptr noundef %26, ptr noundef %22, ptr noundef nonnull %3) #11
+  %27 = call i64 @gintuple_get_key(ptr noundef %26, ptr noundef %22, ptr noundef nonnull %3) #10
   %28 = load ptr, ptr %23, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %30 = load i16, ptr %29, align 2
@@ -707,7 +703,7 @@ define internal zeroext i1 @entryIsMoveRight(ptr noundef readonly captures(none)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %34 = load i8, ptr %33, align 8
   %35 = load i8, ptr %3, align 1
-  %36 = call i32 @ginCompareAttEntries(ptr noundef %28, i16 noundef zeroext %30, i64 noundef %32, i8 noundef signext %34, i16 noundef zeroext %25, i64 noundef %27, i8 noundef signext %35) #11
+  %36 = call i32 @ginCompareAttEntries(ptr noundef %28, i16 noundef zeroext %30, i64 noundef %32, i8 noundef signext %34, i16 noundef zeroext %25, i64 noundef %27, i8 noundef signext %35) #10
   %37 = icmp sgt i32 %36, 0
   br label %38
 
@@ -797,15 +793,15 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %49
   %51 = load ptr, ptr %39, align 8
-  %52 = call zeroext i16 @gintuple_get_attrnum(ptr noundef %51, ptr noundef %50) #11
+  %52 = call zeroext i16 @gintuple_get_attrnum(ptr noundef %51, ptr noundef %50) #10
   %53 = load ptr, ptr %39, align 8
-  %54 = call i64 @gintuple_get_key(ptr noundef %53, ptr noundef %50, ptr noundef nonnull %3) #11
+  %54 = call i64 @gintuple_get_key(ptr noundef %53, ptr noundef %50, ptr noundef nonnull %3) #10
   %55 = load ptr, ptr %39, align 8
   %56 = load i16, ptr %40, align 2
   %57 = load i64, ptr %41, align 8
   %58 = load i8, ptr %42, align 8
   %59 = load i8, ptr %3, align 1
-  %60 = call i32 @ginCompareAttEntries(ptr noundef %55, i16 noundef zeroext %56, i64 noundef %57, i8 noundef signext %58, i16 noundef zeroext %52, i64 noundef %54, i8 noundef signext %59) #11
+  %60 = call i32 @ginCompareAttEntries(ptr noundef %55, i16 noundef zeroext %56, i64 noundef %57, i8 noundef signext %58, i16 noundef zeroext %52, i64 noundef %54, i8 noundef signext %59) #10
   %.not = icmp eq i32 %60, 0
   br i1 %.not, label %.thread, label %62
 
@@ -986,7 +982,7 @@ entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.
   %43 = and i16 %narrow1.i, 16376
   %44 = or disjoint i16 %43, 4
   %45 = zext nneg i16 %44 to i64
-  %46 = tail call i64 @PageGetFreeSpace(ptr noundef %.0.i.i.i) #11
+  %46 = tail call i64 @PageGetFreeSpace(ptr noundef %.0.i.i.i) #10
   %47 = add i64 %46, %.010.i
   %.not.i.not = icmp ult i64 %47, %45
   br i1 %.not.i.not, label %48, label %182
@@ -1001,7 +997,7 @@ entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @PageGetTempPageCopy(ptr noundef %54) #11
+  %55 = tail call ptr @PageGetTempPageCopy(ptr noundef %54) #10
   %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %52
   %58 = load ptr, ptr %57, align 8
@@ -1013,7 +1009,7 @@ entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 13
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
-  %65 = tail call ptr @PageGetTempPageCopy(ptr noundef %64) #11
+  %65 = tail call ptr @PageGetTempPageCopy(ptr noundef %64) #10
   %66 = load ptr, ptr @BufferBlocks, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %63
   br label %BufferGetPage.exit101.i
@@ -1021,7 +1017,7 @@ entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.
 BufferGetPage.exit101.i:                          ; preds = %59, %49
   %68 = phi ptr [ %55, %49 ], [ %65, %59 ]
   %.0.i.i100.i = phi ptr [ %58, %49 ], [ %67, %59 ]
-  %69 = tail call ptr @PageGetTempPageCopy(ptr noundef %.0.i.i100.i) #11
+  %69 = tail call ptr @PageGetTempPageCopy(ptr noundef %.0.i.i100.i) #10
   %70 = getelementptr i8, ptr %68, i64 18
   %.val99.i = load i16, ptr %70, align 2
   %71 = and i16 %.val99.i, -256
@@ -1032,7 +1028,7 @@ BufferGetPage.exit101.i:                          ; preds = %59, %49
   br i1 %73, label %74, label %75
 
 74:                                               ; preds = %BufferGetPage.exit101.i
-  tail call void @PageIndexTupleDelete(ptr noundef nonnull %68, i16 noundef zeroext %.val) #11
+  tail call void @PageIndexTupleDelete(ptr noundef nonnull %68, i16 noundef zeroext %.val) #10
   br label %75
 
 75:                                               ; preds = %74, %BufferGetPage.exit101.i
@@ -1159,7 +1155,7 @@ entryPreparePage.exit.i:                          ; preds = %85, %75
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 6
   %146 = load i16, ptr %145, align 2
   %147 = zext i16 %146 to i32
-  tail call void @GinInitPage(ptr noundef %69, i32 noundef %147, i64 noundef %72) #11
+  tail call void @GinInitPage(ptr noundef %69, i32 noundef %147, i64 noundef %72) #10
   %148 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %149 = load i16, ptr %148, align 4
   %150 = zext i16 %149 to i64
@@ -1167,7 +1163,7 @@ entryPreparePage.exit.i:                          ; preds = %85, %75
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 6
   %153 = load i16, ptr %152, align 2
   %154 = zext i16 %153 to i32
-  tail call void @GinInitPage(ptr noundef nonnull %68, i32 noundef %154, i64 noundef %72) #11
+  tail call void @GinInitPage(ptr noundef nonnull %68, i32 noundef %154, i64 noundef %72) #10
   %155 = add nuw nsw i16 %.0.i.i, 1
   %156 = lshr i64 %.287.i, 1
   br label %157
@@ -1195,20 +1191,19 @@ entryPreparePage.exit.i:                          ; preds = %85, %75
   %.184.i = phi i64 [ %163, %159 ], [ %.08311.i, %157 ]
   %.179.i = phi ptr [ %.07813.i, %159 ], [ %69, %157 ]
   %165 = zext nneg i16 %.pre.i to i64
-  %166 = call zeroext i16 @PageAddItemExtended(ptr noundef %.179.i, ptr noundef nonnull %.28212.i, i64 noundef %165, i16 noundef zeroext 0, i32 noundef 0) #11
+  %166 = call zeroext i16 @PageAddItemExtended(ptr noundef %.179.i, ptr noundef nonnull %.28212.i, i64 noundef %165, i16 noundef zeroext 0, i32 noundef 0) #10
   %167 = icmp eq i16 %166, 0
   br i1 %167, label %168, label %176
 
 168:                                              ; preds = %164
-  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %169)
+  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 56
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
-  %175 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %174) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.entrySplitPage) #11
+  %175 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %174) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 689, ptr noundef nonnull @__func__.entrySplitPage) #10
   unreachable
 
 176:                                              ; preds = %164
@@ -1264,7 +1259,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %BufferGetPage.exit
-  tail call void @PageIndexTupleDelete(ptr noundef %.0.i.i, i16 noundef zeroext %21) #11
+  tail call void @PageIndexTupleDelete(ptr noundef %.0.i.i, i16 noundef zeroext %21) #10
   br label %25
 
 25:                                               ; preds = %24, %BufferGetPage.exit
@@ -1304,71 +1299,69 @@ entryPreparePage.exit:                            ; preds = %25, %35
   %.val24 = load i16, ptr %48, align 2
   %49 = and i16 %.val24, 8191
   %50 = zext nneg i16 %49 to i64
-  %51 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.0.i.i, ptr noundef %47, i64 noundef %50, i16 noundef zeroext %21, i32 noundef 0) #11
+  %51 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.0.i.i, ptr noundef %47, i64 noundef %50, i16 noundef zeroext %21, i32 noundef 0) #10
   %.not = icmp eq i16 %51, %21
-  br i1 %.not, label %60, label %52
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  br i1 %.not, label %60, label %53
 
-52:                                               ; preds = %entryPreparePage.exit
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %53)
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %55 = load ptr, ptr %54, align 8
+53:                                               ; preds = %entryPreparePage.exit
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %55 = load ptr, ptr %52, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %58) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 571, ptr noundef nonnull @__func__.entryExecPlaceToPage) #11
+  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %58) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 571, ptr noundef nonnull @__func__.entryExecPlaceToPage) #10
   unreachable
 
 60:                                               ; preds = %entryPreparePage.exit
-  tail call void @MarkBufferDirty(i32 noundef %1) #11
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 114
-  %66 = load i8, ptr %65, align 2
-  %67 = icmp eq i8 %66, 112
-  br i1 %67, label %68, label %89
+  tail call void @MarkBufferDirty(i32 noundef %1) #10
+  %61 = load ptr, ptr %52, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 114
+  %65 = load i8, ptr %64, align 2
+  %66 = icmp eq i8 %65, 112
+  br i1 %66, label %67, label %88
 
-68:                                               ; preds = %60
-  %69 = load i32, ptr @wal_level, align 4
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %79, label %71
+67:                                               ; preds = %60
+  %68 = load i32, ptr @wal_level, align 4
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %78, label %70
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %73 = load i32, ptr %72, align 8
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %89
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %74, label %88
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %89
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %78, label %88
 
-79:                                               ; preds = %75, %68
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %81 = load i8, ptr %80, align 1, !range !4, !noundef !5
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %89, label %83
+78:                                               ; preds = %74, %67
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  %80 = load i8, ptr %79, align 1, !range !4, !noundef !5
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %88, label %82
 
-83:                                               ; preds = %79
-  %84 = load i8, ptr %22, align 8, !range !4, !noundef !5
-  store i8 %84, ptr getelementptr inbounds nuw (i8, ptr @entryExecPlaceToPage.data, i64 2), align 2
+82:                                               ; preds = %78
+  %83 = load i8, ptr %22, align 8, !range !4, !noundef !5
+  store i8 %83, ptr getelementptr inbounds nuw (i8, ptr @entryExecPlaceToPage.data, i64 2), align 2
   store i16 %21, ptr @entryExecPlaceToPage.data, align 2
-  tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #11
-  tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @entryExecPlaceToPage.data, i32 noundef 4) #11
-  %85 = load ptr, ptr %3, align 8
-  %86 = getelementptr i8, ptr %85, i64 6
-  %.val = load i16, ptr %86, align 2
-  %87 = and i16 %.val, 8191
-  %88 = zext nneg i16 %87 to i32
-  tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %85, i32 noundef %88) #11
-  br label %89
+  tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #10
+  tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull @entryExecPlaceToPage.data, i32 noundef 4) #10
+  %84 = load ptr, ptr %3, align 8
+  %85 = getelementptr i8, ptr %84, i64 6
+  %.val = load i16, ptr %85, align 2
+  %86 = and i16 %.val, 8191
+  %87 = zext nneg i16 %86 to i32
+  tail call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %84, i32 noundef %87) #10
+  br label %88
 
-89:                                               ; preds = %83, %79, %75, %71, %60
+88:                                               ; preds = %82, %78, %74, %70, %60
   ret void
 }
 
@@ -1395,7 +1388,7 @@ define internal ptr @entryPrepareDownlink(ptr readnone captures(none) %0, i32 no
 
 BufferGetPage.exit:                               ; preds = %4, %10
   %.0.i.i = phi ptr [ %9, %4 ], [ %15, %10 ]
-  %16 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #11
+  %16 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #10
   %17 = getelementptr i8, ptr %.0.i.i, i64 12
   %.val.i = load i16, ptr %17, align 4
   %18 = icmp ult i16 %.val.i, 25
@@ -1410,7 +1403,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %26 = and i32 %.val3.i, 32767
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %27
-  %29 = tail call ptr @palloc(i64 noundef 16) #11
+  %29 = tail call ptr @palloc(i64 noundef 16) #10
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %31 = load i16, ptr %30, align 4
   %32 = zext i16 %31 to i64
@@ -1439,7 +1432,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %narrow.i = add nuw i32 %45, %.masked.i
   %46 = and i32 %narrow.i, -8
   %47 = zext i32 %46 to i64
-  %48 = tail call ptr @palloc(i64 noundef %47) #11
+  %48 = tail call ptr @palloc(i64 noundef %47) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %48, ptr nonnull readonly align 2 %28, i64 %47, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 6
   %50 = load i16, ptr %49, align 2
@@ -1454,7 +1447,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %.val19.i = load i16, ptr %55, align 2
   %56 = and i16 %.val19.i, 8191
   %57 = zext nneg i16 %56 to i64
-  %58 = tail call ptr @palloc(i64 noundef %57) #11
+  %58 = tail call ptr @palloc(i64 noundef %57) #10
   %.val.i8 = load i16, ptr %55, align 2
   %59 = and i16 %.val.i8, 8191
   %60 = zext nneg i16 %59 to i64
@@ -1505,14 +1498,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #10
+declare i16 @llvm.umax.i16(i16, i16) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1523,10 +1513,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

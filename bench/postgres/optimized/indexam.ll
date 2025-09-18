@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @index_open(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @relation_open(i32 noundef %0, i32 noundef %1) #7
+  %3 = tail call ptr @relation_open(i32 noundef %0, i32 noundef %1) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 115
@@ -63,13 +63,12 @@ define dso_local ptr @index_open(i32 noundef %0, i32 noundef %1) local_unnamed_a
   ]
 
 8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 151027844) #7
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %10 = tail call i32 @errcode(i32 noundef 151027844) #6
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %12) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.validate_relation_kind) #7
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %12) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.validate_relation_kind) #6
   unreachable
 
 validate_relation_kind.exit:                      ; preds = %2, %2
@@ -80,7 +79,7 @@ declare ptr @relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @try_index_open(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @try_relation_open(i32 noundef %0, i32 noundef %1) #7
+  %3 = tail call ptr @try_relation_open(i32 noundef %0, i32 noundef %1) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %validate_relation_kind.exit, label %4
 
@@ -95,13 +94,12 @@ define dso_local ptr @try_index_open(i32 noundef %0, i32 noundef %1) local_unnam
   ]
 
 9:                                                ; preds = %4
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 151027844) #7
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %11 = tail call i32 @errcode(i32 noundef 151027844) #6
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %13) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.validate_relation_kind) #7
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %13) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__.validate_relation_kind) #6
   unreachable
 
 validate_relation_kind.exit:                      ; preds = %4, %4, %2
@@ -117,12 +115,12 @@ define dso_local void @index_close(ptr noundef %0, i32 noundef %1) local_unnamed
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i64, ptr %4, align 4
   store i64 %5, ptr %3, align 8
-  tail call void @RelationClose(ptr noundef %0) #7
+  tail call void @RelationClose(ptr noundef %0) #6
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  call void @UnlockRelationId(ptr noundef nonnull %3, i32 noundef %1) #7
+  call void @UnlockRelationId(ptr noundef nonnull %3, i32 noundef %1) #6
   br label %7
 
 7:                                                ; preds = %6, %2
@@ -141,18 +139,17 @@ declare void @UnlockRelationId(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i32, ptr %9, align 8
-  %11 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %10) #7
+  %11 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %10) #6
   br i1 %11, label %12, label %19, !prof !4
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 1088) #7
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %14 = tail call i32 @errcode(i32 noundef 1088) #6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %17) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.index_insert) #7
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %17) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 222, ptr noundef nonnull @__func__.index_insert) #6
   unreachable
 
 19:                                               ; preds = %8
@@ -164,13 +161,12 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %19
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %26)
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %29) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.index_insert) #7
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull %29) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.index_insert) #6
   unreachable
 
 31:                                               ; preds = %19
@@ -180,7 +176,7 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %34, label %36, label %35
 
 35:                                               ; preds = %31
-  tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #7
+  tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #6
   %.pre = load ptr, ptr %20, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
@@ -188,7 +184,7 @@ define dso_local zeroext i1 @index_insert(ptr noundef %0, ptr noundef %1, ptr no
 
 36:                                               ; preds = %35, %31
   %37 = phi ptr [ %.pre14, %35 ], [ %23, %31 ]
-  %38 = tail call zeroext i1 %37(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %7) #7
+  %38 = tail call zeroext i1 %37(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %7) #6
   ret i1 %38
 }
 
@@ -211,18 +207,17 @@ declare void @CheckForSerializableConflictIn(ptr noundef, ptr noundef, i32 nound
 define dso_local void @index_insert_cleanup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
-  %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #7
+  %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #6
   br i1 %5, label %6, label %13, !prof !4
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 1088) #7
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %8 = tail call i32 @errcode(i32 noundef 1088) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.index_insert_cleanup) #7
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.index_insert_cleanup) #6
   unreachable
 
 13:                                               ; preds = %2
@@ -234,7 +229,7 @@ define dso_local void @index_insert_cleanup(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not, label %19, label %18
 
 18:                                               ; preds = %13
-  tail call void %17(ptr noundef nonnull %0, ptr noundef %1) #7
+  tail call void %17(ptr noundef nonnull %0, ptr noundef %1) #6
   br label %19
 
 19:                                               ; preds = %18, %13
@@ -251,7 +246,7 @@ define dso_local noundef ptr @index_beginscan(ptr noundef %0, ptr noundef %1, pt
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef %0) #7
+  %12 = tail call ptr %11(ptr noundef %0) #6
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %12, ptr %13, align 8
   ret ptr %6
@@ -261,18 +256,17 @@ define dso_local noundef ptr @index_beginscan(ptr noundef %0, ptr noundef %1, pt
 define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i32, ptr %7, align 8
-  %9 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %8) #7
+  %9 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %8) #6
   br i1 %9, label %10, label %17, !prof !4
 
 10:                                               ; preds = %6
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 1088) #7
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %12 = tail call i32 @errcode(i32 noundef 1088) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %15) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 316, ptr noundef nonnull @__func__.index_beginscan_internal) #7
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %15) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 316, ptr noundef nonnull @__func__.index_beginscan_internal) #6
   unreachable
 
 17:                                               ; preds = %6
@@ -284,13 +278,12 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %17
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %24)
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16, ptr noundef nonnull %27) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 317, ptr noundef nonnull @__func__.index_beginscan_internal) #7
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.16, ptr noundef nonnull %27) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 317, ptr noundef nonnull @__func__.index_beginscan_internal) #6
   unreachable
 
 29:                                               ; preds = %17
@@ -300,16 +293,16 @@ define internal fastcc ptr @index_beginscan_internal(ptr noundef %0, i32 noundef
   br i1 %32, label %34, label %33
 
 33:                                               ; preds = %29
-  tail call void @PredicateLockRelation(ptr noundef nonnull %0, ptr noundef %3) #7
+  tail call void @PredicateLockRelation(ptr noundef nonnull %0, ptr noundef %3) #6
   br label %34
 
 34:                                               ; preds = %33, %29
   %35 = zext i1 %5 to i8
-  tail call void @RelationIncrementReferenceCount(ptr noundef nonnull %0) #7
+  tail call void @RelationIncrementReferenceCount(ptr noundef nonnull %0) #6
   %36 = load ptr, ptr %18, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 144
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %38(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #7
+  %39 = tail call ptr %38(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #6
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 144
   store ptr %4, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 49
@@ -337,14 +330,13 @@ define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %5
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %14)
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull %18) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.index_rescan) #7
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull %18) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.index_rescan) #6
   unreachable
 
 20:                                               ; preds = %5
@@ -359,7 +351,7 @@ define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef 
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull %22) #7
+  tail call void %28(ptr noundef nonnull %22) #6
   %.pre = load ptr, ptr %6, align 8
   br label %29
 
@@ -373,7 +365,7 @@ define dso_local void @index_rescan(ptr noundef %0, ptr noundef %1, i32 noundef 
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #7
+  tail call void %36(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #6
   ret void
 }
 
@@ -389,14 +381,13 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 381, ptr noundef nonnull @__func__.index_endscan) #7
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %14) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 381, ptr noundef nonnull @__func__.index_endscan) #6
   unreachable
 
 16:                                               ; preds = %1
@@ -411,7 +402,7 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %18) #7
+  tail call void %24(ptr noundef nonnull %18) #6
   store ptr null, ptr %17, align 8
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 352
@@ -422,9 +413,9 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
 
 25:                                               ; preds = %19, %16
   %26 = phi ptr [ %.pre13, %19 ], [ %7, %16 ]
-  tail call void %26(ptr noundef nonnull %0) #7
+  tail call void %26(ptr noundef nonnull %0) #6
   %27 = load ptr, ptr %2, align 8
-  tail call void @RelationDecrementReferenceCount(ptr noundef %27) #7
+  tail call void @RelationDecrementReferenceCount(ptr noundef %27) #6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %29 = load i8, ptr %28, align 1, !range !5, !noundef !6
   %30 = trunc nuw i8 %29 to i1
@@ -433,11 +424,11 @@ define dso_local void @index_endscan(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %33) #7
+  tail call void @UnregisterSnapshot(ptr noundef %33) #6
   br label %34
 
 34:                                               ; preds = %31, %25
-  tail call void @IndexScanEnd(ptr noundef nonnull %0) #7
+  tail call void @IndexScanEnd(ptr noundef nonnull %0) #6
   ret void
 }
 
@@ -459,18 +450,17 @@ define dso_local void @index_markpos(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 411, ptr noundef nonnull @__func__.index_markpos) #7
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 411, ptr noundef nonnull @__func__.index_markpos) #6
   unreachable
 
 16:                                               ; preds = %1
-  tail call void %7(ptr noundef nonnull %0) #7
+  tail call void %7(ptr noundef nonnull %0) #6
   ret void
 }
 
@@ -486,14 +476,13 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef nonnull %14) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__func__.index_restrpos) #7
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.7, ptr noundef nonnull %14) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__func__.index_restrpos) #6
   unreachable
 
 16:                                               ; preds = %1
@@ -508,7 +497,7 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %18) #7
+  tail call void %24(ptr noundef nonnull %18) #6
   %.pre = load ptr, ptr %2, align 8
   br label %25
 
@@ -522,7 +511,7 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 192
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %0) #7
+  tail call void %32(ptr noundef nonnull %0) #6
   ret void
 }
 
@@ -530,23 +519,22 @@ define dso_local void @index_restrpos(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local i64 @index_parallelscan_estimate(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %6) #7
+  %7 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %6) #6
   br i1 %7, label %8, label %15, !prof !4
 
 8:                                                ; preds = %4
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 1088) #7
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %10 = tail call i32 @errcode(i32 noundef 1088) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %13) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.index_parallelscan_estimate) #7
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %13) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.index_parallelscan_estimate) #6
   unreachable
 
 15:                                               ; preds = %4
-  %16 = tail call i64 @EstimateSnapshotSpace(ptr noundef %3) #7
-  %17 = tail call i64 @add_size(i64 noundef 32, i64 noundef %16) #7
+  %16 = tail call i64 @EstimateSnapshotSpace(ptr noundef %3) #6
+  %17 = tail call i64 @add_size(i64 noundef 32, i64 noundef %16) #6
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -557,8 +545,8 @@ define dso_local i64 @index_parallelscan_estimate(ptr noundef readonly captures(
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %15
-  %25 = tail call i64 %23(i32 noundef %1, i32 noundef %2) #7
-  %26 = tail call i64 @add_size(i64 noundef %19, i64 noundef %25) #7
+  %25 = tail call i64 %23(i32 noundef %1, i32 noundef %2) #6
+  %26 = tail call i64 @add_size(i64 noundef %19, i64 noundef %25) #6
   br label %27
 
 27:                                               ; preds = %24, %15
@@ -574,23 +562,22 @@ declare i64 @EstimateSnapshotSpace(ptr noundef) local_unnamed_addr #1
 define dso_local void @index_parallelscan_initialize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %6) #7
+  %7 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %6) #6
   br i1 %7, label %8, label %15, !prof !4
 
 8:                                                ; preds = %4
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 1088) #7
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %10 = tail call i32 @errcode(i32 noundef 1088) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %13) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.index_parallelscan_initialize) #7
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %13) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 497, ptr noundef nonnull @__func__.index_parallelscan_initialize) #6
   unreachable
 
 15:                                               ; preds = %4
-  %16 = tail call i64 @EstimateSnapshotSpace(ptr noundef %2) #7
-  %17 = tail call i64 @add_size(i64 noundef 32, i64 noundef %16) #7
+  %16 = tail call i64 @EstimateSnapshotSpace(ptr noundef %2) #6
+  %17 = tail call i64 @add_size(i64 noundef 32, i64 noundef %16) #6
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
@@ -599,7 +586,7 @@ define dso_local void @index_parallelscan_initialize(ptr noundef readonly captur
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @SerializeSnapshot(ptr noundef %2, ptr noundef nonnull %22) #7
+  tail call void @SerializeSnapshot(ptr noundef %2, ptr noundef nonnull %22) #6
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
@@ -609,7 +596,7 @@ define dso_local void @index_parallelscan_initialize(ptr noundef readonly captur
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %19
-  tail call void %26(ptr noundef nonnull %28) #7
+  tail call void %26(ptr noundef nonnull %28) #6
   br label %29
 
 29:                                               ; preds = %27, %15
@@ -631,7 +618,7 @@ define dso_local void @index_parallelrescan(ptr noundef %0) local_unnamed_addr #
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull %3) #7
+  tail call void %9(ptr noundef nonnull %3) #6
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -645,7 +632,7 @@ define dso_local void @index_parallelrescan(ptr noundef %0) local_unnamed_addr #
   br i1 %.not6, label %18, label %17
 
 17:                                               ; preds = %10
-  tail call void %16(ptr noundef nonnull %0) #7
+  tail call void %16(ptr noundef nonnull %0) #6
   br label %18
 
 18:                                               ; preds = %17, %10
@@ -655,8 +642,8 @@ define dso_local void @index_parallelrescan(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @index_beginscan_parallel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %7 = tail call ptr @RestoreSnapshot(ptr noundef nonnull %6) #7
-  %8 = tail call ptr @RegisterSnapshot(ptr noundef %7) #7
+  %7 = tail call ptr @RestoreSnapshot(ptr noundef nonnull %6) #6
+  %8 = tail call ptr @RegisterSnapshot(ptr noundef %7) #6
   %9 = tail call fastcc ptr @index_beginscan_internal(ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %7, ptr noundef %4, i1 noundef zeroext true)
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -665,7 +652,7 @@ define dso_local noundef ptr @index_beginscan_parallel(ptr noundef %0, ptr nound
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef %0) #7
+  %15 = tail call ptr %14(ptr noundef %0) #6
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store ptr %15, ptr %16, align 8
   ret ptr %9
@@ -687,18 +674,17 @@ define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_un
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull %15) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @__func__.index_getnext_tid) #7
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.8, ptr noundef nonnull %15) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 581, ptr noundef nonnull @__func__.index_getnext_tid) #6
   unreachable
 
 17:                                               ; preds = %2
-  %18 = tail call zeroext i1 %8(ptr noundef nonnull %0, i32 noundef %1) #7
+  %18 = tail call zeroext i1 %8(ptr noundef nonnull %0, i32 noundef %1) #6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i8 0, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 102
@@ -717,7 +703,7 @@ define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_un
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull %23) #7
+  tail call void %29(ptr noundef nonnull %23) #6
   br label %46
 
 30:                                               ; preds = %17
@@ -734,7 +720,7 @@ define dso_local ptr @index_getnext_tid(ptr noundef %0, i32 noundef %1) local_un
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %34
-  tail call void @pgstat_assoc_relation(ptr noundef nonnull %31) #7
+  tail call void @pgstat_assoc_relation(ptr noundef nonnull %31) #6
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
   %.pre18 = load ptr, ptr %.phi.trans.insert, align 8
@@ -772,10 +758,9 @@ define dso_local noundef zeroext i1 @index_fetch_heap(ptr noundef %0, ptr nounde
   br i1 %.not7.i, label %table_index_fetch_tuple.exit, label %8, !prof !7
 
 8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 1259, ptr noundef nonnull @__func__.table_index_fetch_tuple) #7
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.18, i32 noundef 1259, ptr noundef nonnull @__func__.table_index_fetch_tuple) #6
   unreachable
 
 table_index_fetch_tuple.exit:                     ; preds = %2
@@ -790,7 +775,7 @@ table_index_fetch_tuple.exit:                     ; preds = %2
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = call zeroext i1 %21(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %3) #7
+  %22 = call zeroext i1 %21(ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef %13, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %3) #6
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %table_index_fetch_tuple.exit
@@ -808,7 +793,7 @@ table_index_fetch_tuple.exit:                     ; preds = %2
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %28
-  call void @pgstat_assoc_relation(ptr noundef nonnull %25) #7
+  call void @pgstat_assoc_relation(ptr noundef nonnull %25) #6
   %.pre = load ptr, ptr %24, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
   %.pre12 = load ptr, ptr %.phi.trans.insert, align 8
@@ -875,14 +860,13 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %9, label %10, label %17
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef nonnull %15) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.index_getbitmap) #7
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, ptr noundef nonnull %15) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 725, ptr noundef nonnull @__func__.index_getbitmap) #6
   unreachable
 
 17:                                               ; preds = %2
@@ -891,7 +875,7 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i64 %21(ptr noundef nonnull %0, ptr noundef %1) #7
+  %22 = tail call i64 %21(ptr noundef nonnull %0, ptr noundef %1) #6
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 480
   %25 = load ptr, ptr %24, align 8
@@ -905,7 +889,7 @@ define dso_local i64 @index_getbitmap(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %26
-  tail call void @pgstat_assoc_relation(ptr noundef nonnull %23) #7
+  tail call void @pgstat_assoc_relation(ptr noundef nonnull %23) #6
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 480
   %.pre11 = load ptr, ptr %.phi.trans.insert, align 8
@@ -928,18 +912,17 @@ define dso_local ptr @index_bulk_delete(ptr noundef %0, ptr noundef %1, ptr noun
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load i32, ptr %6, align 8
-  %8 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %7) #7
+  %8 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %7) #6
   br i1 %8, label %9, label %16, !prof !4
 
 9:                                                ; preds = %4
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 1088) #7
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %11 = tail call i32 @errcode(i32 noundef 1088) #6
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %14) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 757, ptr noundef nonnull @__func__.index_bulk_delete) #7
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %14) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 757, ptr noundef nonnull @__func__.index_bulk_delete) #6
   unreachable
 
 16:                                               ; preds = %4
@@ -951,17 +934,16 @@ define dso_local ptr @index_bulk_delete(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %16
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %23)
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, ptr noundef nonnull %26) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 758, ptr noundef nonnull @__func__.index_bulk_delete) #7
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.10, ptr noundef nonnull %26) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 758, ptr noundef nonnull @__func__.index_bulk_delete) #6
   unreachable
 
 28:                                               ; preds = %16
-  %29 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #7
+  %29 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   ret ptr %29
 }
 
@@ -970,18 +952,17 @@ define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8
-  %6 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %5) #7
+  %6 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %5) #6
   br i1 %6, label %7, label %14, !prof !4
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 1088) #7
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %9 = tail call i32 @errcode(i32 noundef 1088) #6
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %12) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 776, ptr noundef nonnull @__func__.index_vacuum_cleanup) #7
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %12) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 776, ptr noundef nonnull @__func__.index_vacuum_cleanup) #6
   unreachable
 
 14:                                               ; preds = %2
@@ -993,17 +974,16 @@ define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %14
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %21)
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef nonnull %24) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 777, ptr noundef nonnull @__func__.index_vacuum_cleanup) #7
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11, ptr noundef nonnull %24) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 777, ptr noundef nonnull @__func__.index_vacuum_cleanup) #6
   unreachable
 
 26:                                               ; preds = %14
-  %27 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %1) #7
+  %27 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %1) #6
   ret ptr %27
 }
 
@@ -1011,18 +991,17 @@ define dso_local ptr @index_vacuum_cleanup(ptr noundef %0, ptr noundef %1) local
 define dso_local zeroext i1 @index_can_return(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i32, ptr %3, align 8
-  %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #7
+  %5 = tail call zeroext i1 @ReindexIsProcessingIndex(i32 noundef %4) #6
   br i1 %5, label %6, label %13, !prof !4
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 1088) #7
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %8 = tail call i32 @errcode(i32 noundef 1088) #6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 792, ptr noundef nonnull @__func__.index_can_return) #7
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %11) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 792, ptr noundef nonnull @__func__.index_can_return) #6
   unreachable
 
 13:                                               ; preds = %2
@@ -1034,7 +1013,7 @@ define dso_local zeroext i1 @index_can_return(ptr noundef %0, i32 noundef %1) lo
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %13
-  %20 = tail call zeroext i1 %17(ptr noundef nonnull %0, i32 noundef %1) #7
+  %20 = tail call zeroext i1 %17(ptr noundef nonnull %0, i32 noundef %1) #6
   br label %21
 
 21:                                               ; preds = %13, %19
@@ -1097,31 +1076,30 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
   br i1 %.not, label %29, label %35
 
 29:                                               ; preds = %24
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %30)
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %14, i32 noundef %11, ptr noundef nonnull %33) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 902, ptr noundef nonnull @__func__.index_getprocinfo) #7
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %14, i32 noundef %11, ptr noundef nonnull %33) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 902, ptr noundef nonnull @__func__.index_getprocinfo) #6
   unreachable
 
 35:                                               ; preds = %24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %37 = load ptr, ptr %36, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %28, ptr noundef nonnull %20, ptr noundef %37) #7
+  tail call void @fmgr_info_cxt(i32 noundef %28, ptr noundef nonnull %20, ptr noundef %37) #6
   %.not27 = icmp eq i16 %2, %10
   br i1 %.not27, label %45, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @RelationGetIndexAttOptions(ptr noundef nonnull %0, i1 noundef zeroext false) #7
+  %39 = tail call ptr @RelationGetIndexAttOptions(ptr noundef nonnull %0, i1 noundef zeroext false) #6
   %40 = load ptr, ptr %36, align 8
   %41 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %40, ptr @CurrentMemoryContext, align 8
   %42 = sext i32 %12 to i64
   %43 = getelementptr inbounds ptr, ptr %39, i64 %42
   %44 = load ptr, ptr %43, align 8
-  tail call void @set_fn_opclass_options(ptr noundef nonnull %20, ptr noundef %44) #7
+  tail call void @set_fn_opclass_options(ptr noundef nonnull %20, ptr noundef %44) #6
   store ptr %41, ptr @CurrentMemoryContext, align 8
   br label %45
 
@@ -1220,10 +1198,9 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   br i1 %47, label %.split.us, label %52
 
 .split.us:                                        ; preds = %45, %15
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 985, ptr noundef nonnull @__func__.index_store_float8_orderby_distances) #7
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 985, ptr noundef nonnull @__func__.index_store_float8_orderby_distances) #6
   unreachable
 
 .sink.split55:                                    ; preds = %35, %28, %40, %33
@@ -1286,26 +1263,25 @@ define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext 
 26:                                               ; preds = %.critedge
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 34, ptr noundef %28, i16 noundef signext 18) #7
+  %29 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 34, ptr noundef %28, i16 noundef signext 18) #6
   %30 = inttoptr i64 %29 to ptr
   %31 = sext i16 %1 to i64
   %32 = getelementptr i8, ptr %30, i64 20
   %33 = getelementptr i32, ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %37 = tail call ptr @generate_opclass_name(i32 noundef %34) #7
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %37) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1031, ptr noundef nonnull @__func__.index_opclass_options) #7
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %37 = tail call ptr @generate_opclass_name(i32 noundef %34) #6
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %37) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1031, ptr noundef nonnull @__func__.index_opclass_options) #6
   unreachable
 
 39:                                               ; preds = %10
-  call void @init_local_reloptions(ptr noundef nonnull %5, i64 noundef 0) #7
+  call void @init_local_reloptions(ptr noundef nonnull %5, i64 noundef 0) #6
   %40 = call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %1, i16 noundef zeroext %9)
   %41 = ptrtoint ptr %5 to i64
-  %42 = call i64 @FunctionCall1Coll(ptr noundef %40, i32 noundef 0, i64 noundef %41) #7
-  %43 = call ptr @build_local_reloptions(ptr noundef nonnull %5, i64 noundef %2, i1 noundef zeroext %3) #7
+  %42 = call i64 @FunctionCall1Coll(ptr noundef %40, i32 noundef 0, i64 noundef %41) #6
+  %43 = call ptr @build_local_reloptions(ptr noundef nonnull %5, i64 noundef %2, i1 noundef zeroext %3) #6
   br label %44
 
 44:                                               ; preds = %.critedge, %39
@@ -1334,18 +1310,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

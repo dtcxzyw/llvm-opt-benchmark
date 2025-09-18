@@ -20,7 +20,7 @@ define dso_local void @_ZN4llvm31createX86MacroFusionDAGMutationEv(ptr dead_on_u
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @_ZL22shouldScheduleAdjacentRKN4llvm15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS7_, ptr %2, align 8, !tbaa !3
-  call void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EEEb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr nonnull %2, i64 1, i1 noundef zeroext true) #5
+  call void @_ZN4llvm28createMacroFusionDAGMutationENS_8ArrayRefIPFbRKNS_15TargetInstrInfoERKNS_19TargetSubtargetInfoEPKNS_12MachineInstrERS8_EEEb(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8 %0, ptr nonnull %2, i64 1, i1 noundef zeroext true) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -41,7 +41,7 @@ define internal noundef zeroext i1 @_ZL22shouldScheduleAdjacentRKN4llvm15TargetI
   br i1 %11, label %12, label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
 
 12:                                               ; preds = %8, %4
-  %13 = tail call noundef i32 @_ZN4llvm3X8617getCondFromBranchERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %3) #5
+  %13 = tail call noundef i32 @_ZN4llvm3X8617getCondFromBranchERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(70) %3) #4
   %14 = icmp ult i32 %13, 16
   br i1 %14, label %switch.lookup, label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
 
@@ -69,33 +69,29 @@ switch.lookup:                                    ; preds = %12
   br label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 417
-  %26 = load i8, ptr %25, align 1, !tbaa !145, !range !143, !noundef !144
-  %27 = trunc nuw i8 %26 to i1
-  tail call void @llvm.assume(i1 %27)
-  switch i32 %19, label %31 [
+  switch i32 %19, label %28 [
     i32 0, label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
     i32 2, label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
-    i32 1, label %28
-    i32 3, label %28
-    i32 4, label %29
-    i32 5, label %30
+    i32 1, label %25
+    i32 3, label %25
+    i32 4, label %26
+    i32 5, label %27
   ]
 
-28:                                               ; preds = %24, %24
+25:                                               ; preds = %24, %24
   br label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
 
-29:                                               ; preds = %24
+26:                                               ; preds = %24
   br label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
 
-30:                                               ; preds = %24
+27:                                               ; preds = %24
   br label %_ZL14classifySecondRKN4llvm12MachineInstrE.exit
 
-31:                                               ; preds = %24
+28:                                               ; preds = %24
   unreachable
 
-_ZL14classifySecondRKN4llvm12MachineInstrE.exit:  ; preds = %12, %30, %29, %28, %24, %24, %switch.lookup, %22, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %switch.lookup ], [ %23, %22 ], [ false, %12 ], [ %switch.masked21, %28 ], [ %switch.masked, %29 ], [ false, %30 ], [ true, %24 ], [ true, %24 ]
+_ZL14classifySecondRKN4llvm12MachineInstrE.exit:  ; preds = %12, %27, %26, %25, %24, %24, %switch.lookup, %22, %8
+  %.0 = phi i1 [ false, %8 ], [ true, %switch.lookup ], [ %23, %22 ], [ false, %12 ], [ %switch.masked21, %25 ], [ %switch.masked, %26 ], [ false, %27 ], [ true, %24 ], [ true, %24 ]
   ret i1 %.0
 }
 
@@ -244,15 +240,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -267,28 +267,19 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #22
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %12 = load ptr, ptr %isolate_.i, align 8
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %8 = load ptr, ptr %isolate_.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4heap7JSGraphE, i64 16), ptr %graph, align 8
   %isolate_.i7 = getelementptr inbounds nuw i8, ptr %graph, i64 8
-  store ptr %12, ptr %isolate_.i7, align 8
+  store ptr %8, ptr %isolate_.i7, align 8
   %nodes_.i = getelementptr inbounds nuw i8, ptr %graph, i64 16
   %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %graph, i64 64
   store ptr %_M_single_bucket.i.i.i, ptr %nodes_.i, align 8
@@ -322,16 +313,16 @@ entry:
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i9.i, align 8
   %_M_next_resize.i.i.i10.i = getelementptr inbounds nuw i8, ptr %graph, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i10.i, i8 0, i64 16, i1 false)
-  call void @_ZN4node11Environment18BuildEmbedderGraphEPN2v87IsolateEPNS1_13EmbedderGraphEPv(ptr noundef %12, ptr noundef nonnull %graph, ptr noundef nonnull %11) #22
+  call void @_ZN4node11Environment18BuildEmbedderGraphEPN2v87IsolateEPNS1_13EmbedderGraphEPv(ptr noundef %8, ptr noundef nonnull %graph, ptr noundef nonnull %7) #22
   %call3 = call ptr @_ZNK4node4heap7JSGraph12CreateObjectEv(ptr noundef nonnull align 8 dereferenceable(184) %graph)
   %cmp.i.i.not = icmp eq ptr %call3, null
   br i1 %cmp.i.i.not, label %if.end, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  %13 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %14 = load i64, ptr %call3, align 8
-  store i64 %14, ptr %arrayidx.i, align 8
+  %9 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %10 = load i64, ptr %call3, align 8
+  store i64 %10, ptr %arrayidx.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %entry

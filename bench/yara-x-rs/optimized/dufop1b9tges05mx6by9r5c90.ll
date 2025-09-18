@@ -17,51 +17,48 @@ define hidden void @"_ZN112_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5
   %.pre.i = load i64, ptr %5, align 8, !range !3
-  %7 = icmp ne i64 %.pre.i, -9223372036854775804
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77b10b37e83dada5E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77b10b37e83dada5E.exit": ; preds = %3, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit.i"
-  %8 = phi i64 [ %6, %3 ], [ %.pre.i, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit.i" ]
-  %9 = phi i1 [ true, %3 ], [ %7, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit.i" ]
-  tail call void @llvm.assume(i1 %9)
-  %.not = icmp eq i64 %8, -9223372036854775805
-  br i1 %.not, label %12, label %10
+  %7 = phi i64 [ %6, %3 ], [ %.pre.i, %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$yara_x_parser..cst..Event$GT$$GT$$GT$17hfb638bd85db46ff9E.exit.i" ]
+  %.not = icmp eq i64 %7, -9223372036854775805
+  br i1 %.not, label %10, label %8
+
+8:                                                ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77b10b37e83dada5E.exit"
+  %9 = tail call noundef zeroext i1 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hbbd03a6f3120d712E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
+  br i1 %9, label %13, label %12
 
 10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77b10b37e83dada5E.exit"
-  %11 = tail call noundef zeroext i1 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hbbd03a6f3120d712E"(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5)
-  br i1 %11, label %15, label %14
-
-12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h77b10b37e83dada5E.exit"
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 432
   store i64 -9223372036854775804, ptr %5, align 8
   store i64 -9223372036854775805, ptr %0, align 8
   %.sroa.10.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx, i64 24, i1 false)
-  br label %16
+  br label %14
 
-13:                                               ; preds = %15
+11:                                               ; preds = %13
   tail call void @"_ZN97_$LT$yara_x_parser..cst..CSTStream$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb238079b74fc6486E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(424) %1)
-  br label %16
+  br label %14
 
-14:                                               ; preds = %10
+12:                                               ; preds = %8
   store i64 -9223372036854775805, ptr %0, align 8
-  br label %16
+  br label %14
 
-15:                                               ; preds = %10
+13:                                               ; preds = %8
   %.sroa.02.0.copyload5 = load i64, ptr %5, align 8
   store i64 -9223372036854775804, ptr %5, align 8
   %.not17 = icmp eq i64 %.sroa.02.0.copyload5, -9223372036854775804
-  br i1 %.not17, label %13, label %17
+  br i1 %.not17, label %11, label %15
 
-16:                                               ; preds = %12, %13, %17, %14
+14:                                               ; preds = %10, %11, %15, %12
   ret void
 
-17:                                               ; preds = %15
+15:                                               ; preds = %13
   %.sroa.10.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %1, i64 432
   store i64 %.sroa.02.0.copyload5, ptr %0, align 8
   %.sroa.10.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.0..sroa_idx8, i64 24, i1 false)
-  br label %16
+  br label %14
 }
 
 ; Function Attrs: nonlazybind uwtable

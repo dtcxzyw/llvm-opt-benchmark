@@ -841,7 +841,7 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap19getOuterParenParentEPNS_4Stm
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i
-  %storemerge3 = phi ptr [ %32, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ], [ %1, %.lr.ph ]
+  %storemerge3 = phi ptr [ %30, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ], [ %1, %.lr.ph ]
   %12 = ptrtoint ptr %storemerge3 to i64
   %13 = trunc i64 %12 to i32
   %14 = lshr i32 %13, 4
@@ -855,29 +855,26 @@ define dso_local noundef ptr @_ZNK5clang9ParentMap19getOuterParenParentEPNS_4Stm
   br i1 %20, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !24
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.split, %.lr.ph.i.i.i.i
-  %21 = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %19, %.lr.ph.split ]
   %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.01826.i.i.i.i, %.lr.ph.split ]
-  %.01627.i.i.i.i = phi i32 [ %23, %.lr.ph.i.i.i.i ], [ 1, %.lr.ph.split ]
-  %22 = icmp ne ptr %21, inttoptr (i64 -4096 to ptr)
-  tail call void @llvm.assume(i1 %22)
-  %23 = add i32 %.01627.i.i.i.i, 1
-  %24 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
-  %.018.i.i.i.i = and i32 %24, %11
-  %25 = zext i32 %.018.i.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !8
-  %28 = icmp eq ptr %storemerge3, %27
-  br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !26, !llvm.loop !49
+  %.01627.i.i.i.i = phi i32 [ %21, %.lr.ph.i.i.i.i ], [ 1, %.lr.ph.split ]
+  %21 = add i32 %.01627.i.i.i.i, 1
+  %22 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
+  %.018.i.i.i.i = and i32 %22, %11
+  %23 = zext i32 %.018.i.i.i.i to i64
+  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !8
+  %26 = icmp eq ptr %storemerge3, %25
+  br i1 %26, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !prof !26, !llvm.loop !49
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.split
-  %29 = phi i64 [ %17, %.lr.ph.split ], [ %25, %.lr.ph.i.i.i.i ]
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !8
-  %33 = load i16, ptr %32, align 8
-  %34 = and i16 %33, 511
-  %35 = icmp eq i16 %34, 22
-  br i1 %35, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
+  %27 = phi i64 [ %17, %.lr.ph.split ], [ %23, %.lr.ph.i.i.i.i ]
+  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !8
+  %31 = load i16, ptr %30, align 8
+  %32 = and i16 %31, 511
+  %33 = icmp eq i16 %32, 22
+  br i1 %33, label %.lr.ph.split, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %storemerge3, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang4StmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i ]

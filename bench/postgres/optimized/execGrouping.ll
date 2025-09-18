@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @tuplehash_create(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %0, i64 noundef 48) #15
+  %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %0, i64 noundef 48) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -45,14 +45,13 @@ define dso_local ptr @tuplehash_create(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %19, label %20, label %tuplehash_compute_size.exit, !prof !4
 
 20:                                               ; preds = %3
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #15
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #14
   unreachable
 
 tuplehash_compute_size.exit:                      ; preds = %3
-  %23 = tail call ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %18, i32 noundef 5) #15
+  %23 = tail call ptr @MemoryContextAllocExtended(ptr noundef %0, i64 noundef %18, i32 noundef 5) #14
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %23, ptr %24, align 8
   %25 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
@@ -66,10 +65,9 @@ tuplehash_compute_size.exit:                      ; preds = %3
   br i1 %31, label %32, label %tuplehash_update_parameters.exit, !prof !4
 
 32:                                               ; preds = %tuplehash_compute_size.exit
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #15
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #14
   unreachable
 
 tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_size.exit
@@ -94,8 +92,8 @@ declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr
 define dso_local void @tuplehash_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  tail call void @pfree(ptr noundef %3) #15
-  tail call void @pfree(ptr noundef %0) #15
+  tail call void @pfree(ptr noundef %3) #14
+  tail call void @pfree(ptr noundef %0) #14
   ret void
 }
 
@@ -133,16 +131,15 @@ define dso_local void @tuplehash_grow(ptr noundef captures(none) %0, i64 noundef
   br i1 %13, label %14, label %tuplehash_compute_size.exit, !prof !4
 
 14:                                               ; preds = %2
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #15
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #14
   unreachable
 
 tuplehash_compute_size.exit:                      ; preds = %2
   %17 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %17, align 8
-  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #15
+  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #14
   store ptr %18, ptr %4, align 8
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
   %20 = icmp samesign ult i64 %19, 2
@@ -155,10 +152,9 @@ tuplehash_compute_size.exit:                      ; preds = %2
   br i1 %25, label %26, label %tuplehash_update_parameters.exit, !prof !4
 
 26:                                               ; preds = %tuplehash_compute_size.exit
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #15
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.tuplehash_compute_size) #14
   unreachable
 
 tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_size.exit
@@ -245,7 +241,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   br i1 %69, label %.lr.ph71, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %64, %tuplehash_update_parameters.exit
-  tail call void @pfree(ptr noundef %5) #15
+  tail call void @pfree(ptr noundef %5) #14
   ret void
 }
 
@@ -274,7 +270,7 @@ define dso_local ptr @tuplehash_insert(ptr noundef captures(none) %0, ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %9, align 8
-  %16 = tail call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %1, ptr noundef %15, i1 noundef zeroext false) #15
+  %16 = tail call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %1, ptr noundef %15, i1 noundef zeroext false) #14
   br label %TupleHashTableHash_internal.exit
 
 TupleHashTableHash_internal.exit:                 ; preds = %10, %13
@@ -284,7 +280,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = call i64 %21(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %4) #15
+  %22 = call i64 %21(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %4) #14
   %.0.i = trunc i64 %22 to i32
   %23 = lshr i32 %.0.i, 16
   %24 = xor i32 %23, %.0.i
@@ -325,10 +321,9 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(
   br i1 %15, label %16, label %19, !prof !4
 
 16:                                               ; preds = %13
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %17)
-  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #15
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 630, ptr noundef nonnull @__func__.tuplehash_insert_hash_internal) #15
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #14
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 630, ptr noundef nonnull @__func__.tuplehash_insert_hash_internal) #14
   unreachable
 
 19:                                               ; preds = %13
@@ -376,7 +371,7 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.val100, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr @ExecStoreMinimalTuple(ptr noundef %38, ptr noundef %42, i1 noundef zeroext false) #15
+  %43 = call ptr @ExecStoreMinimalTuple(ptr noundef %38, ptr noundef %42, i1 noundef zeroext false) #14
   %44 = getelementptr inbounds nuw i8, ptr %.val100, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -393,7 +388,7 @@ TupleHashTableMatch.exit.thread:                  ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %52 = load ptr, ptr %51, align 8
-  call void @MemoryContextReset(ptr noundef %52) #15
+  call void @MemoryContextReset(ptr noundef %52) #14
   br label %.thread106
 
 TupleHashTableMatch.exit:                         ; preds = %37
@@ -403,12 +398,12 @@ TupleHashTableMatch.exit:                         ; preds = %37
   store ptr %54, ptr @CurrentMemoryContext, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = call i64 %57(ptr noundef nonnull %49, ptr noundef nonnull %40, ptr noundef nonnull %5) #15
+  %58 = call i64 %57(ptr noundef nonnull %49, ptr noundef nonnull %40, ptr noundef nonnull %5) #14
   store ptr %55, ptr @CurrentMemoryContext, align 8
   %.not115 = icmp eq i64 %58, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %59 = load ptr, ptr %53, align 8
-  call void @MemoryContextReset(ptr noundef %59) #15
+  call void @MemoryContextReset(ptr noundef %59) #14
   br i1 %.not115, label %TupleHashTableMatch.exit._crit_edge, label %.thread106
 
 TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch.exit
@@ -557,7 +552,7 @@ define dso_local ptr @tuplehash_lookup(ptr noundef readonly captures(none) %0, p
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %9, align 8
-  %16 = tail call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %1, ptr noundef %15, i1 noundef zeroext false) #15
+  %16 = tail call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %1, ptr noundef %15, i1 noundef zeroext false) #14
   br label %TupleHashTableHash_internal.exit
 
 TupleHashTableHash_internal.exit:                 ; preds = %10, %13
@@ -567,7 +562,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = call i64 %21(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %4) #15
+  %22 = call i64 %21(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %4) #14
   %.0.i = trunc i64 %22 to i32
   %23 = lshr i32 %.0.i, 16
   %24 = xor i32 %23, %.0.i
@@ -607,7 +602,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 64
   %50 = load ptr, ptr %49, align 8
-  %51 = call ptr @ExecStoreMinimalTuple(ptr noundef %46, ptr noundef %50, i1 noundef zeroext false) #15
+  %51 = call ptr @ExecStoreMinimalTuple(ptr noundef %46, ptr noundef %50, i1 noundef zeroext false) #14
   %52 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 72
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -624,7 +619,7 @@ TupleHashTableMatch.exit.thread.i:                ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %60 = load ptr, ptr %59, align 8
-  call void @MemoryContextReset(ptr noundef %60) #15
+  call void @MemoryContextReset(ptr noundef %60) #14
   br label %tuplehash_lookup_hash_internal.exit
 
 TupleHashTableMatch.exit.i:                       ; preds = %45
@@ -634,12 +629,12 @@ TupleHashTableMatch.exit.i:                       ; preds = %45
   store ptr %62, ptr @CurrentMemoryContext, align 8
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %65 = load ptr, ptr %64, align 8
-  %66 = call i64 %65(ptr noundef nonnull %57, ptr noundef nonnull %48, ptr noundef nonnull %3) #15
+  %66 = call i64 %65(ptr noundef nonnull %57, ptr noundef nonnull %48, ptr noundef nonnull %3) #14
   store ptr %63, ptr @CurrentMemoryContext, align 8
   %.not.i = icmp eq i64 %66, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = load ptr, ptr %61, align 8
-  call void @MemoryContextReset(ptr noundef %67) #15
+  call void @MemoryContextReset(ptr noundef %67) #14
   br i1 %.not.i, label %TupleHashTableMatch.exit._crit_edge.i, label %tuplehash_lookup_hash_internal.exit
 
 TupleHashTableMatch.exit._crit_edge.i:            ; preds = %TupleHashTableMatch.exit.i
@@ -700,7 +695,7 @@ define dso_local ptr @tuplehash_lookup_hash(ptr noundef readonly captures(none) 
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = call ptr @ExecStoreMinimalTuple(ptr noundef %22, ptr noundef %26, i1 noundef zeroext false) #15
+  %27 = call ptr @ExecStoreMinimalTuple(ptr noundef %22, ptr noundef %26, i1 noundef zeroext false) #14
   %28 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 72
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -717,7 +712,7 @@ TupleHashTableMatch.exit.thread.i:                ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %36 = load ptr, ptr %35, align 8
-  call void @MemoryContextReset(ptr noundef %36) #15
+  call void @MemoryContextReset(ptr noundef %36) #14
   br label %tuplehash_lookup_hash_internal.exit
 
 TupleHashTableMatch.exit.i:                       ; preds = %21
@@ -727,12 +722,12 @@ TupleHashTableMatch.exit.i:                       ; preds = %21
   store ptr %38, ptr @CurrentMemoryContext, align 8
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %41 = load ptr, ptr %40, align 8
-  %42 = call i64 %41(ptr noundef nonnull %33, ptr noundef nonnull %24, ptr noundef nonnull %4) #15
+  %42 = call i64 %41(ptr noundef nonnull %33, ptr noundef nonnull %24, ptr noundef nonnull %4) #14
   store ptr %39, ptr @CurrentMemoryContext, align 8
   %.not.i = icmp eq i64 %42, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = load ptr, ptr %37, align 8
-  call void @MemoryContextReset(ptr noundef %43) #15
+  call void @MemoryContextReset(ptr noundef %43) #14
   br i1 %.not.i, label %TupleHashTableMatch.exit._crit_edge.i, label %tuplehash_lookup_hash_internal.exit
 
 TupleHashTableMatch.exit._crit_edge.i:            ; preds = %TupleHashTableMatch.exit.i
@@ -780,7 +775,7 @@ define dso_local noundef zeroext i1 @tuplehash_delete(ptr noundef captures(none)
   %14 = getelementptr inbounds nuw i8, ptr %.val49, i64 64
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %9, align 8
-  %16 = tail call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %1, ptr noundef %15, i1 noundef zeroext false) #15
+  %16 = tail call ptr @ExecStoreMinimalTuple(ptr noundef nonnull %1, ptr noundef %15, i1 noundef zeroext false) #14
   br label %TupleHashTableHash_internal.exit
 
 TupleHashTableHash_internal.exit:                 ; preds = %10, %13
@@ -790,7 +785,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %19 = load ptr, ptr %7, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = call i64 %21(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %4) #15
+  %22 = call i64 %21(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %4) #14
   %.0.i = trunc i64 %22 to i32
   %23 = lshr i32 %.0.i, 16
   %24 = xor i32 %23, %.0.i
@@ -833,7 +828,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %10, %13
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.val50, i64 64
   %49 = load ptr, ptr %48, align 8
-  %50 = call ptr @ExecStoreMinimalTuple(ptr noundef %45, ptr noundef %49, i1 noundef zeroext false) #15
+  %50 = call ptr @ExecStoreMinimalTuple(ptr noundef %45, ptr noundef %49, i1 noundef zeroext false) #14
   %51 = getelementptr inbounds nuw i8, ptr %.val50, i64 72
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -850,7 +845,7 @@ TupleHashTableMatch.exit.thread:                  ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %59 = load ptr, ptr %58, align 8
-  call void @MemoryContextReset(ptr noundef %59) #15
+  call void @MemoryContextReset(ptr noundef %59) #14
   br label %.loopexit
 
 TupleHashTableMatch.exit:                         ; preds = %44
@@ -860,12 +855,12 @@ TupleHashTableMatch.exit:                         ; preds = %44
   store ptr %61, ptr @CurrentMemoryContext, align 8
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %64 = load ptr, ptr %63, align 8
-  %65 = call i64 %64(ptr noundef nonnull %56, ptr noundef nonnull %47, ptr noundef nonnull %3) #15
+  %65 = call i64 %64(ptr noundef nonnull %56, ptr noundef nonnull %47, ptr noundef nonnull %3) #14
   store ptr %62, ptr @CurrentMemoryContext, align 8
   %.not61 = icmp eq i64 %65, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = load ptr, ptr %60, align 8
-  call void @MemoryContextReset(ptr noundef %66) #15
+  call void @MemoryContextReset(ptr noundef %66) #14
   br i1 %.not61, label %TupleHashTableMatch.exit._crit_edge, label %.loopexit
 
 TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch.exit
@@ -1083,7 +1078,7 @@ define dso_local ptr @tuplehash_iterate(ptr noundef readonly captures(none) %0, 
 define dso_local void @tuplehash_stat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = shl i64 %2, 2
-  %4 = tail call ptr @palloc0(i64 noundef %3) #15
+  %4 = tail call ptr @palloc0(i64 noundef %3) #14
   %5 = load i64, ptr %0, align 8
   %.not81 = icmp eq i64 %5, 0
   br i1 %.not81, label %._crit_edge, label %.lr.ph
@@ -1162,7 +1157,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %.049.lcssa92 = phi i32 [ %.150, %.preheader ], [ 0, %1 ], [ %.150, %.lr.ph78 ]
   %.057.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.158, %.lr.ph78 ]
   %.054.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.155, %.lr.ph78 ]
-  tail call void @pfree(ptr noundef %4) #15
+  tail call void @pfree(ptr noundef %4) #14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
   %.not = icmp eq i32 %39, 0
@@ -1183,14 +1178,14 @@ tuplehash_distance.exit:                          ; preds = %8
   %.053 = phi double [ %48, %40 ], [ 0.000000e+00, %._crit_edge ]
   %.052 = phi double [ %44, %40 ], [ 0.000000e+00, %._crit_edge ]
   %.051 = phi double [ %46, %40 ], [ 0.000000e+00, %._crit_edge ]
-  %50 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %50 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %49
   %52 = load i64, ptr %0, align 8
   %53 = load i32, ptr %38, align 8
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i64 noundef %52, i32 noundef %53, double noundef %.052, i32 noundef %.049.lcssa92, i32 noundef %.0.lcssa93, double noundef %.051, i32 noundef %.057.lcssa, i32 noundef %.054.lcssa, double noundef %.053) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.tuplehash_stat) #15
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i64 noundef %52, i32 noundef %53, double noundef %.052, i32 noundef %.049.lcssa92, i32 noundef %.0.lcssa93, double noundef %.051, i32 noundef %.057.lcssa, i32 noundef %.054.lcssa, double noundef %.053) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.tuplehash_stat) #14
   br label %55
 
 55:                                               ; preds = %51, %49
@@ -1216,7 +1211,7 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
 8:                                                ; preds = %6
   %9 = sext i32 %1 to i64
   %10 = shl nsw i64 %9, 2
-  %11 = tail call ptr @palloc(i64 noundef %10) #15
+  %11 = tail call ptr @palloc(i64 noundef %10) #14
   %12 = icmp sgt i32 %1, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1228,7 +1223,7 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 @get_opcode(i32 noundef %14) #15
+  %15 = tail call i32 @get_opcode(i32 noundef %14) #14
   %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   store i32 %15, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1236,7 +1231,7 @@ define dso_local ptr @execTuplesMatchPrepare(ptr noundef %0, i32 noundef %1, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
-  %17 = tail call ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %4, ptr noundef %5) #15
+  %17 = tail call ptr @ExecBuildGroupingEqual(ptr noundef %0, ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %11, ptr noundef %4, ptr noundef %5) #14
   br label %18
 
 18:                                               ; preds = %6, %._crit_edge
@@ -1256,10 +1251,10 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   %6 = alloca i32, align 4
   %7 = sext i32 %0 to i64
   %8 = shl nsw i64 %7, 2
-  %9 = tail call ptr @palloc(i64 noundef %8) #15
+  %9 = tail call ptr @palloc(i64 noundef %8) #14
   store ptr %9, ptr %2, align 8
   %10 = mul nsw i64 %7, 48
-  %11 = tail call ptr @palloc(i64 noundef %10) #15
+  %11 = tail call ptr @palloc(i64 noundef %10) #14
   store ptr %11, ptr %3, align 8
   %12 = icmp sgt i32 %0, 0
   br i1 %12, label %.lr.ph.preheader, label %._crit_edge
@@ -1274,15 +1269,14 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   %14 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %15 = call i32 @get_opcode(i32 noundef %14) #15
-  %16 = call zeroext i1 @get_op_hash_functions(i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  %15 = call i32 @get_opcode(i32 noundef %14) #14
+  %16 = call zeroext i1 @get_op_hash_functions(i32 noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %6) #14
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %18)
-  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %14) #15
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 118, ptr noundef nonnull @__func__.execTuplesHashPrepare) #15
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %14) #14
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 118, ptr noundef nonnull @__func__.execTuplesHashPrepare) #14
   unreachable
 
 20:                                               ; preds = %.lr.ph
@@ -1292,7 +1286,7 @@ define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr noundef readonl
   %23 = load i32, ptr %6, align 4
   %24 = load ptr, ptr %3, align 8
   %25 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %24, i64 %indvars.iv
-  call void @fmgr_info(i32 noundef %23, ptr noundef %25) #15
+  call void @fmgr_info(i32 noundef %23, ptr noundef %25) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1309,10 +1303,10 @@ declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @BuildTupleHashTable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8, i64 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i1 noundef zeroext %13) local_unnamed_addr #0 {
-  %15 = tail call i64 @get_hash_memory_limit() #15
+  %15 = tail call i64 @get_hash_memory_limit() #14
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %17 = tail call ptr @palloc(i64 noundef 104) #15
+  %17 = tail call ptr @palloc(i64 noundef 104) #14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %3, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1347,18 +1341,18 @@ define dso_local ptr @BuildTupleHashTable(ptr noundef %0, ptr noundef %1, ptr no
   %37 = trunc i64 %spec.select to i32
   %38 = tail call ptr @tuplehash_create(ptr noundef %10, i32 noundef %37, ptr noundef nonnull %17)
   store ptr %38, ptr %17, align 8
-  %39 = tail call ptr @CreateTupleDescCopy(ptr noundef %1) #15
-  %40 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %39, ptr noundef nonnull @TTSOpsMinimalTuple) #15
+  %39 = tail call ptr @CreateTupleDescCopy(ptr noundef %1) #14
+  %40 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %39, ptr noundef nonnull @TTSOpsMinimalTuple) #14
   store ptr %40, ptr %23, align 8
   %.not = icmp eq ptr %10, %11
   %41 = select i1 %.not, ptr null, ptr %0
-  %42 = tail call ptr @ExecBuildHash32FromAttrs(ptr noundef %1, ptr noundef %2, ptr noundef %6, ptr noundef %7, i32 noundef %3, ptr noundef %4, ptr noundef %41, i32 noundef %.0) #15
+  %42 = tail call ptr @ExecBuildHash32FromAttrs(ptr noundef %1, ptr noundef %2, ptr noundef %6, ptr noundef %7, i32 noundef %3, ptr noundef %4, ptr noundef %41, i32 noundef %.0) #14
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %42, ptr %43, align 8
-  %44 = tail call ptr @ExecBuildGroupingEqual(ptr noundef %1, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @TTSOpsMinimalTuple, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %41) #15
+  %44 = tail call ptr @ExecBuildGroupingEqual(ptr noundef %1, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @TTSOpsMinimalTuple, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef %41) #14
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %44, ptr %45, align 8
-  %46 = tail call ptr @CreateStandaloneExprContext() #15
+  %46 = tail call ptr @CreateStandaloneExprContext() #14
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store ptr %46, ptr %47, align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
@@ -1421,7 +1415,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initialize
   %26 = load ptr, ptr %19, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = call i64 %28(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %6) #15
+  %29 = call i64 %28(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %6) #14
   %.0.i = trunc i64 %29 to i32
   %30 = lshr i32 %.0.i, 16
   %31 = xor i32 %30, %.0.i
@@ -1458,7 +1452,7 @@ define dso_local ptr @LookupTupleHashEntry(ptr noundef captures(none) initialize
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr %51(ptr noundef %1) #15
+  %52 = call ptr %51(ptr noundef %1) #14
   store ptr %52, ptr %40, align 8
   br label %LookupTupleHashEntry_internal.exit
 
@@ -1509,7 +1503,7 @@ define dso_local i32 @TupleHashTableHash(ptr noundef captures(none) initializes(
   %20 = load ptr, ptr %13, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = call i64 %22(ptr noundef %19, ptr noundef %20, ptr noundef nonnull %3) #15
+  %23 = call i64 %22(ptr noundef %19, ptr noundef %20, ptr noundef nonnull %3) #14
   %.0.i = trunc i64 %23 to i32
   %24 = lshr i32 %.0.i, 16
   %25 = xor i32 %24, %.0.i
@@ -1567,7 +1561,7 @@ define dso_local ptr @LookupTupleHashEntryHash(ptr noundef captures(none) initia
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr %29(ptr noundef %1) #15
+  %30 = tail call ptr %29(ptr noundef %1) #14
   store ptr %30, ptr %18, align 8
   br label %LookupTupleHashEntry_internal.exit
 
@@ -1615,23 +1609,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
+declare i64 @llvm.ctpop.i64(i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #14
+declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #14
+declare i32 @llvm.usub.sat.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
+declare i64 @llvm.umin.i64(i64, i64) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1646,10 +1637,9 @@ attributes #9 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { cold nounwind }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

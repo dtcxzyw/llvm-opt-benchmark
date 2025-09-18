@@ -6825,9 +6825,6 @@ define hidden { i64, ptr } @"_ZN89_$LT$gpui..text_system..font_features..FontFea
 
 "_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$15deserialize_map17hf14fadb47bfad34aE.exit": ; preds = %5, %7
   %.merged.i = phi { i64, ptr } [ %6, %5 ], [ %9, %7 ]
-  %10 = extractvalue { i64, ptr } %.merged.i, 1
-  %11 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %11)
   ret { i64, ptr } %.merged.i
 }
 
@@ -8320,18 +8317,15 @@ define hidden void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..s
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h97c4f46a218ce824E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %5, label %4
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h8edb77e3842a2d03E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i8, ptr %4, align 8, !range !2128, !noundef !11
-  %7 = icmp ne i8 %6, 4
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -10651,20 +10645,20 @@ define void @_ZN5theme6styles7players12PlayerColors6absent17hbb3166c97adf854aE(p
 define void @_ZN5theme6styles7players12PlayerColors9read_only17h073b95524f226856E(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 4 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [48 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !2129)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2128)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8, !alias.scope !2129, !noalias !2132, !noundef !11
+  %5 = load i64, ptr %4, align 8, !alias.scope !2128, !noalias !2131, !noundef !11
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %6, label %_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E.exit
 
 6:                                                ; preds = %2
-  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a9f2960b096f4e65e46b94d097b79fa.48) #26, !noalias !2134
+  tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5a9f2960b096f4e65e46b94d097b79fa.48) #26, !noalias !2133
   unreachable
 
 _ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !alias.scope !2129, !noalias !2132, !nonnull !11, !noundef !11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %3, ptr noundef nonnull align 4 dereferenceable(48) %8, i64 48, i1 false), !noalias !2129
+  %8 = load ptr, ptr %7, align 8, !alias.scope !2128, !noalias !2131, !nonnull !11, !noundef !11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %3, ptr noundef nonnull align 4 dereferenceable(48) %8, i64 48, i1 false), !noalias !2128
   call void @_ZN4gpui5color4Hsla9grayscale17h546829748c8a2205E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10763,9 +10757,9 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.val = load ptr, ptr %20, align 8, !nonnull !11, !noundef !11
   %21 = getelementptr i8, ptr %.sroa.0.0159, i64 16
   %.val55 = load i64, ptr %21, align 8, !noundef !11
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2135
-  call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val55), !noalias !2135
-  %22 = load i32, ptr %6, align 8, !range !55, !noalias !2135, !noundef !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2134
+  call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %.val, i64 noundef %.val55), !noalias !2134
+  %22 = load i32, ptr %6, align 8, !range !55, !noalias !2134, !noundef !11
   %trunc.i = trunc nuw i32 %22 to i1
   br i1 %trunc.i, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i", label %.thread.i
 
@@ -10777,7 +10771,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   br label %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i": ; preds = %19
-  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.875.4..sroa_idx76), !noalias !2135
+  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.875.4..sroa_idx76), !noalias !2134
   br label %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E.exit"
 
 "_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E.exit": ; preds = %.thread.i, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i"
@@ -10786,7 +10780,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.sroa.875.2 = phi float [ %.sroa.875.0155, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i" ], [ %.sroa.875.4.copyload77, %.thread.i ]
   %.sroa.573.2 = phi float [ %.sroa.573.0156, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i" ], [ %.sroa.573.4.copyload74, %.thread.i ]
   %.sroa.071.1 = xor i1 %trunc.i, true
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2135
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2134
   br label %23
 
 23:                                               ; preds = %14, %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E.exit"
@@ -10805,9 +10799,9 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.val56 = load ptr, ptr %28, align 8, !nonnull !11, !noundef !11
   %29 = getelementptr i8, ptr %.sroa.0.0159, i64 40
   %.val57 = load i64, ptr %29, align 8, !noundef !11
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2138
-  call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.val56, i64 noundef %.val57), !noalias !2138
-  %30 = load i32, ptr %5, align 8, !range !55, !noalias !2138, !noundef !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2137
+  call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %.val56, i64 noundef %.val57), !noalias !2137
+  %30 = load i32, ptr %5, align 8, !range !55, !noalias !2137, !noundef !11
   %trunc.i60 = trunc nuw i32 %30 to i1
   br i1 %trunc.i60, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i62", label %.thread.i61
 
@@ -10819,7 +10813,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   br label %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i62": ; preds = %27
-  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.888.4..sroa_idx89), !noalias !2138
+  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.888.4..sroa_idx89), !noalias !2137
   br label %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E.exit"
 
 "_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E.exit": ; preds = %.thread.i61, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i62"
@@ -10828,7 +10822,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.sroa.888.2 = phi float [ %.sroa.888.0151, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i62" ], [ %.sroa.888.4.copyload90, %.thread.i61 ]
   %.sroa.586.2 = phi float [ %.sroa.586.0152, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i62" ], [ %.sroa.586.4.copyload87, %.thread.i61 ]
   %.sroa.084.1 = xor i1 %trunc.i60, true
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2138
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2137
   br label %31
 
 31:                                               ; preds = %23, %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E.exit"
@@ -10847,9 +10841,9 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.val58 = load ptr, ptr %36, align 8, !nonnull !11, !noundef !11
   %37 = getelementptr i8, ptr %.sroa.0.0159, i64 64
   %.val59 = load i64, ptr %37, align 8, !noundef !11
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2141
-  call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.val58, i64 noundef %.val59), !noalias !2141
-  %38 = load i32, ptr %4, align 8, !range !55, !noalias !2141, !noundef !11
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2140
+  call void @_ZN5theme6schema15try_parse_color17hb0dd9cb38c497d45E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.val58, i64 noundef %.val59), !noalias !2140
+  %38 = load i32, ptr %4, align 8, !range !55, !noalias !2140, !noundef !11
   %trunc.i63 = trunc nuw i32 %38 to i1
   br i1 %trunc.i63, label %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i65", label %.thread.i64
 
@@ -10861,7 +10855,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   br label %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE.exit"
 
 "_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i65": ; preds = %35
-  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.8101.4..sroa_idx102), !noalias !2141
+  call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.8101.4..sroa_idx102), !noalias !2140
   br label %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE.exit"
 
 "_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE.exit": ; preds = %.thread.i64, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i65"
@@ -10870,7 +10864,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.sroa.599.2 = phi float [ %.sroa.599.0148, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i65" ], [ %.sroa.599.4.copyload100, %.thread.i64 ]
   %.sroa.10107.2 = phi float [ %.sroa.10107.0157, %"_ZN4core3ptr82drop_in_place$LT$core..result..Result$LT$gpui..color..Hsla$C$anyhow..Error$GT$$GT$17he4b9e1b8255a8a77E.exit.i65" ], [ %.sroa.10107.4.copyload109, %.thread.i64 ]
   %.sroa.097.1 = xor i1 %trunc.i63, true
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2141
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2140
   br label %39
 
 39:                                               ; preds = %31, %"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE.exit"
@@ -10926,16 +10920,16 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.sroa.330.0 = phi float [ %.sroa.8101.1, %50 ], [ 0.000000e+00, %49 ]
   %.sroa.433.0 = phi float [ %.sroa.9104.1, %50 ], [ 0.000000e+00, %49 ]
   %.sroa.536.0 = phi float [ %.sroa.10107.1, %50 ], [ 0.000000e+00, %49 ]
-  %52 = load i64, ptr %0, align 8, !alias.scope !2144, !noalias !2147, !noundef !11
+  %52 = load i64, ptr %0, align 8, !alias.scope !2143, !noalias !2146, !noundef !11
   %53 = icmp eq i64 %40, %52
   br i1 %53, label %54, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE.exit"
 
 54:                                               ; preds = %51
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h72b2e162254f0022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0), !noalias !2147
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h72b2e162254f0022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0), !noalias !2146
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE.exit": ; preds = %51, %54
-  %55 = load ptr, ptr %13, align 8, !alias.scope !2144, !noalias !2147, !nonnull !11, !noundef !11
+  %55 = load ptr, ptr %13, align 8, !alias.scope !2143, !noalias !2146, !nonnull !11, !noundef !11
   %56 = getelementptr inbounds { { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, ptr %55, i64 %40
   store float %.sroa.07.0, ptr %56, align 4
   %.sroa.4.0..sroa_idx67 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -10961,7 +10955,7 @@ define void @_ZN5theme6styles7players12PlayerColors5merge17h00c6eba7c746c588E(pt
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 44
   store float %.sroa.536.0, ptr %.sroa.14.0..sroa_idx, align 4
   %57 = add i64 %40, 1
-  store i64 %57, ptr %12, align 8, !alias.scope !2144, !noalias !2147
+  store i64 %57, ptr %12, align 8, !alias.scope !2143, !noalias !2146
   br label %58
 
 58:                                               ; preds = %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE.exit"
@@ -13700,24 +13694,23 @@ attributes #30 = { "function-inline-cost-multiplier"="2" }
 !2125 = distinct !{!2125, !2126, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hc2737ae9629435d0E: argument 0"}
 !2126 = distinct !{!2126, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hc2737ae9629435d0E"}
 !2127 = !{!2123, !2125}
-!2128 = !{i8 0, i8 5}
-!2129 = !{!2130}
-!2130 = distinct !{!2130, !2131, !"_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E: argument 1"}
-!2131 = distinct !{!2131, !"_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E"}
-!2132 = !{!2133}
-!2133 = distinct !{!2133, !2131, !"_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E: argument 0"}
-!2134 = !{!2133, !2130}
-!2135 = !{!2136}
-!2136 = distinct !{!2136, !2137, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E: argument 0"}
-!2137 = distinct !{!2137, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E"}
-!2138 = !{!2139}
-!2139 = distinct !{!2139, !2140, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E: argument 0"}
-!2140 = distinct !{!2140, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E"}
-!2141 = !{!2142}
-!2142 = distinct !{!2142, !2143, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE: argument 0"}
-!2143 = distinct !{!2143, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE"}
-!2144 = !{!2145}
-!2145 = distinct !{!2145, !2146, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE: argument 0"}
-!2146 = distinct !{!2146, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE"}
-!2147 = !{!2148}
-!2148 = distinct !{!2148, !2146, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE: argument 1"}
+!2128 = !{!2129}
+!2129 = distinct !{!2129, !2130, !"_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E: argument 1"}
+!2130 = distinct !{!2130, !"_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E"}
+!2131 = !{!2132}
+!2132 = distinct !{!2132, !2130, !"_ZN5theme6styles7players12PlayerColors5local17h33166cc7b01d4b09E: argument 0"}
+!2133 = !{!2132, !2129}
+!2134 = !{!2135}
+!2135 = distinct !{!2135, !2136, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E: argument 0"}
+!2136 = distinct !{!2136, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h8e9eb867cd4522a1E"}
+!2137 = !{!2138}
+!2138 = distinct !{!2138, !2139, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E: argument 0"}
+!2139 = distinct !{!2139, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h7f8050804c70fcd6E"}
+!2140 = !{!2141}
+!2141 = distinct !{!2141, !2142, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE: argument 0"}
+!2142 = distinct !{!2142, !"_ZN5theme6styles7players12PlayerColors5merge28_$u7b$$u7b$closure$u7d$$u7d$17h02a03f93931a7e4cE"}
+!2143 = !{!2144}
+!2144 = distinct !{!2144, !2145, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE: argument 0"}
+!2145 = distinct !{!2145, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE"}
+!2146 = !{!2147}
+!2147 = distinct !{!2147, !2145, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf1b09e532c6a93ceE: argument 1"}

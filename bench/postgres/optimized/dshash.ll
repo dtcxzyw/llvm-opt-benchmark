@@ -20,14 +20,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dshash_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @palloc(i64 noundef 88) #13
-  %5 = tail call i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef 3112, i32 noundef 0) #13
+  %4 = tail call ptr @palloc(i64 noundef 88) #12
+  %5 = tail call i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef 3112, i32 noundef 0) #12
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %2, ptr %7, align 8
-  %8 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %5) #13
+  %8 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %5) #12
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %8, ptr %9, align 8
   store i64 %5, ptr %8, align 8
@@ -48,7 +48,7 @@ define dso_local ptr @dshash_create(ptr noundef %0, ptr noundef readonly capture
 20:                                               ; preds = %3, %20
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr inbounds nuw %struct.dshash_partition, ptr %17, i64 %indvars.iv
-  tail call void @LWLockInitialize(ptr noundef nonnull %21, i32 noundef %19) #13
+  tail call void @LWLockInitialize(ptr noundef nonnull %21, i32 noundef %19) #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %22, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -59,7 +59,7 @@ define dso_local ptr @dshash_create(ptr noundef %0, ptr noundef readonly capture
   %24 = load ptr, ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 3096
   store i64 7, ptr %25, align 8
-  %26 = tail call i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef 1024, i32 noundef 6) #13
+  %26 = tail call i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef 1024, i32 noundef 6) #12
   %27 = load ptr, ptr %9, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 3104
   store i64 %26, ptr %28, align 8
@@ -70,17 +70,16 @@ define dso_local ptr @dshash_create(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not, label %32, label %37
 
 32:                                               ; preds = %23
-  tail call void @dsa_free(ptr noundef %0, i64 noundef %5) #13
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 8389) #13
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #13
-  %36 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i64 noundef 1024) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 255, ptr noundef nonnull @__func__.dshash_create) #13
+  tail call void @dsa_free(ptr noundef %0, i64 noundef %5) #12
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %34 = tail call i32 @errcode(i32 noundef 8389) #12
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #12
+  %36 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i64 noundef 1024) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 255, ptr noundef nonnull @__func__.dshash_create) #12
   unreachable
 
 37:                                               ; preds = %23
-  %38 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %31) #13
+  %38 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %31) #12
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %38, ptr %39, align 8
   %40 = load ptr, ptr %9, align 8
@@ -117,13 +116,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @dshash_attach(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @palloc(i64 noundef 88) #13
+  %5 = tail call ptr @palloc(i64 noundef 88) #12
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %3, ptr %7, align 8
-  %8 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %2) #13
+  %8 = tail call ptr @dsa_get_address(ptr noundef %0, i64 noundef %2) #12
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -133,7 +132,7 @@ define dso_local noundef ptr @dshash_attach(ptr noundef %0, ptr noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @dshash_detach(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #13
+  tail call void @pfree(ptr noundef %0) #12
   ret void
 }
 
@@ -154,7 +153,7 @@ define dso_local void @dshash_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 3104
   %11 = load i64, ptr %10, align 8
-  %12 = tail call ptr @dsa_get_address(ptr noundef %9, i64 noundef %11) #13
+  %12 = tail call ptr @dsa_get_address(ptr noundef %9, i64 noundef %11) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
@@ -179,10 +178,10 @@ ensure_valid_bucket_pointers.exit:                ; preds = %1, %8
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %.01921 = phi i64 [ %25, %.lr.ph ], [ %22, %19 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = tail call ptr @dsa_get_address(ptr noundef %23, i64 noundef %.01921) #13
+  %24 = tail call ptr @dsa_get_address(ptr noundef %23, i64 noundef %.01921) #12
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %0, align 8
-  tail call void @dsa_free(ptr noundef %26, i64 noundef %.01921) #13
+  tail call void @dsa_free(ptr noundef %26, i64 noundef %.01921) #12
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -200,12 +199,12 @@ ensure_valid_bucket_pointers.exit:                ; preds = %1, %8
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 3104
   %35 = load i64, ptr %34, align 8
-  tail call void @dsa_free(ptr noundef %32, i64 noundef %35) #13
+  tail call void @dsa_free(ptr noundef %32, i64 noundef %35) #12
   %36 = load ptr, ptr %0, align 8
   %37 = load ptr, ptr %4, align 8
   %38 = load i64, ptr %37, align 8
-  tail call void @dsa_free(ptr noundef %36, i64 noundef %38) #13
-  tail call void @pfree(ptr noundef nonnull %0) #13
+  tail call void @dsa_free(ptr noundef %36, i64 noundef %38) #12
+  tail call void @pfree(ptr noundef nonnull %0) #12
   ret void
 }
 
@@ -225,7 +224,7 @@ define dso_local noundef ptr @dshash_find(ptr noundef captures(none) %0, ptr nou
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %6(ptr noundef %1, i64 noundef %7, ptr noundef %9) #13
+  %10 = tail call i32 %6(ptr noundef %1, i64 noundef %7, ptr noundef %9) #12
   %11 = lshr i32 %10, 25
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -234,7 +233,7 @@ define dso_local noundef ptr @dshash_find(ptr noundef captures(none) %0, ptr nou
   %16 = getelementptr inbounds nuw %struct.dshash_partition, ptr %15, i64 %12
   %not. = xor i1 %2, true
   %17 = zext i1 %not. to i32
-  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef %17) #13
+  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef %17) #12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load i64, ptr %19, align 8
   %21 = load ptr, ptr %13, align 8
@@ -252,7 +251,7 @@ define dso_local noundef ptr @dshash_find(ptr noundef captures(none) %0, ptr nou
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 3104
   %27 = load i64, ptr %26, align 8
-  %28 = tail call ptr @dsa_get_address(ptr noundef %25, i64 noundef %27) #13
+  %28 = tail call ptr @dsa_get_address(ptr noundef %25, i64 noundef %27) #12
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %28, ptr %29, align 8
   %30 = load ptr, ptr %13, align 8
@@ -281,12 +280,12 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 43:                                               ; preds = %52, %.lr.ph.i
   %.01016.i = phi i64 [ %41, %.lr.ph.i ], [ %53, %52 ]
   %44 = load ptr, ptr %0, align 8
-  %45 = tail call ptr @dsa_get_address(ptr noundef %44, i64 noundef %.01016.i) #13
+  %45 = tail call ptr @dsa_get_address(ptr noundef %44, i64 noundef %.01016.i) #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %42, align 8
   %48 = load i64, ptr %4, align 8
   %49 = load ptr, ptr %8, align 8
-  %50 = tail call i32 %47(ptr noundef %1, ptr noundef nonnull %46, i64 noundef %48, ptr noundef %49) #13
+  %50 = tail call i32 %47(ptr noundef %1, ptr noundef nonnull %46, i64 noundef %48, ptr noundef %49) #12
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %find_in_bucket.exit, label %52
 
@@ -303,7 +302,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   %54 = phi ptr [ %.pre22, %.loopexit.loopexit ], [ %33, %ensure_valid_bucket_pointers.exit ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = getelementptr inbounds nuw %struct.dshash_partition, ptr %55, i64 %12
-  tail call void @LWLockRelease(ptr noundef nonnull %56) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %56) #12
   br label %find_in_bucket.exit
 
 find_in_bucket.exit:                              ; preds = %43, %.loopexit
@@ -323,7 +322,7 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %7 = load i64, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 %6(ptr noundef %1, i64 noundef %7, ptr noundef %9) #13
+  %10 = tail call i32 %6(ptr noundef %1, i64 noundef %7, ptr noundef %9) #12
   %11 = lshr i32 %10, 25
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -339,7 +338,7 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %21 = phi ptr [ %.pre, %resize.exit ], [ %14, %3 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw %struct.dshash_partition, ptr %22, i64 %12
-  %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 0) #13
+  %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 0) #12
   %25 = load i64, ptr %16, align 8
   %26 = load ptr, ptr %13, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 3096
@@ -355,7 +354,7 @@ define dso_local nonnull ptr @dshash_find_or_insert(ptr noundef captures(none) %
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 3104
   %32 = load i64, ptr %31, align 8
-  %33 = tail call ptr @dsa_get_address(ptr noundef %30, i64 noundef %32) #13
+  %33 = tail call ptr @dsa_get_address(ptr noundef %30, i64 noundef %32) #12
   store ptr %33, ptr %17, align 8
   %34 = load ptr, ptr %13, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 3096
@@ -378,12 +377,12 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 .lr.ph.i:                                         ; preds = %ensure_valid_bucket_pointers.exit, %53
   %.01016.i = phi i64 [ %54, %53 ], [ %44, %ensure_valid_bucket_pointers.exit ]
   %45 = load ptr, ptr %0, align 8
-  %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.01016.i) #13
+  %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.01016.i) #12
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %18, align 8
   %49 = load i64, ptr %4, align 8
   %50 = load ptr, ptr %8, align 8
-  %51 = tail call i32 %48(ptr noundef %1, ptr noundef nonnull %47, i64 noundef %49, ptr noundef %50) #13
+  %51 = tail call i32 %48(ptr noundef %1, ptr noundef nonnull %47, i64 noundef %49, ptr noundef %50) #12
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %find_in_bucket.exit, label %53
 
@@ -412,7 +411,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %64 = load ptr, ptr %13, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = getelementptr inbounds nuw %struct.dshash_partition, ptr %65, i64 %12
-  tail call void @LWLockRelease(ptr noundef nonnull %66) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %66) #12
   %67 = load i64, ptr %16, align 8
   %68 = add i64 %67, 1
   br label %69
@@ -422,7 +421,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %70 = load ptr, ptr %13, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = getelementptr inbounds nuw %struct.dshash_partition, ptr %71, i64 %.044.i
-  %73 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %72, i32 noundef 0) #13
+  %73 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %72, i32 noundef 0) #12
   %74 = icmp eq i64 %.044.i, 0
   br i1 %74, label %75, label %81
 
@@ -435,7 +434,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  tail call void @LWLockRelease(ptr noundef nonnull %80) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %80) #12
   br label %resize.exit
 
 81:                                               ; preds = %75, %69
@@ -446,9 +445,9 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 83:                                               ; preds = %81
   %84 = load ptr, ptr %0, align 8
   %85 = shl i64 8, %68
-  %86 = tail call i64 @dsa_allocate_extended(ptr noundef %84, i64 noundef %85, i32 noundef 5) #13
+  %86 = tail call i64 @dsa_allocate_extended(ptr noundef %84, i64 noundef %85, i32 noundef 5) #12
   %87 = load ptr, ptr %0, align 8
-  %88 = tail call ptr @dsa_get_address(ptr noundef %87, i64 noundef %86) #13
+  %88 = tail call ptr @dsa_get_address(ptr noundef %87, i64 noundef %86) #12
   %89 = load ptr, ptr %13, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 3096
   %91 = load i64, ptr %90, align 8
@@ -467,7 +466,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
 .lr.ph.i33:                                       ; preds = %94, %.lr.ph.i33
   %.04246.i = phi i64 [ %100, %.lr.ph.i33 ], [ %97, %94 ]
   %98 = load ptr, ptr %0, align 8
-  %99 = tail call ptr @dsa_get_address(ptr noundef %98, i64 noundef %.04246.i) #13
+  %99 = tail call ptr @dsa_get_address(ptr noundef %98, i64 noundef %.04246.i) #12
   %100 = load i64, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %102 = load i32, ptr %101, align 8
@@ -496,7 +495,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   store i64 %68, ptr %114, align 8
   store ptr %88, ptr %17, align 8
   %115 = load ptr, ptr %0, align 8
-  tail call void @dsa_free(ptr noundef %115, i64 noundef %112) #13
+  tail call void @dsa_free(ptr noundef %115, i64 noundef %112) #12
   br label %116
 
 116:                                              ; preds = %116, %109
@@ -504,7 +503,7 @@ find_in_bucket.exit:                              ; preds = %.lr.ph.i
   %117 = load ptr, ptr %13, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = getelementptr inbounds nuw %struct.dshash_partition, ptr %118, i64 %.248.i
-  tail call void @LWLockRelease(ptr noundef nonnull %119) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %119) #12
   %120 = add nuw nsw i64 %.248.i, 1
   %exitcond49.not.i = icmp eq i64 %120, 128
   br i1 %exitcond49.not.i, label %resize.exit, label %116, !llvm.loop !11
@@ -524,15 +523,15 @@ resize.exit:                                      ; preds = %116, %79
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, 16
-  %132 = tail call i64 @dsa_allocate_extended(ptr noundef %128, i64 noundef %131, i32 noundef 0) #13
+  %132 = tail call i64 @dsa_allocate_extended(ptr noundef %128, i64 noundef %131, i32 noundef 0) #12
   %133 = load ptr, ptr %0, align 8
-  %134 = tail call ptr @dsa_get_address(ptr noundef %133, i64 noundef %132) #13
+  %134 = tail call ptr @dsa_get_address(ptr noundef %133, i64 noundef %132) #12
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %137 = load ptr, ptr %136, align 8
   %138 = load i64, ptr %4, align 8
   %139 = load ptr, ptr %8, align 8
-  tail call void %137(ptr noundef nonnull %135, ptr noundef %1, i64 noundef %138, ptr noundef %139) #13
+  tail call void %137(ptr noundef nonnull %135, ptr noundef %1, i64 noundef %138, ptr noundef %139) #12
   %140 = load i64, ptr %127, align 8
   store i64 %140, ptr %134, align 8
   store i64 %132, ptr %127, align 8
@@ -557,14 +556,14 @@ define dso_local noundef zeroext i1 @dshash_delete_key(ptr noundef captures(none
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %5(ptr noundef %1, i64 noundef %6, ptr noundef %8) #13
+  %9 = tail call i32 %5(ptr noundef %1, i64 noundef %6, ptr noundef %8) #12
   %10 = lshr i32 %9, 25
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = getelementptr inbounds nuw %struct.dshash_partition, ptr %14, i64 %11
-  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #13
+  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8
   %19 = load ptr, ptr %12, align 8
@@ -582,7 +581,7 @@ define dso_local noundef zeroext i1 @dshash_delete_key(ptr noundef captures(none
   %23 = load ptr, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 3104
   %25 = load i64, ptr %24, align 8
-  %26 = tail call ptr @dsa_get_address(ptr noundef %23, i64 noundef %25) #13
+  %26 = tail call ptr @dsa_get_address(ptr noundef %23, i64 noundef %25) #12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %26, ptr %27, align 8
   %28 = load ptr, ptr %12, align 8
@@ -610,12 +609,12 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %0, align 8
-  %43 = tail call ptr @dsa_get_address(ptr noundef %42, i64 noundef %40) #13
+  %43 = tail call ptr @dsa_get_address(ptr noundef %42, i64 noundef %40) #12
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %38, align 8
   %46 = load i64, ptr %3, align 8
   %47 = load ptr, ptr %7, align 8
-  %48 = tail call i32 %45(ptr noundef %1, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %47) #13
+  %48 = tail call i32 %45(ptr noundef %1, ptr noundef nonnull %44, i64 noundef %46, ptr noundef %47) #12
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %39
 
@@ -623,7 +622,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   %51 = load i64, ptr %43, align 8
   %52 = load ptr, ptr %0, align 8
   %53 = load i64, ptr %.014.i, align 8
-  tail call void @dsa_free(ptr noundef %52, i64 noundef %53) #13
+  tail call void @dsa_free(ptr noundef %52, i64 noundef %53) #12
   store i64 %51, ptr %.014.i, align 8
   %54 = load ptr, ptr %12, align 8
   %55 = getelementptr inbounds nuw %struct.dshash_partition, ptr %54, i64 %11
@@ -637,7 +636,7 @@ delete_key_from_bucket.exit:                      ; preds = %39, %50
   %59 = load ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = getelementptr inbounds nuw %struct.dshash_partition, ptr %60, i64 %11
-  tail call void @LWLockRelease(ptr noundef nonnull %61) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %61) #12
   ret i1 %.not.not.not.not.i.not.not.not.not.not
 }
 
@@ -664,7 +663,7 @@ define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr %0, align 8
-  %18 = tail call ptr @dsa_get_address(ptr noundef %17, i64 noundef %15) #13
+  %18 = tail call ptr @dsa_get_address(ptr noundef %17, i64 noundef %15) #12
   %19 = icmp eq ptr %18, %3
   br i1 %19, label %20, label %14
 
@@ -672,7 +671,7 @@ define dso_local void @dshash_delete_entry(ptr noundef readonly captures(none) %
   %21 = load i64, ptr %3, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = load i64, ptr %.013.i.i, align 8
-  tail call void @dsa_free(ptr noundef %22, i64 noundef %23) #13
+  tail call void @dsa_free(ptr noundef %22, i64 noundef %23) #12
   store i64 %21, ptr %.013.i.i, align 8
   %24 = lshr i64 %6, 25
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -691,7 +690,7 @@ delete_item.exit:                                 ; preds = %14, %20
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = getelementptr inbounds nuw %struct.dshash_partition, ptr %35, i64 %32
-  tail call void @LWLockRelease(ptr noundef nonnull %36) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %36) #12
   ret void
 }
 
@@ -705,13 +704,13 @@ define dso_local void @dshash_release_lock(ptr noundef readonly captures(none) %
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = getelementptr inbounds nuw %struct.dshash_partition, ptr %9, i64 %6
-  tail call void @LWLockRelease(ptr noundef nonnull %10) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %10) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @dshash_memcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #5 {
-  %5 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %5 = tail call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %2) #14
   ret i32 %5
 }
 
@@ -720,7 +719,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @dshash_memhash(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @tag_hash(ptr noundef %0, i64 noundef %1) #13
+  %4 = tail call i32 @tag_hash(ptr noundef %0, i64 noundef %1) #12
   ret i32 %4
 }
 
@@ -734,7 +733,7 @@ define dso_local void @dshash_memcpy(ptr noundef writeonly captures(none) %0, pt
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @dshash_strcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #5 {
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #15
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #14
   ret i32 %5
 }
 
@@ -743,7 +742,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @dshash_strhash(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @string_hash(ptr noundef %0, i64 noundef %1) #13
+  %4 = tail call i32 @string_hash(ptr noundef %0, i64 noundef %1) #12
   ret i32 %4
 }
 
@@ -751,7 +750,7 @@ declare i32 @string_hash(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @dshash_strcpy(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #8 {
-  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #13
+  %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #12
   ret void
 }
 
@@ -788,7 +787,7 @@ define dso_local ptr @dshash_seq_next(ptr noundef captures(none) %0) local_unnam
   %11 = load i8, ptr %10, align 4, !range !12, !noundef !13
   %12 = xor i8 %11, 1
   %not. = zext nneg i8 %12 to i32
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef %not.) #13
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef %not.) #12
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8
@@ -803,7 +802,7 @@ define dso_local ptr @dshash_seq_next(ptr noundef captures(none) %0) local_unnam
   %22 = load ptr, ptr %14, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 3104
   %24 = load i64, ptr %23, align 8
-  %25 = tail call ptr @dsa_get_address(ptr noundef %22, i64 noundef %24) #13
+  %25 = tail call ptr @dsa_get_address(ptr noundef %22, i64 noundef %24) #12
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr %25, ptr %26, align 8
   %27 = load ptr, ptr %17, align 8
@@ -881,7 +880,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %65 = load i8, ptr %46, align 4, !range !12, !noundef !13
   %66 = xor i8 %65, 1
   %not.42 = zext nneg i8 %66 to i32
-  %67 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef %not.42) #13
+  %67 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef %not.42) #12
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load ptr, ptr %69, align 8
@@ -889,7 +888,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %72 = load i32, ptr %2, align 8
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds %struct.dshash_partition, ptr %71, i64 %73
-  tail call void @LWLockRelease(ptr noundef nonnull %74) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %74) #12
   store i32 %57, ptr %2, align 8
   %.pre51 = load ptr, ptr %0, align 8
   %.pre52 = load i32, ptr %44, align 8
@@ -910,7 +909,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %5, %21
   %82 = phi ptr [ %.pre53, %.._crit_edge_crit_edge ], [ %77, %75 ]
   %.136.lcssa = phi i64 [ %.13644, %.._crit_edge_crit_edge ], [ %.136, %75 ]
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call ptr @dsa_get_address(ptr noundef %83, i64 noundef %.136.lcssa) #13
+  %84 = tail call ptr @dsa_get_address(ptr noundef %83, i64 noundef %.136.lcssa) #12
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %84, ptr %85, align 8
   %86 = load i64, ptr %84, align 8
@@ -938,7 +937,7 @@ define dso_local void @dshash_seq_term(ptr noundef readonly captures(none) %0) l
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = zext nneg i32 %3 to i64
   %11 = getelementptr inbounds nuw %struct.dshash_partition, ptr %9, i64 %10
-  tail call void @LWLockRelease(ptr noundef nonnull %11) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %11) #12
   br label %12
 
 12:                                               ; preds = %5, %1
@@ -970,7 +969,7 @@ define dso_local void @dshash_delete_current(ptr noundef readonly captures(none)
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %2, align 8
-  %19 = tail call ptr @dsa_get_address(ptr noundef %18, i64 noundef %16) #13
+  %19 = tail call ptr @dsa_get_address(ptr noundef %18, i64 noundef %16) #12
   %20 = icmp eq ptr %19, %4
   br i1 %20, label %21, label %15
 
@@ -978,7 +977,7 @@ define dso_local void @dshash_delete_current(ptr noundef readonly captures(none)
   %22 = load i64, ptr %4, align 8
   %23 = load ptr, ptr %2, align 8
   %24 = load i64, ptr %.013.i.i, align 8
-  tail call void @dsa_free(ptr noundef %23, i64 noundef %24) #13
+  tail call void @dsa_free(ptr noundef %23, i64 noundef %24) #12
   store i64 %22, ptr %.013.i.i, align 8
   %25 = lshr i64 %7, 25
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -1004,7 +1003,7 @@ define dso_local void @dshash_dump(ptr noundef captures(none) %0) local_unnamed_
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw %struct.dshash_partition, ptr %5, i64 %.035
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #13
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #12
   %8 = add nuw nsw i64 %.035, 1
   %exitcond.not = icmp eq i64 %8, 128
   br i1 %exitcond.not, label %9, label %3, !llvm.loop !15
@@ -1022,7 +1021,7 @@ define dso_local void @dshash_dump(ptr noundef captures(none) %0) local_unnamed_
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 3104
   %18 = load i64, ptr %17, align 8
-  %19 = tail call ptr @dsa_get_address(ptr noundef %16, i64 noundef %18) #13
+  %19 = tail call ptr @dsa_get_address(ptr noundef %16, i64 noundef %18) #12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr %2, align 8
@@ -1035,7 +1034,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %24 = phi i64 [ %11, %9 ], [ %23, %15 ]
   %25 = load ptr, ptr @stderr, align 8
   %26 = shl nuw i64 1, %24
-  %27 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.3, i64 noundef %26) #13
+  %27 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.3, i64 noundef %26) #12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %29
 
@@ -1053,11 +1052,11 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %35 = add nuw nsw i64 %.143, 1
   %36 = shl i64 %35, %33
   %37 = load ptr, ptr @stderr, align 8
-  %38 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %37, ptr noundef nonnull @.str.4, i64 noundef %.143) #13
+  %38 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %37, ptr noundef nonnull @.str.4, i64 noundef %.143) #12
   %39 = load ptr, ptr @stderr, align 8
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %41 = load i64, ptr %40, align 8
-  %42 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %39, ptr noundef nonnull @.str.5, i64 noundef %41) #13
+  %42 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %39, ptr noundef nonnull @.str.5, i64 noundef %41) #12
   %43 = icmp ult i64 %34, %36
   br i1 %43, label %.lr.ph42, label %.loopexit
 
@@ -1073,7 +1072,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %.03239 = phi i64 [ %.032, %.lr.ph ], [ %.03236, %.lr.ph42 ]
   %.03338 = phi i64 [ %48, %.lr.ph ], [ 0, %.lr.ph42 ]
   %46 = load ptr, ptr %0, align 8
-  %47 = tail call ptr @dsa_get_address(ptr noundef %46, i64 noundef %.03239) #13
+  %47 = tail call ptr @dsa_get_address(ptr noundef %46, i64 noundef %.03239) #12
   %48 = add i64 %.03338, 1
   %.032 = load i64, ptr %47, align 8
   %.not = icmp eq i64 %.032, 0
@@ -1082,7 +1081,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph42
   %.033.lcssa = phi i64 [ 0, %.lr.ph42 ], [ %48, %.lr.ph ]
   %49 = load ptr, ptr @stderr, align 8
-  %50 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %49, ptr noundef nonnull @.str.6, i64 noundef %.03440, i64 noundef %.033.lcssa) #13
+  %50 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %49, ptr noundef nonnull @.str.6, i64 noundef %.03440, i64 noundef %.033.lcssa) #12
   %51 = add nuw i64 %.03440, 1
   %exitcond45.not = icmp eq i64 %51, %36
   br i1 %exitcond45.not, label %.loopexit, label %.lr.ph42, !llvm.loop !18
@@ -1092,7 +1091,7 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
   %52 = load ptr, ptr %2, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = getelementptr inbounds nuw %struct.dshash_partition, ptr %53, i64 %.244
-  tail call void @LWLockRelease(ptr noundef nonnull %54) #13
+  tail call void @LWLockRelease(ptr noundef nonnull %54) #12
   %55 = add nuw nsw i64 %.244, 1
   %exitcond47.not = icmp eq i64 %55, 128
   br i1 %exitcond47.not, label %56, label %.preheader, !llvm.loop !19
@@ -1103,11 +1102,8 @@ ensure_valid_bucket_pointers.exit:                ; preds = %9, %15
 
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1120,11 +1116,10 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

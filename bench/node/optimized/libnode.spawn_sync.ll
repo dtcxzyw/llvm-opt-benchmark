@@ -177,7 +177,6 @@ $_ZZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm8EEixEmE4args = comdat an
 @.str.71 = private unnamed_addr constant [32 x i8] c"(buf->base) == (data_ + used())\00", align 1
 @.str.72 = private unnamed_addr constant [69 x i8] c"void node::SyncProcessOutputBuffer::OnRead(const uv_buf_t *, size_t)\00", align 1
 @.str.73 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE = external local_unnamed_addr constant ptr, align 8
 @_ZZN4node17SyncProcessRunner14AddStdioIgnoreEjE4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.74, ptr @.str.75, ptr @.str.76 }, comdat, align 8
 @.str.74 = private unnamed_addr constant [28 x i8] c"../../src/spawn_sync.cc:947\00", align 1
 @.str.75 = private unnamed_addr constant [28 x i8] c"(child_fd) < (stdio_count_)\00", align 1
@@ -733,33 +732,24 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #25
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
   store i64 0, ptr %ref.tmp, align 8
   %_M_str.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr @.str.18, ptr %_M_str.i, align 8
-  %enabled_.i = getelementptr inbounds nuw i8, ptr %11, i64 1368
-  %12 = load i8, ptr %enabled_.i, align 8
-  %tobool.i = trunc i8 %12 to i1
+  %enabled_.i = getelementptr inbounds nuw i8, ptr %7, i64 1368
+  %8 = load i8, ptr %enabled_.i, align 8
+  %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.end.i, label %do.end
 
 if.end.i:                                         ; preds = %entry
-  %permission_.i = getelementptr inbounds nuw i8, ptr %11, i64 1312
+  %permission_.i = getelementptr inbounds nuw i8, ptr %7, i64 1312
   %call.i = call noundef zeroext i1 @_ZNK4node10permission10Permission16is_scope_grantedENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(57) %permission_.i, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #29
   br i1 %call.i, label %do.end, label %if.then
 
@@ -767,11 +757,11 @@ if.then:                                          ; preds = %if.end.i
   store i64 0, ptr %ref.tmp5, align 8
   %_M_str.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   store ptr @.str.18, ptr %_M_str.i13, align 8
-  call void @_ZN4node10permission10Permission17ThrowAccessDeniedEPNS_11EnvironmentENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %11, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #25
+  call void @_ZN4node10permission10Permission17ThrowAccessDeniedEPNS_11EnvironmentENS0_15PermissionScopeERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull %7, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #25
   br label %cleanup.cont
 
 do.end:                                           ; preds = %entry, %if.end.i
-  call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %11) #25
+  call void @_ZNK4node11Environment14PrintSyncTraceEv(ptr noundef nonnull align 8 dereferenceable(2872) %7) #25
   %kill_signal_.i = getelementptr inbounds nuw i8, ptr %p, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %p, i8 0, i64 16, i1 false)
   store i32 15, ptr %kill_signal_.i, align 8
@@ -798,37 +788,37 @@ do.end:                                           ; preds = %entry, %if.end.i
   store i32 0, ptr %lifecycle_.i, align 4
   %env_.i = getelementptr inbounds nuw i8, ptr %p, i64 512
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(153) %uv_timer_.i, i8 0, i64 153, i1 false)
-  store ptr %11, ptr %env_.i, align 8
+  store ptr %7, ptr %env_.i, align 8
   %length_.i = getelementptr inbounds nuw i8, ptr %args, i64 16
-  %13 = load i32, ptr %length_.i, align 8
-  %cmp2.i = icmp slt i32 %13, 1
+  %9 = load i32, ptr %length_.i, align 8
+  %cmp2.i = icmp slt i32 %9, 1
   br i1 %cmp2.i, label %if.then.i35, label %if.end.i34
 
 if.then.i35:                                      ; preds = %do.end
-  %14 = load ptr, ptr %args, align 8
-  %arrayidx.i57 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load ptr, ptr %arrayidx.i57, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %add1.i.i = add i64 %16, 608
-  %17 = inttoptr i64 %add1.i.i to ptr
+  %10 = load ptr, ptr %args, align 8
+  %arrayidx.i57 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %11 = load ptr, ptr %arrayidx.i57, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %add1.i.i = add i64 %12, 608
+  %13 = inttoptr i64 %add1.i.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i34:                                       ; preds = %do.end
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %18 = load ptr, ptr %values_.i, align 8
+  %14 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i34, %if.then.i35
-  %retval.i31.sroa.0.0 = phi ptr [ %17, %if.then.i35 ], [ %18, %if.end.i34 ]
+  %retval.i31.sroa.0.0 = phi ptr [ %13, %if.then.i35 ], [ %14, %if.end.i34 ]
   %call13 = call ptr @_ZN4node17SyncProcessRunner3RunEN2v85LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(520) %p, ptr %retval.i31.sroa.0.0)
   %cmp.i.i = icmp eq ptr %call13, null
   br i1 %cmp.i.i, label %cleanup, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %19 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %20 = load i64, ptr %call13, align 8
-  store i64 %20, ptr %arrayidx.i, align 8
+  %15 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %16 = load i64, ptr %call13, align 8
+  store i64 %16, ptr %arrayidx.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.else.i

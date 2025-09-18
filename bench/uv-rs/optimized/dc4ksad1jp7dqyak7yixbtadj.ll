@@ -1930,9 +1930,9 @@ define void @"_ZN16uv_platform_tags7abi_tag1_85_$LT$impl$u20$rkyv..traits..Archi
     i8 0, label %8
     i8 1, label %9
     i8 2, label %10
-    i8 3, label %22
-    i8 4, label %43
-    i8 5, label %58
+    i8 3, label %20
+    i8 4, label %36
+    i8 5, label %49
   ]
 
 7:                                                ; preds = %4
@@ -1940,125 +1940,110 @@ define void @"_ZN16uv_platform_tags7abi_tag1_85_$LT$impl$u20$rkyv..traits..Archi
 
 8:                                                ; preds = %4
   store i8 0, ptr %2, align 1
-  br label %67
+  br label %56
 
 9:                                                ; preds = %4
   store i8 1, ptr %2, align 1
-  br label %67
+  br label %56
 
 10:                                               ; preds = %4
-  %11 = load i8, ptr %0, align 1, !range !42, !noundef !10
-  %12 = icmp eq i8 %11, 4
-  tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 2, ptr %2, align 1
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %16 = load i8, ptr %15, align 1, !range !55, !noundef !10
-  store i8 %16, ptr %14, align 1
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %14 = load i8, ptr %13, align 1, !range !55, !noundef !10
+  store i8 %14, ptr %12, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
-  %18 = load i8, ptr %13, align 1, !alias.scope !239, !noundef !10
-  store i8 %18, ptr %17, align 1, !noalias !239
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %16 = load i8, ptr %11, align 1, !alias.scope !239, !noundef !10
+  store i8 %16, ptr %15, align 1, !noalias !239
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %21 = load i8, ptr %20, align 1, !alias.scope !243, !noundef !10
-  store i8 %21, ptr %19, align 1, !noalias !243
-  br label %67
+  %19 = load i8, ptr %18, align 1, !alias.scope !243, !noundef !10
+  store i8 %19, ptr %17, align 1, !noalias !243
+  br label %56
 
-22:                                               ; preds = %4
-  %23 = trunc i8 %1 to i1
-  %24 = load i8, ptr %0, align 1, !range !42, !noundef !10
-  %25 = add nsw i8 %24, -2
-  %26 = icmp ugt i8 %25, 5
-  %27 = icmp eq i8 %25, 3
-  %28 = or i1 %26, %27
-  tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 3
+20:                                               ; preds = %4
+  %21 = trunc i8 %1 to i1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 3, ptr %2, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  br i1 %23, label %31, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit"
+  br i1 %21, label %24, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit"
 
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  %34 = load i8, ptr %33, align 1, !alias.scope !253, !noundef !10
-  store i8 %34, ptr %32, align 1, !noalias !253
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %27 = load i8, ptr %26, align 1, !alias.scope !253, !noundef !10
+  store i8 %27, ptr %25, align 1, !noalias !253
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  %37 = load i8, ptr %36, align 1, !alias.scope !257, !noundef !10
-  store i8 %37, ptr %35, align 1, !noalias !257
+  %30 = load i8, ptr %29, align 1, !alias.scope !257, !noundef !10
+  store i8 %30, ptr %28, align 1, !noalias !257
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit"
 
-"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit": ; preds = %22, %31
-  %.sink.i = phi i8 [ 1, %31 ], [ 0, %22 ]
-  store i8 %.sink.i, ptr %30, align 1, !noalias !244
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
+"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit": ; preds = %20, %24
+  %.sink.i = phi i8 [ 1, %24 ], [ 0, %20 ]
+  store i8 %.sink.i, ptr %23, align 1, !noalias !244
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
-  %39 = load i8, ptr %29, align 1, !alias.scope !264, !noundef !10
-  store i8 %39, ptr %38, align 1, !noalias !264
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 5
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %32 = load i8, ptr %22, align 1, !alias.scope !264, !noundef !10
+  store i8 %32, ptr %31, align 1, !noalias !264
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 5
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
-  %42 = load i8, ptr %41, align 1, !alias.scope !268, !noundef !10
-  store i8 %42, ptr %40, align 1, !noalias !268
-  br label %67
+  %35 = load i8, ptr %34, align 1, !alias.scope !268, !noundef !10
+  store i8 %35, ptr %33, align 1, !noalias !268
+  br label %56
 
-43:                                               ; preds = %4
-  %44 = load i8, ptr %0, align 1, !range !42, !noundef !10
-  %45 = icmp eq i8 %44, 6
-  tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 3
+36:                                               ; preds = %4
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 4, ptr %2, align 1
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
-  %49 = load i8, ptr %46, align 1, !alias.scope !275, !noundef !10
-  store i8 %49, ptr %48, align 1, !noalias !275
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %40 = load i8, ptr %37, align 1, !alias.scope !275, !noundef !10
+  store i8 %40, ptr %39, align 1, !noalias !275
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
-  %52 = load i8, ptr %51, align 1, !alias.scope !279, !noundef !10
-  store i8 %52, ptr %50, align 1, !noalias !279
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 3
+  %43 = load i8, ptr %42, align 1, !alias.scope !279, !noundef !10
+  store i8 %43, ptr %41, align 1, !noalias !279
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  %54 = load i8, ptr %47, align 1, !alias.scope !286, !noundef !10
-  store i8 %54, ptr %53, align 1, !noalias !286
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %45 = load i8, ptr %38, align 1, !alias.scope !286, !noundef !10
+  store i8 %45, ptr %44, align 1, !noalias !286
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
-  %57 = load i8, ptr %56, align 1, !alias.scope !290, !noundef !10
-  store i8 %57, ptr %55, align 1, !noalias !290
-  br label %67
+  %48 = load i8, ptr %47, align 1, !alias.scope !290, !noundef !10
+  store i8 %48, ptr %46, align 1, !noalias !290
+  br label %56
 
-58:                                               ; preds = %4
-  %59 = load i8, ptr %0, align 1, !range !42, !noundef !10
-  %60 = icmp eq i8 %59, 7
-  tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1
+49:                                               ; preds = %4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 5, ptr %2, align 1
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
-  %63 = load i8, ptr %61, align 1, !alias.scope !297, !noundef !10
-  store i8 %63, ptr %62, align 1, !noalias !297
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %52 = load i8, ptr %50, align 1, !alias.scope !297, !noundef !10
+  store i8 %52, ptr %51, align 1, !noalias !297
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %66 = load i8, ptr %65, align 1, !alias.scope !301, !noundef !10
-  store i8 %66, ptr %64, align 1, !noalias !301
-  br label %67
+  %55 = load i8, ptr %54, align 1, !alias.scope !301, !noundef !10
+  store i8 %55, ptr %53, align 1, !noalias !301
+  br label %56
 
-67:                                               ; preds = %58, %43, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit", %10, %9, %8
+56:                                               ; preds = %49, %36, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf56042340778daf9E.exit", %10, %9, %8
   ret void
 }
 

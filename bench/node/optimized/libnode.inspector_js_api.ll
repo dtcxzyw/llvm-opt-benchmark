@@ -2482,44 +2482,35 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #21
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %inspector_agent_.i = getelementptr inbounds nuw i8, ptr %11, i64 2136
-  %12 = load ptr, ptr %inspector_agent_.i, align 8
-  %call2 = tail call noundef zeroext i1 @_ZN4node9inspector5Agent8IsActiveEv(ptr noundef nonnull align 8 dereferenceable(186) %12) #21
+  %inspector_agent_.i = getelementptr inbounds nuw i8, ptr %7, i64 2136
+  %8 = load ptr, ptr %inspector_agent_.i, align 8
+  %call2 = tail call noundef zeroext i1 @_ZN4node9inspector5Agent8IsActiveEv(ptr noundef nonnull align 8 dereferenceable(186) %8) #21
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN4node9inspector5Agent14WaitForConnectEv(ptr noundef nonnull align 8 dereferenceable(186) %12) #21
+  tail call void @_ZN4node9inspector5Agent14WaitForConnectEv(ptr noundef nonnull align 8 dereferenceable(186) %8) #21
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %13 = load ptr, ptr %args, align 8
-  %call4 = tail call noundef zeroext i1 @_ZN4node9inspector5Agent8IsActiveEv(ptr noundef nonnull align 8 dereferenceable(186) %12) #21
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %14 = load ptr, ptr %arrayidx.i.i, align 8
-  %15 = ptrtoint ptr %14 to i64
+  %9 = load ptr, ptr %args, align 8
+  %call4 = tail call noundef zeroext i1 @_ZN4node9inspector5Agent8IsActiveEv(ptr noundef nonnull align 8 dereferenceable(186) %8) #21
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %10 = load ptr, ptr %arrayidx.i.i, align 8
+  %11 = ptrtoint ptr %10 to i64
   %add.i.i.i = select i1 %call4, i64 632, i64 640
-  %add1.i.i.i = add i64 %add.i.i.i, %15
-  %16 = inttoptr i64 %add1.i.i.i to ptr
-  %17 = load i64, ptr %16, align 8
-  store i64 %17, ptr %arrayidx.i, align 8
+  %add1.i.i.i = add i64 %add.i.i.i, %11
+  %12 = inttoptr i64 %add1.i.i.i to ptr
+  %13 = load i64, ptr %12, align 8
+  store i64 %13, ptr %arrayidx.i, align 8
   ret void
 }
 
@@ -3255,39 +3246,30 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #21
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load ptr, ptr %args, align 8
-  %inspector_agent_.i = getelementptr inbounds nuw i8, ptr %11, i64 2136
-  %13 = load ptr, ptr %inspector_agent_.i, align 8
-  %io_.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %14 = load ptr, ptr %io_.i, align 8
-  %cmp.i.i.i4.not = icmp eq ptr %14, null
+  %8 = load ptr, ptr %args, align 8
+  %inspector_agent_.i = getelementptr inbounds nuw i8, ptr %7, i64 2136
+  %9 = load ptr, ptr %inspector_agent_.i, align 8
+  %io_.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %10 = load ptr, ptr %io_.i, align 8
+  %cmp.i.i.i4.not = icmp eq ptr %10, null
   %. = select i1 %cmp.i.i.i4.not, i64 64, i64 56
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %arrayidx.i.i, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %add.i.i.i = add i64 %16, 576
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = load ptr, ptr %arrayidx.i.i, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %add.i.i.i = add i64 %12, 576
   %add1.i.i.i = add i64 %add.i.i.i, %.
-  %17 = inttoptr i64 %add1.i.i.i to ptr
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %arrayidx.i, align 8
+  %13 = inttoptr i64 %add1.i.i.i to ptr
+  %14 = load i64, ptr %13, align 8
+  store i64 %14, ptr %arrayidx.i, align 8
   ret void
 }
 

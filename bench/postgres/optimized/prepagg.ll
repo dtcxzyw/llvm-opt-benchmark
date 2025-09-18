@@ -44,16 +44,15 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = zext i32 %17 to i64
-  %19 = tail call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %18) #5
+  %19 = tail call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %18) #4
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %20, label %24
 
 20:                                               ; preds = %15
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %21)
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %22 = load i32, ptr %16, align 4
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @__func__.preprocess_aggref) #5
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 153, ptr noundef nonnull @__func__.preprocess_aggref) #4
   unreachable
 
 24:                                               ; preds = %15
@@ -77,9 +76,9 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 52
   %43 = load i32, ptr %42, align 4
-  %44 = call i32 @get_aggregate_argtypes(ptr noundef nonnull %0, ptr noundef nonnull %10) #5
+  %44 = call i32 @get_aggregate_argtypes(ptr noundef nonnull %0, ptr noundef nonnull %10) #4
   %45 = load i32, ptr %16, align 4
-  %46 = call i32 @resolve_aggregate_transtype(i32 noundef %45, i32 noundef %41, ptr noundef nonnull %10, i32 noundef %44) #5
+  %46 = call i32 @resolve_aggregate_transtype(i32 noundef %45, i32 noundef %41, ptr noundef nonnull %10, i32 noundef %44) #4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %46, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -93,13 +92,13 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   %52 = load ptr, ptr %.val120.i, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = call i32 @exprType(ptr noundef %54) #5
+  %55 = call i32 @exprType(ptr noundef %54) #4
   %56 = icmp eq i32 %46, %55
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr %53, align 8
-  %59 = call i32 @exprTypmod(ptr noundef %58) #5
+  %59 = call i32 @exprTypmod(ptr noundef %58) #4
   br label %60
 
 60:                                               ; preds = %57, %50, %24
@@ -110,8 +109,8 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   %64 = zext i1 %63 to i8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i32, ptr %65, align 8
-  call void @get_typlenbyval(i32 noundef %66, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
-  %67 = call i64 @SysCacheGetAttr(i32 noundef 0, ptr noundef nonnull %19, i16 noundef signext 21, ptr noundef nonnull %7) #5
+  call void @get_typlenbyval(i32 noundef %66, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
+  %67 = call i64 @SysCacheGetAttr(i32 noundef 0, ptr noundef nonnull %19, i16 noundef signext 21, ptr noundef nonnull %7) #4
   %68 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %76, label %70
@@ -119,21 +118,21 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
 70:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @getTypeInputInfo(i32 noundef %46, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  call void @getTypeInputInfo(i32 noundef %46, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %71 = inttoptr i64 %67 to ptr
-  %72 = call ptr @text_to_cstring(ptr noundef %71) #5
+  %72 = call ptr @text_to_cstring(ptr noundef %71) #4
   %73 = load i32, ptr %3, align 4
   %74 = load i32, ptr %4, align 4
-  %75 = call i64 @OidInputFunctionCall(i32 noundef %73, ptr noundef %72, i32 noundef %74, i32 noundef -1) #5
-  call void @pfree(ptr noundef %72) #5
+  %75 = call i64 @OidInputFunctionCall(i32 noundef %73, ptr noundef %72, i32 noundef %74, i32 noundef -1) #4
+  call void @pfree(ptr noundef %72) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %76
 
 76:                                               ; preds = %70, %60
   %.0108.i = phi i64 [ %75, %70 ], [ 0, %60 ]
-  call void @ReleaseSysCache(ptr noundef nonnull %19) #5
-  %77 = call zeroext i1 @contain_volatile_functions(ptr noundef nonnull %0) #5
+  call void @ReleaseSysCache(ptr noundef nonnull %19) #4
+  %77 = call zeroext i1 @contain_volatile_functions(ptr noundef nonnull %0) #4
   br i1 %77, label %find_compatible_agg.exit.thread.i, label %78
 
 78:                                               ; preds = %76
@@ -209,28 +208,28 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   %122 = load ptr, ptr %48, align 8
   %123 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %124 = load ptr, ptr %123, align 8
-  %125 = call zeroext i1 @equal(ptr noundef %122, ptr noundef %124) #5
+  %125 = call zeroext i1 @equal(ptr noundef %122, ptr noundef %124) #4
   br i1 %125, label %126, label %169
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %87, align 8
   %128 = getelementptr inbounds nuw i8, ptr %101, i64 48
   %129 = load ptr, ptr %128, align 8
-  %130 = call zeroext i1 @equal(ptr noundef %127, ptr noundef %129) #5
+  %130 = call zeroext i1 @equal(ptr noundef %127, ptr noundef %129) #4
   br i1 %130, label %131, label %169
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %88, align 8
   %133 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %134 = load ptr, ptr %133, align 8
-  %135 = call zeroext i1 @equal(ptr noundef %132, ptr noundef %134) #5
+  %135 = call zeroext i1 @equal(ptr noundef %132, ptr noundef %134) #4
   br i1 %135, label %136, label %169
 
 136:                                              ; preds = %131
   %137 = load ptr, ptr %89, align 8
   %138 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %139 = load ptr, ptr %138, align 8
-  %140 = call zeroext i1 @equal(ptr noundef %137, ptr noundef %139) #5
+  %140 = call zeroext i1 @equal(ptr noundef %137, ptr noundef %139) #4
   br i1 %140, label %141, label %169
 
 141:                                              ; preds = %136
@@ -258,7 +257,7 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   %157 = load ptr, ptr %91, align 8
   %158 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %159 = load ptr, ptr %158, align 8
-  %160 = call zeroext i1 @equal(ptr noundef %157, ptr noundef %159) #5
+  %160 = call zeroext i1 @equal(ptr noundef %157, ptr noundef %159) #4
   br i1 %160, label %find_compatible_agg.exit.i, label %161
 
 161:                                              ; preds = %156, %151, %146, %141
@@ -270,7 +269,7 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %167 = load i32, ptr %166, align 8
-  %168 = call ptr @lappend_int(ptr noundef %.0133146.i, i32 noundef %167) #5
+  %168 = call ptr @lappend_int(ptr noundef %.0133146.i, i32 noundef %167) #4
   br label %169
 
 169:                                              ; preds = %165, %161, %136, %131, %126, %121, %117, %113, %109, %105, %.lr.ph.i
@@ -282,7 +281,7 @@ define internal zeroext i1 @preprocess_aggrefs_walker(ptr noundef %0, ptr nounde
   br i1 %172, label %.lr.ph.i, label %find_compatible_agg.exit.thread.i
 
 find_compatible_agg.exit.i:                       ; preds = %156
-  call void @list_free(ptr noundef %.0133146.i) #5
+  call void @list_free(ptr noundef %.0133146.i) #4
   %.not114.i = icmp eq i32 %97, -1
   br i1 %.not114.i, label %find_compatible_agg.exit.thread.i, label %173
 
@@ -295,7 +294,7 @@ find_compatible_agg.exit.i:                       ; preds = %156
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8
-  %181 = call ptr @lappend(ptr noundef %180, ptr noundef nonnull %0) #5
+  %181 = call ptr @lappend(ptr noundef %180, ptr noundef nonnull %0) #4
   store ptr %181, ptr %179, align 8
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 16
   %183 = load i32, ptr %182, align 8
@@ -303,11 +302,11 @@ find_compatible_agg.exit.i:                       ; preds = %156
 
 find_compatible_agg.exit.thread.i:                ; preds = %169, %find_compatible_agg.exit.i, %.lr.ph.i.i, %78, %76
   %.2137.i = phi ptr [ null, %find_compatible_agg.exit.i ], [ null, %78 ], [ null, %76 ], [ null, %.lr.ph.i.i ], [ %.1.i, %169 ]
-  %184 = call noundef ptr @palloc0(i64 noundef 32) #5
+  %184 = call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 326, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   store i32 %33, ptr %185, align 8
-  %186 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #5
+  %186 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #4
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr %186, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 20
@@ -324,7 +323,7 @@ find_compatible_agg.exit.thread.i:                ; preds = %169, %find_compatib
 
 list_length.exit.i:                               ; preds = %191, %find_compatible_agg.exit.thread.i
   %194 = phi i32 [ %193, %191 ], [ 0, %find_compatible_agg.exit.thread.i ]
-  %195 = call ptr @lappend(ptr noundef %190, ptr noundef nonnull %184) #5
+  %195 = call ptr @lappend(ptr noundef %190, ptr noundef nonnull %184) #4
   store ptr %195, ptr %189, align 8
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %197 = load ptr, ptr %196, align 8
@@ -347,7 +346,7 @@ list_length.exit.i:                               ; preds = %191, %find_compatib
   br label %206
 
 206:                                              ; preds = %201, %198
-  call void @get_typlenbyval(i32 noundef %46, ptr noundef nonnull %9, ptr noundef nonnull %8) #5
+  call void @get_typlenbyval(i32 noundef %46, ptr noundef nonnull %9, ptr noundef nonnull %8) #4
   %207 = load i16, ptr %9, align 2
   %208 = sext i16 %207 to i32
   %209 = load i8, ptr %8, align 1, !range !4, !noundef !5
@@ -479,7 +478,7 @@ list_length.exit.i:                               ; preds = %191, %find_compatib
 272:                                              ; preds = %.critedge.i.i
   %273 = getelementptr inbounds nuw i8, ptr %254, i64 64
   %274 = load i64, ptr %273, align 8
-  %275 = call zeroext i1 @datumIsEqual(i64 noundef %.0108.i, i64 noundef %274, i1 noundef zeroext %210, i32 noundef range(i32 -32768, 32768) %208) #5
+  %275 = call zeroext i1 @datumIsEqual(i64 noundef %.0108.i, i64 noundef %274, i1 noundef zeroext %210, i32 noundef range(i32 -32768, 32768) %208) #4
   br i1 %275, label %find_compatible_trans.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %272
@@ -499,7 +498,7 @@ find_compatible_trans.exit.i:                     ; preds = %272, %241
   br i1 %280, label %find_compatible_trans.exit.thread.i, label %334
 
 find_compatible_trans.exit.thread.i:              ; preds = %276, %245, %find_compatible_trans.exit.i, %.lr.ph.split.split.i.i, %.lr.ph.split.us.split.i.i, %.preheader.i.i, %206
-  %281 = call noundef ptr @palloc0(i64 noundef 80) #5
+  %281 = call noundef ptr @palloc0(i64 noundef 80) #4
   store i32 327, ptr %281, align 4
   %282 = load ptr, ptr %48, align 8
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 8
@@ -546,7 +545,7 @@ find_compatible_trans.exit.thread.i:              ; preds = %276, %245, %find_co
 
 list_length.exit130.i:                            ; preds = %304, %find_compatible_trans.exit.thread.i
   %307 = phi i32 [ %306, %304 ], [ 0, %find_compatible_trans.exit.thread.i ]
-  %308 = call ptr @lappend(ptr noundef %303, ptr noundef nonnull %281) #5
+  %308 = call ptr @lappend(ptr noundef %303, ptr noundef nonnull %281) #4
   store ptr %308, ptr %302, align 8
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 628
   %310 = load i8, ptr %309, align 4, !range !4, !noundef !5
@@ -594,7 +593,7 @@ list_length.exit130.i:                            ; preds = %304, %find_compatib
   br i1 %329, label %330, label %334
 
 330:                                              ; preds = %327, %324
-  %331 = call zeroext i1 @agg_args_support_sendreceive(ptr noundef nonnull %0) #5
+  %331 = call zeroext i1 @agg_args_support_sendreceive(ptr noundef nonnull %0) #4
   br i1 %331, label %334, label %332
 
 332:                                              ; preds = %330
@@ -624,7 +623,7 @@ preprocess_aggref.exit:                           ; preds = %173, %334
   br label %340
 
 338:                                              ; preds = %12
-  %339 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @preprocess_aggrefs_walker, ptr noundef %1) #5
+  %339 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @preprocess_aggrefs_walker, ptr noundef %1) #4
   br label %340
 
 340:                                              ; preds = %2, %338, %preprocess_aggref.exit
@@ -669,7 +668,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.
   %.sink = load i32, ptr %22, align 4
-  call void @add_function_cost(ptr noundef %0, i32 noundef %.sink, ptr noundef null, ptr noundef %2) #5
+  call void @add_function_cost(ptr noundef %0, i32 noundef %.sink, ptr noundef null, ptr noundef %2) #4
   br i1 %.not82, label %61, label %57
 
 .critedge:                                        ; preds = %126, %.lr.ph, %3
@@ -709,7 +708,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not79.us, label %43, label %42
 
 42:                                               ; preds = %.lr.ph100
-  call void @add_function_cost(ptr noundef %0, i32 noundef %41, ptr noundef null, ptr noundef nonnull %28) #5
+  call void @add_function_cost(ptr noundef %0, i32 noundef %41, ptr noundef null, ptr noundef nonnull %28) #4
   br label %43
 
 43:                                               ; preds = %42, %.lr.ph100
@@ -720,7 +719,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
 
 46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %45, ptr noundef %0) #5
+  call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %45, ptr noundef %0) #4
   %47 = load double, ptr %5, align 8
   %48 = load double, ptr %28, align 8
   %49 = fadd double %47, %48
@@ -749,7 +748,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not83, label %61, label %60
 
 60:                                               ; preds = %57
-  call void @add_function_cost(ptr noundef %0, i32 noundef %59, ptr noundef null, ptr noundef %2) #5
+  call void @add_function_cost(ptr noundef %0, i32 noundef %59, ptr noundef null, ptr noundef %2) #4
   br label %61
 
 61:                                               ; preds = %60, %57, %.lr.ph123
@@ -762,7 +761,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not85, label %66, label %65
 
 65:                                               ; preds = %62
-  call void @add_function_cost(ptr noundef %0, i32 noundef %64, ptr noundef null, ptr noundef nonnull %13) #5
+  call void @add_function_cost(ptr noundef %0, i32 noundef %64, ptr noundef null, ptr noundef nonnull %13) #4
   br label %66
 
 66:                                               ; preds = %65, %62, %61
@@ -772,7 +771,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %68 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %69 = load ptr, ptr %68, align 8
-  call void @cost_qual_eval_node(ptr noundef nonnull %4, ptr noundef %69, ptr noundef %0) #5
+  call void @cost_qual_eval_node(ptr noundef nonnull %4, ptr noundef %69, ptr noundef %0) #4
   %70 = load double, ptr %4, align 8
   %71 = load double, ptr %2, align 8
   %72 = fadd double %70, %71
@@ -787,7 +786,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not86, label %85, label %78
 
 78:                                               ; preds = %67
-  call void @cost_qual_eval_node(ptr noundef nonnull %4, ptr noundef nonnull %77, ptr noundef %0) #5
+  call void @cost_qual_eval_node(ptr noundef nonnull %4, ptr noundef nonnull %77, ptr noundef %0) #4
   %79 = load double, ptr %4, align 8
   %80 = load double, ptr %2, align 8
   %81 = fadd double %79, %80
@@ -825,7 +824,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
   %100 = load i32, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %102 = load i32, ptr %101, align 4
-  %103 = call i32 @get_typavgwidth(i32 noundef %100, i32 noundef %102) #5
+  %103 = call i32 @get_typavgwidth(i32 noundef %100, i32 noundef %102) #4
   br label %104
 
 104:                                              ; preds = %94, %90, %98
@@ -894,7 +893,7 @@ define dso_local void @get_agg_clause_costs(ptr noundef %0, i32 noundef %1, ptr 
 
 140:                                              ; preds = %.lr.ph98
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %139, ptr noundef %0) #5
+  call void @cost_qual_eval_node(ptr noundef nonnull %5, ptr noundef nonnull %139, ptr noundef %0) #4
   %141 = load double, ptr %5, align 8
   %142 = load double, ptr %28, align 8
   %143 = fadd double %141, %142
@@ -978,16 +977,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

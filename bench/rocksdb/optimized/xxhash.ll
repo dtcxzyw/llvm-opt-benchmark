@@ -3410,12 +3410,10 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16: ; preds = %.
   br i1 %exitcond57.not, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5, label %137, !llvm.loop !29
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5:       ; preds = %137, %124
-  %.pre-phi69 = phi i1 [ %136, %124 ], [ true, %137 ]
   %154 = phi <8 x i64> [ %.pre60, %124 ], [ %152, %137 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %156 = load i64, ptr %155, align 32, !tbaa !38
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 %156
-  tail call void @llvm.assume(i1 %.pre-phi69)
   %158 = lshr <8 x i64> %154, splat (i64 47)
   %159 = load <16 x i32>, ptr %157, align 1, !tbaa !12
   %160 = bitcast <8 x i64> %154 to <16 x i32>
@@ -6918,12 +6916,10 @@ _ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit16: ; preds = %.
   br i1 %exitcond57.not, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5, label %137, !llvm.loop !29
 
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit5:       ; preds = %137, %124
-  %.pre-phi69 = phi i1 [ %136, %124 ], [ true, %137 ]
   %154 = phi <8 x i64> [ %.pre60, %124 ], [ %152, %137 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %156 = load i64, ptr %155, align 32, !tbaa !38
   %157 = getelementptr inbounds nuw i8, ptr %14, i64 %156
-  tail call void @llvm.assume(i1 %.pre-phi69)
   %158 = lshr <8 x i64> %154, splat (i64 47)
   %159 = load <16 x i32>, ptr %157, align 1, !tbaa !12
   %160 = bitcast <8 x i64> %154 to <16 x i32>

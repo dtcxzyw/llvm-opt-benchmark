@@ -62,10 +62,10 @@ define dso_local { i64, i32 } @DefineRule(ptr noundef %0, ptr noundef %1) local_
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @transformRuleStmt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  call void @transformRuleStmt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = call i32 @RangeVarGetRelidExtended(ptr noundef %6, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef null) #6
+  %7 = call i32 @RangeVarGetRelidExtended(ptr noundef %6, i32 noundef 8, i32 noundef 0, ptr noundef null, ptr noundef null) #5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %4, align 8
@@ -96,7 +96,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %11 = alloca %struct.ObjectAddress, align 4
   %12 = alloca %struct.ObjectAddress, align 4
   %13 = alloca [8 x i8], align 8
-  %14 = tail call ptr @table_open(i32 noundef %1, i32 noundef 8) #6
+  %14 = tail call ptr @table_open(i32 noundef %1, i32 noundef 8) #5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 115
@@ -109,17 +109,16 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   ]
 
 19:                                               ; preds = %7
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 151027844) #6
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %21 = tail call i32 @errcode(i32 noundef 151027844) #5
   %22 = load ptr, ptr %15, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %23) #6
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %23) #5
   %25 = load ptr, ptr %15, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 115
   %27 = load i8, ptr %26, align 1
-  %28 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %27) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %28 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %27) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 29:                                               ; preds = %7, %7, %7, %7
@@ -128,32 +127,31 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %31, label %40, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call zeroext i1 @IsSystemRelation(ptr noundef nonnull %14) #6
+  %33 = tail call zeroext i1 @IsSystemRelation(ptr noundef nonnull %14) #5
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %32
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 16797828) #6
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %36 = tail call i32 @errcode(i32 noundef 16797828) #5
   %37 = load ptr, ptr %15, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %38) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %38) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 40:                                               ; preds = %32, %29
-  %41 = tail call i32 @GetUserId() #6
-  %42 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %41) #6
+  %41 = tail call i32 @GetUserId() #5
+  %42 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %41) #5
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %15, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 115
   %46 = load i8, ptr %45, align 1
-  %47 = tail call i32 @get_relkind_objtype(i8 noundef signext %46) #6
+  %47 = tail call i32 @get_relkind_objtype(i8 noundef signext %46) #5
   %48 = load ptr, ptr %15, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %47, ptr noundef nonnull %49) #6
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %47, ptr noundef nonnull %49) #5
   br label %50
 
 50:                                               ; preds = %43, %40
@@ -178,7 +176,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %.lr.ph123
-  %62 = tail call ptr @getInsertSelectQuery(ptr noundef nonnull %57, ptr noundef null) #6
+  %62 = tail call ptr @getInsertSelectQuery(ptr noundef nonnull %57, ptr noundef null) #5
   %.not110.us = icmp eq ptr %57, %62
   br i1 %.not110.us, label %63, label %65
 
@@ -294,21 +292,19 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %.not100.us136, label %100, label %.critedge148
 
 .split.us:                                        ; preds = %63
-  %106 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %106)
-  %107 = tail call i32 @errcode(i32 noundef 1088) #6
-  %108 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
-  %109 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %106 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %107 = tail call i32 @errcode(i32 noundef 1088) #5
+  %108 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #5
+  %109 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 .split121.us:                                     ; preds = %63
-  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %110)
-  %111 = tail call i32 @errcode(i32 noundef 1088) #6
-  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
-  %113 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.6) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %111 = tail call i32 @errcode(i32 noundef 1088) #5
+  %112 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #5
+  %113 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.6) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 298, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 114:                                              ; preds = %.critedge.thread173, %.critedge.thread, %.critedge
@@ -321,17 +317,16 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   ]
 
 118:                                              ; preds = %114
-  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %119)
-  %120 = tail call i32 @errcode(i32 noundef 151027844) #6
+  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %120 = tail call i32 @errcode(i32 noundef 151027844) #5
   %121 = load ptr, ptr %15, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
-  %123 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %122) #6
+  %123 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %122) #5
   %124 = load ptr, ptr %15, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 115
   %126 = load i8, ptr %125, align 1
-  %127 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %126) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %127 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %126) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 128:                                              ; preds = %114, %114
@@ -339,12 +334,11 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %129, label %130, label %135
 
 130:                                              ; preds = %128
-  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %131)
-  %132 = tail call i32 @errcode(i32 noundef 1088) #6
-  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #6
-  %134 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %132 = tail call i32 @errcode(i32 noundef 1088) #5
+  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #5
+  %134 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 135:                                              ; preds = %128
@@ -354,11 +348,10 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %135
-  %139 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %139)
-  %140 = tail call i32 @errcode(i32 noundef 1088) #6
-  %141 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %139 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %140 = tail call i32 @errcode(i32 noundef 1088) #5
+  %141 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 142:                                              ; preds = %135
@@ -374,11 +367,10 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %.not104, label %152, label %148
 
 148:                                              ; preds = %145, %142
-  %149 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %149)
-  %150 = tail call i32 @errcode(i32 noundef 1088) #6
-  %151 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %149 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %150 = tail call i32 @errcode(i32 noundef 1088) #5
+  %151 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 152:                                              ; preds = %145
@@ -388,11 +380,10 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %155, label %156, label %160
 
 156:                                              ; preds = %152
-  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %157)
-  %158 = tail call i32 @errcode(i32 noundef 1088) #6
-  %159 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %158 = tail call i32 @errcode(i32 noundef 1088) #5
+  %159 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 349, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 160:                                              ; preds = %152
@@ -400,11 +391,10 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %.not105, label %165, label %161
 
 161:                                              ; preds = %160
-  %162 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %162)
-  %163 = tail call i32 @errcode(i32 noundef 1088) #6
-  %164 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %162 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %163 = tail call i32 @errcode(i32 noundef 1088) #5
+  %164 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 165:                                              ; preds = %160
@@ -448,22 +438,21 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %184, label %185, label %178
 
 185:                                              ; preds = %179
-  %186 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %186)
-  %187 = tail call i32 @errcode(i32 noundef 325) #6
+  %186 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %187 = tail call i32 @errcode(i32 noundef 325) #5
   %188 = load ptr, ptr %15, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  %190 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %189) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %190 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %189) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 .loopexit:                                        ; preds = %178, %.preheader, %171, %165
-  %191 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.15) #8
+  %191 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.15) #7
   %.not107 = icmp eq i32 %191, 0
   br i1 %.not107, label %224, label %192
 
 192:                                              ; preds = %.loopexit
-  %193 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.16, i64 noundef 4) #8
+  %193 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.16, i64 noundef 4) #7
   %.not108 = icmp eq i32 %193, 0
   br i1 %.not108, label %194, label %199
 
@@ -471,61 +460,56 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %196 = load ptr, ptr %15, align 8
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
-  %198 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) %197, i64 noundef 56) #8
+  %198 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) %197, i64 noundef 56) #7
   %.not109 = icmp eq i32 %198, 0
   br i1 %.not109, label %205, label %199
 
 199:                                              ; preds = %194, %192
-  %200 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %200)
-  %201 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %200 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %201 = tail call i32 @errcode(i32 noundef 117833860) #5
   %202 = load ptr, ptr %15, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  %204 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %203, ptr noundef nonnull @.str.15) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %204 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %203, ptr noundef nonnull @.str.15) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 205:                                              ; preds = %194
-  %206 = tail call ptr @pstrdup(ptr noundef nonnull @.str.15) #6
+  %206 = tail call ptr @pstrdup(ptr noundef nonnull @.str.15) #5
   br label %224
 
 .critedge112:                                     ; preds = %100, %97, %86, %.critedge.thread, %.lr.ph127.split.us.split.us, %.lr.ph127.split.split.us
-  %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.15) #8
+  %207 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.15) #7
   %208 = icmp eq i32 %207, 0
   br i1 %208, label %218, label %224
 
 .split130.us:                                     ; preds = %83
-  %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %209)
-  %210 = tail call i32 @errcode(i32 noundef 1088) #6
-  %211 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 435, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %210 = tail call i32 @errcode(i32 noundef 1088) #5
+  %211 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 435, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 .critedge148:                                     ; preds = %101
-  %212 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %212)
-  %213 = tail call i32 @errcode(i32 noundef 1088) #6
-  %214 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %212 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %213 = tail call i32 @errcode(i32 noundef 1088) #5
+  %214 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 .split132.us:                                     ; preds = %92
-  %215 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %215)
-  %216 = tail call i32 @errcode(i32 noundef 1088) #6
-  %217 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 444, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %215 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %216 = tail call i32 @errcode(i32 noundef 1088) #5
+  %217 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 444, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 218:                                              ; preds = %.critedge112
-  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %219)
-  %220 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %220 = tail call i32 @errcode(i32 noundef 117833860) #5
   %221 = load ptr, ptr %15, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  %223 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %222, ptr noundef nonnull @.str.15) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.DefineQueryRewrite) #6
+  %223 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %222, ptr noundef nonnull @.str.15) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 460, ptr noundef nonnull @__func__.DefineQueryRewrite) #5
   unreachable
 
 224:                                              ; preds = %.critedge112, %.loopexit, %205
@@ -535,15 +519,15 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %or.cond, label %226, label %289
 
 226:                                              ; preds = %224
-  %227 = tail call ptr @nodeToString(ptr noundef %2) #6
-  %228 = tail call ptr @nodeToString(ptr noundef %6) #6
+  %227 = tail call ptr @nodeToString(ptr noundef %2) #5
+  %228 = tail call ptr @nodeToString(ptr noundef %6) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @namestrcpy(ptr noundef nonnull %10, ptr noundef %.0) #6
+  call void @namestrcpy(ptr noundef nonnull %10, ptr noundef %.0) #5
   %229 = ptrtoint ptr %10 to i64
   %230 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %229, ptr %230, align 8
@@ -561,17 +545,17 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %238 = zext i1 %4 to i64
   %239 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %238, ptr %239, align 8
-  %240 = call ptr @cstring_to_text(ptr noundef %227) #6
+  %240 = call ptr @cstring_to_text(ptr noundef %227) #5
   %241 = ptrtoint ptr %240 to i64
   %242 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %241, ptr %242, align 16
-  %243 = call ptr @cstring_to_text(ptr noundef %228) #6
+  %243 = call ptr @cstring_to_text(ptr noundef %228) #5
   %244 = ptrtoint ptr %243 to i64
   %245 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %244, ptr %245, align 8
-  %246 = call ptr @table_open(i32 noundef 2618, i32 noundef 3) #6
+  %246 = call ptr @table_open(i32 noundef 2618, i32 noundef 3) #5
   %247 = ptrtoint ptr %.0 to i64
-  %248 = call ptr @SearchSysCache2(i32 noundef 60, i64 noundef %231, i64 noundef %247) #6
+  %248 = call ptr @SearchSysCache2(i32 noundef 60, i64 noundef %231, i64 noundef %247) #5
   %.not.not.i = icmp eq ptr %248, null
   br i1 %.not.not.i, label %.thread.i, label %249
 
@@ -581,32 +565,31 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %5, label %260, label %250
 
 250:                                              ; preds = %249
-  %251 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %251)
-  %252 = call i32 @errcode(i32 noundef 290948) #6
-  %253 = call ptr @get_rel_name(i32 noundef %1) #6
-  %254 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %.0, ptr noundef %253) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.InsertRule) #6
+  %251 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %252 = call i32 @errcode(i32 noundef 290948) #5
+  %253 = call ptr @get_rel_name(i32 noundef %1) #5
+  %254 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %.0, ptr noundef %253) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.InsertRule) #5
   unreachable
 
 .thread.i:                                        ; preds = %226
-  %255 = call i32 @GetNewOidWithIndex(ptr noundef %246, i32 noundef 2692, i16 noundef signext 1) #6
+  %255 = call i32 @GetNewOidWithIndex(ptr noundef %246, i32 noundef 2692, i16 noundef signext 1) #5
   %256 = zext i32 %255 to i64
   store i64 %256, ptr %8, align 16
   %257 = getelementptr inbounds nuw i8, ptr %246, i64 64
   %258 = load ptr, ptr %257, align 8
-  %259 = call ptr @heap_form_tuple(ptr noundef %258, ptr noundef nonnull %8, ptr noundef nonnull %9) #6
-  call void @CatalogTupleInsert(ptr noundef %246, ptr noundef %259) #6
-  call void @heap_freetuple(ptr noundef %259) #6
+  %259 = call ptr @heap_form_tuple(ptr noundef %258, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
+  call void @CatalogTupleInsert(ptr noundef %246, ptr noundef %259) #5
+  call void @heap_freetuple(ptr noundef %259) #5
   br label %272
 
 260:                                              ; preds = %249
   %261 = getelementptr inbounds nuw i8, ptr %246, i64 64
   %262 = load ptr, ptr %261, align 8
-  %263 = call ptr @heap_modify_tuple(ptr noundef nonnull %248, ptr noundef %262, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %13) #6
+  %263 = call ptr @heap_modify_tuple(ptr noundef nonnull %248, ptr noundef %262, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %13) #5
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %246, ptr noundef nonnull %264, ptr noundef %263) #6
-  call void @ReleaseSysCache(ptr noundef nonnull %248) #6
+  call void @CatalogTupleUpdate(ptr noundef %246, ptr noundef nonnull %264, ptr noundef %263) #5
+  call void @ReleaseSysCache(ptr noundef nonnull %248) #5
   %265 = getelementptr i8, ptr %263, i64 16
   %.val45.i = load ptr, ptr %265, align 8
   %266 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 22
@@ -615,8 +598,8 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %269 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 %268
   %270 = load i32, ptr %269, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  call void @heap_freetuple(ptr noundef %263) #6
-  %271 = call i64 @deleteDependencyRecordsFor(i32 noundef 2618, i32 noundef %270, i1 noundef zeroext false) #6
+  call void @heap_freetuple(ptr noundef %263) #5
+  %271 = call i64 @deleteDependencyRecordsFor(i32 noundef 2618, i32 noundef %270, i1 noundef zeroext false) #5
   br label %272
 
 272:                                              ; preds = %260, %.thread.i
@@ -631,8 +614,8 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   store i32 %1, ptr %275, align 4
   %276 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %276, align 4
-  call void @recordDependencyOn(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %225) #6
-  call void @recordDependencyOnExpr(ptr noundef nonnull %11, ptr noundef %6, ptr noundef null, i32 noundef 110) #6
+  call void @recordDependencyOn(ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef %225) #5
+  call void @recordDependencyOnExpr(ptr noundef nonnull %11, ptr noundef %6, ptr noundef null, i32 noundef 110) #5
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %283, label %277
 
@@ -640,10 +623,10 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %278 = getelementptr i8, ptr %6, i64 16
   %.val.i = load ptr, ptr %278, align 8
   %279 = load ptr, ptr %.val.i, align 8
-  %280 = call ptr @getInsertSelectQuery(ptr noundef %279, ptr noundef null) #6
+  %280 = call ptr @getInsertSelectQuery(ptr noundef %279, ptr noundef null) #5
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 64
   %282 = load ptr, ptr %281, align 8
-  call void @recordDependencyOnExpr(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef %282, i32 noundef 110) #6
+  call void @recordDependencyOnExpr(ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef %282, i32 noundef 110) #5
   br label %283
 
 283:                                              ; preds = %277, %272
@@ -652,17 +635,17 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %.not44.i, label %InsertRule.exit, label %285
 
 285:                                              ; preds = %283
-  call void @RunObjectPostCreateHook(i32 noundef 2618, i32 noundef %.04148.i, i32 noundef 0, i1 noundef zeroext false) #6
+  call void @RunObjectPostCreateHook(i32 noundef 2618, i32 noundef %.04148.i, i32 noundef 0, i1 noundef zeroext false) #5
   br label %InsertRule.exit
 
 InsertRule.exit:                                  ; preds = %283, %285
-  call void @table_close(ptr noundef nonnull %246, i32 noundef 3) #6
+  call void @table_close(ptr noundef nonnull %246, i32 noundef 3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @SetRelationRuleStatus(i32 noundef %1, i1 noundef zeroext true) #6
+  call void @SetRelationRuleStatus(i32 noundef %1, i1 noundef zeroext true) #5
   %286 = zext i32 %.04148.i to i64
   %287 = shl nuw i64 %286, 32
   %288 = or disjoint i64 %287, 2618
@@ -670,7 +653,7 @@ InsertRule.exit:                                  ; preds = %283, %285
 
 289:                                              ; preds = %InsertRule.exit, %224
   %.085 = phi i64 [ %288, %InsertRule.exit ], [ 2618, %224 ]
-  call void @table_close(ptr noundef %14, i32 noundef 0) #6
+  call void @table_close(ptr noundef %14, i32 noundef 0) #5
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.085, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 0, 1
   ret { i64, i32 } %.fca.1.insert
@@ -751,14 +734,14 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
 30:                                               ; preds = %19
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %26) #8
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %26) #7
   %.not66.us = icmp eq i32 %33, 0
   br i1 %.not66.us, label %34, label %.split101.us
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @exprType(ptr noundef %36) #6
+  %37 = tail call i32 @exprType(ptr noundef %36) #5
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %39 = load i32, ptr %38, align 4
   %.not67.us = icmp eq i32 %39, %37
@@ -766,7 +749,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
 
 40:                                               ; preds = %34
   %41 = load ptr, ptr %35, align 8
-  %42 = tail call i32 @exprTypmod(ptr noundef %41) #6
+  %42 = tail call i32 @exprTypmod(ptr noundef %41) #5
   %43 = getelementptr inbounds nuw i8, ptr %25, i64 76
   %44 = load i32, ptr %43, align 4
   %.not68.us = icmp eq i32 %44, %42
@@ -813,12 +796,11 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   br i1 %62, label %.split.us, label %66
 
 .split.us:                                        ; preds = %59, %15
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %64 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.25..str.26 = select i1 %2, ptr @.str.25, ptr @.str.26
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.25..str.26) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.checkRuleResultList) #6
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.25..str.26) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 533, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
 66:                                               ; preds = %59
@@ -834,18 +816,17 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   br i1 %75, label %.split99.us, label %79
 
 .split99.us:                                      ; preds = %66, %19
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %76)
-  %77 = tail call i32 @errcode(i32 noundef 1088) #6
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %77 = tail call i32 @errcode(i32 noundef 1088) #5
   %.str.27..str.28 = select i1 %2, ptr @.str.27, ptr @.str.28
-  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.27..str.28) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 561, ptr noundef nonnull @__func__.checkRuleResultList) #6
+  %78 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.27..str.28) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 561, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
 79:                                               ; preds = %66
   %80 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 @exprType(ptr noundef %81) #6
+  %82 = tail call i32 @exprType(ptr noundef %81) #5
   %83 = getelementptr inbounds nuw i8, ptr %72, i64 68
   %84 = load i32, ptr %83, align 4
   %.not67 = icmp eq i32 %84, %82
@@ -853,13 +834,12 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
 
 .split101.us:                                     ; preds = %30
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 @errcode(i32 noundef 117833860) #6
-  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, i32 noundef %16, ptr noundef nonnull %26) #6
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %87 = tail call i32 @errcode(i32 noundef 117833860) #5
+  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, i32 noundef %16, ptr noundef nonnull %26) #5
   %89 = load ptr, ptr %85, align 8
-  %90 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30, ptr noundef %89) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.checkRuleResultList) #6
+  %90 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30, ptr noundef %89) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
 .split106:                                        ; preds = %79
@@ -872,22 +852,21 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   %.us-phi109 = phi ptr [ %91, %.split106 ], [ %26, %34 ]
   %.us-phi110 = phi i32 [ %60, %.split106 ], [ %16, %34 ]
   %92 = getelementptr inbounds nuw i8, ptr %.us-phi107, i64 68
-  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %93)
-  %94 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %93 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %94 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.31..str.32 = select i1 %2, ptr @.str.31, ptr @.str.32
   %.str.33..str.34 = select i1 %2, ptr @.str.33, ptr @.str.34
-  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.31..str.32, i32 noundef %.us-phi110, ptr noundef nonnull %.us-phi109) #6
-  %96 = tail call ptr @format_type_be(i32 noundef %.us-phi108) #6
+  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.31..str.32, i32 noundef %.us-phi110, ptr noundef nonnull %.us-phi109) #5
+  %96 = tail call ptr @format_type_be(i32 noundef %.us-phi108) #5
   %97 = load i32, ptr %92, align 4
-  %98 = tail call ptr @format_type_be(i32 noundef %97) #6
-  %99 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34, ptr noundef %96, ptr noundef %98) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 588, ptr noundef nonnull @__func__.checkRuleResultList) #6
+  %98 = tail call ptr @format_type_be(i32 noundef %97) #5
+  %99 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34, ptr noundef %96, ptr noundef %98) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 588, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
 100:                                              ; preds = %79
   %101 = load ptr, ptr %80, align 8
-  %102 = tail call i32 @exprTypmod(ptr noundef %101) #6
+  %102 = tail call i32 @exprTypmod(ptr noundef %101) #5
   %103 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %104 = load i32, ptr %103, align 4
   %.not68 = icmp eq i32 %104, %102
@@ -911,18 +890,17 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   %.us-phi118 = phi i32 [ %60, %.split112 ], [ %16, %45 ]
   %109 = getelementptr inbounds nuw i8, ptr %.us-phi113, i64 68
   %110 = getelementptr inbounds nuw i8, ptr %.us-phi113, i64 76
-  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %111)
-  %112 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %112 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.35..str.36 = select i1 %2, ptr @.str.35, ptr @.str.36
   %.str.33..str.34261 = select i1 %2, ptr @.str.33, ptr @.str.34
-  %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.35..str.36, i32 noundef %.us-phi118, ptr noundef nonnull %.us-phi117) #6
-  %114 = tail call ptr @format_type_with_typemod(i32 noundef %.us-phi116, i32 noundef %.us-phi115) #6
+  %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.35..str.36, i32 noundef %.us-phi118, ptr noundef nonnull %.us-phi117) #5
+  %114 = tail call ptr @format_type_with_typemod(i32 noundef %.us-phi116, i32 noundef %.us-phi115) #5
   %115 = load i32, ptr %109, align 4
   %116 = load i32, ptr %110, align 4
-  %117 = tail call ptr @format_type_with_typemod(i32 noundef %115, i32 noundef %116) #6
-  %118 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34261, ptr noundef %114, ptr noundef %117) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 614, ptr noundef nonnull @__func__.checkRuleResultList) #6
+  %117 = tail call ptr @format_type_with_typemod(i32 noundef %115, i32 noundef %116) #5
+  %118 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.33..str.34261, ptr noundef %114, ptr noundef %117) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 614, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
 119:                                              ; preds = %100, %105, %.lr.ph151
@@ -934,12 +912,11 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   br i1 %122, label %.lr.ph151, label %.critedge
 
 123:                                              ; preds = %.critedge
-  %124 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %124)
-  %125 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %124 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %125 = tail call i32 @errcode(i32 noundef 117833860) #5
   %.str.37..str.38 = select i1 %2, ptr @.str.37, ptr @.str.38
-  %126 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.37..str.38) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__func__.checkRuleResultList) #6
+  %126 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.37..str.38) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 622, ptr noundef nonnull @__func__.checkRuleResultList) #5
   unreachable
 
 127:                                              ; preds = %.critedge
@@ -975,7 +952,7 @@ define dso_local void @setRuleCheckAsUser(ptr noundef %0, i32 noundef %1) local_
   br label %setRuleCheckAsUser_walker.exit
 
 9:                                                ; preds = %5
-  %10 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @setRuleCheckAsUser_walker, ptr noundef nonnull %3) #6
+  %10 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @setRuleCheckAsUser_walker, ptr noundef nonnull %3) #5
   br label %setRuleCheckAsUser_walker.exit
 
 setRuleCheckAsUser_walker.exit:                   ; preds = %2, %8, %9
@@ -998,7 +975,7 @@ define internal zeroext i1 @setRuleCheckAsUser_walker(ptr noundef %0, ptr nounde
   br label %11
 
 9:                                                ; preds = %4
-  %10 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @setRuleCheckAsUser_walker, ptr noundef %1) #6
+  %10 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @setRuleCheckAsUser_walker, ptr noundef %1) #5
   br label %11
 
 11:                                               ; preds = %2, %9, %7
@@ -1010,20 +987,19 @@ define internal zeroext i1 @setRuleCheckAsUser_walker(ptr noundef %0, ptr nounde
 define dso_local void @EnableDisableRule(ptr noundef %0, ptr noundef %1, i8 noundef signext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
-  %6 = tail call ptr @table_open(i32 noundef 2618, i32 noundef 3) #6
+  %6 = tail call ptr @table_open(i32 noundef 2618, i32 noundef 3) #5
   %7 = zext i32 %5 to i64
   %8 = ptrtoint ptr %1 to i64
-  %9 = tail call ptr @SearchSysCacheCopy(i32 noundef 60, i64 noundef %7, i64 noundef %8, i64 noundef 0, i64 noundef 0) #6
+  %9 = tail call ptr @SearchSysCacheCopy(i32 noundef 60, i64 noundef %7, i64 noundef %8, i64 noundef 0, i64 noundef 0) #5
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 67137668) #6
-  %13 = tail call ptr @get_rel_name(i32 noundef %5) #6
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef %13) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 712, ptr noundef nonnull @__func__.EnableDisableRule) #6
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = tail call i32 @errcode(i32 noundef 67137668) #5
+  %13 = tail call ptr @get_rel_name(i32 noundef %5) #5
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef %13) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 712, ptr noundef nonnull @__func__.EnableDisableRule) #5
   unreachable
 
 15:                                               ; preds = %3
@@ -1035,15 +1011,15 @@ define dso_local void @EnableDisableRule(ptr noundef %0, ptr noundef %1, i8 noun
   %20 = getelementptr inbounds nuw i8, ptr %.val, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 @GetUserId() #6
-  %24 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %22, i32 noundef %23) #6
+  %23 = tail call i32 @GetUserId() #5
+  %24 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %22, i32 noundef %23) #5
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %15
-  %26 = tail call signext i8 @get_rel_relkind(i32 noundef %22) #6
-  %27 = tail call i32 @get_relkind_objtype(i8 noundef signext %26) #6
-  %28 = tail call ptr @get_rel_name(i32 noundef %22) #6
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %27, ptr noundef %28) #6
+  %26 = tail call signext i8 @get_rel_relkind(i32 noundef %22) #5
+  %27 = tail call i32 @get_relkind_objtype(i8 noundef signext %26) #5
+  %28 = tail call ptr @get_rel_name(i32 noundef %22) #5
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %27, ptr noundef %28) #5
   br label %29
 
 29:                                               ; preds = %25, %15
@@ -1055,7 +1031,7 @@ define dso_local void @EnableDisableRule(ptr noundef %0, ptr noundef %1, i8 noun
 32:                                               ; preds = %29
   store i8 %2, ptr %30, align 1
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %33, ptr noundef nonnull %9) #6
+  tail call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %33, ptr noundef nonnull %9) #5
   br label %34
 
 34:                                               ; preds = %29, %32
@@ -1065,16 +1041,16 @@ define dso_local void @EnableDisableRule(ptr noundef %0, ptr noundef %1, i8 noun
 
 36:                                               ; preds = %34
   %37 = load i32, ptr %20, align 4
-  tail call void @RunObjectPostAlterHook(i32 noundef 2618, i32 noundef %37, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
+  tail call void @RunObjectPostAlterHook(i32 noundef 2618, i32 noundef %37, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #5
   br label %38
 
 38:                                               ; preds = %36, %34
-  tail call void @heap_freetuple(ptr noundef nonnull %9) #6
-  tail call void @table_close(ptr noundef %6, i32 noundef 3) #6
+  tail call void @heap_freetuple(ptr noundef nonnull %9) #5
+  tail call void @table_close(ptr noundef %6, i32 noundef 3) #5
   br i1 %.not23.not, label %40, label %39
 
 39:                                               ; preds = %38
-  tail call void @CacheInvalidateRelcache(ptr noundef nonnull %0) #6
+  tail call void @CacheInvalidateRelcache(ptr noundef nonnull %0) #5
   br label %40
 
 40:                                               ; preds = %39, %38
@@ -1097,24 +1073,23 @@ declare void @CacheInvalidateRelcache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i32 } @RenameRewriteRule(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForRenameRule, ptr noundef null) #6
-  %5 = tail call ptr @relation_open(i32 noundef %4, i32 noundef 0) #6
-  %6 = tail call ptr @table_open(i32 noundef 2618, i32 noundef 3) #6
+  %4 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackForRenameRule, ptr noundef null) #5
+  %5 = tail call ptr @relation_open(i32 noundef %4, i32 noundef 0) #5
+  %6 = tail call ptr @table_open(i32 noundef 2618, i32 noundef 3) #5
   %7 = zext i32 %4 to i64
   %8 = ptrtoint ptr %1 to i64
-  %9 = tail call ptr @SearchSysCacheCopy(i32 noundef 60, i64 noundef %7, i64 noundef %8, i64 noundef 0, i64 noundef 0) #6
+  %9 = tail call ptr @SearchSysCacheCopy(i32 noundef 60, i64 noundef %7, i64 noundef %8, i64 noundef 0, i64 noundef 0) #5
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %17
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 67137668) #6
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = tail call i32 @errcode(i32 noundef 67137668) #5
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef nonnull %15) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 827, ptr noundef nonnull @__func__.RenameRewriteRule) #6
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef nonnull %15) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 827, ptr noundef nonnull @__func__.RenameRewriteRule) #5
   unreachable
 
 17:                                               ; preds = %3
@@ -1125,18 +1100,17 @@ define dso_local { i64, i32 } @RenameRewriteRule(ptr noundef %0, ptr noundef %1,
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = tail call zeroext i1 @IsDefinedRewriteRule(i32 noundef %4, ptr noundef %2) #6
+  %24 = tail call zeroext i1 @IsDefinedRewriteRule(i32 noundef %4, ptr noundef %2) #5
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %17
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 290948) #6
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %27 = tail call i32 @errcode(i32 noundef 290948) #5
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull %30) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 836, ptr noundef nonnull @__func__.RenameRewriteRule) #6
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull %30) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 836, ptr noundef nonnull @__func__.RenameRewriteRule) #5
   unreachable
 
 32:                                               ; preds = %17
@@ -1146,31 +1120,30 @@ define dso_local { i64, i32 } @RenameRewriteRule(ptr noundef %0, ptr noundef %1,
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %32
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 117833860) #6
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 845, ptr noundef nonnull @__func__.RenameRewriteRule) #6
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %38 = tail call i32 @errcode(i32 noundef 117833860) #5
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 845, ptr noundef nonnull @__func__.RenameRewriteRule) #5
   unreachable
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  tail call void @namestrcpy(ptr noundef nonnull %41, ptr noundef %2) #6
+  tail call void @namestrcpy(ptr noundef nonnull %41, ptr noundef %2) #5
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %42, ptr noundef nonnull %9) #6
+  tail call void @CatalogTupleUpdate(ptr noundef %6, ptr noundef nonnull %42, ptr noundef nonnull %9) #5
   %43 = load ptr, ptr @object_access_hook, align 8
   %.not26 = icmp eq ptr %43, null
   br i1 %.not26, label %45, label %44
 
 44:                                               ; preds = %40
-  tail call void @RunObjectPostAlterHook(i32 noundef 2618, i32 noundef %23, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #6
+  tail call void @RunObjectPostAlterHook(i32 noundef 2618, i32 noundef %23, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #5
   br label %45
 
 45:                                               ; preds = %44, %40
-  tail call void @heap_freetuple(ptr noundef nonnull %9) #6
-  tail call void @table_close(ptr noundef %6, i32 noundef 3) #6
-  tail call void @CacheInvalidateRelcache(ptr noundef %5) #6
-  tail call void @relation_close(ptr noundef %5, i32 noundef 0) #6
+  tail call void @heap_freetuple(ptr noundef nonnull %9) #5
+  tail call void @table_close(ptr noundef %6, i32 noundef 3) #5
+  tail call void @CacheInvalidateRelcache(ptr noundef %5) #5
+  tail call void @relation_close(ptr noundef %5, i32 noundef 0) #5
   %.sroa.225.0.insert.ext = zext i32 %23 to i64
   %.sroa.225.0.insert.shift = shl nuw i64 %.sroa.225.0.insert.ext, 32
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.225.0.insert.shift, 2618
@@ -1182,7 +1155,7 @@ define dso_local { i64, i32 } @RenameRewriteRule(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal void @RangeVarCallbackForRenameRule(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = zext i32 %1 to i64
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #6
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #5
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %43, label %7
 
@@ -1202,15 +1175,14 @@ define internal void @RangeVarCallbackForRenameRule(ptr noundef readonly capture
   ]
 
 15:                                               ; preds = %7
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode(i32 noundef 151027844) #6
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %17 = tail call i32 @errcode(i32 noundef 151027844) #5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %19) #6
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %19) #5
   %21 = load i8, ptr %13, align 1
-  %22 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %21) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__.RangeVarCallbackForRenameRule) #6
+  %22 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %21) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 774, ptr noundef nonnull @__func__.RangeVarCallbackForRenameRule) #5
   unreachable
 
 23:                                               ; preds = %7, %7, %7
@@ -1219,34 +1191,33 @@ define internal void @RangeVarCallbackForRenameRule(ptr noundef readonly capture
   br i1 %25, label %34, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef nonnull %12) #6
+  %27 = tail call zeroext i1 @IsSystemClass(i32 noundef %1, ptr noundef nonnull %12) #5
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %26
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 16797828) #6
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %30 = tail call i32 @errcode(i32 noundef 16797828) #5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %32) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 780, ptr noundef nonnull @__func__.RangeVarCallbackForRenameRule) #6
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %32) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 780, ptr noundef nonnull @__func__.RangeVarCallbackForRenameRule) #5
   unreachable
 
 34:                                               ; preds = %26, %23
-  %35 = tail call i32 @GetUserId() #6
-  %36 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %35) #6
+  %35 = tail call i32 @GetUserId() #5
+  %36 = tail call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %1, i32 noundef %35) #5
   br i1 %36, label %42, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #6
-  %39 = tail call i32 @get_relkind_objtype(i8 noundef signext %38) #6
+  %38 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #5
+  %39 = tail call i32 @get_relkind_objtype(i8 noundef signext %38) #5
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %39, ptr noundef %41) #6
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef %39, ptr noundef %41) #5
   br label %42
 
 42:                                               ; preds = %37, %34
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #6
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #5
   br label %43
 
 43:                                               ; preds = %4, %42
@@ -1396,7 +1367,7 @@ define internal fastcc void @setRuleCheckAsUser_Query(ptr noundef %0, i32 nounde
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %.critedge41
-  %55 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @setRuleCheckAsUser_walker, ptr noundef nonnull %3, i32 noundef 3) #6
+  %55 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @setRuleCheckAsUser_walker, ptr noundef nonnull %3, i32 noundef 3) #5
   br label %56
 
 56:                                               ; preds = %54, %.critedge41
@@ -1417,18 +1388,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

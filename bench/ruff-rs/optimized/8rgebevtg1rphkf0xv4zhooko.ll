@@ -9568,9 +9568,6 @@ define { ptr, i64 } @"_ZN93_$LT$ruff_db..diagnostic..DiagnosticMessage$u20$as$u2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1483
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h30cb403e228e8ee6E"(i64 noundef %7, ptr noundef nonnull %11, i64 noundef %1), !noalias !1483
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 }
 

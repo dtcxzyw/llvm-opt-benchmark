@@ -395,7 +395,7 @@ define void @_ZNK19OpenColorIO_v2_5dev14GradingPrimary8validateENS_12GradingStyl
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %cond = icmp eq i32 %1, 1
-  br i1 %cond, label %46, label %7
+  br i1 %cond, label %43, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -413,7 +413,7 @@ define void @_ZNK19OpenColorIO_v2_5dev14GradingPrimary8validateENS_12GradingStyl
   %18 = load double, ptr %17, align 8
   %19 = fcmp olt double %18, 0x3F847A5B0FF10ECC
   %or.cond28 = select i1 %or.cond25, i1 true, i1 %19
-  br i1 %or.cond28, label %20, label %85
+  br i1 %or.cond28, label %20, label %79
 
 20:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -438,7 +438,7 @@ _ZNSolsEd.exit:                                   ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39 unwind label %31
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSolsEd.exit
-  %27 = call ptr @__cxa_allocate_exception(i64 16) #11
+  %27 = call ptr @__cxa_allocate_exception(i64 16) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %28 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
@@ -449,19 +449,19 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39: ; preds = %_ZNSo
           to label %30 unwind label %34
 
 30:                                               ; preds = %28
-  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #12
-          to label %110 unwind label %34
+  invoke void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #11
+          to label %104 unwind label %34
 
 31:                                               ; preds = %_ZNSolsEd.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38, %23, %20, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %41
 
 34:                                               ; preds = %30, %28
   %.06 = phi i1 [ false, %30 ], [ true, %28 ]
@@ -473,187 +473,179 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !25
-  %41 = icmp ult i64 %40, 16
-  call void @llvm.assume(i1 %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.06, label %44, label %45
+  br i1 %.06, label %41, label %42
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34
-  %42 = load i64, ptr %37, align 8, !tbaa !26
-  %43 = add i64 %42, 1
-  call void @_ZdlPvm(ptr noundef %36, i64 noundef %43) #13
+  %39 = load i64, ptr %37, align 8, !tbaa !25
+  %40 = add i64 %39, 1
+  call void @_ZdlPvm(ptr noundef %36, i64 noundef %40) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.06, label %44, label %45
+  br i1 %.06, label %41, label %42
 
-44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+41:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn1749 = phi { ptr, i32 } [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @__cxa_free_exception(ptr %27) #11
-  br label %45
+  call void @__cxa_free_exception(ptr %27) #10
+  br label %42
 
-45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %44, %31
-  %.pn17.pn = phi { ptr, i32 } [ %.pn1749, %44 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %32, %31 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #11
+42:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %41, %31
+  %.pn17.pn = phi { ptr, i32 } [ %.pn1749, %41 ], [ %35, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %32, %31 ], [ %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %109
+  br label %103
 
-46:                                               ; preds = %2
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = load double, ptr %47, align 8, !tbaa !27
+43:                                               ; preds = %2
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %45 = load double, ptr %44, align 8, !tbaa !26
+  %46 = fcmp olt double %45, 0x3F847A5B0FF10ECC
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %48 = load double, ptr %47, align 8
   %49 = fcmp olt double %48, 0x3F847A5B0FF10ECC
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %or.cond31 = select i1 %46, i1 true, i1 %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load double, ptr %50, align 8
   %52 = fcmp olt double %51, 0x3F847A5B0FF10ECC
-  %or.cond31 = select i1 %49, i1 true, i1 %52
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %or.cond34 = select i1 %or.cond31, i1 true, i1 %52
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %54 = load double, ptr %53, align 8
   %55 = fcmp olt double %54, 0x3F847A5B0FF10ECC
-  %or.cond34 = select i1 %or.cond31, i1 true, i1 %55
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %57 = load double, ptr %56, align 8
-  %58 = fcmp olt double %57, 0x3F847A5B0FF10ECC
-  %or.cond37 = select i1 %or.cond34, i1 true, i1 %58
-  br i1 %or.cond37, label %59, label %85
+  %or.cond37 = select i1 %or.cond34, i1 true, i1 %55
+  br i1 %or.cond37, label %56, label %79
 
-59:                                               ; preds = %46
+56:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
-  %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.3, i64 noundef 25)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40 unwind label %70
+  %57 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.3, i64 noundef 25)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40 unwind label %67
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %59
-  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %47)
-          to label %62 unwind label %70
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %56
+  %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devlsERSoRKNS_11GradingRGBME(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %44)
+          to label %59 unwind label %67
 
-62:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40
-  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.1, i64 noundef 25)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41 unwind label %70
+59:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40
+  %60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %58, ptr noundef nonnull @.str.1, i64 noundef 25)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41 unwind label %67
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %62
-  %64 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %61, double noundef 1.000000e-02)
-          to label %_ZNSolsEd.exit42 unwind label %70
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %59
+  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %58, double noundef 1.000000e-02)
+          to label %_ZNSolsEd.exit42 unwind label %67
 
 _ZNSolsEd.exit42:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41
-  %65 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull @.str.2, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %70
+  %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.2, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %67
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZNSolsEd.exit42
-  %66 = call ptr @__cxa_allocate_exception(i64 16) #11
+  %63 = call ptr @__cxa_allocate_exception(i64 16) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(112) %5)
-          to label %67 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread
+          to label %64 unwind label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread
 
-67:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
-  %68 = load ptr, ptr %6, align 8, !tbaa !19
-  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef %68)
-          to label %69 unwind label %73
+64:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
+  %65 = load ptr, ptr %6, align 8, !tbaa !19
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef %65)
+          to label %66 unwind label %70
 
-69:                                               ; preds = %67
-  invoke void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #12
-          to label %110 unwind label %73
+66:                                               ; preds = %64
+  invoke void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #11
+          to label %104 unwind label %70
 
-70:                                               ; preds = %_ZNSolsEd.exit42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41, %62, %59, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40
-  %71 = landingpad { ptr, i32 }
+67:                                               ; preds = %_ZNSolsEd.exit42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41, %59, %56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40
+  %68 = landingpad { ptr, i32 }
           cleanup
-  br label %84
+  br label %78
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
-  %72 = landingpad { ptr, i32 }
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %83
+  br label %77
 
-73:                                               ; preds = %69, %67
-  %.0 = phi i1 [ false, %69 ], [ true, %67 ]
-  %74 = landingpad { ptr, i32 }
+70:                                               ; preds = %66, %64
+  %.0 = phi i1 [ false, %66 ], [ true, %64 ]
+  %71 = landingpad { ptr, i32 }
           cleanup
-  %75 = load ptr, ptr %6, align 8, !tbaa !19
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %77 = icmp eq ptr %75, %76
-  br i1 %77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
+  %72 = load ptr, ptr %6, align 8, !tbaa !19
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %74 = icmp eq ptr %72, %73
+  br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45: ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !25
-  %80 = icmp ult i64 %79, 16
-  call void @llvm.assume(i1 %80)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45: ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %83, label %84
+  br i1 %.0, label %77, label %78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %73
-  %81 = load i64, ptr %76, align 8, !tbaa !26
-  %82 = add i64 %81, 1
-  call void @_ZdlPvm(ptr noundef %75, i64 noundef %82) #13
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %70
+  %75 = load i64, ptr %73, align 8, !tbaa !25
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %72, i64 noundef %76) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.0, label %83, label %84
+  br i1 %.0, label %77, label %78
 
-83:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  %.pn52 = phi { ptr, i32 } [ %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ]
-  call void @__cxa_free_exception(ptr %66) #11
-  br label %84
+77:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
+  %.pn52 = phi { ptr, i32 } [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46.thread ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ]
+  call void @__cxa_free_exception(ptr %63) #10
+  br label %78
 
-84:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %83, %70
-  %.pn.pn = phi { ptr, i32 } [ %.pn52, %83 ], [ %74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %71, %70 ], [ %74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #11
+78:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46, %77, %67
+  %.pn.pn = phi { ptr, i32 } [ %.pn52, %77 ], [ %71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %68, %67 ], [ %71, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i45 ]
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %109
+  br label %103
 
-85:                                               ; preds = %7, %46
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %87 = load double, ptr %86, align 8, !tbaa !16
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %89 = load double, ptr %88, align 8, !tbaa !17
-  %90 = fsub double %87, %89
-  %91 = fcmp olt double %90, 0x3F847A5B0FF10ECC
-  br i1 %91, label %92, label %97
+79:                                               ; preds = %7, %43
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %81 = load double, ptr %80, align 8, !tbaa !16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %83 = load double, ptr %82, align 8, !tbaa !17
+  %84 = fsub double %81, %83
+  %85 = fcmp olt double %84, 0x3F847A5B0FF10ECC
+  br i1 %85, label %86, label %91
 
-92:                                               ; preds = %85
-  %93 = tail call ptr @__cxa_allocate_exception(i64 16) #11
-  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull @.str.4)
-          to label %94 unwind label %95
+86:                                               ; preds = %79
+  %87 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull @.str.4)
+          to label %88 unwind label %89
 
-94:                                               ; preds = %92
-  tail call void @__cxa_throw(ptr nonnull %93, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #12
+88:                                               ; preds = %86
+  tail call void @__cxa_throw(ptr nonnull %87, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #11
   unreachable
 
-95:                                               ; preds = %92
-  %96 = landingpad { ptr, i32 }
+89:                                               ; preds = %86
+  %90 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %93) #11
-  br label %109
+  tail call void @__cxa_free_exception(ptr nonnull %87) #10
+  br label %103
 
-97:                                               ; preds = %85
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %99 = load double, ptr %98, align 8, !tbaa !15
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %101 = load double, ptr %100, align 8, !tbaa !14
-  %102 = fcmp ogt double %99, %101
-  br i1 %102, label %103, label %108
+91:                                               ; preds = %79
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %93 = load double, ptr %92, align 8, !tbaa !15
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %95 = load double, ptr %94, align 8, !tbaa !14
+  %96 = fcmp ogt double %93, %95
+  br i1 %96, label %97, label %102
 
-103:                                              ; preds = %97
-  %104 = tail call ptr @__cxa_allocate_exception(i64 16) #11
-  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull @.str.5)
-          to label %105 unwind label %106
+97:                                               ; preds = %91
+  %98 = tail call ptr @__cxa_allocate_exception(i64 16) #10
+  invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull @.str.5)
+          to label %99 unwind label %100
 
-105:                                              ; preds = %103
-  tail call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #12
+99:                                               ; preds = %97
+  tail call void @__cxa_throw(ptr nonnull %98, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #11
   unreachable
 
-106:                                              ; preds = %103
-  %107 = landingpad { ptr, i32 }
+100:                                              ; preds = %97
+  %101 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %104) #11
-  br label %109
+  tail call void @__cxa_free_exception(ptr nonnull %98) #10
+  br label %103
 
-108:                                              ; preds = %97
+102:                                              ; preds = %91
   ret void
 
-109:                                              ; preds = %106, %95, %84, %45
-  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %45 ], [ %.pn.pn, %84 ], [ %96, %95 ], [ %107, %106 ]
+103:                                              ; preds = %100, %89, %78, %42
+  %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %42 ], [ %.pn.pn, %78 ], [ %90, %89 ], [ %101, %100 ]
   resume { ptr, i32 } %.pn17.pn.pn
 
-110:                                              ; preds = %69, %30
+104:                                              ; preds = %66, %30
   unreachable
 }
 
@@ -697,7 +689,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %narrow = select i1 %or.cond204, i1 %13, i1 false
   %14 = zext i1 %narrow to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  store i8 %14, ptr %15, align 1, !tbaa !28
+  store i8 %14, ptr %15, align 1, !tbaa !27
   switch i32 %1, label %541 [
     i32 0, label %16
     i32 1, label %181
@@ -714,7 +706,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 ._crit_edge258:                                   ; preds = %16
   %.phi.trans.insert259 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre260 = load float, ptr %.phi.trans.insert259, align 8, !tbaa !32
+  %.pre260 = load float, ptr %.phi.trans.insert259, align 8, !tbaa !31
   %.phi.trans.insert261 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre262 = load float, ptr %.phi.trans.insert261, align 4
   br label %142
@@ -727,7 +719,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %24 = fmul double %23, 6.250000e+00
   %25 = fdiv double %24, 1.023000e+03
   %26 = fptrunc double %25 to float
-  store float %26, ptr %0, align 8, !tbaa !32
+  store float %26, ptr %0, align 8, !tbaa !31
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load double, ptr %27, align 8, !tbaa !8
   %29 = fadd double %21, %28
@@ -735,7 +727,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %31 = fdiv double %30, 1.023000e+03
   %32 = fptrunc double %31 to float
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %32, ptr %33, align 4, !tbaa !32
+  store float %32, ptr %33, align 4, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load double, ptr %34, align 8, !tbaa !9
   %36 = fadd double %21, %35
@@ -743,26 +735,26 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %38 = fdiv double %37, 1.023000e+03
   %39 = fptrunc double %38 to float
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %39, ptr %40, align 8, !tbaa !32
+  store float %39, ptr %40, align 8, !tbaa !31
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %42 = load double, ptr %41, align 8, !tbaa !10
   %43 = load double, ptr %17, align 8, !tbaa !3
   %44 = fmul double %42, %43
   %45 = fptrunc double %44 to float
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %45, ptr %46, align 4, !tbaa !32
+  store float %45, ptr %46, align 4, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %48 = load double, ptr %47, align 8, !tbaa !8
   %49 = fmul double %42, %48
   %50 = fptrunc double %49 to float
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %50, ptr %51, align 8, !tbaa !32
+  store float %50, ptr %51, align 8, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %53 = load double, ptr %52, align 8, !tbaa !9
   %54 = fmul double %42, %53
   %55 = fptrunc double %54 to float
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %55, ptr %56, align 4, !tbaa !32
+  store float %55, ptr %56, align 4, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %58 = load double, ptr %57, align 8, !tbaa !10
   %59 = load double, ptr %18, align 8, !tbaa !3
@@ -770,21 +762,21 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %61 = fdiv double 1.000000e+00, %60
   %62 = fptrunc double %61 to float
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %62, ptr %63, align 8, !tbaa !32
+  store float %62, ptr %63, align 8, !tbaa !31
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %65 = load double, ptr %64, align 8, !tbaa !8
   %66 = fmul double %58, %65
   %67 = fdiv double 1.000000e+00, %66
   %68 = fptrunc double %67 to float
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %68, ptr %69, align 4, !tbaa !32
+  store float %68, ptr %69, align 4, !tbaa !31
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %71 = load double, ptr %70, align 8, !tbaa !9
   %72 = fmul double %58, %71
   %73 = fdiv double 1.000000e+00, %72
   %74 = fptrunc double %73 to float
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %74, ptr %75, align 8, !tbaa !32
+  store float %74, ptr %75, align 8, !tbaa !31
   br label %142
 
 76:                                               ; preds = %16
@@ -796,7 +788,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %82 = fdiv double %81, 1.023000e+03
   %83 = fptrunc double %82 to float
   %84 = fneg float %83
-  store float %84, ptr %0, align 8, !tbaa !32
+  store float %84, ptr %0, align 8, !tbaa !31
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %86 = load double, ptr %85, align 8, !tbaa !8
   %87 = fadd double %78, %86
@@ -805,7 +797,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %90 = fptrunc double %89 to float
   %91 = fneg float %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %91, ptr %92, align 4, !tbaa !32
+  store float %91, ptr %92, align 4, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %94 = load double, ptr %93, align 8, !tbaa !9
   %95 = fadd double %78, %94
@@ -814,7 +806,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %98 = fptrunc double %97 to float
   %99 = fneg float %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %99, ptr %100, align 8, !tbaa !32
+  store float %99, ptr %100, align 8, !tbaa !31
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %102 = load double, ptr %101, align 8, !tbaa !10
   %103 = load double, ptr %17, align 8, !tbaa !3
@@ -830,38 +822,38 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %113 = select i1 %111, double 1.000000e+00, double %112
   %114 = fptrunc double %113 to float
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %114, ptr %115, align 4, !tbaa !32
+  store float %114, ptr %115, align 4, !tbaa !31
   %116 = fcmp oeq double %107, 0.000000e+00
   %117 = fdiv double 1.000000e+00, %107
   %118 = select i1 %116, double 1.000000e+00, double %117
   %119 = fptrunc double %118 to float
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %119, ptr %120, align 8, !tbaa !32
+  store float %119, ptr %120, align 8, !tbaa !31
   %121 = fcmp oeq double %110, 0.000000e+00
   %122 = fdiv double 1.000000e+00, %110
   %123 = select i1 %121, double 1.000000e+00, double %122
   %124 = fptrunc double %123 to float
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %124, ptr %125, align 4, !tbaa !32
+  store float %124, ptr %125, align 4, !tbaa !31
   %126 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %127 = load double, ptr %126, align 8, !tbaa !10
   %128 = load double, ptr %18, align 8, !tbaa !3
   %129 = fmul double %127, %128
   %130 = fptrunc double %129 to float
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %130, ptr %131, align 8, !tbaa !32
+  store float %130, ptr %131, align 8, !tbaa !31
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %133 = load double, ptr %132, align 8, !tbaa !8
   %134 = fmul double %127, %133
   %135 = fptrunc double %134 to float
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %135, ptr %136, align 4, !tbaa !32
+  store float %135, ptr %136, align 4, !tbaa !31
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %138 = load double, ptr %137, align 8, !tbaa !9
   %139 = fmul double %127, %138
   %140 = fptrunc double %139 to float
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %140, ptr %141, align 8, !tbaa !32
+  store float %140, ptr %141, align 8, !tbaa !31
   br label %142
 
 142:                                              ; preds = %._crit_edge258, %76, %19
@@ -874,26 +866,26 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 .thread:                                          ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %147, align 8, !tbaa !34
+  store i8 0, ptr %147, align 8, !tbaa !33
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %149 = load double, ptr %148, align 8, !tbaa !11
   %150 = tail call double @llvm.fmuladd.f64(double %149, double 5.000000e-01, double 5.000000e-01)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %150, ptr %151, align 8, !tbaa !35
+  store double %150, ptr %151, align 8, !tbaa !34
   br label %.sink.split
 
 152:                                              ; preds = %142
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %154 = load float, ptr %153, align 8, !tbaa !32
+  %154 = load float, ptr %153, align 8, !tbaa !31
   %155 = fcmp oeq float %154, 1.000000e+00
   %156 = zext i1 %155 to i8
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %156, ptr %157, align 8, !tbaa !34
+  store i8 %156, ptr %157, align 8, !tbaa !33
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %159 = load double, ptr %158, align 8, !tbaa !11
   %160 = tail call double @llvm.fmuladd.f64(double %159, double 5.000000e-01, double 5.000000e-01)
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %160, ptr %161, align 8, !tbaa !35
+  store double %160, ptr %161, align 8, !tbaa !34
   %or.cond = select i1 %narrow, i1 %155, i1 false
   %162 = load float, ptr %0, align 8
   %163 = fcmp oeq float %162, 0.000000e+00
@@ -910,7 +902,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 170:                                              ; preds = %152
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %172 = load float, ptr %171, align 4, !tbaa !32
+  %172 = load float, ptr %171, align 4, !tbaa !31
   %173 = fcmp oeq float %172, 1.000000e+00
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %175 = load float, ptr %174, align 8
@@ -920,7 +912,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 177:                                              ; preds = %170
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %179 = load float, ptr %178, align 4, !tbaa !32
+  %179 = load float, ptr %178, align 4, !tbaa !31
   %180 = fcmp oeq float %179, 1.000000e+00
   br label %.sink.split
 
@@ -935,7 +927,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 ._crit_edge251:                                   ; preds = %181
   %.phi.trans.insert252 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre253 = load float, ptr %.phi.trans.insert252, align 4, !tbaa !32
+  %.pre253 = load float, ptr %.phi.trans.insert252, align 4, !tbaa !31
   %.phi.trans.insert254 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre255 = load float, ptr %.phi.trans.insert254, align 8
   %.phi.trans.insert256 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -949,60 +941,60 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %189 = fadd double %187, %188
   %190 = fptrunc double %189 to float
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %190, ptr %191, align 8, !tbaa !32
+  store float %190, ptr %191, align 8, !tbaa !31
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %193 = load double, ptr %192, align 8, !tbaa !8
   %194 = fadd double %187, %193
   %195 = fptrunc double %194 to float
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %195, ptr %196, align 4, !tbaa !32
+  store float %195, ptr %196, align 4, !tbaa !31
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %198 = load double, ptr %197, align 8, !tbaa !9
   %199 = fadd double %187, %198
   %200 = fptrunc double %199 to float
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %200, ptr %201, align 8, !tbaa !32
+  store float %200, ptr %201, align 8, !tbaa !31
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %203 = load double, ptr %202, align 8, !tbaa !10
   %204 = load double, ptr %183, align 8, !tbaa !3
   %205 = fadd double %203, %204
   %206 = fptrunc double %205 to float
-  %exp2f245 = tail call float @exp2f(float %206) #11
+  %exp2f245 = tail call float @exp2f(float %206) #10
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %exp2f245, ptr %207, align 4, !tbaa !32
+  store float %exp2f245, ptr %207, align 4, !tbaa !31
   %208 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %209 = load double, ptr %208, align 8, !tbaa !8
   %210 = fadd double %203, %209
   %211 = fptrunc double %210 to float
-  %exp2f246 = tail call float @exp2f(float %211) #11
+  %exp2f246 = tail call float @exp2f(float %211) #10
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %exp2f246, ptr %212, align 8, !tbaa !32
+  store float %exp2f246, ptr %212, align 8, !tbaa !31
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %214 = load double, ptr %213, align 8, !tbaa !9
   %215 = fadd double %203, %214
   %216 = fptrunc double %215 to float
-  %exp2f247 = tail call float @exp2f(float %216) #11
+  %exp2f247 = tail call float @exp2f(float %216) #10
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %exp2f247, ptr %217, align 4, !tbaa !32
+  store float %exp2f247, ptr %217, align 4, !tbaa !31
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %219 = load double, ptr %218, align 8, !tbaa !10
   %220 = load double, ptr %184, align 8, !tbaa !3
   %221 = fmul double %219, %220
   %222 = fptrunc double %221 to float
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %222, ptr %223, align 4, !tbaa !32
+  store float %222, ptr %223, align 4, !tbaa !31
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %225 = load double, ptr %224, align 8, !tbaa !8
   %226 = fmul double %219, %225
   %227 = fptrunc double %226 to float
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %227, ptr %228, align 8, !tbaa !32
+  store float %227, ptr %228, align 8, !tbaa !31
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %230 = load double, ptr %229, align 8, !tbaa !9
   %231 = fmul double %219, %230
   %232 = fptrunc double %231 to float
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %232, ptr %233, align 4, !tbaa !32
+  store float %232, ptr %233, align 4, !tbaa !31
   br label %292
 
 234:                                              ; preds = %181
@@ -1013,46 +1005,46 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %239 = fptrunc double %238 to float
   %240 = fneg float %239
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %240, ptr %241, align 8, !tbaa !32
+  store float %240, ptr %241, align 8, !tbaa !31
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %243 = load double, ptr %242, align 8, !tbaa !8
   %244 = fadd double %236, %243
   %245 = fptrunc double %244 to float
   %246 = fneg float %245
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %246, ptr %247, align 4, !tbaa !32
+  store float %246, ptr %247, align 4, !tbaa !31
   %248 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %249 = load double, ptr %248, align 8, !tbaa !9
   %250 = fadd double %236, %249
   %251 = fptrunc double %250 to float
   %252 = fneg float %251
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %252, ptr %253, align 8, !tbaa !32
+  store float %252, ptr %253, align 8, !tbaa !31
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %255 = load double, ptr %254, align 8, !tbaa !10
   %256 = load double, ptr %183, align 8, !tbaa !3
   %257 = fadd double %255, %256
   %258 = fptrunc double %257 to float
-  %exp2f = tail call float @exp2f(float %258) #11
+  %exp2f = tail call float @exp2f(float %258) #10
   %259 = fdiv float 1.000000e+00, %exp2f
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store float %259, ptr %260, align 4, !tbaa !32
+  store float %259, ptr %260, align 4, !tbaa !31
   %261 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %262 = load double, ptr %261, align 8, !tbaa !8
   %263 = fadd double %255, %262
   %264 = fptrunc double %263 to float
-  %exp2f243 = tail call float @exp2f(float %264) #11
+  %exp2f243 = tail call float @exp2f(float %264) #10
   %265 = fdiv float 1.000000e+00, %exp2f243
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store float %265, ptr %266, align 8, !tbaa !32
+  store float %265, ptr %266, align 8, !tbaa !31
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %268 = load double, ptr %267, align 8, !tbaa !9
   %269 = fadd double %255, %268
   %270 = fptrunc double %269 to float
-  %exp2f244 = tail call float @exp2f(float %270) #11
+  %exp2f244 = tail call float @exp2f(float %270) #10
   %271 = fdiv float 1.000000e+00, %exp2f244
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %271, ptr %272, align 4, !tbaa !32
+  store float %271, ptr %272, align 4, !tbaa !31
   %273 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %274 = load double, ptr %273, align 8, !tbaa !10
   %275 = load double, ptr %184, align 8, !tbaa !3
@@ -1060,21 +1052,21 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %277 = fdiv double 1.000000e+00, %276
   %278 = fptrunc double %277 to float
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %278, ptr %279, align 4, !tbaa !32
+  store float %278, ptr %279, align 4, !tbaa !31
   %280 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %281 = load double, ptr %280, align 8, !tbaa !8
   %282 = fmul double %274, %281
   %283 = fdiv double 1.000000e+00, %282
   %284 = fptrunc double %283 to float
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %284, ptr %285, align 8, !tbaa !32
+  store float %284, ptr %285, align 8, !tbaa !31
   %286 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %287 = load double, ptr %286, align 8, !tbaa !9
   %288 = fmul double %274, %287
   %289 = fdiv double 1.000000e+00, %288
   %290 = fptrunc double %289 to float
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store float %290, ptr %291, align 4, !tbaa !32
+  store float %290, ptr %291, align 4, !tbaa !31
   br label %292
 
 292:                                              ; preds = %._crit_edge251, %234, %185
@@ -1088,23 +1080,23 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %narrow248 = select i1 %or.cond221, i1 %298, i1 false
   %299 = zext i1 %narrow248 to i8
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %299, ptr %300, align 8, !tbaa !34
+  store i8 %299, ptr %300, align 8, !tbaa !33
   %301 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %302 = load double, ptr %301, align 8, !tbaa !11
-  %exp2 = tail call double @exp2(double %302) #11
+  %exp2 = tail call double @exp2(double %302) #10
   %303 = fmul double %exp2, 1.800000e-01
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %303, ptr %304, align 8, !tbaa !35
-  %305 = load i8, ptr %15, align 1, !tbaa !28, !range !36, !noundef !37
+  store double %303, ptr %304, align 8, !tbaa !34
+  %305 = load i8, ptr %15, align 1, !tbaa !27, !range !35, !noundef !36
   %306 = trunc nuw i8 %305 to i1
-  %307 = load i8, ptr %300, align 8, !range !36
+  %307 = load i8, ptr %300, align 8, !range !35
   %308 = trunc nuw i8 %307 to i1
   %or.cond194 = select i1 %306, i1 %308, i1 false
   br i1 %or.cond194, label %309, label %.sink.split
 
 309:                                              ; preds = %292
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %311 = load float, ptr %310, align 4, !tbaa !32
+  %311 = load float, ptr %310, align 4, !tbaa !31
   %312 = fcmp oeq float %311, 1.000000e+00
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %314 = load float, ptr %313, align 8
@@ -1118,7 +1110,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 319:                                              ; preds = %309
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %321 = load float, ptr %320, align 8, !tbaa !32
+  %321 = load float, ptr %320, align 8, !tbaa !31
   %322 = fcmp oeq float %321, 0.000000e+00
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %324 = load float, ptr %323, align 4
@@ -1128,7 +1120,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 326:                                              ; preds = %319
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %328 = load float, ptr %327, align 8, !tbaa !32
+  %328 = load float, ptr %327, align 8, !tbaa !31
   %329 = fcmp oeq float %328, 0.000000e+00
   br label %.sink.split
 
@@ -1137,14 +1129,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %332 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %333 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %334 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  %335 = load double, ptr %334, align 8, !tbaa !38
-  %336 = load double, ptr %333, align 8, !tbaa !39
+  %335 = load double, ptr %334, align 8, !tbaa !37
+  %336 = load double, ptr %333, align 8, !tbaa !38
   %337 = fmul double %335, %336
   %338 = getelementptr inbounds nuw i8, ptr %3, i64 200
-  %339 = load double, ptr %338, align 8, !tbaa !40
+  %339 = load double, ptr %338, align 8, !tbaa !39
   %340 = fmul double %335, %339
   %341 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %342 = load double, ptr %341, align 8, !tbaa !41
+  %342 = load double, ptr %341, align 8, !tbaa !40
   %343 = fmul double %335, %342
   %344 = fcmp oeq double %337, 0.000000e+00
   %345 = select i1 %344, double 1.000000e+00, double %337
@@ -1160,7 +1152,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 ._crit_edge:                                      ; preds = %330
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !32
+  %.pre = load float, ptr %.phi.trans.insert, align 8, !tbaa !31
   %.phi.trans.insert249 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.pre250 = load float, ptr %.phi.trans.insert249, align 4
   br label %507
@@ -1177,7 +1169,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %360 = fadd double %358, %359
   %361 = fptrunc double %360 to float
   %362 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %361, ptr %362, align 8, !tbaa !32
+  store float %361, ptr %362, align 8, !tbaa !31
   %363 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %364 = load double, ptr %363, align 8, !tbaa !8
   %365 = fadd double %353, %364
@@ -1187,7 +1179,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %369 = fadd double %368, %366
   %370 = fptrunc double %369 to float
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %370, ptr %371, align 4, !tbaa !32
+  store float %370, ptr %371, align 4, !tbaa !31
   %372 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %373 = load double, ptr %372, align 8, !tbaa !9
   %374 = fadd double %353, %373
@@ -1197,7 +1189,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %378 = fadd double %377, %375
   %379 = fptrunc double %378 to float
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %379, ptr %380, align 8, !tbaa !32
+  store float %379, ptr %380, align 8, !tbaa !31
   %381 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %382 = load double, ptr %381, align 8, !tbaa !16
   %383 = fdiv double %382, %345
@@ -1220,19 +1212,19 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %400 = fdiv double %397, %399
   %401 = fptrunc double %400 to float
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %401, ptr %402, align 4, !tbaa !32
+  store float %401, ptr %402, align 4, !tbaa !31
   %403 = fcmp oeq double %392, 0.000000e+00
   %404 = select i1 %403, double 1.000000e+00, double %392
   %405 = fdiv double %397, %404
   %406 = fptrunc double %405 to float
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %406, ptr %407, align 8, !tbaa !32
+  store float %406, ptr %407, align 8, !tbaa !31
   %408 = fcmp oeq double %396, 0.000000e+00
   %409 = select i1 %408, double 1.000000e+00, double %396
   %410 = fdiv double %397, %409
   %411 = fptrunc double %410 to float
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %411, ptr %412, align 4, !tbaa !32
+  store float %411, ptr %412, align 4, !tbaa !31
   %413 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %414 = load double, ptr %413, align 8, !tbaa !10
   %415 = load double, ptr %350, align 8, !tbaa !3
@@ -1240,21 +1232,21 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %417 = fdiv double 1.000000e+00, %416
   %418 = fptrunc double %417 to float
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %418, ptr %419, align 8, !tbaa !32
+  store float %418, ptr %419, align 8, !tbaa !31
   %420 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %421 = load double, ptr %420, align 8, !tbaa !8
   %422 = fmul double %414, %421
   %423 = fdiv double 1.000000e+00, %422
   %424 = fptrunc double %423 to float
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %424, ptr %425, align 4, !tbaa !32
+  store float %424, ptr %425, align 4, !tbaa !31
   %426 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %427 = load double, ptr %426, align 8, !tbaa !9
   %428 = fmul double %414, %427
   %429 = fdiv double 1.000000e+00, %428
   %430 = fptrunc double %429 to float
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %430, ptr %431, align 8, !tbaa !32
+  store float %430, ptr %431, align 8, !tbaa !31
   br label %507
 
 432:                                              ; preds = %330
@@ -1270,7 +1262,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %442 = fptrunc double %441 to float
   %443 = fneg float %442
   %444 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %443, ptr %444, align 8, !tbaa !32
+  store float %443, ptr %444, align 8, !tbaa !31
   %445 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %446 = load double, ptr %445, align 8, !tbaa !8
   %447 = fadd double %434, %446
@@ -1281,7 +1273,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %452 = fptrunc double %451 to float
   %453 = fneg float %452
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store float %453, ptr %454, align 4, !tbaa !32
+  store float %453, ptr %454, align 4, !tbaa !31
   %455 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %456 = load double, ptr %455, align 8, !tbaa !9
   %457 = fadd double %434, %456
@@ -1292,7 +1284,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %462 = fptrunc double %461 to float
   %463 = fneg float %462
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %463, ptr %464, align 8, !tbaa !32
+  store float %463, ptr %464, align 8, !tbaa !31
   %465 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %466 = load double, ptr %465, align 8, !tbaa !16
   %467 = fdiv double %466, %345
@@ -1305,7 +1297,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %474 = fdiv double %472, %473
   %475 = fptrunc double %474 to float
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %475, ptr %476, align 4, !tbaa !32
+  store float %475, ptr %476, align 4, !tbaa !31
   %477 = fdiv double %466, %347
   %478 = fadd double %438, %450
   %479 = fsub double %478, %470
@@ -1313,7 +1305,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %481 = fdiv double %480, %473
   %482 = fptrunc double %481 to float
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %482, ptr %483, align 8, !tbaa !32
+  store float %482, ptr %483, align 8, !tbaa !31
   %484 = fdiv double %466, %349
   %485 = fadd double %438, %460
   %486 = fsub double %485, %470
@@ -1321,26 +1313,26 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
   %488 = fdiv double %487, %473
   %489 = fptrunc double %488 to float
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store float %489, ptr %490, align 4, !tbaa !32
+  store float %489, ptr %490, align 4, !tbaa !31
   %491 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %492 = load double, ptr %491, align 8, !tbaa !10
   %493 = load double, ptr %350, align 8, !tbaa !3
   %494 = fmul double %492, %493
   %495 = fptrunc double %494 to float
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %495, ptr %496, align 8, !tbaa !32
+  store float %495, ptr %496, align 8, !tbaa !31
   %497 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %498 = load double, ptr %497, align 8, !tbaa !8
   %499 = fmul double %492, %498
   %500 = fptrunc double %499 to float
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %500, ptr %501, align 4, !tbaa !32
+  store float %500, ptr %501, align 4, !tbaa !31
   %502 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %503 = load double, ptr %502, align 8, !tbaa !9
   %504 = fmul double %492, %503
   %505 = fptrunc double %504 to float
   %506 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store float %505, ptr %506, align 8, !tbaa !32
+  store float %505, ptr %506, align 8, !tbaa !31
   br label %507
 
 507:                                              ; preds = %._crit_edge, %432, %351
@@ -1353,22 +1345,22 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 .thread198:                                       ; preds = %507
   %512 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %512, align 8, !tbaa !34
+  store i8 0, ptr %512, align 8, !tbaa !33
   br label %.sink.split
 
 513:                                              ; preds = %507
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %515 = load float, ptr %514, align 8, !tbaa !32
+  %515 = load float, ptr %514, align 8, !tbaa !31
   %516 = fcmp oeq float %515, 1.000000e+00
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %518 = zext i1 %516 to i8
-  store i8 %518, ptr %517, align 8, !tbaa !34
+  store i8 %518, ptr %517, align 8, !tbaa !33
   %519 = select i1 %narrow, i1 %516, i1 false
   br i1 %519, label %520, label %.sink.split
 
 520:                                              ; preds = %513
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %522 = load float, ptr %521, align 4, !tbaa !32
+  %522 = load float, ptr %521, align 4, !tbaa !31
   %523 = fcmp oeq float %522, 1.000000e+00
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %525 = load float, ptr %524, align 8
@@ -1382,7 +1374,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 530:                                              ; preds = %520
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %532 = load float, ptr %531, align 8, !tbaa !32
+  %532 = load float, ptr %531, align 8, !tbaa !31
   %533 = fcmp oeq float %532, 0.000000e+00
   %534 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %535 = load float, ptr %534, align 4
@@ -1392,14 +1384,14 @@ define hidden void @_ZN19OpenColorIO_v2_5dev23GradingPrimaryPreRender6updateENS_
 
 537:                                              ; preds = %530
   %538 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %539 = load float, ptr %538, align 8, !tbaa !32
+  %539 = load float, ptr %538, align 8, !tbaa !31
   %540 = fcmp oeq float %539, 0.000000e+00
   br label %.sink.split
 
 .sink.split:                                      ; preds = %520, %530, %537, %513, %.thread198, %292, %309, %319, %326, %152, %170, %177, %.thread
   %.sink.shrunk = phi i1 [ false, %170 ], [ false, %152 ], [ %180, %177 ], [ false, %.thread ], [ false, %319 ], [ false, %309 ], [ false, %292 ], [ %329, %326 ], [ false, %530 ], [ false, %520 ], [ false, %513 ], [ %540, %537 ], [ false, %.thread198 ]
   %.sink = zext i1 %.sink.shrunk to i8
-  store i8 %.sink, ptr %15, align 1, !tbaa !28
+  store i8 %.sink, ptr %15, align 1, !tbaa !27
   br label %541
 
 541:                                              ; preds = %.sink.split, %4
@@ -1422,9 +1414,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 declare double @exp2(double) local_unnamed_addr
 
 declare float @exp2f(float) local_unnamed_addr
@@ -1439,10 +1428,9 @@ attributes #6 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { noreturn }
-attributes #13 = { builtin nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -1471,20 +1459,19 @@ attributes #13 = { builtin nounwind }
 !22 = !{!"p1 omnipotent char", !23, i64 0}
 !23 = !{!"any pointer", !6, i64 0}
 !24 = !{!"long", !6, i64 0}
-!25 = !{!20, !24, i64 8}
-!26 = !{!6, !6, i64 0}
-!27 = !{!12, !5, i64 32}
-!28 = !{!29, !31, i64 81}
-!29 = !{!"_ZTSN19OpenColorIO_v2_5dev23GradingPrimaryPreRenderE", !30, i64 0, !30, i64 12, !30, i64 24, !30, i64 36, !30, i64 48, !30, i64 60, !5, i64 72, !31, i64 80, !31, i64 81}
-!30 = !{!"_ZTSSt5arrayIfLm3EE", !6, i64 0}
-!31 = !{!"bool", !6, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"float", !6, i64 0}
-!34 = !{!29, !31, i64 80}
-!35 = !{!29, !5, i64 72}
-!36 = !{i8 0, i8 2}
-!37 = !{}
-!38 = !{!12, !5, i64 216}
-!39 = !{!12, !5, i64 192}
-!40 = !{!12, !5, i64 200}
-!41 = !{!12, !5, i64 208}
+!25 = !{!6, !6, i64 0}
+!26 = !{!12, !5, i64 32}
+!27 = !{!28, !30, i64 81}
+!28 = !{!"_ZTSN19OpenColorIO_v2_5dev23GradingPrimaryPreRenderE", !29, i64 0, !29, i64 12, !29, i64 24, !29, i64 36, !29, i64 48, !29, i64 60, !5, i64 72, !30, i64 80, !30, i64 81}
+!29 = !{!"_ZTSSt5arrayIfLm3EE", !6, i64 0}
+!30 = !{!"bool", !6, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"float", !6, i64 0}
+!33 = !{!28, !30, i64 80}
+!34 = !{!28, !5, i64 72}
+!35 = !{i8 0, i8 2}
+!36 = !{}
+!37 = !{!12, !5, i64 216}
+!38 = !{!12, !5, i64 192}
+!39 = !{!12, !5, i64 200}
+!40 = !{!12, !5, i64 208}

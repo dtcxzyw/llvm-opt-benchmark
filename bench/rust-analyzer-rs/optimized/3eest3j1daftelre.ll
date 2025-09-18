@@ -7589,9 +7589,6 @@ _ZN5rowan6cursor8NodeData10text_range17hd8c2e4848541b8ceE.llvm.11762030844908852
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN5rowan3api19SyntaxNode$LT$L$GT$16covering_element17hb11921a768989a34E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, ptr } @_ZN5rowan6cursor10SyntaxNode16covering_element17h4ed76c5a167238ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2)
-  %5 = extractvalue { i64, ptr } %4, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
   ret { i64, ptr } %4
 }
 

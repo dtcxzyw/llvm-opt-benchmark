@@ -81,7 +81,7 @@ define void @_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi(i64 noundef %0, i64 n
   %10 = load ptr, ptr @stderr, align 8, !tbaa !9
   %11 = trunc i64 %0 to i32
   %12 = trunc i64 %1 to i32
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %12, double noundef %6) #24
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %12, double noundef %6) #23
   %14 = load ptr, ptr @stderr, align 8, !tbaa !9
   %15 = tail call i32 @fflush(ptr noundef %14)
   br label %16
@@ -159,7 +159,7 @@ define noundef i64 @_ZN11duckdb_zstd27ZDICT_trainFromBuffer_coverEPvmPKvPKmjNS_2
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %24 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %23) #25
+  %24 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %23) #24
   %25 = load ptr, ptr @stderr, align 8, !tbaa !9
   %26 = tail call i32 @fflush(ptr noundef %25)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -174,7 +174,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %31) #25
+  %32 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %31) #24
   %33 = load ptr, ptr @stderr, align 8, !tbaa !9
   %34 = tail call i32 @fflush(ptr noundef %33)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -189,7 +189,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.3, i32 noundef 256) #24
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.3, i32 noundef 256) #23
   %42 = load ptr, ptr @stderr, align 8, !tbaa !9
   %43 = tail call i32 @fflush(ptr noundef %42)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -215,7 +215,7 @@ _ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; pre
   %57 = load ptr, ptr @stderr, align 8, !tbaa !9
   %58 = trunc i64 %1 to i32
   %59 = trunc i64 %49 to i32
-  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str, i32 noundef %58, i32 noundef %59, double noundef %53) #24
+  %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str, i32 noundef %58, i32 noundef %59, double noundef %53) #23
   %61 = load ptr, ptr @stderr, align 8, !tbaa !9
   %62 = call i32 @fflush(ptr noundef %61)
   br label %_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit
@@ -236,7 +236,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   store i32 %71, ptr %72, align 8, !tbaa !28
   %73 = zext i32 %69 to i64
   %74 = shl nuw nsw i64 %73, 3
-  %75 = call noalias ptr @malloc(i64 noundef %74) #26
+  %75 = call noalias ptr @malloc(i64 noundef %74) #25
   store ptr %75, ptr %8, align 8, !tbaa !29
   %.not.i = icmp eq ptr %75, null
   br i1 %.not.i, label %76, label %100
@@ -248,7 +248,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %81 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %80) #25
+  %81 = call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %80) #24
   %82 = load ptr, ptr @stderr, align 8, !tbaa !9
   %83 = call i32 @fflush(ptr noundef %82)
   br label %84
@@ -260,7 +260,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not.i32, label %88, label %87
 
 87:                                               ; preds = %84
-  call void @free(ptr noundef nonnull %86) #27
+  call void @free(ptr noundef nonnull %86) #26
   store ptr null, ptr %85, align 8, !tbaa !30
   br label %88
 
@@ -271,7 +271,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not17.i, label %92, label %91
 
 91:                                               ; preds = %88
-  call void @free(ptr noundef nonnull %90) #27
+  call void @free(ptr noundef nonnull %90) #26
   store ptr null, ptr %89, align 8, !tbaa !31
   br label %92
 
@@ -282,7 +282,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not18.i, label %96, label %95
 
 95:                                               ; preds = %92
-  call void @free(ptr noundef nonnull %94) #27
+  call void @free(ptr noundef nonnull %94) #26
   store ptr null, ptr %93, align 8, !tbaa !32
   br label %96
 
@@ -293,7 +293,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit, label %99
 
 99:                                               ; preds = %96
-  call void @free(ptr noundef nonnull %98) #27
+  call void @free(ptr noundef nonnull %98) #26
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
 100:                                              ; preds = %_ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit
@@ -304,7 +304,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %105 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %104) #25
+  %105 = call i64 @fwrite(ptr nonnull @.str.5, i64 20, i64 1, ptr %104) #24
   %106 = load ptr, ptr @stderr, align 8, !tbaa !9
   %107 = call i32 @fflush(ptr noundef %106)
   br label %108
@@ -325,7 +325,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
 118:                                              ; preds = %108
   %119 = load ptr, ptr @stderr, align 8, !tbaa !9
   %120 = trunc i64 %114 to i32
-  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.6, i32 noundef %120) #24
+  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.6, i32 noundef %120) #23
   %122 = load ptr, ptr @stderr, align 8, !tbaa !9
   %123 = call i32 @fflush(ptr noundef %122)
   br label %124
@@ -337,7 +337,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not.i33, label %128, label %127
 
 127:                                              ; preds = %124
-  call void @free(ptr noundef nonnull %126) #27
+  call void @free(ptr noundef nonnull %126) #26
   store ptr null, ptr %125, align 8, !tbaa !30
   br label %128
 
@@ -347,7 +347,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not17.i34, label %131, label %130
 
 130:                                              ; preds = %128
-  call void @free(ptr noundef nonnull %129) #27
+  call void @free(ptr noundef nonnull %129) #26
   store ptr null, ptr %109, align 8, !tbaa !31
   br label %131
 
@@ -358,7 +358,7 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not18.i35, label %135, label %134
 
 134:                                              ; preds = %131
-  call void @free(ptr noundef nonnull %133) #27
+  call void @free(ptr noundef nonnull %133) #26
   store ptr null, ptr %132, align 8, !tbaa !32
   br label %135
 
@@ -369,11 +369,11 @@ _ZN11duckdb_zstd23COVER_warnOnSmallCorpusEmmi.exit: ; preds = %47, %56
   br i1 %.not19.i36, label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit, label %138
 
 138:                                              ; preds = %135
-  call void @free(ptr noundef nonnull %137) #27
+  call void @free(ptr noundef nonnull %137) #26
   br label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
 
 _ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit: ; preds = %135, %138
-  call void @free(ptr noundef nonnull %75) #27
+  call void @free(ptr noundef nonnull %75) #26
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
 _ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit: ; preds = %99, %96, %37, %39, %28, %30, %20, %22, %44, %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
@@ -469,7 +469,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   %35 = load ptr, ptr @stderr, align 8, !tbaa !9
   %36 = lshr i64 %9, 20
   %37 = trunc i64 %36 to i32
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.16, i32 noundef %37, i32 noundef 4095) #24
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.16, i32 noundef %37, i32 noundef 4095) #23
   %39 = load ptr, ptr @stderr, align 8, !tbaa !9
   %40 = tail call i32 @fflush(ptr noundef %39)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -485,7 +485,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.17, i32 noundef %15) #24
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %47, ptr noundef nonnull @.str.17, i32 noundef %15) #23
   %49 = load ptr, ptr @stderr, align 8, !tbaa !9
   %50 = tail call i32 @fflush(ptr noundef %49)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -501,7 +501,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.18, i32 noundef 0) #24
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.18, i32 noundef 0) #23
   %59 = load ptr, ptr @stderr, align 8, !tbaa !9
   %60 = tail call i32 @fflush(ptr noundef %59)
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
@@ -515,7 +515,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 64:                                               ; preds = %61
   %65 = load ptr, ptr @stderr, align 8, !tbaa !9
   %66 = trunc i64 %25 to i32
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.19, i32 noundef %15, i32 noundef %66) #24
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.19, i32 noundef %15, i32 noundef %66) #23
   %68 = load ptr, ptr @stderr, align 8, !tbaa !9
   %69 = tail call i32 @fflush(ptr noundef %68)
   %.pr = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
@@ -525,7 +525,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 71:                                               ; preds = %64
   %72 = load ptr, ptr @stderr, align 8, !tbaa !9
   %73 = trunc i64 %26 to i32
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %73) #24
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %72, ptr noundef nonnull @.str.20, i32 noundef %16, i32 noundef %73) #23
   %75 = load ptr, ptr @stderr, align 8, !tbaa !9
   %76 = tail call i32 @fflush(ptr noundef %75)
   br label %.thread
@@ -547,16 +547,16 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %84, ptr %85, align 8, !tbaa !19
   %86 = shl i64 %84, 2
-  %87 = tail call noalias ptr @malloc(i64 noundef %86) #26
+  %87 = tail call noalias ptr @malloc(i64 noundef %86) #25
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %87, ptr %88, align 8, !tbaa !30
-  %89 = tail call noalias ptr @malloc(i64 noundef %86) #26
+  %89 = tail call noalias ptr @malloc(i64 noundef %86) #25
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %89, ptr %90, align 8, !tbaa !32
   %91 = add i32 %3, 1
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 3
-  %94 = tail call noalias ptr @malloc(i64 noundef %93) #26
+  %94 = tail call noalias ptr @malloc(i64 noundef %93) #25
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %94, ptr %95, align 8, !tbaa !33
   %.not = icmp eq ptr %87, null
@@ -575,7 +575,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #25
+  %102 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 35, i64 1, ptr %101) #24
   %103 = load ptr, ptr @stderr, align 8, !tbaa !9
   %104 = tail call i32 @fflush(ptr noundef %103)
   %.pre131 = load ptr, ptr %88, align 8, !tbaa !30
@@ -587,7 +587,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not.i118, label %108, label %107
 
 107:                                              ; preds = %105
-  tail call void @free(ptr noundef nonnull %106) #27
+  tail call void @free(ptr noundef nonnull %106) #26
   store ptr null, ptr %88, align 8, !tbaa !30
   br label %108
 
@@ -598,7 +598,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not17.i, label %112, label %111
 
 111:                                              ; preds = %108
-  tail call void @free(ptr noundef nonnull %110) #27
+  tail call void @free(ptr noundef nonnull %110) #26
   store ptr null, ptr %109, align 8, !tbaa !31
   br label %112
 
@@ -608,7 +608,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not18.i, label %115, label %114
 
 114:                                              ; preds = %112
-  tail call void @free(ptr noundef nonnull %113) #27
+  tail call void @free(ptr noundef nonnull %113) #26
   store ptr null, ptr %90, align 8, !tbaa !32
   br label %115
 
@@ -618,7 +618,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
   br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit, label %117
 
 117:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %116) #27
+  tail call void @free(ptr noundef nonnull %116) #26
   store ptr null, ptr %95, align 8, !tbaa !33
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit
 
@@ -652,7 +652,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %133 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %132) #25
+  %133 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 34, i64 1, ptr %132) #24
   %134 = load ptr, ptr @stderr, align 8, !tbaa !9
   %135 = tail call i32 @fflush(ptr noundef %134)
   %.pre = load i64, ptr %85, align 8, !tbaa !19
@@ -687,7 +687,7 @@ _ZN11duckdb_zstd9COVER_sumEPKmj.exit107:          ; preds = %.lr.ph.i111, %.loop
 
 148:                                              ; preds = %._crit_edge
   %149 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %150 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %149) #25
+  %150 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 22, i64 1, ptr %149) #24
   %151 = load ptr, ptr @stderr, align 8, !tbaa !9
   %152 = tail call i32 @fflush(ptr noundef %151)
   br label %153
@@ -849,7 +849,7 @@ _ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit:  ; preds = %6, %16
 
 25:                                               ; preds = %_ZN11duckdb_zstd19COVER_computeEpochsEjjjj.exit
   %26 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0.0.i, i32 noundef %.sroa.4.0.i) #24
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.24, i32 noundef %.sroa.0.0.i, i32 noundef %.sroa.4.0.i) #23
   %28 = load ptr, ptr @stderr, align 8, !tbaa !9
   %29 = tail call i32 @fflush(ptr noundef %28)
   br label %30
@@ -1201,7 +1201,7 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   br i1 %195, label %196, label %.thread
 
 196:                                              ; preds = %189
-  %197 = tail call i64 @clock() #27
+  %197 = tail call i64 @clock() #26
   %198 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
   %199 = sub nsw i64 %197, %198
   %200 = icmp sgt i64 %199, 150000
@@ -1211,14 +1211,14 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
   br i1 %or.cond, label %203, label %.thread
 
 203:                                              ; preds = %196
-  %204 = tail call i64 @clock() #27
+  %204 = tail call i64 @clock() #26
   store i64 %204, ptr @_ZL6g_time, align 8, !tbaa !3
   %205 = load ptr, ptr @stderr, align 8, !tbaa !9
   %206 = sub i64 %4, %190
   %207 = mul i64 %206, 100
   %208 = udiv i64 %207, %4
   %209 = trunc i64 %208 to i32
-  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.13, i32 noundef %209) #24
+  %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %205, ptr noundef nonnull @.str.13, i32 noundef %209) #23
   %211 = load ptr, ptr @stderr, align 8, !tbaa !9
   %212 = tail call i32 @fflush(ptr noundef %211)
   br label %.thread
@@ -1244,7 +1244,7 @@ _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjj
 
 218:                                              ; preds = %.thread73
   %219 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #24
+  %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
   %221 = load ptr, ptr @stderr, align 8, !tbaa !9
   %222 = tail call i32 @fflush(ptr noundef %221)
   br label %223
@@ -1277,7 +1277,7 @@ define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.045.lcssa = phi i64 [ 0, %8 ], [ %..045, %.lr.ph ]
   %17 = tail call noundef i64 @_ZN11duckdb_zstd18ZSTD_compressBoundEm(i64 noundef %.045.lcssa)
-  %18 = tail call noalias ptr @malloc(i64 noundef %17) #26
+  %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
   %19 = tail call noundef ptr @_ZN11duckdb_zstd15ZSTD_createCCtxEv()
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8, !tbaa !60
@@ -1316,7 +1316,7 @@ define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_
   br i1 %23, label %39, label %38
 
 38:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %18) #27
+  tail call void @free(ptr noundef nonnull %18) #26
   br label %39
 
 39:                                               ; preds = %.loopexit, %38
@@ -1364,40 +1364,26 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define void @_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %1
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !64
-  %.not2 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %.not2)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.preheader, %1
+.loopexit:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %7, label %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit
+  br i1 %.not, label %5, label %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit
 
 _ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit: ; preds = %1
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !64
-  %.not2.i = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %.not2.i)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !65
-  %.not5 = icmp eq ptr %5, null
-  br i1 %.not5, label %7, label %6
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %.not5 = icmp eq ptr %3, null
+  br i1 %.not5, label %5, label %4
 
-6:                                                ; preds = %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit
-  tail call void @free(ptr noundef nonnull %5) #27
-  br label %7
+4:                                                ; preds = %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit
+  tail call void @free(ptr noundef nonnull %3) #26
+  br label %5
 
-7:                                                ; preds = %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit, %6, %1
+5:                                                ; preds = %_ZN11duckdb_zstd15COVER_best_waitEPNS_12COVER_best_sE.exit, %4, %1
   ret void
 }
 
@@ -1408,9 +1394,9 @@ define void @_ZN11duckdb_zstd16COVER_best_startEPNS_12COVER_best_sE(ptr noundef 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !64
+  %4 = load i64, ptr %3, align 8, !tbaa !65
   %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 8, !tbaa !64
+  store i64 %5, ptr %3, align 8, !tbaa !65
   br label %6
 
 6:                                                ; preds = %1, %2
@@ -1429,9 +1415,9 @@ define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_c
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !64
+  %11 = load i64, ptr %10, align 8, !tbaa !65
   %12 = add i64 %11, -1
-  store i64 %12, ptr %10, align 8, !tbaa !64
+  store i64 %12, ptr %10, align 8, !tbaa !65
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8, !tbaa !62
   %15 = icmp ult i64 %6, %14
@@ -1439,7 +1425,7 @@ define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_c
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !65
+  %18 = load ptr, ptr %17, align 8, !tbaa !64
   %.not29 = icmp eq ptr %18, null
   br i1 %.not29, label %.thread, label %19
 
@@ -1450,12 +1436,12 @@ define void @_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_c
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %18) #27
+  tail call void @free(ptr noundef nonnull %18) #26
   br label %.thread
 
 .thread:                                          ; preds = %16, %23
-  %24 = tail call noalias ptr @malloc(i64 noundef %8) #26
-  store ptr %24, ptr %17, align 8, !tbaa !65
+  %24 = tail call noalias ptr @malloc(i64 noundef %8) #25
+  store ptr %24, ptr %17, align 8, !tbaa !64
   %.not31 = icmp eq ptr %24, null
   br i1 %.not31, label %25, label %27
 
@@ -1506,15 +1492,15 @@ define noundef range(i32 0, 2) i32 @_ZN11duckdb_zstd26COVER_dictSelectionIsError
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @_ZN11duckdb_zstd23COVER_dictSelectionFreeENS_19COVER_dictSelectionE(ptr noundef readonly byval(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8, !tbaa !66
-  tail call void @free(ptr noundef %2) #27
+  tail call void @free(ptr noundef %2) #26
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_params_tEPmm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.duckdb_zstd::COVER_dictSelection") align 8 captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i64 noundef %7, i64 noundef %8, ptr noundef readonly byval(%"struct.duckdb_zstd::ZDICT_cover_params_t") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, i64 %11) local_unnamed_addr #4 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %3
-  %14 = tail call noalias ptr @malloc(i64 noundef %2) #26
-  %15 = tail call noalias ptr @malloc(i64 noundef %2) #26
+  %14 = tail call noalias ptr @malloc(i64 noundef %2) #25
+  %15 = tail call noalias ptr @malloc(i64 noundef %2) #25
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !76
   %18 = uitofp i32 %17 to double
@@ -1526,8 +1512,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %or.cond, label %25, label %23
 
 23:                                               ; preds = %12
-  tail call void @free(ptr noundef %14) #27
-  tail call void @free(ptr noundef %15) #27
+  tail call void @free(ptr noundef %14) #26
+  tail call void @free(ptr noundef %15) #26
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !77
   store i64 %3, ptr %24, align 8, !tbaa !68, !alias.scope !80
@@ -1542,8 +1528,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %14) #27
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef nonnull %14) #26
+  tail call void @free(ptr noundef nonnull %15) #26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !83
   store i64 %27, ptr %30, align 8, !tbaa !68, !alias.scope !86
@@ -1555,8 +1541,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %31
-  tail call void @free(ptr noundef nonnull %14) #27
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef nonnull %14) #26
+  tail call void @free(ptr noundef nonnull %15) #26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !89
   store i64 %32, ptr %35, align 8, !tbaa !68, !alias.scope !92
@@ -1578,7 +1564,7 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br label %46
 
 43:                                               ; preds = %36
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef nonnull %15) #26
   store ptr %14, ptr %0, align 8, !tbaa !66, !alias.scope !96
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %44, align 8, !tbaa !69, !alias.scope !96
@@ -1597,8 +1583,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %.not86, label %53, label %51
 
 51:                                               ; preds = %46
-  tail call void @free(ptr noundef %14) #27
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef %14) #26
+  tail call void @free(ptr noundef nonnull %15) #26
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !99
   store i64 %49, ptr %52, align 8, !tbaa !68, !alias.scope !102
@@ -1610,8 +1596,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %53
-  tail call void @free(ptr noundef %14) #27
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef %14) #26
+  tail call void @free(ptr noundef nonnull %15) #26
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !105
   store i64 %54, ptr %57, align 8, !tbaa !68, !alias.scope !108
@@ -1623,7 +1609,7 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %58
-  tail call void @free(ptr noundef %14) #27
+  tail call void @free(ptr noundef %14) #26
   store ptr %15, ptr %0, align 8, !tbaa !66, !alias.scope !111
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %49, ptr %62, align 8, !tbaa !69, !alias.scope !111
@@ -1637,7 +1623,7 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   br i1 %66, label %46, label %._crit_edge, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  tail call void @free(ptr noundef nonnull %15) #27
+  tail call void @free(ptr noundef nonnull %15) #26
   store ptr %14, ptr %0, align 8, !tbaa !66, !alias.scope !115
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %67, align 8, !tbaa !69, !alias.scope !115
@@ -1692,14 +1678,14 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 38:                                               ; preds = %6
   %39 = icmp sgt i32 %36, 0
-  br i1 %39, label %40, label %240
+  br i1 %39, label %40, label %235
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #25
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %41) #24
   %43 = load ptr, ptr @stderr, align 8, !tbaa !9
   %44 = tail call i32 @fflush(ptr noundef %43)
-  br label %240
+  br label %235
 
 45:                                               ; preds = %6
   %46 = icmp ult i32 %22, %19
@@ -1709,14 +1695,14 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 48:                                               ; preds = %45
   %49 = icmp sgt i32 %36, 0
-  br i1 %49, label %50, label %240
+  br i1 %49, label %50, label %235
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #25
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 21, i64 1, ptr %51) #24
   %53 = load ptr, ptr @stderr, align 8, !tbaa !9
   %54 = tail call i32 @fflush(ptr noundef %53)
-  br label %240
+  br label %235
 
 55:                                               ; preds = %45
   %56 = icmp eq i32 %4, 0
@@ -1725,14 +1711,14 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 57:                                               ; preds = %55
   %58 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %60, label %240
+  br i1 %59, label %60, label %235
 
 60:                                               ; preds = %57
   %61 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #25
+  %62 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 40, i64 1, ptr %61) #24
   %63 = load ptr, ptr @stderr, align 8, !tbaa !9
   %64 = tail call i32 @fflush(ptr noundef %63)
-  br label %240
+  br label %235
 
 65:                                               ; preds = %55
   %66 = icmp ult i64 %1, 256
@@ -1741,14 +1727,14 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 67:                                               ; preds = %65
   %68 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
   %69 = icmp sgt i32 %68, 0
-  br i1 %69, label %70, label %240
+  br i1 %69, label %70, label %235
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.3, i32 noundef 256) #24
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.3, i32 noundef 256) #23
   %73 = load ptr, ptr @stderr, align 8, !tbaa !9
   %74 = tail call i32 @fflush(ptr noundef %73)
-  br label %240
+  br label %235
 
 75:                                               ; preds = %65
   %76 = icmp ugt i32 %10, 1
@@ -1758,7 +1744,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
   %78 = zext i32 %10 to i64
   %79 = tail call noundef ptr @_ZN11duckdb_zstd11POOL_createEmm(i64 noundef %78, i64 noundef 1)
   %.not = icmp eq ptr %79, null
-  br i1 %.not, label %240, label %80
+  br i1 %.not, label %235, label %80
 
 80:                                               ; preds = %77, %75
   %.0125 = phi ptr [ %79, %77 ], [ null, %75 ]
@@ -1775,7 +1761,7 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 
 86:                                               ; preds = %80
   %87 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.8, i32 noundef %34) #24
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.8, i32 noundef %34) #23
   %89 = load ptr, ptr @stderr, align 8, !tbaa !9
   %90 = tail call i32 @fflush(ptr noundef %89)
   br label %91
@@ -1798,16 +1784,16 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
   %101 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %102
 
-102:                                              ; preds = %.lr.ph200, %218
-  %.0113198 = phi i32 [ 1, %.lr.ph200 ], [ %.3116.ph, %218 ]
-  %.0117197 = phi i32 [ %18, %.lr.ph200 ], [ %219, %218 ]
-  %.not146196 = phi i1 [ true, %.lr.ph200 ], [ false, %218 ]
+102:                                              ; preds = %.lr.ph200, %215
+  %.0113198 = phi i32 [ 1, %.lr.ph200 ], [ %.3116.ph, %215 ]
+  %.0117197 = phi i32 [ %18, %.lr.ph200 ], [ %216, %215 ]
+  %.not146196 = phi i1 [ true, %.lr.ph200 ], [ false, %215 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %92, label %103, label %108
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0117197) #24
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.9, i32 noundef %.0117197) #23
   %106 = load ptr, ptr @stderr, align 8, !tbaa !9
   %107 = call i32 @fflush(ptr noundef %106)
   br label %108
@@ -1815,330 +1801,315 @@ define noundef i64 @_ZN11duckdb_zstd35ZDICT_optimizeTrainFromBuffer_coverEPvmPKv
 108:                                              ; preds = %103, %102
   %109 = call fastcc noundef i64 @_ZN11duckdb_zstdL14COVER_ctx_initEPNS_11COVER_ctx_tEPKvPKmjjd(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0117197, double noundef %14)
   %110 = icmp ult i64 %109, -119
-  br i1 %110, label %122, label %111
+  br i1 %110, label %121, label %111
 
 111:                                              ; preds = %108
   br i1 %95, label %112, label %117
 
 112:                                              ; preds = %111
   %113 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %114 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %113) #25
+  %114 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %113) #24
   %115 = load ptr, ptr @stderr, align 8, !tbaa !9
   %116 = call i32 @fflush(ptr noundef %115)
   br label %117
 
 117:                                              ; preds = %112, %111
-  %118 = load i64, ptr %81, align 8, !tbaa !64
-  %.not2.i.i = icmp eq i64 %118, 0
-  call void @llvm.assume(i1 %.not2.i.i)
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !65
-  %.not5.i = icmp eq ptr %120, null
-  br i1 %.not5.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, label %121
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %119 = load ptr, ptr %118, align 8, !tbaa !64
+  %.not5.i = icmp eq ptr %119, null
+  br i1 %.not5.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, label %120
 
-121:                                              ; preds = %117
-  call void @free(ptr noundef nonnull %120) #27
+120:                                              ; preds = %117
+  call void @free(ptr noundef nonnull %119) #26
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160
 
-122:                                              ; preds = %108
-  br i1 %.not146196, label %123, label %.lr.ph.preheader
+121:                                              ; preds = %108
+  br i1 %.not146196, label %122, label %.lr.ph.preheader
 
-123:                                              ; preds = %122
-  %124 = load i64, ptr %93, align 8, !tbaa !19
-  %125 = uitofp i64 %124 to double
-  %126 = fdiv double %125, %94
-  %127 = fcmp ult double %126, 1.000000e+01
-  %or.cond.i = and i1 %95, %127
-  br i1 %or.cond.i, label %128, label %.lr.ph.preheader
+122:                                              ; preds = %121
+  %123 = load i64, ptr %93, align 8, !tbaa !19
+  %124 = uitofp i64 %123 to double
+  %125 = fdiv double %124, %94
+  %126 = fcmp ult double %125, 1.000000e+01
+  %or.cond.i = and i1 %95, %126
+  br i1 %or.cond.i, label %127, label %.lr.ph.preheader
 
-128:                                              ; preds = %123
-  %129 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %130 = trunc i64 %124 to i32
-  %131 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str, i32 noundef %96, i32 noundef %130, double noundef %126) #24
-  %132 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %133 = call i32 @fflush(ptr noundef %132)
+127:                                              ; preds = %122
+  %128 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %129 = trunc i64 %123 to i32
+  %130 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str, i32 noundef %96, i32 noundef %129, double noundef %125) #23
+  %131 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %132 = call i32 @fflush(ptr noundef %131)
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %122, %123, %128
-  %134 = add i32 %.0117197, -1
+.lr.ph.preheader:                                 ; preds = %121, %122, %127
+  %133 = add i32 %.0117197, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %204
-  %.2115194 = phi i32 [ %.3116.ph, %204 ], [ %.0113198, %.lr.ph.preheader ]
-  %.0118193 = phi i32 [ %205, %204 ], [ %22, %.lr.ph.preheader ]
-  %135 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #26
-  br i1 %92, label %136, label %141
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %202
+  %.2115194 = phi i32 [ %.3116.ph, %202 ], [ %.0113198, %.lr.ph.preheader ]
+  %.0118193 = phi i32 [ %203, %202 ], [ %22, %.lr.ph.preheader ]
+  %134 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #25
+  br i1 %92, label %135, label %140
 
-136:                                              ; preds = %.lr.ph
-  %137 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %137, ptr noundef nonnull @.str.11, i32 noundef %.0118193) #24
-  %139 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %140 = call i32 @fflush(ptr noundef %139)
-  br label %141
+135:                                              ; preds = %.lr.ph
+  %136 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.11, i32 noundef %.0118193) #23
+  %138 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %139 = call i32 @fflush(ptr noundef %138)
+  br label %140
 
-141:                                              ; preds = %136, %.lr.ph
-  %.not148 = icmp eq ptr %135, null
-  br i1 %.not148, label %142, label %164
+140:                                              ; preds = %135, %.lr.ph
+  %.not148 = icmp eq ptr %134, null
+  br i1 %.not148, label %141, label %162
+
+141:                                              ; preds = %140
+  br i1 %95, label %142, label %147
 
 142:                                              ; preds = %141
-  br i1 %95, label %143, label %148
+  %143 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %144 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %143) #24
+  %145 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %146 = call i32 @fflush(ptr noundef %145)
+  br label %147
 
-143:                                              ; preds = %142
-  %144 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %145 = call i64 @fwrite(ptr nonnull @.str.12, i64 30, i64 1, ptr %144) #25
-  %146 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %147 = call i32 @fflush(ptr noundef %146)
-  br label %148
+147:                                              ; preds = %142, %141
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %149 = load ptr, ptr %148, align 8, !tbaa !64
+  %.not5.i152 = icmp eq ptr %149, null
+  br i1 %.not5.i152, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153, label %150
 
-148:                                              ; preds = %143, %142
-  %149 = load i64, ptr %81, align 8, !tbaa !64
-  %.not2.i.i151 = icmp eq i64 %149, 0
-  call void @llvm.assume(i1 %.not2.i.i151)
-  %150 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %151 = load ptr, ptr %150, align 8, !tbaa !65
-  %.not5.i152 = icmp eq ptr %151, null
-  br i1 %.not5.i152, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153, label %152
-
-152:                                              ; preds = %148
-  call void @free(ptr noundef nonnull %151) #27
+150:                                              ; preds = %147
+  call void @free(ptr noundef nonnull %149) #26
   br label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
 
-_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %148, %152
-  %153 = load ptr, ptr %98, align 8, !tbaa !30
-  %.not.i = icmp eq ptr %153, null
-  br i1 %.not.i, label %155, label %154
+_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153: ; preds = %147, %150
+  %151 = load ptr, ptr %98, align 8, !tbaa !30
+  %.not.i = icmp eq ptr %151, null
+  br i1 %.not.i, label %153, label %152
 
-154:                                              ; preds = %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
-  call void @free(ptr noundef nonnull %153) #27
+152:                                              ; preds = %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
+  call void @free(ptr noundef nonnull %151) #26
   store ptr null, ptr %98, align 8, !tbaa !30
-  br label %155
+  br label %153
 
-155:                                              ; preds = %154, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
-  %156 = load ptr, ptr %99, align 8, !tbaa !31
-  %.not17.i = icmp eq ptr %156, null
-  br i1 %.not17.i, label %158, label %157
+153:                                              ; preds = %152, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit153
+  %154 = load ptr, ptr %99, align 8, !tbaa !31
+  %.not17.i = icmp eq ptr %154, null
+  br i1 %.not17.i, label %156, label %155
 
-157:                                              ; preds = %155
-  call void @free(ptr noundef nonnull %156) #27
+155:                                              ; preds = %153
+  call void @free(ptr noundef nonnull %154) #26
   store ptr null, ptr %99, align 8, !tbaa !31
-  br label %158
+  br label %156
 
-158:                                              ; preds = %157, %155
-  %159 = load ptr, ptr %100, align 8, !tbaa !32
-  %.not18.i = icmp eq ptr %159, null
-  br i1 %.not18.i, label %161, label %160
+156:                                              ; preds = %155, %153
+  %157 = load ptr, ptr %100, align 8, !tbaa !32
+  %.not18.i = icmp eq ptr %157, null
+  br i1 %.not18.i, label %159, label %158
 
-160:                                              ; preds = %158
-  call void @free(ptr noundef nonnull %159) #27
+158:                                              ; preds = %156
+  call void @free(ptr noundef nonnull %157) #26
   store ptr null, ptr %100, align 8, !tbaa !32
-  br label %161
+  br label %159
 
-161:                                              ; preds = %160, %158
-  %162 = load ptr, ptr %101, align 8, !tbaa !33
-  %.not19.i = icmp eq ptr %162, null
-  br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, label %163
+159:                                              ; preds = %158, %156
+  %160 = load ptr, ptr %101, align 8, !tbaa !33
+  %.not19.i = icmp eq ptr %160, null
+  br i1 %.not19.i, label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, label %161
 
-163:                                              ; preds = %161
-  call void @free(ptr noundef nonnull %162) #27
+161:                                              ; preds = %159
+  call void @free(ptr noundef nonnull %160) #26
   store ptr null, ptr %101, align 8, !tbaa !33
   br label %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160
 
-164:                                              ; preds = %141
-  store ptr %8, ptr %135, align 8, !tbaa !120
-  %165 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store ptr %7, ptr %165, align 8, !tbaa !123
-  %166 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  store i64 %1, ptr %166, align 8, !tbaa !124
-  %167 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %167, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !tbaa.struct !71
-  store i32 %.0118193, ptr %167, align 8, !tbaa !125
-  %168 = getelementptr inbounds nuw i8, ptr %135, i64 28
-  store i32 %.0117197, ptr %168, align 4, !tbaa !126
-  %169 = getelementptr inbounds nuw i8, ptr %135, i64 40
-  store double %14, ptr %169, align 8, !tbaa !127
-  %170 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  store i32 %27, ptr %170, align 8, !tbaa !128
-  %171 = getelementptr inbounds nuw i8, ptr %135, i64 48
-  store i32 0, ptr %171, align 8, !tbaa !129
-  %172 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
-  %173 = getelementptr inbounds nuw i8, ptr %135, i64 60
-  store i32 %172, ptr %173, align 4, !tbaa !130
-  %174 = zext i32 %.0118193 to i64
-  %175 = icmp ult i64 %1, %174
-  %176 = icmp uge i32 %134, %.0118193
-  %or.cond11.i = or i1 %175, %176
+162:                                              ; preds = %140
+  store ptr %8, ptr %134, align 8, !tbaa !120
+  %163 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  store ptr %7, ptr %163, align 8, !tbaa !123
+  %164 = getelementptr inbounds nuw i8, ptr %134, i64 16
+  store i64 %1, ptr %164, align 8, !tbaa !124
+  %165 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %165, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !tbaa.struct !71
+  store i32 %.0118193, ptr %165, align 8, !tbaa !125
+  %166 = getelementptr inbounds nuw i8, ptr %134, i64 28
+  store i32 %.0117197, ptr %166, align 4, !tbaa !126
+  %167 = getelementptr inbounds nuw i8, ptr %134, i64 40
+  store double %14, ptr %167, align 8, !tbaa !127
+  %168 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  store i32 %27, ptr %168, align 8, !tbaa !128
+  %169 = getelementptr inbounds nuw i8, ptr %134, i64 48
+  store i32 0, ptr %169, align 8, !tbaa !129
+  %170 = load i32, ptr @_ZL14g_displayLevel, align 4, !tbaa !18
+  %171 = getelementptr inbounds nuw i8, ptr %134, i64 60
+  store i32 %170, ptr %171, align 4, !tbaa !130
+  %172 = zext i32 %.0118193 to i64
+  %173 = icmp ult i64 %1, %172
+  %174 = icmp uge i32 %133, %.0118193
+  %or.cond11.i = or i1 %173, %174
   br i1 %or.cond11.i, label %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread, label %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit
 
-_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread: ; preds = %164
-  %177 = icmp sgt i32 %172, 0
-  br i1 %177, label %178, label %183
+_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread: ; preds = %162
+  %175 = icmp sgt i32 %170, 0
+  br i1 %175, label %176, label %181
 
-178:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
+176:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
+  %177 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %178 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %177) #24
   %179 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %180 = call i64 @fwrite(ptr nonnull @.str.1, i64 27, i64 1, ptr %179) #25
-  %181 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %182 = call i32 @fflush(ptr noundef %181)
-  br label %183
+  %180 = call i32 @fflush(ptr noundef %179)
+  br label %181
 
-183:                                              ; preds = %178, %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
-  call void @free(ptr noundef nonnull %135) #27
-  br label %204
-
-_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; preds = %164
-  %184 = load i64, ptr %81, align 8, !tbaa !64
-  %185 = add i64 %184, 1
-  store i64 %185, ptr %81, align 8, !tbaa !64
-  br i1 %.not150, label %187, label %186
-
-186:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit
-  call void @_ZN11duckdb_zstd8POOL_addEPNS_10POOL_ctx_sEPFvPvES2_(ptr noundef nonnull %.0125, ptr noundef nonnull @_ZN11duckdb_zstdL19COVER_tryParametersEPv, ptr noundef nonnull %135)
-  br label %188
-
-187:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit
-  call void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef nonnull %135)
-  br label %188
-
-188:                                              ; preds = %187, %186
-  br i1 %85, label %189, label %202
-
-189:                                              ; preds = %188
-  %190 = call i64 @clock() #27
-  %191 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
-  %192 = sub nsw i64 %190, %191
-  %193 = icmp sgt i64 %192, 150000
-  %or.cond4 = select i1 %193, i1 true, i1 %97
-  br i1 %or.cond4, label %194, label %202
-
-194:                                              ; preds = %189
-  %195 = call i64 @clock() #27
-  store i64 %195, ptr @_ZL6g_time, align 8, !tbaa !3
-  %196 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %197 = mul i32 %.2115194, 100
-  %198 = udiv i32 %197, %34
-  %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.13, i32 noundef %198) #24
-  %200 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %201 = call i32 @fflush(ptr noundef %200)
+181:                                              ; preds = %176, %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit.thread
+  call void @free(ptr noundef nonnull %134) #26
   br label %202
 
-202:                                              ; preds = %194, %189, %188
-  %203 = add i32 %.2115194, 1
-  br label %204
+_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit: ; preds = %162
+  %182 = load i64, ptr %81, align 8, !tbaa !65
+  %183 = add i64 %182, 1
+  store i64 %183, ptr %81, align 8, !tbaa !65
+  br i1 %.not150, label %185, label %184
 
-204:                                              ; preds = %202, %183
-  %.3116.ph = phi i32 [ %.2115194, %183 ], [ %203, %202 ]
-  %205 = add i32 %.0118193, %30
-  %.not147 = icmp ugt i32 %205, %23
+184:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit
+  call void @_ZN11duckdb_zstd8POOL_addEPNS_10POOL_ctx_sEPFvPvES2_(ptr noundef nonnull %.0125, ptr noundef nonnull @_ZN11duckdb_zstdL19COVER_tryParametersEPv, ptr noundef nonnull %134)
+  br label %186
+
+185:                                              ; preds = %_ZN11duckdb_zstdL21COVER_checkParametersENS_20ZDICT_cover_params_tEm.exit
+  call void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef nonnull %134)
+  br label %186
+
+186:                                              ; preds = %185, %184
+  br i1 %85, label %187, label %200
+
+187:                                              ; preds = %186
+  %188 = call i64 @clock() #26
+  %189 = load i64, ptr @_ZL6g_time, align 8, !tbaa !3
+  %190 = sub nsw i64 %188, %189
+  %191 = icmp sgt i64 %190, 150000
+  %or.cond4 = select i1 %191, i1 true, i1 %97
+  br i1 %or.cond4, label %192, label %200
+
+192:                                              ; preds = %187
+  %193 = call i64 @clock() #26
+  store i64 %193, ptr @_ZL6g_time, align 8, !tbaa !3
+  %194 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %195 = mul i32 %.2115194, 100
+  %196 = udiv i32 %195, %34
+  %197 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.13, i32 noundef %196) #23
+  %198 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %199 = call i32 @fflush(ptr noundef %198)
+  br label %200
+
+200:                                              ; preds = %192, %187, %186
+  %201 = add i32 %.2115194, 1
+  br label %202
+
+202:                                              ; preds = %200, %181
+  %.3116.ph = phi i32 [ %.2115194, %181 ], [ %201, %200 ]
+  %203 = add i32 %.0118193, %30
+  %.not147 = icmp ugt i32 %203, %23
   br i1 %.not147, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
-._crit_edge:                                      ; preds = %204
-  %206 = load i64, ptr %81, align 8, !tbaa !64
-  %.not2.i = icmp eq i64 %206, 0
-  call void @llvm.assume(i1 %.not2.i)
-  %207 = load ptr, ptr %98, align 8, !tbaa !30
-  %.not.i156 = icmp eq ptr %207, null
-  br i1 %.not.i156, label %209, label %208
+._crit_edge:                                      ; preds = %202
+  %204 = load ptr, ptr %98, align 8, !tbaa !30
+  %.not.i156 = icmp eq ptr %204, null
+  br i1 %.not.i156, label %206, label %205
 
-208:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %207) #27
+205:                                              ; preds = %._crit_edge
+  call void @free(ptr noundef nonnull %204) #26
   store ptr null, ptr %98, align 8, !tbaa !30
+  br label %206
+
+206:                                              ; preds = %205, %._crit_edge
+  %207 = load ptr, ptr %99, align 8, !tbaa !31
+  %.not17.i157 = icmp eq ptr %207, null
+  br i1 %.not17.i157, label %209, label %208
+
+208:                                              ; preds = %206
+  call void @free(ptr noundef nonnull %207) #26
+  store ptr null, ptr %99, align 8, !tbaa !31
   br label %209
 
-209:                                              ; preds = %208, %._crit_edge
-  %210 = load ptr, ptr %99, align 8, !tbaa !31
-  %.not17.i157 = icmp eq ptr %210, null
-  br i1 %.not17.i157, label %212, label %211
+209:                                              ; preds = %208, %206
+  %210 = load ptr, ptr %100, align 8, !tbaa !32
+  %.not18.i158 = icmp eq ptr %210, null
+  br i1 %.not18.i158, label %212, label %211
 
 211:                                              ; preds = %209
-  call void @free(ptr noundef nonnull %210) #27
-  store ptr null, ptr %99, align 8, !tbaa !31
+  call void @free(ptr noundef nonnull %210) #26
+  store ptr null, ptr %100, align 8, !tbaa !32
   br label %212
 
 212:                                              ; preds = %211, %209
-  %213 = load ptr, ptr %100, align 8, !tbaa !32
-  %.not18.i158 = icmp eq ptr %213, null
-  br i1 %.not18.i158, label %215, label %214
+  %213 = load ptr, ptr %101, align 8, !tbaa !33
+  %.not19.i159 = icmp eq ptr %213, null
+  br i1 %.not19.i159, label %215, label %214
 
 214:                                              ; preds = %212
-  call void @free(ptr noundef nonnull %213) #27
-  store ptr null, ptr %100, align 8, !tbaa !32
+  call void @free(ptr noundef nonnull %213) #26
   br label %215
 
-215:                                              ; preds = %214, %212
-  %216 = load ptr, ptr %101, align 8, !tbaa !33
-  %.not19.i159 = icmp eq ptr %216, null
-  br i1 %.not19.i159, label %218, label %217
-
-217:                                              ; preds = %215
-  call void @free(ptr noundef nonnull %216) #27
-  br label %218
-
-_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160: ; preds = %161, %163, %117, %121
-  %.3 = phi i64 [ %109, %121 ], [ %109, %117 ], [ -64, %163 ], [ -64, %161 ]
+_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160: ; preds = %159, %161, %117, %120
+  %.3 = phi i64 [ %109, %120 ], [ %109, %117 ], [ -64, %161 ], [ -64, %159 ]
   call void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef %.0125)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %240
+  br label %235
 
-218:                                              ; preds = %215, %217
+215:                                              ; preds = %212, %214
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %219 = add i32 %.0117197, 2
-  %.not143 = icmp ugt i32 %219, %19
+  %216 = add i32 %.0117197, 2
+  %.not143 = icmp ugt i32 %216, %19
   br i1 %.not143, label %._crit_edge201, label %102, !llvm.loop !132
 
-._crit_edge201:                                   ; preds = %218, %91
-  br i1 %85, label %220, label %225
+._crit_edge201:                                   ; preds = %215, %91
+  br i1 %85, label %217, label %222
 
-220:                                              ; preds = %._crit_edge201
-  %221 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #24
-  %223 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %224 = call i32 @fflush(ptr noundef %223)
-  br label %225
+217:                                              ; preds = %._crit_edge201
+  %218 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %219 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %218, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #23
+  %220 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %221 = call i32 @fflush(ptr noundef %220)
+  br label %222
 
-225:                                              ; preds = %220, %._crit_edge201
-  %226 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %227 = load i64, ptr %226, align 8, !tbaa !70
-  %228 = load i64, ptr %82, align 8, !tbaa !62
-  %229 = icmp ult i64 %228, -119
-  br i1 %229, label %235, label %230
+222:                                              ; preds = %217, %._crit_edge201
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %224 = load i64, ptr %223, align 8, !tbaa !70
+  %225 = load i64, ptr %82, align 8, !tbaa !62
+  %226 = icmp ult i64 %225, -119
+  br i1 %226, label %231, label %227
 
-230:                                              ; preds = %225
-  %231 = load i64, ptr %81, align 8, !tbaa !64
-  %.not2.i.i162 = icmp eq i64 %231, 0
-  call void @llvm.assume(i1 %.not2.i.i162)
-  %232 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %233 = load ptr, ptr %232, align 8, !tbaa !65
-  %.not5.i163 = icmp eq ptr %233, null
-  br i1 %.not5.i163, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, label %234
+227:                                              ; preds = %222
+  %228 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %229 = load ptr, ptr %228, align 8, !tbaa !64
+  %.not5.i163 = icmp eq ptr %229, null
+  br i1 %.not5.i163, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, label %230
 
-234:                                              ; preds = %230
-  call void @free(ptr noundef nonnull %233) #27
+230:                                              ; preds = %227
+  call void @free(ptr noundef nonnull %229) #26
   br label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164
 
-_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164: ; preds = %230, %234
+_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164: ; preds = %227, %230
   call void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef %.0125)
-  br label %240
+  br label %235
 
-235:                                              ; preds = %225
+231:                                              ; preds = %222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %83, i64 48, i1 false), !tbaa.struct !71
-  %236 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %237 = load ptr, ptr %236, align 8, !tbaa !65
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %237, i64 %227, i1 false)
-  %238 = load i64, ptr %81, align 8, !tbaa !64
-  %.not2.i.i166 = icmp eq i64 %238, 0
-  call void @llvm.assume(i1 %.not2.i.i166)
-  %.not5.i167 = icmp eq ptr %237, null
-  br i1 %.not5.i167, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, label %239
+  %232 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %233 = load ptr, ptr %232, align 8, !tbaa !64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %233, i64 %224, i1 false)
+  %.not5.i167 = icmp eq ptr %233, null
+  br i1 %.not5.i167, label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, label %234
 
-239:                                              ; preds = %235
-  call void @free(ptr noundef nonnull %237) #27
+234:                                              ; preds = %231
+  call void @free(ptr noundef nonnull %233) #26
   br label %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168
 
-_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168: ; preds = %235, %239
+_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168: ; preds = %231, %234
   call void @_ZN11duckdb_zstd9POOL_freeEPNS_10POOL_ctx_sE(ptr noundef %.0125)
-  br label %240
+  br label %235
 
-240:                                              ; preds = %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, %77, %67, %70, %57, %60, %48, %50, %38, %40
-  %.0 = phi i64 [ %.3, %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ], [ %228, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164 ], [ %227, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168 ]
+235:                                              ; preds = %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168, %77, %67, %70, %57, %60, %48, %50, %38, %40
+  %.0 = phi i64 [ %.3, %_ZN11duckdb_zstdL17COVER_ctx_destroyEPNS_11COVER_ctx_tE.exit160 ], [ -42, %40 ], [ -42, %38 ], [ -42, %50 ], [ -42, %48 ], [ -72, %60 ], [ -72, %57 ], [ -70, %70 ], [ -70, %67 ], [ -64, %77 ], [ %225, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit164 ], [ %224, %_ZN11duckdb_zstd18COVER_best_destroyEPNS_12COVER_best_sE.exit168 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }
@@ -2166,11 +2137,11 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !124
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #26
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #25
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %12 = load i64, ptr %11, align 8, !tbaa !19
   %13 = shl i64 %12, 2
-  %14 = tail call noalias ptr @malloc(i64 noundef %13) #26
+  %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
   %15 = add i32 %.sroa.0.0.copyload, 1
   %16 = sub i32 %15, %.sroa.7.0.copyload
   %17 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %16, i1 true)
@@ -2186,7 +2157,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   store i32 %23, ptr %24, align 8, !tbaa !28
   %25 = zext i32 %21 to i64
   %26 = shl nuw nsw i64 %25, 3
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #26
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #25
   store ptr %27, ptr %2, align 8, !tbaa !29
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %28, label %34
@@ -2198,7 +2169,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %33 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %32) #25
+  %33 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 43, i64 1, ptr %32) #24
   br label %.sink.split
 
 34:                                               ; preds = %1
@@ -2215,7 +2186,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %42 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %41) #25
+  %42 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 42, i64 1, ptr %41) #24
   br label %.sink.split
 
 43:                                               ; preds = %34
@@ -2263,7 +2234,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 63:                                               ; preds = %43
   %64 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %64) #25
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 28, i64 1, ptr %64) #24
   br label %.sink.split
 
 .sink.split:                                      ; preds = %31, %40, %63
@@ -2278,7 +2249,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   %.sroa.863.0 = phi i64 [ -1, %28 ], [ %.sroa.863.0.copyload, %43 ], [ -1, %37 ], [ %.sroa.863.0.ph, %.sink.split ]
   %.sroa.7.0 = phi i64 [ 0, %28 ], [ %.sroa.7.0.copyload58, %43 ], [ 0, %37 ], [ %.sroa.7.0.ph, %.sink.split ]
   %.sroa.054.0 = phi ptr [ null, %28 ], [ %.sroa.054.0.copyload, %43 ], [ null, %37 ], [ %.sroa.054.0.ph, %.sink.split ]
-  tail call void @free(ptr noundef %10) #27
+  tail call void @free(ptr noundef %10) #26
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !123
   %.not.i48 = icmp eq ptr %70, null
@@ -2286,9 +2257,9 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !64
+  %73 = load i64, ptr %72, align 8, !tbaa !65
   %74 = add i64 %73, -1
-  store i64 %74, ptr %72, align 8, !tbaa !64
+  store i64 %74, ptr %72, align 8, !tbaa !65
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %76 = load i64, ptr %75, align 8, !tbaa !62
   %77 = icmp ult i64 %.sroa.863.0, %76
@@ -2296,7 +2267,7 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
 
 78:                                               ; preds = %71
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !65
+  %80 = load ptr, ptr %79, align 8, !tbaa !64
   %.not29.i = icmp eq ptr %80, null
   br i1 %.not29.i, label %.thread.i, label %81
 
@@ -2307,12 +2278,12 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  tail call void @free(ptr noundef nonnull %80) #27
+  tail call void @free(ptr noundef nonnull %80) #26
   br label %.thread.i
 
 .thread.i:                                        ; preds = %85, %78
-  %86 = tail call noalias ptr @malloc(i64 noundef %.sroa.7.0) #26
-  store ptr %86, ptr %79, align 8, !tbaa !65
+  %86 = tail call noalias ptr @malloc(i64 noundef %.sroa.7.0) #25
+  store ptr %86, ptr %79, align 8, !tbaa !64
   %.not31.i = icmp eq ptr %86, null
   br i1 %.not31.i, label %87, label %89
 
@@ -2341,16 +2312,16 @@ define internal void @_ZN11duckdb_zstdL19COVER_tryParametersEPv(ptr noundef capt
   br label %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit
 
 _ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit: ; preds = %68, %71, %87, %89, %91
-  tail call void @free(ptr noundef nonnull %0) #27
+  tail call void @free(ptr noundef nonnull %0) #26
   br i1 %.not.i, label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit, label %94
 
 94:                                               ; preds = %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit
-  tail call void @free(ptr noundef nonnull %27) #27
+  tail call void @free(ptr noundef nonnull %27) #26
   br label %_ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit
 
 _ZN11duckdb_zstdL17COVER_map_destroyEPNS_11COVER_map_sE.exit: ; preds = %_ZN11duckdb_zstd17COVER_best_finishEPNS_12COVER_best_sENS_20ZDICT_cover_params_tENS_19COVER_dictSelectionE.exit, %94
-  tail call void @free(ptr noundef %.sroa.054.0) #27
-  tail call void @free(ptr noundef %14) #27
+  tail call void @free(ptr noundef %.sroa.054.0) #26
+  tail call void @free(ptr noundef %14) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -2404,7 +2375,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL16COVER_strict_cmpEPKvS1_(ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %12 = load i32, ptr %11, align 8, !tbaa !39
   %13 = zext i32 %12 to i64
-  %14 = tail call noundef i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #28
+  %14 = tail call noundef i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #27
   %15 = icmp eq i32 %14, 0
   %16 = icmp ult ptr %0, %1
   %17 = select i1 %16, i32 -1, i32 1
@@ -2449,7 +2420,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL9COVER_cmpEPNS_11COVER_ctx_tEPKvS3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8, !tbaa !39
   %13 = zext i32 %12 to i64
-  %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #28
+  %14 = tail call i32 @memcmp(ptr noundef %8, ptr noundef %10, i64 noundef %13) #27
   ret i32 %14
 }
 
@@ -2486,9 +2457,6 @@ declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #21
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #21
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #23
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2512,12 +2480,11 @@ attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #20 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #22 = { nofree nounwind }
-attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #24 = { cold nounwind }
-attributes #25 = { cold }
-attributes #26 = { nounwind allocsize(0) }
-attributes #27 = { nounwind }
-attributes #28 = { nounwind willreturn memory(read) }
+attributes #23 = { cold nounwind }
+attributes #24 = { cold }
+attributes #25 = { nounwind allocsize(0) }
+attributes #26 = { nounwind }
+attributes #27 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -2585,8 +2552,8 @@ attributes #28 = { nounwind willreturn memory(read) }
 !61 = distinct !{!61, !8}
 !62 = !{!63, !4, i64 80}
 !63 = !{!"_ZTSN11duckdb_zstd12COVER_best_sE", !14, i64 0, !14, i64 4, !4, i64 8, !11, i64 16, !4, i64 24, !13, i64 32, !4, i64 80}
-!64 = !{!63, !4, i64 8}
-!65 = !{!63, !11, i64 16}
+!64 = !{!63, !11, i64 16}
+!65 = !{!63, !4, i64 8}
 !66 = !{!67, !21, i64 0}
 !67 = !{!"_ZTSN11duckdb_zstd19COVER_dictSelectionE", !21, i64 0, !4, i64 8, !4, i64 16}
 !68 = !{!67, !4, i64 16}

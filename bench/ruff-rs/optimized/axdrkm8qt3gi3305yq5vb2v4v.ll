@@ -256,9 +256,9 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   br label %26
 
 26:                                               ; preds = %31, %.lr.ph.i
-  %.sroa.06.014.i = phi ptr [ %13, %.lr.ph.i ], [ %34, %31 ]
-  %.sroa.01.013.i = phi ptr [ %22, %.lr.ph.i ], [ %36, %31 ]
-  %.sroa.5.012.i = phi i64 [ %21, %.lr.ph.i ], [ %35, %31 ]
+  %.sroa.06.014.i = phi ptr [ %13, %.lr.ph.i ], [ %32, %31 ]
+  %.sroa.01.013.i = phi ptr [ %22, %.lr.ph.i ], [ %34, %31 ]
+  %.sroa.5.012.i = phi i64 [ %21, %.lr.ph.i ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !25
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
   store ptr %27, ptr %4, align 8, !alias.scope !31, !noalias !25
@@ -274,22 +274,16 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   unreachable
 
 31:                                               ; preds = %26
-  %.sroa.49.0.copyload.i = load ptr, ptr %23, align 8, !noalias !25
-  %.sroa.08.0.copyload.i = load ptr, ptr %4, align 8, !noalias !25
-  %32 = icmp ne ptr %.sroa.08.0.copyload.i, null
-  call void @llvm.assume(i1 %32)
-  %33 = icmp ne ptr %.sroa.49.0.copyload.i, null
-  call void @llvm.assume(i1 %33)
   store ptr %.sroa.01.013.i, ptr %24, align 8, !noalias !25
   store i64 %28, ptr %25, align 8, !noalias !25
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 128
-  %35 = sub nuw i64 %.sroa.5.012.i, %28
-  %36 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.01.013.i, i64 %28
-  %37 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !29
-  %38 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hbb35728a61fefa3aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c27931cca1ea773dd593a5c63c8a25f7.32, i8 noundef %37), !noalias !29
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 128
+  %33 = sub nuw i64 %.sroa.5.012.i, %28
+  %34 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.01.013.i, i64 %28
+  %35 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0), !noalias !29
+  %36 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder25entry_with_line_separator17hbb35728a61fefa3aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.c27931cca1ea773dd593a5c63c8a25f7.32, i8 noundef %35), !noalias !29
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !25
-  %39 = icmp eq ptr %34, %16
-  br i1 %39, label %"_ZN162_$LT$ruff_python_formatter..expression..expr_dict..FormatExprDict$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprDict$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h97ee4442eda30ba8E.exit", label %26
+  %37 = icmp eq ptr %32, %16
+  br i1 %37, label %"_ZN162_$LT$ruff_python_formatter..expression..expr_dict..FormatExprDict$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprDict$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h97ee4442eda30ba8E.exit", label %26
 
 "_ZN162_$LT$ruff_python_formatter..expression..expr_dict..FormatExprDict$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..ExprDict$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17h97ee4442eda30ba8E.exit": ; preds = %31, %3
   call void @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish17h62912731f10a6f0fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %5), !noalias !22

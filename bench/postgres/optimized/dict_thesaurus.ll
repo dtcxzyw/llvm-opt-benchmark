@@ -46,7 +46,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   %3 = alloca %struct.tsearch_readline_state, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = tail call ptr @palloc0(i64 noundef 48) #10
+  %6 = tail call ptr @palloc0(i64 noundef 48) #9
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %.critedge.thread, label %.lr.ph
 
@@ -71,7 +71,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str) #11
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(9) @.str) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %24, label %208
 
@@ -84,31 +84,29 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %24
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %27)
-  %28 = call i32 @errcode(i32 noundef 50856066) #10
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.thesaurus_init) #10
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %28 = call i32 @errcode(i32 noundef 50856066) #9
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.thesaurus_init) #9
   unreachable
 
 30:                                               ; preds = %24
-  %31 = call ptr @defGetString(ptr noundef nonnull %18) #10
+  %31 = call ptr @defGetString(ptr noundef nonnull %18) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %32 = call ptr @get_tsearch_config_filename(ptr noundef %31, ptr noundef nonnull @.str.9) #10
-  %33 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %3, ptr noundef %32) #10
+  %32 = call ptr @get_tsearch_config_filename(ptr noundef %31, ptr noundef nonnull @.str.9) #9
+  %33 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %3, ptr noundef %32) #9
   br i1 %33, label %.preheader111.i, label %35
 
 .preheader111.i:                                  ; preds = %30
-  %34 = call ptr @tsearch_readline(ptr noundef nonnull %3) #10
+  %34 = call ptr @tsearch_readline(ptr noundef nonnull %3) #9
   %.not153.i = icmp eq ptr %34, null
   br i1 %.not153.i, label %thesaurusRead.exit, label %.preheader110.i
 
 35:                                               ; preds = %30
-  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %36)
-  %37 = call i32 @errcode(i32 noundef 22) #10
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %32) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 180, ptr noundef nonnull @__func__.thesaurusRead) #10
+  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %37 = call i32 @errcode(i32 noundef 22) #9
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %32) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 180, ptr noundef nonnull @__func__.thesaurusRead) #9
   unreachable
 
 .preheader110.i:                                  ; preds = %.preheader111.i, %206
@@ -120,7 +118,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   br i1 %.not94138.i, label %.critedge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader110.i
-  %41 = tail call ptr @__ctype_b_loc() #13
+  %41 = tail call ptr @__ctype_b_loc() #12
   br label %42
 
 42:                                               ; preds = %49, %.lr.ph.i
@@ -135,7 +133,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   br i1 %.not95.i, label %.critedge.i, label %49
 
 49:                                               ; preds = %42
-  %50 = call i32 @pg_mblen(ptr noundef nonnull %.081139.i) #10
+  %50 = call i32 @pg_mblen(ptr noundef nonnull %.081139.i) #9
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %.081139.i, i64 %51
   %53 = load i8, ptr %52, align 1
@@ -176,11 +174,10 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   br i1 %58, label %59, label %176
 
 59:                                               ; preds = %57
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 @errcode(i32 noundef 22) #10
-  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 212, ptr noundef nonnull @__func__.thesaurusRead) #10
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %61 = call i32 @errcode(i32 noundef 22) #9
+  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 212, ptr noundef nonnull @__func__.thesaurusRead) #9
   unreachable
 
 63:                                               ; preds = %55
@@ -216,7 +213,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
 
 78:                                               ; preds = %76
   store i32 16, ptr %11, align 4
-  %79 = call ptr @palloc(i64 noundef 256) #10
+  %79 = call ptr @palloc(i64 noundef 256) #9
   store ptr %79, ptr %12, align 8
   br label %newLexeme.exit.i
 
@@ -226,7 +223,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   %82 = load ptr, ptr %12, align 8
   %83 = sext i32 %81 to i64
   %84 = shl nsw i64 %83, 4
-  %85 = call ptr @repalloc(ptr noundef %82, i64 noundef %84) #10
+  %85 = call ptr @repalloc(ptr noundef %82, i64 noundef %84) #9
   store ptr %85, ptr %12, align 8
   br label %newLexeme.exit.i
 
@@ -241,13 +238,13 @@ newLexeme.exit.i:                                 ; preds = %80, %78, %._crit_ed
   %92 = ptrtoint ptr %.077144.i to i64
   %93 = sub i64 %91, %92
   %94 = add i64 %93, 1
-  %95 = call ptr @palloc(i64 noundef %94) #10
+  %95 = call ptr @palloc(i64 noundef %94) #9
   store ptr %95, ptr %89, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %.077144.i, i64 %93, i1 false)
   %96 = load ptr, ptr %89, align 8
   %97 = getelementptr inbounds i8, ptr %96, i64 %93
   store i8 0, ptr %97, align 1
-  %98 = call ptr @palloc(i64 noundef 24) #10
+  %98 = call ptr @palloc(i64 noundef 24) #9
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %98, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -286,7 +283,7 @@ newLexeme.exit.i:                                 ; preds = %80, %78, %._crit_ed
 
 117:                                              ; preds = %115
   store i32 16, ptr %11, align 4
-  %118 = call ptr @palloc(i64 noundef 256) #10
+  %118 = call ptr @palloc(i64 noundef 256) #9
   store ptr %118, ptr %12, align 8
   br label %newLexeme.exit109.i
 
@@ -296,7 +293,7 @@ newLexeme.exit.i:                                 ; preds = %80, %78, %._crit_ed
   %121 = load ptr, ptr %12, align 8
   %122 = sext i32 %120 to i64
   %123 = shl nsw i64 %122, 4
-  %124 = call ptr @repalloc(ptr noundef %121, i64 noundef %123) #10
+  %124 = call ptr @repalloc(ptr noundef %121, i64 noundef %123) #9
   store ptr %124, ptr %12, align 8
   br label %newLexeme.exit109.i
 
@@ -311,13 +308,13 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
   %131 = ptrtoint ptr %.077144.i to i64
   %132 = sub i64 %130, %131
   %133 = add i64 %132, 1
-  %134 = call ptr @palloc(i64 noundef %133) #10
+  %134 = call ptr @palloc(i64 noundef %133) #9
   store ptr %134, ptr %128, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %.077144.i, i64 %132, i1 false)
   %135 = load ptr, ptr %128, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 %132
   store i8 0, ptr %136, align 1
-  %137 = call ptr @palloc(i64 noundef 24) #10
+  %137 = call ptr @palloc(i64 noundef 24) #9
   %138 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr %137, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -336,13 +333,13 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
   ]
 
 144:                                              ; preds = %143
-  %145 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #10
+  %145 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #9
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds i8, ptr %.182142.i, i64 %146
   br label %176
 
 148:                                              ; preds = %143
-  %149 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #10
+  %149 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #9
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds i8, ptr %.182142.i, i64 %150
   br label %176
@@ -373,11 +370,10 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
   br i1 %166, label %167, label %171
 
 167:                                              ; preds = %165
-  %168 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %168)
-  %169 = call i32 @errcode(i32 noundef 22) #10
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 262, ptr noundef nonnull @__func__.thesaurusRead) #10
+  %168 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %169 = call i32 @errcode(i32 noundef 22) #9
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 262, ptr noundef nonnull @__func__.thesaurusRead) #9
   unreachable
 
 171:                                              ; preds = %165
@@ -397,7 +393,7 @@ default.unreachable.i:                            ; preds = %.lr.ph147.i
   %.178.i = phi ptr [ %.077144.i, %newLexeme.exit.i ], [ %.077144.i, %newLexeme.exit109.i ], [ %.077144.i, %104 ], [ %147, %144 ], [ %151, %148 ], [ %.077144.i, %152 ], [ %.182142.i, %158 ], [ %.077144.i, %171 ], [ %.077144.i, %159 ], [ %.077144.i, %57 ], [ %spec.select103.i, %63 ]
   %.176.i = phi i32 [ %72, %newLexeme.exit.i ], [ %111, %newLexeme.exit109.i ], [ %.075145.i, %104 ], [ %.075145.i, %144 ], [ %.075145.i, %148 ], [ %.075145.i, %152 ], [ %.075145.i, %158 ], [ %.075145.i, %171 ], [ %.075145.i, %159 ], [ %.075145.i, %57 ], [ %.075145.i, %63 ]
   %.1.i = phi i32 [ %.0146.i, %newLexeme.exit.i ], [ %.0146.i, %newLexeme.exit109.i ], [ %.0146.i, %104 ], [ %.0146.i, %144 ], [ %.0146.i, %148 ], [ %.0146.i, %152 ], [ %.0146.i, %158 ], [ %172, %171 ], [ %.0146.i, %159 ], [ %.0146.i, %57 ], [ %.0146.i, %63 ]
-  %177 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #10
+  %177 = call i32 @pg_mblen(ptr noundef nonnull %.182142.i) #9
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds i8, ptr %.182142.i, i64 %178
   %180 = load i8, ptr %179, align 1
@@ -413,11 +409,10 @@ default.unreachable.i:                            ; preds = %.lr.ph147.i
   br i1 %183, label %184, label %188
 
 184:                                              ; preds = %182
-  %185 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %185)
-  %186 = call i32 @errcode(i32 noundef 22) #10
-  %187 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.thesaurusRead) #10
+  %185 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %186 = call i32 @errcode(i32 noundef 22) #9
+  %187 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.thesaurusRead) #9
   unreachable
 
 188:                                              ; preds = %182
@@ -436,11 +431,10 @@ default.unreachable.i:                            ; preds = %.lr.ph147.i
   br i1 %or.cond.i, label %200, label %196
 
 196:                                              ; preds = %193
-  %197 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %197)
-  %198 = call i32 @errcode(i32 noundef 22) #10
-  %199 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @__func__.thesaurusRead) #10
+  %197 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %198 = call i32 @errcode(i32 noundef 22) #9
+  %199 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @__func__.thesaurusRead) #9
   unreachable
 
 200:                                              ; preds = %193
@@ -451,30 +445,29 @@ default.unreachable.i:                            ; preds = %.lr.ph147.i
   br i1 %or.cond104.i, label %206, label %202
 
 202:                                              ; preds = %200
-  %203 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %203)
-  %204 = call i32 @errcode(i32 noundef 22) #10
-  %205 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.thesaurusRead) #10
+  %203 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %204 = call i32 @errcode(i32 noundef 22) #9
+  %205 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.thesaurusRead) #9
   unreachable
 
 206:                                              ; preds = %200, %.critedge.thread.i
   %.187.i = phi i32 [ %.086154.i, %.critedge.thread.i ], [ %201, %200 ]
   %.184.i = phi i8 [ %.083156.i, %.critedge.thread.i ], [ %.3.i, %200 ]
-  call void @pfree(ptr noundef nonnull %39) #10
-  %207 = call ptr @tsearch_readline(ptr noundef nonnull %3) #10
+  call void @pfree(ptr noundef nonnull %39) #9
+  %207 = call ptr @tsearch_readline(ptr noundef nonnull %3) #9
   %.not.i = icmp eq ptr %207, null
   br i1 %.not.i, label %thesaurusRead.exit, label %.preheader110.i
 
 thesaurusRead.exit:                               ; preds = %206, %.preheader111.i
   %.086.lcssa.i = phi i32 [ 0, %.preheader111.i ], [ %.187.i, %206 ]
   store i32 %.086.lcssa.i, ptr %13, align 8
-  call void @tsearch_readline_end(ptr noundef nonnull %3) #10
+  call void @tsearch_readline_end(ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %225
 
 208:                                              ; preds = %.lr.ph277
-  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(11) @.str.3) #11
+  %209 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(11) @.str.3) #10
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %219
 
@@ -483,26 +476,24 @@ thesaurusRead.exit:                               ; preds = %206, %.preheader111
   br i1 %.not30, label %216, label %212
 
 212:                                              ; preds = %211
-  %213 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %213)
-  %214 = call i32 @errcode(i32 noundef 50856066) #10
-  %215 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 625, ptr noundef nonnull @__func__.thesaurus_init) #10
+  %213 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %214 = call i32 @errcode(i32 noundef 50856066) #9
+  %215 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 625, ptr noundef nonnull @__func__.thesaurus_init) #9
   unreachable
 
 216:                                              ; preds = %211
-  %217 = call ptr @defGetString(ptr noundef nonnull %18) #10
-  %218 = call ptr @pstrdup(ptr noundef %217) #10
+  %217 = call ptr @defGetString(ptr noundef nonnull %18) #9
+  %218 = call ptr @pstrdup(ptr noundef %217) #9
   br label %225
 
 219:                                              ; preds = %208
   %220 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %221 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %221)
-  %222 = call i32 @errcode(i32 noundef 50856066) #10
+  %221 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %222 = call i32 @errcode(i32 noundef 50856066) #9
   %223 = load ptr, ptr %220, align 8
-  %224 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %223) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 633, ptr noundef nonnull @__func__.thesaurus_init) #10
+  %224 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %223) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 633, ptr noundef nonnull @__func__.thesaurus_init) #9
   unreachable
 
 225:                                              ; preds = %216, %thesaurusRead.exit
@@ -515,11 +506,10 @@ thesaurusRead.exit:                               ; preds = %206, %.preheader111
   br i1 %228, label %.lr.ph277, label %..critedge_crit_edge
 
 .critedge.thread:                                 ; preds = %.lr.ph, %1, %..critedge_crit_edge
-  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %229)
-  %230 = call i32 @errcode(i32 noundef 50856066) #10
-  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 640, ptr noundef nonnull @__func__.thesaurus_init) #10
+  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %230 = call i32 @errcode(i32 noundef 50856066) #9
+  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 640, ptr noundef nonnull @__func__.thesaurus_init) #9
   unreachable
 
 232:                                              ; preds = %..critedge_crit_edge
@@ -527,21 +517,20 @@ thesaurusRead.exit:                               ; preds = %206, %.preheader111
   br i1 %.not29, label %233, label %237
 
 233:                                              ; preds = %232
-  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %234)
-  %235 = call i32 @errcode(i32 noundef 50856066) #10
-  %236 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 644, ptr noundef nonnull @__func__.thesaurus_init) #10
+  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %235 = call i32 @errcode(i32 noundef 50856066) #9
+  %236 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 644, ptr noundef nonnull @__func__.thesaurus_init) #9
   unreachable
 
 237:                                              ; preds = %232
-  %238 = call ptr @stringToQualifiedNameList(ptr noundef nonnull %.1, ptr noundef null) #10
-  %239 = call i32 @get_ts_dict_oid(ptr noundef %238, i1 noundef zeroext false) #10
+  %238 = call ptr @stringToQualifiedNameList(ptr noundef nonnull %.1, ptr noundef null) #9
+  %239 = call i32 @get_ts_dict_oid(ptr noundef %238, i1 noundef zeroext false) #9
   store i32 %239, ptr %6, align 8
-  %240 = call ptr @lookup_ts_dictionary_cache(i32 noundef %239) #10
+  %240 = call ptr @lookup_ts_dictionary_cache(i32 noundef %239) #9
   %241 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %240, ptr %241, align 8
-  %242 = call ptr @palloc(i64 noundef 256) #10
+  %242 = call ptr @palloc(i64 noundef 256) #9
   %243 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %244 = load i32, ptr %243, align 8
   %245 = icmp sgt i32 %244, 0
@@ -579,13 +568,13 @@ sub_0.i:                                          ; preds = %.loopexit.i, %sub_0
   %258 = shl i32 %.0123184.i, 1
   %259 = sext i32 %258 to i64
   %260 = shl nsw i64 %259, 4
-  %261 = call ptr @repalloc(ptr noundef %.085185.i, i64 noundef %260) #10
+  %261 = call ptr @repalloc(ptr noundef %.085185.i, i64 noundef %260) #9
   br label %addCompiledLexeme.exit.i
 
 addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %.4127.i = phi i32 [ %.0123184.i, %254 ], [ %258, %257 ]
   %.0.i.i = phi ptr [ %.085185.i, %254 ], [ %261, %257 ]
-  %262 = call ptr @palloc(i64 noundef 24) #10
+  %262 = call ptr @palloc(i64 noundef 24) #9
   %263 = sext i32 %.0129183.i to i64
   %264 = getelementptr inbounds %struct.TheLexeme, ptr %.0.i.i, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
@@ -614,17 +603,16 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %279 = load ptr, ptr %278, align 8
   %280 = ptrtoint ptr %279 to i64
   %281 = ptrtoint ptr %249 to i64
-  %282 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %249) #11
+  %282 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %249) #10
   %sext.i = shl i64 %282, 32
   %283 = ashr exact i64 %sext.i, 32
-  %284 = call i64 @FunctionCall4Coll(ptr noundef nonnull %277, i32 noundef 0, i64 noundef %280, i64 noundef %281, i64 noundef %283, i64 noundef 0) #10
+  %284 = call i64 @FunctionCall4Coll(ptr noundef nonnull %277, i32 noundef 0, i64 noundef %280, i64 noundef %281, i64 noundef %283, i64 noundef 0) #9
   %.not93.i = icmp eq i64 %284, 0
   br i1 %.not93.i, label %285, label %296
 
 285:                                              ; preds = %.tail.thread.i
-  %286 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %286)
-  %287 = call i32 @errcode(i32 noundef 22) #10
+  %286 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %287 = call i32 @errcode(i32 noundef 22) #9
   %288 = load ptr, ptr %246, align 8
   %289 = getelementptr inbounds nuw %struct.TheLexeme, ptr %288, i64 %indvars.iv.i
   %290 = load ptr, ptr %289, align 8
@@ -632,8 +620,8 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %292 = load ptr, ptr %291, align 8
   %293 = load i32, ptr %292, align 8
   %294 = add i32 %293, 1
-  %295 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %290, i32 noundef %294) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 418, ptr noundef nonnull @__func__.compileTheLexeme) #10
+  %295 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %290, i32 noundef %294) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 418, ptr noundef nonnull @__func__.compileTheLexeme) #9
   unreachable
 
 296:                                              ; preds = %.tail.thread.i
@@ -644,9 +632,8 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   br i1 %.not94.i32, label %300, label %.lr.ph179.i
 
 300:                                              ; preds = %296
-  %301 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %301)
-  %302 = call i32 @errcode(i32 noundef 22) #10
+  %301 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %302 = call i32 @errcode(i32 noundef 22) #9
   %303 = load ptr, ptr %246, align 8
   %304 = getelementptr inbounds nuw %struct.TheLexeme, ptr %303, i64 %indvars.iv.i
   %305 = load ptr, ptr %304, align 8
@@ -654,9 +641,9 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %307 = load ptr, ptr %306, align 8
   %308 = load i32, ptr %307, align 8
   %309 = add i32 %308, 1
-  %310 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %305, i32 noundef %309) #10
-  %311 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.19) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 425, ptr noundef nonnull @__func__.compileTheLexeme) #10
+  %310 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %305, i32 noundef %309) #9
+  %311 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.19) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 425, ptr noundef nonnull @__func__.compileTheLexeme) #9
   unreachable
 
 .lr.ph179.i:                                      ; preds = %296, %.critedge.i35
@@ -712,13 +699,13 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %330 = shl i32 %.3126160.i, 1
   %331 = sext i32 %330 to i64
   %332 = shl nsw i64 %331, 4
-  %333 = call ptr @repalloc(ptr noundef %.3161.i, i64 noundef %332) #10
+  %333 = call ptr @repalloc(ptr noundef %.3161.i, i64 noundef %332) #9
   br label %334
 
 334:                                              ; preds = %329, %324
   %.5128.i = phi i32 [ %.3126160.i, %324 ], [ %330, %329 ]
   %.0.i100.i = phi ptr [ %.3161.i, %324 ], [ %333, %329 ]
-  %335 = call ptr @palloc(i64 noundef 24) #10
+  %335 = call ptr @palloc(i64 noundef 24) #9
   %336 = sext i32 %.3132159.i to i64
   %337 = getelementptr inbounds %struct.TheLexeme, ptr %.0.i100.i, i64 %336
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
@@ -728,7 +715,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   br i1 %.not32.i.i, label %addCompiledLexeme.exit101.i, label %340
 
 340:                                              ; preds = %334
-  %341 = call ptr @pstrdup(ptr noundef nonnull %339) #10
+  %341 = call ptr @pstrdup(ptr noundef nonnull %339) #9
   %.pre.i = load ptr, ptr %338, align 8
   br label %addCompiledLexeme.exit101.i
 
@@ -774,12 +761,12 @@ addCompiledLexeme.exit101.i:                      ; preds = %340, %334
   %358 = load ptr, ptr %246, align 8
   %359 = getelementptr inbounds nuw %struct.TheLexeme, ptr %358, i64 %indvars.iv.i
   %360 = load ptr, ptr %359, align 8
-  call void @pfree(ptr noundef %360) #10
+  call void @pfree(ptr noundef %360) #9
   %361 = load ptr, ptr %246, align 8
   %362 = getelementptr inbounds nuw %struct.TheLexeme, ptr %361, i64 %indvars.iv.i
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %364 = load ptr, ptr %363, align 8
-  call void @pfree(ptr noundef %364) #10
+  call void @pfree(ptr noundef %364) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %365 = load i32, ptr %243, align 8
   %366 = sext i32 %365 to i64
@@ -796,7 +783,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %340, %334
   br i1 %.not.i31, label %371, label %370
 
 370:                                              ; preds = %._crit_edge187.i
-  call void @pfree(ptr noundef nonnull %369) #10
+  call void @pfree(ptr noundef nonnull %369) #9
   br label %371
 
 371:                                              ; preds = %370, %._crit_edge187.i
@@ -809,7 +796,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %340, %334
 
 374:                                              ; preds = %371
   %375 = zext nneg i32 %.0129.lcssa.i to i64
-  call void @pg_qsort(ptr noundef %.085.lcssa.i, i64 noundef %375, i64 noundef 16, ptr noundef nonnull @cmpTheLexeme) #10
+  call void @pg_qsort(ptr noundef %.085.lcssa.i, i64 noundef %375, i64 noundef 16, ptr noundef nonnull @cmpTheLexeme) #9
   %376 = load ptr, ptr %368, align 8
   %377 = ptrtoint ptr %376 to i64
   %378 = load i32, ptr %243, align 8
@@ -834,7 +821,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %340, %334
   br i1 %.not136.i, label %cmpLexeme.exit.thread.i, label %383
 
 383:                                              ; preds = %382
-  %384 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084.val.i, ptr noundef nonnull dereferenceable(1) %381) #11
+  %384 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084.val.i, ptr noundef nonnull dereferenceable(1) %381) #10
   %385 = icmp eq i32 %384, 0
   br i1 %385, label %386, label %cmpLexeme.exit.thread.i
 
@@ -881,7 +868,7 @@ cmpLexeme.exit.i:                                 ; preds = %.lr.ph196.i
   br label %412
 
 cmpLexemeInfo.exit.i:                             ; preds = %403, %386
-  call void @pfree(ptr noundef %388) #10
+  call void @pfree(ptr noundef %388) #9
   br label %412
 
 412:                                              ; preds = %cmpLexemeInfo.exit.i, %409
@@ -890,7 +877,7 @@ cmpLexemeInfo.exit.i:                             ; preds = %403, %386
   br i1 %.not92.i, label %416, label %414
 
 414:                                              ; preds = %412
-  call void @pfree(ptr noundef nonnull %413) #10
+  call void @pfree(ptr noundef nonnull %413) #9
   br label %416
 
 cmpLexeme.exit.thread.i:                          ; preds = %cmpLexeme.exit.i, %383, %382
@@ -926,7 +913,7 @@ cmpLexeme.exit.thread.i:                          ; preds = %cmpLexeme.exit.i, %
   store i32 %428, ptr %243, align 8
   %429 = sext i32 %428 to i64
   %430 = shl nsw i64 %429, 4
-  %431 = call ptr @repalloc(ptr noundef %.lcssa137.i, i64 noundef %430) #10
+  %431 = call ptr @repalloc(ptr noundef %.lcssa137.i, i64 noundef %430) #9
   store ptr %431, ptr %368, align 8
   br label %compileTheLexeme.exit
 
@@ -948,7 +935,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %440 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %439, i64 %indvars.iv143
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   %442 = load ptr, ptr %441, align 8
-  %443 = call ptr @palloc(i64 noundef 32) #10
+  %443 = call ptr @palloc(i64 noundef 32) #9
   %444 = load ptr, ptr %435, align 8
   %445 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %444, i64 %indvars.iv143
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
@@ -990,10 +977,10 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %459 = load ptr, ptr %458, align 8
   %460 = ptrtoint ptr %459 to i64
   %461 = ptrtoint ptr %450 to i64
-  %462 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %450) #11
+  %462 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %450) #10
   %sext95.i = shl i64 %462, 32
   %463 = ashr exact i64 %sext95.i, 32
-  %464 = call i64 @FunctionCall4Coll(ptr noundef nonnull %457, i32 noundef 0, i64 noundef %460, i64 noundef %461, i64 noundef %463, i64 noundef 0) #10
+  %464 = call i64 @FunctionCall4Coll(ptr noundef nonnull %457, i32 noundef 0, i64 noundef %460, i64 noundef %461, i64 noundef %463, i64 noundef 0) #9
   %465 = inttoptr i64 %464 to ptr
   %.not84.i = icmp eq i64 %464, 0
   br i1 %.not84.i, label %.critedge91.i, label %466
@@ -1034,7 +1021,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %485 = shl i32 %.175103.i, 1
   %486 = sext i32 %485 to i64
   %487 = shl nsw i64 %486, 4
-  %488 = call ptr @repalloc(ptr noundef %477, i64 noundef %487) #10
+  %488 = call ptr @repalloc(ptr noundef %477, i64 noundef %487) #9
   %489 = load ptr, ptr %435, align 8
   %490 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %489, i64 %indvars.iv143
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
@@ -1053,7 +1040,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %.2.i42 = phi ptr [ %497, %484 ], [ %.1105.i, %.lr.ph.i40 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.2.i42, ptr noundef nonnull align 8 dereferenceable(16) %.173104.i, i64 16, i1 false)
   %499 = load ptr, ptr %473, align 8
-  %500 = call ptr @pstrdup(ptr noundef %499) #10
+  %500 = call ptr @pstrdup(ptr noundef %499) #9
   %501 = getelementptr inbounds nuw i8, ptr %.2.i42, i64 8
   store ptr %500, ptr %501, align 8
   %502 = getelementptr inbounds nuw i8, ptr %.2.i42, i64 16
@@ -1094,28 +1081,26 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
 
 525:                                              ; preds = %466
   %526 = trunc nuw nsw i64 %indvars.iv143 to i32
-  %527 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %527)
-  %528 = call i32 @errcode(i32 noundef 22) #10
+  %527 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %528 = call i32 @errcode(i32 noundef 22) #9
   %529 = load ptr, ptr %451, align 8
   %530 = add nuw i32 %526, 1
-  %531 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %529, i32 noundef %530) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 568, ptr noundef nonnull @__func__.compileTheSubstitute) #10
+  %531 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %529, i32 noundef %530) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 568, ptr noundef nonnull @__func__.compileTheSubstitute) #9
   unreachable
 
 .critedge91.i:                                    ; preds = %455
   %532 = trunc nuw nsw i64 %indvars.iv143 to i32
-  %533 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %533)
-  %534 = call i32 @errcode(i32 noundef 22) #10
+  %533 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %534 = call i32 @errcode(i32 noundef 22) #9
   %535 = load ptr, ptr %451, align 8
   %536 = add nuw i32 %532, 1
-  %537 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %535, i32 noundef %536) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 575, ptr noundef nonnull @__func__.compileTheSubstitute) #10
+  %537 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %535, i32 noundef %536) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 575, ptr noundef nonnull @__func__.compileTheSubstitute) #9
   unreachable
 
 538:                                              ; preds = %523
-  call void @pfree(ptr noundef nonnull %524) #10
+  call void @pfree(ptr noundef nonnull %524) #9
   br label %.lr.ph112.i
 
 .lr.ph112.i:                                      ; preds = %538, %523
@@ -1137,12 +1122,11 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
 
 547:                                              ; preds = %.critedge.i44
   %548 = trunc nuw nsw i64 %indvars.iv143 to i32
-  %549 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %549)
-  %550 = call i32 @errcode(i32 noundef 22) #10
+  %549 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %550 = call i32 @errcode(i32 noundef 22) #9
   %551 = add nuw i32 %548, 1
-  %552 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %551) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 587, ptr noundef nonnull @__func__.compileTheSubstitute) #10
+  %552 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %551) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 587, ptr noundef nonnull @__func__.compileTheSubstitute) #9
   unreachable
 
 553:                                              ; preds = %.critedge.i44
@@ -1153,7 +1137,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %558 = trunc i64 %557 to i16
   %559 = getelementptr inbounds nuw i8, ptr %543, i64 2
   store i16 %558, ptr %559, align 2
-  call void @pfree(ptr noundef %442) #10
+  call void @pfree(ptr noundef %442) #9
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %560 = load i32, ptr %432, align 8
   %561 = sext i32 %560 to i64
@@ -1205,10 +1189,9 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
   br i1 %or.cond, label %12, label %15
 
 12:                                               ; preds = %1
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 799, ptr noundef nonnull @__func__.thesaurus_lexize) #10
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 799, ptr noundef nonnull @__func__.thesaurus_lexize) #9
   unreachable
 
 15:                                               ; preds = %1
@@ -1239,7 +1222,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
 
 31:                                               ; preds = %25
   %32 = load i32, ptr %4, align 8
-  %33 = tail call ptr @lookup_ts_dictionary_cache(i32 noundef %32) #10
+  %33 = tail call ptr @lookup_ts_dictionary_cache(i32 noundef %32) #9
   store ptr %33, ptr %26, align 8
   br label %34
 
@@ -1253,7 +1236,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load i64, ptr %42, align 8
-  %44 = tail call i64 @FunctionCall4Coll(ptr noundef nonnull %36, i32 noundef 0, i64 noundef %39, i64 noundef %41, i64 noundef %43, i64 noundef 0) #10
+  %44 = tail call i64 @FunctionCall4Coll(ptr noundef nonnull %36, i32 noundef 0, i64 noundef %39, i64 noundef %41, i64 noundef %43, i64 noundef 0) #9
   %.not69 = icmp eq i64 %44, 0
   br i1 %.not69, label %.critedge78.thread, label %45
 
@@ -1299,7 +1282,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
   %.058.lcssa.ph = phi i16 [ %.058135, %.lr.ph ], [ %55, %54 ]
   %59 = zext i16 %.058.lcssa.ph to i64
   %60 = shl nuw nsw i64 %59, 3
-  %61 = tail call ptr @palloc(i64 noundef %60) #10
+  %61 = tail call ptr @palloc(i64 noundef %60) #9
   %.not165 = icmp eq i16 %.058.lcssa.ph, 0
   br i1 %.not165, label %.critedge76, label %.lr.ph141
 
@@ -1350,7 +1333,7 @@ cmpLexemeQ.exit.thread.us.i:                      ; preds = %.lr.ph.i.us.i
   br i1 %84, label %cmpLexemeQ.exit.thread.i, label %cmpLexemeQ.exit.i
 
 cmpLexemeQ.exit.i:                                ; preds = %.lr.ph.i.i
-  %85 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %83) #11
+  %85 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %65, ptr noundef nonnull dereferenceable(1) %83) #10
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %cmpLexemeQ.exit.thread.i, label %87
 
@@ -1384,7 +1367,7 @@ findTheLexeme.exit:                               ; preds = %87, %.lr.ph.i.us.i
   br i1 %96, label %.loopexit, label %62
 
 .loopexit:                                        ; preds = %findTheLexeme.exit, %findTheLexeme.exit.thread
-  tail call void @pfree(ptr noundef nonnull %61) #10
+  tail call void @pfree(ptr noundef nonnull %61) #9
   br label %99, !llvm.loop !21
 
 .critedge76:                                      ; preds = %62, %.critedge
@@ -1560,7 +1543,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %128, %.loopexit.us.
   %172 = zext i16 %171 to i64
   %173 = shl nuw nsw i64 %172, 4
   %174 = add nuw nsw i64 %173, 16
-  %175 = tail call ptr @palloc(i64 noundef %174) #10
+  %175 = tail call ptr @palloc(i64 noundef %174) #9
   %176 = load i16, ptr %170, align 2
   %.not.i.i90 = icmp eq i16 %176, 0
   br i1 %.not.i.i90, label %checkMatch.exit, label %.lr.ph.i.i91
@@ -1579,7 +1562,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %128, %.loopexit.us.
   %183 = getelementptr inbounds nuw %struct.TSLexeme, ptr %182, i64 %indvars.iv.i.i
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8
-  %186 = tail call ptr @pstrdup(ptr noundef %185) #10
+  %186 = tail call ptr @pstrdup(ptr noundef %185) #9
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store ptr %186, ptr %187, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1843,7 +1826,7 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
 
 15:                                               ; preds = %12
   store i32 16, ptr %10, align 8
-  %16 = tail call ptr @palloc(i64 noundef 256) #10
+  %16 = tail call ptr @palloc(i64 noundef 256) #9
   br label %.sink.split
 
 17:                                               ; preds = %12
@@ -1852,7 +1835,7 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
   %19 = load ptr, ptr %14, align 8
   %20 = sext i32 %18 to i64
   %21 = shl nsw i64 %20, 4
-  %22 = tail call ptr @repalloc(ptr noundef %19, i64 noundef %21) #10
+  %22 = tail call ptr @repalloc(ptr noundef %19, i64 noundef %21) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %17
@@ -1880,7 +1863,7 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
 
 35:                                               ; preds = %32
   store i32 2, ptr @addWrd.ntres, align 4
-  %36 = tail call ptr @palloc(i64 noundef 32) #10
+  %36 = tail call ptr @palloc(i64 noundef 32) #9
   br label %.sink.split36
 
 37:                                               ; preds = %32
@@ -1889,7 +1872,7 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
   %39 = load ptr, ptr %34, align 8
   %40 = sext i32 %38 to i64
   %41 = shl nsw i64 %40, 4
-  %42 = tail call ptr @repalloc(ptr noundef %39, i64 noundef %41) #10
+  %42 = tail call ptr @repalloc(ptr noundef %39, i64 noundef %41) #9
   br label %.sink.split36
 
 .sink.split36:                                    ; preds = %37, %35
@@ -1902,7 +1885,7 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
   %45 = ptrtoint ptr %1 to i64
   %46 = sub i64 %44, %45
   %47 = add i64 %46, 1
-  %48 = tail call ptr @palloc(i64 noundef %47) #10
+  %48 = tail call ptr @palloc(i64 noundef %47) #9
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr @addWrd.nres, align 4
@@ -1970,7 +1953,7 @@ define internal i32 @cmpTheLexeme(ptr noundef readonly captures(none) %0, ptr no
   br i1 %8, label %cmpLexeme.exit.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #11
+  %10 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %4) #10
   br label %cmpLexeme.exit
 
 cmpLexeme.exit:                                   ; preds = %5, %9
@@ -2036,9 +2019,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2048,11 +2028,10 @@ attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

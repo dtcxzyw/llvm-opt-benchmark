@@ -120,32 +120,29 @@ define dso_local i32 @zend_stream_open(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load i8, ptr %3, align 8, !tbaa !4
-  %5 = icmp eq i8 %4, 0
-  tail call void @llvm.assume(i1 %5)
-  %6 = load ptr, ptr @zend_stream_open_function, align 8, !tbaa !21
-  %.not = icmp eq ptr %6, null
-  br i1 %.not, label %9, label %7
+  %4 = load ptr, ptr @zend_stream_open_function, align 8, !tbaa !21
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %7, label %5
+
+5:                                                ; preds = %1
+  %6 = tail call i32 %4(ptr noundef nonnull %0) #16
+  br label %13
 
 7:                                                ; preds = %1
-  %8 = tail call i32 %6(ptr noundef nonnull %0) #16
-  br label %15
+  %8 = load ptr, ptr @zend_fopen, align 8, !tbaa !21
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %11 = call ptr %8(ptr noundef %10, ptr noundef nonnull %2) #16
+  store ptr %11, ptr %0, align 8, !tbaa !13
+  %.not7 = icmp eq ptr %11, null
+  br i1 %.not7, label %13, label %12
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr @zend_fopen, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !20
-  %13 = call ptr %10(ptr noundef %12, ptr noundef nonnull %2) #16
-  store ptr %13, ptr %0, align 8, !tbaa !13
-  %.not7 = icmp eq ptr %13, null
-  br i1 %.not7, label %15, label %14
-
-14:                                               ; preds = %9
+12:                                               ; preds = %7
   store i8 1, ptr %3, align 8, !tbaa !4
-  br label %15
+  br label %13
 
-15:                                               ; preds = %9, %14, %7
-  %.0 = phi i32 [ %8, %7 ], [ 0, %14 ], [ -1, %9 ]
+13:                                               ; preds = %7, %12, %5
+  %.0 = phi i32 [ %6, %5 ], [ 0, %12 ], [ -1, %7 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0
 }
@@ -230,253 +227,249 @@ thread-pre-split:                                 ; preds = %zend_stream_open.ex
   store ptr @zend_stream_stdio_closer, ptr %34, align 8, !tbaa !13
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @zend_stream_stdio_fsizer, ptr %35, align 8, !tbaa !13
-  %.pre = load i8, ptr %13, align 8, !tbaa !4
   br label %36
 
 36:                                               ; preds = %._crit_edge, %.thread157
   %37 = phi i32 [ %31, %.thread157 ], [ %.pre171, %._crit_edge ]
-  %38 = phi i8 [ %.pre, %.thread157 ], [ %26, %._crit_edge ]
-  %39 = icmp eq i8 %38, 2
-  call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not.i124 = icmp eq i32 %37, 0
   br i1 %.not.i124, label %zend_stream_fsize.exit, label %zend_stream_fsize.exit.thread
 
 zend_stream_fsize.exit:                           ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !13
-  %43 = load ptr, ptr %0, align 8, !tbaa !13
-  %44 = call i64 %42(ptr noundef %43) #16
-  switch i64 %44, label %45 [
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !13
+  %41 = load ptr, ptr %0, align 8, !tbaa !13
+  %42 = call i64 %40(ptr noundef %41) #16
+  switch i64 %42, label %43 [
     i64 -1, label %zend_stream_open.exit.thread
     i64 0, label %zend_stream_fsize.exit.thread
   ]
 
-45:                                               ; preds = %zend_stream_fsize.exit
-  %46 = call noalias ptr @_safe_emalloc(i64 noundef 1, i64 noundef %44, i64 noundef 32) #16
-  store ptr %46, ptr %1, align 8, !tbaa !23
-  %47 = getelementptr i8, ptr %0, i64 16
-  br label %48
+43:                                               ; preds = %zend_stream_fsize.exit
+  %44 = call noalias ptr @_safe_emalloc(i64 noundef 1, i64 noundef %42, i64 noundef 32) #16
+  store ptr %44, ptr %1, align 8, !tbaa !23
+  %45 = getelementptr i8, ptr %0, i64 16
+  br label %46
 
-48:                                               ; preds = %69, %45
-  %49 = phi ptr [ %46, %45 ], [ %.pre175, %69 ]
-  %.0113 = phi i64 [ 0, %45 ], [ %70, %69 ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.0113
-  %51 = sub i64 %44, %.0113
-  %52 = load i32, ptr %40, align 8, !tbaa !13
-  %.not.i126 = icmp eq i32 %52, 0
-  br i1 %.not.i126, label %64, label %.preheader.i
+46:                                               ; preds = %67, %43
+  %47 = phi ptr [ %44, %43 ], [ %.pre175, %67 ]
+  %.0113 = phi i64 [ 0, %43 ], [ %68, %67 ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %.0113
+  %49 = sub i64 %42, %.0113
+  %50 = load i32, ptr %38, align 8, !tbaa !13
+  %.not.i126 = icmp eq i32 %50, 0
+  br i1 %.not.i126, label %62, label %.preheader.i
 
-.preheader.i:                                     ; preds = %48
-  %.not32.i = icmp eq i64 %51, 0
+.preheader.i:                                     ; preds = %46
+  %.not32.i = icmp eq i64 %49, 0
   br i1 %.not32.i, label %.thread149, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %56
-  %.024.i = phi i64 [ %59, %56 ], [ 0, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %54
+  %.024.i = phi i64 [ %57, %54 ], [ 0, %.preheader.i ]
   %.val.i = load ptr, ptr %0, align 8, !tbaa !13
-  %.val23.i = load ptr, ptr %47, align 8, !tbaa !13
+  %.val23.i = load ptr, ptr %45, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %53 = call i64 %.val23.i(ptr noundef %.val.i, ptr noundef nonnull %5, i64 noundef 1) #16
-  %.not.i.i = icmp eq i64 %53, 0
-  %54 = load i8, ptr %5, align 1
-  %55 = sext i8 %54 to i32
-  %.0.i.i = select i1 %.not.i.i, i32 -1, i32 %55
+  %51 = call i64 %.val23.i(ptr noundef %.val.i, ptr noundef nonnull %5, i64 noundef 1) #16
+  %.not.i.i = icmp eq i64 %51, 0
+  %52 = load i8, ptr %5, align 1
+  %53 = sext i8 %52 to i32
+  %.0.i.i = select i1 %.not.i.i, i32 -1, i32 %53
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  switch i32 %.0.i.i, label %56 [
+  switch i32 %.0.i.i, label %54 [
     i32 -1, label %.critedge.i
     i32 10, label %.critedge.i
   ]
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = trunc nsw i32 %.0.i.i to i8
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 %.024.i
-  store i8 %57, ptr %58, align 1, !tbaa !13
-  %59 = add nuw i64 %.024.i, 1
-  %exitcond.not.i = icmp eq i64 %59, %51
+54:                                               ; preds = %.lr.ph.i
+  %55 = trunc nsw i32 %.0.i.i to i8
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 %.024.i
+  store i8 %55, ptr %56, align 1, !tbaa !13
+  %57 = add nuw i64 %.024.i, 1
+  %exitcond.not.i = icmp eq i64 %57, %49
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %56, %.lr.ph.i, %.lr.ph.i
-  %.0.lcssa.ph.i = phi i64 [ %51, %56 ], [ %.024.i, %.lr.ph.i ], [ %.024.i, %.lr.ph.i ]
-  %60 = icmp eq i32 %.0.i.i, 10
-  br i1 %60, label %61, label %zend_stream_read.exit
+.critedge.i:                                      ; preds = %54, %.lr.ph.i, %.lr.ph.i
+  %.0.lcssa.ph.i = phi i64 [ %49, %54 ], [ %.024.i, %.lr.ph.i ], [ %.024.i, %.lr.ph.i ]
+  %58 = icmp eq i32 %.0.i.i, 10
+  br i1 %58, label %59, label %zend_stream_read.exit
 
-61:                                               ; preds = %.critedge.i
-  %62 = add i64 %.0.lcssa.ph.i, 1
-  %63 = getelementptr inbounds nuw i8, ptr %50, i64 %.0.lcssa.ph.i
-  store i8 10, ptr %63, align 1, !tbaa !13
+59:                                               ; preds = %.critedge.i
+  %60 = add i64 %.0.lcssa.ph.i, 1
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 %.0.lcssa.ph.i
+  store i8 10, ptr %61, align 1, !tbaa !13
   br label %zend_stream_read.exit
 
-64:                                               ; preds = %48
-  %65 = load ptr, ptr %47, align 8, !tbaa !13
-  %66 = load ptr, ptr %0, align 8, !tbaa !13
-  %67 = call i64 %65(ptr noundef %66, ptr noundef %50, i64 noundef %51) #16
+62:                                               ; preds = %46
+  %63 = load ptr, ptr %45, align 8, !tbaa !13
+  %64 = load ptr, ptr %0, align 8, !tbaa !13
+  %65 = call i64 %63(ptr noundef %64, ptr noundef %48, i64 noundef %49) #16
   br label %zend_stream_read.exit
 
-zend_stream_read.exit:                            ; preds = %.critedge.i, %61, %64
-  %.021.i = phi i64 [ %67, %64 ], [ %62, %61 ], [ %.0.lcssa.ph.i, %.critedge.i ]
-  %68 = icmp sgt i64 %.021.i, 0
+zend_stream_read.exit:                            ; preds = %.critedge.i, %59, %62
+  %.021.i = phi i64 [ %65, %62 ], [ %60, %59 ], [ %.0.lcssa.ph.i, %.critedge.i ]
+  %66 = icmp sgt i64 %.021.i, 0
   %.pre175 = load ptr, ptr %1, align 8, !tbaa !23
-  br i1 %68, label %69, label %71
+  br i1 %66, label %67, label %69
+
+67:                                               ; preds = %zend_stream_read.exit
+  %68 = add i64 %.021.i, %.0113
+  br label %46
 
 69:                                               ; preds = %zend_stream_read.exit
-  %70 = add i64 %.021.i, %.0113
-  br label %48
+  %70 = icmp sgt i64 %.021.i, -1
+  br i1 %70, label %.thread149, label %73
 
-71:                                               ; preds = %zend_stream_read.exit
-  %72 = icmp sgt i64 %.021.i, -1
-  br i1 %72, label %.thread149, label %75
+.thread149:                                       ; preds = %.preheader.i, %69
+  %71 = phi ptr [ %.pre175, %69 ], [ %47, %.preheader.i ]
+  store ptr %71, ptr %7, align 8, !tbaa !22
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %.0113, ptr %72, align 8, !tbaa !24
+  br label %111
 
-.thread149:                                       ; preds = %.preheader.i, %71
-  %73 = phi ptr [ %.pre175, %71 ], [ %49, %.preheader.i ]
-  store ptr %73, ptr %7, align 8, !tbaa !22
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.0113, ptr %74, align 8, !tbaa !24
-  br label %113
-
-75:                                               ; preds = %71
+73:                                               ; preds = %69
   call void @_efree(ptr noundef %.pre175) #16
   br label %zend_stream_open.exit.thread
 
 zend_stream_fsize.exit.thread:                    ; preds = %36, %zend_stream_fsize.exit
-  %76 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #15
-  store ptr %76, ptr %1, align 8, !tbaa !23
-  %77 = getelementptr i8, ptr %0, i64 16
-  br label %78
+  %74 = call noalias dereferenceable_or_null(4096) ptr @_emalloc_large(i64 noundef 4096) #15
+  store ptr %74, ptr %1, align 8, !tbaa !23
+  %75 = getelementptr i8, ptr %0, i64 16
+  br label %76
 
-78:                                               ; preds = %.backedge, %zend_stream_fsize.exit.thread
-  %79 = phi ptr [ %76, %zend_stream_fsize.exit.thread ], [ %.be, %.backedge ]
-  %.0112 = phi i64 [ 0, %zend_stream_fsize.exit.thread ], [ %99, %.backedge ]
+76:                                               ; preds = %.backedge, %zend_stream_fsize.exit.thread
+  %77 = phi ptr [ %74, %zend_stream_fsize.exit.thread ], [ %.be, %.backedge ]
+  %.0112 = phi i64 [ 0, %zend_stream_fsize.exit.thread ], [ %97, %.backedge ]
   %.0110 = phi i64 [ 4096, %zend_stream_fsize.exit.thread ], [ %.0110.be, %.backedge ]
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %.0112
-  %81 = load i32, ptr %40, align 8, !tbaa !13
-  %.not.i127 = icmp eq i32 %81, 0
-  br i1 %.not.i127, label %93, label %.preheader.i128
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 %.0112
+  %79 = load i32, ptr %38, align 8, !tbaa !13
+  %.not.i127 = icmp eq i32 %79, 0
+  br i1 %.not.i127, label %91, label %.preheader.i128
 
-.preheader.i128:                                  ; preds = %78
+.preheader.i128:                                  ; preds = %76
   %.not32.i129 = icmp eq i64 %.0110, 0
   br i1 %.not32.i129, label %.thread152, label %.lr.ph.i130
 
-.lr.ph.i130:                                      ; preds = %.preheader.i128, %85
-  %.024.i131 = phi i64 [ %88, %85 ], [ 0, %.preheader.i128 ]
+.lr.ph.i130:                                      ; preds = %.preheader.i128, %83
+  %.024.i131 = phi i64 [ %86, %83 ], [ 0, %.preheader.i128 ]
   %.val.i132 = load ptr, ptr %0, align 8, !tbaa !13
-  %.val23.i133 = load ptr, ptr %77, align 8, !tbaa !13
+  %.val23.i133 = load ptr, ptr %75, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %82 = call i64 %.val23.i133(ptr noundef %.val.i132, ptr noundef nonnull %4, i64 noundef 1) #16
-  %.not.i.i134 = icmp eq i64 %82, 0
-  %83 = load i8, ptr %4, align 1
-  %84 = sext i8 %83 to i32
-  %.0.i.i135 = select i1 %.not.i.i134, i32 -1, i32 %84
+  %80 = call i64 %.val23.i133(ptr noundef %.val.i132, ptr noundef nonnull %4, i64 noundef 1) #16
+  %.not.i.i134 = icmp eq i64 %80, 0
+  %81 = load i8, ptr %4, align 1
+  %82 = sext i8 %81 to i32
+  %.0.i.i135 = select i1 %.not.i.i134, i32 -1, i32 %82
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  switch i32 %.0.i.i135, label %85 [
+  switch i32 %.0.i.i135, label %83 [
     i32 -1, label %.critedge.i136
     i32 10, label %.critedge.i136
   ]
 
-85:                                               ; preds = %.lr.ph.i130
-  %86 = trunc nsw i32 %.0.i.i135 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %80, i64 %.024.i131
-  store i8 %86, ptr %87, align 1, !tbaa !13
-  %88 = add nuw i64 %.024.i131, 1
-  %exitcond.not.i139 = icmp eq i64 %88, %.0110
+83:                                               ; preds = %.lr.ph.i130
+  %84 = trunc nsw i32 %.0.i.i135 to i8
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 %.024.i131
+  store i8 %84, ptr %85, align 1, !tbaa !13
+  %86 = add nuw i64 %.024.i131, 1
+  %exitcond.not.i139 = icmp eq i64 %86, %.0110
   br i1 %exitcond.not.i139, label %.critedge.i136, label %.lr.ph.i130
 
-.critedge.i136:                                   ; preds = %85, %.lr.ph.i130, %.lr.ph.i130
-  %.0.lcssa.ph.i137 = phi i64 [ %.0110, %85 ], [ %.024.i131, %.lr.ph.i130 ], [ %.024.i131, %.lr.ph.i130 ]
-  %89 = icmp eq i32 %.0.i.i135, 10
-  br i1 %89, label %90, label %zend_stream_read.exit140
+.critedge.i136:                                   ; preds = %83, %.lr.ph.i130, %.lr.ph.i130
+  %.0.lcssa.ph.i137 = phi i64 [ %.0110, %83 ], [ %.024.i131, %.lr.ph.i130 ], [ %.024.i131, %.lr.ph.i130 ]
+  %87 = icmp eq i32 %.0.i.i135, 10
+  br i1 %87, label %88, label %zend_stream_read.exit140
 
-90:                                               ; preds = %.critedge.i136
-  %91 = add i64 %.0.lcssa.ph.i137, 1
-  %92 = getelementptr inbounds nuw i8, ptr %80, i64 %.0.lcssa.ph.i137
-  store i8 10, ptr %92, align 1, !tbaa !13
+88:                                               ; preds = %.critedge.i136
+  %89 = add i64 %.0.lcssa.ph.i137, 1
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 %.0.lcssa.ph.i137
+  store i8 10, ptr %90, align 1, !tbaa !13
   br label %zend_stream_read.exit140
 
-93:                                               ; preds = %78
-  %94 = load ptr, ptr %77, align 8, !tbaa !13
-  %95 = load ptr, ptr %0, align 8, !tbaa !13
-  %96 = call i64 %94(ptr noundef %95, ptr noundef %80, i64 noundef %.0110) #16
+91:                                               ; preds = %76
+  %92 = load ptr, ptr %75, align 8, !tbaa !13
+  %93 = load ptr, ptr %0, align 8, !tbaa !13
+  %94 = call i64 %92(ptr noundef %93, ptr noundef %78, i64 noundef %.0110) #16
   br label %zend_stream_read.exit140
 
-zend_stream_read.exit140:                         ; preds = %.critedge.i136, %90, %93
-  %.021.i138 = phi i64 [ %96, %93 ], [ %91, %90 ], [ %.0.lcssa.ph.i137, %.critedge.i136 ]
-  %97 = icmp sgt i64 %.021.i138, 0
-  br i1 %97, label %98, label %104
+zend_stream_read.exit140:                         ; preds = %.critedge.i136, %88, %91
+  %.021.i138 = phi i64 [ %94, %91 ], [ %89, %88 ], [ %.0.lcssa.ph.i137, %.critedge.i136 ]
+  %95 = icmp sgt i64 %.021.i138, 0
+  br i1 %95, label %96, label %102
 
-98:                                               ; preds = %zend_stream_read.exit140
-  %99 = add i64 %.021.i138, %.0112
-  %100 = sub i64 %.0110, %.021.i138
-  %101 = icmp eq i64 %100, 0
+96:                                               ; preds = %zend_stream_read.exit140
+  %97 = add i64 %.021.i138, %.0112
+  %98 = sub i64 %.0110, %.021.i138
+  %99 = icmp eq i64 %98, 0
   %.pre172.pre = load ptr, ptr %1, align 8, !tbaa !23
-  br i1 %101, label %102, label %.backedge
+  br i1 %99, label %100, label %.backedge
 
-102:                                              ; preds = %98
-  %103 = call ptr @_safe_erealloc(ptr noundef %.pre172.pre, i64 noundef %99, i64 noundef 2, i64 noundef 0) #16
-  store ptr %103, ptr %1, align 8, !tbaa !23
+100:                                              ; preds = %96
+  %101 = call ptr @_safe_erealloc(ptr noundef %.pre172.pre, i64 noundef %97, i64 noundef 2, i64 noundef 0) #16
+  store ptr %101, ptr %1, align 8, !tbaa !23
   br label %.backedge
 
-.backedge:                                        ; preds = %102, %98
-  %.be = phi ptr [ %103, %102 ], [ %.pre172.pre, %98 ]
-  %.0110.be = phi i64 [ %99, %102 ], [ %100, %98 ]
-  br label %78
+.backedge:                                        ; preds = %100, %96
+  %.be = phi ptr [ %101, %100 ], [ %.pre172.pre, %96 ]
+  %.0110.be = phi i64 [ %97, %100 ], [ %98, %96 ]
+  br label %76
 
-104:                                              ; preds = %zend_stream_read.exit140
-  %105 = icmp sgt i64 %.021.i138, -1
+102:                                              ; preds = %zend_stream_read.exit140
+  %103 = icmp sgt i64 %.021.i138, -1
   %.pre173.pre = load ptr, ptr %1, align 8, !tbaa !23
-  br i1 %105, label %.thread152, label %112
+  br i1 %103, label %.thread152, label %110
 
-.thread152:                                       ; preds = %.preheader.i128, %104
-  %.pre173 = phi ptr [ %.pre173.pre, %104 ], [ %79, %.preheader.i128 ]
-  %.0110168 = phi i64 [ %.0110, %104 ], [ 0, %.preheader.i128 ]
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %.0112, ptr %106, align 8, !tbaa !24
-  %107 = icmp ne i64 %.0112, 0
-  %108 = icmp ult i64 %.0110168, 32
-  %or.cond = and i1 %107, %108
-  br i1 %or.cond, label %109, label %.thread154
+.thread152:                                       ; preds = %.preheader.i128, %102
+  %.pre173 = phi ptr [ %.pre173.pre, %102 ], [ %77, %.preheader.i128 ]
+  %.0110168 = phi i64 [ %.0110, %102 ], [ 0, %.preheader.i128 ]
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %.0112, ptr %104, align 8, !tbaa !24
+  %105 = icmp ne i64 %.0112, 0
+  %106 = icmp ult i64 %.0110168, 32
+  %or.cond = and i1 %105, %106
+  br i1 %or.cond, label %107, label %.thread154
 
-109:                                              ; preds = %.thread152
-  %110 = call ptr @_safe_erealloc(ptr noundef %.pre173, i64 noundef %.0112, i64 noundef 1, i64 noundef 32) #16
-  store ptr %110, ptr %1, align 8, !tbaa !23
-  %.pre178.pre = load i64, ptr %106, align 8, !tbaa !24
+107:                                              ; preds = %.thread152
+  %108 = call ptr @_safe_erealloc(ptr noundef %.pre173, i64 noundef %.0112, i64 noundef 1, i64 noundef 32) #16
+  store ptr %108, ptr %1, align 8, !tbaa !23
+  %.pre178.pre = load i64, ptr %104, align 8, !tbaa !24
   br label %.thread154
 
-.thread154:                                       ; preds = %.thread152, %109
-  %.pre178 = phi i64 [ %.0112, %.thread152 ], [ %.pre178.pre, %109 ]
-  %111 = phi ptr [ %.pre173, %.thread152 ], [ %110, %109 ]
-  store ptr %111, ptr %7, align 8, !tbaa !22
-  br label %113
+.thread154:                                       ; preds = %.thread152, %107
+  %.pre178 = phi i64 [ %.0112, %.thread152 ], [ %.pre178.pre, %107 ]
+  %109 = phi ptr [ %.pre173, %.thread152 ], [ %108, %107 ]
+  store ptr %109, ptr %7, align 8, !tbaa !22
+  br label %111
 
-112:                                              ; preds = %104
+110:                                              ; preds = %102
   call void @_efree(ptr noundef %.pre173.pre) #16
   br label %zend_stream_open.exit.thread
 
-113:                                              ; preds = %.thread154, %.thread149
-  %114 = phi ptr [ %111, %.thread154 ], [ %73, %.thread149 ]
-  %115 = phi i64 [ %.pre178, %.thread154 ], [ %.0113, %.thread149 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %117 = icmp eq i64 %115, 0
-  br i1 %117, label %118, label %121
+111:                                              ; preds = %.thread154, %.thread149
+  %112 = phi ptr [ %109, %.thread154 ], [ %71, %.thread149 ]
+  %113 = phi i64 [ %.pre178, %.thread154 ], [ %.0113, %.thread149 ]
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %115 = icmp eq i64 %113, 0
+  br i1 %115, label %116, label %119
 
-118:                                              ; preds = %113
-  %119 = load ptr, ptr %1, align 8, !tbaa !23
-  %120 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef %119, i64 noundef 32) #17
-  store ptr %120, ptr %1, align 8, !tbaa !23
-  store ptr %120, ptr %7, align 8, !tbaa !22
-  br label %121
+116:                                              ; preds = %111
+  %117 = load ptr, ptr %1, align 8, !tbaa !23
+  %118 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef %117, i64 noundef 32) #17
+  store ptr %118, ptr %1, align 8, !tbaa !23
+  store ptr %118, ptr %7, align 8, !tbaa !22
+  br label %119
 
-121:                                              ; preds = %118, %113
-  %122 = phi ptr [ %120, %118 ], [ %114, %113 ]
-  %123 = load i64, ptr %116, align 8, !tbaa !24
-  %124 = getelementptr inbounds nuw i8, ptr %122, i64 %123
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %124, i8 0, i64 32, i1 false)
-  %125 = load ptr, ptr %7, align 8, !tbaa !22
-  store ptr %125, ptr %1, align 8, !tbaa !23
-  %126 = load i64, ptr %116, align 8, !tbaa !24
-  store i64 %126, ptr %2, align 8, !tbaa !25
+119:                                              ; preds = %116, %111
+  %120 = phi ptr [ %118, %116 ], [ %112, %111 ]
+  %121 = load i64, ptr %114, align 8, !tbaa !24
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 %121
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %122, i8 0, i64 32, i1 false)
+  %123 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %123, ptr %1, align 8, !tbaa !23
+  %124 = load i64, ptr %114, align 8, !tbaa !24
+  store i64 %124, ptr %2, align 8, !tbaa !25
   br label %zend_stream_open.exit.thread
 
-zend_stream_open.exit.thread:                     ; preds = %18, %112, %75, %zend_stream_fsize.exit, %28, %zend_stream_open.exit, %121, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %121 ], [ -1, %75 ], [ -1, %112 ], [ -1, %zend_stream_open.exit ], [ -1, %28 ], [ -1, %zend_stream_fsize.exit ], [ -1, %18 ]
+zend_stream_open.exit.thread:                     ; preds = %18, %110, %73, %zend_stream_fsize.exit, %28, %zend_stream_open.exit, %119, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %119 ], [ -1, %73 ], [ -1, %110 ], [ -1, %zend_stream_open.exit ], [ -1, %28 ], [ -1, %zend_stream_fsize.exit ], [ -1, %18 ]
   ret i32 %.0
 }
 

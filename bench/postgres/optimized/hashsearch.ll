@@ -41,7 +41,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
-  tail call void @_hash_kill_items(ptr noundef nonnull %0) #6
+  tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
   br label %20
 
 20:                                               ; preds = %19, %15
@@ -51,7 +51,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br i1 %.not54, label %.thread, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %22, i32 noundef 1, i32 noundef 1) #6
+  %24 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %22, i32 noundef 1, i32 noundef 1) #5
   %25 = tail call fastcc zeroext i1 @_hash_readpage(ptr noundef nonnull %0, i32 %24, i32 noundef 1)
   br i1 %25, label %.thread51, label %.thread
 
@@ -70,7 +70,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  tail call void @_hash_kill_items(ptr noundef nonnull %0) #6
+  tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
   br label %36
 
 36:                                               ; preds = %35, %31
@@ -80,7 +80,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br i1 %.not, label %.thread, label %39
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %38, i32 noundef 1, i32 noundef 3) #6
+  %40 = tail call i32 @_hash_getbuf(ptr noundef %4, i32 noundef %38, i32 noundef 1, i32 noundef 3) #5
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %40, %42
@@ -93,7 +93,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44, %39
-  tail call void @_hash_dropbuf(ptr noundef %4, i32 noundef %40) #6
+  tail call void @_hash_dropbuf(ptr noundef %4, i32 noundef %40) #5
   br label %49
 
 49:                                               ; preds = %44, %48
@@ -101,7 +101,7 @@ define dso_local noundef zeroext i1 @_hash_next(ptr noundef %0, i32 noundef %1) 
   br i1 %50, label %.thread51, label %.thread
 
 .thread:                                          ; preds = %36, %20, %23, %49
-  tail call void @_hash_dropscanbuf(ptr noundef %4, ptr noundef nonnull %6) #6
+  tail call void @_hash_dropscanbuf(ptr noundef %4, ptr noundef nonnull %6) #5
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -150,7 +150,7 @@ define internal fastcc noundef zeroext i1 @_hash_readpage(ptr noundef %0, i32 %.
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %.0.val, ptr %3, align 4
-  tail call void @_hash_checkpage(ptr noundef %7, i32 noundef %.0.val, i32 noundef 3) #6
+  tail call void @_hash_checkpage(ptr noundef %7, i32 noundef %.0.val, i32 noundef 3) #5
   %10 = icmp slt i32 %.0.val, 0
   br i1 %10, label %11, label %17
 
@@ -180,7 +180,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   store ptr %27, ptr %5, align 8
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 28
   store i32 %.0.val, ptr %28, align 4
-  %29 = tail call i32 @BufferGetBlockNumber(i32 noundef %.0.val) #6
+  %29 = tail call i32 @BufferGetBlockNumber(i32 noundef %.0.val) #5
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 %29, ptr %30, align 4
   %31 = icmp eq i32 %1, 1
@@ -188,7 +188,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %31, label %.preheader, label %.preheader3
 
 .preheader3:                                      ; preds = %BufferGetPage.exit
-  %33 = tail call zeroext i16 @_hash_binsearch_last(ptr noundef nonnull %23, i32 noundef %32) #6
+  %33 = tail call zeroext i16 @_hash_binsearch_last(ptr noundef nonnull %23, i32 noundef %32) #5
   %34 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef nonnull %23, i16 noundef zeroext %33, i32 noundef %1)
   %35 = and i32 %34, 65535
   %.not.not9 = icmp eq i32 %35, 408
@@ -201,7 +201,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br label %72
 
 .preheader:                                       ; preds = %BufferGetPage.exit
-  %39 = tail call zeroext i16 @_hash_binsearch(ptr noundef nonnull %23, i32 noundef %32) #6
+  %39 = tail call zeroext i16 @_hash_binsearch(ptr noundef nonnull %23, i32 noundef %32) #5
   %40 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef nonnull %23, i16 noundef zeroext %39, i32 noundef 1)
   %41 = and i32 %40, 65535
   %.not.not7811 = icmp eq i32 %41, 0
@@ -219,7 +219,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %45
-  tail call void @_hash_kill_items(ptr noundef nonnull %0) #6
+  tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
   br label %49
 
 49:                                               ; preds = %48, %45
@@ -247,11 +247,11 @@ BufferGetPage.exit:                               ; preds = %11, %17
 
 61:                                               ; preds = %59
   store i32 %60, ptr %28, align 4
-  %62 = tail call i32 @BufferGetBlockNumber(i32 noundef %60) #6
+  %62 = tail call i32 @BufferGetBlockNumber(i32 noundef %60) #5
   store i32 %62, ptr %30, align 4
   %63 = load ptr, ptr %4, align 8
   %64 = load i32, ptr %9, align 8
-  %65 = tail call zeroext i16 @_hash_binsearch(ptr noundef %63, i32 noundef %64) #6
+  %65 = tail call zeroext i16 @_hash_binsearch(ptr noundef %63, i32 noundef %64) #5
   %66 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %63, i16 noundef zeroext %65, i32 noundef 1)
   %67 = and i32 %66, 65535
   %.not.not78 = icmp eq i32 %67, 0
@@ -281,7 +281,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %72
-  tail call void @_hash_kill_items(ptr noundef nonnull %0) #6
+  tail call void @_hash_kill_items(ptr noundef nonnull %0) #5
   br label %78
 
 78:                                               ; preds = %77, %72
@@ -317,11 +317,11 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %95, %88
-  tail call void @LockBuffer(i32 noundef %73, i32 noundef 0) #6
+  tail call void @LockBuffer(i32 noundef %73, i32 noundef 0) #5
   br label %101
 
 100:                                              ; preds = %95
-  tail call void @_hash_relbuf(ptr noundef %89, i32 noundef %73) #6
+  tail call void @_hash_relbuf(ptr noundef %89, i32 noundef %73) #5
   br label %101
 
 101:                                              ; preds = %100, %99
@@ -331,14 +331,14 @@ BufferGetPage.exit:                               ; preds = %11, %17
   br i1 %.not.i, label %104, label %103, !prof !4
 
 103:                                              ; preds = %101
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %104
 
 104:                                              ; preds = %103, %101
   br i1 %.0.i, label %105, label %131
 
 105:                                              ; preds = %104
-  %106 = tail call i32 @_hash_getbuf(ptr noundef %89, i32 noundef %91, i32 noundef 1, i32 noundef 3) #6
+  %106 = tail call i32 @_hash_getbuf(ptr noundef %89, i32 noundef %91, i32 noundef 1, i32 noundef 3) #5
   store i32 %106, ptr %3, align 4
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %108, label %114
@@ -378,7 +378,7 @@ BufferGetPage.exit.i:                             ; preds = %114, %108
   br i1 %129, label %130, label %_hash_readprev.exit
 
 130:                                              ; preds = %126, %BufferGetPage.exit.i
-  tail call void @_hash_dropbuf(ptr noundef %89, i32 noundef %106) #6
+  tail call void @_hash_dropbuf(ptr noundef %89, i32 noundef %106) #5
   br label %_hash_readprev.exit
 
 131:                                              ; preds = %104
@@ -396,7 +396,7 @@ BufferGetPage.exit.i:                             ; preds = %114, %108
 139:                                              ; preds = %135
   %140 = load i32, ptr %92, align 4
   store i32 %140, ptr %3, align 4
-  tail call void @LockBuffer(i32 noundef %140, i32 noundef 1) #6
+  tail call void @LockBuffer(i32 noundef %140, i32 noundef 1) #5
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %142, label %148
 
@@ -455,11 +455,11 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
 
 166:                                              ; preds = %_hash_readprev.exit
   store i32 %164, ptr %28, align 4
-  %167 = tail call i32 @BufferGetBlockNumber(i32 noundef %164) #6
+  %167 = tail call i32 @BufferGetBlockNumber(i32 noundef %164) #5
   store i32 %167, ptr %30, align 4
   %168 = load ptr, ptr %4, align 8
   %169 = load i32, ptr %9, align 8
-  %170 = tail call zeroext i16 @_hash_binsearch_last(ptr noundef %168, i32 noundef %169) #6
+  %170 = tail call zeroext i16 @_hash_binsearch_last(ptr noundef %168, i32 noundef %169) #5
   %171 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %168, i16 noundef zeroext %170, i32 noundef %1)
   %172 = and i32 %171, 65535
   %.not.not = icmp eq i32 %172, 408
@@ -511,7 +511,7 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   %191 = load i32, ptr %190, align 4
   %192 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %191, ptr %192, align 4
-  tail call void @LockBuffer(i32 noundef %179, i32 noundef 0) #6
+  tail call void @LockBuffer(i32 noundef %179, i32 noundef 0) #5
   br label %199
 
 193:                                              ; preds = %183
@@ -522,7 +522,7 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   %197 = load i32, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %197, ptr %198, align 4
-  tail call void @_hash_relbuf(ptr noundef %7, i32 noundef %179) #6
+  tail call void @_hash_relbuf(ptr noundef %7, i32 noundef %179) #5
   store i32 0, ptr %28, align 4
   br label %199
 
@@ -565,7 +565,7 @@ define dso_local noundef zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1)
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %12
-  tail call void @pgstat_assoc_relation(ptr noundef nonnull %7) #6
+  tail call void @pgstat_assoc_relation(ptr noundef nonnull %7) #5
   %.pre = load ptr, ptr %10, align 8
   br label %17
 
@@ -584,11 +584,10 @@ define dso_local noundef zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1)
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 1088) #6
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__._hash_first) #6
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %28 = tail call i32 @errcode(i32 noundef 1088) #5
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 311, ptr noundef nonnull @__func__._hash_first) #5
   unreachable
 
 30:                                               ; preds = %22
@@ -613,22 +612,22 @@ define dso_local noundef zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1)
   br i1 %or.cond, label %45, label %47
 
 45:                                               ; preds = %35
-  %46 = tail call i32 @_hash_datum2hashkey(ptr noundef nonnull %7, i64 noundef %44) #6
+  %46 = tail call i32 @_hash_datum2hashkey(ptr noundef nonnull %7, i64 noundef %44) #5
   br label %49
 
 47:                                               ; preds = %35
-  %48 = tail call i32 @_hash_datum2hashkey_type(ptr noundef nonnull %7, i64 noundef %44, i32 noundef %37) #6
+  %48 = tail call i32 @_hash_datum2hashkey_type(ptr noundef nonnull %7, i64 noundef %44, i32 noundef %37) #5
   br label %49
 
 49:                                               ; preds = %47, %45
   %.048 = phi i32 [ %46, %45 ], [ %48, %47 ]
   store i32 %.048, ptr %9, align 8
-  %50 = tail call i32 @_hash_getbucketbuf_from_hashkey(ptr noundef nonnull %7, i32 noundef %.048, i32 noundef 1, ptr noundef null) #6
+  %50 = tail call i32 @_hash_getbucketbuf_from_hashkey(ptr noundef nonnull %7, i32 noundef %.048, i32 noundef 1, ptr noundef null) #5
   store i32 %50, ptr %3, align 4
-  %51 = tail call i32 @BufferGetBlockNumber(i32 noundef %50) #6
+  %51 = tail call i32 @BufferGetBlockNumber(i32 noundef %50) #5
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = load ptr, ptr %52, align 8
-  tail call void @PredicateLockPage(ptr noundef nonnull %7, i32 noundef %51, ptr noundef %53) #6
+  tail call void @PredicateLockPage(ptr noundef nonnull %7, i32 noundef %51, ptr noundef %53) #5
   %54 = icmp slt i32 %50, 0
   br i1 %54, label %55, label %61
 
@@ -667,13 +666,13 @@ BufferGetPage.exit:                               ; preds = %55, %61
   br i1 %.not51, label %104, label %77
 
 77:                                               ; preds = %BufferGetPage.exit
-  %78 = tail call i32 @_hash_get_oldblock_from_newbucket(ptr noundef nonnull %7, i32 noundef %72) #6
-  tail call void @LockBuffer(i32 noundef %50, i32 noundef 0) #6
-  %79 = tail call i32 @_hash_getbuf(ptr noundef nonnull %7, i32 noundef %78, i32 noundef 1, i32 noundef 2) #6
+  %78 = tail call i32 @_hash_get_oldblock_from_newbucket(ptr noundef nonnull %7, i32 noundef %72) #5
+  tail call void @LockBuffer(i32 noundef %50, i32 noundef 0) #5
+  %79 = tail call i32 @_hash_getbuf(ptr noundef nonnull %7, i32 noundef %78, i32 noundef 1, i32 noundef 2) #5
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %79, ptr %80, align 8
-  tail call void @LockBuffer(i32 noundef %79, i32 noundef 0) #6
-  tail call void @LockBuffer(i32 noundef %50, i32 noundef 1) #6
+  tail call void @LockBuffer(i32 noundef %79, i32 noundef 0) #5
+  tail call void @LockBuffer(i32 noundef %50, i32 noundef 1) #5
   br i1 %54, label %81, label %87
 
 81:                                               ; preds = %77
@@ -713,7 +712,7 @@ BufferGetPage.exit54:                             ; preds = %81, %87
 
 102:                                              ; preds = %BufferGetPage.exit54
   %103 = load i32, ptr %80, align 8
-  tail call void @_hash_dropbuf(ptr noundef nonnull %7, i32 noundef %103) #6
+  tail call void @_hash_dropbuf(ptr noundef nonnull %7, i32 noundef %103) #5
   store i32 0, ptr %80, align 8
   br label %104
 
@@ -825,11 +824,11 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %16, %4
-  tail call void @LockBuffer(i32 noundef %12, i32 noundef 0) #6
+  tail call void @LockBuffer(i32 noundef %12, i32 noundef 0) #5
   br label %22
 
 21:                                               ; preds = %16
-  tail call void @_hash_relbuf(ptr noundef %6, i32 noundef %12) #6
+  tail call void @_hash_relbuf(ptr noundef %6, i32 noundef %12) #5
   br label %22
 
 22:                                               ; preds = %21, %20
@@ -839,7 +838,7 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
   br i1 %.not, label %25, label %24, !prof !4
 
 24:                                               ; preds = %22
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %25
 
 25:                                               ; preds = %24, %22
@@ -847,7 +846,7 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
   br i1 %.not31, label %28, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @_hash_getbuf(ptr noundef %6, i32 noundef %11, i32 noundef 1, i32 noundef 1) #6
+  %27 = tail call i32 @_hash_getbuf(ptr noundef %6, i32 noundef %11, i32 noundef 1, i32 noundef 1) #5
   store i32 %27, ptr %1, align 4
   br label %.critedge
 
@@ -867,12 +866,12 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %38 = load i32, ptr %37, align 8
   store i32 %38, ptr %1, align 4
-  tail call void @LockBuffer(i32 noundef %38, i32 noundef 1) #6
+  tail call void @LockBuffer(i32 noundef %38, i32 noundef 1) #5
   %39 = load i32, ptr %1, align 4
-  %40 = tail call i32 @BufferGetBlockNumber(i32 noundef %39) #6
+  %40 = tail call i32 @BufferGetBlockNumber(i32 noundef %39) #5
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
-  tail call void @PredicateLockPage(ptr noundef %6, i32 noundef %40, ptr noundef %42) #6
+  tail call void @PredicateLockPage(ptr noundef %6, i32 noundef %40, ptr noundef %42) #5
   store i8 1, ptr %33, align 1
   %.pr = load i32, ptr %1, align 4
   br label %.critedge
@@ -1068,12 +1067,12 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %.us-phi107 = phi ptr [ %68, %.split106 ], [ %40, %.split106.us.split.us ], [ %45, %49 ]
   %.us-phi108 = phi i16 [ %.us-phi116, %.split106 ], [ %.us-phi123, %.split106.us.split.us ], [ %.049101.us, %49 ]
   %69 = load i32, ptr %6, align 8
-  %70 = tail call i32 @_hash_get_indextuple_hashkey(ptr noundef nonnull %.us-phi107) #6
+  %70 = tail call i32 @_hash_get_indextuple_hashkey(ptr noundef nonnull %.us-phi107) #5
   %71 = icmp eq i32 %69, %70
   br i1 %71, label %72, label %.loopexit
 
 72:                                               ; preds = %.split106.us
-  %73 = tail call zeroext i1 @_hash_checkqual(ptr noundef nonnull %0, ptr noundef nonnull %.us-phi107) #6
+  %73 = tail call zeroext i1 @_hash_checkqual(ptr noundef nonnull %0, ptr noundef nonnull %.us-phi107) #5
   br i1 %73, label %.outer, label %.loopexit
 
 .outer:                                           ; preds = %72
@@ -1113,12 +1112,12 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %.us-phi = phi ptr [ %87, %.split ], [ %114, %.split.us.split.us ], [ %119, %123 ]
   %.us-phi76 = phi i16 [ %.us-phi85, %.split ], [ %.us-phi92, %.split.us.split.us ], [ %.15074.us, %123 ]
   %88 = load i32, ptr %6, align 8
-  %89 = tail call i32 @_hash_get_indextuple_hashkey(ptr noundef nonnull %.us-phi) #6
+  %89 = tail call i32 @_hash_get_indextuple_hashkey(ptr noundef nonnull %.us-phi) #5
   %90 = icmp eq i32 %88, %89
   br i1 %90, label %91, label %.loopexit
 
 91:                                               ; preds = %.split.us
-  %92 = tail call zeroext i1 @_hash_checkqual(ptr noundef nonnull %0, ptr noundef nonnull %.us-phi) #6
+  %92 = tail call zeroext i1 @_hash_checkqual(ptr noundef nonnull %0, ptr noundef nonnull %.us-phi) #5
   br i1 %92, label %.outer64, label %.loopexit
 
 .outer64:                                         ; preds = %91
@@ -1232,17 +1231,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

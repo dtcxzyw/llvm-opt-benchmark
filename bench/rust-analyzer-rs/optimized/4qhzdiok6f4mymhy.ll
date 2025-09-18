@@ -996,7 +996,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %15 = load i64, ptr %14, align 8, !noundef !16
   %16 = lshr i64 %15, 1
   %.not4 = icmp samesign ult i64 %13, %16
-  br i1 %.not4, label %17, label %44
+  br i1 %.not4, label %17, label %43
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1061,7 +1061,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 .body:                                            ; preds = %28, %38
   %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$project_model..workspace..PackageRoot$GT$$GT$17hc771665727f8eb54E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #15
-          to label %48 unwind label %41
+          to label %47 unwind label %41
 
 "_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h4f39086a8a7a0d6fE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0cac9a11a3f2dd6dE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1069,7 +1069,7 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
-40:                                               ; preds = %45, %"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h4f39086a8a7a0d6fE.exit"
+40:                                               ; preds = %44, %"_ZN136_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$alloc..vec..into_iter..IntoIter$LT$T$GT$$GT$$GT$11spec_extend17h4f39086a8a7a0d6fE.exit"
   ret void
 
 41:                                               ; preds = %.body
@@ -1087,26 +1087,23 @@ define hidden void @"_ZN137_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.pre30 = ptrtoint ptr %7 to i64
   %.pre32 = sub nuw i64 %.pre29, %.pre30
   %.pre34 = udiv exact i64 %.pre32, 56
-  %43 = icmp ne ptr %.sroa.12.0.copyload27, null
-  br label %45
+  br label %44
 
-44:                                               ; preds = %8
+43:                                               ; preds = %8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %7, i64 %12, i1 false)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %.critedge
-  %.pre-phi35 = phi i64 [ %13, %44 ], [ %.pre34, %.critedge ]
-  %.sroa.11.0 = phi i1 [ true, %44 ], [ %43, %.critedge ]
-  %.sroa.10.0 = phi i64 [ %15, %44 ], [ %.sroa.1023.0.copyload25, %.critedge ]
-  tail call void @llvm.assume(i1 %.sroa.11.0)
+44:                                               ; preds = %43, %.critedge
+  %.pre-phi35 = phi i64 [ %13, %43 ], [ %.pre34, %.critedge ]
+  %.sroa.10.0 = phi i64 [ %15, %43 ], [ %.sroa.1023.0.copyload25, %.critedge ]
   store i64 %.sroa.10.0, ptr %0, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.pre-phi35, ptr %47, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.pre-phi35, ptr %46, align 8
   br label %40
 
-48:                                               ; preds = %.body
+47:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

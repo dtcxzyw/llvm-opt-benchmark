@@ -31,15 +31,14 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %4) #6
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %4) #5
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.spgvalidate) #6
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 63, ptr noundef nonnull @__func__.spgvalidate) #5
   unreachable
 
 9:                                                ; preds = %1
@@ -56,11 +55,11 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 92
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %22 = tail call ptr @get_opfamily_name(i32 noundef %16, i1 noundef zeroext false) #6
+  %22 = tail call ptr @get_opfamily_name(i32 noundef %16, i1 noundef zeroext false) #5
   %23 = zext i32 %16 to i64
-  %24 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %23, i64 noundef 0, i64 noundef 0) #6
-  %25 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %23, i64 noundef 0, i64 noundef 0) #6
-  %26 = tail call ptr @identify_opfamily_groups(ptr noundef %24, ptr noundef %25) #6
+  %24 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %23, i64 noundef 0, i64 noundef 0) #5
+  %25 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %23, i64 noundef 0, i64 noundef 0) #5
+  %26 = tail call ptr @identify_opfamily_groups(ptr noundef %24, ptr noundef %25) #5
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
@@ -110,16 +109,16 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not155, label %60, label %52
 
 52:                                               ; preds = %40
-  %53 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %53 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %52
-  %55 = call i32 @errcode(i32 noundef 117833860) #6
+  %55 = call i32 @errcode(i32 noundef 117833860) #5
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %57 = load i32, ptr %56, align 4
-  %58 = call ptr @format_procedure(i32 noundef %57) #6
-  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %58) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.spgvalidate) #6
+  %58 = call ptr @format_procedure(i32 noundef %57) #5
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %58) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %60
 
 60:                                               ; preds = %52, %54, %40
@@ -139,12 +138,12 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %65, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #6
+  %66 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %65, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #5
   %67 = load i32, ptr %48, align 4
   store i32 %67, ptr %2, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %68 = load i32, ptr %64, align 4
-  %69 = call i64 @OidFunctionCall2Coll(i32 noundef %68, i32 noundef 0, i64 noundef %31, i64 noundef %32) #6
+  %69 = call i64 @OidFunctionCall2Coll(i32 noundef %68, i32 noundef 0, i64 noundef %31, i64 noundef %32) #5
   %70 = load i32, ptr %48, align 4
   %71 = load i32, ptr %50, align 4
   %. = select i1 %.not158, i32 %70, i32 %20
@@ -155,16 +154,16 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond163, label %83, label %73
 
 73:                                               ; preds = %63
-  %74 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %74 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %73
-  %76 = call i32 @errcode(i32 noundef 117833860) #6
+  %76 = call i32 @errcode(i32 noundef 117833860) #5
   %77 = load i32, ptr %33, align 4
-  %78 = call ptr @format_type_be(i32 noundef %77) #6
-  %79 = call ptr @format_type_be(i32 noundef %.) #6
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %78, ptr noundef %79) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull @__func__.spgvalidate) #6
+  %78 = call ptr @format_type_be(i32 noundef %77) #5
+  %79 = call ptr @format_type_be(i32 noundef %.) #5
+  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %78, ptr noundef %79) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 130, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %81
 
 81:                                               ; preds = %75, %73
@@ -220,13 +219,13 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 104:                                              ; preds = %60, %60, %60
   %105 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %106 = load i32, ptr %105, align 4
-  %107 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %106, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #6
+  %107 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %106, i32 noundef 2278, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #5
   br i1 %107, label %134, label %.critedge.thread
 
 108:                                              ; preds = %60
   %109 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %110 = load i32, ptr %109, align 4
-  %111 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %110, i32 noundef 16, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #6
+  %111 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %110, i32 noundef 16, i1 noundef zeroext true, i32 noundef 2, i32 noundef 2, i32 noundef 2281, i32 noundef 2281) #5
   br i1 %111, label %134, label %.critedge.thread
 
 112:                                              ; preds = %60
@@ -242,17 +241,17 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %118 = load i32, ptr %117, align 4
-  %119 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %118, i32 noundef %.0136186, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef %.0129188) #6
+  %119 = call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %118, i32 noundef %.0136186, i1 noundef zeroext true, i32 noundef 1, i32 noundef 1, i32 noundef %.0129188) #5
   br i1 %119, label %134, label %.critedge.thread
 
 120:                                              ; preds = %60
   %121 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %122 = load i32, ptr %121, align 4
-  %123 = call zeroext i1 @check_amoptsproc_signature(i32 noundef %122) #6
+  %123 = call zeroext i1 @check_amoptsproc_signature(i32 noundef %122) #5
   br i1 %123, label %134, label %.critedge.thread
 
 124:                                              ; preds = %60
-  %125 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %125 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %125, label %.sink.split, label %134
 
 .critedge:                                        ; preds = %103, %83, %.lr.ph
@@ -262,7 +261,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.1130178 = phi i32 [ %70, %.critedge ], [ %.0129188, %104 ], [ %.0129188, %108 ], [ %.0129188, %116 ], [ %.0129188, %120 ], [ %70, %.critedge165 ], [ %.0129188, %114 ], [ %.0129188, %112 ]
   %.1133177 = phi i32 [ %71, %.critedge ], [ %.0132187, %104 ], [ %.0132187, %108 ], [ %.0132187, %116 ], [ %.0132187, %120 ], [ %71, %.critedge165 ], [ %.0132187, %114 ], [ %.0132187, %112 ]
   %.3139176 = phi i32 [ %.2138, %.critedge ], [ %.0136186, %104 ], [ %.0136186, %108 ], [ %.0136186, %116 ], [ %.0136186, %120 ], [ %.2138, %.critedge165 ], [ %.0136186, %114 ], [ %.0136186, %112 ]
-  %126 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %126 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %126, label %.sink.split, label %134
 
 .sink.split:                                      ; preds = %.critedge.thread, %124
@@ -271,14 +270,14 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.4140.ph = phi i32 [ %.0136186, %124 ], [ %.3139176, %.critedge.thread ]
   %.2134.ph = phi i32 [ %.0132187, %124 ], [ %.1133177, %.critedge.thread ]
   %.2131.ph = phi i32 [ %.0129188, %124 ], [ %.1130178, %.critedge.thread ]
-  %127 = call i32 @errcode(i32 noundef 117833860) #6
+  %127 = call i32 @errcode(i32 noundef 117833860) #5
   %128 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %129 = load i32, ptr %128, align 4
-  %130 = call ptr @format_procedure(i32 noundef %129) #6
+  %130 = call ptr @format_procedure(i32 noundef %129) #5
   %131 = load i16, ptr %61, align 4
   %132 = sext i16 %131 to i32
-  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.6.sink, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %130, i32 noundef %132) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.spgvalidate) #6
+  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.6.sink, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %130, i32 noundef %132) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %134
 
 134:                                              ; preds = %.sink.split, %.critedge165, %120, %116, %108, %104, %.critedge, %.critedge.thread, %124
@@ -322,18 +321,18 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond166, label %153, label %163
 
 153:                                              ; preds = %142
-  %154 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %154 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %154, label %155, label %163
 
 155:                                              ; preds = %153
-  %156 = call i32 @errcode(i32 noundef 117833860) #6
+  %156 = call i32 @errcode(i32 noundef 117833860) #5
   %157 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %158 = load i32, ptr %157, align 4
-  %159 = call ptr @format_operator(i32 noundef %158) #6
+  %159 = call ptr @format_operator(i32 noundef %158) #5
   %160 = load i16, ptr %150, align 4
   %161 = sext i16 %160 to i32
-  %162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %159, i32 noundef %161) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 216, ptr noundef nonnull @__func__.spgvalidate) #6
+  %162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %159, i32 noundef %161) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 216, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %163
 
 163:                                              ; preds = %153, %155, %142
@@ -346,22 +345,22 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %168 = load i32, ptr %167, align 4
-  %169 = call i32 @get_op_rettype(i32 noundef %168) #6
+  %169 = call i32 @get_op_rettype(i32 noundef %168) #5
   %170 = getelementptr inbounds nuw i8, ptr %149, i64 28
   %171 = load i32, ptr %170, align 4
-  %172 = call zeroext i1 @opfamily_can_sort_type(i32 noundef %171, i32 noundef %169) #6
+  %172 = call zeroext i1 @opfamily_can_sort_type(i32 noundef %171, i32 noundef %169) #5
   br i1 %172, label %180, label %173
 
 173:                                              ; preds = %166
-  %174 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %174 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %174, label %175, label %180
 
 175:                                              ; preds = %173
-  %176 = call i32 @errcode(i32 noundef 117833860) #6
+  %176 = call i32 @errcode(i32 noundef 117833860) #5
   %177 = load i32, ptr %167, align 4
-  %178 = call ptr @format_operator(i32 noundef %177) #6
-  %179 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %178) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 231, ptr noundef nonnull @__func__.spgvalidate) #6
+  %178 = call ptr @format_operator(i32 noundef %177) #5
+  %179 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %178) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 231, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %180
 
 180:                                              ; preds = %163, %173, %175, %166
@@ -373,19 +372,19 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %184 = load i32, ptr %183, align 4
   %185 = getelementptr inbounds nuw i8, ptr %149, i64 12
   %186 = load i32, ptr %185, align 4
-  %187 = call zeroext i1 @check_amop_signature(i32 noundef %182, i32 noundef %.0126, i32 noundef %184, i32 noundef %186) #6
+  %187 = call zeroext i1 @check_amop_signature(i32 noundef %182, i32 noundef %.0126, i32 noundef %184, i32 noundef %186) #5
   br i1 %187, label %195, label %188
 
 188:                                              ; preds = %180
-  %189 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %189 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %189, label %190, label %195
 
 190:                                              ; preds = %188
-  %191 = call i32 @errcode(i32 noundef 117833860) #6
+  %191 = call i32 @errcode(i32 noundef 117833860) #5
   %192 = load i32, ptr %181, align 4
-  %193 = call ptr @format_operator(i32 noundef %192) #6
-  %194 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %193) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.spgvalidate) #6
+  %193 = call ptr @format_operator(i32 noundef %192) #5
+  %194 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %193) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %195
 
 195:                                              ; preds = %188, %190, %180
@@ -431,18 +430,18 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %212, label %213, label %223
 
 213:                                              ; preds = %209
-  %214 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %214 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %214, label %215, label %223
 
 215:                                              ; preds = %213
-  %216 = call i32 @errcode(i32 noundef 117833860) #6
+  %216 = call i32 @errcode(i32 noundef 117833860) #5
   %217 = load i32, ptr %201, align 8
-  %218 = call ptr @format_type_be(i32 noundef %217) #6
+  %218 = call ptr @format_type_be(i32 noundef %217) #5
   %219 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %220 = load i32, ptr %219, align 4
-  %221 = call ptr @format_type_be(i32 noundef %220) #6
-  %222 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %218, ptr noundef %221) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 275, ptr noundef nonnull @__func__.spgvalidate) #6
+  %221 = call ptr @format_type_be(i32 noundef %220) #5
+  %222 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %22, ptr noundef nonnull @.str.3, ptr noundef %218, ptr noundef %221) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 275, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %223
 
 223:                                              ; preds = %213, %215, %209
@@ -469,16 +468,16 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %242, label %234
 
 234:                                              ; preds = %228
-  %235 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %235 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %235, label %236, label %242
 
 236:                                              ; preds = %234
-  %237 = call i32 @errcode(i32 noundef 117833860) #6
+  %237 = call i32 @errcode(i32 noundef 117833860) #5
   %238 = load i32, ptr %201, align 8
-  %239 = call ptr @format_type_be(i32 noundef %238) #6
+  %239 = call ptr @format_type_be(i32 noundef %238) #5
   %240 = trunc nuw nsw i64 %indvars.iv214 to i32
-  %241 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %22, ptr noundef nonnull @.str.3, i32 noundef %240, ptr noundef %239) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__func__.spgvalidate) #6
+  %241 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %22, ptr noundef nonnull @.str.3, i32 noundef %240, ptr noundef %239) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 296, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %242
 
 242:                                              ; preds = %234, %236, %228
@@ -496,20 +495,20 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %245, label %.lr.ph234, label %..critedge168_crit_edge
 
 .critedge168.thread:                              ; preds = %.preheader179, %.critedge168
-  %246 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #6
+  %246 = call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #5
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %.critedge168.thread
-  %248 = call i32 @errcode(i32 noundef 117833860) #6
-  %249 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %21, ptr noundef nonnull @.str.3) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__func__.spgvalidate) #6
+  %248 = call i32 @errcode(i32 noundef 117833860) #5
+  %249 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %21, ptr noundef nonnull @.str.3) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 308, ptr noundef nonnull @__func__.spgvalidate) #5
   br label %250
 
 250:                                              ; preds = %.critedge168.thread, %247, %.critedge168
   %.15 = phi i1 [ %.10200.lcssa, %.critedge168 ], [ false, %247 ], [ false, %.critedge168.thread ]
-  call void @ReleaseCatCacheList(ptr noundef %25) #6
-  call void @ReleaseCatCacheList(ptr noundef %24) #6
-  call void @ReleaseSysCache(ptr noundef nonnull %5) #6
+  call void @ReleaseCatCacheList(ptr noundef %25) #5
+  call void @ReleaseCatCacheList(ptr noundef %24) #5
+  call void @ReleaseSysCache(ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.15
@@ -637,12 +636,11 @@ define dso_local void @spgadjustmembers(i32 noundef %0, i32 noundef %1, ptr noun
 
 .split:                                           ; preds = %.lr.ph41
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 117833860) #6
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %35 = tail call i32 @errcode(i32 noundef 117833860) #5
   %36 = load i32, ptr %33, align 4
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, i32 noundef %36, ptr noundef nonnull @.str.3) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @__func__.spgadjustmembers) #6
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, i32 noundef %36, ptr noundef nonnull @.str.3) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @__func__.spgadjustmembers) #5
   unreachable
 
 38:                                               ; preds = %29, %27
@@ -659,17 +657,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

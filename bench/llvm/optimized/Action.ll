@@ -160,8 +160,8 @@ $_ZN5clang6driver22BinaryAnalyzeJobActionD0Ev = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver6ActionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN5clang6driver6ActionD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZN5clang6driver6ActionD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -358,7 +358,7 @@ define dso_local void @_ZNK5clang6driver6Action23getOffloadingKindPrefixB5cxx11E
   br i1 %.not2, label %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %._crit_edge.i.i12
-  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, i64 noundef 5) #20
+  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, i64 noundef 5) #19
   %.pre = load i32, ptr %20, align 4, !tbaa !28
   br label %29
 
@@ -375,11 +375,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %._c
   br i1 %35, label %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14
 
 36:                                               ; preds = %32
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #22
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #21
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14: ; preds = %32
-  %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.28, i64 noundef 4) #20
+  %37 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.28, i64 noundef 4) #19
   %.pre21 = load i32, ptr %20, align 4, !tbaa !28
   br label %38
 
@@ -396,11 +396,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit14: ; preds = %3
   br i1 %44, label %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15
 
 45:                                               ; preds = %41
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #22
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #21
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15: ; preds = %41
-  %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.29, i64 noundef 7) #20
+  %46 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.29, i64 noundef 7) #19
   %.pre22 = load i32, ptr %20, align 4, !tbaa !28
   br label %47
 
@@ -417,11 +417,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit15: ; preds = %4
   br i1 %53, label %54, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit16
 
 54:                                               ; preds = %50
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #22
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #21
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit16: ; preds = %50
-  %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.30, i64 noundef 5) #20
+  %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.30, i64 noundef 5) #19
   br label %56
 
 56:                                               ; preds = %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit16, %23, %._crit_edge.i.i10, %._crit_edge.i.i8, %._crit_edge.i.i6, %._crit_edge.i.i
@@ -475,28 +475,28 @@ define dso_local void @_ZN5clang6driver6Action27GetOffloadingFileNamePrefixB5cxx
 _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit: ; preds = %14, %13, %12, %11, %._crit_edge.i.i, %._crit_edge.i.i
   %.sroa.6.0.i = phi i64 [ 4, %11 ], [ 6, %12 ], [ 3, %13 ], [ 4, %14 ], [ 4, %._crit_edge.i.i ], [ 4, %._crit_edge.i.i ]
   %.sroa.0.0.i = phi ptr [ @.str.32, %11 ], [ @.str.33, %12 ], [ @.str.34, %13 ], [ @.str.35, %14 ], [ @.str.26, %._crit_edge.i.i ], [ @.str.26, %._crit_edge.i.i ]
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.0.0.i, i64 noundef %.sroa.6.0.i) #20
+  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.sroa.0.0.i, i64 noundef %.sroa.6.0.i) #19
   %17 = load i64, ptr %9, align 8, !tbaa !31
   %18 = icmp eq i64 %17, 4611686018427387903
   br i1 %18, label %19, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
 19:                                               ; preds = %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #22
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #21
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
-  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.31, i64 noundef 1) #20
+  %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.31, i64 noundef 1) #19
   %21 = load i64, ptr %9, align 8, !tbaa !31
   %22 = sub i64 4611686018427387903, %21
   %23 = icmp ult i64 %22, %3
   br i1 %23, label %24, label %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit10
 
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #22
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.36) #21
   unreachable
 
 _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, i64 noundef %3) #20
+  %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %2, i64 noundef %3) #19
   br label %26
 
 26:                                               ; preds = %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit10, %7
@@ -590,7 +590,7 @@ define dso_local void @_ZN5clang6driver11InputActionC2ERKN4llvm3opt3ArgENS0_5typ
   br i1 %23, label %24, label %._crit_edge.i.i.i
 
 24:                                               ; preds = %22
-  %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #20
+  %25 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #19
   store ptr %25, ptr %18, align 8, !tbaa !46, !alias.scope !42
   %26 = load i64, ptr %6, align 8, !tbaa !45, !noalias !42
   store i64 %26, ptr %19, align 8, !tbaa !34, !alias.scope !42
@@ -744,7 +744,7 @@ define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_17DeviceDependenc
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i
@@ -799,7 +799,7 @@ _ZN5clang6driver6ActionC2ENS1_11ActionClassERKN4llvm11SmallVectorIPS1_Lj3EEENS0_
 
 _ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.i: ; preds = %33
   %35 = zext i32 %31 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %27, i64 noundef %35, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull %27, i64 noundef %35, i64 noundef 8) #19
   %.pre.i20 = load i32, ptr %30, align 8, !tbaa !25
   %.not.i.i.i21 = icmp eq i32 %.pre.i20, 0
   br i1 %.not.i.i.i21, label %.sink.split.i.i, label %_ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.i._ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.thread.i_crit_edge
@@ -950,7 +950,7 @@ define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_14HostDependenceE
 
 _ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.i: ; preds = %29
   %31 = zext i32 %27 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull %23, i64 noundef %31, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull %23, i64 noundef %31, i64 noundef 8) #19
   %.pre.i = load i32, ptr %26, align 8, !tbaa !25
   %.not.i.i.i = icmp eq i32 %.pre.i, 0
   br i1 %.not.i.i.i, label %.sink.split.i.i, label %_ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.i._ZSt4copyIPKPKN5clang6driver9ToolChainEPS4_ET0_T_S9_S8_.exit31.i.thread.i_crit_edge
@@ -1013,7 +1013,7 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EEC2ERKS6_.exit: ; preds = %
 54:                                               ; preds = %51
   %55 = zext i32 %52 to i64
   %56 = add nuw nsw i64 %55, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef %56, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef %56, i64 noundef 8) #19
   %.pre.i28 = load i32, ptr %11, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
 
@@ -1070,7 +1070,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4
   %11 = load ptr, ptr %1, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !69
-  tail call void %11(i64 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %10) #20
+  tail call void %11(i64 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %10) #19
   br label %14
 
 14:                                               ; preds = %2, %5
@@ -1113,7 +1113,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction24doOnEachDeviceDependenc
   %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = load ptr, ptr %1, align 8, !tbaa !67
   %22 = load i64, ptr %15, align 8, !tbaa !69
-  tail call void %21(i64 noundef %22, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %20) #20
+  tail call void %21(i64 noundef %22, ptr noundef nonnull %17, ptr noundef %18, ptr noundef %20) #19
   %23 = getelementptr inbounds nuw i8, ptr %.117, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %.not15 = icmp eq ptr %23, %8
@@ -1139,7 +1139,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceERKN4
   %11 = load ptr, ptr %1, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !69
-  tail call void %11(i64 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %10) #20
+  tail call void %11(i64 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %10) #19
   br label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit
 
 _ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit: ; preds = %2, %5
@@ -1176,7 +1176,7 @@ _ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPN
   %30 = load ptr, ptr %29, align 8, !tbaa !22
   %31 = load ptr, ptr %1, align 8, !tbaa !67
   %32 = load i64, ptr %25, align 8, !tbaa !69
-  tail call void %31(i64 noundef %32, ptr noundef nonnull %27, ptr noundef %28, ptr noundef %30) #20
+  tail call void %31(i64 noundef %32, ptr noundef nonnull %27, ptr noundef %28, ptr noundef %30) #19
   %33 = getelementptr inbounds nuw i8, ptr %.117.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %.not15.i = icmp eq ptr %33, %19
@@ -1205,7 +1205,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceEbRKN
   %13 = load ptr, ptr %2, align 8, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !69
-  tail call void %13(i64 noundef %15, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %12) #20
+  tail call void %13(i64 noundef %15, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %12) #19
   br label %_ZNK5clang6driver13OffloadAction18doOnHostDependenceERKN4llvm12function_refIFvPNS0_6ActionEPKNS0_9ToolChainEPKcEEE.exit
 
 16:                                               ; preds = %3
@@ -1243,7 +1243,7 @@ define dso_local void @_ZNK5clang6driver13OffloadAction18doOnEachDependenceEbRKN
   %34 = load ptr, ptr %33, align 8, !tbaa !22
   %35 = load ptr, ptr %2, align 8, !tbaa !67
   %36 = load i64, ptr %29, align 8, !tbaa !69
-  tail call void %35(i64 noundef %36, ptr noundef nonnull %31, ptr noundef %32, ptr noundef %34) #20
+  tail call void %35(i64 noundef %36, ptr noundef nonnull %31, ptr noundef %32, ptr noundef %34) #19
   %37 = getelementptr inbounds nuw i8, ptr %.117.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %.not15.i = icmp eq ptr %37, %22
@@ -1337,7 +1337,7 @@ define dso_local void @_ZN5clang6driver13OffloadAction17DeviceDependences3addERN
   %11 = zext i32 %7 to i64
   %12 = add nuw nsw i64 %11, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %13, i64 noundef %12, i64 noundef 8) #19
   %.pre.i = load i32, ptr %6, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
 
@@ -1363,7 +1363,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %27 = zext i32 %23 to i64
   %28 = add nuw nsw i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 8) #19
   %.pre.i5 = load i32, ptr %22, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit
 
@@ -1389,7 +1389,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_
   %43 = zext i32 %39 to i64
   %44 = add nuw nsw i64 %43, 1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %45, i64 noundef %44, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %45, i64 noundef %44, i64 noundef 8) #19
   %.pre.i7 = load i32, ptr %38, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit
 
@@ -1415,7 +1415,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
   %59 = zext i32 %55 to i64
   %60 = add nuw nsw i64 %59, 1
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull %61, i64 noundef %60, i64 noundef 4) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull %61, i64 noundef %60, i64 noundef 4) #19
   %.pre.i9 = load i32, ptr %54, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit
 
@@ -1445,7 +1445,7 @@ define dso_local void @_ZN5clang6driver13OffloadAction17DeviceDependences3addERN
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 8) #19
   %.pre.i = load i32, ptr %7, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exit
 
@@ -1471,7 +1471,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6driver6ActionELb1EE9push_backES4_.exi
   %28 = zext i32 %24 to i64
   %29 = add nuw nsw i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %30, i64 noundef %29, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull %30, i64 noundef %29, i64 noundef 8) #19
   %.pre.i14 = load i32, ptr %23, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_.exit
 
@@ -1497,7 +1497,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang6driver9ToolChainELb1EE9push_backES5_
   %44 = zext i32 %40 to i64
   %45 = add nuw nsw i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #19
   %.pre.i16 = load i32, ptr %39, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit
 
@@ -1546,7 +1546,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %_ZN4ll
 68:                                               ; preds = %65
   %69 = zext i32 %66 to i64
   %70 = add nuw nsw i64 %69, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %60, i64 noundef %70, i64 noundef 4) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %60, i64 noundef %70, i64 noundef 4) #19
   %.pre.i18 = load i32, ptr %58, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_backES4_.exit
 
@@ -1662,7 +1662,7 @@ define dso_local void @_ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i: ; preds = %14
   %16 = zext i32 %12 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, i64 noundef %16, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, i64 noundef %16, i64 noundef 8) #19
   %.pre.i.i = load i32, ptr %11, align 8, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %.pre.i.i, 0
   br i1 %.not.i.i.i.i, label %.sink.split.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i
@@ -1980,7 +1980,7 @@ define dso_local void @_ZN5clang6driver17IfsMergeJobActionC2ERN4llvm11SmallVecto
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2047,7 +2047,7 @@ define dso_local void @_ZN5clang6driver13LinkJobActionC2ERN4llvm11SmallVectorIPN
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2114,7 +2114,7 @@ define dso_local void @_ZN5clang6driver13LipoJobActionC2ERN4llvm11SmallVectorIPN
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2181,7 +2181,7 @@ define dso_local void @_ZN5clang6driver17DsymutilJobActionC2ERN4llvm11SmallVecto
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2352,7 +2352,7 @@ define dso_local void @_ZN5clang6driver24OffloadBundlingJobActionC2ERN4llvm11Sma
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %20
   %22 = zext i32 %18 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull %15, i64 noundef %22, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull %15, i64 noundef %22, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %4, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2460,7 +2460,7 @@ define dso_local void @_ZN5clang6driver24OffloadPackagerJobActionC2ERN4llvm11Sma
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2527,7 +2527,7 @@ define dso_local void @_ZN5clang6driver22LinkerWrapperJobActionC2ERN4llvm11Small
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2594,7 +2594,7 @@ define dso_local void @_ZN5clang6driver18StaticLibJobActionC2ERN4llvm11SmallVect
 
 _ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i.i.i: ; preds = %13
   %15 = zext i32 %11 to i64
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #20
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %7, i64 noundef %15, i64 noundef 8) #19
   %.pre.i.i.i = load i32, ptr %10, align 8, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %.pre.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.i._ZSt4copyIPKPN5clang6driver6ActionEPS3_ET0_T_S8_S7_.exit31.i.thread.i_crit_edge.i.i
@@ -2668,34 +2668,27 @@ define linkonce_odr hidden void @_ZN5clang6driver11InputActionD2Ev(ptr noundef n
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load i64, ptr %6, align 8, !tbaa !31
-  %8 = icmp ult i64 %7, 16
-  tail call void @llvm.assume(i1 %8)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !34
-  %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #21
+  %6 = load i64, ptr %4, align 8, !tbaa !34
+  %7 = add i64 %6, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %_ZN5clang6driver6ActionD2Ev.exit, label %15
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %_ZN5clang6driver6ActionD2Ev.exit, label %12
 
-15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  tail call void @free(ptr noundef %12) #20
+12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  tail call void @free(ptr noundef %9) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
-_ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %15
+_ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %12
   ret void
 }
 
@@ -2706,35 +2699,28 @@ define linkonce_odr hidden void @_ZN5clang6driver11InputActionD0Ev(ptr noundef n
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %7 = load i64, ptr %6, align 8, !tbaa !31
-  %8 = icmp ult i64 %7, 16
-  tail call void @llvm.assume(i1 %8)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %5, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %1
-  %9 = load i64, ptr %4, align 8, !tbaa !34
-  %10 = add i64 %9, 1
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %10) #21
+  %6 = load i64, ptr %4, align 8, !tbaa !34
+  %7 = add i64 %6, 1
+  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %7) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8, !tbaa !38
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = icmp eq ptr %12, %13
-  br i1 %14, label %_ZN5clang6driver11InputActionD2Ev.exit, label %15
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = icmp eq ptr %9, %10
+  br i1 %11, label %_ZN5clang6driver11InputActionD2Ev.exit, label %12
 
-15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  tail call void @free(ptr noundef %12) #20
+12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  tail call void @free(ptr noundef %9) #19
   br label %_ZN5clang6driver11InputActionD2Ev.exit
 
-_ZN5clang6driver11InputActionD2Ev.exit:           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #21
+_ZN5clang6driver11InputActionD2Ev.exit:           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %12
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 128) #20
   ret void
 }
 
@@ -2748,11 +2734,11 @@ define linkonce_odr hidden void @_ZN5clang6driver14BindArchActionD0Ev(ptr nounde
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #20
   ret void
 }
 
@@ -2765,7 +2751,7 @@ define linkonce_odr hidden void @_ZN5clang6driver13OffloadActionD2Ev(ptr noundef
   br i1 %5, label %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit: ; preds = %1, %6
@@ -2777,7 +2763,7 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit: ; preds = %1, %
   br i1 %10, label %_ZN5clang6driver6ActionD2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit
-  tail call void @free(ptr noundef %8) #20
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit, %11
@@ -2793,7 +2779,7 @@ define linkonce_odr hidden void @_ZN5clang6driver13OffloadActionD0Ev(ptr noundef
   br i1 %5, label %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i: ; preds = %6, %1
@@ -2805,11 +2791,11 @@ _ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i: ; preds = %6,
   br i1 %10, label %_ZN5clang6driver13OffloadActionD2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i
-  tail call void @free(ptr noundef %8) #20
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN5clang6driver13OffloadActionD2Ev.exit
 
 _ZN5clang6driver13OffloadActionD2Ev.exit:         ; preds = %_ZN4llvm11SmallVectorIPKN5clang6driver9ToolChainELj3EED2Ev.exit.i, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #20
   ret void
 }
 
@@ -2823,11 +2809,11 @@ define linkonce_odr hidden void @_ZN5clang6driver9JobActionD0Ev(ptr noundef nonn
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2841,11 +2827,11 @@ define linkonce_odr hidden void @_ZN5clang6driver19PreprocessJobActionD0Ev(ptr n
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2859,11 +2845,11 @@ define linkonce_odr hidden void @_ZN5clang6driver19PrecompileJobActionD0Ev(ptr n
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2877,11 +2863,11 @@ define linkonce_odr hidden void @_ZN5clang6driver19ExtractAPIJobActionD0Ev(ptr n
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2895,11 +2881,11 @@ define linkonce_odr hidden void @_ZN5clang6driver16AnalyzeJobActionD0Ev(ptr noun
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2913,11 +2899,11 @@ define linkonce_odr hidden void @_ZN5clang6driver16CompileJobActionD0Ev(ptr noun
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2931,11 +2917,11 @@ define linkonce_odr hidden void @_ZN5clang6driver16BackendJobActionD0Ev(ptr noun
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2949,11 +2935,11 @@ define linkonce_odr hidden void @_ZN5clang6driver17AssembleJobActionD0Ev(ptr nou
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2967,11 +2953,11 @@ define linkonce_odr hidden void @_ZN5clang6driver17IfsMergeJobActionD0Ev(ptr nou
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -2985,11 +2971,11 @@ define linkonce_odr hidden void @_ZN5clang6driver13LinkJobActionD0Ev(ptr noundef
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3003,11 +2989,11 @@ define linkonce_odr hidden void @_ZN5clang6driver13LipoJobActionD0Ev(ptr noundef
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3021,11 +3007,11 @@ define linkonce_odr hidden void @_ZN5clang6driver17DsymutilJobActionD0Ev(ptr nou
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3039,11 +3025,11 @@ define linkonce_odr hidden void @_ZN5clang6driver15VerifyJobActionD0Ev(ptr nound
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3057,11 +3043,11 @@ define linkonce_odr hidden void @_ZN5clang6driver24VerifyDebugInfoJobActionD0Ev(
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3075,11 +3061,11 @@ define linkonce_odr hidden void @_ZN5clang6driver18VerifyPCHJobActionD0Ev(ptr no
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3093,11 +3079,11 @@ define linkonce_odr hidden void @_ZN5clang6driver24OffloadBundlingJobActionD0Ev(
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3110,7 +3096,7 @@ define linkonce_odr hidden void @_ZN5clang6driver26OffloadUnbundlingJobActionD2E
   br i1 %5, label %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit: ; preds = %1, %6
@@ -3122,7 +3108,7 @@ _ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActio
   br i1 %10, label %_ZN5clang6driver6ActionD2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit
-  tail call void @free(ptr noundef %8) #20
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit, %11
@@ -3138,7 +3124,7 @@ define linkonce_odr hidden void @_ZN5clang6driver26OffloadUnbundlingJobActionD0E
   br i1 %5, label %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i
 
 _ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i: ; preds = %6, %1
@@ -3150,11 +3136,11 @@ _ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActio
   br i1 %10, label %_ZN5clang6driver26OffloadUnbundlingJobActionD2Ev.exit, label %11
 
 11:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i
-  tail call void @free(ptr noundef %8) #20
+  tail call void @free(ptr noundef %8) #19
   br label %_ZN5clang6driver26OffloadUnbundlingJobActionD2Ev.exit
 
 _ZN5clang6driver26OffloadUnbundlingJobActionD2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang6driver26OffloadUnbundlingJobAction19DependentActionInfoELj6EED2Ev.exit.i, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 296) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 296) #20
   ret void
 }
 
@@ -3168,11 +3154,11 @@ define linkonce_odr hidden void @_ZN5clang6driver24OffloadPackagerJobActionD0Ev(
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3186,11 +3172,11 @@ define linkonce_odr hidden void @_ZN5clang6driver22LinkerWrapperJobActionD0Ev(pt
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3204,11 +3190,11 @@ define linkonce_odr hidden void @_ZN5clang6driver18StaticLibJobActionD0Ev(ptr no
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3222,7 +3208,7 @@ define dso_local void @_ZN5clang6driver6ActionD2Ev(ptr noundef nonnull align 8 c
   br i1 %5, label %_ZN4llvm11SmallVectorIPN5clang6driver6ActionELj3EED2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN4llvm11SmallVectorIPN5clang6driver6ActionELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPN5clang6driver6ActionELj3EED2Ev.exit: ; preds = %1, %6
@@ -3239,11 +3225,11 @@ define linkonce_odr hidden void @_ZN5clang6driver22BinaryAnalyzeJobActionD0Ev(pt
   br i1 %5, label %_ZN5clang6driver6ActionD2Ev.exit, label %6
 
 6:                                                ; preds = %1
-  tail call void @free(ptr noundef %3) #20
+  tail call void @free(ptr noundef %3) #19
   br label %_ZN5clang6driver6ActionD2Ev.exit
 
 _ZN5clang6driver6ActionD2Ev.exit:                 ; preds = %1, %6
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #20
   ret void
 }
 
@@ -3268,14 +3254,11 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3294,12 +3277,11 @@ attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #14 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { noreturn nounwind }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #19 = { nounwind }
+attributes #20 = { builtin nounwind }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

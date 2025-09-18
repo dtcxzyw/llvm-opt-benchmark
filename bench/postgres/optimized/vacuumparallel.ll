@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = sext i32 %2 to i64
-  %9 = tail call ptr @palloc0(i64 noundef %8) #10
+  %9 = tail call ptr @palloc0(i64 noundef %8) #9
   %10 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   %12 = load i32, ptr @max_parallel_maintenance_workers, align 4
@@ -78,7 +78,7 @@ define dso_local ptr @parallel_vacuum_init(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %25, label %35, label %26
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef nonnull %19, i32 noundef 0) #10
+  %27 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef nonnull %19, i32 noundef 0) #9
   %28 = load i32, ptr @min_parallel_index_scan_size, align 4
   %29 = icmp ult i32 %27, %28
   br i1 %29, label %35, label %30
@@ -111,11 +111,11 @@ parallel_vacuum_compute_workers.exit:             ; preds = %._crit_edge.i
   br i1 %41, label %parallel_vacuum_compute_workers.exit.thread, label %42
 
 parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, %parallel_vacuum_compute_workers.exit
-  tail call void @pfree(ptr noundef %9) #10
+  tail call void @pfree(ptr noundef %9) #9
   br label %204
 
 42:                                               ; preds = %parallel_vacuum_compute_workers.exit
-  %43 = tail call ptr @palloc0(i64 noundef 136) #10
+  %43 = tail call ptr @palloc0(i64 noundef 136) #9
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %1, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -126,55 +126,55 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   store ptr %6, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %0, ptr %48, align 8
-  tail call void @EnterParallelMode() #10
-  %49 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %40) #10
+  tail call void @EnterParallelMode() #9
+  %49 = tail call ptr @CreateParallelContext(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %40) #9
   store ptr %49, ptr %43, align 8
-  %50 = tail call i64 @mul_size(i64 noundef 48, i64 noundef %8) #10
+  %50 = tail call i64 @mul_size(i64 noundef 48, i64 noundef %8) #9
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %50, 31
   %54 = and i64 %53, -32
-  %55 = tail call i64 @add_size(i64 noundef %52, i64 noundef %54) #10
+  %55 = tail call i64 @add_size(i64 noundef %52, i64 noundef %54) #9
   store i64 %55, ptr %51, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %57 = load i64, ptr %56, align 8
-  %58 = tail call i64 @add_size(i64 noundef %57, i64 noundef 1) #10
+  %58 = tail call i64 @add_size(i64 noundef %57, i64 noundef 1) #9
   store i64 %58, ptr %56, align 8
   %59 = load i64, ptr %51, align 8
-  %60 = tail call i64 @add_size(i64 noundef %59, i64 noundef 96) #10
+  %60 = tail call i64 @add_size(i64 noundef %59, i64 noundef 96) #9
   store i64 %60, ptr %51, align 8
   %61 = load i64, ptr %56, align 8
-  %62 = tail call i64 @add_size(i64 noundef %61, i64 noundef 1) #10
+  %62 = tail call i64 @add_size(i64 noundef %61, i64 noundef 1) #9
   store i64 %62, ptr %56, align 8
   %63 = load i64, ptr %51, align 8
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 20
   %65 = load i32, ptr %64, align 4
   %66 = sext i32 %65 to i64
-  %67 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %66) #10
+  %67 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %66) #9
   %68 = add i64 %67, 31
   %69 = and i64 %68, -32
-  %70 = tail call i64 @add_size(i64 noundef %63, i64 noundef %69) #10
+  %70 = tail call i64 @add_size(i64 noundef %63, i64 noundef %69) #9
   store i64 %70, ptr %51, align 8
   %71 = load i64, ptr %56, align 8
-  %72 = tail call i64 @add_size(i64 noundef %71, i64 noundef 1) #10
+  %72 = tail call i64 @add_size(i64 noundef %71, i64 noundef 1) #9
   store i64 %72, ptr %56, align 8
   %73 = load i64, ptr %51, align 8
   %74 = load i32, ptr %64, align 4
   %75 = sext i32 %74 to i64
-  %76 = tail call i64 @mul_size(i64 noundef 32, i64 noundef %75) #10
+  %76 = tail call i64 @mul_size(i64 noundef 32, i64 noundef %75) #9
   %77 = add i64 %76, 31
   %78 = and i64 %77, -32
-  %79 = tail call i64 @add_size(i64 noundef %73, i64 noundef %78) #10
+  %79 = tail call i64 @add_size(i64 noundef %73, i64 noundef %78) #9
   store i64 %79, ptr %51, align 8
   %80 = load i64, ptr %56, align 8
-  %81 = tail call i64 @add_size(i64 noundef %80, i64 noundef 1) #10
+  %81 = tail call i64 @add_size(i64 noundef %80, i64 noundef 1) #9
   store i64 %81, ptr %56, align 8
   %82 = load ptr, ptr @debug_query_string, align 8
   %.not = icmp eq ptr %82, null
   br i1 %.not, label %94, label %83
 
 83:                                               ; preds = %42
-  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #11
+  %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #10
   %85 = trunc i64 %84 to i32
   %86 = load i64, ptr %51, align 8
   %87 = shl i64 %84, 32
@@ -182,19 +182,19 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %88 = ashr exact i64 %sext, 32
   %89 = add nsw i64 %88, 31
   %90 = and i64 %89, -32
-  %91 = tail call i64 @add_size(i64 noundef %86, i64 noundef %90) #10
+  %91 = tail call i64 @add_size(i64 noundef %86, i64 noundef %90) #9
   store i64 %91, ptr %51, align 8
   %92 = load i64, ptr %56, align 8
-  %93 = tail call i64 @add_size(i64 noundef %92, i64 noundef 1) #10
+  %93 = tail call i64 @add_size(i64 noundef %92, i64 noundef 1) #9
   store i64 %93, ptr %56, align 8
   br label %94
 
 94:                                               ; preds = %42, %83
   %.0160 = phi i32 [ %85, %83 ], [ 0, %42 ]
-  tail call void @InitializeParallelDSM(ptr noundef nonnull %49) #10
+  tail call void @InitializeParallelDSM(ptr noundef nonnull %49) #9
   %95 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @shm_toc_allocate(ptr noundef %96, i64 noundef %50) #10
+  %97 = tail call ptr @shm_toc_allocate(ptr noundef %96, i64 noundef %50) #9
   %98 = ptrtoint ptr %97 to i64
   %99 = and i64 %98, 7
   %100 = icmp eq i64 %99, 0
@@ -236,18 +236,18 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
 
 ._crit_edge:                                      ; preds = %156
   %116 = load ptr, ptr %95, align 8
-  tail call void @shm_toc_insert(ptr noundef %116, i64 noundef 5, ptr noundef %97) #10
+  tail call void @shm_toc_insert(ptr noundef %116, i64 noundef 5, ptr noundef %97) #9
   %117 = getelementptr inbounds nuw i8, ptr %43, i64 40
   store ptr %97, ptr %117, align 8
   %118 = load ptr, ptr %95, align 8
-  %119 = tail call ptr @shm_toc_allocate(ptr noundef %118, i64 noundef 80) #10
+  %119 = tail call ptr @shm_toc_allocate(ptr noundef %118, i64 noundef 80) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %119, i8 0, i64 80, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %121 = load i32, ptr %120, align 8
   store i32 %121, ptr %119, align 8
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 %5, ptr %122, align 4
-  %123 = tail call i64 @pgstat_get_my_query_id() #10
+  %123 = tail call i64 @pgstat_get_my_query_id() #9
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %123, ptr %124, align 8
   %125 = icmp sgt i32 %.1, 0
@@ -325,17 +325,17 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %164 = shl nsw i64 %163, 10
   %165 = getelementptr inbounds nuw i8, ptr %119, i64 64
   store i64 %164, ptr %165, align 8
-  %166 = tail call ptr @TidStoreCreateShared(i64 noundef %164, i32 noundef 91) #10
+  %166 = tail call ptr @TidStoreCreateShared(i64 noundef %164, i32 noundef 91) #9
   %167 = getelementptr inbounds nuw i8, ptr %43, i64 48
   store ptr %166, ptr %167, align 8
-  %168 = tail call i64 @TidStoreGetHandle(ptr noundef %166) #10
+  %168 = tail call i64 @TidStoreGetHandle(ptr noundef %166) #9
   %169 = getelementptr inbounds nuw i8, ptr %119, i64 56
   store i64 %168, ptr %169, align 8
-  %170 = tail call ptr @TidStoreGetDSA(ptr noundef %166) #10
-  %171 = tail call i32 @dsa_get_handle(ptr noundef %170) #10
+  %170 = tail call ptr @TidStoreGetDSA(ptr noundef %166) #9
+  %171 = tail call i32 @dsa_get_handle(ptr noundef %170) #9
   %172 = getelementptr inbounds nuw i8, ptr %119, i64 48
   store i32 %171, ptr %172, align 8
-  %173 = tail call i32 @GetAccessStrategyBufferCount(ptr noundef %6) #10
+  %173 = tail call i32 @GetAccessStrategyBufferCount(ptr noundef %6) #9
   %174 = getelementptr inbounds nuw i8, ptr %119, i64 32
   store i32 %173, ptr %174, align 8
   %175 = getelementptr inbounds nuw i8, ptr %119, i64 36
@@ -345,25 +345,25 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %177 = getelementptr inbounds nuw i8, ptr %119, i64 44
   store volatile i32 0, ptr %177, align 4
   %178 = load ptr, ptr %95, align 8
-  tail call void @shm_toc_insert(ptr noundef %178, i64 noundef 1, ptr noundef nonnull %119) #10
+  tail call void @shm_toc_insert(ptr noundef %178, i64 noundef 1, ptr noundef nonnull %119) #9
   %179 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store ptr %119, ptr %179, align 8
   %180 = load ptr, ptr %95, align 8
   %181 = load i32, ptr %64, align 4
   %182 = sext i32 %181 to i64
-  %183 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %182) #10
-  %184 = tail call ptr @shm_toc_allocate(ptr noundef %180, i64 noundef %183) #10
+  %183 = tail call i64 @mul_size(i64 noundef 128, i64 noundef %182) #9
+  %184 = tail call ptr @shm_toc_allocate(ptr noundef %180, i64 noundef %183) #9
   %185 = load ptr, ptr %95, align 8
-  tail call void @shm_toc_insert(ptr noundef %185, i64 noundef 3, ptr noundef %184) #10
+  tail call void @shm_toc_insert(ptr noundef %185, i64 noundef 3, ptr noundef %184) #9
   %186 = getelementptr inbounds nuw i8, ptr %43, i64 56
   store ptr %184, ptr %186, align 8
   %187 = load ptr, ptr %95, align 8
   %188 = load i32, ptr %64, align 4
   %189 = sext i32 %188 to i64
-  %190 = tail call i64 @mul_size(i64 noundef 32, i64 noundef %189) #10
-  %191 = tail call ptr @shm_toc_allocate(ptr noundef %187, i64 noundef %190) #10
+  %190 = tail call i64 @mul_size(i64 noundef 32, i64 noundef %189) #9
+  %191 = tail call ptr @shm_toc_allocate(ptr noundef %187, i64 noundef %190) #9
   %192 = load ptr, ptr %95, align 8
-  tail call void @shm_toc_insert(ptr noundef %192, i64 noundef 4, ptr noundef %191) #10
+  tail call void @shm_toc_insert(ptr noundef %192, i64 noundef 4, ptr noundef %191) #9
   %193 = getelementptr inbounds nuw i8, ptr %43, i64 64
   store ptr %191, ptr %193, align 8
   %194 = load ptr, ptr @debug_query_string, align 8
@@ -374,14 +374,14 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %196 = load ptr, ptr %95, align 8
   %197 = add i32 %.0160, 1
   %198 = sext i32 %197 to i64
-  %199 = tail call ptr @shm_toc_allocate(ptr noundef %196, i64 noundef %198) #10
+  %199 = tail call ptr @shm_toc_allocate(ptr noundef %196, i64 noundef %198) #9
   %200 = load ptr, ptr @debug_query_string, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr align 1 %200, i64 %198, i1 false)
   %201 = sext i32 %.0160 to i64
   %202 = getelementptr inbounds i8, ptr %199, i64 %201
   store i8 0, ptr %202, align 1
   %203 = load ptr, ptr %95, align 8
-  tail call void @shm_toc_insert(ptr noundef %203, i64 noundef 2, ptr noundef %199) #10
+  tail call void @shm_toc_insert(ptr noundef %203, i64 noundef 2, ptr noundef %199) #9
   br label %204
 
 204:                                              ; preds = %160, %195, %parallel_vacuum_compute_workers.exit.thread
@@ -442,14 +442,14 @@ define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr noundef writeonly
 ._crit_edge:                                      ; preds = %24, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
-  tail call void @TidStoreDestroy(ptr noundef %8) #10
+  tail call void @TidStoreDestroy(ptr noundef %8) #9
   %9 = load ptr, ptr %0, align 8
-  tail call void @DestroyParallelContext(ptr noundef %9) #10
-  tail call void @ExitParallelMode() #10
+  tail call void @DestroyParallelContext(ptr noundef %9) #9
+  tail call void @ExitParallelMode() #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
-  tail call void @pfree(ptr noundef %11) #10
-  tail call void @pfree(ptr noundef nonnull %0) #10
+  tail call void @pfree(ptr noundef %11) #9
+  tail call void @pfree(ptr noundef nonnull %0) #9
   ret void
 
 12:                                               ; preds = %.lr.ph, %24
@@ -462,7 +462,7 @@ define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr noundef writeonly
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %12
-  %19 = tail call ptr @palloc0(i64 noundef 40) #10
+  %19 = tail call ptr @palloc0(i64 noundef 40) #9
   %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -506,17 +506,17 @@ define dso_local void @parallel_vacuum_reset_dead_items(ptr noundef captures(non
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
-  tail call void @TidStoreDestroy(ptr noundef %6) #10
+  tail call void @TidStoreDestroy(ptr noundef %6) #9
   %7 = load i64, ptr %4, align 8
-  %8 = tail call ptr @TidStoreCreateShared(i64 noundef %7, i32 noundef 91) #10
+  %8 = tail call ptr @TidStoreCreateShared(i64 noundef %7, i32 noundef 91) #9
   store ptr %8, ptr %5, align 8
-  %9 = tail call ptr @TidStoreGetDSA(ptr noundef %8) #10
-  %10 = tail call i32 @dsa_get_handle(ptr noundef %9) #10
+  %9 = tail call ptr @TidStoreGetDSA(ptr noundef %8) #9
+  %10 = tail call i32 @dsa_get_handle(ptr noundef %9) #9
   %11 = load ptr, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %10, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = tail call i64 @TidStoreGetHandle(ptr noundef %13) #10
+  %14 = tail call i64 @TidStoreGetHandle(ptr noundef %13) #9
   %15 = load ptr, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i64 %14, ptr %16, align 8
@@ -647,7 +647,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %0, align 8
-  tail call void @ReinitializeParallelDSM(ptr noundef %63) #10
+  tail call void @ReinitializeParallelDSM(ptr noundef %63) #9
   br label %64
 
 64:                                               ; preds = %62, %60
@@ -659,9 +659,9 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
   store volatile i32 0, ptr %69, align 4
   %70 = load ptr, ptr %0, align 8
-  tail call void @ReinitializeParallelWorkers(ptr noundef %70, i32 noundef %.) #10
+  tail call void @ReinitializeParallelWorkers(ptr noundef %70, i32 noundef %.) #9
   %71 = load ptr, ptr %0, align 8
-  tail call void @LaunchParallelWorkers(ptr noundef %71) #10
+  tail call void @LaunchParallelWorkers(ptr noundef %71) #9
   %72 = load ptr, ptr %0, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %74 = load i32, ptr %73, align 4
@@ -682,7 +682,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %81 = load ptr, ptr %27, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
-  %84 = tail call zeroext i1 @errstart(i32 noundef %83, ptr noundef null) #10
+  %84 = tail call zeroext i1 @errstart(i32 noundef %83, ptr noundef null) #9
   br i1 %2, label %85, label %93
 
 85:                                               ; preds = %80
@@ -694,7 +694,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %89, 1
   %91 = select i1 %90, ptr @.str.4, ptr @.str.5
-  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %91, i32 noundef %89, i32 noundef %.) #10
+  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %91, i32 noundef %89, i32 noundef %.) #9
   br label %.sink.split
 
 93:                                               ; preds = %80
@@ -706,12 +706,12 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, 1
   %99 = select i1 %98, ptr @.str.6, ptr @.str.7
-  %100 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %99, i32 noundef %97, i32 noundef %.) #10
+  %100 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %99, i32 noundef %97, i32 noundef %.) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %94
   %.sink = phi i32 [ 718, %94 ], [ 712, %86 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.parallel_vacuum_process_all_indexes) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.parallel_vacuum_process_all_indexes) #9
   br label %101
 
 101:                                              ; preds = %.sink.split, %93, %85
@@ -720,7 +720,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   br i1 %.not.i, label %105, label %103
 
 103:                                              ; preds = %101
-  %104 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 1, ptr nonnull elementtype(i32) %102) #10, !srcloc !11
+  %104 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 1, ptr nonnull elementtype(i32) %102) #9, !srcloc !11
   br label %105
 
 105:                                              ; preds = %103, %101
@@ -770,13 +770,13 @@ parallel_vacuum_process_unsafe_indexes.exit:      ; preds = %._crit_edge.i
   br i1 %.not.i87, label %parallel_vacuum_process_unsafe_indexes.exit.thread, label %127
 
 127:                                              ; preds = %parallel_vacuum_process_unsafe_indexes.exit
-  %128 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr, i32 1, ptr nonnull elementtype(i32) %.pr) #10, !srcloc !11
+  %128 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr, i32 1, ptr nonnull elementtype(i32) %.pr) #9, !srcloc !11
   br label %parallel_vacuum_process_unsafe_indexes.exit.thread
 
 parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %127, %parallel_vacuum_process_unsafe_indexes.exit
   %129 = load ptr, ptr %27, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 44
-  %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #10, !srcloc !11
+  %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #9, !srcloc !11
   %132 = load i32, ptr %20, align 8
   %.not1318.i = icmp slt i32 %131, %132
   br i1 %.not1318.i, label %.lr.ph.i89, label %._crit_edge.i88
@@ -806,7 +806,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
 147:                                              ; preds = %143, %135
   %148 = load ptr, ptr %27, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 44
-  %150 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 1, ptr nonnull elementtype(i32) %149) #10, !srcloc !11
+  %150 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 1, ptr nonnull elementtype(i32) %149) #9, !srcloc !11
   %151 = load i32, ptr %20, align 8
   %.not13.i = icmp slt i32 %150, %151
   br i1 %.not13.i, label %135, label %._crit_edge.i88
@@ -822,7 +822,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
 
 parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i88
   %155 = load ptr, ptr %0, align 8
-  tail call void @WaitForParallelWorkersToFinish(ptr noundef %155) #10
+  tail call void @WaitForParallelWorkersToFinish(ptr noundef %155) #9
   %156 = load ptr, ptr %0, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 28
   %158 = load i32, ptr %157, align 4
@@ -840,7 +840,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   %164 = getelementptr inbounds nuw %struct.BufferUsage, ptr %163, i64 %indvars.iv117
   %165 = load ptr, ptr %161, align 8
   %166 = getelementptr inbounds nuw %struct.WalUsage, ptr %165, i64 %indvars.iv117
-  tail call void @InstrAccumParallelQuery(ptr noundef %164, ptr noundef %166) #10
+  tail call void @InstrAccumParallelQuery(ptr noundef %164, ptr noundef %166) #9
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %167 = load ptr, ptr %0, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 28
@@ -855,7 +855,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   br i1 %.not.i90, label %175, label %173
 
 173:                                              ; preds = %.critedge
-  %174 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %172, i32 1, ptr nonnull elementtype(i32) %172) #10, !srcloc !11
+  %174 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %172, i32 1, ptr nonnull elementtype(i32) %172) #9, !srcloc !11
   br label %175
 
 175:                                              ; preds = %173, %.critedge
@@ -905,13 +905,13 @@ parallel_vacuum_process_unsafe_indexes.exit97:    ; preds = %._crit_edge.i91
   br i1 %.not.i98, label %parallel_vacuum_process_unsafe_indexes.exit97.thread, label %197
 
 197:                                              ; preds = %parallel_vacuum_process_unsafe_indexes.exit97
-  %198 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr106, i32 1, ptr nonnull elementtype(i32) %.pr106) #10, !srcloc !11
+  %198 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr106, i32 1, ptr nonnull elementtype(i32) %.pr106) #9, !srcloc !11
   br label %parallel_vacuum_process_unsafe_indexes.exit97.thread
 
 parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91, %197, %parallel_vacuum_process_unsafe_indexes.exit97
   %199 = load ptr, ptr %27, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 44
-  %201 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %200, i32 1, ptr nonnull elementtype(i32) %200) #10, !srcloc !11
+  %201 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %200, i32 1, ptr nonnull elementtype(i32) %200) #9, !srcloc !11
   %202 = load i32, ptr %20, align 8
   %.not1318.i99 = icmp slt i32 %201, %202
   br i1 %.not1318.i99, label %.lr.ph.i102, label %._crit_edge.i100
@@ -941,7 +941,7 @@ parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91
 217:                                              ; preds = %213, %205
   %218 = load ptr, ptr %27, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 44
-  %220 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 1, ptr nonnull elementtype(i32) %219) #10, !srcloc !11
+  %220 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 1, ptr nonnull elementtype(i32) %219) #9, !srcloc !11
   %221 = load i32, ptr %20, align 8
   %.not13.i103 = icmp slt i32 %220, %221
   br i1 %.not13.i103, label %205, label %._crit_edge.i100
@@ -978,8 +978,7 @@ parallel_vacuum_process_safe_indexes.exit104:     ; preds = %162, %parallel_vacu
   br i1 %.not85, label %243, label %233
 
 233:                                              ; preds = %229
-  %234 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %234)
+  %234 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %236 = load ptr, ptr %235, align 8
   %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv120
@@ -987,8 +986,8 @@ parallel_vacuum_process_safe_indexes.exit104:     ; preds = %162, %parallel_vacu
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 56
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
-  %242 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %241) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.parallel_vacuum_process_all_indexes) #10
+  %242 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef nonnull %241) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.parallel_vacuum_process_all_indexes) #9
   unreachable
 
 243:                                              ; preds = %229
@@ -1035,25 +1034,25 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
+  %7 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1009, ptr noundef nonnull @.str.1) #10
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1009, ptr noundef nonnull @.str.1) #9
   br label %10
 
 10:                                               ; preds = %8, %2
-  %11 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 1, i1 noundef zeroext false) #10
-  %12 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 2, i1 noundef zeroext true) #10
+  %11 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 1, i1 noundef zeroext false) #9
+  %12 = tail call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 2, i1 noundef zeroext true) #9
   store ptr %12, ptr @debug_query_string, align 8
-  tail call void @pgstat_report_activity(i32 noundef 2, ptr noundef %12) #10
+  tail call void @pgstat_report_activity(i32 noundef 2, ptr noundef %12) #9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8
-  tail call void @pgstat_report_query_id(i64 noundef %14, i1 noundef zeroext false) #10
+  tail call void @pgstat_report_query_id(i64 noundef %14, i1 noundef zeroext false) #9
   %15 = load i32, ptr %11, align 8
-  %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 4) #10
-  call void @vac_open_indexes(ptr noundef %16, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
+  %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 4) #9
+  call void @vac_open_indexes(ptr noundef %16, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
@@ -1064,13 +1063,13 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   br label %21
 
 21:                                               ; preds = %20, %10
-  %22 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 5, i1 noundef zeroext false) #10
+  %22 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 5, i1 noundef zeroext false) #9
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %26 = load i64, ptr %25, align 8
-  %27 = call ptr @TidStoreAttach(i32 noundef %24, i64 noundef %26) #10
-  call void @VacuumUpdateCosts() #10
+  %27 = call ptr @TidStoreAttach(i32 noundef %24, i64 noundef %26) #9
+  call void @VacuumUpdateCosts() #9
   store i32 0, ptr @VacuumCostBalance, align 4
   store i32 0, ptr @VacuumCostBalanceLocal, align 4
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 36
@@ -1093,12 +1092,12 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 68
   %40 = load i32, ptr %39, align 4
-  %41 = call ptr @get_namespace_name(i32 noundef %40) #10
+  %41 = call ptr @get_namespace_name(i32 noundef %40) #9
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %41, ptr %42, align 8
   %43 = load ptr, ptr %37, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = call ptr @pstrdup(ptr noundef nonnull %44) #10
+  %45 = call ptr @pstrdup(ptr noundef nonnull %44) #9
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store ptr %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1110,7 +1109,7 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = shl i32 %51, 3
-  %53 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %52) #10
+  %53 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %52) #9
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1120,19 +1119,19 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   %57 = load ptr, ptr @error_context_stack, align 8
   store ptr %57, ptr %6, align 8
   store ptr %6, ptr @error_context_stack, align 8
-  call void @InstrStartParallelQuery() #10
+  call void @InstrStartParallelQuery() #9
   %58 = load ptr, ptr @VacuumActiveNWorkers, align 8
   %.not.i = icmp eq ptr %58, null
   br i1 %.not.i, label %61, label %59
 
 59:                                               ; preds = %21
-  %60 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 1, ptr nonnull elementtype(i32) %58) #10, !srcloc !11
+  %60 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 1, ptr nonnull elementtype(i32) %58) #9, !srcloc !11
   br label %61
 
 61:                                               ; preds = %59, %21
   %62 = load ptr, ptr %35, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 44
-  %64 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 1, ptr nonnull elementtype(i32) %63) #10, !srcloc !11
+  %64 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 1, ptr nonnull elementtype(i32) %63) #9, !srcloc !11
   %65 = load i32, ptr %33, align 8
   %.not1318.i = icmp slt i32 %64, %65
   br i1 %.not1318.i, label %.lr.ph.i, label %._crit_edge.i
@@ -1157,7 +1156,7 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
 77:                                               ; preds = %73, %.lr.ph.i
   %78 = load ptr, ptr %35, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 44
-  %80 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, i32 1, ptr nonnull elementtype(i32) %79) #10, !srcloc !11
+  %80 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, i32 1, ptr nonnull elementtype(i32) %79) #9, !srcloc !11
   %81 = load i32, ptr %33, align 8
   %.not13.i = icmp slt i32 %80, %81
   br i1 %.not13.i, label %.lr.ph.i, label %._crit_edge.i
@@ -1172,32 +1171,32 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   br label %parallel_vacuum_process_safe_indexes.exit
 
 parallel_vacuum_process_safe_indexes.exit:        ; preds = %._crit_edge.i, %83
-  %85 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 3, i1 noundef zeroext false) #10
-  %86 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 4, i1 noundef zeroext false) #10
+  %85 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 3, i1 noundef zeroext false) #9
+  %86 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef 4, i1 noundef zeroext false) #9
   %87 = load i32, ptr @ParallelWorkerNumber, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds %struct.BufferUsage, ptr %85, i64 %88
   %90 = getelementptr inbounds %struct.WalUsage, ptr %86, i64 %88
-  call void @InstrEndParallelQuery(ptr noundef %89, ptr noundef %90) #10
+  call void @InstrEndParallelQuery(ptr noundef %89, ptr noundef %90) #9
   %91 = load i8, ptr @track_cost_delay_timing, align 1, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %parallel_vacuum_process_safe_indexes.exit
   %94 = load i64, ptr @parallel_vacuum_worker_delay_ns, align 8
-  call void @pgstat_progress_parallel_incr_param(i32 noundef 10, i64 noundef %94) #10
+  call void @pgstat_progress_parallel_incr_param(i32 noundef 10, i64 noundef %94) #9
   br label %95
 
 95:                                               ; preds = %93, %parallel_vacuum_process_safe_indexes.exit
-  call void @TidStoreDetach(ptr noundef %27) #10
+  call void @TidStoreDetach(ptr noundef %27) #9
   %96 = load ptr, ptr %6, align 8
   store ptr %96, ptr @error_context_stack, align 8
   %97 = load i32, ptr %5, align 4
   %98 = load ptr, ptr %4, align 8
-  call void @vac_close_indexes(i32 noundef %97, ptr noundef %98, i32 noundef 3) #10
-  call void @table_close(ptr noundef %16, i32 noundef 4) #10
+  call void @vac_close_indexes(i32 noundef %97, ptr noundef %98, i32 noundef 3) #9
+  call void @table_close(ptr noundef %16, i32 noundef 4) #9
   %99 = load ptr, ptr %54, align 8
-  call void @FreeAccessStrategy(ptr noundef %99) #10
+  call void @FreeAccessStrategy(ptr noundef %99) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1248,14 +1247,14 @@ define internal void @parallel_vacuum_error_callback(ptr noundef readonly captur
 
 .sink.split:                                      ; preds = %1, %4
   %.str.10.sink = phi ptr [ @.str.11, %4 ], [ @.str.10, %1 ]
-  %5 = tail call i32 @set_errcontext_domain(ptr noundef null) #10
+  %5 = tail call i32 @set_errcontext_domain(ptr noundef null) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull %.str.10.sink, ptr noundef %7, ptr noundef %9, ptr noundef %11) #10
+  %12 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull %.str.10.sink, ptr noundef %7, ptr noundef %9, ptr noundef %11) #9
   br label %13
 
 13:                                               ; preds = %.sink.split, %1
@@ -1327,7 +1326,7 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captu
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %29 = tail call ptr @pstrdup(ptr noundef nonnull %28) #10
+  %29 = tail call ptr @pstrdup(ptr noundef nonnull %28) #9
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %29, ptr %30, align 8
   %31 = load i32, ptr %2, align 8
@@ -1343,21 +1342,20 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captu
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %15, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %38 = call ptr @vac_bulkdel_one_index(ptr noundef nonnull %4, ptr noundef %spec.select, ptr noundef %35, ptr noundef nonnull %37) #10
+  %38 = call ptr @vac_bulkdel_one_index(ptr noundef nonnull %4, ptr noundef %spec.select, ptr noundef %35, ptr noundef nonnull %37) #9
   br label %47
 
 39:                                               ; preds = %3
-  %40 = call ptr @vac_cleanup_one_index(ptr noundef nonnull %4, ptr noundef %spec.select) #10
+  %40 = call ptr @vac_cleanup_one_index(ptr noundef nonnull %4, ptr noundef %spec.select) #9
   br label %47
 
 41:                                               ; preds = %3
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %42)
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %43 = load i32, ptr %2, align 8
   %44 = load ptr, ptr %26, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %43, ptr noundef nonnull %45) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 904, ptr noundef nonnull @__func__.parallel_vacuum_process_one_index) #10
+  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %43, ptr noundef nonnull %45) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 904, ptr noundef nonnull @__func__.parallel_vacuum_process_one_index) #9
   unreachable
 
 47:                                               ; preds = %39, %33
@@ -1371,16 +1369,16 @@ define internal fastcc void @parallel_vacuum_process_one_index(ptr noundef captu
 51:                                               ; preds = %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %.0, i64 40, i1 false)
   store i8 1, ptr %5, align 1
-  call void @pfree(ptr noundef nonnull %.0) #10
+  call void @pfree(ptr noundef nonnull %.0) #9
   br label %52
 
 52:                                               ; preds = %51, %47
   store i32 3, ptr %2, align 8
   store i32 3, ptr %32, align 8
   %53 = load ptr, ptr %30, align 8
-  call void @pfree(ptr noundef %53) #10
+  call void @pfree(ptr noundef %53) #9
   store ptr null, ptr %30, align 8
-  call void @pgstat_progress_parallel_incr_param(i32 noundef 9, i64 noundef 1) #10
+  call void @pgstat_progress_parallel_incr_param(i32 noundef 9, i64 noundef 1) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1399,20 +1397,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1422,11 +1417,10 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

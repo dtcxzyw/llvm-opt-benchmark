@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeA_Expr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 71, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %0, ptr %7, align 4
@@ -27,12 +27,12 @@ define dso_local noundef ptr @makeA_Expr(i32 noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeSimpleA_Expr(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 71, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %0, ptr %7, align 4
-  %8 = tail call ptr @makeString(ptr noundef %1) #7
-  %9 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %8) #7
+  %8 = tail call ptr @makeString(ptr noundef %1) #6
+  %9 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %8) #6
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -50,7 +50,7 @@ declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeVar(i32 noundef %0, i16 noundef signext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %7 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 6, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %0, ptr %8, align 4
@@ -83,12 +83,12 @@ define dso_local noundef ptr @makeVarFromTargetEntry(i32 noundef %0, ptr noundef
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @exprType(ptr noundef %6) #7
+  %7 = tail call i32 @exprType(ptr noundef %6) #6
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 @exprTypmod(ptr noundef %8) #7
+  %9 = tail call i32 @exprTypmod(ptr noundef %8) #6
   %10 = load ptr, ptr %5, align 8
-  %11 = tail call i32 @exprCollation(ptr noundef %10) #7
-  %12 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %11 = tail call i32 @exprCollation(ptr noundef %10) #6
+  %12 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 6, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %0, ptr %13, align 4
@@ -129,18 +129,17 @@ define dso_local noundef ptr @makeWholeRowVar(ptr noundef readonly captures(none
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 @get_rel_type_id(i32 noundef %9) #7
+  %10 = tail call i32 @get_rel_type_id(i32 noundef %9) #6
   %.not27 = icmp eq i32 %10, 0
   br i1 %.not27, label %11, label %list_length.exit.thread
 
 11:                                               ; preds = %7
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 151027844) #7
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %13 = tail call i32 @errcode(i32 noundef 151027844) #6
   %14 = load i32, ptr %8, align 4
-  %15 = tail call ptr @get_rel_name(i32 noundef %14) #7
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %15) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @__func__.makeWholeRowVar) #7
+  %15 = tail call ptr @get_rel_name(i32 noundef %14) #6
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %15) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 155, ptr noundef nonnull @__func__.makeWholeRowVar) #6
   unreachable
 
 17:                                               ; preds = %4
@@ -167,22 +166,22 @@ list_length.exit:                                 ; preds = %21
   %28 = load ptr, ptr %.val, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @exprType(ptr noundef %30) #7
-  %32 = tail call zeroext i1 @type_is_rowtype(i32 noundef %31) #7
+  %31 = tail call i32 @exprType(ptr noundef %30) #6
+  %32 = tail call zeroext i1 @type_is_rowtype(i32 noundef %31) #6
   %.not56 = xor i1 %3, true
   %brmerge = or i1 %32, %.not56
   %.mux = select i1 %32, i32 %31, i32 2249
   br i1 %brmerge, label %list_length.exit.thread, label %33
 
 33:                                               ; preds = %26
-  %34 = tail call i32 @exprCollation(ptr noundef %30) #7
+  %34 = tail call i32 @exprCollation(ptr noundef %30) #6
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %26, %4, %17, %list_length.exit, %21, %7, %33
   %.sink50 = phi i16 [ 1, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
   %.sink47 = phi i32 [ %31, %33 ], [ %10, %7 ], [ 2249, %21 ], [ 2249, %list_length.exit ], [ 2249, %17 ], [ %.mux, %26 ], [ 2249, %4 ]
   %.sink42 = phi i32 [ %34, %33 ], [ 0, %7 ], [ 0, %21 ], [ 0, %list_length.exit ], [ 0, %17 ], [ 0, %26 ], [ 0, %4 ]
-  %35 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %35 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 6, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %1, ptr %36, align 4
@@ -227,7 +226,7 @@ declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeTargetEntry(ptr noundef %0, i16 noundef signext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
-  %6 = tail call noundef ptr @palloc0(i64 noundef 48) #7
+  %6 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 62, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -248,7 +247,7 @@ define dso_local noundef ptr @makeTargetEntry(ptr noundef %0, i16 noundef signex
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @flatCopyTargetEntry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 48) #7
+  %2 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 62, ptr %2, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   ret ptr %2
@@ -259,7 +258,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeFromExpr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 65, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -270,7 +269,7 @@ define dso_local noundef ptr @makeFromExpr(ptr noundef %0, ptr noundef %1) local
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeConst(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
-  %8 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %8 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %8, align 4
   %9 = icmp ne i32 %3, -1
   %or.cond.not = or i1 %9, %5
@@ -278,7 +277,7 @@ define dso_local noundef ptr @makeConst(i32 noundef %0, i32 noundef %1, i32 noun
 
 10:                                               ; preds = %7
   %11 = inttoptr i64 %4 to ptr
-  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #7
+  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #6
   %13 = ptrtoint ptr %12 to i64
   br label %14
 
@@ -313,11 +312,11 @@ define dso_local noundef ptr @makeNullConst(i32 noundef %0, i32 noundef %1, i32 
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @get_typlenbyval(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  call void @get_typlenbyval(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %6 = load i16, ptr %4, align 2
   %7 = sext i16 %6 to i32
   %8 = load i8, ptr %5, align 1, !range !4, !noundef !5
-  %9 = call noundef ptr @palloc0(i64 noundef 40) #7
+  %9 = call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %10, align 4
@@ -345,7 +344,7 @@ declare void @get_typlenbyval(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeBoolConst(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i1 %0 to i64
-  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %4, align 4
   %5 = zext i1 %1 to i8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -369,7 +368,7 @@ define dso_local noundef ptr @makeBoolConst(i1 noundef zeroext %0, i1 noundef ze
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeBoolExpr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 21, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
@@ -382,9 +381,9 @@ define dso_local noundef ptr @makeBoolExpr(i32 noundef %0, ptr noundef %1, i32 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeAlias(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 2, ptr %3, align 4
-  %4 = tail call ptr @pstrdup(ptr noundef %0) #7
+  %4 = tail call ptr @pstrdup(ptr noundef %0) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -396,7 +395,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeRelabelType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 27, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -415,7 +414,7 @@ define dso_local noundef ptr @makeRelabelType(ptr noundef %0, i32 noundef %1, i3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeRangeVar(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 3, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
@@ -436,7 +435,7 @@ define dso_local noundef ptr @makeRangeVar(ptr noundef %0, ptr noundef %1, i32 n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeNotNullConstraint(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 184) #7
+  %2 = tail call noundef ptr @palloc0(i64 noundef 184) #6
   store i32 160, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %3, align 4
@@ -450,7 +449,7 @@ define dso_local noundef ptr @makeNotNullConstraint(ptr noundef %0) local_unname
   store i8 0, ptr %7, align 1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 180
   store i32 -1, ptr %8, align 4
-  %9 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #7
+  %9 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 18
@@ -464,9 +463,9 @@ define dso_local noundef ptr @makeNotNullConstraint(ptr noundef %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeTypeName(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @makeString(ptr noundef %0) #7
-  %3 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %2) #7
-  %4 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %2 = tail call ptr @makeString(ptr noundef %0) #6
+  %3 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %2) #6
+  %4 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 68, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %3, ptr %5, align 8
@@ -481,7 +480,7 @@ define dso_local noundef ptr @makeTypeName(ptr noundef %0) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeTypeNameFromNameList(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %2 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 68, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
@@ -496,7 +495,7 @@ define dso_local noundef ptr @makeTypeNameFromNameList(ptr noundef %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeTypeNameFromOid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %3 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 68, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %0, ptr %4, align 8
@@ -509,12 +508,12 @@ define dso_local noundef ptr @makeTypeNameFromOid(i32 noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeColumnDef(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 128) #7
+  %5 = tail call noundef ptr @palloc0(i64 noundef 128) #6
   store i32 90, ptr %5, align 4
-  %6 = tail call ptr @pstrdup(ptr noundef %0) #7
+  %6 = tail call ptr @pstrdup(ptr noundef %0) #6
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = tail call noundef ptr @palloc0(i64 noundef 56) #7
+  %8 = tail call noundef ptr @palloc0(i64 noundef 56) #6
   store i32 68, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %1, ptr %9, align 8
@@ -549,7 +548,7 @@ define dso_local noundef ptr @makeColumnDef(ptr noundef %0, i32 noundef %1, i32 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeFuncExpr(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = tail call noundef ptr @palloc0(i64 noundef 48) #7
+  %7 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 15, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %0, ptr %8, align 4
@@ -574,7 +573,7 @@ define dso_local noundef ptr @makeFuncExpr(i32 noundef %0, i32 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeStringConst(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 32) #7
+  %3 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 72, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 467, ptr %4, align 8
@@ -587,7 +586,7 @@ define dso_local noundef ptr @makeStringConst(ptr noundef %0, i32 noundef %1) lo
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeDefElem(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 93, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
@@ -604,7 +603,7 @@ define dso_local noundef ptr @makeDefElem(ptr noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeDefElemExtended(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %6 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 93, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -621,7 +620,7 @@ define dso_local noundef ptr @makeDefElemExtended(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeFuncCall(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 64) #7
+  %5 = tail call noundef ptr @palloc0(i64 noundef 64) #6
   store i32 76, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %6, align 8
@@ -639,7 +638,7 @@ define dso_local noundef ptr @makeFuncCall(ptr noundef %0, ptr noundef %1, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_opclause(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = zext i1 %2 to i8
-  %9 = tail call noundef ptr @palloc0(i64 noundef 48) #7
+  %9 = tail call noundef ptr @palloc0(i64 noundef 48) #6
   store i32 17, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %10, align 4
@@ -657,11 +656,11 @@ define dso_local noundef ptr @make_opclause(i32 noundef %0, i32 noundef %1, i1 n
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %7
-  %17 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %3, ptr nonnull %4) #7
+  %17 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %3, ptr nonnull %4) #6
   br label %20
 
 18:                                               ; preds = %7
-  %19 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %3) #7
+  %19 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %3) #6
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -677,7 +676,7 @@ declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_andclause(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %2 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 21, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -690,7 +689,7 @@ define dso_local noundef ptr @make_andclause(ptr noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_orclause(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %2 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 21, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %3, align 4
@@ -703,11 +702,11 @@ define dso_local noundef ptr @make_orclause(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_notclause(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %2 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 21, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2, ptr %3, align 4
-  %4 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #7
+  %4 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #6
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -725,8 +724,8 @@ define dso_local noundef ptr @make_and_qual(ptr noundef %0, ptr noundef %1) loca
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr nonnull %1) #7
-  %8 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %7 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr nonnull %1) #6
+  %8 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 21, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
@@ -747,7 +746,7 @@ define dso_local ptr @make_ands_explicit(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %3, label %list_length.exit
 
 3:                                                ; preds = %1
-  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 7, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 16, ptr %5, align 4
@@ -780,7 +779,7 @@ list_length.exit:                                 ; preds = %1
   br label %24
 
 19:                                               ; preds = %list_length.exit
-  %20 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %20 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 21, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %21, align 4
@@ -831,7 +830,7 @@ is_andclause.exit:                                ; preds = %3
   br i1 %.not, label %.thread, label %19
 
 .thread:                                          ; preds = %3, %is_andclause.exit, %15, %11
-  %18 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #7
+  %18 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %0) #6
   br label %19
 
 19:                                               ; preds = %15, %1, %.thread, %8
@@ -847,7 +846,7 @@ define dso_local noundef ptr @makeIndexInfo(i32 noundef %0, i32 noundef %1, i32 
   %15 = zext i1 %8 to i8
   %16 = zext i1 %9 to i8
   %17 = zext i1 %10 to i8
-  %18 = tail call noundef ptr @palloc0(i64 noundef 200) #7
+  %18 = tail call noundef ptr @palloc0(i64 noundef 200) #6
   store i32 380, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %0, ptr %19, align 4
@@ -893,7 +892,7 @@ define dso_local noundef ptr @makeIndexInfo(i32 noundef %0, i32 noundef %1, i32 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeGroupingSet(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 107, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
@@ -906,7 +905,7 @@ define dso_local noundef ptr @makeGroupingSet(i32 noundef %0, ptr noundef %1, i3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeVacuumRelation(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 32) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 239, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -919,7 +918,7 @@ define dso_local noundef ptr @makeVacuumRelation(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonFormat(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 16) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 16) #6
   store i32 42, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
@@ -932,7 +931,7 @@ define dso_local noundef ptr @makeJsonFormat(i32 noundef %0, i32 noundef %1, i32
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonValueExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 32) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 44, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -945,7 +944,7 @@ define dso_local noundef ptr @makeJsonValueExpr(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonBehavior(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 47, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %0, ptr %5, align 4
@@ -958,7 +957,7 @@ define dso_local noundef ptr @makeJsonBehavior(i32 noundef %0, ptr noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonKeyValue(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 126, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -970,7 +969,7 @@ define dso_local noundef ptr @makeJsonKeyValue(ptr noundef %0, ptr noundef %1) l
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonIsPredicate(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = zext i1 %3 to i8
-  %7 = tail call noundef ptr @palloc0(i64 noundef 40) #7
+  %7 = tail call noundef ptr @palloc0(i64 noundef 40) #6
   store i32 46, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %8, align 8
@@ -987,9 +986,9 @@ define dso_local noundef ptr @makeJsonIsPredicate(ptr noundef %0, ptr noundef %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonTablePathSpec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 32) #7
+  %5 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 123, ptr %5, align 4
-  %6 = tail call noundef ptr @palloc0(i64 noundef 32) #7
+  %6 = tail call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 72, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 467, ptr %7, align 8
@@ -1003,7 +1002,7 @@ define dso_local noundef ptr @makeJsonTablePathSpec(ptr noundef %0, ptr noundef 
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @pstrdup(ptr noundef nonnull %1) #7
+  %12 = tail call ptr @pstrdup(ptr noundef nonnull %1) #6
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %12, ptr %13, align 8
   br label %14
@@ -1018,7 +1017,7 @@ define dso_local noundef ptr @makeJsonTablePathSpec(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @makeJsonTablePath(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #7
+  %3 = tail call noundef ptr @palloc0(i64 noundef 24) #6
   store i32 49, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %4, align 8
@@ -1035,21 +1034,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

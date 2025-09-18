@@ -12831,7 +12831,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h475d2f2869b83e2aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 8, i64 noundef 96)
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -12846,7 +12846,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #20
-          to label %.noexc7 unwind label %16
+          to label %.noexc7 unwind label %14
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -12859,22 +12859,19 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %11 = icmp ult i64 %.sroa.53.0.copyload, 96076792050570582
   tail call void @llvm.assume(i1 %11)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h605fd6701f7cf01fE"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 
-15:                                               ; preds = %16
+13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
+14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..slot..Slot$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$$GT$17hf8492dbf7a1f63c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #21
-          to label %15 unwind label %17
+          to label %13 unwind label %15
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable
@@ -12890,7 +12887,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h475d2f2869b83e2aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 8, i64 noundef 40)
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -12905,7 +12902,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #20
-          to label %.noexc7 unwind label %16
+          to label %.noexc7 unwind label %14
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -12918,22 +12915,19 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %11 = icmp ult i64 %.sroa.53.0.copyload, 230584300921369396
   tail call void @llvm.assume(i1 %11)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h5a77de8b416a2d1dE"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 
-15:                                               ; preds = %16
+13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
+14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr161drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..Shared$LT$tracing_subscriber..registry..sharded..DataInner$C$sharded_slab..cfg..DefaultConfig$GT$$GT$$GT$17hcde0287b93432101E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #21
-          to label %15 unwind label %17
+          to label %13 unwind label %15
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable
@@ -12949,7 +12943,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h475d2f2869b83e2aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 8, i64 noundef 32)
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -12964,7 +12958,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #20
-          to label %.noexc7 unwind label %16
+          to label %.noexc7 unwind label %14
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -12977,22 +12971,19 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %11 = icmp ult i64 %.sroa.53.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %11)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17hd58237605a83fa07E"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 
-15:                                               ; preds = %16
+13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
+14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr139drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_channel..flavors..array..Slot$LT$ruff_server..server..schedule..thread..pool..Job$GT$$GT$$GT$17h0d011301470bfef5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #21
-          to label %15 unwind label %17
+          to label %13 unwind label %15
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable
@@ -13008,7 +12999,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i": ; preds = %2
   %7 = invoke { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16shrink_unchecked17h475d2f2869b83e2aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 0, 9223372036854775807) %5, i64 noundef 8, i64 noundef 8)
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i"
   %8 = extractvalue { i64, i64 } %7, 0
@@ -13023,7 +13014,7 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
 9:                                                ; preds = %.noexc
   %10 = extractvalue { i64, i64 } %7, 1
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %8, i64 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1) #20
-          to label %.noexc7 unwind label %16
+          to label %.noexc7 unwind label %14
 
 .noexc7:                                          ; preds = %9
   unreachable
@@ -13036,22 +13027,19 @@ define hidden { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17
   %11 = icmp ult i64 %.sroa.53.0.copyload, 1152921504606846976
   tail call void @llvm.assume(i1 %11)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h9e6c2a850439cafeE"(i64 noundef %.sroa.01.0.copyload, ptr noundef nonnull %.sroa.42.0.copyload, i64 noundef %.sroa.53.0.copyload)
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 
-15:                                               ; preds = %16
+13:                                               ; preds = %14
   resume { ptr, i32 } %lpad.thr_comm
 
-16:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
+14:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$6shrink17h774de00084992fdcE.exit.i", %9
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$sharded_slab..page..Local$GT$$GT$17he36ebf27fbf69c36E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #21
-          to label %15 unwind label %17
+          to label %13 unwind label %15
 
-17:                                               ; preds = %16
-  %18 = landingpad { ptr, i32 }
+15:                                               ; preds = %14
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #22
   unreachable
@@ -38994,18 +38982,15 @@ define hidden void @"_ZN9lsp_types5hover1_94_$LT$impl$u20$serde..de..Deserialize
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hcc9b36db292a9c8eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5, !prof !242
+  br i1 %.not, label %5, label %4, !prof !242
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h932ac0a0ca8eb688E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i64, ptr %4, align 8, !range !51, !noundef !27
-  %7 = icmp ne i64 %6, -9223372036854775808
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable

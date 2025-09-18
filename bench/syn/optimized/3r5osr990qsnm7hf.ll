@@ -1285,72 +1285,36 @@ define void @"_ZN66_$LT$syn..generics..Generics$u20$as$u20$core..default..Defaul
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn8generics8Generics9lifetimes17h5babfdad884c1e42E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h845f9c5fe1a7fa3cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn8generics8Generics13lifetimes_mut17ha0fe2862a27980e5E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h919f1b60854529e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn8generics8Generics11type_params17hdba55bf783e45c15E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h845f9c5fe1a7fa3cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn8generics8Generics15type_params_mut17h42efa110a02be5b6E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h919f1b60854529e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn8generics8Generics12const_params17h5e340a145f43f6b9E(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17h845f9c5fe1a7fa3cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn8generics8Generics16const_params_mut17hc03bf06efd40902fE(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h919f1b60854529e5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = extractvalue { ptr, ptr } %2, 1
-  %5 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %5)
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, ptr } %2
 }
 

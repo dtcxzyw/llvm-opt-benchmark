@@ -55,16 +55,16 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   %8 = alloca %struct.HASHCTL, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %10 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %9, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #12
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = tail call ptr @palloc0(i64 noundef 104) #13
+  %12 = tail call ptr @palloc0(i64 noundef 104) #12
   store ptr %0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %14, align 8
-  %15 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #13
+  %15 = tail call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %1, i32 noundef 0) #12
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i32 %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -75,7 +75,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   store i32 %4, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store ptr %10, ptr %20, align 8
-  %21 = tail call ptr @smgr_bulk_start_rel(ptr noundef %1, i32 noundef 0) #13
+  %21 = tail call ptr @smgr_bulk_start_rel(ptr noundef %1, i32 noundef 0) #12
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -85,11 +85,11 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   %25 = load ptr, ptr %20, align 8
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %25, ptr %26, align 8
-  %27 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #13
+  %27 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #12
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %27, ptr %28, align 8
   store i64 20, ptr %24, align 8
-  %29 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #13
+  %29 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 128, ptr noundef nonnull %8, i32 noundef 1064) #12
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store ptr %29, ptr %30, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
@@ -109,7 +109,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   br i1 %39, label %40, label %.critedge.i
 
 40:                                               ; preds = %33
-  %41 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %34) #13
+  %41 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %34) #12
   br i1 %41, label %.thread.i, label %43
 
 .thread.i:                                        ; preds = %40
@@ -149,7 +149,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
 
 57:                                               ; preds = %52, %.thread.i
   %58 = phi ptr [ %42, %.thread.i ], [ %55, %52 ]
-  call void @ProcArrayGetReplicationSlotXmin(ptr noundef null, ptr noundef nonnull %7) #13
+  call void @ProcArrayGetReplicationSlotXmin(ptr noundef null, ptr noundef nonnull %7) #12
   %59 = load i32, ptr %7, align 4
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %62
@@ -161,7 +161,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 %59, ptr %63, align 8
-  %64 = call i64 @GetXLogInsertRecPtr() #13
+  %64 = call i64 @GetXLogInsertRecPtr() #12
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i64 %64, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 96
@@ -173,7 +173,7 @@ define dso_local noundef ptr @begin_heap_rewrite(ptr noundef %0, ptr noundef %1,
   %69 = load ptr, ptr %20, align 8
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %69, ptr %70, align 8
-  %71 = call ptr @hash_create(ptr noundef nonnull @.str.22, i64 noundef 128, ptr noundef nonnull %6, i32 noundef 1064) #13
+  %71 = call ptr @hash_create(ptr noundef nonnull @.str.22, i64 noundef 128, ptr noundef nonnull %6, i32 noundef 1064) #12
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store ptr %71, ptr %72, align 8
   br label %logical_begin_heap_rewrite.exit
@@ -202,8 +202,8 @@ define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %5) #13
-  %6 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %5) #12
+  %6 = call ptr @hash_seq_search(ptr noundef nonnull %3) #12
   %.not14 = icmp eq ptr %6, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -221,7 +221,7 @@ define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unn
   store i16 0, ptr %14, align 2
   %15 = load ptr, ptr %8, align 8
   call fastcc void @raw_heap_insert(ptr noundef nonnull %0, ptr noundef %15)
-  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #12
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -236,14 +236,14 @@ define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unn
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
-  call void @smgr_bulk_write(ptr noundef %21, i32 noundef %23, ptr noundef nonnull %18, i1 noundef zeroext true) #13
+  call void @smgr_bulk_write(ptr noundef %21, i32 noundef %23, ptr noundef nonnull %18, i1 noundef zeroext true) #12
   store ptr null, ptr %17, align 8
   br label %24
 
 24:                                               ; preds = %19, %._crit_edge
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
-  call void @smgr_bulk_finish(ptr noundef %26) #13
+  call void @smgr_bulk_finish(ptr noundef %26) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %28 = load i8, ptr %27, align 4, !range !4, !noundef !5
@@ -263,8 +263,8 @@ define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unn
 34:                                               ; preds = %33, %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %36 = load ptr, ptr %35, align 8
-  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %36) #13
-  %37 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
+  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %36) #12
+  %37 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
   %.not79.i = icmp eq ptr %37, null
   br i1 %.not79.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i
 
@@ -272,26 +272,26 @@ define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unn
   %38 = phi ptr [ %51, %49 ], [ %37, %34 ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
-  %41 = call i32 @FileSync(i32 noundef %40, i32 noundef 167772193) #13
+  %41 = call i32 @FileSync(i32 noundef %40, i32 noundef 167772193) #12
   %.not8.i = icmp eq i32 %41, 0
   br i1 %.not8.i, label %49, label %42
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = call i32 @data_sync_elevel(i32 noundef 21) #13
-  %44 = call zeroext i1 @errstart(i32 noundef %43, ptr noundef null) #13
+  %43 = call i32 @data_sync_elevel(i32 noundef 21) #12
+  %44 = call zeroext i1 @errstart(i32 noundef %43, ptr noundef null) #12
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
-  %46 = call i32 @errcode_for_file_access() #13
+  %46 = call i32 @errcode_for_file_access() #12
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %47) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 925, ptr noundef nonnull @__func__.logical_end_heap_rewrite) #13
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %47) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 925, ptr noundef nonnull @__func__.logical_end_heap_rewrite) #12
   br label %49
 
 49:                                               ; preds = %45, %42, %.lr.ph.i
   %50 = load i32, ptr %39, align 4
-  call void @FileClose(i32 noundef %50) #13
-  %51 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
+  call void @FileClose(i32 noundef %50) #12
+  %51 = call ptr @hash_seq_search(ptr noundef nonnull %2) #12
   %.not7.i = icmp eq ptr %51, null
   br i1 %.not7.i, label %logical_end_heap_rewrite.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -299,7 +299,7 @@ logical_end_heap_rewrite.exit:                    ; preds = %49, %24, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load ptr, ptr %52, align 8
-  call void @MemoryContextDelete(ptr noundef %53) #13
+  call void @MemoryContextDelete(ptr noundef %53) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -334,7 +334,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14, %10
-  %18 = tail call ptr @heap_toast_insert_or_update(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef null, i32 noundef 10) #13
+  %18 = tail call ptr @heap_toast_insert_or_update(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef null, i32 noundef 10) #12
   br label %19
 
 19:                                               ; preds = %14, %2, %17
@@ -347,11 +347,10 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %19
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 261) #13
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, i64 noundef %23, i64 noundef 8160) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 641, ptr noundef nonnull @__func__.raw_heap_insert) #13
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %27 = tail call i32 @errcode(i32 noundef 261) #12
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, i64 noundef %23, i64 noundef 8160) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 641, ptr noundef nonnull @__func__.raw_heap_insert) #12
   unreachable
 
 29:                                               ; preds = %19
@@ -378,7 +377,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   br i1 %.not52, label %56, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %43) #13
+  %45 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %43) #12
   %46 = add nsw i64 %41, %23
   %47 = icmp ugt i64 %46, %45
   br i1 %47, label %48, label %60
@@ -389,7 +388,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = load ptr, ptr %42, align 8
-  tail call void @smgr_bulk_write(ptr noundef %50, i32 noundef %52, ptr noundef %53, i1 noundef zeroext true) #13
+  tail call void @smgr_bulk_write(ptr noundef %50, i32 noundef %52, ptr noundef %53, i1 noundef zeroext true) #12
   store ptr null, ptr %42, align 8
   %54 = load i32, ptr %51, align 8
   %55 = add i32 %54, 1
@@ -399,9 +398,9 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
 56:                                               ; preds = %48, %40
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call ptr @smgr_bulk_get_buf(ptr noundef %58) #13
+  %59 = tail call ptr @smgr_bulk_get_buf(ptr noundef %58) #12
   store ptr %59, ptr %42, align 8
-  tail call void @PageInit(ptr noundef %59, i64 noundef 8192, i64 noundef 0) #13
+  tail call void @PageInit(ptr noundef %59, i64 noundef 8192, i64 noundef 0) #12
   br label %60
 
 60:                                               ; preds = %44, %56
@@ -410,15 +409,14 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %.046, align 8
   %64 = zext i32 %63 to i64
-  %65 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %.1, ptr noundef %62, i64 noundef %64, i16 noundef zeroext 0, i32 noundef 2) #13
+  %65 = tail call zeroext i16 @PageAddItemExtended(ptr noundef %.1, ptr noundef %62, i64 noundef %64, i16 noundef zeroext 0, i32 noundef 2) #12
   %66 = icmp eq i16 %65, 0
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %60
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %68)
-  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 679, ptr noundef nonnull @__func__.raw_heap_insert) #13
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 679, ptr noundef nonnull @__func__.raw_heap_insert) #12
   unreachable
 
 70:                                               ; preds = %60
@@ -457,7 +455,7 @@ define internal fastcc void @raw_heap_insert(ptr noundef captures(none) %0, ptr 
   br i1 %.not54, label %93, label %92
 
 92:                                               ; preds = %91
-  tail call void @heap_freetuple(ptr noundef nonnull %.046) #13
+  tail call void @heap_freetuple(ptr noundef nonnull %.046) #12
   br label %93
 
 93:                                               ; preds = %92, %91
@@ -519,7 +517,7 @@ define dso_local void @rewrite_heap_tuple(ptr noundef captures(none) %0, ptr nou
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %43 = load i32, ptr %42, align 4
-  %44 = tail call zeroext i1 @heap_freeze_tuple(ptr noundef %32, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43) #13
+  %44 = tail call zeroext i1 @heap_freeze_tuple(ptr noundef %32, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43) #12
   %45 = load ptr, ptr %12, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i16 -1, ptr %46, align 2
@@ -535,7 +533,7 @@ define dso_local void @rewrite_heap_tuple(ptr noundef captures(none) %0, ptr nou
   br i1 %.not, label %53, label %96
 
 53:                                               ; preds = %3
-  %54 = tail call zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef nonnull %49) #13
+  %54 = tail call zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef nonnull %49) #12
   br i1 %54, label %96, label %55
 
 55:                                               ; preds = %53
@@ -560,7 +558,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit:     ; preds = %55
 HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %55, %HeapTupleHeaderIndicatesMovedPartitions.exit
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %68 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %66, ptr noundef nonnull %67) #13
+  %68 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %66, ptr noundef nonnull %67) #12
   br i1 %68, label %96, label %69
 
 69:                                               ; preds = %HeapTupleHeaderIndicatesMovedPartitions.exit.thread
@@ -573,7 +571,7 @@ HeapTupleHeaderIndicatesMovedPartitions.exit.thread: ; preds = %55, %HeapTupleHe
   br i1 %or.cond7.i, label %74, label %76
 
 74:                                               ; preds = %69
-  %75 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %70) #13
+  %75 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %70) #12
   %.pre = load ptr, ptr %14, align 8
   br label %HeapTupleHeaderGetUpdateXid.exit
 
@@ -591,17 +589,17 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %74, %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %79, ptr noundef nonnull align 4 dereferenceable(6) %80, i64 6, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @hash_search(ptr noundef %82, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #13
+  %83 = call ptr @hash_search(ptr noundef %82, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #12
   %.not69.not = icmp eq ptr %83, null
   br i1 %.not69.not, label %.thread, label %90
 
 .thread:                                          ; preds = %HeapTupleHeaderGetUpdateXid.exit
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = load ptr, ptr %84, align 8
-  %86 = call ptr @hash_search(ptr noundef %85, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #13
+  %86 = call ptr @hash_search(ptr noundef %85, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #12
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %87, ptr noundef nonnull align 4 dereferenceable(6) %66, i64 6, i1 false)
-  %88 = call ptr @heap_copytuple(ptr noundef nonnull %2) #13
+  %88 = call ptr @heap_copytuple(ptr noundef nonnull %2) #12
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store ptr %88, ptr %89, align 8
   br label %188
@@ -612,7 +610,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %74, %76
   %93 = getelementptr inbounds nuw i8, ptr %83, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %92, ptr noundef nonnull align 4 dereferenceable(6) %93, i64 6, i1 false)
   %94 = load ptr, ptr %81, align 8
-  %95 = call ptr @hash_search(ptr noundef %94, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #13
+  %95 = call ptr @hash_search(ptr noundef %94, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #12
   br label %96
 
 96:                                               ; preds = %90, %HeapTupleHeaderIndicatesMovedPartitions.exit.thread, %HeapTupleHeaderIndicatesMovedPartitions.exit, %53, %3
@@ -665,7 +663,7 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %118, %112
   br i1 %or.cond7.i.i, label %121, label %123
 
 121:                                              ; preds = %HeapTupleHeaderGetXmin.exit.i
-  %122 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %114) #13
+  %122 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %114) #12
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
 123:                                              ; preds = %HeapTupleHeaderGetXmin.exit.i
@@ -679,7 +677,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %HeapTupleHeaderGetUpdateXid.exit.i
-  %127 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %119, i32 noundef %109) #13
+  %127 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %119, i32 noundef %109) #12
   %not..i = xor i1 %127, true
   br label %128
 
@@ -701,7 +699,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
   br i1 %139, label %142, label %140
 
 140:                                              ; preds = %130
-  %141 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i.i, i32 noundef %109) #13
+  %141 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i.i, i32 noundef %109) #12
   %not.30.i = xor i1 %141, true
   br label %142
 
@@ -755,7 +753,7 @@ logical_rewrite_heap_tuple.exit:                  ; preds = %107, %142, %147, %1
 HeapTupleHeaderGetXmin.exit:                      ; preds = %155, %158
   %159 = phi i32 [ %.val2.i, %158 ], [ 2, %155 ]
   %160 = load i32, ptr %104, align 8
-  %161 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %159, i32 noundef %160) #13
+  %161 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %159, i32 noundef %160) #12
   br i1 %161, label %.loopexit, label %162
 
 162:                                              ; preds = %HeapTupleHeaderGetXmin.exit
@@ -776,7 +774,7 @@ HeapTupleHeaderGetXmin.exit78:                    ; preds = %162, %167
   store i32 %168, ptr %6, align 4
   store i48 %.sroa.0.0, ptr %105, align 4
   %169 = load ptr, ptr %106, align 8
-  %170 = call ptr @hash_search(ptr noundef %169, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #13
+  %170 = call ptr @hash_search(ptr noundef %169, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #12
   %.not71 = icmp eq ptr %170, null
   br i1 %.not71, label %.thread79, label %171
 
@@ -784,13 +782,13 @@ HeapTupleHeaderGetXmin.exit78:                    ; preds = %162, %167
   br i1 %.060, label %172, label %178
 
 172:                                              ; preds = %171
-  call void @heap_freetuple(ptr noundef nonnull %.0) #13
+  call void @heap_freetuple(ptr noundef nonnull %.0) #12
   br label %178
 
 .thread79:                                        ; preds = %HeapTupleHeaderGetXmin.exit78
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %174 = load ptr, ptr %173, align 8
-  %175 = call ptr @hash_search(ptr noundef %174, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #13
+  %175 = call ptr @hash_search(ptr noundef %174, ptr noundef nonnull %6, i32 noundef 1, ptr noundef nonnull %7) #12
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %176, ptr noundef nonnull align 2 dereferenceable(6) %8, i64 6, i1 false)
   br label %.loopexit
@@ -799,7 +797,7 @@ HeapTupleHeaderGetXmin.exit78:                    ; preds = %162, %167
   br i1 %.060, label %177, label %187
 
 177:                                              ; preds = %.loopexit
-  call void @heap_freetuple(ptr noundef nonnull %.0) #13
+  call void @heap_freetuple(ptr noundef nonnull %.0) #12
   br label %187
 
 178:                                              ; preds = %172, %171
@@ -812,7 +810,7 @@ HeapTupleHeaderGetXmin.exit78:                    ; preds = %162, %167
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %184, ptr noundef nonnull align 2 dereferenceable(6) %8, i64 6, i1 false)
   %185 = load ptr, ptr %106, align 8
-  %186 = call ptr @hash_search(ptr noundef %185, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #13
+  %186 = call ptr @hash_search(ptr noundef %185, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %7) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %107
 
@@ -875,16 +873,16 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %2, %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %13, ptr noundef nonnull align 4 dereferenceable(6) %14, i64 6, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
-  %17 = call ptr @hash_search(ptr noundef %16, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #13
+  %17 = call ptr @hash_search(ptr noundef %16, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #12
   %.not = icmp ne ptr %17, null
   br i1 %.not, label %18, label %23
 
 18:                                               ; preds = %HeapTupleHeaderGetXmin.exit
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %20 = load ptr, ptr %19, align 8
-  call void @heap_freetuple(ptr noundef %20) #13
+  call void @heap_freetuple(ptr noundef %20) #12
   %21 = load ptr, ptr %15, align 8
-  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %4) #13
+  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %4) #12
   br label %23
 
 23:                                               ; preds = %HeapTupleHeaderGetXmin.exit, %18
@@ -913,17 +911,16 @@ define dso_local void @heap_xlog_logical_rewrite(ptr noundef readonly captures(n
   %16 = load i32, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %18 = load i32, ptr %17, align 4
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %8, i32 noundef %10, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %18) #13
-  %20 = call i32 @OpenTransientFile(ptr noundef nonnull %2, i32 noundef 65) #13
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %8, i32 noundef %10, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %18) #12
+  %20 = call i32 @OpenTransientFile(ptr noundef nonnull %2, i32 noundef 65) #12
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %1
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %23)
-  %24 = call i32 @errcode_for_file_access() #13
-  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1094, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %24 = call i32 @errcode_for_file_access() #12
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1094, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #12
   unreachable
 
 26:                                               ; preds = %1
@@ -931,18 +928,17 @@ define dso_local void @heap_xlog_logical_rewrite(ptr noundef readonly captures(n
   store volatile i32 167772194, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %29 = load i64, ptr %28, align 8
-  %30 = call i32 @ftruncate(i32 noundef %20, i64 noundef %29) #13
+  %30 = call i32 @ftruncate(i32 noundef %20, i64 noundef %29) #12
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %37, label %31
 
 31:                                               ; preds = %26
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 @errcode_for_file_access() #13
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %33 = call i32 @errcode_for_file_access() #12
   %34 = load i64, ptr %28, align 8
   %35 = trunc i64 %34 to i32
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, i32 noundef %35) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1105, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, i32 noundef %35) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1105, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #12
   unreachable
 
 37:                                               ; preds = %26
@@ -955,13 +951,13 @@ define dso_local void @heap_xlog_logical_rewrite(ptr noundef readonly captures(n
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %44 = load i32, ptr %43, align 8
   %45 = mul i32 %44, 36
-  %46 = tail call ptr @__errno_location() #15
+  %46 = tail call ptr @__errno_location() #14
   store i32 0, ptr %46, align 4
   %47 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772192, ptr %47, align 4
   %48 = zext i32 %45 to i64
   %49 = load i64, ptr %28, align 8
-  %50 = call i64 @pwrite(i32 noundef %20, ptr noundef nonnull %42, i64 noundef %48, i64 noundef %49) #13
+  %50 = call i64 @pwrite(i32 noundef %20, ptr noundef nonnull %42, i64 noundef %48, i64 noundef %49) #12
   %.not19 = icmp eq i64 %50, %48
   br i1 %.not19, label %59, label %51
 
@@ -975,11 +971,10 @@ define dso_local void @heap_xlog_logical_rewrite(ptr noundef readonly captures(n
   br label %55
 
 55:                                               ; preds = %54, %51
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %56)
-  %57 = call i32 @errcode_for_file_access() #13
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1122, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %57 = call i32 @errcode_for_file_access() #12
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %2) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1122, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #12
   unreachable
 
 59:                                               ; preds = %37
@@ -987,34 +982,33 @@ define dso_local void @heap_xlog_logical_rewrite(ptr noundef readonly captures(n
   store volatile i32 0, ptr %60, align 4
   %61 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772191, ptr %61, align 4
-  %62 = call i32 @pg_fsync(i32 noundef %20) #13
+  %62 = call i32 @pg_fsync(i32 noundef %20) #12
   %.not20 = icmp eq i32 %62, 0
   br i1 %.not20, label %69, label %63
 
 63:                                               ; preds = %59
-  %64 = call i32 @data_sync_elevel(i32 noundef 21) #13
-  %65 = call zeroext i1 @errstart(i32 noundef %64, ptr noundef null) #13
+  %64 = call i32 @data_sync_elevel(i32 noundef 21) #12
+  %65 = call zeroext i1 @errstart(i32 noundef %64, ptr noundef null) #12
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %63
-  %67 = call i32 @errcode_for_file_access() #13
-  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1135, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  %67 = call i32 @errcode_for_file_access() #12
+  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %2) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1135, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #12
   br label %69
 
 69:                                               ; preds = %63, %66, %59
   %70 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %70, align 4
-  %71 = call i32 @CloseTransientFile(i32 noundef %20) #13
+  %71 = call i32 @CloseTransientFile(i32 noundef %20) #12
   %.not21 = icmp eq i32 %71, 0
   br i1 %.not21, label %76, label %72
 
 72:                                               ; preds = %69
-  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %73)
-  %74 = call i32 @errcode_for_file_access() #13
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1141, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #13
+  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %74 = call i32 @errcode_for_file_access() #12
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %2) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1141, ptr noundef nonnull @__func__.heap_xlog_logical_rewrite) #12
   unreachable
 
 76:                                               ; preds = %69
@@ -1062,10 +1056,10 @@ define dso_local void @CheckPointLogicalRewriteHeap() local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %8 = tail call i64 @GetRedoRecPtr() #13
-  %9 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #13
-  %10 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.4) #13
-  %11 = tail call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.4) #13
+  %8 = tail call i64 @GetRedoRecPtr() #12
+  %9 = tail call i64 @ReplicationSlotsComputeLogicalRestartLSN() #12
+  %10 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.4) #12
+  %11 = tail call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.4) #12
   %.not2739 = icmp eq ptr %11, null
   br i1 %.not2739, label %._crit_edge, label %sub_0.lr.ph
 
@@ -1107,27 +1101,26 @@ sub_134:                                          ; preds = %.tail
   br i1 %23, label %75, label %.tail32.thread, !llvm.loop !9
 
 .tail32.thread:                                   ; preds = %sub_0, %sub_134, %.tail32
-  %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1044, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #13
-  %25 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 14) #13
+  %24 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1044, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4, ptr noundef nonnull %14) #12
+  %25 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 14) #12
   %26 = and i32 %25, -3
   %or.cond.not = icmp eq i32 %26, 0
   br i1 %or.cond.not, label %27, label %75, !llvm.loop !9
 
 27:                                               ; preds = %.tail32.thread
-  %28 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #16
+  %28 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #15
   %.not28 = icmp eq i32 %28, 0
   br i1 %.not28, label %29, label %75, !llvm.loop !9
 
 29:                                               ; preds = %27
-  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %14, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not29 = icmp eq i32 %30, 6
   br i1 %.not29, label %34, label %31
 
 31:                                               ; preds = %29
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %14) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1204, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %14) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1204, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #12
   unreachable
 
 34:                                               ; preds = %29
@@ -1141,71 +1134,68 @@ sub_134:                                          ; preds = %.tail
   br i1 %or.cond3.not, label %52, label %41
 
 41:                                               ; preds = %34
-  %42 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  %42 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #12
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1210, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, ptr noundef nonnull %1) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1210, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #12
   br label %45
 
 45:                                               ; preds = %43, %41
-  %46 = call i32 @unlink(ptr noundef nonnull %1) #13
+  %46 = call i32 @unlink(ptr noundef nonnull %1) #12
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %75
 
 48:                                               ; preds = %45
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %49)
-  %50 = call i32 @errcode_for_file_access() #13
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1214, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %50 = call i32 @errcode_for_file_access() #12
+  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1214, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #12
   unreachable
 
 52:                                               ; preds = %34
-  %53 = call i32 @OpenTransientFile(ptr noundef nonnull %1, i32 noundef 2) #13
+  %53 = call i32 @OpenTransientFile(ptr noundef nonnull %1, i32 noundef 2) #12
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %52
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %56)
-  %57 = call i32 @errcode_for_file_access() #13
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1229, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %57 = call i32 @errcode_for_file_access() #12
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1229, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #12
   unreachable
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772190, ptr %60, align 4
-  %61 = call i32 @pg_fsync(i32 noundef %53) #13
+  %61 = call i32 @pg_fsync(i32 noundef %53) #12
   %.not30 = icmp eq i32 %61, 0
   br i1 %.not30, label %68, label %62
 
 62:                                               ; preds = %59
-  %63 = call i32 @data_sync_elevel(i32 noundef 21) #13
-  %64 = call zeroext i1 @errstart(i32 noundef %63, ptr noundef null) #13
+  %63 = call i32 @data_sync_elevel(i32 noundef 21) #12
+  %64 = call zeroext i1 @errstart(i32 noundef %63, ptr noundef null) #12
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %62
-  %66 = call i32 @errcode_for_file_access() #13
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1240, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  %66 = call i32 @errcode_for_file_access() #12
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1240, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #12
   br label %68
 
 68:                                               ; preds = %62, %65, %59
   %69 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %69, align 4
-  %70 = call i32 @CloseTransientFile(i32 noundef %53) #13
+  %70 = call i32 @CloseTransientFile(i32 noundef %53) #12
   %.not31 = icmp eq i32 %70, 0
   br i1 %.not31, label %75, label %71
 
 71:                                               ; preds = %68
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 @errcode_for_file_access() #13
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %1) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1246, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #13
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %73 = call i32 @errcode_for_file_access() #12
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %1) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1246, ptr noundef nonnull @__func__.CheckPointLogicalRewriteHeap) #12
   unreachable
 
 75:                                               ; preds = %45, %68, %27, %.tail32.thread, %.tail, %.tail32
@@ -1215,13 +1205,13 @@ sub_134:                                          ; preds = %.tail
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %76 = call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.4) #13
+  %76 = call ptr @ReadDir(ptr noundef %10, ptr noundef nonnull @.str.4) #12
   %.not27 = icmp eq ptr %76, null
   br i1 %.not27, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %75, %0
-  %77 = call i32 @FreeDir(ptr noundef %10) #13
-  call void @fsync_fname(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #13
+  %77 = call i32 @FreeDir(ptr noundef %10) #12
+  call void @fsync_fname(ptr noundef nonnull @.str.4, i1 noundef zeroext true) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -1283,20 +1273,20 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef cap
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
+  %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #12
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %8
   %11 = load i32, ptr %5, align 8
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %11) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 820, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #13
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %11) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 820, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #12
   br label %13
 
 13:                                               ; preds = %10, %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %15) #13
-  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %15) #12
+  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #12
   %.not57 = icmp eq ptr %16, null
   br i1 %.not57, label %.loopexit, label %.lr.ph59
 
@@ -1342,7 +1332,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef cap
   store i64 %42, ptr %22, align 8
   %43 = mul i32 %.val, 36
   %44 = zext i32 %43 to i64
-  %45 = call ptr @palloc(i64 noundef %44) #13
+  %45 = call ptr @palloc(i64 noundef %44) #12
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not48 = icmp eq ptr %47, null
@@ -1367,7 +1357,7 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef cap
   %54 = load i32, ptr %27, align 8
   %55 = add i32 %54, -1
   store i32 %55, ptr %27, align 8
-  call void @pfree(ptr noundef nonnull %48) #13
+  call void @pfree(ptr noundef nonnull %48) #12
   %56 = load i32, ptr %5, align 8
   %57 = add i32 %56, -1
   store i32 %57, ptr %5, align 8
@@ -1381,35 +1371,34 @@ define internal fastcc void @logical_heap_rewrite_flush_mappings(ptr noundef cap
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %45, ptr %2, align 8
   store i64 %44, ptr %23, align 8
-  %61 = call i64 @FileWriteV(i32 noundef %59, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %60, i32 noundef 167772195) #13
+  %61 = call i64 @FileWriteV(i32 noundef %59, ptr noundef nonnull %2, i32 noundef 1, i64 noundef %60, i32 noundef 167772195) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %62 = trunc i64 %61 to i32
   %.not50 = icmp eq i32 %43, %62
   br i1 %.not50, label %68, label %63
 
 63:                                               ; preds = %._crit_edge
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %64)
-  %65 = call i32 @errcode_for_file_access() #13
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %65 = call i32 @errcode_for_file_access() #12
   %66 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %66, i32 noundef %62, i32 noundef %43) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 886, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #13
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %66, i32 noundef %62, i32 noundef %43) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 886, ptr noundef nonnull @__func__.logical_heap_rewrite_flush_mappings) #12
   unreachable
 
 68:                                               ; preds = %._crit_edge
   %69 = load i64, ptr %40, align 8
   %70 = add i64 %69, %44
   store i64 %70, ptr %40, align 8
-  call void @XLogBeginInsert() #13
-  call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 40) #13
-  call void @XLogRegisterData(ptr noundef %45, i32 noundef %43) #13
-  %71 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 0) #13
-  call void @pfree(ptr noundef %45) #13
+  call void @XLogBeginInsert() #12
+  call void @XLogRegisterData(ptr noundef nonnull %4, i32 noundef 40) #12
+  call void @XLogRegisterData(ptr noundef %45, i32 noundef %43) #12
+  %71 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext 0) #12
+  call void @pfree(ptr noundef %45) #12
   br label %72
 
 72:                                               ; preds = %24, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %73 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
+  %73 = call ptr @hash_seq_search(ptr noundef nonnull %3) #12
   %.not = icmp eq ptr %73, null
   br i1 %.not, label %.loopexit, label %24
 
@@ -1446,7 +1435,7 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr noundef captures(no
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #13
+  %12 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #12
   %13 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %44, label %15
@@ -1467,8 +1456,8 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr noundef captures(no
   %26 = trunc nuw i64 %25 to i32
   %27 = trunc i64 %24 to i32
   %28 = load i32, ptr %4, align 4
-  %29 = call i32 @GetCurrentTransactionId() #13
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %.0, i32 noundef %9, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29) #13
+  %29 = call i32 @GetCurrentTransactionId() #12
+  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef %.0, i32 noundef %9, i32 noundef %26, i32 noundef %27, i32 noundef %28, i32 noundef %29) #12
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %31, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -1479,18 +1468,17 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr noundef captures(no
   store i64 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %35, ptr noundef nonnull align 16 dereferenceable(1024) %6, i64 1024, i1 false)
-  %36 = call i32 @PathNameOpenFile(ptr noundef nonnull %6, i32 noundef 193) #13
+  %36 = call i32 @PathNameOpenFile(ptr noundef nonnull %6, i32 noundef 193) #12
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %36, ptr %37, align 4
   %38 = icmp slt i32 %36, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %15
-  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %40)
-  %41 = call i32 @errcode_for_file_access() #13
-  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #13
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 977, ptr noundef nonnull @__func__.logical_rewrite_log_mapping) #13
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %41 = call i32 @errcode_for_file_access() #12
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %6) #12
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 977, ptr noundef nonnull @__func__.logical_rewrite_log_mapping) #12
   unreachable
 
 43:                                               ; preds = %15
@@ -1500,7 +1488,7 @@ define internal fastcc void @logical_rewrite_log_mapping(ptr noundef captures(no
 44:                                               ; preds = %43, %3
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = call ptr @MemoryContextAlloc(ptr noundef %46, i64 noundef 56) #13
+  %47 = call ptr @MemoryContextAlloc(ptr noundef %46, i64 noundef 56) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %47, ptr noundef nonnull align 4 dereferenceable(36) %2, i64 36, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -1556,11 +1544,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #12
+declare i64 @llvm.umin.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1573,12 +1558,11 @@ attributes #7 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

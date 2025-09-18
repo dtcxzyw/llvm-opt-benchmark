@@ -285,7 +285,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %.not = icmp ult i64 %1, %12
-  br i1 %.not, label %44, label %13
+  br i1 %.not, label %41, label %13
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -328,18 +328,18 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14: ; preds = %_ZNSo
 
 28:                                               ; preds = %26
   invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #17
-          to label %45 unwind label %32
+          to label %42 unwind label %32
 
 29:                                               ; preds = %_ZNSolsEm.exit13, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit12, %_ZNSolsEm.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %13
   %30 = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit14
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %42
+  br label %39
 
 32:                                               ; preds = %28, %26
   %.0 = phi i1 [ false, %28 ], [ true, %26 ]
@@ -351,35 +351,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !29
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0, label %42, label %43
+  br i1 %.0, label %39, label %40
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32
-  %40 = load i64, ptr %35, align 8, !tbaa !30
-  %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %34, i64 noundef %41) #16
+  %37 = load i64, ptr %35, align 8, !tbaa !29
+  %38 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %34, i64 noundef %38) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.0, label %42, label %43
+  br i1 %.0, label %39, label %40
 
-42:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn17 = phi { ptr, i32 } [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @__cxa_free_exception(ptr %25) #19
-  br label %43
+  br label %40
 
-43:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %42, %29
-  %.pn.pn = phi { ptr, i32 } [ %.pn17, %42 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %29 ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
+40:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %39, %29
+  %.pn.pn = phi { ptr, i32 } [ %.pn17, %39 ], [ %33, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %30, %29 ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
-44:                                               ; preds = %2
+41:                                               ; preds = %2
   ret void
 
-45:                                               ; preds = %28
+42:                                               ; preds = %28
   unreachable
 }
 
@@ -410,10 +406,10 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping7getPairEmRfS1_(ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %1
-  %8 = load float, ptr %7, align 4, !tbaa !31
+  %8 = load float, ptr %7, align 4, !tbaa !30
   store float %8, ptr %2, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %10 = load float, ptr %9, align 4, !tbaa !33
+  %10 = load float, ptr %9, align 4, !tbaa !32
   store float %10, ptr %3, align 4, !tbaa !16
   ret void
 }
@@ -424,9 +420,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12IndexMapping7setPairEmff(ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %1
-  store float %2, ptr %7, align 4, !tbaa !31
+  store float %2, ptr %7, align 4, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float %3, ptr %8, align 4, !tbaa !33
+  store float %3, ptr %8, align 4, !tbaa !32
   ret void
 }
 
@@ -446,7 +442,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping8validateEv(ptr nound
   %8 = zext i32 %7 to i64
   %9 = load i64, ptr %2, align 8, !tbaa !6
   %10 = icmp ugt i64 %9, %8
-  br i1 %10, label %11, label %._crit_edge, !llvm.loop !34
+  br i1 %10, label %11, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -457,17 +453,17 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping8validateEv(ptr nound
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %12)
   %13 = load ptr, ptr %5, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %12
-  %15 = load float, ptr %14, align 4, !tbaa !31
+  %15 = load float, ptr %14, align 4, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %17 = load float, ptr %16, align 4, !tbaa !33
+  %17 = load float, ptr %16, align 4, !tbaa !32
   %18 = add i32 %.010, -1
   %19 = zext i32 %18 to i64
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %19)
   %20 = load ptr, ptr %5, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %19
-  %22 = load float, ptr %21, align 4, !tbaa !31
+  %22 = load float, ptr %21, align 4, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %24 = load float, ptr %23, align 4, !tbaa !33
+  %24 = load float, ptr %23, align 4, !tbaa !32
   %25 = fcmp ugt float %15, %22
   %26 = fcmp ugt float %17, %24
   %or.cond = select i1 %25, i1 %26, i1 false
@@ -533,8 +529,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
 .lr.ph.i.i.i.i.i.i:                               ; preds = %27, %36
   %.011.i.i.i.i.i.i = phi ptr [ %38, %36 ], [ %22, %27 ]
   %.0810.i.i.i.i.i.i = phi ptr [ %37, %36 ], [ %16, %27 ]
-  %28 = load float, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !31
-  %29 = load float, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !31
+  %28 = load float, ptr %.0810.i.i.i.i.i.i, align 4, !tbaa !30
+  %29 = load float, ptr %.011.i.i.i.i.i.i, align 4, !tbaa !30
   %30 = fcmp une float %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 4
   %32 = load float, ptr %31, align 4
@@ -548,12 +544,12 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
   %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %37, %15
-  br i1 %.not.i.i.i.i.i.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i.i.i.i, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !34
 
 _ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %36, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %11, !llvm.loop !36
+  br i1 %exitcond, label %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread, label %11, !llvm.loop !35
 
 _ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread: ; preds = %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, %11, %.lr.ph.i.i.i.i.i.i, %4, %2
   %.010 = phi i1 [ true, %2 ], [ false, %4 ], [ false, %.lr.ph.i.i.i.i.i.i ], [ %26, %11 ], [ %26, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ]
@@ -643,11 +639,10 @@ attributes #19 = { nounwind }
 !26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !8, i64 8, !9, i64 16}
 !27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
 !28 = !{!"p1 omnipotent char", !13, i64 0}
-!29 = !{!26, !8, i64 8}
-!30 = !{!9, !9, i64 0}
-!31 = !{!32, !17, i64 0}
-!32 = !{!"_ZTSSt4pairIffE", !17, i64 0, !17, i64 4}
-!33 = !{!32, !17, i64 4}
+!29 = !{!9, !9, i64 0}
+!30 = !{!31, !17, i64 0}
+!31 = !{!"_ZTSSt4pairIffE", !17, i64 0, !17, i64 4}
+!32 = !{!31, !17, i64 4}
+!33 = distinct !{!33, !24}
 !34 = distinct !{!34, !24}
 !35 = distinct !{!35, !24}
-!36 = distinct !{!36, !24}

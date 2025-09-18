@@ -83,12 +83,6 @@ define hidden { ptr, ptr } @_ZN10ockam_node13channel_types13small_channel17h0558
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 1, ptr %2, align 8, !noalias !4
   %3 = call { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17hfaa2af06c734ed82E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1), !noalias !4
-  %4 = extractvalue { ptr, ptr } %3, 0
-  %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret { ptr, ptr } %3
 }
@@ -1633,9 +1627,6 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 
 "_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$core..cell..RefCell$LT$opentelemetry..context..Context$GT$$GT$$GT$17h2edef79a20b6c64cE.llvm.7571994248639921325.exit": ; preds = %"_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit28_$u7b$$u7b$closure$u7d$$u7d$17ha761a42dea77a55fE.llvm.7571994248639921325.exit", %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$opentelemetry..trace..context..SynchronizedSpan$GT$$GT$$GT$17he82bfbb4ff0bb70aE.llvm.12836552674783018658.exit.i.i.i.i", %22
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %26 = load i64, ptr %0, align 8, !range !27, !noundef !13
-  %27 = icmp ne i64 %26, 0
-  call void @llvm.assume(i1 %27)
   ret ptr %.sroa.4.0..sroa_idx
 }
 

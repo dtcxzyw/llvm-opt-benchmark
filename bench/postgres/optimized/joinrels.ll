@@ -90,11 +90,11 @@ define dso_local void @join_search_one_level(ptr noundef initializes((136, 140))
   %42 = load ptr, ptr %35, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call zeroext i1 @bms_overlap(ptr noundef %42, ptr noundef %44) #9
+  %45 = tail call zeroext i1 @bms_overlap(ptr noundef %42, ptr noundef %44) #8
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %.lr.ph22.i
-  %47 = tail call zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %41) #9
+  %47 = tail call zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %41) #8
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %46
@@ -133,7 +133,7 @@ define dso_local void @join_search_one_level(ptr noundef initializes((136, 140))
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %60, align 8
-  %69 = tail call zeroext i1 @bms_overlap(ptr noundef %67, ptr noundef %68) #9
+  %69 = tail call zeroext i1 @bms_overlap(ptr noundef %67, ptr noundef %68) #8
   br i1 %69, label %72, label %70
 
 70:                                               ; preds = %.lr.ph16.i
@@ -221,11 +221,11 @@ make_rels_by_clause_joins.exit:                   ; preds = %72, %52, %.lr.ph.i1
   %115 = load ptr, ptr %108, align 8
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call zeroext i1 @bms_overlap(ptr noundef %115, ptr noundef %117) #9
+  %118 = tail call zeroext i1 @bms_overlap(ptr noundef %115, ptr noundef %117) #8
   br i1 %118, label %125, label %119
 
 119:                                              ; preds = %.lr.ph129
-  %120 = tail call zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef nonnull %92, ptr noundef nonnull %114) #9
+  %120 = tail call zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef nonnull %92, ptr noundef nonnull %114) #8
   br i1 %120, label %123, label %121
 
 121:                                              ; preds = %119
@@ -311,7 +311,7 @@ make_rels_by_clause_joins.exit:                   ; preds = %72, %52, %.lr.ph.i1
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %155, align 8
-  %164 = tail call zeroext i1 @bms_overlap(ptr noundef %162, ptr noundef %163) #9
+  %164 = tail call zeroext i1 @bms_overlap(ptr noundef %162, ptr noundef %163) #8
   br i1 %164, label %167, label %165
 
 165:                                              ; preds = %.lr.ph16.i116
@@ -354,10 +354,9 @@ make_rels_by_clauseless_joins.exit119:            ; preds = %make_rels_by_clause
   br i1 %181, label %185, label %182
 
 182:                                              ; preds = %178
-  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %183)
-  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.join_search_one_level) #9
+  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.join_search_one_level) #8
   unreachable
 
 185:                                              ; preds = %.critedge109, %.critedge109.thread, %178, %.critedge105
@@ -399,13 +398,13 @@ define internal fastcc noundef zeroext i1 @has_join_restriction(ptr noundef read
   %19 = load ptr, ptr %13, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @bms_is_subset(ptr noundef %19, ptr noundef %21) #9
+  %22 = tail call zeroext i1 @bms_is_subset(ptr noundef %19, ptr noundef %21) #8
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %.lr.ph66
   %24 = load ptr, ptr %13, align 8
   %25 = load ptr, ptr %20, align 8
-  %26 = tail call zeroext i1 @bms_equal(ptr noundef %24, ptr noundef %25) #9
+  %26 = tail call zeroext i1 @bms_equal(ptr noundef %24, ptr noundef %25) #8
   br i1 %26, label %.critedge, label %.thread60
 
 .critedge:                                        ; preds = %23, %.lr.ph66
@@ -443,27 +442,27 @@ define internal fastcc noundef zeroext i1 @has_join_restriction(ptr noundef read
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %34, align 8
-  %47 = tail call zeroext i1 @bms_is_subset(ptr noundef %45, ptr noundef %46) #9
+  %47 = tail call zeroext i1 @bms_is_subset(ptr noundef %45, ptr noundef %46) #8
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %34, align 8
-  %52 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %51) #9
+  %52 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %51) #8
   br i1 %52, label %62, label %53
 
 53:                                               ; preds = %48, %43
   %54 = load ptr, ptr %44, align 8
   %55 = load ptr, ptr %34, align 8
-  %56 = tail call zeroext i1 @bms_overlap(ptr noundef %54, ptr noundef %55) #9
+  %56 = tail call zeroext i1 @bms_overlap(ptr noundef %54, ptr noundef %55) #8
   br i1 %56, label %.thread60, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = load ptr, ptr %34, align 8
-  %61 = tail call zeroext i1 @bms_overlap(ptr noundef %59, ptr noundef %60) #9
+  %61 = tail call zeroext i1 @bms_overlap(ptr noundef %59, ptr noundef %60) #8
   br i1 %61, label %.thread60, label %62
 
 62:                                               ; preds = %.lr.ph79, %48, %57
@@ -488,7 +487,7 @@ define dso_local noundef zeroext i1 @have_join_order_restriction(ptr noundef %0,
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call zeroext i1 @bms_overlap(ptr noundef %5, ptr noundef %7) #9
+  %8 = tail call zeroext i1 @bms_overlap(ptr noundef %5, ptr noundef %7) #8
   br i1 %8, label %.critedge67, label %9
 
 9:                                                ; preds = %3
@@ -496,7 +495,7 @@ define dso_local noundef zeroext i1 @have_join_order_restriction(ptr noundef %0,
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call zeroext i1 @bms_overlap(ptr noundef %11, ptr noundef %13) #9
+  %14 = tail call zeroext i1 @bms_overlap(ptr noundef %11, ptr noundef %13) #8
   br i1 %14, label %.critedge67, label %15
 
 15:                                               ; preds = %9
@@ -520,13 +519,13 @@ define dso_local noundef zeroext i1 @have_join_order_restriction(ptr noundef %0,
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call zeroext i1 @bms_is_subset(ptr noundef %25, ptr noundef %27) #9
+  %28 = tail call zeroext i1 @bms_is_subset(ptr noundef %25, ptr noundef %27) #8
   br i1 %28, label %29, label %.critedge
 
 29:                                               ; preds = %.lr.ph77
   %30 = load ptr, ptr %10, align 8
   %31 = load ptr, ptr %26, align 8
-  %32 = tail call zeroext i1 @bms_is_subset(ptr noundef %30, ptr noundef %31) #9
+  %32 = tail call zeroext i1 @bms_is_subset(ptr noundef %30, ptr noundef %31) #8
   br i1 %32, label %.critedge67, label %.critedge
 
 .critedge:                                        ; preds = %29, %.lr.ph77
@@ -563,52 +562,52 @@ define dso_local noundef zeroext i1 @have_join_order_restriction(ptr noundef %0,
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %4, align 8
-  %52 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %51) #9
+  %52 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %51) #8
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %10, align 8
-  %57 = tail call zeroext i1 @bms_is_subset(ptr noundef %55, ptr noundef %56) #9
+  %57 = tail call zeroext i1 @bms_is_subset(ptr noundef %55, ptr noundef %56) #8
   br i1 %57, label %.critedge67.thread, label %58
 
 58:                                               ; preds = %53, %48
   %59 = load ptr, ptr %49, align 8
   %60 = load ptr, ptr %10, align 8
-  %61 = tail call zeroext i1 @bms_is_subset(ptr noundef %59, ptr noundef %60) #9
+  %61 = tail call zeroext i1 @bms_is_subset(ptr noundef %59, ptr noundef %60) #8
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %4, align 8
-  %66 = tail call zeroext i1 @bms_is_subset(ptr noundef %64, ptr noundef %65) #9
+  %66 = tail call zeroext i1 @bms_is_subset(ptr noundef %64, ptr noundef %65) #8
   br i1 %66, label %.critedge67.thread, label %67
 
 67:                                               ; preds = %62, %58
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %4, align 8
-  %71 = tail call zeroext i1 @bms_overlap(ptr noundef %69, ptr noundef %70) #9
+  %71 = tail call zeroext i1 @bms_overlap(ptr noundef %69, ptr noundef %70) #8
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %67
   %73 = load ptr, ptr %68, align 8
   %74 = load ptr, ptr %10, align 8
-  %75 = tail call zeroext i1 @bms_overlap(ptr noundef %73, ptr noundef %74) #9
+  %75 = tail call zeroext i1 @bms_overlap(ptr noundef %73, ptr noundef %74) #8
   br i1 %75, label %.critedge67.thread, label %76
 
 76:                                               ; preds = %72, %67
   %77 = load ptr, ptr %49, align 8
   %78 = load ptr, ptr %4, align 8
-  %79 = tail call zeroext i1 @bms_overlap(ptr noundef %77, ptr noundef %78) #9
+  %79 = tail call zeroext i1 @bms_overlap(ptr noundef %77, ptr noundef %78) #8
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %49, align 8
   %82 = load ptr, ptr %10, align 8
-  %83 = tail call zeroext i1 @bms_overlap(ptr noundef %81, ptr noundef %82) #9
+  %83 = tail call zeroext i1 @bms_overlap(ptr noundef %81, ptr noundef %82) #8
   br i1 %83, label %.critedge67.thread, label %84
 
 84:                                               ; preds = %76, %80, %.lr.ph91
@@ -651,12 +650,12 @@ define dso_local ptr @make_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef 
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @bms_union(ptr noundef %10, ptr noundef %12) #9
+  %13 = tail call ptr @bms_union(ptr noundef %10, ptr noundef %12) #8
   %14 = call fastcc zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %13, ptr noundef %4, ptr noundef %5)
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %3
-  tail call void @bms_free(ptr noundef %13) #9
+  tail call void @bms_free(ptr noundef %13) #8
   br label %50
 
 16:                                               ; preds = %3
@@ -692,7 +691,7 @@ define dso_local ptr @make_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef 
 33:                                               ; preds = %22, %16
   %34 = phi ptr [ %7, %22 ], [ %17, %16 ]
   %35 = load ptr, ptr %6, align 8
-  %36 = call ptr @build_join_rel(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %spec.select30, ptr noundef nonnull %spec.select, ptr noundef nonnull %34, ptr noundef %35, ptr noundef nonnull %8) #9
+  %36 = call ptr @build_join_rel(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %spec.select30, ptr noundef nonnull %spec.select, ptr noundef nonnull %34, ptr noundef %35, ptr noundef nonnull %8) #8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -724,13 +723,13 @@ define dso_local ptr @make_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %48, label %is_dummy_rel.exit, label %.loopexit.i
 
 is_dummy_rel.exit:                                ; preds = %45
-  call void @bms_free(ptr noundef %18) #9
+  call void @bms_free(ptr noundef %18) #8
   br label %50
 
 .loopexit.i:                                      ; preds = %42, %45, %33
   %49 = load ptr, ptr %8, align 8
   call fastcc void @populate_joinrel_with_paths(ptr noundef %0, ptr noundef nonnull %spec.select30, ptr noundef nonnull %spec.select, ptr noundef %36, ptr noundef nonnull %34, ptr noundef %49)
-  call void @bms_free(ptr noundef %18) #9
+  call void @bms_free(ptr noundef %18) #8
   br label %50
 
 50:                                               ; preds = %.loopexit.i, %is_dummy_rel.exit, %15
@@ -801,37 +800,37 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @bms_overlap(ptr noundef %21, ptr noundef %3) #9
+  %22 = tail call zeroext i1 @bms_overlap(ptr noundef %21, ptr noundef %3) #8
   br i1 %22, label %23, label %116
 
 23:                                               ; preds = %.lr.ph279
   %24 = load ptr, ptr %20, align 8
-  %25 = tail call zeroext i1 @bms_is_subset(ptr noundef %3, ptr noundef %24) #9
+  %25 = tail call zeroext i1 @bms_is_subset(ptr noundef %3, ptr noundef %24) #8
   br i1 %25, label %116, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %11, align 8
-  %30 = tail call zeroext i1 @bms_is_subset(ptr noundef %28, ptr noundef %29) #9
+  %30 = tail call zeroext i1 @bms_is_subset(ptr noundef %28, ptr noundef %29) #8
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %20, align 8
   %33 = load ptr, ptr %11, align 8
-  %34 = tail call zeroext i1 @bms_is_subset(ptr noundef %32, ptr noundef %33) #9
+  %34 = tail call zeroext i1 @bms_is_subset(ptr noundef %32, ptr noundef %33) #8
   br i1 %34, label %116, label %35
 
 35:                                               ; preds = %31, %26
   %36 = load ptr, ptr %27, align 8
   %37 = load ptr, ptr %12, align 8
-  %38 = tail call zeroext i1 @bms_is_subset(ptr noundef %36, ptr noundef %37) #9
+  %38 = tail call zeroext i1 @bms_is_subset(ptr noundef %36, ptr noundef %37) #8
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %20, align 8
   %41 = load ptr, ptr %12, align 8
-  %42 = tail call zeroext i1 @bms_is_subset(ptr noundef %40, ptr noundef %41) #9
+  %42 = tail call zeroext i1 @bms_is_subset(ptr noundef %40, ptr noundef %41) #8
   br i1 %42, label %116, label %43
 
 43:                                               ; preds = %39, %35
@@ -844,37 +843,37 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %11, align 8
-  %51 = tail call zeroext i1 @bms_is_subset(ptr noundef %49, ptr noundef %50) #9
+  %51 = tail call zeroext i1 @bms_is_subset(ptr noundef %49, ptr noundef %50) #8
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %47
   %53 = load ptr, ptr %48, align 8
   %54 = load ptr, ptr %11, align 8
-  %55 = tail call zeroext i1 @bms_equal(ptr noundef %53, ptr noundef %54) #9
+  %55 = tail call zeroext i1 @bms_equal(ptr noundef %53, ptr noundef %54) #8
   br i1 %55, label %56, label %116
 
 56:                                               ; preds = %52, %47
   %57 = load ptr, ptr %48, align 8
   %58 = load ptr, ptr %12, align 8
-  %59 = tail call zeroext i1 @bms_is_subset(ptr noundef %57, ptr noundef %58) #9
+  %59 = tail call zeroext i1 @bms_is_subset(ptr noundef %57, ptr noundef %58) #8
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %48, align 8
   %62 = load ptr, ptr %12, align 8
-  %63 = tail call zeroext i1 @bms_equal(ptr noundef %61, ptr noundef %62) #9
+  %63 = tail call zeroext i1 @bms_equal(ptr noundef %61, ptr noundef %62) #8
   br i1 %63, label %64, label %116
 
 64:                                               ; preds = %56, %60, %43
   %65 = load ptr, ptr %27, align 8
   %66 = load ptr, ptr %11, align 8
-  %67 = tail call zeroext i1 @bms_is_subset(ptr noundef %65, ptr noundef %66) #9
+  %67 = tail call zeroext i1 @bms_is_subset(ptr noundef %65, ptr noundef %66) #8
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %20, align 8
   %70 = load ptr, ptr %12, align 8
-  %71 = tail call zeroext i1 @bms_is_subset(ptr noundef %69, ptr noundef %70) #9
+  %71 = tail call zeroext i1 @bms_is_subset(ptr noundef %69, ptr noundef %70) #8
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %68
@@ -884,13 +883,13 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 73:                                               ; preds = %68, %64
   %74 = load ptr, ptr %27, align 8
   %75 = load ptr, ptr %12, align 8
-  %76 = tail call zeroext i1 @bms_is_subset(ptr noundef %74, ptr noundef %75) #9
+  %76 = tail call zeroext i1 @bms_is_subset(ptr noundef %74, ptr noundef %75) #8
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr %20, align 8
   %79 = load ptr, ptr %11, align 8
-  %80 = tail call zeroext i1 @bms_is_subset(ptr noundef %78, ptr noundef %79) #9
+  %80 = tail call zeroext i1 @bms_is_subset(ptr noundef %78, ptr noundef %79) #8
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %77
@@ -906,12 +905,12 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %86 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr %12, align 8
-  %89 = tail call zeroext i1 @bms_equal(ptr noundef %87, ptr noundef %88) #9
+  %89 = tail call zeroext i1 @bms_equal(ptr noundef %87, ptr noundef %88) #8
   br i1 %89, label %90, label %94
 
 90:                                               ; preds = %85
   %91 = load ptr, ptr %13, align 8
-  %92 = tail call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %91, ptr noundef nonnull %19) #9
+  %92 = tail call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %91, ptr noundef nonnull %19) #8
   %.not171 = icmp eq ptr %92, null
   br i1 %.not171, label %94, label %93
 
@@ -927,12 +926,12 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 96:                                               ; preds = %94
   %97 = load ptr, ptr %86, align 8
   %98 = load ptr, ptr %11, align 8
-  %99 = tail call zeroext i1 @bms_equal(ptr noundef %97, ptr noundef %98) #9
+  %99 = tail call zeroext i1 @bms_equal(ptr noundef %97, ptr noundef %98) #8
   br i1 %99, label %100, label %.thread189
 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %14, align 8
-  %102 = tail call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %101, ptr noundef nonnull %19) #9
+  %102 = tail call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %101, ptr noundef nonnull %19) #8
   %.not172 = icmp eq ptr %102, null
   br i1 %.not172, label %.thread189, label %103
 
@@ -943,13 +942,13 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 .thread189:                                       ; preds = %82, %100, %96, %94
   %104 = load ptr, ptr %11, align 8
   %105 = load ptr, ptr %20, align 8
-  %106 = tail call zeroext i1 @bms_overlap(ptr noundef %104, ptr noundef %105) #9
+  %106 = tail call zeroext i1 @bms_overlap(ptr noundef %104, ptr noundef %105) #8
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %.thread189
   %108 = load ptr, ptr %12, align 8
   %109 = load ptr, ptr %20, align 8
-  %110 = tail call zeroext i1 @bms_overlap(ptr noundef %108, ptr noundef %109) #9
+  %110 = tail call zeroext i1 @bms_overlap(ptr noundef %108, ptr noundef %109) #8
   br i1 %110, label %116, label %111
 
 111:                                              ; preds = %107, %.thread189
@@ -959,7 +958,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 113:                                              ; preds = %111
   %114 = load ptr, ptr %27, align 8
-  %115 = tail call zeroext i1 @bms_overlap(ptr noundef %3, ptr noundef %114) #9
+  %115 = tail call zeroext i1 @bms_overlap(ptr noundef %3, ptr noundef %114) #8
   br i1 %115, label %.thread202, label %116
 
 116:                                              ; preds = %72, %81, %93, %103, %113, %.lr.ph279, %23, %31, %39, %52, %60, %107
@@ -1014,12 +1013,12 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %137 = load ptr, ptr %136, align 8
-  %138 = tail call zeroext i1 @bms_overlap(ptr noundef %135, ptr noundef %137) #9
+  %138 = tail call zeroext i1 @bms_overlap(ptr noundef %135, ptr noundef %137) #8
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call zeroext i1 @bms_overlap(ptr noundef %140, ptr noundef %142) #9
+  %143 = tail call zeroext i1 @bms_overlap(ptr noundef %140, ptr noundef %142) #8
   %or.cond = select i1 %138, i1 %143, i1 false
   br i1 %or.cond, label %.thread202, label %144
 
@@ -1045,7 +1044,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %153 = load ptr, ptr %134, align 8
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %155 = load ptr, ptr %154, align 8
-  %156 = tail call zeroext i1 @bms_overlap(ptr noundef %153, ptr noundef %155) #9
+  %156 = tail call zeroext i1 @bms_overlap(ptr noundef %153, ptr noundef %155) #8
   br i1 %156, label %157, label %.thread202
 
 157:                                              ; preds = %152
@@ -1077,7 +1076,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   %170 = load ptr, ptr %139, align 8
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %172 = load ptr, ptr %171, align 8
-  %173 = tail call zeroext i1 @bms_overlap(ptr noundef %170, ptr noundef %172) #9
+  %173 = tail call zeroext i1 @bms_overlap(ptr noundef %170, ptr noundef %172) #8
   br i1 %173, label %174, label %.thread202
 
 174:                                              ; preds = %169
@@ -1087,12 +1086,12 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %177, label %.thread202, label %178
 
 178:                                              ; preds = %161, %174, %157
-  %179 = tail call ptr @min_join_parameterization(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2) #9
+  %179 = tail call ptr @min_join_parameterization(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2) #8
   %.not181 = icmp eq ptr %179, null
   br i1 %.not181, label %.critedge185, label %180
 
 180:                                              ; preds = %178
-  %181 = tail call ptr @bms_copy(ptr noundef %3) #9
+  %181 = tail call ptr @bms_copy(ptr noundef %3) #8
   %182 = load ptr, ptr %7, align 8
   %183 = icmp eq ptr %182, null
   br i1 %183, label %.split247.us, label %.lr.ph231
@@ -1129,18 +1128,18 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 195:                                              ; preds = %.lr.ph243
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %197 = load ptr, ptr %196, align 8
-  %198 = tail call zeroext i1 @bms_overlap(ptr noundef %197, ptr noundef %.1149227242) #9
+  %198 = tail call zeroext i1 @bms_overlap(ptr noundef %197, ptr noundef %.1149227242) #8
   br i1 %198, label %199, label %206
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %201 = load ptr, ptr %200, align 8
-  %202 = tail call zeroext i1 @bms_is_subset(ptr noundef %201, ptr noundef %.1149227242) #9
+  %202 = tail call zeroext i1 @bms_is_subset(ptr noundef %201, ptr noundef %.1149227242) #8
   br i1 %202, label %206, label %203
 
 203:                                              ; preds = %199
   %204 = load ptr, ptr %200, align 8
-  %205 = tail call ptr @bms_add_members(ptr noundef %.1149227242, ptr noundef %204) #9
+  %205 = tail call ptr @bms_add_members(ptr noundef %.1149227242, ptr noundef %204) #8
   br label %206
 
 206:                                              ; preds = %195, %199, %203, %.lr.ph243
@@ -1154,7 +1153,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
 
 .split247.us:                                     ; preds = %.lr.ph231, %.splitthread-pre-split, %.critedge, %180
   %.us-phi248 = phi ptr [ %181, %180 ], [ %.0148283, %.lr.ph231 ], [ %.2150, %.splitthread-pre-split ], [ %.2150, %.critedge ]
-  %210 = tail call zeroext i1 @bms_overlap(ptr noundef %.us-phi248, ptr noundef nonnull %179) #9
+  %210 = tail call zeroext i1 @bms_overlap(ptr noundef %.us-phi248, ptr noundef nonnull %179) #8
   br i1 %210, label %.thread202, label %.critedge185
 
 .critedge185:                                     ; preds = %178, %.split247.us, %._crit_edge.thread
@@ -1187,25 +1186,25 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @bms_add_member(ptr noundef %1, i32 noundef %8) #9
+  %14 = tail call ptr @bms_add_member(ptr noundef %1, i32 noundef %8) #8
   br label %.critedge
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call zeroext i1 @bms_is_subset(ptr noundef %17, ptr noundef %1) #9
+  %18 = tail call zeroext i1 @bms_is_subset(ptr noundef %17, ptr noundef %1) #8
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %7, align 4
-  %21 = tail call ptr @bms_add_member(ptr noundef %1, i32 noundef %20) #9
+  %21 = tail call ptr @bms_add_member(ptr noundef %1, i32 noundef %20) #8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not55 = icmp eq ptr %23, null
   br i1 %.not55, label %.critedge, label %24
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @bms_copy(ptr noundef nonnull %23) #9
+  %25 = tail call ptr @bms_copy(ptr noundef nonnull %23) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
@@ -1248,38 +1247,38 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br i1 %.not58.us, label %43, label %66
 
 43:                                               ; preds = %40
-  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %38, ptr noundef %.04460.us70) #9
+  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %38, ptr noundef %.04460.us70) #8
   br i1 %44, label %45, label %66
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %37, align 4
-  %47 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %.162.us68) #9
+  %47 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %.162.us68) #8
   br i1 %47, label %66, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %.162.us68) #9
+  %51 = tail call zeroext i1 @bms_is_subset(ptr noundef %50, ptr noundef %.162.us68) #8
   br i1 %51, label %52, label %66
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call zeroext i1 @bms_is_subset(ptr noundef %54, ptr noundef %.162.us68) #9
+  %55 = tail call zeroext i1 @bms_is_subset(ptr noundef %54, ptr noundef %.162.us68) #8
   br i1 %55, label %56, label %66
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call zeroext i1 @bms_is_subset(ptr noundef %58, ptr noundef %.162.us68) #9
+  %59 = tail call zeroext i1 @bms_is_subset(ptr noundef %58, ptr noundef %.162.us68) #8
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %56
   %61 = load i32, ptr %37, align 4
-  %62 = tail call ptr @bms_add_member(ptr noundef %.162.us68, i32 noundef %61) #9
+  %62 = tail call ptr @bms_add_member(ptr noundef %.162.us68, i32 noundef %61) #8
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr @bms_add_members(ptr noundef %.04460.us70, ptr noundef %64) #9
+  %65 = tail call ptr @bms_add_members(ptr noundef %.04460.us70, ptr noundef %64) #8
   br label %66
 
 66:                                               ; preds = %60, %56, %52, %48, %45, %43, %40, %36, %.lr.ph71
@@ -1314,41 +1313,41 @@ define dso_local ptr @add_outer_joins_to_relids(ptr noundef readonly captures(no
   br i1 %.not58, label %81, label %.lr.ph.split
 
 81:                                               ; preds = %78
-  %82 = tail call zeroext i1 @bms_is_member(i32 noundef %76, ptr noundef %.0446091) #9
+  %82 = tail call zeroext i1 @bms_is_member(i32 noundef %76, ptr noundef %.0446091) #8
   br i1 %82, label %83, label %.lr.ph.split
 
 83:                                               ; preds = %81
   %84 = load i32, ptr %75, align 4
-  %85 = tail call zeroext i1 @bms_is_member(i32 noundef %84, ptr noundef %.16290) #9
+  %85 = tail call zeroext i1 @bms_is_member(i32 noundef %84, ptr noundef %.16290) #8
   br i1 %85, label %.lr.ph.split, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = tail call zeroext i1 @bms_is_subset(ptr noundef %88, ptr noundef %.16290) #9
+  %89 = tail call zeroext i1 @bms_is_subset(ptr noundef %88, ptr noundef %.16290) #8
   br i1 %89, label %90, label %.lr.ph.split
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = tail call zeroext i1 @bms_is_subset(ptr noundef %92, ptr noundef %.16290) #9
+  %93 = tail call zeroext i1 @bms_is_subset(ptr noundef %92, ptr noundef %.16290) #8
   br i1 %93, label %94, label %.lr.ph.split
 
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call zeroext i1 @bms_is_subset(ptr noundef %96, ptr noundef %.16290) #9
+  %97 = tail call zeroext i1 @bms_is_subset(ptr noundef %96, ptr noundef %.16290) #8
   br i1 %97, label %98, label %.lr.ph.split
 
 98:                                               ; preds = %94
   %99 = load i32, ptr %75, align 4
-  %100 = tail call ptr @bms_add_member(ptr noundef %.16290, i32 noundef %99) #9
+  %100 = tail call ptr @bms_add_member(ptr noundef %.16290, i32 noundef %99) #8
   %101 = load ptr, ptr %3, align 8
-  %102 = tail call ptr @lappend(ptr noundef %101, ptr noundef nonnull %72) #9
+  %102 = tail call ptr @lappend(ptr noundef %101, ptr noundef nonnull %72) #8
   store ptr %102, ptr %3, align 8
   %103 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call ptr @bms_add_members(ptr noundef %.0446091, ptr noundef %104) #9
+  %105 = tail call ptr @bms_add_members(ptr noundef %.0446091, ptr noundef %104) #8
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %83, %86, %90, %94, %98, %81, %.lr.ph92, %74, %78
@@ -1536,8 +1535,8 @@ is_dummy_rel.exit:                                ; preds = %54, %50, %33, %21
   br label %373
 
 .loopexit:                                        ; preds = %.critedge.i, %.loopexit.i132, %.lr.ph.i
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %5) #9
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef %5) #9
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef %5) #8
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 0, ptr noundef %4, ptr noundef %5) #8
   br label %373
 
 57:                                               ; preds = %6
@@ -1597,7 +1596,7 @@ is_dummy_rel.exit:                                ; preds = %54, %50, %33, %21
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %72, align 8
-  %85 = tail call zeroext i1 @bms_is_subset(ptr noundef %83, ptr noundef %84) #9
+  %85 = tail call zeroext i1 @bms_is_subset(ptr noundef %83, ptr noundef %84) #8
   br i1 %85, label %.critedge.us.i, label %86
 
 86:                                               ; preds = %81, %.lr.ph64.i
@@ -1679,7 +1678,7 @@ restriction_is_constant_false.exit158:            ; preds = %116, %112
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %122 = load ptr, ptr %121, align 8
-  %123 = tail call zeroext i1 @bms_is_subset(ptr noundef %120, ptr noundef %122) #9
+  %123 = tail call zeroext i1 @bms_is_subset(ptr noundef %120, ptr noundef %122) #8
   br i1 %123, label %124, label %restriction_is_constant_false.exit158.thread
 
 124:                                              ; preds = %restriction_is_constant_false.exit158
@@ -1687,8 +1686,8 @@ restriction_is_constant_false.exit158:            ; preds = %116, %112
   br label %restriction_is_constant_false.exit158.thread
 
 restriction_is_constant_false.exit158.thread:     ; preds = %.critedge.i154, %.lr.ph.i144, %.loopexit.i139, %.lr.ph.i148, %124, %restriction_is_constant_false.exit158
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %4, ptr noundef %5) #9
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 3, ptr noundef %4, ptr noundef %5) #9
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %4, ptr noundef %5) #8
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 3, ptr noundef %4, ptr noundef %5) #8
   br label %373
 
 125:                                              ; preds = %6
@@ -1779,7 +1778,7 @@ is_dummy_rel.exit165.thread:                      ; preds = %131, %143, %146, %i
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %163 = load ptr, ptr %162, align 8
   %164 = load ptr, ptr %152, align 8
-  %165 = tail call zeroext i1 @bms_is_subset(ptr noundef %163, ptr noundef %164) #9
+  %165 = tail call zeroext i1 @bms_is_subset(ptr noundef %163, ptr noundef %164) #8
   br i1 %165, label %.critedge.us.i179, label %166
 
 166:                                              ; preds = %161, %.lr.ph64.i176
@@ -1817,19 +1816,18 @@ is_dummy_rel.exit172:                             ; preds = %176, %172, %146
   br label %373
 
 .loopexit290:                                     ; preds = %.critedge.us.i179, %is_dummy_rel.exit165.thread, %.lr.ph.i174
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 2, ptr noundef %4, ptr noundef %5) #9
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 2, ptr noundef %4, ptr noundef %5) #9
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 2, ptr noundef %4, ptr noundef %5) #8
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 2, ptr noundef %4, ptr noundef %5) #8
   %182 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
   br i1 %184, label %185, label %373
 
 185:                                              ; preds = %.loopexit290
-  %186 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %186)
-  %187 = tail call i32 @errcode(i32 noundef 1088) #9
-  %188 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 972, ptr noundef nonnull @__func__.populate_joinrel_with_paths) #9
+  %186 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %187 = tail call i32 @errcode(i32 noundef 1088) #8
+  %188 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 972, ptr noundef nonnull @__func__.populate_joinrel_with_paths) #8
   unreachable
 
 189:                                              ; preds = %6
@@ -1837,7 +1835,7 @@ is_dummy_rel.exit172:                             ; preds = %176, %172, %146
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %193 = load ptr, ptr %192, align 8
-  %194 = tail call zeroext i1 @bms_is_subset(ptr noundef %191, ptr noundef %193) #9
+  %194 = tail call zeroext i1 @bms_is_subset(ptr noundef %191, ptr noundef %193) #8
   br i1 %194, label %195, label %246
 
 195:                                              ; preds = %189
@@ -1845,7 +1843,7 @@ is_dummy_rel.exit172:                             ; preds = %176, %172, %146
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %199 = load ptr, ptr %198, align 8
-  %200 = tail call zeroext i1 @bms_is_subset(ptr noundef %197, ptr noundef %199) #9
+  %200 = tail call zeroext i1 @bms_is_subset(ptr noundef %197, ptr noundef %199) #8
   br i1 %200, label %201, label %246
 
 201:                                              ; preds = %195
@@ -1962,8 +1960,8 @@ is_dummy_rel.exit189:                             ; preds = %243, %239, %222, %2
   br label %373
 
 .loopexit393:                                     ; preds = %.critedge.i373, %.loopexit.i193, %.lr.ph.i368
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %4, ptr noundef %5) #9
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 6, ptr noundef %4, ptr noundef %5) #9
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 4, ptr noundef %4, ptr noundef %5) #8
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 6, ptr noundef %4, ptr noundef %5) #8
   br label %246
 
 246:                                              ; preds = %.loopexit393, %195, %189
@@ -1971,13 +1969,13 @@ is_dummy_rel.exit189:                             ; preds = %243, %239, %222, %2
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %250 = load ptr, ptr %249, align 8
-  %251 = tail call zeroext i1 @bms_equal(ptr noundef %248, ptr noundef %250) #9
+  %251 = tail call zeroext i1 @bms_equal(ptr noundef %248, ptr noundef %250) #8
   br i1 %251, label %252, label %373
 
 252:                                              ; preds = %246
   %253 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %254 = load ptr, ptr %253, align 8
-  %255 = tail call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %254, ptr noundef nonnull %4) #9
+  %255 = tail call ptr @create_unique_path(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %254, ptr noundef nonnull %4) #8
   %.not = icmp eq ptr %255, null
   br i1 %.not, label %373, label %256
 
@@ -2095,8 +2093,8 @@ is_dummy_rel.exit203:                             ; preds = %298, %294, %277, %2
   br label %373
 
 .loopexit392:                                     ; preds = %.critedge.i384, %.loopexit.i207, %.lr.ph.i378
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 9, ptr noundef nonnull %4, ptr noundef %5) #9
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 8, ptr noundef nonnull %4, ptr noundef %5) #9
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 9, ptr noundef nonnull %4, ptr noundef %5) #8
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 8, ptr noundef nonnull %4, ptr noundef %5) #8
   br label %373
 
 301:                                              ; preds = %6
@@ -2156,7 +2154,7 @@ is_dummy_rel.exit203:                             ; preds = %298, %294, %277, %2
   %326 = getelementptr inbounds nuw i8, ptr %321, i64 48
   %327 = load ptr, ptr %326, align 8
   %328 = load ptr, ptr %316, align 8
-  %329 = tail call zeroext i1 @bms_is_subset(ptr noundef %327, ptr noundef %328) #9
+  %329 = tail call zeroext i1 @bms_is_subset(ptr noundef %327, ptr noundef %328) #8
   br i1 %329, label %.critedge.us.i224, label %330
 
 330:                                              ; preds = %325, %.lr.ph64.i221
@@ -2238,7 +2236,7 @@ restriction_is_constant_false.exit239:            ; preds = %360, %356
   %364 = load ptr, ptr %363, align 8
   %365 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %366 = load ptr, ptr %365, align 8
-  %367 = tail call zeroext i1 @bms_is_subset(ptr noundef %364, ptr noundef %366) #9
+  %367 = tail call zeroext i1 @bms_is_subset(ptr noundef %364, ptr noundef %366) #8
   br i1 %367, label %368, label %restriction_is_constant_false.exit239.thread
 
 368:                                              ; preds = %restriction_is_constant_false.exit239
@@ -2246,16 +2244,15 @@ restriction_is_constant_false.exit239:            ; preds = %360, %356
   br label %restriction_is_constant_false.exit239.thread
 
 restriction_is_constant_false.exit239.thread:     ; preds = %.critedge.i235, %.lr.ph.i219, %.loopexit.i214, %.lr.ph.i229, %368, %restriction_is_constant_false.exit239
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 5, ptr noundef %4, ptr noundef %5) #9
-  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 7, ptr noundef %4, ptr noundef %5) #9
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %1, ptr noundef %2, i32 noundef 5, ptr noundef %4, ptr noundef %5) #8
+  tail call void @add_paths_to_joinrel(ptr noundef %0, ptr noundef %3, ptr noundef %2, ptr noundef %1, i32 noundef 7, ptr noundef %4, ptr noundef %5) #8
   br label %373
 
 369:                                              ; preds = %6
-  %370 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %370)
+  %370 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %371 = load i32, ptr %10, align 8
-  %372 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %371) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1044, ptr noundef nonnull @__func__.populate_joinrel_with_paths) #9
+  %372 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %371) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1044, ptr noundef nonnull @__func__.populate_joinrel_with_paths) #8
   unreachable
 
 373:                                              ; preds = %246, %252, %.loopexit392, %.loopexit290, %restriction_is_constant_false.exit239.thread, %is_dummy_rel.exit217, %is_dummy_rel.exit203, %is_dummy_rel.exit189, %is_dummy_rel.exit172, %restriction_is_constant_false.exit158.thread, %is_dummy_rel.exit142, %.loopexit, %is_dummy_rel.exit
@@ -2267,7 +2264,7 @@ restriction_is_constant_false.exit239.thread:     ; preds = %.critedge.i235, %.l
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  tail call void @check_stack_depth() #9
+  tail call void @check_stack_depth() #8
   %378 = getelementptr inbounds nuw i8, ptr %3, i64 368
   %379 = load ptr, ptr %378, align 8
   %380 = icmp eq ptr %379, null
@@ -2549,11 +2546,10 @@ is_dummy_rel.exit249:                             ; preds = %.loopexit.i246, %49
   br i1 %or.cond3.i, label %547, label %507
 
 503:                                              ; preds = %is_dummy_rel.exit249
-  %504 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %504)
+  %504 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %505 = load i32, ptr %10, align 8
-  %506 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %505) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1594, ptr noundef nonnull @__func__.try_partitionwise_join) #9
+  %506 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %505) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1594, ptr noundef nonnull @__func__.try_partitionwise_join) #8
   unreachable
 
 507:                                              ; preds = %502, %501, %500
@@ -2592,10 +2588,10 @@ is_dummy_rel.exit249:                             ; preds = %.loopexit.i246, %49
   %523 = call fastcc ptr @build_child_join_sjinfo(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %520, ptr noundef %522)
   %524 = load ptr, ptr %519, align 8
   %525 = load ptr, ptr %521, align 8
-  %526 = call ptr @bms_union(ptr noundef %524, ptr noundef %525) #9
-  %527 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %526, ptr noundef nonnull %9) #9
+  %526 = call ptr @bms_union(ptr noundef %524, ptr noundef %525) #8
+  %527 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %526, ptr noundef nonnull %9) #8
   %528 = load i32, ptr %9, align 4
-  %529 = call ptr @adjust_appendrel_attrs(ptr noundef %0, ptr noundef %5, i32 noundef %528, ptr noundef %527) #9
+  %529 = call ptr @adjust_appendrel_attrs(ptr noundef %0, ptr noundef %5, i32 noundef %528, ptr noundef %527) #8
   %530 = load ptr, ptr %441, align 8
   %531 = getelementptr inbounds nuw ptr, ptr %530, i64 %indvars.iv
   %532 = load ptr, ptr %531, align 8
@@ -2604,26 +2600,26 @@ is_dummy_rel.exit249:                             ; preds = %.loopexit.i246, %49
 
 533:                                              ; preds = %518
   %534 = load i32, ptr %9, align 4
-  %535 = call ptr @build_child_join_rel(ptr noundef %0, ptr noundef nonnull %.0104.i, ptr noundef nonnull %.0105.i, ptr noundef nonnull %3, ptr noundef %529, ptr noundef %523, i32 noundef %534, ptr noundef %527) #9
+  %535 = call ptr @build_child_join_rel(ptr noundef %0, ptr noundef nonnull %.0104.i, ptr noundef nonnull %.0105.i, ptr noundef nonnull %3, ptr noundef %529, ptr noundef %523, i32 noundef %534, ptr noundef %527) #8
   %536 = load ptr, ptr %441, align 8
   %537 = getelementptr inbounds nuw ptr, ptr %536, i64 %indvars.iv
   store ptr %535, ptr %537, align 8
   %538 = load ptr, ptr %442, align 8
   %539 = trunc nuw nsw i64 %indvars.iv to i32
-  %540 = call ptr @bms_add_member(ptr noundef %538, i32 noundef %539) #9
+  %540 = call ptr @bms_add_member(ptr noundef %538, i32 noundef %539) #8
   store ptr %540, ptr %442, align 8
   %541 = load ptr, ptr %443, align 8
   %542 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %543 = load ptr, ptr %542, align 8
-  %544 = call ptr @bms_add_members(ptr noundef %541, ptr noundef %543) #9
+  %544 = call ptr @bms_add_members(ptr noundef %541, ptr noundef %543) #8
   store ptr %544, ptr %443, align 8
   br label %545
 
 545:                                              ; preds = %533, %518
   %.0101.i = phi ptr [ %532, %518 ], [ %535, %533 ]
   call fastcc void @populate_joinrel_with_paths(ptr noundef %0, ptr noundef nonnull %.0104.i, ptr noundef nonnull %.0105.i, ptr noundef nonnull %.0101.i, ptr noundef %523, ptr noundef %529)
-  call void @pfree(ptr noundef %527) #9
-  call void @bms_free(ptr noundef %526) #9
+  call void @pfree(ptr noundef %527) #8
+  call void @bms_free(ptr noundef %526) #8
   call fastcc void @free_child_join_sjinfo(ptr noundef %523)
   %.pre = load i32, ptr %382, align 8
   br label %547
@@ -2684,11 +2680,11 @@ define internal fastcc noundef zeroext i1 @has_legal_joinclause(ptr noundef %0, 
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call zeroext i1 @bms_overlap(ptr noundef %15, ptr noundef %17) #9
+  %18 = tail call zeroext i1 @bms_overlap(ptr noundef %15, ptr noundef %17) #8
   br i1 %18, label %26, label %19
 
 19:                                               ; preds = %.lr.ph43
-  %20 = tail call zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14) #9
+  %20 = tail call zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14) #8
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %19
@@ -2696,9 +2692,9 @@ define internal fastcc noundef zeroext i1 @has_legal_joinclause(ptr noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = load ptr, ptr %9, align 8
   %23 = load ptr, ptr %16, align 8
-  %24 = tail call ptr @bms_union(ptr noundef %22, ptr noundef %23) #9
+  %24 = tail call ptr @bms_union(ptr noundef %22, ptr noundef %23) #8
   %25 = call fastcc zeroext i1 @join_is_legal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef %24, ptr noundef %3, ptr noundef %4)
-  tail call void @bms_free(ptr noundef %24) #9
+  tail call void @bms_free(ptr noundef %24) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %25, label %.critedge, label %26
@@ -2736,17 +2732,17 @@ define dso_local noundef zeroext i1 @have_dangerous_phv(ptr noundef readonly cap
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 @bms_is_subset(ptr noundef %14, ptr noundef %2) #9
+  %15 = tail call zeroext i1 @bms_is_subset(ptr noundef %14, ptr noundef %2) #8
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %.lr.ph33
   %17 = load ptr, ptr %13, align 8
-  %18 = tail call zeroext i1 @bms_overlap(ptr noundef %17, ptr noundef %1) #9
+  %18 = tail call zeroext i1 @bms_overlap(ptr noundef %17, ptr noundef %1) #8
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %13, align 8
-  %21 = tail call zeroext i1 @bms_is_subset(ptr noundef %20, ptr noundef %1) #9
+  %21 = tail call zeroext i1 @bms_is_subset(ptr noundef %20, ptr noundef %1) #8
   br i1 %21, label %.critedge, label %.critedge21
 
 .critedge:                                        ; preds = %.lr.ph33, %16, %19
@@ -2794,7 +2790,7 @@ define dso_local void @mark_dummy_rel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %13, label %is_dummy_rel.exit, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %7, %10, %1
-  %14 = tail call ptr @GetMemoryChunkContext(ptr noundef %0) #9
+  %14 = tail call ptr @GetMemoryChunkContext(ptr noundef %0) #8
   %15 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2804,9 +2800,9 @@ define dso_local void @mark_dummy_rel(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @create_append_path(ptr noundef null, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %19, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #9
-  tail call void @add_path(ptr noundef %0, ptr noundef %20) #9
-  tail call void @set_cheapest(ptr noundef %0) #9
+  %20 = tail call ptr @create_append_path(ptr noundef null, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %19, i32 noundef 0, i1 noundef zeroext false, double noundef -1.000000e+00) #8
+  tail call void @add_path(ptr noundef %0, ptr noundef %20) #8
+  tail call void @set_cheapest(ptr noundef %0) #8
   store ptr %15, ptr @CurrentMemoryContext, align 8
   br label %is_dummy_rel.exit
 
@@ -2877,7 +2873,7 @@ define internal fastcc void @compute_partition_bounds(ptr noundef %0, ptr nounde
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call zeroext i1 @partition_bounds_equal(i32 noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef %38) #9
+  %39 = tail call zeroext i1 @partition_bounds_equal(i32 noundef %30, ptr noundef %32, ptr noundef %34, ptr noundef %36, ptr noundef %38) #8
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %27
@@ -2895,7 +2891,7 @@ define internal fastcc void @compute_partition_bounds(ptr noundef %0, ptr nounde
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %52 = load i32, ptr %51, align 8
-  %53 = tail call ptr @partition_bounds_merge(i32 noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %52, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  %53 = tail call ptr @partition_bounds_merge(i32 noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %52, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %56
 
@@ -2927,7 +2923,7 @@ list_length.exit:                                 ; preds = %56, %58
   store i32 %.0, ptr %8, align 8
   %65 = sext i32 %.0 to i64
   %66 = shl nsw i64 %65, 3
-  %67 = tail call ptr @palloc0(i64 noundef %66) #9
+  %67 = tail call ptr @palloc0(i64 noundef %66) #8
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 408
   store ptr %67, ptr %68, align 8
   br label %get_matching_part_pairs.exit
@@ -2981,24 +2977,24 @@ list_length.exit:                                 ; preds = %56, %58
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %81, align 8
-  %90 = tail call ptr @bms_intersect(ptr noundef %88, ptr noundef %89) #9
-  %91 = tail call i32 @bms_singleton_member(ptr noundef %90) #9
-  %92 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %91) #9
+  %90 = tail call ptr @bms_intersect(ptr noundef %88, ptr noundef %89) #8
+  %91 = tail call i32 @bms_singleton_member(ptr noundef %90) #8
+  %92 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %91) #8
   %93 = load ptr, ptr %87, align 8
   %94 = load ptr, ptr %82, align 8
-  %95 = tail call ptr @bms_intersect(ptr noundef %93, ptr noundef %94) #9
-  %96 = tail call i32 @bms_singleton_member(ptr noundef %95) #9
-  %97 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %96) #9
+  %95 = tail call ptr @bms_intersect(ptr noundef %93, ptr noundef %94) #8
+  %96 = tail call i32 @bms_singleton_member(ptr noundef %95) #8
+  %97 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %96) #8
   br label %98
 
 98:                                               ; preds = %86, %.lr.ph.i.split.us.split.us
   %.037.sink.i.us.us = phi ptr [ null, %.lr.ph.i.split.us.split.us ], [ %92, %86 ]
   %.038.sink.i.us.us = phi ptr [ null, %.lr.ph.i.split.us.split.us ], [ %97, %86 ]
   %99 = load ptr, ptr %5, align 8
-  %100 = tail call ptr @lappend(ptr noundef %99, ptr noundef %.037.sink.i.us.us) #9
+  %100 = tail call ptr @lappend(ptr noundef %99, ptr noundef %.037.sink.i.us.us) #8
   store ptr %100, ptr %5, align 8
   %101 = load ptr, ptr %6, align 8
-  %102 = tail call ptr @lappend(ptr noundef %101, ptr noundef %.038.sink.i.us.us) #9
+  %102 = tail call ptr @lappend(ptr noundef %101, ptr noundef %.038.sink.i.us.us) #8
   store ptr %102, ptr %6, align 8
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %103 = load i32, ptr %8, align 8
@@ -3018,23 +3014,23 @@ list_length.exit:                                 ; preds = %56, %58
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %81, align 8
-  %113 = tail call ptr @bms_intersect(ptr noundef %111, ptr noundef %112) #9
-  %114 = tail call i32 @bms_singleton_member(ptr noundef %113) #9
-  %115 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %114) #9
+  %113 = tail call ptr @bms_intersect(ptr noundef %111, ptr noundef %112) #8
+  %114 = tail call i32 @bms_singleton_member(ptr noundef %113) #8
+  %115 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %114) #8
   %116 = load ptr, ptr %110, align 8
   %117 = load ptr, ptr %82, align 8
-  %118 = tail call ptr @bms_intersect(ptr noundef %116, ptr noundef %117) #9
-  %119 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %118) #9
+  %118 = tail call ptr @bms_intersect(ptr noundef %116, ptr noundef %117) #8
+  %119 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %118) #8
   br label %120
 
 120:                                              ; preds = %109, %.lr.ph.i.split.us.split
   %.037.sink.i.us = phi ptr [ null, %.lr.ph.i.split.us.split ], [ %115, %109 ]
   %.038.sink.i.us = phi ptr [ null, %.lr.ph.i.split.us.split ], [ %119, %109 ]
   %121 = load ptr, ptr %5, align 8
-  %122 = tail call ptr @lappend(ptr noundef %121, ptr noundef %.037.sink.i.us) #9
+  %122 = tail call ptr @lappend(ptr noundef %121, ptr noundef %.037.sink.i.us) #8
   store ptr %122, ptr %5, align 8
   %123 = load ptr, ptr %6, align 8
-  %124 = tail call ptr @lappend(ptr noundef %123, ptr noundef %.038.sink.i.us) #9
+  %124 = tail call ptr @lappend(ptr noundef %123, ptr noundef %.038.sink.i.us) #8
   store ptr %124, ptr %6, align 8
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %125 = load i32, ptr %8, align 8
@@ -3063,23 +3059,23 @@ list_length.exit:                                 ; preds = %56, %58
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %81, align 8
-  %135 = tail call ptr @bms_intersect(ptr noundef %133, ptr noundef %134) #9
-  %136 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %135) #9
+  %135 = tail call ptr @bms_intersect(ptr noundef %133, ptr noundef %134) #8
+  %136 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %135) #8
   %137 = load ptr, ptr %132, align 8
   %138 = load ptr, ptr %82, align 8
-  %139 = tail call ptr @bms_intersect(ptr noundef %137, ptr noundef %138) #9
-  %140 = tail call i32 @bms_singleton_member(ptr noundef %139) #9
-  %141 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %140) #9
+  %139 = tail call ptr @bms_intersect(ptr noundef %137, ptr noundef %138) #8
+  %140 = tail call i32 @bms_singleton_member(ptr noundef %139) #8
+  %141 = tail call ptr @find_base_rel(ptr noundef %0, i32 noundef %140) #8
   br label %142
 
 142:                                              ; preds = %131, %.lr.ph.i.split.split.us
   %.037.sink.i.us42 = phi ptr [ null, %.lr.ph.i.split.split.us ], [ %136, %131 ]
   %.038.sink.i.us43 = phi ptr [ null, %.lr.ph.i.split.split.us ], [ %141, %131 ]
   %143 = load ptr, ptr %5, align 8
-  %144 = tail call ptr @lappend(ptr noundef %143, ptr noundef %.037.sink.i.us42) #9
+  %144 = tail call ptr @lappend(ptr noundef %143, ptr noundef %.037.sink.i.us42) #8
   store ptr %144, ptr %5, align 8
   %145 = load ptr, ptr %6, align 8
-  %146 = tail call ptr @lappend(ptr noundef %145, ptr noundef %.038.sink.i.us43) #9
+  %146 = tail call ptr @lappend(ptr noundef %145, ptr noundef %.038.sink.i.us43) #8
   store ptr %146, ptr %6, align 8
   %indvars.iv.next.i.us44 = add nuw nsw i64 %indvars.iv.i.us40, 1
   %147 = load i32, ptr %8, align 8
@@ -3099,22 +3095,22 @@ list_length.exit:                                 ; preds = %56, %58
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %81, align 8
-  %157 = tail call ptr @bms_intersect(ptr noundef %155, ptr noundef %156) #9
-  %158 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %157) #9
+  %157 = tail call ptr @bms_intersect(ptr noundef %155, ptr noundef %156) #8
+  %158 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %157) #8
   %159 = load ptr, ptr %154, align 8
   %160 = load ptr, ptr %82, align 8
-  %161 = tail call ptr @bms_intersect(ptr noundef %159, ptr noundef %160) #9
-  %162 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %161) #9
+  %161 = tail call ptr @bms_intersect(ptr noundef %159, ptr noundef %160) #8
+  %162 = tail call ptr @find_join_rel(ptr noundef %0, ptr noundef %161) #8
   br label %163
 
 163:                                              ; preds = %153, %.lr.ph.i.split.split
   %.037.sink.i = phi ptr [ null, %.lr.ph.i.split.split ], [ %158, %153 ]
   %.038.sink.i = phi ptr [ null, %.lr.ph.i.split.split ], [ %162, %153 ]
   %164 = load ptr, ptr %5, align 8
-  %165 = tail call ptr @lappend(ptr noundef %164, ptr noundef %.037.sink.i) #9
+  %165 = tail call ptr @lappend(ptr noundef %164, ptr noundef %.037.sink.i) #8
   store ptr %165, ptr %5, align 8
   %166 = load ptr, ptr %6, align 8
-  %167 = tail call ptr @lappend(ptr noundef %166, ptr noundef %.038.sink.i) #9
+  %167 = tail call ptr @lappend(ptr noundef %166, ptr noundef %.038.sink.i) #8
   store ptr %167, ptr %6, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %168 = load i32, ptr %8, align 8
@@ -3130,7 +3126,7 @@ get_matching_part_pairs.exit:                     ; preds = %98, %120, %142, %16
 define internal fastcc noundef ptr @build_child_join_sjinfo(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = tail call noundef ptr @palloc0(i64 noundef 104) #9
+  %7 = tail call noundef ptr @palloc0(i64 noundef 104) #8
   store i32 319, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3157,35 +3153,35 @@ define internal fastcc noundef ptr @build_child_join_sjinfo(ptr noundef %0, ptr 
 
 18:                                               ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  %19 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5) #9
-  %20 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %6) #9
+  %19 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5) #8
+  %20 = call ptr @find_appinfos_by_relids(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %6) #8
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %5, align 4
-  %24 = call ptr @adjust_child_relids(ptr noundef %22, i32 noundef %23, ptr noundef %19) #9
+  %24 = call ptr @adjust_child_relids(ptr noundef %22, i32 noundef %23, ptr noundef %19) #8
   store ptr %24, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %6, align 4
-  %28 = call ptr @adjust_child_relids(ptr noundef %26, i32 noundef %27, ptr noundef %20) #9
+  %28 = call ptr @adjust_child_relids(ptr noundef %26, i32 noundef %27, ptr noundef %20) #8
   store ptr %28, ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %5, align 4
-  %32 = call ptr @adjust_child_relids(ptr noundef %30, i32 noundef %31, ptr noundef %19) #9
+  %32 = call ptr @adjust_child_relids(ptr noundef %30, i32 noundef %31, ptr noundef %19) #8
   store ptr %32, ptr %29, align 8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %6, align 4
-  %36 = call ptr @adjust_child_relids(ptr noundef %34, i32 noundef %35, ptr noundef %20) #9
+  %36 = call ptr @adjust_child_relids(ptr noundef %34, i32 noundef %35, ptr noundef %20) #8
   store ptr %36, ptr %33, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %6, align 4
-  %40 = call ptr @adjust_appendrel_attrs(ptr noundef %0, ptr noundef %38, i32 noundef %39, ptr noundef %20) #9
+  %40 = call ptr @adjust_appendrel_attrs(ptr noundef %0, ptr noundef %38, i32 noundef %39, ptr noundef %20) #8
   store ptr %40, ptr %37, align 8
-  call void @pfree(ptr noundef %19) #9
-  call void @pfree(ptr noundef %20) #9
+  call void @pfree(ptr noundef %19) #8
+  call void @pfree(ptr noundef %20) #8
   br label %41
 
 41:                                               ; preds = %18, %11
@@ -3212,20 +3208,20 @@ define internal fastcc void @free_child_join_sjinfo(ptr noundef %0) unnamed_addr
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void @bms_free(ptr noundef %6) #9
+  tail call void @bms_free(ptr noundef %6) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  tail call void @bms_free(ptr noundef %8) #9
+  tail call void @bms_free(ptr noundef %8) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  tail call void @bms_free(ptr noundef %10) #9
+  tail call void @bms_free(ptr noundef %10) #8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  tail call void @bms_free(ptr noundef %12) #9
+  tail call void @bms_free(ptr noundef %12) #8
   br label %13
 
 13:                                               ; preds = %4, %1
-  tail call void @pfree(ptr noundef nonnull %0) #9
+  tail call void @pfree(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -3254,11 +3250,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3267,10 +3260,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

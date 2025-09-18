@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr @palloc0(i64 noundef 280) #6
+  %6 = tail call noundef ptr @palloc0(i64 noundef 280) #5
   store i32 403, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -32,33 +32,33 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @ExecSampleScan, ptr %9, align 8
-  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %6) #6
+  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %6) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load i32, ptr %10, align 8
-  %12 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %11, i32 noundef %2) #6
+  %12 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %11, i32 noundef %2) #5
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @table_slot_callbacks(ptr noundef %12) #6
-  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %6, ptr noundef %16, ptr noundef %17) #6
-  tail call void @ExecInitResultTypeTL(ptr noundef %6) #6
-  tail call void @ExecAssignScanProjectionInfo(ptr noundef %6) #6
+  %17 = tail call ptr @table_slot_callbacks(ptr noundef %12) #5
+  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %6, ptr noundef %16, ptr noundef %17) #5
+  tail call void @ExecInitResultTypeTL(ptr noundef %6) #5
+  tail call void @ExecAssignScanProjectionInfo(ptr noundef %6) #5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @ExecInitQual(ptr noundef %19, ptr noundef %6) #6
+  %20 = tail call ptr @ExecInitQual(ptr noundef %19, ptr noundef %6) #5
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %20, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @ExecInitExprList(ptr noundef %23, ptr noundef %6) #6
+  %24 = tail call ptr @ExecInitExprList(ptr noundef %23, ptr noundef %6) #5
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @ExecInitExpr(ptr noundef %27, ptr noundef %6) #6
+  %28 = tail call ptr @ExecInitExpr(ptr noundef %27, ptr noundef %6) #5
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 232
   store ptr %28, ptr %29, align 8
   %30 = load ptr, ptr %26, align 8
@@ -66,7 +66,7 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %3
-  %33 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #6
+  %33 = tail call i32 @pg_prng_uint32(ptr noundef nonnull @pg_global_prng_state) #5
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 260
   store i32 %33, ptr %34, align 4
   br label %35
@@ -74,7 +74,7 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
 35:                                               ; preds = %32, %3
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %37 = load i32, ptr %36, align 4
-  %38 = tail call ptr @GetTsmRoutine(i32 noundef %37) #6
+  %38 = tail call ptr @GetTsmRoutine(i32 noundef %37) #5
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 240
   store ptr %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 248
@@ -85,7 +85,7 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %35
-  tail call void %42(ptr noundef nonnull %6, i32 noundef %2) #6
+  tail call void %42(ptr noundef nonnull %6, i32 noundef %2) #5
   br label %44
 
 44:                                               ; preds = %43, %35
@@ -96,7 +96,7 @@ define dso_local noundef ptr @ExecInitSampleScan(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecSampleScan(ptr noundef %0) #0 {
-  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @SampleNext, ptr noundef nonnull @SampleRecheck) #6
+  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @SampleNext, ptr noundef nonnull @SampleRecheck) #5
   ret ptr %2
 }
 
@@ -132,7 +132,7 @@ define dso_local void @ExecEndSampleScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void %5(ptr noundef nonnull %0) #6
+  tail call void %5(ptr noundef nonnull %0) #5
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -147,7 +147,7 @@ define dso_local void @ExecEndSampleScan(ptr noundef %0) local_unnamed_addr #0 {
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull %9) #6
+  tail call void %15(ptr noundef nonnull %9) #5
   br label %16
 
 16:                                               ; preds = %10, %7
@@ -164,7 +164,7 @@ define dso_local void @ExecReScanSampleScan(ptr noundef initializes((258, 259), 
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 0, ptr %5, align 8
-  tail call void @ExecScanReScan(ptr noundef %0) #6
+  tail call void @ExecScanReScan(ptr noundef %0) #5
   ret void
 }
 
@@ -204,7 +204,7 @@ define internal noundef ptr @SampleNext(ptr noundef %0) #0 {
 
 list_length.exit.i:                               ; preds = %14, %6
   %19 = phi i64 [ %18, %14 ], [ 0, %6 ]
-  %20 = tail call ptr @palloc(i64 noundef %19) #6
+  %20 = tail call ptr @palloc(i64 noundef %19) #5
   %21 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i
@@ -227,7 +227,7 @@ list_length.exit.i:                               ; preds = %14, %6
   store ptr %30, ptr @CurrentMemoryContext, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = call i64 %33(ptr noundef %29, ptr noundef %10, ptr noundef nonnull %2) #6
+  %34 = call i64 %33(ptr noundef %29, ptr noundef %10, ptr noundef nonnull %2) #5
   store ptr %31, ptr @CurrentMemoryContext, align 8
   %35 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
   store i64 %34, ptr %35, align 8
@@ -242,11 +242,10 @@ list_length.exit.i:                               ; preds = %14, %6
   br i1 %.not46.i, label %63, label %47
 
 .split.i:                                         ; preds = %.lr.ph54.i
-  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %40)
-  %41 = call i32 @errcode(i32 noundef 403177602) #6
-  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.tablesample_init) #6
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %41 = call i32 @errcode(i32 noundef 403177602) #5
+  %42 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 244, ptr noundef nonnull @__func__.tablesample_init) #5
   unreachable
 
 43:                                               ; preds = %.lr.ph54.i
@@ -263,22 +262,21 @@ list_length.exit.i:                               ; preds = %14, %6
   store ptr %49, ptr @CurrentMemoryContext, align 8
   %51 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = call i64 %52(ptr noundef nonnull %39, ptr noundef %10, ptr noundef nonnull %2) #6
+  %53 = call i64 %52(ptr noundef nonnull %39, ptr noundef %10, ptr noundef nonnull %2) #5
   store ptr %50, ptr @CurrentMemoryContext, align 8
   %54 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %47
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 @errcode(i32 noundef 386400386) #6
-  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__.tablesample_init) #6
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %58 = call i32 @errcode(i32 noundef 386400386) #5
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 256, ptr noundef nonnull @__func__.tablesample_init) #5
   unreachable
 
 60:                                               ; preds = %47
-  %61 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashfloat8, i32 noundef 0, i64 noundef %53) #6
+  %61 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashfloat8, i32 noundef 0, i64 noundef %53) #5
   %62 = trunc i64 %61 to i32
   br label %66
 
@@ -306,7 +304,7 @@ list_length.exit.i:                               ; preds = %14, %6
 
 list_length.exit48.i:                             ; preds = %72, %66
   %75 = phi i32 [ %74, %72 ], [ 0, %66 ]
-  call void %70(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %75, i32 noundef %.0.i) #6
+  call void %70(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %75, i32 noundef %.0.i) #5
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
@@ -335,7 +333,7 @@ list_length.exit48.i:                             ; preds = %72, %66
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = call ptr %98(ptr noundef %84, ptr noundef %88, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %.2.i.i) #6
+  %99 = call ptr %98(ptr noundef %84, ptr noundef %88, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %.2.i.i) #5
   store ptr %99, ptr %79, align 8
   br label %tablesample_init.exit
 
@@ -349,11 +347,11 @@ list_length.exit48.i:                             ; preds = %72, %66
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull %80, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %102, i1 noundef zeroext %78, i1 noundef zeroext %104) #6
+  call void %109(ptr noundef nonnull %80, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext %102, i1 noundef zeroext %78, i1 noundef zeroext %104) #5
   br label %tablesample_init.exit
 
 tablesample_init.exit:                            ; preds = %82, %100
-  call void @pfree(ptr noundef %20) #6
+  call void @pfree(ptr noundef %20) #5
   store i8 1, ptr %3, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %110
@@ -367,7 +365,7 @@ tablesample_init.exit:                            ; preds = %82, %100
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef %114) #6
+  call void %118(ptr noundef %114) #5
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 273
   %120 = load i8, ptr %119, align 1, !range !4, !noundef !5
   %121 = trunc nuw i8 %120 to i1
@@ -388,10 +386,9 @@ tablesample_init.exit:                            ; preds = %82, %100
   br i1 %.not3.i.i, label %table_scan_sample_next_block.exit.i, label %129, !prof !6
 
 129:                                              ; preds = %124
-  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %130)
-  %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2040, ptr noundef nonnull @__func__.table_scan_sample_next_block) #6
+  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2040, ptr noundef nonnull @__func__.table_scan_sample_next_block) #5
   unreachable
 
 table_scan_sample_next_block.exit.i:              ; preds = %124
@@ -400,7 +397,7 @@ table_scan_sample_next_block.exit.i:              ; preds = %124
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 352
   %136 = load ptr, ptr %135, align 8
-  %137 = call zeroext i1 %136(ptr noundef nonnull %112, ptr noundef nonnull %0) #6
+  %137 = call zeroext i1 %136(ptr noundef nonnull %112, ptr noundef nonnull %0) #5
   br i1 %137, label %139, label %138
 
 138:                                              ; preds = %table_scan_sample_next_block.exit.i
@@ -421,10 +418,9 @@ table_scan_sample_next_block.exit.i:              ; preds = %124
   br i1 %.not4.i.i, label %table_scan_sample_next_tuple.exit.i, label %145, !prof !6
 
 145:                                              ; preds = %140
-  %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %146)
-  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2063, ptr noundef nonnull @__func__.table_scan_sample_next_tuple) #6
+  %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #5
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2063, ptr noundef nonnull @__func__.table_scan_sample_next_tuple) #5
   unreachable
 
 table_scan_sample_next_tuple.exit.i:              ; preds = %140
@@ -433,7 +429,7 @@ table_scan_sample_next_tuple.exit.i:              ; preds = %140
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 360
   %152 = load ptr, ptr %151, align 8
-  %153 = call zeroext i1 %152(ptr noundef nonnull %112, ptr noundef nonnull %0, ptr noundef %114) #6
+  %153 = call zeroext i1 %152(ptr noundef nonnull %112, ptr noundef nonnull %0, ptr noundef %114) #5
   br i1 %153, label %154, label %.critedge
 
 .critedge:                                        ; preds = %table_scan_sample_next_tuple.exit.i
@@ -482,17 +478,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

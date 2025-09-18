@@ -19067,37 +19067,31 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, 7995376586231286311
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, -5148221422555835305
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i16, ptr %10, align 8, !range !1055, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %13 = load i16, ptr %12, align 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i16, ptr %6, align 8, !range !1055, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %9 = load i16, ptr %8, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1080)
-  %14 = trunc nuw i16 %11 to i1
-  br i1 %14, label %15, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h9b93ffef10de79deE.exit"
+  %10 = trunc nuw i16 %7 to i1
+  br i1 %10, label %11, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h9b93ffef10de79deE.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %18 = load i16, ptr %16, align 8, !range !1055, !alias.scope !1080, !noundef !4
-  %19 = trunc nuw i16 %18 to i1
-  br i1 %19, label %20, label %.sink.split.i
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %14 = load i16, ptr %12, align 8, !range !1055, !alias.scope !1080, !noundef !4
+  %15 = trunc nuw i16 %14 to i1
+  br i1 %15, label %16, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %20, %15
-  %.sink.i = phi i16 [ %22, %20 ], [ %13, %15 ]
-  store i16 1, ptr %16, align 8, !alias.scope !1080
-  store i16 %.sink.i, ptr %17, align 2, !alias.scope !1080
+.sink.split.i:                                    ; preds = %16, %11
+  %.sink.i = phi i16 [ %18, %16 ], [ %9, %11 ]
+  store i16 1, ptr %12, align 8, !alias.scope !1080
+  store i16 %.sink.i, ptr %13, align 2, !alias.scope !1080
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h9b93ffef10de79deE.exit"
 
-20:                                               ; preds = %15
-  %21 = load i16, ptr %17, align 2, !alias.scope !1080
+16:                                               ; preds = %11
+  %17 = load i16, ptr %13, align 2, !alias.scope !1080
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1080, !nonnull !4, !noundef !4
-  %22 = tail call noundef i16 %.val.i(i16 noundef %21, i16 noundef %13), !noalias !1080
+  %18 = tail call noundef i16 %.val.i(i16 noundef %17, i16 noundef %9), !noalias !1080
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h9b93ffef10de79deE.exit": ; preds = %3, %.sink.split.i
@@ -19109,37 +19103,31 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -7426157848513329664
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, 3198948146288409851
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i8, ptr %10, align 8, !range !130, !noundef !4
-  %12 = trunc nuw i8 %11 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %14 = load i8, ptr %13, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i8, ptr %6, align 8, !range !130, !noundef !4
+  %8 = trunc nuw i8 %7 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %10 = load i8, ptr %9, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1083)
-  br i1 %12, label %15, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hcf48c7355f1d0a62E.exit"
+  br i1 %8, label %11, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hcf48c7355f1d0a62E.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %18 = load i8, ptr %16, align 8, !range !130, !alias.scope !1083, !noundef !4
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %.sink.split.i
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %14 = load i8, ptr %12, align 8, !range !130, !alias.scope !1083, !noundef !4
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %20, %15
-  %.sink.i = phi i8 [ %22, %20 ], [ %14, %15 ]
-  store i8 1, ptr %16, align 8, !alias.scope !1083
-  store i8 %.sink.i, ptr %17, align 1, !alias.scope !1083
+.sink.split.i:                                    ; preds = %16, %11
+  %.sink.i = phi i8 [ %18, %16 ], [ %10, %11 ]
+  store i8 1, ptr %12, align 8, !alias.scope !1083
+  store i8 %.sink.i, ptr %13, align 1, !alias.scope !1083
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hcf48c7355f1d0a62E.exit"
 
-20:                                               ; preds = %15
-  %21 = load i8, ptr %17, align 1, !alias.scope !1083
+16:                                               ; preds = %11
+  %17 = load i8, ptr %13, align 1, !alias.scope !1083
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1083, !nonnull !4, !noundef !4
-  %22 = tail call noundef i8 %.val.i(i8 noundef %21, i8 noundef %14), !noalias !1083
+  %18 = tail call noundef i8 %.val.i(i8 noundef %17, i8 noundef %10), !noalias !1083
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hcf48c7355f1d0a62E.exit": ; preds = %3, %.sink.split.i
@@ -19151,37 +19139,31 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, 8138487810283316963
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, 6589199875139389347
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i8, ptr %10, align 8, !range !130, !noundef !4
-  %12 = trunc nuw i8 %11 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %14 = load i8, ptr %13, align 1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i8, ptr %6, align 8, !range !130, !noundef !4
+  %8 = trunc nuw i8 %7 to i1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %10 = load i8, ptr %9, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
-  br i1 %12, label %15, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h1e6703cb4673a602E.exit"
+  br i1 %8, label %11, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h1e6703cb4673a602E.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %18 = load i8, ptr %16, align 8, !range !130, !alias.scope !1086, !noundef !4
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %.sink.split.i
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %14 = load i8, ptr %12, align 8, !range !130, !alias.scope !1086, !noundef !4
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %16, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %20, %15
-  %.sink.i = phi i8 [ %22, %20 ], [ %14, %15 ]
-  store i8 1, ptr %16, align 8, !alias.scope !1086
-  store i8 %.sink.i, ptr %17, align 1, !alias.scope !1086
+.sink.split.i:                                    ; preds = %16, %11
+  %.sink.i = phi i8 [ %18, %16 ], [ %10, %11 ]
+  store i8 1, ptr %12, align 8, !alias.scope !1086
+  store i8 %.sink.i, ptr %13, align 1, !alias.scope !1086
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h1e6703cb4673a602E.exit"
 
-20:                                               ; preds = %15
-  %21 = load i8, ptr %17, align 1, !alias.scope !1086
+16:                                               ; preds = %11
+  %17 = load i8, ptr %13, align 1, !alias.scope !1086
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1086, !nonnull !4, !noundef !4
-  %22 = tail call noundef i8 %.val.i(i8 noundef %21, i8 noundef %14), !noalias !1086
+  %18 = tail call noundef i8 %.val.i(i8 noundef %17, i8 noundef %10), !noalias !1086
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h1e6703cb4673a602E.exit": ; preds = %3, %.sink.split.i
@@ -19193,36 +19175,30 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -4350900250884778332
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, -5501090933165556696
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i32, ptr %1, align 8, !range !331, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4
+  %6 = load i32, ptr %1, align 8, !range !331, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1089)
-  %13 = trunc nuw i32 %10 to i1
-  br i1 %13, label %14, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hd2698efb18e8c47eE.exit"
+  %9 = trunc nuw i32 %6 to i1
+  br i1 %9, label %10, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hd2698efb18e8c47eE.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %0, align 8, !range !331, !alias.scope !1089, !noundef !4
-  %17 = trunc nuw i32 %16 to i1
-  br i1 %17, label %18, label %.sink.split.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = load i32, ptr %0, align 8, !range !331, !alias.scope !1089, !noundef !4
+  %13 = trunc nuw i32 %12 to i1
+  br i1 %13, label %14, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %18, %14
-  %.sink.i = phi i32 [ %21, %18 ], [ %12, %14 ]
+.sink.split.i:                                    ; preds = %14, %10
+  %.sink.i = phi i32 [ %17, %14 ], [ %8, %10 ]
   store i32 1, ptr %0, align 8, !alias.scope !1089
-  store i32 %.sink.i, ptr %15, align 4, !alias.scope !1089
+  store i32 %.sink.i, ptr %11, align 4, !alias.scope !1089
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hd2698efb18e8c47eE.exit"
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %15, align 4, !alias.scope !1089
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val.i = load ptr, ptr %20, align 8, !alias.scope !1089, !nonnull !4, !noundef !4
-  %21 = tail call noundef i32 %.val.i(i32 noundef %19, i32 noundef %12), !noalias !1089
+14:                                               ; preds = %10
+  %15 = load i32, ptr %11, align 4, !alias.scope !1089
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i = load ptr, ptr %16, align 8, !alias.scope !1089, !nonnull !4, !noundef !4
+  %17 = tail call noundef i32 %.val.i(i32 noundef %15, i32 noundef %8), !noalias !1089
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17hd2698efb18e8c47eE.exit": ; preds = %3, %.sink.split.i
@@ -19234,36 +19210,30 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, 213201262721590024
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, 5986625118198067921
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i32, ptr %1, align 8, !range !331, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4
+  %6 = load i32, ptr %1, align 8, !range !331, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = load i32, ptr %7, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1092)
-  %13 = trunc nuw i32 %10 to i1
-  br i1 %13, label %14, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h8ee6dd480454994dE.exit"
+  %9 = trunc nuw i32 %6 to i1
+  br i1 %9, label %10, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h8ee6dd480454994dE.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %0, align 8, !range !331, !alias.scope !1092, !noundef !4
-  %17 = trunc nuw i32 %16 to i1
-  br i1 %17, label %18, label %.sink.split.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = load i32, ptr %0, align 8, !range !331, !alias.scope !1092, !noundef !4
+  %13 = trunc nuw i32 %12 to i1
+  br i1 %13, label %14, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %18, %14
-  %.sink.i = phi i32 [ %21, %18 ], [ %12, %14 ]
+.sink.split.i:                                    ; preds = %14, %10
+  %.sink.i = phi i32 [ %17, %14 ], [ %8, %10 ]
   store i32 1, ptr %0, align 8, !alias.scope !1092
-  store i32 %.sink.i, ptr %15, align 4, !alias.scope !1092
+  store i32 %.sink.i, ptr %11, align 4, !alias.scope !1092
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h8ee6dd480454994dE.exit"
 
-18:                                               ; preds = %14
-  %19 = load i32, ptr %15, align 4, !alias.scope !1092
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val.i = load ptr, ptr %20, align 8, !alias.scope !1092, !nonnull !4, !noundef !4
-  %21 = tail call noundef i32 %.val.i(i32 noundef %19, i32 noundef %12), !noalias !1092
+14:                                               ; preds = %10
+  %15 = load i32, ptr %11, align 4, !alias.scope !1092
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i = load ptr, ptr %16, align 8, !alias.scope !1092, !nonnull !4, !noundef !4
+  %17 = tail call noundef i32 %.val.i(i32 noundef %15, i32 noundef %8), !noalias !1092
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h8ee6dd480454994dE.exit": ; preds = %3, %.sink.split.i
@@ -19275,36 +19245,30 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -7170160332020456293
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, 1507528736063963847
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8
+  %6 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1095)
-  %13 = trunc nuw i64 %10 to i1
-  br i1 %13, label %14, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h50dd89cf33d11d55E.exit"
+  %9 = trunc nuw i64 %6 to i1
+  br i1 %9, label %10, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h50dd89cf33d11d55E.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %0, align 8, !range !3, !alias.scope !1095, !noundef !4
-  %17 = trunc nuw i64 %16 to i1
-  br i1 %17, label %18, label %.sink.split.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %0, align 8, !range !3, !alias.scope !1095, !noundef !4
+  %13 = trunc nuw i64 %12 to i1
+  br i1 %13, label %14, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %18, %14
-  %.sink.i = phi i64 [ %21, %18 ], [ %12, %14 ]
+.sink.split.i:                                    ; preds = %14, %10
+  %.sink.i = phi i64 [ %17, %14 ], [ %8, %10 ]
   store i64 1, ptr %0, align 8, !alias.scope !1095
-  store i64 %.sink.i, ptr %15, align 8, !alias.scope !1095
+  store i64 %.sink.i, ptr %11, align 8, !alias.scope !1095
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h50dd89cf33d11d55E.exit"
 
-18:                                               ; preds = %14
-  %19 = load i64, ptr %15, align 8, !alias.scope !1095
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %20, align 8, !alias.scope !1095, !nonnull !4, !noundef !4
-  %21 = tail call noundef i64 %.val.i(i64 noundef %19, i64 noundef %12), !noalias !1095
+14:                                               ; preds = %10
+  %15 = load i64, ptr %11, align 8, !alias.scope !1095
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i = load ptr, ptr %16, align 8, !alias.scope !1095, !nonnull !4, !noundef !4
+  %17 = tail call noundef i64 %.val.i(i64 noundef %15, i64 noundef %8), !noalias !1095
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h50dd89cf33d11d55E.exit": ; preds = %3, %.sink.split.i
@@ -19316,36 +19280,30 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -1745062149150704045
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, 8095064758479603593
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i32, ptr %1, align 8, !range !331, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load float, ptr %11, align 4
+  %6 = load i32, ptr %1, align 8, !range !331, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = load float, ptr %7, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1098)
-  %13 = trunc nuw i32 %10 to i1
-  br i1 %13, label %14, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h85f6be8c850ee2adE.exit"
+  %9 = trunc nuw i32 %6 to i1
+  br i1 %9, label %10, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h85f6be8c850ee2adE.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = load i32, ptr %0, align 8, !range !331, !alias.scope !1098, !noundef !4
-  %17 = trunc nuw i32 %16 to i1
-  br i1 %17, label %18, label %.sink.split.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %12 = load i32, ptr %0, align 8, !range !331, !alias.scope !1098, !noundef !4
+  %13 = trunc nuw i32 %12 to i1
+  br i1 %13, label %14, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %18, %14
-  %.sink.i = phi float [ %21, %18 ], [ %12, %14 ]
+.sink.split.i:                                    ; preds = %14, %10
+  %.sink.i = phi float [ %17, %14 ], [ %8, %10 ]
   store i32 1, ptr %0, align 8, !alias.scope !1098
-  store float %.sink.i, ptr %15, align 4, !alias.scope !1098
+  store float %.sink.i, ptr %11, align 4, !alias.scope !1098
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h85f6be8c850ee2adE.exit"
 
-18:                                               ; preds = %14
-  %19 = load float, ptr %15, align 4, !alias.scope !1098
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val.i = load ptr, ptr %20, align 8, !alias.scope !1098, !nonnull !4, !noundef !4
-  %21 = tail call noundef float %.val.i(float noundef %19, float noundef %12), !noalias !1098
+14:                                               ; preds = %10
+  %15 = load float, ptr %11, align 4, !alias.scope !1098
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i = load ptr, ptr %16, align 8, !alias.scope !1098, !nonnull !4, !noundef !4
+  %17 = tail call noundef float %.val.i(float noundef %15, float noundef %8), !noalias !1098
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h85f6be8c850ee2adE.exit": ; preds = %3, %.sink.split.i
@@ -19357,36 +19315,30 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -1010665219706687159
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, 7096877684978243113
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8
+  %6 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1101)
-  %13 = trunc nuw i64 %10 to i1
-  br i1 %13, label %14, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h4bf03375892601daE.exit"
+  %9 = trunc nuw i64 %6 to i1
+  br i1 %9, label %10, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h4bf03375892601daE.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %0, align 8, !range !3, !alias.scope !1101, !noundef !4
-  %17 = trunc nuw i64 %16 to i1
-  br i1 %17, label %18, label %.sink.split.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %0, align 8, !range !3, !alias.scope !1101, !noundef !4
+  %13 = trunc nuw i64 %12 to i1
+  br i1 %13, label %14, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %18, %14
-  %.sink.i = phi i64 [ %21, %18 ], [ %12, %14 ]
+.sink.split.i:                                    ; preds = %14, %10
+  %.sink.i = phi i64 [ %17, %14 ], [ %8, %10 ]
   store i64 1, ptr %0, align 8, !alias.scope !1101
-  store i64 %.sink.i, ptr %15, align 8, !alias.scope !1101
+  store i64 %.sink.i, ptr %11, align 8, !alias.scope !1101
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h4bf03375892601daE.exit"
 
-18:                                               ; preds = %14
-  %19 = load i64, ptr %15, align 8, !alias.scope !1101
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %20, align 8, !alias.scope !1101, !nonnull !4, !noundef !4
-  %21 = tail call noundef i64 %.val.i(i64 noundef %19, i64 noundef %12), !noalias !1101
+14:                                               ; preds = %10
+  %15 = load i64, ptr %11, align 8, !alias.scope !1101
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i = load ptr, ptr %16, align 8, !alias.scope !1101, !nonnull !4, !noundef !4
+  %17 = tail call noundef i64 %.val.i(i64 noundef %15, i64 noundef %8), !noalias !1101
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h4bf03375892601daE.exit": ; preds = %3, %.sink.split.i
@@ -19398,37 +19350,31 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -8858847310580791401
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, -2709009504214170816
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i16, ptr %10, align 8, !range !1055, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %13 = load i16, ptr %12, align 2
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = load i16, ptr %6, align 8, !range !1055, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %9 = load i16, ptr %8, align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1104)
-  %14 = trunc nuw i16 %11 to i1
-  br i1 %14, label %15, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h73e46cf542fe9acdE.exit"
+  %10 = trunc nuw i16 %7 to i1
+  br i1 %10, label %11, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h73e46cf542fe9acdE.exit"
 
-15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %18 = load i16, ptr %16, align 8, !range !1055, !alias.scope !1104, !noundef !4
-  %19 = trunc nuw i16 %18 to i1
-  br i1 %19, label %20, label %.sink.split.i
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %14 = load i16, ptr %12, align 8, !range !1055, !alias.scope !1104, !noundef !4
+  %15 = trunc nuw i16 %14 to i1
+  br i1 %15, label %16, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %20, %15
-  %.sink.i = phi i16 [ %22, %20 ], [ %13, %15 ]
-  store i16 1, ptr %16, align 8, !alias.scope !1104
-  store i16 %.sink.i, ptr %17, align 2, !alias.scope !1104
+.sink.split.i:                                    ; preds = %16, %11
+  %.sink.i = phi i16 [ %18, %16 ], [ %9, %11 ]
+  store i16 1, ptr %12, align 8, !alias.scope !1104
+  store i16 %.sink.i, ptr %13, align 2, !alias.scope !1104
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h73e46cf542fe9acdE.exit"
 
-20:                                               ; preds = %15
-  %21 = load i16, ptr %17, align 2, !alias.scope !1104
+16:                                               ; preds = %11
+  %17 = load i16, ptr %13, align 2, !alias.scope !1104
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !1104, !nonnull !4, !noundef !4
-  %22 = tail call noundef i16 %.val.i(i16 noundef %21, i16 noundef %13), !noalias !1104
+  %18 = tail call noundef i16 %.val.i(i16 noundef %17, i16 noundef %9), !noalias !1104
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h73e46cf542fe9acdE.exit": ; preds = %3, %.sink.split.i
@@ -19440,36 +19386,30 @@ define hidden void @"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggrega
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val = load ptr, ptr %4, align 8
   %5 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %1)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = icmp eq i64 %6, -1552136298437755084
-  %8 = extractvalue { i64, i64 } %5, 1
-  %9 = icmp eq i64 %8, -3747949389501922932
-  tail call void @llvm.assume(i1 %7)
-  tail call void @llvm.assume(i1 %9)
-  %10 = load i64, ptr %1, align 8, !range !3, !noundef !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load double, ptr %11, align 8
+  %6 = load i64, ptr %1, align 8, !range !3, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load double, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1107)
-  %13 = trunc nuw i64 %10 to i1
-  br i1 %13, label %14, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h0a7c0c0bd3cee9cfE.exit"
+  %9 = trunc nuw i64 %6 to i1
+  br i1 %9, label %10, label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h0a7c0c0bd3cee9cfE.exit"
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %0, align 8, !range !3, !alias.scope !1107, !noundef !4
-  %17 = trunc nuw i64 %16 to i1
-  br i1 %17, label %18, label %.sink.split.i
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i64, ptr %0, align 8, !range !3, !alias.scope !1107, !noundef !4
+  %13 = trunc nuw i64 %12 to i1
+  br i1 %13, label %14, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %18, %14
-  %.sink.i = phi double [ %21, %18 ], [ %12, %14 ]
+.sink.split.i:                                    ; preds = %14, %10
+  %.sink.i = phi double [ %17, %14 ], [ %8, %10 ]
   store i64 1, ptr %0, align 8, !alias.scope !1107
-  store double %.sink.i, ptr %15, align 8, !alias.scope !1107
+  store double %.sink.i, ptr %11, align 8, !alias.scope !1107
   br label %"_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h0a7c0c0bd3cee9cfE.exit"
 
-18:                                               ; preds = %14
-  %19 = load double, ptr %15, align 8, !alias.scope !1107
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val.i = load ptr, ptr %20, align 8, !alias.scope !1107, !nonnull !4, !noundef !4
-  %21 = tail call noundef double %.val.i(double noundef %19, double noundef %12), !noalias !1107
+14:                                               ; preds = %10
+  %15 = load double, ptr %11, align 8, !alias.scope !1107
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val.i = load ptr, ptr %16, align 8, !alias.scope !1107, !nonnull !4, !noundef !4
+  %17 = tail call noundef double %.val.i(double noundef %15, double noundef %8), !noalias !1107
   br label %.sink.split.i
 
 "_ZN180_$LT$polars_pipe..executors..sinks..group_by..aggregates..min_max..MinMaxAgg$LT$K$C$F$GT$$u20$as$u20$polars_pipe..executors..sinks..group_by..aggregates..interface..AggregateFn$GT$17pre_agg_primitive17h0a7c0c0bd3cee9cfE.exit": ; preds = %3, %.sink.split.i

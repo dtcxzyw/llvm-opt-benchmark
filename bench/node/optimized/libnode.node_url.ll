@@ -666,24 +666,15 @@ if.end.i.i:
   %call6 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #22
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %call6) #22
   %call5.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #22
-  %cmp.i.i = icmp ugt i32 %call5.i.i, 39
-  call void @llvm.assume(i1 %cmp.i.i)
   %0 = load i64, ptr %context.coerce, align 8
   %sub.i37.i.i = add i64 %0, 47
   %1 = inttoptr i64 %sub.i37.i.i to ptr
   %2 = load i64, ptr %1, align 8
-  %sub.i.i.i = add i64 %2, 327
-  %3 = inttoptr i64 %sub.i.i.i to ptr
+  %sub.i.i = add i64 %2, 319
+  %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i = icmp eq ptr %6, %5
-  call void @llvm.assume(i1 %cmp12.not.i.i)
-  %sub.i.i = add i64 %2, 319
-  %7 = inttoptr i64 %sub.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %call15 = call noundef ptr @_ZN4node5Realm14AddBindingDataINS_3url11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %9, ptr %holder.coerce)
+  %call15 = call noundef ptr @_ZN4node5Realm14AddBindingDataINS_3url11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %5, ptr %holder.coerce)
   %cmp.not = icmp eq ptr %call15, null
   br i1 %cmp.not, label %do.body18, label %do.end20
 
@@ -3329,24 +3320,15 @@ declare void @_ZN4node25SetFastMethodNoSideEffectEPN2v87IsolateENS0_5LocalINS0_8
 define dso_local void @_ZN4node3url11BindingData26CreatePerContextPropertiesEN2v85LocalINS2_6ObjectEEENS3_INS2_5ValueEEENS3_INS2_7ContextEEEPv(ptr %target.coerce, ptr readnone captures(none) %unused.coerce, ptr nonnull %context.coerce, ptr readnone captures(none) %priv) #3 align 2 {
 entry:
   %call5.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #22
-  %cmp.i.i = icmp ugt i32 %call5.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i)
   %0 = load i64, ptr %context.coerce, align 8
   %sub.i37.i.i = add i64 %0, 47
   %1 = inttoptr i64 %sub.i37.i.i to ptr
   %2 = load i64, ptr %1, align 8
-  %sub.i.i.i = add i64 %2, 327
-  %3 = inttoptr i64 %sub.i.i.i to ptr
+  %sub.i.i = add i64 %2, 319
+  %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i = icmp eq ptr %6, %5
-  tail call void @llvm.assume(i1 %cmp12.not.i.i)
-  %sub.i.i = add i64 %2, 319
-  %7 = inttoptr i64 %sub.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %call16 = tail call noundef ptr @_ZN4node5Realm14AddBindingDataINS_3url11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %9, ptr %target.coerce)
+  %call16 = tail call noundef ptr @_ZN4node5Realm14AddBindingDataINS_3url11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %5, ptr %target.coerce)
   ret void
 }
 

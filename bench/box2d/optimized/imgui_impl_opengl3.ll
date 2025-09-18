@@ -121,19 +121,19 @@ define dso_local range(i32 -3, 1) i32 @imgl3wInit() local_unnamed_addr #0 {
   store ptr null, ptr @_ZL5libgl, align 8, !tbaa !4
   store ptr null, ptr @_ZL6libegl, align 8, !tbaa !4
   store ptr null, ptr @_ZL6libglx, align 8, !tbaa !4
-  %1 = tail call ptr @dlopen(ptr noundef nonnull @.str.27, i32 noundef 5) #17
+  %1 = tail call ptr @dlopen(ptr noundef nonnull @.str.27, i32 noundef 5) #16
   store ptr %1, ptr @_ZL6libegl, align 8, !tbaa !4
   %.not11.i.i = icmp eq ptr %1, null
   br i1 %.not11.i.i, label %2, label %4
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @dlopen(ptr noundef nonnull @.str.28, i32 noundef 5) #17
+  %3 = tail call ptr @dlopen(ptr noundef nonnull @.str.28, i32 noundef 5) #16
   store ptr %3, ptr @_ZL6libglx, align 8, !tbaa !4
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZL11close_libglv.exit.i.i, label %4
 
 4:                                                ; preds = %2, %0
-  %5 = tail call ptr @dlopen(ptr noundef nonnull @.str.29, i32 noundef 1) #17
+  %5 = tail call ptr @dlopen(ptr noundef nonnull @.str.29, i32 noundef 1) #16
   store ptr %5, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not3.i.i = icmp eq ptr %5, null
   br i1 %.not3.i.i, label %6, label %32
@@ -144,7 +144,7 @@ define dso_local range(i32 -3, 1) i32 @imgl3wInit() local_unnamed_addr #0 {
   br i1 %.not3.i.i.i, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @dlclose(ptr noundef nonnull %7) #17
+  %9 = tail call i32 @dlclose(ptr noundef nonnull %7) #16
   store ptr null, ptr @_ZL6libegl, align 8, !tbaa !4
   br label %10
 
@@ -154,32 +154,32 @@ define dso_local range(i32 -3, 1) i32 @imgl3wInit() local_unnamed_addr #0 {
   br i1 %.not4.i.i.i, label %_ZL11close_libglv.exit.i.i, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @dlclose(ptr noundef nonnull %11) #17
+  %13 = tail call i32 @dlclose(ptr noundef nonnull %11) #16
   store ptr null, ptr @_ZL6libglx, align 8, !tbaa !4
   br label %_ZL11close_libglv.exit.i.i
 
 _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
-  %14 = tail call ptr @dlopen(ptr noundef nonnull @.str.30, i32 noundef 5) #17
+  %14 = tail call ptr @dlopen(ptr noundef nonnull @.str.30, i32 noundef 5) #16
   store ptr %14, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not12.i.i = icmp eq ptr %14, null
   br i1 %.not12.i.i, label %15, label %32
 
 15:                                               ; preds = %_ZL11close_libglv.exit.i.i
-  %16 = tail call ptr @dlopen(ptr noundef nonnull @.str.31, i32 noundef 5) #17
+  %16 = tail call ptr @dlopen(ptr noundef nonnull @.str.31, i32 noundef 5) #16
   store ptr %16, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not13.i.i = icmp eq ptr %16, null
   br i1 %.not13.i.i, label %17, label %32
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @dlopen(ptr noundef nonnull @.str.32, i32 noundef 5) #17
+  %18 = tail call ptr @dlopen(ptr noundef nonnull @.str.32, i32 noundef 5) #16
   store ptr %18, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not14.i.i = icmp eq ptr %18, null
   br i1 %.not14.i.i, label %19, label %32
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @dlopen(ptr noundef nonnull @.str.29, i32 noundef 1) #17
+  %20 = tail call ptr @dlopen(ptr noundef nonnull @.str.29, i32 noundef 1) #16
   store ptr %20, ptr @_ZL5libgl, align 8, !tbaa !4
-  %21 = tail call ptr @dlopen(ptr noundef nonnull @.str.27, i32 noundef 1) #17
+  %21 = tail call ptr @dlopen(ptr noundef nonnull @.str.27, i32 noundef 1) #16
   store ptr %21, ptr @_ZL6libegl, align 8, !tbaa !4
   %22 = load ptr, ptr @_ZL5libgl, align 8, !tbaa !4
   %23 = icmp ne ptr %22, null
@@ -189,19 +189,19 @@ _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
 
 25:                                               ; preds = %19
   tail call void @_ZL11close_libglv()
-  %26 = tail call ptr @dlopen(ptr noundef nonnull @.str.30, i32 noundef 1) #17
+  %26 = tail call ptr @dlopen(ptr noundef nonnull @.str.30, i32 noundef 1) #16
   store ptr %26, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not7.i.i = icmp eq ptr %26, null
   br i1 %.not7.i.i, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @dlopen(ptr noundef nonnull @.str.31, i32 noundef 1) #17
+  %28 = tail call ptr @dlopen(ptr noundef nonnull @.str.31, i32 noundef 1) #16
   store ptr %28, ptr @_ZL5libgl, align 8, !tbaa !4
   %.not8.i.i = icmp eq ptr %28, null
   br i1 %.not8.i.i, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = tail call ptr @dlopen(ptr noundef nonnull @.str.32, i32 noundef 1) #17
+  %30 = tail call ptr @dlopen(ptr noundef nonnull @.str.32, i32 noundef 1) #16
   store ptr %30, ptr @_ZL5libgl, align 8, !tbaa !4
   %31 = icmp eq ptr %30, null
   br i1 %31, label %imgl3wInit2.exit, label %32
@@ -214,7 +214,7 @@ _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
 
 .thread.i:                                        ; preds = %32, %19
   %34 = phi ptr [ %.pr.i, %32 ], [ %21, %19 ]
-  %35 = tail call ptr @dlsym(ptr noundef nonnull %34, ptr noundef nonnull @.str.25) #17
+  %35 = tail call ptr @dlsym(ptr noundef nonnull %34, ptr noundef nonnull @.str.25) #16
   br label %42
 
 36:                                               ; preds = %32
@@ -223,11 +223,11 @@ _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
   br i1 %.not7.i, label %40, label %38
 
 38:                                               ; preds = %36
-  %39 = tail call ptr @dlsym(ptr noundef nonnull %37, ptr noundef nonnull @.str.26) #17
+  %39 = tail call ptr @dlsym(ptr noundef nonnull %37, ptr noundef nonnull @.str.26) #16
   br label %42
 
 40:                                               ; preds = %36
-  %41 = tail call ptr @dlsym(ptr noundef nonnull %33, ptr noundef nonnull @.str.26) #17
+  %41 = tail call ptr @dlsym(ptr noundef nonnull %33, ptr noundef nonnull @.str.26) #16
   br label %42
 
 42:                                               ; preds = %40, %38, %.thread.i
@@ -242,7 +242,7 @@ _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
   br i1 %.not.i9.i, label %47, label %45
 
 45:                                               ; preds = %43
-  %46 = tail call i32 @dlclose(ptr noundef nonnull %44) #17
+  %46 = tail call i32 @dlclose(ptr noundef nonnull %44) #16
   store ptr null, ptr @_ZL5libgl, align 8, !tbaa !4
   br label %47
 
@@ -252,7 +252,7 @@ _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
   br i1 %.not3.i10.i, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call i32 @dlclose(ptr noundef nonnull %48) #17
+  %50 = tail call i32 @dlclose(ptr noundef nonnull %48) #16
   store ptr null, ptr @_ZL6libegl, align 8, !tbaa !4
   br label %51
 
@@ -262,12 +262,12 @@ _ZL11close_libglv.exit.i.i:                       ; preds = %12, %10, %2
   br i1 %.not4.i.i, label %imgl3wInit2.exit, label %53
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @dlclose(ptr noundef nonnull %52) #17
+  %54 = tail call i32 @dlclose(ptr noundef nonnull %52) #16
   store ptr null, ptr @_ZL6libglx, align 8, !tbaa !4
   br label %imgl3wInit2.exit
 
 _ZL10open_libglv.exit:                            ; preds = %42
-  %55 = tail call i32 @atexit(ptr noundef nonnull @_ZL11close_libglv) #17
+  %55 = tail call i32 @atexit(ptr noundef nonnull @_ZL11close_libglv) #16
   br label %56
 
 56:                                               ; preds = %_ZL8get_procPKc.exit, %_ZL10open_libglv.exit
@@ -280,7 +280,7 @@ _ZL10open_libglv.exit:                            ; preds = %42
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr @_ZL5libgl, align 8, !tbaa !4
-  %62 = tail call ptr @dlsym(ptr noundef %61, ptr noundef %58) #17
+  %62 = tail call ptr @dlsym(ptr noundef %61, ptr noundef %58) #16
   %.not7.i6 = icmp eq ptr %62, null
   br i1 %.not7.i6, label %.thread.i7, label %_ZL8get_procPKc.exit
 
@@ -295,7 +295,7 @@ _ZL10open_libglv.exit:                            ; preds = %42
 
 68:                                               ; preds = %.thread.i7
   %69 = load ptr, ptr @_ZL5libgl, align 8, !tbaa !4
-  %70 = tail call ptr @dlsym(ptr noundef %69, ptr noundef %58) #17
+  %70 = tail call ptr @dlsym(ptr noundef %69, ptr noundef %58) #16
   br label %_ZL8get_procPKc.exit
 
 _ZL8get_procPKc.exit:                             ; preds = %60, %.thread.i7, %68
@@ -329,7 +329,7 @@ _ZL10load_procsPFPFvvEPKcE.exit.i:                ; preds = %_ZL8get_procPKc.exi
   br i1 %.not5.i.i, label %85, label %83
 
 83:                                               ; preds = %80
-  %84 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %82, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZL7version, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4)) #17
+  %84 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %82, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZL7version, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4)) #16
   br label %85
 
 85:                                               ; preds = %83, %80, %74
@@ -353,7 +353,7 @@ define internal void @_ZL11close_libglv() #2 {
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @dlclose(ptr noundef nonnull %1) #17
+  %3 = tail call i32 @dlclose(ptr noundef nonnull %1) #16
   store ptr null, ptr @_ZL5libgl, align 8, !tbaa !4
   br label %4
 
@@ -363,7 +363,7 @@ define internal void @_ZL11close_libglv() #2 {
   br i1 %.not3, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @dlclose(ptr noundef nonnull %5) #17
+  %7 = tail call i32 @dlclose(ptr noundef nonnull %5) #16
   store ptr null, ptr @_ZL6libegl, align 8, !tbaa !4
   br label %8
 
@@ -373,7 +373,7 @@ define internal void @_ZL11close_libglv() #2 {
   br i1 %.not4, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @dlclose(ptr noundef nonnull %9) #17
+  %11 = tail call i32 @dlclose(ptr noundef nonnull %9) #16
   store ptr null, ptr @_ZL6libglx, align 8, !tbaa !4
   br label %12
 
@@ -419,7 +419,7 @@ _ZL10load_procsPFPFvvEPKcE.exit:                  ; preds = %2
   br i1 %.not5.i, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %17, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZL7version, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4)) #17
+  %19 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %17, ptr noundef nonnull @.str.3, ptr noundef nonnull @_ZL7version, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL7version, i64 4)) #16
   br label %20
 
 20:                                               ; preds = %18, %15, %9
@@ -466,7 +466,7 @@ define dso_local ptr @imgl3wGetProcAddress(ptr noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @_ZL5libgl, align 8, !tbaa !4
-  %5 = tail call ptr @dlsym(ptr noundef %4, ptr noundef %0) #17
+  %5 = tail call ptr @dlsym(ptr noundef %4, ptr noundef %0) #16
   %.not7.i = icmp eq ptr %5, null
   br i1 %.not7.i, label %.thread.i, label %_ZL8get_procPKc.exit
 
@@ -481,7 +481,7 @@ define dso_local ptr @imgl3wGetProcAddress(ptr noundef %0) local_unnamed_addr #0
 
 11:                                               ; preds = %.thread.i
   %12 = load ptr, ptr @_ZL5libgl, align 8, !tbaa !4
-  %13 = tail call ptr @dlsym(ptr noundef %12, ptr noundef %0) #17
+  %13 = tail call ptr @dlsym(ptr noundef %12, ptr noundef %0) #16
   br label %_ZL8get_procPKc.exit
 
 _ZL8get_procPKc.exit:                             ; preds = %3, %.thread.i, %11
@@ -503,7 +503,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %11 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 36, i64 1, ptr %10) #18
+  %11 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 36, i64 1, ptr %10) #17
   br label %87
 
 12:                                               ; preds = %1
@@ -531,7 +531,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   br i1 %or.cond, label %24, label %26
 
 24:                                               ; preds = %12
-  %25 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3) #17
+  %25 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %.pre = load i32, ptr %2, align 4, !tbaa !32
   %.pre34 = load i32, ptr %3, align 4, !tbaa !32
   br label %26
@@ -560,7 +560,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %41 = lshr i8 %40, 1
   %42 = and i8 %41, 1
   store i8 %42, ptr %39, align 2, !tbaa !37
-  %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.4, i64 noundef 11) #19
+  %43 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(12) @.str.4, i64 noundef 11) #18
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %47
 
@@ -587,7 +587,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   %56 = icmp eq ptr %0, null
   %spec.store.select = select i1 %56, ptr @.str.5, ptr %0
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %58 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %spec.store.select) #17
+  %58 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %spec.store.select) #16
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57)
   %endptr = getelementptr inbounds i8, ptr %57, i64 %strlen
   store i16 10, ptr %endptr, align 1
@@ -637,7 +637,7 @@ define dso_local noundef zeroext i1 @_Z22ImGui_ImplOpenGL3_InitPKc(ptr noundef r
   br i1 %.not32, label %83, label %79
 
 79:                                               ; preds = %.lr.ph
-  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(20) @.str.7) #19
+  %80 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(20) @.str.7) #18
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %83
 
@@ -717,8 +717,6 @@ _Z9IM_DELETEI22ImGui_ImplOpenGL3_DataEvPT_.exit:  ; preds = %_ZL32ImGui_ImplOpen
 define dso_local void @_Z38ImGui_ImplOpenGL3_DestroyDeviceObjectsv() local_unnamed_addr #0 {
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   %0 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
   %1 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !19
@@ -760,8 +758,6 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
 18:                                               ; preds = %16, %13
   %19 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %20 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i.i = icmp ne ptr %20, null
-  tail call void @llvm.assume(i1 %.not.i.i)
   %21 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %23 = load ptr, ptr %22, align 8, !tbaa !19
@@ -788,8 +784,6 @@ _Z37ImGui_ImplOpenGL3_DestroyFontsTexturev.exit:  ; preds = %18, %26
 define dso_local void @_Z26ImGui_ImplOpenGL3_NewFramev() local_unnamed_addr #0 {
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   %0 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not.i)
   %1 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %3 = load ptr, ptr %2, align 8, !tbaa !19
@@ -866,7 +860,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %0, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 130, ptr %8, align 4, !tbaa !32
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #17
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %26, ptr noundef nonnull @.str.8, ptr noundef nonnull %8) #16
   %28 = load i32, ptr %8, align 4, !tbaa !32
   %29 = icmp slt i32 %28, 130
   br i1 %29, label %34, label %30
@@ -947,7 +941,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i:    ; preds = %55, %34
 65:                                               ; preds = %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i
   %66 = load ptr, ptr @stderr, align 8, !tbaa !17
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.19, ptr noundef nonnull %67) #20
+  %68 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %66, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.19, ptr noundef nonnull %67) #19
   br label %69
 
 69:                                               ; preds = %65, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit.i
@@ -977,7 +971,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %69
 
 78:                                               ; preds = %.noexc6.i
   %79 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.93, ptr noundef %75) #20
+  %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %79, ptr noundef nonnull @.str.93, ptr noundef %75) #19
   %.not.i7.i = icmp eq ptr %75, null
   br i1 %.not.i7.i, label %_ZN8ImVectorIcED2Ev.exit.i, label %81
 
@@ -989,7 +983,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %69
   %83 = landingpad { ptr, i32 }
           catch ptr null
   %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #21
+  call void @__clang_call_terminate(ptr %84) #20
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit.i:                       ; preds = %81, %78
@@ -999,7 +993,7 @@ _ZN8ImVectorIcED2Ev.exit.i:                       ; preds = %81, %78
 85:                                               ; preds = %.noexc6.i, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i
   %86 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1830,8 +1824,6 @@ define dso_local void @_Z37ImGui_ImplOpenGL3_DestroyFontsTexturev() local_unname
 _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:
   %0 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %1 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i)
   %2 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !19
@@ -1887,7 +1879,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %2, %7
 17:                                               ; preds = %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
   %18 = load ptr, ptr @stderr, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.92, ptr noundef %1, ptr noundef nonnull %19) #20
+  %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.92, ptr noundef %1, ptr noundef nonnull %19) #19
   br label %21
 
 21:                                               ; preds = %17, %_ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit
@@ -1917,7 +1909,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
 
 30:                                               ; preds = %.noexc6
   %31 = load ptr, ptr @stderr, align 8, !tbaa !17
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.93, ptr noundef %27) #20
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.93, ptr noundef %27) #19
   %.not.i7 = icmp eq ptr %27, null
   br i1 %.not.i7, label %_ZN8ImVectorIcED2Ev.exit, label %33
 
@@ -1929,7 +1921,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %21
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #21
+  call void @__clang_call_terminate(ptr %36) #20
   unreachable
 
 _ZN8ImVectorIcED2Ev.exit:                         ; preds = %30, %33
@@ -1939,7 +1931,7 @@ _ZN8ImVectorIcED2Ev.exit:                         ; preds = %30, %33
 37:                                               ; preds = %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i, %.noexc6
   %38 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
+  call void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1983,7 +1975,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #21
+  tail call void @__clang_call_terminate(ptr %8) #20
   unreachable
 }
 
@@ -1991,8 +1983,8 @@ declare void @_ZN5ImGui7MemFreeEPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #20
   unreachable
 }
 
@@ -2013,11 +2005,8 @@ declare i64 @strlen(ptr captures(none)) local_unnamed_addr #13
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2034,13 +2023,12 @@ attributes #11 = { cold nofree noreturn }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #14 = { nofree nounwind }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { cold }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { cold nounwind }
-attributes #21 = { noreturn nounwind }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { cold }
+attributes #18 = { nounwind willreturn memory(read) }
+attributes #19 = { cold nounwind }
+attributes #20 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -52,7 +52,7 @@ define dso_local void @InitializeTimeouts() local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   store i1 true, ptr @all_timeouts_initialized, align 1
-  tail call void @pqsignal_be(i32 noundef 14, ptr noundef nonnull @handle_sig_alarm) #10
+  tail call void @pqsignal_be(i32 noundef 14, ptr noundef nonnull @handle_sig_alarm) #9
   ret void
 }
 
@@ -64,7 +64,7 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
   %3 = add i32 %2, 1
   store volatile i32 %3, ptr @InterruptHoldoffCount, align 4
   %4 = load ptr, ptr @MyLatch, align 8
-  tail call void @SetLatch(ptr noundef %4) #10
+  tail call void @SetLatch(ptr noundef %4) #9
   store volatile i32 0, ptr @signal_pending, align 4
   %5 = load volatile i32, ptr @alarm_enabled, align 4
   %.not = icmp eq i32 %5, 0
@@ -77,7 +77,7 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
   br i1 %8, label %9, label %57
 
 9:                                                ; preds = %6
-  %10 = tail call i64 @GetCurrentTimestamp() #10
+  %10 = tail call i64 @GetCurrentTimestamp() #9
   %11 = load volatile i32, ptr @num_active_timeouts, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %.critedge
@@ -97,12 +97,11 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
   br i1 %.not.i, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %20)
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %21 = load volatile i32, ptr @num_active_timeouts, align 4
   %22 = add i32 %21, -1
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef %22) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #10
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef 0, i32 noundef %22) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #9
   unreachable
 
 24:                                               ; preds = %16
@@ -136,7 +135,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i, %24
   store volatile i8 1, ptr %38, align 1
   %39 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %40 = load ptr, ptr %39, align 8
-  tail call void %40() #10
+  tail call void %40() #9
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 0
@@ -156,7 +155,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i, %24
   br label %53
 
 53:                                               ; preds = %44, %remove_timeout_index.exit
-  %54 = tail call i64 @GetCurrentTimestamp() #10
+  %54 = tail call i64 @GetCurrentTimestamp() #9
   %55 = load volatile i32, ptr @num_active_timeouts, align 4
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !7
@@ -192,11 +191,10 @@ define dso_local range(i32 0, 23) i32 @RegisterTimeout(i32 noundef %0, ptr nound
   br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !8
 
 9:                                                ; preds = %8
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 16581) #10
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.RegisterTimeout) #10
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
+  %11 = tail call i32 @errcode(i32 noundef 16581) #9
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.RegisterTimeout) #9
   unreachable
 
 .loopexit.loopexit:                               ; preds = %.preheader
@@ -233,7 +231,7 @@ define dso_local void @reschedule_timeouts() local_unnamed_addr #0 {
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
-  %5 = tail call i64 @GetCurrentTimestamp() #10
+  %5 = tail call i64 @GetCurrentTimestamp() #9
   tail call fastcc void @schedule_alarm(i64 noundef %5)
   br label %6
 
@@ -282,7 +280,7 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
   br label %.sink.split
 
 20:                                               ; preds = %14
-  call void @TimestampDifference(i64 noundef %0, i64 noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
+  call void @TimestampDifference(i64 noundef %0, i64 noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
   %21 = load i64, ptr %3, align 8
   %22 = icmp eq i64 %21, 0
   %23 = load i32, ptr %4, align 4
@@ -315,16 +313,15 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
 34:                                               ; preds = %32, %25
   store volatile i64 %17, ptr @signal_due_at, align 8
   store volatile i32 1, ptr @signal_pending, align 4
-  %35 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %2, ptr noundef null) #10
+  %35 = call i32 @setitimer(i32 noundef 0, ptr noundef nonnull %2, ptr noundef null) #9
   %.not28 = icmp eq i32 %35, 0
   br i1 %.not28, label %39, label %36
 
 36:                                               ; preds = %34
   store volatile i32 0, ptr @signal_pending, align 4
-  %37 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  call void @llvm.assume(i1 %37)
-  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__.schedule_alarm) #10
+  %37 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
+  %38 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__.schedule_alarm) #9
   unreachable
 
 39:                                               ; preds = %34, %32
@@ -342,7 +339,7 @@ declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @enable_timeout_after(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
-  %3 = tail call i64 @GetCurrentTimestamp() #10
+  %3 = tail call i64 @GetCurrentTimestamp() #9
   %4 = sext i32 %1 to i64
   %5 = mul nsw i64 %4, 1000
   %6 = add i64 %3, %5
@@ -387,12 +384,11 @@ find_active_timeout.exit:                         ; preds = %.lr.ph.i
 
 find_active_timeout.exit.thread:                  ; preds = %18, %10, %find_active_timeout.exit
   %.06.i28 = phi i32 [ %21, %find_active_timeout.exit ], [ -1, %10 ], [ -1, %18 ]
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %22)
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %23 = load volatile i32, ptr @num_active_timeouts, align 4
   %24 = add i32 %23, -1
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.06.i28, i32 noundef %24) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #10
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.06.i28, i32 noundef %24) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #9
   unreachable
 
 26:                                               ; preds = %find_active_timeout.exit
@@ -476,11 +472,10 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %.loopexit
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %68)
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %69 = load volatile i32, ptr @num_active_timeouts, align 4
-  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.020.lcssa, i32 noundef %69) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.insert_timeout) #10
+  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.020.lcssa, i32 noundef %69) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__func__.insert_timeout) #9
   unreachable
 
 71:                                               ; preds = %.loopexit
@@ -521,7 +516,7 @@ insert_timeout.exit:                              ; preds = %.lr.ph.i26, %71
 ; Function Attrs: nounwind uwtable
 define dso_local void @enable_timeout_every(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
-  %4 = tail call i64 @GetCurrentTimestamp() #10
+  %4 = tail call i64 @GetCurrentTimestamp() #9
   tail call fastcc void @enable_timeout(i32 noundef %0, i64 noundef %4, i64 noundef %1, i32 noundef %2)
   tail call fastcc void @schedule_alarm(i64 noundef %4)
   ret void
@@ -530,7 +525,7 @@ define dso_local void @enable_timeout_every(i32 noundef %0, i64 noundef %1, i32 
 ; Function Attrs: nounwind uwtable
 define dso_local void @enable_timeout_at(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
-  %3 = tail call i64 @GetCurrentTimestamp() #10
+  %3 = tail call i64 @GetCurrentTimestamp() #9
   tail call fastcc void @enable_timeout(i32 noundef %0, i64 noundef %3, i64 noundef %1, i32 noundef 0)
   tail call fastcc void @schedule_alarm(i64 noundef %3)
   ret void
@@ -539,7 +534,7 @@ define dso_local void @enable_timeout_at(i32 noundef %0, i64 noundef %1) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @enable_timeouts(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
-  %3 = tail call i64 @GetCurrentTimestamp() #10
+  %3 = tail call i64 @GetCurrentTimestamp() #9
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -585,11 +580,10 @@ define dso_local void @enable_timeouts(ptr noundef readonly captures(none) %0, i
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %26)
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %27 = load i32, ptr %25, align 4
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %27) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 666, ptr noundef nonnull @__func__.enable_timeouts) #10
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %27) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 666, ptr noundef nonnull @__func__.enable_timeouts) #9
   unreachable
 
 29:                                               ; preds = %18, %15, %9
@@ -641,12 +635,11 @@ find_active_timeout.exit:                         ; preds = %.lr.ph.i
 
 find_active_timeout.exit.thread:                  ; preds = %16, %8, %find_active_timeout.exit
   %.06.i8 = phi i32 [ %19, %find_active_timeout.exit ], [ -1, %8 ], [ -1, %16 ]
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %20)
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %21 = load volatile i32, ptr @num_active_timeouts, align 4
   %22 = add i32 %21, -1
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.06.i8, i32 noundef %22) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #10
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.06.i8, i32 noundef %22) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #9
   unreachable
 
 24:                                               ; preds = %find_active_timeout.exit
@@ -699,7 +692,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i4, %24
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
-  %48 = tail call i64 @GetCurrentTimestamp() #10
+  %48 = tail call i64 @GetCurrentTimestamp() #9
   tail call fastcc void @schedule_alarm(i64 noundef %48)
   br label %49
 
@@ -755,12 +748,11 @@ find_active_timeout.exit:                         ; preds = %.lr.ph.i
 
 find_active_timeout.exit.thread:                  ; preds = %11, %find_active_timeout.exit, %19
   %.06.i13 = phi i32 [ -1, %19 ], [ -1, %11 ], [ %22, %find_active_timeout.exit ]
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %23)
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #10
   %24 = load volatile i32, ptr @num_active_timeouts, align 4
   %25 = add i32 %24, -1
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.06.i13, i32 noundef %25) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #10
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.06.i13, i32 noundef %25) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 143, ptr noundef nonnull @__func__.remove_timeout_index) #9
   unreachable
 
 27:                                               ; preds = %find_active_timeout.exit
@@ -821,7 +813,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i9, %27
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %._crit_edge
-  %54 = tail call i64 @GetCurrentTimestamp() #10
+  %54 = tail call i64 @GetCurrentTimestamp() #9
   tail call fastcc void @schedule_alarm(i64 noundef %54)
   br label %55
 
@@ -921,9 +913,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -933,9 +922,8 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

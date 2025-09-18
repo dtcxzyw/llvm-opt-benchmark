@@ -42,10 +42,9 @@ define dso_local noundef i64 @spg_kd_choose(ptr noundef readonly captures(none) 
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @__func__.spg_kd_choose) #9
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 62, ptr noundef nonnull @__func__.spg_kd_choose) #8
   unreachable
 
 11:                                               ; preds = %1
@@ -93,7 +92,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %8 = load i32, ptr %4, align 8
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 4
-  %11 = tail call ptr @palloc(i64 noundef %10) #9
+  %11 = tail call ptr @palloc(i64 noundef %10) #8
   %12 = load i32, ptr %4, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.._crit_edge_crit_edge
@@ -130,7 +129,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %28 = and i32 %27, 1
   %.not = icmp eq i32 %28, 0
   %29 = select i1 %.not, ptr @y_cmp, ptr @x_cmp
-  tail call void @pg_qsort(ptr noundef %11, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull %29) #9
+  tail call void @pg_qsort(ptr noundef %11, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull %29) #8
   %30 = load i32, ptr %4, align 8
   %31 = ashr i32 %30, 1
   %32 = load i32, ptr %26, align 8
@@ -152,13 +151,13 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %41 = load i32, ptr %4, align 8
   %42 = sext i32 %41 to i64
   %43 = shl nsw i64 %42, 2
-  %44 = tail call ptr @palloc(i64 noundef %43) #9
+  %44 = tail call ptr @palloc(i64 noundef %43) #8
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %4, align 8
   %47 = sext i32 %46 to i64
   %48 = shl nsw i64 %47, 3
-  %49 = tail call ptr @palloc(i64 noundef %48) #9
+  %49 = tail call ptr @palloc(i64 noundef %48) #8
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %49, ptr %50, align 8
   %51 = load i32, ptr %4, align 8
@@ -258,10 +257,9 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr noundef readonly captu
   br label %23
 
 20:                                               ; preds = %1
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.spg_kd_inner_consistent) #9
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 173, ptr noundef nonnull @__func__.spg_kd_inner_consistent) #8
   unreachable
 
 23:                                               ; preds = %.lr.ph, %.thread
@@ -415,15 +413,14 @@ define dso_local noundef i64 @spg_kd_inner_consistent(ptr noundef readonly captu
   br i1 %110, label %select.unfold, label %.thread
 
 112:                                              ; preds = %23
-  %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %113)
+  %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %114 = load ptr, ptr %5, align 8
   %115 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %114, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 6
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
-  %119 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %118) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.spg_kd_inner_consistent) #9
+  %119 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %118) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.spg_kd_inner_consistent) #8
   unreachable
 
 select.unfold:                                    ; preds = %107, %95, %81, %71, %64, %54, %41, %33, %93, %105, %52, %62
@@ -444,7 +441,7 @@ select.unfold:                                    ; preds = %107, %95, %81, %71,
 ._crit_edge:                                      ; preds = %.thread, %.preheader
   %.0105.lcssa = phi i32 [ 6, %.preheader ], [ %.2131, %.thread ]
   store i32 0, ptr %8, align 8
-  %121 = tail call ptr @palloc(i64 noundef 8) #9
+  %121 = tail call ptr @palloc(i64 noundef 8) #8
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -457,13 +454,13 @@ select.unfold:                                    ; preds = %107, %95, %81, %71,
   %128 = load i32, ptr %127, align 8
   %129 = sext i32 %128 to i64
   %130 = shl nsw i64 %129, 3
-  %131 = tail call ptr @palloc(i64 noundef %130) #9
+  %131 = tail call ptr @palloc(i64 noundef %130) #8
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %131, ptr %132, align 8
   %133 = load i32, ptr %127, align 8
   %134 = sext i32 %133 to i64
   %135 = shl nsw i64 %134, 3
-  %136 = tail call ptr @palloc(i64 noundef %135) #9
+  %136 = tail call ptr @palloc(i64 noundef %135) #8
   %137 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %136, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -558,7 +555,7 @@ select.unfold:                                    ; preds = %107, %95, %81, %71,
   %184 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %183, ptr @CurrentMemoryContext, align 8
   %185 = getelementptr inbounds nuw %struct.BOX, ptr %2, i64 %174
-  %186 = call ptr @box_copy(ptr noundef nonnull %185) #9
+  %186 = call ptr @box_copy(ptr noundef nonnull %185) #8
   store ptr %184, ptr @CurrentMemoryContext, align 8
   %187 = load ptr, ptr %166, align 8
   %188 = load i32, ptr %8, align 8
@@ -568,7 +565,7 @@ select.unfold:                                    ; preds = %107, %95, %81, %71,
   %191 = ptrtoint ptr %186 to i64
   %192 = load ptr, ptr %167, align 8
   %193 = load i32, ptr %123, align 4
-  %194 = call ptr @spg_key_orderbys_distances(i64 noundef %191, i1 noundef zeroext false, ptr noundef %192, i32 noundef %193) #9
+  %194 = call ptr @spg_key_orderbys_distances(i64 noundef %191, i1 noundef zeroext false, ptr noundef %192, i32 noundef %193) #8
   %195 = load ptr, ptr %168, align 8
   %196 = load i32, ptr %8, align 8
   %197 = sext i32 %196 to i64
@@ -586,7 +583,7 @@ select.unfold:                                    ; preds = %107, %95, %81, %71,
   br i1 %exitcond151.not, label %203, label %169, !llvm.loop !10
 
 203:                                              ; preds = %202
-  %204 = call ptr @palloc(i64 noundef 8) #9
+  %204 = call ptr @palloc(i64 noundef 8) #8
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %204, ptr %205, align 8
   store i32 1, ptr %204, align 4
@@ -613,9 +610,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -623,9 +617,8 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

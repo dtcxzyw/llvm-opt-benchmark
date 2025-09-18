@@ -50,7 +50,7 @@ zend_string_alloc.exit:                           ; preds = %2
   store i64 %7, ptr %8, align 8, !tbaa !12
   %9 = and i64 %7, -32
   %10 = add i64 %9, 32
-  %11 = tail call noalias ptr @_emalloc(i64 noundef %10) #12
+  %11 = tail call noalias ptr @_emalloc(i64 noundef %10) #11
   store i32 1, ptr %11, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 22, ptr %12, align 4, !tbaa !16
@@ -67,7 +67,7 @@ zend_string_alloc.exit:                           ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !19
   %19 = add i64 %18, 24
-  %20 = tail call ptr @_erealloc2(ptr noundef nonnull %3, i64 noundef %5, i64 noundef %19) #13
+  %20 = tail call ptr @_erealloc2(ptr noundef nonnull %3, i64 noundef %5, i64 noundef %19) #12
   store ptr %20, ptr %0, align 8, !tbaa !4
   br label %21
 
@@ -94,7 +94,7 @@ define dso_local void @smart_str_realloc(ptr noundef captures(none) initializes(
   store i64 %8, ptr %9, align 8, !tbaa !12
   %10 = and i64 %8, -32
   %11 = add i64 %10, 32
-  %12 = tail call noalias ptr @__zend_malloc(i64 noundef %11) #12
+  %12 = tail call noalias ptr @__zend_malloc(i64 noundef %11) #11
   store i32 1, ptr %12, align 4, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 150, ptr %13, align 4, !tbaa !16
@@ -105,7 +105,7 @@ define dso_local void @smart_str_realloc(ptr noundef captures(none) initializes(
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %16, align 8, !tbaa !12
-  %17 = tail call ptr @__zend_realloc(ptr noundef nonnull %3, i64 noundef %5) #13
+  %17 = tail call ptr @__zend_realloc(ptr noundef nonnull %3, i64 noundef %5) #12
   br label %18
 
 18:                                               ; preds = %15, %7
@@ -287,8 +287,8 @@ define dso_local void @smart_str_append_double(ptr noundef captures(none) %0, do
   %5 = alloca [1077 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
-  %7 = call ptr @zend_gcvt(double noundef %1, i32 noundef %6, i8 noundef signext 46, i8 noundef signext 69, ptr noundef nonnull %5) #14
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
+  %7 = call ptr @zend_gcvt(double noundef %1, i32 noundef %6, i8 noundef signext 46, i8 noundef signext 69, ptr noundef nonnull %5) #13
+  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %9 = load ptr, ptr %0, align 8, !tbaa !4
   %.not.i.i8 = icmp eq ptr %9, null
   br i1 %.not.i.i8, label %16, label %10, !prof !11
@@ -326,7 +326,7 @@ smart_str_appendl_ex.exit12:                      ; preds = %10, %16
   br i1 %or.cond.not, label %25, label %38
 
 25:                                               ; preds = %smart_str_appendl_ex.exit12
-  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 46) #15
+  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 46) #14
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %38
 
@@ -371,7 +371,7 @@ define dso_local void @smart_str_append_printf(ptr noundef %0, ptr noundef %1, .
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @zend_printf_to_smart_str, align 8, !tbaa !21
-  call void %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #14
+  call void %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #13
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -398,7 +398,7 @@ define dso_local void @_smart_string_alloc_persistent(ptr noundef captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select, ptr %7, align 8, !tbaa !26
   %8 = add i64 %spec.select, 1
-  %9 = tail call noalias ptr @__zend_malloc(i64 noundef %8) #12
+  %9 = tail call noalias ptr @__zend_malloc(i64 noundef %8) #11
   br label %22
 
 10:                                               ; preds = %2
@@ -408,7 +408,7 @@ define dso_local void @_smart_string_alloc_persistent(ptr noundef captures(none)
   br i1 %13, label %14, label %15, !prof !11
 
 14:                                               ; preds = %10
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1) #16
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1) #15
   unreachable
 
 15:                                               ; preds = %10
@@ -418,7 +418,7 @@ define dso_local void @_smart_string_alloc_persistent(ptr noundef captures(none)
   %19 = or i64 %16, 4095
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %19, ptr %20, align 8, !tbaa !26
-  %21 = tail call ptr @__zend_realloc(ptr noundef nonnull %3, i64 noundef %18) #13
+  %21 = tail call ptr @__zend_realloc(ptr noundef nonnull %3, i64 noundef %18) #12
   br label %22
 
 22:                                               ; preds = %15, %5
@@ -448,7 +448,7 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 255, ptr %8, align 8, !tbaa !26
-  %9 = tail call noalias ptr @_emalloc_256() #14
+  %9 = tail call noalias ptr @_emalloc_256() #13
   br label %32
 
 10:                                               ; preds = %5
@@ -461,11 +461,11 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   br i1 %15, label %16, label %18, !prof !20
 
 16:                                               ; preds = %10
-  %17 = tail call noalias ptr @_emalloc_large(i64 noundef %12) #12
+  %17 = tail call noalias ptr @_emalloc_large(i64 noundef %12) #11
   br label %32
 
 18:                                               ; preds = %10
-  %19 = tail call noalias ptr @_emalloc(i64 noundef %12) #12
+  %19 = tail call noalias ptr @_emalloc(i64 noundef %12) #11
   br label %32
 
 20:                                               ; preds = %2
@@ -475,7 +475,7 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   br i1 %23, label %24, label %25, !prof !11
 
 24:                                               ; preds = %20
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1) #16
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 1, ptr noundef nonnull @.str.1) #15
   unreachable
 
 25:                                               ; preds = %20
@@ -485,7 +485,7 @@ define dso_local void @_smart_string_alloc(ptr noundef captures(none) %0, i64 no
   %29 = or i64 %26, 4095
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %29, ptr %30, align 8, !tbaa !26
-  %31 = tail call ptr @_erealloc2(ptr noundef nonnull %3, i64 noundef %28, i64 noundef %21) #13
+  %31 = tail call ptr @_erealloc2(ptr noundef nonnull %3, i64 noundef %28, i64 noundef %21) #12
   br label %32
 
 32:                                               ; preds = %18, %7, %16, %25
@@ -851,11 +851,11 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
 
 7:                                                ; preds = %3
   tail call void @smart_str_append_scalar(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2)
-  br label %70
+  br label %64
 
 8:                                                ; preds = %3
   %9 = icmp eq i8 %5, 8
-  br i1 %9, label %10, label %70
+  br i1 %9, label %10, label %64
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %1, align 8, !tbaa !16
@@ -865,7 +865,7 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   %15 = load i32, ptr %14, align 4, !tbaa !61
   %16 = and i32 %15, 268435456
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %70, label %17
+  br i1 %.not, label %64, label %17
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -927,42 +927,35 @@ define dso_local range(i32 -1, 1) i32 @smart_str_append_zval(ptr noundef capture
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i64 %38, ptr %48, align 8, !tbaa !19
   %49 = load ptr, ptr %1, align 8, !tbaa !16
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !58
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  %53 = load i32, ptr %52, align 4, !tbaa !61
-  %54 = and i32 %53, 268435456
-  %55 = icmp ne i32 %54, 0
-  tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !16
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %60 = load i64, ptr %59, align 8, !tbaa !19
-  %61 = add i64 %60, %38
-  %62 = load i64, ptr %39, align 8, !tbaa !12
-  %.not12.i.i.i = icmp ult i64 %61, %62
-  br i1 %.not12.i.i.i, label %smart_str_append_ex.exit, label %63, !prof !20
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %51 = load ptr, ptr %50, align 8, !tbaa !16
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !19
+  %55 = add i64 %54, %38
+  %56 = load i64, ptr %39, align 8, !tbaa !12
+  %.not12.i.i.i = icmp ult i64 %55, %56
+  br i1 %.not12.i.i.i, label %smart_str_append_ex.exit, label %57, !prof !20
 
-63:                                               ; preds = %42
-  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %61)
+57:                                               ; preds = %42
+  tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %55)
   %.pre20 = load ptr, ptr %0, align 8, !tbaa !4
   %.phi.trans.insert21 = getelementptr inbounds nuw i8, ptr %.pre20, i64 16
   %.pre22 = load i64, ptr %.phi.trans.insert21, align 8, !tbaa !19
   br label %smart_str_append_ex.exit
 
-smart_str_append_ex.exit:                         ; preds = %42, %63
-  %64 = phi i64 [ %38, %42 ], [ %.pre22, %63 ]
-  %65 = phi ptr [ %47, %42 ], [ %.pre20, %63 ]
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %58, i64 %60, i1 false)
-  %68 = load ptr, ptr %0, align 8, !tbaa !4
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i64 %61, ptr %69, align 8, !tbaa !19
-  br label %70
+smart_str_append_ex.exit:                         ; preds = %42, %57
+  %58 = phi i64 [ %38, %42 ], [ %.pre22, %57 ]
+  %59 = phi ptr [ %47, %42 ], [ %.pre20, %57 ]
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr nonnull align 1 %52, i64 %54, i1 false)
+  %62 = load ptr, ptr %0, align 8, !tbaa !4
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store i64 %55, ptr %63, align 8, !tbaa !19
+  br label %64
 
-70:                                               ; preds = %7, %smart_str_append_ex.exit, %8, %10
+64:                                               ; preds = %7, %smart_str_append_ex.exit, %8, %10
   %.0 = phi i32 [ -1, %10 ], [ -1, %8 ], [ 0, %smart_str_append_ex.exit ], [ 0, %7 ]
   ret i32 %.0
 }
@@ -973,26 +966,23 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #10
+declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1002,15 +992,14 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind allocsize(1) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { noreturn nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind allocsize(0) }
+attributes #12 = { nounwind allocsize(1) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

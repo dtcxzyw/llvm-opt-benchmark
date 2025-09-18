@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @tuplestore_begin_heap(i1 noundef zeroext %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = select i1 %0, i32 12, i32 4
   %5 = zext i1 %1 to i8
-  %6 = tail call ptr @palloc0(i64 noundef 152) #9
+  %6 = tail call ptr @palloc0(i64 noundef 152) #8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %4, ptr %7, align 4
@@ -51,7 +51,7 @@ define dso_local noundef ptr @tuplestore_begin_heap(i1 noundef zeroext %0, i1 no
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr null, ptr %16, align 8
   %17 = load ptr, ptr @CurrentMemoryContext, align 8
-  %18 = tail call ptr @GenerationContextCreate(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
+  %18 = tail call ptr @GenerationContextCreate(ptr noundef %17, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -67,10 +67,10 @@ define dso_local noundef ptr @tuplestore_begin_heap(i1 noundef zeroext %0, i1 no
   store i32 2048, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i8 1, ptr %26, align 4
-  %27 = tail call ptr @palloc(i64 noundef 16384) #9
+  %27 = tail call ptr @palloc(i64 noundef 16384) #8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr %27, ptr %28, align 8
-  %29 = tail call i64 @GetMemoryChunkSpace(ptr noundef %27) #9
+  %29 = tail call i64 @GetMemoryChunkSpace(ptr noundef %27) #8
   %30 = load i64, ptr %15, align 8
   %31 = sub i64 %30, %29
   store i64 %31, ptr %15, align 8
@@ -80,7 +80,7 @@ define dso_local noundef ptr @tuplestore_begin_heap(i1 noundef zeroext %0, i1 no
   store i32 1, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 8, ptr %34, align 8
-  %35 = tail call ptr @palloc(i64 noundef 192) #9
+  %35 = tail call ptr @palloc(i64 noundef 192) #8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %35, ptr %36, align 8
   store i32 %4, ptr %35, align 8
@@ -101,8 +101,8 @@ define dso_local noundef ptr @tuplestore_begin_heap(i1 noundef zeroext %0, i1 no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @copytup_heap(ptr noundef captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @minimal_tuple_from_heap_tuple(ptr noundef %1) #9
-  %4 = tail call i64 @GetMemoryChunkSpace(ptr noundef %3) #9
+  %3 = tail call ptr @minimal_tuple_from_heap_tuple(ptr noundef %1) #8
+  %4 = tail call i64 @GetMemoryChunkSpace(ptr noundef %3) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 %6, %4
@@ -122,9 +122,9 @@ define internal void @writetup_heap(ptr noundef captures(none) %0, ptr noundef %
   store i32 %8, ptr %3, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  call void @BufFileWrite(ptr noundef %10, ptr noundef nonnull %3, i64 noundef 4) #9
+  call void @BufFileWrite(ptr noundef %10, ptr noundef nonnull %3, i64 noundef 4) #8
   %11 = load ptr, ptr %9, align 8
-  call void @BufFileWrite(ptr noundef %11, ptr noundef nonnull %4, i64 noundef %7) #9
+  call void @BufFileWrite(ptr noundef %11, ptr noundef nonnull %4, i64 noundef %7) #8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -132,16 +132,16 @@ define internal void @writetup_heap(ptr noundef captures(none) %0, ptr noundef %
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %9, align 8
-  call void @BufFileWrite(ptr noundef %16, ptr noundef nonnull %3, i64 noundef 4) #9
+  call void @BufFileWrite(ptr noundef %16, ptr noundef nonnull %3, i64 noundef 4) #8
   br label %17
 
 17:                                               ; preds = %15, %2
-  %18 = call i64 @GetMemoryChunkSpace(ptr noundef nonnull %1) #9
+  %18 = call i64 @GetMemoryChunkSpace(ptr noundef nonnull %1) #8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %18
   store i64 %21, ptr %19, align 8
-  call void @heap_free_minimal_tuple(ptr noundef nonnull %1) #9
+  call void @heap_free_minimal_tuple(ptr noundef nonnull %1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -155,12 +155,12 @@ define internal noundef ptr @readtup_heap(ptr noundef readonly captures(none) %0
   %6 = add i32 %1, 6
   store i32 %6, ptr %3, align 4
   %7 = zext i32 %6 to i64
-  %8 = tail call ptr @palloc(i64 noundef %7) #9
+  %8 = tail call ptr @palloc(i64 noundef %7) #8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i32 %6, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
-  tail call void @BufFileReadExact(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %5) #9
+  tail call void @BufFileReadExact(ptr noundef %11, ptr noundef nonnull %9, i64 noundef %5) #8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -168,7 +168,7 @@ define internal noundef ptr @readtup_heap(ptr noundef readonly captures(none) %0
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %10, align 8
-  call void @BufFileReadExact(ptr noundef %16, ptr noundef nonnull %3, i64 noundef 4) #9
+  call void @BufFileReadExact(ptr noundef %16, ptr noundef nonnull %3, i64 noundef 4) #8
   br label %17
 
 17:                                               ; preds = %15, %2
@@ -189,10 +189,9 @@ define dso_local void @tuplestore_set_eflags(ptr noundef captures(none) %0, i32 
   br i1 %.not12, label %10, label %7
 
 7:                                                ; preds = %4, %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__.tuplestore_set_eflags) #9
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 376, ptr noundef nonnull @__func__.tuplestore_set_eflags) #8
   unreachable
 
 10:                                               ; preds = %4
@@ -253,10 +252,9 @@ define dso_local i32 @tuplestore_alloc_read_pointer(ptr noundef captures(none) %
   br i1 %.not22, label %14, label %11
 
 11:                                               ; preds = %7
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.tuplestore_alloc_read_pointer) #9
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.tuplestore_alloc_read_pointer) #8
   unreachable
 
 14:                                               ; preds = %7, %4
@@ -278,7 +276,7 @@ define dso_local i32 @tuplestore_alloc_read_pointer(ptr noundef captures(none) %
   %22 = load ptr, ptr %21, align 8
   %23 = sext i32 %20 to i64
   %24 = mul nsw i64 %23, 24
-  %25 = tail call ptr @repalloc(ptr noundef %22, i64 noundef %24) #9
+  %25 = tail call ptr @repalloc(ptr noundef %22, i64 noundef %24) #8
   store ptr %25, ptr %21, align 8
   store i32 %20, ptr %17, align 8
   %.pre24 = load i32, ptr %15, align 4
@@ -332,7 +330,7 @@ define dso_local void @tuplestore_clear(ptr noundef captures(none) initializes((
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i64 @BufFileSize(ptr noundef %14) #9
+  %15 = tail call i64 @BufFileSize(ptr noundef %14) #8
   %16 = icmp sgt i64 %5, %15
   br i1 %16, label %17, label %19
 
@@ -342,7 +340,7 @@ define dso_local void @tuplestore_clear(ptr noundef captures(none) initializes((
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %13, align 8
-  %21 = tail call i64 @BufFileSize(ptr noundef %20) #9
+  %21 = tail call i64 @BufFileSize(ptr noundef %20) #8
   br label %22
 
 22:                                               ; preds = %19, %17
@@ -359,21 +357,21 @@ tuplestore_updatemax.exit:                        ; preds = %6, %22
   br i1 %.not, label %28, label %27
 
 27:                                               ; preds = %tuplestore_updatemax.exit
-  tail call void @BufFileClose(ptr noundef nonnull %26) #9
+  tail call void @BufFileClose(ptr noundef nonnull %26) #8
   br label %28
 
 28:                                               ; preds = %27, %tuplestore_updatemax.exit
   store ptr null, ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8
-  tail call void @MemoryContextReset(ptr noundef %30) #9
+  tail call void @MemoryContextReset(ptr noundef %30) #8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i64 @GetMemoryChunkSpace(ptr noundef %35) #9
+  %36 = tail call i64 @GetMemoryChunkSpace(ptr noundef %35) #8
   %37 = load i64, ptr %33, align 8
   %38 = sub i64 %37, %36
   store i64 %38, ptr %33, align 8
@@ -427,20 +425,20 @@ define dso_local void @tuplestore_end(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @BufFileClose(ptr noundef nonnull %3) #9
+  tail call void @BufFileClose(ptr noundef nonnull %3) #8
   br label %5
 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  tail call void @MemoryContextDelete(ptr noundef %7) #9
+  tail call void @MemoryContextDelete(ptr noundef %7) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  tail call void @pfree(ptr noundef %9) #9
+  tail call void @pfree(ptr noundef %9) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8
-  tail call void @pfree(ptr noundef %11) #9
-  tail call void @pfree(ptr noundef nonnull %0) #9
+  tail call void @pfree(ptr noundef %11) #8
+  tail call void @pfree(ptr noundef nonnull %0) #8
   ret void
 }
 
@@ -480,7 +478,7 @@ define dso_local void @tuplestore_select_read_pointer(ptr noundef captures(none)
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  tail call void @BufFileTell(ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #9
+  tail call void @BufFileTell(ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %22) #8
   br label %23
 
 23:                                               ; preds = %18, %14
@@ -496,16 +494,15 @@ define dso_local void @tuplestore_select_read_pointer(ptr noundef captures(none)
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %33 = load i64, ptr %32, align 8
-  %34 = tail call i32 @BufFileSeek(ptr noundef %28, i32 noundef %31, i64 noundef %33, i32 noundef 0) #9
+  %34 = tail call i32 @BufFileSeek(ptr noundef %28, i32 noundef %31, i64 noundef %33, i32 noundef 0) #8
   %.not20 = icmp eq i32 %34, 0
   br i1 %.not20, label %52, label %35
 
 35:                                               ; preds = %29
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 @errcode_for_file_access() #9
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 552, ptr noundef nonnull @__func__.tuplestore_select_read_pointer) #9
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %37 = tail call i32 @errcode_for_file_access() #8
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 552, ptr noundef nonnull @__func__.tuplestore_select_read_pointer) #8
   unreachable
 
 39:                                               ; preds = %23
@@ -513,23 +510,21 @@ define dso_local void @tuplestore_select_read_pointer(ptr noundef captures(none)
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %43 = load i64, ptr %42, align 8
-  %44 = tail call i32 @BufFileSeek(ptr noundef %28, i32 noundef %41, i64 noundef %43, i32 noundef 0) #9
+  %44 = tail call i32 @BufFileSeek(ptr noundef %28, i32 noundef %41, i64 noundef %43, i32 noundef 0) #8
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %52, label %45
 
 45:                                               ; preds = %39
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %46)
-  %47 = tail call i32 @errcode_for_file_access() #9
-  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__func__.tuplestore_select_read_pointer) #9
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %47 = tail call i32 @errcode_for_file_access() #8
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__func__.tuplestore_select_read_pointer) #8
   unreachable
 
 49:                                               ; preds = %6
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 566, ptr noundef nonnull @__func__.tuplestore_select_read_pointer) #9
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 566, ptr noundef nonnull @__func__.tuplestore_select_read_pointer) #8
   unreachable
 
 52:                                               ; preds = %29, %39, %6, %6
@@ -579,8 +574,8 @@ define dso_local void @tuplestore_puttupleslot(ptr noundef %0, ptr noundef %1) l
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr %9(ptr noundef %1) #9
-  %11 = tail call i64 @GetMemoryChunkSpace(ptr noundef %10) #9
+  %10 = tail call ptr %9(ptr noundef %1) #8
+  %11 = tail call i64 @GetMemoryChunkSpace(ptr noundef %10) #8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %13, %11
@@ -718,7 +713,7 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
 64:                                               ; preds = %.thread43.i
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call i64 @GetMemoryChunkSpace(ptr noundef %66) #9
+  %67 = tail call i64 @GetMemoryChunkSpace(ptr noundef %66) #8
   %68 = load i64, ptr %38, align 8
   %69 = add i64 %68, %67
   store i64 %69, ptr %38, align 8
@@ -726,9 +721,9 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   %70 = load ptr, ptr %65, align 8
   %71 = sext i32 %.2.i to i64
   %72 = shl nsw i64 %71, 3
-  %73 = tail call ptr @repalloc_huge(ptr noundef %70, i64 noundef %72) #9
+  %73 = tail call ptr @repalloc_huge(ptr noundef %70, i64 noundef %72) #8
   store ptr %73, ptr %65, align 8
-  %74 = tail call i64 @GetMemoryChunkSpace(ptr noundef %73) #9
+  %74 = tail call i64 @GetMemoryChunkSpace(ptr noundef %73) #8
   %75 = load i64, ptr %38, align 8
   %76 = sub i64 %75, %74
   store i64 %76, ptr %38, align 8
@@ -740,10 +735,9 @@ define internal fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noun
   br label %grow_memtuples.exit
 
 78:                                               ; preds = %64
-  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %79)
-  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 716, ptr noundef nonnull @__func__.grow_memtuples) #9
+  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 716, ptr noundef nonnull @__func__.grow_memtuples) #8
   unreachable
 
 81:                                               ; preds = %.thread43.i, %.thread.i, %56
@@ -771,7 +765,7 @@ grow_memtuples.exit:                              ; preds = %.grow_memtuples.exi
   br i1 %94, label %95, label %248
 
 95:                                               ; preds = %91, %grow_memtuples.exit
-  tail call void @PrepareTempTablespaces() #9
+  tail call void @PrepareTempTablespaces() #8
   %96 = load ptr, ptr @CurrentResourceOwner, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %98 = load ptr, ptr %97, align 8
@@ -785,7 +779,7 @@ grow_memtuples.exit:                              ; preds = %.grow_memtuples.exi
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %105 = load i8, ptr %104, align 1, !range !4, !noundef !5
   %106 = trunc nuw i8 %105 to i1
-  %107 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext %106) #9
+  %107 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext %106) #8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %107, ptr %108, align 8
   store ptr %103, ptr @CurrentMemoryContext, align 8
@@ -814,7 +808,7 @@ grow_memtuples.exit:                              ; preds = %.grow_memtuples.exi
   br label %tuplestore_updatemax.exit
 
 125:                                              ; preds = %95
-  %126 = tail call i64 @BufFileSize(ptr noundef %107) #9
+  %126 = tail call i64 @BufFileSize(ptr noundef %107) #8
   %127 = icmp sgt i64 %118, %126
   br i1 %127, label %128, label %130
 
@@ -824,7 +818,7 @@ grow_memtuples.exit:                              ; preds = %.grow_memtuples.exi
 
 130:                                              ; preds = %125
   %131 = load ptr, ptr %108, align 8
-  %132 = tail call i64 @BufFileSize(ptr noundef %131) #9
+  %132 = tail call i64 @BufFileSize(ptr noundef %131) #8
   br label %133
 
 133:                                              ; preds = %130, %128
@@ -872,7 +866,7 @@ tuplestore_updatemax.exit:                        ; preds = %119, %133
   %154 = load ptr, ptr %108, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 12
   %156 = getelementptr inbounds nuw i8, ptr %.02226.i, i64 16
-  tail call void @BufFileTell(ptr noundef %154, ptr noundef nonnull %155, ptr noundef nonnull %156) #9
+  tail call void @BufFileTell(ptr noundef %154, ptr noundef nonnull %155, ptr noundef nonnull %156) #8
   %.pre.i = load i32, ptr %9, align 4
   br label %157
 
@@ -894,7 +888,7 @@ tuplestore_updatemax.exit:                        ; preds = %119, %133
   %166 = load ptr, ptr %83, align 8
   %167 = getelementptr inbounds ptr, ptr %166, i64 %indvars.iv.i
   %168 = load ptr, ptr %167, align 8
-  tail call void %165(ptr noundef nonnull %0, ptr noundef %168) #9
+  tail call void %165(ptr noundef nonnull %0, ptr noundef %168) #8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   br label %140
 
@@ -935,7 +929,7 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
   %185 = load ptr, ptr %176, align 8
   %186 = getelementptr inbounds nuw i8, ptr %.185, i64 12
   %187 = getelementptr inbounds nuw i8, ptr %.185, i64 16
-  tail call void @BufFileTell(ptr noundef %185, ptr noundef nonnull %186, ptr noundef nonnull %187) #9
+  tail call void @BufFileTell(ptr noundef %185, ptr noundef nonnull %186, ptr noundef nonnull %187) #8
   %.pre94 = load i32, ptr %170, align 4
   br label %188
 
@@ -949,7 +943,7 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
 ._crit_edge88:                                    ; preds = %188, %169
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %194 = load ptr, ptr %193, align 8
-  tail call void %194(ptr noundef nonnull %0, ptr noundef %1) #9
+  tail call void %194(ptr noundef nonnull %0, ptr noundef %1) #8
   br label %248
 
 195:                                              ; preds = %2
@@ -969,7 +963,7 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %201, i64 12
   %209 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  tail call void @BufFileTell(ptr noundef %207, ptr noundef nonnull %208, ptr noundef nonnull %209) #9
+  tail call void @BufFileTell(ptr noundef %207, ptr noundef nonnull %208, ptr noundef nonnull %209) #8
   br label %210
 
 210:                                              ; preds = %205, %195
@@ -979,16 +973,15 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
   %214 = load i32, ptr %213, align 4
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %216 = load i64, ptr %215, align 8
-  %217 = tail call i32 @BufFileSeek(ptr noundef %212, i32 noundef %214, i64 noundef %216, i32 noundef 0) #9
+  %217 = tail call i32 @BufFileSeek(ptr noundef %212, i32 noundef %214, i64 noundef %216, i32 noundef 0) #8
   %.not = icmp eq i32 %217, 0
   br i1 %.not, label %222, label %218
 
 218:                                              ; preds = %210
-  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %219)
-  %220 = tail call i32 @errcode_for_file_access() #9
-  %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 921, ptr noundef nonnull @__func__.tuplestore_puttuple_common) #9
+  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %220 = tail call i32 @errcode_for_file_access() #8
+  %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 921, ptr noundef nonnull @__func__.tuplestore_puttuple_common) #8
   unreachable
 
 222:                                              ; preds = %210
@@ -1037,14 +1030,13 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
 ._crit_edge:                                      ; preds = %238, %222
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %244 = load ptr, ptr %243, align 8
-  tail call void %244(ptr noundef nonnull %0, ptr noundef %1) #9
+  tail call void %244(ptr noundef nonnull %0, ptr noundef %1) #8
   br label %248
 
 245:                                              ; preds = %2
-  %246 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %246)
-  %247 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @__func__.tuplestore_puttuple_common) #9
+  %246 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %247 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @__func__.tuplestore_puttuple_common) #8
   unreachable
 
 248:                                              ; preds = %dumptuples.exit, %._crit_edge88, %._crit_edge, %91
@@ -1059,7 +1051,7 @@ define dso_local void @tuplestore_puttuple(ptr noundef %0, ptr noundef %1) local
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr %7(ptr noundef %0, ptr noundef %1) #9
+  %8 = tail call ptr %7(ptr noundef %0, ptr noundef %1) #8
   tail call fastcc void @tuplestore_puttuple_common(ptr noundef %0, ptr noundef %8)
   store ptr %5, ptr @CurrentMemoryContext, align 8
   ret void
@@ -1071,8 +1063,8 @@ define dso_local void @tuplestore_putvalues(ptr noundef %0, ptr noundef %1, ptr 
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %6, ptr @CurrentMemoryContext, align 8
-  %8 = tail call ptr @heap_form_minimal_tuple(ptr noundef %1, ptr noundef %2, ptr noundef %3) #9
-  %9 = tail call i64 @GetMemoryChunkSpace(ptr noundef %8) #9
+  %8 = tail call ptr @heap_form_minimal_tuple(ptr noundef %1, ptr noundef %2, ptr noundef %3) #8
+  %9 = tail call i64 @GetMemoryChunkSpace(ptr noundef %8) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = sub i64 %11, %9
@@ -1100,14 +1092,14 @@ define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 
   br i1 %or.cond, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %6) #9
+  %11 = tail call ptr @heap_copy_minimal_tuple(ptr noundef nonnull %6) #8
   br label %12
 
 12:                                               ; preds = %10, %7
   %13 = phi i8 [ %8, %7 ], [ 1, %10 ]
   %.0 = phi ptr [ %6, %7 ], [ %11, %10 ]
   %14 = trunc nuw i8 %13 to i1
-  %15 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.0, ptr noundef %3, i1 noundef zeroext %14) #9
+  %15 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.0, ptr noundef %3, i1 noundef zeroext %14) #8
   br label %21
 
 16:                                               ; preds = %4
@@ -1115,7 +1107,7 @@ define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef %3) #9
+  tail call void %20(ptr noundef %3) #8
   br label %21
 
 21:                                               ; preds = %16, %12
@@ -1225,7 +1217,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @BufFileTell(ptr noundef %62, ptr noundef nonnull %63, ptr noundef nonnull %64) #9
+  tail call void @BufFileTell(ptr noundef %62, ptr noundef nonnull %63, ptr noundef nonnull %64) #8
   %65 = load i8, ptr %57, align 4, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %78, label %67
@@ -1236,16 +1228,15 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %72 = load i64, ptr %71, align 8
-  %73 = tail call i32 @BufFileSeek(ptr noundef %68, i32 noundef %70, i64 noundef %72, i32 noundef 0) #9
+  %73 = tail call i32 @BufFileSeek(ptr noundef %68, i32 noundef %70, i64 noundef %72, i32 noundef 0) #8
   %.not = icmp eq i32 %73, 0
   br i1 %.not, label %78, label %74
 
 74:                                               ; preds = %67
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %75)
-  %76 = tail call i32 @errcode_for_file_access() #9
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1025, ptr noundef nonnull @__func__.tuplestore_gettuple) #9
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %76 = tail call i32 @errcode_for_file_access() #8
+  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1025, ptr noundef nonnull @__func__.tuplestore_gettuple) #8
   unreachable
 
 78:                                               ; preds = %67, %60
@@ -1260,7 +1251,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
 
 81:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %82 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val, ptr noundef nonnull %6, i64 noundef 4, i1 noundef zeroext true) #9
+  %82 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val, ptr noundef nonnull %6, i64 noundef 4, i1 noundef zeroext true) #8
   %83 = icmp eq i64 %82, 0
   %84 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1271,7 +1262,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr %87(ptr noundef nonnull %0, i32 noundef %84) #9
+  %88 = call ptr %87(ptr noundef nonnull %0, i32 noundef %84) #8
   br label %135
 
 89:                                               ; preds = %81
@@ -1280,7 +1271,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   br label %135
 
 91:                                               ; preds = %79
-  %92 = tail call i32 @BufFileSeek(ptr noundef %.val, i32 noundef 0, i64 noundef -4, i32 noundef 1) #9
+  %92 = tail call i32 @BufFileSeek(ptr noundef %.val, i32 noundef 0, i64 noundef -4, i32 noundef 1) #8
   %.not62 = icmp eq i32 %92, 0
   br i1 %.not62, label %95, label %93
 
@@ -1292,7 +1283,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
 95:                                               ; preds = %91
   %.val69 = load ptr, ptr %80, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %96 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val69, ptr noundef nonnull %5, i64 noundef 4, i1 noundef zeroext false) #9
+  %96 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val69, ptr noundef nonnull %5, i64 noundef 4, i1 noundef zeroext false) #8
   %97 = icmp eq i64 %96, 0
   %98 = load i32, ptr %5, align 4
   %.0.i71 = select i1 %97, i32 0, i32 %98
@@ -1310,28 +1301,27 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %104 = load ptr, ptr %80, align 8
   %105 = zext i32 %.0.i71 to i64
   %106 = sub nuw nsw i64 -8, %105
-  %107 = call i32 @BufFileSeek(ptr noundef %104, i32 noundef 0, i64 noundef %106, i32 noundef 1) #9
+  %107 = call i32 @BufFileSeek(ptr noundef %104, i32 noundef 0, i64 noundef %106, i32 noundef 1) #8
   %.not63 = icmp eq i32 %107, 0
   %.val70 = load ptr, ptr %80, align 8
   br i1 %.not63, label %115, label %108
 
 108:                                              ; preds = %103
   %109 = sub nuw nsw i64 -4, %105
-  %110 = call i32 @BufFileSeek(ptr noundef %.val70, i32 noundef 0, i64 noundef %109, i32 noundef 1) #9
+  %110 = call i32 @BufFileSeek(ptr noundef %.val70, i32 noundef 0, i64 noundef %109, i32 noundef 1) #8
   %.not64 = icmp eq i32 %110, 0
   br i1 %.not64, label %135, label %111
 
 111:                                              ; preds = %108
-  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %112)
-  %113 = call i32 @errcode_for_file_access() #9
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1089, ptr noundef nonnull @__func__.tuplestore_gettuple) #9
+  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %113 = call i32 @errcode_for_file_access() #8
+  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1089, ptr noundef nonnull @__func__.tuplestore_gettuple) #8
   unreachable
 
 115:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %116 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val70, ptr noundef nonnull %4, i64 noundef 4, i1 noundef zeroext false) #9
+  %116 = call i64 @BufFileReadMaybeEOF(ptr noundef %.val70, ptr noundef nonnull %4, i64 noundef 4, i1 noundef zeroext false) #8
   %117 = icmp eq i64 %116, 0
   %118 = load i32, ptr %4, align 4
   %.0.i72 = select i1 %117, i32 0, i32 %118
@@ -1343,29 +1333,27 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %120 = load ptr, ptr %80, align 8
   %121 = zext i32 %.0 to i64
   %122 = sub nsw i64 0, %121
-  %123 = call i32 @BufFileSeek(ptr noundef %120, i32 noundef 0, i64 noundef %122, i32 noundef 1) #9
+  %123 = call i32 @BufFileSeek(ptr noundef %120, i32 noundef 0, i64 noundef %122, i32 noundef 1) #8
   %.not65 = icmp eq i32 %123, 0
   br i1 %.not65, label %128, label %124
 
 124:                                              ; preds = %119
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %125)
-  %126 = call i32 @errcode_for_file_access() #9
-  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1106, ptr noundef nonnull @__func__.tuplestore_gettuple) #9
+  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %126 = call i32 @errcode_for_file_access() #8
+  %127 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1106, ptr noundef nonnull @__func__.tuplestore_gettuple) #8
   unreachable
 
 128:                                              ; preds = %119
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %130 = load ptr, ptr %129, align 8
-  %131 = call ptr %130(ptr noundef nonnull %0, i32 noundef %.0) #9
+  %131 = call ptr %130(ptr noundef nonnull %0, i32 noundef %.0) #8
   br label %135
 
 132:                                              ; preds = %3
-  %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %133)
-  %134 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @__func__.tuplestore_gettuple) #9
+  %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %134 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @__func__.tuplestore_gettuple) #8
   unreachable
 
 135:                                              ; preds = %108, %56, %45, %38, %18, %128, %93, %89, %85, %49, %32, %25
@@ -1389,7 +1377,7 @@ define dso_local zeroext i1 @tuplestore_advance(ptr noundef %0, i1 noundef zeroe
   br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %2
-  tail call void @pfree(ptr noundef nonnull %4) #9
+  tail call void @pfree(ptr noundef nonnull %4) #8
   br label %8
 
 8:                                                ; preds = %2, %7
@@ -1496,7 +1484,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
-  tail call void @pfree(ptr noundef nonnull %49) #9
+  tail call void @pfree(ptr noundef nonnull %49) #8
   br label %54
 
 54:                                               ; preds = %50, %53
@@ -1505,7 +1493,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br i1 %.not, label %57, label %56, !prof !13
 
 56:                                               ; preds = %54
-  tail call void @ProcessInterrupts() #9
+  tail call void @ProcessInterrupts() #8
   br label %57
 
 57:                                               ; preds = %54, %56
@@ -1560,23 +1548,21 @@ define dso_local void @tuplestore_rescan(ptr noundef readonly captures(none) %0)
   store i8 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @BufFileSeek(ptr noundef %19, i32 noundef 0, i64 noundef 0, i32 noundef 0) #9
+  %20 = tail call i32 @BufFileSeek(ptr noundef %19, i32 noundef 0, i64 noundef 0, i32 noundef 0) #8
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode_for_file_access() #9
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.tuplestore_rescan) #9
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %23 = tail call i32 @errcode_for_file_access() #8
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.tuplestore_rescan) #8
   unreachable
 
 25:                                               ; preds = %1
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1311, ptr noundef nonnull @__func__.tuplestore_rescan) #9
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1311, ptr noundef nonnull @__func__.tuplestore_rescan) #8
   unreachable
 
 28:                                               ; preds = %16, %12, %9
@@ -1656,16 +1642,15 @@ define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %40 = load i64, ptr %39, align 8
-  %41 = tail call i32 @BufFileSeek(ptr noundef %35, i32 noundef %38, i64 noundef %40, i32 noundef 0) #9
+  %41 = tail call i32 @BufFileSeek(ptr noundef %35, i32 noundef %38, i64 noundef %40, i32 noundef 0) #8
   %.not41 = icmp eq i32 %41, 0
   br i1 %.not41, label %70, label %42
 
 42:                                               ; preds = %36
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode_for_file_access() #9
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1373, ptr noundef nonnull @__func__.tuplestore_copy_read_pointer) #9
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %44 = tail call i32 @errcode_for_file_access() #8
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1373, ptr noundef nonnull @__func__.tuplestore_copy_read_pointer) #8
   unreachable
 
 46:                                               ; preds = %30
@@ -1673,16 +1658,15 @@ define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %
   %48 = load i32, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %50 = load i64, ptr %49, align 8
-  %51 = tail call i32 @BufFileSeek(ptr noundef %35, i32 noundef %48, i64 noundef %50, i32 noundef 0) #9
+  %51 = tail call i32 @BufFileSeek(ptr noundef %35, i32 noundef %48, i64 noundef %50, i32 noundef 0) #8
   %.not40 = icmp eq i32 %51, 0
   br i1 %.not40, label %70, label %52
 
 52:                                               ; preds = %46
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode_for_file_access() #9
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1382, ptr noundef nonnull @__func__.tuplestore_copy_read_pointer) #9
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %54 = tail call i32 @errcode_for_file_access() #8
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1382, ptr noundef nonnull @__func__.tuplestore_copy_read_pointer) #8
   unreachable
 
 56:                                               ; preds = %26
@@ -1700,14 +1684,13 @@ define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  tail call void @BufFileTell(ptr noundef %64, ptr noundef nonnull %65, ptr noundef nonnull %66) #9
+  tail call void @BufFileTell(ptr noundef %64, ptr noundef nonnull %65, ptr noundef nonnull %66) #8
   br label %70
 
 67:                                               ; preds = %24
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %68)
-  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1394, ptr noundef nonnull @__func__.tuplestore_copy_read_pointer) #9
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1394, ptr noundef nonnull @__func__.tuplestore_copy_read_pointer) #8
   unreachable
 
 70:                                               ; preds = %24, %24, %56, %62, %58, %36, %46, %3
@@ -1793,14 +1776,14 @@ tuplestore_updatemax.exit:                        ; preds = %._crit_edge
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv68
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call i64 @GetMemoryChunkSpace(ptr noundef %41) #9
+  %42 = tail call i64 @GetMemoryChunkSpace(ptr noundef %41) #8
   %43 = load i64, ptr %30, align 8
   %44 = add i64 %43, %42
   store i64 %44, ptr %30, align 8
   %45 = load ptr, ptr %36, align 8
   %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv68
   %47 = load ptr, ptr %46, align 8
-  tail call void @pfree(ptr noundef %47) #9
+  tail call void @pfree(ptr noundef %47) #8
   %48 = load ptr, ptr %36, align 8
   %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv68
   store ptr null, ptr %49, align 8
@@ -1912,7 +1895,7 @@ define dso_local void @tuplestore_get_stats(ptr noundef captures(none) %0, ptr n
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i64 @BufFileSize(ptr noundef %18) #9
+  %19 = tail call i64 @BufFileSize(ptr noundef %18) #8
   %20 = icmp sgt i64 %7, %19
   br i1 %20, label %21, label %23
 
@@ -1922,7 +1905,7 @@ define dso_local void @tuplestore_get_stats(ptr noundef captures(none) %0, ptr n
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %17, align 8
-  %25 = tail call i64 @BufFileSize(ptr noundef %24) #9
+  %25 = tail call i64 @BufFileSize(ptr noundef %24) #8
   br label %26
 
 26:                                               ; preds = %23, %21
@@ -1977,14 +1960,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1993,10 +1973,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

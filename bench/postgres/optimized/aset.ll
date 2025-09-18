@@ -47,7 +47,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   %19 = trunc i64 %4 to i32
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 180
   store i32 %19, ptr %20, align 4
-  tail call void @MemoryContextCreate(ptr noundef nonnull %13, i32 noundef 473, i32 noundef 3, ptr noundef %0, ptr noundef %1) #15
+  tail call void @MemoryContextCreate(ptr noundef nonnull %13, i32 noundef 473, i32 noundef 3, ptr noundef %0, ptr noundef %1) #14
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 232
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
@@ -63,7 +63,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   %.sink = phi i64 [ %3, %.thread ], [ %spec.select, %.critedge ]
   %.0829497 = phi i32 [ %.08295, %.thread ], [ -1, %.critedge ]
   %26 = tail call i64 @llvm.umax.i64(i64 %.sink, i64 248)
-  %27 = tail call noalias ptr @malloc(i64 noundef %26) #16
+  %27 = tail call noalias ptr @malloc(i64 noundef %26) #15
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %37
 
@@ -73,16 +73,15 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
   br i1 %.not91, label %32, label %31
 
 31:                                               ; preds = %29
-  tail call void @MemoryContextStats(ptr noundef nonnull %30) #15
+  tail call void @MemoryContextStats(ptr noundef nonnull %30) #14
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 8389) #15
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
-  %36 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, ptr noundef %1) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 453, ptr noundef nonnull @__func__.AllocSetContextCreateInternal) #15
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %34 = tail call i32 @errcode(i32 noundef 8389) #14
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #14
+  %36 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, ptr noundef %1) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 453, ptr noundef nonnull @__func__.AllocSetContextCreateInternal) #14
   unreachable
 
 37:                                               ; preds = %.critedge.thread
@@ -125,7 +124,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 188
   store i32 %storemerge, ptr %58, align 4
-  tail call void @MemoryContextCreate(ptr noundef nonnull %27, i32 noundef 473, i32 noundef 3, ptr noundef %0, ptr noundef %1) #15
+  tail call void @MemoryContextCreate(ptr noundef nonnull %27, i32 noundef 473, i32 noundef 3, ptr noundef %0, ptr noundef %1) #14
   br label %59
 
 59:                                               ; preds = %14, %57
@@ -193,7 +192,7 @@ define dso_local void @AllocSetReset(ptr noundef initializes((88, 176)) %0) loca
   %19 = load i64, ptr %5, align 8
   %20 = add i64 %.neg, %19
   store i64 %20, ptr %5, align 8
-  tail call void @free(ptr noundef nonnull %.041) #15
+  tail call void @free(ptr noundef nonnull %.041) #14
   br label %21
 
 21:                                               ; preds = %14, %10
@@ -238,7 +237,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %9
-  tail call void @MemoryContextResetOnly(ptr noundef nonnull %0) #15
+  tail call void @MemoryContextResetOnly(ptr noundef nonnull %0) #14
   br label %16
 
 16:                                               ; preds = %15, %9
@@ -260,7 +259,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   %23 = load i32, ptr %11, align 16
   %24 = add i32 %23, -1
   store i32 %24, ptr %11, align 16
-  tail call void @free(ptr noundef nonnull %20) #15
+  tail call void @free(ptr noundef nonnull %20) #14
   %.not34 = icmp eq ptr %22, null
   br i1 %.not34, label %.loopexit.loopexit, label %.lr.ph40, !llvm.loop !9
 
@@ -295,7 +294,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   %39 = load i64, ptr %8, align 8
   %40 = add i64 %.neg, %39
   store i64 %40, ptr %8, align 8
-  tail call void @free(ptr noundef nonnull %.038) #15
+  tail call void @free(ptr noundef nonnull %.038) #14
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %34
@@ -303,7 +302,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader36
-  tail call void @free(ptr noundef %0) #15
+  tail call void @free(ptr noundef %0) #14
   br label %41
 
 41:                                               ; preds = %._crit_edge, %.loopexit
@@ -396,19 +395,19 @@ define internal fastcc ptr @AllocSetAllocLarge(ptr noundef %0, i64 noundef range
   br i1 %or.cond.i, label %MemoryContextCheckSize.exit, label %9
 
 9:                                                ; preds = %5
-  tail call void @MemoryContextSizeFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #18
+  tail call void @MemoryContextSizeFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #17
   unreachable
 
 MemoryContextCheckSize.exit:                      ; preds = %3, %5
   %10 = add nuw i64 %1, 7
   %11 = and i64 %10, -8
   %12 = add nuw i64 %11, 48
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #16
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #15
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %MemoryContextCheckSize.exit
-  %16 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #15
+  %16 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #14
   br label %40
 
 17:                                               ; preds = %MemoryContextCheckSize.exit
@@ -543,7 +542,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   br i1 %54, label %53, label %56, !llvm.loop !13
 
 56:                                               ; preds = %53
-  %57 = tail call noalias ptr @malloc(i64 noundef %.074) #16
+  %57 = tail call noalias ptr @malloc(i64 noundef %.074) #15
   %58 = icmp eq ptr %57, null
   %59 = icmp ugt i64 %.074, 1048576
   %60 = and i1 %59, %58
@@ -556,7 +555,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   br i1 %62, label %.thread, label %63
 
 63:                                               ; preds = %.lr.ph89
-  %64 = tail call noalias ptr @malloc(i64 noundef %61) #16
+  %64 = tail call noalias ptr @malloc(i64 noundef %61) #15
   %65 = icmp eq ptr %64, null
   %66 = icmp ugt i64 %.187, 2097153
   %67 = and i1 %66, %65
@@ -569,7 +568,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   br i1 %.lcssa, label %.thread, label %69
 
 .thread:                                          ; preds = %.lr.ph89, %._crit_edge90
-  %68 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #15
+  %68 = tail call ptr @MemoryContextAllocationFailure(ptr noundef %0, i64 noundef %1, i32 noundef %2) #14
   br label %95
 
 69:                                               ; preds = %._crit_edge90
@@ -649,10 +648,9 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not33, label %18, label %15
 
 15:                                               ; preds = %10, %7, %4
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1080, ptr noundef nonnull @__func__.AllocSetFree) #15
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef nonnull %2) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1080, ptr noundef nonnull @__func__.AllocSetFree) #14
   unreachable
 
 18:                                               ; preds = %10
@@ -692,7 +690,7 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %.neg, %36
   store i64 %37, ptr %35, align 8
-  tail call void @free(ptr noundef nonnull %5) #15
+  tail call void @free(ptr noundef nonnull %5) #14
   br label %49
 
 38:                                               ; preds = %1
@@ -744,10 +742,9 @@ define dso_local ptr @AllocSetRealloc(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %.not72, label %20, label %17
 
 17:                                               ; preds = %12, %9, %6
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1198, ptr noundef nonnull @__func__.AllocSetRealloc) #15
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1198, ptr noundef nonnull @__func__.AllocSetRealloc) #14
   unreachable
 
 20:                                               ; preds = %12
@@ -762,19 +759,19 @@ define dso_local ptr @AllocSetRealloc(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %or.cond.i, label %MemoryContextCheckSize.exit, label %26
 
 26:                                               ; preds = %22
-  tail call void @MemoryContextSizeFailure(ptr noundef nonnull %8, i64 noundef %1, i32 noundef %2) #18
+  tail call void @MemoryContextSizeFailure(ptr noundef nonnull %8, i64 noundef %1, i32 noundef %2) #17
   unreachable
 
 MemoryContextCheckSize.exit:                      ; preds = %20, %22
   %27 = add nuw i64 %1, 7
   %28 = and i64 %27, -8
   %29 = add nuw i64 %28, 48
-  %30 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %29) #19
+  %30 = tail call ptr @realloc(ptr noundef nonnull %7, i64 noundef %29) #18
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %MemoryContextCheckSize.exit
-  %33 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %8, i64 noundef %1, i32 noundef %2) #15
+  %33 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %8, i64 noundef %1, i32 noundef %2) #14
   br label %114
 
 34:                                               ; preds = %MemoryContextCheckSize.exit
@@ -901,7 +898,7 @@ AllocSetAlloc.exit:                               ; preds = %70, %99
   br i1 %111, label %112, label %AllocSetAlloc.exit.thread
 
 112:                                              ; preds = %AllocSetAlloc.exit
-  %113 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %61, i64 noundef %1, i32 noundef %2) #15
+  %113 = tail call ptr @MemoryContextAllocationFailure(ptr noundef nonnull %61, i64 noundef %1, i32 noundef %2) #14
   br label %114
 
 AllocSetAlloc.exit.thread:                        ; preds = %101, %82, %AllocSetAlloc.exit
@@ -1051,8 +1048,8 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly captur
 31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = sub i64 %.047.lcssa, %.2.lcssa
-  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull @.str.4, i64 noundef %.047.lcssa, i64 noundef %.0.lcssa, i64 noundef %.2.lcssa, i64 noundef %.1.lcssa, i64 noundef %32) #15
-  call void %1(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #15
+  %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull @.str.4, i64 noundef %.047.lcssa, i64 noundef %.0.lcssa, i64 noundef %.2.lcssa, i64 noundef %.1.lcssa, i64 noundef %32) #14
+  call void %1(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %34
 
@@ -1096,17 +1093,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1120,14 +1114,13 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { cold nounwind }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind allocsize(1) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { cold nounwind }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

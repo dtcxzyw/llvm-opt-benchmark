@@ -181,7 +181,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %147
 
 22:                                               ; preds = %8
-  %23 = tail call i64 @_ZNK5clang10ASTContext13getIntMaxTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %23 = tail call i64 @_ZNK5clang10ASTContext13getIntMaxTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.4315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %23, ptr %.sroa.4315.0..sroa_idx, align 8, !tbaa !25
@@ -194,7 +194,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %147
 
 24:                                               ; preds = %8
-  %25 = tail call i64 @_ZNK5clang10ASTContext17getSignedSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %25 = tail call i64 @_ZNK5clang10ASTContext17getSignedSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.4307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %25, ptr %.sroa.4307.0..sroa_idx, align 8, !tbaa !25
@@ -207,7 +207,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %147
 
 26:                                               ; preds = %8
-  %27 = tail call i64 @_ZNK5clang10ASTContext18getPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %27 = tail call i64 @_ZNK5clang10ASTContext18getPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.4299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %27, ptr %.sroa.4299.0..sroa_idx, align 8, !tbaa !25
@@ -352,7 +352,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %147
 
 49:                                               ; preds = %34
-  %50 = tail call i64 @_ZNK5clang10ASTContext14getUIntMaxTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %50 = tail call i64 @_ZNK5clang10ASTContext14getUIntMaxTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.4243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %50, ptr %.sroa.4243.0..sroa_idx, align 8, !tbaa !25
@@ -365,7 +365,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %147
 
 51:                                               ; preds = %34
-  %52 = tail call i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %52 = tail call i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.4235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %52, ptr %.sroa.4235.0..sroa_idx, align 8, !tbaa !25
@@ -378,7 +378,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   br label %147
 
 53:                                               ; preds = %34
-  %54 = tail call i64 @_ZNK5clang10ASTContext26getUnsignedPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %54 = tail call i64 @_ZNK5clang10ASTContext26getUnsignedPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.4227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %54, ptr %.sroa.4227.0..sroa_idx, align 8, !tbaa !25
@@ -741,7 +741,7 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit77.thread:     ; preds = %101
   br label %147
 
 132:                                              ; preds = %117
-  %133 = tail call i64 @_ZNK5clang10ASTContext13getIntMaxTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %133 = tail call i64 @_ZNK5clang10ASTContext13getIntMaxTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %133, ptr %.sroa.494.0..sroa_idx, align 8, !tbaa !25
@@ -754,7 +754,7 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit77.thread:     ; preds = %101
   br label %147
 
 134:                                              ; preds = %117
-  %135 = tail call i64 @_ZNK5clang10ASTContext17getSignedSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %135 = tail call i64 @_ZNK5clang10ASTContext17getSignedSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %135, ptr %.sroa.486.0..sroa_idx, align 8, !tbaa !25
@@ -767,7 +767,7 @@ _ZNK4llvm6Triple10isOSMSVCRTEv.exit77.thread:     ; preds = %101
   br label %147
 
 136:                                              ; preds = %117
-  %137 = tail call i64 @_ZNK5clang10ASTContext18getPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #8
+  %137 = tail call i64 @_ZNK5clang10ASTContext18getPointerDiffTypeEv(ptr noundef nonnull align 8 dereferenceable(23216) %2) #7
   store i32 2, ptr %0, align 8, !tbaa !26
   %.sroa.481.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %137, ptr %.sroa.481.0..sroa_idx, align 8, !tbaa !25
@@ -845,7 +845,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13analyze_scanf14ScanfSpecifier7fi
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %10
-  %22 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %13) #8
+  %22 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %13) #7
   %23 = and i64 %22, -16
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %24, align 16, !tbaa !532
@@ -862,7 +862,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13analyze_scanf14ScanfSpecifier7fi
   br i1 %.not, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, label %33
 
 33:                                               ; preds = %21
-  %34 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %29) #8
+  %34 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %29) #7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 74
   %36 = load i8, ptr %35, align 2
   %37 = and i8 %36, 1
@@ -874,7 +874,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13analyze_scanf14ScanfSpecifier7fi
   br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %33
-  %42 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %29) #8
+  %42 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %29) #7
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 128
   %.0.copyload.i.i.i.i.i.i38 = load i64, ptr %43, align 8
   %.not.i.i.i39 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i38, 7
@@ -903,7 +903,7 @@ define dso_local noundef zeroext i1 @_ZN5clang13analyze_scanf14ScanfSpecifier7fi
   br i1 %.not.i.i, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i, label %56
 
 56:                                               ; preds = %48
-  %57 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i) #8
+  %57 = tail call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %.sroa.0.0.copyload.i.i) #7
   %58 = extractvalue { ptr, i64 } %57, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i
 
@@ -931,17 +931,17 @@ _ZNK5clang8EnumDecl14getIntegerTypeEv.exit:       ; preds = %_ZNK5clang8QualType
   br i1 %.not30, label %.critedge, label %69
 
 69:                                               ; preds = %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit
-  %70 = tail call noundef zeroext i1 @_ZNK5clang4Type18isAnyCharacterTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %61) #8
+  %70 = tail call noundef zeroext i1 @_ZNK5clang4Type18isAnyCharacterTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %61) #7
   br i1 %70, label %71, label %96
 
 71:                                               ; preds = %69
   store i32 21, ptr %7, align 8, !tbaa !3
   %72 = load ptr, ptr %60, align 16, !tbaa !532
-  %73 = tail call noundef zeroext i1 @_ZNK5clang4Type14isWideCharTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %72) #8
+  %73 = tail call noundef zeroext i1 @_ZNK5clang4Type14isWideCharTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %72) #7
   %spec.select = select i1 %73, i32 4, i32 0
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select, ptr %74, align 8, !tbaa !22
-  %75 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %4, i64 %2) #8
+  %75 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %4, i64 %2) #7
   %.not.i.i.i45 = icmp eq ptr %75, null
   br i1 %.not.i.i.i45, label %.critedge, label %76
 
@@ -1039,13 +1039,13 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %83, %86
   br i1 %or.cond, label %111, label %109
 
 109:                                              ; preds = %105
-  %110 = tail call noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpecifier25namedTypeToLengthModifierENS_8QualTypeERNS0_14LengthModifierE(i64 %.sroa.052.0, ptr noundef nonnull align 8 dereferenceable(12) %0) #8
+  %110 = tail call noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpecifier25namedTypeToLengthModifierENS_8QualTypeERNS0_14LengthModifierE(i64 %.sroa.052.0, ptr noundef nonnull align 8 dereferenceable(12) %0) #7
   br label %111
 
 111:                                              ; preds = %105, %109
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 17288
   %113 = load ptr, ptr %112, align 8, !tbaa !117
-  %114 = tail call noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSpecifier22hasValidLengthModifierERKNS_10TargetInfoERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(489) %113, ptr noundef nonnull align 8 dereferenceable(849) %3) #8
+  %114 = tail call noundef zeroext i1 @_ZNK5clang21analyze_format_string15FormatSpecifier22hasValidLengthModifierERKNS_10TargetInfoERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(489) %113, ptr noundef nonnull align 8 dereferenceable(849) %3) #7
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %111
@@ -1056,7 +1056,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %83, %86
   br i1 %.not69, label %.thread, label %117
 
 117:                                              ; preds = %115
-  %118 = call noundef i32 @_ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(23216) %4, i64 %1) #8
+  %118 = call noundef i32 @_ZNK5clang21analyze_format_string7ArgType11matchesTypeERNS_10ASTContextENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(23216) %4, i64 %1) #7
   %.not33 = icmp eq i32 %118, 0
   br i1 %.not33, label %.thread, label %119
 
@@ -1070,7 +1070,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %83, %86
 
 120:                                              ; preds = %.thread, %111
   %121 = load ptr, ptr %60, align 16, !tbaa !532
-  %122 = call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %121) #8
+  %122 = call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %121) #7
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %120
@@ -1079,7 +1079,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %83, %86
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %60, align 16, !tbaa !532
-  %126 = call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %125) #8
+  %126 = call noundef zeroext i1 @_ZNK5clang4Type19isSignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %125) #7
   br i1 %126, label %127, label %128
 
 127:                                              ; preds = %124
@@ -1088,8 +1088,7 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %83, %86
 
 128:                                              ; preds = %124
   %129 = load ptr, ptr %60, align 16, !tbaa !532
-  %130 = call noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %129) #8
-  call void @llvm.assume(i1 %130)
+  %130 = call noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %129) #7
   store i32 9, ptr %7, align 8, !tbaa !3
   br label %.critedge
 
@@ -1126,7 +1125,7 @@ define dso_local void @_ZNK5clang13analyze_scanf14ScanfSpecifier8toStringERN4llv
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.11, i64 noundef 1) #8
+  %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.11, i64 noundef 1) #7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 10:                                               ; preds = %2
@@ -1147,7 +1146,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %8, %10
   %18 = load i32, ptr %17, align 4, !tbaa !551
   %19 = add i32 %18, 1
   %20 = zext i32 %19 to i64
-  %21 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %20) #8
+  %21 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %20) #7
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !541
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -1156,7 +1155,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %8, %10
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %16
-  %28 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull @.str.12, i64 noundef 1) #8
+  %28 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull @.str.12, i64 noundef 1) #7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9
 
 29:                                               ; preds = %16
@@ -1179,7 +1178,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %29, %27, %_ZN4llvm1
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %35
-  %40 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.13, i64 noundef 1) #8
+  %40 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.13, i64 noundef 1) #7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12
 
 41:                                               ; preds = %35
@@ -1191,13 +1190,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %29, %27, %_ZN4llvm1
 
 _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %41, %39, %_ZN4llvm11raw_ostreamlsEPKc.exit9
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZNK5clang21analyze_format_string14OptionalAmount8toStringERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %44, ptr noundef nonnull align 8 dereferenceable(48) %1) #8
-  %45 = tail call noundef ptr @_ZNK5clang21analyze_format_string14LengthModifier8toStringEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #8
+  tail call void @_ZNK5clang21analyze_format_string14OptionalAmount8toStringERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(22) %44, ptr noundef nonnull align 8 dereferenceable(48) %1) #7
+  %45 = tail call noundef ptr @_ZNK5clang21analyze_format_string14LengthModifier8toStringEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #7
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit15, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12
-  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #8
+  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #7
   %47 = load ptr, ptr %3, align 8, !tbaa !541
   %48 = load ptr, ptr %5, align 8, !tbaa !545
   %49 = ptrtoint ptr %47 to i64
@@ -1207,7 +1206,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i
-  %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %45, i64 noundef %46) #8
+  %54 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %45, i64 noundef %46) #7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 55:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i
@@ -1223,12 +1222,12 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit12, %53, %55, %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %60 = tail call noundef ptr @_ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv(ptr noundef nonnull align 8 dereferenceable(28) %59) #8
+  %60 = tail call noundef ptr @_ZNK5clang21analyze_format_string19ConversionSpecifier8toStringEv(ptr noundef nonnull align 8 dereferenceable(28) %59) #7
   %.not.i.i16 = icmp eq ptr %60, null
   br i1 %.not.i.i16, label %_ZN4llvm11raw_ostreamlsEPKc.exit20, label %_ZN4llvm9StringRefC2EPKc.exit.i17
 
 _ZN4llvm9StringRefC2EPKc.exit.i17:                ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit15
-  %61 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #8
+  %61 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #7
   %62 = load ptr, ptr %3, align 8, !tbaa !541
   %63 = load ptr, ptr %5, align 8, !tbaa !545
   %64 = ptrtoint ptr %62 to i64
@@ -1238,7 +1237,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i17:                ; preds = %_ZN4llvm11raw_ostre
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i17
-  %69 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %60, i64 noundef %61) #8
+  %69 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %60, i64 noundef %61) #7
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit20
 
 70:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i17
@@ -1332,7 +1331,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseScan
   %50 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i) #8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i) #7
   br label %.thread.sink.split
 
 53:                                               ; preds = %.lr.ph.i
@@ -1376,7 +1375,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %66 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %65) #8
+  call void %68(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %65) #7
   br label %.thread.sink.split
 
 69:                                               ; preds = %59
@@ -1396,7 +1395,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   store i32 0, ptr %23, align 4, !tbaa !551, !noalias !554
   store ptr @.str.13, ptr %24, align 8, !tbaa !568, !noalias !554
   store i8 0, ptr %25, align 8, !tbaa !552, !noalias !554
-  %70 = call noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgPositionERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull %storemerge99.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #8
+  %70 = call noundef zeroext i1 @_ZN5clang21analyze_format_string16ParseArgPositionERNS0_19FormatStringHandlerERNS0_15FormatSpecifierEPKcRS6_S6_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull %storemerge99.i, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #7
   br i1 %70, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43, label %71
 
 71:                                               ; preds = %69
@@ -1419,7 +1418,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
 
 80:                                               ; preds = %77, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !554
-  call void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #8
+  call void @_ZN5clang21analyze_format_string11ParseAmountERPKcS2_(ptr dead_on_unwind nonnull writable sret(%"class.clang::analyze_format_string::OptionalAmount") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2) #7
   %81 = load i32, ptr %27, align 4, !tbaa !566, !noalias !554
   %.not67.i = icmp eq i32 %81, 0
   br i1 %.not67.i, label %92, label %82
@@ -1437,11 +1436,11 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %89 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 48
   %91 = load ptr, ptr %90, align 8
-  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %88) #8
+  call void %91(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %88) #7
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread47
 
 92:                                               ; preds = %82, %80
-  %93 = call noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLengthModifierERNS0_15FormatSpecifierERPKcS4_RKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(849) %3, i1 noundef zeroext true) #8
+  %93 = call noundef zeroext i1 @_ZN5clang21analyze_format_string19ParseLengthModifierERNS0_15FormatSpecifierERPKcS4_RKNS_11LangOptionsEb(ptr noundef nonnull align 8 dereferenceable(104) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(849) %3, i1 noundef zeroext true) #7
   %94 = load ptr, ptr %6, align 8, !noalias !554
   %95 = icmp eq ptr %94, %2
   %or.cond.i = select i1 %93, i1 %95, i1 false
@@ -1454,7 +1453,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %100 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %99) #8
+  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %99) #7
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread47
 
 103:                                              ; preds = %92
@@ -1466,7 +1465,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %107 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %94) #8
+  call void %109(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %94) #7
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread47
 
 110:                                              ; preds = %103
@@ -1686,7 +1685,7 @@ _ZNK5clang21analyze_format_string19ConversionSpecifier20consumesDataArgumentEv.e
   %166 = sub i64 %164, %165
   %167 = trunc i64 %166 to i32
   store i32 %167, ptr %10, align 4, !tbaa !537, !noalias !554
-  %168 = call noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef %.01826, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %10) #8
+  %168 = call noundef zeroext i1 @_ZN5clang21analyze_format_string25ParseUTF8InvalidSpecifierEPKcS2_Rj(ptr noundef %.01826, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %10) #7
   %.pre102.i = load i32, ptr %10, align 4, !tbaa !537, !noalias !554
   br i1 %168, label %169, label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit
 
@@ -1704,7 +1703,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %175 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 48
   %177 = load ptr, ptr %176, align 8
-  call void %177(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %174) #8
+  call void %177(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %storemerge99.i, i32 noundef %174) #7
   br label %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43
 
 _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43: ; preds = %69, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43.sink.split
@@ -1720,7 +1719,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %178 = load ptr, ptr %0, align 8, !tbaa !557, !noalias !554
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 104
   %180 = load ptr, ptr %179, align 8
-  %181 = call noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %.01826, i32 noundef %.pre102.i) #8
+  %181 = call noundef zeroext i1 %180(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %.01826, i32 noundef %.pre102.i) #7
   store ptr null, ptr %11, align 8, !tbaa !561
   store i32 0, ptr %29, align 8, !tbaa !22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
@@ -1762,7 +1761,7 @@ _ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPK
   %191 = load ptr, ptr %0, align 8, !tbaa !557
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 112
   %193 = load ptr, ptr %192, align 8
-  %194 = call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull %storemerge99.i, i32 noundef %190) #8
+  %194 = call noundef zeroext i1 %193(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull %storemerge99.i, i32 noundef %190) #7
   br i1 %194, label %select.unfold, label %.thread
 
 .thread.sink.split:                               ; preds = %62, %.thread.i, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread43, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread47, %_ZL19ParseScanfSpecifierRN5clang21analyze_format_string19FormatStringHandlerERPKcS4_RjRKNS_11LangOptionsERKNS_10TargetInfoE.exit.thread50
@@ -1819,7 +1818,7 @@ define internal fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_f
   %10 = load ptr, ptr %0, align 8, !tbaa !557
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef %6) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef %6) #7
   br label %51
 
 13:                                               ; preds = %4
@@ -1836,7 +1835,7 @@ define internal fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_f
   %20 = load ptr, ptr %0, align 8, !tbaa !557
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #8
+  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
   br label %51
 
 23:                                               ; preds = %16, %13
@@ -1864,7 +1863,7 @@ define internal fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_f
   %35 = load ptr, ptr %0, align 8, !tbaa !557
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 120
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef nonnull %24) #8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef nonnull %24) #7
   br label %51
 
 38:                                               ; preds = %31, %28, %25, %23
@@ -1889,7 +1888,7 @@ define internal fastcc noundef zeroext i1 @_ZL13ParseScanListRN5clang21analyze_f
   %46 = load ptr, ptr %0, align 8, !tbaa !557
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef nonnull %.3) #8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %7, ptr noundef nonnull %.3) #7
   br label %51
 
 49:                                               ; preds = %40
@@ -1912,11 +1911,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1924,9 +1920,8 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

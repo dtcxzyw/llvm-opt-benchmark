@@ -90,7 +90,7 @@ $_ZTSPFvPN19OpenColorIO_v2_5dev25ExposureContrastTransformEE = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_5dev25ExposureContrastTransform6CreateEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #19
+  %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 16), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -101,19 +101,19 @@ _ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImplC2Ev.exit: ; preds = %1
   store ptr %2, ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !13
-  %5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
+  %5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
           to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformEEC2INS0_29ExposureContrastTransformImplEPFvPS1_EvEEPT_T0_.exit unwind label %6
 
 6:                                                ; preds = %_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImplC2Ev.exit
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #20
+  %9 = tail call ptr @__cxa_begin_catch(ptr %8) #19
   %10 = load ptr, ptr %2, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(256) %2) #20
-  invoke void @__cxa_rethrow() #21
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(256) %2) #19
+  invoke void @__cxa_rethrow() #20
           to label %18 unwind label %13
 
 13:                                               ; preds = %6
@@ -130,7 +130,7 @@ common.resume:                                    ; preds = %13, %23
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #22
+  tail call void @__clang_call_terminate(ptr %17) #21
   unreachable
 
 18:                                               ; preds = %6
@@ -152,7 +152,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformEEC2INS0_29Ex
 23:                                               ; preds = %1
   %24 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 256) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 256) #22
   br label %common.resume
 }
 
@@ -176,7 +176,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl7dele
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(256) %0) #20
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(256) %0) #19
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -197,7 +197,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_c
   store ptr %6, ptr %4, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 0) #20
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %3, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9TransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 0) #19
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = invoke noundef nonnull align 8 dereferenceable(248) ptr @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %9, ptr noundef nonnull align 8 dereferenceable(248) %7)
           to label %13 unwind label %11
@@ -205,7 +205,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_c
 11:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev9TransformELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25ExposureContrastTransformELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -238,11 +238,11 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev9Tran
   %11 = load ptr, ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   %14 = load ptr, ptr %3, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -265,7 +265,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -275,7 +275,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(248) %2) #20
+  %3 = tail call noundef i32 @_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData12getDirectionEv(ptr noundef nonnull align 8 dereferenceable(248) %2) #19
   ret i32 %3
 }
 
@@ -285,7 +285,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData12getDirec
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1) #20
+  tail call void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(248) %3, i32 noundef %1) #19
   ret void
 }
 
@@ -305,19 +305,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8val
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   invoke void %8(ptr noundef nonnull align 8 dereferenceable(248) %5)
-          to label %42 unwind label %9
+          to label %39 unwind label %9
 
 9:                                                ; preds = %4, %1
   %10 = landingpad { ptr, i32 }
           catch ptr @_ZTIN19OpenColorIO_v2_5dev9ExceptionE
   %11 = extractvalue { ptr, i32 } %10, 1
-  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE) #20
+  %12 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE) #19
   %13 = icmp eq i32 %11, %12
-  br i1 %13, label %14, label %43
+  br i1 %13, label %14, label %40
 
 14:                                               ; preds = %9
   %15 = extractvalue { ptr, i32 } %10, 0
-  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #20
+  %16 = tail call ptr @__cxa_begin_catch(ptr %15) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -328,19 +328,19 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8val
   %18 = load ptr, ptr %16, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
+  %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(16) %16) #19
   %22 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %21)
           to label %23 unwind label %29
 
 23:                                               ; preds = %17
-  %24 = call ptr @__cxa_allocate_exception(i64 16) #20
+  %24 = call ptr @__cxa_allocate_exception(i64 16) #19
   %25 = load ptr, ptr %2, align 8, !tbaa !29
   invoke void @_ZN19OpenColorIO_v2_5dev9ExceptionC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef %25)
           to label %26 unwind label %31
 
 26:                                               ; preds = %23
-  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #21
-          to label %47 unwind label %29
+  invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev9ExceptionE, ptr nonnull @_ZN19OpenColorIO_v2_5dev9ExceptionD1Ev) #20
+          to label %44 unwind label %29
 
 27:                                               ; preds = %14
   %28 = landingpad { ptr, i32 }
@@ -356,7 +356,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8val
 31:                                               ; preds = %23
   %32 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %24) #20
+  call void @__cxa_free_exception(ptr nonnull %24) #19
   br label %33
 
 33:                                               ; preds = %31, %29
@@ -364,42 +364,35 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8val
   %34 = load ptr, ptr %2, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %36 = icmp eq ptr %34, %35
-  br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !34
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %33
-  %40 = load i64, ptr %35, align 8, !tbaa !26
-  %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %34, i64 noundef %41) #23
+  %37 = load i64, ptr %35, align 8, !tbaa !26
+  %38 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %34, i64 noundef %38) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %27
-  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %27
+  %.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %.pn, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   invoke void @__cxa_end_catch()
-          to label %43 unwind label %44
+          to label %40 unwind label %41
 
-42:                                               ; preds = %4
+39:                                               ; preds = %4
   ret void
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
+40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
   %.merged = phi { ptr, i32 } [ %10, %9 ], [ %.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   resume { ptr, i32 } %.merged
 
-44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #22
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #21
   unreachable
 
-47:                                               ; preds = %26
+44:                                               ; preds = %26
   unreachable
 }
 
@@ -432,8 +425,8 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #22
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #19
+  tail call void @_ZSt9terminatev() #21
   unreachable
 }
 
@@ -459,7 +452,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTra
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev25ExposureContrastTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 0) #20
+  %6 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev25ExposureContrastTransformE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 0) #19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_22ExposureContrastOpDataES2_(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull align 8 dereferenceable(248) %7)
           to label %9 unwind label %10
@@ -472,7 +465,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTra
   %11 = landingpad { ptr, i32 }
           catch ptr null
   %12 = extractvalue { ptr, i32 } %11, 0
-  tail call void @__clang_call_terminate(ptr %12) #22
+  tail call void @__clang_call_terminate(ptr %12) #21
   unreachable
 }
 
@@ -481,7 +474,7 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_5deveqERKNS_22ExposureContrastOp
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8getStyleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %3 = load i32, ptr %2, align 8, !tbaa !35
+  %3 = load i32, ptr %2, align 8, !tbaa !34
   %4 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12ConvertStyleENS0_5StyleE(i32 noundef %3)
   ret i32 %4
 }
@@ -493,10 +486,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8setS
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(256) %0) #20
+  %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(256) %0) #19
   %7 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12ConvertStyleENS_21ExposureContrastStyleENS_18TransformDirectionE(i32 noundef %1, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 %7, ptr %8, align 8, !tbaa !35
+  store i32 %7, ptr %8, align 8, !tbaa !34
   ret void
 }
 
@@ -505,7 +498,7 @@ declare noundef i32 @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12ConvertSt
 ; Function Attrs: mustprogress uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl11getExposureEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -516,7 +509,7 @@ define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransfo
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl11setExposureEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -527,36 +520,36 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl11set
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl19makeExposureDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !57
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !58
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !57
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !58
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !57
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !58
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !57
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !58
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !57
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !58
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !57
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %14, align 4, !tbaa !61
+  store i8 1, ptr %14, align 4, !tbaa !60
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %16, align 4, !tbaa !61
+  store i8 1, ptr %16, align 4, !tbaa !60
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -569,11 +562,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit: ;
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -596,7 +589,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -606,36 +599,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl22makeExposureNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !66
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !65
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !65
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !66
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !65
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !66
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !65
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !66
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !65
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !66
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !65
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %14, align 4, !tbaa !61
+  store i8 0, ptr %14, align 4, !tbaa !60
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %16, align 4, !tbaa !61
+  store i8 0, ptr %16, align 4, !tbaa !60
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -648,11 +641,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit: ;
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -675,7 +668,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -685,36 +678,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl17isExposureDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !68
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !68
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !69
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !68
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !69
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !68
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !69
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !68
   br label %16
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !69
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !68
   br label %16
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !61, !range !72, !noundef !73
+  %15 = load i8, ptr %14, align 4, !tbaa !60, !range !71, !noundef !72
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 16:                                               ; preds = %9, %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %18 = load i8, ptr %17, align 4, !tbaa !61, !range !72, !noundef !73
+  %18 = load i8, ptr %17, align 4, !tbaa !60, !range !71, !noundef !72
   %19 = load atomic i64, ptr %7 acquire, align 8
   %20 = icmp eq i64 %19, 4294967297
   %21 = trunc i64 %19 to i32
@@ -727,11 +720,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit: ;
   %24 = load ptr, ptr %5, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %27 = load ptr, ptr %5, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 30:                                               ; preds = %16
@@ -754,7 +747,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %34, %32
   br i1 %36, label %37, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 37:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv.exit, %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %37
@@ -766,7 +759,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl11getContrastEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -777,7 +770,7 @@ define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransfo
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl11setContrastEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -788,36 +781,36 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl11set
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl19makeContrastDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !73
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !73
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !74
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !73
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !74
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !73
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !74
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !73
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !74
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !73
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %14, align 4, !tbaa !61
+  store i8 1, ptr %14, align 4, !tbaa !60
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %16, align 4, !tbaa !61
+  store i8 1, ptr %16, align 4, !tbaa !60
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -830,11 +823,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit: ;
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -857,7 +850,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -867,36 +860,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl22makeContrastNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !76
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !77
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !76
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !77
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !76
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !77
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !76
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !77
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !76
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %14, align 4, !tbaa !61
+  store i8 0, ptr %14, align 4, !tbaa !60
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %16, align 4, !tbaa !61
+  store i8 0, ptr %16, align 4, !tbaa !60
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -909,11 +902,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit: ;
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -936,7 +929,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -946,36 +939,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl17isContrastDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !79
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !80
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !79
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !80
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !79
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !80
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !79
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !80
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !79
   br label %16
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !80
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !79
   br label %16
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !61, !range !72, !noundef !73
+  %15 = load i8, ptr %14, align 4, !tbaa !60, !range !71, !noundef !72
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 16:                                               ; preds = %9, %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %18 = load i8, ptr %17, align 4, !tbaa !61, !range !72, !noundef !73
+  %18 = load i8, ptr %17, align 4, !tbaa !60, !range !71, !noundef !72
   %19 = load atomic i64, ptr %7 acquire, align 8
   %20 = icmp eq i64 %19, 4294967297
   %21 = trunc i64 %19 to i32
@@ -988,11 +981,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit: ;
   %24 = load ptr, ptr %5, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %27 = load ptr, ptr %5, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 30:                                               ; preds = %16
@@ -1015,7 +1008,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %34, %32
   br i1 %36, label %37, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 37:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv.exit, %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %37
@@ -1027,7 +1020,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8getGammaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1038,7 +1031,7 @@ define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransfo
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8setGammaEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, double noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !56
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -1049,36 +1042,36 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8setG
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl16makeGammaDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !82
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !83
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !82
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !83
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !82
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !83
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !82
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !83
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !82
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !83
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !82
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %14, align 4, !tbaa !61
+  store i8 1, ptr %14, align 4, !tbaa !60
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 1, ptr %16, align 4, !tbaa !61
+  store i8 1, ptr %16, align 4, !tbaa !60
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -1091,11 +1084,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; pr
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -1118,7 +1111,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -1128,36 +1121,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl19makeGammaNonDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !86
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !85
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !86
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !85
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !86
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !85
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !86
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !85
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !86
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !85
   br label %15
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !86
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !85
   br label %15
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %14, align 4, !tbaa !61
+  store i8 0, ptr %14, align 4, !tbaa !60
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 15:                                               ; preds = %9, %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 0, ptr %16, align 4, !tbaa !61
+  store i8 0, ptr %16, align 4, !tbaa !60
   %17 = load atomic i64, ptr %7 acquire, align 8
   %18 = icmp eq i64 %17, 4294967297
   %19 = trunc i64 %17 to i32
@@ -1170,11 +1163,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; pr
   %22 = load ptr, ptr %5, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %25 = load ptr, ptr %5, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 28:                                               ; preds = %15
@@ -1197,7 +1190,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %32, %30
   br i1 %34, label %35, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 35:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit, %20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %35
@@ -1207,36 +1200,36 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl14isGammaDynamicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %3 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !89
+  %3 = load ptr, ptr %2, align 8, !tbaa !56, !noalias !88
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !89
+  %5 = load ptr, ptr %4, align 8, !tbaa !13, !noalias !88
   %.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i, label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !89
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26, !noalias !88
   %.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %.not.i.i.i.i.i, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !89
+  %10 = load i32, ptr %7, align 4, !tbaa !27, !noalias !88
   %11 = add nsw i32 %10, 1
-  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !89
+  store i32 %11, ptr %7, align 4, !tbaa !27, !noalias !88
   br label %16
 
 12:                                               ; preds = %6
-  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !89
+  %13 = atomicrmw volatile add ptr %7, i32 1 acq_rel, align 4, !noalias !88
   br label %16
 
 _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %15 = load i8, ptr %14, align 4, !tbaa !61, !range !72, !noundef !73
+  %15 = load i8, ptr %14, align 4, !tbaa !60, !range !71, !noundef !72
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 16:                                               ; preds = %9, %12
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %18 = load i8, ptr %17, align 4, !tbaa !61, !range !72, !noundef !73
+  %18 = load i8, ptr %17, align 4, !tbaa !60, !range !71, !noundef !72
   %19 = load atomic i64, ptr %7 acquire, align 8
   %20 = icmp eq i64 %19, 4294967297
   %21 = trunc i64 %19 to i32
@@ -1249,11 +1242,11 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit: ; pr
   %24 = load ptr, ptr %5, align 8, !tbaa !3
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   %27 = load ptr, ptr %5, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 30:                                               ; preds = %16
@@ -1276,7 +1269,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %34, %32
   br i1 %36, label %37, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !28
 
 37:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv.exit, %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %37
@@ -1288,42 +1281,42 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8getPivotEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %3 = load double, ptr %2, align 8, !tbaa !92
+  %3 = load double, ptr %2, align 8, !tbaa !91
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl8setPivotEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((232, 240)) %0, double noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store double %1, ptr %3, align 8, !tbaa !92
+  store double %1, ptr %3, align 8, !tbaa !91
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl18getLogExposureStepEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = load double, ptr %2, align 8, !tbaa !93
+  %3 = load double, ptr %2, align 8, !tbaa !92
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl18setLogExposureStepEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((240, 248)) %0, double noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store double %1, ptr %3, align 8, !tbaa !93
+  store double %1, ptr %3, align 8, !tbaa !92
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK19OpenColorIO_v2_5dev29ExposureContrastTransformImpl13getLogMidGrayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load double, ptr %2, align 8, !tbaa !94
+  %3 = load double, ptr %2, align 8, !tbaa !93
   ret double %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImpl13setLogMidGrayEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(256) initializes((248, 256)) %0, double noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store double %1, ptr %3, align 8, !tbaa !94
+  store double %1, ptr %3, align 8, !tbaa !93
   ret void
 }
 
@@ -1334,7 +1327,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %1) #20
+  %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
   %9 = tail call noundef ptr @_ZN19OpenColorIO_v2_5dev26TransformDirectionToStringENS_18TransformDirectionE(i32 noundef %8)
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %18
@@ -1345,13 +1338,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !95
+  %16 = load i32, ptr %15, align 8, !tbaa !94
   %17 = or i32 %16, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %14, i32 noundef %17)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
 18:                                               ; preds = %2
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
+  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9, i64 noundef %19)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
 
@@ -1371,13 +1364,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %10, %18
   %30 = load i64, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load i32, ptr %32, align 8, !tbaa !95
+  %33 = load i32, ptr %32, align 8, !tbaa !94
   %34 = or i32 %33, 1
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %31, i32 noundef %34)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26
 
 35:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #20
+  %36 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #19
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %26, i64 noundef %36)
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26
 
@@ -1468,7 +1461,7 @@ define linkonce_odr hidden noundef i32 @_ZNK19OpenColorIO_v2_5dev25ExposureContr
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImplD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #20
+  tail call void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #19
   ret void
 }
 
@@ -1476,8 +1469,8 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTrans
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev29ExposureContrastTransformImplD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 264) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev29ExposureContrastTransformImplE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #23
+  tail call void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 256) #22
   ret void
 }
 
@@ -1488,7 +1481,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !26
   %.not.i = icmp eq i8 %6, 0
@@ -1513,7 +1506,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -1532,16 +1525,16 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS0_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS0_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8, !tbaa !103
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !104
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1552,21 +1545,21 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #22
+  tail call void @__clang_call_terminate(ptr %9) #21
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS0_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS1_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit:
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS0_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !107
+  %4 = load ptr, ptr %3, align 8, !tbaa !106
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev25ExposureContrastTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1576,7 +1569,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColor
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread3, label %_ZNKSt9type_infoeqERKS_.exit
 
 _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %6
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(56) @_ZTSPFvPN19OpenColorIO_v2_5dev25ExposureContrastTransformEE) #20
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(56) @_ZTSPFvPN19OpenColorIO_v2_5dev25ExposureContrastTransformEE) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %_ZNKSt9type_infoeqERKS_.exit.thread3
 
@@ -1607,9 +1600,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1628,12 +1618,11 @@ attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #15 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { builtin allocsize(0) }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { noreturn nounwind }
-attributes #23 = { builtin nounwind }
+attributes #18 = { builtin allocsize(0) }
+attributes #19 = { nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -1671,78 +1660,77 @@ attributes #23 = { builtin nounwind }
 !31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !32, i64 0}
 !32 = !{!"p1 omnipotent char", !9, i64 0}
 !33 = !{!"long", !10, i64 0}
-!34 = !{!30, !33, i64 8}
-!35 = !{!36, !52, i64 168}
-!36 = !{!"_ZTSN19OpenColorIO_v2_5dev22ExposureContrastOpDataE", !37, i64 0, !52, i64 168, !53, i64 176, !53, i64 192, !53, i64 208, !56, i64 224, !56, i64 232, !56, i64 240}
-!37 = !{!"_ZTSN19OpenColorIO_v2_5dev6OpDataE", !38, i64 8, !40, i64 48}
-!38 = !{!"_ZTSSt5mutex", !39, i64 0}
-!39 = !{!"_ZTSSt12__mutex_base", !10, i64 0}
-!40 = !{!"_ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !41, i64 0, !30, i64 8, !30, i64 40, !42, i64 72, !47, i64 96}
-!41 = !{!"_ZTSN19OpenColorIO_v2_5dev14FormatMetadataE"}
-!42 = !{!"_ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !43, i64 0}
-!43 = !{!"_ZTSSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !44, i64 0}
-!44 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_Vector_implE", !45, i64 0}
-!45 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
-!46 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !9, i64 0}
-!47 = !{!"_ZTSSt6vectorIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !48, i64 0}
-!48 = !{!"_ZTSSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !49, i64 0}
-!49 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE12_Vector_implE", !50, i64 0}
-!50 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE17_Vector_impl_dataE", !51, i64 0, !51, i64 8, !51, i64 16}
-!51 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !9, i64 0}
-!52 = !{!"_ZTSN19OpenColorIO_v2_5dev22ExposureContrastOpData5StyleE", !10, i64 0}
-!53 = !{!"_ZTSSt10shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplEE", !54, i64 0}
-!54 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EE", !55, i64 0, !11, i64 8}
-!55 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplE", !9, i64 0}
-!56 = !{!"double", !10, i64 0}
-!57 = !{!54, !55, i64 0}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv: argument 0"}
-!60 = distinct !{!60, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv"}
-!61 = !{!62, !65, i64 12}
-!62 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyImplE", !63, i64 0, !64, i64 8, !65, i64 12}
-!63 = !{!"_ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE"}
-!64 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyTypeE", !10, i64 0}
-!65 = !{!"bool", !10, i64 0}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv: argument 0"}
-!68 = distinct !{!68, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv"}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv: argument 0"}
-!71 = distinct !{!71, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv"}
-!72 = !{i8 0, i8 2}
-!73 = !{}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv: argument 0"}
-!76 = distinct !{!76, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv: argument 0"}
-!79 = distinct !{!79, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv: argument 0"}
-!82 = distinct !{!82, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv: argument 0"}
-!85 = distinct !{!85, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv: argument 0"}
-!88 = distinct !{!88, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv: argument 0"}
-!91 = distinct !{!91, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv"}
-!92 = !{!36, !56, i64 224}
-!93 = !{!36, !56, i64 232}
-!94 = !{!36, !56, i64 240}
-!95 = !{!96, !98, i64 32}
-!96 = !{!"_ZTSSt8ios_base", !33, i64 8, !33, i64 16, !97, i64 24, !98, i64 28, !98, i64 32, !99, i64 40, !100, i64 48, !10, i64 64, !16, i64 192, !101, i64 200, !102, i64 208}
-!97 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!98 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!99 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
-!100 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !33, i64 8}
-!101 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
-!102 = !{!"_ZTSSt6locale", !103, i64 0}
-!103 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!104 = !{!9, !9, i64 0}
-!105 = !{!106, !22, i64 24}
-!106 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS0_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!107 = !{!108, !32, i64 8}
-!108 = !{!"_ZTSSt9type_info", !32, i64 8}
+!34 = !{!35, !51, i64 168}
+!35 = !{!"_ZTSN19OpenColorIO_v2_5dev22ExposureContrastOpDataE", !36, i64 0, !51, i64 168, !52, i64 176, !52, i64 192, !52, i64 208, !55, i64 224, !55, i64 232, !55, i64 240}
+!36 = !{!"_ZTSN19OpenColorIO_v2_5dev6OpDataE", !37, i64 8, !39, i64 48}
+!37 = !{!"_ZTSSt5mutex", !38, i64 0}
+!38 = !{!"_ZTSSt12__mutex_base", !10, i64 0}
+!39 = !{!"_ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !40, i64 0, !30, i64 8, !30, i64 40, !41, i64 72, !46, i64 96}
+!40 = !{!"_ZTSN19OpenColorIO_v2_5dev14FormatMetadataE"}
+!41 = !{!"_ZTSSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !42, i64 0}
+!42 = !{!"_ZTSSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE", !43, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE12_Vector_implE", !44, i64 0}
+!44 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE17_Vector_impl_dataE", !45, i64 0, !45, i64 8, !45, i64 16}
+!45 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_E", !9, i64 0}
+!46 = !{!"_ZTSSt6vectorIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !47, i64 0}
+!47 = !{!"_ZTSSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE", !48, i64 0}
+!48 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE12_Vector_implE", !49, i64 0}
+!49 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE17_Vector_impl_dataE", !50, i64 0, !50, i64 8, !50, i64 16}
+!50 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev18FormatMetadataImplE", !9, i64 0}
+!51 = !{!"_ZTSN19OpenColorIO_v2_5dev22ExposureContrastOpData5StyleE", !10, i64 0}
+!52 = !{!"_ZTSSt10shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplEE", !53, i64 0}
+!53 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplELN9__gnu_cxx12_Lock_policyE2EE", !54, i64 0, !11, i64 8}
+!54 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev25DynamicPropertyDoubleImplE", !9, i64 0}
+!55 = !{!"double", !10, i64 0}
+!56 = !{!53, !54, i64 0}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv: argument 0"}
+!59 = distinct !{!59, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv"}
+!60 = !{!61, !64, i64 12}
+!61 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyImplE", !62, i64 0, !63, i64 8, !64, i64 12}
+!62 = !{!"_ZTSN19OpenColorIO_v2_5dev15DynamicPropertyE"}
+!63 = !{!"_ZTSN19OpenColorIO_v2_5dev19DynamicPropertyTypeE", !10, i64 0}
+!64 = !{!"bool", !10, i64 0}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv: argument 0"}
+!67 = distinct !{!67, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv: argument 0"}
+!70 = distinct !{!70, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getExposurePropertyEv"}
+!71 = !{i8 0, i8 2}
+!72 = !{}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv: argument 0"}
+!78 = distinct !{!78, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv: argument 0"}
+!81 = distinct !{!81, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData19getContrastPropertyEv"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv: argument 0"}
+!84 = distinct !{!84, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv: argument 0"}
+!87 = distinct !{!87, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv: argument 0"}
+!90 = distinct !{!90, !"_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData16getGammaPropertyEv"}
+!91 = !{!35, !55, i64 224}
+!92 = !{!35, !55, i64 232}
+!93 = !{!35, !55, i64 240}
+!94 = !{!95, !97, i64 32}
+!95 = !{!"_ZTSSt8ios_base", !33, i64 8, !33, i64 16, !96, i64 24, !97, i64 28, !97, i64 32, !98, i64 40, !99, i64 48, !10, i64 64, !16, i64 192, !100, i64 200, !101, i64 208}
+!96 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!97 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!98 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
+!99 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !33, i64 8}
+!100 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
+!101 = !{!"_ZTSSt6locale", !102, i64 0}
+!102 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
+!103 = !{!9, !9, i64 0}
+!104 = !{!105, !22, i64 24}
+!105 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev29ExposureContrastTransformImplEPFvPNS0_25ExposureContrastTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!106 = !{!107, !32, i64 8}
+!107 = !{!"_ZTSSt9type_info", !32, i64 8}

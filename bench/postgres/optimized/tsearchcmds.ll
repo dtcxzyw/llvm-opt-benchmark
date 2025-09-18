@@ -81,28 +81,27 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = tail call zeroext i1 @superuser() #10
+  %9 = tail call zeroext i1 @superuser() #9
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 16797828) #10
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.DefineTSParser) #10
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %12 = tail call i32 @errcode(i32 noundef 16797828) #9
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.DefineTSParser) #9
   unreachable
 
 14:                                               ; preds = %2
-  %15 = tail call ptr @table_open(i32 noundef 3601, i32 noundef 3) #10
-  %16 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %5) #10
+  %15 = tail call ptr @table_open(i32 noundef 3601, i32 noundef 3) #9
+  %16 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %5) #9
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %17, i8 0, i64 48, i1 false)
   store i64 0, ptr %7, align 8
-  %18 = call i32 @GetNewOidWithIndex(ptr noundef %15, i32 noundef 3607, i16 noundef signext 1) #10
+  %18 = call i32 @GetNewOidWithIndex(ptr noundef %15, i32 noundef 3607, i16 noundef signext 1) #9
   %19 = zext i32 %18 to i64
   store i64 %19, ptr %6, align 16
   %20 = load ptr, ptr %5, align 8
-  call void @namestrcpy(ptr noundef nonnull %8, ptr noundef %20) #10
+  call void @namestrcpy(ptr noundef nonnull %8, ptr noundef %20) #9
   %21 = ptrtoint ptr %8 to i64
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %21, ptr %22, align 8
@@ -135,7 +134,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.2) #12
+  %43 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(6) @.str.2) #11
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %48, label %50
 
@@ -151,7 +150,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br label %76
 
 50:                                               ; preds = %.lr.ph67
-  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.3) #12
+  %51 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.3) #11
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %55
 
@@ -161,7 +160,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br label %76
 
 55:                                               ; preds = %50
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(4) @.str.4) #12
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(4) @.str.4) #11
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -171,7 +170,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br label %76
 
 60:                                               ; preds = %55
-  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.5) #12
+  %61 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.5) #11
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
@@ -181,7 +180,7 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br label %76
 
 65:                                               ; preds = %60
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.6) #12
+  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(9) @.str.6) #11
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %70
 
@@ -192,12 +191,11 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 @errcode(i32 noundef 16801924) #10
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %73 = call i32 @errcode(i32 noundef 16801924) #9
   %74 = load ptr, ptr %71, align 8
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %74) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.DefineTSParser) #10
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %74) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef nonnull @__func__.DefineTSParser) #9
   unreachable
 
 76:                                               ; preds = %53, %63, %68, %58, %48
@@ -212,11 +210,10 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br i1 %83, label %.lr.ph67, label %..critedge_crit_edge
 
 .critedge.thread:                                 ; preds = %.lr.ph, %14, %..critedge_crit_edge
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %84)
-  %85 = call i32 @errcode(i32 noundef 117833860) #10
-  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.DefineTSParser) #10
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %85 = call i32 @errcode(i32 noundef 117833860) #9
+  %86 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__.DefineTSParser) #9
   unreachable
 
 87:                                               ; preds = %..critedge_crit_edge
@@ -224,40 +221,37 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   br i1 %88, label %89, label %93
 
 89:                                               ; preds = %87
-  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %90)
-  %91 = call i32 @errcode(i32 noundef 117833860) #10
-  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.DefineTSParser) #10
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %91 = call i32 @errcode(i32 noundef 117833860) #9
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.DefineTSParser) #9
   unreachable
 
 93:                                               ; preds = %87
   br i1 %46, label %94, label %98
 
 94:                                               ; preds = %93
-  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %95)
-  %96 = call i32 @errcode(i32 noundef 117833860) #10
-  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.DefineTSParser) #10
+  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %96 = call i32 @errcode(i32 noundef 117833860) #9
+  %97 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.DefineTSParser) #9
   unreachable
 
 98:                                               ; preds = %93
   br i1 %47, label %99, label %103
 
 99:                                               ; preds = %98
-  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %100)
-  %101 = call i32 @errcode(i32 noundef 117833860) #10
-  %102 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 278, ptr noundef nonnull @__func__.DefineTSParser) #10
+  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %101 = call i32 @errcode(i32 noundef 117833860) #9
+  %102 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 278, ptr noundef nonnull @__func__.DefineTSParser) #9
   unreachable
 
 103:                                              ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @heap_form_tuple(ptr noundef %105, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
-  call void @CatalogTupleInsert(ptr noundef %15, ptr noundef %106) #10
+  %106 = call ptr @heap_form_tuple(ptr noundef %105, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  call void @CatalogTupleInsert(ptr noundef %15, ptr noundef %106) #9
   %107 = getelementptr i8, ptr %106, i64 16
   %.val = load ptr, ptr %107, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -272,8 +266,8 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   store i32 %112, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %114, align 8
-  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %115 = call ptr @new_object_addresses() #10
+  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  %115 = call ptr @new_object_addresses() #9
   store i32 2615, ptr %4, align 4
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 68
   %117 = load i32, ptr %116, align 4
@@ -281,25 +275,25 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
   store i32 %117, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %119, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #9
   store i32 1255, ptr %4, align 4
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %121 = load i32, ptr %120, align 4
   store i32 %121, ptr %118, align 4
   store i32 0, ptr %119, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #9
   %122 = getelementptr inbounds nuw i8, ptr %111, i64 76
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr %118, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #9
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 80
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %118, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #9
   %126 = getelementptr inbounds nuw i8, ptr %111, i64 88
   %127 = load i32, ptr %126, align 4
   store i32 %127, ptr %118, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #9
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 84
   %129 = load i32, ptr %128, align 4
   %.not.i = icmp eq i32 %129, 0
@@ -307,12 +301,12 @@ define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readon
 
 130:                                              ; preds = %103
   store i32 %129, ptr %118, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %115) #9
   br label %makeParserDependencies.exit
 
 makeParserDependencies.exit:                      ; preds = %103, %130
-  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %115, i32 noundef 110) #10
-  call void @free_object_addresses(ptr noundef %115) #10
+  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %115, i32 noundef 110) #9
+  call void @free_object_addresses(ptr noundef %115) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.2.0.copyload.i = load i32, ptr %114, align 8
@@ -322,14 +316,14 @@ makeParserDependencies.exit:                      ; preds = %103, %130
   br i1 %.not39, label %133, label %132
 
 132:                                              ; preds = %makeParserDependencies.exit
-  call void @RunObjectPostCreateHook(i32 noundef 3601, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #10
+  call void @RunObjectPostCreateHook(i32 noundef 3601, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #9
   br label %133
 
 133:                                              ; preds = %132, %makeParserDependencies.exit
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
-  call void @heap_freetuple(ptr noundef nonnull %106) #10
-  call void @table_close(ptr noundef nonnull %15, i32 noundef 3) #10
+  call void @heap_freetuple(ptr noundef nonnull %106) #9
+  call void @table_close(ptr noundef nonnull %15, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -367,7 +361,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 4294967296) i64 @get_ts_parser_func(ptr noundef %0, i32 noundef range(i32 4, 9) %1) unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
-  %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #10
+  %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2281, ptr %3, align 4
   switch i32 %1, label %default.unreachable11 [
@@ -406,19 +400,18 @@ default.unreachable11:                            ; preds = %2
 14:                                               ; preds = %2, %13, %10, %7, %5
   %.010 = phi i32 [ 2, %5 ], [ 3, %7 ], [ 3, %10 ], [ 1, %13 ], [ 1, %2 ]
   %.0 = phi i32 [ 2281, %5 ], [ 2281, %7 ], [ 2281, %10 ], [ 2281, %13 ], [ 2278, %2 ]
-  %15 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %.010, ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %16 = call i32 @get_func_rettype(i32 noundef %15) #10
+  %15 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %.010, ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  %16 = call i32 @get_func_rettype(i32 noundef %15) #9
   %.not = icmp eq i32 %16, %.0
   br i1 %.not, label %23, label %17
 
 17:                                               ; preds = %14
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %18)
-  %19 = call i32 @errcode(i32 noundef 117833860) #10
-  %20 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %.010, ptr noundef null, ptr noundef nonnull %3) #10
-  %21 = call ptr @format_type_be(i32 noundef %.0) #10
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %20, ptr noundef %21) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.get_ts_parser_func) #10
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %19 = call i32 @errcode(i32 noundef 117833860) #9
+  %20 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %.010, ptr noundef null, ptr noundef nonnull %3) #9
+  %21 = call ptr @format_type_be(i32 noundef %.0) #9
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %20, ptr noundef %21) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.get_ts_parser_func) #9
   unreachable
 
 23:                                               ; preds = %14
@@ -449,15 +442,15 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %8) #10
-  %10 = call i32 @GetUserId() #10
-  %11 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %9, i32 noundef %10, i64 noundef 512) #10
+  %9 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %8) #9
+  %10 = call i32 @GetUserId() #9
+  %11 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %9, i32 noundef %10, i64 noundef 512) #9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %2
-  %13 = call ptr @get_namespace_name(i32 noundef %9) #10
-  call void @aclcheck_error(i32 noundef %11, i32 noundef 36, ptr noundef %13) #10
+  %13 = call ptr @get_namespace_name(i32 noundef %9) #9
+  call void @aclcheck_error(i32 noundef %11, i32 noundef 36, ptr noundef %13) #9
   br label %14
 
 14:                                               ; preds = %12, %2
@@ -480,7 +473,7 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(9) @.str.12) #12
+  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(9) @.str.12) #11
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %29
 
@@ -489,12 +482,12 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   br i1 %.not43, label %.critedge.thread, label %38
 
 26:                                               ; preds = %.lr.ph59
-  %27 = call ptr @defGetQualifiedName(ptr noundef nonnull %21) #10
-  %28 = call i32 @get_ts_template_oid(ptr noundef %27, i1 noundef zeroext false) #10
+  %27 = call ptr @defGetQualifiedName(ptr noundef nonnull %21) #9
+  %28 = call i32 @get_ts_template_oid(ptr noundef %27, i1 noundef zeroext false) #9
   br label %31
 
 29:                                               ; preds = %.lr.ph59
-  %30 = call ptr @lappend(ptr noundef %.0374757, ptr noundef nonnull %21) #10
+  %30 = call ptr @lappend(ptr noundef %.0374757, ptr noundef nonnull %21) #9
   br label %31
 
 31:                                               ; preds = %29, %26
@@ -507,31 +500,30 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   br i1 %34, label %.lr.ph59, label %.critedge
 
 .critedge.thread:                                 ; preds = %.lr.ph, %14, %.critedge
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 @errcode(i32 noundef 117833860) #10
-  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.DefineTSDictionary) #10
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %36 = call i32 @errcode(i32 noundef 117833860) #9
+  %37 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 446, ptr noundef nonnull @__func__.DefineTSDictionary) #9
   unreachable
 
 38:                                               ; preds = %.critedge
   call fastcc void @verify_dictoptions(i32 noundef %.1, ptr noundef %.138)
-  %39 = call ptr @table_open(i32 noundef 3600, i32 noundef 3) #10
+  %39 = call ptr @table_open(i32 noundef 3600, i32 noundef 3) #9
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %6, i8 0, i64 6, i1 false)
-  %41 = call i32 @GetNewOidWithIndex(ptr noundef %39, i32 noundef 3605, i16 noundef signext 1) #10
+  %41 = call i32 @GetNewOidWithIndex(ptr noundef %39, i32 noundef 3605, i16 noundef signext 1) #9
   %42 = zext i32 %41 to i64
   store i64 %42, ptr %5, align 16
   %43 = load ptr, ptr %8, align 8
-  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %43) #10
+  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %43) #9
   %44 = ptrtoint ptr %7 to i64
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %44, ptr %45, align 8
   %46 = zext i32 %9 to i64
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %46, ptr %47, align 16
-  %48 = call i32 @GetUserId() #10
+  %48 = call i32 @GetUserId() #9
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %49, ptr %50, align 8
@@ -556,8 +548,8 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
 59:                                               ; preds = %57, %53
   %60 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %61 = load ptr, ptr %60, align 8
-  %62 = call ptr @heap_form_tuple(ptr noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  call void @CatalogTupleInsert(ptr noundef %39, ptr noundef %62) #10
+  %62 = call ptr @heap_form_tuple(ptr noundef %61, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  call void @CatalogTupleInsert(ptr noundef %39, ptr noundef %62) #9
   %63 = getelementptr i8, ptr %62, i64 16
   %.val = load ptr, ptr %63, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -574,9 +566,9 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   store i32 0, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 72
   %72 = load i32, ptr %71, align 4
-  call void @recordDependencyOnOwner(i32 noundef 3600, i32 noundef %68, i32 noundef %72) #10
-  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %73 = call ptr @new_object_addresses() #10
+  call void @recordDependencyOnOwner(i32 noundef 3600, i32 noundef %68, i32 noundef %72) #9
+  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  %73 = call ptr @new_object_addresses() #9
   store i32 2615, ptr %4, align 4
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 68
   %75 = load i32, ptr %74, align 4
@@ -584,15 +576,15 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   store i32 %75, ptr %76, align 4
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %77, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %73) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %73) #9
   store i32 3764, ptr %4, align 4
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 76
   %79 = load i32, ptr %78, align 4
   store i32 %79, ptr %76, align 4
   store i32 0, ptr %77, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %73) #10
-  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %73, i32 noundef 110) #10
-  call void @free_object_addresses(ptr noundef %73) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %73) #9
+  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %73, i32 noundef 110) #9
+  call void @free_object_addresses(ptr noundef %73) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.2.0.copyload.i = load i32, ptr %70, align 8
@@ -602,14 +594,14 @@ define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef re
   br i1 %.not45, label %82, label %81
 
 81:                                               ; preds = %59
-  call void @RunObjectPostCreateHook(i32 noundef 3600, i32 noundef %41, i32 noundef 0, i1 noundef zeroext false) #10
+  call void @RunObjectPostCreateHook(i32 noundef 3600, i32 noundef %41, i32 noundef 0, i1 noundef zeroext false) #9
   br label %82
 
 82:                                               ; preds = %81, %59
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
-  call void @heap_freetuple(ptr noundef nonnull %62) #10
-  call void @table_close(ptr noundef nonnull %39, i32 noundef 3) #10
+  call void @heap_freetuple(ptr noundef nonnull %62) #9
+  call void @table_close(ptr noundef nonnull %39, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -639,15 +631,14 @@ define internal fastcc void @verify_dictoptions(i32 noundef %0, ptr noundef %1) 
 
 5:                                                ; preds = %2
   %6 = zext i32 %0 to i64
-  %7 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %6) #10
+  %7 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %6) #9
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %0) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.verify_dictoptions) #10
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %0) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.verify_dictoptions) #9
   unreachable
 
 11:                                               ; preds = %5
@@ -667,22 +658,21 @@ define internal fastcc void @verify_dictoptions(i32 noundef %0, ptr noundef %1) 
   br i1 %.not13, label %29, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %22 = tail call i32 @errcode(i32 noundef 16801924) #9
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %23) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__func__.verify_dictoptions) #10
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %23) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__func__.verify_dictoptions) #9
   unreachable
 
 25:                                               ; preds = %11
-  %26 = tail call ptr @copyObjectImpl(ptr noundef %1) #10
+  %26 = tail call ptr @copyObjectImpl(ptr noundef %1) #9
   %27 = ptrtoint ptr %26 to i64
-  %28 = tail call i64 @OidFunctionCall1Coll(i32 noundef %18, i32 noundef 0, i64 noundef %27) #10
+  %28 = tail call i64 @OidFunctionCall1Coll(i32 noundef %18, i32 noundef 0, i64 noundef %27) #9
   br label %29
 
 29:                                               ; preds = %19, %25
-  tail call void @ReleaseSysCache(ptr noundef nonnull %7) #10
+  tail call void @ReleaseSysCache(ptr noundef nonnull %7) #9
   br label %30
 
 30:                                               ; preds = %2, %29
@@ -693,7 +683,7 @@ define internal fastcc void @verify_dictoptions(i32 noundef %0, ptr noundef %1) 
 define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %2) #10
+  call void @initStringInfo(ptr noundef nonnull %2) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph36
@@ -709,11 +699,11 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv41
   %9 = load ptr, ptr %8, align 8
-  %10 = call ptr @defGetString(ptr noundef %9) #10
+  %10 = call ptr @defGetString(ptr noundef %9) #9
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = call ptr @quote_identifier(ptr noundef %12) #10
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.27, ptr noundef %13) #10
+  %13 = call ptr @quote_identifier(ptr noundef %12) #9
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.27, ptr noundef %13) #9
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
@@ -725,27 +715,27 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   %18 = load ptr, ptr %2, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i32, ptr %19, align 8
-  %21 = call ptr @cstring_to_text_with_len(ptr noundef %18, i32 noundef %20) #10
+  %21 = call ptr @cstring_to_text_with_len(ptr noundef %18, i32 noundef %20) #9
   %22 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %22) #10
+  call void @pfree(ptr noundef %22) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %21
 
 23:                                               ; preds = %.lr.ph42
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %10) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %10) #9
   br label %34
 
 24:                                               ; preds = %.lr.ph42
-  %25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 92) #12
+  %25 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 92) #11
   %.not27 = icmp eq ptr %25, null
   br i1 %.not27, label %27, label %26
 
 26:                                               ; preds = %24
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 69) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 69) #9
   br label %27
 
 27:                                               ; preds = %26, %24
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 39) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 39) #9
   %28 = load i8, ptr %10, align 1
   %.not2832 = icmp eq i8 %28, 0
   br i1 %.not2832, label %._crit_edge, label %.lr.ph
@@ -760,17 +750,17 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   ]
 
 31:                                               ; preds = %.lr.ph, %.lr.ph
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %29) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %29) #9
   br label %32
 
 32:                                               ; preds = %.lr.ph, %31
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %29) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %29) #9
   %33 = load i8, ptr %30, align 1
   %.not28 = icmp eq i8 %33, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %32, %27
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 39) #10
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 39) #9
   br label %34
 
 34:                                               ; preds = %._crit_edge, %23
@@ -783,7 +773,7 @@ define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is
   br i1 %.not31, label %38, label %39
 
 38:                                               ; preds = %34
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.28) #10
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef nonnull @.str.28) #9
   br label %39
 
 39:                                               ; preds = %38, %34
@@ -806,33 +796,32 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @get_ts_dict_oid(ptr noundef %7, i1 noundef zeroext false) #10
-  %9 = tail call ptr @table_open(i32 noundef 3600, i32 noundef 3) #10
+  %8 = tail call i32 @get_ts_dict_oid(ptr noundef %7, i1 noundef zeroext false) #9
+  %9 = tail call ptr @table_open(i32 noundef 3600, i32 noundef 3) #9
   %10 = zext i32 %8 to i64
-  %11 = tail call ptr @SearchSysCache1(i32 noundef 76, i64 noundef %10) #10
+  %11 = tail call ptr @SearchSysCache1(i32 noundef 76, i64 noundef %10) #9
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %1
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %8) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 516, ptr noundef nonnull @__func__.AlterTSDictionary) #10
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %8) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 516, ptr noundef nonnull @__func__.AlterTSDictionary) #9
   unreachable
 
 15:                                               ; preds = %1
-  %16 = tail call i32 @GetUserId() #10
-  %17 = tail call zeroext i1 @object_ownercheck(i32 noundef 3600, i32 noundef %8, i32 noundef %16) #10
+  %16 = tail call i32 @GetUserId() #9
+  %17 = tail call zeroext i1 @object_ownercheck(i32 noundef 3600, i32 noundef %8, i32 noundef %16) #9
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %6, align 8
-  %20 = tail call ptr @NameListToString(ptr noundef %19) #10
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 46, ptr noundef %20) #10
+  %20 = tail call ptr @NameListToString(ptr noundef %19) #9
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 46, ptr noundef %20) #9
   br label %21
 
 21:                                               ; preds = %18, %15
-  %22 = call i64 @SysCacheGetAttr(i32 noundef 76, ptr noundef nonnull %11, i16 noundef signext 6, ptr noundef nonnull %2) #10
+  %22 = call i64 @SysCacheGetAttr(i32 noundef 76, ptr noundef nonnull %11, i16 noundef signext 6, ptr noundef nonnull %2) #9
   %23 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %27, label %25
@@ -903,7 +892,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %37, align 8
-  %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %57) #12
+  %58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %57) #11
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %62, label %65
 
@@ -916,7 +905,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
 
 62:                                               ; preds = %49
   %63 = add i32 %.sroa.7.058, -1
-  %64 = call ptr @list_delete_nth_cell(ptr noundef %.260, i32 noundef %.sroa.7.058) #10
+  %64 = call ptr @list_delete_nth_cell(ptr noundef %.260, i32 noundef %.sroa.7.058) #9
   br label %65
 
 65:                                               ; preds = %62, %49
@@ -928,7 +917,7 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   br i1 %.not52, label %.critedge56, label %45, !llvm.loop !8
 
 67:                                               ; preds = %.critedge56
-  %68 = call ptr @lappend(ptr noundef %.2.lcssa, ptr noundef nonnull %36) #10
+  %68 = call ptr @lappend(ptr noundef %.2.lcssa, ptr noundef nonnull %36) #9
   br label %69
 
 69:                                               ; preds = %67, %.critedge56
@@ -956,21 +945,21 @@ define dso_local { i64, i32 } @AlterTSDictionary(ptr noundef readonly captures(n
   store i8 1, ptr %80, align 1
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %82 = load ptr, ptr %81, align 8
-  %83 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %82, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %83 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %82, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %9, ptr noundef nonnull %84, ptr noundef %83) #10
+  call void @CatalogTupleUpdate(ptr noundef %9, ptr noundef nonnull %84, ptr noundef %83) #9
   %85 = load ptr, ptr @object_access_hook, align 8
   %.not51 = icmp eq ptr %85, null
   br i1 %.not51, label %87, label %86
 
 86:                                               ; preds = %79
-  call void @RunObjectPostAlterHook(i32 noundef 3600, i32 noundef %8, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
+  call void @RunObjectPostAlterHook(i32 noundef 3600, i32 noundef %8, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #9
   br label %87
 
 87:                                               ; preds = %79, %86
-  call void @heap_freetuple(ptr noundef nonnull %83) #10
-  call void @ReleaseSysCache(ptr noundef nonnull %11) #10
-  call void @table_close(ptr noundef nonnull %9, i32 noundef 3) #10
+  call void @heap_freetuple(ptr noundef nonnull %83) #9
+  call void @ReleaseSysCache(ptr noundef nonnull %11) #9
+  call void @table_close(ptr noundef nonnull %9, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -997,7 +986,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = tail call ptr @pg_detoast_datum_packed(ptr noundef %2) #10
+  %3 = tail call ptr @pg_detoast_datum_packed(ptr noundef %2) #9
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
   %6 = icmp eq i8 %4, 1
@@ -1033,7 +1022,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %22 = phi i32 [ %17, %15 ], [ %21, %18 ], [ %spec.select, %7 ]
   %23 = add nsw i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = tail call ptr @palloc(i64 noundef %24) #10
+  %25 = tail call ptr @palloc(i64 noundef %24) #9
   %26 = load i8, ptr %3, align 1
   %27 = and i8 %26, 1
   %.not125 = icmp eq i8 %27, 0
@@ -1066,7 +1055,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   ]
 
 34:                                               ; preds = %33
-  %35 = tail call ptr @__ctype_b_loc() #13
+  %35 = tail call ptr @__ctype_b_loc() #12
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %.0112142, align 1
   %38 = zext i8 %37 to i64
@@ -1087,7 +1076,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   br label %172
 
 46:                                               ; preds = %33
-  %47 = tail call ptr @__ctype_b_loc() #13
+  %47 = tail call ptr @__ctype_b_loc() #12
   %48 = load ptr, ptr %47, align 8
   %49 = load i8, ptr %.0112142, align 1
   %50 = zext i8 %49 to i64
@@ -1151,7 +1140,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   br i1 %78, label %172, label %79
 
 79:                                               ; preds = %76
-  %80 = tail call ptr @__ctype_b_loc() #13
+  %80 = tail call ptr @__ctype_b_loc() #12
   %81 = load ptr, ptr %80, align 8
   %82 = zext i8 %77 to i64
   %83 = getelementptr inbounds nuw i16, ptr %81, i64 %82
@@ -1161,12 +1150,11 @@ select.unfold:                                    ; preds = %7, %15, %18
   br i1 %.not129, label %86, label %172
 
 86:                                               ; preds = %79
-  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %87)
-  %88 = tail call i32 @errcode(i32 noundef 16801924) #10
-  %89 = tail call ptr @text_to_cstring(ptr noundef nonnull %3) #10
-  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %89) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1708, ptr noundef nonnull @__func__.deserialize_deflist) #10
+  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %88 = tail call i32 @errcode(i32 noundef 16801924) #9
+  %89 = tail call ptr @text_to_cstring(ptr noundef nonnull %3) #9
+  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %89) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1708, ptr noundef nonnull @__func__.deserialize_deflist) #9
   unreachable
 
 91:                                               ; preds = %33
@@ -1188,7 +1176,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   br i1 %98, label %172, label %.thread
 
 .thread:                                          ; preds = %91, %93, %96
-  %99 = tail call ptr @__ctype_b_loc() #13
+  %99 = tail call ptr @__ctype_b_loc() #12
   %100 = load ptr, ptr %99, align 8
   %101 = zext i8 %92 to i64
   %102 = getelementptr inbounds nuw i16, ptr %100, i64 %101
@@ -1227,11 +1215,11 @@ select.unfold:                                    ; preds = %7, %15, %18
 117:                                              ; preds = %112, %109
   %118 = getelementptr inbounds nuw i8, ptr %.0108144, i64 1
   store i8 0, ptr %.0108144, align 1
-  %119 = tail call ptr @pstrdup(ptr noundef %25) #10
-  %120 = tail call ptr @pstrdup(ptr noundef %.0106145) #10
-  %121 = tail call ptr @makeString(ptr noundef %120) #10
-  %122 = tail call ptr @makeDefElem(ptr noundef %119, ptr noundef %121, i32 noundef -1) #10
-  %123 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %122) #10
+  %119 = tail call ptr @pstrdup(ptr noundef %25) #9
+  %120 = tail call ptr @pstrdup(ptr noundef %.0106145) #9
+  %121 = tail call ptr @makeString(ptr noundef %120) #9
+  %122 = tail call ptr @makeDefElem(ptr noundef %119, ptr noundef %121, i32 noundef -1) #9
+  %123 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %122) #9
   br label %172
 
 124:                                              ; preds = %107
@@ -1282,11 +1270,11 @@ select.unfold:                                    ; preds = %7, %15, %18
 147:                                              ; preds = %142, %139
   %148 = getelementptr inbounds nuw i8, ptr %.0108144, i64 1
   store i8 0, ptr %.0108144, align 1
-  %149 = tail call ptr @pstrdup(ptr noundef %25) #10
-  %150 = tail call ptr @pstrdup(ptr noundef %.0106145) #10
-  %151 = tail call ptr @makeString(ptr noundef %150) #10
-  %152 = tail call ptr @makeDefElem(ptr noundef %149, ptr noundef %151, i32 noundef -1) #10
-  %153 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %152) #10
+  %149 = tail call ptr @pstrdup(ptr noundef %25) #9
+  %150 = tail call ptr @pstrdup(ptr noundef %.0106145) #9
+  %151 = tail call ptr @makeString(ptr noundef %150) #9
+  %152 = tail call ptr @makeDefElem(ptr noundef %149, ptr noundef %151, i32 noundef -1) #9
+  %153 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %152) #9
   br label %172
 
 154:                                              ; preds = %136
@@ -1300,7 +1288,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   br i1 %158, label %166, label %159
 
 159:                                              ; preds = %156
-  %160 = tail call ptr @__ctype_b_loc() #13
+  %160 = tail call ptr @__ctype_b_loc() #12
   %161 = load ptr, ptr %160, align 8
   %162 = zext i8 %157 to i64
   %163 = getelementptr inbounds nuw i16, ptr %161, i64 %162
@@ -1313,7 +1301,7 @@ select.unfold:                                    ; preds = %7, %15, %18
   %167 = getelementptr inbounds nuw i8, ptr %.0108144, i64 1
   store i8 0, ptr %.0108144, align 1
   %168 = tail call fastcc ptr @buildDefItem(ptr noundef %25, ptr noundef %.0106145, i1 noundef zeroext false)
-  %169 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %168) #10
+  %169 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %168) #9
   br label %172
 
 170:                                              ; preds = %159
@@ -1346,21 +1334,20 @@ default.unreachable:                              ; preds = %33
 175:                                              ; preds = %._crit_edge
   store i8 0, ptr %.1109, align 1
   %176 = tail call fastcc ptr @buildDefItem(ptr noundef %25, ptr noundef %.1107, i1 noundef zeroext false)
-  %177 = tail call ptr @lappend(ptr noundef %.1111, ptr noundef %176) #10
+  %177 = tail call ptr @lappend(ptr noundef %.1111, ptr noundef %176) #9
   br label %._crit_edge.thread
 
 178:                                              ; preds = %._crit_edge
-  %179 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %179)
-  %180 = tail call i32 @errcode(i32 noundef 16801924) #10
-  %181 = tail call ptr @text_to_cstring(ptr noundef nonnull %3) #10
-  %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %181) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1823, ptr noundef nonnull @__func__.deserialize_deflist) #10
+  %179 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %180 = tail call i32 @errcode(i32 noundef 16801924) #9
+  %181 = tail call ptr @text_to_cstring(ptr noundef nonnull %3) #9
+  %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %181) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1823, ptr noundef nonnull @__func__.deserialize_deflist) #9
   unreachable
 
 ._crit_edge.thread:                               ; preds = %select.unfold, %._crit_edge, %175
   %.2 = phi ptr [ %177, %175 ], [ %.1111, %._crit_edge ], [ null, %select.unfold ]
-  tail call void @pfree(ptr noundef %25) #10
+  tail call void @pfree(ptr noundef %25) #9
   ret ptr %.2
 }
 
@@ -1386,28 +1373,27 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %9 = tail call zeroext i1 @superuser() #10
+  %9 = tail call zeroext i1 @superuser() #9
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 16797828) #10
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__func__.DefineTSTemplate) #10
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %12 = tail call i32 @errcode(i32 noundef 16797828) #9
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__func__.DefineTSTemplate) #9
   unreachable
 
 14:                                               ; preds = %2
-  %15 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %8) #10
-  %16 = call ptr @table_open(i32 noundef 3764, i32 noundef 3) #10
+  %15 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %8) #9
+  %16 = call ptr @table_open(i32 noundef 3764, i32 noundef 3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %6, i8 0, i64 5, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  %18 = call i32 @GetNewOidWithIndex(ptr noundef %16, i32 noundef 3767, i16 noundef signext 1) #10
+  %18 = call i32 @GetNewOidWithIndex(ptr noundef %16, i32 noundef 3767, i16 noundef signext 1) #9
   %19 = zext i32 %18 to i64
   store i64 %19, ptr %5, align 16
   %20 = load ptr, ptr %8, align 8
-  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %20) #10
+  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %20) #9
   %21 = ptrtoint ptr %7 to i64
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %21, ptr %22, align 8
@@ -1436,7 +1422,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(5) @.str.16) #12
+  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(5) @.str.16) #11
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %42, label %44
 
@@ -1451,7 +1437,7 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   br label %54
 
 44:                                               ; preds = %.lr.ph41
-  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.17) #12
+  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(7) @.str.17) #11
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %.split
 
@@ -1463,12 +1449,11 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
 
 .split:                                           ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %50)
-  %51 = call i32 @errcode(i32 noundef 16801924) #10
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %51 = call i32 @errcode(i32 noundef 16801924) #9
   %52 = load ptr, ptr %49, align 8
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %52) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 750, ptr noundef nonnull @__func__.DefineTSTemplate) #10
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %52) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 750, ptr noundef nonnull @__func__.DefineTSTemplate) #9
   unreachable
 
 54:                                               ; preds = %47, %42
@@ -1480,18 +1465,17 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   br i1 %58, label %.lr.ph41, label %.critedge
 
 .critedge.thread:                                 ; preds = %14, %.lr.ph, %.critedge
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %59)
-  %60 = call i32 @errcode(i32 noundef 117833860) #10
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 759, ptr noundef nonnull @__func__.DefineTSTemplate) #10
+  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %60 = call i32 @errcode(i32 noundef 117833860) #9
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 759, ptr noundef nonnull @__func__.DefineTSTemplate) #9
   unreachable
 
 62:                                               ; preds = %.critedge
   %63 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @heap_form_tuple(ptr noundef %64, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %65) #10
+  %65 = call ptr @heap_form_tuple(ptr noundef %64, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %65) #9
   %66 = getelementptr i8, ptr %65, i64 16
   %.val = load ptr, ptr %66, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1506,8 +1490,8 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   store i32 %71, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %73, align 8
-  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %74 = call ptr @new_object_addresses() #10
+  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  %74 = call ptr @new_object_addresses() #9
   store i32 2615, ptr %4, align 4
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 68
   %76 = load i32, ptr %75, align 4
@@ -1515,13 +1499,13 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
   store i32 %76, ptr %77, align 4
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %78, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #9
   store i32 1255, ptr %4, align 4
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 76
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %77, align 4
   store i32 0, ptr %78, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #9
   %81 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %82 = load i32, ptr %81, align 4
   %.not.i = icmp eq i32 %82, 0
@@ -1529,12 +1513,12 @@ define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef read
 
 83:                                               ; preds = %62
   store i32 %82, ptr %77, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %74) #9
   br label %makeTSTemplateDependencies.exit
 
 makeTSTemplateDependencies.exit:                  ; preds = %62, %83
-  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %74, i32 noundef 110) #10
-  call void @free_object_addresses(ptr noundef %74) #10
+  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %74, i32 noundef 110) #9
+  call void @free_object_addresses(ptr noundef %74) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.sroa.2.0.copyload.i = load i32, ptr %73, align 8
@@ -1544,14 +1528,14 @@ makeTSTemplateDependencies.exit:                  ; preds = %62, %83
   br i1 %.not35, label %86, label %85
 
 85:                                               ; preds = %makeTSTemplateDependencies.exit
-  call void @RunObjectPostCreateHook(i32 noundef 3764, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #10
+  call void @RunObjectPostCreateHook(i32 noundef 3764, i32 noundef %18, i32 noundef 0, i1 noundef zeroext false) #9
   br label %86
 
 86:                                               ; preds = %85, %makeTSTemplateDependencies.exit
   %.fca.0.insert.i = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload.i, 0
   %.fca.1.insert.i = insertvalue { i64, i32 } %.fca.0.insert.i, i32 %.sroa.2.0.copyload.i, 1
-  call void @heap_freetuple(ptr noundef nonnull %65) #10
-  call void @table_close(ptr noundef nonnull %16, i32 noundef 3) #10
+  call void @heap_freetuple(ptr noundef nonnull %65) #9
+  call void @table_close(ptr noundef nonnull %16, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1562,7 +1546,7 @@ makeTSTemplateDependencies.exit:                  ; preds = %62, %83
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr noundef %0, i32 noundef range(i32 4, 6) %1) unnamed_addr #0 {
   %3 = alloca [4 x i32], align 16
-  %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #10
+  %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 2281, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1573,19 +1557,18 @@ define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr no
   store i32 2281, ptr %7, align 4
   %switch.not.not = icmp eq i32 %1, 4
   %. = select i1 %switch.not.not, i32 1, i32 4
-  %8 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #10
-  %9 = call i32 @get_func_rettype(i32 noundef %8) #10
+  %8 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #9
+  %9 = call i32 @get_func_rettype(i32 noundef %8) #9
   %.not = icmp eq i32 %9, 2281
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %2
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %11)
-  %12 = call i32 @errcode(i32 noundef 117833860) #10
-  %13 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %., ptr noundef null, ptr noundef nonnull %3) #10
-  %14 = call ptr @format_type_be(i32 noundef 2281) #10
-  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %13, ptr noundef %14) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.get_ts_template_func) #10
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %12 = call i32 @errcode(i32 noundef 117833860) #9
+  %13 = call ptr @func_signature_string(ptr noundef %4, i32 noundef %., ptr noundef null, ptr noundef nonnull %3) #9
+  %14 = call ptr @format_type_be(i32 noundef 2281) #9
+  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %13, ptr noundef %14) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 643, ptr noundef nonnull @__func__.get_ts_template_func) #9
   unreachable
 
 16:                                               ; preds = %2
@@ -1605,15 +1588,15 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %9 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %6) #10
-  %10 = call i32 @GetUserId() #10
-  %11 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %9, i32 noundef %10, i64 noundef 512) #10
+  %9 = call i32 @QualifiedNameGetCreationNamespace(ptr noundef %0, ptr noundef nonnull %6) #9
+  %10 = call i32 @GetUserId() #9
+  %11 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %9, i32 noundef %10, i64 noundef 512) #9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %3
-  %13 = call ptr @get_namespace_name(i32 noundef %9) #10
-  call void @aclcheck_error(i32 noundef %11, i32 noundef 36, ptr noundef %13) #10
+  %13 = call ptr @get_namespace_name(i32 noundef %9) #9
+  call void @aclcheck_error(i32 noundef %11, i32 noundef 36, ptr noundef %13) #9
   br label %14
 
 14:                                               ; preds = %12, %3
@@ -1636,7 +1619,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.20) #12
+  %24 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(7) @.str.20) #11
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %31
 
@@ -1647,28 +1630,27 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br i1 %or.cond, label %46, label %50
 
 28:                                               ; preds = %.lr.ph149
-  %29 = call ptr @defGetQualifiedName(ptr noundef nonnull %21) #10
-  %30 = call i32 @get_ts_parser_oid(ptr noundef %29, i1 noundef zeroext false) #10
+  %29 = call ptr @defGetQualifiedName(ptr noundef nonnull %21) #9
+  %30 = call i32 @get_ts_parser_oid(ptr noundef %29, i1 noundef zeroext false) #9
   br label %42
 
 31:                                               ; preds = %.lr.ph149
-  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.21) #12
+  %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(5) @.str.21) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.split
 
 34:                                               ; preds = %31
-  %35 = call ptr @defGetQualifiedName(ptr noundef nonnull %21) #10
-  %36 = call i32 @get_ts_config_oid(ptr noundef %35, i1 noundef zeroext false) #10
+  %35 = call ptr @defGetQualifiedName(ptr noundef nonnull %21) #9
+  %36 = call i32 @get_ts_config_oid(ptr noundef %35, i1 noundef zeroext false) #9
   br label %42
 
 .split:                                           ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode(i32 noundef 16801924) #10
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %39 = call i32 @errcode(i32 noundef 16801924) #9
   %40 = load ptr, ptr %37, align 8
-  %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %40) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 940, ptr noundef nonnull @__func__.DefineTSConfiguration) #10
+  %41 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %40) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 940, ptr noundef nonnull @__func__.DefineTSConfiguration) #9
   unreachable
 
 42:                                               ; preds = %34, %28
@@ -1681,11 +1663,10 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br i1 %45, label %.lr.ph149, label %.critedge
 
 46:                                               ; preds = %.critedge
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %47)
-  %48 = call i32 @errcode(i32 noundef 16801924) #10
-  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 946, ptr noundef nonnull @__func__.DefineTSConfiguration) #10
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %48 = call i32 @errcode(i32 noundef 16801924) #9
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 946, ptr noundef nonnull @__func__.DefineTSConfiguration) #9
   unreachable
 
 50:                                               ; preds = %.critedge
@@ -1707,15 +1688,14 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
 55:                                               ; preds = %.thread, %54
   %56 = phi i1 [ %26, %.thread ], [ true, %54 ]
   %57 = zext i32 %.1 to i64
-  %58 = call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %57) #10
+  %58 = call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %57) #9
   %.not125 = icmp eq ptr %58, null
   br i1 %.not125, label %59, label %62
 
 59:                                               ; preds = %55
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i32 noundef %.1) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 966, ptr noundef nonnull @__func__.DefineTSConfiguration) #10
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %61 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i32 noundef %.1) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 966, ptr noundef nonnull @__func__.DefineTSConfiguration) #9
   unreachable
 
 62:                                               ; preds = %55
@@ -1727,7 +1707,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %67 = getelementptr inbounds nuw i8, ptr %.val130, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 76
   %69 = load i32, ptr %68, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %58) #10
+  call void @ReleaseSysCache(ptr noundef nonnull %58) #9
   br label %70
 
 70:                                               ; preds = %62, %54
@@ -1737,28 +1717,27 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br i1 %.not126, label %.thread190, label %75
 
 .thread190:                                       ; preds = %14, %.lr.ph, %70
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 @errcode(i32 noundef 117833860) #10
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 982, ptr noundef nonnull @__func__.DefineTSConfiguration) #10
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %73 = call i32 @errcode(i32 noundef 117833860) #9
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 982, ptr noundef nonnull @__func__.DefineTSConfiguration) #9
   unreachable
 
 75:                                               ; preds = %70
-  %76 = call ptr @table_open(i32 noundef 3602, i32 noundef 3) #10
+  %76 = call ptr @table_open(i32 noundef 3602, i32 noundef 3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, i8 0, i64 5, i1 false)
-  %77 = call i32 @GetNewOidWithIndex(ptr noundef %76, i32 noundef 3712, i16 noundef signext 1) #10
+  %77 = call i32 @GetNewOidWithIndex(ptr noundef %76, i32 noundef 3712, i16 noundef signext 1) #9
   %78 = zext i32 %77 to i64
   store i64 %78, ptr %4, align 16
   %79 = load ptr, ptr %6, align 8
-  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %79) #10
+  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %79) #9
   %80 = ptrtoint ptr %7 to i64
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %80, ptr %81, align 8
   %82 = zext i32 %9 to i64
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %82, ptr %83, align 16
-  %84 = call i32 @GetUserId() #10
+  %84 = call i32 @GetUserId() #9
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %85, ptr %86, align 8
@@ -1767,21 +1746,21 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   store i64 %87, ptr %88, align 16
   %89 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @heap_form_tuple(ptr noundef %90, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  call void @CatalogTupleInsert(ptr noundef %76, ptr noundef %91) #10
+  %91 = call ptr @heap_form_tuple(ptr noundef %90, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  call void @CatalogTupleInsert(ptr noundef %76, ptr noundef %91) #9
   br i1 %71, label %92, label %164
 
 92:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %93 = call ptr @table_open(i32 noundef 3603, i32 noundef 3) #10
+  %93 = call ptr @table_open(i32 noundef 3603, i32 noundef 3) #9
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 64
   %95 = load ptr, ptr %94, align 8
-  %96 = call ptr @CatalogOpenIndexes(ptr noundef %93) #10
-  %97 = call ptr @palloc(i64 noundef 32760) #10
+  %96 = call ptr @CatalogOpenIndexes(ptr noundef %93) #9
+  %97 = call ptr @palloc(i64 noundef 32760) #9
   %98 = zext i32 %.1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %98) #10
-  %99 = call ptr @systable_beginscan(ptr noundef %93, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %8) #10
-  %100 = call ptr @systable_getnext(ptr noundef %99) #10
+  call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %98) #9
+  %99 = call ptr @systable_beginscan(ptr noundef %93, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %8) #9
+  %100 = call ptr @systable_getnext(ptr noundef %99) #9
   %.not127151 = icmp eq ptr %100, null
   br i1 %.not127151, label %._crit_edge160, label %.lr.ph154
 
@@ -1805,7 +1784,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br label %113
 
 108:                                              ; preds = %.lr.ph154
-  %109 = call ptr @MakeSingleTupleTableSlot(ptr noundef %95, ptr noundef nonnull @TTSOpsHeapTuple) #10
+  %109 = call ptr @MakeSingleTupleTableSlot(ptr noundef %95, ptr noundef nonnull @TTSOpsHeapTuple) #9
   %110 = sext i32 %.0114152 to i64
   %111 = getelementptr inbounds ptr, ptr %97, i64 %110
   store ptr %109, ptr %111, align 8
@@ -1821,7 +1800,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef %114) #10
+  call void %119(ptr noundef %114) #9
   %120 = load ptr, ptr %115, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8
@@ -1859,18 +1838,18 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   store i64 %146, ptr %150, align 8
   %151 = load ptr, ptr %115, align 8
-  %152 = call ptr @ExecStoreVirtualTuple(ptr noundef %151) #10
+  %152 = call ptr @ExecStoreVirtualTuple(ptr noundef %151) #9
   %153 = add i32 %.0114152, 1
   %154 = icmp eq i32 %153, 4095
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %113
-  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %93, ptr noundef nonnull %97, i32 noundef 4095, ptr noundef %96) #10
+  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %93, ptr noundef nonnull %97, i32 noundef 4095, ptr noundef %96) #9
   br label %156
 
 156:                                              ; preds = %155, %113
   %.1115 = phi i32 [ 0, %155 ], [ %153, %113 ]
-  %157 = call ptr @systable_getnext(ptr noundef %99) #10
+  %157 = call ptr @systable_getnext(ptr noundef %99) #9
   %.not127 = icmp eq ptr %157, null
   br i1 %.not127, label %._crit_edge, label %.lr.ph154, !llvm.loop !10
 
@@ -1879,7 +1858,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br i1 %158, label %159, label %160
 
 159:                                              ; preds = %._crit_edge
-  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %93, ptr noundef nonnull %97, i32 noundef %.1115, ptr noundef %96) #10
+  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %93, ptr noundef nonnull %97, i32 noundef %.1115, ptr noundef %96) #9
   br label %160
 
 160:                                              ; preds = %159, %._crit_edge
@@ -1891,8 +1870,8 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br label %.lr.ph159
 
 ._crit_edge160:                                   ; preds = %.lr.ph159, %92, %160
-  call void @systable_endscan(ptr noundef %99) #10
-  call void @CatalogCloseIndexes(ptr noundef %96) #10
+  call void @systable_endscan(ptr noundef %99) #9
+  call void @CatalogCloseIndexes(ptr noundef %96) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %164
 
@@ -1900,7 +1879,7 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   %indvars.iv163 = phi i64 [ 0, %.lr.ph159.preheader ], [ %indvars.iv.next164, %.lr.ph159 ]
   %162 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv163
   %163 = load ptr, ptr %162, align 8
-  call void @ExecDropSingleTupleTableSlot(ptr noundef %163) #10
+  call void @ExecDropSingleTupleTableSlot(ptr noundef %163) #9
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !11
@@ -1915,20 +1894,20 @@ define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef
   br i1 %.not128, label %169, label %168
 
 168:                                              ; preds = %164
-  call void @RunObjectPostCreateHook(i32 noundef 3602, i32 noundef %77, i32 noundef 0, i1 noundef zeroext false) #10
+  call void @RunObjectPostCreateHook(i32 noundef 3602, i32 noundef %77, i32 noundef 0, i1 noundef zeroext false) #9
   br label %169
 
 169:                                              ; preds = %168, %164
-  call void @heap_freetuple(ptr noundef nonnull %91) #10
+  call void @heap_freetuple(ptr noundef nonnull %91) #9
   %.not129 = icmp eq ptr %.0, null
   br i1 %.not129, label %171, label %170
 
 170:                                              ; preds = %169
-  call void @table_close(ptr noundef nonnull %.0, i32 noundef 3) #10
+  call void @table_close(ptr noundef nonnull %.0, i32 noundef 3) #9
   br label %171
 
 171:                                              ; preds = %170, %169
-  call void @table_close(ptr noundef %76, i32 noundef 3) #10
+  call void @table_close(ptr noundef %76, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1981,12 +1960,12 @@ define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr readonly 
   br i1 %0, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @deleteDependencyRecordsFor(i32 noundef 3602, i32 noundef %10, i1 noundef zeroext true) #10
-  tail call void @deleteSharedDependencyRecordsFor(i32 noundef 3602, i32 noundef %10, i32 noundef 0) #10
+  %14 = tail call i64 @deleteDependencyRecordsFor(i32 noundef 3602, i32 noundef %10, i1 noundef zeroext true) #9
+  tail call void @deleteSharedDependencyRecordsFor(i32 noundef 3602, i32 noundef %10, i32 noundef 0) #9
   br label %15
 
 15:                                               ; preds = %13, %2
-  %16 = tail call ptr @new_object_addresses() #10
+  %16 = tail call ptr @new_object_addresses() #9
   store i32 2615, ptr %4, align 4
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %18 = load i32, ptr %17, align 4
@@ -1994,28 +1973,28 @@ define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr readonly 
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %20, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #9
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %22 = load i32, ptr %21, align 4
-  call void @recordDependencyOnOwner(i32 noundef 3602, i32 noundef %10, i32 noundef %22) #10
-  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext %0) #10
+  call void @recordDependencyOnOwner(i32 noundef 3602, i32 noundef %10, i32 noundef %22) #9
+  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %3, i1 noundef zeroext %0) #9
   store i32 3601, ptr %4, align 4
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %24 = load i32, ptr %23, align 4
   store i32 %24, ptr %19, align 4
   store i32 0, ptr %20, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #9
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %39, label %25
 
 25:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @CommandCounterIncrement() #10
+  call void @CommandCounterIncrement() #9
   %26 = load i32, ptr %11, align 4
   %27 = zext i32 %26 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %27) #10
-  %28 = call ptr @systable_beginscan(ptr noundef nonnull %1, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #10
-  %29 = call ptr @systable_getnext(ptr noundef %28) #10
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %27) #9
+  %28 = call ptr @systable_beginscan(ptr noundef nonnull %1, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #9
+  %29 = call ptr @systable_getnext(ptr noundef %28) #9
   %.not181 = icmp eq ptr %29, null
   br i1 %.not181, label %._crit_edge, label %.lr.ph
 
@@ -2032,19 +2011,19 @@ define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr readonly 
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %19, align 4
   store i32 0, ptr %20, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #10
-  %38 = call ptr @systable_getnext(ptr noundef %28) #10
+  call void @add_exact_object_address(ptr noundef nonnull %4, ptr noundef %16) #9
+  %38 = call ptr @systable_getnext(ptr noundef %28) #9
   %.not18 = icmp eq ptr %38, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
-  call void @systable_endscan(ptr noundef %28) #10
+  call void @systable_endscan(ptr noundef %28) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 39:                                               ; preds = %._crit_edge, %15
-  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %16, i32 noundef 110) #10
-  call void @free_object_addresses(ptr noundef %16) #10
+  call void @record_object_address_dependencies(ptr noundef nonnull %3, ptr noundef %16, i32 noundef 110) #9
+  call void @free_object_addresses(ptr noundef %16) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.2.0.copyload = load i32, ptr %12, align 8
@@ -2057,42 +2036,41 @@ define internal fastcc { i64, i32 } @makeConfigurationDependencies(ptr readonly 
 define dso_local void @RemoveTSConfigurationById(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call ptr @table_open(i32 noundef 3602, i32 noundef 3) #10
+  %3 = tail call ptr @table_open(i32 noundef 3602, i32 noundef 3) #9
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %4) #10
+  %5 = tail call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %4) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %0) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1123, ptr noundef nonnull @__func__.RemoveTSConfigurationById) #10
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %0) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1123, ptr noundef nonnull @__func__.RemoveTSConfigurationById) #9
   unreachable
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  tail call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %10) #10
-  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #10
-  tail call void @table_close(ptr noundef %3, i32 noundef 3) #10
-  %11 = tail call ptr @table_open(i32 noundef 3603, i32 noundef 3) #10
-  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #10
-  %12 = call ptr @systable_beginscan(ptr noundef %11, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #10
-  %13 = call ptr @systable_getnext(ptr noundef %12) #10
+  tail call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %10) #9
+  tail call void @ReleaseSysCache(ptr noundef nonnull %5) #9
+  tail call void @table_close(ptr noundef %3, i32 noundef 3) #9
+  %11 = tail call ptr @table_open(i32 noundef 3603, i32 noundef 3) #9
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #9
+  %12 = call ptr @systable_beginscan(ptr noundef %11, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #9
+  %13 = call ptr @systable_getnext(ptr noundef %12) #9
   %.not1415 = icmp eq ptr %13, null
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %14 = phi ptr [ %16, %.lr.ph ], [ %13, %9 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  call void @CatalogTupleDelete(ptr noundef %11, ptr noundef nonnull %15) #10
-  %16 = call ptr @systable_getnext(ptr noundef %12) #10
+  call void @CatalogTupleDelete(ptr noundef %11, ptr noundef nonnull %15) #9
+  %16 = call ptr @systable_getnext(ptr noundef %12) #9
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
-  call void @systable_endscan(ptr noundef %12) #10
-  call void @table_close(ptr noundef %11, i32 noundef 3) #10
+  call void @systable_endscan(ptr noundef %12) #9
+  call void @table_close(ptr noundef %11, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -2108,31 +2086,29 @@ define dso_local { i64, i32 } @AlterTSConfiguration(ptr noundef %0) local_unname
   %6 = alloca [4 x i8], align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @get_ts_config_oid(ptr noundef %8, i1 noundef zeroext true) #10
+  %9 = tail call i32 @get_ts_config_oid(ptr noundef %8, i1 noundef zeroext true) #9
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %16, label %10
 
 10:                                               ; preds = %1
   %11 = zext i32 %9 to i64
-  %12 = tail call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %11) #10
+  %12 = tail call ptr @SearchSysCache1(i32 noundef 74, i64 noundef %11) #9
   %.not8.i = icmp eq ptr %12, null
   br i1 %.not8.i, label %13, label %GetTSConfigTuple.exit
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i32 noundef %9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 800, ptr noundef nonnull @__func__.GetTSConfigTuple) #10
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i32 noundef %9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 800, ptr noundef nonnull @__func__.GetTSConfigTuple) #9
   unreachable
 
 16:                                               ; preds = %1
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 67137668) #10
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %18 = tail call i32 @errcode(i32 noundef 67137668) #9
   %19 = load ptr, ptr %7, align 8
-  %20 = tail call ptr @NameListToString(ptr noundef %19) #10
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %20) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1169, ptr noundef nonnull @__func__.AlterTSConfiguration) #10
+  %20 = tail call ptr @NameListToString(ptr noundef %19) #9
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %20) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1169, ptr noundef nonnull @__func__.AlterTSConfiguration) #9
   unreachable
 
 GetTSConfigTuple.exit:                            ; preds = %10
@@ -2143,18 +2119,18 @@ GetTSConfigTuple.exit:                            ; preds = %10
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 %25
   %27 = load i32, ptr %26, align 4
-  %28 = tail call i32 @GetUserId() #10
-  %29 = tail call zeroext i1 @object_ownercheck(i32 noundef 3602, i32 noundef %27, i32 noundef %28) #10
+  %28 = tail call i32 @GetUserId() #9
+  %29 = tail call zeroext i1 @object_ownercheck(i32 noundef 3602, i32 noundef %27, i32 noundef %28) #9
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %GetTSConfigTuple.exit
   %31 = load ptr, ptr %7, align 8
-  %32 = tail call ptr @NameListToString(ptr noundef %31) #10
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 45, ptr noundef %32) #10
+  %32 = tail call ptr @NameListToString(ptr noundef %31) #9
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 45, ptr noundef %32) #9
   br label %33
 
 33:                                               ; preds = %30, %GetTSConfigTuple.exit
-  %34 = tail call ptr @table_open(i32 noundef 3603, i32 noundef 3) #10
+  %34 = tail call ptr @table_open(i32 noundef 3603, i32 noundef 3) #9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8
   %.not24 = icmp eq ptr %36, null
@@ -2196,25 +2172,25 @@ list_length.exit.thread.i:                        ; preds = %37
   %57 = load ptr, ptr %53, align 8
   %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %54) #10
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %54) #9
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %55, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %61) #10
-  %62 = call ptr @systable_beginscan(ptr noundef %34, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #10
-  %63 = call ptr @systable_getnext(ptr noundef %62) #10
+  call void @ScanKeyInit(ptr noundef nonnull %55, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %61) #9
+  %62 = call ptr @systable_beginscan(ptr noundef %34, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #9
+  %63 = call ptr @systable_getnext(ptr noundef %62) #9
   %.not1654.i = icmp eq ptr %63, null
   br i1 %.not1654.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph9.i, %.lr.ph.i
   %64 = phi ptr [ %66, %.lr.ph.i ], [ %63, %.lr.ph9.i ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  call void @CatalogTupleDelete(ptr noundef %34, ptr noundef nonnull %65) #10
-  %66 = call ptr @systable_getnext(ptr noundef %62) #10
+  call void @CatalogTupleDelete(ptr noundef %34, ptr noundef nonnull %65) #9
+  %66 = call ptr @systable_getnext(ptr noundef %62) #9
   %.not165.i = icmp eq ptr %66, null
   br i1 %.not165.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph9.i
-  call void @systable_endscan(ptr noundef %62) #10
+  call void @systable_endscan(ptr noundef %62) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %67 = load i32, ptr %48, align 4
   %68 = sext i32 %67 to i64
@@ -2237,7 +2213,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %.fr51.i = phi i32 [ %75, %72 ], [ 0, %.critedge.i ]
   %76 = sext i32 %.fr51.i to i64
   %77 = shl nsw i64 %76, 2
-  %78 = call ptr @palloc(i64 noundef %77) #10
+  %78 = call ptr @palloc(i64 noundef %77) #9
   %79 = load ptr, ptr %35, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %.not156.i = icmp eq ptr %79, null
@@ -2254,7 +2230,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %84 = load ptr, ptr %81, align 8
   %85 = getelementptr inbounds nuw %union.ListCell, ptr %84, i64 %indvars.iv55.i
   %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @get_ts_dict_oid(ptr noundef %86, i1 noundef zeroext false) #10
+  %87 = call i32 @get_ts_dict_oid(ptr noundef %86, i1 noundef zeroext false) #9
   %88 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv55.i
   store i32 %87, ptr %88, align 4
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
@@ -2264,7 +2240,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   br i1 %91, label %.lr.ph16.i, label %.critedge167.i
 
 .critedge167.i:                                   ; preds = %.lr.ph16.i, %.lr.ph12.i, %list_length.exit174.i
-  %92 = call ptr @CatalogOpenIndexes(ptr noundef %34) #10
+  %92 = call ptr @CatalogOpenIndexes(ptr noundef %34) #9
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %94 = load i8, ptr %93, align 1, !range !4, !noundef !5
   %95 = trunc nuw i8 %94 to i1
@@ -2275,9 +2251,9 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %98 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = zext i32 %42 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %100) #10
-  %101 = call ptr @systable_beginscan(ptr noundef %34, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #10
-  %102 = call ptr @systable_getnext(ptr noundef %101) #10
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %100) #9
+  %101 = call ptr @systable_beginscan(ptr noundef %34, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #9
+  %102 = call ptr @systable_getnext(ptr noundef %101) #9
   %.not16047.i = icmp eq ptr %102, null
   br i1 %.not16047.i, label %._crit_edge50.i, label %.lr.ph49.i
 
@@ -2339,21 +2315,21 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   store i32 16777216, ptr %6, align 4
   store i64 %105, ptr %106, align 8
   %128 = load ptr, ptr %107, align 8
-  %129 = call ptr @heap_modify_tuple(ptr noundef nonnull %109, ptr noundef %128, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %129 = call ptr @heap_modify_tuple(ptr noundef nonnull %109, ptr noundef %128, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  call void @CatalogTupleUpdateWithInfo(ptr noundef %34, ptr noundef nonnull %130, ptr noundef %129, ptr noundef %92) #10
+  call void @CatalogTupleUpdateWithInfo(ptr noundef %34, ptr noundef nonnull %130, ptr noundef %129, ptr noundef %92) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge1.i
 
 .critedge1.i:                                     ; preds = %119, %127, %.critedge169.i, %.preheader.i
-  %131 = call ptr @systable_getnext(ptr noundef %101) #10
+  %131 = call ptr @systable_getnext(ptr noundef %101) #9
   %.not160.i = icmp eq ptr %131, null
   br i1 %.not160.i, label %._crit_edge50.i, label %108
 
 ._crit_edge50.i:                                  ; preds = %.critedge1.i, %96
-  call void @systable_endscan(ptr noundef %101) #10
+  call void @systable_endscan(ptr noundef %101) #9
   br label %MakeConfigurationMapping.exit
 
 132:                                              ; preds = %.critedge167.i
@@ -2361,7 +2337,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %134 = call i32 @llvm.umin.i32(i32 %133, i32 4095)
   %135 = shl nuw nsw i32 %134, 3
   %136 = zext nneg i32 %135 to i64
-  %137 = call ptr @palloc(i64 noundef %136) #10
+  %137 = call ptr @palloc(i64 noundef %136) #9
   %.not.i30 = icmp eq i32 %133, 0
   br i1 %.not.i30, label %.preheader2.i, label %.lr.ph19.i
 
@@ -2407,7 +2383,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %155 = load ptr, ptr %154, align 8
-  call void %155(ptr noundef %151) #10
+  call void %155(ptr noundef %151) #9
   %156 = load ptr, ptr %150, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 32
   %158 = load ptr, ptr %157, align 8
@@ -2442,13 +2418,13 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store i64 %178, ptr %182, align 8
   %183 = load ptr, ptr %150, align 8
-  %184 = call ptr @ExecStoreVirtualTuple(ptr noundef %183) #10
+  %184 = call ptr @ExecStoreVirtualTuple(ptr noundef %183) #9
   %185 = add i32 %.113620.us.i, 1
   %186 = icmp eq i32 %185, %134
   br i1 %186, label %187, label %188
 
 187:                                              ; preds = %148
-  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %34, ptr noundef nonnull %137, i32 noundef %134, ptr noundef %92) #10
+  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %34, ptr noundef nonnull %137, i32 noundef %134, ptr noundef %92) #9
   br label %188
 
 188:                                              ; preds = %187, %148
@@ -2466,7 +2442,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
 192:                                              ; preds = %192, %.lr.ph19.i
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph19.i ], [ %indvars.iv.next61.i, %192 ]
   %193 = load ptr, ptr %138, align 8
-  %194 = call ptr @MakeSingleTupleTableSlot(ptr noundef %193, ptr noundef nonnull @TTSOpsHeapTuple) #10
+  %194 = call ptr @MakeSingleTupleTableSlot(ptr noundef %193, ptr noundef nonnull @TTSOpsHeapTuple) #9
   %195 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv60.i
   store ptr %194, ptr %195, align 8
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
@@ -2478,7 +2454,7 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   br i1 %196, label %197, label %.critedge171.thread.i
 
 197:                                              ; preds = %.critedge171.i
-  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %34, ptr noundef nonnull %137, i32 noundef %.2137.us.i, ptr noundef %92) #10
+  call void @CatalogTuplesMultiInsertWithInfo(ptr noundef %34, ptr noundef nonnull %137, i32 noundef %.2137.us.i, ptr noundef %92) #9
   br label %.critedge171.thread.i
 
 .critedge171.thread.i:                            ; preds = %197, %.critedge171.i, %.lr.ph27.split.us.split.i, %.lr.ph27.i, %.preheader2.i
@@ -2492,14 +2468,14 @@ list_length.exit174.i:                            ; preds = %72, %.critedge.i
   %indvars.iv71.i = phi i64 [ 0, %.lr.ph43.preheader.i ], [ %indvars.iv.next72.i, %.lr.ph43.i ]
   %198 = getelementptr inbounds nuw ptr, ptr %137, i64 %indvars.iv71.i
   %199 = load ptr, ptr %198, align 8
-  call void @ExecDropSingleTupleTableSlot(ptr noundef %199) #10
+  call void @ExecDropSingleTupleTableSlot(ptr noundef %199) #9
   %indvars.iv.next72.i = add nuw nsw i64 %indvars.iv71.i, 1
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next72.i, %wide.trip.count75.i
   br i1 %exitcond76.not.i, label %MakeConfigurationMapping.exit, label %.lr.ph43.i, !llvm.loop !18
 
 MakeConfigurationMapping.exit:                    ; preds = %.lr.ph43.i, %._crit_edge50.i, %.critedge171.thread.i
-  call void @CatalogCloseIndexes(ptr noundef %92) #10
-  call void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %42, ptr noundef %78, i32 noundef %.fr51.i) #10
+  call void @CatalogCloseIndexes(ptr noundef %92) #9
+  call void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %42, ptr noundef %78, i32 noundef %.fr51.i) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %247
 
@@ -2538,52 +2514,51 @@ MakeConfigurationMapping.exit:                    ; preds = %.lr.ph43.i, %._crit
   %219 = load ptr, ptr %213, align 8
   %220 = getelementptr inbounds nuw %union.ListCell, ptr %219, i64 %indvars.iv.i3239
   %221 = load ptr, ptr %220, align 8
-  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %214) #10
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %214) #9
   %222 = load i32, ptr %221, align 8
   %223 = sext i32 %222 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %215, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %223) #10
-  %224 = call ptr @systable_beginscan(ptr noundef %34, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %2) #10
-  %225 = call ptr @systable_getnext(ptr noundef %224) #10
+  call void @ScanKeyInit(ptr noundef nonnull %215, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %223) #9
+  %224 = call ptr @systable_beginscan(ptr noundef %34, i32 noundef 3609, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %2) #9
+  %225 = call ptr @systable_getnext(ptr noundef %224) #9
   %.not271.i = icmp eq ptr %225, null
   br i1 %.not271.i, label %.critedge6.i, label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %.lr.ph, %.lr.ph.i34
   %226 = phi ptr [ %228, %.lr.ph.i34 ], [ %225, %.lr.ph ]
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
-  call void @CatalogTupleDelete(ptr noundef %34, ptr noundef nonnull %227) #10
-  %228 = call ptr @systable_getnext(ptr noundef %224) #10
+  call void @CatalogTupleDelete(ptr noundef %34, ptr noundef nonnull %227) #9
+  %228 = call ptr @systable_getnext(ptr noundef %224) #9
   %.not27.i = icmp eq ptr %228, null
   br i1 %.not27.i, label %._crit_edge.i35, label %.lr.ph.i34, !llvm.loop !19
 
 ._crit_edge.i35:                                  ; preds = %.lr.ph.i34
-  call void @systable_endscan(ptr noundef %224) #10
+  call void @systable_endscan(ptr noundef %224) #9
   br label %243
 
 .critedge6.i:                                     ; preds = %.lr.ph
-  call void @systable_endscan(ptr noundef %224) #10
+  call void @systable_endscan(ptr noundef %224) #9
   %229 = load i8, ptr %216, align 2, !range !4, !noundef !5
   %230 = trunc nuw i8 %229 to i1
   br i1 %230, label %237, label %231
 
 231:                                              ; preds = %.critedge6.i
-  %232 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %232)
-  %233 = call i32 @errcode(i32 noundef 67137668) #10
+  %232 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %233 = call i32 @errcode(i32 noundef 67137668) #9
   %234 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %235 = load ptr, ptr %234, align 8
-  %236 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %235) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1541, ptr noundef nonnull @__func__.DropConfigurationMapping) #10
+  %236 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %235) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1541, ptr noundef nonnull @__func__.DropConfigurationMapping) #9
   unreachable
 
 237:                                              ; preds = %.critedge6.i
-  %238 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #10
+  %238 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #9
   br i1 %238, label %239, label %243
 
 239:                                              ; preds = %237
   %240 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %241 = load ptr, ptr %240, align 8
-  %242 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef %241) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1547, ptr noundef nonnull @__func__.DropConfigurationMapping) #10
+  %242 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef %241) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1547, ptr noundef nonnull @__func__.DropConfigurationMapping) #9
   br label %243
 
 243:                                              ; preds = %239, %237, %._crit_edge.i35
@@ -2594,7 +2569,7 @@ MakeConfigurationMapping.exit:                    ; preds = %.lr.ph43.i, %._crit
   br i1 %246, label %.lr.ph, label %DropConfigurationMapping.exit
 
 DropConfigurationMapping.exit:                    ; preds = %243, %.lr.ph4.i, %203
-  call void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %208, ptr noundef null, i32 noundef 0) #10
+  call void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noundef %208, ptr noundef null, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %247
 
@@ -2606,12 +2581,12 @@ DropConfigurationMapping.exit:                    ; preds = %243, %.lr.ph4.i, %2
   br i1 %.not26, label %251, label %250
 
 250:                                              ; preds = %247
-  call void @RunObjectPostAlterHook(i32 noundef 3602, i32 noundef %27, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #10
+  call void @RunObjectPostAlterHook(i32 noundef 3602, i32 noundef %27, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #9
   br label %251
 
 251:                                              ; preds = %247, %250
-  call void @table_close(ptr noundef %34, i32 noundef 3) #10
-  call void @ReleaseSysCache(ptr noundef nonnull %12) #10
+  call void @table_close(ptr noundef %34, i32 noundef 3) #9
+  call void @ReleaseSysCache(ptr noundef nonnull %12) #9
   %.sroa.223.0.insert.ext = zext i32 %27 to i64
   %.sroa.223.0.insert.shift = shl nuw i64 %.sroa.223.0.insert.ext, 32
   %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.223.0.insert.shift, 3602
@@ -2658,9 +2633,9 @@ define internal fastcc ptr @buildDefItem(ptr noundef %0, ptr noundef %1, i1 noun
 
 7:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = tail call ptr @__errno_location() #13
+  %8 = tail call ptr @__errno_location() #12
   store i32 0, ptr %8, align 4
-  %9 = call i32 @strtoint(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 10) #10
+  %9 = call i32 @strtoint(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 10) #9
   %10 = load i32, ptr %8, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %20
@@ -2672,14 +2647,14 @@ define internal fastcc ptr @buildDefItem(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = call ptr @pstrdup(ptr noundef %0) #10
-  %18 = call ptr @makeInteger(i32 noundef %9) #10
-  %19 = call ptr @makeDefElem(ptr noundef %17, ptr noundef %18, i32 noundef -1) #10
+  %17 = call ptr @pstrdup(ptr noundef %0) #9
+  %18 = call ptr @makeInteger(i32 noundef %9) #9
+  %19 = call ptr @makeDefElem(ptr noundef %17, ptr noundef %18, i32 noundef -1) #9
   br label %.thread
 
 20:                                               ; preds = %12, %7
   store i32 0, ptr %8, align 4
-  %21 = call double @strtod(ptr noundef nonnull %1, ptr noundef nonnull %4) #10
+  %21 = call double @strtod(ptr noundef nonnull %1, ptr noundef nonnull %4) #9
   %22 = load i32, ptr %8, align 4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %33
@@ -2691,32 +2666,32 @@ define internal fastcc ptr @buildDefItem(ptr noundef %0, ptr noundef %1, i1 noun
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = call ptr @pstrdup(ptr noundef %0) #10
-  %30 = call ptr @pstrdup(ptr noundef nonnull %1) #10
-  %31 = call ptr @makeFloat(ptr noundef %30) #10
-  %32 = call ptr @makeDefElem(ptr noundef %29, ptr noundef %31, i32 noundef -1) #10
+  %29 = call ptr @pstrdup(ptr noundef %0) #9
+  %30 = call ptr @pstrdup(ptr noundef nonnull %1) #9
+  %31 = call ptr @makeFloat(ptr noundef %30) #9
+  %32 = call ptr @makeDefElem(ptr noundef %29, ptr noundef %31, i32 noundef -1) #9
   br label %.thread
 
 33:                                               ; preds = %24, %20
-  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.40) #12
+  %34 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.40) #11
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %33
-  %37 = call ptr @pstrdup(ptr noundef %0) #10
-  %38 = call ptr @makeBoolean(i1 noundef zeroext true) #10
-  %39 = call ptr @makeDefElem(ptr noundef %37, ptr noundef %38, i32 noundef -1) #10
+  %37 = call ptr @pstrdup(ptr noundef %0) #9
+  %38 = call ptr @makeBoolean(i1 noundef zeroext true) #9
+  %39 = call ptr @makeDefElem(ptr noundef %37, ptr noundef %38, i32 noundef -1) #9
   br label %.thread
 
 40:                                               ; preds = %33
-  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.41) #12
+  %41 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.41) #11
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %40
-  %44 = call ptr @pstrdup(ptr noundef %0) #10
-  %45 = call ptr @makeBoolean(i1 noundef zeroext false) #10
-  %46 = call ptr @makeDefElem(ptr noundef %44, ptr noundef %45, i32 noundef -1) #10
+  %44 = call ptr @pstrdup(ptr noundef %0) #9
+  %45 = call ptr @makeBoolean(i1 noundef zeroext false) #9
+  %46 = call ptr @makeDefElem(ptr noundef %44, ptr noundef %45, i32 noundef -1) #9
   br label %.thread
 
 .thread:                                          ; preds = %16, %28, %36, %43
@@ -2729,10 +2704,10 @@ define internal fastcc ptr @buildDefItem(ptr noundef %0, ptr noundef %1, i1 noun
   br label %48
 
 48:                                               ; preds = %47, %5, %3
-  %49 = call ptr @pstrdup(ptr noundef %0) #10
-  %50 = call ptr @pstrdup(ptr noundef %1) #10
-  %51 = call ptr @makeString(ptr noundef %50) #10
-  %52 = call ptr @makeDefElem(ptr noundef %49, ptr noundef %51, i32 noundef -1) #10
+  %49 = call ptr @pstrdup(ptr noundef %0) #9
+  %50 = call ptr @pstrdup(ptr noundef %1) #9
+  %51 = call ptr @makeString(ptr noundef %50) #9
+  %52 = call ptr @makeDefElem(ptr noundef %49, ptr noundef %51, i32 noundef -1) #9
   br label %53
 
 53:                                               ; preds = %.thread, %48
@@ -2772,7 +2747,7 @@ declare void @CommandCounterIncrement() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @getTokenTypes(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = tail call ptr @lookup_ts_parser_cache(i32 noundef %0) #10
+  %3 = tail call ptr @lookup_ts_parser_cache(i32 noundef %0) #9
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.critedge43, label %list_length.exit
 
@@ -2789,14 +2764,13 @@ list_length.exit:                                 ; preds = %2
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %0) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1243, ptr noundef nonnull @__func__.getTokenTypes) #10
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %0) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1243, ptr noundef nonnull @__func__.getTokenTypes) #9
   unreachable
 
 13:                                               ; preds = %7
-  %14 = tail call i64 @OidFunctionCall1Coll(i32 noundef %9, i32 noundef 0, i64 noundef 0) #10
+  %14 = tail call i64 @OidFunctionCall1Coll(i32 noundef %9, i32 noundef 0, i64 noundef 0) #9
   %.fr = freeze i64 %14
   %15 = inttoptr i64 %.fr to ptr
   %16 = load i32, ptr %4, align 4
@@ -2849,7 +2823,7 @@ list_length.exit:                                 ; preds = %2
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %38) #12
+  %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %38) #11
   %.not13.i = icmp eq i32 %39, 0
   br i1 %.not13.i, label %tstoken_list_member.exit.thread, label %33
 
@@ -2871,30 +2845,29 @@ list_length.exit:                                 ; preds = %2
   %.0314960 = phi i32 [ %42, %41 ], [ 0, %.lr.ph.split ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %48) #12
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) %48) #11
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge, label %41
 
 .critedge:                                        ; preds = %.lr.ph61
-  %51 = tail call ptr @palloc0(i64 noundef 16) #10
+  %51 = tail call ptr @palloc0(i64 noundef 16) #9
   %52 = load i32, ptr %46, align 8
   store i32 %52, ptr %51, align 8
   %53 = load ptr, ptr %26, align 8
-  %54 = tail call ptr @pstrdup(ptr noundef %53) #10
+  %54 = tail call ptr @pstrdup(ptr noundef %53) #9
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %54, ptr %55, align 8
-  %56 = tail call ptr @lappend(ptr noundef %.03365, ptr noundef nonnull %51) #10
+  %56 = tail call ptr @lappend(ptr noundef %.03365, ptr noundef nonnull %51) #9
   %.pre = load i32, ptr %4, align 4
   br label %tstoken_list_member.exit.thread
 
 .critedge44:                                      ; preds = %.lr.ph.split, %41, %.lr.ph66.split.us
   %.lcssa48 = phi ptr [ %21, %.lr.ph66.split.us ], [ %26, %41 ], [ %26, %.lr.ph.split ]
-  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %57)
-  %58 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %58 = tail call i32 @errcode(i32 noundef 50856066) #9
   %59 = load ptr, ptr %.lcssa48, align 8
-  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef %59) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1278, ptr noundef nonnull @__func__.getTokenTypes) #10
+  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef %59) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1278, ptr noundef nonnull @__func__.getTokenTypes) #9
   unreachable
 
 tstoken_list_member.exit.thread:                  ; preds = %34, %.critedge
@@ -2944,11 +2917,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2958,12 +2928,11 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

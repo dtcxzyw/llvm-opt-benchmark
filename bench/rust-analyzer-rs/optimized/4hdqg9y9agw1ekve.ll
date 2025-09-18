@@ -8702,9 +8702,6 @@ define hidden void @"_ZN5rowan3api19SyntaxNode$LT$L$GT$15splice_children17hd3e58
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN5rowan3api19SyntaxNode$LT$L$GT$16covering_element17hb33d641e4f3d728dE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, ptr } @_ZN5rowan6cursor10SyntaxNode16covering_element17h4ed76c5a167238ecE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2)
-  %5 = extractvalue { i64, ptr } %4, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
   ret { i64, ptr } %4
 }
 

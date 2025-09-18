@@ -120,65 +120,53 @@ define hidden void @zim_Dom_XMLDocument_createEmpty(ptr noundef readonly capture
   %8 = load i32, ptr %7, align 4, !tbaa !26
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4) #12
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %14
+  br i1 %10, label %38, label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
-  %13 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %13)
-  br label %45
+  %12 = load ptr, ptr %5, align 8, !tbaa !23
+  %13 = call ptr @xmlFindCharEncodingHandler(ptr noundef %12) #12
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %19, label %14
 
-14:                                               ; preds = %2
-  %15 = load ptr, ptr %5, align 8, !tbaa !23
-  %16 = call ptr @xmlFindCharEncodingHandler(ptr noundef %15) #12
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %22, label %17
+14:                                               ; preds = %11
+  %15 = call i32 @xmlCharEncCloseFunc(ptr noundef nonnull %13) #12
+  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  %17 = call ptr @xmlNewDoc(ptr noundef %16) #12
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %37, label %20, !prof !27
 
-17:                                               ; preds = %14
-  %18 = call i32 @xmlCharEncCloseFunc(ptr noundef nonnull %16) #12
-  %19 = load ptr, ptr %3, align 8, !tbaa !23
-  %20 = call ptr @xmlNewDoc(ptr noundef %19) #12
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %42, label %25, !prof !59
-
-22:                                               ; preds = %14
+19:                                               ; preds = %11
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.2) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %45
+  br label %38
 
-25:                                               ; preds = %17
-  %26 = load ptr, ptr %5, align 8, !tbaa !23
-  %27 = call ptr @xmlStrdup(ptr noundef %26) #12
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 112
-  store ptr %27, ptr %28, align 8, !tbaa !60
-  %29 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !61
-  %30 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %29, ptr noundef nonnull %20, ptr noundef null) #12
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !62
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 44
-  %34 = load i16, ptr %33, align 4
-  %35 = and i16 %34, -256
-  %36 = or disjoint i16 %35, 2
-  store i16 %36, ptr %33, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store ptr @php_new_dom_default_document_handlers, ptr %37, align 8, !tbaa !67
-  %38 = call ptr @php_dom_private_data_create() #12
-  %39 = call ptr @php_dom_libxml_private_data_header(ptr noundef %38) #12
-  %40 = load ptr, ptr %31, align 8, !tbaa !62
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr %39, ptr %41, align 8, !tbaa !73
-  br label %45
+20:                                               ; preds = %14
+  %21 = load ptr, ptr %5, align 8, !tbaa !23
+  %22 = call ptr @xmlStrdup(ptr noundef %21) #12
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  store ptr %22, ptr %23, align 8, !tbaa !28
+  %24 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !29
+  %25 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %24, ptr noundef nonnull %17, ptr noundef null) #12
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 44
+  %29 = load i16, ptr %28, align 4
+  %30 = and i16 %29, -256
+  %31 = or disjoint i16 %30, 2
+  store i16 %31, ptr %28, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store ptr @php_new_dom_default_document_handlers, ptr %32, align 8, !tbaa !38
+  %33 = call ptr @php_dom_private_data_create() #12
+  %34 = call ptr @php_dom_libxml_private_data_header(ptr noundef %33) #12
+  %35 = load ptr, ptr %26, align 8, !tbaa !31
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr %34, ptr %36, align 8, !tbaa !44
+  br label %38
 
-42:                                               ; preds = %17
+37:                                               ; preds = %14
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #12
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
-  %44 = icmp ne ptr %43, null
-  call void @llvm.assume(i1 %44)
-  br label %45
+  br label %38
 
-45:                                               ; preds = %22, %42, %25, %11
+38:                                               ; preds = %2, %19, %37, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -211,7 +199,7 @@ define hidden void @dom_set_xml_class(ptr noundef captures(none) initializes((32
   %5 = or disjoint i16 %4, 2
   store i16 %5, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr @php_new_dom_default_document_handlers, ptr %6, align 8, !tbaa !67
+  store ptr @php_new_dom_default_document_handlers, ptr %6, align 8, !tbaa !38
   ret void
 }
 
@@ -227,7 +215,7 @@ define hidden void @dom_document_convert_to_modern(ptr noundef writeonly capture
   %4 = tail call ptr @php_dom_ns_mapper_from_private(ptr noundef %3) #12
   %5 = tail call ptr @php_dom_libxml_private_data_header(ptr noundef %3) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %6, align 8, !tbaa !73
+  store ptr %5, ptr %6, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %8, null
@@ -305,7 +293,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   store i64 0, ptr %7, align 8, !tbaa !24
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %.44.val, ptr noundef nonnull @.str.4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %dom_document_convert_to_modern.exit.sink.split, label %10
+  br i1 %9, label %dom_document_convert_to_modern.exit, label %10
 
 10:                                               ; preds = %2
   %11 = load i64, ptr %5, align 8, !tbaa !24
@@ -314,15 +302,15 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 12:                                               ; preds = %10
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.5) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 13:                                               ; preds = %10
   %14 = icmp ugt i64 %11, 2147483647
-  br i1 %14, label %15, label %16, !prof !59
+  br i1 %14, label %15, label %16, !prof !27
 
 15:                                               ; preds = %13
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.6) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 16:                                               ; preds = %13
   %.not36 = icmp eq i32 %1, 0
@@ -336,7 +324,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 20:                                               ; preds = %17
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.8) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 21:                                               ; preds = %17, %16
   %22 = load i64, ptr %7, align 8, !tbaa !24
@@ -346,7 +334,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 24:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.14) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %4, align 8, !tbaa !23
@@ -360,7 +348,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 
 29:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.9) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 30:                                               ; preds = %27
   %31 = load i64, ptr %7, align 8, !tbaa !24
@@ -383,16 +371,16 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   ]
 
 39:                                               ; preds = %33, %33
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !45
   %.not45 = icmp eq ptr %40, null
-  br i1 %.not45, label %41, label %dom_document_convert_to_modern.exit.sink.split
+  br i1 %.not45, label %41, label %dom_document_convert_to_modern.exit
 
 41:                                               ; preds = %39
   br i1 %38, label %42, label %43
 
 42:                                               ; preds = %41
   call void @php_dom_throw_error_with_message(i32 noundef 12, ptr noundef nonnull @.str.10, i1 noundef zeroext true) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 43:                                               ; preds = %41
   br i1 %.not36, label %47, label %44
@@ -400,15 +388,15 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
 44:                                               ; preds = %43
   %45 = load ptr, ptr %3, align 8, !tbaa !23
   %46 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %45) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 47:                                               ; preds = %43
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #12
-  br label %dom_document_convert_to_modern.exit.sink.split
+  br label %dom_document_convert_to_modern.exit
 
 48:                                               ; preds = %33
   %49 = getelementptr inbounds nuw i8, ptr %37, i64 112
-  %50 = load ptr, ptr %49, align 8, !tbaa !60
+  %50 = load ptr, ptr %49, align 8, !tbaa !28
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.sink.split, label %54
 
@@ -417,7 +405,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   %.not40 = icmp eq ptr %52, null
   %.str. = select i1 %.not40, ptr @.str, ptr %52
   %53 = call ptr @xmlStrdup(ptr noundef nonnull %.str.) #12
-  store ptr %53, ptr %49, align 8, !tbaa !60
+  store ptr %53, ptr %49, align 8, !tbaa !28
   br label %54
 
 54:                                               ; preds = %.sink.split, %48
@@ -461,23 +449,23 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   br label %71
 
 71:                                               ; preds = %62, %70, %68, %58, %60, %55, %54
-  %72 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !61
+  %72 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !29
   %73 = call ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %72, ptr noundef nonnull %37, ptr noundef null) #12
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !62
+  %75 = load ptr, ptr %74, align 8, !tbaa !31
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 44
   %77 = load i16, ptr %76, align 4
   %78 = and i16 %77, -256
   %79 = or disjoint i16 %78, 2
   store i16 %79, ptr %76, align 4
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store ptr @php_new_dom_default_document_handlers, ptr %80, align 8, !tbaa !67
-  %81 = load ptr, ptr %74, align 8, !tbaa !62
+  store ptr @php_new_dom_default_document_handlers, ptr %80, align 8, !tbaa !38
+  %81 = load ptr, ptr %74, align 8, !tbaa !31
   %82 = call ptr @php_dom_private_data_create() #12
   %83 = call ptr @php_dom_ns_mapper_from_private(ptr noundef %82) #12
   %84 = call ptr @php_dom_libxml_private_data_header(ptr noundef %82) #12
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  store ptr %84, ptr %85, align 8, !tbaa !73
+  store ptr %84, ptr %85, align 8, !tbaa !44
   %86 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !4
   %.not6.i.i = icmp eq ptr %87, null
@@ -525,13 +513,7 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.preheader.i.i, label %.lr.ph.i.i.backedge
 
-dom_document_convert_to_modern.exit.sink.split:   ; preds = %42, %47, %44, %39, %2, %12, %15, %20, %24, %29
-  %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !27
-  %106 = icmp ne ptr %105, null
-  call void @llvm.assume(i1 %106)
-  br label %dom_document_convert_to_modern.exit
-
-dom_document_convert_to_modern.exit:              ; preds = %.preheader.i.i, %dom_document_convert_to_modern.exit.sink.split, %71
+dom_document_convert_to_modern.exit:              ; preds = %.preheader.i.i, %29, %24, %20, %15, %12, %2, %39, %44, %47, %42, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -565,7 +547,7 @@ define hidden i64 @php_new_dom_dump_node_to_file(ptr noundef %0, ptr readnone ca
   %13 = load ptr, ptr %12, align 8, !tbaa !80
   %14 = tail call ptr @xmlSaveToIO(ptr noundef %13, ptr noundef null, ptr noundef %11, ptr noundef %4, i32 noundef 32) #12
   %.not26 = icmp eq ptr %14, null
-  br i1 %.not26, label %27, label %15, !prof !59
+  br i1 %.not26, label %27, label %15, !prof !27
 
 15:                                               ; preds = %10
   %16 = tail call ptr @php_dom_object_get_data(ptr noundef %2) #12
@@ -574,9 +556,9 @@ define hidden i64 @php_new_dom_dump_node_to_file(ptr noundef %0, ptr readnone ca
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !62, !nonnull !81, !noundef !81
+  %19 = load ptr, ptr %18, align 8, !tbaa !31, !nonnull !81, !noundef !81
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !73
+  %21 = load ptr, ptr %20, align 8, !tbaa !44
   br label %get_private_data_from_node.exit
 
 get_private_data_from_node.exit:                  ; preds = %15, %17
@@ -710,13 +692,13 @@ define internal fastcc ptr @php_new_dom_dump_node_to_str_ex(ptr noundef %0, i32 
   %6 = or i32 %1, 32
   %7 = call ptr @xmlSaveToIO(ptr noundef nonnull @php_new_dom_write_smart_str, ptr noundef null, ptr noundef nonnull %5, ptr noundef %3, i32 noundef %6) #12
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.critedge, label %8, !prof !59
+  br i1 %.not, label %.critedge, label %8, !prof !27
 
 8:                                                ; preds = %4
   %9 = call ptr @xmlFindCharEncodingHandler(ptr noundef %3) #12
   %10 = call ptr @xmlOutputBufferCreateIO(ptr noundef nonnull @php_new_dom_write_smart_str, ptr noundef null, ptr noundef nonnull %5, ptr noundef %9) #12
   %.not21 = icmp eq ptr %10, null
-  br i1 %.not21, label %.critedge23, label %11, !prof !59
+  br i1 %.not21, label %.critedge23, label %11, !prof !27
 
 11:                                               ; preds = %8
   %12 = call ptr @php_dom_object_get_data(ptr noundef %0) #12
@@ -725,9 +707,9 @@ define internal fastcc ptr @php_new_dom_dump_node_to_str_ex(ptr noundef %0, i32 
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !62, !nonnull !81, !noundef !81
+  %15 = load ptr, ptr %14, align 8, !tbaa !31, !nonnull !81, !noundef !81
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !73
+  %17 = load ptr, ptr %16, align 8, !tbaa !44
   br label %get_private_data_from_node.exit
 
 get_private_data_from_node.exit:                  ; preds = %11, %13
@@ -739,7 +721,7 @@ get_private_data_from_node.exit:                  ; preds = %11, %13
   %23 = or i32 %21, %22
   %24 = icmp slt i32 %23, 0
   %25 = call i32 @xmlSaveClose(ptr noundef nonnull %7) #12
-  br i1 %24, label %.critedge, label %39, !prof !59
+  br i1 %24, label %.critedge, label %39, !prof !27
 
 .critedge23:                                      ; preds = %8
   %26 = call i32 @xmlCharEncCloseFunc(ptr noundef %9) #12
@@ -868,7 +850,7 @@ define internal noundef i32 @php_new_dom_write_smart_str(ptr noundef %0, ptr nou
   %4 = sext i32 %2 to i64
   %5 = load ptr, ptr %0, align 8, !tbaa !82
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %12, label %6, !prof !59
+  br i1 %.not.i, label %12, label %6, !prof !27
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -970,53 +952,53 @@ attributes #15 = { nounwind allocsize(0) }
 !24 = !{!25, !25, i64 0}
 !25 = !{!"long", !7, i64 0}
 !26 = !{!7, !7, i64 0}
-!27 = !{!28, !46, i64 960}
-!28 = !{!"_zend_executor_globals", !29, i64 0, !29, i64 16, !7, i64 32, !30, i64 288, !30, i64 296, !31, i64 304, !31, i64 360, !33, i64 416, !9, i64 424, !34, i64 428, !29, i64 432, !9, i64 448, !35, i64 456, !35, i64 464, !35, i64 472, !36, i64 480, !36, i64 488, !37, i64 496, !25, i64 504, !38, i64 512, !39, i64 520, !9, i64 528, !38, i64 536, !9, i64 544, !25, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !34, i64 572, !34, i64 573, !40, i64 574, !40, i64 575, !35, i64 576, !25, i64 584, !6, i64 592, !6, i64 600, !31, i64 608, !31, i64 664, !9, i64 720, !34, i64 724, !29, i64 728, !29, i64 744, !41, i64 760, !41, i64 784, !41, i64 808, !39, i64 832, !9, i64 840, !9, i64 844, !25, i64 848, !35, i64 856, !35, i64 864, !42, i64 872, !43, i64 880, !45, i64 904, !46, i64 960, !46, i64 968, !47, i64 976, !7, i64 984, !48, i64 1080, !34, i64 1088, !7, i64 1089, !25, i64 1096, !9, i64 1104, !9, i64 1108, !49, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !50, i64 1640, !31, i64 1672, !25, i64 1728, !51, i64 1736, !52, i64 1760, !52, i64 1768, !53, i64 1776, !25, i64 1784, !34, i64 1792, !9, i64 1796, !54, i64 1800, !55, i64 1808, !25, i64 1816, !56, i64 1824, !25, i64 1840, !25, i64 1848, !57, i64 1856, !7, i64 1936}
-!29 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!30 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
-!31 = !{!"_zend_array", !32, i64 0, !7, i64 8, !9, i64 12, !7, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !25, i64 40, !6, i64 48}
-!32 = !{!"_zend_refcounted_h", !9, i64 0, !7, i64 4}
-!33 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
-!34 = !{!"_Bool", !7, i64 0}
-!35 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
-!36 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
-!37 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
-!38 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
-!39 = !{!"p1 _ZTS17_zend_class_entry", !6, i64 0}
-!40 = !{!"zend_atomic_bool_s", !7, i64 0}
-!41 = !{!"_zend_stack", !9, i64 0, !9, i64 4, !9, i64 8, !6, i64 16}
-!42 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
-!43 = !{!"_zend_objects_store", !44, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!44 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
-!45 = !{!"_zend_lazy_objects_store", !31, i64 0}
-!46 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
-!47 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
-!48 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
-!49 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
-!50 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!51 = !{!"", !36, i64 0, !36, i64 8, !36, i64 16}
-!52 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
-!53 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
-!54 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
-!55 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
-!56 = !{!"_zend_call_stack", !6, i64 0, !25, i64 8}
-!57 = !{!"_zend_strtod_state", !7, i64 0, !58, i64 64, !10, i64 72}
-!58 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
-!59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!60 = !{!5, !10, i64 112}
-!61 = !{!39, !39, i64 0}
-!62 = !{!63, !64, i64 8}
-!63 = !{!"_dom_object", !6, i64 0, !64, i64 8, !35, i64 16, !65, i64 24}
-!64 = !{!"p1 _ZTS19_php_libxml_ref_obj", !6, i64 0}
-!65 = !{!"_zend_object", !32, i64 0, !9, i64 8, !9, i64 12, !39, i64 16, !66, i64 24, !35, i64 32, !7, i64 40}
-!66 = !{!"p1 _ZTS21_zend_object_handlers", !6, i64 0}
-!67 = !{!68, !72, i64 32}
-!68 = !{!"_php_libxml_ref_obj", !6, i64 0, !69, i64 8, !70, i64 16, !71, i64 24, !72, i64 32, !9, i64 40, !9, i64 44, !9, i64 45}
-!69 = !{!"p1 _ZTS17_libxml_doc_props", !6, i64 0}
-!70 = !{!"", !25, i64 0}
-!71 = !{!"p1 _ZTS30php_libxml_private_data_header", !6, i64 0}
-!72 = !{!"p1 _ZTS28php_libxml_document_handlers", !6, i64 0}
-!73 = !{!68, !71, i64 24}
+!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!28 = !{!5, !10, i64 112}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS17_zend_class_entry", !6, i64 0}
+!31 = !{!32, !33, i64 8}
+!32 = !{!"_dom_object", !6, i64 0, !33, i64 8, !34, i64 16, !35, i64 24}
+!33 = !{!"p1 _ZTS19_php_libxml_ref_obj", !6, i64 0}
+!34 = !{!"p1 _ZTS11_zend_array", !6, i64 0}
+!35 = !{!"_zend_object", !36, i64 0, !9, i64 8, !9, i64 12, !30, i64 16, !37, i64 24, !34, i64 32, !7, i64 40}
+!36 = !{!"_zend_refcounted_h", !9, i64 0, !7, i64 4}
+!37 = !{!"p1 _ZTS21_zend_object_handlers", !6, i64 0}
+!38 = !{!39, !43, i64 32}
+!39 = !{!"_php_libxml_ref_obj", !6, i64 0, !40, i64 8, !41, i64 16, !42, i64 24, !43, i64 32, !9, i64 40, !9, i64 44, !9, i64 45}
+!40 = !{!"p1 _ZTS17_libxml_doc_props", !6, i64 0}
+!41 = !{!"", !25, i64 0}
+!42 = !{!"p1 _ZTS30php_libxml_private_data_header", !6, i64 0}
+!43 = !{!"p1 _ZTS28php_libxml_document_handlers", !6, i64 0}
+!44 = !{!39, !42, i64 24}
+!45 = !{!46, !61, i64 960}
+!46 = !{!"_zend_executor_globals", !47, i64 0, !47, i64 16, !7, i64 32, !48, i64 288, !48, i64 296, !49, i64 304, !49, i64 360, !50, i64 416, !9, i64 424, !51, i64 428, !47, i64 432, !9, i64 448, !34, i64 456, !34, i64 464, !34, i64 472, !52, i64 480, !52, i64 488, !53, i64 496, !25, i64 504, !54, i64 512, !30, i64 520, !9, i64 528, !54, i64 536, !9, i64 544, !25, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !51, i64 572, !51, i64 573, !55, i64 574, !55, i64 575, !34, i64 576, !25, i64 584, !6, i64 592, !6, i64 600, !49, i64 608, !49, i64 664, !9, i64 720, !51, i64 724, !47, i64 728, !47, i64 744, !56, i64 760, !56, i64 784, !56, i64 808, !30, i64 832, !9, i64 840, !9, i64 844, !25, i64 848, !34, i64 856, !34, i64 864, !57, i64 872, !58, i64 880, !60, i64 904, !61, i64 960, !61, i64 968, !62, i64 976, !7, i64 984, !63, i64 1080, !51, i64 1088, !7, i64 1089, !25, i64 1096, !9, i64 1104, !9, i64 1108, !64, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !65, i64 1640, !49, i64 1672, !25, i64 1728, !66, i64 1736, !67, i64 1760, !67, i64 1768, !68, i64 1776, !25, i64 1784, !51, i64 1792, !9, i64 1796, !69, i64 1800, !70, i64 1808, !25, i64 1816, !71, i64 1824, !25, i64 1840, !25, i64 1848, !72, i64 1856, !7, i64 1936}
+!47 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!48 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
+!49 = !{!"_zend_array", !36, i64 0, !7, i64 8, !9, i64 12, !7, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !25, i64 40, !6, i64 48}
+!50 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
+!51 = !{!"_Bool", !7, i64 0}
+!52 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
+!53 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
+!54 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
+!55 = !{!"zend_atomic_bool_s", !7, i64 0}
+!56 = !{!"_zend_stack", !9, i64 0, !9, i64 4, !9, i64 8, !6, i64 16}
+!57 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
+!58 = !{!"_zend_objects_store", !59, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!59 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
+!60 = !{!"_zend_lazy_objects_store", !49, i64 0}
+!61 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
+!62 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
+!63 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
+!64 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
+!65 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
+!66 = !{!"", !52, i64 0, !52, i64 8, !52, i64 16}
+!67 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
+!68 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
+!69 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
+!70 = !{!"p1 _ZTS12_zend_string", !6, i64 0}
+!71 = !{!"_zend_call_stack", !6, i64 0, !25, i64 8}
+!72 = !{!"_zend_strtod_state", !7, i64 0, !73, i64 64, !10, i64 72}
+!73 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
 !74 = !{!5, !10, i64 136}
 !75 = !{!6, !6, i64 0}
 !76 = !{!77, !6, i64 0}
@@ -1025,12 +1007,12 @@ attributes #15 = { nounwind allocsize(0) }
 !79 = !{!"p1 _ZTS7_xmlBuf", !6, i64 0}
 !80 = !{!77, !6, i64 8}
 !81 = !{}
-!82 = !{!83, !55, i64 0}
-!83 = !{!"", !55, i64 0, !25, i64 8}
-!84 = !{!32, !9, i64 0}
+!82 = !{!83, !70, i64 0}
+!83 = !{!"", !70, i64 0, !25, i64 8}
+!84 = !{!36, !9, i64 0}
 !85 = !{!86, !25, i64 16}
-!86 = !{!"_zend_string", !32, i64 0, !25, i64 8, !25, i64 16, !7, i64 24}
+!86 = !{!"_zend_string", !36, i64 0, !25, i64 8, !25, i64 16, !7, i64 24}
 !87 = !{!83, !25, i64 8}
 !88 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !89 = !{!86, !25, i64 8}
-!90 = !{!55, !55, i64 0}
+!90 = !{!70, !70, i64 0}

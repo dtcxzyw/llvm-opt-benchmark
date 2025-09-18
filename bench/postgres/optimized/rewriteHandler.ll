@@ -177,14 +177,14 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   %.067 = phi i32 [ 1, %23 ], [ 2, %28 ], [ %26, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %31 = load i32, ptr %30, align 4
-  %32 = tail call ptr @table_open(i32 noundef %31, i32 noundef %.067) #10
+  %32 = tail call ptr @table_open(i32 noundef %31, i32 noundef %.067) #9
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 115
   %36 = load i8, ptr %35, align 1
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 33
   store i8 %36, ptr %37, align 1
-  tail call void @table_close(ptr noundef %32, i32 noundef 0) #10
+  tail call void @table_close(ptr noundef %32, i32 noundef 0) #9
   br label %82
 
 38:                                               ; preds = %.lr.ph138
@@ -208,7 +208,7 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   %45 = load ptr, ptr %42, align 8
   %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr @strip_implicit_coercions(ptr noundef %47) #10
+  %48 = tail call ptr @strip_implicit_coercions(ptr noundef %47) #9
   %.not86 = icmp eq ptr %48, null
   br i1 %.not86, label %69, label %49
 
@@ -233,10 +233,9 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   br i1 %.not88, label %58, label %.split
 
 .split:                                           ; preds = %55
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %54, i32 noundef %indvars) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 255, ptr noundef nonnull @__func__.AcquireRewriteLocks) #10
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %54, i32 noundef %indvars) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 255, ptr noundef nonnull @__func__.AcquireRewriteLocks) #9
   unreachable
 
 58:                                               ; preds = %55
@@ -254,7 +253,7 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   %.2 = phi ptr [ %64, %58 ], [ %.06997105, %52 ]
   %66 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %67 = load i16, ptr %66, align 8
-  %68 = tail call zeroext i1 @get_rte_attribute_is_dropped(ptr noundef %.2, i16 noundef signext %67) #10
+  %68 = tail call zeroext i1 @get_rte_attribute_is_dropped(ptr noundef %.2, i16 noundef signext %67) #9
   %spec.select = select i1 %68, ptr null, ptr %47
   br label %69
 
@@ -262,7 +261,7 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   %.172 = phi i32 [ %.07196106, %49 ], [ %.07196106, %.lr.ph108 ], [ %.273, %65 ]
   %.170 = phi ptr [ %.06997105, %49 ], [ %.06997105, %.lr.ph108 ], [ %.2, %65 ]
   %.066 = phi ptr [ %47, %49 ], [ %47, %.lr.ph108 ], [ %spec.select, %65 ]
-  %70 = tail call ptr @lappend(ptr noundef %.07495107, ptr noundef %.066) #10
+  %70 = tail call ptr @lappend(ptr noundef %.07495107, ptr noundef %.066) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %71 = load i32, ptr %41, align 4
   %72 = sext i32 %71 to i64
@@ -275,7 +274,7 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   br i1 %2, label %80, label %77
 
 77:                                               ; preds = %74
-  %78 = tail call ptr @get_parse_rowmark(ptr noundef %0, i32 noundef %indvars) #10
+  %78 = tail call ptr @get_parse_rowmark(ptr noundef %0, i32 noundef %indvars) #9
   %79 = icmp ne ptr %78, null
   br label %80
 
@@ -311,7 +310,7 @@ define dso_local void @AcquireRewriteLocks(ptr noundef %0, i1 noundef zeroext %1
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %.critedge92
-  %98 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %4, i32 noundef 3) #10
+  %98 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %4, i32 noundef 3) #9
   br label %99
 
 99:                                               ; preds = %97, %.critedge92
@@ -359,7 +358,7 @@ define internal zeroext i1 @acquireLocksOnSubLinks(ptr noundef %0, ptr noundef %
   br label %12
 
 12:                                               ; preds = %7, %4
-  %13 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef %1) #10
+  %13 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef %1) #9
   br label %14
 
 14:                                               ; preds = %2, %12
@@ -389,10 +388,10 @@ define dso_local ptr @build_column_default(ptr noundef %0, i32 noundef %1) local
   br i1 %.not, label %26, label %19
 
 19:                                               ; preds = %2
-  %20 = tail call noundef ptr @palloc0(i64 noundef 12) #10
+  %20 = tail call noundef ptr @palloc0(i64 noundef 12) #9
   store i32 59, ptr %20, align 4
   %21 = trunc i32 %1 to i16
-  %22 = tail call i32 @getIdentitySequence(ptr noundef nonnull %0, i16 noundef signext %21, i1 noundef zeroext false) #10
+  %22 = tail call i32 @getIdentitySequence(ptr noundef nonnull %0, i16 noundef signext %21, i1 noundef zeroext false) #9
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %22, ptr %23, align 4
   %24 = load i32, ptr %13, align 4
@@ -408,18 +407,17 @@ define dso_local ptr @build_column_default(ptr noundef %0, i32 noundef %1) local
 
 30:                                               ; preds = %26
   %31 = trunc i32 %1 to i16
-  %32 = tail call ptr @TupleDescGetDefault(ptr noundef nonnull %4, i16 noundef signext %31) #10
+  %32 = tail call ptr @TupleDescGetDefault(ptr noundef nonnull %4, i16 noundef signext %31) #9
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %.thread39
 
 34:                                               ; preds = %30
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %35)
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %1, ptr noundef nonnull %38) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1254, ptr noundef nonnull @__func__.build_column_default) #10
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %1, ptr noundef nonnull %38) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1254, ptr noundef nonnull @__func__.build_column_default) #9
   unreachable
 
 40:                                               ; preds = %26
@@ -429,27 +427,26 @@ define dso_local ptr @build_column_default(ptr noundef %0, i32 noundef %1) local
   br i1 %.not35, label %43, label %.thread37
 
 43:                                               ; preds = %40
-  %44 = tail call ptr @get_typdefault(i32 noundef %14) #10
+  %44 = tail call ptr @get_typdefault(i32 noundef %14) #9
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread37, label %.thread39
 
 .thread39:                                        ; preds = %30, %43
   %.141 = phi ptr [ %44, %43 ], [ %32, %30 ]
-  %46 = tail call i32 @exprType(ptr noundef nonnull %.141) #10
-  %47 = tail call ptr @coerce_to_target_type(ptr noundef null, ptr noundef nonnull %.141, i32 noundef %46, i32 noundef %14, i32 noundef %16, i32 noundef 1, i32 noundef 2, i32 noundef -1) #10
+  %46 = tail call i32 @exprType(ptr noundef nonnull %.141) #9
+  %47 = tail call ptr @coerce_to_target_type(ptr noundef null, ptr noundef nonnull %.141, i32 noundef %46, i32 noundef %14, i32 noundef %16, i32 noundef 1, i32 noundef 2, i32 noundef -1) #9
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %.thread37
 
 49:                                               ; preds = %.thread39
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 @errcode(i32 noundef 67141764) #10
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %51 = tail call i32 @errcode(i32 noundef 67141764) #9
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %53 = tail call ptr @format_type_be(i32 noundef %14) #10
-  %54 = tail call ptr @format_type_be(i32 noundef %46) #10
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %52, ptr noundef %53, ptr noundef %54) #10
-  %56 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1290, ptr noundef nonnull @__func__.build_column_default) #10
+  %53 = tail call ptr @format_type_be(i32 noundef %14) #9
+  %54 = tail call ptr @format_type_be(i32 noundef %46) #9
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %52, ptr noundef %53, ptr noundef %54) #9
+  %56 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1290, ptr noundef nonnull @__func__.build_column_default) #9
   unreachable
 
 .thread37:                                        ; preds = %40, %.thread39, %43, %19
@@ -516,17 +513,15 @@ list_length.exit:                                 ; preds = %14
   br i1 %.not, label %23, label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %14, %list_length.exit
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2510, ptr noundef nonnull @__func__.get_view_query) #10
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2510, ptr noundef nonnull @__func__.get_view_query) #9
   unreachable
 
 ._crit_edge:                                      ; preds = %8, %1
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2516, ptr noundef nonnull @__func__.get_view_query) #10
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2516, ptr noundef nonnull @__func__.get_view_query) #9
   unreachable
 
 23:                                               ; preds = %list_length.exit
@@ -658,11 +653,10 @@ define dso_local noundef zeroext i1 @view_has_instead_trigger(ptr noundef readon
 .split.us:                                        ; preds = %.lr.ph52.split.split, %29
   %.us-phi = phi ptr [ %31, %29 ], [ %37, %.lr.ph52.split.split ]
   %49 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %50)
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %51 = load i32, ptr %49, align 8
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %51) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2574, ptr noundef nonnull @__func__.view_has_instead_trigger) #10
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %51) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2574, ptr noundef nonnull @__func__.view_has_instead_trigger) #9
   unreachable
 
 53:                                               ; preds = %.lr.ph52.split.split, %40, %43, %46
@@ -671,10 +665,9 @@ define dso_local noundef zeroext i1 @view_has_instead_trigger(ptr noundef readon
   br i1 %exitcond.not, label %.critedge, label %.lr.ph52.split.split
 
 54:                                               ; preds = %3
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2580, ptr noundef nonnull @__func__.view_has_instead_trigger) #10
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2580, ptr noundef nonnull @__func__.view_has_instead_trigger) #9
   unreachable
 
 57:                                               ; preds = %23, %24, %18, %19, %13, %14
@@ -875,19 +868,19 @@ list_length.exit.thread:                          ; preds = %93, %select.unfold,
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  tail call void @check_stack_depth() #10
-  %6 = tail call ptr @try_relation_open(i32 noundef %0, i32 noundef 1) #10
+  tail call void @check_stack_depth() #9
+  %6 = tail call ptr @try_relation_open(i32 noundef %0, i32 noundef 1) #9
   %7 = icmp eq ptr %6, null
   br i1 %7, label %121, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = load i32, ptr %9, align 8
-  %11 = tail call zeroext i1 @list_member_oid(ptr noundef %1, i32 noundef %10) #10
+  %11 = tail call zeroext i1 @list_member_oid(ptr noundef %1, i32 noundef %10) #9
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %8
-  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
+  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #9
   br label %121
 
 13:                                               ; preds = %8
@@ -901,7 +894,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   ]
 
 18:                                               ; preds = %13, %13
-  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
+  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #9
   br label %121
 
 19:                                               ; preds = %13
@@ -956,7 +949,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   br i1 %.not94, label %43, label %.critedge
 
 43:                                               ; preds = %._crit_edge
-  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
+  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #9
   br label %121
 
 .critedge:                                        ; preds = %.preheader, %._crit_edge, %19
@@ -987,7 +980,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %47
-  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
+  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #9
   br label %121
 
 .thread:                                          ; preds = %44, %47, %.critedge
@@ -998,14 +991,14 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   ]
 
 62:                                               ; preds = %.thread
-  %63 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %6, i1 noundef zeroext false) #10
+  %63 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %6, i1 noundef zeroext false) #9
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 168
   %65 = load ptr, ptr %64, align 8
   %.not99 = icmp eq ptr %65, null
   br i1 %.not99, label %69, label %66
 
 66:                                               ; preds = %62
-  %67 = tail call i32 %65(ptr noundef nonnull %6) #10
+  %67 = tail call i32 %65(ptr noundef nonnull %6) #9
   %68 = or i32 %67, %.382
   br label %79
 
@@ -1029,7 +1022,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 79:                                               ; preds = %69, %66
   %.9 = phi i32 [ %68, %66 ], [ %spec.select104, %69 ]
-  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
+  tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #9
   br label %121
 
 80:                                               ; preds = %.thread
@@ -1046,7 +1039,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   br i1 %.not96, label %87, label %85
 
 85:                                               ; preds = %84
-  %86 = call ptr @bms_int_members(ptr noundef %.pre, ptr noundef nonnull %3) #10
+  %86 = call ptr @bms_int_members(ptr noundef %.pre, ptr noundef nonnull %3) #9
   br label %87
 
 87:                                               ; preds = %85, %84
@@ -1081,13 +1074,13 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 28
   %109 = load i32, ptr %108, align 4
   %110 = load i32, ptr %9, align 8
-  %111 = call ptr @lappend_oid(ptr noundef %1, i32 noundef %110) #10
+  %111 = call ptr @lappend_oid(ptr noundef %1, i32 noundef %110) #9
   %112 = getelementptr inbounds nuw i8, ptr %81, i64 112
   %113 = load ptr, ptr %112, align 8
   %114 = call fastcc ptr @adjust_view_column_set(ptr noundef %88, ptr noundef %113)
   %115 = call i32 @relation_is_updatable(i32 noundef %109, ptr noundef %111, i1 noundef zeroext %2, ptr noundef %114)
   %116 = and i32 %115, %.
-  %117 = call ptr @list_delete_last(ptr noundef %111) #10
+  %117 = call ptr @list_delete_last(ptr noundef %111) #9
   br label %118
 
 118:                                              ; preds = %87, %87, %107
@@ -1098,7 +1091,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 120:                                              ; preds = %80, %118, %.thread
   %.12 = phi i32 [ %.382, %.thread ], [ %119, %118 ], [ %.382, %80 ]
-  call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
+  call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #9
   br label %121
 
 121:                                              ; preds = %61, %43, %4, %120, %79, %18, %12
@@ -1201,7 +1194,7 @@ define internal fastcc void @view_cols_are_auto_updatable(ptr noundef readonly c
 
 select.unfold.us.us:                              ; preds = %40, %37, %33, %30, %.lr.ph148
   %43 = sext i16 %26 to i32
-  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %43, ptr noundef %1) #10
+  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %43, ptr noundef %1) #9
   br i1 %44, label %.thread58, label %select.unfold.us.us..thread50.us.us_crit_edge
 
 select.unfold.us.us..thread50.us.us_crit_edge:    ; preds = %select.unfold.us.us
@@ -1259,7 +1252,7 @@ select.unfold.us.us..thread50.us.us_crit_edge:    ; preds = %select.unfold.us.us
 
 select.unfold.us:                                 ; preds = %66, %63, %59, %56, %.lr.ph141
   %69 = sext i16 %52 to i32
-  %70 = tail call zeroext i1 @bms_is_member(i32 noundef %69, ptr noundef %1) #10
+  %70 = tail call zeroext i1 @bms_is_member(i32 noundef %69, ptr noundef %1) #9
   br i1 %70, label %.thread54, label %select.unfold.us..thread50.us_crit_edge
 
 select.unfold.us..thread50.us_crit_edge:          ; preds = %select.unfold.us
@@ -1320,13 +1313,13 @@ select.unfold.us..thread50.us_crit_edge:          ; preds = %select.unfold.us
 view_col_is_auto_updatable.exit.us77:             ; preds = %91
   %94 = load ptr, ptr %2, align 8
   %95 = sext i16 %77 to i32
-  %96 = tail call ptr @bms_add_member(ptr noundef %94, i32 noundef %95) #10
+  %96 = tail call ptr @bms_add_member(ptr noundef %94, i32 noundef %95) #9
   store ptr %96, ptr %2, align 8
   br label %.thread50.us81
 
 select.unfold.us78:                               ; preds = %91, %88, %84, %81, %.lr.ph116
   %97 = sext i16 %77 to i32
-  %98 = tail call zeroext i1 @bms_is_member(i32 noundef %97, ptr noundef %1) #10
+  %98 = tail call zeroext i1 @bms_is_member(i32 noundef %97, ptr noundef %1) #9
   br i1 %98, label %.thread58, label %.thread50.us81
 
 .thread50.us81:                                   ; preds = %select.unfold.us78, %view_col_is_auto_updatable.exit.us77
@@ -1380,13 +1373,13 @@ select.unfold.us78:                               ; preds = %91, %88, %84, %81, 
 view_col_is_auto_updatable.exit:                  ; preds = %119
   %122 = load ptr, ptr %2, align 8
   %123 = sext i16 %105 to i32
-  %124 = tail call ptr @bms_add_member(ptr noundef %122, i32 noundef %123) #10
+  %124 = tail call ptr @bms_add_member(ptr noundef %122, i32 noundef %123) #9
   store ptr %124, ptr %2, align 8
   br label %.thread50
 
 select.unfold:                                    ; preds = %.lr.ph110, %116, %112, %109, %119
   %125 = sext i16 %105 to i32
-  %126 = tail call zeroext i1 @bms_is_member(i32 noundef %125, ptr noundef %1) #10
+  %126 = tail call zeroext i1 @bms_is_member(i32 noundef %125, ptr noundef %1) #9
   br i1 %126, label %.thread54, label %.thread50
 
 .thread54:                                        ; preds = %select.unfold, %select.unfold.us
@@ -1413,7 +1406,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef -1) #10
+  %3 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef -1) #9
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %.lr.ph41, label %._crit_edge
 
@@ -1432,7 +1425,7 @@ define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %
   br i1 %10, label %.critedge.us, label %11
 
 11:                                               ; preds = %.lr.ph41.split.us
-  %12 = tail call ptr @get_tle_by_resno(ptr noundef null, i16 noundef signext %9) #10
+  %12 = tail call ptr @get_tle_by_resno(ptr noundef null, i16 noundef signext %9) #9
   %.not.us = icmp eq ptr %12, null
   br i1 %.not.us, label %.split.us, label %13
 
@@ -1454,12 +1447,12 @@ define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %
   %24 = load i16, ptr %23, align 8
   %25 = sext i16 %24 to i32
   %26 = add nsw i32 %25, 7
-  %27 = tail call ptr @bms_add_member(ptr noundef %.040.us, i32 noundef %26) #10
+  %27 = tail call ptr @bms_add_member(ptr noundef %.040.us, i32 noundef %26) #9
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph41.split.us, %22
   %.3.us = phi ptr [ %27, %22 ], [ %.040.us, %.lr.ph41.split.us ]
-  %28 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef %7) #10
+  %28 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef %7) #9
   %29 = icmp sgt i32 %28, -1
   br i1 %29, label %.lr.ph41.split.us, label %._crit_edge, !llvm.loop !9
 
@@ -1495,7 +1488,7 @@ define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %
   %47 = load i16, ptr %46, align 8
   %48 = sext i16 %47 to i32
   %49 = add nsw i32 %48, 7
-  %50 = tail call ptr @bms_add_member(ptr noundef %.13337, i32 noundef %49) #10
+  %50 = tail call ptr @bms_add_member(ptr noundef %.13337, i32 noundef %49) #9
   %.pre = load i32, ptr %5, align 4
   br label %51
 
@@ -1508,7 +1501,7 @@ define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %
   br i1 %54, label %.lr.ph39, label %.critedge
 
 55:                                               ; preds = %.lr.ph41.split
-  %56 = tail call ptr @get_tle_by_resno(ptr noundef nonnull %1, i16 noundef signext %32) #10
+  %56 = tail call ptr @get_tle_by_resno(ptr noundef nonnull %1, i16 noundef signext %32) #9
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %.split.us, label %57
 
@@ -1530,21 +1523,20 @@ define internal fastcc ptr @adjust_view_column_set(ptr noundef %0, ptr noundef %
   %68 = load i16, ptr %67, align 8
   %69 = sext i16 %68 to i32
   %70 = add nsw i32 %69, 7
-  %71 = tail call ptr @bms_add_member(ptr noundef %.040, i32 noundef %70) #10
+  %71 = tail call ptr @bms_add_member(ptr noundef %.040, i32 noundef %70) #9
   br label %.critedge
 
 .split.us:                                        ; preds = %55, %57, %61, %11, %13, %17
   %.us-phi43 = phi i16 [ %9, %17 ], [ %9, %13 ], [ %9, %11 ], [ %32, %61 ], [ %32, %57 ], [ %32, %55 ]
   %72 = sext i16 %.us-phi43 to i32
-  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %73)
-  %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %72) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3111, ptr noundef nonnull @__func__.adjust_view_column_set) #10
+  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %72) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3111, ptr noundef nonnull @__func__.adjust_view_column_set) #9
   unreachable
 
 .critedge:                                        ; preds = %51, %.preheader, %66
   %.3 = phi ptr [ %71, %66 ], [ %.040, %.preheader ], [ %.2, %51 ]
-  %75 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef %30) #10
+  %75 = tail call i32 @bms_next_member(ptr noundef %0, i32 noundef %30) #9
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %.lr.ph41.split, label %._crit_edge, !llvm.loop !9
 
@@ -1583,63 +1575,60 @@ define dso_local void @error_view_not_updatable(ptr noundef readonly captures(no
   br i1 %.not42, label %.lr.ph.split.us.split, label %.lr.ph.split.split
 
 14:                                               ; preds = %4
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 325) #10
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %16 = tail call i32 @errcode(i32 noundef 325) #9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %19) #10
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %19) #9
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %23, label %21
 
 21:                                               ; preds = %14
-  %22 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #10
+  %22 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   br label %23
 
 23:                                               ; preds = %14, %21
-  %24 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3148, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %24 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3148, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 25:                                               ; preds = %4
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 325) #10
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %27 = tail call i32 @errcode(i32 noundef 325) #9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %30) #10
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %30) #9
   %.not47 = icmp eq ptr %3, null
   br i1 %.not47, label %34, label %32
 
 32:                                               ; preds = %25
-  %33 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #10
+  %33 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   br label %34
 
 34:                                               ; preds = %25, %32
-  %35 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3156, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %35 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3156, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 36:                                               ; preds = %4
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 325) #10
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %38 = tail call i32 @errcode(i32 noundef 325) #9
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %41) #10
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %41) #9
   %.not46 = icmp eq ptr %3, null
   br i1 %.not46, label %45, label %43
 
 43:                                               ; preds = %36
-  %44 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #10
+  %44 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   br label %45
 
 45:                                               ; preds = %36, %43
-  %46 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.27) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3164, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %46 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.27) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3164, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 .lr.ph.split.us.split:                            ; preds = %.preheader49.split
@@ -1698,23 +1687,22 @@ define dso_local void @error_view_not_updatable(ptr noundef readonly captures(no
   br i1 %61, label %102, label %.split61.us
 
 .split61.us:                                      ; preds = %59, %48
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 325) #10
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %63 = tail call i32 @errcode(i32 noundef 325) #9
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %66) #10
+  %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %66) #9
   %.not45 = icmp eq ptr %3, null
   br i1 %.not45, label %70, label %68
 
 68:                                               ; preds = %.split61.us
-  %69 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #10
+  %69 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   br label %70
 
 70:                                               ; preds = %.split61.us, %68
-  %71 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.28) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3183, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %71 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.28) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3183, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 72:                                               ; preds = %.lr.ph66.split.split
@@ -1723,23 +1711,22 @@ define dso_local void @error_view_not_updatable(ptr noundef readonly captures(no
   br i1 %74, label %102, label %.split59.us
 
 .split59.us:                                      ; preds = %72, %48
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %75)
-  %76 = tail call i32 @errcode(i32 noundef 325) #10
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %76 = tail call i32 @errcode(i32 noundef 325) #9
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %79) #10
+  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %79) #9
   %.not43 = icmp eq ptr %3, null
   br i1 %.not43, label %83, label %81
 
 81:                                               ; preds = %.split59.us
-  %82 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #10
+  %82 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   br label %83
 
 83:                                               ; preds = %.split59.us, %81
-  %84 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.29) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3192, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %84 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.29) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3192, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 85:                                               ; preds = %.lr.ph66.split.split
@@ -1748,33 +1735,31 @@ define dso_local void @error_view_not_updatable(ptr noundef readonly captures(no
   br i1 %87, label %102, label %.split57.us
 
 .split57.us:                                      ; preds = %85, %48
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %88)
-  %89 = tail call i32 @errcode(i32 noundef 325) #10
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %89 = tail call i32 @errcode(i32 noundef 325) #9
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %93 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %92) #10
+  %93 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %92) #9
   %.not41 = icmp eq ptr %3, null
   br i1 %.not41, label %96, label %94
 
 94:                                               ; preds = %.split57.us
-  %95 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #10
+  %95 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %3) #9
   br label %96
 
 96:                                               ; preds = %.split57.us, %94
-  %97 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.30) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3201, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %97 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.30) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3201, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 .split.us:                                        ; preds = %.lr.ph66.split.split, %48
   %.us-phi = phi ptr [ %50, %48 ], [ %56, %.lr.ph66.split.split ]
   %98 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
-  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %99)
+  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %100 = load i32, ptr %98, align 8
-  %101 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %100) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3206, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %101 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %100) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3206, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 
 102:                                              ; preds = %.lr.ph66.split.split, %59, %72, %85
@@ -1783,10 +1768,9 @@ define dso_local void @error_view_not_updatable(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %.split82.us, label %.lr.ph66.split.split
 
 103:                                              ; preds = %4
-  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %104)
-  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3212, ptr noundef nonnull @__func__.error_view_not_updatable) #10
+  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3212, ptr noundef nonnull @__func__.error_view_not_updatable) #9
   unreachable
 }
 
@@ -1808,12 +1792,12 @@ define dso_local ptr @expand_generated_columns_in_expr(ptr noundef %0, ptr nound
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr @palloc0(i64 noundef 224) #10
+  %13 = tail call noundef ptr @palloc0(i64 noundef 224) #9
   store i32 101, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %17 = tail call ptr @makeAlias(ptr noundef nonnull %16, ptr noundef null) #10
+  %17 = tail call ptr @makeAlias(ptr noundef nonnull %16, ptr noundef null) #9
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -1854,7 +1838,7 @@ define internal fastcc ptr @expand_generated_columns_internal(ptr noundef %0, pt
 
 ._crit_edge:                                      ; preds = %.lr.ph._crit_edge, %.preheader
   %.037.lcssa = phi ptr [ null, %.preheader ], [ %.1, %.lr.ph._crit_edge ]
-  %16 = tail call ptr @ReplaceVarsFromTargetList(ptr noundef %0, i32 noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %.037.lcssa, i32 noundef %4, i32 noundef 1, i32 noundef %2, ptr noundef null) #10
+  %16 = tail call ptr @ReplaceVarsFromTargetList(ptr noundef %0, i32 noundef %2, i32 noundef 0, ptr noundef %3, ptr noundef %.037.lcssa, i32 noundef %4, i32 noundef 1, i32 noundef %2, ptr noundef null) #9
   br label %54
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph._crit_edge
@@ -1879,13 +1863,12 @@ define internal fastcc ptr @expand_generated_columns_internal(ptr noundef %0, pt
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %27
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %32)
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %28, ptr noundef nonnull %35) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4467, ptr noundef nonnull @__func__.expand_generated_columns_internal) #10
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %28, ptr noundef nonnull %35) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4467, ptr noundef nonnull @__func__.expand_generated_columns_internal) #9
   unreachable
 
 37:                                               ; preds = %27
@@ -1895,12 +1878,12 @@ define internal fastcc ptr @expand_generated_columns_internal(ptr noundef %0, pt
   br i1 %.not43, label %47, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @exprCollation(ptr noundef nonnull %29) #10
+  %41 = tail call i32 @exprCollation(ptr noundef nonnull %29) #9
   %.not44 = icmp eq i32 %39, %41
   br i1 %.not44, label %47, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call noundef ptr @palloc0(i64 noundef 24) #10
+  %43 = tail call noundef ptr @palloc0(i64 noundef 24) #9
   store i32 31, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %29, ptr %44, align 8
@@ -1912,10 +1895,10 @@ define internal fastcc ptr @expand_generated_columns_internal(ptr noundef %0, pt
 
 47:                                               ; preds = %42, %40, %37
   %.039 = phi ptr [ %43, %42 ], [ %29, %40 ], [ %29, %37 ]
-  tail call void @ChangeVarNodes(ptr noundef nonnull %.039, i32 noundef 1, i32 noundef %2, i32 noundef 0) #10
+  tail call void @ChangeVarNodes(ptr noundef nonnull %.039, i32 noundef 1, i32 noundef %2, i32 noundef 0) #9
   %48 = trunc i64 %26 to i16
-  %49 = tail call ptr @makeTargetEntry(ptr noundef nonnull %.039, i16 noundef signext %48, ptr noundef null, i1 noundef zeroext false) #10
-  %50 = tail call ptr @lappend(ptr noundef %.03747, ptr noundef %49) #10
+  %49 = tail call ptr @makeTargetEntry(ptr noundef nonnull %.039, i16 noundef signext %48, ptr noundef null, i1 noundef zeroext false) #9
+  %50 = tail call ptr @lappend(ptr noundef %.03747, ptr noundef %49) #9
   %.pre = load i32, ptr %7, align 8
   br label %.lr.ph._crit_edge
 
@@ -1955,7 +1938,7 @@ define dso_local ptr @QueryRewrite(ptr noundef %0) local_unnamed_addr #0 {
   %12 = tail call fastcc ptr @fireRIRrules(ptr noundef %11, ptr noundef null)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %3, ptr %13, align 8
-  %14 = tail call ptr @lappend(ptr noundef %.05761, ptr noundef %12) #10
+  %14 = tail call ptr @lappend(ptr noundef %.05761, ptr noundef %12) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %5, align 4
   %16 = sext i32 %15 to i64
@@ -2090,11 +2073,10 @@ list_length.exit:                                 ; preds = %28
   br i1 %switch, label %43, label %.split496
 
 .split496:                                        ; preds = %35
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 1088) #10
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3938, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %41 = tail call i32 @errcode(i32 noundef 1088) #9
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3938, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 43:                                               ; preds = %35
@@ -2103,11 +2085,10 @@ list_length.exit:                                 ; preds = %28
   br label %64
 
 .split:                                           ; preds = %28
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 1088) #10
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3949, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %45 = tail call i32 @errcode(i32 noundef 1088) #9
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3949, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 47:                                               ; preds = %.lr.ph501, %63
@@ -2122,27 +2103,24 @@ list_length.exit:                                 ; preds = %28
   ]
 
 .critedge309:                                     ; preds = %63, %.preheader444
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 1088) #10
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3972, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %53 = tail call i32 @errcode(i32 noundef 1088) #9
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3972, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 55:                                               ; preds = %47
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 @errcode(i32 noundef 1088) #10
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3963, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %57 = tail call i32 @errcode(i32 noundef 1088) #9
+  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3963, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 59:                                               ; preds = %47
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 @errcode(i32 noundef 1088) #10
-  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3967, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %61 = tail call i32 @errcode(i32 noundef 1088) #9
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3967, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 63:                                               ; preds = %47
@@ -2172,7 +2150,7 @@ list_length.exit:                                 ; preds = %28
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %79 = load i32, ptr %78, align 4
-  %80 = tail call ptr @table_open(i32 noundef %79, i32 noundef 0) #10
+  %80 = tail call ptr @table_open(i32 noundef %79, i32 noundef 0) #9
   switch i32 %12, label %342 [
     i32 3, label %81
     i32 2, label %308
@@ -2238,10 +2216,9 @@ list_length.exit:                                 ; preds = %28
   br i1 %.not305, label %113, label %.split522
 
 .split522:                                        ; preds = %110
-  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %111)
-  %112 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4034, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %112 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4034, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 113:                                              ; preds = %110, %100, %96, %91
@@ -2330,7 +2307,7 @@ searchForDefault.exit.i:                          ; preds = %137
 
 list_length.exit.i:                               ; preds = %142, %searchForDefault.exit.i
   %147 = phi i64 [ %146, %142 ], [ 0, %searchForDefault.exit.i ]
-  %148 = call ptr @palloc0(i64 noundef %147) #10
+  %148 = call ptr @palloc0(i64 noundef %147) #9
   %149 = load ptr, ptr %115, align 8
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %.not.i327 = icmp eq ptr %149, null
@@ -2484,7 +2461,7 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   %.097.lcssa.i = phi i1 [ false, %view_has_instead_trigger.exit.thread.i ], [ false, %.lr.ph173.i ], [ %222, %.critedge127.i.loopexit ]
   %.092.lcssa.i = phi ptr [ null, %view_has_instead_trigger.exit.thread.i ], [ null, %.lr.ph173.i ], [ %230, %.critedge127.i.loopexit ]
   store ptr %.092.lcssa.i, ptr %122, align 8
-  call void @pfree(ptr noundef %148) #10
+  call void @pfree(ptr noundef %148) #9
   br label %rewriteValuesRTE.exit
 
 .lr.ph533:                                        ; preds = %.lr.ph164.i, %279
@@ -2504,7 +2481,7 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
 .critedge129.i:                                   ; preds = %279, %.lr.ph164.i, %.lr.ph539
   %.0103.lcssa.i = phi ptr [ null, %.lr.ph539 ], [ null, %.lr.ph164.i ], [ %280, %279 ]
   %.198.lcssa.i = phi i1 [ %.097171.i538, %.lr.ph539 ], [ %.097171.i538, %.lr.ph164.i ], [ %.3.i, %279 ]
-  %230 = call ptr @lappend(ptr noundef %.092172.i537, ptr noundef %.0103.lcssa.i) #10
+  %230 = call ptr @lappend(ptr noundef %.092172.i537, ptr noundef %.0103.lcssa.i) #9
   %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i536, 1
   %231 = load i32, ptr %210, align 4
   %232 = sext i32 %231 to i64
@@ -2513,7 +2490,7 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
 
 234:                                              ; preds = %.lr.ph533
   %235 = trunc nsw i64 %indvars.iv.next184.i to i32
-  %236 = call zeroext i1 @bms_is_member(i32 noundef %235, ptr noundef %121) #10
+  %236 = call zeroext i1 @bms_is_member(i32 noundef %235, ptr noundef %121) #9
   br i1 %236, label %237, label %245
 
 237:                                              ; preds = %234
@@ -2523,7 +2500,7 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   %241 = load i32, ptr %240, align 4
   %242 = getelementptr inbounds nuw i8, ptr %225, i64 12
   %243 = load i32, ptr %242, align 4
-  %244 = call ptr @makeNullConst(i32 noundef %239, i32 noundef %241, i32 noundef %243) #10
+  %244 = call ptr @makeNullConst(i32 noundef %239, i32 noundef %241, i32 noundef %243) #9
   br label %279
 
 245:                                              ; preds = %234
@@ -2531,10 +2508,9 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   br i1 %246, label %247, label %250
 
 247:                                              ; preds = %245
-  %248 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %248)
-  %249 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62, i32 noundef %235) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1542, ptr noundef nonnull @__func__.rewriteValuesRTE) #10
+  %248 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %249 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62, i32 noundef %235) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1542, ptr noundef nonnull @__func__.rewriteValuesRTE) #9
   unreachable
 
 250:                                              ; preds = %245
@@ -2576,13 +2552,13 @@ view_has_instead_trigger.exit.thread.i:           ; preds = %.critedge125.i, %18
   %275 = getelementptr inbounds nuw i8, ptr %259, i64 82
   %276 = load i8, ptr %275, align 2, !range !4, !noundef !5
   %277 = trunc nuw i8 %276 to i1
-  %278 = call ptr @coerce_null_to_domain(i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %274, i1 noundef zeroext %277) #10
+  %278 = call ptr @coerce_null_to_domain(i32 noundef %267, i32 noundef %269, i32 noundef %271, i32 noundef %274, i1 noundef zeroext %277) #9
   br label %279
 
 279:                                              ; preds = %265, %.thread138.i, %263, %237, %.lr.ph533
   %.sink.i = phi ptr [ %244, %237 ], [ %225, %.thread138.i ], [ %.mux.i, %263 ], [ %278, %265 ], [ %225, %.lr.ph533 ]
   %.3.i = phi i1 [ %.198163.i531, %237 ], [ false, %.thread138.i ], [ %.198163.mux.i, %263 ], [ %.198163.i531, %265 ], [ %.198163.i531, %.lr.ph533 ]
-  %280 = call ptr @lappend(ptr noundef %.0103160.i532, ptr noundef %.sink.i) #10
+  %280 = call ptr @lappend(ptr noundef %.0103160.i532, ptr noundef %.sink.i) #9
   %281 = load i32, ptr %218, align 4
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next184.i, %282
@@ -2684,11 +2660,10 @@ rewriteValuesRTE.exit:                            ; preds = %.critedge.i.i, %114
 
 .split507:                                        ; preds = %.lr.ph510
   %334 = getelementptr inbounds nuw i8, ptr %325, i64 8
-  %335 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %335)
+  %335 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %336 = load i32, ptr %334, align 8
-  %337 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %336) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4123, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %337 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %336) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4123, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 338:                                              ; preds = %.lr.ph510, %.lr.ph510, %328
@@ -2699,10 +2674,9 @@ rewriteValuesRTE.exit:                            ; preds = %.critedge.i.i, %114
   br i1 %341, label %.lr.ph510, label %.critedge313
 
 342:                                              ; preds = %68
-  %343 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %343)
-  %344 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %12) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4133, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %343 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %344 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %12) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4133, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 .critedge313:                                     ; preds = %338, %315, %.lr.ph504, %68, %308, %305
@@ -2775,12 +2749,12 @@ list_length.exit329:                              ; preds = %.critedge313, %347
   br i1 %382, label %383, label %385
 
 383:                                              ; preds = %381
-  %384 = call ptr @copyObjectImpl(ptr noundef %0) #10
+  %384 = call ptr @copyObjectImpl(ptr noundef %0) #9
   br label %385
 
 385:                                              ; preds = %383, %381
   %386 = phi ptr [ %384, %383 ], [ %.1377551, %381 ]
-  %387 = call ptr @copyObjectImpl(ptr noundef nonnull %372) #10
+  %387 = call ptr @copyObjectImpl(ptr noundef nonnull %372) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 1, ptr %7, align 1
   %388 = icmp eq ptr %387, null
@@ -2798,11 +2772,11 @@ list_length.exit329:                              ; preds = %.critedge313, %347
   br label %395
 
 395:                                              ; preds = %392, %389
-  %396 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %387, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %7) #10
+  %396 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %387, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %7) #9
   br label %acquireLocksOnSubLinks.exit.i.i
 
 acquireLocksOnSubLinks.exit.i.i:                  ; preds = %395, %385
-  call void @ChangeVarNodes(ptr noundef %387, i32 noundef 1, i32 noundef %70, i32 noundef 0) #10
+  call void @ChangeVarNodes(ptr noundef %387, i32 noundef 1, i32 noundef %70, i32 noundef 0) #9
   br i1 %or.cond.i.i, label %397, label %CopyAndAddInvertedQual.exit.i
 
 397:                                              ; preds = %acquireLocksOnSubLinks.exit.i.i
@@ -2817,12 +2791,12 @@ acquireLocksOnSubLinks.exit.i.i:                  ; preds = %395, %385
   %405 = getelementptr inbounds nuw i8, ptr %386, i64 40
   %406 = load i32, ptr %405, align 8
   %407 = getelementptr inbounds nuw i8, ptr %386, i64 47
-  %408 = call ptr @ReplaceVarsFromTargetList(ptr noundef %387, i32 noundef 2, i32 noundef 0, ptr noundef %402, ptr noundef %404, i32 noundef %406, i32 noundef %355, i32 noundef %70, ptr noundef nonnull %407) #10
+  %408 = call ptr @ReplaceVarsFromTargetList(ptr noundef %387, i32 noundef 2, i32 noundef 0, ptr noundef %402, ptr noundef %404, i32 noundef %406, i32 noundef %355, i32 noundef %70, ptr noundef nonnull %407) #9
   br label %CopyAndAddInvertedQual.exit.i
 
 CopyAndAddInvertedQual.exit.i:                    ; preds = %397, %acquireLocksOnSubLinks.exit.i.i
   %.0.i.i = phi ptr [ %408, %397 ], [ %387, %acquireLocksOnSubLinks.exit.i.i ]
-  call void @AddInvertedQual(ptr noundef %386, ptr noundef %.0.i.i) #10
+  call void @AddInvertedQual(ptr noundef %386, ptr noundef %.0.i.i) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread.i
 
@@ -2866,8 +2840,8 @@ CopyAndAddInvertedQual.exit.i:                    ; preds = %397, %acquireLocksO
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1
-  %424 = call ptr @copyObjectImpl(ptr noundef nonnull %416) #10
-  %425 = call ptr @copyObjectImpl(ptr noundef %372) #10
+  %424 = call ptr @copyObjectImpl(ptr noundef nonnull %416) #9
+  %425 = call ptr @copyObjectImpl(ptr noundef %372) #9
   call void @AcquireRewriteLocks(ptr noundef %424, i1 noundef zeroext true, i1 noundef zeroext false)
   %426 = icmp eq ptr %425, null
   br i1 %426, label %acquireLocksOnSubLinks.exit.i53.i, label %427
@@ -2884,7 +2858,7 @@ CopyAndAddInvertedQual.exit.i:                    ; preds = %397, %acquireLocksO
   br label %433
 
 433:                                              ; preds = %430, %427
-  %434 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %425, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %6) #10
+  %434 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %425, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %6) #9
   br label %acquireLocksOnSubLinks.exit.i53.i
 
 acquireLocksOnSubLinks.exit.i53.i:                ; preds = %433, %423
@@ -2900,12 +2874,12 @@ acquireLocksOnSubLinks.exit.i53.i:                ; preds = %433, %423
 list_length.exit.i.i:                             ; preds = %436, %acquireLocksOnSubLinks.exit.i53.i
   %439 = phi i32 [ %438, %436 ], [ 0, %acquireLocksOnSubLinks.exit.i53.i ]
   %440 = add i32 %439, 2
-  %441 = call ptr @getInsertSelectQuery(ptr noundef %424, ptr noundef nonnull %5) #10
-  call void @OffsetVarNodes(ptr noundef %441, i32 noundef %439, i32 noundef 0) #10
-  call void @OffsetVarNodes(ptr noundef %425, i32 noundef %439, i32 noundef 0) #10
+  %441 = call ptr @getInsertSelectQuery(ptr noundef %424, ptr noundef nonnull %5) #9
+  call void @OffsetVarNodes(ptr noundef %441, i32 noundef %439, i32 noundef 0) #9
+  call void @OffsetVarNodes(ptr noundef %425, i32 noundef %439, i32 noundef 0) #9
   %442 = add i32 %439, 1
-  call void @ChangeVarNodes(ptr noundef %441, i32 noundef %442, i32 noundef %70, i32 noundef 0) #10
-  call void @ChangeVarNodes(ptr noundef %425, i32 noundef %442, i32 noundef %70, i32 noundef 0) #10
+  call void @ChangeVarNodes(ptr noundef %441, i32 noundef %442, i32 noundef %70, i32 noundef 0) #9
+  call void @ChangeVarNodes(ptr noundef %425, i32 noundef %442, i32 noundef %70, i32 noundef 0) #9
   %443 = getelementptr inbounds nuw i8, ptr %441, i64 64
   %444 = load ptr, ptr %443, align 8
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 4
@@ -2937,12 +2911,12 @@ list_length.exit.i.i:                             ; preds = %436, %acquireLocksO
   %456 = getelementptr inbounds nuw i8, ptr %441, i64 72
   %457 = load ptr, ptr %456, align 8
   %458 = load ptr, ptr %71, align 8
-  %459 = call ptr @copyObjectImpl(ptr noundef %458) #10
+  %459 = call ptr @copyObjectImpl(ptr noundef %458) #9
   store ptr %459, ptr %443, align 8
   %460 = load ptr, ptr %356, align 8
-  %461 = call ptr @copyObjectImpl(ptr noundef %460) #10
+  %461 = call ptr @copyObjectImpl(ptr noundef %460) #9
   store ptr %461, ptr %456, align 8
-  call void @CombineRangeTables(ptr noundef nonnull %443, ptr noundef nonnull %456, ptr noundef %455, ptr noundef %457) #10
+  call void @CombineRangeTables(ptr noundef nonnull %443, ptr noundef nonnull %456, ptr noundef %455, ptr noundef %457) #9
   %462 = load i8, ptr %357, align 1, !range !4, !noundef !5
   %463 = trunc nuw i8 %462 to i1
   br i1 %463, label %477, label %.critedge184.i.i
@@ -2956,7 +2930,7 @@ list_length.exit.i.i:                             ; preds = %436, %acquireLocksO
 468:                                              ; preds = %464
   %469 = getelementptr inbounds nuw i8, ptr %451, i64 56
   %470 = load ptr, ptr %469, align 8
-  %471 = call zeroext i1 @contain_vars_of_level(ptr noundef %470, i32 noundef 1) #10
+  %471 = call zeroext i1 @contain_vars_of_level(ptr noundef %470, i32 noundef 1) #9
   br i1 %471, label %472, label %473
 
 472:                                              ; preds = %468
@@ -3015,7 +2989,7 @@ switch.lookup:                                    ; preds = %.lr.ph215.i.i
   %switch.load = load i64, ptr %switch.gep, align 8
   %498 = getelementptr inbounds nuw i8, ptr %493, i64 %switch.load
   %499 = load ptr, ptr %498, align 8
-  %500 = call zeroext i1 @checkExprHasSubLink(ptr noundef %499) #10
+  %500 = call zeroext i1 @checkExprHasSubLink(ptr noundef %499) #9
   %501 = zext i1 %500 to i8
   store i8 %501, ptr %478, align 1
   br label %502
@@ -3023,7 +2997,7 @@ switch.lookup:                                    ; preds = %.lr.ph215.i.i
 502:                                              ; preds = %.lr.ph215.i.i, %switch.lookup
   %503 = getelementptr inbounds nuw i8, ptr %493, i64 216
   %504 = load ptr, ptr %503, align 8
-  %505 = call zeroext i1 @checkExprHasSubLink(ptr noundef %504) #10
+  %505 = call zeroext i1 @checkExprHasSubLink(ptr noundef %504) #9
   %506 = load i8, ptr %478, align 1, !range !4, !noundef !5
   %507 = zext i1 %505 to i8
   %508 = or i8 %506, %507
@@ -3045,35 +3019,35 @@ switch.lookup:                                    ; preds = %.lr.ph215.i.i
 515:                                              ; preds = %.critedge184.i.i
   %516 = getelementptr inbounds nuw i8, ptr %441, i64 80
   %517 = load ptr, ptr %516, align 8
-  %518 = call zeroext i1 @rangeTableEntry_used(ptr noundef %517, i32 noundef %70, i32 noundef 0) #10
+  %518 = call zeroext i1 @rangeTableEntry_used(ptr noundef %517, i32 noundef %70, i32 noundef 0) #9
   br i1 %518, label %.thread.i.i, label %521
 
 .thread.i.i:                                      ; preds = %515
   %.val191194.i.i = load ptr, ptr %359, align 8
   %519 = getelementptr i8, ptr %.val191194.i.i, i64 8
   %.val191.val195.i.i = load ptr, ptr %519, align 8
-  %520 = call ptr @copyObjectImpl(ptr noundef %.val191.val195.i.i) #10
+  %520 = call ptr @copyObjectImpl(ptr noundef %.val191.val195.i.i) #9
   br label %.preheader.i.i.i
 
 521:                                              ; preds = %515
-  %522 = call zeroext i1 @rangeTableEntry_used(ptr noundef %425, i32 noundef %70, i32 noundef 0) #10
+  %522 = call zeroext i1 @rangeTableEntry_used(ptr noundef %425, i32 noundef %70, i32 noundef 0) #9
   %.val191197.i.i = load ptr, ptr %359, align 8
   br i1 %522, label %.thread196.i.i, label %525
 
 .thread196.i.i:                                   ; preds = %521
   %523 = getelementptr i8, ptr %.val191197.i.i, i64 8
   %.val191.val198.i.i = load ptr, ptr %523, align 8
-  %524 = call ptr @copyObjectImpl(ptr noundef %.val191.val198.i.i) #10
+  %524 = call ptr @copyObjectImpl(ptr noundef %.val191.val198.i.i) #9
   br label %adjustJoinTreeList.exit.i.i
 
 525:                                              ; preds = %521
   %526 = getelementptr inbounds nuw i8, ptr %.val191197.i.i, i64 16
   %527 = load ptr, ptr %526, align 8
-  %528 = call zeroext i1 @rangeTableEntry_used(ptr noundef %527, i32 noundef %70, i32 noundef 0) #10
+  %528 = call zeroext i1 @rangeTableEntry_used(ptr noundef %527, i32 noundef %70, i32 noundef 0) #9
   %.val191.i.i = load ptr, ptr %359, align 8
   %529 = getelementptr i8, ptr %.val191.i.i, i64 8
   %.val191.val.i.i = load ptr, ptr %529, align 8
-  %530 = call ptr @copyObjectImpl(ptr noundef %.val191.val.i.i) #10
+  %530 = call ptr @copyObjectImpl(ptr noundef %.val191.val.i.i) #9
   br i1 %528, label %adjustJoinTreeList.exit.i.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %525, %.thread.i.i
@@ -3109,7 +3083,7 @@ switch.lookup:                                    ; preds = %.lr.ph215.i.i
 
 .thread.i.i.i:                                    ; preds = %542
   %546 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %547 = call ptr @list_delete_nth_cell(ptr noundef nonnull %531, i32 noundef %546) #10
+  %547 = call ptr @list_delete_nth_cell(ptr noundef nonnull %531, i32 noundef %546) #9
   br label %adjustJoinTreeList.exit.i.i
 
 548:                                              ; preds = %542, %537
@@ -3130,18 +3104,17 @@ adjustJoinTreeList.exit.thread201.i.i:            ; preds = %adjustJoinTreeList.
   br i1 %.not170.i.i, label %555, label %551
 
 551:                                              ; preds = %adjustJoinTreeList.exit.thread201.i.i
-  %552 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %552)
-  %553 = call i32 @errcode(i32 noundef 1088) #10
-  %554 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__func__.rewriteRuleAction) #10
+  %552 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %553 = call i32 @errcode(i32 noundef 1088) #9
+  %554 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__func__.rewriteRuleAction) #9
   unreachable
 
 555:                                              ; preds = %adjustJoinTreeList.exit.thread201.i.i
   %556 = load ptr, ptr %516, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %558 = load ptr, ptr %557, align 8
-  %559 = call ptr @list_concat(ptr noundef nonnull %.0.i192204.i.i, ptr noundef %558) #10
+  %559 = call ptr @list_concat(ptr noundef nonnull %.0.i192204.i.i, ptr noundef %558) #9
   %560 = load ptr, ptr %516, align 8
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 8
   store ptr %559, ptr %561, align 8
@@ -3156,7 +3129,7 @@ adjustJoinTreeList.exit.thread201.i.i:            ; preds = %adjustJoinTreeList.
   br i1 %567, label %adjustJoinTreeList.exit.thread.i.i, label %568
 
 568:                                              ; preds = %564
-  %569 = call zeroext i1 @checkExprHasSubLink(ptr noundef nonnull %.0.i192204.i.i) #10
+  %569 = call zeroext i1 @checkExprHasSubLink(ptr noundef nonnull %.0.i192204.i.i) #9
   %570 = zext i1 %569 to i8
   store i8 %570, ptr %565, align 1
   br label %adjustJoinTreeList.exit.thread.i.i
@@ -3222,7 +3195,7 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
   %592 = load ptr, ptr %591, align 8
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   %594 = load ptr, ptr %593, align 8
-  %595 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %588, ptr noundef nonnull dereferenceable(1) %594) #12
+  %595 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %588, ptr noundef nonnull dereferenceable(1) %594) #11
   %596 = icmp eq i32 %595, 0
   br i1 %596, label %.split.i.i, label %589
 
@@ -3234,8 +3207,8 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
 .critedge186.i.i:                                 ; preds = %...critedge188_crit_edge219.split_crit_edge.us.i.i, %.lr.ph224.split.split.i.i, %.lr.ph224.i.i, %.preheader..critedge186_crit_edge.i.i
   %597 = phi ptr [ %.pre244.i.i, %.preheader..critedge186_crit_edge.i.i ], [ null, %.lr.ph224.i.i ], [ %579, %.lr.ph224.split.split.i.i ], [ %579, %...critedge188_crit_edge219.split_crit_edge.us.i.i ]
   %598 = getelementptr inbounds nuw i8, ptr %441, i64 56
-  %599 = call ptr @copyObjectImpl(ptr noundef nonnull %571) #10
-  %600 = call ptr @list_concat(ptr noundef %597, ptr noundef %599) #10
+  %599 = call ptr @copyObjectImpl(ptr noundef nonnull %571) #9
+  %600 = call ptr @list_concat(ptr noundef %597, ptr noundef %599) #9
   store ptr %600, ptr %598, align 8
   %601 = load i8, ptr %360, align 1, !range !4, !noundef !5
   %602 = getelementptr inbounds nuw i8, ptr %441, i64 49
@@ -3254,28 +3227,26 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
 
 .split.i.i:                                       ; preds = %590
   %609 = getelementptr inbounds nuw i8, ptr %586, i64 8
-  %610 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %610)
-  %611 = call i32 @errcode(i32 noundef 1088) #10
+  %610 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %611 = call i32 @errcode(i32 noundef 1088) #9
   %612 = load ptr, ptr %609, align 8
-  %613 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %612) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 591, ptr noundef nonnull @__func__.rewriteRuleAction) #10
+  %613 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66, ptr noundef %612) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 591, ptr noundef nonnull @__func__.rewriteRuleAction) #9
   unreachable
 
 614:                                              ; preds = %.critedge186.i.i
-  %615 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %615)
-  %616 = call i32 @errcode(i32 noundef 1088) #10
-  %617 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 617, ptr noundef nonnull @__func__.rewriteRuleAction) #10
+  %615 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %616 = call i32 @errcode(i32 noundef 1088) #9
+  %617 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 617, ptr noundef nonnull @__func__.rewriteRuleAction) #9
   unreachable
 
 618:                                              ; preds = %.critedge186.i.i, %572, %adjustJoinTreeList.exit.thread.i.i
-  call void @AddQual(ptr noundef %441, ptr noundef %425) #10
+  call void @AddQual(ptr noundef %441, ptr noundef %425) #9
   %619 = load ptr, ptr %359, align 8
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 16
   %621 = load ptr, ptr %620, align 8
-  call void @AddQual(ptr noundef %441, ptr noundef %621) #10
+  call void @AddQual(ptr noundef %441, ptr noundef %621) #9
   br i1 %or.cond.i.i, label %622, label %636
 
 622:                                              ; preds = %618
@@ -3293,7 +3264,7 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
   %630 = load ptr, ptr %362, align 8
   %631 = getelementptr inbounds nuw i8, ptr %441, i64 40
   %632 = load i32, ptr %631, align 8
-  %633 = call ptr @ReplaceVarsFromTargetList(ptr noundef nonnull %441, i32 noundef %440, i32 noundef 0, ptr noundef %629, ptr noundef %630, i32 noundef %632, i32 noundef %355, i32 noundef %70, ptr noundef null) #10
+  %633 = call ptr @ReplaceVarsFromTargetList(ptr noundef nonnull %441, i32 noundef %440, i32 noundef 0, ptr noundef %629, ptr noundef %630, i32 noundef %632, i32 noundef %355, i32 noundef %70, ptr noundef null) #9
   %634 = load ptr, ptr %5, align 8
   %.not178.i.i = icmp eq ptr %634, null
   br i1 %.not178.i.i, label %636, label %635
@@ -3323,11 +3294,10 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
   br i1 %643, label %644, label %648
 
 644:                                              ; preds = %642
-  %645 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %645)
-  %646 = call i32 @errcode(i32 noundef 1088) #10
-  %647 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 671, ptr noundef nonnull @__func__.rewriteRuleAction) #10
+  %645 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %646 = call i32 @errcode(i32 noundef 1088) #9
+  %647 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 671, ptr noundef nonnull @__func__.rewriteRuleAction) #9
   unreachable
 
 648:                                              ; preds = %642
@@ -3342,7 +3312,7 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
   %656 = getelementptr inbounds nuw i8, ptr %.0.i55.i, i64 40
   %657 = load i32, ptr %656, align 8
   %658 = getelementptr inbounds nuw i8, ptr %.0.i55.i, i64 47
-  %659 = call ptr @ReplaceVarsFromTargetList(ptr noundef nonnull %637, i32 noundef %649, i32 noundef 0, ptr noundef %655, ptr noundef nonnull %641, i32 noundef %657, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %658) #10
+  %659 = call ptr @ReplaceVarsFromTargetList(ptr noundef nonnull %637, i32 noundef %649, i32 noundef 0, ptr noundef %655, ptr noundef nonnull %641, i32 noundef %657, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %658) #9
   store ptr %659, ptr %638, align 8
   %660 = load ptr, ptr %364, align 8
   %661 = getelementptr inbounds nuw i8, ptr %.0.i55.i, i64 136
@@ -3360,7 +3330,7 @@ adjustJoinTreeList.exit.thread.i.i:               ; preds = %568, %564, %555, %a
   br i1 %668, label %rewriteRuleAction.exit.i, label %669
 
 669:                                              ; preds = %666
-  %670 = call zeroext i1 @checkExprHasSubLink(ptr noundef %659) #10
+  %670 = call zeroext i1 @checkExprHasSubLink(ptr noundef %659) #9
   %671 = zext i1 %670 to i8
   store i8 %671, ptr %658, align 1
   br label %rewriteRuleAction.exit.i
@@ -3373,7 +3343,7 @@ rewriteRuleAction.exit.i:                         ; preds = %669, %666, %648, %6
   store i32 %.04458.i, ptr %672, align 8
   %673 = getelementptr inbounds nuw i8, ptr %.0.i55.i, i64 24
   store i8 0, ptr %673, align 8
-  %674 = call ptr @lappend(ptr noundef %.171.i545, ptr noundef nonnull %.0.i55.i) #10
+  %674 = call ptr @lappend(ptr noundef %.171.i545, ptr noundef nonnull %.0.i55.i) #9
   %.pre654 = load i32, ptr %409, align 4
   br label %675
 
@@ -3491,10 +3461,9 @@ list_length.exit343.thread:                       ; preds = %697, %727, %703, %7
   br i1 %.not304, label %741, label %738
 
 738:                                              ; preds = %list_length.exit343.thread
-  %739 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %739)
-  %740 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4197, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %739 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %740 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4197, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 741:                                              ; preds = %list_length.exit343.thread
@@ -3538,7 +3507,7 @@ list_length.exit343.thread:                       ; preds = %697, %727, %703, %7
 
 .critedge36.i:                                    ; preds = %772, %.lr.ph.i347, %.lr.ph561
   %.029.lcssa.i = phi ptr [ null, %.lr.ph561 ], [ null, %.lr.ph.i347 ], [ %773, %772 ]
-  %760 = call ptr @lappend(ptr noundef %.010.i560, ptr noundef %.029.lcssa.i) #10
+  %760 = call ptr @lappend(ptr noundef %.010.i560, ptr noundef %.029.lcssa.i) #9
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i559, 1
   %761 = load i32, ptr %744, align 4
   %762 = sext i32 %761 to i64
@@ -3552,12 +3521,12 @@ list_length.exit343.thread:                       ; preds = %697, %727, %703, %7
   %768 = load i32, ptr %767, align 4
   %769 = getelementptr inbounds nuw i8, ptr %757, i64 12
   %770 = load i32, ptr %769, align 4
-  %771 = call ptr @makeNullConst(i32 noundef %766, i32 noundef %768, i32 noundef %770) #10
+  %771 = call ptr @makeNullConst(i32 noundef %766, i32 noundef %768, i32 noundef %770) #9
   br label %772
 
 772:                                              ; preds = %764, %.lr.ph8.i
   %.sink.i349 = phi ptr [ %771, %764 ], [ %757, %.lr.ph8.i ]
-  %773 = call ptr @lappend(ptr noundef %.02917.i, ptr noundef %.sink.i349) #10
+  %773 = call ptr @lappend(ptr noundef %.02917.i, ptr noundef %.sink.i349) #9
   %indvars.iv.next.i350 = add nuw nsw i64 %indvars.iv.i348, 1
   %774 = load i32, ptr %751, align 4
   %775 = sext i32 %774 to i64
@@ -3605,7 +3574,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
 
 792:                                              ; preds = %789, %788
   %793 = call ptr @get_view_query(ptr noundef nonnull readonly %80)
-  %794 = call ptr @copyObjectImpl(ptr noundef %793) #10
+  %794 = call ptr @copyObjectImpl(ptr noundef %793) #9
   %795 = load ptr, ptr %71, align 8
   %796 = load i32, ptr %69, align 8
   %797 = add i32 %796, -1
@@ -3616,7 +3585,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
   %801 = load ptr, ptr %800, align 8
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %803 = load ptr, ptr %802, align 8
-  %804 = call ptr @getRTEPermissionInfo(ptr noundef %803, ptr noundef %801) #10
+  %804 = call ptr @getRTEPermissionInfo(ptr noundef %803, ptr noundef %801) #9
   %805 = load i32, ptr %11, align 4
   %806 = and i32 %805, -2
   %narrow.i = icmp eq i32 %806, 2
@@ -3669,13 +3638,12 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
   br i1 %826, label %827, label %.critedge393.i, !prof !14
 
 827:                                              ; preds = %823
-  %828 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %828)
-  %829 = call i32 @errcode(i32 noundef 325) #10
+  %828 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %829 = call i32 @errcode(i32 noundef 325) #9
   %830 = load ptr, ptr %779, align 8
   %831 = getelementptr inbounds nuw i8, ptr %830, i64 4
-  %832 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %831) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3287, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %832 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %831) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3287, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 .critedge393.i:                                   ; preds = %823, %.loopexit431.i
@@ -3696,7 +3664,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
   %839 = load ptr, ptr %838, align 8
   %840 = getelementptr inbounds nuw i8, ptr %804, i64 48
   %841 = load ptr, ptr %840, align 8
-  %842 = call ptr @bms_union(ptr noundef %839, ptr noundef %841) #10
+  %842 = call ptr @bms_union(ptr noundef %839, ptr noundef %841) #9
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %844 = load ptr, ptr %843, align 8
   %845 = getelementptr inbounds nuw i8, ptr %844, i64 4
@@ -3733,7 +3701,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
   %860 = load i16, ptr %859, align 8
   %861 = sext i16 %860 to i32
   %862 = add nsw i32 %861, 7
-  %863 = call ptr @bms_add_member(ptr noundef %.0314450456.i, i32 noundef %862) #10
+  %863 = call ptr @bms_add_member(ptr noundef %.0314450456.i, i32 noundef %862) #9
   %.pre.i362 = load i32, ptr %845, align 4
   br label %864
 
@@ -3775,7 +3743,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
   %884 = load i16, ptr %883, align 8
   %885 = sext i16 %884 to i32
   %886 = add nsw i32 %885, 7
-  %887 = call ptr @bms_add_member(ptr noundef %.3317460467.i, i32 noundef %886) #10
+  %887 = call ptr @bms_add_member(ptr noundef %.3317460467.i, i32 noundef %886) #9
   %.pre567.i = load i32, ptr %871, align 4
   br label %888
 
@@ -3861,7 +3829,7 @@ rewriteValuesRTEToNulls.exit:                     ; preds = %.critedge36.i, %.lr
 select.unfold.us.i.i:                             ; preds = %929, %925, %922, %918, %915, %.lr.ph141.i.i
   %.0.i.ph.us.i.i = phi ptr [ @.str.33, %925 ], [ @.str.32, %915 ], [ @.str.32, %918 ], [ @.str.32, %922 ], [ @.str.31, %.lr.ph141.i.i ], [ @.str.34, %929 ]
   %931 = sext i16 %911 to i32
-  %932 = call zeroext i1 @bms_is_member(i32 noundef %931, ptr noundef %.us-phi492.i) #10
+  %932 = call zeroext i1 @bms_is_member(i32 noundef %931, ptr noundef %.us-phi492.i) #9
   br i1 %932, label %974, label %select.unfold.us..thread50.us_crit_edge.i.i
 
 select.unfold.us..thread50.us_crit_edge.i.i:      ; preds = %select.unfold.us.i.i
@@ -3925,7 +3893,7 @@ select.unfold.us..thread50.us_crit_edge.i.i:      ; preds = %select.unfold.us.i.
   %963 = load i16, ptr %962, align 8
   %964 = sext i16 %963 to i32
   %965 = add nsw i32 %964, 7
-  %966 = call ptr @bms_add_member(ptr noundef %.8472479.i, i32 noundef %965) #10
+  %966 = call ptr @bms_add_member(ptr noundef %.8472479.i, i32 noundef %965) #9
   %.pre568.i = load i32, ptr %950, align 4
   br label %967
 
@@ -3953,8 +3921,7 @@ select.unfold.us..thread50.us_crit_edge.i.i:      ; preds = %select.unfold.us.i.
   %975 = getelementptr inbounds nuw i8, ptr %910, i64 24
   %976 = load ptr, ptr %975, align 8
   %977 = load i32, ptr %11, align 4
-  %978 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %978)
+  %978 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   switch i32 %977, label %997 [
     i32 3, label %979
     i32 2, label %985
@@ -3962,36 +3929,36 @@ select.unfold.us..thread50.us_crit_edge.i.i:      ; preds = %select.unfold.us.i.
   ]
 
 979:                                              ; preds = %974
-  %980 = call i32 @errcode(i32 noundef 1088) #10
+  %980 = call i32 @errcode(i32 noundef 1088) #9
   %981 = load ptr, ptr %779, align 8
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 4
-  %983 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.70, ptr noundef %976, ptr noundef nonnull %982) #10
-  %984 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.ph.us.i.i) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3379, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %983 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.70, ptr noundef %976, ptr noundef nonnull %982) #9
+  %984 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.ph.us.i.i) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3379, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 985:                                              ; preds = %974
-  %986 = call i32 @errcode(i32 noundef 1088) #10
+  %986 = call i32 @errcode(i32 noundef 1088) #9
   %987 = load ptr, ptr %779, align 8
   %988 = getelementptr inbounds nuw i8, ptr %987, i64 4
-  %989 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.71, ptr noundef %976, ptr noundef nonnull %988) #10
-  %990 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.ph.us.i.i) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3387, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %989 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.71, ptr noundef %976, ptr noundef nonnull %988) #9
+  %990 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.ph.us.i.i) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3387, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 991:                                              ; preds = %974
-  %992 = call i32 @errcode(i32 noundef 1088) #10
+  %992 = call i32 @errcode(i32 noundef 1088) #9
   %993 = load ptr, ptr %779, align 8
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 4
-  %995 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.72, ptr noundef %976, ptr noundef nonnull %994) #10
-  %996 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.ph.us.i.i) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3395, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %995 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.72, ptr noundef %976, ptr noundef nonnull %994) #9
+  %996 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %.0.i.ph.us.i.i) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3395, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 997:                                              ; preds = %974
   %998 = load i32, ptr %11, align 4
-  %999 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %998) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3399, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %999 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %998) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3399, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 .loopexit427.i:                                   ; preds = %.thread50.us.i.i, %.lr.ph.i.i359, %.split.us.i, %836
@@ -4067,22 +4034,20 @@ select.unfold.us..thread50.us_crit_edge.i.i:      ; preds = %select.unfold.us.i.
   br i1 %1030, label %.split500.i, label %view_has_instead_trigger.exit.i357
 
 .split497.i:                                      ; preds = %1014
-  %1031 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1031)
-  %1032 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1013) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2580, ptr noundef nonnull @__func__.view_has_instead_trigger) #10
+  %1031 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %1032 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %1013) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2580, ptr noundef nonnull @__func__.view_has_instead_trigger) #9
   unreachable
 
 .split500.i:                                      ; preds = %1027, %1022, %1017, %1014
-  %1033 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1033)
-  %1034 = call i32 @errcode(i32 noundef 1088) #10
+  %1033 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %1034 = call i32 @errcode(i32 noundef 1088) #9
   %1035 = load ptr, ptr %779, align 8
   %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 4
-  %1037 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef nonnull %1036) #10
-  %1038 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.74) #10
-  %1039 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.75) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3423, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %1037 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef nonnull %1036) #9
+  %1038 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.74) #9
+  %1039 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.75) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3423, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 view_has_instead_trigger.exit.i357:               ; preds = %1027, %1026, %1022, %1021, %1017, %1016, %1009
@@ -4110,10 +4075,10 @@ view_has_instead_trigger.exit.i357:               ; preds = %1027, %1026, %1022,
   %1054 = load ptr, ptr %1053, align 8
   %1055 = getelementptr inbounds nuw i8, ptr %794, i64 72
   %1056 = load ptr, ptr %1055, align 8
-  %1057 = call ptr @getRTEPermissionInfo(ptr noundef %1056, ptr noundef %1054) #10
+  %1057 = call ptr @getRTEPermissionInfo(ptr noundef %1056, ptr noundef %1054) #9
   %1058 = getelementptr inbounds nuw i8, ptr %1054, i64 28
   %1059 = load i32, ptr %1058, align 4
-  %1060 = call ptr @table_open(i32 noundef %1059, i32 noundef 3) #10
+  %1060 = call ptr @table_open(i32 noundef %1059, i32 noundef 3) #9
   %1061 = getelementptr inbounds nuw i8, ptr %1060, i64 56
   %1062 = load ptr, ptr %1061, align 8
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 115
@@ -4128,7 +4093,7 @@ view_has_instead_trigger.exit.i357:               ; preds = %1027, %1026, %1022,
 1069:                                             ; preds = %.loopexit426.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1
-  %1070 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %794, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %4, i32 noundef 3) #10
+  %1070 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %794, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %4, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %1071
 
@@ -4136,7 +4101,7 @@ view_has_instead_trigger.exit.i357:               ; preds = %1027, %1026, %1022,
   %1072 = getelementptr inbounds nuw i8, ptr %1054, i64 36
   store i32 3, ptr %1072, align 4
   %1073 = load ptr, ptr %71, align 8
-  %1074 = call ptr @lappend(ptr noundef %1073, ptr noundef nonnull %1054) #10
+  %1074 = call ptr @lappend(ptr noundef %1073, ptr noundef nonnull %1054) #9
   store ptr %1074, ptr %71, align 8
   %.not.i.i352 = icmp eq ptr %1074, null
   br i1 %.not.i.i352, label %list_length.exit.i353, label %1075
@@ -4160,10 +4125,10 @@ list_length.exit.i353:                            ; preds = %1075, %1071
 1083:                                             ; preds = %1081, %list_length.exit.i353
   %1084 = getelementptr inbounds nuw i8, ptr %794, i64 112
   %1085 = load ptr, ptr %1084, align 8
-  call void @ChangeVarNodes(ptr noundef %1085, i32 noundef %1047, i32 noundef %1078, i32 noundef 0) #10
+  call void @ChangeVarNodes(ptr noundef %1085, i32 noundef %1047, i32 noundef %1078, i32 noundef 0) #9
   %1086 = getelementptr inbounds nuw i8, ptr %1054, i64 40
   store i32 0, ptr %1086, align 8
-  %1087 = call ptr @addRTEPermissionInfo(ptr noundef nonnull %802, ptr noundef nonnull %1054) #10
+  %1087 = call ptr @addRTEPermissionInfo(ptr noundef nonnull %802, ptr noundef nonnull %1054) #9
   %1088 = getelementptr inbounds nuw i8, ptr %80, i64 304
   %1089 = load ptr, ptr %1088, align 8
   %.not362.i = icmp eq ptr %1089, null
@@ -4209,10 +4174,10 @@ list_length.exit.i353:                            ; preds = %1075, %1071
   store ptr %1114, ptr %1115, align 8
   store ptr null, ptr %1113, align 8
   %1116 = load i32, ptr %69, align 8
-  %1117 = call ptr @ReplaceVarsFromTargetList(ptr noundef nonnull %0, i32 noundef %1116, i32 noundef 0, ptr noundef %801, ptr noundef %1085, i32 noundef %1078, i32 noundef 0, i32 noundef 0, ptr noundef null) #10
+  %1117 = call ptr @ReplaceVarsFromTargetList(ptr noundef nonnull %0, i32 noundef %1116, i32 noundef 0, ptr noundef %801, ptr noundef %1085, i32 noundef %1078, i32 noundef 0, i32 noundef 0, ptr noundef null) #9
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 40
   %1119 = load i32, ptr %1118, align 8
-  call void @ChangeVarNodes(ptr noundef %1117, i32 noundef %1119, i32 noundef %1078, i32 noundef 0) #10
+  call void @ChangeVarNodes(ptr noundef %1117, i32 noundef %1119, i32 noundef %1078, i32 noundef 0) #9
   %1120 = getelementptr inbounds nuw i8, ptr %1117, i64 4
   %1121 = load i32, ptr %1120, align 4
   %.not364.i = icmp eq i32 %1121, 4
@@ -4251,7 +4216,7 @@ list_length.exit.i353:                            ; preds = %1075, %1071
 1139:                                             ; preds = %.lr.ph510.i
   %1140 = getelementptr inbounds nuw i8, ptr %1132, i64 16
   %1141 = load i16, ptr %1140, align 8
-  %1142 = call ptr @get_tle_by_resno(ptr noundef %1085, i16 noundef signext %1141) #10
+  %1142 = call ptr @get_tle_by_resno(ptr noundef %1085, i16 noundef signext %1141) #9
   %.not385.i = icmp eq ptr %1142, null
   br i1 %.not385.i, label %.split507.i, label %1143
 
@@ -4276,12 +4241,11 @@ list_length.exit.i353:                            ; preds = %1075, %1071
   br label %1159
 
 .split507.i:                                      ; preds = %1147, %1143, %1139
-  %1155 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1155)
+  %1155 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %1156 = load i16, ptr %1140, align 8
   %1157 = sext i16 %1156 to i32
-  %1158 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %1157) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3630, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %1158 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %1157) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3630, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 1159:                                             ; preds = %1152, %.lr.ph510.i
@@ -4337,7 +4301,7 @@ list_length.exit.i353:                            ; preds = %1075, %1071
 1188:                                             ; preds = %.lr.ph518.i
   %1189 = getelementptr inbounds nuw i8, ptr %1184, i64 16
   %1190 = load i16, ptr %1189, align 8
-  %1191 = call ptr @get_tle_by_resno(ptr noundef %1085, i16 noundef signext %1190) #10
+  %1191 = call ptr @get_tle_by_resno(ptr noundef %1085, i16 noundef signext %1190) #9
   %.not384.i = icmp eq ptr %1191, null
   br i1 %.not384.i, label %.split515.i, label %1192
 
@@ -4362,12 +4326,11 @@ list_length.exit.i353:                            ; preds = %1075, %1071
   br label %1208
 
 .split515.i:                                      ; preds = %1196, %1192, %1188
-  %1204 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1204)
+  %1204 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %1205 = load i16, ptr %1189, align 8
   %1206 = sext i16 %1205 to i32
-  %1207 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %1206) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3650, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %1207 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %1206) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3650, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 1208:                                             ; preds = %1201, %.lr.ph518.i
@@ -4432,9 +4395,9 @@ list_length.exit.i353:                            ; preds = %1075, %1071
   %1235 = phi ptr [ %.pre572.i, %.critedge403.loopexit.i ], [ %1216, %.lr.ph523.i ], [ %1216, %1221 ]
   %1236 = getelementptr inbounds nuw i8, ptr %1235, i64 48
   %1237 = load i32, ptr %1236, align 8
-  %1238 = call ptr @make_parsestate(ptr noundef null) #10
-  %1239 = call ptr @makeAlias(ptr noundef nonnull @.str.76, ptr noundef null) #10
-  %1240 = call ptr @addRangeTableEntryForRelation(ptr noundef %1238, ptr noundef %1060, i32 noundef 3, ptr noundef %1239, i1 noundef zeroext false, i1 noundef zeroext false) #10
+  %1238 = call ptr @make_parsestate(ptr noundef null) #9
+  %1239 = call ptr @makeAlias(ptr noundef nonnull @.str.76, ptr noundef null) #9
+  %1240 = call ptr @addRangeTableEntryForRelation(ptr noundef %1238, ptr noundef %1060, i32 noundef 3, ptr noundef %1239, i1 noundef zeroext false, i1 noundef zeroext false) #9
   %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 8
   %1242 = load ptr, ptr %1241, align 8
   %1243 = getelementptr inbounds nuw i8, ptr %1242, i64 33
@@ -4443,7 +4406,7 @@ list_length.exit.i353:                            ; preds = %1075, %1071
   store i32 0, ptr %1244, align 8
   %1245 = getelementptr inbounds nuw i8, ptr %1117, i64 64
   %1246 = load ptr, ptr %1245, align 8
-  %1247 = call ptr @lappend(ptr noundef %1246, ptr noundef %1242) #10
+  %1247 = call ptr @lappend(ptr noundef %1246, ptr noundef %1242) #9
   store ptr %1247, ptr %1245, align 8
   %.not.i416.i = icmp eq ptr %1247, null
   br i1 %.not.i416.i, label %list_length.exit417.i, label %1248
@@ -4458,22 +4421,22 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   %1252 = load ptr, ptr %1215, align 8
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 48
   store i32 %1251, ptr %1253, align 8
-  %1254 = call ptr @BuildOnConflictExcludedTargetlist(ptr noundef %1060, i32 noundef %1251) #10
+  %1254 = call ptr @BuildOnConflictExcludedTargetlist(ptr noundef %1060, i32 noundef %1251) #9
   %1255 = load ptr, ptr %1215, align 8
   %1256 = getelementptr inbounds nuw i8, ptr %1255, i64 56
   store ptr %1254, ptr %1256, align 8
-  %1257 = call ptr @copyObjectImpl(ptr noundef %1085) #10
-  call void @ChangeVarNodes(ptr noundef %1257, i32 noundef %1078, i32 noundef %1251, i32 noundef 0) #10
+  %1257 = call ptr @copyObjectImpl(ptr noundef %1085) #9
+  call void @ChangeVarNodes(ptr noundef %1257, i32 noundef %1078, i32 noundef %1251, i32 noundef 0) #9
   %1258 = load ptr, ptr %1215, align 8
   %1259 = getelementptr inbounds nuw i8, ptr %1117, i64 47
-  %1260 = call ptr @ReplaceVarsFromTargetList(ptr noundef %1258, i32 noundef %1237, i32 noundef 0, ptr noundef %801, ptr noundef %1257, i32 noundef %1078, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1259) #10
+  %1260 = call ptr @ReplaceVarsFromTargetList(ptr noundef %1258, i32 noundef %1237, i32 noundef 0, ptr noundef %801, ptr noundef %1257, i32 noundef %1078, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %1259) #9
   store ptr %1260, ptr %1215, align 8
   br label %1285
 
 1261:                                             ; preds = %.lr.ph529.i
   %1262 = getelementptr inbounds nuw i8, ptr %1231, i64 16
   %1263 = load i16, ptr %1262, align 8
-  %1264 = call ptr @get_tle_by_resno(ptr noundef %1085, i16 noundef signext %1263) #10
+  %1264 = call ptr @get_tle_by_resno(ptr noundef %1085, i16 noundef signext %1263) #9
   %.not380.i = icmp eq ptr %1264, null
   br i1 %.not380.i, label %.split526.i, label %1265
 
@@ -4498,12 +4461,11 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   br label %1281
 
 .split526.i:                                      ; preds = %1269, %1265, %1261
-  %1277 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1277)
+  %1277 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %1278 = load i16, ptr %1262, align 8
   %1279 = sext i16 %1278 to i32
-  %1280 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %1279) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3687, ptr noundef nonnull @__func__.rewriteTargetView) #10
+  %1280 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35, i32 noundef %1279) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3687, ptr noundef nonnull @__func__.rewriteTargetView) #9
   unreachable
 
 1281:                                             ; preds = %1274, %.lr.ph529.i
@@ -4526,8 +4488,8 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   br i1 %.not372.i, label %1315, label %1291
 
 1291:                                             ; preds = %1287
-  %1292 = call ptr @copyObjectImpl(ptr noundef nonnull %1290) #10
-  call void @ChangeVarNodes(ptr noundef %1292, i32 noundef %1047, i32 noundef %1078, i32 noundef 0) #10
+  %1292 = call ptr @copyObjectImpl(ptr noundef nonnull %1290) #9
+  call void @ChangeVarNodes(ptr noundef %1292, i32 noundef %1047, i32 noundef %1078, i32 noundef 0) #9
   %1293 = load ptr, ptr %1088, align 8
   %.not373.i = icmp eq ptr %1293, null
   br i1 %.not373.i, label %.critedge405.i, label %1294
@@ -4549,7 +4511,7 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   %1305 = load ptr, ptr %1304, align 8
   %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 216
   %1307 = load ptr, ptr %1306, align 8
-  %1308 = call ptr @lcons(ptr noundef %1292, ptr noundef %1307) #10
+  %1308 = call ptr @lcons(ptr noundef %1292, ptr noundef %1307) #9
   store ptr %1308, ptr %1306, align 8
   %1309 = getelementptr inbounds nuw i8, ptr %1117, i64 47
   %1310 = load i8, ptr %1309, align 1, !range !4, !noundef !5
@@ -4557,13 +4519,13 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   br i1 %1311, label %1315, label %1312
 
 1312:                                             ; preds = %1298
-  %1313 = call zeroext i1 @checkExprHasSubLink(ptr noundef %1292) #10
+  %1313 = call zeroext i1 @checkExprHasSubLink(ptr noundef %1292) #9
   %1314 = zext i1 %1313 to i8
   store i8 %1314, ptr %1309, align 1
   br label %1315
 
 .critedge405.i:                                   ; preds = %1294, %1291
-  call void @AddQual(ptr noundef nonnull %1117, ptr noundef %1292) #10
+  call void @AddQual(ptr noundef nonnull %1117, ptr noundef %1292) #9
   br label %1315
 
 1315:                                             ; preds = %.critedge405.i, %1312, %1298, %1287, %1285
@@ -4623,13 +4585,13 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   br i1 %.not378.i, label %rewriteTargetView.exit, label %1345
 
 1345:                                             ; preds = %1341, %1338
-  %1346 = call noundef ptr @palloc0(i64 noundef 40) #10
+  %1346 = call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 105, ptr %1346, align 4
   %1347 = getelementptr inbounds nuw i8, ptr %1346, i64 4
   store i32 0, ptr %1347, align 4
   %1348 = load ptr, ptr %779, align 8
   %1349 = getelementptr inbounds nuw i8, ptr %1348, i64 4
-  %1350 = call ptr @pstrdup(ptr noundef nonnull %1349) #10
+  %1350 = call ptr @pstrdup(ptr noundef nonnull %1349) #9
   %1351 = getelementptr inbounds nuw i8, ptr %1346, i64 8
   store ptr %1350, ptr %1351, align 8
   %1352 = getelementptr inbounds nuw i8, ptr %1346, i64 16
@@ -4638,7 +4600,7 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1352, i8 0, i64 16, i1 false)
   store i8 %.0306609.i, ptr %1354, align 8
   %1355 = load ptr, ptr %1339, align 8
-  %1356 = call ptr @lcons(ptr noundef nonnull %1346, ptr noundef %1355) #10
+  %1356 = call ptr @lcons(ptr noundef nonnull %1346, ptr noundef %1355) #9
   store ptr %1356, ptr %1339, align 8
   %1357 = load ptr, ptr %1040, align 8
   %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 16
@@ -4648,7 +4610,7 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
 
 1360:                                             ; preds = %1345
   store ptr %1359, ptr %1353, align 8
-  call void @ChangeVarNodes(ptr noundef nonnull %1359, i32 noundef %1047, i32 noundef %1078, i32 noundef 0) #10
+  call void @ChangeVarNodes(ptr noundef nonnull %1359, i32 noundef %1047, i32 noundef %1078, i32 noundef 0) #9
   %1361 = getelementptr inbounds nuw i8, ptr %1117, i64 47
   %1362 = load i8, ptr %1361, align 1, !range !4, !noundef !5
   %1363 = trunc nuw i8 %1362 to i1
@@ -4661,23 +4623,23 @@ list_length.exit417.i:                            ; preds = %1248, %.critedge403
 
 1367:                                             ; preds = %1364
   %1368 = load ptr, ptr %1353, align 8
-  %1369 = call zeroext i1 @checkExprHasSubLink(ptr noundef %1368) #10
+  %1369 = call zeroext i1 @checkExprHasSubLink(ptr noundef %1368) #9
   %1370 = zext i1 %1369 to i8
   store i8 %1370, ptr %1361, align 1
   br label %rewriteTargetView.exit
 
 rewriteTargetView.exit:                           ; preds = %.thread.i355.thread, %1315, %1327, %1337, %1341, %1345, %1360, %1364, %1367
-  call void @table_close(ptr noundef %1060, i32 noundef 0) #10
+  call void @table_close(ptr noundef %1060, i32 noundef 0) #9
   %1371 = load i32, ptr %1120, align 4
   %1372 = icmp eq i32 %1371, 3
   br i1 %1372, label %1373, label %1375
 
 1373:                                             ; preds = %rewriteTargetView.exit
-  %1374 = call ptr @lcons(ptr noundef nonnull %1117, ptr noundef %.0.lcssa.i397402) #10
+  %1374 = call ptr @lcons(ptr noundef nonnull %1117, ptr noundef %.0.lcssa.i397402) #9
   br label %1377
 
 1375:                                             ; preds = %rewriteTargetView.exit
-  %1376 = call ptr @lappend(ptr noundef %.0.lcssa.i397402, ptr noundef nonnull %1117) #10
+  %1376 = call ptr @lappend(ptr noundef %.0.lcssa.i397402, ptr noundef nonnull %1117) #9
   br label %1377
 
 1377:                                             ; preds = %1373, %1375, %784, %.critedge315.thread, %.critedge315
@@ -4717,13 +4679,13 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   br i1 %1390, label %1399, label %1409
 
 .critedge317:                                     ; preds = %1409, %.lr.ph573, %.preheader442
-  %1391 = call ptr @palloc(i64 noundef 8) #10
+  %1391 = call ptr @palloc(i64 noundef 8) #9
   %1392 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %1393 = load i32, ptr %1392, align 8
   store i32 %1393, ptr %1391, align 4
   %1394 = getelementptr inbounds nuw i8, ptr %1391, i64 4
   store i32 %12, ptr %1394, align 4
-  %1395 = call ptr @lappend(ptr noundef %1, ptr noundef nonnull %1391) #10
+  %1395 = call ptr @lappend(ptr noundef %1, ptr noundef nonnull %1391) #9
   %1396 = getelementptr inbounds nuw i8, ptr %.0249, i64 4
   %1397 = load i32, ptr %1396, align 4
   %.not294579 = icmp sgt i32 %1397, 0
@@ -4740,14 +4702,13 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   br i1 %1402, label %.split576, label %1409
 
 .split576:                                        ; preds = %1399
-  %1403 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1403)
-  %1404 = call i32 @errcode(i32 noundef 117833860) #10
+  %1403 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %1404 = call i32 @errcode(i32 noundef 117833860) #9
   %1405 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %1406 = load ptr, ptr %1405, align 8
   %1407 = getelementptr inbounds nuw i8, ptr %1406, i64 4
-  %1408 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %1407) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4281, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1408 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %1407) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4281, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 1409:                                             ; preds = %1386, %1399
@@ -4764,7 +4725,7 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   %1414 = icmp eq ptr %1413, %.1
   %1415 = select i1 %1414, i32 %2, i32 %350
   %1416 = call fastcc ptr @RewriteQuery(ptr noundef %1413, ptr noundef %1395, i32 noundef %1415)
-  %1417 = call ptr @list_concat(ptr noundef %.2581, ptr noundef %1416) #10
+  %1417 = call ptr @list_concat(ptr noundef %.2581, ptr noundef %1416) #9
   %indvars.iv.next646 = add nuw nsw i64 %indvars.iv645, 1
   %1418 = load i32, ptr %1396, align 4
   %1419 = sext i32 %1418 to i64
@@ -4773,7 +4734,7 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
 
 .critedge319:                                     ; preds = %1410, %.critedge317
   %.2.lcssa = phi ptr [ null, %.critedge317 ], [ %1417, %1410 ]
-  %1420 = call ptr @list_delete_last(ptr noundef %1395) #10
+  %1420 = call ptr @list_delete_last(ptr noundef %1395) #9
   br label %1421
 
 1421:                                             ; preds = %.critedge319, %1377
@@ -4791,8 +4752,7 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   br i1 %or.cond7, label %1453, label %1428
 
 1428:                                             ; preds = %1423
-  %1429 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1429)
+  %1429 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   switch i32 %12, label %1451 [
     i32 3, label %1430
     i32 2, label %1437
@@ -4800,38 +4760,38 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   ]
 
 1430:                                             ; preds = %1428
-  %1431 = call i32 @errcode(i32 noundef 1088) #10
+  %1431 = call i32 @errcode(i32 noundef 1088) #9
   %1432 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %1433 = load ptr, ptr %1432, align 8
   %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 4
-  %1435 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %1434) #10
-  %1436 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.47) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4331, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1435 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %1434) #9
+  %1436 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.47) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4331, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 1437:                                             ; preds = %1428
-  %1438 = call i32 @errcode(i32 noundef 1088) #10
+  %1438 = call i32 @errcode(i32 noundef 1088) #9
   %1439 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %1440 = load ptr, ptr %1439, align 8
   %1441 = getelementptr inbounds nuw i8, ptr %1440, i64 4
-  %1442 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef nonnull %1441) #10
-  %1443 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.49) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4338, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1442 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, ptr noundef nonnull %1441) #9
+  %1443 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.49) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4338, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 1444:                                             ; preds = %1428
-  %1445 = call i32 @errcode(i32 noundef 1088) #10
+  %1445 = call i32 @errcode(i32 noundef 1088) #9
   %1446 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %1447 = load ptr, ptr %1446, align 8
   %1448 = getelementptr inbounds nuw i8, ptr %1447, i64 4
-  %1449 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %1448) #10
-  %1450 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.51) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4345, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1449 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %1448) #9
+  %1450 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.51) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4345, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 1451:                                             ; preds = %1428
-  %1452 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %12) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4349, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1452 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %12) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4349, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 1453:                                             ; preds = %1421, %1423
@@ -4848,15 +4808,14 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   br i1 %or.cond11.not, label %1459, label %1463
 
 1459:                                             ; preds = %1456
-  %1460 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1460)
-  %1461 = call i32 @errcode(i32 noundef 1088) #10
-  %1462 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4363, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1460 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %1461 = call i32 @errcode(i32 noundef 1088) #9
+  %1462 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4363, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 1463:                                             ; preds = %1453, %1456
-  call void @table_close(ptr noundef %80, i32 noundef 0) #10
+  call void @table_close(ptr noundef %80, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %.1385, label %1478, label %1464
 
@@ -4876,26 +4835,26 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   br i1 %.not297, label %.thread428, label %1471
 
 1471:                                             ; preds = %1470
-  %1472 = call ptr @lcons(ptr noundef nonnull %.3379396404, ptr noundef %.1242) #10
+  %1472 = call ptr @lcons(ptr noundef nonnull %.3379396404, ptr noundef %.1242) #9
   br label %1478
 
 .thread428:                                       ; preds = %.thread418, %1470
   %.0416422434 = phi ptr [ %.1, %1470 ], [ %0, %.thread418 ]
   %.0241415424433 = phi ptr [ %.1242, %1470 ], [ null, %.thread418 ]
-  %1473 = call ptr @lcons(ptr noundef nonnull %.0416422434, ptr noundef %.0241415424433) #10
+  %1473 = call ptr @lcons(ptr noundef nonnull %.0416422434, ptr noundef %.0241415424433) #9
   br label %1478
 
 1474:                                             ; preds = %1464
   br i1 %.not297, label %.thread435, label %1475
 
 1475:                                             ; preds = %1474
-  %1476 = call ptr @lappend(ptr noundef %.1242, ptr noundef nonnull %.3379396404) #10
+  %1476 = call ptr @lappend(ptr noundef %.1242, ptr noundef nonnull %.3379396404) #9
   br label %1478
 
 .thread435:                                       ; preds = %.thread418, %1474
   %.0416423441 = phi ptr [ %.1, %1474 ], [ %0, %.thread418 ]
   %.0241415425440 = phi ptr [ %.1242, %1474 ], [ null, %.thread418 ]
-  %1477 = call ptr @lappend(ptr noundef %.0241415425440, ptr noundef nonnull %.0416423441) #10
+  %1477 = call ptr @lappend(ptr noundef %.0241415425440, ptr noundef nonnull %.0416423441) #9
   br label %1478
 
 1478:                                             ; preds = %.thread428, %1471, %.thread435, %1475, %1463
@@ -4939,11 +4898,10 @@ rewriteTargetView.exit:                           ; preds = %.thread.i355.thread
   br i1 %1492, label %1493, label %.critedge321.thread
 
 1493:                                             ; preds = %.critedge321
-  %1494 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %1494)
-  %1495 = call i32 @errcode(i32 noundef 1088) #10
-  %1496 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4420, ptr noundef nonnull @__func__.RewriteQuery) #10
+  %1494 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %1495 = call i32 @errcode(i32 noundef 1088) #9
+  %1496 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4420, ptr noundef nonnull @__func__.RewriteQuery) #9
   unreachable
 
 .critedge321.thread:                              ; preds = %.lr.ph586, %.critedge321, %1478
@@ -5006,7 +4964,7 @@ list_length.exit.lr.ph:                           ; preds = %.critedge
   br i1 %.not161, label %37, label %35
 
 35:                                               ; preds = %32, %.lr.ph203
-  %36 = tail call ptr @rewriteSearchAndCycle(ptr noundef nonnull %21) #10
+  %36 = tail call ptr @rewriteSearchAndCycle(ptr noundef nonnull %21) #9
   store ptr %36, ptr %20, align 8
   %.pre = load i32, ptr %14, align 4
   br label %37
@@ -5079,7 +5037,7 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
 
 74:                                               ; preds = %71
   %75 = trunc nuw i64 %indvars.iv.next242 to i32
-  %76 = tail call zeroext i1 @rangeTableEntry_used(ptr noundef nonnull %0, i32 noundef %75, i32 noundef 0) #10
+  %76 = tail call zeroext i1 @rangeTableEntry_used(ptr noundef nonnull %0, i32 noundef %75, i32 noundef 0) #9
   br i1 %76, label %._crit_edge252, label %243, !llvm.loop !16
 
 ._crit_edge252:                                   ; preds = %74
@@ -5097,7 +5055,7 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %81 = load i32, ptr %80, align 4
-  %82 = tail call ptr @table_open(i32 noundef %81, i32 noundef 0) #10
+  %82 = tail call ptr @table_open(i32 noundef %81, i32 noundef 0) #9
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 88
   %84 = load ptr, ptr %83, align 8
   %.not155 = icmp eq ptr %84, null
@@ -5125,7 +5083,7 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
   br i1 %.not159, label %95, label %97
 
 95:                                               ; preds = %88
-  %96 = tail call ptr @lappend(ptr noundef %.0133205, ptr noundef nonnull %92) #10
+  %96 = tail call ptr @lappend(ptr noundef %.0133205, ptr noundef nonnull %92) #9
   %.pre254 = load i32, ptr %84, align 8
   br label %97
 
@@ -5144,23 +5102,22 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
 101:                                              ; preds = %._crit_edge
   %102 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %103 = load i32, ptr %102, align 8
-  %104 = tail call zeroext i1 @list_member_oid(ptr noundef %.0122213, i32 noundef %103) #10
+  %104 = tail call zeroext i1 @list_member_oid(ptr noundef %.0122213, i32 noundef %103) #9
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %101
-  %106 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %106)
-  %107 = tail call i32 @errcode(i32 noundef 117833860) #10
+  %106 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %107 = tail call i32 @errcode(i32 noundef 117833860) #9
   %108 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  %111 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %110) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2131, ptr noundef nonnull @__func__.fireRIRrules) #10
+  %111 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %110) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2131, ptr noundef nonnull @__func__.fireRIRrules) #9
   unreachable
 
 112:                                              ; preds = %101
   %113 = load i32, ptr %102, align 8
-  %114 = tail call ptr @lappend_oid(ptr noundef %.0122213, i32 noundef %113) #10
+  %114 = tail call ptr @lappend_oid(ptr noundef %.0122213, i32 noundef %113) #9
   %115 = getelementptr inbounds nuw i8, ptr %.1134, i64 4
   %116 = load i32, ptr %115, align 4
   %.not158207 = icmp sgt i32 %116, 0
@@ -5192,10 +5149,9 @@ list_length.exit179:                              ; preds = %120
   br i1 %.not.i169, label %132, label %list_length.exit179.thread
 
 list_length.exit179.thread:                       ; preds = %120, %list_length.exit179
-  %130 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %130)
-  %131 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1722, ptr noundef nonnull @__func__.ApplyRetrieveRule) #10
+  %130 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %131 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1722, ptr noundef nonnull @__func__.ApplyRetrieveRule) #9
   unreachable
 
 132:                                              ; preds = %list_length.exit179
@@ -5205,10 +5161,9 @@ list_length.exit179.thread:                       ; preds = %120, %list_length.e
   br i1 %.not65.i, label %138, label %135
 
 135:                                              ; preds = %132
-  %136 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %136)
-  %137 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1724, ptr noundef nonnull @__func__.ApplyRetrieveRule) #10
+  %136 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %137 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1724, ptr noundef nonnull @__func__.ApplyRetrieveRule) #9
   unreachable
 
 138:                                              ; preds = %132
@@ -5223,14 +5178,13 @@ list_length.exit179.thread:                       ; preds = %120, %list_length.e
   br i1 %143, label %144, label %.critedge.i, !prof !14
 
 144:                                              ; preds = %141
-  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %145)
-  %146 = tail call i32 @errcode(i32 noundef 325) #10
+  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %146 = tail call i32 @errcode(i32 noundef 325) #9
   %147 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  %150 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %149) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1732, ptr noundef nonnull @__func__.ApplyRetrieveRule) #10
+  %150 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, ptr noundef nonnull %149) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1732, ptr noundef nonnull @__func__.ApplyRetrieveRule) #9
   unreachable
 
 .critedge.i:                                      ; preds = %141, %138
@@ -5254,9 +5208,9 @@ list_length.exit179.thread:                       ; preds = %120, %list_length.e
   %.val69.i = load ptr, ptr %158, align 8
   %159 = getelementptr inbounds nuw %union.ListCell, ptr %.val69.i, i64 %indvars.iv241
   %160 = load ptr, ptr %159, align 8
-  %161 = tail call ptr @copyObjectImpl(ptr noundef %160) #10
+  %161 = tail call ptr @copyObjectImpl(ptr noundef %160) #9
   %162 = load ptr, ptr %24, align 8
-  %163 = tail call ptr @lappend(ptr noundef %162, ptr noundef %161) #10
+  %163 = tail call ptr @lappend(ptr noundef %162, ptr noundef %161) #9
   store ptr %163, ptr %24, align 8
   %.not.i176 = icmp eq ptr %163, null
   br i1 %.not.i176, label %list_length.exit177, label %164
@@ -5270,11 +5224,11 @@ list_length.exit177:                              ; preds = %156, %164
   %167 = phi i32 [ %166, %164 ], [ 0, %156 ]
   store i32 %167, ptr %10, align 8
   %168 = load ptr, ptr %28, align 8
-  %169 = tail call ptr @copyObjectImpl(ptr noundef %168) #10
+  %169 = tail call ptr @copyObjectImpl(ptr noundef %168) #9
   store ptr %169, ptr %28, align 8
   %170 = load i32, ptr %10, align 8
-  tail call void @ChangeVarNodes(ptr noundef %169, i32 noundef %119, i32 noundef %170, i32 noundef 0) #10
-  %171 = tail call ptr @makeWholeRowVar(ptr noundef %160, i32 noundef %119, i32 noundef 0, i1 noundef zeroext false) #10
+  tail call void @ChangeVarNodes(ptr noundef %169, i32 noundef %119, i32 noundef %170, i32 noundef 0) #9
+  %171 = tail call ptr @makeWholeRowVar(ptr noundef %160, i32 noundef %119, i32 noundef 0, i1 noundef zeroext false) #9
   %172 = load ptr, ptr %29, align 8
   %.not.i174 = icmp eq ptr %172, null
   br i1 %.not.i174, label %list_length.exit175, label %173
@@ -5288,29 +5242,28 @@ list_length.exit177:                              ; preds = %156, %164
 
 list_length.exit175:                              ; preds = %list_length.exit177, %173
   %178 = phi i16 [ %177, %173 ], [ 1, %list_length.exit177 ]
-  %179 = tail call ptr @pstrdup(ptr noundef nonnull @.str.80) #10
-  %180 = tail call ptr @makeTargetEntry(ptr noundef %171, i16 noundef signext %178, ptr noundef %179, i1 noundef zeroext true) #10
+  %179 = tail call ptr @pstrdup(ptr noundef nonnull @.str.80) #9
+  %180 = tail call ptr @makeTargetEntry(ptr noundef %171, i16 noundef signext %178, ptr noundef %179, i1 noundef zeroext true) #9
   %181 = load ptr, ptr %29, align 8
-  %182 = tail call ptr @lappend(ptr noundef %181, ptr noundef %180) #10
+  %182 = tail call ptr @lappend(ptr noundef %181, ptr noundef %180) #9
   store ptr %182, ptr %29, align 8
   br label %.critedge.i._crit_edge
 
 183:                                              ; preds = %154
-  %184 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %184)
+  %184 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %185 = load i32, ptr %27, align 4
-  %186 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %185) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1800, ptr noundef nonnull @__func__.ApplyRetrieveRule) #10
+  %186 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %185) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1800, ptr noundef nonnull @__func__.ApplyRetrieveRule) #9
   unreachable
 
 .critedge.i._crit_edge:                           ; preds = %.critedge.i, %list_length.exit175
   %.pre-phi259 = phi i32 [ %119, %list_length.exit175 ], [ %.pre258, %.critedge.i ]
-  %187 = tail call ptr @get_parse_rowmark(ptr noundef nonnull %0, i32 noundef %.pre-phi259) #10
+  %187 = tail call ptr @get_parse_rowmark(ptr noundef nonnull %0, i32 noundef %.pre-phi259) #9
   %188 = load ptr, ptr %126, align 8
   %189 = getelementptr i8, ptr %188, i64 16
   %.val.i = load ptr, ptr %189, align 8
   %190 = load ptr, ptr %.val.i, align 8
-  %191 = tail call ptr @copyObjectImpl(ptr noundef %190) #10
+  %191 = tail call ptr @copyObjectImpl(ptr noundef %190) #9
   %192 = icmp ne ptr %187, null
   tail call void @AcquireRewriteLocks(ptr noundef %191, i1 noundef zeroext true, i1 noundef zeroext %192)
   br i1 %192, label %193, label %200
@@ -5360,7 +5313,7 @@ list_length.exit175:                              ; preds = %list_length.exit177
   store i8 0, ptr %220, align 8
   %221 = getelementptr inbounds nuw i8, ptr %201, i64 112
   %222 = load ptr, ptr %221, align 8
-  %223 = tail call i32 @ExecCleanTargetListLength(ptr noundef %222) #10
+  %223 = tail call i32 @ExecCleanTargetListLength(ptr noundef %222) #9
   %224 = getelementptr inbounds nuw i8, ptr %209, i64 16
   br label %225
 
@@ -5382,9 +5335,9 @@ list_length.exit173:                              ; preds = %225, %229
   br i1 %233, label %234, label %ApplyRetrieveRule.exit.loopexit
 
 234:                                              ; preds = %list_length.exit173
-  %235 = tail call ptr @pstrdup(ptr noundef nonnull @.str.81) #10
-  %236 = tail call ptr @makeString(ptr noundef %235) #10
-  %237 = tail call ptr @lappend(ptr noundef %228, ptr noundef %236) #10
+  %235 = tail call ptr @pstrdup(ptr noundef nonnull @.str.81) #9
+  %236 = tail call ptr @makeString(ptr noundef %235) #9
+  %237 = tail call ptr @lappend(ptr noundef %228, ptr noundef %236) #9
   %238 = load ptr, ptr %224, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   store ptr %237, ptr %239, align 8
@@ -5401,12 +5354,12 @@ ApplyRetrieveRule.exit:                           ; preds = %ApplyRetrieveRule.e
   br i1 %.not158, label %120, label %.critedge164, !llvm.loop !19
 
 .critedge164:                                     ; preds = %ApplyRetrieveRule.exit, %112
-  %242 = tail call ptr @list_delete_last(ptr noundef %114) #10
+  %242 = tail call ptr @list_delete_last(ptr noundef %114) #9
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %.critedge164, %79
   %.2124 = phi ptr [ %242, %.critedge164 ], [ %.0122213, %._crit_edge ], [ %.0122213, %79 ], [ %.0122213, %.preheader ]
-  tail call void @table_close(ptr noundef %82, i32 noundef 0) #10
+  tail call void @table_close(ptr noundef %82, i32 noundef 0) #9
   br label %243
 
 243:                                              ; preds = %78, %74, %66, %60, %46, %._crit_edge.thread, %52
@@ -5460,7 +5413,7 @@ ApplyRetrieveRule.exit:                           ; preds = %ApplyRetrieveRule.e
   store ptr %.0122.lcssa, ptr %3, align 8
   %268 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %268, align 8
-  %269 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @fireRIRonSubLink, ptr noundef nonnull %3, i32 noundef 3) #10
+  %269 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @fireRIRonSubLink, ptr noundef nonnull %3, i32 noundef 3) #9
   %270 = load i8, ptr %268, align 8, !range !4, !noundef !5
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %272 = load i8, ptr %271, align 4, !range !4, !noundef !5
@@ -5507,8 +5460,8 @@ ApplyRetrieveRule.exit:                           ; preds = %ApplyRetrieveRule.e
 286:                                              ; preds = %.lr.ph297
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 28
   %288 = load i32, ptr %287, align 4
-  %289 = call ptr @table_open(i32 noundef %288, i32 noundef 0) #10
-  call void @get_row_security_policies(ptr noundef %.4226295, ptr noundef nonnull %283, i32 noundef %indvars, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %289 = call ptr @table_open(i32 noundef %288, i32 noundef 0) #9
+  call void @get_row_security_policies(ptr noundef %.4226295, ptr noundef nonnull %283, i32 noundef %indvars, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %290 = load ptr, ptr %4, align 8
   %291 = icmp ne ptr %290, null
   %292 = load ptr, ptr %5, align 8
@@ -5526,23 +5479,22 @@ ApplyRetrieveRule.exit:                           ; preds = %ApplyRetrieveRule.e
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %298 = getelementptr inbounds nuw i8, ptr %289, i64 72
   %299 = load i32, ptr %298, align 8
-  %300 = call zeroext i1 @list_member_oid(ptr noundef %.3125225296, i32 noundef %299) #10
+  %300 = call zeroext i1 @list_member_oid(ptr noundef %.3125225296, i32 noundef %299) #9
   br i1 %300, label %301, label %308
 
 301:                                              ; preds = %297
-  %302 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %302)
-  %303 = call i32 @errcode(i32 noundef 117833860) #10
+  %302 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %303 = call i32 @errcode(i32 noundef 117833860) #9
   %304 = getelementptr inbounds nuw i8, ptr %289, i64 56
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 4
-  %307 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull %306) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2241, ptr noundef nonnull @__func__.fireRIRrules) #10
+  %307 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77, ptr noundef nonnull %306) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2241, ptr noundef nonnull @__func__.fireRIRrules) #9
   unreachable
 
 308:                                              ; preds = %297
   %309 = load i32, ptr %298, align 8
-  %310 = call ptr @lappend_oid(ptr noundef %.3125225296, i32 noundef %309) #10
+  %310 = call ptr @lappend_oid(ptr noundef %.3125225296, i32 noundef %309) #9
   store i8 1, ptr %8, align 1
   %311 = load ptr, ptr %4, align 8
   %312 = icmp eq ptr %311, null
@@ -5560,7 +5512,7 @@ ApplyRetrieveRule.exit:                           ; preds = %ApplyRetrieveRule.e
   br label %319
 
 319:                                              ; preds = %316, %313
-  %320 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %311, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %8) #10
+  %320 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %311, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %8) #9
   br label %acquireLocksOnSubLinks.exit
 
 acquireLocksOnSubLinks.exit:                      ; preds = %308, %319
@@ -5582,17 +5534,17 @@ acquireLocksOnSubLinks.exit:                      ; preds = %308, %319
   br label %331
 
 331:                                              ; preds = %326, %323
-  %332 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %321, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %8) #10
+  %332 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %321, ptr noundef nonnull @acquireLocksOnSubLinks, ptr noundef nonnull %8) #9
   br label %acquireLocksOnSubLinks.exit171
 
 acquireLocksOnSubLinks.exit171:                   ; preds = %acquireLocksOnSubLinks.exit, %331
   store ptr %310, ptr %9, align 8
   store i8 0, ptr %278, align 8
   %333 = load ptr, ptr %4, align 8
-  %334 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %333, ptr noundef nonnull @fireRIRonSubLink, ptr noundef nonnull %9) #10
+  %334 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %333, ptr noundef nonnull @fireRIRonSubLink, ptr noundef nonnull %9) #9
   %335 = load ptr, ptr %5, align 8
-  %336 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %335, ptr noundef nonnull @fireRIRonSubLink, ptr noundef nonnull %9) #10
-  %337 = call ptr @list_delete_last(ptr noundef %310) #10
+  %336 = call zeroext i1 @expression_tree_walker_impl(ptr noundef %335, ptr noundef nonnull @fireRIRonSubLink, ptr noundef nonnull %9) #9
+  %337 = call ptr @list_delete_last(ptr noundef %310) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre256 = load ptr, ptr %4, align 8
@@ -5603,12 +5555,12 @@ acquireLocksOnSubLinks.exit171:                   ; preds = %acquireLocksOnSubLi
   %.6 = phi ptr [ %337, %acquireLocksOnSubLinks.exit171 ], [ %.3125225296, %294 ]
   %340 = getelementptr inbounds nuw i8, ptr %283, i64 216
   %341 = load ptr, ptr %340, align 8
-  %342 = call ptr @list_concat(ptr noundef %339, ptr noundef %341) #10
+  %342 = call ptr @list_concat(ptr noundef %339, ptr noundef %341) #9
   store ptr %342, ptr %340, align 8
   %343 = load ptr, ptr %5, align 8
   %344 = getelementptr inbounds nuw i8, ptr %.4226295, i64 264
   %345 = load ptr, ptr %344, align 8
-  %346 = call ptr @list_concat(ptr noundef %343, ptr noundef %345) #10
+  %346 = call ptr @list_concat(ptr noundef %343, ptr noundef %345) #9
   store ptr %346, ptr %344, align 8
   br label %347
 
@@ -5637,7 +5589,7 @@ acquireLocksOnSubLinks.exit171:                   ; preds = %acquireLocksOnSubLi
   %358 = getelementptr inbounds nuw i8, ptr %.4226295, i64 40
   %359 = load i32, ptr %358, align 8
   %360 = call fastcc ptr @expand_generated_columns_internal(ptr noundef %.4226295, ptr noundef %289, i32 noundef %indvars, ptr noundef nonnull %283, i32 noundef %359)
-  call void @table_close(ptr noundef %289, i32 noundef 0) #10
+  call void @table_close(ptr noundef %289, i32 noundef 0) #9
   br label %361
 
 361:                                              ; preds = %.lr.ph297, %357
@@ -5682,7 +5634,7 @@ define internal fastcc ptr @rewriteTargetListIU(ptr noundef readonly captures(ad
   %12 = sext i16 %11 to i32
   %13 = sext i16 %11 to i64
   %14 = shl nsw i64 %13, 3
-  %15 = tail call ptr @palloc0(i64 noundef %14) #10
+  %15 = tail call ptr @palloc0(i64 noundef %14) #9
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -5737,10 +5689,9 @@ define internal fastcc ptr @rewriteTargetListIU(ptr noundef readonly captures(ad
   br i1 %or.cond180, label %43, label %46
 
 43:                                               ; preds = %40
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.54, i32 noundef %31) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 812, ptr noundef nonnull @__func__.rewriteTargetListIU) #10
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.54, i32 noundef %31) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 812, ptr noundef nonnull @__func__.rewriteTargetListIU) #9
   unreachable
 
 46:                                               ; preds = %40
@@ -5865,18 +5816,17 @@ get_assignment_input.exit82.i:                    ; preds = %96, %get_assignment
   br i1 %or.cond3.i, label %get_assignment_input.exit82.thread.i, label %104
 
 104:                                              ; preds = %get_assignment_input.exit82.i
-  %105 = tail call i32 @exprType(ptr noundef %.06393120.i) #10
-  %106 = tail call i32 @exprType(ptr noundef nonnull %.06491121.i) #10
+  %105 = tail call i32 @exprType(ptr noundef %.06393120.i) #9
+  %106 = tail call i32 @exprType(ptr noundef nonnull %.06491121.i) #9
   %.not77.i = icmp eq i32 %105, %106
   br i1 %.not77.i, label %.preheader.i, label %get_assignment_input.exit82.thread.i
 
 get_assignment_input.exit82.thread.i:             ; preds = %75, %104, %get_assignment_input.exit82.i, %96, %get_assignment_input.exit.thread.i, %get_assignment_input.exit.i
   %107 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %108)
-  %109 = tail call i32 @errcode(i32 noundef 16801924) #10
-  %110 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef nonnull %107) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1119, ptr noundef nonnull @__func__.process_matched_tle) #10
+  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %109 = tail call i32 @errcode(i32 noundef 16801924) #9
+  %110 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef nonnull %107) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1119, ptr noundef nonnull @__func__.process_matched_tle) #9
   unreachable
 
 .preheader.i:                                     ; preds = %104, %get_assignment_input.exit86.i
@@ -5901,16 +5851,15 @@ get_assignment_input.exit86.i:                    ; preds = %112, %.preheader.i
   br i1 %118, label %get_assignment_input.exit86.thread.i, label %.preheader.i
 
 get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_input.exit86.i, %112, %.preheader.i
-  %119 = tail call zeroext i1 @equal(ptr noundef nonnull %.067.i, ptr noundef %.0.i122.i) #10
+  %119 = tail call zeroext i1 @equal(ptr noundef nonnull %.067.i, ptr noundef %.0.i122.i) #9
   br i1 %119, label %125, label %120
 
 120:                                              ; preds = %get_assignment_input.exit86.thread.i
   %121 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %122)
-  %123 = tail call i32 @errcode(i32 noundef 16801924) #10
-  %124 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef nonnull %121) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1137, ptr noundef nonnull @__func__.process_matched_tle) #10
+  %122 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %123 = tail call i32 @errcode(i32 noundef 16801924) #9
+  %124 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60, ptr noundef nonnull %121) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1137, ptr noundef nonnull @__func__.process_matched_tle) #9
   unreachable
 
 125:                                              ; preds = %get_assignment_input.exit86.thread.i
@@ -5921,7 +5870,7 @@ get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_inpu
   ]
 
 127:                                              ; preds = %125
-  %128 = tail call noundef ptr @palloc0(i64 noundef 40) #10
+  %128 = tail call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 26, ptr %128, align 4
   %129 = load i32, ptr %.06491121.i, align 4
   %130 = icmp eq i32 %129, 26
@@ -5933,14 +5882,14 @@ get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_inpu
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %.06393120.i, i64 16
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call ptr @list_concat_copy(ptr noundef %133, ptr noundef %135) #10
+  %136 = tail call ptr @list_concat_copy(ptr noundef %133, ptr noundef %135) #9
   %137 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %136, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.06491121.i, i64 24
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %.06393120.i, i64 24
   %141 = load ptr, ptr %140, align 8
-  %142 = tail call ptr @list_concat_copy(ptr noundef %139, ptr noundef %141) #10
+  %142 = tail call ptr @list_concat_copy(ptr noundef %139, ptr noundef %141) #9
   %143 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store ptr %142, ptr %143, align 8
   br label %152
@@ -5952,7 +5901,7 @@ get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_inpu
   br label %152
 
 146:                                              ; preds = %125
-  %147 = tail call noundef ptr @palloc0(i64 noundef 56) #10
+  %147 = tail call noundef ptr @palloc0(i64 noundef 56) #9
   store i32 14, ptr %147, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %147, ptr noundef nonnull align 4 dereferenceable(56) %.06393120.i, i64 56, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
@@ -5960,10 +5909,9 @@ get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_inpu
   br label %152
 
 149:                                              ; preds = %125
-  %150 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %150)
-  %151 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1175, ptr noundef nonnull @__func__.process_matched_tle) #10
+  %150 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %151 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1175, ptr noundef nonnull @__func__.process_matched_tle) #9
   unreachable
 
 152:                                              ; preds = %146, %144, %131
@@ -5972,7 +5920,7 @@ get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_inpu
   br i1 %.not78.i, label %156, label %153
 
 153:                                              ; preds = %152
-  %154 = tail call noundef ptr @palloc0(i64 noundef 40) #10
+  %154 = tail call noundef ptr @palloc0(i64 noundef 40) #9
   store i32 55, ptr %154, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %154, ptr noundef nonnull align 8 dereferenceable(40) %.06295119.i, i64 40, i1 false)
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
@@ -5981,7 +5929,7 @@ get_assignment_input.exit86.thread.i:             ; preds = %get_assignment_inpu
 
 156:                                              ; preds = %153, %152
   %.1.i = phi ptr [ %154, %153 ], [ %.066.i, %152 ]
-  %157 = tail call ptr @flatCopyTargetEntry(ptr noundef %25) #10
+  %157 = tail call ptr @flatCopyTargetEntry(ptr noundef %25) #9
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store ptr %.1.i, ptr %158, align 8
   br label %process_matched_tle.exit
@@ -5996,7 +5944,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br i1 %.not179, label %164, label %160
 
 160:                                              ; preds = %159
-  %161 = tail call ptr @flatCopyTargetEntry(ptr noundef nonnull %25) #10
+  %161 = tail call ptr @flatCopyTargetEntry(ptr noundef nonnull %25) #9
   %162 = trunc i32 %.0156221298 to i16
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
   store i16 %162, ptr %163, align 8
@@ -6004,7 +5952,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
 
 164:                                              ; preds = %160, %159
   %.0144 = phi ptr [ %161, %160 ], [ %25, %159 ]
-  %165 = tail call ptr @lappend(ptr noundef %.0145223297, ptr noundef nonnull %.0144) #10
+  %165 = tail call ptr @lappend(ptr noundef %.0145223297, ptr noundef nonnull %.0144) #9
   %166 = add i32 %.0156221298, 1
   br label %167
 
@@ -6116,18 +6064,17 @@ process_matched_tle.exit:                         ; preds = %59, %156
 
 222:                                              ; preds = %218, %220
   %.5153 = phi ptr [ %221, %220 ], [ %.0148228, %218 ]
-  %223 = tail call zeroext i1 @bms_is_member(i32 noundef %.0136, ptr noundef %.5153) #10
+  %223 = tail call zeroext i1 @bms_is_member(i32 noundef %.0136, ptr noundef %.5153) #9
   br i1 %223, label %230, label %.thread
 
 .thread:                                          ; preds = %217, %222
-  %224 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %224)
-  %225 = tail call i32 @errcode(i32 noundef 156008580) #10
+  %224 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %225 = tail call i32 @errcode(i32 noundef 156008580) #9
   %226 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %227 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %226) #10
-  %228 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.56, ptr noundef nonnull %226) #10
-  %229 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.57) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.rewriteTargetListIU) #10
+  %227 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %226) #9
+  %228 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.56, ptr noundef nonnull %226) #9
+  %229 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.57) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.rewriteTargetListIU) #9
   unreachable
 
 .fold.split:                                      ; preds = %216
@@ -6163,17 +6110,16 @@ process_matched_tle.exit:                         ; preds = %59, %156
 
 242:                                              ; preds = %238, %240
   %.8 = phi ptr [ %241, %240 ], [ %.3151, %238 ]
-  %243 = tail call zeroext i1 @bms_is_member(i32 noundef %.0136192, ptr noundef %.8) #10
+  %243 = tail call zeroext i1 @bms_is_member(i32 noundef %.0136192, ptr noundef %.8) #9
   br i1 %243, label %249, label %.thread193
 
 .thread193:                                       ; preds = %237, %242
-  %244 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %244)
-  %245 = tail call i32 @errcode(i32 noundef 156008580) #10
+  %244 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %245 = tail call i32 @errcode(i32 noundef 156008580) #9
   %246 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %247 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %246) #10
-  %248 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.58, ptr noundef nonnull %246) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.rewriteTargetListIU) #10
+  %247 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %246) #9
+  %248 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.58, ptr noundef nonnull %246) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.rewriteTargetListIU) #9
   unreachable
 
 249:                                              ; preds = %242, %230
@@ -6186,7 +6132,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
 
 251:                                              ; preds = %249
   %252 = load ptr, ptr %6, align 8
-  %253 = tail call ptr @bms_add_member(ptr noundef %252, i32 noundef %.0136192) #10
+  %253 = tail call ptr @bms_add_member(ptr noundef %252, i32 noundef %.0136192) #9
   store ptr %253, ptr %6, align 8
   br label %.thread196
 
@@ -6204,13 +6150,12 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br i1 %or.cond17, label %266, label %260
 
 260:                                              ; preds = %255
-  %261 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %261)
-  %262 = tail call i32 @errcode(i32 noundef 156008580) #10
+  %261 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %262 = tail call i32 @errcode(i32 noundef 156008580) #9
   %263 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %264 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef nonnull %263) #10
-  %265 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.56, ptr noundef nonnull %263) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 977, ptr noundef nonnull @__func__.rewriteTargetListIU) #10
+  %264 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef nonnull %263) #9
+  %265 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.56, ptr noundef nonnull %263) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 977, ptr noundef nonnull @__func__.rewriteTargetListIU) #9
   unreachable
 
 266:                                              ; preds = %255
@@ -6223,13 +6168,12 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br i1 %or.cond21, label %.thread196, label %270
 
 270:                                              ; preds = %266
-  %271 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %271)
-  %272 = tail call i32 @errcode(i32 noundef 156008580) #10
+  %271 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %272 = tail call i32 @errcode(i32 noundef 156008580) #9
   %273 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %274 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef nonnull %273) #10
-  %275 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.58, ptr noundef nonnull %273) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 985, ptr noundef nonnull @__func__.rewriteTargetListIU) #10
+  %274 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, ptr noundef nonnull %273) #9
+  %275 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.58, ptr noundef nonnull %273) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 985, ptr noundef nonnull @__func__.rewriteTargetListIU) #9
   unreachable
 
 .thread196:                                       ; preds = %251, %249, %266, %254
@@ -6263,7 +6207,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
   %291 = getelementptr inbounds nuw i8, ptr %181, i64 82
   %292 = load i8, ptr %291, align 2, !range !4, !noundef !5
   %293 = trunc nuw i8 %292 to i1
-  %294 = tail call ptr @coerce_null_to_domain(i32 noundef %283, i32 noundef %285, i32 noundef %287, i32 noundef %290, i1 noundef zeroext %293) #10
+  %294 = tail call ptr @coerce_null_to_domain(i32 noundef %283, i32 noundef %285, i32 noundef %287, i32 noundef %290, i1 noundef zeroext %293) #9
   br label %295
 
 295:                                              ; preds = %278, %281
@@ -6275,8 +6219,8 @@ process_matched_tle.exit:                         ; preds = %59, %156
 296:                                              ; preds = %295
   %297 = trunc i64 %indvars.iv244 to i16
   %298 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %299 = tail call ptr @pstrdup(ptr noundef nonnull %298) #10
-  %300 = tail call ptr @makeTargetEntry(ptr noundef nonnull %.0, i16 noundef signext %297, ptr noundef %299, i1 noundef zeroext false) #10
+  %299 = tail call ptr @pstrdup(ptr noundef nonnull %298) #9
+  %300 = tail call ptr @makeTargetEntry(ptr noundef nonnull %.0, i16 noundef signext %297, ptr noundef %299, i1 noundef zeroext false) #9
   br label %301
 
 301:                                              ; preds = %295, %296, %.thread196
@@ -6285,7 +6229,7 @@ process_matched_tle.exit:                         ; preds = %59, %156
   br i1 %.not178, label %304, label %302
 
 302:                                              ; preds = %301
-  %303 = tail call ptr @lappend(ptr noundef %.0135229, ptr noundef nonnull %.0141) #10
+  %303 = tail call ptr @lappend(ptr noundef %.0135229, ptr noundef nonnull %.0141) #9
   br label %304
 
 304:                                              ; preds = %301, %302, %171
@@ -6297,8 +6241,8 @@ process_matched_tle.exit:                         ; preds = %59, %156
 
 ._crit_edge:                                      ; preds = %304, %.critedge
   %.0135.lcssa = phi ptr [ null, %.critedge ], [ %.1, %304 ]
-  tail call void @pfree(ptr noundef %15) #10
-  %305 = tail call ptr @list_concat(ptr noundef %.0135.lcssa, ptr noundef %.0145.lcssa) #10
+  tail call void @pfree(ptr noundef %15) #9
+  %305 = tail call ptr @list_concat(ptr noundef %.0135.lcssa, ptr noundef %.0145.lcssa) #9
   ret ptr %305
 }
 
@@ -6377,15 +6321,14 @@ define internal fastcc ptr @matchLocks(i32 noundef range(i32 2, 1) %0, ptr nound
   br i1 %38, label %39, label %47
 
 39:                                               ; preds = %36
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 1088) #10
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %41 = tail call i32 @errcode(i32 noundef 1088) #9
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %44) #10
-  %46 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.64) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1691, ptr noundef nonnull @__func__.matchLocks) #10
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %44) #9
+  %46 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.64) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1691, ptr noundef nonnull @__func__.matchLocks) #9
   unreachable
 
 47:                                               ; preds = %36, %27
@@ -6398,11 +6341,11 @@ define internal fastcc ptr @matchLocks(i32 noundef range(i32 2, 1) %0, ptr nound
   br i1 %.not35, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = tail call zeroext i1 @rangeTableEntry_used(ptr noundef nonnull %3, i32 noundef %2, i32 noundef 0) #10
+  %52 = tail call zeroext i1 @rangeTableEntry_used(ptr noundef nonnull %3, i32 noundef %2, i32 noundef 0) #9
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %51, %49
-  %54 = tail call ptr @lappend(ptr noundef %.02937, ptr noundef nonnull %22) #10
+  %54 = tail call ptr @lappend(ptr noundef %.02937, ptr noundef nonnull %22) #9
   br label %55
 
 55:                                               ; preds = %47, %53, %51, %35, %35, %34, %34
@@ -6487,7 +6430,7 @@ define internal fastcc ptr @findDefaultOnlyColumns(ptr readonly captures(address
 
 25:                                               ; preds = %.lr.ph25
   %indvars40 = trunc i64 %indvars.iv.next39 to i32
-  %26 = tail call ptr @bms_add_member(ptr noundef %.21522, i32 noundef %indvars40) #10
+  %26 = tail call ptr @bms_add_member(ptr noundef %.21522, i32 noundef %indvars40) #9
   %.pre48 = load i32, ptr %12, align 4
   br label %27
 
@@ -6512,7 +6455,7 @@ define internal fastcc ptr @findDefaultOnlyColumns(ptr readonly captures(address
 
 37:                                               ; preds = %.lr.ph12
   %indvars = trunc i64 %indvars.iv.next to i32
-  %38 = tail call ptr @bms_del_member(ptr noundef %.559, i32 noundef %indvars) #10
+  %38 = tail call ptr @bms_del_member(ptr noundef %.559, i32 noundef %indvars) #9
   %.pre = load i32, ptr %12, align 4
   br label %39
 
@@ -6614,7 +6557,7 @@ define internal zeroext i1 @fireRIRonSubLink(ptr noundef %0, ptr noundef %1) #0 
   br label %17
 
 17:                                               ; preds = %7, %4
-  %18 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @fireRIRonSubLink, ptr noundef %1) #10
+  %18 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @fireRIRonSubLink, ptr noundef %1) #9
   br label %19
 
 19:                                               ; preds = %2, %17
@@ -6664,10 +6607,10 @@ define internal fastcc void @markQueryForLocking(ptr noundef %0, ptr noundef rea
   ]
 
 20:                                               ; preds = %8
-  tail call void @applyLockingClause(ptr noundef nonnull %.tr.ph70, i32 noundef %10, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true) #10
+  tail call void @applyLockingClause(ptr noundef nonnull %.tr.ph70, i32 noundef %10, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true) #9
   %21 = getelementptr inbounds nuw i8, ptr %.tr.ph70, i64 72
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @getRTEPermissionInfo(ptr noundef %22, ptr noundef nonnull %17) #10
+  %23 = tail call ptr @getRTEPermissionInfo(ptr noundef %22, ptr noundef nonnull %17) #9
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = or i64 %25, 4
@@ -6675,7 +6618,7 @@ define internal fastcc void @markQueryForLocking(ptr noundef %0, ptr noundef rea
   br label %.critedge
 
 tailrecurse.outer:                                ; preds = %8
-  tail call void @applyLockingClause(ptr noundef nonnull %.tr.ph70, i32 noundef %10, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true) #10
+  tail call void @applyLockingClause(ptr noundef nonnull %.tr.ph70, i32 noundef %10, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true) #9
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -6718,11 +6661,10 @@ tailrecurse:                                      ; preds = %6
   br i1 %49, label %.critedge, label %6
 
 50:                                               ; preds = %6
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %51)
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %52 = load i32, ptr %.tr5369, align 4
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.82, i32 noundef %52) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1936, ptr noundef nonnull @__func__.markQueryForLocking) #10
+  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.82, i32 noundef %52) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1936, ptr noundef nonnull @__func__.markQueryForLocking) #9
   unreachable
 
 .critedge:                                        ; preds = %tailrecurse.outer, %8, %tailrecurse, %.lr.ph76, %4, %32, %.lr.ph73, %20
@@ -6741,14 +6683,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #8
+declare i8 @llvm.fshl.i8(i8, i8, i8) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6757,12 +6696,11 @@ attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem:
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

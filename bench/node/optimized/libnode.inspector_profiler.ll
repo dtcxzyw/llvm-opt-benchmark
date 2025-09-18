@@ -3431,58 +3431,49 @@ do.end8:                                          ; preds = %if.end.i121
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #21
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %13 = load i64, ptr %call1.i, align 8
   %sub.i.i.i.i.i = add i64 %13, 47
   %14 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %15 = load i64, ptr %14, align 8
-  %sub.i.i41.i.i.i = add i64 %15, 327
-  %16 = inttoptr i64 %sub.i.i41.i.i.i to ptr
+  %sub.i.i22.i.i = add i64 %15, 271
+  %16 = inttoptr i64 %sub.i.i22.i.i to ptr
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %19, %18
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i22.i.i = add i64 %15, 271
-  %20 = inttoptr i64 %sub.i.i22.i.i to ptr
-  %21 = load i64, ptr %20, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %22, i64 88
-  %23 = load ptr, ptr %isolate_.i, align 8
-  %24 = load i32, ptr %length_.i59, align 8
-  %cmp2.i = icmp slt i32 %24, 1
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %18, i64 88
+  %19 = load ptr, ptr %isolate_.i, align 8
+  %20 = load i32, ptr %length_.i59, align 8
+  %cmp2.i = icmp slt i32 %20, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end8
-  %25 = load ptr, ptr %args, align 8
-  %arrayidx.i89 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %26 = load ptr, ptr %arrayidx.i89, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %add1.i.i = add i64 %27, 608
-  %28 = inttoptr i64 %add1.i.i to ptr
+  %21 = load ptr, ptr %args, align 8
+  %arrayidx.i89 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %22 = load ptr, ptr %arrayidx.i89, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %add1.i.i = add i64 %23, 608
+  %24 = inttoptr i64 %add1.i.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %do.end8
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %29 = load ptr, ptr %values_.i, align 8
+  %25 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %28, %if.then.i ], [ %29, %if.end.i ]
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %directory, ptr noundef %23, ptr %retval.i.sroa.0.0) #21
+  %retval.i.sroa.0.0 = phi ptr [ %24, %if.then.i ], [ %25, %if.end.i ]
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %directory, ptr noundef %19, ptr %retval.i.sroa.0.0) #21
   %buf_.i = getelementptr inbounds nuw i8, ptr %directory, i64 16
-  %30 = load ptr, ptr %buf_.i, align 8
-  call void @_ZN4node11Environment22set_coverage_directoryEPKc(ptr noundef nonnull align 8 dereferenceable(2872) %22, ptr noundef %30)
-  %31 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i11 = icmp ne ptr %31, null
+  %26 = load ptr, ptr %buf_.i, align 8
+  call void @_ZN4node11Environment22set_coverage_directoryEPKc(ptr noundef nonnull align 8 dereferenceable(2872) %18, ptr noundef %26)
+  %27 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i11 = icmp ne ptr %27, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %directory, i64 24
-  %cmp.i.i.i12 = icmp ne ptr %31, %buf_st_.i.i.i
-  %32 = select i1 %cmp.i.i.i.i11, i1 %cmp.i.i.i12, i1 false
-  br i1 %32, label %if.then.i.i, label %_ZN4node9Utf8ValueD2Ev.exit
+  %cmp.i.i.i12 = icmp ne ptr %27, %buf_st_.i.i.i
+  %28 = select i1 %cmp.i.i.i.i11, i1 %cmp.i.i.i12, i1 false
+  br i1 %28, label %if.then.i.i, label %_ZN4node9Utf8ValueD2Ev.exit
 
 if.then.i.i:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  call void @free(ptr noundef nonnull %31) #21
+  call void @free(ptr noundef nonnull %27) #21
   br label %_ZN4node9Utf8ValueD2Ev.exit
 
 _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.then.i.i
@@ -3596,54 +3587,45 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #21
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i.i.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i41.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i41.i.i.i to ptr
+  %sub.i.i22.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i22.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i22.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i22.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %coverage_connection_.i = getelementptr inbounds nuw i8, ptr %11, i64 1496
-  %12 = load ptr, ptr %coverage_connection_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2307
-  %13 = load i8, ptr %arrayidx.i.i, align 1
-  %tobool.i.i = trunc i8 %13 to i1
+  %coverage_connection_.i = getelementptr inbounds nuw i8, ptr %7, i64 1496
+  %8 = load ptr, ptr %coverage_connection_.i, align 8
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 2307
+  %9 = load i8, ptr %arrayidx.i.i, align 1
+  %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.end.i15, label %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
 
 if.end.i15:                                       ; preds = %entry
-  %cmp = icmp eq ptr %12, null
+  %cmp = icmp eq ptr %8, null
   %.str.82..str.83 = select i1 %cmp, ptr @.str.82, ptr @.str.83
-  %14 = load ptr, ptr @stderr, align 8
-  tail call void @_ZN4node7FPrintFIJRA3_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %14, ptr noundef nonnull @.str.81, ptr noundef nonnull align 1 dereferenceable(3) %.str.82..str.83) #22
+  %10 = load ptr, ptr @stderr, align 8
+  tail call void @_ZN4node7FPrintFIJRA3_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.81, ptr noundef nonnull align 1 dereferenceable(3) %.str.82..str.83) #22
   br label %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
 
 _ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit: ; preds = %entry, %if.end.i15
-  %cmp2.not = icmp eq ptr %12, null
+  %cmp2.not = icmp eq ptr %8, null
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
   store ptr @.str.84, ptr %message.addr.i4, align 8
-  %15 = load i8, ptr %arrayidx.i.i, align 1
-  %tobool.i = trunc i8 %15 to i1
+  %11 = load i8, ptr %arrayidx.i.i, align 1
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit
 
 if.end.i:                                         ; preds = %if.then
-  %16 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %16, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i4) #22
+  %12 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %12, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i4) #22
   br label %_ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit
 
 _ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit: ; preds = %if.then, %if.end.i
-  %call.i = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %12, ptr noundef nonnull @.str.21, ptr noundef null, i1 noundef zeroext true)
+  %call.i = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef nonnull @.str.21, ptr noundef null, i1 noundef zeroext true)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit, %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
@@ -3661,54 +3643,45 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #21
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i.i.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i41.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i41.i.i.i to ptr
+  %sub.i.i22.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i22.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i22.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i22.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %coverage_connection_.i = getelementptr inbounds nuw i8, ptr %11, i64 1496
-  %12 = load ptr, ptr %coverage_connection_.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 2307
-  %13 = load i8, ptr %arrayidx.i.i, align 1
-  %tobool.i.i = trunc i8 %13 to i1
+  %coverage_connection_.i = getelementptr inbounds nuw i8, ptr %7, i64 1496
+  %8 = load ptr, ptr %coverage_connection_.i, align 8
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 2307
+  %9 = load i8, ptr %arrayidx.i.i, align 1
+  %tobool.i.i = trunc i8 %9 to i1
   br i1 %tobool.i.i, label %if.end.i15, label %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
 
 if.end.i15:                                       ; preds = %entry
-  %cmp = icmp eq ptr %12, null
+  %cmp = icmp eq ptr %8, null
   %.str.82..str.83 = select i1 %cmp, ptr @.str.82, ptr @.str.83
-  %14 = load ptr, ptr @stderr, align 8
-  tail call void @_ZN4node7FPrintFIJRA3_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %14, ptr noundef nonnull @.str.88, ptr noundef nonnull align 1 dereferenceable(3) %.str.82..str.83) #22
+  %10 = load ptr, ptr @stderr, align 8
+  tail call void @_ZN4node7FPrintFIJRA3_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %10, ptr noundef nonnull @.str.88, ptr noundef nonnull align 1 dereferenceable(3) %.str.82..str.83) #22
   br label %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
 
 _ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit: ; preds = %entry, %if.end.i15
-  %cmp2.not = icmp eq ptr %12, null
+  %cmp2.not = icmp eq ptr %8, null
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit
   store ptr @.str.89, ptr %message.addr.i4, align 8
-  %15 = load i8, ptr %arrayidx.i.i, align 1
-  %tobool.i = trunc i8 %15 to i1
+  %11 = load i8, ptr %arrayidx.i.i, align 1
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %if.end.i, label %_ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit
 
 if.end.i:                                         ; preds = %if.then
-  %16 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %16, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i4) #22
+  %12 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %12, ptr noundef nonnull @.str.53, ptr noundef nonnull align 8 dereferenceable(8) %message.addr.i4) #22
   br label %_ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit
 
 _ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit: ; preds = %if.then, %if.end.i
-  %call.i = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %12, ptr noundef nonnull @.str.22, ptr noundef null, i1 noundef zeroext false)
+  %call.i = call noundef i32 @_ZN4node8profiler20V8ProfilerConnection15DispatchMessageEPKcS3_b(ptr noundef nonnull align 8 dereferenceable(97) %8, ptr noundef nonnull @.str.22, ptr noundef null, i1 noundef zeroext false)
   br label %if.end
 
 if.end:                                           ; preds = %_ZN4node5DebugEPNS_16EnabledDebugListENS_13DebugCategoryEPKc.exit, %_ZN4node5DebugIJRA3_KcEEEvPNS_16EnabledDebugListENS_13DebugCategoryEPS1_DpOT_.exit

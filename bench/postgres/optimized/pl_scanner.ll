@@ -73,7 +73,7 @@ define hidden i32 @plpgsql_yylex(ptr noundef writeonly captures(none) %0, ptr no
   %23 = load ptr, ptr %4, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = load ptr, ptr %8, align 8
-  %26 = call zeroext i1 @plpgsql_parse_tripword(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull %4) #12
+  %26 = call zeroext i1 @plpgsql_parse_tripword(ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   br label %71
 
 27:                                               ; preds = %19
@@ -84,10 +84,9 @@ define hidden i32 @plpgsql_yylex(ptr noundef writeonly captures(none) %0, ptr no
   br i1 %31, label %32, label %push_back_token.exit
 
 32:                                               ; preds = %27
-  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %33)
-  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit:                             ; preds = %27
@@ -114,10 +113,9 @@ push_back_token.exit:                             ; preds = %27
   br i1 %51, label %52, label %push_back_token.exit57
 
 52:                                               ; preds = %push_back_token.exit
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %53)
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit57:                           ; preds = %push_back_token.exit
@@ -139,7 +137,7 @@ push_back_token.exit57:                           ; preds = %push_back_token.exi
   store i32 %67, ptr %65, align 8
   %68 = load ptr, ptr %4, align 8
   %69 = load ptr, ptr %6, align 8
-  %70 = call zeroext i1 @plpgsql_parse_dblword(ptr noundef %68, ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %4) #12
+  %70 = call zeroext i1 @plpgsql_parse_dblword(ptr noundef %68, ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   br label %71
 
 71:                                               ; preds = %push_back_token.exit57, %22
@@ -166,10 +164,9 @@ push_back_token.exit57:                           ; preds = %push_back_token.exi
   br i1 %83, label %84, label %push_back_token.exit58
 
 84:                                               ; preds = %79
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %85)
-  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit58:                           ; preds = %79
@@ -191,7 +188,7 @@ push_back_token.exit58:                           ; preds = %79
   store i32 %99, ptr %97, align 8
   %100 = load ptr, ptr %4, align 8
   %101 = load ptr, ptr %6, align 8
-  %102 = call zeroext i1 @plpgsql_parse_dblword(ptr noundef %100, ptr noundef %101, ptr noundef nonnull %4, ptr noundef nonnull %4) #12
+  %102 = call zeroext i1 @plpgsql_parse_dblword(ptr noundef %100, ptr noundef %101, ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   %.56 = select i1 %102, i32 277, i32 276
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %104 = load i32, ptr %103, align 8
@@ -218,10 +215,9 @@ push_back_token.exit58:                           ; preds = %79
   br i1 %117, label %118, label %push_back_token.exit59
 
 118:                                              ; preds = %113
-  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %119)
-  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit59:                           ; preds = %113
@@ -248,10 +244,9 @@ push_back_token.exit59:                           ; preds = %113
   br i1 %137, label %138, label %push_back_token.exit60
 
 138:                                              ; preds = %push_back_token.exit59
-  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %139)
-  %140 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %140 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit60:                           ; preds = %push_back_token.exit59
@@ -278,7 +273,7 @@ push_back_token.exit60:                           ; preds = %push_back_token.exi
   %158 = load i32, ptr %157, align 8
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %156, i64 %159
-  %161 = call zeroext i1 @plpgsql_parse_word(ptr noundef %154, ptr noundef %160, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef nonnull %4) #12
+  %161 = call zeroext i1 @plpgsql_parse_word(ptr noundef %154, ptr noundef %160, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   br i1 %161, label %179, label %162
 
 162:                                              ; preds = %push_back_token.exit60
@@ -289,7 +284,7 @@ push_back_token.exit60:                           ; preds = %push_back_token.exi
 
 166:                                              ; preds = %162
   %167 = load ptr, ptr %4, align 8
-  %168 = call i32 @ScanKeywordLookup(ptr noundef %167, ptr noundef nonnull @UnreservedPLKeywords) #12
+  %168 = call i32 @ScanKeywordLookup(ptr noundef %167, ptr noundef nonnull @UnreservedPLKeywords) #11
   %169 = icmp sgt i32 %168, -1
   br i1 %169, label %170, label %179
 
@@ -318,10 +313,9 @@ push_back_token.exit60:                           ; preds = %push_back_token.exi
   br i1 %184, label %185, label %push_back_token.exit61
 
 185:                                              ; preds = %180
-  %186 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %186)
-  %187 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %186 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %187 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit61:                           ; preds = %180
@@ -370,7 +364,7 @@ push_back_token.exit61:                           ; preds = %180
 
 switch.edge:                                      ; preds = %210, %210, %210, %push_back_token.exit61, %211
   %212 = phi i1 [ true, %210 ], [ false, %211 ], [ true, %push_back_token.exit61 ], [ true, %210 ], [ true, %210 ]
-  %213 = call zeroext i1 @plpgsql_parse_word(ptr noundef %201, ptr noundef %207, i1 noundef zeroext %212, ptr noundef nonnull %4, ptr noundef nonnull %4) #12
+  %213 = call zeroext i1 @plpgsql_parse_word(ptr noundef %201, ptr noundef %207, i1 noundef zeroext %212, ptr noundef nonnull %4, ptr noundef nonnull %4) #11
   br i1 %213, label %231, label %214
 
 214:                                              ; preds = %switch.edge
@@ -381,7 +375,7 @@ switch.edge:                                      ; preds = %210, %210, %210, %p
 
 218:                                              ; preds = %214
   %219 = load ptr, ptr %4, align 8
-  %220 = call i32 @ScanKeywordLookup(ptr noundef %219, ptr noundef nonnull @UnreservedPLKeywords) #12
+  %220 = call i32 @ScanKeywordLookup(ptr noundef %219, ptr noundef nonnull @UnreservedPLKeywords) #11
   %221 = icmp sgt i32 %220, -1
   br i1 %221, label %222, label %231
 
@@ -445,13 +439,13 @@ define internal fastcc i32 @internal_yylex(ptr noundef nonnull %0, ptr noundef %
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = tail call i32 @core_yylex(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %1) #12
+  %20 = tail call i32 @core_yylex(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %1) #11
   %21 = load ptr, ptr %1, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %19, align 8
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %22, i64 %24
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #14
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #13
   %27 = trunc i64 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %27, ptr %28, align 4
@@ -505,7 +499,7 @@ sub_130:                                          ; preds = %sub_0
   br label %.tail28
 
 45:                                               ; preds = %18
-  %46 = tail call ptr @pstrdup(ptr noundef nonnull %25) #12
+  %46 = tail call ptr @pstrdup(ptr noundef nonnull %25) #11
   store ptr %46, ptr %0, align 8
   br label %.tail28
 
@@ -545,10 +539,9 @@ define hidden void @plpgsql_push_back_token(i32 noundef %0, ptr noundef readonly
   br i1 %8, label %9, label %push_back_token.exit
 
 9:                                                ; preds = %4
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit:                             ; preds = %4
@@ -606,7 +599,7 @@ define hidden void @plpgsql_append_source_text(ptr noundef %0, i32 noundef %1, i
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds i8, ptr %7, i64 %8
   %10 = sub i32 %2, %1
-  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %9, i32 noundef %10) #12
+  tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %9, i32 noundef %10) #11
   ret void
 }
 
@@ -624,10 +617,9 @@ define hidden i32 @plpgsql_peek(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %push_back_token.exit
 
 8:                                                ; preds = %1
-  %9 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %9)
-  %10 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %9 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %10 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit:                             ; preds = %1
@@ -688,10 +680,9 @@ define hidden void @plpgsql_peek2(ptr noundef writeonly captures(none) initializ
   br i1 %21, label %22, label %push_back_token.exit
 
 22:                                               ; preds = %17
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %23)
-  %24 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %24 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit:                             ; preds = %17
@@ -718,10 +709,9 @@ push_back_token.exit:                             ; preds = %17
   br i1 %41, label %42, label %push_back_token.exit15
 
 42:                                               ; preds = %push_back_token.exit
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  call void @llvm.assume(i1 %43)
-  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #12
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #12
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 388, ptr noundef nonnull @__func__.push_back_token) #11
   unreachable
 
 push_back_token.exit15:                           ; preds = %push_back_token.exit
@@ -759,13 +749,13 @@ define hidden i32 @plpgsql_scanner_errposition(i32 noundef %0, ptr noundef reado
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %7, i32 noundef %0) #12
+  %10 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %7, i32 noundef %0) #11
   %11 = add i32 %10, 1
-  %12 = tail call i32 @internalerrposition(i32 noundef %11) #12
+  %12 = tail call i32 @internalerrposition(i32 noundef %11) #11
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @internalerrquery(ptr noundef %15) #12
+  %16 = tail call i32 @internalerrquery(ptr noundef %15) #11
   br label %17
 
 17:                                               ; preds = %2, %4, %9
@@ -791,13 +781,12 @@ define hidden void @plpgsql_yyerror(ptr noundef readonly captures(none) %0, ptr 
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 16801924) #12
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %3) #12
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %14 = tail call i32 @errcode(i32 noundef 16801924) #11
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %3) #11
   %16 = load i32, ptr %0, align 4
   %17 = tail call i32 @plpgsql_scanner_errposition(i32 noundef %16, ptr noundef nonnull %2)
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 544, ptr noundef nonnull @__func__.plpgsql_yyerror) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 544, ptr noundef nonnull @__func__.plpgsql_yyerror) #11
   unreachable
 
 18:                                               ; preds = %4
@@ -806,13 +795,12 @@ define hidden void @plpgsql_yyerror(ptr noundef readonly captures(none) %0, ptr 
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %9, i64 %21
   store i8 0, ptr %22, align 1
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #13
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 @errcode(i32 noundef 16801924) #12
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef nonnull %9) #12
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #12
+  %24 = tail call i32 @errcode(i32 noundef 16801924) #11
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef nonnull %9) #11
   %26 = load i32, ptr %0, align 4
   %27 = tail call i32 @plpgsql_scanner_errposition(i32 noundef %26, ptr noundef nonnull %2)
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 560, ptr noundef nonnull @__func__.plpgsql_yyerror) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 560, ptr noundef nonnull @__func__.plpgsql_yyerror) #11
   unreachable
 }
 
@@ -853,7 +841,7 @@ define hidden i32 @plpgsql_location_to_lineno(i32 noundef %0, ptr noundef readon
   %18 = load ptr, ptr %1, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 288
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 10) #14
+  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %20, i32 noundef 10) #13
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 296
   store ptr %21, ptr %22, align 8
   %.pre = load ptr, ptr %1, align 8
@@ -882,7 +870,7 @@ define hidden i32 @plpgsql_location_to_lineno(i32 noundef %0, ptr noundef readon
   %36 = load ptr, ptr %1, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 288
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 10) #14
+  %39 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %38, i32 noundef 10) #13
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 296
   store ptr %39, ptr %40, align 8
   %41 = load ptr, ptr %1, align 8
@@ -917,8 +905,8 @@ define hidden i32 @plpgsql_latest_lineno(ptr noundef readonly captures(none) %0)
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @plpgsql_scanner_init(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc0(i64 noundef 312) #12
-  %3 = tail call ptr @scanner_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @ReservedPLKeywords, ptr noundef nonnull @ReservedPLKeywordTokens) #12
+  %2 = tail call ptr @palloc0(i64 noundef 312) #11
+  %3 = tail call ptr @scanner_init(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @ReservedPLKeywords, ptr noundef nonnull @ReservedPLKeywordTokens) #11
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store ptr %0, ptr %4, align 8
   store i32 0, ptr @plpgsql_IdentifierLookup, align 4
@@ -937,7 +925,7 @@ define hidden noundef ptr @plpgsql_scanner_init(ptr noundef %0) local_unnamed_ad
   %13 = load ptr, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 10) #14
+  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 10) #13
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 296
   store ptr %16, ptr %17, align 8
   ret ptr %3
@@ -949,7 +937,7 @@ declare ptr @scanner_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define hidden void @plpgsql_scanner_finish(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @scanner_finish(ptr noundef %0) #12
+  tail call void @scanner_finish(ptr noundef %0) #11
   ret void
 }
 
@@ -1054,9 +1042,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1068,10 +1053,9 @@ attributes #7 = { nofree norecurse nounwind memory(readwrite, inaccessiblemem: n
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -114,12 +114,12 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr no
 9:                                                ; preds = %16, %11
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #22
+  tail call void @_ZN6icu_7715MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) #21
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3
   %12 = zext nneg i32 %1 to i64
-  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #23
+  %13 = invoke noalias ptr @uprv_malloc_77(i64 noundef %12) #22
           to label %.noexc unwind label %9
 
 .noexc:                                           ; preds = %11
@@ -155,7 +155,7 @@ define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE6resizeEii(ptr n
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #23
+  %7 = tail call noalias ptr @uprv_malloc_77(i64 noundef %6) #22
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %21, label %8
 
@@ -215,7 +215,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %1, %4
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #24
+  tail call void @__clang_call_terminate(ptr %8) #23
   unreachable
 }
 
@@ -237,8 +237,8 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv(ptr no
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #3 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #24
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #23
   unreachable
 }
 
@@ -340,7 +340,7 @@ _ZN6icu_7715MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %2, %5
   %21 = landingpad { ptr, i32 }
           catch ptr null
   %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #24
+  tail call void @__clang_call_terminate(ptr %22) #23
   unreachable
 }
 
@@ -433,7 +433,7 @@ define weak_odr noundef ptr @_ZN6icu_7715MaybeStackArrayIcLi40EE13orphanOrCloneE
   %12 = load i32, ptr %11, align 8, !tbaa !10
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %12)
   %13 = sext i32 %spec.select to i64
-  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #23
+  %14 = tail call noalias ptr @uprv_malloc_77(i64 noundef %13) #22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %21, label %16
 
@@ -472,7 +472,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 
 10:                                               ; preds = %6
   %11 = zext nneg i32 %8 to i64
-  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #23
+  %12 = tail call noalias ptr @uprv_malloc_77(i64 noundef %11) #22
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %18, label %13
 
@@ -576,7 +576,7 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %3
   br i1 %28, label %29, label %67
 
 29:                                               ; preds = %27
-  %30 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 320) #22
+  %30 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 320) #21
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread109, label %32
 
@@ -597,7 +597,7 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %3
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %30) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %30) #21
   br label %103
 
 35:                                               ; preds = %32
@@ -606,9 +606,9 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %3
   br i1 %36, label %.thread92, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #25
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #24
   %39 = add i64 %38, 1
-  %40 = invoke noalias ptr @uprv_malloc_77(i64 noundef %39) #23
+  %40 = invoke noalias ptr @uprv_malloc_77(i64 noundef %39) #22
           to label %41 unwind label %43
 
 41:                                               ; preds = %37
@@ -621,13 +621,13 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %3
   br label %103
 
 45:                                               ; preds = %41
-  %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %24) #22
+  %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %24) #21
   %.pre72 = load i32, ptr %2, align 4, !tbaa !13
   %47 = icmp sgt i32 %.pre72, 0
   br i1 %47, label %.thread92, label %48
 
 48:                                               ; preds = %45
-  %49 = invoke noalias dereferenceable_or_null(24) ptr @uprv_malloc_77(i64 noundef 24) #23
+  %49 = invoke noalias dereferenceable_or_null(24) ptr @uprv_malloc_77(i64 noundef 24) #22
           to label %50 unwind label %43
 
 50:                                               ; preds = %48
@@ -668,7 +668,7 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %3
   %61 = load ptr, ptr %30, align 8, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %30) #22
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %30) #21
   %.not59 = icmp eq ptr %.039859097, null
   br i1 %.not59, label %65, label %64
 
@@ -768,7 +768,7 @@ _ZN6icu_775MutexC2EPNS_6UMutexE.exit:             ; preds = %3
   %101 = landingpad { ptr, i32 }
           catch ptr null
   %102 = extractvalue { ptr, i32 } %101, 0
-  call void @__clang_call_terminate(ptr %102) #24
+  call void @__clang_call_terminate(ptr %102) #23
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.thread
@@ -783,12 +783,12 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.thread
   %105 = landingpad { ptr, i32 }
           catch ptr null
   %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #24
+  call void @__clang_call_terminate(ptr %106) #23
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit69:                      ; preds = %103, %16
   %.pn62.pn.pn = phi { ptr, i32 } [ %17, %16 ], [ %.pn62.pn, %103 ]
-  call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   resume { ptr, i32 } %.pn62.pn.pn
 }
 
@@ -812,7 +812,7 @@ define internal void @_ZN6icu_77L29deleteTimeZoneNamesCacheEntryEPv(ptr noundef 
   %5 = load ptr, ptr %2, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(320) %2) #22
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(320) %2) #21
   br label %8
 
 8:                                                ; preds = %4, %1
@@ -860,7 +860,7 @@ declare ptr @uhash_put_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7713TimeZoneNamesD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   ret void
 }
 
@@ -888,14 +888,14 @@ define void @_ZN6icu_7721TimeZoneNamesDelegateD2Ev(ptr noundef nonnull align 8 d
           to label %10 unwind label %11
 
 10:                                               ; preds = %9
-  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
+  tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   ret void
 
 11:                                               ; preds = %9, %1
   %12 = landingpad { ptr, i32 }
           catch ptr null
   %13 = extractvalue { ptr, i32 } %12, 0
-  tail call void @__clang_call_terminate(ptr %13) #24
+  tail call void @__clang_call_terminate(ptr %13) #23
   unreachable
 }
 
@@ -905,8 +905,8 @@ declare void @umtx_unlock_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7721TimeZoneNamesDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6icu_7721TimeZoneNamesDelegateD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_7721TimeZoneNamesDelegateD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -916,7 +916,7 @@ define noundef zeroext i1 @_ZNK6icu_7721TimeZoneNamesDelegateeqERKNS_13TimeZoneN
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_7713TimeZoneNamesE, ptr nonnull @_ZTIN6icu_7721TimeZoneNamesDelegateE, i64 0) #22
+  %5 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_7713TimeZoneNamesE, ptr nonnull @_ZTIN6icu_7721TimeZoneNamesDelegateE, i64 0) #21
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
 
@@ -938,7 +938,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_7721TimeZoneNamesDelegate5cloneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #22
+  %2 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread, label %4
 
@@ -962,7 +962,7 @@ define noundef ptr @_ZNK6icu_7721TimeZoneNamesDelegate5cloneEv(ptr noundef nonnu
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %2) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %2) #21
   resume { ptr, i32 } %13
 
 .thread:                                          ; preds = %1, %5
@@ -1094,7 +1094,7 @@ declare void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7713TimeZoneNamesD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #15 align 2 {
-  tail call void @llvm.trap() #24
+  tail call void @llvm.trap() #23
   unreachable
 }
 
@@ -1108,7 +1108,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames14createInstanceERKNS_6LocaleER10UE
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #22
+  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
 
@@ -1128,7 +1128,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames14createInstanceERKNS_6LocaleER10UE
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #21
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %8, %9, %12, %2
@@ -1143,7 +1143,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames18createTZDBInstanceERKNS_6LocaleER
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 296) #22
+  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 296) #21
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
 
@@ -1163,7 +1163,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames18createTZDBInstanceERKNS_6LocaleER
 13:                                               ; preds = %8
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #21
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %8, %9, %12, %2
@@ -1212,7 +1212,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713TimeZoneNam
           to label %25 unwind label %26
 
 25:                                               ; preds = %20
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #22
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %28
@@ -1220,7 +1220,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713TimeZoneNam
 26:                                               ; preds = %20, %15
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #22
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %27
@@ -1263,7 +1263,7 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %44, %14
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #22
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %45
 
@@ -1299,7 +1299,7 @@ define void @_ZNK6icu_7713TimeZoneNames15getDisplayNamesERKNS_13UnicodeStringEPK
 36:                                               ; preds = %38, %31, %.lr.ph
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #22
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %37
 
@@ -1340,7 +1340,7 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionD2Ev(ptr noundef nonn
   %6 = load ptr, ptr %3, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(40) %3) #22
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(40) %3) #21
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -1349,8 +1349,8 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_7713TimeZoneNames19MatchInfoCollectionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #21
   ret void
 }
 
@@ -1359,11 +1359,11 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7addZoneE17UTimeZoneN
   %6 = alloca %"class.icu_77::LocalPointer", align 8
   %7 = load i32, ptr %4, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %43
+  br i1 %8, label %9, label %42
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #22
+  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #21
   %11 = icmp eq ptr %10, null
   br i1 %11, label %20, label %12
 
@@ -1381,9 +1381,9 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7addZoneE17UTimeZoneN
 .body:                                            ; preds = %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #22
-  br label %44
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #21
+  br label %43
 
 .thread:                                          ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 76
@@ -1409,7 +1409,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
   br i1 %.not12.i, label %26, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27
 
 26:                                               ; preds = %23
-  %27 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #22
+  %27 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #21
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
 
@@ -1425,7 +1425,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %27) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %27) #21
   br label %.body17
 
 33:                                               ; preds = %29
@@ -1438,43 +1438,40 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
   %36 = load ptr, ptr %27, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(40) %27) #22
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(40) %27) #21
   store ptr null, ptr %24, align 8, !tbaa !38
-  %.pre = load i32, ptr %4, align 4, !tbaa !13
-  %39 = icmp sgt i32 %.pre, 0
-  tail call void @llvm.assume(i1 %39)
   br label %.thread31
 
-40:                                               ; preds = %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body17
 
-.body17:                                          ; preds = %31, %40
-  %eh.lpad-body18 = phi { ptr, i32 } [ %41, %40 ], [ %32, %31 ]
-  call void @_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
-  br label %44
+.body17:                                          ; preds = %31, %39
+  %eh.lpad-body18 = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ]
+  call void @_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
+  br label %43
 
 _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27: ; preds = %33, %23
   %.0.i29 = phi ptr [ %27, %33 ], [ %25, %23 ]
   store ptr null, ptr %6, align 8, !tbaa !47
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.0.i29, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %40
+          to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %39
 
 .thread31:                                        ; preds = %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit, %30, %.thread
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %42) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #22
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %41) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #21
   br label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread, %20, %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27, %.thread31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %5, %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit
+42:                                               ; preds = %5, %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit
   ret void
 
-44:                                               ; preds = %.body, %.body17
+43:                                               ; preds = %.body, %.body17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body18, %.body17 ], [ %17, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
@@ -1493,7 +1490,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
   br i1 %.not12, label %8, label %22
 
 8:                                                ; preds = %5
-  %9 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #22
+  %9 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #21
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
 
@@ -1509,7 +1506,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %9) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %9) #21
   resume { ptr, i32 } %14
 
 15:                                               ; preds = %11
@@ -1522,7 +1519,7 @@ define noundef ptr @_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UE
   %19 = load ptr, ptr %9, align 8, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(40) %9) #22
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(40) %9) #21
   store ptr null, ptr %6, align 8, !tbaa !38
   br label %22
 
@@ -1541,8 +1538,8 @@ define linkonce_odr void @_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev(ptr nound
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %2) #22
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %2) #21
   br label %6
 
 6:                                                ; preds = %4, %1
@@ -1554,11 +1551,11 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection11addMetaZoneE17UTime
   %6 = alloca %"class.icu_77::LocalPointer", align 8
   %7 = load i32, ptr %4, align 4, !tbaa !13
   %8 = icmp slt i32 %7, 1
-  br i1 %8, label %9, label %43
+  br i1 %8, label %9, label %42
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #22
+  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 80) #21
   %11 = icmp eq ptr %10, null
   br i1 %11, label %20, label %12
 
@@ -1576,9 +1573,9 @@ define void @_ZN6icu_7713TimeZoneNames19MatchInfoCollection11addMetaZoneE17UTime
 .body:                                            ; preds = %12
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #22
-  br label %44
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #21
+  br label %43
 
 .thread:                                          ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 76
@@ -1604,7 +1601,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
   br i1 %.not12.i, label %26, label %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27
 
 26:                                               ; preds = %23
-  %27 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #22
+  %27 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #21
   %28 = icmp eq ptr %27, null
   br i1 %28, label %30, label %29
 
@@ -1620,7 +1617,7 @@ _ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread: ; pred
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %27) #22
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %27) #21
   br label %.body17
 
 33:                                               ; preds = %29
@@ -1633,43 +1630,40 @@ _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit: ; pre
   %36 = load ptr, ptr %27, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(40) %27) #22
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(40) %27) #21
   store ptr null, ptr %24, align 8, !tbaa !38
-  %.pre = load i32, ptr %4, align 4, !tbaa !13
-  %39 = icmp sgt i32 %.pre, 0
-  tail call void @llvm.assume(i1 %39)
   br label %.thread31
 
-40:                                               ; preds = %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27
+  %40 = landingpad { ptr, i32 }
           cleanup
   br label %.body17
 
-.body17:                                          ; preds = %31, %40
-  %eh.lpad-body18 = phi { ptr, i32 } [ %41, %40 ], [ %32, %31 ]
-  call void @_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
-  br label %44
+.body17:                                          ; preds = %31, %39
+  %eh.lpad-body18 = phi { ptr, i32 } [ %40, %39 ], [ %32, %31 ]
+  call void @_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
+  br label %43
 
 _ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27: ; preds = %33, %23
   %.0.i29 = phi ptr [ %27, %33 ], [ %25, %23 ]
   store ptr null, ptr %6, align 8, !tbaa !47
   invoke void @_ZN6icu_777UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %.0.i29, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %40
+          to label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit unwind label %39
 
 .thread31:                                        ; preds = %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit, %30, %.thread
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %42) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #22
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %41) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #21
   br label %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit
 
 _ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_9MatchInfoEEC2EPS1_R10UErrorCode.exit.thread, %20, %_ZN6icu_7713TimeZoneNames19MatchInfoCollection7matchesER10UErrorCode.exit.thread27, %.thread31
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %43
+  br label %42
 
-43:                                               ; preds = %5, %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit
+42:                                               ; preds = %5, %_ZN6icu_7712LocalPointerINS_9MatchInfoEED2Ev.exit
   ret void
 
-44:                                               ; preds = %.body, %.body17
+43:                                               ; preds = %.body, %.body17
   %.pn = phi { ptr, i32 } [ %eh.lpad-body18, %.body17 ], [ %17, %.body ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
@@ -1798,8 +1792,8 @@ define internal void @_ZN6icu_77L15deleteMatchInfoEPv(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #22
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #22
+  tail call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #21
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #21
   br label %5
 
 5:                                                ; preds = %3, %1
@@ -1839,9 +1833,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #21
-
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1863,11 +1854,10 @@ attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #22 = { nounwind }
-attributes #23 = { allocsize(0) }
-attributes #24 = { noreturn nounwind }
-attributes #25 = { nounwind willreturn memory(read) }
+attributes #21 = { nounwind }
+attributes #22 = { allocsize(0) }
+attributes #23 = { noreturn nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

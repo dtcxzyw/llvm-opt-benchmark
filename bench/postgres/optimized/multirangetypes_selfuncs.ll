@@ -47,7 +47,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  %27 = call zeroext i1 @get_restriction_variable(ptr noundef %17, ptr noundef %23, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #10
+  %27 = call zeroext i1 @get_restriction_variable(ptr noundef %17, ptr noundef %23, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %1
@@ -70,7 +70,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull %37) #10
+  call void %40(ptr noundef nonnull %37) #9
   br label %41
 
 41:                                               ; preds = %38, %35
@@ -93,7 +93,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull %50) #10
+  call void %53(ptr noundef nonnull %50) #9
   br label %298
 
 54:                                               ; preds = %44
@@ -102,7 +102,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %56, label %65, label %57
 
 57:                                               ; preds = %54
-  %58 = call i32 @get_commutator(i32 noundef %20) #10
+  %58 = call i32 @get_commutator(i32 noundef %20) #9
   %.not82 = icmp eq i32 %58, 0
   br i1 %.not82, label %59, label %65
 
@@ -115,7 +115,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %64 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef nonnull %61) #10
+  call void %64(ptr noundef nonnull %61) #9
   br label %298
 
 65:                                               ; preds = %57, %54
@@ -142,7 +142,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %68 = load i32, ptr %67, align 8
-  %69 = call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %68) #10
+  %69 = call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %68) #9
   %70 = load ptr, ptr %10, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
@@ -173,11 +173,11 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i8 0, ptr %87, align 2
-  %88 = call ptr @range_serialize(ptr noundef nonnull %74, ptr noundef nonnull %13, ptr noundef nonnull %14, i1 noundef zeroext false, ptr noundef null) #10
+  %88 = call ptr @range_serialize(ptr noundef nonnull %74, ptr noundef nonnull %13, ptr noundef nonnull %14, i1 noundef zeroext false, ptr noundef null) #9
   store ptr %88, ptr %12, align 8
   %89 = load i32, ptr %69, align 8
   %90 = load ptr, ptr %73, align 8
-  %91 = call ptr @make_multirange(i32 noundef %89, ptr noundef %90, i32 noundef 1, ptr noundef nonnull %12) #10
+  %91 = call ptr @make_multirange(i32 noundef %89, ptr noundef %90, i32 noundef 1, ptr noundef nonnull %12) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %125
@@ -185,7 +185,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 92:                                               ; preds = %65, %65, %65, %65, %65, %65, %65
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %94 = load i32, ptr %93, align 8
-  %95 = call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %94) #10
+  %95 = call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %94) #9
   %96 = load ptr, ptr %10, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
@@ -199,11 +199,11 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %104 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %105 = load i64, ptr %104, align 8
   %106 = inttoptr i64 %105 to ptr
-  %107 = call ptr @pg_detoast_datum(ptr noundef %106) #10
+  %107 = call ptr @pg_detoast_datum(ptr noundef %106) #9
   store ptr %107, ptr %12, align 8
   %108 = load i32, ptr %95, align 8
   %109 = load ptr, ptr %99, align 8
-  %110 = call ptr @make_multirange(i32 noundef %108, ptr noundef %109, i32 noundef 1, ptr noundef nonnull %12) #10
+  %110 = call ptr @make_multirange(i32 noundef %108, ptr noundef %109, i32 noundef 1, ptr noundef nonnull %12) #9
   br label %125
 
 111:                                              ; preds = %65
@@ -216,12 +216,12 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %117, label %118, label %.thread
 
 118:                                              ; preds = %111
-  %119 = call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %114) #10
+  %119 = call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %114) #9
   %120 = load ptr, ptr %10, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8
   %123 = inttoptr i64 %122 to ptr
-  %124 = call ptr @pg_detoast_datum(ptr noundef %123) #10
+  %124 = call ptr @pg_detoast_datum(ptr noundef %123) #9
   br label %125
 
 125:                                              ; preds = %103, %118, %79
@@ -246,7 +246,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %134 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load float, ptr %135, align 4
-  %137 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %8, ptr noundef nonnull %128, i32 noundef 6, i32 noundef 0, i32 noundef 2) #10
+  %137 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %8, ptr noundef nonnull %128, i32 noundef 6, i32 noundef 0, i32 noundef 2) #9
   br i1 %137, label %138, label %149
 
 138:                                              ; preds = %129
@@ -256,17 +256,16 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not33.i, label %144, label %141
 
 141:                                              ; preds = %138
-  %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %142)
-  %143 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__.calc_multirangesel) #10
+  %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %143 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__.calc_multirangesel) #9
   unreachable
 
 144:                                              ; preds = %138
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %146 = load ptr, ptr %145, align 8
   %147 = load float, ptr %146, align 4
-  call void @free_attstatsslot(ptr noundef nonnull %8) #10
+  call void @free_attstatsslot(ptr noundef nonnull %8) #9
   %148 = fpext float %147 to double
   br label %149
 
@@ -317,10 +316,9 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %278
 
 160:                                              ; preds = %155
-  %161 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %161)
-  %162 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %.074) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @__func__.calc_multirangesel) #10
+  %161 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %162 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %.074) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 402, ptr noundef nonnull @__func__.calc_multirangesel) #9
   unreachable
 
 163:                                              ; preds = %151
@@ -333,7 +331,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %165 = getelementptr inbounds nuw i8, ptr %.val34.i, i64 304
   %166 = load i32, ptr %165, align 8
-  %167 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %9, i32 noundef %166) #10
+  %167 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %9, i32 noundef %166) #9
   br i1 %167, label %168, label %.sink.split.i
 
 168:                                              ; preds = %163
@@ -343,7 +341,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %173, label %171
 
 171:                                              ; preds = %168
-  %172 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %9, i32 noundef %170) #10
+  %172 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %9, i32 noundef %170) #9
   br i1 %172, label %173, label %.sink.split.i
 
 173:                                              ; preds = %171, %168
@@ -352,7 +350,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not88.i.i, label %.sink.split.i, label %175
 
 175:                                              ; preds = %173
-  %176 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %174, i32 noundef 7, i32 noundef 0, i32 noundef 1) #10
+  %176 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %174, i32 noundef 7, i32 noundef 0, i32 noundef 1) #9
   br i1 %176, label %177, label %.sink.split.i
 
 177:                                              ; preds = %175
@@ -364,8 +362,8 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
 181:                                              ; preds = %177
   %182 = zext nneg i32 %179 to i64
   %183 = shl nuw nsw i64 %182, 4
-  %184 = call ptr @palloc(i64 noundef %183) #10
-  %185 = call ptr @palloc(i64 noundef %183) #10
+  %184 = call ptr @palloc(i64 noundef %183) #9
+  %185 = call ptr @palloc(i64 noundef %183) #9
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %187
 
@@ -376,19 +374,18 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv.i.i
   %190 = load i64, ptr %189, align 8
   %191 = inttoptr i64 %190 to ptr
-  %192 = call ptr @pg_detoast_datum(ptr noundef %191) #10
+  %192 = call ptr @pg_detoast_datum(ptr noundef %191) #9
   %193 = getelementptr inbounds nuw %struct.RangeBound, ptr %184, i64 %indvars.iv.i.i
   %194 = getelementptr inbounds nuw %struct.RangeBound, ptr %185, i64 %indvars.iv.i.i
-  call void @range_deserialize(ptr noundef %.val34.i, ptr noundef %192, ptr noundef %193, ptr noundef %194, ptr noundef nonnull %7) #10
+  call void @range_deserialize(ptr noundef %.val34.i, ptr noundef %192, ptr noundef %193, ptr noundef %194, ptr noundef nonnull %7) #9
   %195 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %200
 
 197:                                              ; preds = %187
-  %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %198)
-  %199 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 509, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
+  %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %199 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 509, ptr noundef nonnull @__func__.calc_hist_selectivity) #9
   unreachable
 
 200:                                              ; preds = %187
@@ -411,7 +408,7 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not89.i.i, label %calc_hist_selectivity.exit.thread37.i, label %204
 
 204:                                              ; preds = %202
-  %205 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %203, i32 noundef 6, i32 noundef 0, i32 noundef 1) #10
+  %205 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %203, i32 noundef 6, i32 noundef 0, i32 noundef 1) #9
   br i1 %205, label %206, label %calc_hist_selectivity.exit.thread37.i
 
 206:                                              ; preds = %204
@@ -425,10 +422,10 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %211
 
 211:                                              ; preds = %210, %206
-  call void @multirange_get_bounds(ptr noundef %.val34.i, ptr noundef nonnull %.0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %6) #10
+  call void @multirange_get_bounds(ptr noundef %.val34.i, ptr noundef nonnull %.0, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %6) #9
   %212 = load i32, ptr %152, align 4
   %213 = add i32 %212, -1
-  call void @multirange_get_bounds(ptr noundef %.val34.i, ptr noundef nonnull %.0, i32 noundef %213, ptr noundef nonnull %6, ptr noundef nonnull %5) #10
+  call void @multirange_get_bounds(ptr noundef %.val34.i, ptr noundef nonnull %.0, i32 noundef %213, ptr noundef nonnull %6, ptr noundef nonnull %5) #9
   switch i32 %.074, label %265 [
     i32 2862, label %214
     i32 2863, label %216
@@ -533,20 +530,19 @@ define dso_local i64 @multirangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %calc_hist_selectivity.exit.i
 
 265:                                              ; preds = %211
-  %266 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %266)
-  %267 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.074) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 690, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
+  %266 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %267 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.074) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 690, ptr noundef nonnull @__func__.calc_hist_selectivity) #9
   unreachable
 
 calc_hist_selectivity.exit.thread37.i:            ; preds = %204, %202, %177
-  call void @free_attstatsslot(ptr noundef nonnull %2) #10
+  call void @free_attstatsslot(ptr noundef nonnull %2) #9
   br label %.sink.split.i
 
 calc_hist_selectivity.exit.i:                     ; preds = %259, %256, %250, %240, %234, %232, %229, %226, %224, %221, %218, %216, %214, %206
   %.083.ph.ph.i.i = phi double [ -1.000000e+00, %206 ], [ %215, %214 ], [ %217, %216 ], [ %220, %218 ], [ %223, %221 ], [ %225, %224 ], [ %228, %226 ], [ %231, %229 ], [ %233, %232 ], [ %239, %234 ], [ %245, %240 ], [ %251, %250 ], [ %258, %256 ], [ %264, %259 ]
-  call void @free_attstatsslot(ptr noundef nonnull %3) #10
-  call void @free_attstatsslot(ptr noundef nonnull %2) #10
+  call void @free_attstatsslot(ptr noundef nonnull %3) #9
+  call void @free_attstatsslot(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -612,7 +608,7 @@ calc_multirangesel.exit:                          ; preds = %284, %282, %278, %.
 288:                                              ; preds = %calc_multirangesel.exit
   %289 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %290 = load ptr, ptr %289, align 8
-  call void %290(ptr noundef nonnull %287) #10
+  call void %290(ptr noundef nonnull %287) #9
   br label %291
 
 291:                                              ; preds = %calc_multirangesel.exit, %288
@@ -730,7 +726,7 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %10 = sdiv i32 %9, 2
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.RangeBound, ptr %2, i64 %11
-  %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1) #10
+  %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1) #9
   %14 = icmp slt i32 %13, 0
   %15 = icmp eq i32 %13, 0
   %or.cond.i = and i1 %4, %15
@@ -782,7 +778,7 @@ rbound_bsearch.exit:                              ; preds = %7
   %44 = load i32, ptr %43, align 4
   %45 = load i64, ptr %27, align 8
   %46 = load i64, ptr %26, align 8
-  %47 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %44, i64 noundef %45, i64 noundef %46) #10
+  %47 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %44, i64 noundef %45, i64 noundef %46) #9
   %48 = bitcast i64 %47 to double
   %or.cond.i20 = fcmp ule double %48, 0.000000e+00
   br i1 %or.cond.i20, label %get_position.exit, label %49
@@ -791,7 +787,7 @@ rbound_bsearch.exit:                              ; preds = %7
   %50 = load i32, ptr %43, align 4
   %51 = load i64, ptr %1, align 8
   %52 = load i64, ptr %26, align 8
-  %53 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %50, i64 noundef %51, i64 noundef %52) #10
+  %53 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %50, i64 noundef %51, i64 noundef %52) #9
   %54 = bitcast i64 %53 to double
   %55 = fdiv double %54, %48
   %56 = fcmp uno double %55, 0.000000e+00
@@ -854,7 +850,7 @@ define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, pt
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.RangeBound, ptr %3, i64 %13
-  %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %1) #10
+  %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %1) #9
   %or.cond18.i = icmp slt i32 %15, 1
   %16 = add nsw i32 %12, -1
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
@@ -899,7 +895,7 @@ rbound_bsearch.exit:                              ; preds = %9
   %41 = load i32, ptr %40, align 4
   %42 = load i64, ptr %24, align 8
   %43 = load i64, ptr %23, align 8
-  %44 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %41, i64 noundef %42, i64 noundef %43) #10
+  %44 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %41, i64 noundef %42, i64 noundef %43) #9
   %45 = bitcast i64 %44 to double
   %or.cond.i = fcmp ule double %45, 0.000000e+00
   br i1 %or.cond.i, label %get_position.exit, label %46
@@ -908,7 +904,7 @@ rbound_bsearch.exit:                              ; preds = %9
   %47 = load i32, ptr %40, align 4
   %48 = load i64, ptr %1, align 8
   %49 = load i64, ptr %23, align 8
-  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %47, i64 noundef %48, i64 noundef %49) #10
+  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %47, i64 noundef %48, i64 noundef %49) #9
   %51 = bitcast i64 %50 to double
   %52 = fdiv double %51, %45
   %53 = fcmp uno double %52, 0.000000e+00
@@ -969,7 +965,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   %85 = load i32, ptr %84, align 4
   %86 = load i64, ptr %2, align 8
   %87 = load i64, ptr %1, align 8
-  %88 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %85, i64 noundef %86, i64 noundef %87) #10
+  %88 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %85, i64 noundef %86, i64 noundef %87) #9
   %89 = bitcast i64 %88 to double
   %or.cond.i44 = fcmp ult double %89, 0.000000e+00
   %..i = select i1 %or.cond.i44, double 1.000000e+00, double %89
@@ -1026,7 +1022,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   %116 = load i32, ptr %102, align 4
   %117 = load i64, ptr %2, align 8
   %118 = load i64, ptr %107, align 8
-  %119 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %116, i64 noundef %117, i64 noundef %118) #10
+  %119 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %116, i64 noundef %117, i64 noundef %118) #9
   %120 = bitcast i64 %119 to double
   %or.cond.i49 = fcmp ult double %120, 0.000000e+00
   %..i50 = select i1 %or.cond.i49, double 1.000000e+00, double %120
@@ -1082,7 +1078,7 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   %16 = sdiv i32 %15, 2
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct.RangeBound, ptr %3, i64 %17
-  %19 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2) #10
+  %19 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2) #9
   %20 = icmp slt i32 %19, 0
   %21 = add nsw i32 %16, -1
   %.116.i = select i1 %20, i32 %.01519.i, i32 %21
@@ -1127,7 +1123,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %46 = load i32, ptr %45, align 4
   %47 = load i64, ptr %29, align 8
   %48 = load i64, ptr %28, align 8
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %46, i64 noundef %47, i64 noundef %48) #10
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %46, i64 noundef %47, i64 noundef %48) #9
   %50 = bitcast i64 %49 to double
   %or.cond.i = fcmp ule double %50, 0.000000e+00
   br i1 %or.cond.i, label %.lr.ph, label %51
@@ -1136,7 +1132,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %52 = load i32, ptr %45, align 4
   %53 = load i64, ptr %2, align 8
   %54 = load i64, ptr %28, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %52, i64 noundef %53, i64 noundef %54) #10
+  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %52, i64 noundef %53, i64 noundef %54) #9
   %56 = bitcast i64 %55 to double
   %57 = fdiv double %56, %50
   %58 = fcmp uno double %57, 0.000000e+00
@@ -1190,7 +1186,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %.05882 = phi double [ %.1.i64, %.lr.ph ], [ 1.000000e+00, %get_distance.exit80 ]
   %.06081 = phi double [ 0.000000e+00, %.lr.ph ], [ %.054, %get_distance.exit80 ]
   %85 = getelementptr inbounds nuw %struct.RangeBound, ptr %3, i64 %indvars.iv
-  %86 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %85, ptr noundef nonnull %1) #10
+  %86 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %85, ptr noundef nonnull %1) #9
   %87 = icmp sgt i32 %86, -1
   br i1 %87, label %156, label %88
 
@@ -1212,7 +1208,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %96 = load i32, ptr %79, align 4
   %97 = load i64, ptr %2, align 8
   %98 = load i64, ptr %1, align 8
-  %99 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %96, i64 noundef %97, i64 noundef %98) #10
+  %99 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %96, i64 noundef %97, i64 noundef %98) #9
   %100 = bitcast i64 %99 to double
   %or.cond.i67 = fcmp ult double %100, 0.000000e+00
   %..i = select i1 %or.cond.i67, double 1.000000e+00, double %100
@@ -1259,7 +1255,7 @@ get_distance.exit:                                ; preds = %91, %95, %101, %104
   %123 = load i32, ptr %79, align 4
   %124 = load i64, ptr %110, align 8
   %125 = load i64, ptr %85, align 8
-  %126 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %123, i64 noundef %124, i64 noundef %125) #10
+  %126 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %123, i64 noundef %124, i64 noundef %125) #9
   %127 = bitcast i64 %126 to double
   %or.cond.i71 = fcmp ule double %127, 0.000000e+00
   br i1 %or.cond.i71, label %get_position.exit73, label %128
@@ -1268,7 +1264,7 @@ get_distance.exit:                                ; preds = %91, %95, %101, %104
   %129 = load i32, ptr %79, align 4
   %130 = load i64, ptr %1, align 8
   %131 = load i64, ptr %85, align 8
-  %132 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %129, i64 noundef %130, i64 noundef %131) #10
+  %132 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %129, i64 noundef %130, i64 noundef %131) #9
   %133 = bitcast i64 %132 to double
   %134 = fdiv double %133, %127
   %135 = fcmp uno double %134, 0.000000e+00
@@ -1330,7 +1326,7 @@ get_position.exit73:                              ; preds = %121, %122, %128, %1
   %165 = load i32, ptr %79, align 4
   %166 = load i64, ptr %2, align 8
   %167 = load i64, ptr %85, align 8
-  %168 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %165, i64 noundef %166, i64 noundef %167) #10
+  %168 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %165, i64 noundef %166, i64 noundef %167) #9
   %169 = bitcast i64 %168 to double
   %or.cond.i77 = fcmp ult double %169, 0.000000e+00
   %..i78 = select i1 %or.cond.i77, double 1.000000e+00, double %169
@@ -1616,17 +1612,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1636,10 +1629,9 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

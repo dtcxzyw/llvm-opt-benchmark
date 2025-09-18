@@ -1486,7 +1486,6 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local void @replication_yyerror(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %4)
   %5 = tail call i32 @errcode(i32 noundef 16801924) #17
   %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %2) #17
   tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 265, ptr noundef nonnull @__func__.replication_yyerror) #17
@@ -2802,7 +2801,6 @@ define dso_local void @replication_scanner_init(ptr noundef readonly captures(no
   %9 = tail call ptr @__errno_location() #20
   store i32 %.sink, ptr %9, align 4
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #17
   tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 275, ptr noundef nonnull @__func__.replication_scanner_init) #17
   unreachable
@@ -2906,7 +2904,6 @@ declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0) #17
   tail call void @errfinish(ptr noundef nonnull @.str.12, i32 noundef 38, ptr noundef nonnull @__func__.fprintf_to_ereport) #17
   unreachable

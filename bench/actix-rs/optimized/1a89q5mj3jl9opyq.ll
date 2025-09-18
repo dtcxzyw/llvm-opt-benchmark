@@ -1930,11 +1930,8 @@ define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h32d6125b0b
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$6inline17h05d5e2c1b693c34bE.llvm.12734530818944442833"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
-  %2 = load i64, ptr %0, align 8, !range !236, !noundef !7
-  %3 = icmp eq i64 %2, 0
-  tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  ret ptr %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

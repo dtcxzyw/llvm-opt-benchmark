@@ -824,8 +824,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc3f0d01ce287d82bE
     i32 1, label %23
     i32 0, label %21
     i32 4, label %.loopexit
-    i32 2, label %41
-    i32 3, label %43
+    i32 2, label %38
+    i32 3, label %40
   ]
 
 .split17.us:                                      ; preds = %.split, %.split.us
@@ -848,7 +848,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc3f0d01ce287d82bE
   %.sroa.07.0.i = extractvalue { i32, i1 } %22, 0
   br i1 %.sroa.18.0.in.i, label %.split19.us, label %.split.backedge
 
-.loopexit:                                        ; preds = %.split, %.split.us, %38
+.loopexit:                                        ; preds = %.split, %.split.us, %35
   ret void
 
 23:                                               ; preds = %.split
@@ -872,33 +872,29 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc3f0d01ce287d82bE
   store i32 1, ptr %28, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !5, !align !6, !noundef !5
   %29 = load ptr, ptr %.val, align 8, !align !6, !noundef !5
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %31 = load ptr, ptr %30, align 8
   store ptr null, ptr %.val, align 8
-  %32 = icmp eq ptr %29, null
-  br i1 %32, label %33, label %34
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %.split19.us
+31:                                               ; preds = %.split19.us
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b82b72e5464fb32eff3f9e6738e25968.26) #23
-          to label %.noexc unwind label %36
+          to label %.noexc unwind label %33
 
-.noexc:                                           ; preds = %33
+.noexc:                                           ; preds = %31
   unreachable
 
-34:                                               ; preds = %.split19.us
-  %35 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %35)
+32:                                               ; preds = %.split19.us
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
   invoke void @_ZN13wasmtime_wasi5stdio19worker_thread_stdin6create17h513d2e1d64d8d75bE(ptr noalias noundef nonnull sret({ { { { { i64 } } }, { { { { i32 } }, { { i8 } }, [3 x i8], { { ptr, ptr, {} } } } } }, { { { i32 } }, { { i8 } }, [3 x i8], { { i64, [4 x i64] } } }, { { { i32 } } }, [1 x i32] }) align 8 captures(none) dereferenceable(88) %.sroa.0.i.i)
-          to label %38 unwind label %36
+          to label %35 unwind label %33
 
-36:                                               ; preds = %34, %33
-  %37 = landingpad { ptr, i32 }
+33:                                               ; preds = %32, %31
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h871dd4035c6968d8E.exit" unwind label %39
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h871dd4035c6968d8E.exit" unwind label %36
 
-38:                                               ; preds = %34
+35:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %29, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.0.i.i, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   store i32 4, ptr %28, align 8
@@ -906,28 +902,28 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc3f0d01ce287d82bE
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-39:                                               ; preds = %36
-  %40 = landingpad { ptr, i32 }
+36:                                               ; preds = %33
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #24
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h871dd4035c6968d8E.exit": ; preds = %36
-  resume { ptr, i32 } %37
+"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h871dd4035c6968d8E.exit": ; preds = %33
+  resume { ptr, i32 } %34
 
-41:                                               ; preds = %.split
-  %42 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %42, 1
-  %.sroa.07.0.i15 = extractvalue { i32, i1 } %42, 0
-  br i1 %.sroa.18.0.in.i12, label %43, label %.split.backedge
+38:                                               ; preds = %.split
+  %39 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %39, 1
+  %.sroa.07.0.i15 = extractvalue { i32, i1 } %39, 0
+  br i1 %.sroa.18.0.in.i12, label %40, label %.split.backedge
 
-43:                                               ; preds = %.split, %41
-  %44 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %45 = load atomic i32, ptr %0 acquire, align 4
+40:                                               ; preds = %.split, %38
+  %41 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %42 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %43, %21, %41
-  %.0.be = phi i32 [ %45, %43 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %41 ]
+.split.backedge:                                  ; preds = %40, %21, %38
+  %.0.be = phi i32 [ %42, %40 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i15, %38 ]
   br label %.split
 }
 

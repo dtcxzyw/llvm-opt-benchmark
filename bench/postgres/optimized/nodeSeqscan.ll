@@ -13,27 +13,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitSeqScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 232) #6
+  %4 = tail call noundef ptr @palloc0(i64 noundef 232) #5
   store i32 402, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef nonnull %4) #6
+  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef nonnull %4) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8
-  %9 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %8, i32 noundef %2) #6
+  %9 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %8, i32 noundef %2) #5
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @table_slot_callbacks(ptr noundef %9) #6
-  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %12, ptr noundef %13) #6
-  tail call void @ExecInitResultTypeTL(ptr noundef nonnull %4) #6
-  tail call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %4) #6
+  %13 = tail call ptr @table_slot_callbacks(ptr noundef %9) #5
+  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %4, ptr noundef %12, ptr noundef %13) #5
+  tail call void @ExecInitResultTypeTL(ptr noundef nonnull %4) #5
+  tail call void @ExecAssignScanProjectionInfo(ptr noundef nonnull %4) #5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @ExecInitQual(ptr noundef %15, ptr noundef nonnull %4) #6
+  %16 = tail call ptr @ExecInitQual(ptr noundef %15, ptr noundef nonnull %4) #5
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %6, align 8
@@ -97,7 +97,7 @@ declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecSeqScanEPQ(ptr noundef %0) #0 {
-  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @SeqNext, ptr noundef nonnull @SeqRecheck) #6
+  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @SeqNext, ptr noundef nonnull @SeqRecheck) #5
   ret ptr %2
 }
 
@@ -107,13 +107,13 @@ define internal ptr @ExecSeqScan(ptr noundef captures(none) %0) #0 {
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  tail call void @MemoryContextReset(ptr noundef %5) #6
+  tail call void @MemoryContextReset(ptr noundef %5) #5
   %6 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %ExecScanFetch.exit, label %7, !prof !4
 
 7:                                                ; preds = %1
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit
 
 ExecScanFetch.exit:                               ; preds = %1, %7
@@ -131,7 +131,7 @@ define internal ptr @ExecSeqScanWithProject(ptr noundef captures(none) %0) #0 {
   %.not = icmp eq ptr %4, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  tail call void @MemoryContextReset(ptr noundef %8) #6
+  tail call void @MemoryContextReset(ptr noundef %8) #5
   %9 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i4 = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %13
@@ -140,7 +140,7 @@ define internal ptr @ExecSeqScanWithProject(ptr noundef captures(none) %0) #0 {
   br i1 %.not.i4, label %ExecScanFetch.exit5, label %11, !prof !4
 
 11:                                               ; preds = %10
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit5
 
 ExecScanFetch.exit5:                              ; preds = %10, %11
@@ -151,7 +151,7 @@ ExecScanFetch.exit5:                              ; preds = %10, %11
   br i1 %.not.i4, label %ExecScanFetch.exit, label %14, !prof !4
 
 14:                                               ; preds = %13
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit
 
 ExecScanFetch.exit:                               ; preds = %13, %14
@@ -173,7 +173,7 @@ ExecScanFetch.exit:                               ; preds = %13, %14
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %23) #6
+  tail call void %27(ptr noundef %23) #5
   br label %ExecScanExtended.exit
 
 28:                                               ; preds = %17
@@ -189,14 +189,14 @@ ExecScanFetch.exit:                               ; preds = %13, %14
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef %34) #6
+  tail call void %38(ptr noundef %34) #5
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %40, ptr @CurrentMemoryContext, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = call i64 %43(ptr noundef nonnull %32, ptr noundef %31, ptr noundef nonnull %2) #6
+  %44 = call i64 %43(ptr noundef nonnull %32, ptr noundef %31, ptr noundef nonnull %2) #5
   store ptr %41, ptr @CurrentMemoryContext, align 8
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %46 = load i16, ptr %45, align 4
@@ -226,7 +226,7 @@ define internal ptr @ExecSeqScanWithQual(ptr noundef captures(none) %0) #0 {
   %.not = icmp eq ptr %4, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
-  tail call void @MemoryContextReset(ptr noundef %8) #6
+  tail call void @MemoryContextReset(ptr noundef %8) #5
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %1
@@ -235,7 +235,7 @@ define internal ptr @ExecSeqScanWithQual(ptr noundef captures(none) %0) #0 {
   br i1 %.not.i4, label %ExecScanFetch.exit5, label %11, !prof !4
 
 11:                                               ; preds = %9
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit5
 
 ExecScanFetch.exit5:                              ; preds = %9, %11
@@ -254,7 +254,7 @@ ExecScanFetch.exit5:                              ; preds = %9, %11
   br i1 %.not.i3, label %ExecScanFetch.exit, label %19, !prof !4
 
 19:                                               ; preds = %17
-  call void @ProcessInterrupts() #6
+  call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit
 
 ExecScanFetch.exit:                               ; preds = %17, %19
@@ -276,7 +276,7 @@ ExecScanFetch.exit:                               ; preds = %17, %19
   %28 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %27, ptr @CurrentMemoryContext, align 8
   %29 = load ptr, ptr %15, align 8
-  %30 = call i64 %29(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %2) #6
+  %30 = call i64 %29(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %2) #5
   store ptr %28, ptr @CurrentMemoryContext, align 8
   %.not8 = icmp eq i64 %30, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -296,7 +296,7 @@ ExecScanFetch.exit:                               ; preds = %17, %19
 
 37:                                               ; preds = %31, %33
   %38 = load ptr, ptr %7, align 8
-  call void @MemoryContextReset(ptr noundef %38) #6
+  call void @MemoryContextReset(ptr noundef %38) #5
   br label %17
 
 ExecScanExtended.exit:                            ; preds = %26, %ExecScanFetch.exit, %22, %ExecScanFetch.exit5
@@ -320,7 +320,7 @@ define internal ptr @ExecSeqScanWithQualProject(ptr noundef captures(none) %0) #
   %or.cond.i = or i1 %10, %11
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %13 = load ptr, ptr %12, align 8
-  tail call void @MemoryContextReset(ptr noundef %13) #6
+  tail call void @MemoryContextReset(ptr noundef %13) #5
   br i1 %or.cond.i, label %18, label %14
 
 14:                                               ; preds = %1
@@ -329,7 +329,7 @@ define internal ptr @ExecSeqScanWithQualProject(ptr noundef captures(none) %0) #
   br i1 %.not.i5, label %ExecScanFetch.exit6, label %16, !prof !4
 
 16:                                               ; preds = %14
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit6
 
 ExecScanFetch.exit6:                              ; preds = %14, %16
@@ -349,7 +349,7 @@ ExecScanFetch.exit6:                              ; preds = %14, %16
   br i1 %.not.i4.us, label %ExecScanFetch.exit.us, label %24, !prof !4
 
 24:                                               ; preds = %.split.us
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit.us
 
 ExecScanFetch.exit.us:                            ; preds = %24, %.split.us
@@ -374,7 +374,7 @@ ExecScanFetch.exit.us:                            ; preds = %24, %.split.us
   br i1 %.not.i4, label %ExecScanFetch.exit, label %32, !prof !4
 
 32:                                               ; preds = %.split
-  call void @ProcessInterrupts() #6
+  call void @ProcessInterrupts() #5
   br label %ExecScanFetch.exit
 
 ExecScanFetch.exit:                               ; preds = %.split, %32
@@ -400,7 +400,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef %41) #6
+  call void %45(ptr noundef %41) #5
   br label %ExecScanExtended.exit
 
 46:                                               ; preds = %35
@@ -410,7 +410,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   %48 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %47, ptr @CurrentMemoryContext, align 8
   %49 = load ptr, ptr %21, align 8
-  %50 = call i64 %49(ptr noundef nonnull %.fr15, ptr noundef nonnull %9, ptr noundef nonnull %3) #6
+  %50 = call i64 %49(ptr noundef nonnull %.fr15, ptr noundef nonnull %9, ptr noundef nonnull %3) #5
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %.not = icmp eq i64 %50, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -431,14 +431,14 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef %56) #6
+  call void %60(ptr noundef %56) #5
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %62, ptr @CurrentMemoryContext, align 8
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %65 = load ptr, ptr %64, align 8
-  %66 = call i64 %65(ptr noundef nonnull %54, ptr noundef %53, ptr noundef nonnull %2) #6
+  %66 = call i64 %65(ptr noundef nonnull %54, ptr noundef %53, ptr noundef nonnull %2) #5
   store ptr %63, ptr @CurrentMemoryContext, align 8
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %68 = load i16, ptr %67, align 4
@@ -467,7 +467,7 @@ ExecScanFetch.exit:                               ; preds = %.split, %32
 
 81:                                               ; preds = %75, %77
   %82 = load ptr, ptr %12, align 8
-  call void @MemoryContextReset(ptr noundef %82) #6
+  call void @MemoryContextReset(ptr noundef %82) #5
   br label %.split
 
 ExecScanExtended.exit:                            ; preds = %.split13, %.split11.us, %51, %39, %ExecScanFetch.exit6
@@ -488,7 +488,7 @@ define dso_local void @ExecEndSeqScan(ptr noundef readonly captures(none) %0) lo
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull %3) #6
+  tail call void %9(ptr noundef nonnull %3) #5
   br label %10
 
 10:                                               ; preds = %4, %1
@@ -508,11 +508,11 @@ define dso_local void @ExecReScanSeqScan(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  tail call void %9(ptr noundef nonnull %3, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #6
+  tail call void %9(ptr noundef nonnull %3, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #5
   br label %10
 
 10:                                               ; preds = %4, %1
-  tail call void @ExecScanReScan(ptr noundef nonnull %0) #6
+  tail call void @ExecScanReScan(ptr noundef nonnull %0) #5
   ret void
 }
 
@@ -526,18 +526,18 @@ define dso_local void @ExecSeqScanEstimate(ptr noundef captures(none) initialize
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @table_parallelscan_estimate(ptr noundef %6, ptr noundef %8) #6
+  %9 = tail call i64 @table_parallelscan_estimate(ptr noundef %6, ptr noundef %8) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %9, 31
   %14 = and i64 %13, -32
-  %15 = tail call i64 @add_size(i64 noundef %12, i64 noundef %14) #6
+  %15 = tail call i64 @add_size(i64 noundef %12, i64 noundef %14) #5
   store i64 %15, ptr %11, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load i64, ptr %16, align 8
-  %18 = tail call i64 @add_size(i64 noundef %17, i64 noundef 1) #6
+  %18 = tail call i64 @add_size(i64 noundef %17, i64 noundef 1) #5
   store i64 %18, ptr %16, align 8
   ret void
 }
@@ -554,21 +554,21 @@ define dso_local void @ExecSeqScanInitializeDSM(ptr noundef captures(none) initi
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @shm_toc_allocate(ptr noundef %6, i64 noundef %8) #6
+  %9 = tail call ptr @shm_toc_allocate(ptr noundef %6, i64 noundef %8) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @table_parallelscan_initialize(ptr noundef %11, ptr noundef %9, ptr noundef %13) #6
+  tail call void @table_parallelscan_initialize(ptr noundef %11, ptr noundef %9, ptr noundef %13) #5
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  tail call void @shm_toc_insert(ptr noundef %14, i64 noundef %19, ptr noundef %9) #6
+  tail call void @shm_toc_insert(ptr noundef %14, i64 noundef %19, ptr noundef %9) #5
   %20 = load ptr, ptr %10, align 8
-  %21 = tail call ptr @table_beginscan_parallel(ptr noundef %20, ptr noundef %9) #6
+  %21 = tail call ptr @table_beginscan_parallel(ptr noundef %20, ptr noundef %9) #5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %21, ptr %22, align 8
   ret void
@@ -594,7 +594,7 @@ define dso_local void @ExecSeqScanReInitializeDSM(ptr noundef readonly captures(
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %8, ptr noundef %6) #6
+  tail call void %12(ptr noundef %8, ptr noundef %6) #5
   ret void
 }
 
@@ -607,10 +607,10 @@ define dso_local void @ExecSeqScanInitializeWorker(ptr noundef captures(none) in
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @shm_toc_lookup(ptr noundef %4, i64 noundef %9, i1 noundef zeroext false) #6
+  %10 = tail call ptr @shm_toc_lookup(ptr noundef %4, i64 noundef %9, i1 noundef zeroext false) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @table_beginscan_parallel(ptr noundef %12, ptr noundef %10) #6
+  %13 = tail call ptr @table_beginscan_parallel(ptr noundef %12, ptr noundef %10) #5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %13, ptr %14, align 8
   ret void
@@ -644,7 +644,7 @@ define internal ptr @SeqNext(ptr noundef captures(none) %0) #0 {
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %19(ptr noundef %13, ptr noundef %15, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 449) #6
+  %20 = tail call ptr %19(ptr noundef %13, ptr noundef %15, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 449) #5
   store ptr %20, ptr %2, align 8
   br label %21
 
@@ -663,10 +663,9 @@ define internal ptr @SeqNext(ptr noundef captures(none) %0) #0 {
   br i1 %.not5.i, label %table_scan_getnextslot.exit, label %30, !prof !4
 
 30:                                               ; preds = %21
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.table_scan_getnextslot) #6
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.table_scan_getnextslot) #5
   unreachable
 
 table_scan_getnextslot.exit:                      ; preds = %21
@@ -675,7 +674,7 @@ table_scan_getnextslot.exit:                      ; preds = %21
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call zeroext i1 %37(ptr noundef nonnull %.013, i32 noundef %7, ptr noundef nonnull %9) #6
+  %38 = tail call zeroext i1 %37(ptr noundef nonnull %.013, i32 noundef %7, ptr noundef nonnull %9) #5
   %. = select i1 %38, ptr %9, ptr null
   ret ptr %.
 }
@@ -702,17 +701,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

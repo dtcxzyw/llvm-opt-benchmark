@@ -1362,7 +1362,7 @@ dom_get_prop_handler.exit.thread50.thread:        ; preds = %13
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @zend_readonly_property_modification_error_ex(ptr noundef nonnull %31, ptr noundef nonnull %32) #17
-  br label %75
+  br label %68
 
 33:                                               ; preds = %dom_get_prop_handler.exit.thread50
   br i1 %.not17.i, label %.thread57, label %.thread66
@@ -1371,80 +1371,71 @@ dom_get_prop_handler.exit.thread50.thread:        ; preds = %13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !63
   %36 = tail call ptr @zend_get_property_info(ptr noundef %35, ptr noundef %1, i32 noundef 1) #17
-  br label %47
+  br label %44
 
 .thread66:                                        ; preds = %dom_get_prop_handler.exit.thread50.thread, %33
   %37 = phi ptr [ %22, %33 ], [ %24, %dom_get_prop_handler.exit.thread50.thread ]
-  %38 = load ptr, ptr %3, align 8, !tbaa !58
-  %39 = load ptr, ptr %7, align 8, !tbaa !57
-  %40 = icmp eq ptr %38, %39
-  tail call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !58
-  %.not44 = icmp eq ptr %42, null
-  br i1 %.not44, label %43, label %47
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !58
+  %.not44 = icmp eq ptr %39, null
+  br i1 %.not44, label %40, label %44
 
-43:                                               ; preds = %.thread66
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !63
-  %46 = tail call ptr @zend_get_property_info(ptr noundef %45, ptr noundef %1, i32 noundef 1) #17
-  store ptr %46, ptr %41, align 8, !tbaa !58
-  br label %47
+40:                                               ; preds = %.thread66
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !63
+  %43 = tail call ptr @zend_get_property_info(ptr noundef %42, ptr noundef %1, i32 noundef 1) #17
+  store ptr %43, ptr %38, align 8, !tbaa !58
+  br label %44
 
-47:                                               ; preds = %.thread57, %43, %.thread66
-  %48 = phi ptr [ %37, %.thread66 ], [ %37, %43 ], [ %22, %.thread57 ]
-  %.138 = phi ptr [ %42, %.thread66 ], [ %46, %43 ], [ %36, %.thread57 ]
-  %49 = icmp ne ptr %.138, null
-  tail call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds nuw i8, ptr %.138, i64 48
-  %51 = load i32, ptr %50, align 8, !tbaa !64
-  %52 = and i32 %51, 33554431
-  %53 = icmp ne i32 %52, 0
-  tail call void @llvm.assume(i1 %53)
+44:                                               ; preds = %.thread57, %40, %.thread66
+  %45 = phi ptr [ %37, %.thread66 ], [ %37, %40 ], [ %22, %.thread57 ]
+  %.138 = phi ptr [ %39, %.thread66 ], [ %43, %40 ], [ %36, %.thread57 ]
+  %46 = icmp ne ptr %.138, null
+  tail call void @llvm.assume(i1 %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %54 = load ptr, ptr %2, align 8, !tbaa !44
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !44
-  store ptr %54, ptr %5, align 8, !tbaa !44
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %56, ptr %57, align 8, !tbaa !44
-  %58 = and i32 %56, 65280
-  %.not45 = icmp eq i32 %58, 0
-  br i1 %.not45, label %62, label %59
+  %47 = load ptr, ptr %2, align 8, !tbaa !44
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %49 = load i32, ptr %48, align 8, !tbaa !44
+  store ptr %47, ptr %5, align 8, !tbaa !44
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %49, ptr %50, align 8, !tbaa !44
+  %51 = and i32 %49, 65280
+  %.not45 = icmp eq i32 %51, 0
+  br i1 %.not45, label %55, label %52
 
-59:                                               ; preds = %47
-  %60 = load i32, ptr %54, align 4, !tbaa !69
-  %61 = add i32 %60, 1
-  store i32 %61, ptr %54, align 4, !tbaa !69
-  br label %62
+52:                                               ; preds = %44
+  %53 = load i32, ptr %47, align 4, !tbaa !64
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %47, align 4, !tbaa !64
+  br label %55
 
-62:                                               ; preds = %59, %47
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !70
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !95
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !44
-  %68 = icmp slt i32 %67, 0
-  %69 = call zeroext i1 @zend_verify_property_type(ptr noundef nonnull %.138, ptr noundef nonnull %5, i1 noundef zeroext %68) #17
-  br i1 %69, label %70, label %73
+55:                                               ; preds = %52, %44
+  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !65
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
+  %58 = load ptr, ptr %57, align 8, !tbaa !90
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4, !tbaa !44
+  %61 = icmp slt i32 %60, 0
+  %62 = call zeroext i1 @zend_verify_property_type(ptr noundef nonnull %.138, ptr noundef nonnull %5, i1 noundef zeroext %61) #17
+  br i1 %62, label %63, label %66
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %48, align 8, !tbaa !61
-  %72 = call i32 %71(ptr noundef nonnull %6, ptr noundef nonnull %5) #17
-  br label %73
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %45, align 8, !tbaa !61
+  %65 = call i32 %64(ptr noundef nonnull %6, ptr noundef nonnull %5) #17
+  br label %66
 
-73:                                               ; preds = %62, %70
-  %.1 = phi ptr [ %2, %70 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %62 ]
+66:                                               ; preds = %55, %63
+  %.1 = phi ptr [ %2, %63 ], [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %55 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %75
+  br label %68
 
 dom_get_prop_handler.exit.thread:                 ; preds = %4, %dom_get_prop_handler.exit
-  %74 = tail call ptr @zend_std_write_property(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
-  br label %75
+  %67 = tail call ptr @zend_std_write_property(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #17
+  br label %68
 
-75:                                               ; preds = %dom_get_prop_handler.exit.thread, %73, %26
-  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %26 ], [ %.1, %73 ], [ %74, %dom_get_prop_handler.exit.thread ]
+68:                                               ; preds = %dom_get_prop_handler.exit.thread, %66, %26
+  %.0 = phi ptr [ getelementptr inbounds nuw (i8, ptr @executor_globals, i64 16), %26 ], [ %.1, %66 ], [ %67, %dom_get_prop_handler.exit.thread ]
   ret ptr %.0
 }
 
@@ -1465,7 +1456,7 @@ declare ptr @zend_std_write_property(ptr noundef, ptr noundef, ptr noundef, ptr 
 define hidden ptr @php_dom_export_node(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8, !tbaa !44
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
-  %4 = load ptr, ptr %3, align 8, !tbaa !97
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -1492,94 +1483,82 @@ define internal fastcc void @dom_import_simplexml_common(i32 %.44.val, ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %.44.val, ptr noundef nonnull @.str.284, ptr noundef nonnull %3) #17
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %6, label %9
+  br i1 %5, label %45, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !100
-  %8 = icmp ne ptr %7, null
-  call void @llvm.assume(i1 %8)
-  br label %52
+  %7 = load ptr, ptr %3, align 8, !tbaa !95
+  %8 = load ptr, ptr %7, align 8, !tbaa !44
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !96
+  %11 = load i32, ptr %10, align 8, !tbaa !97
+  %12 = sext i32 %11 to i64
+  %13 = sub nsw i64 0, %12
+  %14 = getelementptr inbounds i8, ptr %8, i64 %13
+  %15 = call ptr @php_libxml_import_node(ptr noundef nonnull %7) #17
+  %16 = icmp ne ptr %15, null
+  %17 = icmp ne ptr %8, null
+  %or.cond = and i1 %17, %16
+  br i1 %or.cond, label %18, label %44
 
-9:                                                ; preds = %2
-  %10 = load ptr, ptr %3, align 8, !tbaa !101
-  %11 = load ptr, ptr %10, align 8, !tbaa !44
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !102
-  %14 = load i32, ptr %13, align 8, !tbaa !103
-  %15 = sext i32 %14 to i64
-  %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds i8, ptr %11, i64 %16
-  %18 = call ptr @php_libxml_import_node(ptr noundef nonnull %10) #17
-  %19 = icmp ne ptr %18, null
-  %20 = icmp ne ptr %11, null
-  %or.cond = and i1 %20, %19
-  br i1 %or.cond, label %21, label %49
+18:                                               ; preds = %6
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !99
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %44, label %21
 
-21:                                               ; preds = %9
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !105
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %49, label %24
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %23 = load i32, ptr %22, align 8, !tbaa !4
+  %.off = add i32 %23, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %24, label %44
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !4
-  %.off = add i32 %26, -1
-  %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %27, label %49
-
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 44
-  %29 = load i16, ptr %28, align 4
-  %30 = and i16 %29, 255
-  %.not30 = icmp eq i16 %30, 0
-  %31 = zext nneg i16 %30 to i32
-  %.not31 = icmp eq i32 %1, %31
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 44
+  %26 = load i16, ptr %25, align 4
+  %27 = and i16 %26, 255
+  %.not30 = icmp eq i16 %27, 0
+  %28 = zext nneg i16 %27 to i32
+  %.not31 = icmp eq i32 %1, %28
   %or.cond33 = select i1 %.not30, i1 true, i1 %.not31
-  br i1 %or.cond33, label %36, label %32
+  br i1 %or.cond33, label %31, label %29
 
-32:                                               ; preds = %27
-  %33 = icmp eq i32 %1, 2
-  %.str.285..str.286 = select i1 %33, ptr @.str.285, ptr @.str.286
+29:                                               ; preds = %24
+  %30 = icmp eq i32 %1, 2
+  %.str.285..str.286 = select i1 %30, ptr @.str.285, ptr @.str.286
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull %.str.285..str.286) #17
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !100
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %52
+  br label %45
 
-36:                                               ; preds = %27
-  %37 = trunc nuw nsw i32 %1 to i16
-  %38 = and i16 %29, -256
-  %39 = or disjoint i16 %38, %37
-  store i16 %39, ptr %28, align 4
-  %40 = icmp ne i16 %30, 2
-  %41 = icmp eq i32 %1, 2
-  %or.cond3 = and i1 %41, %40
-  br i1 %or.cond3, label %42, label %47
+31:                                               ; preds = %24
+  %32 = trunc nuw nsw i32 %1 to i16
+  %33 = and i16 %26, -256
+  %34 = or disjoint i16 %33, %32
+  store i16 %34, ptr %25, align 4
+  %35 = icmp ne i16 %27, 2
+  %36 = icmp eq i32 %1, 2
+  %or.cond3 = and i1 %36, %35
+  br i1 %or.cond3, label %37, label %42
 
-42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %44 = load ptr, ptr %43, align 8, !tbaa !16
-  %.not32 = icmp eq ptr %44, null
-  br i1 %.not32, label %47, label %45
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %39 = load ptr, ptr %38, align 8, !tbaa !16
+  %.not32 = icmp eq ptr %39, null
+  br i1 %.not32, label %42, label %40
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr %22, align 8, !tbaa !105
-  call void @dom_document_convert_to_modern(ptr noundef %46, ptr noundef nonnull %44) #17
-  br label %47
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %19, align 8, !tbaa !99
+  call void @dom_document_convert_to_modern(ptr noundef %41, ptr noundef nonnull %39) #17
+  br label %42
 
-47:                                               ; preds = %45, %42, %36
-  %48 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %18, ptr noundef %0, ptr noundef nonnull %17)
-  br label %52
+42:                                               ; preds = %40, %37, %31
+  %43 = call zeroext i1 @php_dom_create_object(ptr noundef nonnull %15, ptr noundef %0, ptr noundef nonnull %14)
+  br label %45
 
-49:                                               ; preds = %24, %21, %9
+44:                                               ; preds = %21, %18, %6
   call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef 1, ptr noundef nonnull @.str.287) #17
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !100
-  %51 = icmp ne ptr %50, null
-  call void @llvm.assume(i1 %51)
-  br label %52
+  br label %45
 
-52:                                               ; preds = %32, %47, %49, %6
+45:                                               ; preds = %2, %29, %42, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1595,9 +1574,9 @@ define hidden void @zif_Dom_import_simplexml(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_update_document_after_clone(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !106
+  %6 = load ptr, ptr %5, align 8, !tbaa !100
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %8 = load ptr, ptr %7, align 8, !tbaa !100
   %9 = icmp ne ptr %6, null
   %10 = icmp ne ptr %8, null
   %or.cond.i = and i1 %9, %10
@@ -1622,33 +1601,33 @@ dom_get_doc_props_read_only.exit.i:               ; preds = %4
 dom_get_doc_props.exit.i:                         ; preds = %15, %dom_get_doc_props_read_only.exit.i
   %.0.i30.i = phi ptr [ %14, %dom_get_doc_props_read_only.exit.i ], [ %16, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !107, !range !47, !noundef !45
+  %18 = load i8, ptr %17, align 8, !tbaa !101, !range !47, !noundef !45
   %19 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 8
-  store i8 %18, ptr %19, align 8, !tbaa !107
+  store i8 %18, ptr %19, align 8, !tbaa !101
   %20 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 9
-  %21 = load i8, ptr %20, align 1, !tbaa !108, !range !47, !noundef !45
+  %21 = load i8, ptr %20, align 1, !tbaa !102, !range !47, !noundef !45
   %22 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 9
-  store i8 %21, ptr %22, align 1, !tbaa !108
+  store i8 %21, ptr %22, align 1, !tbaa !102
   %23 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 10
-  %24 = load i8, ptr %23, align 2, !tbaa !109, !range !47, !noundef !45
+  %24 = load i8, ptr %23, align 2, !tbaa !103, !range !47, !noundef !45
   %25 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 10
-  store i8 %24, ptr %25, align 2, !tbaa !109
+  store i8 %24, ptr %25, align 2, !tbaa !103
   %26 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 11
-  %27 = load i8, ptr %26, align 1, !tbaa !110, !range !47, !noundef !45
+  %27 = load i8, ptr %26, align 1, !tbaa !104, !range !47, !noundef !45
   %28 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 11
-  store i8 %27, ptr %28, align 1, !tbaa !110
+  store i8 %27, ptr %28, align 1, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
-  %30 = load i8, ptr %29, align 4, !tbaa !111, !range !47, !noundef !45
+  %30 = load i8, ptr %29, align 4, !tbaa !105, !range !47, !noundef !45
   %31 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 12
-  store i8 %30, ptr %31, align 4, !tbaa !111
+  store i8 %30, ptr %31, align 4, !tbaa !105
   %32 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 13
   %33 = load i8, ptr %32, align 1, !tbaa !46, !range !47, !noundef !45
   %34 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 13
   store i8 %33, ptr %34, align 1, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 14
-  %36 = load i8, ptr %35, align 2, !tbaa !112, !range !47, !noundef !45
+  %36 = load i8, ptr %35, align 2, !tbaa !106, !range !47, !noundef !45
   %37 = getelementptr inbounds nuw i8, ptr %.0.i30.i, i64 14
-  store i8 %36, ptr %37, align 2, !tbaa !112
+  store i8 %36, ptr %37, align 2, !tbaa !106
   %38 = load ptr, ptr %spec.select.i, align 8, !tbaa !24
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %43, label %39
@@ -1672,9 +1651,9 @@ dom_get_doc_props.exit.i:                         ; preds = %15, %dom_get_doc_pr
   %50 = or disjoint i16 %49, %46
   store i16 %50, ptr %47, align 4
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !113
+  %52 = load ptr, ptr %51, align 8, !tbaa !107
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %52, ptr %53, align 8, !tbaa !113
+  store ptr %52, ptr %53, align 8, !tbaa !107
   br label %dom_copy_document_ref.exit
 
 dom_copy_document_ref.exit:                       ; preds = %4, %43
@@ -2343,54 +2322,54 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %660 = alloca %struct._zval_struct, align 8
   %661 = alloca %struct._zval_struct, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @std_object_handlers, i64 200, i1 false)
-  store i32 24, ptr @dom_object_handlers, align 8, !tbaa !103
-  store ptr @dom_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 8), align 8, !tbaa !114
-  store ptr @dom_read_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 32), align 8, !tbaa !115
-  store ptr @dom_write_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 40), align 8, !tbaa !116
-  store ptr @dom_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 64), align 8, !tbaa !117
-  store ptr @dom_unset_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 80), align 8, !tbaa !118
-  store ptr @dom_objects_store_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 24), align 8, !tbaa !119
-  store ptr @dom_property_exists, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 72), align 8, !tbaa !120
-  store ptr @dom_get_debug_info, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 152), align 8, !tbaa !121
+  store i32 24, ptr @dom_object_handlers, align 8, !tbaa !97
+  store ptr @dom_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 8), align 8, !tbaa !108
+  store ptr @dom_read_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 32), align 8, !tbaa !109
+  store ptr @dom_write_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 40), align 8, !tbaa !110
+  store ptr @dom_get_property_ptr_ptr, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 64), align 8, !tbaa !111
+  store ptr @dom_unset_property, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 80), align 8, !tbaa !112
+  store ptr @dom_objects_store_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 24), align 8, !tbaa !113
+  store ptr @dom_property_exists, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 72), align 8, !tbaa !114
+  store ptr @dom_get_debug_info, ptr getelementptr inbounds nuw (i8, ptr @dom_object_handlers, i64 152), align 8, !tbaa !115
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_modern_domimplementation_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_domimplementation_object_handlers, i64 24), align 8, !tbaa !119
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_domimplementation_object_handlers, i64 24), align 8, !tbaa !113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_nnodemap_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
-  store ptr @dom_nnodemap_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 8), align 8, !tbaa !114
-  store ptr @dom_nodemap_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 48), align 8, !tbaa !122
-  store ptr @dom_nodemap_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 88), align 8, !tbaa !123
+  store ptr @dom_nnodemap_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 8), align 8, !tbaa !108
+  store ptr @dom_nodemap_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 48), align 8, !tbaa !116
+  store ptr @dom_nodemap_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nnodemap_object_handlers, i64 88), align 8, !tbaa !117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_nodelist_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_nnodemap_object_handlers, i64 200, i1 false)
-  store ptr @dom_nodelist_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nodelist_object_handlers, i64 48), align 8, !tbaa !122
-  store ptr @dom_nodelist_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nodelist_object_handlers, i64 88), align 8, !tbaa !123
+  store ptr @dom_nodelist_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nodelist_object_handlers, i64 48), align 8, !tbaa !116
+  store ptr @dom_nodelist_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_nodelist_object_handlers, i64 88), align 8, !tbaa !117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_modern_nnodemap_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_nnodemap_object_handlers, i64 200, i1 false)
-  store ptr @dom_modern_nodemap_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nnodemap_object_handlers, i64 48), align 8, !tbaa !122
-  store ptr @dom_modern_nodemap_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nnodemap_object_handlers, i64 88), align 8, !tbaa !123
+  store ptr @dom_modern_nodemap_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nnodemap_object_handlers, i64 48), align 8, !tbaa !116
+  store ptr @dom_modern_nodemap_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nnodemap_object_handlers, i64 88), align 8, !tbaa !117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_modern_nodelist_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_nodelist_object_handlers, i64 200, i1 false)
-  store ptr @dom_modern_nodelist_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nodelist_object_handlers, i64 48), align 8, !tbaa !122
-  store ptr @dom_modern_nodelist_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nodelist_object_handlers, i64 88), align 8, !tbaa !123
+  store ptr @dom_modern_nodelist_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nodelist_object_handlers, i64 48), align 8, !tbaa !116
+  store ptr @dom_modern_nodelist_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_modern_nodelist_object_handlers, i64 88), align 8, !tbaa !117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_html_collection_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_modern_nodelist_object_handlers, i64 200, i1 false)
-  store ptr @dom_html_collection_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_html_collection_object_handlers, i64 48), align 8, !tbaa !122
-  store ptr @dom_html_collection_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_html_collection_object_handlers, i64 88), align 8, !tbaa !123
+  store ptr @dom_html_collection_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_html_collection_object_handlers, i64 48), align 8, !tbaa !116
+  store ptr @dom_html_collection_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_html_collection_object_handlers, i64 88), align 8, !tbaa !117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_object_namespace_node_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
-  store i32 32, ptr @dom_object_namespace_node_handlers, align 8, !tbaa !103
-  store ptr @dom_object_namespace_node_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_object_namespace_node_handlers, i64 8), align 8, !tbaa !114
-  store ptr @dom_object_namespace_node_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_object_namespace_node_handlers, i64 24), align 8, !tbaa !119
+  store i32 32, ptr @dom_object_namespace_node_handlers, align 8, !tbaa !97
+  store ptr @dom_object_namespace_node_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_object_namespace_node_handlers, i64 8), align 8, !tbaa !108
+  store ptr @dom_object_namespace_node_clone_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_object_namespace_node_handlers, i64 24), align 8, !tbaa !113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_token_list_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
-  store i32 96, ptr @dom_token_list_object_handlers, align 8, !tbaa !103
-  store ptr @dom_token_list_free_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 8), align 8, !tbaa !114
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 24), align 8, !tbaa !119
-  store ptr @dom_token_list_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 48), align 8, !tbaa !122
-  store ptr @dom_token_list_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 88), align 8, !tbaa !123
+  store i32 96, ptr @dom_token_list_object_handlers, align 8, !tbaa !97
+  store ptr @dom_token_list_free_obj, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 8), align 8, !tbaa !108
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 24), align 8, !tbaa !113
+  store ptr @dom_token_list_read_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 48), align 8, !tbaa !116
+  store ptr @dom_token_list_has_dimension, ptr getelementptr inbounds nuw (i8, ptr @dom_token_list_object_handlers, i64 88), align 8, !tbaa !117
   tail call void @_zend_hash_init(ptr noundef nonnull @classes, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %662 = tail call ptr @zend_register_internal_enum(ptr noundef nonnull @.str.300, i8 noundef zeroext 6, ptr noundef null) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %618)
   %663 = tail call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %663, align 4, !tbaa !69
+  store i32 1, ptr %663, align 4, !tbaa !64
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 4
   store i32 150, ptr %664, align 4, !tbaa !44
   %665 = getelementptr inbounds nuw i8, ptr %663, i64 8
-  store i64 0, ptr %665, align 8, !tbaa !124
+  store i64 0, ptr %665, align 8, !tbaa !118
   %666 = getelementptr inbounds nuw i8, ptr %663, i64 16
-  store i64 11, ptr %666, align 8, !tbaa !126
+  store i64 11, ptr %666, align 8, !tbaa !120
   %667 = getelementptr inbounds nuw i8, ptr %663, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %667, ptr noundef nonnull align 1 dereferenceable(11) @.str.301, i64 11, i1 false)
   %668 = getelementptr inbounds nuw i8, ptr %663, i64 35
@@ -2401,13 +2380,13 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.302, ptr noundef nonnull %618) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %619)
   %670 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %670, align 4, !tbaa !69
+  store i32 1, ptr %670, align 4, !tbaa !64
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 4
   store i32 150, ptr %671, align 4, !tbaa !44
   %672 = getelementptr inbounds nuw i8, ptr %670, i64 8
-  store i64 0, ptr %672, align 8, !tbaa !124
+  store i64 0, ptr %672, align 8, !tbaa !118
   %673 = getelementptr inbounds nuw i8, ptr %670, i64 16
-  store i64 10, ptr %673, align 8, !tbaa !126
+  store i64 10, ptr %673, align 8, !tbaa !120
   %674 = getelementptr inbounds nuw i8, ptr %670, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %674, ptr noundef nonnull align 1 dereferenceable(10) @.str.303, i64 10, i1 false)
   %675 = getelementptr inbounds nuw i8, ptr %670, i64 34
@@ -2418,13 +2397,13 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.304, ptr noundef nonnull %619) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %620)
   %677 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %677, align 4, !tbaa !69
+  store i32 1, ptr %677, align 4, !tbaa !64
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 4
   store i32 150, ptr %678, align 4, !tbaa !44
   %679 = getelementptr inbounds nuw i8, ptr %677, i64 8
-  store i64 0, ptr %679, align 8, !tbaa !124
+  store i64 0, ptr %679, align 8, !tbaa !118
   %680 = getelementptr inbounds nuw i8, ptr %677, i64 16
-  store i64 9, ptr %680, align 8, !tbaa !126
+  store i64 9, ptr %680, align 8, !tbaa !120
   %681 = getelementptr inbounds nuw i8, ptr %677, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %681, ptr noundef nonnull align 1 dereferenceable(9) @.str.305, i64 9, i1 false)
   %682 = getelementptr inbounds nuw i8, ptr %677, i64 33
@@ -2435,13 +2414,13 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   call void @zend_enum_add_case_cstr(ptr noundef %662, ptr noundef nonnull @.str.306, ptr noundef nonnull %620) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %621)
   %684 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %684, align 4, !tbaa !69
+  store i32 1, ptr %684, align 4, !tbaa !64
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 4
   store i32 150, ptr %685, align 4, !tbaa !44
   %686 = getelementptr inbounds nuw i8, ptr %684, i64 8
-  store i64 0, ptr %686, align 8, !tbaa !124
+  store i64 0, ptr %686, align 8, !tbaa !118
   %687 = getelementptr inbounds nuw i8, ptr %684, i64 16
-  store i64 8, ptr %687, align 8, !tbaa !126
+  store i64 8, ptr %687, align 8, !tbaa !120
   %688 = getelementptr inbounds nuw i8, ptr %684, i64 24
   store i64 7236833193233770081, ptr %688, align 8
   %689 = getelementptr inbounds nuw i8, ptr %684, i64 32
@@ -2454,8 +2433,8 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   call void @llvm.lifetime.end.p0(ptr nonnull %620)
   call void @llvm.lifetime.end.p0(ptr nonnull %619)
   call void @llvm.lifetime.end.p0(ptr nonnull %618)
-  store ptr %662, ptr @dom_adjacent_position_class_entry, align 8, !tbaa !127
-  %691 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !127
+  store ptr %662, ptr @dom_adjacent_position_class_entry, align 8, !tbaa !121
+  %691 = load ptr, ptr @zend_ce_exception, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %617)
   call void @llvm.lifetime.start.p0(ptr nonnull %615)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %615, i8 0, i64 520, i1 false)
@@ -2464,7 +2443,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %694 = getelementptr inbounds nuw i8, ptr %615, i64 8
   store ptr %693, ptr %694, align 8, !tbaa !28
   %695 = getelementptr inbounds nuw i8, ptr %615, i64 360
-  store ptr @std_object_handlers, ptr %695, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %695, align 8, !tbaa !122
   %696 = getelementptr inbounds nuw i8, ptr %615, i64 504
   store ptr null, ptr %696, align 8, !tbaa !44
   %697 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %615, ptr noundef %691, i32 noundef 32) #17
@@ -2473,15 +2452,15 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   store i64 0, ptr %616, align 8, !tbaa !44
   %699 = getelementptr inbounds nuw i8, ptr %616, i64 8
   store i32 4, ptr %699, align 8, !tbaa !44
-  %700 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %700 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 200
-  %702 = load ptr, ptr %701, align 8, !tbaa !131
+  %702 = load ptr, ptr %701, align 8, !tbaa !125
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %617, i8 0, i64 16, i1 false)
   %703 = call ptr @zend_declare_typed_property(ptr noundef %697, ptr noundef %702, ptr noundef nonnull %616, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %617) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %616)
   call void @llvm.lifetime.end.p0(ptr nonnull %615)
   call void @llvm.lifetime.end.p0(ptr nonnull %617)
-  store ptr %697, ptr @dom_domexception_class_entry, align 8, !tbaa !127
+  store ptr %697, ptr @dom_domexception_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %614)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %614, i8 0, i64 520, i1 false)
   %704 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -2489,12 +2468,12 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %706 = getelementptr inbounds nuw i8, ptr %614, i64 8
   store ptr %705, ptr %706, align 8, !tbaa !28
   %707 = getelementptr inbounds nuw i8, ptr %614, i64 360
-  store ptr @std_object_handlers, ptr %707, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %707, align 8, !tbaa !122
   %708 = getelementptr inbounds nuw i8, ptr %614, i64 504
   store ptr @class_DOMParentNode_methods, ptr %708, align 8, !tbaa !44
   %709 = call ptr @zend_register_internal_interface(ptr noundef nonnull %614) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %614)
-  store ptr %709, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
+  store ptr %709, ptr @dom_parentnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %613)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %613, i8 0, i64 520, i1 false)
   %710 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -2502,12 +2481,12 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %712 = getelementptr inbounds nuw i8, ptr %613, i64 8
   store ptr %711, ptr %712, align 8, !tbaa !28
   %713 = getelementptr inbounds nuw i8, ptr %613, i64 360
-  store ptr @std_object_handlers, ptr %713, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %713, align 8, !tbaa !122
   %714 = getelementptr inbounds nuw i8, ptr %613, i64 504
   store ptr @class_Dom_ParentNode_methods, ptr %714, align 8, !tbaa !44
   %715 = call ptr @zend_register_internal_interface(ptr noundef nonnull %613) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %613)
-  store ptr %715, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
+  store ptr %715, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %612)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %612, i8 0, i64 520, i1 false)
   %716 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -2515,12 +2494,12 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %718 = getelementptr inbounds nuw i8, ptr %612, i64 8
   store ptr %717, ptr %718, align 8, !tbaa !28
   %719 = getelementptr inbounds nuw i8, ptr %612, i64 360
-  store ptr @std_object_handlers, ptr %719, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %719, align 8, !tbaa !122
   %720 = getelementptr inbounds nuw i8, ptr %612, i64 504
   store ptr @class_DOMChildNode_methods, ptr %720, align 8, !tbaa !44
   %721 = call ptr @zend_register_internal_interface(ptr noundef nonnull %612) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %612)
-  store ptr %721, ptr @dom_childnode_class_entry, align 8, !tbaa !127
+  store ptr %721, ptr @dom_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %611)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %611, i8 0, i64 520, i1 false)
   %722 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -2528,12 +2507,12 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %724 = getelementptr inbounds nuw i8, ptr %611, i64 8
   store ptr %723, ptr %724, align 8, !tbaa !28
   %725 = getelementptr inbounds nuw i8, ptr %611, i64 360
-  store ptr @std_object_handlers, ptr %725, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %725, align 8, !tbaa !122
   %726 = getelementptr inbounds nuw i8, ptr %611, i64 504
   store ptr @class_Dom_ChildNode_methods, ptr %726, align 8, !tbaa !44
   %727 = call ptr @zend_register_internal_interface(ptr noundef nonnull %611) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %611)
-  store ptr %727, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
+  store ptr %727, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %610)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %610, i8 0, i64 520, i1 false)
   %728 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -2541,16 +2520,16 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %730 = getelementptr inbounds nuw i8, ptr %610, i64 8
   store ptr %729, ptr %730, align 8, !tbaa !28
   %731 = getelementptr inbounds nuw i8, ptr %610, i64 360
-  store ptr @std_object_handlers, ptr %731, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %731, align 8, !tbaa !122
   %732 = getelementptr inbounds nuw i8, ptr %610, i64 504
   store ptr @class_DOMImplementation_methods, ptr %732, align 8, !tbaa !44
   %733 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %610, ptr noundef null, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %610)
-  store ptr %733, ptr @dom_domimplementation_class_entry, align 8, !tbaa !127
+  store ptr %733, ptr @dom_domimplementation_class_entry, align 8, !tbaa !121
   %734 = getelementptr inbounds nuw i8, ptr %733, i64 384
   store ptr @dom_objects_new, ptr %734, align 8, !tbaa !44
   %735 = getelementptr inbounds nuw i8, ptr %733, i64 360
-  store ptr @dom_object_handlers, ptr %735, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %735, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(ptr nonnull %609)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %609, i8 0, i64 520, i1 false)
   %736 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -2558,16 +2537,16 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %738 = getelementptr inbounds nuw i8, ptr %609, i64 8
   store ptr %737, ptr %738, align 8, !tbaa !28
   %739 = getelementptr inbounds nuw i8, ptr %609, i64 360
-  store ptr @std_object_handlers, ptr %739, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %739, align 8, !tbaa !122
   %740 = getelementptr inbounds nuw i8, ptr %609, i64 504
   store ptr @class_Dom_Implementation_methods, ptr %740, align 8, !tbaa !44
   %741 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %609, ptr noundef null, i32 noundef 536879104) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %609)
-  store ptr %741, ptr @dom_modern_domimplementation_class_entry, align 8, !tbaa !127
+  store ptr %741, ptr @dom_modern_domimplementation_class_entry, align 8, !tbaa !121
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 384
   store ptr @dom_objects_new, ptr %742, align 8, !tbaa !44
   %743 = getelementptr inbounds nuw i8, ptr %741, i64 360
-  store ptr @dom_modern_domimplementation_object_handlers, ptr %743, align 8, !tbaa !128
+  store ptr @dom_modern_domimplementation_object_handlers, ptr %743, align 8, !tbaa !122
   call void @llvm.lifetime.start.p0(ptr nonnull %562)
   call void @llvm.lifetime.start.p0(ptr nonnull %564)
   call void @llvm.lifetime.start.p0(ptr nonnull %566)
@@ -2599,7 +2578,7 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   %746 = getelementptr inbounds nuw i8, ptr %560, i64 8
   store ptr %745, ptr %746, align 8, !tbaa !28
   %747 = getelementptr inbounds nuw i8, ptr %560, i64 360
-  store ptr @std_object_handlers, ptr %747, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %747, align 8, !tbaa !122
   %748 = getelementptr inbounds nuw i8, ptr %560, i64 504
   store ptr @class_DOMNode_methods, ptr %748, align 8, !tbaa !44
   %749 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %560, ptr noundef null, i32 noundef 0) #17
@@ -2609,9 +2588,9 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   store i32 4, ptr %750, align 8, !tbaa !44
   %751 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %752 = call ptr %751(ptr noundef nonnull @.str.357, i64 noundef 30, i1 noundef zeroext true) #17
-  store ptr null, ptr %562, align 8, !tbaa !132
+  store ptr null, ptr %562, align 8, !tbaa !126
   %753 = getelementptr inbounds nuw i8, ptr %562, i64 8
-  store i32 16, ptr %753, align 8, !tbaa !133
+  store i32 16, ptr %753, align 8, !tbaa !128
   %754 = getelementptr inbounds nuw i8, ptr %562, i64 12
   store i32 0, ptr %754, align 4
   %755 = call ptr @zend_declare_typed_class_constant(ptr noundef %749, ptr noundef %752, ptr noundef nonnull %561, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %562) #17
@@ -2622,11 +2601,11 @@ define hidden noundef i32 @zm_startup_dom(i32 %0, i32 noundef %1) #1 {
   br i1 %.not.i.i, label %759, label %zend_string_release.exit.i
 
 759:                                              ; preds = %2
-  %760 = load i32, ptr %752, align 4, !tbaa !69
+  %760 = load i32, ptr %752, align 4, !tbaa !64
   %761 = icmp ne i32 %760, 0
   call void @llvm.assume(i1 %761)
   %762 = add i32 %760, -1
-  store i32 %762, ptr %752, align 4, !tbaa !69
+  store i32 %762, ptr %752, align 4, !tbaa !64
   %763 = icmp eq i32 %762, 0
   br i1 %763, label %764, label %zend_string_release.exit.i
 
@@ -2650,9 +2629,9 @@ zend_string_release.exit.i:                       ; preds = %767, %766, %759, %2
   store i32 4, ptr %768, align 8, !tbaa !44
   %769 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %770 = call ptr %769(ptr noundef nonnull @.str.358, i64 noundef 27, i1 noundef zeroext true) #17
-  store ptr null, ptr %564, align 8, !tbaa !132
+  store ptr null, ptr %564, align 8, !tbaa !126
   %771 = getelementptr inbounds nuw i8, ptr %564, i64 8
-  store i32 16, ptr %771, align 8, !tbaa !133
+  store i32 16, ptr %771, align 8, !tbaa !128
   %772 = getelementptr inbounds nuw i8, ptr %564, i64 12
   store i32 0, ptr %772, align 4
   %773 = call ptr @zend_declare_typed_class_constant(ptr noundef %749, ptr noundef %770, ptr noundef nonnull %563, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %564) #17
@@ -2663,11 +2642,11 @@ zend_string_release.exit.i:                       ; preds = %767, %766, %759, %2
   br i1 %.not.i94.i, label %777, label %zend_string_release.exit96.i
 
 777:                                              ; preds = %zend_string_release.exit.i
-  %778 = load i32, ptr %770, align 4, !tbaa !69
+  %778 = load i32, ptr %770, align 4, !tbaa !64
   %779 = icmp ne i32 %778, 0
   call void @llvm.assume(i1 %779)
   %780 = add i32 %778, -1
-  store i32 %780, ptr %770, align 4, !tbaa !69
+  store i32 %780, ptr %770, align 4, !tbaa !64
   %781 = icmp eq i32 %780, 0
   br i1 %781, label %782, label %zend_string_release.exit96.i
 
@@ -2691,9 +2670,9 @@ zend_string_release.exit96.i:                     ; preds = %785, %784, %777, %z
   store i32 4, ptr %786, align 8, !tbaa !44
   %787 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %788 = call ptr %787(ptr noundef nonnull @.str.359, i64 noundef 27, i1 noundef zeroext true) #17
-  store ptr null, ptr %566, align 8, !tbaa !132
+  store ptr null, ptr %566, align 8, !tbaa !126
   %789 = getelementptr inbounds nuw i8, ptr %566, i64 8
-  store i32 16, ptr %789, align 8, !tbaa !133
+  store i32 16, ptr %789, align 8, !tbaa !128
   %790 = getelementptr inbounds nuw i8, ptr %566, i64 12
   store i32 0, ptr %790, align 4
   %791 = call ptr @zend_declare_typed_class_constant(ptr noundef %749, ptr noundef %788, ptr noundef nonnull %565, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %566) #17
@@ -2704,11 +2683,11 @@ zend_string_release.exit96.i:                     ; preds = %785, %784, %777, %z
   br i1 %.not.i97.i, label %795, label %zend_string_release.exit99.i
 
 795:                                              ; preds = %zend_string_release.exit96.i
-  %796 = load i32, ptr %788, align 4, !tbaa !69
+  %796 = load i32, ptr %788, align 4, !tbaa !64
   %797 = icmp ne i32 %796, 0
   call void @llvm.assume(i1 %797)
   %798 = add i32 %796, -1
-  store i32 %798, ptr %788, align 4, !tbaa !69
+  store i32 %798, ptr %788, align 4, !tbaa !64
   %799 = icmp eq i32 %798, 0
   br i1 %799, label %800, label %zend_string_release.exit99.i
 
@@ -2732,9 +2711,9 @@ zend_string_release.exit99.i:                     ; preds = %803, %802, %795, %z
   store i32 4, ptr %804, align 8, !tbaa !44
   %805 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %806 = call ptr %805(ptr noundef nonnull @.str.360, i64 noundef 26, i1 noundef zeroext true) #17
-  store ptr null, ptr %568, align 8, !tbaa !132
+  store ptr null, ptr %568, align 8, !tbaa !126
   %807 = getelementptr inbounds nuw i8, ptr %568, i64 8
-  store i32 16, ptr %807, align 8, !tbaa !133
+  store i32 16, ptr %807, align 8, !tbaa !128
   %808 = getelementptr inbounds nuw i8, ptr %568, i64 12
   store i32 0, ptr %808, align 4
   %809 = call ptr @zend_declare_typed_class_constant(ptr noundef %749, ptr noundef %806, ptr noundef nonnull %567, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %568) #17
@@ -2745,11 +2724,11 @@ zend_string_release.exit99.i:                     ; preds = %803, %802, %795, %z
   br i1 %.not.i100.i, label %813, label %zend_string_release.exit102.i
 
 813:                                              ; preds = %zend_string_release.exit99.i
-  %814 = load i32, ptr %806, align 4, !tbaa !69
+  %814 = load i32, ptr %806, align 4, !tbaa !64
   %815 = icmp ne i32 %814, 0
   call void @llvm.assume(i1 %815)
   %816 = add i32 %814, -1
-  store i32 %816, ptr %806, align 4, !tbaa !69
+  store i32 %816, ptr %806, align 4, !tbaa !64
   %817 = icmp eq i32 %816, 0
   br i1 %817, label %818, label %zend_string_release.exit102.i
 
@@ -2773,9 +2752,9 @@ zend_string_release.exit102.i:                    ; preds = %821, %820, %813, %z
   store i32 4, ptr %822, align 8, !tbaa !44
   %823 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %824 = call ptr %823(ptr noundef nonnull @.str.361, i64 noundef 30, i1 noundef zeroext true) #17
-  store ptr null, ptr %570, align 8, !tbaa !132
+  store ptr null, ptr %570, align 8, !tbaa !126
   %825 = getelementptr inbounds nuw i8, ptr %570, i64 8
-  store i32 16, ptr %825, align 8, !tbaa !133
+  store i32 16, ptr %825, align 8, !tbaa !128
   %826 = getelementptr inbounds nuw i8, ptr %570, i64 12
   store i32 0, ptr %826, align 4
   %827 = call ptr @zend_declare_typed_class_constant(ptr noundef %749, ptr noundef %824, ptr noundef nonnull %569, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %570) #17
@@ -2786,11 +2765,11 @@ zend_string_release.exit102.i:                    ; preds = %821, %820, %813, %z
   br i1 %.not.i103.i, label %831, label %zend_string_release.exit105.i
 
 831:                                              ; preds = %zend_string_release.exit102.i
-  %832 = load i32, ptr %824, align 4, !tbaa !69
+  %832 = load i32, ptr %824, align 4, !tbaa !64
   %833 = icmp ne i32 %832, 0
   call void @llvm.assume(i1 %833)
   %834 = add i32 %832, -1
-  store i32 %834, ptr %824, align 4, !tbaa !69
+  store i32 %834, ptr %824, align 4, !tbaa !64
   %835 = icmp eq i32 %834, 0
   br i1 %835, label %836, label %zend_string_release.exit105.i
 
@@ -2814,9 +2793,9 @@ zend_string_release.exit105.i:                    ; preds = %839, %838, %831, %z
   store i32 4, ptr %840, align 8, !tbaa !44
   %841 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %842 = call ptr %841(ptr noundef nonnull @.str.362, i64 noundef 41, i1 noundef zeroext true) #17
-  store ptr null, ptr %572, align 8, !tbaa !132
+  store ptr null, ptr %572, align 8, !tbaa !126
   %843 = getelementptr inbounds nuw i8, ptr %572, i64 8
-  store i32 16, ptr %843, align 8, !tbaa !133
+  store i32 16, ptr %843, align 8, !tbaa !128
   %844 = getelementptr inbounds nuw i8, ptr %572, i64 12
   store i32 0, ptr %844, align 4
   %845 = call ptr @zend_declare_typed_class_constant(ptr noundef %749, ptr noundef %842, ptr noundef nonnull %571, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %572) #17
@@ -2827,11 +2806,11 @@ zend_string_release.exit105.i:                    ; preds = %839, %838, %831, %z
   br i1 %.not.i106.i, label %849, label %zend_string_release.exit108.i
 
 849:                                              ; preds = %zend_string_release.exit105.i
-  %850 = load i32, ptr %842, align 4, !tbaa !69
+  %850 = load i32, ptr %842, align 4, !tbaa !64
   %851 = icmp ne i32 %850, 0
   call void @llvm.assume(i1 %851)
   %852 = add i32 %850, -1
-  store i32 %852, ptr %842, align 4, !tbaa !69
+  store i32 %852, ptr %842, align 4, !tbaa !64
   %853 = icmp eq i32 %852, 0
   br i1 %853, label %854, label %zend_string_release.exit108.i
 
@@ -2853,20 +2832,20 @@ zend_string_release.exit108.i:                    ; preds = %857, %856, %849, %z
   %858 = getelementptr inbounds nuw i8, ptr %573, i64 8
   store i32 0, ptr %858, align 8, !tbaa !44
   %859 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %859, align 4, !tbaa !69
+  store i32 1, ptr %859, align 4, !tbaa !64
   %860 = getelementptr inbounds nuw i8, ptr %859, i64 4
   store i32 150, ptr %860, align 4, !tbaa !44
   %861 = getelementptr inbounds nuw i8, ptr %859, i64 8
-  store i64 0, ptr %861, align 8, !tbaa !124
+  store i64 0, ptr %861, align 8, !tbaa !118
   %862 = getelementptr inbounds nuw i8, ptr %859, i64 16
-  store i64 8, ptr %862, align 8, !tbaa !126
+  store i64 8, ptr %862, align 8, !tbaa !120
   %863 = getelementptr inbounds nuw i8, ptr %859, i64 24
   store i64 7308604759628607342, ptr %863, align 8
   %864 = getelementptr inbounds nuw i8, ptr %859, i64 32
   store i8 0, ptr %864, align 8, !tbaa !44
-  store ptr null, ptr %574, align 8, !tbaa !132
+  store ptr null, ptr %574, align 8, !tbaa !126
   %865 = getelementptr inbounds nuw i8, ptr %574, i64 8
-  store i32 64, ptr %865, align 8, !tbaa !133
+  store i32 64, ptr %865, align 8, !tbaa !128
   %866 = getelementptr inbounds nuw i8, ptr %574, i64 12
   store i32 0, ptr %866, align 4
   %867 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %859, ptr noundef nonnull %573, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %574) #17
@@ -2876,11 +2855,11 @@ zend_string_release.exit108.i:                    ; preds = %857, %856, %849, %z
   br i1 %.not.i109.i, label %870, label %zend_string_release.exit111.i
 
 870:                                              ; preds = %zend_string_release.exit108.i
-  %871 = load i32, ptr %859, align 4, !tbaa !69
+  %871 = load i32, ptr %859, align 4, !tbaa !64
   %872 = icmp ne i32 %871, 0
   call void @llvm.assume(i1 %872)
   %873 = add i32 %871, -1
-  store i32 %873, ptr %859, align 4, !tbaa !69
+  store i32 %873, ptr %859, align 4, !tbaa !64
   %874 = icmp eq i32 %873, 0
   br i1 %874, label %875, label %zend_string_release.exit111.i
 
@@ -2902,20 +2881,20 @@ zend_string_release.exit111.i:                    ; preds = %878, %877, %870, %z
   %879 = getelementptr inbounds nuw i8, ptr %575, i64 8
   store i32 0, ptr %879, align 8, !tbaa !44
   %880 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %880, align 4, !tbaa !69
+  store i32 1, ptr %880, align 4, !tbaa !64
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 4
   store i32 150, ptr %881, align 4, !tbaa !44
   %882 = getelementptr inbounds nuw i8, ptr %880, i64 8
-  store i64 0, ptr %882, align 8, !tbaa !124
+  store i64 0, ptr %882, align 8, !tbaa !118
   %883 = getelementptr inbounds nuw i8, ptr %880, i64 16
-  store i64 9, ptr %883, align 8, !tbaa !126
+  store i64 9, ptr %883, align 8, !tbaa !120
   %884 = getelementptr inbounds nuw i8, ptr %880, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %884, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
   %885 = getelementptr inbounds nuw i8, ptr %880, i64 33
   store i8 0, ptr %885, align 1, !tbaa !44
-  store ptr null, ptr %576, align 8, !tbaa !132
+  store ptr null, ptr %576, align 8, !tbaa !126
   %886 = getelementptr inbounds nuw i8, ptr %576, i64 8
-  store i32 66, ptr %886, align 8, !tbaa !133
+  store i32 66, ptr %886, align 8, !tbaa !128
   %887 = getelementptr inbounds nuw i8, ptr %576, i64 12
   store i32 0, ptr %887, align 4
   %888 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %880, ptr noundef nonnull %575, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %576) #17
@@ -2925,11 +2904,11 @@ zend_string_release.exit111.i:                    ; preds = %878, %877, %870, %z
   br i1 %.not.i112.i, label %891, label %zend_string_release.exit114.i
 
 891:                                              ; preds = %zend_string_release.exit111.i
-  %892 = load i32, ptr %880, align 4, !tbaa !69
+  %892 = load i32, ptr %880, align 4, !tbaa !64
   %893 = icmp ne i32 %892, 0
   call void @llvm.assume(i1 %893)
   %894 = add i32 %892, -1
-  store i32 %894, ptr %880, align 4, !tbaa !69
+  store i32 %894, ptr %880, align 4, !tbaa !64
   %895 = icmp eq i32 %894, 0
   br i1 %895, label %896, label %zend_string_release.exit114.i
 
@@ -2951,20 +2930,20 @@ zend_string_release.exit114.i:                    ; preds = %899, %898, %891, %z
   %900 = getelementptr inbounds nuw i8, ptr %577, i64 8
   store i32 0, ptr %900, align 8, !tbaa !44
   %901 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %901, align 4, !tbaa !69
+  store i32 1, ptr %901, align 4, !tbaa !64
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 4
   store i32 150, ptr %902, align 4, !tbaa !44
   %903 = getelementptr inbounds nuw i8, ptr %901, i64 8
-  store i64 0, ptr %903, align 8, !tbaa !124
+  store i64 0, ptr %903, align 8, !tbaa !118
   %904 = getelementptr inbounds nuw i8, ptr %901, i64 16
-  store i64 8, ptr %904, align 8, !tbaa !126
+  store i64 8, ptr %904, align 8, !tbaa !120
   %905 = getelementptr inbounds nuw i8, ptr %901, i64 24
   store i64 7309475598607609710, ptr %905, align 8
   %906 = getelementptr inbounds nuw i8, ptr %901, i64 32
   store i8 0, ptr %906, align 8, !tbaa !44
-  store ptr null, ptr %578, align 8, !tbaa !132
+  store ptr null, ptr %578, align 8, !tbaa !126
   %907 = getelementptr inbounds nuw i8, ptr %578, i64 8
-  store i32 16, ptr %907, align 8, !tbaa !133
+  store i32 16, ptr %907, align 8, !tbaa !128
   %908 = getelementptr inbounds nuw i8, ptr %578, i64 12
   store i32 0, ptr %908, align 4
   %909 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %901, ptr noundef nonnull %577, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %578) #17
@@ -2974,11 +2953,11 @@ zend_string_release.exit114.i:                    ; preds = %899, %898, %891, %z
   br i1 %.not.i115.i, label %912, label %zend_string_release.exit117.i
 
 912:                                              ; preds = %zend_string_release.exit114.i
-  %913 = load i32, ptr %901, align 4, !tbaa !69
+  %913 = load i32, ptr %901, align 4, !tbaa !64
   %914 = icmp ne i32 %913, 0
   call void @llvm.assume(i1 %914)
   %915 = add i32 %913, -1
-  store i32 %915, ptr %901, align 4, !tbaa !69
+  store i32 %915, ptr %901, align 4, !tbaa !64
   %916 = icmp eq i32 %915, 0
   br i1 %916, label %917, label %zend_string_release.exit117.i
 
@@ -3000,32 +2979,32 @@ zend_string_release.exit117.i:                    ; preds = %920, %919, %912, %z
   %921 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store i32 0, ptr %921, align 8, !tbaa !44
   %922 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %922, align 4, !tbaa !69
+  store i32 1, ptr %922, align 4, !tbaa !64
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 4
   store i32 150, ptr %923, align 4, !tbaa !44
   %924 = getelementptr inbounds nuw i8, ptr %922, i64 8
-  store i64 0, ptr %924, align 8, !tbaa !124
+  store i64 0, ptr %924, align 8, !tbaa !118
   %925 = getelementptr inbounds nuw i8, ptr %922, i64 16
-  store i64 10, ptr %925, align 8, !tbaa !126
+  store i64 10, ptr %925, align 8, !tbaa !120
   %926 = getelementptr inbounds nuw i8, ptr %922, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %926, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false)
   %927 = getelementptr inbounds nuw i8, ptr %922, i64 34
   store i8 0, ptr %927, align 2, !tbaa !44
   %928 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %928, align 4, !tbaa !69
+  store i32 1, ptr %928, align 4, !tbaa !64
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 4
   store i32 150, ptr %929, align 4, !tbaa !44
   %930 = getelementptr inbounds nuw i8, ptr %928, i64 8
-  store i64 0, ptr %930, align 8, !tbaa !124
+  store i64 0, ptr %930, align 8, !tbaa !118
   %931 = getelementptr inbounds nuw i8, ptr %928, i64 16
-  store i64 7, ptr %931, align 8, !tbaa !126
+  store i64 7, ptr %931, align 8, !tbaa !120
   %932 = getelementptr inbounds nuw i8, ptr %928, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %932, ptr noundef nonnull align 1 dereferenceable(7) @.str.356, i64 7, i1 false)
   %933 = getelementptr inbounds nuw i8, ptr %928, i64 31
   store i8 0, ptr %933, align 1, !tbaa !44
-  store ptr %928, ptr %580, align 8, !tbaa !132
+  store ptr %928, ptr %580, align 8, !tbaa !126
   %934 = getelementptr inbounds nuw i8, ptr %580, i64 8
-  store i32 16777218, ptr %934, align 8, !tbaa !133
+  store i32 16777218, ptr %934, align 8, !tbaa !128
   %935 = getelementptr inbounds nuw i8, ptr %580, i64 12
   store i32 0, ptr %935, align 4
   %936 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %922, ptr noundef nonnull %579, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %580) #17
@@ -3035,11 +3014,11 @@ zend_string_release.exit117.i:                    ; preds = %920, %919, %912, %z
   br i1 %.not.i118.i, label %939, label %zend_string_release.exit120.i
 
 939:                                              ; preds = %zend_string_release.exit117.i
-  %940 = load i32, ptr %922, align 4, !tbaa !69
+  %940 = load i32, ptr %922, align 4, !tbaa !64
   %941 = icmp ne i32 %940, 0
   call void @llvm.assume(i1 %941)
   %942 = add i32 %940, -1
-  store i32 %942, ptr %922, align 4, !tbaa !69
+  store i32 %942, ptr %922, align 4, !tbaa !64
   %943 = icmp eq i32 %942, 0
   br i1 %943, label %944, label %zend_string_release.exit120.i
 
@@ -3061,32 +3040,32 @@ zend_string_release.exit120.i:                    ; preds = %947, %946, %939, %z
   %948 = getelementptr inbounds nuw i8, ptr %581, i64 8
   store i32 0, ptr %948, align 8, !tbaa !44
   %949 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %949, align 4, !tbaa !69
+  store i32 1, ptr %949, align 4, !tbaa !64
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 4
   store i32 150, ptr %950, align 4, !tbaa !44
   %951 = getelementptr inbounds nuw i8, ptr %949, i64 8
-  store i64 0, ptr %951, align 8, !tbaa !124
+  store i64 0, ptr %951, align 8, !tbaa !118
   %952 = getelementptr inbounds nuw i8, ptr %949, i64 16
-  store i64 13, ptr %952, align 8, !tbaa !126
+  store i64 13, ptr %952, align 8, !tbaa !120
   %953 = getelementptr inbounds nuw i8, ptr %949, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %953, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 13, i1 false)
   %954 = getelementptr inbounds nuw i8, ptr %949, i64 37
   store i8 0, ptr %954, align 1, !tbaa !44
   %955 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %955, align 4, !tbaa !69
+  store i32 1, ptr %955, align 4, !tbaa !64
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 4
   store i32 150, ptr %956, align 4, !tbaa !44
   %957 = getelementptr inbounds nuw i8, ptr %955, i64 8
-  store i64 0, ptr %957, align 8, !tbaa !124
+  store i64 0, ptr %957, align 8, !tbaa !118
   %958 = getelementptr inbounds nuw i8, ptr %955, i64 16
-  store i64 10, ptr %958, align 8, !tbaa !126
+  store i64 10, ptr %958, align 8, !tbaa !120
   %959 = getelementptr inbounds nuw i8, ptr %955, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %959, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %960 = getelementptr inbounds nuw i8, ptr %955, i64 34
   store i8 0, ptr %960, align 2, !tbaa !44
-  store ptr %955, ptr %582, align 8, !tbaa !132
+  store ptr %955, ptr %582, align 8, !tbaa !126
   %961 = getelementptr inbounds nuw i8, ptr %582, i64 8
-  store i32 16777218, ptr %961, align 8, !tbaa !133
+  store i32 16777218, ptr %961, align 8, !tbaa !128
   %962 = getelementptr inbounds nuw i8, ptr %582, i64 12
   store i32 0, ptr %962, align 4
   %963 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %949, ptr noundef nonnull %581, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %582) #17
@@ -3096,11 +3075,11 @@ zend_string_release.exit120.i:                    ; preds = %947, %946, %939, %z
   br i1 %.not.i121.i, label %966, label %zend_string_release.exit123.i
 
 966:                                              ; preds = %zend_string_release.exit120.i
-  %967 = load i32, ptr %949, align 4, !tbaa !69
+  %967 = load i32, ptr %949, align 4, !tbaa !64
   %968 = icmp ne i32 %967, 0
   call void @llvm.assume(i1 %968)
   %969 = add i32 %967, -1
-  store i32 %969, ptr %949, align 4, !tbaa !69
+  store i32 %969, ptr %949, align 4, !tbaa !64
   %970 = icmp eq i32 %969, 0
   br i1 %970, label %971, label %zend_string_release.exit123.i
 
@@ -3122,32 +3101,32 @@ zend_string_release.exit123.i:                    ; preds = %974, %973, %966, %z
   %975 = getelementptr inbounds nuw i8, ptr %583, i64 8
   store i32 0, ptr %975, align 8, !tbaa !44
   %976 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %976, align 4, !tbaa !69
+  store i32 1, ptr %976, align 4, !tbaa !64
   %977 = getelementptr inbounds nuw i8, ptr %976, i64 4
   store i32 150, ptr %977, align 4, !tbaa !44
   %978 = getelementptr inbounds nuw i8, ptr %976, i64 8
-  store i64 0, ptr %978, align 8, !tbaa !124
+  store i64 0, ptr %978, align 8, !tbaa !118
   %979 = getelementptr inbounds nuw i8, ptr %976, i64 16
-  store i64 10, ptr %979, align 8, !tbaa !126
+  store i64 10, ptr %979, align 8, !tbaa !120
   %980 = getelementptr inbounds nuw i8, ptr %976, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %980, ptr noundef nonnull align 1 dereferenceable(10) @.str.13, i64 10, i1 false)
   %981 = getelementptr inbounds nuw i8, ptr %976, i64 34
   store i8 0, ptr %981, align 2, !tbaa !44
   %982 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %982, align 4, !tbaa !69
+  store i32 1, ptr %982, align 4, !tbaa !64
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 4
   store i32 150, ptr %983, align 4, !tbaa !44
   %984 = getelementptr inbounds nuw i8, ptr %982, i64 8
-  store i64 0, ptr %984, align 8, !tbaa !124
+  store i64 0, ptr %984, align 8, !tbaa !118
   %985 = getelementptr inbounds nuw i8, ptr %982, i64 16
-  store i64 11, ptr %985, align 8, !tbaa !126
+  store i64 11, ptr %985, align 8, !tbaa !120
   %986 = getelementptr inbounds nuw i8, ptr %982, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %986, ptr noundef nonnull align 1 dereferenceable(11) @.str.364, i64 11, i1 false)
   %987 = getelementptr inbounds nuw i8, ptr %982, i64 35
   store i8 0, ptr %987, align 1, !tbaa !44
-  store ptr %982, ptr %584, align 8, !tbaa !132
+  store ptr %982, ptr %584, align 8, !tbaa !126
   %988 = getelementptr inbounds nuw i8, ptr %584, i64 8
-  store i32 16777216, ptr %988, align 8, !tbaa !133
+  store i32 16777216, ptr %988, align 8, !tbaa !128
   %989 = getelementptr inbounds nuw i8, ptr %584, i64 12
   store i32 0, ptr %989, align 4
   %990 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %976, ptr noundef nonnull %583, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %584) #17
@@ -3157,11 +3136,11 @@ zend_string_release.exit123.i:                    ; preds = %974, %973, %966, %z
   br i1 %.not.i124.i, label %993, label %zend_string_release.exit126.i
 
 993:                                              ; preds = %zend_string_release.exit123.i
-  %994 = load i32, ptr %976, align 4, !tbaa !69
+  %994 = load i32, ptr %976, align 4, !tbaa !64
   %995 = icmp ne i32 %994, 0
   call void @llvm.assume(i1 %995)
   %996 = add i32 %994, -1
-  store i32 %996, ptr %976, align 4, !tbaa !69
+  store i32 %996, ptr %976, align 4, !tbaa !64
   %997 = icmp eq i32 %996, 0
   br i1 %997, label %998, label %zend_string_release.exit126.i
 
@@ -3183,32 +3162,32 @@ zend_string_release.exit126.i:                    ; preds = %1001, %1000, %993, 
   %1002 = getelementptr inbounds nuw i8, ptr %585, i64 8
   store i32 0, ptr %1002, align 8, !tbaa !44
   %1003 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1003, align 4, !tbaa !69
+  store i32 1, ptr %1003, align 4, !tbaa !64
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 4
   store i32 150, ptr %1004, align 4, !tbaa !44
   %1005 = getelementptr inbounds nuw i8, ptr %1003, i64 8
-  store i64 0, ptr %1005, align 8, !tbaa !124
+  store i64 0, ptr %1005, align 8, !tbaa !118
   %1006 = getelementptr inbounds nuw i8, ptr %1003, i64 16
-  store i64 10, ptr %1006, align 8, !tbaa !126
+  store i64 10, ptr %1006, align 8, !tbaa !120
   %1007 = getelementptr inbounds nuw i8, ptr %1003, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1007, ptr noundef nonnull align 1 dereferenceable(10) @.str.15, i64 10, i1 false)
   %1008 = getelementptr inbounds nuw i8, ptr %1003, i64 34
   store i8 0, ptr %1008, align 2, !tbaa !44
   %1009 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1009, align 4, !tbaa !69
+  store i32 1, ptr %1009, align 4, !tbaa !64
   %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 4
   store i32 150, ptr %1010, align 4, !tbaa !44
   %1011 = getelementptr inbounds nuw i8, ptr %1009, i64 8
-  store i64 0, ptr %1011, align 8, !tbaa !124
+  store i64 0, ptr %1011, align 8, !tbaa !118
   %1012 = getelementptr inbounds nuw i8, ptr %1009, i64 16
-  store i64 7, ptr %1012, align 8, !tbaa !126
+  store i64 7, ptr %1012, align 8, !tbaa !120
   %1013 = getelementptr inbounds nuw i8, ptr %1009, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1013, ptr noundef nonnull align 1 dereferenceable(7) @.str.356, i64 7, i1 false)
   %1014 = getelementptr inbounds nuw i8, ptr %1009, i64 31
   store i8 0, ptr %1014, align 1, !tbaa !44
-  store ptr %1009, ptr %586, align 8, !tbaa !132
+  store ptr %1009, ptr %586, align 8, !tbaa !126
   %1015 = getelementptr inbounds nuw i8, ptr %586, i64 8
-  store i32 16777218, ptr %1015, align 8, !tbaa !133
+  store i32 16777218, ptr %1015, align 8, !tbaa !128
   %1016 = getelementptr inbounds nuw i8, ptr %586, i64 12
   store i32 0, ptr %1016, align 4
   %1017 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1003, ptr noundef nonnull %585, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %586) #17
@@ -3218,11 +3197,11 @@ zend_string_release.exit126.i:                    ; preds = %1001, %1000, %993, 
   br i1 %.not.i127.i, label %1020, label %zend_string_release.exit129.i
 
 1020:                                             ; preds = %zend_string_release.exit126.i
-  %1021 = load i32, ptr %1003, align 4, !tbaa !69
+  %1021 = load i32, ptr %1003, align 4, !tbaa !64
   %1022 = icmp ne i32 %1021, 0
   call void @llvm.assume(i1 %1022)
   %1023 = add i32 %1021, -1
-  store i32 %1023, ptr %1003, align 4, !tbaa !69
+  store i32 %1023, ptr %1003, align 4, !tbaa !64
   %1024 = icmp eq i32 %1023, 0
   br i1 %1024, label %1025, label %zend_string_release.exit129.i
 
@@ -3244,32 +3223,32 @@ zend_string_release.exit129.i:                    ; preds = %1028, %1027, %1020,
   %1029 = getelementptr inbounds nuw i8, ptr %587, i64 8
   store i32 0, ptr %1029, align 8, !tbaa !44
   %1030 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1030, align 4, !tbaa !69
+  store i32 1, ptr %1030, align 4, !tbaa !64
   %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 4
   store i32 150, ptr %1031, align 4, !tbaa !44
   %1032 = getelementptr inbounds nuw i8, ptr %1030, i64 8
-  store i64 0, ptr %1032, align 8, !tbaa !124
+  store i64 0, ptr %1032, align 8, !tbaa !118
   %1033 = getelementptr inbounds nuw i8, ptr %1030, i64 16
-  store i64 9, ptr %1033, align 8, !tbaa !126
+  store i64 9, ptr %1033, align 8, !tbaa !120
   %1034 = getelementptr inbounds nuw i8, ptr %1030, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1034, ptr noundef nonnull align 1 dereferenceable(9) @.str.17, i64 9, i1 false)
   %1035 = getelementptr inbounds nuw i8, ptr %1030, i64 33
   store i8 0, ptr %1035, align 1, !tbaa !44
   %1036 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1036, align 4, !tbaa !69
+  store i32 1, ptr %1036, align 4, !tbaa !64
   %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 4
   store i32 150, ptr %1037, align 4, !tbaa !44
   %1038 = getelementptr inbounds nuw i8, ptr %1036, i64 8
-  store i64 0, ptr %1038, align 8, !tbaa !124
+  store i64 0, ptr %1038, align 8, !tbaa !118
   %1039 = getelementptr inbounds nuw i8, ptr %1036, i64 16
-  store i64 7, ptr %1039, align 8, !tbaa !126
+  store i64 7, ptr %1039, align 8, !tbaa !120
   %1040 = getelementptr inbounds nuw i8, ptr %1036, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1040, ptr noundef nonnull align 1 dereferenceable(7) @.str.356, i64 7, i1 false)
   %1041 = getelementptr inbounds nuw i8, ptr %1036, i64 31
   store i8 0, ptr %1041, align 1, !tbaa !44
-  store ptr %1036, ptr %588, align 8, !tbaa !132
+  store ptr %1036, ptr %588, align 8, !tbaa !126
   %1042 = getelementptr inbounds nuw i8, ptr %588, i64 8
-  store i32 16777218, ptr %1042, align 8, !tbaa !133
+  store i32 16777218, ptr %1042, align 8, !tbaa !128
   %1043 = getelementptr inbounds nuw i8, ptr %588, i64 12
   store i32 0, ptr %1043, align 4
   %1044 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1030, ptr noundef nonnull %587, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %588) #17
@@ -3279,11 +3258,11 @@ zend_string_release.exit129.i:                    ; preds = %1028, %1027, %1020,
   br i1 %.not.i130.i, label %1047, label %zend_string_release.exit132.i
 
 1047:                                             ; preds = %zend_string_release.exit129.i
-  %1048 = load i32, ptr %1030, align 4, !tbaa !69
+  %1048 = load i32, ptr %1030, align 4, !tbaa !64
   %1049 = icmp ne i32 %1048, 0
   call void @llvm.assume(i1 %1049)
   %1050 = add i32 %1048, -1
-  store i32 %1050, ptr %1030, align 4, !tbaa !69
+  store i32 %1050, ptr %1030, align 4, !tbaa !64
   %1051 = icmp eq i32 %1050, 0
   br i1 %1051, label %1052, label %zend_string_release.exit132.i
 
@@ -3305,32 +3284,32 @@ zend_string_release.exit132.i:                    ; preds = %1055, %1054, %1047,
   %1056 = getelementptr inbounds nuw i8, ptr %589, i64 8
   store i32 0, ptr %1056, align 8, !tbaa !44
   %1057 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1057, align 4, !tbaa !69
+  store i32 1, ptr %1057, align 4, !tbaa !64
   %1058 = getelementptr inbounds nuw i8, ptr %1057, i64 4
   store i32 150, ptr %1058, align 4, !tbaa !44
   %1059 = getelementptr inbounds nuw i8, ptr %1057, i64 8
-  store i64 0, ptr %1059, align 8, !tbaa !124
+  store i64 0, ptr %1059, align 8, !tbaa !118
   %1060 = getelementptr inbounds nuw i8, ptr %1057, i64 16
-  store i64 15, ptr %1060, align 8, !tbaa !126
+  store i64 15, ptr %1060, align 8, !tbaa !120
   %1061 = getelementptr inbounds nuw i8, ptr %1057, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1061, ptr noundef nonnull align 1 dereferenceable(15) @.str.19, i64 15, i1 false)
   %1062 = getelementptr inbounds nuw i8, ptr %1057, i64 39
   store i8 0, ptr %1062, align 1, !tbaa !44
   %1063 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1063, align 4, !tbaa !69
+  store i32 1, ptr %1063, align 4, !tbaa !64
   %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 4
   store i32 150, ptr %1064, align 4, !tbaa !44
   %1065 = getelementptr inbounds nuw i8, ptr %1063, i64 8
-  store i64 0, ptr %1065, align 8, !tbaa !124
+  store i64 0, ptr %1065, align 8, !tbaa !118
   %1066 = getelementptr inbounds nuw i8, ptr %1063, i64 16
-  store i64 7, ptr %1066, align 8, !tbaa !126
+  store i64 7, ptr %1066, align 8, !tbaa !120
   %1067 = getelementptr inbounds nuw i8, ptr %1063, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1067, ptr noundef nonnull align 1 dereferenceable(7) @.str.356, i64 7, i1 false)
   %1068 = getelementptr inbounds nuw i8, ptr %1063, i64 31
   store i8 0, ptr %1068, align 1, !tbaa !44
-  store ptr %1063, ptr %590, align 8, !tbaa !132
+  store ptr %1063, ptr %590, align 8, !tbaa !126
   %1069 = getelementptr inbounds nuw i8, ptr %590, i64 8
-  store i32 16777218, ptr %1069, align 8, !tbaa !133
+  store i32 16777218, ptr %1069, align 8, !tbaa !128
   %1070 = getelementptr inbounds nuw i8, ptr %590, i64 12
   store i32 0, ptr %1070, align 4
   %1071 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1057, ptr noundef nonnull %589, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %590) #17
@@ -3340,11 +3319,11 @@ zend_string_release.exit132.i:                    ; preds = %1055, %1054, %1047,
   br i1 %.not.i133.i, label %1074, label %zend_string_release.exit135.i
 
 1074:                                             ; preds = %zend_string_release.exit132.i
-  %1075 = load i32, ptr %1057, align 4, !tbaa !69
+  %1075 = load i32, ptr %1057, align 4, !tbaa !64
   %1076 = icmp ne i32 %1075, 0
   call void @llvm.assume(i1 %1076)
   %1077 = add i32 %1075, -1
-  store i32 %1077, ptr %1057, align 4, !tbaa !69
+  store i32 %1077, ptr %1057, align 4, !tbaa !64
   %1078 = icmp eq i32 %1077, 0
   br i1 %1078, label %1079, label %zend_string_release.exit135.i
 
@@ -3366,32 +3345,32 @@ zend_string_release.exit135.i:                    ; preds = %1082, %1081, %1074,
   %1083 = getelementptr inbounds nuw i8, ptr %591, i64 8
   store i32 0, ptr %1083, align 8, !tbaa !44
   %1084 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1084, align 4, !tbaa !69
+  store i32 1, ptr %1084, align 4, !tbaa !64
   %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 4
   store i32 150, ptr %1085, align 4, !tbaa !44
   %1086 = getelementptr inbounds nuw i8, ptr %1084, i64 8
-  store i64 0, ptr %1086, align 8, !tbaa !124
+  store i64 0, ptr %1086, align 8, !tbaa !118
   %1087 = getelementptr inbounds nuw i8, ptr %1084, i64 16
-  store i64 11, ptr %1087, align 8, !tbaa !126
+  store i64 11, ptr %1087, align 8, !tbaa !120
   %1088 = getelementptr inbounds nuw i8, ptr %1084, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1088, ptr noundef nonnull align 1 dereferenceable(11) @.str.21, i64 11, i1 false)
   %1089 = getelementptr inbounds nuw i8, ptr %1084, i64 35
   store i8 0, ptr %1089, align 1, !tbaa !44
   %1090 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1090, align 4, !tbaa !69
+  store i32 1, ptr %1090, align 4, !tbaa !64
   %1091 = getelementptr inbounds nuw i8, ptr %1090, i64 4
   store i32 150, ptr %1091, align 4, !tbaa !44
   %1092 = getelementptr inbounds nuw i8, ptr %1090, i64 8
-  store i64 0, ptr %1092, align 8, !tbaa !124
+  store i64 0, ptr %1092, align 8, !tbaa !118
   %1093 = getelementptr inbounds nuw i8, ptr %1090, i64 16
-  store i64 7, ptr %1093, align 8, !tbaa !126
+  store i64 7, ptr %1093, align 8, !tbaa !120
   %1094 = getelementptr inbounds nuw i8, ptr %1090, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1094, ptr noundef nonnull align 1 dereferenceable(7) @.str.356, i64 7, i1 false)
   %1095 = getelementptr inbounds nuw i8, ptr %1090, i64 31
   store i8 0, ptr %1095, align 1, !tbaa !44
-  store ptr %1090, ptr %592, align 8, !tbaa !132
+  store ptr %1090, ptr %592, align 8, !tbaa !126
   %1096 = getelementptr inbounds nuw i8, ptr %592, i64 8
-  store i32 16777218, ptr %1096, align 8, !tbaa !133
+  store i32 16777218, ptr %1096, align 8, !tbaa !128
   %1097 = getelementptr inbounds nuw i8, ptr %592, i64 12
   store i32 0, ptr %1097, align 4
   %1098 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1084, ptr noundef nonnull %591, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %592) #17
@@ -3401,11 +3380,11 @@ zend_string_release.exit135.i:                    ; preds = %1082, %1081, %1074,
   br i1 %.not.i136.i, label %1101, label %zend_string_release.exit138.i
 
 1101:                                             ; preds = %zend_string_release.exit135.i
-  %1102 = load i32, ptr %1084, align 4, !tbaa !69
+  %1102 = load i32, ptr %1084, align 4, !tbaa !64
   %1103 = icmp ne i32 %1102, 0
   call void @llvm.assume(i1 %1103)
   %1104 = add i32 %1102, -1
-  store i32 %1104, ptr %1084, align 4, !tbaa !69
+  store i32 %1104, ptr %1084, align 4, !tbaa !64
   %1105 = icmp eq i32 %1104, 0
   br i1 %1105, label %1106, label %zend_string_release.exit138.i
 
@@ -3427,32 +3406,32 @@ zend_string_release.exit138.i:                    ; preds = %1109, %1108, %1101,
   %1110 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store i32 0, ptr %1110, align 8, !tbaa !44
   %1111 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1111, align 4, !tbaa !69
+  store i32 1, ptr %1111, align 4, !tbaa !64
   %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 4
   store i32 150, ptr %1112, align 4, !tbaa !44
   %1113 = getelementptr inbounds nuw i8, ptr %1111, i64 8
-  store i64 0, ptr %1113, align 8, !tbaa !124
+  store i64 0, ptr %1113, align 8, !tbaa !118
   %1114 = getelementptr inbounds nuw i8, ptr %1111, i64 16
-  store i64 10, ptr %1114, align 8, !tbaa !126
+  store i64 10, ptr %1114, align 8, !tbaa !120
   %1115 = getelementptr inbounds nuw i8, ptr %1111, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1115, ptr noundef nonnull align 1 dereferenceable(10) @.str.23, i64 10, i1 false)
   %1116 = getelementptr inbounds nuw i8, ptr %1111, i64 34
   store i8 0, ptr %1116, align 2, !tbaa !44
   %1117 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1117, align 4, !tbaa !69
+  store i32 1, ptr %1117, align 4, !tbaa !64
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 4
   store i32 150, ptr %1118, align 4, !tbaa !44
   %1119 = getelementptr inbounds nuw i8, ptr %1117, i64 8
-  store i64 0, ptr %1119, align 8, !tbaa !124
+  store i64 0, ptr %1119, align 8, !tbaa !118
   %1120 = getelementptr inbounds nuw i8, ptr %1117, i64 16
-  store i64 15, ptr %1120, align 8, !tbaa !126
+  store i64 15, ptr %1120, align 8, !tbaa !120
   %1121 = getelementptr inbounds nuw i8, ptr %1117, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1121, ptr noundef nonnull align 1 dereferenceable(15) @.str.365, i64 15, i1 false)
   %1122 = getelementptr inbounds nuw i8, ptr %1117, i64 39
   store i8 0, ptr %1122, align 1, !tbaa !44
-  store ptr %1117, ptr %594, align 8, !tbaa !132
+  store ptr %1117, ptr %594, align 8, !tbaa !126
   %1123 = getelementptr inbounds nuw i8, ptr %594, i64 8
-  store i32 16777218, ptr %1123, align 8, !tbaa !133
+  store i32 16777218, ptr %1123, align 8, !tbaa !128
   %1124 = getelementptr inbounds nuw i8, ptr %594, i64 12
   store i32 0, ptr %1124, align 4
   %1125 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1111, ptr noundef nonnull %593, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %594) #17
@@ -3462,11 +3441,11 @@ zend_string_release.exit138.i:                    ; preds = %1109, %1108, %1101,
   br i1 %.not.i139.i, label %1128, label %zend_string_release.exit141.i
 
 1128:                                             ; preds = %zend_string_release.exit138.i
-  %1129 = load i32, ptr %1111, align 4, !tbaa !69
+  %1129 = load i32, ptr %1111, align 4, !tbaa !64
   %1130 = icmp ne i32 %1129, 0
   call void @llvm.assume(i1 %1130)
   %1131 = add i32 %1129, -1
-  store i32 %1131, ptr %1111, align 4, !tbaa !69
+  store i32 %1131, ptr %1111, align 4, !tbaa !64
   %1132 = icmp eq i32 %1131, 0
   br i1 %1132, label %1133, label %zend_string_release.exit141.i
 
@@ -3488,20 +3467,20 @@ zend_string_release.exit141.i:                    ; preds = %1136, %1135, %1128,
   %1137 = getelementptr inbounds nuw i8, ptr %595, i64 8
   store i32 0, ptr %1137, align 8, !tbaa !44
   %1138 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1138, align 4, !tbaa !69
+  store i32 1, ptr %1138, align 4, !tbaa !64
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 4
   store i32 150, ptr %1139, align 4, !tbaa !44
   %1140 = getelementptr inbounds nuw i8, ptr %1138, i64 8
-  store i64 0, ptr %1140, align 8, !tbaa !124
+  store i64 0, ptr %1140, align 8, !tbaa !118
   %1141 = getelementptr inbounds nuw i8, ptr %1138, i64 16
-  store i64 11, ptr %1141, align 8, !tbaa !126
+  store i64 11, ptr %1141, align 8, !tbaa !120
   %1142 = getelementptr inbounds nuw i8, ptr %1138, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1142, ptr noundef nonnull align 1 dereferenceable(11) @.str.25, i64 11, i1 false)
   %1143 = getelementptr inbounds nuw i8, ptr %1138, i64 35
   store i8 0, ptr %1143, align 1, !tbaa !44
-  store ptr null, ptr %596, align 8, !tbaa !132
+  store ptr null, ptr %596, align 8, !tbaa !126
   %1144 = getelementptr inbounds nuw i8, ptr %596, i64 8
-  store i32 12, ptr %1144, align 8, !tbaa !133
+  store i32 12, ptr %1144, align 8, !tbaa !128
   %1145 = getelementptr inbounds nuw i8, ptr %596, i64 12
   store i32 0, ptr %1145, align 4
   %1146 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1138, ptr noundef nonnull %595, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %596) #17
@@ -3511,11 +3490,11 @@ zend_string_release.exit141.i:                    ; preds = %1136, %1135, %1128,
   br i1 %.not.i142.i, label %1149, label %zend_string_release.exit144.i
 
 1149:                                             ; preds = %zend_string_release.exit141.i
-  %1150 = load i32, ptr %1138, align 4, !tbaa !69
+  %1150 = load i32, ptr %1138, align 4, !tbaa !64
   %1151 = icmp ne i32 %1150, 0
   call void @llvm.assume(i1 %1151)
   %1152 = add i32 %1150, -1
-  store i32 %1152, ptr %1138, align 4, !tbaa !69
+  store i32 %1152, ptr %1138, align 4, !tbaa !64
   %1153 = icmp eq i32 %1152, 0
   br i1 %1153, label %1154, label %zend_string_release.exit144.i
 
@@ -3537,32 +3516,32 @@ zend_string_release.exit144.i:                    ; preds = %1157, %1156, %1149,
   %1158 = getelementptr inbounds nuw i8, ptr %597, i64 8
   store i32 0, ptr %1158, align 8, !tbaa !44
   %1159 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1159, align 4, !tbaa !69
+  store i32 1, ptr %1159, align 4, !tbaa !64
   %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 4
   store i32 150, ptr %1160, align 4, !tbaa !44
   %1161 = getelementptr inbounds nuw i8, ptr %1159, i64 8
-  store i64 0, ptr %1161, align 8, !tbaa !124
+  store i64 0, ptr %1161, align 8, !tbaa !118
   %1162 = getelementptr inbounds nuw i8, ptr %1159, i64 16
-  store i64 13, ptr %1162, align 8, !tbaa !126
+  store i64 13, ptr %1162, align 8, !tbaa !120
   %1163 = getelementptr inbounds nuw i8, ptr %1159, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1163, ptr noundef nonnull align 1 dereferenceable(13) @.str.27, i64 13, i1 false)
   %1164 = getelementptr inbounds nuw i8, ptr %1159, i64 37
   store i8 0, ptr %1164, align 1, !tbaa !44
   %1165 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1165, align 4, !tbaa !69
+  store i32 1, ptr %1165, align 4, !tbaa !64
   %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 4
   store i32 150, ptr %1166, align 4, !tbaa !44
   %1167 = getelementptr inbounds nuw i8, ptr %1165, i64 8
-  store i64 0, ptr %1167, align 8, !tbaa !124
+  store i64 0, ptr %1167, align 8, !tbaa !118
   %1168 = getelementptr inbounds nuw i8, ptr %1165, i64 16
-  store i64 11, ptr %1168, align 8, !tbaa !126
+  store i64 11, ptr %1168, align 8, !tbaa !120
   %1169 = getelementptr inbounds nuw i8, ptr %1165, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1169, ptr noundef nonnull align 1 dereferenceable(11) @.str.343, i64 11, i1 false)
   %1170 = getelementptr inbounds nuw i8, ptr %1165, i64 35
   store i8 0, ptr %1170, align 1, !tbaa !44
-  store ptr %1165, ptr %598, align 8, !tbaa !132
+  store ptr %1165, ptr %598, align 8, !tbaa !126
   %1171 = getelementptr inbounds nuw i8, ptr %598, i64 8
-  store i32 16777218, ptr %1171, align 8, !tbaa !133
+  store i32 16777218, ptr %1171, align 8, !tbaa !128
   %1172 = getelementptr inbounds nuw i8, ptr %598, i64 12
   store i32 0, ptr %1172, align 4
   %1173 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1159, ptr noundef nonnull %597, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %598) #17
@@ -3572,11 +3551,11 @@ zend_string_release.exit144.i:                    ; preds = %1157, %1156, %1149,
   br i1 %.not.i145.i, label %1176, label %zend_string_release.exit147.i
 
 1176:                                             ; preds = %zend_string_release.exit144.i
-  %1177 = load i32, ptr %1159, align 4, !tbaa !69
+  %1177 = load i32, ptr %1159, align 4, !tbaa !64
   %1178 = icmp ne i32 %1177, 0
   call void @llvm.assume(i1 %1178)
   %1179 = add i32 %1177, -1
-  store i32 %1179, ptr %1159, align 4, !tbaa !69
+  store i32 %1179, ptr %1159, align 4, !tbaa !64
   %1180 = icmp eq i32 %1179, 0
   br i1 %1180, label %1181, label %zend_string_release.exit147.i
 
@@ -3598,20 +3577,20 @@ zend_string_release.exit147.i:                    ; preds = %1184, %1183, %1176,
   %1185 = getelementptr inbounds nuw i8, ptr %599, i64 8
   store i32 0, ptr %1185, align 8, !tbaa !44
   %1186 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1186, align 4, !tbaa !69
+  store i32 1, ptr %1186, align 4, !tbaa !64
   %1187 = getelementptr inbounds nuw i8, ptr %1186, i64 4
   store i32 150, ptr %1187, align 4, !tbaa !44
   %1188 = getelementptr inbounds nuw i8, ptr %1186, i64 8
-  store i64 0, ptr %1188, align 8, !tbaa !124
+  store i64 0, ptr %1188, align 8, !tbaa !118
   %1189 = getelementptr inbounds nuw i8, ptr %1186, i64 16
-  store i64 12, ptr %1189, align 8, !tbaa !126
+  store i64 12, ptr %1189, align 8, !tbaa !120
   %1190 = getelementptr inbounds nuw i8, ptr %1186, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1190, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 12, i1 false)
   %1191 = getelementptr inbounds nuw i8, ptr %1186, i64 36
   store i8 0, ptr %1191, align 4, !tbaa !44
-  store ptr null, ptr %600, align 8, !tbaa !132
+  store ptr null, ptr %600, align 8, !tbaa !126
   %1192 = getelementptr inbounds nuw i8, ptr %600, i64 8
-  store i32 66, ptr %1192, align 8, !tbaa !133
+  store i32 66, ptr %1192, align 8, !tbaa !128
   %1193 = getelementptr inbounds nuw i8, ptr %600, i64 12
   store i32 0, ptr %1193, align 4
   %1194 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1186, ptr noundef nonnull %599, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %600) #17
@@ -3621,11 +3600,11 @@ zend_string_release.exit147.i:                    ; preds = %1184, %1183, %1176,
   br i1 %.not.i148.i, label %1197, label %zend_string_release.exit150.i
 
 1197:                                             ; preds = %zend_string_release.exit147.i
-  %1198 = load i32, ptr %1186, align 4, !tbaa !69
+  %1198 = load i32, ptr %1186, align 4, !tbaa !64
   %1199 = icmp ne i32 %1198, 0
   call void @llvm.assume(i1 %1199)
   %1200 = add i32 %1198, -1
-  store i32 %1200, ptr %1186, align 4, !tbaa !69
+  store i32 %1200, ptr %1186, align 4, !tbaa !64
   %1201 = icmp eq i32 %1200, 0
   br i1 %1201, label %1202, label %zend_string_release.exit150.i
 
@@ -3647,20 +3626,20 @@ zend_string_release.exit150.i:                    ; preds = %1205, %1204, %1197,
   %1206 = getelementptr inbounds nuw i8, ptr %601, i64 8
   store i32 0, ptr %1206, align 8, !tbaa !44
   %1207 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1207, align 4, !tbaa !69
+  store i32 1, ptr %1207, align 4, !tbaa !64
   %1208 = getelementptr inbounds nuw i8, ptr %1207, i64 4
   store i32 150, ptr %1208, align 4, !tbaa !44
   %1209 = getelementptr inbounds nuw i8, ptr %1207, i64 8
-  store i64 0, ptr %1209, align 8, !tbaa !124
+  store i64 0, ptr %1209, align 8, !tbaa !118
   %1210 = getelementptr inbounds nuw i8, ptr %1207, i64 16
-  store i64 6, ptr %1210, align 8, !tbaa !126
+  store i64 6, ptr %1210, align 8, !tbaa !120
   %1211 = getelementptr inbounds nuw i8, ptr %1207, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1211, ptr noundef nonnull align 1 dereferenceable(6) @.str.31, i64 6, i1 false)
   %1212 = getelementptr inbounds nuw i8, ptr %1207, i64 30
   store i8 0, ptr %1212, align 2, !tbaa !44
-  store ptr null, ptr %602, align 8, !tbaa !132
+  store ptr null, ptr %602, align 8, !tbaa !126
   %1213 = getelementptr inbounds nuw i8, ptr %602, i64 8
-  store i32 64, ptr %1213, align 8, !tbaa !133
+  store i32 64, ptr %1213, align 8, !tbaa !128
   %1214 = getelementptr inbounds nuw i8, ptr %602, i64 12
   store i32 0, ptr %1214, align 4
   %1215 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1207, ptr noundef nonnull %601, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %602) #17
@@ -3670,11 +3649,11 @@ zend_string_release.exit150.i:                    ; preds = %1205, %1204, %1197,
   br i1 %.not.i151.i, label %1218, label %zend_string_release.exit153.i
 
 1218:                                             ; preds = %zend_string_release.exit150.i
-  %1219 = load i32, ptr %1207, align 4, !tbaa !69
+  %1219 = load i32, ptr %1207, align 4, !tbaa !64
   %1220 = icmp ne i32 %1219, 0
   call void @llvm.assume(i1 %1220)
   %1221 = add i32 %1219, -1
-  store i32 %1221, ptr %1207, align 4, !tbaa !69
+  store i32 %1221, ptr %1207, align 4, !tbaa !64
   %1222 = icmp eq i32 %1221, 0
   br i1 %1222, label %1223, label %zend_string_release.exit153.i
 
@@ -3696,20 +3675,20 @@ zend_string_release.exit153.i:                    ; preds = %1226, %1225, %1218,
   %1227 = getelementptr inbounds nuw i8, ptr %603, i64 8
   store i32 0, ptr %1227, align 8, !tbaa !44
   %1228 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1228, align 4, !tbaa !69
+  store i32 1, ptr %1228, align 4, !tbaa !64
   %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 4
   store i32 150, ptr %1229, align 4, !tbaa !44
   %1230 = getelementptr inbounds nuw i8, ptr %1228, i64 8
-  store i64 0, ptr %1230, align 8, !tbaa !124
+  store i64 0, ptr %1230, align 8, !tbaa !118
   %1231 = getelementptr inbounds nuw i8, ptr %1228, i64 16
-  store i64 9, ptr %1231, align 8, !tbaa !126
+  store i64 9, ptr %1231, align 8, !tbaa !120
   %1232 = getelementptr inbounds nuw i8, ptr %1228, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1232, ptr noundef nonnull align 1 dereferenceable(9) @.str.33, i64 9, i1 false)
   %1233 = getelementptr inbounds nuw i8, ptr %1228, i64 33
   store i8 0, ptr %1233, align 1, !tbaa !44
-  store ptr null, ptr %604, align 8, !tbaa !132
+  store ptr null, ptr %604, align 8, !tbaa !126
   %1234 = getelementptr inbounds nuw i8, ptr %604, i64 8
-  store i32 66, ptr %1234, align 8, !tbaa !133
+  store i32 66, ptr %1234, align 8, !tbaa !128
   %1235 = getelementptr inbounds nuw i8, ptr %604, i64 12
   store i32 0, ptr %1235, align 4
   %1236 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1228, ptr noundef nonnull %603, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %604) #17
@@ -3719,11 +3698,11 @@ zend_string_release.exit153.i:                    ; preds = %1226, %1225, %1218,
   br i1 %.not.i154.i, label %1239, label %zend_string_release.exit156.i
 
 1239:                                             ; preds = %zend_string_release.exit153.i
-  %1240 = load i32, ptr %1228, align 4, !tbaa !69
+  %1240 = load i32, ptr %1228, align 4, !tbaa !64
   %1241 = icmp ne i32 %1240, 0
   call void @llvm.assume(i1 %1241)
   %1242 = add i32 %1240, -1
-  store i32 %1242, ptr %1228, align 4, !tbaa !69
+  store i32 %1242, ptr %1228, align 4, !tbaa !64
   %1243 = icmp eq i32 %1242, 0
   br i1 %1243, label %1244, label %zend_string_release.exit156.i
 
@@ -3745,20 +3724,20 @@ zend_string_release.exit156.i:                    ; preds = %1247, %1246, %1239,
   %1248 = getelementptr inbounds nuw i8, ptr %605, i64 8
   store i32 0, ptr %1248, align 8, !tbaa !44
   %1249 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1249, align 4, !tbaa !69
+  store i32 1, ptr %1249, align 4, !tbaa !64
   %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 4
   store i32 150, ptr %1250, align 4, !tbaa !44
   %1251 = getelementptr inbounds nuw i8, ptr %1249, i64 8
-  store i64 0, ptr %1251, align 8, !tbaa !124
+  store i64 0, ptr %1251, align 8, !tbaa !118
   %1252 = getelementptr inbounds nuw i8, ptr %1249, i64 16
-  store i64 7, ptr %1252, align 8, !tbaa !126
+  store i64 7, ptr %1252, align 8, !tbaa !120
   %1253 = getelementptr inbounds nuw i8, ptr %1249, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1253, ptr noundef nonnull align 1 dereferenceable(7) @.str.35, i64 7, i1 false)
   %1254 = getelementptr inbounds nuw i8, ptr %1249, i64 31
   store i8 0, ptr %1254, align 1, !tbaa !44
-  store ptr null, ptr %606, align 8, !tbaa !132
+  store ptr null, ptr %606, align 8, !tbaa !126
   %1255 = getelementptr inbounds nuw i8, ptr %606, i64 8
-  store i32 66, ptr %1255, align 8, !tbaa !133
+  store i32 66, ptr %1255, align 8, !tbaa !128
   %1256 = getelementptr inbounds nuw i8, ptr %606, i64 12
   store i32 0, ptr %1256, align 4
   %1257 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1249, ptr noundef nonnull %605, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %606) #17
@@ -3768,11 +3747,11 @@ zend_string_release.exit156.i:                    ; preds = %1247, %1246, %1239,
   br i1 %.not.i157.i, label %1260, label %zend_string_release.exit159.i
 
 1260:                                             ; preds = %zend_string_release.exit156.i
-  %1261 = load i32, ptr %1249, align 4, !tbaa !69
+  %1261 = load i32, ptr %1249, align 4, !tbaa !64
   %1262 = icmp ne i32 %1261, 0
   call void @llvm.assume(i1 %1262)
   %1263 = add i32 %1261, -1
-  store i32 %1263, ptr %1249, align 4, !tbaa !69
+  store i32 %1263, ptr %1249, align 4, !tbaa !64
   %1264 = icmp eq i32 %1263, 0
   br i1 %1264, label %1265, label %zend_string_release.exit159.i
 
@@ -3794,20 +3773,20 @@ zend_string_release.exit159.i:                    ; preds = %1268, %1267, %1260,
   %1269 = getelementptr inbounds nuw i8, ptr %607, i64 8
   store i32 0, ptr %1269, align 8, !tbaa !44
   %1270 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1270, align 4, !tbaa !69
+  store i32 1, ptr %1270, align 4, !tbaa !64
   %1271 = getelementptr inbounds nuw i8, ptr %1270, i64 4
   store i32 150, ptr %1271, align 4, !tbaa !44
   %1272 = getelementptr inbounds nuw i8, ptr %1270, i64 8
-  store i64 0, ptr %1272, align 8, !tbaa !124
+  store i64 0, ptr %1272, align 8, !tbaa !118
   %1273 = getelementptr inbounds nuw i8, ptr %1270, i64 16
-  store i64 11, ptr %1273, align 8, !tbaa !126
+  store i64 11, ptr %1273, align 8, !tbaa !120
   %1274 = getelementptr inbounds nuw i8, ptr %1270, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1274, ptr noundef nonnull align 1 dereferenceable(11) @.str.37, i64 11, i1 false)
   %1275 = getelementptr inbounds nuw i8, ptr %1270, i64 35
   store i8 0, ptr %1275, align 1, !tbaa !44
-  store ptr null, ptr %608, align 8, !tbaa !132
+  store ptr null, ptr %608, align 8, !tbaa !126
   %1276 = getelementptr inbounds nuw i8, ptr %608, i64 8
-  store i32 64, ptr %1276, align 8, !tbaa !133
+  store i32 64, ptr %1276, align 8, !tbaa !128
   %1277 = getelementptr inbounds nuw i8, ptr %608, i64 12
   store i32 0, ptr %1277, align 4
   %1278 = call ptr @zend_declare_typed_property(ptr noundef %749, ptr noundef nonnull %1270, ptr noundef nonnull %607, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %608) #17
@@ -3817,11 +3796,11 @@ zend_string_release.exit159.i:                    ; preds = %1268, %1267, %1260,
   br i1 %.not.i160.i, label %1281, label %register_class_DOMNode.exit
 
 1281:                                             ; preds = %zend_string_release.exit159.i
-  %1282 = load i32, ptr %1270, align 4, !tbaa !69
+  %1282 = load i32, ptr %1270, align 4, !tbaa !64
   %1283 = icmp ne i32 %1282, 0
   call void @llvm.assume(i1 %1283)
   %1284 = add i32 %1282, -1
-  store i32 %1284, ptr %1270, align 4, !tbaa !69
+  store i32 %1284, ptr %1270, align 4, !tbaa !64
   %1285 = icmp eq i32 %1284, 0
   br i1 %1285, label %1286, label %register_class_DOMNode.exit
 
@@ -3888,11 +3867,11 @@ register_class_DOMNode.exit:                      ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %604)
   call void @llvm.lifetime.end.p0(ptr nonnull %606)
   call void @llvm.lifetime.end.p0(ptr nonnull %608)
-  store ptr %749, ptr @dom_node_class_entry, align 8, !tbaa !127
+  store ptr %749, ptr @dom_node_class_entry, align 8, !tbaa !121
   %1290 = getelementptr inbounds nuw i8, ptr %749, i64 384
   store ptr @dom_objects_new, ptr %1290, align 8, !tbaa !44
   %1291 = getelementptr inbounds nuw i8, ptr %749, i64 360
-  store ptr @dom_object_handlers, ptr %1291, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %1291, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %1292 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1293 = call ptr %1292(ptr noundef nonnull @.str.3, i64 noundef 8, i1 noundef zeroext true) #17
@@ -3909,11 +3888,11 @@ register_class_DOMNode.exit:                      ; preds = %zend_string_release
   br i1 %.not.i5.i, label %1299, label %dom_register_prop_handler.exit
 
 1299:                                             ; preds = %register_class_DOMNode.exit
-  %1300 = load i32, ptr %1293, align 4, !tbaa !69
+  %1300 = load i32, ptr %1293, align 4, !tbaa !64
   %1301 = icmp ne i32 %1300, 0
   call void @llvm.assume(i1 %1301)
   %1302 = add i32 %1300, -1
-  store i32 %1302, ptr %1293, align 4, !tbaa !69
+  store i32 %1302, ptr %1293, align 4, !tbaa !64
   %1303 = icmp eq i32 %1302, 0
   br i1 %1303, label %1304, label %dom_register_prop_handler.exit
 
@@ -3937,11 +3916,11 @@ dom_register_prop_handler.exit:                   ; preds = %register_class_DOMN
   br i1 %.not.i5.i118, label %1312, label %dom_register_prop_handler.exit119
 
 1312:                                             ; preds = %dom_register_prop_handler.exit
-  %1313 = load i32, ptr %1306, align 4, !tbaa !69
+  %1313 = load i32, ptr %1306, align 4, !tbaa !64
   %1314 = icmp ne i32 %1313, 0
   call void @llvm.assume(i1 %1314)
   %1315 = add i32 %1313, -1
-  store i32 %1315, ptr %1306, align 4, !tbaa !69
+  store i32 %1315, ptr %1306, align 4, !tbaa !64
   %1316 = icmp eq i32 %1315, 0
   br i1 %1316, label %1317, label %dom_register_prop_handler.exit119
 
@@ -3965,11 +3944,11 @@ dom_register_prop_handler.exit119:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i120, label %1325, label %dom_register_prop_handler.exit121
 
 1325:                                             ; preds = %dom_register_prop_handler.exit119
-  %1326 = load i32, ptr %1319, align 4, !tbaa !69
+  %1326 = load i32, ptr %1319, align 4, !tbaa !64
   %1327 = icmp ne i32 %1326, 0
   call void @llvm.assume(i1 %1327)
   %1328 = add i32 %1326, -1
-  store i32 %1328, ptr %1319, align 4, !tbaa !69
+  store i32 %1328, ptr %1319, align 4, !tbaa !64
   %1329 = icmp eq i32 %1328, 0
   br i1 %1329, label %1330, label %dom_register_prop_handler.exit121
 
@@ -3993,11 +3972,11 @@ dom_register_prop_handler.exit121:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i122, label %1338, label %dom_register_prop_handler.exit123
 
 1338:                                             ; preds = %dom_register_prop_handler.exit121
-  %1339 = load i32, ptr %1332, align 4, !tbaa !69
+  %1339 = load i32, ptr %1332, align 4, !tbaa !64
   %1340 = icmp ne i32 %1339, 0
   call void @llvm.assume(i1 %1340)
   %1341 = add i32 %1339, -1
-  store i32 %1341, ptr %1332, align 4, !tbaa !69
+  store i32 %1341, ptr %1332, align 4, !tbaa !64
   %1342 = icmp eq i32 %1341, 0
   br i1 %1342, label %1343, label %dom_register_prop_handler.exit123
 
@@ -4021,11 +4000,11 @@ dom_register_prop_handler.exit123:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i124, label %1351, label %dom_register_prop_handler.exit125
 
 1351:                                             ; preds = %dom_register_prop_handler.exit123
-  %1352 = load i32, ptr %1345, align 4, !tbaa !69
+  %1352 = load i32, ptr %1345, align 4, !tbaa !64
   %1353 = icmp ne i32 %1352, 0
   call void @llvm.assume(i1 %1353)
   %1354 = add i32 %1352, -1
-  store i32 %1354, ptr %1345, align 4, !tbaa !69
+  store i32 %1354, ptr %1345, align 4, !tbaa !64
   %1355 = icmp eq i32 %1354, 0
   br i1 %1355, label %1356, label %dom_register_prop_handler.exit125
 
@@ -4049,11 +4028,11 @@ dom_register_prop_handler.exit125:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i126, label %1364, label %dom_register_prop_handler.exit127
 
 1364:                                             ; preds = %dom_register_prop_handler.exit125
-  %1365 = load i32, ptr %1358, align 4, !tbaa !69
+  %1365 = load i32, ptr %1358, align 4, !tbaa !64
   %1366 = icmp ne i32 %1365, 0
   call void @llvm.assume(i1 %1366)
   %1367 = add i32 %1365, -1
-  store i32 %1367, ptr %1358, align 4, !tbaa !69
+  store i32 %1367, ptr %1358, align 4, !tbaa !64
   %1368 = icmp eq i32 %1367, 0
   br i1 %1368, label %1369, label %dom_register_prop_handler.exit127
 
@@ -4077,11 +4056,11 @@ dom_register_prop_handler.exit127:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i128, label %1377, label %dom_register_prop_handler.exit129
 
 1377:                                             ; preds = %dom_register_prop_handler.exit127
-  %1378 = load i32, ptr %1371, align 4, !tbaa !69
+  %1378 = load i32, ptr %1371, align 4, !tbaa !64
   %1379 = icmp ne i32 %1378, 0
   call void @llvm.assume(i1 %1379)
   %1380 = add i32 %1378, -1
-  store i32 %1380, ptr %1371, align 4, !tbaa !69
+  store i32 %1380, ptr %1371, align 4, !tbaa !64
   %1381 = icmp eq i32 %1380, 0
   br i1 %1381, label %1382, label %dom_register_prop_handler.exit129
 
@@ -4105,11 +4084,11 @@ dom_register_prop_handler.exit129:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i130, label %1390, label %dom_register_prop_handler.exit131
 
 1390:                                             ; preds = %dom_register_prop_handler.exit129
-  %1391 = load i32, ptr %1384, align 4, !tbaa !69
+  %1391 = load i32, ptr %1384, align 4, !tbaa !64
   %1392 = icmp ne i32 %1391, 0
   call void @llvm.assume(i1 %1392)
   %1393 = add i32 %1391, -1
-  store i32 %1393, ptr %1384, align 4, !tbaa !69
+  store i32 %1393, ptr %1384, align 4, !tbaa !64
   %1394 = icmp eq i32 %1393, 0
   br i1 %1394, label %1395, label %dom_register_prop_handler.exit131
 
@@ -4133,11 +4112,11 @@ dom_register_prop_handler.exit131:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i132, label %1403, label %dom_register_prop_handler.exit133
 
 1403:                                             ; preds = %dom_register_prop_handler.exit131
-  %1404 = load i32, ptr %1397, align 4, !tbaa !69
+  %1404 = load i32, ptr %1397, align 4, !tbaa !64
   %1405 = icmp ne i32 %1404, 0
   call void @llvm.assume(i1 %1405)
   %1406 = add i32 %1404, -1
-  store i32 %1406, ptr %1397, align 4, !tbaa !69
+  store i32 %1406, ptr %1397, align 4, !tbaa !64
   %1407 = icmp eq i32 %1406, 0
   br i1 %1407, label %1408, label %dom_register_prop_handler.exit133
 
@@ -4161,11 +4140,11 @@ dom_register_prop_handler.exit133:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i134, label %1416, label %dom_register_prop_handler.exit135
 
 1416:                                             ; preds = %dom_register_prop_handler.exit133
-  %1417 = load i32, ptr %1410, align 4, !tbaa !69
+  %1417 = load i32, ptr %1410, align 4, !tbaa !64
   %1418 = icmp ne i32 %1417, 0
   call void @llvm.assume(i1 %1418)
   %1419 = add i32 %1417, -1
-  store i32 %1419, ptr %1410, align 4, !tbaa !69
+  store i32 %1419, ptr %1410, align 4, !tbaa !64
   %1420 = icmp eq i32 %1419, 0
   br i1 %1420, label %1421, label %dom_register_prop_handler.exit135
 
@@ -4189,11 +4168,11 @@ dom_register_prop_handler.exit135:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i136, label %1429, label %dom_register_prop_handler.exit137
 
 1429:                                             ; preds = %dom_register_prop_handler.exit135
-  %1430 = load i32, ptr %1423, align 4, !tbaa !69
+  %1430 = load i32, ptr %1423, align 4, !tbaa !64
   %1431 = icmp ne i32 %1430, 0
   call void @llvm.assume(i1 %1431)
   %1432 = add i32 %1430, -1
-  store i32 %1432, ptr %1423, align 4, !tbaa !69
+  store i32 %1432, ptr %1423, align 4, !tbaa !64
   %1433 = icmp eq i32 %1432, 0
   br i1 %1433, label %1434, label %dom_register_prop_handler.exit137
 
@@ -4217,11 +4196,11 @@ dom_register_prop_handler.exit137:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i138, label %1442, label %dom_register_prop_handler.exit139
 
 1442:                                             ; preds = %dom_register_prop_handler.exit137
-  %1443 = load i32, ptr %1436, align 4, !tbaa !69
+  %1443 = load i32, ptr %1436, align 4, !tbaa !64
   %1444 = icmp ne i32 %1443, 0
   call void @llvm.assume(i1 %1444)
   %1445 = add i32 %1443, -1
-  store i32 %1445, ptr %1436, align 4, !tbaa !69
+  store i32 %1445, ptr %1436, align 4, !tbaa !64
   %1446 = icmp eq i32 %1445, 0
   br i1 %1446, label %1447, label %dom_register_prop_handler.exit139
 
@@ -4245,11 +4224,11 @@ dom_register_prop_handler.exit139:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i140, label %1455, label %dom_register_prop_handler.exit141
 
 1455:                                             ; preds = %dom_register_prop_handler.exit139
-  %1456 = load i32, ptr %1449, align 4, !tbaa !69
+  %1456 = load i32, ptr %1449, align 4, !tbaa !64
   %1457 = icmp ne i32 %1456, 0
   call void @llvm.assume(i1 %1457)
   %1458 = add i32 %1456, -1
-  store i32 %1458, ptr %1449, align 4, !tbaa !69
+  store i32 %1458, ptr %1449, align 4, !tbaa !64
   %1459 = icmp eq i32 %1458, 0
   br i1 %1459, label %1460, label %dom_register_prop_handler.exit141
 
@@ -4273,11 +4252,11 @@ dom_register_prop_handler.exit141:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i142, label %1468, label %dom_register_prop_handler.exit143
 
 1468:                                             ; preds = %dom_register_prop_handler.exit141
-  %1469 = load i32, ptr %1462, align 4, !tbaa !69
+  %1469 = load i32, ptr %1462, align 4, !tbaa !64
   %1470 = icmp ne i32 %1469, 0
   call void @llvm.assume(i1 %1470)
   %1471 = add i32 %1469, -1
-  store i32 %1471, ptr %1462, align 4, !tbaa !69
+  store i32 %1471, ptr %1462, align 4, !tbaa !64
   %1472 = icmp eq i32 %1471, 0
   br i1 %1472, label %1473, label %dom_register_prop_handler.exit143
 
@@ -4301,11 +4280,11 @@ dom_register_prop_handler.exit143:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i144, label %1481, label %dom_register_prop_handler.exit145
 
 1481:                                             ; preds = %dom_register_prop_handler.exit143
-  %1482 = load i32, ptr %1475, align 4, !tbaa !69
+  %1482 = load i32, ptr %1475, align 4, !tbaa !64
   %1483 = icmp ne i32 %1482, 0
   call void @llvm.assume(i1 %1483)
   %1484 = add i32 %1482, -1
-  store i32 %1484, ptr %1475, align 4, !tbaa !69
+  store i32 %1484, ptr %1475, align 4, !tbaa !64
   %1485 = icmp eq i32 %1484, 0
   br i1 %1485, label %1486, label %dom_register_prop_handler.exit145
 
@@ -4329,11 +4308,11 @@ dom_register_prop_handler.exit145:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i146, label %1494, label %dom_register_prop_handler.exit147
 
 1494:                                             ; preds = %dom_register_prop_handler.exit145
-  %1495 = load i32, ptr %1488, align 4, !tbaa !69
+  %1495 = load i32, ptr %1488, align 4, !tbaa !64
   %1496 = icmp ne i32 %1495, 0
   call void @llvm.assume(i1 %1496)
   %1497 = add i32 %1495, -1
-  store i32 %1497, ptr %1488, align 4, !tbaa !69
+  store i32 %1497, ptr %1488, align 4, !tbaa !64
   %1498 = icmp eq i32 %1497, 0
   br i1 %1498, label %1499, label %dom_register_prop_handler.exit147
 
@@ -4357,11 +4336,11 @@ dom_register_prop_handler.exit147:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i148, label %1507, label %dom_register_prop_handler.exit149
 
 1507:                                             ; preds = %dom_register_prop_handler.exit147
-  %1508 = load i32, ptr %1501, align 4, !tbaa !69
+  %1508 = load i32, ptr %1501, align 4, !tbaa !64
   %1509 = icmp ne i32 %1508, 0
   call void @llvm.assume(i1 %1509)
   %1510 = add i32 %1508, -1
-  store i32 %1510, ptr %1501, align 4, !tbaa !69
+  store i32 %1510, ptr %1501, align 4, !tbaa !64
   %1511 = icmp eq i32 %1510, 0
   br i1 %1511, label %1512, label %dom_register_prop_handler.exit149
 
@@ -4385,11 +4364,11 @@ dom_register_prop_handler.exit149:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i150, label %1520, label %dom_register_prop_handler.exit151
 
 1520:                                             ; preds = %dom_register_prop_handler.exit149
-  %1521 = load i32, ptr %1514, align 4, !tbaa !69
+  %1521 = load i32, ptr %1514, align 4, !tbaa !64
   %1522 = icmp ne i32 %1521, 0
   call void @llvm.assume(i1 %1522)
   %1523 = add i32 %1521, -1
-  store i32 %1523, ptr %1514, align 4, !tbaa !69
+  store i32 %1523, ptr %1514, align 4, !tbaa !64
   %1524 = icmp eq i32 %1523, 0
   br i1 %1524, label %1525, label %dom_register_prop_handler.exit151
 
@@ -4398,7 +4377,7 @@ dom_register_prop_handler.exit149:                ; preds = %dom_register_prop_h
   br label %dom_register_prop_handler.exit151
 
 dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_handler.exit149, %1520, %1525
-  %1526 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %1526 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 8
   %1528 = load ptr, ptr %1527, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %661)
@@ -4434,7 +4413,7 @@ dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_h
   %1533 = getelementptr inbounds nuw i8, ptr %501, i64 8
   store ptr %1532, ptr %1533, align 8, !tbaa !28
   %1534 = getelementptr inbounds nuw i8, ptr %501, i64 360
-  store ptr @std_object_handlers, ptr %1534, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %1534, align 8, !tbaa !122
   %1535 = getelementptr inbounds nuw i8, ptr %501, i64 504
   store ptr @class_Dom_Node_methods, ptr %1535, align 8, !tbaa !44
   %1536 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %501, ptr noundef null, i32 noundef 8192) #17
@@ -4444,9 +4423,9 @@ dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_h
   store i32 4, ptr %1537, align 8, !tbaa !44
   %1538 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1539 = call ptr %1538(ptr noundef nonnull @.str.357, i64 noundef 30, i1 noundef zeroext true) #17
-  store ptr null, ptr %503, align 8, !tbaa !132
+  store ptr null, ptr %503, align 8, !tbaa !126
   %1540 = getelementptr inbounds nuw i8, ptr %503, i64 8
-  store i32 16, ptr %1540, align 8, !tbaa !133
+  store i32 16, ptr %1540, align 8, !tbaa !128
   %1541 = getelementptr inbounds nuw i8, ptr %503, i64 12
   store i32 0, ptr %1541, align 4
   %1542 = call ptr @zend_declare_typed_class_constant(ptr noundef %1536, ptr noundef %1539, ptr noundef nonnull %502, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %503) #17
@@ -4457,11 +4436,11 @@ dom_register_prop_handler.exit151:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i152, label %1546, label %zend_string_release.exit.i153
 
 1546:                                             ; preds = %dom_register_prop_handler.exit151
-  %1547 = load i32, ptr %1539, align 4, !tbaa !69
+  %1547 = load i32, ptr %1539, align 4, !tbaa !64
   %1548 = icmp ne i32 %1547, 0
   call void @llvm.assume(i1 %1548)
   %1549 = add i32 %1547, -1
-  store i32 %1549, ptr %1539, align 4, !tbaa !69
+  store i32 %1549, ptr %1539, align 4, !tbaa !64
   %1550 = icmp eq i32 %1549, 0
   br i1 %1550, label %1551, label %zend_string_release.exit.i153
 
@@ -4485,9 +4464,9 @@ zend_string_release.exit.i153:                    ; preds = %1554, %1553, %1546,
   store i32 4, ptr %1555, align 8, !tbaa !44
   %1556 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1557 = call ptr %1556(ptr noundef nonnull @.str.358, i64 noundef 27, i1 noundef zeroext true) #17
-  store ptr null, ptr %505, align 8, !tbaa !132
+  store ptr null, ptr %505, align 8, !tbaa !126
   %1558 = getelementptr inbounds nuw i8, ptr %505, i64 8
-  store i32 16, ptr %1558, align 8, !tbaa !133
+  store i32 16, ptr %1558, align 8, !tbaa !128
   %1559 = getelementptr inbounds nuw i8, ptr %505, i64 12
   store i32 0, ptr %1559, align 4
   %1560 = call ptr @zend_declare_typed_class_constant(ptr noundef %1536, ptr noundef %1557, ptr noundef nonnull %504, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %505) #17
@@ -4498,11 +4477,11 @@ zend_string_release.exit.i153:                    ; preds = %1554, %1553, %1546,
   br i1 %.not.i81.i, label %1564, label %zend_string_release.exit83.i
 
 1564:                                             ; preds = %zend_string_release.exit.i153
-  %1565 = load i32, ptr %1557, align 4, !tbaa !69
+  %1565 = load i32, ptr %1557, align 4, !tbaa !64
   %1566 = icmp ne i32 %1565, 0
   call void @llvm.assume(i1 %1566)
   %1567 = add i32 %1565, -1
-  store i32 %1567, ptr %1557, align 4, !tbaa !69
+  store i32 %1567, ptr %1557, align 4, !tbaa !64
   %1568 = icmp eq i32 %1567, 0
   br i1 %1568, label %1569, label %zend_string_release.exit83.i
 
@@ -4526,9 +4505,9 @@ zend_string_release.exit83.i:                     ; preds = %1572, %1571, %1564,
   store i32 4, ptr %1573, align 8, !tbaa !44
   %1574 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1575 = call ptr %1574(ptr noundef nonnull @.str.359, i64 noundef 27, i1 noundef zeroext true) #17
-  store ptr null, ptr %507, align 8, !tbaa !132
+  store ptr null, ptr %507, align 8, !tbaa !126
   %1576 = getelementptr inbounds nuw i8, ptr %507, i64 8
-  store i32 16, ptr %1576, align 8, !tbaa !133
+  store i32 16, ptr %1576, align 8, !tbaa !128
   %1577 = getelementptr inbounds nuw i8, ptr %507, i64 12
   store i32 0, ptr %1577, align 4
   %1578 = call ptr @zend_declare_typed_class_constant(ptr noundef %1536, ptr noundef %1575, ptr noundef nonnull %506, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %507) #17
@@ -4539,11 +4518,11 @@ zend_string_release.exit83.i:                     ; preds = %1572, %1571, %1564,
   br i1 %.not.i84.i, label %1582, label %zend_string_release.exit86.i
 
 1582:                                             ; preds = %zend_string_release.exit83.i
-  %1583 = load i32, ptr %1575, align 4, !tbaa !69
+  %1583 = load i32, ptr %1575, align 4, !tbaa !64
   %1584 = icmp ne i32 %1583, 0
   call void @llvm.assume(i1 %1584)
   %1585 = add i32 %1583, -1
-  store i32 %1585, ptr %1575, align 4, !tbaa !69
+  store i32 %1585, ptr %1575, align 4, !tbaa !64
   %1586 = icmp eq i32 %1585, 0
   br i1 %1586, label %1587, label %zend_string_release.exit86.i
 
@@ -4567,9 +4546,9 @@ zend_string_release.exit86.i:                     ; preds = %1590, %1589, %1582,
   store i32 4, ptr %1591, align 8, !tbaa !44
   %1592 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1593 = call ptr %1592(ptr noundef nonnull @.str.360, i64 noundef 26, i1 noundef zeroext true) #17
-  store ptr null, ptr %509, align 8, !tbaa !132
+  store ptr null, ptr %509, align 8, !tbaa !126
   %1594 = getelementptr inbounds nuw i8, ptr %509, i64 8
-  store i32 16, ptr %1594, align 8, !tbaa !133
+  store i32 16, ptr %1594, align 8, !tbaa !128
   %1595 = getelementptr inbounds nuw i8, ptr %509, i64 12
   store i32 0, ptr %1595, align 4
   %1596 = call ptr @zend_declare_typed_class_constant(ptr noundef %1536, ptr noundef %1593, ptr noundef nonnull %508, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %509) #17
@@ -4580,11 +4559,11 @@ zend_string_release.exit86.i:                     ; preds = %1590, %1589, %1582,
   br i1 %.not.i87.i, label %1600, label %zend_string_release.exit89.i
 
 1600:                                             ; preds = %zend_string_release.exit86.i
-  %1601 = load i32, ptr %1593, align 4, !tbaa !69
+  %1601 = load i32, ptr %1593, align 4, !tbaa !64
   %1602 = icmp ne i32 %1601, 0
   call void @llvm.assume(i1 %1602)
   %1603 = add i32 %1601, -1
-  store i32 %1603, ptr %1593, align 4, !tbaa !69
+  store i32 %1603, ptr %1593, align 4, !tbaa !64
   %1604 = icmp eq i32 %1603, 0
   br i1 %1604, label %1605, label %zend_string_release.exit89.i
 
@@ -4608,9 +4587,9 @@ zend_string_release.exit89.i:                     ; preds = %1608, %1607, %1600,
   store i32 4, ptr %1609, align 8, !tbaa !44
   %1610 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1611 = call ptr %1610(ptr noundef nonnull @.str.361, i64 noundef 30, i1 noundef zeroext true) #17
-  store ptr null, ptr %511, align 8, !tbaa !132
+  store ptr null, ptr %511, align 8, !tbaa !126
   %1612 = getelementptr inbounds nuw i8, ptr %511, i64 8
-  store i32 16, ptr %1612, align 8, !tbaa !133
+  store i32 16, ptr %1612, align 8, !tbaa !128
   %1613 = getelementptr inbounds nuw i8, ptr %511, i64 12
   store i32 0, ptr %1613, align 4
   %1614 = call ptr @zend_declare_typed_class_constant(ptr noundef %1536, ptr noundef %1611, ptr noundef nonnull %510, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %511) #17
@@ -4621,11 +4600,11 @@ zend_string_release.exit89.i:                     ; preds = %1608, %1607, %1600,
   br i1 %.not.i90.i, label %1618, label %zend_string_release.exit92.i
 
 1618:                                             ; preds = %zend_string_release.exit89.i
-  %1619 = load i32, ptr %1611, align 4, !tbaa !69
+  %1619 = load i32, ptr %1611, align 4, !tbaa !64
   %1620 = icmp ne i32 %1619, 0
   call void @llvm.assume(i1 %1620)
   %1621 = add i32 %1619, -1
-  store i32 %1621, ptr %1611, align 4, !tbaa !69
+  store i32 %1621, ptr %1611, align 4, !tbaa !64
   %1622 = icmp eq i32 %1621, 0
   br i1 %1622, label %1623, label %zend_string_release.exit92.i
 
@@ -4649,9 +4628,9 @@ zend_string_release.exit92.i:                     ; preds = %1626, %1625, %1618,
   store i32 4, ptr %1627, align 8, !tbaa !44
   %1628 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1629 = call ptr %1628(ptr noundef nonnull @.str.362, i64 noundef 41, i1 noundef zeroext true) #17
-  store ptr null, ptr %513, align 8, !tbaa !132
+  store ptr null, ptr %513, align 8, !tbaa !126
   %1630 = getelementptr inbounds nuw i8, ptr %513, i64 8
-  store i32 16, ptr %1630, align 8, !tbaa !133
+  store i32 16, ptr %1630, align 8, !tbaa !128
   %1631 = getelementptr inbounds nuw i8, ptr %513, i64 12
   store i32 0, ptr %1631, align 4
   %1632 = call ptr @zend_declare_typed_class_constant(ptr noundef %1536, ptr noundef %1629, ptr noundef nonnull %512, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %513) #17
@@ -4662,11 +4641,11 @@ zend_string_release.exit92.i:                     ; preds = %1626, %1625, %1618,
   br i1 %.not.i93.i, label %1636, label %zend_string_release.exit95.i
 
 1636:                                             ; preds = %zend_string_release.exit92.i
-  %1637 = load i32, ptr %1629, align 4, !tbaa !69
+  %1637 = load i32, ptr %1629, align 4, !tbaa !64
   %1638 = icmp ne i32 %1637, 0
   call void @llvm.assume(i1 %1638)
   %1639 = add i32 %1637, -1
-  store i32 %1639, ptr %1629, align 4, !tbaa !69
+  store i32 %1639, ptr %1629, align 4, !tbaa !64
   %1640 = icmp eq i32 %1639, 0
   br i1 %1640, label %1641, label %zend_string_release.exit95.i
 
@@ -4688,20 +4667,20 @@ zend_string_release.exit95.i:                     ; preds = %1644, %1643, %1636,
   %1645 = getelementptr inbounds nuw i8, ptr %514, i64 8
   store i32 0, ptr %1645, align 8, !tbaa !44
   %1646 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1646, align 4, !tbaa !69
+  store i32 1, ptr %1646, align 4, !tbaa !64
   %1647 = getelementptr inbounds nuw i8, ptr %1646, i64 4
   store i32 150, ptr %1647, align 4, !tbaa !44
   %1648 = getelementptr inbounds nuw i8, ptr %1646, i64 8
-  store i64 0, ptr %1648, align 8, !tbaa !124
+  store i64 0, ptr %1648, align 8, !tbaa !118
   %1649 = getelementptr inbounds nuw i8, ptr %1646, i64 16
-  store i64 8, ptr %1649, align 8, !tbaa !126
+  store i64 8, ptr %1649, align 8, !tbaa !120
   %1650 = getelementptr inbounds nuw i8, ptr %1646, i64 24
   store i64 7309475598607609710, ptr %1650, align 8
   %1651 = getelementptr inbounds nuw i8, ptr %1646, i64 32
   store i8 0, ptr %1651, align 8, !tbaa !44
-  store ptr null, ptr %515, align 8, !tbaa !132
+  store ptr null, ptr %515, align 8, !tbaa !126
   %1652 = getelementptr inbounds nuw i8, ptr %515, i64 8
-  store i32 16, ptr %1652, align 8, !tbaa !133
+  store i32 16, ptr %1652, align 8, !tbaa !128
   %1653 = getelementptr inbounds nuw i8, ptr %515, i64 12
   store i32 0, ptr %1653, align 4
   %1654 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1646, ptr noundef nonnull %514, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %515) #17
@@ -4711,11 +4690,11 @@ zend_string_release.exit95.i:                     ; preds = %1644, %1643, %1636,
   br i1 %.not.i96.i, label %1657, label %zend_string_release.exit98.i
 
 1657:                                             ; preds = %zend_string_release.exit95.i
-  %1658 = load i32, ptr %1646, align 4, !tbaa !69
+  %1658 = load i32, ptr %1646, align 4, !tbaa !64
   %1659 = icmp ne i32 %1658, 0
   call void @llvm.assume(i1 %1659)
   %1660 = add i32 %1658, -1
-  store i32 %1660, ptr %1646, align 4, !tbaa !69
+  store i32 %1660, ptr %1646, align 4, !tbaa !64
   %1661 = icmp eq i32 %1660, 0
   br i1 %1661, label %1662, label %zend_string_release.exit98.i
 
@@ -4737,20 +4716,20 @@ zend_string_release.exit98.i:                     ; preds = %1665, %1664, %1657,
   %1666 = getelementptr inbounds nuw i8, ptr %516, i64 8
   store i32 0, ptr %1666, align 8, !tbaa !44
   %1667 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1667, align 4, !tbaa !69
+  store i32 1, ptr %1667, align 4, !tbaa !64
   %1668 = getelementptr inbounds nuw i8, ptr %1667, i64 4
   store i32 150, ptr %1668, align 4, !tbaa !44
   %1669 = getelementptr inbounds nuw i8, ptr %1667, i64 8
-  store i64 0, ptr %1669, align 8, !tbaa !124
+  store i64 0, ptr %1669, align 8, !tbaa !118
   %1670 = getelementptr inbounds nuw i8, ptr %1667, i64 16
-  store i64 8, ptr %1670, align 8, !tbaa !126
+  store i64 8, ptr %1670, align 8, !tbaa !120
   %1671 = getelementptr inbounds nuw i8, ptr %1667, i64 24
   store i64 7308604759628607342, ptr %1671, align 8
   %1672 = getelementptr inbounds nuw i8, ptr %1667, i64 32
   store i8 0, ptr %1672, align 8, !tbaa !44
-  store ptr null, ptr %517, align 8, !tbaa !132
+  store ptr null, ptr %517, align 8, !tbaa !126
   %1673 = getelementptr inbounds nuw i8, ptr %517, i64 8
-  store i32 64, ptr %1673, align 8, !tbaa !133
+  store i32 64, ptr %1673, align 8, !tbaa !128
   %1674 = getelementptr inbounds nuw i8, ptr %517, i64 12
   store i32 0, ptr %1674, align 4
   %1675 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1667, ptr noundef nonnull %516, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %517) #17
@@ -4760,11 +4739,11 @@ zend_string_release.exit98.i:                     ; preds = %1665, %1664, %1657,
   br i1 %.not.i99.i, label %1678, label %zend_string_release.exit101.i
 
 1678:                                             ; preds = %zend_string_release.exit98.i
-  %1679 = load i32, ptr %1667, align 4, !tbaa !69
+  %1679 = load i32, ptr %1667, align 4, !tbaa !64
   %1680 = icmp ne i32 %1679, 0
   call void @llvm.assume(i1 %1680)
   %1681 = add i32 %1679, -1
-  store i32 %1681, ptr %1667, align 4, !tbaa !69
+  store i32 %1681, ptr %1667, align 4, !tbaa !64
   %1682 = icmp eq i32 %1681, 0
   br i1 %1682, label %1683, label %zend_string_release.exit101.i
 
@@ -4786,20 +4765,20 @@ zend_string_release.exit101.i:                    ; preds = %1686, %1685, %1678,
   %1687 = getelementptr inbounds nuw i8, ptr %518, i64 8
   store i32 0, ptr %1687, align 8, !tbaa !44
   %1688 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %1688, align 4, !tbaa !69
+  store i32 1, ptr %1688, align 4, !tbaa !64
   %1689 = getelementptr inbounds nuw i8, ptr %1688, i64 4
   store i32 150, ptr %1689, align 4, !tbaa !44
   %1690 = getelementptr inbounds nuw i8, ptr %1688, i64 8
-  store i64 0, ptr %1690, align 8, !tbaa !124
+  store i64 0, ptr %1690, align 8, !tbaa !118
   %1691 = getelementptr inbounds nuw i8, ptr %1688, i64 16
-  store i64 7, ptr %1691, align 8, !tbaa !126
+  store i64 7, ptr %1691, align 8, !tbaa !120
   %1692 = getelementptr inbounds nuw i8, ptr %1688, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1692, ptr noundef nonnull align 1 dereferenceable(7) @.str.35, i64 7, i1 false)
   %1693 = getelementptr inbounds nuw i8, ptr %1688, i64 31
   store i8 0, ptr %1693, align 1, !tbaa !44
-  store ptr null, ptr %519, align 8, !tbaa !132
+  store ptr null, ptr %519, align 8, !tbaa !126
   %1694 = getelementptr inbounds nuw i8, ptr %519, i64 8
-  store i32 64, ptr %1694, align 8, !tbaa !133
+  store i32 64, ptr %1694, align 8, !tbaa !128
   %1695 = getelementptr inbounds nuw i8, ptr %519, i64 12
   store i32 0, ptr %1695, align 4
   %1696 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1688, ptr noundef nonnull %518, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %519) #17
@@ -4809,11 +4788,11 @@ zend_string_release.exit101.i:                    ; preds = %1686, %1685, %1678,
   br i1 %.not.i102.i, label %1699, label %zend_string_release.exit104.i
 
 1699:                                             ; preds = %zend_string_release.exit101.i
-  %1700 = load i32, ptr %1688, align 4, !tbaa !69
+  %1700 = load i32, ptr %1688, align 4, !tbaa !64
   %1701 = icmp ne i32 %1700, 0
   call void @llvm.assume(i1 %1701)
   %1702 = add i32 %1700, -1
-  store i32 %1702, ptr %1688, align 4, !tbaa !69
+  store i32 %1702, ptr %1688, align 4, !tbaa !64
   %1703 = icmp eq i32 %1702, 0
   br i1 %1703, label %1704, label %zend_string_release.exit104.i
 
@@ -4835,20 +4814,20 @@ zend_string_release.exit104.i:                    ; preds = %1707, %1706, %1699,
   %1708 = getelementptr inbounds nuw i8, ptr %520, i64 8
   store i32 0, ptr %1708, align 8, !tbaa !44
   %1709 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1709, align 4, !tbaa !69
+  store i32 1, ptr %1709, align 4, !tbaa !64
   %1710 = getelementptr inbounds nuw i8, ptr %1709, i64 4
   store i32 150, ptr %1710, align 4, !tbaa !44
   %1711 = getelementptr inbounds nuw i8, ptr %1709, i64 8
-  store i64 0, ptr %1711, align 8, !tbaa !124
+  store i64 0, ptr %1711, align 8, !tbaa !118
   %1712 = getelementptr inbounds nuw i8, ptr %1709, i64 16
-  store i64 11, ptr %1712, align 8, !tbaa !126
+  store i64 11, ptr %1712, align 8, !tbaa !120
   %1713 = getelementptr inbounds nuw i8, ptr %1709, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1713, ptr noundef nonnull align 1 dereferenceable(11) @.str.25, i64 11, i1 false)
   %1714 = getelementptr inbounds nuw i8, ptr %1709, i64 35
   store i8 0, ptr %1714, align 1, !tbaa !44
-  store ptr null, ptr %521, align 8, !tbaa !132
+  store ptr null, ptr %521, align 8, !tbaa !126
   %1715 = getelementptr inbounds nuw i8, ptr %521, i64 8
-  store i32 12, ptr %1715, align 8, !tbaa !133
+  store i32 12, ptr %1715, align 8, !tbaa !128
   %1716 = getelementptr inbounds nuw i8, ptr %521, i64 12
   store i32 0, ptr %1716, align 4
   %1717 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1709, ptr noundef nonnull %520, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %521) #17
@@ -4858,11 +4837,11 @@ zend_string_release.exit104.i:                    ; preds = %1707, %1706, %1699,
   br i1 %.not.i105.i, label %1720, label %zend_string_release.exit107.i
 
 1720:                                             ; preds = %zend_string_release.exit104.i
-  %1721 = load i32, ptr %1709, align 4, !tbaa !69
+  %1721 = load i32, ptr %1709, align 4, !tbaa !64
   %1722 = icmp ne i32 %1721, 0
   call void @llvm.assume(i1 %1722)
   %1723 = add i32 %1721, -1
-  store i32 %1723, ptr %1709, align 4, !tbaa !69
+  store i32 %1723, ptr %1709, align 4, !tbaa !64
   %1724 = icmp eq i32 %1723, 0
   br i1 %1724, label %1725, label %zend_string_release.exit107.i
 
@@ -4884,32 +4863,32 @@ zend_string_release.exit107.i:                    ; preds = %1728, %1727, %1720,
   %1729 = getelementptr inbounds nuw i8, ptr %522, i64 8
   store i32 0, ptr %1729, align 8, !tbaa !44
   %1730 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1730, align 4, !tbaa !69
+  store i32 1, ptr %1730, align 4, !tbaa !64
   %1731 = getelementptr inbounds nuw i8, ptr %1730, i64 4
   store i32 150, ptr %1731, align 4, !tbaa !44
   %1732 = getelementptr inbounds nuw i8, ptr %1730, i64 8
-  store i64 0, ptr %1732, align 8, !tbaa !124
+  store i64 0, ptr %1732, align 8, !tbaa !118
   %1733 = getelementptr inbounds nuw i8, ptr %1730, i64 16
-  store i64 13, ptr %1733, align 8, !tbaa !126
+  store i64 13, ptr %1733, align 8, !tbaa !120
   %1734 = getelementptr inbounds nuw i8, ptr %1730, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1734, ptr noundef nonnull align 1 dereferenceable(13) @.str.27, i64 13, i1 false)
   %1735 = getelementptr inbounds nuw i8, ptr %1730, i64 37
   store i8 0, ptr %1735, align 1, !tbaa !44
   %1736 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1736, align 4, !tbaa !69
+  store i32 1, ptr %1736, align 4, !tbaa !64
   %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 4
   store i32 150, ptr %1737, align 4, !tbaa !44
   %1738 = getelementptr inbounds nuw i8, ptr %1736, i64 8
-  store i64 0, ptr %1738, align 8, !tbaa !124
+  store i64 0, ptr %1738, align 8, !tbaa !118
   %1739 = getelementptr inbounds nuw i8, ptr %1736, i64 16
-  store i64 12, ptr %1739, align 8, !tbaa !126
+  store i64 12, ptr %1739, align 8, !tbaa !120
   %1740 = getelementptr inbounds nuw i8, ptr %1736, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1740, ptr noundef nonnull align 1 dereferenceable(12) @.str.421, i64 12, i1 false)
   %1741 = getelementptr inbounds nuw i8, ptr %1736, i64 36
   store i8 0, ptr %1741, align 4, !tbaa !44
-  store ptr %1736, ptr %523, align 8, !tbaa !132
+  store ptr %1736, ptr %523, align 8, !tbaa !126
   %1742 = getelementptr inbounds nuw i8, ptr %523, i64 8
-  store i32 16777218, ptr %1742, align 8, !tbaa !133
+  store i32 16777218, ptr %1742, align 8, !tbaa !128
   %1743 = getelementptr inbounds nuw i8, ptr %523, i64 12
   store i32 0, ptr %1743, align 4
   %1744 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1730, ptr noundef nonnull %522, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %523) #17
@@ -4919,11 +4898,11 @@ zend_string_release.exit107.i:                    ; preds = %1728, %1727, %1720,
   br i1 %.not.i108.i, label %1747, label %zend_string_release.exit110.i
 
 1747:                                             ; preds = %zend_string_release.exit107.i
-  %1748 = load i32, ptr %1730, align 4, !tbaa !69
+  %1748 = load i32, ptr %1730, align 4, !tbaa !64
   %1749 = icmp ne i32 %1748, 0
   call void @llvm.assume(i1 %1749)
   %1750 = add i32 %1748, -1
-  store i32 %1750, ptr %1730, align 4, !tbaa !69
+  store i32 %1750, ptr %1730, align 4, !tbaa !64
   %1751 = icmp eq i32 %1750, 0
   br i1 %1751, label %1752, label %zend_string_release.exit110.i
 
@@ -4945,32 +4924,32 @@ zend_string_release.exit110.i:                    ; preds = %1755, %1754, %1747,
   %1756 = getelementptr inbounds nuw i8, ptr %524, i64 8
   store i32 0, ptr %1756, align 8, !tbaa !44
   %1757 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1757, align 4, !tbaa !69
+  store i32 1, ptr %1757, align 4, !tbaa !64
   %1758 = getelementptr inbounds nuw i8, ptr %1757, i64 4
   store i32 150, ptr %1758, align 4, !tbaa !44
   %1759 = getelementptr inbounds nuw i8, ptr %1757, i64 8
-  store i64 0, ptr %1759, align 8, !tbaa !124
+  store i64 0, ptr %1759, align 8, !tbaa !118
   %1760 = getelementptr inbounds nuw i8, ptr %1757, i64 16
-  store i64 10, ptr %1760, align 8, !tbaa !126
+  store i64 10, ptr %1760, align 8, !tbaa !120
   %1761 = getelementptr inbounds nuw i8, ptr %1757, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1761, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false)
   %1762 = getelementptr inbounds nuw i8, ptr %1757, i64 34
   store i8 0, ptr %1762, align 2, !tbaa !44
   %1763 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1763, align 4, !tbaa !69
+  store i32 1, ptr %1763, align 4, !tbaa !64
   %1764 = getelementptr inbounds nuw i8, ptr %1763, i64 4
   store i32 150, ptr %1764, align 4, !tbaa !44
   %1765 = getelementptr inbounds nuw i8, ptr %1763, i64 8
-  store i64 0, ptr %1765, align 8, !tbaa !124
+  store i64 0, ptr %1765, align 8, !tbaa !118
   %1766 = getelementptr inbounds nuw i8, ptr %1763, i64 16
-  store i64 8, ptr %1766, align 8, !tbaa !126
+  store i64 8, ptr %1766, align 8, !tbaa !120
   %1767 = getelementptr inbounds nuw i8, ptr %1763, i64 24
   store i64 7306086877850595140, ptr %1767, align 8
   %1768 = getelementptr inbounds nuw i8, ptr %1763, i64 32
   store i8 0, ptr %1768, align 8, !tbaa !44
-  store ptr %1763, ptr %525, align 8, !tbaa !132
+  store ptr %1763, ptr %525, align 8, !tbaa !126
   %1769 = getelementptr inbounds nuw i8, ptr %525, i64 8
-  store i32 16777218, ptr %1769, align 8, !tbaa !133
+  store i32 16777218, ptr %1769, align 8, !tbaa !128
   %1770 = getelementptr inbounds nuw i8, ptr %525, i64 12
   store i32 0, ptr %1770, align 4
   %1771 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1757, ptr noundef nonnull %524, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %525) #17
@@ -4980,11 +4959,11 @@ zend_string_release.exit110.i:                    ; preds = %1755, %1754, %1747,
   br i1 %.not.i111.i, label %1774, label %zend_string_release.exit113.i
 
 1774:                                             ; preds = %zend_string_release.exit110.i
-  %1775 = load i32, ptr %1757, align 4, !tbaa !69
+  %1775 = load i32, ptr %1757, align 4, !tbaa !64
   %1776 = icmp ne i32 %1775, 0
   call void @llvm.assume(i1 %1776)
   %1777 = add i32 %1775, -1
-  store i32 %1777, ptr %1757, align 4, !tbaa !69
+  store i32 %1777, ptr %1757, align 4, !tbaa !64
   %1778 = icmp eq i32 %1777, 0
   br i1 %1778, label %1779, label %zend_string_release.exit113.i
 
@@ -5006,32 +4985,32 @@ zend_string_release.exit113.i:                    ; preds = %1782, %1781, %1774,
   %1783 = getelementptr inbounds nuw i8, ptr %526, i64 8
   store i32 0, ptr %1783, align 8, !tbaa !44
   %1784 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1784, align 4, !tbaa !69
+  store i32 1, ptr %1784, align 4, !tbaa !64
   %1785 = getelementptr inbounds nuw i8, ptr %1784, i64 4
   store i32 150, ptr %1785, align 4, !tbaa !44
   %1786 = getelementptr inbounds nuw i8, ptr %1784, i64 8
-  store i64 0, ptr %1786, align 8, !tbaa !124
+  store i64 0, ptr %1786, align 8, !tbaa !118
   %1787 = getelementptr inbounds nuw i8, ptr %1784, i64 16
-  store i64 13, ptr %1787, align 8, !tbaa !126
+  store i64 13, ptr %1787, align 8, !tbaa !120
   %1788 = getelementptr inbounds nuw i8, ptr %1784, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1788, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 13, i1 false)
   %1789 = getelementptr inbounds nuw i8, ptr %1784, i64 37
   store i8 0, ptr %1789, align 1, !tbaa !44
   %1790 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1790, align 4, !tbaa !69
+  store i32 1, ptr %1790, align 4, !tbaa !64
   %1791 = getelementptr inbounds nuw i8, ptr %1790, i64 4
   store i32 150, ptr %1791, align 4, !tbaa !44
   %1792 = getelementptr inbounds nuw i8, ptr %1790, i64 8
-  store i64 0, ptr %1792, align 8, !tbaa !124
+  store i64 0, ptr %1792, align 8, !tbaa !118
   %1793 = getelementptr inbounds nuw i8, ptr %1790, i64 16
-  store i64 11, ptr %1793, align 8, !tbaa !126
+  store i64 11, ptr %1793, align 8, !tbaa !120
   %1794 = getelementptr inbounds nuw i8, ptr %1790, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1794, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %1795 = getelementptr inbounds nuw i8, ptr %1790, i64 35
   store i8 0, ptr %1795, align 1, !tbaa !44
-  store ptr %1790, ptr %527, align 8, !tbaa !132
+  store ptr %1790, ptr %527, align 8, !tbaa !126
   %1796 = getelementptr inbounds nuw i8, ptr %527, i64 8
-  store i32 16777218, ptr %1796, align 8, !tbaa !133
+  store i32 16777218, ptr %1796, align 8, !tbaa !128
   %1797 = getelementptr inbounds nuw i8, ptr %527, i64 12
   store i32 0, ptr %1797, align 4
   %1798 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1784, ptr noundef nonnull %526, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %527) #17
@@ -5041,11 +5020,11 @@ zend_string_release.exit113.i:                    ; preds = %1782, %1781, %1774,
   br i1 %.not.i114.i, label %1801, label %zend_string_release.exit116.i
 
 1801:                                             ; preds = %zend_string_release.exit113.i
-  %1802 = load i32, ptr %1784, align 4, !tbaa !69
+  %1802 = load i32, ptr %1784, align 4, !tbaa !64
   %1803 = icmp ne i32 %1802, 0
   call void @llvm.assume(i1 %1803)
   %1804 = add i32 %1802, -1
-  store i32 %1804, ptr %1784, align 4, !tbaa !69
+  store i32 %1804, ptr %1784, align 4, !tbaa !64
   %1805 = icmp eq i32 %1804, 0
   br i1 %1805, label %1806, label %zend_string_release.exit116.i
 
@@ -5067,32 +5046,32 @@ zend_string_release.exit116.i:                    ; preds = %1809, %1808, %1801,
   %1810 = getelementptr inbounds nuw i8, ptr %528, i64 8
   store i32 0, ptr %1810, align 8, !tbaa !44
   %1811 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1811, align 4, !tbaa !69
+  store i32 1, ptr %1811, align 4, !tbaa !64
   %1812 = getelementptr inbounds nuw i8, ptr %1811, i64 4
   store i32 150, ptr %1812, align 4, !tbaa !44
   %1813 = getelementptr inbounds nuw i8, ptr %1811, i64 8
-  store i64 0, ptr %1813, align 8, !tbaa !124
+  store i64 0, ptr %1813, align 8, !tbaa !118
   %1814 = getelementptr inbounds nuw i8, ptr %1811, i64 16
-  store i64 10, ptr %1814, align 8, !tbaa !126
+  store i64 10, ptr %1814, align 8, !tbaa !120
   %1815 = getelementptr inbounds nuw i8, ptr %1811, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1815, ptr noundef nonnull align 1 dereferenceable(10) @.str.13, i64 10, i1 false)
   %1816 = getelementptr inbounds nuw i8, ptr %1811, i64 34
   store i8 0, ptr %1816, align 2, !tbaa !44
   %1817 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1817, align 4, !tbaa !69
+  store i32 1, ptr %1817, align 4, !tbaa !64
   %1818 = getelementptr inbounds nuw i8, ptr %1817, i64 4
   store i32 150, ptr %1818, align 4, !tbaa !44
   %1819 = getelementptr inbounds nuw i8, ptr %1817, i64 8
-  store i64 0, ptr %1819, align 8, !tbaa !124
+  store i64 0, ptr %1819, align 8, !tbaa !118
   %1820 = getelementptr inbounds nuw i8, ptr %1817, i64 16
-  store i64 12, ptr %1820, align 8, !tbaa !126
+  store i64 12, ptr %1820, align 8, !tbaa !120
   %1821 = getelementptr inbounds nuw i8, ptr %1817, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1821, ptr noundef nonnull align 1 dereferenceable(12) @.str.325, i64 12, i1 false)
   %1822 = getelementptr inbounds nuw i8, ptr %1817, i64 36
   store i8 0, ptr %1822, align 4, !tbaa !44
-  store ptr %1817, ptr %529, align 8, !tbaa !132
+  store ptr %1817, ptr %529, align 8, !tbaa !126
   %1823 = getelementptr inbounds nuw i8, ptr %529, i64 8
-  store i32 16777216, ptr %1823, align 8, !tbaa !133
+  store i32 16777216, ptr %1823, align 8, !tbaa !128
   %1824 = getelementptr inbounds nuw i8, ptr %529, i64 12
   store i32 0, ptr %1824, align 4
   %1825 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1811, ptr noundef nonnull %528, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %529) #17
@@ -5102,11 +5081,11 @@ zend_string_release.exit116.i:                    ; preds = %1809, %1808, %1801,
   br i1 %.not.i117.i, label %1828, label %zend_string_release.exit119.i
 
 1828:                                             ; preds = %zend_string_release.exit116.i
-  %1829 = load i32, ptr %1811, align 4, !tbaa !69
+  %1829 = load i32, ptr %1811, align 4, !tbaa !64
   %1830 = icmp ne i32 %1829, 0
   call void @llvm.assume(i1 %1830)
   %1831 = add i32 %1829, -1
-  store i32 %1831, ptr %1811, align 4, !tbaa !69
+  store i32 %1831, ptr %1811, align 4, !tbaa !64
   %1832 = icmp eq i32 %1831, 0
   br i1 %1832, label %1833, label %zend_string_release.exit119.i
 
@@ -5128,32 +5107,32 @@ zend_string_release.exit119.i:                    ; preds = %1836, %1835, %1828,
   %1837 = getelementptr inbounds nuw i8, ptr %530, i64 8
   store i32 0, ptr %1837, align 8, !tbaa !44
   %1838 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1838, align 4, !tbaa !69
+  store i32 1, ptr %1838, align 4, !tbaa !64
   %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 4
   store i32 150, ptr %1839, align 4, !tbaa !44
   %1840 = getelementptr inbounds nuw i8, ptr %1838, i64 8
-  store i64 0, ptr %1840, align 8, !tbaa !124
+  store i64 0, ptr %1840, align 8, !tbaa !118
   %1841 = getelementptr inbounds nuw i8, ptr %1838, i64 16
-  store i64 10, ptr %1841, align 8, !tbaa !126
+  store i64 10, ptr %1841, align 8, !tbaa !120
   %1842 = getelementptr inbounds nuw i8, ptr %1838, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1842, ptr noundef nonnull align 1 dereferenceable(10) @.str.15, i64 10, i1 false)
   %1843 = getelementptr inbounds nuw i8, ptr %1838, i64 34
   store i8 0, ptr %1843, align 2, !tbaa !44
   %1844 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1844, align 4, !tbaa !69
+  store i32 1, ptr %1844, align 4, !tbaa !64
   %1845 = getelementptr inbounds nuw i8, ptr %1844, i64 4
   store i32 150, ptr %1845, align 4, !tbaa !44
   %1846 = getelementptr inbounds nuw i8, ptr %1844, i64 8
-  store i64 0, ptr %1846, align 8, !tbaa !124
+  store i64 0, ptr %1846, align 8, !tbaa !118
   %1847 = getelementptr inbounds nuw i8, ptr %1844, i64 16
-  store i64 8, ptr %1847, align 8, !tbaa !126
+  store i64 8, ptr %1847, align 8, !tbaa !120
   %1848 = getelementptr inbounds nuw i8, ptr %1844, i64 24
   store i64 7306086877850595140, ptr %1848, align 8
   %1849 = getelementptr inbounds nuw i8, ptr %1844, i64 32
   store i8 0, ptr %1849, align 8, !tbaa !44
-  store ptr %1844, ptr %531, align 8, !tbaa !132
+  store ptr %1844, ptr %531, align 8, !tbaa !126
   %1850 = getelementptr inbounds nuw i8, ptr %531, i64 8
-  store i32 16777218, ptr %1850, align 8, !tbaa !133
+  store i32 16777218, ptr %1850, align 8, !tbaa !128
   %1851 = getelementptr inbounds nuw i8, ptr %531, i64 12
   store i32 0, ptr %1851, align 4
   %1852 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1838, ptr noundef nonnull %530, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %531) #17
@@ -5163,11 +5142,11 @@ zend_string_release.exit119.i:                    ; preds = %1836, %1835, %1828,
   br i1 %.not.i120.i, label %1855, label %zend_string_release.exit122.i
 
 1855:                                             ; preds = %zend_string_release.exit119.i
-  %1856 = load i32, ptr %1838, align 4, !tbaa !69
+  %1856 = load i32, ptr %1838, align 4, !tbaa !64
   %1857 = icmp ne i32 %1856, 0
   call void @llvm.assume(i1 %1857)
   %1858 = add i32 %1856, -1
-  store i32 %1858, ptr %1838, align 4, !tbaa !69
+  store i32 %1858, ptr %1838, align 4, !tbaa !64
   %1859 = icmp eq i32 %1858, 0
   br i1 %1859, label %1860, label %zend_string_release.exit122.i
 
@@ -5189,32 +5168,32 @@ zend_string_release.exit122.i:                    ; preds = %1863, %1862, %1855,
   %1864 = getelementptr inbounds nuw i8, ptr %532, i64 8
   store i32 0, ptr %1864, align 8, !tbaa !44
   %1865 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1865, align 4, !tbaa !69
+  store i32 1, ptr %1865, align 4, !tbaa !64
   %1866 = getelementptr inbounds nuw i8, ptr %1865, i64 4
   store i32 150, ptr %1866, align 4, !tbaa !44
   %1867 = getelementptr inbounds nuw i8, ptr %1865, i64 8
-  store i64 0, ptr %1867, align 8, !tbaa !124
+  store i64 0, ptr %1867, align 8, !tbaa !118
   %1868 = getelementptr inbounds nuw i8, ptr %1865, i64 16
-  store i64 9, ptr %1868, align 8, !tbaa !126
+  store i64 9, ptr %1868, align 8, !tbaa !120
   %1869 = getelementptr inbounds nuw i8, ptr %1865, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1869, ptr noundef nonnull align 1 dereferenceable(9) @.str.17, i64 9, i1 false)
   %1870 = getelementptr inbounds nuw i8, ptr %1865, i64 33
   store i8 0, ptr %1870, align 1, !tbaa !44
   %1871 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1871, align 4, !tbaa !69
+  store i32 1, ptr %1871, align 4, !tbaa !64
   %1872 = getelementptr inbounds nuw i8, ptr %1871, i64 4
   store i32 150, ptr %1872, align 4, !tbaa !44
   %1873 = getelementptr inbounds nuw i8, ptr %1871, i64 8
-  store i64 0, ptr %1873, align 8, !tbaa !124
+  store i64 0, ptr %1873, align 8, !tbaa !118
   %1874 = getelementptr inbounds nuw i8, ptr %1871, i64 16
-  store i64 8, ptr %1874, align 8, !tbaa !126
+  store i64 8, ptr %1874, align 8, !tbaa !120
   %1875 = getelementptr inbounds nuw i8, ptr %1871, i64 24
   store i64 7306086877850595140, ptr %1875, align 8
   %1876 = getelementptr inbounds nuw i8, ptr %1871, i64 32
   store i8 0, ptr %1876, align 8, !tbaa !44
-  store ptr %1871, ptr %533, align 8, !tbaa !132
+  store ptr %1871, ptr %533, align 8, !tbaa !126
   %1877 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  store i32 16777218, ptr %1877, align 8, !tbaa !133
+  store i32 16777218, ptr %1877, align 8, !tbaa !128
   %1878 = getelementptr inbounds nuw i8, ptr %533, i64 12
   store i32 0, ptr %1878, align 4
   %1879 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1865, ptr noundef nonnull %532, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %533) #17
@@ -5224,11 +5203,11 @@ zend_string_release.exit122.i:                    ; preds = %1863, %1862, %1855,
   br i1 %.not.i123.i, label %1882, label %zend_string_release.exit125.i
 
 1882:                                             ; preds = %zend_string_release.exit122.i
-  %1883 = load i32, ptr %1865, align 4, !tbaa !69
+  %1883 = load i32, ptr %1865, align 4, !tbaa !64
   %1884 = icmp ne i32 %1883, 0
   call void @llvm.assume(i1 %1884)
   %1885 = add i32 %1883, -1
-  store i32 %1885, ptr %1865, align 4, !tbaa !69
+  store i32 %1885, ptr %1865, align 4, !tbaa !64
   %1886 = icmp eq i32 %1885, 0
   br i1 %1886, label %1887, label %zend_string_release.exit125.i
 
@@ -5250,32 +5229,32 @@ zend_string_release.exit125.i:                    ; preds = %1890, %1889, %1882,
   %1891 = getelementptr inbounds nuw i8, ptr %534, i64 8
   store i32 0, ptr %1891, align 8, !tbaa !44
   %1892 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1892, align 4, !tbaa !69
+  store i32 1, ptr %1892, align 4, !tbaa !64
   %1893 = getelementptr inbounds nuw i8, ptr %1892, i64 4
   store i32 150, ptr %1893, align 4, !tbaa !44
   %1894 = getelementptr inbounds nuw i8, ptr %1892, i64 8
-  store i64 0, ptr %1894, align 8, !tbaa !124
+  store i64 0, ptr %1894, align 8, !tbaa !118
   %1895 = getelementptr inbounds nuw i8, ptr %1892, i64 16
-  store i64 15, ptr %1895, align 8, !tbaa !126
+  store i64 15, ptr %1895, align 8, !tbaa !120
   %1896 = getelementptr inbounds nuw i8, ptr %1892, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %1896, ptr noundef nonnull align 1 dereferenceable(15) @.str.19, i64 15, i1 false)
   %1897 = getelementptr inbounds nuw i8, ptr %1892, i64 39
   store i8 0, ptr %1897, align 1, !tbaa !44
   %1898 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1898, align 4, !tbaa !69
+  store i32 1, ptr %1898, align 4, !tbaa !64
   %1899 = getelementptr inbounds nuw i8, ptr %1898, i64 4
   store i32 150, ptr %1899, align 4, !tbaa !44
   %1900 = getelementptr inbounds nuw i8, ptr %1898, i64 8
-  store i64 0, ptr %1900, align 8, !tbaa !124
+  store i64 0, ptr %1900, align 8, !tbaa !118
   %1901 = getelementptr inbounds nuw i8, ptr %1898, i64 16
-  store i64 8, ptr %1901, align 8, !tbaa !126
+  store i64 8, ptr %1901, align 8, !tbaa !120
   %1902 = getelementptr inbounds nuw i8, ptr %1898, i64 24
   store i64 7306086877850595140, ptr %1902, align 8
   %1903 = getelementptr inbounds nuw i8, ptr %1898, i64 32
   store i8 0, ptr %1903, align 8, !tbaa !44
-  store ptr %1898, ptr %535, align 8, !tbaa !132
+  store ptr %1898, ptr %535, align 8, !tbaa !126
   %1904 = getelementptr inbounds nuw i8, ptr %535, i64 8
-  store i32 16777218, ptr %1904, align 8, !tbaa !133
+  store i32 16777218, ptr %1904, align 8, !tbaa !128
   %1905 = getelementptr inbounds nuw i8, ptr %535, i64 12
   store i32 0, ptr %1905, align 4
   %1906 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1892, ptr noundef nonnull %534, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %535) #17
@@ -5285,11 +5264,11 @@ zend_string_release.exit125.i:                    ; preds = %1890, %1889, %1882,
   br i1 %.not.i126.i, label %1909, label %zend_string_release.exit128.i
 
 1909:                                             ; preds = %zend_string_release.exit125.i
-  %1910 = load i32, ptr %1892, align 4, !tbaa !69
+  %1910 = load i32, ptr %1892, align 4, !tbaa !64
   %1911 = icmp ne i32 %1910, 0
   call void @llvm.assume(i1 %1911)
   %1912 = add i32 %1910, -1
-  store i32 %1912, ptr %1892, align 4, !tbaa !69
+  store i32 %1912, ptr %1892, align 4, !tbaa !64
   %1913 = icmp eq i32 %1912, 0
   br i1 %1913, label %1914, label %zend_string_release.exit128.i
 
@@ -5311,32 +5290,32 @@ zend_string_release.exit128.i:                    ; preds = %1917, %1916, %1909,
   %1918 = getelementptr inbounds nuw i8, ptr %536, i64 8
   store i32 0, ptr %1918, align 8, !tbaa !44
   %1919 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1919, align 4, !tbaa !69
+  store i32 1, ptr %1919, align 4, !tbaa !64
   %1920 = getelementptr inbounds nuw i8, ptr %1919, i64 4
   store i32 150, ptr %1920, align 4, !tbaa !44
   %1921 = getelementptr inbounds nuw i8, ptr %1919, i64 8
-  store i64 0, ptr %1921, align 8, !tbaa !124
+  store i64 0, ptr %1921, align 8, !tbaa !118
   %1922 = getelementptr inbounds nuw i8, ptr %1919, i64 16
-  store i64 11, ptr %1922, align 8, !tbaa !126
+  store i64 11, ptr %1922, align 8, !tbaa !120
   %1923 = getelementptr inbounds nuw i8, ptr %1919, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1923, ptr noundef nonnull align 1 dereferenceable(11) @.str.21, i64 11, i1 false)
   %1924 = getelementptr inbounds nuw i8, ptr %1919, i64 35
   store i8 0, ptr %1924, align 1, !tbaa !44
   %1925 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1925, align 4, !tbaa !69
+  store i32 1, ptr %1925, align 4, !tbaa !64
   %1926 = getelementptr inbounds nuw i8, ptr %1925, i64 4
   store i32 150, ptr %1926, align 4, !tbaa !44
   %1927 = getelementptr inbounds nuw i8, ptr %1925, i64 8
-  store i64 0, ptr %1927, align 8, !tbaa !124
+  store i64 0, ptr %1927, align 8, !tbaa !118
   %1928 = getelementptr inbounds nuw i8, ptr %1925, i64 16
-  store i64 8, ptr %1928, align 8, !tbaa !126
+  store i64 8, ptr %1928, align 8, !tbaa !120
   %1929 = getelementptr inbounds nuw i8, ptr %1925, i64 24
   store i64 7306086877850595140, ptr %1929, align 8
   %1930 = getelementptr inbounds nuw i8, ptr %1925, i64 32
   store i8 0, ptr %1930, align 8, !tbaa !44
-  store ptr %1925, ptr %537, align 8, !tbaa !132
+  store ptr %1925, ptr %537, align 8, !tbaa !126
   %1931 = getelementptr inbounds nuw i8, ptr %537, i64 8
-  store i32 16777218, ptr %1931, align 8, !tbaa !133
+  store i32 16777218, ptr %1931, align 8, !tbaa !128
   %1932 = getelementptr inbounds nuw i8, ptr %537, i64 12
   store i32 0, ptr %1932, align 4
   %1933 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1919, ptr noundef nonnull %536, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %537) #17
@@ -5346,11 +5325,11 @@ zend_string_release.exit128.i:                    ; preds = %1917, %1916, %1909,
   br i1 %.not.i129.i, label %1936, label %zend_string_release.exit131.i
 
 1936:                                             ; preds = %zend_string_release.exit128.i
-  %1937 = load i32, ptr %1919, align 4, !tbaa !69
+  %1937 = load i32, ptr %1919, align 4, !tbaa !64
   %1938 = icmp ne i32 %1937, 0
   call void @llvm.assume(i1 %1938)
   %1939 = add i32 %1937, -1
-  store i32 %1939, ptr %1919, align 4, !tbaa !69
+  store i32 %1939, ptr %1919, align 4, !tbaa !64
   %1940 = icmp eq i32 %1939, 0
   br i1 %1940, label %1941, label %zend_string_release.exit131.i
 
@@ -5372,20 +5351,20 @@ zend_string_release.exit131.i:                    ; preds = %1944, %1943, %1936,
   %1945 = getelementptr inbounds nuw i8, ptr %538, i64 8
   store i32 0, ptr %1945, align 8, !tbaa !44
   %1946 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1946, align 4, !tbaa !69
+  store i32 1, ptr %1946, align 4, !tbaa !64
   %1947 = getelementptr inbounds nuw i8, ptr %1946, i64 4
   store i32 150, ptr %1947, align 4, !tbaa !44
   %1948 = getelementptr inbounds nuw i8, ptr %1946, i64 8
-  store i64 0, ptr %1948, align 8, !tbaa !124
+  store i64 0, ptr %1948, align 8, !tbaa !118
   %1949 = getelementptr inbounds nuw i8, ptr %1946, i64 16
-  store i64 9, ptr %1949, align 8, !tbaa !126
+  store i64 9, ptr %1949, align 8, !tbaa !120
   %1950 = getelementptr inbounds nuw i8, ptr %1946, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1950, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
   %1951 = getelementptr inbounds nuw i8, ptr %1946, i64 33
   store i8 0, ptr %1951, align 1, !tbaa !44
-  store ptr null, ptr %539, align 8, !tbaa !132
+  store ptr null, ptr %539, align 8, !tbaa !126
   %1952 = getelementptr inbounds nuw i8, ptr %539, i64 8
-  store i32 66, ptr %1952, align 8, !tbaa !133
+  store i32 66, ptr %1952, align 8, !tbaa !128
   %1953 = getelementptr inbounds nuw i8, ptr %539, i64 12
   store i32 0, ptr %1953, align 4
   %1954 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1946, ptr noundef nonnull %538, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %539) #17
@@ -5395,11 +5374,11 @@ zend_string_release.exit131.i:                    ; preds = %1944, %1943, %1936,
   br i1 %.not.i132.i, label %1957, label %zend_string_release.exit134.i
 
 1957:                                             ; preds = %zend_string_release.exit131.i
-  %1958 = load i32, ptr %1946, align 4, !tbaa !69
+  %1958 = load i32, ptr %1946, align 4, !tbaa !64
   %1959 = icmp ne i32 %1958, 0
   call void @llvm.assume(i1 %1959)
   %1960 = add i32 %1958, -1
-  store i32 %1960, ptr %1946, align 4, !tbaa !69
+  store i32 %1960, ptr %1946, align 4, !tbaa !64
   %1961 = icmp eq i32 %1960, 0
   br i1 %1961, label %1962, label %zend_string_release.exit134.i
 
@@ -5421,20 +5400,20 @@ zend_string_release.exit134.i:                    ; preds = %1965, %1964, %1957,
   %1966 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store i32 0, ptr %1966, align 8, !tbaa !44
   %1967 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %1967, align 4, !tbaa !69
+  store i32 1, ptr %1967, align 4, !tbaa !64
   %1968 = getelementptr inbounds nuw i8, ptr %1967, i64 4
   store i32 150, ptr %1968, align 4, !tbaa !44
   %1969 = getelementptr inbounds nuw i8, ptr %1967, i64 8
-  store i64 0, ptr %1969, align 8, !tbaa !124
+  store i64 0, ptr %1969, align 8, !tbaa !118
   %1970 = getelementptr inbounds nuw i8, ptr %1967, i64 16
-  store i64 11, ptr %1970, align 8, !tbaa !126
+  store i64 11, ptr %1970, align 8, !tbaa !120
   %1971 = getelementptr inbounds nuw i8, ptr %1967, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1971, ptr noundef nonnull align 1 dereferenceable(11) @.str.37, i64 11, i1 false)
   %1972 = getelementptr inbounds nuw i8, ptr %1967, i64 35
   store i8 0, ptr %1972, align 1, !tbaa !44
-  store ptr null, ptr %541, align 8, !tbaa !132
+  store ptr null, ptr %541, align 8, !tbaa !126
   %1973 = getelementptr inbounds nuw i8, ptr %541, i64 8
-  store i32 66, ptr %1973, align 8, !tbaa !133
+  store i32 66, ptr %1973, align 8, !tbaa !128
   %1974 = getelementptr inbounds nuw i8, ptr %541, i64 12
   store i32 0, ptr %1974, align 4
   %1975 = call ptr @zend_declare_typed_property(ptr noundef %1536, ptr noundef nonnull %1967, ptr noundef nonnull %540, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %541) #17
@@ -5444,11 +5423,11 @@ zend_string_release.exit134.i:                    ; preds = %1965, %1964, %1957,
   br i1 %.not.i135.i, label %1978, label %register_class_Dom_Node.exit
 
 1978:                                             ; preds = %zend_string_release.exit134.i
-  %1979 = load i32, ptr %1967, align 4, !tbaa !69
+  %1979 = load i32, ptr %1967, align 4, !tbaa !64
   %1980 = icmp ne i32 %1979, 0
   call void @llvm.assume(i1 %1980)
   %1981 = add i32 %1979, -1
-  store i32 %1981, ptr %1967, align 4, !tbaa !69
+  store i32 %1981, ptr %1967, align 4, !tbaa !64
   %1982 = icmp eq i32 %1981, 0
   br i1 %1982, label %1983, label %register_class_Dom_Node.exit
 
@@ -5507,11 +5486,11 @@ register_class_Dom_Node.exit:                     ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %537)
   call void @llvm.lifetime.end.p0(ptr nonnull %539)
   call void @llvm.lifetime.end.p0(ptr nonnull %541)
-  store ptr %1536, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  store ptr %1536, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   %1987 = getelementptr inbounds nuw i8, ptr %1536, i64 384
   store ptr @dom_objects_new, ptr %1987, align 8, !tbaa !44
   %1988 = getelementptr inbounds nuw i8, ptr %1536, i64 360
-  store ptr @dom_object_handlers, ptr %1988, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %1988, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %1989 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %1990 = call ptr %1989(ptr noundef nonnull @.str.7, i64 noundef 8, i1 noundef zeroext true) #17
@@ -5528,11 +5507,11 @@ register_class_Dom_Node.exit:                     ; preds = %zend_string_release
   br i1 %.not.i5.i155, label %1996, label %dom_register_prop_handler.exit156
 
 1996:                                             ; preds = %register_class_Dom_Node.exit
-  %1997 = load i32, ptr %1990, align 4, !tbaa !69
+  %1997 = load i32, ptr %1990, align 4, !tbaa !64
   %1998 = icmp ne i32 %1997, 0
   call void @llvm.assume(i1 %1998)
   %1999 = add i32 %1997, -1
-  store i32 %1999, ptr %1990, align 4, !tbaa !69
+  store i32 %1999, ptr %1990, align 4, !tbaa !64
   %2000 = icmp eq i32 %1999, 0
   br i1 %2000, label %2001, label %dom_register_prop_handler.exit156
 
@@ -5556,11 +5535,11 @@ dom_register_prop_handler.exit156:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i157, label %2009, label %dom_register_prop_handler.exit158
 
 2009:                                             ; preds = %dom_register_prop_handler.exit156
-  %2010 = load i32, ptr %2003, align 4, !tbaa !69
+  %2010 = load i32, ptr %2003, align 4, !tbaa !64
   %2011 = icmp ne i32 %2010, 0
   call void @llvm.assume(i1 %2011)
   %2012 = add i32 %2010, -1
-  store i32 %2012, ptr %2003, align 4, !tbaa !69
+  store i32 %2012, ptr %2003, align 4, !tbaa !64
   %2013 = icmp eq i32 %2012, 0
   br i1 %2013, label %2014, label %dom_register_prop_handler.exit158
 
@@ -5584,11 +5563,11 @@ dom_register_prop_handler.exit158:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i159, label %2022, label %dom_register_prop_handler.exit160
 
 2022:                                             ; preds = %dom_register_prop_handler.exit158
-  %2023 = load i32, ptr %2016, align 4, !tbaa !69
+  %2023 = load i32, ptr %2016, align 4, !tbaa !64
   %2024 = icmp ne i32 %2023, 0
   call void @llvm.assume(i1 %2024)
   %2025 = add i32 %2023, -1
-  store i32 %2025, ptr %2016, align 4, !tbaa !69
+  store i32 %2025, ptr %2016, align 4, !tbaa !64
   %2026 = icmp eq i32 %2025, 0
   br i1 %2026, label %2027, label %dom_register_prop_handler.exit160
 
@@ -5612,11 +5591,11 @@ dom_register_prop_handler.exit160:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i161, label %2035, label %dom_register_prop_handler.exit162
 
 2035:                                             ; preds = %dom_register_prop_handler.exit160
-  %2036 = load i32, ptr %2029, align 4, !tbaa !69
+  %2036 = load i32, ptr %2029, align 4, !tbaa !64
   %2037 = icmp ne i32 %2036, 0
   call void @llvm.assume(i1 %2037)
   %2038 = add i32 %2036, -1
-  store i32 %2038, ptr %2029, align 4, !tbaa !69
+  store i32 %2038, ptr %2029, align 4, !tbaa !64
   %2039 = icmp eq i32 %2038, 0
   br i1 %2039, label %2040, label %dom_register_prop_handler.exit162
 
@@ -5640,11 +5619,11 @@ dom_register_prop_handler.exit162:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i163, label %2048, label %dom_register_prop_handler.exit164
 
 2048:                                             ; preds = %dom_register_prop_handler.exit162
-  %2049 = load i32, ptr %2042, align 4, !tbaa !69
+  %2049 = load i32, ptr %2042, align 4, !tbaa !64
   %2050 = icmp ne i32 %2049, 0
   call void @llvm.assume(i1 %2050)
   %2051 = add i32 %2049, -1
-  store i32 %2051, ptr %2042, align 4, !tbaa !69
+  store i32 %2051, ptr %2042, align 4, !tbaa !64
   %2052 = icmp eq i32 %2051, 0
   br i1 %2052, label %2053, label %dom_register_prop_handler.exit164
 
@@ -5668,11 +5647,11 @@ dom_register_prop_handler.exit164:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i165, label %2061, label %dom_register_prop_handler.exit166
 
 2061:                                             ; preds = %dom_register_prop_handler.exit164
-  %2062 = load i32, ptr %2055, align 4, !tbaa !69
+  %2062 = load i32, ptr %2055, align 4, !tbaa !64
   %2063 = icmp ne i32 %2062, 0
   call void @llvm.assume(i1 %2063)
   %2064 = add i32 %2062, -1
-  store i32 %2064, ptr %2055, align 4, !tbaa !69
+  store i32 %2064, ptr %2055, align 4, !tbaa !64
   %2065 = icmp eq i32 %2064, 0
   br i1 %2065, label %2066, label %dom_register_prop_handler.exit166
 
@@ -5696,11 +5675,11 @@ dom_register_prop_handler.exit166:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i167, label %2074, label %dom_register_prop_handler.exit168
 
 2074:                                             ; preds = %dom_register_prop_handler.exit166
-  %2075 = load i32, ptr %2068, align 4, !tbaa !69
+  %2075 = load i32, ptr %2068, align 4, !tbaa !64
   %2076 = icmp ne i32 %2075, 0
   call void @llvm.assume(i1 %2076)
   %2077 = add i32 %2075, -1
-  store i32 %2077, ptr %2068, align 4, !tbaa !69
+  store i32 %2077, ptr %2068, align 4, !tbaa !64
   %2078 = icmp eq i32 %2077, 0
   br i1 %2078, label %2079, label %dom_register_prop_handler.exit168
 
@@ -5724,11 +5703,11 @@ dom_register_prop_handler.exit168:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i169, label %2087, label %dom_register_prop_handler.exit170
 
 2087:                                             ; preds = %dom_register_prop_handler.exit168
-  %2088 = load i32, ptr %2081, align 4, !tbaa !69
+  %2088 = load i32, ptr %2081, align 4, !tbaa !64
   %2089 = icmp ne i32 %2088, 0
   call void @llvm.assume(i1 %2089)
   %2090 = add i32 %2088, -1
-  store i32 %2090, ptr %2081, align 4, !tbaa !69
+  store i32 %2090, ptr %2081, align 4, !tbaa !64
   %2091 = icmp eq i32 %2090, 0
   br i1 %2091, label %2092, label %dom_register_prop_handler.exit170
 
@@ -5752,11 +5731,11 @@ dom_register_prop_handler.exit170:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i171, label %2100, label %dom_register_prop_handler.exit172
 
 2100:                                             ; preds = %dom_register_prop_handler.exit170
-  %2101 = load i32, ptr %2094, align 4, !tbaa !69
+  %2101 = load i32, ptr %2094, align 4, !tbaa !64
   %2102 = icmp ne i32 %2101, 0
   call void @llvm.assume(i1 %2102)
   %2103 = add i32 %2101, -1
-  store i32 %2103, ptr %2094, align 4, !tbaa !69
+  store i32 %2103, ptr %2094, align 4, !tbaa !64
   %2104 = icmp eq i32 %2103, 0
   br i1 %2104, label %2105, label %dom_register_prop_handler.exit172
 
@@ -5780,11 +5759,11 @@ dom_register_prop_handler.exit172:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i173, label %2113, label %dom_register_prop_handler.exit174
 
 2113:                                             ; preds = %dom_register_prop_handler.exit172
-  %2114 = load i32, ptr %2107, align 4, !tbaa !69
+  %2114 = load i32, ptr %2107, align 4, !tbaa !64
   %2115 = icmp ne i32 %2114, 0
   call void @llvm.assume(i1 %2115)
   %2116 = add i32 %2114, -1
-  store i32 %2116, ptr %2107, align 4, !tbaa !69
+  store i32 %2116, ptr %2107, align 4, !tbaa !64
   %2117 = icmp eq i32 %2116, 0
   br i1 %2117, label %2118, label %dom_register_prop_handler.exit174
 
@@ -5808,11 +5787,11 @@ dom_register_prop_handler.exit174:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i175, label %2126, label %dom_register_prop_handler.exit176
 
 2126:                                             ; preds = %dom_register_prop_handler.exit174
-  %2127 = load i32, ptr %2120, align 4, !tbaa !69
+  %2127 = load i32, ptr %2120, align 4, !tbaa !64
   %2128 = icmp ne i32 %2127, 0
   call void @llvm.assume(i1 %2128)
   %2129 = add i32 %2127, -1
-  store i32 %2129, ptr %2120, align 4, !tbaa !69
+  store i32 %2129, ptr %2120, align 4, !tbaa !64
   %2130 = icmp eq i32 %2129, 0
   br i1 %2130, label %2131, label %dom_register_prop_handler.exit176
 
@@ -5836,11 +5815,11 @@ dom_register_prop_handler.exit176:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i177, label %2139, label %dom_register_prop_handler.exit178
 
 2139:                                             ; preds = %dom_register_prop_handler.exit176
-  %2140 = load i32, ptr %2133, align 4, !tbaa !69
+  %2140 = load i32, ptr %2133, align 4, !tbaa !64
   %2141 = icmp ne i32 %2140, 0
   call void @llvm.assume(i1 %2141)
   %2142 = add i32 %2140, -1
-  store i32 %2142, ptr %2133, align 4, !tbaa !69
+  store i32 %2142, ptr %2133, align 4, !tbaa !64
   %2143 = icmp eq i32 %2142, 0
   br i1 %2143, label %2144, label %dom_register_prop_handler.exit178
 
@@ -5864,11 +5843,11 @@ dom_register_prop_handler.exit178:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i179, label %2152, label %dom_register_prop_handler.exit180
 
 2152:                                             ; preds = %dom_register_prop_handler.exit178
-  %2153 = load i32, ptr %2146, align 4, !tbaa !69
+  %2153 = load i32, ptr %2146, align 4, !tbaa !64
   %2154 = icmp ne i32 %2153, 0
   call void @llvm.assume(i1 %2154)
   %2155 = add i32 %2153, -1
-  store i32 %2155, ptr %2146, align 4, !tbaa !69
+  store i32 %2155, ptr %2146, align 4, !tbaa !64
   %2156 = icmp eq i32 %2155, 0
   br i1 %2156, label %2157, label %dom_register_prop_handler.exit180
 
@@ -5892,11 +5871,11 @@ dom_register_prop_handler.exit180:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i181, label %2165, label %dom_register_prop_handler.exit182
 
 2165:                                             ; preds = %dom_register_prop_handler.exit180
-  %2166 = load i32, ptr %2159, align 4, !tbaa !69
+  %2166 = load i32, ptr %2159, align 4, !tbaa !64
   %2167 = icmp ne i32 %2166, 0
   call void @llvm.assume(i1 %2167)
   %2168 = add i32 %2166, -1
-  store i32 %2168, ptr %2159, align 4, !tbaa !69
+  store i32 %2168, ptr %2159, align 4, !tbaa !64
   %2169 = icmp eq i32 %2168, 0
   br i1 %2169, label %2170, label %dom_register_prop_handler.exit182
 
@@ -5905,7 +5884,7 @@ dom_register_prop_handler.exit180:                ; preds = %dom_register_prop_h
   br label %dom_register_prop_handler.exit182
 
 dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_handler.exit180, %2165, %2170
-  %2171 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %2171 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   %2172 = getelementptr inbounds nuw i8, ptr %2171, i64 8
   %2173 = load ptr, ptr %2172, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %660)
@@ -5931,7 +5910,7 @@ dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_h
   %2178 = getelementptr inbounds nuw i8, ptr %466, i64 8
   store ptr %2177, ptr %2178, align 8, !tbaa !28
   %2179 = getelementptr inbounds nuw i8, ptr %466, i64 360
-  store ptr @std_object_handlers, ptr %2179, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %2179, align 8, !tbaa !122
   %2180 = getelementptr inbounds nuw i8, ptr %466, i64 504
   store ptr @class_DOMNameSpaceNode_methods, ptr %2180, align 8, !tbaa !44
   %2181 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %466, ptr noundef null, i32 noundef 0) #17
@@ -5939,20 +5918,20 @@ dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_h
   %2182 = getelementptr inbounds nuw i8, ptr %467, i64 8
   store i32 0, ptr %2182, align 8, !tbaa !44
   %2183 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2183, align 4, !tbaa !69
+  store i32 1, ptr %2183, align 4, !tbaa !64
   %2184 = getelementptr inbounds nuw i8, ptr %2183, i64 4
   store i32 150, ptr %2184, align 4, !tbaa !44
   %2185 = getelementptr inbounds nuw i8, ptr %2183, i64 8
-  store i64 0, ptr %2185, align 8, !tbaa !124
+  store i64 0, ptr %2185, align 8, !tbaa !118
   %2186 = getelementptr inbounds nuw i8, ptr %2183, i64 16
-  store i64 8, ptr %2186, align 8, !tbaa !126
+  store i64 8, ptr %2186, align 8, !tbaa !120
   %2187 = getelementptr inbounds nuw i8, ptr %2183, i64 24
   store i64 7308604759628607342, ptr %2187, align 8
   %2188 = getelementptr inbounds nuw i8, ptr %2183, i64 32
   store i8 0, ptr %2188, align 8, !tbaa !44
-  store ptr null, ptr %468, align 8, !tbaa !132
+  store ptr null, ptr %468, align 8, !tbaa !126
   %2189 = getelementptr inbounds nuw i8, ptr %468, i64 8
-  store i32 64, ptr %2189, align 8, !tbaa !133
+  store i32 64, ptr %2189, align 8, !tbaa !128
   %2190 = getelementptr inbounds nuw i8, ptr %468, i64 12
   store i32 0, ptr %2190, align 4
   %2191 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2183, ptr noundef nonnull %467, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %468) #17
@@ -5962,11 +5941,11 @@ dom_register_prop_handler.exit182:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i183, label %2194, label %zend_string_release.exit.i184
 
 2194:                                             ; preds = %dom_register_prop_handler.exit182
-  %2195 = load i32, ptr %2183, align 4, !tbaa !69
+  %2195 = load i32, ptr %2183, align 4, !tbaa !64
   %2196 = icmp ne i32 %2195, 0
   call void @llvm.assume(i1 %2196)
   %2197 = add i32 %2195, -1
-  store i32 %2197, ptr %2183, align 4, !tbaa !69
+  store i32 %2197, ptr %2183, align 4, !tbaa !64
   %2198 = icmp eq i32 %2197, 0
   br i1 %2198, label %2199, label %zend_string_release.exit.i184
 
@@ -5988,20 +5967,20 @@ zend_string_release.exit.i184:                    ; preds = %2202, %2201, %2194,
   %2203 = getelementptr inbounds nuw i8, ptr %469, i64 8
   store i32 0, ptr %2203, align 8, !tbaa !44
   %2204 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2204, align 4, !tbaa !69
+  store i32 1, ptr %2204, align 4, !tbaa !64
   %2205 = getelementptr inbounds nuw i8, ptr %2204, i64 4
   store i32 150, ptr %2205, align 4, !tbaa !44
   %2206 = getelementptr inbounds nuw i8, ptr %2204, i64 8
-  store i64 0, ptr %2206, align 8, !tbaa !124
+  store i64 0, ptr %2206, align 8, !tbaa !118
   %2207 = getelementptr inbounds nuw i8, ptr %2204, i64 16
-  store i64 9, ptr %2207, align 8, !tbaa !126
+  store i64 9, ptr %2207, align 8, !tbaa !120
   %2208 = getelementptr inbounds nuw i8, ptr %2204, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %2208, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
   %2209 = getelementptr inbounds nuw i8, ptr %2204, i64 33
   store i8 0, ptr %2209, align 1, !tbaa !44
-  store ptr null, ptr %470, align 8, !tbaa !132
+  store ptr null, ptr %470, align 8, !tbaa !126
   %2210 = getelementptr inbounds nuw i8, ptr %470, i64 8
-  store i32 66, ptr %2210, align 8, !tbaa !133
+  store i32 66, ptr %2210, align 8, !tbaa !128
   %2211 = getelementptr inbounds nuw i8, ptr %470, i64 12
   store i32 0, ptr %2211, align 4
   %2212 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2204, ptr noundef nonnull %469, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %470) #17
@@ -6011,11 +5990,11 @@ zend_string_release.exit.i184:                    ; preds = %2202, %2201, %2194,
   br i1 %.not.i34.i, label %2215, label %zend_string_release.exit36.i
 
 2215:                                             ; preds = %zend_string_release.exit.i184
-  %2216 = load i32, ptr %2204, align 4, !tbaa !69
+  %2216 = load i32, ptr %2204, align 4, !tbaa !64
   %2217 = icmp ne i32 %2216, 0
   call void @llvm.assume(i1 %2217)
   %2218 = add i32 %2216, -1
-  store i32 %2218, ptr %2204, align 4, !tbaa !69
+  store i32 %2218, ptr %2204, align 4, !tbaa !64
   %2219 = icmp eq i32 %2218, 0
   br i1 %2219, label %2220, label %zend_string_release.exit36.i
 
@@ -6037,20 +6016,20 @@ zend_string_release.exit36.i:                     ; preds = %2223, %2222, %2215,
   %2224 = getelementptr inbounds nuw i8, ptr %471, i64 8
   store i32 0, ptr %2224, align 8, !tbaa !44
   %2225 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2225, align 4, !tbaa !69
+  store i32 1, ptr %2225, align 4, !tbaa !64
   %2226 = getelementptr inbounds nuw i8, ptr %2225, i64 4
   store i32 150, ptr %2226, align 4, !tbaa !44
   %2227 = getelementptr inbounds nuw i8, ptr %2225, i64 8
-  store i64 0, ptr %2227, align 8, !tbaa !124
+  store i64 0, ptr %2227, align 8, !tbaa !118
   %2228 = getelementptr inbounds nuw i8, ptr %2225, i64 16
-  store i64 8, ptr %2228, align 8, !tbaa !126
+  store i64 8, ptr %2228, align 8, !tbaa !120
   %2229 = getelementptr inbounds nuw i8, ptr %2225, i64 24
   store i64 7309475598607609710, ptr %2229, align 8
   %2230 = getelementptr inbounds nuw i8, ptr %2225, i64 32
   store i8 0, ptr %2230, align 8, !tbaa !44
-  store ptr null, ptr %472, align 8, !tbaa !132
+  store ptr null, ptr %472, align 8, !tbaa !126
   %2231 = getelementptr inbounds nuw i8, ptr %472, i64 8
-  store i32 16, ptr %2231, align 8, !tbaa !133
+  store i32 16, ptr %2231, align 8, !tbaa !128
   %2232 = getelementptr inbounds nuw i8, ptr %472, i64 12
   store i32 0, ptr %2232, align 4
   %2233 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2225, ptr noundef nonnull %471, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %472) #17
@@ -6060,11 +6039,11 @@ zend_string_release.exit36.i:                     ; preds = %2223, %2222, %2215,
   br i1 %.not.i37.i, label %2236, label %zend_string_release.exit39.i
 
 2236:                                             ; preds = %zend_string_release.exit36.i
-  %2237 = load i32, ptr %2225, align 4, !tbaa !69
+  %2237 = load i32, ptr %2225, align 4, !tbaa !64
   %2238 = icmp ne i32 %2237, 0
   call void @llvm.assume(i1 %2238)
   %2239 = add i32 %2237, -1
-  store i32 %2239, ptr %2225, align 4, !tbaa !69
+  store i32 %2239, ptr %2225, align 4, !tbaa !64
   %2240 = icmp eq i32 %2239, 0
   br i1 %2240, label %2241, label %zend_string_release.exit39.i
 
@@ -6086,20 +6065,20 @@ zend_string_release.exit39.i:                     ; preds = %2244, %2243, %2236,
   %2245 = getelementptr inbounds nuw i8, ptr %473, i64 8
   store i32 0, ptr %2245, align 8, !tbaa !44
   %2246 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %2246, align 4, !tbaa !69
+  store i32 1, ptr %2246, align 4, !tbaa !64
   %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 4
   store i32 150, ptr %2247, align 4, !tbaa !44
   %2248 = getelementptr inbounds nuw i8, ptr %2246, i64 8
-  store i64 0, ptr %2248, align 8, !tbaa !124
+  store i64 0, ptr %2248, align 8, !tbaa !118
   %2249 = getelementptr inbounds nuw i8, ptr %2246, i64 16
-  store i64 6, ptr %2249, align 8, !tbaa !126
+  store i64 6, ptr %2249, align 8, !tbaa !120
   %2250 = getelementptr inbounds nuw i8, ptr %2246, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2250, ptr noundef nonnull align 1 dereferenceable(6) @.str.31, i64 6, i1 false)
   %2251 = getelementptr inbounds nuw i8, ptr %2246, i64 30
   store i8 0, ptr %2251, align 2, !tbaa !44
-  store ptr null, ptr %474, align 8, !tbaa !132
+  store ptr null, ptr %474, align 8, !tbaa !126
   %2252 = getelementptr inbounds nuw i8, ptr %474, i64 8
-  store i32 64, ptr %2252, align 8, !tbaa !133
+  store i32 64, ptr %2252, align 8, !tbaa !128
   %2253 = getelementptr inbounds nuw i8, ptr %474, i64 12
   store i32 0, ptr %2253, align 4
   %2254 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2246, ptr noundef nonnull %473, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %474) #17
@@ -6109,11 +6088,11 @@ zend_string_release.exit39.i:                     ; preds = %2244, %2243, %2236,
   br i1 %.not.i40.i, label %2257, label %zend_string_release.exit42.i
 
 2257:                                             ; preds = %zend_string_release.exit39.i
-  %2258 = load i32, ptr %2246, align 4, !tbaa !69
+  %2258 = load i32, ptr %2246, align 4, !tbaa !64
   %2259 = icmp ne i32 %2258, 0
   call void @llvm.assume(i1 %2259)
   %2260 = add i32 %2258, -1
-  store i32 %2260, ptr %2246, align 4, !tbaa !69
+  store i32 %2260, ptr %2246, align 4, !tbaa !64
   %2261 = icmp eq i32 %2260, 0
   br i1 %2261, label %2262, label %zend_string_release.exit42.i
 
@@ -6135,20 +6114,20 @@ zend_string_release.exit42.i:                     ; preds = %2265, %2264, %2257,
   %2266 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store i32 0, ptr %2266, align 8, !tbaa !44
   %2267 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2267, align 4, !tbaa !69
+  store i32 1, ptr %2267, align 4, !tbaa !64
   %2268 = getelementptr inbounds nuw i8, ptr %2267, i64 4
   store i32 150, ptr %2268, align 4, !tbaa !44
   %2269 = getelementptr inbounds nuw i8, ptr %2267, i64 8
-  store i64 0, ptr %2269, align 8, !tbaa !124
+  store i64 0, ptr %2269, align 8, !tbaa !118
   %2270 = getelementptr inbounds nuw i8, ptr %2267, i64 16
-  store i64 9, ptr %2270, align 8, !tbaa !126
+  store i64 9, ptr %2270, align 8, !tbaa !120
   %2271 = getelementptr inbounds nuw i8, ptr %2267, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %2271, ptr noundef nonnull align 1 dereferenceable(9) @.str.33, i64 9, i1 false)
   %2272 = getelementptr inbounds nuw i8, ptr %2267, i64 33
   store i8 0, ptr %2272, align 1, !tbaa !44
-  store ptr null, ptr %476, align 8, !tbaa !132
+  store ptr null, ptr %476, align 8, !tbaa !126
   %2273 = getelementptr inbounds nuw i8, ptr %476, i64 8
-  store i32 66, ptr %2273, align 8, !tbaa !133
+  store i32 66, ptr %2273, align 8, !tbaa !128
   %2274 = getelementptr inbounds nuw i8, ptr %476, i64 12
   store i32 0, ptr %2274, align 4
   %2275 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2267, ptr noundef nonnull %475, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %476) #17
@@ -6158,11 +6137,11 @@ zend_string_release.exit42.i:                     ; preds = %2265, %2264, %2257,
   br i1 %.not.i43.i, label %2278, label %zend_string_release.exit45.i
 
 2278:                                             ; preds = %zend_string_release.exit42.i
-  %2279 = load i32, ptr %2267, align 4, !tbaa !69
+  %2279 = load i32, ptr %2267, align 4, !tbaa !64
   %2280 = icmp ne i32 %2279, 0
   call void @llvm.assume(i1 %2280)
   %2281 = add i32 %2279, -1
-  store i32 %2281, ptr %2267, align 4, !tbaa !69
+  store i32 %2281, ptr %2267, align 4, !tbaa !64
   %2282 = icmp eq i32 %2281, 0
   br i1 %2282, label %2283, label %zend_string_release.exit45.i
 
@@ -6184,20 +6163,20 @@ zend_string_release.exit45.i:                     ; preds = %2286, %2285, %2278,
   %2287 = getelementptr inbounds nuw i8, ptr %477, i64 8
   store i32 0, ptr %2287, align 8, !tbaa !44
   %2288 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2288, align 4, !tbaa !69
+  store i32 1, ptr %2288, align 4, !tbaa !64
   %2289 = getelementptr inbounds nuw i8, ptr %2288, i64 4
   store i32 150, ptr %2289, align 4, !tbaa !44
   %2290 = getelementptr inbounds nuw i8, ptr %2288, i64 8
-  store i64 0, ptr %2290, align 8, !tbaa !124
+  store i64 0, ptr %2290, align 8, !tbaa !118
   %2291 = getelementptr inbounds nuw i8, ptr %2288, i64 16
-  store i64 12, ptr %2291, align 8, !tbaa !126
+  store i64 12, ptr %2291, align 8, !tbaa !120
   %2292 = getelementptr inbounds nuw i8, ptr %2288, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2292, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 12, i1 false)
   %2293 = getelementptr inbounds nuw i8, ptr %2288, i64 36
   store i8 0, ptr %2293, align 4, !tbaa !44
-  store ptr null, ptr %478, align 8, !tbaa !132
+  store ptr null, ptr %478, align 8, !tbaa !126
   %2294 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  store i32 66, ptr %2294, align 8, !tbaa !133
+  store i32 66, ptr %2294, align 8, !tbaa !128
   %2295 = getelementptr inbounds nuw i8, ptr %478, i64 12
   store i32 0, ptr %2295, align 4
   %2296 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2288, ptr noundef nonnull %477, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %478) #17
@@ -6207,11 +6186,11 @@ zend_string_release.exit45.i:                     ; preds = %2286, %2285, %2278,
   br i1 %.not.i46.i, label %2299, label %zend_string_release.exit48.i
 
 2299:                                             ; preds = %zend_string_release.exit45.i
-  %2300 = load i32, ptr %2288, align 4, !tbaa !69
+  %2300 = load i32, ptr %2288, align 4, !tbaa !64
   %2301 = icmp ne i32 %2300, 0
   call void @llvm.assume(i1 %2301)
   %2302 = add i32 %2300, -1
-  store i32 %2302, ptr %2288, align 4, !tbaa !69
+  store i32 %2302, ptr %2288, align 4, !tbaa !64
   %2303 = icmp eq i32 %2302, 0
   br i1 %2303, label %2304, label %zend_string_release.exit48.i
 
@@ -6233,20 +6212,20 @@ zend_string_release.exit48.i:                     ; preds = %2307, %2306, %2299,
   %2308 = getelementptr inbounds nuw i8, ptr %479, i64 8
   store i32 0, ptr %2308, align 8, !tbaa !44
   %2309 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2309, align 4, !tbaa !69
+  store i32 1, ptr %2309, align 4, !tbaa !64
   %2310 = getelementptr inbounds nuw i8, ptr %2309, i64 4
   store i32 150, ptr %2310, align 4, !tbaa !44
   %2311 = getelementptr inbounds nuw i8, ptr %2309, i64 8
-  store i64 0, ptr %2311, align 8, !tbaa !124
+  store i64 0, ptr %2311, align 8, !tbaa !118
   %2312 = getelementptr inbounds nuw i8, ptr %2309, i64 16
-  store i64 11, ptr %2312, align 8, !tbaa !126
+  store i64 11, ptr %2312, align 8, !tbaa !120
   %2313 = getelementptr inbounds nuw i8, ptr %2309, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2313, ptr noundef nonnull align 1 dereferenceable(11) @.str.25, i64 11, i1 false)
   %2314 = getelementptr inbounds nuw i8, ptr %2309, i64 35
   store i8 0, ptr %2314, align 1, !tbaa !44
-  store ptr null, ptr %480, align 8, !tbaa !132
+  store ptr null, ptr %480, align 8, !tbaa !126
   %2315 = getelementptr inbounds nuw i8, ptr %480, i64 8
-  store i32 12, ptr %2315, align 8, !tbaa !133
+  store i32 12, ptr %2315, align 8, !tbaa !128
   %2316 = getelementptr inbounds nuw i8, ptr %480, i64 12
   store i32 0, ptr %2316, align 4
   %2317 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2309, ptr noundef nonnull %479, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %480) #17
@@ -6256,11 +6235,11 @@ zend_string_release.exit48.i:                     ; preds = %2307, %2306, %2299,
   br i1 %.not.i49.i, label %2320, label %zend_string_release.exit51.i
 
 2320:                                             ; preds = %zend_string_release.exit48.i
-  %2321 = load i32, ptr %2309, align 4, !tbaa !69
+  %2321 = load i32, ptr %2309, align 4, !tbaa !64
   %2322 = icmp ne i32 %2321, 0
   call void @llvm.assume(i1 %2322)
   %2323 = add i32 %2321, -1
-  store i32 %2323, ptr %2309, align 4, !tbaa !69
+  store i32 %2323, ptr %2309, align 4, !tbaa !64
   %2324 = icmp eq i32 %2323, 0
   br i1 %2324, label %2325, label %zend_string_release.exit51.i
 
@@ -6282,32 +6261,32 @@ zend_string_release.exit51.i:                     ; preds = %2328, %2327, %2320,
   %2329 = getelementptr inbounds nuw i8, ptr %481, i64 8
   store i32 0, ptr %2329, align 8, !tbaa !44
   %2330 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2330, align 4, !tbaa !69
+  store i32 1, ptr %2330, align 4, !tbaa !64
   %2331 = getelementptr inbounds nuw i8, ptr %2330, i64 4
   store i32 150, ptr %2331, align 4, !tbaa !44
   %2332 = getelementptr inbounds nuw i8, ptr %2330, i64 8
-  store i64 0, ptr %2332, align 8, !tbaa !124
+  store i64 0, ptr %2332, align 8, !tbaa !118
   %2333 = getelementptr inbounds nuw i8, ptr %2330, i64 16
-  store i64 13, ptr %2333, align 8, !tbaa !126
+  store i64 13, ptr %2333, align 8, !tbaa !120
   %2334 = getelementptr inbounds nuw i8, ptr %2330, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2334, ptr noundef nonnull align 1 dereferenceable(13) @.str.27, i64 13, i1 false)
   %2335 = getelementptr inbounds nuw i8, ptr %2330, i64 37
   store i8 0, ptr %2335, align 1, !tbaa !44
   %2336 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2336, align 4, !tbaa !69
+  store i32 1, ptr %2336, align 4, !tbaa !64
   %2337 = getelementptr inbounds nuw i8, ptr %2336, i64 4
   store i32 150, ptr %2337, align 4, !tbaa !44
   %2338 = getelementptr inbounds nuw i8, ptr %2336, i64 8
-  store i64 0, ptr %2338, align 8, !tbaa !124
+  store i64 0, ptr %2338, align 8, !tbaa !118
   %2339 = getelementptr inbounds nuw i8, ptr %2336, i64 16
-  store i64 11, ptr %2339, align 8, !tbaa !126
+  store i64 11, ptr %2339, align 8, !tbaa !120
   %2340 = getelementptr inbounds nuw i8, ptr %2336, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2340, ptr noundef nonnull align 1 dereferenceable(11) @.str.343, i64 11, i1 false)
   %2341 = getelementptr inbounds nuw i8, ptr %2336, i64 35
   store i8 0, ptr %2341, align 1, !tbaa !44
-  store ptr %2336, ptr %482, align 8, !tbaa !132
+  store ptr %2336, ptr %482, align 8, !tbaa !126
   %2342 = getelementptr inbounds nuw i8, ptr %482, i64 8
-  store i32 16777218, ptr %2342, align 8, !tbaa !133
+  store i32 16777218, ptr %2342, align 8, !tbaa !128
   %2343 = getelementptr inbounds nuw i8, ptr %482, i64 12
   store i32 0, ptr %2343, align 4
   %2344 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2330, ptr noundef nonnull %481, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %482) #17
@@ -6317,11 +6296,11 @@ zend_string_release.exit51.i:                     ; preds = %2328, %2327, %2320,
   br i1 %.not.i52.i, label %2347, label %zend_string_release.exit54.i
 
 2347:                                             ; preds = %zend_string_release.exit51.i
-  %2348 = load i32, ptr %2330, align 4, !tbaa !69
+  %2348 = load i32, ptr %2330, align 4, !tbaa !64
   %2349 = icmp ne i32 %2348, 0
   call void @llvm.assume(i1 %2349)
   %2350 = add i32 %2348, -1
-  store i32 %2350, ptr %2330, align 4, !tbaa !69
+  store i32 %2350, ptr %2330, align 4, !tbaa !64
   %2351 = icmp eq i32 %2350, 0
   br i1 %2351, label %2352, label %zend_string_release.exit54.i
 
@@ -6343,32 +6322,32 @@ zend_string_release.exit54.i:                     ; preds = %2355, %2354, %2347,
   %2356 = getelementptr inbounds nuw i8, ptr %483, i64 8
   store i32 0, ptr %2356, align 8, !tbaa !44
   %2357 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2357, align 4, !tbaa !69
+  store i32 1, ptr %2357, align 4, !tbaa !64
   %2358 = getelementptr inbounds nuw i8, ptr %2357, i64 4
   store i32 150, ptr %2358, align 4, !tbaa !44
   %2359 = getelementptr inbounds nuw i8, ptr %2357, i64 8
-  store i64 0, ptr %2359, align 8, !tbaa !124
+  store i64 0, ptr %2359, align 8, !tbaa !118
   %2360 = getelementptr inbounds nuw i8, ptr %2357, i64 16
-  store i64 10, ptr %2360, align 8, !tbaa !126
+  store i64 10, ptr %2360, align 8, !tbaa !120
   %2361 = getelementptr inbounds nuw i8, ptr %2357, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2361, ptr noundef nonnull align 1 dereferenceable(10) @.str.9, i64 10, i1 false)
   %2362 = getelementptr inbounds nuw i8, ptr %2357, i64 34
   store i8 0, ptr %2362, align 2, !tbaa !44
   %2363 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %2363, align 4, !tbaa !69
+  store i32 1, ptr %2363, align 4, !tbaa !64
   %2364 = getelementptr inbounds nuw i8, ptr %2363, i64 4
   store i32 150, ptr %2364, align 4, !tbaa !44
   %2365 = getelementptr inbounds nuw i8, ptr %2363, i64 8
-  store i64 0, ptr %2365, align 8, !tbaa !124
+  store i64 0, ptr %2365, align 8, !tbaa !118
   %2366 = getelementptr inbounds nuw i8, ptr %2363, i64 16
-  store i64 7, ptr %2366, align 8, !tbaa !126
+  store i64 7, ptr %2366, align 8, !tbaa !120
   %2367 = getelementptr inbounds nuw i8, ptr %2363, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %2367, ptr noundef nonnull align 1 dereferenceable(7) @.str.356, i64 7, i1 false)
   %2368 = getelementptr inbounds nuw i8, ptr %2363, i64 31
   store i8 0, ptr %2368, align 1, !tbaa !44
-  store ptr %2363, ptr %484, align 8, !tbaa !132
+  store ptr %2363, ptr %484, align 8, !tbaa !126
   %2369 = getelementptr inbounds nuw i8, ptr %484, i64 8
-  store i32 16777218, ptr %2369, align 8, !tbaa !133
+  store i32 16777218, ptr %2369, align 8, !tbaa !128
   %2370 = getelementptr inbounds nuw i8, ptr %484, i64 12
   store i32 0, ptr %2370, align 4
   %2371 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2357, ptr noundef nonnull %483, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %484) #17
@@ -6378,11 +6357,11 @@ zend_string_release.exit54.i:                     ; preds = %2355, %2354, %2347,
   br i1 %.not.i55.i, label %2374, label %zend_string_release.exit57.i
 
 2374:                                             ; preds = %zend_string_release.exit54.i
-  %2375 = load i32, ptr %2357, align 4, !tbaa !69
+  %2375 = load i32, ptr %2357, align 4, !tbaa !64
   %2376 = icmp ne i32 %2375, 0
   call void @llvm.assume(i1 %2376)
   %2377 = add i32 %2375, -1
-  store i32 %2377, ptr %2357, align 4, !tbaa !69
+  store i32 %2377, ptr %2357, align 4, !tbaa !64
   %2378 = icmp eq i32 %2377, 0
   br i1 %2378, label %2379, label %zend_string_release.exit57.i
 
@@ -6404,32 +6383,32 @@ zend_string_release.exit57.i:                     ; preds = %2382, %2381, %2374,
   %2383 = getelementptr inbounds nuw i8, ptr %485, i64 8
   store i32 0, ptr %2383, align 8, !tbaa !44
   %2384 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2384, align 4, !tbaa !69
+  store i32 1, ptr %2384, align 4, !tbaa !64
   %2385 = getelementptr inbounds nuw i8, ptr %2384, i64 4
   store i32 150, ptr %2385, align 4, !tbaa !44
   %2386 = getelementptr inbounds nuw i8, ptr %2384, i64 8
-  store i64 0, ptr %2386, align 8, !tbaa !124
+  store i64 0, ptr %2386, align 8, !tbaa !118
   %2387 = getelementptr inbounds nuw i8, ptr %2384, i64 16
-  store i64 13, ptr %2387, align 8, !tbaa !126
+  store i64 13, ptr %2387, align 8, !tbaa !120
   %2388 = getelementptr inbounds nuw i8, ptr %2384, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %2388, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 13, i1 false)
   %2389 = getelementptr inbounds nuw i8, ptr %2384, i64 37
   store i8 0, ptr %2389, align 1, !tbaa !44
   %2390 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2390, align 4, !tbaa !69
+  store i32 1, ptr %2390, align 4, !tbaa !64
   %2391 = getelementptr inbounds nuw i8, ptr %2390, i64 4
   store i32 150, ptr %2391, align 4, !tbaa !44
   %2392 = getelementptr inbounds nuw i8, ptr %2390, i64 8
-  store i64 0, ptr %2392, align 8, !tbaa !124
+  store i64 0, ptr %2392, align 8, !tbaa !118
   %2393 = getelementptr inbounds nuw i8, ptr %2390, i64 16
-  store i64 10, ptr %2393, align 8, !tbaa !126
+  store i64 10, ptr %2393, align 8, !tbaa !120
   %2394 = getelementptr inbounds nuw i8, ptr %2390, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2394, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %2395 = getelementptr inbounds nuw i8, ptr %2390, i64 34
   store i8 0, ptr %2395, align 2, !tbaa !44
-  store ptr %2390, ptr %486, align 8, !tbaa !132
+  store ptr %2390, ptr %486, align 8, !tbaa !126
   %2396 = getelementptr inbounds nuw i8, ptr %486, i64 8
-  store i32 16777218, ptr %2396, align 8, !tbaa !133
+  store i32 16777218, ptr %2396, align 8, !tbaa !128
   %2397 = getelementptr inbounds nuw i8, ptr %486, i64 12
   store i32 0, ptr %2397, align 4
   %2398 = call ptr @zend_declare_typed_property(ptr noundef %2181, ptr noundef nonnull %2384, ptr noundef nonnull %485, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %486) #17
@@ -6439,11 +6418,11 @@ zend_string_release.exit57.i:                     ; preds = %2382, %2381, %2374,
   br i1 %.not.i58.i, label %2401, label %register_class_DOMNameSpaceNode.exit
 
 2401:                                             ; preds = %zend_string_release.exit57.i
-  %2402 = load i32, ptr %2384, align 4, !tbaa !69
+  %2402 = load i32, ptr %2384, align 4, !tbaa !64
   %2403 = icmp ne i32 %2402, 0
   call void @llvm.assume(i1 %2403)
   %2404 = add i32 %2402, -1
-  store i32 %2404, ptr %2384, align 4, !tbaa !69
+  store i32 %2404, ptr %2384, align 4, !tbaa !64
   %2405 = icmp eq i32 %2404, 0
   br i1 %2405, label %2406, label %register_class_DOMNameSpaceNode.exit
 
@@ -6482,11 +6461,11 @@ register_class_DOMNameSpaceNode.exit:             ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %482)
   call void @llvm.lifetime.end.p0(ptr nonnull %484)
   call void @llvm.lifetime.end.p0(ptr nonnull %486)
-  store ptr %2181, ptr @dom_namespace_node_class_entry, align 8, !tbaa !127
+  store ptr %2181, ptr @dom_namespace_node_class_entry, align 8, !tbaa !121
   %2410 = getelementptr inbounds nuw i8, ptr %2181, i64 384
   store ptr @dom_objects_namespace_node_new, ptr %2410, align 8, !tbaa !44
   %2411 = getelementptr inbounds nuw i8, ptr %2181, i64 360
-  store ptr @dom_object_namespace_node_handlers, ptr %2411, align 8, !tbaa !128
+  store ptr @dom_object_namespace_node_handlers, ptr %2411, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_namespace_node_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %2412 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2413 = call ptr %2412(ptr noundef nonnull @.str.3, i64 noundef 8, i1 noundef zeroext true) #17
@@ -6503,11 +6482,11 @@ register_class_DOMNameSpaceNode.exit:             ; preds = %zend_string_release
   br i1 %.not.i5.i186, label %2419, label %dom_register_prop_handler.exit187
 
 2419:                                             ; preds = %register_class_DOMNameSpaceNode.exit
-  %2420 = load i32, ptr %2413, align 4, !tbaa !69
+  %2420 = load i32, ptr %2413, align 4, !tbaa !64
   %2421 = icmp ne i32 %2420, 0
   call void @llvm.assume(i1 %2421)
   %2422 = add i32 %2420, -1
-  store i32 %2422, ptr %2413, align 4, !tbaa !69
+  store i32 %2422, ptr %2413, align 4, !tbaa !64
   %2423 = icmp eq i32 %2422, 0
   br i1 %2423, label %2424, label %dom_register_prop_handler.exit187
 
@@ -6531,11 +6510,11 @@ dom_register_prop_handler.exit187:                ; preds = %register_class_DOMN
   br i1 %.not.i5.i188, label %2432, label %dom_register_prop_handler.exit189
 
 2432:                                             ; preds = %dom_register_prop_handler.exit187
-  %2433 = load i32, ptr %2426, align 4, !tbaa !69
+  %2433 = load i32, ptr %2426, align 4, !tbaa !64
   %2434 = icmp ne i32 %2433, 0
   call void @llvm.assume(i1 %2434)
   %2435 = add i32 %2433, -1
-  store i32 %2435, ptr %2426, align 4, !tbaa !69
+  store i32 %2435, ptr %2426, align 4, !tbaa !64
   %2436 = icmp eq i32 %2435, 0
   br i1 %2436, label %2437, label %dom_register_prop_handler.exit189
 
@@ -6559,11 +6538,11 @@ dom_register_prop_handler.exit189:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i190, label %2445, label %dom_register_prop_handler.exit191
 
 2445:                                             ; preds = %dom_register_prop_handler.exit189
-  %2446 = load i32, ptr %2439, align 4, !tbaa !69
+  %2446 = load i32, ptr %2439, align 4, !tbaa !64
   %2447 = icmp ne i32 %2446, 0
   call void @llvm.assume(i1 %2447)
   %2448 = add i32 %2446, -1
-  store i32 %2448, ptr %2439, align 4, !tbaa !69
+  store i32 %2448, ptr %2439, align 4, !tbaa !64
   %2449 = icmp eq i32 %2448, 0
   br i1 %2449, label %2450, label %dom_register_prop_handler.exit191
 
@@ -6587,11 +6566,11 @@ dom_register_prop_handler.exit191:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i192, label %2458, label %dom_register_prop_handler.exit193
 
 2458:                                             ; preds = %dom_register_prop_handler.exit191
-  %2459 = load i32, ptr %2452, align 4, !tbaa !69
+  %2459 = load i32, ptr %2452, align 4, !tbaa !64
   %2460 = icmp ne i32 %2459, 0
   call void @llvm.assume(i1 %2460)
   %2461 = add i32 %2459, -1
-  store i32 %2461, ptr %2452, align 4, !tbaa !69
+  store i32 %2461, ptr %2452, align 4, !tbaa !64
   %2462 = icmp eq i32 %2461, 0
   br i1 %2462, label %2463, label %dom_register_prop_handler.exit193
 
@@ -6615,11 +6594,11 @@ dom_register_prop_handler.exit193:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i194, label %2471, label %dom_register_prop_handler.exit195
 
 2471:                                             ; preds = %dom_register_prop_handler.exit193
-  %2472 = load i32, ptr %2465, align 4, !tbaa !69
+  %2472 = load i32, ptr %2465, align 4, !tbaa !64
   %2473 = icmp ne i32 %2472, 0
   call void @llvm.assume(i1 %2473)
   %2474 = add i32 %2472, -1
-  store i32 %2474, ptr %2465, align 4, !tbaa !69
+  store i32 %2474, ptr %2465, align 4, !tbaa !64
   %2475 = icmp eq i32 %2474, 0
   br i1 %2475, label %2476, label %dom_register_prop_handler.exit195
 
@@ -6643,11 +6622,11 @@ dom_register_prop_handler.exit195:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i196, label %2484, label %dom_register_prop_handler.exit197
 
 2484:                                             ; preds = %dom_register_prop_handler.exit195
-  %2485 = load i32, ptr %2478, align 4, !tbaa !69
+  %2485 = load i32, ptr %2478, align 4, !tbaa !64
   %2486 = icmp ne i32 %2485, 0
   call void @llvm.assume(i1 %2486)
   %2487 = add i32 %2485, -1
-  store i32 %2487, ptr %2478, align 4, !tbaa !69
+  store i32 %2487, ptr %2478, align 4, !tbaa !64
   %2488 = icmp eq i32 %2487, 0
   br i1 %2488, label %2489, label %dom_register_prop_handler.exit197
 
@@ -6671,11 +6650,11 @@ dom_register_prop_handler.exit197:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i198, label %2497, label %dom_register_prop_handler.exit199
 
 2497:                                             ; preds = %dom_register_prop_handler.exit197
-  %2498 = load i32, ptr %2491, align 4, !tbaa !69
+  %2498 = load i32, ptr %2491, align 4, !tbaa !64
   %2499 = icmp ne i32 %2498, 0
   call void @llvm.assume(i1 %2499)
   %2500 = add i32 %2498, -1
-  store i32 %2500, ptr %2491, align 4, !tbaa !69
+  store i32 %2500, ptr %2491, align 4, !tbaa !64
   %2501 = icmp eq i32 %2500, 0
   br i1 %2501, label %2502, label %dom_register_prop_handler.exit199
 
@@ -6699,11 +6678,11 @@ dom_register_prop_handler.exit199:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i200, label %2510, label %dom_register_prop_handler.exit201
 
 2510:                                             ; preds = %dom_register_prop_handler.exit199
-  %2511 = load i32, ptr %2504, align 4, !tbaa !69
+  %2511 = load i32, ptr %2504, align 4, !tbaa !64
   %2512 = icmp ne i32 %2511, 0
   call void @llvm.assume(i1 %2512)
   %2513 = add i32 %2511, -1
-  store i32 %2513, ptr %2504, align 4, !tbaa !69
+  store i32 %2513, ptr %2504, align 4, !tbaa !64
   %2514 = icmp eq i32 %2513, 0
   br i1 %2514, label %2515, label %dom_register_prop_handler.exit201
 
@@ -6727,11 +6706,11 @@ dom_register_prop_handler.exit201:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i202, label %2523, label %dom_register_prop_handler.exit203
 
 2523:                                             ; preds = %dom_register_prop_handler.exit201
-  %2524 = load i32, ptr %2517, align 4, !tbaa !69
+  %2524 = load i32, ptr %2517, align 4, !tbaa !64
   %2525 = icmp ne i32 %2524, 0
   call void @llvm.assume(i1 %2525)
   %2526 = add i32 %2524, -1
-  store i32 %2526, ptr %2517, align 4, !tbaa !69
+  store i32 %2526, ptr %2517, align 4, !tbaa !64
   %2527 = icmp eq i32 %2526, 0
   br i1 %2527, label %2528, label %dom_register_prop_handler.exit203
 
@@ -6755,11 +6734,11 @@ dom_register_prop_handler.exit203:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i204, label %2536, label %dom_register_prop_handler.exit205
 
 2536:                                             ; preds = %dom_register_prop_handler.exit203
-  %2537 = load i32, ptr %2530, align 4, !tbaa !69
+  %2537 = load i32, ptr %2530, align 4, !tbaa !64
   %2538 = icmp ne i32 %2537, 0
   call void @llvm.assume(i1 %2538)
   %2539 = add i32 %2537, -1
-  store i32 %2539, ptr %2530, align 4, !tbaa !69
+  store i32 %2539, ptr %2530, align 4, !tbaa !64
   %2540 = icmp eq i32 %2539, 0
   br i1 %2540, label %2541, label %dom_register_prop_handler.exit205
 
@@ -6768,7 +6747,7 @@ dom_register_prop_handler.exit203:                ; preds = %dom_register_prop_h
   br label %dom_register_prop_handler.exit205
 
 dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_handler.exit203, %2536, %2541
-  %2542 = load ptr, ptr @dom_namespace_node_class_entry, align 8, !tbaa !127
+  %2542 = load ptr, ptr @dom_namespace_node_class_entry, align 8, !tbaa !121
   %2543 = getelementptr inbounds nuw i8, ptr %2542, i64 8
   %2544 = load ptr, ptr %2543, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %659)
@@ -6787,7 +6766,7 @@ dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_h
   %2549 = getelementptr inbounds nuw i8, ptr %449, i64 8
   store ptr %2548, ptr %2549, align 8, !tbaa !28
   %2550 = getelementptr inbounds nuw i8, ptr %449, i64 360
-  store ptr @std_object_handlers, ptr %2550, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %2550, align 8, !tbaa !122
   %2551 = getelementptr inbounds nuw i8, ptr %449, i64 504
   store ptr @class_Dom_NamespaceInfo_methods, ptr %2551, align 8, !tbaa !44
   %2552 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %449, ptr noundef null, i32 noundef 536944672) #17
@@ -6795,20 +6774,20 @@ dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_h
   %2553 = getelementptr inbounds nuw i8, ptr %450, i64 8
   store i32 0, ptr %2553, align 8, !tbaa !44
   %2554 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %2554, align 4, !tbaa !69
+  store i32 1, ptr %2554, align 4, !tbaa !64
   %2555 = getelementptr inbounds nuw i8, ptr %2554, i64 4
   store i32 150, ptr %2555, align 4, !tbaa !44
   %2556 = getelementptr inbounds nuw i8, ptr %2554, i64 8
-  store i64 0, ptr %2556, align 8, !tbaa !124
+  store i64 0, ptr %2556, align 8, !tbaa !118
   %2557 = getelementptr inbounds nuw i8, ptr %2554, i64 16
-  store i64 6, ptr %2557, align 8, !tbaa !126
+  store i64 6, ptr %2557, align 8, !tbaa !120
   %2558 = getelementptr inbounds nuw i8, ptr %2554, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %2558, ptr noundef nonnull align 1 dereferenceable(6) @.str.31, i64 6, i1 false)
   %2559 = getelementptr inbounds nuw i8, ptr %2554, i64 30
   store i8 0, ptr %2559, align 2, !tbaa !44
-  store ptr null, ptr %451, align 8, !tbaa !132
+  store ptr null, ptr %451, align 8, !tbaa !126
   %2560 = getelementptr inbounds nuw i8, ptr %451, i64 8
-  store i32 66, ptr %2560, align 8, !tbaa !133
+  store i32 66, ptr %2560, align 8, !tbaa !128
   %2561 = getelementptr inbounds nuw i8, ptr %451, i64 12
   store i32 0, ptr %2561, align 4
   %2562 = call ptr @zend_declare_typed_property(ptr noundef %2552, ptr noundef nonnull %2554, ptr noundef nonnull %450, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %451) #17
@@ -6818,11 +6797,11 @@ dom_register_prop_handler.exit205:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i206, label %2565, label %zend_string_release.exit.i207
 
 2565:                                             ; preds = %dom_register_prop_handler.exit205
-  %2566 = load i32, ptr %2554, align 4, !tbaa !69
+  %2566 = load i32, ptr %2554, align 4, !tbaa !64
   %2567 = icmp ne i32 %2566, 0
   call void @llvm.assume(i1 %2567)
   %2568 = add i32 %2566, -1
-  store i32 %2568, ptr %2554, align 4, !tbaa !69
+  store i32 %2568, ptr %2554, align 4, !tbaa !64
   %2569 = icmp eq i32 %2568, 0
   br i1 %2569, label %2570, label %zend_string_release.exit.i207
 
@@ -6844,20 +6823,20 @@ zend_string_release.exit.i207:                    ; preds = %2573, %2572, %2565,
   %2574 = getelementptr inbounds nuw i8, ptr %452, i64 8
   store i32 0, ptr %2574, align 8, !tbaa !44
   %2575 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2575, align 4, !tbaa !69
+  store i32 1, ptr %2575, align 4, !tbaa !64
   %2576 = getelementptr inbounds nuw i8, ptr %2575, i64 4
   store i32 150, ptr %2576, align 4, !tbaa !44
   %2577 = getelementptr inbounds nuw i8, ptr %2575, i64 8
-  store i64 0, ptr %2577, align 8, !tbaa !124
+  store i64 0, ptr %2577, align 8, !tbaa !118
   %2578 = getelementptr inbounds nuw i8, ptr %2575, i64 16
-  store i64 12, ptr %2578, align 8, !tbaa !126
+  store i64 12, ptr %2578, align 8, !tbaa !120
   %2579 = getelementptr inbounds nuw i8, ptr %2575, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2579, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 12, i1 false)
   %2580 = getelementptr inbounds nuw i8, ptr %2575, i64 36
   store i8 0, ptr %2580, align 4, !tbaa !44
-  store ptr null, ptr %453, align 8, !tbaa !132
+  store ptr null, ptr %453, align 8, !tbaa !126
   %2581 = getelementptr inbounds nuw i8, ptr %453, i64 8
-  store i32 66, ptr %2581, align 8, !tbaa !133
+  store i32 66, ptr %2581, align 8, !tbaa !128
   %2582 = getelementptr inbounds nuw i8, ptr %453, i64 12
   store i32 0, ptr %2582, align 4
   %2583 = call ptr @zend_declare_typed_property(ptr noundef %2552, ptr noundef nonnull %2575, ptr noundef nonnull %452, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %453) #17
@@ -6867,11 +6846,11 @@ zend_string_release.exit.i207:                    ; preds = %2573, %2572, %2565,
   br i1 %.not.i11.i, label %2586, label %zend_string_release.exit13.i
 
 2586:                                             ; preds = %zend_string_release.exit.i207
-  %2587 = load i32, ptr %2575, align 4, !tbaa !69
+  %2587 = load i32, ptr %2575, align 4, !tbaa !64
   %2588 = icmp ne i32 %2587, 0
   call void @llvm.assume(i1 %2588)
   %2589 = add i32 %2587, -1
-  store i32 %2589, ptr %2575, align 4, !tbaa !69
+  store i32 %2589, ptr %2575, align 4, !tbaa !64
   %2590 = icmp eq i32 %2589, 0
   br i1 %2590, label %2591, label %zend_string_release.exit13.i
 
@@ -6893,32 +6872,32 @@ zend_string_release.exit13.i:                     ; preds = %2594, %2593, %2586,
   %2595 = getelementptr inbounds nuw i8, ptr %454, i64 8
   store i32 0, ptr %2595, align 8, !tbaa !44
   %2596 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %2596, align 4, !tbaa !69
+  store i32 1, ptr %2596, align 4, !tbaa !64
   %2597 = getelementptr inbounds nuw i8, ptr %2596, i64 4
   store i32 150, ptr %2597, align 4, !tbaa !44
   %2598 = getelementptr inbounds nuw i8, ptr %2596, i64 8
-  store i64 0, ptr %2598, align 8, !tbaa !124
+  store i64 0, ptr %2598, align 8, !tbaa !118
   %2599 = getelementptr inbounds nuw i8, ptr %2596, i64 16
-  store i64 7, ptr %2599, align 8, !tbaa !126
+  store i64 7, ptr %2599, align 8, !tbaa !120
   %2600 = getelementptr inbounds nuw i8, ptr %2596, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %2600, ptr noundef nonnull align 1 dereferenceable(7) @.str.443, i64 7, i1 false)
   %2601 = getelementptr inbounds nuw i8, ptr %2596, i64 31
   store i8 0, ptr %2601, align 1, !tbaa !44
   %2602 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2602, align 4, !tbaa !69
+  store i32 1, ptr %2602, align 4, !tbaa !64
   %2603 = getelementptr inbounds nuw i8, ptr %2602, i64 4
   store i32 150, ptr %2603, align 4, !tbaa !44
   %2604 = getelementptr inbounds nuw i8, ptr %2602, i64 8
-  store i64 0, ptr %2604, align 8, !tbaa !124
+  store i64 0, ptr %2604, align 8, !tbaa !118
   %2605 = getelementptr inbounds nuw i8, ptr %2602, i64 16
-  store i64 11, ptr %2605, align 8, !tbaa !126
+  store i64 11, ptr %2605, align 8, !tbaa !120
   %2606 = getelementptr inbounds nuw i8, ptr %2602, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2606, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %2607 = getelementptr inbounds nuw i8, ptr %2602, i64 35
   store i8 0, ptr %2607, align 1, !tbaa !44
-  store ptr %2602, ptr %455, align 8, !tbaa !132
+  store ptr %2602, ptr %455, align 8, !tbaa !126
   %2608 = getelementptr inbounds nuw i8, ptr %455, i64 8
-  store i32 16777216, ptr %2608, align 8, !tbaa !133
+  store i32 16777216, ptr %2608, align 8, !tbaa !128
   %2609 = getelementptr inbounds nuw i8, ptr %455, i64 12
   store i32 0, ptr %2609, align 4
   %2610 = call ptr @zend_declare_typed_property(ptr noundef %2552, ptr noundef nonnull %2596, ptr noundef nonnull %454, i32 noundef 129, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %455) #17
@@ -6928,11 +6907,11 @@ zend_string_release.exit13.i:                     ; preds = %2594, %2593, %2586,
   br i1 %.not.i14.i, label %2613, label %register_class_Dom_NamespaceInfo.exit
 
 2613:                                             ; preds = %zend_string_release.exit13.i
-  %2614 = load i32, ptr %2596, align 4, !tbaa !69
+  %2614 = load i32, ptr %2596, align 4, !tbaa !64
   %2615 = icmp ne i32 %2614, 0
   call void @llvm.assume(i1 %2615)
   %2616 = add i32 %2614, -1
-  store i32 %2616, ptr %2596, align 4, !tbaa !69
+  store i32 %2616, ptr %2596, align 4, !tbaa !64
   %2617 = icmp eq i32 %2616, 0
   br i1 %2617, label %2618, label %register_class_Dom_NamespaceInfo.exit
 
@@ -6957,9 +6936,9 @@ register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %451)
   call void @llvm.lifetime.end.p0(ptr nonnull %453)
   call void @llvm.lifetime.end.p0(ptr nonnull %455)
-  store ptr %2552, ptr @dom_namespace_info_class_entry, align 8, !tbaa !127
-  %2622 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  %2623 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
+  store ptr %2552, ptr @dom_namespace_info_class_entry, align 8, !tbaa !121
+  %2622 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
+  %2623 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %444)
   call void @llvm.lifetime.start.p0(ptr nonnull %446)
   call void @llvm.lifetime.start.p0(ptr nonnull %448)
@@ -6970,7 +6949,7 @@ register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release
   %2626 = getelementptr inbounds nuw i8, ptr %442, i64 8
   store ptr %2625, ptr %2626, align 8, !tbaa !28
   %2627 = getelementptr inbounds nuw i8, ptr %442, i64 360
-  store ptr @std_object_handlers, ptr %2627, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %2627, align 8, !tbaa !122
   %2628 = getelementptr inbounds nuw i8, ptr %442, i64 504
   store ptr @class_DOMDocumentFragment_methods, ptr %2628, align 8, !tbaa !44
   %2629 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %442, ptr noundef %2622, i32 noundef 0) #17
@@ -6979,32 +6958,32 @@ register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release
   %2630 = getelementptr inbounds nuw i8, ptr %443, i64 8
   store i32 0, ptr %2630, align 8, !tbaa !44
   %2631 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2631, align 4, !tbaa !69
+  store i32 1, ptr %2631, align 4, !tbaa !64
   %2632 = getelementptr inbounds nuw i8, ptr %2631, i64 4
   store i32 150, ptr %2632, align 4, !tbaa !44
   %2633 = getelementptr inbounds nuw i8, ptr %2631, i64 8
-  store i64 0, ptr %2633, align 8, !tbaa !124
+  store i64 0, ptr %2633, align 8, !tbaa !118
   %2634 = getelementptr inbounds nuw i8, ptr %2631, i64 16
-  store i64 17, ptr %2634, align 8, !tbaa !126
+  store i64 17, ptr %2634, align 8, !tbaa !120
   %2635 = getelementptr inbounds nuw i8, ptr %2631, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2635, ptr noundef nonnull align 1 dereferenceable(17) @.str.63, i64 17, i1 false)
   %2636 = getelementptr inbounds nuw i8, ptr %2631, i64 41
   store i8 0, ptr %2636, align 1, !tbaa !44
   %2637 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2637, align 4, !tbaa !69
+  store i32 1, ptr %2637, align 4, !tbaa !64
   %2638 = getelementptr inbounds nuw i8, ptr %2637, i64 4
   store i32 150, ptr %2638, align 4, !tbaa !44
   %2639 = getelementptr inbounds nuw i8, ptr %2637, i64 8
-  store i64 0, ptr %2639, align 8, !tbaa !124
+  store i64 0, ptr %2639, align 8, !tbaa !118
   %2640 = getelementptr inbounds nuw i8, ptr %2637, i64 16
-  store i64 10, ptr %2640, align 8, !tbaa !126
+  store i64 10, ptr %2640, align 8, !tbaa !120
   %2641 = getelementptr inbounds nuw i8, ptr %2637, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2641, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %2642 = getelementptr inbounds nuw i8, ptr %2637, i64 34
   store i8 0, ptr %2642, align 2, !tbaa !44
-  store ptr %2637, ptr %444, align 8, !tbaa !132
+  store ptr %2637, ptr %444, align 8, !tbaa !126
   %2643 = getelementptr inbounds nuw i8, ptr %444, i64 8
-  store i32 16777218, ptr %2643, align 8, !tbaa !133
+  store i32 16777218, ptr %2643, align 8, !tbaa !128
   %2644 = getelementptr inbounds nuw i8, ptr %444, i64 12
   store i32 0, ptr %2644, align 4
   %2645 = call ptr @zend_declare_typed_property(ptr noundef %2629, ptr noundef nonnull %2631, ptr noundef nonnull %443, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %444) #17
@@ -7014,11 +6993,11 @@ register_class_Dom_NamespaceInfo.exit:            ; preds = %zend_string_release
   br i1 %.not.i.i209, label %2648, label %zend_string_release.exit.i210
 
 2648:                                             ; preds = %register_class_Dom_NamespaceInfo.exit
-  %2649 = load i32, ptr %2631, align 4, !tbaa !69
+  %2649 = load i32, ptr %2631, align 4, !tbaa !64
   %2650 = icmp ne i32 %2649, 0
   call void @llvm.assume(i1 %2650)
   %2651 = add i32 %2649, -1
-  store i32 %2651, ptr %2631, align 4, !tbaa !69
+  store i32 %2651, ptr %2631, align 4, !tbaa !64
   %2652 = icmp eq i32 %2651, 0
   br i1 %2652, label %2653, label %zend_string_release.exit.i210
 
@@ -7040,32 +7019,32 @@ zend_string_release.exit.i210:                    ; preds = %2656, %2655, %2648,
   %2657 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store i32 0, ptr %2657, align 8, !tbaa !44
   %2658 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2658, align 4, !tbaa !69
+  store i32 1, ptr %2658, align 4, !tbaa !64
   %2659 = getelementptr inbounds nuw i8, ptr %2658, i64 4
   store i32 150, ptr %2659, align 4, !tbaa !44
   %2660 = getelementptr inbounds nuw i8, ptr %2658, i64 8
-  store i64 0, ptr %2660, align 8, !tbaa !124
+  store i64 0, ptr %2660, align 8, !tbaa !118
   %2661 = getelementptr inbounds nuw i8, ptr %2658, i64 16
-  store i64 16, ptr %2661, align 8, !tbaa !126
+  store i64 16, ptr %2661, align 8, !tbaa !120
   %2662 = getelementptr inbounds nuw i8, ptr %2658, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2662, ptr noundef nonnull align 1 dereferenceable(16) @.str.65, i64 16, i1 false)
   %2663 = getelementptr inbounds nuw i8, ptr %2658, i64 40
   store i8 0, ptr %2663, align 8, !tbaa !44
   %2664 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2664, align 4, !tbaa !69
+  store i32 1, ptr %2664, align 4, !tbaa !64
   %2665 = getelementptr inbounds nuw i8, ptr %2664, i64 4
   store i32 150, ptr %2665, align 4, !tbaa !44
   %2666 = getelementptr inbounds nuw i8, ptr %2664, i64 8
-  store i64 0, ptr %2666, align 8, !tbaa !124
+  store i64 0, ptr %2666, align 8, !tbaa !118
   %2667 = getelementptr inbounds nuw i8, ptr %2664, i64 16
-  store i64 10, ptr %2667, align 8, !tbaa !126
+  store i64 10, ptr %2667, align 8, !tbaa !120
   %2668 = getelementptr inbounds nuw i8, ptr %2664, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %2668, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %2669 = getelementptr inbounds nuw i8, ptr %2664, i64 34
   store i8 0, ptr %2669, align 2, !tbaa !44
-  store ptr %2664, ptr %446, align 8, !tbaa !132
+  store ptr %2664, ptr %446, align 8, !tbaa !126
   %2670 = getelementptr inbounds nuw i8, ptr %446, i64 8
-  store i32 16777218, ptr %2670, align 8, !tbaa !133
+  store i32 16777218, ptr %2670, align 8, !tbaa !128
   %2671 = getelementptr inbounds nuw i8, ptr %446, i64 12
   store i32 0, ptr %2671, align 4
   %2672 = call ptr @zend_declare_typed_property(ptr noundef %2629, ptr noundef nonnull %2658, ptr noundef nonnull %445, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %446) #17
@@ -7075,11 +7054,11 @@ zend_string_release.exit.i210:                    ; preds = %2656, %2655, %2648,
   br i1 %.not.i15.i, label %2675, label %zend_string_release.exit17.i
 
 2675:                                             ; preds = %zend_string_release.exit.i210
-  %2676 = load i32, ptr %2658, align 4, !tbaa !69
+  %2676 = load i32, ptr %2658, align 4, !tbaa !64
   %2677 = icmp ne i32 %2676, 0
   call void @llvm.assume(i1 %2677)
   %2678 = add i32 %2676, -1
-  store i32 %2678, ptr %2658, align 4, !tbaa !69
+  store i32 %2678, ptr %2658, align 4, !tbaa !64
   %2679 = icmp eq i32 %2678, 0
   br i1 %2679, label %2680, label %zend_string_release.exit17.i
 
@@ -7101,20 +7080,20 @@ zend_string_release.exit17.i:                     ; preds = %2683, %2682, %2675,
   %2684 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store i32 0, ptr %2684, align 8, !tbaa !44
   %2685 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2685, align 4, !tbaa !69
+  store i32 1, ptr %2685, align 4, !tbaa !64
   %2686 = getelementptr inbounds nuw i8, ptr %2685, i64 4
   store i32 150, ptr %2686, align 4, !tbaa !44
   %2687 = getelementptr inbounds nuw i8, ptr %2685, i64 8
-  store i64 0, ptr %2687, align 8, !tbaa !124
+  store i64 0, ptr %2687, align 8, !tbaa !118
   %2688 = getelementptr inbounds nuw i8, ptr %2685, i64 16
-  store i64 17, ptr %2688, align 8, !tbaa !126
+  store i64 17, ptr %2688, align 8, !tbaa !120
   %2689 = getelementptr inbounds nuw i8, ptr %2685, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2689, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
   %2690 = getelementptr inbounds nuw i8, ptr %2685, i64 41
   store i8 0, ptr %2690, align 1, !tbaa !44
-  store ptr null, ptr %448, align 8, !tbaa !132
+  store ptr null, ptr %448, align 8, !tbaa !126
   %2691 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  store i32 16, ptr %2691, align 8, !tbaa !133
+  store i32 16, ptr %2691, align 8, !tbaa !128
   %2692 = getelementptr inbounds nuw i8, ptr %448, i64 12
   store i32 0, ptr %2692, align 4
   %2693 = call ptr @zend_declare_typed_property(ptr noundef %2629, ptr noundef nonnull %2685, ptr noundef nonnull %447, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %448) #17
@@ -7124,11 +7103,11 @@ zend_string_release.exit17.i:                     ; preds = %2683, %2682, %2675,
   br i1 %.not.i18.i, label %2696, label %register_class_DOMDocumentFragment.exit
 
 2696:                                             ; preds = %zend_string_release.exit17.i
-  %2697 = load i32, ptr %2685, align 4, !tbaa !69
+  %2697 = load i32, ptr %2685, align 4, !tbaa !64
   %2698 = icmp ne i32 %2697, 0
   call void @llvm.assume(i1 %2698)
   %2699 = add i32 %2697, -1
-  store i32 %2699, ptr %2685, align 4, !tbaa !69
+  store i32 %2699, ptr %2685, align 4, !tbaa !64
   %2700 = icmp eq i32 %2699, 0
   br i1 %2700, label %2701, label %register_class_DOMDocumentFragment.exit
 
@@ -7153,11 +7132,11 @@ register_class_DOMDocumentFragment.exit:          ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %444)
   call void @llvm.lifetime.end.p0(ptr nonnull %446)
   call void @llvm.lifetime.end.p0(ptr nonnull %448)
-  store ptr %2629, ptr @dom_documentfragment_class_entry, align 8, !tbaa !127
+  store ptr %2629, ptr @dom_documentfragment_class_entry, align 8, !tbaa !121
   %2705 = getelementptr inbounds nuw i8, ptr %2629, i64 384
   store ptr @dom_objects_new, ptr %2705, align 8, !tbaa !44
   %2706 = getelementptr inbounds nuw i8, ptr %2629, i64 360
-  store ptr @dom_object_handlers, ptr %2706, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %2706, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_documentfragment_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %2707 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2708 = call ptr %2707(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
@@ -7174,11 +7153,11 @@ register_class_DOMDocumentFragment.exit:          ; preds = %zend_string_release
   br i1 %.not.i5.i212, label %2714, label %dom_register_prop_handler.exit213
 
 2714:                                             ; preds = %register_class_DOMDocumentFragment.exit
-  %2715 = load i32, ptr %2708, align 4, !tbaa !69
+  %2715 = load i32, ptr %2708, align 4, !tbaa !64
   %2716 = icmp ne i32 %2715, 0
   call void @llvm.assume(i1 %2716)
   %2717 = add i32 %2715, -1
-  store i32 %2717, ptr %2708, align 4, !tbaa !69
+  store i32 %2717, ptr %2708, align 4, !tbaa !64
   %2718 = icmp eq i32 %2717, 0
   br i1 %2718, label %2719, label %dom_register_prop_handler.exit213
 
@@ -7202,11 +7181,11 @@ dom_register_prop_handler.exit213:                ; preds = %register_class_DOMD
   br i1 %.not.i5.i214, label %2727, label %dom_register_prop_handler.exit215
 
 2727:                                             ; preds = %dom_register_prop_handler.exit213
-  %2728 = load i32, ptr %2721, align 4, !tbaa !69
+  %2728 = load i32, ptr %2721, align 4, !tbaa !64
   %2729 = icmp ne i32 %2728, 0
   call void @llvm.assume(i1 %2729)
   %2730 = add i32 %2728, -1
-  store i32 %2730, ptr %2721, align 4, !tbaa !69
+  store i32 %2730, ptr %2721, align 4, !tbaa !64
   %2731 = icmp eq i32 %2730, 0
   br i1 %2731, label %2732, label %dom_register_prop_handler.exit215
 
@@ -7230,11 +7209,11 @@ dom_register_prop_handler.exit215:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i216, label %2740, label %dom_register_prop_handler.exit217
 
 2740:                                             ; preds = %dom_register_prop_handler.exit215
-  %2741 = load i32, ptr %2734, align 4, !tbaa !69
+  %2741 = load i32, ptr %2734, align 4, !tbaa !64
   %2742 = icmp ne i32 %2741, 0
   call void @llvm.assume(i1 %2742)
   %2743 = add i32 %2741, -1
-  store i32 %2743, ptr %2734, align 4, !tbaa !69
+  store i32 %2743, ptr %2734, align 4, !tbaa !64
   %2744 = icmp eq i32 %2743, 0
   br i1 %2744, label %2745, label %dom_register_prop_handler.exit217
 
@@ -7244,7 +7223,7 @@ dom_register_prop_handler.exit215:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_handler.exit215, %2740, %2745
   call void @zend_hash_merge(ptr noundef nonnull @dom_documentfragment_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %2746 = load ptr, ptr @dom_documentfragment_class_entry, align 8, !tbaa !127
+  %2746 = load ptr, ptr @dom_documentfragment_class_entry, align 8, !tbaa !121
   %2747 = getelementptr inbounds nuw i8, ptr %2746, i64 8
   %2748 = load ptr, ptr %2747, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %658)
@@ -7253,8 +7232,8 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   store i32 13, ptr %2749, align 8, !tbaa !44
   %2750 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %2748, ptr noundef nonnull %658) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %658)
-  %2751 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  %2752 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
+  %2751 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
+  %2752 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %434)
   call void @llvm.lifetime.start.p0(ptr nonnull %436)
   call void @llvm.lifetime.start.p0(ptr nonnull %438)
@@ -7265,7 +7244,7 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   %2755 = getelementptr inbounds nuw i8, ptr %432, i64 8
   store ptr %2754, ptr %2755, align 8, !tbaa !28
   %2756 = getelementptr inbounds nuw i8, ptr %432, i64 360
-  store ptr @std_object_handlers, ptr %2756, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %2756, align 8, !tbaa !122
   %2757 = getelementptr inbounds nuw i8, ptr %432, i64 504
   store ptr @class_Dom_DocumentFragment_methods, ptr %2757, align 8, !tbaa !44
   %2758 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %432, ptr noundef %2751, i32 noundef 0) #17
@@ -7274,32 +7253,32 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   %2759 = getelementptr inbounds nuw i8, ptr %433, i64 8
   store i32 0, ptr %2759, align 8, !tbaa !44
   %2760 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2760, align 4, !tbaa !69
+  store i32 1, ptr %2760, align 4, !tbaa !64
   %2761 = getelementptr inbounds nuw i8, ptr %2760, i64 4
   store i32 150, ptr %2761, align 4, !tbaa !44
   %2762 = getelementptr inbounds nuw i8, ptr %2760, i64 8
-  store i64 0, ptr %2762, align 8, !tbaa !124
+  store i64 0, ptr %2762, align 8, !tbaa !118
   %2763 = getelementptr inbounds nuw i8, ptr %2760, i64 16
-  store i64 17, ptr %2763, align 8, !tbaa !126
+  store i64 17, ptr %2763, align 8, !tbaa !120
   %2764 = getelementptr inbounds nuw i8, ptr %2760, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2764, ptr noundef nonnull align 1 dereferenceable(17) @.str.63, i64 17, i1 false)
   %2765 = getelementptr inbounds nuw i8, ptr %2760, i64 41
   store i8 0, ptr %2765, align 1, !tbaa !44
   %2766 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2766, align 4, !tbaa !69
+  store i32 1, ptr %2766, align 4, !tbaa !64
   %2767 = getelementptr inbounds nuw i8, ptr %2766, i64 4
   store i32 150, ptr %2767, align 4, !tbaa !44
   %2768 = getelementptr inbounds nuw i8, ptr %2766, i64 8
-  store i64 0, ptr %2768, align 8, !tbaa !124
+  store i64 0, ptr %2768, align 8, !tbaa !118
   %2769 = getelementptr inbounds nuw i8, ptr %2766, i64 16
-  store i64 11, ptr %2769, align 8, !tbaa !126
+  store i64 11, ptr %2769, align 8, !tbaa !120
   %2770 = getelementptr inbounds nuw i8, ptr %2766, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2770, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %2771 = getelementptr inbounds nuw i8, ptr %2766, i64 35
   store i8 0, ptr %2771, align 1, !tbaa !44
-  store ptr %2766, ptr %434, align 8, !tbaa !132
+  store ptr %2766, ptr %434, align 8, !tbaa !126
   %2772 = getelementptr inbounds nuw i8, ptr %434, i64 8
-  store i32 16777218, ptr %2772, align 8, !tbaa !133
+  store i32 16777218, ptr %2772, align 8, !tbaa !128
   %2773 = getelementptr inbounds nuw i8, ptr %434, i64 12
   store i32 0, ptr %2773, align 4
   %2774 = call ptr @zend_declare_typed_property(ptr noundef %2758, ptr noundef nonnull %2760, ptr noundef nonnull %433, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %434) #17
@@ -7309,11 +7288,11 @@ dom_register_prop_handler.exit217:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i218, label %2777, label %zend_string_release.exit.i219
 
 2777:                                             ; preds = %dom_register_prop_handler.exit217
-  %2778 = load i32, ptr %2760, align 4, !tbaa !69
+  %2778 = load i32, ptr %2760, align 4, !tbaa !64
   %2779 = icmp ne i32 %2778, 0
   call void @llvm.assume(i1 %2779)
   %2780 = add i32 %2778, -1
-  store i32 %2780, ptr %2760, align 4, !tbaa !69
+  store i32 %2780, ptr %2760, align 4, !tbaa !64
   %2781 = icmp eq i32 %2780, 0
   br i1 %2781, label %2782, label %zend_string_release.exit.i219
 
@@ -7335,32 +7314,32 @@ zend_string_release.exit.i219:                    ; preds = %2785, %2784, %2777,
   %2786 = getelementptr inbounds nuw i8, ptr %435, i64 8
   store i32 0, ptr %2786, align 8, !tbaa !44
   %2787 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2787, align 4, !tbaa !69
+  store i32 1, ptr %2787, align 4, !tbaa !64
   %2788 = getelementptr inbounds nuw i8, ptr %2787, i64 4
   store i32 150, ptr %2788, align 4, !tbaa !44
   %2789 = getelementptr inbounds nuw i8, ptr %2787, i64 8
-  store i64 0, ptr %2789, align 8, !tbaa !124
+  store i64 0, ptr %2789, align 8, !tbaa !118
   %2790 = getelementptr inbounds nuw i8, ptr %2787, i64 16
-  store i64 16, ptr %2790, align 8, !tbaa !126
+  store i64 16, ptr %2790, align 8, !tbaa !120
   %2791 = getelementptr inbounds nuw i8, ptr %2787, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2791, ptr noundef nonnull align 1 dereferenceable(16) @.str.65, i64 16, i1 false)
   %2792 = getelementptr inbounds nuw i8, ptr %2787, i64 40
   store i8 0, ptr %2792, align 8, !tbaa !44
   %2793 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2793, align 4, !tbaa !69
+  store i32 1, ptr %2793, align 4, !tbaa !64
   %2794 = getelementptr inbounds nuw i8, ptr %2793, i64 4
   store i32 150, ptr %2794, align 4, !tbaa !44
   %2795 = getelementptr inbounds nuw i8, ptr %2793, i64 8
-  store i64 0, ptr %2795, align 8, !tbaa !124
+  store i64 0, ptr %2795, align 8, !tbaa !118
   %2796 = getelementptr inbounds nuw i8, ptr %2793, i64 16
-  store i64 11, ptr %2796, align 8, !tbaa !126
+  store i64 11, ptr %2796, align 8, !tbaa !120
   %2797 = getelementptr inbounds nuw i8, ptr %2793, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2797, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %2798 = getelementptr inbounds nuw i8, ptr %2793, i64 35
   store i8 0, ptr %2798, align 1, !tbaa !44
-  store ptr %2793, ptr %436, align 8, !tbaa !132
+  store ptr %2793, ptr %436, align 8, !tbaa !126
   %2799 = getelementptr inbounds nuw i8, ptr %436, i64 8
-  store i32 16777218, ptr %2799, align 8, !tbaa !133
+  store i32 16777218, ptr %2799, align 8, !tbaa !128
   %2800 = getelementptr inbounds nuw i8, ptr %436, i64 12
   store i32 0, ptr %2800, align 4
   %2801 = call ptr @zend_declare_typed_property(ptr noundef %2758, ptr noundef nonnull %2787, ptr noundef nonnull %435, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %436) #17
@@ -7370,11 +7349,11 @@ zend_string_release.exit.i219:                    ; preds = %2785, %2784, %2777,
   br i1 %.not.i15.i220, label %2804, label %zend_string_release.exit17.i221
 
 2804:                                             ; preds = %zend_string_release.exit.i219
-  %2805 = load i32, ptr %2787, align 4, !tbaa !69
+  %2805 = load i32, ptr %2787, align 4, !tbaa !64
   %2806 = icmp ne i32 %2805, 0
   call void @llvm.assume(i1 %2806)
   %2807 = add i32 %2805, -1
-  store i32 %2807, ptr %2787, align 4, !tbaa !69
+  store i32 %2807, ptr %2787, align 4, !tbaa !64
   %2808 = icmp eq i32 %2807, 0
   br i1 %2808, label %2809, label %zend_string_release.exit17.i221
 
@@ -7396,20 +7375,20 @@ zend_string_release.exit17.i221:                  ; preds = %2812, %2811, %2804,
   %2813 = getelementptr inbounds nuw i8, ptr %437, i64 8
   store i32 0, ptr %2813, align 8, !tbaa !44
   %2814 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2814, align 4, !tbaa !69
+  store i32 1, ptr %2814, align 4, !tbaa !64
   %2815 = getelementptr inbounds nuw i8, ptr %2814, i64 4
   store i32 150, ptr %2815, align 4, !tbaa !44
   %2816 = getelementptr inbounds nuw i8, ptr %2814, i64 8
-  store i64 0, ptr %2816, align 8, !tbaa !124
+  store i64 0, ptr %2816, align 8, !tbaa !118
   %2817 = getelementptr inbounds nuw i8, ptr %2814, i64 16
-  store i64 17, ptr %2817, align 8, !tbaa !126
+  store i64 17, ptr %2817, align 8, !tbaa !120
   %2818 = getelementptr inbounds nuw i8, ptr %2814, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2818, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
   %2819 = getelementptr inbounds nuw i8, ptr %2814, i64 41
   store i8 0, ptr %2819, align 1, !tbaa !44
-  store ptr null, ptr %438, align 8, !tbaa !132
+  store ptr null, ptr %438, align 8, !tbaa !126
   %2820 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  store i32 16, ptr %2820, align 8, !tbaa !133
+  store i32 16, ptr %2820, align 8, !tbaa !128
   %2821 = getelementptr inbounds nuw i8, ptr %438, i64 12
   store i32 0, ptr %2821, align 4
   %2822 = call ptr @zend_declare_typed_property(ptr noundef %2758, ptr noundef nonnull %2814, ptr noundef nonnull %437, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %438) #17
@@ -7419,11 +7398,11 @@ zend_string_release.exit17.i221:                  ; preds = %2812, %2811, %2804,
   br i1 %.not.i18.i222, label %2825, label %register_class_Dom_DocumentFragment.exit
 
 2825:                                             ; preds = %zend_string_release.exit17.i221
-  %2826 = load i32, ptr %2814, align 4, !tbaa !69
+  %2826 = load i32, ptr %2814, align 4, !tbaa !64
   %2827 = icmp ne i32 %2826, 0
   call void @llvm.assume(i1 %2827)
   %2828 = add i32 %2826, -1
-  store i32 %2828, ptr %2814, align 4, !tbaa !69
+  store i32 %2828, ptr %2814, align 4, !tbaa !64
   %2829 = icmp eq i32 %2828, 0
   br i1 %2829, label %2830, label %register_class_Dom_DocumentFragment.exit
 
@@ -7448,11 +7427,11 @@ register_class_Dom_DocumentFragment.exit:         ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %434)
   call void @llvm.lifetime.end.p0(ptr nonnull %436)
   call void @llvm.lifetime.end.p0(ptr nonnull %438)
-  store ptr %2758, ptr @dom_modern_documentfragment_class_entry, align 8, !tbaa !127
+  store ptr %2758, ptr @dom_modern_documentfragment_class_entry, align 8, !tbaa !121
   %2834 = getelementptr inbounds nuw i8, ptr %2758, i64 384
   store ptr @dom_objects_new, ptr %2834, align 8, !tbaa !44
   %2835 = getelementptr inbounds nuw i8, ptr %2758, i64 360
-  store ptr @dom_object_handlers, ptr %2835, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %2835, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %2836 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %2837 = call ptr %2836(ptr noundef nonnull @.str.63, i64 noundef 17, i1 noundef zeroext true) #17
@@ -7469,11 +7448,11 @@ register_class_Dom_DocumentFragment.exit:         ; preds = %zend_string_release
   br i1 %.not.i5.i226, label %2843, label %dom_register_prop_handler.exit227
 
 2843:                                             ; preds = %register_class_Dom_DocumentFragment.exit
-  %2844 = load i32, ptr %2837, align 4, !tbaa !69
+  %2844 = load i32, ptr %2837, align 4, !tbaa !64
   %2845 = icmp ne i32 %2844, 0
   call void @llvm.assume(i1 %2845)
   %2846 = add i32 %2844, -1
-  store i32 %2846, ptr %2837, align 4, !tbaa !69
+  store i32 %2846, ptr %2837, align 4, !tbaa !64
   %2847 = icmp eq i32 %2846, 0
   br i1 %2847, label %2848, label %dom_register_prop_handler.exit227
 
@@ -7497,11 +7476,11 @@ dom_register_prop_handler.exit227:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i228, label %2856, label %dom_register_prop_handler.exit229
 
 2856:                                             ; preds = %dom_register_prop_handler.exit227
-  %2857 = load i32, ptr %2850, align 4, !tbaa !69
+  %2857 = load i32, ptr %2850, align 4, !tbaa !64
   %2858 = icmp ne i32 %2857, 0
   call void @llvm.assume(i1 %2858)
   %2859 = add i32 %2857, -1
-  store i32 %2859, ptr %2850, align 4, !tbaa !69
+  store i32 %2859, ptr %2850, align 4, !tbaa !64
   %2860 = icmp eq i32 %2859, 0
   br i1 %2860, label %2861, label %dom_register_prop_handler.exit229
 
@@ -7525,11 +7504,11 @@ dom_register_prop_handler.exit229:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i230, label %2869, label %dom_register_prop_handler.exit231
 
 2869:                                             ; preds = %dom_register_prop_handler.exit229
-  %2870 = load i32, ptr %2863, align 4, !tbaa !69
+  %2870 = load i32, ptr %2863, align 4, !tbaa !64
   %2871 = icmp ne i32 %2870, 0
   call void @llvm.assume(i1 %2871)
   %2872 = add i32 %2870, -1
-  store i32 %2872, ptr %2863, align 4, !tbaa !69
+  store i32 %2872, ptr %2863, align 4, !tbaa !64
   %2873 = icmp eq i32 %2872, 0
   br i1 %2873, label %2874, label %dom_register_prop_handler.exit231
 
@@ -7545,7 +7524,7 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   store i32 13, ptr %2875, align 8, !tbaa !44
   %2876 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_documentfragment_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %428) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %428)
-  %2877 = load ptr, ptr @dom_modern_documentfragment_class_entry, align 8, !tbaa !127
+  %2877 = load ptr, ptr @dom_modern_documentfragment_class_entry, align 8, !tbaa !121
   %2878 = getelementptr inbounds nuw i8, ptr %2877, i64 8
   %2879 = load ptr, ptr %2878, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %657)
@@ -7554,8 +7533,8 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   store i32 13, ptr %2880, align 8, !tbaa !44
   %2881 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %2879, ptr noundef nonnull %657) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %657)
-  %2882 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  %2883 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
+  %2882 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
+  %2883 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %401)
   call void @llvm.lifetime.start.p0(ptr nonnull %403)
   call void @llvm.lifetime.start.p0(ptr nonnull %405)
@@ -7577,7 +7556,7 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   %2886 = getelementptr inbounds nuw i8, ptr %399, i64 8
   store ptr %2885, ptr %2886, align 8, !tbaa !28
   %2887 = getelementptr inbounds nuw i8, ptr %399, i64 360
-  store ptr @std_object_handlers, ptr %2887, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %2887, align 8, !tbaa !122
   %2888 = getelementptr inbounds nuw i8, ptr %399, i64 504
   store ptr @class_Dom_Document_methods, ptr %2888, align 8, !tbaa !44
   %2889 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %399, ptr noundef %2882, i32 noundef 64) #17
@@ -7586,32 +7565,32 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   %2890 = getelementptr inbounds nuw i8, ptr %400, i64 8
   store i32 0, ptr %2890, align 8, !tbaa !44
   %2891 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2891, align 4, !tbaa !69
+  store i32 1, ptr %2891, align 4, !tbaa !64
   %2892 = getelementptr inbounds nuw i8, ptr %2891, i64 4
   store i32 150, ptr %2892, align 4, !tbaa !44
   %2893 = getelementptr inbounds nuw i8, ptr %2891, i64 8
-  store i64 0, ptr %2893, align 8, !tbaa !124
+  store i64 0, ptr %2893, align 8, !tbaa !118
   %2894 = getelementptr inbounds nuw i8, ptr %2891, i64 16
-  store i64 14, ptr %2894, align 8, !tbaa !126
+  store i64 14, ptr %2894, align 8, !tbaa !120
   %2895 = getelementptr inbounds nuw i8, ptr %2891, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %2895, ptr noundef nonnull align 1 dereferenceable(14) @.str.73, i64 14, i1 false)
   %2896 = getelementptr inbounds nuw i8, ptr %2891, i64 38
   store i8 0, ptr %2896, align 2, !tbaa !44
   %2897 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %2897, align 4, !tbaa !69
+  store i32 1, ptr %2897, align 4, !tbaa !64
   %2898 = getelementptr inbounds nuw i8, ptr %2897, i64 4
   store i32 150, ptr %2898, align 4, !tbaa !44
   %2899 = getelementptr inbounds nuw i8, ptr %2897, i64 8
-  store i64 0, ptr %2899, align 8, !tbaa !124
+  store i64 0, ptr %2899, align 8, !tbaa !118
   %2900 = getelementptr inbounds nuw i8, ptr %2897, i64 16
-  store i64 18, ptr %2900, align 8, !tbaa !126
+  store i64 18, ptr %2900, align 8, !tbaa !120
   %2901 = getelementptr inbounds nuw i8, ptr %2897, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %2901, ptr noundef nonnull align 1 dereferenceable(18) @.str.348, i64 18, i1 false)
   %2902 = getelementptr inbounds nuw i8, ptr %2897, i64 42
   store i8 0, ptr %2902, align 2, !tbaa !44
-  store ptr %2897, ptr %401, align 8, !tbaa !132
+  store ptr %2897, ptr %401, align 8, !tbaa !126
   %2903 = getelementptr inbounds nuw i8, ptr %401, i64 8
-  store i32 16777216, ptr %2903, align 8, !tbaa !133
+  store i32 16777216, ptr %2903, align 8, !tbaa !128
   %2904 = getelementptr inbounds nuw i8, ptr %401, i64 12
   store i32 0, ptr %2904, align 4
   %2905 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %2891, ptr noundef nonnull %400, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %401) #17
@@ -7621,11 +7600,11 @@ dom_register_prop_handler.exit231:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i232, label %2908, label %zend_string_release.exit.i233
 
 2908:                                             ; preds = %dom_register_prop_handler.exit231
-  %2909 = load i32, ptr %2891, align 4, !tbaa !69
+  %2909 = load i32, ptr %2891, align 4, !tbaa !64
   %2910 = icmp ne i32 %2909, 0
   call void @llvm.assume(i1 %2910)
   %2911 = add i32 %2909, -1
-  store i32 %2911, ptr %2891, align 4, !tbaa !69
+  store i32 %2911, ptr %2891, align 4, !tbaa !64
   %2912 = icmp eq i32 %2911, 0
   br i1 %2912, label %2913, label %zend_string_release.exit.i233
 
@@ -7647,20 +7626,20 @@ zend_string_release.exit.i233:                    ; preds = %2916, %2915, %2908,
   %2917 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store i32 0, ptr %2917, align 8, !tbaa !44
   %2918 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %2918, align 4, !tbaa !69
+  store i32 1, ptr %2918, align 4, !tbaa !64
   %2919 = getelementptr inbounds nuw i8, ptr %2918, i64 4
   store i32 150, ptr %2919, align 4, !tbaa !44
   %2920 = getelementptr inbounds nuw i8, ptr %2918, i64 8
-  store i64 0, ptr %2920, align 8, !tbaa !124
+  store i64 0, ptr %2920, align 8, !tbaa !118
   %2921 = getelementptr inbounds nuw i8, ptr %2918, i64 16
-  store i64 3, ptr %2921, align 8, !tbaa !126
+  store i64 3, ptr %2921, align 8, !tbaa !120
   %2922 = getelementptr inbounds nuw i8, ptr %2918, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2922, ptr noundef nonnull align 1 dereferenceable(3) @.str.75, i64 3, i1 false)
   %2923 = getelementptr inbounds nuw i8, ptr %2918, i64 27
   store i8 0, ptr %2923, align 1, !tbaa !44
-  store ptr null, ptr %403, align 8, !tbaa !132
+  store ptr null, ptr %403, align 8, !tbaa !126
   %2924 = getelementptr inbounds nuw i8, ptr %403, i64 8
-  store i32 64, ptr %2924, align 8, !tbaa !133
+  store i32 64, ptr %2924, align 8, !tbaa !128
   %2925 = getelementptr inbounds nuw i8, ptr %403, i64 12
   store i32 0, ptr %2925, align 4
   %2926 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %2918, ptr noundef nonnull %402, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %403) #17
@@ -7670,11 +7649,11 @@ zend_string_release.exit.i233:                    ; preds = %2916, %2915, %2908,
   br i1 %.not.i53.i, label %2929, label %zend_string_release.exit55.i
 
 2929:                                             ; preds = %zend_string_release.exit.i233
-  %2930 = load i32, ptr %2918, align 4, !tbaa !69
+  %2930 = load i32, ptr %2918, align 4, !tbaa !64
   %2931 = icmp ne i32 %2930, 0
   call void @llvm.assume(i1 %2931)
   %2932 = add i32 %2930, -1
-  store i32 %2932, ptr %2918, align 4, !tbaa !69
+  store i32 %2932, ptr %2918, align 4, !tbaa !64
   %2933 = icmp eq i32 %2932, 0
   br i1 %2933, label %2934, label %zend_string_release.exit55.i
 
@@ -7696,20 +7675,20 @@ zend_string_release.exit55.i:                     ; preds = %2937, %2936, %2929,
   %2938 = getelementptr inbounds nuw i8, ptr %404, i64 8
   store i32 0, ptr %2938, align 8, !tbaa !44
   %2939 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2939, align 4, !tbaa !69
+  store i32 1, ptr %2939, align 4, !tbaa !64
   %2940 = getelementptr inbounds nuw i8, ptr %2939, i64 4
   store i32 150, ptr %2940, align 4, !tbaa !44
   %2941 = getelementptr inbounds nuw i8, ptr %2939, i64 8
-  store i64 0, ptr %2941, align 8, !tbaa !124
+  store i64 0, ptr %2941, align 8, !tbaa !118
   %2942 = getelementptr inbounds nuw i8, ptr %2939, i64 16
-  store i64 11, ptr %2942, align 8, !tbaa !126
+  store i64 11, ptr %2942, align 8, !tbaa !120
   %2943 = getelementptr inbounds nuw i8, ptr %2939, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2943, ptr noundef nonnull align 1 dereferenceable(11) @.str.77, i64 11, i1 false)
   %2944 = getelementptr inbounds nuw i8, ptr %2939, i64 35
   store i8 0, ptr %2944, align 1, !tbaa !44
-  store ptr null, ptr %405, align 8, !tbaa !132
+  store ptr null, ptr %405, align 8, !tbaa !126
   %2945 = getelementptr inbounds nuw i8, ptr %405, i64 8
-  store i32 64, ptr %2945, align 8, !tbaa !133
+  store i32 64, ptr %2945, align 8, !tbaa !128
   %2946 = getelementptr inbounds nuw i8, ptr %405, i64 12
   store i32 0, ptr %2946, align 4
   %2947 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %2939, ptr noundef nonnull %404, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %405) #17
@@ -7719,11 +7698,11 @@ zend_string_release.exit55.i:                     ; preds = %2937, %2936, %2929,
   br i1 %.not.i56.i, label %2950, label %zend_string_release.exit58.i
 
 2950:                                             ; preds = %zend_string_release.exit55.i
-  %2951 = load i32, ptr %2939, align 4, !tbaa !69
+  %2951 = load i32, ptr %2939, align 4, !tbaa !64
   %2952 = icmp ne i32 %2951, 0
   call void @llvm.assume(i1 %2952)
   %2953 = add i32 %2951, -1
-  store i32 %2953, ptr %2939, align 4, !tbaa !69
+  store i32 %2953, ptr %2939, align 4, !tbaa !64
   %2954 = icmp eq i32 %2953, 0
   br i1 %2954, label %2955, label %zend_string_release.exit58.i
 
@@ -7745,20 +7724,20 @@ zend_string_release.exit58.i:                     ; preds = %2958, %2957, %2950,
   %2959 = getelementptr inbounds nuw i8, ptr %406, i64 8
   store i32 0, ptr %2959, align 8, !tbaa !44
   %2960 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %2960, align 4, !tbaa !69
+  store i32 1, ptr %2960, align 4, !tbaa !64
   %2961 = getelementptr inbounds nuw i8, ptr %2960, i64 4
   store i32 150, ptr %2961, align 4, !tbaa !44
   %2962 = getelementptr inbounds nuw i8, ptr %2960, i64 8
-  store i64 0, ptr %2962, align 8, !tbaa !124
+  store i64 0, ptr %2962, align 8, !tbaa !118
   %2963 = getelementptr inbounds nuw i8, ptr %2960, i64 16
-  store i64 12, ptr %2963, align 8, !tbaa !126
+  store i64 12, ptr %2963, align 8, !tbaa !120
   %2964 = getelementptr inbounds nuw i8, ptr %2960, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2964, ptr noundef nonnull align 1 dereferenceable(12) @.str.79, i64 12, i1 false)
   %2965 = getelementptr inbounds nuw i8, ptr %2960, i64 36
   store i8 0, ptr %2965, align 4, !tbaa !44
-  store ptr null, ptr %407, align 8, !tbaa !132
+  store ptr null, ptr %407, align 8, !tbaa !126
   %2966 = getelementptr inbounds nuw i8, ptr %407, i64 8
-  store i32 64, ptr %2966, align 8, !tbaa !133
+  store i32 64, ptr %2966, align 8, !tbaa !128
   %2967 = getelementptr inbounds nuw i8, ptr %407, i64 12
   store i32 0, ptr %2967, align 4
   %2968 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %2960, ptr noundef nonnull %406, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %407) #17
@@ -7768,11 +7747,11 @@ zend_string_release.exit58.i:                     ; preds = %2958, %2957, %2950,
   br i1 %.not.i59.i, label %2971, label %zend_string_release.exit61.i
 
 2971:                                             ; preds = %zend_string_release.exit58.i
-  %2972 = load i32, ptr %2960, align 4, !tbaa !69
+  %2972 = load i32, ptr %2960, align 4, !tbaa !64
   %2973 = icmp ne i32 %2972, 0
   call void @llvm.assume(i1 %2973)
   %2974 = add i32 %2972, -1
-  store i32 %2974, ptr %2960, align 4, !tbaa !69
+  store i32 %2974, ptr %2960, align 4, !tbaa !64
   %2975 = icmp eq i32 %2974, 0
   br i1 %2975, label %2976, label %zend_string_release.exit61.i
 
@@ -7794,20 +7773,20 @@ zend_string_release.exit61.i:                     ; preds = %2979, %2978, %2971,
   %2980 = getelementptr inbounds nuw i8, ptr %408, i64 8
   store i32 0, ptr %2980, align 8, !tbaa !44
   %2981 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %2981, align 4, !tbaa !69
+  store i32 1, ptr %2981, align 4, !tbaa !64
   %2982 = getelementptr inbounds nuw i8, ptr %2981, i64 4
   store i32 150, ptr %2982, align 4, !tbaa !44
   %2983 = getelementptr inbounds nuw i8, ptr %2981, i64 8
-  store i64 0, ptr %2983, align 8, !tbaa !124
+  store i64 0, ptr %2983, align 8, !tbaa !118
   %2984 = getelementptr inbounds nuw i8, ptr %2981, i64 16
-  store i64 7, ptr %2984, align 8, !tbaa !126
+  store i64 7, ptr %2984, align 8, !tbaa !120
   %2985 = getelementptr inbounds nuw i8, ptr %2981, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %2985, ptr noundef nonnull align 1 dereferenceable(7) @.str.81, i64 7, i1 false)
   %2986 = getelementptr inbounds nuw i8, ptr %2981, i64 31
   store i8 0, ptr %2986, align 1, !tbaa !44
-  store ptr null, ptr %409, align 8, !tbaa !132
+  store ptr null, ptr %409, align 8, !tbaa !126
   %2987 = getelementptr inbounds nuw i8, ptr %409, i64 8
-  store i32 64, ptr %2987, align 8, !tbaa !133
+  store i32 64, ptr %2987, align 8, !tbaa !128
   %2988 = getelementptr inbounds nuw i8, ptr %409, i64 12
   store i32 0, ptr %2988, align 4
   %2989 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %2981, ptr noundef nonnull %408, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %409) #17
@@ -7817,11 +7796,11 @@ zend_string_release.exit61.i:                     ; preds = %2979, %2978, %2971,
   br i1 %.not.i62.i, label %2992, label %zend_string_release.exit64.i
 
 2992:                                             ; preds = %zend_string_release.exit61.i
-  %2993 = load i32, ptr %2981, align 4, !tbaa !69
+  %2993 = load i32, ptr %2981, align 4, !tbaa !64
   %2994 = icmp ne i32 %2993, 0
   call void @llvm.assume(i1 %2994)
   %2995 = add i32 %2993, -1
-  store i32 %2995, ptr %2981, align 4, !tbaa !69
+  store i32 %2995, ptr %2981, align 4, !tbaa !64
   %2996 = icmp eq i32 %2995, 0
   br i1 %2996, label %2997, label %zend_string_release.exit64.i
 
@@ -7843,20 +7822,20 @@ zend_string_release.exit64.i:                     ; preds = %3000, %2999, %2992,
   %3001 = getelementptr inbounds nuw i8, ptr %410, i64 8
   store i32 0, ptr %3001, align 8, !tbaa !44
   %3002 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3002, align 4, !tbaa !69
+  store i32 1, ptr %3002, align 4, !tbaa !64
   %3003 = getelementptr inbounds nuw i8, ptr %3002, i64 4
   store i32 150, ptr %3003, align 4, !tbaa !44
   %3004 = getelementptr inbounds nuw i8, ptr %3002, i64 8
-  store i64 0, ptr %3004, align 8, !tbaa !124
+  store i64 0, ptr %3004, align 8, !tbaa !118
   %3005 = getelementptr inbounds nuw i8, ptr %3002, i64 16
-  store i64 13, ptr %3005, align 8, !tbaa !126
+  store i64 13, ptr %3005, align 8, !tbaa !120
   %3006 = getelementptr inbounds nuw i8, ptr %3002, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %3006, ptr noundef nonnull align 1 dereferenceable(13) @.str.83, i64 13, i1 false)
   %3007 = getelementptr inbounds nuw i8, ptr %3002, i64 37
   store i8 0, ptr %3007, align 1, !tbaa !44
-  store ptr null, ptr %411, align 8, !tbaa !132
+  store ptr null, ptr %411, align 8, !tbaa !126
   %3008 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  store i32 64, ptr %3008, align 8, !tbaa !133
+  store i32 64, ptr %3008, align 8, !tbaa !128
   %3009 = getelementptr inbounds nuw i8, ptr %411, i64 12
   store i32 0, ptr %3009, align 4
   %3010 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3002, ptr noundef nonnull %410, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %411) #17
@@ -7866,11 +7845,11 @@ zend_string_release.exit64.i:                     ; preds = %3000, %2999, %2992,
   br i1 %.not.i65.i, label %3013, label %zend_string_release.exit67.i
 
 3013:                                             ; preds = %zend_string_release.exit64.i
-  %3014 = load i32, ptr %3002, align 4, !tbaa !69
+  %3014 = load i32, ptr %3002, align 4, !tbaa !64
   %3015 = icmp ne i32 %3014, 0
   call void @llvm.assume(i1 %3015)
   %3016 = add i32 %3014, -1
-  store i32 %3016, ptr %3002, align 4, !tbaa !69
+  store i32 %3016, ptr %3002, align 4, !tbaa !64
   %3017 = icmp eq i32 %3016, 0
   br i1 %3017, label %3018, label %zend_string_release.exit67.i
 
@@ -7892,32 +7871,32 @@ zend_string_release.exit67.i:                     ; preds = %3021, %3020, %3013,
   %3022 = getelementptr inbounds nuw i8, ptr %412, i64 8
   store i32 0, ptr %3022, align 8, !tbaa !44
   %3023 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3023, align 4, !tbaa !69
+  store i32 1, ptr %3023, align 4, !tbaa !64
   %3024 = getelementptr inbounds nuw i8, ptr %3023, i64 4
   store i32 150, ptr %3024, align 4, !tbaa !44
   %3025 = getelementptr inbounds nuw i8, ptr %3023, i64 8
-  store i64 0, ptr %3025, align 8, !tbaa !124
+  store i64 0, ptr %3025, align 8, !tbaa !118
   %3026 = getelementptr inbounds nuw i8, ptr %3023, i64 16
-  store i64 7, ptr %3026, align 8, !tbaa !126
+  store i64 7, ptr %3026, align 8, !tbaa !120
   %3027 = getelementptr inbounds nuw i8, ptr %3023, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3027, ptr noundef nonnull align 1 dereferenceable(7) @.str.85, i64 7, i1 false)
   %3028 = getelementptr inbounds nuw i8, ptr %3023, i64 31
   store i8 0, ptr %3028, align 1, !tbaa !44
   %3029 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3029, align 4, !tbaa !69
+  store i32 1, ptr %3029, align 4, !tbaa !64
   %3030 = getelementptr inbounds nuw i8, ptr %3029, i64 4
   store i32 150, ptr %3030, align 4, !tbaa !44
   %3031 = getelementptr inbounds nuw i8, ptr %3029, i64 8
-  store i64 0, ptr %3031, align 8, !tbaa !124
+  store i64 0, ptr %3031, align 8, !tbaa !118
   %3032 = getelementptr inbounds nuw i8, ptr %3029, i64 16
-  store i64 16, ptr %3032, align 8, !tbaa !126
+  store i64 16, ptr %3032, align 8, !tbaa !120
   %3033 = getelementptr inbounds nuw i8, ptr %3029, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3033, ptr noundef nonnull align 1 dereferenceable(16) @.str.350, i64 16, i1 false)
   %3034 = getelementptr inbounds nuw i8, ptr %3029, i64 40
   store i8 0, ptr %3034, align 8, !tbaa !44
-  store ptr %3029, ptr %413, align 8, !tbaa !132
+  store ptr %3029, ptr %413, align 8, !tbaa !126
   %3035 = getelementptr inbounds nuw i8, ptr %413, i64 8
-  store i32 16777218, ptr %3035, align 8, !tbaa !133
+  store i32 16777218, ptr %3035, align 8, !tbaa !128
   %3036 = getelementptr inbounds nuw i8, ptr %413, i64 12
   store i32 0, ptr %3036, align 4
   %3037 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3023, ptr noundef nonnull %412, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %413) #17
@@ -7927,11 +7906,11 @@ zend_string_release.exit67.i:                     ; preds = %3021, %3020, %3013,
   br i1 %.not.i68.i, label %3040, label %zend_string_release.exit70.i
 
 3040:                                             ; preds = %zend_string_release.exit67.i
-  %3041 = load i32, ptr %3023, align 4, !tbaa !69
+  %3041 = load i32, ptr %3023, align 4, !tbaa !64
   %3042 = icmp ne i32 %3041, 0
   call void @llvm.assume(i1 %3042)
   %3043 = add i32 %3041, -1
-  store i32 %3043, ptr %3023, align 4, !tbaa !69
+  store i32 %3043, ptr %3023, align 4, !tbaa !64
   %3044 = icmp eq i32 %3043, 0
   br i1 %3044, label %3045, label %zend_string_release.exit70.i
 
@@ -7953,32 +7932,32 @@ zend_string_release.exit70.i:                     ; preds = %3048, %3047, %3040,
   %3049 = getelementptr inbounds nuw i8, ptr %414, i64 8
   store i32 0, ptr %3049, align 8, !tbaa !44
   %3050 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3050, align 4, !tbaa !69
+  store i32 1, ptr %3050, align 4, !tbaa !64
   %3051 = getelementptr inbounds nuw i8, ptr %3050, i64 4
   store i32 150, ptr %3051, align 4, !tbaa !44
   %3052 = getelementptr inbounds nuw i8, ptr %3050, i64 8
-  store i64 0, ptr %3052, align 8, !tbaa !124
+  store i64 0, ptr %3052, align 8, !tbaa !118
   %3053 = getelementptr inbounds nuw i8, ptr %3050, i64 16
-  store i64 15, ptr %3053, align 8, !tbaa !126
+  store i64 15, ptr %3053, align 8, !tbaa !120
   %3054 = getelementptr inbounds nuw i8, ptr %3050, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3054, ptr noundef nonnull align 1 dereferenceable(15) @.str.87, i64 15, i1 false)
   %3055 = getelementptr inbounds nuw i8, ptr %3050, i64 39
   store i8 0, ptr %3055, align 1, !tbaa !44
   %3056 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3056, align 4, !tbaa !69
+  store i32 1, ptr %3056, align 4, !tbaa !64
   %3057 = getelementptr inbounds nuw i8, ptr %3056, i64 4
   store i32 150, ptr %3057, align 4, !tbaa !44
   %3058 = getelementptr inbounds nuw i8, ptr %3056, i64 8
-  store i64 0, ptr %3058, align 8, !tbaa !124
+  store i64 0, ptr %3058, align 8, !tbaa !118
   %3059 = getelementptr inbounds nuw i8, ptr %3056, i64 16
-  store i64 11, ptr %3059, align 8, !tbaa !126
+  store i64 11, ptr %3059, align 8, !tbaa !120
   %3060 = getelementptr inbounds nuw i8, ptr %3056, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3060, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %3061 = getelementptr inbounds nuw i8, ptr %3056, i64 35
   store i8 0, ptr %3061, align 1, !tbaa !44
-  store ptr %3056, ptr %415, align 8, !tbaa !132
+  store ptr %3056, ptr %415, align 8, !tbaa !126
   %3062 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  store i32 16777218, ptr %3062, align 8, !tbaa !133
+  store i32 16777218, ptr %3062, align 8, !tbaa !128
   %3063 = getelementptr inbounds nuw i8, ptr %415, i64 12
   store i32 0, ptr %3063, align 4
   %3064 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3050, ptr noundef nonnull %414, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %415) #17
@@ -7988,11 +7967,11 @@ zend_string_release.exit70.i:                     ; preds = %3048, %3047, %3040,
   br i1 %.not.i71.i, label %3067, label %zend_string_release.exit73.i
 
 3067:                                             ; preds = %zend_string_release.exit70.i
-  %3068 = load i32, ptr %3050, align 4, !tbaa !69
+  %3068 = load i32, ptr %3050, align 4, !tbaa !64
   %3069 = icmp ne i32 %3068, 0
   call void @llvm.assume(i1 %3069)
   %3070 = add i32 %3068, -1
-  store i32 %3070, ptr %3050, align 4, !tbaa !69
+  store i32 %3070, ptr %3050, align 4, !tbaa !64
   %3071 = icmp eq i32 %3070, 0
   br i1 %3071, label %3072, label %zend_string_release.exit73.i
 
@@ -8014,32 +7993,32 @@ zend_string_release.exit73.i:                     ; preds = %3075, %3074, %3067,
   %3076 = getelementptr inbounds nuw i8, ptr %416, i64 8
   store i32 0, ptr %3076, align 8, !tbaa !44
   %3077 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3077, align 4, !tbaa !69
+  store i32 1, ptr %3077, align 4, !tbaa !64
   %3078 = getelementptr inbounds nuw i8, ptr %3077, i64 4
   store i32 150, ptr %3078, align 4, !tbaa !44
   %3079 = getelementptr inbounds nuw i8, ptr %3077, i64 8
-  store i64 0, ptr %3079, align 8, !tbaa !124
+  store i64 0, ptr %3079, align 8, !tbaa !118
   %3080 = getelementptr inbounds nuw i8, ptr %3077, i64 16
-  store i64 17, ptr %3080, align 8, !tbaa !126
+  store i64 17, ptr %3080, align 8, !tbaa !120
   %3081 = getelementptr inbounds nuw i8, ptr %3077, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3081, ptr noundef nonnull align 1 dereferenceable(17) @.str.63, i64 17, i1 false)
   %3082 = getelementptr inbounds nuw i8, ptr %3077, i64 41
   store i8 0, ptr %3082, align 1, !tbaa !44
   %3083 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3083, align 4, !tbaa !69
+  store i32 1, ptr %3083, align 4, !tbaa !64
   %3084 = getelementptr inbounds nuw i8, ptr %3083, i64 4
   store i32 150, ptr %3084, align 4, !tbaa !44
   %3085 = getelementptr inbounds nuw i8, ptr %3083, i64 8
-  store i64 0, ptr %3085, align 8, !tbaa !124
+  store i64 0, ptr %3085, align 8, !tbaa !118
   %3086 = getelementptr inbounds nuw i8, ptr %3083, i64 16
-  store i64 11, ptr %3086, align 8, !tbaa !126
+  store i64 11, ptr %3086, align 8, !tbaa !120
   %3087 = getelementptr inbounds nuw i8, ptr %3083, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3087, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %3088 = getelementptr inbounds nuw i8, ptr %3083, i64 35
   store i8 0, ptr %3088, align 1, !tbaa !44
-  store ptr %3083, ptr %417, align 8, !tbaa !132
+  store ptr %3083, ptr %417, align 8, !tbaa !126
   %3089 = getelementptr inbounds nuw i8, ptr %417, i64 8
-  store i32 16777218, ptr %3089, align 8, !tbaa !133
+  store i32 16777218, ptr %3089, align 8, !tbaa !128
   %3090 = getelementptr inbounds nuw i8, ptr %417, i64 12
   store i32 0, ptr %3090, align 4
   %3091 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3077, ptr noundef nonnull %416, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %417) #17
@@ -8049,11 +8028,11 @@ zend_string_release.exit73.i:                     ; preds = %3075, %3074, %3067,
   br i1 %.not.i74.i, label %3094, label %zend_string_release.exit76.i
 
 3094:                                             ; preds = %zend_string_release.exit73.i
-  %3095 = load i32, ptr %3077, align 4, !tbaa !69
+  %3095 = load i32, ptr %3077, align 4, !tbaa !64
   %3096 = icmp ne i32 %3095, 0
   call void @llvm.assume(i1 %3096)
   %3097 = add i32 %3095, -1
-  store i32 %3097, ptr %3077, align 4, !tbaa !69
+  store i32 %3097, ptr %3077, align 4, !tbaa !64
   %3098 = icmp eq i32 %3097, 0
   br i1 %3098, label %3099, label %zend_string_release.exit76.i
 
@@ -8075,32 +8054,32 @@ zend_string_release.exit76.i:                     ; preds = %3102, %3101, %3094,
   %3103 = getelementptr inbounds nuw i8, ptr %418, i64 8
   store i32 0, ptr %3103, align 8, !tbaa !44
   %3104 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3104, align 4, !tbaa !69
+  store i32 1, ptr %3104, align 4, !tbaa !64
   %3105 = getelementptr inbounds nuw i8, ptr %3104, i64 4
   store i32 150, ptr %3105, align 4, !tbaa !44
   %3106 = getelementptr inbounds nuw i8, ptr %3104, i64 8
-  store i64 0, ptr %3106, align 8, !tbaa !124
+  store i64 0, ptr %3106, align 8, !tbaa !118
   %3107 = getelementptr inbounds nuw i8, ptr %3104, i64 16
-  store i64 16, ptr %3107, align 8, !tbaa !126
+  store i64 16, ptr %3107, align 8, !tbaa !120
   %3108 = getelementptr inbounds nuw i8, ptr %3104, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3108, ptr noundef nonnull align 1 dereferenceable(16) @.str.65, i64 16, i1 false)
   %3109 = getelementptr inbounds nuw i8, ptr %3104, i64 40
   store i8 0, ptr %3109, align 8, !tbaa !44
   %3110 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3110, align 4, !tbaa !69
+  store i32 1, ptr %3110, align 4, !tbaa !64
   %3111 = getelementptr inbounds nuw i8, ptr %3110, i64 4
   store i32 150, ptr %3111, align 4, !tbaa !44
   %3112 = getelementptr inbounds nuw i8, ptr %3110, i64 8
-  store i64 0, ptr %3112, align 8, !tbaa !124
+  store i64 0, ptr %3112, align 8, !tbaa !118
   %3113 = getelementptr inbounds nuw i8, ptr %3110, i64 16
-  store i64 11, ptr %3113, align 8, !tbaa !126
+  store i64 11, ptr %3113, align 8, !tbaa !120
   %3114 = getelementptr inbounds nuw i8, ptr %3110, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3114, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %3115 = getelementptr inbounds nuw i8, ptr %3110, i64 35
   store i8 0, ptr %3115, align 1, !tbaa !44
-  store ptr %3110, ptr %419, align 8, !tbaa !132
+  store ptr %3110, ptr %419, align 8, !tbaa !126
   %3116 = getelementptr inbounds nuw i8, ptr %419, i64 8
-  store i32 16777218, ptr %3116, align 8, !tbaa !133
+  store i32 16777218, ptr %3116, align 8, !tbaa !128
   %3117 = getelementptr inbounds nuw i8, ptr %419, i64 12
   store i32 0, ptr %3117, align 4
   %3118 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3104, ptr noundef nonnull %418, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %419) #17
@@ -8110,11 +8089,11 @@ zend_string_release.exit76.i:                     ; preds = %3102, %3101, %3094,
   br i1 %.not.i77.i, label %3121, label %zend_string_release.exit79.i
 
 3121:                                             ; preds = %zend_string_release.exit76.i
-  %3122 = load i32, ptr %3104, align 4, !tbaa !69
+  %3122 = load i32, ptr %3104, align 4, !tbaa !64
   %3123 = icmp ne i32 %3122, 0
   call void @llvm.assume(i1 %3123)
   %3124 = add i32 %3122, -1
-  store i32 %3124, ptr %3104, align 4, !tbaa !69
+  store i32 %3124, ptr %3104, align 4, !tbaa !64
   %3125 = icmp eq i32 %3124, 0
   br i1 %3125, label %3126, label %zend_string_release.exit79.i
 
@@ -8136,20 +8115,20 @@ zend_string_release.exit79.i:                     ; preds = %3129, %3128, %3121,
   %3130 = getelementptr inbounds nuw i8, ptr %420, i64 8
   store i32 0, ptr %3130, align 8, !tbaa !44
   %3131 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3131, align 4, !tbaa !69
+  store i32 1, ptr %3131, align 4, !tbaa !64
   %3132 = getelementptr inbounds nuw i8, ptr %3131, i64 4
   store i32 150, ptr %3132, align 4, !tbaa !44
   %3133 = getelementptr inbounds nuw i8, ptr %3131, i64 8
-  store i64 0, ptr %3133, align 8, !tbaa !124
+  store i64 0, ptr %3133, align 8, !tbaa !118
   %3134 = getelementptr inbounds nuw i8, ptr %3131, i64 16
-  store i64 17, ptr %3134, align 8, !tbaa !126
+  store i64 17, ptr %3134, align 8, !tbaa !120
   %3135 = getelementptr inbounds nuw i8, ptr %3131, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3135, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
   %3136 = getelementptr inbounds nuw i8, ptr %3131, i64 41
   store i8 0, ptr %3136, align 1, !tbaa !44
-  store ptr null, ptr %421, align 8, !tbaa !132
+  store ptr null, ptr %421, align 8, !tbaa !126
   %3137 = getelementptr inbounds nuw i8, ptr %421, i64 8
-  store i32 16, ptr %3137, align 8, !tbaa !133
+  store i32 16, ptr %3137, align 8, !tbaa !128
   %3138 = getelementptr inbounds nuw i8, ptr %421, i64 12
   store i32 0, ptr %3138, align 4
   %3139 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3131, ptr noundef nonnull %420, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %421) #17
@@ -8159,11 +8138,11 @@ zend_string_release.exit79.i:                     ; preds = %3129, %3128, %3121,
   br i1 %.not.i80.i, label %3142, label %zend_string_release.exit82.i
 
 3142:                                             ; preds = %zend_string_release.exit79.i
-  %3143 = load i32, ptr %3131, align 4, !tbaa !69
+  %3143 = load i32, ptr %3131, align 4, !tbaa !64
   %3144 = icmp ne i32 %3143, 0
   call void @llvm.assume(i1 %3144)
   %3145 = add i32 %3143, -1
-  store i32 %3145, ptr %3131, align 4, !tbaa !69
+  store i32 %3145, ptr %3131, align 4, !tbaa !64
   %3146 = icmp eq i32 %3145, 0
   br i1 %3146, label %3147, label %zend_string_release.exit82.i
 
@@ -8185,32 +8164,32 @@ zend_string_release.exit82.i:                     ; preds = %3150, %3149, %3142,
   %3151 = getelementptr inbounds nuw i8, ptr %422, i64 8
   store i32 0, ptr %3151, align 8, !tbaa !44
   %3152 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3152, align 4, !tbaa !69
+  store i32 1, ptr %3152, align 4, !tbaa !64
   %3153 = getelementptr inbounds nuw i8, ptr %3152, i64 4
   store i32 150, ptr %3153, align 4, !tbaa !44
   %3154 = getelementptr inbounds nuw i8, ptr %3152, i64 8
-  store i64 0, ptr %3154, align 8, !tbaa !124
+  store i64 0, ptr %3154, align 8, !tbaa !118
   %3155 = getelementptr inbounds nuw i8, ptr %3152, i64 16
-  store i64 4, ptr %3155, align 8, !tbaa !126
+  store i64 4, ptr %3155, align 8, !tbaa !120
   %3156 = getelementptr inbounds nuw i8, ptr %3152, i64 24
   store i32 2036625250, ptr %3156, align 8
   %3157 = getelementptr inbounds nuw i8, ptr %3152, i64 28
   store i8 0, ptr %3157, align 4, !tbaa !44
   %3158 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3158, align 4, !tbaa !69
+  store i32 1, ptr %3158, align 4, !tbaa !64
   %3159 = getelementptr inbounds nuw i8, ptr %3158, i64 4
   store i32 150, ptr %3159, align 4, !tbaa !44
   %3160 = getelementptr inbounds nuw i8, ptr %3158, i64 8
-  store i64 0, ptr %3160, align 8, !tbaa !124
+  store i64 0, ptr %3160, align 8, !tbaa !118
   %3161 = getelementptr inbounds nuw i8, ptr %3158, i64 16
-  store i64 15, ptr %3161, align 8, !tbaa !126
+  store i64 15, ptr %3161, align 8, !tbaa !120
   %3162 = getelementptr inbounds nuw i8, ptr %3158, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3162, ptr noundef nonnull align 1 dereferenceable(15) @.str.450, i64 15, i1 false)
   %3163 = getelementptr inbounds nuw i8, ptr %3158, i64 39
   store i8 0, ptr %3163, align 1, !tbaa !44
-  store ptr %3158, ptr %423, align 8, !tbaa !132
+  store ptr %3158, ptr %423, align 8, !tbaa !126
   %3164 = getelementptr inbounds nuw i8, ptr %423, i64 8
-  store i32 16777218, ptr %3164, align 8, !tbaa !133
+  store i32 16777218, ptr %3164, align 8, !tbaa !128
   %3165 = getelementptr inbounds nuw i8, ptr %423, i64 12
   store i32 0, ptr %3165, align 4
   %3166 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3152, ptr noundef nonnull %422, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %423) #17
@@ -8220,11 +8199,11 @@ zend_string_release.exit82.i:                     ; preds = %3150, %3149, %3142,
   br i1 %.not.i83.i, label %3169, label %zend_string_release.exit85.i
 
 3169:                                             ; preds = %zend_string_release.exit82.i
-  %3170 = load i32, ptr %3152, align 4, !tbaa !69
+  %3170 = load i32, ptr %3152, align 4, !tbaa !64
   %3171 = icmp ne i32 %3170, 0
   call void @llvm.assume(i1 %3171)
   %3172 = add i32 %3170, -1
-  store i32 %3172, ptr %3152, align 4, !tbaa !69
+  store i32 %3172, ptr %3152, align 4, !tbaa !64
   %3173 = icmp eq i32 %3172, 0
   br i1 %3173, label %3174, label %zend_string_release.exit85.i
 
@@ -8246,32 +8225,32 @@ zend_string_release.exit85.i:                     ; preds = %3177, %3176, %3169,
   %3178 = getelementptr inbounds nuw i8, ptr %424, i64 8
   store i32 0, ptr %3178, align 8, !tbaa !44
   %3179 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3179, align 4, !tbaa !69
+  store i32 1, ptr %3179, align 4, !tbaa !64
   %3180 = getelementptr inbounds nuw i8, ptr %3179, i64 4
   store i32 150, ptr %3180, align 4, !tbaa !44
   %3181 = getelementptr inbounds nuw i8, ptr %3179, i64 8
-  store i64 0, ptr %3181, align 8, !tbaa !124
+  store i64 0, ptr %3181, align 8, !tbaa !118
   %3182 = getelementptr inbounds nuw i8, ptr %3179, i64 16
-  store i64 4, ptr %3182, align 8, !tbaa !126
+  store i64 4, ptr %3182, align 8, !tbaa !120
   %3183 = getelementptr inbounds nuw i8, ptr %3179, i64 24
   store i32 1684104552, ptr %3183, align 8
   %3184 = getelementptr inbounds nuw i8, ptr %3179, i64 28
   store i8 0, ptr %3184, align 4, !tbaa !44
   %3185 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3185, align 4, !tbaa !69
+  store i32 1, ptr %3185, align 4, !tbaa !64
   %3186 = getelementptr inbounds nuw i8, ptr %3185, i64 4
   store i32 150, ptr %3186, align 4, !tbaa !44
   %3187 = getelementptr inbounds nuw i8, ptr %3185, i64 8
-  store i64 0, ptr %3187, align 8, !tbaa !124
+  store i64 0, ptr %3187, align 8, !tbaa !118
   %3188 = getelementptr inbounds nuw i8, ptr %3185, i64 16
-  store i64 15, ptr %3188, align 8, !tbaa !126
+  store i64 15, ptr %3188, align 8, !tbaa !120
   %3189 = getelementptr inbounds nuw i8, ptr %3185, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3189, ptr noundef nonnull align 1 dereferenceable(15) @.str.450, i64 15, i1 false)
   %3190 = getelementptr inbounds nuw i8, ptr %3185, i64 39
   store i8 0, ptr %3190, align 1, !tbaa !44
-  store ptr %3185, ptr %425, align 8, !tbaa !132
+  store ptr %3185, ptr %425, align 8, !tbaa !126
   %3191 = getelementptr inbounds nuw i8, ptr %425, i64 8
-  store i32 16777218, ptr %3191, align 8, !tbaa !133
+  store i32 16777218, ptr %3191, align 8, !tbaa !128
   %3192 = getelementptr inbounds nuw i8, ptr %425, i64 12
   store i32 0, ptr %3192, align 4
   %3193 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3179, ptr noundef nonnull %424, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %425) #17
@@ -8281,11 +8260,11 @@ zend_string_release.exit85.i:                     ; preds = %3177, %3176, %3169,
   br i1 %.not.i86.i, label %3196, label %zend_string_release.exit88.i
 
 3196:                                             ; preds = %zend_string_release.exit85.i
-  %3197 = load i32, ptr %3179, align 4, !tbaa !69
+  %3197 = load i32, ptr %3179, align 4, !tbaa !64
   %3198 = icmp ne i32 %3197, 0
   call void @llvm.assume(i1 %3198)
   %3199 = add i32 %3197, -1
-  store i32 %3199, ptr %3179, align 4, !tbaa !69
+  store i32 %3199, ptr %3179, align 4, !tbaa !64
   %3200 = icmp eq i32 %3199, 0
   br i1 %3200, label %3201, label %zend_string_release.exit88.i
 
@@ -8307,20 +8286,20 @@ zend_string_release.exit88.i:                     ; preds = %3204, %3203, %3196,
   %3205 = getelementptr inbounds nuw i8, ptr %426, i64 8
   store i32 0, ptr %3205, align 8, !tbaa !44
   %3206 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3206, align 4, !tbaa !69
+  store i32 1, ptr %3206, align 4, !tbaa !64
   %3207 = getelementptr inbounds nuw i8, ptr %3206, i64 4
   store i32 150, ptr %3207, align 4, !tbaa !44
   %3208 = getelementptr inbounds nuw i8, ptr %3206, i64 8
-  store i64 0, ptr %3208, align 8, !tbaa !124
+  store i64 0, ptr %3208, align 8, !tbaa !118
   %3209 = getelementptr inbounds nuw i8, ptr %3206, i64 16
-  store i64 5, ptr %3209, align 8, !tbaa !126
+  store i64 5, ptr %3209, align 8, !tbaa !120
   %3210 = getelementptr inbounds nuw i8, ptr %3206, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %3210, ptr noundef nonnull align 1 dereferenceable(5) @.str.96, i64 5, i1 false)
   %3211 = getelementptr inbounds nuw i8, ptr %3206, i64 29
   store i8 0, ptr %3211, align 1, !tbaa !44
-  store ptr null, ptr %427, align 8, !tbaa !132
+  store ptr null, ptr %427, align 8, !tbaa !126
   %3212 = getelementptr inbounds nuw i8, ptr %427, i64 8
-  store i32 64, ptr %3212, align 8, !tbaa !133
+  store i32 64, ptr %3212, align 8, !tbaa !128
   %3213 = getelementptr inbounds nuw i8, ptr %427, i64 12
   store i32 0, ptr %3213, align 4
   %3214 = call ptr @zend_declare_typed_property(ptr noundef %2889, ptr noundef nonnull %3206, ptr noundef nonnull %426, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %427) #17
@@ -8330,11 +8309,11 @@ zend_string_release.exit88.i:                     ; preds = %3204, %3203, %3196,
   br i1 %.not.i89.i, label %3217, label %register_class_Dom_Document.exit
 
 3217:                                             ; preds = %zend_string_release.exit88.i
-  %3218 = load i32, ptr %3206, align 4, !tbaa !69
+  %3218 = load i32, ptr %3206, align 4, !tbaa !64
   %3219 = icmp ne i32 %3218, 0
   call void @llvm.assume(i1 %3219)
   %3220 = add i32 %3218, -1
-  store i32 %3220, ptr %3206, align 4, !tbaa !69
+  store i32 %3220, ptr %3206, align 4, !tbaa !64
   %3221 = icmp eq i32 %3220, 0
   br i1 %3221, label %3222, label %register_class_Dom_Document.exit
 
@@ -8381,9 +8360,9 @@ register_class_Dom_Document.exit:                 ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %423)
   call void @llvm.lifetime.end.p0(ptr nonnull %425)
   call void @llvm.lifetime.end.p0(ptr nonnull %427)
-  store ptr %2889, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !127
+  store ptr %2889, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !121
   %3226 = getelementptr inbounds nuw i8, ptr %2889, i64 360
-  store ptr @dom_object_handlers, ptr %3226, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %3226, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %3227 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3228 = call ptr %3227(ptr noundef nonnull @.str.73, i64 noundef 14, i1 noundef zeroext true) #17
@@ -8400,11 +8379,11 @@ register_class_Dom_Document.exit:                 ; preds = %zend_string_release
   br i1 %.not.i5.i235, label %3234, label %dom_register_prop_handler.exit236
 
 3234:                                             ; preds = %register_class_Dom_Document.exit
-  %3235 = load i32, ptr %3228, align 4, !tbaa !69
+  %3235 = load i32, ptr %3228, align 4, !tbaa !64
   %3236 = icmp ne i32 %3235, 0
   call void @llvm.assume(i1 %3236)
   %3237 = add i32 %3235, -1
-  store i32 %3237, ptr %3228, align 4, !tbaa !69
+  store i32 %3237, ptr %3228, align 4, !tbaa !64
   %3238 = icmp eq i32 %3237, 0
   br i1 %3238, label %3239, label %dom_register_prop_handler.exit236
 
@@ -8428,11 +8407,11 @@ dom_register_prop_handler.exit236:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i237, label %3247, label %dom_register_prop_handler.exit238
 
 3247:                                             ; preds = %dom_register_prop_handler.exit236
-  %3248 = load i32, ptr %3241, align 4, !tbaa !69
+  %3248 = load i32, ptr %3241, align 4, !tbaa !64
   %3249 = icmp ne i32 %3248, 0
   call void @llvm.assume(i1 %3249)
   %3250 = add i32 %3248, -1
-  store i32 %3250, ptr %3241, align 4, !tbaa !69
+  store i32 %3250, ptr %3241, align 4, !tbaa !64
   %3251 = icmp eq i32 %3250, 0
   br i1 %3251, label %3252, label %dom_register_prop_handler.exit238
 
@@ -8456,11 +8435,11 @@ dom_register_prop_handler.exit238:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i239, label %3260, label %dom_register_prop_handler.exit240
 
 3260:                                             ; preds = %dom_register_prop_handler.exit238
-  %3261 = load i32, ptr %3254, align 4, !tbaa !69
+  %3261 = load i32, ptr %3254, align 4, !tbaa !64
   %3262 = icmp ne i32 %3261, 0
   call void @llvm.assume(i1 %3262)
   %3263 = add i32 %3261, -1
-  store i32 %3263, ptr %3254, align 4, !tbaa !69
+  store i32 %3263, ptr %3254, align 4, !tbaa !64
   %3264 = icmp eq i32 %3263, 0
   br i1 %3264, label %3265, label %dom_register_prop_handler.exit240
 
@@ -8484,11 +8463,11 @@ dom_register_prop_handler.exit240:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i241, label %3273, label %dom_register_prop_handler.exit242
 
 3273:                                             ; preds = %dom_register_prop_handler.exit240
-  %3274 = load i32, ptr %3267, align 4, !tbaa !69
+  %3274 = load i32, ptr %3267, align 4, !tbaa !64
   %3275 = icmp ne i32 %3274, 0
   call void @llvm.assume(i1 %3275)
   %3276 = add i32 %3274, -1
-  store i32 %3276, ptr %3267, align 4, !tbaa !69
+  store i32 %3276, ptr %3267, align 4, !tbaa !64
   %3277 = icmp eq i32 %3276, 0
   br i1 %3277, label %3278, label %dom_register_prop_handler.exit242
 
@@ -8512,11 +8491,11 @@ dom_register_prop_handler.exit242:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i243, label %3286, label %dom_register_prop_handler.exit244
 
 3286:                                             ; preds = %dom_register_prop_handler.exit242
-  %3287 = load i32, ptr %3280, align 4, !tbaa !69
+  %3287 = load i32, ptr %3280, align 4, !tbaa !64
   %3288 = icmp ne i32 %3287, 0
   call void @llvm.assume(i1 %3288)
   %3289 = add i32 %3287, -1
-  store i32 %3289, ptr %3280, align 4, !tbaa !69
+  store i32 %3289, ptr %3280, align 4, !tbaa !64
   %3290 = icmp eq i32 %3289, 0
   br i1 %3290, label %3291, label %dom_register_prop_handler.exit244
 
@@ -8540,11 +8519,11 @@ dom_register_prop_handler.exit244:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i245, label %3299, label %dom_register_prop_handler.exit246
 
 3299:                                             ; preds = %dom_register_prop_handler.exit244
-  %3300 = load i32, ptr %3293, align 4, !tbaa !69
+  %3300 = load i32, ptr %3293, align 4, !tbaa !64
   %3301 = icmp ne i32 %3300, 0
   call void @llvm.assume(i1 %3301)
   %3302 = add i32 %3300, -1
-  store i32 %3302, ptr %3293, align 4, !tbaa !69
+  store i32 %3302, ptr %3293, align 4, !tbaa !64
   %3303 = icmp eq i32 %3302, 0
   br i1 %3303, label %3304, label %dom_register_prop_handler.exit246
 
@@ -8568,11 +8547,11 @@ dom_register_prop_handler.exit246:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i247, label %3312, label %dom_register_prop_handler.exit248
 
 3312:                                             ; preds = %dom_register_prop_handler.exit246
-  %3313 = load i32, ptr %3306, align 4, !tbaa !69
+  %3313 = load i32, ptr %3306, align 4, !tbaa !64
   %3314 = icmp ne i32 %3313, 0
   call void @llvm.assume(i1 %3314)
   %3315 = add i32 %3313, -1
-  store i32 %3315, ptr %3306, align 4, !tbaa !69
+  store i32 %3315, ptr %3306, align 4, !tbaa !64
   %3316 = icmp eq i32 %3315, 0
   br i1 %3316, label %3317, label %dom_register_prop_handler.exit248
 
@@ -8596,11 +8575,11 @@ dom_register_prop_handler.exit248:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i249, label %3325, label %dom_register_prop_handler.exit250
 
 3325:                                             ; preds = %dom_register_prop_handler.exit248
-  %3326 = load i32, ptr %3319, align 4, !tbaa !69
+  %3326 = load i32, ptr %3319, align 4, !tbaa !64
   %3327 = icmp ne i32 %3326, 0
   call void @llvm.assume(i1 %3327)
   %3328 = add i32 %3326, -1
-  store i32 %3328, ptr %3319, align 4, !tbaa !69
+  store i32 %3328, ptr %3319, align 4, !tbaa !64
   %3329 = icmp eq i32 %3328, 0
   br i1 %3329, label %3330, label %dom_register_prop_handler.exit250
 
@@ -8624,11 +8603,11 @@ dom_register_prop_handler.exit250:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i251, label %3338, label %dom_register_prop_handler.exit252
 
 3338:                                             ; preds = %dom_register_prop_handler.exit250
-  %3339 = load i32, ptr %3332, align 4, !tbaa !69
+  %3339 = load i32, ptr %3332, align 4, !tbaa !64
   %3340 = icmp ne i32 %3339, 0
   call void @llvm.assume(i1 %3340)
   %3341 = add i32 %3339, -1
-  store i32 %3341, ptr %3332, align 4, !tbaa !69
+  store i32 %3341, ptr %3332, align 4, !tbaa !64
   %3342 = icmp eq i32 %3341, 0
   br i1 %3342, label %3343, label %dom_register_prop_handler.exit252
 
@@ -8652,11 +8631,11 @@ dom_register_prop_handler.exit252:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i253, label %3351, label %dom_register_prop_handler.exit254
 
 3351:                                             ; preds = %dom_register_prop_handler.exit252
-  %3352 = load i32, ptr %3345, align 4, !tbaa !69
+  %3352 = load i32, ptr %3345, align 4, !tbaa !64
   %3353 = icmp ne i32 %3352, 0
   call void @llvm.assume(i1 %3353)
   %3354 = add i32 %3352, -1
-  store i32 %3354, ptr %3345, align 4, !tbaa !69
+  store i32 %3354, ptr %3345, align 4, !tbaa !64
   %3355 = icmp eq i32 %3354, 0
   br i1 %3355, label %3356, label %dom_register_prop_handler.exit254
 
@@ -8680,11 +8659,11 @@ dom_register_prop_handler.exit254:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i255, label %3364, label %dom_register_prop_handler.exit256
 
 3364:                                             ; preds = %dom_register_prop_handler.exit254
-  %3365 = load i32, ptr %3358, align 4, !tbaa !69
+  %3365 = load i32, ptr %3358, align 4, !tbaa !64
   %3366 = icmp ne i32 %3365, 0
   call void @llvm.assume(i1 %3366)
   %3367 = add i32 %3365, -1
-  store i32 %3367, ptr %3358, align 4, !tbaa !69
+  store i32 %3367, ptr %3358, align 4, !tbaa !64
   %3368 = icmp eq i32 %3367, 0
   br i1 %3368, label %3369, label %dom_register_prop_handler.exit256
 
@@ -8708,11 +8687,11 @@ dom_register_prop_handler.exit256:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i257, label %3377, label %dom_register_prop_handler.exit258
 
 3377:                                             ; preds = %dom_register_prop_handler.exit256
-  %3378 = load i32, ptr %3371, align 4, !tbaa !69
+  %3378 = load i32, ptr %3371, align 4, !tbaa !64
   %3379 = icmp ne i32 %3378, 0
   call void @llvm.assume(i1 %3379)
   %3380 = add i32 %3378, -1
-  store i32 %3380, ptr %3371, align 4, !tbaa !69
+  store i32 %3380, ptr %3371, align 4, !tbaa !64
   %3381 = icmp eq i32 %3380, 0
   br i1 %3381, label %3382, label %dom_register_prop_handler.exit258
 
@@ -8736,11 +8715,11 @@ dom_register_prop_handler.exit258:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i259, label %3390, label %dom_register_prop_handler.exit260
 
 3390:                                             ; preds = %dom_register_prop_handler.exit258
-  %3391 = load i32, ptr %3384, align 4, !tbaa !69
+  %3391 = load i32, ptr %3384, align 4, !tbaa !64
   %3392 = icmp ne i32 %3391, 0
   call void @llvm.assume(i1 %3392)
   %3393 = add i32 %3391, -1
-  store i32 %3393, ptr %3384, align 4, !tbaa !69
+  store i32 %3393, ptr %3384, align 4, !tbaa !64
   %3394 = icmp eq i32 %3393, 0
   br i1 %3394, label %3395, label %dom_register_prop_handler.exit260
 
@@ -8764,11 +8743,11 @@ dom_register_prop_handler.exit260:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i261, label %3403, label %dom_register_prop_handler.exit262
 
 3403:                                             ; preds = %dom_register_prop_handler.exit260
-  %3404 = load i32, ptr %3397, align 4, !tbaa !69
+  %3404 = load i32, ptr %3397, align 4, !tbaa !64
   %3405 = icmp ne i32 %3404, 0
   call void @llvm.assume(i1 %3405)
   %3406 = add i32 %3404, -1
-  store i32 %3406, ptr %3397, align 4, !tbaa !69
+  store i32 %3406, ptr %3397, align 4, !tbaa !64
   %3407 = icmp eq i32 %3406, 0
   br i1 %3407, label %3408, label %dom_register_prop_handler.exit262
 
@@ -8778,8 +8757,8 @@ dom_register_prop_handler.exit260:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_handler.exit260, %3403, %3408
   call void @zend_hash_merge(ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %3409 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  %3410 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
+  %3409 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
+  %3410 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %342)
   call void @llvm.lifetime.start.p0(ptr nonnull %344)
   call void @llvm.lifetime.start.p0(ptr nonnull %346)
@@ -8809,7 +8788,7 @@ dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_h
   %3413 = getelementptr inbounds nuw i8, ptr %340, i64 8
   store ptr %3412, ptr %3413, align 8, !tbaa !28
   %3414 = getelementptr inbounds nuw i8, ptr %340, i64 360
-  store ptr @std_object_handlers, ptr %3414, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %3414, align 8, !tbaa !122
   %3415 = getelementptr inbounds nuw i8, ptr %340, i64 504
   store ptr @class_DOMDocument_methods, ptr %3415, align 8, !tbaa !44
   %3416 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %340, ptr noundef %3409, i32 noundef 0) #17
@@ -8818,32 +8797,32 @@ dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_h
   %3417 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store i32 0, ptr %3417, align 8, !tbaa !44
   %3418 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3418, align 4, !tbaa !69
+  store i32 1, ptr %3418, align 4, !tbaa !64
   %3419 = getelementptr inbounds nuw i8, ptr %3418, i64 4
   store i32 150, ptr %3419, align 4, !tbaa !44
   %3420 = getelementptr inbounds nuw i8, ptr %3418, i64 8
-  store i64 0, ptr %3420, align 8, !tbaa !124
+  store i64 0, ptr %3420, align 8, !tbaa !118
   %3421 = getelementptr inbounds nuw i8, ptr %3418, i64 16
-  store i64 7, ptr %3421, align 8, !tbaa !126
+  store i64 7, ptr %3421, align 8, !tbaa !120
   %3422 = getelementptr inbounds nuw i8, ptr %3418, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3422, ptr noundef nonnull align 1 dereferenceable(7) @.str.85, i64 7, i1 false)
   %3423 = getelementptr inbounds nuw i8, ptr %3418, i64 31
   store i8 0, ptr %3423, align 1, !tbaa !44
   %3424 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3424, align 4, !tbaa !69
+  store i32 1, ptr %3424, align 4, !tbaa !64
   %3425 = getelementptr inbounds nuw i8, ptr %3424, i64 4
   store i32 150, ptr %3425, align 4, !tbaa !44
   %3426 = getelementptr inbounds nuw i8, ptr %3424, i64 8
-  store i64 0, ptr %3426, align 8, !tbaa !124
+  store i64 0, ptr %3426, align 8, !tbaa !118
   %3427 = getelementptr inbounds nuw i8, ptr %3424, i64 16
-  store i64 15, ptr %3427, align 8, !tbaa !126
+  store i64 15, ptr %3427, align 8, !tbaa !120
   %3428 = getelementptr inbounds nuw i8, ptr %3424, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3428, ptr noundef nonnull align 1 dereferenceable(15) @.str.346, i64 15, i1 false)
   %3429 = getelementptr inbounds nuw i8, ptr %3424, i64 39
   store i8 0, ptr %3429, align 1, !tbaa !44
-  store ptr %3424, ptr %342, align 8, !tbaa !132
+  store ptr %3424, ptr %342, align 8, !tbaa !126
   %3430 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  store i32 16777218, ptr %3430, align 8, !tbaa !133
+  store i32 16777218, ptr %3430, align 8, !tbaa !128
   %3431 = getelementptr inbounds nuw i8, ptr %342, i64 12
   store i32 0, ptr %3431, align 4
   %3432 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3418, ptr noundef nonnull %341, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %342) #17
@@ -8853,11 +8832,11 @@ dom_register_prop_handler.exit262:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i263, label %3435, label %zend_string_release.exit.i264
 
 3435:                                             ; preds = %dom_register_prop_handler.exit262
-  %3436 = load i32, ptr %3418, align 4, !tbaa !69
+  %3436 = load i32, ptr %3418, align 4, !tbaa !64
   %3437 = icmp ne i32 %3436, 0
   call void @llvm.assume(i1 %3437)
   %3438 = add i32 %3436, -1
-  store i32 %3438, ptr %3418, align 4, !tbaa !69
+  store i32 %3438, ptr %3418, align 4, !tbaa !64
   %3439 = icmp eq i32 %3438, 0
   br i1 %3439, label %3440, label %zend_string_release.exit.i264
 
@@ -8879,32 +8858,32 @@ zend_string_release.exit.i264:                    ; preds = %3443, %3442, %3435,
   %3444 = getelementptr inbounds nuw i8, ptr %343, i64 8
   store i32 0, ptr %3444, align 8, !tbaa !44
   %3445 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3445, align 4, !tbaa !69
+  store i32 1, ptr %3445, align 4, !tbaa !64
   %3446 = getelementptr inbounds nuw i8, ptr %3445, i64 4
   store i32 150, ptr %3446, align 4, !tbaa !44
   %3447 = getelementptr inbounds nuw i8, ptr %3445, i64 8
-  store i64 0, ptr %3447, align 8, !tbaa !124
+  store i64 0, ptr %3447, align 8, !tbaa !118
   %3448 = getelementptr inbounds nuw i8, ptr %3445, i64 16
-  store i64 14, ptr %3448, align 8, !tbaa !126
+  store i64 14, ptr %3448, align 8, !tbaa !120
   %3449 = getelementptr inbounds nuw i8, ptr %3445, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3449, ptr noundef nonnull align 1 dereferenceable(14) @.str.73, i64 14, i1 false)
   %3450 = getelementptr inbounds nuw i8, ptr %3445, i64 38
   store i8 0, ptr %3450, align 2, !tbaa !44
   %3451 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3451, align 4, !tbaa !69
+  store i32 1, ptr %3451, align 4, !tbaa !64
   %3452 = getelementptr inbounds nuw i8, ptr %3451, i64 4
   store i32 150, ptr %3452, align 4, !tbaa !44
   %3453 = getelementptr inbounds nuw i8, ptr %3451, i64 8
-  store i64 0, ptr %3453, align 8, !tbaa !124
+  store i64 0, ptr %3453, align 8, !tbaa !118
   %3454 = getelementptr inbounds nuw i8, ptr %3451, i64 16
-  store i64 17, ptr %3454, align 8, !tbaa !126
+  store i64 17, ptr %3454, align 8, !tbaa !120
   %3455 = getelementptr inbounds nuw i8, ptr %3451, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3455, ptr noundef nonnull align 1 dereferenceable(17) @.str.334, i64 17, i1 false)
   %3456 = getelementptr inbounds nuw i8, ptr %3451, i64 41
   store i8 0, ptr %3456, align 1, !tbaa !44
-  store ptr %3451, ptr %344, align 8, !tbaa !132
+  store ptr %3451, ptr %344, align 8, !tbaa !126
   %3457 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  store i32 16777216, ptr %3457, align 8, !tbaa !133
+  store i32 16777216, ptr %3457, align 8, !tbaa !128
   %3458 = getelementptr inbounds nuw i8, ptr %344, i64 12
   store i32 0, ptr %3458, align 4
   %3459 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3445, ptr noundef nonnull %343, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %344) #17
@@ -8914,11 +8893,11 @@ zend_string_release.exit.i264:                    ; preds = %3443, %3442, %3435,
   br i1 %.not.i75.i, label %3462, label %zend_string_release.exit77.i
 
 3462:                                             ; preds = %zend_string_release.exit.i264
-  %3463 = load i32, ptr %3445, align 4, !tbaa !69
+  %3463 = load i32, ptr %3445, align 4, !tbaa !64
   %3464 = icmp ne i32 %3463, 0
   call void @llvm.assume(i1 %3464)
   %3465 = add i32 %3463, -1
-  store i32 %3465, ptr %3445, align 4, !tbaa !69
+  store i32 %3465, ptr %3445, align 4, !tbaa !64
   %3466 = icmp eq i32 %3465, 0
   br i1 %3466, label %3467, label %zend_string_release.exit77.i
 
@@ -8940,32 +8919,32 @@ zend_string_release.exit77.i:                     ; preds = %3470, %3469, %3462,
   %3471 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i32 0, ptr %3471, align 8, !tbaa !44
   %3472 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3472, align 4, !tbaa !69
+  store i32 1, ptr %3472, align 4, !tbaa !64
   %3473 = getelementptr inbounds nuw i8, ptr %3472, i64 4
   store i32 150, ptr %3473, align 4, !tbaa !44
   %3474 = getelementptr inbounds nuw i8, ptr %3472, i64 8
-  store i64 0, ptr %3474, align 8, !tbaa !124
+  store i64 0, ptr %3474, align 8, !tbaa !118
   %3475 = getelementptr inbounds nuw i8, ptr %3472, i64 16
-  store i64 15, ptr %3475, align 8, !tbaa !126
+  store i64 15, ptr %3475, align 8, !tbaa !120
   %3476 = getelementptr inbounds nuw i8, ptr %3472, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3476, ptr noundef nonnull align 1 dereferenceable(15) @.str.87, i64 15, i1 false)
   %3477 = getelementptr inbounds nuw i8, ptr %3472, i64 39
   store i8 0, ptr %3477, align 1, !tbaa !44
   %3478 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3478, align 4, !tbaa !69
+  store i32 1, ptr %3478, align 4, !tbaa !64
   %3479 = getelementptr inbounds nuw i8, ptr %3478, i64 4
   store i32 150, ptr %3479, align 4, !tbaa !44
   %3480 = getelementptr inbounds nuw i8, ptr %3478, i64 8
-  store i64 0, ptr %3480, align 8, !tbaa !124
+  store i64 0, ptr %3480, align 8, !tbaa !118
   %3481 = getelementptr inbounds nuw i8, ptr %3478, i64 16
-  store i64 10, ptr %3481, align 8, !tbaa !126
+  store i64 10, ptr %3481, align 8, !tbaa !120
   %3482 = getelementptr inbounds nuw i8, ptr %3478, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %3482, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %3483 = getelementptr inbounds nuw i8, ptr %3478, i64 34
   store i8 0, ptr %3483, align 2, !tbaa !44
-  store ptr %3478, ptr %346, align 8, !tbaa !132
+  store ptr %3478, ptr %346, align 8, !tbaa !126
   %3484 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  store i32 16777218, ptr %3484, align 8, !tbaa !133
+  store i32 16777218, ptr %3484, align 8, !tbaa !128
   %3485 = getelementptr inbounds nuw i8, ptr %346, i64 12
   store i32 0, ptr %3485, align 4
   %3486 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3472, ptr noundef nonnull %345, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %346) #17
@@ -8975,11 +8954,11 @@ zend_string_release.exit77.i:                     ; preds = %3470, %3469, %3462,
   br i1 %.not.i78.i, label %3489, label %zend_string_release.exit80.i
 
 3489:                                             ; preds = %zend_string_release.exit77.i
-  %3490 = load i32, ptr %3472, align 4, !tbaa !69
+  %3490 = load i32, ptr %3472, align 4, !tbaa !64
   %3491 = icmp ne i32 %3490, 0
   call void @llvm.assume(i1 %3491)
   %3492 = add i32 %3490, -1
-  store i32 %3492, ptr %3472, align 4, !tbaa !69
+  store i32 %3492, ptr %3472, align 4, !tbaa !64
   %3493 = icmp eq i32 %3492, 0
   br i1 %3493, label %3494, label %zend_string_release.exit80.i
 
@@ -9001,20 +8980,20 @@ zend_string_release.exit80.i:                     ; preds = %3497, %3496, %3489,
   %3498 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store i32 0, ptr %3498, align 8, !tbaa !44
   %3499 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3499, align 4, !tbaa !69
+  store i32 1, ptr %3499, align 4, !tbaa !64
   %3500 = getelementptr inbounds nuw i8, ptr %3499, i64 4
   store i32 150, ptr %3500, align 4, !tbaa !44
   %3501 = getelementptr inbounds nuw i8, ptr %3499, i64 8
-  store i64 0, ptr %3501, align 8, !tbaa !124
+  store i64 0, ptr %3501, align 8, !tbaa !118
   %3502 = getelementptr inbounds nuw i8, ptr %3499, i64 16
-  store i64 14, ptr %3502, align 8, !tbaa !126
+  store i64 14, ptr %3502, align 8, !tbaa !120
   %3503 = getelementptr inbounds nuw i8, ptr %3499, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %3503, ptr noundef nonnull align 1 dereferenceable(14) @.str.101, i64 14, i1 false)
   %3504 = getelementptr inbounds nuw i8, ptr %3499, i64 38
   store i8 0, ptr %3504, align 2, !tbaa !44
-  store ptr null, ptr %348, align 8, !tbaa !132
+  store ptr null, ptr %348, align 8, !tbaa !126
   %3505 = getelementptr inbounds nuw i8, ptr %348, i64 8
-  store i32 66, ptr %3505, align 8, !tbaa !133
+  store i32 66, ptr %3505, align 8, !tbaa !128
   %3506 = getelementptr inbounds nuw i8, ptr %348, i64 12
   store i32 0, ptr %3506, align 4
   %3507 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3499, ptr noundef nonnull %347, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %348) #17
@@ -9024,11 +9003,11 @@ zend_string_release.exit80.i:                     ; preds = %3497, %3496, %3489,
   br i1 %.not.i81.i265, label %3510, label %zend_string_release.exit83.i266
 
 3510:                                             ; preds = %zend_string_release.exit80.i
-  %3511 = load i32, ptr %3499, align 4, !tbaa !69
+  %3511 = load i32, ptr %3499, align 4, !tbaa !64
   %3512 = icmp ne i32 %3511, 0
   call void @llvm.assume(i1 %3512)
   %3513 = add i32 %3511, -1
-  store i32 %3513, ptr %3499, align 4, !tbaa !69
+  store i32 %3513, ptr %3499, align 4, !tbaa !64
   %3514 = icmp eq i32 %3513, 0
   br i1 %3514, label %3515, label %zend_string_release.exit83.i266
 
@@ -9050,20 +9029,20 @@ zend_string_release.exit83.i266:                  ; preds = %3518, %3517, %3510,
   %3519 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store i32 0, ptr %3519, align 8, !tbaa !44
   %3520 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3520, align 4, !tbaa !69
+  store i32 1, ptr %3520, align 4, !tbaa !64
   %3521 = getelementptr inbounds nuw i8, ptr %3520, i64 4
   store i32 150, ptr %3521, align 4, !tbaa !44
   %3522 = getelementptr inbounds nuw i8, ptr %3520, i64 8
-  store i64 0, ptr %3522, align 8, !tbaa !124
+  store i64 0, ptr %3522, align 8, !tbaa !118
   %3523 = getelementptr inbounds nuw i8, ptr %3520, i64 16
-  store i64 8, ptr %3523, align 8, !tbaa !126
+  store i64 8, ptr %3523, align 8, !tbaa !120
   %3524 = getelementptr inbounds nuw i8, ptr %3520, i64 24
   store i64 7453010313431182949, ptr %3524, align 8
   %3525 = getelementptr inbounds nuw i8, ptr %3520, i64 32
   store i8 0, ptr %3525, align 8, !tbaa !44
-  store ptr null, ptr %350, align 8, !tbaa !132
+  store ptr null, ptr %350, align 8, !tbaa !126
   %3526 = getelementptr inbounds nuw i8, ptr %350, i64 8
-  store i32 66, ptr %3526, align 8, !tbaa !133
+  store i32 66, ptr %3526, align 8, !tbaa !128
   %3527 = getelementptr inbounds nuw i8, ptr %350, i64 12
   store i32 0, ptr %3527, align 4
   %3528 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3520, ptr noundef nonnull %349, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %350) #17
@@ -9073,11 +9052,11 @@ zend_string_release.exit83.i266:                  ; preds = %3518, %3517, %3510,
   br i1 %.not.i84.i267, label %3531, label %zend_string_release.exit86.i268
 
 3531:                                             ; preds = %zend_string_release.exit83.i266
-  %3532 = load i32, ptr %3520, align 4, !tbaa !69
+  %3532 = load i32, ptr %3520, align 4, !tbaa !64
   %3533 = icmp ne i32 %3532, 0
   call void @llvm.assume(i1 %3533)
   %3534 = add i32 %3532, -1
-  store i32 %3534, ptr %3520, align 4, !tbaa !69
+  store i32 %3534, ptr %3520, align 4, !tbaa !64
   %3535 = icmp eq i32 %3534, 0
   br i1 %3535, label %3536, label %zend_string_release.exit86.i268
 
@@ -9099,20 +9078,20 @@ zend_string_release.exit86.i268:                  ; preds = %3539, %3538, %3531,
   %3540 = getelementptr inbounds nuw i8, ptr %351, i64 8
   store i32 0, ptr %3540, align 8, !tbaa !44
   %3541 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3541, align 4, !tbaa !69
+  store i32 1, ptr %3541, align 4, !tbaa !64
   %3542 = getelementptr inbounds nuw i8, ptr %3541, i64 4
   store i32 150, ptr %3542, align 4, !tbaa !44
   %3543 = getelementptr inbounds nuw i8, ptr %3541, i64 8
-  store i64 0, ptr %3543, align 8, !tbaa !124
+  store i64 0, ptr %3543, align 8, !tbaa !118
   %3544 = getelementptr inbounds nuw i8, ptr %3541, i64 16
-  store i64 11, ptr %3544, align 8, !tbaa !126
+  store i64 11, ptr %3544, align 8, !tbaa !120
   %3545 = getelementptr inbounds nuw i8, ptr %3541, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3545, ptr noundef nonnull align 1 dereferenceable(11) @.str.105, i64 11, i1 false)
   %3546 = getelementptr inbounds nuw i8, ptr %3541, i64 35
   store i8 0, ptr %3546, align 1, !tbaa !44
-  store ptr null, ptr %352, align 8, !tbaa !132
+  store ptr null, ptr %352, align 8, !tbaa !126
   %3547 = getelementptr inbounds nuw i8, ptr %352, i64 8
-  store i32 66, ptr %3547, align 8, !tbaa !133
+  store i32 66, ptr %3547, align 8, !tbaa !128
   %3548 = getelementptr inbounds nuw i8, ptr %352, i64 12
   store i32 0, ptr %3548, align 4
   %3549 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3541, ptr noundef nonnull %351, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %352) #17
@@ -9122,11 +9101,11 @@ zend_string_release.exit86.i268:                  ; preds = %3539, %3538, %3531,
   br i1 %.not.i87.i269, label %3552, label %zend_string_release.exit89.i270
 
 3552:                                             ; preds = %zend_string_release.exit86.i268
-  %3553 = load i32, ptr %3541, align 4, !tbaa !69
+  %3553 = load i32, ptr %3541, align 4, !tbaa !64
   %3554 = icmp ne i32 %3553, 0
   call void @llvm.assume(i1 %3554)
   %3555 = add i32 %3553, -1
-  store i32 %3555, ptr %3541, align 4, !tbaa !69
+  store i32 %3555, ptr %3541, align 4, !tbaa !64
   %3556 = icmp eq i32 %3555, 0
   br i1 %3556, label %3557, label %zend_string_release.exit89.i270
 
@@ -9148,20 +9127,20 @@ zend_string_release.exit89.i270:                  ; preds = %3560, %3559, %3552,
   %3561 = getelementptr inbounds nuw i8, ptr %353, i64 8
   store i32 0, ptr %3561, align 8, !tbaa !44
   %3562 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3562, align 4, !tbaa !69
+  store i32 1, ptr %3562, align 4, !tbaa !64
   %3563 = getelementptr inbounds nuw i8, ptr %3562, i64 4
   store i32 150, ptr %3563, align 4, !tbaa !44
   %3564 = getelementptr inbounds nuw i8, ptr %3562, i64 8
-  store i64 0, ptr %3564, align 8, !tbaa !124
+  store i64 0, ptr %3564, align 8, !tbaa !118
   %3565 = getelementptr inbounds nuw i8, ptr %3562, i64 16
-  store i64 10, ptr %3565, align 8, !tbaa !126
+  store i64 10, ptr %3565, align 8, !tbaa !120
   %3566 = getelementptr inbounds nuw i8, ptr %3562, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %3566, ptr noundef nonnull align 1 dereferenceable(10) @.str.107, i64 10, i1 false)
   %3567 = getelementptr inbounds nuw i8, ptr %3562, i64 34
   store i8 0, ptr %3567, align 2, !tbaa !44
-  store ptr null, ptr %354, align 8, !tbaa !132
+  store ptr null, ptr %354, align 8, !tbaa !126
   %3568 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  store i32 12, ptr %3568, align 8, !tbaa !133
+  store i32 12, ptr %3568, align 8, !tbaa !128
   %3569 = getelementptr inbounds nuw i8, ptr %354, i64 12
   store i32 0, ptr %3569, align 4
   %3570 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3562, ptr noundef nonnull %353, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %354) #17
@@ -9171,11 +9150,11 @@ zend_string_release.exit89.i270:                  ; preds = %3560, %3559, %3552,
   br i1 %.not.i90.i271, label %3573, label %zend_string_release.exit92.i272
 
 3573:                                             ; preds = %zend_string_release.exit89.i270
-  %3574 = load i32, ptr %3562, align 4, !tbaa !69
+  %3574 = load i32, ptr %3562, align 4, !tbaa !64
   %3575 = icmp ne i32 %3574, 0
   call void @llvm.assume(i1 %3575)
   %3576 = add i32 %3574, -1
-  store i32 %3576, ptr %3562, align 4, !tbaa !69
+  store i32 %3576, ptr %3562, align 4, !tbaa !64
   %3577 = icmp eq i32 %3576, 0
   br i1 %3577, label %3578, label %zend_string_release.exit92.i272
 
@@ -9197,20 +9176,20 @@ zend_string_release.exit92.i272:                  ; preds = %3581, %3580, %3573,
   %3582 = getelementptr inbounds nuw i8, ptr %355, i64 8
   store i32 0, ptr %3582, align 8, !tbaa !44
   %3583 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3583, align 4, !tbaa !69
+  store i32 1, ptr %3583, align 4, !tbaa !64
   %3584 = getelementptr inbounds nuw i8, ptr %3583, i64 4
   store i32 150, ptr %3584, align 4, !tbaa !44
   %3585 = getelementptr inbounds nuw i8, ptr %3583, i64 8
-  store i64 0, ptr %3585, align 8, !tbaa !124
+  store i64 0, ptr %3585, align 8, !tbaa !118
   %3586 = getelementptr inbounds nuw i8, ptr %3583, i64 16
-  store i64 13, ptr %3586, align 8, !tbaa !126
+  store i64 13, ptr %3586, align 8, !tbaa !120
   %3587 = getelementptr inbounds nuw i8, ptr %3583, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %3587, ptr noundef nonnull align 1 dereferenceable(13) @.str.109, i64 13, i1 false)
   %3588 = getelementptr inbounds nuw i8, ptr %3583, i64 37
   store i8 0, ptr %3588, align 1, !tbaa !44
-  store ptr null, ptr %356, align 8, !tbaa !132
+  store ptr null, ptr %356, align 8, !tbaa !126
   %3589 = getelementptr inbounds nuw i8, ptr %356, i64 8
-  store i32 12, ptr %3589, align 8, !tbaa !133
+  store i32 12, ptr %3589, align 8, !tbaa !128
   %3590 = getelementptr inbounds nuw i8, ptr %356, i64 12
   store i32 0, ptr %3590, align 4
   %3591 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3583, ptr noundef nonnull %355, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %356) #17
@@ -9220,11 +9199,11 @@ zend_string_release.exit92.i272:                  ; preds = %3581, %3580, %3573,
   br i1 %.not.i93.i273, label %3594, label %zend_string_release.exit95.i274
 
 3594:                                             ; preds = %zend_string_release.exit92.i272
-  %3595 = load i32, ptr %3583, align 4, !tbaa !69
+  %3595 = load i32, ptr %3583, align 4, !tbaa !64
   %3596 = icmp ne i32 %3595, 0
   call void @llvm.assume(i1 %3596)
   %3597 = add i32 %3595, -1
-  store i32 %3597, ptr %3583, align 4, !tbaa !69
+  store i32 %3597, ptr %3583, align 4, !tbaa !64
   %3598 = icmp eq i32 %3597, 0
   br i1 %3598, label %3599, label %zend_string_release.exit95.i274
 
@@ -9246,20 +9225,20 @@ zend_string_release.exit95.i274:                  ; preds = %3602, %3601, %3594,
   %3603 = getelementptr inbounds nuw i8, ptr %357, i64 8
   store i32 0, ptr %3603, align 8, !tbaa !44
   %3604 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3604, align 4, !tbaa !69
+  store i32 1, ptr %3604, align 4, !tbaa !64
   %3605 = getelementptr inbounds nuw i8, ptr %3604, i64 4
   store i32 150, ptr %3605, align 4, !tbaa !44
   %3606 = getelementptr inbounds nuw i8, ptr %3604, i64 8
-  store i64 0, ptr %3606, align 8, !tbaa !124
+  store i64 0, ptr %3606, align 8, !tbaa !118
   %3607 = getelementptr inbounds nuw i8, ptr %3604, i64 16
-  store i64 7, ptr %3607, align 8, !tbaa !126
+  store i64 7, ptr %3607, align 8, !tbaa !120
   %3608 = getelementptr inbounds nuw i8, ptr %3604, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3608, ptr noundef nonnull align 1 dereferenceable(7) @.str.111, i64 7, i1 false)
   %3609 = getelementptr inbounds nuw i8, ptr %3604, i64 31
   store i8 0, ptr %3609, align 1, !tbaa !44
-  store ptr null, ptr %358, align 8, !tbaa !132
+  store ptr null, ptr %358, align 8, !tbaa !126
   %3610 = getelementptr inbounds nuw i8, ptr %358, i64 8
-  store i32 66, ptr %3610, align 8, !tbaa !133
+  store i32 66, ptr %3610, align 8, !tbaa !128
   %3611 = getelementptr inbounds nuw i8, ptr %358, i64 12
   store i32 0, ptr %3611, align 4
   %3612 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3604, ptr noundef nonnull %357, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %358) #17
@@ -9269,11 +9248,11 @@ zend_string_release.exit95.i274:                  ; preds = %3602, %3601, %3594,
   br i1 %.not.i96.i275, label %3615, label %zend_string_release.exit98.i276
 
 3615:                                             ; preds = %zend_string_release.exit95.i274
-  %3616 = load i32, ptr %3604, align 4, !tbaa !69
+  %3616 = load i32, ptr %3604, align 4, !tbaa !64
   %3617 = icmp ne i32 %3616, 0
   call void @llvm.assume(i1 %3617)
   %3618 = add i32 %3616, -1
-  store i32 %3618, ptr %3604, align 4, !tbaa !69
+  store i32 %3618, ptr %3604, align 4, !tbaa !64
   %3619 = icmp eq i32 %3618, 0
   br i1 %3619, label %3620, label %zend_string_release.exit98.i276
 
@@ -9295,20 +9274,20 @@ zend_string_release.exit98.i276:                  ; preds = %3623, %3622, %3615,
   %3624 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store i32 0, ptr %3624, align 8, !tbaa !44
   %3625 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3625, align 4, !tbaa !69
+  store i32 1, ptr %3625, align 4, !tbaa !64
   %3626 = getelementptr inbounds nuw i8, ptr %3625, i64 4
   store i32 150, ptr %3626, align 4, !tbaa !44
   %3627 = getelementptr inbounds nuw i8, ptr %3625, i64 8
-  store i64 0, ptr %3627, align 8, !tbaa !124
+  store i64 0, ptr %3627, align 8, !tbaa !118
   %3628 = getelementptr inbounds nuw i8, ptr %3625, i64 16
-  store i64 10, ptr %3628, align 8, !tbaa !126
+  store i64 10, ptr %3628, align 8, !tbaa !120
   %3629 = getelementptr inbounds nuw i8, ptr %3625, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %3629, ptr noundef nonnull align 1 dereferenceable(10) @.str.113, i64 10, i1 false)
   %3630 = getelementptr inbounds nuw i8, ptr %3625, i64 34
   store i8 0, ptr %3630, align 2, !tbaa !44
-  store ptr null, ptr %360, align 8, !tbaa !132
+  store ptr null, ptr %360, align 8, !tbaa !126
   %3631 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  store i32 66, ptr %3631, align 8, !tbaa !133
+  store i32 66, ptr %3631, align 8, !tbaa !128
   %3632 = getelementptr inbounds nuw i8, ptr %360, i64 12
   store i32 0, ptr %3632, align 4
   %3633 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3625, ptr noundef nonnull %359, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %360) #17
@@ -9318,11 +9297,11 @@ zend_string_release.exit98.i276:                  ; preds = %3623, %3622, %3615,
   br i1 %.not.i99.i277, label %3636, label %zend_string_release.exit101.i278
 
 3636:                                             ; preds = %zend_string_release.exit98.i276
-  %3637 = load i32, ptr %3625, align 4, !tbaa !69
+  %3637 = load i32, ptr %3625, align 4, !tbaa !64
   %3638 = icmp ne i32 %3637, 0
   call void @llvm.assume(i1 %3638)
   %3639 = add i32 %3637, -1
-  store i32 %3639, ptr %3625, align 4, !tbaa !69
+  store i32 %3639, ptr %3625, align 4, !tbaa !64
   %3640 = icmp eq i32 %3639, 0
   br i1 %3640, label %3641, label %zend_string_release.exit101.i278
 
@@ -9344,20 +9323,20 @@ zend_string_release.exit101.i278:                 ; preds = %3644, %3643, %3636,
   %3645 = getelementptr inbounds nuw i8, ptr %361, i64 8
   store i32 0, ptr %3645, align 8, !tbaa !44
   %3646 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3646, align 4, !tbaa !69
+  store i32 1, ptr %3646, align 4, !tbaa !64
   %3647 = getelementptr inbounds nuw i8, ptr %3646, i64 4
   store i32 150, ptr %3647, align 4, !tbaa !44
   %3648 = getelementptr inbounds nuw i8, ptr %3646, i64 8
-  store i64 0, ptr %3648, align 8, !tbaa !124
+  store i64 0, ptr %3648, align 8, !tbaa !118
   %3649 = getelementptr inbounds nuw i8, ptr %3646, i64 16
-  store i64 19, ptr %3649, align 8, !tbaa !126
+  store i64 19, ptr %3649, align 8, !tbaa !120
   %3650 = getelementptr inbounds nuw i8, ptr %3646, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %3650, ptr noundef nonnull align 1 dereferenceable(19) @.str.115, i64 19, i1 false)
   %3651 = getelementptr inbounds nuw i8, ptr %3646, i64 43
   store i8 0, ptr %3651, align 1, !tbaa !44
-  store ptr null, ptr %362, align 8, !tbaa !132
+  store ptr null, ptr %362, align 8, !tbaa !126
   %3652 = getelementptr inbounds nuw i8, ptr %362, i64 8
-  store i32 12, ptr %3652, align 8, !tbaa !133
+  store i32 12, ptr %3652, align 8, !tbaa !128
   %3653 = getelementptr inbounds nuw i8, ptr %362, i64 12
   store i32 0, ptr %3653, align 4
   %3654 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3646, ptr noundef nonnull %361, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %362) #17
@@ -9367,11 +9346,11 @@ zend_string_release.exit101.i278:                 ; preds = %3644, %3643, %3636,
   br i1 %.not.i102.i279, label %3657, label %zend_string_release.exit104.i280
 
 3657:                                             ; preds = %zend_string_release.exit101.i278
-  %3658 = load i32, ptr %3646, align 4, !tbaa !69
+  %3658 = load i32, ptr %3646, align 4, !tbaa !64
   %3659 = icmp ne i32 %3658, 0
   call void @llvm.assume(i1 %3659)
   %3660 = add i32 %3658, -1
-  store i32 %3660, ptr %3646, align 4, !tbaa !69
+  store i32 %3660, ptr %3646, align 4, !tbaa !64
   %3661 = icmp eq i32 %3660, 0
   br i1 %3661, label %3662, label %zend_string_release.exit104.i280
 
@@ -9393,20 +9372,20 @@ zend_string_release.exit104.i280:                 ; preds = %3665, %3664, %3657,
   %3666 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store i32 0, ptr %3666, align 8, !tbaa !44
   %3667 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3667, align 4, !tbaa !69
+  store i32 1, ptr %3667, align 4, !tbaa !64
   %3668 = getelementptr inbounds nuw i8, ptr %3667, i64 4
   store i32 150, ptr %3668, align 4, !tbaa !44
   %3669 = getelementptr inbounds nuw i8, ptr %3667, i64 8
-  store i64 0, ptr %3669, align 8, !tbaa !124
+  store i64 0, ptr %3669, align 8, !tbaa !118
   %3670 = getelementptr inbounds nuw i8, ptr %3667, i64 16
-  store i64 11, ptr %3670, align 8, !tbaa !126
+  store i64 11, ptr %3670, align 8, !tbaa !120
   %3671 = getelementptr inbounds nuw i8, ptr %3667, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3671, ptr noundef nonnull align 1 dereferenceable(11) @.str.77, i64 11, i1 false)
   %3672 = getelementptr inbounds nuw i8, ptr %3667, i64 35
   store i8 0, ptr %3672, align 1, !tbaa !44
-  store ptr null, ptr %364, align 8, !tbaa !132
+  store ptr null, ptr %364, align 8, !tbaa !126
   %3673 = getelementptr inbounds nuw i8, ptr %364, i64 8
-  store i32 66, ptr %3673, align 8, !tbaa !133
+  store i32 66, ptr %3673, align 8, !tbaa !128
   %3674 = getelementptr inbounds nuw i8, ptr %364, i64 12
   store i32 0, ptr %3674, align 4
   %3675 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3667, ptr noundef nonnull %363, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %364) #17
@@ -9416,11 +9395,11 @@ zend_string_release.exit104.i280:                 ; preds = %3665, %3664, %3657,
   br i1 %.not.i105.i281, label %3678, label %zend_string_release.exit107.i282
 
 3678:                                             ; preds = %zend_string_release.exit104.i280
-  %3679 = load i32, ptr %3667, align 4, !tbaa !69
+  %3679 = load i32, ptr %3667, align 4, !tbaa !64
   %3680 = icmp ne i32 %3679, 0
   call void @llvm.assume(i1 %3680)
   %3681 = add i32 %3679, -1
-  store i32 %3681, ptr %3667, align 4, !tbaa !69
+  store i32 %3681, ptr %3667, align 4, !tbaa !64
   %3682 = icmp eq i32 %3681, 0
   br i1 %3682, label %3683, label %zend_string_release.exit107.i282
 
@@ -9442,20 +9421,20 @@ zend_string_release.exit107.i282:                 ; preds = %3686, %3685, %3678,
   %3687 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i32 0, ptr %3687, align 8, !tbaa !44
   %3688 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3688, align 4, !tbaa !69
+  store i32 1, ptr %3688, align 4, !tbaa !64
   %3689 = getelementptr inbounds nuw i8, ptr %3688, i64 4
   store i32 150, ptr %3689, align 4, !tbaa !44
   %3690 = getelementptr inbounds nuw i8, ptr %3688, i64 8
-  store i64 0, ptr %3690, align 8, !tbaa !124
+  store i64 0, ptr %3690, align 8, !tbaa !118
   %3691 = getelementptr inbounds nuw i8, ptr %3688, i64 16
-  store i64 6, ptr %3691, align 8, !tbaa !126
+  store i64 6, ptr %3691, align 8, !tbaa !120
   %3692 = getelementptr inbounds nuw i8, ptr %3688, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %3692, ptr noundef nonnull align 1 dereferenceable(6) @.str.118, i64 6, i1 false)
   %3693 = getelementptr inbounds nuw i8, ptr %3688, i64 30
   store i8 0, ptr %3693, align 2, !tbaa !44
-  store ptr null, ptr %366, align 8, !tbaa !132
+  store ptr null, ptr %366, align 8, !tbaa !126
   %3694 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  store i32 1022, ptr %3694, align 8, !tbaa !133
+  store i32 1022, ptr %3694, align 8, !tbaa !128
   %3695 = getelementptr inbounds nuw i8, ptr %366, i64 12
   store i32 0, ptr %3695, align 4
   %3696 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3688, ptr noundef nonnull %365, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %366) #17
@@ -9465,11 +9444,11 @@ zend_string_release.exit107.i282:                 ; preds = %3686, %3685, %3678,
   br i1 %.not.i108.i283, label %3699, label %zend_string_release.exit110.i284
 
 3699:                                             ; preds = %zend_string_release.exit107.i282
-  %3700 = load i32, ptr %3688, align 4, !tbaa !69
+  %3700 = load i32, ptr %3688, align 4, !tbaa !64
   %3701 = icmp ne i32 %3700, 0
   call void @llvm.assume(i1 %3701)
   %3702 = add i32 %3700, -1
-  store i32 %3702, ptr %3688, align 4, !tbaa !69
+  store i32 %3702, ptr %3688, align 4, !tbaa !64
   %3703 = icmp eq i32 %3702, 0
   br i1 %3703, label %3704, label %zend_string_release.exit110.i284
 
@@ -9491,20 +9470,20 @@ zend_string_release.exit110.i284:                 ; preds = %3707, %3706, %3699,
   %3708 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store i32 0, ptr %3708, align 8, !tbaa !44
   %3709 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3709, align 4, !tbaa !69
+  store i32 1, ptr %3709, align 4, !tbaa !64
   %3710 = getelementptr inbounds nuw i8, ptr %3709, i64 4
   store i32 150, ptr %3710, align 4, !tbaa !44
   %3711 = getelementptr inbounds nuw i8, ptr %3709, i64 8
-  store i64 0, ptr %3711, align 8, !tbaa !124
+  store i64 0, ptr %3711, align 8, !tbaa !118
   %3712 = getelementptr inbounds nuw i8, ptr %3709, i64 16
-  store i64 12, ptr %3712, align 8, !tbaa !126
+  store i64 12, ptr %3712, align 8, !tbaa !120
   %3713 = getelementptr inbounds nuw i8, ptr %3709, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3713, ptr noundef nonnull align 1 dereferenceable(12) @.str.120, i64 12, i1 false)
   %3714 = getelementptr inbounds nuw i8, ptr %3709, i64 36
   store i8 0, ptr %3714, align 4, !tbaa !44
-  store ptr null, ptr %368, align 8, !tbaa !132
+  store ptr null, ptr %368, align 8, !tbaa !126
   %3715 = getelementptr inbounds nuw i8, ptr %368, i64 8
-  store i32 12, ptr %3715, align 8, !tbaa !133
+  store i32 12, ptr %3715, align 8, !tbaa !128
   %3716 = getelementptr inbounds nuw i8, ptr %368, i64 12
   store i32 0, ptr %3716, align 4
   %3717 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3709, ptr noundef nonnull %367, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %368) #17
@@ -9514,11 +9493,11 @@ zend_string_release.exit110.i284:                 ; preds = %3707, %3706, %3699,
   br i1 %.not.i111.i285, label %3720, label %zend_string_release.exit113.i286
 
 3720:                                             ; preds = %zend_string_release.exit110.i284
-  %3721 = load i32, ptr %3709, align 4, !tbaa !69
+  %3721 = load i32, ptr %3709, align 4, !tbaa !64
   %3722 = icmp ne i32 %3721, 0
   call void @llvm.assume(i1 %3722)
   %3723 = add i32 %3721, -1
-  store i32 %3723, ptr %3709, align 4, !tbaa !69
+  store i32 %3723, ptr %3709, align 4, !tbaa !64
   %3724 = icmp eq i32 %3723, 0
   br i1 %3724, label %3725, label %zend_string_release.exit113.i286
 
@@ -9540,20 +9519,20 @@ zend_string_release.exit113.i286:                 ; preds = %3728, %3727, %3720,
   %3729 = getelementptr inbounds nuw i8, ptr %369, i64 8
   store i32 0, ptr %3729, align 8, !tbaa !44
   %3730 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3730, align 4, !tbaa !69
+  store i32 1, ptr %3730, align 4, !tbaa !64
   %3731 = getelementptr inbounds nuw i8, ptr %3730, i64 4
   store i32 150, ptr %3731, align 4, !tbaa !44
   %3732 = getelementptr inbounds nuw i8, ptr %3730, i64 8
-  store i64 0, ptr %3732, align 8, !tbaa !124
+  store i64 0, ptr %3732, align 8, !tbaa !118
   %3733 = getelementptr inbounds nuw i8, ptr %3730, i64 16
-  store i64 15, ptr %3733, align 8, !tbaa !126
+  store i64 15, ptr %3733, align 8, !tbaa !120
   %3734 = getelementptr inbounds nuw i8, ptr %3730, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %3734, ptr noundef nonnull align 1 dereferenceable(15) @.str.122, i64 15, i1 false)
   %3735 = getelementptr inbounds nuw i8, ptr %3730, i64 39
   store i8 0, ptr %3735, align 1, !tbaa !44
-  store ptr null, ptr %370, align 8, !tbaa !132
+  store ptr null, ptr %370, align 8, !tbaa !126
   %3736 = getelementptr inbounds nuw i8, ptr %370, i64 8
-  store i32 12, ptr %3736, align 8, !tbaa !133
+  store i32 12, ptr %3736, align 8, !tbaa !128
   %3737 = getelementptr inbounds nuw i8, ptr %370, i64 12
   store i32 0, ptr %3737, align 4
   %3738 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3730, ptr noundef nonnull %369, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %370) #17
@@ -9563,11 +9542,11 @@ zend_string_release.exit113.i286:                 ; preds = %3728, %3727, %3720,
   br i1 %.not.i114.i287, label %3741, label %zend_string_release.exit116.i288
 
 3741:                                             ; preds = %zend_string_release.exit113.i286
-  %3742 = load i32, ptr %3730, align 4, !tbaa !69
+  %3742 = load i32, ptr %3730, align 4, !tbaa !64
   %3743 = icmp ne i32 %3742, 0
   call void @llvm.assume(i1 %3743)
   %3744 = add i32 %3742, -1
-  store i32 %3744, ptr %3730, align 4, !tbaa !69
+  store i32 %3744, ptr %3730, align 4, !tbaa !64
   %3745 = icmp eq i32 %3744, 0
   br i1 %3745, label %3746, label %zend_string_release.exit116.i288
 
@@ -9589,20 +9568,20 @@ zend_string_release.exit116.i288:                 ; preds = %3749, %3748, %3741,
   %3750 = getelementptr inbounds nuw i8, ptr %371, i64 8
   store i32 0, ptr %3750, align 8, !tbaa !44
   %3751 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3751, align 4, !tbaa !69
+  store i32 1, ptr %3751, align 4, !tbaa !64
   %3752 = getelementptr inbounds nuw i8, ptr %3751, i64 4
   store i32 150, ptr %3752, align 4, !tbaa !44
   %3753 = getelementptr inbounds nuw i8, ptr %3751, i64 8
-  store i64 0, ptr %3753, align 8, !tbaa !124
+  store i64 0, ptr %3753, align 8, !tbaa !118
   %3754 = getelementptr inbounds nuw i8, ptr %3751, i64 16
-  store i64 16, ptr %3754, align 8, !tbaa !126
+  store i64 16, ptr %3754, align 8, !tbaa !120
   %3755 = getelementptr inbounds nuw i8, ptr %3751, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3755, ptr noundef nonnull align 1 dereferenceable(16) @.str.124, i64 16, i1 false)
   %3756 = getelementptr inbounds nuw i8, ptr %3751, i64 40
   store i8 0, ptr %3756, align 8, !tbaa !44
-  store ptr null, ptr %372, align 8, !tbaa !132
+  store ptr null, ptr %372, align 8, !tbaa !126
   %3757 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  store i32 12, ptr %3757, align 8, !tbaa !133
+  store i32 12, ptr %3757, align 8, !tbaa !128
   %3758 = getelementptr inbounds nuw i8, ptr %372, i64 12
   store i32 0, ptr %3758, align 4
   %3759 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3751, ptr noundef nonnull %371, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %372) #17
@@ -9612,11 +9591,11 @@ zend_string_release.exit116.i288:                 ; preds = %3749, %3748, %3741,
   br i1 %.not.i117.i289, label %3762, label %zend_string_release.exit119.i290
 
 3762:                                             ; preds = %zend_string_release.exit116.i288
-  %3763 = load i32, ptr %3751, align 4, !tbaa !69
+  %3763 = load i32, ptr %3751, align 4, !tbaa !64
   %3764 = icmp ne i32 %3763, 0
   call void @llvm.assume(i1 %3764)
   %3765 = add i32 %3763, -1
-  store i32 %3765, ptr %3751, align 4, !tbaa !69
+  store i32 %3765, ptr %3751, align 4, !tbaa !64
   %3766 = icmp eq i32 %3765, 0
   br i1 %3766, label %3767, label %zend_string_release.exit119.i290
 
@@ -9638,20 +9617,20 @@ zend_string_release.exit119.i290:                 ; preds = %3770, %3769, %3762,
   %3771 = getelementptr inbounds nuw i8, ptr %373, i64 8
   store i32 0, ptr %3771, align 8, !tbaa !44
   %3772 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3772, align 4, !tbaa !69
+  store i32 1, ptr %3772, align 4, !tbaa !64
   %3773 = getelementptr inbounds nuw i8, ptr %3772, i64 4
   store i32 150, ptr %3773, align 4, !tbaa !44
   %3774 = getelementptr inbounds nuw i8, ptr %3772, i64 8
-  store i64 0, ptr %3774, align 8, !tbaa !124
+  store i64 0, ptr %3774, align 8, !tbaa !118
   %3775 = getelementptr inbounds nuw i8, ptr %3772, i64 16
-  store i64 18, ptr %3775, align 8, !tbaa !126
+  store i64 18, ptr %3775, align 8, !tbaa !120
   %3776 = getelementptr inbounds nuw i8, ptr %3772, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %3776, ptr noundef nonnull align 1 dereferenceable(18) @.str.126, i64 18, i1 false)
   %3777 = getelementptr inbounds nuw i8, ptr %3772, i64 42
   store i8 0, ptr %3777, align 2, !tbaa !44
-  store ptr null, ptr %374, align 8, !tbaa !132
+  store ptr null, ptr %374, align 8, !tbaa !126
   %3778 = getelementptr inbounds nuw i8, ptr %374, i64 8
-  store i32 12, ptr %3778, align 8, !tbaa !133
+  store i32 12, ptr %3778, align 8, !tbaa !128
   %3779 = getelementptr inbounds nuw i8, ptr %374, i64 12
   store i32 0, ptr %3779, align 4
   %3780 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3772, ptr noundef nonnull %373, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %374) #17
@@ -9661,11 +9640,11 @@ zend_string_release.exit119.i290:                 ; preds = %3770, %3769, %3762,
   br i1 %.not.i120.i291, label %3783, label %zend_string_release.exit122.i292
 
 3783:                                             ; preds = %zend_string_release.exit119.i290
-  %3784 = load i32, ptr %3772, align 4, !tbaa !69
+  %3784 = load i32, ptr %3772, align 4, !tbaa !64
   %3785 = icmp ne i32 %3784, 0
   call void @llvm.assume(i1 %3785)
   %3786 = add i32 %3784, -1
-  store i32 %3786, ptr %3772, align 4, !tbaa !69
+  store i32 %3786, ptr %3772, align 4, !tbaa !64
   %3787 = icmp eq i32 %3786, 0
   br i1 %3787, label %3788, label %zend_string_release.exit122.i292
 
@@ -9687,20 +9666,20 @@ zend_string_release.exit122.i292:                 ; preds = %3791, %3790, %3783,
   %3792 = getelementptr inbounds nuw i8, ptr %375, i64 8
   store i32 0, ptr %3792, align 8, !tbaa !44
   %3793 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %3793, align 4, !tbaa !69
+  store i32 1, ptr %3793, align 4, !tbaa !64
   %3794 = getelementptr inbounds nuw i8, ptr %3793, i64 4
   store i32 150, ptr %3794, align 4, !tbaa !44
   %3795 = getelementptr inbounds nuw i8, ptr %3793, i64 8
-  store i64 0, ptr %3795, align 8, !tbaa !124
+  store i64 0, ptr %3795, align 8, !tbaa !118
   %3796 = getelementptr inbounds nuw i8, ptr %3793, i64 16
-  store i64 7, ptr %3796, align 8, !tbaa !126
+  store i64 7, ptr %3796, align 8, !tbaa !120
   %3797 = getelementptr inbounds nuw i8, ptr %3793, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %3797, ptr noundef nonnull align 1 dereferenceable(7) @.str.128, i64 7, i1 false)
   %3798 = getelementptr inbounds nuw i8, ptr %3793, i64 31
   store i8 0, ptr %3798, align 1, !tbaa !44
-  store ptr null, ptr %376, align 8, !tbaa !132
+  store ptr null, ptr %376, align 8, !tbaa !126
   %3799 = getelementptr inbounds nuw i8, ptr %376, i64 8
-  store i32 12, ptr %3799, align 8, !tbaa !133
+  store i32 12, ptr %3799, align 8, !tbaa !128
   %3800 = getelementptr inbounds nuw i8, ptr %376, i64 12
   store i32 0, ptr %3800, align 4
   %3801 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3793, ptr noundef nonnull %375, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %376) #17
@@ -9710,11 +9689,11 @@ zend_string_release.exit122.i292:                 ; preds = %3791, %3790, %3783,
   br i1 %.not.i123.i293, label %3804, label %zend_string_release.exit125.i294
 
 3804:                                             ; preds = %zend_string_release.exit122.i292
-  %3805 = load i32, ptr %3793, align 4, !tbaa !69
+  %3805 = load i32, ptr %3793, align 4, !tbaa !64
   %3806 = icmp ne i32 %3805, 0
   call void @llvm.assume(i1 %3806)
   %3807 = add i32 %3805, -1
-  store i32 %3807, ptr %3793, align 4, !tbaa !69
+  store i32 %3807, ptr %3793, align 4, !tbaa !64
   %3808 = icmp eq i32 %3807, 0
   br i1 %3808, label %3809, label %zend_string_release.exit125.i294
 
@@ -9736,20 +9715,20 @@ zend_string_release.exit125.i294:                 ; preds = %3812, %3811, %3804,
   %3813 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store i32 0, ptr %3813, align 8, !tbaa !44
   %3814 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3814, align 4, !tbaa !69
+  store i32 1, ptr %3814, align 4, !tbaa !64
   %3815 = getelementptr inbounds nuw i8, ptr %3814, i64 4
   store i32 150, ptr %3815, align 4, !tbaa !44
   %3816 = getelementptr inbounds nuw i8, ptr %3814, i64 8
-  store i64 0, ptr %3816, align 8, !tbaa !124
+  store i64 0, ptr %3816, align 8, !tbaa !118
   %3817 = getelementptr inbounds nuw i8, ptr %3814, i64 16
-  store i64 18, ptr %3817, align 8, !tbaa !126
+  store i64 18, ptr %3817, align 8, !tbaa !120
   %3818 = getelementptr inbounds nuw i8, ptr %3814, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %3818, ptr noundef nonnull align 1 dereferenceable(18) @.str.130, i64 18, i1 false)
   %3819 = getelementptr inbounds nuw i8, ptr %3814, i64 42
   store i8 0, ptr %3819, align 2, !tbaa !44
-  store ptr null, ptr %378, align 8, !tbaa !132
+  store ptr null, ptr %378, align 8, !tbaa !126
   %3820 = getelementptr inbounds nuw i8, ptr %378, i64 8
-  store i32 12, ptr %3820, align 8, !tbaa !133
+  store i32 12, ptr %3820, align 8, !tbaa !128
   %3821 = getelementptr inbounds nuw i8, ptr %378, i64 12
   store i32 0, ptr %3821, align 4
   %3822 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3814, ptr noundef nonnull %377, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %378) #17
@@ -9759,11 +9738,11 @@ zend_string_release.exit125.i294:                 ; preds = %3812, %3811, %3804,
   br i1 %.not.i126.i295, label %3825, label %zend_string_release.exit128.i296
 
 3825:                                             ; preds = %zend_string_release.exit125.i294
-  %3826 = load i32, ptr %3814, align 4, !tbaa !69
+  %3826 = load i32, ptr %3814, align 4, !tbaa !64
   %3827 = icmp ne i32 %3826, 0
   call void @llvm.assume(i1 %3827)
   %3828 = add i32 %3826, -1
-  store i32 %3828, ptr %3814, align 4, !tbaa !69
+  store i32 %3828, ptr %3814, align 4, !tbaa !64
   %3829 = icmp eq i32 %3828, 0
   br i1 %3829, label %3830, label %zend_string_release.exit128.i296
 
@@ -9785,32 +9764,32 @@ zend_string_release.exit128.i296:                 ; preds = %3833, %3832, %3825,
   %3834 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store i32 0, ptr %3834, align 8, !tbaa !44
   %3835 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3835, align 4, !tbaa !69
+  store i32 1, ptr %3835, align 4, !tbaa !64
   %3836 = getelementptr inbounds nuw i8, ptr %3835, i64 4
   store i32 150, ptr %3836, align 4, !tbaa !44
   %3837 = getelementptr inbounds nuw i8, ptr %3835, i64 8
-  store i64 0, ptr %3837, align 8, !tbaa !124
+  store i64 0, ptr %3837, align 8, !tbaa !118
   %3838 = getelementptr inbounds nuw i8, ptr %3835, i64 16
-  store i64 17, ptr %3838, align 8, !tbaa !126
+  store i64 17, ptr %3838, align 8, !tbaa !120
   %3839 = getelementptr inbounds nuw i8, ptr %3835, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3839, ptr noundef nonnull align 1 dereferenceable(17) @.str.63, i64 17, i1 false)
   %3840 = getelementptr inbounds nuw i8, ptr %3835, i64 41
   store i8 0, ptr %3840, align 1, !tbaa !44
   %3841 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3841, align 4, !tbaa !69
+  store i32 1, ptr %3841, align 4, !tbaa !64
   %3842 = getelementptr inbounds nuw i8, ptr %3841, i64 4
   store i32 150, ptr %3842, align 4, !tbaa !44
   %3843 = getelementptr inbounds nuw i8, ptr %3841, i64 8
-  store i64 0, ptr %3843, align 8, !tbaa !124
+  store i64 0, ptr %3843, align 8, !tbaa !118
   %3844 = getelementptr inbounds nuw i8, ptr %3841, i64 16
-  store i64 10, ptr %3844, align 8, !tbaa !126
+  store i64 10, ptr %3844, align 8, !tbaa !120
   %3845 = getelementptr inbounds nuw i8, ptr %3841, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %3845, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %3846 = getelementptr inbounds nuw i8, ptr %3841, i64 34
   store i8 0, ptr %3846, align 2, !tbaa !44
-  store ptr %3841, ptr %380, align 8, !tbaa !132
+  store ptr %3841, ptr %380, align 8, !tbaa !126
   %3847 = getelementptr inbounds nuw i8, ptr %380, i64 8
-  store i32 16777218, ptr %3847, align 8, !tbaa !133
+  store i32 16777218, ptr %3847, align 8, !tbaa !128
   %3848 = getelementptr inbounds nuw i8, ptr %380, i64 12
   store i32 0, ptr %3848, align 4
   %3849 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3835, ptr noundef nonnull %379, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %380) #17
@@ -9820,11 +9799,11 @@ zend_string_release.exit128.i296:                 ; preds = %3833, %3832, %3825,
   br i1 %.not.i129.i297, label %3852, label %zend_string_release.exit131.i298
 
 3852:                                             ; preds = %zend_string_release.exit128.i296
-  %3853 = load i32, ptr %3835, align 4, !tbaa !69
+  %3853 = load i32, ptr %3835, align 4, !tbaa !64
   %3854 = icmp ne i32 %3853, 0
   call void @llvm.assume(i1 %3854)
   %3855 = add i32 %3853, -1
-  store i32 %3855, ptr %3835, align 4, !tbaa !69
+  store i32 %3855, ptr %3835, align 4, !tbaa !64
   %3856 = icmp eq i32 %3855, 0
   br i1 %3856, label %3857, label %zend_string_release.exit131.i298
 
@@ -9846,32 +9825,32 @@ zend_string_release.exit131.i298:                 ; preds = %3860, %3859, %3852,
   %3861 = getelementptr inbounds nuw i8, ptr %381, i64 8
   store i32 0, ptr %3861, align 8, !tbaa !44
   %3862 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3862, align 4, !tbaa !69
+  store i32 1, ptr %3862, align 4, !tbaa !64
   %3863 = getelementptr inbounds nuw i8, ptr %3862, i64 4
   store i32 150, ptr %3863, align 4, !tbaa !44
   %3864 = getelementptr inbounds nuw i8, ptr %3862, i64 8
-  store i64 0, ptr %3864, align 8, !tbaa !124
+  store i64 0, ptr %3864, align 8, !tbaa !118
   %3865 = getelementptr inbounds nuw i8, ptr %3862, i64 16
-  store i64 16, ptr %3865, align 8, !tbaa !126
+  store i64 16, ptr %3865, align 8, !tbaa !120
   %3866 = getelementptr inbounds nuw i8, ptr %3862, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3866, ptr noundef nonnull align 1 dereferenceable(16) @.str.65, i64 16, i1 false)
   %3867 = getelementptr inbounds nuw i8, ptr %3862, i64 40
   store i8 0, ptr %3867, align 8, !tbaa !44
   %3868 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %3868, align 4, !tbaa !69
+  store i32 1, ptr %3868, align 4, !tbaa !64
   %3869 = getelementptr inbounds nuw i8, ptr %3868, i64 4
   store i32 150, ptr %3869, align 4, !tbaa !44
   %3870 = getelementptr inbounds nuw i8, ptr %3868, i64 8
-  store i64 0, ptr %3870, align 8, !tbaa !124
+  store i64 0, ptr %3870, align 8, !tbaa !118
   %3871 = getelementptr inbounds nuw i8, ptr %3868, i64 16
-  store i64 10, ptr %3871, align 8, !tbaa !126
+  store i64 10, ptr %3871, align 8, !tbaa !120
   %3872 = getelementptr inbounds nuw i8, ptr %3868, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %3872, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %3873 = getelementptr inbounds nuw i8, ptr %3868, i64 34
   store i8 0, ptr %3873, align 2, !tbaa !44
-  store ptr %3868, ptr %382, align 8, !tbaa !132
+  store ptr %3868, ptr %382, align 8, !tbaa !126
   %3874 = getelementptr inbounds nuw i8, ptr %382, i64 8
-  store i32 16777218, ptr %3874, align 8, !tbaa !133
+  store i32 16777218, ptr %3874, align 8, !tbaa !128
   %3875 = getelementptr inbounds nuw i8, ptr %382, i64 12
   store i32 0, ptr %3875, align 4
   %3876 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3862, ptr noundef nonnull %381, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %382) #17
@@ -9881,11 +9860,11 @@ zend_string_release.exit131.i298:                 ; preds = %3860, %3859, %3852,
   br i1 %.not.i132.i299, label %3879, label %zend_string_release.exit134.i300
 
 3879:                                             ; preds = %zend_string_release.exit131.i298
-  %3880 = load i32, ptr %3862, align 4, !tbaa !69
+  %3880 = load i32, ptr %3862, align 4, !tbaa !64
   %3881 = icmp ne i32 %3880, 0
   call void @llvm.assume(i1 %3881)
   %3882 = add i32 %3880, -1
-  store i32 %3882, ptr %3862, align 4, !tbaa !69
+  store i32 %3882, ptr %3862, align 4, !tbaa !64
   %3883 = icmp eq i32 %3882, 0
   br i1 %3883, label %3884, label %zend_string_release.exit134.i300
 
@@ -9907,20 +9886,20 @@ zend_string_release.exit134.i300:                 ; preds = %3887, %3886, %3879,
   %3888 = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i32 0, ptr %3888, align 8, !tbaa !44
   %3889 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %3889, align 4, !tbaa !69
+  store i32 1, ptr %3889, align 4, !tbaa !64
   %3890 = getelementptr inbounds nuw i8, ptr %3889, i64 4
   store i32 150, ptr %3890, align 4, !tbaa !44
   %3891 = getelementptr inbounds nuw i8, ptr %3889, i64 8
-  store i64 0, ptr %3891, align 8, !tbaa !124
+  store i64 0, ptr %3891, align 8, !tbaa !118
   %3892 = getelementptr inbounds nuw i8, ptr %3889, i64 16
-  store i64 17, ptr %3892, align 8, !tbaa !126
+  store i64 17, ptr %3892, align 8, !tbaa !120
   %3893 = getelementptr inbounds nuw i8, ptr %3889, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3893, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
   %3894 = getelementptr inbounds nuw i8, ptr %3889, i64 41
   store i8 0, ptr %3894, align 1, !tbaa !44
-  store ptr null, ptr %384, align 8, !tbaa !132
+  store ptr null, ptr %384, align 8, !tbaa !126
   %3895 = getelementptr inbounds nuw i8, ptr %384, i64 8
-  store i32 16, ptr %3895, align 8, !tbaa !133
+  store i32 16, ptr %3895, align 8, !tbaa !128
   %3896 = getelementptr inbounds nuw i8, ptr %384, i64 12
   store i32 0, ptr %3896, align 4
   %3897 = call ptr @zend_declare_typed_property(ptr noundef %3416, ptr noundef nonnull %3889, ptr noundef nonnull %383, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %384) #17
@@ -9930,11 +9909,11 @@ zend_string_release.exit134.i300:                 ; preds = %3887, %3886, %3879,
   br i1 %.not.i135.i301, label %3900, label %register_class_DOMDocument.exit
 
 3900:                                             ; preds = %zend_string_release.exit134.i300
-  %3901 = load i32, ptr %3889, align 4, !tbaa !69
+  %3901 = load i32, ptr %3889, align 4, !tbaa !64
   %3902 = icmp ne i32 %3901, 0
   call void @llvm.assume(i1 %3902)
   %3903 = add i32 %3901, -1
-  store i32 %3903, ptr %3889, align 4, !tbaa !69
+  store i32 %3903, ptr %3889, align 4, !tbaa !64
   %3904 = icmp eq i32 %3903, 0
   br i1 %3904, label %3905, label %register_class_DOMDocument.exit
 
@@ -9997,11 +9976,11 @@ register_class_DOMDocument.exit:                  ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %380)
   call void @llvm.lifetime.end.p0(ptr nonnull %382)
   call void @llvm.lifetime.end.p0(ptr nonnull %384)
-  store ptr %3416, ptr @dom_document_class_entry, align 8, !tbaa !127
+  store ptr %3416, ptr @dom_document_class_entry, align 8, !tbaa !121
   %3909 = getelementptr inbounds nuw i8, ptr %3416, i64 384
   store ptr @dom_objects_new, ptr %3909, align 8, !tbaa !44
   %3910 = getelementptr inbounds nuw i8, ptr %3416, i64 360
-  store ptr @dom_object_handlers, ptr %3910, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %3910, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %3911 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %3912 = call ptr %3911(ptr noundef nonnull @.str.85, i64 noundef 7, i1 noundef zeroext true) #17
@@ -10018,11 +9997,11 @@ register_class_DOMDocument.exit:                  ; preds = %zend_string_release
   br i1 %.not.i5.i322, label %3918, label %dom_register_prop_handler.exit323
 
 3918:                                             ; preds = %register_class_DOMDocument.exit
-  %3919 = load i32, ptr %3912, align 4, !tbaa !69
+  %3919 = load i32, ptr %3912, align 4, !tbaa !64
   %3920 = icmp ne i32 %3919, 0
   call void @llvm.assume(i1 %3920)
   %3921 = add i32 %3919, -1
-  store i32 %3921, ptr %3912, align 4, !tbaa !69
+  store i32 %3921, ptr %3912, align 4, !tbaa !64
   %3922 = icmp eq i32 %3921, 0
   br i1 %3922, label %3923, label %dom_register_prop_handler.exit323
 
@@ -10046,11 +10025,11 @@ dom_register_prop_handler.exit323:                ; preds = %register_class_DOMD
   br i1 %.not.i5.i324, label %3931, label %dom_register_prop_handler.exit325
 
 3931:                                             ; preds = %dom_register_prop_handler.exit323
-  %3932 = load i32, ptr %3925, align 4, !tbaa !69
+  %3932 = load i32, ptr %3925, align 4, !tbaa !64
   %3933 = icmp ne i32 %3932, 0
   call void @llvm.assume(i1 %3933)
   %3934 = add i32 %3932, -1
-  store i32 %3934, ptr %3925, align 4, !tbaa !69
+  store i32 %3934, ptr %3925, align 4, !tbaa !64
   %3935 = icmp eq i32 %3934, 0
   br i1 %3935, label %3936, label %dom_register_prop_handler.exit325
 
@@ -10074,11 +10053,11 @@ dom_register_prop_handler.exit325:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i326, label %3944, label %dom_register_prop_handler.exit327
 
 3944:                                             ; preds = %dom_register_prop_handler.exit325
-  %3945 = load i32, ptr %3938, align 4, !tbaa !69
+  %3945 = load i32, ptr %3938, align 4, !tbaa !64
   %3946 = icmp ne i32 %3945, 0
   call void @llvm.assume(i1 %3946)
   %3947 = add i32 %3945, -1
-  store i32 %3947, ptr %3938, align 4, !tbaa !69
+  store i32 %3947, ptr %3938, align 4, !tbaa !64
   %3948 = icmp eq i32 %3947, 0
   br i1 %3948, label %3949, label %dom_register_prop_handler.exit327
 
@@ -10102,11 +10081,11 @@ dom_register_prop_handler.exit327:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i328, label %3957, label %dom_register_prop_handler.exit329
 
 3957:                                             ; preds = %dom_register_prop_handler.exit327
-  %3958 = load i32, ptr %3951, align 4, !tbaa !69
+  %3958 = load i32, ptr %3951, align 4, !tbaa !64
   %3959 = icmp ne i32 %3958, 0
   call void @llvm.assume(i1 %3959)
   %3960 = add i32 %3958, -1
-  store i32 %3960, ptr %3951, align 4, !tbaa !69
+  store i32 %3960, ptr %3951, align 4, !tbaa !64
   %3961 = icmp eq i32 %3960, 0
   br i1 %3961, label %3962, label %dom_register_prop_handler.exit329
 
@@ -10130,11 +10109,11 @@ dom_register_prop_handler.exit329:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i330, label %3970, label %dom_register_prop_handler.exit331
 
 3970:                                             ; preds = %dom_register_prop_handler.exit329
-  %3971 = load i32, ptr %3964, align 4, !tbaa !69
+  %3971 = load i32, ptr %3964, align 4, !tbaa !64
   %3972 = icmp ne i32 %3971, 0
   call void @llvm.assume(i1 %3972)
   %3973 = add i32 %3971, -1
-  store i32 %3973, ptr %3964, align 4, !tbaa !69
+  store i32 %3973, ptr %3964, align 4, !tbaa !64
   %3974 = icmp eq i32 %3973, 0
   br i1 %3974, label %3975, label %dom_register_prop_handler.exit331
 
@@ -10158,11 +10137,11 @@ dom_register_prop_handler.exit331:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i332, label %3983, label %dom_register_prop_handler.exit333
 
 3983:                                             ; preds = %dom_register_prop_handler.exit331
-  %3984 = load i32, ptr %3977, align 4, !tbaa !69
+  %3984 = load i32, ptr %3977, align 4, !tbaa !64
   %3985 = icmp ne i32 %3984, 0
   call void @llvm.assume(i1 %3985)
   %3986 = add i32 %3984, -1
-  store i32 %3986, ptr %3977, align 4, !tbaa !69
+  store i32 %3986, ptr %3977, align 4, !tbaa !64
   %3987 = icmp eq i32 %3986, 0
   br i1 %3987, label %3988, label %dom_register_prop_handler.exit333
 
@@ -10186,11 +10165,11 @@ dom_register_prop_handler.exit333:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i334, label %3996, label %dom_register_prop_handler.exit335
 
 3996:                                             ; preds = %dom_register_prop_handler.exit333
-  %3997 = load i32, ptr %3990, align 4, !tbaa !69
+  %3997 = load i32, ptr %3990, align 4, !tbaa !64
   %3998 = icmp ne i32 %3997, 0
   call void @llvm.assume(i1 %3998)
   %3999 = add i32 %3997, -1
-  store i32 %3999, ptr %3990, align 4, !tbaa !69
+  store i32 %3999, ptr %3990, align 4, !tbaa !64
   %4000 = icmp eq i32 %3999, 0
   br i1 %4000, label %4001, label %dom_register_prop_handler.exit335
 
@@ -10214,11 +10193,11 @@ dom_register_prop_handler.exit335:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i336, label %4009, label %dom_register_prop_handler.exit337
 
 4009:                                             ; preds = %dom_register_prop_handler.exit335
-  %4010 = load i32, ptr %4003, align 4, !tbaa !69
+  %4010 = load i32, ptr %4003, align 4, !tbaa !64
   %4011 = icmp ne i32 %4010, 0
   call void @llvm.assume(i1 %4011)
   %4012 = add i32 %4010, -1
-  store i32 %4012, ptr %4003, align 4, !tbaa !69
+  store i32 %4012, ptr %4003, align 4, !tbaa !64
   %4013 = icmp eq i32 %4012, 0
   br i1 %4013, label %4014, label %dom_register_prop_handler.exit337
 
@@ -10242,11 +10221,11 @@ dom_register_prop_handler.exit337:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i338, label %4022, label %dom_register_prop_handler.exit339
 
 4022:                                             ; preds = %dom_register_prop_handler.exit337
-  %4023 = load i32, ptr %4016, align 4, !tbaa !69
+  %4023 = load i32, ptr %4016, align 4, !tbaa !64
   %4024 = icmp ne i32 %4023, 0
   call void @llvm.assume(i1 %4024)
   %4025 = add i32 %4023, -1
-  store i32 %4025, ptr %4016, align 4, !tbaa !69
+  store i32 %4025, ptr %4016, align 4, !tbaa !64
   %4026 = icmp eq i32 %4025, 0
   br i1 %4026, label %4027, label %dom_register_prop_handler.exit339
 
@@ -10270,11 +10249,11 @@ dom_register_prop_handler.exit339:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i340, label %4035, label %dom_register_prop_handler.exit341
 
 4035:                                             ; preds = %dom_register_prop_handler.exit339
-  %4036 = load i32, ptr %4029, align 4, !tbaa !69
+  %4036 = load i32, ptr %4029, align 4, !tbaa !64
   %4037 = icmp ne i32 %4036, 0
   call void @llvm.assume(i1 %4037)
   %4038 = add i32 %4036, -1
-  store i32 %4038, ptr %4029, align 4, !tbaa !69
+  store i32 %4038, ptr %4029, align 4, !tbaa !64
   %4039 = icmp eq i32 %4038, 0
   br i1 %4039, label %4040, label %dom_register_prop_handler.exit341
 
@@ -10298,11 +10277,11 @@ dom_register_prop_handler.exit341:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i342, label %4048, label %dom_register_prop_handler.exit343
 
 4048:                                             ; preds = %dom_register_prop_handler.exit341
-  %4049 = load i32, ptr %4042, align 4, !tbaa !69
+  %4049 = load i32, ptr %4042, align 4, !tbaa !64
   %4050 = icmp ne i32 %4049, 0
   call void @llvm.assume(i1 %4050)
   %4051 = add i32 %4049, -1
-  store i32 %4051, ptr %4042, align 4, !tbaa !69
+  store i32 %4051, ptr %4042, align 4, !tbaa !64
   %4052 = icmp eq i32 %4051, 0
   br i1 %4052, label %4053, label %dom_register_prop_handler.exit343
 
@@ -10326,11 +10305,11 @@ dom_register_prop_handler.exit343:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i344, label %4061, label %dom_register_prop_handler.exit345
 
 4061:                                             ; preds = %dom_register_prop_handler.exit343
-  %4062 = load i32, ptr %4055, align 4, !tbaa !69
+  %4062 = load i32, ptr %4055, align 4, !tbaa !64
   %4063 = icmp ne i32 %4062, 0
   call void @llvm.assume(i1 %4063)
   %4064 = add i32 %4062, -1
-  store i32 %4064, ptr %4055, align 4, !tbaa !69
+  store i32 %4064, ptr %4055, align 4, !tbaa !64
   %4065 = icmp eq i32 %4064, 0
   br i1 %4065, label %4066, label %dom_register_prop_handler.exit345
 
@@ -10354,11 +10333,11 @@ dom_register_prop_handler.exit345:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i346, label %4074, label %dom_register_prop_handler.exit347
 
 4074:                                             ; preds = %dom_register_prop_handler.exit345
-  %4075 = load i32, ptr %4068, align 4, !tbaa !69
+  %4075 = load i32, ptr %4068, align 4, !tbaa !64
   %4076 = icmp ne i32 %4075, 0
   call void @llvm.assume(i1 %4076)
   %4077 = add i32 %4075, -1
-  store i32 %4077, ptr %4068, align 4, !tbaa !69
+  store i32 %4077, ptr %4068, align 4, !tbaa !64
   %4078 = icmp eq i32 %4077, 0
   br i1 %4078, label %4079, label %dom_register_prop_handler.exit347
 
@@ -10382,11 +10361,11 @@ dom_register_prop_handler.exit347:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i348, label %4087, label %dom_register_prop_handler.exit349
 
 4087:                                             ; preds = %dom_register_prop_handler.exit347
-  %4088 = load i32, ptr %4081, align 4, !tbaa !69
+  %4088 = load i32, ptr %4081, align 4, !tbaa !64
   %4089 = icmp ne i32 %4088, 0
   call void @llvm.assume(i1 %4089)
   %4090 = add i32 %4088, -1
-  store i32 %4090, ptr %4081, align 4, !tbaa !69
+  store i32 %4090, ptr %4081, align 4, !tbaa !64
   %4091 = icmp eq i32 %4090, 0
   br i1 %4091, label %4092, label %dom_register_prop_handler.exit349
 
@@ -10410,11 +10389,11 @@ dom_register_prop_handler.exit349:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i350, label %4100, label %dom_register_prop_handler.exit351
 
 4100:                                             ; preds = %dom_register_prop_handler.exit349
-  %4101 = load i32, ptr %4094, align 4, !tbaa !69
+  %4101 = load i32, ptr %4094, align 4, !tbaa !64
   %4102 = icmp ne i32 %4101, 0
   call void @llvm.assume(i1 %4102)
   %4103 = add i32 %4101, -1
-  store i32 %4103, ptr %4094, align 4, !tbaa !69
+  store i32 %4103, ptr %4094, align 4, !tbaa !64
   %4104 = icmp eq i32 %4103, 0
   br i1 %4104, label %4105, label %dom_register_prop_handler.exit351
 
@@ -10438,11 +10417,11 @@ dom_register_prop_handler.exit351:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i352, label %4113, label %dom_register_prop_handler.exit353
 
 4113:                                             ; preds = %dom_register_prop_handler.exit351
-  %4114 = load i32, ptr %4107, align 4, !tbaa !69
+  %4114 = load i32, ptr %4107, align 4, !tbaa !64
   %4115 = icmp ne i32 %4114, 0
   call void @llvm.assume(i1 %4115)
   %4116 = add i32 %4114, -1
-  store i32 %4116, ptr %4107, align 4, !tbaa !69
+  store i32 %4116, ptr %4107, align 4, !tbaa !64
   %4117 = icmp eq i32 %4116, 0
   br i1 %4117, label %4118, label %dom_register_prop_handler.exit353
 
@@ -10466,11 +10445,11 @@ dom_register_prop_handler.exit353:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i354, label %4126, label %dom_register_prop_handler.exit355
 
 4126:                                             ; preds = %dom_register_prop_handler.exit353
-  %4127 = load i32, ptr %4120, align 4, !tbaa !69
+  %4127 = load i32, ptr %4120, align 4, !tbaa !64
   %4128 = icmp ne i32 %4127, 0
   call void @llvm.assume(i1 %4128)
   %4129 = add i32 %4127, -1
-  store i32 %4129, ptr %4120, align 4, !tbaa !69
+  store i32 %4129, ptr %4120, align 4, !tbaa !64
   %4130 = icmp eq i32 %4129, 0
   br i1 %4130, label %4131, label %dom_register_prop_handler.exit355
 
@@ -10494,11 +10473,11 @@ dom_register_prop_handler.exit355:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i356, label %4139, label %dom_register_prop_handler.exit357
 
 4139:                                             ; preds = %dom_register_prop_handler.exit355
-  %4140 = load i32, ptr %4133, align 4, !tbaa !69
+  %4140 = load i32, ptr %4133, align 4, !tbaa !64
   %4141 = icmp ne i32 %4140, 0
   call void @llvm.assume(i1 %4141)
   %4142 = add i32 %4140, -1
-  store i32 %4142, ptr %4133, align 4, !tbaa !69
+  store i32 %4142, ptr %4133, align 4, !tbaa !64
   %4143 = icmp eq i32 %4142, 0
   br i1 %4143, label %4144, label %dom_register_prop_handler.exit357
 
@@ -10522,11 +10501,11 @@ dom_register_prop_handler.exit357:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i358, label %4152, label %dom_register_prop_handler.exit359
 
 4152:                                             ; preds = %dom_register_prop_handler.exit357
-  %4153 = load i32, ptr %4146, align 4, !tbaa !69
+  %4153 = load i32, ptr %4146, align 4, !tbaa !64
   %4154 = icmp ne i32 %4153, 0
   call void @llvm.assume(i1 %4154)
   %4155 = add i32 %4153, -1
-  store i32 %4155, ptr %4146, align 4, !tbaa !69
+  store i32 %4155, ptr %4146, align 4, !tbaa !64
   %4156 = icmp eq i32 %4155, 0
   br i1 %4156, label %4157, label %dom_register_prop_handler.exit359
 
@@ -10550,11 +10529,11 @@ dom_register_prop_handler.exit359:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i360, label %4165, label %dom_register_prop_handler.exit361
 
 4165:                                             ; preds = %dom_register_prop_handler.exit359
-  %4166 = load i32, ptr %4159, align 4, !tbaa !69
+  %4166 = load i32, ptr %4159, align 4, !tbaa !64
   %4167 = icmp ne i32 %4166, 0
   call void @llvm.assume(i1 %4167)
   %4168 = add i32 %4166, -1
-  store i32 %4168, ptr %4159, align 4, !tbaa !69
+  store i32 %4168, ptr %4159, align 4, !tbaa !64
   %4169 = icmp eq i32 %4168, 0
   br i1 %4169, label %4170, label %dom_register_prop_handler.exit361
 
@@ -10578,11 +10557,11 @@ dom_register_prop_handler.exit361:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i362, label %4178, label %dom_register_prop_handler.exit363
 
 4178:                                             ; preds = %dom_register_prop_handler.exit361
-  %4179 = load i32, ptr %4172, align 4, !tbaa !69
+  %4179 = load i32, ptr %4172, align 4, !tbaa !64
   %4180 = icmp ne i32 %4179, 0
   call void @llvm.assume(i1 %4180)
   %4181 = add i32 %4179, -1
-  store i32 %4181, ptr %4172, align 4, !tbaa !69
+  store i32 %4181, ptr %4172, align 4, !tbaa !64
   %4182 = icmp eq i32 %4181, 0
   br i1 %4182, label %4183, label %dom_register_prop_handler.exit363
 
@@ -10606,11 +10585,11 @@ dom_register_prop_handler.exit363:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i364, label %4191, label %dom_register_prop_handler.exit365
 
 4191:                                             ; preds = %dom_register_prop_handler.exit363
-  %4192 = load i32, ptr %4185, align 4, !tbaa !69
+  %4192 = load i32, ptr %4185, align 4, !tbaa !64
   %4193 = icmp ne i32 %4192, 0
   call void @llvm.assume(i1 %4193)
   %4194 = add i32 %4192, -1
-  store i32 %4194, ptr %4185, align 4, !tbaa !69
+  store i32 %4194, ptr %4185, align 4, !tbaa !64
   %4195 = icmp eq i32 %4194, 0
   br i1 %4195, label %4196, label %dom_register_prop_handler.exit365
 
@@ -10620,7 +10599,7 @@ dom_register_prop_handler.exit363:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_handler.exit363, %4191, %4196
   call void @zend_hash_merge(ptr noundef nonnull @dom_document_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %4197 = load ptr, ptr @dom_document_class_entry, align 8, !tbaa !127
+  %4197 = load ptr, ptr @dom_document_class_entry, align 8, !tbaa !121
   %4198 = getelementptr inbounds nuw i8, ptr %4197, i64 8
   %4199 = load ptr, ptr %4198, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %656)
@@ -10629,7 +10608,7 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   store i32 13, ptr %4200, align 8, !tbaa !44
   %4201 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4199, ptr noundef nonnull %656) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %656)
-  %4202 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !127
+  %4202 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %317)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %317, i8 0, i64 520, i1 false)
   %4203 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -10637,14 +10616,14 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   %4205 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr %4204, ptr %4205, align 8, !tbaa !28
   %4206 = getelementptr inbounds nuw i8, ptr %317, i64 360
-  store ptr @std_object_handlers, ptr %4206, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4206, align 8, !tbaa !122
   %4207 = getelementptr inbounds nuw i8, ptr %317, i64 504
   store ptr @class_Dom_HTMLDocument_methods, ptr %4207, align 8, !tbaa !44
   %4208 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %317, ptr noundef %4202, i32 noundef 32) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %317)
-  store ptr %4208, ptr @dom_html_document_class_entry, align 8, !tbaa !127
+  store ptr %4208, ptr @dom_html_document_class_entry, align 8, !tbaa !121
   %4209 = getelementptr inbounds nuw i8, ptr %4208, i64 360
-  store ptr @dom_object_handlers, ptr %4209, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %4209, align 8, !tbaa !122
   %4210 = getelementptr inbounds nuw i8, ptr %4208, i64 8
   %4211 = load ptr, ptr %4210, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %655)
@@ -10653,7 +10632,7 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   store i32 13, ptr %4212, align 8, !tbaa !44
   %4213 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4211, ptr noundef nonnull %655) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %655)
-  %4214 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !127
+  %4214 = load ptr, ptr @dom_abstract_base_document_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %310)
   call void @llvm.lifetime.start.p0(ptr nonnull %312)
   call void @llvm.lifetime.start.p0(ptr nonnull %314)
@@ -10665,7 +10644,7 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   %4217 = getelementptr inbounds nuw i8, ptr %308, i64 8
   store ptr %4216, ptr %4217, align 8, !tbaa !28
   %4218 = getelementptr inbounds nuw i8, ptr %308, i64 360
-  store ptr @std_object_handlers, ptr %4218, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4218, align 8, !tbaa !122
   %4219 = getelementptr inbounds nuw i8, ptr %308, i64 504
   store ptr @class_Dom_XMLDocument_methods, ptr %4219, align 8, !tbaa !44
   %4220 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %308, ptr noundef %4214, i32 noundef 32) #17
@@ -10673,20 +10652,20 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   %4221 = getelementptr inbounds nuw i8, ptr %309, i64 8
   store i32 0, ptr %4221, align 8, !tbaa !44
   %4222 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4222, align 4, !tbaa !69
+  store i32 1, ptr %4222, align 4, !tbaa !64
   %4223 = getelementptr inbounds nuw i8, ptr %4222, i64 4
   store i32 150, ptr %4223, align 4, !tbaa !44
   %4224 = getelementptr inbounds nuw i8, ptr %4222, i64 8
-  store i64 0, ptr %4224, align 8, !tbaa !124
+  store i64 0, ptr %4224, align 8, !tbaa !118
   %4225 = getelementptr inbounds nuw i8, ptr %4222, i64 16
-  store i64 11, ptr %4225, align 8, !tbaa !126
+  store i64 11, ptr %4225, align 8, !tbaa !120
   %4226 = getelementptr inbounds nuw i8, ptr %4222, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4226, ptr noundef nonnull align 1 dereferenceable(11) @.str.105, i64 11, i1 false)
   %4227 = getelementptr inbounds nuw i8, ptr %4222, i64 35
   store i8 0, ptr %4227, align 1, !tbaa !44
-  store ptr null, ptr %310, align 8, !tbaa !132
+  store ptr null, ptr %310, align 8, !tbaa !126
   %4228 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  store i32 64, ptr %4228, align 8, !tbaa !133
+  store i32 64, ptr %4228, align 8, !tbaa !128
   %4229 = getelementptr inbounds nuw i8, ptr %310, i64 12
   store i32 0, ptr %4229, align 4
   %4230 = call ptr @zend_declare_typed_property(ptr noundef %4220, ptr noundef nonnull %4222, ptr noundef nonnull %309, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %310) #17
@@ -10696,11 +10675,11 @@ dom_register_prop_handler.exit365:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i366, label %4233, label %zend_string_release.exit.i367
 
 4233:                                             ; preds = %dom_register_prop_handler.exit365
-  %4234 = load i32, ptr %4222, align 4, !tbaa !69
+  %4234 = load i32, ptr %4222, align 4, !tbaa !64
   %4235 = icmp ne i32 %4234, 0
   call void @llvm.assume(i1 %4235)
   %4236 = add i32 %4234, -1
-  store i32 %4236, ptr %4222, align 4, !tbaa !69
+  store i32 %4236, ptr %4222, align 4, !tbaa !64
   %4237 = icmp eq i32 %4236, 0
   br i1 %4237, label %4238, label %zend_string_release.exit.i367
 
@@ -10722,20 +10701,20 @@ zend_string_release.exit.i367:                    ; preds = %4241, %4240, %4233,
   %4242 = getelementptr inbounds nuw i8, ptr %311, i64 8
   store i32 0, ptr %4242, align 8, !tbaa !44
   %4243 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4243, align 4, !tbaa !69
+  store i32 1, ptr %4243, align 4, !tbaa !64
   %4244 = getelementptr inbounds nuw i8, ptr %4243, i64 4
   store i32 150, ptr %4244, align 4, !tbaa !44
   %4245 = getelementptr inbounds nuw i8, ptr %4243, i64 8
-  store i64 0, ptr %4245, align 8, !tbaa !124
+  store i64 0, ptr %4245, align 8, !tbaa !118
   %4246 = getelementptr inbounds nuw i8, ptr %4243, i64 16
-  store i64 13, ptr %4246, align 8, !tbaa !126
+  store i64 13, ptr %4246, align 8, !tbaa !120
   %4247 = getelementptr inbounds nuw i8, ptr %4243, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %4247, ptr noundef nonnull align 1 dereferenceable(13) @.str.109, i64 13, i1 false)
   %4248 = getelementptr inbounds nuw i8, ptr %4243, i64 37
   store i8 0, ptr %4248, align 1, !tbaa !44
-  store ptr null, ptr %312, align 8, !tbaa !132
+  store ptr null, ptr %312, align 8, !tbaa !126
   %4249 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  store i32 12, ptr %4249, align 8, !tbaa !133
+  store i32 12, ptr %4249, align 8, !tbaa !128
   %4250 = getelementptr inbounds nuw i8, ptr %312, i64 12
   store i32 0, ptr %4250, align 4
   %4251 = call ptr @zend_declare_typed_property(ptr noundef %4220, ptr noundef nonnull %4243, ptr noundef nonnull %311, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %312) #17
@@ -10745,11 +10724,11 @@ zend_string_release.exit.i367:                    ; preds = %4241, %4240, %4233,
   br i1 %.not.i14.i368, label %4254, label %zend_string_release.exit16.i
 
 4254:                                             ; preds = %zend_string_release.exit.i367
-  %4255 = load i32, ptr %4243, align 4, !tbaa !69
+  %4255 = load i32, ptr %4243, align 4, !tbaa !64
   %4256 = icmp ne i32 %4255, 0
   call void @llvm.assume(i1 %4256)
   %4257 = add i32 %4255, -1
-  store i32 %4257, ptr %4243, align 4, !tbaa !69
+  store i32 %4257, ptr %4243, align 4, !tbaa !64
   %4258 = icmp eq i32 %4257, 0
   br i1 %4258, label %4259, label %zend_string_release.exit16.i
 
@@ -10771,20 +10750,20 @@ zend_string_release.exit16.i:                     ; preds = %4262, %4261, %4254,
   %4263 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store i32 0, ptr %4263, align 8, !tbaa !44
   %4264 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4264, align 4, !tbaa !69
+  store i32 1, ptr %4264, align 4, !tbaa !64
   %4265 = getelementptr inbounds nuw i8, ptr %4264, i64 4
   store i32 150, ptr %4265, align 4, !tbaa !44
   %4266 = getelementptr inbounds nuw i8, ptr %4264, i64 8
-  store i64 0, ptr %4266, align 8, !tbaa !124
+  store i64 0, ptr %4266, align 8, !tbaa !118
   %4267 = getelementptr inbounds nuw i8, ptr %4264, i64 16
-  store i64 10, ptr %4267, align 8, !tbaa !126
+  store i64 10, ptr %4267, align 8, !tbaa !120
   %4268 = getelementptr inbounds nuw i8, ptr %4264, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4268, ptr noundef nonnull align 1 dereferenceable(10) @.str.113, i64 10, i1 false)
   %4269 = getelementptr inbounds nuw i8, ptr %4264, i64 34
   store i8 0, ptr %4269, align 2, !tbaa !44
-  store ptr null, ptr %314, align 8, !tbaa !132
+  store ptr null, ptr %314, align 8, !tbaa !126
   %4270 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  store i32 64, ptr %4270, align 8, !tbaa !133
+  store i32 64, ptr %4270, align 8, !tbaa !128
   %4271 = getelementptr inbounds nuw i8, ptr %314, i64 12
   store i32 0, ptr %4271, align 4
   %4272 = call ptr @zend_declare_typed_property(ptr noundef %4220, ptr noundef nonnull %4264, ptr noundef nonnull %313, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %314) #17
@@ -10794,11 +10773,11 @@ zend_string_release.exit16.i:                     ; preds = %4262, %4261, %4254,
   br i1 %.not.i17.i, label %4275, label %zend_string_release.exit19.i
 
 4275:                                             ; preds = %zend_string_release.exit16.i
-  %4276 = load i32, ptr %4264, align 4, !tbaa !69
+  %4276 = load i32, ptr %4264, align 4, !tbaa !64
   %4277 = icmp ne i32 %4276, 0
   call void @llvm.assume(i1 %4277)
   %4278 = add i32 %4276, -1
-  store i32 %4278, ptr %4264, align 4, !tbaa !69
+  store i32 %4278, ptr %4264, align 4, !tbaa !64
   %4279 = icmp eq i32 %4278, 0
   br i1 %4279, label %4280, label %zend_string_release.exit19.i
 
@@ -10820,20 +10799,20 @@ zend_string_release.exit19.i:                     ; preds = %4283, %4282, %4275,
   %4284 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i32 0, ptr %4284, align 8, !tbaa !44
   %4285 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4285, align 4, !tbaa !69
+  store i32 1, ptr %4285, align 4, !tbaa !64
   %4286 = getelementptr inbounds nuw i8, ptr %4285, i64 4
   store i32 150, ptr %4286, align 4, !tbaa !44
   %4287 = getelementptr inbounds nuw i8, ptr %4285, i64 8
-  store i64 0, ptr %4287, align 8, !tbaa !124
+  store i64 0, ptr %4287, align 8, !tbaa !118
   %4288 = getelementptr inbounds nuw i8, ptr %4285, i64 16
-  store i64 12, ptr %4288, align 8, !tbaa !126
+  store i64 12, ptr %4288, align 8, !tbaa !120
   %4289 = getelementptr inbounds nuw i8, ptr %4285, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4289, ptr noundef nonnull align 1 dereferenceable(12) @.str.120, i64 12, i1 false)
   %4290 = getelementptr inbounds nuw i8, ptr %4285, i64 36
   store i8 0, ptr %4290, align 4, !tbaa !44
-  store ptr null, ptr %316, align 8, !tbaa !132
+  store ptr null, ptr %316, align 8, !tbaa !126
   %4291 = getelementptr inbounds nuw i8, ptr %316, i64 8
-  store i32 12, ptr %4291, align 8, !tbaa !133
+  store i32 12, ptr %4291, align 8, !tbaa !128
   %4292 = getelementptr inbounds nuw i8, ptr %316, i64 12
   store i32 0, ptr %4292, align 4
   %4293 = call ptr @zend_declare_typed_property(ptr noundef %4220, ptr noundef nonnull %4285, ptr noundef nonnull %315, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %316) #17
@@ -10843,11 +10822,11 @@ zend_string_release.exit19.i:                     ; preds = %4283, %4282, %4275,
   br i1 %.not.i20.i, label %4296, label %register_class_Dom_XMLDocument.exit
 
 4296:                                             ; preds = %zend_string_release.exit19.i
-  %4297 = load i32, ptr %4285, align 4, !tbaa !69
+  %4297 = load i32, ptr %4285, align 4, !tbaa !64
   %4298 = icmp ne i32 %4297, 0
   call void @llvm.assume(i1 %4298)
   %4299 = add i32 %4297, -1
-  store i32 %4299, ptr %4285, align 4, !tbaa !69
+  store i32 %4299, ptr %4285, align 4, !tbaa !64
   %4300 = icmp eq i32 %4299, 0
   br i1 %4300, label %4301, label %register_class_Dom_XMLDocument.exit
 
@@ -10874,9 +10853,9 @@ register_class_Dom_XMLDocument.exit:              ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %312)
   call void @llvm.lifetime.end.p0(ptr nonnull %314)
   call void @llvm.lifetime.end.p0(ptr nonnull %316)
-  store ptr %4220, ptr @dom_xml_document_class_entry, align 8, !tbaa !127
+  store ptr %4220, ptr @dom_xml_document_class_entry, align 8, !tbaa !121
   %4305 = getelementptr inbounds nuw i8, ptr %4220, i64 360
-  store ptr @dom_object_handlers, ptr %4305, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %4305, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_xml_document_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4306 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4307 = call ptr %4306(ptr noundef nonnull @.str.105, i64 noundef 11, i1 noundef zeroext true) #17
@@ -10893,11 +10872,11 @@ register_class_Dom_XMLDocument.exit:              ; preds = %zend_string_release
   br i1 %.not.i5.i371, label %4313, label %dom_register_prop_handler.exit372
 
 4313:                                             ; preds = %register_class_Dom_XMLDocument.exit
-  %4314 = load i32, ptr %4307, align 4, !tbaa !69
+  %4314 = load i32, ptr %4307, align 4, !tbaa !64
   %4315 = icmp ne i32 %4314, 0
   call void @llvm.assume(i1 %4315)
   %4316 = add i32 %4314, -1
-  store i32 %4316, ptr %4307, align 4, !tbaa !69
+  store i32 %4316, ptr %4307, align 4, !tbaa !64
   %4317 = icmp eq i32 %4316, 0
   br i1 %4317, label %4318, label %dom_register_prop_handler.exit372
 
@@ -10921,11 +10900,11 @@ dom_register_prop_handler.exit372:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i373, label %4326, label %dom_register_prop_handler.exit374
 
 4326:                                             ; preds = %dom_register_prop_handler.exit372
-  %4327 = load i32, ptr %4320, align 4, !tbaa !69
+  %4327 = load i32, ptr %4320, align 4, !tbaa !64
   %4328 = icmp ne i32 %4327, 0
   call void @llvm.assume(i1 %4328)
   %4329 = add i32 %4327, -1
-  store i32 %4329, ptr %4320, align 4, !tbaa !69
+  store i32 %4329, ptr %4320, align 4, !tbaa !64
   %4330 = icmp eq i32 %4329, 0
   br i1 %4330, label %4331, label %dom_register_prop_handler.exit374
 
@@ -10949,11 +10928,11 @@ dom_register_prop_handler.exit374:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i375, label %4339, label %dom_register_prop_handler.exit376
 
 4339:                                             ; preds = %dom_register_prop_handler.exit374
-  %4340 = load i32, ptr %4333, align 4, !tbaa !69
+  %4340 = load i32, ptr %4333, align 4, !tbaa !64
   %4341 = icmp ne i32 %4340, 0
   call void @llvm.assume(i1 %4341)
   %4342 = add i32 %4340, -1
-  store i32 %4342, ptr %4333, align 4, !tbaa !69
+  store i32 %4342, ptr %4333, align 4, !tbaa !64
   %4343 = icmp eq i32 %4342, 0
   br i1 %4343, label %4344, label %dom_register_prop_handler.exit376
 
@@ -10977,11 +10956,11 @@ dom_register_prop_handler.exit376:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i377, label %4352, label %dom_register_prop_handler.exit378
 
 4352:                                             ; preds = %dom_register_prop_handler.exit376
-  %4353 = load i32, ptr %4346, align 4, !tbaa !69
+  %4353 = load i32, ptr %4346, align 4, !tbaa !64
   %4354 = icmp ne i32 %4353, 0
   call void @llvm.assume(i1 %4354)
   %4355 = add i32 %4353, -1
-  store i32 %4355, ptr %4346, align 4, !tbaa !69
+  store i32 %4355, ptr %4346, align 4, !tbaa !64
   %4356 = icmp eq i32 %4355, 0
   br i1 %4356, label %4357, label %dom_register_prop_handler.exit378
 
@@ -10991,7 +10970,7 @@ dom_register_prop_handler.exit376:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_handler.exit376, %4352, %4357
   call void @zend_hash_merge(ptr noundef nonnull @dom_xml_document_prop_handlers, ptr noundef nonnull @dom_abstract_base_document_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %4358 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !127
+  %4358 = load ptr, ptr @dom_xml_document_class_entry, align 8, !tbaa !121
   %4359 = getelementptr inbounds nuw i8, ptr %4358, i64 8
   %4360 = load ptr, ptr %4359, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %654)
@@ -11000,8 +10979,8 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   store i32 13, ptr %4361, align 8, !tbaa !44
   %4362 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4360, ptr noundef nonnull %654) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %654)
-  %4363 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %4364 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %4363 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %4364 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %303)
   call void @llvm.lifetime.start.p0(ptr nonnull %301)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %301, i8 0, i64 520, i1 false)
@@ -11010,7 +10989,7 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   %4367 = getelementptr inbounds nuw i8, ptr %301, i64 8
   store ptr %4366, ptr %4367, align 8, !tbaa !28
   %4368 = getelementptr inbounds nuw i8, ptr %301, i64 360
-  store ptr @std_object_handlers, ptr %4368, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4368, align 8, !tbaa !122
   %4369 = getelementptr inbounds nuw i8, ptr %301, i64 504
   store ptr @class_DOMNodeList_methods, ptr %4369, align 8, !tbaa !44
   %4370 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %301, ptr noundef null, i32 noundef 0) #17
@@ -11019,20 +10998,20 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   %4371 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i32 0, ptr %4371, align 8, !tbaa !44
   %4372 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4372, align 4, !tbaa !69
+  store i32 1, ptr %4372, align 4, !tbaa !64
   %4373 = getelementptr inbounds nuw i8, ptr %4372, i64 4
   store i32 150, ptr %4373, align 4, !tbaa !44
   %4374 = getelementptr inbounds nuw i8, ptr %4372, i64 8
-  store i64 0, ptr %4374, align 8, !tbaa !124
+  store i64 0, ptr %4374, align 8, !tbaa !118
   %4375 = getelementptr inbounds nuw i8, ptr %4372, i64 16
-  store i64 6, ptr %4375, align 8, !tbaa !126
+  store i64 6, ptr %4375, align 8, !tbaa !120
   %4376 = getelementptr inbounds nuw i8, ptr %4372, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4376, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4377 = getelementptr inbounds nuw i8, ptr %4372, i64 30
   store i8 0, ptr %4377, align 2, !tbaa !44
-  store ptr null, ptr %303, align 8, !tbaa !132
+  store ptr null, ptr %303, align 8, !tbaa !126
   %4378 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store i32 16, ptr %4378, align 8, !tbaa !133
+  store i32 16, ptr %4378, align 8, !tbaa !128
   %4379 = getelementptr inbounds nuw i8, ptr %303, i64 12
   store i32 0, ptr %4379, align 4
   %4380 = call ptr @zend_declare_typed_property(ptr noundef %4370, ptr noundef nonnull %4372, ptr noundef nonnull %302, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %303) #17
@@ -11042,11 +11021,11 @@ dom_register_prop_handler.exit378:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i379, label %4383, label %register_class_DOMNodeList.exit
 
 4383:                                             ; preds = %dom_register_prop_handler.exit378
-  %4384 = load i32, ptr %4372, align 4, !tbaa !69
+  %4384 = load i32, ptr %4372, align 4, !tbaa !64
   %4385 = icmp ne i32 %4384, 0
   call void @llvm.assume(i1 %4385)
   %4386 = add i32 %4384, -1
-  store i32 %4386, ptr %4372, align 4, !tbaa !69
+  store i32 %4386, ptr %4372, align 4, !tbaa !64
   %4387 = icmp eq i32 %4386, 0
   br i1 %4387, label %4388, label %register_class_DOMNodeList.exit
 
@@ -11067,13 +11046,13 @@ register_class_DOMNodeList.exit:                  ; preds = %dom_register_prop_h
   call void @llvm.lifetime.end.p0(ptr nonnull %302)
   call void @llvm.lifetime.end.p0(ptr nonnull %301)
   call void @llvm.lifetime.end.p0(ptr nonnull %303)
-  store ptr %4370, ptr @dom_nodelist_class_entry, align 8, !tbaa !127
+  store ptr %4370, ptr @dom_nodelist_class_entry, align 8, !tbaa !121
   %4392 = getelementptr inbounds nuw i8, ptr %4370, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4392, align 8, !tbaa !44
   %4393 = getelementptr inbounds nuw i8, ptr %4370, i64 360
-  store ptr @dom_nodelist_object_handlers, ptr %4393, align 8, !tbaa !128
+  store ptr @dom_nodelist_object_handlers, ptr %4393, align 8, !tbaa !122
   %4394 = getelementptr inbounds nuw i8, ptr %4370, i64 392
-  store ptr @php_dom_get_iterator, ptr %4394, align 8, !tbaa !134
+  store ptr @php_dom_get_iterator, ptr %4394, align 8, !tbaa !129
   call void @_zend_hash_init(ptr noundef nonnull @dom_nodelist_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4395 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4396 = call ptr %4395(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
@@ -11090,11 +11069,11 @@ register_class_DOMNodeList.exit:                  ; preds = %dom_register_prop_h
   br i1 %.not.i5.i382, label %4402, label %dom_register_prop_handler.exit383
 
 4402:                                             ; preds = %register_class_DOMNodeList.exit
-  %4403 = load i32, ptr %4396, align 4, !tbaa !69
+  %4403 = load i32, ptr %4396, align 4, !tbaa !64
   %4404 = icmp ne i32 %4403, 0
   call void @llvm.assume(i1 %4404)
   %4405 = add i32 %4403, -1
-  store i32 %4405, ptr %4396, align 4, !tbaa !69
+  store i32 %4405, ptr %4396, align 4, !tbaa !64
   %4406 = icmp eq i32 %4405, 0
   br i1 %4406, label %4407, label %dom_register_prop_handler.exit383
 
@@ -11103,7 +11082,7 @@ register_class_DOMNodeList.exit:                  ; preds = %dom_register_prop_h
   br label %dom_register_prop_handler.exit383
 
 dom_register_prop_handler.exit383:                ; preds = %register_class_DOMNodeList.exit, %4402, %4407
-  %4408 = load ptr, ptr @dom_nodelist_class_entry, align 8, !tbaa !127
+  %4408 = load ptr, ptr @dom_nodelist_class_entry, align 8, !tbaa !121
   %4409 = getelementptr inbounds nuw i8, ptr %4408, i64 8
   %4410 = load ptr, ptr %4409, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %653)
@@ -11112,8 +11091,8 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   store i32 13, ptr %4411, align 8, !tbaa !44
   %4412 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4410, ptr noundef nonnull %653) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %653)
-  %4413 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %4414 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %4413 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %4414 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %299)
   call void @llvm.lifetime.start.p0(ptr nonnull %297)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %297, i8 0, i64 520, i1 false)
@@ -11122,7 +11101,7 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   %4417 = getelementptr inbounds nuw i8, ptr %297, i64 8
   store ptr %4416, ptr %4417, align 8, !tbaa !28
   %4418 = getelementptr inbounds nuw i8, ptr %297, i64 360
-  store ptr @std_object_handlers, ptr %4418, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4418, align 8, !tbaa !122
   %4419 = getelementptr inbounds nuw i8, ptr %297, i64 504
   store ptr @class_Dom_NodeList_methods, ptr %4419, align 8, !tbaa !44
   %4420 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %297, ptr noundef null, i32 noundef 0) #17
@@ -11131,20 +11110,20 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   %4421 = getelementptr inbounds nuw i8, ptr %298, i64 8
   store i32 0, ptr %4421, align 8, !tbaa !44
   %4422 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4422, align 4, !tbaa !69
+  store i32 1, ptr %4422, align 4, !tbaa !64
   %4423 = getelementptr inbounds nuw i8, ptr %4422, i64 4
   store i32 150, ptr %4423, align 4, !tbaa !44
   %4424 = getelementptr inbounds nuw i8, ptr %4422, i64 8
-  store i64 0, ptr %4424, align 8, !tbaa !124
+  store i64 0, ptr %4424, align 8, !tbaa !118
   %4425 = getelementptr inbounds nuw i8, ptr %4422, i64 16
-  store i64 6, ptr %4425, align 8, !tbaa !126
+  store i64 6, ptr %4425, align 8, !tbaa !120
   %4426 = getelementptr inbounds nuw i8, ptr %4422, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4426, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4427 = getelementptr inbounds nuw i8, ptr %4422, i64 30
   store i8 0, ptr %4427, align 2, !tbaa !44
-  store ptr null, ptr %299, align 8, !tbaa !132
+  store ptr null, ptr %299, align 8, !tbaa !126
   %4428 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  store i32 16, ptr %4428, align 8, !tbaa !133
+  store i32 16, ptr %4428, align 8, !tbaa !128
   %4429 = getelementptr inbounds nuw i8, ptr %299, i64 12
   store i32 0, ptr %4429, align 4
   %4430 = call ptr @zend_declare_typed_property(ptr noundef %4420, ptr noundef nonnull %4422, ptr noundef nonnull %298, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %299) #17
@@ -11154,11 +11133,11 @@ dom_register_prop_handler.exit383:                ; preds = %register_class_DOMN
   br i1 %.not.i.i384, label %4433, label %register_class_Dom_NodeList.exit
 
 4433:                                             ; preds = %dom_register_prop_handler.exit383
-  %4434 = load i32, ptr %4422, align 4, !tbaa !69
+  %4434 = load i32, ptr %4422, align 4, !tbaa !64
   %4435 = icmp ne i32 %4434, 0
   call void @llvm.assume(i1 %4435)
   %4436 = add i32 %4434, -1
-  store i32 %4436, ptr %4422, align 4, !tbaa !69
+  store i32 %4436, ptr %4422, align 4, !tbaa !64
   %4437 = icmp eq i32 %4436, 0
   br i1 %4437, label %4438, label %register_class_Dom_NodeList.exit
 
@@ -11179,13 +11158,13 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   call void @llvm.lifetime.end.p0(ptr nonnull %298)
   call void @llvm.lifetime.end.p0(ptr nonnull %297)
   call void @llvm.lifetime.end.p0(ptr nonnull %299)
-  store ptr %4420, ptr @dom_modern_nodelist_class_entry, align 8, !tbaa !127
+  store ptr %4420, ptr @dom_modern_nodelist_class_entry, align 8, !tbaa !121
   %4442 = getelementptr inbounds nuw i8, ptr %4420, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4442, align 8, !tbaa !44
   %4443 = getelementptr inbounds nuw i8, ptr %4420, i64 360
-  store ptr @dom_modern_nodelist_object_handlers, ptr %4443, align 8, !tbaa !128
+  store ptr @dom_modern_nodelist_object_handlers, ptr %4443, align 8, !tbaa !122
   %4444 = getelementptr inbounds nuw i8, ptr %4420, i64 392
-  store ptr @php_dom_get_iterator, ptr %4444, align 8, !tbaa !134
+  store ptr @php_dom_get_iterator, ptr %4444, align 8, !tbaa !129
   %4445 = getelementptr inbounds nuw i8, ptr %4420, i64 8
   %4446 = load ptr, ptr %4445, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %652)
@@ -11194,8 +11173,8 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   store i32 13, ptr %4447, align 8, !tbaa !44
   %4448 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4446, ptr noundef nonnull %652) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %652)
-  %4449 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %4450 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %4449 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %4450 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %296)
   call void @llvm.lifetime.start.p0(ptr nonnull %294)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %294, i8 0, i64 520, i1 false)
@@ -11204,7 +11183,7 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   %4453 = getelementptr inbounds nuw i8, ptr %294, i64 8
   store ptr %4452, ptr %4453, align 8, !tbaa !28
   %4454 = getelementptr inbounds nuw i8, ptr %294, i64 360
-  store ptr @std_object_handlers, ptr %4454, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4454, align 8, !tbaa !122
   %4455 = getelementptr inbounds nuw i8, ptr %294, i64 504
   store ptr @class_DOMNamedNodeMap_methods, ptr %4455, align 8, !tbaa !44
   %4456 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %294, ptr noundef null, i32 noundef 0) #17
@@ -11213,20 +11192,20 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   %4457 = getelementptr inbounds nuw i8, ptr %295, i64 8
   store i32 0, ptr %4457, align 8, !tbaa !44
   %4458 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4458, align 4, !tbaa !69
+  store i32 1, ptr %4458, align 4, !tbaa !64
   %4459 = getelementptr inbounds nuw i8, ptr %4458, i64 4
   store i32 150, ptr %4459, align 4, !tbaa !44
   %4460 = getelementptr inbounds nuw i8, ptr %4458, i64 8
-  store i64 0, ptr %4460, align 8, !tbaa !124
+  store i64 0, ptr %4460, align 8, !tbaa !118
   %4461 = getelementptr inbounds nuw i8, ptr %4458, i64 16
-  store i64 6, ptr %4461, align 8, !tbaa !126
+  store i64 6, ptr %4461, align 8, !tbaa !120
   %4462 = getelementptr inbounds nuw i8, ptr %4458, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4462, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4463 = getelementptr inbounds nuw i8, ptr %4458, i64 30
   store i8 0, ptr %4463, align 2, !tbaa !44
-  store ptr null, ptr %296, align 8, !tbaa !132
+  store ptr null, ptr %296, align 8, !tbaa !126
   %4464 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  store i32 16, ptr %4464, align 8, !tbaa !133
+  store i32 16, ptr %4464, align 8, !tbaa !128
   %4465 = getelementptr inbounds nuw i8, ptr %296, i64 12
   store i32 0, ptr %4465, align 4
   %4466 = call ptr @zend_declare_typed_property(ptr noundef %4456, ptr noundef nonnull %4458, ptr noundef nonnull %295, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %296) #17
@@ -11236,11 +11215,11 @@ register_class_Dom_NodeList.exit:                 ; preds = %dom_register_prop_h
   br i1 %.not.i.i387, label %4469, label %register_class_DOMNamedNodeMap.exit
 
 4469:                                             ; preds = %register_class_Dom_NodeList.exit
-  %4470 = load i32, ptr %4458, align 4, !tbaa !69
+  %4470 = load i32, ptr %4458, align 4, !tbaa !64
   %4471 = icmp ne i32 %4470, 0
   call void @llvm.assume(i1 %4471)
   %4472 = add i32 %4470, -1
-  store i32 %4472, ptr %4458, align 4, !tbaa !69
+  store i32 %4472, ptr %4458, align 4, !tbaa !64
   %4473 = icmp eq i32 %4472, 0
   br i1 %4473, label %4474, label %register_class_DOMNamedNodeMap.exit
 
@@ -11261,13 +11240,13 @@ register_class_DOMNamedNodeMap.exit:              ; preds = %register_class_Dom_
   call void @llvm.lifetime.end.p0(ptr nonnull %295)
   call void @llvm.lifetime.end.p0(ptr nonnull %294)
   call void @llvm.lifetime.end.p0(ptr nonnull %296)
-  store ptr %4456, ptr @dom_namednodemap_class_entry, align 8, !tbaa !127
+  store ptr %4456, ptr @dom_namednodemap_class_entry, align 8, !tbaa !121
   %4478 = getelementptr inbounds nuw i8, ptr %4456, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4478, align 8, !tbaa !44
   %4479 = getelementptr inbounds nuw i8, ptr %4456, i64 360
-  store ptr @dom_nnodemap_object_handlers, ptr %4479, align 8, !tbaa !128
+  store ptr @dom_nnodemap_object_handlers, ptr %4479, align 8, !tbaa !122
   %4480 = getelementptr inbounds nuw i8, ptr %4456, i64 392
-  store ptr @php_dom_get_iterator, ptr %4480, align 8, !tbaa !134
+  store ptr @php_dom_get_iterator, ptr %4480, align 8, !tbaa !129
   call void @_zend_hash_init(ptr noundef nonnull @dom_namednodemap_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4481 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4482 = call ptr %4481(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
@@ -11284,11 +11263,11 @@ register_class_DOMNamedNodeMap.exit:              ; preds = %register_class_Dom_
   br i1 %.not.i5.i390, label %4488, label %dom_register_prop_handler.exit391
 
 4488:                                             ; preds = %register_class_DOMNamedNodeMap.exit
-  %4489 = load i32, ptr %4482, align 4, !tbaa !69
+  %4489 = load i32, ptr %4482, align 4, !tbaa !64
   %4490 = icmp ne i32 %4489, 0
   call void @llvm.assume(i1 %4490)
   %4491 = add i32 %4489, -1
-  store i32 %4491, ptr %4482, align 4, !tbaa !69
+  store i32 %4491, ptr %4482, align 4, !tbaa !64
   %4492 = icmp eq i32 %4491, 0
   br i1 %4492, label %4493, label %dom_register_prop_handler.exit391
 
@@ -11297,7 +11276,7 @@ register_class_DOMNamedNodeMap.exit:              ; preds = %register_class_Dom_
   br label %dom_register_prop_handler.exit391
 
 dom_register_prop_handler.exit391:                ; preds = %register_class_DOMNamedNodeMap.exit, %4488, %4493
-  %4494 = load ptr, ptr @dom_namednodemap_class_entry, align 8, !tbaa !127
+  %4494 = load ptr, ptr @dom_namednodemap_class_entry, align 8, !tbaa !121
   %4495 = getelementptr inbounds nuw i8, ptr %4494, i64 8
   %4496 = load ptr, ptr %4495, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %651)
@@ -11306,8 +11285,8 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   store i32 13, ptr %4497, align 8, !tbaa !44
   %4498 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4496, ptr noundef nonnull %651) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %651)
-  %4499 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %4500 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %4499 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %4500 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %292)
   call void @llvm.lifetime.start.p0(ptr nonnull %290)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %290, i8 0, i64 520, i1 false)
@@ -11316,7 +11295,7 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   %4503 = getelementptr inbounds nuw i8, ptr %290, i64 8
   store ptr %4502, ptr %4503, align 8, !tbaa !28
   %4504 = getelementptr inbounds nuw i8, ptr %290, i64 360
-  store ptr @std_object_handlers, ptr %4504, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4504, align 8, !tbaa !122
   %4505 = getelementptr inbounds nuw i8, ptr %290, i64 504
   store ptr @class_Dom_NamedNodeMap_methods, ptr %4505, align 8, !tbaa !44
   %4506 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %290, ptr noundef null, i32 noundef 0) #17
@@ -11325,20 +11304,20 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   %4507 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i32 0, ptr %4507, align 8, !tbaa !44
   %4508 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4508, align 4, !tbaa !69
+  store i32 1, ptr %4508, align 4, !tbaa !64
   %4509 = getelementptr inbounds nuw i8, ptr %4508, i64 4
   store i32 150, ptr %4509, align 4, !tbaa !44
   %4510 = getelementptr inbounds nuw i8, ptr %4508, i64 8
-  store i64 0, ptr %4510, align 8, !tbaa !124
+  store i64 0, ptr %4510, align 8, !tbaa !118
   %4511 = getelementptr inbounds nuw i8, ptr %4508, i64 16
-  store i64 6, ptr %4511, align 8, !tbaa !126
+  store i64 6, ptr %4511, align 8, !tbaa !120
   %4512 = getelementptr inbounds nuw i8, ptr %4508, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4512, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4513 = getelementptr inbounds nuw i8, ptr %4508, i64 30
   store i8 0, ptr %4513, align 2, !tbaa !44
-  store ptr null, ptr %292, align 8, !tbaa !132
+  store ptr null, ptr %292, align 8, !tbaa !126
   %4514 = getelementptr inbounds nuw i8, ptr %292, i64 8
-  store i32 16, ptr %4514, align 8, !tbaa !133
+  store i32 16, ptr %4514, align 8, !tbaa !128
   %4515 = getelementptr inbounds nuw i8, ptr %292, i64 12
   store i32 0, ptr %4515, align 4
   %4516 = call ptr @zend_declare_typed_property(ptr noundef %4506, ptr noundef nonnull %4508, ptr noundef nonnull %291, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %292) #17
@@ -11348,11 +11327,11 @@ dom_register_prop_handler.exit391:                ; preds = %register_class_DOMN
   br i1 %.not.i.i392, label %4519, label %register_class_Dom_NamedNodeMap.exit
 
 4519:                                             ; preds = %dom_register_prop_handler.exit391
-  %4520 = load i32, ptr %4508, align 4, !tbaa !69
+  %4520 = load i32, ptr %4508, align 4, !tbaa !64
   %4521 = icmp ne i32 %4520, 0
   call void @llvm.assume(i1 %4521)
   %4522 = add i32 %4520, -1
-  store i32 %4522, ptr %4508, align 4, !tbaa !69
+  store i32 %4522, ptr %4508, align 4, !tbaa !64
   %4523 = icmp eq i32 %4522, 0
   br i1 %4523, label %4524, label %register_class_Dom_NamedNodeMap.exit
 
@@ -11373,13 +11352,13 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   call void @llvm.lifetime.end.p0(ptr nonnull %291)
   call void @llvm.lifetime.end.p0(ptr nonnull %290)
   call void @llvm.lifetime.end.p0(ptr nonnull %292)
-  store ptr %4506, ptr @dom_modern_namednodemap_class_entry, align 8, !tbaa !127
+  store ptr %4506, ptr @dom_modern_namednodemap_class_entry, align 8, !tbaa !121
   %4528 = getelementptr inbounds nuw i8, ptr %4506, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4528, align 8, !tbaa !44
   %4529 = getelementptr inbounds nuw i8, ptr %4506, i64 360
-  store ptr @dom_modern_nnodemap_object_handlers, ptr %4529, align 8, !tbaa !128
+  store ptr @dom_modern_nnodemap_object_handlers, ptr %4529, align 8, !tbaa !122
   %4530 = getelementptr inbounds nuw i8, ptr %4506, i64 392
-  store ptr @php_dom_get_iterator, ptr %4530, align 8, !tbaa !134
+  store ptr @php_dom_get_iterator, ptr %4530, align 8, !tbaa !129
   %4531 = getelementptr inbounds nuw i8, ptr %4506, i64 8
   %4532 = load ptr, ptr %4531, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %650)
@@ -11388,8 +11367,8 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   store i32 13, ptr %4533, align 8, !tbaa !44
   %4534 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4532, ptr noundef nonnull %650) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %650)
-  %4535 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %4536 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %4535 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %4536 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %289)
   call void @llvm.lifetime.start.p0(ptr nonnull %287)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %287, i8 0, i64 520, i1 false)
@@ -11398,7 +11377,7 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   %4539 = getelementptr inbounds nuw i8, ptr %287, i64 8
   store ptr %4538, ptr %4539, align 8, !tbaa !28
   %4540 = getelementptr inbounds nuw i8, ptr %287, i64 360
-  store ptr @std_object_handlers, ptr %4540, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4540, align 8, !tbaa !122
   %4541 = getelementptr inbounds nuw i8, ptr %287, i64 504
   store ptr @class_Dom_DtdNamedNodeMap_methods, ptr %4541, align 8, !tbaa !44
   %4542 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %287, ptr noundef null, i32 noundef 0) #17
@@ -11407,20 +11386,20 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   %4543 = getelementptr inbounds nuw i8, ptr %288, i64 8
   store i32 0, ptr %4543, align 8, !tbaa !44
   %4544 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4544, align 4, !tbaa !69
+  store i32 1, ptr %4544, align 4, !tbaa !64
   %4545 = getelementptr inbounds nuw i8, ptr %4544, i64 4
   store i32 150, ptr %4545, align 4, !tbaa !44
   %4546 = getelementptr inbounds nuw i8, ptr %4544, i64 8
-  store i64 0, ptr %4546, align 8, !tbaa !124
+  store i64 0, ptr %4546, align 8, !tbaa !118
   %4547 = getelementptr inbounds nuw i8, ptr %4544, i64 16
-  store i64 6, ptr %4547, align 8, !tbaa !126
+  store i64 6, ptr %4547, align 8, !tbaa !120
   %4548 = getelementptr inbounds nuw i8, ptr %4544, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4548, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4549 = getelementptr inbounds nuw i8, ptr %4544, i64 30
   store i8 0, ptr %4549, align 2, !tbaa !44
-  store ptr null, ptr %289, align 8, !tbaa !132
+  store ptr null, ptr %289, align 8, !tbaa !126
   %4550 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  store i32 16, ptr %4550, align 8, !tbaa !133
+  store i32 16, ptr %4550, align 8, !tbaa !128
   %4551 = getelementptr inbounds nuw i8, ptr %289, i64 12
   store i32 0, ptr %4551, align 4
   %4552 = call ptr @zend_declare_typed_property(ptr noundef %4542, ptr noundef nonnull %4544, ptr noundef nonnull %288, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %289) #17
@@ -11430,11 +11409,11 @@ register_class_Dom_NamedNodeMap.exit:             ; preds = %dom_register_prop_h
   br i1 %.not.i.i395, label %4555, label %register_class_Dom_DtdNamedNodeMap.exit
 
 4555:                                             ; preds = %register_class_Dom_NamedNodeMap.exit
-  %4556 = load i32, ptr %4544, align 4, !tbaa !69
+  %4556 = load i32, ptr %4544, align 4, !tbaa !64
   %4557 = icmp ne i32 %4556, 0
   call void @llvm.assume(i1 %4557)
   %4558 = add i32 %4556, -1
-  store i32 %4558, ptr %4544, align 4, !tbaa !69
+  store i32 %4558, ptr %4544, align 4, !tbaa !64
   %4559 = icmp eq i32 %4558, 0
   br i1 %4559, label %4560, label %register_class_Dom_DtdNamedNodeMap.exit
 
@@ -11455,13 +11434,13 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   call void @llvm.lifetime.end.p0(ptr nonnull %288)
   call void @llvm.lifetime.end.p0(ptr nonnull %287)
   call void @llvm.lifetime.end.p0(ptr nonnull %289)
-  store ptr %4542, ptr @dom_modern_dtd_namednodemap_class_entry, align 8, !tbaa !127
+  store ptr %4542, ptr @dom_modern_dtd_namednodemap_class_entry, align 8, !tbaa !121
   %4564 = getelementptr inbounds nuw i8, ptr %4542, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4564, align 8, !tbaa !44
   %4565 = getelementptr inbounds nuw i8, ptr %4542, i64 360
-  store ptr @dom_modern_nnodemap_object_handlers, ptr %4565, align 8, !tbaa !128
+  store ptr @dom_modern_nnodemap_object_handlers, ptr %4565, align 8, !tbaa !122
   %4566 = getelementptr inbounds nuw i8, ptr %4542, i64 392
-  store ptr @php_dom_get_iterator, ptr %4566, align 8, !tbaa !134
+  store ptr @php_dom_get_iterator, ptr %4566, align 8, !tbaa !129
   %4567 = getelementptr inbounds nuw i8, ptr %4542, i64 8
   %4568 = load ptr, ptr %4567, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %649)
@@ -11470,8 +11449,8 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   store i32 13, ptr %4569, align 8, !tbaa !44
   %4570 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4568, ptr noundef nonnull %649) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %649)
-  %4571 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %4572 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %4571 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %4572 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %286)
   call void @llvm.lifetime.start.p0(ptr nonnull %284)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %284, i8 0, i64 520, i1 false)
@@ -11480,7 +11459,7 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   %4575 = getelementptr inbounds nuw i8, ptr %284, i64 8
   store ptr %4574, ptr %4575, align 8, !tbaa !28
   %4576 = getelementptr inbounds nuw i8, ptr %284, i64 360
-  store ptr @std_object_handlers, ptr %4576, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4576, align 8, !tbaa !122
   %4577 = getelementptr inbounds nuw i8, ptr %284, i64 504
   store ptr @class_Dom_HTMLCollection_methods, ptr %4577, align 8, !tbaa !44
   %4578 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %284, ptr noundef null, i32 noundef 0) #17
@@ -11489,20 +11468,20 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   %4579 = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 0, ptr %4579, align 8, !tbaa !44
   %4580 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4580, align 4, !tbaa !69
+  store i32 1, ptr %4580, align 4, !tbaa !64
   %4581 = getelementptr inbounds nuw i8, ptr %4580, i64 4
   store i32 150, ptr %4581, align 4, !tbaa !44
   %4582 = getelementptr inbounds nuw i8, ptr %4580, i64 8
-  store i64 0, ptr %4582, align 8, !tbaa !124
+  store i64 0, ptr %4582, align 8, !tbaa !118
   %4583 = getelementptr inbounds nuw i8, ptr %4580, i64 16
-  store i64 6, ptr %4583, align 8, !tbaa !126
+  store i64 6, ptr %4583, align 8, !tbaa !120
   %4584 = getelementptr inbounds nuw i8, ptr %4580, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4584, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4585 = getelementptr inbounds nuw i8, ptr %4580, i64 30
   store i8 0, ptr %4585, align 2, !tbaa !44
-  store ptr null, ptr %286, align 8, !tbaa !132
+  store ptr null, ptr %286, align 8, !tbaa !126
   %4586 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  store i32 16, ptr %4586, align 8, !tbaa !133
+  store i32 16, ptr %4586, align 8, !tbaa !128
   %4587 = getelementptr inbounds nuw i8, ptr %286, i64 12
   store i32 0, ptr %4587, align 4
   %4588 = call ptr @zend_declare_typed_property(ptr noundef %4578, ptr noundef nonnull %4580, ptr noundef nonnull %285, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %286) #17
@@ -11512,11 +11491,11 @@ register_class_Dom_DtdNamedNodeMap.exit:          ; preds = %register_class_Dom_
   br i1 %.not.i.i398, label %4591, label %register_class_Dom_HTMLCollection.exit
 
 4591:                                             ; preds = %register_class_Dom_DtdNamedNodeMap.exit
-  %4592 = load i32, ptr %4580, align 4, !tbaa !69
+  %4592 = load i32, ptr %4580, align 4, !tbaa !64
   %4593 = icmp ne i32 %4592, 0
   call void @llvm.assume(i1 %4593)
   %4594 = add i32 %4592, -1
-  store i32 %4594, ptr %4580, align 4, !tbaa !69
+  store i32 %4594, ptr %4580, align 4, !tbaa !64
   %4595 = icmp eq i32 %4594, 0
   br i1 %4595, label %4596, label %register_class_Dom_HTMLCollection.exit
 
@@ -11537,13 +11516,13 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   call void @llvm.lifetime.end.p0(ptr nonnull %285)
   call void @llvm.lifetime.end.p0(ptr nonnull %284)
   call void @llvm.lifetime.end.p0(ptr nonnull %286)
-  store ptr %4578, ptr @dom_html_collection_class_entry, align 8, !tbaa !127
+  store ptr %4578, ptr @dom_html_collection_class_entry, align 8, !tbaa !121
   %4600 = getelementptr inbounds nuw i8, ptr %4578, i64 384
   store ptr @dom_nnodemap_objects_new, ptr %4600, align 8, !tbaa !44
   %4601 = getelementptr inbounds nuw i8, ptr %4578, i64 360
-  store ptr @dom_html_collection_object_handlers, ptr %4601, align 8, !tbaa !128
+  store ptr @dom_html_collection_object_handlers, ptr %4601, align 8, !tbaa !122
   %4602 = getelementptr inbounds nuw i8, ptr %4578, i64 392
-  store ptr @php_dom_get_iterator, ptr %4602, align 8, !tbaa !134
+  store ptr @php_dom_get_iterator, ptr %4602, align 8, !tbaa !129
   %4603 = getelementptr inbounds nuw i8, ptr %4578, i64 8
   %4604 = load ptr, ptr %4603, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %648)
@@ -11552,8 +11531,8 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   store i32 13, ptr %4605, align 8, !tbaa !44
   %4606 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4604, ptr noundef nonnull %648) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %648)
-  %4607 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  %4608 = load ptr, ptr @dom_childnode_class_entry, align 8, !tbaa !127
+  %4607 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
+  %4608 = load ptr, ptr @dom_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %277)
   call void @llvm.lifetime.start.p0(ptr nonnull %279)
   call void @llvm.lifetime.start.p0(ptr nonnull %281)
@@ -11565,7 +11544,7 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   %4611 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store ptr %4610, ptr %4611, align 8, !tbaa !28
   %4612 = getelementptr inbounds nuw i8, ptr %275, i64 360
-  store ptr @std_object_handlers, ptr %4612, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4612, align 8, !tbaa !122
   %4613 = getelementptr inbounds nuw i8, ptr %275, i64 504
   store ptr @class_DOMCharacterData_methods, ptr %4613, align 8, !tbaa !44
   %4614 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %275, ptr noundef %4607, i32 noundef 0) #17
@@ -11574,20 +11553,20 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   %4615 = getelementptr inbounds nuw i8, ptr %276, i64 8
   store i32 0, ptr %4615, align 8, !tbaa !44
   %4616 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4616, align 4, !tbaa !69
+  store i32 1, ptr %4616, align 4, !tbaa !64
   %4617 = getelementptr inbounds nuw i8, ptr %4616, i64 4
   store i32 150, ptr %4617, align 4, !tbaa !44
   %4618 = getelementptr inbounds nuw i8, ptr %4616, i64 8
-  store i64 0, ptr %4618, align 8, !tbaa !124
+  store i64 0, ptr %4618, align 8, !tbaa !118
   %4619 = getelementptr inbounds nuw i8, ptr %4616, i64 16
-  store i64 4, ptr %4619, align 8, !tbaa !126
+  store i64 4, ptr %4619, align 8, !tbaa !120
   %4620 = getelementptr inbounds nuw i8, ptr %4616, i64 24
   store i32 1635017060, ptr %4620, align 8
   %4621 = getelementptr inbounds nuw i8, ptr %4616, i64 28
   store i8 0, ptr %4621, align 4, !tbaa !44
-  store ptr null, ptr %277, align 8, !tbaa !132
+  store ptr null, ptr %277, align 8, !tbaa !126
   %4622 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  store i32 64, ptr %4622, align 8, !tbaa !133
+  store i32 64, ptr %4622, align 8, !tbaa !128
   %4623 = getelementptr inbounds nuw i8, ptr %277, i64 12
   store i32 0, ptr %4623, align 4
   %4624 = call ptr @zend_declare_typed_property(ptr noundef %4614, ptr noundef nonnull %4616, ptr noundef nonnull %276, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %277) #17
@@ -11597,11 +11576,11 @@ register_class_Dom_HTMLCollection.exit:           ; preds = %register_class_Dom_
   br i1 %.not.i.i401, label %4627, label %zend_string_release.exit.i402
 
 4627:                                             ; preds = %register_class_Dom_HTMLCollection.exit
-  %4628 = load i32, ptr %4616, align 4, !tbaa !69
+  %4628 = load i32, ptr %4616, align 4, !tbaa !64
   %4629 = icmp ne i32 %4628, 0
   call void @llvm.assume(i1 %4629)
   %4630 = add i32 %4628, -1
-  store i32 %4630, ptr %4616, align 4, !tbaa !69
+  store i32 %4630, ptr %4616, align 4, !tbaa !64
   %4631 = icmp eq i32 %4630, 0
   br i1 %4631, label %4632, label %zend_string_release.exit.i402
 
@@ -11623,20 +11602,20 @@ zend_string_release.exit.i402:                    ; preds = %4635, %4634, %4627,
   %4636 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store i32 0, ptr %4636, align 8, !tbaa !44
   %4637 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4637, align 4, !tbaa !69
+  store i32 1, ptr %4637, align 4, !tbaa !64
   %4638 = getelementptr inbounds nuw i8, ptr %4637, i64 4
   store i32 150, ptr %4638, align 4, !tbaa !44
   %4639 = getelementptr inbounds nuw i8, ptr %4637, i64 8
-  store i64 0, ptr %4639, align 8, !tbaa !124
+  store i64 0, ptr %4639, align 8, !tbaa !118
   %4640 = getelementptr inbounds nuw i8, ptr %4637, i64 16
-  store i64 6, ptr %4640, align 8, !tbaa !126
+  store i64 6, ptr %4640, align 8, !tbaa !120
   %4641 = getelementptr inbounds nuw i8, ptr %4637, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4641, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4642 = getelementptr inbounds nuw i8, ptr %4637, i64 30
   store i8 0, ptr %4642, align 2, !tbaa !44
-  store ptr null, ptr %279, align 8, !tbaa !132
+  store ptr null, ptr %279, align 8, !tbaa !126
   %4643 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  store i32 16, ptr %4643, align 8, !tbaa !133
+  store i32 16, ptr %4643, align 8, !tbaa !128
   %4644 = getelementptr inbounds nuw i8, ptr %279, i64 12
   store i32 0, ptr %4644, align 4
   %4645 = call ptr @zend_declare_typed_property(ptr noundef %4614, ptr noundef nonnull %4637, ptr noundef nonnull %278, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %279) #17
@@ -11646,11 +11625,11 @@ zend_string_release.exit.i402:                    ; preds = %4635, %4634, %4627,
   br i1 %.not.i18.i403, label %4648, label %zend_string_release.exit20.i
 
 4648:                                             ; preds = %zend_string_release.exit.i402
-  %4649 = load i32, ptr %4637, align 4, !tbaa !69
+  %4649 = load i32, ptr %4637, align 4, !tbaa !64
   %4650 = icmp ne i32 %4649, 0
   call void @llvm.assume(i1 %4650)
   %4651 = add i32 %4649, -1
-  store i32 %4651, ptr %4637, align 4, !tbaa !69
+  store i32 %4651, ptr %4637, align 4, !tbaa !64
   %4652 = icmp eq i32 %4651, 0
   br i1 %4652, label %4653, label %zend_string_release.exit20.i
 
@@ -11672,32 +11651,32 @@ zend_string_release.exit20.i:                     ; preds = %4656, %4655, %4648,
   %4657 = getelementptr inbounds nuw i8, ptr %280, i64 8
   store i32 0, ptr %4657, align 8, !tbaa !44
   %4658 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %4658, align 4, !tbaa !69
+  store i32 1, ptr %4658, align 4, !tbaa !64
   %4659 = getelementptr inbounds nuw i8, ptr %4658, i64 4
   store i32 150, ptr %4659, align 4, !tbaa !44
   %4660 = getelementptr inbounds nuw i8, ptr %4658, i64 8
-  store i64 0, ptr %4660, align 8, !tbaa !124
+  store i64 0, ptr %4660, align 8, !tbaa !118
   %4661 = getelementptr inbounds nuw i8, ptr %4658, i64 16
-  store i64 22, ptr %4661, align 8, !tbaa !126
+  store i64 22, ptr %4661, align 8, !tbaa !120
   %4662 = getelementptr inbounds nuw i8, ptr %4658, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %4662, ptr noundef nonnull align 1 dereferenceable(22) @.str.145, i64 22, i1 false)
   %4663 = getelementptr inbounds nuw i8, ptr %4658, i64 46
   store i8 0, ptr %4663, align 2, !tbaa !44
   %4664 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4664, align 4, !tbaa !69
+  store i32 1, ptr %4664, align 4, !tbaa !64
   %4665 = getelementptr inbounds nuw i8, ptr %4664, i64 4
   store i32 150, ptr %4665, align 4, !tbaa !44
   %4666 = getelementptr inbounds nuw i8, ptr %4664, i64 8
-  store i64 0, ptr %4666, align 8, !tbaa !124
+  store i64 0, ptr %4666, align 8, !tbaa !118
   %4667 = getelementptr inbounds nuw i8, ptr %4664, i64 16
-  store i64 10, ptr %4667, align 8, !tbaa !126
+  store i64 10, ptr %4667, align 8, !tbaa !120
   %4668 = getelementptr inbounds nuw i8, ptr %4664, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4668, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %4669 = getelementptr inbounds nuw i8, ptr %4664, i64 34
   store i8 0, ptr %4669, align 2, !tbaa !44
-  store ptr %4664, ptr %281, align 8, !tbaa !132
+  store ptr %4664, ptr %281, align 8, !tbaa !126
   %4670 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store i32 16777218, ptr %4670, align 8, !tbaa !133
+  store i32 16777218, ptr %4670, align 8, !tbaa !128
   %4671 = getelementptr inbounds nuw i8, ptr %281, i64 12
   store i32 0, ptr %4671, align 4
   %4672 = call ptr @zend_declare_typed_property(ptr noundef %4614, ptr noundef nonnull %4658, ptr noundef nonnull %280, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %281) #17
@@ -11707,11 +11686,11 @@ zend_string_release.exit20.i:                     ; preds = %4656, %4655, %4648,
   br i1 %.not.i21.i, label %4675, label %zend_string_release.exit23.i
 
 4675:                                             ; preds = %zend_string_release.exit20.i
-  %4676 = load i32, ptr %4658, align 4, !tbaa !69
+  %4676 = load i32, ptr %4658, align 4, !tbaa !64
   %4677 = icmp ne i32 %4676, 0
   call void @llvm.assume(i1 %4677)
   %4678 = add i32 %4676, -1
-  store i32 %4678, ptr %4658, align 4, !tbaa !69
+  store i32 %4678, ptr %4658, align 4, !tbaa !64
   %4679 = icmp eq i32 %4678, 0
   br i1 %4679, label %4680, label %zend_string_release.exit23.i
 
@@ -11733,32 +11712,32 @@ zend_string_release.exit23.i:                     ; preds = %4683, %4682, %4675,
   %4684 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store i32 0, ptr %4684, align 8, !tbaa !44
   %4685 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %4685, align 4, !tbaa !69
+  store i32 1, ptr %4685, align 4, !tbaa !64
   %4686 = getelementptr inbounds nuw i8, ptr %4685, i64 4
   store i32 150, ptr %4686, align 4, !tbaa !44
   %4687 = getelementptr inbounds nuw i8, ptr %4685, i64 8
-  store i64 0, ptr %4687, align 8, !tbaa !124
+  store i64 0, ptr %4687, align 8, !tbaa !118
   %4688 = getelementptr inbounds nuw i8, ptr %4685, i64 16
-  store i64 18, ptr %4688, align 8, !tbaa !126
+  store i64 18, ptr %4688, align 8, !tbaa !120
   %4689 = getelementptr inbounds nuw i8, ptr %4685, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %4689, ptr noundef nonnull align 1 dereferenceable(18) @.str.147, i64 18, i1 false)
   %4690 = getelementptr inbounds nuw i8, ptr %4685, i64 42
   store i8 0, ptr %4690, align 2, !tbaa !44
   %4691 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4691, align 4, !tbaa !69
+  store i32 1, ptr %4691, align 4, !tbaa !64
   %4692 = getelementptr inbounds nuw i8, ptr %4691, i64 4
   store i32 150, ptr %4692, align 4, !tbaa !44
   %4693 = getelementptr inbounds nuw i8, ptr %4691, i64 8
-  store i64 0, ptr %4693, align 8, !tbaa !124
+  store i64 0, ptr %4693, align 8, !tbaa !118
   %4694 = getelementptr inbounds nuw i8, ptr %4691, i64 16
-  store i64 10, ptr %4694, align 8, !tbaa !126
+  store i64 10, ptr %4694, align 8, !tbaa !120
   %4695 = getelementptr inbounds nuw i8, ptr %4691, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4695, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %4696 = getelementptr inbounds nuw i8, ptr %4691, i64 34
   store i8 0, ptr %4696, align 2, !tbaa !44
-  store ptr %4691, ptr %283, align 8, !tbaa !132
+  store ptr %4691, ptr %283, align 8, !tbaa !126
   %4697 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  store i32 16777218, ptr %4697, align 8, !tbaa !133
+  store i32 16777218, ptr %4697, align 8, !tbaa !128
   %4698 = getelementptr inbounds nuw i8, ptr %283, i64 12
   store i32 0, ptr %4698, align 4
   %4699 = call ptr @zend_declare_typed_property(ptr noundef %4614, ptr noundef nonnull %4685, ptr noundef nonnull %282, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %283) #17
@@ -11768,11 +11747,11 @@ zend_string_release.exit23.i:                     ; preds = %4683, %4682, %4675,
   br i1 %.not.i24.i, label %4702, label %register_class_DOMCharacterData.exit
 
 4702:                                             ; preds = %zend_string_release.exit23.i
-  %4703 = load i32, ptr %4685, align 4, !tbaa !69
+  %4703 = load i32, ptr %4685, align 4, !tbaa !64
   %4704 = icmp ne i32 %4703, 0
   call void @llvm.assume(i1 %4704)
   %4705 = add i32 %4703, -1
-  store i32 %4705, ptr %4685, align 4, !tbaa !69
+  store i32 %4705, ptr %4685, align 4, !tbaa !64
   %4706 = icmp eq i32 %4705, 0
   br i1 %4706, label %4707, label %register_class_DOMCharacterData.exit
 
@@ -11799,11 +11778,11 @@ register_class_DOMCharacterData.exit:             ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %279)
   call void @llvm.lifetime.end.p0(ptr nonnull %281)
   call void @llvm.lifetime.end.p0(ptr nonnull %283)
-  store ptr %4614, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
+  store ptr %4614, ptr @dom_characterdata_class_entry, align 8, !tbaa !121
   %4711 = getelementptr inbounds nuw i8, ptr %4614, i64 384
   store ptr @dom_objects_new, ptr %4711, align 8, !tbaa !44
   %4712 = getelementptr inbounds nuw i8, ptr %4614, i64 360
-  store ptr @dom_object_handlers, ptr %4712, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %4712, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_characterdata_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4713 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4714 = call ptr %4713(ptr noundef nonnull @.str.142, i64 noundef 4, i1 noundef zeroext true) #17
@@ -11820,11 +11799,11 @@ register_class_DOMCharacterData.exit:             ; preds = %zend_string_release
   br i1 %.not.i5.i406, label %4720, label %dom_register_prop_handler.exit407
 
 4720:                                             ; preds = %register_class_DOMCharacterData.exit
-  %4721 = load i32, ptr %4714, align 4, !tbaa !69
+  %4721 = load i32, ptr %4714, align 4, !tbaa !64
   %4722 = icmp ne i32 %4721, 0
   call void @llvm.assume(i1 %4722)
   %4723 = add i32 %4721, -1
-  store i32 %4723, ptr %4714, align 4, !tbaa !69
+  store i32 %4723, ptr %4714, align 4, !tbaa !64
   %4724 = icmp eq i32 %4723, 0
   br i1 %4724, label %4725, label %dom_register_prop_handler.exit407
 
@@ -11848,11 +11827,11 @@ dom_register_prop_handler.exit407:                ; preds = %register_class_DOMC
   br i1 %.not.i5.i408, label %4733, label %dom_register_prop_handler.exit409
 
 4733:                                             ; preds = %dom_register_prop_handler.exit407
-  %4734 = load i32, ptr %4727, align 4, !tbaa !69
+  %4734 = load i32, ptr %4727, align 4, !tbaa !64
   %4735 = icmp ne i32 %4734, 0
   call void @llvm.assume(i1 %4735)
   %4736 = add i32 %4734, -1
-  store i32 %4736, ptr %4727, align 4, !tbaa !69
+  store i32 %4736, ptr %4727, align 4, !tbaa !64
   %4737 = icmp eq i32 %4736, 0
   br i1 %4737, label %4738, label %dom_register_prop_handler.exit409
 
@@ -11876,11 +11855,11 @@ dom_register_prop_handler.exit409:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i410, label %4746, label %dom_register_prop_handler.exit411
 
 4746:                                             ; preds = %dom_register_prop_handler.exit409
-  %4747 = load i32, ptr %4740, align 4, !tbaa !69
+  %4747 = load i32, ptr %4740, align 4, !tbaa !64
   %4748 = icmp ne i32 %4747, 0
   call void @llvm.assume(i1 %4748)
   %4749 = add i32 %4747, -1
-  store i32 %4749, ptr %4740, align 4, !tbaa !69
+  store i32 %4749, ptr %4740, align 4, !tbaa !64
   %4750 = icmp eq i32 %4749, 0
   br i1 %4750, label %4751, label %dom_register_prop_handler.exit411
 
@@ -11904,11 +11883,11 @@ dom_register_prop_handler.exit411:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i412, label %4759, label %dom_register_prop_handler.exit413
 
 4759:                                             ; preds = %dom_register_prop_handler.exit411
-  %4760 = load i32, ptr %4753, align 4, !tbaa !69
+  %4760 = load i32, ptr %4753, align 4, !tbaa !64
   %4761 = icmp ne i32 %4760, 0
   call void @llvm.assume(i1 %4761)
   %4762 = add i32 %4760, -1
-  store i32 %4762, ptr %4753, align 4, !tbaa !69
+  store i32 %4762, ptr %4753, align 4, !tbaa !64
   %4763 = icmp eq i32 %4762, 0
   br i1 %4763, label %4764, label %dom_register_prop_handler.exit413
 
@@ -11918,7 +11897,7 @@ dom_register_prop_handler.exit411:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_handler.exit411, %4759, %4764
   call void @zend_hash_merge(ptr noundef nonnull @dom_characterdata_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %4765 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
+  %4765 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !121
   %4766 = getelementptr inbounds nuw i8, ptr %4765, i64 8
   %4767 = load ptr, ptr %4766, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %647)
@@ -11927,8 +11906,8 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   store i32 13, ptr %4768, align 8, !tbaa !44
   %4769 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4767, ptr noundef nonnull %647) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %647)
-  %4770 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  %4771 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
+  %4770 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
+  %4771 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %264)
   call void @llvm.lifetime.start.p0(ptr nonnull %266)
   call void @llvm.lifetime.start.p0(ptr nonnull %268)
@@ -11940,7 +11919,7 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   %4774 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store ptr %4773, ptr %4774, align 8, !tbaa !28
   %4775 = getelementptr inbounds nuw i8, ptr %262, i64 360
-  store ptr @std_object_handlers, ptr %4775, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4775, align 8, !tbaa !122
   %4776 = getelementptr inbounds nuw i8, ptr %262, i64 504
   store ptr @class_Dom_CharacterData_methods, ptr %4776, align 8, !tbaa !44
   %4777 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %262, ptr noundef %4770, i32 noundef 0) #17
@@ -11949,32 +11928,32 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   %4778 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i32 0, ptr %4778, align 8, !tbaa !44
   %4779 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %4779, align 4, !tbaa !69
+  store i32 1, ptr %4779, align 4, !tbaa !64
   %4780 = getelementptr inbounds nuw i8, ptr %4779, i64 4
   store i32 150, ptr %4780, align 4, !tbaa !44
   %4781 = getelementptr inbounds nuw i8, ptr %4779, i64 8
-  store i64 0, ptr %4781, align 8, !tbaa !124
+  store i64 0, ptr %4781, align 8, !tbaa !118
   %4782 = getelementptr inbounds nuw i8, ptr %4779, i64 16
-  store i64 22, ptr %4782, align 8, !tbaa !126
+  store i64 22, ptr %4782, align 8, !tbaa !120
   %4783 = getelementptr inbounds nuw i8, ptr %4779, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %4783, ptr noundef nonnull align 1 dereferenceable(22) @.str.145, i64 22, i1 false)
   %4784 = getelementptr inbounds nuw i8, ptr %4779, i64 46
   store i8 0, ptr %4784, align 2, !tbaa !44
   %4785 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4785, align 4, !tbaa !69
+  store i32 1, ptr %4785, align 4, !tbaa !64
   %4786 = getelementptr inbounds nuw i8, ptr %4785, i64 4
   store i32 150, ptr %4786, align 4, !tbaa !44
   %4787 = getelementptr inbounds nuw i8, ptr %4785, i64 8
-  store i64 0, ptr %4787, align 8, !tbaa !124
+  store i64 0, ptr %4787, align 8, !tbaa !118
   %4788 = getelementptr inbounds nuw i8, ptr %4785, i64 16
-  store i64 11, ptr %4788, align 8, !tbaa !126
+  store i64 11, ptr %4788, align 8, !tbaa !120
   %4789 = getelementptr inbounds nuw i8, ptr %4785, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4789, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %4790 = getelementptr inbounds nuw i8, ptr %4785, i64 35
   store i8 0, ptr %4790, align 1, !tbaa !44
-  store ptr %4785, ptr %264, align 8, !tbaa !132
+  store ptr %4785, ptr %264, align 8, !tbaa !126
   %4791 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  store i32 16777218, ptr %4791, align 8, !tbaa !133
+  store i32 16777218, ptr %4791, align 8, !tbaa !128
   %4792 = getelementptr inbounds nuw i8, ptr %264, i64 12
   store i32 0, ptr %4792, align 4
   %4793 = call ptr @zend_declare_typed_property(ptr noundef %4777, ptr noundef nonnull %4779, ptr noundef nonnull %263, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %264) #17
@@ -11984,11 +11963,11 @@ dom_register_prop_handler.exit413:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i414, label %4796, label %zend_string_release.exit.i415
 
 4796:                                             ; preds = %dom_register_prop_handler.exit413
-  %4797 = load i32, ptr %4779, align 4, !tbaa !69
+  %4797 = load i32, ptr %4779, align 4, !tbaa !64
   %4798 = icmp ne i32 %4797, 0
   call void @llvm.assume(i1 %4798)
   %4799 = add i32 %4797, -1
-  store i32 %4799, ptr %4779, align 4, !tbaa !69
+  store i32 %4799, ptr %4779, align 4, !tbaa !64
   %4800 = icmp eq i32 %4799, 0
   br i1 %4800, label %4801, label %zend_string_release.exit.i415
 
@@ -12010,32 +11989,32 @@ zend_string_release.exit.i415:                    ; preds = %4804, %4803, %4796,
   %4805 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i32 0, ptr %4805, align 8, !tbaa !44
   %4806 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %4806, align 4, !tbaa !69
+  store i32 1, ptr %4806, align 4, !tbaa !64
   %4807 = getelementptr inbounds nuw i8, ptr %4806, i64 4
   store i32 150, ptr %4807, align 4, !tbaa !44
   %4808 = getelementptr inbounds nuw i8, ptr %4806, i64 8
-  store i64 0, ptr %4808, align 8, !tbaa !124
+  store i64 0, ptr %4808, align 8, !tbaa !118
   %4809 = getelementptr inbounds nuw i8, ptr %4806, i64 16
-  store i64 18, ptr %4809, align 8, !tbaa !126
+  store i64 18, ptr %4809, align 8, !tbaa !120
   %4810 = getelementptr inbounds nuw i8, ptr %4806, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %4810, ptr noundef nonnull align 1 dereferenceable(18) @.str.147, i64 18, i1 false)
   %4811 = getelementptr inbounds nuw i8, ptr %4806, i64 42
   store i8 0, ptr %4811, align 2, !tbaa !44
   %4812 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4812, align 4, !tbaa !69
+  store i32 1, ptr %4812, align 4, !tbaa !64
   %4813 = getelementptr inbounds nuw i8, ptr %4812, i64 4
   store i32 150, ptr %4813, align 4, !tbaa !44
   %4814 = getelementptr inbounds nuw i8, ptr %4812, i64 8
-  store i64 0, ptr %4814, align 8, !tbaa !124
+  store i64 0, ptr %4814, align 8, !tbaa !118
   %4815 = getelementptr inbounds nuw i8, ptr %4812, i64 16
-  store i64 11, ptr %4815, align 8, !tbaa !126
+  store i64 11, ptr %4815, align 8, !tbaa !120
   %4816 = getelementptr inbounds nuw i8, ptr %4812, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4816, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %4817 = getelementptr inbounds nuw i8, ptr %4812, i64 35
   store i8 0, ptr %4817, align 1, !tbaa !44
-  store ptr %4812, ptr %266, align 8, !tbaa !132
+  store ptr %4812, ptr %266, align 8, !tbaa !126
   %4818 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  store i32 16777218, ptr %4818, align 8, !tbaa !133
+  store i32 16777218, ptr %4818, align 8, !tbaa !128
   %4819 = getelementptr inbounds nuw i8, ptr %266, i64 12
   store i32 0, ptr %4819, align 4
   %4820 = call ptr @zend_declare_typed_property(ptr noundef %4777, ptr noundef nonnull %4806, ptr noundef nonnull %265, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %266) #17
@@ -12045,11 +12024,11 @@ zend_string_release.exit.i415:                    ; preds = %4804, %4803, %4796,
   br i1 %.not.i18.i416, label %4823, label %zend_string_release.exit20.i417
 
 4823:                                             ; preds = %zend_string_release.exit.i415
-  %4824 = load i32, ptr %4806, align 4, !tbaa !69
+  %4824 = load i32, ptr %4806, align 4, !tbaa !64
   %4825 = icmp ne i32 %4824, 0
   call void @llvm.assume(i1 %4825)
   %4826 = add i32 %4824, -1
-  store i32 %4826, ptr %4806, align 4, !tbaa !69
+  store i32 %4826, ptr %4806, align 4, !tbaa !64
   %4827 = icmp eq i32 %4826, 0
   br i1 %4827, label %4828, label %zend_string_release.exit20.i417
 
@@ -12071,20 +12050,20 @@ zend_string_release.exit20.i417:                  ; preds = %4831, %4830, %4823,
   %4832 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store i32 0, ptr %4832, align 8, !tbaa !44
   %4833 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4833, align 4, !tbaa !69
+  store i32 1, ptr %4833, align 4, !tbaa !64
   %4834 = getelementptr inbounds nuw i8, ptr %4833, i64 4
   store i32 150, ptr %4834, align 4, !tbaa !44
   %4835 = getelementptr inbounds nuw i8, ptr %4833, i64 8
-  store i64 0, ptr %4835, align 8, !tbaa !124
+  store i64 0, ptr %4835, align 8, !tbaa !118
   %4836 = getelementptr inbounds nuw i8, ptr %4833, i64 16
-  store i64 4, ptr %4836, align 8, !tbaa !126
+  store i64 4, ptr %4836, align 8, !tbaa !120
   %4837 = getelementptr inbounds nuw i8, ptr %4833, i64 24
   store i32 1635017060, ptr %4837, align 8
   %4838 = getelementptr inbounds nuw i8, ptr %4833, i64 28
   store i8 0, ptr %4838, align 4, !tbaa !44
-  store ptr null, ptr %268, align 8, !tbaa !132
+  store ptr null, ptr %268, align 8, !tbaa !126
   %4839 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  store i32 64, ptr %4839, align 8, !tbaa !133
+  store i32 64, ptr %4839, align 8, !tbaa !128
   %4840 = getelementptr inbounds nuw i8, ptr %268, i64 12
   store i32 0, ptr %4840, align 4
   %4841 = call ptr @zend_declare_typed_property(ptr noundef %4777, ptr noundef nonnull %4833, ptr noundef nonnull %267, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %268) #17
@@ -12094,11 +12073,11 @@ zend_string_release.exit20.i417:                  ; preds = %4831, %4830, %4823,
   br i1 %.not.i21.i418, label %4844, label %zend_string_release.exit23.i419
 
 4844:                                             ; preds = %zend_string_release.exit20.i417
-  %4845 = load i32, ptr %4833, align 4, !tbaa !69
+  %4845 = load i32, ptr %4833, align 4, !tbaa !64
   %4846 = icmp ne i32 %4845, 0
   call void @llvm.assume(i1 %4846)
   %4847 = add i32 %4845, -1
-  store i32 %4847, ptr %4833, align 4, !tbaa !69
+  store i32 %4847, ptr %4833, align 4, !tbaa !64
   %4848 = icmp eq i32 %4847, 0
   br i1 %4848, label %4849, label %zend_string_release.exit23.i419
 
@@ -12120,20 +12099,20 @@ zend_string_release.exit23.i419:                  ; preds = %4852, %4851, %4844,
   %4853 = getelementptr inbounds nuw i8, ptr %269, i64 8
   store i32 0, ptr %4853, align 8, !tbaa !44
   %4854 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %4854, align 4, !tbaa !69
+  store i32 1, ptr %4854, align 4, !tbaa !64
   %4855 = getelementptr inbounds nuw i8, ptr %4854, i64 4
   store i32 150, ptr %4855, align 4, !tbaa !44
   %4856 = getelementptr inbounds nuw i8, ptr %4854, i64 8
-  store i64 0, ptr %4856, align 8, !tbaa !124
+  store i64 0, ptr %4856, align 8, !tbaa !118
   %4857 = getelementptr inbounds nuw i8, ptr %4854, i64 16
-  store i64 6, ptr %4857, align 8, !tbaa !126
+  store i64 6, ptr %4857, align 8, !tbaa !120
   %4858 = getelementptr inbounds nuw i8, ptr %4854, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4858, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %4859 = getelementptr inbounds nuw i8, ptr %4854, i64 30
   store i8 0, ptr %4859, align 2, !tbaa !44
-  store ptr null, ptr %270, align 8, !tbaa !132
+  store ptr null, ptr %270, align 8, !tbaa !126
   %4860 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  store i32 16, ptr %4860, align 8, !tbaa !133
+  store i32 16, ptr %4860, align 8, !tbaa !128
   %4861 = getelementptr inbounds nuw i8, ptr %270, i64 12
   store i32 0, ptr %4861, align 4
   %4862 = call ptr @zend_declare_typed_property(ptr noundef %4777, ptr noundef nonnull %4854, ptr noundef nonnull %269, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %270) #17
@@ -12143,11 +12122,11 @@ zend_string_release.exit23.i419:                  ; preds = %4852, %4851, %4844,
   br i1 %.not.i24.i420, label %4865, label %register_class_Dom_CharacterData.exit
 
 4865:                                             ; preds = %zend_string_release.exit23.i419
-  %4866 = load i32, ptr %4854, align 4, !tbaa !69
+  %4866 = load i32, ptr %4854, align 4, !tbaa !64
   %4867 = icmp ne i32 %4866, 0
   call void @llvm.assume(i1 %4867)
   %4868 = add i32 %4866, -1
-  store i32 %4868, ptr %4854, align 4, !tbaa !69
+  store i32 %4868, ptr %4854, align 4, !tbaa !64
   %4869 = icmp eq i32 %4868, 0
   br i1 %4869, label %4870, label %register_class_Dom_CharacterData.exit
 
@@ -12174,11 +12153,11 @@ register_class_Dom_CharacterData.exit:            ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %266)
   call void @llvm.lifetime.end.p0(ptr nonnull %268)
   call void @llvm.lifetime.end.p0(ptr nonnull %270)
-  store ptr %4777, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
+  store ptr %4777, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !121
   %4874 = getelementptr inbounds nuw i8, ptr %4777, i64 384
   store ptr @dom_objects_new, ptr %4874, align 8, !tbaa !44
   %4875 = getelementptr inbounds nuw i8, ptr %4777, i64 360
-  store ptr @dom_object_handlers, ptr %4875, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %4875, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %4876 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %4877 = call ptr %4876(ptr noundef nonnull @.str.142, i64 noundef 4, i1 noundef zeroext true) #17
@@ -12195,11 +12174,11 @@ register_class_Dom_CharacterData.exit:            ; preds = %zend_string_release
   br i1 %.not.i5.i425, label %4883, label %dom_register_prop_handler.exit426
 
 4883:                                             ; preds = %register_class_Dom_CharacterData.exit
-  %4884 = load i32, ptr %4877, align 4, !tbaa !69
+  %4884 = load i32, ptr %4877, align 4, !tbaa !64
   %4885 = icmp ne i32 %4884, 0
   call void @llvm.assume(i1 %4885)
   %4886 = add i32 %4884, -1
-  store i32 %4886, ptr %4877, align 4, !tbaa !69
+  store i32 %4886, ptr %4877, align 4, !tbaa !64
   %4887 = icmp eq i32 %4886, 0
   br i1 %4887, label %4888, label %dom_register_prop_handler.exit426
 
@@ -12223,11 +12202,11 @@ dom_register_prop_handler.exit426:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i427, label %4896, label %dom_register_prop_handler.exit428
 
 4896:                                             ; preds = %dom_register_prop_handler.exit426
-  %4897 = load i32, ptr %4890, align 4, !tbaa !69
+  %4897 = load i32, ptr %4890, align 4, !tbaa !64
   %4898 = icmp ne i32 %4897, 0
   call void @llvm.assume(i1 %4898)
   %4899 = add i32 %4897, -1
-  store i32 %4899, ptr %4890, align 4, !tbaa !69
+  store i32 %4899, ptr %4890, align 4, !tbaa !64
   %4900 = icmp eq i32 %4899, 0
   br i1 %4900, label %4901, label %dom_register_prop_handler.exit428
 
@@ -12251,11 +12230,11 @@ dom_register_prop_handler.exit428:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i429, label %4909, label %dom_register_prop_handler.exit430
 
 4909:                                             ; preds = %dom_register_prop_handler.exit428
-  %4910 = load i32, ptr %4903, align 4, !tbaa !69
+  %4910 = load i32, ptr %4903, align 4, !tbaa !64
   %4911 = icmp ne i32 %4910, 0
   call void @llvm.assume(i1 %4911)
   %4912 = add i32 %4910, -1
-  store i32 %4912, ptr %4903, align 4, !tbaa !69
+  store i32 %4912, ptr %4903, align 4, !tbaa !64
   %4913 = icmp eq i32 %4912, 0
   br i1 %4913, label %4914, label %dom_register_prop_handler.exit430
 
@@ -12279,11 +12258,11 @@ dom_register_prop_handler.exit430:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i431, label %4922, label %dom_register_prop_handler.exit432
 
 4922:                                             ; preds = %dom_register_prop_handler.exit430
-  %4923 = load i32, ptr %4916, align 4, !tbaa !69
+  %4923 = load i32, ptr %4916, align 4, !tbaa !64
   %4924 = icmp ne i32 %4923, 0
   call void @llvm.assume(i1 %4924)
   %4925 = add i32 %4923, -1
-  store i32 %4925, ptr %4916, align 4, !tbaa !69
+  store i32 %4925, ptr %4916, align 4, !tbaa !64
   %4926 = icmp eq i32 %4925, 0
   br i1 %4926, label %4927, label %dom_register_prop_handler.exit432
 
@@ -12305,7 +12284,7 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   store i32 13, ptr %4930, align 8, !tbaa !44
   %4931 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %256) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %256)
-  %4932 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
+  %4932 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !121
   %4933 = getelementptr inbounds nuw i8, ptr %4932, i64 8
   %4934 = load ptr, ptr %4933, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %646)
@@ -12314,7 +12293,7 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   store i32 13, ptr %4935, align 8, !tbaa !44
   %4936 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %4934, ptr noundef nonnull %646) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %646)
-  %4937 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %4937 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %247)
   call void @llvm.lifetime.start.p0(ptr nonnull %249)
   call void @llvm.lifetime.start.p0(ptr nonnull %251)
@@ -12327,19 +12306,19 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   %4940 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store ptr %4939, ptr %4940, align 8, !tbaa !28
   %4941 = getelementptr inbounds nuw i8, ptr %245, i64 360
-  store ptr @std_object_handlers, ptr %4941, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %4941, align 8, !tbaa !122
   %4942 = getelementptr inbounds nuw i8, ptr %245, i64 504
   store ptr @class_DOMAttr_methods, ptr %4942, align 8, !tbaa !44
   %4943 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %245, ptr noundef %4937, i32 noundef 0) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %246)
   %4944 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store i32 0, ptr %4944, align 8, !tbaa !44
-  %4945 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %4945 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %4946 = getelementptr inbounds nuw i8, ptr %4945, i64 360
-  %4947 = load ptr, ptr %4946, align 8, !tbaa !131
-  store ptr null, ptr %247, align 8, !tbaa !132
+  %4947 = load ptr, ptr %4946, align 8, !tbaa !125
+  store ptr null, ptr %247, align 8, !tbaa !126
   %4948 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  store i32 64, ptr %4948, align 8, !tbaa !133
+  store i32 64, ptr %4948, align 8, !tbaa !128
   %4949 = getelementptr inbounds nuw i8, ptr %247, i64 12
   store i32 0, ptr %4949, align 4
   %4950 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef %4947, ptr noundef nonnull %246, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %247) #17
@@ -12347,20 +12326,20 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   %4951 = getelementptr inbounds nuw i8, ptr %248, i64 8
   store i32 0, ptr %4951, align 8, !tbaa !44
   %4952 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4952, align 4, !tbaa !69
+  store i32 1, ptr %4952, align 4, !tbaa !64
   %4953 = getelementptr inbounds nuw i8, ptr %4952, i64 4
   store i32 150, ptr %4953, align 4, !tbaa !44
   %4954 = getelementptr inbounds nuw i8, ptr %4952, i64 8
-  store i64 0, ptr %4954, align 8, !tbaa !124
+  store i64 0, ptr %4954, align 8, !tbaa !118
   %4955 = getelementptr inbounds nuw i8, ptr %4952, i64 16
-  store i64 9, ptr %4955, align 8, !tbaa !126
+  store i64 9, ptr %4955, align 8, !tbaa !120
   %4956 = getelementptr inbounds nuw i8, ptr %4952, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %4956, ptr noundef nonnull align 1 dereferenceable(9) @.str.157, i64 9, i1 false)
   %4957 = getelementptr inbounds nuw i8, ptr %4952, i64 33
   store i8 0, ptr %4957, align 1, !tbaa !44
-  store ptr null, ptr %249, align 8, !tbaa !132
+  store ptr null, ptr %249, align 8, !tbaa !126
   %4958 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store i32 12, ptr %4958, align 8, !tbaa !133
+  store i32 12, ptr %4958, align 8, !tbaa !128
   %4959 = getelementptr inbounds nuw i8, ptr %249, i64 12
   store i32 0, ptr %4959, align 4
   %4960 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef nonnull %4952, ptr noundef nonnull %248, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %249) #17
@@ -12370,11 +12349,11 @@ dom_register_prop_handler.exit432:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i433, label %4963, label %zend_string_release.exit.i434
 
 4963:                                             ; preds = %dom_register_prop_handler.exit432
-  %4964 = load i32, ptr %4952, align 4, !tbaa !69
+  %4964 = load i32, ptr %4952, align 4, !tbaa !64
   %4965 = icmp ne i32 %4964, 0
   call void @llvm.assume(i1 %4965)
   %4966 = add i32 %4964, -1
-  store i32 %4966, ptr %4952, align 4, !tbaa !69
+  store i32 %4966, ptr %4952, align 4, !tbaa !64
   %4967 = icmp eq i32 %4966, 0
   br i1 %4967, label %4968, label %zend_string_release.exit.i434
 
@@ -12395,12 +12374,12 @@ zend_string_release.exit.i434:                    ; preds = %4971, %4970, %4963,
   call void @llvm.lifetime.start.p0(ptr nonnull %250)
   %4972 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i32 0, ptr %4972, align 8, !tbaa !44
-  %4973 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %4973 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %4974 = getelementptr inbounds nuw i8, ptr %4973, i64 168
-  %4975 = load ptr, ptr %4974, align 8, !tbaa !131
-  store ptr null, ptr %251, align 8, !tbaa !132
+  %4975 = load ptr, ptr %4974, align 8, !tbaa !125
+  store ptr null, ptr %251, align 8, !tbaa !126
   %4976 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  store i32 64, ptr %4976, align 8, !tbaa !133
+  store i32 64, ptr %4976, align 8, !tbaa !128
   %4977 = getelementptr inbounds nuw i8, ptr %251, i64 12
   store i32 0, ptr %4977, align 4
   %4978 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef %4975, ptr noundef nonnull %250, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %251) #17
@@ -12408,32 +12387,32 @@ zend_string_release.exit.i434:                    ; preds = %4971, %4970, %4963,
   %4979 = getelementptr inbounds nuw i8, ptr %252, i64 8
   store i32 0, ptr %4979, align 8, !tbaa !44
   %4980 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4980, align 4, !tbaa !69
+  store i32 1, ptr %4980, align 4, !tbaa !64
   %4981 = getelementptr inbounds nuw i8, ptr %4980, i64 4
   store i32 150, ptr %4981, align 4, !tbaa !44
   %4982 = getelementptr inbounds nuw i8, ptr %4980, i64 8
-  store i64 0, ptr %4982, align 8, !tbaa !124
+  store i64 0, ptr %4982, align 8, !tbaa !118
   %4983 = getelementptr inbounds nuw i8, ptr %4980, i64 16
-  store i64 12, ptr %4983, align 8, !tbaa !126
+  store i64 12, ptr %4983, align 8, !tbaa !120
   %4984 = getelementptr inbounds nuw i8, ptr %4980, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4984, ptr noundef nonnull align 1 dereferenceable(12) @.str.161, i64 12, i1 false)
   %4985 = getelementptr inbounds nuw i8, ptr %4980, i64 36
   store i8 0, ptr %4985, align 4, !tbaa !44
   %4986 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %4986, align 4, !tbaa !69
+  store i32 1, ptr %4986, align 4, !tbaa !64
   %4987 = getelementptr inbounds nuw i8, ptr %4986, i64 4
   store i32 150, ptr %4987, align 4, !tbaa !44
   %4988 = getelementptr inbounds nuw i8, ptr %4986, i64 8
-  store i64 0, ptr %4988, align 8, !tbaa !124
+  store i64 0, ptr %4988, align 8, !tbaa !118
   %4989 = getelementptr inbounds nuw i8, ptr %4986, i64 16
-  store i64 10, ptr %4989, align 8, !tbaa !126
+  store i64 10, ptr %4989, align 8, !tbaa !120
   %4990 = getelementptr inbounds nuw i8, ptr %4986, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4990, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %4991 = getelementptr inbounds nuw i8, ptr %4986, i64 34
   store i8 0, ptr %4991, align 2, !tbaa !44
-  store ptr %4986, ptr %253, align 8, !tbaa !132
+  store ptr %4986, ptr %253, align 8, !tbaa !126
   %4992 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 16777218, ptr %4992, align 8, !tbaa !133
+  store i32 16777218, ptr %4992, align 8, !tbaa !128
   %4993 = getelementptr inbounds nuw i8, ptr %253, i64 12
   store i32 0, ptr %4993, align 4
   %4994 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef nonnull %4980, ptr noundef nonnull %252, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %253) #17
@@ -12443,11 +12422,11 @@ zend_string_release.exit.i434:                    ; preds = %4971, %4970, %4963,
   br i1 %.not.i14.i435, label %4997, label %zend_string_release.exit16.i436
 
 4997:                                             ; preds = %zend_string_release.exit.i434
-  %4998 = load i32, ptr %4980, align 4, !tbaa !69
+  %4998 = load i32, ptr %4980, align 4, !tbaa !64
   %4999 = icmp ne i32 %4998, 0
   call void @llvm.assume(i1 %4999)
   %5000 = add i32 %4998, -1
-  store i32 %5000, ptr %4980, align 4, !tbaa !69
+  store i32 %5000, ptr %4980, align 4, !tbaa !64
   %5001 = icmp eq i32 %5000, 0
   br i1 %5001, label %5002, label %zend_string_release.exit16.i436
 
@@ -12469,20 +12448,20 @@ zend_string_release.exit16.i436:                  ; preds = %5005, %5004, %4997,
   %5006 = getelementptr inbounds nuw i8, ptr %254, i64 8
   store i32 0, ptr %5006, align 8, !tbaa !44
   %5007 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5007, align 4, !tbaa !69
+  store i32 1, ptr %5007, align 4, !tbaa !64
   %5008 = getelementptr inbounds nuw i8, ptr %5007, i64 4
   store i32 150, ptr %5008, align 4, !tbaa !44
   %5009 = getelementptr inbounds nuw i8, ptr %5007, i64 8
-  store i64 0, ptr %5009, align 8, !tbaa !124
+  store i64 0, ptr %5009, align 8, !tbaa !118
   %5010 = getelementptr inbounds nuw i8, ptr %5007, i64 16
-  store i64 14, ptr %5010, align 8, !tbaa !126
+  store i64 14, ptr %5010, align 8, !tbaa !120
   %5011 = getelementptr inbounds nuw i8, ptr %5007, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %5011, ptr noundef nonnull align 1 dereferenceable(14) @.str.163, i64 14, i1 false)
   %5012 = getelementptr inbounds nuw i8, ptr %5007, i64 38
   store i8 0, ptr %5012, align 2, !tbaa !44
-  store ptr null, ptr %255, align 8, !tbaa !132
+  store ptr null, ptr %255, align 8, !tbaa !126
   %5013 = getelementptr inbounds nuw i8, ptr %255, i64 8
-  store i32 1022, ptr %5013, align 8, !tbaa !133
+  store i32 1022, ptr %5013, align 8, !tbaa !128
   %5014 = getelementptr inbounds nuw i8, ptr %255, i64 12
   store i32 0, ptr %5014, align 4
   %5015 = call ptr @zend_declare_typed_property(ptr noundef %4943, ptr noundef nonnull %5007, ptr noundef nonnull %254, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %255) #17
@@ -12492,11 +12471,11 @@ zend_string_release.exit16.i436:                  ; preds = %5005, %5004, %4997,
   br i1 %.not.i17.i437, label %5018, label %register_class_DOMAttr.exit
 
 5018:                                             ; preds = %zend_string_release.exit16.i436
-  %5019 = load i32, ptr %5007, align 4, !tbaa !69
+  %5019 = load i32, ptr %5007, align 4, !tbaa !64
   %5020 = icmp ne i32 %5019, 0
   call void @llvm.assume(i1 %5020)
   %5021 = add i32 %5019, -1
-  store i32 %5021, ptr %5007, align 4, !tbaa !69
+  store i32 %5021, ptr %5007, align 4, !tbaa !64
   %5022 = icmp eq i32 %5021, 0
   br i1 %5022, label %5023, label %register_class_DOMAttr.exit
 
@@ -12525,11 +12504,11 @@ register_class_DOMAttr.exit:                      ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %251)
   call void @llvm.lifetime.end.p0(ptr nonnull %253)
   call void @llvm.lifetime.end.p0(ptr nonnull %255)
-  store ptr %4943, ptr @dom_attr_class_entry, align 8, !tbaa !127
+  store ptr %4943, ptr @dom_attr_class_entry, align 8, !tbaa !121
   %5027 = getelementptr inbounds nuw i8, ptr %4943, i64 384
   store ptr @dom_objects_new, ptr %5027, align 8, !tbaa !44
   %5028 = getelementptr inbounds nuw i8, ptr %4943, i64 360
-  store ptr @dom_object_handlers, ptr %5028, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %5028, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_attr_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %5029 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5030 = call ptr %5029(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
@@ -12546,11 +12525,11 @@ register_class_DOMAttr.exit:                      ; preds = %zend_string_release
   br i1 %.not.i5.i442, label %5036, label %dom_register_prop_handler.exit443
 
 5036:                                             ; preds = %register_class_DOMAttr.exit
-  %5037 = load i32, ptr %5030, align 4, !tbaa !69
+  %5037 = load i32, ptr %5030, align 4, !tbaa !64
   %5038 = icmp ne i32 %5037, 0
   call void @llvm.assume(i1 %5038)
   %5039 = add i32 %5037, -1
-  store i32 %5039, ptr %5030, align 4, !tbaa !69
+  store i32 %5039, ptr %5030, align 4, !tbaa !64
   %5040 = icmp eq i32 %5039, 0
   br i1 %5040, label %5041, label %dom_register_prop_handler.exit443
 
@@ -12574,11 +12553,11 @@ dom_register_prop_handler.exit443:                ; preds = %register_class_DOMA
   br i1 %.not.i5.i444, label %5049, label %dom_register_prop_handler.exit445
 
 5049:                                             ; preds = %dom_register_prop_handler.exit443
-  %5050 = load i32, ptr %5043, align 4, !tbaa !69
+  %5050 = load i32, ptr %5043, align 4, !tbaa !64
   %5051 = icmp ne i32 %5050, 0
   call void @llvm.assume(i1 %5051)
   %5052 = add i32 %5050, -1
-  store i32 %5052, ptr %5043, align 4, !tbaa !69
+  store i32 %5052, ptr %5043, align 4, !tbaa !64
   %5053 = icmp eq i32 %5052, 0
   br i1 %5053, label %5054, label %dom_register_prop_handler.exit445
 
@@ -12602,11 +12581,11 @@ dom_register_prop_handler.exit445:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i446, label %5062, label %dom_register_prop_handler.exit447
 
 5062:                                             ; preds = %dom_register_prop_handler.exit445
-  %5063 = load i32, ptr %5056, align 4, !tbaa !69
+  %5063 = load i32, ptr %5056, align 4, !tbaa !64
   %5064 = icmp ne i32 %5063, 0
   call void @llvm.assume(i1 %5064)
   %5065 = add i32 %5063, -1
-  store i32 %5065, ptr %5056, align 4, !tbaa !69
+  store i32 %5065, ptr %5056, align 4, !tbaa !64
   %5066 = icmp eq i32 %5065, 0
   br i1 %5066, label %5067, label %dom_register_prop_handler.exit447
 
@@ -12630,11 +12609,11 @@ dom_register_prop_handler.exit447:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i448, label %5075, label %dom_register_prop_handler.exit449
 
 5075:                                             ; preds = %dom_register_prop_handler.exit447
-  %5076 = load i32, ptr %5069, align 4, !tbaa !69
+  %5076 = load i32, ptr %5069, align 4, !tbaa !64
   %5077 = icmp ne i32 %5076, 0
   call void @llvm.assume(i1 %5077)
   %5078 = add i32 %5076, -1
-  store i32 %5078, ptr %5069, align 4, !tbaa !69
+  store i32 %5078, ptr %5069, align 4, !tbaa !64
   %5079 = icmp eq i32 %5078, 0
   br i1 %5079, label %5080, label %dom_register_prop_handler.exit449
 
@@ -12658,11 +12637,11 @@ dom_register_prop_handler.exit449:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i450, label %5088, label %dom_register_prop_handler.exit451
 
 5088:                                             ; preds = %dom_register_prop_handler.exit449
-  %5089 = load i32, ptr %5082, align 4, !tbaa !69
+  %5089 = load i32, ptr %5082, align 4, !tbaa !64
   %5090 = icmp ne i32 %5089, 0
   call void @llvm.assume(i1 %5090)
   %5091 = add i32 %5089, -1
-  store i32 %5091, ptr %5082, align 4, !tbaa !69
+  store i32 %5091, ptr %5082, align 4, !tbaa !64
   %5092 = icmp eq i32 %5091, 0
   br i1 %5092, label %5093, label %dom_register_prop_handler.exit451
 
@@ -12672,7 +12651,7 @@ dom_register_prop_handler.exit449:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_handler.exit449, %5088, %5093
   call void @zend_hash_merge(ptr noundef nonnull @dom_attr_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %5094 = load ptr, ptr @dom_attr_class_entry, align 8, !tbaa !127
+  %5094 = load ptr, ptr @dom_attr_class_entry, align 8, !tbaa !121
   %5095 = getelementptr inbounds nuw i8, ptr %5094, i64 8
   %5096 = load ptr, ptr %5095, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %645)
@@ -12681,7 +12660,7 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   store i32 13, ptr %5097, align 8, !tbaa !44
   %5098 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %5096, ptr noundef nonnull %645) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %645)
-  %5099 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %5099 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %227)
   call void @llvm.lifetime.start.p0(ptr nonnull %229)
   call void @llvm.lifetime.start.p0(ptr nonnull %231)
@@ -12696,7 +12675,7 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   %5102 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store ptr %5101, ptr %5102, align 8, !tbaa !28
   %5103 = getelementptr inbounds nuw i8, ptr %225, i64 360
-  store ptr @std_object_handlers, ptr %5103, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %5103, align 8, !tbaa !122
   %5104 = getelementptr inbounds nuw i8, ptr %225, i64 504
   store ptr @class_Dom_Attr_methods, ptr %5104, align 8, !tbaa !44
   %5105 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %225, ptr noundef %5099, i32 noundef 0) #17
@@ -12704,20 +12683,20 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   %5106 = getelementptr inbounds nuw i8, ptr %226, i64 8
   store i32 0, ptr %5106, align 8, !tbaa !44
   %5107 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5107, align 4, !tbaa !69
+  store i32 1, ptr %5107, align 4, !tbaa !64
   %5108 = getelementptr inbounds nuw i8, ptr %5107, i64 4
   store i32 150, ptr %5108, align 4, !tbaa !44
   %5109 = getelementptr inbounds nuw i8, ptr %5107, i64 8
-  store i64 0, ptr %5109, align 8, !tbaa !124
+  store i64 0, ptr %5109, align 8, !tbaa !118
   %5110 = getelementptr inbounds nuw i8, ptr %5107, i64 16
-  store i64 12, ptr %5110, align 8, !tbaa !126
+  store i64 12, ptr %5110, align 8, !tbaa !120
   %5111 = getelementptr inbounds nuw i8, ptr %5107, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5111, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 12, i1 false)
   %5112 = getelementptr inbounds nuw i8, ptr %5107, i64 36
   store i8 0, ptr %5112, align 4, !tbaa !44
-  store ptr null, ptr %227, align 8, !tbaa !132
+  store ptr null, ptr %227, align 8, !tbaa !126
   %5113 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store i32 66, ptr %5113, align 8, !tbaa !133
+  store i32 66, ptr %5113, align 8, !tbaa !128
   %5114 = getelementptr inbounds nuw i8, ptr %227, i64 12
   store i32 0, ptr %5114, align 4
   %5115 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef nonnull %5107, ptr noundef nonnull %226, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %227) #17
@@ -12727,11 +12706,11 @@ dom_register_prop_handler.exit451:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i452, label %5118, label %zend_string_release.exit.i453
 
 5118:                                             ; preds = %dom_register_prop_handler.exit451
-  %5119 = load i32, ptr %5107, align 4, !tbaa !69
+  %5119 = load i32, ptr %5107, align 4, !tbaa !64
   %5120 = icmp ne i32 %5119, 0
   call void @llvm.assume(i1 %5120)
   %5121 = add i32 %5119, -1
-  store i32 %5121, ptr %5107, align 4, !tbaa !69
+  store i32 %5121, ptr %5107, align 4, !tbaa !64
   %5122 = icmp eq i32 %5121, 0
   br i1 %5122, label %5123, label %zend_string_release.exit.i453
 
@@ -12753,20 +12732,20 @@ zend_string_release.exit.i453:                    ; preds = %5126, %5125, %5118,
   %5127 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store i32 0, ptr %5127, align 8, !tbaa !44
   %5128 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %5128, align 4, !tbaa !69
+  store i32 1, ptr %5128, align 4, !tbaa !64
   %5129 = getelementptr inbounds nuw i8, ptr %5128, i64 4
   store i32 150, ptr %5129, align 4, !tbaa !44
   %5130 = getelementptr inbounds nuw i8, ptr %5128, i64 8
-  store i64 0, ptr %5130, align 8, !tbaa !124
+  store i64 0, ptr %5130, align 8, !tbaa !118
   %5131 = getelementptr inbounds nuw i8, ptr %5128, i64 16
-  store i64 6, ptr %5131, align 8, !tbaa !126
+  store i64 6, ptr %5131, align 8, !tbaa !120
   %5132 = getelementptr inbounds nuw i8, ptr %5128, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5132, ptr noundef nonnull align 1 dereferenceable(6) @.str.31, i64 6, i1 false)
   %5133 = getelementptr inbounds nuw i8, ptr %5128, i64 30
   store i8 0, ptr %5133, align 2, !tbaa !44
-  store ptr null, ptr %229, align 8, !tbaa !132
+  store ptr null, ptr %229, align 8, !tbaa !126
   %5134 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i32 66, ptr %5134, align 8, !tbaa !133
+  store i32 66, ptr %5134, align 8, !tbaa !128
   %5135 = getelementptr inbounds nuw i8, ptr %229, i64 12
   store i32 0, ptr %5135, align 4
   %5136 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef nonnull %5128, ptr noundef nonnull %228, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %229) #17
@@ -12776,11 +12755,11 @@ zend_string_release.exit.i453:                    ; preds = %5126, %5125, %5118,
   br i1 %.not.i20.i454, label %5139, label %zend_string_release.exit22.i
 
 5139:                                             ; preds = %zend_string_release.exit.i453
-  %5140 = load i32, ptr %5128, align 4, !tbaa !69
+  %5140 = load i32, ptr %5128, align 4, !tbaa !64
   %5141 = icmp ne i32 %5140, 0
   call void @llvm.assume(i1 %5141)
   %5142 = add i32 %5140, -1
-  store i32 %5142, ptr %5128, align 4, !tbaa !69
+  store i32 %5142, ptr %5128, align 4, !tbaa !64
   %5143 = icmp eq i32 %5142, 0
   br i1 %5143, label %5144, label %zend_string_release.exit22.i
 
@@ -12802,20 +12781,20 @@ zend_string_release.exit22.i:                     ; preds = %5147, %5146, %5139,
   %5148 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i32 0, ptr %5148, align 8, !tbaa !44
   %5149 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5149, align 4, !tbaa !69
+  store i32 1, ptr %5149, align 4, !tbaa !64
   %5150 = getelementptr inbounds nuw i8, ptr %5149, i64 4
   store i32 150, ptr %5150, align 4, !tbaa !44
   %5151 = getelementptr inbounds nuw i8, ptr %5149, i64 8
-  store i64 0, ptr %5151, align 8, !tbaa !124
+  store i64 0, ptr %5151, align 8, !tbaa !118
   %5152 = getelementptr inbounds nuw i8, ptr %5149, i64 16
-  store i64 9, ptr %5152, align 8, !tbaa !126
+  store i64 9, ptr %5152, align 8, !tbaa !120
   %5153 = getelementptr inbounds nuw i8, ptr %5149, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5153, ptr noundef nonnull align 1 dereferenceable(9) @.str.33, i64 9, i1 false)
   %5154 = getelementptr inbounds nuw i8, ptr %5149, i64 33
   store i8 0, ptr %5154, align 1, !tbaa !44
-  store ptr null, ptr %231, align 8, !tbaa !132
+  store ptr null, ptr %231, align 8, !tbaa !126
   %5155 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  store i32 64, ptr %5155, align 8, !tbaa !133
+  store i32 64, ptr %5155, align 8, !tbaa !128
   %5156 = getelementptr inbounds nuw i8, ptr %231, i64 12
   store i32 0, ptr %5156, align 4
   %5157 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef nonnull %5149, ptr noundef nonnull %230, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %231) #17
@@ -12825,11 +12804,11 @@ zend_string_release.exit22.i:                     ; preds = %5147, %5146, %5139,
   br i1 %.not.i23.i, label %5160, label %zend_string_release.exit25.i
 
 5160:                                             ; preds = %zend_string_release.exit22.i
-  %5161 = load i32, ptr %5149, align 4, !tbaa !69
+  %5161 = load i32, ptr %5149, align 4, !tbaa !64
   %5162 = icmp ne i32 %5161, 0
   call void @llvm.assume(i1 %5162)
   %5163 = add i32 %5161, -1
-  store i32 %5163, ptr %5149, align 4, !tbaa !69
+  store i32 %5163, ptr %5149, align 4, !tbaa !64
   %5164 = icmp eq i32 %5163, 0
   br i1 %5164, label %5165, label %zend_string_release.exit25.i
 
@@ -12850,24 +12829,24 @@ zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160,
   call void @llvm.lifetime.start.p0(ptr nonnull %232)
   %5169 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store i32 0, ptr %5169, align 8, !tbaa !44
-  %5170 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %5170 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %5171 = getelementptr inbounds nuw i8, ptr %5170, i64 360
-  %5172 = load ptr, ptr %5171, align 8, !tbaa !131
-  store ptr null, ptr %233, align 8, !tbaa !132
+  %5172 = load ptr, ptr %5171, align 8, !tbaa !125
+  store ptr null, ptr %233, align 8, !tbaa !126
   %5173 = getelementptr inbounds nuw i8, ptr %233, i64 8
-  store i32 64, ptr %5173, align 8, !tbaa !133
+  store i32 64, ptr %5173, align 8, !tbaa !128
   %5174 = getelementptr inbounds nuw i8, ptr %233, i64 12
   store i32 0, ptr %5174, align 4
   %5175 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef %5172, ptr noundef nonnull %232, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %233) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %234)
   %5176 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store i32 0, ptr %5176, align 8, !tbaa !44
-  %5177 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %5177 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %5178 = getelementptr inbounds nuw i8, ptr %5177, i64 168
-  %5179 = load ptr, ptr %5178, align 8, !tbaa !131
-  store ptr null, ptr %235, align 8, !tbaa !132
+  %5179 = load ptr, ptr %5178, align 8, !tbaa !125
+  store ptr null, ptr %235, align 8, !tbaa !126
   %5180 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  store i32 64, ptr %5180, align 8, !tbaa !133
+  store i32 64, ptr %5180, align 8, !tbaa !128
   %5181 = getelementptr inbounds nuw i8, ptr %235, i64 12
   store i32 0, ptr %5181, align 4
   %5182 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef %5179, ptr noundef nonnull %234, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %235) #17
@@ -12875,32 +12854,32 @@ zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160,
   %5183 = getelementptr inbounds nuw i8, ptr %236, i64 8
   store i32 0, ptr %5183, align 8, !tbaa !44
   %5184 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5184, align 4, !tbaa !69
+  store i32 1, ptr %5184, align 4, !tbaa !64
   %5185 = getelementptr inbounds nuw i8, ptr %5184, i64 4
   store i32 150, ptr %5185, align 4, !tbaa !44
   %5186 = getelementptr inbounds nuw i8, ptr %5184, i64 8
-  store i64 0, ptr %5186, align 8, !tbaa !124
+  store i64 0, ptr %5186, align 8, !tbaa !118
   %5187 = getelementptr inbounds nuw i8, ptr %5184, i64 16
-  store i64 12, ptr %5187, align 8, !tbaa !126
+  store i64 12, ptr %5187, align 8, !tbaa !120
   %5188 = getelementptr inbounds nuw i8, ptr %5184, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5188, ptr noundef nonnull align 1 dereferenceable(12) @.str.161, i64 12, i1 false)
   %5189 = getelementptr inbounds nuw i8, ptr %5184, i64 36
   store i8 0, ptr %5189, align 4, !tbaa !44
   %5190 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5190, align 4, !tbaa !69
+  store i32 1, ptr %5190, align 4, !tbaa !64
   %5191 = getelementptr inbounds nuw i8, ptr %5190, i64 4
   store i32 150, ptr %5191, align 4, !tbaa !44
   %5192 = getelementptr inbounds nuw i8, ptr %5190, i64 8
-  store i64 0, ptr %5192, align 8, !tbaa !124
+  store i64 0, ptr %5192, align 8, !tbaa !118
   %5193 = getelementptr inbounds nuw i8, ptr %5190, i64 16
-  store i64 11, ptr %5193, align 8, !tbaa !126
+  store i64 11, ptr %5193, align 8, !tbaa !120
   %5194 = getelementptr inbounds nuw i8, ptr %5190, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5194, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %5195 = getelementptr inbounds nuw i8, ptr %5190, i64 35
   store i8 0, ptr %5195, align 1, !tbaa !44
-  store ptr %5190, ptr %237, align 8, !tbaa !132
+  store ptr %5190, ptr %237, align 8, !tbaa !126
   %5196 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  store i32 16777218, ptr %5196, align 8, !tbaa !133
+  store i32 16777218, ptr %5196, align 8, !tbaa !128
   %5197 = getelementptr inbounds nuw i8, ptr %237, i64 12
   store i32 0, ptr %5197, align 4
   %5198 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef nonnull %5184, ptr noundef nonnull %236, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %237) #17
@@ -12910,11 +12889,11 @@ zend_string_release.exit25.i:                     ; preds = %5168, %5167, %5160,
   br i1 %.not.i26.i, label %5201, label %zend_string_release.exit28.i
 
 5201:                                             ; preds = %zend_string_release.exit25.i
-  %5202 = load i32, ptr %5184, align 4, !tbaa !69
+  %5202 = load i32, ptr %5184, align 4, !tbaa !64
   %5203 = icmp ne i32 %5202, 0
   call void @llvm.assume(i1 %5203)
   %5204 = add i32 %5202, -1
-  store i32 %5204, ptr %5184, align 4, !tbaa !69
+  store i32 %5204, ptr %5184, align 4, !tbaa !64
   %5205 = icmp eq i32 %5204, 0
   br i1 %5205, label %5206, label %zend_string_release.exit28.i
 
@@ -12936,20 +12915,20 @@ zend_string_release.exit28.i:                     ; preds = %5209, %5208, %5201,
   %5210 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i32 0, ptr %5210, align 8, !tbaa !44
   %5211 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5211, align 4, !tbaa !69
+  store i32 1, ptr %5211, align 4, !tbaa !64
   %5212 = getelementptr inbounds nuw i8, ptr %5211, i64 4
   store i32 150, ptr %5212, align 4, !tbaa !44
   %5213 = getelementptr inbounds nuw i8, ptr %5211, i64 8
-  store i64 0, ptr %5213, align 8, !tbaa !124
+  store i64 0, ptr %5213, align 8, !tbaa !118
   %5214 = getelementptr inbounds nuw i8, ptr %5211, i64 16
-  store i64 9, ptr %5214, align 8, !tbaa !126
+  store i64 9, ptr %5214, align 8, !tbaa !120
   %5215 = getelementptr inbounds nuw i8, ptr %5211, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5215, ptr noundef nonnull align 1 dereferenceable(9) @.str.157, i64 9, i1 false)
   %5216 = getelementptr inbounds nuw i8, ptr %5211, i64 33
   store i8 0, ptr %5216, align 1, !tbaa !44
-  store ptr null, ptr %239, align 8, !tbaa !132
+  store ptr null, ptr %239, align 8, !tbaa !126
   %5217 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  store i32 12, ptr %5217, align 8, !tbaa !133
+  store i32 12, ptr %5217, align 8, !tbaa !128
   %5218 = getelementptr inbounds nuw i8, ptr %239, i64 12
   store i32 0, ptr %5218, align 4
   %5219 = call ptr @zend_declare_typed_property(ptr noundef %5105, ptr noundef nonnull %5211, ptr noundef nonnull %238, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %239) #17
@@ -12959,11 +12938,11 @@ zend_string_release.exit28.i:                     ; preds = %5209, %5208, %5201,
   br i1 %.not.i29.i, label %5222, label %register_class_Dom_Attr.exit
 
 5222:                                             ; preds = %zend_string_release.exit28.i
-  %5223 = load i32, ptr %5211, align 4, !tbaa !69
+  %5223 = load i32, ptr %5211, align 4, !tbaa !64
   %5224 = icmp ne i32 %5223, 0
   call void @llvm.assume(i1 %5224)
   %5225 = add i32 %5223, -1
-  store i32 %5225, ptr %5211, align 4, !tbaa !69
+  store i32 %5225, ptr %5211, align 4, !tbaa !64
   %5226 = icmp eq i32 %5225, 0
   br i1 %5226, label %5227, label %register_class_Dom_Attr.exit
 
@@ -12996,11 +12975,11 @@ register_class_Dom_Attr.exit:                     ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %235)
   call void @llvm.lifetime.end.p0(ptr nonnull %237)
   call void @llvm.lifetime.end.p0(ptr nonnull %239)
-  store ptr %5105, ptr @dom_modern_attr_class_entry, align 8, !tbaa !127
+  store ptr %5105, ptr @dom_modern_attr_class_entry, align 8, !tbaa !121
   %5231 = getelementptr inbounds nuw i8, ptr %5105, i64 384
   store ptr @dom_objects_new, ptr %5231, align 8, !tbaa !44
   %5232 = getelementptr inbounds nuw i8, ptr %5105, i64 360
-  store ptr @dom_object_handlers, ptr %5232, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %5232, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_attr_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %5233 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5234 = call ptr %5233(ptr noundef nonnull @.str.29, i64 noundef 12, i1 noundef zeroext true) #17
@@ -13017,11 +12996,11 @@ register_class_Dom_Attr.exit:                     ; preds = %zend_string_release
   br i1 %.not.i5.i457, label %5240, label %dom_register_prop_handler.exit458
 
 5240:                                             ; preds = %register_class_Dom_Attr.exit
-  %5241 = load i32, ptr %5234, align 4, !tbaa !69
+  %5241 = load i32, ptr %5234, align 4, !tbaa !64
   %5242 = icmp ne i32 %5241, 0
   call void @llvm.assume(i1 %5242)
   %5243 = add i32 %5241, -1
-  store i32 %5243, ptr %5234, align 4, !tbaa !69
+  store i32 %5243, ptr %5234, align 4, !tbaa !64
   %5244 = icmp eq i32 %5243, 0
   br i1 %5244, label %5245, label %dom_register_prop_handler.exit458
 
@@ -13045,11 +13024,11 @@ dom_register_prop_handler.exit458:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i459, label %5253, label %dom_register_prop_handler.exit460
 
 5253:                                             ; preds = %dom_register_prop_handler.exit458
-  %5254 = load i32, ptr %5247, align 4, !tbaa !69
+  %5254 = load i32, ptr %5247, align 4, !tbaa !64
   %5255 = icmp ne i32 %5254, 0
   call void @llvm.assume(i1 %5255)
   %5256 = add i32 %5254, -1
-  store i32 %5256, ptr %5247, align 4, !tbaa !69
+  store i32 %5256, ptr %5247, align 4, !tbaa !64
   %5257 = icmp eq i32 %5256, 0
   br i1 %5257, label %5258, label %dom_register_prop_handler.exit460
 
@@ -13073,11 +13052,11 @@ dom_register_prop_handler.exit460:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i461, label %5266, label %dom_register_prop_handler.exit462
 
 5266:                                             ; preds = %dom_register_prop_handler.exit460
-  %5267 = load i32, ptr %5260, align 4, !tbaa !69
+  %5267 = load i32, ptr %5260, align 4, !tbaa !64
   %5268 = icmp ne i32 %5267, 0
   call void @llvm.assume(i1 %5268)
   %5269 = add i32 %5267, -1
-  store i32 %5269, ptr %5260, align 4, !tbaa !69
+  store i32 %5269, ptr %5260, align 4, !tbaa !64
   %5270 = icmp eq i32 %5269, 0
   br i1 %5270, label %5271, label %dom_register_prop_handler.exit462
 
@@ -13101,11 +13080,11 @@ dom_register_prop_handler.exit462:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i463, label %5279, label %dom_register_prop_handler.exit464
 
 5279:                                             ; preds = %dom_register_prop_handler.exit462
-  %5280 = load i32, ptr %5273, align 4, !tbaa !69
+  %5280 = load i32, ptr %5273, align 4, !tbaa !64
   %5281 = icmp ne i32 %5280, 0
   call void @llvm.assume(i1 %5281)
   %5282 = add i32 %5280, -1
-  store i32 %5282, ptr %5273, align 4, !tbaa !69
+  store i32 %5282, ptr %5273, align 4, !tbaa !64
   %5283 = icmp eq i32 %5282, 0
   br i1 %5283, label %5284, label %dom_register_prop_handler.exit464
 
@@ -13129,11 +13108,11 @@ dom_register_prop_handler.exit464:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i465, label %5292, label %dom_register_prop_handler.exit466
 
 5292:                                             ; preds = %dom_register_prop_handler.exit464
-  %5293 = load i32, ptr %5286, align 4, !tbaa !69
+  %5293 = load i32, ptr %5286, align 4, !tbaa !64
   %5294 = icmp ne i32 %5293, 0
   call void @llvm.assume(i1 %5294)
   %5295 = add i32 %5293, -1
-  store i32 %5295, ptr %5286, align 4, !tbaa !69
+  store i32 %5295, ptr %5286, align 4, !tbaa !64
   %5296 = icmp eq i32 %5295, 0
   br i1 %5296, label %5297, label %dom_register_prop_handler.exit466
 
@@ -13157,11 +13136,11 @@ dom_register_prop_handler.exit466:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i467, label %5305, label %dom_register_prop_handler.exit468
 
 5305:                                             ; preds = %dom_register_prop_handler.exit466
-  %5306 = load i32, ptr %5299, align 4, !tbaa !69
+  %5306 = load i32, ptr %5299, align 4, !tbaa !64
   %5307 = icmp ne i32 %5306, 0
   call void @llvm.assume(i1 %5307)
   %5308 = add i32 %5306, -1
-  store i32 %5308, ptr %5299, align 4, !tbaa !69
+  store i32 %5308, ptr %5299, align 4, !tbaa !64
   %5309 = icmp eq i32 %5308, 0
   br i1 %5309, label %5310, label %dom_register_prop_handler.exit468
 
@@ -13185,11 +13164,11 @@ dom_register_prop_handler.exit468:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i469, label %5318, label %dom_register_prop_handler.exit470
 
 5318:                                             ; preds = %dom_register_prop_handler.exit468
-  %5319 = load i32, ptr %5312, align 4, !tbaa !69
+  %5319 = load i32, ptr %5312, align 4, !tbaa !64
   %5320 = icmp ne i32 %5319, 0
   call void @llvm.assume(i1 %5320)
   %5321 = add i32 %5319, -1
-  store i32 %5321, ptr %5312, align 4, !tbaa !69
+  store i32 %5321, ptr %5312, align 4, !tbaa !64
   %5322 = icmp eq i32 %5321, 0
   br i1 %5322, label %5323, label %dom_register_prop_handler.exit470
 
@@ -13211,7 +13190,7 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   store i32 13, ptr %5326, align 8, !tbaa !44
   %5327 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_attr_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %216) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %216)
-  %5328 = load ptr, ptr @dom_modern_attr_class_entry, align 8, !tbaa !127
+  %5328 = load ptr, ptr @dom_modern_attr_class_entry, align 8, !tbaa !121
   %5329 = getelementptr inbounds nuw i8, ptr %5328, i64 8
   %5330 = load ptr, ptr %5329, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %644)
@@ -13220,9 +13199,9 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   store i32 13, ptr %5331, align 8, !tbaa !44
   %5332 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %5330, ptr noundef nonnull %644) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %644)
-  %5333 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
-  %5334 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !127
-  %5335 = load ptr, ptr @dom_childnode_class_entry, align 8, !tbaa !127
+  %5333 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
+  %5334 = load ptr, ptr @dom_parentnode_class_entry, align 8, !tbaa !121
+  %5335 = load ptr, ptr @dom_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %199)
   call void @llvm.lifetime.start.p0(ptr nonnull %201)
   call void @llvm.lifetime.start.p0(ptr nonnull %203)
@@ -13239,7 +13218,7 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   %5338 = getelementptr inbounds nuw i8, ptr %197, i64 8
   store ptr %5337, ptr %5338, align 8, !tbaa !28
   %5339 = getelementptr inbounds nuw i8, ptr %197, i64 360
-  store ptr @std_object_handlers, ptr %5339, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %5339, align 8, !tbaa !122
   %5340 = getelementptr inbounds nuw i8, ptr %197, i64 504
   store ptr @class_DOMElement_methods, ptr %5340, align 8, !tbaa !44
   %5341 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %197, ptr noundef %5333, i32 noundef 0) #17
@@ -13248,20 +13227,20 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   %5342 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store i32 0, ptr %5342, align 8, !tbaa !44
   %5343 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %5343, align 4, !tbaa !69
+  store i32 1, ptr %5343, align 4, !tbaa !64
   %5344 = getelementptr inbounds nuw i8, ptr %5343, i64 4
   store i32 150, ptr %5344, align 4, !tbaa !44
   %5345 = getelementptr inbounds nuw i8, ptr %5343, i64 8
-  store i64 0, ptr %5345, align 8, !tbaa !124
+  store i64 0, ptr %5345, align 8, !tbaa !118
   %5346 = getelementptr inbounds nuw i8, ptr %5343, i64 16
-  store i64 7, ptr %5346, align 8, !tbaa !126
+  store i64 7, ptr %5346, align 8, !tbaa !120
   %5347 = getelementptr inbounds nuw i8, ptr %5343, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %5347, ptr noundef nonnull align 1 dereferenceable(7) @.str.174, i64 7, i1 false)
   %5348 = getelementptr inbounds nuw i8, ptr %5343, i64 31
   store i8 0, ptr %5348, align 1, !tbaa !44
-  store ptr null, ptr %199, align 8, !tbaa !132
+  store ptr null, ptr %199, align 8, !tbaa !126
   %5349 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  store i32 64, ptr %5349, align 8, !tbaa !133
+  store i32 64, ptr %5349, align 8, !tbaa !128
   %5350 = getelementptr inbounds nuw i8, ptr %199, i64 12
   store i32 0, ptr %5350, align 4
   %5351 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5343, ptr noundef nonnull %198, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %199) #17
@@ -13271,11 +13250,11 @@ dom_register_prop_handler.exit470:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i471, label %5354, label %zend_string_release.exit.i472
 
 5354:                                             ; preds = %dom_register_prop_handler.exit470
-  %5355 = load i32, ptr %5343, align 4, !tbaa !69
+  %5355 = load i32, ptr %5343, align 4, !tbaa !64
   %5356 = icmp ne i32 %5355, 0
   call void @llvm.assume(i1 %5356)
   %5357 = add i32 %5355, -1
-  store i32 %5357, ptr %5343, align 4, !tbaa !69
+  store i32 %5357, ptr %5343, align 4, !tbaa !64
   %5358 = icmp eq i32 %5357, 0
   br i1 %5358, label %5359, label %zend_string_release.exit.i472
 
@@ -13297,20 +13276,20 @@ zend_string_release.exit.i472:                    ; preds = %5362, %5361, %5354,
   %5363 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store i32 0, ptr %5363, align 8, !tbaa !44
   %5364 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5364, align 4, !tbaa !69
+  store i32 1, ptr %5364, align 4, !tbaa !64
   %5365 = getelementptr inbounds nuw i8, ptr %5364, i64 4
   store i32 150, ptr %5365, align 4, !tbaa !44
   %5366 = getelementptr inbounds nuw i8, ptr %5364, i64 8
-  store i64 0, ptr %5366, align 8, !tbaa !124
+  store i64 0, ptr %5366, align 8, !tbaa !118
   %5367 = getelementptr inbounds nuw i8, ptr %5364, i64 16
-  store i64 9, ptr %5367, align 8, !tbaa !126
+  store i64 9, ptr %5367, align 8, !tbaa !120
   %5368 = getelementptr inbounds nuw i8, ptr %5364, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5368, ptr noundef nonnull align 1 dereferenceable(9) @.str.176, i64 9, i1 false)
   %5369 = getelementptr inbounds nuw i8, ptr %5364, i64 33
   store i8 0, ptr %5369, align 1, !tbaa !44
-  store ptr null, ptr %201, align 8, !tbaa !132
+  store ptr null, ptr %201, align 8, !tbaa !126
   %5370 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  store i32 64, ptr %5370, align 8, !tbaa !133
+  store i32 64, ptr %5370, align 8, !tbaa !128
   %5371 = getelementptr inbounds nuw i8, ptr %201, i64 12
   store i32 0, ptr %5371, align 4
   %5372 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5364, ptr noundef nonnull %200, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %201) #17
@@ -13320,11 +13299,11 @@ zend_string_release.exit.i472:                    ; preds = %5362, %5361, %5354,
   br i1 %.not.i36.i, label %5375, label %zend_string_release.exit38.i
 
 5375:                                             ; preds = %zend_string_release.exit.i472
-  %5376 = load i32, ptr %5364, align 4, !tbaa !69
+  %5376 = load i32, ptr %5364, align 4, !tbaa !64
   %5377 = icmp ne i32 %5376, 0
   call void @llvm.assume(i1 %5377)
   %5378 = add i32 %5376, -1
-  store i32 %5378, ptr %5364, align 4, !tbaa !69
+  store i32 %5378, ptr %5364, align 4, !tbaa !64
   %5379 = icmp eq i32 %5378, 0
   br i1 %5379, label %5380, label %zend_string_release.exit38.i
 
@@ -13346,20 +13325,20 @@ zend_string_release.exit38.i:                     ; preds = %5383, %5382, %5375,
   %5384 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i32 0, ptr %5384, align 8, !tbaa !44
   %5385 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %5385, align 4, !tbaa !69
+  store i32 1, ptr %5385, align 4, !tbaa !64
   %5386 = getelementptr inbounds nuw i8, ptr %5385, i64 4
   store i32 150, ptr %5386, align 4, !tbaa !44
   %5387 = getelementptr inbounds nuw i8, ptr %5385, i64 8
-  store i64 0, ptr %5387, align 8, !tbaa !124
+  store i64 0, ptr %5387, align 8, !tbaa !118
   %5388 = getelementptr inbounds nuw i8, ptr %5385, i64 16
-  store i64 2, ptr %5388, align 8, !tbaa !126
+  store i64 2, ptr %5388, align 8, !tbaa !120
   %5389 = getelementptr inbounds nuw i8, ptr %5385, i64 24
   store i16 25705, ptr %5389, align 8
   %5390 = getelementptr inbounds nuw i8, ptr %5385, i64 26
   store i8 0, ptr %5390, align 2, !tbaa !44
-  store ptr null, ptr %203, align 8, !tbaa !132
+  store ptr null, ptr %203, align 8, !tbaa !126
   %5391 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  store i32 64, ptr %5391, align 8, !tbaa !133
+  store i32 64, ptr %5391, align 8, !tbaa !128
   %5392 = getelementptr inbounds nuw i8, ptr %203, i64 12
   store i32 0, ptr %5392, align 4
   %5393 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5385, ptr noundef nonnull %202, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %203) #17
@@ -13369,11 +13348,11 @@ zend_string_release.exit38.i:                     ; preds = %5383, %5382, %5375,
   br i1 %.not.i39.i, label %5396, label %zend_string_release.exit41.i
 
 5396:                                             ; preds = %zend_string_release.exit38.i
-  %5397 = load i32, ptr %5385, align 4, !tbaa !69
+  %5397 = load i32, ptr %5385, align 4, !tbaa !64
   %5398 = icmp ne i32 %5397, 0
   call void @llvm.assume(i1 %5398)
   %5399 = add i32 %5397, -1
-  store i32 %5399, ptr %5385, align 4, !tbaa !69
+  store i32 %5399, ptr %5385, align 4, !tbaa !64
   %5400 = icmp eq i32 %5399, 0
   br i1 %5400, label %5401, label %zend_string_release.exit41.i
 
@@ -13395,20 +13374,20 @@ zend_string_release.exit41.i:                     ; preds = %5404, %5403, %5396,
   %5405 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i32 0, ptr %5405, align 8, !tbaa !44
   %5406 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5406, align 4, !tbaa !69
+  store i32 1, ptr %5406, align 4, !tbaa !64
   %5407 = getelementptr inbounds nuw i8, ptr %5406, i64 4
   store i32 150, ptr %5407, align 4, !tbaa !44
   %5408 = getelementptr inbounds nuw i8, ptr %5406, i64 8
-  store i64 0, ptr %5408, align 8, !tbaa !124
+  store i64 0, ptr %5408, align 8, !tbaa !118
   %5409 = getelementptr inbounds nuw i8, ptr %5406, i64 16
-  store i64 14, ptr %5409, align 8, !tbaa !126
+  store i64 14, ptr %5409, align 8, !tbaa !120
   %5410 = getelementptr inbounds nuw i8, ptr %5406, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %5410, ptr noundef nonnull align 1 dereferenceable(14) @.str.163, i64 14, i1 false)
   %5411 = getelementptr inbounds nuw i8, ptr %5406, i64 38
   store i8 0, ptr %5411, align 2, !tbaa !44
-  store ptr null, ptr %205, align 8, !tbaa !132
+  store ptr null, ptr %205, align 8, !tbaa !126
   %5412 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store i32 1022, ptr %5412, align 8, !tbaa !133
+  store i32 1022, ptr %5412, align 8, !tbaa !128
   %5413 = getelementptr inbounds nuw i8, ptr %205, i64 12
   store i32 0, ptr %5413, align 4
   %5414 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5406, ptr noundef nonnull %204, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %205) #17
@@ -13418,11 +13397,11 @@ zend_string_release.exit41.i:                     ; preds = %5404, %5403, %5396,
   br i1 %.not.i42.i, label %5417, label %zend_string_release.exit44.i
 
 5417:                                             ; preds = %zend_string_release.exit41.i
-  %5418 = load i32, ptr %5406, align 4, !tbaa !69
+  %5418 = load i32, ptr %5406, align 4, !tbaa !64
   %5419 = icmp ne i32 %5418, 0
   call void @llvm.assume(i1 %5419)
   %5420 = add i32 %5418, -1
-  store i32 %5420, ptr %5406, align 4, !tbaa !69
+  store i32 %5420, ptr %5406, align 4, !tbaa !64
   %5421 = icmp eq i32 %5420, 0
   br i1 %5421, label %5422, label %zend_string_release.exit44.i
 
@@ -13444,32 +13423,32 @@ zend_string_release.exit44.i:                     ; preds = %5425, %5424, %5417,
   %5426 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 0, ptr %5426, align 8, !tbaa !44
   %5427 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5427, align 4, !tbaa !69
+  store i32 1, ptr %5427, align 4, !tbaa !64
   %5428 = getelementptr inbounds nuw i8, ptr %5427, i64 4
   store i32 150, ptr %5428, align 4, !tbaa !44
   %5429 = getelementptr inbounds nuw i8, ptr %5427, i64 8
-  store i64 0, ptr %5429, align 8, !tbaa !124
+  store i64 0, ptr %5429, align 8, !tbaa !118
   %5430 = getelementptr inbounds nuw i8, ptr %5427, i64 16
-  store i64 17, ptr %5430, align 8, !tbaa !126
+  store i64 17, ptr %5430, align 8, !tbaa !120
   %5431 = getelementptr inbounds nuw i8, ptr %5427, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %5431, ptr noundef nonnull align 1 dereferenceable(17) @.str.63, i64 17, i1 false)
   %5432 = getelementptr inbounds nuw i8, ptr %5427, i64 41
   store i8 0, ptr %5432, align 1, !tbaa !44
   %5433 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5433, align 4, !tbaa !69
+  store i32 1, ptr %5433, align 4, !tbaa !64
   %5434 = getelementptr inbounds nuw i8, ptr %5433, i64 4
   store i32 150, ptr %5434, align 4, !tbaa !44
   %5435 = getelementptr inbounds nuw i8, ptr %5433, i64 8
-  store i64 0, ptr %5435, align 8, !tbaa !124
+  store i64 0, ptr %5435, align 8, !tbaa !118
   %5436 = getelementptr inbounds nuw i8, ptr %5433, i64 16
-  store i64 10, ptr %5436, align 8, !tbaa !126
+  store i64 10, ptr %5436, align 8, !tbaa !120
   %5437 = getelementptr inbounds nuw i8, ptr %5433, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5437, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %5438 = getelementptr inbounds nuw i8, ptr %5433, i64 34
   store i8 0, ptr %5438, align 2, !tbaa !44
-  store ptr %5433, ptr %207, align 8, !tbaa !132
+  store ptr %5433, ptr %207, align 8, !tbaa !126
   %5439 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store i32 16777218, ptr %5439, align 8, !tbaa !133
+  store i32 16777218, ptr %5439, align 8, !tbaa !128
   %5440 = getelementptr inbounds nuw i8, ptr %207, i64 12
   store i32 0, ptr %5440, align 4
   %5441 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5427, ptr noundef nonnull %206, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %207) #17
@@ -13479,11 +13458,11 @@ zend_string_release.exit44.i:                     ; preds = %5425, %5424, %5417,
   br i1 %.not.i45.i, label %5444, label %zend_string_release.exit47.i
 
 5444:                                             ; preds = %zend_string_release.exit44.i
-  %5445 = load i32, ptr %5427, align 4, !tbaa !69
+  %5445 = load i32, ptr %5427, align 4, !tbaa !64
   %5446 = icmp ne i32 %5445, 0
   call void @llvm.assume(i1 %5446)
   %5447 = add i32 %5445, -1
-  store i32 %5447, ptr %5427, align 4, !tbaa !69
+  store i32 %5447, ptr %5427, align 4, !tbaa !64
   %5448 = icmp eq i32 %5447, 0
   br i1 %5448, label %5449, label %zend_string_release.exit47.i
 
@@ -13505,32 +13484,32 @@ zend_string_release.exit47.i:                     ; preds = %5452, %5451, %5444,
   %5453 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store i32 0, ptr %5453, align 8, !tbaa !44
   %5454 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5454, align 4, !tbaa !69
+  store i32 1, ptr %5454, align 4, !tbaa !64
   %5455 = getelementptr inbounds nuw i8, ptr %5454, i64 4
   store i32 150, ptr %5455, align 4, !tbaa !44
   %5456 = getelementptr inbounds nuw i8, ptr %5454, i64 8
-  store i64 0, ptr %5456, align 8, !tbaa !124
+  store i64 0, ptr %5456, align 8, !tbaa !118
   %5457 = getelementptr inbounds nuw i8, ptr %5454, i64 16
-  store i64 16, ptr %5457, align 8, !tbaa !126
+  store i64 16, ptr %5457, align 8, !tbaa !120
   %5458 = getelementptr inbounds nuw i8, ptr %5454, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5458, ptr noundef nonnull align 1 dereferenceable(16) @.str.65, i64 16, i1 false)
   %5459 = getelementptr inbounds nuw i8, ptr %5454, i64 40
   store i8 0, ptr %5459, align 8, !tbaa !44
   %5460 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5460, align 4, !tbaa !69
+  store i32 1, ptr %5460, align 4, !tbaa !64
   %5461 = getelementptr inbounds nuw i8, ptr %5460, i64 4
   store i32 150, ptr %5461, align 4, !tbaa !44
   %5462 = getelementptr inbounds nuw i8, ptr %5460, i64 8
-  store i64 0, ptr %5462, align 8, !tbaa !124
+  store i64 0, ptr %5462, align 8, !tbaa !118
   %5463 = getelementptr inbounds nuw i8, ptr %5460, i64 16
-  store i64 10, ptr %5463, align 8, !tbaa !126
+  store i64 10, ptr %5463, align 8, !tbaa !120
   %5464 = getelementptr inbounds nuw i8, ptr %5460, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5464, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %5465 = getelementptr inbounds nuw i8, ptr %5460, i64 34
   store i8 0, ptr %5465, align 2, !tbaa !44
-  store ptr %5460, ptr %209, align 8, !tbaa !132
+  store ptr %5460, ptr %209, align 8, !tbaa !126
   %5466 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  store i32 16777218, ptr %5466, align 8, !tbaa !133
+  store i32 16777218, ptr %5466, align 8, !tbaa !128
   %5467 = getelementptr inbounds nuw i8, ptr %209, i64 12
   store i32 0, ptr %5467, align 4
   %5468 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5454, ptr noundef nonnull %208, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %209) #17
@@ -13540,11 +13519,11 @@ zend_string_release.exit47.i:                     ; preds = %5452, %5451, %5444,
   br i1 %.not.i48.i, label %5471, label %zend_string_release.exit50.i
 
 5471:                                             ; preds = %zend_string_release.exit47.i
-  %5472 = load i32, ptr %5454, align 4, !tbaa !69
+  %5472 = load i32, ptr %5454, align 4, !tbaa !64
   %5473 = icmp ne i32 %5472, 0
   call void @llvm.assume(i1 %5473)
   %5474 = add i32 %5472, -1
-  store i32 %5474, ptr %5454, align 4, !tbaa !69
+  store i32 %5474, ptr %5454, align 4, !tbaa !64
   %5475 = icmp eq i32 %5474, 0
   br i1 %5475, label %5476, label %zend_string_release.exit50.i
 
@@ -13566,20 +13545,20 @@ zend_string_release.exit50.i:                     ; preds = %5479, %5478, %5471,
   %5480 = getelementptr inbounds nuw i8, ptr %210, i64 8
   store i32 0, ptr %5480, align 8, !tbaa !44
   %5481 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5481, align 4, !tbaa !69
+  store i32 1, ptr %5481, align 4, !tbaa !64
   %5482 = getelementptr inbounds nuw i8, ptr %5481, i64 4
   store i32 150, ptr %5482, align 4, !tbaa !44
   %5483 = getelementptr inbounds nuw i8, ptr %5481, i64 8
-  store i64 0, ptr %5483, align 8, !tbaa !124
+  store i64 0, ptr %5483, align 8, !tbaa !118
   %5484 = getelementptr inbounds nuw i8, ptr %5481, i64 16
-  store i64 17, ptr %5484, align 8, !tbaa !126
+  store i64 17, ptr %5484, align 8, !tbaa !120
   %5485 = getelementptr inbounds nuw i8, ptr %5481, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %5485, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
   %5486 = getelementptr inbounds nuw i8, ptr %5481, i64 41
   store i8 0, ptr %5486, align 1, !tbaa !44
-  store ptr null, ptr %211, align 8, !tbaa !132
+  store ptr null, ptr %211, align 8, !tbaa !126
   %5487 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store i32 16, ptr %5487, align 8, !tbaa !133
+  store i32 16, ptr %5487, align 8, !tbaa !128
   %5488 = getelementptr inbounds nuw i8, ptr %211, i64 12
   store i32 0, ptr %5488, align 4
   %5489 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5481, ptr noundef nonnull %210, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %211) #17
@@ -13589,11 +13568,11 @@ zend_string_release.exit50.i:                     ; preds = %5479, %5478, %5471,
   br i1 %.not.i51.i, label %5492, label %zend_string_release.exit53.i
 
 5492:                                             ; preds = %zend_string_release.exit50.i
-  %5493 = load i32, ptr %5481, align 4, !tbaa !69
+  %5493 = load i32, ptr %5481, align 4, !tbaa !64
   %5494 = icmp ne i32 %5493, 0
   call void @llvm.assume(i1 %5494)
   %5495 = add i32 %5493, -1
-  store i32 %5495, ptr %5481, align 4, !tbaa !69
+  store i32 %5495, ptr %5481, align 4, !tbaa !64
   %5496 = icmp eq i32 %5495, 0
   br i1 %5496, label %5497, label %zend_string_release.exit53.i
 
@@ -13615,32 +13594,32 @@ zend_string_release.exit53.i:                     ; preds = %5500, %5499, %5492,
   %5501 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store i32 0, ptr %5501, align 8, !tbaa !44
   %5502 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5502, align 4, !tbaa !69
+  store i32 1, ptr %5502, align 4, !tbaa !64
   %5503 = getelementptr inbounds nuw i8, ptr %5502, i64 4
   store i32 150, ptr %5503, align 4, !tbaa !44
   %5504 = getelementptr inbounds nuw i8, ptr %5502, i64 8
-  store i64 0, ptr %5504, align 8, !tbaa !124
+  store i64 0, ptr %5504, align 8, !tbaa !118
   %5505 = getelementptr inbounds nuw i8, ptr %5502, i64 16
-  store i64 22, ptr %5505, align 8, !tbaa !126
+  store i64 22, ptr %5505, align 8, !tbaa !120
   %5506 = getelementptr inbounds nuw i8, ptr %5502, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %5506, ptr noundef nonnull align 1 dereferenceable(22) @.str.145, i64 22, i1 false)
   %5507 = getelementptr inbounds nuw i8, ptr %5502, i64 46
   store i8 0, ptr %5507, align 2, !tbaa !44
   %5508 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5508, align 4, !tbaa !69
+  store i32 1, ptr %5508, align 4, !tbaa !64
   %5509 = getelementptr inbounds nuw i8, ptr %5508, i64 4
   store i32 150, ptr %5509, align 4, !tbaa !44
   %5510 = getelementptr inbounds nuw i8, ptr %5508, i64 8
-  store i64 0, ptr %5510, align 8, !tbaa !124
+  store i64 0, ptr %5510, align 8, !tbaa !118
   %5511 = getelementptr inbounds nuw i8, ptr %5508, i64 16
-  store i64 10, ptr %5511, align 8, !tbaa !126
+  store i64 10, ptr %5511, align 8, !tbaa !120
   %5512 = getelementptr inbounds nuw i8, ptr %5508, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5512, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %5513 = getelementptr inbounds nuw i8, ptr %5508, i64 34
   store i8 0, ptr %5513, align 2, !tbaa !44
-  store ptr %5508, ptr %213, align 8, !tbaa !132
+  store ptr %5508, ptr %213, align 8, !tbaa !126
   %5514 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store i32 16777218, ptr %5514, align 8, !tbaa !133
+  store i32 16777218, ptr %5514, align 8, !tbaa !128
   %5515 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 0, ptr %5515, align 4
   %5516 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5502, ptr noundef nonnull %212, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %213) #17
@@ -13650,11 +13629,11 @@ zend_string_release.exit53.i:                     ; preds = %5500, %5499, %5492,
   br i1 %.not.i54.i, label %5519, label %zend_string_release.exit56.i
 
 5519:                                             ; preds = %zend_string_release.exit53.i
-  %5520 = load i32, ptr %5502, align 4, !tbaa !69
+  %5520 = load i32, ptr %5502, align 4, !tbaa !64
   %5521 = icmp ne i32 %5520, 0
   call void @llvm.assume(i1 %5521)
   %5522 = add i32 %5520, -1
-  store i32 %5522, ptr %5502, align 4, !tbaa !69
+  store i32 %5522, ptr %5502, align 4, !tbaa !64
   %5523 = icmp eq i32 %5522, 0
   br i1 %5523, label %5524, label %zend_string_release.exit56.i
 
@@ -13676,32 +13655,32 @@ zend_string_release.exit56.i:                     ; preds = %5527, %5526, %5519,
   %5528 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i32 0, ptr %5528, align 8, !tbaa !44
   %5529 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5529, align 4, !tbaa !69
+  store i32 1, ptr %5529, align 4, !tbaa !64
   %5530 = getelementptr inbounds nuw i8, ptr %5529, i64 4
   store i32 150, ptr %5530, align 4, !tbaa !44
   %5531 = getelementptr inbounds nuw i8, ptr %5529, i64 8
-  store i64 0, ptr %5531, align 8, !tbaa !124
+  store i64 0, ptr %5531, align 8, !tbaa !118
   %5532 = getelementptr inbounds nuw i8, ptr %5529, i64 16
-  store i64 18, ptr %5532, align 8, !tbaa !126
+  store i64 18, ptr %5532, align 8, !tbaa !120
   %5533 = getelementptr inbounds nuw i8, ptr %5529, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %5533, ptr noundef nonnull align 1 dereferenceable(18) @.str.147, i64 18, i1 false)
   %5534 = getelementptr inbounds nuw i8, ptr %5529, i64 42
   store i8 0, ptr %5534, align 2, !tbaa !44
   %5535 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5535, align 4, !tbaa !69
+  store i32 1, ptr %5535, align 4, !tbaa !64
   %5536 = getelementptr inbounds nuw i8, ptr %5535, i64 4
   store i32 150, ptr %5536, align 4, !tbaa !44
   %5537 = getelementptr inbounds nuw i8, ptr %5535, i64 8
-  store i64 0, ptr %5537, align 8, !tbaa !124
+  store i64 0, ptr %5537, align 8, !tbaa !118
   %5538 = getelementptr inbounds nuw i8, ptr %5535, i64 16
-  store i64 10, ptr %5538, align 8, !tbaa !126
+  store i64 10, ptr %5538, align 8, !tbaa !120
   %5539 = getelementptr inbounds nuw i8, ptr %5535, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5539, ptr noundef nonnull align 1 dereferenceable(10) @.str.363, i64 10, i1 false)
   %5540 = getelementptr inbounds nuw i8, ptr %5535, i64 34
   store i8 0, ptr %5540, align 2, !tbaa !44
-  store ptr %5535, ptr %215, align 8, !tbaa !132
+  store ptr %5535, ptr %215, align 8, !tbaa !126
   %5541 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  store i32 16777218, ptr %5541, align 8, !tbaa !133
+  store i32 16777218, ptr %5541, align 8, !tbaa !128
   %5542 = getelementptr inbounds nuw i8, ptr %215, i64 12
   store i32 0, ptr %5542, align 4
   %5543 = call ptr @zend_declare_typed_property(ptr noundef %5341, ptr noundef nonnull %5529, ptr noundef nonnull %214, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %215) #17
@@ -13711,11 +13690,11 @@ zend_string_release.exit56.i:                     ; preds = %5527, %5526, %5519,
   br i1 %.not.i57.i, label %5546, label %register_class_DOMElement.exit
 
 5546:                                             ; preds = %zend_string_release.exit56.i
-  %5547 = load i32, ptr %5529, align 4, !tbaa !69
+  %5547 = load i32, ptr %5529, align 4, !tbaa !64
   %5548 = icmp ne i32 %5547, 0
   call void @llvm.assume(i1 %5548)
   %5549 = add i32 %5547, -1
-  store i32 %5549, ptr %5529, align 4, !tbaa !69
+  store i32 %5549, ptr %5529, align 4, !tbaa !64
   %5550 = icmp eq i32 %5549, 0
   br i1 %5550, label %5551, label %register_class_DOMElement.exit
 
@@ -13752,11 +13731,11 @@ register_class_DOMElement.exit:                   ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %211)
   call void @llvm.lifetime.end.p0(ptr nonnull %213)
   call void @llvm.lifetime.end.p0(ptr nonnull %215)
-  store ptr %5341, ptr @dom_element_class_entry, align 8, !tbaa !127
+  store ptr %5341, ptr @dom_element_class_entry, align 8, !tbaa !121
   %5555 = getelementptr inbounds nuw i8, ptr %5341, i64 384
   store ptr @dom_objects_new, ptr %5555, align 8, !tbaa !44
   %5556 = getelementptr inbounds nuw i8, ptr %5341, i64 360
-  store ptr @dom_object_handlers, ptr %5556, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %5556, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_element_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %5557 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %5558 = call ptr %5557(ptr noundef nonnull @.str.174, i64 noundef 7, i1 noundef zeroext true) #17
@@ -13773,11 +13752,11 @@ register_class_DOMElement.exit:                   ; preds = %zend_string_release
   br i1 %.not.i5.i474, label %5564, label %dom_register_prop_handler.exit475
 
 5564:                                             ; preds = %register_class_DOMElement.exit
-  %5565 = load i32, ptr %5558, align 4, !tbaa !69
+  %5565 = load i32, ptr %5558, align 4, !tbaa !64
   %5566 = icmp ne i32 %5565, 0
   call void @llvm.assume(i1 %5566)
   %5567 = add i32 %5565, -1
-  store i32 %5567, ptr %5558, align 4, !tbaa !69
+  store i32 %5567, ptr %5558, align 4, !tbaa !64
   %5568 = icmp eq i32 %5567, 0
   br i1 %5568, label %5569, label %dom_register_prop_handler.exit475
 
@@ -13801,11 +13780,11 @@ dom_register_prop_handler.exit475:                ; preds = %register_class_DOME
   br i1 %.not.i5.i476, label %5577, label %dom_register_prop_handler.exit477
 
 5577:                                             ; preds = %dom_register_prop_handler.exit475
-  %5578 = load i32, ptr %5571, align 4, !tbaa !69
+  %5578 = load i32, ptr %5571, align 4, !tbaa !64
   %5579 = icmp ne i32 %5578, 0
   call void @llvm.assume(i1 %5579)
   %5580 = add i32 %5578, -1
-  store i32 %5580, ptr %5571, align 4, !tbaa !69
+  store i32 %5580, ptr %5571, align 4, !tbaa !64
   %5581 = icmp eq i32 %5580, 0
   br i1 %5581, label %5582, label %dom_register_prop_handler.exit477
 
@@ -13829,11 +13808,11 @@ dom_register_prop_handler.exit477:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i478, label %5590, label %dom_register_prop_handler.exit479
 
 5590:                                             ; preds = %dom_register_prop_handler.exit477
-  %5591 = load i32, ptr %5584, align 4, !tbaa !69
+  %5591 = load i32, ptr %5584, align 4, !tbaa !64
   %5592 = icmp ne i32 %5591, 0
   call void @llvm.assume(i1 %5592)
   %5593 = add i32 %5591, -1
-  store i32 %5593, ptr %5584, align 4, !tbaa !69
+  store i32 %5593, ptr %5584, align 4, !tbaa !64
   %5594 = icmp eq i32 %5593, 0
   br i1 %5594, label %5595, label %dom_register_prop_handler.exit479
 
@@ -13857,11 +13836,11 @@ dom_register_prop_handler.exit479:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i480, label %5603, label %dom_register_prop_handler.exit481
 
 5603:                                             ; preds = %dom_register_prop_handler.exit479
-  %5604 = load i32, ptr %5597, align 4, !tbaa !69
+  %5604 = load i32, ptr %5597, align 4, !tbaa !64
   %5605 = icmp ne i32 %5604, 0
   call void @llvm.assume(i1 %5605)
   %5606 = add i32 %5604, -1
-  store i32 %5606, ptr %5597, align 4, !tbaa !69
+  store i32 %5606, ptr %5597, align 4, !tbaa !64
   %5607 = icmp eq i32 %5606, 0
   br i1 %5607, label %5608, label %dom_register_prop_handler.exit481
 
@@ -13885,11 +13864,11 @@ dom_register_prop_handler.exit481:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i482, label %5616, label %dom_register_prop_handler.exit483
 
 5616:                                             ; preds = %dom_register_prop_handler.exit481
-  %5617 = load i32, ptr %5610, align 4, !tbaa !69
+  %5617 = load i32, ptr %5610, align 4, !tbaa !64
   %5618 = icmp ne i32 %5617, 0
   call void @llvm.assume(i1 %5618)
   %5619 = add i32 %5617, -1
-  store i32 %5619, ptr %5610, align 4, !tbaa !69
+  store i32 %5619, ptr %5610, align 4, !tbaa !64
   %5620 = icmp eq i32 %5619, 0
   br i1 %5620, label %5621, label %dom_register_prop_handler.exit483
 
@@ -13913,11 +13892,11 @@ dom_register_prop_handler.exit483:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i484, label %5629, label %dom_register_prop_handler.exit485
 
 5629:                                             ; preds = %dom_register_prop_handler.exit483
-  %5630 = load i32, ptr %5623, align 4, !tbaa !69
+  %5630 = load i32, ptr %5623, align 4, !tbaa !64
   %5631 = icmp ne i32 %5630, 0
   call void @llvm.assume(i1 %5631)
   %5632 = add i32 %5630, -1
-  store i32 %5632, ptr %5623, align 4, !tbaa !69
+  store i32 %5632, ptr %5623, align 4, !tbaa !64
   %5633 = icmp eq i32 %5632, 0
   br i1 %5633, label %5634, label %dom_register_prop_handler.exit485
 
@@ -13941,11 +13920,11 @@ dom_register_prop_handler.exit485:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i486, label %5642, label %dom_register_prop_handler.exit487
 
 5642:                                             ; preds = %dom_register_prop_handler.exit485
-  %5643 = load i32, ptr %5636, align 4, !tbaa !69
+  %5643 = load i32, ptr %5636, align 4, !tbaa !64
   %5644 = icmp ne i32 %5643, 0
   call void @llvm.assume(i1 %5644)
   %5645 = add i32 %5643, -1
-  store i32 %5645, ptr %5636, align 4, !tbaa !69
+  store i32 %5645, ptr %5636, align 4, !tbaa !64
   %5646 = icmp eq i32 %5645, 0
   br i1 %5646, label %5647, label %dom_register_prop_handler.exit487
 
@@ -13969,11 +13948,11 @@ dom_register_prop_handler.exit487:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i488, label %5655, label %dom_register_prop_handler.exit489
 
 5655:                                             ; preds = %dom_register_prop_handler.exit487
-  %5656 = load i32, ptr %5649, align 4, !tbaa !69
+  %5656 = load i32, ptr %5649, align 4, !tbaa !64
   %5657 = icmp ne i32 %5656, 0
   call void @llvm.assume(i1 %5657)
   %5658 = add i32 %5656, -1
-  store i32 %5658, ptr %5649, align 4, !tbaa !69
+  store i32 %5658, ptr %5649, align 4, !tbaa !64
   %5659 = icmp eq i32 %5658, 0
   br i1 %5659, label %5660, label %dom_register_prop_handler.exit489
 
@@ -13997,11 +13976,11 @@ dom_register_prop_handler.exit489:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i490, label %5668, label %dom_register_prop_handler.exit491
 
 5668:                                             ; preds = %dom_register_prop_handler.exit489
-  %5669 = load i32, ptr %5662, align 4, !tbaa !69
+  %5669 = load i32, ptr %5662, align 4, !tbaa !64
   %5670 = icmp ne i32 %5669, 0
   call void @llvm.assume(i1 %5670)
   %5671 = add i32 %5669, -1
-  store i32 %5671, ptr %5662, align 4, !tbaa !69
+  store i32 %5671, ptr %5662, align 4, !tbaa !64
   %5672 = icmp eq i32 %5671, 0
   br i1 %5672, label %5673, label %dom_register_prop_handler.exit491
 
@@ -14011,7 +13990,7 @@ dom_register_prop_handler.exit489:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_handler.exit489, %5668, %5673
   call void @zend_hash_merge(ptr noundef nonnull @dom_element_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %5674 = load ptr, ptr @dom_element_class_entry, align 8, !tbaa !127
+  %5674 = load ptr, ptr @dom_element_class_entry, align 8, !tbaa !121
   %5675 = getelementptr inbounds nuw i8, ptr %5674, i64 8
   %5676 = load ptr, ptr %5675, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %643)
@@ -14020,9 +13999,9 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   store i32 13, ptr %5677, align 8, !tbaa !44
   %5678 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %5676, ptr noundef nonnull %643) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %643)
-  %5679 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  %5680 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !127
-  %5681 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
+  %5679 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
+  %5680 = load ptr, ptr @dom_modern_parentnode_class_entry, align 8, !tbaa !121
+  %5681 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
   call void @llvm.lifetime.start.p0(ptr nonnull %159)
   call void @llvm.lifetime.start.p0(ptr nonnull %161)
@@ -14046,7 +14025,7 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   %5684 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %5683, ptr %5684, align 8, !tbaa !28
   %5685 = getelementptr inbounds nuw i8, ptr %155, i64 360
-  store ptr @std_object_handlers, ptr %5685, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %5685, align 8, !tbaa !122
   %5686 = getelementptr inbounds nuw i8, ptr %155, i64 504
   store ptr @class_Dom_Element_methods, ptr %5686, align 8, !tbaa !44
   %5687 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %155, ptr noundef %5679, i32 noundef 0) #17
@@ -14055,20 +14034,20 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   %5688 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i32 0, ptr %5688, align 8, !tbaa !44
   %5689 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5689, align 4, !tbaa !69
+  store i32 1, ptr %5689, align 4, !tbaa !64
   %5690 = getelementptr inbounds nuw i8, ptr %5689, i64 4
   store i32 150, ptr %5690, align 4, !tbaa !44
   %5691 = getelementptr inbounds nuw i8, ptr %5689, i64 8
-  store i64 0, ptr %5691, align 8, !tbaa !124
+  store i64 0, ptr %5691, align 8, !tbaa !118
   %5692 = getelementptr inbounds nuw i8, ptr %5689, i64 16
-  store i64 12, ptr %5692, align 8, !tbaa !126
+  store i64 12, ptr %5692, align 8, !tbaa !120
   %5693 = getelementptr inbounds nuw i8, ptr %5689, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5693, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 12, i1 false)
   %5694 = getelementptr inbounds nuw i8, ptr %5689, i64 36
   store i8 0, ptr %5694, align 4, !tbaa !44
-  store ptr null, ptr %157, align 8, !tbaa !132
+  store ptr null, ptr %157, align 8, !tbaa !126
   %5695 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store i32 66, ptr %5695, align 8, !tbaa !133
+  store i32 66, ptr %5695, align 8, !tbaa !128
   %5696 = getelementptr inbounds nuw i8, ptr %157, i64 12
   store i32 0, ptr %5696, align 4
   %5697 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5689, ptr noundef nonnull %156, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %157) #17
@@ -14078,11 +14057,11 @@ dom_register_prop_handler.exit491:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i492, label %5700, label %zend_string_release.exit.i493
 
 5700:                                             ; preds = %dom_register_prop_handler.exit491
-  %5701 = load i32, ptr %5689, align 4, !tbaa !69
+  %5701 = load i32, ptr %5689, align 4, !tbaa !64
   %5702 = icmp ne i32 %5701, 0
   call void @llvm.assume(i1 %5702)
   %5703 = add i32 %5701, -1
-  store i32 %5703, ptr %5689, align 4, !tbaa !69
+  store i32 %5703, ptr %5689, align 4, !tbaa !64
   %5704 = icmp eq i32 %5703, 0
   br i1 %5704, label %5705, label %zend_string_release.exit.i493
 
@@ -14104,20 +14083,20 @@ zend_string_release.exit.i493:                    ; preds = %5708, %5707, %5700,
   %5709 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i32 0, ptr %5709, align 8, !tbaa !44
   %5710 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %5710, align 4, !tbaa !69
+  store i32 1, ptr %5710, align 4, !tbaa !64
   %5711 = getelementptr inbounds nuw i8, ptr %5710, i64 4
   store i32 150, ptr %5711, align 4, !tbaa !44
   %5712 = getelementptr inbounds nuw i8, ptr %5710, i64 8
-  store i64 0, ptr %5712, align 8, !tbaa !124
+  store i64 0, ptr %5712, align 8, !tbaa !118
   %5713 = getelementptr inbounds nuw i8, ptr %5710, i64 16
-  store i64 6, ptr %5713, align 8, !tbaa !126
+  store i64 6, ptr %5713, align 8, !tbaa !120
   %5714 = getelementptr inbounds nuw i8, ptr %5710, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %5714, ptr noundef nonnull align 1 dereferenceable(6) @.str.31, i64 6, i1 false)
   %5715 = getelementptr inbounds nuw i8, ptr %5710, i64 30
   store i8 0, ptr %5715, align 2, !tbaa !44
-  store ptr null, ptr %159, align 8, !tbaa !132
+  store ptr null, ptr %159, align 8, !tbaa !126
   %5716 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store i32 66, ptr %5716, align 8, !tbaa !133
+  store i32 66, ptr %5716, align 8, !tbaa !128
   %5717 = getelementptr inbounds nuw i8, ptr %159, i64 12
   store i32 0, ptr %5717, align 4
   %5718 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5710, ptr noundef nonnull %158, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %159) #17
@@ -14127,11 +14106,11 @@ zend_string_release.exit.i493:                    ; preds = %5708, %5707, %5700,
   br i1 %.not.i59.i494, label %5721, label %zend_string_release.exit61.i495
 
 5721:                                             ; preds = %zend_string_release.exit.i493
-  %5722 = load i32, ptr %5710, align 4, !tbaa !69
+  %5722 = load i32, ptr %5710, align 4, !tbaa !64
   %5723 = icmp ne i32 %5722, 0
   call void @llvm.assume(i1 %5723)
   %5724 = add i32 %5722, -1
-  store i32 %5724, ptr %5710, align 4, !tbaa !69
+  store i32 %5724, ptr %5710, align 4, !tbaa !64
   %5725 = icmp eq i32 %5724, 0
   br i1 %5725, label %5726, label %zend_string_release.exit61.i495
 
@@ -14153,20 +14132,20 @@ zend_string_release.exit61.i495:                  ; preds = %5729, %5728, %5721,
   %5730 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i32 0, ptr %5730, align 8, !tbaa !44
   %5731 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5731, align 4, !tbaa !69
+  store i32 1, ptr %5731, align 4, !tbaa !64
   %5732 = getelementptr inbounds nuw i8, ptr %5731, i64 4
   store i32 150, ptr %5732, align 4, !tbaa !44
   %5733 = getelementptr inbounds nuw i8, ptr %5731, i64 8
-  store i64 0, ptr %5733, align 8, !tbaa !124
+  store i64 0, ptr %5733, align 8, !tbaa !118
   %5734 = getelementptr inbounds nuw i8, ptr %5731, i64 16
-  store i64 9, ptr %5734, align 8, !tbaa !126
+  store i64 9, ptr %5734, align 8, !tbaa !120
   %5735 = getelementptr inbounds nuw i8, ptr %5731, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5735, ptr noundef nonnull align 1 dereferenceable(9) @.str.33, i64 9, i1 false)
   %5736 = getelementptr inbounds nuw i8, ptr %5731, i64 33
   store i8 0, ptr %5736, align 1, !tbaa !44
-  store ptr null, ptr %161, align 8, !tbaa !132
+  store ptr null, ptr %161, align 8, !tbaa !126
   %5737 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store i32 64, ptr %5737, align 8, !tbaa !133
+  store i32 64, ptr %5737, align 8, !tbaa !128
   %5738 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i32 0, ptr %5738, align 4
   %5739 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5731, ptr noundef nonnull %160, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %161) #17
@@ -14176,11 +14155,11 @@ zend_string_release.exit61.i495:                  ; preds = %5729, %5728, %5721,
   br i1 %.not.i62.i496, label %5742, label %zend_string_release.exit64.i497
 
 5742:                                             ; preds = %zend_string_release.exit61.i495
-  %5743 = load i32, ptr %5731, align 4, !tbaa !69
+  %5743 = load i32, ptr %5731, align 4, !tbaa !64
   %5744 = icmp ne i32 %5743, 0
   call void @llvm.assume(i1 %5744)
   %5745 = add i32 %5743, -1
-  store i32 %5745, ptr %5731, align 4, !tbaa !69
+  store i32 %5745, ptr %5731, align 4, !tbaa !64
   %5746 = icmp eq i32 %5745, 0
   br i1 %5746, label %5747, label %zend_string_release.exit64.i497
 
@@ -14202,20 +14181,20 @@ zend_string_release.exit64.i497:                  ; preds = %5750, %5749, %5742,
   %5751 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i32 0, ptr %5751, align 8, !tbaa !44
   %5752 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %5752, align 4, !tbaa !69
+  store i32 1, ptr %5752, align 4, !tbaa !64
   %5753 = getelementptr inbounds nuw i8, ptr %5752, i64 4
   store i32 150, ptr %5753, align 4, !tbaa !44
   %5754 = getelementptr inbounds nuw i8, ptr %5752, i64 8
-  store i64 0, ptr %5754, align 8, !tbaa !124
+  store i64 0, ptr %5754, align 8, !tbaa !118
   %5755 = getelementptr inbounds nuw i8, ptr %5752, i64 16
-  store i64 7, ptr %5755, align 8, !tbaa !126
+  store i64 7, ptr %5755, align 8, !tbaa !120
   %5756 = getelementptr inbounds nuw i8, ptr %5752, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %5756, ptr noundef nonnull align 1 dereferenceable(7) @.str.174, i64 7, i1 false)
   %5757 = getelementptr inbounds nuw i8, ptr %5752, i64 31
   store i8 0, ptr %5757, align 1, !tbaa !44
-  store ptr null, ptr %163, align 8, !tbaa !132
+  store ptr null, ptr %163, align 8, !tbaa !126
   %5758 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store i32 64, ptr %5758, align 8, !tbaa !133
+  store i32 64, ptr %5758, align 8, !tbaa !128
   %5759 = getelementptr inbounds nuw i8, ptr %163, i64 12
   store i32 0, ptr %5759, align 4
   %5760 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5752, ptr noundef nonnull %162, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %163) #17
@@ -14225,11 +14204,11 @@ zend_string_release.exit64.i497:                  ; preds = %5750, %5749, %5742,
   br i1 %.not.i65.i498, label %5763, label %zend_string_release.exit67.i499
 
 5763:                                             ; preds = %zend_string_release.exit64.i497
-  %5764 = load i32, ptr %5752, align 4, !tbaa !69
+  %5764 = load i32, ptr %5752, align 4, !tbaa !64
   %5765 = icmp ne i32 %5764, 0
   call void @llvm.assume(i1 %5765)
   %5766 = add i32 %5764, -1
-  store i32 %5766, ptr %5752, align 4, !tbaa !69
+  store i32 %5766, ptr %5752, align 4, !tbaa !64
   %5767 = icmp eq i32 %5766, 0
   br i1 %5767, label %5768, label %zend_string_release.exit67.i499
 
@@ -14251,20 +14230,20 @@ zend_string_release.exit67.i499:                  ; preds = %5771, %5770, %5763,
   %5772 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store i32 0, ptr %5772, align 8, !tbaa !44
   %5773 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %5773, align 4, !tbaa !69
+  store i32 1, ptr %5773, align 4, !tbaa !64
   %5774 = getelementptr inbounds nuw i8, ptr %5773, i64 4
   store i32 150, ptr %5774, align 4, !tbaa !44
   %5775 = getelementptr inbounds nuw i8, ptr %5773, i64 8
-  store i64 0, ptr %5775, align 8, !tbaa !124
+  store i64 0, ptr %5775, align 8, !tbaa !118
   %5776 = getelementptr inbounds nuw i8, ptr %5773, i64 16
-  store i64 2, ptr %5776, align 8, !tbaa !126
+  store i64 2, ptr %5776, align 8, !tbaa !120
   %5777 = getelementptr inbounds nuw i8, ptr %5773, i64 24
   store i16 25705, ptr %5777, align 8
   %5778 = getelementptr inbounds nuw i8, ptr %5773, i64 26
   store i8 0, ptr %5778, align 2, !tbaa !44
-  store ptr null, ptr %165, align 8, !tbaa !132
+  store ptr null, ptr %165, align 8, !tbaa !126
   %5779 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store i32 64, ptr %5779, align 8, !tbaa !133
+  store i32 64, ptr %5779, align 8, !tbaa !128
   %5780 = getelementptr inbounds nuw i8, ptr %165, i64 12
   store i32 0, ptr %5780, align 4
   %5781 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5773, ptr noundef nonnull %164, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %165) #17
@@ -14274,11 +14253,11 @@ zend_string_release.exit67.i499:                  ; preds = %5771, %5770, %5763,
   br i1 %.not.i68.i500, label %5784, label %zend_string_release.exit70.i501
 
 5784:                                             ; preds = %zend_string_release.exit67.i499
-  %5785 = load i32, ptr %5773, align 4, !tbaa !69
+  %5785 = load i32, ptr %5773, align 4, !tbaa !64
   %5786 = icmp ne i32 %5785, 0
   call void @llvm.assume(i1 %5786)
   %5787 = add i32 %5785, -1
-  store i32 %5787, ptr %5773, align 4, !tbaa !69
+  store i32 %5787, ptr %5773, align 4, !tbaa !64
   %5788 = icmp eq i32 %5787, 0
   br i1 %5788, label %5789, label %zend_string_release.exit70.i501
 
@@ -14300,20 +14279,20 @@ zend_string_release.exit70.i501:                  ; preds = %5792, %5791, %5784,
   %5793 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i32 0, ptr %5793, align 8, !tbaa !44
   %5794 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5794, align 4, !tbaa !69
+  store i32 1, ptr %5794, align 4, !tbaa !64
   %5795 = getelementptr inbounds nuw i8, ptr %5794, i64 4
   store i32 150, ptr %5795, align 4, !tbaa !44
   %5796 = getelementptr inbounds nuw i8, ptr %5794, i64 8
-  store i64 0, ptr %5796, align 8, !tbaa !124
+  store i64 0, ptr %5796, align 8, !tbaa !118
   %5797 = getelementptr inbounds nuw i8, ptr %5794, i64 16
-  store i64 9, ptr %5797, align 8, !tbaa !126
+  store i64 9, ptr %5797, align 8, !tbaa !120
   %5798 = getelementptr inbounds nuw i8, ptr %5794, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5798, ptr noundef nonnull align 1 dereferenceable(9) @.str.176, i64 9, i1 false)
   %5799 = getelementptr inbounds nuw i8, ptr %5794, i64 33
   store i8 0, ptr %5799, align 1, !tbaa !44
-  store ptr null, ptr %167, align 8, !tbaa !132
+  store ptr null, ptr %167, align 8, !tbaa !126
   %5800 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  store i32 64, ptr %5800, align 8, !tbaa !133
+  store i32 64, ptr %5800, align 8, !tbaa !128
   %5801 = getelementptr inbounds nuw i8, ptr %167, i64 12
   store i32 0, ptr %5801, align 4
   %5802 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5794, ptr noundef nonnull %166, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %167) #17
@@ -14323,11 +14302,11 @@ zend_string_release.exit70.i501:                  ; preds = %5792, %5791, %5784,
   br i1 %.not.i71.i502, label %5805, label %zend_string_release.exit73.i503
 
 5805:                                             ; preds = %zend_string_release.exit70.i501
-  %5806 = load i32, ptr %5794, align 4, !tbaa !69
+  %5806 = load i32, ptr %5794, align 4, !tbaa !64
   %5807 = icmp ne i32 %5806, 0
   call void @llvm.assume(i1 %5807)
   %5808 = add i32 %5806, -1
-  store i32 %5808, ptr %5794, align 4, !tbaa !69
+  store i32 %5808, ptr %5794, align 4, !tbaa !64
   %5809 = icmp eq i32 %5808, 0
   br i1 %5809, label %5810, label %zend_string_release.exit73.i503
 
@@ -14349,32 +14328,32 @@ zend_string_release.exit73.i503:                  ; preds = %5813, %5812, %5805,
   %5814 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i32 0, ptr %5814, align 8, !tbaa !44
   %5815 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5815, align 4, !tbaa !69
+  store i32 1, ptr %5815, align 4, !tbaa !64
   %5816 = getelementptr inbounds nuw i8, ptr %5815, i64 4
   store i32 150, ptr %5816, align 4, !tbaa !44
   %5817 = getelementptr inbounds nuw i8, ptr %5815, i64 8
-  store i64 0, ptr %5817, align 8, !tbaa !124
+  store i64 0, ptr %5817, align 8, !tbaa !118
   %5818 = getelementptr inbounds nuw i8, ptr %5815, i64 16
-  store i64 9, ptr %5818, align 8, !tbaa !126
+  store i64 9, ptr %5818, align 8, !tbaa !120
   %5819 = getelementptr inbounds nuw i8, ptr %5815, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %5819, ptr noundef nonnull align 1 dereferenceable(9) @.str.192, i64 9, i1 false)
   %5820 = getelementptr inbounds nuw i8, ptr %5815, i64 33
   store i8 0, ptr %5820, align 1, !tbaa !44
   %5821 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5821, align 4, !tbaa !69
+  store i32 1, ptr %5821, align 4, !tbaa !64
   %5822 = getelementptr inbounds nuw i8, ptr %5821, i64 4
   store i32 150, ptr %5822, align 4, !tbaa !44
   %5823 = getelementptr inbounds nuw i8, ptr %5821, i64 8
-  store i64 0, ptr %5823, align 8, !tbaa !124
+  store i64 0, ptr %5823, align 8, !tbaa !118
   %5824 = getelementptr inbounds nuw i8, ptr %5821, i64 16
-  store i64 13, ptr %5824, align 8, !tbaa !126
+  store i64 13, ptr %5824, align 8, !tbaa !120
   %5825 = getelementptr inbounds nuw i8, ptr %5821, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %5825, ptr noundef nonnull align 1 dereferenceable(13) @.str.662, i64 13, i1 false)
   %5826 = getelementptr inbounds nuw i8, ptr %5821, i64 37
   store i8 0, ptr %5826, align 1, !tbaa !44
-  store ptr %5821, ptr %169, align 8, !tbaa !132
+  store ptr %5821, ptr %169, align 8, !tbaa !126
   %5827 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store i32 16777216, ptr %5827, align 8, !tbaa !133
+  store i32 16777216, ptr %5827, align 8, !tbaa !128
   %5828 = getelementptr inbounds nuw i8, ptr %169, i64 12
   store i32 0, ptr %5828, align 4
   %5829 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5815, ptr noundef nonnull %168, i32 noundef 1, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %169) #17
@@ -14384,11 +14363,11 @@ zend_string_release.exit73.i503:                  ; preds = %5813, %5812, %5805,
   br i1 %.not.i74.i504, label %5832, label %zend_string_release.exit76.i505
 
 5832:                                             ; preds = %zend_string_release.exit73.i503
-  %5833 = load i32, ptr %5815, align 4, !tbaa !69
+  %5833 = load i32, ptr %5815, align 4, !tbaa !64
   %5834 = icmp ne i32 %5833, 0
   call void @llvm.assume(i1 %5834)
   %5835 = add i32 %5833, -1
-  store i32 %5835, ptr %5815, align 4, !tbaa !69
+  store i32 %5835, ptr %5815, align 4, !tbaa !64
   %5836 = icmp eq i32 %5835, 0
   br i1 %5836, label %5837, label %zend_string_release.exit76.i505
 
@@ -14410,32 +14389,32 @@ zend_string_release.exit76.i505:                  ; preds = %5840, %5839, %5832,
   %5841 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 0, ptr %5841, align 8, !tbaa !44
   %5842 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5842, align 4, !tbaa !69
+  store i32 1, ptr %5842, align 4, !tbaa !64
   %5843 = getelementptr inbounds nuw i8, ptr %5842, i64 4
   store i32 150, ptr %5843, align 4, !tbaa !44
   %5844 = getelementptr inbounds nuw i8, ptr %5842, i64 8
-  store i64 0, ptr %5844, align 8, !tbaa !124
+  store i64 0, ptr %5844, align 8, !tbaa !118
   %5845 = getelementptr inbounds nuw i8, ptr %5842, i64 16
-  store i64 10, ptr %5845, align 8, !tbaa !126
+  store i64 10, ptr %5845, align 8, !tbaa !120
   %5846 = getelementptr inbounds nuw i8, ptr %5842, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5846, ptr noundef nonnull align 1 dereferenceable(10) @.str.23, i64 10, i1 false)
   %5847 = getelementptr inbounds nuw i8, ptr %5842, i64 34
   store i8 0, ptr %5847, align 2, !tbaa !44
   %5848 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5848, align 4, !tbaa !69
+  store i32 1, ptr %5848, align 4, !tbaa !64
   %5849 = getelementptr inbounds nuw i8, ptr %5848, i64 4
   store i32 150, ptr %5849, align 4, !tbaa !44
   %5850 = getelementptr inbounds nuw i8, ptr %5848, i64 8
-  store i64 0, ptr %5850, align 8, !tbaa !124
+  store i64 0, ptr %5850, align 8, !tbaa !118
   %5851 = getelementptr inbounds nuw i8, ptr %5848, i64 16
-  store i64 16, ptr %5851, align 8, !tbaa !126
+  store i64 16, ptr %5851, align 8, !tbaa !120
   %5852 = getelementptr inbounds nuw i8, ptr %5848, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5852, ptr noundef nonnull align 1 dereferenceable(16) @.str.586, i64 16, i1 false)
   %5853 = getelementptr inbounds nuw i8, ptr %5848, i64 40
   store i8 0, ptr %5853, align 8, !tbaa !44
-  store ptr %5848, ptr %171, align 8, !tbaa !132
+  store ptr %5848, ptr %171, align 8, !tbaa !126
   %5854 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store i32 16777216, ptr %5854, align 8, !tbaa !133
+  store i32 16777216, ptr %5854, align 8, !tbaa !128
   %5855 = getelementptr inbounds nuw i8, ptr %171, i64 12
   store i32 0, ptr %5855, align 4
   %5856 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5842, ptr noundef nonnull %170, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %171) #17
@@ -14445,11 +14424,11 @@ zend_string_release.exit76.i505:                  ; preds = %5840, %5839, %5832,
   br i1 %.not.i77.i506, label %5859, label %zend_string_release.exit79.i507
 
 5859:                                             ; preds = %zend_string_release.exit76.i505
-  %5860 = load i32, ptr %5842, align 4, !tbaa !69
+  %5860 = load i32, ptr %5842, align 4, !tbaa !64
   %5861 = icmp ne i32 %5860, 0
   call void @llvm.assume(i1 %5861)
   %5862 = add i32 %5860, -1
-  store i32 %5862, ptr %5842, align 4, !tbaa !69
+  store i32 %5862, ptr %5842, align 4, !tbaa !64
   %5863 = icmp eq i32 %5862, 0
   br i1 %5863, label %5864, label %zend_string_release.exit79.i507
 
@@ -14471,32 +14450,32 @@ zend_string_release.exit79.i507:                  ; preds = %5867, %5866, %5859,
   %5868 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i32 0, ptr %5868, align 8, !tbaa !44
   %5869 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5869, align 4, !tbaa !69
+  store i32 1, ptr %5869, align 4, !tbaa !64
   %5870 = getelementptr inbounds nuw i8, ptr %5869, i64 4
   store i32 150, ptr %5870, align 4, !tbaa !44
   %5871 = getelementptr inbounds nuw i8, ptr %5869, i64 8
-  store i64 0, ptr %5871, align 8, !tbaa !124
+  store i64 0, ptr %5871, align 8, !tbaa !118
   %5872 = getelementptr inbounds nuw i8, ptr %5869, i64 16
-  store i64 17, ptr %5872, align 8, !tbaa !126
+  store i64 17, ptr %5872, align 8, !tbaa !120
   %5873 = getelementptr inbounds nuw i8, ptr %5869, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %5873, ptr noundef nonnull align 1 dereferenceable(17) @.str.63, i64 17, i1 false)
   %5874 = getelementptr inbounds nuw i8, ptr %5869, i64 41
   store i8 0, ptr %5874, align 1, !tbaa !44
   %5875 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5875, align 4, !tbaa !69
+  store i32 1, ptr %5875, align 4, !tbaa !64
   %5876 = getelementptr inbounds nuw i8, ptr %5875, i64 4
   store i32 150, ptr %5876, align 4, !tbaa !44
   %5877 = getelementptr inbounds nuw i8, ptr %5875, i64 8
-  store i64 0, ptr %5877, align 8, !tbaa !124
+  store i64 0, ptr %5877, align 8, !tbaa !118
   %5878 = getelementptr inbounds nuw i8, ptr %5875, i64 16
-  store i64 11, ptr %5878, align 8, !tbaa !126
+  store i64 11, ptr %5878, align 8, !tbaa !120
   %5879 = getelementptr inbounds nuw i8, ptr %5875, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5879, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %5880 = getelementptr inbounds nuw i8, ptr %5875, i64 35
   store i8 0, ptr %5880, align 1, !tbaa !44
-  store ptr %5875, ptr %173, align 8, !tbaa !132
+  store ptr %5875, ptr %173, align 8, !tbaa !126
   %5881 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 16777218, ptr %5881, align 8, !tbaa !133
+  store i32 16777218, ptr %5881, align 8, !tbaa !128
   %5882 = getelementptr inbounds nuw i8, ptr %173, i64 12
   store i32 0, ptr %5882, align 4
   %5883 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5869, ptr noundef nonnull %172, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %173) #17
@@ -14506,11 +14485,11 @@ zend_string_release.exit79.i507:                  ; preds = %5867, %5866, %5859,
   br i1 %.not.i80.i508, label %5886, label %zend_string_release.exit82.i509
 
 5886:                                             ; preds = %zend_string_release.exit79.i507
-  %5887 = load i32, ptr %5869, align 4, !tbaa !69
+  %5887 = load i32, ptr %5869, align 4, !tbaa !64
   %5888 = icmp ne i32 %5887, 0
   call void @llvm.assume(i1 %5888)
   %5889 = add i32 %5887, -1
-  store i32 %5889, ptr %5869, align 4, !tbaa !69
+  store i32 %5889, ptr %5869, align 4, !tbaa !64
   %5890 = icmp eq i32 %5889, 0
   br i1 %5890, label %5891, label %zend_string_release.exit82.i509
 
@@ -14532,32 +14511,32 @@ zend_string_release.exit82.i509:                  ; preds = %5894, %5893, %5886,
   %5895 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 0, ptr %5895, align 8, !tbaa !44
   %5896 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5896, align 4, !tbaa !69
+  store i32 1, ptr %5896, align 4, !tbaa !64
   %5897 = getelementptr inbounds nuw i8, ptr %5896, i64 4
   store i32 150, ptr %5897, align 4, !tbaa !44
   %5898 = getelementptr inbounds nuw i8, ptr %5896, i64 8
-  store i64 0, ptr %5898, align 8, !tbaa !124
+  store i64 0, ptr %5898, align 8, !tbaa !118
   %5899 = getelementptr inbounds nuw i8, ptr %5896, i64 16
-  store i64 16, ptr %5899, align 8, !tbaa !126
+  store i64 16, ptr %5899, align 8, !tbaa !120
   %5900 = getelementptr inbounds nuw i8, ptr %5896, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5900, ptr noundef nonnull align 1 dereferenceable(16) @.str.65, i64 16, i1 false)
   %5901 = getelementptr inbounds nuw i8, ptr %5896, i64 40
   store i8 0, ptr %5901, align 8, !tbaa !44
   %5902 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5902, align 4, !tbaa !69
+  store i32 1, ptr %5902, align 4, !tbaa !64
   %5903 = getelementptr inbounds nuw i8, ptr %5902, i64 4
   store i32 150, ptr %5903, align 4, !tbaa !44
   %5904 = getelementptr inbounds nuw i8, ptr %5902, i64 8
-  store i64 0, ptr %5904, align 8, !tbaa !124
+  store i64 0, ptr %5904, align 8, !tbaa !118
   %5905 = getelementptr inbounds nuw i8, ptr %5902, i64 16
-  store i64 11, ptr %5905, align 8, !tbaa !126
+  store i64 11, ptr %5905, align 8, !tbaa !120
   %5906 = getelementptr inbounds nuw i8, ptr %5902, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5906, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %5907 = getelementptr inbounds nuw i8, ptr %5902, i64 35
   store i8 0, ptr %5907, align 1, !tbaa !44
-  store ptr %5902, ptr %175, align 8, !tbaa !132
+  store ptr %5902, ptr %175, align 8, !tbaa !126
   %5908 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  store i32 16777218, ptr %5908, align 8, !tbaa !133
+  store i32 16777218, ptr %5908, align 8, !tbaa !128
   %5909 = getelementptr inbounds nuw i8, ptr %175, i64 12
   store i32 0, ptr %5909, align 4
   %5910 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5896, ptr noundef nonnull %174, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %175) #17
@@ -14567,11 +14546,11 @@ zend_string_release.exit82.i509:                  ; preds = %5894, %5893, %5886,
   br i1 %.not.i83.i510, label %5913, label %zend_string_release.exit85.i511
 
 5913:                                             ; preds = %zend_string_release.exit82.i509
-  %5914 = load i32, ptr %5896, align 4, !tbaa !69
+  %5914 = load i32, ptr %5896, align 4, !tbaa !64
   %5915 = icmp ne i32 %5914, 0
   call void @llvm.assume(i1 %5915)
   %5916 = add i32 %5914, -1
-  store i32 %5916, ptr %5896, align 4, !tbaa !69
+  store i32 %5916, ptr %5896, align 4, !tbaa !64
   %5917 = icmp eq i32 %5916, 0
   br i1 %5917, label %5918, label %zend_string_release.exit85.i511
 
@@ -14593,20 +14572,20 @@ zend_string_release.exit85.i511:                  ; preds = %5921, %5920, %5913,
   %5922 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i32 0, ptr %5922, align 8, !tbaa !44
   %5923 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5923, align 4, !tbaa !69
+  store i32 1, ptr %5923, align 4, !tbaa !64
   %5924 = getelementptr inbounds nuw i8, ptr %5923, i64 4
   store i32 150, ptr %5924, align 4, !tbaa !44
   %5925 = getelementptr inbounds nuw i8, ptr %5923, i64 8
-  store i64 0, ptr %5925, align 8, !tbaa !124
+  store i64 0, ptr %5925, align 8, !tbaa !118
   %5926 = getelementptr inbounds nuw i8, ptr %5923, i64 16
-  store i64 17, ptr %5926, align 8, !tbaa !126
+  store i64 17, ptr %5926, align 8, !tbaa !120
   %5927 = getelementptr inbounds nuw i8, ptr %5923, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %5927, ptr noundef nonnull align 1 dereferenceable(17) @.str.67, i64 17, i1 false)
   %5928 = getelementptr inbounds nuw i8, ptr %5923, i64 41
   store i8 0, ptr %5928, align 1, !tbaa !44
-  store ptr null, ptr %177, align 8, !tbaa !132
+  store ptr null, ptr %177, align 8, !tbaa !126
   %5929 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  store i32 16, ptr %5929, align 8, !tbaa !133
+  store i32 16, ptr %5929, align 8, !tbaa !128
   %5930 = getelementptr inbounds nuw i8, ptr %177, i64 12
   store i32 0, ptr %5930, align 4
   %5931 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5923, ptr noundef nonnull %176, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %177) #17
@@ -14616,11 +14595,11 @@ zend_string_release.exit85.i511:                  ; preds = %5921, %5920, %5913,
   br i1 %.not.i86.i512, label %5934, label %zend_string_release.exit88.i513
 
 5934:                                             ; preds = %zend_string_release.exit85.i511
-  %5935 = load i32, ptr %5923, align 4, !tbaa !69
+  %5935 = load i32, ptr %5923, align 4, !tbaa !64
   %5936 = icmp ne i32 %5935, 0
   call void @llvm.assume(i1 %5936)
   %5937 = add i32 %5935, -1
-  store i32 %5937, ptr %5923, align 4, !tbaa !69
+  store i32 %5937, ptr %5923, align 4, !tbaa !64
   %5938 = icmp eq i32 %5937, 0
   br i1 %5938, label %5939, label %zend_string_release.exit88.i513
 
@@ -14642,32 +14621,32 @@ zend_string_release.exit88.i513:                  ; preds = %5942, %5941, %5934,
   %5943 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 0, ptr %5943, align 8, !tbaa !44
   %5944 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5944, align 4, !tbaa !69
+  store i32 1, ptr %5944, align 4, !tbaa !64
   %5945 = getelementptr inbounds nuw i8, ptr %5944, i64 4
   store i32 150, ptr %5945, align 4, !tbaa !44
   %5946 = getelementptr inbounds nuw i8, ptr %5944, i64 8
-  store i64 0, ptr %5946, align 8, !tbaa !124
+  store i64 0, ptr %5946, align 8, !tbaa !118
   %5947 = getelementptr inbounds nuw i8, ptr %5944, i64 16
-  store i64 22, ptr %5947, align 8, !tbaa !126
+  store i64 22, ptr %5947, align 8, !tbaa !120
   %5948 = getelementptr inbounds nuw i8, ptr %5944, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %5948, ptr noundef nonnull align 1 dereferenceable(22) @.str.145, i64 22, i1 false)
   %5949 = getelementptr inbounds nuw i8, ptr %5944, i64 46
   store i8 0, ptr %5949, align 2, !tbaa !44
   %5950 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5950, align 4, !tbaa !69
+  store i32 1, ptr %5950, align 4, !tbaa !64
   %5951 = getelementptr inbounds nuw i8, ptr %5950, i64 4
   store i32 150, ptr %5951, align 4, !tbaa !44
   %5952 = getelementptr inbounds nuw i8, ptr %5950, i64 8
-  store i64 0, ptr %5952, align 8, !tbaa !124
+  store i64 0, ptr %5952, align 8, !tbaa !118
   %5953 = getelementptr inbounds nuw i8, ptr %5950, i64 16
-  store i64 11, ptr %5953, align 8, !tbaa !126
+  store i64 11, ptr %5953, align 8, !tbaa !120
   %5954 = getelementptr inbounds nuw i8, ptr %5950, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5954, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %5955 = getelementptr inbounds nuw i8, ptr %5950, i64 35
   store i8 0, ptr %5955, align 1, !tbaa !44
-  store ptr %5950, ptr %179, align 8, !tbaa !132
+  store ptr %5950, ptr %179, align 8, !tbaa !126
   %5956 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store i32 16777218, ptr %5956, align 8, !tbaa !133
+  store i32 16777218, ptr %5956, align 8, !tbaa !128
   %5957 = getelementptr inbounds nuw i8, ptr %179, i64 12
   store i32 0, ptr %5957, align 4
   %5958 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5944, ptr noundef nonnull %178, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %179) #17
@@ -14677,11 +14656,11 @@ zend_string_release.exit88.i513:                  ; preds = %5942, %5941, %5934,
   br i1 %.not.i89.i514, label %5961, label %zend_string_release.exit91.i
 
 5961:                                             ; preds = %zend_string_release.exit88.i513
-  %5962 = load i32, ptr %5944, align 4, !tbaa !69
+  %5962 = load i32, ptr %5944, align 4, !tbaa !64
   %5963 = icmp ne i32 %5962, 0
   call void @llvm.assume(i1 %5963)
   %5964 = add i32 %5962, -1
-  store i32 %5964, ptr %5944, align 4, !tbaa !69
+  store i32 %5964, ptr %5944, align 4, !tbaa !64
   %5965 = icmp eq i32 %5964, 0
   br i1 %5965, label %5966, label %zend_string_release.exit91.i
 
@@ -14703,32 +14682,32 @@ zend_string_release.exit91.i:                     ; preds = %5969, %5968, %5961,
   %5970 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store i32 0, ptr %5970, align 8, !tbaa !44
   %5971 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %5971, align 4, !tbaa !69
+  store i32 1, ptr %5971, align 4, !tbaa !64
   %5972 = getelementptr inbounds nuw i8, ptr %5971, i64 4
   store i32 150, ptr %5972, align 4, !tbaa !44
   %5973 = getelementptr inbounds nuw i8, ptr %5971, i64 8
-  store i64 0, ptr %5973, align 8, !tbaa !124
+  store i64 0, ptr %5973, align 8, !tbaa !118
   %5974 = getelementptr inbounds nuw i8, ptr %5971, i64 16
-  store i64 18, ptr %5974, align 8, !tbaa !126
+  store i64 18, ptr %5974, align 8, !tbaa !120
   %5975 = getelementptr inbounds nuw i8, ptr %5971, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %5975, ptr noundef nonnull align 1 dereferenceable(18) @.str.147, i64 18, i1 false)
   %5976 = getelementptr inbounds nuw i8, ptr %5971, i64 42
   store i8 0, ptr %5976, align 2, !tbaa !44
   %5977 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5977, align 4, !tbaa !69
+  store i32 1, ptr %5977, align 4, !tbaa !64
   %5978 = getelementptr inbounds nuw i8, ptr %5977, i64 4
   store i32 150, ptr %5978, align 4, !tbaa !44
   %5979 = getelementptr inbounds nuw i8, ptr %5977, i64 8
-  store i64 0, ptr %5979, align 8, !tbaa !124
+  store i64 0, ptr %5979, align 8, !tbaa !118
   %5980 = getelementptr inbounds nuw i8, ptr %5977, i64 16
-  store i64 11, ptr %5980, align 8, !tbaa !126
+  store i64 11, ptr %5980, align 8, !tbaa !120
   %5981 = getelementptr inbounds nuw i8, ptr %5977, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %5981, ptr noundef nonnull align 1 dereferenceable(11) @.str.322, i64 11, i1 false)
   %5982 = getelementptr inbounds nuw i8, ptr %5977, i64 35
   store i8 0, ptr %5982, align 1, !tbaa !44
-  store ptr %5977, ptr %181, align 8, !tbaa !132
+  store ptr %5977, ptr %181, align 8, !tbaa !126
   %5983 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  store i32 16777218, ptr %5983, align 8, !tbaa !133
+  store i32 16777218, ptr %5983, align 8, !tbaa !128
   %5984 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store i32 0, ptr %5984, align 4
   %5985 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5971, ptr noundef nonnull %180, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %181) #17
@@ -14738,11 +14717,11 @@ zend_string_release.exit91.i:                     ; preds = %5969, %5968, %5961,
   br i1 %.not.i92.i, label %5988, label %zend_string_release.exit94.i
 
 5988:                                             ; preds = %zend_string_release.exit91.i
-  %5989 = load i32, ptr %5971, align 4, !tbaa !69
+  %5989 = load i32, ptr %5971, align 4, !tbaa !64
   %5990 = icmp ne i32 %5989, 0
   call void @llvm.assume(i1 %5990)
   %5991 = add i32 %5989, -1
-  store i32 %5991, ptr %5971, align 4, !tbaa !69
+  store i32 %5991, ptr %5971, align 4, !tbaa !64
   %5992 = icmp eq i32 %5991, 0
   br i1 %5992, label %5993, label %zend_string_release.exit94.i
 
@@ -14764,20 +14743,20 @@ zend_string_release.exit94.i:                     ; preds = %5996, %5995, %5988,
   %5997 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 0, ptr %5997, align 8, !tbaa !44
   %5998 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %5998, align 4, !tbaa !69
+  store i32 1, ptr %5998, align 4, !tbaa !64
   %5999 = getelementptr inbounds nuw i8, ptr %5998, i64 4
   store i32 150, ptr %5999, align 4, !tbaa !44
   %6000 = getelementptr inbounds nuw i8, ptr %5998, i64 8
-  store i64 0, ptr %6000, align 8, !tbaa !124
+  store i64 0, ptr %6000, align 8, !tbaa !118
   %6001 = getelementptr inbounds nuw i8, ptr %5998, i64 16
-  store i64 9, ptr %6001, align 8, !tbaa !126
+  store i64 9, ptr %6001, align 8, !tbaa !120
   %6002 = getelementptr inbounds nuw i8, ptr %5998, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6002, ptr noundef nonnull align 1 dereferenceable(9) @.str.200, i64 9, i1 false)
   %6003 = getelementptr inbounds nuw i8, ptr %5998, i64 33
   store i8 0, ptr %6003, align 1, !tbaa !44
-  store ptr null, ptr %183, align 8, !tbaa !132
+  store ptr null, ptr %183, align 8, !tbaa !126
   %6004 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  store i32 64, ptr %6004, align 8, !tbaa !133
+  store i32 64, ptr %6004, align 8, !tbaa !128
   %6005 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 0, ptr %6005, align 4
   %6006 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %5998, ptr noundef nonnull %182, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %183) #17
@@ -14787,11 +14766,11 @@ zend_string_release.exit94.i:                     ; preds = %5996, %5995, %5988,
   br i1 %.not.i95.i, label %6009, label %zend_string_release.exit97.i
 
 6009:                                             ; preds = %zend_string_release.exit94.i
-  %6010 = load i32, ptr %5998, align 4, !tbaa !69
+  %6010 = load i32, ptr %5998, align 4, !tbaa !64
   %6011 = icmp ne i32 %6010, 0
   call void @llvm.assume(i1 %6011)
   %6012 = add i32 %6010, -1
-  store i32 %6012, ptr %5998, align 4, !tbaa !69
+  store i32 %6012, ptr %5998, align 4, !tbaa !64
   %6013 = icmp eq i32 %6012, 0
   br i1 %6013, label %6014, label %zend_string_release.exit97.i
 
@@ -14813,20 +14792,20 @@ zend_string_release.exit97.i:                     ; preds = %6017, %6016, %6009,
   %6018 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store i32 0, ptr %6018, align 8, !tbaa !44
   %6019 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6019, align 4, !tbaa !69
+  store i32 1, ptr %6019, align 4, !tbaa !64
   %6020 = getelementptr inbounds nuw i8, ptr %6019, i64 4
   store i32 150, ptr %6020, align 4, !tbaa !44
   %6021 = getelementptr inbounds nuw i8, ptr %6019, i64 8
-  store i64 0, ptr %6021, align 8, !tbaa !124
+  store i64 0, ptr %6021, align 8, !tbaa !118
   %6022 = getelementptr inbounds nuw i8, ptr %6019, i64 16
-  store i64 9, ptr %6022, align 8, !tbaa !126
+  store i64 9, ptr %6022, align 8, !tbaa !120
   %6023 = getelementptr inbounds nuw i8, ptr %6019, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6023, ptr noundef nonnull align 1 dereferenceable(9) @.str.202, i64 9, i1 false)
   %6024 = getelementptr inbounds nuw i8, ptr %6019, i64 33
   store i8 0, ptr %6024, align 1, !tbaa !44
-  store ptr null, ptr %185, align 8, !tbaa !132
+  store ptr null, ptr %185, align 8, !tbaa !126
   %6025 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store i32 64, ptr %6025, align 8, !tbaa !133
+  store i32 64, ptr %6025, align 8, !tbaa !128
   %6026 = getelementptr inbounds nuw i8, ptr %185, i64 12
   store i32 0, ptr %6026, align 4
   %6027 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %6019, ptr noundef nonnull %184, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %185) #17
@@ -14836,11 +14815,11 @@ zend_string_release.exit97.i:                     ; preds = %6017, %6016, %6009,
   br i1 %.not.i98.i, label %6030, label %zend_string_release.exit100.i
 
 6030:                                             ; preds = %zend_string_release.exit97.i
-  %6031 = load i32, ptr %6019, align 4, !tbaa !69
+  %6031 = load i32, ptr %6019, align 4, !tbaa !64
   %6032 = icmp ne i32 %6031, 0
   call void @llvm.assume(i1 %6032)
   %6033 = add i32 %6031, -1
-  store i32 %6033, ptr %6019, align 4, !tbaa !69
+  store i32 %6033, ptr %6019, align 4, !tbaa !64
   %6034 = icmp eq i32 %6033, 0
   br i1 %6034, label %6035, label %zend_string_release.exit100.i
 
@@ -14862,20 +14841,20 @@ zend_string_release.exit100.i:                    ; preds = %6038, %6037, %6030,
   %6039 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store i32 0, ptr %6039, align 8, !tbaa !44
   %6040 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %6040, align 4, !tbaa !69
+  store i32 1, ptr %6040, align 4, !tbaa !64
   %6041 = getelementptr inbounds nuw i8, ptr %6040, i64 4
   store i32 150, ptr %6041, align 4, !tbaa !44
   %6042 = getelementptr inbounds nuw i8, ptr %6040, i64 8
-  store i64 0, ptr %6042, align 8, !tbaa !124
+  store i64 0, ptr %6042, align 8, !tbaa !118
   %6043 = getelementptr inbounds nuw i8, ptr %6040, i64 16
-  store i64 20, ptr %6043, align 8, !tbaa !126
+  store i64 20, ptr %6043, align 8, !tbaa !120
   %6044 = getelementptr inbounds nuw i8, ptr %6040, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6044, ptr noundef nonnull align 1 dereferenceable(20) @.str.204, i64 20, i1 false)
   %6045 = getelementptr inbounds nuw i8, ptr %6040, i64 44
   store i8 0, ptr %6045, align 4, !tbaa !44
-  store ptr null, ptr %187, align 8, !tbaa !132
+  store ptr null, ptr %187, align 8, !tbaa !126
   %6046 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  store i32 64, ptr %6046, align 8, !tbaa !133
+  store i32 64, ptr %6046, align 8, !tbaa !128
   %6047 = getelementptr inbounds nuw i8, ptr %187, i64 12
   store i32 0, ptr %6047, align 4
   %6048 = call ptr @zend_declare_typed_property(ptr noundef %5687, ptr noundef nonnull %6040, ptr noundef nonnull %186, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %187) #17
@@ -14885,11 +14864,11 @@ zend_string_release.exit100.i:                    ; preds = %6038, %6037, %6030,
   br i1 %.not.i101.i, label %6051, label %register_class_Dom_Element.exit
 
 6051:                                             ; preds = %zend_string_release.exit100.i
-  %6052 = load i32, ptr %6040, align 4, !tbaa !69
+  %6052 = load i32, ptr %6040, align 4, !tbaa !64
   %6053 = icmp ne i32 %6052, 0
   call void @llvm.assume(i1 %6053)
   %6054 = add i32 %6052, -1
-  store i32 %6054, ptr %6040, align 4, !tbaa !69
+  store i32 %6054, ptr %6040, align 4, !tbaa !64
   %6055 = icmp eq i32 %6054, 0
   br i1 %6055, label %6056, label %register_class_Dom_Element.exit
 
@@ -14940,11 +14919,11 @@ register_class_Dom_Element.exit:                  ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   call void @llvm.lifetime.end.p0(ptr nonnull %185)
   call void @llvm.lifetime.end.p0(ptr nonnull %187)
-  store ptr %5687, ptr @dom_modern_element_class_entry, align 8, !tbaa !127
+  store ptr %5687, ptr @dom_modern_element_class_entry, align 8, !tbaa !121
   %6060 = getelementptr inbounds nuw i8, ptr %5687, i64 384
   store ptr @dom_objects_new, ptr %6060, align 8, !tbaa !44
   %6061 = getelementptr inbounds nuw i8, ptr %5687, i64 360
-  store ptr @dom_object_handlers, ptr %6061, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6061, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_element_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6062 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6063 = call ptr %6062(ptr noundef nonnull @.str.29, i64 noundef 12, i1 noundef zeroext true) #17
@@ -14961,11 +14940,11 @@ register_class_Dom_Element.exit:                  ; preds = %zend_string_release
   br i1 %.not.i5.i527, label %6069, label %dom_register_prop_handler.exit528
 
 6069:                                             ; preds = %register_class_Dom_Element.exit
-  %6070 = load i32, ptr %6063, align 4, !tbaa !69
+  %6070 = load i32, ptr %6063, align 4, !tbaa !64
   %6071 = icmp ne i32 %6070, 0
   call void @llvm.assume(i1 %6071)
   %6072 = add i32 %6070, -1
-  store i32 %6072, ptr %6063, align 4, !tbaa !69
+  store i32 %6072, ptr %6063, align 4, !tbaa !64
   %6073 = icmp eq i32 %6072, 0
   br i1 %6073, label %6074, label %dom_register_prop_handler.exit528
 
@@ -14989,11 +14968,11 @@ dom_register_prop_handler.exit528:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i529, label %6082, label %dom_register_prop_handler.exit530
 
 6082:                                             ; preds = %dom_register_prop_handler.exit528
-  %6083 = load i32, ptr %6076, align 4, !tbaa !69
+  %6083 = load i32, ptr %6076, align 4, !tbaa !64
   %6084 = icmp ne i32 %6083, 0
   call void @llvm.assume(i1 %6084)
   %6085 = add i32 %6083, -1
-  store i32 %6085, ptr %6076, align 4, !tbaa !69
+  store i32 %6085, ptr %6076, align 4, !tbaa !64
   %6086 = icmp eq i32 %6085, 0
   br i1 %6086, label %6087, label %dom_register_prop_handler.exit530
 
@@ -15017,11 +14996,11 @@ dom_register_prop_handler.exit530:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i531, label %6095, label %dom_register_prop_handler.exit532
 
 6095:                                             ; preds = %dom_register_prop_handler.exit530
-  %6096 = load i32, ptr %6089, align 4, !tbaa !69
+  %6096 = load i32, ptr %6089, align 4, !tbaa !64
   %6097 = icmp ne i32 %6096, 0
   call void @llvm.assume(i1 %6097)
   %6098 = add i32 %6096, -1
-  store i32 %6098, ptr %6089, align 4, !tbaa !69
+  store i32 %6098, ptr %6089, align 4, !tbaa !64
   %6099 = icmp eq i32 %6098, 0
   br i1 %6099, label %6100, label %dom_register_prop_handler.exit532
 
@@ -15045,11 +15024,11 @@ dom_register_prop_handler.exit532:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i533, label %6108, label %dom_register_prop_handler.exit534
 
 6108:                                             ; preds = %dom_register_prop_handler.exit532
-  %6109 = load i32, ptr %6102, align 4, !tbaa !69
+  %6109 = load i32, ptr %6102, align 4, !tbaa !64
   %6110 = icmp ne i32 %6109, 0
   call void @llvm.assume(i1 %6110)
   %6111 = add i32 %6109, -1
-  store i32 %6111, ptr %6102, align 4, !tbaa !69
+  store i32 %6111, ptr %6102, align 4, !tbaa !64
   %6112 = icmp eq i32 %6111, 0
   br i1 %6112, label %6113, label %dom_register_prop_handler.exit534
 
@@ -15073,11 +15052,11 @@ dom_register_prop_handler.exit534:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i535, label %6121, label %dom_register_prop_handler.exit536
 
 6121:                                             ; preds = %dom_register_prop_handler.exit534
-  %6122 = load i32, ptr %6115, align 4, !tbaa !69
+  %6122 = load i32, ptr %6115, align 4, !tbaa !64
   %6123 = icmp ne i32 %6122, 0
   call void @llvm.assume(i1 %6123)
   %6124 = add i32 %6122, -1
-  store i32 %6124, ptr %6115, align 4, !tbaa !69
+  store i32 %6124, ptr %6115, align 4, !tbaa !64
   %6125 = icmp eq i32 %6124, 0
   br i1 %6125, label %6126, label %dom_register_prop_handler.exit536
 
@@ -15101,11 +15080,11 @@ dom_register_prop_handler.exit536:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i537, label %6134, label %dom_register_prop_handler.exit538
 
 6134:                                             ; preds = %dom_register_prop_handler.exit536
-  %6135 = load i32, ptr %6128, align 4, !tbaa !69
+  %6135 = load i32, ptr %6128, align 4, !tbaa !64
   %6136 = icmp ne i32 %6135, 0
   call void @llvm.assume(i1 %6136)
   %6137 = add i32 %6135, -1
-  store i32 %6137, ptr %6128, align 4, !tbaa !69
+  store i32 %6137, ptr %6128, align 4, !tbaa !64
   %6138 = icmp eq i32 %6137, 0
   br i1 %6138, label %6139, label %dom_register_prop_handler.exit538
 
@@ -15129,11 +15108,11 @@ dom_register_prop_handler.exit538:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i539, label %6147, label %dom_register_prop_handler.exit540
 
 6147:                                             ; preds = %dom_register_prop_handler.exit538
-  %6148 = load i32, ptr %6141, align 4, !tbaa !69
+  %6148 = load i32, ptr %6141, align 4, !tbaa !64
   %6149 = icmp ne i32 %6148, 0
   call void @llvm.assume(i1 %6149)
   %6150 = add i32 %6148, -1
-  store i32 %6150, ptr %6141, align 4, !tbaa !69
+  store i32 %6150, ptr %6141, align 4, !tbaa !64
   %6151 = icmp eq i32 %6150, 0
   br i1 %6151, label %6152, label %dom_register_prop_handler.exit540
 
@@ -15157,11 +15136,11 @@ dom_register_prop_handler.exit540:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i541, label %6160, label %dom_register_prop_handler.exit542
 
 6160:                                             ; preds = %dom_register_prop_handler.exit540
-  %6161 = load i32, ptr %6154, align 4, !tbaa !69
+  %6161 = load i32, ptr %6154, align 4, !tbaa !64
   %6162 = icmp ne i32 %6161, 0
   call void @llvm.assume(i1 %6162)
   %6163 = add i32 %6161, -1
-  store i32 %6163, ptr %6154, align 4, !tbaa !69
+  store i32 %6163, ptr %6154, align 4, !tbaa !64
   %6164 = icmp eq i32 %6163, 0
   br i1 %6164, label %6165, label %dom_register_prop_handler.exit542
 
@@ -15185,11 +15164,11 @@ dom_register_prop_handler.exit542:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i543, label %6173, label %dom_register_prop_handler.exit544
 
 6173:                                             ; preds = %dom_register_prop_handler.exit542
-  %6174 = load i32, ptr %6167, align 4, !tbaa !69
+  %6174 = load i32, ptr %6167, align 4, !tbaa !64
   %6175 = icmp ne i32 %6174, 0
   call void @llvm.assume(i1 %6175)
   %6176 = add i32 %6174, -1
-  store i32 %6176, ptr %6167, align 4, !tbaa !69
+  store i32 %6176, ptr %6167, align 4, !tbaa !64
   %6177 = icmp eq i32 %6176, 0
   br i1 %6177, label %6178, label %dom_register_prop_handler.exit544
 
@@ -15213,11 +15192,11 @@ dom_register_prop_handler.exit544:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i545, label %6186, label %dom_register_prop_handler.exit546
 
 6186:                                             ; preds = %dom_register_prop_handler.exit544
-  %6187 = load i32, ptr %6180, align 4, !tbaa !69
+  %6187 = load i32, ptr %6180, align 4, !tbaa !64
   %6188 = icmp ne i32 %6187, 0
   call void @llvm.assume(i1 %6188)
   %6189 = add i32 %6187, -1
-  store i32 %6189, ptr %6180, align 4, !tbaa !69
+  store i32 %6189, ptr %6180, align 4, !tbaa !64
   %6190 = icmp eq i32 %6189, 0
   br i1 %6190, label %6191, label %dom_register_prop_handler.exit546
 
@@ -15241,11 +15220,11 @@ dom_register_prop_handler.exit546:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i547, label %6199, label %dom_register_prop_handler.exit548
 
 6199:                                             ; preds = %dom_register_prop_handler.exit546
-  %6200 = load i32, ptr %6193, align 4, !tbaa !69
+  %6200 = load i32, ptr %6193, align 4, !tbaa !64
   %6201 = icmp ne i32 %6200, 0
   call void @llvm.assume(i1 %6201)
   %6202 = add i32 %6200, -1
-  store i32 %6202, ptr %6193, align 4, !tbaa !69
+  store i32 %6202, ptr %6193, align 4, !tbaa !64
   %6203 = icmp eq i32 %6202, 0
   br i1 %6203, label %6204, label %dom_register_prop_handler.exit548
 
@@ -15269,11 +15248,11 @@ dom_register_prop_handler.exit548:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i549, label %6212, label %dom_register_prop_handler.exit550
 
 6212:                                             ; preds = %dom_register_prop_handler.exit548
-  %6213 = load i32, ptr %6206, align 4, !tbaa !69
+  %6213 = load i32, ptr %6206, align 4, !tbaa !64
   %6214 = icmp ne i32 %6213, 0
   call void @llvm.assume(i1 %6214)
   %6215 = add i32 %6213, -1
-  store i32 %6215, ptr %6206, align 4, !tbaa !69
+  store i32 %6215, ptr %6206, align 4, !tbaa !64
   %6216 = icmp eq i32 %6215, 0
   br i1 %6216, label %6217, label %dom_register_prop_handler.exit550
 
@@ -15297,11 +15276,11 @@ dom_register_prop_handler.exit550:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i551, label %6225, label %dom_register_prop_handler.exit552
 
 6225:                                             ; preds = %dom_register_prop_handler.exit550
-  %6226 = load i32, ptr %6219, align 4, !tbaa !69
+  %6226 = load i32, ptr %6219, align 4, !tbaa !64
   %6227 = icmp ne i32 %6226, 0
   call void @llvm.assume(i1 %6227)
   %6228 = add i32 %6226, -1
-  store i32 %6228, ptr %6219, align 4, !tbaa !69
+  store i32 %6228, ptr %6219, align 4, !tbaa !64
   %6229 = icmp eq i32 %6228, 0
   br i1 %6229, label %6230, label %dom_register_prop_handler.exit552
 
@@ -15325,11 +15304,11 @@ dom_register_prop_handler.exit552:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i553, label %6238, label %dom_register_prop_handler.exit554
 
 6238:                                             ; preds = %dom_register_prop_handler.exit552
-  %6239 = load i32, ptr %6232, align 4, !tbaa !69
+  %6239 = load i32, ptr %6232, align 4, !tbaa !64
   %6240 = icmp ne i32 %6239, 0
   call void @llvm.assume(i1 %6240)
   %6241 = add i32 %6239, -1
-  store i32 %6241, ptr %6232, align 4, !tbaa !69
+  store i32 %6241, ptr %6232, align 4, !tbaa !64
   %6242 = icmp eq i32 %6241, 0
   br i1 %6242, label %6243, label %dom_register_prop_handler.exit554
 
@@ -15353,11 +15332,11 @@ dom_register_prop_handler.exit554:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i555, label %6251, label %dom_register_prop_handler.exit556
 
 6251:                                             ; preds = %dom_register_prop_handler.exit554
-  %6252 = load i32, ptr %6245, align 4, !tbaa !69
+  %6252 = load i32, ptr %6245, align 4, !tbaa !64
   %6253 = icmp ne i32 %6252, 0
   call void @llvm.assume(i1 %6253)
   %6254 = add i32 %6252, -1
-  store i32 %6254, ptr %6245, align 4, !tbaa !69
+  store i32 %6254, ptr %6245, align 4, !tbaa !64
   %6255 = icmp eq i32 %6254, 0
   br i1 %6255, label %6256, label %dom_register_prop_handler.exit556
 
@@ -15381,11 +15360,11 @@ dom_register_prop_handler.exit556:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i557, label %6264, label %dom_register_prop_handler.exit558
 
 6264:                                             ; preds = %dom_register_prop_handler.exit556
-  %6265 = load i32, ptr %6258, align 4, !tbaa !69
+  %6265 = load i32, ptr %6258, align 4, !tbaa !64
   %6266 = icmp ne i32 %6265, 0
   call void @llvm.assume(i1 %6266)
   %6267 = add i32 %6265, -1
-  store i32 %6267, ptr %6258, align 4, !tbaa !69
+  store i32 %6267, ptr %6258, align 4, !tbaa !64
   %6268 = icmp eq i32 %6267, 0
   br i1 %6268, label %6269, label %dom_register_prop_handler.exit558
 
@@ -15401,7 +15380,7 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   store i32 13, ptr %6270, align 8, !tbaa !44
   %6271 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_element_prop_handlers, ptr noundef nonnull @.str.37, i64 noundef range(i64 9, 12) 11, ptr noundef nonnull %138) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
-  %6272 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !127
+  %6272 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !121
   %6273 = getelementptr inbounds nuw i8, ptr %6272, i64 8
   %6274 = load ptr, ptr %6273, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %642)
@@ -15410,7 +15389,7 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   store i32 13, ptr %6275, align 8, !tbaa !44
   %6276 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6274, ptr noundef nonnull %642) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %642)
-  %6277 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !127
+  %6277 = load ptr, ptr @dom_modern_element_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %137, i8 0, i64 520, i1 false)
   %6278 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -15418,16 +15397,16 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   %6280 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store ptr %6279, ptr %6280, align 8, !tbaa !28
   %6281 = getelementptr inbounds nuw i8, ptr %137, i64 360
-  store ptr @std_object_handlers, ptr %6281, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6281, align 8, !tbaa !122
   %6282 = getelementptr inbounds nuw i8, ptr %137, i64 504
   store ptr null, ptr %6282, align 8, !tbaa !44
   %6283 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %137, ptr noundef %6277, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %137)
-  store ptr %6283, ptr @dom_html_element_class_entry, align 8, !tbaa !127
+  store ptr %6283, ptr @dom_html_element_class_entry, align 8, !tbaa !121
   %6284 = getelementptr inbounds nuw i8, ptr %6283, i64 384
   store ptr @dom_objects_new, ptr %6284, align 8, !tbaa !44
   %6285 = getelementptr inbounds nuw i8, ptr %6283, i64 360
-  store ptr @dom_object_handlers, ptr %6285, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6285, align 8, !tbaa !122
   %6286 = getelementptr inbounds nuw i8, ptr %6283, i64 8
   %6287 = load ptr, ptr %6286, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %641)
@@ -15436,7 +15415,7 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   store i32 13, ptr %6288, align 8, !tbaa !44
   %6289 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6287, ptr noundef nonnull %641) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %641)
-  %6290 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
+  %6290 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   call void @llvm.lifetime.start.p0(ptr nonnull %134)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %134, i8 0, i64 520, i1 false)
@@ -15445,7 +15424,7 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   %6293 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %6292, ptr %6293, align 8, !tbaa !28
   %6294 = getelementptr inbounds nuw i8, ptr %134, i64 360
-  store ptr @std_object_handlers, ptr %6294, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6294, align 8, !tbaa !122
   %6295 = getelementptr inbounds nuw i8, ptr %134, i64 504
   store ptr @class_DOMText_methods, ptr %6295, align 8, !tbaa !44
   %6296 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %134, ptr noundef %6290, i32 noundef 0) #17
@@ -15453,20 +15432,20 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   %6297 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i32 0, ptr %6297, align 8, !tbaa !44
   %6298 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6298, align 4, !tbaa !69
+  store i32 1, ptr %6298, align 4, !tbaa !64
   %6299 = getelementptr inbounds nuw i8, ptr %6298, i64 4
   store i32 150, ptr %6299, align 4, !tbaa !44
   %6300 = getelementptr inbounds nuw i8, ptr %6298, i64 8
-  store i64 0, ptr %6300, align 8, !tbaa !124
+  store i64 0, ptr %6300, align 8, !tbaa !118
   %6301 = getelementptr inbounds nuw i8, ptr %6298, i64 16
-  store i64 9, ptr %6301, align 8, !tbaa !126
+  store i64 9, ptr %6301, align 8, !tbaa !120
   %6302 = getelementptr inbounds nuw i8, ptr %6298, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6302, ptr noundef nonnull align 1 dereferenceable(9) @.str.207, i64 9, i1 false)
   %6303 = getelementptr inbounds nuw i8, ptr %6298, i64 33
   store i8 0, ptr %6303, align 1, !tbaa !44
-  store ptr null, ptr %136, align 8, !tbaa !132
+  store ptr null, ptr %136, align 8, !tbaa !126
   %6304 = getelementptr inbounds nuw i8, ptr %136, i64 8
-  store i32 64, ptr %6304, align 8, !tbaa !133
+  store i32 64, ptr %6304, align 8, !tbaa !128
   %6305 = getelementptr inbounds nuw i8, ptr %136, i64 12
   store i32 0, ptr %6305, align 4
   %6306 = call ptr @zend_declare_typed_property(ptr noundef %6296, ptr noundef nonnull %6298, ptr noundef nonnull %135, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %136) #17
@@ -15476,11 +15455,11 @@ dom_register_prop_handler.exit558:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i559, label %6309, label %register_class_DOMText.exit
 
 6309:                                             ; preds = %dom_register_prop_handler.exit558
-  %6310 = load i32, ptr %6298, align 4, !tbaa !69
+  %6310 = load i32, ptr %6298, align 4, !tbaa !64
   %6311 = icmp ne i32 %6310, 0
   call void @llvm.assume(i1 %6311)
   %6312 = add i32 %6310, -1
-  store i32 %6312, ptr %6298, align 4, !tbaa !69
+  store i32 %6312, ptr %6298, align 4, !tbaa !64
   %6313 = icmp eq i32 %6312, 0
   br i1 %6313, label %6314, label %register_class_DOMText.exit
 
@@ -15501,11 +15480,11 @@ register_class_DOMText.exit:                      ; preds = %dom_register_prop_h
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
   call void @llvm.lifetime.end.p0(ptr nonnull %134)
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
-  store ptr %6296, ptr @dom_text_class_entry, align 8, !tbaa !127
+  store ptr %6296, ptr @dom_text_class_entry, align 8, !tbaa !121
   %6318 = getelementptr inbounds nuw i8, ptr %6296, i64 384
   store ptr @dom_objects_new, ptr %6318, align 8, !tbaa !44
   %6319 = getelementptr inbounds nuw i8, ptr %6296, i64 360
-  store ptr @dom_object_handlers, ptr %6319, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6319, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_text_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6320 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6321 = call ptr %6320(ptr noundef nonnull @.str.207, i64 noundef 9, i1 noundef zeroext true) #17
@@ -15522,11 +15501,11 @@ register_class_DOMText.exit:                      ; preds = %dom_register_prop_h
   br i1 %.not.i5.i562, label %6327, label %dom_register_prop_handler.exit563
 
 6327:                                             ; preds = %register_class_DOMText.exit
-  %6328 = load i32, ptr %6321, align 4, !tbaa !69
+  %6328 = load i32, ptr %6321, align 4, !tbaa !64
   %6329 = icmp ne i32 %6328, 0
   call void @llvm.assume(i1 %6329)
   %6330 = add i32 %6328, -1
-  store i32 %6330, ptr %6321, align 4, !tbaa !69
+  store i32 %6330, ptr %6321, align 4, !tbaa !64
   %6331 = icmp eq i32 %6330, 0
   br i1 %6331, label %6332, label %dom_register_prop_handler.exit563
 
@@ -15536,7 +15515,7 @@ register_class_DOMText.exit:                      ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit563:                ; preds = %register_class_DOMText.exit, %6327, %6332
   call void @zend_hash_merge(ptr noundef nonnull @dom_text_prop_handlers, ptr noundef nonnull @dom_characterdata_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %6333 = load ptr, ptr @dom_text_class_entry, align 8, !tbaa !127
+  %6333 = load ptr, ptr @dom_text_class_entry, align 8, !tbaa !121
   %6334 = getelementptr inbounds nuw i8, ptr %6333, i64 8
   %6335 = load ptr, ptr %6334, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %640)
@@ -15545,7 +15524,7 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   store i32 13, ptr %6336, align 8, !tbaa !44
   %6337 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6335, ptr noundef nonnull %640) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %640)
-  %6338 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
+  %6338 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
   call void @llvm.lifetime.start.p0(ptr nonnull %130)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %130, i8 0, i64 520, i1 false)
@@ -15554,7 +15533,7 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   %6341 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr %6340, ptr %6341, align 8, !tbaa !28
   %6342 = getelementptr inbounds nuw i8, ptr %130, i64 360
-  store ptr @std_object_handlers, ptr %6342, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6342, align 8, !tbaa !122
   %6343 = getelementptr inbounds nuw i8, ptr %130, i64 504
   store ptr @class_Dom_Text_methods, ptr %6343, align 8, !tbaa !44
   %6344 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %130, ptr noundef %6338, i32 noundef 0) #17
@@ -15562,20 +15541,20 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   %6345 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store i32 0, ptr %6345, align 8, !tbaa !44
   %6346 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6346, align 4, !tbaa !69
+  store i32 1, ptr %6346, align 4, !tbaa !64
   %6347 = getelementptr inbounds nuw i8, ptr %6346, i64 4
   store i32 150, ptr %6347, align 4, !tbaa !44
   %6348 = getelementptr inbounds nuw i8, ptr %6346, i64 8
-  store i64 0, ptr %6348, align 8, !tbaa !124
+  store i64 0, ptr %6348, align 8, !tbaa !118
   %6349 = getelementptr inbounds nuw i8, ptr %6346, i64 16
-  store i64 9, ptr %6349, align 8, !tbaa !126
+  store i64 9, ptr %6349, align 8, !tbaa !120
   %6350 = getelementptr inbounds nuw i8, ptr %6346, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6350, ptr noundef nonnull align 1 dereferenceable(9) @.str.207, i64 9, i1 false)
   %6351 = getelementptr inbounds nuw i8, ptr %6346, i64 33
   store i8 0, ptr %6351, align 1, !tbaa !44
-  store ptr null, ptr %132, align 8, !tbaa !132
+  store ptr null, ptr %132, align 8, !tbaa !126
   %6352 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  store i32 64, ptr %6352, align 8, !tbaa !133
+  store i32 64, ptr %6352, align 8, !tbaa !128
   %6353 = getelementptr inbounds nuw i8, ptr %132, i64 12
   store i32 0, ptr %6353, align 4
   %6354 = call ptr @zend_declare_typed_property(ptr noundef %6344, ptr noundef nonnull %6346, ptr noundef nonnull %131, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %132) #17
@@ -15585,11 +15564,11 @@ dom_register_prop_handler.exit563:                ; preds = %register_class_DOMT
   br i1 %.not.i.i564, label %6357, label %register_class_Dom_Text.exit
 
 6357:                                             ; preds = %dom_register_prop_handler.exit563
-  %6358 = load i32, ptr %6346, align 4, !tbaa !69
+  %6358 = load i32, ptr %6346, align 4, !tbaa !64
   %6359 = icmp ne i32 %6358, 0
   call void @llvm.assume(i1 %6359)
   %6360 = add i32 %6358, -1
-  store i32 %6360, ptr %6346, align 4, !tbaa !69
+  store i32 %6360, ptr %6346, align 4, !tbaa !64
   %6361 = icmp eq i32 %6360, 0
   br i1 %6361, label %6362, label %register_class_Dom_Text.exit
 
@@ -15610,11 +15589,11 @@ register_class_Dom_Text.exit:                     ; preds = %dom_register_prop_h
   call void @llvm.lifetime.end.p0(ptr nonnull %131)
   call void @llvm.lifetime.end.p0(ptr nonnull %130)
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
-  store ptr %6344, ptr @dom_modern_text_class_entry, align 8, !tbaa !127
+  store ptr %6344, ptr @dom_modern_text_class_entry, align 8, !tbaa !121
   %6366 = getelementptr inbounds nuw i8, ptr %6344, i64 384
   store ptr @dom_objects_new, ptr %6366, align 8, !tbaa !44
   %6367 = getelementptr inbounds nuw i8, ptr %6344, i64 360
-  store ptr @dom_object_handlers, ptr %6367, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6367, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_text_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6368 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6369 = call ptr %6368(ptr noundef nonnull @.str.207, i64 noundef 9, i1 noundef zeroext true) #17
@@ -15631,11 +15610,11 @@ register_class_Dom_Text.exit:                     ; preds = %dom_register_prop_h
   br i1 %.not.i5.i567, label %6375, label %dom_register_prop_handler.exit568
 
 6375:                                             ; preds = %register_class_Dom_Text.exit
-  %6376 = load i32, ptr %6369, align 4, !tbaa !69
+  %6376 = load i32, ptr %6369, align 4, !tbaa !64
   %6377 = icmp ne i32 %6376, 0
   call void @llvm.assume(i1 %6377)
   %6378 = add i32 %6376, -1
-  store i32 %6378, ptr %6369, align 4, !tbaa !69
+  store i32 %6378, ptr %6369, align 4, !tbaa !64
   %6379 = icmp eq i32 %6378, 0
   br i1 %6379, label %6380, label %dom_register_prop_handler.exit568
 
@@ -15645,7 +15624,7 @@ register_class_Dom_Text.exit:                     ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_Text.exit, %6375, %6380
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_text_prop_handlers, ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %6381 = load ptr, ptr @dom_modern_text_class_entry, align 8, !tbaa !127
+  %6381 = load ptr, ptr @dom_modern_text_class_entry, align 8, !tbaa !121
   %6382 = getelementptr inbounds nuw i8, ptr %6381, i64 8
   %6383 = load ptr, ptr %6382, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %639)
@@ -15654,7 +15633,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store i32 13, ptr %6384, align 8, !tbaa !44
   %6385 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6383, ptr noundef nonnull %639) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %639)
-  %6386 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !127
+  %6386 = load ptr, ptr @dom_characterdata_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %128, i8 0, i64 520, i1 false)
   %6387 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -15662,16 +15641,16 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6389 = getelementptr inbounds nuw i8, ptr %128, i64 8
   store ptr %6388, ptr %6389, align 8, !tbaa !28
   %6390 = getelementptr inbounds nuw i8, ptr %128, i64 360
-  store ptr @std_object_handlers, ptr %6390, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6390, align 8, !tbaa !122
   %6391 = getelementptr inbounds nuw i8, ptr %128, i64 504
   store ptr @class_DOMComment_methods, ptr %6391, align 8, !tbaa !44
   %6392 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %128, ptr noundef %6386, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
-  store ptr %6392, ptr @dom_comment_class_entry, align 8, !tbaa !127
+  store ptr %6392, ptr @dom_comment_class_entry, align 8, !tbaa !121
   %6393 = getelementptr inbounds nuw i8, ptr %6392, i64 384
   store ptr @dom_objects_new, ptr %6393, align 8, !tbaa !44
   %6394 = getelementptr inbounds nuw i8, ptr %6392, i64 360
-  store ptr @dom_object_handlers, ptr %6394, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6394, align 8, !tbaa !122
   %6395 = getelementptr inbounds nuw i8, ptr %6392, i64 8
   %6396 = load ptr, ptr %6395, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %638)
@@ -15680,7 +15659,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store i32 13, ptr %6397, align 8, !tbaa !44
   %6398 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6396, ptr noundef nonnull %638) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %638)
-  %6399 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
+  %6399 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %127, i8 0, i64 520, i1 false)
   %6400 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -15688,16 +15667,16 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6402 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr %6401, ptr %6402, align 8, !tbaa !28
   %6403 = getelementptr inbounds nuw i8, ptr %127, i64 360
-  store ptr @std_object_handlers, ptr %6403, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6403, align 8, !tbaa !122
   %6404 = getelementptr inbounds nuw i8, ptr %127, i64 504
   store ptr null, ptr %6404, align 8, !tbaa !44
   %6405 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %127, ptr noundef %6399, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
-  store ptr %6405, ptr @dom_modern_comment_class_entry, align 8, !tbaa !127
+  store ptr %6405, ptr @dom_modern_comment_class_entry, align 8, !tbaa !121
   %6406 = getelementptr inbounds nuw i8, ptr %6405, i64 384
   store ptr @dom_objects_new, ptr %6406, align 8, !tbaa !44
   %6407 = getelementptr inbounds nuw i8, ptr %6405, i64 360
-  store ptr @dom_object_handlers, ptr %6407, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6407, align 8, !tbaa !122
   %6408 = getelementptr inbounds nuw i8, ptr %6405, i64 8
   %6409 = load ptr, ptr %6408, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %637)
@@ -15706,7 +15685,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store i32 13, ptr %6410, align 8, !tbaa !44
   %6411 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6409, ptr noundef nonnull %637) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %637)
-  %6412 = load ptr, ptr @dom_text_class_entry, align 8, !tbaa !127
+  %6412 = load ptr, ptr @dom_text_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %126, i8 0, i64 520, i1 false)
   %6413 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -15714,16 +15693,16 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6415 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store ptr %6414, ptr %6415, align 8, !tbaa !28
   %6416 = getelementptr inbounds nuw i8, ptr %126, i64 360
-  store ptr @std_object_handlers, ptr %6416, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6416, align 8, !tbaa !122
   %6417 = getelementptr inbounds nuw i8, ptr %126, i64 504
   store ptr @class_DOMCdataSection_methods, ptr %6417, align 8, !tbaa !44
   %6418 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %126, ptr noundef %6412, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
-  store ptr %6418, ptr @dom_cdatasection_class_entry, align 8, !tbaa !127
+  store ptr %6418, ptr @dom_cdatasection_class_entry, align 8, !tbaa !121
   %6419 = getelementptr inbounds nuw i8, ptr %6418, i64 384
   store ptr @dom_objects_new, ptr %6419, align 8, !tbaa !44
   %6420 = getelementptr inbounds nuw i8, ptr %6418, i64 360
-  store ptr @dom_object_handlers, ptr %6420, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6420, align 8, !tbaa !122
   %6421 = getelementptr inbounds nuw i8, ptr %6418, i64 8
   %6422 = load ptr, ptr %6421, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %636)
@@ -15732,7 +15711,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store i32 13, ptr %6423, align 8, !tbaa !44
   %6424 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6422, ptr noundef nonnull %636) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %636)
-  %6425 = load ptr, ptr @dom_modern_text_class_entry, align 8, !tbaa !127
+  %6425 = load ptr, ptr @dom_modern_text_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %125, i8 0, i64 520, i1 false)
   %6426 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -15740,16 +15719,16 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6428 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr %6427, ptr %6428, align 8, !tbaa !28
   %6429 = getelementptr inbounds nuw i8, ptr %125, i64 360
-  store ptr @std_object_handlers, ptr %6429, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6429, align 8, !tbaa !122
   %6430 = getelementptr inbounds nuw i8, ptr %125, i64 504
   store ptr null, ptr %6430, align 8, !tbaa !44
   %6431 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %125, ptr noundef %6425, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
-  store ptr %6431, ptr @dom_modern_cdatasection_class_entry, align 8, !tbaa !127
+  store ptr %6431, ptr @dom_modern_cdatasection_class_entry, align 8, !tbaa !121
   %6432 = getelementptr inbounds nuw i8, ptr %6431, i64 384
   store ptr @dom_objects_new, ptr %6432, align 8, !tbaa !44
   %6433 = getelementptr inbounds nuw i8, ptr %6431, i64 360
-  store ptr @dom_object_handlers, ptr %6433, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6433, align 8, !tbaa !122
   %6434 = getelementptr inbounds nuw i8, ptr %6431, i64 8
   %6435 = load ptr, ptr %6434, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %635)
@@ -15758,7 +15737,7 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   store i32 13, ptr %6436, align 8, !tbaa !44
   %6437 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6435, ptr noundef nonnull %635) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %635)
-  %6438 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %6438 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %114)
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
@@ -15772,19 +15751,19 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6441 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store ptr %6440, ptr %6441, align 8, !tbaa !28
   %6442 = getelementptr inbounds nuw i8, ptr %112, i64 360
-  store ptr @std_object_handlers, ptr %6442, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6442, align 8, !tbaa !122
   %6443 = getelementptr inbounds nuw i8, ptr %112, i64 504
   store ptr null, ptr %6443, align 8, !tbaa !44
   %6444 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %112, ptr noundef %6438, i32 noundef 0) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %6445 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i32 0, ptr %6445, align 8, !tbaa !44
-  %6446 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %6446 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %6447 = getelementptr inbounds nuw i8, ptr %6446, i64 360
-  %6448 = load ptr, ptr %6447, align 8, !tbaa !131
-  store ptr null, ptr %114, align 8, !tbaa !132
+  %6448 = load ptr, ptr %6447, align 8, !tbaa !125
+  store ptr null, ptr %114, align 8, !tbaa !126
   %6449 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  store i32 64, ptr %6449, align 8, !tbaa !133
+  store i32 64, ptr %6449, align 8, !tbaa !128
   %6450 = getelementptr inbounds nuw i8, ptr %114, i64 12
   store i32 0, ptr %6450, align 4
   %6451 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef %6448, ptr noundef nonnull %113, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %114) #17
@@ -15792,32 +15771,32 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   %6452 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 0, ptr %6452, align 8, !tbaa !44
   %6453 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6453, align 4, !tbaa !69
+  store i32 1, ptr %6453, align 4, !tbaa !64
   %6454 = getelementptr inbounds nuw i8, ptr %6453, i64 4
   store i32 150, ptr %6454, align 4, !tbaa !44
   %6455 = getelementptr inbounds nuw i8, ptr %6453, i64 8
-  store i64 0, ptr %6455, align 8, !tbaa !124
+  store i64 0, ptr %6455, align 8, !tbaa !118
   %6456 = getelementptr inbounds nuw i8, ptr %6453, i64 16
-  store i64 8, ptr %6456, align 8, !tbaa !126
+  store i64 8, ptr %6456, align 8, !tbaa !120
   %6457 = getelementptr inbounds nuw i8, ptr %6453, i64 24
   store i64 8315168235715849829, ptr %6457, align 8
   %6458 = getelementptr inbounds nuw i8, ptr %6453, i64 32
   store i8 0, ptr %6458, align 8, !tbaa !44
   %6459 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6459, align 4, !tbaa !69
+  store i32 1, ptr %6459, align 4, !tbaa !64
   %6460 = getelementptr inbounds nuw i8, ptr %6459, i64 4
   store i32 150, ptr %6460, align 4, !tbaa !44
   %6461 = getelementptr inbounds nuw i8, ptr %6459, i64 8
-  store i64 0, ptr %6461, align 8, !tbaa !124
+  store i64 0, ptr %6461, align 8, !tbaa !118
   %6462 = getelementptr inbounds nuw i8, ptr %6459, i64 16
-  store i64 15, ptr %6462, align 8, !tbaa !126
+  store i64 15, ptr %6462, align 8, !tbaa !120
   %6463 = getelementptr inbounds nuw i8, ptr %6459, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %6463, ptr noundef nonnull align 1 dereferenceable(15) @.str.365, i64 15, i1 false)
   %6464 = getelementptr inbounds nuw i8, ptr %6459, i64 39
   store i8 0, ptr %6464, align 1, !tbaa !44
-  store ptr %6459, ptr %116, align 8, !tbaa !132
+  store ptr %6459, ptr %116, align 8, !tbaa !126
   %6465 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i32 16777216, ptr %6465, align 8, !tbaa !133
+  store i32 16777216, ptr %6465, align 8, !tbaa !128
   %6466 = getelementptr inbounds nuw i8, ptr %116, i64 12
   store i32 0, ptr %6466, align 4
   %6467 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef nonnull %6453, ptr noundef nonnull %115, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %116) #17
@@ -15827,11 +15806,11 @@ dom_register_prop_handler.exit568:                ; preds = %register_class_Dom_
   br i1 %.not.i.i569, label %6470, label %zend_string_release.exit.i570
 
 6470:                                             ; preds = %dom_register_prop_handler.exit568
-  %6471 = load i32, ptr %6453, align 4, !tbaa !69
+  %6471 = load i32, ptr %6453, align 4, !tbaa !64
   %6472 = icmp ne i32 %6471, 0
   call void @llvm.assume(i1 %6472)
   %6473 = add i32 %6471, -1
-  store i32 %6473, ptr %6453, align 4, !tbaa !69
+  store i32 %6473, ptr %6453, align 4, !tbaa !64
   %6474 = icmp eq i32 %6473, 0
   br i1 %6474, label %6475, label %zend_string_release.exit.i570
 
@@ -15853,32 +15832,32 @@ zend_string_release.exit.i570:                    ; preds = %6478, %6477, %6470,
   %6479 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 0, ptr %6479, align 8, !tbaa !44
   %6480 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6480, align 4, !tbaa !69
+  store i32 1, ptr %6480, align 4, !tbaa !64
   %6481 = getelementptr inbounds nuw i8, ptr %6480, i64 4
   store i32 150, ptr %6481, align 4, !tbaa !44
   %6482 = getelementptr inbounds nuw i8, ptr %6480, i64 8
-  store i64 0, ptr %6482, align 8, !tbaa !124
+  store i64 0, ptr %6482, align 8, !tbaa !118
   %6483 = getelementptr inbounds nuw i8, ptr %6480, i64 16
-  store i64 9, ptr %6483, align 8, !tbaa !126
+  store i64 9, ptr %6483, align 8, !tbaa !120
   %6484 = getelementptr inbounds nuw i8, ptr %6480, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6484, ptr noundef nonnull align 1 dereferenceable(9) @.str.213, i64 9, i1 false)
   %6485 = getelementptr inbounds nuw i8, ptr %6480, i64 33
   store i8 0, ptr %6485, align 1, !tbaa !44
   %6486 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6486, align 4, !tbaa !69
+  store i32 1, ptr %6486, align 4, !tbaa !64
   %6487 = getelementptr inbounds nuw i8, ptr %6486, i64 4
   store i32 150, ptr %6487, align 4, !tbaa !44
   %6488 = getelementptr inbounds nuw i8, ptr %6486, i64 8
-  store i64 0, ptr %6488, align 8, !tbaa !124
+  store i64 0, ptr %6488, align 8, !tbaa !118
   %6489 = getelementptr inbounds nuw i8, ptr %6486, i64 16
-  store i64 15, ptr %6489, align 8, !tbaa !126
+  store i64 15, ptr %6489, align 8, !tbaa !120
   %6490 = getelementptr inbounds nuw i8, ptr %6486, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %6490, ptr noundef nonnull align 1 dereferenceable(15) @.str.365, i64 15, i1 false)
   %6491 = getelementptr inbounds nuw i8, ptr %6486, i64 39
   store i8 0, ptr %6491, align 1, !tbaa !44
-  store ptr %6486, ptr %118, align 8, !tbaa !132
+  store ptr %6486, ptr %118, align 8, !tbaa !126
   %6492 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store i32 16777216, ptr %6492, align 8, !tbaa !133
+  store i32 16777216, ptr %6492, align 8, !tbaa !128
   %6493 = getelementptr inbounds nuw i8, ptr %118, i64 12
   store i32 0, ptr %6493, align 4
   %6494 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef nonnull %6480, ptr noundef nonnull %117, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %118) #17
@@ -15888,11 +15867,11 @@ zend_string_release.exit.i570:                    ; preds = %6478, %6477, %6470,
   br i1 %.not.i20.i571, label %6497, label %zend_string_release.exit22.i572
 
 6497:                                             ; preds = %zend_string_release.exit.i570
-  %6498 = load i32, ptr %6480, align 4, !tbaa !69
+  %6498 = load i32, ptr %6480, align 4, !tbaa !64
   %6499 = icmp ne i32 %6498, 0
   call void @llvm.assume(i1 %6499)
   %6500 = add i32 %6498, -1
-  store i32 %6500, ptr %6480, align 4, !tbaa !69
+  store i32 %6500, ptr %6480, align 4, !tbaa !64
   %6501 = icmp eq i32 %6500, 0
   br i1 %6501, label %6502, label %zend_string_release.exit22.i572
 
@@ -15914,20 +15893,20 @@ zend_string_release.exit22.i572:                  ; preds = %6505, %6504, %6497,
   %6506 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i32 0, ptr %6506, align 8, !tbaa !44
   %6507 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6507, align 4, !tbaa !69
+  store i32 1, ptr %6507, align 4, !tbaa !64
   %6508 = getelementptr inbounds nuw i8, ptr %6507, i64 4
   store i32 150, ptr %6508, align 4, !tbaa !44
   %6509 = getelementptr inbounds nuw i8, ptr %6507, i64 8
-  store i64 0, ptr %6509, align 8, !tbaa !124
+  store i64 0, ptr %6509, align 8, !tbaa !118
   %6510 = getelementptr inbounds nuw i8, ptr %6507, i64 16
-  store i64 8, ptr %6510, align 8, !tbaa !126
+  store i64 8, ptr %6510, align 8, !tbaa !120
   %6511 = getelementptr inbounds nuw i8, ptr %6507, i64 24
   store i64 7226416381533779312, ptr %6511, align 8
   %6512 = getelementptr inbounds nuw i8, ptr %6507, i64 32
   store i8 0, ptr %6512, align 8, !tbaa !44
-  store ptr null, ptr %120, align 8, !tbaa !132
+  store ptr null, ptr %120, align 8, !tbaa !126
   %6513 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i32 64, ptr %6513, align 8, !tbaa !133
+  store i32 64, ptr %6513, align 8, !tbaa !128
   %6514 = getelementptr inbounds nuw i8, ptr %120, i64 12
   store i32 0, ptr %6514, align 4
   %6515 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef nonnull %6507, ptr noundef nonnull %119, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %120) #17
@@ -15937,11 +15916,11 @@ zend_string_release.exit22.i572:                  ; preds = %6505, %6504, %6497,
   br i1 %.not.i23.i573, label %6518, label %zend_string_release.exit25.i574
 
 6518:                                             ; preds = %zend_string_release.exit22.i572
-  %6519 = load i32, ptr %6507, align 4, !tbaa !69
+  %6519 = load i32, ptr %6507, align 4, !tbaa !64
   %6520 = icmp ne i32 %6519, 0
   call void @llvm.assume(i1 %6520)
   %6521 = add i32 %6519, -1
-  store i32 %6521, ptr %6507, align 4, !tbaa !69
+  store i32 %6521, ptr %6507, align 4, !tbaa !64
   %6522 = icmp eq i32 %6521, 0
   br i1 %6522, label %6523, label %zend_string_release.exit25.i574
 
@@ -15963,20 +15942,20 @@ zend_string_release.exit25.i574:                  ; preds = %6526, %6525, %6518,
   %6527 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i32 0, ptr %6527, align 8, !tbaa !44
   %6528 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6528, align 4, !tbaa !69
+  store i32 1, ptr %6528, align 4, !tbaa !64
   %6529 = getelementptr inbounds nuw i8, ptr %6528, i64 4
   store i32 150, ptr %6529, align 4, !tbaa !44
   %6530 = getelementptr inbounds nuw i8, ptr %6528, i64 8
-  store i64 0, ptr %6530, align 8, !tbaa !124
+  store i64 0, ptr %6530, align 8, !tbaa !118
   %6531 = getelementptr inbounds nuw i8, ptr %6528, i64 16
-  store i64 8, ptr %6531, align 8, !tbaa !126
+  store i64 8, ptr %6531, align 8, !tbaa !120
   %6532 = getelementptr inbounds nuw i8, ptr %6528, i64 24
   store i64 7226427359605520755, ptr %6532, align 8
   %6533 = getelementptr inbounds nuw i8, ptr %6528, i64 32
   store i8 0, ptr %6533, align 8, !tbaa !44
-  store ptr null, ptr %122, align 8, !tbaa !132
+  store ptr null, ptr %122, align 8, !tbaa !126
   %6534 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store i32 64, ptr %6534, align 8, !tbaa !133
+  store i32 64, ptr %6534, align 8, !tbaa !128
   %6535 = getelementptr inbounds nuw i8, ptr %122, i64 12
   store i32 0, ptr %6535, align 4
   %6536 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef nonnull %6528, ptr noundef nonnull %121, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %122) #17
@@ -15986,11 +15965,11 @@ zend_string_release.exit25.i574:                  ; preds = %6526, %6525, %6518,
   br i1 %.not.i26.i575, label %6539, label %zend_string_release.exit28.i576
 
 6539:                                             ; preds = %zend_string_release.exit25.i574
-  %6540 = load i32, ptr %6528, align 4, !tbaa !69
+  %6540 = load i32, ptr %6528, align 4, !tbaa !64
   %6541 = icmp ne i32 %6540, 0
   call void @llvm.assume(i1 %6541)
   %6542 = add i32 %6540, -1
-  store i32 %6542, ptr %6528, align 4, !tbaa !69
+  store i32 %6542, ptr %6528, align 4, !tbaa !64
   %6543 = icmp eq i32 %6542, 0
   br i1 %6543, label %6544, label %zend_string_release.exit28.i576
 
@@ -16012,20 +15991,20 @@ zend_string_release.exit28.i576:                  ; preds = %6547, %6546, %6539,
   %6548 = getelementptr inbounds nuw i8, ptr %123, i64 8
   store i32 0, ptr %6548, align 8, !tbaa !44
   %6549 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6549, align 4, !tbaa !69
+  store i32 1, ptr %6549, align 4, !tbaa !64
   %6550 = getelementptr inbounds nuw i8, ptr %6549, i64 4
   store i32 150, ptr %6550, align 4, !tbaa !44
   %6551 = getelementptr inbounds nuw i8, ptr %6549, i64 8
-  store i64 0, ptr %6551, align 8, !tbaa !124
+  store i64 0, ptr %6551, align 8, !tbaa !118
   %6552 = getelementptr inbounds nuw i8, ptr %6549, i64 16
-  store i64 14, ptr %6552, align 8, !tbaa !126
+  store i64 14, ptr %6552, align 8, !tbaa !120
   %6553 = getelementptr inbounds nuw i8, ptr %6549, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6553, ptr noundef nonnull align 1 dereferenceable(14) @.str.219, i64 14, i1 false)
   %6554 = getelementptr inbounds nuw i8, ptr %6549, i64 38
   store i8 0, ptr %6554, align 2, !tbaa !44
-  store ptr null, ptr %124, align 8, !tbaa !132
+  store ptr null, ptr %124, align 8, !tbaa !126
   %6555 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store i32 66, ptr %6555, align 8, !tbaa !133
+  store i32 66, ptr %6555, align 8, !tbaa !128
   %6556 = getelementptr inbounds nuw i8, ptr %124, i64 12
   store i32 0, ptr %6556, align 4
   %6557 = call ptr @zend_declare_typed_property(ptr noundef %6444, ptr noundef nonnull %6549, ptr noundef nonnull %123, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %124) #17
@@ -16035,11 +16014,11 @@ zend_string_release.exit28.i576:                  ; preds = %6547, %6546, %6539,
   br i1 %.not.i29.i577, label %6560, label %register_class_DOMDocumentType.exit
 
 6560:                                             ; preds = %zend_string_release.exit28.i576
-  %6561 = load i32, ptr %6549, align 4, !tbaa !69
+  %6561 = load i32, ptr %6549, align 4, !tbaa !64
   %6562 = icmp ne i32 %6561, 0
   call void @llvm.assume(i1 %6562)
   %6563 = add i32 %6561, -1
-  store i32 %6563, ptr %6549, align 4, !tbaa !69
+  store i32 %6563, ptr %6549, align 4, !tbaa !64
   %6564 = icmp eq i32 %6563, 0
   br i1 %6564, label %6565, label %register_class_DOMDocumentType.exit
 
@@ -16070,11 +16049,11 @@ register_class_DOMDocumentType.exit:              ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   call void @llvm.lifetime.end.p0(ptr nonnull %122)
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
-  store ptr %6444, ptr @dom_documenttype_class_entry, align 8, !tbaa !127
+  store ptr %6444, ptr @dom_documenttype_class_entry, align 8, !tbaa !121
   %6569 = getelementptr inbounds nuw i8, ptr %6444, i64 384
   store ptr @dom_objects_new, ptr %6569, align 8, !tbaa !44
   %6570 = getelementptr inbounds nuw i8, ptr %6444, i64 360
-  store ptr @dom_object_handlers, ptr %6570, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6570, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_documenttype_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6571 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6572 = call ptr %6571(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
@@ -16091,11 +16070,11 @@ register_class_DOMDocumentType.exit:              ; preds = %zend_string_release
   br i1 %.not.i5.i583, label %6578, label %dom_register_prop_handler.exit584
 
 6578:                                             ; preds = %register_class_DOMDocumentType.exit
-  %6579 = load i32, ptr %6572, align 4, !tbaa !69
+  %6579 = load i32, ptr %6572, align 4, !tbaa !64
   %6580 = icmp ne i32 %6579, 0
   call void @llvm.assume(i1 %6580)
   %6581 = add i32 %6579, -1
-  store i32 %6581, ptr %6572, align 4, !tbaa !69
+  store i32 %6581, ptr %6572, align 4, !tbaa !64
   %6582 = icmp eq i32 %6581, 0
   br i1 %6582, label %6583, label %dom_register_prop_handler.exit584
 
@@ -16119,11 +16098,11 @@ dom_register_prop_handler.exit584:                ; preds = %register_class_DOMD
   br i1 %.not.i5.i585, label %6591, label %dom_register_prop_handler.exit586
 
 6591:                                             ; preds = %dom_register_prop_handler.exit584
-  %6592 = load i32, ptr %6585, align 4, !tbaa !69
+  %6592 = load i32, ptr %6585, align 4, !tbaa !64
   %6593 = icmp ne i32 %6592, 0
   call void @llvm.assume(i1 %6593)
   %6594 = add i32 %6592, -1
-  store i32 %6594, ptr %6585, align 4, !tbaa !69
+  store i32 %6594, ptr %6585, align 4, !tbaa !64
   %6595 = icmp eq i32 %6594, 0
   br i1 %6595, label %6596, label %dom_register_prop_handler.exit586
 
@@ -16147,11 +16126,11 @@ dom_register_prop_handler.exit586:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i587, label %6604, label %dom_register_prop_handler.exit588
 
 6604:                                             ; preds = %dom_register_prop_handler.exit586
-  %6605 = load i32, ptr %6598, align 4, !tbaa !69
+  %6605 = load i32, ptr %6598, align 4, !tbaa !64
   %6606 = icmp ne i32 %6605, 0
   call void @llvm.assume(i1 %6606)
   %6607 = add i32 %6605, -1
-  store i32 %6607, ptr %6598, align 4, !tbaa !69
+  store i32 %6607, ptr %6598, align 4, !tbaa !64
   %6608 = icmp eq i32 %6607, 0
   br i1 %6608, label %6609, label %dom_register_prop_handler.exit588
 
@@ -16175,11 +16154,11 @@ dom_register_prop_handler.exit588:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i589, label %6617, label %dom_register_prop_handler.exit590
 
 6617:                                             ; preds = %dom_register_prop_handler.exit588
-  %6618 = load i32, ptr %6611, align 4, !tbaa !69
+  %6618 = load i32, ptr %6611, align 4, !tbaa !64
   %6619 = icmp ne i32 %6618, 0
   call void @llvm.assume(i1 %6619)
   %6620 = add i32 %6618, -1
-  store i32 %6620, ptr %6611, align 4, !tbaa !69
+  store i32 %6620, ptr %6611, align 4, !tbaa !64
   %6621 = icmp eq i32 %6620, 0
   br i1 %6621, label %6622, label %dom_register_prop_handler.exit590
 
@@ -16203,11 +16182,11 @@ dom_register_prop_handler.exit590:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i591, label %6630, label %dom_register_prop_handler.exit592
 
 6630:                                             ; preds = %dom_register_prop_handler.exit590
-  %6631 = load i32, ptr %6624, align 4, !tbaa !69
+  %6631 = load i32, ptr %6624, align 4, !tbaa !64
   %6632 = icmp ne i32 %6631, 0
   call void @llvm.assume(i1 %6632)
   %6633 = add i32 %6631, -1
-  store i32 %6633, ptr %6624, align 4, !tbaa !69
+  store i32 %6633, ptr %6624, align 4, !tbaa !64
   %6634 = icmp eq i32 %6633, 0
   br i1 %6634, label %6635, label %dom_register_prop_handler.exit592
 
@@ -16231,11 +16210,11 @@ dom_register_prop_handler.exit592:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i593, label %6643, label %dom_register_prop_handler.exit594
 
 6643:                                             ; preds = %dom_register_prop_handler.exit592
-  %6644 = load i32, ptr %6637, align 4, !tbaa !69
+  %6644 = load i32, ptr %6637, align 4, !tbaa !64
   %6645 = icmp ne i32 %6644, 0
   call void @llvm.assume(i1 %6645)
   %6646 = add i32 %6644, -1
-  store i32 %6646, ptr %6637, align 4, !tbaa !69
+  store i32 %6646, ptr %6637, align 4, !tbaa !64
   %6647 = icmp eq i32 %6646, 0
   br i1 %6647, label %6648, label %dom_register_prop_handler.exit594
 
@@ -16245,7 +16224,7 @@ dom_register_prop_handler.exit592:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_handler.exit592, %6643, %6648
   call void @zend_hash_merge(ptr noundef nonnull @dom_documenttype_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %6649 = load ptr, ptr @dom_documenttype_class_entry, align 8, !tbaa !127
+  %6649 = load ptr, ptr @dom_documenttype_class_entry, align 8, !tbaa !121
   %6650 = getelementptr inbounds nuw i8, ptr %6649, i64 8
   %6651 = load ptr, ptr %6650, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %634)
@@ -16254,8 +16233,8 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   store i32 13, ptr %6652, align 8, !tbaa !44
   %6653 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6651, ptr noundef nonnull %634) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %634)
-  %6654 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
-  %6655 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !127
+  %6654 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
+  %6655 = load ptr, ptr @dom_modern_childnode_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
@@ -16269,7 +16248,7 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   %6658 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr %6657, ptr %6658, align 8, !tbaa !28
   %6659 = getelementptr inbounds nuw i8, ptr %93, i64 360
-  store ptr @std_object_handlers, ptr %6659, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6659, align 8, !tbaa !122
   %6660 = getelementptr inbounds nuw i8, ptr %93, i64 504
   store ptr @class_Dom_DocumentType_methods, ptr %6660, align 8, !tbaa !44
   %6661 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %93, ptr noundef %6654, i32 noundef 0) #17
@@ -16277,12 +16256,12 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   %6662 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 0, ptr %6662, align 8, !tbaa !44
-  %6663 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %6663 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %6664 = getelementptr inbounds nuw i8, ptr %6663, i64 360
-  %6665 = load ptr, ptr %6664, align 8, !tbaa !131
-  store ptr null, ptr %95, align 8, !tbaa !132
+  %6665 = load ptr, ptr %6664, align 8, !tbaa !125
+  store ptr null, ptr %95, align 8, !tbaa !126
   %6666 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i32 64, ptr %6666, align 8, !tbaa !133
+  store i32 64, ptr %6666, align 8, !tbaa !128
   %6667 = getelementptr inbounds nuw i8, ptr %95, i64 12
   store i32 0, ptr %6667, align 4
   %6668 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef %6665, ptr noundef nonnull %94, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %95) #17
@@ -16290,32 +16269,32 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   %6669 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 0, ptr %6669, align 8, !tbaa !44
   %6670 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6670, align 4, !tbaa !69
+  store i32 1, ptr %6670, align 4, !tbaa !64
   %6671 = getelementptr inbounds nuw i8, ptr %6670, i64 4
   store i32 150, ptr %6671, align 4, !tbaa !44
   %6672 = getelementptr inbounds nuw i8, ptr %6670, i64 8
-  store i64 0, ptr %6672, align 8, !tbaa !124
+  store i64 0, ptr %6672, align 8, !tbaa !118
   %6673 = getelementptr inbounds nuw i8, ptr %6670, i64 16
-  store i64 8, ptr %6673, align 8, !tbaa !126
+  store i64 8, ptr %6673, align 8, !tbaa !120
   %6674 = getelementptr inbounds nuw i8, ptr %6670, i64 24
   store i64 8315168235715849829, ptr %6674, align 8
   %6675 = getelementptr inbounds nuw i8, ptr %6670, i64 32
   store i8 0, ptr %6675, align 8, !tbaa !44
   %6676 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %6676, align 4, !tbaa !69
+  store i32 1, ptr %6676, align 4, !tbaa !64
   %6677 = getelementptr inbounds nuw i8, ptr %6676, i64 4
   store i32 150, ptr %6677, align 4, !tbaa !44
   %6678 = getelementptr inbounds nuw i8, ptr %6676, i64 8
-  store i64 0, ptr %6678, align 8, !tbaa !124
+  store i64 0, ptr %6678, align 8, !tbaa !118
   %6679 = getelementptr inbounds nuw i8, ptr %6676, i64 16
-  store i64 19, ptr %6679, align 8, !tbaa !126
+  store i64 19, ptr %6679, align 8, !tbaa !120
   %6680 = getelementptr inbounds nuw i8, ptr %6676, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %6680, ptr noundef nonnull align 1 dereferenceable(19) @.str.590, i64 19, i1 false)
   %6681 = getelementptr inbounds nuw i8, ptr %6676, i64 43
   store i8 0, ptr %6681, align 1, !tbaa !44
-  store ptr %6676, ptr %97, align 8, !tbaa !132
+  store ptr %6676, ptr %97, align 8, !tbaa !126
   %6682 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i32 16777216, ptr %6682, align 8, !tbaa !133
+  store i32 16777216, ptr %6682, align 8, !tbaa !128
   %6683 = getelementptr inbounds nuw i8, ptr %97, i64 12
   store i32 0, ptr %6683, align 4
   %6684 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef nonnull %6670, ptr noundef nonnull %96, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %97) #17
@@ -16325,11 +16304,11 @@ dom_register_prop_handler.exit594:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i595, label %6687, label %zend_string_release.exit.i596
 
 6687:                                             ; preds = %dom_register_prop_handler.exit594
-  %6688 = load i32, ptr %6670, align 4, !tbaa !69
+  %6688 = load i32, ptr %6670, align 4, !tbaa !64
   %6689 = icmp ne i32 %6688, 0
   call void @llvm.assume(i1 %6689)
   %6690 = add i32 %6688, -1
-  store i32 %6690, ptr %6670, align 4, !tbaa !69
+  store i32 %6690, ptr %6670, align 4, !tbaa !64
   %6691 = icmp eq i32 %6690, 0
   br i1 %6691, label %6692, label %zend_string_release.exit.i596
 
@@ -16351,32 +16330,32 @@ zend_string_release.exit.i596:                    ; preds = %6695, %6694, %6687,
   %6696 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 0, ptr %6696, align 8, !tbaa !44
   %6697 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6697, align 4, !tbaa !69
+  store i32 1, ptr %6697, align 4, !tbaa !64
   %6698 = getelementptr inbounds nuw i8, ptr %6697, i64 4
   store i32 150, ptr %6698, align 4, !tbaa !44
   %6699 = getelementptr inbounds nuw i8, ptr %6697, i64 8
-  store i64 0, ptr %6699, align 8, !tbaa !124
+  store i64 0, ptr %6699, align 8, !tbaa !118
   %6700 = getelementptr inbounds nuw i8, ptr %6697, i64 16
-  store i64 9, ptr %6700, align 8, !tbaa !126
+  store i64 9, ptr %6700, align 8, !tbaa !120
   %6701 = getelementptr inbounds nuw i8, ptr %6697, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %6701, ptr noundef nonnull align 1 dereferenceable(9) @.str.213, i64 9, i1 false)
   %6702 = getelementptr inbounds nuw i8, ptr %6697, i64 33
   store i8 0, ptr %6702, align 1, !tbaa !44
   %6703 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %6703, align 4, !tbaa !69
+  store i32 1, ptr %6703, align 4, !tbaa !64
   %6704 = getelementptr inbounds nuw i8, ptr %6703, i64 4
   store i32 150, ptr %6704, align 4, !tbaa !44
   %6705 = getelementptr inbounds nuw i8, ptr %6703, i64 8
-  store i64 0, ptr %6705, align 8, !tbaa !124
+  store i64 0, ptr %6705, align 8, !tbaa !118
   %6706 = getelementptr inbounds nuw i8, ptr %6703, i64 16
-  store i64 19, ptr %6706, align 8, !tbaa !126
+  store i64 19, ptr %6706, align 8, !tbaa !120
   %6707 = getelementptr inbounds nuw i8, ptr %6703, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %6707, ptr noundef nonnull align 1 dereferenceable(19) @.str.590, i64 19, i1 false)
   %6708 = getelementptr inbounds nuw i8, ptr %6703, i64 43
   store i8 0, ptr %6708, align 1, !tbaa !44
-  store ptr %6703, ptr %99, align 8, !tbaa !132
+  store ptr %6703, ptr %99, align 8, !tbaa !126
   %6709 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i32 16777216, ptr %6709, align 8, !tbaa !133
+  store i32 16777216, ptr %6709, align 8, !tbaa !128
   %6710 = getelementptr inbounds nuw i8, ptr %99, i64 12
   store i32 0, ptr %6710, align 4
   %6711 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef nonnull %6697, ptr noundef nonnull %98, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %99) #17
@@ -16386,11 +16365,11 @@ zend_string_release.exit.i596:                    ; preds = %6695, %6694, %6687,
   br i1 %.not.i22.i, label %6714, label %zend_string_release.exit24.i
 
 6714:                                             ; preds = %zend_string_release.exit.i596
-  %6715 = load i32, ptr %6697, align 4, !tbaa !69
+  %6715 = load i32, ptr %6697, align 4, !tbaa !64
   %6716 = icmp ne i32 %6715, 0
   call void @llvm.assume(i1 %6716)
   %6717 = add i32 %6715, -1
-  store i32 %6717, ptr %6697, align 4, !tbaa !69
+  store i32 %6717, ptr %6697, align 4, !tbaa !64
   %6718 = icmp eq i32 %6717, 0
   br i1 %6718, label %6719, label %zend_string_release.exit24.i
 
@@ -16412,20 +16391,20 @@ zend_string_release.exit24.i:                     ; preds = %6722, %6721, %6714,
   %6723 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 0, ptr %6723, align 8, !tbaa !44
   %6724 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6724, align 4, !tbaa !69
+  store i32 1, ptr %6724, align 4, !tbaa !64
   %6725 = getelementptr inbounds nuw i8, ptr %6724, i64 4
   store i32 150, ptr %6725, align 4, !tbaa !44
   %6726 = getelementptr inbounds nuw i8, ptr %6724, i64 8
-  store i64 0, ptr %6726, align 8, !tbaa !124
+  store i64 0, ptr %6726, align 8, !tbaa !118
   %6727 = getelementptr inbounds nuw i8, ptr %6724, i64 16
-  store i64 8, ptr %6727, align 8, !tbaa !126
+  store i64 8, ptr %6727, align 8, !tbaa !120
   %6728 = getelementptr inbounds nuw i8, ptr %6724, i64 24
   store i64 7226416381533779312, ptr %6728, align 8
   %6729 = getelementptr inbounds nuw i8, ptr %6724, i64 32
   store i8 0, ptr %6729, align 8, !tbaa !44
-  store ptr null, ptr %101, align 8, !tbaa !132
+  store ptr null, ptr %101, align 8, !tbaa !126
   %6730 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store i32 64, ptr %6730, align 8, !tbaa !133
+  store i32 64, ptr %6730, align 8, !tbaa !128
   %6731 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i32 0, ptr %6731, align 4
   %6732 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef nonnull %6724, ptr noundef nonnull %100, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %101) #17
@@ -16435,11 +16414,11 @@ zend_string_release.exit24.i:                     ; preds = %6722, %6721, %6714,
   br i1 %.not.i25.i, label %6735, label %zend_string_release.exit27.i
 
 6735:                                             ; preds = %zend_string_release.exit24.i
-  %6736 = load i32, ptr %6724, align 4, !tbaa !69
+  %6736 = load i32, ptr %6724, align 4, !tbaa !64
   %6737 = icmp ne i32 %6736, 0
   call void @llvm.assume(i1 %6737)
   %6738 = add i32 %6736, -1
-  store i32 %6738, ptr %6724, align 4, !tbaa !69
+  store i32 %6738, ptr %6724, align 4, !tbaa !64
   %6739 = icmp eq i32 %6738, 0
   br i1 %6739, label %6740, label %zend_string_release.exit27.i
 
@@ -16461,20 +16440,20 @@ zend_string_release.exit27.i:                     ; preds = %6743, %6742, %6735,
   %6744 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store i32 0, ptr %6744, align 8, !tbaa !44
   %6745 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6745, align 4, !tbaa !69
+  store i32 1, ptr %6745, align 4, !tbaa !64
   %6746 = getelementptr inbounds nuw i8, ptr %6745, i64 4
   store i32 150, ptr %6746, align 4, !tbaa !44
   %6747 = getelementptr inbounds nuw i8, ptr %6745, i64 8
-  store i64 0, ptr %6747, align 8, !tbaa !124
+  store i64 0, ptr %6747, align 8, !tbaa !118
   %6748 = getelementptr inbounds nuw i8, ptr %6745, i64 16
-  store i64 8, ptr %6748, align 8, !tbaa !126
+  store i64 8, ptr %6748, align 8, !tbaa !120
   %6749 = getelementptr inbounds nuw i8, ptr %6745, i64 24
   store i64 7226427359605520755, ptr %6749, align 8
   %6750 = getelementptr inbounds nuw i8, ptr %6745, i64 32
   store i8 0, ptr %6750, align 8, !tbaa !44
-  store ptr null, ptr %103, align 8, !tbaa !132
+  store ptr null, ptr %103, align 8, !tbaa !126
   %6751 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i32 64, ptr %6751, align 8, !tbaa !133
+  store i32 64, ptr %6751, align 8, !tbaa !128
   %6752 = getelementptr inbounds nuw i8, ptr %103, i64 12
   store i32 0, ptr %6752, align 4
   %6753 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef nonnull %6745, ptr noundef nonnull %102, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %103) #17
@@ -16484,11 +16463,11 @@ zend_string_release.exit27.i:                     ; preds = %6743, %6742, %6735,
   br i1 %.not.i28.i, label %6756, label %zend_string_release.exit30.i
 
 6756:                                             ; preds = %zend_string_release.exit27.i
-  %6757 = load i32, ptr %6745, align 4, !tbaa !69
+  %6757 = load i32, ptr %6745, align 4, !tbaa !64
   %6758 = icmp ne i32 %6757, 0
   call void @llvm.assume(i1 %6758)
   %6759 = add i32 %6757, -1
-  store i32 %6759, ptr %6745, align 4, !tbaa !69
+  store i32 %6759, ptr %6745, align 4, !tbaa !64
   %6760 = icmp eq i32 %6759, 0
   br i1 %6760, label %6761, label %zend_string_release.exit30.i
 
@@ -16510,20 +16489,20 @@ zend_string_release.exit30.i:                     ; preds = %6764, %6763, %6756,
   %6765 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i32 0, ptr %6765, align 8, !tbaa !44
   %6766 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6766, align 4, !tbaa !69
+  store i32 1, ptr %6766, align 4, !tbaa !64
   %6767 = getelementptr inbounds nuw i8, ptr %6766, i64 4
   store i32 150, ptr %6767, align 4, !tbaa !44
   %6768 = getelementptr inbounds nuw i8, ptr %6766, i64 8
-  store i64 0, ptr %6768, align 8, !tbaa !124
+  store i64 0, ptr %6768, align 8, !tbaa !118
   %6769 = getelementptr inbounds nuw i8, ptr %6766, i64 16
-  store i64 14, ptr %6769, align 8, !tbaa !126
+  store i64 14, ptr %6769, align 8, !tbaa !120
   %6770 = getelementptr inbounds nuw i8, ptr %6766, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6770, ptr noundef nonnull align 1 dereferenceable(14) @.str.219, i64 14, i1 false)
   %6771 = getelementptr inbounds nuw i8, ptr %6766, i64 38
   store i8 0, ptr %6771, align 2, !tbaa !44
-  store ptr null, ptr %105, align 8, !tbaa !132
+  store ptr null, ptr %105, align 8, !tbaa !126
   %6772 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  store i32 66, ptr %6772, align 8, !tbaa !133
+  store i32 66, ptr %6772, align 8, !tbaa !128
   %6773 = getelementptr inbounds nuw i8, ptr %105, i64 12
   store i32 0, ptr %6773, align 4
   %6774 = call ptr @zend_declare_typed_property(ptr noundef %6661, ptr noundef nonnull %6766, ptr noundef nonnull %104, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %105) #17
@@ -16533,11 +16512,11 @@ zend_string_release.exit30.i:                     ; preds = %6764, %6763, %6756,
   br i1 %.not.i31.i, label %6777, label %register_class_Dom_DocumentType.exit
 
 6777:                                             ; preds = %zend_string_release.exit30.i
-  %6778 = load i32, ptr %6766, align 4, !tbaa !69
+  %6778 = load i32, ptr %6766, align 4, !tbaa !64
   %6779 = icmp ne i32 %6778, 0
   call void @llvm.assume(i1 %6779)
   %6780 = add i32 %6778, -1
-  store i32 %6780, ptr %6766, align 4, !tbaa !69
+  store i32 %6780, ptr %6766, align 4, !tbaa !64
   %6781 = icmp eq i32 %6780, 0
   br i1 %6781, label %6782, label %register_class_Dom_DocumentType.exit
 
@@ -16568,11 +16547,11 @@ register_class_Dom_DocumentType.exit:             ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.end.p0(ptr nonnull %105)
-  store ptr %6661, ptr @dom_modern_documenttype_class_entry, align 8, !tbaa !127
+  store ptr %6661, ptr @dom_modern_documenttype_class_entry, align 8, !tbaa !121
   %6786 = getelementptr inbounds nuw i8, ptr %6661, i64 384
   store ptr @dom_objects_new, ptr %6786, align 8, !tbaa !44
   %6787 = getelementptr inbounds nuw i8, ptr %6661, i64 360
-  store ptr @dom_object_handlers, ptr %6787, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6787, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6788 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6789 = call ptr %6788(ptr noundef nonnull @.str.155, i64 noundef 4, i1 noundef zeroext true) #17
@@ -16589,11 +16568,11 @@ register_class_Dom_DocumentType.exit:             ; preds = %zend_string_release
   br i1 %.not.i5.i598, label %6795, label %dom_register_prop_handler.exit599
 
 6795:                                             ; preds = %register_class_Dom_DocumentType.exit
-  %6796 = load i32, ptr %6789, align 4, !tbaa !69
+  %6796 = load i32, ptr %6789, align 4, !tbaa !64
   %6797 = icmp ne i32 %6796, 0
   call void @llvm.assume(i1 %6797)
   %6798 = add i32 %6796, -1
-  store i32 %6798, ptr %6789, align 4, !tbaa !69
+  store i32 %6798, ptr %6789, align 4, !tbaa !64
   %6799 = icmp eq i32 %6798, 0
   br i1 %6799, label %6800, label %dom_register_prop_handler.exit599
 
@@ -16617,11 +16596,11 @@ dom_register_prop_handler.exit599:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i600, label %6808, label %dom_register_prop_handler.exit601
 
 6808:                                             ; preds = %dom_register_prop_handler.exit599
-  %6809 = load i32, ptr %6802, align 4, !tbaa !69
+  %6809 = load i32, ptr %6802, align 4, !tbaa !64
   %6810 = icmp ne i32 %6809, 0
   call void @llvm.assume(i1 %6810)
   %6811 = add i32 %6809, -1
-  store i32 %6811, ptr %6802, align 4, !tbaa !69
+  store i32 %6811, ptr %6802, align 4, !tbaa !64
   %6812 = icmp eq i32 %6811, 0
   br i1 %6812, label %6813, label %dom_register_prop_handler.exit601
 
@@ -16645,11 +16624,11 @@ dom_register_prop_handler.exit601:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i602, label %6821, label %dom_register_prop_handler.exit603
 
 6821:                                             ; preds = %dom_register_prop_handler.exit601
-  %6822 = load i32, ptr %6815, align 4, !tbaa !69
+  %6822 = load i32, ptr %6815, align 4, !tbaa !64
   %6823 = icmp ne i32 %6822, 0
   call void @llvm.assume(i1 %6823)
   %6824 = add i32 %6822, -1
-  store i32 %6824, ptr %6815, align 4, !tbaa !69
+  store i32 %6824, ptr %6815, align 4, !tbaa !64
   %6825 = icmp eq i32 %6824, 0
   br i1 %6825, label %6826, label %dom_register_prop_handler.exit603
 
@@ -16673,11 +16652,11 @@ dom_register_prop_handler.exit603:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i604, label %6834, label %dom_register_prop_handler.exit605
 
 6834:                                             ; preds = %dom_register_prop_handler.exit603
-  %6835 = load i32, ptr %6828, align 4, !tbaa !69
+  %6835 = load i32, ptr %6828, align 4, !tbaa !64
   %6836 = icmp ne i32 %6835, 0
   call void @llvm.assume(i1 %6836)
   %6837 = add i32 %6835, -1
-  store i32 %6837, ptr %6828, align 4, !tbaa !69
+  store i32 %6837, ptr %6828, align 4, !tbaa !64
   %6838 = icmp eq i32 %6837, 0
   br i1 %6838, label %6839, label %dom_register_prop_handler.exit605
 
@@ -16701,11 +16680,11 @@ dom_register_prop_handler.exit605:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i606, label %6847, label %dom_register_prop_handler.exit607
 
 6847:                                             ; preds = %dom_register_prop_handler.exit605
-  %6848 = load i32, ptr %6841, align 4, !tbaa !69
+  %6848 = load i32, ptr %6841, align 4, !tbaa !64
   %6849 = icmp ne i32 %6848, 0
   call void @llvm.assume(i1 %6849)
   %6850 = add i32 %6848, -1
-  store i32 %6850, ptr %6841, align 4, !tbaa !69
+  store i32 %6850, ptr %6841, align 4, !tbaa !64
   %6851 = icmp eq i32 %6850, 0
   br i1 %6851, label %6852, label %dom_register_prop_handler.exit607
 
@@ -16729,11 +16708,11 @@ dom_register_prop_handler.exit607:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i608, label %6860, label %dom_register_prop_handler.exit609
 
 6860:                                             ; preds = %dom_register_prop_handler.exit607
-  %6861 = load i32, ptr %6854, align 4, !tbaa !69
+  %6861 = load i32, ptr %6854, align 4, !tbaa !64
   %6862 = icmp ne i32 %6861, 0
   call void @llvm.assume(i1 %6862)
   %6863 = add i32 %6861, -1
-  store i32 %6863, ptr %6854, align 4, !tbaa !69
+  store i32 %6863, ptr %6854, align 4, !tbaa !64
   %6864 = icmp eq i32 %6863, 0
   br i1 %6864, label %6865, label %dom_register_prop_handler.exit609
 
@@ -16743,7 +16722,7 @@ dom_register_prop_handler.exit607:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_handler.exit607, %6860, %6865
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_documenttype_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %6866 = load ptr, ptr @dom_modern_documenttype_class_entry, align 8, !tbaa !127
+  %6866 = load ptr, ptr @dom_modern_documenttype_class_entry, align 8, !tbaa !121
   %6867 = getelementptr inbounds nuw i8, ptr %6866, i64 8
   %6868 = load ptr, ptr %6867, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %633)
@@ -16752,7 +16731,7 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   store i32 13, ptr %6869, align 8, !tbaa !44
   %6870 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6868, ptr noundef nonnull %633) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %633)
-  %6871 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %6871 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   call void @llvm.lifetime.start.p0(ptr nonnull %82)
@@ -16762,7 +16741,7 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   %6874 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %6873, ptr %6874, align 8, !tbaa !28
   %6875 = getelementptr inbounds nuw i8, ptr %82, i64 360
-  store ptr @std_object_handlers, ptr %6875, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6875, align 8, !tbaa !122
   %6876 = getelementptr inbounds nuw i8, ptr %82, i64 504
   store ptr null, ptr %6876, align 8, !tbaa !44
   %6877 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %82, ptr noundef %6871, i32 noundef 0) #17
@@ -16770,20 +16749,20 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   %6878 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 0, ptr %6878, align 8, !tbaa !44
   %6879 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6879, align 4, !tbaa !69
+  store i32 1, ptr %6879, align 4, !tbaa !64
   %6880 = getelementptr inbounds nuw i8, ptr %6879, i64 4
   store i32 150, ptr %6880, align 4, !tbaa !44
   %6881 = getelementptr inbounds nuw i8, ptr %6879, i64 8
-  store i64 0, ptr %6881, align 8, !tbaa !124
+  store i64 0, ptr %6881, align 8, !tbaa !118
   %6882 = getelementptr inbounds nuw i8, ptr %6879, i64 16
-  store i64 8, ptr %6882, align 8, !tbaa !126
+  store i64 8, ptr %6882, align 8, !tbaa !120
   %6883 = getelementptr inbounds nuw i8, ptr %6879, i64 24
   store i64 7226416381533779312, ptr %6883, align 8
   %6884 = getelementptr inbounds nuw i8, ptr %6879, i64 32
   store i8 0, ptr %6884, align 8, !tbaa !44
-  store ptr null, ptr %84, align 8, !tbaa !132
+  store ptr null, ptr %84, align 8, !tbaa !126
   %6885 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i32 64, ptr %6885, align 8, !tbaa !133
+  store i32 64, ptr %6885, align 8, !tbaa !128
   %6886 = getelementptr inbounds nuw i8, ptr %84, i64 12
   store i32 0, ptr %6886, align 4
   %6887 = call ptr @zend_declare_typed_property(ptr noundef %6877, ptr noundef nonnull %6879, ptr noundef nonnull %83, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %84) #17
@@ -16793,11 +16772,11 @@ dom_register_prop_handler.exit609:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i610, label %6890, label %zend_string_release.exit.i611
 
 6890:                                             ; preds = %dom_register_prop_handler.exit609
-  %6891 = load i32, ptr %6879, align 4, !tbaa !69
+  %6891 = load i32, ptr %6879, align 4, !tbaa !64
   %6892 = icmp ne i32 %6891, 0
   call void @llvm.assume(i1 %6892)
   %6893 = add i32 %6891, -1
-  store i32 %6893, ptr %6879, align 4, !tbaa !69
+  store i32 %6893, ptr %6879, align 4, !tbaa !64
   %6894 = icmp eq i32 %6893, 0
   br i1 %6894, label %6895, label %zend_string_release.exit.i611
 
@@ -16819,20 +16798,20 @@ zend_string_release.exit.i611:                    ; preds = %6898, %6897, %6890,
   %6899 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i32 0, ptr %6899, align 8, !tbaa !44
   %6900 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6900, align 4, !tbaa !69
+  store i32 1, ptr %6900, align 4, !tbaa !64
   %6901 = getelementptr inbounds nuw i8, ptr %6900, i64 4
   store i32 150, ptr %6901, align 4, !tbaa !44
   %6902 = getelementptr inbounds nuw i8, ptr %6900, i64 8
-  store i64 0, ptr %6902, align 8, !tbaa !124
+  store i64 0, ptr %6902, align 8, !tbaa !118
   %6903 = getelementptr inbounds nuw i8, ptr %6900, i64 16
-  store i64 8, ptr %6903, align 8, !tbaa !126
+  store i64 8, ptr %6903, align 8, !tbaa !120
   %6904 = getelementptr inbounds nuw i8, ptr %6900, i64 24
   store i64 7226427359605520755, ptr %6904, align 8
   %6905 = getelementptr inbounds nuw i8, ptr %6900, i64 32
   store i8 0, ptr %6905, align 8, !tbaa !44
-  store ptr null, ptr %86, align 8, !tbaa !132
+  store ptr null, ptr %86, align 8, !tbaa !126
   %6906 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store i32 64, ptr %6906, align 8, !tbaa !133
+  store i32 64, ptr %6906, align 8, !tbaa !128
   %6907 = getelementptr inbounds nuw i8, ptr %86, i64 12
   store i32 0, ptr %6907, align 4
   %6908 = call ptr @zend_declare_typed_property(ptr noundef %6877, ptr noundef nonnull %6900, ptr noundef nonnull %85, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %86) #17
@@ -16842,11 +16821,11 @@ zend_string_release.exit.i611:                    ; preds = %6898, %6897, %6890,
   br i1 %.not.i8.i, label %6911, label %register_class_DOMNotation.exit
 
 6911:                                             ; preds = %zend_string_release.exit.i611
-  %6912 = load i32, ptr %6900, align 4, !tbaa !69
+  %6912 = load i32, ptr %6900, align 4, !tbaa !64
   %6913 = icmp ne i32 %6912, 0
   call void @llvm.assume(i1 %6913)
   %6914 = add i32 %6912, -1
-  store i32 %6914, ptr %6900, align 4, !tbaa !69
+  store i32 %6914, ptr %6900, align 4, !tbaa !64
   %6915 = icmp eq i32 %6914, 0
   br i1 %6915, label %6916, label %register_class_DOMNotation.exit
 
@@ -16869,11 +16848,11 @@ register_class_DOMNotation.exit:                  ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.end.p0(ptr nonnull %86)
-  store ptr %6877, ptr @dom_notation_class_entry, align 8, !tbaa !127
+  store ptr %6877, ptr @dom_notation_class_entry, align 8, !tbaa !121
   %6920 = getelementptr inbounds nuw i8, ptr %6877, i64 384
   store ptr @dom_objects_new, ptr %6920, align 8, !tbaa !44
   %6921 = getelementptr inbounds nuw i8, ptr %6877, i64 360
-  store ptr @dom_object_handlers, ptr %6921, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %6921, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_notation_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %6922 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %6923 = call ptr %6922(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
@@ -16890,11 +16869,11 @@ register_class_DOMNotation.exit:                  ; preds = %zend_string_release
   br i1 %.not.i5.i613, label %6929, label %dom_register_prop_handler.exit614
 
 6929:                                             ; preds = %register_class_DOMNotation.exit
-  %6930 = load i32, ptr %6923, align 4, !tbaa !69
+  %6930 = load i32, ptr %6923, align 4, !tbaa !64
   %6931 = icmp ne i32 %6930, 0
   call void @llvm.assume(i1 %6931)
   %6932 = add i32 %6930, -1
-  store i32 %6932, ptr %6923, align 4, !tbaa !69
+  store i32 %6932, ptr %6923, align 4, !tbaa !64
   %6933 = icmp eq i32 %6932, 0
   br i1 %6933, label %6934, label %dom_register_prop_handler.exit614
 
@@ -16918,11 +16897,11 @@ dom_register_prop_handler.exit614:                ; preds = %register_class_DOMN
   br i1 %.not.i5.i615, label %6942, label %dom_register_prop_handler.exit616
 
 6942:                                             ; preds = %dom_register_prop_handler.exit614
-  %6943 = load i32, ptr %6936, align 4, !tbaa !69
+  %6943 = load i32, ptr %6936, align 4, !tbaa !64
   %6944 = icmp ne i32 %6943, 0
   call void @llvm.assume(i1 %6944)
   %6945 = add i32 %6943, -1
-  store i32 %6945, ptr %6936, align 4, !tbaa !69
+  store i32 %6945, ptr %6936, align 4, !tbaa !64
   %6946 = icmp eq i32 %6945, 0
   br i1 %6946, label %6947, label %dom_register_prop_handler.exit616
 
@@ -16932,7 +16911,7 @@ dom_register_prop_handler.exit614:                ; preds = %register_class_DOMN
 
 dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_handler.exit614, %6942, %6947
   call void @zend_hash_merge(ptr noundef nonnull @dom_notation_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %6948 = load ptr, ptr @dom_notation_class_entry, align 8, !tbaa !127
+  %6948 = load ptr, ptr @dom_notation_class_entry, align 8, !tbaa !121
   %6949 = getelementptr inbounds nuw i8, ptr %6948, i64 8
   %6950 = load ptr, ptr %6949, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %632)
@@ -16941,7 +16920,7 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   store i32 13, ptr %6951, align 8, !tbaa !44
   %6952 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %6950, ptr noundef nonnull %632) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %632)
-  %6953 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %6953 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
@@ -16951,7 +16930,7 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   %6956 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %6955, ptr %6956, align 8, !tbaa !28
   %6957 = getelementptr inbounds nuw i8, ptr %75, i64 360
-  store ptr @std_object_handlers, ptr %6957, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %6957, align 8, !tbaa !122
   %6958 = getelementptr inbounds nuw i8, ptr %75, i64 504
   store ptr null, ptr %6958, align 8, !tbaa !44
   %6959 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %75, ptr noundef %6953, i32 noundef 0) #17
@@ -16959,20 +16938,20 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   %6960 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 0, ptr %6960, align 8, !tbaa !44
   %6961 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6961, align 4, !tbaa !69
+  store i32 1, ptr %6961, align 4, !tbaa !64
   %6962 = getelementptr inbounds nuw i8, ptr %6961, i64 4
   store i32 150, ptr %6962, align 4, !tbaa !44
   %6963 = getelementptr inbounds nuw i8, ptr %6961, i64 8
-  store i64 0, ptr %6963, align 8, !tbaa !124
+  store i64 0, ptr %6963, align 8, !tbaa !118
   %6964 = getelementptr inbounds nuw i8, ptr %6961, i64 16
-  store i64 8, ptr %6964, align 8, !tbaa !126
+  store i64 8, ptr %6964, align 8, !tbaa !120
   %6965 = getelementptr inbounds nuw i8, ptr %6961, i64 24
   store i64 7226416381533779312, ptr %6965, align 8
   %6966 = getelementptr inbounds nuw i8, ptr %6961, i64 32
   store i8 0, ptr %6966, align 8, !tbaa !44
-  store ptr null, ptr %77, align 8, !tbaa !132
+  store ptr null, ptr %77, align 8, !tbaa !126
   %6967 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store i32 64, ptr %6967, align 8, !tbaa !133
+  store i32 64, ptr %6967, align 8, !tbaa !128
   %6968 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store i32 0, ptr %6968, align 4
   %6969 = call ptr @zend_declare_typed_property(ptr noundef %6959, ptr noundef nonnull %6961, ptr noundef nonnull %76, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %77) #17
@@ -16982,11 +16961,11 @@ dom_register_prop_handler.exit616:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i617, label %6972, label %zend_string_release.exit.i618
 
 6972:                                             ; preds = %dom_register_prop_handler.exit616
-  %6973 = load i32, ptr %6961, align 4, !tbaa !69
+  %6973 = load i32, ptr %6961, align 4, !tbaa !64
   %6974 = icmp ne i32 %6973, 0
   call void @llvm.assume(i1 %6974)
   %6975 = add i32 %6973, -1
-  store i32 %6975, ptr %6961, align 4, !tbaa !69
+  store i32 %6975, ptr %6961, align 4, !tbaa !64
   %6976 = icmp eq i32 %6975, 0
   br i1 %6976, label %6977, label %zend_string_release.exit.i618
 
@@ -17008,20 +16987,20 @@ zend_string_release.exit.i618:                    ; preds = %6980, %6979, %6972,
   %6981 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 0, ptr %6981, align 8, !tbaa !44
   %6982 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %6982, align 4, !tbaa !69
+  store i32 1, ptr %6982, align 4, !tbaa !64
   %6983 = getelementptr inbounds nuw i8, ptr %6982, i64 4
   store i32 150, ptr %6983, align 4, !tbaa !44
   %6984 = getelementptr inbounds nuw i8, ptr %6982, i64 8
-  store i64 0, ptr %6984, align 8, !tbaa !124
+  store i64 0, ptr %6984, align 8, !tbaa !118
   %6985 = getelementptr inbounds nuw i8, ptr %6982, i64 16
-  store i64 8, ptr %6985, align 8, !tbaa !126
+  store i64 8, ptr %6985, align 8, !tbaa !120
   %6986 = getelementptr inbounds nuw i8, ptr %6982, i64 24
   store i64 7226427359605520755, ptr %6986, align 8
   %6987 = getelementptr inbounds nuw i8, ptr %6982, i64 32
   store i8 0, ptr %6987, align 8, !tbaa !44
-  store ptr null, ptr %79, align 8, !tbaa !132
+  store ptr null, ptr %79, align 8, !tbaa !126
   %6988 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i32 64, ptr %6988, align 8, !tbaa !133
+  store i32 64, ptr %6988, align 8, !tbaa !128
   %6989 = getelementptr inbounds nuw i8, ptr %79, i64 12
   store i32 0, ptr %6989, align 4
   %6990 = call ptr @zend_declare_typed_property(ptr noundef %6959, ptr noundef nonnull %6982, ptr noundef nonnull %78, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %79) #17
@@ -17031,11 +17010,11 @@ zend_string_release.exit.i618:                    ; preds = %6980, %6979, %6972,
   br i1 %.not.i8.i619, label %6993, label %register_class_Dom_Notation.exit
 
 6993:                                             ; preds = %zend_string_release.exit.i618
-  %6994 = load i32, ptr %6982, align 4, !tbaa !69
+  %6994 = load i32, ptr %6982, align 4, !tbaa !64
   %6995 = icmp ne i32 %6994, 0
   call void @llvm.assume(i1 %6995)
   %6996 = add i32 %6994, -1
-  store i32 %6996, ptr %6982, align 4, !tbaa !69
+  store i32 %6996, ptr %6982, align 4, !tbaa !64
   %6997 = icmp eq i32 %6996, 0
   br i1 %6997, label %6998, label %register_class_Dom_Notation.exit
 
@@ -17058,11 +17037,11 @@ register_class_Dom_Notation.exit:                 ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
-  store ptr %6959, ptr @dom_modern_notation_class_entry, align 8, !tbaa !127
+  store ptr %6959, ptr @dom_modern_notation_class_entry, align 8, !tbaa !121
   %7002 = getelementptr inbounds nuw i8, ptr %6959, i64 384
   store ptr @dom_objects_new, ptr %7002, align 8, !tbaa !44
   %7003 = getelementptr inbounds nuw i8, ptr %6959, i64 360
-  store ptr @dom_object_handlers, ptr %7003, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7003, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_notation_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7004 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7005 = call ptr %7004(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
@@ -17079,11 +17058,11 @@ register_class_Dom_Notation.exit:                 ; preds = %zend_string_release
   br i1 %.not.i5.i622, label %7011, label %dom_register_prop_handler.exit623
 
 7011:                                             ; preds = %register_class_Dom_Notation.exit
-  %7012 = load i32, ptr %7005, align 4, !tbaa !69
+  %7012 = load i32, ptr %7005, align 4, !tbaa !64
   %7013 = icmp ne i32 %7012, 0
   call void @llvm.assume(i1 %7013)
   %7014 = add i32 %7012, -1
-  store i32 %7014, ptr %7005, align 4, !tbaa !69
+  store i32 %7014, ptr %7005, align 4, !tbaa !64
   %7015 = icmp eq i32 %7014, 0
   br i1 %7015, label %7016, label %dom_register_prop_handler.exit623
 
@@ -17107,11 +17086,11 @@ dom_register_prop_handler.exit623:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i624, label %7024, label %dom_register_prop_handler.exit625
 
 7024:                                             ; preds = %dom_register_prop_handler.exit623
-  %7025 = load i32, ptr %7018, align 4, !tbaa !69
+  %7025 = load i32, ptr %7018, align 4, !tbaa !64
   %7026 = icmp ne i32 %7025, 0
   call void @llvm.assume(i1 %7026)
   %7027 = add i32 %7025, -1
-  store i32 %7027, ptr %7018, align 4, !tbaa !69
+  store i32 %7027, ptr %7018, align 4, !tbaa !64
   %7028 = icmp eq i32 %7027, 0
   br i1 %7028, label %7029, label %dom_register_prop_handler.exit625
 
@@ -17121,7 +17100,7 @@ dom_register_prop_handler.exit623:                ; preds = %register_class_Dom_
 
 dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_handler.exit623, %7024, %7029
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_notation_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %7030 = load ptr, ptr @dom_modern_notation_class_entry, align 8, !tbaa !127
+  %7030 = load ptr, ptr @dom_modern_notation_class_entry, align 8, !tbaa !121
   %7031 = getelementptr inbounds nuw i8, ptr %7030, i64 8
   %7032 = load ptr, ptr %7031, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %631)
@@ -17130,7 +17109,7 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7033, align 8, !tbaa !44
   %7034 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7032, ptr noundef nonnull %631) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %631)
-  %7035 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %7035 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
@@ -17144,7 +17123,7 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   %7038 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %7037, ptr %7038, align 8, !tbaa !28
   %7039 = getelementptr inbounds nuw i8, ptr %60, i64 360
-  store ptr @std_object_handlers, ptr %7039, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7039, align 8, !tbaa !122
   %7040 = getelementptr inbounds nuw i8, ptr %60, i64 504
   store ptr null, ptr %7040, align 8, !tbaa !44
   %7041 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %60, ptr noundef %7035, i32 noundef 0) #17
@@ -17152,20 +17131,20 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   %7042 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 0, ptr %7042, align 8, !tbaa !44
   %7043 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7043, align 4, !tbaa !69
+  store i32 1, ptr %7043, align 4, !tbaa !64
   %7044 = getelementptr inbounds nuw i8, ptr %7043, i64 4
   store i32 150, ptr %7044, align 4, !tbaa !44
   %7045 = getelementptr inbounds nuw i8, ptr %7043, i64 8
-  store i64 0, ptr %7045, align 8, !tbaa !124
+  store i64 0, ptr %7045, align 8, !tbaa !118
   %7046 = getelementptr inbounds nuw i8, ptr %7043, i64 16
-  store i64 8, ptr %7046, align 8, !tbaa !126
+  store i64 8, ptr %7046, align 8, !tbaa !120
   %7047 = getelementptr inbounds nuw i8, ptr %7043, i64 24
   store i64 7226416381533779312, ptr %7047, align 8
   %7048 = getelementptr inbounds nuw i8, ptr %7043, i64 32
   store i8 0, ptr %7048, align 8, !tbaa !44
-  store ptr null, ptr %62, align 8, !tbaa !132
+  store ptr null, ptr %62, align 8, !tbaa !126
   %7049 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i32 66, ptr %7049, align 8, !tbaa !133
+  store i32 66, ptr %7049, align 8, !tbaa !128
   %7050 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 0, ptr %7050, align 4
   %7051 = call ptr @zend_declare_typed_property(ptr noundef %7041, ptr noundef nonnull %7043, ptr noundef nonnull %61, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %62) #17
@@ -17175,11 +17154,11 @@ dom_register_prop_handler.exit625:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i626, label %7054, label %zend_string_release.exit.i627
 
 7054:                                             ; preds = %dom_register_prop_handler.exit625
-  %7055 = load i32, ptr %7043, align 4, !tbaa !69
+  %7055 = load i32, ptr %7043, align 4, !tbaa !64
   %7056 = icmp ne i32 %7055, 0
   call void @llvm.assume(i1 %7056)
   %7057 = add i32 %7055, -1
-  store i32 %7057, ptr %7043, align 4, !tbaa !69
+  store i32 %7057, ptr %7043, align 4, !tbaa !64
   %7058 = icmp eq i32 %7057, 0
   br i1 %7058, label %7059, label %zend_string_release.exit.i627
 
@@ -17201,20 +17180,20 @@ zend_string_release.exit.i627:                    ; preds = %7062, %7061, %7054,
   %7063 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 0, ptr %7063, align 8, !tbaa !44
   %7064 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7064, align 4, !tbaa !69
+  store i32 1, ptr %7064, align 4, !tbaa !64
   %7065 = getelementptr inbounds nuw i8, ptr %7064, i64 4
   store i32 150, ptr %7065, align 4, !tbaa !44
   %7066 = getelementptr inbounds nuw i8, ptr %7064, i64 8
-  store i64 0, ptr %7066, align 8, !tbaa !124
+  store i64 0, ptr %7066, align 8, !tbaa !118
   %7067 = getelementptr inbounds nuw i8, ptr %7064, i64 16
-  store i64 8, ptr %7067, align 8, !tbaa !126
+  store i64 8, ptr %7067, align 8, !tbaa !120
   %7068 = getelementptr inbounds nuw i8, ptr %7064, i64 24
   store i64 7226427359605520755, ptr %7068, align 8
   %7069 = getelementptr inbounds nuw i8, ptr %7064, i64 32
   store i8 0, ptr %7069, align 8, !tbaa !44
-  store ptr null, ptr %64, align 8, !tbaa !132
+  store ptr null, ptr %64, align 8, !tbaa !126
   %7070 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 66, ptr %7070, align 8, !tbaa !133
+  store i32 66, ptr %7070, align 8, !tbaa !128
   %7071 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 0, ptr %7071, align 4
   %7072 = call ptr @zend_declare_typed_property(ptr noundef %7041, ptr noundef nonnull %7064, ptr noundef nonnull %63, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %64) #17
@@ -17224,11 +17203,11 @@ zend_string_release.exit.i627:                    ; preds = %7062, %7061, %7054,
   br i1 %.not.i20.i628, label %7075, label %zend_string_release.exit22.i629
 
 7075:                                             ; preds = %zend_string_release.exit.i627
-  %7076 = load i32, ptr %7064, align 4, !tbaa !69
+  %7076 = load i32, ptr %7064, align 4, !tbaa !64
   %7077 = icmp ne i32 %7076, 0
   call void @llvm.assume(i1 %7077)
   %7078 = add i32 %7076, -1
-  store i32 %7078, ptr %7064, align 4, !tbaa !69
+  store i32 %7078, ptr %7064, align 4, !tbaa !64
   %7079 = icmp eq i32 %7078, 0
   br i1 %7079, label %7080, label %zend_string_release.exit22.i629
 
@@ -17250,20 +17229,20 @@ zend_string_release.exit22.i629:                  ; preds = %7083, %7082, %7075,
   %7084 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 0, ptr %7084, align 8, !tbaa !44
   %7085 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7085, align 4, !tbaa !69
+  store i32 1, ptr %7085, align 4, !tbaa !64
   %7086 = getelementptr inbounds nuw i8, ptr %7085, i64 4
   store i32 150, ptr %7086, align 4, !tbaa !44
   %7087 = getelementptr inbounds nuw i8, ptr %7085, i64 8
-  store i64 0, ptr %7087, align 8, !tbaa !124
+  store i64 0, ptr %7087, align 8, !tbaa !118
   %7088 = getelementptr inbounds nuw i8, ptr %7085, i64 16
-  store i64 12, ptr %7088, align 8, !tbaa !126
+  store i64 12, ptr %7088, align 8, !tbaa !120
   %7089 = getelementptr inbounds nuw i8, ptr %7085, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7089, ptr noundef nonnull align 1 dereferenceable(12) @.str.233, i64 12, i1 false)
   %7090 = getelementptr inbounds nuw i8, ptr %7085, i64 36
   store i8 0, ptr %7090, align 4, !tbaa !44
-  store ptr null, ptr %66, align 8, !tbaa !132
+  store ptr null, ptr %66, align 8, !tbaa !126
   %7091 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 66, ptr %7091, align 8, !tbaa !133
+  store i32 66, ptr %7091, align 8, !tbaa !128
   %7092 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 0, ptr %7092, align 4
   %7093 = call ptr @zend_declare_typed_property(ptr noundef %7041, ptr noundef nonnull %7085, ptr noundef nonnull %65, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %66) #17
@@ -17273,11 +17252,11 @@ zend_string_release.exit22.i629:                  ; preds = %7083, %7082, %7075,
   br i1 %.not.i23.i630, label %7096, label %zend_string_release.exit25.i631
 
 7096:                                             ; preds = %zend_string_release.exit22.i629
-  %7097 = load i32, ptr %7085, align 4, !tbaa !69
+  %7097 = load i32, ptr %7085, align 4, !tbaa !64
   %7098 = icmp ne i32 %7097, 0
   call void @llvm.assume(i1 %7098)
   %7099 = add i32 %7097, -1
-  store i32 %7099, ptr %7085, align 4, !tbaa !69
+  store i32 %7099, ptr %7085, align 4, !tbaa !64
   %7100 = icmp eq i32 %7099, 0
   br i1 %7100, label %7101, label %zend_string_release.exit25.i631
 
@@ -17299,20 +17278,20 @@ zend_string_release.exit25.i631:                  ; preds = %7104, %7103, %7096,
   %7105 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 0, ptr %7105, align 8, !tbaa !44
   %7106 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7106, align 4, !tbaa !69
+  store i32 1, ptr %7106, align 4, !tbaa !64
   %7107 = getelementptr inbounds nuw i8, ptr %7106, i64 4
   store i32 150, ptr %7107, align 4, !tbaa !44
   %7108 = getelementptr inbounds nuw i8, ptr %7106, i64 8
-  store i64 0, ptr %7108, align 8, !tbaa !124
+  store i64 0, ptr %7108, align 8, !tbaa !118
   %7109 = getelementptr inbounds nuw i8, ptr %7106, i64 16
-  store i64 14, ptr %7109, align 8, !tbaa !126
+  store i64 14, ptr %7109, align 8, !tbaa !120
   %7110 = getelementptr inbounds nuw i8, ptr %7106, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %7110, ptr noundef nonnull align 1 dereferenceable(14) @.str.101, i64 14, i1 false)
   %7111 = getelementptr inbounds nuw i8, ptr %7106, i64 38
   store i8 0, ptr %7111, align 2, !tbaa !44
-  store ptr null, ptr %68, align 8, !tbaa !132
+  store ptr null, ptr %68, align 8, !tbaa !126
   %7112 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 66, ptr %7112, align 8, !tbaa !133
+  store i32 66, ptr %7112, align 8, !tbaa !128
   %7113 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 0, ptr %7113, align 4
   %7114 = call ptr @zend_declare_typed_property(ptr noundef %7041, ptr noundef nonnull %7106, ptr noundef nonnull %67, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %68) #17
@@ -17322,11 +17301,11 @@ zend_string_release.exit25.i631:                  ; preds = %7104, %7103, %7096,
   br i1 %.not.i26.i632, label %7117, label %zend_string_release.exit28.i633
 
 7117:                                             ; preds = %zend_string_release.exit25.i631
-  %7118 = load i32, ptr %7106, align 4, !tbaa !69
+  %7118 = load i32, ptr %7106, align 4, !tbaa !64
   %7119 = icmp ne i32 %7118, 0
   call void @llvm.assume(i1 %7119)
   %7120 = add i32 %7118, -1
-  store i32 %7120, ptr %7106, align 4, !tbaa !69
+  store i32 %7120, ptr %7106, align 4, !tbaa !64
   %7121 = icmp eq i32 %7120, 0
   br i1 %7121, label %7122, label %zend_string_release.exit28.i633
 
@@ -17348,20 +17327,20 @@ zend_string_release.exit28.i633:                  ; preds = %7125, %7124, %7117,
   %7126 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 0, ptr %7126, align 8, !tbaa !44
   %7127 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7127, align 4, !tbaa !69
+  store i32 1, ptr %7127, align 4, !tbaa !64
   %7128 = getelementptr inbounds nuw i8, ptr %7127, i64 4
   store i32 150, ptr %7128, align 4, !tbaa !44
   %7129 = getelementptr inbounds nuw i8, ptr %7127, i64 8
-  store i64 0, ptr %7129, align 8, !tbaa !124
+  store i64 0, ptr %7129, align 8, !tbaa !118
   %7130 = getelementptr inbounds nuw i8, ptr %7127, i64 16
-  store i64 8, ptr %7130, align 8, !tbaa !126
+  store i64 8, ptr %7130, align 8, !tbaa !120
   %7131 = getelementptr inbounds nuw i8, ptr %7127, i64 24
   store i64 7453010313431182949, ptr %7131, align 8
   %7132 = getelementptr inbounds nuw i8, ptr %7127, i64 32
   store i8 0, ptr %7132, align 8, !tbaa !44
-  store ptr null, ptr %70, align 8, !tbaa !132
+  store ptr null, ptr %70, align 8, !tbaa !126
   %7133 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 66, ptr %7133, align 8, !tbaa !133
+  store i32 66, ptr %7133, align 8, !tbaa !128
   %7134 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %7134, align 4
   %7135 = call ptr @zend_declare_typed_property(ptr noundef %7041, ptr noundef nonnull %7127, ptr noundef nonnull %69, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %70) #17
@@ -17371,11 +17350,11 @@ zend_string_release.exit28.i633:                  ; preds = %7125, %7124, %7117,
   br i1 %.not.i29.i634, label %7138, label %zend_string_release.exit31.i
 
 7138:                                             ; preds = %zend_string_release.exit28.i633
-  %7139 = load i32, ptr %7127, align 4, !tbaa !69
+  %7139 = load i32, ptr %7127, align 4, !tbaa !64
   %7140 = icmp ne i32 %7139, 0
   call void @llvm.assume(i1 %7140)
   %7141 = add i32 %7139, -1
-  store i32 %7141, ptr %7127, align 4, !tbaa !69
+  store i32 %7141, ptr %7127, align 4, !tbaa !64
   %7142 = icmp eq i32 %7141, 0
   br i1 %7142, label %7143, label %zend_string_release.exit31.i
 
@@ -17397,20 +17376,20 @@ zend_string_release.exit31.i:                     ; preds = %7146, %7145, %7138,
   %7147 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i32 0, ptr %7147, align 8, !tbaa !44
   %7148 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %7148, align 4, !tbaa !69
+  store i32 1, ptr %7148, align 4, !tbaa !64
   %7149 = getelementptr inbounds nuw i8, ptr %7148, i64 4
   store i32 150, ptr %7149, align 4, !tbaa !44
   %7150 = getelementptr inbounds nuw i8, ptr %7148, i64 8
-  store i64 0, ptr %7150, align 8, !tbaa !124
+  store i64 0, ptr %7150, align 8, !tbaa !118
   %7151 = getelementptr inbounds nuw i8, ptr %7148, i64 16
-  store i64 7, ptr %7151, align 8, !tbaa !126
+  store i64 7, ptr %7151, align 8, !tbaa !120
   %7152 = getelementptr inbounds nuw i8, ptr %7148, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %7152, ptr noundef nonnull align 1 dereferenceable(7) @.str.111, i64 7, i1 false)
   %7153 = getelementptr inbounds nuw i8, ptr %7148, i64 31
   store i8 0, ptr %7153, align 1, !tbaa !44
-  store ptr null, ptr %72, align 8, !tbaa !132
+  store ptr null, ptr %72, align 8, !tbaa !126
   %7154 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 66, ptr %7154, align 8, !tbaa !133
+  store i32 66, ptr %7154, align 8, !tbaa !128
   %7155 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 0, ptr %7155, align 4
   %7156 = call ptr @zend_declare_typed_property(ptr noundef %7041, ptr noundef nonnull %7148, ptr noundef nonnull %71, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %72) #17
@@ -17420,11 +17399,11 @@ zend_string_release.exit31.i:                     ; preds = %7146, %7145, %7138,
   br i1 %.not.i32.i, label %7159, label %register_class_DOMEntity.exit
 
 7159:                                             ; preds = %zend_string_release.exit31.i
-  %7160 = load i32, ptr %7148, align 4, !tbaa !69
+  %7160 = load i32, ptr %7148, align 4, !tbaa !64
   %7161 = icmp ne i32 %7160, 0
   call void @llvm.assume(i1 %7161)
   %7162 = add i32 %7160, -1
-  store i32 %7162, ptr %7148, align 4, !tbaa !69
+  store i32 %7162, ptr %7148, align 4, !tbaa !64
   %7163 = icmp eq i32 %7162, 0
   br i1 %7163, label %7164, label %register_class_DOMEntity.exit
 
@@ -17455,11 +17434,11 @@ register_class_DOMEntity.exit:                    ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  store ptr %7041, ptr @dom_entity_class_entry, align 8, !tbaa !127
+  store ptr %7041, ptr @dom_entity_class_entry, align 8, !tbaa !121
   %7168 = getelementptr inbounds nuw i8, ptr %7041, i64 384
   store ptr @dom_objects_new, ptr %7168, align 8, !tbaa !44
   %7169 = getelementptr inbounds nuw i8, ptr %7041, i64 360
-  store ptr @dom_object_handlers, ptr %7169, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7169, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_entity_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7170 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7171 = call ptr %7170(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
@@ -17476,11 +17455,11 @@ register_class_DOMEntity.exit:                    ; preds = %zend_string_release
   br i1 %.not.i5.i640, label %7177, label %dom_register_prop_handler.exit641
 
 7177:                                             ; preds = %register_class_DOMEntity.exit
-  %7178 = load i32, ptr %7171, align 4, !tbaa !69
+  %7178 = load i32, ptr %7171, align 4, !tbaa !64
   %7179 = icmp ne i32 %7178, 0
   call void @llvm.assume(i1 %7179)
   %7180 = add i32 %7178, -1
-  store i32 %7180, ptr %7171, align 4, !tbaa !69
+  store i32 %7180, ptr %7171, align 4, !tbaa !64
   %7181 = icmp eq i32 %7180, 0
   br i1 %7181, label %7182, label %dom_register_prop_handler.exit641
 
@@ -17504,11 +17483,11 @@ dom_register_prop_handler.exit641:                ; preds = %register_class_DOME
   br i1 %.not.i5.i642, label %7190, label %dom_register_prop_handler.exit643
 
 7190:                                             ; preds = %dom_register_prop_handler.exit641
-  %7191 = load i32, ptr %7184, align 4, !tbaa !69
+  %7191 = load i32, ptr %7184, align 4, !tbaa !64
   %7192 = icmp ne i32 %7191, 0
   call void @llvm.assume(i1 %7192)
   %7193 = add i32 %7191, -1
-  store i32 %7193, ptr %7184, align 4, !tbaa !69
+  store i32 %7193, ptr %7184, align 4, !tbaa !64
   %7194 = icmp eq i32 %7193, 0
   br i1 %7194, label %7195, label %dom_register_prop_handler.exit643
 
@@ -17532,11 +17511,11 @@ dom_register_prop_handler.exit643:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i644, label %7203, label %dom_register_prop_handler.exit645
 
 7203:                                             ; preds = %dom_register_prop_handler.exit643
-  %7204 = load i32, ptr %7197, align 4, !tbaa !69
+  %7204 = load i32, ptr %7197, align 4, !tbaa !64
   %7205 = icmp ne i32 %7204, 0
   call void @llvm.assume(i1 %7205)
   %7206 = add i32 %7204, -1
-  store i32 %7206, ptr %7197, align 4, !tbaa !69
+  store i32 %7206, ptr %7197, align 4, !tbaa !64
   %7207 = icmp eq i32 %7206, 0
   br i1 %7207, label %7208, label %dom_register_prop_handler.exit645
 
@@ -17560,11 +17539,11 @@ dom_register_prop_handler.exit645:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i646, label %7216, label %dom_register_prop_handler.exit647
 
 7216:                                             ; preds = %dom_register_prop_handler.exit645
-  %7217 = load i32, ptr %7210, align 4, !tbaa !69
+  %7217 = load i32, ptr %7210, align 4, !tbaa !64
   %7218 = icmp ne i32 %7217, 0
   call void @llvm.assume(i1 %7218)
   %7219 = add i32 %7217, -1
-  store i32 %7219, ptr %7210, align 4, !tbaa !69
+  store i32 %7219, ptr %7210, align 4, !tbaa !64
   %7220 = icmp eq i32 %7219, 0
   br i1 %7220, label %7221, label %dom_register_prop_handler.exit647
 
@@ -17588,11 +17567,11 @@ dom_register_prop_handler.exit647:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i648, label %7229, label %dom_register_prop_handler.exit649
 
 7229:                                             ; preds = %dom_register_prop_handler.exit647
-  %7230 = load i32, ptr %7223, align 4, !tbaa !69
+  %7230 = load i32, ptr %7223, align 4, !tbaa !64
   %7231 = icmp ne i32 %7230, 0
   call void @llvm.assume(i1 %7231)
   %7232 = add i32 %7230, -1
-  store i32 %7232, ptr %7223, align 4, !tbaa !69
+  store i32 %7232, ptr %7223, align 4, !tbaa !64
   %7233 = icmp eq i32 %7232, 0
   br i1 %7233, label %7234, label %dom_register_prop_handler.exit649
 
@@ -17616,11 +17595,11 @@ dom_register_prop_handler.exit649:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i650, label %7242, label %dom_register_prop_handler.exit651
 
 7242:                                             ; preds = %dom_register_prop_handler.exit649
-  %7243 = load i32, ptr %7236, align 4, !tbaa !69
+  %7243 = load i32, ptr %7236, align 4, !tbaa !64
   %7244 = icmp ne i32 %7243, 0
   call void @llvm.assume(i1 %7244)
   %7245 = add i32 %7243, -1
-  store i32 %7245, ptr %7236, align 4, !tbaa !69
+  store i32 %7245, ptr %7236, align 4, !tbaa !64
   %7246 = icmp eq i32 %7245, 0
   br i1 %7246, label %7247, label %dom_register_prop_handler.exit651
 
@@ -17630,7 +17609,7 @@ dom_register_prop_handler.exit649:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_handler.exit649, %7242, %7247
   call void @zend_hash_merge(ptr noundef nonnull @dom_entity_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %7248 = load ptr, ptr @dom_entity_class_entry, align 8, !tbaa !127
+  %7248 = load ptr, ptr @dom_entity_class_entry, align 8, !tbaa !121
   %7249 = getelementptr inbounds nuw i8, ptr %7248, i64 8
   %7250 = load ptr, ptr %7249, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %630)
@@ -17639,7 +17618,7 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7251, align 8, !tbaa !44
   %7252 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7250, ptr noundef nonnull %630) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %630)
-  %7253 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %7253 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -17650,7 +17629,7 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   %7256 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %7255, ptr %7256, align 8, !tbaa !28
   %7257 = getelementptr inbounds nuw i8, ptr %47, i64 360
-  store ptr @std_object_handlers, ptr %7257, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7257, align 8, !tbaa !122
   %7258 = getelementptr inbounds nuw i8, ptr %47, i64 504
   store ptr null, ptr %7258, align 8, !tbaa !44
   %7259 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %47, ptr noundef %7253, i32 noundef 0) #17
@@ -17658,20 +17637,20 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   %7260 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i32 0, ptr %7260, align 8, !tbaa !44
   %7261 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7261, align 4, !tbaa !69
+  store i32 1, ptr %7261, align 4, !tbaa !64
   %7262 = getelementptr inbounds nuw i8, ptr %7261, i64 4
   store i32 150, ptr %7262, align 4, !tbaa !44
   %7263 = getelementptr inbounds nuw i8, ptr %7261, i64 8
-  store i64 0, ptr %7263, align 8, !tbaa !124
+  store i64 0, ptr %7263, align 8, !tbaa !118
   %7264 = getelementptr inbounds nuw i8, ptr %7261, i64 16
-  store i64 8, ptr %7264, align 8, !tbaa !126
+  store i64 8, ptr %7264, align 8, !tbaa !120
   %7265 = getelementptr inbounds nuw i8, ptr %7261, i64 24
   store i64 7226416381533779312, ptr %7265, align 8
   %7266 = getelementptr inbounds nuw i8, ptr %7261, i64 32
   store i8 0, ptr %7266, align 8, !tbaa !44
-  store ptr null, ptr %49, align 8, !tbaa !132
+  store ptr null, ptr %49, align 8, !tbaa !126
   %7267 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 66, ptr %7267, align 8, !tbaa !133
+  store i32 66, ptr %7267, align 8, !tbaa !128
   %7268 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 0, ptr %7268, align 4
   %7269 = call ptr @zend_declare_typed_property(ptr noundef %7259, ptr noundef nonnull %7261, ptr noundef nonnull %48, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %49) #17
@@ -17681,11 +17660,11 @@ dom_register_prop_handler.exit651:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i652, label %7272, label %zend_string_release.exit.i653
 
 7272:                                             ; preds = %dom_register_prop_handler.exit651
-  %7273 = load i32, ptr %7261, align 4, !tbaa !69
+  %7273 = load i32, ptr %7261, align 4, !tbaa !64
   %7274 = icmp ne i32 %7273, 0
   call void @llvm.assume(i1 %7274)
   %7275 = add i32 %7273, -1
-  store i32 %7275, ptr %7261, align 4, !tbaa !69
+  store i32 %7275, ptr %7261, align 4, !tbaa !64
   %7276 = icmp eq i32 %7275, 0
   br i1 %7276, label %7277, label %zend_string_release.exit.i653
 
@@ -17707,20 +17686,20 @@ zend_string_release.exit.i653:                    ; preds = %7280, %7279, %7272,
   %7281 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 0, ptr %7281, align 8, !tbaa !44
   %7282 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7282, align 4, !tbaa !69
+  store i32 1, ptr %7282, align 4, !tbaa !64
   %7283 = getelementptr inbounds nuw i8, ptr %7282, i64 4
   store i32 150, ptr %7283, align 4, !tbaa !44
   %7284 = getelementptr inbounds nuw i8, ptr %7282, i64 8
-  store i64 0, ptr %7284, align 8, !tbaa !124
+  store i64 0, ptr %7284, align 8, !tbaa !118
   %7285 = getelementptr inbounds nuw i8, ptr %7282, i64 16
-  store i64 8, ptr %7285, align 8, !tbaa !126
+  store i64 8, ptr %7285, align 8, !tbaa !120
   %7286 = getelementptr inbounds nuw i8, ptr %7282, i64 24
   store i64 7226427359605520755, ptr %7286, align 8
   %7287 = getelementptr inbounds nuw i8, ptr %7282, i64 32
   store i8 0, ptr %7287, align 8, !tbaa !44
-  store ptr null, ptr %51, align 8, !tbaa !132
+  store ptr null, ptr %51, align 8, !tbaa !126
   %7288 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 66, ptr %7288, align 8, !tbaa !133
+  store i32 66, ptr %7288, align 8, !tbaa !128
   %7289 = getelementptr inbounds nuw i8, ptr %51, i64 12
   store i32 0, ptr %7289, align 4
   %7290 = call ptr @zend_declare_typed_property(ptr noundef %7259, ptr noundef nonnull %7282, ptr noundef nonnull %50, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %51) #17
@@ -17730,11 +17709,11 @@ zend_string_release.exit.i653:                    ; preds = %7280, %7279, %7272,
   br i1 %.not.i11.i654, label %7293, label %zend_string_release.exit13.i655
 
 7293:                                             ; preds = %zend_string_release.exit.i653
-  %7294 = load i32, ptr %7282, align 4, !tbaa !69
+  %7294 = load i32, ptr %7282, align 4, !tbaa !64
   %7295 = icmp ne i32 %7294, 0
   call void @llvm.assume(i1 %7295)
   %7296 = add i32 %7294, -1
-  store i32 %7296, ptr %7282, align 4, !tbaa !69
+  store i32 %7296, ptr %7282, align 4, !tbaa !64
   %7297 = icmp eq i32 %7296, 0
   br i1 %7297, label %7298, label %zend_string_release.exit13.i655
 
@@ -17756,20 +17735,20 @@ zend_string_release.exit13.i655:                  ; preds = %7301, %7300, %7293,
   %7302 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 0, ptr %7302, align 8, !tbaa !44
   %7303 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7303, align 4, !tbaa !69
+  store i32 1, ptr %7303, align 4, !tbaa !64
   %7304 = getelementptr inbounds nuw i8, ptr %7303, i64 4
   store i32 150, ptr %7304, align 4, !tbaa !44
   %7305 = getelementptr inbounds nuw i8, ptr %7303, i64 8
-  store i64 0, ptr %7305, align 8, !tbaa !124
+  store i64 0, ptr %7305, align 8, !tbaa !118
   %7306 = getelementptr inbounds nuw i8, ptr %7303, i64 16
-  store i64 12, ptr %7306, align 8, !tbaa !126
+  store i64 12, ptr %7306, align 8, !tbaa !120
   %7307 = getelementptr inbounds nuw i8, ptr %7303, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7307, ptr noundef nonnull align 1 dereferenceable(12) @.str.233, i64 12, i1 false)
   %7308 = getelementptr inbounds nuw i8, ptr %7303, i64 36
   store i8 0, ptr %7308, align 4, !tbaa !44
-  store ptr null, ptr %53, align 8, !tbaa !132
+  store ptr null, ptr %53, align 8, !tbaa !126
   %7309 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 66, ptr %7309, align 8, !tbaa !133
+  store i32 66, ptr %7309, align 8, !tbaa !128
   %7310 = getelementptr inbounds nuw i8, ptr %53, i64 12
   store i32 0, ptr %7310, align 4
   %7311 = call ptr @zend_declare_typed_property(ptr noundef %7259, ptr noundef nonnull %7303, ptr noundef nonnull %52, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %53) #17
@@ -17779,11 +17758,11 @@ zend_string_release.exit13.i655:                  ; preds = %7301, %7300, %7293,
   br i1 %.not.i14.i656, label %7314, label %register_class_Dom_Entity.exit
 
 7314:                                             ; preds = %zend_string_release.exit13.i655
-  %7315 = load i32, ptr %7303, align 4, !tbaa !69
+  %7315 = load i32, ptr %7303, align 4, !tbaa !64
   %7316 = icmp ne i32 %7315, 0
   call void @llvm.assume(i1 %7316)
   %7317 = add i32 %7315, -1
-  store i32 %7317, ptr %7303, align 4, !tbaa !69
+  store i32 %7317, ptr %7303, align 4, !tbaa !64
   %7318 = icmp eq i32 %7317, 0
   br i1 %7318, label %7319, label %register_class_Dom_Entity.exit
 
@@ -17808,11 +17787,11 @@ register_class_Dom_Entity.exit:                   ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
-  store ptr %7259, ptr @dom_modern_entity_class_entry, align 8, !tbaa !127
+  store ptr %7259, ptr @dom_modern_entity_class_entry, align 8, !tbaa !121
   %7323 = getelementptr inbounds nuw i8, ptr %7259, i64 384
   store ptr @dom_objects_new, ptr %7323, align 8, !tbaa !44
   %7324 = getelementptr inbounds nuw i8, ptr %7259, i64 360
-  store ptr @dom_object_handlers, ptr %7324, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7324, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_entity_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7325 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7326 = call ptr %7325(ptr noundef nonnull @.str.215, i64 noundef 8, i1 noundef zeroext true) #17
@@ -17829,11 +17808,11 @@ register_class_Dom_Entity.exit:                   ; preds = %zend_string_release
   br i1 %.not.i5.i661, label %7332, label %dom_register_prop_handler.exit662
 
 7332:                                             ; preds = %register_class_Dom_Entity.exit
-  %7333 = load i32, ptr %7326, align 4, !tbaa !69
+  %7333 = load i32, ptr %7326, align 4, !tbaa !64
   %7334 = icmp ne i32 %7333, 0
   call void @llvm.assume(i1 %7334)
   %7335 = add i32 %7333, -1
-  store i32 %7335, ptr %7326, align 4, !tbaa !69
+  store i32 %7335, ptr %7326, align 4, !tbaa !64
   %7336 = icmp eq i32 %7335, 0
   br i1 %7336, label %7337, label %dom_register_prop_handler.exit662
 
@@ -17857,11 +17836,11 @@ dom_register_prop_handler.exit662:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i663, label %7345, label %dom_register_prop_handler.exit664
 
 7345:                                             ; preds = %dom_register_prop_handler.exit662
-  %7346 = load i32, ptr %7339, align 4, !tbaa !69
+  %7346 = load i32, ptr %7339, align 4, !tbaa !64
   %7347 = icmp ne i32 %7346, 0
   call void @llvm.assume(i1 %7347)
   %7348 = add i32 %7346, -1
-  store i32 %7348, ptr %7339, align 4, !tbaa !69
+  store i32 %7348, ptr %7339, align 4, !tbaa !64
   %7349 = icmp eq i32 %7348, 0
   br i1 %7349, label %7350, label %dom_register_prop_handler.exit664
 
@@ -17885,11 +17864,11 @@ dom_register_prop_handler.exit664:                ; preds = %dom_register_prop_h
   br i1 %.not.i5.i665, label %7358, label %dom_register_prop_handler.exit666
 
 7358:                                             ; preds = %dom_register_prop_handler.exit664
-  %7359 = load i32, ptr %7352, align 4, !tbaa !69
+  %7359 = load i32, ptr %7352, align 4, !tbaa !64
   %7360 = icmp ne i32 %7359, 0
   call void @llvm.assume(i1 %7360)
   %7361 = add i32 %7359, -1
-  store i32 %7361, ptr %7352, align 4, !tbaa !69
+  store i32 %7361, ptr %7352, align 4, !tbaa !64
   %7362 = icmp eq i32 %7361, 0
   br i1 %7362, label %7363, label %dom_register_prop_handler.exit666
 
@@ -17899,7 +17878,7 @@ dom_register_prop_handler.exit664:                ; preds = %dom_register_prop_h
 
 dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_handler.exit664, %7358, %7363
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_entity_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %7364 = load ptr, ptr @dom_modern_entity_class_entry, align 8, !tbaa !127
+  %7364 = load ptr, ptr @dom_modern_entity_class_entry, align 8, !tbaa !121
   %7365 = getelementptr inbounds nuw i8, ptr %7364, i64 8
   %7366 = load ptr, ptr %7365, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %629)
@@ -17908,7 +17887,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7367, align 8, !tbaa !44
   %7368 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7366, ptr noundef nonnull %629) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %629)
-  %7369 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %7369 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %43, i8 0, i64 520, i1 false)
   %7370 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -17916,16 +17895,16 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7372 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %7371, ptr %7372, align 8, !tbaa !28
   %7373 = getelementptr inbounds nuw i8, ptr %43, i64 360
-  store ptr @std_object_handlers, ptr %7373, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7373, align 8, !tbaa !122
   %7374 = getelementptr inbounds nuw i8, ptr %43, i64 504
   store ptr @class_DOMEntityReference_methods, ptr %7374, align 8, !tbaa !44
   %7375 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %43, ptr noundef %7369, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  store ptr %7375, ptr @dom_entityreference_class_entry, align 8, !tbaa !127
+  store ptr %7375, ptr @dom_entityreference_class_entry, align 8, !tbaa !121
   %7376 = getelementptr inbounds nuw i8, ptr %7375, i64 384
   store ptr @dom_objects_new, ptr %7376, align 8, !tbaa !44
   %7377 = getelementptr inbounds nuw i8, ptr %7375, i64 360
-  store ptr @dom_object_handlers, ptr %7377, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7377, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_entity_reference_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   call void @zend_hash_merge(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -17952,7 +17931,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7384, align 8, !tbaa !44
   %7385 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_entity_reference_prop_handlers, ptr noundef nonnull @.str.13, i64 noundef range(i64 9, 12) 10, ptr noundef nonnull %39) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %7386 = load ptr, ptr @dom_entityreference_class_entry, align 8, !tbaa !127
+  %7386 = load ptr, ptr @dom_entityreference_class_entry, align 8, !tbaa !121
   %7387 = getelementptr inbounds nuw i8, ptr %7386, i64 8
   %7388 = load ptr, ptr %7387, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %628)
@@ -17961,7 +17940,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7389, align 8, !tbaa !44
   %7390 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7388, ptr noundef nonnull %628) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %628)
-  %7391 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %7391 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %38, i8 0, i64 520, i1 false)
   %7392 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
@@ -17969,16 +17948,16 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7394 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %7393, ptr %7394, align 8, !tbaa !28
   %7395 = getelementptr inbounds nuw i8, ptr %38, i64 360
-  store ptr @std_object_handlers, ptr %7395, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7395, align 8, !tbaa !122
   %7396 = getelementptr inbounds nuw i8, ptr %38, i64 504
   store ptr null, ptr %7396, align 8, !tbaa !44
   %7397 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %38, ptr noundef %7391, i32 noundef 0) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  store ptr %7397, ptr @dom_modern_entityreference_class_entry, align 8, !tbaa !127
+  store ptr %7397, ptr @dom_modern_entityreference_class_entry, align 8, !tbaa !121
   %7398 = getelementptr inbounds nuw i8, ptr %7397, i64 384
   store ptr @dom_objects_new, ptr %7398, align 8, !tbaa !44
   %7399 = getelementptr inbounds nuw i8, ptr %7397, i64 360
-  store ptr @dom_object_handlers, ptr %7399, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7399, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @dom_modern_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -18005,7 +17984,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7406, align 8, !tbaa !44
   %7407 = call ptr @zend_hash_str_update(ptr noundef nonnull @dom_modern_entity_reference_prop_handlers, ptr noundef nonnull @.str.13, i64 noundef range(i64 9, 12) 10, ptr noundef nonnull %34) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %7408 = load ptr, ptr @dom_modern_entityreference_class_entry, align 8, !tbaa !127
+  %7408 = load ptr, ptr @dom_modern_entityreference_class_entry, align 8, !tbaa !121
   %7409 = getelementptr inbounds nuw i8, ptr %7408, i64 8
   %7410 = load ptr, ptr %7409, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %627)
@@ -18014,7 +17993,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7411, align 8, !tbaa !44
   %7412 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7410, ptr noundef nonnull %627) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %627)
-  %7413 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %7413 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -18024,7 +18003,7 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7416 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %7415, ptr %7416, align 8, !tbaa !28
   %7417 = getelementptr inbounds nuw i8, ptr %29, i64 360
-  store ptr @std_object_handlers, ptr %7417, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7417, align 8, !tbaa !122
   %7418 = getelementptr inbounds nuw i8, ptr %29, i64 504
   store ptr @class_DOMProcessingInstruction_methods, ptr %7418, align 8, !tbaa !44
   %7419 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %29, ptr noundef %7413, i32 noundef 0) #17
@@ -18032,20 +18011,20 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   %7420 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %7420, align 8, !tbaa !44
   %7421 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %7421, align 4, !tbaa !69
+  store i32 1, ptr %7421, align 4, !tbaa !64
   %7422 = getelementptr inbounds nuw i8, ptr %7421, i64 4
   store i32 150, ptr %7422, align 4, !tbaa !44
   %7423 = getelementptr inbounds nuw i8, ptr %7421, i64 8
-  store i64 0, ptr %7423, align 8, !tbaa !124
+  store i64 0, ptr %7423, align 8, !tbaa !118
   %7424 = getelementptr inbounds nuw i8, ptr %7421, i64 16
-  store i64 6, ptr %7424, align 8, !tbaa !126
+  store i64 6, ptr %7424, align 8, !tbaa !120
   %7425 = getelementptr inbounds nuw i8, ptr %7421, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %7425, ptr noundef nonnull align 1 dereferenceable(6) @.str.249, i64 6, i1 false)
   %7426 = getelementptr inbounds nuw i8, ptr %7421, i64 30
   store i8 0, ptr %7426, align 2, !tbaa !44
-  store ptr null, ptr %31, align 8, !tbaa !132
+  store ptr null, ptr %31, align 8, !tbaa !126
   %7427 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 64, ptr %7427, align 8, !tbaa !133
+  store i32 64, ptr %7427, align 8, !tbaa !128
   %7428 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i32 0, ptr %7428, align 4
   %7429 = call ptr @zend_declare_typed_property(ptr noundef %7419, ptr noundef nonnull %7421, ptr noundef nonnull %30, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %31) #17
@@ -18055,11 +18034,11 @@ dom_register_prop_handler.exit666:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i667, label %7432, label %zend_string_release.exit.i668
 
 7432:                                             ; preds = %dom_register_prop_handler.exit666
-  %7433 = load i32, ptr %7421, align 4, !tbaa !69
+  %7433 = load i32, ptr %7421, align 4, !tbaa !64
   %7434 = icmp ne i32 %7433, 0
   call void @llvm.assume(i1 %7434)
   %7435 = add i32 %7433, -1
-  store i32 %7435, ptr %7421, align 4, !tbaa !69
+  store i32 %7435, ptr %7421, align 4, !tbaa !64
   %7436 = icmp eq i32 %7435, 0
   br i1 %7436, label %7437, label %zend_string_release.exit.i668
 
@@ -18081,20 +18060,20 @@ zend_string_release.exit.i668:                    ; preds = %7440, %7439, %7432,
   %7441 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i32 0, ptr %7441, align 8, !tbaa !44
   %7442 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %7442, align 4, !tbaa !69
+  store i32 1, ptr %7442, align 4, !tbaa !64
   %7443 = getelementptr inbounds nuw i8, ptr %7442, i64 4
   store i32 150, ptr %7443, align 4, !tbaa !44
   %7444 = getelementptr inbounds nuw i8, ptr %7442, i64 8
-  store i64 0, ptr %7444, align 8, !tbaa !124
+  store i64 0, ptr %7444, align 8, !tbaa !118
   %7445 = getelementptr inbounds nuw i8, ptr %7442, i64 16
-  store i64 4, ptr %7445, align 8, !tbaa !126
+  store i64 4, ptr %7445, align 8, !tbaa !120
   %7446 = getelementptr inbounds nuw i8, ptr %7442, i64 24
   store i32 1635017060, ptr %7446, align 8
   %7447 = getelementptr inbounds nuw i8, ptr %7442, i64 28
   store i8 0, ptr %7447, align 4, !tbaa !44
-  store ptr null, ptr %33, align 8, !tbaa !132
+  store ptr null, ptr %33, align 8, !tbaa !126
   %7448 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 64, ptr %7448, align 8, !tbaa !133
+  store i32 64, ptr %7448, align 8, !tbaa !128
   %7449 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 0, ptr %7449, align 4
   %7450 = call ptr @zend_declare_typed_property(ptr noundef %7419, ptr noundef nonnull %7442, ptr noundef nonnull %32, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %33) #17
@@ -18104,11 +18083,11 @@ zend_string_release.exit.i668:                    ; preds = %7440, %7439, %7432,
   br i1 %.not.i8.i669, label %7453, label %register_class_DOMProcessingInstruction.exit
 
 7453:                                             ; preds = %zend_string_release.exit.i668
-  %7454 = load i32, ptr %7442, align 4, !tbaa !69
+  %7454 = load i32, ptr %7442, align 4, !tbaa !64
   %7455 = icmp ne i32 %7454, 0
   call void @llvm.assume(i1 %7455)
   %7456 = add i32 %7454, -1
-  store i32 %7456, ptr %7442, align 4, !tbaa !69
+  store i32 %7456, ptr %7442, align 4, !tbaa !64
   %7457 = icmp eq i32 %7456, 0
   br i1 %7457, label %7458, label %register_class_DOMProcessingInstruction.exit
 
@@ -18131,11 +18110,11 @@ register_class_DOMProcessingInstruction.exit:     ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  store ptr %7419, ptr @dom_processinginstruction_class_entry, align 8, !tbaa !127
+  store ptr %7419, ptr @dom_processinginstruction_class_entry, align 8, !tbaa !121
   %7462 = getelementptr inbounds nuw i8, ptr %7419, i64 384
   store ptr @dom_objects_new, ptr %7462, align 8, !tbaa !44
   %7463 = getelementptr inbounds nuw i8, ptr %7419, i64 360
-  store ptr @dom_object_handlers, ptr %7463, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7463, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_processinginstruction_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7464 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7465 = call ptr %7464(ptr noundef nonnull @.str.249, i64 noundef 6, i1 noundef zeroext true) #17
@@ -18152,11 +18131,11 @@ register_class_DOMProcessingInstruction.exit:     ; preds = %zend_string_release
   br i1 %.not.i5.i672, label %7471, label %dom_register_prop_handler.exit673
 
 7471:                                             ; preds = %register_class_DOMProcessingInstruction.exit
-  %7472 = load i32, ptr %7465, align 4, !tbaa !69
+  %7472 = load i32, ptr %7465, align 4, !tbaa !64
   %7473 = icmp ne i32 %7472, 0
   call void @llvm.assume(i1 %7473)
   %7474 = add i32 %7472, -1
-  store i32 %7474, ptr %7465, align 4, !tbaa !69
+  store i32 %7474, ptr %7465, align 4, !tbaa !64
   %7475 = icmp eq i32 %7474, 0
   br i1 %7475, label %7476, label %dom_register_prop_handler.exit673
 
@@ -18180,11 +18159,11 @@ dom_register_prop_handler.exit673:                ; preds = %register_class_DOMP
   br i1 %.not.i5.i674, label %7484, label %dom_register_prop_handler.exit675
 
 7484:                                             ; preds = %dom_register_prop_handler.exit673
-  %7485 = load i32, ptr %7478, align 4, !tbaa !69
+  %7485 = load i32, ptr %7478, align 4, !tbaa !64
   %7486 = icmp ne i32 %7485, 0
   call void @llvm.assume(i1 %7486)
   %7487 = add i32 %7485, -1
-  store i32 %7487, ptr %7478, align 4, !tbaa !69
+  store i32 %7487, ptr %7478, align 4, !tbaa !64
   %7488 = icmp eq i32 %7487, 0
   br i1 %7488, label %7489, label %dom_register_prop_handler.exit675
 
@@ -18194,7 +18173,7 @@ dom_register_prop_handler.exit673:                ; preds = %register_class_DOMP
 
 dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_handler.exit673, %7484, %7489
   call void @zend_hash_merge(ptr noundef nonnull @dom_processinginstruction_prop_handlers, ptr noundef nonnull @dom_node_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %7490 = load ptr, ptr @dom_processinginstruction_class_entry, align 8, !tbaa !127
+  %7490 = load ptr, ptr @dom_processinginstruction_class_entry, align 8, !tbaa !121
   %7491 = getelementptr inbounds nuw i8, ptr %7490, i64 8
   %7492 = load ptr, ptr %7491, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %626)
@@ -18203,7 +18182,7 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   store i32 13, ptr %7493, align 8, !tbaa !44
   %7494 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7492, ptr noundef nonnull %626) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %626)
-  %7495 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !127
+  %7495 = load ptr, ptr @dom_modern_characterdata_class_entry, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %24, i8 0, i64 520, i1 false)
@@ -18212,7 +18191,7 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   %7498 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %7497, ptr %7498, align 8, !tbaa !28
   %7499 = getelementptr inbounds nuw i8, ptr %24, i64 360
-  store ptr @std_object_handlers, ptr %7499, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7499, align 8, !tbaa !122
   %7500 = getelementptr inbounds nuw i8, ptr %24, i64 504
   store ptr null, ptr %7500, align 8, !tbaa !44
   %7501 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %24, ptr noundef %7495, i32 noundef 0) #17
@@ -18220,20 +18199,20 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   %7502 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 0, ptr %7502, align 8, !tbaa !44
   %7503 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %7503, align 4, !tbaa !69
+  store i32 1, ptr %7503, align 4, !tbaa !64
   %7504 = getelementptr inbounds nuw i8, ptr %7503, i64 4
   store i32 150, ptr %7504, align 4, !tbaa !44
   %7505 = getelementptr inbounds nuw i8, ptr %7503, i64 8
-  store i64 0, ptr %7505, align 8, !tbaa !124
+  store i64 0, ptr %7505, align 8, !tbaa !118
   %7506 = getelementptr inbounds nuw i8, ptr %7503, i64 16
-  store i64 6, ptr %7506, align 8, !tbaa !126
+  store i64 6, ptr %7506, align 8, !tbaa !120
   %7507 = getelementptr inbounds nuw i8, ptr %7503, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %7507, ptr noundef nonnull align 1 dereferenceable(6) @.str.249, i64 6, i1 false)
   %7508 = getelementptr inbounds nuw i8, ptr %7503, i64 30
   store i8 0, ptr %7508, align 2, !tbaa !44
-  store ptr null, ptr %26, align 8, !tbaa !132
+  store ptr null, ptr %26, align 8, !tbaa !126
   %7509 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 64, ptr %7509, align 8, !tbaa !133
+  store i32 64, ptr %7509, align 8, !tbaa !128
   %7510 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %7510, align 4
   %7511 = call ptr @zend_declare_typed_property(ptr noundef %7501, ptr noundef nonnull %7503, ptr noundef nonnull %25, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %26) #17
@@ -18243,11 +18222,11 @@ dom_register_prop_handler.exit675:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i676, label %7514, label %register_class_Dom_ProcessingInstruction.exit
 
 7514:                                             ; preds = %dom_register_prop_handler.exit675
-  %7515 = load i32, ptr %7503, align 4, !tbaa !69
+  %7515 = load i32, ptr %7503, align 4, !tbaa !64
   %7516 = icmp ne i32 %7515, 0
   call void @llvm.assume(i1 %7516)
   %7517 = add i32 %7515, -1
-  store i32 %7517, ptr %7503, align 4, !tbaa !69
+  store i32 %7517, ptr %7503, align 4, !tbaa !64
   %7518 = icmp eq i32 %7517, 0
   br i1 %7518, label %7519, label %register_class_Dom_ProcessingInstruction.exit
 
@@ -18268,11 +18247,11 @@ register_class_Dom_ProcessingInstruction.exit:    ; preds = %dom_register_prop_h
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  store ptr %7501, ptr @dom_modern_processinginstruction_class_entry, align 8, !tbaa !127
+  store ptr %7501, ptr @dom_modern_processinginstruction_class_entry, align 8, !tbaa !121
   %7523 = getelementptr inbounds nuw i8, ptr %7501, i64 384
   store ptr @dom_objects_new, ptr %7523, align 8, !tbaa !44
   %7524 = getelementptr inbounds nuw i8, ptr %7501, i64 360
-  store ptr @dom_object_handlers, ptr %7524, align 8, !tbaa !128
+  store ptr @dom_object_handlers, ptr %7524, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_modern_processinginstruction_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7525 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7526 = call ptr %7525(ptr noundef nonnull @.str.249, i64 noundef 6, i1 noundef zeroext true) #17
@@ -18289,11 +18268,11 @@ register_class_Dom_ProcessingInstruction.exit:    ; preds = %dom_register_prop_h
   br i1 %.not.i5.i679, label %7532, label %dom_register_prop_handler.exit680
 
 7532:                                             ; preds = %register_class_Dom_ProcessingInstruction.exit
-  %7533 = load i32, ptr %7526, align 4, !tbaa !69
+  %7533 = load i32, ptr %7526, align 4, !tbaa !64
   %7534 = icmp ne i32 %7533, 0
   call void @llvm.assume(i1 %7534)
   %7535 = add i32 %7533, -1
-  store i32 %7535, ptr %7526, align 4, !tbaa !69
+  store i32 %7535, ptr %7526, align 4, !tbaa !64
   %7536 = icmp eq i32 %7535, 0
   br i1 %7536, label %7537, label %dom_register_prop_handler.exit680
 
@@ -18317,11 +18296,11 @@ dom_register_prop_handler.exit680:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i681, label %7545, label %dom_register_prop_handler.exit682
 
 7545:                                             ; preds = %dom_register_prop_handler.exit680
-  %7546 = load i32, ptr %7539, align 4, !tbaa !69
+  %7546 = load i32, ptr %7539, align 4, !tbaa !64
   %7547 = icmp ne i32 %7546, 0
   call void @llvm.assume(i1 %7547)
   %7548 = add i32 %7546, -1
-  store i32 %7548, ptr %7539, align 4, !tbaa !69
+  store i32 %7548, ptr %7539, align 4, !tbaa !64
   %7549 = icmp eq i32 %7548, 0
   br i1 %7549, label %7550, label %dom_register_prop_handler.exit682
 
@@ -18331,7 +18310,7 @@ dom_register_prop_handler.exit680:                ; preds = %register_class_Dom_
 
 dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_handler.exit680, %7545, %7550
   call void @zend_hash_merge(ptr noundef nonnull @dom_modern_processinginstruction_prop_handlers, ptr noundef nonnull @dom_modern_characterdata_prop_handlers, ptr noundef null, i1 noundef zeroext false) #17
-  %7551 = load ptr, ptr @dom_modern_processinginstruction_class_entry, align 8, !tbaa !127
+  %7551 = load ptr, ptr @dom_modern_processinginstruction_class_entry, align 8, !tbaa !121
   %7552 = getelementptr inbounds nuw i8, ptr %7551, i64 8
   %7553 = load ptr, ptr %7552, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %625)
@@ -18341,10 +18320,10 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   %7555 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7553, ptr noundef nonnull %625) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %625)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) @dom_xpath_object_handlers, ptr noundef nonnull align 8 dereferenceable(200) @dom_object_handlers, i64 200, i1 false)
-  store i32 56, ptr @dom_xpath_object_handlers, align 8, !tbaa !103
-  store ptr @dom_xpath_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 8), align 8, !tbaa !114
-  store ptr @dom_xpath_get_gc, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 168), align 8, !tbaa !135
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 24), align 8, !tbaa !119
+  store i32 56, ptr @dom_xpath_object_handlers, align 8, !tbaa !97
+  store ptr @dom_xpath_objects_free_storage, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 8), align 8, !tbaa !108
+  store ptr @dom_xpath_get_gc, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 168), align 8, !tbaa !130
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @dom_xpath_object_handlers, i64 24), align 8, !tbaa !113
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -18354,7 +18333,7 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   %7558 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %7557, ptr %7558, align 8, !tbaa !28
   %7559 = getelementptr inbounds nuw i8, ptr %17, i64 360
-  store ptr @std_object_handlers, ptr %7559, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7559, align 8, !tbaa !122
   %7560 = getelementptr inbounds nuw i8, ptr %17, i64 504
   store ptr @class_DOMXPath_methods, ptr %7560, align 8, !tbaa !44
   %7561 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %17, ptr noundef null, i32 noundef 536870912) #17
@@ -18362,32 +18341,32 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   %7562 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 0, ptr %7562, align 8, !tbaa !44
   %7563 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7563, align 4, !tbaa !69
+  store i32 1, ptr %7563, align 4, !tbaa !64
   %7564 = getelementptr inbounds nuw i8, ptr %7563, i64 4
   store i32 150, ptr %7564, align 4, !tbaa !44
   %7565 = getelementptr inbounds nuw i8, ptr %7563, i64 8
-  store i64 0, ptr %7565, align 8, !tbaa !124
+  store i64 0, ptr %7565, align 8, !tbaa !118
   %7566 = getelementptr inbounds nuw i8, ptr %7563, i64 16
-  store i64 8, ptr %7566, align 8, !tbaa !126
+  store i64 8, ptr %7566, align 8, !tbaa !120
   %7567 = getelementptr inbounds nuw i8, ptr %7563, i64 24
   store i64 8389754676633104228, ptr %7567, align 8
   %7568 = getelementptr inbounds nuw i8, ptr %7563, i64 32
   store i8 0, ptr %7568, align 8, !tbaa !44
   %7569 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7569, align 4, !tbaa !69
+  store i32 1, ptr %7569, align 4, !tbaa !64
   %7570 = getelementptr inbounds nuw i8, ptr %7569, i64 4
   store i32 150, ptr %7570, align 4, !tbaa !44
   %7571 = getelementptr inbounds nuw i8, ptr %7569, i64 8
-  store i64 0, ptr %7571, align 8, !tbaa !124
+  store i64 0, ptr %7571, align 8, !tbaa !118
   %7572 = getelementptr inbounds nuw i8, ptr %7569, i64 16
-  store i64 11, ptr %7572, align 8, !tbaa !126
+  store i64 11, ptr %7572, align 8, !tbaa !120
   %7573 = getelementptr inbounds nuw i8, ptr %7569, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %7573, ptr noundef nonnull align 1 dereferenceable(11) @.str.343, i64 11, i1 false)
   %7574 = getelementptr inbounds nuw i8, ptr %7569, i64 35
   store i8 0, ptr %7574, align 1, !tbaa !44
-  store ptr %7569, ptr %19, align 8, !tbaa !132
+  store ptr %7569, ptr %19, align 8, !tbaa !126
   %7575 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 16777216, ptr %7575, align 8, !tbaa !133
+  store i32 16777216, ptr %7575, align 8, !tbaa !128
   %7576 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 0, ptr %7576, align 4
   %7577 = call ptr @zend_declare_typed_property(ptr noundef %7561, ptr noundef nonnull %7563, ptr noundef nonnull %18, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %19) #17
@@ -18397,11 +18376,11 @@ dom_register_prop_handler.exit682:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i683, label %7580, label %zend_string_release.exit.i684
 
 7580:                                             ; preds = %dom_register_prop_handler.exit682
-  %7581 = load i32, ptr %7563, align 4, !tbaa !69
+  %7581 = load i32, ptr %7563, align 4, !tbaa !64
   %7582 = icmp ne i32 %7581, 0
   call void @llvm.assume(i1 %7582)
   %7583 = add i32 %7581, -1
-  store i32 %7583, ptr %7563, align 4, !tbaa !69
+  store i32 %7583, ptr %7563, align 4, !tbaa !64
   %7584 = icmp eq i32 %7583, 0
   br i1 %7584, label %7585, label %zend_string_release.exit.i684
 
@@ -18423,20 +18402,20 @@ zend_string_release.exit.i684:                    ; preds = %7588, %7587, %7580,
   %7589 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 0, ptr %7589, align 8, !tbaa !44
   %7590 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %7590, align 4, !tbaa !69
+  store i32 1, ptr %7590, align 4, !tbaa !64
   %7591 = getelementptr inbounds nuw i8, ptr %7590, i64 4
   store i32 150, ptr %7591, align 4, !tbaa !44
   %7592 = getelementptr inbounds nuw i8, ptr %7590, i64 8
-  store i64 0, ptr %7592, align 8, !tbaa !124
+  store i64 0, ptr %7592, align 8, !tbaa !118
   %7593 = getelementptr inbounds nuw i8, ptr %7590, i64 16
-  store i64 22, ptr %7593, align 8, !tbaa !126
+  store i64 22, ptr %7593, align 8, !tbaa !120
   %7594 = getelementptr inbounds nuw i8, ptr %7590, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %7594, ptr noundef nonnull align 1 dereferenceable(22) @.str.256, i64 22, i1 false)
   %7595 = getelementptr inbounds nuw i8, ptr %7590, i64 46
   store i8 0, ptr %7595, align 2, !tbaa !44
-  store ptr null, ptr %21, align 8, !tbaa !132
+  store ptr null, ptr %21, align 8, !tbaa !126
   %7596 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 12, ptr %7596, align 8, !tbaa !133
+  store i32 12, ptr %7596, align 8, !tbaa !128
   %7597 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 0, ptr %7597, align 4
   %7598 = call ptr @zend_declare_typed_property(ptr noundef %7561, ptr noundef nonnull %7590, ptr noundef nonnull %20, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %21) #17
@@ -18446,11 +18425,11 @@ zend_string_release.exit.i684:                    ; preds = %7588, %7587, %7580,
   br i1 %.not.i8.i685, label %7601, label %register_class_DOMXPath.exit
 
 7601:                                             ; preds = %zend_string_release.exit.i684
-  %7602 = load i32, ptr %7590, align 4, !tbaa !69
+  %7602 = load i32, ptr %7590, align 4, !tbaa !64
   %7603 = icmp ne i32 %7602, 0
   call void @llvm.assume(i1 %7603)
   %7604 = add i32 %7602, -1
-  store i32 %7604, ptr %7590, align 4, !tbaa !69
+  store i32 %7604, ptr %7590, align 4, !tbaa !64
   %7605 = icmp eq i32 %7604, 0
   br i1 %7605, label %7606, label %register_class_DOMXPath.exit
 
@@ -18473,11 +18452,11 @@ register_class_DOMXPath.exit:                     ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  store ptr %7561, ptr @dom_xpath_class_entry, align 8, !tbaa !127
+  store ptr %7561, ptr @dom_xpath_class_entry, align 8, !tbaa !121
   %7610 = getelementptr inbounds nuw i8, ptr %7561, i64 384
   store ptr @dom_xpath_objects_new, ptr %7610, align 8, !tbaa !44
   %7611 = getelementptr inbounds nuw i8, ptr %7561, i64 360
-  store ptr @dom_xpath_object_handlers, ptr %7611, align 8, !tbaa !128
+  store ptr @dom_xpath_object_handlers, ptr %7611, align 8, !tbaa !122
   call void @_zend_hash_init(ptr noundef nonnull @dom_xpath_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7612 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7613 = call ptr %7612(ptr noundef nonnull @.str.254, i64 noundef 8, i1 noundef zeroext true) #17
@@ -18494,11 +18473,11 @@ register_class_DOMXPath.exit:                     ; preds = %zend_string_release
   br i1 %.not.i5.i688, label %7619, label %dom_register_prop_handler.exit689
 
 7619:                                             ; preds = %register_class_DOMXPath.exit
-  %7620 = load i32, ptr %7613, align 4, !tbaa !69
+  %7620 = load i32, ptr %7613, align 4, !tbaa !64
   %7621 = icmp ne i32 %7620, 0
   call void @llvm.assume(i1 %7621)
   %7622 = add i32 %7620, -1
-  store i32 %7622, ptr %7613, align 4, !tbaa !69
+  store i32 %7622, ptr %7613, align 4, !tbaa !64
   %7623 = icmp eq i32 %7622, 0
   br i1 %7623, label %7624, label %dom_register_prop_handler.exit689
 
@@ -18522,11 +18501,11 @@ dom_register_prop_handler.exit689:                ; preds = %register_class_DOMX
   br i1 %.not.i5.i690, label %7632, label %dom_register_prop_handler.exit691
 
 7632:                                             ; preds = %dom_register_prop_handler.exit689
-  %7633 = load i32, ptr %7626, align 4, !tbaa !69
+  %7633 = load i32, ptr %7626, align 4, !tbaa !64
   %7634 = icmp ne i32 %7633, 0
   call void @llvm.assume(i1 %7634)
   %7635 = add i32 %7633, -1
-  store i32 %7635, ptr %7626, align 4, !tbaa !69
+  store i32 %7635, ptr %7626, align 4, !tbaa !64
   %7636 = icmp eq i32 %7635, 0
   br i1 %7636, label %7637, label %dom_register_prop_handler.exit691
 
@@ -18535,7 +18514,7 @@ dom_register_prop_handler.exit689:                ; preds = %register_class_DOMX
   br label %dom_register_prop_handler.exit691
 
 dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_handler.exit689, %7632, %7637
-  %7638 = load ptr, ptr @dom_xpath_class_entry, align 8, !tbaa !127
+  %7638 = load ptr, ptr @dom_xpath_class_entry, align 8, !tbaa !121
   %7639 = getelementptr inbounds nuw i8, ptr %7638, i64 8
   %7640 = load ptr, ptr %7639, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %624)
@@ -18553,7 +18532,7 @@ dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_h
   %7645 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %7644, ptr %7645, align 8, !tbaa !28
   %7646 = getelementptr inbounds nuw i8, ptr %10, i64 360
-  store ptr @std_object_handlers, ptr %7646, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7646, align 8, !tbaa !122
   %7647 = getelementptr inbounds nuw i8, ptr %10, i64 504
   store ptr @class_Dom_XPath_methods, ptr %7647, align 8, !tbaa !44
   %7648 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %10, ptr noundef null, i32 noundef 536870944) #17
@@ -18561,32 +18540,32 @@ dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_h
   %7649 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %7649, align 8, !tbaa !44
   %7650 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7650, align 4, !tbaa !69
+  store i32 1, ptr %7650, align 4, !tbaa !64
   %7651 = getelementptr inbounds nuw i8, ptr %7650, i64 4
   store i32 150, ptr %7651, align 4, !tbaa !44
   %7652 = getelementptr inbounds nuw i8, ptr %7650, i64 8
-  store i64 0, ptr %7652, align 8, !tbaa !124
+  store i64 0, ptr %7652, align 8, !tbaa !118
   %7653 = getelementptr inbounds nuw i8, ptr %7650, i64 16
-  store i64 8, ptr %7653, align 8, !tbaa !126
+  store i64 8, ptr %7653, align 8, !tbaa !120
   %7654 = getelementptr inbounds nuw i8, ptr %7650, i64 24
   store i64 8389754676633104228, ptr %7654, align 8
   %7655 = getelementptr inbounds nuw i8, ptr %7650, i64 32
   store i8 0, ptr %7655, align 8, !tbaa !44
   %7656 = call noalias dereferenceable_or_null(40) ptr @__zend_malloc(i64 noundef 40) #18
-  store i32 1, ptr %7656, align 4, !tbaa !69
+  store i32 1, ptr %7656, align 4, !tbaa !64
   %7657 = getelementptr inbounds nuw i8, ptr %7656, i64 4
   store i32 150, ptr %7657, align 4, !tbaa !44
   %7658 = getelementptr inbounds nuw i8, ptr %7656, i64 8
-  store i64 0, ptr %7658, align 8, !tbaa !124
+  store i64 0, ptr %7658, align 8, !tbaa !118
   %7659 = getelementptr inbounds nuw i8, ptr %7656, i64 16
-  store i64 12, ptr %7659, align 8, !tbaa !126
+  store i64 12, ptr %7659, align 8, !tbaa !120
   %7660 = getelementptr inbounds nuw i8, ptr %7656, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %7660, ptr noundef nonnull align 1 dereferenceable(12) @.str.421, i64 12, i1 false)
   %7661 = getelementptr inbounds nuw i8, ptr %7656, i64 36
   store i8 0, ptr %7661, align 4, !tbaa !44
-  store ptr %7656, ptr %12, align 8, !tbaa !132
+  store ptr %7656, ptr %12, align 8, !tbaa !126
   %7662 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 16777216, ptr %7662, align 8, !tbaa !133
+  store i32 16777216, ptr %7662, align 8, !tbaa !128
   %7663 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 0, ptr %7663, align 4
   %7664 = call ptr @zend_declare_typed_property(ptr noundef %7648, ptr noundef nonnull %7650, ptr noundef nonnull %11, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %12) #17
@@ -18596,11 +18575,11 @@ dom_register_prop_handler.exit691:                ; preds = %dom_register_prop_h
   br i1 %.not.i.i692, label %7667, label %zend_string_release.exit.i693
 
 7667:                                             ; preds = %dom_register_prop_handler.exit691
-  %7668 = load i32, ptr %7650, align 4, !tbaa !69
+  %7668 = load i32, ptr %7650, align 4, !tbaa !64
   %7669 = icmp ne i32 %7668, 0
   call void @llvm.assume(i1 %7669)
   %7670 = add i32 %7668, -1
-  store i32 %7670, ptr %7650, align 4, !tbaa !69
+  store i32 %7670, ptr %7650, align 4, !tbaa !64
   %7671 = icmp eq i32 %7670, 0
   br i1 %7671, label %7672, label %zend_string_release.exit.i693
 
@@ -18622,20 +18601,20 @@ zend_string_release.exit.i693:                    ; preds = %7675, %7674, %7667,
   %7676 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %7676, align 8, !tbaa !44
   %7677 = call noalias dereferenceable_or_null(48) ptr @__zend_malloc(i64 noundef 48) #18
-  store i32 1, ptr %7677, align 4, !tbaa !69
+  store i32 1, ptr %7677, align 4, !tbaa !64
   %7678 = getelementptr inbounds nuw i8, ptr %7677, i64 4
   store i32 150, ptr %7678, align 4, !tbaa !44
   %7679 = getelementptr inbounds nuw i8, ptr %7677, i64 8
-  store i64 0, ptr %7679, align 8, !tbaa !124
+  store i64 0, ptr %7679, align 8, !tbaa !118
   %7680 = getelementptr inbounds nuw i8, ptr %7677, i64 16
-  store i64 22, ptr %7680, align 8, !tbaa !126
+  store i64 22, ptr %7680, align 8, !tbaa !120
   %7681 = getelementptr inbounds nuw i8, ptr %7677, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %7681, ptr noundef nonnull align 1 dereferenceable(22) @.str.256, i64 22, i1 false)
   %7682 = getelementptr inbounds nuw i8, ptr %7677, i64 46
   store i8 0, ptr %7682, align 2, !tbaa !44
-  store ptr null, ptr %14, align 8, !tbaa !132
+  store ptr null, ptr %14, align 8, !tbaa !126
   %7683 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 12, ptr %7683, align 8, !tbaa !133
+  store i32 12, ptr %7683, align 8, !tbaa !128
   %7684 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %7684, align 4
   %7685 = call ptr @zend_declare_typed_property(ptr noundef %7648, ptr noundef nonnull %7677, ptr noundef nonnull %13, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %14) #17
@@ -18645,11 +18624,11 @@ zend_string_release.exit.i693:                    ; preds = %7675, %7674, %7667,
   br i1 %.not.i8.i694, label %7688, label %register_class_Dom_XPath.exit
 
 7688:                                             ; preds = %zend_string_release.exit.i693
-  %7689 = load i32, ptr %7677, align 4, !tbaa !69
+  %7689 = load i32, ptr %7677, align 4, !tbaa !64
   %7690 = icmp ne i32 %7689, 0
   call void @llvm.assume(i1 %7690)
   %7691 = add i32 %7689, -1
-  store i32 %7691, ptr %7677, align 4, !tbaa !69
+  store i32 %7691, ptr %7677, align 4, !tbaa !64
   %7692 = icmp eq i32 %7691, 0
   br i1 %7692, label %7693, label %register_class_Dom_XPath.exit
 
@@ -18672,11 +18651,11 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  store ptr %7648, ptr @dom_modern_xpath_class_entry, align 8, !tbaa !127
+  store ptr %7648, ptr @dom_modern_xpath_class_entry, align 8, !tbaa !121
   %7697 = getelementptr inbounds nuw i8, ptr %7648, i64 384
   store ptr @dom_xpath_objects_new, ptr %7697, align 8, !tbaa !44
   %7698 = getelementptr inbounds nuw i8, ptr %7648, i64 360
-  store ptr @dom_xpath_object_handlers, ptr %7698, align 8, !tbaa !128
+  store ptr @dom_xpath_object_handlers, ptr %7698, align 8, !tbaa !122
   %7699 = getelementptr inbounds nuw i8, ptr %7648, i64 8
   %7700 = load ptr, ptr %7699, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %623)
@@ -18685,8 +18664,8 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   store i32 13, ptr %7701, align 8, !tbaa !44
   %7702 = call ptr @zend_hash_add_new(ptr noundef nonnull @classes, ptr noundef %7700, ptr noundef nonnull %623) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %623)
-  %7703 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !127
-  %7704 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !127
+  %7703 = load ptr, ptr @zend_ce_aggregate, align 8, !tbaa !121
+  %7704 = load ptr, ptr @zend_ce_countable, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -18696,7 +18675,7 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   %7707 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7706, ptr %7707, align 8, !tbaa !28
   %7708 = getelementptr inbounds nuw i8, ptr %5, i64 360
-  store ptr @std_object_handlers, ptr %7708, align 8, !tbaa !128
+  store ptr @std_object_handlers, ptr %7708, align 8, !tbaa !122
   %7709 = getelementptr inbounds nuw i8, ptr %5, i64 504
   store ptr @class_Dom_TokenList_methods, ptr %7709, align 8, !tbaa !44
   %7710 = call ptr @zend_register_internal_class_with_flags(ptr noundef nonnull %5, ptr noundef null, i32 noundef 536879136) #17
@@ -18705,20 +18684,20 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   %7711 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %7711, align 8, !tbaa !44
   %7712 = call noalias dereferenceable_or_null(32) ptr @__zend_malloc(i64 noundef 32) #18
-  store i32 1, ptr %7712, align 4, !tbaa !69
+  store i32 1, ptr %7712, align 4, !tbaa !64
   %7713 = getelementptr inbounds nuw i8, ptr %7712, i64 4
   store i32 150, ptr %7713, align 4, !tbaa !44
   %7714 = getelementptr inbounds nuw i8, ptr %7712, i64 8
-  store i64 0, ptr %7714, align 8, !tbaa !124
+  store i64 0, ptr %7714, align 8, !tbaa !118
   %7715 = getelementptr inbounds nuw i8, ptr %7712, i64 16
-  store i64 6, ptr %7715, align 8, !tbaa !126
+  store i64 6, ptr %7715, align 8, !tbaa !120
   %7716 = getelementptr inbounds nuw i8, ptr %7712, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %7716, ptr noundef nonnull align 1 dereferenceable(6) @.str.139, i64 6, i1 false)
   %7717 = getelementptr inbounds nuw i8, ptr %7712, i64 30
   store i8 0, ptr %7717, align 2, !tbaa !44
-  store ptr null, ptr %7, align 8, !tbaa !132
+  store ptr null, ptr %7, align 8, !tbaa !126
   %7718 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 16, ptr %7718, align 8, !tbaa !133
+  store i32 16, ptr %7718, align 8, !tbaa !128
   %7719 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %7719, align 4
   %7720 = call ptr @zend_declare_typed_property(ptr noundef %7710, ptr noundef nonnull %7712, ptr noundef nonnull %6, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %7) #17
@@ -18728,11 +18707,11 @@ register_class_Dom_XPath.exit:                    ; preds = %zend_string_release
   br i1 %.not.i.i697, label %7723, label %register_class_Dom_TokenList.exit
 
 7723:                                             ; preds = %register_class_Dom_XPath.exit
-  %7724 = load i32, ptr %7712, align 4, !tbaa !69
+  %7724 = load i32, ptr %7712, align 4, !tbaa !64
   %7725 = icmp ne i32 %7724, 0
   call void @llvm.assume(i1 %7725)
   %7726 = add i32 %7724, -1
-  store i32 %7726, ptr %7712, align 4, !tbaa !69
+  store i32 %7726, ptr %7712, align 4, !tbaa !64
   %7727 = icmp eq i32 %7726, 0
   br i1 %7727, label %7728, label %register_class_Dom_TokenList.exit
 
@@ -18753,12 +18732,12 @@ register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %7732 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %7732, align 8, !tbaa !44
-  %7733 = load ptr, ptr @zend_known_strings, align 8, !tbaa !129
+  %7733 = load ptr, ptr @zend_known_strings, align 8, !tbaa !123
   %7734 = getelementptr inbounds nuw i8, ptr %7733, i64 168
-  %7735 = load ptr, ptr %7734, align 8, !tbaa !131
-  store ptr null, ptr %9, align 8, !tbaa !132
+  %7735 = load ptr, ptr %7734, align 8, !tbaa !125
+  store ptr null, ptr %9, align 8, !tbaa !126
   %7736 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 64, ptr %7736, align 8, !tbaa !133
+  store i32 64, ptr %7736, align 8, !tbaa !128
   %7737 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %7737, align 4
   %7738 = call ptr @zend_declare_typed_property(ptr noundef %7710, ptr noundef %7735, ptr noundef nonnull %8, i32 noundef 513, ptr noundef null, ptr noundef nonnull byval(%struct.zend_type) align 8 %9) #17
@@ -18767,13 +18746,13 @@ register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  store ptr %7710, ptr @dom_token_list_class_entry, align 8, !tbaa !127
+  store ptr %7710, ptr @dom_token_list_class_entry, align 8, !tbaa !121
   %7739 = getelementptr inbounds nuw i8, ptr %7710, i64 384
   store ptr @dom_token_list_new, ptr %7739, align 8, !tbaa !44
   %7740 = getelementptr inbounds nuw i8, ptr %7710, i64 360
-  store ptr @dom_token_list_object_handlers, ptr %7740, align 8, !tbaa !128
+  store ptr @dom_token_list_object_handlers, ptr %7740, align 8, !tbaa !122
   %7741 = getelementptr inbounds nuw i8, ptr %7710, i64 392
-  store ptr @dom_token_list_get_iterator, ptr %7741, align 8, !tbaa !134
+  store ptr @dom_token_list_get_iterator, ptr %7741, align 8, !tbaa !129
   call void @_zend_hash_init(ptr noundef nonnull @dom_token_list_prop_handlers, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #17
   %7742 = load ptr, ptr @zend_string_init_interned, align 8, !tbaa !58
   %7743 = call ptr %7742(ptr noundef nonnull @.str.139, i64 noundef 6, i1 noundef zeroext true) #17
@@ -18790,11 +18769,11 @@ register_class_Dom_TokenList.exit:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i700, label %7749, label %dom_register_prop_handler.exit701
 
 7749:                                             ; preds = %register_class_Dom_TokenList.exit
-  %7750 = load i32, ptr %7743, align 4, !tbaa !69
+  %7750 = load i32, ptr %7743, align 4, !tbaa !64
   %7751 = icmp ne i32 %7750, 0
   call void @llvm.assume(i1 %7751)
   %7752 = add i32 %7750, -1
-  store i32 %7752, ptr %7743, align 4, !tbaa !69
+  store i32 %7752, ptr %7743, align 4, !tbaa !64
   %7753 = icmp eq i32 %7752, 0
   br i1 %7753, label %7754, label %dom_register_prop_handler.exit701
 
@@ -18818,11 +18797,11 @@ dom_register_prop_handler.exit701:                ; preds = %register_class_Dom_
   br i1 %.not.i5.i702, label %7762, label %dom_register_prop_handler.exit703
 
 7762:                                             ; preds = %dom_register_prop_handler.exit701
-  %7763 = load i32, ptr %7756, align 4, !tbaa !69
+  %7763 = load i32, ptr %7756, align 4, !tbaa !64
   %7764 = icmp ne i32 %7763, 0
   call void @llvm.assume(i1 %7764)
   %7765 = add i32 %7763, -1
-  store i32 %7765, ptr %7756, align 4, !tbaa !69
+  store i32 %7765, ptr %7756, align 4, !tbaa !64
   %7766 = icmp eq i32 %7765, 0
   br i1 %7766, label %7767, label %dom_register_prop_handler.exit703
 
@@ -18831,7 +18810,7 @@ dom_register_prop_handler.exit701:                ; preds = %register_class_Dom_
   br label %dom_register_prop_handler.exit703
 
 dom_register_prop_handler.exit703:                ; preds = %dom_register_prop_handler.exit701, %7762, %7767
-  %7768 = load ptr, ptr @dom_token_list_class_entry, align 8, !tbaa !127
+  %7768 = load ptr, ptr @dom_token_list_class_entry, align 8, !tbaa !121
   %7769 = getelementptr inbounds nuw i8, ptr %7768, i64 8
   %7770 = load ptr, ptr %7769, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %622)
@@ -18901,9 +18880,9 @@ dom_register_prop_handler.exit703:                ; preds = %dom_register_prop_h
   call void @zend_register_long_constant(ptr noundef nonnull @.str.795, i64 noundef 17, i64 noundef 14, i32 noundef 1, i32 noundef %1) #17
   call void @zend_register_long_constant(ptr noundef nonnull @.str.796, i64 noundef 18, i64 noundef 16, i32 noundef 1, i32 noundef %1) #17
   call void @zend_register_long_constant(ptr noundef nonnull @.str.797, i64 noundef 22, i64 noundef 2147483648, i32 noundef 1, i32 noundef %1) #17
-  %7773 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %7773 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   %7774 = call ptr @php_libxml_register_export(ptr noundef %7773, ptr noundef nonnull @php_dom_export_node) #17
-  %7775 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %7775 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   %7776 = call ptr @php_libxml_register_export(ptr noundef %7775, ptr noundef nonnull @php_dom_export_node) #17
   %7777 = call i32 @lexbor_memory_setup(ptr noundef nonnull @dom_malloc, ptr noundef nonnull @dom_realloc, ptr noundef nonnull @dom_calloc, ptr noundef nonnull @dom_free) #17
   ret i32 0
@@ -18962,7 +18941,7 @@ define hidden void @zm_info_dom(ptr readnone captures(none) %0) #1 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @zm_globals_ctor_dom(ptr noundef writeonly captures(none) initializes((0, 1)) %0) #6 {
-  store i8 0, ptr %0, align 1, !tbaa !136
+  store i8 0, ptr %0, align 1, !tbaa !131
   ret void
 }
 
@@ -19059,10 +19038,10 @@ define internal void @dom_unset_property(ptr noundef %0, ptr noundef %1, ptr nou
 define internal noundef nonnull ptr @dom_objects_store_clone_obj(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !138
+  %4 = load ptr, ptr %3, align 8, !tbaa !133
   %5 = tail call fastcc ptr @dom_objects_set_class(ptr noundef %4)
-  %6 = load ptr, ptr %3, align 8, !tbaa !138
-  %7 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !127
+  %6 = load ptr, ptr %3, align 8, !tbaa !133
+  %7 = load ptr, ptr @dom_node_class_entry, align 8, !tbaa !121
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %instanceof_function.exit.thread, label %instanceof_function.exit
 
@@ -19071,8 +19050,8 @@ instanceof_function.exit:                         ; preds = %1
   br i1 %9, label %instanceof_function.exit.thread, label %10
 
 10:                                               ; preds = %instanceof_function.exit
-  %11 = load ptr, ptr %3, align 8, !tbaa !138
-  %12 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !127
+  %11 = load ptr, ptr %3, align 8, !tbaa !133
+  %12 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !121
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %instanceof_function.exit.thread, label %instanceof_function.exit29
 
@@ -19092,7 +19071,7 @@ dom_object_get_node.exit:                         ; preds = %instanceof_function
 
 17:                                               ; preds = %dom_object_get_node.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 -16
-  %19 = load ptr, ptr %18, align 8, !tbaa !106
+  %19 = load ptr, ptr %18, align 8, !tbaa !100
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit
 
@@ -19117,7 +19096,7 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %17
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !139
+  %31 = load ptr, ptr %30, align 8, !tbaa !134
   br label %php_dom_follow_spec_doc_ref.exit.thread
 
 php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %17, %27, %29, %php_dom_follow_spec_doc_ref.exit
@@ -19137,17 +19116,17 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %17, %27, %29, %php_
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %36
-  %42 = load ptr, ptr %18, align 8, !tbaa !106
+  %42 = load ptr, ptr %18, align 8, !tbaa !100
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !106
+  store ptr %42, ptr %43, align 8, !tbaa !100
   br label %44
 
 44:                                               ; preds = %41, %36
   %45 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef %5, ptr noundef %38) #17
   %46 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef %5, ptr noundef nonnull %35, ptr noundef %5) #17
-  %47 = load ptr, ptr %18, align 8, !tbaa !106
+  %47 = load ptr, ptr %18, align 8, !tbaa !100
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !106
+  %49 = load ptr, ptr %48, align 8, !tbaa !100
   %.not.i31 = icmp eq ptr %47, %49
   br i1 %.not.i31, label %dom_update_refcount_after_clone.exit, label %50
 
@@ -19162,9 +19141,9 @@ dom_update_refcount_after_clone.exit:             ; preds = %50, %44, %php_dom_f
 51:                                               ; preds = %dom_update_refcount_after_clone.exit
   %52 = tail call ptr @php_dom_libxml_private_data_header(ptr noundef nonnull %.0) #17
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !106
+  %54 = load ptr, ptr %53, align 8, !tbaa !100
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store ptr %52, ptr %55, align 8, !tbaa !139
+  store ptr %52, ptr %55, align 8, !tbaa !134
   br label %dom_object_get_node.exit.thread
 
 dom_object_get_node.exit.thread:                  ; preds = %instanceof_function.exit.thread, %dom_object_get_node.exit, %51, %dom_update_refcount_after_clone.exit, %instanceof_function.exit29
@@ -19276,22 +19255,22 @@ define internal ptr @dom_get_debug_info(ptr noundef %0, ptr noundef writeonly ca
   %4 = getelementptr inbounds i8, ptr %0, i64 -24
   %5 = getelementptr inbounds i8, ptr %0, i64 -8
   %6 = load ptr, ptr %5, align 8, !tbaa !57
-  store i32 1, ptr %1, align 4, !tbaa !140
+  store i32 1, ptr %1, align 4, !tbaa !135
   %7 = tail call ptr @zend_std_get_properties(ptr noundef %0) #17
   %8 = tail call ptr @zend_array_dup(ptr noundef %7) #17
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %dom_get_debug_info_helper.exit, label %9
 
 9:                                                ; preds = %2
-  store i8 1, ptr @dom_globals, align 1, !tbaa !136
+  store i8 1, ptr @dom_globals, align 1, !tbaa !131
   %10 = tail call noalias ptr @_emalloc_48() #17
-  store i32 1, ptr %10, align 4, !tbaa !69
+  store i32 1, ptr %10, align 4, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !124
+  store i64 0, ptr %12, align 8, !tbaa !118
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 22, ptr %13, align 8, !tbaa !126
+  store i64 22, ptr %13, align 8, !tbaa !120
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %14, ptr noundef nonnull align 1 dereferenceable(22) @.str.299, i64 22, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 46
@@ -19299,97 +19278,92 @@ define internal ptr @dom_get_debug_info(ptr noundef %0, ptr noundef writeonly ca
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !141
+  %19 = load i32, ptr %18, align 8, !tbaa !136
   %20 = zext i32 %19 to i64
   %.idx.i = shl nuw nsw i64 %20, 5
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !44
-  %24 = and i32 %23, 4
-  %.not34.i = icmp eq i32 %24, 0
-  tail call void @llvm.assume(i1 %.not34.i)
   %.not3537.i = icmp eq i32 %19, 0
   br i1 %.not3537.i, label %._crit_edge.thread.i.thread, label %.lr.ph.i
 
 ._crit_edge.thread.i.thread:                      ; preds = %9
-  store i32 0, ptr %10, align 4, !tbaa !69
-  br label %55
+  store i32 0, ptr %10, align 4, !tbaa !64
+  br label %52
 
 .lr.ph.i:                                         ; preds = %9
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %26
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %23
 
-26:                                               ; preds = %48, %.lr.ph.i
-  %.03338.i = phi ptr [ %17, %.lr.ph.i ], [ %49, %48 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 8
-  %28 = load i8, ptr %27, align 8, !tbaa !44
-  %29 = icmp eq i8 %28, 0
-  br i1 %29, label %48, label %30, !prof !62
+23:                                               ; preds = %45, %.lr.ph.i
+  %.03338.i = phi ptr [ %17, %.lr.ph.i ], [ %46, %45 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 8
+  %25 = load i8, ptr %24, align 8, !tbaa !44
+  %26 = icmp eq i8 %25, 0
+  br i1 %26, label %45, label %27, !prof !62
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !142, !nonnull !45, !noundef !45
-  %33 = load ptr, ptr %.03338.i, align 8, !tbaa !44
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 24
+  %29 = load ptr, ptr %28, align 8, !tbaa !137, !nonnull !45, !noundef !45
+  %30 = load ptr, ptr %.03338.i, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = load ptr, ptr %33, align 8, !tbaa !59
-  %35 = call i32 %34(ptr noundef nonnull %4, ptr noundef nonnull %3) #17
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %47, label %37
+  %31 = load ptr, ptr %30, align 8, !tbaa !59
+  %32 = call i32 %31(ptr noundef nonnull %4, ptr noundef nonnull %3) #17
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %44, label %34
 
-37:                                               ; preds = %30
-  %38 = load i8, ptr %25, align 8, !tbaa !44
-  %39 = icmp eq i8 %38, 8
-  br i1 %39, label %40, label %zend_string_addref.exit.i
+34:                                               ; preds = %27
+  %35 = load i8, ptr %22, align 8, !tbaa !44
+  %36 = icmp eq i8 %35, 8
+  br i1 %36, label %37, label %zend_string_addref.exit.i
 
-40:                                               ; preds = %37
+37:                                               ; preds = %34
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #17
   store ptr %10, ptr %3, align 8, !tbaa !44
-  store i32 262, ptr %25, align 8, !tbaa !44
-  %41 = load i32, ptr %11, align 4, !tbaa !44
-  %42 = and i32 %41, 64
-  %.not.i.i = icmp eq i32 %42, 0
-  br i1 %.not.i.i, label %43, label %zend_string_addref.exit.i
+  store i32 262, ptr %22, align 8, !tbaa !44
+  %38 = load i32, ptr %11, align 4, !tbaa !44
+  %39 = and i32 %38, 64
+  %.not.i.i = icmp eq i32 %39, 0
+  br i1 %.not.i.i, label %40, label %zend_string_addref.exit.i
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %10, align 4, !tbaa !69
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %10, align 4, !tbaa !69
+40:                                               ; preds = %37
+  %41 = load i32, ptr %10, align 4, !tbaa !64
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %10, align 4, !tbaa !64
   br label %zend_string_addref.exit.i
 
-zend_string_addref.exit.i:                        ; preds = %43, %40, %37
-  %46 = call ptr @zend_hash_update(ptr noundef %8, ptr noundef nonnull %32, ptr noundef nonnull %3) #17
-  br label %47
+zend_string_addref.exit.i:                        ; preds = %40, %37, %34
+  %43 = call ptr @zend_hash_update(ptr noundef %8, ptr noundef nonnull %29, ptr noundef nonnull %3) #17
+  br label %44
 
-47:                                               ; preds = %zend_string_addref.exit.i, %30
+44:                                               ; preds = %zend_string_addref.exit.i, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %48
+  br label %45
 
-48:                                               ; preds = %47, %26
-  %49 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 32
-  %.not35.i = icmp eq ptr %49, %21
-  br i1 %.not35.i, label %._crit_edge.i, label %26
+45:                                               ; preds = %44, %23
+  %46 = getelementptr inbounds nuw i8, ptr %.03338.i, i64 32
+  %.not35.i = icmp eq ptr %46, %21
+  br i1 %.not35.i, label %._crit_edge.i, label %23
 
-._crit_edge.i:                                    ; preds = %48
+._crit_edge.i:                                    ; preds = %45
   %.pre.i = load i32, ptr %11, align 4, !tbaa !44
-  %50 = and i32 %.pre.i, 64
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %._crit_edge.thread.i, label %zend_string_release_ex.exit.i
+  %47 = and i32 %.pre.i, 64
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %._crit_edge.thread.i, label %zend_string_release_ex.exit.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %.pre = load i32, ptr %10, align 4, !tbaa !69
-  %52 = icmp ne i32 %.pre, 0
-  call void @llvm.assume(i1 %52)
-  %53 = add i32 %.pre, -1
-  store i32 %53, ptr %10, align 4, !tbaa !69
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %zend_string_release_ex.exit.i
+  %.pre = load i32, ptr %10, align 4, !tbaa !64
+  %49 = icmp ne i32 %.pre, 0
+  call void @llvm.assume(i1 %49)
+  %50 = add i32 %.pre, -1
+  store i32 %50, ptr %10, align 4, !tbaa !64
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %52, label %zend_string_release_ex.exit.i
 
-55:                                               ; preds = %._crit_edge.thread.i.thread, %._crit_edge.thread.i
+52:                                               ; preds = %._crit_edge.thread.i.thread, %._crit_edge.thread.i
   call void @_efree(ptr noundef nonnull %10) #17
   br label %zend_string_release_ex.exit.i
 
-zend_string_release_ex.exit.i:                    ; preds = %55, %._crit_edge.thread.i, %._crit_edge.i
-  store i8 0, ptr @dom_globals, align 1, !tbaa !136
+zend_string_release_ex.exit.i:                    ; preds = %52, %._crit_edge.thread.i, %._crit_edge.i
+  store i8 0, ptr @dom_globals, align 1, !tbaa !131
   br label %dom_get_debug_info_helper.exit
 
 dom_get_debug_info_helper.exit:                   ; preds = %2, %zend_string_release_ex.exit.i
@@ -19405,17 +19379,17 @@ define hidden void @dom_nnodemap_objects_free_storage(ptr noundef %0) #1 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !144
+  %6 = load ptr, ptr %5, align 8, !tbaa !139
   %.not21 = icmp eq ptr %6, null
   br i1 %.not21, label %14, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %9 = load i32, ptr %8, align 4, !tbaa !69
+  %9 = load i32, ptr %8, align 4, !tbaa !64
   %10 = icmp ne i32 %9, 0
   tail call void @llvm.assume(i1 %10)
   %11 = add i32 %9, -1
-  store i32 %11, ptr %8, align 4, !tbaa !69
+  store i32 %11, ptr %8, align 4, !tbaa !64
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
 
@@ -19431,7 +19405,7 @@ define hidden void @dom_nnodemap_objects_free_storage(ptr noundef %0) #1 {
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !149
+  %20 = load ptr, ptr %19, align 8, !tbaa !144
   %21 = getelementptr inbounds i8, ptr %20, i64 -24
   %22 = getelementptr inbounds i8, ptr %20, i64 -20
   %23 = load i32, ptr %22, align 4, !tbaa !44
@@ -19440,11 +19414,11 @@ define hidden void @dom_nnodemap_objects_free_storage(ptr noundef %0) #1 {
   br i1 %.not.i.i, label %25, label %dom_zend_string_release_from_char_pointer.exit
 
 25:                                               ; preds = %18
-  %26 = load i32, ptr %21, align 4, !tbaa !69
+  %26 = load i32, ptr %21, align 4, !tbaa !64
   %27 = icmp ne i32 %26, 0
   tail call void @llvm.assume(i1 %27)
   %28 = add i32 %26, -1
-  store i32 %28, ptr %21, align 4, !tbaa !69
+  store i32 %28, ptr %21, align 4, !tbaa !64
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %dom_zend_string_release_from_char_pointer.exit
 
@@ -19469,7 +19443,7 @@ dom_zend_string_release_from_char_pointer.exit:   ; preds = %33, %32, %25, %18, 
 
 36:                                               ; preds = %dom_zend_string_release_from_char_pointer.exit
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !150
+  %38 = load ptr, ptr %37, align 8, !tbaa !145
   %39 = getelementptr inbounds i8, ptr %38, i64 -24
   %40 = getelementptr inbounds i8, ptr %38, i64 -20
   %41 = load i32, ptr %40, align 4, !tbaa !44
@@ -19478,11 +19452,11 @@ dom_zend_string_release_from_char_pointer.exit:   ; preds = %33, %32, %25, %18, 
   br i1 %.not.i.i24, label %43, label %dom_zend_string_release_from_char_pointer.exit26
 
 43:                                               ; preds = %36
-  %44 = load i32, ptr %39, align 4, !tbaa !69
+  %44 = load i32, ptr %39, align 4, !tbaa !64
   %45 = icmp ne i32 %44, 0
   tail call void @llvm.assume(i1 %45)
   %46 = add i32 %44, -1
-  store i32 %46, ptr %39, align 4, !tbaa !69
+  store i32 %46, ptr %39, align 4, !tbaa !64
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %dom_zend_string_release_from_char_pointer.exit26
 
@@ -19501,7 +19475,7 @@ dom_zend_string_release_from_char_pointer.exit:   ; preds = %33, %32, %25, %18, 
 
 dom_zend_string_release_from_char_pointer.exit26: ; preds = %51, %50, %43, %36, %dom_zend_string_release_from_char_pointer.exit
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %53 = load ptr, ptr %52, align 8, !tbaa !151
+  %53 = load ptr, ptr %52, align 8, !tbaa !146
   %.not23 = icmp eq ptr %53, null
   br i1 %.not23, label %zend_string_release.exit, label %54
 
@@ -19513,11 +19487,11 @@ dom_zend_string_release_from_char_pointer.exit26: ; preds = %51, %50, %43, %36, 
   br i1 %.not.i, label %58, label %zend_string_release.exit
 
 58:                                               ; preds = %54
-  %59 = load i32, ptr %53, align 4, !tbaa !69
+  %59 = load i32, ptr %53, align 4, !tbaa !64
   %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
   %61 = add i32 %59, -1
-  store i32 %61, ptr %53, align 4, !tbaa !69
+  store i32 %61, ptr %53, align 4, !tbaa !64
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %zend_string_release.exit
 
@@ -19547,7 +19521,7 @@ zend_string_release.exit:                         ; preds = %66, %65, %58, %54, 
 
 72:                                               ; preds = %70, %zend_string_release.exit
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %74 = load ptr, ptr %73, align 8, !tbaa !152
+  %74 = load ptr, ptr %73, align 8, !tbaa !147
   tail call void @xmlDictFree(ptr noundef %74) #17
   tail call void @_efree(ptr noundef nonnull %3) #17
   store ptr null, ptr %2, align 8, !tbaa !48
@@ -19595,7 +19569,7 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr noundef readonly cap
   switch i8 %21, label %46 [
     i8 6, label %22
     i8 4, label %44
-  ], !prof !153
+  ], !prof !148
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -19611,13 +19585,13 @@ define internal noundef ptr @dom_nodemap_read_dimension(ptr noundef readonly cap
 
 is_numeric_string_ex.exit.i:                      ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !126
+  %28 = load i64, ptr %27, align 8, !tbaa !120
   %29 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %24, i64 noundef %28, ptr noundef nonnull %6, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #17
   %30 = icmp eq i8 %29, 5
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %is_numeric_string_ex.exit.i
-  %32 = load double, ptr %5, align 8, !tbaa !154
+  %32 = load double, ptr %5, align 8, !tbaa !149
   %33 = call double @llvm.fabs.f64(double %32)
   %34 = fcmp ueq double %33, 0x7FF0000000000000
   br i1 %34, label %.thread15.i, label %35, !prof !62
@@ -19639,7 +19613,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 
 .thread15.i:                                      ; preds = %41, %38, %31
   %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
-  store i64 %.0.i.i, ptr %6, align 8, !tbaa !156
+  store i64 %.0.i.i, ptr %6, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
@@ -19649,7 +19623,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
   br i1 %.not.i, label %._crit_edge, label %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge
 
 .dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge: ; preds = %43
-  %.pre17 = load i64, ptr %6, align 8, !tbaa !156
+  %.pre17 = load i64, ptr %6, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 ._crit_edge:                                      ; preds = %43
@@ -19666,7 +19640,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 
 zval_get_long.exit.i:                             ; preds = %46, %44
   %48 = phi i64 [ %45, %44 ], [ %47, %46 ]
-  store i64 %48, ptr %6, align 8, !tbaa !156
+  store i64 %48, ptr %6, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 49:                                               ; preds = %._crit_edge, %.thread.i
@@ -19724,7 +19698,7 @@ define internal range(i32 0, 2) i32 @dom_nodemap_has_dimension(ptr noundef %0, p
   switch i8 %13, label %38 [
     i8 6, label %14
     i8 4, label %36
-  ], !prof !153
+  ], !prof !148
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -19740,13 +19714,13 @@ define internal range(i32 0, 2) i32 @dom_nodemap_has_dimension(ptr noundef %0, p
 
 is_numeric_string_ex.exit.i:                      ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !126
+  %20 = load i64, ptr %19, align 8, !tbaa !120
   %21 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %16, i64 noundef %20, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #17
   %22 = icmp eq i8 %21, 5
   br i1 %22, label %23, label %35
 
 23:                                               ; preds = %is_numeric_string_ex.exit.i
-  %24 = load double, ptr %4, align 8, !tbaa !154
+  %24 = load double, ptr %4, align 8, !tbaa !149
   %25 = call double @llvm.fabs.f64(double %24)
   %26 = fcmp ueq double %25, 0x7FF0000000000000
   br i1 %26, label %.thread15.i, label %27, !prof !62
@@ -19768,7 +19742,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 
 .thread15.i:                                      ; preds = %33, %30, %23
   %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
-  store i64 %.0.i.i, ptr %5, align 8, !tbaa !156
+  store i64 %.0.i.i, ptr %5, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
@@ -19791,7 +19765,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 
 zval_get_long.exit.i:                             ; preds = %38, %36
   %40 = phi i64 [ %37, %36 ], [ %39, %38 ]
-  store i64 %40, ptr %5, align 8, !tbaa !156
+  store i64 %40, ptr %5, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 41:                                               ; preds = %._crit_edge, %.thread.i
@@ -19803,7 +19777,7 @@ zval_get_long.exit.i:                             ; preds = %38, %36
   br label %53
 
 dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split: ; preds = %35
-  %.pr = load i64, ptr %5, align 8, !tbaa !156
+  %.pr = load i64, ptr %5, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split, %zval_get_long.exit.i, %.thread15.i
@@ -19860,7 +19834,7 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr noundef readonly ca
   switch i8 %21, label %46 [
     i8 6, label %22
     i8 4, label %44
-  ], !prof !153
+  ], !prof !148
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -19876,13 +19850,13 @@ define internal noundef ptr @dom_nodelist_read_dimension(ptr noundef readonly ca
 
 is_numeric_string_ex.exit.i:                      ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !126
+  %28 = load i64, ptr %27, align 8, !tbaa !120
   %29 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %24, i64 noundef %28, ptr noundef nonnull %6, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #17
   %30 = icmp eq i8 %29, 5
   br i1 %30, label %31, label %43
 
 31:                                               ; preds = %is_numeric_string_ex.exit.i
-  %32 = load double, ptr %5, align 8, !tbaa !154
+  %32 = load double, ptr %5, align 8, !tbaa !149
   %33 = call double @llvm.fabs.f64(double %32)
   %34 = fcmp ueq double %33, 0x7FF0000000000000
   br i1 %34, label %.thread15.i, label %35, !prof !62
@@ -19904,7 +19878,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 
 .thread15.i:                                      ; preds = %41, %38, %31
   %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
-  store i64 %.0.i.i, ptr %6, align 8, !tbaa !156
+  store i64 %.0.i.i, ptr %6, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
@@ -19914,7 +19888,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
   br i1 %.not.i, label %49, label %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge
 
 .dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge: ; preds = %43
-  %.pre13 = load i64, ptr %6, align 8, !tbaa !156
+  %.pre13 = load i64, ptr %6, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 44:                                               ; preds = %20
@@ -19927,7 +19901,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 
 zval_get_long.exit.i:                             ; preds = %46, %44
   %48 = phi i64 [ %45, %44 ], [ %47, %46 ]
-  store i64 %48, ptr %6, align 8, !tbaa !156
+  store i64 %48, ptr %6, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 49:                                               ; preds = %43, %.thread.i
@@ -19974,7 +19948,7 @@ define internal range(i32 0, 2) i32 @dom_nodelist_has_dimension(ptr noundef %0, 
   switch i8 %13, label %38 [
     i8 6, label %14
     i8 4, label %36
-  ], !prof !153
+  ], !prof !148
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -19990,13 +19964,13 @@ define internal range(i32 0, 2) i32 @dom_nodelist_has_dimension(ptr noundef %0, 
 
 is_numeric_string_ex.exit.i:                      ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !126
+  %20 = load i64, ptr %19, align 8, !tbaa !120
   %21 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %16, i64 noundef %20, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef null, ptr noundef null) #17
   %22 = icmp eq i8 %21, 5
   br i1 %22, label %23, label %35
 
 23:                                               ; preds = %is_numeric_string_ex.exit.i
-  %24 = load double, ptr %4, align 8, !tbaa !154
+  %24 = load double, ptr %4, align 8, !tbaa !149
   %25 = call double @llvm.fabs.f64(double %24)
   %26 = fcmp ueq double %25, 0x7FF0000000000000
   br i1 %26, label %.thread15.i, label %27, !prof !62
@@ -20018,7 +19992,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 
 .thread15.i:                                      ; preds = %33, %30, %23
   %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
-  store i64 %.0.i.i, ptr %5, align 8, !tbaa !156
+  store i64 %.0.i.i, ptr %5, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
@@ -20037,11 +20011,11 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 
 zval_get_long.exit.i:                             ; preds = %38, %36
   %40 = phi i64 [ %37, %36 ], [ %39, %38 ]
-  store i64 %40, ptr %5, align 8, !tbaa !156
+  store i64 %40, ptr %5, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split: ; preds = %35
-  %.pr = load i64, ptr %5, align 8, !tbaa !156
+  %.pr = load i64, ptr %5, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
 dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split, %zval_get_long.exit.i, %.thread15.i
@@ -20106,10 +20080,10 @@ define internal noundef ptr @dom_modern_nodemap_read_dimension(ptr noundef reado
   %24 = load ptr, ptr %.025, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !126
+  %27 = load i64, ptr %26, align 8, !tbaa !120
   %28 = load i8, ptr %25, align 8, !tbaa !44
   %29 = icmp sgt i8 %28, 57
-  br i1 %29, label %_zend_handle_numeric_str.exit.thread, label %30, !prof !157
+  br i1 %29, label %_zend_handle_numeric_str.exit.thread, label %30, !prof !152
 
 30:                                               ; preds = %23
   %31 = icmp slt i8 %28, 48
@@ -20135,7 +20109,7 @@ _zend_handle_numeric_str.exit._zend_handle_numeric_str.exit.thread_crit_edge: ; 
   br label %_zend_handle_numeric_str.exit.thread
 
 38:                                               ; preds = %_zend_handle_numeric_str.exit
-  %39 = load i64, ptr %5, align 8, !tbaa !156
+  %39 = load i64, ptr %5, align 8, !tbaa !151
   call void @php_dom_named_node_map_get_item_into_zval(ptr noundef %14, i64 noundef %39, ptr noundef %3) #17
   br label %41
 
@@ -20231,10 +20205,10 @@ define internal range(i32 0, 2) i32 @dom_modern_nodemap_has_dimension(ptr nounde
   %16 = load ptr, ptr %.023, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !126
+  %19 = load i64, ptr %18, align 8, !tbaa !120
   %20 = load i8, ptr %17, align 8, !tbaa !44
   %21 = icmp sgt i8 %20, 57
-  br i1 %21, label %_zend_handle_numeric_str.exit.thread, label %22, !prof !157
+  br i1 %21, label %_zend_handle_numeric_str.exit.thread, label %22, !prof !152
 
 22:                                               ; preds = %15
   %23 = icmp slt i8 %20, 48
@@ -20260,7 +20234,7 @@ _zend_handle_numeric_str.exit._zend_handle_numeric_str.exit.thread_crit_edge: ; 
   br label %_zend_handle_numeric_str.exit.thread
 
 30:                                               ; preds = %_zend_handle_numeric_str.exit
-  %31 = load i64, ptr %4, align 8, !tbaa !156
+  %31 = load i64, ptr %4, align 8, !tbaa !151
   %32 = icmp sgt i64 %31, -1
   br i1 %32, label %33, label %39
 
@@ -20354,17 +20328,17 @@ declare i32 @dom_html_collection_has_dimension(ptr noundef, ptr noundef, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal void @dom_object_namespace_node_free_storage(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
-  %3 = load ptr, ptr %2, align 8, !tbaa !158
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %zend_object_release.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load i32, ptr %5, align 4, !tbaa !69
+  %6 = load i32, ptr %5, align 4, !tbaa !64
   %7 = icmp ne i32 %6, 0
   tail call void @llvm.assume(i1 %7)
   %8 = add i32 %6, -1
-  store i32 %8, ptr %5, align 4, !tbaa !69
+  store i32 %8, ptr %5, align 4, !tbaa !64
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -20425,7 +20399,7 @@ define internal noundef nonnull ptr @dom_object_namespace_node_clone_obj(ptr nou
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !160
+  %5 = load ptr, ptr %4, align 8, !tbaa !155
   %6 = tail call ptr @dom_objects_namespace_node_new(ptr noundef %5)
   %7 = getelementptr inbounds i8, ptr %6, i64 -32
   %8 = load ptr, ptr %3, align 8, !tbaa !48
@@ -20438,91 +20412,87 @@ define internal noundef nonnull ptr @dom_object_namespace_node_clone_obj(ptr nou
 
 dom_object_get_node.exit:                         ; preds = %1, %9
   %.0.i = phi ptr [ %10, %9 ], [ null, %1 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !4
-  %13 = icmp eq i32 %12, 18
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !161
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  %17 = load ptr, ptr %16, align 8, !tbaa !162
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !163
-  %20 = tail call ptr @xmlNewNs(ptr noundef null, ptr noundef %19, ptr noundef null) #17
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !165
-  %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %31, label %23
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %12 = load ptr, ptr %11, align 8, !tbaa !156
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
+  %14 = load ptr, ptr %13, align 8, !tbaa !157
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !158
+  %17 = tail call ptr @xmlNewNs(ptr noundef null, ptr noundef %16, ptr noundef null) #17
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !160
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %28, label %20
 
-23:                                               ; preds = %dom_object_get_node.exit
-  %24 = tail call ptr @xmlStrdup(ptr noundef nonnull %22) #17
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr %24, ptr %25, align 8, !tbaa !165
-  %26 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !16
-  %28 = load ptr, ptr %21, align 8, !tbaa !165
-  %29 = load ptr, ptr %18, align 8, !tbaa !163
-  %30 = tail call ptr @xmlNewDocNode(ptr noundef %27, ptr noundef null, ptr noundef %28, ptr noundef %29) #17
+20:                                               ; preds = %dom_object_get_node.exit
+  %21 = tail call ptr @xmlStrdup(ptr noundef nonnull %19) #17
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %21, ptr %22, align 8, !tbaa !160
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %24 = load ptr, ptr %23, align 8, !tbaa !16
+  %25 = load ptr, ptr %18, align 8, !tbaa !160
+  %26 = load ptr, ptr %15, align 8, !tbaa !158
+  %27 = tail call ptr @xmlNewDocNode(ptr noundef %24, ptr noundef null, ptr noundef %25, ptr noundef %26) #17
   br label %php_dom_create_fake_namespace_decl_node_ptr.exit
 
-31:                                               ; preds = %dom_object_get_node.exit
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !16
-  %34 = load ptr, ptr %18, align 8, !tbaa !163
-  %35 = tail call ptr @xmlNewDocNode(ptr noundef %33, ptr noundef null, ptr noundef nonnull @.str.277, ptr noundef %34) #17
+28:                                               ; preds = %dom_object_get_node.exit
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %31 = load ptr, ptr %15, align 8, !tbaa !158
+  %32 = tail call ptr @xmlNewDocNode(ptr noundef %30, ptr noundef null, ptr noundef nonnull @.str.277, ptr noundef %31) #17
   br label %php_dom_create_fake_namespace_decl_node_ptr.exit
 
-php_dom_create_fake_namespace_decl_node_ptr.exit: ; preds = %23, %31
-  %.0.i18 = phi ptr [ %30, %23 ], [ %35, %31 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
-  store i32 18, ptr %36, align 8, !tbaa !4
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 40
-  store ptr %15, ptr %37, align 8, !tbaa !161
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 72
-  store ptr %20, ptr %38, align 8, !tbaa !162
-  %39 = load ptr, ptr %2, align 8, !tbaa !158
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %44, label %40
+php_dom_create_fake_namespace_decl_node_ptr.exit: ; preds = %20, %28
+  %.0.i18 = phi ptr [ %27, %20 ], [ %32, %28 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 8
+  store i32 18, ptr %33, align 8, !tbaa !4
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 40
+  store ptr %12, ptr %34, align 8, !tbaa !156
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 72
+  store ptr %17, ptr %35, align 8, !tbaa !157
+  %36 = load ptr, ptr %2, align 8, !tbaa !153
+  %.not = icmp eq ptr %36, null
+  br i1 %.not, label %41, label %37
 
-40:                                               ; preds = %php_dom_create_fake_namespace_decl_node_ptr.exit
-  store ptr %39, ptr %7, align 8, !tbaa !158
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %42 = load i32, ptr %41, align 4, !tbaa !69
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %41, align 4, !tbaa !69
-  br label %44
+37:                                               ; preds = %php_dom_create_fake_namespace_decl_node_ptr.exit
+  store ptr %36, ptr %7, align 8, !tbaa !153
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %39 = load i32, ptr %38, align 4, !tbaa !64
+  %40 = add i32 %39, 1
+  store i32 %40, ptr %38, align 4, !tbaa !64
+  br label %41
 
-44:                                               ; preds = %40, %php_dom_create_fake_namespace_decl_node_ptr.exit
-  %45 = getelementptr inbounds i8, ptr %6, i64 -24
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !16
-  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
-  %49 = load ptr, ptr %48, align 8, !tbaa !16
-  %50 = icmp eq ptr %47, %49
-  br i1 %50, label %51, label %55
+41:                                               ; preds = %37, %php_dom_create_fake_namespace_decl_node_ptr.exit
+  %42 = getelementptr inbounds i8, ptr %6, i64 -24
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 64
+  %44 = load ptr, ptr %43, align 8, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
+  %46 = load ptr, ptr %45, align 8, !tbaa !16
+  %47 = icmp eq ptr %44, %46
+  br i1 %47, label %48, label %52
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %0, i64 -16
-  %53 = load ptr, ptr %52, align 8, !tbaa !106
-  %54 = getelementptr inbounds i8, ptr %6, i64 -16
-  store ptr %53, ptr %54, align 8, !tbaa !106
-  br label %55
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds i8, ptr %0, i64 -16
+  %50 = load ptr, ptr %49, align 8, !tbaa !100
+  %51 = getelementptr inbounds i8, ptr %6, i64 -16
+  store ptr %50, ptr %51, align 8, !tbaa !100
+  br label %52
 
-55:                                               ; preds = %51, %44
-  %56 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %45, ptr noundef %47) #17
-  %57 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %45, ptr noundef nonnull %.0.i18, ptr noundef nonnull %45) #17
-  %58 = getelementptr inbounds i8, ptr %0, i64 -16
-  %59 = load ptr, ptr %58, align 8, !tbaa !106
-  %60 = getelementptr inbounds i8, ptr %6, i64 -16
-  %61 = load ptr, ptr %60, align 8, !tbaa !106
-  %.not.i19 = icmp eq ptr %59, %61
-  br i1 %.not.i19, label %dom_update_refcount_after_clone.exit, label %62
+52:                                               ; preds = %48, %41
+  %53 = tail call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %42, ptr noundef %44) #17
+  %54 = tail call i32 @php_libxml_increment_node_ptr(ptr noundef nonnull %42, ptr noundef nonnull %.0.i18, ptr noundef nonnull %42) #17
+  %55 = getelementptr inbounds i8, ptr %0, i64 -16
+  %56 = load ptr, ptr %55, align 8, !tbaa !100
+  %57 = getelementptr inbounds i8, ptr %6, i64 -16
+  %58 = load ptr, ptr %57, align 8, !tbaa !100
+  %.not.i19 = icmp eq ptr %56, %58
+  br i1 %.not.i19, label %dom_update_refcount_after_clone.exit, label %59
 
-62:                                               ; preds = %55
-  tail call void @php_dom_update_document_after_clone(ptr noundef nonnull readonly %3, ptr nonnull readonly poison, ptr noundef nonnull %45, ptr nonnull poison)
+59:                                               ; preds = %52
+  tail call void @php_dom_update_document_after_clone(ptr noundef nonnull readonly %3, ptr nonnull readonly poison, ptr noundef nonnull %42, ptr nonnull poison)
   br label %dom_update_refcount_after_clone.exit
 
-dom_update_refcount_after_clone.exit:             ; preds = %55, %62
+dom_update_refcount_after_clone.exit:             ; preds = %52, %59
   tail call void @zend_objects_clone_members(ptr noundef nonnull %6, ptr noundef nonnull %0) #17
   ret ptr %6
 }
@@ -20585,9 +20555,9 @@ declare i32 @dom_node_text_content_write(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @dom_objects_namespace_node_new(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !166
+  %3 = load i32, ptr %2, align 8, !tbaa !161
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !167
+  %5 = load i32, ptr %4, align 4, !tbaa !162
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -20602,7 +20572,7 @@ define internal noundef nonnull ptr @dom_objects_namespace_node_new(ptr noundef 
 
 14:                                               ; preds = %21, %1
   %.0.i = phi ptr [ %0, %1 ], [ %23, %21 ]
-  %15 = load i8, ptr %.0.i, align 8, !tbaa !168
+  %15 = load i8, ptr %.0.i, align 8, !tbaa !163
   %.not.i = icmp eq i8 %15, 1
   br i1 %.not.i, label %16, label %21
 
@@ -20610,7 +20580,7 @@ define internal noundef nonnull ptr @dom_objects_namespace_node_new(ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 512
   %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 152
-  %20 = load i32, ptr %19, align 8, !tbaa !169
+  %20 = load i32, ptr %19, align 8, !tbaa !164
   %.not12.i = icmp eq i32 %20, %13
   br i1 %.not12.i, label %.critedge.i, label %21
 
@@ -20724,21 +20694,21 @@ define hidden nonnull ptr @dom_nnodemap_objects_new(ptr noundef %0) #1 {
   store ptr %3, ptr %2, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %4, align 8, !tbaa !44
-  store ptr null, ptr %3, align 8, !tbaa !173
+  store ptr null, ptr %3, align 8, !tbaa !168
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %5, align 8, !tbaa !174
+  store i32 0, ptr %5, align 8, !tbaa !169
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %8 = load i8, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr null, ptr %9, align 8, !tbaa !150
+  store ptr null, ptr %9, align 8, !tbaa !145
   %10 = and i8 %8, -4
   store i8 %10, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i64 0, ptr %11, align 8, !tbaa !175
+  store i64 0, ptr %11, align 8, !tbaa !170
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 -1, ptr %12, align 4, !tbaa !176
+  store i32 -1, ptr %12, align 4, !tbaa !171
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
@@ -20850,9 +20820,9 @@ declare ptr @dom_xpath_get_gc(ptr noundef, ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @dom_xpath_objects_new(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !166
+  %3 = load i32, ptr %2, align 8, !tbaa !161
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !167
+  %5 = load i32, ptr %4, align 4, !tbaa !162
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -20864,9 +20834,9 @@ define hidden noundef nonnull ptr @dom_xpath_objects_new(ptr noundef %0) #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   tail call void @php_dom_xpath_callbacks_ctor(ptr noundef nonnull %12) #17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i8 1, ptr %13, align 8, !tbaa !177
+  store i8 1, ptr %13, align 8, !tbaa !172
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr @dom_xpath_prop_handlers, ptr %14, align 8, !tbaa !180
+  store ptr @dom_xpath_prop_handlers, ptr %14, align 8, !tbaa !175
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   tail call void @zend_object_std_init(ptr noundef nonnull %15, ptr noundef %0) #17
   tail call void @object_properties_init(ptr noundef nonnull %15, ptr noundef %0) #17
@@ -20882,9 +20852,9 @@ declare i32 @dom_xpath_register_node_ns_write(ptr noundef, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @dom_token_list_new(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !166
+  %3 = load i32, ptr %2, align 8, !tbaa !161
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !167
+  %5 = load i32, ptr %4, align 4, !tbaa !162
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -20895,7 +20865,7 @@ define internal noundef nonnull ptr @dom_token_list_new(ptr noundef %0) #1 {
   %12 = tail call noalias ptr @_emalloc(i64 noundef %11) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %12, i8 0, i64 88, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  store ptr @dom_token_list_prop_handlers, ptr %13, align 8, !tbaa !181
+  store ptr @dom_token_list_prop_handlers, ptr %13, align 8, !tbaa !176
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 96
   tail call void @zend_object_std_init(ptr noundef nonnull %14, ptr noundef %0) #17
   tail call void @object_properties_init(ptr noundef nonnull %14, ptr noundef %0) #17
@@ -20975,7 +20945,7 @@ php_dom_object_get_data.exit.thread:              ; preds = %.lr.ph, %php_dom_ob
 
 9:                                                ; preds = %php_dom_object_get_data.exit.thread
   %10 = getelementptr inbounds nuw i8, ptr %.013, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !183
+  %11 = load ptr, ptr %10, align 8, !tbaa !178
   tail call void @node_list_unlink(ptr noundef %11)
   %12 = load i32, ptr %6, align 8, !tbaa !4
   switch i32 %12, label %13 [
@@ -20989,13 +20959,13 @@ php_dom_object_get_data.exit.thread:              ; preds = %.lr.ph, %php_dom_ob
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %.013, i64 88
-  %15 = load ptr, ptr %14, align 8, !tbaa !184
+  %15 = load ptr, ptr %14, align 8, !tbaa !179
   tail call void @node_list_unlink(ptr noundef %15)
   br label %16
 
 16:                                               ; preds = %13, %9, %9, %9, %9, %9, %9, %5
   %17 = getelementptr inbounds nuw i8, ptr %.013, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !185
+  %18 = load ptr, ptr %17, align 8, !tbaa !180
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %php_dom_object_get_data.exit.thread._crit_edge, label %.lr.ph
 
@@ -21020,26 +20990,26 @@ define hidden void @dom_namednode_iter(ptr noundef %0, i32 noundef %1, ptr nound
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 4, !tbaa !69
+  %11 = load i32, ptr %10, align 4, !tbaa !64
   %12 = add i32 %11, 1
-  store i32 %12, ptr %10, align 4, !tbaa !69
+  store i32 %12, ptr %10, align 4, !tbaa !64
   store ptr %10, ptr %9, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 776, ptr %13, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !106
+  %15 = load ptr, ptr %14, align 8, !tbaa !100
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.thread57, label %16
 
 16:                                               ; preds = %6
-  %17 = load ptr, ptr %15, align 8, !tbaa !186
-  store ptr %0, ptr %7, align 8, !tbaa !173
+  %17 = load ptr, ptr %15, align 8, !tbaa !181
+  store ptr %0, ptr %7, align 8, !tbaa !168
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %1, ptr %18, align 8, !tbaa !174
+  store i32 %1, ptr %18, align 8, !tbaa !169
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %3, ptr %19, align 8, !tbaa !187
+  store ptr %3, ptr %19, align 8, !tbaa !182
   %.not48 = icmp eq ptr %17, null
-  br i1 %.not48, label %20, label %.thread, !prof !188
+  br i1 %.not48, label %20, label %.thread, !prof !183
 
 20:                                               ; preds = %16
   %.not49 = icmp eq ptr %4, null
@@ -21047,28 +21017,28 @@ define hidden void @dom_namednode_iter(ptr noundef %0, i32 noundef %1, ptr nound
 
 .thread:                                          ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 152
-  %22 = load ptr, ptr %21, align 8, !tbaa !189
+  %22 = load ptr, ptr %21, align 8, !tbaa !184
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr %22, ptr %23, align 8, !tbaa !152
+  store ptr %22, ptr %23, align 8, !tbaa !147
   %24 = tail call i32 @xmlDictReference(ptr noundef %22) #17
   %.not4977 = icmp eq ptr %4, null
   br i1 %.not4977, label %53, label %27
 
 .thread57:                                        ; preds = %6
-  store ptr %0, ptr %7, align 8, !tbaa !173
+  store ptr %0, ptr %7, align 8, !tbaa !168
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %1, ptr %25, align 8, !tbaa !174
+  store i32 %1, ptr %25, align 8, !tbaa !169
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %3, ptr %26, align 8, !tbaa !187
+  store ptr %3, ptr %26, align 8, !tbaa !182
   %.not4959 = icmp eq ptr %4, null
   br i1 %.not4959, label %.thread66, label %.thread62
 
 27:                                               ; preds = %.thread
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !126
+  %29 = load i64, ptr %28, align 8, !tbaa !120
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 152
-  %32 = load ptr, ptr %31, align 8, !tbaa !189
+  %32 = load ptr, ptr %31, align 8, !tbaa !184
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = tail call ptr @xmlDictExists(ptr noundef %32, ptr noundef nonnull %33, i32 noundef %30) #17
   %.not50 = icmp eq ptr %34, null
@@ -21076,7 +21046,7 @@ define hidden void @dom_namednode_iter(ptr noundef %0, i32 noundef %1, ptr nound
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %34, ptr %36, align 8, !tbaa !149
+  store ptr %34, ptr %36, align 8, !tbaa !144
   br label %49
 
 .thread62:                                        ; preds = %20, %.thread57, %27
@@ -21089,15 +21059,15 @@ define hidden void @dom_namednode_iter(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not.i, label %41, label %zend_string_copy.exit
 
 41:                                               ; preds = %.thread62
-  %42 = load i32, ptr %4, align 4, !tbaa !69
+  %42 = load i32, ptr %4, align 4, !tbaa !64
   %43 = add i32 %42, 1
-  store i32 %43, ptr %4, align 4, !tbaa !69
+  store i32 %43, ptr %4, align 4, !tbaa !64
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %.thread62, %41
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %44, ptr %45, align 8, !tbaa !149
+  store ptr %44, ptr %45, align 8, !tbaa !144
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %47 = load i8, ptr %46, align 8
   %48 = or i8 %47, 1
@@ -21109,7 +21079,7 @@ zend_string_copy.exit:                            ; preds = %.thread62, %41
   %50 = phi ptr [ %37, %zend_string_copy.exit ], [ %17, %35 ]
   %51 = tail call ptr @zend_string_tolower_ex(ptr noundef nonnull %4, i1 noundef zeroext false) #17
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %51, ptr %52, align 8, !tbaa !151
+  store ptr %51, ptr %52, align 8, !tbaa !146
   br label %53
 
 53:                                               ; preds = %.thread, %49, %20
@@ -21127,10 +21097,10 @@ zend_string_copy.exit:                            ; preds = %.thread62, %41
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %58 = load i64, ptr %57, align 8, !tbaa !126
+  %58 = load i64, ptr %57, align 8, !tbaa !120
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 152
-  %61 = load ptr, ptr %60, align 8, !tbaa !189
+  %61 = load ptr, ptr %60, align 8, !tbaa !184
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %63 = tail call ptr @xmlDictExists(ptr noundef %61, ptr noundef nonnull %62, i32 noundef %59) #17
   %.not52 = icmp eq ptr %63, null
@@ -21138,7 +21108,7 @@ zend_string_copy.exit:                            ; preds = %.thread62, %41
 
 64:                                               ; preds = %56
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %63, ptr %65, align 8, !tbaa !150
+  store ptr %63, ptr %65, align 8, !tbaa !145
   br label %77
 
 .thread70:                                        ; preds = %.thread66, %56, %55
@@ -21149,15 +21119,15 @@ zend_string_copy.exit:                            ; preds = %.thread62, %41
   br i1 %.not.i53, label %69, label %zend_string_copy.exit54
 
 69:                                               ; preds = %.thread70
-  %70 = load i32, ptr %5, align 4, !tbaa !69
+  %70 = load i32, ptr %5, align 4, !tbaa !64
   %71 = add i32 %70, 1
-  store i32 %71, ptr %5, align 4, !tbaa !69
+  store i32 %71, ptr %5, align 4, !tbaa !64
   br label %zend_string_copy.exit54
 
 zend_string_copy.exit54:                          ; preds = %.thread70, %69
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %72, ptr %73, align 8, !tbaa !150
+  store ptr %72, ptr %73, align 8, !tbaa !145
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %75 = load i8, ptr %74, align 8
   %76 = or i8 %75, 2
@@ -21175,9 +21145,9 @@ declare ptr @xmlDictExists(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @dom_objects_set_class(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !166
+  %3 = load i32, ptr %2, align 8, !tbaa !161
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !167
+  %5 = load i32, ptr %4, align 4, !tbaa !162
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -21192,7 +21162,7 @@ define internal fastcc noundef ptr @dom_objects_set_class(ptr noundef %0) unname
 
 14:                                               ; preds = %21, %1
   %.0.i = phi ptr [ %0, %1 ], [ %23, %21 ]
-  %15 = load i8, ptr %.0.i, align 8, !tbaa !168
+  %15 = load i8, ptr %.0.i, align 8, !tbaa !163
   %.not.i = icmp eq i8 %15, 1
   br i1 %.not.i, label %16, label %21
 
@@ -21200,7 +21170,7 @@ define internal fastcc noundef ptr @dom_objects_set_class(ptr noundef %0) unname
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 512
   %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 152
-  %20 = load i32, ptr %19, align 8, !tbaa !169
+  %20 = load i32, ptr %19, align 8, !tbaa !164
   %.not12.i = icmp eq i32 %20, %13
   br i1 %.not12.i, label %.critedge.i, label %21
 
@@ -21282,9 +21252,9 @@ php_dom_object_get_data.exit:                     ; preds = %4
 
 8:                                                ; preds = %php_dom_object_get_data.exit
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %10 = load i32, ptr %9, align 4, !tbaa !69
+  %10 = load i32, ptr %9, align 4, !tbaa !64
   %11 = add i32 %10, 1
-  store i32 %11, ptr %9, align 4, !tbaa !69
+  store i32 %11, ptr %9, align 4, !tbaa !64
   store ptr %9, ptr %1, align 8, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 776, ptr %12, align 8, !tbaa !44
@@ -21296,7 +21266,7 @@ php_dom_object_get_data.exit.thread:              ; preds = %3, %4, %php_dom_obj
 
 13:                                               ; preds = %php_dom_object_get_data.exit.thread
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !106
+  %15 = load ptr, ptr %14, align 8, !tbaa !100
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit, label %16
 
@@ -21352,14 +21322,14 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %16, %13, %php_dom_o
   br i1 %21, label %37, label %dom_get_element_ce.exit
 
 37:                                               ; preds = %36
-  %38 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !192
+  %38 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !187
   %39 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %0, ptr noundef %38) #17
   %dom_html_element_class_entry.dom_modern_element_class_entry.i = select i1 %39, ptr @dom_html_element_class_entry, ptr @dom_modern_element_class_entry
   br label %dom_get_element_ce.exit
 
 dom_get_element_ce.exit:                          ; preds = %36, %37
   %.0.in.i = phi ptr [ %dom_html_element_class_entry.dom_modern_element_class_entry.i, %37 ], [ @dom_element_class_entry, %36 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !127
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !121
   br label %80
 
 40:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
@@ -21417,7 +21387,7 @@ dom_get_element_ce.exit:                          ; preds = %36, %37
   br label %80
 
 76:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
-  %77 = load ptr, ptr @dom_namespace_node_class_entry, align 8, !tbaa !127
+  %77 = load ptr, ptr @dom_namespace_node_class_entry, align 8, !tbaa !121
   br label %80
 
 78:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
@@ -21432,7 +21402,7 @@ dom_get_element_ce.exit:                          ; preds = %36, %37
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !106
+  %83 = load ptr, ptr %82, align 8, !tbaa !100
   %.not42 = icmp eq ptr %83, null
   br i1 %.not42, label %dom_get_doc_classmap.exit, label %dom_get_doc_props_read_only.exit.i
 
@@ -21471,9 +21441,9 @@ dom_get_doc_classmap.exit:                        ; preds = %zend_hash_find_ptr.
 
 98:                                               ; preds = %97
   %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !106
+  %100 = load ptr, ptr %99, align 8, !tbaa !100
   %101 = getelementptr inbounds i8, ptr %93, i64 -16
-  store ptr %100, ptr %101, align 8, !tbaa !106
+  store ptr %100, ptr %101, align 8, !tbaa !100
   br label %102
 
 102:                                              ; preds = %98, %97
@@ -21507,9 +21477,9 @@ define hidden nonnull ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !106
+  %13 = load ptr, ptr %12, align 8, !tbaa !100
   %14 = getelementptr inbounds i8, ptr %6, i64 -16
-  store ptr %13, ptr %14, align 8, !tbaa !106
+  store ptr %13, ptr %14, align 8, !tbaa !100
   br label %15
 
 15:                                               ; preds = %11, %10
@@ -21564,7 +21534,7 @@ define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly captures(
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !161
+  %17 = load ptr, ptr %16, align 8, !tbaa !156
   %.not14 = icmp eq ptr %17, null
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
@@ -21576,7 +21546,7 @@ define hidden range(i32 -1, 1) i32 @dom_hierarchy(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @dom_has_feature(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !126
+  %4 = load i64, ptr %3, align 8, !tbaa !120
   switch i64 %4, label %zend_string_equals_cstr.exit19.thread [
     i64 3, label %zend_string_equals_cstr.exit
     i64 0, label %zend_string_equals_cstr.exit19
@@ -21595,7 +21565,7 @@ zend_string_equals_cstr.exit16:                   ; preds = %zend_string_equals_
 
 zend_string_equals_cstr.exit19:                   ; preds = %2, %zend_string_equals_cstr.exit16, %zend_string_equals_cstr.exit
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !126
+  %7 = load i64, ptr %6, align 8, !tbaa !120
   %8 = icmp eq i64 %7, 3
   br i1 %8, label %9, label %12
 
@@ -21606,7 +21576,7 @@ zend_string_equals_cstr.exit19:                   ; preds = %2, %zend_string_equ
   br i1 %.not, label %22, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %9
-  %.pr = load i64, ptr %6, align 8, !tbaa !126
+  %.pr = load i64, ptr %6, align 8, !tbaa !120
   br label %12
 
 12:                                               ; preds = %thread-pre-split, %zend_string_equals_cstr.exit19
@@ -21621,7 +21591,7 @@ thread-pre-split:                                 ; preds = %9
   br i1 %.not13, label %18, label %zend_string_equals_cstr.exit19.thread
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr %3, align 8, !tbaa !126
+  %19 = load i64, ptr %3, align 8, !tbaa !120
   %20 = icmp eq i64 %19, 3
   br i1 %20, label %zend_string_equals_cstr.exit22, label %zend_string_equals_cstr.exit19.thread
 
@@ -21644,15 +21614,15 @@ declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 n
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @dom_match_qualified_name_according_to_spec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !194
+  %4 = load ptr, ptr %3, align 8, !tbaa !189
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !162
+  %6 = load ptr, ptr %5, align 8, !tbaa !157
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %20, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !165
+  %9 = load ptr, ptr %8, align 8, !tbaa !160
   %.not17 = icmp eq ptr %9, null
   br i1 %.not17, label %20, label %10
 
@@ -21737,7 +21707,7 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readonly capt
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !56
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !105
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
   %.not10.i = icmp eq ptr %32, null
   br i1 %.not10.i, label %php_dom_follow_spec_node.exit, label %33
 
@@ -21752,7 +21722,7 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readonly capt
 php_dom_follow_spec_node.exit:                    ; preds = %28, %21, %18, %33, %25
   %.fr97 = phi i1 [ true, %25 ], [ true, %33 ], [ %24, %21 ], [ false, %18 ], [ true, %28 ]
   %.fr79 = phi i1 [ false, %25 ], [ %37, %33 ], [ false, %21 ], [ false, %18 ], [ false, %28 ]
-  %38 = load i64, ptr %5, align 8, !tbaa !156
+  %38 = load i64, ptr %5, align 8, !tbaa !151
   %.not54 = icmp sgt i64 %38, %6
   br i1 %.not54, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph
 
@@ -21775,7 +21745,7 @@ php_dom_follow_spec_node.exit:                    ; preds = %28, %21, %18, %33, 
   %46 = load i8, ptr %2, align 1, !tbaa !44
   %47 = icmp eq i8 %46, 0
   %48 = getelementptr inbounds nuw i8, ptr %.03055.us, i64 72
-  %49 = load ptr, ptr %48, align 8, !tbaa !162
+  %49 = load ptr, ptr %48, align 8, !tbaa !157
   %50 = icmp eq ptr %49, null
   br i1 %47, label %51, label %52
 
@@ -21787,13 +21757,13 @@ php_dom_follow_spec_node.exit:                    ; preds = %28, %21, %18, %33, 
 
 .thread:                                          ; preds = %51, %52
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !163
+  %54 = load ptr, ptr %53, align 8, !tbaa !158
   %55 = tail call i32 @xmlStrEqual(ptr noundef %54, ptr noundef nonnull %2) #17
   %.not39.us = icmp eq i32 %55, 0
   br i1 %.not39.us, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us, label %._crit_edge121
 
 ._crit_edge121:                                   ; preds = %.thread
-  %.pre122 = load i64, ptr %5, align 8, !tbaa !156
+  %.pre122 = load i64, ptr %5, align 8, !tbaa !151
   br label %56
 
 56:                                               ; preds = %._crit_edge121, %51, %44
@@ -21803,7 +21773,7 @@ php_dom_follow_spec_node.exit:                    ; preds = %28, %21, %18, %33, 
 
 59:                                               ; preds = %56
   %60 = add nsw i64 %57, 1
-  store i64 %60, ptr %5, align 8, !tbaa !156
+  store i64 %60, ptr %5, align 8, !tbaa !151
   br label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us
 
 dom_match_qualified_name_for_tag_name_equality.exit.thread.us: ; preds = %59, %.thread, %52
@@ -21813,20 +21783,20 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us: ; preds = %59, %.
 
 62:                                               ; preds = %dom_match_qualified_name_for_tag_name_equality.exit.thread.us
   %63 = getelementptr inbounds nuw i8, ptr %.03055.us, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !183
+  %64 = load ptr, ptr %63, align 8, !tbaa !178
   %.not.i41.us = icmp eq ptr %64, null
   br i1 %.not.i41.us, label %.thread47.us, label %php_dom_next_in_tree_order.exit.us
 
 .thread47.us:                                     ; preds = %62, %dom_match_qualified_name_for_tag_name_equality.exit.thread.us, %.lr.ph.split.us
   %65 = getelementptr inbounds nuw i8, ptr %.03055.us, i64 48
-  %66 = load ptr, ptr %65, align 8, !tbaa !185
+  %66 = load ptr, ptr %65, align 8, !tbaa !180
   %.not17.i.us = icmp eq ptr %66, null
   br i1 %.not17.i.us, label %.preheader.us, label %php_dom_next_in_tree_order.exit.us
 
 .preheader.us:                                    ; preds = %.thread47.us, %72
   %.012.i.us = phi ptr [ %68, %72 ], [ %.03055.us, %.thread47.us ]
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.us, i64 40
-  %68 = load ptr, ptr %67, align 8, !tbaa !161
+  %68 = load ptr, ptr %67, align 8, !tbaa !156
   %69 = icmp eq ptr %68, %0
   br i1 %69, label %php_dom_next_in_tree_order.exit.thread, label %70
 
@@ -21836,13 +21806,13 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us: ; preds = %59, %.
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %74 = load ptr, ptr %73, align 8, !tbaa !185
+  %74 = load ptr, ptr %73, align 8, !tbaa !180
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.preheader.us, label %php_dom_next_in_tree_order.exit.us
 
 php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, %62
   %.0.i.us = phi ptr [ %64, %62 ], [ %66, %.thread47.us ], [ %74, %72 ]
-  %76 = load i64, ptr %5, align 8, !tbaa !156
+  %76 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us = icmp sgt i64 %76, %6
   br i1 %.not.us, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.us
 
@@ -21860,12 +21830,12 @@ php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, 
   %81 = getelementptr inbounds nuw i8, ptr %.03055.us60, i64 64
   %82 = load ptr, ptr %81, align 8, !tbaa !16
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !195
+  %84 = load i32, ptr %83, align 8, !tbaa !190
   %85 = icmp eq i32 %84, 13
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %80
-  %87 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !192
+  %87 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !187
   %88 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.03055.us60, ptr noundef %87) #17
   br i1 %88, label %90, label %89
 
@@ -21875,15 +21845,15 @@ php_dom_next_in_tree_order.exit.us:               ; preds = %72, %.thread47.us, 
 90:                                               ; preds = %89, %86
   %91 = phi ptr [ %3, %89 ], [ %39, %86 ]
   %92 = getelementptr inbounds nuw i8, ptr %.03055.us60, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !194
+  %93 = load ptr, ptr %92, align 8, !tbaa !189
   %94 = getelementptr inbounds nuw i8, ptr %.03055.us60, i64 72
-  %95 = load ptr, ptr %94, align 8, !tbaa !162
+  %95 = load ptr, ptr %94, align 8, !tbaa !157
   %.not.i.i.us = icmp eq ptr %95, null
   br i1 %.not.i.i.us, label %107, label %96
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !165
+  %98 = load ptr, ptr %97, align 8, !tbaa !160
   %.not17.i.i.us = icmp eq ptr %98, null
   br i1 %.not17.i.i.us, label %107, label %99
 
@@ -21916,7 +21886,7 @@ dom_match_qualified_name_for_tag_name_equality.exit.us: ; preds = %102
 110:                                              ; preds = %109
   %111 = load i8, ptr %2, align 1, !tbaa !44
   %112 = icmp eq i8 %111, 0
-  %.pre117 = load ptr, ptr %94, align 8, !tbaa !162
+  %.pre117 = load ptr, ptr %94, align 8, !tbaa !157
   %113 = icmp eq ptr %.pre117, null
   br i1 %112, label %114, label %115
 
@@ -21928,19 +21898,19 @@ dom_match_qualified_name_for_tag_name_equality.exit.us: ; preds = %102
 
 .thread157:                                       ; preds = %114, %115
   %116 = getelementptr inbounds nuw i8, ptr %.pre117, i64 16
-  %117 = load ptr, ptr %116, align 8, !tbaa !163
+  %117 = load ptr, ptr %116, align 8, !tbaa !158
   %118 = tail call i32 @xmlStrEqual(ptr noundef %117, ptr noundef nonnull %2) #17
   %.not39.us62 = icmp eq i32 %118, 0
   br i1 %.not39.us62, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63, label %119
 
 119:                                              ; preds = %.thread157, %114, %109
-  %120 = load i64, ptr %5, align 8, !tbaa !156
+  %120 = load i64, ptr %5, align 8, !tbaa !151
   %121 = icmp eq i64 %120, %6
   br i1 %121, label %php_dom_next_in_tree_order.exit.thread, label %122
 
 122:                                              ; preds = %119
   %123 = add nsw i64 %120, 1
-  store i64 %123, ptr %5, align 8, !tbaa !156
+  store i64 %123, ptr %5, align 8, !tbaa !151
   br label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63
 
 dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122, %.thread157, %115, %107, %dom_match_qualified_name_for_tag_name_equality.exit.us, %102, %99
@@ -21950,20 +21920,20 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122,
 
 125:                                              ; preds = %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63
   %126 = getelementptr inbounds nuw i8, ptr %.03055.us60, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !183
+  %127 = load ptr, ptr %126, align 8, !tbaa !178
   %.not.i41.us65 = icmp eq ptr %127, null
   br i1 %.not.i41.us65, label %.thread47.us66, label %php_dom_next_in_tree_order.exit.us69
 
 .thread47.us66:                                   ; preds = %125, %dom_match_qualified_name_for_tag_name_equality.exit.thread.us63, %.lr.ph.split.split.us
   %128 = getelementptr inbounds nuw i8, ptr %.03055.us60, i64 48
-  %129 = load ptr, ptr %128, align 8, !tbaa !185
+  %129 = load ptr, ptr %128, align 8, !tbaa !180
   %.not17.i.us67 = icmp eq ptr %129, null
   br i1 %.not17.i.us67, label %.preheader.us72, label %php_dom_next_in_tree_order.exit.us69
 
 .preheader.us72:                                  ; preds = %.thread47.us66, %135
   %.012.i.us68 = phi ptr [ %131, %135 ], [ %.03055.us60, %.thread47.us66 ]
   %130 = getelementptr inbounds nuw i8, ptr %.012.i.us68, i64 40
-  %131 = load ptr, ptr %130, align 8, !tbaa !161
+  %131 = load ptr, ptr %130, align 8, !tbaa !156
   %132 = icmp eq ptr %131, %0
   br i1 %132, label %php_dom_next_in_tree_order.exit.thread, label %133
 
@@ -21973,13 +21943,13 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us63: ; preds = %122,
 
 135:                                              ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %131, i64 48
-  %137 = load ptr, ptr %136, align 8, !tbaa !185
+  %137 = load ptr, ptr %136, align 8, !tbaa !180
   %138 = icmp eq ptr %137, null
   br i1 %138, label %.preheader.us72, label %php_dom_next_in_tree_order.exit.us69
 
 php_dom_next_in_tree_order.exit.us69:             ; preds = %135, %.thread47.us66, %125
   %.0.i.us70 = phi ptr [ %127, %125 ], [ %129, %.thread47.us66 ], [ %137, %135 ]
-  %139 = load i64, ptr %5, align 8, !tbaa !156
+  %139 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us71 = icmp sgt i64 %139, %6
   br i1 %.not.us71, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.us
 
@@ -21995,19 +21965,19 @@ php_dom_next_in_tree_order.exit.us69:             ; preds = %135, %.thread47.us6
 
 143:                                              ; preds = %.lr.ph.split.split.split.us
   %144 = getelementptr inbounds nuw i8, ptr %.03055.us80, i64 16
-  %145 = load ptr, ptr %144, align 8, !tbaa !194
+  %145 = load ptr, ptr %144, align 8, !tbaa !189
   %146 = tail call i32 @xmlStrEqual(ptr noundef %145, ptr noundef nonnull %3) #17
   %.not50.us = icmp eq i32 %146, 0
   br i1 %.not50.us, label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us81, label %147
 
 147:                                              ; preds = %143
-  %148 = load i64, ptr %5, align 8, !tbaa !156
+  %148 = load i64, ptr %5, align 8, !tbaa !151
   %149 = icmp eq i64 %148, %6
   br i1 %149, label %php_dom_next_in_tree_order.exit.thread, label %150
 
 150:                                              ; preds = %147
   %151 = add nsw i64 %148, 1
-  store i64 %151, ptr %5, align 8, !tbaa !156
+  store i64 %151, ptr %5, align 8, !tbaa !151
   br label %dom_match_qualified_name_for_tag_name_equality.exit.thread.us81
 
 dom_match_qualified_name_for_tag_name_equality.exit.thread.us81: ; preds = %150, %143
@@ -22017,20 +21987,20 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us81: ; preds = %150,
 
 153:                                              ; preds = %dom_match_qualified_name_for_tag_name_equality.exit.thread.us81
   %154 = getelementptr inbounds nuw i8, ptr %.03055.us80, i64 24
-  %155 = load ptr, ptr %154, align 8, !tbaa !183
+  %155 = load ptr, ptr %154, align 8, !tbaa !178
   %.not.i41.us83 = icmp eq ptr %155, null
   br i1 %.not.i41.us83, label %.thread47.us84, label %php_dom_next_in_tree_order.exit.us87
 
 .thread47.us84:                                   ; preds = %153, %dom_match_qualified_name_for_tag_name_equality.exit.thread.us81, %.lr.ph.split.split.split.us
   %156 = getelementptr inbounds nuw i8, ptr %.03055.us80, i64 48
-  %157 = load ptr, ptr %156, align 8, !tbaa !185
+  %157 = load ptr, ptr %156, align 8, !tbaa !180
   %.not17.i.us85 = icmp eq ptr %157, null
   br i1 %.not17.i.us85, label %.preheader.us90, label %php_dom_next_in_tree_order.exit.us87
 
 .preheader.us90:                                  ; preds = %.thread47.us84, %163
   %.012.i.us86 = phi ptr [ %159, %163 ], [ %.03055.us80, %.thread47.us84 ]
   %158 = getelementptr inbounds nuw i8, ptr %.012.i.us86, i64 40
-  %159 = load ptr, ptr %158, align 8, !tbaa !161
+  %159 = load ptr, ptr %158, align 8, !tbaa !156
   %160 = icmp eq ptr %159, %0
   br i1 %160, label %php_dom_next_in_tree_order.exit.thread, label %161
 
@@ -22040,13 +22010,13 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread.us81: ; preds = %150,
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  %165 = load ptr, ptr %164, align 8, !tbaa !185
+  %165 = load ptr, ptr %164, align 8, !tbaa !180
   %166 = icmp eq ptr %165, null
   br i1 %166, label %.preheader.us90, label %php_dom_next_in_tree_order.exit.us87
 
 php_dom_next_in_tree_order.exit.us87:             ; preds = %163, %.thread47.us84, %153
   %.0.i.us88 = phi ptr [ %155, %153 ], [ %157, %.thread47.us84 ], [ %165, %163 ]
-  %167 = load i64, ptr %5, align 8, !tbaa !156
+  %167 = load i64, ptr %5, align 8, !tbaa !151
   %.not.us89 = icmp sgt i64 %167, %6
   br i1 %.not.us89, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.split.us
 
@@ -22059,7 +22029,7 @@ php_dom_next_in_tree_order.exit.us87:             ; preds = %163, %.thread47.us8
 
 171:                                              ; preds = %.lr.ph.split.split.split
   %172 = getelementptr inbounds nuw i8, ptr %.03055, i64 16
-  %173 = load ptr, ptr %172, align 8, !tbaa !194
+  %173 = load ptr, ptr %172, align 8, !tbaa !189
   %174 = tail call i32 @xmlStrEqual(ptr noundef %173, ptr noundef nonnull %3) #17
   %.not50 = icmp eq i32 %174, 0
   br i1 %.not50, label %dom_match_qualified_name_for_tag_name_equality.exit.thread, label %175
@@ -22068,7 +22038,7 @@ php_dom_next_in_tree_order.exit.us87:             ; preds = %163, %.thread47.us8
   %176 = load i8, ptr %2, align 1, !tbaa !44
   %177 = icmp eq i8 %176, 0
   %178 = getelementptr inbounds nuw i8, ptr %.03055, i64 72
-  %179 = load ptr, ptr %178, align 8, !tbaa !162
+  %179 = load ptr, ptr %178, align 8, !tbaa !157
   %180 = icmp eq ptr %179, null
   br i1 %177, label %181, label %182
 
@@ -22080,19 +22050,19 @@ php_dom_next_in_tree_order.exit.us87:             ; preds = %163, %.thread47.us8
 
 .thread159:                                       ; preds = %181, %182
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !163
+  %184 = load ptr, ptr %183, align 8, !tbaa !158
   %185 = tail call i32 @xmlStrEqual(ptr noundef %184, ptr noundef nonnull %2) #17
   %.not39 = icmp eq i32 %185, 0
   br i1 %.not39, label %dom_match_qualified_name_for_tag_name_equality.exit.thread, label %186
 
 186:                                              ; preds = %.thread159, %181
-  %187 = load i64, ptr %5, align 8, !tbaa !156
+  %187 = load i64, ptr %5, align 8, !tbaa !151
   %188 = icmp eq i64 %187, %6
   br i1 %188, label %php_dom_next_in_tree_order.exit.thread, label %189
 
 189:                                              ; preds = %186
   %190 = add nsw i64 %187, 1
-  store i64 %190, ptr %5, align 8, !tbaa !156
+  store i64 %190, ptr %5, align 8, !tbaa !151
   br label %dom_match_qualified_name_for_tag_name_equality.exit.thread
 
 dom_match_qualified_name_for_tag_name_equality.exit.thread: ; preds = %171, %189, %.thread159, %182
@@ -22102,20 +22072,20 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread: ; preds = %171, %189
 
 192:                                              ; preds = %dom_match_qualified_name_for_tag_name_equality.exit.thread
   %193 = getelementptr inbounds nuw i8, ptr %.03055, i64 24
-  %194 = load ptr, ptr %193, align 8, !tbaa !183
+  %194 = load ptr, ptr %193, align 8, !tbaa !178
   %.not.i41 = icmp eq ptr %194, null
   br i1 %.not.i41, label %.thread47, label %php_dom_next_in_tree_order.exit
 
 .thread47:                                        ; preds = %.lr.ph.split.split.split, %192, %dom_match_qualified_name_for_tag_name_equality.exit.thread
   %195 = getelementptr inbounds nuw i8, ptr %.03055, i64 48
-  %196 = load ptr, ptr %195, align 8, !tbaa !185
+  %196 = load ptr, ptr %195, align 8, !tbaa !180
   %.not17.i = icmp eq ptr %196, null
   br i1 %.not17.i, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 .preheader:                                       ; preds = %.thread47, %202
   %.012.i = phi ptr [ %198, %202 ], [ %.03055, %.thread47 ]
   %197 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
-  %198 = load ptr, ptr %197, align 8, !tbaa !161
+  %198 = load ptr, ptr %197, align 8, !tbaa !156
   %199 = icmp eq ptr %198, %0
   br i1 %199, label %php_dom_next_in_tree_order.exit.thread, label %200
 
@@ -22129,13 +22099,13 @@ dom_match_qualified_name_for_tag_name_equality.exit.thread: ; preds = %171, %189
 
 202:                                              ; preds = %200
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 48
-  %204 = load ptr, ptr %203, align 8, !tbaa !185
+  %204 = load ptr, ptr %203, align 8, !tbaa !180
   %205 = icmp eq ptr %204, null
   br i1 %205, label %.preheader, label %php_dom_next_in_tree_order.exit
 
 php_dom_next_in_tree_order.exit:                  ; preds = %202, %192, %.thread47
   %.0.i = phi ptr [ %194, %192 ], [ %196, %.thread47 ], [ %204, %202 ]
-  %206 = load i64, ptr %5, align 8, !tbaa !156
+  %206 = load i64, ptr %5, align 8, !tbaa !151
   %.not = icmp sgt i64 %206, %6
   br i1 %.not, label %php_dom_next_in_tree_order.exit.thread, label %.lr.ph.split.split.split
 
@@ -22147,7 +22117,7 @@ php_dom_next_in_tree_order.exit.thread:           ; preds = %php_dom_next_in_tre
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_normalize_legacy(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8, !tbaa !178
   %.not20 = icmp eq ptr %3, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph22
 
@@ -22162,7 +22132,7 @@ define hidden void @php_dom_normalize_legacy(ptr noundef readonly captures(none)
 
 6:                                                ; preds = %.lr.ph22
   %7 = getelementptr inbounds nuw i8, ptr %.01521, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !185
+  %8 = load ptr, ptr %7, align 8, !tbaa !180
   %.not13.i = icmp eq ptr %8, null
   br i1 %.not13.i, label %dom_merge_adjacent_exclusive_text_nodes.exit, label %.lr.ph.i
 
@@ -22175,9 +22145,9 @@ define hidden void @php_dom_normalize_legacy(ptr noundef readonly captures(none)
 
 12:                                               ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !185
+  %14 = load ptr, ptr %13, align 8, !tbaa !180
   %15 = getelementptr inbounds nuw i8, ptr %.014.i, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !196
+  %16 = load ptr, ptr %15, align 8, !tbaa !191
   %.not12.i = icmp eq ptr %16, null
   br i1 %.not12.i, label %18, label %17
 
@@ -22201,7 +22171,7 @@ free_node.exit.i:                                 ; preds = %21, %18
 
 dom_merge_adjacent_exclusive_text_nodes.exit:     ; preds = %.lr.ph.i, %free_node.exit.i, %6
   %22 = getelementptr i8, ptr %.01521, i64 80
-  %.015.val = load ptr, ptr %22, align 8, !tbaa !196
+  %.015.val = load ptr, ptr %22, align 8, !tbaa !191
   %23 = icmp eq ptr %.015.val, null
   br i1 %23, label %is_empty_node.exit.thread, label %is_empty_node.exit
 
@@ -22211,7 +22181,7 @@ is_empty_node.exit:                               ; preds = %dom_merge_adjacent_
   br i1 %25, label %is_empty_node.exit.thread, label %.loopexit
 
 is_empty_node.exit.thread:                        ; preds = %dom_merge_adjacent_exclusive_text_nodes.exit, %is_empty_node.exit
-  %26 = load ptr, ptr %7, align 8, !tbaa !185
+  %26 = load ptr, ptr %7, align 8, !tbaa !180
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.01521) #17
   %27 = load ptr, ptr %.01521, align 8, !tbaa !55
   %28 = icmp eq ptr %27, null
@@ -22229,7 +22199,7 @@ is_empty_node.exit.thread:                        ; preds = %dom_merge_adjacent_
 30:                                               ; preds = %.lr.ph22
   tail call void @php_dom_normalize_legacy(ptr noundef nonnull %.01521)
   %31 = getelementptr inbounds nuw i8, ptr %.01521, i64 88
-  %.017 = load ptr, ptr %31, align 8, !tbaa !197
+  %.017 = load ptr, ptr %31, align 8, !tbaa !192
   %.not1618 = icmp eq ptr %.017, null
   br i1 %.not1618, label %.loopexit, label %.lr.ph
 
@@ -22237,13 +22207,13 @@ is_empty_node.exit.thread:                        ; preds = %dom_merge_adjacent_
   %.019 = phi ptr [ %.0, %.lr.ph ], [ %.017, %30 ]
   tail call void @php_dom_normalize_legacy(ptr noundef nonnull %.019)
   %32 = getelementptr inbounds nuw i8, ptr %.019, i64 48
-  %.0 = load ptr, ptr %32, align 8, !tbaa !197
+  %.0 = load ptr, ptr %32, align 8, !tbaa !192
   %.not16 = icmp eq ptr %.0, null
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %.lr.ph22, %is_empty_node.exit
   %33 = getelementptr inbounds nuw i8, ptr %.01521, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !185
+  %34 = load ptr, ptr %33, align 8, !tbaa !180
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %1
@@ -22253,7 +22223,7 @@ is_empty_node.exit.thread:                        ; preds = %dom_merge_adjacent_
 ; Function Attrs: nounwind uwtable
 define hidden void @php_dom_normalize_modern(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8, !tbaa !178
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -22268,7 +22238,7 @@ define hidden void @php_dom_normalize_modern(ptr noundef readonly captures(none)
 
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr i8, ptr %.01319, i64 80
-  %.013.val = load ptr, ptr %7, align 8, !tbaa !196
+  %.013.val = load ptr, ptr %7, align 8, !tbaa !191
   %8 = icmp eq ptr %.013.val, null
   br i1 %8, label %is_empty_node.exit.thread, label %is_empty_node.exit
 
@@ -22279,7 +22249,7 @@ is_empty_node.exit:                               ; preds = %6
 
 is_empty_node.exit.thread:                        ; preds = %6, %is_empty_node.exit
   %11 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !185
+  %12 = load ptr, ptr %11, align 8, !tbaa !180
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.01319) #17
   %13 = load ptr, ptr %.01319, align 8, !tbaa !55
   %14 = icmp eq ptr %13, null
@@ -22291,7 +22261,7 @@ is_empty_node.exit.thread:                        ; preds = %6, %is_empty_node.e
 
 16:                                               ; preds = %is_empty_node.exit
   %17 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !185
+  %18 = load ptr, ptr %17, align 8, !tbaa !180
   %.not13.i = icmp eq ptr %18, null
   br i1 %.not13.i, label %free_node.exit.thread, label %.lr.ph.i
 
@@ -22304,9 +22274,9 @@ is_empty_node.exit.thread:                        ; preds = %6, %is_empty_node.e
 
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !185
+  %24 = load ptr, ptr %23, align 8, !tbaa !180
   %25 = getelementptr inbounds nuw i8, ptr %.014.i, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !196
+  %26 = load ptr, ptr %25, align 8, !tbaa !191
   %.not12.i = icmp eq ptr %26, null
   br i1 %.not12.i, label %28, label %27
 
@@ -22334,7 +22304,7 @@ free_node.exit.i:                                 ; preds = %31, %28
 
 free_node.exit.thread:                            ; preds = %free_node.exit.i, %.lr.ph.i, %16, %.lr.ph, %32
   %33 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !185
+  %34 = load ptr, ptr %33, align 8, !tbaa !180
   br label %.backedge
 
 .backedge:                                        ; preds = %is_empty_node.exit.thread, %15, %free_node.exit.thread
@@ -22357,18 +22327,18 @@ define hidden void @dom_reconcile_ns(ptr noundef %0, ptr noundef %1) local_unnam
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !161
+  %9 = load ptr, ptr %8, align 8, !tbaa !156
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !198
+  %11 = load ptr, ptr %10, align 8, !tbaa !193
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %dom_reconcile_ns_internal.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %7, %30
   %.032.i = phi ptr [ %.1.i, %30 ], [ null, %7 ]
   %.02231.i = phi ptr [ %12, %30 ], [ %11, %7 ]
-  %12 = load ptr, ptr %.02231.i, align 8, !tbaa !199
+  %12 = load ptr, ptr %.02231.i, align 8, !tbaa !194
   %13 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !163
+  %14 = load ptr, ptr %13, align 8, !tbaa !158
   %.not28.i = icmp eq ptr %14, null
   br i1 %.not28.i, label %30, label %15
 
@@ -22379,28 +22349,28 @@ define hidden void @dom_reconcile_ns(ptr noundef %0, ptr noundef %1) local_unnam
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !165
+  %19 = load ptr, ptr %18, align 8, !tbaa !160
   %20 = icmp eq ptr %19, null
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !165
+  %23 = load ptr, ptr %22, align 8, !tbaa !160
   %24 = tail call i32 @xmlStrEqual(ptr noundef %23, ptr noundef nonnull %19) #17
   %.not30.i = icmp eq i32 %24, 0
   br i1 %.not30.i, label %30, label %25
 
 25:                                               ; preds = %21, %17
-  store ptr null, ptr %.02231.i, align 8, !tbaa !199
+  store ptr null, ptr %.02231.i, align 8, !tbaa !194
   %26 = icmp eq ptr %.032.i, null
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25
-  store ptr %12, ptr %10, align 8, !tbaa !198
+  store ptr %12, ptr %10, align 8, !tbaa !193
   br label %29
 
 28:                                               ; preds = %25
-  store ptr %12, ptr %.032.i, align 8, !tbaa !199
+  store ptr %12, ptr %.032.i, align 8, !tbaa !194
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -22425,7 +22395,7 @@ declare i32 @xmlReconciliateNs(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !161
+  %5 = load ptr, ptr %4, align 8, !tbaa !156
   tail call fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   %6 = tail call i32 @xmlReconciliateNs(ptr noundef %0, ptr noundef %1) #17
   %7 = icmp eq ptr %1, %2
@@ -22434,7 +22404,7 @@ define hidden void @dom_reconcile_ns_list(ptr noundef %0, ptr noundef %1, ptr no
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.09 = phi ptr [ %9, %.lr.ph ], [ %1, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %.09, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !185
+  %9 = load ptr, ptr %8, align 8, !tbaa !180
   %10 = tail call i32 @xmlReconciliateNs(ptr noundef %0, ptr noundef %9) #17
   %11 = icmp eq ptr %9, %2
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -22458,16 +22428,16 @@ define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr 
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 96
-  %12 = load ptr, ptr %11, align 8, !tbaa !198
+  %12 = load ptr, ptr %11, align 8, !tbaa !193
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %dom_reconcile_ns_internal.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10, %31
   %.032.i = phi ptr [ %.1.i, %31 ], [ null, %10 ]
   %.02231.i = phi ptr [ %13, %31 ], [ %12, %10 ]
-  %13 = load ptr, ptr %.02231.i, align 8, !tbaa !199
+  %13 = load ptr, ptr %.02231.i, align 8, !tbaa !194
   %14 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !163
+  %15 = load ptr, ptr %14, align 8, !tbaa !158
   %.not28.i = icmp eq ptr %15, null
   br i1 %.not28.i, label %31, label %16
 
@@ -22478,28 +22448,28 @@ define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr 
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %.02231.i, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !165
+  %20 = load ptr, ptr %19, align 8, !tbaa !160
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !165
+  %24 = load ptr, ptr %23, align 8, !tbaa !160
   %25 = tail call i32 @xmlStrEqual(ptr noundef %24, ptr noundef nonnull %20) #17
   %.not30.i = icmp eq i32 %25, 0
   br i1 %.not30.i, label %31, label %26
 
 26:                                               ; preds = %22, %18
-  store ptr null, ptr %.02231.i, align 8, !tbaa !199
+  store ptr null, ptr %.02231.i, align 8, !tbaa !194
   %27 = icmp eq ptr %.032.i, null
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
-  store ptr %13, ptr %11, align 8, !tbaa !198
+  store ptr %13, ptr %11, align 8, !tbaa !193
   br label %30
 
 29:                                               ; preds = %26
-  store ptr %13, ptr %.032.i, align 8, !tbaa !199
+  store ptr %13, ptr %.032.i, align 8, !tbaa !194
   br label %30
 
 30:                                               ; preds = %29, %28
@@ -22513,13 +22483,13 @@ define internal fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr 
 
 dom_reconcile_ns_internal.exit:                   ; preds = %31, %10
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !183
+  %33 = load ptr, ptr %32, align 8, !tbaa !178
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %37, label %34
 
 34:                                               ; preds = %dom_reconcile_ns_internal.exit
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !200
+  %36 = load ptr, ptr %35, align 8, !tbaa !195
   tail call fastcc void @dom_reconcile_ns_list_internal(ptr noundef %0, ptr noundef nonnull %33, ptr noundef %36, ptr noundef %3)
   br label %37
 
@@ -22529,7 +22499,7 @@ dom_reconcile_ns_internal.exit:                   ; preds = %31, %10
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %.0, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !185
+  %41 = load ptr, ptr %40, align 8, !tbaa !180
   br label %6
 
 42:                                               ; preds = %37
@@ -22548,8 +22518,8 @@ define hidden range(i32 0, 15) i32 @dom_validate_and_extract(ptr noundef readonl
 
 9:                                                ; preds = %4
   %10 = tail call ptr @xmlSplitQName2(ptr noundef nonnull %7, ptr noundef %3) #17
-  store ptr %10, ptr %2, align 8, !tbaa !201
-  %11 = load ptr, ptr %3, align 8, !tbaa !201
+  store ptr %10, ptr %2, align 8, !tbaa !196
+  %11 = load ptr, ptr %3, align 8, !tbaa !196
   %.not20 = icmp eq ptr %11, null
   br i1 %.not20, label %16, label %12
 
@@ -22561,7 +22531,7 @@ define hidden range(i32 0, 15) i32 @dom_validate_and_extract(ptr noundef readonl
 
 16:                                               ; preds = %12, %9
   %17 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !126
+  %18 = load i64, ptr %17, align 8, !tbaa !120
   %19 = icmp eq i64 %18, 36
   br i1 %19, label %zend_string_equals_cstr.exit38, label %zend_string_equals_cstr.exit38.thread
 
@@ -22574,11 +22544,11 @@ zend_string_equals_cstr.exit38:                   ; preds = %16
 zend_string_equals_cstr.exit38.thread:            ; preds = %16, %zend_string_equals_cstr.exit38
   %21 = tail call i32 @xmlStrEqual(ptr noundef %11, ptr noundef nonnull @.str.276) #17
   %.not39 = icmp eq i32 %21, 0
-  br i1 %.not39, label %.critedge, label %zend_string_equals_cstr.exit32.thread, !prof !157
+  br i1 %.not39, label %.critedge, label %zend_string_equals_cstr.exit32.thread, !prof !152
 
 .critedge:                                        ; preds = %zend_string_equals_cstr.exit38, %zend_string_equals_cstr.exit38.thread
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !126
+  %23 = load i64, ptr %22, align 8, !tbaa !120
   %24 = icmp eq i64 %23, 5
   br i1 %24, label %zend_string_equals_cstr.exit35, label %zend_string_equals_cstr.exit35.thread
 
@@ -22588,14 +22558,14 @@ zend_string_equals_cstr.exit35:                   ; preds = %.critedge
   br i1 %.not.i34, label %zend_string_equals_cstr.exit35._crit_edge, label %zend_string_equals_cstr.exit35.thread
 
 zend_string_equals_cstr.exit35._crit_edge:        ; preds = %zend_string_equals_cstr.exit35
-  %.pre40 = load i64, ptr %17, align 8, !tbaa !126
+  %.pre40 = load i64, ptr %17, align 8, !tbaa !120
   br label %27
 
 zend_string_equals_cstr.exit35.thread:            ; preds = %.critedge, %zend_string_equals_cstr.exit35
-  %25 = load ptr, ptr %3, align 8, !tbaa !201
+  %25 = load ptr, ptr %3, align 8, !tbaa !196
   %26 = tail call i32 @xmlStrEqual(ptr noundef %25, ptr noundef nonnull @.str.277) #17
   %.not21 = icmp eq i32 %26, 0
-  %.pre41 = load i64, ptr %17, align 8, !tbaa !126
+  %.pre41 = load i64, ptr %17, align 8, !tbaa !120
   br i1 %.not21, label %.critedge24, label %27
 
 27:                                               ; preds = %zend_string_equals_cstr.exit35._crit_edge, %zend_string_equals_cstr.exit35.thread
@@ -22607,7 +22577,7 @@ zend_string_equals_cstr.exit32:                   ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %bcmp.i30 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(29) %30, ptr noundef nonnull dereferenceable(29) @.str.278, i64 29)
   %.not.i31.not = icmp eq i32 %bcmp.i30, 0
-  br i1 %.not.i31.not, label %zend_string_equals_cstr.exit29, label %zend_string_equals_cstr.exit32.thread, !prof !202
+  br i1 %.not.i31.not, label %zend_string_equals_cstr.exit29, label %zend_string_equals_cstr.exit32.thread, !prof !197
 
 .critedge24:                                      ; preds = %zend_string_equals_cstr.exit35.thread
   %31 = icmp eq i64 %.pre41, 29
@@ -22620,7 +22590,7 @@ zend_string_equals_cstr.exit29:                   ; preds = %zend_string_equals_
   br i1 %.not.i28, label %33, label %.critedge26
 
 33:                                               ; preds = %zend_string_equals_cstr.exit29
-  %34 = load i64, ptr %22, align 8, !tbaa !126
+  %34 = load i64, ptr %22, align 8, !tbaa !120
   %35 = icmp eq i64 %34, 5
   br i1 %35, label %zend_string_equals_cstr.exit, label %zend_string_equals_cstr.exit.thread
 
@@ -22630,19 +22600,19 @@ zend_string_equals_cstr.exit:                     ; preds = %33
   br i1 %.not.i, label %.critedge26, label %zend_string_equals_cstr.exit.thread
 
 zend_string_equals_cstr.exit.thread:              ; preds = %33, %zend_string_equals_cstr.exit
-  %36 = load ptr, ptr %3, align 8, !tbaa !201
+  %36 = load ptr, ptr %3, align 8, !tbaa !196
   %37 = tail call i32 @xmlStrEqual(ptr noundef %36, ptr noundef nonnull @.str.277) #17
   %.not22 = icmp eq i32 %37, 0
   br i1 %.not22, label %zend_string_equals_cstr.exit32.thread, label %.critedge26, !prof !62
 
 .critedge26:                                      ; preds = %.critedge24, %zend_string_equals_cstr.exit, %zend_string_equals_cstr.exit29, %zend_string_equals_cstr.exit.thread
-  %38 = load ptr, ptr %2, align 8, !tbaa !201
+  %38 = load ptr, ptr %2, align 8, !tbaa !196
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %zend_string_equals_cstr.exit32.thread
 
 40:                                               ; preds = %.critedge26
   %41 = tail call ptr @xmlStrdup(ptr noundef nonnull %7) #17
-  store ptr %41, ptr %2, align 8, !tbaa !201
+  store ptr %41, ptr %2, align 8, !tbaa !196
   br label %zend_string_equals_cstr.exit32.thread
 
 zend_string_equals_cstr.exit32.thread:            ; preds = %27, %.critedge26, %40, %zend_string_equals_cstr.exit.thread, %zend_string_equals_cstr.exit32, %zend_string_equals_cstr.exit38.thread, %12, %4
@@ -22663,14 +22633,14 @@ define hidden range(i32 0, 15) i32 @dom_check_qname(ptr noundef %0, ptr noundef 
 
 7:                                                ; preds = %5
   %8 = tail call ptr @xmlSplitQName2(ptr noundef %0, ptr noundef %2) #17
-  store ptr %8, ptr %1, align 8, !tbaa !201
+  store ptr %8, ptr %1, align 8, !tbaa !196
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
   %11 = tail call ptr @xmlStrdup(ptr noundef %0) #17
-  store ptr %11, ptr %1, align 8, !tbaa !201
-  %12 = load ptr, ptr %2, align 8, !tbaa !201
+  store ptr %11, ptr %1, align 8, !tbaa !196
+  %12 = load ptr, ptr %2, align 8, !tbaa !196
   %13 = icmp eq ptr %12, null
   %14 = icmp eq i32 %3, 0
   %or.cond = and i1 %14, %13
@@ -22682,7 +22652,7 @@ define hidden range(i32 0, 15) i32 @dom_check_qname(ptr noundef %0, ptr noundef 
   br i1 %.not, label %17, label %21
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %2, align 8, !tbaa !201
+  %18 = load ptr, ptr %2, align 8, !tbaa !196
   %19 = icmp ne ptr %18, null
   %20 = icmp eq i32 %3, 0
   %or.cond3 = and i1 %20, %19
@@ -22789,7 +22759,7 @@ define hidden ptr @dom_get_ns(ptr noundef %0, ptr noundef %1, ptr noundef writeo
 dom_get_ns_unchecked.exit:                        ; preds = %.critedge25
   %15 = tail call ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %0, ptr noundef %1)
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.thread, label %dom_get_ns_unchecked.exit.thread, !prof !202
+  br i1 %16, label %.thread, label %dom_get_ns_unchecked.exit.thread, !prof !197
 
 .thread:                                          ; preds = %9, %7, %dom_get_ns_unchecked.exit
   br label %dom_get_ns_unchecked.exit.thread
@@ -22797,7 +22767,7 @@ dom_get_ns_unchecked.exit:                        ; preds = %.critedge25
 dom_get_ns_unchecked.exit.thread:                 ; preds = %.critedge25, %dom_get_ns_unchecked.exit, %.thread
   %storemerge = phi i32 [ 14, %.thread ], [ 0, %dom_get_ns_unchecked.exit ], [ 0, %.critedge25 ]
   %.0 = phi ptr [ null, %.thread ], [ %15, %dom_get_ns_unchecked.exit ], [ %13, %.critedge25 ]
-  store i32 %storemerge, ptr %2, align 4, !tbaa !140
+  store i32 %storemerge, ptr %2, align 4, !tbaa !135
   ret ptr %.0
 }
 
@@ -22820,38 +22790,38 @@ define hidden ptr @dom_get_nsdecl(ptr noundef readonly captures(address_is_null)
 
 9:                                                ; preds = %6, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.01834 = load ptr, ptr %10, align 8, !tbaa !203
+  %.01834 = load ptr, ptr %10, align 8, !tbaa !198
   %.not2535 = icmp eq ptr %.01834, null
   br i1 %.not2535, label %.loopexit, label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %9, %17
   %.01836 = phi ptr [ %.018, %17 ], [ %.01834, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %.01836, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !165
+  %12 = load ptr, ptr %11, align 8, !tbaa !160
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %.lr.ph37
   %15 = getelementptr inbounds nuw i8, ptr %.01836, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !163
+  %16 = load ptr, ptr %15, align 8, !tbaa !158
   %.not26 = icmp eq ptr %16, null
   br i1 %.not26, label %17, label %.loopexit
 
 17:                                               ; preds = %14, %.lr.ph37
-  %.018 = load ptr, ptr %.01836, align 8, !tbaa !203
+  %.018 = load ptr, ptr %.01836, align 8, !tbaa !198
   %.not25 = icmp eq ptr %.018, null
   br i1 %.not25, label %.loopexit, label %.lr.ph37
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.129 = load ptr, ptr %19, align 8, !tbaa !203
+  %.129 = load ptr, ptr %19, align 8, !tbaa !198
   %.not30 = icmp eq ptr %.129, null
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %24
   %.131 = phi ptr [ %.1, %24 ], [ %.129, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %.131, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !165
+  %21 = load ptr, ptr %20, align 8, !tbaa !160
   %.not23 = icmp eq ptr %21, null
   br i1 %.not23, label %24, label %22
 
@@ -22861,7 +22831,7 @@ define hidden ptr @dom_get_nsdecl(ptr noundef readonly captures(address_is_null)
   br i1 %.not24, label %24, label %.loopexit
 
 24:                                               ; preds = %22, %.lr.ph
-  %.1 = load ptr, ptr %.131, align 8, !tbaa !203
+  %.1 = load ptr, ptr %.131, align 8, !tbaa !198
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -22873,28 +22843,28 @@ define hidden ptr @dom_get_nsdecl(ptr noundef readonly captures(address_is_null)
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @php_dom_create_fake_namespace_decl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !163
+  %6 = load ptr, ptr %5, align 8, !tbaa !158
   %7 = tail call ptr @xmlNewNs(ptr noundef null, ptr noundef %6, ptr noundef null) #17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !165
+  %9 = load ptr, ptr %8, align 8, !tbaa !160
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %18, label %10
 
 10:                                               ; preds = %4
   %11 = tail call ptr @xmlStrdup(ptr noundef nonnull %9) #17
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %11, ptr %12, align 8, !tbaa !165
+  store ptr %11, ptr %12, align 8, !tbaa !160
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !16
-  %15 = load ptr, ptr %8, align 8, !tbaa !165
-  %16 = load ptr, ptr %5, align 8, !tbaa !163
+  %15 = load ptr, ptr %8, align 8, !tbaa !160
+  %16 = load ptr, ptr %5, align 8, !tbaa !158
   %17 = tail call ptr @xmlNewDocNode(ptr noundef %14, ptr noundef null, ptr noundef %15, ptr noundef %16) #17
   br label %php_dom_create_fake_namespace_decl_node_ptr.exit
 
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !16
-  %21 = load ptr, ptr %5, align 8, !tbaa !163
+  %21 = load ptr, ptr %5, align 8, !tbaa !158
   %22 = tail call ptr @xmlNewDocNode(ptr noundef %20, ptr noundef null, ptr noundef nonnull @.str.277, ptr noundef %21) #17
   br label %php_dom_create_fake_namespace_decl_node_ptr.exit
 
@@ -22903,26 +22873,26 @@ php_dom_create_fake_namespace_decl_node_ptr.exit: ; preds = %10, %18
   %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 18, ptr %23, align 8, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store ptr %0, ptr %24, align 8, !tbaa !161
+  store ptr %0, ptr %24, align 8, !tbaa !156
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
-  store ptr %7, ptr %25, align 8, !tbaa !162
+  store ptr %7, ptr %25, align 8, !tbaa !157
   %26 = tail call zeroext i1 @php_dom_create_object(ptr noundef %.0.i, ptr noundef %2, ptr noundef %3)
   %27 = load ptr, ptr %2, align 8, !tbaa !44
   %28 = getelementptr inbounds i8, ptr %27, i64 -32
-  store ptr %3, ptr %28, align 8, !tbaa !158
+  store ptr %3, ptr %28, align 8, !tbaa !153
   ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dom_remove_all_children(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !183
+  %3 = load ptr, ptr %2, align 8, !tbaa !178
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   tail call void @node_list_unlink(ptr noundef nonnull %3)
-  %5 = load ptr, ptr %2, align 8, !tbaa !183
+  %5 = load ptr, ptr %2, align 8, !tbaa !178
   tail call void @php_libxml_node_free_list(ptr noundef %5) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %6
@@ -22950,7 +22920,7 @@ define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr noundef wr
 
 8:                                                ; preds = %3, %3, %3, %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8, !tbaa !196
+  %10 = load ptr, ptr %9, align 8, !tbaa !191
   %.not40 = icmp eq ptr %10, null
   br i1 %.not40, label %65, label %.thread
 
@@ -22959,13 +22929,13 @@ define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr noundef wr
   %12 = and i64 %11, -8
   %13 = add i64 %12, 32
   %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #18
-  store i32 1, ptr %14, align 4, !tbaa !69
+  store i32 1, ptr %14, align 4, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 22, ptr %15, align 4, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 0, ptr %16, align 8, !tbaa !124
+  store i64 0, ptr %16, align 8, !tbaa !118
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 %11, ptr %17, align 8, !tbaa !126
+  store i64 %11, ptr %17, align 8, !tbaa !120
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %10, i64 %11, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %11
@@ -22986,13 +22956,13 @@ zend_string_alloc.exit:                           ; preds = %21
   %25 = and i64 %23, -8
   %26 = add i64 %25, 32
   %27 = call noalias ptr @_emalloc(i64 noundef %26) #18
-  store i32 1, ptr %27, align 4, !tbaa !69
+  store i32 1, ptr %27, align 4, !tbaa !64
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 22, ptr %28, align 4, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 0, ptr %29, align 8, !tbaa !124
+  store i64 0, ptr %29, align 8, !tbaa !118
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 %23, ptr %30, align 8, !tbaa !126
+  store i64 %23, ptr %30, align 8, !tbaa !120
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 1 %22, i64 %23, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %23
@@ -23004,14 +22974,14 @@ zend_string_alloc.exit:                           ; preds = %21
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = load ptr, ptr @zend_empty_string, align 8, !tbaa !131
+  %36 = load ptr, ptr @zend_empty_string, align 8, !tbaa !125
   br label %zend_string_init_fast.exit
 
 37:                                               ; preds = %33
   %38 = load i8, ptr %22, align 1, !tbaa !44
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !131
+  %41 = load ptr, ptr %40, align 8, !tbaa !125
   br label %zend_string_init_fast.exit
 
 zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.exit, %35, %37
@@ -23024,7 +22994,7 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   %45 = select i1 %.not, i32 262, i32 6
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %45, ptr %46, align 8, !tbaa !44
-  %47 = load i8, ptr %4, align 1, !tbaa !204, !range !47, !noundef !45
+  %47 = load i8, ptr %4, align 1, !tbaa !199, !range !47, !noundef !45
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %51
 
@@ -23047,13 +23017,13 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   %55 = and i64 %54, -8
   %56 = add i64 %55, 32
   %57 = tail call noalias ptr @_emalloc(i64 noundef %56) #18
-  store i32 1, ptr %57, align 4, !tbaa !69
+  store i32 1, ptr %57, align 4, !tbaa !64
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 22, ptr %58, align 4, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i64 0, ptr %59, align 8, !tbaa !124
+  store i64 0, ptr %59, align 8, !tbaa !118
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i64 %54, ptr %60, align 8, !tbaa !126
+  store i64 %54, ptr %60, align 8, !tbaa !120
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr nonnull align 1 %53, i64 %54, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %54
@@ -23074,7 +23044,7 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   br label %71
 
 68:                                               ; preds = %65
-  %69 = load ptr, ptr @zend_empty_string, align 8, !tbaa !131
+  %69 = load ptr, ptr @zend_empty_string, align 8, !tbaa !125
   store ptr %69, ptr %1, align 8, !tbaa !44
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %70, align 8, !tbaa !44
@@ -23127,14 +23097,14 @@ define hidden ptr @dom_clone_node(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 18:                                               ; preds = %17, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !205
+  %20 = load ptr, ptr %19, align 8, !tbaa !200
   %.not91.i = icmp eq ptr %20, null
   br i1 %.not91.i, label %30, label %21
 
 21:                                               ; preds = %18
   %22 = tail call ptr @xmlCopyDtd(ptr noundef nonnull %20) #17
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store ptr %22, ptr %23, align 8, !tbaa !205
+  store ptr %22, ptr %23, align 8, !tbaa !200
   %24 = icmp eq ptr %22, null
   br i1 %24, label %dom_clone_helper.exit.thread, label %25, !prof !62
 
@@ -23144,19 +23114,19 @@ dom_clone_helper.exit.thread:                     ; preds = %21
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr %12, ptr %26, align 8, !tbaa !206
+  store ptr %12, ptr %26, align 8, !tbaa !201
   tail call void @xmlSetTreeDoc(ptr noundef nonnull %22, ptr noundef nonnull %12) #17
-  %27 = load ptr, ptr %23, align 8, !tbaa !205
+  %27 = load ptr, ptr %23, align 8, !tbaa !200
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %27, ptr %28, align 8, !tbaa !208
+  store ptr %27, ptr %28, align 8, !tbaa !203
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %27, ptr %29, align 8, !tbaa !209
+  store ptr %27, ptr %29, align 8, !tbaa !204
   br label %30
 
 30:                                               ; preds = %25, %18, %17
   %.078.i = phi ptr [ %2, %17 ], [ %12, %18 ], [ %12, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !183
+  %32 = load ptr, ptr %31, align 8, !tbaa !178
   %.not92108.i = icmp eq ptr %32, null
   br i1 %.not92108.i, label %dom_clone_helper.exit, label %.lr.ph.i.outer
 
@@ -23195,29 +23165,29 @@ dom_clone_helper.exit.thread:                     ; preds = %21
 43:                                               ; preds = %41, %39
   %.0.i = phi ptr [ %40, %39 ], [ %42, %41 ]
   %.not93.i = icmp eq ptr %.0.i, null
-  br i1 %.not93.i, label %54, label %44, !prof !188
+  br i1 %.not93.i, label %54, label %44, !prof !183
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %33, align 8, !tbaa !183
+  %45 = load ptr, ptr %33, align 8, !tbaa !178
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %44
-  store ptr %.0.i, ptr %33, align 8, !tbaa !183
+  store ptr %.0.i, ptr %33, align 8, !tbaa !178
   br label %52
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %34, align 8, !tbaa !200
+  %49 = load ptr, ptr %34, align 8, !tbaa !195
   %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  store ptr %49, ptr %50, align 8, !tbaa !210
+  store ptr %49, ptr %50, align 8, !tbaa !205
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  store ptr %.0.i, ptr %51, align 8, !tbaa !185
+  store ptr %.0.i, ptr %51, align 8, !tbaa !180
   br label %52
 
 52:                                               ; preds = %48, %47
   %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store ptr %.068110.i.ph, ptr %53, align 8, !tbaa !161
-  store ptr %.0.i, ptr %35, align 8, !tbaa !200
+  store ptr %.068110.i.ph, ptr %53, align 8, !tbaa !156
+  store ptr %.0.i, ptr %35, align 8, !tbaa !195
   br label %54
 
 54:                                               ; preds = %52, %43
@@ -23227,13 +23197,13 @@ dom_clone_helper.exit.thread:                     ; preds = %21
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !183
+  %58 = load ptr, ptr %57, align 8, !tbaa !178
   %.not94.i = icmp eq ptr %58, null
   br i1 %.not94.i, label %.thread99.i, label %.lr.ph.i.outer.backedge
 
 .thread99.i:                                      ; preds = %56, %54, %.lr.ph.i
   %59 = getelementptr inbounds nuw i8, ptr %.072109.i, i64 48
-  %60 = load ptr, ptr %59, align 8, !tbaa !185
+  %60 = load ptr, ptr %59, align 8, !tbaa !180
   %.not95.i = icmp eq ptr %60, null
   br i1 %.not95.i, label %.preheader.i, label %.lr.ph.i
 
@@ -23241,21 +23211,21 @@ dom_clone_helper.exit.thread:                     ; preds = %21
   %.274.i = phi ptr [ %62, %64 ], [ %.072109.i, %.thread99.i ]
   %.270.i = phi ptr [ %66, %64 ], [ %.068110.i.ph, %.thread99.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.274.i, i64 40
-  %62 = load ptr, ptr %61, align 8, !tbaa !161
+  %62 = load ptr, ptr %61, align 8, !tbaa !156
   %63 = icmp eq ptr %62, %1
   br i1 %63, label %dom_clone_helper.exit, label %64
 
 64:                                               ; preds = %.preheader.i
   %65 = getelementptr inbounds nuw i8, ptr %.270.i, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !161
+  %66 = load ptr, ptr %65, align 8, !tbaa !156
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !185
+  %68 = load ptr, ptr %67, align 8, !tbaa !180
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.preheader.i, label %.lr.ph.i.outer.backedge
 
 dom_clone_helper.exit:                            ; preds = %.preheader.i, %11, %13, %30
   %.not36 = icmp eq ptr %12, null
-  br i1 %.not36, label %.loopexit, label %70, !prof !211
+  br i1 %.not36, label %.loopexit, label %70, !prof !206
 
 70:                                               ; preds = %dom_clone_helper.exit
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 64
@@ -23276,7 +23246,7 @@ dom_clone_helper.exit:                            ; preds = %.preheader.i, %11, 
 
 78:                                               ; preds = %75, %75, %75
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.03044 = load ptr, ptr %79, align 8, !tbaa !212
+  %.03044 = load ptr, ptr %79, align 8, !tbaa !207
   %.not3845 = icmp eq ptr %.03044, null
   br i1 %.not3845, label %.loopexit, label %.lr.ph
 
@@ -23284,7 +23254,7 @@ dom_clone_helper.exit:                            ; preds = %.preheader.i, %11, 
   %.03046 = phi ptr [ %.030, %.lr.ph ], [ %.03044, %78 ]
   tail call void @php_dom_libxml_reconcile_modern(ptr noundef nonnull %0, ptr noundef nonnull %.03046) #17
   %80 = getelementptr inbounds nuw i8, ptr %.03046, i64 48
-  %.030 = load ptr, ptr %80, align 8, !tbaa !212
+  %.030 = load ptr, ptr %80, align 8, !tbaa !207
   %.not38 = icmp eq ptr %.030, null
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
@@ -23316,13 +23286,13 @@ declare ptr @xmlDocCopyNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @php_dom_has_child_of_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.06 = load ptr, ptr %3, align 8, !tbaa !212
+  %.06 = load ptr, ptr %3, align 8, !tbaa !207
   %.not7.not = icmp eq ptr %.06, null
   br i1 %.not7.not, label %._crit_edge, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 48
-  %.0 = load ptr, ptr %5, align 8, !tbaa !212
+  %.0 = load ptr, ptr %5, align 8, !tbaa !207
   %.not.not = icmp eq ptr %.0, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
@@ -23345,7 +23315,7 @@ define hidden noundef zeroext i1 @php_dom_has_sibling_following_node(ptr noundef
 3:                                                ; preds = %4, %2
   %.pn = phi ptr [ %0, %2 ], [ %.0, %4 ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !185
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !180
   %.not.not.not.not.not.not = icmp ne ptr %.0, null
   br i1 %.not.not.not.not.not.not, label %4, label %8
 
@@ -23366,7 +23336,7 @@ define hidden noundef zeroext i1 @php_dom_has_sibling_preceding_node(ptr noundef
 3:                                                ; preds = %4, %2
   %.pn = phi ptr [ %0, %2 ], [ %.0, %4 ]
   %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 56
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !210
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !205
   %.not.not.not.not.not.not = icmp ne ptr %.0, null
   br i1 %.not.not.not.not.not.not, label %4, label %8
 
@@ -23394,22 +23364,22 @@ define hidden ptr @php_dom_get_attribute_node(ptr noundef %0, ptr noundef %1, i6
 7:                                                ; preds = %5, %3
   %.016 = phi ptr [ %spec.select, %5 ], [ %1, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.023 = load ptr, ptr %8, align 8, !tbaa !197
+  %.023 = load ptr, ptr %8, align 8, !tbaa !192
   %.not1824 = icmp eq ptr %.023, null
   br i1 %.not1824, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %dom_match_qualified_name_according_to_spec.exit.thread
   %.025 = phi ptr [ %.0, %dom_match_qualified_name_according_to_spec.exit.thread ], [ %.023, %7 ]
   %9 = getelementptr inbounds nuw i8, ptr %.025, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !194
+  %10 = load ptr, ptr %9, align 8, !tbaa !189
   %11 = getelementptr inbounds nuw i8, ptr %.025, i64 72
-  %12 = load ptr, ptr %11, align 8, !tbaa !162
+  %12 = load ptr, ptr %11, align 8, !tbaa !157
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %22, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !165
+  %15 = load ptr, ptr %14, align 8, !tbaa !160
   %.not17.i = icmp eq ptr %15, null
   br i1 %.not17.i, label %22, label %16
 
@@ -23438,7 +23408,7 @@ dom_match_qualified_name_according_to_spec.exit:  ; preds = %19
 
 dom_match_qualified_name_according_to_spec.exit.thread: ; preds = %19, %16, %22, %dom_match_qualified_name_according_to_spec.exit
   %26 = getelementptr inbounds nuw i8, ptr %.025, i64 48
-  %.0 = load ptr, ptr %26, align 8, !tbaa !197
+  %.0 = load ptr, ptr %26, align 8, !tbaa !192
   %.not18 = icmp eq ptr %.0, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -23508,7 +23478,7 @@ define hidden ptr @php_dom_create_html_doc() local_unnamed_addr #1 {
 2:                                                ; preds = %0
   %3 = tail call ptr @xmlDictCreate() #17
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store ptr %3, ptr %4, align 8, !tbaa !189
+  store ptr %3, ptr %4, align 8, !tbaa !184
   br label %5
 
 5:                                                ; preds = %2, %0
@@ -24013,9 +23983,9 @@ define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, p
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !162
+  %7 = load ptr, ptr %6, align 8, !tbaa !157
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %7, ptr %8, align 8, !tbaa !162
+  store ptr %7, ptr %8, align 8, !tbaa !157
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !4
   %11 = icmp eq i32 %10, 1
@@ -24023,33 +23993,33 @@ define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, p
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !198
+  %14 = load ptr, ptr %13, align 8, !tbaa !193
   %.not52 = icmp eq ptr %14, null
   br i1 %.not52, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12, %.preheader
   %.043 = phi ptr [ %16, %.preheader ], [ %14, %12 ]
   %15 = tail call ptr @php_dom_ns_compat_mark_attribute(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %.043) #17
-  %16 = load ptr, ptr %.043, align 8, !tbaa !199
+  %16 = load ptr, ptr %.043, align 8, !tbaa !194
   %.not53 = icmp eq ptr %16, null
   br i1 %.not53, label %17, label %.preheader
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %19 = load ptr, ptr %18, align 8, !tbaa !184
+  %19 = load ptr, ptr %18, align 8, !tbaa !179
   br label %20
 
 20:                                               ; preds = %20, %17
   %.145 = phi ptr [ %19, %17 ], [ %22, %20 ]
   %21 = getelementptr inbounds nuw i8, ptr %.145, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !213
+  %22 = load ptr, ptr %21, align 8, !tbaa !208
   %.not54 = icmp eq ptr %22, null
   br i1 %.not54, label %.loopexit, label %20
 
 .loopexit:                                        ; preds = %20, %12
   %.044 = phi ptr [ null, %12 ], [ %.145, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.04258 = load ptr, ptr %23, align 8, !tbaa !197
+  %.04258 = load ptr, ptr %23, align 8, !tbaa !192
   %.not5559 = icmp eq ptr %.04258, null
   br i1 %.not5559, label %.critedge, label %.lr.ph
 
@@ -24069,25 +24039,25 @@ define internal fastcc ptr @dom_clone_container_helper(ptr noundef nonnull %0, p
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %27
-  store ptr %26, ptr %24, align 8, !tbaa !184
+  store ptr %26, ptr %24, align 8, !tbaa !179
   br label %33
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store ptr %.24660, ptr %31, align 8, !tbaa !215
+  store ptr %.24660, ptr %31, align 8, !tbaa !210
   %32 = getelementptr inbounds nuw i8, ptr %.24660, i64 48
-  store ptr %26, ptr %32, align 8, !tbaa !213
+  store ptr %26, ptr %32, align 8, !tbaa !208
   br label %33
 
 33:                                               ; preds = %30, %29
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %4, ptr %34, align 8, !tbaa !216
+  store ptr %4, ptr %34, align 8, !tbaa !211
   %35 = getelementptr inbounds nuw i8, ptr %.04261, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !217
+  %36 = load ptr, ptr %35, align 8, !tbaa !212
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  store ptr %36, ptr %37, align 8, !tbaa !217
+  store ptr %36, ptr %37, align 8, !tbaa !212
   %38 = getelementptr inbounds nuw i8, ptr %.04261, i64 48
-  %.042 = load ptr, ptr %38, align 8, !tbaa !197
+  %.042 = load ptr, ptr %38, align 8, !tbaa !192
   %.not55 = icmp eq ptr %.042, null
   br i1 %.not55, label %.critedge, label %25
 
@@ -24206,157 +24176,152 @@ attributes #21 = { nounwind willreturn memory(read) }
 !61 = !{!60, !6, i64 8}
 !62 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !63 = !{!51, !52, i64 16}
-!64 = !{!65, !9, i64 48}
-!65 = !{!"_zend_property_info", !9, i64 0, !9, i64 4, !30, i64 8, !30, i64 16, !26, i64 24, !52, i64 32, !66, i64 40, !67, i64 56, !68, i64 64}
-!66 = !{!"", !6, i64 0, !9, i64 8}
-!67 = !{!"p1 _ZTS19_zend_property_info", !6, i64 0}
-!68 = !{!"p2 _ZTS14_zend_function", !6, i64 0}
-!69 = !{!33, !9, i64 0}
-!70 = !{!71, !76, i64 512}
-!71 = !{!"_zend_executor_globals", !72, i64 0, !72, i64 16, !7, i64 32, !73, i64 288, !73, i64 296, !32, i64 304, !32, i64 360, !74, i64 416, !9, i64 424, !27, i64 428, !72, i64 432, !9, i64 448, !26, i64 456, !26, i64 464, !26, i64 472, !31, i64 480, !31, i64 488, !75, i64 496, !21, i64 504, !76, i64 512, !52, i64 520, !9, i64 528, !76, i64 536, !9, i64 544, !21, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !27, i64 572, !27, i64 573, !77, i64 574, !77, i64 575, !26, i64 576, !21, i64 584, !6, i64 592, !6, i64 600, !32, i64 608, !32, i64 664, !9, i64 720, !27, i64 724, !72, i64 728, !72, i64 744, !78, i64 760, !78, i64 784, !78, i64 808, !52, i64 832, !9, i64 840, !9, i64 844, !21, i64 848, !26, i64 856, !26, i64 864, !79, i64 872, !80, i64 880, !82, i64 904, !83, i64 960, !83, i64 968, !84, i64 976, !7, i64 984, !85, i64 1080, !27, i64 1088, !7, i64 1089, !21, i64 1096, !9, i64 1104, !9, i64 1108, !86, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !87, i64 1640, !32, i64 1672, !21, i64 1728, !88, i64 1736, !89, i64 1760, !89, i64 1768, !90, i64 1776, !21, i64 1784, !27, i64 1792, !9, i64 1796, !91, i64 1800, !30, i64 1808, !21, i64 1816, !92, i64 1824, !21, i64 1840, !21, i64 1848, !93, i64 1856, !7, i64 1936}
-!72 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!73 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
-!74 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
-!75 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
-!76 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
-!77 = !{!"zend_atomic_bool_s", !7, i64 0}
-!78 = !{!"_zend_stack", !9, i64 0, !9, i64 4, !9, i64 8, !6, i64 16}
-!79 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
-!80 = !{!"_zend_objects_store", !81, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!81 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
-!82 = !{!"_zend_lazy_objects_store", !32, i64 0}
-!83 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
-!84 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
-!85 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
-!86 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
-!87 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!88 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16}
-!89 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
-!90 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
-!91 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
-!92 = !{!"_zend_call_stack", !6, i64 0, !21, i64 8}
-!93 = !{!"_zend_strtod_state", !7, i64 0, !94, i64 64, !10, i64 72}
-!94 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
-!95 = !{!96, !37, i64 24}
-!96 = !{!"_zend_execute_data", !84, i64 0, !76, i64 8, !31, i64 16, !37, i64 24, !72, i64 32, !76, i64 48, !26, i64 56, !6, i64 64, !26, i64 72}
-!97 = !{!98, !99, i64 0}
-!98 = !{!"_php_libxml_node_object", !99, i64 0, !50, i64 8, !51, i64 16}
-!99 = !{!"p1 _ZTS20_php_libxml_node_ptr", !6, i64 0}
-!100 = !{!71, !83, i64 960}
-!101 = !{!31, !31, i64 0}
-!102 = !{!51, !38, i64 24}
-!103 = !{!104, !9, i64 0}
-!104 = !{!"_zend_object_handlers", !9, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192}
-!105 = !{!98, !50, i64 8}
-!106 = !{!49, !50, i64 8}
-!107 = !{!25, !27, i64 8}
-!108 = !{!25, !27, i64 9}
-!109 = !{!25, !27, i64 10}
-!110 = !{!25, !27, i64 11}
-!111 = !{!25, !27, i64 12}
-!112 = !{!25, !27, i64 14}
-!113 = !{!18, !23, i64 32}
-!114 = !{!104, !6, i64 8}
-!115 = !{!104, !6, i64 32}
-!116 = !{!104, !6, i64 40}
-!117 = !{!104, !6, i64 64}
-!118 = !{!104, !6, i64 80}
-!119 = !{!104, !6, i64 24}
-!120 = !{!104, !6, i64 72}
-!121 = !{!104, !6, i64 152}
-!122 = !{!104, !6, i64 48}
-!123 = !{!104, !6, i64 88}
-!124 = !{!125, !21, i64 8}
-!125 = !{!"_zend_string", !33, i64 0, !21, i64 8, !21, i64 16, !7, i64 24}
-!126 = !{!125, !21, i64 16}
-!127 = !{!52, !52, i64 0}
-!128 = !{!29, !38, i64 360}
-!129 = !{!130, !130, i64 0}
-!130 = !{!"p2 _ZTS12_zend_string", !6, i64 0}
-!131 = !{!30, !30, i64 0}
-!132 = !{!66, !6, i64 0}
-!133 = !{!66, !9, i64 8}
-!134 = !{!29, !6, i64 392}
-!135 = !{!104, !6, i64 168}
-!136 = !{!137, !27, i64 0}
-!137 = !{!"_zend_dom_globals", !27, i64 0}
-!138 = !{!49, !52, i64 40}
-!139 = !{!18, !22, i64 24}
-!140 = !{!9, !9, i64 0}
-!141 = !{!32, !9, i64 24}
-!142 = !{!143, !30, i64 24}
-!143 = !{!"_Bucket", !72, i64 0, !21, i64 16, !30, i64 24}
-!144 = !{!145, !146, i64 72}
-!145 = !{!"dom_nnodemap_object", !146, i64 0, !72, i64 8, !9, i64 24, !9, i64 28, !147, i64 32, !10, i64 40, !30, i64 48, !10, i64 56, !20, i64 64, !146, i64 72, !21, i64 80, !148, i64 88, !27, i64 96, !27, i64 96}
-!146 = !{!"p1 _ZTS11_dom_object", !6, i64 0}
-!147 = !{!"p1 _ZTS13_xmlHashTable", !6, i64 0}
-!148 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
-!149 = !{!145, !10, i64 40}
-!150 = !{!145, !10, i64 56}
-!151 = !{!145, !30, i64 48}
-!152 = !{!145, !148, i64 88}
-!153 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!154 = !{!155, !155, i64 0}
-!155 = !{!"double", !7, i64 0}
-!156 = !{!21, !21, i64 0}
-!157 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!158 = !{!159, !146, i64 0}
-!159 = !{!"", !146, i64 0, !49, i64 8}
-!160 = !{!159, !52, i64 48}
-!161 = !{!5, !11, i64 40}
-!162 = !{!5, !13, i64 72}
-!163 = !{!164, !10, i64 16}
-!164 = !{!"_xmlNs", !13, i64 0, !9, i64 8, !10, i64 16, !10, i64 24, !6, i64 32, !12, i64 40}
-!165 = !{!164, !10, i64 24}
-!166 = !{!29, !9, i64 32}
-!167 = !{!29, !9, i64 28}
-!168 = !{!29, !7, i64 0}
-!169 = !{!170, !9, i64 152}
-!170 = !{!"_zend_module_entry", !15, i64 0, !9, i64 4, !7, i64 8, !7, i64 9, !79, i64 16, !171, i64 24, !10, i64 32, !172, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !10, i64 88, !21, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !9, i64 136, !7, i64 140, !6, i64 144, !9, i64 152, !10, i64 160}
-!171 = !{!"p1 _ZTS16_zend_module_dep", !6, i64 0}
-!172 = !{!"p1 _ZTS20_zend_function_entry", !6, i64 0}
-!173 = !{!145, !146, i64 0}
-!174 = !{!145, !9, i64 24}
-!175 = !{!145, !21, i64 64}
-!176 = !{!145, !9, i64 28}
-!177 = !{!178, !27, i64 24}
-!178 = !{!"dom_xpath_object", !179, i64 0, !27, i64 24, !49, i64 32}
-!179 = !{!"", !6, i64 0, !26, i64 8, !26, i64 16}
-!180 = !{!178, !26, i64 48}
-!181 = !{!182, !26, i64 88}
-!182 = !{!"dom_token_list_object", !32, i64 0, !10, i64 56, !20, i64 64, !49, i64 72}
-!183 = !{!5, !11, i64 24}
-!184 = !{!5, !14, i64 88}
-!185 = !{!5, !11, i64 48}
-!186 = !{!18, !6, i64 0}
-!187 = !{!145, !147, i64 32}
-!188 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!189 = !{!190, !148, i64 152}
-!190 = !{!"_xmlDoc", !6, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !12, i64 64, !9, i64 72, !9, i64 76, !191, i64 80, !191, i64 88, !13, i64 96, !10, i64 104, !10, i64 112, !6, i64 120, !6, i64 128, !10, i64 136, !9, i64 144, !148, i64 152, !6, i64 160, !9, i64 168, !9, i64 172}
-!191 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
-!192 = !{!193, !193, i64 0}
-!193 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
-!194 = !{!5, !10, i64 16}
-!195 = !{!190, !9, i64 8}
-!196 = !{!5, !10, i64 80}
-!197 = !{!14, !14, i64 0}
-!198 = !{!5, !13, i64 96}
-!199 = !{!164, !13, i64 0}
-!200 = !{!5, !11, i64 32}
-!201 = !{!10, !10, i64 0}
-!202 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!203 = !{!13, !13, i64 0}
-!204 = !{!27, !27, i64 0}
-!205 = !{!190, !191, i64 80}
-!206 = !{!207, !12, i64 40}
-!207 = !{!"_xmlDtd", !6, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 32, !12, i64 40, !11, i64 48, !11, i64 56, !12, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !10, i64 104, !10, i64 112, !6, i64 120}
-!208 = !{!190, !11, i64 32}
-!209 = !{!190, !11, i64 24}
-!210 = !{!5, !11, i64 56}
-!211 = !{!"branch_weights", !"expected", i32 894411, i32 2146589237}
-!212 = !{!11, !11, i64 0}
-!213 = !{!214, !14, i64 48}
-!214 = !{!"_xmlAttr", !6, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !14, i64 48, !14, i64 56, !12, i64 64, !13, i64 72, !9, i64 80, !6, i64 88}
-!215 = !{!214, !14, i64 56}
-!216 = !{!214, !11, i64 40}
-!217 = !{!214, !13, i64 72}
+!64 = !{!33, !9, i64 0}
+!65 = !{!66, !71, i64 512}
+!66 = !{!"_zend_executor_globals", !67, i64 0, !67, i64 16, !7, i64 32, !68, i64 288, !68, i64 296, !32, i64 304, !32, i64 360, !69, i64 416, !9, i64 424, !27, i64 428, !67, i64 432, !9, i64 448, !26, i64 456, !26, i64 464, !26, i64 472, !31, i64 480, !31, i64 488, !70, i64 496, !21, i64 504, !71, i64 512, !52, i64 520, !9, i64 528, !71, i64 536, !9, i64 544, !21, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !27, i64 572, !27, i64 573, !72, i64 574, !72, i64 575, !26, i64 576, !21, i64 584, !6, i64 592, !6, i64 600, !32, i64 608, !32, i64 664, !9, i64 720, !27, i64 724, !67, i64 728, !67, i64 744, !73, i64 760, !73, i64 784, !73, i64 808, !52, i64 832, !9, i64 840, !9, i64 844, !21, i64 848, !26, i64 856, !26, i64 864, !74, i64 872, !75, i64 880, !77, i64 904, !78, i64 960, !78, i64 968, !79, i64 976, !7, i64 984, !80, i64 1080, !27, i64 1088, !7, i64 1089, !21, i64 1096, !9, i64 1104, !9, i64 1108, !81, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !82, i64 1640, !32, i64 1672, !21, i64 1728, !83, i64 1736, !84, i64 1760, !84, i64 1768, !85, i64 1776, !21, i64 1784, !27, i64 1792, !9, i64 1796, !86, i64 1800, !30, i64 1808, !21, i64 1816, !87, i64 1824, !21, i64 1840, !21, i64 1848, !88, i64 1856, !7, i64 1936}
+!67 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!68 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
+!69 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
+!70 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
+!71 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
+!72 = !{!"zend_atomic_bool_s", !7, i64 0}
+!73 = !{!"_zend_stack", !9, i64 0, !9, i64 4, !9, i64 8, !6, i64 16}
+!74 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
+!75 = !{!"_zend_objects_store", !76, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!76 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
+!77 = !{!"_zend_lazy_objects_store", !32, i64 0}
+!78 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
+!79 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
+!80 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
+!81 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
+!82 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
+!83 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16}
+!84 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
+!85 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
+!86 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
+!87 = !{!"_zend_call_stack", !6, i64 0, !21, i64 8}
+!88 = !{!"_zend_strtod_state", !7, i64 0, !89, i64 64, !10, i64 72}
+!89 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
+!90 = !{!91, !37, i64 24}
+!91 = !{!"_zend_execute_data", !79, i64 0, !71, i64 8, !31, i64 16, !37, i64 24, !67, i64 32, !71, i64 48, !26, i64 56, !6, i64 64, !26, i64 72}
+!92 = !{!93, !94, i64 0}
+!93 = !{!"_php_libxml_node_object", !94, i64 0, !50, i64 8, !51, i64 16}
+!94 = !{!"p1 _ZTS20_php_libxml_node_ptr", !6, i64 0}
+!95 = !{!31, !31, i64 0}
+!96 = !{!51, !38, i64 24}
+!97 = !{!98, !9, i64 0}
+!98 = !{!"_zend_object_handlers", !9, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192}
+!99 = !{!93, !50, i64 8}
+!100 = !{!49, !50, i64 8}
+!101 = !{!25, !27, i64 8}
+!102 = !{!25, !27, i64 9}
+!103 = !{!25, !27, i64 10}
+!104 = !{!25, !27, i64 11}
+!105 = !{!25, !27, i64 12}
+!106 = !{!25, !27, i64 14}
+!107 = !{!18, !23, i64 32}
+!108 = !{!98, !6, i64 8}
+!109 = !{!98, !6, i64 32}
+!110 = !{!98, !6, i64 40}
+!111 = !{!98, !6, i64 64}
+!112 = !{!98, !6, i64 80}
+!113 = !{!98, !6, i64 24}
+!114 = !{!98, !6, i64 72}
+!115 = !{!98, !6, i64 152}
+!116 = !{!98, !6, i64 48}
+!117 = !{!98, !6, i64 88}
+!118 = !{!119, !21, i64 8}
+!119 = !{!"_zend_string", !33, i64 0, !21, i64 8, !21, i64 16, !7, i64 24}
+!120 = !{!119, !21, i64 16}
+!121 = !{!52, !52, i64 0}
+!122 = !{!29, !38, i64 360}
+!123 = !{!124, !124, i64 0}
+!124 = !{!"p2 _ZTS12_zend_string", !6, i64 0}
+!125 = !{!30, !30, i64 0}
+!126 = !{!127, !6, i64 0}
+!127 = !{!"", !6, i64 0, !9, i64 8}
+!128 = !{!127, !9, i64 8}
+!129 = !{!29, !6, i64 392}
+!130 = !{!98, !6, i64 168}
+!131 = !{!132, !27, i64 0}
+!132 = !{!"_zend_dom_globals", !27, i64 0}
+!133 = !{!49, !52, i64 40}
+!134 = !{!18, !22, i64 24}
+!135 = !{!9, !9, i64 0}
+!136 = !{!32, !9, i64 24}
+!137 = !{!138, !30, i64 24}
+!138 = !{!"_Bucket", !67, i64 0, !21, i64 16, !30, i64 24}
+!139 = !{!140, !141, i64 72}
+!140 = !{!"dom_nnodemap_object", !141, i64 0, !67, i64 8, !9, i64 24, !9, i64 28, !142, i64 32, !10, i64 40, !30, i64 48, !10, i64 56, !20, i64 64, !141, i64 72, !21, i64 80, !143, i64 88, !27, i64 96, !27, i64 96}
+!141 = !{!"p1 _ZTS11_dom_object", !6, i64 0}
+!142 = !{!"p1 _ZTS13_xmlHashTable", !6, i64 0}
+!143 = !{!"p1 _ZTS8_xmlDict", !6, i64 0}
+!144 = !{!140, !10, i64 40}
+!145 = !{!140, !10, i64 56}
+!146 = !{!140, !30, i64 48}
+!147 = !{!140, !143, i64 88}
+!148 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!149 = !{!150, !150, i64 0}
+!150 = !{!"double", !7, i64 0}
+!151 = !{!21, !21, i64 0}
+!152 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!153 = !{!154, !141, i64 0}
+!154 = !{!"", !141, i64 0, !49, i64 8}
+!155 = !{!154, !52, i64 48}
+!156 = !{!5, !11, i64 40}
+!157 = !{!5, !13, i64 72}
+!158 = !{!159, !10, i64 16}
+!159 = !{!"_xmlNs", !13, i64 0, !9, i64 8, !10, i64 16, !10, i64 24, !6, i64 32, !12, i64 40}
+!160 = !{!159, !10, i64 24}
+!161 = !{!29, !9, i64 32}
+!162 = !{!29, !9, i64 28}
+!163 = !{!29, !7, i64 0}
+!164 = !{!165, !9, i64 152}
+!165 = !{!"_zend_module_entry", !15, i64 0, !9, i64 4, !7, i64 8, !7, i64 9, !74, i64 16, !166, i64 24, !10, i64 32, !167, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !10, i64 88, !21, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !9, i64 136, !7, i64 140, !6, i64 144, !9, i64 152, !10, i64 160}
+!166 = !{!"p1 _ZTS16_zend_module_dep", !6, i64 0}
+!167 = !{!"p1 _ZTS20_zend_function_entry", !6, i64 0}
+!168 = !{!140, !141, i64 0}
+!169 = !{!140, !9, i64 24}
+!170 = !{!140, !21, i64 64}
+!171 = !{!140, !9, i64 28}
+!172 = !{!173, !27, i64 24}
+!173 = !{!"dom_xpath_object", !174, i64 0, !27, i64 24, !49, i64 32}
+!174 = !{!"", !6, i64 0, !26, i64 8, !26, i64 16}
+!175 = !{!173, !26, i64 48}
+!176 = !{!177, !26, i64 88}
+!177 = !{!"dom_token_list_object", !32, i64 0, !10, i64 56, !20, i64 64, !49, i64 72}
+!178 = !{!5, !11, i64 24}
+!179 = !{!5, !14, i64 88}
+!180 = !{!5, !11, i64 48}
+!181 = !{!18, !6, i64 0}
+!182 = !{!140, !142, i64 32}
+!183 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!184 = !{!185, !143, i64 152}
+!185 = !{!"_xmlDoc", !6, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !12, i64 64, !9, i64 72, !9, i64 76, !186, i64 80, !186, i64 88, !13, i64 96, !10, i64 104, !10, i64 112, !6, i64 120, !6, i64 128, !10, i64 136, !9, i64 144, !143, i64 152, !6, i64 160, !9, i64 168, !9, i64 172}
+!186 = !{!"p1 _ZTS7_xmlDtd", !6, i64 0}
+!187 = !{!188, !188, i64 0}
+!188 = !{!"p1 _ZTS22php_dom_ns_magic_token", !6, i64 0}
+!189 = !{!5, !10, i64 16}
+!190 = !{!185, !9, i64 8}
+!191 = !{!5, !10, i64 80}
+!192 = !{!14, !14, i64 0}
+!193 = !{!5, !13, i64 96}
+!194 = !{!159, !13, i64 0}
+!195 = !{!5, !11, i64 32}
+!196 = !{!10, !10, i64 0}
+!197 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!198 = !{!13, !13, i64 0}
+!199 = !{!27, !27, i64 0}
+!200 = !{!185, !186, i64 80}
+!201 = !{!202, !12, i64 40}
+!202 = !{!"_xmlDtd", !6, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 32, !12, i64 40, !11, i64 48, !11, i64 56, !12, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !10, i64 104, !10, i64 112, !6, i64 120}
+!203 = !{!185, !11, i64 32}
+!204 = !{!185, !11, i64 24}
+!205 = !{!5, !11, i64 56}
+!206 = !{!"branch_weights", !"expected", i32 894411, i32 2146589237}
+!207 = !{!11, !11, i64 0}
+!208 = !{!209, !14, i64 48}
+!209 = !{!"_xmlAttr", !6, i64 0, !9, i64 8, !10, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !14, i64 48, !14, i64 56, !12, i64 64, !13, i64 72, !9, i64 80, !6, i64 88}
+!210 = !{!209, !14, i64 56}
+!211 = !{!209, !11, i64 40}
+!212 = !{!209, !13, i64 72}

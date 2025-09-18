@@ -17,7 +17,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #8
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i16
@@ -149,7 +149,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   %82 = zext i8 %.in136155 to i32
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %84 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  %85 = tail call i32 @bitncmp(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %82) #8
+  %85 = tail call i32 @bitncmp(ptr noundef nonnull %83, ptr noundef nonnull %84, i32 noundef %82) #7
   br label %96
 
 86:                                               ; preds = %._crit_edge, %65
@@ -163,7 +163,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   %92 = zext i8 %.in136 to i32
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %94 = getelementptr inbounds nuw i8, ptr %25, i64 2
-  %95 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %94, i32 noundef %92) #8
+  %95 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %94, i32 noundef %92) #7
   switch i16 %11, label %._crit_edge166 [
     i16 24, label %96
     i16 25, label %96
@@ -301,7 +301,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   %168 = load i8, ptr %17, align 1
   %169 = icmp eq i8 %168, 3
   %170 = select i1 %169, i32 128, i32 32
-  %171 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %167, i32 noundef %170) #8
+  %171 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %167, i32 noundef %170) #7
   br label %199
 
 172:                                              ; preds = %149
@@ -328,7 +328,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   %183 = load i8, ptr %17, align 1
   %184 = icmp eq i8 %183, 3
   %185 = select i1 %184, i32 128, i32 32
-  %186 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %182, i32 noundef %185) #8
+  %186 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %182, i32 noundef %185) #7
   br label %209
 
 187:                                              ; preds = %._crit_edge166, %174, %159
@@ -339,7 +339,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   %190 = load i8, ptr %17, align 1
   %191 = icmp eq i8 %190, 3
   %192 = select i1 %191, i32 128, i32 32
-  %193 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %189, i32 noundef %192) #8
+  %193 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %189, i32 noundef %192) #7
   switch i16 %11, label %213 [
     i16 20, label %194
     i16 21, label %196
@@ -382,10 +382,9 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly 
   br label %216
 
 213:                                              ; preds = %187
-  %214 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %214)
-  %215 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.inet_gist_consistent) #8
+  %214 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %215 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.inet_gist_consistent) #7
   unreachable
 
 216:                                              ; preds = %.thread157, %174, %172, %.thread156, %159, %157, %138, %139, %127, %128, %125, %115, %114, %102, %104, %100, %71, %65, %59, %44, %27, %30, %28, %1, %209, %206, %203, %199, %196, %194, %96, %32
@@ -453,7 +452,7 @@ define dso_local i64 @inet_gist_union(ptr noundef readonly captures(none) %0) lo
 
 34:                                               ; preds = %.lr.ph.i
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %36 = tail call i32 @bitncommon(ptr noundef nonnull %19, ptr noundef nonnull %35, i32 noundef %.139.i) #8
+  %36 = tail call i32 @bitncommon(ptr noundef nonnull %19, ptr noundef nonnull %35, i32 noundef %.139.i) #7
   br label %37
 
 37:                                               ; preds = %34, %.lr.ph.i
@@ -474,7 +473,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %38, %calc_inet_
   %spec.select50.i20 = phi i32 [ %.141.i, %calc_inet_union_params.exit ], [ 0, %38 ], [ %15, %1 ]
   %.0 = phi i32 [ %spec.select.i, %calc_inet_union_params.exit ], [ 0, %38 ], [ %12, %1 ]
   %39 = load i64, ptr %5, align 8
-  %40 = tail call ptr @palloc0(i64 noundef 20) #8
+  %40 = tail call ptr @palloc0(i64 noundef 20) #7
   %41 = trunc nuw i32 %.0 to i8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 %41, ptr %42, align 1
@@ -535,15 +534,15 @@ define dso_local i64 @inet_gist_compress(ptr noundef readonly captures(none) %0)
   br i1 %7, label %8, label %50
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @palloc(i64 noundef 32) #8
+  %9 = tail call ptr @palloc(i64 noundef 32) #7
   %10 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %.sink.split, label %11
 
 11:                                               ; preds = %8
   %12 = inttoptr i64 %10 to ptr
-  %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef nonnull %12) #8
-  %14 = tail call ptr @palloc0(i64 noundef 20) #8
+  %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef nonnull %12) #7
+  %14 = tail call ptr @palloc0(i64 noundef 20) #7
   %15 = load i8, ptr %13, align 1
   %16 = and i8 %15, 1
   %.not40 = icmp eq i8 %16, 0
@@ -617,7 +616,7 @@ define dso_local noundef i64 @inet_gist_fetch(ptr noundef readonly captures(none
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @palloc0(i64 noundef 22) #8
+  %7 = tail call ptr @palloc0(i64 noundef 22) #7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = load i8, ptr %7, align 1
@@ -649,7 +648,7 @@ define dso_local noundef i64 @inet_gist_fetch(ptr noundef readonly captures(none
   %30 = icmp eq i8 %29, 2
   %31 = select i1 %30, i32 40, i32 88
   store i32 %31, ptr %7, align 4
-  %32 = tail call ptr @palloc(i64 noundef 32) #8
+  %32 = tail call ptr @palloc(i64 noundef 32) #7
   %33 = ptrtoint ptr %7 to i64
   store i64 %33, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -708,7 +707,7 @@ define dso_local i64 @inet_gist_penalty(ptr noundef readonly captures(none) %0) 
   %30 = load i8, ptr %29, align 1
   %. = tail call i8 @llvm.umin.i8(i8 %28, i8 %30)
   %31 = zext i8 %. to i32
-  %32 = tail call i32 @bitncommon(ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %31) #8
+  %32 = tail call i32 @bitncommon(ptr noundef nonnull %25, ptr noundef nonnull %26, i32 noundef %31) #7
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %34, label %37
 
@@ -739,8 +738,8 @@ define dso_local i64 @inet_gist_picksplit(ptr noundef readonly captures(none) %0
   %10 = add i32 %9, -1
   %11 = shl i32 %9, 1
   %12 = sext i32 %11 to i64
-  %13 = tail call ptr @palloc(i64 noundef %12) #8
-  %14 = tail call ptr @palloc(i64 noundef %12) #8
+  %13 = tail call ptr @palloc(i64 noundef %12) #7
+  %14 = tail call ptr @palloc(i64 noundef %12) #7
   store ptr %13, ptr %7, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %14, ptr %15, align 8
@@ -784,7 +783,7 @@ define dso_local i64 @inet_gist_picksplit(ptr noundef readonly captures(none) %0
 
 39:                                               ; preds = %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %41 = tail call i32 @bitncommon(ptr noundef nonnull %27, ptr noundef nonnull %40, i32 noundef %.139.i) #8
+  %41 = tail call i32 @bitncommon(ptr noundef nonnull %27, ptr noundef nonnull %40, i32 noundef %.139.i) #7
   br label %42
 
 42:                                               ; preds = %39, %.lr.ph.i
@@ -1006,7 +1005,7 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
 
 144:                                              ; preds = %.lr.ph.i103
   %145 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  %146 = tail call i32 @bitncommon(ptr noundef nonnull %126, ptr noundef nonnull %145, i32 noundef %.139.i107) #8
+  %146 = tail call i32 @bitncommon(ptr noundef nonnull %126, ptr noundef nonnull %145, i32 noundef %.139.i107) #7
   br label %147
 
 147:                                              ; preds = %144, %.lr.ph.i103
@@ -1030,7 +1029,7 @@ calc_inet_union_params_indexed.exit.thread:       ; preds = %.loopexit, %148, %c
   %150 = zext i16 %149 to i64
   %151 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %8, i64 %150
   %152 = load i64, ptr %151, align 8
-  %153 = tail call ptr @palloc0(i64 noundef 20) #8
+  %153 = tail call ptr @palloc0(i64 noundef 20) #7
   %154 = trunc nuw i32 %.0154 to i8
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 1
   store i8 %154, ptr %155, align 1
@@ -1132,7 +1131,7 @@ build_inet_union_key.exit:                        ; preds = %168, %171
 
 217:                                              ; preds = %.lr.ph.i119
   %218 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  %219 = tail call i32 @bitncommon(ptr noundef nonnull %199, ptr noundef nonnull %218, i32 noundef %.139.i128) #8
+  %219 = tail call i32 @bitncommon(ptr noundef nonnull %199, ptr noundef nonnull %218, i32 noundef %.139.i128) #7
   br label %220
 
 220:                                              ; preds = %217, %.lr.ph.i119
@@ -1156,7 +1155,7 @@ calc_inet_union_params_indexed.exit132.thread:    ; preds = %build_inet_union_ke
   %223 = zext i16 %222 to i64
   %224 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %8, i64 %223
   %225 = load i64, ptr %224, align 8
-  %226 = tail call ptr @palloc0(i64 noundef 20) #8
+  %226 = tail call ptr @palloc0(i64 noundef 20) #7
   %227 = trunc nuw i32 %.1155 to i8
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 1
   store i8 %227, ptr %228, align 1
@@ -1260,34 +1259,30 @@ define dso_local i64 @inet_gist_same(ptr noundef readonly captures(none) %0) loc
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #7
+declare i8 @llvm.umin.i8(i8, i8) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.smin.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

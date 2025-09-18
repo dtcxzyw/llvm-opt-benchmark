@@ -93,7 +93,7 @@ define void @_ZN3net59protobuf_ShutdownFile_cached_5fnetwork_5fparameters_2eprot
   %4 = load ptr, ptr %1, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %1) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %1) #20
   br label %7
 
 7:                                                ; preds = %3, %0
@@ -108,7 +108,7 @@ define void @_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv()
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3000000, i32 noundef 3000000, ptr noundef nonnull @.str)
-  %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   invoke void @_ZN3net23CachedNetworkParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %3 unwind label %5
 
@@ -123,7 +123,7 @@ define void @_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv()
 5:                                                ; preds = %1
   %6 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   resume { ptr, i32 } %6
 }
 
@@ -175,7 +175,7 @@ define void @_ZN3net23CachedNetworkParametersC2Ev(ptr noundef nonnull align 8 de
 11:                                               ; preds = %1
   %12 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   resume { ptr, i32 } %12
 }
 
@@ -228,7 +228,7 @@ define void @_ZN3net23CachedNetworkParametersC2ERKS0_(ptr noundef nonnull align 
 13:                                               ; preds = %2, %5
   %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   resume { ptr, i32 } %14
 }
 
@@ -395,7 +395,7 @@ define void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnul
   br i1 %94, label %95, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
 95:                                               ; preds = %84
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #24
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #23
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %84
@@ -427,14 +427,14 @@ define void @_ZN3net23CachedNetworkParametersD2Ev(ptr noundef nonnull align 8 de
           to label %_ZN3net23CachedNetworkParameters10SharedDtorEv.exit unwind label %6
 
 _ZN3net23CachedNetworkParameters10SharedDtorEv.exit: ; preds = %.noexc
-  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
+  tail call void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #20
   ret void
 
 6:                                                ; preds = %.noexc, %1
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #25
+  tail call void @__clang_call_terminate(ptr %8) #24
   unreachable
 }
 
@@ -451,8 +451,8 @@ define void @_ZN3net23CachedNetworkParameters10SharedDtorEv(ptr noundef nonnull 
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #8 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
-  tail call void @_ZSt9terminatev() #25
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -463,8 +463,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3net23CachedNetworkParametersD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN3net23CachedNetworkParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZN3net23CachedNetworkParametersD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
@@ -484,35 +484,32 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkPa
   br i1 %2, label %3, label %_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv.exit
 
 3:                                                ; preds = %0
-  %.b1.i = load i1, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
-  %4 = xor i1 %.b1.i, true
-  tail call void @llvm.assume(i1 %4)
   store i1 true, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3000000, i32 noundef 3000000, ptr noundef nonnull @.str)
-  %5 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
-  invoke void @_ZN3net23CachedNetworkParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %5)
-          to label %6 unwind label %7
+  %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
+  invoke void @_ZN3net23CachedNetworkParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4)
+          to label %5 unwind label %6
 
-6:                                                ; preds = %3
-  store ptr %5, ptr @_ZN3net23CachedNetworkParameters17default_instance_E, align 8, !tbaa !3
+5:                                                ; preds = %3
+  store ptr %4, ptr @_ZN3net23CachedNetworkParameters17default_instance_E, align 8, !tbaa !3
   tail call void @_ZN6google8protobuf8internal10OnShutdownEPFvvE(ptr noundef nonnull @_ZN3net59protobuf_ShutdownFile_cached_5fnetwork_5fparameters_2eprotoEv)
   %.pre = load ptr, ptr @_ZN3net23CachedNetworkParameters17default_instance_E, align 8, !tbaa !3
   br label %_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv.exit
 
-7:                                                ; preds = %3
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %3
+  %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %5) #23
-  resume { ptr, i32 } %8
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #22
+  resume { ptr, i32 } %7
 
-_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv.exit: ; preds = %6, %0
-  %9 = phi ptr [ %.pre, %6 ], [ %1, %0 ]
-  ret ptr %9
+_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv.exit: ; preds = %5, %0
+  %8 = phi ptr [ %.pre, %5 ], [ %1, %0 ]
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull ptr @_ZNK3net23CachedNetworkParameters3NewEPN6google8protobuf5ArenaE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   invoke void @_ZN3net23CachedNetworkParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3)
           to label %4 unwind label %6
 
@@ -527,7 +524,7 @@ define noundef nonnull ptr @_ZNK3net23CachedNetworkParameters3NewEPN6google8prot
 6:                                                ; preds = %2
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %5, %4
@@ -600,7 +597,7 @@ define noundef zeroext i1 @_ZN3net23CachedNetworkParameters27MergePartialFromCod
   %3 = alloca %"class.google::protobuf::io::LazyStringOutputStream", align 8
   %4 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
+  %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net23CachedNetworkParametersEEE, i64 16), ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @_ZN3netL46MutableUnknownFieldsForCachedNetworkParametersB5cxx11EPNS_23CachedNetworkParametersE, ptr %6, align 8, !tbaa !35
@@ -678,7 +675,7 @@ _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EE
 38:                                               ; preds = %186, %163, %139, %115, %91, %67, %_ZN3net23CachedNetworkParameters22mutable_serving_regionB5cxx11Ev.exit, %43, %30, %207
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #21
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #20
   br label %210
 
 40:                                               ; preds = %34
@@ -1145,16 +1142,16 @@ _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %195, %1
 
 _ZN6google8protobuf8internal14WireFormatLite13ReadPrimitiveIiLNS2_9FieldTypeE5EEEbPNS0_2io16CodedInputStreamEPT_.exit.thread146: ; preds = %202, %206, %42, %57, %81, %105, %129, %153, %176, %.noexc57, %.noexc56, %.noexc54, %.noexc52, %.noexc50, %.noexc49, %209, %_ZN6google8protobuf8internal14WireFormatLite10ReadStringEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit
   %.031 = phi i1 [ true, %_ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit ], [ true, %202 ], [ true, %206 ], [ true, %42 ], [ true, %57 ], [ true, %81 ], [ true, %105 ], [ true, %129 ], [ true, %153 ], [ true, %176 ], [ false, %.noexc57 ], [ false, %.noexc56 ], [ false, %.noexc54 ], [ false, %.noexc52 ], [ false, %.noexc50 ], [ false, %.noexc49 ], [ false, %209 ], [ false, %_ZN6google8protobuf8internal14WireFormatLite10ReadStringEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #21
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #21
+  call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.031
 
 210:                                              ; preds = %38, %36
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %37, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #21
+  call void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -1521,7 +1518,7 @@ define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi() unnamed_ad
 
 11:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 
@@ -1538,7 +1535,7 @@ define internal fastcc void @_ZN3net12_GLOBAL__N_113MergeFromFailEi() unnamed_ad
 
 16:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %.pn
 }
@@ -1806,7 +1803,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectIN3ne
   %4 = load ptr, ptr %0, align 8, !tbaa !8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %0) #21
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %0) #20
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -1820,7 +1817,7 @@ define linkonce_odr void @_ZN6google8protobuf14ResultCallbackIPNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net23CachedNetworkParametersEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
 }
 
@@ -1840,7 +1837,7 @@ define linkonce_odr noundef ptr @_ZN6google8protobuf8internal26FunctionResultCal
   %11 = load ptr, ptr %0, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   br label %14
 
 14:                                               ; preds = %10, %1
@@ -1855,7 +1852,7 @@ define internal void @_GLOBAL__sub_I_cached_network_parameters.pb.cc() #18 secti
 1:                                                ; preds = %0
   store i1 true, ptr @_ZZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEvE12already_here, align 1
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3000000, i32 noundef 3000000, ptr noundef nonnull @.str)
-  %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #22
+  %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #21
   invoke void @_ZN3net23CachedNetworkParametersC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %3 unwind label %4
 
@@ -1867,7 +1864,7 @@ define internal void @_GLOBAL__sub_I_cached_network_parameters.pb.cc() #18 secti
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   resume { ptr, i32 } %5
 
 __cxx_global_var_init.exit:                       ; preds = %0, %3
@@ -1879,9 +1876,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1903,12 +1897,11 @@ attributes #16 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" 
 attributes #17 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { nounwind }
-attributes #22 = { builtin allocsize(0) }
-attributes #23 = { builtin nounwind }
-attributes #24 = { noreturn }
-attributes #25 = { noreturn nounwind }
+attributes #20 = { nounwind }
+attributes #21 = { builtin allocsize(0) }
+attributes #22 = { builtin nounwind }
+attributes #23 = { noreturn }
+attributes #24 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

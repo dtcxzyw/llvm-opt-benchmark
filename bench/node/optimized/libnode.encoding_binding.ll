@@ -642,25 +642,16 @@ if.end.i.i:
   %call6 = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #19
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %call6) #19
   %call5.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #19
-  %cmp.i.i = icmp ugt i32 %call5.i.i, 39
-  call void @llvm.assume(i1 %cmp.i.i)
   %0 = load i64, ptr %context.coerce, align 8
   %sub.i37.i.i = add i64 %0, 47
   %1 = inttoptr i64 %sub.i37.i.i to ptr
   %2 = load i64, ptr %1, align 8
-  %sub.i.i.i = add i64 %2, 327
-  %3 = inttoptr i64 %sub.i.i.i to ptr
+  %sub.i.i = add i64 %2, 319
+  %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i = icmp eq ptr %6, %5
-  call void @llvm.assume(i1 %cmp12.not.i.i)
-  %sub.i.i = add i64 %2, 319
-  %7 = inttoptr i64 %sub.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
   store ptr %info, ptr %casted_info, align 8
-  %call15 = call noundef ptr @_ZN4node5Realm14AddBindingDataINS_16encoding_binding11BindingDataEJRPNS3_17InternalFieldInfoEEEEPT_N2v85LocalINS9_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %9, ptr %holder.coerce, ptr noundef nonnull align 8 dereferenceable(8) %casted_info)
+  %call15 = call noundef ptr @_ZN4node5Realm14AddBindingDataINS_16encoding_binding11BindingDataEJRPNS3_17InternalFieldInfoEEEEPT_N2v85LocalINS9_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %5, ptr %holder.coerce, ptr noundef nonnull align 8 dereferenceable(8) %casted_info)
   %cmp.not = icmp eq ptr %call15, null
   br i1 %cmp.not, label %do.body18, label %do.end20
 
@@ -813,38 +804,29 @@ do.end34:                                         ; preds = %_ZNK2v820FunctionCa
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #19
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %9 = load i64, ptr %call1.i, align 8
   %sub.i37.i.i.i = add i64 %9, 47
   %10 = inttoptr i64 %sub.i37.i.i.i to ptr
   %11 = load i64, ptr %10, align 8
-  %sub.i.i.i.i = add i64 %11, 327
-  %12 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %11, 319
+  %12 = inttoptr i64 %sub.i.i.i to ptr
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
-  %15 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %15, %14
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %11, 319
-  %16 = inttoptr i64 %sub.i.i.i to ptr
-  %17 = load i64, ptr %16, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %18, i64 184
-  %19 = load ptr, ptr %isolate_.i, align 8
-  %binding_data_store_.i = getelementptr inbounds nuw i8, ptr %18, i64 704
-  %20 = load ptr, ptr %binding_data_store_.i, align 8
-  %cmp.i.i.i.i23 = icmp eq ptr %20, null
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %14, i64 184
+  %15 = load ptr, ptr %isolate_.i, align 8
+  %binding_data_store_.i = getelementptr inbounds nuw i8, ptr %14, i64 704
+  %16 = load ptr, ptr %binding_data_store_.i, align 8
+  %cmp.i.i.i.i23 = icmp eq ptr %16, null
   br i1 %cmp.i.i.i.i23, label %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EE3getEv.exit.i.i
 
 _ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EE3getEv.exit.i.i: ; preds = %do.end34
-  %self.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %21 = load ptr, ptr %self.i.i.i.i, align 8
-  %cmp.i.i.i24 = icmp eq ptr %21, null
+  %self.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %17 = load ptr, ptr %self.i.i.i.i, align 8
+  %cmp.i.i.i24 = icmp eq ptr %17, null
   br i1 %cmp.i.i.i24, label %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit, label %if.end.i.i.i25
 
 if.end.i.i.i25:                                   ; preds = %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EE3getEv.exit.i.i
-  %call.i.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
+  %call.i.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   %cmp3.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp3.not.i.i.i, label %do.body7.i.i.i, label %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EEcvbEv.exit.i
 
@@ -855,14 +837,14 @@ do.body7.i.i.i:                                   ; preds = %if.end.i.i.i25
 
 _ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EEcvbEv.exit.i: ; preds = %if.end.i.i.i25
   %self.i.i.i2.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
-  %22 = load ptr, ptr %self.i.i.i2.i, align 8
-  %.not.i = icmp eq ptr %22, null
+  %18 = load ptr, ptr %self.i.i.i2.i, align 8
+  %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %land.lhs.true.i.i, label %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit
 
 land.lhs.true.i.i:                                ; preds = %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EEcvbEv.exit.i
   %weak_ptr_count.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 4
-  %23 = load i32, ptr %weak_ptr_count.i.i.i, align 4
-  %cmp3.i.i = icmp eq i32 %23, 0
+  %19 = load i32, ptr %weak_ptr_count.i.i.i, align 4
+  %cmp3.i.i = icmp eq i32 %19, 0
   br i1 %cmp3.i.i, label %delete.notnull.i.i, label %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit
 
 delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i
@@ -870,23 +852,23 @@ delete.notnull.i.i:                               ; preds = %land.lhs.true.i.i
   br label %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit
 
 _ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit: ; preds = %do.end34, %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EE3getEv.exit.i.i, %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EEcvbEv.exit.i, %land.lhs.true.i.i, %delete.notnull.i.i
-  %retval.023.i = phi ptr [ null, %land.lhs.true.i.i ], [ null, %delete.notnull.i.i ], [ null, %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EE3getEv.exit.i.i ], [ null, %do.end34 ], [ %22, %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EEcvbEv.exit.i ]
-  %24 = load i32, ptr %length_.i, align 8
-  %cmp2.i87 = icmp slt i32 %24, 1
+  %retval.023.i = phi ptr [ null, %land.lhs.true.i.i ], [ null, %delete.notnull.i.i ], [ null, %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EE3getEv.exit.i.i ], [ null, %do.end34 ], [ %18, %_ZNK4node17BaseObjectPtrImplINS_10BaseObjectELb1EEcvbEv.exit.i ]
+  %20 = load i32, ptr %length_.i, align 8
+  %cmp2.i87 = icmp slt i32 %20, 1
   br i1 %cmp2.i87, label %lor.lhs.false.i.thread, label %lor.lhs.false.i
 
 lor.lhs.false.i.thread:                           ; preds = %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit
-  %25 = load ptr, ptr %args, align 8
-  %arrayidx.i185 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %26 = load ptr, ptr %arrayidx.i185, align 8
-  %27 = ptrtoint ptr %26 to i64
-  %add1.i243 = add i64 %27, 608
-  %28 = inttoptr i64 %add1.i243 to ptr
+  %21 = load ptr, ptr %args, align 8
+  %arrayidx.i185 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %22 = load ptr, ptr %arrayidx.i185, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %add1.i243 = add i64 %23, 608
+  %24 = inttoptr i64 %add1.i243 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 lor.lhs.false.i:                                  ; preds = %_ZN4node5Realm14GetBindingDataINS_16encoding_binding11BindingDataEEEPT_v.exit
-  %29 = load ptr, ptr %values_.i125, align 8
-  %cmp2.i = icmp eq i32 %24, 1
+  %25 = load ptr, ptr %values_.i125, align 8
+  %cmp2.i = icmp eq i32 %20, 1
   br i1 %cmp2.i, label %lor.lhs.false.i.if.then.i_crit_edge, label %if.end.i
 
 lor.lhs.false.i.if.then.i_crit_edge:              ; preds = %lor.lhs.false.i
@@ -899,25 +881,25 @@ lor.lhs.false.i.if.then.i_crit_edge:              ; preds = %lor.lhs.false.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %lor.lhs.false.i.thread, %lor.lhs.false.i.if.then.i_crit_edge, %if.end.i
-  %retval.i79.sroa.0.033 = phi ptr [ %29, %if.end.i ], [ %29, %lor.lhs.false.i.if.then.i_crit_edge ], [ %28, %lor.lhs.false.i.thread ]
-  %retval.i.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre38, %lor.lhs.false.i.if.then.i_crit_edge ], [ %28, %lor.lhs.false.i.thread ]
+  %retval.i79.sroa.0.033 = phi ptr [ %25, %if.end.i ], [ %25, %lor.lhs.false.i.if.then.i_crit_edge ], [ %24, %lor.lhs.false.i.thread ]
+  %retval.i.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end.i ], [ %.pre38, %lor.lhs.false.i.if.then.i_crit_edge ], [ %24, %lor.lhs.false.i.thread ]
   %call57 = tail call ptr @_ZN2v815ArrayBufferView6BufferEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #19
   %call62 = tail call noundef ptr @_ZNK2v811ArrayBuffer4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %call57) #19
   %call64 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteOffsetEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #19
   %add.ptr = getelementptr inbounds i8, ptr %call62, i64 %call64
   %call66 = tail call noundef i64 @_ZN2v815ArrayBufferView10ByteLengthEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0) #19
   %conv = trunc i64 %call66 to i32
-  %call68 = call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %retval.i79.sroa.0.033, ptr noundef %19, ptr noundef %add.ptr, i32 noundef %conv, ptr noundef nonnull %nchars, i32 noundef 10) #19
-  %30 = load i32, ptr %nchars, align 4
+  %call68 = call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %retval.i79.sroa.0.033, ptr noundef %15, ptr noundef %add.ptr, i32 noundef %conv, ptr noundef nonnull %nchars, i32 noundef 10) #19
+  %26 = load i32, ptr %nchars, align 4
   %buffer_.i.i = getelementptr inbounds nuw i8, ptr %retval.023.i, i64 72
-  %31 = load ptr, ptr %buffer_.i.i, align 8
-  store i32 %30, ptr %31, align 4
-  %32 = load ptr, ptr %buffer_.i.i, align 8
-  %arrayidx.i.i30 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  %27 = load ptr, ptr %buffer_.i.i, align 8
+  store i32 %26, ptr %27, align 4
+  %28 = load ptr, ptr %buffer_.i.i, align 8
+  %arrayidx.i.i30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %call68, ptr %arrayidx.i.i30, align 4
   ret void
 }
@@ -1707,24 +1689,15 @@ declare void @_ZN4node21SetMethodNoSideEffectEPN2v87IsolateENS0_5LocalINS0_8Temp
 define dso_local void @_ZN4node16encoding_binding11BindingData26CreatePerContextPropertiesEN2v85LocalINS2_6ObjectEEENS3_INS2_5ValueEEENS3_INS2_7ContextEEEPv(ptr %target.coerce, ptr readnone captures(none) %unused.coerce, ptr nonnull %context.coerce, ptr readnone captures(none) %priv) #3 align 2 {
 entry:
   %call5.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #19
-  %cmp.i.i = icmp ugt i32 %call5.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i)
   %0 = load i64, ptr %context.coerce, align 8
   %sub.i37.i.i = add i64 %0, 47
   %1 = inttoptr i64 %sub.i37.i.i to ptr
   %2 = load i64, ptr %1, align 8
-  %sub.i.i.i = add i64 %2, 327
-  %3 = inttoptr i64 %sub.i.i.i to ptr
+  %sub.i.i = add i64 %2, 319
+  %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i = icmp eq ptr %6, %5
-  tail call void @llvm.assume(i1 %cmp12.not.i.i)
-  %sub.i.i = add i64 %2, 319
-  %7 = inttoptr i64 %sub.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %call16 = tail call noundef ptr @_ZN4node5Realm14AddBindingDataINS_16encoding_binding11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %9, ptr %target.coerce)
+  %call16 = tail call noundef ptr @_ZN4node5Realm14AddBindingDataINS_16encoding_binding11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %5, ptr %target.coerce)
   ret void
 }
 

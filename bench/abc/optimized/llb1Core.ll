@@ -106,7 +106,7 @@ define void @Llb_ManPrintAig(ptr noundef readonly captures(none) %0) local_unnam
   %26 = add nsw i32 %.val18, %.val17
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, i32 noundef %26)
   %27 = load ptr, ptr %2, align 8, !tbaa !21
-  %28 = tail call i32 @Aig_ManLevelNum(ptr noundef %27) #12
+  %28 = tail call i32 @Aig_ManLevelNum(ptr noundef %27) #11
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, i32 noundef %28)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8)
   ret void
@@ -121,24 +121,24 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #12
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #11
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #12
+  %7 = call i32 (...) @Abc_FrameIsBridgeMode() #11
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #12
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
   %10 = load ptr, ptr @stdout, align 8, !tbaa !49
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #12
-  call void @free(ptr noundef %9) #12
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
+  call void @free(ptr noundef %9) #11
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !49, !noalias !51
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #12
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -157,7 +157,7 @@ define i32 @Llb_ManModelCheckAig(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #12
+  %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %Abc_Clock.exit, label %9
 
@@ -179,7 +179,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %Abc_Clock.exit
-  %16 = call ptr @Llb_ManDeriveConstraints(ptr noundef %0) #12
+  %16 = call ptr @Llb_ManDeriveConstraints(ptr noundef %0) #11
   br label %17
 
 17:                                               ; preds = %15, %Abc_Clock.exit
@@ -188,7 +188,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %17
-  %20 = call ptr @Aig_ManDupSimple(ptr noundef %0) #12
+  %20 = call ptr @Aig_ManDupSimple(ptr noundef %0) #11
   br label %27
 
 21:                                               ; preds = %17
@@ -198,153 +198,149 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   br i1 %.not36, label %25, label %24
 
 24:                                               ; preds = %21
-  call void @Llb_ManPrintEntries(ptr noundef %0, ptr noundef nonnull %.0) #12
+  call void @Llb_ManPrintEntries(ptr noundef %0, ptr noundef nonnull %.0) #11
   br label %25
 
 25:                                               ; preds = %24, %21
-  %26 = call ptr @Aig_ManDupSimpleWithHints(ptr noundef %0, ptr noundef nonnull %.0) #12
+  %26 = call ptr @Aig_ManDupSimpleWithHints(ptr noundef %0, ptr noundef nonnull %.0) #11
   br label %27
 
 27:                                               ; preds = %25, %19
   %.034 = phi ptr [ %20, %19 ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %29 = load i32, ptr %28, align 4, !tbaa !13
-  %.not37 = icmp eq i32 %29, 0
-  call void @llvm.assume(i1 %.not37)
-  %30 = call ptr @Llb_ManStart(ptr noundef %0, ptr noundef %.034, ptr noundef nonnull %1) #12
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %32 = load i32, ptr %31, align 8, !tbaa !58
-  %.not38 = icmp eq i32 %32, 0
-  br i1 %.not38, label %41, label %33
+  %28 = call ptr @Llb_ManStart(ptr noundef %0, ptr noundef %.034, ptr noundef nonnull %1) #11
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %30 = load i32, ptr %29, align 8, !tbaa !58
+  %.not38 = icmp eq i32 %30, 0
+  br i1 %.not38, label %39, label %31
 
-33:                                               ; preds = %27
-  call void @Llb_ManPrintAig(ptr noundef %30)
-  %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
-  %35 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %36 = load ptr, ptr %35, align 8, !tbaa !59
-  call void @Llb_MtrPrintMatrixStats(ptr noundef %36) #12
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %38 = load i32, ptr %37, align 4, !tbaa !60
-  %.not39 = icmp eq i32 %38, 0
-  br i1 %.not39, label %41, label %39
+31:                                               ; preds = %27
+  call void @Llb_ManPrintAig(ptr noundef %28)
+  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9)
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %34 = load ptr, ptr %33, align 8, !tbaa !59
+  call void @Llb_MtrPrintMatrixStats(ptr noundef %34) #11
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %36 = load i32, ptr %35, align 4, !tbaa !60
+  %.not39 = icmp eq i32 %36, 0
+  br i1 %.not39, label %39, label %37
 
-39:                                               ; preds = %33
-  %40 = load ptr, ptr %35, align 8, !tbaa !59
-  call void @Llb_MtrPrint(ptr noundef %40, i32 noundef 1) #12
-  br label %41
+37:                                               ; preds = %31
+  %38 = load ptr, ptr %33, align 8, !tbaa !59
+  call void @Llb_MtrPrint(ptr noundef %38, i32 noundef 1) #11
+  br label %39
 
-41:                                               ; preds = %33, %39, %27
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %43 = load i32, ptr %42, align 4, !tbaa !61
-  %.not40 = icmp eq i32 %43, 0
-  br i1 %.not40, label %55, label %44
+39:                                               ; preds = %31, %37, %27
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %41 = load i32, ptr %40, align 4, !tbaa !61
+  %.not40 = icmp eq i32 %41, 0
+  br i1 %.not40, label %53, label %42
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %46 = load ptr, ptr %45, align 8, !tbaa !59
-  call void @Llb_ManCluster(ptr noundef %46) #12
-  %47 = load i32, ptr %31, align 8, !tbaa !58
-  %.not41 = icmp eq i32 %47, 0
-  br i1 %.not41, label %55, label %48
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %44 = load ptr, ptr %43, align 8, !tbaa !59
+  call void @Llb_ManCluster(ptr noundef %44) #11
+  %45 = load i32, ptr %29, align 8, !tbaa !58
+  %.not41 = icmp eq i32 %45, 0
+  br i1 %.not41, label %53, label %46
 
-48:                                               ; preds = %44
-  %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
-  %50 = load ptr, ptr %45, align 8, !tbaa !59
-  call void @Llb_MtrPrintMatrixStats(ptr noundef %50) #12
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %52 = load i32, ptr %51, align 4, !tbaa !60
-  %.not42 = icmp eq i32 %52, 0
-  br i1 %.not42, label %55, label %53
+46:                                               ; preds = %42
+  %47 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+  %48 = load ptr, ptr %43, align 8, !tbaa !59
+  call void @Llb_MtrPrintMatrixStats(ptr noundef %48) #11
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %50 = load i32, ptr %49, align 4, !tbaa !60
+  %.not42 = icmp eq i32 %50, 0
+  br i1 %.not42, label %53, label %51
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %45, align 8, !tbaa !59
-  call void @Llb_MtrPrint(ptr noundef %54, i32 noundef 1) #12
-  br label %55
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %43, align 8, !tbaa !59
+  call void @Llb_MtrPrint(ptr noundef %52, i32 noundef 1) #11
+  br label %53
 
-55:                                               ; preds = %44, %53, %48, %41
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %57 = load i32, ptr %56, align 8, !tbaa !62
-  %.not43 = icmp eq i32 %57, 0
-  br i1 %.not43, label %69, label %58
+53:                                               ; preds = %42, %51, %46, %39
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %55 = load i32, ptr %54, align 8, !tbaa !62
+  %.not43 = icmp eq i32 %55, 0
+  br i1 %.not43, label %67, label %56
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %30, i64 72
-  %60 = load ptr, ptr %59, align 8, !tbaa !59
-  call void @Llb_MtrSchedule(ptr noundef %60) #12
-  %61 = load i32, ptr %31, align 8, !tbaa !58
-  %.not44 = icmp eq i32 %61, 0
-  br i1 %.not44, label %69, label %62
+56:                                               ; preds = %53
+  %57 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %58 = load ptr, ptr %57, align 8, !tbaa !59
+  call void @Llb_MtrSchedule(ptr noundef %58) #11
+  %59 = load i32, ptr %29, align 8, !tbaa !58
+  %.not44 = icmp eq i32 %59, 0
+  br i1 %.not44, label %67, label %60
 
-62:                                               ; preds = %58
-  %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
-  %64 = load ptr, ptr %59, align 8, !tbaa !59
-  call void @Llb_MtrPrintMatrixStats(ptr noundef %64) #12
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %66 = load i32, ptr %65, align 4, !tbaa !60
-  %.not45 = icmp eq i32 %66, 0
-  br i1 %.not45, label %69, label %67
+60:                                               ; preds = %56
+  %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
+  %62 = load ptr, ptr %57, align 8, !tbaa !59
+  call void @Llb_MtrPrintMatrixStats(ptr noundef %62) #11
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %64 = load i32, ptr %63, align 4, !tbaa !60
+  %.not45 = icmp eq i32 %64, 0
+  br i1 %.not45, label %67, label %65
 
-67:                                               ; preds = %62
-  %68 = load ptr, ptr %59, align 8, !tbaa !59
-  call void @Llb_MtrPrint(ptr noundef %68, i32 noundef 1) #12
-  br label %69
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %57, align 8, !tbaa !59
+  call void @Llb_MtrPrint(ptr noundef %66, i32 noundef 1) #11
+  br label %67
 
-69:                                               ; preds = %55, %62, %67, %58
-  %70 = load ptr, ptr %30, align 8, !tbaa !63
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 76
-  %72 = load i32, ptr %71, align 4, !tbaa !64
-  %.not46 = icmp eq i32 %72, 0
-  br i1 %.not46, label %73, label %75
+67:                                               ; preds = %53, %60, %65, %56
+  %68 = load ptr, ptr %28, align 8, !tbaa !63
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 76
+  %70 = load i32, ptr %69, align 4, !tbaa !64
+  %.not46 = icmp eq i32 %70, 0
+  br i1 %.not46, label %71, label %73
 
-73:                                               ; preds = %69
-  %74 = call i32 @Llb_ManReachability(ptr noundef nonnull %30, ptr noundef %.0, ptr noundef %3) #12
-  br label %75
+71:                                               ; preds = %67
+  %72 = call i32 @Llb_ManReachability(ptr noundef nonnull %28, ptr noundef %.0, ptr noundef %3) #11
+  br label %73
 
-75:                                               ; preds = %73, %69
-  %.033 = phi i32 [ -1, %69 ], [ %74, %73 ]
-  call void @Llb_ManStop(ptr noundef nonnull %30) #12
+73:                                               ; preds = %71, %67
+  %.033 = phi i32 [ -1, %67 ], [ %72, %71 ]
+  call void @Llb_ManStop(ptr noundef nonnull %28) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #12
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %Abc_Clock.exit49, label %78
+  %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %Abc_Clock.exit49, label %76
 
-78:                                               ; preds = %75
-  %79 = load i64, ptr %5, align 8, !tbaa !54
-  %80 = mul nsw i64 %79, 1000000
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %82 = load i64, ptr %81, align 8, !tbaa !56
-  %83 = sdiv i64 %82, 1000
-  %84 = add nsw i64 %83, %80
+76:                                               ; preds = %73
+  %77 = load i64, ptr %5, align 8, !tbaa !54
+  %78 = mul nsw i64 %77, 1000000
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %80 = load i64, ptr %79, align 8, !tbaa !56
+  %81 = sdiv i64 %80, 1000
+  %82 = add nsw i64 %81, %78
   br label %Abc_Clock.exit49
 
-Abc_Clock.exit49:                                 ; preds = %75, %78
-  %.0.i48 = phi i64 [ %84, %78 ], [ -1, %75 ]
+Abc_Clock.exit49:                                 ; preds = %73, %76
+  %.0.i48 = phi i64 [ %82, %76 ], [ -1, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %85 = add i64 %.0.i48, %.0.i.neg
+  %83 = add i64 %.0.i48, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.12)
-  %86 = sitofp i64 %85 to double
-  %87 = fdiv double %86, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %87)
-  %88 = load i32, ptr %13, align 4, !tbaa !57
-  %.not47 = icmp eq i32 %88, 0
+  %84 = sitofp i64 %83 to double
+  %85 = fdiv double %84, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %85)
+  %86 = load i32, ptr %13, align 4, !tbaa !57
+  %.not47 = icmp eq i32 %86, 0
   %brmerge = or i1 %18, %.not47
-  br i1 %brmerge, label %Vec_IntFreeP.exit, label %89
+  br i1 %brmerge, label %Vec_IntFreeP.exit, label %87
 
-89:                                               ; preds = %Abc_Clock.exit49
-  %90 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !65
-  %.not.i = icmp eq ptr %91, null
-  br i1 %.not.i, label %92, label %.thread.i
+87:                                               ; preds = %Abc_Clock.exit49
+  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !65
+  %.not.i = icmp eq ptr %89, null
+  br i1 %.not.i, label %90, label %.thread.i
 
-.thread.i:                                        ; preds = %89
-  call void @free(ptr noundef nonnull %91) #12
-  br label %92
+.thread.i:                                        ; preds = %87
+  call void @free(ptr noundef nonnull %89) #11
+  br label %90
 
-92:                                               ; preds = %.thread.i, %89
-  call void @free(ptr noundef nonnull %.0) #12
+90:                                               ; preds = %.thread.i, %87
+  call void @free(ptr noundef nonnull %.0) #11
   br label %Vec_IntFreeP.exit
 
-Vec_IntFreeP.exit:                                ; preds = %Abc_Clock.exit49, %92
+Vec_IntFreeP.exit:                                ; preds = %Abc_Clock.exit49, %90
   ret i32 %.033
 }
 
@@ -375,9 +371,9 @@ declare void @Llb_ManStop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @Llb_ManModelCheckGia(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = tail call ptr @Gia_ManDupDfs(ptr noundef %0) #12
-  %4 = tail call ptr @Gia_ManToAigSimple(ptr noundef %3) #12
-  tail call void @Gia_ManStop(ptr noundef %3) #12
+  %3 = tail call ptr @Gia_ManDupDfs(ptr noundef %0) #11
+  %4 = tail call ptr @Gia_ManToAigSimple(ptr noundef %3) #11
+  tail call void @Gia_ManStop(ptr noundef %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !11
   %7 = icmp eq i32 %6, 0
@@ -388,7 +384,7 @@ define i32 @Llb_ManModelCheckGia(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %12
 
 10:                                               ; preds = %2
-  %11 = tail call i32 @Llb_ManModelCheckAigWithHints(ptr noundef %4, ptr noundef nonnull %1) #12
+  %11 = tail call i32 @Llb_ManModelCheckAigWithHints(ptr noundef %4, ptr noundef nonnull %1) #11
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -398,7 +394,7 @@ define i32 @Llb_ManModelCheckGia(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %14, ptr %15, align 8, !tbaa !67
   store ptr null, ptr %13, align 8, !tbaa !66
-  tail call void @Aig_ManStop(ptr noundef %4) #12
+  tail call void @Aig_ManStop(ptr noundef %4) #11
   ret i32 %.0
 }
 
@@ -442,9 +438,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -456,9 +449,8 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -43,7 +43,7 @@ define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_ad
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  tail call void @tbm_end_iterate(ptr noundef nonnull %9) #7
+  tail call void @tbm_end_iterate(ptr noundef nonnull %9) #6
   %.pre = load ptr, ptr %4, align 8
   br label %10
 
@@ -54,7 +54,7 @@ define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_ad
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull %11, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  tail call void %16(ptr noundef nonnull %11, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #6
   br label %17
 
 17:                                               ; preds = %10, %1
@@ -65,7 +65,7 @@ define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_ad
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @tbm_end_iterate(ptr noundef nonnull %20) #7
+  tail call void @tbm_end_iterate(ptr noundef nonnull %20) #6
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -75,7 +75,7 @@ define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_ad
   br i1 %.not25, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @tbm_free(ptr noundef nonnull %23) #7
+  tail call void @tbm_free(ptr noundef nonnull %23) #6
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -85,7 +85,7 @@ define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_ad
   br i1 %.not26, label %29, label %28
 
 28:                                               ; preds = %25
-  tail call void @ReleaseBuffer(i32 noundef %27) #7
+  tail call void @ReleaseBuffer(i32 noundef %27) #6
   br label %29
 
 29:                                               ; preds = %28, %25
@@ -103,14 +103,14 @@ define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_ad
   store i32 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 -1, ptr %35, align 4
-  tail call void @ExecScanReScan(ptr noundef nonnull %0) #7
+  tail call void @ExecScanReScan(ptr noundef nonnull %0) #6
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %29
-  tail call void @ExecReScan(ptr noundef nonnull %3) #7
+  tail call void @ExecReScan(ptr noundef nonnull %3) #6
   br label %40
 
 40:                                               ; preds = %39, %29
@@ -159,7 +159,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load ptr, ptr %23, align 8
-  tail call void @ExecEndNode(ptr noundef %24) #7
+  tail call void @ExecEndNode(ptr noundef %24) #6
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %35, label %25
 
@@ -171,7 +171,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  tail call void @tbm_end_iterate(ptr noundef nonnull %28) #7
+  tail call void @tbm_end_iterate(ptr noundef nonnull %28) #6
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -180,7 +180,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull %22) #7
+  tail call void %34(ptr noundef nonnull %22) #6
   br label %35
 
 35:                                               ; preds = %29, %20
@@ -191,7 +191,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @tbm_end_iterate(ptr noundef nonnull %38) #7
+  tail call void @tbm_end_iterate(ptr noundef nonnull %38) #6
   br label %39
 
 39:                                               ; preds = %37, %35
@@ -201,7 +201,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
   br i1 %.not23, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @tbm_free(ptr noundef nonnull %41) #7
+  tail call void @tbm_free(ptr noundef nonnull %41) #6
   br label %43
 
 43:                                               ; preds = %42, %39
@@ -211,7 +211,7 @@ define dso_local void @ExecEndBitmapHeapScan(ptr noundef %0) local_unnamed_addr 
   br i1 %.not24, label %47, label %46
 
 46:                                               ; preds = %43
-  tail call void @ReleaseBuffer(i32 noundef %45) #7
+  tail call void @ReleaseBuffer(i32 noundef %45) #6
   br label %47
 
 47:                                               ; preds = %46, %43
@@ -222,7 +222,7 @@ declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitBitmapHeapScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 328) #7
+  %4 = tail call noundef ptr @palloc0(i64 noundef 328) #6
   store i32 407, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -250,36 +250,36 @@ define dso_local noundef ptr @ExecInitBitmapHeapScan(ptr noundef %0, ptr noundef
   store i32 -1, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 320
   store i32 -1, ptr %17, align 8
-  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %4) #7
+  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %4) #6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load i32, ptr %18, align 8
-  %20 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %19, i32 noundef %2) #7
+  %20 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %19, i32 noundef %2) #6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @ExecInitNode(ptr noundef %22, ptr noundef %1, i32 noundef %2) #7
+  %23 = tail call ptr @ExecInitNode(ptr noundef %22, ptr noundef %1, i32 noundef %2) #6
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @table_slot_callbacks(ptr noundef %20) #7
-  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %4, ptr noundef %26, ptr noundef %27) #7
-  tail call void @ExecInitResultTypeTL(ptr noundef %4) #7
-  tail call void @ExecAssignScanProjectionInfo(ptr noundef %4) #7
+  %27 = tail call ptr @table_slot_callbacks(ptr noundef %20) #6
+  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef %4, ptr noundef %26, ptr noundef %27) #6
+  tail call void @ExecInitResultTypeTL(ptr noundef %4) #6
+  tail call void @ExecAssignScanProjectionInfo(ptr noundef %4) #6
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @ExecInitQual(ptr noundef %29, ptr noundef %4) #7
+  %30 = tail call ptr @ExecInitQual(ptr noundef %29, ptr noundef %4) #6
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr @ExecInitQual(ptr noundef %33, ptr noundef %4) #7
+  %34 = tail call ptr @ExecInitQual(ptr noundef %33, ptr noundef %4) #6
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 92
   %39 = load i32, ptr %38, align 4
-  %40 = tail call i32 @get_tablespace_io_concurrency(i32 noundef %39) #7
+  %40 = tail call i32 @get_tablespace_io_concurrency(i32 noundef %39) #6
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store i32 %40, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 200
@@ -289,7 +289,7 @@ define dso_local noundef ptr @ExecInitBitmapHeapScan(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ExecBitmapHeapScan(ptr noundef %0) #0 {
-  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @BitmapHeapNext, ptr noundef nonnull @BitmapHeapRecheck) #7
+  %2 = tail call ptr @ExecScan(ptr noundef %0, ptr noundef nonnull @BitmapHeapNext, ptr noundef nonnull @BitmapHeapRecheck) #6
   ret ptr %2
 }
 
@@ -328,11 +328,11 @@ define dso_local void @ExecBitmapHeapEstimate(ptr noundef readonly captures(none
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @add_size(i64 noundef 48, i64 noundef 8) #7
+  %10 = tail call i64 @add_size(i64 noundef 48, i64 noundef 8) #6
   %11 = load i32, ptr %6, align 4
   %12 = sext i32 %11 to i64
-  %13 = tail call i64 @mul_size(i64 noundef %12, i64 noundef 16) #7
-  %14 = tail call i64 @add_size(i64 noundef %10, i64 noundef %13) #7
+  %13 = tail call i64 @mul_size(i64 noundef %12, i64 noundef 16) #6
+  %14 = tail call i64 @add_size(i64 noundef %10, i64 noundef %13) #6
   %15 = add i64 %14, 31
   %16 = and i64 %15, -32
   br label %17
@@ -341,11 +341,11 @@ define dso_local void @ExecBitmapHeapEstimate(ptr noundef readonly captures(none
   %.0 = phi i64 [ %16, %9 ], [ 64, %5 ], [ 64, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
-  %20 = tail call i64 @add_size(i64 noundef %19, i64 noundef %.0) #7
+  %20 = tail call i64 @add_size(i64 noundef %19, i64 noundef %.0) #6
   store i64 %20, ptr %18, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load i64, ptr %21, align 8
-  %23 = tail call i64 @add_size(i64 noundef %22, i64 noundef 1) #7
+  %23 = tail call i64 @add_size(i64 noundef %22, i64 noundef 1) #6
   store i64 %23, ptr %21, align 8
   ret void
 }
@@ -376,18 +376,18 @@ define dso_local void @ExecBitmapHeapInitializeDSM(ptr noundef captures(none) %0
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %11
-  %16 = tail call i64 @add_size(i64 noundef 48, i64 noundef 8) #7
+  %16 = tail call i64 @add_size(i64 noundef 48, i64 noundef 8) #6
   %17 = load i32, ptr %12, align 4
   %18 = sext i32 %17 to i64
-  %19 = tail call i64 @mul_size(i64 noundef %18, i64 noundef 16) #7
-  %20 = tail call i64 @add_size(i64 noundef %16, i64 noundef %19) #7
+  %19 = tail call i64 @mul_size(i64 noundef %18, i64 noundef 16) #6
+  %20 = tail call i64 @add_size(i64 noundef %16, i64 noundef %19) #6
   br label %21
 
 21:                                               ; preds = %15, %11, %8
   %.0 = phi i64 [ %20, %15 ], [ 48, %11 ], [ 48, %8 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @shm_toc_allocate(ptr noundef %23, i64 noundef %.0) #7
+  %24 = tail call ptr @shm_toc_allocate(ptr noundef %23, i64 noundef %.0) #6
   %25 = load ptr, ptr %9, align 8
   %.not33 = icmp eq ptr %25, null
   br i1 %.not33, label %select.unfold, label %26
@@ -403,7 +403,7 @@ define dso_local void @ExecBitmapHeapInitializeDSM(ptr noundef captures(none) %0
 select.unfold:                                    ; preds = %26, %21
   %.032 = phi ptr [ null, %21 ], [ %spec.select, %26 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !4
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 20
@@ -413,7 +413,7 @@ select.unfold:                                    ; preds = %26, %21
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %34, align 4
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @ConditionVariableInit(ptr noundef nonnull %35) #7
+  tail call void @ConditionVariableInit(ptr noundef nonnull %35) #6
   %.not34 = icmp eq ptr %.032, null
   br i1 %.not34, label %42, label %36
 
@@ -434,7 +434,7 @@ select.unfold:                                    ; preds = %26, %21
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
-  tail call void @shm_toc_insert(ptr noundef %43, i64 noundef %48, ptr noundef nonnull %24) #7
+  tail call void @shm_toc_insert(ptr noundef %43, i64 noundef %48, ptr noundef nonnull %24) #6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %24, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -474,7 +474,7 @@ define dso_local void @ExecBitmapHeapReInitializeDSM(ptr noundef readonly captur
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void @tbm_free_shared_area(ptr noundef nonnull %8, i64 noundef %14) #7
+  tail call void @tbm_free_shared_area(ptr noundef nonnull %8, i64 noundef %14) #6
   br label %16
 
 16:                                               ; preds = %15, %10
@@ -484,7 +484,7 @@ define dso_local void @ExecBitmapHeapReInitializeDSM(ptr noundef readonly captur
   br i1 %.not16, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @tbm_free_shared_area(ptr noundef nonnull %8, i64 noundef %18) #7
+  tail call void @tbm_free_shared_area(ptr noundef nonnull %8, i64 noundef %18) #6
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -506,7 +506,7 @@ define dso_local void @ExecBitmapHeapInitializeWorker(ptr noundef captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @shm_toc_lookup(ptr noundef %4, i64 noundef %9, i1 noundef zeroext false) #7
+  %10 = tail call ptr @shm_toc_lookup(ptr noundef %4, i64 noundef %9, i1 noundef zeroext false) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -538,7 +538,7 @@ define dso_local void @ExecBitmapHeapRetrieveInstrumentation(ptr noundef capture
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 4
   %9 = or disjoint i64 %8, 8
-  %10 = tail call ptr @palloc(i64 noundef %9) #7
+  %10 = tail call ptr @palloc(i64 noundef %9) #6
   store ptr %10, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %3, i64 %9, i1 false)
   br label %11
@@ -583,7 +583,7 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @MultiExecProcNode(ptr noundef %21) #7
+  %22 = tail call ptr @MultiExecProcNode(ptr noundef %21) #6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %22, ptr %23, align 8
   %.not43.i = icmp eq ptr %22, null
@@ -595,10 +595,9 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
   br i1 %26, label %71, label %27
 
 27:                                               ; preds = %24, %19
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #7
-  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @__func__.BitmapTableScanSetup) #7
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @__func__.BitmapTableScanSetup) #6
   unreachable
 
 30:                                               ; preds = %14
@@ -608,12 +607,12 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %42, %30
-  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i8 1, ptr nonnull elementtype(i8) %31) #7, !srcloc !7
+  %35 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i8 1, ptr nonnull elementtype(i8) %31) #6, !srcloc !7
   %.not.i.i = icmp eq i8 %35, 0
   br i1 %.not.i.i, label %38, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 795, ptr noundef nonnull @__func__.BitmapShouldInitializeSharedState) #7
+  %37 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 795, ptr noundef nonnull @__func__.BitmapShouldInitializeSharedState) #6
   br label %38
 
 38:                                               ; preds = %36, %34
@@ -622,27 +621,27 @@ define internal ptr @BitmapHeapNext(ptr noundef %0) #0 {
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   store i8 0, ptr %31, align 8
   %.not8.i.i = icmp eq i32 %39, 1
   br i1 %.not8.i.i, label %42, label %BitmapShouldInitializeSharedState.exit.i
 
 42:                                               ; preds = %41
-  tail call void @ConditionVariableSleep(ptr noundef nonnull %33, i32 noundef 134217766) #7
+  tail call void @ConditionVariableSleep(ptr noundef nonnull %33, i32 noundef 134217766) #6
   br label %34
 
 BitmapShouldInitializeSharedState.exit.i:         ; preds = %41
-  %43 = tail call zeroext i1 @ConditionVariableCancelSleep() #7
+  %43 = tail call zeroext i1 @ConditionVariableCancelSleep() #6
   br label %69
 
 44:                                               ; preds = %38
   store i32 1, ptr %32, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !8
   store i8 0, ptr %31, align 8
-  %45 = tail call zeroext i1 @ConditionVariableCancelSleep() #7
+  %45 = tail call zeroext i1 @ConditionVariableCancelSleep() #6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr @MultiExecProcNode(ptr noundef %47) #7
+  %48 = tail call ptr @MultiExecProcNode(ptr noundef %47) #6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %48, ptr %49, align 8
   %.not44.i = icmp eq ptr %48, null
@@ -654,14 +653,13 @@ BitmapShouldInitializeSharedState.exit.i:         ; preds = %41
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %50, %44
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #7
-  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @__func__.BitmapTableScanSetup) #7
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @__func__.BitmapTableScanSetup) #6
   unreachable
 
 56:                                               ; preds = %50
-  %57 = tail call i64 @tbm_prepare_shared_iterate(ptr noundef nonnull %48) #7
+  %57 = tail call i64 @tbm_prepare_shared_iterate(ptr noundef nonnull %48) #6
   store i64 %57, ptr %4, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %59 = load i32, ptr %58, align 8
@@ -670,25 +668,25 @@ BitmapShouldInitializeSharedState.exit.i:         ; preds = %41
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %49, align 8
-  %63 = tail call i64 @tbm_prepare_shared_iterate(ptr noundef %62) #7
+  %63 = tail call i64 @tbm_prepare_shared_iterate(ptr noundef %62) #6
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %63, ptr %64, align 8
   br label %65
 
 65:                                               ; preds = %61, %56
-  %66 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i8 1, ptr nonnull elementtype(i8) %31) #7, !srcloc !7
+  %66 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %31, i8 1, ptr nonnull elementtype(i8) %31) #6, !srcloc !7
   %.not.i47.i = icmp eq i8 %66, 0
   br i1 %.not.i47.i, label %BitmapDoneInitializingSharedState.exit.i, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.BitmapDoneInitializingSharedState) #7
+  %68 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.BitmapDoneInitializingSharedState) #6
   br label %BitmapDoneInitializingSharedState.exit.i
 
 BitmapDoneInitializingSharedState.exit.i:         ; preds = %67, %65
   store i32 2, ptr %32, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   store i8 0, ptr %31, align 8
-  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %33) #7
+  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %33) #6
   br label %69
 
 69:                                               ; preds = %BitmapDoneInitializingSharedState.exit.i, %BitmapShouldInitializeSharedState.exit.i
@@ -700,7 +698,7 @@ BitmapDoneInitializingSharedState.exit.i:         ; preds = %67, %65
 71:                                               ; preds = %69, %24
   %72 = phi ptr [ %.pre.i, %69 ], [ %22, %24 ]
   %73 = phi i64 [ %70, %69 ], [ 0, %24 ]
-  %74 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %72, ptr noundef %18, i64 noundef %73) #7
+  %74 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %72, ptr noundef %18, i64 noundef %73) #6
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %76 = load i32, ptr %75, align 8
   %77 = icmp sgt i32 %76, 0
@@ -719,7 +717,7 @@ BitmapDoneInitializingSharedState.exit.i:         ; preds = %67, %65
 
 85:                                               ; preds = %82, %78
   %86 = phi i64 [ %84, %82 ], [ 0, %78 ]
-  %87 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %81, ptr noundef %18, i64 noundef %86) #7
+  %87 = tail call { i8, ptr } @tbm_begin_iterate(ptr noundef %81, ptr noundef %18, i64 noundef %86) #6
   %88 = extractvalue { i8, ptr } %87, 0
   %89 = extractvalue { i8, ptr } %87, 1
   store i8 %88, ptr %80, align 8
@@ -759,7 +757,7 @@ BitmapDoneInitializingSharedState.exit.i:         ; preds = %67, %65
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
-  %107 = tail call ptr %106(ptr noundef %101, ptr noundef %102, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %100) #7
+  %107 = tail call ptr %106(ptr noundef %101, ptr noundef %102, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %100) #6
   store ptr %107, ptr %9, align 8
   br label %BitmapTableScanSetup.exit
 
@@ -808,10 +806,9 @@ table_scan_bitmap_next_tuple.exit.lr.ph:          ; preds = %BitmapAdjustPrefetc
   br label %table_scan_bitmap_next_tuple.exit
 
 ._crit_edge:                                      ; preds = %250, %BitmapAdjustPrefetchTarget.exit
-  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %134)
-  %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2015, ptr noundef nonnull @__func__.table_scan_bitmap_next_tuple) #7
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2015, ptr noundef nonnull @__func__.table_scan_bitmap_next_tuple) #6
   unreachable
 
 table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_next_tuple.exit.lr.ph, %250
@@ -820,7 +817,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 344
   %140 = load ptr, ptr %139, align 8
-  %141 = call zeroext i1 %140(ptr noundef nonnull %.1, ptr noundef %8) #7
+  %141 = call zeroext i1 %140(ptr noundef nonnull %.1, ptr noundef %8) #6
   br i1 %141, label %142, label %.loopexit
 
 142:                                              ; preds = %table_scan_bitmap_next_tuple.exit
@@ -829,7 +826,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br i1 %.not, label %145, label %144, !prof !11
 
 144:                                              ; preds = %142
-  call void @ProcessInterrupts() #7
+  call void @ProcessInterrupts() #6
   br label %145
 
 145:                                              ; preds = %144, %142
@@ -852,12 +849,12 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br i1 %154, label %155, label %166
 
 155:                                              ; preds = %152
-  %156 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %119, i8 1, ptr nonnull elementtype(i8) %119) #7, !srcloc !7
+  %156 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %119, i8 1, ptr nonnull elementtype(i8) %119) #6, !srcloc !7
   %.not53 = icmp eq i8 %156, 0
   br i1 %.not53, label %159, label %157
 
 157:                                              ; preds = %155
-  %158 = call i32 @s_lock(ptr noundef nonnull %119, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.BitmapHeapNext) #7
+  %158 = call i32 @s_lock(ptr noundef nonnull %119, ptr noundef nonnull @.str, i32 noundef 221, ptr noundef nonnull @__func__.BitmapHeapNext) #6
   br label %159
 
 159:                                              ; preds = %155, %157
@@ -872,7 +869,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br label %165
 
 165:                                              ; preds = %159, %163
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !12
   store i8 0, ptr %119, align 8
   br label %166
 
@@ -893,12 +890,12 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br i1 %172, label %.lr.ph.i, label %BitmapPrefetch.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %192
-  %173 = call ptr @tbm_iterate(ptr noundef nonnull %121) #7
+  %173 = call ptr @tbm_iterate(ptr noundef nonnull %121) #6
   %174 = icmp eq ptr %173, null
   br i1 %174, label %.thread.i, label %175
 
 .thread.i:                                        ; preds = %.lr.ph.i
-  call void @tbm_end_iterate(ptr noundef nonnull %121) #7
+  call void @tbm_end_iterate(ptr noundef nonnull %121) #6
   br label %BitmapPrefetch.exit
 
 175:                                              ; preds = %.lr.ph.i
@@ -920,7 +917,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 
 185:                                              ; preds = %181
   %186 = load ptr, ptr %125, align 8
-  %187 = call zeroext i8 @visibilitymap_get_status(ptr noundef %186, i32 noundef %178, ptr noundef nonnull %126) #7
+  %187 = call zeroext i8 @visibilitymap_get_status(ptr noundef %186, i32 noundef %178, ptr noundef nonnull %126) #6
   %188 = and i8 %187, 1
   %.not66.i = icmp eq i8 %188, 0
   br i1 %.not66.i, label %..critedge_crit_edge.i, label %192
@@ -932,7 +929,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 .critedge.i:                                      ; preds = %..critedge_crit_edge.i, %181, %175
   %189 = phi i32 [ %.pre69.i, %..critedge_crit_edge.i ], [ %178, %181 ], [ %178, %175 ]
   %190 = load ptr, ptr %.1, align 8
-  %191 = call i64 @PrefetchBuffer(ptr noundef %190, i32 noundef 0, i32 noundef %189) #7
+  %191 = call i64 @PrefetchBuffer(ptr noundef %190, i32 noundef 0, i32 noundef %189) #6
   br label %192
 
 192:                                              ; preds = %.critedge.i, %185
@@ -959,12 +956,12 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
   br label %204
 
 204:                                              ; preds = %.backedge, %.preheader67.i
-  %205 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %203, i8 1, ptr nonnull elementtype(i8) %203) #7, !srcloc !7
+  %205 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %203, i8 1, ptr nonnull elementtype(i8) %203) #6, !srcloc !7
   %.not.i55 = icmp eq i8 %205, 0
   br i1 %.not.i55, label %208, label %206
 
 206:                                              ; preds = %204
-  %207 = call i32 @s_lock(ptr noundef nonnull %203, ptr noundef nonnull @.str, i32 noundef 492, ptr noundef nonnull @__func__.BitmapPrefetch) #7
+  %207 = call i32 @s_lock(ptr noundef nonnull %203, ptr noundef nonnull @.str, i32 noundef 492, ptr noundef nonnull @__func__.BitmapPrefetch) #6
   br label %208
 
 208:                                              ; preds = %206, %204
@@ -976,19 +973,19 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 212:                                              ; preds = %208
   %213 = add nsw i32 %209, 1
   store i32 %213, ptr %197, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
   store i8 0, ptr %203, align 8
-  %214 = call ptr @tbm_iterate(ptr noundef nonnull %121) #7
+  %214 = call ptr @tbm_iterate(ptr noundef nonnull %121) #6
   %215 = icmp eq ptr %214, null
   br i1 %215, label %216, label %217
 
 .critedge55.i:                                    ; preds = %208
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
   store i8 0, ptr %203, align 8
   br label %BitmapPrefetch.exit
 
 216:                                              ; preds = %212
-  call void @tbm_end_iterate(ptr noundef nonnull %121) #7
+  call void @tbm_end_iterate(ptr noundef nonnull %121) #6
   br label %BitmapPrefetch.exit
 
 217:                                              ; preds = %212
@@ -1007,7 +1004,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 
 225:                                              ; preds = %221
   %226 = load ptr, ptr %125, align 8
-  %227 = call zeroext i8 @visibilitymap_get_status(ptr noundef %226, i32 noundef %218, ptr noundef nonnull %126) #7
+  %227 = call zeroext i8 @visibilitymap_get_status(ptr noundef %226, i32 noundef %218, ptr noundef nonnull %126) #6
   %228 = and i8 %227, 1
   %.not65.i = icmp eq i8 %228, 0
   br i1 %.not65.i, label %..critedge57_crit_edge.i, label %.backedge
@@ -1019,7 +1016,7 @@ table_scan_bitmap_next_tuple.exit:                ; preds = %table_scan_bitmap_n
 .critedge57.i:                                    ; preds = %..critedge57_crit_edge.i, %221, %217
   %229 = phi i32 [ %.pre.i56, %..critedge57_crit_edge.i ], [ %218, %221 ], [ %218, %217 ]
   %230 = load ptr, ptr %.1, align 8
-  %231 = call i64 @PrefetchBuffer(ptr noundef %230, i32 noundef 0, i32 noundef %229) #7
+  %231 = call i64 @PrefetchBuffer(ptr noundef %230, i32 noundef 0, i32 noundef %229) #6
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge57.i, %225
@@ -1040,7 +1037,7 @@ BitmapPrefetch.exit:                              ; preds = %192, %169, %.prehea
 ExecQualAndReset.exit.thread:                     ; preds = %234
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %237 = load ptr, ptr %131, align 8
-  call void @MemoryContextReset(ptr noundef %237) #7
+  call void @MemoryContextReset(ptr noundef %237) #6
   br label %.loopexit65
 
 ExecQualAndReset.exit:                            ; preds = %234
@@ -1049,12 +1046,12 @@ ExecQualAndReset.exit:                            ; preds = %234
   store ptr %238, ptr @CurrentMemoryContext, align 8
   %240 = getelementptr inbounds nuw i8, ptr %235, i64 32
   %241 = load ptr, ptr %240, align 8
-  %242 = call i64 %241(ptr noundef nonnull %235, ptr noundef nonnull %6, ptr noundef nonnull %2) #7
+  %242 = call i64 %241(ptr noundef nonnull %235, ptr noundef nonnull %6, ptr noundef nonnull %2) #6
   store ptr %239, ptr @CurrentMemoryContext, align 8
   %.not64 = icmp eq i64 %242, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %243 = load ptr, ptr %131, align 8
-  call void @MemoryContextReset(ptr noundef %243) #7
+  call void @MemoryContextReset(ptr noundef %243) #6
   br i1 %.not64, label %244, label %.loopexit65
 
 244:                                              ; preds = %ExecQualAndReset.exit
@@ -1073,7 +1070,7 @@ ExecQualAndReset.exit:                            ; preds = %234
   %251 = load ptr, ptr %133, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %253 = load ptr, ptr %252, align 8
-  call void %253(ptr noundef %8) #7
+  call void %253(ptr noundef %8) #6
   %254 = load i32, ptr @CheckXidAlive, align 4
   %255 = icmp eq i32 %254, 0
   %256 = load i8, ptr @bsysscan, align 1, !range !5
@@ -1106,7 +1103,7 @@ ExecQualAndReset.exit:                            ; preds = %234
   br i1 %.not.i.i60, label %BitmapAdjustPrefetchIterator.exit, label %269
 
 269:                                              ; preds = %267
-  %270 = call ptr @tbm_iterate(ptr noundef nonnull %261) #7
+  %270 = call ptr @tbm_iterate(ptr noundef nonnull %261) #6
   %.not28.i = icmp eq ptr %270, null
   br i1 %.not28.i, label %273, label %271
 
@@ -1129,12 +1126,12 @@ ExecQualAndReset.exit:                            ; preds = %234
 280:                                              ; preds = %276
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %282 = getelementptr inbounds nuw i8, ptr %258, i64 16
-  %283 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %282, i8 1, ptr nonnull elementtype(i8) %282) #7, !srcloc !7
+  %283 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %282, i8 1, ptr nonnull elementtype(i8) %282) #6, !srcloc !7
   %.not.i58 = icmp eq i8 %283, 0
   br i1 %.not.i58, label %286, label %284
 
 284:                                              ; preds = %280
-  %285 = call i32 @s_lock(ptr noundef nonnull %282, ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.BitmapAdjustPrefetchIterator) #7
+  %285 = call i32 @s_lock(ptr noundef nonnull %282, ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.BitmapAdjustPrefetchIterator) #6
   br label %286
 
 286:                                              ; preds = %284, %280
@@ -1146,12 +1143,12 @@ ExecQualAndReset.exit:                            ; preds = %234
 290:                                              ; preds = %286
   %291 = add nsw i32 %288, -1
   store i32 %291, ptr %287, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !17
   store i8 0, ptr %282, align 8
   br label %BitmapAdjustPrefetchIterator.exit
 
 292:                                              ; preds = %286
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !18
   store i8 0, ptr %282, align 8
   %293 = getelementptr i8, ptr %0, i64 272
   %.val.i59 = load ptr, ptr %293, align 8
@@ -1159,7 +1156,7 @@ ExecQualAndReset.exit:                            ; preds = %234
   br i1 %.not.i30.i, label %BitmapAdjustPrefetchIterator.exit, label %294
 
 294:                                              ; preds = %292
-  %295 = call ptr @tbm_iterate(ptr noundef nonnull %281) #7
+  %295 = call ptr @tbm_iterate(ptr noundef nonnull %281) #6
   %.not27.i = icmp eq ptr %295, null
   br i1 %.not27.i, label %298, label %296
 
@@ -1183,10 +1180,9 @@ BitmapAdjustPrefetchIterator.exit:                ; preds = %265, %267, %273, %2
   br i1 %.not6.i, label %table_scan_bitmap_next_block.exit, label %306, !prof !11
 
 306:                                              ; preds = %BitmapAdjustPrefetchIterator.exit
-  %307 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %307)
-  %308 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1989, ptr noundef nonnull @__func__.table_scan_bitmap_next_block) #7
+  %307 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %308 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1989, ptr noundef nonnull @__func__.table_scan_bitmap_next_block) #6
   unreachable
 
 table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetchIterator.exit
@@ -1198,7 +1194,7 @@ table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetc
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 336
   %316 = load ptr, ptr %315, align 8
-  %317 = call zeroext i1 %316(ptr noundef nonnull %.047, ptr noundef nonnull %301, ptr noundef nonnull %311, ptr noundef nonnull %309, ptr noundef nonnull %310) #7
+  %317 = call zeroext i1 %316(ptr noundef nonnull %.047, ptr noundef nonnull %301, ptr noundef nonnull %311, ptr noundef nonnull %309, ptr noundef nonnull %310) #6
   br i1 %317, label %318, label %370
 
 318:                                              ; preds = %table_scan_bitmap_next_block.exit
@@ -1220,12 +1216,11 @@ table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetc
   br i1 %327, label %328, label %333
 
 328:                                              ; preds = %323
-  %329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %329)
+  %329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %330 = load i32, ptr %324, align 8
   %331 = load i32, ptr %301, align 4
-  %332 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %330, i32 noundef %331) #7
-  call void @errfinish(ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @__func__.BitmapHeapNext) #7
+  %332 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %330, i32 noundef %331) #6
+  call void @errfinish(ptr noundef nonnull @.str, i32 noundef 281, ptr noundef nonnull @__func__.BitmapHeapNext) #6
   unreachable
 
 333:                                              ; preds = %323, %321
@@ -1269,12 +1264,12 @@ table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetc
 
 353:                                              ; preds = %347
   %354 = getelementptr inbounds nuw i8, ptr %319, i64 16
-  %355 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %354, i8 1, ptr nonnull elementtype(i8) %354) #7, !srcloc !7
+  %355 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %354, i8 1, ptr nonnull elementtype(i8) %354) #6, !srcloc !7
   %.not.i62 = icmp eq i8 %355, 0
   br i1 %.not.i62, label %358, label %356
 
 356:                                              ; preds = %353
-  %357 = call i32 @s_lock(ptr noundef nonnull %354, ptr noundef nonnull @.str, i32 noundef 413, ptr noundef nonnull @__func__.BitmapAdjustPrefetchTarget) #7
+  %357 = call i32 @s_lock(ptr noundef nonnull %354, ptr noundef nonnull @.str, i32 noundef 413, ptr noundef nonnull @__func__.BitmapAdjustPrefetchTarget) #6
   br label %358
 
 358:                                              ; preds = %356, %353
@@ -1306,7 +1301,7 @@ table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetc
   br label %369
 
 369:                                              ; preds = %.sink.split.i, %358
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
   store i8 0, ptr %354, align 8
   br label %BitmapAdjustPrefetchTarget.exit
 
@@ -1315,7 +1310,7 @@ table_scan_bitmap_next_block.exit:                ; preds = %BitmapAdjustPrefetc
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %374 = load ptr, ptr %373, align 8
-  call void %374(ptr noundef %8) #7
+  call void %374(ptr noundef %8) #6
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %BitmapPrefetch.exit, %ExecQualAndReset.exit, %ExecQualAndReset.exit.thread, %370
@@ -1342,7 +1337,7 @@ define internal zeroext i1 @BitmapHeapRecheck(ptr noundef readonly captures(none
   store ptr %12, ptr @CurrentMemoryContext, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = call i64 %15(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %3) #7
+  %16 = call i64 %15(ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %3) #6
   store ptr %13, ptr @CurrentMemoryContext, align 8
   %17 = icmp ne i64 %16, 0
   br label %ExecQualAndReset.exit
@@ -1352,7 +1347,7 @@ ExecQualAndReset.exit:                            ; preds = %2, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %19 = load ptr, ptr %18, align 8
-  call void @MemoryContextReset(ptr noundef %19) #7
+  call void @MemoryContextReset(ptr noundef %19) #6
   ret i1 %.0.i.i
 }
 
@@ -1393,18 +1388,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

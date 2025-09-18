@@ -34,15 +34,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @spgbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #8
-  %5 = tail call ptr @palloc0(i64 noundef 10120) #8
+  %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
+  %5 = tail call ptr @palloc0(i64 noundef 10120) #7
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %1 to i64
   %9 = mul nuw nsw i64 %8, 72
-  %10 = tail call ptr @palloc(i64 noundef %9) #8
+  %10 = tail call ptr @palloc(i64 noundef %9) #7
   br label %11
 
 11:                                               ; preds = %3, %7
@@ -51,17 +51,17 @@ define dso_local ptr @spgbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %
   store ptr %.sink, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
-  tail call void @initSpGistState(ptr noundef nonnull %5, ptr noundef %14) #8
+  tail call void @initSpGistState(ptr noundef nonnull %5, ptr noundef %14) #7
   %15 = load ptr, ptr @CurrentMemoryContext, align 8
-  %16 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
+  %16 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %15, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
-  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
+  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %22 = tail call ptr @getSpGistTupleDesc(ptr noundef %0, ptr noundef nonnull %21) #8
+  %22 = tail call ptr @getSpGistTupleDesc(ptr noundef %0, ptr noundef nonnull %21) #7
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 312
@@ -74,25 +74,25 @@ define dso_local ptr @spgbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %
 28:                                               ; preds = %11
   %29 = zext nneg i32 %26 to i64
   %30 = shl nuw nsw i64 %29, 2
-  %31 = tail call ptr @palloc(i64 noundef %30) #8
+  %31 = tail call ptr @palloc(i64 noundef %30) #7
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 152
   store ptr %31, ptr %32, align 8
   %33 = load i32, ptr %25, align 4
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 2
-  %36 = tail call ptr @palloc(i64 noundef %35) #8
+  %36 = tail call ptr @palloc(i64 noundef %35) #7
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 160
   store ptr %36, ptr %37, align 8
   %38 = load i32, ptr %25, align 4
   %39 = sext i32 %38 to i64
   %40 = shl nsw i64 %39, 3
-  %41 = tail call ptr @palloc(i64 noundef %40) #8
+  %41 = tail call ptr @palloc(i64 noundef %40) #7
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 272
   store ptr %41, ptr %42, align 8
   %43 = load i32, ptr %25, align 4
   %44 = sext i32 %43 to i64
   %45 = shl nsw i64 %44, 3
-  %46 = tail call ptr @palloc(i64 noundef %45) #8
+  %46 = tail call ptr @palloc(i64 noundef %45) #7
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 280
   store ptr %46, ptr %47, align 8
   %48 = load i32, ptr %25, align 4
@@ -120,12 +120,12 @@ define dso_local ptr @spgbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %55, %.lr.ph ]
   %57 = shl nsw i64 %.pre-phi, 3
-  %58 = tail call ptr @palloc0(i64 noundef %57) #8
+  %58 = tail call ptr @palloc0(i64 noundef %57) #7
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %58, ptr %59, align 8
   %60 = load i32, ptr %25, align 4
   %61 = sext i32 %60 to i64
-  %62 = tail call ptr @palloc(i64 noundef %61) #8
+  %62 = tail call ptr @palloc(i64 noundef %61) #7
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %62, ptr %63, align 8
   %64 = load i32, ptr %25, align 4
@@ -135,13 +135,13 @@ define dso_local ptr @spgbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 66:                                               ; preds = %._crit_edge, %11
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %68 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 4) #8
+  %68 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 4) #7
   %69 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %67, ptr noundef %68, ptr noundef %69) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %67, ptr noundef %68, ptr noundef %69) #7
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %71 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 5) #8
+  %71 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 5) #7
   %72 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %70, ptr noundef %71, ptr noundef %72) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %70, ptr noundef %71, ptr noundef %72) #7
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %74, align 4
@@ -222,7 +222,7 @@ define dso_local void @spgrescan(ptr noundef readonly captures(none) %0, ptr nou
   %30 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = tail call i32 @get_func_rettype(i32 noundef %32) #8
+  %33 = tail call i32 @get_func_rettype(i32 noundef %32) #7
   %34 = load ptr, ptr %27, align 8
   %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
   store i32 %33, ptr %35, align 4
@@ -380,11 +380,11 @@ spgPrepareScanKeys.exit:                          ; preds = %._crit_edge.i, %._c
   store i32 %.365.ph.lcssa.sink.i, ptr %103, align 4
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %105 = load ptr, ptr %104, align 8
-  tail call void @MemoryContextReset(ptr noundef %105) #8
+  tail call void @MemoryContextReset(ptr noundef %105) #7
   %106 = load ptr, ptr %104, align 8
   %107 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %106, ptr @CurrentMemoryContext, align 8
-  %108 = tail call ptr @pairingheap_allocate(ptr noundef nonnull @pairingheap_SpGistSearchItem_cmp, ptr noundef %7) #8
+  %108 = tail call ptr @pairingheap_allocate(ptr noundef nonnull @pairingheap_SpGistSearchItem_cmp, ptr noundef %7) #7
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -393,7 +393,7 @@ spgPrepareScanKeys.exit:                          ; preds = %._crit_edge.i, %._c
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %spgPrepareScanKeys.exit
-  %114 = tail call ptr @palloc(i64 noundef 64) #8
+  %114 = tail call ptr @palloc(i64 noundef 64) #7
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 58
   store i8 1, ptr %115, align 2
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 52
@@ -411,7 +411,7 @@ spgPrepareScanKeys.exit:                          ; preds = %._crit_edge.i, %._c
   store i8 0, ptr %122, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %120, i8 0, i64 28, i1 false)
   %.val.i.i = load ptr, ptr %109, align 8
-  tail call void @pairingheap_add(ptr noundef %.val.i.i, ptr noundef nonnull %114) #8
+  tail call void @pairingheap_add(ptr noundef %.val.i.i, ptr noundef nonnull %114) #7
   br label %123
 
 123:                                              ; preds = %113, %spgPrepareScanKeys.exit
@@ -428,7 +428,7 @@ spgPrepareScanKeys.exit:                          ; preds = %._crit_edge.i, %._c
   %132 = sext i32 %131 to i64
   %133 = shl nsw i64 %132, 3
   %134 = add nsw i64 %133, 64
-  %135 = tail call ptr @palloc(i64 noundef %134) #8
+  %135 = tail call ptr @palloc(i64 noundef %134) #7
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 58
   store i8 0, ptr %136, align 2
   %137 = load i32, ptr %130, align 4
@@ -458,7 +458,7 @@ spgAddStartItem.exit.i:                           ; preds = %139, %127
   store i8 0, ptr %149, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %147, i8 0, i64 28, i1 false)
   %.val.i26.i = load ptr, ptr %109, align 8
-  tail call void @pairingheap_add(ptr noundef %.val.i26.i, ptr noundef nonnull %135) #8
+  tail call void @pairingheap_add(ptr noundef %.val.i26.i, ptr noundef nonnull %135) #7
   br label %150
 
 150:                                              ; preds = %spgAddStartItem.exit.i, %123
@@ -487,7 +487,7 @@ spgAddStartItem.exit.i:                           ; preds = %139, %127
   br i1 %.not.i32, label %163, label %162
 
 162:                                              ; preds = %158
-  tail call void @pfree(ptr noundef nonnull %161) #8
+  tail call void @pfree(ptr noundef nonnull %161) #7
   %.pre.i33 = load i32, ptr %154, align 8
   br label %163
 
@@ -518,7 +518,7 @@ spgAddStartItem.exit.i:                           ; preds = %139, %127
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph31.i ], [ %indvars.iv.next34.i, %174 ]
   %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv33.i
   %176 = load ptr, ptr %175, align 8
-  tail call void @pfree(ptr noundef %176) #8
+  tail call void @pfree(ptr noundef %176) #7
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %177 = load i32, ptr %170, align 8
   %178 = sext i32 %177 to i64
@@ -544,7 +544,7 @@ resetSpGistScanOpaque.exit:                       ; preds = %174, %.loopexit28.i
   br i1 %189, label %190, label %196
 
 190:                                              ; preds = %186
-  tail call void @pgstat_assoc_relation(ptr noundef nonnull %183) #8
+  tail call void @pgstat_assoc_relation(ptr noundef nonnull %183) #7
   %.pre37 = load ptr, ptr %182, align 8
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.pre37, i64 480
   %.pre39 = load ptr, ptr %.phi.trans.insert38, align 8
@@ -575,17 +575,17 @@ define dso_local void @spgendscan(ptr noundef readonly captures(none) %0) local_
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
-  tail call void @MemoryContextDelete(ptr noundef %5) #8
+  tail call void @MemoryContextDelete(ptr noundef %5) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %7 = load ptr, ptr %6, align 8
-  tail call void @MemoryContextDelete(ptr noundef %7) #8
+  tail call void @MemoryContextDelete(ptr noundef %7) #7
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %9) #8
+  tail call void @pfree(ptr noundef nonnull %9) #7
   br label %11
 
 11:                                               ; preds = %10, %1
@@ -602,7 +602,7 @@ define dso_local void @spgendscan(ptr noundef readonly captures(none) %0) local_
   br i1 %.not22, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void @FreeTupleDesc(ptr noundef nonnull %13) #8
+  tail call void @FreeTupleDesc(ptr noundef nonnull %13) #7
   br label %19
 
 19:                                               ; preds = %18, %14, %11
@@ -612,7 +612,7 @@ define dso_local void @spgendscan(ptr noundef readonly captures(none) %0) local_
   br i1 %.not23, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @pfree(ptr noundef nonnull %21) #8
+  tail call void @pfree(ptr noundef nonnull %21) #7
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -624,26 +624,26 @@ define dso_local void @spgendscan(ptr noundef readonly captures(none) %0) local_
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %29 = load ptr, ptr %28, align 8
-  tail call void @pfree(ptr noundef %29) #8
+  tail call void @pfree(ptr noundef %29) #7
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %31 = load ptr, ptr %30, align 8
-  tail call void @pfree(ptr noundef %31) #8
+  tail call void @pfree(ptr noundef %31) #7
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %33 = load ptr, ptr %32, align 8
-  tail call void @pfree(ptr noundef %33) #8
+  tail call void @pfree(ptr noundef %33) #7
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %35 = load ptr, ptr %34, align 8
-  tail call void @pfree(ptr noundef %35) #8
+  tail call void @pfree(ptr noundef %35) #7
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %37 = load ptr, ptr %36, align 8
-  tail call void @pfree(ptr noundef %37) #8
+  tail call void @pfree(ptr noundef %37) #7
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8
-  tail call void @pfree(ptr noundef %39) #8
+  tail call void @pfree(ptr noundef %39) #7
   br label %40
 
 40:                                               ; preds = %27, %23
-  tail call void @pfree(ptr noundef nonnull %3) #8
+  tail call void @pfree(ptr noundef nonnull %3) #7
   ret void
 }
 
@@ -724,7 +724,7 @@ define internal fastcc void @spgWalk(ptr noundef %0, ptr noundef %1, i1 noundef 
   br i1 %45, label %.thread109, label %spgGetNextQueueItem.exit
 
 spgGetNextQueueItem.exit:                         ; preds = %42
-  %46 = call ptr @pairingheap_remove_first(ptr noundef nonnull %.val) #8
+  %46 = call ptr @pairingheap_remove_first(ptr noundef nonnull %.val) #7
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread109, label %.preheader115
 
@@ -742,7 +742,7 @@ spgGetNextQueueItem.exit:                         ; preds = %42
   br i1 %.not, label %54, label %53, !prof !14
 
 53:                                               ; preds = %.loopexit
-  call void @ProcessInterrupts() #8
+  call void @ProcessInterrupts() #7
   br label %54
 
 54:                                               ; preds = %53, %.loopexit
@@ -765,7 +765,7 @@ spgGetNextQueueItem.exit:                         ; preds = %42
   %69 = load i8, ptr %68, align 1, !range !9, !noundef !10
   %70 = trunc nuw i8 %69 to i1
   %71 = getelementptr inbounds nuw i8, ptr %46, i64 64
-  call void %3(ptr noundef %1, ptr noundef nonnull %49, i64 noundef %59, i1 noundef zeroext %62, ptr noundef %64, i1 noundef zeroext %67, i1 noundef zeroext %70, ptr noundef nonnull %71) #8, !callees !15
+  call void %3(ptr noundef %1, ptr noundef nonnull %49, i64 noundef %59, i1 noundef zeroext %62, ptr noundef %64, i1 noundef zeroext %67, i1 noundef zeroext %70, ptr noundef nonnull %71) #7, !callees !15
   store i8 1, ptr %6, align 1
   br label %.thread105
 
@@ -781,17 +781,17 @@ spgGetNextQueueItem.exit:                         ; preds = %42
   br i1 %77, label %.sink.split, label %78
 
 78:                                               ; preds = %72
-  %79 = call i32 @BufferGetBlockNumber(i32 noundef %.3) #8
+  %79 = call i32 @BufferGetBlockNumber(i32 noundef %.3) #7
   %.not82 = icmp eq i32 %76, %79
   br i1 %.not82, label %82, label %80
 
 80:                                               ; preds = %78
-  call void @UnlockReleaseBuffer(i32 noundef %.3) #8
+  call void @UnlockReleaseBuffer(i32 noundef %.3) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %80
-  %81 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %76) #8
-  call void @LockBuffer(i32 noundef %81, i32 noundef 1) #8
+  %81 = call i32 @ReadBuffer(ptr noundef %0, i32 noundef %76) #7
+  call void @LockBuffer(i32 noundef %81, i32 noundef 1) #7
   br label %82
 
 82:                                               ; preds = %.sink.split, %78
@@ -886,12 +886,11 @@ BufferGetPage.exit:                               ; preds = %84, %90
   br label %.loopexit
 
 127:                                              ; preds = %117
-  %128 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %128)
+  %128 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %129 = load i32, ptr %123, align 4
   %130 = and i32 %129, 3
-  %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %130) #8
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 909, ptr noundef nonnull @__func__.spgWalk) #8
+  %131 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %130) #7
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 909, ptr noundef nonnull @__func__.spgWalk) #7
   unreachable
 
 132:                                              ; preds = %117
@@ -956,10 +955,10 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
   %164 = phi i64 [ %161, %160 ], [ %163, %162 ], [ 0, %138 ]
   store i64 %164, ptr %26, align 8
   store i32 %137, ptr %27, align 8
-  %165 = call ptr @spgExtractNodeLabels(ptr noundef nonnull %1, ptr noundef nonnull %123) #8
+  %165 = call ptr @spgExtractNodeLabels(ptr noundef nonnull %1, ptr noundef nonnull %123) #7
   store ptr %165, ptr %28, align 8
   %166 = load i32, ptr %30, align 8
-  %167 = call i64 @FunctionCall2Coll(ptr noundef nonnull %29, i32 noundef %166, i64 noundef %31, i64 noundef %32) #8
+  %167 = call i64 @FunctionCall2Coll(ptr noundef nonnull %29, i32 noundef %166, i64 noundef %31, i64 noundef %32) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre.i = load i32, ptr %4, align 8
   br label %.loopexit59.i
@@ -968,7 +967,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
   store i32 %137, ptr %4, align 8
   %169 = shl nuw nsw i32 %137, 2
   %170 = zext nneg i32 %169 to i64
-  %171 = call ptr @palloc(i64 noundef %170) #8
+  %171 = call ptr @palloc(i64 noundef %170) #7
   store ptr %171, ptr %33, align 8
   %.not67.i = icmp eq i32 %137, 0
   br i1 %.not67.i, label %.loopexit59.i, label %.lr.ph.preheader.i
@@ -998,10 +997,9 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
   br i1 %or.cond52.i, label %182, label %179
 
 179:                                              ; preds = %.loopexit59.i
-  %180 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %180)
-  %181 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #8
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 698, ptr noundef nonnull @__func__.spgInnerTest) #8
+  %180 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %181 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #7
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 698, ptr noundef nonnull @__func__.spgInnerTest) #7
   unreachable
 
 182:                                              ; preds = %.loopexit59.i
@@ -1010,7 +1008,7 @@ spgInitInnerConsistentIn.exit.i:                  ; preds = %162, %160, %138
 183:                                              ; preds = %182
   %184 = shl nuw nsw i32 %137, 3
   %185 = zext nneg i32 %184 to i64
-  %186 = call ptr @palloc(i64 noundef %185) #8
+  %186 = call ptr @palloc(i64 noundef %185) #7
   %187 = load i32, ptr %123, align 4
   %188 = and i32 %187, 65528
   %.not68.i = icmp eq i32 %188, 0
@@ -1081,7 +1079,7 @@ ItemPointerIsValid.exit.i:                        ; preds = %208
   br i1 %102, label %.thread.i.i.i, label %224
 
 .thread.i.i.i:                                    ; preds = %218
-  %222 = call ptr @palloc(i64 noundef 64) #8
+  %222 = call ptr @palloc(i64 noundef 64) #7
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 58
   store i8 %206, ptr %223, align 2
   br label %spgAllocSearchItem.exit.i.i
@@ -1091,7 +1089,7 @@ ItemPointerIsValid.exit.i:                        ; preds = %208
   %226 = sext i32 %225 to i64
   %227 = shl nsw i64 %226, 3
   %228 = add nsw i64 %227, 64
-  %229 = call ptr @palloc(i64 noundef %228) #8
+  %229 = call ptr @palloc(i64 noundef %228) #7
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 58
   store i8 %206, ptr %230, align 2
   %231 = load i32, ptr %14, align 4
@@ -1135,7 +1133,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %233, %224, %.thread
   %253 = trunc nuw i8 %252 to i1
   %254 = load i16, ptr %39, align 4
   %255 = sext i16 %254 to i32
-  %256 = call i64 @datumCopy(i64 noundef %251, i1 noundef zeroext %253, i32 noundef %255) #8
+  %256 = call i64 @datumCopy(i64 noundef %251, i1 noundef zeroext %253, i32 noundef %255) #7
   br label %257
 
 257:                                              ; preds = %249, %245
@@ -1164,7 +1162,7 @@ spgMakeInnerItem.exit.i:                          ; preds = %262, %257
   %269 = getelementptr inbounds nuw i8, ptr %237, i64 61
   store i8 0, ptr %269, align 1
   %.val.i = load ptr, ptr %7, align 8
-  call void @pairingheap_add(ptr noundef %.val.i, ptr noundef nonnull %237) #8
+  call void @pairingheap_add(ptr noundef %.val.i, ptr noundef nonnull %237) #7
   %.pre76.i = load i32, ptr %4, align 8
   br label %ItemPointerIsValid.exit.thread.i
 
@@ -1209,7 +1207,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
 
 285:                                              ; preds = %282
   %286 = inttoptr i64 %284 to ptr
-  call void @pfree(ptr noundef nonnull %286) #8
+  call void @pfree(ptr noundef nonnull %286) #7
   br label %287
 
 287:                                              ; preds = %285, %282, %279, %276
@@ -1219,7 +1217,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
   br i1 %.not11.i, label %291, label %290
 
 290:                                              ; preds = %287
-  call void @pfree(ptr noundef nonnull %289) #8
+  call void @pfree(ptr noundef nonnull %289) #7
   br label %291
 
 291:                                              ; preds = %290, %287
@@ -1229,13 +1227,13 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
   br i1 %.not12.i, label %295, label %294
 
 294:                                              ; preds = %291
-  call void @pfree(ptr noundef nonnull %293) #8
+  call void @pfree(ptr noundef nonnull %293) #7
   br label %295
 
 295:                                              ; preds = %294, %291
-  call void @pfree(ptr noundef nonnull %46) #8
+  call void @pfree(ptr noundef nonnull %46) #7
   %296 = load ptr, ptr %8, align 8
-  call void @MemoryContextReset(ptr noundef %296) #8
+  call void @MemoryContextReset(ptr noundef %296) #7
   %297 = load i8, ptr %6, align 1, !range !9
   %298 = trunc nuw i8 %297 to i1
   %299 = xor i1 %298, true
@@ -1248,7 +1246,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
   br i1 %.not87, label %302, label %301
 
 301:                                              ; preds = %.thread109
-  call void @UnlockReleaseBuffer(i32 noundef %.0.lcssa.ph) #8
+  call void @UnlockReleaseBuffer(i32 noundef %.0.lcssa.ph) #7
   br label %302
 
 302:                                              ; preds = %301, %.thread109
@@ -1260,7 +1258,7 @@ ItemPointerIsValid.exit.thread.i:                 ; preds = %spgMakeInnerItem.ex
 define internal void @storeBitmap(ptr noundef captures(none) %0, ptr noundef %1, i64 %2, i1 zeroext %3, ptr readnone captures(none) %4, i1 noundef zeroext %5, i1 zeroext %6, ptr readnone captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
-  tail call void @tbm_add_tuples(ptr noundef %10, ptr noundef %1, i32 noundef 1, i1 noundef zeroext %5) #8
+  tail call void @tbm_add_tuples(ptr noundef %10, ptr noundef %1, i32 noundef 1, i1 noundef zeroext %5) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, 1
@@ -1276,10 +1274,9 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1029, ptr noundef nonnull @__func__.spggettuple) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1029, ptr noundef nonnull @__func__.spggettuple) #7
   unreachable
 
 8:                                                ; preds = %2
@@ -1336,7 +1333,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %48 = getelementptr inbounds i8, ptr %47, i64 %44
   %49 = load i8, ptr %48, align 1, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
-  tail call void @index_store_float8_orderby_distances(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %46, i1 noundef zeroext %50) #8
+  tail call void @index_store_float8_orderby_distances(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %46, i1 noundef zeroext %50) #7
   br label %51
 
 51:                                               ; preds = %40, %22
@@ -1361,7 +1358,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   br i1 %.not46, label %62, label %61
 
 61:                                               ; preds = %.lr.ph
-  tail call void @pfree(ptr noundef nonnull %60) #8
+  tail call void @pfree(ptr noundef nonnull %60) #7
   %.pre65 = load i32, ptr %13, align 8
   br label %62
 
@@ -1384,7 +1381,7 @@ define dso_local noundef zeroext i1 @spggettuple(ptr noundef %0, i32 noundef %1)
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph57 ], [ 0, %.loopexit48 ]
   %70 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv62
   %71 = load ptr, ptr %70, align 8
-  tail call void @pfree(ptr noundef %71) #8
+  tail call void @pfree(ptr noundef %71) #7
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %72 = load i32, ptr %13, align 8
   %73 = sext i32 %72 to i64
@@ -1453,7 +1450,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
 35:                                               ; preds = %31
   %36 = zext nneg i32 %28 to i64
   %37 = shl nuw nsw i64 %36, 4
-  %38 = tail call ptr @palloc(i64 noundef %37) #8
+  %38 = tail call ptr @palloc(i64 noundef %37) #7
   %39 = load i32, ptr %27, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph, label %.sink.split
@@ -1514,7 +1511,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %65
-  call void @spgDeformLeafTuple(ptr noundef %4, ptr noundef nonnull %67, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext %3) #8
+  call void @spgDeformLeafTuple(ptr noundef %4, ptr noundef nonnull %67, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext %3) #7
   br label %71
 
 71:                                               ; preds = %70, %65
@@ -1522,7 +1519,7 @@ define internal void @storeGettuple(ptr noundef captures(none) %0, ptr noundef r
   store i8 %11, ptr %10, align 16
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %73 = load ptr, ptr %72, align 8
-  %74 = call ptr @heap_form_tuple(ptr noundef %73, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  %74 = call ptr @heap_form_tuple(ptr noundef %73, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 3592
   %76 = load i32, ptr %15, align 8
   %77 = sext i32 %76 to i64
@@ -1545,7 +1542,7 @@ define dso_local zeroext i1 @spgcanreturn(ptr noundef %0, i32 noundef %1) local_
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @spgGetCache(ptr noundef %0) #8
+  %5 = tail call ptr @spgGetCache(ptr noundef %0) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i8, ptr %6, align 4, !range !9, !noundef !10
   %8 = trunc nuw i8 %7 to i1
@@ -1687,12 +1684,11 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   br label %174
 
 24:                                               ; preds = %20, %19
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %25)
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %26 = load i32, ptr %16, align 4
   %27 = and i32 %26, 3
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %27) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 796, ptr noundef nonnull @__func__.spgTestLeafTuple) #8
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %27) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 796, ptr noundef nonnull @__func__.spgTestLeafTuple) #7
   unreachable
 
 29:                                               ; preds = %8
@@ -1773,10 +1769,9 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
 
 75:                                               ; preds = %63
   %76 = sext i16 %62 to i32
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %76) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef range(i32 -32768, 32768) %76) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
   unreachable
 
 79:                                               ; preds = %30
@@ -1799,7 +1794,7 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   %88 = load i32, ptr %87, align 8
   %89 = ptrtoint ptr %9 to i64
   %90 = ptrtoint ptr %10 to i64
-  %91 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %88, i64 noundef %89, i64 noundef %90) #8
+  %91 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %88, i64 noundef %89, i64 noundef %90) #7
   %.not.i = icmp eq i64 %91, 0
   %92 = load i8, ptr %83, align 8, !range !9, !noundef !10
   %93 = load i8, ptr %85, align 1, !range !9, !noundef !10
@@ -1835,7 +1830,7 @@ define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr nou
   %108 = zext nneg i32 %98 to i64
   %109 = shl nuw nsw i64 %108, 3
   %110 = add nuw nsw i64 %109, 64
-  %111 = call ptr @palloc(i64 noundef %110) #8
+  %111 = call ptr @palloc(i64 noundef %110) #7
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 58
   store i8 %106, ptr %112, align 2
   %113 = load i32, ptr %97, align 4
@@ -1861,7 +1856,7 @@ spgAllocSearchItem.exit.i.i:                      ; preds = %115, %107
   br i1 %124, label %133, label %159
 
 spgAllocSearchItem.exit.thread.i.i:               ; preds = %100
-  %125 = call ptr @palloc(i64 noundef 64) #8
+  %125 = call ptr @palloc(i64 noundef 64) #7
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 58
   store i8 %106, ptr %126, align 2
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 48
@@ -1881,7 +1876,7 @@ spgAllocSearchItem.exit.thread.i.i:               ; preds = %100
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %138 = load i16, ptr %137, align 4
   %139 = sext i16 %138 to i32
-  %140 = call i64 @datumCopy(i64 noundef %.053.i, i1 noundef zeroext %136, i32 noundef %139) #8
+  %140 = call i64 @datumCopy(i64 noundef %.053.i, i1 noundef zeroext %136, i32 noundef %139) #7
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %133, %spgAllocSearchItem.exit.thread.i.i
@@ -1899,7 +1894,7 @@ spgAllocSearchItem.exit.thread.i.i:               ; preds = %100
   %149 = load i32, ptr %16, align 4
   %150 = lshr i32 %149, 2
   %151 = zext nneg i32 %150 to i64
-  %152 = call ptr @palloc(i64 noundef %151) #8
+  %152 = call ptr @palloc(i64 noundef %151) #7
   %153 = getelementptr inbounds nuw i8, ptr %141, i64 32
   store ptr %152, ptr %153, align 8
   %154 = load i32, ptr %16, align 4
@@ -1932,13 +1927,13 @@ spgNewHeapItem.exit.i:                            ; preds = %159, %157, %148
   store i8 %.04149.i, ptr %167, align 1
   %168 = getelementptr i8, ptr %0, i64 96
   %.val.i = load ptr, ptr %168, align 8
-  call void @pairingheap_add(ptr noundef %.val.i, ptr noundef nonnull %162) #8
+  call void @pairingheap_add(ptr noundef %.val.i, ptr noundef nonnull %162) #7
   store ptr %103, ptr @CurrentMemoryContext, align 8
   br label %spgLeafTest.exit
 
 169:                                              ; preds = %.thread.i
   %170 = getelementptr inbounds nuw i8, ptr %16, i64 6
-  call void %7(ptr noundef nonnull %0, ptr noundef nonnull %170, i64 noundef %.053.i, i1 noundef zeroext %4, ptr noundef nonnull %16, i1 noundef zeroext %.04248.i, i1 noundef zeroext false, ptr noundef null) #8, !callees !15
+  call void %7(ptr noundef nonnull %0, ptr noundef nonnull %170, i64 noundef %.053.i, i1 noundef zeroext %4, ptr noundef nonnull %16, i1 noundef zeroext %.04248.i, i1 noundef zeroext false, ptr noundef null) #7, !callees !15
   store i8 1, ptr %6, align 1
   br label %spgLeafTest.exit
 
@@ -1973,9 +1968,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1983,9 +1975,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

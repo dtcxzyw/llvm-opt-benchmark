@@ -109,7 +109,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @pq_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = tail call ptr @palloc0(i64 noundef 552) #21
+  %3 = tail call ptr @palloc0(i64 noundef 552) #20
   %4 = load i32, ptr %0, align 8
   store i32 %4, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 152
@@ -124,15 +124,14 @@ define dso_local noundef ptr @pq_init(ptr noundef readonly captures(none) %0) lo
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 128, ptr %13, align 8
-  %14 = tail call i32 @getsockname(i32 noundef %4, ptr nonnull %12, ptr noundef nonnull %13) #21
+  %14 = tail call i32 @getsockname(i32 noundef %4, ptr nonnull %12, ptr noundef nonnull %13) #20
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %1
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 193, ptr noundef nonnull @__func__.pq_init) #21
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 193, ptr noundef nonnull @__func__.pq_init) #20
   unreachable
 
 19:                                               ; preds = %1
@@ -144,29 +143,27 @@ define dso_local noundef ptr @pq_init(ptr noundef readonly captures(none) %0) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 1, ptr %2, align 4
   %22 = load i32, ptr %3, align 8
-  %23 = call i32 @setsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 4) #21
+  %23 = call i32 @setsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 4) #20
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  call void @llvm.assume(i1 %26)
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 212, ptr noundef nonnull @__func__.pq_init) #21
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 212, ptr noundef nonnull @__func__.pq_init) #20
   unreachable
 
 28:                                               ; preds = %21
   store i32 1, ptr %2, align 4
   %29 = load i32, ptr %3, align 8
-  %30 = call i32 @setsockopt(i32 noundef %29, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %2, i32 noundef 4) #21
+  %30 = call i32 @setsockopt(i32 noundef %29, i32 noundef 1, i32 noundef 9, ptr noundef nonnull %2, i32 noundef 4) #20
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  call void @llvm.assume(i1 %33)
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 220, ptr noundef nonnull @__func__.pq_init) #21
+  %33 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 220, ptr noundef nonnull @__func__.pq_init) #20
   unreachable
 
 35:                                               ; preds = %28
@@ -184,7 +181,7 @@ define dso_local noundef ptr @pq_init(ptr noundef readonly captures(none) %0) lo
 44:                                               ; preds = %35, %19
   store i32 8192, ptr @PqSendBufferSize, align 4
   %45 = load ptr, ptr @TopMemoryContext, align 8
-  %46 = call ptr @MemoryContextAlloc(ptr noundef %45, i64 noundef 8192) #21
+  %46 = call ptr @MemoryContextAlloc(ptr noundef %45, i64 noundef 8192) #20
   store ptr %46, ptr @PqSendBuffer, align 8
   store i32 0, ptr @PqRecvLength, align 4
   store i32 0, ptr @PqRecvPointer, align 4
@@ -192,41 +189,39 @@ define dso_local noundef ptr @pq_init(ptr noundef readonly captures(none) %0) lo
   store i64 0, ptr @PqSendPointer, align 8
   store i1 false, ptr @PqCommBusy, align 1
   store i1 false, ptr @PqCommReadingMsg, align 1
-  call void @on_proc_exit(ptr noundef nonnull @socket_close, i64 noundef 0) #21
+  call void @on_proc_exit(ptr noundef nonnull @socket_close, i64 noundef 0) #20
   %47 = load i32, ptr %3, align 8
-  %48 = call zeroext i1 @pg_set_noblock(i32 noundef %47) #21
+  %48 = call zeroext i1 @pg_set_noblock(i32 noundef %47) #20
   br i1 %48, label %52, label %49
 
 49:                                               ; preds = %44
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  call void @llvm.assume(i1 %50)
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 297, ptr noundef nonnull @__func__.pq_init) #21
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 297, ptr noundef nonnull @__func__.pq_init) #20
   unreachable
 
 52:                                               ; preds = %44
   %53 = load i32, ptr %3, align 8
-  %54 = call i32 (i32, i32, ...) @fcntl(i32 noundef %53, i32 noundef 2, i32 noundef 1) #21
+  %54 = call i32 (i32, i32, ...) @fcntl(i32 noundef %53, i32 noundef 2, i32 noundef 1) #20
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %52
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 304, ptr noundef nonnull @__func__.pq_init) #21
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 304, ptr noundef nonnull @__func__.pq_init) #20
   unreachable
 
 59:                                               ; preds = %52
-  %60 = call ptr @CreateWaitEventSet(ptr noundef null, i32 noundef 3) #21
+  %60 = call ptr @CreateWaitEventSet(ptr noundef null, i32 noundef 3) #20
   store ptr %60, ptr @FeBeWaitSet, align 8
   %61 = load i32, ptr %3, align 8
-  %62 = call i32 @AddWaitEventToSet(ptr noundef %60, i32 noundef 4, i32 noundef %61, ptr noundef null, ptr noundef null) #21
+  %62 = call i32 @AddWaitEventToSet(ptr noundef %60, i32 noundef 4, i32 noundef %61, ptr noundef null, ptr noundef null) #20
   %63 = load ptr, ptr @FeBeWaitSet, align 8
   %64 = load ptr, ptr @MyLatch, align 8
-  %65 = call i32 @AddWaitEventToSet(ptr noundef %63, i32 noundef 1, i32 noundef -1, ptr noundef %64, ptr noundef null) #21
+  %65 = call i32 @AddWaitEventToSet(ptr noundef %63, i32 noundef 1, i32 noundef -1, ptr noundef %64, ptr noundef null) #20
   %66 = load ptr, ptr @FeBeWaitSet, align 8
-  %67 = call i32 @AddWaitEventToSet(ptr noundef %66, i32 noundef 16, i32 noundef -1, ptr noundef null, ptr noundef null) #21
+  %67 = call i32 @AddWaitEventToSet(ptr noundef %66, i32 noundef 16, i32 noundef -1, ptr noundef null, ptr noundef null) #20
   ret ptr %3
 }
 
@@ -288,7 +283,7 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesidle(i32 noundef %0, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 4, ptr %3, align 4
   %22 = load i32, ptr %1, align 8
-  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %15, ptr noundef nonnull %3) #21
+  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %15, ptr noundef nonnull %3) #20
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %._crit_edge.i
 
@@ -297,12 +292,12 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesidle(i32 noundef %0, ptr 
   br label %30
 
 25:                                               ; preds = %21
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1649, ptr noundef nonnull @__func__.pq_getkeepalivesidle) #21
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1649, ptr noundef nonnull @__func__.pq_getkeepalivesidle) #20
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -336,17 +331,17 @@ pq_getkeepalivesidle.exit.thread:                 ; preds = %19, %pq_getkeepaliv
 
 38:                                               ; preds = %37, %34
   %39 = load i32, ptr %1, align 8
-  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %4, i32 noundef 4) #21
+  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %4, i32 noundef 4) #20
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %38
-  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.36) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1694, ptr noundef nonnull @__func__.pq_setkeepalivesidle) #21
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.36) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1694, ptr noundef nonnull @__func__.pq_setkeepalivesidle) #20
   br label %48
 
 46:                                               ; preds = %38
@@ -397,7 +392,7 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesinterval(i32 noundef %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 4, ptr %3, align 4
   %22 = load i32, ptr %1, align 8
-  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %15, ptr noundef nonnull %3) #21
+  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %15, ptr noundef nonnull %3) #20
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %._crit_edge.i
 
@@ -406,12 +401,12 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivesinterval(i32 noundef %0, 
   br label %30
 
 25:                                               ; preds = %21
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1734, ptr noundef nonnull @__func__.pq_getkeepalivesinterval) #21
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1734, ptr noundef nonnull @__func__.pq_getkeepalivesinterval) #20
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -445,17 +440,17 @@ pq_getkeepalivesinterval.exit.thread:             ; preds = %19, %pq_getkeepaliv
 
 38:                                               ; preds = %37, %34
   %39 = load i32, ptr %1, align 8
-  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %4, i32 noundef 4) #21
+  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %4, i32 noundef 4) #20
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %38
-  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.37) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1778, ptr noundef nonnull @__func__.pq_setkeepalivesinterval) #21
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.37) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1778, ptr noundef nonnull @__func__.pq_setkeepalivesinterval) #20
   br label %48
 
 46:                                               ; preds = %38
@@ -506,7 +501,7 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivescount(i32 noundef %0, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 4, ptr %3, align 4
   %22 = load i32, ptr %1, align 8
-  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %15, ptr noundef nonnull %3) #21
+  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %15, ptr noundef nonnull %3) #20
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %._crit_edge.i
 
@@ -515,12 +510,12 @@ define dso_local range(i32 -1, 1) i32 @pq_setkeepalivescount(i32 noundef %0, ptr
   br label %30
 
 25:                                               ; preds = %21
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1817, ptr noundef nonnull @__func__.pq_getkeepalivescount) #21
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1817, ptr noundef nonnull @__func__.pq_getkeepalivescount) #20
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -554,17 +549,17 @@ pq_getkeepalivescount.exit.thread:                ; preds = %19, %pq_getkeepaliv
 
 38:                                               ; preds = %37, %34
   %39 = load i32, ptr %1, align 8
-  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %4, i32 noundef 4) #21
+  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %4, i32 noundef 4) #20
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %38
-  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.38) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1856, ptr noundef nonnull @__func__.pq_setkeepalivescount) #21
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.38) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1856, ptr noundef nonnull @__func__.pq_setkeepalivescount) #20
   br label %48
 
 46:                                               ; preds = %38
@@ -615,7 +610,7 @@ define dso_local range(i32 -1, 1) i32 @pq_settcpusertimeout(i32 noundef %0, ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 4, ptr %3, align 4
   %22 = load i32, ptr %1, align 8
-  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %15, ptr noundef nonnull %3) #21
+  %23 = call i32 @getsockopt(i32 noundef %22, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %15, ptr noundef nonnull %3) #20
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %._crit_edge.i
 
@@ -624,12 +619,12 @@ define dso_local range(i32 -1, 1) i32 @pq_settcpusertimeout(i32 noundef %0, ptr 
   br label %30
 
 25:                                               ; preds = %21
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.39) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1892, ptr noundef nonnull @__func__.pq_gettcpusertimeout) #21
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.39) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1892, ptr noundef nonnull @__func__.pq_gettcpusertimeout) #20
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -663,17 +658,17 @@ pq_gettcpusertimeout.exit.thread:                 ; preds = %19, %pq_gettcpusert
 
 38:                                               ; preds = %37, %34
   %39 = load i32, ptr %1, align 8
-  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %4, i32 noundef 4) #21
+  %40 = call i32 @setsockopt(i32 noundef %39, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %4, i32 noundef 4) #20
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %38
-  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %43 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.39) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1931, ptr noundef nonnull @__func__.pq_settcpusertimeout) #21
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.39) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1931, ptr noundef nonnull @__func__.pq_settcpusertimeout) #20
   br label %48
 
 46:                                               ; preds = %38
@@ -697,7 +692,7 @@ define internal void @socket_close(i32 %0, i64 %1) #0 {
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
-  tail call void @secure_close(ptr noundef nonnull %3) #21
+  tail call void @secure_close(ptr noundef nonnull %3) #20
   %5 = load ptr, ptr @MyProcPort, align 8
   store i32 -1, ptr %5, align 8
   br label %6
@@ -747,18 +742,18 @@ define dso_local range(i32 -1, 1) i32 @ListenServerPort(i32 noundef %0, ptr noun
   br i1 %19, label %21, label %37
 
 21:                                               ; preds = %7
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef %3, i32 noundef %20) #21
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #23
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 1024, ptr noundef nonnull @.str.9, ptr noundef %3, i32 noundef %20) #20
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #22
   %24 = icmp ugt i64 %23, 107
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %21
-  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %26 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %26, label %27, label %220
 
 27:                                               ; preds = %25
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %14, i32 noundef 107) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 459, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %14, i32 noundef 107) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 459, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %220
 
 29:                                               ; preds = %21
@@ -767,21 +762,21 @@ define dso_local range(i32 -1, 1) i32 @ListenServerPort(i32 noundef %0, ptr noun
   br i1 %31, label %Lock_AF_UNIX.exit, label %32
 
 32:                                               ; preds = %29
-  call void @CreateSocketLockFile(ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef %3) #21
-  %33 = call i32 @unlink(ptr noundef nonnull %14) #21
+  call void @CreateSocketLockFile(ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef %3) #20
+  %33 = call i32 @unlink(ptr noundef nonnull %14) #20
   %34 = load ptr, ptr @sock_paths, align 8
-  %35 = call ptr @pstrdup(ptr noundef nonnull %14) #21
-  %36 = call ptr @lappend(ptr noundef %34, ptr noundef %35) #21
+  %35 = call ptr @pstrdup(ptr noundef nonnull %14) #20
+  %36 = call ptr @lappend(ptr noundef %34, ptr noundef %35) #20
   store ptr %36, ptr @sock_paths, align 8
   br label %Lock_AF_UNIX.exit
 
 37:                                               ; preds = %7
-  %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.11, i32 noundef %20) #21
+  %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.11, i32 noundef %20) #20
   br label %Lock_AF_UNIX.exit
 
 Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   %.093 = phi ptr [ %9, %37 ], [ %14, %29 ], [ %14, %32 ]
-  %39 = call i32 @pg_getaddrinfo_all(ptr noundef %1, ptr noundef nonnull %.093, ptr noundef nonnull %13, ptr noundef nonnull %12) #21
+  %39 = call i32 @pg_getaddrinfo_all(ptr noundef %1, ptr noundef nonnull %.093, ptr noundef nonnull %13, ptr noundef nonnull %12) #20
   %40 = icmp eq i32 %39, 0
   %41 = load ptr, ptr %12, align 8
   %42 = icmp ne ptr %41, null
@@ -794,28 +789,28 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 44:                                               ; preds = %Lock_AF_UNIX.exit
   %.not = icmp eq ptr %1, null
-  %45 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %45 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %.not, label %50, label %46
 
 46:                                               ; preds = %44
   br i1 %45, label %47, label %54
 
 47:                                               ; preds = %46
-  %48 = call ptr @gai_strerror(i32 noundef %39) #21
-  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %1, ptr noundef nonnull %.093, ptr noundef %48) #21
+  %48 = call ptr @gai_strerror(i32 noundef %39) #20
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %1, ptr noundef nonnull %.093, ptr noundef %48) #20
   br label %.sink.split
 
 50:                                               ; preds = %44
   br i1 %45, label %51, label %54
 
 51:                                               ; preds = %50
-  %52 = call ptr @gai_strerror(i32 noundef %39) #21
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %.093, ptr noundef %52) #21
+  %52 = call ptr @gai_strerror(i32 noundef %39) #20
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %.093, ptr noundef %52) #20
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %51
   %.sink = phi i32 [ 482, %51 ], [ 478, %47 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.ListenServerPort) #21
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %54
 
 54:                                               ; preds = %.sink.split, %50, %46
@@ -825,7 +820,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %17, align 4
-  call void @pg_freeaddrinfo_all(i32 noundef %57, ptr noundef nonnull %55) #21
+  call void @pg_freeaddrinfo_all(i32 noundef %57, ptr noundef nonnull %55) #20
   br label %220
 
 58:                                               ; preds = %.preheader, %215
@@ -845,12 +840,12 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %63
-  %67 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %67 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %67, label %68, label %.loopexit
 
 68:                                               ; preds = %66
-  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, i32 noundef %6) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 504, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, i32 noundef %6) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 504, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %.loopexit
 
 70:                                               ; preds = %63
@@ -866,7 +861,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br label %.thread
 
 74:                                               ; preds = %70
-  %75 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %72) #21
+  %75 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.18, i32 noundef %72) #20
   %.pr = load i32, ptr %71, align 4
   %76 = icmp eq i32 %.pr, 1
   br i1 %76, label %.thread110, label %.thread
@@ -877,7 +872,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %.094130, i64 16
   %80 = load i32, ptr %79, align 8
-  %81 = call i32 @pg_getnameinfo_all(ptr noundef %78, i32 noundef %80, ptr noundef nonnull %11, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #21
+  %81 = call i32 @pg_getnameinfo_all(ptr noundef %78, i32 noundef %80, ptr noundef nonnull %11, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #20
   %.pre = load i32, ptr %71, align 4
   br label %.thread110
 
@@ -885,30 +880,29 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   %82 = phi i32 [ %.pre, %.thread ], [ 1, %74 ], [ %72, %70 ]
   %.090109 = phi ptr [ %.090108, %.thread ], [ %10, %74 ], [ @.str.17, %70 ]
   %.092 = phi ptr [ %11, %.thread ], [ %14, %74 ], [ %14, %70 ]
-  %83 = call i32 @socket(i32 noundef %82, i32 noundef 1, i32 noundef 0) #21
+  %83 = call i32 @socket(i32 noundef %82, i32 noundef 1, i32 noundef 0) #20
   %84 = icmp eq i32 %83, -1
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %.thread110
-  %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %86, label %87, label %215
 
 87:                                               ; preds = %85
-  %88 = call i32 @errcode_for_socket_access() #21
-  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 547, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %88 = call i32 @errcode_for_socket_access() #20
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 547, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %215
 
 90:                                               ; preds = %.thread110
-  %91 = call i32 (i32, i32, ...) @fcntl(i32 noundef %83, i32 noundef 2, i32 noundef 1) #21
+  %91 = call i32 (i32, i32, ...) @fcntl(i32 noundef %83, i32 noundef 2, i32 noundef 1) #20
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %90
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  call void @llvm.assume(i1 %94)
-  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 554, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 554, ptr noundef nonnull @__func__.ListenServerPort) #20
   unreachable
 
 96:                                               ; preds = %90
@@ -917,22 +911,22 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br i1 %.not104, label %.thread113, label %98
 
 98:                                               ; preds = %96
-  %99 = call i32 @setsockopt(i32 noundef %83, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %15, i32 noundef 4) #21
+  %99 = call i32 @setsockopt(i32 noundef %83, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %15, i32 noundef 4) #20
   %100 = icmp eq i32 %99, -1
   br i1 %100, label %101, label %108
 
 101:                                              ; preds = %98
-  %102 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %102 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %101
-  %104 = call i32 @errcode_for_socket_access() #21
-  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.21, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 577, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %104 = call i32 @errcode_for_socket_access() #20
+  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.21, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 577, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %106
 
 106:                                              ; preds = %103, %101
-  %107 = call i32 @close(i32 noundef %83) #21
+  %107 = call i32 @close(i32 noundef %83) #20
   br label %215
 
 108:                                              ; preds = %98
@@ -941,22 +935,22 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   br i1 %109, label %110, label %.thread113
 
 110:                                              ; preds = %108
-  %111 = call i32 @setsockopt(i32 noundef %83, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %15, i32 noundef 4) #21
+  %111 = call i32 @setsockopt(i32 noundef %83, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %15, i32 noundef 4) #20
   %112 = icmp eq i32 %111, -1
   br i1 %112, label %113, label %.thread113
 
 113:                                              ; preds = %110
-  %114 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %114 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %113
-  %116 = call i32 @errcode_for_socket_access() #21
-  %117 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.22, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 595, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %116 = call i32 @errcode_for_socket_access() #20
+  %117 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.22, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 595, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %118
 
 118:                                              ; preds = %115, %113
-  %119 = call i32 @close(i32 noundef %83) #21
+  %119 = call i32 @close(i32 noundef %83) #20
   br label %215
 
 .thread113:                                       ; preds = %96, %110, %108
@@ -964,19 +958,19 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %.094130, i64 16
   %123 = load i32, ptr %122, align 8
-  %124 = call i32 @bind(i32 noundef %83, ptr %121, i32 noundef %123) #21
+  %124 = call i32 @bind(i32 noundef %83, ptr %121, i32 noundef %123) #20
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %126, label %140
 
 126:                                              ; preds = %.thread113
-  %127 = tail call ptr @__errno_location() #24
+  %127 = tail call ptr @__errno_location() #23
   %128 = load i32, ptr %127, align 4
-  %129 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %129 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %129, label %130, label %138
 
 130:                                              ; preds = %126
-  %131 = call i32 @errcode_for_socket_access() #21
-  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #21
+  %131 = call i32 @errcode_for_socket_access() #20
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #20
   %133 = icmp eq i32 %128, 98
   br i1 %133, label %.sink.split160, label %137
 
@@ -984,15 +978,15 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
   %134 = load i32, ptr %71, align 4
   %135 = icmp eq i32 %134, 1
   %.str.24..str.25 = select i1 %135, ptr @.str.24, ptr @.str.25
-  %136 = call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.24..str.25, i32 noundef %43) #21
+  %136 = call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.24..str.25, i32 noundef %43) #20
   br label %137
 
 137:                                              ; preds = %.sink.split160, %130
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 624, ptr noundef nonnull @__func__.ListenServerPort) #21
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 624, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %138
 
 138:                                              ; preds = %137, %126
-  %139 = call i32 @close(i32 noundef %83) #21
+  %139 = call i32 @close(i32 noundef %83) #20
   br label %215
 
 140:                                              ; preds = %.thread113
@@ -1013,7 +1007,7 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 149:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %150 = call i64 @strtoul(ptr noundef nonnull %147, ptr noundef nonnull %8, i32 noundef 10) #21
+  %150 = call i64 @strtoul(ptr noundef nonnull %147, ptr noundef nonnull %8, i32 noundef 10) #20
   %151 = load ptr, ptr %8, align 8
   %152 = load i8, ptr %151, align 1
   %153 = icmp eq i8 %152, 0
@@ -1025,17 +1019,17 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 156:                                              ; preds = %149
   %157 = load ptr, ptr @Unix_socket_group, align 8
-  %158 = call ptr @getgrnam(ptr noundef %157) #21
+  %158 = call ptr @getgrnam(ptr noundef %157) #20
   %.not16.not.i = icmp eq ptr %158, null
   br i1 %.not16.not.i, label %159, label %164
 
 159:                                              ; preds = %156
-  %160 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %160 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %160, label %161, label %.thread19.i
 
 161:                                              ; preds = %159
   %162 = load ptr, ptr @Unix_socket_group, align 8
-  %163 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef %162) #21
+  %163 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef %162) #20
   br label %.thread19.sink.split.i
 
 164:                                              ; preds = %156
@@ -1045,22 +1039,22 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 167:                                              ; preds = %164, %154
   %.013.i = phi i32 [ %155, %154 ], [ %166, %164 ]
-  %168 = call i32 @chown(ptr noundef nonnull %.093, i32 noundef -1, i32 noundef %.013.i) #21
+  %168 = call i32 @chown(ptr noundef nonnull %.093, i32 noundef -1, i32 noundef %.013.i) #20
   %169 = icmp eq i32 %168, -1
   br i1 %169, label %170, label %175
 
 170:                                              ; preds = %167
-  %171 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %171 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %171, label %172, label %.thread19.i
 
 172:                                              ; preds = %170
-  %173 = call i32 @errcode_for_file_access() #21
-  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull %.093) #21
+  %173 = call i32 @errcode_for_file_access() #20
+  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull %.093) #20
   br label %.thread19.sink.split.i
 
 .thread19.sink.split.i:                           ; preds = %172, %161
   %.sink.i = phi i32 [ 765, %172 ], [ 755, %161 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i, ptr noundef nonnull @__func__.Setup_AF_UNIX) #21
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i, ptr noundef nonnull @__func__.Setup_AF_UNIX) #20
   br label %.thread19.i
 
 .thread19.i:                                      ; preds = %.thread19.sink.split.i, %170, %159
@@ -1073,68 +1067,68 @@ Lock_AF_UNIX.exit:                                ; preds = %32, %29, %37
 
 176:                                              ; preds = %175, %146
   %177 = load i32, ptr @Unix_socket_permissions, align 4
-  %178 = call i32 @chmod(ptr noundef nonnull %.093, i32 noundef %177) #21
+  %178 = call i32 @chmod(ptr noundef nonnull %.093, i32 noundef %177) #20
   %179 = icmp eq i32 %178, -1
   br i1 %179, label %180, label %Setup_AF_UNIX.exit
 
 180:                                              ; preds = %176
-  %181 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %181 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %181, label %182, label %185
 
 182:                                              ; preds = %180
-  %183 = call i32 @errcode_for_file_access() #21
-  %184 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %.093) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 776, ptr noundef nonnull @__func__.Setup_AF_UNIX) #21
+  %183 = call i32 @errcode_for_file_access() #20
+  %184 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %.093) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 776, ptr noundef nonnull @__func__.Setup_AF_UNIX) #20
   br label %185
 
 185:                                              ; preds = %180, %182, %.thread19.i
-  %186 = call i32 @close(i32 noundef %83) #21
+  %186 = call i32 @close(i32 noundef %83) #20
   br label %.loopexit
 
 Setup_AF_UNIX.exit:                               ; preds = %176, %143, %140
   %187 = load i32, ptr @MaxConnections, align 4
   %188 = shl i32 %187, 1
-  %189 = call i32 @listen(i32 noundef %83, i32 noundef %188) #21
+  %189 = call i32 @listen(i32 noundef %83, i32 noundef %188) #20
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %198
 
 191:                                              ; preds = %Setup_AF_UNIX.exit
-  %192 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %192 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = call i32 @errcode_for_socket_access() #21
-  %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 652, ptr noundef nonnull @__func__.ListenServerPort) #21
+  %194 = call i32 @errcode_for_socket_access() #20
+  %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %.090109, ptr noundef nonnull %.092) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 652, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %196
 
 196:                                              ; preds = %193, %191
-  %197 = call i32 @close(i32 noundef %83) #21
+  %197 = call i32 @close(i32 noundef %83) #20
   br label %215
 
 198:                                              ; preds = %Setup_AF_UNIX.exit
   %199 = load i32, ptr %71, align 4
   %200 = icmp eq i32 %199, 1
-  %201 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %201 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %200, label %202, label %205
 
 202:                                              ; preds = %198
   br i1 %201, label %203, label %208
 
 203:                                              ; preds = %202
-  %204 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %.092) #21
+  %204 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull %.092) #20
   br label %.sink.split161
 
 205:                                              ; preds = %198
   br i1 %201, label %206, label %208
 
 206:                                              ; preds = %205
-  %207 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %.090109, ptr noundef nonnull %.092, i32 noundef %43) #21
+  %207 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %.090109, ptr noundef nonnull %.092, i32 noundef %43) #20
   br label %.sink.split161
 
 .sink.split161:                                   ; preds = %203, %206
   %.sink162 = phi i32 [ 665, %206 ], [ 660, %203 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink162, ptr noundef nonnull @__func__.ListenServerPort) #21
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink162, ptr noundef nonnull @__func__.ListenServerPort) #20
   br label %208
 
 208:                                              ; preds = %.sink.split161, %205, %202
@@ -1159,7 +1153,7 @@ Setup_AF_UNIX.exit:                               ; preds = %176, %143, %140
   %.095121 = phi i32 [ %.095129, %66 ], [ %.095129, %68 ], [ %.095129, %185 ], [ %.1, %215 ]
   %218 = load i32, ptr %17, align 4
   %219 = load ptr, ptr %12, align 8
-  call void @pg_freeaddrinfo_all(i32 noundef %218, ptr noundef %219) #21
+  call void @pg_freeaddrinfo_all(i32 noundef %218, ptr noundef %219) #20
   %.not106 = icmp eq i32 %.095121, 0
   %. = sext i1 %.not106 to i32
   br label %220
@@ -1216,23 +1210,23 @@ define dso_local range(i32 -1, 1) i32 @AcceptConnection(i32 noundef %0, ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 128, ptr %4, align 8
-  %5 = tail call i32 @accept(i32 noundef %0, ptr nonnull %3, ptr noundef nonnull %4) #21
+  %5 = tail call i32 @accept(i32 noundef %0, ptr nonnull %3, ptr noundef nonnull %4) #20
   store i32 %5, ptr %1, align 8
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %8 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @errcode_for_socket_access() #21
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 804, ptr noundef nonnull @__func__.AcceptConnection) #21
+  %10 = tail call i32 @errcode_for_socket_access() #20
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 804, ptr noundef nonnull @__func__.AcceptConnection) #20
   br label %12
 
 12:                                               ; preds = %7, %9
-  tail call void @pg_usleep(i64 noundef 100000) #21
+  tail call void @pg_usleep(i64 noundef 100000) #20
   br label %13
 
 13:                                               ; preds = %2, %12
@@ -1262,7 +1256,7 @@ define dso_local void @TouchSocketFiles() local_unnamed_addr #8 {
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @utime(ptr noundef %8, ptr noundef null) #21
+  %9 = tail call i32 @utime(ptr noundef %8, ptr noundef null) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
@@ -1294,7 +1288,7 @@ define dso_local void @RemoveSocketFiles() local_unnamed_addr #8 {
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @unlink(ptr noundef %8) #21
+  %9 = tail call i32 @unlink(ptr noundef %8) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
@@ -1373,17 +1367,16 @@ define internal fastcc range(i32 -1, 1) i32 @pq_recvbuf() unnamed_addr #0 {
   br i1 %14, label %15, label %socket_set_nonblocking.exit
 
 15:                                               ; preds = %12
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode(i32 noundef 50332160) #21
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #21
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %17 = tail call i32 @errcode(i32 noundef 50332160) #20
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #20
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 0, ptr %19, align 4
-  %20 = tail call ptr @__errno_location() #24
+  %20 = tail call ptr @__errno_location() #23
   br label %21
 
 21:                                               ; preds = %31, %socket_set_nonblocking.exit
@@ -1394,7 +1387,7 @@ socket_set_nonblocking.exit:                      ; preds = %12
   %25 = getelementptr inbounds i8, ptr @PqRecvBuffer, i64 %24
   %26 = sub i32 8192, %23
   %27 = sext i32 %26 to i64
-  %28 = tail call i64 @secure_read(ptr noundef %22, ptr noundef nonnull %25, i64 noundef %27) #21
+  %28 = tail call i64 @secure_read(ptr noundef %22, ptr noundef nonnull %25, i64 noundef %27) #20
   %29 = trunc i64 %28 to i32
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %38
@@ -1407,13 +1400,13 @@ socket_set_nonblocking.exit:                      ; preds = %12
   ]
 
 33:                                               ; preds = %31
-  %34 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %34 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @errcode_for_socket_access() #21
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 942, ptr noundef nonnull @__func__.pq_recvbuf) #21
+  %36 = tail call i32 @errcode_for_socket_access() #20
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 942, ptr noundef nonnull @__func__.pq_recvbuf) #20
   br label %.loopexit
 
 38:                                               ; preds = %21
@@ -1480,20 +1473,19 @@ define dso_local range(i32 -1, -2147483648) i32 @pq_getbyte_if_available(ptr nou
   br i1 %12, label %13, label %socket_set_nonblocking.exit
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 50332160) #21
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #21
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %15 = tail call i32 @errcode(i32 noundef 50332160) #20
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #20
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 1, ptr %17, align 4
-  %18 = tail call ptr @__errno_location() #24
+  %18 = tail call ptr @__errno_location() #23
   store i32 0, ptr %18, align 4
   %19 = load ptr, ptr @MyProcPort, align 8
-  %20 = tail call i64 @secure_read(ptr noundef %19, ptr noundef %0, i64 noundef 1) #21
+  %20 = tail call i64 @secure_read(ptr noundef %19, ptr noundef %0, i64 noundef 1) #20
   %21 = trunc i64 %20 to i32
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %31
@@ -1507,13 +1499,13 @@ socket_set_nonblocking.exit:                      ; preds = %10
   ]
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %26 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @errcode_for_socket_access() #21
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1043, ptr noundef nonnull @__func__.pq_getbyte_if_available) #21
+  %28 = tail call i32 @errcode_for_socket_access() #20
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1043, ptr noundef nonnull @__func__.pq_getbyte_if_available) #20
   br label %30
 
 30:                                               ; preds = %23, %25, %27
@@ -1587,11 +1579,10 @@ define dso_local void @pq_startmsgread() local_unnamed_addr #0 {
   br i1 %.b1, label %1, label %5
 
 1:                                                ; preds = %0
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 16908800) #21
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1150, ptr noundef nonnull @__func__.pq_startmsgread) #21
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #21
+  %3 = tail call i32 @errcode(i32 noundef 16908800) #20
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1150, ptr noundef nonnull @__func__.pq_startmsgread) #20
   unreachable
 
 5:                                                ; preds = %0
@@ -1618,7 +1609,7 @@ define dso_local range(i32 -1, 1) i32 @pq_getmessage(ptr noundef %0, i32 noundef
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @resetStringInfo(ptr noundef %0) #21
+  call void @resetStringInfo(ptr noundef %0) #20
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %10, %2
@@ -1653,13 +1644,13 @@ define dso_local range(i32 -1, 1) i32 @pq_getmessage(ptr noundef %0, i32 noundef
   br i1 %.not.i, label %pq_getbytes.exit, label %.preheader.i, !llvm.loop !9
 
 19:                                               ; preds = %8
-  %20 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %20, label %21, label %75
 
 21:                                               ; preds = %19
-  %22 = call i32 @errcode(i32 noundef 16908800) #21
-  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1216, ptr noundef nonnull @__func__.pq_getmessage) #21
+  %22 = call i32 @errcode(i32 noundef 16908800) #20
+  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1216, ptr noundef nonnull @__func__.pq_getmessage) #20
   br label %75
 
 pq_getbytes.exit:                                 ; preds = %10
@@ -1671,13 +1662,13 @@ pq_getbytes.exit:                                 ; preds = %10
   br i1 %or.cond, label %28, label %33
 
 28:                                               ; preds = %pq_getbytes.exit
-  %29 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %29 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %29, label %30, label %75
 
 30:                                               ; preds = %28
-  %31 = call i32 @errcode(i32 noundef 16908800) #21
-  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1226, ptr noundef nonnull @__func__.pq_getmessage) #21
+  %31 = call i32 @errcode(i32 noundef 16908800) #20
+  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1226, ptr noundef nonnull @__func__.pq_getmessage) #20
   br label %75
 
 33:                                               ; preds = %pq_getbytes.exit
@@ -1689,13 +1680,13 @@ pq_getbytes.exit:                                 ; preds = %10
   %36 = load ptr, ptr @PG_exception_stack, align 8
   %37 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %38 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #25
+  %38 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #24
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %57
 
 40:                                               ; preds = %35
   store ptr %4, ptr @PG_exception_stack, align 8
-  call void @enlargeStringInfo(ptr noundef %0, i32 noundef %34) #21
+  call void @enlargeStringInfo(ptr noundef %0, i32 noundef %34) #20
   store ptr %36, ptr @PG_exception_stack, align 8
   store ptr %37, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1744,28 +1735,28 @@ pq_getbytes.exit:                                 ; preds = %10
   br i1 %60, label %61, label %66
 
 61:                                               ; preds = %57
-  %62 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %62 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %61
-  %64 = call i32 @errcode(i32 noundef 16908800) #21
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1248, ptr noundef nonnull @__func__.pq_getmessage) #21
+  %64 = call i32 @errcode(i32 noundef 16908800) #20
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1248, ptr noundef nonnull @__func__.pq_getmessage) #20
   br label %66
 
 66:                                               ; preds = %61, %63, %57
   store i1 false, ptr @PqCommReadingMsg, align 1
-  call void @pg_re_throw() #26
+  call void @pg_re_throw() #25
   unreachable
 
 pq_getbytes.exit20:                               ; preds = %46
-  %67 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %67 = call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %67, label %68, label %75
 
 68:                                               ; preds = %pq_getbytes.exit20
-  %69 = call i32 @errcode(i32 noundef 16908800) #21
-  %70 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1261, ptr noundef nonnull @__func__.pq_getmessage) #21
+  %69 = call i32 @errcode(i32 noundef 16908800) #20
+  %70 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1261, ptr noundef nonnull @__func__.pq_getmessage) #20
   br label %75
 
 .loopexit.loopexit:                               ; preds = %48
@@ -1898,11 +1889,10 @@ define internal fastcc range(i32 -1, 1) i32 @internal_putbytes(ptr noundef %0, i
   br i1 %11, label %12, label %socket_set_nonblocking.exit
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 50332160) #21
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #21
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %14 = tail call i32 @errcode(i32 noundef 50332160) #20
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #20
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %9
@@ -1937,11 +1927,10 @@ socket_set_nonblocking.exit._crit_edge:           ; preds = %socket_set_nonblock
   br i1 %25, label %26, label %socket_set_nonblocking.exit19
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 50332160) #21
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #21
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %28 = tail call i32 @errcode(i32 noundef 50332160) #20
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #20
   unreachable
 
 socket_set_nonblocking.exit19:                    ; preds = %23
@@ -2013,7 +2002,7 @@ define dso_local i32 @pq_getkeepalivesidle(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 4, ptr %2, align 4
   %16 = load i32, ptr %0, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %12, ptr noundef nonnull %2) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %12, ptr noundef nonnull %2) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge
 
@@ -2022,12 +2011,12 @@ define dso_local i32 @pq_getkeepalivesidle(ptr noundef %0) local_unnamed_addr #0
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1649, ptr noundef nonnull @__func__.pq_getkeepalivesidle) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1649, ptr noundef nonnull @__func__.pq_getkeepalivesidle) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2075,7 +2064,7 @@ define dso_local i32 @pq_getkeepalivesinterval(ptr noundef %0) local_unnamed_add
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 4, ptr %2, align 4
   %16 = load i32, ptr %0, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %12, ptr noundef nonnull %2) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %12, ptr noundef nonnull %2) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge
 
@@ -2084,12 +2073,12 @@ define dso_local i32 @pq_getkeepalivesinterval(ptr noundef %0) local_unnamed_add
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1734, ptr noundef nonnull @__func__.pq_getkeepalivesinterval) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1734, ptr noundef nonnull @__func__.pq_getkeepalivesinterval) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2134,7 +2123,7 @@ define dso_local i32 @pq_getkeepalivescount(ptr noundef %0) local_unnamed_addr #
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 4, ptr %2, align 4
   %16 = load i32, ptr %0, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %12, ptr noundef nonnull %2) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %12, ptr noundef nonnull %2) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge
 
@@ -2143,12 +2132,12 @@ define dso_local i32 @pq_getkeepalivescount(ptr noundef %0) local_unnamed_addr #
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1817, ptr noundef nonnull @__func__.pq_getkeepalivescount) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1817, ptr noundef nonnull @__func__.pq_getkeepalivescount) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2193,7 +2182,7 @@ define dso_local i32 @pq_gettcpusertimeout(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 4, ptr %2, align 4
   %16 = load i32, ptr %0, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %12, ptr noundef nonnull %2) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %12, ptr noundef nonnull %2) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge
 
@@ -2202,12 +2191,12 @@ define dso_local i32 @pq_gettcpusertimeout(ptr noundef %0) local_unnamed_addr #0
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.39) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1892, ptr noundef nonnull @__func__.pq_gettcpusertimeout) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.39) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1892, ptr noundef nonnull @__func__.pq_gettcpusertimeout) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2260,7 +2249,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_idle() local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 4, ptr %1, align 4
   %16 = load i32, ptr %2, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %12, ptr noundef nonnull %1) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %12, ptr noundef nonnull %1) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge.i
 
@@ -2269,12 +2258,12 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_idle() local_unnamed_a
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1649, ptr noundef nonnull @__func__.pq_getkeepalivesidle) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1649, ptr noundef nonnull @__func__.pq_getkeepalivesidle) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2288,7 +2277,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_idle() local_unnamed_a
 
 pq_getkeepalivesidle.exit:                        ; preds = %0, %4, %8, %11, %24
   %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
-  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_idle.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #21
+  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_idle.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_keepalives_idle.nbuf
 }
 
@@ -2328,7 +2317,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_interval() local_unnam
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 4, ptr %1, align 4
   %16 = load i32, ptr %2, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %12, ptr noundef nonnull %1) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 5, ptr noundef nonnull %12, ptr noundef nonnull %1) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge.i
 
@@ -2337,12 +2326,12 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_interval() local_unnam
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1734, ptr noundef nonnull @__func__.pq_getkeepalivesinterval) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1734, ptr noundef nonnull @__func__.pq_getkeepalivesinterval) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2356,7 +2345,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_interval() local_unnam
 
 pq_getkeepalivesinterval.exit:                    ; preds = %0, %4, %8, %11, %24
   %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
-  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_interval.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #21
+  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_interval.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_keepalives_interval.nbuf
 }
 
@@ -2396,7 +2385,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_count() local_unnamed_
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 4, ptr %1, align 4
   %16 = load i32, ptr %2, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %12, ptr noundef nonnull %1) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 6, ptr noundef nonnull %12, ptr noundef nonnull %1) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge.i
 
@@ -2405,12 +2394,12 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_count() local_unnamed_
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1817, ptr noundef nonnull @__func__.pq_getkeepalivescount) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.38) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1817, ptr noundef nonnull @__func__.pq_getkeepalivescount) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2424,7 +2413,7 @@ define dso_local noundef nonnull ptr @show_tcp_keepalives_count() local_unnamed_
 
 pq_getkeepalivescount.exit:                       ; preds = %0, %4, %8, %11, %24
   %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
-  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_count.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #21
+  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_keepalives_count.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_keepalives_count.nbuf
 }
 
@@ -2464,7 +2453,7 @@ define dso_local noundef nonnull ptr @show_tcp_user_timeout() local_unnamed_addr
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i32 4, ptr %1, align 4
   %16 = load i32, ptr %2, align 8
-  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %12, ptr noundef nonnull %1) #21
+  %17 = call i32 @getsockopt(i32 noundef %16, i32 noundef 6, i32 noundef 18, ptr noundef nonnull %12, ptr noundef nonnull %1) #20
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %._crit_edge.i
 
@@ -2473,12 +2462,12 @@ define dso_local noundef nonnull ptr @show_tcp_user_timeout() local_unnamed_addr
   br label %24
 
 19:                                               ; preds = %15
-  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #21
+  %20 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #20
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.39) #21
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1892, ptr noundef nonnull @__func__.pq_gettcpusertimeout) #21
+  %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.39) #20
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1892, ptr noundef nonnull @__func__.pq_gettcpusertimeout) #20
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -2492,7 +2481,7 @@ define dso_local noundef nonnull ptr @show_tcp_user_timeout() local_unnamed_addr
 
 pq_gettcpusertimeout.exit:                        ; preds = %0, %4, %8, %11, %24
   %.0.i = phi i32 [ 0, %4 ], [ 0, %0 ], [ %10, %8 ], [ %.pre.i, %24 ], [ %13, %11 ]
-  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_user_timeout.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #21
+  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @show_tcp_user_timeout.nbuf, i64 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %.0.i) #20
   ret ptr @show_tcp_user_timeout.nbuf
 }
 
@@ -2501,9 +2490,9 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
   %1 = alloca [3 x %struct.WaitEvent], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @FeBeWaitSet, align 8
-  tail call void @ModifyWaitEvent(ptr noundef %2, i32 noundef 0, i32 noundef 128, ptr noundef null) #21
+  tail call void @ModifyWaitEvent(ptr noundef %2, i32 noundef 0, i32 noundef 128, ptr noundef null) #20
   %3 = load ptr, ptr @FeBeWaitSet, align 8
-  %4 = call i32 @WaitEventSetWait(ptr noundef %3, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #21
+  %4 = call i32 @WaitEventSetWait(ptr noundef %3, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #20
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %.thread, label %.lr.ph
 
@@ -2533,9 +2522,9 @@ define dso_local noundef zeroext i1 @pq_check_connection() local_unnamed_addr #0
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %16) #21
+  call void @ResetLatch(ptr noundef %16) #20
   %17 = load ptr, ptr @FeBeWaitSet, align 8
-  %18 = call i32 @WaitEventSetWait(ptr noundef %17, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #21
+  %18 = call i32 @WaitEventSetWait(ptr noundef %17, i64 noundef 0, ptr noundef nonnull %1, i32 noundef 3, i32 noundef 0) #20
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %.thread, label %.lr.ph
 
@@ -2569,11 +2558,10 @@ define internal range(i32 -1, 1) i32 @socket_flush() #0 {
   br i1 %3, label %4, label %socket_set_nonblocking.exit
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 50332160) #21
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #21
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %6 = tail call i32 @errcode(i32 noundef 50332160) #20
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #20
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %1
@@ -2606,11 +2594,10 @@ define internal range(i32 -1, 1) i32 @socket_flush_if_writable() #0 {
   br i1 %7, label %8, label %socket_set_nonblocking.exit
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 50332160) #21
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #21
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
+  %10 = tail call i32 @errcode(i32 noundef 50332160) #20
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 886, ptr noundef nonnull @__func__.socket_set_nonblocking) #20
   unreachable
 
 socket_set_nonblocking.exit:                      ; preds = %5
@@ -2691,7 +2678,7 @@ define internal void @socket_putmessage_noblock(i8 noundef signext %0, ptr nound
 10:                                               ; preds = %3
   %11 = load ptr, ptr @PqSendBuffer, align 8
   %12 = and i64 %6, 4294967295
-  %13 = tail call ptr @repalloc(ptr noundef %11, i64 noundef %12) #21
+  %13 = tail call ptr @repalloc(ptr noundef %11, i64 noundef %12) #20
   store ptr %13, ptr @PqSendBuffer, align 8
   store i32 %7, ptr @PqSendBufferSize, align 4
   br label %14
@@ -2700,7 +2687,7 @@ define internal void @socket_putmessage_noblock(i8 noundef signext %0, ptr nound
   %15 = load ptr, ptr @PqCommMethods, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(i8 noundef signext %0, ptr noundef %1, i64 noundef %2) #21
+  %18 = tail call i32 %17(i8 noundef signext %0, ptr noundef %1, i64 noundef %2) #20
   ret void
 }
 
@@ -2722,13 +2709,13 @@ define internal fastcc range(i32 -1, 1) i32 @internal_flush_buffer(ptr noundef %
   %11 = load ptr, ptr @MyProcPort, align 8
   %12 = ptrtoint ptr %.02029 to i64
   %13 = sub i64 %9, %12
-  %14 = tail call i64 @secure_write(ptr noundef %11, ptr noundef %.02029, i64 noundef %13) #21
+  %14 = tail call i64 @secure_write(ptr noundef %11, ptr noundef %.02029, i64 noundef %13) #20
   %15 = trunc i64 %14 to i32
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %10
-  %18 = tail call ptr @__errno_location() #24
+  %18 = tail call ptr @__errno_location() #23
   %19 = load i32, ptr %18, align 4
   switch i32 %19, label %20 [
     i32 4, label %33
@@ -2742,13 +2729,13 @@ define internal fastcc range(i32 -1, 1) i32 @internal_flush_buffer(ptr noundef %
 
 22:                                               ; preds = %20
   store i32 %19, ptr @internal_flush_buffer.last_reported_send_errno, align 4
-  %23 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #21
+  %23 = tail call zeroext i1 @errstart(i32 noundef 16, ptr noundef null) #20
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @errcode_for_socket_access() #21
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1402, ptr noundef nonnull @__func__.internal_flush_buffer) #21
+  %25 = tail call i32 @errcode_for_socket_access() #20
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1402, ptr noundef nonnull @__func__.internal_flush_buffer) #20
   br label %27
 
 27:                                               ; preds = %22, %24, %20
@@ -2816,11 +2803,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #18
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #18
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare i64 @llvm.umin.i64(i64, i64) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2841,14 +2825,13 @@ attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-
 attributes #16 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nounwind }
-attributes #22 = { cold nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { nounwind willreturn memory(none) }
-attributes #25 = { nounwind returns_twice }
-attributes #26 = { noreturn nounwind }
+attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #20 = { nounwind }
+attributes #21 = { cold nounwind }
+attributes #22 = { nounwind willreturn memory(read) }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind returns_twice }
+attributes #25 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

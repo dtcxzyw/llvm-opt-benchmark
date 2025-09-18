@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @rewriteSearchAndCycle(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @copyObjectImpl(ptr noundef %0) #5
+  %2 = tail call ptr @copyObjectImpl(ptr noundef %0) #4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -95,40 +95,40 @@ list_length.exit433:                              ; preds = %41, %44
 53:                                               ; preds = %list_length.exit433, %.thread
   %.0365 = phi i16 [ 0, %.thread ], [ %spec.select, %list_length.exit433 ]
   %.0364 = phi i16 [ 0, %.thread ], [ %spec.select472, %list_length.exit433 ]
-  %54 = tail call noundef ptr @palloc0(i64 noundef 280) #5
+  %54 = tail call noundef ptr @palloc0(i64 noundef 280) #4
   store i32 67, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 1, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i8 1, ptr %56, align 8
-  %57 = tail call noundef ptr @palloc0(i64 noundef 224) #5
+  %57 = tail call noundef ptr @palloc0(i64 noundef 224) #4
   store i32 101, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i32 1, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call ptr @makeAlias(ptr noundef nonnull @.str, ptr noundef %60) #5
+  %61 = tail call ptr @makeAlias(ptr noundef nonnull @.str, ptr noundef %60) #4
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %61, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call ptr @copyObjectImpl(ptr noundef %65) #5
-  tail call void @IncrementVarSublevelsUp(ptr noundef %66, i32 noundef 1, i32 noundef 1) #5
+  %66 = tail call ptr @copyObjectImpl(ptr noundef %65) #4
+  tail call void @IncrementVarSublevelsUp(ptr noundef %66, i32 noundef 1, i32 noundef 1) #4
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 56
   store ptr %66, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 209
   store i8 1, ptr %68, align 1
-  %69 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %57) #5
+  %69 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %57) #4
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 64
   store ptr %69, ptr %70, align 8
-  %71 = tail call noundef ptr @palloc0(i64 noundef 8) #5
+  %71 = tail call noundef ptr @palloc0(i64 noundef 8) #4
   store i32 63, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 1, ptr %72, align 4
-  %73 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %71) #5
-  %74 = tail call ptr @makeFromExpr(ptr noundef %73, ptr noundef null) #5
+  %73 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %71) #4
+  %74 = tail call ptr @makeFromExpr(ptr noundef %73, ptr noundef null) #4
   %75 = getelementptr inbounds nuw i8, ptr %54, i64 80
   store ptr %74, ptr %75, align 8
   %76 = load ptr, ptr %59, align 8
@@ -174,7 +174,7 @@ list_length.exit435:                              ; preds = %list_length.exit435
   %.val425 = load ptr, ptr %98, align 8
   %99 = getelementptr inbounds nuw %union.ListCell, ptr %.val425, i64 %indvars.iv
   %100 = load i32, ptr %99, align 8
-  %101 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %88, i32 noundef %92, i32 noundef %96, i32 noundef %100, i32 noundef 0) #5
+  %101 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %88, i32 noundef %92, i32 noundef %96, i32 noundef %100, i32 noundef 0) #4
   %102 = load ptr, ptr %59, align 8
   %103 = getelementptr i8, ptr %102, i64 16
   %.val417 = load ptr, ptr %103, align 8
@@ -182,7 +182,7 @@ list_length.exit435:                              ; preds = %list_length.exit435
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call ptr @makeTargetEntry(ptr noundef %101, i16 noundef signext %88, ptr noundef %107, i1 noundef zeroext false) #5
+  %108 = tail call ptr @makeTargetEntry(ptr noundef %101, i16 noundef signext %88, ptr noundef %107, i1 noundef zeroext false) #4
   %109 = load ptr, ptr %64, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 112
   %111 = load ptr, ptr %110, align 8
@@ -206,7 +206,7 @@ list_length.exit435:                              ; preds = %list_length.exit435
   %126 = getelementptr inbounds nuw i8, ptr %108, i64 40
   store i16 %125, ptr %126, align 8
   %127 = load ptr, ptr %80, align 8
-  %128 = tail call ptr @lappend(ptr noundef %127, ptr noundef %108) #5
+  %128 = tail call ptr @lappend(ptr noundef %127, ptr noundef %108) #4
   store ptr %128, ptr %80, align 8
   %129 = load ptr, ptr %59, align 8
   %.not.i434 = icmp eq ptr %129, null
@@ -223,20 +223,20 @@ list_length.exit435:                              ; preds = %list_length.exit435
   br i1 %137, label %138, label %147
 
 138:                                              ; preds = %130
-  %139 = tail call ptr @makeConst(i32 noundef 20, i32 noundef -1, i32 noundef 0, i32 noundef 8, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #5
+  %139 = tail call ptr @makeConst(i32 noundef 20, i32 noundef -1, i32 noundef 0, i32 noundef 8, i64 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #4
   %140 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = tail call ptr @lcons(ptr noundef %139, ptr noundef %141) #5
+  %142 = tail call ptr @lcons(ptr noundef %139, ptr noundef %141) #4
   store ptr %142, ptr %140, align 8
-  %143 = tail call ptr @makeString(ptr noundef nonnull @.str.1) #5
+  %143 = tail call ptr @makeString(ptr noundef nonnull @.str.1) #4
   %144 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %145 = load ptr, ptr %144, align 8
-  %146 = tail call ptr @lcons(ptr noundef %143, ptr noundef %145) #5
+  %146 = tail call ptr @lcons(ptr noundef %143, ptr noundef %145) #4
   store ptr %146, ptr %144, align 8
   br label %154
 
 147:                                              ; preds = %130
-  %148 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %148 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 35, ptr %148, align 4
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store i32 2287, ptr %149, align 4
@@ -244,7 +244,7 @@ list_length.exit435:                              ; preds = %list_length.exit435
   store i32 2249, ptr %150, align 4
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 28
   store i32 -1, ptr %151, align 4
-  %152 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %133) #5
+  %152 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %133) #4
   %153 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store ptr %152, ptr %153, align 8
   br label %154
@@ -268,9 +268,9 @@ list_length.exit437:                              ; preds = %154, %157
   %163 = load ptr, ptr %26, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8
-  %166 = tail call ptr @makeTargetEntry(ptr noundef nonnull %.0374, i16 noundef signext %162, ptr noundef %165, i1 noundef zeroext false) #5
+  %166 = tail call ptr @makeTargetEntry(ptr noundef nonnull %.0374, i16 noundef signext %162, ptr noundef %165, i1 noundef zeroext false) #4
   %167 = load ptr, ptr %155, align 8
-  %168 = tail call ptr @lappend(ptr noundef %167, ptr noundef %166) #5
+  %168 = tail call ptr @lappend(ptr noundef %167, ptr noundef %166) #4
   store ptr %168, ptr %155, align 8
   br label %169
 
@@ -299,15 +299,15 @@ list_length.exit439:                              ; preds = %171, %176
   %181 = phi i16 [ %180, %176 ], [ 1, %171 ]
   %182 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %183 = load ptr, ptr %182, align 8
-  %184 = tail call ptr @makeTargetEntry(ptr noundef %173, i16 noundef signext %181, ptr noundef %183, i1 noundef zeroext false) #5
+  %184 = tail call ptr @makeTargetEntry(ptr noundef %173, i16 noundef signext %181, ptr noundef %183, i1 noundef zeroext false) #4
   %185 = load ptr, ptr %174, align 8
-  %186 = tail call ptr @lappend(ptr noundef %185, ptr noundef %184) #5
+  %186 = tail call ptr @lappend(ptr noundef %185, ptr noundef %184) #4
   store ptr %186, ptr %174, align 8
   %187 = load ptr, ptr %39, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = tail call fastcc ptr @make_path_rowexpr(ptr noundef nonnull %2, ptr noundef %189)
-  %191 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %191 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 35, ptr %191, align 4
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
   store i32 2287, ptr %192, align 4
@@ -315,7 +315,7 @@ list_length.exit439:                              ; preds = %171, %176
   store i32 2249, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 28
   store i32 -1, ptr %194, align 4
-  %195 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %190) #5
+  %195 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %190) #4
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store ptr %195, ptr %196, align 8
   %197 = load ptr, ptr %174, align 8
@@ -334,9 +334,9 @@ list_length.exit441:                              ; preds = %list_length.exit439
   %204 = load ptr, ptr %39, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 40
   %206 = load ptr, ptr %205, align 8
-  %207 = tail call ptr @makeTargetEntry(ptr noundef nonnull %191, i16 noundef signext %203, ptr noundef %206, i1 noundef zeroext false) #5
+  %207 = tail call ptr @makeTargetEntry(ptr noundef nonnull %191, i16 noundef signext %203, ptr noundef %206, i1 noundef zeroext false) #4
   %208 = load ptr, ptr %174, align 8
-  %209 = tail call ptr @lappend(ptr noundef %208, ptr noundef %207) #5
+  %209 = tail call ptr @lappend(ptr noundef %208, ptr noundef %207) #4
   store ptr %209, ptr %174, align 8
   br label %210
 
@@ -354,8 +354,8 @@ list_length.exit441:                              ; preds = %list_length.exit439
   %216 = load ptr, ptr %215, align 8
   %217 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call ptr @makeString(ptr noundef %218) #5
-  %220 = tail call ptr @lappend(ptr noundef %216, ptr noundef %219) #5
+  %219 = tail call ptr @makeString(ptr noundef %218) #4
+  %220 = tail call ptr @lappend(ptr noundef %216, ptr noundef %219) #4
   %221 = load ptr, ptr %213, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store ptr %220, ptr %222, align 8
@@ -373,8 +373,8 @@ list_length.exit441:                              ; preds = %list_length.exit439
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %231 = load ptr, ptr %230, align 8
-  %232 = tail call ptr @makeString(ptr noundef %231) #5
-  %233 = tail call ptr @lappend(ptr noundef %229, ptr noundef %232) #5
+  %232 = tail call ptr @makeString(ptr noundef %231) #4
+  %233 = tail call ptr @lappend(ptr noundef %229, ptr noundef %232) #4
   %234 = load ptr, ptr %226, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   store ptr %233, ptr %235, align 8
@@ -384,26 +384,26 @@ list_length.exit441:                              ; preds = %list_length.exit439
   %239 = load ptr, ptr %39, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 40
   %241 = load ptr, ptr %240, align 8
-  %242 = tail call ptr @makeString(ptr noundef %241) #5
-  %243 = tail call ptr @lappend(ptr noundef %238, ptr noundef %242) #5
+  %242 = tail call ptr @makeString(ptr noundef %241) #4
+  %243 = tail call ptr @lappend(ptr noundef %238, ptr noundef %242) #4
   %244 = load ptr, ptr %226, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store ptr %243, ptr %245, align 8
   br label %246
 
 246:                                              ; preds = %225, %223
-  %247 = tail call noundef ptr @palloc0(i64 noundef 280) #5
+  %247 = tail call noundef ptr @palloc0(i64 noundef 280) #4
   store i32 67, ptr %247, align 4
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
   store i32 1, ptr %248, align 4
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store i8 1, ptr %249, align 8
-  %250 = tail call noundef ptr @palloc0(i64 noundef 224) #5
+  %250 = tail call noundef ptr @palloc0(i64 noundef 224) #4
   store i32 101, ptr %250, align 4
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   store i32 1, ptr %251, align 8
   %252 = load ptr, ptr %59, align 8
-  %253 = tail call ptr @copyObjectImpl(ptr noundef %252) #5
+  %253 = tail call ptr @copyObjectImpl(ptr noundef %252) #4
   %254 = load ptr, ptr %26, align 8
   %.not399 = icmp eq ptr %254, null
   br i1 %.not399, label %260, label %255
@@ -411,8 +411,8 @@ list_length.exit441:                              ; preds = %list_length.exit439
 255:                                              ; preds = %246
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 24
   %257 = load ptr, ptr %256, align 8
-  %258 = tail call ptr @makeString(ptr noundef %257) #5
-  %259 = tail call ptr @lappend(ptr noundef %253, ptr noundef %258) #5
+  %258 = tail call ptr @makeString(ptr noundef %257) #4
+  %259 = tail call ptr @lappend(ptr noundef %253, ptr noundef %258) #4
   br label %260
 
 260:                                              ; preds = %255, %246
@@ -424,18 +424,18 @@ list_length.exit441:                              ; preds = %list_length.exit439
 262:                                              ; preds = %260
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %264 = load ptr, ptr %263, align 8
-  %265 = tail call ptr @makeString(ptr noundef %264) #5
-  %266 = tail call ptr @lappend(ptr noundef %.0370, ptr noundef %265) #5
+  %265 = tail call ptr @makeString(ptr noundef %264) #4
+  %266 = tail call ptr @lappend(ptr noundef %.0370, ptr noundef %265) #4
   %267 = load ptr, ptr %39, align 8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 40
   %269 = load ptr, ptr %268, align 8
-  %270 = tail call ptr @makeString(ptr noundef %269) #5
-  %271 = tail call ptr @lappend(ptr noundef %266, ptr noundef %270) #5
+  %270 = tail call ptr @makeString(ptr noundef %269) #4
+  %271 = tail call ptr @lappend(ptr noundef %266, ptr noundef %270) #4
   br label %272
 
 272:                                              ; preds = %262, %260
   %.1 = phi ptr [ %271, %262 ], [ %.0370, %260 ]
-  %273 = tail call ptr @makeAlias(ptr noundef nonnull @.str.2, ptr noundef %.1) #5
+  %273 = tail call ptr @makeAlias(ptr noundef nonnull @.str.2, ptr noundef %.1) #4
   %274 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store ptr %273, ptr %274, align 8
   %275 = getelementptr inbounds nuw i8, ptr %250, i64 16
@@ -474,7 +474,7 @@ list_length.exit441:                              ; preds = %list_length.exit439
   %293 = load ptr, ptr %281, align 8
   %294 = getelementptr inbounds nuw i8, ptr %288, i64 144
   %295 = load ptr, ptr %294, align 8
-  %296 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %293, ptr noundef nonnull dereferenceable(1) %295) #6
+  %296 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %293, ptr noundef nonnull dereferenceable(1) %295) #5
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %list_length.exit443
 
@@ -494,23 +494,22 @@ list_length.exit443:                              ; preds = %284, %292, %298
   br i1 %303, label %.thread470, label %308
 
 .thread470:                                       ; preds = %list_length.exit443, %272, %.split, %.split481
-  %304 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %304)
-  %305 = tail call i32 @errcode(i32 noundef 1088) #5
+  %304 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %305 = tail call i32 @errcode(i32 noundef 1088) #4
   %306 = load ptr, ptr %281, align 8
-  %307 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %306) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 411, ptr noundef nonnull @__func__.rewriteSearchAndCycle) #5
+  %307 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %306) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 411, ptr noundef nonnull @__func__.rewriteSearchAndCycle) #4
   unreachable
 
 308:                                              ; preds = %.split481
-  %309 = tail call ptr @copyObjectImpl(ptr noundef nonnull %277) #5
-  tail call void @IncrementVarSublevelsUp(ptr noundef %309, i32 noundef 1, i32 noundef 1) #5
+  %309 = tail call ptr @copyObjectImpl(ptr noundef nonnull %277) #4
+  tail call void @IncrementVarSublevelsUp(ptr noundef %309, i32 noundef 1, i32 noundef 1) #4
   %310 = load ptr, ptr %26, align 8
   %.not402 = icmp eq ptr %310, null
   br i1 %.not402, label %327, label %311
 
 311:                                              ; preds = %308
-  %312 = tail call ptr @makeVar(i32 noundef %.0375484, i16 noundef signext %.0363, i32 noundef %.0465, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
+  %312 = tail call ptr @makeVar(i32 noundef %.0375484, i16 noundef signext %.0363, i32 noundef %.0465, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
   %313 = getelementptr inbounds nuw i8, ptr %309, i64 112
   %314 = load ptr, ptr %313, align 8
   %.not.i444 = icmp eq ptr %314, null
@@ -528,9 +527,9 @@ list_length.exit445:                              ; preds = %311, %315
   %321 = load ptr, ptr %26, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 24
   %323 = load ptr, ptr %322, align 8
-  %324 = tail call ptr @makeTargetEntry(ptr noundef %312, i16 noundef signext %320, ptr noundef %323, i1 noundef zeroext false) #5
+  %324 = tail call ptr @makeTargetEntry(ptr noundef %312, i16 noundef signext %320, ptr noundef %323, i1 noundef zeroext false) #4
   %325 = load ptr, ptr %313, align 8
-  %326 = tail call ptr @lappend(ptr noundef %325, ptr noundef %324) #5
+  %326 = tail call ptr @lappend(ptr noundef %325, ptr noundef %324) #4
   store ptr %326, ptr %313, align 8
   br label %327
 
@@ -546,7 +545,7 @@ list_length.exit445:                              ; preds = %311, %315
   %333 = load i32, ptr %332, align 8
   %334 = getelementptr inbounds nuw i8, ptr %328, i64 60
   %335 = load i32, ptr %334, align 4
-  %336 = tail call ptr @makeVar(i32 noundef %.0375484, i16 noundef signext %.0364, i32 noundef %331, i32 noundef %333, i32 noundef %335, i32 noundef 0) #5
+  %336 = tail call ptr @makeVar(i32 noundef %.0375484, i16 noundef signext %.0364, i32 noundef %331, i32 noundef %333, i32 noundef %335, i32 noundef 0) #4
   %337 = getelementptr inbounds nuw i8, ptr %309, i64 112
   %338 = load ptr, ptr %337, align 8
   %.not.i446 = icmp eq ptr %338, null
@@ -564,11 +563,11 @@ list_length.exit447:                              ; preds = %329, %339
   %345 = load ptr, ptr %39, align 8
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 16
   %347 = load ptr, ptr %346, align 8
-  %348 = tail call ptr @makeTargetEntry(ptr noundef %336, i16 noundef signext %344, ptr noundef %347, i1 noundef zeroext false) #5
+  %348 = tail call ptr @makeTargetEntry(ptr noundef %336, i16 noundef signext %344, ptr noundef %347, i1 noundef zeroext false) #4
   %349 = load ptr, ptr %337, align 8
-  %350 = tail call ptr @lappend(ptr noundef %349, ptr noundef %348) #5
+  %350 = tail call ptr @lappend(ptr noundef %349, ptr noundef %348) #4
   store ptr %350, ptr %337, align 8
-  %351 = tail call ptr @makeVar(i32 noundef %.0375484, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
+  %351 = tail call ptr @makeVar(i32 noundef %.0375484, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
   %352 = load ptr, ptr %337, align 8
   %.not.i448 = icmp eq ptr %352, null
   br i1 %.not.i448, label %list_length.exit449, label %353
@@ -585,9 +584,9 @@ list_length.exit449:                              ; preds = %list_length.exit447
   %359 = load ptr, ptr %39, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 40
   %361 = load ptr, ptr %360, align 8
-  %362 = tail call ptr @makeTargetEntry(ptr noundef %351, i16 noundef signext %358, ptr noundef %361, i1 noundef zeroext false) #5
+  %362 = tail call ptr @makeTargetEntry(ptr noundef %351, i16 noundef signext %358, ptr noundef %361, i1 noundef zeroext false) #4
   %363 = load ptr, ptr %337, align 8
-  %364 = tail call ptr @lappend(ptr noundef %363, ptr noundef %362) #5
+  %364 = tail call ptr @lappend(ptr noundef %363, ptr noundef %362) #4
   store ptr %364, ptr %337, align 8
   br label %365
 
@@ -596,10 +595,10 @@ list_length.exit449:                              ; preds = %list_length.exit447
   store ptr %309, ptr %366, align 8
   %367 = getelementptr inbounds nuw i8, ptr %250, i64 209
   store i8 1, ptr %367, align 1
-  %368 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %250) #5
+  %368 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %250) #4
   %369 = getelementptr inbounds nuw i8, ptr %247, i64 64
   store ptr %368, ptr %369, align 8
-  %370 = tail call noundef ptr @palloc0(i64 noundef 8) #5
+  %370 = tail call noundef ptr @palloc0(i64 noundef 8) #4
   store i32 63, ptr %370, align 4
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 4
   store i32 1, ptr %371, align 4
@@ -616,19 +615,19 @@ list_length.exit449:                              ; preds = %list_length.exit447
   %379 = load i32, ptr %378, align 8
   %380 = getelementptr inbounds nuw i8, ptr %372, i64 60
   %381 = load i32, ptr %380, align 4
-  %382 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0364, i32 noundef %377, i32 noundef %379, i32 noundef %381, i32 noundef 0) #5
+  %382 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0364, i32 noundef %377, i32 noundef %379, i32 noundef %381, i32 noundef 0) #4
   %383 = load ptr, ptr %39, align 8
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 24
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 60
   %387 = load i32, ptr %386, align 4
-  %388 = tail call ptr @make_opclause(i32 noundef %375, i32 noundef 16, i1 noundef zeroext false, ptr noundef %382, ptr noundef %385, i32 noundef 0, i32 noundef %387) #5
+  %388 = tail call ptr @make_opclause(i32 noundef %375, i32 noundef 16, i1 noundef zeroext false, ptr noundef %382, ptr noundef %385, i32 noundef 0, i32 noundef %387) #4
   br label %389
 
 389:                                              ; preds = %365, %373
   %.sink531 = phi ptr [ %388, %373 ], [ null, %365 ]
-  %390 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %370) #5
-  %391 = tail call ptr @makeFromExpr(ptr noundef %390, ptr noundef %.sink531) #5
+  %390 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %370) #4
+  %391 = tail call ptr @makeFromExpr(ptr noundef %390, ptr noundef %.sink531) #4
   %392 = getelementptr inbounds nuw i8, ptr %247, i64 80
   store ptr %391, ptr %392, align 8
   %393 = load ptr, ptr %59, align 8
@@ -674,7 +673,7 @@ list_length.exit451:                              ; preds = %list_length.exit451
   %.val427 = load ptr, ptr %415, align 8
   %416 = getelementptr inbounds nuw %union.ListCell, ptr %.val427, i64 %indvars.iv491
   %417 = load i32, ptr %416, align 8
-  %418 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %405, i32 noundef %409, i32 noundef %413, i32 noundef %417, i32 noundef 0) #5
+  %418 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %405, i32 noundef %409, i32 noundef %413, i32 noundef %417, i32 noundef 0) #4
   %419 = load ptr, ptr %59, align 8
   %420 = getelementptr i8, ptr %419, i64 16
   %.val421 = load ptr, ptr %420, align 8
@@ -682,7 +681,7 @@ list_length.exit451:                              ; preds = %list_length.exit451
   %422 = load ptr, ptr %421, align 8
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load ptr, ptr %423, align 8
-  %425 = tail call ptr @makeTargetEntry(ptr noundef %418, i16 noundef signext %405, ptr noundef %424, i1 noundef zeroext false) #5
+  %425 = tail call ptr @makeTargetEntry(ptr noundef %418, i16 noundef signext %405, ptr noundef %424, i1 noundef zeroext false) #4
   %426 = load ptr, ptr %276, align 8
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 112
   %428 = load ptr, ptr %427, align 8
@@ -706,7 +705,7 @@ list_length.exit451:                              ; preds = %list_length.exit451
   %443 = getelementptr inbounds nuw i8, ptr %425, i64 40
   store i16 %442, ptr %443, align 8
   %444 = load ptr, ptr %397, align 8
-  %445 = tail call ptr @lappend(ptr noundef %444, ptr noundef %425) #5
+  %445 = tail call ptr @lappend(ptr noundef %444, ptr noundef %425) #4
   store ptr %445, ptr %397, align 8
   %446 = load ptr, ptr %59, align 8
   %.not.i450 = icmp eq ptr %446, null
@@ -719,10 +718,10 @@ list_length.exit451:                              ; preds = %list_length.exit451
   br i1 %450, label %451, label %464
 
 451:                                              ; preds = %447
-  %452 = tail call ptr @copyObjectImpl(ptr noundef %.0369) #5
-  %453 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %452 = tail call ptr @copyObjectImpl(ptr noundef %.0369) #4
+  %453 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 25, ptr %453, align 4
-  %454 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0363, i32 noundef 2249, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
+  %454 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0363, i32 noundef 2249, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
   %455 = getelementptr inbounds nuw i8, ptr %453, i64 8
   store ptr %454, ptr %455, align 8
   %456 = getelementptr inbounds nuw i8, ptr %453, i64 16
@@ -731,8 +730,8 @@ list_length.exit451:                              ; preds = %list_length.exit451
   store i32 20, ptr %457, align 4
   %458 = getelementptr inbounds nuw i8, ptr %453, i64 24
   store i32 -1, ptr %458, align 8
-  %459 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %453) #5
-  %460 = tail call ptr @makeFuncExpr(i32 noundef 1219, i32 noundef 20, ptr noundef %459, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
+  %459 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %453) #4
+  %460 = tail call ptr @makeFuncExpr(i32 noundef 1219, i32 noundef 20, ptr noundef %459, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   %461 = getelementptr inbounds nuw i8, ptr %452, i64 8
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr i8, ptr %462, i64 16
@@ -741,7 +740,7 @@ list_length.exit451:                              ; preds = %list_length.exit451
   br label %474
 
 464:                                              ; preds = %447
-  %465 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %465 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 35, ptr %465, align 4
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 4
   store i32 2287, ptr %466, align 4
@@ -749,12 +748,12 @@ list_length.exit451:                              ; preds = %list_length.exit451
   store i32 2249, ptr %467, align 4
   %468 = getelementptr inbounds nuw i8, ptr %465, i64 28
   store i32 -1, ptr %468, align 4
-  %469 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.0369) #5
+  %469 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.0369) #4
   %470 = getelementptr inbounds nuw i8, ptr %465, i64 16
   store ptr %469, ptr %470, align 8
-  %471 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0363, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
-  %472 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %471, ptr nonnull %465) #5
-  %473 = tail call ptr @makeFuncExpr(i32 noundef 383, i32 noundef 2287, ptr noundef %472, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
+  %471 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0363, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
+  %472 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %471, ptr nonnull %465) #4
+  %473 = tail call ptr @makeFuncExpr(i32 noundef 383, i32 noundef 2287, ptr noundef %472, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   br label %474
 
 474:                                              ; preds = %464, %451
@@ -776,9 +775,9 @@ list_length.exit453:                              ; preds = %474, %477
   %483 = load ptr, ptr %26, align 8
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 24
   %485 = load ptr, ptr %484, align 8
-  %486 = tail call ptr @makeTargetEntry(ptr noundef %.0366, i16 noundef signext %482, ptr noundef %485, i1 noundef zeroext false) #5
+  %486 = tail call ptr @makeTargetEntry(ptr noundef %.0366, i16 noundef signext %482, ptr noundef %485, i1 noundef zeroext false) #4
   %487 = load ptr, ptr %475, align 8
-  %488 = tail call ptr @lappend(ptr noundef %487, ptr noundef %486) #5
+  %488 = tail call ptr @lappend(ptr noundef %487, ptr noundef %486) #4
   store ptr %488, ptr %475, align 8
   br label %489
 
@@ -788,7 +787,7 @@ list_length.exit453:                              ; preds = %474, %477
   br i1 %.not406, label %558, label %491
 
 491:                                              ; preds = %489
-  %492 = tail call noundef ptr @palloc0(i64 noundef 48) #5
+  %492 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 20, ptr %492, align 4
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 40
   store i32 -1, ptr %493, align 8
@@ -796,11 +795,11 @@ list_length.exit453:                              ; preds = %474, %477
   store i32 2988, ptr %494, align 4
   %495 = getelementptr inbounds nuw i8, ptr %492, i64 20
   store i8 1, ptr %495, align 4
-  %496 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
-  %497 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %.0367, ptr %496) #5
+  %496 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
+  %497 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %.0367, ptr %496) #4
   %498 = getelementptr inbounds nuw i8, ptr %492, i64 32
   store ptr %497, ptr %498, align 8
-  %499 = tail call noundef ptr @palloc0(i64 noundef 48) #5
+  %499 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 32, ptr %499, align 4
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 40
   store i32 -1, ptr %500, align 8
@@ -814,7 +813,7 @@ list_length.exit453:                              ; preds = %474, %477
   %507 = load i32, ptr %506, align 4
   %508 = getelementptr inbounds nuw i8, ptr %499, i64 8
   store i32 %507, ptr %508, align 8
-  %509 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %509 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 33, ptr %509, align 4
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 24
   store i32 -1, ptr %510, align 8
@@ -825,7 +824,7 @@ list_length.exit453:                              ; preds = %474, %477
   %514 = load ptr, ptr %513, align 8
   %515 = getelementptr inbounds nuw i8, ptr %509, i64 16
   store ptr %514, ptr %515, align 8
-  %516 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %509) #5
+  %516 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %509) #4
   %517 = getelementptr inbounds nuw i8, ptr %499, i64 24
   store ptr %516, ptr %517, align 8
   %518 = load ptr, ptr %39, align 8
@@ -850,11 +849,11 @@ list_length.exit455:                              ; preds = %491, %524
   %530 = load ptr, ptr %39, align 8
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 16
   %532 = load ptr, ptr %531, align 8
-  %533 = tail call ptr @makeTargetEntry(ptr noundef nonnull %499, i16 noundef signext %529, ptr noundef %532, i1 noundef zeroext false) #5
+  %533 = tail call ptr @makeTargetEntry(ptr noundef nonnull %499, i16 noundef signext %529, ptr noundef %532, i1 noundef zeroext false) #4
   %534 = load ptr, ptr %522, align 8
-  %535 = tail call ptr @lappend(ptr noundef %534, ptr noundef %533) #5
+  %535 = tail call ptr @lappend(ptr noundef %534, ptr noundef %533) #4
   store ptr %535, ptr %522, align 8
-  %536 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %536 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 35, ptr %536, align 4
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 4
   store i32 2287, ptr %537, align 4
@@ -862,12 +861,12 @@ list_length.exit455:                              ; preds = %491, %524
   store i32 2249, ptr %538, align 4
   %539 = getelementptr inbounds nuw i8, ptr %536, i64 28
   store i32 -1, ptr %539, align 4
-  %540 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.0367) #5
+  %540 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %.0367) #4
   %541 = getelementptr inbounds nuw i8, ptr %536, i64 16
   store ptr %540, ptr %541, align 8
-  %542 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
-  %543 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %542, ptr nonnull %536) #5
-  %544 = tail call ptr @makeFuncExpr(i32 noundef 383, i32 noundef 2287, ptr noundef %543, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
+  %542 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
+  %543 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %542, ptr nonnull %536) #4
+  %544 = tail call ptr @makeFuncExpr(i32 noundef 383, i32 noundef 2287, ptr noundef %543, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   %545 = load ptr, ptr %522, align 8
   %.not.i456 = icmp eq ptr %545, null
   br i1 %.not.i456, label %list_length.exit457, label %546
@@ -884,9 +883,9 @@ list_length.exit457:                              ; preds = %list_length.exit455
   %552 = load ptr, ptr %39, align 8
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 40
   %554 = load ptr, ptr %553, align 8
-  %555 = tail call ptr @makeTargetEntry(ptr noundef %544, i16 noundef signext %551, ptr noundef %554, i1 noundef zeroext false) #5
+  %555 = tail call ptr @makeTargetEntry(ptr noundef %544, i16 noundef signext %551, ptr noundef %554, i1 noundef zeroext false) #4
   %556 = load ptr, ptr %522, align 8
-  %557 = tail call ptr @lappend(ptr noundef %556, ptr noundef %555) #5
+  %557 = tail call ptr @lappend(ptr noundef %556, ptr noundef %555) #4
   store ptr %557, ptr %522, align 8
   br label %558
 
@@ -903,8 +902,8 @@ list_length.exit457:                              ; preds = %list_length.exit455
   %564 = load ptr, ptr %563, align 8
   %565 = getelementptr inbounds nuw i8, ptr %559, i64 24
   %566 = load ptr, ptr %565, align 8
-  %567 = tail call ptr @makeString(ptr noundef %566) #5
-  %568 = tail call ptr @lappend(ptr noundef %564, ptr noundef %567) #5
+  %567 = tail call ptr @makeString(ptr noundef %566) #4
+  %568 = tail call ptr @lappend(ptr noundef %564, ptr noundef %567) #4
   %569 = load ptr, ptr %561, align 8
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 16
   store ptr %568, ptr %570, align 8
@@ -922,8 +921,8 @@ list_length.exit457:                              ; preds = %list_length.exit455
   %577 = load ptr, ptr %576, align 8
   %578 = getelementptr inbounds nuw i8, ptr %572, i64 16
   %579 = load ptr, ptr %578, align 8
-  %580 = tail call ptr @makeString(ptr noundef %579) #5
-  %581 = tail call ptr @lappend(ptr noundef %577, ptr noundef %580) #5
+  %580 = tail call ptr @makeString(ptr noundef %579) #4
+  %581 = tail call ptr @lappend(ptr noundef %577, ptr noundef %580) #4
   %582 = load ptr, ptr %574, align 8
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 16
   store ptr %581, ptr %583, align 8
@@ -933,8 +932,8 @@ list_length.exit457:                              ; preds = %list_length.exit455
   %587 = load ptr, ptr %39, align 8
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 40
   %589 = load ptr, ptr %588, align 8
-  %590 = tail call ptr @makeString(ptr noundef %589) #5
-  %591 = tail call ptr @lappend(ptr noundef %586, ptr noundef %590) #5
+  %590 = tail call ptr @makeString(ptr noundef %589) #4
+  %591 = tail call ptr @lappend(ptr noundef %586, ptr noundef %590) #4
   %592 = load ptr, ptr %574, align 8
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 16
   store ptr %591, ptr %593, align 8
@@ -948,15 +947,15 @@ list_length.exit457:                              ; preds = %list_length.exit455
 596:                                              ; preds = %594
   %597 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %598 = load ptr, ptr %597, align 8
-  %599 = tail call ptr @lappend_oid(ptr noundef %598, i32 noundef %.0465) #5
+  %599 = tail call ptr @lappend_oid(ptr noundef %598, i32 noundef %.0465) #4
   store ptr %599, ptr %597, align 8
   %600 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %601 = load ptr, ptr %600, align 8
-  %602 = tail call ptr @lappend_int(ptr noundef %601, i32 noundef -1) #5
+  %602 = tail call ptr @lappend_int(ptr noundef %601, i32 noundef -1) #4
   store ptr %602, ptr %600, align 8
   %603 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %604 = load ptr, ptr %603, align 8
-  %605 = tail call ptr @lappend_oid(ptr noundef %604, i32 noundef 0) #5
+  %605 = tail call ptr @lappend_oid(ptr noundef %604, i32 noundef 0) #4
   store ptr %605, ptr %603, align 8
   %606 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %607 = load i8, ptr %606, align 8, !range !4, !noundef !5
@@ -966,8 +965,8 @@ list_length.exit457:                              ; preds = %list_length.exit455
 609:                                              ; preds = %596
   %610 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %611 = load ptr, ptr %610, align 8
-  %612 = tail call ptr @makeSortGroupClauseForSetOp(i32 noundef %.0465, i1 noundef zeroext true) #5
-  %613 = tail call ptr @lappend(ptr noundef %611, ptr noundef %612) #5
+  %612 = tail call ptr @makeSortGroupClauseForSetOp(i32 noundef %.0465, i1 noundef zeroext true) #4
+  %613 = tail call ptr @lappend(ptr noundef %611, ptr noundef %612) #4
   store ptr %613, ptr %610, align 8
   br label %614
 
@@ -981,21 +980,21 @@ list_length.exit457:                              ; preds = %list_length.exit455
   %618 = load ptr, ptr %617, align 8
   %619 = getelementptr inbounds nuw i8, ptr %615, i64 52
   %620 = load i32, ptr %619, align 4
-  %621 = tail call ptr @lappend_oid(ptr noundef %618, i32 noundef %620) #5
+  %621 = tail call ptr @lappend_oid(ptr noundef %618, i32 noundef %620) #4
   store ptr %621, ptr %617, align 8
   %622 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %623 = load ptr, ptr %622, align 8
   %624 = load ptr, ptr %39, align 8
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 56
   %626 = load i32, ptr %625, align 8
-  %627 = tail call ptr @lappend_int(ptr noundef %623, i32 noundef %626) #5
+  %627 = tail call ptr @lappend_int(ptr noundef %623, i32 noundef %626) #4
   store ptr %627, ptr %622, align 8
   %628 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %629 = load ptr, ptr %628, align 8
   %630 = load ptr, ptr %39, align 8
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 60
   %632 = load i32, ptr %631, align 4
-  %633 = tail call ptr @lappend_oid(ptr noundef %629, i32 noundef %632) #5
+  %633 = tail call ptr @lappend_oid(ptr noundef %629, i32 noundef %632) #4
   store ptr %633, ptr %628, align 8
   %634 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %635 = load i8, ptr %634, align 8, !range !4, !noundef !5
@@ -1008,20 +1007,20 @@ list_length.exit457:                              ; preds = %list_length.exit455
   %640 = load ptr, ptr %39, align 8
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 52
   %642 = load i32, ptr %641, align 4
-  %643 = tail call ptr @makeSortGroupClauseForSetOp(i32 noundef %642, i1 noundef zeroext true) #5
-  %644 = tail call ptr @lappend(ptr noundef %639, ptr noundef %643) #5
+  %643 = tail call ptr @makeSortGroupClauseForSetOp(i32 noundef %642, i1 noundef zeroext true) #4
+  %644 = tail call ptr @lappend(ptr noundef %639, ptr noundef %643) #4
   store ptr %644, ptr %638, align 8
   br label %645
 
 645:                                              ; preds = %637, %616
   %646 = load ptr, ptr %617, align 8
-  %647 = tail call ptr @lappend_oid(ptr noundef %646, i32 noundef 2287) #5
+  %647 = tail call ptr @lappend_oid(ptr noundef %646, i32 noundef 2287) #4
   store ptr %647, ptr %617, align 8
   %648 = load ptr, ptr %622, align 8
-  %649 = tail call ptr @lappend_int(ptr noundef %648, i32 noundef -1) #5
+  %649 = tail call ptr @lappend_int(ptr noundef %648, i32 noundef -1) #4
   store ptr %649, ptr %622, align 8
   %650 = load ptr, ptr %628, align 8
-  %651 = tail call ptr @lappend_oid(ptr noundef %650, i32 noundef 0) #5
+  %651 = tail call ptr @lappend_oid(ptr noundef %650, i32 noundef 0) #4
   store ptr %651, ptr %628, align 8
   %652 = load i8, ptr %634, align 8, !range !4, !noundef !5
   %653 = trunc nuw i8 %652 to i1
@@ -1030,8 +1029,8 @@ list_length.exit457:                              ; preds = %list_length.exit455
 654:                                              ; preds = %645
   %655 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %656 = load ptr, ptr %655, align 8
-  %657 = tail call ptr @makeSortGroupClauseForSetOp(i32 noundef 2287, i1 noundef zeroext true) #5
-  %658 = tail call ptr @lappend(ptr noundef %656, ptr noundef %657) #5
+  %657 = tail call ptr @makeSortGroupClauseForSetOp(i32 noundef 2287, i1 noundef zeroext true) #4
+  %658 = tail call ptr @lappend(ptr noundef %656, ptr noundef %657) #4
   store ptr %658, ptr %655, align 8
   br label %659
 
@@ -1043,7 +1042,7 @@ list_length.exit457:                              ; preds = %list_length.exit455
 661:                                              ; preds = %659
   %662 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %663 = load ptr, ptr %662, align 8
-  %664 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0363, i32 noundef %.0465, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
+  %664 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0363, i32 noundef %.0465, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
   %665 = load ptr, ptr %662, align 8
   %.not.i458 = icmp eq ptr %665, null
   br i1 %.not.i458, label %list_length.exit459, label %666
@@ -1060,8 +1059,8 @@ list_length.exit459:                              ; preds = %661, %666
   %672 = load ptr, ptr %26, align 8
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 24
   %674 = load ptr, ptr %673, align 8
-  %675 = tail call ptr @makeTargetEntry(ptr noundef %664, i16 noundef signext %671, ptr noundef %674, i1 noundef zeroext false) #5
-  %676 = tail call ptr @lappend(ptr noundef %663, ptr noundef %675) #5
+  %675 = tail call ptr @makeTargetEntry(ptr noundef %664, i16 noundef signext %671, ptr noundef %674, i1 noundef zeroext false) #4
+  %676 = tail call ptr @lappend(ptr noundef %663, ptr noundef %675) #4
   store ptr %676, ptr %662, align 8
   br label %677
 
@@ -1079,7 +1078,7 @@ list_length.exit459:                              ; preds = %661, %666
   %685 = load i32, ptr %684, align 8
   %686 = getelementptr inbounds nuw i8, ptr %678, i64 60
   %687 = load i32, ptr %686, align 4
-  %688 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0364, i32 noundef %683, i32 noundef %685, i32 noundef %687, i32 noundef 0) #5
+  %688 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0364, i32 noundef %683, i32 noundef %685, i32 noundef %687, i32 noundef 0) #4
   %689 = load ptr, ptr %680, align 8
   %.not.i460 = icmp eq ptr %689, null
   br i1 %.not.i460, label %list_length.exit461, label %690
@@ -1096,10 +1095,10 @@ list_length.exit461:                              ; preds = %679, %690
   %696 = load ptr, ptr %39, align 8
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 16
   %698 = load ptr, ptr %697, align 8
-  %699 = tail call ptr @makeTargetEntry(ptr noundef %688, i16 noundef signext %695, ptr noundef %698, i1 noundef zeroext false) #5
-  %700 = tail call ptr @lappend(ptr noundef %681, ptr noundef %699) #5
+  %699 = tail call ptr @makeTargetEntry(ptr noundef %688, i16 noundef signext %695, ptr noundef %698, i1 noundef zeroext false) #4
+  %700 = tail call ptr @lappend(ptr noundef %681, ptr noundef %699) #4
   store ptr %700, ptr %680, align 8
-  %701 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #5
+  %701 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %.0365, i32 noundef 2287, i32 noundef -1, i32 noundef 0, i32 noundef 0) #4
   %702 = load ptr, ptr %680, align 8
   %.not.i462 = icmp eq ptr %702, null
   br i1 %.not.i462, label %list_length.exit463, label %703
@@ -1116,8 +1115,8 @@ list_length.exit463:                              ; preds = %list_length.exit461
   %709 = load ptr, ptr %39, align 8
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 40
   %711 = load ptr, ptr %710, align 8
-  %712 = tail call ptr @makeTargetEntry(ptr noundef %701, i16 noundef signext %708, ptr noundef %711, i1 noundef zeroext false) #5
-  %713 = tail call ptr @lappend(ptr noundef %700, ptr noundef %712) #5
+  %712 = tail call ptr @makeTargetEntry(ptr noundef %701, i16 noundef signext %708, ptr noundef %711, i1 noundef zeroext false) #4
+  %713 = tail call ptr @lappend(ptr noundef %700, ptr noundef %712) #4
   store ptr %713, ptr %680, align 8
   br label %714
 
@@ -1130,15 +1129,15 @@ list_length.exit463:                              ; preds = %list_length.exit461
 716:                                              ; preds = %714
   %717 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %718 = load ptr, ptr %717, align 8
-  %719 = tail call ptr @lappend_oid(ptr noundef %718, i32 noundef %.0465) #5
+  %719 = tail call ptr @lappend_oid(ptr noundef %718, i32 noundef %.0465) #4
   store ptr %719, ptr %717, align 8
   %720 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %721 = load ptr, ptr %720, align 8
-  %722 = tail call ptr @lappend_int(ptr noundef %721, i32 noundef -1) #5
+  %722 = tail call ptr @lappend_int(ptr noundef %721, i32 noundef -1) #4
   store ptr %722, ptr %720, align 8
   %723 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %724 = load ptr, ptr %723, align 8
-  %725 = tail call ptr @lappend_oid(ptr noundef %724, i32 noundef 0) #5
+  %725 = tail call ptr @lappend_oid(ptr noundef %724, i32 noundef 0) #4
   store ptr %725, ptr %723, align 8
   br label %726
 
@@ -1152,30 +1151,30 @@ list_length.exit463:                              ; preds = %list_length.exit461
   %730 = load ptr, ptr %729, align 8
   %731 = getelementptr inbounds nuw i8, ptr %727, i64 52
   %732 = load i32, ptr %731, align 4
-  %733 = tail call ptr @lappend_oid(ptr noundef %730, i32 noundef %732) #5
+  %733 = tail call ptr @lappend_oid(ptr noundef %730, i32 noundef %732) #4
   store ptr %733, ptr %729, align 8
   %734 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %735 = load ptr, ptr %734, align 8
   %736 = load ptr, ptr %39, align 8
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 56
   %738 = load i32, ptr %737, align 8
-  %739 = tail call ptr @lappend_int(ptr noundef %735, i32 noundef %738) #5
+  %739 = tail call ptr @lappend_int(ptr noundef %735, i32 noundef %738) #4
   store ptr %739, ptr %734, align 8
   %740 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %741 = load ptr, ptr %740, align 8
   %742 = load ptr, ptr %39, align 8
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 60
   %744 = load i32, ptr %743, align 4
-  %745 = tail call ptr @lappend_oid(ptr noundef %741, i32 noundef %744) #5
+  %745 = tail call ptr @lappend_oid(ptr noundef %741, i32 noundef %744) #4
   store ptr %745, ptr %740, align 8
   %746 = load ptr, ptr %729, align 8
-  %747 = tail call ptr @lappend_oid(ptr noundef %746, i32 noundef 2287) #5
+  %747 = tail call ptr @lappend_oid(ptr noundef %746, i32 noundef 2287) #4
   store ptr %747, ptr %729, align 8
   %748 = load ptr, ptr %734, align 8
-  %749 = tail call ptr @lappend_int(ptr noundef %748, i32 noundef -1) #5
+  %749 = tail call ptr @lappend_int(ptr noundef %748, i32 noundef -1) #4
   store ptr %749, ptr %734, align 8
   %750 = load ptr, ptr %740, align 8
-  %751 = tail call ptr @lappend_oid(ptr noundef %750, i32 noundef 0) #5
+  %751 = tail call ptr @lappend_oid(ptr noundef %750, i32 noundef 0) #4
   store ptr %751, ptr %740, align 8
   br label %752
 
@@ -1201,7 +1200,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = tail call noundef ptr @palloc0(i64 noundef 40) #5
+  %3 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 36, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 2249, ptr %4, align 8
@@ -1257,7 +1256,7 @@ list_length.exit.lr.ph:                           ; preds = %.lr.ph59
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %31) #6
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %31) #5
   %.not34 = icmp eq i32 %32, 0
   br i1 %.not34, label %.split, label %.critedge36
 
@@ -1279,13 +1278,13 @@ list_length.exit.lr.ph:                           ; preds = %.lr.ph59
   %.val37 = load ptr, ptr %44, align 8
   %45 = getelementptr inbounds nuw %union.ListCell, ptr %.val37, i64 %indvars.iv
   %46 = load i32, ptr %45, align 8
-  %47 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %34, i32 noundef %38, i32 noundef %42, i32 noundef %46, i32 noundef 0) #5
+  %47 = tail call ptr @makeVar(i32 noundef 1, i16 noundef signext %34, i32 noundef %38, i32 noundef %42, i32 noundef %46, i32 noundef 0) #4
   %48 = load ptr, ptr %13, align 8
-  %49 = tail call ptr @lappend(ptr noundef %48, ptr noundef %47) #5
+  %49 = tail call ptr @lappend(ptr noundef %48, ptr noundef %47) #4
   store ptr %49, ptr %13, align 8
   %50 = load ptr, ptr %14, align 8
-  %51 = tail call ptr @makeString(ptr noundef nonnull %21) #5
-  %52 = tail call ptr @lappend(ptr noundef %50, ptr noundef %51) #5
+  %51 = tail call ptr @makeString(ptr noundef nonnull %21) #4
+  %52 = tail call ptr @lappend(ptr noundef %50, ptr noundef %51) #4
   store ptr %52, ptr %14, align 8
   br label %.critedge40
 
@@ -1334,17 +1333,13 @@ declare ptr @makeSortGroupClauseForSetOp(i32 noundef, i1 noundef zeroext) local_
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

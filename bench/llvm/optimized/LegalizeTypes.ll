@@ -1106,7 +1106,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2
 
 424:                                              ; preds = %420
   %425 = icmp eq i32 %.055, 0
-  br i1 %425, label %426, label %454
+  br i1 %425, label %426, label %452
 
 426:                                              ; preds = %424
   %427 = load i32, ptr %18, align 8
@@ -1128,145 +1128,142 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2
   br i1 %439, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, label %.lr.ph.i.i.i196, !prof !86
 
 .lr.ph.i.i.i196:                                  ; preds = %426, %.lr.ph.i.i.i196
-  %440 = phi i32 [ %446, %.lr.ph.i.i.i196 ], [ %438, %426 ]
   %.01728.i.i.i197 = phi i32 [ %.017.i.i.i199, %.lr.ph.i.i.i196 ], [ %.01726.i.i.i195, %426 ]
-  %.01527.i.i.i198 = phi i32 [ %442, %.lr.ph.i.i.i196 ], [ 1, %426 ]
-  %441 = icmp ne i32 %440, -1
-  call void @llvm.assume(i1 %441)
-  %442 = add i32 %.01527.i.i.i198, 1
-  %443 = add i32 %.01527.i.i.i198, %.01728.i.i.i197
-  %.017.i.i.i199 = and i32 %443, %435
-  %444 = zext i32 %.017.i.i.i199 to i64
-  %445 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.114", ptr %430, i64 %444
-  %446 = load i32, ptr %445, align 4, !tbaa !90
-  %447 = icmp eq i32 %403, %446
-  br i1 %447, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, label %.lr.ph.i.i.i196, !prof !87, !llvm.loop !190
+  %.01527.i.i.i198 = phi i32 [ %440, %.lr.ph.i.i.i196 ], [ 1, %426 ]
+  %440 = add i32 %.01527.i.i.i198, 1
+  %441 = add i32 %.01527.i.i.i198, %.01728.i.i.i197
+  %.017.i.i.i199 = and i32 %441, %435
+  %442 = zext i32 %.017.i.i.i199 to i64
+  %443 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.114", ptr %430, i64 %442
+  %444 = load i32, ptr %443, align 4, !tbaa !90
+  %445 = icmp eq i32 %403, %444
+  br i1 %445, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, label %.lr.ph.i.i.i196, !prof !87, !llvm.loop !190
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i: ; preds = %.lr.ph.i.i.i196, %426
-  %448 = phi i64 [ %436, %426 ], [ %444, %.lr.ph.i.i.i196 ]
-  %449 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.114", ptr %430, i64 %448
-  %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
-  %.sroa.0.0.copyload.i200 = load ptr, ptr %450, align 8, !tbaa !191
-  %451 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i200, i64 36
-  %452 = load i32, ptr %451, align 4, !tbaa !69
-  %453 = icmp eq i32 %452, -3
-  br i1 %453, label %.sink.split, label %.critedge82
+  %446 = phi i64 [ %436, %426 ], [ %442, %.lr.ph.i.i.i196 ]
+  %447 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.114", ptr %430, i64 %446
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
+  %.sroa.0.0.copyload.i200 = load ptr, ptr %448, align 8, !tbaa !191
+  %449 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i200, i64 36
+  %450 = load i32, ptr %449, align 4, !tbaa !69
+  %451 = icmp eq i32 %450, -3
+  br i1 %451, label %.sink.split, label %.critedge82
 
-454:                                              ; preds = %424
-  %455 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.055)
-  %.not70 = icmp samesign ult i32 %455, 2
+452:                                              ; preds = %424
+  %453 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.055)
+  %.not70 = icmp samesign ult i32 %453, 2
   br i1 %.not70, label %.critedge82, label %.critedge
 
-.critedge:                                        ; preds = %454, %422, %405, %408
-  %.str.1.sink = phi ptr [ @.str.1, %408 ], [ @.str.1, %405 ], [ @.str.2, %422 ], [ @.str.4, %454 ]
-  %456 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %457 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %456, ptr noundef nonnull %.str.1.sink)
-  %458 = and i32 %.055, 1
-  %.not71 = icmp eq i32 %458, 0
-  br i1 %.not71, label %462, label %459
+.critedge:                                        ; preds = %452, %422, %405, %408
+  %.str.1.sink = phi ptr [ @.str.1, %408 ], [ @.str.1, %405 ], [ @.str.2, %422 ], [ @.str.4, %452 ]
+  %454 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %455 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %454, ptr noundef nonnull %.str.1.sink)
+  %456 = and i32 %.055, 1
+  %.not71 = icmp eq i32 %456, 0
+  br i1 %.not71, label %460, label %457
 
-459:                                              ; preds = %.critedge
-  %460 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %461 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %460, ptr noundef nonnull @.str.5)
-  br label %462
+457:                                              ; preds = %.critedge
+  %458 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %459 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %458, ptr noundef nonnull @.str.5)
+  br label %460
 
-462:                                              ; preds = %459, %.critedge
-  %463 = and i32 %.055, 2
-  %.not72 = icmp eq i32 %463, 0
-  br i1 %.not72, label %467, label %464
+460:                                              ; preds = %457, %.critedge
+  %461 = and i32 %.055, 2
+  %.not72 = icmp eq i32 %461, 0
+  br i1 %.not72, label %465, label %462
 
-464:                                              ; preds = %462
-  %465 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %466 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %465, ptr noundef nonnull @.str.6)
-  br label %467
+462:                                              ; preds = %460
+  %463 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %464 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %463, ptr noundef nonnull @.str.6)
+  br label %465
 
-467:                                              ; preds = %464, %462
-  %468 = and i32 %.055, 4
-  %.not73 = icmp eq i32 %468, 0
-  br i1 %.not73, label %472, label %469
+465:                                              ; preds = %462, %460
+  %466 = and i32 %.055, 4
+  %.not73 = icmp eq i32 %466, 0
+  br i1 %.not73, label %470, label %467
 
-469:                                              ; preds = %467
-  %470 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %471 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %470, ptr noundef nonnull @.str.7)
-  br label %472
+467:                                              ; preds = %465
+  %468 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %469 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %468, ptr noundef nonnull @.str.7)
+  br label %470
 
-472:                                              ; preds = %469, %467
-  %473 = and i32 %.055, 8
-  %.not74 = icmp eq i32 %473, 0
-  br i1 %.not74, label %477, label %474
+470:                                              ; preds = %467, %465
+  %471 = and i32 %.055, 8
+  %.not74 = icmp eq i32 %471, 0
+  br i1 %.not74, label %475, label %472
 
-474:                                              ; preds = %472
-  %475 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %476 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %475, ptr noundef nonnull @.str.8)
-  br label %477
+472:                                              ; preds = %470
+  %473 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %474 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %473, ptr noundef nonnull @.str.8)
+  br label %475
 
-477:                                              ; preds = %474, %472
-  %478 = and i32 %.055, 16
-  %.not75 = icmp eq i32 %478, 0
-  br i1 %.not75, label %482, label %479
+475:                                              ; preds = %472, %470
+  %476 = and i32 %.055, 16
+  %.not75 = icmp eq i32 %476, 0
+  br i1 %.not75, label %480, label %477
 
-479:                                              ; preds = %477
-  %480 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %481 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %480, ptr noundef nonnull @.str.9)
-  br label %482
+477:                                              ; preds = %475
+  %478 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %479 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %478, ptr noundef nonnull @.str.9)
+  br label %480
 
-482:                                              ; preds = %479, %477
-  %483 = and i32 %.055, 32
-  %.not76 = icmp eq i32 %483, 0
-  br i1 %.not76, label %487, label %484
+480:                                              ; preds = %477, %475
+  %481 = and i32 %.055, 32
+  %.not76 = icmp eq i32 %481, 0
+  br i1 %.not76, label %485, label %482
 
-484:                                              ; preds = %482
-  %485 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %486 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %485, ptr noundef nonnull @.str.10)
-  br label %487
+482:                                              ; preds = %480
+  %483 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %484 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %483, ptr noundef nonnull @.str.10)
+  br label %485
 
-487:                                              ; preds = %484, %482
-  %488 = and i32 %.055, 64
-  %.not77 = icmp eq i32 %488, 0
-  br i1 %.not77, label %492, label %489
+485:                                              ; preds = %482, %480
+  %486 = and i32 %.055, 64
+  %.not77 = icmp eq i32 %486, 0
+  br i1 %.not77, label %490, label %487
 
-489:                                              ; preds = %487
-  %490 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %491 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %490, ptr noundef nonnull @.str.11)
-  br label %492
+487:                                              ; preds = %485
+  %488 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %489 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %488, ptr noundef nonnull @.str.11)
+  br label %490
 
-492:                                              ; preds = %489, %487
-  %493 = and i32 %.055, 128
-  %.not78 = icmp eq i32 %493, 0
-  br i1 %.not78, label %497, label %494
+490:                                              ; preds = %487, %485
+  %491 = and i32 %.055, 128
+  %.not78 = icmp eq i32 %491, 0
+  br i1 %.not78, label %495, label %492
 
-494:                                              ; preds = %492
-  %495 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %496 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %495, ptr noundef nonnull @.str.12)
-  br label %497
+492:                                              ; preds = %490
+  %493 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %494 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %493, ptr noundef nonnull @.str.12)
+  br label %495
 
-497:                                              ; preds = %494, %492
-  %498 = and i32 %.055, 256
-  %.not79 = icmp eq i32 %498, 0
-  br i1 %.not79, label %502, label %499
+495:                                              ; preds = %492, %490
+  %496 = and i32 %.055, 256
+  %.not79 = icmp eq i32 %496, 0
+  br i1 %.not79, label %500, label %497
 
-499:                                              ; preds = %497
-  %500 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %501 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %500, ptr noundef nonnull @.str.13)
-  br label %502
+497:                                              ; preds = %495
+  %498 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %499 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %498, ptr noundef nonnull @.str.13)
+  br label %500
 
-502:                                              ; preds = %499, %497
-  %503 = and i32 %.055, 512
-  %.not80 = icmp eq i32 %503, 0
-  br i1 %.not80, label %506, label %.sink.split
+500:                                              ; preds = %497, %495
+  %501 = and i32 %.055, 512
+  %.not80 = icmp eq i32 %501, 0
+  br i1 %.not80, label %504, label %.sink.split
 
-.sink.split:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, %502
-  %.str.3.sink = phi ptr [ @.str.14, %502 ], [ @.str.3, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i ]
-  %504 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %505 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %504, ptr noundef nonnull %.str.3.sink)
-  br label %506
+.sink.split:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, %500
+  %.str.3.sink = phi ptr [ @.str.14, %500 ], [ @.str.3, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i ]
+  %502 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %503 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %502, ptr noundef nonnull %.str.3.sink)
+  br label %504
 
-506:                                              ; preds = %.sink.split, %502
-  %507 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
-  %508 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %507, ptr noundef nonnull @.str.15)
+504:                                              ; preds = %.sink.split, %500
+  %505 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #20
+  %506 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %505, ptr noundef nonnull @.str.15)
   unreachable
 
-.critedge82:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, %408, %422, %454
+.critedge82:                                      ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E6doFindIjEEPKS7_RKT_.exit.i, %408, %422, %452
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %78
   br i1 %.not, label %._crit_edge288, label %80, !llvm.loop !192

@@ -196,21 +196,21 @@ _ZN6icu_7718CalendarAstronomer17eclipticObliquityEv.exit: ; preds = %._crit_edge
   %19 = fmul double %14, %18
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %14, double %17)
   %21 = fmul double %20, 0x3F91DF46A2529D39
-  %22 = tail call double @sin(double noundef %21) #16, !tbaa !14
-  %23 = tail call double @cos(double noundef %21) #16, !tbaa !14
-  %24 = tail call double @sin(double noundef %2) #16, !tbaa !14
-  %25 = tail call double @cos(double noundef %2) #16, !tbaa !14
-  %26 = tail call double @sin(double noundef %3) #16, !tbaa !14
-  %27 = tail call double @cos(double noundef %3) #16, !tbaa !14
-  %28 = tail call double @tan(double noundef %3) #16, !tbaa !14
+  %22 = tail call double @sin(double noundef %21) #15, !tbaa !14
+  %23 = tail call double @cos(double noundef %21) #15, !tbaa !14
+  %24 = tail call double @sin(double noundef %2) #15, !tbaa !14
+  %25 = tail call double @cos(double noundef %2) #15, !tbaa !14
+  %26 = tail call double @sin(double noundef %3) #15, !tbaa !14
+  %27 = tail call double @cos(double noundef %3) #15, !tbaa !14
+  %28 = tail call double @tan(double noundef %3) #15, !tbaa !14
   %29 = fneg double %22
   %30 = fmul double %28, %29
   %31 = tail call double @llvm.fmuladd.f64(double %24, double %23, double %30)
-  %32 = tail call double @atan2(double noundef %31, double noundef %25) #16, !tbaa !14
+  %32 = tail call double @atan2(double noundef %31, double noundef %25) #15, !tbaa !14
   %33 = fmul double %22, %27
   %34 = fmul double %24, %33
   %35 = tail call double @llvm.fmuladd.f64(double %26, double %23, double %34)
-  %36 = tail call double @asin(double noundef %35) #16, !tbaa !14
+  %36 = tail call double @asin(double noundef %35) #15, !tbaa !14
   store double %32, ptr %1, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %36, ptr %37, align 8, !tbaa !17
@@ -316,10 +316,10 @@ _ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit: ; preds = %._crit_edge.i, %
 
 25:                                               ; preds = %25, %_ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit
   %.0.i.i = phi double [ %24, %_ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit ], [ %32, %25 ]
-  %26 = tail call double @sin(double noundef %.0.i.i) #16, !tbaa !14
+  %26 = tail call double @sin(double noundef %.0.i.i) #15, !tbaa !14
   %27 = tail call double @llvm.fmuladd.f64(double %26, double -1.671300e-02, double %.0.i.i)
   %28 = fsub double %27, %24
-  %29 = tail call double @cos(double noundef %.0.i.i) #16, !tbaa !14
+  %29 = tail call double @cos(double noundef %.0.i.i) #15, !tbaa !14
   %30 = tail call double @llvm.fmuladd.f64(double %29, double -1.671300e-02, double 1.000000e+00)
   %31 = fdiv double %28, %30
   %32 = fsub double %.0.i.i, %31
@@ -329,9 +329,9 @@ _ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit: ; preds = %._crit_edge.i, %
 
 _ZN6icu_7718CalendarAstronomer15getSunLongitudeEdRdS1_.exit: ; preds = %25
   %35 = fmul double %32, 5.000000e-01
-  %36 = tail call double @tan(double noundef %35) #16, !tbaa !14
+  %36 = tail call double @tan(double noundef %35) #15, !tbaa !14
   %37 = fmul double %36, 0x3FF04509C69ED7D5
-  %38 = tail call double @atan(double noundef %37) #16, !tbaa !14
+  %38 = tail call double @atan(double noundef %37) #15, !tbaa !14
   %39 = fmul double %38, 2.000000e+00
   %40 = fadd double %39, 0x4013BDAF8CEE89A2
   %41 = fdiv double %40, 0x401921FB54442D18
@@ -362,10 +362,10 @@ define void @_ZN6icu_7718CalendarAstronomer15getSunLongitudeEdRdS1_(ptr noundef 
 
 15:                                               ; preds = %15, %4
   %.0.i = phi double [ %14, %4 ], [ %22, %15 ]
-  %16 = tail call double @sin(double noundef %.0.i) #16, !tbaa !14
+  %16 = tail call double @sin(double noundef %.0.i) #15, !tbaa !14
   %17 = tail call double @llvm.fmuladd.f64(double %16, double -1.671300e-02, double %.0.i)
   %18 = fsub double %17, %14
-  %19 = tail call double @cos(double noundef %.0.i) #16, !tbaa !14
+  %19 = tail call double @cos(double noundef %.0.i) #15, !tbaa !14
   %20 = tail call double @llvm.fmuladd.f64(double %19, double -1.671300e-02, double 1.000000e+00)
   %21 = fdiv double %18, %20
   %22 = fsub double %.0.i, %21
@@ -375,9 +375,9 @@ define void @_ZN6icu_7718CalendarAstronomer15getSunLongitudeEdRdS1_(ptr noundef 
 
 _ZN6icu_77L11trueAnomalyEdd.exit:                 ; preds = %15
   %25 = fmul double %22, 5.000000e-01
-  %26 = tail call double @tan(double noundef %25) #16, !tbaa !14
+  %26 = tail call double @tan(double noundef %25) #15, !tbaa !14
   %27 = fmul double %26, 0x3FF04509C69ED7D5
-  %28 = tail call double @atan(double noundef %27) #16, !tbaa !14
+  %28 = tail call double @atan(double noundef %27) #15, !tbaa !14
   %29 = fmul double %28, 2.000000e+00
   %30 = fadd double %29, 0x4013BDAF8CEE89A2
   %31 = fdiv double %30, 0x401921FB54442D18
@@ -399,7 +399,7 @@ define void @_ZN6icu_7718CalendarAstronomer9AngleFuncD2Ev(ptr nonnull readnone a
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN6icu_7718CalendarAstronomer9AngleFuncD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #16
   unreachable
 }
 
@@ -408,8 +408,8 @@ declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7716SunTimeAngleFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN6icu_7716SunTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN6icu_7716SunTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -425,14 +425,14 @@ define noundef double @_ZN6icu_7718CalendarAstronomer10getSunTimeEda(ptr noundef
           to label %6 unwind label %7
 
 6:                                                ; preds = %3
-  call void @_ZN6icu_7716SunTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  call void @_ZN6icu_7716SunTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %5
 
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7716SunTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  call void @_ZN6icu_7716SunTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %8
 }
@@ -578,20 +578,20 @@ _ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit: ; preds = %._crit_edge.i, %
   %27 = fsub double %19, %26
   %28 = fneg double %24
   %29 = tail call double @llvm.fmuladd.f64(double %27, double 2.000000e+00, double %28)
-  %30 = tail call double @sin(double noundef %29) #16, !tbaa !14
+  %30 = tail call double @sin(double noundef %29) #15, !tbaa !14
   %31 = fmul double %30, 0x3F96C471A926A187
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load double, ptr %32, align 8, !tbaa !11
-  %34 = tail call double @sin(double noundef %33) #16, !tbaa !14
+  %34 = tail call double @sin(double noundef %33) #15, !tbaa !14
   %35 = fmul double %34, 0x3F6A90B0ABA4FC89
   %36 = fmul double %34, 0x3F7A736889D66DD0
   %37 = fsub double %31, %35
   %38 = fsub double %37, %36
   %39 = fadd double %24, %38
-  %40 = tail call double @sin(double noundef %39) #16, !tbaa !14
+  %40 = tail call double @sin(double noundef %39) #15, !tbaa !14
   %41 = fmul double %40, 0x3FBC1905209A88DE
   %42 = fmul double %39, 2.000000e+00
-  %43 = tail call double @sin(double noundef %42) #16, !tbaa !14
+  %43 = tail call double @sin(double noundef %42) #15, !tbaa !14
   %44 = fmul double %43, 0x3F6E98DF535623B2
   %45 = fadd double %19, %31
   %46 = fadd double %45, %41
@@ -599,7 +599,7 @@ _ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit: ; preds = %._crit_edge.i, %
   %48 = fadd double %44, %47
   %49 = fsub double %48, %26
   %50 = fmul double %49, 2.000000e+00
-  %51 = tail call double @sin(double noundef %50) #16, !tbaa !14
+  %51 = tail call double @sin(double noundef %50) #15, !tbaa !14
   %52 = fmul double %51, 0x3F8787CEEAB4C1CA
   %53 = fadd double %52, %48
   %54 = tail call double @llvm.fmuladd.f64(double %15, double 0xBF4E48EB230F0FE5, double 0x40163C779EFC0D54)
@@ -607,18 +607,18 @@ _ZN6icu_7718CalendarAstronomer12getJulianDayEv.exit: ; preds = %._crit_edge.i, %
   %56 = tail call noundef double @uprv_floor_77(double noundef %55)
   %57 = tail call noundef double @llvm.fmuladd.f64(double %56, double 0xC01921FB54442D18, double %54)
   %58 = load double, ptr %32, align 8, !tbaa !11
-  %59 = tail call double @sin(double noundef %58) #16, !tbaa !14
+  %59 = tail call double @sin(double noundef %58) #15, !tbaa !14
   %60 = tail call double @llvm.fmuladd.f64(double %59, double 0xBF66E05A695F8191, double %57)
   %61 = fsub double %53, %60
-  %62 = tail call double @sin(double noundef %61) #16, !tbaa !14
-  %63 = tail call double @cos(double noundef %61) #16, !tbaa !14
+  %62 = tail call double @sin(double noundef %61) #15, !tbaa !14
+  %63 = tail call double @cos(double noundef %61) #15, !tbaa !14
   %64 = fmul double %62, 0x3FEFDEFD3FC184D3
-  %65 = tail call double @atan2(double noundef %64, double noundef %63) #16, !tbaa !14
+  %65 = tail call double @atan2(double noundef %64, double noundef %63) #15, !tbaa !14
   %66 = fadd double %60, %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %66, ptr %67, align 8, !tbaa !12
   %68 = fmul double %62, 0x3FB6F575B9F2C24F
-  %69 = tail call double @asin(double noundef %68) #16, !tbaa !14
+  %69 = tail call double @asin(double noundef %68) #15, !tbaa !14
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %71 = load double, ptr %7, align 8, !tbaa !9
   %72 = tail call noundef signext i8 @uprv_isNaN_77(double noundef %71)
@@ -647,21 +647,21 @@ _ZN6icu_7718CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: 
   %84 = fmul double %79, %83
   %85 = tail call double @llvm.fmuladd.f64(double %84, double %79, double %82)
   %86 = fmul double %85, 0x3F91DF46A2529D39
-  %87 = tail call double @sin(double noundef %86) #16, !tbaa !14
-  %88 = tail call double @cos(double noundef %86) #16, !tbaa !14
-  %89 = tail call double @sin(double noundef %66) #16, !tbaa !14
-  %90 = tail call double @cos(double noundef %66) #16, !tbaa !14
-  %91 = tail call double @sin(double noundef %69) #16, !tbaa !14
-  %92 = tail call double @cos(double noundef %69) #16, !tbaa !14
-  %93 = tail call double @tan(double noundef %69) #16, !tbaa !14
+  %87 = tail call double @sin(double noundef %86) #15, !tbaa !14
+  %88 = tail call double @cos(double noundef %86) #15, !tbaa !14
+  %89 = tail call double @sin(double noundef %66) #15, !tbaa !14
+  %90 = tail call double @cos(double noundef %66) #15, !tbaa !14
+  %91 = tail call double @sin(double noundef %69) #15, !tbaa !14
+  %92 = tail call double @cos(double noundef %69) #15, !tbaa !14
+  %93 = tail call double @tan(double noundef %69) #15, !tbaa !14
   %94 = fneg double %87
   %95 = fmul double %93, %94
   %96 = tail call double @llvm.fmuladd.f64(double %89, double %88, double %95)
-  %97 = tail call double @atan2(double noundef %96, double noundef %90) #16, !tbaa !14
+  %97 = tail call double @atan2(double noundef %96, double noundef %90) #15, !tbaa !14
   %98 = fmul double %87, %92
   %99 = fmul double %89, %98
   %100 = tail call double @llvm.fmuladd.f64(double %91, double %88, double %99)
-  %101 = tail call double @asin(double noundef %100) #16, !tbaa !14
+  %101 = tail call double @asin(double noundef %100) #15, !tbaa !14
   store double %97, ptr %70, align 8, !tbaa !16
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %101, ptr %102, align 8, !tbaa !17
@@ -694,8 +694,8 @@ define noundef double @_ZN6icu_7718CalendarAstronomer8NEW_MOONEv() local_unnamed
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7717MoonTimeAngleFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN6icu_7717MoonTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN6icu_7717MoonTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -709,14 +709,14 @@ define noundef double @_ZN6icu_7718CalendarAstronomer11getMoonTimeERKNS0_7MoonAg
           to label %7 unwind label %8
 
 7:                                                ; preds = %3
-  call void @_ZN6icu_7717MoonTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  call void @_ZN6icu_7717MoonTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret double %6
 
 8:                                                ; preds = %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6icu_7717MoonTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  call void @_ZN6icu_7717MoonTimeAngleFuncD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 }
@@ -754,7 +754,7 @@ define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr nound
   br label %20
 
 5:                                                ; preds = %2
-  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #16
+  %6 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread, label %8
 
@@ -778,7 +778,7 @@ define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr nound
   %15 = load ptr, ptr %6, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %6) #15
   br label %.thread13
 
 .thread13:                                        ; preds = %.thread, %14
@@ -788,7 +788,7 @@ define void @_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode(ptr nound
 18:                                               ; preds = %8
   %19 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #16
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %6) #15
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %.thread, %9, %.thread13, %4
@@ -809,7 +809,7 @@ declare noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef) local_unnamed_addr #9
 define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %2, align 4, !tbaa !27
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %26
+  br i1 %5, label %6, label %25
 
 6:                                                ; preds = %3
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZL6ccLock)
@@ -819,13 +819,13 @@ define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr nounde
 
 9:                                                ; preds = %6
   tail call void @ucln_i18n_registerCleanup_77(i32 noundef 11, ptr noundef nonnull @_ZL22calendar_astro_cleanupv)
-  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #16
+  %10 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #15
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.thread.i, label %12
+  br i1 %11, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14, label %12
 
 12:                                               ; preds = %9
   invoke void @_ZN6icu_7713CalendarCacheC1EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %13 unwind label %17
+          to label %13 unwind label %16
 
 13:                                               ; preds = %12
   store ptr %10, ptr %0, align 8, !tbaa !29
@@ -833,45 +833,36 @@ define noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr nounde
   %15 = icmp slt i32 %14, 1
   br i1 %15, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
 
-.thread.i:                                        ; preds = %9
-  store ptr null, ptr %0, align 8, !tbaa !29
-  %16 = load i32, ptr %2, align 4, !tbaa !27
-  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14
-
-17:                                               ; preds = %12
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %12
+  %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #16
-  resume { ptr, i32 } %18
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #15
+  resume { ptr, i32 } %17
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit: ; preds = %13
-  %19 = load ptr, ptr %10, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %10) #16
-  %.pre.pre = load i32, ptr %2, align 4, !tbaa !27
-  store ptr null, ptr %0, align 8, !tbaa !29
+  %18 = load ptr, ptr %10, align 8, !tbaa !21
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14
 
-_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
-  %.sink16.in = phi i32 [ %16, %.thread.i ], [ %.pre.pre, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit ]
-  %.sink16 = icmp sgt i32 %.sink16.in, 0
-  tail call void @llvm.assume(i1 %.sink16)
+_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14: ; preds = %9, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %.sink.split
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %13, %6
-  %22 = phi ptr [ %7, %6 ], [ %10, %13 ]
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
-  %25 = tail call i32 @uhash_igeti_77(ptr noundef %24, i32 noundef %1)
+  %21 = phi ptr [ %7, %6 ], [ %10, %13 ]
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
+  %24 = tail call i32 @uhash_igeti_77(ptr noundef %23, i32 noundef %1)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
-  %.0.ph = phi i32 [ %25, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread ], [ 0, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14 ]
+  %.0.ph = phi i32 [ %24, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread ], [ 0, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread14 ]
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZL6ccLock)
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.sink.split, %3
+25:                                               ; preds = %.sink.split, %3
   %.0 = phi i32 [ 0, %3 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -886,7 +877,7 @@ declare i32 @uhash_igeti_77(ptr noundef, i32 noundef) local_unnamed_addr #1
 define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %3, align 4, !tbaa !27
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %27
+  br i1 %6, label %7, label %26
 
 7:                                                ; preds = %4
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZL6ccLock)
@@ -896,13 +887,13 @@ define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef capt
 
 10:                                               ; preds = %7
   tail call void @ucln_i18n_registerCleanup_77(i32 noundef 11, ptr noundef nonnull @_ZL22calendar_astro_cleanupv)
-  %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #16
+  %11 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 16) #15
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread.i, label %13
+  br i1 %12, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13, label %13
 
 13:                                               ; preds = %10
   invoke void @_ZN6icu_7713CalendarCacheC1EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef 32, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %14 unwind label %18
+          to label %14 unwind label %17
 
 14:                                               ; preds = %13
   store ptr %11, ptr %0, align 8, !tbaa !29
@@ -910,44 +901,35 @@ define void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef capt
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread, label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
 
-.thread.i:                                        ; preds = %10
-  store ptr null, ptr %0, align 8, !tbaa !29
-  %17 = load i32, ptr %3, align 4, !tbaa !27
-  br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13
-
-18:                                               ; preds = %13
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %13
+  %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #16
-  resume { ptr, i32 } %19
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #15
+  resume { ptr, i32 } %18
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit: ; preds = %14
-  %20 = load ptr, ptr %11, align 8, !tbaa !21
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(16) %11) #16
-  %.pre.pre = load i32, ptr %3, align 4, !tbaa !27
-  store ptr null, ptr %0, align 8, !tbaa !29
+  %19 = load ptr, ptr %11, align 8, !tbaa !21
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(16) %11) #15
   br label %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13
 
-_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13: ; preds = %.thread.i, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
-  %.sink15.in = phi i32 [ %17, %.thread.i ], [ %.pre.pre, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit ]
-  %.sink15 = icmp sgt i32 %.sink15.in, 0
-  tail call void @llvm.assume(i1 %.sink15)
+_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13: ; preds = %10, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit
+  store ptr null, ptr %0, align 8, !tbaa !29
   br label %.sink.split
 
 _ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread: ; preds = %14, %7
-  %23 = phi ptr [ %8, %7 ], [ %11, %14 ]
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
-  %26 = tail call i32 @uhash_iputi_77(ptr noundef %25, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3)
+  %22 = phi ptr [ %8, %7 ], [ %11, %14 ]
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %25 = tail call i32 @uhash_iputi_77(ptr noundef %24, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread13, %_ZN6icu_7713CalendarCache11createCacheEPPS0_R10UErrorCode.exit.thread
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZL6ccLock)
-  br label %27
+  br label %26
 
-27:                                               ; preds = %.sink.split, %4
+26:                                               ; preds = %.sink.split, %4
   ret void
 }
 
@@ -987,7 +969,7 @@ define void @_ZN6icu_7713CalendarCacheD2Ev(ptr noundef nonnull align 8 captures(
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #17
+  tail call void @__clang_call_terminate(ptr %8) #16
   unreachable
 }
 
@@ -995,8 +977,8 @@ declare void @uhash_close_77(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -1007,8 +989,8 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7713CalendarCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZN6icu_7713CalendarCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN6icu_7713CalendarCacheD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %0) #15
   ret void
 }
 
@@ -1050,9 +1032,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1068,9 +1047,8 @@ attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" 
 attributes #12 = { cold nofree noreturn }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

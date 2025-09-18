@@ -1754,9 +1754,6 @@ define hidden void @"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h2d75d9e79974885aE.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 1 %21, i1 noundef zeroext true), !noalias !190
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = icmp eq i64 %23, -9223372036854775807
-  call void @llvm.assume(i1 %24)
   br label %"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha8c0df1155c272ddE.exit"
 
 "_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend17ha8c0df1155c272ddE.exit": ; preds = %16, %20
@@ -35834,30 +35831,27 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
 38:                                               ; preds = %26
   %39 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %40 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h3a041412099ff68fE.llvm.17704032041304388331"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %39, i1 noundef zeroext true), !noalias !6066
-  %41 = extractvalue { i64, i64 } %40, 0
-  %42 = icmp eq i64 %41, -9223372036854775807
-  call void @llvm.assume(i1 %42)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h29529f267f0e9146E.llvm.18263967998570167583.exit.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h29529f267f0e9146E.llvm.18263967998570167583.exit.i.i.i.i": ; preds = %38, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6057
   store ptr %5, ptr %4, align 8, !noalias !6057
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.val, ptr %43, align 8, !noalias !6057
-  %44 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.18263967998570167583(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val, i64 noundef %34, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26d2c8a87f4bfa638a02c66113af3c5c.98.llvm.18263967998570167583), !noalias !6066
-  %45 = extractvalue { i64, i64 } %44, 0
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %.val, ptr %41, align 8, !noalias !6057
+  %42 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h17668f6fcb9c54fbE.llvm.18263967998570167583(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val, i64 noundef %34, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26d2c8a87f4bfa638a02c66113af3c5c.98.llvm.18263967998570167583), !noalias !6066
+  %43 = extractvalue { i64, i64 } %42, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !6057
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !6051
-  %trunc.i.i.i.i = trunc nuw i64 %45 to i1
-  br i1 %trunc.i.i.i.i, label %46, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f73173a38d36e5eE.exit"
+  %trunc.i.i.i.i = trunc nuw i64 %43 to i1
+  br i1 %trunc.i.i.i.i, label %44, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f73173a38d36e5eE.exit"
 
-46:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h29529f267f0e9146E.llvm.18263967998570167583.exit.i.i.i.i"
-  %47 = extractvalue { i64, i64 } %44, 1
-  %48 = load i32, ptr %6, align 4, !range !1658, !noalias !6051, !noundef !4
-  %49 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h4df9d094d54e4e04E.llvm.18263967998570167583"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val, i64 noundef %34, i64 noundef %47, i32 noundef %48)
+44:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h29529f267f0e9146E.llvm.18263967998570167583.exit.i.i.i.i"
+  %45 = extractvalue { i64, i64 } %42, 1
+  %46 = load i32, ptr %6, align 4, !range !1658, !noalias !6051, !noundef !4
+  %47 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h4df9d094d54e4e04E.llvm.18263967998570167583"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val, i64 noundef %34, i64 noundef %45, i32 noundef %46)
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f73173a38d36e5eE.exit"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f73173a38d36e5eE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h29529f267f0e9146E.llvm.18263967998570167583.exit.i.i.i.i", %46
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8f73173a38d36e5eE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h29529f267f0e9146E.llvm.18263967998570167583.exit.i.i.i.i", %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %"_ZN6ide_db7imports13import_assets22trait_applicable_items28_$u7b$$u7b$closure$u7d$$u7d$17h50cec101edf65debE.exit.thread"
 

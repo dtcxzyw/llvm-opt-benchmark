@@ -58,7 +58,7 @@ define dso_local void @heap_page_prune_opt(ptr noundef %0, i32 noundef %1) local
 
 BufferGetPage.exit:                               ; preds = %6, %12
   %.0.i.i = phi ptr [ %11, %6 ], [ %17, %12 ]
-  %18 = tail call zeroext i1 @RecoveryInProgress() #8
+  %18 = tail call zeroext i1 @RecoveryInProgress() #7
   br i1 %18, label %59, label %19
 
 19:                                               ; preds = %BufferGetPage.exit
@@ -68,8 +68,8 @@ BufferGetPage.exit:                               ; preds = %6, %12
   br i1 %.not, label %59, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call ptr @GlobalVisTestFor(ptr noundef %0) #8
-  %24 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %23, i32 noundef %21) #8
+  %23 = tail call ptr @GlobalVisTestFor(ptr noundef %0) #7
+  %24 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %23, i32 noundef %21) #7
   br i1 %24, label %25, label %59
 
 25:                                               ; preds = %22
@@ -97,12 +97,12 @@ BufferGetPage.exit:                               ; preds = %6, %12
   br i1 %.not26, label %40, label %43
 
 40:                                               ; preds = %36
-  %41 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #8
+  %41 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #7
   %42 = icmp ult i64 %41, %37
   br i1 %42, label %43, label %59
 
 43:                                               ; preds = %40, %36
-  %44 = tail call zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %1) #8
+  %44 = tail call zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef %1) #7
   br i1 %44, label %45, label %59
 
 45:                                               ; preds = %43
@@ -112,7 +112,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   br i1 %.not27, label %47, label %50
 
 47:                                               ; preds = %45
-  %48 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #8
+  %48 = tail call i64 @PageGetHeapFreeSpace(ptr noundef nonnull %.0.i.i) #7
   %49 = icmp ult i64 %48, %37
   br i1 %49, label %50, label %58
 
@@ -128,7 +128,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
 
 55:                                               ; preds = %50
   %56 = sub i32 %51, %53
-  call void @pgstat_update_heap_dead_tuples(ptr noundef nonnull %0, i32 noundef %56) #8
+  call void @pgstat_update_heap_dead_tuples(ptr noundef nonnull %0, i32 noundef %56) #7
   br label %57
 
 57:                                               ; preds = %55, %50
@@ -137,7 +137,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
   br label %58
 
 58:                                               ; preds = %57, %47
-  call void @LockBuffer(i32 noundef %1, i32 noundef 0) #8
+  call void @LockBuffer(i32 noundef %1, i32 noundef 0) #7
   br label %59
 
 59:                                               ; preds = %40, %58, %43, %22, %19, %BufferGetPage.exit
@@ -181,7 +181,7 @@ define dso_local void @heap_page_prune_and_freeze(ptr noundef %0, i32 noundef %1
 
 BufferGetPage.exit:                               ; preds = %16, %22
   %.0.i.i = phi ptr [ %21, %16 ], [ %27, %22 ]
-  %28 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
+  %28 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgWalUsage, i64 8), align 8
@@ -369,7 +369,7 @@ default.unreachable:                              ; preds = %103
   store i16 %96, ptr %97, align 2
   store i16 %105, ptr %98, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %138 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef nonnull %14, i32 noundef %1, ptr noundef nonnull %12) #8
+  %138 = call i32 @HeapTupleSatisfiesVacuumHorizon(ptr noundef nonnull %14, i32 noundef %1, ptr noundef nonnull %12) #7
   %.not.i = icmp eq i32 %138, 2
   br i1 %.not.i, label %139, label %heap_prune_satisfies_vacuum.exit
 
@@ -395,7 +395,7 @@ default.unreachable:                              ; preds = %103
 146:                                              ; preds = %141, %._crit_edge.i
   %147 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %.pre14.i, %141 ]
   %148 = load ptr, ptr %13, align 8
-  %149 = call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %148, i32 noundef %147) #8
+  %149 = call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %148, i32 noundef %147) #7
   %..i = select i1 %149, i32 0, i32 2
   br label %heap_prune_satisfies_vacuum.exit
 
@@ -557,14 +557,13 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %220, %216
   ]
 
 229:                                              ; preds = %223
-  call void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef %215, ptr noundef nonnull %38) #8
+  call void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef %215, ptr noundef nonnull %38) #7
   br label %233
 
 230:                                              ; preds = %223
-  %231 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %231)
-  %232 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.heap_prune_chain) #8
+  %231 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %232 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.heap_prune_chain) #7
   unreachable
 
 233:                                              ; preds = %229, %223
@@ -593,7 +592,7 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %220, %216
   br i1 %or.cond7.i.i, label %247, label %249
 
 247:                                              ; preds = %244
-  %248 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %215) #8
+  %248 = call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %215) #7
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
 249:                                              ; preds = %244
@@ -897,7 +896,7 @@ heap_prune_chain.exit:                            ; preds = %.lr.ph131.i, %315, 
   br i1 %or.cond182, label %403, label %HeapTupleHeaderIsHotUpdated.exit.thread, !prof !14
 
 HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
-  call void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef nonnull %385, ptr noundef nonnull %38) #8
+  call void @HeapTupleHeaderAdvanceConflictHorizon(ptr noundef nonnull %385, ptr noundef nonnull %38) #7
   store i8 1, ptr %374, align 1
   %396 = load i32, ptr %40, align 8
   %397 = sext i32 %396 to i64
@@ -912,11 +911,10 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   br label %408
 
 403:                                              ; preds = %389
-  %404 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %404)
+  %404 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %405 = zext i16 %372 to i32
-  %406 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %28, i32 noundef %405) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__func__.heap_page_prune_and_freeze) #8
+  %406 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %28, i32 noundef %405) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 635, ptr noundef nonnull @__func__.heap_page_prune_and_freeze) #7
   unreachable
 
 407:                                              ; preds = %377
@@ -1003,21 +1001,21 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   br i1 %414, label %455, label %457
 
 455:                                              ; preds = %454
-  %456 = call zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %1) #8
+  %456 = call zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %1) #7
   br i1 %456, label %.thread178, label %.threadthread-pre-split
 
 457:                                              ; preds = %454
   br i1 %423, label %458, label %.threadthread-pre-split
 
 458:                                              ; preds = %457
-  %459 = call zeroext i1 @DataChecksumsEnabled() #8
+  %459 = call zeroext i1 @DataChecksumsEnabled() #7
   %460 = load i8, ptr @wal_log_hints, align 1, !range !4
   %461 = trunc nuw i8 %460 to i1
   %or.cond10 = select i1 %459, i1 true, i1 %461
   br i1 %or.cond10, label %462, label %.threadthread-pre-split
 
 462:                                              ; preds = %458
-  %463 = call zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %1) #8
+  %463 = call zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %1) #7
   br i1 %463, label %.thread178, label %.threadthread-pre-split
 
 464:                                              ; preds = %449
@@ -1026,7 +1024,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
 .thread178:                                       ; preds = %453, %426, %462, %455, %464
   %465 = getelementptr inbounds nuw i8, ptr %13, i64 2376
   %466 = load i32, ptr %39, align 4
-  call void @heap_pre_freeze_checks(i32 noundef %1, ptr noundef nonnull %465, i32 noundef %466) #8
+  call void @heap_pre_freeze_checks(i32 noundef %1, ptr noundef nonnull %465, i32 noundef %466) #7
   br label %470
 
 .threadthread-pre-split:                          ; preds = %464, %455, %462, %458, %457, %445, %436, %422
@@ -1061,7 +1059,7 @@ HeapTupleHeaderIsHotUpdated.exit.thread:          ; preds = %381, %389
   br i1 %or.cond12, label %479, label %478
 
 478:                                              ; preds = %473
-  call void @MarkBufferDirtyHint(i32 noundef %1, i1 noundef zeroext true) #8
+  call void @MarkBufferDirtyHint(i32 noundef %1, i1 noundef zeroext true) #7
   br label %479
 
 479:                                              ; preds = %473, %478, %470
@@ -1163,7 +1161,7 @@ BufferGetPage.exit.i:                             ; preds = %494, %488
   br i1 %exitcond49.not.i, label %heap_page_prune_execute.exit, label %523, !llvm.loop !18
 
 heap_page_prune_execute.exit:                     ; preds = %523, %.preheader.i170
-  call void @PageRepairFragmentation(ptr noundef %.0.i.i.i) #8
+  call void @PageRepairFragmentation(ptr noundef %.0.i.i.i) #7
   br label %529
 
 529:                                              ; preds = %heap_page_prune_execute.exit, %480
@@ -1172,11 +1170,11 @@ heap_page_prune_execute.exit:                     ; preds = %523, %.preheader.i1
 530:                                              ; preds = %529
   %531 = getelementptr inbounds nuw i8, ptr %13, i64 2376
   %532 = load i32, ptr %39, align 4
-  call void @heap_freeze_prepared_tuples(i32 noundef %1, ptr noundef nonnull %531, i32 noundef %532) #8
+  call void @heap_freeze_prepared_tuples(i32 noundef %1, ptr noundef nonnull %531, i32 noundef %532) #7
   br label %533
 
 533:                                              ; preds = %530, %529
-  call void @MarkBufferDirty(i32 noundef %1) #8
+  call void @MarkBufferDirty(i32 noundef %1) #7
   %534 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %535 = load ptr, ptr %534, align 8
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 114
@@ -1231,7 +1229,7 @@ heap_page_prune_execute.exit:                     ; preds = %523, %.preheader.i1
 .loopexit:                                        ; preds = %562, %556, %550
   %.0147 = phi i32 [ %557, %556 ], [ 0, %550 ], [ %563, %562 ]
   %565 = load i32, ptr %38, align 4
-  %566 = call zeroext i1 @TransactionIdFollows(i32 noundef %.0147, i32 noundef %565) #8
+  %566 = call zeroext i1 @TransactionIdFollows(i32 noundef %.0147, i32 noundef %565) #7
   %567 = load i32, ptr %38, align 4
   %.0 = select i1 %566, i32 %.0147, i32 %567
   %568 = getelementptr inbounds nuw i8, ptr %13, i64 2376
@@ -1400,7 +1398,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %28, %31
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
-  %37 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %32, i32 noundef %36) #8
+  %37 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %32, i32 noundef %36) #7
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %HeapTupleHeaderGetXmin.exit
@@ -1410,7 +1408,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %28, %31
 39:                                               ; preds = %HeapTupleHeaderGetXmin.exit
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 7684
   %41 = load i32, ptr %40, align 4
-  %42 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %32, i32 noundef %41) #8
+  %42 = tail call zeroext i1 @TransactionIdFollows(i32 noundef %32, i32 noundef %41) #7
   %43 = icmp ugt i32 %32, 2
   %or.cond = and i1 %43, %42
   br i1 %or.cond, label %44, label %heap_prune_record_prunable.exit
@@ -1433,7 +1431,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %28, %31
   br i1 %or.cond7.i, label %53, label %55
 
 53:                                               ; preds = %45
-  %54 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %13) #8
+  %54 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %13) #7
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 55:                                               ; preds = %45
@@ -1449,7 +1447,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %53, %55
   br i1 %.not.i, label %61, label %59
 
 59:                                               ; preds = %HeapTupleHeaderGetUpdateXid.exit
-  %60 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i, i32 noundef %58) #8
+  %60 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i, i32 noundef %58) #7
   br i1 %60, label %61, label %heap_prune_record_prunable.exit
 
 61:                                               ; preds = %59, %HeapTupleHeaderGetUpdateXid.exit
@@ -1475,7 +1473,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %53, %55
   br i1 %or.cond7.i44, label %72, label %74
 
 72:                                               ; preds = %64
-  %73 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %13) #8
+  %73 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %13) #7
   br label %HeapTupleHeaderGetUpdateXid.exit47
 
 74:                                               ; preds = %64
@@ -1491,7 +1489,7 @@ HeapTupleHeaderGetUpdateXid.exit47:               ; preds = %72, %74
   br i1 %.not.i48, label %80, label %78
 
 78:                                               ; preds = %HeapTupleHeaderGetUpdateXid.exit47
-  %79 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i46, i32 noundef %77) #8
+  %79 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i46, i32 noundef %77) #7
   br i1 %79, label %80, label %heap_prune_record_prunable.exit
 
 80:                                               ; preds = %78, %HeapTupleHeaderGetUpdateXid.exit47
@@ -1499,12 +1497,11 @@ HeapTupleHeaderGetUpdateXid.exit47:               ; preds = %72, %74
   br label %heap_prune_record_prunable.exit
 
 81:                                               ; preds = %3
-  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %82)
+  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %83 = load i8, ptr %15, align 1
   %84 = sext i8 %83 to i32
-  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %84) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1474, ptr noundef nonnull @__func__.heap_prune_record_unchanged_lp_normal) #8
+  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %84) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1474, ptr noundef nonnull @__func__.heap_prune_record_unchanged_lp_normal) #7
   unreachable
 
 heap_prune_record_prunable.exit:                  ; preds = %80, %78, %61, %59, %27, %38, %44, %39, %17, %62
@@ -1523,7 +1520,7 @@ heap_prune_record_prunable.exit:                  ; preds = %80, %78, %61, %59, 
   %95 = load i32, ptr %94, align 4
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds %struct.HeapTupleFreeze, ptr %93, i64 %96
-  %98 = call zeroext i1 @heap_prepare_freeze_tuple(ptr noundef nonnull %13, ptr noundef %91, ptr noundef nonnull %92, ptr noundef nonnull %97, ptr noundef nonnull %4) #8
+  %98 = call zeroext i1 @heap_prepare_freeze_tuple(ptr noundef nonnull %13, ptr noundef %91, ptr noundef nonnull %92, ptr noundef nonnull %97, ptr noundef nonnull %4) #7
   br i1 %98, label %99, label %105
 
 99:                                               ; preds = %89
@@ -1653,11 +1650,11 @@ BufferGetPage.exit:                               ; preds = %10, %16
   br i1 %exitcond49.not, label %._crit_edge, label %45, !llvm.loop !18
 
 51:                                               ; preds = %._crit_edge
-  tail call void @PageTruncateLinePointerArray(ptr noundef %.0.i.i) #8
+  tail call void @PageTruncateLinePointerArray(ptr noundef %.0.i.i) #7
   br label %53
 
 52:                                               ; preds = %._crit_edge
-  tail call void @PageRepairFragmentation(ptr noundef %.0.i.i) #8
+  tail call void @PageRepairFragmentation(ptr noundef %.0.i.i) #7
   br label %53
 
 53:                                               ; preds = %52, %51
@@ -1690,15 +1687,15 @@ define dso_local void @log_heap_prune_and_freeze(ptr noundef %0, i32 noundef %1,
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 0, ptr %22, align 1
-  tail call void @XLogBeginInsert() #8
-  tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #8
+  tail call void @XLogBeginInsert() #7
+  tail call void @XLogRegisterBuffer(i8 noundef zeroext 0, i32 noundef %1, i8 noundef zeroext 8) #7
   %23 = icmp sgt i32 %6, 0
   br i1 %23, label %24, label %86
 
 24:                                               ; preds = %13
   store i8 16, ptr %22, align 1
   %25 = zext nneg i32 %6 to i64
-  tail call void @pg_qsort(ptr noundef %5, i64 noundef %25, i64 noundef 12, ptr noundef nonnull @heap_log_freeze_cmp) #8
+  tail call void @pg_qsort(ptr noundef %5, i64 noundef %25, i64 noundef 12, ptr noundef nonnull @heap_log_freeze_cmp) #7
   br label %26
 
 26:                                               ; preds = %80, %24
@@ -1800,9 +1797,9 @@ heap_log_freeze_eq.exit.i:                        ; preds = %58, %52, %46, %42
 heap_log_freeze_plan.exit:                        ; preds = %80
   %84 = trunc i32 %.123.i to i16
   store i16 %84, ptr %17, align 4
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %17, i32 noundef 4) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %17, i32 noundef 4) #7
   %85 = mul i32 %.123.i, 12
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %16, i32 noundef %85) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %16, i32 noundef %85) #7
   br label %86
 
 86:                                               ; preds = %heap_log_freeze_plan.exit, %13
@@ -1815,9 +1812,9 @@ heap_log_freeze_plan.exit:                        ; preds = %80
   store i8 %90, ptr %22, align 1
   %91 = trunc i32 %8 to i16
   store i16 %91, ptr %18, align 2
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %18, i32 noundef 2) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %18, i32 noundef 2) #7
   %92 = shl i32 %8, 2
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %7, i32 noundef %92) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %7, i32 noundef %92) #7
   br label %93
 
 93:                                               ; preds = %89, %86
@@ -1830,9 +1827,9 @@ heap_log_freeze_plan.exit:                        ; preds = %80
   store i8 %97, ptr %22, align 1
   %98 = trunc i32 %10 to i16
   store i16 %98, ptr %19, align 2
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %19, i32 noundef 2) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %19, i32 noundef 2) #7
   %99 = shl nuw i32 %10, 1
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %9, i32 noundef %99) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %9, i32 noundef %99) #7
   br label %100
 
 100:                                              ; preds = %96, %93
@@ -1845,9 +1842,9 @@ heap_log_freeze_plan.exit:                        ; preds = %80
   store i8 %104, ptr %22, align 1
   %105 = trunc i32 %12 to i16
   store i16 %105, ptr %20, align 2
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %20, i32 noundef 2) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %20, i32 noundef 2) #7
   %106 = shl nuw i32 %12, 1
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %11, i32 noundef %106) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef %11, i32 noundef %106) #7
   br label %107
 
 107:                                              ; preds = %103, %100
@@ -1856,7 +1853,7 @@ heap_log_freeze_plan.exit:                        ; preds = %80
 
 109:                                              ; preds = %107
   %110 = shl nuw i32 %6, 1
-  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %21, i32 noundef %110) #8
+  call void @XLogRegisterBufData(i8 noundef zeroext 0, ptr noundef nonnull %21, i32 noundef %110) #7
   br label %111
 
 111:                                              ; preds = %109, %107
@@ -1873,7 +1870,7 @@ heap_log_freeze_plan.exit:                        ; preds = %80
   br i1 %119, label %120, label %135
 
 120:                                              ; preds = %114
-  %121 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #8
+  %121 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #7
   br i1 %121, label %133, label %122
 
 122:                                              ; preds = %120
@@ -1918,11 +1915,11 @@ heap_log_freeze_plan.exit:                        ; preds = %80
   br label %143
 
 143:                                              ; preds = %135, %139
-  call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 2) #8
+  call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 2) #7
   br i1 %.not39, label %144, label %145
 
 144:                                              ; preds = %143
-  call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 4) #8
+  call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 4) #7
   br label %145
 
 145:                                              ; preds = %144, %143
@@ -1930,17 +1927,16 @@ heap_log_freeze_plan.exit:                        ; preds = %80
   br i1 %146, label %switch.lookup, label %147
 
 147:                                              ; preds = %145
-  %148 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %148)
-  %149 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %4) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2166, ptr noundef nonnull @__func__.log_heap_prune_and_freeze) #8
+  %148 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %149 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %4) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2166, ptr noundef nonnull @__func__.log_heap_prune_and_freeze) #7
   unreachable
 
 switch.lookup:                                    ; preds = %145
   %switch.idx.cast = trunc nuw i32 %4 to i8
   %switch.idx.mult = shl nuw nsw i8 %switch.idx.cast, 4
   %switch.offset = add nuw nsw i8 %switch.idx.mult, 16
-  %150 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext %switch.offset) #8
+  %150 = call i64 @XLogInsert(i8 noundef zeroext 9, i8 noundef zeroext %switch.offset) #7
   %151 = icmp slt i32 %1, 0
   br i1 %151, label %152, label %158
 
@@ -2050,7 +2046,7 @@ define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr noundef writeonl
   br i1 %or.cond7.i, label %37, label %39
 
 37:                                               ; preds = %34
-  %38 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %19) #8
+  %38 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %19) #7
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 39:                                               ; preds = %34
@@ -2130,7 +2126,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %54, %58
   br i1 %or.cond7.i70, label %77, label %79
 
 77:                                               ; preds = %74
-  %78 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %53) #8
+  %78 = tail call i32 @HeapTupleGetUpdateXid(ptr noundef nonnull %53) #7
   br label %HeapTupleHeaderGetUpdateXid.exit73
 
 79:                                               ; preds = %74
@@ -2252,11 +2248,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2264,10 +2257,9 @@ attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

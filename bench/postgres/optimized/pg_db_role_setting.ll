@@ -25,15 +25,15 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   %13 = alloca [3 x i64], align 16
   %14 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %15 = tail call ptr @ExtractSetVariableArgs(ptr noundef %2) #7
-  %16 = tail call ptr @table_open(i32 noundef 2964, i32 noundef 3) #7
+  %15 = tail call ptr @ExtractSetVariableArgs(ptr noundef %2) #6
+  %16 = tail call ptr @table_open(i32 noundef 2964, i32 noundef 3) #6
   %17 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #7
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %19 = zext i32 %1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %18, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %19) #7
-  %20 = call ptr @systable_beginscan(ptr noundef %16, i32 noundef 2965, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #7
-  %21 = call ptr @systable_getnext(ptr noundef %20) #7
+  call void @ScanKeyInit(ptr noundef nonnull %18, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %19) #6
+  %20 = call ptr @systable_beginscan(ptr noundef %16, i32 noundef 2965, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #6
+  %21 = call ptr @systable_getnext(ptr noundef %20) #6
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 5
@@ -54,8 +54,8 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 32:                                               ; preds = %26
   %33 = inttoptr i64 %29 to ptr
-  %34 = call ptr @pg_detoast_datum(ptr noundef %33) #7
-  %35 = call ptr @GUCArrayReset(ptr noundef %34) #7
+  %34 = call ptr @pg_detoast_datum(ptr noundef %33) #6
+  %35 = call ptr @GUCArrayReset(ptr noundef %34) #6
   %.not58 = icmp eq ptr %35, null
   br i1 %.not58, label %.thread, label %36
 
@@ -72,9 +72,9 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 0, ptr %40, align 1
   %41 = load ptr, ptr %27, align 8
-  %42 = call ptr @heap_modify_tuple(ptr noundef nonnull %21, ptr noundef %41, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  %42 = call ptr @heap_modify_tuple(ptr noundef nonnull %21, ptr noundef %41, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %16, ptr noundef nonnull %43, ptr noundef %42) #7
+  call void @CatalogTupleUpdate(ptr noundef nonnull %16, ptr noundef nonnull %43, ptr noundef %42) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -82,7 +82,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .thread:                                          ; preds = %26, %32
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  call void @CatalogTupleDelete(ptr noundef nonnull %16, ptr noundef nonnull %44) #7
+  call void @CatalogTupleDelete(ptr noundef nonnull %16, ptr noundef nonnull %44) #6
   br label %45
 
 45:                                               ; preds = %.thread, %36
@@ -111,7 +111,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 55:                                               ; preds = %47
   %56 = inttoptr i64 %52 to ptr
-  %57 = call ptr @pg_detoast_datum(ptr noundef %56) #7
+  %57 = call ptr @pg_detoast_datum(ptr noundef %56) #6
   br label %58
 
 58:                                               ; preds = %47, %55
@@ -122,11 +122,11 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not55, label %64, label %62
 
 62:                                               ; preds = %58
-  %63 = call ptr @GUCArrayAdd(ptr noundef %59, ptr noundef %61, ptr noundef nonnull %15) #7
+  %63 = call ptr @GUCArrayAdd(ptr noundef %59, ptr noundef %61, ptr noundef nonnull %15) #6
   br label %66
 
 64:                                               ; preds = %58
-  %65 = call ptr @GUCArrayDelete(ptr noundef %59, ptr noundef %61) #7
+  %65 = call ptr @GUCArrayDelete(ptr noundef %59, ptr noundef %61) #6
   br label %66
 
 66:                                               ; preds = %64, %62
@@ -139,14 +139,14 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %68, ptr %69, align 16
   %70 = load ptr, ptr %50, align 8
-  %71 = call ptr @heap_modify_tuple(ptr noundef nonnull %21, ptr noundef %70, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #7
+  %71 = call ptr @heap_modify_tuple(ptr noundef nonnull %21, ptr noundef %70, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %16, ptr noundef nonnull %72, ptr noundef %71) #7
+  call void @CatalogTupleUpdate(ptr noundef nonnull %16, ptr noundef nonnull %72, ptr noundef %71) #6
   br label %75
 
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  call void @CatalogTupleDelete(ptr noundef nonnull %16, ptr noundef nonnull %74) #7
+  call void @CatalogTupleDelete(ptr noundef nonnull %16, ptr noundef nonnull %74) #6
   br label %75
 
 75:                                               ; preds = %73, %67
@@ -166,7 +166,7 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %14, i8 0, i64 3, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = call ptr @GUCArrayAdd(ptr noundef null, ptr noundef %79, ptr noundef nonnull %15) #7
+  %80 = call ptr @GUCArrayAdd(ptr noundef null, ptr noundef %79, ptr noundef nonnull %15) #6
   store i64 %17, ptr %13, align 16
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %19, ptr %81, align 8
@@ -175,8 +175,8 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   store i64 %82, ptr %83, align 16
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %85 = load ptr, ptr %84, align 8
-  %86 = call ptr @heap_form_tuple(ptr noundef %85, ptr noundef nonnull %13, ptr noundef nonnull %14) #7
-  call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %86) #7
+  %86 = call ptr @heap_form_tuple(ptr noundef %85, ptr noundef nonnull %13, ptr noundef nonnull %14) #6
+  call void @CatalogTupleInsert(ptr noundef %16, ptr noundef %86) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %87
@@ -187,12 +187,12 @@ define dso_local void @AlterSetting(i32 noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not59, label %90, label %89
 
 89:                                               ; preds = %87
-  call void @RunObjectPostAlterHook(i32 noundef 2964, i32 noundef %0, i32 noundef 0, i32 noundef %1, i1 noundef zeroext false) #7
+  call void @RunObjectPostAlterHook(i32 noundef 2964, i32 noundef %0, i32 noundef 0, i32 noundef %1, i1 noundef zeroext false) #6
   br label %90
 
 90:                                               ; preds = %89, %87
-  call void @systable_endscan(ptr noundef %20) #7
-  call void @table_close(ptr noundef %16, i32 noundef 0) #7
+  call void @systable_endscan(ptr noundef %20) #6
+  call void @table_close(ptr noundef %16, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -218,7 +218,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = tail call i64 @getmissingattr(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %2) #7
+  %11 = tail call i64 @getmissingattr(ptr noundef %1, i32 noundef 3, ptr noundef nonnull %2) #6
   br label %fastgetattr.exit
 
 12:                                               ; preds = %3
@@ -279,10 +279,9 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
 
 43:                                               ; preds = %31
   %44 = sext i16 %30 to i32
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef range(i32 -32768, 32768) %44) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef range(i32 -32768, 32768) %44) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #6
   unreachable
 
 47:                                               ; preds = %19
@@ -290,7 +289,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br label %fastgetattr.exit
 
 49:                                               ; preds = %15
-  %50 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %1) #7
+  %50 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %1) #6
   br label %fastgetattr.exit
 
 51:                                               ; preds = %12
@@ -305,7 +304,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, ptr noundef %1,
   br label %fastgetattr.exit
 
 55:                                               ; preds = %51
-  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %1) #7
+  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef 3, ptr noundef %1) #6
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %55, %54, %49, %47, %41, %38, %35, %32, %10
@@ -344,13 +343,13 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local void @DropSetting(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @table_open(i32 noundef 2964, i32 noundef 3) #7
+  %4 = tail call ptr @table_open(i32 noundef 2964, i32 noundef 3) #6
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #7
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #6
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -362,22 +361,22 @@ define dso_local void @DropSetting(i32 noundef %0, i32 noundef %1) local_unnamed
   %9 = zext nneg i32 %.0 to i64
   %10 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %3, i64 %9
   %11 = zext i32 %1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %10, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %11) #7
+  call void @ScanKeyInit(ptr noundef nonnull %10, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %11) #6
   %12 = add nuw nsw i32 %.0, 1
   br label %13
 
 13:                                               ; preds = %8, %7
   %.1 = phi i32 [ %12, %8 ], [ %.0, %7 ]
-  %14 = call ptr @table_beginscan_catalog(ptr noundef %4, i32 noundef %.1, ptr noundef nonnull %3) #7
-  %15 = call ptr @heap_getnext(ptr noundef %14, i32 noundef 1) #7
+  %14 = call ptr @table_beginscan_catalog(ptr noundef %4, i32 noundef %.1, ptr noundef nonnull %3) #6
+  %15 = call ptr @heap_getnext(ptr noundef %14, i32 noundef 1) #6
   %.not1819 = icmp eq ptr %15, null
   br i1 %.not1819, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %16 = phi ptr [ %18, %.lr.ph ], [ %15, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  call void @CatalogTupleDelete(ptr noundef %4, ptr noundef nonnull %17) #7
-  %18 = call ptr @heap_getnext(ptr noundef %14, i32 noundef 1) #7
+  call void @CatalogTupleDelete(ptr noundef %4, ptr noundef nonnull %17) #6
+  %18 = call ptr @heap_getnext(ptr noundef %14, i32 noundef 1) #6
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -387,8 +386,8 @@ define dso_local void @DropSetting(i32 noundef %0, i32 noundef %1) local_unnamed
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull %14) #7
-  call void @table_close(ptr noundef %4, i32 noundef 3) #7
+  call void %23(ptr noundef nonnull %14) #6
+  call void @table_close(ptr noundef %4, i32 noundef 3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -403,12 +402,12 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = zext i32 %1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #7
+  call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #6
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %10 = zext i32 %2 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #7
-  %11 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2965, i1 noundef zeroext true, ptr noundef %0, i32 noundef 2, ptr noundef nonnull %6) #7
-  %12 = call ptr @systable_getnext(ptr noundef %11) #7
+  call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #6
+  %11 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2965, i1 noundef zeroext true, ptr noundef %0, i32 noundef 2, ptr noundef nonnull %6) #6
+  %12 = call ptr @systable_getnext(ptr noundef %11) #6
   %.not10 = icmp eq ptr %12, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -427,18 +426,18 @@ define dso_local void @ApplySetting(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 20:                                               ; preds = %14
   %21 = inttoptr i64 %17 to ptr
-  %22 = call ptr @pg_detoast_datum(ptr noundef %21) #7
-  call void @ProcessGUCArray(ptr noundef %22, i32 noundef 5, i32 noundef %4, i32 noundef 0) #7
+  %22 = call ptr @pg_detoast_datum(ptr noundef %21) #6
+  call void @ProcessGUCArray(ptr noundef %22, i32 noundef 5, i32 noundef %4, i32 noundef 0) #6
   br label %23
 
 23:                                               ; preds = %20, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %24 = call ptr @systable_getnext(ptr noundef %11) #7
+  %24 = call ptr @systable_getnext(ptr noundef %11) #6
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %23, %5
-  call void @systable_endscan(ptr noundef %11) #7
+  call void @systable_endscan(ptr noundef %11) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -462,18 +461,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

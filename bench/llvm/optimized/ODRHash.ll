@@ -263,7 +263,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i8, ptr %26, align 8, !tbaa !29, !range !33, !noundef !34
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %206
+  br i1 %28, label %29, label %204
 
 29:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   %.not.i = icmp eq i64 %1, 0
@@ -291,7 +291,7 @@ _ZN5clang7ODRHash10AddBooleanEb.exit:             ; preds = %29, %36
   %42 = load i64, ptr %31, align 8, !tbaa !13
   %43 = add i64 %42, 1
   store i64 %43, ptr %31, align 8, !tbaa !13
-  br i1 %.not.i, label %206, label %44
+  br i1 %.not.i, label %204, label %44
 
 44:                                               ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit
   %45 = trunc i64 %1 to i32
@@ -331,7 +331,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZNK5clang15Declara
   %62 = load i32, ptr %12, align 8, !tbaa !24
   %63 = add i32 %62, 1
   store i32 %63, ptr %12, align 8, !tbaa !24
-  switch i32 %.0.i, label %206 [
+  switch i32 %.0.i, label %204 [
     i32 0, label %64
     i32 1, label %72
     i32 2, label %72
@@ -340,8 +340,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZNK5clang15Declara
     i32 4, label %142
     i32 6, label %148
     i32 9, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
-    i32 5, label %178
-    i32 8, label %184
+    i32 5, label %176
+    i32 8, label %182
   ]
 
 64:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
@@ -353,7 +353,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZNK5clang15Declara
   %70 = load i64, ptr %68, align 8, !tbaa !10
   %71 = and i64 %70, 4294967295
   call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr nonnull %69, i64 %71) #15
-  br label %206
+  br label %204
 
 72:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -450,7 +450,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit37:  ; preds = %_ZN5clang7ODRHash10
 
 120:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %206
+  br label %204
 
 121:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit37, %140
   %.066 = phi i32 [ 0, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit37 ], [ %141, %140 ]
@@ -507,7 +507,7 @@ _ZN5clang7ODRHash10AddBooleanEb.exit40:           ; preds = %121, %127
 _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit: ; preds = %142, %143
   %.sroa.0.0.i = phi i64 [ %147, %143 ], [ 0, %142 ]
   call void @_ZN5clang7ODRHash11AddQualTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(320) %0, i64 %.sroa.0.0.i)
-  br label %206
+  br label %204
 
 148:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   %149 = and i64 %1, 7
@@ -543,7 +543,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit44:  ; preds = %_ZNK5clang15Declara
   %164 = load i32, ptr %12, align 8, !tbaa !24
   %165 = add i32 %164, 1
   store i32 %165, ptr %12, align 8, !tbaa !24
-  br label %206
+  br label %204
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   %166 = and i64 %1, 7
@@ -551,84 +551,81 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %_ZN4llvm16FoldingS
   call void @llvm.assume(i1 %.not.i.i)
   %167 = and i64 %1, -8
   %168 = inttoptr i64 %167 to ptr
-  %169 = load i32, ptr %168, align 8, !tbaa !35
-  %170 = icmp eq i32 %169, 1
-  call void @llvm.assume(i1 %170)
-  %171 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %172 = load ptr, ptr %171, align 8, !tbaa !43
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  %170 = load ptr, ptr %169, align 8, !tbaa !43
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %172 = load ptr, ptr %171, align 8, !tbaa !3
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load ptr, ptr %173, align 8, !tbaa !3
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %176 = load i64, ptr %174, align 8, !tbaa !10
-  %177 = and i64 %176, 4294967295
-  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr nonnull %175, i64 %177) #15
-  br label %206
+  %174 = load i64, ptr %172, align 8, !tbaa !10
+  %175 = and i64 %174, 4294967295
+  call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr nonnull %173, i64 %175) #15
+  br label %204
 
-178:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
+176:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   %.off.i46 = add nsw i32 %46, -3
   %switch.i47 = icmp ult i32 %.off.i46, 3
-  br i1 %switch.i47, label %179, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49
+  br i1 %switch.i47, label %177, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49
 
-179:                                              ; preds = %178
-  %180 = and i64 %1, -8
-  %181 = inttoptr i64 %180 to ptr
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  %183 = load i64, ptr %182, align 8, !tbaa !39
+177:                                              ; preds = %176
+  %178 = and i64 %1, -8
+  %179 = inttoptr i64 %178 to ptr
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %181 = load i64, ptr %180, align 8, !tbaa !39
   br label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49
 
-_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49: ; preds = %178, %179
-  %.sroa.0.0.i48 = phi i64 [ %183, %179 ], [ 0, %178 ]
+_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49: ; preds = %176, %177
+  %.sroa.0.0.i48 = phi i64 [ %181, %177 ], [ 0, %176 ]
   call void @_ZN5clang7ODRHash11AddQualTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(320) %0, i64 %.sroa.0.0.i48)
-  br label %206
+  br label %204
 
-184:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
-  %185 = and i64 %1, 7
-  %.not.i.i50 = icmp eq i64 %185, 7
+182:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
+  %183 = and i64 %1, 7
+  %.not.i.i50 = icmp eq i64 %183, 7
   br i1 %.not.i.i50, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52, label %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
 
-_ZNK5clang15DeclarationName11getNameKindEv.exit.i52: ; preds = %184
-  %186 = and i64 %1, -8
-  %187 = inttoptr i64 %186 to ptr
-  %188 = load i32, ptr %187, align 8, !tbaa !35
-  %189 = icmp eq i32 %188, 0
-  br i1 %189, label %190, label %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
+_ZNK5clang15DeclarationName11getNameKindEv.exit.i52: ; preds = %182
+  %184 = and i64 %1, -8
+  %185 = inttoptr i64 %184 to ptr
+  %186 = load i32, ptr %185, align 8, !tbaa !35
+  %187 = icmp eq i32 %186, 0
+  br i1 %187, label %188, label %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
 
-190:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 16
-  %192 = load ptr, ptr %191, align 8, !tbaa !47
+188:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  %190 = load ptr, ptr %189, align 8, !tbaa !47
   br label %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
 
-_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit: ; preds = %184, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52, %190
-  %.0.i51 = phi ptr [ %192, %190 ], [ null, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52 ], [ null, %184 ]
-  %193 = icmp ne ptr %.0.i51, null
-  %194 = load i64, ptr %31, align 8, !tbaa !13
-  %195 = add i64 %194, 1
-  %196 = load i64, ptr %34, align 8, !tbaa !15
-  %.not.i.i.i.i53 = icmp ugt i64 %195, %196
-  br i1 %.not.i.i.i.i53, label %197, label %_ZN5clang7ODRHash10AddBooleanEb.exit55, !prof !16
+_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit: ; preds = %182, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52, %188
+  %.0.i51 = phi ptr [ %190, %188 ], [ null, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i52 ], [ null, %182 ]
+  %191 = icmp ne ptr %.0.i51, null
+  %192 = load i64, ptr %31, align 8, !tbaa !13
+  %193 = add i64 %192, 1
+  %194 = load i64, ptr %34, align 8, !tbaa !15
+  %.not.i.i.i.i53 = icmp ugt i64 %193, %194
+  br i1 %.not.i.i.i.i53, label %195, label %_ZN5clang7ODRHash10AddBooleanEb.exit55, !prof !16
 
-197:                                              ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull %198, i64 noundef %195, i64 noundef 1) #15
+195:                                              ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull %196, i64 noundef %193, i64 noundef 1) #15
   %.pre.i.i54 = load i64, ptr %31, align 8, !tbaa !13
   br label %_ZN5clang7ODRHash10AddBooleanEb.exit55
 
-_ZN5clang7ODRHash10AddBooleanEb.exit55:           ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %197
-  %199 = phi i64 [ %194, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit ], [ %.pre.i.i54, %197 ]
-  %200 = zext i1 %193 to i8
-  %201 = load ptr, ptr %30, align 8, !tbaa !17
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 %199
-  store i8 %200, ptr %202, align 1
-  %203 = load i64, ptr %31, align 8, !tbaa !13
-  %204 = add i64 %203, 1
-  store i64 %204, ptr %31, align 8, !tbaa !13
-  br i1 %193, label %205, label %206
+_ZN5clang7ODRHash10AddBooleanEb.exit55:           ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %195
+  %197 = phi i64 [ %192, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit ], [ %.pre.i.i54, %195 ]
+  %198 = zext i1 %191 to i8
+  %199 = load ptr, ptr %30, align 8, !tbaa !17
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 %197
+  store i8 %198, ptr %200, align 1
+  %201 = load i64, ptr %31, align 8, !tbaa !13
+  %202 = add i64 %201, 1
+  store i64 %202, ptr %31, align 8, !tbaa !13
+  br i1 %191, label %203, label %204
 
-205:                                              ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit55
+203:                                              ; preds = %_ZN5clang7ODRHash10AddBooleanEb.exit55
   call void @_ZN5clang7ODRHash7AddDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull %.0.i51)
-  br label %206
+  br label %204
 
-206:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, %64, %120, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit44, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49, %205, %_ZN5clang7ODRHash10AddBooleanEb.exit55, %_ZN5clang7ODRHash10AddBooleanEb.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
+204:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit, %64, %120, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit44, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit49, %203, %_ZN5clang7ODRHash10AddBooleanEb.exit55, %_ZN5clang7ODRHash10AddBooleanEb.exit, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

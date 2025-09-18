@@ -216,10 +216,7 @@ $_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE = comdat an
 @.str.29 = private unnamed_addr constant [33 x i8] c"No resource map has been built!\0A\00", align 1
 @_ZL48InitializeDXILResourceBindingWrapperPassPassFlag = internal global %"struct.std::once_flag" zeroinitializer, align 4
 @.str.30 = private unnamed_addr constant [13 x i8] c"dx.RawBuffer\00", align 1
-@.str.31 = private unnamed_addr constant [15 x i8] c"dx.TypedBuffer\00", align 1
 @.str.32 = private unnamed_addr constant [11 x i8] c"dx.Texture\00", align 1
-@.str.33 = private unnamed_addr constant [13 x i8] c"dx.MSTexture\00", align 1
-@.str.34 = private unnamed_addr constant [19 x i8] c"dx.FeedbackTexture\00", align 1
 @.str.35 = private unnamed_addr constant [18 x i8] c"RasterizerOrdered\00", align 1
 @.str.36 = private unnamed_addr constant [3 x i8] c"RW\00", align 1
 @.str.37 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -272,7 +269,6 @@ $_ZTVN4llvm7support6detail23provider_format_adapterINS_9StringRefEEE = comdat an
 @.str.93 = private unnamed_addr constant [31 x i8] c"DXIL Resource Binding Analysis\00", align 1
 @.str.94 = private unnamed_addr constant [22 x i8] c"dxil-resource-binding\00", align 1
 @.str.95 = private unnamed_addr constant [11 x i8] c"dx.CBuffer\00", align 1
-@.str.96 = private unnamed_addr constant [11 x i8] c"dx.Sampler\00", align 1
 @_ZTVN4llvm19raw_svector_ostreamE = external unnamed_addr constant { [16 x ptr] }, align 8
 @_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
 @_ZSt15__once_callable = external thread_local local_unnamed_addr global ptr, align 8
@@ -327,9 +323,6 @@ define dso_local void @_ZN4llvm4dxil16ResourceTypeInfoC2EPNS_13TargetExtTypeENS0
 _ZN4llvm14CastIsPossibleINS_4dxil16RawBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i: ; preds = %13
   %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(12) @.str.30, i64 12)
   %15 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
-  br i1 %15, label %_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, label %_ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
-
-_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_4dxil16RawBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = load i32, ptr %17, align 4, !tbaa !28
@@ -337,6 +330,9 @@ _ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit: ;
   %20 = zext i1 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %20, ptr %21, align 2, !tbaa !14
+  br i1 %15, label %_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, label %_ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
+
+_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_4dxil16RawBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = load ptr, ptr %23, align 8, !tbaa !30
@@ -352,87 +348,67 @@ _ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit: ; preds = %_ZN4llvm8dyn_c
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 _ZN4llvm14CastIsPossibleINS_4dxil18TypedBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i: ; preds = %13
-  %bcmp.i.i.i.i.i.i.i.i.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(14) @.str.31, i64 14)
-  %30 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i33, 0
-  tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %32 = load ptr, ptr %31, align 8, !tbaa !19
-  %33 = load i32, ptr %32, align 4, !tbaa !28
-  %34 = icmp ne i32 %33, 0
-  %35 = zext i1 %34 to i8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %35, ptr %36, align 2, !tbaa !14
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %32 = load i32, ptr %31, align 4, !tbaa !28
+  %33 = icmp ne i32 %32, 0
+  %34 = zext i1 %33 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %34, ptr %35, align 2, !tbaa !14
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 _ZN4llvm14CastIsPossibleINS_4dxil14TextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i: ; preds = %13
   %bcmp.i.i.i.i.i.i.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.32, i64 10)
-  %37 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i40, 0
-  br i1 %37, label %_ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, label %_ZN4llvm3isaINS_4dxil14CBufferExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
+  %36 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i40, 0
+  br i1 %36, label %_ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, label %_ZN4llvm3isaINS_4dxil14CBufferExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
 
 _ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_4dxil14TextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
-  %40 = load i32, ptr %39, align 4, !tbaa !28
-  %41 = icmp ne i32 %40, 0
-  %42 = zext i1 %41 to i8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %42, ptr %43, align 2, !tbaa !14
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !28
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
+  %39 = load i32, ptr %38, align 4, !tbaa !28
+  %40 = icmp ne i32 %39, 0
+  %41 = zext i1 %40 to i8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 %41, ptr %42, align 2, !tbaa !14
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !28
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 _ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i: ; preds = %_ZN4llvm14CastIsPossibleINS_4dxil16RawBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
-  %bcmp.i.i.i.i.i.i.i.i.i47 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(12) @.str.33, i64 12)
-  %46 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i47, 0
-  tail call void @llvm.assume(i1 %46)
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !19
-  %49 = load i32, ptr %48, align 4, !tbaa !28
-  %50 = icmp ne i32 %49, 0
-  %51 = zext i1 %50 to i8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 %51, ptr %52, align 2, !tbaa !14
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %54 = load i32, ptr %53, align 4, !tbaa !28
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %46 = load i32, ptr %45, align 4, !tbaa !28
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 _ZN4llvm14CastIsPossibleINS_4dxil22FeedbackTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i: ; preds = %13
-  %bcmp.i.i.i.i.i.i.i.i.i54 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(18) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(18) @.str.34, i64 18)
-  %55 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i54, 0
-  tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 1, ptr %56, align 2, !tbaa !14
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !19
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %60 = load i32, ptr %59, align 4, !tbaa !28
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i8 1, ptr %47, align 2, !tbaa !14
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %49 = load ptr, ptr %48, align 8, !tbaa !19
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load i32, ptr %50, align 4, !tbaa !28
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 _ZN4llvm3isaINS_4dxil14CBufferExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_4dxil14TextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i
   %bcmp.i.i.i.i.i.i.i.i.i60 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.95, i64 10)
-  %61 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i60, 0
-  br i1 %61, label %62, label %_ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
+  %52 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i60, 0
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  br i1 %52, label %54, label %_ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
 
-62:                                               ; preds = %_ZN4llvm3isaINS_4dxil14CBufferExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 2, ptr %63, align 2, !tbaa !14
+54:                                               ; preds = %_ZN4llvm3isaINS_4dxil14CBufferExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
+  store i8 2, ptr %53, align 2, !tbaa !14
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 _ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit: ; preds = %_ZN4llvm3isaINS_4dxil14CBufferExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit
-  %bcmp.i.i.i.i.i.i.i.i.i66 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, ptr noundef nonnull dereferenceable(10) @.str.96, i64 10)
-  %64 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i66, 0
-  tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i8 3, ptr %65, align 2, !tbaa !14
+  store i8 3, ptr %53, align 2, !tbaa !14
   br label %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread
 
 unreachable:                                      ; preds = %13
   unreachable
 
-_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit, %_ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, %_ZN4llvm14CastIsPossibleINS_4dxil22FeedbackTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit, %62, %_ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm14CastIsPossibleINS_4dxil18TypedBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i, %11
-  %.sink = phi i32 [ %45, %_ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit ], [ %60, %_ZN4llvm14CastIsPossibleINS_4dxil22FeedbackTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i ], [ 14, %_ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit ], [ 13, %62 ], [ %54, %_ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i ], [ 10, %_ZN4llvm14CastIsPossibleINS_4dxil18TypedBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i ], [ %3, %11 ], [ 11, %_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit ], [ %spec.select, %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit ]
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink, ptr %66, align 4, !tbaa !32
+_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit, %_ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit, %_ZN4llvm14CastIsPossibleINS_4dxil22FeedbackTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit, %54, %_ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i, %_ZN4llvm14CastIsPossibleINS_4dxil18TypedBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i, %11
+  %.sink = phi i32 [ %44, %_ZN4llvm8dyn_castINS_4dxil14TextureExtTypeENS_13TargetExtTypeEEEDcPT0_.exit ], [ %51, %_ZN4llvm14CastIsPossibleINS_4dxil22FeedbackTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i ], [ 14, %_ZN4llvm3isaINS_4dxil14SamplerExtTypeEPNS_13TargetExtTypeEEEbRKT0_.exit ], [ 13, %54 ], [ %46, %_ZN4llvm14CastIsPossibleINS_4dxil16MSTextureExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i ], [ 10, %_ZN4llvm14CastIsPossibleINS_4dxil18TypedBufferExtTypeEPNS_13TargetExtTypeEvE10isPossibleERKS4_.exit.i.i ], [ %3, %11 ], [ 11, %_ZN4llvm8dyn_castINS_4dxil16RawBufferExtTypeENS_13TargetExtTypeEEEDcPT0_.exit ], [ %spec.select, %_ZNK4llvm4dxil16RawBufferExtType12isStructuredEv.exit ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %.sink, ptr %55, align 4, !tbaa !32
   ret void
 }
 

@@ -94,13 +94,13 @@ define dso_local void @ExecutorStart(ptr noundef %0, i32 noundef %1) local_unnam
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
-  tail call void @pgstat_report_query_id(i64 noundef %6, i1 noundef zeroext false) #9
+  tail call void @pgstat_report_query_id(i64 noundef %6, i1 noundef zeroext false) #8
   %7 = load ptr, ptr @ExecutorStart_hook, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void %7(ptr noundef nonnull %0, i32 noundef %1) #9
+  tail call void %7(ptr noundef nonnull %0, i32 noundef %1) #8
   br label %10
 
 9:                                                ; preds = %2
@@ -120,7 +120,7 @@ define dso_local void @standard_ExecutorStart(ptr noundef captures(none) %0, i32
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @IsInParallelMode() #9
+  %6 = tail call zeroext i1 @IsInParallelMode() #8
   %7 = and i32 %1, 1
   %.not = icmp eq i32 %7, 0
   %or.cond = and i1 %.not, %6
@@ -166,14 +166,14 @@ define dso_local void @standard_ExecutorStart(ptr noundef captures(none) %0, i32
 27:                                               ; preds = %.lr.ph18.i
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = tail call i32 @get_rel_namespace(i32 noundef %29) #9
-  %31 = tail call zeroext i1 @isTempNamespace(i32 noundef %30) #9
+  %30 = tail call i32 @get_rel_namespace(i32 noundef %29) #8
+  %31 = tail call zeroext i1 @isTempNamespace(i32 noundef %30) #8
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %27
-  %33 = tail call i32 @CreateCommandTag(ptr noundef %11) #9
-  %34 = tail call ptr @GetCommandTagName(i32 noundef %33) #9
-  tail call void @PreventCommandIfReadOnly(ptr noundef %34) #9
+  %33 = tail call i32 @CreateCommandTag(ptr noundef %11) #8
+  %34 = tail call ptr @GetCommandTagName(i32 noundef %33) #8
+  tail call void @PreventCommandIfReadOnly(ptr noundef %34) #8
   br label %35
 
 35:                                               ; preds = %32, %27, %.lr.ph18.i
@@ -190,13 +190,13 @@ define dso_local void @standard_ExecutorStart(ptr noundef captures(none) %0, i32
   br i1 %42, label %43, label %ExecCheckXactReadOnly.exit
 
 43:                                               ; preds = %39, %.critedge.i
-  %44 = tail call i32 @CreateCommandTag(ptr noundef nonnull %11) #9
-  %45 = tail call ptr @GetCommandTagName(i32 noundef %44) #9
-  tail call void @PreventCommandIfParallelMode(ptr noundef %45) #9
+  %44 = tail call i32 @CreateCommandTag(ptr noundef nonnull %11) #8
+  %45 = tail call ptr @GetCommandTagName(i32 noundef %44) #8
+  tail call void @PreventCommandIfParallelMode(ptr noundef %45) #8
   br label %ExecCheckXactReadOnly.exit
 
 ExecCheckXactReadOnly.exit:                       ; preds = %43, %39, %8, %5
-  %46 = tail call ptr @CreateExecutorState() #9
+  %46 = tail call ptr @CreateExecutorState() #8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 192
@@ -219,7 +219,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = mul nsw i64 %60, 24
-  %62 = tail call ptr @palloc0(i64 noundef %61) #9
+  %62 = tail call ptr @palloc0(i64 noundef %61) #8
   %63 = getelementptr inbounds nuw i8, ptr %46, i64 176
   store ptr %62, ptr %63, align 8
   br label %64
@@ -260,7 +260,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   br label %93
 
 81:                                               ; preds = %72, %76
-  %82 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #9
+  %82 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #8
   %83 = getelementptr inbounds nuw i8, ptr %46, i64 120
   store i32 %82, ptr %83, align 8
   %.pre = load ptr, ptr %54, align 8
@@ -273,29 +273,28 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   br label %93
 
 86:                                               ; preds = %64, %64, %64, %64
-  %87 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #9
+  %87 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #8
   %88 = getelementptr inbounds nuw i8, ptr %46, i64 120
   store i32 %87, ptr %88, align 8
   br label %93
 
 89:                                               ; preds = %64
-  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %90)
+  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %91 = load i32, ptr %0, align 8
-  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %91) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__func__.standard_ExecutorStart) #9
+  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %91) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 236, ptr noundef nonnull @__func__.standard_ExecutorStart) #8
   unreachable
 
 93:                                               ; preds = %81, %.thread, %86
   %.0 = phi i32 [ %1, %86 ], [ %80, %.thread ], [ %spec.select, %81 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call ptr @RegisterSnapshot(ptr noundef %95) #9
+  %96 = tail call ptr @RegisterSnapshot(ptr noundef %95) #8
   %97 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %96, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %99 = load ptr, ptr %98, align 8
-  %100 = tail call ptr @RegisterSnapshot(ptr noundef %99) #9
+  %100 = tail call ptr @RegisterSnapshot(ptr noundef %99) #8
   %101 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %46, i64 224
@@ -314,7 +313,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   br i1 %.not39, label %111, label %112
 
 111:                                              ; preds = %93
-  tail call void @AfterTriggerBeginQuery() #9
+  tail call void @AfterTriggerBeginQuery() #8
   br label %112
 
 112:                                              ; preds = %111, %93
@@ -331,15 +330,15 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   %123 = load ptr, ptr %120, align 8
   %124 = getelementptr inbounds nuw i8, ptr %114, i64 56
   %125 = load ptr, ptr %124, align 8
-  %126 = tail call ptr @bms_copy(ptr noundef %125) #9
-  tail call void @ExecInitRangeTable(ptr noundef %119, ptr noundef %118, ptr noundef %123, ptr noundef %126) #9
+  %126 = tail call ptr @bms_copy(ptr noundef %125) #8
+  tail call void @ExecInitRangeTable(ptr noundef %119, ptr noundef %118, ptr noundef %123, ptr noundef %126) #8
   %127 = getelementptr inbounds nuw i8, ptr %119, i64 64
   store ptr %114, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %119, i64 72
   store ptr %129, ptr %130, align 8
-  tail call void @ExecDoInitialPruning(ptr noundef %119) #9
+  tail call void @ExecDoInitialPruning(ptr noundef %119) #8
   %131 = getelementptr inbounds nuw i8, ptr %114, i64 104
   %132 = load ptr, ptr %131, align 8
   %.not.i41 = icmp eq ptr %132, null
@@ -350,7 +349,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   %135 = load i32, ptr %134, align 8
   %136 = zext i32 %135 to i64
   %137 = shl nuw nsw i64 %136, 3
-  %138 = tail call ptr @palloc0(i64 noundef %137) #9
+  %138 = tail call ptr @palloc0(i64 noundef %137) #8
   %139 = getelementptr inbounds nuw i8, ptr %119, i64 48
   store ptr %138, ptr %139, align 8
   %140 = load ptr, ptr %131, align 8
@@ -380,7 +379,7 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = load ptr, ptr %143, align 8
-  %157 = tail call zeroext i1 @bms_is_member(i32 noundef %155, ptr noundef %156) #9
+  %157 = tail call zeroext i1 @bms_is_member(i32 noundef %155, ptr noundef %156) #8
   br i1 %157, label %158, label %256
 
 158:                                              ; preds = %153
@@ -406,15 +405,14 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
   ]
 
 169:                                              ; preds = %158
-  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %170)
+  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %171 = load i32, ptr %167, align 4
-  %172 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %171) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.InitPlan) #9
+  %172 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %171) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.InitPlan) #8
   unreachable
 
 173:                                              ; preds = %158, %158, %158, %158, %158
-  %174 = tail call ptr @ExecGetRangeTableRelation(ptr noundef nonnull %119, i32 noundef %159) #9
+  %174 = tail call ptr @ExecGetRangeTableRelation(ptr noundef nonnull %119, i32 noundef %159) #8
   %.not125.i = icmp eq ptr %174, null
   br i1 %.not125.i, label %CheckValidRowMarkRel.exit.i, label %175
 
@@ -435,35 +433,32 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
 
 180:                                              ; preds = %175
   %181 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %182)
-  %183 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %183 = tail call i32 @errcode(i32 noundef 151027844) #8
   %184 = load ptr, ptr %181, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 4
-  %186 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull %185) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1172, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #9
+  %186 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull %185) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1172, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #8
   unreachable
 
 187:                                              ; preds = %175
   %188 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %189)
-  %190 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %190 = tail call i32 @errcode(i32 noundef 151027844) #8
   %191 = load ptr, ptr %188, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 4
-  %193 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull %192) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1179, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #9
+  %193 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42, ptr noundef nonnull %192) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1179, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #8
   unreachable
 
 194:                                              ; preds = %175
   %195 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %196 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %196)
-  %197 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %196 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %197 = tail call i32 @errcode(i32 noundef 151027844) #8
   %198 = load ptr, ptr %195, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
-  %200 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %199) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1186, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #9
+  %200 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %199) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1186, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #8
   unreachable
 
 201:                                              ; preds = %175
@@ -473,17 +468,16 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
 
 203:                                              ; preds = %201
   %204 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %205 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %205)
-  %206 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %205 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %206 = tail call i32 @errcode(i32 noundef 151027844) #8
   %207 = load ptr, ptr %204, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %209 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %208) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1194, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #9
+  %209 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull %208) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1194, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #8
   unreachable
 
 210:                                              ; preds = %175
-  %211 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %174, i1 noundef zeroext false) #9
+  %211 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %174, i1 noundef zeroext false) #8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 216
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, null
@@ -491,29 +485,27 @@ list_length.exit:                                 ; preds = %ExecCheckXactReadOn
 
 215:                                              ; preds = %210
   %216 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %217 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %217)
-  %218 = tail call i32 @errcode(i32 noundef 1088) #9
+  %217 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %218 = tail call i32 @errcode(i32 noundef 1088) #8
   %219 = load ptr, ptr %216, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
-  %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %220) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #9
+  %221 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %220) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1203, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #8
   unreachable
 
 222:                                              ; preds = %175
   %223 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %224 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %224)
-  %225 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %224 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %225 = tail call i32 @errcode(i32 noundef 151027844) #8
   %226 = load ptr, ptr %223, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
-  %228 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %227) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1209, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #9
+  %228 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %227) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1209, ptr noundef nonnull @__func__.CheckValidRowMarkRel) #8
   unreachable
 
 CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %175, %173, %158
   %.0115132.i = phi ptr [ null, %173 ], [ %174, %175 ], [ %174, %175 ], [ %174, %201 ], [ %174, %210 ], [ null, %158 ]
-  %229 = tail call ptr @palloc(i64 noundef 56) #9
+  %229 = tail call ptr @palloc(i64 noundef 56) #8
   store ptr %.0115132.i, ptr %229, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 %166, ptr %230, align 8
@@ -591,11 +583,11 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   %273 = getelementptr inbounds nuw %union.ListCell, ptr %272, i64 %indvars.iv179.i
   %274 = load ptr, ptr %273, align 8
   %275 = load ptr, ptr %267, align 8
-  %276 = tail call zeroext i1 @bms_is_member(i32 noundef %.0109155158.i, ptr noundef %275) #9
+  %276 = tail call zeroext i1 @bms_is_member(i32 noundef %.0109155158.i, ptr noundef %275) #8
   %.0114.i = select i1 %276, i32 %268, i32 %266
-  %277 = tail call ptr @ExecInitNode(ptr noundef %274, ptr noundef nonnull %119, i32 noundef %.0114.i) #9
+  %277 = tail call ptr @ExecInitNode(ptr noundef %274, ptr noundef nonnull %119, i32 noundef %.0114.i) #8
   %278 = load ptr, ptr %269, align 8
-  %279 = tail call ptr @lappend(ptr noundef %278, ptr noundef %277) #9
+  %279 = tail call ptr @lappend(ptr noundef %278, ptr noundef %277) #8
   store ptr %279, ptr %269, align 8
   %280 = add nuw i32 %.0109155158.i, 1
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
@@ -605,8 +597,8 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   br i1 %283, label %.lr.ph160.i, label %.critedge127.i
 
 .critedge127.i:                                   ; preds = %.lr.ph160.i, %.lr.ph156.i, %.critedge.i44
-  %284 = tail call ptr @ExecInitNode(ptr noundef %116, ptr noundef nonnull %119, i32 noundef %.0) #9
-  %285 = tail call ptr @ExecGetResultType(ptr noundef %284) #9
+  %284 = tail call ptr @ExecInitNode(ptr noundef %116, ptr noundef nonnull %119, i32 noundef %.0) #8
+  %285 = tail call ptr @ExecGetResultType(ptr noundef %284) #8
   %286 = icmp eq i32 %113, 1
   br i1 %286, label %287, label %InitPlan.exit
 
@@ -643,12 +635,12 @@ CheckValidRowMarkRel.exit.i:                      ; preds = %210, %201, %175, %1
   br i1 %301, label %.critedge133.i, label %295
 
 .critedge133.i:                                   ; preds = %296
-  %302 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %119, ptr noundef null, ptr noundef nonnull @TTSOpsVirtual) #9
+  %302 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef nonnull %119, ptr noundef null, ptr noundef nonnull @TTSOpsVirtual) #8
   %303 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 48
   %306 = load ptr, ptr %305, align 8
-  %307 = tail call ptr @ExecInitJunkFilter(ptr noundef %306, ptr noundef %302) #9
+  %307 = tail call ptr @ExecInitJunkFilter(ptr noundef %306, ptr noundef %302) #8
   %308 = getelementptr inbounds nuw i8, ptr %119, i64 112
   store ptr %307, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %307, i64 16
@@ -691,7 +683,7 @@ define dso_local void @ExecutorRun(ptr noundef %0, i32 noundef %1, i64 noundef %
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void %4(ptr noundef %0, i32 noundef %1, i64 noundef %2) #9
+  tail call void %4(ptr noundef %0, i32 noundef %1, i64 noundef %2) #8
   br label %7
 
 6:                                                ; preds = %3
@@ -716,7 +708,7 @@ define dso_local void @standard_ExecutorRun(ptr noundef captures(none) %0, i32 n
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %3
-  tail call void @InstrStartNode(ptr noundef nonnull %10) #9
+  tail call void @InstrStartNode(ptr noundef nonnull %10) #8
   br label %12
 
 12:                                               ; preds = %11, %3
@@ -741,7 +733,7 @@ define dso_local void @standard_ExecutorRun(ptr noundef captures(none) %0, i32 n
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8
-  tail call void %25(ptr noundef %15, i32 noundef %13, ptr noundef %27) #9
+  tail call void %25(ptr noundef %15, i32 noundef %13, ptr noundef %27) #8
   br label %28
 
 28:                                               ; preds = %.thread, %18
@@ -780,7 +772,7 @@ define dso_local void @standard_ExecutorRun(ptr noundef captures(none) %0, i32 n
   br i1 %46, label %48, label %49
 
 48:                                               ; preds = %41
-  tail call void @EnterParallelMode() #9
+  tail call void @EnterParallelMode() #8
   br label %49
 
 49:                                               ; preds = %48, %41, %.thread.i
@@ -803,7 +795,7 @@ define dso_local void @standard_ExecutorRun(ptr noundef captures(none) %0, i32 n
 56:                                               ; preds = %.split.us.split.us.i
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %58 = load ptr, ptr %57, align 8
-  tail call void @MemoryContextReset(ptr noundef %58) #9
+  tail call void @MemoryContextReset(ptr noundef %58) #8
   br label %59
 
 59:                                               ; preds = %56, %.split.us.split.us.i
@@ -812,12 +804,12 @@ define dso_local void @standard_ExecutorRun(ptr noundef captures(none) %0, i32 n
   br i1 %.not.i.us.us.i, label %ExecProcNode.exit.us.us.i, label %61
 
 61:                                               ; preds = %59
-  tail call void @ExecReScan(ptr noundef nonnull %34) #9
+  tail call void @ExecReScan(ptr noundef nonnull %34) #8
   br label %ExecProcNode.exit.us.us.i
 
 ExecProcNode.exit.us.us.i:                        ; preds = %61, %59
   %62 = load ptr, ptr %52, align 8
-  %63 = tail call ptr %62(ptr noundef nonnull %34) #9
+  %63 = tail call ptr %62(ptr noundef nonnull %34) #8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.split45.us.i, label %65
 
@@ -834,13 +826,13 @@ ExecProcNode.exit.us.us.i:                        ; preds = %61, %59
   br i1 %.not39.us.us.i, label %73, label %71
 
 71:                                               ; preds = %69
-  %72 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %70, ptr noundef nonnull %63) #9
+  %72 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %70, ptr noundef nonnull %63) #8
   br label %73
 
 73:                                               ; preds = %71, %69
   %.032.us.us.i = phi ptr [ %72, %71 ], [ %63, %69 ]
   %74 = load ptr, ptr %15, align 8
-  %75 = tail call zeroext i1 %74(ptr noundef %.032.us.us.i, ptr noundef nonnull %15) #9
+  %75 = tail call zeroext i1 %74(ptr noundef %.032.us.us.i, ptr noundef nonnull %15) #8
   br i1 %75, label %76, label %.split45.us.i
 
 76:                                               ; preds = %73
@@ -864,7 +856,7 @@ ExecProcNode.exit.us.us.i:                        ; preds = %61, %59
 81:                                               ; preds = %.split.us.split.i
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %83 = load ptr, ptr %82, align 8
-  tail call void @MemoryContextReset(ptr noundef %83) #9
+  tail call void @MemoryContextReset(ptr noundef %83) #8
   br label %84
 
 84:                                               ; preds = %81, %.split.us.split.i
@@ -873,12 +865,12 @@ ExecProcNode.exit.us.us.i:                        ; preds = %61, %59
   br i1 %.not.i.us.i, label %ExecProcNode.exit.us.i, label %86
 
 86:                                               ; preds = %84
-  tail call void @ExecReScan(ptr noundef nonnull %34) #9
+  tail call void @ExecReScan(ptr noundef nonnull %34) #8
   br label %ExecProcNode.exit.us.i
 
 ExecProcNode.exit.us.i:                           ; preds = %86, %84
   %87 = load ptr, ptr %52, align 8
-  %88 = tail call ptr %87(ptr noundef nonnull %34) #9
+  %88 = tail call ptr %87(ptr noundef nonnull %34) #8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.split45.us.i, label %90
 
@@ -895,13 +887,13 @@ ExecProcNode.exit.us.i:                           ; preds = %86, %84
   br i1 %.not39.us.i, label %98, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %95, ptr noundef nonnull %88) #9
+  %97 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %95, ptr noundef nonnull %88) #8
   br label %98
 
 98:                                               ; preds = %96, %94
   %.032.us.i = phi ptr [ %97, %96 ], [ %88, %94 ]
   %99 = load ptr, ptr %15, align 8
-  %100 = tail call zeroext i1 %99(ptr noundef %.032.us.i, ptr noundef nonnull %15) #9
+  %100 = tail call zeroext i1 %99(ptr noundef %.032.us.i, ptr noundef nonnull %15) #8
   br i1 %100, label %101, label %.split45.us.i
 
 101:                                              ; preds = %98
@@ -932,7 +924,7 @@ ExecProcNode.exit.us.i:                           ; preds = %86, %84
 109:                                              ; preds = %.split.split.us.split.us.i
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %111 = load ptr, ptr %110, align 8
-  tail call void @MemoryContextReset(ptr noundef %111) #9
+  tail call void @MemoryContextReset(ptr noundef %111) #8
   br label %112
 
 112:                                              ; preds = %109, %.split.split.us.split.us.i
@@ -941,12 +933,12 @@ ExecProcNode.exit.us.i:                           ; preds = %86, %84
   br i1 %.not.i.us48.us.i, label %ExecProcNode.exit.us49.us.i, label %114
 
 114:                                              ; preds = %112
-  tail call void @ExecReScan(ptr noundef nonnull %34) #9
+  tail call void @ExecReScan(ptr noundef nonnull %34) #8
   br label %ExecProcNode.exit.us49.us.i
 
 ExecProcNode.exit.us49.us.i:                      ; preds = %114, %112
   %115 = load ptr, ptr %52, align 8
-  %116 = tail call ptr %115(ptr noundef nonnull %34) #9
+  %116 = tail call ptr %115(ptr noundef nonnull %34) #8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.split45.us.i, label %118
 
@@ -963,7 +955,7 @@ ExecProcNode.exit.us49.us.i:                      ; preds = %114, %112
   br i1 %.not39.us51.us.i, label %126, label %124
 
 124:                                              ; preds = %122
-  %125 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %123, ptr noundef nonnull %116) #9
+  %125 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %123, ptr noundef nonnull %116) #8
   br label %126
 
 126:                                              ; preds = %124, %122
@@ -981,7 +973,7 @@ ExecProcNode.exit.us49.us.i:                      ; preds = %114, %112
 130:                                              ; preds = %.split.split.us.split.i
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %132 = load ptr, ptr %131, align 8
-  tail call void @MemoryContextReset(ptr noundef %132) #9
+  tail call void @MemoryContextReset(ptr noundef %132) #8
   br label %133
 
 133:                                              ; preds = %130, %.split.split.us.split.i
@@ -990,12 +982,12 @@ ExecProcNode.exit.us49.us.i:                      ; preds = %114, %112
   br i1 %.not.i.us48.i, label %ExecProcNode.exit.us49.i, label %135
 
 135:                                              ; preds = %133
-  tail call void @ExecReScan(ptr noundef nonnull %34) #9
+  tail call void @ExecReScan(ptr noundef nonnull %34) #8
   br label %ExecProcNode.exit.us49.i
 
 ExecProcNode.exit.us49.i:                         ; preds = %135, %133
   %136 = load ptr, ptr %52, align 8
-  %137 = tail call ptr %136(ptr noundef nonnull %34) #9
+  %137 = tail call ptr %136(ptr noundef nonnull %34) #8
   %138 = icmp eq ptr %137, null
   br i1 %138, label %.split45.us.i, label %139
 
@@ -1012,7 +1004,7 @@ ExecProcNode.exit.us49.i:                         ; preds = %135, %133
   br i1 %.not39.us51.i, label %147, label %145
 
 145:                                              ; preds = %143
-  %146 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %144, ptr noundef nonnull %137) #9
+  %146 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %144, ptr noundef nonnull %137) #8
   br label %147
 
 147:                                              ; preds = %145, %143
@@ -1034,7 +1026,7 @@ ExecProcNode.exit.us49.i:                         ; preds = %135, %133
 153:                                              ; preds = %.split.split.split.us.i
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %155 = load ptr, ptr %154, align 8
-  tail call void @MemoryContextReset(ptr noundef %155) #9
+  tail call void @MemoryContextReset(ptr noundef %155) #8
   br label %156
 
 156:                                              ; preds = %153, %.split.split.split.us.i
@@ -1043,12 +1035,12 @@ ExecProcNode.exit.us49.i:                         ; preds = %135, %133
   br i1 %.not.i.us55.i, label %ExecProcNode.exit.us56.i, label %158
 
 158:                                              ; preds = %156
-  tail call void @ExecReScan(ptr noundef nonnull %34) #9
+  tail call void @ExecReScan(ptr noundef nonnull %34) #8
   br label %ExecProcNode.exit.us56.i
 
 ExecProcNode.exit.us56.i:                         ; preds = %158, %156
   %159 = load ptr, ptr %52, align 8
-  %160 = tail call ptr %159(ptr noundef nonnull %34) #9
+  %160 = tail call ptr %159(ptr noundef nonnull %34) #8
   %161 = icmp eq ptr %160, null
   br i1 %161, label %.split45.us.i, label %162
 
@@ -1065,7 +1057,7 @@ ExecProcNode.exit.us56.i:                         ; preds = %158, %156
   br i1 %.not39.us58.i, label %.split.split.split.us.i.backedge, label %168
 
 168:                                              ; preds = %166
-  %169 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %167, ptr noundef nonnull %160) #9
+  %169 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %167, ptr noundef nonnull %160) #8
   br label %.split.split.split.us.i.backedge
 
 .split.split.split.us.i.backedge:                 ; preds = %168, %166
@@ -1080,7 +1072,7 @@ ExecProcNode.exit.us56.i:                         ; preds = %158, %156
 171:                                              ; preds = %.split.split.split.i
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 40
   %173 = load ptr, ptr %172, align 8
-  tail call void @MemoryContextReset(ptr noundef %173) #9
+  tail call void @MemoryContextReset(ptr noundef %173) #8
   br label %174
 
 174:                                              ; preds = %171, %.split.split.split.i
@@ -1089,12 +1081,12 @@ ExecProcNode.exit.us56.i:                         ; preds = %158, %156
   br i1 %.not.i.i, label %ExecProcNode.exit.i, label %176
 
 176:                                              ; preds = %174
-  tail call void @ExecReScan(ptr noundef nonnull %34) #9
+  tail call void @ExecReScan(ptr noundef nonnull %34) #8
   br label %ExecProcNode.exit.i
 
 ExecProcNode.exit.i:                              ; preds = %176, %174
   %177 = load ptr, ptr %52, align 8
-  %178 = tail call ptr %177(ptr noundef nonnull %34) #9
+  %178 = tail call ptr %177(ptr noundef nonnull %34) #8
   %179 = icmp eq ptr %178, null
   br i1 %179, label %.split45.us.i, label %180
 
@@ -1111,7 +1103,7 @@ ExecProcNode.exit.i:                              ; preds = %176, %174
   br i1 %.not39.i, label %188, label %186
 
 186:                                              ; preds = %184
-  %187 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %185, ptr noundef nonnull %178) #9
+  %187 = tail call ptr @ExecFilterJunk(ptr noundef nonnull %185, ptr noundef nonnull %178) #8
   br label %188
 
 188:                                              ; preds = %186, %184
@@ -1127,14 +1119,14 @@ ExecProcNode.exit.i:                              ; preds = %176, %174
   br i1 %.not40.i, label %194, label %195
 
 194:                                              ; preds = %.split45.us.i
-  tail call void @ExecShutdownNode(ptr noundef nonnull %34) #9
+  tail call void @ExecShutdownNode(ptr noundef nonnull %34) #8
   br label %195
 
 195:                                              ; preds = %194, %.split45.us.i
   br i1 %.03343.i, label %196, label %ExecutePlan.exit
 
 196:                                              ; preds = %195
-  tail call void @ExitParallelMode() #9
+  tail call void @ExitParallelMode() #8
   br label %ExecutePlan.exit
 
 ExecutePlan.exit:                                 ; preds = %196, %195, %28
@@ -1148,7 +1140,7 @@ ExecutePlan.exit:                                 ; preds = %196, %195, %28
 201:                                              ; preds = %ExecutePlan.exit
   %202 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %203 = load ptr, ptr %202, align 8
-  tail call void %203(ptr noundef %15) #9
+  tail call void %203(ptr noundef %15) #8
   br label %204
 
 204:                                              ; preds = %201, %ExecutePlan.exit
@@ -1159,7 +1151,7 @@ ExecutePlan.exit:                                 ; preds = %196, %195, %28
 206:                                              ; preds = %204
   %207 = load i64, ptr %16, align 8
   %208 = uitofp i64 %207 to double
-  tail call void @InstrStopNode(ptr noundef nonnull %205, double noundef %208) #9
+  tail call void @InstrStopNode(ptr noundef nonnull %205, double noundef %208) #8
   br label %209
 
 209:                                              ; preds = %206, %204
@@ -1178,7 +1170,7 @@ define dso_local void @ExecutorFinish(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void %2(ptr noundef %0) #9
+  tail call void %2(ptr noundef %0) #8
   br label %5
 
 4:                                                ; preds = %1
@@ -1203,7 +1195,7 @@ define dso_local void @standard_ExecutorFinish(ptr noundef readonly captures(non
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %1
-  tail call void @InstrStartNode(ptr noundef nonnull %8) #9
+  tail call void @InstrStartNode(ptr noundef nonnull %8) #8
   br label %10
 
 10:                                               ; preds = %9, %1
@@ -1239,7 +1231,7 @@ define dso_local void @standard_ExecutorFinish(ptr noundef readonly captures(non
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
-  tail call void @MemoryContextReset(ptr noundef %28) #9
+  tail call void @MemoryContextReset(ptr noundef %28) #8
   br label %29
 
 29:                                               ; preds = %26, %24
@@ -1248,12 +1240,12 @@ define dso_local void @standard_ExecutorFinish(ptr noundef readonly captures(non
   br i1 %.not.i.i, label %ExecProcNode.exit.i, label %31
 
 31:                                               ; preds = %29
-  tail call void @ExecReScan(ptr noundef nonnull %21) #9
+  tail call void @ExecReScan(ptr noundef nonnull %21) #8
   br label %ExecProcNode.exit.i
 
 ExecProcNode.exit.i:                              ; preds = %31, %29
   %32 = load ptr, ptr %23, align 8
-  %33 = tail call ptr %32(ptr noundef nonnull %21) #9
+  %33 = tail call ptr %32(ptr noundef nonnull %21) #8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %39, label %35
 
@@ -1279,7 +1271,7 @@ ExecPostprocessPlan.exit:                         ; preds = %39, %10, %.lr.ph.i
   br i1 %.not12, label %46, label %47
 
 46:                                               ; preds = %ExecPostprocessPlan.exit
-  tail call void @AfterTriggerEndQuery(ptr noundef nonnull %3) #9
+  tail call void @AfterTriggerEndQuery(ptr noundef nonnull %3) #8
   br label %47
 
 47:                                               ; preds = %46, %ExecPostprocessPlan.exit
@@ -1288,7 +1280,7 @@ ExecPostprocessPlan.exit:                         ; preds = %39, %10, %.lr.ph.i
   br i1 %.not13, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void @InstrStopNode(ptr noundef nonnull %48, double noundef 0.000000e+00) #9
+  tail call void @InstrStopNode(ptr noundef nonnull %48, double noundef 0.000000e+00) #8
   br label %50
 
 50:                                               ; preds = %49, %47
@@ -1307,7 +1299,7 @@ define dso_local void @ExecutorEnd(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void %2(ptr noundef %0) #9
+  tail call void %2(ptr noundef %0) #8
   br label %5
 
 4:                                                ; preds = %1
@@ -1332,7 +1324,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  tail call void @pgstat_update_parallel_workers_stats(i64 noundef %8, i64 noundef %11) #9
+  tail call void @pgstat_update_parallel_workers_stats(i64 noundef %8, i64 noundef %11) #8
   br label %12
 
 12:                                               ; preds = %7, %1
@@ -1342,7 +1334,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   store ptr %14, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8
-  tail call void @ExecEndNode(ptr noundef %17) #9
+  tail call void @ExecEndNode(ptr noundef %17) #8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -1360,7 +1352,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
-  tail call void @ExecEndNode(ptr noundef %26) #9
+  tail call void @ExecEndNode(ptr noundef %26) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %20, align 4
   %28 = sext i32 %27 to i64
@@ -1370,7 +1362,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
 .critedge.i:                                      ; preds = %.lr.ph16.i, %.lr.ph.i, %12
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %31 = load ptr, ptr %30, align 8
-  tail call void @ExecResetTupleTable(ptr noundef %31, i1 noundef zeroext false) #9
+  tail call void @ExecResetTupleTable(ptr noundef %31, i1 noundef zeroext false) #8
   tail call void @ExecCloseResultRelations(ptr noundef nonnull readonly %3)
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %33 = load i32, ptr %32, align 8
@@ -1392,7 +1384,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   br i1 %.not.i.i, label %42, label %41
 
 41:                                               ; preds = %35
-  tail call void @table_close(ptr noundef nonnull %40, i32 noundef 0) #9
+  tail call void @table_close(ptr noundef nonnull %40, i32 noundef 0) #8
   %.pre.i.i = load i32, ptr %32, align 8
   br label %42
 
@@ -1405,12 +1397,12 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
 ExecEndPlan.exit:                                 ; preds = %42, %.critedge.i
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %47) #9
+  tail call void @UnregisterSnapshot(ptr noundef %47) #8
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %49 = load ptr, ptr %48, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %49) #9
+  tail call void @UnregisterSnapshot(ptr noundef %49) #8
   store ptr %15, ptr @CurrentMemoryContext, align 8
-  tail call void @FreeExecutorState(ptr noundef nonnull %3) #9
+  tail call void @FreeExecutorState(ptr noundef nonnull %3) #8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr null, ptr %51, align 8
@@ -1434,7 +1426,7 @@ define dso_local void @ExecutorRewind(ptr noundef readonly captures(none) %0) lo
   store ptr %5, ptr @CurrentMemoryContext, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  tail call void @ExecReScan(ptr noundef %8) #9
+  tail call void @ExecReScan(ptr noundef %8) #8
   store ptr %6, ptr @CurrentMemoryContext, align 8
   ret void
 }
@@ -1468,12 +1460,12 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %17, label %19
 
 17:                                               ; preds = %.lr.ph60
-  %18 = tail call i32 @GetUserId() #9
+  %18 = tail call i32 @GetUserId() #8
   br label %19
 
 19:                                               ; preds = %17, %.lr.ph60
   %20 = phi i32 [ %18, %17 ], [ %16, %.lr.ph60 ]
-  %21 = tail call i64 @pg_class_aclmask(i32 noundef %12, i32 noundef %20, i64 noundef %14, i32 noundef 0) #9
+  %21 = tail call i64 @pg_class_aclmask(i32 noundef %12, i32 noundef %20, i64 noundef %14, i32 noundef 0) #8
   %22 = xor i64 %21, -1
   %23 = and i64 %14, %22
   %.not41.i = icmp eq i64 %23, 0
@@ -1495,7 +1487,7 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %27
-  %32 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %12, i32 noundef %20, i64 noundef 2, i32 noundef 1) #9
+  %32 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %12, i32 noundef %20, i64 noundef 2, i32 noundef 1) #8
   %.not44.i = icmp eq i32 %32, 0
   br i1 %.not44.i, label %._crit_edge.i, label %.loopexit
 
@@ -1505,7 +1497,7 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
 
 33:                                               ; preds = %._crit_edge.i, %27
   %34 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %29, %27 ]
-  %35 = tail call i32 @bms_next_member(ptr noundef %34, i32 noundef -1) #9
+  %35 = tail call i32 @bms_next_member(ptr noundef %34, i32 noundef -1) #8
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %.lr.ph.i, label %.loopexit.i
 
@@ -1517,18 +1509,18 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i
-  %42 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %12, i32 noundef %20, i64 noundef 2, i32 noundef 0) #9
+  %42 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %12, i32 noundef %20, i64 noundef 2, i32 noundef 0) #8
   %.not48.i = icmp eq i32 %42, 0
   br i1 %.not48.i, label %.critedge.i, label %.loopexit, !llvm.loop !8
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = tail call i32 @pg_attribute_aclcheck(i32 noundef %12, i16 noundef signext %39, i32 noundef %20, i64 noundef 2) #9
+  %44 = tail call i32 @pg_attribute_aclcheck(i32 noundef %12, i16 noundef signext %39, i32 noundef %20, i64 noundef 2) #8
   %.not47.i = icmp eq i32 %44, 0
   br i1 %.not47.i, label %.critedge.i, label %.loopexit, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %43, %41
   %45 = load ptr, ptr %28, align 8
-  %46 = tail call i32 @bms_next_member(ptr noundef %45, i32 noundef %37) #9
+  %46 = tail call i32 @bms_next_member(ptr noundef %45, i32 noundef %37) #8
   %47 = icmp sgt i32 %46, -1
   br i1 %47, label %.lr.ph.i, label %.loopexit.i
 
@@ -1559,11 +1551,11 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
 58:                                               ; preds = %.loopexit
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = tail call signext i8 @get_rel_relkind(i32 noundef %60) #9
-  %62 = tail call i32 @get_relkind_objtype(i8 noundef signext %61) #9
+  %61 = tail call signext i8 @get_rel_relkind(i32 noundef %60) #8
+  %62 = tail call i32 @get_relkind_objtype(i8 noundef signext %61) #8
   %63 = load i32, ptr %59, align 4
-  %64 = tail call ptr @get_rel_name(i32 noundef %63) #9
-  tail call void @aclcheck_error(i32 noundef 1, i32 noundef %62, ptr noundef %64) #9
+  %64 = tail call ptr @get_rel_name(i32 noundef %63) #8
+  tail call void @aclcheck_error(i32 noundef 1, i32 noundef %62, ptr noundef %64) #8
   br label %.thread35
 
 .critedge:                                        ; preds = %53, %54, %19
@@ -1579,7 +1571,7 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
   br i1 %.not27, label %.thread35, label %69
 
 69:                                               ; preds = %._crit_edge
-  %70 = tail call zeroext i1 %68(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #9
+  %70 = tail call zeroext i1 %68(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) #8
   br label %.thread35
 
 .thread35:                                        ; preds = %58, %.loopexit, %._crit_edge, %69
@@ -1617,49 +1609,46 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   ]
 
 10:                                               ; preds = %3, %3
-  tail call void @CheckCmdReplicaIdentity(ptr noundef nonnull %5, i32 noundef %1) #9
+  tail call void @CheckCmdReplicaIdentity(ptr noundef nonnull %5, i32 noundef %1) #8
   br label %115
 
 11:                                               ; preds = %3
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %13 = tail call i32 @errcode(i32 noundef 151027844) #8
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %15) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1065, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %15) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1065, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 17:                                               ; preds = %3
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %19 = tail call i32 @errcode(i32 noundef 151027844) #8
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1071, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %21) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1071, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 23:                                               ; preds = %3
-  %24 = tail call zeroext i1 @view_has_instead_trigger(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2) #9
+  %24 = tail call zeroext i1 @view_has_instead_trigger(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2) #8
   br i1 %24, label %115, label %25
 
 25:                                               ; preds = %23
-  tail call void @error_view_not_updatable(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef null) #9
+  tail call void @error_view_not_updatable(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef null) #8
   br label %115
 
 26:                                               ; preds = %3
-  %27 = tail call zeroext i1 @MatViewIncrementalMaintenanceIsEnabled() #9
+  %27 = tail call zeroext i1 @MatViewIncrementalMaintenanceIsEnabled() #8
   br i1 %27, label %115, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %30 = tail call i32 @errcode(i32 noundef 151027844) #8
   %31 = load ptr, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %32) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1090, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %32) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1090, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 34:                                               ; preds = %3
@@ -1678,13 +1667,12 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %37
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 @errcode(i32 noundef 1088) #9
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %43 = tail call i32 @errcode(i32 noundef 1088) #8
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %45) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1102, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %45) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1102, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 47:                                               ; preds = %37
@@ -1694,19 +1682,18 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   br i1 %.not37, label %115, label %50
 
 50:                                               ; preds = %47
-  %51 = tail call i32 %49(ptr noundef nonnull %5) #9
+  %51 = tail call i32 %49(ptr noundef nonnull %5) #8
   %52 = and i32 %51, 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %115
 
 54:                                               ; preds = %50
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 @errcode(i32 noundef 325) #9
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %56 = tail call i32 @errcode(i32 noundef 325) #8
   %57 = load ptr, ptr %6, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %58) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1108, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %58) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1108, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 60:                                               ; preds = %34
@@ -1716,13 +1703,12 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %60
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 @errcode(i32 noundef 1088) #9
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %66 = tail call i32 @errcode(i32 noundef 1088) #8
   %67 = load ptr, ptr %6, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %68) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1115, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %68) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1115, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 70:                                               ; preds = %60
@@ -1732,19 +1718,18 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   br i1 %.not36, label %115, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call i32 %72(ptr noundef nonnull %5) #9
+  %74 = tail call i32 %72(ptr noundef nonnull %5) #8
   %75 = and i32 %74, 4
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %115
 
 77:                                               ; preds = %73
-  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %78)
-  %79 = tail call i32 @errcode(i32 noundef 325) #9
+  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %79 = tail call i32 @errcode(i32 noundef 325) #8
   %80 = load ptr, ptr %6, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %81) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1121, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %81) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1121, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 83:                                               ; preds = %34
@@ -1754,13 +1739,12 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   br i1 %86, label %87, label %93
 
 87:                                               ; preds = %83
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %88)
-  %89 = tail call i32 @errcode(i32 noundef 1088) #9
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %89 = tail call i32 @errcode(i32 noundef 1088) #8
   %90 = load ptr, ptr %6, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %91) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1128, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %91) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1128, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 93:                                               ; preds = %83
@@ -1770,36 +1754,33 @@ define dso_local void @CheckValidResultRel(ptr noundef readonly captures(none) %
   br i1 %.not, label %115, label %96
 
 96:                                               ; preds = %93
-  %97 = tail call i32 %95(ptr noundef nonnull %5) #9
+  %97 = tail call i32 %95(ptr noundef nonnull %5) #8
   %98 = and i32 %97, 16
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %115
 
 100:                                              ; preds = %96
-  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %101)
-  %102 = tail call i32 @errcode(i32 noundef 325) #9
+  %101 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %102 = tail call i32 @errcode(i32 noundef 325) #8
   %103 = load ptr, ptr %6, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %104) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1134, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %104) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1134, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 106:                                              ; preds = %34
-  %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %107)
-  %108 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1137, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %108 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %1) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1137, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 109:                                              ; preds = %3
-  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %110)
-  %111 = tail call i32 @errcode(i32 noundef 151027844) #9
+  %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %111 = tail call i32 @errcode(i32 noundef 151027844) #8
   %112 = load ptr, ptr %6, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
-  %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %113) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1145, ptr noundef nonnull @__func__.CheckValidResultRel) #9
+  %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %113) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1145, ptr noundef nonnull @__func__.CheckValidResultRel) #8
   unreachable
 
 115:                                              ; preds = %50, %47, %73, %70, %96, %93, %26, %23, %25, %10
@@ -1845,13 +1826,13 @@ define dso_local void @InitResultRelInfo(ptr noundef %0, ptr noundef %1, i32 nou
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %16 = tail call zeroext i1 @IsInplaceUpdateRelation(ptr noundef %1) #9
+  %16 = tail call zeroext i1 @IsInplaceUpdateRelation(ptr noundef %1) #8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %18 = zext i1 %16 to i8
   store i8 %18, ptr %17, align 1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @CopyTriggerDesc(ptr noundef %20) #9
+  %21 = tail call ptr @CopyTriggerDesc(ptr noundef %20) #8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %21, ptr %22, align 8
   %.not = icmp eq ptr %21, null
@@ -1862,18 +1843,18 @@ define dso_local void @InitResultRelInfo(ptr noundef %0, ptr noundef %1, i32 nou
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, 48
-  %28 = tail call ptr @palloc0(i64 noundef %27) #9
+  %28 = tail call ptr @palloc0(i64 noundef %27) #8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %28, ptr %29, align 8
   %30 = shl nsw i64 %26, 3
-  %31 = tail call ptr @palloc0(i64 noundef %30) #9
+  %31 = tail call ptr @palloc0(i64 noundef %30) #8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %31, ptr %32, align 8
   %.not77 = icmp eq i32 %4, 0
   br i1 %.not77, label %38, label %33
 
 33:                                               ; preds = %23
-  %34 = tail call ptr @InstrAlloc(i32 noundef %25, i32 noundef %4, i1 noundef zeroext false) #9
+  %34 = tail call ptr @InstrAlloc(i32 noundef %25, i32 noundef %4, i1 noundef zeroext false) #8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %34, ptr %35, align 8
   br label %38
@@ -1892,7 +1873,7 @@ define dso_local void @InitResultRelInfo(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %38
-  %45 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %1, i1 noundef zeroext true) #9
+  %45 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %1, i1 noundef zeroext true) #8
   br label %46
 
 46:                                               ; preds = %38, %44
@@ -2042,18 +2023,18 @@ define dso_local ptr @ExecGetTriggerResultRel(ptr noundef captures(none) %0, i32
   br i1 %51, label %.loopexit, label %43
 
 ._crit_edge106:                                   ; preds = %43, %.lr.ph105, %._crit_edge98
-  %52 = tail call ptr @table_open(i32 noundef %1, i32 noundef 0) #9
+  %52 = tail call ptr @table_open(i32 noundef %1, i32 noundef 0) #8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %54, ptr @CurrentMemoryContext, align 8
-  %56 = tail call noundef ptr @palloc0(i64 noundef 392) #9
+  %56 = tail call noundef ptr @palloc0(i64 noundef 392) #8
   store i32 387, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %58 = load i32, ptr %57, align 4
   tail call void @InitResultRelInfo(ptr noundef nonnull %56, ptr noundef %52, i32 noundef 0, ptr noundef %2, i32 noundef %58)
   %59 = load ptr, ptr %36, align 8
-  %60 = tail call ptr @lappend(ptr noundef %59, ptr noundef nonnull %56) #9
+  %60 = tail call ptr @lappend(ptr noundef %59, ptr noundef nonnull %56) #8
   store ptr %60, ptr %36, align 8
   store ptr %55, ptr @CurrentMemoryContext, align 8
   br label %.loopexit
@@ -2081,10 +2062,9 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr noundef readonly captures(no
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %2
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1405, ptr noundef nonnull @__func__.ExecGetAncestorResultRels) #9
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1405, ptr noundef nonnull @__func__.ExecGetAncestorResultRels) #8
   unreachable
 
 15:                                               ; preds = %2
@@ -2100,7 +2080,7 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr noundef readonly captures(no
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %25 = load i32, ptr %24, align 8
-  %26 = tail call ptr @get_partition_ancestors(i32 noundef %25) #9
+  %26 = tail call ptr @get_partition_ancestors(i32 noundef %25) #8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.not = icmp eq ptr %26, null
@@ -2122,12 +2102,12 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr noundef readonly captures(no
   br i1 %.not30, label %.critedge, label %35
 
 35:                                               ; preds = %.lr.ph42
-  %36 = tail call ptr @table_open(i32 noundef %34, i32 noundef 0) #9
-  %37 = tail call noundef ptr @palloc0(i64 noundef 392) #9
+  %36 = tail call ptr @table_open(i32 noundef %34, i32 noundef 0) #8
+  %37 = tail call noundef ptr @palloc0(i64 noundef 392) #8
   store i32 387, ptr %37, align 4
   %38 = load i32, ptr %29, align 4
   tail call void @InitResultRelInfo(ptr noundef nonnull %37, ptr noundef %36, i32 noundef 0, ptr noundef null, i32 noundef %38)
-  %39 = tail call ptr @lappend(ptr noundef %.0253340, ptr noundef nonnull %37) #9
+  %39 = tail call ptr @lappend(ptr noundef %.0253340, ptr noundef nonnull %37) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = load i32, ptr %27, align 4
   %41 = sext i32 %40 to i64
@@ -2136,7 +2116,7 @@ define dso_local ptr @ExecGetAncestorResultRels(ptr noundef readonly captures(no
 
 .critedge:                                        ; preds = %35, %.lr.ph42, %.lr.ph, %23
   %.025.lcssa = phi ptr [ null, %23 ], [ null, %.lr.ph ], [ %.0253340, %.lr.ph42 ], [ %39, %35 ]
-  %43 = tail call ptr @lappend(ptr noundef %.025.lcssa, ptr noundef %4) #9
+  %43 = tail call ptr @lappend(ptr noundef %.025.lcssa, ptr noundef %4) #8
   store ptr %43, ptr %20, align 8
   br label %44
 
@@ -2166,7 +2146,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv5564
   %10 = load ptr, ptr %9, align 8
-  tail call void @ExecCloseIndices(ptr noundef %10) #9
+  tail call void @ExecCloseIndices(ptr noundef %10) #8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 384
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -2213,7 +2193,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
 32:                                               ; preds = %.lr.ph45
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %34 = load ptr, ptr %33, align 8
-  tail call void @table_close(ptr noundef %34, i32 noundef 0) #9
+  tail call void @table_close(ptr noundef %34, i32 noundef 0) #8
   %.pre = load i32, ptr %13, align 4
   br label %35
 
@@ -2231,7 +2211,7 @@ define dso_local void @ExecCloseResultRelations(ptr noundef readonly captures(no
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
-  tail call void @table_close(ptr noundef %43, i32 noundef 0) #9
+  tail call void @table_close(ptr noundef %43, i32 noundef 0) #8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %44 = load i32, ptr %19, align 4
   %45 = sext i32 %44 to i64
@@ -2268,7 +2248,7 @@ define dso_local void @ExecCloseRangeTableRelations(ptr noundef readonly capture
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %5
-  tail call void @table_close(ptr noundef nonnull %10, i32 noundef 0) #9
+  tail call void @table_close(ptr noundef nonnull %10, i32 noundef 0) #8
   %.pre = load i32, ptr %2, align 8
   br label %12
 
@@ -2296,8 +2276,8 @@ define dso_local zeroext i1 @ExecPartitionCheck(ptr noundef %0, ptr noundef %1, 
   store ptr %10, ptr @CurrentMemoryContext, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @RelationGetPartitionQual(ptr noundef %13) #9
-  %15 = tail call ptr @ExecPrepareCheck(ptr noundef %14, ptr noundef %2) #9
+  %14 = tail call ptr @RelationGetPartitionQual(ptr noundef %13) #8
+  %15 = tail call ptr @ExecPrepareCheck(ptr noundef %14, ptr noundef %2) #8
   store ptr %15, ptr %5, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
   br label %16
@@ -2309,7 +2289,7 @@ define dso_local zeroext i1 @ExecPartitionCheck(ptr noundef %0, ptr noundef %1, 
   br i1 %.not20, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #9
+  %20 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #8
   br label %21
 
 21:                                               ; preds = %16, %19
@@ -2317,7 +2297,7 @@ define dso_local zeroext i1 @ExecPartitionCheck(ptr noundef %0, ptr noundef %1, 
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %1, ptr %23, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = tail call zeroext i1 @ExecCheck(ptr noundef %24, ptr noundef %22) #9
+  %25 = tail call zeroext i1 @ExecCheck(ptr noundef %24, ptr noundef %22) #8
   %.not = xor i1 %25, true
   %or.cond = and i1 %3, %.not
   br i1 %or.cond, label %26, label %27
@@ -2356,13 +2336,13 @@ define dso_local void @ExecPartitionCheckEmitError(ptr noundef %0, ptr noundef %
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %16, ptr noundef %12, i1 noundef zeroext false) #9
+  %17 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %16, ptr noundef %12, i1 noundef zeroext false) #8
   %.not34 = icmp eq ptr %17, null
   br i1 %.not34, label %28, label %18
 
 18:                                               ; preds = %6
-  %19 = tail call ptr @MakeTupleTableSlot(ptr noundef %12, ptr noundef nonnull @TTSOpsVirtual) #9
-  %20 = tail call ptr @execute_attr_map_slot(ptr noundef nonnull %17, ptr noundef %1, ptr noundef %19) #9
+  %19 = tail call ptr @MakeTupleTableSlot(ptr noundef %12, ptr noundef nonnull @TTSOpsVirtual) #8
+  %20 = tail call ptr @execute_attr_map_slot(ptr noundef nonnull %17, ptr noundef %1, ptr noundef %19) #8
   br label %28
 
 21:                                               ; preds = %3
@@ -2379,30 +2359,29 @@ define dso_local void @ExecPartitionCheckEmitError(ptr noundef %0, ptr noundef %
   %.029 = phi ptr [ %27, %21 ], [ %12, %18 ], [ %12, %6 ]
   %.028 = phi i32 [ %25, %21 ], [ %10, %18 ], [ %10, %6 ]
   %.1 = phi ptr [ %1, %21 ], [ %20, %18 ], [ %1, %6 ]
-  %29 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %.sink41, ptr noundef %2) #9
-  %30 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %.sink41, ptr noundef %2) #9
-  %31 = tail call ptr @bms_union(ptr noundef %29, ptr noundef %30) #9
+  %29 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %.sink41, ptr noundef %2) #8
+  %30 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %.sink41, ptr noundef %2) #8
+  %31 = tail call ptr @bms_union(ptr noundef %29, ptr noundef %30) #8
   %32 = tail call ptr @ExecBuildSlotValueDescription(i32 noundef %.028, ptr noundef %.1, ptr noundef %.029, ptr noundef %31, i32 noundef 64)
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 67391682) #9
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %34 = tail call i32 @errcode(i32 noundef 67391682) #8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %39) #9
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %39) #8
   %.not35 = icmp eq ptr %32, null
   br i1 %.not35, label %43, label %41
 
 41:                                               ; preds = %28
-  %42 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %32) #9
+  %42 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %32) #8
   br label %43
 
 43:                                               ; preds = %28, %41
   %44 = load ptr, ptr %35, align 8
-  %45 = tail call i32 @errtable(ptr noundef %44) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1935, ptr noundef nonnull @__func__.ExecPartitionCheckEmitError) #9
+  %45 = tail call i32 @errtable(ptr noundef %44) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1935, ptr noundef nonnull @__func__.ExecPartitionCheckEmitError) #8
   unreachable
 }
 
@@ -2426,21 +2405,21 @@ define dso_local ptr @ExecBuildSlotValueDescription(i32 noundef %0, ptr noundef 
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %10 = tail call i32 @check_enable_rls(i32 noundef %0, i32 noundef 0, i1 noundef zeroext true) #9
+  %10 = tail call i32 @check_enable_rls(i32 noundef %0, i32 noundef 0, i1 noundef zeroext true) #8
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %93, label %12
 
 12:                                               ; preds = %5
-  call void @initStringInfo(ptr noundef nonnull %6) #9
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 40) #9
-  %13 = call i32 @GetUserId() #9
-  %14 = call i32 @pg_class_aclcheck(i32 noundef %0, i32 noundef %13, i64 noundef 2) #9
+  call void @initStringInfo(ptr noundef nonnull %6) #8
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 40) #8
+  %13 = call i32 @GetUserId() #8
+  %14 = call i32 @pg_class_aclcheck(i32 noundef %0, i32 noundef %13, i64 noundef 2) #8
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %12
-  call void @initStringInfo(ptr noundef nonnull %7) #9
-  call void @appendStringInfoChar(ptr noundef nonnull %7, i8 noundef signext 40) #9
+  call void @initStringInfo(ptr noundef nonnull %7) #8
+  call void @appendStringInfoChar(ptr noundef nonnull %7, i8 noundef signext 40) #8
   br label %16
 
 16:                                               ; preds = %12, %15
@@ -2455,7 +2434,7 @@ define dso_local ptr @ExecBuildSlotValueDescription(i32 noundef %0, ptr noundef 
   br i1 %23, label %24, label %slot_getallattrs.exit
 
 24:                                               ; preds = %16
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %19) #9
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %19) #8
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %16, %24
@@ -2491,12 +2470,12 @@ slot_getallattrs.exit:                            ; preds = %16, %24
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 74
   %43 = load i16, ptr %42, align 2
-  %44 = call i32 @GetUserId() #9
-  %45 = call i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %43, i32 noundef %44, i64 noundef 2) #9
+  %44 = call i32 @GetUserId() #8
+  %45 = call i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %43, i32 noundef %44, i64 noundef 2) #8
   %46 = load i16, ptr %42, align 2
   %47 = sext i16 %46 to i32
   %48 = add nsw i32 %47, 7
-  %49 = call zeroext i1 @bms_is_member(i32 noundef %48, ptr noundef %3) #9
+  %49 = call zeroext i1 @bms_is_member(i32 noundef %48, ptr noundef %3) #8
   %50 = icmp eq i32 %45, 0
   %or.cond = select i1 %49, i1 true, i1 %50
   br i1 %or.cond, label %51, label %79
@@ -2505,12 +2484,12 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br i1 %.04766, label %52, label %53
 
 52:                                               ; preds = %51
-  call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.26) #9
+  call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.26) #8
   br label %53
 
 53:                                               ; preds = %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull %54) #9
+  call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull %54) #8
   br label %.thread
 
 .thread:                                          ; preds = %40, %53
@@ -2533,12 +2512,12 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %64 = getelementptr inbounds nuw i8, ptr %36, i64 68
   %65 = load i32, ptr %64, align 4
-  call void @getTypeOutputInfo(i32 noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9) #9
+  call void @getTypeOutputInfo(i32 noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %66 = load i32, ptr %8, align 4
   %67 = load ptr, ptr %29, align 8
   %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
   %69 = load i64, ptr %68, align 8
-  %70 = call ptr @OidOutputFunctionCall(i32 noundef %66, i64 noundef %69) #9
+  %70 = call ptr @OidOutputFunctionCall(i32 noundef %66, i64 noundef %69) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %71
@@ -2548,23 +2527,23 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br i1 %.05165, label %72, label %73
 
 72:                                               ; preds = %71
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #9
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #8
   br label %73
 
 73:                                               ; preds = %71, %72
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #11
+  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #10
   %75 = trunc i64 %74 to i32
   %.not58 = icmp slt i32 %4, %75
   br i1 %.not58, label %77, label %76
 
 76:                                               ; preds = %73
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %75) #9
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %75) #8
   br label %79
 
 77:                                               ; preds = %73
-  %78 = call i32 @pg_mbcliplen(ptr noundef nonnull %.042, i32 noundef %75, i32 noundef %4) #9
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %78) #9
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.29) #9
+  %78 = call i32 @pg_mbcliplen(ptr noundef nonnull %.042, i32 noundef %75, i32 noundef %4) #8
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %78) #8
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.29) #8
   br label %79
 
 79:                                               ; preds = %41, %77, %76, %30
@@ -2583,16 +2562,16 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   br i1 %83, label %84, label %93
 
 84:                                               ; preds = %._crit_edge
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 41) #9
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 41) #8
   %85 = trunc nuw i8 %.044 to i1
   br i1 %85, label %91, label %86
 
 86:                                               ; preds = %84
-  call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.30) #9
+  call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.30) #8
   %87 = load ptr, ptr %6, align 8
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %89 = load i32, ptr %88, align 8
-  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %87, i32 noundef %89) #9
+  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %87, i32 noundef %89) #8
   %90 = load ptr, ptr %7, align 8
   br label %93
 
@@ -2656,7 +2635,7 @@ define dso_local void @ExecConstraints(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %32, label %slot_getsomeattrs.exit.i, label %slot_attisnull.exit
 
 slot_getsomeattrs.exit.i:                         ; preds = %29
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %.082102) #9
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %.082102) #8
   br label %slot_attisnull.exit
 
 slot_attisnull.exit:                              ; preds = %29, %slot_getsomeattrs.exit.i
@@ -2678,27 +2657,27 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %41, ptr noundef %45, i1 noundef zeroext false) #9
+  %46 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %41, ptr noundef %45, i1 noundef zeroext false) #8
   %.not95 = icmp eq ptr %46, null
   br i1 %.not95, label %50, label %47
 
 47:                                               ; preds = %40
-  %48 = tail call ptr @MakeTupleTableSlot(ptr noundef %45, ptr noundef nonnull @TTSOpsVirtual) #9
-  %49 = tail call ptr @execute_attr_map_slot(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef %48) #9
+  %48 = tail call ptr @MakeTupleTableSlot(ptr noundef %45, ptr noundef nonnull @TTSOpsVirtual) #8
+  %49 = tail call ptr @execute_attr_map_slot(ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef %48) #8
   br label %50
 
 50:                                               ; preds = %47, %40
   %.0 = phi ptr [ %49, %47 ], [ %1, %40 ]
-  %51 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %39, ptr noundef %2) #9
-  %52 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %39, ptr noundef %2) #9
-  %53 = tail call ptr @bms_union(ptr noundef %51, ptr noundef %52) #9
+  %51 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %39, ptr noundef %2) #8
+  %52 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %39, ptr noundef %2) #8
+  %53 = tail call ptr @bms_union(ptr noundef %51, ptr noundef %52) #8
   %54 = load ptr, ptr %42, align 8
   br label %59
 
 55:                                               ; preds = %37
-  %56 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %0, ptr noundef %2) #9
-  %57 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %0, ptr noundef %2) #9
-  %58 = tail call ptr @bms_union(ptr noundef %56, ptr noundef %57) #9
+  %56 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %0, ptr noundef %2) #8
+  %57 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %0, ptr noundef %2) #8
+  %58 = tail call ptr @bms_union(ptr noundef %56, ptr noundef %57) #8
   br label %59
 
 59:                                               ; preds = %55, %50
@@ -2709,24 +2688,23 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   %60 = getelementptr inbounds nuw i8, ptr %.076, i64 72
   %61 = load i32, ptr %60, align 8
   %62 = tail call ptr @ExecBuildSlotValueDescription(i32 noundef %61, ptr noundef %.1, ptr noundef %.078, ptr noundef %.080, i32 noundef 64)
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 33575106) #9
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %64 = tail call i32 @errcode(i32 noundef 33575106) #8
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %65, ptr noundef nonnull %68) #9
+  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %65, ptr noundef nonnull %68) #8
   %.not96 = icmp eq ptr %62, null
   br i1 %.not96, label %72, label %70
 
 70:                                               ; preds = %59
-  %71 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %62) #9
+  %71 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %62) #8
   br label %72
 
 72:                                               ; preds = %59, %70
-  %73 = tail call i32 @errtablecol(ptr noundef nonnull %5, i32 noundef %.082102) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2019, ptr noundef nonnull @__func__.ExecConstraints) #9
+  %73 = tail call i32 @errtablecol(ptr noundef nonnull %5, i32 noundef %.082102) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2019, ptr noundef nonnull @__func__.ExecConstraints) #8
   unreachable
 
 74:                                               ; preds = %slot_attisnull.exit, %17
@@ -2762,16 +2740,15 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   br i1 %.not.i, label %106, label %97
 
 97:                                               ; preds = %81
-  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %98)
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %99 = load ptr, ptr %92, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 118
   %101 = load i16, ptr %100, align 2
   %102 = sext i16 %101 to i32
   %103 = sub nsw i32 %102, %89
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, i32 noundef %103, ptr noundef nonnull %104) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1763, ptr noundef nonnull @__func__.ExecRelCheck) #9
+  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, i32 noundef %103, ptr noundef nonnull %104) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1763, ptr noundef nonnull @__func__.ExecRelCheck) #8
   unreachable
 
 106:                                              ; preds = %81
@@ -2787,7 +2764,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   store ptr %112, ptr @CurrentMemoryContext, align 8
   %114 = zext i16 %88 to i64
   %115 = shl nuw nsw i64 %114, 3
-  %116 = tail call ptr @palloc0(i64 noundef %115) #9
+  %116 = tail call ptr @palloc0(i64 noundef %115) #8
   store ptr %116, ptr %107, align 8
   %.not58.i = icmp eq i16 %88, 0
   br i1 %.not58.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2803,9 +2780,9 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
 121:                                              ; preds = %.lr.ph.i
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %123 = load ptr, ptr %122, align 8
-  %124 = tail call ptr @stringToNode(ptr noundef %123) #9
-  %125 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %124, ptr noundef %82, i32 noundef 1) #9
-  %126 = tail call ptr @ExecPrepareExpr(ptr noundef %125, ptr noundef %2) #9
+  %124 = tail call ptr @stringToNode(ptr noundef %123) #8
+  %125 = tail call ptr @expand_generated_columns_in_expr(ptr noundef %124, ptr noundef %82, i32 noundef 1) #8
+  %126 = tail call ptr @ExecPrepareExpr(ptr noundef %125, ptr noundef %2) #8
   %127 = load ptr, ptr %107, align 8
   %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i
   store ptr %126, ptr %128, align 8
@@ -2827,7 +2804,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   br i1 %.not49.i, label %133, label %135
 
 133:                                              ; preds = %130
-  %134 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #9
+  %134 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #8
   br label %135
 
 135:                                              ; preds = %133, %130
@@ -2850,7 +2827,7 @@ slot_attisnull.exit:                              ; preds = %29, %slot_getsomeat
   br i1 %.not50.i, label %143, label %141
 
 141:                                              ; preds = %.lr.ph57.i
-  %142 = tail call zeroext i1 @ExecCheck(ptr noundef nonnull %140, ptr noundef %136) #9
+  %142 = tail call zeroext i1 @ExecCheck(ptr noundef nonnull %140, ptr noundef %136) #8
   br i1 %142, label %143, label %ExecRelCheck.exit
 
 143:                                              ; preds = %141, %.lr.ph57.i
@@ -2876,27 +2853,27 @@ ExecRelCheck.exit:                                ; preds = %141
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %154 = load ptr, ptr %153, align 8
-  %155 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %150, ptr noundef %154, i1 noundef zeroext false) #9
+  %155 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %150, ptr noundef %154, i1 noundef zeroext false) #8
   %.not92 = icmp eq ptr %155, null
   br i1 %.not92, label %159, label %156
 
 156:                                              ; preds = %149
-  %157 = tail call ptr @MakeTupleTableSlot(ptr noundef %154, ptr noundef nonnull @TTSOpsVirtual) #9
-  %158 = tail call ptr @execute_attr_map_slot(ptr noundef nonnull %155, ptr noundef %1, ptr noundef %157) #9
+  %157 = tail call ptr @MakeTupleTableSlot(ptr noundef %154, ptr noundef nonnull @TTSOpsVirtual) #8
+  %158 = tail call ptr @execute_attr_map_slot(ptr noundef nonnull %155, ptr noundef %1, ptr noundef %157) #8
   br label %159
 
 159:                                              ; preds = %156, %149
   %.2 = phi ptr [ %158, %156 ], [ %1, %149 ]
-  %160 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %148, ptr noundef %2) #9
-  %161 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %148, ptr noundef %2) #9
-  %162 = tail call ptr @bms_union(ptr noundef %160, ptr noundef %161) #9
+  %160 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %148, ptr noundef %2) #8
+  %161 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %148, ptr noundef %2) #8
+  %162 = tail call ptr @bms_union(ptr noundef %160, ptr noundef %161) #8
   %163 = load ptr, ptr %151, align 8
   br label %168
 
 164:                                              ; preds = %146
-  %165 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %0, ptr noundef %2) #9
-  %166 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %0, ptr noundef %2) #9
-  %167 = tail call ptr @bms_union(ptr noundef %165, ptr noundef %166) #9
+  %165 = tail call ptr @ExecGetInsertedCols(ptr noundef nonnull %0, ptr noundef %2) #8
+  %166 = tail call ptr @ExecGetUpdatedCols(ptr noundef nonnull %0, ptr noundef %2) #8
+  %167 = tail call ptr @bms_union(ptr noundef %165, ptr noundef %166) #8
   br label %168
 
 168:                                              ; preds = %164, %159
@@ -2907,22 +2884,21 @@ ExecRelCheck.exit:                                ; preds = %141
   %169 = getelementptr inbounds nuw i8, ptr %.177, i64 72
   %170 = load i32, ptr %169, align 8
   %171 = tail call ptr @ExecBuildSlotValueDescription(i32 noundef %170, ptr noundef %.3, ptr noundef %.179, ptr noundef %.181, i32 noundef 64)
-  %172 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %172)
-  %173 = tail call i32 @errcode(i32 noundef 67391682) #9
+  %172 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %173 = tail call i32 @errcode(i32 noundef 67391682) #8
   %174 = load ptr, ptr %76, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %176 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %175, ptr noundef nonnull %145) #9
+  %176 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %175, ptr noundef nonnull %145) #8
   %.not93 = icmp eq ptr %171, null
   br i1 %.not93, label %179, label %177
 
 177:                                              ; preds = %168
-  %178 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %171) #9
+  %178 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %171) #8
   br label %179
 
 179:                                              ; preds = %168, %177
-  %180 = tail call i32 @errtableconstraint(ptr noundef nonnull %5, ptr noundef nonnull %145) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2070, ptr noundef nonnull @__func__.ExecConstraints) #9
+  %180 = tail call i32 @errtableconstraint(ptr noundef nonnull %5, ptr noundef nonnull %145) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2070, ptr noundef nonnull @__func__.ExecConstraints) #8
   unreachable
 
 ExecRelCheck.exit.thread:                         ; preds = %143, %135, %ExecRelCheck.exit, %.loopexit
@@ -2946,7 +2922,7 @@ define dso_local void @ExecWithCheckOptions(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %3) #9
+  %13 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %3) #8
   br label %14
 
 14:                                               ; preds = %4, %12
@@ -3020,7 +2996,7 @@ ExecQual.exit:                                    ; preds = %47
   store ptr %50, ptr @CurrentMemoryContext, align 8
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %53 = load ptr, ptr %52, align 8
-  %54 = call i64 %53(ptr noundef nonnull %48, ptr noundef %15, ptr noundef nonnull %5) #9
+  %54 = call i64 %53(ptr noundef nonnull %48, ptr noundef %15, ptr noundef nonnull %5) #8
   store ptr %51, ptr @CurrentMemoryContext, align 8
   %.not85 = icmp eq i64 %54, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3050,27 +3026,27 @@ ExecQual.exit:                                    ; preds = %47
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
   %65 = load ptr, ptr %64, align 8
-  %66 = call ptr @build_attrmap_by_name_if_req(ptr noundef %61, ptr noundef %65, i1 noundef zeroext false) #9
+  %66 = call ptr @build_attrmap_by_name_if_req(ptr noundef %61, ptr noundef %65, i1 noundef zeroext false) #8
   %.not82 = icmp eq ptr %66, null
   br i1 %.not82, label %70, label %67
 
 67:                                               ; preds = %60
-  %68 = call ptr @MakeTupleTableSlot(ptr noundef %65, ptr noundef nonnull @TTSOpsVirtual) #9
-  %69 = call ptr @execute_attr_map_slot(ptr noundef nonnull %66, ptr noundef %2, ptr noundef %68) #9
+  %68 = call ptr @MakeTupleTableSlot(ptr noundef %65, ptr noundef nonnull @TTSOpsVirtual) #8
+  %69 = call ptr @execute_attr_map_slot(ptr noundef nonnull %66, ptr noundef %2, ptr noundef %68) #8
   br label %70
 
 70:                                               ; preds = %67, %60
   %.0 = phi ptr [ %69, %67 ], [ %2, %60 ]
-  %71 = call ptr @ExecGetInsertedCols(ptr noundef nonnull %59, ptr noundef %3) #9
-  %72 = call ptr @ExecGetUpdatedCols(ptr noundef nonnull %59, ptr noundef %3) #9
-  %73 = call ptr @bms_union(ptr noundef %71, ptr noundef %72) #9
+  %71 = call ptr @ExecGetInsertedCols(ptr noundef nonnull %59, ptr noundef %3) #8
+  %72 = call ptr @ExecGetUpdatedCols(ptr noundef nonnull %59, ptr noundef %3) #8
+  %73 = call ptr @bms_union(ptr noundef %71, ptr noundef %72) #8
   %74 = load ptr, ptr %62, align 8
   br label %79
 
 75:                                               ; preds = %57
-  %76 = call ptr @ExecGetInsertedCols(ptr noundef nonnull %1, ptr noundef %3) #9
-  %77 = call ptr @ExecGetUpdatedCols(ptr noundef nonnull %1, ptr noundef %3) #9
-  %78 = call ptr @bms_union(ptr noundef %76, ptr noundef %77) #9
+  %76 = call ptr @ExecGetInsertedCols(ptr noundef nonnull %1, ptr noundef %3) #8
+  %77 = call ptr @ExecGetUpdatedCols(ptr noundef nonnull %1, ptr noundef %3) #8
+  %78 = call ptr @bms_union(ptr noundef %76, ptr noundef %77) #8
   br label %79
 
 79:                                               ; preds = %75, %70
@@ -3081,101 +3057,96 @@ ExecQual.exit:                                    ; preds = %47
   %80 = getelementptr inbounds nuw i8, ptr %.064, i64 72
   %81 = load i32, ptr %80, align 8
   %82 = call ptr @ExecBuildSlotValueDescription(i32 noundef %81, ptr noundef %.1, ptr noundef %.065, ptr noundef %.066, i32 noundef 64)
-  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %83)
-  %84 = call i32 @errcode(i32 noundef 260) #9
+  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %84 = call i32 @errcode(i32 noundef 260) #8
   %85 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %86) #9
+  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %86) #8
   %.not83 = icmp eq ptr %82, null
   br i1 %.not83, label %90, label %88
 
 88:                                               ; preds = %79
-  %89 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %82) #9
+  %89 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %82) #8
   br label %90
 
 90:                                               ; preds = %79, %88
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2180, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2180, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 91:                                               ; preds = %.split90, %.split90
   %92 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %93 = load ptr, ptr %92, align 8
   %.not80 = icmp eq ptr %93, null
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %94)
-  %95 = call i32 @errcode(i32 noundef 16797828) #9
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %95 = call i32 @errcode(i32 noundef 16797828) #8
   br i1 %.not80, label %101, label %96
 
 96:                                               ; preds = %91
   %97 = load ptr, ptr %92, align 8
   %98 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %97, ptr noundef %99) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2188, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %100 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %97, ptr noundef %99) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2188, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 101:                                              ; preds = %91
   %102 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %103 = load ptr, ptr %102, align 8
-  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %103) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2193, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %103) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2193, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 105:                                              ; preds = %.split90, %.split90
   %106 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %107 = load ptr, ptr %106, align 8
   %.not79 = icmp eq ptr %107, null
-  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %108)
-  %109 = call i32 @errcode(i32 noundef 16797828) #9
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %109 = call i32 @errcode(i32 noundef 16797828) #8
   br i1 %.not79, label %115, label %110
 
 110:                                              ; preds = %105
   %111 = load ptr, ptr %106, align 8
   %112 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %113 = load ptr, ptr %112, align 8
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %111, ptr noundef %113) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2201, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %111, ptr noundef %113) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2201, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 115:                                              ; preds = %105
   %116 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %117) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2206, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %117) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2206, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 119:                                              ; preds = %.split90
   %120 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %121 = load ptr, ptr %120, align 8
   %.not78 = icmp eq ptr %121, null
-  %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %122)
-  %123 = call i32 @errcode(i32 noundef 16797828) #9
+  %122 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %123 = call i32 @errcode(i32 noundef 16797828) #8
   br i1 %.not78, label %129, label %124
 
 124:                                              ; preds = %119
   %125 = load ptr, ptr %120, align 8
   %126 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %127 = load ptr, ptr %126, align 8
-  %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %125, ptr noundef %127) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2213, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %128 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %125, ptr noundef %127) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2213, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 129:                                              ; preds = %119
   %130 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %131) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %131) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 133:                                              ; preds = %.split90
-  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %134)
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %135 = load i32, ptr %55, align 4
-  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %135) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2221, ptr noundef nonnull @__func__.ExecWithCheckOptions) #9
+  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %135) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2221, ptr noundef nonnull @__func__.ExecWithCheckOptions) #8
   unreachable
 
 137:                                              ; preds = %ExecQual.exit.thread, %ExecQual.exit, %43
@@ -3212,11 +3183,11 @@ declare i32 @pg_mbcliplen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 2, 4) i32 @ExecUpdateLockMode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @ExecGetAllUpdatedCols(ptr noundef %1, ptr noundef %0) #9
+  %3 = tail call ptr @ExecGetAllUpdatedCols(ptr noundef %1, ptr noundef %0) #8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @RelationGetIndexAttrBitmap(ptr noundef %5, i32 noundef 0) #9
-  %7 = tail call zeroext i1 @bms_overlap(ptr noundef %6, ptr noundef %3) #9
+  %6 = tail call ptr @RelationGetIndexAttrBitmap(ptr noundef %5, i32 noundef 0) #8
+  %7 = tail call zeroext i1 @bms_overlap(ptr noundef %6, ptr noundef %3) #8
   %. = select i1 %7, i32 3, i32 2
   ret i32 %.
 }
@@ -3257,10 +3228,9 @@ define dso_local ptr @ExecFindRowMark(ptr noundef readonly captures(none) %0, i3
   br i1 %2, label %19, label %16
 
 16:                                               ; preds = %10, %15
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2424, ptr noundef nonnull @__func__.ExecFindRowMark) #9
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %1) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2424, ptr noundef nonnull @__func__.ExecFindRowMark) #8
   unreachable
 
 19:                                               ; preds = %10, %15
@@ -3271,7 +3241,7 @@ define dso_local ptr @ExecFindRowMark(ptr noundef readonly captures(none) %0, i3
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecBuildAuxRowMark(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
-  %4 = tail call ptr @palloc0(i64 noundef 16) #9
+  %4 = tail call ptr @palloc0(i64 noundef 16) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3282,33 +3252,31 @@ define dso_local noundef ptr @ExecBuildAuxRowMark(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %2
-  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.32, i32 noundef %8) #9
-  %11 = call signext i16 @ExecFindJunkAttributeInTlist(ptr noundef %1, ptr noundef nonnull %3) #9
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.32, i32 noundef %8) #8
+  %11 = call signext i16 @ExecFindJunkAttributeInTlist(ptr noundef %1, ptr noundef nonnull %3) #8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 %11, ptr %12, align 8
   %.not19 = icmp eq i16 %11, 0
   br i1 %.not19, label %13, label %23
 
 13:                                               ; preds = %9
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %14)
-  %15 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2451, ptr noundef nonnull @__func__.ExecBuildAuxRowMark) #9
+  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %15 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2451, ptr noundef nonnull @__func__.ExecBuildAuxRowMark) #8
   unreachable
 
 16:                                               ; preds = %2
-  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.34, i32 noundef %8) #9
-  %18 = call signext i16 @ExecFindJunkAttributeInTlist(ptr noundef %1, ptr noundef nonnull %3) #9
+  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.34, i32 noundef %8) #8
+  %18 = call signext i16 @ExecFindJunkAttributeInTlist(ptr noundef %1, ptr noundef nonnull %3) #8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i16 %18, ptr %19, align 4
   %.not18 = icmp eq i16 %18, 0
   br i1 %.not18, label %20, label %23
 
 20:                                               ; preds = %16
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2460, ptr noundef nonnull @__func__.ExecBuildAuxRowMark) #9
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2460, ptr noundef nonnull @__func__.ExecBuildAuxRowMark) #8
   unreachable
 
 23:                                               ; preds = %16, %9
@@ -3322,18 +3290,17 @@ define dso_local noundef ptr @ExecBuildAuxRowMark(ptr noundef %0, ptr noundef %1
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %30 = load i32, ptr %29, align 4
-  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.35, i32 noundef %30) #9
-  %32 = call signext i16 @ExecFindJunkAttributeInTlist(ptr noundef %1, ptr noundef nonnull %3) #9
+  %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.35, i32 noundef %30) #8
+  %32 = call signext i16 @ExecFindJunkAttributeInTlist(ptr noundef %1, ptr noundef nonnull %3) #8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i16 %32, ptr %33, align 2
   %.not21 = icmp eq i16 %32, 0
   br i1 %.not21, label %34, label %37
 
 34:                                               ; preds = %28
-  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %35)
-  %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2470, ptr noundef nonnull @__func__.ExecBuildAuxRowMark) #9
+  %35 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %36 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2470, ptr noundef nonnull @__func__.ExecBuildAuxRowMark) #8
   unreachable
 
 37:                                               ; preds = %28, %23
@@ -3364,7 +3331,7 @@ define dso_local ptr @EvalPlanQual(ptr noundef %0, ptr noundef %1, i32 noundef %
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = tail call ptr @table_slot_create(ptr noundef %1, ptr noundef nonnull %17) #9
+  %18 = tail call ptr @table_slot_create(ptr noundef %1, ptr noundef nonnull %17) #8
   store ptr %18, ptr %9, align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
   %.pre.i = load ptr, ptr %9, align 8
@@ -3380,7 +3347,7 @@ EvalPlanQualSlot.exit:                            ; preds = %4, %12
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %19, ptr noundef %3) #9
+  tail call void %24(ptr noundef %19, ptr noundef %3) #8
   br label %25
 
 25:                                               ; preds = %20, %EvalPlanQualSlot.exit
@@ -3406,13 +3373,13 @@ EvalPlanQualSlot.exit:                            ; preds = %4, %12
   br i1 %.not.i.i, label %EvalPlanQualNext.exit, label %41
 
 41:                                               ; preds = %25
-  tail call void @ExecReScan(ptr noundef nonnull %38) #9
+  tail call void @ExecReScan(ptr noundef nonnull %38) #8
   br label %EvalPlanQualNext.exit
 
 EvalPlanQualNext.exit:                            ; preds = %25, %41
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr %43(ptr noundef nonnull %38) #9
+  %44 = tail call ptr %43(ptr noundef nonnull %38) #8
   store ptr %36, ptr @CurrentMemoryContext, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %55, label %46
@@ -3429,7 +3396,7 @@ EvalPlanQualNext.exit:                            ; preds = %25, %41
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull %44) #9
+  tail call void %54(ptr noundef nonnull %44) #8
   br label %55
 
 55:                                               ; preds = %50, %46, %EvalPlanQualNext.exit
@@ -3437,7 +3404,7 @@ EvalPlanQualNext.exit:                            ; preds = %25, %41
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
-  tail call void %59(ptr noundef %19) #9
+  tail call void %59(ptr noundef %19) #8
   %60 = load ptr, ptr %29, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %8
   store i8 1, ptr %61, align 1
@@ -3457,7 +3424,7 @@ define dso_local void @EvalPlanQualBegin(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = tail call ptr @CreateExecutorState() #9
+  %11 = tail call ptr @CreateExecutorState() #8
   store ptr %11, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %13 = load ptr, ptr %12, align 8
@@ -3539,12 +3506,12 @@ define dso_local void @EvalPlanQualBegin(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not107.i, label %67, label %69
 
 67:                                               ; preds = %62
-  %68 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #9
+  %68 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #8
   br label %69
 
 69:                                               ; preds = %67, %62
   %70 = phi ptr [ %68, %67 ], [ %66, %62 ]
-  tail call void @ExecSetParamPlanMulti(ptr noundef %64, ptr noundef %70) #9
+  tail call void @ExecSetParamPlanMulti(ptr noundef %64, ptr noundef %70) #8
   %71 = load ptr, ptr %37, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 128
   %73 = load ptr, ptr %72, align 8
@@ -3560,7 +3527,7 @@ list_length.exit.i:                               ; preds = %74, %69
   %77 = phi i32 [ %76, %74 ], [ 0, %69 ]
   %78 = sext i32 %77 to i64
   %79 = mul nsw i64 %78, 24
-  %80 = tail call ptr @palloc0(i64 noundef %79) #9
+  %80 = tail call ptr @palloc0(i64 noundef %79) #8
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store ptr %80, ptr %81, align 8
   %82 = add i32 %77, -1
@@ -3618,9 +3585,9 @@ list_length.exit.i:                               ; preds = %74, %69
   %112 = load ptr, ptr %108, align 8
   %113 = getelementptr inbounds nuw %union.ListCell, ptr %112, i64 %indvars.iv134.i
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call ptr @ExecInitNode(ptr noundef %114, ptr noundef nonnull %11, i32 noundef 0) #9
+  %115 = tail call ptr @ExecInitNode(ptr noundef %114, ptr noundef nonnull %11, i32 noundef 0) #8
   %116 = load ptr, ptr %109, align 8
-  %117 = tail call ptr @lappend(ptr noundef %116, ptr noundef %115) #9
+  %117 = tail call ptr @lappend(ptr noundef %116, ptr noundef %115) #8
   store ptr %117, ptr %109, align 8
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %118 = load i32, ptr %107, align 4
@@ -3631,7 +3598,7 @@ list_length.exit.i:                               ; preds = %74, %69
 .critedge.i:                                      ; preds = %.lr.ph122.i, %.lr.ph119.i, %.loopexit.i
   %121 = zext i32 %10 to i64
   %122 = shl nuw nsw i64 %121, 3
-  %123 = tail call ptr @palloc0(i64 noundef %122) #9
+  %123 = tail call ptr @palloc0(i64 noundef %122) #8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %123, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3666,10 +3633,10 @@ list_length.exit.i:                               ; preds = %74, %69
   br i1 %143, label %.lr.ph127.i, label %.critedge115.i
 
 .critedge115.i:                                   ; preds = %.lr.ph127.i, %.lr.ph124.i, %.critedge.i
-  %144 = tail call ptr @palloc(i64 noundef %121) #9
+  %144 = tail call ptr @palloc(i64 noundef %121) #8
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %144, ptr %145, align 8
-  %146 = tail call ptr @palloc0(i64 noundef %121) #9
+  %146 = tail call ptr @palloc0(i64 noundef %121) #8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %146, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3708,7 +3675,7 @@ EvalPlanQualStart.exit:                           ; preds = %.critedge115.i, %.l
   %164 = phi ptr [ %.pre.i, %.critedge117.loopexit.i ], [ %146, %.lr.ph129.i ], [ %146, %.critedge115.i ]
   %165 = load ptr, ptr %145, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %165, ptr align 1 %164, i64 %121, i1 false)
-  %166 = tail call ptr @ExecInitNode(ptr noundef %8, ptr noundef nonnull %11, i32 noundef 0) #9
+  %166 = tail call ptr @ExecInitNode(ptr noundef %8, ptr noundef nonnull %11, i32 noundef 0) #8
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %166, ptr %167, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
@@ -3743,12 +3710,12 @@ EvalPlanQualStart.exit:                           ; preds = %.critedge115.i, %.l
   br i1 %.not30, label %189, label %191
 
 189:                                              ; preds = %182
-  %190 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #9
+  %190 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %2) #8
   br label %191
 
 191:                                              ; preds = %182, %189
   %192 = phi ptr [ %190, %189 ], [ %188, %182 ]
-  tail call void @ExecSetParamPlanMulti(ptr noundef %186, ptr noundef %192) #9
+  tail call void @ExecSetParamPlanMulti(ptr noundef %186, ptr noundef %192) #8
   %193 = load ptr, ptr %178, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 128
   %195 = load ptr, ptr %194, align 8
@@ -3795,7 +3762,7 @@ list_length.exit:                                 ; preds = %191
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %221 = load i32, ptr %220, align 8
-  %222 = tail call ptr @bms_add_member(ptr noundef %219, i32 noundef %221) #9
+  %222 = tail call ptr @bms_add_member(ptr noundef %219, i32 noundef %221) #8
   store ptr %222, ptr %218, align 8
   br label %223
 
@@ -3821,7 +3788,7 @@ define dso_local ptr @EvalPlanQualSlot(ptr noundef %0, ptr noundef %1, i32 nound
   %15 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = tail call ptr @table_slot_create(ptr noundef %1, ptr noundef nonnull %16) #9
+  %17 = tail call ptr @table_slot_create(ptr noundef %1, ptr noundef nonnull %16) #8
   store ptr %17, ptr %8, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %.pre = load ptr, ptr %8, align 8
@@ -3848,13 +3815,13 @@ define dso_local ptr @EvalPlanQualNext(ptr noundef readonly captures(none) %0) l
   br i1 %.not.i, label %ExecProcNode.exit, label %11
 
 11:                                               ; preds = %1
-  tail call void @ExecReScan(ptr noundef nonnull %8) #9
+  tail call void @ExecReScan(ptr noundef nonnull %8) #8
   br label %ExecProcNode.exit
 
 ExecProcNode.exit:                                ; preds = %1, %11
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr %13(ptr noundef nonnull %8) #9
+  %14 = tail call ptr %13(ptr noundef nonnull %8) #8
   store ptr %6, ptr @CurrentMemoryContext, align 8
   ret ptr %14
 }
@@ -3872,7 +3839,7 @@ define dso_local void @EvalPlanQualInit(ptr noundef writeonly captures(none) ini
   store ptr null, ptr %11, align 8
   %12 = zext i32 %8 to i64
   %13 = shl nuw nsw i64 %12, 3
-  %14 = tail call ptr @palloc0(i64 noundef %13) #9
+  %14 = tail call ptr @palloc0(i64 noundef %13) #8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3913,7 +3880,7 @@ define dso_local void @EvalPlanQualEnd(ptr noundef captures(none) %0) local_unna
   %13 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %11, i8 0, i64 %13, i1 false)
   %14 = load ptr, ptr %4, align 8
-  tail call void @ExecResetTupleTable(ptr noundef %14, i1 noundef zeroext true) #9
+  tail call void @ExecResetTupleTable(ptr noundef %14, i1 noundef zeroext true) #8
   store ptr null, ptr %4, align 8
   br label %15
 
@@ -3928,7 +3895,7 @@ define dso_local void @EvalPlanQualEnd(ptr noundef captures(none) %0) local_unna
   store ptr %19, ptr @CurrentMemoryContext, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
-  tail call void @ExecEndNode(ptr noundef %22) #9
+  tail call void @ExecEndNode(ptr noundef %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -3946,7 +3913,7 @@ define dso_local void @EvalPlanQualEnd(ptr noundef captures(none) %0) local_unna
   %29 = load ptr, ptr %26, align 8
   %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
-  tail call void @ExecEndNode(ptr noundef %31) #9
+  tail call void @ExecEndNode(ptr noundef %31) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %25, align 4
   %33 = sext i32 %32 to i64
@@ -3956,10 +3923,10 @@ define dso_local void @EvalPlanQualEnd(ptr noundef captures(none) %0) local_unna
 .critedge:                                        ; preds = %.lr.ph33, %.lr.ph, %17
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %36 = load ptr, ptr %35, align 8
-  tail call void @ExecResetTupleTable(ptr noundef %36, i1 noundef zeroext false) #9
+  tail call void @ExecResetTupleTable(ptr noundef %36, i1 noundef zeroext false) #8
   tail call void @ExecCloseResultRelations(ptr noundef nonnull %3)
   store ptr %20, ptr @CurrentMemoryContext, align 8
-  tail call void @FreeExecutorState(ptr noundef nonnull %3) #9
+  tail call void @FreeExecutorState(ptr noundef nonnull %3) #8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, i8 0, i64 48, i1 false)
   br label %38
@@ -3986,10 +3953,9 @@ define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr noundef readon
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %3
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2675, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #9
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2675, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #8
   unreachable
 
 18:                                               ; preds = %3
@@ -4012,7 +3978,7 @@ define dso_local noundef zeroext i1 @EvalPlanQualFetchRowMark(ptr noundef readon
   br i1 %31, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %23
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %25, i32 noundef range(i32 -32768, 32768) %28) #9
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %25, i32 noundef range(i32 -32768, 32768) %28) #8
   br label %ExecGetJunkAttribute.exit
 
 ExecGetJunkAttribute.exit:                        ; preds = %23, %slot_getsomeattrs.exit.i.i
@@ -4057,7 +4023,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %23, %slot_getsomeat
   br i1 %58, label %slot_getsomeattrs.exit.i.i37, label %ExecGetJunkAttribute.exit38
 
 slot_getsomeattrs.exit.i.i37:                     ; preds = %54
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 -32768, 32768) %57) #9
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 -32768, 32768) %57) #8
   br label %ExecGetJunkAttribute.exit38
 
 ExecGetJunkAttribute.exit38:                      ; preds = %54, %slot_getsomeattrs.exit.i.i37
@@ -4086,28 +4052,27 @@ ExecGetJunkAttribute.exit38:                      ; preds = %54, %slot_getsomeat
 77:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %78 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %71, i1 noundef zeroext false) #9
+  %78 = tail call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %71, i1 noundef zeroext false) #8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 216
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %77
-  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %83)
-  %84 = tail call i32 @errcode(i32 noundef 1088) #9
+  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %84 = tail call i32 @errcode(i32 noundef 1088) #8
   %85 = load ptr, ptr %11, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %88) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2723, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #9
+  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %88) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2723, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #8
   unreachable
 
 90:                                               ; preds = %77
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %92 = load ptr, ptr %91, align 8
-  call void %80(ptr noundef %92, ptr noundef nonnull %11, i64 noundef %68, ptr noundef %2, ptr noundef nonnull %4) #9
+  call void %80(ptr noundef %92, ptr noundef nonnull %11, i64 noundef %68, ptr noundef %2, ptr noundef nonnull %4) #8
   %93 = icmp eq ptr %2, null
   br i1 %93, label %98, label %94
 
@@ -4119,10 +4084,9 @@ ExecGetJunkAttribute.exit38:                      ; preds = %54, %slot_getsomeat
   br i1 %.not36, label %101, label %98
 
 98:                                               ; preds = %94, %90
-  %99 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %99)
-  %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2731, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #9
+  %99 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2731, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #8
   unreachable
 
 101:                                              ; preds = %94
@@ -4138,10 +4102,9 @@ ExecGetJunkAttribute.exit38:                      ; preds = %54, %slot_getsomeat
   br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %107, !prof !16
 
 107:                                              ; preds = %102
-  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %108)
-  %109 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 1305, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #9
+  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %109 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 1305, ptr noundef nonnull @__func__.table_tuple_fetch_row_version) #8
   unreachable
 
 table_tuple_fetch_row_version.exit:               ; preds = %102
@@ -4150,14 +4113,13 @@ table_tuple_fetch_row_version.exit:               ; preds = %102
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 120
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call zeroext i1 %114(ptr noundef nonnull %71, ptr noundef %110, ptr noundef nonnull @SnapshotAnyData, ptr noundef %2) #9
+  %115 = tail call zeroext i1 %114(ptr noundef nonnull %71, ptr noundef %110, ptr noundef nonnull @SnapshotAnyData, ptr noundef %2) #8
   br i1 %115, label %.critedge, label %116
 
 116:                                              ; preds = %table_tuple_fetch_row_version.exit
-  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %117)
-  %118 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2746, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #9
+  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %118 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2746, ptr noundef nonnull @__func__.EvalPlanQualFetchRowMark) #8
   unreachable
 
 119:                                              ; preds = %47
@@ -4168,7 +4130,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %102
   br i1 %123, label %slot_getsomeattrs.exit.i.i39, label %ExecGetJunkAttribute.exit40
 
 slot_getsomeattrs.exit.i.i39:                     ; preds = %119
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 -32768, 32768) %122) #9
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %51, i32 noundef range(i32 -32768, 32768) %122) #8
   br label %ExecGetJunkAttribute.exit40
 
 ExecGetJunkAttribute.exit40:                      ; preds = %119, %slot_getsomeattrs.exit.i.i39
@@ -4186,7 +4148,7 @@ ExecGetJunkAttribute.exit40:                      ; preds = %119, %slot_getsomea
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i64, ptr %133, i64 %127
   %135 = load i64, ptr %134, align 8
-  tail call void @ExecStoreHeapTupleDatum(i64 noundef %135, ptr noundef %2) #9
+  tail call void @ExecStoreHeapTupleDatum(i64 noundef %135, ptr noundef %2) #8
   br label %.critedge
 
 .critedge:                                        ; preds = %ExecGetJunkAttribute.exit, %ExecGetJunkAttribute.exit40, %table_tuple_fetch_row_version.exit, %ExecGetJunkAttribute.exit38, %39, %131, %101
@@ -4219,7 +4181,7 @@ define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noun
   br i1 %5, label %6, label %.preheader
 
 6:                                                ; preds = %4
-  %7 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %0, i32 noundef %1, i64 noundef %3, i32 noundef 1) #9
+  %7 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %0, i32 noundef %1, i64 noundef %3, i32 noundef 1) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -4228,7 +4190,7 @@ define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noun
 
 8:                                                ; preds = %.preheader, %18
   %.014 = phi i32 [ %9, %18 ], [ -1, %.preheader ]
-  %9 = tail call i32 @bms_next_member(ptr noundef %2, i32 noundef %.014) #9
+  %9 = tail call i32 @bms_next_member(ptr noundef %2, i32 noundef %.014) #8
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %.loopexit, label %11
 
@@ -4239,14 +4201,13 @@ define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noun
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 778, ptr noundef nonnull @__func__.ExecCheckPermissionsModified) #9
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 778, ptr noundef nonnull @__func__.ExecCheckPermissionsModified) #8
   unreachable
 
 18:                                               ; preds = %11
-  %19 = tail call i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %13, i32 noundef %1, i64 noundef %3) #9
+  %19 = tail call i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %13, i32 noundef %1, i64 noundef %3) #8
   %.not16 = icmp eq i32 %19, 0
   br i1 %.not16, label %8, label %.loopexit, !llvm.loop !17
 
@@ -4309,9 +4270,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4320,10 +4278,9 @@ attributes #4 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-tra
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -610,8 +610,6 @@ define hidden void @"_ZN18crossbeam_skiplist3map20SkipMap$LT$K$C$V$GT$3get28_$u7
 "_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3get17h380fcb01c7626372E.llvm.15192800734258360407.exit": ; preds = %2, %10
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %18 = load atomic i64, ptr %17 monotonic, align 16, !noalias !232
-  %.not.i.i = icmp eq i64 %18, 0
-  tail call void @llvm.assume(i1 %.not.i.i)
   store ptr null, ptr %0, align 8, !alias.scope !220, !noalias !223
   ret void
 }
@@ -645,8 +643,6 @@ define hidden void @"_ZN18crossbeam_skiplist3map20SkipMap$LT$K$C$V$GT$3get28_$u7
 "_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3get17hb1272f6f6b9c9cf6E.llvm.15192800734258360407.exit": ; preds = %2, %10
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %18 = load atomic i64, ptr %17 monotonic, align 16, !noalias !245
-  %.not.i.i = icmp eq i64 %18, 0
-  tail call void @llvm.assume(i1 %.not.i.i)
   store ptr null, ptr %0, align 8, !alias.scope !233, !noalias !236
   ret void
 }
@@ -680,8 +676,6 @@ define hidden { ptr, ptr } @_ZN18crossbeam_skiplist4base12try_pin_loop17hbe5a4fa
 16:                                               ; preds = %9, %1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %18 = load atomic i64, ptr %17 monotonic, align 16, !noalias !264
-  %.not.i.i.i = icmp eq i64 %18, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i)
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -714,8 +708,6 @@ define hidden { ptr, ptr } @_ZN18crossbeam_skiplist4base12try_pin_loop17hf57198e
 16:                                               ; preds = %9, %1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %18 = load atomic i64, ptr %17 monotonic, align 16, !noalias !283
-  %.not.i.i.i = icmp eq i64 %18, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i)
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -992,27 +984,15 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base20RefIter$LT$K$
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !4
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit"
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %19 = load ptr, ptr %17, align 8, !noalias !321, !nonnull !4, !noundef !4
-  %20 = load ptr, ptr %18, align 128, !noalias !321, !nonnull !4, !noundef !4
-  %21 = icmp ne ptr %19, %20
-  tail call void @llvm.assume(i1 %21)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !321
   unreachable
 
-22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit"
-  %23 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 384
-  %26 = load ptr, ptr %24, align 8, !noalias !329, !nonnull !4, !noundef !4
-  %27 = load ptr, ptr %25, align 8, !noalias !329, !nonnull !4, !noundef !4
-  %28 = icmp ne ptr %26, %27
-  tail call void @llvm.assume(i1 %28)
+17:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit"
+  %18 = icmp ne ptr %4, null
+  tail call void @llvm.assume(i1 %18)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !329
   unreachable
 }
@@ -1041,27 +1021,15 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base20RefIter$LT$K$
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !4
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %17
 
 16:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit"
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %19 = load ptr, ptr %17, align 8, !noalias !338, !nonnull !4, !noundef !4
-  %20 = load ptr, ptr %18, align 128, !noalias !338, !nonnull !4, !noundef !4
-  %21 = icmp ne ptr %19, %20
-  tail call void @llvm.assume(i1 %21)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !338
   unreachable
 
-22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit"
-  %23 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 384
-  %26 = load ptr, ptr %24, align 8, !noalias !346, !nonnull !4, !noundef !4
-  %27 = load ptr, ptr %25, align 8, !noalias !346, !nonnull !4, !noundef !4
-  %28 = icmp ne ptr %26, %27
-  tail call void @llvm.assume(i1 %28)
+17:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit"
+  %18 = icmp ne ptr %4, null
+  tail call void @llvm.assume(i1 %18)
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !346
   unreachable
 }
@@ -1466,8 +1434,6 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
 16:                                               ; preds = %9, %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = load atomic i64, ptr %17 monotonic, align 16, !noalias !397
-  %.not.i = icmp eq i64 %18, 0
-  tail call void @llvm.assume(i1 %.not.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %19 = tail call fastcc noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17h6ca9600ef8d1af46E"(ptr noundef nonnull align 128 %0)
@@ -1566,8 +1532,6 @@ define hidden noundef { ptr, ptr } @"_ZN18crossbeam_skiplist4base21SkipList$LT$K
 16:                                               ; preds = %9, %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %18 = load atomic i64, ptr %17 monotonic, align 16, !noalias !430
-  %.not.i = icmp eq i64 %18, 0
-  tail call void @llvm.assume(i1 %.not.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %19 = tail call fastcc noundef i64 @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$13random_height17hca781b878cc1f003E"(ptr noundef nonnull align 128 %0)
@@ -1663,8 +1627,6 @@ define hidden void @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3get17h3
 14:                                               ; preds = %4, %7
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %16 = load atomic i64, ptr %15 monotonic, align 16
-  %.not.i = icmp eq i64 %16, 0
-  tail call void @llvm.assume(i1 %.not.i)
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -1691,8 +1653,6 @@ define hidden void @"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$3get17hb
 15:                                               ; preds = %5, %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %17 = load atomic i64, ptr %16 monotonic, align 16
-  %.not.i = icmp eq i64 %17, 0
-  tail call void @llvm.assume(i1 %.not.i)
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -1816,33 +1776,21 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE.exit, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge"
 
-"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge": ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit"
-  %.pre = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !noalias !478
-  br label %22
-
 "_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread": ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %18 = load ptr, ptr %17, align 8, !noundef !4
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE.exit, label %22
+  br i1 %19, label %_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE.exit, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge"
 
 _ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE.exit: ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit"
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %21 = load atomic i64, ptr %20 monotonic, align 16, !noalias !481
-  %.not.i.i.i.i = icmp eq i64 %21, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %21 = load atomic i64, ptr %20 monotonic, align 16, !noalias !478
   ret { ptr, ptr } { ptr null, ptr undef }
 
-22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread"
-  %23 = phi ptr [ %10, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread" ], [ %.pre, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge" ]
-  %24 = phi ptr [ %18, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread" ], [ %15, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge" ]
-  %25 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 384
-  %27 = load ptr, ptr %26, align 8, !noalias !478, !nonnull !4, !noundef !4
-  %28 = icmp ne ptr %23, %27
-  tail call void @llvm.assume(i1 %28)
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !478
+"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit._crit_edge": ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE.exit.thread"
+  %22 = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %22)
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !487
   unreachable
 }
 
@@ -1873,33 +1821,21 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E.exit, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge"
 
-"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge": ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit"
-  %.pre = load ptr, ptr inttoptr (i64 16 to ptr), align 16, !noalias !496
-  br label %22
-
 "_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread": ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8, !noundef !4
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E.exit, label %22
+  br i1 %19, label %_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E.exit, label %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge"
 
 _ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E.exit: ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit"
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %21 = load atomic i64, ptr %20 monotonic, align 16, !noalias !499
-  %.not.i.i.i.i = icmp eq i64 %21, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %21 = load atomic i64, ptr %20 monotonic, align 16, !noalias !496
   ret { ptr, ptr } { ptr null, ptr undef }
 
-22:                                               ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread"
-  %23 = phi ptr [ %10, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread" ], [ %.pre, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge" ]
-  %24 = phi ptr [ %18, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread" ], [ %15, %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge" ]
-  %25 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 384
-  %27 = load ptr, ptr %26, align 8, !noalias !496, !nonnull !4, !noundef !4
-  %28 = icmp ne ptr %23, %27
-  tail call void @llvm.assume(i1 %28)
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !496
+"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit._crit_edge": ; preds = %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit", %"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E.exit.thread"
+  %22 = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %22)
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.dfc6258eb35bd94200c9509b62894785.12.llvm.15192800734258360407, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.dfc6258eb35bd94200c9509b62894785.13.llvm.15192800734258360407) #48, !noalias !505
   unreachable
 }
 
@@ -9286,36 +9222,36 @@ attributes #50 = { cold }
 !475 = !{!476, !473}
 !476 = distinct !{!476, !477, !"_ZN15crossbeam_epoch5guard5Guard9collector17hfed7c0a8c0fc27b8E.llvm.15192800734258360407: argument 0"}
 !477 = distinct !{!477, !"_ZN15crossbeam_epoch5guard5Guard9collector17hfed7c0a8c0fc27b8E.llvm.15192800734258360407"}
-!478 = !{!479}
-!479 = distinct !{!479, !480, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE: argument 0"}
-!480 = distinct !{!480, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE"}
-!481 = !{!482, !484, !485, !487, !489}
-!482 = distinct !{!482, !483, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hc0c8733001cbd12bE: argument 0"}
-!483 = distinct !{!483, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hc0c8733001cbd12bE"}
-!484 = distinct !{!484, !483, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hc0c8733001cbd12bE: argument 1"}
-!485 = distinct !{!485, !486, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8de58f738f7ad070E: argument 0"}
-!486 = distinct !{!486, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8de58f738f7ad070E"}
-!487 = distinct !{!487, !488, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE: argument 0"}
-!488 = distinct !{!488, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE"}
-!489 = distinct !{!489, !488, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE: argument 1"}
+!478 = !{!479, !481, !482, !484, !486}
+!479 = distinct !{!479, !480, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hc0c8733001cbd12bE: argument 0"}
+!480 = distinct !{!480, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hc0c8733001cbd12bE"}
+!481 = distinct !{!481, !480, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hc0c8733001cbd12bE: argument 1"}
+!482 = distinct !{!482, !483, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8de58f738f7ad070E: argument 0"}
+!483 = distinct !{!483, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8de58f738f7ad070E"}
+!484 = distinct !{!484, !485, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE: argument 0"}
+!485 = distinct !{!485, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE"}
+!486 = distinct !{!486, !485, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h703e1d98e95ef53cE: argument 1"}
+!487 = !{!488}
+!488 = distinct !{!488, !489, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE: argument 0"}
+!489 = distinct !{!489, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE"}
 !490 = !{!491}
 !491 = distinct !{!491, !492, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E: argument 0"}
 !492 = distinct !{!492, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E"}
 !493 = !{!494, !491}
 !494 = distinct !{!494, !495, !"_ZN15crossbeam_epoch5guard5Guard9collector17hfed7c0a8c0fc27b8E.llvm.15192800734258360407: argument 0"}
 !495 = distinct !{!495, !"_ZN15crossbeam_epoch5guard5Guard9collector17hfed7c0a8c0fc27b8E.llvm.15192800734258360407"}
-!496 = !{!497}
-!497 = distinct !{!497, !498, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E: argument 0"}
-!498 = distinct !{!498, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E"}
-!499 = !{!500, !502, !503, !505, !507}
-!500 = distinct !{!500, !501, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hec8295efaa23712eE: argument 0"}
-!501 = distinct !{!501, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hec8295efaa23712eE"}
-!502 = distinct !{!502, !501, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hec8295efaa23712eE: argument 1"}
-!503 = distinct !{!503, !504, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3a092116d5aaa036E: argument 0"}
-!504 = distinct !{!504, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3a092116d5aaa036E"}
-!505 = distinct !{!505, !506, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E: argument 0"}
-!506 = distinct !{!506, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E"}
-!507 = distinct !{!507, !506, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E: argument 1"}
+!496 = !{!497, !499, !500, !502, !504}
+!497 = distinct !{!497, !498, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hec8295efaa23712eE: argument 0"}
+!498 = distinct !{!498, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hec8295efaa23712eE"}
+!499 = distinct !{!499, !498, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11lower_bound17hec8295efaa23712eE: argument 1"}
+!500 = distinct !{!500, !501, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3a092116d5aaa036E: argument 0"}
+!501 = distinct !{!501, !"_ZN18crossbeam_skiplist4base29RefRange$LT$Q$C$R$C$K$C$V$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h3a092116d5aaa036E"}
+!502 = distinct !{!502, !503, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E: argument 0"}
+!503 = distinct !{!503, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E"}
+!504 = distinct !{!504, !503, !"_ZN18crossbeam_skiplist4base12try_pin_loop17h77d9a0c6a6fd4f92E: argument 1"}
+!505 = !{!506}
+!506 = distinct !{!506, !507, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E: argument 0"}
+!507 = distinct !{!507, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17h8f1c96379f49c489E"}
 !508 = !{!509}
 !509 = distinct !{!509, !510, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE: argument 0"}
 !510 = distinct !{!510, !"_ZN18crossbeam_skiplist4base21SkipList$LT$K$C$V$GT$11check_guard17hda163561d38031deE"}

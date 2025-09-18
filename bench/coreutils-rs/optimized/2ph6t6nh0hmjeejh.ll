@@ -2090,14 +2090,11 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h831e39881b4d02eaE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !336, !noundef !13
-  %trunc.i = trunc nuw i64 %5 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h5634aff2da3d1346E.llvm.15142108658608658745.exit"
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h5634aff2da3d1346E.llvm.15142108658608658745.exit": ; preds = %1, %4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  ret ptr %6
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2105,18 +2102,15 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 acquire, align 8
   %.not = icmp eq i64 %4, 2
-  br i1 %.not, label %7, label %5
+  br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h831e39881b4d02eaE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i64, ptr %0, align 8, !range !336, !noundef !13
-  %trunc = trunc nuw i64 %6 to i1
-  tail call void @llvm.assume(i1 %trunc)
-  br label %7
+  br label %6
 
-7:                                                ; preds = %2, %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  ret ptr %8
+6:                                                ; preds = %2, %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -2642,4 +2636,3 @@ attributes #26 = { nounwind }
 !333 = !{!334, !322}
 !334 = distinct !{!334, !335, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd38ab6598938aa8E: argument 0"}
 !335 = distinct !{!335, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd38ab6598938aa8E"}
-!336 = !{i64 0, i64 2}

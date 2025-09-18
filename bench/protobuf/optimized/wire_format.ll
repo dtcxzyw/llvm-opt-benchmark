@@ -792,46 +792,41 @@ if.end5.us:                                       ; preds = %_ZN6google8protobuf
 if.then.i24.us:                                   ; preds = %if.end5.us
   %add.i.us = add nsw i32 %6, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %values, i32 noundef %6, i32 noundef %add.i.us)
-  %8 = load i32, ptr %total_size_.i, align 4
   %.pre.i.us = load i32, ptr %values, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.us
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.us: ; preds = %if.then.i24.us, %if.end5.us
-  %9 = phi i32 [ %.pre.i.us, %if.then.i24.us ], [ %7, %if.end5.us ]
-  %total_size.0.i.us = phi i32 [ %8, %if.then.i24.us ], [ %6, %if.end5.us ]
+  %8 = phi i32 [ %.pre.i.us, %if.then.i24.us ], [ %7, %if.end5.us ]
   %elem.0.i.us = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %add7.i.us = add nsw i32 %9, 1
+  %add7.i.us = add nsw i32 %8, 1
   store i32 %add7.i.us, ptr %values, align 8
-  %idx.ext.i.us = sext i32 %9 to i64
+  %idx.ext.i.us = sext i32 %8 to i64
   %add.ptr.i.us = getelementptr inbounds i32, ptr %elem.0.i.us, i64 %idx.ext.i.us
   store i32 %.ph.us, ptr %add.ptr.i.us, align 4
-  %10 = load i32, ptr %values, align 8
-  %cmp10.i.us = icmp eq i32 %add7.i.us, %10
+  %9 = load i32, ptr %values, align 8
+  %cmp10.i.us = icmp eq i32 %add7.i.us, %9
   tail call void @llvm.assume(i1 %cmp10.i.us)
-  %11 = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %cmp11.i.us = icmp eq ptr %elem.0.i.us, %11
+  %10 = load ptr, ptr %arena_or_elements_.i.i, align 8
+  %cmp11.i.us = icmp eq ptr %elem.0.i.us, %10
   tail call void @llvm.assume(i1 %cmp11.i.us)
-  %12 = load i32, ptr %total_size_.i, align 4
-  %cmp13.i.us = icmp eq i32 %total_size.0.i.us, %12
-  tail call void @llvm.assume(i1 %cmp13.i.us)
   %call2.us = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
   %cmp.us = icmp sgt i32 %call2.us, 0
   br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !6
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end9
-  %13 = load ptr, ptr %input, align 8
-  %14 = load ptr, ptr %buffer_end_.i, align 8
-  %cmp.i10 = icmp ult ptr %13, %14
+  %11 = load ptr, ptr %input, align 8
+  %12 = load ptr, ptr %buffer_end_.i, align 8
+  %cmp.i10 = icmp ult ptr %11, %12
   br i1 %cmp.i10, label %if.then.i17, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit22
 
 if.then.i17:                                      ; preds = %while.body
-  %15 = load i8, ptr %13, align 1
-  %conv.i18 = zext i8 %15 to i32
-  %cmp3.i19 = icmp sgt i8 %15, -1
+  %13 = load i8, ptr %11, align 1
+  %conv.i18 = zext i8 %13 to i32
+  %cmp3.i19 = icmp sgt i8 %13, -1
   br i1 %cmp3.i19, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit22.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit22
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit22.thread: ; preds = %if.then.i17
-  %add.ptr.i.i21 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %add.ptr.i.i21 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %add.ptr.i.i21, ptr %input, align 8
   br label %if.end5
 
@@ -848,36 +843,31 @@ if.end5:                                          ; preds = %_ZN6google8protobuf
   br i1 %call7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %if.end5
-  %16 = load i32, ptr %total_size_.i, align 4
-  %17 = load i32, ptr %values, align 8
-  %cmp.i23 = icmp eq i32 %17, %16
+  %14 = load i32, ptr %total_size_.i, align 4
+  %15 = load i32, ptr %values, align 8
+  %cmp.i23 = icmp eq i32 %15, %14
   br i1 %cmp.i23, label %if.then.i24, label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
 
 if.then.i24:                                      ; preds = %if.then8
-  %add.i = add nsw i32 %16, 1
-  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %values, i32 noundef %16, i32 noundef %add.i)
-  %18 = load i32, ptr %total_size_.i, align 4
+  %add.i = add nsw i32 %14, 1
+  tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %values, i32 noundef %14, i32 noundef %add.i)
   %.pre.i = load i32, ptr %values, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit: ; preds = %if.then8, %if.then.i24
-  %19 = phi i32 [ %.pre.i, %if.then.i24 ], [ %17, %if.then8 ]
-  %total_size.0.i = phi i32 [ %18, %if.then.i24 ], [ %16, %if.then8 ]
+  %16 = phi i32 [ %.pre.i, %if.then.i24 ], [ %15, %if.then8 ]
   %elem.0.i = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %add7.i = add nsw i32 %19, 1
+  %add7.i = add nsw i32 %16, 1
   store i32 %add7.i, ptr %values, align 8
-  %idx.ext.i = sext i32 %19 to i64
+  %idx.ext.i = sext i32 %16 to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %elem.0.i, i64 %idx.ext.i
   store i32 %.ph, ptr %add.ptr.i, align 4
-  %20 = load i32, ptr %values, align 8
-  %cmp10.i = icmp eq i32 %add7.i, %20
+  %17 = load i32, ptr %values, align 8
+  %cmp10.i = icmp eq i32 %add7.i, %17
   tail call void @llvm.assume(i1 %cmp10.i)
-  %21 = load ptr, ptr %arena_or_elements_.i.i, align 8
-  %cmp11.i = icmp eq ptr %elem.0.i, %21
+  %18 = load ptr, ptr %arena_or_elements_.i.i, align 8
+  %cmp11.i = icmp eq ptr %elem.0.i, %18
   tail call void @llvm.assume(i1 %cmp11.i)
-  %22 = load i32, ptr %total_size_.i, align 4
-  %cmp13.i = icmp eq i32 %total_size.0.i, %22
-  tail call void @llvm.assume(i1 %cmp13.i)
   br label %if.end9
 
 if.else:                                          ; preds = %if.end5
@@ -18538,40 +18528,35 @@ if.then.i4:                                       ; preds = %if.end
 if.then.i.i:                                      ; preds = %if.then.i4
   %add.i.i = add nsw i32 %8, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8, i32 noundef %add.i.i)
-  %10 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %7, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i
 
 _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i: ; preds = %if.then.i.i, %if.then.i4
-  %11 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %9, %if.then.i4 ]
-  %total_size.0.i.i = phi i32 [ %10, %if.then.i.i ], [ %8, %if.then.i4 ]
+  %10 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %9, %if.then.i4 ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %11, 1
+  %add7.i.i = add nsw i32 %10, 1
   store i32 %add7.i.i, ptr %7, align 8
-  %idx.ext.i.i = sext i32 %11 to i64
+  %idx.ext.i.i = sext i32 %10 to i64
   %add.ptr.i.i = getelementptr inbounds i32, ptr %elem.0.i.i, i64 %idx.ext.i.i
   store i32 %conv, ptr %add.ptr.i.i, align 4
-  %12 = load i32, ptr %7, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %12
+  %11 = load i32, ptr %7, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %11
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %13 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %13
+  %12 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %12
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %14 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %14
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %"_ZZN6google8protobuf8internal10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEENK3$_0clEi.exit"
 
 if.else.i:                                        ; preds = %if.end
   %number_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %15 = load i32, ptr %number_.i.i, align 4
+  %13 = load i32, ptr %number_.i.i, align 4
   %sext = shl i64 %.sink.i10, 32
   %conv.i6 = ashr exact i64 %sext, 32
-  %16 = load ptr, ptr %1, align 8
-  %17 = load ptr, ptr %2, align 8
-  %call4.i = tail call noundef ptr @_ZNK6google8protobuf10Reflection20MutableUnknownFieldsEPNS0_7MessageE(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef %17)
-  tail call void @_ZN6google8protobuf15UnknownFieldSet9AddVarintEim(ptr noundef nonnull align 8 dereferenceable(24) %call4.i, i32 noundef %15, i64 noundef %conv.i6)
+  %14 = load ptr, ptr %1, align 8
+  %15 = load ptr, ptr %2, align 8
+  %call4.i = tail call noundef ptr @_ZNK6google8protobuf10Reflection20MutableUnknownFieldsEPNS0_7MessageE(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef %15)
+  tail call void @_ZN6google8protobuf15UnknownFieldSet9AddVarintEim(ptr noundef nonnull align 8 dereferenceable(24) %call4.i, i32 noundef %13, i64 noundef %conv.i6)
   br label %"_ZZN6google8protobuf8internal10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEENK3$_0clEi.exit"
 
 "_ZZN6google8protobuf8internal10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEENK3$_0clEi.exit": ; preds = %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.i, %if.else.i

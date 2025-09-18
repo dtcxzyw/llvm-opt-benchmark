@@ -19,7 +19,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN4absl12crc_internal10GetCpuTyp
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #8, !srcloc !4
+  %6 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #7, !srcloc !4
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = extractvalue { i32, i32, i32, i32 } %6, 1
   %9 = extractvalue { i32, i32, i32, i32 } %6, 2
@@ -54,7 +54,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit6.i: ; pre
   br i1 %20, label %.invoke.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i7.i
 
 .invoke.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit6.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #9
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #8
           to label %.cont.i unwind label %24
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -65,181 +65,169 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i unwind label %24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i7.i
-  %22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str) #8
+  %22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str) #7
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %35, label %32
+  br i1 %23, label %33, label %30
 
 24:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i7.i, %.invoke.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i3.i, %0
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = load ptr, ptr %2, align 8, !tbaa !17
   %27 = icmp eq ptr %26, %11
-  br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %24
-  %28 = load i64, ptr %12, align 8, !tbaa !13
-  %29 = icmp ult i64 %28, 16
-  call void @llvm.assume(i1 %29)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %27, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %24
-  %30 = load i64, ptr %11, align 8, !tbaa !16
-  %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %26, i64 noundef %31) #10
+  %28 = load i64, ptr %11, align 8, !tbaa !16
+  %29 = add i64 %28, 1
+  call void @_ZdlPvm(ptr noundef %26, i64 noundef %29) #9
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %25
 
-32:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i
-  %33 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1) #8
-  %34 = icmp eq i32 %33, 0
-  %..i = select i1 %34, i32 2, i32 0
-  br label %35
+30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i
+  %31 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.1) #7
+  %32 = icmp eq i32 %31, 0
+  %..i = select i1 %32, i32 2, i32 0
+  br label %33
 
-35:                                               ; preds = %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i
-  %.0.i = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i ], [ %..i, %32 ]
-  %36 = load ptr, ptr %2, align 8, !tbaa !17
-  %37 = icmp eq ptr %36, %11
-  br i1 %37, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
+33:                                               ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i
+  %.0.i = phi i32 [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit10.i ], [ %..i, %30 ]
+  %34 = load ptr, ptr %2, align 8, !tbaa !17
+  %35 = icmp eq ptr %34, %11
+  br i1 %35, label %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i: ; preds = %35
-  %38 = load i64, ptr %12, align 8, !tbaa !13
-  %39 = icmp ult i64 %38, 16
-  call void @llvm.assume(i1 %39)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i: ; preds = %33
+  %36 = load i64, ptr %11, align 8, !tbaa !16
+  %37 = add i64 %36, 1
+  call void @_ZdlPvm(ptr noundef %34, i64 noundef %37) #9
   br label %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i: ; preds = %35
-  %40 = load i64, ptr %11, align 8, !tbaa !16
-  %41 = add i64 %40, 1
-  call void @_ZdlPvm(ptr noundef %36, i64 noundef %41) #10
-  br label %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-
-_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
+_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   switch i32 %.0.i, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit [
-    i32 1, label %42
-    i32 2, label %64
+    i32 1, label %38
+    i32 2, label %60
   ]
 
-42:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-  %43 = call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #8, !srcloc !4
-  %44 = extractvalue { i32, i32, i32, i32 } %43, 0
-  %45 = extractvalue { i32, i32, i32, i32 } %43, 1
-  %46 = and i32 %45, 255
-  %47 = and i32 %44, 3840
-  %48 = icmp ne i32 %47, 1536
-  %cond.i = icmp ne i32 %46, 0
-  %brmerge.i = select i1 %cond.i, i1 true, i1 %48
-  br i1 %brmerge.i, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit, label %49
+38:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
+  %39 = call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !4
+  %40 = extractvalue { i32, i32, i32, i32 } %39, 0
+  %41 = extractvalue { i32, i32, i32, i32 } %39, 1
+  %42 = and i32 %41, 255
+  %43 = and i32 %40, 3840
+  %44 = icmp ne i32 %43, 1536
+  %cond.i = icmp ne i32 %42, 0
+  %brmerge.i = select i1 %cond.i, i1 true, i1 %44
+  br i1 %brmerge.i, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit, label %45
 
-49:                                               ; preds = %42
-  %50 = lshr i32 %44, 4
-  %51 = and i32 %50, 15
-  %52 = lshr i32 %44, 12
-  %53 = and i32 %52, 240
-  %54 = or disjoint i32 %51, %53
-  %trunc.i = trunc nuw i32 %54 to i8
-  switch i8 %trunc.i, label %63 [
+45:                                               ; preds = %38
+  %46 = lshr i32 %40, 4
+  %47 = and i32 %46, 15
+  %48 = lshr i32 %40, 12
+  %49 = and i32 %48, 240
+  %50 = or disjoint i32 %47, %49
+  %trunc.i = trunc nuw i32 %50 to i8
+  switch i8 %trunc.i, label %59 [
     i8 44, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-    i8 45, label %55
-    i8 62, label %56
-    i8 60, label %57
-    i8 63, label %57
-    i8 79, label %58
-    i8 86, label %58
-    i8 85, label %59
-    i8 94, label %62
+    i8 45, label %51
+    i8 62, label %52
+    i8 60, label %53
+    i8 63, label %53
+    i8 79, label %54
+    i8 86, label %54
+    i8 85, label %55
+    i8 94, label %58
   ]
 
-55:                                               ; preds = %49
+51:                                               ; preds = %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-56:                                               ; preds = %49
+52:                                               ; preds = %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-57:                                               ; preds = %49, %49
+53:                                               ; preds = %45, %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-58:                                               ; preds = %49, %49
+54:                                               ; preds = %45, %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-59:                                               ; preds = %49
-  %60 = and i32 %44, 15
-  %61 = icmp samesign ult i32 %60, 5
-  %..i2 = select i1 %61, i32 8, i32 7
+55:                                               ; preds = %45
+  %56 = and i32 %40, 15
+  %57 = icmp samesign ult i32 %56, 5
+  %..i2 = select i1 %57, i32 8, i32 7
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-62:                                               ; preds = %49
+58:                                               ; preds = %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-63:                                               ; preds = %49
+59:                                               ; preds = %45
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-64:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-  %65 = call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #8, !srcloc !4
-  %66 = extractvalue { i32, i32, i32, i32 } %65, 0
-  %67 = lshr i32 %66, 8
-  %68 = and i32 %67, 15
-  %69 = lshr i32 %66, 4
-  %70 = and i32 %69, 15
-  %71 = icmp eq i32 %68, 15
-  br i1 %71, label %72, label %79
+60:                                               ; preds = %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
+  %61 = call { i32, i32, i32, i32 } asm sideeffect "cpuid \0A\09", "={ax},={bx},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #7, !srcloc !4
+  %62 = extractvalue { i32, i32, i32, i32 } %61, 0
+  %63 = lshr i32 %62, 8
+  %64 = and i32 %63, 15
+  %65 = lshr i32 %62, 4
+  %66 = and i32 %65, 15
+  %67 = icmp eq i32 %64, 15
+  br i1 %67, label %68, label %75
 
-72:                                               ; preds = %64
-  %73 = lshr i32 %66, 20
-  %74 = and i32 %73, 255
-  %75 = add nuw nsw i32 %74, 15
-  %76 = lshr i32 %66, 12
-  %77 = and i32 %76, 240
-  %78 = or disjoint i32 %70, %77
-  br label %79
+68:                                               ; preds = %60
+  %69 = lshr i32 %62, 20
+  %70 = and i32 %69, 255
+  %71 = add nuw nsw i32 %70, 15
+  %72 = lshr i32 %62, 12
+  %73 = and i32 %72, 240
+  %74 = or disjoint i32 %66, %73
+  br label %75
 
-79:                                               ; preds = %72, %64
-  %.010.i = phi i32 [ %78, %72 ], [ %70, %64 ]
-  %.09.i = phi i32 [ %75, %72 ], [ %68, %64 ]
+75:                                               ; preds = %68, %60
+  %.010.i = phi i32 [ %74, %68 ], [ %66, %60 ]
+  %.09.i = phi i32 [ %71, %68 ], [ %64, %60 ]
   switch i32 %.09.i, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit [
-    i32 23, label %80
-    i32 25, label %83
+    i32 23, label %76
+    i32 25, label %79
   ]
 
-80:                                               ; preds = %79
+76:                                               ; preds = %75
+  switch i32 %.010.i, label %78 [
+    i32 0, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
+    i32 1, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
+    i32 48, label %77
+    i32 49, label %77
+  ]
+
+77:                                               ; preds = %76, %76
+  br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
+
+78:                                               ; preds = %76
+  br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
+
+79:                                               ; preds = %75
   switch i32 %.010.i, label %82 [
     i32 0, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
     i32 1, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-    i32 48, label %81
-    i32 49, label %81
+    i32 16, label %80
+    i32 17, label %80
+    i32 68, label %81
   ]
 
-81:                                               ; preds = %80, %80
+80:                                               ; preds = %79, %79
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-82:                                               ; preds = %80
+81:                                               ; preds = %79
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-83:                                               ; preds = %79
-  switch i32 %.010.i, label %86 [
-    i32 0, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-    i32 1, label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-    i32 16, label %84
-    i32 17, label %84
-    i32 68, label %85
-  ]
-
-84:                                               ; preds = %83, %83
+82:                                               ; preds = %79
   br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
 
-85:                                               ; preds = %83
-  br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-
-86:                                               ; preds = %83
-  br label %_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit
-
-_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit: ; preds = %86, %85, %84, %83, %83, %82, %81, %80, %80, %79, %63, %62, %59, %58, %57, %56, %55, %49, %42, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
-  %.0 = phi i32 [ 0, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit ], [ 0, %63 ], [ 12, %55 ], [ 11, %56 ], [ 1, %57 ], [ 9, %58 ], [ 10, %62 ], [ 13, %49 ], [ %..i2, %59 ], [ 0, %42 ], [ 0, %82 ], [ 2, %81 ], [ 0, %86 ], [ 5, %84 ], [ 6, %85 ], [ 3, %80 ], [ 3, %80 ], [ 4, %83 ], [ 4, %83 ], [ 0, %79 ]
+_ZN4absl12crc_internal12_GLOBAL__N_115GetIntelCpuTypeEv.exit: ; preds = %82, %81, %80, %79, %79, %78, %77, %76, %76, %75, %59, %58, %55, %54, %53, %52, %51, %45, %38, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit
+  %.0 = phi i32 [ 0, %_ZN4absl12crc_internal12_GLOBAL__N_19GetVendorEv.exit ], [ 0, %59 ], [ 12, %51 ], [ 11, %52 ], [ 1, %53 ], [ 9, %54 ], [ 10, %58 ], [ 13, %45 ], [ %..i2, %55 ], [ 0, %38 ], [ 0, %78 ], [ 2, %77 ], [ 0, %82 ], [ 5, %80 ], [ 6, %81 ], [ 3, %76 ], [ 3, %76 ], [ 4, %79 ], [ 4, %79 ], [ 0, %75 ]
   ret i32 %.0
 }
 
@@ -267,9 +255,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -277,10 +262,9 @@ attributes #3 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { builtin nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

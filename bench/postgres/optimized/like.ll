@@ -30,8 +30,8 @@ define dso_local range(i64 0, 2) i64 @namelike(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #7
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #6
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %10 = load i8, ptr %8, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -87,17 +87,16 @@ define internal fastcc range(i32 -1, 2) i32 @GenericMatchText(ptr noundef %0, i3
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 34209924) #7
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #7
-  %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 163, ptr noundef nonnull @__func__.GenericMatchText) #7
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 @errcode(i32 noundef 34209924) #6
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
+  %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 163, ptr noundef nonnull @__func__.GenericMatchText) #6
   unreachable
 
 11:                                               ; preds = %5
-  %12 = tail call ptr @pg_newlocale_from_collation(i32 noundef %4) #7
-  %13 = tail call i32 @pg_database_encoding_max_length() #7
+  %12 = tail call ptr @pg_newlocale_from_collation(i32 noundef %4) #6
+  %13 = tail call i32 @pg_database_encoding_max_length() #6
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %17
 
@@ -106,7 +105,7 @@ define internal fastcc range(i32 -1, 2) i32 @GenericMatchText(ptr noundef %0, i3
   br label %24
 
 17:                                               ; preds = %11
-  %18 = tail call i32 @GetDatabaseEncoding() #7
+  %18 = tail call i32 @GetDatabaseEncoding() #6
   %19 = icmp eq i32 %18, 6
   br i1 %19, label %20, label %22
 
@@ -131,8 +130,8 @@ define dso_local range(i64 0, 2) i64 @namenlike(ptr noundef readonly captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #7
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #6
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %10 = load i8, ptr %8, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -182,11 +181,11 @@ define dso_local range(i64 0, 2) i64 @textlike(ptr noundef readonly captures(non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -270,11 +269,11 @@ define dso_local range(i64 0, 2) i64 @textnlike(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -358,11 +357,11 @@ define dso_local range(i64 0, 2) i64 @bytealike(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -450,7 +449,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %7, %5
-  tail call void @check_stack_depth() #7
+  tail call void @check_stack_depth() #6
   %11 = icmp sgt i32 %1, 0
   %12 = icmp sgt i32 %3, 0
   %13 = and i1 %11, %12
@@ -482,11 +481,10 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.SB_MatchText) #7
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %22 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.SB_MatchText) #6
   unreachable
 
 24:                                               ; preds = %18
@@ -531,11 +529,10 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.SB_MatchText) #7
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %41 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.SB_MatchText) #6
   unreachable
 
 43:                                               ; preds = %37
@@ -639,11 +636,10 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %74
-  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %79)
-  %80 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.SB_MatchText) #7
+  %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %80 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.SB_MatchText) #6
   unreachable
 
 82:                                               ; preds = %.lr.ph289, %74
@@ -668,7 +664,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %88 = ptrtoint ptr %.0147.lcssa356 to i64
   %89 = sub i64 %88, %.0149251.lcssa339341
   %90 = zext nneg i32 %.0129252 to i64
-  %91 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0149251, i64 noundef %89, ptr noundef %.0125254, i64 noundef %90, ptr noundef nonnull %4) #7
+  %91 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0149251, i64 noundef %89, ptr noundef %.0125254, i64 noundef %90, ptr noundef nonnull %4) #6
   br label %113
 
 92:                                               ; preds = %.thread206, %85
@@ -677,7 +673,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   %.not172213 = phi i1 [ true, %.thread206 ], [ false, %85 ]
   %93 = ptrtoint ptr %.0147223 to i64
   %94 = sub i64 %93, %.0149251.lcssa339341
-  %95 = tail call ptr @palloc(i64 noundef %94) #7
+  %95 = tail call ptr @palloc(i64 noundef %94) #6
   %96 = icmp ult ptr %.0149251, %.0147223
   br i1 %96, label %.lr.ph297.preheader, label %._crit_edge298
 
@@ -719,12 +715,12 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
 
 109:                                              ; preds = %._crit_edge298
   %110 = zext nneg i32 %.0129252 to i64
-  %111 = tail call i32 @pg_strncoll(ptr noundef %95, i64 noundef %106, ptr noundef %.0125254, i64 noundef %110, ptr noundef nonnull %4) #7
+  %111 = tail call i32 @pg_strncoll(ptr noundef %95, i64 noundef %106, ptr noundef %.0125254, i64 noundef %110, ptr noundef nonnull %4) #6
   %.not177 = icmp eq ptr %95, null
   br i1 %.not177, label %113, label %112
 
 112:                                              ; preds = %109
-  tail call void @pfree(ptr noundef nonnull %95) #7
+  tail call void @pfree(ptr noundef nonnull %95) #6
   br label %113
 
 113:                                              ; preds = %.thread183.thread, %112, %109
@@ -752,13 +748,13 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %.not173, label %123, label %122, !prof !12
 
 122:                                              ; preds = %120
-  tail call void @ProcessInterrupts() #7
+  tail call void @ProcessInterrupts() #6
   br label %123
 
 123:                                              ; preds = %122, %120
   %124 = ptrtoint ptr %.0143 to i64
   %125 = sub i64 %124, %118
-  %126 = tail call i32 @pg_strncoll(ptr noundef %.0138188, i64 noundef %.0137190, ptr noundef %.0125254, i64 noundef %125, ptr noundef nonnull %4) #7
+  %126 = tail call i32 @pg_strncoll(ptr noundef %.0138188, i64 noundef %.0137190, ptr noundef %.0125254, i64 noundef %125, ptr noundef nonnull %4) #6
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %128, label %133
 
@@ -773,7 +769,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %.not174, label %.thread, label %132
 
 132:                                              ; preds = %131
-  tail call void @pfree(ptr noundef nonnull %.0136192) #7
+  tail call void @pfree(ptr noundef nonnull %.0136192) #6
   br label %.thread
 
 133:                                              ; preds = %128, %123
@@ -785,7 +781,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_MatchText(ptr noundef %0, i32 no
   br i1 %.not176, label %.thread, label %136
 
 136:                                              ; preds = %135
-  tail call void @pfree(ptr noundef nonnull %.0136192) #7
+  tail call void @pfree(ptr noundef nonnull %.0136192) #6
   br label %.thread
 
 137:                                              ; preds = %133
@@ -831,11 +827,11 @@ define dso_local range(i64 0, 2) i64 @byteanlike(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -919,10 +915,10 @@ define dso_local range(i64 0, 2) i64 @nameiclike(ptr noundef readonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #7
-  %8 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @name_text, i32 noundef 0, i64 noundef %3) #7
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #6
+  %8 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @name_text, i32 noundef 0, i64 noundef %3) #6
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #7
+  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call fastcc i32 @Generic_Text_IC_like(ptr noundef %10, ptr noundef %7, i32 noundef %12)
@@ -941,31 +937,29 @@ define internal fastcc range(i32 -1, 2) i32 @Generic_Text_IC_like(ptr noundef %0
   br i1 %.not, label %4, label %9
 
 4:                                                ; preds = %3
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 34209924) #7
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #7
-  %8 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull @__func__.Generic_Text_IC_like) #7
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %6 = tail call i32 @errcode(i32 noundef 34209924) #6
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
+  %8 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull @__func__.Generic_Text_IC_like) #6
   unreachable
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @pg_newlocale_from_collation(i32 noundef %2) #7
+  %10 = tail call ptr @pg_newlocale_from_collation(i32 noundef %2) #6
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 1088) #7
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 202, ptr noundef nonnull @__func__.Generic_Text_IC_like) #7
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %16 = tail call i32 @errcode(i32 noundef 1088) #6
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 202, ptr noundef nonnull @__func__.Generic_Text_IC_like) #6
   unreachable
 
 18:                                               ; preds = %9
-  %19 = tail call i32 @pg_database_encoding_max_length() #7
+  %19 = tail call i32 @pg_database_encoding_max_length() #6
   %20 = icmp sgt i32 %19, 1
   br i1 %20, label %24, label %21
 
@@ -976,9 +970,9 @@ define internal fastcc range(i32 -1, 2) i32 @Generic_Text_IC_like(ptr noundef %0
 
 24:                                               ; preds = %21, %18
   %25 = ptrtoint ptr %1 to i64
-  %26 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @lower, i32 noundef %2, i64 noundef %25) #7
+  %26 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @lower, i32 noundef %2, i64 noundef %25) #6
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call ptr @pg_detoast_datum_packed(ptr noundef %27) #7
+  %28 = tail call ptr @pg_detoast_datum_packed(ptr noundef %27) #6
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = and i32 %30, 1
@@ -1015,9 +1009,9 @@ define internal fastcc range(i32 -1, 2) i32 @Generic_Text_IC_like(ptr noundef %0
 50:                                               ; preds = %43, %46, %36
   %51 = phi i32 [ %41, %36 ], [ %45, %43 ], [ %49, %46 ]
   %52 = ptrtoint ptr %0 to i64
-  %53 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @lower, i32 noundef %2, i64 noundef %52) #7
+  %53 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @lower, i32 noundef %2, i64 noundef %52) #6
   %54 = inttoptr i64 %53 to ptr
-  %55 = tail call ptr @pg_detoast_datum_packed(ptr noundef %54) #7
+  %55 = tail call ptr @pg_detoast_datum_packed(ptr noundef %54) #6
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = and i32 %57, 1
@@ -1053,7 +1047,7 @@ define internal fastcc range(i32 -1, 2) i32 @Generic_Text_IC_like(ptr noundef %0
 
 77:                                               ; preds = %70, %73, %63
   %78 = phi i32 [ %68, %63 ], [ %72, %70 ], [ %76, %73 ]
-  %79 = tail call i32 @GetDatabaseEncoding() #7
+  %79 = tail call i32 @GetDatabaseEncoding() #6
   %80 = icmp eq i32 %79, 6
   br i1 %80, label %81, label %83
 
@@ -1151,10 +1145,10 @@ define dso_local range(i64 0, 2) i64 @nameicnlike(ptr noundef readonly captures(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #7
-  %8 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @name_text, i32 noundef 0, i64 noundef %3) #7
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #6
+  %8 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @name_text, i32 noundef 0, i64 noundef %3) #6
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #7
+  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call fastcc i32 @Generic_Text_IC_like(ptr noundef %10, ptr noundef %7, i32 noundef %12)
@@ -1168,11 +1162,11 @@ define dso_local range(i64 0, 2) i64 @texticlike(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = tail call fastcc i32 @Generic_Text_IC_like(ptr noundef %5, ptr noundef %9, i32 noundef %11)
@@ -1186,11 +1180,11 @@ define dso_local range(i64 0, 2) i64 @texticnlike(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = tail call fastcc i32 @Generic_Text_IC_like(ptr noundef %5, ptr noundef %9, i32 noundef %11)
@@ -1204,12 +1198,12 @@ define dso_local i64 @like_escape(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
-  %10 = tail call i32 @pg_database_encoding_max_length() #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
+  %10 = tail call i32 @pg_database_encoding_max_length() #6
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %14
 
@@ -1291,7 +1285,7 @@ select.unfold.i:                                  ; preds = %45, %53, %50
   %58 = shl nsw i32 %37, 1
   %59 = add nsw i32 %58, 4
   %60 = sext i32 %59 to i64
-  %61 = tail call ptr @palloc(i64 noundef %60) #7
+  %61 = tail call ptr @palloc(i64 noundef %60) #6
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = icmp eq i32 %57, 0
   br i1 %63, label %.preheader.i, label %79
@@ -1321,7 +1315,7 @@ select.unfold.i:                                  ; preds = %45, %53, %50
 
 70:                                               ; preds = %68, %.lr.ph140.i
   %.191.i = phi ptr [ %69, %68 ], [ %.090137.i, %.lr.ph140.i ]
-  %71 = tail call i32 @pg_mblen(ptr noundef nonnull %.083139.i) #7
+  %71 = tail call i32 @pg_mblen(ptr noundef nonnull %.083139.i) #6
   %72 = sub i32 %.087138.i, %71
   %73 = icmp sgt i32 %71, 0
   br i1 %73, label %.lr.ph134.i, label %.loopexit.i
@@ -1339,17 +1333,16 @@ select.unfold.i:                                  ; preds = %45, %53, %50
   br i1 %78, label %.lr.ph134.i, label %.loopexit.i, !llvm.loop !15
 
 79:                                               ; preds = %select.unfold.i
-  %80 = tail call i32 @pg_mblen(ptr noundef nonnull %43) #7
+  %80 = tail call i32 @pg_mblen(ptr noundef nonnull %43) #6
   %.not103.i = icmp eq i32 %57, %80
   br i1 %.not103.i, label %86, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %82)
-  %83 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #7
-  %85 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 438, ptr noundef nonnull @__func__.MB_do_like_escape) #7
+  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %83 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #6
+  %85 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 438, ptr noundef nonnull @__func__.MB_do_like_escape) #6
   unreachable
 
 86:                                               ; preds = %79
@@ -1415,8 +1408,8 @@ select.unfold.i:                                  ; preds = %45, %53, %50
   br i1 %.not.i.i, label %117, label %wchareq.exit.thread.i
 
 117:                                              ; preds = %.lr.ph129.i
-  %118 = tail call i32 @pg_mblen(ptr noundef nonnull %.2128.i) #7
-  %119 = tail call i32 @pg_mblen(ptr noundef nonnull %89) #7
+  %118 = tail call i32 @pg_mblen(ptr noundef nonnull %.2128.i) #6
+  %119 = tail call i32 @pg_mblen(ptr noundef nonnull %89) #6
   %.not12.i.i = icmp eq i32 %119, %118
   br i1 %.not12.i.i, label %.preheader.i.i, label %wchareq.exit.threadthread-pre-split.i
 
@@ -1464,7 +1457,7 @@ wchareq.exit.thread.i:                            ; preds = %wchareq.exit.thread
   br label %.loopexit117.sink.split.i
 
 134:                                              ; preds = %wchareq.exit.thread.i
-  %135 = tail call i32 @pg_mblen(ptr noundef nonnull %.2128.i) #7
+  %135 = tail call i32 @pg_mblen(ptr noundef nonnull %.2128.i) #6
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %.lr.ph.i, label %.loopexit117.i
 
@@ -1483,7 +1476,7 @@ wchareq.exit.thread.i:                            ; preds = %wchareq.exit.thread
 .loopexit117.sink.split.i:                        ; preds = %132, %130, %126
   %or.cond.not114.ph.i = phi i1 [ true, %126 ], [ false, %130 ], [ false, %132 ]
   %.5.ph.i = phi ptr [ %127, %126 ], [ %131, %130 ], [ %133, %132 ]
-  %142 = tail call i32 @pg_mblen(ptr noundef nonnull %.2128.i) #7
+  %142 = tail call i32 @pg_mblen(ptr noundef nonnull %.2128.i) #6
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i8, ptr %.2128.i, i64 %143
   br label %.loopexit117.i
@@ -1587,7 +1580,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   %44 = shl nsw i32 %25, 1
   %45 = add nsw i32 %44, 4
   %46 = sext i32 %45 to i64
-  %47 = tail call ptr @palloc(i64 noundef %46) #7
+  %47 = tail call ptr @palloc(i64 noundef %46) #6
   br label %66
 
 48:                                               ; preds = %31, %37, %40
@@ -1595,7 +1588,7 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   %50 = shl nsw i32 %25, 1
   %51 = add nsw i32 %50, 4
   %52 = sext i32 %51 to i64
-  %53 = tail call ptr @palloc(i64 noundef %52) #7
+  %53 = tail call ptr @palloc(i64 noundef %52) #6
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   switch i32 %49, label %66 [
     i32 0, label %.preheader
@@ -1631,12 +1624,11 @@ define internal fastcc ptr @SB_do_like_escape(ptr noundef readonly captures(none
   br i1 %65, label %.lr.ph102, label %.loopexit, !llvm.loop !19
 
 66:                                               ; preds = %.thread, %48
-  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %67)
-  %68 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #7
-  %70 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 438, ptr noundef nonnull @__func__.SB_do_like_escape) #7
+  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %68 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #6
+  %70 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 438, ptr noundef nonnull @__func__.SB_do_like_escape) #6
   unreachable
 
 71:                                               ; preds = %48
@@ -1752,11 +1744,11 @@ define dso_local i64 @like_escape_bytea(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
   %10 = tail call fastcc ptr @SB_do_like_escape(ptr noundef %5, ptr noundef %9)
   %11 = ptrtoint ptr %10 to i64
   ret i64 %11
@@ -1788,7 +1780,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %7, %5
-  tail call void @check_stack_depth() #7
+  tail call void @check_stack_depth() #6
   %11 = icmp sgt i32 %1, 0
   %12 = icmp sgt i32 %3, 0
   %13 = and i1 %11, %12
@@ -1820,11 +1812,10 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.UTF8_MatchText) #7
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %22 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.UTF8_MatchText) #6
   unreachable
 
 24:                                               ; preds = %18
@@ -1882,11 +1873,10 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %41
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.UTF8_MatchText) #7
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %45 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.UTF8_MatchText) #6
   unreachable
 
 47:                                               ; preds = %41
@@ -2003,11 +1993,10 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %81
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.UTF8_MatchText) #7
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %87 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.UTF8_MatchText) #6
   unreachable
 
 89:                                               ; preds = %.lr.ph324, %81
@@ -2032,7 +2021,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %95 = ptrtoint ptr %.0171.lcssa407 to i64
   %96 = sub i64 %95, %.0173287.lcssa378381
   %97 = zext nneg i32 %.0148288 to i64
-  %98 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0173287, i64 noundef %96, ptr noundef %.0141290, i64 noundef %97, ptr noundef nonnull %4) #7
+  %98 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0173287, i64 noundef %96, ptr noundef %.0141290, i64 noundef %97, ptr noundef nonnull %4) #6
   br label %120
 
 99:                                               ; preds = %.thread233, %92
@@ -2041,7 +2030,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   %.not200243 = phi i1 [ true, %.thread233 ], [ false, %92 ]
   %100 = ptrtoint ptr %.0171253 to i64
   %101 = sub i64 %100, %.0173287.lcssa378381
-  %102 = tail call ptr @palloc(i64 noundef %101) #7
+  %102 = tail call ptr @palloc(i64 noundef %101) #6
   %103 = icmp ult ptr %.0173287, %.0171253
   br i1 %103, label %.lr.ph332.preheader, label %._crit_edge333
 
@@ -2083,12 +2072,12 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
 
 116:                                              ; preds = %._crit_edge333
   %117 = zext nneg i32 %.0148288 to i64
-  %118 = tail call i32 @pg_strncoll(ptr noundef %102, i64 noundef %113, ptr noundef %.0141290, i64 noundef %117, ptr noundef nonnull %4) #7
+  %118 = tail call i32 @pg_strncoll(ptr noundef %102, i64 noundef %113, ptr noundef %.0141290, i64 noundef %117, ptr noundef nonnull %4) #6
   %.not206 = icmp eq ptr %102, null
   br i1 %.not206, label %120, label %119
 
 119:                                              ; preds = %116
-  tail call void @pfree(ptr noundef nonnull %102) #7
+  tail call void @pfree(ptr noundef nonnull %102) #6
   br label %120
 
 120:                                              ; preds = %.thread212.thread, %119, %116
@@ -2120,13 +2109,13 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %.not201, label %129, label %128, !prof !12
 
 128:                                              ; preds = %.critedge8
-  tail call void @ProcessInterrupts() #7
+  tail call void @ProcessInterrupts() #6
   br label %129
 
 129:                                              ; preds = %128, %.critedge8
   %130 = ptrtoint ptr %.0166 to i64
   %131 = sub i64 %130, %125
-  %132 = tail call i32 @pg_strncoll(ptr noundef %.0160217, i64 noundef %.0159219, ptr noundef %.0141290, i64 noundef %131, ptr noundef nonnull %4) #7
+  %132 = tail call i32 @pg_strncoll(ptr noundef %.0160217, i64 noundef %.0159219, ptr noundef %.0141290, i64 noundef %131, ptr noundef nonnull %4) #6
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %139
 
@@ -2141,7 +2130,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %.not202, label %.thread, label %138
 
 138:                                              ; preds = %137
-  tail call void @pfree(ptr noundef nonnull %.0158221) #7
+  tail call void @pfree(ptr noundef nonnull %.0158221) #6
   br label %.thread
 
 139:                                              ; preds = %134, %129
@@ -2157,7 +2146,7 @@ define internal fastcc range(i32 -1, 2) i32 @UTF8_MatchText(ptr noundef %0, i32 
   br i1 %.not205, label %.thread, label %142
 
 142:                                              ; preds = %141
-  tail call void @pfree(ptr noundef nonnull %.0158221) #7
+  tail call void @pfree(ptr noundef nonnull %.0158221) #6
   br label %.thread
 
 .preheader:                                       ; preds = %.preheader.preheader, %144
@@ -2226,7 +2215,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %7, %5
-  tail call void @check_stack_depth() #7
+  tail call void @check_stack_depth() #6
   %11 = icmp sgt i32 %1, 0
   %12 = icmp sgt i32 %3, 0
   %13 = and i1 %11, %12
@@ -2258,11 +2247,10 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.MB_MatchText) #7
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %22 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.MB_MatchText) #6
   unreachable
 
 24:                                               ; preds = %18
@@ -2292,7 +2280,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = tail call i32 @pg_mblen(ptr noundef %.1138279) #7
+  %33 = tail call i32 @pg_mblen(ptr noundef %.1138279) #6
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %.1138279, i64 %34
   %36 = sub i32 %.1142278, %33
@@ -2309,11 +2297,10 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %39
-  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %42)
-  %43 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.MB_MatchText) #7
+  %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %43 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.MB_MatchText) #6
   unreachable
 
 45:                                               ; preds = %39
@@ -2347,7 +2334,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %.not192, label %56, label %.thread
 
 56:                                               ; preds = %51, %52, %.split
-  %57 = tail call i32 @pg_mblen(ptr noundef nonnull %.3140288) #7
+  %57 = tail call i32 @pg_mblen(ptr noundef nonnull %.3140288) #6
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %.3140288, i64 %58
   %60 = sub i32 %.3144286, %57
@@ -2355,7 +2342,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %61, label %.lr.ph291, label %.thread, !llvm.loop !32
 
 62:                                               ; preds = %15
-  %63 = tail call i32 @pg_mblen(ptr noundef %.0137266) #7
+  %63 = tail call i32 @pg_mblen(ptr noundef %.0137266) #6
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %.0137266, i64 %64
   %66 = sub i32 %.0141264, %63
@@ -2408,11 +2395,10 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %77
-  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %82)
-  %83 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.MB_MatchText) #7
+  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %83 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.MB_MatchText) #6
   unreachable
 
 85:                                               ; preds = %.lr.ph301, %77
@@ -2437,7 +2423,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %91 = ptrtoint ptr %.0164.lcssa366 to i64
   %92 = sub i64 %91, %.0145263.lcssa349351
   %93 = zext nneg i32 %.0141264 to i64
-  %94 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0145263, i64 noundef %92, ptr noundef %.0137266, i64 noundef %93, ptr noundef nonnull %4) #7
+  %94 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0145263, i64 noundef %92, ptr noundef %.0137266, i64 noundef %93, ptr noundef nonnull %4) #6
   br label %116
 
 95:                                               ; preds = %.thread218, %88
@@ -2446,7 +2432,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   %.not184225 = phi i1 [ true, %.thread218 ], [ false, %88 ]
   %96 = ptrtoint ptr %.0164235 to i64
   %97 = sub i64 %96, %.0145263.lcssa349351
-  %98 = tail call ptr @palloc(i64 noundef %97) #7
+  %98 = tail call ptr @palloc(i64 noundef %97) #6
   %99 = icmp ult ptr %.0145263, %.0164235
   br i1 %99, label %.lr.ph309.preheader, label %._crit_edge310
 
@@ -2488,12 +2474,12 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
 
 112:                                              ; preds = %._crit_edge310
   %113 = zext nneg i32 %.0141264 to i64
-  %114 = tail call i32 @pg_strncoll(ptr noundef %98, i64 noundef %109, ptr noundef %.0137266, i64 noundef %113, ptr noundef nonnull %4) #7
+  %114 = tail call i32 @pg_strncoll(ptr noundef %98, i64 noundef %109, ptr noundef %.0137266, i64 noundef %113, ptr noundef nonnull %4) #6
   %.not189 = icmp eq ptr %98, null
   br i1 %.not189, label %116, label %115
 
 115:                                              ; preds = %112
-  tail call void @pfree(ptr noundef nonnull %98) #7
+  tail call void @pfree(ptr noundef nonnull %98) #6
   br label %116
 
 116:                                              ; preds = %.thread195.thread, %115, %112
@@ -2521,13 +2507,13 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %.not185, label %126, label %125, !prof !12
 
 125:                                              ; preds = %123
-  tail call void @ProcessInterrupts() #7
+  tail call void @ProcessInterrupts() #6
   br label %126
 
 126:                                              ; preds = %125, %123
   %127 = ptrtoint ptr %.0160 to i64
   %128 = sub i64 %127, %121
-  %129 = tail call i32 @pg_strncoll(ptr noundef %.0155200, i64 noundef %.0154202, ptr noundef %.0137266, i64 noundef %128, ptr noundef nonnull %4) #7
+  %129 = tail call i32 @pg_strncoll(ptr noundef %.0155200, i64 noundef %.0154202, ptr noundef %.0137266, i64 noundef %128, ptr noundef nonnull %4) #6
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %136
 
@@ -2542,7 +2528,7 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %.not186, label %.thread, label %135
 
 135:                                              ; preds = %134
-  tail call void @pfree(ptr noundef nonnull %.0153204) #7
+  tail call void @pfree(ptr noundef nonnull %.0153204) #6
   br label %.thread
 
 136:                                              ; preds = %131, %126
@@ -2554,11 +2540,11 @@ define internal fastcc range(i32 -1, 2) i32 @MB_MatchText(ptr noundef %0, i32 no
   br i1 %.not188, label %.thread, label %139
 
 139:                                              ; preds = %138
-  tail call void @pfree(ptr noundef nonnull %.0153204) #7
+  tail call void @pfree(ptr noundef nonnull %.0153204) #6
   br label %.thread
 
 140:                                              ; preds = %136
-  %141 = tail call i32 @pg_mblen(ptr noundef %.0160) #7
+  %141 = tail call i32 @pg_mblen(ptr noundef %.0160) #6
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i8, ptr %.0160, i64 %142
   %144 = sub i64 %.0158, %142
@@ -2629,7 +2615,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %7, %5
-  tail call void @check_stack_depth() #7
+  tail call void @check_stack_depth() #6
   %11 = icmp sgt i32 %1, 0
   %12 = icmp sgt i32 %3, 0
   %13 = and i1 %11, %12
@@ -2664,11 +2650,10 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.SB_IMatchText) #7
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %25 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 107, ptr noundef nonnull @__func__.SB_IMatchText) #6
   unreachable
 
 27:                                               ; preds = %21
@@ -2680,7 +2665,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %27
-  %34 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %30) #7
+  %34 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %30) #6
   br label %SB_lower_char.exit
 
 35:                                               ; preds = %27
@@ -2689,7 +2674,7 @@ define internal fastcc range(i32 -1, 2) i32 @SB_IMatchText(ptr noundef %0, i32 n
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %30) #7
+  %39 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %30) #6
   br label %SB_lower_char.exit
 
 40:                                               ; preds = %35
@@ -2710,7 +2695,7 @@ SB_lower_char.exit:                               ; preds = %33, %38, %40
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %SB_lower_char.exit
-  %52 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %48) #7
+  %52 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %48) #6
   br label %SB_lower_char.exit195
 
 53:                                               ; preds = %SB_lower_char.exit
@@ -2719,7 +2704,7 @@ SB_lower_char.exit:                               ; preds = %33, %38, %40
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %53
-  %57 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %48) #7
+  %57 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %48) #6
   br label %SB_lower_char.exit195
 
 58:                                               ; preds = %53
@@ -2771,11 +2756,10 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %74
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.SB_IMatchText) #7
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %78 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 169, ptr noundef nonnull @__func__.SB_IMatchText) #6
   unreachable
 
 80:                                               ; preds = %74
@@ -2786,7 +2770,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %80
-  %86 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %82) #7
+  %86 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %82) #6
   br label %SB_lower_char.exit197
 
 87:                                               ; preds = %80
@@ -2795,7 +2779,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %87
-  %91 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %82) #7
+  %91 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %82) #6
   br label %SB_lower_char.exit197
 
 92:                                               ; preds = %87
@@ -2814,7 +2798,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %100
-  %104 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %66) #7
+  %104 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %66) #6
   br label %SB_lower_char.exit197
 
 105:                                              ; preds = %100
@@ -2823,7 +2807,7 @@ SB_lower_char.exit195:                            ; preds = %51, %56, %58
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %105
-  %109 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %66) #7
+  %109 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %66) #6
   br label %SB_lower_char.exit197
 
 110:                                              ; preds = %105
@@ -2850,7 +2834,7 @@ SB_lower_char.exit197:                            ; preds = %110, %108, %103, %9
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %.lr.ph305
-  %123 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %119) #7
+  %123 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %119) #6
   br label %SB_lower_char.exit201
 
 124:                                              ; preds = %.lr.ph305
@@ -2859,7 +2843,7 @@ SB_lower_char.exit197:                            ; preds = %110, %108, %103, %9
   br i1 %126, label %127, label %129
 
 127:                                              ; preds = %124
-  %128 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %119) #7
+  %128 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %119) #6
   br label %SB_lower_char.exit201
 
 129:                                              ; preds = %124
@@ -2914,7 +2898,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %.split171
-  %153 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %19) #7
+  %153 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %19) #6
   br label %SB_lower_char.exit203
 
 154:                                              ; preds = %.split171
@@ -2923,7 +2907,7 @@ SB_lower_char.exit201:                            ; preds = %122, %127, %129
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %154
-  %158 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %19) #7
+  %158 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %19) #6
   br label %SB_lower_char.exit203
 
 159:                                              ; preds = %154
@@ -2944,7 +2928,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %SB_lower_char.exit203
-  %171 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %167) #7
+  %171 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %167) #6
   br label %SB_lower_char.exit205
 
 172:                                              ; preds = %SB_lower_char.exit203
@@ -2953,7 +2937,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %172
-  %176 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %167) #7
+  %176 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %167) #6
   br label %SB_lower_char.exit205
 
 177:                                              ; preds = %172
@@ -2977,7 +2961,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br i1 %189, label %190, label %192
 
 190:                                              ; preds = %.split172
-  %191 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %19) #7
+  %191 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %19) #6
   br label %SB_lower_char.exit207
 
 192:                                              ; preds = %.split172
@@ -2986,7 +2970,7 @@ SB_lower_char.exit203:                            ; preds = %152, %157, %159
   br i1 %194, label %195, label %197
 
 195:                                              ; preds = %192
-  %196 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %19) #7
+  %196 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %19) #6
   br label %SB_lower_char.exit207
 
 197:                                              ; preds = %192
@@ -3007,7 +2991,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %SB_lower_char.exit207
-  %209 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %205) #7
+  %209 = tail call zeroext i8 @pg_ascii_tolower(i8 noundef zeroext %205) #6
   br label %SB_lower_char.exit205
 
 210:                                              ; preds = %SB_lower_char.exit207
@@ -3016,7 +3000,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %210
-  %214 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %205) #7
+  %214 = tail call zeroext i8 @pg_tolower(i8 noundef zeroext %205) #6
   br label %SB_lower_char.exit205
 
 215:                                              ; preds = %210
@@ -3056,11 +3040,10 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %229, label %230, label %234
 
 230:                                              ; preds = %226
-  %231 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %231)
-  %232 = tail call i32 @errcode(i32 noundef 84410498) #7
-  %233 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.SB_IMatchText) #7
+  %231 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %232 = tail call i32 @errcode(i32 noundef 84410498) #6
+  %233 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 237, ptr noundef nonnull @__func__.SB_IMatchText) #6
   unreachable
 
 234:                                              ; preds = %.lr.ph315, %226
@@ -3085,7 +3068,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %240 = ptrtoint ptr %.0154.lcssa379 to i64
   %241 = sub i64 %240, %.0156278.lcssa363365
   %242 = zext nneg i32 %.0136279 to i64
-  %243 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0156278, i64 noundef %241, ptr noundef %.0132281, i64 noundef %242, ptr noundef nonnull %4) #7
+  %243 = tail call i32 @pg_strncoll(ptr noundef nonnull %.0156278, i64 noundef %241, ptr noundef %.0132281, i64 noundef %242, ptr noundef nonnull %4) #6
   br label %265
 
 244:                                              ; preds = %.thread233, %237
@@ -3094,7 +3077,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   %.not183240 = phi i1 [ true, %.thread233 ], [ false, %237 ]
   %245 = ptrtoint ptr %.0154250 to i64
   %246 = sub i64 %245, %.0156278.lcssa363365
-  %247 = tail call ptr @palloc(i64 noundef %246) #7
+  %247 = tail call ptr @palloc(i64 noundef %246) #6
   %248 = icmp ult ptr %.0156278, %.0154250
   br i1 %248, label %.lr.ph323.preheader, label %._crit_edge324
 
@@ -3136,12 +3119,12 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
 
 261:                                              ; preds = %._crit_edge324
   %262 = zext nneg i32 %.0136279 to i64
-  %263 = tail call i32 @pg_strncoll(ptr noundef %247, i64 noundef %258, ptr noundef %.0132281, i64 noundef %262, ptr noundef nonnull %4) #7
+  %263 = tail call i32 @pg_strncoll(ptr noundef %247, i64 noundef %258, ptr noundef %.0132281, i64 noundef %262, ptr noundef nonnull %4) #6
   %.not188 = icmp eq ptr %247, null
   br i1 %.not188, label %265, label %264
 
 264:                                              ; preds = %261
-  tail call void @pfree(ptr noundef nonnull %247) #7
+  tail call void @pfree(ptr noundef nonnull %247) #6
   br label %265
 
 265:                                              ; preds = %.thread210.thread, %264, %261
@@ -3169,13 +3152,13 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %.not184, label %275, label %274, !prof !12
 
 274:                                              ; preds = %272
-  tail call void @ProcessInterrupts() #7
+  tail call void @ProcessInterrupts() #6
   br label %275
 
 275:                                              ; preds = %274, %272
   %276 = ptrtoint ptr %.0150 to i64
   %277 = sub i64 %276, %270
-  %278 = tail call i32 @pg_strncoll(ptr noundef %.0145215, i64 noundef %.0144217, ptr noundef %.0132281, i64 noundef %277, ptr noundef nonnull %4) #7
+  %278 = tail call i32 @pg_strncoll(ptr noundef %.0145215, i64 noundef %.0144217, ptr noundef %.0132281, i64 noundef %277, ptr noundef nonnull %4) #6
   %279 = icmp eq i32 %278, 0
   br i1 %279, label %280, label %285
 
@@ -3190,7 +3173,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %.not185, label %.thread, label %284
 
 284:                                              ; preds = %283
-  tail call void @pfree(ptr noundef nonnull %.0143219) #7
+  tail call void @pfree(ptr noundef nonnull %.0143219) #6
   br label %.thread
 
 285:                                              ; preds = %280, %275
@@ -3202,7 +3185,7 @@ SB_lower_char.exit207:                            ; preds = %190, %195, %197
   br i1 %.not187, label %.thread, label %288
 
 288:                                              ; preds = %287
-  tail call void @pfree(ptr noundef nonnull %.0143219) #7
+  tail call void @pfree(ptr noundef nonnull %.0143219) #6
   br label %.thread
 
 289:                                              ; preds = %285
@@ -3251,19 +3234,15 @@ declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #1
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

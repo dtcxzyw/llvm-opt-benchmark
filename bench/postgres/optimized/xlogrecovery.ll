@@ -353,7 +353,7 @@ define dso_local noundef i64 @XLogRecoveryShmemSize() local_unnamed_addr #0 {
 define dso_local void @XLogRecoveryShmemInit() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.3, i64 noundef 104, ptr noundef nonnull %1) #23
+  %2 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.3, i64 noundef 104, ptr noundef nonnull %1) #22
   store ptr %2, ptr @XLogRecoveryCtl, align 8
   %3 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -361,15 +361,15 @@ define dso_local void @XLogRecoveryShmemInit() local_unnamed_addr #1 {
 
 5:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 104, i1 false)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !6
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  call void @InitSharedLatch(ptr noundef nonnull %8) #23
+  call void @InitSharedLatch(ptr noundef nonnull %8) #22
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 84
-  call void @ConditionVariableInit(ptr noundef nonnull %10) #23
+  call void @ConditionVariableInit(ptr noundef nonnull %10) #22
   br label %11
 
 11:                                               ; preds = %0, %5
@@ -423,32 +423,31 @@ define dso_local void @InitWalRecovery(ptr noundef captures(none) %0, ptr nounde
   br i1 %28, label %readRecoverySignalFile.exit, label %29
 
 29:                                               ; preds = %4
-  %30 = call i32 @stat(ptr noundef nonnull @.str.83, ptr noundef nonnull %17) #23
+  %30 = call i32 @stat(ptr noundef nonnull @.str.83, ptr noundef nonnull %17) #22
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode_for_file_access() #23
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.83) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1042, ptr noundef nonnull @__func__.readRecoverySignalFile) #23
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %34 = tail call i32 @errcode_for_file_access() #22
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.83) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1042, ptr noundef nonnull @__func__.readRecoverySignalFile) #22
   unreachable
 
 36:                                               ; preds = %29
-  %37 = tail call i32 @unlink(ptr noundef nonnull @.str.85) #23
-  %38 = call i32 @stat(ptr noundef nonnull @.str.86, ptr noundef nonnull %17) #23
+  %37 = tail call i32 @unlink(ptr noundef nonnull @.str.85) #22
+  %38 = call i32 @stat(ptr noundef nonnull @.str.86, ptr noundef nonnull %17) #22
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @BasicOpenFilePerm(ptr noundef nonnull @.str.86, i32 noundef 2, i32 noundef 384) #23
+  %41 = tail call i32 @BasicOpenFilePerm(ptr noundef nonnull @.str.86, i32 noundef 2, i32 noundef 384) #22
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %.thread.i
 
 43:                                               ; preds = %40
-  %44 = tail call i32 @pg_fsync(i32 noundef %41) #23
-  %45 = tail call i32 @close(i32 noundef %41) #23
+  %44 = tail call i32 @pg_fsync(i32 noundef %41) #22
+  %45 = tail call i32 @close(i32 noundef %41) #22
   br label %.thread.i
 
 .thread.i:                                        ; preds = %43, %40
@@ -456,18 +455,18 @@ define dso_local void @InitWalRecovery(ptr noundef captures(none) %0, ptr nounde
   br label %58
 
 46:                                               ; preds = %36
-  %47 = call i32 @stat(ptr noundef nonnull @.str.87, ptr noundef nonnull %17) #23
+  %47 = call i32 @stat(ptr noundef nonnull @.str.87, ptr noundef nonnull %17) #22
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %46
-  %50 = tail call i32 @BasicOpenFilePerm(ptr noundef nonnull @.str.87, i32 noundef 2, i32 noundef 384) #23
+  %50 = tail call i32 @BasicOpenFilePerm(ptr noundef nonnull @.str.87, i32 noundef 2, i32 noundef 384) #22
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @pg_fsync(i32 noundef %50) #23
-  %54 = tail call i32 @close(i32 noundef %50) #23
+  %53 = tail call i32 @pg_fsync(i32 noundef %50) #22
+  %54 = tail call i32 @close(i32 noundef %50) #22
   br label %55
 
 55:                                               ; preds = %52, %49
@@ -500,11 +499,10 @@ readRecoverySignalFile.exit.thread240:            ; preds = %57
   br i1 %60, label %readRecoverySignalFile.exit.thread, label %61
 
 61:                                               ; preds = %58
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 1088) #23
-  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.88) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1106, ptr noundef nonnull @__func__.readRecoverySignalFile) #23
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %63 = tail call i32 @errcode(i32 noundef 1088) #22
+  %64 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.88) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1106, ptr noundef nonnull @__func__.readRecoverySignalFile) #22
   unreachable
 
 readRecoverySignalFile.exit.thread:               ; preds = %.thread14.i, %58
@@ -542,13 +540,13 @@ readRecoverySignalFile.exit:                      ; preds = %4
   br i1 %76, label %77, label %91
 
 77:                                               ; preds = %75, %72
-  %78 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #23
+  %78 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #22
   br i1 %78, label %79, label %91
 
 79:                                               ; preds = %77
-  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.89) #23
-  %81 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.90) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1124, ptr noundef nonnull @__func__.validateRecoveryParameters) #23
+  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.89) #22
+  %81 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.90) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1124, ptr noundef nonnull @__func__.validateRecoveryParameters) #22
   br label %91
 
 82:                                               ; preds = %66
@@ -562,11 +560,10 @@ readRecoverySignalFile.exit:                      ; preds = %4
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %85, %82
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %88)
-  %89 = tail call i32 @errcode(i32 noundef 50856066) #23
-  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.91) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1132, ptr noundef nonnull @__func__.validateRecoveryParameters) #23
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %89 = tail call i32 @errcode(i32 noundef 50856066) #22
+  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.91) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1132, ptr noundef nonnull @__func__.validateRecoveryParameters) #22
   unreachable
 
 91:                                               ; preds = %85, %79, %77, %75, %70
@@ -589,7 +586,7 @@ readRecoverySignalFile.exit:                      ; preds = %4
 100:                                              ; preds = %97
   %101 = load ptr, ptr @recovery_target_time_string, align 8
   %102 = ptrtoint ptr %101 to i64
-  %103 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @timestamptz_in, i32 noundef 0, i64 noundef %102, i64 noundef 0, i64 noundef -1) #23
+  %103 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @timestamptz_in, i32 noundef 0, i64 noundef %102, i64 noundef 0, i64 noundef -1) #22
   store i64 %103, ptr @recoveryTargetTime, align 8
   br label %104
 
@@ -606,20 +603,19 @@ readRecoverySignalFile.exit:                      ; preds = %4
   br i1 %.not.i, label %.sink.split.i, label %108
 
 108:                                              ; preds = %106
-  %109 = tail call zeroext i1 @existsTimeLineHistory(i32 noundef %107) #23
+  %109 = tail call zeroext i1 @existsTimeLineHistory(i32 noundef %107) #22
   br i1 %109, label %.sink.split.i, label %110
 
 110:                                              ; preds = %108
-  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %111)
-  %112 = tail call i32 @errcode(i32 noundef 50856066) #23
-  %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.92, i32 noundef %107) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1171, ptr noundef nonnull @__func__.validateRecoveryParameters) #23
+  %111 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %112 = tail call i32 @errcode(i32 noundef 50856066) #22
+  %113 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.92, i32 noundef %107) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1171, ptr noundef nonnull @__func__.validateRecoveryParameters) #22
   unreachable
 
 114:                                              ; preds = %104
   %115 = load i32, ptr @recoveryTargetTLI, align 4
-  %116 = tail call i32 @findNewestTimeLine(i32 noundef %115) #23
+  %116 = tail call i32 @findNewestTimeLine(i32 noundef %115) #22
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %114, %108, %106
@@ -635,29 +631,28 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 119:                                              ; preds = %validateRecoveryParameters.exit
   %120 = load ptr, ptr @XLogRecoveryCtl, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  tail call void @OwnLatch(ptr noundef nonnull %121) #23
+  tail call void @OwnLatch(ptr noundef nonnull %121) #22
   br label %122
 
 122:                                              ; preds = %119, %validateRecoveryParameters.exit
-  %123 = tail call ptr @palloc0(i64 noundef 12) #23
+  %123 = tail call ptr @palloc0(i64 noundef 12) #22
   %124 = load i32, ptr @wal_segment_size, align 4
   store ptr @XLogPageRead, ptr %19, align 8
   %125 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr null, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr @wal_segment_close, ptr %126, align 8
-  %127 = call ptr @XLogReaderAllocate(i32 noundef %124, ptr noundef null, ptr noundef nonnull %19, ptr noundef %123) #23
+  %127 = call ptr @XLogReaderAllocate(i32 noundef %124, ptr noundef null, ptr noundef nonnull %19, ptr noundef %123) #22
   store ptr %127, ptr @xlogreader, align 8
   %.not = icmp eq ptr %127, null
   br i1 %.not, label %128, label %133
 
 128:                                              ; preds = %122
-  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %129)
-  %130 = call i32 @errcode(i32 noundef 8389) #23
-  %131 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #23
-  %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 566, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %130 = call i32 @errcode(i32 noundef 8389) #22
+  %131 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #22
+  %132 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 566, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 133:                                              ; preds = %122
@@ -666,13 +661,13 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   store i64 %134, ptr %135, align 8
   %136 = load i32, ptr @wal_decode_buffer_size, align 4
   %137 = sext i32 %136 to i64
-  call void @XLogReaderSetDecodeBuffer(ptr noundef nonnull %127, ptr noundef null, i64 noundef %137) #23
+  call void @XLogReaderSetDecodeBuffer(ptr noundef nonnull %127, ptr noundef null, i64 noundef %137) #22
   %138 = load ptr, ptr @xlogreader, align 8
-  %139 = call ptr @XLogPrefetcherAllocate(ptr noundef %138) #23
+  %139 = call ptr @XLogPrefetcherAllocate(ptr noundef %138) #22
   store ptr %139, ptr @xlogprefetcher, align 8
-  %140 = call ptr @palloc(i64 noundef 8192) #23
+  %140 = call ptr @palloc(i64 noundef 8192) #22
   store ptr %140, ptr @replay_image_masked, align 8
-  %141 = call ptr @palloc(i64 noundef 8192) #23
+  %141 = call ptr @palloc(i64 noundef 8192) #22
   store ptr %141, ptr @primary_image_masked, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -687,26 +682,25 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   store i64 0, ptr @CheckPointLoc, align 8
   store i32 0, ptr @CheckPointTLI, align 4
   store i8 0, ptr @backupEndRequired, align 1
-  %142 = call ptr @AllocateFile(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.93) #23
+  %142 = call ptr @AllocateFile(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.93) #22
   %.not.i174 = icmp ne ptr %142, null
   br i1 %.not.i174, label %150, label %143
 
 143:                                              ; preds = %133
-  %144 = tail call ptr @__errno_location() #25
+  %144 = tail call ptr @__errno_location() #24
   %145 = load i32, ptr %144, align 4
   %.not26.i = icmp eq i32 %145, 2
   br i1 %.not26.i, label %398, label %146
 
 146:                                              ; preds = %143
-  %147 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %147)
-  %148 = call i32 @errcode_for_file_access() #23
-  %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1240, ptr noundef nonnull @__func__.read_backup_label) #23
+  %147 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %148 = call i32 @errcode_for_file_access() #22
+  %149 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1240, ptr noundef nonnull @__func__.read_backup_label) #22
   unreachable
 
 150:                                              ; preds = %133
-  %151 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.95, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10) #23
+  %151 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.95, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %10) #22
   %152 = icmp ne i32 %151, 5
   %153 = load i8, ptr %10, align 1
   %154 = icmp ne i8 %153, 10
@@ -714,11 +708,10 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %or.cond.i175, label %155, label %159
 
 155:                                              ; preds = %150
-  %156 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %156)
-  %157 = call i32 @errcode(i32 noundef 325) #23
-  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1253, ptr noundef nonnull @__func__.read_backup_label) #23
+  %156 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %157 = call i32 @errcode(i32 noundef 325) #22
+  %158 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1253, ptr noundef nonnull @__func__.read_backup_label) #22
   unreachable
 
 159:                                              ; preds = %150
@@ -731,7 +724,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   store i64 %165, ptr @RedoStartLSN, align 8
   %166 = load i32, ptr %8, align 4
   store i32 %166, ptr @RedoStartTLI, align 4
-  %167 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.97, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %10) #23
+  %167 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.97, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %10) #22
   %168 = icmp ne i32 %167, 3
   %169 = load i8, ptr %10, align 1
   %170 = icmp ne i8 %169, 10
@@ -739,11 +732,10 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %or.cond5.i, label %171, label %175
 
 171:                                              ; preds = %159
-  %172 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %172)
-  %173 = call i32 @errcode(i32 noundef 325) #23
-  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1260, ptr noundef nonnull @__func__.read_backup_label) #23
+  %172 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %173 = call i32 @errcode(i32 noundef 325) #22
+  %174 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1260, ptr noundef nonnull @__func__.read_backup_label) #22
   unreachable
 
 175:                                              ; preds = %159
@@ -756,7 +748,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   store i64 %181, ptr @CheckPointLoc, align 8
   %182 = load i32, ptr %8, align 4
   store i32 %182, ptr @CheckPointTLI, align 4
-  %183 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.98, ptr noundef nonnull %11) #23
+  %183 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.98, ptr noundef nonnull %11) #22
   %184 = icmp eq i32 %183, 1
   br i1 %184, label %185, label %188
 
@@ -770,40 +762,40 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br label %188
 
 188:                                              ; preds = %187, %185, %175
-  %189 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.100, ptr noundef nonnull %12) #23
+  %189 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.100, ptr noundef nonnull %12) #22
   %190 = icmp eq i32 %189, 1
   %lhsv.i = load i64, ptr %12, align 16
   %.not28.i = icmp eq i64 %lhsv.i, 34166655670121587
   %or.cond32.i = select i1 %190, i1 %.not28.i, i1 false
-  %191 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.102, ptr noundef nonnull %14) #23
+  %191 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.102, ptr noundef nonnull %14) #22
   %192 = icmp eq i32 %191, 1
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %188
-  %194 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %194 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %194, label %195, label %197
 
 195:                                              ; preds = %193
-  %196 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.103, ptr noundef nonnull %14, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1303, ptr noundef nonnull @__func__.read_backup_label) #23
+  %196 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.103, ptr noundef nonnull %14, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1303, ptr noundef nonnull @__func__.read_backup_label) #22
   br label %197
 
 197:                                              ; preds = %195, %193, %188
-  %198 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.104, ptr noundef nonnull %13) #23
+  %198 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.104, ptr noundef nonnull %13) #22
   %199 = icmp eq i32 %198, 1
   br i1 %199, label %200, label %204
 
 200:                                              ; preds = %197
-  %201 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %201 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %200
-  %203 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.105, ptr noundef nonnull %13, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1308, ptr noundef nonnull @__func__.read_backup_label) #23
+  %203 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.105, ptr noundef nonnull %13, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1308, ptr noundef nonnull @__func__.read_backup_label) #22
   br label %204
 
 204:                                              ; preds = %202, %200, %197
-  %205 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.106, ptr noundef nonnull %9) #23
+  %205 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.106, ptr noundef nonnull %9) #22
   %206 = icmp eq i32 %205, 1
   br i1 %206, label %207, label %222
 
@@ -814,56 +806,53 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %.not29.i, label %217, label %210
 
 210:                                              ; preds = %207
-  %211 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %211)
-  %212 = call i32 @errcode(i32 noundef 325) #23
-  %213 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.18) #23
+  %211 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %212 = call i32 @errcode(i32 noundef 325) #22
+  %213 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.18) #22
   %214 = load i32, ptr %9, align 4
   %215 = load i32, ptr %8, align 4
-  %216 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.107, i32 noundef %214, i32 noundef %215) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1321, ptr noundef nonnull @__func__.read_backup_label) #23
+  %216 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.107, i32 noundef %214, i32 noundef %215) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1321, ptr noundef nonnull @__func__.read_backup_label) #22
   unreachable
 
 217:                                              ; preds = %207
-  %218 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %218 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %218, label %219, label %222
 
 219:                                              ; preds = %217
   %220 = load i32, ptr %9, align 4
-  %221 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.108, i32 noundef %220, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1325, ptr noundef nonnull @__func__.read_backup_label) #23
+  %221 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.108, i32 noundef %220, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1325, ptr noundef nonnull @__func__.read_backup_label) #22
   br label %222
 
 222:                                              ; preds = %219, %217, %204
-  %223 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.109, ptr noundef nonnull %15, ptr noundef nonnull %16) #23
+  %223 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %142, ptr noundef nonnull @.str.109, ptr noundef nonnull %15, ptr noundef nonnull %16) #22
   %224 = icmp sgt i32 %223, 0
   br i1 %224, label %225, label %230
 
 225:                                              ; preds = %222
-  %226 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %226)
-  %227 = call i32 @errcode(i32 noundef 325) #23
-  %228 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.110) #23
-  %229 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.111) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1332, ptr noundef nonnull @__func__.read_backup_label) #23
+  %226 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %227 = call i32 @errcode(i32 noundef 325) #22
+  %228 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.110) #22
+  %229 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.111) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1332, ptr noundef nonnull @__func__.read_backup_label) #22
   unreachable
 
 230:                                              ; preds = %222
-  %231 = call i32 @ferror(ptr noundef nonnull %142) #23
+  %231 = call i32 @ferror(ptr noundef nonnull %142) #22
   %.not30.i = icmp eq i32 %231, 0
   br i1 %.not30.i, label %232, label %234
 
 232:                                              ; preds = %230
-  %233 = call i32 @FreeFile(ptr noundef nonnull %142) #23
+  %233 = call i32 @FreeFile(ptr noundef nonnull %142) #22
   %.not31.i = icmp eq i32 %233, 0
   br i1 %.not31.i, label %238, label %234
 
 234:                                              ; preds = %232, %230
-  %235 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %235)
-  %236 = call i32 @errcode_for_file_access() #23
-  %237 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.18) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1338, ptr noundef nonnull @__func__.read_backup_label) #23
+  %235 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %236 = call i32 @errcode_for_file_access() #22
+  %237 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.18) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1338, ptr noundef nonnull @__func__.read_backup_label) #22
   unreachable
 
 238:                                              ; preds = %232
@@ -883,11 +872,11 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 
 239:                                              ; preds = %238
   store i8 1, ptr @StandbyMode, align 1
-  call void @disable_startup_progress_timeout() #23
+  call void @disable_startup_progress_timeout() #22
   br label %240
 
 240:                                              ; preds = %239, %238
-  %241 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %241 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %241, label %242, label %253
 
 242:                                              ; preds = %240
@@ -900,8 +889,8 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %249 = trunc nuw i64 %248 to i32
   %250 = trunc i64 %247 to i32
   %251 = load i32, ptr @CheckPointTLI, align 4
-  %252 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %245, i32 noundef %246, i32 noundef %249, i32 noundef %250, i32 noundef %251) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 621, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %252 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %245, i32 noundef %246, i32 noundef %249, i32 noundef %250, i32 noundef %251) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 621, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %253
 
 253:                                              ; preds = %242, %240
@@ -949,7 +938,7 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 1
   %264 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %265 = load i8, ptr %264, align 8
-  %266 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %266 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %266, label %267, label %273
 
 267:                                              ; preds = %258
@@ -957,8 +946,8 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %269 = lshr i64 %268, 32
   %270 = trunc nuw i64 %269 to i32
   %271 = trunc i64 %268 to i32
-  %272 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %270, i32 noundef %271) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 635, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %272 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %270, i32 noundef %271) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 635, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %273
 
 273:                                              ; preds = %267, %258
@@ -969,15 +958,14 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
 
 276:                                              ; preds = %273
   %277 = load ptr, ptr @xlogprefetcher, align 8
-  call void @XLogPrefetcherBeginRead(ptr noundef %277, i64 noundef %.sroa.014.0.copyload) #23
+  call void @XLogPrefetcherBeginRead(ptr noundef %277, i64 noundef %.sroa.014.0.copyload) #22
   %278 = load ptr, ptr @xlogprefetcher, align 8
   %279 = call fastcc ptr @ReadRecord(ptr noundef %278, i32 noundef 15, i1 noundef zeroext false, i32 noundef %.sroa.16.0.copyload)
   %.not165 = icmp eq ptr %279, null
   br i1 %.not165, label %280, label %301
 
 280:                                              ; preds = %276
-  %281 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %281)
+  %281 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %282 = lshr i64 %.sroa.014.0.copyload, 32
   %283 = trunc nuw i64 %282 to i32
   %284 = trunc i64 %.sroa.014.0.copyload to i32
@@ -985,28 +973,27 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   %286 = lshr i64 %285, 32
   %287 = trunc nuw i64 %286 to i32
   %288 = trunc i64 %285 to i32
-  %289 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %283, i32 noundef %284, i32 noundef %287, i32 noundef %288) #23
+  %289 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %283, i32 noundef %284, i32 noundef %287, i32 noundef %288) #22
   %290 = load ptr, ptr @DataDir, align 8
-  %291 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef %290, ptr noundef %290, ptr noundef %290, ptr noundef %290) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 655, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %291 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef %290, ptr noundef %290, ptr noundef %290, ptr noundef %290) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 655, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 292:                                              ; preds = %253
-  %293 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %293)
+  %293 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %294 = load i64, ptr @CheckPointLoc, align 8
   %295 = lshr i64 %294, 32
   %296 = trunc nuw i64 %295 to i32
   %297 = trunc i64 %294 to i32
-  %298 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %296, i32 noundef %297) #23
+  %298 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %296, i32 noundef %297) #22
   %299 = load ptr, ptr @DataDir, align 8
-  %300 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef %299, ptr noundef %299, ptr noundef %299, ptr noundef %299) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 666, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %300 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef %299, ptr noundef %299, ptr noundef %299, ptr noundef %299) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 666, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 301:                                              ; preds = %273, %276
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %302 = call ptr @AllocateFile(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.93) #23
+  %302 = call ptr @AllocateFile(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.93) #22
   %.not43.i = icmp ne ptr %302, null
   br i1 %.not43.i, label %.preheader.i, label %304
 
@@ -1016,17 +1003,16 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %.not456672.i, label %.outer._crit_edge.thread.i, label %.lr.ph.i
 
 304:                                              ; preds = %301
-  %305 = tail call ptr @__errno_location() #25
+  %305 = tail call ptr @__errno_location() #24
   %306 = load i32, ptr %305, align 4
   %.not44.i = icmp eq i32 %306, 2
   br i1 %.not44.i, label %read_tablespace_map.exit, label %307
 
 307:                                              ; preds = %304
-  %308 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %308)
-  %309 = call i32 @errcode_for_file_access() #23
-  %310 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.15) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1375, ptr noundef nonnull @__func__.read_tablespace_map) #23
+  %308 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %309 = call i32 @errcode_for_file_access() #22
+  %310 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.15) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1375, ptr noundef nonnull @__func__.read_tablespace_map) #22
   unreachable
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %350
@@ -1072,20 +1058,19 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %or.cond.i176, label %329, label %325
 
 325:                                              ; preds = %.critedge.i
-  %326 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %326)
-  %327 = call i32 @errcode(i32 noundef 325) #23
-  %328 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.15) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1407, ptr noundef nonnull @__func__.read_tablespace_map) #23
+  %326 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %327 = call i32 @errcode(i32 noundef 325) #22
+  %328 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.15) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1407, ptr noundef nonnull @__func__.read_tablespace_map) #22
   unreachable
 
 329:                                              ; preds = %.critedge.i
   %330 = getelementptr inbounds nuw i8, ptr %5, i64 %318
   store i8 0, ptr %330, align 1
-  %331 = call ptr @palloc0(i64 noundef 32) #23
-  %332 = tail call ptr @__errno_location() #25
+  %331 = call ptr @palloc0(i64 noundef 32) #22
+  %332 = tail call ptr @__errno_location() #24
   store i32 0, ptr %332, align 4
-  %333 = call i64 @strtoul(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 10) #23
+  %333 = call i64 @strtoul(ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 10) #22
   %334 = trunc i64 %333 to i32
   store i32 %334, ptr %331, align 8
   %335 = load ptr, ptr %6, align 8
@@ -1101,21 +1086,20 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   ]
 
 339:                                              ; preds = %337, %337, %329
-  %340 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %340)
-  %341 = call i32 @errcode(i32 noundef 325) #23
-  %342 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.15) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1416, ptr noundef nonnull @__func__.read_tablespace_map) #23
+  %340 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %341 = call i32 @errcode(i32 noundef 325) #22
+  %342 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.15) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1416, ptr noundef nonnull @__func__.read_tablespace_map) #22
   unreachable
 
 343:                                              ; preds = %337
   %344 = zext nneg i32 %.034.i to i64
   %345 = getelementptr inbounds nuw i8, ptr %5, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 1
-  %347 = call ptr @pstrdup(ptr noundef nonnull %346) #23
+  %347 = call ptr @pstrdup(ptr noundef nonnull %346) #22
   %348 = getelementptr inbounds nuw i8, ptr %331, i64 8
   store ptr %347, ptr %348, align 8
-  %349 = call ptr @lappend(ptr noundef %.1179, ptr noundef nonnull %331) #23
+  %349 = call ptr @lappend(ptr noundef %.1179, ptr noundef nonnull %331) #22
   br label %350, !llvm.loop !7
 
 350:                                              ; preds = %343, %312
@@ -1163,30 +1147,28 @@ validateRecoveryParameters.exit:                  ; preds = %readRecoverySignalF
   br i1 %363, label %364, label %.outer._crit_edge.thread.i
 
 364:                                              ; preds = %.outer._crit_edge.i
-  %365 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %365)
-  %366 = call i32 @errcode(i32 noundef 325) #23
-  %367 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.15) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1436, ptr noundef nonnull @__func__.read_tablespace_map) #23
+  %365 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %366 = call i32 @errcode(i32 noundef 325) #22
+  %367 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.15) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1436, ptr noundef nonnull @__func__.read_tablespace_map) #22
   unreachable
 
 .outer._crit_edge.thread.i:                       ; preds = %350, %.outer._crit_edge.i, %.preheader.i
   %.3 = phi ptr [ null, %.preheader.i ], [ %.2, %.outer._crit_edge.i ], [ %.4, %350 ]
-  %368 = call i32 @ferror(ptr noundef nonnull %302) #23
+  %368 = call i32 @ferror(ptr noundef nonnull %302) #22
   %.not46.i = icmp eq i32 %368, 0
   br i1 %.not46.i, label %369, label %371
 
 369:                                              ; preds = %.outer._crit_edge.thread.i
-  %370 = call i32 @FreeFile(ptr noundef nonnull %302) #23
+  %370 = call i32 @FreeFile(ptr noundef nonnull %302) #22
   %.not47.i = icmp eq i32 %370, 0
   br i1 %.not47.i, label %375, label %371
 
 371:                                              ; preds = %369, %.outer._crit_edge.thread.i
-  %372 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %372)
-  %373 = call i32 @errcode_for_file_access() #23
-  %374 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.15) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1442, ptr noundef nonnull @__func__.read_tablespace_map) #23
+  %372 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %373 = call i32 @errcode_for_file_access() #22
+  %374 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.15) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1442, ptr noundef nonnull @__func__.read_tablespace_map) #22
   unreachable
 
 read_tablespace_map.exit:                         ; preds = %304
@@ -1211,26 +1193,25 @@ read_tablespace_map.exit:                         ; preds = %304
   %381 = getelementptr inbounds nuw %union.ListCell, ptr %380, i64 %indvars.iv
   %382 = load ptr, ptr %381, align 8
   %383 = load i32, ptr %382, align 8
-  %384 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %383) #23
-  call void @remove_tablespace_symlink(ptr noundef %384) #23
+  %384 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %383) #22
+  call void @remove_tablespace_symlink(ptr noundef %384) #22
   %385 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %386 = load ptr, ptr %385, align 8
-  %387 = call i32 @symlink(ptr noundef %386, ptr noundef %384) #23
+  %387 = call i32 @symlink(ptr noundef %386, ptr noundef %384) #22
   %388 = icmp slt i32 %387, 0
   br i1 %388, label %.split, label %392
 
 .split:                                           ; preds = %.lr.ph205
-  %389 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %389)
-  %390 = call i32 @errcode_for_file_access() #23
-  %391 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %384) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 692, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %389 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %390 = call i32 @errcode_for_file_access() #22
+  %391 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %384) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 692, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 392:                                              ; preds = %.lr.ph205
   %393 = load ptr, ptr %385, align 8
-  call void @pfree(ptr noundef %393) #23
-  call void @pfree(ptr noundef nonnull %382) #23
+  call void @pfree(ptr noundef %393) #22
+  call void @pfree(ptr noundef nonnull %382) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %394 = load i32, ptr %376, align 4
   %395 = sext i32 %394 to i64
@@ -1252,23 +1233,23 @@ read_tablespace_map.exit:                         ; preds = %304
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %399 = call i32 @stat(ptr noundef nonnull @.str.15, ptr noundef nonnull %18) #23
+  %399 = call i32 @stat(ptr noundef nonnull @.str.15, ptr noundef nonnull %18) #22
   %400 = icmp eq i32 %399, 0
   br i1 %400, label %401, label %408
 
 401:                                              ; preds = %398
-  %402 = call i32 @unlink(ptr noundef nonnull @.str.16) #23
-  %403 = call i32 @durable_rename(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 14) #23
-  %404 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %402 = call i32 @unlink(ptr noundef nonnull @.str.16) #22
+  %403 = call i32 @durable_rename(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 14) #22
+  %404 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %404, label %.sink.split, label %408
 
 .sink.split:                                      ; preds = %401
   %405 = icmp eq i32 %403, 0
   %.262 = select i1 %405, i32 727, i32 733
   %.str.19..str.20 = select i1 %405, ptr @.str.19, ptr @.str.20
-  %406 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18) #23
-  %407 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.19..str.20, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.262, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %406 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18) #22
+  %407 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.19..str.20, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.262, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %408
 
 408:                                              ; preds = %401, %.sink.split, %398
@@ -1306,7 +1287,7 @@ read_tablespace_map.exit:                         ; preds = %304
 
 425:                                              ; preds = %424
   store i8 1, ptr @StandbyMode, align 1
-  call void @disable_startup_progress_timeout() #23
+  call void @disable_startup_progress_timeout() #22
   br label %426
 
 426:                                              ; preds = %424, %425, %421, %408
@@ -1316,7 +1297,7 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %429, label %438, label %430
 
 430:                                              ; preds = %426
-  %431 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %431 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %431, label %432, label %438
 
 432:                                              ; preds = %430
@@ -1324,8 +1305,8 @@ read_tablespace_map.exit:                         ; preds = %304
   %434 = lshr i64 %433, 32
   %435 = trunc nuw i64 %434 to i32
   %436 = trunc i64 %433 to i32
-  %437 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, i32 noundef %435, i32 noundef %436) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 772, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %437 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, i32 noundef %435, i32 noundef %436) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 772, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %438
 
 438:                                              ; preds = %430, %432, %426
@@ -1343,7 +1324,7 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %.not162, label %453, label %445
 
 445:                                              ; preds = %438
-  %446 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %446 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %446, label %447, label %460
 
 447:                                              ; preds = %445
@@ -1351,19 +1332,18 @@ read_tablespace_map.exit:                         ; preds = %304
   %449 = lshr i64 %448, 32
   %450 = trunc nuw i64 %449 to i32
   %451 = trunc i64 %448 to i32
-  %452 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %450, i32 noundef %451) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 785, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %452 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %450, i32 noundef %451) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 785, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %460
 
 453:                                              ; preds = %438
-  %454 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %454)
+  %454 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
   %455 = load i64, ptr @CheckPointLoc, align 8
   %456 = lshr i64 %455, 32
   %457 = trunc nuw i64 %456 to i32
   %458 = trunc i64 %455 to i32
-  %459 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %457, i32 noundef %458) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 797, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %459 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %457, i32 noundef %458) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 797, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 460:                                              ; preds = %445, %447
@@ -1432,16 +1412,16 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %.b168, label %472, label %476
 
 472:                                              ; preds = %471
-  %473 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %473 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %473, label %474, label %505
 
 474:                                              ; preds = %472
-  %475 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #23
+  %475 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #22
   br label %.sink.split260
 
 476:                                              ; preds = %471
   %477 = load i32, ptr @recoveryTarget, align 4
-  %478 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %478 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   switch i32 %477, label %502 [
     i32 1, label %479
     i32 2, label %483
@@ -1455,7 +1435,7 @@ read_tablespace_map.exit:                         ; preds = %304
 
 480:                                              ; preds = %479
   %481 = load i32, ptr @recoveryTargetXid, align 4
-  %482 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %481) #23
+  %482 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, i32 noundef %481) #22
   br label %.sink.split260
 
 483:                                              ; preds = %476
@@ -1463,8 +1443,8 @@ read_tablespace_map.exit:                         ; preds = %304
 
 484:                                              ; preds = %483
   %485 = load i64, ptr @recoveryTargetTime, align 8
-  %486 = call ptr @timestamptz_to_str(i64 noundef %485) #23
-  %487 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %486) #23
+  %486 = call ptr @timestamptz_to_str(i64 noundef %485) #22
+  %487 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %486) #22
   br label %.sink.split260
 
 488:                                              ; preds = %476
@@ -1472,7 +1452,7 @@ read_tablespace_map.exit:                         ; preds = %304
 
 489:                                              ; preds = %488
   %490 = load ptr, ptr @recoveryTargetName, align 8
-  %491 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %490) #23
+  %491 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %490) #22
   br label %.sink.split260
 
 492:                                              ; preds = %476
@@ -1483,32 +1463,32 @@ read_tablespace_map.exit:                         ; preds = %304
   %495 = lshr i64 %494, 32
   %496 = trunc nuw i64 %495 to i32
   %497 = trunc i64 %494 to i32
-  %498 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, i32 noundef %496, i32 noundef %497) #23
+  %498 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, i32 noundef %496, i32 noundef %497) #22
   br label %.sink.split260
 
 499:                                              ; preds = %476
   br i1 %478, label %500, label %505
 
 500:                                              ; preds = %499
-  %501 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #23
+  %501 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #22
   br label %.sink.split260
 
 502:                                              ; preds = %476
   br i1 %478, label %503, label %505
 
 503:                                              ; preds = %502
-  %504 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #23
+  %504 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #22
   br label %.sink.split260
 
 .sink.split260:                                   ; preds = %480, %489, %500, %503, %493, %484, %474
   %.sink261 = phi i32 [ 807, %474 ], [ 815, %484 ], [ 823, %493 ], [ 829, %503 ], [ 826, %500 ], [ 819, %489 ], [ 811, %480 ]
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink261, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink261, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %505
 
 505:                                              ; preds = %.sink.split260, %472, %483, %492, %502, %499, %488, %479, %468
   %506 = load i64, ptr @CheckPointLoc, align 8
   %507 = load ptr, ptr @expectedTLEs, align 8
-  %508 = call i32 @tliOfPointInHistory(i64 noundef %506, ptr noundef %507) #23
+  %508 = call i32 @tliOfPointInHistory(i64 noundef %506, ptr noundef %507) #22
   %509 = load i32, ptr @CheckPointTLI, align 4
   %.not169 = icmp eq i32 %508, %509
   br i1 %.not169, label %527, label %510
@@ -1516,11 +1496,10 @@ read_tablespace_map.exit:                         ; preds = %304
 510:                                              ; preds = %505
   %511 = load i32, ptr %25, align 8
   %512 = load ptr, ptr @expectedTLEs, align 8
-  %513 = call i64 @tliSwitchPoint(i32 noundef %511, ptr noundef %512, ptr noundef null) #23
-  %514 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %514)
+  %513 = call i64 @tliSwitchPoint(i32 noundef %511, ptr noundef %512, ptr noundef null) #22
+  %514 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %515 = load i32, ptr @recoveryTargetTLI, align 4
-  %516 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, i32 noundef %515) #23
+  %516 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, i32 noundef %515) #22
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %518 = load i64, ptr %517, align 8
   %519 = lshr i64 %518, 32
@@ -1530,8 +1509,8 @@ read_tablespace_map.exit:                         ; preds = %304
   %523 = lshr i64 %513, 32
   %524 = trunc nuw i64 %523 to i32
   %525 = trunc i64 %513 to i32
-  %526 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.31, i32 noundef %520, i32 noundef %521, i32 noundef %522, i32 noundef %524, i32 noundef %525) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 855, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %526 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.31, i32 noundef %520, i32 noundef %521, i32 noundef %522, i32 noundef %524, i32 noundef %525) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 855, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 527:                                              ; preds = %505
@@ -1543,26 +1522,25 @@ read_tablespace_map.exit:                         ; preds = %304
 531:                                              ; preds = %527
   %532 = add i64 %529, -1
   %533 = load ptr, ptr @expectedTLEs, align 8
-  %534 = call i32 @tliOfPointInHistory(i64 noundef %532, ptr noundef %533) #23
+  %534 = call i32 @tliOfPointInHistory(i64 noundef %532, ptr noundef %533) #22
   %535 = load i32, ptr %22, align 8
   %.not170 = icmp eq i32 %534, %535
   br i1 %.not170, label %545, label %536
 
 536:                                              ; preds = %531
-  %537 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %537)
+  %537 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %538 = load i32, ptr @recoveryTargetTLI, align 4
   %539 = load i64, ptr %528, align 8
   %540 = lshr i64 %539, 32
   %541 = trunc nuw i64 %540 to i32
   %542 = trunc i64 %539 to i32
   %543 = load i32, ptr %22, align 8
-  %544 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, i32 noundef %538, i32 noundef %541, i32 noundef %542, i32 noundef %543) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 869, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %544 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, i32 noundef %538, i32 noundef %541, i32 noundef %542, i32 noundef %543) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 869, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 545:                                              ; preds = %531, %527
-  %546 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %546 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %546, label %547, label %553
 
 547:                                              ; preds = %545
@@ -1570,53 +1548,53 @@ read_tablespace_map.exit:                         ; preds = %304
   %549 = trunc nuw i64 %548 to i32
   %550 = trunc i64 %.sroa.014.0 to i32
   %551 = select i1 %.0.in, ptr @.str.34, ptr @.str.35
-  %552 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %549, i32 noundef %550, ptr noundef nonnull %551) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 874, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %552 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %549, i32 noundef %550, ptr noundef nonnull %551) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 874, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %553
 
 553:                                              ; preds = %547, %545
-  %554 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %554 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %554, label %555, label %557
 
 555:                                              ; preds = %553
-  %556 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i64 noundef %.sroa.1834.0, i32 noundef %.sroa.20.0) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 878, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %556 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i64 noundef %.sroa.1834.0, i32 noundef %.sroa.20.0) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 878, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %557
 
 557:                                              ; preds = %555, %553
-  %558 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %558 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %558, label %559, label %561
 
 559:                                              ; preds = %557
-  %560 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i32 noundef %.sroa.21.0, i32 noundef %.sroa.22.0) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 881, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %560 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i32 noundef %.sroa.21.0, i32 noundef %.sroa.22.0) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 881, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %561
 
 561:                                              ; preds = %559, %557
-  %562 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %562 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %562, label %563, label %565
 
 563:                                              ; preds = %561
-  %564 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %.sroa.23.0, i32 noundef %.sroa.24.0) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 884, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %564 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %.sroa.23.0, i32 noundef %.sroa.24.0) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 884, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %565
 
 565:                                              ; preds = %563, %561
-  %566 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %566 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %566, label %567, label %569
 
 567:                                              ; preds = %565
-  %568 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %.sroa.25.0, i32 noundef %.sroa.26.0) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 887, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %568 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %.sroa.25.0, i32 noundef %.sroa.26.0) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 887, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %569
 
 569:                                              ; preds = %567, %565
-  %570 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %570 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %570, label %571, label %573
 
 571:                                              ; preds = %569
-  %572 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %.sroa.2770.0, i32 noundef %.sroa.28.0) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 891, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %572 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %.sroa.2770.0, i32 noundef %.sroa.28.0) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 891, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %573
 
 573:                                              ; preds = %571, %569
@@ -1625,10 +1603,9 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %575, label %579, label %576
 
 576:                                              ; preds = %573
-  %577 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %577)
-  %578 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 894, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %577 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %578 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 894, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 579:                                              ; preds = %573
@@ -1637,10 +1614,9 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %581, label %582, label %585
 
 582:                                              ; preds = %579
-  %583 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %583)
-  %584 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 899, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %583 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %584 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 899, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 585:                                              ; preds = %579
@@ -1651,10 +1627,9 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %.0.in, label %588, label %.thread
 
 588:                                              ; preds = %587
-  %589 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %589)
-  %590 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 910, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %589 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %590 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 910, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 591:                                              ; preds = %585
@@ -1682,12 +1657,12 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %598, label %613, label %599
 
 599:                                              ; preds = %597
-  %600 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %600 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %600, label %601, label %603
 
 601:                                              ; preds = %599
-  %602 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 940, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %602 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 940, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %603
 
 603:                                              ; preds = %601, %599
@@ -1697,14 +1672,14 @@ read_tablespace_map.exit:                         ; preds = %304
   br i1 %606, label %607, label %613
 
 607:                                              ; preds = %603
-  %608 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %608 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %608, label %609, label %613
 
 609:                                              ; preds = %607
   %610 = load i32, ptr %25, align 8
   %611 = load i32, ptr @recoveryTargetTLI, align 4
-  %612 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, i32 noundef %610, i32 noundef %611) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 946, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %612 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, i32 noundef %610, i32 noundef %611) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 946, ptr noundef nonnull @__func__.InitWalRecovery) #22
   br label %613
 
 613:                                              ; preds = %603, %609, %607, %597
@@ -1773,11 +1748,10 @@ read_tablespace_map.exit:                         ; preds = %304
   ]
 
 628:                                              ; preds = %627
-  %629 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %629)
-  %630 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #23
-  %631 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.47) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 988, ptr noundef nonnull @__func__.InitWalRecovery) #23
+  %629 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %630 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #22
+  %631 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.47) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 988, ptr noundef nonnull @__func__.InitWalRecovery) #22
   unreachable
 
 632:                                              ; preds = %627, %627
@@ -1861,22 +1835,22 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %or.cond, label %28, label %35
 
 28:                                               ; preds = %23
-  %29 = tail call zeroext i1 @XLogCheckpointNeeded(i64 noundef %21) #23
+  %29 = tail call zeroext i1 @XLogCheckpointNeeded(i64 noundef %21) #22
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %28
-  %31 = tail call i64 @GetRedoRecPtr() #23
+  %31 = tail call i64 @GetRedoRecPtr() #22
   %32 = load i64, ptr @readSegNo, align 8
-  %33 = tail call zeroext i1 @XLogCheckpointNeeded(i64 noundef %32) #23
+  %33 = tail call zeroext i1 @XLogCheckpointNeeded(i64 noundef %32) #22
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %30
-  tail call void @RequestCheckpoint(i32 noundef 128) #23
+  tail call void @RequestCheckpoint(i32 noundef 128) #22
   br label %35
 
 35:                                               ; preds = %28, %34, %30, %23
   %36 = load i32, ptr @readFile, align 4
-  %37 = tail call i32 @close(i32 noundef %36) #23
+  %37 = tail call i32 @close(i32 noundef %36) #22
   store i32 -1, ptr @readFile, align 4
   store i32 0, ptr @readSource, align 4
   %.pre = load i32, ptr @wal_segment_size, align 4
@@ -1988,7 +1962,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92
-  call void @XLogShutdownWalRcv() #23
+  call void @XLogShutdownWalRcv() #22
   br label %.loopexit
 
 95:                                               ; preds = %92
@@ -1997,7 +1971,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %96, label %132, label %.loopexit
 
 97:                                               ; preds = %88
-  call void @XLogShutdownWalRcv() #23
+  call void @XLogShutdownWalRcv() #22
   %98 = load i32, ptr @recoveryTargetTimeLineGoal, align 4
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %100, label %102
@@ -2007,36 +1981,36 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %101, label %132, label %102
 
 102:                                              ; preds = %100, %97
-  %103 = call i64 @GetCurrentTimestamp() #23
+  %103 = call i64 @GetCurrentTimestamp() #22
   %104 = load i64, ptr @WaitForWALToBecomeAvailable.last_fail_time, align 8
   %105 = load i32, ptr @wal_retrieve_retry_interval, align 4
-  %106 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %104, i64 noundef %103, i32 noundef %105) #23
+  %106 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %104, i64 noundef %103, i32 noundef %105) #22
   br i1 %106, label %123, label %107
 
 107:                                              ; preds = %102
   %108 = load i32, ptr @wal_retrieve_retry_interval, align 4
   %109 = sext i32 %108 to i64
   %110 = load i64, ptr @WaitForWALToBecomeAvailable.last_fail_time, align 8
-  %111 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %110, i64 noundef %103) #23
+  %111 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %110, i64 noundef %103) #22
   %112 = sub i64 %109, %111
-  %113 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %113 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %107
-  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.158, i32 noundef %50, i32 noundef %51) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3714, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
+  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.158, i32 noundef %50, i32 noundef %51) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3714, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #22
   br label %116
 
 116:                                              ; preds = %114, %107
-  call void @KnownAssignedTransactionIdsIdleMaintenance() #23
+  call void @KnownAssignedTransactionIdsIdleMaintenance() #22
   %117 = load ptr, ptr @XLogRecoveryCtl, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %119 = call i32 @WaitLatch(ptr noundef nonnull %118, i32 noundef 41, i64 noundef %112, i32 noundef 150994948) #23
+  %119 = call i32 @WaitLatch(ptr noundef nonnull %118, i32 noundef 41, i64 noundef %112, i32 noundef 150994948) #22
   %120 = load ptr, ptr @XLogRecoveryCtl, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  call void @ResetLatch(ptr noundef nonnull %121) #23
-  %122 = call i64 @GetCurrentTimestamp() #23
-  call void @HandleStartupProcInterrupts() #23
+  call void @ResetLatch(ptr noundef nonnull %121) #22
+  %122 = call i64 @GetCurrentTimestamp() #22
+  call void @HandleStartupProcInterrupts() #22
   br label %123
 
 123:                                              ; preds = %116, %102
@@ -2045,11 +2019,10 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br label %132
 
 124:                                              ; preds = %88
-  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %125)
+  %125 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   %126 = load i32, ptr @currentSource, align 4
-  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.159, i32 noundef %126) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3735, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
+  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.159, i32 noundef %126) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3735, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #22
   unreachable
 
 128:                                              ; preds = %85
@@ -2067,7 +2040,7 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   br i1 %.not.i, label %.thread142.i, label %133
 
 133:                                              ; preds = %132
-  %134 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
+  %134 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #22
   br i1 %134, label %135, label %thread-pre-split.i
 
 135:                                              ; preds = %133
@@ -2080,8 +2053,8 @@ define internal i32 @XLogPageRead(ptr noundef %0, i64 noundef %1, i32 noundef %2
   %142 = load ptr, ptr %141, align 8
   %.b6569.i = load i1, ptr @lastSourceFailed, align 1
   %143 = select i1 %.b6569.i, ptr @.str.161, ptr @.str.162
-  %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.160, ptr noundef %138, ptr noundef %142, ptr noundef nonnull %143) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3752, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
+  %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.160, ptr noundef %138, ptr noundef %142, ptr noundef nonnull %143) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3752, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #22
   br label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %135, %133
@@ -2104,7 +2077,7 @@ thread-pre-split.i:                               ; preds = %135, %133
   br i1 %148, label %149, label %151
 
 149:                                              ; preds = %146
-  %150 = call i32 @close(i32 noundef %147) #23
+  %150 = call i32 @close(i32 noundef %147) #22
   store i32 -1, ptr @readFile, align 4
   br label %151
 
@@ -2127,7 +2100,7 @@ thread-pre-split.i:                               ; preds = %135, %133
 
 159:                                              ; preds = %153
   %160 = load i32, ptr @recoveryTargetTLI, align 4
-  %161 = call ptr @readTimeLineHistory(i32 noundef %160) #23
+  %161 = call ptr @readTimeLineHistory(i32 noundef %160) #22
   %.not44.i.i = icmp eq ptr %161, null
   br i1 %.not44.i.i, label %.critedge.i.i, label %.lr.ph.i.i
 
@@ -2304,12 +2277,12 @@ thread-pre-split.i:                               ; preds = %135, %133
 
 .split.us.i.i:                                    ; preds = %203, %181
   %.us-phi92.i.i = phi i32 [ %182, %181 ], [ %204, %203 ]
-  %231 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %231 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %.split.us.i.i
-  %233 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.171) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4354, ptr noundef nonnull @__func__.XLogFileReadAnyTLI) #23
+  %233 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.171) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4354, ptr noundef nonnull @__func__.XLogFileReadAnyTLI) #22
   br label %234
 
 234:                                              ; preds = %232, %.split.us.i.i
@@ -2332,16 +2305,16 @@ thread-pre-split.i:                               ; preds = %135, %133
   %242 = trunc i64 %241 to i32
   %243 = urem i64 %154, %240
   %244 = trunc nuw i64 %243 to i32
-  %245 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %237, i32 noundef %242, i32 noundef %244) #23
-  %246 = tail call ptr @__errno_location() #25
+  %245 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %237, i32 noundef %242, i32 noundef %244) #22
+  %246 = tail call ptr @__errno_location() #24
   store i32 2, ptr %246, align 4
-  %247 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
+  %247 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #22
   br i1 %247, label %248, label %251
 
 248:                                              ; preds = %.critedge.i.i
-  %249 = call i32 @errcode_for_file_access() #23
-  %250 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %6) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4378, ptr noundef nonnull @__func__.XLogFileReadAnyTLI) #23
+  %249 = call i32 @errcode_for_file_access() #22
+  %250 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %6) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4378, ptr noundef nonnull @__func__.XLogFileReadAnyTLI) #22
   br label %251
 
 XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %234
@@ -2363,7 +2336,7 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
   br i1 %or.cond5.i, label %259, label %254
 
 254:                                              ; preds = %252
-  call void @XLogShutdownWalRcv() #23
+  call void @XLogShutdownWalRcv() #22
   %255 = load i32, ptr @recoveryTargetTimeLineGoal, align 4
   %256 = icmp eq i32 %255, 1
   br i1 %256, label %257, label %259
@@ -2396,7 +2369,7 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
 
 268:                                              ; preds = %264
   %269 = load ptr, ptr @expectedTLEs, align 8
-  %270 = call i32 @tliOfPointInHistory(i64 noundef %3, ptr noundef %269) #23
+  %270 = call i32 @tliOfPointInHistory(i64 noundef %3, ptr noundef %269) #22
   %271 = load i32, ptr @curFileTLI, align 4
   %.not72.i = icmp ne i32 %271, 0
   %272 = icmp ult i32 %270, %271
@@ -2404,31 +2377,30 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
   br i1 %or.cond.i, label %273, label %280
 
 273:                                              ; preds = %268
-  %274 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %274)
+  %274 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   %275 = lshr i64 %3, 32
   %276 = trunc nuw i64 %275 to i32
   %277 = trunc i64 %3 to i32
   %278 = load i32, ptr @curFileTLI, align 4
-  %279 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.163, i32 noundef %276, i32 noundef %277, i32 noundef %270, i32 noundef %278) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3861, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
+  %279 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.163, i32 noundef %276, i32 noundef %277, i32 noundef %270, i32 noundef %278) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3861, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #22
   unreachable
 
 280:                                              ; preds = %268, %265
   %.045.i = phi i64 [ %266, %265 ], [ %43, %268 ]
   %.044.i = phi i32 [ %267, %265 ], [ %270, %268 ]
   store i32 %.044.i, ptr @curFileTLI, align 4
-  call void @SetInstallXLogFileSegmentActive() #23
+  call void @SetInstallXLogFileSegmentActive() #22
   %281 = load ptr, ptr @PrimaryConnInfo, align 8
   %282 = load ptr, ptr @PrimarySlotName, align 8
   %283 = load i8, ptr @wal_receiver_create_temp_slot, align 1, !range !4, !noundef !5
   %284 = trunc nuw i8 %283 to i1
-  call void @RequestXLogStreaming(i32 noundef %.044.i, i64 noundef %.045.i, ptr noundef %281, ptr noundef %282, i1 noundef zeroext %284) #23
+  call void @RequestXLogStreaming(i32 noundef %.044.i, i64 noundef %.045.i, ptr noundef %281, ptr noundef %282, i1 noundef zeroext %284) #22
   store i64 0, ptr @flushedUpto, align 8
   br label %285
 
 285:                                              ; preds = %280, %263, %259
-  %286 = call zeroext i1 @WalRcvStreaming() #23
+  %286 = call zeroext i1 @WalRcvStreaming() #22
   br i1 %286, label %288, label %287
 
 287:                                              ; preds = %285
@@ -2442,7 +2414,7 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
 
 291:                                              ; preds = %288
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %292 = call i64 @GetWalRcvFlushRecPtr(ptr noundef nonnull %7, ptr noundef nonnull @receiveTLI) #23
+  %292 = call i64 @GetWalRcvFlushRecPtr(ptr noundef nonnull %7, ptr noundef nonnull @receiveTLI) #22
   store i64 %292, ptr @flushedUpto, align 8
   %293 = icmp ult i64 %43, %292
   br i1 %293, label %294, label %313
@@ -2459,25 +2431,25 @@ XLogFileReadAnyTLI.exit.thread.sink.split.i:      ; preds = %.split76.us.i.i, %2
   br i1 %.not73.i, label %.critedge77.i, label %300
 
 300:                                              ; preds = %298
-  %301 = call i64 @GetCurrentTimestamp() #23
+  %301 = call i64 @GetCurrentTimestamp() #22
   store i64 %301, ptr @XLogReceiptTime, align 8
   %302 = load ptr, ptr @XLogRecoveryCtl, align 8
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 96
-  %304 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %303, i8 1, ptr nonnull elementtype(i8) %303) #23, !srcloc !10
+  %304 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %303, i8 1, ptr nonnull elementtype(i8) %303) #22, !srcloc !10
   %.not.i78.i = icmp eq i8 %304, 0
   br i1 %.not.i78.i, label %SetCurrentChunkStartTime.exit.i, label %305
 
 305:                                              ; preds = %300
   %306 = load ptr, ptr @XLogRecoveryCtl, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 96
-  %308 = call i32 @s_lock(ptr noundef nonnull %307, ptr noundef nonnull @.str.6, i32 noundef 4628, ptr noundef nonnull @__func__.SetCurrentChunkStartTime) #23
+  %308 = call i32 @s_lock(ptr noundef nonnull %307, ptr noundef nonnull @.str.6, i32 noundef 4628, ptr noundef nonnull @__func__.SetCurrentChunkStartTime) #22
   br label %SetCurrentChunkStartTime.exit.i
 
 SetCurrentChunkStartTime.exit.i:                  ; preds = %305, %300
   %309 = load ptr, ptr @XLogRecoveryCtl, align 8
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 72
   store i64 %301, ptr %310, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !11
   %311 = load ptr, ptr @XLogRecoveryCtl, align 8
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 96
   store i8 0, ptr %312, align 8
@@ -2503,7 +2475,7 @@ SetCurrentChunkStartTime.exit.i:                  ; preds = %305, %300
 
 318:                                              ; preds = %316
   %319 = load i32, ptr @recoveryTargetTLI, align 4
-  %320 = call ptr @readTimeLineHistory(i32 noundef %319) #23
+  %320 = call ptr @readTimeLineHistory(i32 noundef %319) #22
   store ptr %320, ptr @expectedTLEs, align 8
   br label %321
 
@@ -2531,27 +2503,26 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   br i1 %.049.i, label %330, label %329
 
 329:                                              ; preds = %328
-  call void @WalRcvForceReply() #23
+  call void @WalRcvForceReply() #22
   br label %330
 
 330:                                              ; preds = %329, %328
-  call void @KnownAssignedTransactionIdsIdleMaintenance() #23
+  call void @KnownAssignedTransactionIdsIdleMaintenance() #22
   %331 = load ptr, ptr @xlogprefetcher, align 8
-  call void @XLogPrefetcherComputeStats(ptr noundef %331) #23
+  call void @XLogPrefetcherComputeStats(ptr noundef %331) #22
   %332 = load ptr, ptr @XLogRecoveryCtl, align 8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
-  %334 = call i32 @WaitLatch(ptr noundef nonnull %333, i32 noundef 33, i64 noundef -1, i32 noundef 83886089) #23
+  %334 = call i32 @WaitLatch(ptr noundef nonnull %333, i32 noundef 33, i64 noundef -1, i32 noundef 83886089) #22
   %335 = load ptr, ptr @XLogRecoveryCtl, align 8
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 4
-  call void @ResetLatch(ptr noundef nonnull %336) #23
+  call void @ResetLatch(ptr noundef nonnull %336) #22
   br label %.thread.i
 
 337:                                              ; preds = %.thread142.i
-  %338 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %338)
+  %338 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   %339 = load i32, ptr @currentSource, align 4
-  %340 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.159, i32 noundef %339) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4003, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #23
+  %340 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.159, i32 noundef %339) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4003, ptr noundef nonnull @__func__.WaitForWALToBecomeAvailable) #22
   unreachable
 
 .thread.i:                                        ; preds = %330, %327, %321, %287, %251
@@ -2567,7 +2538,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   br label %345
 
 345:                                              ; preds = %344, %.thread.i
-  call void @HandleStartupProcInterrupts() #23
+  call void @HandleStartupProcInterrupts() #22
   %.pre.i = load i32, ptr @currentSource, align 4
   br label %85
 
@@ -2577,7 +2548,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread: ; preds = %.critedge.i
   br i1 %347, label %348, label %350
 
 348:                                              ; preds = %.loopexit
-  %349 = call i32 @close(i32 noundef %346) #23
+  %349 = call i32 @close(i32 noundef %346) #22
   br label %350
 
 350:                                              ; preds = %348, %.loopexit
@@ -2614,26 +2585,26 @@ WaitForWALToBecomeAvailable.exit.thread71.thread144: ; preds = %61, %WaitForWALT
   store i32 %15, ptr @readOff, align 4
   %359 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
   %360 = trunc nuw i8 %359 to i1
-  %361 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %360) #23
+  %361 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %360) #22
   %362 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772231, ptr %362, align 4
   %363 = load i32, ptr @readFile, align 4
   %364 = load i32, ptr @readOff, align 4
   %365 = zext i32 %364 to i64
-  %366 = call i64 @pread(i32 noundef %363, ptr noundef %4, i64 noundef 8192, i64 noundef %365) #23
+  %366 = call i64 @pread(i32 noundef %363, ptr noundef %4, i64 noundef 8192, i64 noundef %365) #22
   %367 = trunc i64 %366 to i32
   %.not60 = icmp eq i32 %367, 8192
   br i1 %.not60, label %409, label %368
 
 368:                                              ; preds = %.thread74
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %369 = tail call ptr @__errno_location() #25
+  %369 = tail call ptr @__errno_location() #24
   %370 = load i32, ptr %369, align 4
   %371 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %371, align 4
   %sext = shl i64 %366, 32
   %372 = ashr exact i64 %sext, 32
-  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %361, i32 noundef 1, i64 noundef %372) #23
+  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %361, i32 noundef 1, i64 noundef %372) #22
   %373 = load i32, ptr @curFileTLI, align 4
   %374 = load i64, ptr @readSegNo, align 8
   %375 = load i32, ptr @wal_segment_size, align 4
@@ -2643,7 +2614,7 @@ WaitForWALToBecomeAvailable.exit.thread71.thread144: ; preds = %61, %WaitForWALT
   %379 = trunc i64 %378 to i32
   %380 = urem i64 %374, %377
   %381 = trunc nuw i64 %380 to i32
-  %382 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %373, i32 noundef %379, i32 noundef %381) #23
+  %382 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %373, i32 noundef %379, i32 noundef %381) #22
   %383 = icmp slt i32 %367, 0
   br i1 %383, label %384, label %396
 
@@ -2665,13 +2636,13 @@ WaitForWALToBecomeAvailable.exit.thread71.thread144: ; preds = %61, %WaitForWALT
 
 emode_for_corrupt_record.exit:                    ; preds = %384, %387, %390
   %.0.i = phi i32 [ 15, %390 ], [ %11, %384 ], [ 14, %387 ]
-  %391 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #23
+  %391 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #22
   br i1 %391, label %392, label %408
 
 392:                                              ; preds = %emode_for_corrupt_record.exit
-  %393 = call i32 @errcode_for_file_access() #23
+  %393 = call i32 @errcode_for_file_access() #22
   %394 = load i32, ptr @readOff, align 4
-  %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.156, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %394) #23
+  %395 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.156, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %394) #22
   br label %.sink.split
 
 396:                                              ; preds = %368
@@ -2691,18 +2662,18 @@ emode_for_corrupt_record.exit:                    ; preds = %384, %387, %390
 
 emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
   %.0.i64 = phi i32 [ 15, %402 ], [ %11, %396 ], [ 14, %399 ]
-  %403 = call zeroext i1 @errstart(i32 noundef %.0.i64, ptr noundef null) #23
+  %403 = call zeroext i1 @errstart(i32 noundef %.0.i64, ptr noundef null) #22
   br i1 %403, label %404, label %408
 
 404:                                              ; preds = %emode_for_corrupt_record.exit65
-  %405 = call i32 @errcode(i32 noundef 16779816) #23
+  %405 = call i32 @errcode(i32 noundef 16779816) #22
   %406 = load i32, ptr @readOff, align 4
-  %407 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.157, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %406, i32 noundef %367, i64 noundef 8192) #23
+  %407 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.157, ptr noundef nonnull %8, i32 noundef %54, i32 noundef %14, i32 noundef %406, i32 noundef %367, i64 noundef 8192) #22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %392, %404
   %.sink162 = phi i32 [ 3433, %404 ], [ 3426, %392 ]
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink162, ptr noundef nonnull @__func__.XLogPageRead) #23
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink162, ptr noundef nonnull @__func__.XLogPageRead) #22
   br label %408
 
 408:                                              ; preds = %.sink.split, %emode_for_corrupt_record.exit65, %emode_for_corrupt_record.exit
@@ -2712,7 +2683,7 @@ emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
 409:                                              ; preds = %.thread74
   %410 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %410, align 4
-  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %361, i32 noundef 1, i64 noundef 8192) #23
+  call void @pgstat_count_io_op_time(i32 noundef 2, i32 noundef 3, i32 noundef 6, i64 %361, i32 noundef 1, i64 noundef 8192) #22
   %411 = load i32, ptr @curFileTLI, align 4
   store i32 %411, ptr %55, align 8
   %412 = load i8, ptr @StandbyMode, align 1, !range !4, !noundef !5
@@ -2727,7 +2698,7 @@ emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
   br i1 %418, label %419, label %437
 
 419:                                              ; preds = %414
-  %420 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4) #23
+  %420 = call zeroext i1 @XLogReaderValidatePageHeader(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %4) #22
   br i1 %420, label %437, label %421
 
 421:                                              ; preds = %419
@@ -2754,17 +2725,17 @@ emode_for_corrupt_record.exit65:                  ; preds = %396, %399, %402
 
 emode_for_corrupt_record.exit68:                  ; preds = %424, %428, %431
   %.0.i67 = phi i32 [ 15, %431 ], [ %11, %424 ], [ 14, %428 ]
-  %432 = call zeroext i1 @errstart(i32 noundef %.0.i67, ptr noundef null) #23
+  %432 = call zeroext i1 @errstart(i32 noundef %.0.i67, ptr noundef null) #22
   br i1 %432, label %433, label %436
 
 433:                                              ; preds = %emode_for_corrupt_record.exit68
   %434 = load ptr, ptr %56, align 8
-  %435 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %434) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3489, ptr noundef nonnull @__func__.XLogPageRead) #23
+  %435 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %434) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3489, ptr noundef nonnull @__func__.XLogPageRead) #22
   br label %436
 
 436:                                              ; preds = %emode_for_corrupt_record.exit68, %433, %421
-  call void @XLogReaderResetError(ptr noundef nonnull %0) #23
+  call void @XLogReaderResetError(ptr noundef nonnull %0) #22
   br label %439
 
 437:                                              ; preds = %419, %414, %409
@@ -2783,7 +2754,7 @@ emode_for_corrupt_record.exit68:                  ; preds = %424, %428, %431
   br i1 %444, label %445, label %447
 
 445:                                              ; preds = %442
-  %446 = call i32 @close(i32 noundef %443) #23
+  %446 = call i32 @close(i32 noundef %443) #22
   br label %447
 
 447:                                              ; preds = %445, %442
@@ -2827,17 +2798,17 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %7, label %.sink.split, label %28
 
 8:                                                ; preds = %3
-  tail call void @XLogPrefetcherBeginRead(ptr noundef %0, i64 noundef %1) #23
+  tail call void @XLogPrefetcherBeginRead(ptr noundef %0, i64 noundef %1) #22
   %9 = tail call fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef 15, i1 noundef zeroext true, i32 noundef %2)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %12 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %12, label %.sink.split, label %28
 
 13:                                               ; preds = %8
@@ -2847,7 +2818,7 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %17 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %17, label %.sink.split, label %28
 
 18:                                               ; preds = %13
@@ -2857,7 +2828,7 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %or.cond.not, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %22 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %22, label %.sink.split, label %28
 
 23:                                               ; preds = %18
@@ -2866,14 +2837,14 @@ define internal fastcc ptr @ReadCheckpointRecord(ptr noundef %0, i64 noundef %1,
   br i1 %.not15, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %26 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %26, label %.sink.split, label %28
 
 .sink.split:                                      ; preds = %25, %21, %16, %11, %6
   %.str.183.sink = phi ptr [ @.str.179, %6 ], [ @.str.180, %11 ], [ @.str.181, %16 ], [ @.str.182, %21 ], [ @.str.183, %25 ]
   %.sink = phi i32 [ 4074, %6 ], [ 4084, %11 ], [ 4090, %16 ], [ 4098, %21 ], [ 4104, %25 ]
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.183.sink) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__.ReadCheckpointRecord) #23
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.183.sink) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__.ReadCheckpointRecord) #22
   br label %28
 
 28:                                               ; preds = %.sink.split, %23, %25, %21, %16, %11, %6
@@ -2893,7 +2864,7 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15,
   %5 = alloca ptr, align 8
   %6 = alloca [64 x i8], align 16
   %7 = zext i1 %2 to i8
-  %8 = tail call ptr @XLogPrefetcherGetReader(ptr noundef %0) #23
+  %8 = tail call ptr @XLogPrefetcherGetReader(ptr noundef %0) #22
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2919,7 +2890,7 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15,
 
 25:                                               ; preds = %109, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %26 = call ptr @XLogPrefetcherReadRecord(ptr noundef %0, ptr noundef nonnull %5) #23
+  %26 = call ptr @XLogPrefetcherReadRecord(ptr noundef %0, ptr noundef nonnull %5) #22
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %55
 
@@ -2945,7 +2916,7 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15,
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = call i32 @close(i32 noundef %37) #23
+  %40 = call i32 @close(i32 noundef %37) #22
   store i32 -1, ptr @readFile, align 4
   br label %41
 
@@ -2972,19 +2943,19 @@ define internal fastcc ptr @ReadRecord(ptr noundef %0, i32 noundef range(i32 15,
 
 emode_for_corrupt_record.exit:                    ; preds = %43, %47, %50
   %.0.i = phi i32 [ 15, %50 ], [ %1, %43 ], [ 14, %47 ]
-  %51 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #23
+  %51 = call zeroext i1 @errstart(i32 noundef %.0.i, ptr noundef null) #22
   br i1 %51, label %52, label %90
 
 52:                                               ; preds = %emode_for_corrupt_record.exit
   %53 = load ptr, ptr %5, align 8
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %53) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3190, ptr noundef nonnull @__func__.ReadRecord) #23
+  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %53) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3190, ptr noundef nonnull @__func__.ReadRecord) #22
   br label %90
 
 55:                                               ; preds = %25
   %56 = load i32, ptr %18, align 8
   %57 = load ptr, ptr @expectedTLEs, align 8
-  %58 = call zeroext i1 @tliInHistory(i32 noundef %56, ptr noundef %57) #23
+  %58 = call zeroext i1 @tliInHistory(i32 noundef %56, ptr noundef %57) #22
   br i1 %58, label %110, label %59
 
 59:                                               ; preds = %55
@@ -2999,7 +2970,7 @@ emode_for_corrupt_record.exit:                    ; preds = %43, %47, %50
   %67 = trunc i64 %66 to i32
   %68 = urem i64 %63, %65
   %69 = trunc nuw i64 %68 to i32
-  %70 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %64, i32 noundef %67, i32 noundef %69) #23
+  %70 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %64, i32 noundef %67, i32 noundef %69) #22
   %71 = load i64, ptr %21, align 8
   %72 = load i32, ptr @readSource, align 4
   %73 = icmp eq i32 %72, 2
@@ -3017,7 +2988,7 @@ emode_for_corrupt_record.exit:                    ; preds = %43, %47, %50
 
 emode_for_corrupt_record.exit51:                  ; preds = %59, %74, %77
   %.0.i50 = phi i32 [ 15, %77 ], [ %1, %59 ], [ 14, %74 ]
-  %78 = call zeroext i1 @errstart(i32 noundef %.0.i50, ptr noundef null) #23
+  %78 = call zeroext i1 @errstart(i32 noundef %.0.i50, ptr noundef null) #22
   br i1 %78, label %79, label %89
 
 79:                                               ; preds = %emode_for_corrupt_record.exit51
@@ -3029,8 +3000,8 @@ emode_for_corrupt_record.exit51:                  ; preds = %59, %74, %77
   %85 = lshr i64 %84, 32
   %86 = trunc nuw i64 %85 to i32
   %87 = trunc i64 %84 to i32
-  %88 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.153, i32 noundef %83, ptr noundef nonnull %6, i32 noundef %86, i32 noundef %87, i32 noundef %82) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3212, ptr noundef nonnull @__func__.ReadRecord) #23
+  %88 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.153, i32 noundef %83, ptr noundef nonnull %6, i32 noundef %86, i32 noundef %87, i32 noundef %82) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3212, ptr noundef nonnull @__func__.ReadRecord) #22
   br label %89
 
 89:                                               ; preds = %79, %emode_for_corrupt_record.exit51
@@ -3049,12 +3020,12 @@ emode_for_corrupt_record.exit51:                  ; preds = %59, %74, %77
   br i1 %or.cond3, label %104, label %95
 
 95:                                               ; preds = %90
-  %96 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %96 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.154) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3242, ptr noundef nonnull @__func__.ReadRecord) #23
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.154) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3242, ptr noundef nonnull @__func__.ReadRecord) #22
   br label %99
 
 99:                                               ; preds = %97, %95
@@ -3064,12 +3035,12 @@ emode_for_corrupt_record.exit51:                  ; preds = %59, %74, %77
 
 100:                                              ; preds = %99
   store i8 1, ptr @StandbyMode, align 1
-  call void @disable_startup_progress_timeout() #23
+  call void @disable_startup_progress_timeout() #22
   br label %101
 
 101:                                              ; preds = %100, %99
   %102 = load i64, ptr %21, align 8
-  call void @SwitchIntoArchiveRecovery(i64 noundef %102, i32 noundef %3) #23
+  call void @SwitchIntoArchiveRecovery(i64 noundef %102, i32 noundef %3) #22
   %103 = load i64, ptr %21, align 8
   store i64 %103, ptr @minRecoveryPoint, align 8
   store i32 %3, ptr @minRecoveryPointTLI, align 4
@@ -3127,9 +3098,9 @@ declare i64 @tliSwitchPoint(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %1 = alloca [200 x i8], align 16
-  %2 = tail call ptr @palloc(i64 noundef 80) #23
-  tail call void @XLogShutdownWalRcv() #23
-  tail call void @ShutDownSlotSync() #23
+  %2 = tail call ptr @palloc(i64 noundef 80) #22
+  tail call void @XLogShutdownWalRcv() #22
+  tail call void @ShutDownSlotSync() #22
   store i8 0, ptr @StandbyMode, align 1
   %3 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
   %4 = trunc nuw i8 %3 to i1
@@ -3141,7 +3112,7 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %.0 = load i64, ptr %.0.in, align 8
   %.028 = load i32, ptr %.028.in, align 4
   %8 = load ptr, ptr @xlogprefetcher, align 8
-  tail call void @XLogPrefetcherBeginRead(ptr noundef %8, i64 noundef %.0) #23
+  tail call void @XLogPrefetcherBeginRead(ptr noundef %8, i64 noundef %.0) #22
   %9 = load ptr, ptr @xlogprefetcher, align 8
   %10 = tail call fastcc ptr @ReadRecord(ptr noundef %9, i32 noundef 23, i1 noundef zeroext false, i32 noundef %.028)
   %11 = load ptr, ptr @xlogreader, align 8
@@ -3162,7 +3133,7 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @close(i32 noundef %20) #23
+  %23 = tail call i32 @close(i32 noundef %20) #22
   store i32 -1, ptr @readFile, align 4
   br label %24
 
@@ -3173,7 +3144,7 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
 
 26:                                               ; preds = %24
   %27 = and i64 %13, -8192
-  %28 = tail call ptr @palloc(i64 noundef %25) #23
+  %28 = tail call ptr @palloc(i64 noundef %25) #22
   %29 = load ptr, ptr @xlogreader, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 168
   %31 = load ptr, ptr %30, align 8
@@ -3201,15 +3172,15 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %.b25.i = load i1, ptr @recoveryStopAfter, align 1
   %37 = select i1 %.b25.i, ptr @.str.142, ptr @.str.143
   %38 = load i32, ptr @recoveryStopXid, align 4
-  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.141, ptr noundef nonnull %37, i32 noundef %38) #23
+  %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.141, ptr noundef nonnull %37, i32 noundef %38) #22
   br label %getRecoveryStopReason.exit
 
 40:                                               ; preds = %32
   %.b14.i = load i1, ptr @recoveryStopAfter, align 1
   %41 = select i1 %.b14.i, ptr @.str.142, ptr @.str.143
   %42 = load i64, ptr @recoveryStopTime, align 8
-  %43 = tail call ptr @timestamptz_to_str(i64 noundef %42) #23
-  %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.144, ptr noundef nonnull %41, ptr noundef %43) #23
+  %43 = tail call ptr @timestamptz_to_str(i64 noundef %42) #22
+  %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.144, ptr noundef nonnull %41, ptr noundef %43) #22
   br label %getRecoveryStopReason.exit
 
 45:                                               ; preds = %32
@@ -3219,23 +3190,23 @@ define dso_local ptr @FinishWalRecovery() local_unnamed_addr #1 {
   %48 = lshr i64 %47, 32
   %49 = trunc nuw i64 %48 to i32
   %50 = trunc i64 %47 to i32
-  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.145, ptr noundef nonnull %46, i32 noundef %49, i32 noundef %50) #23
+  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.145, ptr noundef nonnull %46, i32 noundef %49, i32 noundef %50) #22
   br label %getRecoveryStopReason.exit
 
 52:                                               ; preds = %32
-  %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.146, ptr noundef nonnull @recoveryStopName) #23
+  %53 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.146, ptr noundef nonnull @recoveryStopName) #22
   br label %getRecoveryStopReason.exit
 
 54:                                               ; preds = %32
-  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.147) #23
+  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.147) #22
   br label %getRecoveryStopReason.exit
 
 56:                                               ; preds = %32
-  %57 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.148) #23
+  %57 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 200, ptr noundef nonnull @.str.148) #22
   br label %getRecoveryStopReason.exit
 
 getRecoveryStopReason.exit:                       ; preds = %36, %40, %45, %52, %54, %56
-  %58 = call ptr @pstrdup(ptr noundef nonnull %1) #23
+  %58 = call ptr @pstrdup(ptr noundef nonnull %1) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %58, ptr %59, align 8
@@ -3272,30 +3243,30 @@ define dso_local void @ShutdownWalRecovery() local_unnamed_addr #1 {
   %1 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load ptr, ptr @xlogprefetcher, align 8
-  tail call void @XLogPrefetcherComputeStats(ptr noundef %2) #23
+  tail call void @XLogPrefetcherComputeStats(ptr noundef %2) #22
   %3 = load i32, ptr @readFile, align 4
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %0
-  %6 = tail call i32 @close(i32 noundef %3) #23
+  %6 = tail call i32 @close(i32 noundef %3) #22
   store i32 -1, ptr @readFile, align 4
   br label %7
 
 7:                                                ; preds = %5, %0
   %8 = load ptr, ptr @xlogreader, align 8
-  tail call void @XLogReaderFree(ptr noundef %8) #23
+  tail call void @XLogReaderFree(ptr noundef %8) #22
   %9 = load ptr, ptr @xlogprefetcher, align 8
-  tail call void @XLogPrefetcherFree(ptr noundef %9) #23
+  tail call void @XLogPrefetcherFree(ptr noundef %9) #22
   %10 = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %7
-  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.48) #23
-  %14 = call i32 @unlink(ptr noundef nonnull %1) #23
-  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.49) #23
-  %16 = call i32 @unlink(ptr noundef nonnull %1) #23
+  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.48) #22
+  %14 = call i32 @unlink(ptr noundef nonnull %1) #22
+  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1024, ptr noundef nonnull @.str.49) #22
+  %16 = call i32 @unlink(ptr noundef nonnull %1) #22
   %.pre = load i8, ptr @ArchiveRecoveryRequested, align 1, !range !4
   %17 = trunc nuw i8 %.pre to i1
   br i1 %17, label %18, label %.thread
@@ -3303,7 +3274,7 @@ define dso_local void @ShutdownWalRecovery() local_unnamed_addr #1 {
 18:                                               ; preds = %12
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  call void @DisownLatch(ptr noundef nonnull %20) #23
+  call void @DisownLatch(ptr noundef nonnull %20) #22
   br label %.thread
 
 .thread:                                          ; preds = %7, %18, %12
@@ -3336,14 +3307,14 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %11 = alloca i32, align 4
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %14 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #23, !srcloc !10
+  %14 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %13, i8 1, ptr nonnull elementtype(i8) %13) #22, !srcloc !10
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %0
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
-  %18 = tail call i32 @s_lock(ptr noundef nonnull %17, ptr noundef nonnull @.str.6, i32 noundef 1664, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %18 = tail call i32 @s_lock(ptr noundef nonnull %17, ptr noundef nonnull @.str.6, i32 noundef 1664, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   br label %19
 
 19:                                               ; preds = %0, %15
@@ -3384,18 +3355,18 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   store i32 %36, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.sink174, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !12
   %41 = load ptr, ptr @XLogRecoveryCtl, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   store i8 0, ptr %42, align 8
-  %43 = tail call i64 @GetCurrentTimestamp() #23
+  %43 = tail call i64 @GetCurrentTimestamp() #22
   store i64 %43, ptr @XLogReceiptTime, align 8
   %44 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %34
-  tail call void @SendPostmasterSignal(i32 noundef 0) #23
+  tail call void @SendPostmasterSignal(i32 noundef 0) #22
   br label %47
 
 47:                                               ; preds = %46, %34
@@ -3408,7 +3379,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 
 52:                                               ; preds = %47
   %53 = load i32, ptr @RedoStartTLI, align 4
-  tail call void @XLogPrefetcherBeginRead(ptr noundef %51, i64 noundef %48) #23
+  tail call void @XLogPrefetcherBeginRead(ptr noundef %51, i64 noundef %48) #22
   %54 = load ptr, ptr @xlogprefetcher, align 8
   %55 = tail call fastcc ptr @ReadRecord(ptr noundef %54, i32 noundef 23, i1 noundef zeroext false, i32 noundef %53)
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 17
@@ -3424,16 +3395,15 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br i1 %.not16, label %.thread, label %62
 
 62:                                               ; preds = %58, %52
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %63)
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %64 = load ptr, ptr @xlogreader, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = lshr i64 %66, 32
   %68 = trunc nuw i64 %67 to i32
   %69 = trunc i64 %66 to i32
-  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, i32 noundef %68, i32 noundef %69) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1719, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, i32 noundef %68, i32 noundef %69) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1719, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   unreachable
 
 71:                                               ; preds = %47
@@ -3446,10 +3416,10 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %.047 = phi ptr [ %73, %71 ], [ %55, %58 ]
   %.04146 = phi i32 [ %72, %71 ], [ %53, %58 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @pg_rusage_init(ptr noundef nonnull %9) #23
+  call void @pg_rusage_init(ptr noundef nonnull %9) #22
   store i1 true, ptr @InRedo, align 1
-  call void @RmgrStartup() #23
-  %74 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  call void @RmgrStartup() #22
+  %74 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %74, label %75, label %83
 
 75:                                               ; preds = %.thread
@@ -3459,8 +3429,8 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %79 = lshr i64 %78, 32
   %80 = trunc nuw i64 %79 to i32
   %81 = trunc i64 %78 to i32
-  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, i32 noundef %80, i32 noundef %81) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1742, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, i32 noundef %80, i32 noundef %81) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1742, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   br label %83
 
 83:                                               ; preds = %75, %.thread
@@ -3469,7 +3439,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %83
-  call void @begin_startup_progress_phase() #23
+  call void @begin_startup_progress_phase() #22
   br label %87
 
 87:                                               ; preds = %86, %83
@@ -3492,11 +3462,11 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
 97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %98 = call zeroext i1 @has_startup_progress_timeout_expired(ptr noundef nonnull %10, ptr noundef nonnull %11) #23
+  %98 = call zeroext i1 @has_startup_progress_timeout_expired(ptr noundef nonnull %10, ptr noundef nonnull %11) #22
   br i1 %98, label %99, label %112
 
 99:                                               ; preds = %97
-  %100 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %100 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %100, label %101, label %112
 
 101:                                              ; preds = %99
@@ -3509,8 +3479,8 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %108 = lshr i64 %107, 32
   %109 = trunc nuw i64 %108 to i32
   %110 = trunc i64 %107 to i32
-  %111 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, i64 noundef %102, i32 noundef %104, i32 noundef %109, i32 noundef %110) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1755, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %111 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, i64 noundef %102, i32 noundef %104, i32 noundef %109, i32 noundef %110) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1755, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   br label %112
 
 112:                                              ; preds = %99, %101, %97
@@ -3519,7 +3489,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br label %113
 
 113:                                              ; preds = %112, %94
-  call void @HandleStartupProcInterrupts() #23
+  call void @HandleStartupProcInterrupts() #22
   %114 = load ptr, ptr @XLogRecoveryCtl, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 80
   %116 = load volatile i32, ptr %115, align 8
@@ -3545,12 +3515,12 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   br i1 %or.cond.i, label %127, label %132
 
 127:                                              ; preds = %122
-  %128 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %128 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %127
-  %130 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2595, ptr noundef nonnull @__func__.recoveryStopsBefore) #23
+  %130 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2595, ptr noundef nonnull @__func__.recoveryStopsBefore) #22
   br label %131
 
 131:                                              ; preds = %129, %127
@@ -3581,7 +3551,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   store i64 %138, ptr @recoveryStopLSN, align 8
   store i64 0, ptr @recoveryStopTime, align 8
   store i8 0, ptr @recoveryStopName, align 16
-  %141 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %141 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %141, label %142, label %recoveryStopsBefore.exit.thread
 
 142:                                              ; preds = %140
@@ -3589,8 +3559,8 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %144 = lshr i64 %143, 32
   %145 = trunc nuw i64 %144 to i32
   %146 = trunc i64 %143 to i32
-  %147 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.134, i32 noundef %145, i32 noundef %146) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2617, ptr noundef nonnull @__func__.recoveryStopsBefore) #23
+  %147 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.134, i32 noundef %145, i32 noundef %146) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2617, ptr noundef nonnull @__func__.recoveryStopsBefore) #22
   br label %recoveryStopsBefore.exit.thread
 
 148:                                              ; preds = %136, %132
@@ -3622,7 +3592,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %162 = getelementptr inbounds nuw i8, ptr %150, i64 72
   %163 = load ptr, ptr %162, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @ParseCommitRecord(i8 noundef zeroext %155, ptr noundef %163, ptr noundef nonnull %7) #23
+  call void @ParseCommitRecord(i8 noundef zeroext %155, ptr noundef %163, ptr noundef nonnull %7) #22
   %164 = load i32, ptr %89, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %172
@@ -3636,7 +3606,7 @@ define dso_local void @PerformWalRecovery() local_unnamed_addr #1 {
   %169 = getelementptr inbounds nuw i8, ptr %150, i64 72
   %170 = load ptr, ptr %169, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @ParseAbortRecord(i8 noundef zeroext %155, ptr noundef %170, ptr noundef nonnull %8) #23
+  call void @ParseAbortRecord(i8 noundef zeroext %155, ptr noundef %170, ptr noundef nonnull %8) #22
   %171 = load i32, ptr %88, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %172
@@ -3715,7 +3685,7 @@ getRecordTimestamp.exit.i:                        ; preds = %190, %190, %190, %1
   store i64 %.0364041.i, ptr @recoveryStopTime, align 8
   store i64 0, ptr @recoveryStopLSN, align 8
   store i8 0, ptr @recoveryStopName, align 16
-  %204 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %204 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %.030.i, label %205, label %211
 
 205:                                              ; preds = %203
@@ -3724,9 +3694,9 @@ getRecordTimestamp.exit.i:                        ; preds = %190, %190, %190, %1
 206:                                              ; preds = %205
   %207 = load i32, ptr @recoveryStopXid, align 4
   %208 = load i64, ptr @recoveryStopTime, align 8
-  %209 = call ptr @timestamptz_to_str(i64 noundef %208) #23
-  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.135, i32 noundef %207, ptr noundef %209) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2708, ptr noundef nonnull @__func__.recoveryStopsBefore) #23
+  %209 = call ptr @timestamptz_to_str(i64 noundef %208) #22
+  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.135, i32 noundef %207, ptr noundef %209) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2708, ptr noundef nonnull @__func__.recoveryStopsBefore) #22
   br label %recoveryStopsBefore.exit.thread
 
 211:                                              ; preds = %203
@@ -3735,9 +3705,9 @@ getRecordTimestamp.exit.i:                        ; preds = %190, %190, %190, %1
 212:                                              ; preds = %211
   %213 = load i32, ptr @recoveryStopXid, align 4
   %214 = load i64, ptr @recoveryStopTime, align 8
-  %215 = call ptr @timestamptz_to_str(i64 noundef %214) #23
-  %216 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.136, i32 noundef %213, ptr noundef %215) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2715, ptr noundef nonnull @__func__.recoveryStopsBefore) #23
+  %215 = call ptr @timestamptz_to_str(i64 noundef %214) #22
+  %216 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.136, i32 noundef %213, ptr noundef %215) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2715, ptr noundef nonnull @__func__.recoveryStopsBefore) #22
   br label %recoveryStopsBefore.exit.thread
 
 recoveryStopsBefore.exit:                         ; preds = %202, %201, %199, %getRecordTimestamp.exit.thread.i, %153, %148, %118
@@ -3786,16 +3756,16 @@ recoveryStopsBefore.exit:                         ; preds = %202, %201, %199, %g
   %240 = zext nneg i32 %217 to i64
   %241 = mul nuw nsw i64 %240, 1000
   %242 = add i64 %239, %241
-  %243 = call i64 @GetCurrentTimestamp() #23
-  %244 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %243, i64 noundef %242) #23
+  %243 = call i64 @GetCurrentTimestamp() #22
+  %244 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %243, i64 noundef %242) #22
   %245 = icmp slt i64 %244, 1
   br i1 %245, label %recoveryApplyDelay.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %236
   %246 = load ptr, ptr @XLogRecoveryCtl, align 8
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 4
-  call void @ResetLatch(ptr noundef nonnull %247) #23
-  call void @HandleStartupProcInterrupts() #23
+  call void @ResetLatch(ptr noundef nonnull %247) #22
+  call void @HandleStartupProcInterrupts() #22
   %248 = call fastcc zeroext i1 @CheckForStandbyTrigger()
   br i1 %248, label %recoveryApplyDelay.exit, label %.lr.ph.i
 
@@ -3804,28 +3774,28 @@ recoveryStopsBefore.exit:                         ; preds = %202, %201, %199, %g
   %250 = sext i32 %249 to i64
   %251 = mul nsw i64 %250, 1000
   %252 = add i64 %251, %239
-  %253 = call i64 @GetCurrentTimestamp() #23
-  %254 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %253, i64 noundef %252) #23
+  %253 = call i64 @GetCurrentTimestamp() #22
+  %254 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %253, i64 noundef %252) #22
   %255 = icmp slt i64 %254, 1
   br i1 %255, label %recoveryApplyDelay.exit, label %256
 
 256:                                              ; preds = %.lr.ph.i
-  %257 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #23
+  %257 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #22
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %256
-  %259 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.152, i64 noundef %254) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3059, ptr noundef nonnull @__func__.recoveryApplyDelay) #23
+  %259 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.152, i64 noundef %254) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 3059, ptr noundef nonnull @__func__.recoveryApplyDelay) #22
   br label %260
 
 260:                                              ; preds = %258, %256
   %261 = load ptr, ptr @XLogRecoveryCtl, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
-  %263 = call i32 @WaitLatch(ptr noundef nonnull %262, i32 noundef 41, i64 noundef %254, i32 noundef 150994947) #23
+  %263 = call i32 @WaitLatch(ptr noundef nonnull %262, i32 noundef 41, i64 noundef %254, i32 noundef 150994947) #22
   %264 = load ptr, ptr @XLogRecoveryCtl, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  call void @ResetLatch(ptr noundef nonnull %265) #23
-  call void @HandleStartupProcInterrupts() #23
+  call void @ResetLatch(ptr noundef nonnull %265) #22
+  call void @HandleStartupProcInterrupts() #22
   %266 = call fastcc zeroext i1 @CheckForStandbyTrigger()
   br i1 %266, label %recoveryApplyDelay.exit, label %.lr.ph.i
 
@@ -3850,7 +3820,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   store ptr %6, ptr @error_context_stack, align 8
   %273 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %274 = load i32, ptr %273, align 4
-  call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %274) #23
+  call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %274) #22
   %275 = getelementptr inbounds nuw i8, ptr %.1, i64 17
   %276 = load i8, ptr %275, align 1
   %277 = icmp eq i8 %276, 0
@@ -3884,10 +3854,9 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   br i1 %.not.i.i, label %289, label %286
 
 286:                                              ; preds = %283
-  %287 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %287)
-  %288 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.116, i32 noundef %.041.i, i32 noundef %.142) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2387, ptr noundef nonnull @__func__.checkTimeLineSwitch) #23
+  %287 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %288 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.116, i32 noundef %.041.i, i32 noundef %.142) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2387, ptr noundef nonnull @__func__.checkTimeLineSwitch) #22
   unreachable
 
 289:                                              ; preds = %283
@@ -3896,14 +3865,13 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
 
 291:                                              ; preds = %289
   %292 = load ptr, ptr @expectedTLEs, align 8
-  %293 = call zeroext i1 @tliInHistory(i32 noundef %.040.i, ptr noundef %292) #23
+  %293 = call zeroext i1 @tliInHistory(i32 noundef %.040.i, ptr noundef %292) #22
   br i1 %293, label %297, label %294
 
 294:                                              ; preds = %291, %289
-  %295 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %295)
-  %296 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117, i32 noundef %.040.i, i32 noundef %.142) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2396, ptr noundef nonnull @__func__.checkTimeLineSwitch) #23
+  %295 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %296 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117, i32 noundef %.040.i, i32 noundef %.142) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2396, ptr noundef nonnull @__func__.checkTimeLineSwitch) #22
   unreachable
 
 297:                                              ; preds = %291
@@ -3915,15 +3883,14 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   br i1 %or.cond16.i.i, label %302, label %.thread.i
 
 302:                                              ; preds = %297
-  %303 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %303)
+  %303 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
   %304 = load i64, ptr @minRecoveryPoint, align 8
   %305 = lshr i64 %304, 32
   %306 = trunc nuw i64 %305 to i32
   %307 = trunc i64 %304 to i32
   %308 = load i32, ptr @minRecoveryPointTLI, align 4
-  %309 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, i32 noundef %.040.i, i32 noundef %306, i32 noundef %307, i32 noundef %308) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2414, ptr noundef nonnull @__func__.checkTimeLineSwitch) #23
+  %309 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.118, i32 noundef %.040.i, i32 noundef %306, i32 noundef %307, i32 noundef %308) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2414, ptr noundef nonnull @__func__.checkTimeLineSwitch) #22
   unreachable
 
 .thread.i:                                        ; preds = %278, %297, %282, %recoveryApplyDelay.exit.thread
@@ -3931,14 +3898,14 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   %.0.i26 = phi i1 [ false, %282 ], [ false, %recoveryApplyDelay.exit.thread ], [ true, %297 ], [ false, %278 ]
   %310 = load ptr, ptr @XLogRecoveryCtl, align 8
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 96
-  %312 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #23, !srcloc !10
+  %312 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %311, i8 1, ptr nonnull elementtype(i8) %311) #22, !srcloc !10
   %.not45.i = icmp eq i8 %312, 0
   br i1 %.not45.i, label %317, label %313
 
 313:                                              ; preds = %.thread.i
   %314 = load ptr, ptr @XLogRecoveryCtl, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 96
-  %316 = call i32 @s_lock(ptr noundef nonnull %315, ptr noundef nonnull @.str.6, i32 noundef 1973, ptr noundef nonnull @__func__.ApplyWalRecord) #23
+  %316 = call i32 @s_lock(ptr noundef nonnull %315, ptr noundef nonnull @.str.6, i32 noundef 1973, ptr noundef nonnull @__func__.ApplyWalRecord) #22
   br label %317
 
 317:                                              ; preds = %313, %.thread.i
@@ -3949,7 +3916,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   store i64 %319, ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 56
   store i32 %.2, ptr %322, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !13
   %323 = load ptr, ptr @XLogRecoveryCtl, align 8
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 96
   store i8 0, ptr %324, align 8
@@ -3963,7 +3930,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   br i1 %.not47.i, label %329, label %328
 
 328:                                              ; preds = %326
-  call void @RecordKnownAssignedTransactionIds(i32 noundef %327) #23
+  call void @RecordKnownAssignedTransactionIds(i32 noundef %327) #22
   br label %329
 
 329:                                              ; preds = %328, %326, %317
@@ -3995,8 +3962,7 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   br i1 %.not.i51.i, label %354, label %344
 
 344:                                              ; preds = %339
-  %345 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %345)
+  %345 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %346 = lshr i64 %.sroa.0.0.copyload.i.i, 32
   %347 = trunc nuw i64 %346 to i32
   %348 = trunc i64 %.sroa.0.0.copyload.i.i to i32
@@ -4004,23 +3970,23 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   %350 = lshr i64 %349, 32
   %351 = trunc nuw i64 %350 to i32
   %352 = trunc i64 %349 to i32
-  %353 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.119, i32 noundef %347, i32 noundef %348, i32 noundef %351, i32 noundef %352) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2090, ptr noundef nonnull @__func__.xlogrecovery_redo) #23
+  %353 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.119, i32 noundef %347, i32 noundef %348, i32 noundef %351, i32 noundef %352) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2090, ptr noundef nonnull @__func__.xlogrecovery_redo) #22
   unreachable
 
 354:                                              ; preds = %339
   store i64 0, ptr @abortedRecPtr, align 8
   store i64 0, ptr @missingContrecPtr, align 8
-  %355 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %355 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %355, label %356, label %362
 
 356:                                              ; preds = %354
   %357 = lshr i64 %.sroa.0.0.copyload.i.i, 32
   %358 = trunc nuw i64 %357 to i32
   %359 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %360 = call ptr @timestamptz_to_str(i64 noundef %.sroa.8.0.copyload.i.i) #23
-  %361 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120, i32 noundef %358, i32 noundef %359, ptr noundef %360) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2099, ptr noundef nonnull @__func__.xlogrecovery_redo) #23
+  %360 = call ptr @timestamptz_to_str(i64 noundef %.sroa.8.0.copyload.i.i) #22
+  %361 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.120, i32 noundef %358, i32 noundef %359, ptr noundef %360) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2099, ptr noundef nonnull @__func__.xlogrecovery_redo) #22
   br label %362
 
 362:                                              ; preds = %356, %354
@@ -4033,15 +3999,15 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   %.0.copyload.i.i = load i64, ptr %365, align 1
   %366 = load i64, ptr @backupStartPoint, align 8
   %367 = icmp eq i64 %366, %.0.copyload.i.i
-  %368 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %368 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %367, label %369, label %373
 
 369:                                              ; preds = %363
   br i1 %368, label %370, label %372
 
 370:                                              ; preds = %369
-  %371 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.121) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2120, ptr noundef nonnull @__func__.xlogrecovery_redo) #23
+  %371 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.121) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2120, ptr noundef nonnull @__func__.xlogrecovery_redo) #22
   br label %372
 
 372:                                              ; preds = %370, %369
@@ -4059,8 +4025,8 @@ recoveryApplyDelay.exit.thread:                   ; preds = %233, %236, %229, %2
   %379 = lshr i64 %378, 32
   %380 = trunc nuw i64 %379 to i32
   %381 = trunc i64 %378 to i32
-  %382 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.122, i32 noundef %376, i32 noundef %377, i32 noundef %380, i32 noundef %381) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2126, ptr noundef nonnull @__func__.xlogrecovery_redo) #23
+  %382 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.122, i32 noundef %376, i32 noundef %377, i32 noundef %380, i32 noundef %381) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2126, ptr noundef nonnull @__func__.xlogrecovery_redo) #22
   br label %xlogrecovery_redo.exit.i
 
 xlogrecovery_redo.exit.i:                         ; preds = %374, %373, %372, %362, %332, %329
@@ -4072,13 +4038,13 @@ xlogrecovery_redo.exit.i:                         ; preds = %374, %373, %372, %3
   br i1 %.not.i52.i, label %387, label %GetRmgr.exit.i, !prof !17
 
 387:                                              ; preds = %xlogrecovery_redo.exit.i
-  call void @RmgrNotFound(i8 noundef zeroext %383) #23, !noalias !14
+  call void @RmgrNotFound(i8 noundef zeroext %383) #22, !noalias !14
   br label %GetRmgr.exit.i
 
 GetRmgr.exit.i:                                   ; preds = %387, %xlogrecovery_redo.exit.i
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %385, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
-  call void %.sroa.1.0.copyload.i(ptr noundef nonnull %271) #23
+  call void %.sroa.1.0.copyload.i(ptr noundef nonnull %271) #22
   %388 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %389 = load i8, ptr %388, align 8
   %390 = and i8 %389, 2
@@ -4097,7 +4063,7 @@ GetRmgr.exit.i:                                   ; preds = %387, %xlogrecovery_
   br i1 %.not.i.i.i, label %399, label %GetRmgr.exit.i.i, !prof !17
 
 399:                                              ; preds = %391
-  call void @RmgrNotFound(i8 noundef zeroext %395) #23, !noalias !18
+  call void @RmgrNotFound(i8 noundef zeroext %395) #22, !noalias !18
   %.pre.i.i = load ptr, ptr %392, align 8
   br label %GetRmgr.exit.i.i
 
@@ -4120,7 +4086,7 @@ GetRmgr.exit.i.i:                                 ; preds = %399, %391
 404:                                              ; preds = %464, %.lr.ph.i.i
   %.024.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %465, %464 ]
   %405 = trunc i32 %.024.i.i to i8
-  %406 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %271, i8 noundef zeroext %405, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #23
+  %406 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %271, i8 noundef zeroext %405, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null) #22
   br i1 %406, label %407, label %464
 
 407:                                              ; preds = %404
@@ -4137,12 +4103,12 @@ GetRmgr.exit.i.i:                                 ; preds = %399, %391
   %416 = load i32, ptr %5, align 4
   %.sroa.0.0.copyload.i54.i = load i64, ptr %3, align 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %417 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload.i54.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %415, i32 noundef %416, i32 noundef 4, i32 noundef 0) #23
+  %417 = call i32 @XLogReadBufferExtended(i64 %.sroa.0.0.copyload.i54.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %415, i32 noundef %416, i32 noundef 4, i32 noundef 0) #22
   %.not21.i.i = icmp eq i32 %417, 0
   br i1 %.not21.i.i, label %464, label %418
 
 418:                                              ; preds = %414
-  call void @LockBuffer(i32 noundef %417, i32 noundef 2) #23
+  call void @LockBuffer(i32 noundef %417, i32 noundef 2) #22
   %419 = icmp slt i32 %417, 0
   br i1 %419, label %420, label %426
 
@@ -4166,7 +4132,7 @@ BufferGetPage.exit.i.i:                           ; preds = %426, %420
   %.0.i.i.i.i = phi ptr [ %425, %420 ], [ %431, %426 ]
   %432 = load ptr, ptr @replay_image_masked, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %432, ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i.i.i, i64 8192, i1 false)
-  call void @UnlockReleaseBuffer(i32 noundef %417) #23
+  call void @UnlockReleaseBuffer(i32 noundef %417) #22
   %433 = load ptr, ptr @replay_image_masked, align 8
   %.val.i.i = load i64, ptr %433, align 4
   %434 = call i64 @llvm.fshl.i64(i64 %.val.i.i, i64 %.val.i.i, i64 32)
@@ -4176,17 +4142,16 @@ BufferGetPage.exit.i.i:                           ; preds = %426, %420
 
 437:                                              ; preds = %BufferGetPage.exit.i.i
   %438 = load ptr, ptr @primary_image_masked, align 8
-  %439 = call zeroext i1 @RestoreBlockImage(ptr noundef nonnull %271, i8 noundef zeroext %405, ptr noundef %438) #23
+  %439 = call zeroext i1 @RestoreBlockImage(ptr noundef nonnull %271, i8 noundef zeroext %405, ptr noundef %438) #22
   br i1 %439, label %446, label %440
 
 440:                                              ; preds = %437
-  %441 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  call void @llvm.assume(i1 %441)
-  %442 = call i32 @errcode(i32 noundef 2600) #23
+  %441 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %442 = call i32 @errcode(i32 noundef 2600) #22
   %443 = getelementptr inbounds nuw i8, ptr %271, i64 1304
   %444 = load ptr, ptr %443, align 8
-  %445 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %444) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2544, ptr noundef nonnull @__func__.verifyBackupPageConsistency) #23
+  %445 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.123, ptr noundef %444) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2544, ptr noundef nonnull @__func__.verifyBackupPageConsistency) #22
   unreachable
 
 446:                                              ; preds = %437
@@ -4195,10 +4160,10 @@ BufferGetPage.exit.i.i:                           ; preds = %426, %420
 447:                                              ; preds = %446
   %448 = load ptr, ptr @replay_image_masked, align 8
   %449 = load i32, ptr %5, align 4
-  call void %.sroa.3.0.copyload.i.i(ptr noundef %448, i32 noundef %449) #23
+  call void %.sroa.3.0.copyload.i.i(ptr noundef %448, i32 noundef %449) #22
   %450 = load ptr, ptr @primary_image_masked, align 8
   %451 = load i32, ptr %5, align 4
-  call void %.sroa.3.0.copyload.i.i(ptr noundef %450, i32 noundef %451) #23
+  call void %.sroa.3.0.copyload.i.i(ptr noundef %450, i32 noundef %451) #22
   br label %452
 
 452:                                              ; preds = %447, %446
@@ -4209,16 +4174,15 @@ BufferGetPage.exit.i.i:                           ; preds = %426, %420
   br i1 %.not19.i.i, label %464, label %455
 
 455:                                              ; preds = %452
-  %456 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %456)
+  %456 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
   %457 = load i32, ptr %3, align 8
   %458 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %459 = load i32, ptr %458, align 4
   %460 = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %461 = load i32, ptr %4, align 4
   %462 = load i32, ptr %5, align 4
-  %463 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.124, i32 noundef %457, i32 noundef %459, i32 noundef %460, i32 noundef %461, i32 noundef %462) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2562, ptr noundef nonnull @__func__.verifyBackupPageConsistency) #23
+  %463 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.124, i32 noundef %457, i32 noundef %459, i32 noundef %460, i32 noundef %461, i32 noundef %462) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2562, ptr noundef nonnull @__func__.verifyBackupPageConsistency) #22
   unreachable
 
 464:                                              ; preds = %452, %BufferGetPage.exit.i.i, %414, %407, %404
@@ -4240,14 +4204,14 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
   store ptr %470, ptr @error_context_stack, align 8
   %471 = load ptr, ptr @XLogRecoveryCtl, align 8
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 96
-  %473 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %472, i8 1, ptr nonnull elementtype(i8) %472) #23, !srcloc !10
+  %473 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %472, i8 1, ptr nonnull elementtype(i8) %472) #22, !srcloc !10
   %.not49.i = icmp eq i8 %473, 0
   br i1 %.not49.i, label %478, label %474
 
 474:                                              ; preds = %469
   %475 = load ptr, ptr @XLogRecoveryCtl, align 8
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 96
-  %477 = call i32 @s_lock(ptr noundef nonnull %476, ptr noundef nonnull @.str.6, i32 noundef 2010, ptr noundef nonnull @__func__.ApplyWalRecord) #23
+  %477 = call i32 @s_lock(ptr noundef nonnull %476, ptr noundef nonnull @.str.6, i32 noundef 2010, ptr noundef nonnull @__func__.ApplyWalRecord) #22
   br label %478
 
 478:                                              ; preds = %474, %469
@@ -4261,7 +4225,7 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
   store i64 %483, ptr %484, align 8
   %485 = getelementptr inbounds nuw i8, ptr %481, i64 40
   store i32 %.2, ptr %485, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !22
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !22
   %486 = load ptr, ptr @XLogRecoveryCtl, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 96
   store i8 0, ptr %487, align 8
@@ -4273,7 +4237,7 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
   br i1 %or.cond.i27, label %492, label %493
 
 492:                                              ; preds = %478
-  call void @WalSndWakeup(i1 noundef zeroext %.0.i26, i1 noundef zeroext true) #23
+  call void @WalSndWakeup(i1 noundef zeroext %.0.i26, i1 noundef zeroext true) #22
   br label %493
 
 493:                                              ; preds = %492, %478
@@ -4282,7 +4246,7 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
 
 494:                                              ; preds = %493
   store i1 false, ptr @doRequestWalReceiverReply, align 1
-  call void @WalRcvForceReply() #23
+  call void @WalRcvForceReply() #22
   br label %495
 
 495:                                              ; preds = %494, %493
@@ -4291,8 +4255,8 @@ verifyBackupPageConsistency.exit.i:               ; preds = %464, %GetRmgr.exit.
 
 496:                                              ; preds = %495
   %497 = load i64, ptr %318, align 8
-  call void @RemoveNonParentXlogFiles(i64 noundef %497, i32 noundef %.2) #23
-  call void @XLogPrefetchReconfigure() #23
+  call void @RemoveNonParentXlogFiles(i64 noundef %497, i32 noundef %.2) #22
+  call void @XLogPrefetchReconfigure() #22
   br label %ApplyWalRecord.exit
 
 ApplyWalRecord.exit:                              ; preds = %495, %496
@@ -4323,7 +4287,7 @@ ApplyWalRecord.exit:                              ; preds = %495, %496
   %515 = load ptr, ptr %514, align 8
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
   %517 = load ptr, ptr @recoveryTargetName, align 8
-  %518 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %516, ptr noundef nonnull dereferenceable(1) %517) #26
+  %518 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %516, ptr noundef nonnull dereferenceable(1) %517) #25
   %.not.i31 = icmp eq i32 %518, 0
   br i1 %.not.i31, label %getRecordTimestamp.exit.i32, label %recoveryStopsAfter.exit
 
@@ -4333,15 +4297,15 @@ getRecordTimestamp.exit.i32:                      ; preds = %513
   store i64 0, ptr @recoveryStopLSN, align 8
   %519 = load i64, ptr %515, align 8
   store i64 %519, ptr @recoveryStopTime, align 8
-  %520 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) @recoveryStopName, ptr noundef nonnull dereferenceable(1) %516, i64 noundef 64) #23
-  %521 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %520 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) @recoveryStopName, ptr noundef nonnull dereferenceable(1) %516, i64 noundef 64) #22
+  %521 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %521, label %522, label %recoveryStopsBefore.exit.thread
 
 522:                                              ; preds = %getRecordTimestamp.exit.i32
   %523 = load i64, ptr @recoveryStopTime, align 8
-  %524 = call ptr @timestamptz_to_str(i64 noundef %523) #23
-  %525 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.137, ptr noundef nonnull @recoveryStopName, ptr noundef %524) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2768, ptr noundef nonnull @__func__.recoveryStopsAfter) #23
+  %524 = call ptr @timestamptz_to_str(i64 noundef %523) #22
+  %525 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.137, ptr noundef nonnull @recoveryStopName, ptr noundef %524) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2768, ptr noundef nonnull @__func__.recoveryStopsAfter) #22
   br label %recoveryStopsBefore.exit.thread
 
 .critedge.i:                                      ; preds = %501
@@ -4364,7 +4328,7 @@ getRecordTimestamp.exit.i32:                      ; preds = %513
   store i64 %531, ptr @recoveryStopLSN, align 8
   store i64 0, ptr @recoveryStopTime, align 8
   store i8 0, ptr @recoveryStopName, align 16
-  %534 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %534 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %534, label %535, label %recoveryStopsBefore.exit.thread
 
 535:                                              ; preds = %533
@@ -4372,8 +4336,8 @@ getRecordTimestamp.exit.i32:                      ; preds = %513
   %537 = lshr i64 %536, 32
   %538 = trunc nuw i64 %537 to i32
   %539 = trunc i64 %536 to i32
-  %540 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.138, i32 noundef %538, i32 noundef %539) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2785, ptr noundef nonnull @__func__.recoveryStopsAfter) #23
+  %540 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.138, i32 noundef %538, i32 noundef %539) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2785, ptr noundef nonnull @__func__.recoveryStopsAfter) #22
   br label %recoveryStopsBefore.exit.thread
 
 541:                                              ; preds = %529, %.critedge.i
@@ -4406,21 +4370,21 @@ getRecordTimestamp.exit.i32:                      ; preds = %513
   %551 = load i64, ptr %550, align 8
   %552 = load ptr, ptr @XLogRecoveryCtl, align 8
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 96
-  %554 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %553, i8 1, ptr nonnull elementtype(i8) %553) #23, !srcloc !10
+  %554 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %553, i8 1, ptr nonnull elementtype(i8) %553) #22, !srcloc !10
   %.not.i.i30 = icmp eq i8 %554, 0
   br i1 %.not.i.i30, label %SetLatestXTime.exit.i, label %555
 
 555:                                              ; preds = %548
   %556 = load ptr, ptr @XLogRecoveryCtl, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 96
-  %558 = call i32 @s_lock(ptr noundef nonnull %557, ptr noundef nonnull @.str.6, i32 noundef 4599, ptr noundef nonnull @__func__.SetLatestXTime) #23
+  %558 = call i32 @s_lock(ptr noundef nonnull %557, ptr noundef nonnull @.str.6, i32 noundef 4599, ptr noundef nonnull @__func__.SetLatestXTime) #22
   br label %SetLatestXTime.exit.i
 
 SetLatestXTime.exit.i:                            ; preds = %555, %548
   %559 = load ptr, ptr @XLogRecoveryCtl, align 8
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 64
   store i64 %551, ptr %560, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !23
   %561 = load ptr, ptr @XLogRecoveryCtl, align 8
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 96
   store i8 0, ptr %562, align 8
@@ -4441,7 +4405,7 @@ getRecordTimestamp.exit74.thread.i:               ; preds = %SetLatestXTime.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %567 = getelementptr inbounds nuw i8, ptr %563, i64 56
   %568 = load i8, ptr %567, align 8
-  call void @ParseCommitRecord(i8 noundef zeroext %568, ptr noundef %566, ptr noundef nonnull %1) #23
+  call void @ParseCommitRecord(i8 noundef zeroext %568, ptr noundef %566, ptr noundef nonnull %1) #22
   %569 = load i32, ptr %93, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %579
@@ -4452,7 +4416,7 @@ getRecordTimestamp.exit74.thread.i:               ; preds = %SetLatestXTime.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %573 = getelementptr inbounds nuw i8, ptr %563, i64 56
   %574 = load i8, ptr %573, align 8
-  call void @ParseAbortRecord(i8 noundef zeroext %574, ptr noundef %572, ptr noundef nonnull %2) #23
+  call void @ParseAbortRecord(i8 noundef zeroext %574, ptr noundef %572, ptr noundef nonnull %2) #22
   %575 = load i32, ptr %92, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %579
@@ -4488,27 +4452,27 @@ getRecordTimestamp.exit74.thread.i:               ; preds = %SetLatestXTime.exit
   ]
 
 587:                                              ; preds = %586, %586
-  %588 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %588 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %588, label %589, label %recoveryStopsBefore.exit.thread
 
 589:                                              ; preds = %587
   %590 = load i32, ptr @recoveryStopXid, align 4
   %591 = load i64, ptr @recoveryStopTime, align 8
-  %592 = call ptr @timestamptz_to_str(i64 noundef %591) #23
-  %593 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.139, i32 noundef %590, ptr noundef %592) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2853, ptr noundef nonnull @__func__.recoveryStopsAfter) #23
+  %592 = call ptr @timestamptz_to_str(i64 noundef %591) #22
+  %593 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.139, i32 noundef %590, ptr noundef %592) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2853, ptr noundef nonnull @__func__.recoveryStopsAfter) #22
   br label %recoveryStopsBefore.exit.thread
 
 594:                                              ; preds = %586, %586
-  %595 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %595 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %595, label %596, label %recoveryStopsBefore.exit.thread
 
 596:                                              ; preds = %594
   %597 = load i32, ptr @recoveryStopXid, align 4
   %598 = load i64, ptr @recoveryStopTime, align 8
-  %599 = call ptr @timestamptz_to_str(i64 noundef %598) #23
-  %600 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.140, i32 noundef %597, ptr noundef %599) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2861, ptr noundef nonnull @__func__.recoveryStopsAfter) #23
+  %599 = call ptr @timestamptz_to_str(i64 noundef %598) #22
+  %600 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.140, i32 noundef %597, ptr noundef %599) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2861, ptr noundef nonnull @__func__.recoveryStopsAfter) #22
   br label %recoveryStopsBefore.exit.thread
 
 601:                                              ; preds = %579, %542
@@ -4520,12 +4484,12 @@ getRecordTimestamp.exit74.thread.i:               ; preds = %SetLatestXTime.exit
   br i1 %or.cond27.i, label %606, label %recoveryStopsAfter.exit
 
 606:                                              ; preds = %601
-  %607 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %607 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %607, label %608, label %610
 
 608:                                              ; preds = %606
-  %609 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2871, ptr noundef nonnull @__func__.recoveryStopsAfter) #23
+  %609 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.133) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2871, ptr noundef nonnull @__func__.recoveryStopsAfter) #22
   br label %610
 
 610:                                              ; preds = %608, %606
@@ -4548,10 +4512,9 @@ recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTime
   br i1 %614, label %618, label %615
 
 615:                                              ; preds = %recoveryStopsBefore.exit.thread
-  %616 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %616)
-  %617 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1844, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %616 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %617 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1844, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   unreachable
 
 618:                                              ; preds = %recoveryStopsBefore.exit.thread
@@ -4562,20 +4525,20 @@ recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTime
   ]
 
 620:                                              ; preds = %618
-  call void @proc_exit(i32 noundef 3) #27
+  call void @proc_exit(i32 noundef 3) #26
   unreachable
 
 621:                                              ; preds = %618
   %622 = load ptr, ptr @XLogRecoveryCtl, align 8
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 96
-  %624 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %623, i8 1, ptr nonnull elementtype(i8) %623) #23, !srcloc !10
+  %624 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %623, i8 1, ptr nonnull elementtype(i8) %623) #22, !srcloc !10
   %.not.i33 = icmp eq i8 %624, 0
   br i1 %.not.i33, label %629, label %625
 
 625:                                              ; preds = %621
   %626 = load ptr, ptr @XLogRecoveryCtl, align 8
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 96
-  %628 = call i32 @s_lock(ptr noundef nonnull %627, ptr noundef nonnull @.str.6, i32 noundef 3095, ptr noundef nonnull @__func__.SetRecoveryPause) #23
+  %628 = call i32 @s_lock(ptr noundef nonnull %627, ptr noundef nonnull @.str.6, i32 noundef 3095, ptr noundef nonnull @__func__.SetRecoveryPause) #22
   br label %629
 
 629:                                              ; preds = %625, %621
@@ -4590,7 +4553,7 @@ recoveryStopsBefore.exit.thread:                  ; preds = %522, %getRecordTime
   br label %SetRecoveryPause.exit
 
 SetRecoveryPause.exit:                            ; preds = %629, %634
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !25
   %635 = load ptr, ptr @XLogRecoveryCtl, align 8
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 96
   store i8 0, ptr %636, align 8
@@ -4599,8 +4562,8 @@ SetRecoveryPause.exit:                            ; preds = %629, %634
 
 .loopexit:                                        ; preds = %recoveryStopsAfter.exit, %618, %SetRecoveryPause.exit
   %.01153 = phi i1 [ true, %618 ], [ true, %SetRecoveryPause.exit ], [ false, %recoveryStopsAfter.exit ]
-  call void @RmgrCleanup() #23
-  %637 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  call void @RmgrCleanup() #22
+  %637 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %637, label %638, label %647
 
 638:                                              ; preds = %.loopexit
@@ -4610,29 +4573,29 @@ SetRecoveryPause.exit:                            ; preds = %629, %634
   %642 = lshr i64 %641, 32
   %643 = trunc nuw i64 %642 to i32
   %644 = trunc i64 %641 to i32
-  %645 = call ptr @pg_rusage_show(ptr noundef nonnull %9) #23
-  %646 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %643, i32 noundef %644, ptr noundef %645) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1878, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %645 = call ptr @pg_rusage_show(ptr noundef nonnull %9) #22
+  %646 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %643, i32 noundef %644, ptr noundef %645) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1878, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   br label %647
 
 647:                                              ; preds = %638, %.loopexit
   %648 = load ptr, ptr @XLogRecoveryCtl, align 8
   %649 = getelementptr inbounds nuw i8, ptr %648, i64 96
-  %650 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %649, i8 1, ptr nonnull elementtype(i8) %649) #23, !srcloc !10
+  %650 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %649, i8 1, ptr nonnull elementtype(i8) %649) #22, !srcloc !10
   %.not.i35 = icmp eq i8 %650, 0
   br i1 %.not.i35, label %GetLatestXTime.exit, label %651
 
 651:                                              ; preds = %647
   %652 = load ptr, ptr @XLogRecoveryCtl, align 8
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 96
-  %654 = call i32 @s_lock(ptr noundef nonnull %653, ptr noundef nonnull @.str.6, i32 noundef 4612, ptr noundef nonnull @__func__.GetLatestXTime) #23
+  %654 = call i32 @s_lock(ptr noundef nonnull %653, ptr noundef nonnull @.str.6, i32 noundef 4612, ptr noundef nonnull @__func__.GetLatestXTime) #22
   br label %GetLatestXTime.exit
 
 GetLatestXTime.exit:                              ; preds = %647, %651
   %655 = load ptr, ptr @XLogRecoveryCtl, align 8
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 64
   %657 = load i64, ptr %656, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !26
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !26
   %658 = load ptr, ptr @XLogRecoveryCtl, align 8
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 96
   store i8 0, ptr %659, align 8
@@ -4640,13 +4603,13 @@ GetLatestXTime.exit:                              ; preds = %647, %651
   br i1 %.not21, label %665, label %660
 
 660:                                              ; preds = %GetLatestXTime.exit
-  %661 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %661 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %661, label %662, label %665
 
 662:                                              ; preds = %660
-  %663 = call ptr @timestamptz_to_str(i64 noundef %657) #23
-  %664 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef %663) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1883, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %663 = call ptr @timestamptz_to_str(i64 noundef %657) #22
+  %664 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef %663) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1883, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   br label %665
 
 665:                                              ; preds = %660, %662, %GetLatestXTime.exit
@@ -4655,12 +4618,12 @@ GetLatestXTime.exit:                              ; preds = %647, %651
   br label %670
 
 666:                                              ; preds = %71
-  %667 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %667 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %667, label %668, label %670
 
 668:                                              ; preds = %666
-  %669 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1891, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %669 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1891, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   br label %670
 
 670:                                              ; preds = %666, %668, %665
@@ -4675,11 +4638,10 @@ GetLatestXTime.exit:                              ; preds = %647, %651
   br i1 %or.cond3, label %679, label %675
 
 675:                                              ; preds = %670
-  %676 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  call void @llvm.assume(i1 %676)
-  %677 = call i32 @errcode(i32 noundef 22) #23
-  %678 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1903, ptr noundef nonnull @__func__.PerformWalRecovery) #23
+  %676 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %677 = call i32 @errcode(i32 noundef 22) #22
+  %678 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1903, ptr noundef nonnull @__func__.PerformWalRecovery) #22
   unreachable
 
 679:                                              ; preds = %670
@@ -4713,20 +4675,20 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
 
 13:                                               ; preds = %4
   %14 = load i64, ptr @backupStartPoint, align 8
-  %15 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #23
+  %15 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #22
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %13
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.125) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2208, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #23
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.125) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2208, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #22
   br label %18
 
 18:                                               ; preds = %16, %13
-  tail call void @ReachedEndOfBackup(i64 noundef %8, i32 noundef %10) #23
+  tail call void @ReachedEndOfBackup(i64 noundef %8, i32 noundef %10) #22
   store i64 0, ptr @backupStartPoint, align 8
   store i64 0, ptr @backupEndPoint, align 8
   store i8 0, ptr @backupEndRequired, align 1
-  %19 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %19 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %18
@@ -4736,8 +4698,8 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
   %24 = lshr i64 %11, 32
   %25 = trunc nuw i64 %24 to i32
   %26 = trunc i64 %11 to i32
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.126, i32 noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %26) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2222, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #23
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.126, i32 noundef %22, i32 noundef %23, i32 noundef %25, i32 noundef %26) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2222, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #22
   br label %28
 
 28:                                               ; preds = %18, %20, %4
@@ -4752,9 +4714,9 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
   br i1 %or.cond21, label %62, label %34
 
 34:                                               ; preds = %28
-  tail call void @XLogCheckInvalidPages() #23
-  %35 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.13) #23
-  %36 = tail call ptr @ReadDir(ptr noundef %35, ptr noundef nonnull @.str.13) #23
+  tail call void @XLogCheckInvalidPages() #22
+  %35 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.13) #22
+  %36 = tail call ptr @ReadDir(ptr noundef %35, ptr noundef nonnull @.str.13) #22
   %.not10.i = icmp eq ptr %36, null
   br i1 %.not10.i, label %CheckTablespaceDirectory.exit, label %.lr.ph.i
 
@@ -4762,14 +4724,14 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
   %37 = phi ptr [ %55, %54 ], [ %36, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 19
-  %39 = call i64 @strspn(ptr noundef nonnull %38, ptr noundef nonnull @.str.128) #26
-  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #26
+  %39 = call i64 @strspn(ptr noundef nonnull %38, ptr noundef nonnull @.str.128) #25
+  %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #25
   %.not7.i = icmp eq i64 %39, %40
   br i1 %.not7.i, label %41, label %54, !llvm.loop !27
 
 41:                                               ; preds = %.lr.ph.i
-  %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1034, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.13, ptr noundef nonnull %38) #23
-  %43 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %37, i1 noundef zeroext false, i32 noundef 21) #23
+  %42 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 1034, ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.13, ptr noundef nonnull %38) #22
+  %43 = call i32 @get_dirent_type(ptr noundef nonnull %1, ptr noundef nonnull %37, i1 noundef zeroext false, i32 noundef 21) #22
   %.not8.i = icmp eq i32 %43, 4
   br i1 %.not8.i, label %54, label %44
 
@@ -4777,34 +4739,34 @@ define internal fastcc void @CheckRecoveryConsistency() unnamed_addr #1 {
   %45 = load i8, ptr @allow_in_place_tablespaces, align 1, !range !4, !noundef !5
   %46 = trunc nuw i8 %45 to i1
   %47 = select i1 %46, i32 19, i32 23
-  %48 = call zeroext i1 @errstart(i32 noundef %47, ptr noundef null) #23
+  %48 = call zeroext i1 @errstart(i32 noundef %47, ptr noundef null) #22
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %44
-  %50 = call i32 @errcode(i32 noundef 16779816) #23
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130, ptr noundef nonnull %38, ptr noundef nonnull @.str.13) #23
-  %52 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.13) #23
-  %53 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.132) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2168, ptr noundef nonnull @__func__.CheckTablespaceDirectory) #23
+  %50 = call i32 @errcode(i32 noundef 16779816) #22
+  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130, ptr noundef nonnull %38, ptr noundef nonnull @.str.13) #22
+  %52 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.13) #22
+  %53 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.132) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2168, ptr noundef nonnull @__func__.CheckTablespaceDirectory) #22
   br label %54
 
 54:                                               ; preds = %44, %49, %41, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %55 = call ptr @ReadDir(ptr noundef %35, ptr noundef nonnull @.str.13) #23
+  %55 = call ptr @ReadDir(ptr noundef %35, ptr noundef nonnull @.str.13) #22
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %CheckTablespaceDirectory.exit, label %.lr.ph.i
 
 CheckTablespaceDirectory.exit:                    ; preds = %54, %34
   store i8 1, ptr @reachedConsistency, align 1
-  %56 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %56 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %CheckTablespaceDirectory.exit
   %58 = lshr i64 %8, 32
   %59 = trunc nuw i64 %58 to i32
   %60 = trunc i64 %8 to i32
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.127, i32 noundef %59, i32 noundef %60) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2251, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #23
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.127, i32 noundef %59, i32 noundef %60) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2251, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #22
   br label %62
 
 62:                                               ; preds = %CheckTablespaceDirectory.exit, %57, %28
@@ -4825,25 +4787,25 @@ CheckTablespaceDirectory.exit:                    ; preds = %54, %34
 71:                                               ; preds = %62
   %72 = load ptr, ptr @XLogRecoveryCtl, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
-  %74 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %73, i8 1, ptr nonnull elementtype(i8) %73) #23, !srcloc !10
+  %74 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %73, i8 1, ptr nonnull elementtype(i8) %73) #22, !srcloc !10
   %.not19 = icmp eq i8 %74, 0
   br i1 %.not19, label %79, label %75
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr @XLogRecoveryCtl, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 96
-  %78 = call i32 @s_lock(ptr noundef nonnull %77, ptr noundef nonnull @.str.6, i32 noundef 2264, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #23
+  %78 = call i32 @s_lock(ptr noundef nonnull %77, ptr noundef nonnull @.str.6, i32 noundef 2264, ptr noundef nonnull @__func__.CheckRecoveryConsistency) #22
   br label %79
 
 79:                                               ; preds = %71, %75
   %80 = load ptr, ptr @XLogRecoveryCtl, align 8
   store i8 1, ptr %80, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !28
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !28
   %81 = load ptr, ptr @XLogRecoveryCtl, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   store i8 0, ptr %82, align 8
   store i8 1, ptr @LocalHotStandbyActive, align 1
-  call void @SendPostmasterSignal(i32 noundef 1) #23
+  call void @SendPostmasterSignal(i32 noundef 1) #22
   br label %83
 
 83:                                               ; preds = %62, %79, %0
@@ -4871,16 +4833,16 @@ define internal fastcc void @recoveryPausesHere(i1 noundef zeroext %0) unnamed_a
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %7, label %.sink.split, label %.preheader
 
 .sink.split:                                      ; preds = %6
   %. = select i1 %0, i32 2941, i32 2945
   %.str.150..str.151 = select i1 %0, ptr @.str.150, ptr @.str.151
   %.str.149..str.63 = select i1 %0, ptr @.str.149, ptr @.str.63
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.149..str.63) #23
-  %9 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.150..str.151) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %., ptr noundef nonnull @__func__.recoveryPausesHere) #23
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.149..str.63) #22
+  %9 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.150..str.151) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %., ptr noundef nonnull @__func__.recoveryPausesHere) #22
   br label %.preheader
 
 .preheader:                                       ; preds = %6, %.sink.split
@@ -4889,21 +4851,21 @@ define internal fastcc void @recoveryPausesHere(i1 noundef zeroext %0) unnamed_a
 10:                                               ; preds = %.preheader, %ConfirmRecoveryPaused.exit
   %11 = load ptr, ptr @XLogRecoveryCtl, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #23, !srcloc !10
+  %13 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i8 1, ptr nonnull elementtype(i8) %12) #22, !srcloc !10
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %GetRecoveryPauseState.exit, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %17 = tail call i32 @s_lock(ptr noundef nonnull %16, ptr noundef nonnull @.str.6, i32 noundef 3077, ptr noundef nonnull @__func__.GetRecoveryPauseState) #23
+  %17 = tail call i32 @s_lock(ptr noundef nonnull %16, ptr noundef nonnull @.str.6, i32 noundef 3077, ptr noundef nonnull @__func__.GetRecoveryPauseState) #22
   br label %GetRecoveryPauseState.exit
 
 GetRecoveryPauseState.exit:                       ; preds = %10, %14
   %18 = load ptr, ptr @XLogRecoveryCtl, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load i32, ptr %19, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !29
   %21 = load ptr, ptr @XLogRecoveryCtl, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i8 0, ptr %22, align 8
@@ -4911,21 +4873,21 @@ GetRecoveryPauseState.exit:                       ; preds = %10, %14
   br i1 %.not2, label %43, label %23
 
 23:                                               ; preds = %GetRecoveryPauseState.exit
-  tail call void @HandleStartupProcInterrupts() #23
+  tail call void @HandleStartupProcInterrupts() #22
   %24 = tail call fastcc zeroext i1 @CheckForStandbyTrigger()
   br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @XLogRecoveryCtl, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %28 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i8 1, ptr nonnull elementtype(i8) %27) #23, !srcloc !10
+  %28 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i8 1, ptr nonnull elementtype(i8) %27) #22, !srcloc !10
   %.not.i3 = icmp eq i8 %28, 0
   br i1 %.not.i3, label %33, label %29
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @XLogRecoveryCtl, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  %32 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str.6, i32 noundef 3116, ptr noundef nonnull @__func__.ConfirmRecoveryPaused) #23
+  %32 = tail call i32 @s_lock(ptr noundef nonnull %31, ptr noundef nonnull @.str.6, i32 noundef 3116, ptr noundef nonnull @__func__.ConfirmRecoveryPaused) #22
   br label %33
 
 33:                                               ; preds = %29, %25
@@ -4940,16 +4902,16 @@ GetRecoveryPauseState.exit:                       ; preds = %10, %14
   br label %ConfirmRecoveryPaused.exit
 
 ConfirmRecoveryPaused.exit:                       ; preds = %33, %38
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !30
   %39 = load ptr, ptr @XLogRecoveryCtl, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store i8 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 84
-  %42 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %41, i64 noundef 1000, i32 noundef 134217775) #23
+  %42 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %41, i64 noundef 1000, i32 noundef 134217775) #22
   br label %10, !llvm.loop !31
 
 43:                                               ; preds = %GetRecoveryPauseState.exit
-  %44 = tail call zeroext i1 @ConditionVariableCancelSleep() #23
+  %44 = tail call zeroext i1 @ConditionVariableCancelSleep() #22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %1, %43
@@ -4963,14 +4925,14 @@ declare void @proc_exit(i32 noundef) local_unnamed_addr #8
 define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #22, !srcloc !10
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 3095, ptr noundef nonnull @__func__.SetRecoveryPause) #23
+  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 3095, ptr noundef nonnull @__func__.SetRecoveryPause) #22
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -4988,7 +4950,7 @@ define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_add
   br label %.thread
 
 .thread:                                          ; preds = %15, %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !25
   %16 = load ptr, ptr @XLogRecoveryCtl, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i8 0, ptr %17, align 8
@@ -4996,12 +4958,12 @@ define dso_local void @SetRecoveryPause(i1 noundef zeroext %0) local_unnamed_add
 
 18:                                               ; preds = %9
   store i32 0, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !25
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   store i8 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 84
-  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %21) #23
+  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %21) #22
   br label %22
 
 22:                                               ; preds = %.thread, %18
@@ -5016,21 +4978,21 @@ declare ptr @pg_rusage_show(ptr noundef) local_unnamed_addr #2
 define dso_local i64 @GetLatestXTime() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !10
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #22, !srcloc !10
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 4612, ptr noundef nonnull @__func__.GetLatestXTime) #23
+  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 4612, ptr noundef nonnull @__func__.GetLatestXTime) #22
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i64, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !26
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
@@ -5050,7 +5012,7 @@ define dso_local void @xlog_outdesc(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not.i, label %10, label %GetRmgr.exit, !prof !17
 
 10:                                               ; preds = %2
-  tail call void @RmgrNotFound(i8 noundef zeroext %6) #23, !noalias !32
+  tail call void @RmgrNotFound(i8 noundef zeroext %6) #22, !noalias !32
   %.sroa.0.0.copyload.pre = load ptr, ptr %8, align 8
   %.pre = load ptr, ptr %3, align 8
   br label %GetRmgr.exit
@@ -5064,24 +5026,24 @@ GetRmgr.exit:                                     ; preds = %2, %10
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i8, ptr %12, align 8
-  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef %.sroa.0.0.copyload) #23
-  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 47) #23
-  %14 = tail call ptr %.sroa.5.0.copyload(i8 noundef zeroext %13) #23
+  tail call void @appendStringInfoString(ptr noundef %0, ptr noundef %.sroa.0.0.copyload) #22
+  tail call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 47) #22
+  %14 = tail call ptr %.sroa.5.0.copyload(i8 noundef zeroext %13) #22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %GetRmgr.exit
   %17 = and i8 %13, -16
   %18 = zext i8 %17 to i32
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.58, i32 noundef %18) #23
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.58, i32 noundef %18) #22
   br label %20
 
 19:                                               ; preds = %GetRmgr.exit
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %14) #23
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull %14) #22
   br label %20
 
 20:                                               ; preds = %19, %16
-  tail call void %.sroa.411.0.copyload(ptr noundef %0, ptr noundef nonnull %1) #23
+  tail call void %.sroa.411.0.copyload(ptr noundef %0, ptr noundef nonnull %1) #22
   ret void
 }
 
@@ -5095,21 +5057,21 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 define dso_local i32 @GetRecoveryPauseState() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !10
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #22, !srcloc !10
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 3077, ptr noundef nonnull @__func__.GetRecoveryPauseState) #23
+  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 3077, ptr noundef nonnull @__func__.GetRecoveryPauseState) #22
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %11 = load i32, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !29
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
@@ -5125,16 +5087,16 @@ define dso_local void @StartupRequestWalReceiverRestart() local_unnamed_addr #1 
   br i1 %2, label %3, label %10
 
 3:                                                ; preds = %0
-  %4 = tail call zeroext i1 @WalRcvRunning() #23
+  %4 = tail call zeroext i1 @WalRcvRunning() #22
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %6 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4392, ptr noundef nonnull @__func__.StartupRequestWalReceiverRestart) #23
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.60) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4392, ptr noundef nonnull @__func__.StartupRequestWalReceiverRestart) #22
   br label %9
 
 9:                                                ; preds = %5, %7
@@ -5156,14 +5118,14 @@ define dso_local zeroext i1 @PromoteIsTriggered() local_unnamed_addr #1 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @XLogRecoveryCtl, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !10
+  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #22, !srcloc !10
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @XLogRecoveryCtl, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i32 noundef 4416, ptr noundef nonnull @__func__.PromoteIsTriggered) #23
+  %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i32 noundef 4416, ptr noundef nonnull @__func__.PromoteIsTriggered) #22
   br label %11
 
 11:                                               ; preds = %3, %7
@@ -5171,7 +5133,7 @@ define dso_local zeroext i1 @PromoteIsTriggered() local_unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   store i8 %14, ptr @LocalPromoteIsTriggered, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !35
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !35
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
@@ -5186,7 +5148,7 @@ define dso_local zeroext i1 @PromoteIsTriggered() local_unnamed_addr #1 {
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @RemovePromoteSignalFiles() local_unnamed_addr #9 {
-  %1 = tail call i32 @unlink(ptr noundef nonnull @.str.1) #23
+  %1 = tail call i32 @unlink(ptr noundef nonnull @.str.1) #22
   ret void
 }
 
@@ -5194,7 +5156,7 @@ define dso_local void @RemovePromoteSignalFiles() local_unnamed_addr #9 {
 define dso_local noundef zeroext i1 @CheckPromoteSignal() local_unnamed_addr #9 {
   %1 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %2 = call i32 @stat(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #23
+  %2 = call i32 @stat(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #22
   %3 = icmp eq i32 %2, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i1 %3
@@ -5204,7 +5166,7 @@ define dso_local noundef zeroext i1 @CheckPromoteSignal() local_unnamed_addr #9 
 define dso_local void @WakeupRecovery() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @SetLatch(ptr noundef nonnull %2) #23
+  tail call void @SetLatch(ptr noundef nonnull %2) #22
   ret void
 }
 
@@ -5225,21 +5187,21 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #1 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @XLogRecoveryCtl, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #23, !srcloc !10
+  %6 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #22, !srcloc !10
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @XLogRecoveryCtl, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i32 noundef 4526, ptr noundef nonnull @__func__.HotStandbyActive) #23
+  %10 = tail call i32 @s_lock(ptr noundef nonnull %9, ptr noundef nonnull @.str.6, i32 noundef 4526, ptr noundef nonnull @__func__.HotStandbyActive) #22
   br label %11
 
 11:                                               ; preds = %3, %7
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   store i8 %13, ptr @LocalHotStandbyActive, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !36
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !36
   %14 = load ptr, ptr @XLogRecoveryCtl, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store i8 0, ptr %15, align 8
@@ -5256,14 +5218,14 @@ define dso_local zeroext i1 @HotStandbyActive() local_unnamed_addr #1 {
 define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #22, !srcloc !10
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 4556, ptr noundef nonnull @__func__.GetXLogReplayRecPtr) #23
+  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 4556, ptr noundef nonnull @__func__.GetXLogReplayRecPtr) #22
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -5272,7 +5234,7 @@ define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %14 = load i32, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !37
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !37
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
@@ -5291,14 +5253,14 @@ define dso_local i64 @GetXLogReplayRecPtr(ptr noundef writeonly captures(address
 define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @XLogRecoveryCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #23, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %3, i8 1, ptr nonnull elementtype(i8) %3) #22, !srcloc !10
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @XLogRecoveryCtl, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 4579, ptr noundef nonnull @__func__.GetCurrentReplayRecPtr) #23
+  %8 = tail call i32 @s_lock(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, i32 noundef 4579, ptr noundef nonnull @__func__.GetCurrentReplayRecPtr) #22
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -5307,7 +5269,7 @@ define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(addr
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load i32, ptr %13, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !38
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i8 0, ptr %16, align 8
@@ -5326,21 +5288,21 @@ define dso_local i64 @GetCurrentReplayRecPtr(ptr noundef writeonly captures(addr
 define dso_local i64 @GetCurrentChunkReplayStartTime() local_unnamed_addr #1 {
   %1 = load ptr, ptr @XLogRecoveryCtl, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #23, !srcloc !10
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %2, i8 1, ptr nonnull elementtype(i8) %2) #22, !srcloc !10
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @XLogRecoveryCtl, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 4642, ptr noundef nonnull @__func__.GetCurrentChunkReplayStartTime) #23
+  %7 = tail call i32 @s_lock(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i32 noundef 4642, ptr noundef nonnull @__func__.GetCurrentChunkReplayStartTime) #22
   br label %8
 
 8:                                                ; preds = %0, %4
   %9 = load ptr, ptr @XLogRecoveryCtl, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load i64, ptr %10, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !39
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !39
   %12 = load ptr, ptr @XLogRecoveryCtl, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   store i8 0, ptr %13, align 8
@@ -5369,26 +5331,26 @@ define dso_local void @RecoveryRequiresIntParameter(ptr noundef %0, i32 noundef 
   br i1 %7, label %8, label %62
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #23
+  %9 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #22
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = tail call i32 @errcode(i32 noundef 50856066) #23
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #23
-  %13 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62, ptr noundef %0, i32 noundef %1, i32 noundef %2) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4685, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #23
+  %11 = tail call i32 @errcode(i32 noundef 50856066) #22
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #22
+  %13 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62, ptr noundef %0, i32 noundef %1, i32 noundef %2) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4685, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #22
   br label %14
 
 14:                                               ; preds = %10, %8
   tail call void @SetRecoveryPause(i1 noundef zeroext true)
-  %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %15 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %15, label %16, label %.preheader
 
 16:                                               ; preds = %14
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63) #23
-  %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.64) #23
-  %19 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.65) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4692, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #23
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63) #22
+  %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.64) #22
+  %19 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.65) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4692, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #22
   br label %.preheader
 
 .preheader:                                       ; preds = %16, %14
@@ -5398,21 +5360,21 @@ define dso_local void @RecoveryRequiresIntParameter(ptr noundef %0, i32 noundef 
   %.0 = phi i1 [ %.1, %ConfirmRecoveryPaused.exit ], [ false, %.preheader ]
   %21 = load ptr, ptr @XLogRecoveryCtl, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #23, !srcloc !10
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %22, i8 1, ptr nonnull elementtype(i8) %22) #22, !srcloc !10
   %.not.i = icmp eq i8 %23, 0
   br i1 %.not.i, label %GetRecoveryPauseState.exit, label %24
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr @XLogRecoveryCtl, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  %27 = tail call i32 @s_lock(ptr noundef nonnull %26, ptr noundef nonnull @.str.6, i32 noundef 3077, ptr noundef nonnull @__func__.GetRecoveryPauseState) #23
+  %27 = tail call i32 @s_lock(ptr noundef nonnull %26, ptr noundef nonnull @.str.6, i32 noundef 3077, ptr noundef nonnull @__func__.GetRecoveryPauseState) #22
   br label %GetRecoveryPauseState.exit
 
 GetRecoveryPauseState.exit:                       ; preds = %20, %24
   %28 = load ptr, ptr @XLogRecoveryCtl, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load i32, ptr %29, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !29
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !29
   %31 = load ptr, ptr @XLogRecoveryCtl, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   store i8 0, ptr %32, align 8
@@ -5420,7 +5382,7 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
   br i1 %.not, label %60, label %33
 
 33:                                               ; preds = %GetRecoveryPauseState.exit
-  tail call void @HandleStartupProcInterrupts() #23
+  tail call void @HandleStartupProcInterrupts() #22
   %34 = tail call fastcc zeroext i1 @CheckForStandbyTrigger()
   %.not14 = xor i1 %34, true
   %brmerge = select i1 %.not14, i1 true, i1 %.0
@@ -5428,29 +5390,29 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
   br i1 %brmerge, label %42, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #23
+  %36 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #22
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %35
-  %38 = tail call i32 @errcode(i32 noundef 50856066) #23
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66) #23
-  %40 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62, ptr noundef %0, i32 noundef %1, i32 noundef %2) #23
-  %41 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.67) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4713, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #23
+  %38 = tail call i32 @errcode(i32 noundef 50856066) #22
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66) #22
+  %40 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62, ptr noundef %0, i32 noundef %1, i32 noundef %2) #22
+  %41 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.67) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4713, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #22
   br label %42
 
 42:                                               ; preds = %33, %37, %35
   %.1 = phi i1 [ %.0.mux, %33 ], [ true, %35 ], [ true, %37 ]
   %43 = load ptr, ptr @XLogRecoveryCtl, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %45 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %44, i8 1, ptr nonnull elementtype(i8) %44) #23, !srcloc !10
+  %45 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %44, i8 1, ptr nonnull elementtype(i8) %44) #22, !srcloc !10
   %.not.i13 = icmp eq i8 %45, 0
   br i1 %.not.i13, label %50, label %46
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr @XLogRecoveryCtl, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 96
-  %49 = tail call i32 @s_lock(ptr noundef nonnull %48, ptr noundef nonnull @.str.6, i32 noundef 3116, ptr noundef nonnull @__func__.ConfirmRecoveryPaused) #23
+  %49 = tail call i32 @s_lock(ptr noundef nonnull %48, ptr noundef nonnull @.str.6, i32 noundef 3116, ptr noundef nonnull @__func__.ConfirmRecoveryPaused) #22
   br label %50
 
 50:                                               ; preds = %46, %42
@@ -5465,26 +5427,25 @@ GetRecoveryPauseState.exit:                       ; preds = %20, %24
   br label %ConfirmRecoveryPaused.exit
 
 ConfirmRecoveryPaused.exit:                       ; preds = %50, %55
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !30
   %56 = load ptr, ptr @XLogRecoveryCtl, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   store i8 0, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 84
-  %59 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %58, i64 noundef 1000, i32 noundef 134217775) #23
+  %59 = tail call zeroext i1 @ConditionVariableTimedSleep(ptr noundef nonnull %58, i64 noundef 1000, i32 noundef 134217775) #22
   br label %20, !llvm.loop !40
 
 60:                                               ; preds = %GetRecoveryPauseState.exit
-  %61 = tail call zeroext i1 @ConditionVariableCancelSleep() #23
+  %61 = tail call zeroext i1 @ConditionVariableCancelSleep() #22
   br label %62
 
 62:                                               ; preds = %60, %5
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %63)
-  %64 = tail call i32 @errcode(i32 noundef 50856066) #23
-  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68) #23
-  %66 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62, ptr noundef %0, i32 noundef %1, i32 noundef %2) #23
-  %67 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.69) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4743, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #23
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #23
+  %64 = tail call i32 @errcode(i32 noundef 50856066) #22
+  %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.68) #22
+  %66 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.62, ptr noundef %0, i32 noundef %1, i32 noundef %2) #22
+  %67 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.69) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4743, ptr noundef nonnull @__func__.RecoveryRequiresIntParameter) #22
   unreachable
 
 68:                                               ; preds = %3
@@ -5499,68 +5460,68 @@ define internal fastcc noundef zeroext i1 @CheckForStandbyTrigger() unnamed_addr
   br i1 %3, label %37, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call zeroext i1 @IsPromoteSignaled() #23
+  %5 = tail call zeroext i1 @IsPromoteSignaled() #22
   br i1 %5, label %6, label %37
 
 6:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %7 = call i32 @stat(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #23
+  %7 = call i32 @stat(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #22
   %8 = icmp eq i32 %7, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %8, label %9, label %37
 
 9:                                                ; preds = %6
-  %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4452, ptr noundef nonnull @__func__.CheckForStandbyTrigger) #23
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.184) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4452, ptr noundef nonnull @__func__.CheckForStandbyTrigger) #22
   br label %13
 
 13:                                               ; preds = %9, %11
-  %14 = tail call i32 @unlink(ptr noundef nonnull @.str.1) #23
-  tail call void @ResetPromoteSignaled() #23
+  %14 = tail call i32 @unlink(ptr noundef nonnull @.str.1) #22
+  tail call void @ResetPromoteSignaled() #22
   %15 = load ptr, ptr @XLogRecoveryCtl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #23, !srcloc !10
+  %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #22, !srcloc !10
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %22, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr @XLogRecoveryCtl, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %21 = tail call i32 @s_lock(ptr noundef nonnull %20, ptr noundef nonnull @.str.6, i32 noundef 4426, ptr noundef nonnull @__func__.SetPromoteIsTriggered) #23
+  %21 = tail call i32 @s_lock(ptr noundef nonnull %20, ptr noundef nonnull @.str.6, i32 noundef 4426, ptr noundef nonnull @__func__.SetPromoteIsTriggered) #22
   br label %22
 
 22:                                               ; preds = %18, %13
   %23 = load ptr, ptr @XLogRecoveryCtl, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 1, ptr %24, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !41
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !41
   %25 = load ptr, ptr @XLogRecoveryCtl, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store i8 0, ptr %26, align 8
-  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #23, !srcloc !10
+  %27 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %26, i8 1, ptr nonnull elementtype(i8) %26) #22, !srcloc !10
   %.not.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i, label %SetPromoteIsTriggered.exit, label %28
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr @XLogRecoveryCtl, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
-  %31 = tail call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.6, i32 noundef 3095, ptr noundef nonnull @__func__.SetRecoveryPause) #23
+  %31 = tail call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.6, i32 noundef 3095, ptr noundef nonnull @__func__.SetRecoveryPause) #22
   br label %SetPromoteIsTriggered.exit
 
 SetPromoteIsTriggered.exit:                       ; preds = %22, %28
   %32 = load ptr, ptr @XLogRecoveryCtl, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   store i32 0, ptr %33, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #22, !srcloc !25
   %34 = load ptr, ptr @XLogRecoveryCtl, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   store i8 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 84
-  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %36) #23
+  tail call void @ConditionVariableBroadcast(ptr noundef nonnull %36) #22
   store i8 1, ptr @LocalPromoteIsTriggered, align 1
   br label %37
 
@@ -5585,7 +5546,7 @@ define dso_local noundef zeroext i1 @check_primary_slot_name(ptr noundef readonl
   br i1 %.not5, label %8, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %4, i32 noundef 19) #23
+  %7 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %4, i32 noundef 19) #22
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6, %5, %3
@@ -5604,7 +5565,7 @@ declare zeroext i1 @ReplicationSlotValidateName(ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_recovery_target(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(10) @.str.71) #26
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(10) @.str.71) #25
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -5614,10 +5575,10 @@ define dso_local noundef zeroext i1 @check_recovery_target(ptr noundef readonly 
   br i1 %.not3, label %11, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call ptr @__errno_location() #25
+  %8 = tail call ptr @__errno_location() #24
   %9 = load i32, ptr %8, align 4
-  tail call void @pre_format_elog_string(i32 noundef %9, ptr noundef null) #23
-  %10 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.72) #23
+  tail call void @pre_format_elog_string(i32 noundef %9, ptr noundef null) #22
+  %10 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.72) #22
   store ptr %10, ptr @GUC_check_errdetail_string, align 8
   br label %11
 
@@ -5642,7 +5603,7 @@ define dso_local void @assign_recovery_target(ptr noundef readonly captures(addr
   ]
 
 4:                                                ; preds = %2
-  tail call fastcc void @error_multiple_recovery_targets() #28
+  tail call fastcc void @error_multiple_recovery_targets() #27
   unreachable
 
 5:                                                ; preds = %2, %2
@@ -5665,12 +5626,11 @@ define dso_local void @assign_recovery_target(ptr noundef readonly captures(addr
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @error_multiple_recovery_targets() unnamed_addr #14 {
-  %1 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %1)
-  %2 = tail call i32 @errcode(i32 noundef 50856066) #23
-  %3 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.185) #23
-  %4 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.186) #23
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4786, ptr noundef nonnull @__func__.error_multiple_recovery_targets) #23
+  %1 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  %2 = tail call i32 @errcode(i32 noundef 50856066) #22
+  %3 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.185) #22
+  %4 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.186) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4786, ptr noundef nonnull @__func__.error_multiple_recovery_targets) #22
   unreachable
 }
 
@@ -5685,13 +5645,13 @@ define dso_local noundef zeroext i1 @check_recovery_target_lsn(ptr noundef reado
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %7 = call i64 @pg_lsn_in_internal(ptr noundef nonnull %5, ptr noundef nonnull %4) #23
+  %7 = call i64 @pg_lsn_in_internal(ptr noundef nonnull %5, ptr noundef nonnull %4) #22
   %8 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %.sink.split, label %.thread
 
 .thread:                                          ; preds = %6
-  %10 = call ptr @guc_malloc(i32 noundef 21, i64 noundef 8) #23
+  %10 = call ptr @guc_malloc(i32 noundef 21, i64 noundef 8) #22
   store i64 %7, ptr %10, align 8
   store ptr %10, ptr %1, align 8
   br label %.sink.split
@@ -5718,7 +5678,7 @@ define dso_local void @assign_recovery_target_lsn(ptr noundef readonly captures(
   br i1 %or.cond.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @error_multiple_recovery_targets() #28
+  tail call fastcc void @error_multiple_recovery_targets() #27
   unreachable
 
 6:                                                ; preds = %2
@@ -5747,15 +5707,15 @@ define dso_local void @assign_recovery_target_lsn(ptr noundef readonly captures(
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_recovery_target_name(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #26
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #25
   %6 = icmp ult i64 %5, 64
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__errno_location() #25
+  %8 = tail call ptr @__errno_location() #24
   %9 = load i32, ptr %8, align 4
-  tail call void @pre_format_elog_string(i32 noundef %9, ptr noundef null) #23
-  %10 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 63) #23
+  tail call void @pre_format_elog_string(i32 noundef %9, ptr noundef null) #22
+  %10 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74, i32 noundef 63) #22
   store ptr %10, ptr @GUC_check_errdetail_string, align 8
   br label %11
 
@@ -5775,7 +5735,7 @@ define dso_local void @assign_recovery_target_name(ptr noundef %0, ptr noundef r
   ]
 
 4:                                                ; preds = %2
-  tail call fastcc void @error_multiple_recovery_targets() #28
+  tail call fastcc void @error_multiple_recovery_targets() #27
   unreachable
 
 5:                                                ; preds = %2, %2
@@ -5818,22 +5778,22 @@ define dso_local noundef zeroext i1 @check_recovery_target_time(ptr noundef read
   br i1 %.not, label %42, label %15
 
 15:                                               ; preds = %3
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(4) @.str.75) #26
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(4) @.str.75) #25
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %42, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.76) #26
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(6) @.str.76) #25
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %42, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.77) #26
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.77) #25
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %42, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.78) #26
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.78) #25
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %42, label %27
 
@@ -5848,13 +5808,13 @@ define dso_local noundef zeroext i1 @check_recovery_target_time(ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %28 = call i32 @ParseDateTime(ptr noundef nonnull %14, ptr noundef nonnull %11, i64 noundef 153, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 25, ptr noundef nonnull %8) #23
+  %28 = call i32 @ParseDateTime(ptr noundef nonnull %14, ptr noundef nonnull %11, i64 noundef 153, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 25, ptr noundef nonnull %8) #22
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.sink.split
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %8, align 4
-  %32 = call i32 @DecodeDateTime(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %31, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %12) #23
+  %32 = call i32 @DecodeDateTime(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %31, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %12) #22
   %33 = icmp eq i32 %32, 0
   %34 = load i32, ptr %7, align 4
   %.not17 = icmp eq i32 %34, 2
@@ -5863,15 +5823,15 @@ define dso_local noundef zeroext i1 @check_recovery_target_time(ptr noundef read
 
 35:                                               ; preds = %30
   %36 = load i32, ptr %4, align 4
-  %37 = call i32 @tm2timestamp(ptr noundef nonnull %5, i32 noundef %36, ptr noundef nonnull %6, ptr noundef nonnull %13) #23
+  %37 = call i32 @tm2timestamp(ptr noundef nonnull %5, i32 noundef %36, ptr noundef nonnull %6, ptr noundef nonnull %13) #22
   %.not18 = icmp eq i32 %37, 0
   br i1 %.not18, label %.sink.split, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @__errno_location() #25
+  %39 = tail call ptr @__errno_location() #24
   %40 = load i32, ptr %39, align 4
-  call void @pre_format_elog_string(i32 noundef %40, ptr noundef null) #23
-  %41 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.79, ptr noundef nonnull %14) #23
+  call void @pre_format_elog_string(i32 noundef %40, ptr noundef null) #22
+  %41 = call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.79, ptr noundef nonnull %14) #22
   store ptr %41, ptr @GUC_check_errdetail_string, align 8
   br label %.sink.split
 
@@ -5908,7 +5868,7 @@ define dso_local void @assign_recovery_target_time(ptr noundef readonly captures
   br i1 %or.cond.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call fastcc void @error_multiple_recovery_targets() #28
+  tail call fastcc void @error_multiple_recovery_targets() #27
   unreachable
 
 6:                                                ; preds = %2
@@ -5932,20 +5892,20 @@ define dso_local void @assign_recovery_target_time(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_recovery_target_timeline(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.80) #26
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.80) #25
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @.str.81) #26
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(7) @.str.81) #25
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #24
   store i32 0, ptr %11, align 4
   %12 = load ptr, ptr %0, align 8
-  %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 0) #23
+  %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 0) #22
   %14 = load i32, ptr %11, align 4
   switch i32 %14, label %17 [
     i32 22, label %15
@@ -5953,14 +5913,14 @@ define dso_local noundef zeroext i1 @check_recovery_target_timeline(ptr noundef 
   ]
 
 15:                                               ; preds = %10, %10
-  tail call void @pre_format_elog_string(i32 noundef %14, ptr noundef null) #23
-  %16 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.82) #23
+  tail call void @pre_format_elog_string(i32 noundef %14, ptr noundef null) #22
+  %16 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.82) #22
   store ptr %16, ptr @GUC_check_errdetail_string, align 8
   br label %19
 
 17:                                               ; preds = %10, %7, %3
   %.07 = phi i32 [ 0, %3 ], [ 1, %7 ], [ 2, %10 ]
-  %18 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #23
+  %18 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #22
   store i32 %.07, ptr %18, align 4
   store ptr %18, ptr %1, align 8
   br label %19
@@ -5981,7 +5941,7 @@ define dso_local void @assign_recovery_target_timeline(ptr noundef readonly capt
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call i64 @strtoul(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 0) #23
+  %6 = tail call i64 @strtoul(ptr noundef captures(none) %0, ptr noundef null, i32 noundef 0) #22
   %7 = trunc i64 %6 to i32
   br label %8
 
@@ -5999,10 +5959,10 @@ define dso_local noundef zeroext i1 @check_recovery_target_xid(ptr noundef reado
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @__errno_location() #25
+  %6 = tail call ptr @__errno_location() #24
   store i32 0, ptr %6, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 0) #23
+  %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 0) #22
   %9 = load i32, ptr %6, align 4
   switch i32 %9, label %.thread [
     i32 22, label %12
@@ -6011,7 +5971,7 @@ define dso_local noundef zeroext i1 @check_recovery_target_xid(ptr noundef reado
 
 .thread:                                          ; preds = %5
   %10 = trunc i64 %8 to i32
-  %11 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #23
+  %11 = tail call ptr @guc_malloc(i32 noundef 21, i64 noundef 4) #22
   store i32 %10, ptr %11, align 4
   store ptr %11, ptr %1, align 8
   br label %12
@@ -6028,7 +5988,7 @@ define dso_local void @assign_recovery_target_xid(ptr noundef readonly captures(
   br i1 %or.cond, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call fastcc void @error_multiple_recovery_targets() #28
+  tail call fastcc void @error_multiple_recovery_targets() #27
   unreachable
 
 5:                                                ; preds = %2
@@ -6091,7 +6051,7 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @initStringInfo(ptr noundef nonnull %5) #23
+  call void @initStringInfo(ptr noundef nonnull %5) #22
   call void @xlog_outdesc(ptr noundef nonnull %5, ptr noundef %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
@@ -6111,7 +6071,7 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = trunc i32 %.014.i to i8
-  %14 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %13, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null) #23
+  %14 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %13, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null) #22
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %12
@@ -6124,11 +6084,11 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
   br i1 %.not12.i, label %22, label %21
 
 21:                                               ; preds = %15
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.113, i32 noundef %.014.i, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %16, i32 noundef %20) #23
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.113, i32 noundef %.014.i, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %16, i32 noundef %20) #22
   br label %23
 
 22:                                               ; preds = %15
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.114, i32 noundef %.014.i, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20) #23
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.114, i32 noundef %.014.i, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20) #22
   br label %23
 
 23:                                               ; preds = %22, %21
@@ -6141,7 +6101,7 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %23
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.115) #23
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.115) #22
   br label %31
 
 31:                                               ; preds = %30, %23, %12
@@ -6156,16 +6116,16 @@ define internal void @rm_redo_error_callback(ptr noundef %0) #1 {
   br i1 %.not.i, label %xlog_block_info.exit, label %12, !llvm.loop !42
 
 xlog_block_info.exit:                             ; preds = %31, %1
-  %36 = call i32 @set_errcontext_domain(ptr noundef null) #23
+  %36 = call i32 @set_errcontext_domain(ptr noundef null) #22
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load i64, ptr %37, align 8
   %39 = lshr i64 %38, 32
   %40 = trunc nuw i64 %39 to i32
   %41 = trunc i64 %38 to i32
   %42 = load ptr, ptr %5, align 8
-  %43 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.112, i32 noundef %40, i32 noundef %41, ptr noundef %42) #23
+  %43 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.112, i32 noundef %40, i32 noundef %41, ptr noundef %42) #22
   %44 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %44) #23
+  call void @pfree(ptr noundef %44) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -6254,13 +6214,13 @@ declare void @XLogReaderResetError(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @rescanLatestTimeLine(i32 noundef %0, i64 noundef %1) unnamed_addr #1 {
   %3 = load i32, ptr @recoveryTargetTLI, align 4
-  %4 = tail call i32 @findNewestTimeLine(i32 noundef %3) #23
+  %4 = tail call i32 @findNewestTimeLine(i32 noundef %3) #22
   %5 = load i32, ptr @recoveryTargetTLI, align 4
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %41, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @readTimeLineHistory(i32 noundef %4) #23
+  %8 = tail call ptr @readTimeLineHistory(i32 noundef %4) #22
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -6291,11 +6251,11 @@ define internal fastcc noundef zeroext i1 @rescanLatestTimeLine(i32 noundef %0, 
   br i1 %20, label %.split, label %15
 
 .critedge:                                        ; preds = %15, %.lr.ph, %7
-  %21 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %21 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %21, label %22, label %41
 
 22:                                               ; preds = %.critedge
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.164, i32 noundef %4, i32 noundef %0) #23
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.164, i32 noundef %4, i32 noundef %0) #22
   br label %.sink.split
 
 .split:                                           ; preds = %16
@@ -6305,35 +6265,35 @@ define internal fastcc noundef zeroext i1 @rescanLatestTimeLine(i32 noundef %0, 
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %.split
-  %28 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  %28 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %28, label %29, label %41
 
 29:                                               ; preds = %27
   %30 = lshr i64 %1, 32
   %31 = trunc nuw i64 %30 to i32
   %32 = trunc i64 %1 to i32
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.165, i32 noundef %4, i32 noundef %0, i32 noundef %31, i32 noundef %32) #23
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.165, i32 noundef %4, i32 noundef %0, i32 noundef %31, i32 noundef %32) #22
   br label %.sink.split
 
 34:                                               ; preds = %.split
   store i32 %4, ptr @recoveryTargetTLI, align 4
   %35 = load ptr, ptr @expectedTLEs, align 8
-  tail call void @list_free_deep(ptr noundef %35) #23
+  tail call void @list_free_deep(ptr noundef %35) #22
   store ptr %8, ptr @expectedTLEs, align 8
   %36 = add i32 %3, 1
-  tail call void @restoreTimeLineHistoryFiles(i32 noundef %36, i32 noundef %4) #23
-  %37 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #23
+  tail call void @restoreTimeLineHistoryFiles(i32 noundef %36, i32 noundef %4) #22
+  %37 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #22
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %34
   %39 = load i32, ptr @recoveryTargetTLI, align 4
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.166, i32 noundef %39) #23
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.166, i32 noundef %39) #22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %29, %38
   %.sink = phi i32 [ 4192, %38 ], [ 4175, %29 ], [ 4160, %22 ]
   %.0.ph = phi i1 [ true, %38 ], [ false, %29 ], [ false, %22 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__.rescanLatestTimeLine) #23
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef %.sink, ptr noundef nonnull @__func__.rescanLatestTimeLine) #22
   br label %41
 
 41:                                               ; preds = %.sink.split, %34, %27, %.critedge, %2
@@ -6370,18 +6330,18 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef 
   %12 = trunc i64 %11 to i32
   %13 = urem i64 %0, %10
   %14 = trunc nuw i64 %13 to i32
-  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %1, i32 noundef %12, i32 noundef %14) #23
+  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @.str.155, i32 noundef %1, i32 noundef %12, i32 noundef %14) #22
   %switch = icmp eq i32 %2, 1
   br i1 %switch, label %16, label %22
 
 16:                                               ; preds = %4
-  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.174, ptr noundef nonnull %5) #23
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #26
-  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %18) #23
+  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.174, ptr noundef nonnull %5) #22
+  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
+  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %18) #22
   %19 = load i32, ptr @wal_segment_size, align 4
   %20 = sext i32 %19 to i64
   %.b17 = load i1, ptr @InRedo, align 1
-  %21 = call zeroext i1 @RestoreArchivedFile(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull @.str.175, i64 noundef %20, i1 noundef zeroext %.b17) #23
+  %21 = call zeroext i1 @RestoreArchivedFile(ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull @.str.175, i64 noundef %20, i1 noundef zeroext %.b17) #22
   br i1 %21, label %31, label %49
 
 22:                                               ; preds = %4
@@ -6392,47 +6352,46 @@ define internal fastcc range(i32 -1, -2147483648) i32 @XLogFileRead(i64 noundef 
   %27 = trunc i64 %26 to i32
   %28 = urem i64 %0, %25
   %29 = trunc nuw i64 %28 to i32
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %1, i32 noundef %27, i32 noundef %29) #23
+  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.173, i32 noundef %1, i32 noundef %27, i32 noundef %29) #22
   br label %33
 
 31:                                               ; preds = %16
-  call void @KeepFileRestoredFromArchive(ptr noundef nonnull %7, ptr noundef nonnull %5) #23
-  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.177, ptr noundef nonnull %5) #23
+  call void @KeepFileRestoredFromArchive(ptr noundef nonnull %7, ptr noundef nonnull %5) #22
+  %32 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.177, ptr noundef nonnull %5) #22
   br label %33
 
 33:                                               ; preds = %22, %31
-  %34 = call i32 @BasicOpenFile(ptr noundef nonnull %7, i32 noundef 0) #23
+  %34 = call i32 @BasicOpenFile(ptr noundef nonnull %7, i32 noundef 0) #22
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %33
   store i32 %1, ptr @curFileTLI, align 4
-  %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.178, ptr noundef nonnull %5) #23
-  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #26
-  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %38) #23
+  %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.178, ptr noundef nonnull %5) #22
+  %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #25
+  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %38) #22
   store i32 %2, ptr @readSource, align 4
   store i32 %2, ptr @XLogReceiptSource, align 4
   %.not = icmp eq i32 %2, 3
   br i1 %.not, label %49, label %39
 
 39:                                               ; preds = %36
-  %40 = call i64 @GetCurrentTimestamp() #23
+  %40 = call i64 @GetCurrentTimestamp() #22
   store i64 %40, ptr @XLogReceiptTime, align 8
   br label %49
 
 41:                                               ; preds = %33
-  %42 = tail call ptr @__errno_location() #25
+  %42 = tail call ptr @__errno_location() #24
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 2
   %or.cond = and i1 %3, %44
   br i1 %or.cond, label %49, label %45
 
 45:                                               ; preds = %41
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #24
-  call void @llvm.assume(i1 %46)
-  %47 = call i32 @errcode_for_file_access() #23
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %7) #23
-  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4277, ptr noundef nonnull @__func__.XLogFileRead) #23
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #23
+  %47 = call i32 @errcode_for_file_access() #22
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.172, ptr noundef nonnull %7) #22
+  call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 4277, ptr noundef nonnull @__func__.XLogFileRead) #22
   unreachable
 
 49:                                               ; preds = %41, %36, %39, %16
@@ -6465,17 +6424,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #19
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #20
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #22
+declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #22
+declare i32 @llvm.umax.i32(i32, i32) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6497,15 +6453,14 @@ attributes #16 = { mustprogress nofree norecurse nounwind willreturn uwtable "mi
 attributes #17 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nounwind }
-attributes #24 = { cold nounwind }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { nounwind willreturn memory(read) }
-attributes #27 = { noreturn nounwind }
-attributes #28 = { noreturn }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind }
+attributes #23 = { cold nounwind }
+attributes #24 = { nounwind willreturn memory(none) }
+attributes #25 = { nounwind willreturn memory(read) }
+attributes #26 = { noreturn nounwind }
+attributes #27 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

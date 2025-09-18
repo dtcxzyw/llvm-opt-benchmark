@@ -322,121 +322,119 @@ define dso_local i32 @ext4_mb_prefetch(ptr noundef %0, i32 noundef %1, i32 nound
   %12 = icmp eq ptr %3, null
   br i1 %12, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %11, %40
-  %13 = phi i32 [ %15, %40 ], [ %2, %11 ]
-  %14 = phi i32 [ %43, %40 ], [ %1, %11 ]
+.split.us:                                        ; preds = %11, %39
+  %13 = phi i32 [ %15, %39 ], [ %2, %11 ]
+  %14 = phi i32 [ %42, %39 ], [ %1, %11 ]
   %15 = add i32 %13, -1
   %16 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %14, ptr noundef null) #16
   %17 = call ptr @ext4_get_group_info(ptr noundef %0, i32 noundef %14) #16
   %18 = icmp ne ptr %16, null
   %19 = icmp ne ptr %17, null
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %21, label %40
+  br i1 %20, label %21, label %39
 
 21:                                               ; preds = %.split.us
   %22 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %17, i64 4, ptr nonnull elementtype(i64) %17) #16, !srcloc !12
   %23 = icmp ult i8 %22, 2
   call void @llvm.assume(i1 %23)
   %24 = icmp eq i8 %22, 0
-  br i1 %24, label %25, label %40
+  br i1 %24, label %25, label %39
 
 25:                                               ; preds = %21
   %26 = load volatile i64, ptr %17, align 8
   %27 = and i64 %26, 1
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %40, label %29
+  br i1 %28, label %39, label %29
 
 29:                                               ; preds = %25
   %30 = call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %16) #16
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %40, label %32
+  br i1 %31, label %39, label %32
 
 32:                                               ; preds = %29
   %33 = call ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef %14, i1 noundef zeroext true) #16
   %34 = icmp eq ptr %33, null
   %35 = icmp ugt ptr %33, inttoptr (i64 -4096 to ptr)
   %36 = or i1 %34, %35
-  br i1 %36, label %40, label %37
+  br i1 %36, label %39, label %37
 
 37:                                               ; preds = %32
   %38 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i32 1) #16, !srcloc !13
-  %39 = icmp ult i8 %38, 2
-  call void @llvm.assume(i1 %39)
   call void @__brelse(ptr noundef nonnull %33) #16
-  br label %40
+  br label %39
 
-40:                                               ; preds = %37, %32, %29, %25, %21, %.split.us
-  %41 = add i32 %14, 1
-  %42 = icmp ult i32 %41, %9
-  %43 = select i1 %42, i32 %41, i32 0
-  %44 = icmp eq i32 %15, 0
-  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !14
+39:                                               ; preds = %37, %32, %29, %25, %21, %.split.us
+  %40 = add i32 %14, 1
+  %41 = icmp ult i32 %40, %9
+  %42 = select i1 %41, i32 %40, i32 0
+  %43 = icmp eq i32 %15, 0
+  br i1 %43, label %.loopexit, label %.split.us, !llvm.loop !14
 
-.split:                                           ; preds = %11, %76
-  %45 = phi i32 [ %47, %76 ], [ %2, %11 ]
-  %46 = phi i32 [ %79, %76 ], [ %1, %11 ]
-  %47 = add i32 %45, -1
-  %48 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %46, ptr noundef null) #16
-  %49 = call ptr @ext4_get_group_info(ptr noundef %0, i32 noundef %46) #16
+.split:                                           ; preds = %11, %75
+  %44 = phi i32 [ %46, %75 ], [ %2, %11 ]
+  %45 = phi i32 [ %78, %75 ], [ %1, %11 ]
+  %46 = add i32 %44, -1
+  %47 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %45, ptr noundef null) #16
+  %48 = call ptr @ext4_get_group_info(ptr noundef %0, i32 noundef %45) #16
+  %49 = icmp ne ptr %47, null
   %50 = icmp ne ptr %48, null
-  %51 = icmp ne ptr %49, null
-  %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %53, label %76
+  %51 = select i1 %49, i1 %50, i1 false
+  br i1 %51, label %52, label %75
 
-53:                                               ; preds = %.split
-  %54 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %49, i64 4, ptr nonnull elementtype(i64) %49) #16, !srcloc !12
-  %55 = icmp ult i8 %54, 2
-  call void @llvm.assume(i1 %55)
-  %56 = icmp eq i8 %54, 0
-  br i1 %56, label %57, label %76
+52:                                               ; preds = %.split
+  %53 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %48, i64 4, ptr nonnull elementtype(i64) %48) #16, !srcloc !12
+  %54 = icmp ult i8 %53, 2
+  call void @llvm.assume(i1 %54)
+  %55 = icmp eq i8 %53, 0
+  br i1 %55, label %56, label %75
 
-57:                                               ; preds = %53
-  %58 = load volatile i64, ptr %49, align 8
-  %59 = and i64 %58, 1
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %76, label %61
+56:                                               ; preds = %52
+  %57 = load volatile i64, ptr %48, align 8
+  %58 = and i64 %57, 1
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %75, label %60
 
-61:                                               ; preds = %57
-  %62 = call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %48) #16
-  %63 = icmp eq i32 %62, 0
-  br i1 %63, label %76, label %64
+60:                                               ; preds = %56
+  %61 = call i32 @ext4_free_group_clusters(ptr noundef %0, ptr noundef nonnull %47) #16
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %75, label %63
 
-64:                                               ; preds = %61
-  %65 = call ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef %46, i1 noundef zeroext true) #16
-  %66 = icmp eq ptr %65, null
-  %67 = icmp ugt ptr %65, inttoptr (i64 -4096 to ptr)
-  %68 = or i1 %66, %67
-  br i1 %68, label %76, label %69
+63:                                               ; preds = %60
+  %64 = call ptr @ext4_read_block_bitmap_nowait(ptr noundef %0, i32 noundef %45, i1 noundef zeroext true) #16
+  %65 = icmp eq ptr %64, null
+  %66 = icmp ugt ptr %64, inttoptr (i64 -4096 to ptr)
+  %67 = or i1 %65, %66
+  br i1 %67, label %75, label %68
 
-69:                                               ; preds = %64
-  %70 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %65, i32 1) #16, !srcloc !13
-  %71 = icmp ult i8 %70, 2
-  call void @llvm.assume(i1 %71)
-  %.not = icmp eq i8 %70, 0
-  br i1 %.not, label %72, label %75
+68:                                               ; preds = %63
+  %69 = call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %64, i32 1) #16, !srcloc !13
+  %70 = icmp ult i8 %69, 2
+  call void @llvm.assume(i1 %70)
+  %.not = icmp eq i8 %69, 0
+  br i1 %.not, label %71, label %74
 
-72:                                               ; preds = %69
-  %73 = load i32, ptr %3, align 4
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %3, align 4
+71:                                               ; preds = %68
+  %72 = load i32, ptr %3, align 4
+  %73 = add i32 %72, 1
+  store i32 %73, ptr %3, align 4
+  br label %74
+
+74:                                               ; preds = %71, %68
+  call void @__brelse(ptr noundef nonnull %64) #16
   br label %75
 
-75:                                               ; preds = %72, %69
-  call void @__brelse(ptr noundef nonnull %65) #16
-  br label %76
+75:                                               ; preds = %74, %63, %60, %56, %52, %.split
+  %76 = add i32 %45, 1
+  %77 = icmp ult i32 %76, %9
+  %78 = select i1 %77, i32 %76, i32 0
+  %79 = icmp eq i32 %46, 0
+  br i1 %79, label %.loopexit, label %.split, !llvm.loop !14
 
-76:                                               ; preds = %75, %64, %61, %57, %53, %.split
-  %77 = add i32 %46, 1
-  %78 = icmp ult i32 %77, %9
-  %79 = select i1 %78, i32 %77, i32 0
-  %80 = icmp eq i32 %47, 0
-  br i1 %80, label %.loopexit, label %.split, !llvm.loop !14
-
-.loopexit:                                        ; preds = %76, %40, %4
-  %81 = phi i32 [ %1, %4 ], [ %43, %40 ], [ %79, %76 ]
+.loopexit:                                        ; preds = %75, %39, %4
+  %80 = phi i32 [ %1, %4 ], [ %42, %39 ], [ %78, %75 ]
   call void @blk_finish_plug(ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %81
+  ret i32 %80
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

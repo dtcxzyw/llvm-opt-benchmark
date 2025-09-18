@@ -23,11 +23,11 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 5
   %11 = or disjoint i64 %10, 8
-  %12 = tail call ptr @palloc(i64 noundef %11) #7
+  %12 = tail call ptr @palloc(i64 noundef %11) #6
   store i32 %8, ptr %12, align 8
   %13 = sext i32 %3 to i64
   %14 = shl nsw i64 %13, 1
-  %15 = tail call ptr @palloc(i64 noundef %14) #7
+  %15 = tail call ptr @palloc(i64 noundef %14) #6
   %.not155 = icmp slt i32 %3, 1
   br i1 %.not155, label %._crit_edge.thread, label %.lr.ph
 
@@ -102,10 +102,9 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
 
 58:                                               ; preds = %44
   %59 = sext i16 %46 to i32
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef range(i32 -32768, 32768) %59) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef range(i32 -32768, 32768) %59) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #6
   unreachable
 
 62:                                               ; preds = %37
@@ -113,7 +112,7 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %index_getattr.exit.thread
 
 64:                                               ; preds = %32
-  %65 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %16, ptr noundef nonnull %29) #7
+  %65 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %16, ptr noundef nonnull %29) #6
   br label %index_getattr.exit.thread
 
 66:                                               ; preds = %24
@@ -126,7 +125,7 @@ define dso_local void @gistSplitByKey(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i19.i, label %77, label %72
 
 72:                                               ; preds = %66
-  %73 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %16, ptr noundef %29) #7
+  %73 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %28, i32 noundef %16, ptr noundef %29) #6
   br label %index_getattr.exit.thread
 
 index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, %56, %62, %64
@@ -134,14 +133,14 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   %74 = sext i32 %.0143156 to i64
   %75 = getelementptr inbounds %struct.GISTENTRY, ptr %23, i64 %74
   %76 = trunc i32 %.0143156 to i16
-  tail call void @gistdentryinit(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %75, i64 noundef %.1.i.ph, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %76, i1 noundef zeroext false, i1 noundef zeroext false) #7
+  tail call void @gistdentryinit(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %75, i64 noundef %.1.i.ph, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %76, i1 noundef zeroext false, i1 noundef zeroext false) #6
   br label %84
 
 77:                                               ; preds = %66
   %78 = sext i32 %.0143156 to i64
   %79 = getelementptr inbounds %struct.GISTENTRY, ptr %23, i64 %78
   %80 = trunc i32 %.0143156 to i16
-  tail call void @gistdentryinit(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %79, i64 noundef 0, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %80, i1 noundef zeroext false, i1 noundef zeroext true) #7
+  tail call void @gistdentryinit(ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull %79, i64 noundef 0, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %80, i1 noundef zeroext false, i1 noundef zeroext true) #6
   %81 = add i32 %.0141157, 1
   %82 = sext i32 %.0141157 to i64
   %83 = getelementptr inbounds i16, ptr %15, i64 %82
@@ -186,9 +185,9 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   store i32 0, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 0, ptr %102, align 8
-  %103 = tail call ptr @palloc(i64 noundef %14) #7
+  %103 = tail call ptr @palloc(i64 noundef %14) #6
   store ptr %103, ptr %5, align 8
-  %104 = tail call ptr @palloc(i64 noundef %14) #7
+  %104 = tail call ptr @palloc(i64 noundef %14) #6
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %104, ptr %105, align 8
   br i1 %.not155, label %gistSplitHalf.exit, label %.lr.ph.i
@@ -240,7 +239,7 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   %128 = sext i32 %6 to i64
   %129 = getelementptr inbounds i8, ptr %127, i64 %128
   store i8 1, ptr %129, align 1
-  %130 = tail call ptr @palloc(i64 noundef %14) #7
+  %130 = tail call ptr @palloc(i64 noundef %14) #6
   store ptr %130, ptr %5, align 8
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %131, align 8
@@ -316,8 +315,8 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
 
 165:                                              ; preds = %159
   %166 = shl nsw i64 %13, 3
-  %167 = tail call ptr @palloc(i64 noundef %166) #7
-  %168 = tail call ptr @palloc(i64 noundef %14) #7
+  %167 = tail call ptr @palloc(i64 noundef %166) #6
+  %168 = tail call ptr @palloc(i64 noundef %14) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14)
   %169 = icmp sgt i32 %3, 0
@@ -365,13 +364,13 @@ index_getattr.exit.thread:                        ; preds = %72, %47, %50, %53, 
   %.sroa.12.0.copyload = load i32, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.14, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.14.0..sroa_idx, i64 20, i1 false)
-  %183 = tail call ptr @palloc(i64 noundef %14) #7
+  %183 = tail call ptr @palloc(i64 noundef %14) #6
   %184 = load ptr, ptr %5, align 8
   %185 = load i32, ptr %.sroa.7.0..sroa_idx, align 8
   %186 = sext i32 %185 to i64
   %187 = shl nsw i64 %186, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %183, ptr align 2 %184, i64 %187, i1 false)
-  %188 = tail call ptr @palloc(i64 noundef %14) #7
+  %188 = tail call ptr @palloc(i64 noundef %14) #6
   %189 = load ptr, ptr %.sroa.96.0..sroa_idx, align 8
   %190 = load i32, ptr %.sroa.12.0..sroa_idx, align 8
   %191 = sext i32 %190 to i64
@@ -477,7 +476,7 @@ define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %11 = sext i32 %8 to i64
   %12 = shl nsw i64 %11, 3
-  %13 = tail call ptr @palloc(i64 noundef %12) #7
+  %13 = tail call ptr @palloc(i64 noundef %12) #6
   %14 = icmp sgt i32 %8, 0
   br i1 %14, label %.lr.ph.i.preheader, label %gistunionsubkeyvec.exit
 
@@ -531,15 +530,15 @@ define internal fastcc void @gistunionsubkey(ptr noundef %0, ptr noundef readonl
 
 gistunionsubkeyvec.exit:                          ; preds = %30, %.lr.ph.i.us, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %8, %.lr.ph.i.us ], [ %.1.i, %30 ]
-  tail call void @gistMakeUnionItVec(ptr noundef %0, ptr noundef %13, i32 noundef %.0.lcssa.i, ptr noundef nonnull %9, ptr noundef nonnull %10) #7
-  tail call void @pfree(ptr noundef %13) #7
+  tail call void @gistMakeUnionItVec(ptr noundef %0, ptr noundef %13, i32 noundef %.0.lcssa.i, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+  tail call void @pfree(ptr noundef %13) #6
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 3
-  %37 = tail call ptr @palloc(i64 noundef %36) #7
+  %37 = tail call ptr @palloc(i64 noundef %36) #6
   %38 = icmp sgt i32 %34, 0
   br i1 %38, label %.lr.ph.i14.preheader, label %gistunionsubkeyvec.exit26
 
@@ -595,8 +594,8 @@ gistunionsubkeyvec.exit26:                        ; preds = %54, %.lr.ph.i14.us,
   %.0.lcssa.i13 = phi i32 [ 0, %gistunionsubkeyvec.exit ], [ %34, %.lr.ph.i14.us ], [ %.1.i24, %54 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  tail call void @gistMakeUnionItVec(ptr noundef %0, ptr noundef %37, i32 noundef %.0.lcssa.i13, ptr noundef nonnull %56, ptr noundef nonnull %55) #7
-  tail call void @pfree(ptr noundef %37) #7
+  tail call void @gistMakeUnionItVec(ptr noundef %0, ptr noundef %37, i32 noundef %.0.lcssa.i13, ptr noundef nonnull %56, ptr noundef nonnull %55) #6
+  tail call void @pfree(ptr noundef %37) #6
   ret void
 }
 
@@ -642,7 +641,7 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
   %40 = load i32, ptr %39, align 4
   %41 = ptrtoint ptr %1 to i64
   %42 = ptrtoint ptr %3 to i64
-  %43 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %37, i32 noundef %40, i64 noundef %41, i64 noundef %42) #7
+  %43 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %37, i32 noundef %40, i64 noundef %41, i64 noundef %42) #6
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
@@ -655,18 +654,18 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
   br i1 %50, label %51, label %122
 
 51:                                               ; preds = %47, %6
-  %52 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #7
+  %52 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #6
   br i1 %52, label %53, label %61
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @errcode(i32 noundef 2600) #7
+  %54 = tail call i32 @errcode(i32 noundef 2600) #6
   %55 = add i32 %2, 1
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %55, ptr noundef nonnull %58) #7
-  %60 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 448, ptr noundef nonnull @__func__.gistUserPicksplit) #7
+  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %55, ptr noundef nonnull %58) #6
+  %60 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 448, ptr noundef nonnull @__func__.gistUserPicksplit) #6
   br label %61
 
 61:                                               ; preds = %53, %51
@@ -688,9 +687,9 @@ define internal fastcc noundef zeroext i1 @gistUserPicksplit(ptr noundef %0, ptr
   %72 = add nuw nsw i32 %71, 4
   store i32 %72, ptr %16, align 4
   %73 = zext nneg i32 %72 to i64
-  %74 = tail call ptr @palloc(i64 noundef %73) #7
+  %74 = tail call ptr @palloc(i64 noundef %73) #6
   store ptr %74, ptr %3, align 8
-  %75 = tail call ptr @palloc(i64 noundef %73) #7
+  %75 = tail call ptr @palloc(i64 noundef %73) #6
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %75, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -745,7 +744,7 @@ genericPickSplit.exit:                            ; preds = %97, %61
   %99 = sext i32 %98 to i64
   %100 = shl nsw i64 %99, 5
   %101 = or disjoint i64 %100, 8
-  %102 = tail call ptr @palloc(i64 noundef %101) #7
+  %102 = tail call ptr @palloc(i64 noundef %101) #6
   %103 = load i32, ptr %44, align 8
   store i32 %103, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -758,7 +757,7 @@ genericPickSplit.exit:                            ; preds = %97, %61
   %110 = load i32, ptr %39, align 4
   %111 = ptrtoint ptr %102 to i64
   %112 = ptrtoint ptr %16 to i64
-  %113 = call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %110, i64 noundef %111, i64 noundef %112) #7
+  %113 = call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %110, i64 noundef %111, i64 noundef %112) #6
   store i64 %113, ptr %31, align 8
   %114 = load i32, ptr %77, align 8
   store i32 %114, ptr %102, align 8
@@ -769,7 +768,7 @@ genericPickSplit.exit:                            ; preds = %97, %61
   %119 = shl nsw i64 %118, 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %104, ptr nonnull readonly align 8 %117, i64 %119, i1 false)
   %120 = load i32, ptr %39, align 4
-  %121 = call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %120, i64 noundef %111, i64 noundef %112) #7
+  %121 = call i64 @FunctionCall2Coll(ptr noundef nonnull %109, i32 noundef %120, i64 noundef %111, i64 noundef %112) #6
   store i64 %121, ptr %35, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %146
@@ -873,19 +872,19 @@ genericPickSplit.exit:                            ; preds = %97, %61
   br i1 %175, label %176, label %184
 
 176:                                              ; preds = %173
-  %177 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false) #7
-  %178 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false) #7
+  %177 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false) #6
+  %178 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false) #6
   %179 = fadd float %177, %178
-  %180 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false) #7
-  %181 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false) #7
+  %180 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false) #6
+  %181 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false) #6
   %182 = fadd float %180, %181
   %183 = fcmp ogt float %179, %182
   br i1 %183, label %189, label %199
 
 184:                                              ; preds = %173, %152
   %..i = phi ptr [ %12, %173 ], [ %13, %152 ]
-  %185 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %..i, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false) #7
-  %186 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %..i, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false) #7
+  %185 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %..i, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false) #6
+  %186 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %..i, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false) #6
   %187 = fcmp olt float %185, %186
   %.2.in.i = select i1 %187, ptr %22, ptr %27
   %.2.i = load i8, ptr %.2.in.i, align 8, !range !4, !noundef !5
@@ -926,7 +925,7 @@ genericPickSplit.exit:                            ; preds = %97, %61
   br i1 %201, label %202, label %203
 
 202:                                              ; preds = %199
-  call void @gistMakeUnionKey(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false, ptr noundef nonnull %31, ptr noundef nonnull %11) #7
+  call void @gistMakeUnionKey(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef nonnull %14, i1 noundef zeroext false, ptr noundef nonnull %31, ptr noundef nonnull %11) #6
   br label %203
 
 203:                                              ; preds = %202, %199
@@ -935,7 +934,7 @@ genericPickSplit.exit:                            ; preds = %97, %61
   br i1 %205, label %206, label %supportSecondarySplit.exit
 
 206:                                              ; preds = %203
-  call void @gistMakeUnionKey(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false, ptr noundef nonnull %35, ptr noundef nonnull %11) #7
+  call void @gistMakeUnionKey(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %13, i1 noundef zeroext false, ptr noundef nonnull %15, i1 noundef zeroext false, ptr noundef nonnull %35, ptr noundef nonnull %11) #6
   br label %supportSecondarySplit.exit
 
 supportSecondarySplit.exit:                       ; preds = %203, %206
@@ -967,14 +966,14 @@ supportSecondarySplit.exit:                       ; preds = %203, %206
 216:                                              ; preds = %207
   %217 = load i64, ptr %31, align 8
   %218 = load i64, ptr %35, align 8
-  %219 = call zeroext i1 @gistKeyIsEQ(ptr noundef nonnull %5, i32 noundef %2, i64 noundef %217, i64 noundef %218) #7
+  %219 = call zeroext i1 @gistKeyIsEQ(ptr noundef nonnull %5, i32 noundef %2, i64 noundef %217, i64 noundef %218) #6
   br i1 %219, label %.critedge, label %220
 
 220:                                              ; preds = %216
   %221 = load i32, ptr %1, align 8
   %222 = add i32 %221, 1
   %223 = sext i32 %222 to i64
-  %224 = call ptr @palloc0(i64 noundef %223) #7
+  %224 = call ptr @palloc0(i64 noundef %223) #6
   store ptr %224, ptr %210, align 8
   %225 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1000,7 +999,7 @@ supportSecondarySplit.exit:                       ; preds = %203, %206
   %235 = load i16, ptr %234, align 2
   %236 = zext i16 %235 to i64
   %237 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %225, i64 %236
-  %238 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef nonnull %237, i1 noundef zeroext false) #7
+  %238 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef nonnull %237, i1 noundef zeroext false) #6
   %239 = fcmp oeq float %238, 0.000000e+00
   br i1 %239, label %240, label %244
 
@@ -1044,7 +1043,7 @@ supportSecondarySplit.exit:                       ; preds = %203, %206
   %256 = load i16, ptr %255, align 2
   %257 = zext i16 %256 to i64
   %258 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %225, i64 %257
-  %259 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef nonnull %258, i1 noundef zeroext false) #7
+  %259 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %10, i1 noundef zeroext false, ptr noundef nonnull %258, i1 noundef zeroext false) #6
   %260 = fcmp oeq float %259, 0.000000e+00
   br i1 %260, label %261, label %265
 
@@ -1209,7 +1208,7 @@ removeDontCares.exit132:                          ; preds = %removeDontCares.exi
   %324 = load ptr, ptr %323, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @gistDeCompressAtt(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %324, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  call void @gistDeCompressAtt(ptr noundef nonnull %5, ptr noundef %0, ptr noundef %324, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
   %325 = load ptr, ptr %212, align 8
   %326 = load i32, ptr %325, align 8
   %327 = icmp slt i32 %211, %326
@@ -1250,7 +1249,7 @@ removeDontCares.exit132:                          ; preds = %removeDontCares.exi
   %346 = load i8, ptr %345, align 1, !range !4, !noundef !5
   %347 = trunc nuw i8 %346 to i1
   %348 = trunc nsw i64 %indvars.iv.i134 to i32
-  %349 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %348, ptr noundef nonnull %9, i1 noundef zeroext %343, ptr noundef nonnull %344, i1 noundef zeroext %347) #7
+  %349 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %348, ptr noundef nonnull %9, i1 noundef zeroext %343, ptr noundef nonnull %344, i1 noundef zeroext %347) #6
   %350 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv.i134
   %351 = load i64, ptr %350, align 8
   store i64 %351, ptr %9, align 8
@@ -1263,7 +1262,7 @@ removeDontCares.exit132:                          ; preds = %removeDontCares.exi
   %354 = trunc nuw i8 %353 to i1
   %355 = load i8, ptr %345, align 1, !range !4, !noundef !5
   %356 = trunc nuw i8 %355 to i1
-  %357 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %348, ptr noundef nonnull %9, i1 noundef zeroext %354, ptr noundef nonnull %344, i1 noundef zeroext %356) #7
+  %357 = call float @gistpenalty(ptr noundef nonnull %5, i32 noundef %348, ptr noundef nonnull %9, i1 noundef zeroext %354, ptr noundef nonnull %344, i1 noundef zeroext %356) #6
   %358 = fcmp oeq float %349, %357
   %359 = fcmp ule float %349, %357
   %.3.i135 = select i1 %359, i1 %.03639.i, i1 false
@@ -1337,21 +1336,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #6
+declare i16 @llvm.umax.i16(i16, i16) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

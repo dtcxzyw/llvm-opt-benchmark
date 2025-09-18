@@ -37,7 +37,7 @@ define dso_local noundef i64 @spg_text_choose(ptr noundef readonly captures(none
   %7 = inttoptr i64 %6 to ptr
   %8 = load i64, ptr %4, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #9
+  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #8
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 1
@@ -82,7 +82,7 @@ define dso_local noundef i64 @spg_text_choose(ptr noundef readonly captures(none
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @pg_detoast_datum_packed(ptr noundef %40) #9
+  %41 = tail call ptr @pg_detoast_datum_packed(ptr noundef %40) #8
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = and i32 %43, 1
@@ -175,7 +175,7 @@ commonPrefix.exit.thread:                         ; preds = %63
   store i8 1, ptr %86, align 8
   %87 = add nuw i32 %.0.lcssa.i, 4
   %88 = sext i32 %87 to i64
-  %89 = tail call ptr @palloc(i64 noundef %88) #9
+  %89 = tail call ptr @palloc(i64 noundef %88) #8
   %90 = zext nneg i32 %.0.lcssa.i to i64
   %91 = icmp ult i32 %.0.lcssa.i, 127
   br i1 %91, label %92, label %96
@@ -205,7 +205,7 @@ formTextDatum.exit:                               ; preds = %96, %92
   %.0.lcssa.i133136 = phi i32 [ %.0.lcssa.i, %formTextDatum.exit ], [ 0, %83 ]
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 1, ptr %102, align 8
-  %103 = tail call ptr @palloc(i64 noundef 8) #9
+  %103 = tail call ptr @palloc(i64 noundef 8) #8
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %103, ptr %104, align 8
   %105 = sext i32 %.0.lcssa.i133136 to i64
@@ -230,7 +230,7 @@ formTextDatum.exit:                               ; preds = %96, %92
   %116 = add i32 %110, -1
   %117 = add i32 %110, 3
   %118 = sext i32 %117 to i64
-  %119 = tail call ptr @palloc(i64 noundef %118) #9
+  %119 = tail call ptr @palloc(i64 noundef %118) #8
   %120 = sext i32 %116 to i64
   %121 = add nsw i64 %120, 1
   %122 = icmp ult i64 %121, 128
@@ -332,7 +332,7 @@ searchChar.exit:                                  ; preds = %152
   %171 = getelementptr inbounds i8, ptr %169, i64 %170
   %172 = add nuw i32 %165, 4
   %173 = sext i32 %172 to i64
-  %174 = tail call ptr @palloc(i64 noundef %173) #9
+  %174 = tail call ptr @palloc(i64 noundef %173) #8
   %175 = zext nneg i32 %165 to i64
   %176 = icmp samesign ult i32 %165, 127
   br i1 %176, label %177, label %181
@@ -359,7 +359,7 @@ formTextDatum.exit129:                            ; preds = %181, %177
   br label %207
 
 186:                                              ; preds = %searchChar.exit
-  %187 = tail call ptr @palloc(i64 noundef 4) #9
+  %187 = tail call ptr @palloc(i64 noundef 4) #8
   store i8 3, ptr %187, align 1
   %188 = ptrtoint ptr %187 to i64
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -384,7 +384,7 @@ formTextDatum.exit129:                            ; preds = %181, %177
   store i64 %197, ptr %198, align 8
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 1, ptr %199, align 8
-  %200 = tail call ptr @palloc(i64 noundef 8) #9
+  %200 = tail call ptr @palloc(i64 noundef 8) #8
   %201 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %200, ptr %201, align 8
   store i64 -2, ptr %200, align 8
@@ -422,7 +422,7 @@ define dso_local noundef i64 @spg_text_picksplit(ptr noundef readonly captures(n
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #9
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #8
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = icmp eq i8 %13, 1
@@ -474,7 +474,7 @@ define dso_local noundef i64 @spg_text_picksplit(ptr noundef readonly captures(n
   %42 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
   %44 = inttoptr i64 %43 to ptr
-  %45 = tail call ptr @pg_detoast_datum_packed(ptr noundef %44) #9
+  %45 = tail call ptr @pg_detoast_datum_packed(ptr noundef %44) #8
   %46 = load i8, ptr %12, align 1
   %47 = zext i8 %46 to i32
   %48 = and i32 %47, 1
@@ -595,7 +595,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %94, %89
   %109 = getelementptr inbounds nuw i8, ptr %12, i64 %.v
   %110 = add nsw i32 %103, 4
   %111 = sext i32 %110 to i64
-  %112 = tail call ptr @palloc(i64 noundef %111) #9
+  %112 = tail call ptr @palloc(i64 noundef %111) #8
   %113 = sext i32 %103 to i64
   %114 = add nsw i64 %113, 1
   %115 = icmp ult i64 %114, 128
@@ -626,7 +626,7 @@ formTextDatum.exit:                               ; preds = %120, %116
   %126 = load i32, ptr %4, align 8
   %127 = sext i32 %126 to i64
   %128 = shl nsw i64 %127, 4
-  %129 = tail call ptr @palloc(i64 noundef %128) #9
+  %129 = tail call ptr @palloc(i64 noundef %128) #8
   %130 = load i32, ptr %4, align 8
   %131 = icmp sgt i32 %130, 0
   br i1 %131, label %.lr.ph181, label %.._crit_edge182_crit_edge
@@ -645,7 +645,7 @@ formTextDatum.exit:                               ; preds = %120, %116
   %135 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv190
   %136 = load i64, ptr %135, align 8
   %137 = inttoptr i64 %136 to ptr
-  %138 = tail call ptr @pg_detoast_datum_packed(ptr noundef %137) #9
+  %138 = tail call ptr @pg_detoast_datum_packed(ptr noundef %137) #8
   %139 = load i8, ptr %138, align 1
   %140 = zext i8 %139 to i32
   %141 = icmp eq i8 %139, 1
@@ -715,25 +715,25 @@ formTextDatum.exit:                               ; preds = %120, %116
 
 ._crit_edge182:                                   ; preds = %169, %.._crit_edge182_crit_edge
   %.pre-phi = phi i64 [ %.pre197, %.._crit_edge182_crit_edge ], [ %179, %169 ]
-  tail call void @pg_qsort(ptr noundef %129, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull @cmpNodePtr) #9
+  tail call void @pg_qsort(ptr noundef %129, i64 noundef %.pre-phi, i64 noundef 16, ptr noundef nonnull @cmpNodePtr) #8
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %181, align 8
   %182 = load i32, ptr %4, align 8
   %183 = sext i32 %182 to i64
   %184 = shl nsw i64 %183, 3
-  %185 = tail call ptr @palloc(i64 noundef %184) #9
+  %185 = tail call ptr @palloc(i64 noundef %184) #8
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %185, ptr %186, align 8
   %187 = load i32, ptr %4, align 8
   %188 = sext i32 %187 to i64
   %189 = shl nsw i64 %188, 2
-  %190 = tail call ptr @palloc(i64 noundef %189) #9
+  %190 = tail call ptr @palloc(i64 noundef %189) #8
   %191 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %190, ptr %191, align 8
   %192 = load i32, ptr %4, align 8
   %193 = sext i32 %192 to i64
   %194 = shl nsw i64 %193, 3
-  %195 = tail call ptr @palloc(i64 noundef %194) #9
+  %195 = tail call ptr @palloc(i64 noundef %194) #8
   %196 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %195, ptr %196, align 8
   %197 = load i32, ptr %4, align 8
@@ -750,7 +750,7 @@ formTextDatum.exit:                               ; preds = %120, %116
   %202 = getelementptr %struct.spgNodePtr, ptr %129, i64 %indvars.iv193
   %203 = load i64, ptr %202, align 8
   %204 = inttoptr i64 %203 to ptr
-  %205 = tail call ptr @pg_detoast_datum_packed(ptr noundef %204) #9
+  %205 = tail call ptr @pg_detoast_datum_packed(ptr noundef %204) #8
   %206 = icmp eq i64 %indvars.iv193, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %202, i64 12
   %.pre = load i16, ptr %.phi.trans.insert, align 4
@@ -839,7 +839,7 @@ formTextDatum.exit:                               ; preds = %120, %116
   %258 = add i32 %257, %200
   %259 = add i32 %258, 4
   %260 = sext i32 %259 to i64
-  %261 = tail call ptr @palloc(i64 noundef %260) #9
+  %261 = tail call ptr @palloc(i64 noundef %260) #8
   %262 = sext i32 %258 to i64
   %263 = add nsw i64 %262, 1
   %264 = icmp ult i64 %263, 128
@@ -865,7 +865,7 @@ formTextDatum.exit:                               ; preds = %120, %116
   br label %formTextDatum.exit173
 
 272:                                              ; preds = %.thread207, %.thread, %223
-  %273 = tail call ptr @palloc(i64 noundef 4) #9
+  %273 = tail call ptr @palloc(i64 noundef 4) #8
   store i8 3, ptr %273, align 1
   br label %formTextDatum.exit173
 
@@ -919,7 +919,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = tail call ptr @pg_newlocale_from_collation(i32 noundef %9) #9
+  %10 = tail call ptr @pg_newlocale_from_collation(i32 noundef %9) #8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i8, ptr %11, align 2, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -938,7 +938,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call ptr @pg_detoast_datum_packed(ptr noundef %26) #9
+  %27 = tail call ptr @pg_detoast_datum_packed(ptr noundef %26) #8
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = icmp eq i8 %28, 1
@@ -981,7 +981,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %.0100 = phi i32 [ %49, %47 ], [ %19, %1 ]
   %51 = add i32 %.0100, 4
   %52 = sext i32 %51 to i64
-  %53 = tail call ptr @palloc(i64 noundef %52) #9
+  %53 = tail call ptr @palloc(i64 noundef %52) #8
   %54 = shl i32 %51, 2
   store i32 %54, ptr %53, align 4
   %55 = load i32, ptr %17, align 8
@@ -1018,19 +1018,19 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %72 = load i32, ptr %71, align 8
   %73 = sext i32 %72 to i64
   %74 = shl nsw i64 %73, 2
-  %75 = tail call ptr @palloc(i64 noundef %74) #9
+  %75 = tail call ptr @palloc(i64 noundef %74) #8
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %75, ptr %76, align 8
   %77 = load i32, ptr %71, align 8
   %78 = sext i32 %77 to i64
   %79 = shl nsw i64 %78, 2
-  %80 = tail call ptr @palloc(i64 noundef %79) #9
+  %80 = tail call ptr @palloc(i64 noundef %79) #8
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %80, ptr %81, align 8
   %82 = load i32, ptr %71, align 8
   %83 = sext i32 %82 to i64
   %84 = shl nsw i64 %83, 3
-  %85 = tail call ptr @palloc(i64 noundef %84) #9
+  %85 = tail call ptr @palloc(i64 noundef %84) #8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %85, ptr %86, align 8
   store i32 0, ptr %7, align 8
@@ -1092,7 +1092,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %119 = load i64, ptr %118, align 8
   %120 = inttoptr i64 %119 to ptr
-  %121 = tail call ptr @pg_detoast_datum_packed(ptr noundef %120) #9
+  %121 = tail call ptr @pg_detoast_datum_packed(ptr noundef %120) #8
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = icmp eq i8 %122, 1
@@ -1132,7 +1132,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %144 = getelementptr inbounds nuw i8, ptr %121, i64 %.v119
   %145 = tail call i32 @llvm.smin.i32(i32 %142, i32 %.0106)
   %146 = sext i32 %145 to i64
-  %147 = tail call i32 @memcmp(ptr noundef nonnull %90, ptr noundef nonnull %144, i64 noundef %146) #10
+  %147 = tail call i32 @memcmp(ptr noundef nonnull %90, ptr noundef nonnull %144, i64 noundef %146) #9
   switch i16 %.0103, label %153 [
     i16 1, label %148
     i16 2, label %148
@@ -1155,15 +1155,14 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   br i1 %.not120, label %..thread_crit_edge, label %._crit_edge.thread
 
 153:                                              ; preds = %141
-  %154 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %154)
+  %154 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %155 = load ptr, ptr %4, align 8
   %156 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %155, i64 %indvars.iv
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 6
   %158 = load i16, ptr %157, align 2
   %159 = zext i16 %158 to i32
-  %160 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %159) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 551, ptr noundef nonnull @__func__.spg_text_inner_consistent) #9
+  %160 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %159) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 551, ptr noundef nonnull @__func__.spg_text_inner_consistent) #8
   unreachable
 
 161:                                              ; preds = %141
@@ -1200,7 +1199,7 @@ define dso_local noundef i64 @spg_text_inner_consistent(ptr noundef readonly cap
   %177 = shl i32 %.0106, 2
   %178 = add i32 %177, 16
   store i32 %178, ptr %53, align 4
-  %179 = tail call i64 @datumCopy(i64 noundef %95, i1 noundef zeroext false, i32 noundef -1) #9
+  %179 = tail call i64 @datumCopy(i64 noundef %95, i1 noundef zeroext false, i32 noundef -1) #8
   %180 = load ptr, ptr %86, align 8
   %181 = load i32, ptr %7, align 8
   %182 = sext i32 %181 to i64
@@ -1254,7 +1253,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call ptr @pg_detoast_datum_packed(ptr noundef %13) #9
+  %14 = tail call ptr @pg_detoast_datum_packed(ptr noundef %13) #8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -1314,7 +1313,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
 53:                                               ; preds = %46
   %54 = add i32 %48, 4
   %55 = sext i32 %54 to i64
-  %56 = tail call ptr @palloc(i64 noundef %55) #9
+  %56 = tail call ptr @palloc(i64 noundef %55) #8
   %57 = shl i32 %54, 2
   store i32 %57, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -1414,7 +1413,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 64
   %102 = load i64, ptr %101, align 8
   %103 = inttoptr i64 %102 to ptr
-  %104 = tail call ptr @pg_detoast_datum_packed(ptr noundef %103) #9
+  %104 = tail call ptr @pg_detoast_datum_packed(ptr noundef %103) #8
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
   %107 = icmp eq i8 %105, 1
@@ -1459,7 +1458,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %129 = load i32, ptr %95, align 8
   %130 = load i64, ptr %7, align 8
   %131 = ptrtoint ptr %104 to i64
-  %132 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @text_starts_with, i32 noundef %129, i64 noundef %130, i64 noundef %131) #9
+  %132 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @text_starts_with, i32 noundef %129, i64 noundef %130, i64 noundef %131) #8
   %.fr = freeze i64 %132
   %.not = icmp eq i64 %.fr, 0
   br i1 %.not, label %.thread172, label %.thread166
@@ -1475,7 +1474,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %.v141 = select i1 %.not140, i64 4, i64 1
   %138 = getelementptr inbounds nuw i8, ptr %104, i64 %.v141
   %139 = load i32, ptr %95, align 8
-  %140 = tail call i32 @varstr_cmp(ptr noundef nonnull %.0115, i32 noundef %48, ptr noundef nonnull %138, i32 noundef %125, i32 noundef %139) #9
+  %140 = tail call i32 @varstr_cmp(ptr noundef nonnull %.0115, i32 noundef %48, ptr noundef nonnull %138, i32 noundef %125, i32 noundef %139) #8
   br label %149
 
 141:                                              ; preds = %133
@@ -1485,7 +1484,7 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   %143 = getelementptr inbounds nuw i8, ptr %104, i64 %.v
   %144 = tail call i32 @llvm.smin.i32(i32 %125, i32 %48)
   %145 = sext i32 %144 to i64
-  %146 = tail call i32 @memcmp(ptr noundef nonnull %.0115, ptr noundef nonnull %143, i64 noundef %145) #10
+  %146 = tail call i32 @memcmp(ptr noundef nonnull %.0115, ptr noundef nonnull %143, i64 noundef %145) #9
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %149
 
@@ -1521,15 +1520,14 @@ define dso_local range(i64 0, 2) i64 @spg_text_leaf_consistent(ptr noundef reado
   br i1 %157, label %.thread166, label %.thread172
 
 158:                                              ; preds = %149
-  %159 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %159)
+  %159 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %160 = load ptr, ptr %4, align 8
   %161 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %160, i64 %indvars.iv
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 6
   %163 = load i16, ptr %162, align 2
   %164 = zext i16 %163 to i32
-  %165 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %164) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_text_leaf_consistent) #9
+  %165 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %164) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_text_leaf_consistent) #8
   unreachable
 
 166:                                              ; preds = %149
@@ -1554,14 +1552,11 @@ declare i64 @text_starts_with(ptr noundef) #2
 
 declare i32 @varstr_cmp(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #8
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1570,11 +1565,10 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

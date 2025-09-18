@@ -70,7 +70,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %3 = load ptr, ptr %0, align 8, !alias.scope !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -82,7 +82,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr noundef readon
   store i32 %8, ptr %4, align 8, !alias.scope !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %11 = tail call i64 @llvm.bswap.i64(i64 %10)
   %12 = load ptr, ptr %0, align 8, !alias.scope !7
@@ -94,7 +94,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr noundef readon
   store i32 %16, ptr %4, align 8, !alias.scope !7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load i64, ptr %17, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
   %20 = load ptr, ptr %0, align 8, !alias.scope !10
@@ -106,7 +106,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr noundef readon
   store i32 %24, ptr %4, align 8, !alias.scope !10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i32, ptr %25, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %27 = tail call i32 @llvm.bswap.i32(i32 %26)
   %28 = load ptr, ptr %0, align 8, !alias.scope !13
@@ -121,23 +121,22 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr noundef readon
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_begin(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %3, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.logicalrep_read_begin) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 68, ptr noundef nonnull @__func__.logicalrep_read_begin) #7
   unreachable
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %11 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %11, ptr %12, align 8
   ret void
@@ -156,7 +155,7 @@ declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %4 = load ptr, ptr %0, align 8, !alias.scope !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -166,7 +165,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef reado
   store i8 67, ptr %8, align 1, !noalias !16
   %9 = add i32 %6, 1
   store i32 %9, ptr %5, align 8, !alias.scope !16
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %10 = load ptr, ptr %0, align 8, !alias.scope !19
   %11 = load i32, ptr %5, align 8, !alias.scope !19
@@ -175,7 +174,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef reado
   store i8 0, ptr %13, align 1, !noalias !19
   %14 = add i32 %11, 1
   store i32 %14, ptr %5, align 8, !alias.scope !19
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %15 = tail call i64 @llvm.bswap.i64(i64 %2)
   %16 = load ptr, ptr %0, align 8, !alias.scope !22
@@ -187,7 +186,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef reado
   store i32 %20, ptr %5, align 8, !alias.scope !22
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i64, ptr %21, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %23 = tail call i64 @llvm.bswap.i64(i64 %22)
   %24 = load ptr, ptr %0, align 8, !alias.scope !25
@@ -199,7 +198,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef reado
   store i32 %28, ptr %5, align 8, !alias.scope !25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load i64, ptr %29, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %31 = tail call i64 @llvm.bswap.i64(i64 %30)
   %32 = load ptr, ptr %0, align 8, !alias.scope !28
@@ -214,25 +213,24 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_commit(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %4 = and i32 %3, 255
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.logicalrep_read_commit) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.logicalrep_read_commit) #7
   unreachable
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %9, ptr %1, align 8
-  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %10, ptr %11, align 8
-  %12 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %12 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %12, ptr %13, align 8
   ret void
@@ -242,7 +240,7 @@ declare i32 @pq_getmsgbyte(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %3 = load ptr, ptr %0, align 8, !alias.scope !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -254,7 +252,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nounde
   store i32 %8, ptr %4, align 8, !alias.scope !31
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %11 = tail call i64 @llvm.bswap.i64(i64 %10)
   %12 = load ptr, ptr %0, align 8, !alias.scope !34
@@ -266,7 +264,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nounde
   store i32 %16, ptr %4, align 8, !alias.scope !34
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %18 = load i64, ptr %17, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
   %20 = load ptr, ptr %0, align 8, !alias.scope !37
@@ -278,7 +276,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nounde
   store i32 %24, ptr %4, align 8, !alias.scope !37
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = load i64, ptr %25, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %27 = tail call i64 @llvm.bswap.i64(i64 %26)
   %28 = load ptr, ptr %0, align 8, !alias.scope !40
@@ -290,7 +288,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nounde
   store i32 %32, ptr %4, align 8, !alias.scope !40
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %35 = tail call i32 @llvm.bswap.i32(i32 %34)
   %36 = load ptr, ptr %0, align 8, !alias.scope !43
@@ -302,7 +300,7 @@ define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nounde
   store i32 %40, ptr %4, align 8, !alias.scope !43
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load ptr, ptr %41, align 8
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %42) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %42) #7
   ret void
 }
 
@@ -310,42 +308,40 @@ declare void @pq_sendstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_begin_prepare(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %3, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.logicalrep_read_begin_prepare) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.logicalrep_read_begin_prepare) #7
   unreachable
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %9, ptr %10, align 8
   %11 = icmp eq i64 %9, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.logicalrep_read_begin_prepare) #8
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.logicalrep_read_begin_prepare) #7
   unreachable
 
 15:                                               ; preds = %8
-  %16 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %16 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %16, ptr %17, align 8
-  %18 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %18 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %21 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %22 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21, i64 noundef 200) #8
+  %21 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %22 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %21, i64 noundef 200) #7
   ret void
 }
 
@@ -363,7 +359,7 @@ define dso_local void @logicalrep_write_prepare(ptr noundef %0, ptr noundef read
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef range(i32 80, 113) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = trunc nuw nsw i32 %1 to i8
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %6 = load ptr, ptr %0, align 8, !alias.scope !46
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -373,7 +369,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i8 %5, ptr %10, align 1, !noalias !46
   %11 = add i32 %8, 1
   store i32 %11, ptr %7, align 8, !alias.scope !46
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %12 = load ptr, ptr %0, align 8, !alias.scope !49
   %13 = load i32, ptr %7, align 8, !alias.scope !49
@@ -382,7 +378,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i8 0, ptr %15, align 1, !noalias !49
   %16 = add i32 %13, 1
   store i32 %16, ptr %7, align 8, !alias.scope !49
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %17 = tail call i64 @llvm.bswap.i64(i64 %3)
   %18 = load ptr, ptr %0, align 8, !alias.scope !52
@@ -394,7 +390,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i32 %22, ptr %7, align 8, !alias.scope !52
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %24 = load i64, ptr %23, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %25 = tail call i64 @llvm.bswap.i64(i64 %24)
   %26 = load ptr, ptr %0, align 8, !alias.scope !55
@@ -406,7 +402,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i32 %30, ptr %7, align 8, !alias.scope !55
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load i64, ptr %31, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %33 = tail call i64 @llvm.bswap.i64(i64 %32)
   %34 = load ptr, ptr %0, align 8, !alias.scope !58
@@ -418,7 +414,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i32 %38, ptr %7, align 8, !alias.scope !58
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %40 = load i32, ptr %39, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %41 = tail call i32 @llvm.bswap.i32(i32 %40)
   %42 = load ptr, ptr %0, align 8, !alias.scope !61
@@ -430,7 +426,7 @@ define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32
   store i32 %46, ptr %7, align 8, !alias.scope !61
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = load ptr, ptr %47, align 8
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %48) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %48) #7
   ret void
 }
 
@@ -442,72 +438,68 @@ define dso_local void @logicalrep_read_prepare(ptr noundef %0, ptr noundef %1) l
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @logicalrep_read_prepare_common(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %5 = and i32 %4, 255
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %5, ptr noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %5, ptr noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #7
   unreachable
 
 9:                                                ; preds = %3
-  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %10, ptr %2, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, ptr noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #8
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, ptr noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #7
   unreachable
 
 15:                                               ; preds = %9
-  %16 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %16 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %16, ptr %17, align 8
   %18 = icmp eq i64 %16, 0
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, ptr noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #8
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, ptr noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #7
   unreachable
 
 22:                                               ; preds = %15
-  %23 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %23 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %23, ptr %24, align 8
-  %25 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %25 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %25, ptr %26, align 8
   %27 = icmp eq i32 %25, 0
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %22
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #8
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.logicalrep_read_prepare_common) #7
   unreachable
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %33 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %34 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %33, i64 noundef 200) #8
+  %33 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %34 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %33, i64 noundef 200) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %4 = load ptr, ptr %0, align 8, !alias.scope !64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -517,7 +509,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noun
   store i8 75, ptr %8, align 1, !noalias !64
   %9 = add i32 %6, 1
   store i32 %9, ptr %5, align 8, !alias.scope !64
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %10 = load ptr, ptr %0, align 8, !alias.scope !67
   %11 = load i32, ptr %5, align 8, !alias.scope !67
@@ -526,7 +518,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noun
   store i8 0, ptr %13, align 1, !noalias !67
   %14 = add i32 %11, 1
   store i32 %14, ptr %5, align 8, !alias.scope !67
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %15 = tail call i64 @llvm.bswap.i64(i64 %2)
   %16 = load ptr, ptr %0, align 8, !alias.scope !70
@@ -538,7 +530,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noun
   store i32 %20, ptr %5, align 8, !alias.scope !70
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %22 = load i64, ptr %21, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %23 = tail call i64 @llvm.bswap.i64(i64 %22)
   %24 = load ptr, ptr %0, align 8, !alias.scope !73
@@ -550,7 +542,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noun
   store i32 %28, ptr %5, align 8, !alias.scope !73
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %30 = load i64, ptr %29, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %31 = tail call i64 @llvm.bswap.i64(i64 %30)
   %32 = load ptr, ptr %0, align 8, !alias.scope !76
@@ -562,7 +554,7 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noun
   store i32 %36, ptr %5, align 8, !alias.scope !76
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %38 = load i32, ptr %37, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %39 = tail call i32 @llvm.bswap.i32(i32 %38)
   %40 = load ptr, ptr %0, align 8, !alias.scope !79
@@ -574,67 +566,64 @@ define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noun
   store i32 %44, ptr %5, align 8, !alias.scope !79
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %46) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %46) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_commit_prepared(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %4 = and i32 %3, 255
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.logicalrep_read_commit_prepared) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 273, ptr noundef nonnull @__func__.logicalrep_read_commit_prepared) #7
   unreachable
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %9, ptr %1, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 278, ptr noundef nonnull @__func__.logicalrep_read_commit_prepared) #8
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 278, ptr noundef nonnull @__func__.logicalrep_read_commit_prepared) #7
   unreachable
 
 14:                                               ; preds = %8
-  %15 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %15 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %16, align 8
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @__func__.logicalrep_read_commit_prepared) #8
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 281, ptr noundef nonnull @__func__.logicalrep_read_commit_prepared) #7
   unreachable
 
 21:                                               ; preds = %14
-  %22 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %22 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %22, ptr %23, align 8
-  %24 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %24 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %27 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %28 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27, i64 noundef 200) #8
+  %27 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %28 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %27, i64 noundef 200) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %5 = load ptr, ptr %0, align 8, !alias.scope !82
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -644,7 +633,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i8 114, ptr %9, align 1, !noalias !82
   %10 = add i32 %7, 1
   store i32 %10, ptr %6, align 8, !alias.scope !82
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %11 = load ptr, ptr %0, align 8, !alias.scope !85
   %12 = load i32, ptr %6, align 8, !alias.scope !85
@@ -653,7 +642,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i8 0, ptr %14, align 1, !noalias !85
   %15 = add i32 %12, 1
   store i32 %15, ptr %6, align 8, !alias.scope !85
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %16 = tail call i64 @llvm.bswap.i64(i64 %2)
   %17 = load ptr, ptr %0, align 8, !alias.scope !88
@@ -665,7 +654,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i32 %21, ptr %6, align 8, !alias.scope !88
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load i64, ptr %22, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %24 = tail call i64 @llvm.bswap.i64(i64 %23)
   %25 = load ptr, ptr %0, align 8, !alias.scope !91
@@ -675,7 +664,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i64 %24, ptr %28, align 1, !noalias !91
   %29 = add i32 %26, 8
   store i32 %29, ptr %6, align 8, !alias.scope !91
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %30 = tail call i64 @llvm.bswap.i64(i64 %3)
   %31 = load ptr, ptr %0, align 8, !alias.scope !94
@@ -687,7 +676,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i32 %35, ptr %6, align 8, !alias.scope !94
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %37 = load i64, ptr %36, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %38 = tail call i64 @llvm.bswap.i64(i64 %37)
   %39 = load ptr, ptr %0, align 8, !alias.scope !97
@@ -699,7 +688,7 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i32 %43, ptr %6, align 8, !alias.scope !97
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %45 = load i32, ptr %44, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
   %47 = load ptr, ptr %0, align 8, !alias.scope !100
@@ -711,64 +700,61 @@ define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr no
   store i32 %51, ptr %6, align 8, !alias.scope !100
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %53) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %53) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_rollback_prepared(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %4 = and i32 %3, 255
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef nonnull @__func__.logicalrep_read_rollback_prepared) #8
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 332, ptr noundef nonnull @__func__.logicalrep_read_rollback_prepared) #7
   unreachable
 
 8:                                                ; preds = %2
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %9, ptr %1, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.logicalrep_read_rollback_prepared) #8
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 337, ptr noundef nonnull @__func__.logicalrep_read_rollback_prepared) #7
   unreachable
 
 14:                                               ; preds = %8
-  %15 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %15 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %15, ptr %16, align 8
   %17 = icmp eq i64 %15, 0
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 340, ptr noundef nonnull @__func__.logicalrep_read_rollback_prepared) #8
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 340, ptr noundef nonnull @__func__.logicalrep_read_rollback_prepared) #7
   unreachable
 
 21:                                               ; preds = %14
-  %22 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %22 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %22, ptr %23, align 8
-  %24 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %24 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %24, ptr %25, align 8
-  %26 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %26 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %29 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %30 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 200) #8
+  %29 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %30 = tail call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 200) #7
   ret void
 }
 
@@ -786,7 +772,7 @@ define dso_local void @logicalrep_read_stream_prepare(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_origin(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %4 = load ptr, ptr %0, align 8, !alias.scope !103
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -796,7 +782,7 @@ define dso_local void @logicalrep_write_origin(ptr noundef %0, ptr noundef %1, i
   store i8 79, ptr %8, align 1, !noalias !103
   %9 = add i32 %6, 1
   store i32 %9, ptr %5, align 8, !alias.scope !103
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %10 = tail call i64 @llvm.bswap.i64(i64 %2)
   %11 = load ptr, ptr %0, align 8, !alias.scope !106
@@ -806,16 +792,16 @@ define dso_local void @logicalrep_write_origin(ptr noundef %0, ptr noundef %1, i
   store i64 %10, ptr %14, align 1, !noalias !106
   %15 = add i32 %12, 8
   store i32 %15, ptr %5, align 8, !alias.scope !106
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %1) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %1) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @logicalrep_read_origin(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %3, ptr %1, align 8
-  %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %5 = tail call ptr @pstrdup(ptr noundef %4) #8
+  %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %5 = tail call ptr @pstrdup(ptr noundef %4) #7
   ret ptr %5
 }
 
@@ -823,7 +809,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %8 = load ptr, ptr %0, align 8, !alias.scope !109
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -837,7 +823,7 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %7
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %15 = tail call i32 @llvm.bswap.i32(i32 %1)
   %16 = load ptr, ptr %0, align 8, !alias.scope !112
@@ -852,7 +838,7 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
 21:                                               ; preds = %14, %7
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %23 = load i32, ptr %22, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   %25 = load ptr, ptr %0, align 8, !alias.scope !115
@@ -862,7 +848,7 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
   store i32 %24, ptr %28, align 1, !noalias !115
   %29 = add i32 %26, 4
   store i32 %29, ptr %9, align 8, !alias.scope !115
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %30 = load ptr, ptr %0, align 8, !alias.scope !118
   %31 = load i32, ptr %9, align 8, !alias.scope !118
@@ -964,7 +950,7 @@ logicalrep_should_publish_column.exit.thread.us:  ; preds = %26, %.lr.ph.split.u
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 74
   %42 = load i16, ptr %41, align 2
   %43 = sext i16 %42 to i32
-  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %43, ptr noundef nonnull %3) #8
+  %44 = tail call zeroext i1 @bms_is_member(i32 noundef %43, ptr noundef nonnull %3) #7
   %cond.fr6 = freeze i1 %44
   %45 = zext i1 %cond.fr6 to i16
   %spec.select = add i16 %.05710, %45
@@ -981,7 +967,7 @@ logicalrep_should_publish_column.exit.thread:     ; preds = %40, %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %logicalrep_should_publish_column.exit.thread, %logicalrep_should_publish_column.exit.thread.us, %logicalrep_should_publish_column.exit.thread.us.us, %5
   %.057.lcssa = phi i16 [ 0, %5 ], [ %21, %logicalrep_should_publish_column.exit.thread.us.us ], [ %30, %logicalrep_should_publish_column.exit.thread.us ], [ %47, %logicalrep_should_publish_column.exit.thread ]
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 2) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 2) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   %50 = tail call i16 @llvm.bswap.i16(i16 %.057.lcssa)
   %51 = load ptr, ptr %0, align 8, !alias.scope !125
@@ -1002,7 +988,7 @@ logicalrep_should_publish_column.exit.thread:     ; preds = %40, %.lr.ph.split
   br i1 %63, label %64, label %slot_getallattrs.exit
 
 64:                                               ; preds = %._crit_edge
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %59) #8
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %1, i32 noundef %59) #7
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %._crit_edge, %64
@@ -1039,7 +1025,7 @@ slot_getallattrs.exit:                            ; preds = %._crit_edge, %64
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 74
   %85 = load i16, ptr %84, align 2
   %86 = sext i16 %85 to i32
-  %87 = tail call zeroext i1 @bms_is_member(i32 noundef %86, ptr noundef nonnull %3) #8
+  %87 = tail call zeroext i1 @bms_is_member(i32 noundef %86, ptr noundef nonnull %3) #7
   br i1 %87, label %logicalrep_should_publish_column.exit63.thread8, label %logicalrep_should_publish_column.exit63.thread
 
 88:                                               ; preds = %82
@@ -1060,7 +1046,7 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %logicalrep_should_publish_column.exit63.thread8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   %95 = load ptr, ptr %0, align 8, !alias.scope !128
   %96 = load i32, ptr %52, align 8, !alias.scope !128
@@ -1092,7 +1078,7 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %110
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %115 = load ptr, ptr %0, align 8, !alias.scope !131
   %116 = load i32, ptr %52, align 8, !alias.scope !131
@@ -1107,17 +1093,16 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   %121 = getelementptr inbounds nuw i8, ptr %78, i64 68
   %122 = load i32, ptr %121, align 4
   %123 = zext i32 %122 to i64
-  %124 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %123) #8
+  %124 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %123) #7
   %.not = icmp eq ptr %124, null
   br i1 %.not, label %125, label %130
 
 125:                                              ; preds = %120
   %126 = getelementptr inbounds nuw i8, ptr %78, i64 68
-  %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %127)
+  %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %128 = load i32, ptr %126, align 4
-  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %128) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 825, ptr noundef nonnull @__func__.logicalrep_write_tuple) #8
+  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %128) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 825, ptr noundef nonnull @__func__.logicalrep_write_tuple) #7
   unreachable
 
 130:                                              ; preds = %120
@@ -1136,7 +1121,7 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   br i1 %.not60, label %159, label %139
 
 139:                                              ; preds = %136
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %140 = load ptr, ptr %0, align 8, !alias.scope !134
   %141 = load i32, ptr %52, align 8, !alias.scope !134
@@ -1148,11 +1133,11 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   %145 = load i32, ptr %137, align 4
   %146 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv31
   %147 = load i64, ptr %146, align 8
-  %148 = tail call ptr @OidSendFunctionCall(i32 noundef %145, i64 noundef %147) #8
+  %148 = tail call ptr @OidSendFunctionCall(i32 noundef %145, i64 noundef %147) #7
   %149 = load i32, ptr %148, align 4
   %150 = lshr i32 %149, 2
   %151 = add nsw i32 %150, -4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   %152 = tail call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %151)
   %153 = load ptr, ptr %0, align 8, !alias.scope !137
@@ -1163,11 +1148,11 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   %157 = add i32 %154, 4
   store i32 %157, ptr %52, align 8, !alias.scope !137
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef %151) #8
+  tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef %151) #7
   br label %172
 
 159:                                              ; preds = %136, %130
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %160 = load ptr, ptr %0, align 8, !alias.scope !140
   %161 = load i32, ptr %52, align 8, !alias.scope !140
@@ -1180,16 +1165,16 @@ logicalrep_should_publish_column.exit63.thread8:  ; preds = %88, %83, %logicalre
   %166 = load i32, ptr %165, align 4
   %167 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv31
   %168 = load i64, ptr %167, align 8
-  %169 = tail call ptr @OidOutputFunctionCall(i32 noundef %166, i64 noundef %168) #8
-  %170 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169) #10
+  %169 = tail call ptr @OidOutputFunctionCall(i32 noundef %166, i64 noundef %168) #7
+  %170 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169) #9
   %171 = trunc i64 %170 to i32
-  tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef nonnull %169, i32 noundef %171) #8
+  tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef nonnull %169, i32 noundef %171) #7
   br label %172
 
 172:                                              ; preds = %159, %139
   %.sink = phi ptr [ %169, %159 ], [ %148, %139 ]
-  tail call void @pfree(ptr noundef nonnull %.sink) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %124) #8
+  tail call void @pfree(ptr noundef nonnull %.sink) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %124) #7
   br label %logicalrep_should_publish_column.exit63.thread
 
 logicalrep_should_publish_column.exit63.thread:   ; preds = %88, %72, %83, %logicalrep_should_publish_column.exit63, %172, %114, %94
@@ -1205,18 +1190,17 @@ logicalrep_should_publish_column.exit63.thread:   ; preds = %88, %72, %83, %logi
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @logicalrep_read_insert(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %sext = shl i32 %4, 24
   %.not = icmp eq i32 %sext, 1308622848
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = ashr exact i32 %sext, 24
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %6) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__func__.logicalrep_read_insert) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %6) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__func__.logicalrep_read_insert) #7
   unreachable
 
 9:                                                ; preds = %2
@@ -1226,12 +1210,12 @@ define dso_local i32 @logicalrep_read_insert(ptr noundef %0, ptr noundef capture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef captures(none) initializes((0, 20)) %1) unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #8
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #7
   %4 = sext i32 %3 to i64
   %5 = mul nsw i64 %4, 24
-  %6 = tail call ptr @palloc0(i64 noundef %5) #8
+  %6 = tail call ptr @palloc0(i64 noundef %5) #7
   store ptr %6, ptr %1, align 8
-  %7 = tail call ptr @palloc(i64 noundef %4) #8
+  %7 = tail call ptr @palloc(i64 noundef %4) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %7, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1246,7 +1230,7 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %11 = load ptr, ptr %1, align 8
-  %12 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %12 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %13 = trunc i32 %12 to i8
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
@@ -1262,11 +1246,11 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
 
 17:                                               ; preds = %.lr.ph, %.lr.ph
   %18 = getelementptr inbounds nuw %struct.StringInfoData, ptr %11, i64 %indvars.iv
-  %19 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %19 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %20 = add i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = tail call ptr @palloc(i64 noundef %21) #8
-  tail call void @pq_copymsgbytes(ptr noundef %0, ptr noundef %22, i32 noundef %19) #8
+  %22 = tail call ptr @palloc(i64 noundef %21) #7
+  tail call void @pq_copymsgbytes(ptr noundef %0, ptr noundef %22, i32 noundef %19) #7
   %23 = sext i32 %19 to i64
   %24 = getelementptr inbounds i8, ptr %22, i64 %23
   store i8 0, ptr %24, align 1
@@ -1280,10 +1264,9 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
   br label %31
 
 28:                                               ; preds = %.lr.ph
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, i32 noundef %16) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.logicalrep_read_tuple) #8
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, i32 noundef %16) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 912, ptr noundef nonnull @__func__.logicalrep_read_tuple) #7
   unreachable
 
 31:                                               ; preds = %17, %.lr.ph, %.lr.ph
@@ -1297,7 +1280,7 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef c
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %9 = load ptr, ptr %0, align 8, !alias.scope !145
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1311,7 +1294,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
   %16 = tail call i32 @llvm.bswap.i32(i32 %1)
   %17 = load ptr, ptr %0, align 8, !alias.scope !148
@@ -1326,7 +1309,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
 22:                                               ; preds = %15, %8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %24 = load i32, ptr %23, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
   %26 = load ptr, ptr %0, align 8, !alias.scope !151
@@ -1345,7 +1328,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 126
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %35, 102
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   %. = select i1 %36, i8 79, i8 75
   %37 = load ptr, ptr %0, align 8
   %38 = load i32, ptr %10, align 8
@@ -1360,7 +1343,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
   br label %42
 
 42:                                               ; preds = %31, %22
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %43 = load ptr, ptr %0, align 8, !alias.scope !154
   %44 = load i32, ptr %10, align 8, !alias.scope !154
@@ -1377,8 +1360,8 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %6 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %6 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %sext = shl i32 %6, 24
   %7 = and i32 %6, 251
   %or.cond = icmp ne i32 %7, 75
@@ -1388,10 +1371,9 @@ define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeon
 
 9:                                                ; preds = %4
   %10 = ashr exact i32 %sext, 24
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %10) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 501, ptr noundef nonnull @__func__.logicalrep_read_update) #8
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %10) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 501, ptr noundef nonnull @__func__.logicalrep_read_update) #7
   unreachable
 
 13:                                               ; preds = %4
@@ -1402,7 +1384,7 @@ define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeon
 15:                                               ; preds = %13
   tail call fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef %2)
   store i8 1, ptr %1, align 1
-  %16 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %16 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   br label %18
 
 17:                                               ; preds = %13
@@ -1417,10 +1399,9 @@ define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeon
 
 19:                                               ; preds = %18
   %20 = ashr exact i32 %sext27, 24
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %20) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 517, ptr noundef nonnull @__func__.logicalrep_read_update) #8
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %20) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 517, ptr noundef nonnull @__func__.logicalrep_read_update) #7
   unreachable
 
 23:                                               ; preds = %18
@@ -1430,7 +1411,7 @@ define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeon
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %8 = load ptr, ptr %0, align 8, !alias.scope !157
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1444,7 +1425,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %7
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %15 = tail call i32 @llvm.bswap.i32(i32 %1)
   %16 = load ptr, ptr %0, align 8, !alias.scope !160
@@ -1459,7 +1440,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
 21:                                               ; preds = %14, %7
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %23 = load i32, ptr %22, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
   %25 = load ptr, ptr %0, align 8, !alias.scope !163
@@ -1474,7 +1455,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 126
   %33 = load i8, ptr %32, align 2
   %34 = icmp eq i8 %33, 102
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   %. = select i1 %34, i8 79, i8 75
   %35 = load ptr, ptr %0, align 8
   %36 = load i32, ptr %9, align 8
@@ -1491,8 +1472,8 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %5 = and i32 %4, 251
   %or.cond.not = icmp eq i32 %5, 75
   br i1 %or.cond.not, label %10, label %6
@@ -1500,10 +1481,9 @@ define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef capture
 6:                                                ; preds = %2
   %sext = shl i32 %4, 24
   %7 = ashr exact i32 %sext, 24
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %7) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @__func__.logicalrep_read_delete) #8
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %7) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 572, ptr noundef nonnull @__func__.logicalrep_read_delete) #7
   unreachable
 
 10:                                               ; preds = %2
@@ -1513,7 +1493,7 @@ define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef capture
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %7 = load ptr, ptr %0, align 8, !alias.scope !166
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1527,7 +1507,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %6
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %14 = tail call i32 @llvm.bswap.i32(i32 %1)
   %15 = load ptr, ptr %0, align 8, !alias.scope !169
@@ -1540,7 +1520,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
   br label %20
 
 20:                                               ; preds = %13, %6
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %21 = tail call i32 @llvm.bswap.i32(i32 %2)
   %22 = load ptr, ptr %0, align 8, !alias.scope !172
@@ -1553,7 +1533,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
   %spec.select = zext i1 %4 to i8
   %27 = or disjoint i8 %spec.select, 2
   %.1 = select i1 %5, i8 %27, i8 %spec.select
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   %28 = load ptr, ptr %0, align 8, !alias.scope !175
   %29 = load i32, ptr %8, align 8, !alias.scope !175
@@ -1573,7 +1553,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
   %36 = tail call i32 @llvm.bswap.i32(i32 %35)
   %37 = load ptr, ptr %0, align 8, !alias.scope !178
@@ -1593,8 +1573,8 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 1) #8
+  %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 1) #7
   %6 = trunc i32 %5 to i8
   %7 = and i8 %6, 1
   store i8 %7, ptr %1, align 1
@@ -1607,8 +1587,8 @@ define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr noundef write
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.013 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %.01112 = phi ptr [ %12, %.lr.ph ], [ null, %3 ]
-  %11 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %12 = tail call ptr @lappend_oid(ptr noundef %.01112, i32 noundef %11) #8
+  %11 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %12 = tail call ptr @lappend_oid(ptr noundef %.01112, i32 noundef %11) #7
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
@@ -1622,7 +1602,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   %8 = load ptr, ptr %0, align 8, !alias.scope !183
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1636,7 +1616,7 @@ define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %21, label %14
 
 14:                                               ; preds = %7
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   %15 = tail call i32 @llvm.bswap.i32(i32 %1)
   %16 = load ptr, ptr %0, align 8, !alias.scope !186
@@ -1650,7 +1630,7 @@ define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, 
 
 21:                                               ; preds = %14, %7
   %spec.select = zext i1 %3 to i8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   %22 = load ptr, ptr %0, align 8, !alias.scope !189
   %23 = load i32, ptr %9, align 8, !alias.scope !189
@@ -1659,7 +1639,7 @@ define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, 
   store i8 %spec.select, ptr %25, align 1, !noalias !189
   %26 = add i32 %23, 1
   store i32 %26, ptr %9, align 8, !alias.scope !189
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   %27 = tail call i64 @llvm.bswap.i64(i64 %2)
   %28 = load ptr, ptr %0, align 8, !alias.scope !192
@@ -1669,9 +1649,9 @@ define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, 
   store i64 %27, ptr %31, align 1, !noalias !192
   %32 = add i32 %29, 8
   store i32 %32, ptr %9, align 8, !alias.scope !192
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %4) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef %4) #7
   %33 = trunc i64 %5 to i32
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
   %34 = tail call i32 @llvm.bswap.i32(i32 %33)
   %35 = load ptr, ptr %0, align 8, !alias.scope !195
@@ -1681,7 +1661,7 @@ define dso_local void @logicalrep_write_message(ptr noundef %0, i32 noundef %1, 
   store i32 %34, ptr %38, align 1, !noalias !195
   %39 = add i32 %36, 4
   store i32 %39, ptr %9, align 8, !alias.scope !195
-  tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %33) #8
+  tail call void @pq_sendbytes(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %33) #7
   ret void
 }
 
@@ -1689,7 +1669,7 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %6 = load ptr, ptr %0, align 8, !alias.scope !198
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1703,7 +1683,7 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %5
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   %13 = tail call i32 @llvm.bswap.i32(i32 %1)
   %14 = load ptr, ptr %0, align 8, !alias.scope !201
@@ -1718,7 +1698,7 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
 19:                                               ; preds = %12, %5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %21 = load i32, ptr %20, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
   %23 = load ptr, ptr %0, align 8, !alias.scope !204
@@ -1736,7 +1716,7 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %19
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
   %34 = load ptr, ptr %0, align 8, !alias.scope !207
   %35 = load i32, ptr %7, align 8, !alias.scope !207
@@ -1748,29 +1728,28 @@ define dso_local void @logicalrep_write_rel(ptr noundef %0, i32 noundef %1, ptr 
   br label %logicalrep_write_namespace.exit
 
 39:                                               ; preds = %19
-  %40 = tail call ptr @get_namespace_name(i32 noundef %31) #8
+  %40 = tail call ptr @get_namespace_name(i32 noundef %31) #7
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %39
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %31) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.logicalrep_write_namespace) #8
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %31) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.logicalrep_write_namespace) #7
   unreachable
 
 45:                                               ; preds = %39
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %40) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %40) #7
   br label %logicalrep_write_namespace.exit
 
 logicalrep_write_namespace.exit:                  ; preds = %33, %45
   %46 = load ptr, ptr %28, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %47) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %47) #7
   %48 = load ptr, ptr %28, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 126
   %50 = load i8, ptr %49, align 2
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
   %51 = load ptr, ptr %0, align 8, !alias.scope !210
   %52 = load i32, ptr %7, align 8, !alias.scope !210
@@ -1865,7 +1844,7 @@ logicalrep_should_publish_column.exit.thread.us.i: ; preds = %77, %.lr.ph.split.
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 74
   %93 = load i16, ptr %92, align 2
   %94 = sext i16 %93 to i32
-  %95 = tail call zeroext i1 @bms_is_member(i32 noundef %94, ptr noundef nonnull %3) #8
+  %95 = tail call zeroext i1 @bms_is_member(i32 noundef %94, ptr noundef nonnull %3) #7
   %cond.fr48.i = freeze i1 %95
   %96 = zext i1 %cond.fr48.i to i16
   %spec.select.i = add i16 %.03652.i, %96
@@ -1883,7 +1862,7 @@ logicalrep_should_publish_column.exit.thread.i:   ; preds = %91, %.lr.ph.split.i
 
 ._crit_edge.i:                                    ; preds = %logicalrep_should_publish_column.exit.thread.i, %logicalrep_should_publish_column.exit.thread.us.i, %logicalrep_should_publish_column.exit.thread.us.us.i, %logicalrep_write_namespace.exit
   %.036.lcssa.i = phi i16 [ 0, %logicalrep_write_namespace.exit ], [ %72, %logicalrep_should_publish_column.exit.thread.us.us.i ], [ %81, %logicalrep_should_publish_column.exit.thread.us.i ], [ %98, %logicalrep_should_publish_column.exit.thread.i ]
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 2) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 2) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
   %100 = tail call i16 @llvm.bswap.i16(i16 %.036.lcssa.i)
   %101 = load ptr, ptr %0, align 8, !alias.scope !214
@@ -1900,7 +1879,7 @@ logicalrep_should_publish_column.exit.thread.i:   ; preds = %91, %.lr.ph.split.i
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %._crit_edge.i
-  %111 = tail call ptr @RelationGetIdentityKeyBitmap(ptr noundef nonnull %2) #8
+  %111 = tail call ptr @RelationGetIdentityKeyBitmap(ptr noundef nonnull %2) #7
   br label %112
 
 112:                                              ; preds = %110, %._crit_edge.i
@@ -1934,7 +1913,7 @@ logicalrep_should_publish_column.exit.thread.i:   ; preds = %91, %.lr.ph.split.i
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 74
   %129 = load i16, ptr %128, align 2
   %130 = sext i16 %129 to i32
-  %131 = tail call zeroext i1 @bms_is_member(i32 noundef %130, ptr noundef nonnull %3) #8
+  %131 = tail call zeroext i1 @bms_is_member(i32 noundef %130, ptr noundef nonnull %3) #7
   br i1 %131, label %logicalrep_should_publish_column.exit42.thread50.i, label %logicalrep_should_publish_column.exit42.thread.i
 
 132:                                              ; preds = %126
@@ -1956,7 +1935,7 @@ logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should
   %137 = load i16, ptr %136, align 2
   %138 = sext i16 %137 to i32
   %139 = add nsw i32 %138, 7
-  %140 = tail call zeroext i1 @bms_is_member(i32 noundef %139, ptr noundef %.038.i) #8
+  %140 = tail call zeroext i1 @bms_is_member(i32 noundef %139, ptr noundef %.038.i) #7
   br i1 %140, label %.split.i, label %.split39.i
 
 .split.i:                                         ; preds = %135, %logicalrep_should_publish_column.exit42.thread50.i
@@ -1964,7 +1943,7 @@ logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should
 
 .split39.i:                                       ; preds = %135, %.split.i
   %.sink.i = phi i8 [ 1, %.split.i ], [ 0, %135 ]
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   %141 = load ptr, ptr %0, align 8
   %142 = load i32, ptr %7, align 8
   %143 = sext i32 %142 to i64
@@ -1973,10 +1952,10 @@ logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should
   %storemerge.i = add i32 %142, 1
   store i32 %storemerge.i, ptr %7, align 8
   %145 = getelementptr inbounds nuw i8, ptr %122, i64 4
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %145) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %145) #7
   %146 = getelementptr inbounds nuw i8, ptr %122, i64 68
   %147 = load i32, ptr %146, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   %148 = tail call i32 @llvm.bswap.i32(i32 %147)
   %149 = load ptr, ptr %0, align 8, !alias.scope !217
@@ -1988,7 +1967,7 @@ logicalrep_should_publish_column.exit42.thread50.i: ; preds = %logicalrep_should
   store i32 %153, ptr %7, align 8, !alias.scope !217
   %154 = getelementptr inbounds nuw i8, ptr %122, i64 76
   %155 = load i32, ptr %154, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   %156 = tail call i32 @llvm.bswap.i32(i32 %155)
   %157 = load ptr, ptr %0, align 8, !alias.scope !220
@@ -2008,36 +1987,36 @@ logicalrep_should_publish_column.exit42.thread.i: ; preds = %.split39.i, %logica
   br i1 %164, label %116, label %logicalrep_write_attrs.exit, !llvm.loop !223
 
 logicalrep_write_attrs.exit:                      ; preds = %logicalrep_should_publish_column.exit42.thread.i, %112
-  tail call void @bms_free(ptr noundef %.038.i) #8
+  tail call void @bms_free(ptr noundef %.038.i) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 64) #8
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %2 = tail call ptr @palloc(i64 noundef 64) #7
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   store i32 %3, ptr %2, align 8
-  %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
+  %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   %spec.store.select.i = select i1 %6, ptr @.str.46, ptr %4
-  %7 = tail call ptr @pstrdup(ptr noundef nonnull %spec.store.select.i) #8
+  %7 = tail call ptr @pstrdup(ptr noundef nonnull %spec.store.select.i) #7
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %10 = tail call ptr @pstrdup(ptr noundef %9) #8
+  %9 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %10 = tail call ptr @pstrdup(ptr noundef %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %10, ptr %11, align 8
-  %12 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %12 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %13 = trunc i32 %12 to i8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %13, ptr %14, align 8
-  %15 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #8
+  %15 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #7
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 3
-  %18 = tail call ptr @palloc(i64 noundef %17) #8
+  %18 = tail call ptr @palloc(i64 noundef %17) #7
   %19 = shl nsw i64 %16, 2
-  %20 = tail call ptr @palloc(i64 noundef %19) #8
+  %20 = tail call ptr @palloc(i64 noundef %19) #7
   %21 = icmp sgt i32 %15, 0
   br i1 %21, label %.lr.ph.preheader.i, label %logicalrep_read_attrs.exit
 
@@ -2048,26 +2027,26 @@ define dso_local ptr @logicalrep_read_rel(ptr noundef %0) local_unnamed_addr #0 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %27 ]
   %.02426.i = phi ptr [ null, %.lr.ph.preheader.i ], [ %.1.i, %27 ]
-  %22 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %22 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %23 = and i32 %22, 1
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %27, label %24
 
 24:                                               ; preds = %.lr.ph.i
   %25 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %26 = tail call ptr @bms_add_member(ptr noundef %.02426.i, i32 noundef %25) #8
+  %26 = tail call ptr @bms_add_member(ptr noundef %.02426.i, i32 noundef %25) #7
   br label %27
 
 27:                                               ; preds = %24, %.lr.ph.i
   %.1.i = phi ptr [ %26, %24 ], [ %.02426.i, %.lr.ph.i ]
-  %28 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %29 = tail call ptr @pstrdup(ptr noundef %28) #8
+  %28 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %29 = tail call ptr @pstrdup(ptr noundef %28) #7
   %30 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
   store ptr %29, ptr %30, align 8
-  %31 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %31 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %32 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i
   store i32 %31, ptr %32, align 4
-  %33 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %33 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %logicalrep_read_attrs.exit, label %.lr.ph.i, !llvm.loop !224
@@ -2089,8 +2068,8 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @getBaseType(i32 noundef %2) #8
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  %4 = tail call i32 @getBaseType(i32 noundef %2) #7
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   %5 = load ptr, ptr %0, align 8, !alias.scope !225
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2104,7 +2083,7 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %3
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %12 = tail call i32 @llvm.bswap.i32(i32 %1)
   %13 = load ptr, ptr %0, align 8, !alias.scope !228
@@ -2118,15 +2097,14 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
 
 18:                                               ; preds = %11, %3
   %19 = zext i32 %4 to i64
-  %20 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %19) #8
+  %20 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %19) #7
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %21, label %24
 
 21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 737, ptr noundef nonnull @__func__.logicalrep_write_typ) #8
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 737, ptr noundef nonnull @__func__.logicalrep_write_typ) #7
   unreachable
 
 24:                                               ; preds = %18
@@ -2136,7 +2114,7 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   %27 = load i8, ptr %26, align 2
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %.val, i64 %28
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   %30 = tail call i32 @llvm.bswap.i32(i32 %2)
   %31 = load ptr, ptr %0, align 8, !alias.scope !231
@@ -2152,7 +2130,7 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %24
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
   %40 = load ptr, ptr %0, align 8, !alias.scope !234
   %41 = load i32, ptr %6, align 8, !alias.scope !234
@@ -2164,25 +2142,24 @@ define dso_local void @logicalrep_write_typ(ptr noundef %0, i32 noundef %1, i32 
   br label %logicalrep_write_namespace.exit
 
 45:                                               ; preds = %24
-  %46 = tail call ptr @get_namespace_name(i32 noundef %37) #8
+  %46 = tail call ptr @get_namespace_name(i32 noundef %37) #7
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %49)
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %37) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.logicalrep_write_namespace) #8
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %37) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1037, ptr noundef nonnull @__func__.logicalrep_write_namespace) #7
   unreachable
 
 51:                                               ; preds = %45
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %46) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %46) #7
   br label %logicalrep_write_namespace.exit
 
 logicalrep_write_namespace.exit:                  ; preds = %39, %51
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %52) #8
-  tail call void @ReleaseSysCache(ptr noundef nonnull %20) #8
+  tail call void @pq_sendstring(ptr noundef nonnull %0, ptr noundef nonnull %52) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %20) #7
   ret void
 }
 
@@ -2194,17 +2171,17 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 24)) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   store i32 %3, ptr %1, align 8
-  %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
+  %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   %spec.store.select.i = select i1 %6, ptr @.str.46, ptr %4
-  %7 = tail call ptr @pstrdup(ptr noundef nonnull %spec.store.select.i) #8
+  %7 = tail call ptr @pstrdup(ptr noundef nonnull %spec.store.select.i) #7
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
-  %10 = tail call ptr @pstrdup(ptr noundef %9) #8
+  %9 = tail call ptr @pq_getmsgstring(ptr noundef %0) #7
+  %10 = tail call ptr @pstrdup(ptr noundef %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %10, ptr %11, align 8
   ret void
@@ -2212,7 +2189,7 @@ define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr noundef writeonly
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
   %4 = load ptr, ptr %0, align 8, !alias.scope !237
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2222,7 +2199,7 @@ define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef
   store i8 83, ptr %8, align 1, !noalias !237
   %9 = add i32 %6, 1
   store i32 %9, ptr %5, align 8, !alias.scope !237
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   %10 = tail call i32 @llvm.bswap.i32(i32 %1)
   %11 = load ptr, ptr %0, align 8, !alias.scope !240
@@ -2233,7 +2210,7 @@ define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef
   %15 = add i32 %12, 4
   store i32 %15, ptr %5, align 8, !alias.scope !240
   %16 = zext i1 %2 to i8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
   %17 = load ptr, ptr %0, align 8, !alias.scope !243
   %18 = load i32, ptr %5, align 8, !alias.scope !243
@@ -2247,8 +2224,8 @@ define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %5 = icmp eq i32 %4, 1
   %6 = zext i1 %5 to i8
   store i8 %6, ptr %1, align 1
@@ -2257,7 +2234,7 @@ define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr noundef w
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_stop(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   %2 = load ptr, ptr %0, align 8, !alias.scope !246
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2272,7 +2249,7 @@ define dso_local void @logicalrep_write_stream_stop(ptr noundef %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %4 = load ptr, ptr %0, align 8, !alias.scope !249
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2284,7 +2261,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nounde
   store i32 %9, ptr %5, align 8, !alias.scope !249
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   %12 = tail call i32 @llvm.bswap.i32(i32 %11)
   %13 = load ptr, ptr %0, align 8, !alias.scope !252
@@ -2294,7 +2271,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nounde
   store i32 %12, ptr %16, align 1, !noalias !252
   %17 = add i32 %14, 4
   store i32 %17, ptr %5, align 8, !alias.scope !252
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %18 = load ptr, ptr %0, align 8, !alias.scope !255
   %19 = load i32, ptr %5, align 8, !alias.scope !255
@@ -2303,7 +2280,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nounde
   store i8 0, ptr %21, align 1, !noalias !255
   %22 = add i32 %19, 1
   store i32 %22, ptr %5, align 8, !alias.scope !255
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
   %23 = tail call i64 @llvm.bswap.i64(i64 %2)
   %24 = load ptr, ptr %0, align 8, !alias.scope !258
@@ -2315,7 +2292,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nounde
   store i32 %28, ptr %5, align 8, !alias.scope !258
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %30 = load i64, ptr %29, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
   %31 = tail call i64 @llvm.bswap.i64(i64 %30)
   %32 = load ptr, ptr %0, align 8, !alias.scope !261
@@ -2327,7 +2304,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nounde
   store i32 %36, ptr %5, align 8, !alias.scope !261
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %38 = load i64, ptr %37, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
   %39 = tail call i64 @llvm.bswap.i64(i64 %38)
   %40 = load ptr, ptr %0, align 8, !alias.scope !264
@@ -2342,26 +2319,25 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @logicalrep_read_stream_commit(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
-  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
+  %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
+  %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #7
   %5 = and i32 %4, 255
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %5) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.logicalrep_read_stream_commit) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.logicalrep_read_stream_commit) #7
   unreachable
 
 9:                                                ; preds = %2
-  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   store i64 %10, ptr %1, align 8
-  %11 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %11 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %11, ptr %12, align 8
-  %13 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %13 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %13, ptr %14, align 8
   ret i32 %3
@@ -2369,7 +2345,7 @@ define dso_local i32 @logicalrep_read_stream_commit(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
-  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
+  tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   %7 = load ptr, ptr %0, align 8, !alias.scope !267
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2379,7 +2355,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
   store i8 65, ptr %11, align 1, !noalias !267
   %12 = add i32 %9, 1
   store i32 %12, ptr %8, align 8, !alias.scope !267
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
   %13 = tail call i32 @llvm.bswap.i32(i32 %1)
   %14 = load ptr, ptr %0, align 8, !alias.scope !270
@@ -2389,7 +2365,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
   store i32 %13, ptr %17, align 1, !noalias !270
   %18 = add i32 %15, 4
   store i32 %18, ptr %8, align 8, !alias.scope !270
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 4) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %19 = tail call i32 @llvm.bswap.i32(i32 %2)
   %20 = load ptr, ptr %0, align 8, !alias.scope !273
@@ -2402,7 +2378,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
   br i1 %5, label %25, label %38
 
 25:                                               ; preds = %6
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
   %26 = tail call i64 @llvm.bswap.i64(i64 %3)
   %27 = load ptr, ptr %0, align 8, !alias.scope !276
@@ -2412,7 +2388,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
   store i64 %26, ptr %30, align 1, !noalias !276
   %31 = add i32 %28, 8
   store i32 %31, ptr %8, align 8, !alias.scope !276
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef 8) #7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %32 = tail call i64 @llvm.bswap.i64(i64 %4)
   %33 = load ptr, ptr %0, align 8, !alias.scope !279
@@ -2430,18 +2406,18 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @logicalrep_read_stream_abort(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   store i32 %4, ptr %1, align 8
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %5, ptr %6, align 4
   br i1 %2, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %8 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
+  %10 = tail call i64 @pq_getmsgint64(ptr noundef %0) #7
   br label %13
 
 11:                                               ; preds = %3
@@ -2535,7 +2511,7 @@ define dso_local noundef nonnull ptr @logicalrep_message_type(i32 noundef %0) lo
   br label %22
 
 20:                                               ; preds = %1
-  %21 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @logicalrep_message_type.err_unknown, i64 noundef 20, ptr noundef nonnull @.str.37, i32 noundef %0) #8
+  %21 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @logicalrep_message_type.err_unknown, i64 noundef 20, ptr noundef nonnull @.str.37, i32 noundef %0) #7
   br label %22
 
 22:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
@@ -2560,7 +2536,7 @@ define dso_local zeroext i1 @logicalrep_should_publish_column(ptr noundef readon
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i32
-  %12 = tail call zeroext i1 @bms_is_member(i32 noundef %11, ptr noundef nonnull %1) #8
+  %12 = tail call zeroext i1 @bms_is_member(i32 noundef %11, ptr noundef nonnull %1) #7
   br label %19
 
 13:                                               ; preds = %7
@@ -2621,11 +2597,8 @@ declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @get_namespace_name(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2633,11 +2606,10 @@ attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #3 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

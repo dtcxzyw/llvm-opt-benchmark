@@ -61,29 +61,28 @@ define dso_local void @InitializeLatchSupport() local_unnamed_addr #0 {
   br i1 %or.cond, label %6, label %8
 
 6:                                                ; preds = %0
-  %7 = tail call i32 @close(i32 noundef %4) #14
+  %7 = tail call i32 @close(i32 noundef %4) #13
   store i32 -1, ptr @signal_fd, align 4
-  tail call void @ReleaseExternalFD() #14
+  tail call void @ReleaseExternalFD() #13
   br label %8
 
 8:                                                ; preds = %6, %0
-  %9 = tail call i32 @sigaddset(ptr noundef nonnull @UnBlockSig, i32 noundef 23) #14
-  %10 = call i32 @sigemptyset(ptr noundef nonnull %1) #14
-  %11 = call i32 @sigaddset(ptr noundef nonnull %1, i32 noundef 23) #14
-  %12 = call i32 @signalfd(i32 noundef -1, ptr noundef nonnull %1, i32 noundef 526336) #14
+  %9 = tail call i32 @sigaddset(ptr noundef nonnull @UnBlockSig, i32 noundef 23) #13
+  %10 = call i32 @sigemptyset(ptr noundef nonnull %1) #13
+  %11 = call i32 @sigaddset(ptr noundef nonnull %1, i32 noundef 23) #13
+  %12 = call i32 @signalfd(i32 noundef -1, ptr noundef nonnull %1, i32 noundef 526336) #13
   store i32 %12, ptr @signal_fd, align 4
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %8
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  call void @llvm.assume(i1 %15)
-  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @__func__.InitializeLatchSupport) #14
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 335, ptr noundef nonnull @__func__.InitializeLatchSupport) #13
   unreachable
 
 17:                                               ; preds = %8
-  call void @ReserveExternalFD() #14
+  call void @ReserveExternalFD() #13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -161,12 +160,12 @@ define dso_local ptr @CreateWaitEventSet(ptr noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %2
-  tail call void @ResourceOwnerEnlarge(ptr noundef nonnull %0) #14
+  tail call void @ResourceOwnerEnlarge(ptr noundef nonnull %0) #13
   br label %11
 
 11:                                               ; preds = %10, %2
   %12 = load ptr, ptr @TopMemoryContext, align 8
-  %13 = tail call ptr @MemoryContextAllocZero(ptr noundef %12, i64 noundef %9) #14
+  %13 = tail call ptr @MemoryContextAllocZero(ptr noundef %12, i64 noundef %9) #13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %15, align 8
@@ -183,34 +182,32 @@ define dso_local ptr @CreateWaitEventSet(ptr noundef %0, i32 noundef %1) local_u
 
 21:                                               ; preds = %11
   %22 = ptrtoint ptr %13 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef nonnull %0, i64 noundef %22, ptr noundef nonnull @wait_event_set_resowner_desc) #14
+  tail call void @ResourceOwnerRemember(ptr noundef nonnull %0, i64 noundef %22, ptr noundef nonnull @wait_event_set_resowner_desc) #13
   store ptr %0, ptr %13, align 8
   br label %23
 
 23:                                               ; preds = %21, %11
-  %24 = tail call zeroext i1 @AcquireExternalFD() #14
+  %24 = tail call zeroext i1 @AcquireExternalFD() #13
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @__func__.CreateWaitEventSet) #14
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @__func__.CreateWaitEventSet) #13
   unreachable
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @epoll_create1(i32 noundef 524288) #14
+  %29 = tail call i32 @epoll_create1(i32 noundef 524288) #13
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %29, ptr %30, align 8
   %31 = icmp slt i32 %29, 0
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  tail call void @ReleaseExternalFD() #14
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 819, ptr noundef nonnull @__func__.CreateWaitEventSet) #14
+  tail call void @ReleaseExternalFD() #13
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 819, ptr noundef nonnull @__func__.CreateWaitEventSet) #13
   unreachable
 
 35:                                               ; preds = %28
@@ -240,10 +237,9 @@ define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 nound
   br i1 %.not32, label %17, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 974, ptr noundef nonnull @__func__.AddWaitEventToSet) #14
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 974, ptr noundef nonnull @__func__.AddWaitEventToSet) #13
   unreachable
 
 17:                                               ; preds = %10
@@ -253,10 +249,9 @@ define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 nound
   br i1 %.not33, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 976, ptr noundef nonnull @__func__.AddWaitEventToSet) #14
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 976, ptr noundef nonnull @__func__.AddWaitEventToSet) #13
   unreachable
 
 23:                                               ; preds = %17
@@ -265,10 +260,9 @@ define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 nound
   br i1 %.not34.not, label %25, label %33
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 978, ptr noundef nonnull @__func__.AddWaitEventToSet) #14
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 978, ptr noundef nonnull @__func__.AddWaitEventToSet) #13
   unreachable
 
 28:                                               ; preds = %9
@@ -277,10 +271,9 @@ define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 nound
   br i1 %.not31, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 983, ptr noundef nonnull @__func__.AddWaitEventToSet) #14
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 983, ptr noundef nonnull @__func__.AddWaitEventToSet) #13
   unreachable
 
 33:                                               ; preds = %28, %23
@@ -291,10 +284,9 @@ define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 nound
   br i1 %or.cond, label %39, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 988, ptr noundef nonnull @__func__.AddWaitEventToSet) #14
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 988, ptr noundef nonnull @__func__.AddWaitEventToSet) #13
   unreachable
 
 39:                                               ; preds = %33
@@ -351,22 +343,22 @@ define dso_local void @ShutdownLatchSupport() local_unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %1 to i64
-  tail call void @ResourceOwnerForget(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull @wait_event_set_resowner_desc) #14
+  tail call void @ResourceOwnerForget(ptr noundef nonnull %3, i64 noundef %5, ptr noundef nonnull @wait_event_set_resowner_desc) #13
   store ptr null, ptr %1, align 8
   br label %FreeWaitEventSet.exit
 
 FreeWaitEventSet.exit:                            ; preds = %2, %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 @close(i32 noundef %7) #14
-  tail call void @ReleaseExternalFD() #14
-  tail call void @pfree(ptr noundef nonnull %1) #14
+  %8 = tail call i32 @close(i32 noundef %7) #13
+  tail call void @ReleaseExternalFD() #13
+  tail call void @pfree(ptr noundef nonnull %1) #13
   store ptr null, ptr @LatchWaitSet, align 8
   br label %9
 
 9:                                                ; preds = %FreeWaitEventSet.exit, %0
   %10 = load i32, ptr @signal_fd, align 4
-  %11 = tail call i32 @close(i32 noundef %10) #14
+  %11 = tail call i32 @close(i32 noundef %10) #13
   store i32 -1, ptr @signal_fd, align 4
   ret void
 }
@@ -379,16 +371,16 @@ define dso_local void @FreeWaitEventSet(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = ptrtoint ptr %0 to i64
-  tail call void @ResourceOwnerForget(ptr noundef nonnull %2, i64 noundef %4, ptr noundef nonnull @wait_event_set_resowner_desc) #14
+  tail call void @ResourceOwnerForget(ptr noundef nonnull %2, i64 noundef %4, ptr noundef nonnull @wait_event_set_resowner_desc) #13
   store ptr null, ptr %0, align 8
   br label %5
 
 5:                                                ; preds = %3, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 @close(i32 noundef %7) #14
-  tail call void @ReleaseExternalFD() #14
-  tail call void @pfree(ptr noundef nonnull %0) #14
+  %8 = tail call i32 @close(i32 noundef %7) #13
+  tail call void @ReleaseExternalFD() #13
+  tail call void @pfree(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -425,10 +417,9 @@ define dso_local void @OwnLatch(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.OwnLatch) #14
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #14
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.OwnLatch) #13
   unreachable
 
 7:                                                ; preds = %1
@@ -499,10 +490,9 @@ define dso_local void @ModifyWaitEvent(ptr noundef captures(none) %0, i32 nounde
   br i1 %.not20, label %.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1070, ptr noundef nonnull @__func__.ModifyWaitEvent) #14
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1070, ptr noundef nonnull @__func__.ModifyWaitEvent) #13
   unreachable
 
 .thread:                                          ; preds = %14, %18
@@ -511,10 +501,9 @@ define dso_local void @ModifyWaitEvent(ptr noundef captures(none) %0, i32 nounde
   br i1 %.not22, label %27, label %24
 
 24:                                               ; preds = %.thread
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.ModifyWaitEvent) #14
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.ModifyWaitEvent) #13
   unreachable
 
 27:                                               ; preds = %.thread
@@ -534,10 +523,9 @@ define dso_local void @ModifyWaitEvent(ptr noundef captures(none) %0, i32 nounde
   br i1 %.not24, label %37, label %34
 
 34:                                               ; preds = %30
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1084, ptr noundef nonnull @__func__.ModifyWaitEvent) #14
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1084, ptr noundef nonnull @__func__.ModifyWaitEvent) #13
   unreachable
 
 37:                                               ; preds = %30, %29
@@ -563,7 +551,7 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #14
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #13
   %12 = load i64, ptr %8, align 8
   %.neg = mul i64 %12, -1000000000
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -605,7 +593,7 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 1, ptr %31, align 4
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !6
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !6
   %.pr = load ptr, ptr %17, align 8
   %.not64 = icmp eq ptr %.pr, null
   br i1 %.not64, label %.thread, label %32
@@ -646,23 +634,22 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   %48 = load ptr, ptr %22, align 8
   %49 = load i32, ptr %23, align 4
   %..i = call i32 @llvm.smin.i32(i32 %46, i32 %49)
-  %50 = call i32 @epoll_wait(i32 noundef %47, ptr noundef %48, i32 noundef %..i, i32 noundef %45) #14
+  %50 = call i32 @epoll_wait(i32 noundef %47, ptr noundef %48, i32 noundef %..i, i32 noundef %45) #13
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %59
 
 52:                                               ; preds = %.thread
-  %53 = tail call ptr @__errno_location() #16
+  %53 = tail call ptr @__errno_location() #15
   %54 = load i32, ptr %53, align 4
   %.not74.i = icmp eq i32 %54, 4
   br i1 %.not74.i, label %WaitEventSetWaitBlock.exit, label %55
 
 55:                                               ; preds = %52
   store volatile i32 0, ptr @waiting, align 4
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %56)
-  %57 = call i32 @errcode_for_socket_access() #14
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1584, ptr noundef nonnull @__func__.WaitEventSetWaitBlock) #14
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %57 = call i32 @errcode_for_socket_access() #13
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1584, ptr noundef nonnull @__func__.WaitEventSetWaitBlock) #13
   unreachable
 
 59:                                               ; preds = %.thread
@@ -711,13 +698,13 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %78
-  %80 = call i64 @read(i32 noundef %79, ptr noundef nonnull %7, i64 noundef 1024) #14
+  %80 = call i64 @read(i32 noundef %79, ptr noundef nonnull %7, i64 noundef 1024) #13
   %81 = trunc i64 %80 to i32
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %89
 
 83:                                               ; preds = %.backedge.i.i
-  %84 = tail call ptr @__errno_location() #16
+  %84 = tail call ptr @__errno_location() #15
   %85 = load i32, ptr %84, align 4
   switch i32 %85, label %86 [
     i32 11, label %drain.exit.i
@@ -726,10 +713,9 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
 
 86:                                               ; preds = %83
   store volatile i32 0, ptr @waiting, align 4
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2352, ptr noundef nonnull @__func__.drain) #14
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2352, ptr noundef nonnull @__func__.drain) #13
   unreachable
 
 89:                                               ; preds = %.backedge.i.i
@@ -738,10 +724,9 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
 
 91:                                               ; preds = %89
   store volatile i32 0, ptr @waiting, align 4
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %92)
-  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2362, ptr noundef nonnull @__func__.drain) #14
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2362, ptr noundef nonnull @__func__.drain) #13
   unreachable
 
 94:                                               ; preds = %89
@@ -784,7 +769,7 @@ drain.exit.i:                                     ; preds = %94, %83
   br i1 %.not62.i, label %.thread75.i, label %110
 
 110:                                              ; preds = %107
-  %111 = call zeroext i1 @PostmasterIsAliveInternal() #14
+  %111 = call zeroext i1 @PostmasterIsAliveInternal() #13
   br i1 %111, label %.thread75.i, label %112
 
 112:                                              ; preds = %110
@@ -793,7 +778,7 @@ drain.exit.i:                                     ; preds = %94, %83
   br i1 %114, label %115, label %116
 
 115:                                              ; preds = %112
-  call void @proc_exit(i32 noundef 1) #17
+  call void @proc_exit(i32 noundef 1) #16
   unreachable
 
 116:                                              ; preds = %112
@@ -915,7 +900,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread75.i, %52, %
 
 168:                                              ; preds = %164
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %169 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #14
+  %169 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #13
   %170 = load i64, ptr %6, align 8
   %171 = mul i64 %170, 1000000000
   %172 = load i64, ptr %25, align 8
@@ -1039,7 +1024,7 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
 
 57:                                               ; preds = %52
   %58 = ptrtoint ptr %8 to i64
-  tail call void @ResourceOwnerForget(ptr noundef nonnull %56, i64 noundef %58, ptr noundef nonnull @wait_event_set_resowner_desc) #14
+  tail call void @ResourceOwnerForget(ptr noundef nonnull %56, i64 noundef %58, ptr noundef nonnull @wait_event_set_resowner_desc) #13
   store ptr null, ptr %8, align 8
   br label %FreeWaitEventSet.exit
 
@@ -1049,23 +1034,23 @@ FreeWaitEventSet.exit:                            ; preds = %52, %57
   %.023 = select i1 %59, i32 8, i32 %60
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %62 = load i32, ptr %61, align 8
-  %63 = tail call i32 @close(i32 noundef %62) #14
-  tail call void @ReleaseExternalFD() #14
-  tail call void @pfree(ptr noundef nonnull %8) #14
+  %63 = tail call i32 @close(i32 noundef %62) #13
+  tail call void @ReleaseExternalFD() #13
+  tail call void @pfree(ptr noundef nonnull %8) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.023
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SetLatch(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %16
 
 3:                                                ; preds = %1
   store i32 1, ptr %0, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not6 = icmp eq i32 %5, 0
@@ -1088,7 +1073,7 @@ define dso_local void @SetLatch(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %.not7, label %16, label %.sink.split
 
 .sink.split:                                      ; preds = %10, %13
-  %15 = tail call i32 @kill(i32 noundef %8, i32 noundef 23) #14
+  %15 = tail call i32 @kill(i32 noundef %8, i32 noundef 23) #13
   br label %16
 
 16:                                               ; preds = %.sink.split, %13, %6, %3, %1
@@ -1101,7 +1086,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @ResetLatch(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   ret void
 }
 
@@ -1120,9 +1105,9 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local void @FreeWaitEventSetAfterFork(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
-  %4 = tail call i32 @close(i32 noundef %3) #14
-  tail call void @ReleaseExternalFD() #14
-  tail call void @pfree(ptr noundef %0) #14
+  %4 = tail call i32 @close(i32 noundef %3) #13
+  tail call void @ReleaseExternalFD() #13
+  tail call void @pfree(ptr noundef %0) #13
   ret void
 }
 
@@ -1163,16 +1148,15 @@ condstore.split:                                  ; preds = %3
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = call i32 @epoll_ctl(i32 noundef %17, i32 noundef %2, i32 noundef %19, ptr noundef nonnull %4) #14
+  %20 = call i32 @epoll_ctl(i32 noundef %17, i32 noundef %2, i32 noundef %19, ptr noundef nonnull %4) #13
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %15
-  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %23)
-  %24 = call i32 @errcode_for_socket_access() #14
-  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1164, ptr noundef nonnull @__func__.WaitEventAdjustEpoll) #14
+  %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %24 = call i32 @errcode_for_socket_access() #13
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1164, ptr noundef nonnull @__func__.WaitEventAdjustEpoll) #13
   unreachable
 
 26:                                               ; preds = %15
@@ -1201,9 +1185,9 @@ FreeWaitEventSet.exit:
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load i32, ptr %2, align 8
-  %4 = tail call i32 @close(i32 noundef %3) #14
-  tail call void @ReleaseExternalFD() #14
-  tail call void @pfree(ptr noundef nonnull %1) #14
+  %4 = tail call i32 @close(i32 noundef %3) #13
+  tail call void @ReleaseExternalFD() #13
+  tail call void @pfree(ptr noundef nonnull %1) #13
   ret void
 }
 
@@ -1238,11 +1222,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1256,12 +1237,11 @@ attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

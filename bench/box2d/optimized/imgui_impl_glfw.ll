@@ -492,8 +492,6 @@ define dso_local noundef range(i32 0, 629) i32 @_Z28ImGui_ImplGlfw_KeyToImGuiKey
 define dso_local void @_Z34ImGui_ImplGlfw_MouseButtonCallbackP10GLFWwindowiii(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %4 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %.not.i)
   %5 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8, !tbaa !4
@@ -607,8 +605,6 @@ declare void @_ZN7ImGuiIO19AddMouseButtonEventEib(ptr noundef nonnull align 8 de
 define dso_local void @_Z29ImGui_ImplGlfw_ScrollCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %3 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not.i)
   %4 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8, !tbaa !4
@@ -660,8 +656,6 @@ define dso_local void @_Z26ImGui_ImplGlfw_KeyCallbackP10GLFWwindowiiii(ptr nound
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %5 = alloca [12 x i8], align 1
   %6 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %.not.i)
   %7 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = load ptr, ptr %8, align 8, !tbaa !4
@@ -749,7 +743,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   br label %56
 
 48:                                               ; preds = %43
-  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #9
+  %49 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef %40) #8
   %.not31.i = icmp eq ptr %49, null
   br i1 %.not31.i, label %56, label %50
 
@@ -787,8 +781,6 @@ declare void @_ZN7ImGuiIO21SetKeyEventNativeDataE8ImGuiKeyiii(ptr noundef nonnul
 define dso_local void @_Z34ImGui_ImplGlfw_WindowFocusCallbackP10GLFWwindowi(ptr noundef %0, i32 noundef %1) #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %2 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
   %3 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -838,8 +830,6 @@ declare void @_ZN7ImGuiIO13AddFocusEventEb(ptr noundef nonnull align 8 dereferen
 define dso_local void @_Z32ImGui_ImplGlfw_CursorPosCallbackP10GLFWwindowdd(ptr noundef %0, double noundef %1, double noundef %2) #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %3 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not.i)
   %4 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8, !tbaa !4
@@ -897,8 +887,6 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local void @_Z34ImGui_ImplGlfw_CursorEnterCallbackP10GLFWwindowi(ptr noundef %0, i32 noundef %1) #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %2 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
   %3 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -972,8 +960,6 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
 define dso_local void @_Z27ImGui_ImplGlfw_CharCallbackP10GLFWwindowj(ptr noundef %0, i32 noundef %1) #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %2 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
   %3 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -1086,8 +1072,6 @@ declare ptr @glfwSetMonitorCallback(ptr noundef) local_unnamed_addr #2
 define dso_local void @_Z31ImGui_ImplGlfw_RestoreCallbacksP10GLFWwindow(ptr noundef %0) local_unnamed_addr #1 {
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %1 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %.not.i)
   %2 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !4
@@ -1126,8 +1110,6 @@ define dso_local void @_Z45ImGui_ImplGlfw_SetCallbacksChainForAllWindowsb(i1 nou
 _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %1 = zext i1 %0 to i8
   %2 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %.not.i)
   %3 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -1284,8 +1266,6 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit:
   %6 = alloca i32, align 4
   %7 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %8 = tail call noundef ptr @_ZN5ImGui17GetCurrentContextEv()
-  %.not.i = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %.not.i)
   %9 = tail call noundef nonnull align 8 dereferenceable(2944) ptr @_ZN5ImGui5GetIOEv()
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8, !tbaa !4
@@ -1724,9 +1704,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1735,8 +1712,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

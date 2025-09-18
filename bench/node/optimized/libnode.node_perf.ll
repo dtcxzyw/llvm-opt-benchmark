@@ -995,26 +995,17 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #20
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 319
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 319
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %kind_.i = getelementptr inbounds nuw i8, ptr %11, i64 680
-  %12 = load i32, ptr %kind_.i, align 8
-  %cmp.not = icmp eq i32 %12, 0
+  %kind_.i = getelementptr inbounds nuw i8, ptr %7, i64 680
+  %8 = load i32, ptr %kind_.i, align 8
+  %cmp.not = icmp eq i32 %8, 0
   br i1 %cmp.not, label %lor.lhs.false.i38, label %do.body4
 
 do.body4:                                         ; preds = %entry
@@ -1024,26 +1015,26 @@ do.body4:                                         ; preds = %entry
 
 lor.lhs.false.i38:                                ; preds = %entry
   %length_.i39 = getelementptr inbounds nuw i8, ptr %args, i64 16
-  %13 = load i32, ptr %length_.i39, align 8
-  %cmp2.i40 = icmp slt i32 %13, 1
+  %9 = load i32, ptr %length_.i39, align 8
+  %cmp2.i40 = icmp slt i32 %9, 1
   br i1 %cmp2.i40, label %if.then.i46, label %if.end.i41
 
 if.then.i46:                                      ; preds = %lor.lhs.false.i38
-  %14 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load ptr, ptr %arrayidx.i, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %add1.i83 = add i64 %16, 608
-  %17 = inttoptr i64 %add1.i83 to ptr
+  %10 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %add1.i83 = add i64 %12, 608
+  %13 = inttoptr i64 %add1.i83 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49
 
 if.end.i41:                                       ; preds = %lor.lhs.false.i38
   %values_.i42 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %18 = load ptr, ptr %values_.i42, align 8
+  %14 = load ptr, ptr %values_.i42, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49: ; preds = %if.end.i41, %if.then.i46
-  %retval.i32.sroa.0.0 = phi ptr [ %17, %if.then.i46 ], [ %18, %if.end.i41 ]
+  %retval.i32.sroa.0.0 = phi ptr [ %13, %if.then.i46 ], [ %14, %if.end.i41 ]
   %call11 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i32.sroa.0.0) #20
   br i1 %call11, label %lor.lhs.false.i, label %do.body16
 
@@ -1053,30 +1044,30 @@ do.body16:                                        ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49
-  %19 = load i32, ptr %length_.i39, align 8
-  %cmp2.i = icmp slt i32 %19, 1
+  %15 = load i32, ptr %length_.i39, align 8
+  %cmp2.i = icmp slt i32 %15, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i
-  %20 = load ptr, ptr %args, align 8
-  %arrayidx.i73 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %21 = load ptr, ptr %arrayidx.i73, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %add1.i = add i64 %22, 608
-  %23 = inttoptr i64 %add1.i to ptr
+  %16 = load ptr, ptr %args, align 8
+  %arrayidx.i73 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = load ptr, ptr %arrayidx.i73, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %add1.i = add i64 %18, 608
+  %19 = inttoptr i64 %add1.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %24 = load ptr, ptr %values_.i, align 8
+  %20 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %23, %if.then.i ], [ %24, %if.end.i ]
-  %vtable = load ptr, ptr %11, align 8
+  %retval.i.sroa.0.0 = phi ptr [ %19, %if.then.i ], [ %20, %if.end.i ]
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 688
-  %25 = load ptr, ptr %vfn, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(872) %11, ptr %retval.i.sroa.0.0) #20
+  %21 = load ptr, ptr %vfn, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(872) %7, ptr %retval.i.sroa.0.0) #20
   ret void
 }
 
@@ -1469,47 +1460,38 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #20
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %12 = load ptr, ptr %isolate_data_.i.i, align 8
-  %event_loop_.i.i = getelementptr inbounds nuw i8, ptr %12, i64 4064
-  %13 = load ptr, ptr %event_loop_.i.i, align 8
-  %call2 = tail call i64 @uv_metrics_idle_time(ptr noundef %13) #20
-  %14 = load ptr, ptr %args, align 8
+  %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 96
+  %8 = load ptr, ptr %isolate_data_.i.i, align 8
+  %event_loop_.i.i = getelementptr inbounds nuw i8, ptr %8, i64 4064
+  %9 = load ptr, ptr %event_loop_.i.i, align 8
+  %call2 = tail call i64 @uv_metrics_idle_time(ptr noundef %9) #20
+  %10 = load ptr, ptr %args, align 8
   %conv = uitofp i64 %call2 to double
   %div = fdiv double %conv, 1.000000e+06
-  %arrayidx.i14 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load ptr, ptr %arrayidx.i14, align 8
-  %call2.i = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %15, double noundef %div) #20
+  %arrayidx.i14 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %11 = load ptr, ptr %arrayidx.i14, align 8
+  %call2.i = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %11, double noundef %div) #20
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %if.then.i, label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6NumberEEEvNS_5LocalIT_EE.exit
 
 if.then.i:                                        ; preds = %entry
-  %16 = load ptr, ptr %arrayidx.i14, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %add1.i.i = add i64 %17, 616
-  %18 = inttoptr i64 %add1.i.i to ptr
+  %12 = load ptr, ptr %arrayidx.i14, align 8
+  %13 = ptrtoint ptr %12 to i64
+  %add1.i.i = add i64 %13, 616
+  %14 = inttoptr i64 %add1.i.i to ptr
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6NumberEEEvNS_5LocalIT_EE.exit
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_6NumberEEEvNS_5LocalIT_EE.exit: ; preds = %entry, %if.then.i
-  %storemerge.in = phi ptr [ %18, %if.then.i ], [ %call2.i, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %storemerge.in = phi ptr [ %14, %if.then.i ], [ %call2.i, %entry ]
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %10, i64 24
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
   ret void
@@ -1674,43 +1656,34 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #20
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load ptr, ptr %args, align 8
-  %arrayidx.i14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %13 = load ptr, ptr %arrayidx.i14, align 8
-  %time_origin_timestamp_.i = getelementptr inbounds nuw i8, ptr %11, i64 2032
-  %14 = load double, ptr %time_origin_timestamp_.i, align 8
-  %div = fdiv double %14, 1.000000e+03
-  %call4 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %13, double noundef %div) #20
+  %8 = load ptr, ptr %args, align 8
+  %arrayidx.i14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = load ptr, ptr %arrayidx.i14, align 8
+  %time_origin_timestamp_.i = getelementptr inbounds nuw i8, ptr %7, i64 2032
+  %10 = load double, ptr %time_origin_timestamp_.i, align 8
+  %div = fdiv double %10, 1.000000e+03
+  %call4 = tail call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %9, double noundef %div) #20
   %cmp.i = icmp eq ptr %call4, null
   br i1 %cmp.i, label %if.then.i, label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6NumberEEEvNS_5LocalIT_EE.exit
 
 if.then.i:                                        ; preds = %entry
-  %15 = load ptr, ptr %arrayidx.i14, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %add1.i.i = add i64 %16, 616
-  %17 = inttoptr i64 %add1.i.i to ptr
+  %11 = load ptr, ptr %arrayidx.i14, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %add1.i.i = add i64 %12, 616
+  %13 = inttoptr i64 %add1.i.i to ptr
   br label %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6NumberEEEvNS_5LocalIT_EE.exit
 
 _ZN2v811ReturnValueINS_5ValueEE3SetINS_6NumberEEEvNS_5LocalIT_EE.exit: ; preds = %entry, %if.then.i
-  %storemerge.in = phi ptr [ %17, %if.then.i ], [ %call4, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %storemerge.in = phi ptr [ %13, %if.then.i ], [ %call4, %entry ]
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %storemerge = load i64, ptr %storemerge.in, align 8
   store i64 %storemerge, ptr %arrayidx.i, align 8
   ret void

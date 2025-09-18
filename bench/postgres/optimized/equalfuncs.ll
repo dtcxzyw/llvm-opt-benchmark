@@ -31,7 +31,7 @@ define dso_local zeroext i1 @equal(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not, label %9, label %_equalGroupingFunc.exit
 
 9:                                                ; preds = %6
-  tail call void @check_stack_depth() #9
+  tail call void @check_stack_depth() #8
   %10 = load i32, ptr %.tr1168, align 4
   switch i32 %10, label %764 [
     i32 2, label %11
@@ -1681,7 +1681,7 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %9, 
   br label %_equalGroupingFunc.exit
 
 743:                                              ; preds = %9
-  %744 = tail call zeroext i1 @bms_equal(ptr noundef nonnull %.tr1168, ptr noundef nonnull %.tr6411169) #9
+  %744 = tail call zeroext i1 @bms_equal(ptr noundef nonnull %.tr1168, ptr noundef nonnull %.tr6411169) #8
   br label %_equalGroupingFunc.exit
 
 745:                                              ; preds = %9
@@ -1727,11 +1727,10 @@ tailrecurse.backedge:                             ; preds = %9, %9, %9, %9, %9, 
   br label %_equalGroupingFunc.exit
 
 764:                                              ; preds = %9
-  %765 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %765)
+  %765 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %766 = load i32, ptr %.tr1168, align 4
-  %767 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %766) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 258, ptr noundef nonnull @__func__.equal) #9
+  %767 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %766) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 258, ptr noundef nonnull @__func__.equal) #8
   unreachable
 
 _equalGroupingFunc.exit:                          ; preds = %tailrecurse.backedge, %.lr.ph, %6, %66, %321, %328, %347, %9, %9, %2, %726, %721, %716, %711, %686, %680, %661, %655, %538, %532, %380, %374, %369, %364, %359, %354, %276, %272, %265, %236, %231, %224, %219, %214, %209, %204, %199, %190, %184, %159, %154, %147, %142, %137, %122, %117, %112, %103, %97, %92, %86, %47, %42, %33, %27, %11, %13, %15, %17, %19, %21, %23, %25, %38, %40, %52, %54, %56, %58, %60, %62, %64, %72, %74, %76, %78, %80, %82, %84, %108, %110, %127, %129, %131, %133, %135, %152, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %195, %197, %229, %241, %243, %245, %247, %250, %252, %254, %256, %258, %260, %263, %277, %279, %281, %283, %285, %287, %289, %291, %293, %295, %297, %299, %301, %303, %305, %307, %309, %311, %313, %315, %317, %319, %326, %333, %335, %337, %339, %341, %343, %345, %352, %385, %387, %389, %391, %393, %395, %397, %399, %401, %403, %405, %407, %409, %411, %413, %415, %417, %419, %421, %423, %425, %427, %429, %431, %433, %435, %437, %439, %441, %443, %445, %447, %449, %451, %453, %455, %457, %459, %461, %463, %465, %467, %469, %471, %473, %476, %478, %480, %482, %484, %486, %488, %490, %492, %494, %496, %498, %500, %502, %504, %506, %508, %510, %512, %514, %516, %518, %520, %522, %524, %526, %528, %530, %543, %545, %547, %549, %551, %553, %555, %557, %559, %561, %563, %565, %567, %569, %572, %574, %576, %578, %580, %582, %584, %586, %588, %590, %592, %594, %596, %598, %600, %602, %604, %606, %609, %612, %614, %616, %618, %620, %622, %624, %627, %629, %631, %634, %636, %638, %640, %642, %644, %646, %648, %650, %653, %666, %668, %670, %672, %674, %676, %678, %691, %693, %695, %697, %699, %701, %703, %705, %707, %709, %731, %733, %735, %737, %739, %741, %743, %745, %747, %750, %753, %756, %759, %762
@@ -1755,7 +1754,7 @@ define internal fastcc zeroext i1 @_equalAlias(ptr noundef nonnull readonly capt
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -1790,7 +1789,7 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr noundef nonnull readonly c
   br i1 %.not31, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -1811,7 +1810,7 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr noundef nonnull readonly c
   br i1 %.not33, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre40) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre40) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -1832,7 +1831,7 @@ define internal fastcc zeroext i1 @_equalRangeVar(ptr noundef nonnull readonly c
   br i1 %.not35, label %.thread, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.pre43) #11
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.pre43) #10
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %.thread
 
@@ -1979,7 +1978,7 @@ define internal fastcc zeroext i1 @_equalTableFunc(ptr noundef nonnull readonly 
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call zeroext i1 @bms_equal(ptr noundef %81, ptr noundef %83) #9
+  %84 = tail call zeroext i1 @bms_equal(ptr noundef %81, ptr noundef %83) #8
   br i1 %84, label %85, label %96
 
 85:                                               ; preds = %79
@@ -2033,7 +2032,7 @@ define internal fastcc noundef zeroext i1 @_equalIntoClause(ptr noundef nonnull 
   br i1 %.not29, label %.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %.thread
 
@@ -2070,7 +2069,7 @@ define internal fastcc noundef zeroext i1 @_equalIntoClause(ptr noundef nonnull 
   br i1 %.not32, label %.thread, label %38
 
 38:                                               ; preds = %37
-  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %.pre36) #11
+  %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %.pre36) #10
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %43, label %.thread
 
@@ -2145,7 +2144,7 @@ define internal fastcc zeroext i1 @_equalVar(ptr noundef nonnull readonly captur
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call zeroext i1 @bms_equal(ptr noundef %29, ptr noundef %31) #9
+  %32 = tail call zeroext i1 @bms_equal(ptr noundef %29, ptr noundef %31) #8
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %27
@@ -2227,7 +2226,7 @@ define internal fastcc zeroext i1 @_equalConst(ptr noundef nonnull readonly capt
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i64, ptr %37, align 8
-  %39 = tail call zeroext i1 @datumIsEqual(i64 noundef %36, i64 noundef %38, i1 noundef zeroext %34, i32 noundef %19) #9
+  %39 = tail call zeroext i1 @datumIsEqual(i64 noundef %36, i64 noundef %38, i1 noundef zeroext %34, i32 noundef %19) #8
   br label %40
 
 40:                                               ; preds = %27, %22, %17, %12, %7, %2, %33
@@ -2709,7 +2708,7 @@ define internal fastcc zeroext i1 @_equalNamedArgExpr(ptr noundef nonnull readon
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -3094,7 +3093,7 @@ define internal fastcc zeroext i1 @_equalSubPlan(ptr noundef nonnull readonly ca
   br i1 %.not41, label %.thread, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %33, label %.thread
 
@@ -3689,7 +3688,7 @@ define internal fastcc zeroext i1 @_equalXmlExpr(ptr noundef nonnull readonly ca
   br i1 %.not26, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -3970,7 +3969,7 @@ define internal fastcc zeroext i1 @_equalJsonExpr(ptr noundef nonnull readonly c
   br i1 %.not38, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -4109,7 +4108,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonTablePath(ptr noundef nonnu
   br i1 %.not11, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -4337,7 +4336,7 @@ define internal fastcc zeroext i1 @_equalCurrentOfExpr(ptr noundef nonnull reado
   br i1 %.not14, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -4448,7 +4447,7 @@ define internal fastcc noundef zeroext i1 @_equalTargetEntry(ptr noundef nonnull
   br i1 %.not22, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -4885,7 +4884,7 @@ define internal fastcc zeroext i1 @_equalQuery(ptr noundef nonnull readonly capt
   br i1 %.not116, label %.thread, label %145
 
 145:                                              ; preds = %144
-  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %143, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %150, label %.thread
 
@@ -4906,7 +4905,7 @@ define internal fastcc zeroext i1 @_equalQuery(ptr noundef nonnull readonly capt
   br i1 %.not118, label %.thread, label %154
 
 154:                                              ; preds = %153
-  %155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(1) %.pre123) #11
+  %155 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef nonnull dereferenceable(1) %.pre123) #10
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %159, label %.thread
 
@@ -5205,7 +5204,7 @@ define internal fastcc noundef zeroext i1 @_equalRoleSpec(ptr noundef nonnull re
   br i1 %.not12, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -5365,7 +5364,7 @@ define internal fastcc zeroext i1 @_equalResTarget(ptr noundef nonnull readonly 
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -5476,7 +5475,7 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr noundef nonnull readonly 
   br i1 %.not27, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -5497,7 +5496,7 @@ define internal fastcc zeroext i1 @_equalWindowDef(ptr noundef nonnull readonly 
   br i1 %.not29, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre33) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre33) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -5702,7 +5701,7 @@ define internal fastcc zeroext i1 @_equalRangeTableFuncCol(ptr noundef nonnull r
   br i1 %.not19, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -5807,7 +5806,7 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr noundef nonnull readonly 
   br i1 %.not55, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -5836,7 +5835,7 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr noundef nonnull readonly 
   br i1 %.not57, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre70) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre70) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -5897,7 +5896,7 @@ define internal fastcc zeroext i1 @_equalColumnDef(ptr noundef nonnull readonly 
   br i1 %.not64, label %.thread, label %55
 
 55:                                               ; preds = %54
-  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.pre73) #11
+  %56 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.pre73) #10
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %60, label %.thread
 
@@ -6026,7 +6025,7 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr noundef nonnull readonly 
   br i1 %.not29, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -6055,7 +6054,7 @@ define internal fastcc zeroext i1 @_equalIndexElem(ptr noundef nonnull readonly 
   br i1 %.not31, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre36) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre36) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -6122,7 +6121,7 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr noundef nonnull readonly ca
   br i1 %.not21, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -6143,7 +6142,7 @@ define internal fastcc zeroext i1 @_equalDefElem(ptr noundef nonnull readonly ca
   br i1 %.not23, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre27) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre27) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -6254,7 +6253,7 @@ define internal fastcc zeroext i1 @_equalPartitionElem(ptr noundef nonnull reado
   br i1 %.not15, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -6565,7 +6564,7 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr noundef nonnull reado
   br i1 %.not89, label %.thread, label %122
 
 122:                                              ; preds = %121
-  %123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %127, label %.thread
 
@@ -6626,7 +6625,7 @@ define internal fastcc zeroext i1 @_equalRangeTblEntry(ptr noundef nonnull reado
   br i1 %.not93, label %.thread, label %159
 
 159:                                              ; preds = %158
-  %160 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %157, ptr noundef nonnull dereferenceable(1) %.pre98) #11
+  %160 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %157, ptr noundef nonnull dereferenceable(1) %.pre98) #10
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %164, label %.thread
 
@@ -6717,7 +6716,7 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr noundef nonnull r
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call zeroext i1 @bms_equal(ptr noundef %24, ptr noundef %26) #9
+  %27 = tail call zeroext i1 @bms_equal(ptr noundef %24, ptr noundef %26) #8
   br i1 %27, label %28, label %40
 
 28:                                               ; preds = %22
@@ -6725,7 +6724,7 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr noundef nonnull r
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call zeroext i1 @bms_equal(ptr noundef %30, ptr noundef %32) #9
+  %33 = tail call zeroext i1 @bms_equal(ptr noundef %30, ptr noundef %32) #8
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %28
@@ -6733,7 +6732,7 @@ define internal fastcc zeroext i1 @_equalRTEPermissionInfo(ptr noundef nonnull r
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call zeroext i1 @bms_equal(ptr noundef %36, ptr noundef %38) #9
+  %39 = tail call zeroext i1 @bms_equal(ptr noundef %36, ptr noundef %38) #8
   br label %40
 
 40:                                               ; preds = %34, %28, %22, %17, %12, %7, %2
@@ -6795,7 +6794,7 @@ define internal fastcc zeroext i1 @_equalRangeTblFunction(ptr noundef nonnull re
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call zeroext i1 @bms_equal(ptr noundef %39, ptr noundef %41) #9
+  %42 = tail call zeroext i1 @bms_equal(ptr noundef %39, ptr noundef %41) #8
   br label %43
 
 43:                                               ; preds = %37, %31, %25, %19, %13, %8, %2
@@ -6855,7 +6854,7 @@ define internal fastcc noundef zeroext i1 @_equalWithCheckOption(ptr noundef non
   br i1 %.not24, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -6876,7 +6875,7 @@ define internal fastcc noundef zeroext i1 @_equalWithCheckOption(ptr noundef non
   br i1 %.not26, label %.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %.pre30) #11
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %.pre30) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %.thread
 
@@ -6973,7 +6972,7 @@ define internal fastcc noundef zeroext i1 @_equalWindowClause(ptr noundef nonnul
   br i1 %.not41, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -6994,7 +6993,7 @@ define internal fastcc noundef zeroext i1 @_equalWindowClause(ptr noundef nonnul
   br i1 %.not43, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre54) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre54) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -7133,7 +7132,7 @@ define internal fastcc noundef zeroext i1 @_equalInferClause(ptr noundef nonnull
   br i1 %.not13, label %.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %.thread
 
@@ -7217,7 +7216,7 @@ define internal fastcc noundef zeroext i1 @_equalCTESearchClause(ptr noundef non
   br i1 %.not14, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -7255,7 +7254,7 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr noundef nonnull read
   br i1 %.not31, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -7292,7 +7291,7 @@ define internal fastcc zeroext i1 @_equalCTECycleClause(ptr noundef nonnull read
   br i1 %.not33, label %.thread, label %33
 
 33:                                               ; preds = %32
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.pre40) #11
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.pre40) #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %38, label %.thread
 
@@ -7351,7 +7350,7 @@ define internal fastcc zeroext i1 @_equalCommonTableExpr(ptr noundef nonnull rea
   br i1 %.not31, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -7528,7 +7527,7 @@ define internal fastcc noundef zeroext i1 @_equalReturningOption(ptr noundef non
   br i1 %.not12, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -7580,7 +7579,7 @@ define internal fastcc noundef zeroext i1 @_equalTriggerTransition(ptr noundef n
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -7653,7 +7652,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonArgument(ptr noundef nonnul
   br i1 %.not11, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -7691,7 +7690,7 @@ define internal fastcc zeroext i1 @_equalJsonFuncExpr(ptr noundef nonnull readon
   br i1 %.not28, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -7790,7 +7789,7 @@ define internal fastcc noundef zeroext i1 @_equalJsonTablePathSpec(ptr noundef n
   br i1 %.not11, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -7890,7 +7889,7 @@ define internal fastcc zeroext i1 @_equalJsonTableColumn(ptr noundef nonnull rea
   br i1 %.not28, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -8741,7 +8740,7 @@ define internal fastcc zeroext i1 @_equalPLAssignStmt(ptr noundef nonnull readon
   br i1 %.not15, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -8792,7 +8791,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateSchemaStmt(ptr noundef no
   br i1 %.not15, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -8889,7 +8888,7 @@ define internal fastcc noundef zeroext i1 @_equalReplicaIdentityStmt(ptr noundef
   br i1 %.not12, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -8927,7 +8926,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableCmd(ptr noundef nonnu
   br i1 %.not24, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -9018,7 +9017,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterDomainStmt(ptr noundef non
   br i1 %.not20, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -9185,7 +9184,7 @@ define internal fastcc zeroext i1 @_equalAccessPriv(ptr noundef nonnull readonly
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -9336,7 +9335,7 @@ define internal fastcc zeroext i1 @_equalCopyStmt(ptr noundef nonnull readonly c
   br i1 %.not25, label %.thread, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %39, label %.thread
 
@@ -9387,7 +9386,7 @@ define internal fastcc noundef zeroext i1 @_equalVariableSetStmt(ptr noundef non
   br i1 %.not18, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -9436,7 +9435,7 @@ define internal fastcc noundef zeroext i1 @_equalVariableShowStmt(ptr readonly c
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -9546,7 +9545,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateStmt(ptr noundef nonnull 
   br i1 %.not40, label %.thread, label %65
 
 65:                                               ; preds = %64
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %70, label %.thread
 
@@ -9567,7 +9566,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateStmt(ptr noundef nonnull 
   br i1 %.not42, label %.thread, label %74
 
 74:                                               ; preds = %73
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %.pre46) #11
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %.pre46) #10
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %79, label %.thread
 
@@ -9610,7 +9609,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly
   br i1 %.not100, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -9687,7 +9686,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly
   br i1 %.not108, label %.thread, label %56
 
 56:                                               ; preds = %55
-  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %.pre128) #11
+  %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %.pre128) #10
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %61, label %.thread
 
@@ -9772,7 +9771,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly
   br i1 %.not114, label %.thread, label %109
 
 109:                                              ; preds = %108
-  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %.pre131) #11
+  %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %.pre131) #10
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %114, label %.thread
 
@@ -9793,7 +9792,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly
   br i1 %.not116, label %.thread, label %118
 
 118:                                              ; preds = %117
-  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %.pre134) #11
+  %119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef nonnull dereferenceable(1) %.pre134) #10
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %123, label %.thread
 
@@ -9822,7 +9821,7 @@ define internal fastcc zeroext i1 @_equalConstraint(ptr noundef nonnull readonly
   br i1 %.not119, label %.thread, label %132
 
 132:                                              ; preds = %131
-  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(1) %.pre137) #11
+  %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(1) %.pre137) #10
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %137, label %.thread
 
@@ -9945,7 +9944,7 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr noundef nonnul
   br i1 %.not21, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -9974,7 +9973,7 @@ define internal fastcc zeroext i1 @_equalCreateTableSpaceStmt(ptr noundef nonnul
   br i1 %.not23, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre26) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre26) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -10009,7 +10008,7 @@ define internal fastcc noundef zeroext i1 @_equalDropTableSpaceStmt(ptr noundef 
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10044,7 +10043,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableSpaceOptionsStmt(ptr 
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10087,7 +10086,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableMoveAllStmt(ptr nound
   br i1 %.not23, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10124,7 +10123,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterTableMoveAllStmt(ptr nound
   br i1 %.not26, label %.thread, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.pre30) #11
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.pre30) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %31, label %.thread
 
@@ -10159,7 +10158,7 @@ define internal fastcc zeroext i1 @_equalCreateExtensionStmt(ptr noundef nonnull
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10202,7 +10201,7 @@ define internal fastcc zeroext i1 @_equalAlterExtensionStmt(ptr noundef nonnull 
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10237,7 +10236,7 @@ define internal fastcc zeroext i1 @_equalAlterExtensionContentsStmt(ptr noundef 
   br i1 %.not15, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10288,7 +10287,7 @@ define internal fastcc zeroext i1 @_equalCreateFdwStmt(ptr noundef nonnull reado
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10331,7 +10330,7 @@ define internal fastcc zeroext i1 @_equalAlterFdwStmt(ptr noundef nonnull readon
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10374,7 +10373,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr noundef non
   br i1 %.not37, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10395,7 +10394,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr noundef non
   br i1 %.not39, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre47) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre47) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -10416,7 +10415,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr noundef non
   br i1 %.not41, label %.thread, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.pre50) #11
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.pre50) #10
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %.thread
 
@@ -10437,7 +10436,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignServerStmt(ptr noundef non
   br i1 %.not43, label %.thread, label %33
 
 33:                                               ; preds = %32
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.pre53) #11
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %.pre53) #10
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %38, label %.thread
 
@@ -10480,7 +10479,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterForeignServerStmt(ptr noun
   br i1 %.not21, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10501,7 +10500,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterForeignServerStmt(ptr noun
   br i1 %.not23, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre27) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre27) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -10624,7 +10623,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr noundef nonn
   br i1 %.not50, label %.thread, label %65
 
 65:                                               ; preds = %64
-  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %66 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %70, label %.thread
 
@@ -10645,7 +10644,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr noundef nonn
   br i1 %.not52, label %.thread, label %74
 
 74:                                               ; preds = %73
-  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %.pre58) #11
+  %75 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull dereferenceable(1) %.pre58) #10
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %79, label %.thread
 
@@ -10674,7 +10673,7 @@ define internal fastcc zeroext i1 @_equalCreateForeignTableStmt(ptr noundef nonn
   br i1 %.not55, label %.thread, label %88
 
 88:                                               ; preds = %87
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %.pre61) #11
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %86, ptr noundef nonnull dereferenceable(1) %.pre61) #10
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %93, label %.thread
 
@@ -10717,7 +10716,7 @@ define internal fastcc zeroext i1 @_equalCreateUserMappingStmt(ptr noundef nonnu
   br i1 %.not15, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -10768,7 +10767,7 @@ define internal fastcc zeroext i1 @_equalAlterUserMappingStmt(ptr noundef nonnul
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -10811,7 +10810,7 @@ define internal fastcc noundef zeroext i1 @_equalDropUserMappingStmt(ptr noundef
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -10846,7 +10845,7 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr noundef non
   br i1 %.not31, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10867,7 +10866,7 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr noundef non
   br i1 %.not33, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre39) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre39) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -10888,7 +10887,7 @@ define internal fastcc zeroext i1 @_equalImportForeignSchemaStmt(ptr noundef non
   br i1 %.not35, label %.thread, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.pre42) #11
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %.pre42) #10
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %29, label %.thread
 
@@ -10939,7 +10938,7 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr noundef nonnull re
   br i1 %.not27, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -10968,7 +10967,7 @@ define internal fastcc zeroext i1 @_equalCreatePolicyStmt(ptr noundef nonnull re
   br i1 %.not29, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre33) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre33) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -11027,7 +11026,7 @@ define internal fastcc zeroext i1 @_equalAlterPolicyStmt(ptr noundef nonnull rea
   br i1 %.not17, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -11086,7 +11085,7 @@ define internal fastcc zeroext i1 @_equalCreateAmStmt(ptr noundef nonnull readon
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -11145,7 +11144,7 @@ define internal fastcc zeroext i1 @_equalCreateTrigStmt(ptr noundef nonnull read
   br i1 %.not39, label %.thread, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %21, label %.thread
 
@@ -11268,7 +11267,7 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr noundef nonnull
   br i1 %.not21, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -11289,7 +11288,7 @@ define internal fastcc zeroext i1 @_equalCreateEventTrigStmt(ptr noundef nonnull
   br i1 %.not23, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre26) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre26) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -11332,7 +11331,7 @@ define internal fastcc zeroext i1 @_equalAlterEventTrigStmt(ptr noundef nonnull 
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -11375,7 +11374,7 @@ define internal fastcc noundef zeroext i1 @_equalCreatePLangStmt(ptr noundef non
   br i1 %.not20, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -11442,7 +11441,7 @@ define internal fastcc zeroext i1 @_equalCreateRoleStmt(ptr noundef nonnull read
   br i1 %.not14, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -11515,7 +11514,7 @@ define internal fastcc zeroext i1 @_equalAlterRoleSetStmt(ptr noundef nonnull re
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -11750,7 +11749,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateOpClassStmt(ptr noundef n
   br i1 %.not19, label %.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %.thread
 
@@ -11863,7 +11862,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateOpFamilyStmt(ptr noundef 
   br i1 %.not11, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -11901,7 +11900,7 @@ define internal fastcc zeroext i1 @_equalAlterOpFamilyStmt(ptr noundef nonnull r
   br i1 %.not15, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -12036,7 +12035,7 @@ define internal fastcc noundef zeroext i1 @_equalCommentStmt(ptr noundef nonnull
   br i1 %.not14, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -12082,7 +12081,7 @@ define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr noundef nonnul
   br i1 %.not22, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -12103,7 +12102,7 @@ define internal fastcc noundef zeroext i1 @_equalSecLabelStmt(ptr noundef nonnul
   br i1 %.not24, label %.thread, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.pre27) #11
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.pre27) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %31, label %.thread
 
@@ -12133,7 +12132,7 @@ define internal fastcc zeroext i1 @_equalDeclareCursorStmt(ptr noundef nonnull r
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -12174,7 +12173,7 @@ define internal fastcc noundef zeroext i1 @_equalClosePortalStmt(ptr readonly ca
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -12220,7 +12219,7 @@ define internal fastcc noundef zeroext i1 @_equalFetchStmt(ptr noundef nonnull r
   br i1 %.not17, label %.thread, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %21, label %.thread
 
@@ -12255,7 +12254,7 @@ define internal fastcc noundef zeroext i1 @_equalIndexStmt(ptr noundef nonnull r
   br i1 %.not75, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -12284,7 +12283,7 @@ define internal fastcc noundef zeroext i1 @_equalIndexStmt(ptr noundef nonnull r
   br i1 %.not77, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre99) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre99) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -12305,7 +12304,7 @@ define internal fastcc noundef zeroext i1 @_equalIndexStmt(ptr noundef nonnull r
   br i1 %.not79, label %.thread, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %.pre102) #11
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %.pre102) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %35, label %.thread
 
@@ -12366,7 +12365,7 @@ define internal fastcc noundef zeroext i1 @_equalIndexStmt(ptr noundef nonnull r
   br i1 %.not81, label %.thread, label %69
 
 69:                                               ; preds = %68
-  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %.pre105) #11
+  %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %.pre105) #10
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %74, label %.thread
 
@@ -12545,7 +12544,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateStatsStmt(ptr noundef non
   br i1 %.not21, label %.thread, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %35, label %.thread
 
@@ -12588,7 +12587,7 @@ define internal fastcc zeroext i1 @_equalStatsElem(ptr noundef nonnull readonly 
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -12715,7 +12714,7 @@ define internal fastcc zeroext i1 @_equalFunctionParameter(ptr noundef nonnull r
   br i1 %.not15, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -12858,7 +12857,7 @@ define internal fastcc noundef zeroext i1 @_equalRenameStmt(ptr noundef nonnull 
   br i1 %.not31, label %.thread, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %33, label %.thread
 
@@ -12879,7 +12878,7 @@ define internal fastcc noundef zeroext i1 @_equalRenameStmt(ptr noundef nonnull 
   br i1 %.not33, label %.thread, label %37
 
 37:                                               ; preds = %36
-  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %.pre38) #11
+  %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %.pre38) #10
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %42, label %.thread
 
@@ -12992,7 +12991,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterObjectSchemaStmt(ptr nound
   br i1 %.not18, label %.thread, label %23
 
 23:                                               ; preds = %22
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %.thread
 
@@ -13117,7 +13116,7 @@ define internal fastcc noundef zeroext i1 @_equalRuleStmt(ptr noundef nonnull re
   br i1 %.not21, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -13184,7 +13183,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull 
   br i1 %.not17, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -13205,7 +13204,7 @@ define internal fastcc noundef zeroext i1 @_equalNotifyStmt(ptr noundef nonnull 
   br i1 %.not19, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre22) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre22) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -13233,7 +13232,7 @@ define internal fastcc noundef zeroext i1 @_equalListenStmt(ptr readonly capture
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -13261,7 +13260,7 @@ define internal fastcc noundef zeroext i1 @_equalUnlistenStmt(ptr readonly captu
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -13307,7 +13306,7 @@ define internal fastcc noundef zeroext i1 @_equalTransactionStmt(ptr noundef non
   br i1 %.not24, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -13328,7 +13327,7 @@ define internal fastcc noundef zeroext i1 @_equalTransactionStmt(ptr noundef non
   br i1 %.not26, label %.thread, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.pre30) #11
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %.pre30) #10
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %31, label %.thread
 
@@ -13437,7 +13436,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterEnumStmt(ptr noundef nonnu
   br i1 %.not31, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -13458,7 +13457,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterEnumStmt(ptr noundef nonnu
   br i1 %.not33, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre40) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre40) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -13479,7 +13478,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterEnumStmt(ptr noundef nonnu
   br i1 %.not35, label %.thread, label %30
 
 30:                                               ; preds = %29
-  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %.pre43) #11
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %.pre43) #10
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %35, label %.thread
 
@@ -13574,7 +13573,7 @@ define internal fastcc noundef zeroext i1 @_equalLoadStmt(ptr readonly captures(
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -13604,7 +13603,7 @@ define internal fastcc zeroext i1 @_equalCreatedbStmt(ptr noundef nonnull readon
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -13639,7 +13638,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseStmt(ptr noundef nonnull r
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -13672,7 +13671,7 @@ define internal fastcc noundef zeroext i1 @_equalAlterDatabaseRefreshCollStmt(pt
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -13702,7 +13701,7 @@ define internal fastcc zeroext i1 @_equalAlterDatabaseSetStmt(ptr noundef nonnul
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -13737,7 +13736,7 @@ define internal fastcc zeroext i1 @_equalDropdbStmt(ptr noundef nonnull readonly
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -13788,7 +13787,7 @@ define internal fastcc zeroext i1 @_equalClusterStmt(ptr noundef nonnull readonl
   br i1 %.not13, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -14027,7 +14026,7 @@ define internal fastcc zeroext i1 @_equalReindexStmt(ptr noundef nonnull readonl
   br i1 %.not16, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -14070,7 +14069,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateConversionStmt(ptr nounde
   br i1 %.not23, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %17, label %.thread
 
@@ -14091,7 +14090,7 @@ define internal fastcc noundef zeroext i1 @_equalCreateConversionStmt(ptr nounde
   br i1 %.not25, label %.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre29) #11
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.pre29) #10
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %26, label %.thread
 
@@ -14196,7 +14195,7 @@ define internal fastcc zeroext i1 @_equalCreateTransformStmt(ptr noundef nonnull
   br i1 %.not18, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %.thread
 
@@ -14239,7 +14238,7 @@ define internal fastcc zeroext i1 @_equalPrepareStmt(ptr noundef nonnull readonl
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14282,7 +14281,7 @@ define internal fastcc zeroext i1 @_equalExecuteStmt(ptr noundef nonnull readonl
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14317,7 +14316,7 @@ define internal fastcc noundef zeroext i1 @_equalDeallocateStmt(ptr noundef nonn
   br i1 %.not11, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14496,7 +14495,7 @@ define internal fastcc zeroext i1 @_equalPublicationObjSpec(ptr noundef nonnull 
   br i1 %.not14, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -14531,7 +14530,7 @@ define internal fastcc noundef zeroext i1 @_equalCreatePublicationStmt(ptr nound
   br i1 %.not15, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14582,7 +14581,7 @@ define internal fastcc zeroext i1 @_equalAlterPublicationStmt(ptr noundef nonnul
   br i1 %.not17, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14641,7 +14640,7 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr noundef nonn
   br i1 %.not21, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14662,7 +14661,7 @@ define internal fastcc zeroext i1 @_equalCreateSubscriptionStmt(ptr noundef nonn
   br i1 %.not23, label %.thread, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre26) #11
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %.pre26) #10
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %20, label %.thread
 
@@ -14713,7 +14712,7 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr noundef nonnu
   br i1 %.not24, label %.thread, label %11
 
 11:                                               ; preds = %10
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %16, label %.thread
 
@@ -14734,7 +14733,7 @@ define internal fastcc zeroext i1 @_equalAlterSubscriptionStmt(ptr noundef nonnu
   br i1 %.not26, label %.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %.pre29) #11
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %.pre29) #10
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %.thread
 
@@ -14777,7 +14776,7 @@ define internal fastcc zeroext i1 @_equalDropSubscriptionStmt(ptr noundef nonnul
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -14874,7 +14873,7 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr noundef nonnull readon
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call zeroext i1 @bms_equal(ptr noundef %30, ptr noundef %32) #9
+  %33 = tail call zeroext i1 @bms_equal(ptr noundef %30, ptr noundef %32) #8
   br i1 %33, label %34, label %51
 
 34:                                               ; preds = %28
@@ -14882,7 +14881,7 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr noundef nonnull readon
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call zeroext i1 @bms_equal(ptr noundef %36, ptr noundef %38) #9
+  %39 = tail call zeroext i1 @bms_equal(ptr noundef %36, ptr noundef %38) #8
   br i1 %39, label %40, label %51
 
 40:                                               ; preds = %34
@@ -14890,7 +14889,7 @@ define internal fastcc zeroext i1 @_equalRestrictInfo(ptr noundef nonnull readon
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call zeroext i1 @bms_equal(ptr noundef %42, ptr noundef %44) #9
+  %45 = tail call zeroext i1 @bms_equal(ptr noundef %42, ptr noundef %44) #8
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %40
@@ -14912,7 +14911,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderVar(ptr noundef nonnull read
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %6) #9
+  %7 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %6) #8
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %2
@@ -14942,7 +14941,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %6) #9
+  %7 = tail call zeroext i1 @bms_equal(ptr noundef %4, ptr noundef %6) #8
   br i1 %7, label %8, label %87
 
 8:                                                ; preds = %2
@@ -14950,7 +14949,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call zeroext i1 @bms_equal(ptr noundef %10, ptr noundef %12) #9
+  %13 = tail call zeroext i1 @bms_equal(ptr noundef %10, ptr noundef %12) #8
   br i1 %13, label %14, label %87
 
 14:                                               ; preds = %8
@@ -14958,7 +14957,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call zeroext i1 @bms_equal(ptr noundef %16, ptr noundef %18) #9
+  %19 = tail call zeroext i1 @bms_equal(ptr noundef %16, ptr noundef %18) #8
   br i1 %19, label %20, label %87
 
 20:                                               ; preds = %14
@@ -14966,7 +14965,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call zeroext i1 @bms_equal(ptr noundef %22, ptr noundef %24) #9
+  %25 = tail call zeroext i1 @bms_equal(ptr noundef %22, ptr noundef %24) #8
   br i1 %25, label %26, label %87
 
 26:                                               ; preds = %20
@@ -14990,7 +14989,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = tail call zeroext i1 @bms_equal(ptr noundef %38, ptr noundef %40) #9
+  %41 = tail call zeroext i1 @bms_equal(ptr noundef %38, ptr noundef %40) #8
   br i1 %41, label %42, label %87
 
 42:                                               ; preds = %36
@@ -14998,7 +14997,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call zeroext i1 @bms_equal(ptr noundef %44, ptr noundef %46) #9
+  %47 = tail call zeroext i1 @bms_equal(ptr noundef %44, ptr noundef %46) #8
   br i1 %47, label %48, label %87
 
 48:                                               ; preds = %42
@@ -15006,7 +15005,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call zeroext i1 @bms_equal(ptr noundef %50, ptr noundef %52) #9
+  %53 = tail call zeroext i1 @bms_equal(ptr noundef %50, ptr noundef %52) #8
   br i1 %53, label %54, label %87
 
 54:                                               ; preds = %48
@@ -15014,7 +15013,7 @@ define internal fastcc zeroext i1 @_equalSpecialJoinInfo(ptr noundef nonnull rea
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %58 = load ptr, ptr %57, align 8
-  %59 = tail call zeroext i1 @bms_equal(ptr noundef %56, ptr noundef %58) #9
+  %59 = tail call zeroext i1 @bms_equal(ptr noundef %56, ptr noundef %58) #8
   br i1 %59, label %60, label %87
 
 60:                                               ; preds = %54
@@ -15157,7 +15156,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr noundef nonnull rea
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call zeroext i1 @bms_equal(ptr noundef %15, ptr noundef %17) #9
+  %18 = tail call zeroext i1 @bms_equal(ptr noundef %15, ptr noundef %17) #8
   br i1 %18, label %19, label %36
 
 19:                                               ; preds = %13
@@ -15165,7 +15164,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr noundef nonnull rea
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call zeroext i1 @bms_equal(ptr noundef %21, ptr noundef %23) #9
+  %24 = tail call zeroext i1 @bms_equal(ptr noundef %21, ptr noundef %23) #8
   br i1 %24, label %25, label %36
 
 25:                                               ; preds = %19
@@ -15173,7 +15172,7 @@ define internal fastcc zeroext i1 @_equalPlaceHolderInfo(ptr noundef nonnull rea
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call zeroext i1 @bms_equal(ptr noundef %27, ptr noundef %29) #9
+  %30 = tail call zeroext i1 @bms_equal(ptr noundef %27, ptr noundef %29) #8
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %25
@@ -15203,7 +15202,7 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
   br i1 %.not13, label %.thread, label %6
 
 6:                                                ; preds = %5
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %11, label %.thread
 
@@ -15212,10 +15211,10 @@ define internal fastcc zeroext i1 @_equalExtensibleNode(ptr noundef nonnull %0, 
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %9, %6
-  %12 = tail call ptr @GetExtensibleNodeMethods(ptr noundef %4, i1 noundef zeroext false) #9
+  %12 = tail call ptr @GetExtensibleNodeMethods(ptr noundef %4, i1 noundef zeroext false) #8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call zeroext i1 %14(ptr noundef nonnull %0, ptr noundef nonnull %1) #9
+  %15 = tail call zeroext i1 %14(ptr noundef nonnull %0, ptr noundef nonnull %1) #8
   br label %.thread
 
 .thread:                                          ; preds = %5, %11, %6, %9
@@ -15235,7 +15234,7 @@ define internal fastcc noundef zeroext i1 @_equalFloat(ptr readonly captures(add
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -15263,7 +15262,7 @@ define internal fastcc noundef zeroext i1 @_equalString(ptr readonly captures(ad
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -15291,7 +15290,7 @@ define internal fastcc noundef zeroext i1 @_equalBitString(ptr readonly captures
   br i1 %.not9, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #11
+  %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.8.val, ptr noundef nonnull dereferenceable(1) %.pre) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %8, label %.thread
 
@@ -15484,11 +15483,10 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   br i1 %.not95, label %73, label %.critedge, !llvm.loop !10
 
 88:                                               ; preds = %10
-  %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %89)
+  %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %90 = load i32, ptr %0, align 8
-  %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %90) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__._equalList) #9
+  %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %90) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 204, ptr noundef nonnull @__func__._equalList) #8
   unreachable
 
 .critedge:                                        ; preds = %78, %80, %84, %63, %65, %69, %48, %50, %54, %29, %34, %38, %5, %2
@@ -15512,14 +15510,11 @@ declare zeroext i1 @datumIsEqual(i64 noundef, i64 noundef, i1 noundef zeroext, i
 
 declare ptr @GetExtensibleNodeMethods(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -15527,12 +15522,11 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

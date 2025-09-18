@@ -5938,18 +5938,15 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$std..sync..poison..PoisonError$LT$T
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN78_$LT$once_cell..sync..Lazy$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hdfe3692d54e6f7ccE"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not.i = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf4346b88e76a935E.exit", label %4, !prof !26
+  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf4346b88e76a935E.exit", label %3, !prof !26
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call fastcc void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17had7d4c6ba6740769E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
-  %5 = load ptr, ptr %3, align 8, !noundef !7
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf4346b88e76a935E.exit"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf4346b88e76a935E.exit": ; preds = %1, %4
-  ret ptr %3
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf4346b88e76a935E.exit": ; preds = %1, %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6258,18 +6255,15 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf4346b88e76a935E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5, !prof !26
+  br i1 %.not, label %5, label %4, !prof !26
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call fastcc void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17had7d4c6ba6740769E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load ptr, ptr %4, align 8, !noundef !7
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6282,27 +6276,23 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17ha1ac2ad8a1c4b17
   br i1 %.not.i.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i", label %6, !prof !26
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call fastcc void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h88b69410813f0abeE"(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 4 dereferenceable(120) %4), !noalias !685
-  %8 = load i32, ptr %7, align 8, !range !693, !noalias !690, !noundef !7
-  %9 = icmp ne i32 %8, 3
-  call void @llvm.assume(i1 %9)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i"
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i": ; preds = %6, %3
-  %10 = load i32, ptr %4, align 4, !range !693, !noalias !685, !noundef !7
-  %.not.i = icmp eq i32 %10, 3
-  br i1 %.not.i, label %12, label %11
+  %7 = load i32, ptr %4, align 4, !range !693, !noalias !685, !noundef !7
+  %.not.i = icmp eq i32 %7, 3
+  br i1 %.not.i, label %9, label %8
 
-11:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i"
+8:                                                ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i"
   %.sroa.7.8..sroa_idx2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.7.8..sroa_idx2, i64 116, i1 false)
-  br label %12
+  br label %9
 
-12:                                               ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i", %11
+9:                                                ; preds = %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h304fd9e2f8f03dadE.exit.i", %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !685
-  store i32 %10, ptr %0, align 4
+  store i32 %7, ptr %0, align 4
   ret void
 }
 

@@ -181,11 +181,11 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #18
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #18
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -263,7 +263,7 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %50 = load double, ptr %49, align 8
   store double %50, ptr %24, align 8
-  %51 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  %51 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_intersect, i32 noundef 0, i64 noundef %25, i64 noundef %26) #17
   %.not = icmp ne i64 %51, 0
   %52 = load i32, ptr %20, align 4
   %53 = add i32 %52, -1
@@ -281,7 +281,7 @@ define i64 @interpt_pp(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   br label %59
 
 57:                                               ; preds = %._crit_edge
-  %58 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #18
+  %58 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @lseg_interpt, i32 noundef 0, i64 noundef %25, i64 noundef %26) #17
   br label %59
 
 59:                                               ; preds = %57, %.critedge
@@ -308,9 +308,9 @@ define range(i64 0, 2) i64 @overpaid(ptr noundef captures(none) %0) local_unname
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #18
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = call i64 @GetAttributeByName(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %2) #18
+  %7 = call i64 @GetAttributeByName(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %2) #17
   %8 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %12
@@ -386,26 +386,25 @@ switch.early.test:                                ; preds = %1, %15
   br i1 %17, label %21, label %switch.early.test, !llvm.loop !8
 
 .critedge:                                        ; preds = %switch.early.test, %switch.early.test
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 33685634) #18
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %5) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 192, ptr noundef nonnull @__func__.widget_in) #18
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %19 = tail call i32 @errcode(i32 noundef 33685634) #17
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %5) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 192, ptr noundef nonnull @__func__.widget_in) #17
   unreachable
 
 21:                                               ; preds = %15
-  %22 = tail call ptr @palloc(i64 noundef 24) #18
+  %22 = tail call ptr @palloc(i64 noundef 24) #17
   %23 = load ptr, ptr %2, align 16
-  %24 = tail call double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #18
+  %24 = tail call double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #17
   store double %24, ptr %22, align 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call double @strtod(ptr noundef nonnull captures(none) %26, ptr noundef null) #18
+  %27 = tail call double @strtod(ptr noundef nonnull captures(none) %26, ptr noundef null) #17
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store double %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load ptr, ptr %29, align 16
-  %31 = tail call double @strtod(ptr noundef nonnull captures(none) %30, ptr noundef null) #18
+  %31 = tail call double @strtod(ptr noundef nonnull captures(none) %30, ptr noundef null) #17
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store double %31, ptr %32, align 8
   %33 = ptrtoint ptr %22 to i64
@@ -436,7 +435,7 @@ define i64 @widget_out(ptr noundef readonly captures(none) %0) local_unnamed_add
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load double, ptr %8, align 8
-  %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, double noundef %5, double noundef %7, double noundef %9) #18
+  %10 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, double noundef %5, double noundef %7, double noundef %9) #17
   %11 = ptrtoint ptr %10 to i64
   ret i64 %11
 }
@@ -455,7 +454,7 @@ define range(i64 0, 2) i64 @pt_in_widget(ptr noundef readonly captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %3, i64 noundef %5) #18
+  %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %3, i64 noundef %5) #17
   %8 = bitcast i64 %7 to double
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load double, ptr %9, align 8
@@ -476,7 +475,7 @@ define i64 @reverse_name(ptr noundef readonly captures(none) %0) local_unnamed_a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc0(i64 noundef 64) #18
+  %5 = tail call ptr @palloc0(i64 noundef 64) #17
   br label %6
 
 6:                                                ; preds = %1, %9
@@ -549,10 +548,9 @@ define i64 @trigger_return_old(ptr noundef readonly captures(none) %0) local_unn
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4, %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 258, ptr noundef nonnull @__func__.trigger_return_old) #18
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 258, ptr noundef nonnull @__func__.trigger_return_old) #17
   unreachable
 
 10:                                               ; preds = %4
@@ -589,10 +587,9 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %7, %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 297, ptr noundef nonnull @__func__.ttdummy) #18
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 297, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 13:                                               ; preds = %7
@@ -603,10 +600,9 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not129, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 299, ptr noundef nonnull @__func__.ttdummy) #18
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 299, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 20:                                               ; preds = %13
@@ -615,10 +611,9 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 301, ptr noundef nonnull @__func__.ttdummy) #18
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 301, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 26:                                               ; preds = %20
@@ -629,10 +624,9 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   ]
 
 28:                                               ; preds = %26
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 303, ptr noundef nonnull @__func__.ttdummy) #18
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 303, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 31:                                               ; preds = %26
@@ -646,12 +640,12 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @SPI_getrelname(ptr noundef %38) #18
+  %39 = tail call ptr @SPI_getrelname(ptr noundef %38) #17
   %.b130 = load i1, ptr @ttoff, align 1
   br i1 %.b130, label %40, label %43
 
 40:                                               ; preds = %34
-  tail call void @pfree(ptr noundef %39) #18
+  tail call void @pfree(ptr noundef %39) #17
   %.not140 = icmp eq ptr %.0119, null
   %41 = select i1 %.not140, ptr %36, ptr %.0119
   %42 = ptrtoint ptr %41 to i64
@@ -666,12 +660,11 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not131, label %53, label %48
 
 48:                                               ; preds = %43
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %49)
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %50 = load i16, ptr %46, align 2
   %51 = sext i16 %50 to i32
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %39, i32 noundef %51) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 323, ptr noundef nonnull @__func__.ttdummy) #18
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %39, i32 noundef %51) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 323, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 53:                                               ; preds = %43
@@ -691,64 +684,60 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %indvars.iv = phi i64 [ 0, %53 ], [ 1, %59 ]
   %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call i32 @SPI_fnumber(ptr noundef nonnull %57, ptr noundef %63) #18
+  %64 = tail call i32 @SPI_fnumber(ptr noundef nonnull %57, ptr noundef %63) #17
   store i32 %64, ptr %indvars.iv.sroa.phi, align 4
   %65 = icmp slt i32 %64, 1
   br i1 %65, label %66, label %71
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %68)
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %69 = load ptr, ptr %67, align 8
-  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %39, ptr noundef %69) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 334, ptr noundef nonnull @__func__.ttdummy) #18
+  %70 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %39, ptr noundef %69) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 334, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 71:                                               ; preds = %60
-  %72 = tail call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %64) #18
+  %72 = tail call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %64) #17
   %.not139 = icmp eq i32 %72, 23
   br i1 %.not139, label %59, label %73
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %75)
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %76 = load ptr, ptr %74, align 8
-  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %39, ptr noundef %76) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 337, ptr noundef nonnull @__func__.ttdummy) #18
+  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %39, ptr noundef %76) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 337, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 78:                                               ; preds = %59
   %79 = load i32, ptr %2, align 4
-  %80 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
+  %80 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #17
   %81 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %78
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %84)
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %85 = load ptr, ptr %55, align 8
-  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %85) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 342, ptr noundef nonnull @__func__.ttdummy) #18
+  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %85) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 342, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 87:                                               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %89 = load i32, ptr %88, align 4
-  %90 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
+  %90 = call i64 @SPI_getbinval(ptr noundef %36, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #17
   %91 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %87
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %94)
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %95 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %96) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 346, ptr noundef nonnull @__func__.ttdummy) #18
+  %97 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %96) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 346, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 98:                                               ; preds = %87
@@ -756,32 +745,30 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not132, label %126, label %99
 
 99:                                               ; preds = %98
-  %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #18
+  %100 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %79, ptr noundef nonnull %4) #17
   %101 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %107
 
 103:                                              ; preds = %99
-  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %104)
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %105 = load ptr, ptr %55, align 8
-  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %105) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 352, ptr noundef nonnull @__func__.ttdummy) #18
+  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %105) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 352, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 107:                                              ; preds = %99
-  %108 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #18
+  %108 = call i64 @SPI_getbinval(ptr noundef nonnull %.0119, ptr noundef nonnull %57, i32 noundef %89, ptr noundef nonnull %4) #17
   %109 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %107
-  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %112)
+  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %113 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %114) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 355, ptr noundef nonnull @__func__.ttdummy) #18
+  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %39, ptr noundef %114) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 355, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 116:                                              ; preds = %107
@@ -791,14 +778,13 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %or.cond, label %124, label %117
 
 117:                                              ; preds = %116
-  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %118)
-  %119 = call i32 @errcode(i32 noundef 1088) #18
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %119 = call i32 @errcode(i32 noundef 1088) #17
   %120 = load ptr, ptr %55, align 8
   %121 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %39, ptr noundef %120, ptr noundef %122) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 361, ptr noundef nonnull @__func__.ttdummy) #18
+  %123 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %39, ptr noundef %120, ptr noundef %122) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 361, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 124:                                              ; preds = %116
@@ -806,7 +792,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not136, label %128, label %125
 
 125:                                              ; preds = %124
-  call void @pfree(ptr noundef %39) #18
+  call void @pfree(ptr noundef %39) #17
   br label %204
 
 126:                                              ; preds = %98
@@ -814,21 +800,21 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not133, label %128, label %127
 
 127:                                              ; preds = %126
-  call void @pfree(ptr noundef %39) #18
+  call void @pfree(ptr noundef %39) #17
   br label %204
 
 128:                                              ; preds = %126, %124
-  %129 = call ptr @cstring_to_text(ptr noundef nonnull @.str.15) #18
+  %129 = call ptr @cstring_to_text(ptr noundef nonnull @.str.15) #17
   %130 = ptrtoint ptr %129 to i64
-  %131 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %130) #18
+  %131 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %130) #17
   %sext = shl i64 %131, 32
   %132 = ashr exact i64 %sext, 32
   store i64 %132, ptr %3, align 8
-  %133 = call i32 @SPI_connect() #18
+  %133 = call i32 @SPI_connect() #17
   %134 = sext i32 %58 to i64
   %135 = shl nsw i64 %134, 3
-  %136 = call ptr @palloc(i64 noundef %135) #18
-  %137 = call ptr @palloc(i64 noundef %134) #18
+  %136 = call ptr @palloc(i64 noundef %135) #17
+  %137 = call ptr @palloc(i64 noundef %134) #17
   %138 = icmp sgt i32 %58, 0
   br i1 %138, label %.lr.ph, label %._crit_edge
 
@@ -841,7 +827,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %indvars.iv154 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next155, %140 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %141 = trunc nuw nsw i64 %indvars.iv.next155 to i32
-  %142 = call i64 @SPI_getbinval(ptr noundef %139, ptr noundef nonnull %57, i32 noundef %141, ptr noundef nonnull %4) #18
+  %142 = call i64 @SPI_getbinval(ptr noundef %139, ptr noundef nonnull %57, i32 noundef %141, ptr noundef nonnull %4) #17
   %143 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv154
   store i64 %142, ptr %143, align 8
   %144 = load i8, ptr %4, align 1, !range !6, !noundef !7
@@ -878,23 +864,23 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 160:                                              ; preds = %153
   %161 = shl nsw i64 %134, 2
-  %162 = call ptr @palloc(i64 noundef %161) #18
+  %162 = call ptr @palloc(i64 noundef %161) #17
   %163 = shl i32 %58, 4
   %164 = add i32 %163, 100
   %165 = sext i32 %164 to i64
-  %166 = call ptr @palloc(i64 noundef %165) #18
-  %167 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %166, ptr noundef nonnull @.str.16, ptr noundef %39) #18
+  %166 = call ptr @palloc(i64 noundef %165) #17
+  %167 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %166, ptr noundef nonnull @.str.16, ptr noundef %39) #17
   %.not137146 = icmp slt i32 %58, 1
   br i1 %.not137146, label %._crit_edge150, label %.lr.ph149
 
 .lr.ph149:                                        ; preds = %160, %.lr.ph149
   %.2147 = phi i32 [ %177, %.lr.ph149 ], [ 1, %160 ]
-  %168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %166) #20
+  %168 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %166) #19
   %169 = getelementptr inbounds nuw i8, ptr %166, i64 %168
   %170 = icmp slt i32 %.2147, %58
   %171 = select i1 %170, ptr @.str.18, ptr @.str.19
-  %172 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %169, ptr noundef nonnull @.str.17, i32 noundef %.2147, ptr noundef nonnull %171) #18
-  %173 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2147) #18
+  %172 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %169, ptr noundef nonnull @.str.17, i32 noundef %.2147, ptr noundef nonnull %171) #17
+  %173 = call i32 @SPI_gettypeid(ptr noundef nonnull %57, i32 noundef %.2147) #17
   %174 = add i32 %.2147, -1
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i32, ptr %162, i64 %175
@@ -904,29 +890,27 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   br i1 %.not137, label %._crit_edge150, label %.lr.ph149, !llvm.loop !13
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %160
-  %178 = call ptr @SPI_prepare(ptr noundef %166, i32 noundef %58, ptr noundef %162) #18
+  %178 = call ptr @SPI_prepare(ptr noundef %166, i32 noundef %58, ptr noundef %162) #17
   %179 = icmp eq ptr %178, null
   br i1 %179, label %180, label %185
 
 180:                                              ; preds = %._crit_edge150
-  %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %181)
+  %181 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %182 = load i32, ptr @SPI_result, align 4
-  %183 = call ptr @SPI_result_code_string(i32 noundef %182) #18
-  %184 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %39, ptr noundef %183) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 432, ptr noundef nonnull @__func__.ttdummy) #18
+  %183 = call ptr @SPI_result_code_string(i32 noundef %182) #17
+  %184 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %39, ptr noundef %183) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 432, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 185:                                              ; preds = %._crit_edge150
-  %186 = call i32 @SPI_keepplan(ptr noundef nonnull %178) #18
+  %186 = call i32 @SPI_keepplan(ptr noundef nonnull %178) #17
   %.not138 = icmp eq i32 %186, 0
   br i1 %.not138, label %190, label %187
 
 187:                                              ; preds = %185
-  %188 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %188)
-  %189 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, ptr noundef %39) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 435, ptr noundef nonnull @__func__.ttdummy) #18
+  %188 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %189 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, ptr noundef %39) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 435, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 190:                                              ; preds = %185
@@ -935,28 +919,27 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 191:                                              ; preds = %190, %153
   %192 = phi ptr [ %178, %190 ], [ %158, %153 ]
-  %193 = call i32 @SPI_execp(ptr noundef nonnull %192, ptr noundef nonnull %136, ptr noundef nonnull %137, i64 noundef 0) #18
+  %193 = call i32 @SPI_execp(ptr noundef nonnull %192, ptr noundef nonnull %136, ptr noundef nonnull %137, i64 noundef 0) #17
   %194 = icmp slt i32 %193, 0
   br i1 %194, label %195, label %198
 
 195:                                              ; preds = %191
-  %196 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %196)
-  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef %39, i32 noundef %193) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 443, ptr noundef nonnull @__func__.ttdummy) #18
+  %196 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef %39, i32 noundef %193) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 443, ptr noundef nonnull @__func__.ttdummy) #17
   unreachable
 
 198:                                              ; preds = %191
   br i1 %.not132, label %201, label %199
 
 199:                                              ; preds = %198
-  %200 = call ptr @SPI_modifytuple(ptr noundef %38, ptr noundef %36, i32 noundef 1, ptr noundef nonnull %88, ptr noundef nonnull %3, ptr noundef null) #18
+  %200 = call ptr @SPI_modifytuple(ptr noundef %38, ptr noundef %36, i32 noundef 1, ptr noundef nonnull %88, ptr noundef nonnull %3, ptr noundef null) #17
   br label %201
 
 201:                                              ; preds = %198, %199
   %.0120 = phi ptr [ %200, %199 ], [ %36, %198 ]
-  %202 = call i32 @SPI_finish() #18
-  call void @pfree(ptr noundef %39) #18
+  %202 = call i32 @SPI_finish() #17
+  call void @pfree(ptr noundef %39) #17
   %203 = ptrtoint ptr %.0120 to i64
   br label %204
 
@@ -1044,11 +1027,11 @@ define noundef i64 @int44in(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #18
+  %5 = tail call ptr @palloc(i64 noundef 16) #17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %9 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %4, ptr noundef nonnull @.str.23, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #18
+  %9 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %4, ptr noundef nonnull @.str.23, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
   %10 = icmp slt i32 %9, 4
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1081,7 +1064,7 @@ define noundef i64 @int44out(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 64) #18
+  %5 = tail call ptr @palloc(i64 noundef 64) #17
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
@@ -1089,7 +1072,7 @@ define noundef i64 @int44out(ptr noundef readonly captures(none) %0) local_unnam
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %5, i64 noundef 64, ptr noundef nonnull @.str.24, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12) #18
+  %13 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %5, i64 noundef 64, ptr noundef nonnull @.str.24, i32 noundef %6, i32 noundef %8, i32 noundef %10, i32 noundef %12) #17
   %14 = ptrtoint ptr %5 to i64
   ret i64 %14
 }
@@ -1106,10 +1089,10 @@ define i64 @test_canonicalize_path(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #18
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #18
-  tail call void @canonicalize_path(ptr noundef %6) #18
-  %7 = tail call ptr @cstring_to_text(ptr noundef %6) #18
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #17
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #17
+  tail call void @canonicalize_path(ptr noundef %6) #17
+  %7 = tail call ptr @cstring_to_text(ptr noundef %6) #17
   %8 = ptrtoint ptr %7 to i64
   ret i64 %8
 }
@@ -1131,13 +1114,13 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #18
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr i8, ptr %6, i64 8
   %.val = load i32, ptr %7, align 4
   %8 = getelementptr i8, ptr %6, i64 4
   %.val73 = load i32, ptr %8, align 4
-  %9 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %.val, i32 noundef %.val73) #18
+  %9 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %.val, i32 noundef %.val73) #17
   %10 = load i32, ptr %9, align 8
   %.val74 = load i32, ptr %6, align 4
   %11 = lshr i32 %.val74, 2
@@ -1154,9 +1137,9 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   store ptr %6, ptr %16, align 8
   %17 = sext i32 %10 to i64
   %18 = shl nsw i64 %17, 3
-  %19 = tail call ptr @palloc(i64 noundef %18) #18
-  %20 = tail call ptr @palloc(i64 noundef %17) #18
-  call void @heap_deform_tuple(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #18
+  %19 = tail call ptr @palloc(i64 noundef %18) #17
+  %20 = tail call ptr @palloc(i64 noundef %17) #17
+  call void @heap_deform_tuple(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #17
   %21 = load ptr, ptr @TopTransactionContext, align 8
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
@@ -1215,7 +1198,7 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   ]
 
 53:                                               ; preds = %50
-  %54 = call ptr @detoast_external_attr(ptr noundef nonnull %47) #18
+  %54 = call ptr @detoast_external_attr(ptr noundef nonnull %47) #17
   br label %94
 
 55:                                               ; preds = %50
@@ -1246,7 +1229,7 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
 
 69:                                               ; preds = %66, %55
   %70 = phi i64 [ %57, %55 ], [ %68, %66 ]
-  %71 = call ptr @palloc0(i64 noundef %70) #18
+  %71 = call ptr @palloc0(i64 noundef %70) #17
   %72 = load i8, ptr %47, align 1
   %73 = zext i8 %72 to i32
   %74 = icmp eq i8 %72, 1
@@ -1288,7 +1271,7 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
 
 94:                                               ; preds = %92, %53
   %.063 = phi ptr [ %54, %53 ], [ %71, %92 ]
-  %95 = call ptr @palloc0(i64 noundef 10) #18
+  %95 = call ptr @palloc0(i64 noundef 10) #17
   store i8 1, ptr %95, align 1
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 1
   store i8 1, ptr %96, align 1
@@ -1304,16 +1287,16 @@ define i64 @make_tuple_indirect(ptr noundef readonly captures(none) %0) local_un
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %99, %1
-  %100 = call ptr @heap_form_tuple(ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #18
-  call void @pfree(ptr noundef %19) #18
-  call void @pfree(ptr noundef %20) #18
+  %100 = call ptr @heap_form_tuple(ptr noundef nonnull %9, ptr noundef %19, ptr noundef %20) #17
+  call void @pfree(ptr noundef %19) #17
+  call void @pfree(ptr noundef %20) #17
   %101 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = icmp sgt i32 %102, -1
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %._crit_edge
-  call void @DecrTupleDescRefCount(ptr noundef nonnull %9) #18
+  call void @DecrTupleDescRefCount(ptr noundef nonnull %9) #17
   br label %105
 
 105:                                              ; preds = %104, %._crit_edge
@@ -1354,7 +1337,7 @@ define i64 @get_environ(ptr noundef readnone captures(none) %0) local_unnamed_ad
   %.013.lcssa = phi i32 [ 0, %1 ], [ %8, %.lr.ph ]
   %4 = sext i32 %.013.lcssa to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call ptr @palloc(i64 noundef %5) #18
+  %6 = tail call ptr @palloc(i64 noundef %5) #17
   %7 = icmp sgt i32 %.013.lcssa, 0
   br i1 %7, label %.lr.ph19.preheader, label %._crit_edge20
 
@@ -1372,7 +1355,7 @@ define i64 @get_environ(ptr noundef readnone captures(none) %0) local_unnamed_ad
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge
-  %11 = tail call ptr @construct_array_builtin(ptr noundef %6, i32 noundef %.013.lcssa, i32 noundef 25) #18
+  %11 = tail call ptr @construct_array_builtin(ptr noundef %6, i32 noundef %.013.lcssa, i32 noundef 25) #17
   %12 = ptrtoint ptr %11 to i64
   ret i64 %12
 
@@ -1381,7 +1364,7 @@ define i64 @get_environ(ptr noundef readnone captures(none) %0) local_unnamed_ad
   %13 = load ptr, ptr @environ, align 8
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @cstring_to_text(ptr noundef %15) #18
+  %16 = tail call ptr @cstring_to_text(ptr noundef %15) #17
   %17 = ptrtoint ptr %16 to i64
   %18 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   store i64 %17, ptr %18, align 8
@@ -1402,33 +1385,31 @@ define noundef i64 @regress_setenv(ptr noundef readonly captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #18
-  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #18
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #17
+  %6 = tail call ptr @text_to_cstring(ptr noundef %5) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #18
-  %11 = tail call ptr @text_to_cstring(ptr noundef %10) #18
-  %12 = tail call zeroext i1 @superuser() #18
+  %10 = tail call ptr @pg_detoast_datum_packed(ptr noundef %9) #17
+  %11 = tail call ptr @text_to_cstring(ptr noundef %10) #17
+  %12 = tail call zeroext i1 @superuser() #17
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %1
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 679, ptr noundef nonnull @__func__.regress_setenv) #18
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 679, ptr noundef nonnull @__func__.regress_setenv) #17
   unreachable
 
 16:                                               ; preds = %1
-  %17 = tail call i32 @setenv(ptr noundef %6, ptr noundef %11, i32 noundef 1) #18
+  %17 = tail call i32 @setenv(ptr noundef %6, ptr noundef %11, i32 noundef 1) #17
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %21, label %18
 
 18:                                               ; preds = %16
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 682, ptr noundef nonnull @__func__.regress_setenv) #18
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 682, ptr noundef nonnull @__func__.regress_setenv) #17
   unreachable
 
 21:                                               ; preds = %16
@@ -1450,19 +1431,18 @@ define noundef i64 @wait_pid(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call zeroext i1 @superuser() #18
+  %5 = tail call zeroext i1 @superuser() #17
   br i1 %5, label %.preheader, label %8
 
 .preheader:                                       ; preds = %1
-  %6 = tail call i32 @kill(i32 noundef %4, i32 noundef 0) #18
+  %6 = tail call i32 @kill(i32 noundef %4, i32 noundef 0) #17
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 696, ptr noundef nonnull @__func__.wait_pid) #18
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 696, ptr noundef nonnull @__func__.wait_pid) #17
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %13
@@ -1471,26 +1451,25 @@ define noundef i64 @wait_pid(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %.not2, label %13, label %12, !prof !17
 
 12:                                               ; preds = %.lr.ph
-  tail call void @ProcessInterrupts() #18
+  tail call void @ProcessInterrupts() #17
   br label %13
 
 13:                                               ; preds = %12, %.lr.ph
-  tail call void @pg_usleep(i64 noundef 50000) #18
-  %14 = tail call i32 @kill(i32 noundef %4, i32 noundef 0) #18
+  tail call void @pg_usleep(i64 noundef 50000) #17
+  %14 = tail call i32 @kill(i32 noundef %4, i32 noundef 0) #17
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %13, %.preheader
-  %16 = tail call ptr @__errno_location() #21
+  %16 = tail call ptr @__errno_location() #20
   %17 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %17, 3
   br i1 %.not, label %21, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %4) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 705, ptr noundef nonnull @__func__.wait_pid) #18
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %4) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 705, ptr noundef nonnull @__func__.wait_pid) #17
   unreachable
 
 21:                                               ; preds = %._crit_edge
@@ -1519,29 +1498,27 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   %4 = alloca %struct.pg_atomic_uint32, align 4
   %5 = alloca %struct.pg_atomic_flag, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
   store volatile i8 0, ptr %5, align 1
   %6 = load volatile i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3, i32 noundef 716) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 716, ptr noundef nonnull @__func__.test_atomic_flag) #18
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3, i32 noundef 716) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 716, ptr noundef nonnull @__func__.test_atomic_flag) #17
   unreachable
 
 11:                                               ; preds = %1
-  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !20
+  %12 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #17, !srcloc !20
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %15)
-  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.3, i32 noundef 717) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 717, ptr noundef nonnull @__func__.test_atomic_flag) #18
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.3, i32 noundef 717) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 717, ptr noundef nonnull @__func__.test_atomic_flag) #17
   unreachable
 
 17:                                               ; preds = %11
@@ -1550,52 +1527,48 @@ define noundef range(i64 0, 2) i64 @test_atomic_ops(ptr noundef readnone capture
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.3, i32 noundef 718) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 718, ptr noundef nonnull @__func__.test_atomic_flag) #18
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %22 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.3, i32 noundef 718) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 718, ptr noundef nonnull @__func__.test_atomic_flag) #17
   unreachable
 
 23:                                               ; preds = %17
-  %24 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !20
+  %24 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #17, !srcloc !20
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %27)
-  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.3, i32 noundef 719) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 719, ptr noundef nonnull @__func__.test_atomic_flag) #18
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.3, i32 noundef 719) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 719, ptr noundef nonnull @__func__.test_atomic_flag) #17
   unreachable
 
 29:                                               ; preds = %23
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
   store volatile i8 0, ptr %5, align 1
   %30 = load volatile i8, ptr %5, align 1
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %29
-  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %33)
-  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3, i32 noundef 721) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 721, ptr noundef nonnull @__func__.test_atomic_flag) #18
+  %33 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %34 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3, i32 noundef 721) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 721, ptr noundef nonnull @__func__.test_atomic_flag) #17
   unreachable
 
 35:                                               ; preds = %29
-  %36 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #18, !srcloc !20
+  %36 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %5, i8 1, ptr nonnull elementtype(i8) %5) #17, !srcloc !20
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %test_atomic_flag.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %39)
-  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.3, i32 noundef 722) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 722, ptr noundef nonnull @__func__.test_atomic_flag) #18
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.3, i32 noundef 722) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 722, ptr noundef nonnull @__func__.test_atomic_flag) #17
   unreachable
 
 test_atomic_flag.exit:                            ; preds = %35
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !19
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !19
   store volatile i8 0, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1605,10 +1578,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not.i, label %45, label %42
 
 42:                                               ; preds = %test_atomic_flag.exit
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %43)
-  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %41, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 734) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 734, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %41, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 734) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 734, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 45:                                               ; preds = %test_atomic_flag.exit
@@ -1618,24 +1590,22 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not95.i, label %50, label %47
 
 47:                                               ; preds = %45
-  %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %48)
-  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %46, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 736) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 736, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %46, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 736) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 736, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 50:                                               ; preds = %45
   %51 = load volatile i32, ptr %4, align 4
   %52 = add i32 %51, -2
-  %53 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %52, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %53 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 %52, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not96.i = icmp eq i32 %53, 3
   br i1 %.not96.i, label %57, label %54
 
 54:                                               ; preds = %50
-  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %55)
-  %56 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.50, i32 noundef %53, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 738) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 738, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %56 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.50, i32 noundef %53, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 738) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 738, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 57:                                               ; preds = %50
@@ -1644,10 +1614,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not97.i, label %62, label %59
 
 59:                                               ; preds = %57
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.51, i32 noundef %58, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.3, i32 noundef 739) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 739, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %61 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.51, i32 noundef %58, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.3, i32 noundef 739) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 739, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 62:                                               ; preds = %57
@@ -1657,23 +1626,21 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not98.i, label %68, label %65
 
 65:                                               ; preds = %62
-  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %66)
-  %67 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.53, i32 noundef %64, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 740) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 740, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %67 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.53, i32 noundef %64, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 740) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 740, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 68:                                               ; preds = %62
-  %69 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %69 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not99.i = icmp eq i32 %69, 0
   br i1 %.not99.i, label %74, label %70
 
 70:                                               ; preds = %68
   %71 = add i32 %69, 10
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.54, i32 noundef %71, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 741) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 741, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.54, i32 noundef %71, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 741) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 741, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 74:                                               ; preds = %68
@@ -1682,10 +1649,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not100.i, label %79, label %76
 
 76:                                               ; preds = %74
-  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %77)
-  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.56, i32 noundef %75, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 742) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 742, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %78 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.56, i32 noundef %75, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 742) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 742, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 79:                                               ; preds = %74
@@ -1694,96 +1660,88 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not101.i, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %82)
-  %83 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.57, i32 noundef %80, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.3, i32 noundef 743) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 743, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %83 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.57, i32 noundef %80, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.3, i32 noundef 743) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 743, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 84:                                               ; preds = %79
-  %85 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %85 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not102.i = icmp eq i32 %85, 0
   br i1 %.not102.i, label %89, label %86
 
 86:                                               ; preds = %84
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.59, i32 noundef %85, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 746) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 746, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.59, i32 noundef %85, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 746) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 746, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 89:                                               ; preds = %84
-  %90 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %90 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2147483647, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not103.i = icmp eq i32 %90, 2147483647
   br i1 %.not103.i, label %94, label %91
 
 91:                                               ; preds = %89
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %92)
-  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.59, i32 noundef %90, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.3, i32 noundef 747) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 747, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %93 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.59, i32 noundef %90, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.3, i32 noundef 747) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 747, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 94:                                               ; preds = %89
-  %95 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
-  %96 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %95 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 2, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
+  %96 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not104.i = icmp eq i32 %96, 0
   br i1 %.not104.i, label %100, label %97
 
 97:                                               ; preds = %94
-  %98 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %98)
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.61, i32 noundef %96, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 749) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 749, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %98 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.61, i32 noundef %96, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 749) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 749, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 100:                                              ; preds = %94
-  %101 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %101 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not105.i = icmp eq i32 %101, 32767
   br i1 %.not105.i, label %105, label %102
 
 102:                                              ; preds = %100
-  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %103)
-  %104 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.62, i32 noundef %101, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.3, i32 noundef 751) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 751, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %104 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.62, i32 noundef %101, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.3, i32 noundef 751) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 751, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 105:                                              ; preds = %100
-  %106 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %106 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not106.i = icmp eq i32 %106, 65535
   br i1 %.not106.i, label %110, label %107
 
 107:                                              ; preds = %105
-  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %108)
-  %109 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.64, i32 noundef %106, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.3, i32 noundef 753) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %109 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.64, i32 noundef %106, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.3, i32 noundef 753) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 753, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 110:                                              ; preds = %105
-  %111 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %111 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %.not107.i = icmp eq i32 %111, 32767
   br i1 %.not107.i, label %115, label %112
 
 112:                                              ; preds = %110
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %113)
-  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.66, i32 noundef %111, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.3, i32 noundef 755) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 755, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.66, i32 noundef %111, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.3, i32 noundef 755) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 755, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 115:                                              ; preds = %110
-  %116 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !21
+  %116 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !21
   %117 = load volatile i32, ptr %4, align 4
   %.not108.i = icmp eq i32 %117, -1
   br i1 %.not108.i, label %121, label %118
 
 118:                                              ; preds = %115
-  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %119)
-  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %117, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.3, i32 noundef 757) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 757, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %119 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %117, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.3, i32 noundef 757) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 757, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 121:                                              ; preds = %115
@@ -1792,10 +1750,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not109.i, label %126, label %123
 
 123:                                              ; preds = %121
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.68, i32 noundef %122, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.3, i32 noundef 758) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 758, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.68, i32 noundef %122, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.3, i32 noundef 758) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 758, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 126:                                              ; preds = %121
@@ -1804,10 +1761,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not110.i, label %131, label %128
 
 128:                                              ; preds = %126
-  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %129)
-  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %127, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.3, i32 noundef 759) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 759, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %127, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.3, i32 noundef 759) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 759, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 131:                                              ; preds = %126
@@ -1817,81 +1773,75 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not111.i, label %137, label %134
 
 134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %135)
-  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.70, i32 noundef %133, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 760) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 760, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.70, i32 noundef %133, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 760) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 760, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 137:                                              ; preds = %131
   %138 = atomicrmw sub ptr %4, i32 1 seq_cst, align 4
-  %139 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %139 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32767, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !22
   %140 = extractvalue { i32, i8 } %139, 1
   %.not124.i = icmp eq i8 %140, 0
   br i1 %.not124.i, label %144, label %141
 
 141:                                              ; preds = %137
-  %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %142)
-  %143 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 763) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 763, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %143 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 763) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 763, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 144:                                              ; preds = %137
-  %145 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %145 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 32768, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !22
   %146 = extractvalue { i32, i8 } %145, 1
   %.not125.i = icmp eq i8 %146, 0
   br i1 %.not125.i, label %150, label %147
 
 147:                                              ; preds = %144
-  %148 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %148)
-  %149 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 765) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 765, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %148 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %149 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 765) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 765, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 150:                                              ; preds = %144
-  %151 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %151 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32768, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !22
   %152 = extractvalue { i32, i8 } %151, 1
   %.not126.i = icmp eq i8 %152, 0
   br i1 %.not126.i, label %156, label %153
 
 153:                                              ; preds = %150
-  %154 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %154)
-  %155 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 767) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 767, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %154 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %155 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 767) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 767, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 156:                                              ; preds = %150
-  %157 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %157 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 -32769, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !22
   %158 = extractvalue { i32, i8 } %157, 1
   %.not127.i = icmp eq i8 %158, 0
   br i1 %.not127.i, label %162, label %159
 
 159:                                              ; preds = %156
-  %160 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %160)
-  %161 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 769) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 769, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %160 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %161 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 769) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 769, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 162:                                              ; preds = %156
-  %163 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %163 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 10, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !22
   %164 = extractvalue { i32, i8 } %163, 1
   %.not128.i = icmp eq i8 %164, 0
   br i1 %.not128.i, label %.preheader.i, label %165
 
 165:                                              ; preds = %162
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %166)
-  %167 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 773) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 773, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %167 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.3, i32 noundef 773) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 773, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 .preheader.i:                                     ; preds = %162, %170
   %.0131.i = phi i32 [ %171, %170 ], [ 0, %162 ]
-  %168 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 0, i32 1, ptr nonnull elementtype(i32) %4) #18, !srcloc !22
+  %168 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, i32 0, i32 1, ptr nonnull elementtype(i32) %4) #17, !srcloc !22
   %169 = extractvalue { i32, i8 } %168, 1
   %.not129.i = icmp eq i8 %169, 0
   br i1 %.not129.i, label %.thread.i, label %170
@@ -1902,10 +1852,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %exitcond.not.i, label %172, label %.preheader.i, !llvm.loop !23
 
 172:                                              ; preds = %170
-  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %173)
-  %174 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 783, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %174 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 783, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 .thread.i:                                        ; preds = %.preheader.i
@@ -1914,10 +1863,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not112.i, label %179, label %176
 
 176:                                              ; preds = %.thread.i
-  %177 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %177)
-  %178 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %175, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 784) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 784, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %177 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %178 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %175, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 784) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 784, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 179:                                              ; preds = %.thread.i
@@ -1928,10 +1876,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not113.i, label %185, label %182
 
 182:                                              ; preds = %179
-  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %183)
-  %184 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.3, i32 noundef 788) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 788, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %184 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.3, i32 noundef 788) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 788, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 185:                                              ; preds = %179
@@ -1941,10 +1888,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not114.i, label %188, label %191
 
 188:                                              ; preds = %185
-  %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %189)
-  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.3, i32 noundef 789) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 789, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %189 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.3, i32 noundef 789) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 789, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 191:                                              ; preds = %185
@@ -1953,10 +1899,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not115.i, label %196, label %193
 
 193:                                              ; preds = %191
-  %194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %194)
-  %195 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %192, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 790) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 790, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %195 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %192, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 790) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 790, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 196:                                              ; preds = %191
@@ -1966,10 +1911,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not116.i, label %202, label %199
 
 199:                                              ; preds = %196
-  %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %200)
-  %201 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.76, i32 noundef %198, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 792) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 792, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %201 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.76, i32 noundef %198, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 792) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 792, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 202:                                              ; preds = %196
@@ -1978,10 +1922,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not117.i, label %207, label %204
 
 204:                                              ; preds = %202
-  %205 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %205)
-  %206 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.77, i32 noundef %203, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 793) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 793, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %205 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %206 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.77, i32 noundef %203, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 793) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 793, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 207:                                              ; preds = %202
@@ -1990,10 +1933,9 @@ test_atomic_flag.exit:                            ; preds = %35
   br i1 %.not118.i, label %test_atomic_uint32.exit, label %209
 
 209:                                              ; preds = %207
-  %210 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %210)
-  %211 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.78, i32 noundef %208, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 795) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 795, ptr noundef nonnull @__func__.test_atomic_uint32) #18
+  %210 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %211 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.78, i32 noundef %208, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 795) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 795, ptr noundef nonnull @__func__.test_atomic_uint32) #17
   unreachable
 
 test_atomic_uint32.exit:                          ; preds = %207
@@ -2005,10 +1947,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not.i1, label %216, label %213
 
 213:                                              ; preds = %test_atomic_uint32.exit
-  %214 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %214)
-  %215 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %212, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 806) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 806, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %214 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %215 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %212, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 806) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 806, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 216:                                              ; preds = %test_atomic_uint32.exit
@@ -2018,24 +1959,22 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not55.i, label %221, label %218
 
 218:                                              ; preds = %216
-  %219 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %219)
-  %220 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %217, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 808) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 808, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %219 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %220 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %217, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 808) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 808, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 221:                                              ; preds = %216
   %222 = load volatile i64, ptr %3, align 8
   %223 = add i64 %222, -2
-  %224 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %223, ptr nonnull elementtype(i64) %3) #18, !srcloc !24
+  %224 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %223, ptr nonnull elementtype(i64) %3) #17, !srcloc !24
   %.not56.i = icmp eq i64 %224, 3
   br i1 %.not56.i, label %228, label %225
 
 225:                                              ; preds = %221
-  %226 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %226)
-  %227 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.81, i64 noundef %224, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 810) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 810, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %226 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %227 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.81, i64 noundef %224, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 810) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 810, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 228:                                              ; preds = %221
@@ -2044,10 +1983,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not57.i, label %233, label %230
 
 230:                                              ; preds = %228
-  %231 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %231)
-  %232 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.82, i64 noundef %229, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.3, i32 noundef 811) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 811, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %231 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %232 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.82, i64 noundef %229, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.3, i32 noundef 811) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 811, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 233:                                              ; preds = %228
@@ -2057,23 +1995,21 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not58.i, label %239, label %236
 
 236:                                              ; preds = %233
-  %237 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %237)
-  %238 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.83, i64 noundef %235, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 812) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 812, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %237 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %238 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.83, i64 noundef %235, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 812) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 812, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 239:                                              ; preds = %233
-  %240 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, ptr nonnull elementtype(i64) %3) #18, !srcloc !24
+  %240 = call i64 asm sideeffect "\09lock\09\09\09\09\0A\09xaddq\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, ptr nonnull elementtype(i64) %3) #17, !srcloc !24
   %.not59.i = icmp eq i64 %240, 0
   br i1 %.not59.i, label %245, label %241
 
 241:                                              ; preds = %239
   %242 = add i64 %240, 10
-  %243 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %243)
-  %244 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.84, i64 noundef %242, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 813) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 813, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %243 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %244 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.84, i64 noundef %242, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 813) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 813, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 245:                                              ; preds = %239
@@ -2082,10 +2018,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not60.i, label %250, label %247
 
 247:                                              ; preds = %245
-  %248 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %248)
-  %249 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.85, i64 noundef %246, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 814) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 814, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %248 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %249 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.85, i64 noundef %246, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, i32 noundef 814) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 814, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 250:                                              ; preds = %245
@@ -2094,28 +2029,26 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not61.i, label %255, label %252
 
 252:                                              ; preds = %250
-  %253 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %253)
-  %254 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.86, i64 noundef %251, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.3, i32 noundef 815) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 815, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %253 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %254 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.86, i64 noundef %251, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.3, i32 noundef 815) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 815, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 255:                                              ; preds = %250
-  %256 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, i64 1, ptr nonnull elementtype(i64) %3) #18, !srcloc !25
+  %256 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 10, i64 1, ptr nonnull elementtype(i64) %3) #17, !srcloc !25
   %257 = extractvalue { i64, i8 } %256, 1
   %.not70.i = icmp eq i8 %257, 0
   br i1 %.not70.i, label %.preheader.i2, label %258
 
 258:                                              ; preds = %255
-  %259 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %259)
-  %260 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.3, i32 noundef 819) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 819, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %259 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %260 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.3, i32 noundef 819) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 819, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 .preheader.i2:                                    ; preds = %255, %263
   %.073.i = phi i32 [ %264, %263 ], [ 0, %255 ]
-  %261 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 0, i64 1, ptr nonnull elementtype(i64) %3) #18, !srcloc !25
+  %261 = call { i64, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgq\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 0, i64 1, ptr nonnull elementtype(i64) %3) #17, !srcloc !25
   %262 = extractvalue { i64, i8 } %261, 1
   %.not71.i = icmp eq i8 %262, 0
   br i1 %.not71.i, label %.thread.i4, label %263
@@ -2126,10 +2059,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %exitcond.not.i3, label %265, label %.preheader.i2, !llvm.loop !26
 
 265:                                              ; preds = %263
-  %266 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %266)
-  %267 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.88) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 829, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %266 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %267 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.88) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 829, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 .thread.i4:                                       ; preds = %.preheader.i2
@@ -2138,10 +2070,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not62.i, label %272, label %269
 
 269:                                              ; preds = %.thread.i4
-  %270 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %270)
-  %271 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %268, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 830) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 830, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %270 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %271 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %268, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 830) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 830, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 272:                                              ; preds = %.thread.i4
@@ -2152,10 +2083,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not63.i, label %278, label %275
 
 275:                                              ; preds = %272
-  %276 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %276)
-  %277 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 835) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 835, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %276 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %277 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 835) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 835, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 278:                                              ; preds = %272
@@ -2165,10 +2095,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not64.i, label %281, label %284
 
 281:                                              ; preds = %278
-  %282 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %282)
-  %283 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.3, i32 noundef 836) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 836, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %282 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %283 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.3, i32 noundef 836) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 836, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 284:                                              ; preds = %278
@@ -2177,10 +2106,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not65.i, label %289, label %286
 
 286:                                              ; preds = %284
-  %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %287)
-  %288 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %285, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 837) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 837, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %288 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.80, i64 noundef %285, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 837) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 837, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 289:                                              ; preds = %284
@@ -2190,10 +2118,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not66.i, label %295, label %292
 
 292:                                              ; preds = %289
-  %293 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %293)
-  %294 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.91, i64 noundef %291, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 839) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 839, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %293 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %294 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.91, i64 noundef %291, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.3, i32 noundef 839) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 839, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 295:                                              ; preds = %289
@@ -2202,10 +2129,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not67.i, label %300, label %297
 
 297:                                              ; preds = %295
-  %298 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %298)
-  %299 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.92, i64 noundef %296, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 840) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 840, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %298 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %299 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.92, i64 noundef %296, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.3, i32 noundef 840) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 840, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 300:                                              ; preds = %295
@@ -2214,10 +2140,9 @@ test_atomic_uint32.exit:                          ; preds = %207
   br i1 %.not68.i, label %test_atomic_uint64.exit, label %302
 
 302:                                              ; preds = %300
-  %303 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %303)
-  %304 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.93, i64 noundef %301, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 842) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 842, ptr noundef nonnull @__func__.test_atomic_uint64) #18
+  %303 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %304 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.93, i64 noundef %301, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.3, i32 noundef 842) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 842, ptr noundef nonnull @__func__.test_atomic_uint64) #17
   unreachable
 
 test_atomic_uint64.exit:                          ; preds = %300
@@ -2226,54 +2151,53 @@ test_atomic_uint64.exit:                          ; preds = %300
   store i32 1684234849, ptr %2, align 4
   %305 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i32 842098277, ptr %305, align 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !27
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !27
   %306 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 0, ptr %306, align 4
-  %307 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %307 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #17, !srcloc !28
   %.not.i5 = icmp eq i8 %307, 0
   br i1 %.not.i5, label %310, label %308
 
 308:                                              ; preds = %test_atomic_uint64.exit
-  %309 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.3, i32 noundef 873, ptr noundef nonnull @__func__.test_spinlock) #18
+  %309 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.3, i32 noundef 873, ptr noundef nonnull @__func__.test_spinlock) #17
   br label %310
 
 310:                                              ; preds = %308, %test_atomic_uint64.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !29
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !29
   store i8 0, ptr %306, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !30
   store i8 0, ptr %306, align 4
-  %311 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %311 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #17, !srcloc !28
   %.not1.i = icmp eq i8 %311, 0
   br i1 %.not1.i, label %314, label %312
 
 312:                                              ; preds = %310
-  %313 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.3, i32 noundef 878, ptr noundef nonnull @__func__.test_spinlock) #18
+  %313 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.3, i32 noundef 878, ptr noundef nonnull @__func__.test_spinlock) #17
   br label %314
 
 314:                                              ; preds = %312, %310
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !31
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !31
   store i8 0, ptr %306, align 4
-  %315 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.96, i32 noundef 17, ptr noundef nonnull @.str.97) #18
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !32
+  %315 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.96, i32 noundef 17, ptr noundef nonnull @.str.97) #17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !32
   store i8 0, ptr %306, align 4
-  %316 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %316 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #17, !srcloc !28
   %.not2.i = icmp eq i8 %316, 0
   br i1 %.not2.i, label %319, label %317
 
 317:                                              ; preds = %314
-  %318 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.3, i32 noundef 890, ptr noundef nonnull @__func__.test_spinlock) #18
+  %318 = call i32 @s_lock(ptr noundef nonnull %306, ptr noundef nonnull @.str.3, i32 noundef 890, ptr noundef nonnull @__func__.test_spinlock) #17
   br label %319
 
 319:                                              ; preds = %317, %314
-  %320 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %320 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #17, !srcloc !28
   %.not3.i = icmp eq i8 %320, 0
   br i1 %.not3.i, label %321, label %324
 
 321:                                              ; preds = %319
-  %322 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %322)
-  %323 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.98) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 893, ptr noundef nonnull @__func__.test_spinlock) #18
+  %322 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %323 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.98) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 893, ptr noundef nonnull @__func__.test_spinlock) #17
   unreachable
 
 324:                                              ; preds = %319
@@ -2282,29 +2206,27 @@ test_atomic_uint64.exit:                          ; preds = %300
   br i1 %.not4.i, label %326, label %331
 
 326:                                              ; preds = %324
-  %327 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #18, !srcloc !28
+  %327 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %306, i8 1, ptr nonnull elementtype(i8) %306) #17, !srcloc !28
   %.not5.i = icmp eq i8 %327, 0
   br i1 %.not5.i, label %328, label %331
 
 328:                                              ; preds = %326
-  %329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %329)
-  %330 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.98) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 897, ptr noundef nonnull @__func__.test_spinlock) #18
+  %329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %330 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.98) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 897, ptr noundef nonnull @__func__.test_spinlock) #17
   unreachable
 
 331:                                              ; preds = %326, %324
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !33
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !33
   store i8 0, ptr %306, align 4
   %lhsv = load i32, ptr %2, align 4
   %.not = icmp eq i32 %lhsv, 1684234849
   br i1 %.not, label %335, label %332
 
 332:                                              ; preds = %331
-  %333 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %333)
-  %334 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.99) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 908, ptr noundef nonnull @__func__.test_spinlock) #18
+  %333 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %334 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.99) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 908, ptr noundef nonnull @__func__.test_spinlock) #17
   unreachable
 
 335:                                              ; preds = %331
@@ -2313,10 +2235,9 @@ test_atomic_uint64.exit:                          ; preds = %300
   br i1 %.not8.i, label %test_spinlock.exit, label %336
 
 336:                                              ; preds = %335
-  %337 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %337)
-  %338 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.100) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 910, ptr noundef nonnull @__func__.test_spinlock) #18
+  %337 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %338 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.100) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 910, ptr noundef nonnull @__func__.test_spinlock) #17
   unreachable
 
 test_spinlock.exit:                               ; preds = %335
@@ -2331,10 +2252,9 @@ define noundef nonnull ptr @pg_finfo_test_fdw_handler() local_unnamed_addr #0 {
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define noundef i64 @test_fdw_handler(ptr noundef readnone captures(none) %0) local_unnamed_addr #10 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 937, ptr noundef nonnull @__func__.test_fdw_handler) #18
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 937, ptr noundef nonnull @__func__.test_fdw_handler) #17
   unreachable
 }
 
@@ -2369,13 +2289,13 @@ define noundef i64 @test_support_func(ptr noundef readonly captures(none) %0) lo
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call double @join_selectivity(ptr noundef %12, i32 noundef 96, ptr noundef %14, i32 noundef %16, i32 noundef %19, ptr noundef %21) #18
+  %22 = tail call double @join_selectivity(ptr noundef %12, i32 noundef 96, ptr noundef %14, i32 noundef %16, i32 noundef %19, ptr noundef %21) #17
   br label %27
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %25 = load i32, ptr %24, align 8
-  %26 = tail call double @restriction_selectivity(ptr noundef %12, i32 noundef 96, ptr noundef %14, i32 noundef %16, i32 noundef %25) #18
+  %26 = tail call double @restriction_selectivity(ptr noundef %12, i32 noundef 96, ptr noundef %14, i32 noundef %16, i32 noundef %25) #17
   br label %27
 
 27:                                               ; preds = %23, %17
@@ -2502,74 +2422,74 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  %9 = call i32 @pg_encoding_max_length(i32 noundef %8) #18
+  %9 = call i32 @pg_encoding_max_length(i32 noundef %8) #17
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %54, label %11
 
 11:                                               ; preds = %7
-  call void @pg_encoding_set_invalid(i32 noundef %8, ptr noundef nonnull %2) #18
-  %12 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 2) #20
+  call void @pg_encoding_set_invalid(i32 noundef %8, ptr noundef nonnull %2) #17
+  %12 = call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 2) #19
   %13 = trunc i64 %12 to i32
   %.not = icmp eq i32 %13, 2
   br i1 %.not, label %20, label %14
 
 14:                                               ; preds = %11
-  %15 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %15 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef %18, i32 noundef %13) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1042, ptr noundef nonnull @__func__.test_enc_setup) #18
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef %18, i32 noundef %13) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1042, ptr noundef nonnull @__func__.test_enc_setup) #17
   br label %20
 
 20:                                               ; preds = %14, %16, %11
-  %21 = call i32 @pg_encoding_mblen(i32 noundef %8, ptr noundef nonnull %2) #18
+  %21 = call i32 @pg_encoding_mblen(i32 noundef %8, ptr noundef nonnull %2) #17
   %.not29 = icmp eq i32 %21, 2
   br i1 %.not29, label %28, label %22
 
 22:                                               ; preds = %20
-  %23 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %23 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef %26, i32 noundef %21) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.test_enc_setup) #18
+  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef %26, i32 noundef %21) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1047, ptr noundef nonnull @__func__.test_enc_setup) #17
   br label %28
 
 28:                                               ; preds = %22, %24, %20
-  %29 = call i32 @pg_encoding_verifymbstr(i32 noundef %8, ptr noundef nonnull %2, i32 noundef %13) #18
+  %29 = call i32 @pg_encoding_verifymbstr(i32 noundef %8, ptr noundef nonnull %2, i32 noundef %13) #17
   %.not30 = icmp eq i32 %29, 0
   br i1 %.not30, label %36, label %30
 
 30:                                               ; preds = %28
-  %31 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %31 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
-  %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef %34, i32 noundef %29) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1052, ptr noundef nonnull @__func__.test_enc_setup) #18
+  %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef %34, i32 noundef %29) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1052, ptr noundef nonnull @__func__.test_enc_setup) #17
   br label %36
 
 36:                                               ; preds = %30, %32, %28
-  %37 = call i32 @pg_encoding_verifymbstr(i32 noundef %8, ptr noundef nonnull %2, i32 noundef 1) #18
+  %37 = call i32 @pg_encoding_verifymbstr(i32 noundef %8, ptr noundef nonnull %2, i32 noundef 1) #17
   %.not31 = icmp eq i32 %37, 0
   br i1 %.not31, label %44, label %38
 
 38:                                               ; preds = %36
-  %39 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %39 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef %42, i32 noundef %37) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1057, ptr noundef nonnull @__func__.test_enc_setup) #18
+  %43 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef %42, i32 noundef %37) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1057, ptr noundef nonnull @__func__.test_enc_setup) #17
   br label %44
 
 44:                                               ; preds = %38, %40, %36
@@ -2578,19 +2498,19 @@ define noundef i64 @test_enc_setup(ptr noundef readnone captures(none) %0) local
   store i8 %45, ptr %3, align 16
   %46 = load i8, ptr %4, align 1
   store i8 %46, ptr %5, align 1
-  %47 = call i32 @pg_encoding_verifymbstr(i32 noundef %8, ptr noundef nonnull %3, i32 noundef 16) #18
+  %47 = call i32 @pg_encoding_verifymbstr(i32 noundef %8, ptr noundef nonnull %3, i32 noundef 16) #17
   %.not32 = icmp eq i32 %47, 0
   br i1 %.not32, label %54, label %48
 
 48:                                               ; preds = %44
-  %49 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %49 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %52, i32 noundef %47) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1065, ptr noundef nonnull @__func__.test_enc_setup) #18
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %52, i32 noundef %47) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1065, ptr noundef nonnull @__func__.test_enc_setup) #17
   br label %54
 
 54:                                               ; preds = %44, %50, %48, %7
@@ -2628,15 +2548,15 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #18
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call i32 @pg_char_to_encoding_private(ptr noundef %11) #18
+  %12 = tail call i32 @pg_char_to_encoding_private(ptr noundef %11) #17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call i32 @pg_char_to_encoding_private(ptr noundef %15) #18
+  %16 = tail call i32 @pg_char_to_encoding_private(ptr noundef %15) #17
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load i64, ptr %17, align 8
   %19 = icmp ne i64 %18, 0
@@ -2648,11 +2568,10 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %1
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 50856066) #18
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef %11) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1112, ptr noundef nonnull @__func__.test_enc_conversion) #18
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %23 = tail call i32 @errcode(i32 noundef 50856066) #17
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef %11) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1112, ptr noundef nonnull @__func__.test_enc_conversion) #17
   unreachable
 
 25:                                               ; preds = %1
@@ -2660,28 +2579,26 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 @errcode(i32 noundef 50856066) #18
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %15) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1117, ptr noundef nonnull @__func__.test_enc_conversion) #18
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %29 = tail call i32 @errcode(i32 noundef 50856066) #17
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %15) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1117, ptr noundef nonnull @__func__.test_enc_conversion) #17
   unreachable
 
 31:                                               ; preds = %25
-  %32 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #18
+  %32 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #17
   %.not = icmp eq i32 %32, 1
   br i1 %.not, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %34)
-  %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1121, ptr noundef nonnull @__func__.test_enc_conversion) #18
+  %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1121, ptr noundef nonnull @__func__.test_enc_conversion) #17
   unreachable
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %2, align 8
-  %38 = call ptr @BlessTupleDesc(ptr noundef %37) #18
+  %38 = call ptr @BlessTupleDesc(ptr noundef %37) #17
   store ptr %38, ptr %2, align 8
   %39 = load i8, ptr %8, align 1
   %40 = zext i8 %39 to i32
@@ -2727,7 +2644,7 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
 
 65:                                               ; preds = %60
   %66 = trunc i64 %61 to i32
-  %67 = call i32 @pg_encoding_verifymbstr(i32 noundef %12, ptr noundef nonnull %63, i32 noundef %66) #18
+  %67 = call i32 @pg_encoding_verifymbstr(i32 noundef %12, ptr noundef nonnull %63, i32 noundef %66) #17
   %68 = sext i32 %67 to i64
   %69 = icmp eq i64 %61, %68
   br i1 %69, label %111, label %70
@@ -2738,13 +2655,13 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
 71:                                               ; preds = %70
   %72 = getelementptr inbounds i8, ptr %63, i64 %68
   %73 = sub i32 %66, %67
-  call void @report_invalid_encoding(i32 noundef %12, ptr noundef nonnull %72, i32 noundef %73) #22
+  call void @report_invalid_encoding(i32 noundef %12, ptr noundef nonnull %72, i32 noundef %73) #21
   unreachable
 
 74:                                               ; preds = %70
   %75 = add i32 %67, 4
   %76 = sext i32 %75 to i64
-  %77 = call ptr @palloc(i64 noundef %76) #18
+  %77 = call ptr @palloc(i64 noundef %76) #17
   %78 = shl i32 %75, 2
   store i32 %78, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -2752,18 +2669,17 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   br label %111
 
 80:                                               ; preds = %60
-  %81 = call i32 @FindDefaultConversionProc(i32 noundef %12, i32 noundef %16) #18
+  %81 = call i32 @FindDefaultConversionProc(i32 noundef %12, i32 noundef %16) #17
   %.not82 = icmp eq i32 %81, 0
   br i1 %.not82, label %82, label %88
 
 82:                                               ; preds = %80
-  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %83)
-  %84 = call i32 @errcode(i32 noundef 52461700) #18
-  %85 = call ptr @pg_encoding_to_char_private(i32 noundef %12) #18
-  %86 = call ptr @pg_encoding_to_char_private(i32 noundef %16) #18
-  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %85, ptr noundef %86) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1163, ptr noundef nonnull @__func__.test_enc_conversion) #18
+  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %84 = call i32 @errcode(i32 noundef 52461700) #17
+  %85 = call ptr @pg_encoding_to_char_private(i32 noundef %12) #17
+  %86 = call ptr @pg_encoding_to_char_private(i32 noundef %16) #17
+  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %85, ptr noundef %86) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1163, ptr noundef nonnull @__func__.test_enc_conversion) #17
   unreachable
 
 88:                                               ; preds = %80
@@ -2772,33 +2688,32 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %89, label %91, label %96
 
 91:                                               ; preds = %88
-  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %92)
-  %93 = call i32 @errcode(i32 noundef 261) #18
-  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39) #18
-  %95 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.40, i32 noundef %90) #18
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1170, ptr noundef nonnull @__func__.test_enc_conversion) #18
+  %92 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %93 = call i32 @errcode(i32 noundef 261) #17
+  %94 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39) #17
+  %95 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.40, i32 noundef %90) #17
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1170, ptr noundef nonnull @__func__.test_enc_conversion) #17
   unreachable
 
 96:                                               ; preds = %88
   %97 = shl nuw nsw i64 %61, 2
   %98 = or disjoint i64 %97, 1
   %99 = load ptr, ptr @CurrentMemoryContext, align 8
-  %100 = call ptr @MemoryContextAlloc(ptr noundef %99, i64 noundef %98) #18
+  %100 = call ptr @MemoryContextAlloc(ptr noundef %99, i64 noundef %98) #17
   %101 = trunc nuw nsw i64 %98 to i32
-  %102 = call i32 @pg_do_encoding_conversion_buf(i32 noundef %81, i32 noundef %12, i32 noundef %16, ptr noundef nonnull %63, i32 noundef %90, ptr noundef %100, i32 noundef %101, i1 noundef zeroext %19) #18
-  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #20
+  %102 = call i32 @pg_do_encoding_conversion_buf(i32 noundef %81, i32 noundef %12, i32 noundef %16, ptr noundef nonnull %63, i32 noundef %90, ptr noundef %100, i32 noundef %101, i1 noundef zeroext %19) #17
+  %103 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #19
   %104 = trunc i64 %103 to i32
   %105 = add i32 %104, 4
   %106 = sext i32 %105 to i64
-  %107 = call ptr @palloc(i64 noundef %106) #18
+  %107 = call ptr @palloc(i64 noundef %106) #17
   %108 = shl i32 %105, 2
   store i32 %108, ptr %107, align 4
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %sext = shl i64 %103, 32
   %110 = ashr exact i64 %sext, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %109, ptr nonnull align 1 %100, i64 %110, i1 false)
-  call void @pfree(ptr noundef nonnull %100) #18
+  call void @pfree(ptr noundef nonnull %100) #17
   %.pre = sext i32 %102 to i64
   br label %111
 
@@ -2810,10 +2725,10 @@ define i64 @test_enc_conversion(ptr noundef %0) local_unnamed_addr #1 {
   %113 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %112, ptr %113, align 8
   %114 = load ptr, ptr %2, align 8
-  %115 = call ptr @heap_form_tuple(ptr noundef %114, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  %115 = call ptr @heap_form_tuple(ptr noundef %114, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
   %116 = getelementptr i8, ptr %115, i64 16
   %.val = load ptr, ptr %116, align 8
-  %117 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #18
+  %117 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2852,7 +2767,7 @@ define range(i64 0, 2) i64 @binary_coercible(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = tail call zeroext i1 @IsBinaryCoercible(i32 noundef %4, i32 noundef %7) #18
+  %8 = tail call zeroext i1 @IsBinaryCoercible(i32 noundef %4, i32 noundef %7) #17
   %9 = zext i1 %8 to i64
   ret i64 %9
 }
@@ -2872,11 +2787,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2894,13 +2806,12 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #18 = { nounwind }
-attributes #19 = { cold nounwind }
-attributes #20 = { nounwind willreturn memory(read) }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { noreturn nounwind }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nounwind }
+attributes #18 = { cold nounwind }
+attributes #19 = { nounwind willreturn memory(read) }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

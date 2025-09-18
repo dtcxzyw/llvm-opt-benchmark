@@ -1386,29 +1386,26 @@ default.unreachable:                              ; preds = %1
 switch.lookup:                                    ; preds = %1
   %5 = lshr i64 %3, 32
   %switch.idx.cast = trunc i64 %5 to i8
-  br label %18
+  br label %16
 
 6:                                                ; preds = %1
   %7 = lshr i64 %3, 32
   %8 = trunc nuw i64 %7 to i32
   %9 = tail call noundef i8 @_ZN3std3sys3pal4unix17decode_error_kind17h14be322005b340deE.llvm.3559630865842826263(i32 noundef %8), !range !271
-  br label %18
+  br label %16
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i8, ptr %11, align 8, !range !271, !noundef !4
-  br label %18
+  br label %16
 
 13:                                               ; preds = %1
-  %14 = getelementptr i8, ptr %2, i64 -1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr i8, ptr %2, i64 15
-  %17 = load i8, ptr %16, align 8, !range !271, !noundef !4
-  br label %18
+  %14 = getelementptr i8, ptr %2, i64 15
+  %15 = load i8, ptr %14, align 8, !range !271, !noundef !4
+  br label %16
 
-18:                                               ; preds = %switch.lookup, %13, %10, %6
-  %.sroa.0.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %17, %13 ], [ %switch.idx.cast, %switch.lookup ]
+16:                                               ; preds = %switch.lookup, %13, %10, %6
+  %.sroa.0.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %15, %13 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -18246,65 +18243,62 @@ default.unreachable:                              ; preds = %2
 switch.lookup:                                    ; preds = %2
   %6 = lshr i64 %4, 32
   %switch.idx.cast = trunc i64 %6 to i8
-  br label %19
+  br label %17
 
 7:                                                ; preds = %2
   %8 = lshr i64 %4, 32
   %9 = trunc nuw i64 %8 to i32
   %10 = tail call noundef i8 @_ZN3std3sys3pal4unix17decode_error_kind17h14be322005b340deE.llvm.3559630865842826263(i32 noundef %9), !range !271
-  br label %19
+  br label %17
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i8, ptr %12, align 8, !range !271, !noalias !4012, !noundef !4
-  br label %19
+  br label %17
 
 14:                                               ; preds = %2
-  %15 = getelementptr i8, ptr %0, i64 -1
-  %16 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr i8, ptr %0, i64 15
-  %18 = load i8, ptr %17, align 8, !range !271, !noalias !4012, !noundef !4
-  br label %19
+  %15 = getelementptr i8, ptr %0, i64 15
+  %16 = load i8, ptr %15, align 8, !range !271, !noalias !4012, !noundef !4
+  br label %17
 
-19:                                               ; preds = %switch.lookup, %7, %11, %14
-  %.sroa.0.0.i = phi i8 [ %10, %7 ], [ %13, %11 ], [ %18, %14 ], [ %switch.idx.cast, %switch.lookup ]
+17:                                               ; preds = %switch.lookup, %7, %11, %14
+  %.sroa.0.0.i = phi i8 [ %10, %7 ], [ %13, %11 ], [ %16, %14 ], [ %switch.idx.cast, %switch.lookup ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %0, ptr %20, align 8
-  %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4015
-  %22 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 32, i64 noundef 8) #43, !noalias !4015
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3eacdaf4901642afE.exit.i"
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %0, ptr %18, align 8
+  %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4015
+  %20 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 32, i64 noundef 8) #43, !noalias !4015
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3eacdaf4901642afE.exit.i"
 
-24:                                               ; preds = %19
+22:                                               ; preds = %17
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 32) #40
-          to label %.noexc.i.i.i unwind label %25, !noalias !4024
+          to label %.noexc.i.i.i unwind label %23, !noalias !4024
 
-.noexc.i.i.i:                                     ; preds = %24
+.noexc.i.i.i:                                     ; preds = %22
   unreachable
 
-25:                                               ; preds = %24
-  %26 = landingpad { ptr, i32 }
+23:                                               ; preds = %22
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$async_std..io..utils..VerboseError$GT$17h40f12e4d62141ba3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #41
-          to label %.critedge unwind label %27
+          to label %.critedge unwind label %25
 
-27:                                               ; preds = %25
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #42
   unreachable
 
-"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3eacdaf4901642afE.exit.i": ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %29 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h9c5a52c6f3bb6d3fE(i8 noundef %.sroa.0.0.i, ptr noundef nonnull align 1 %22, ptr noalias noundef readonly align 8 dereferenceable(80) @anon.d5a3a45f01bce7917b522397635334d4.38)
+"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h3eacdaf4901642afE.exit.i": ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
+  %27 = tail call noundef nonnull ptr @_ZN3std2io5error5Error4_new17h9c5a52c6f3bb6d3fE(i8 noundef %.sroa.0.0.i, ptr noundef nonnull align 1 %20, ptr noalias noundef readonly align 8 dereferenceable(80) @anon.d5a3a45f01bce7917b522397635334d4.38)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %29
+  ret ptr %27
 
-.critedge:                                        ; preds = %25
-  resume { ptr, i32 } %26
+.critedge:                                        ; preds = %23
+  resume { ptr, i32 } %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

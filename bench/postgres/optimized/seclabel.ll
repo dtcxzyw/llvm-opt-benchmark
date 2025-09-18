@@ -40,11 +40,10 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.ExecSecLabelStmt) #9
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %12 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
 14:                                               ; preds = %8
@@ -54,11 +53,10 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   br i1 %.not36, label %20, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull @__func__.ExecSecLabelStmt) #9
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %18 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 135, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
 20:                                               ; preds = %14
@@ -93,17 +91,16 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   %31 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %33) #10
+  %34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %33) #9
   %.not35 = icmp eq i32 %34, 0
   br i1 %.not35, label %.critedge, label %29
 
 .loopexit:                                        ; preds = %29, %23, %.lr.ph
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 50856066) #9
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #8
   %37 = load ptr, ptr %4, align 8
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %37) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.ExecSecLabelStmt) #9
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %37) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
 .critedge:                                        ; preds = %30, %20
@@ -135,27 +132,26 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(no
   ]
 
 SecLabelSupportsObjectType.exit:                  ; preds = %.critedge
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 151027844) #9
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.ExecSecLabelStmt) #9
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %42 = tail call i32 @errcode(i32 noundef 151027844) #8
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
 44:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
-  %47 = call { i64, i32 } @get_object_address(i32 noundef %40, ptr noundef %46, ptr noundef nonnull %3, i32 noundef 4, i1 noundef zeroext false) #9
+  %47 = call { i64, i32 } @get_object_address(i32 noundef %40, ptr noundef %46, ptr noundef nonnull %3, i32 noundef 4, i1 noundef zeroext false) #8
   %.fca.0.extract = extractvalue { i64, i32 } %47, 0
   %.fca.1.extract = extractvalue { i64, i32 } %47, 1
   store i64 %.fca.0.extract, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.4.0..sroa_idx, align 8
-  %48 = call i32 @GetUserId() #9
+  %48 = call i32 @GetUserId() #8
   %49 = load i32, ptr %39, align 4
   %50 = load ptr, ptr %45, align 8
   %51 = load ptr, ptr %3, align 8
-  call void @check_object_ownership(i32 noundef %48, i32 noundef %49, i64 %.fca.0.extract, i32 %.fca.1.extract, ptr noundef %50, ptr noundef %51) #9
+  call void @check_object_ownership(i32 noundef %48, i32 noundef %49, i64 %.fca.0.extract, i32 %.fca.1.extract, ptr noundef %50, ptr noundef %51) #8
   %52 = load i32, ptr %39, align 4
   %cond = icmp eq i32 %52, 6
   br i1 %cond, label %53, label %73
@@ -176,21 +172,20 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.critedge
   ]
 
 59:                                               ; preds = %53
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 @errcode(i32 noundef 151027844) #9
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %61 = call i32 @errcode(i32 noundef 151027844) #8
   %62 = load ptr, ptr %3, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %65) #9
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %65) #8
   %67 = load ptr, ptr %3, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 115
   %71 = load i8, ptr %70, align 1
-  %72 = call i32 @errdetail_relkind_not_supported(i8 noundef signext %71) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.ExecSecLabelStmt) #9
+  %72 = call i32 @errdetail_relkind_not_supported(i8 noundef signext %71) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.ExecSecLabelStmt) #8
   unreachable
 
 73:                                               ; preds = %53, %53, %53, %53, %53, %53, %44
@@ -198,7 +193,7 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.critedge
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = load ptr, ptr %76, align 8
-  call void %75(ptr noundef nonnull %2, ptr noundef %77) #9
+  call void %75(ptr noundef nonnull %2, ptr noundef %77) #8
   %78 = load ptr, ptr %.0, align 8
   %79 = load ptr, ptr %76, align 8
   call void @SetSecurityLabel(ptr noundef nonnull %2, ptr noundef %78, ptr noundef %79)
@@ -207,7 +202,7 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.critedge
   br i1 %.not43, label %82, label %81
 
 81:                                               ; preds = %73
-  call void @relation_close(ptr noundef nonnull %80, i32 noundef 0) #9
+  call void @relation_close(ptr noundef nonnull %80, i32 noundef 0) #8
   br label %82
 
 82:                                               ; preds = %81, %73
@@ -257,7 +252,7 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr %0, align 4
-  %13 = tail call zeroext i1 @IsSharedRelation(i32 noundef %12) #9
+  %13 = tail call zeroext i1 @IsSharedRelation(i32 noundef %12) #8
   br i1 %13, label %14, label %58
 
 14:                                               ; preds = %3
@@ -275,7 +270,7 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %19, ptr %20, align 8
-  %21 = tail call ptr @cstring_to_text(ptr noundef %1) #9
+  %21 = tail call ptr @cstring_to_text(ptr noundef %1) #8
   %22 = ptrtoint ptr %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %22, ptr %23, align 16
@@ -283,7 +278,7 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %14
-  %26 = tail call ptr @cstring_to_text(ptr noundef nonnull %2) #9
+  %26 = tail call ptr @cstring_to_text(ptr noundef nonnull %2) #8
   %27 = ptrtoint ptr %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %27, ptr %28, align 8
@@ -292,18 +287,18 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
 29:                                               ; preds = %25, %14
   %30 = load i32, ptr %15, align 4
   %31 = zext i32 %30 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %31) #9
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %31) #8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %33 = load i32, ptr %0, align 4
   %34 = zext i32 %33 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %32, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %34) #9
+  call void @ScanKeyInit(ptr noundef nonnull %32, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %34) #8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %36 = call ptr @cstring_to_text(ptr noundef %1) #9
+  %36 = call ptr @cstring_to_text(ptr noundef %1) #8
   %37 = ptrtoint ptr %36 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %35, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %37) #9
-  %38 = call ptr @table_open(i32 noundef 3592, i32 noundef 3) #9
-  %39 = call ptr @systable_beginscan(ptr noundef %38, i32 noundef 3593, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %4) #9
-  %40 = call ptr @systable_getnext(ptr noundef %39) #9
+  call void @ScanKeyInit(ptr noundef nonnull %35, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %37) #8
+  %38 = call ptr @table_open(i32 noundef 3592, i32 noundef 3) #8
+  %39 = call ptr @systable_beginscan(ptr noundef %38, i32 noundef 3593, i1 noundef zeroext true, ptr noundef null, i32 noundef 3, ptr noundef nonnull %4) #8
+  %40 = call ptr @systable_getnext(ptr noundef %39) #8
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %50, label %41
 
@@ -313,8 +308,8 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
 
 .thread34.i:                                      ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  call void @CatalogTupleDelete(ptr noundef %38, ptr noundef nonnull %43) #9
-  call void @systable_endscan(ptr noundef %39) #9
+  call void @CatalogTupleDelete(ptr noundef %38, ptr noundef nonnull %43) #8
+  call void @systable_endscan(ptr noundef %39) #8
   br label %SetSharedSecurityLabel.exit
 
 44:                                               ; preds = %41
@@ -322,14 +317,14 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
   store i8 1, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr @heap_modify_tuple(ptr noundef nonnull %40, ptr noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %48 = call ptr @heap_modify_tuple(ptr noundef nonnull %40, ptr noundef %47, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %38, ptr noundef nonnull %49, ptr noundef %48) #9
+  call void @CatalogTupleUpdate(ptr noundef %38, ptr noundef nonnull %49, ptr noundef %48) #8
   br label %50
 
 50:                                               ; preds = %44, %29
   %.0.i = phi ptr [ %48, %44 ], [ null, %29 ]
-  call void @systable_endscan(ptr noundef %39) #9
+  call void @systable_endscan(ptr noundef %39) #8
   %51 = icmp eq ptr %.0.i, null
   %or.cond.i = and i1 %24, %51
   br i1 %or.cond.i, label %52, label %56
@@ -337,8 +332,8 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = call ptr @heap_form_tuple(ptr noundef %54, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
-  call void @CatalogTupleInsert(ptr noundef %38, ptr noundef %55) #9
+  %55 = call ptr @heap_form_tuple(ptr noundef %54, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  call void @CatalogTupleInsert(ptr noundef %38, ptr noundef %55) #8
   br label %56
 
 56:                                               ; preds = %52, %50
@@ -347,11 +342,11 @@ define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, 
   br i1 %.not31.i, label %SetSharedSecurityLabel.exit, label %57
 
 57:                                               ; preds = %56
-  call void @heap_freetuple(ptr noundef nonnull %.1.i) #9
+  call void @heap_freetuple(ptr noundef nonnull %.1.i) #8
   br label %SetSharedSecurityLabel.exit
 
 SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %57
-  call void @table_close(ptr noundef %38, i32 noundef 3) #9
+  call void @table_close(ptr noundef %38, i32 noundef 3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -374,7 +369,7 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %67, ptr %68, align 16
-  %69 = tail call ptr @cstring_to_text(ptr noundef %1) #9
+  %69 = tail call ptr @cstring_to_text(ptr noundef %1) #8
   %70 = ptrtoint ptr %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %70, ptr %71, align 8
@@ -382,7 +377,7 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %58
-  %74 = tail call ptr @cstring_to_text(ptr noundef nonnull %2) #9
+  %74 = tail call ptr @cstring_to_text(ptr noundef nonnull %2) #8
   %75 = ptrtoint ptr %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %75, ptr %76, align 16
@@ -391,22 +386,22 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
 77:                                               ; preds = %73, %58
   %78 = load i32, ptr %59, align 4
   %79 = zext i32 %78 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %79) #9
+  call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %79) #8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %81 = load i32, ptr %0, align 4
   %82 = zext i32 %81 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %80, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %82) #9
+  call void @ScanKeyInit(ptr noundef nonnull %80, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %82) #8
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %84 = load i32, ptr %65, align 4
   %85 = sext i32 %84 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %83, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %85) #9
+  call void @ScanKeyInit(ptr noundef nonnull %83, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %85) #8
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 216
-  %87 = call ptr @cstring_to_text(ptr noundef %1) #9
+  %87 = call ptr @cstring_to_text(ptr noundef %1) #8
   %88 = ptrtoint ptr %87 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %86, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %88) #9
-  %89 = call ptr @table_open(i32 noundef 3596, i32 noundef 3) #9
-  %90 = call ptr @systable_beginscan(ptr noundef %89, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef 4, ptr noundef nonnull %8) #9
-  %91 = call ptr @systable_getnext(ptr noundef %90) #9
+  call void @ScanKeyInit(ptr noundef nonnull %86, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %88) #8
+  %89 = call ptr @table_open(i32 noundef 3596, i32 noundef 3) #8
+  %90 = call ptr @systable_beginscan(ptr noundef %89, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef 4, ptr noundef nonnull %8) #8
+  %91 = call ptr @systable_getnext(ptr noundef %90) #8
   %.not = icmp eq ptr %91, null
   br i1 %.not, label %101, label %92
 
@@ -416,8 +411,8 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
 
 .thread40:                                        ; preds = %92
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  call void @CatalogTupleDelete(ptr noundef %89, ptr noundef nonnull %94) #9
-  call void @systable_endscan(ptr noundef %90) #9
+  call void @CatalogTupleDelete(ptr noundef %89, ptr noundef nonnull %94) #8
+  call void @systable_endscan(ptr noundef %90) #8
   br label %109
 
 95:                                               ; preds = %92
@@ -425,14 +420,14 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
   store i8 1, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 64
   %98 = load ptr, ptr %97, align 8
-  %99 = call ptr @heap_modify_tuple(ptr noundef nonnull %91, ptr noundef %98, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #9
+  %99 = call ptr @heap_modify_tuple(ptr noundef nonnull %91, ptr noundef %98, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #8
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %89, ptr noundef nonnull %100, ptr noundef %99) #9
+  call void @CatalogTupleUpdate(ptr noundef %89, ptr noundef nonnull %100, ptr noundef %99) #8
   br label %101
 
 101:                                              ; preds = %95, %77
   %.0 = phi ptr [ %99, %95 ], [ null, %77 ]
-  call void @systable_endscan(ptr noundef %90) #9
+  call void @systable_endscan(ptr noundef %90) #8
   %102 = icmp eq ptr %.0, null
   %or.cond = and i1 %72, %102
   br i1 %or.cond, label %103, label %107
@@ -440,8 +435,8 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %89, i64 64
   %105 = load ptr, ptr %104, align 8
-  %106 = call ptr @heap_form_tuple(ptr noundef %105, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
-  call void @CatalogTupleInsert(ptr noundef %89, ptr noundef %106) #9
+  %106 = call ptr @heap_form_tuple(ptr noundef %105, ptr noundef nonnull %9, ptr noundef nonnull %10) #8
+  call void @CatalogTupleInsert(ptr noundef %89, ptr noundef %106) #8
   br label %107
 
 107:                                              ; preds = %103, %101
@@ -450,11 +445,11 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
   br i1 %.not37, label %109, label %108
 
 108:                                              ; preds = %107
-  call void @heap_freetuple(ptr noundef nonnull %.1) #9
+  call void @heap_freetuple(ptr noundef nonnull %.1) #8
   br label %109
 
 109:                                              ; preds = %.thread40, %108, %107
-  call void @table_close(ptr noundef %89, i32 noundef 3) #9
+  call void @table_close(ptr noundef %89, i32 noundef 3) #8
   br label %110
 
 110:                                              ; preds = %109, %SetSharedSecurityLabel.exit
@@ -476,7 +471,7 @@ define dso_local ptr @GetSecurityLabel(ptr noundef readonly captures(none) %0, p
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = load i32, ptr %0, align 4
-  %8 = tail call zeroext i1 @IsSharedRelation(i32 noundef %7) #9
+  %8 = tail call zeroext i1 @IsSharedRelation(i32 noundef %7) #8
   br i1 %8, label %9, label %33
 
 9:                                                ; preds = %2
@@ -485,20 +480,20 @@ define dso_local ptr @GetSecurityLabel(ptr noundef readonly captures(none) %0, p
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %12) #9
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %12) #8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %14 = load i32, ptr %0, align 4
   %15 = zext i32 %14 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %13, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %15) #9
+  call void @ScanKeyInit(ptr noundef nonnull %13, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %15) #8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %17 = call ptr @cstring_to_text(ptr noundef %1) #9
+  %17 = call ptr @cstring_to_text(ptr noundef %1) #8
   %18 = ptrtoint ptr %17 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %16, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %18) #9
-  %19 = call ptr @table_open(i32 noundef 3592, i32 noundef 1) #9
+  call void @ScanKeyInit(ptr noundef nonnull %16, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %18) #8
+  %19 = call ptr @table_open(i32 noundef 3592, i32 noundef 1) #8
   %20 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
-  %22 = call ptr @systable_beginscan(ptr noundef %19, i32 noundef 3593, i1 noundef zeroext %21, ptr noundef null, i32 noundef 3, ptr noundef nonnull %3) #9
-  %23 = call ptr @systable_getnext(ptr noundef %22) #9
+  %22 = call ptr @systable_beginscan(ptr noundef %19, i32 noundef 3593, i1 noundef zeroext %21, ptr noundef null, i32 noundef 3, ptr noundef nonnull %3) #8
+  %23 = call ptr @systable_getnext(ptr noundef %22) #8
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %GetSharedSecurityLabel.exit, label %24
 
@@ -512,13 +507,13 @@ define dso_local ptr @GetSecurityLabel(ptr noundef readonly captures(none) %0, p
 
 30:                                               ; preds = %24
   %31 = inttoptr i64 %27 to ptr
-  %32 = call ptr @text_to_cstring(ptr noundef %31) #9
+  %32 = call ptr @text_to_cstring(ptr noundef %31) #8
   br label %GetSharedSecurityLabel.exit
 
 GetSharedSecurityLabel.exit:                      ; preds = %9, %24, %30
   %.0.i = phi ptr [ null, %24 ], [ %32, %30 ], [ null, %9 ]
-  call void @systable_endscan(ptr noundef %22) #9
-  call void @table_close(ptr noundef %19, i32 noundef 1) #9
+  call void @systable_endscan(ptr noundef %22) #8
+  call void @table_close(ptr noundef %19, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
@@ -527,23 +522,23 @@ GetSharedSecurityLabel.exit:                      ; preds = %9, %24, %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %36) #9
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %36) #8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %38 = load i32, ptr %0, align 4
   %39 = zext i32 %38 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %37, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %39) #9
+  call void @ScanKeyInit(ptr noundef nonnull %37, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %39) #8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 4
   %43 = sext i32 %42 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %40, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %43) #9
+  call void @ScanKeyInit(ptr noundef nonnull %40, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %43) #8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %45 = call ptr @cstring_to_text(ptr noundef %1) #9
+  %45 = call ptr @cstring_to_text(ptr noundef %1) #8
   %46 = ptrtoint ptr %45 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %44, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %46) #9
-  %47 = call ptr @table_open(i32 noundef 3596, i32 noundef 1) #9
-  %48 = call ptr @systable_beginscan(ptr noundef %47, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef 4, ptr noundef nonnull %5) #9
-  %49 = call ptr @systable_getnext(ptr noundef %48) #9
+  call void @ScanKeyInit(ptr noundef nonnull %44, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 67, i64 noundef %46) #8
+  %47 = call ptr @table_open(i32 noundef 3596, i32 noundef 1) #8
+  %48 = call ptr @systable_beginscan(ptr noundef %47, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef 4, ptr noundef nonnull %5) #8
+  %49 = call ptr @systable_getnext(ptr noundef %48) #8
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %59, label %50
 
@@ -557,13 +552,13 @@ GetSharedSecurityLabel.exit:                      ; preds = %9, %24, %30
 
 56:                                               ; preds = %50
   %57 = inttoptr i64 %53 to ptr
-  %58 = call ptr @text_to_cstring(ptr noundef %57) #9
+  %58 = call ptr @text_to_cstring(ptr noundef %57) #8
   br label %59
 
 59:                                               ; preds = %50, %56, %33
   %.0 = phi ptr [ null, %50 ], [ %58, %56 ], [ null, %33 ]
-  call void @systable_endscan(ptr noundef %48) #9
-  call void @table_close(ptr noundef %47, i32 noundef 1) #9
+  call void @systable_endscan(ptr noundef %48) #8
+  call void @table_close(ptr noundef %47, i32 noundef 1) #8
   br label %60
 
 60:                                               ; preds = %59, %GetSharedSecurityLabel.exit
@@ -597,7 +592,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #9
+  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #8
   br label %fastgetattr.exit
 
 14:                                               ; preds = %4
@@ -660,10 +655,9 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 47:                                               ; preds = %35
   %48 = sext i16 %34 to i32
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %49)
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %48) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #9
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %48) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
 51:                                               ; preds = %23
@@ -671,7 +665,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 53:                                               ; preds = %17
-  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef nonnull %2) #9
+  %54 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef nonnull %2) #8
   br label %fastgetattr.exit
 
 55:                                               ; preds = %14
@@ -689,7 +683,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 62:                                               ; preds = %55
-  %63 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) #9
+  %63 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) #8
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %62, %61, %53, %51, %45, %42, %39, %36, %12
@@ -720,27 +714,27 @@ define dso_local void @DeleteSharedSecurityLabel(i32 noundef %0, i32 noundef %1)
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #9
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = zext i32 %1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #9
-  %7 = call ptr @table_open(i32 noundef 3592, i32 noundef 3) #9
-  %8 = call ptr @systable_beginscan(ptr noundef %7, i32 noundef 3593, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #9
-  %9 = call ptr @systable_getnext(ptr noundef %8) #9
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %6) #8
+  %7 = call ptr @table_open(i32 noundef 3592, i32 noundef 3) #8
+  %8 = call ptr @systable_beginscan(ptr noundef %7, i32 noundef 3593, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #8
+  %9 = call ptr @systable_getnext(ptr noundef %8) #8
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %10 = phi ptr [ %12, %.lr.ph ], [ %9, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @CatalogTupleDelete(ptr noundef %7, ptr noundef nonnull %11) #9
-  %12 = call ptr @systable_getnext(ptr noundef %8) #9
+  call void @CatalogTupleDelete(ptr noundef %7, ptr noundef nonnull %11) #8
+  %12 = call ptr @systable_getnext(ptr noundef %8) #8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  call void @systable_endscan(ptr noundef %8) #9
-  call void @table_close(ptr noundef %7, i32 noundef 3) #9
+  call void @systable_endscan(ptr noundef %8) #8
+  call void @table_close(ptr noundef %7, i32 noundef 3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -750,7 +744,7 @@ define dso_local void @DeleteSecurityLabel(ptr noundef readonly captures(none) %
   %2 = alloca [3 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr %0, align 4
-  %4 = tail call zeroext i1 @IsSharedRelation(i32 noundef %3) #9
+  %4 = tail call zeroext i1 @IsSharedRelation(i32 noundef %3) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   br i1 %4, label %7, label %9
@@ -762,11 +756,11 @@ define dso_local void @DeleteSecurityLabel(ptr noundef readonly captures(none) %
 
 9:                                                ; preds = %1
   %10 = zext i32 %6 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #9
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %10) #8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load i32, ptr %0, align 4
   %13 = zext i32 %12 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %11, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #9
+  call void @ScanKeyInit(ptr noundef nonnull %11, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %13) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 0
@@ -775,28 +769,28 @@ define dso_local void @DeleteSecurityLabel(ptr noundef readonly captures(none) %
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %18 = sext i32 %15 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %17, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %18) #9
+  call void @ScanKeyInit(ptr noundef nonnull %17, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef %18) #8
   br label %19
 
 19:                                               ; preds = %9, %16
   %.0 = phi i32 [ 3, %16 ], [ 2, %9 ]
-  %20 = call ptr @table_open(i32 noundef 3596, i32 noundef 3) #9
-  %21 = call ptr @systable_beginscan(ptr noundef %20, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef %.0, ptr noundef nonnull %2) #9
-  %22 = call ptr @systable_getnext(ptr noundef %21) #9
+  %20 = call ptr @table_open(i32 noundef 3596, i32 noundef 3) #8
+  %21 = call ptr @systable_beginscan(ptr noundef %20, i32 noundef 3597, i1 noundef zeroext true, ptr noundef null, i32 noundef %.0, ptr noundef nonnull %2) #8
+  %22 = call ptr @systable_getnext(ptr noundef %21) #8
   %.not1516 = icmp eq ptr %22, null
   br i1 %.not1516, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %23 = phi ptr [ %25, %.lr.ph ], [ %22, %19 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  call void @CatalogTupleDelete(ptr noundef %20, ptr noundef nonnull %24) #9
-  %25 = call ptr @systable_getnext(ptr noundef %21) #9
+  call void @CatalogTupleDelete(ptr noundef %20, ptr noundef nonnull %24) #8
+  %25 = call ptr @systable_getnext(ptr noundef %21) #8
   %.not15 = icmp eq ptr %25, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
-  call void @systable_endscan(ptr noundef %21) #9
-  call void @table_close(ptr noundef %20, i32 noundef 3) #9
+  call void @systable_endscan(ptr noundef %21) #8
+  call void @table_close(ptr noundef %20, i32 noundef 3) #8
   br label %26
 
 26:                                               ; preds = %._crit_edge, %7
@@ -809,13 +803,13 @@ define dso_local void @register_label_provider(ptr noundef %0, ptr noundef %1) l
   %3 = load ptr, ptr @TopMemoryContext, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %3, ptr @CurrentMemoryContext, align 8
-  %5 = tail call ptr @palloc(i64 noundef 16) #9
-  %6 = tail call ptr @pstrdup(ptr noundef %0) #9
+  %5 = tail call ptr @palloc(i64 noundef 16) #8
+  %6 = tail call ptr @pstrdup(ptr noundef %0) #8
   store ptr %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %7, align 8
   %8 = load ptr, ptr @label_provider_list, align 8
-  %9 = tail call ptr @lappend(ptr noundef %8, ptr noundef nonnull %5) #9
+  %9 = tail call ptr @lappend(ptr noundef %8, ptr noundef nonnull %5) #8
   store ptr %9, ptr @label_provider_list, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   ret void
@@ -839,9 +833,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -849,10 +840,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

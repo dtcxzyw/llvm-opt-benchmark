@@ -54,15 +54,14 @@ define dso_local i64 @pg_database_size_oid(ptr noundef captures(none) %0) local_
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
-  %6 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 21, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
+  %6 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 21, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 180, ptr noundef nonnull @__func__.pg_database_size_oid) #9
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %9 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 180, ptr noundef nonnull @__func__.pg_database_size_oid) #8
   unreachable
 
 11:                                               ; preds = %1
@@ -96,27 +95,27 @@ define internal fastcc i64 @calculate_database_size(i32 noundef %0) unnamed_addr
   %3 = alloca [1061 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call i32 @GetUserId() #9
-  %5 = tail call i32 @object_aclcheck(i32 noundef 1262, i32 noundef %0, i32 noundef %4, i64 noundef 2048) #9
+  %4 = tail call i32 @GetUserId() #8
+  %5 = tail call i32 @object_aclcheck(i32 noundef 1262, i32 noundef %0, i32 noundef %4, i64 noundef 2048) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @GetUserId() #9
-  %8 = tail call zeroext i1 @has_privs_of_role(i32 noundef %7, i32 noundef 3375) #9
+  %7 = tail call i32 @GetUserId() #8
+  %8 = tail call zeroext i1 @has_privs_of_role(i32 noundef %7, i32 noundef 3375) #8
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @get_database_name(i32 noundef %0) #9
-  tail call void @aclcheck_error(i32 noundef %5, i32 noundef 9, ptr noundef %10) #9
+  %10 = tail call ptr @get_database_name(i32 noundef %0) #8
+  tail call void @aclcheck_error(i32 noundef %5, i32 noundef 9, ptr noundef %10) #8
   br label %11
 
 11:                                               ; preds = %9, %6, %1
-  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.9, i32 noundef %0) #9
+  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.9, i32 noundef %0) #8
   %13 = call fastcc i64 @db_dir_size(ptr noundef %3)
-  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.10) #9
-  %15 = call ptr @AllocateDir(ptr noundef nonnull %2) #9
-  %16 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
+  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.10) #8
+  %15 = call ptr @AllocateDir(ptr noundef nonnull %2) #8
+  %16 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #8
   %.not142022 = icmp eq ptr %16, null
   br i1 %.not142022, label %.outer._crit_edge, label %.lr.ph
 
@@ -132,7 +131,7 @@ define internal fastcc i64 @calculate_database_size(i32 noundef %0) unnamed_addr
   br i1 %.not15, label %sub_0, label %21, !prof !4
 
 21:                                               ; preds = %18
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %sub_0
 
 sub_0:                                            ; preds = %21, %18
@@ -160,22 +159,22 @@ sub_118:                                          ; preds = %.tail
   br i1 %31, label %32, label %.outer
 
 32:                                               ; preds = %.tail16, %.tail
-  %33 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
+  %33 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #8
   %.not14 = icmp eq ptr %33, null
   br i1 %.not14, label %.outer._crit_edge, label %18, !llvm.loop !5
 
 .outer:                                           ; preds = %sub_0, %sub_118, %.tail16
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 19
-  %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, ptr noundef nonnull %34, ptr noundef nonnull @.str.14, i32 noundef %0) #9
+  %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1061, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, ptr noundef nonnull %34, ptr noundef nonnull @.str.14, i32 noundef %0) #8
   %36 = call fastcc i64 @db_dir_size(ptr noundef %3)
   %37 = add i64 %36, %.0.ph23
-  %38 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #9
+  %38 = call ptr @ReadDir(ptr noundef %15, ptr noundef nonnull %2) #8
   %.not1420 = icmp eq ptr %38, null
   br i1 %.not1420, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !5
 
 .outer._crit_edge:                                ; preds = %.outer, %32, %11
   %.0.ph.lcssa = phi i64 [ %13, %11 ], [ %.0.ph23, %32 ], [ %37, %.outer ]
-  %39 = call i32 @FreeDir(ptr noundef %15) #9
+  %39 = call i32 @FreeDir(ptr noundef %15) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0.ph.lcssa
@@ -186,7 +185,7 @@ define dso_local i64 @pg_database_size_name(ptr noundef captures(none) %0) local
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @get_database_oid(ptr noundef %4, i1 noundef zeroext false) #9
+  %5 = tail call i32 @get_database_oid(ptr noundef %4, i1 noundef zeroext false) #8
   %6 = tail call fastcc i64 @calculate_database_size(i32 noundef %5)
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %10
@@ -208,15 +207,14 @@ define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_oid(
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
-  %6 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 69, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #9
+  %6 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 69, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 67137668) #9
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @__func__.pg_tablespace_size_oid) #9
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %9 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 293, ptr noundef nonnull @__func__.pg_tablespace_size_oid) #8
   unreachable
 
 11:                                               ; preds = %1
@@ -246,19 +244,19 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @GetUserId() #9
-  %8 = tail call zeroext i1 @has_privs_of_role(i32 noundef %7, i32 noundef 3375) #9
+  %7 = tail call i32 @GetUserId() #8
+  %8 = tail call zeroext i1 @has_privs_of_role(i32 noundef %7, i32 noundef 3375) #8
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @GetUserId() #9
-  %11 = tail call i32 @object_aclcheck(i32 noundef 1213, i32 noundef %0, i32 noundef %10, i64 noundef 512) #9
+  %10 = tail call i32 @GetUserId() #8
+  %11 = tail call i32 @object_aclcheck(i32 noundef 1213, i32 noundef %0, i32 noundef %10, i64 noundef 512) #8
   %.not22 = icmp eq i32 %11, 0
   br i1 %.not22, label %14, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @get_tablespace_name(i32 noundef %0) #9
-  tail call void @aclcheck_error(i32 noundef %11, i32 noundef 42, ptr noundef %13) #9
+  %13 = tail call ptr @get_tablespace_name(i32 noundef %0) #8
+  tail call void @aclcheck_error(i32 noundef %11, i32 noundef 42, ptr noundef %13) #8
   br label %14
 
 14:                                               ; preds = %9, %12, %6, %1
@@ -268,24 +266,24 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   ]
 
 15:                                               ; preds = %14
-  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.17) #9
+  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.17) #8
   br label %21
 
 17:                                               ; preds = %14
-  %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.18) #9
+  %18 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.18) #8
   br label %21
 
 19:                                               ; preds = %14
-  %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef %0, ptr noundef nonnull @.str.14) #9
+  %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef %0, ptr noundef nonnull @.str.14) #8
   br label %21
 
 21:                                               ; preds = %17, %19, %15
-  %22 = call ptr @AllocateDir(ptr noundef nonnull %2) #9
+  %22 = call ptr @AllocateDir(ptr noundef nonnull %2) #8
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %64, label %.preheader
 
 .preheader:                                       ; preds = %21
-  %23 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
+  %23 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #8
   %.not2431 = icmp eq ptr %23, null
   br i1 %.not2431, label %._crit_edge, label %.lr.ph
 
@@ -303,7 +301,7 @@ define internal fastcc i64 @calculate_tablespace_size(i32 noundef %0) unnamed_ad
   br i1 %.not25, label %sub_0, label %29, !prof !4
 
 29:                                               ; preds = %26
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %sub_0
 
 sub_0:                                            ; preds = %29, %26
@@ -331,23 +329,22 @@ sub_128:                                          ; preds = %.tail
   br i1 %39, label %61, label %.tail26.thread, !llvm.loop !7
 
 .tail26.thread:                                   ; preds = %sub_0, %sub_128, %.tail26
-  %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %30) #9
-  %41 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 2048, ptr noundef nonnull @.str.15, ptr noundef nonnull %2, ptr noundef nonnull %30) #8
+  %41 = call i32 @stat(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %.tail26.thread
-  %44 = tail call ptr @__errno_location() #11
+  %44 = tail call ptr @__errno_location() #10
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 2
   br i1 %46, label %61, label %47, !llvm.loop !7
 
 47:                                               ; preds = %43
-  %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %48)
-  %49 = call i32 @errcode_for_file_access() #9
-  %50 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.calculate_tablespace_size) #9
+  %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %49 = call i32 @errcode_for_file_access() #8
+  %50 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 266, ptr noundef nonnull @__func__.calculate_tablespace_size) #8
   unreachable
 
 51:                                               ; preds = %.tail26.thread
@@ -370,13 +367,13 @@ sub_128:                                          ; preds = %.tail
 61:                                               ; preds = %43, %.tail, %.tail26, %58
   %.1 = phi i64 [ %60, %58 ], [ %.01732, %.tail26 ], [ %.01732, %.tail ], [ %.01732, %43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %62 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #9
+  %62 = call ptr @ReadDir(ptr noundef nonnull %22, ptr noundef nonnull %2) #8
   %.not24 = icmp eq ptr %62, null
   br i1 %.not24, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %61, %.preheader
   %.017.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %61 ]
-  %63 = call i32 @FreeDir(ptr noundef nonnull %22) #9
+  %63 = call i32 @FreeDir(ptr noundef nonnull %22) #8
   br label %64
 
 64:                                               ; preds = %21, %._crit_edge
@@ -391,7 +388,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_name
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @get_tablespace_oid(ptr noundef %4, i1 noundef zeroext false) #9
+  %5 = tail call i32 @get_tablespace_oid(ptr noundef %4, i1 noundef zeroext false) #8
   %6 = tail call fastcc i64 @calculate_tablespace_size(i32 noundef %5)
   %7 = icmp slt i64 %6, 0
   br i1 %7, label %8, label %10
@@ -416,8 +413,8 @@ define dso_local i64 @pg_relation_size(ptr noundef captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #9
-  %9 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
+  %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #8
+  %9 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
@@ -429,10 +426,10 @@ define dso_local i64 @pg_relation_size(ptr noundef captures(none) %0) local_unna
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @text_to_cstring(ptr noundef %8) #9
-  %17 = tail call i32 @forkname_to_number(ptr noundef %16) #9
+  %16 = tail call ptr @text_to_cstring(ptr noundef %8) #8
+  %17 = tail call i32 @forkname_to_number(ptr noundef %16) #8
   %18 = tail call fastcc i64 @calculate_relation_size(ptr noundef nonnull %9, i32 noundef %15, i32 noundef %17)
-  tail call void @relation_close(ptr noundef nonnull %9, i32 noundef 1) #9
+  tail call void @relation_close(ptr noundef nonnull %9, i32 noundef 1) #8
   br label %19
 
 19:                                               ; preds = %13, %11
@@ -454,7 +451,7 @@ define internal fastcc i64 @calculate_relation_size(ptr noundef readonly capture
   %8 = load i32, ptr %0, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = tail call ptr @GetRelationPath(i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %1, i32 noundef %2) #9
+  %11 = tail call ptr @GetRelationPath(i32 noundef %7, i32 noundef %8, i32 noundef %10, i32 noundef %1, i32 noundef %2) #8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %13
 
@@ -467,7 +464,7 @@ define internal fastcc i64 @calculate_relation_size(ptr noundef readonly capture
   br i1 %.not, label %16, label %15, !prof !4
 
 15:                                               ; preds = %13
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %16
 
 16:                                               ; preds = %15, %13
@@ -475,30 +472,29 @@ define internal fastcc i64 @calculate_relation_size(ptr noundef readonly capture
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %11) #9
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %11) #8
   br label %22
 
 20:                                               ; preds = %16
-  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %11, i32 noundef %.012) #9
+  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %11, i32 noundef %.012) #8
   br label %22
 
 22:                                               ; preds = %20, %18
-  %23 = call i32 @stat(ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %23 = call i32 @stat(ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @__errno_location() #11
+  %26 = tail call ptr @__errno_location() #10
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
   br i1 %28, label %37, label %29
 
 29:                                               ; preds = %25
-  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %30)
-  %31 = call i32 @errcode_for_file_access() #9
-  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.calculate_relation_size) #9
+  %30 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %31 = call i32 @errcode_for_file_access() #8
+  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.calculate_relation_size) #8
   unreachable
 
 33:                                               ; preds = %22
@@ -525,7 +521,7 @@ define dso_local i64 @pg_table_size(ptr noundef captures(none) %0) local_unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
+  %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
@@ -536,7 +532,7 @@ define dso_local i64 @pg_table_size(ptr noundef captures(none) %0) local_unnamed
 
 9:                                                ; preds = %1
   %10 = tail call fastcc i64 @calculate_table_size(ptr noundef %5)
-  tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
+  tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #8
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -570,7 +566,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   br i1 %.not, label %74, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @relation_open(i32 noundef range(i32 1, 0) %14, i32 noundef 1) #9
+  %16 = tail call ptr @relation_open(i32 noundef range(i32 1, 0) %14, i32 noundef 1) #8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 28
   br label %18
 
@@ -585,7 +581,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   br i1 %exitcond.not.i, label %23, label %18, !llvm.loop !9
 
 23:                                               ; preds = %18
-  %24 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %16) #9
+  %24 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %16) #8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %calculate_toast_table_size.exit, label %.lr.ph.i
 
@@ -603,7 +599,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   %30 = load ptr, ptr %26, align 8
   %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv.i15
   %32 = load i32, ptr %31, align 8
-  %33 = call ptr @relation_open(i32 noundef %32, i32 noundef 1) #9
+  %33 = call ptr @relation_open(i32 noundef %32, i32 noundef 1) #8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -617,7 +613,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   %39 = load i32, ptr %35, align 4
   %40 = load i32, ptr %33, align 4
   %41 = load i32, ptr %36, align 4
-  %42 = call ptr @GetRelationPath(i32 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %38, i32 noundef %.12432.i) #9
+  %42 = call ptr @GetRelationPath(i32 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %38, i32 noundef %.12432.i) #8
   br label %43
 
 43:                                               ; preds = %63, %37
@@ -629,7 +625,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   br i1 %.not.i.i, label %46, label %45, !prof !4
 
 45:                                               ; preds = %43
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %46
 
 46:                                               ; preds = %45, %43
@@ -637,30 +633,29 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46
-  %49 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %42) #9
+  %49 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %42) #8
   br label %52
 
 50:                                               ; preds = %46
-  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %42, i32 noundef %.012.i.i) #9
+  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %42, i32 noundef %.012.i.i) #8
   br label %52
 
 52:                                               ; preds = %50, %48
-  %53 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %53 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %52
-  %56 = tail call ptr @__errno_location() #11
+  %56 = tail call ptr @__errno_location() #10
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 2
   br i1 %58, label %calculate_relation_size.exit.i, label %59
 
 59:                                               ; preds = %55
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 @errcode_for_file_access() #9
-  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.calculate_relation_size) #9
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %61 = call i32 @errcode_for_file_access() #8
+  %62 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.calculate_relation_size) #8
   unreachable
 
 63:                                               ; preds = %52
@@ -679,7 +674,7 @@ calculate_relation_size.exit.i:                   ; preds = %55
   br i1 %exitcond39.not.i, label %69, label %37, !llvm.loop !10
 
 69:                                               ; preds = %calculate_relation_size.exit.i
-  call void @relation_close(ptr noundef nonnull %33, i32 noundef 1) #9
+  call void @relation_close(ptr noundef nonnull %33, i32 noundef 1) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i15, 1
   %70 = load i32, ptr %25, align 4
   %71 = sext i32 %70 to i64
@@ -688,8 +683,8 @@ calculate_relation_size.exit.i:                   ; preds = %55
 
 calculate_toast_table_size.exit:                  ; preds = %69, %.lr.ph.i, %23
   %.1.lcssa.i = phi i64 [ %21, %23 ], [ %21, %.lr.ph.i ], [ %67, %69 ]
-  call void @list_free(ptr noundef %24) #9
-  call void @relation_close(ptr noundef nonnull %16, i32 noundef 1) #9
+  call void @list_free(ptr noundef %24) #8
+  call void @relation_close(ptr noundef nonnull %16, i32 noundef 1) #8
   %73 = add i64 %.1.lcssa.i, %8
   br label %74
 
@@ -703,7 +698,7 @@ define dso_local i64 @pg_indexes_size(ptr noundef captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
+  %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
@@ -714,7 +709,7 @@ define dso_local i64 @pg_indexes_size(ptr noundef captures(none) %0) local_unnam
 
 9:                                                ; preds = %1
   %10 = tail call fastcc i64 @calculate_indexes_size(ptr noundef %5)
-  tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
+  tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #8
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -734,7 +729,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   br i1 %8, label %9, label %59
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %0) #9
+  %10 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %0) #8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -752,7 +747,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %16 = load ptr, ptr %12, align 8
   %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv33
   %18 = load i32, ptr %17, align 8
-  %19 = call ptr @relation_open(i32 noundef %18, i32 noundef 1) #9
+  %19 = call ptr @relation_open(i32 noundef %18, i32 noundef 1) #8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -760,7 +755,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
 
 .critedge:                                        ; preds = %55, %.lr.ph, %9
   %.1.lcssa = phi i64 [ 0, %9 ], [ 0, %.lr.ph ], [ %53, %55 ]
-  call void @list_free(ptr noundef %10) #9
+  call void @list_free(ptr noundef %10) #8
   br label %59
 
 23:                                               ; preds = %.lr.ph35, %calculate_relation_size.exit
@@ -771,7 +766,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %25 = load i32, ptr %21, align 4
   %26 = load i32, ptr %19, align 4
   %27 = load i32, ptr %22, align 4
-  %28 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %24, i32 noundef %.024) #9
+  %28 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %24, i32 noundef %.024) #8
   br label %29
 
 29:                                               ; preds = %49, %23
@@ -783,7 +778,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   br i1 %.not.i, label %32, label %31, !prof !4
 
 31:                                               ; preds = %29
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %32
 
 32:                                               ; preds = %31, %29
@@ -791,30 +786,29 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %28) #9
+  %35 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %28) #8
   br label %38
 
 36:                                               ; preds = %32
-  %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %28, i32 noundef %.012.i) #9
+  %37 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.21, ptr noundef %28, i32 noundef %.012.i) #8
   br label %38
 
 38:                                               ; preds = %36, %34
-  %39 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %39 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %49
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @__errno_location() #11
+  %42 = tail call ptr @__errno_location() #10
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 2
   br i1 %44, label %calculate_relation_size.exit, label %45
 
 45:                                               ; preds = %41
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %46)
-  %47 = call i32 @errcode_for_file_access() #9
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.calculate_relation_size) #9
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %47 = call i32 @errcode_for_file_access() #8
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 355, ptr noundef nonnull @__func__.calculate_relation_size) #8
   unreachable
 
 49:                                               ; preds = %38
@@ -833,7 +827,7 @@ calculate_relation_size.exit:                     ; preds = %41
   br i1 %exitcond.not, label %55, label %23, !llvm.loop !13
 
 55:                                               ; preds = %calculate_relation_size.exit
-  call void @relation_close(ptr noundef nonnull %19, i32 noundef 1) #9
+  call void @relation_close(ptr noundef nonnull %19, i32 noundef 1) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv33, 1
   %56 = load i32, ptr %11, align 4
   %57 = sext i32 %56 to i64
@@ -850,7 +844,7 @@ define dso_local i64 @pg_total_relation_size(ptr noundef captures(none) %0) loca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #9
+  %5 = tail call ptr @try_relation_open(i32 noundef %4, i32 noundef 1) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
@@ -863,7 +857,7 @@ define dso_local i64 @pg_total_relation_size(ptr noundef captures(none) %0) loca
   %10 = tail call fastcc i64 @calculate_table_size(ptr noundef nonnull %5)
   %11 = tail call fastcc i64 @calculate_indexes_size(ptr noundef nonnull %5)
   %12 = add i64 %11, %10
-  tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #9
+  tail call void @relation_close(ptr noundef nonnull %5, i32 noundef 1) #8
   br label %13
 
 13:                                               ; preds = %9, %7
@@ -930,8 +924,8 @@ define dso_local i64 @pg_size_pretty(ptr noundef readonly captures(none) %0) loc
 
 .loopexit:                                        ; preds = %18, %14
   %.1 = phi i64 [ %21, %18 ], [ %.02031.lcssa, %14 ]
-  %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.3, i64 noundef %.1, ptr noundef nonnull %.lcssa) #9
-  %41 = call ptr @cstring_to_text(ptr noundef nonnull %2) #9
+  %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.3, i64 noundef %.1, ptr noundef nonnull %.lcssa) #8
+  %41 = call ptr @cstring_to_text(ptr noundef nonnull %2) #8
   %42 = ptrtoint ptr %41 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %42
@@ -946,7 +940,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #8
   br label %6
 
 6:                                                ; preds = %1, %39
@@ -956,16 +950,16 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %.0183239 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
   %10 = phi ptr [ @.str.22, %1 ], [ %7, %39 ]
   %11 = ptrtoint ptr %9 to i64
-  %12 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_abs, i32 noundef 0, i64 noundef %11) #9
+  %12 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_abs, i32 noundef 0, i64 noundef %11) #8
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #9
+  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #8
   %15 = getelementptr inbounds nuw i8, ptr %.0183239, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = tail call ptr @int64_to_numeric(i64 noundef %17) #9
+  %18 = tail call ptr @int64_to_numeric(i64 noundef %17) #8
   %19 = ptrtoint ptr %14 to i64
   %20 = ptrtoint ptr %18 to i64
-  %21 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_lt, i32 noundef 0, i64 noundef %19, i64 noundef %20) #9
+  %21 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_lt, i32 noundef 0, i64 noundef %19, i64 noundef %20) #8
   %.not26 = icmp eq i64 %21, 0
   br i1 %.not26, label %39, label %22
 
@@ -980,19 +974,19 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
 
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %.lcssa to i64
-  %28 = tail call ptr @int64_to_numeric(i64 noundef 0) #9
+  %28 = tail call ptr @int64_to_numeric(i64 noundef 0) #8
   %29 = ptrtoint ptr %28 to i64
-  %30 = tail call ptr @int64_to_numeric(i64 noundef 1) #9
+  %30 = tail call ptr @int64_to_numeric(i64 noundef 1) #8
   %31 = ptrtoint ptr %30 to i64
-  %32 = tail call ptr @int64_to_numeric(i64 noundef 2) #9
-  %33 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_ge, i32 noundef 0, i64 noundef %27, i64 noundef %29) #9
+  %32 = tail call ptr @int64_to_numeric(i64 noundef 2) #8
+  %33 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_ge, i32 noundef 0, i64 noundef %27, i64 noundef %29) #8
   %.not.i = icmp eq i64 %33, 0
   %numeric_sub.numeric_add.i = select i1 %.not.i, ptr @numeric_sub, ptr @numeric_add
-  %34 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %numeric_sub.numeric_add.i, i32 noundef 0, i64 noundef %27, i64 noundef %31) #9
+  %34 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %numeric_sub.numeric_add.i, i32 noundef 0, i64 noundef %27, i64 noundef %31) #8
   %35 = ptrtoint ptr %32 to i64
-  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_div_trunc, i32 noundef 0, i64 noundef %34, i64 noundef %35) #9
+  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_div_trunc, i32 noundef 0, i64 noundef %34, i64 noundef %35) #8
   %37 = inttoptr i64 %36 to ptr
-  %38 = tail call ptr @pg_detoast_datum(ptr noundef %37) #9
+  %38 = tail call ptr @pg_detoast_datum(ptr noundef %37) #8
   br label %.loopexit
 
 39:                                               ; preds = %6
@@ -1013,11 +1007,11 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %54 = add nsw i64 %53, %51
   %55 = and i64 %54, 4294967295
   %56 = shl nuw i64 1, %55
-  %57 = tail call ptr @int64_to_numeric(i64 noundef %56) #9
+  %57 = tail call ptr @int64_to_numeric(i64 noundef %56) #8
   %58 = ptrtoint ptr %57 to i64
-  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_div_trunc, i32 noundef 0, i64 noundef %11, i64 noundef %58) #9
+  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_div_trunc, i32 noundef 0, i64 noundef %11, i64 noundef %58) #8
   %60 = inttoptr i64 %59 to ptr
-  %61 = tail call ptr @pg_detoast_datum(ptr noundef %60) #9
+  %61 = tail call ptr @pg_detoast_datum(ptr noundef %60) #8
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
@@ -1026,10 +1020,10 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
 .loopexit:                                        ; preds = %26, %22
   %.1 = phi ptr [ %38, %26 ], [ %.lcssa, %22 ]
   %65 = ptrtoint ptr %.1 to i64
-  %66 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_out, i32 noundef 0, i64 noundef %65) #9
+  %66 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_out, i32 noundef 0, i64 noundef %65) #8
   %67 = inttoptr i64 %66 to ptr
-  %68 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, ptr noundef %67, ptr noundef nonnull %.lcssa38) #9
-  %69 = tail call ptr @cstring_to_text(ptr noundef %68) #9
+  %68 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, ptr noundef %67, ptr noundef nonnull %.lcssa38) #8
+  %69 = tail call ptr @cstring_to_text(ptr noundef %68) #8
   %70 = ptrtoint ptr %69 to i64
   ret i64 %70
 }
@@ -1044,9 +1038,9 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #9
-  %7 = tail call ptr @text_to_cstring(ptr noundef %6) #9
-  %8 = tail call ptr @__ctype_b_loc() #11
+  %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #8
+  %7 = tail call ptr @text_to_cstring(ptr noundef %6) #8
+  %8 = tail call ptr @__ctype_b_loc() #10
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -1126,11 +1120,10 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   br i1 %.not81.not, label %46, label %.thread
 
 46:                                               ; preds = %44
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__.pg_size_bytes) #9
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %48 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %7) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__.pg_size_bytes) #8
   unreachable
 
 .thread:                                          ; preds = %.preheader99, %44
@@ -1144,7 +1137,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
 51:                                               ; preds = %.thread, %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %52 = getelementptr inbounds nuw i8, ptr %.394, i64 1
-  %53 = call i64 @strtol(ptr noundef nonnull %52, ptr noundef nonnull %2, i32 noundef 10) #9
+  %53 = call i64 @strtol(ptr noundef nonnull %52, ptr noundef nonnull %2, i32 noundef 10) #8
   %54 = load ptr, ptr %2, align 8
   %55 = icmp ugt ptr %54, %52
   %spec.select = select i1 %55, ptr %54, ptr %.394
@@ -1157,9 +1150,9 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %.5 = phi ptr [ %spec.select, %51 ], [ %.394, %.thread ]
   store i8 0, ptr %.5, align 1
   %58 = ptrtoint ptr %.0 to i64
-  %59 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %58, i64 noundef 0, i64 noundef -1) #9
+  %59 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %58, i64 noundef 0, i64 noundef -1) #8
   %60 = inttoptr i64 %59 to ptr
-  %61 = tail call ptr @pg_detoast_datum(ptr noundef %60) #9
+  %61 = tail call ptr @pg_detoast_datum(ptr noundef %60) #8
   store i8 %57, ptr %.5, align 1
   %62 = load ptr, ptr %8, align 8
   %63 = zext i8 %57 to i64
@@ -1241,14 +1234,14 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   br label %105
 
 .preheader:                                       ; preds = %109
-  %104 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull @.str.29) #9
+  %104 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull @.str.29) #8
   %.not128 = icmp eq i32 %104, 0
   br i1 %.not128, label %.thread95.thread, label %.thread95
 
 105:                                              ; preds = %103, %109
   %106 = phi ptr [ @.str.22, %103 ], [ %111, %109 ]
   %.064113 = phi ptr [ @size_pretty_units, %103 ], [ %110, %109 ]
-  %107 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %106) #9
+  %107 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %106) #8
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %.thread95.thread, label %109
 
@@ -1259,14 +1252,13 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   br i1 %.not89, label %.preheader, label %105, !llvm.loop !19
 
 .thread95:                                        ; preds = %.preheader
-  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %112)
-  %113 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %114 = tail call ptr @text_to_cstring(ptr noundef nonnull %6) #9
-  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %114) #9
-  %116 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6, ptr noundef nonnull %.1.lcssa) #9
-  %117 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 860, ptr noundef nonnull @__func__.pg_size_bytes) #9
+  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %113 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %114 = tail call ptr @text_to_cstring(ptr noundef nonnull %6) #8
+  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %114) #8
+  %116 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6, ptr noundef nonnull %.1.lcssa) #8
+  %117 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 860, ptr noundef nonnull @__func__.pg_size_bytes) #8
   unreachable
 
 .thread95.thread:                                 ; preds = %105, %.preheader
@@ -1279,18 +1271,18 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %.thread95.thread
-  %124 = tail call ptr @int64_to_numeric(i64 noundef %121) #9
+  %124 = tail call ptr @int64_to_numeric(i64 noundef %121) #8
   %125 = ptrtoint ptr %124 to i64
   %126 = ptrtoint ptr %61 to i64
-  %127 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_mul, i32 noundef 0, i64 noundef %125, i64 noundef %126) #9
+  %127 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_mul, i32 noundef 0, i64 noundef %125, i64 noundef %126) #8
   %128 = inttoptr i64 %127 to ptr
-  %129 = tail call ptr @pg_detoast_datum(ptr noundef %128) #9
+  %129 = tail call ptr @pg_detoast_datum(ptr noundef %128) #8
   br label %130
 
 130:                                              ; preds = %.thread95.thread, %123, %._crit_edge
   %.071 = phi ptr [ %61, %._crit_edge ], [ %129, %123 ], [ %61, %.thread95.thread ]
   %131 = ptrtoint ptr %.071 to i64
-  %132 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_int8, i32 noundef 0, i64 noundef %131) #9
+  %132 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_int8, i32 noundef 0, i64 noundef %131) #8
   ret i64 %132
 }
 
@@ -1324,7 +1316,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr noundef 
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #9
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
 
@@ -1351,7 +1343,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr noundef 
   ]
 
 .thread:                                          ; preds = %9
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
   br label %25
 
 17:                                               ; preds = %9, %9, %9, %9, %9
@@ -1361,15 +1353,15 @@ define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr noundef 
   br i1 %.not22, label %20, label %.thread26
 
 .thread26:                                        ; preds = %17
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
   br label %27
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 113
   %22 = load i8, ptr %21, align 1, !range !11, !noundef !12
   %23 = trunc nuw i8 %22 to i1
-  %24 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %23) #9
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
+  %24 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %23) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %25, label %27
 
@@ -1411,7 +1403,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_filenode_relation(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
-  %11 = tail call i32 @RelidByRelfilenumber(i32 noundef %10, i32 noundef %4) #9
+  %11 = tail call i32 @RelidByRelfilenumber(i32 noundef %10, i32 noundef %4) #8
   %.not11 = icmp eq i32 %11, 0
   br i1 %.not11, label %12, label %14
 
@@ -1437,7 +1429,7 @@ define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #9
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
 
@@ -1481,12 +1473,12 @@ define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 113
   %27 = load i8, ptr %26, align 1, !range !11, !noundef !12
   %28 = trunc nuw i8 %27 to i1
-  %29 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %28) #9
+  %29 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %4, i1 noundef zeroext %28) #8
   %.not34 = icmp eq i32 %29, 0
   br i1 %.not34, label %.thread, label %.thread39
 
 .thread:                                          ; preds = %9, %25
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %30, align 4
   br label %54
@@ -1504,7 +1496,7 @@ define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_
 33:                                               ; preds = %.thread39
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %35 = load i32, ptr %34, align 4
-  %36 = tail call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %35) #9
+  %36 = tail call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %35) #8
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %33
@@ -1516,23 +1508,22 @@ define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_
 
 42:                                               ; preds = %33
   %43 = load i32, ptr %34, align 4
-  %44 = tail call i32 @GetTempNamespaceProcNumber(i32 noundef %43) #9
+  %44 = tail call i32 @GetTempNamespaceProcNumber(i32 noundef %43) #8
   br label %50
 
 45:                                               ; preds = %.thread39
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %46)
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %47 = load i8, ptr %31, align 2
   %48 = sext i8 %47 to i32
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %48) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1033, ptr noundef nonnull @__func__.pg_relation_filepath) #9
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %48) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1033, ptr noundef nonnull @__func__.pg_relation_filepath) #8
   unreachable
 
 50:                                               ; preds = %.thread39, %.thread39, %37, %42
   %.027 = phi i32 [ %41, %37 ], [ %44, %42 ], [ -1, %.thread39 ], [ -1, %.thread39 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #9
-  %51 = tail call ptr @GetRelationPath(i32 noundef %.sroa.7.0, i32 noundef %.sroa.0.0, i32 noundef %.sroa.11.044, i32 noundef %.027, i32 noundef 0) #9
-  %52 = tail call ptr @cstring_to_text(ptr noundef %51) #9
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
+  %51 = tail call ptr @GetRelationPath(i32 noundef %.sroa.7.0, i32 noundef %.sroa.0.0, i32 noundef %.sroa.11.044, i32 noundef %.027, i32 noundef 0) #8
+  %52 = tail call ptr @cstring_to_text(ptr noundef %51) #8
   %53 = ptrtoint ptr %52 to i64
   br label %54
 
@@ -1564,12 +1555,12 @@ define internal fastcc i64 @db_dir_size(ptr noundef nonnull %0) unnamed_addr #0 
   %2 = alloca [2048 x i8], align 16
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = tail call ptr @AllocateDir(ptr noundef nonnull %0) #9
+  %4 = tail call ptr @AllocateDir(ptr noundef nonnull %0) #8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %38, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = tail call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
+  %5 = tail call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #8
   %.not1320 = icmp eq ptr %5, null
   br i1 %.not1320, label %._crit_edge, label %.lr.ph
 
@@ -1586,7 +1577,7 @@ define internal fastcc i64 @db_dir_size(ptr noundef nonnull %0) unnamed_addr #0 
   br i1 %.not14, label %sub_0, label %10, !prof !4
 
 10:                                               ; preds = %7
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %sub_0
 
 sub_0:                                            ; preds = %10, %7
@@ -1614,23 +1605,22 @@ sub_117:                                          ; preds = %.tail
   br i1 %20, label %35, label %.tail15.thread, !llvm.loop !20
 
 .tail15.thread:                                   ; preds = %sub_0, %sub_117, %.tail15
-  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.15, ptr noundef nonnull %0, ptr noundef nonnull %11) #9
-  %22 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 2048, ptr noundef nonnull @.str.15, ptr noundef nonnull %0, ptr noundef nonnull %11) #8
+  %22 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %.tail15.thread
-  %25 = tail call ptr @__errno_location() #11
+  %25 = tail call ptr @__errno_location() #10
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 2
   br i1 %27, label %35, label %28, !llvm.loop !20
 
 28:                                               ; preds = %24
-  %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %29)
-  %30 = call i32 @errcode_for_file_access() #9
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.db_dir_size) #9
+  %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %30 = call i32 @errcode_for_file_access() #8
+  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %2) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.db_dir_size) #8
   unreachable
 
 32:                                               ; preds = %.tail15.thread
@@ -1641,13 +1631,13 @@ sub_117:                                          ; preds = %.tail
 35:                                               ; preds = %24, %.tail, %.tail15, %32
   %.1 = phi i64 [ %34, %32 ], [ %.01121, %.tail15 ], [ %.01121, %.tail ], [ %.01121, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #9
+  %36 = call ptr @ReadDir(ptr noundef nonnull %4, ptr noundef nonnull %0) #8
   %.not13 = icmp eq ptr %36, null
   br i1 %.not13, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   %.011.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %35 ]
-  %37 = call i32 @FreeDir(ptr noundef nonnull %4) #9
+  %37 = call i32 @FreeDir(ptr noundef nonnull %4) #8
   br label %38
 
 38:                                               ; preds = %1, %._crit_edge
@@ -1702,11 +1692,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #8
+declare i64 @llvm.abs.i64(i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1715,11 +1702,10 @@ attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

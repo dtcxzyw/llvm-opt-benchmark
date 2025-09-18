@@ -4233,7 +4233,6 @@ define dso_local ptr @parsejsonpath(ptr noundef readonly captures(none) %0, i32 
   %9 = tail call ptr @__errno_location() #20
   store i32 12, ptr %9, align 4
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #17
   tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 535, ptr noundef nonnull @__func__.parsejsonpath) #17
   unreachable
@@ -4317,7 +4316,6 @@ declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef %0) #17
   tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 51, ptr noundef nonnull @__func__.fprintf_to_ereport) #17
   unreachable

@@ -39,13 +39,13 @@ define void @_ZN3gmx8internal21printFatalErrorHeaderEP8_IO_FILEPKcS4_S4_i(ptr no
           cleanup
           catch ptr @_ZTISt9exception
   %15 = extractvalue { ptr, i32 } %14, 1
-  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #11
+  %16 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #10
   %17 = icmp eq i32 %15, %16
-  br i1 %17, label %18, label %48
+  br i1 %17, label %18, label %45
 
 18:                                               ; preds = %13
   %19 = extractvalue { ptr, i32 } %14, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #11
+  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #10
   tail call void @__cxa_end_catch()
   br label %21
 
@@ -53,62 +53,55 @@ define void @_ZN3gmx8internal21printFatalErrorHeaderEP8_IO_FILEPKcS4_S4_i(ptr no
   %.0 = phi ptr [ @.str, %18 ], [ %12, %8 ]
   %22 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 57, i64 1, ptr %0)
   %23 = tail call noundef ptr @_Z11gmx_versionv()
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %23) #11
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %.0, ptr noundef %23) #10
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %36, label %25
+  br i1 %.not, label %33, label %25
 
 25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN3gmx17stripSourcePrefixB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull %3)
   %26 = load ptr, ptr %6, align 8, !tbaa !7
-  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %26, i32 noundef %4) #11
+  %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %26, i32 noundef %4) #10
   %28 = load ptr, ptr %6, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %30 = icmp eq ptr %28, %29
-  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %25
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !14
-  %33 = icmp ult i64 %32, 16
-  call void @llvm.assume(i1 %33)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %25
-  %34 = load i64, ptr %29, align 8, !tbaa !15
-  %35 = add i64 %34, 1
-  call void @_ZdlPvm(ptr noundef %28, i64 noundef %35) #12
+  %31 = load i64, ptr %29, align 8, !tbaa !14
+  %32 = add i64 %31, 1
+  call void @_ZdlPvm(ptr noundef %28, i64 noundef %32) #11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %33
+
+33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %21
+  %.not19 = icmp eq ptr %2, null
+  br i1 %.not19, label %36, label %34
+
+34:                                               ; preds = %33
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #10
   br label %36
 
-36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %21
-  %.not19 = icmp eq ptr %2, null
-  br i1 %.not19, label %39, label %37
+36:                                               ; preds = %34, %33
+  %37 = call noundef i32 @_Z12gmx_node_numv()
+  %38 = icmp sgt i32 %37, 1
+  br i1 %38, label %39, label %43
 
-37:                                               ; preds = %36
-  %38 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #11
-  br label %39
+39:                                               ; preds = %36
+  %40 = call noundef i32 @_Z13gmx_node_rankv()
+  %41 = call noundef i32 @_Z12gmx_node_numv()
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %40, i32 noundef %41) #10
+  br label %43
 
-39:                                               ; preds = %37, %36
-  %40 = call noundef i32 @_Z12gmx_node_numv()
-  %41 = icmp sgt i32 %40, 1
-  br i1 %41, label %42, label %46
-
-42:                                               ; preds = %39
-  %43 = call noundef i32 @_Z13gmx_node_rankv()
-  %44 = call noundef i32 @_Z12gmx_node_numv()
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %43, i32 noundef %44) #11
-  br label %46
-
-46:                                               ; preds = %42, %39
+43:                                               ; preds = %39, %36
   %fputc = call i32 @fputc(i32 10, ptr %0)
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1) #11
+  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1) #10
   ret void
 
-48:                                               ; preds = %13
+45:                                               ; preds = %13
   resume { ptr, i32 } %14
 }
 
@@ -143,8 +136,8 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
   %5 = sub nsw i32 78, %2
-  store i32 %5, ptr %4, align 4, !tbaa !16
-  %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
+  store i32 %5, ptr %4, align 4, !tbaa !15
+  %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %.not24 = icmp eq i64 %6, 0
   br i1 %.not24, label %._crit_edge, label %.lr.ph23
 
@@ -165,16 +158,16 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nou
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %14 = getelementptr i8, ptr %11, i64 %indvars.iv
   %15 = getelementptr i8, ptr %14, i64 -1
-  %16 = load i8, ptr %15, align 1, !tbaa !15
+  %16 = load i8, ptr %15, align 1, !tbaa !14
   %17 = sext i8 %16 to i32
-  %18 = call i32 @isspace(i32 noundef %17) #13
+  %18 = call i32 @isspace(i32 noundef %17) #12
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.critedge.loopexit.split.loop.exit28, label %19
 
 19:                                               ; preds = %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %20 = icmp sgt i64 %indvars.iv, 1
-  br i1 %20, label %13, label %.critedge, !llvm.loop !20
+  br i1 %20, label %13, label %.critedge, !llvm.loop !19
 
 .critedge.loopexit.split.loop.exit28:             ; preds = %13
   %21 = trunc nuw nsw i64 %indvars.iv to i32
@@ -183,9 +176,9 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nou
 .critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit28, %.lr.ph23
   %.0.lcssa = phi i32 [ %9, %.lr.ph23 ], [ %21, %.critedge.loopexit.split.loop.exit28 ], [ 0, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %.01822
-  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %22) #11
+  %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %22) #10
   %24 = icmp ult i64 %7, %6
-  br i1 %24, label %.lr.ph23, label %._crit_edge, !llvm.loop !22
+  br i1 %24, label %.lr.ph23, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.critedge, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -216,14 +209,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+; Function Attrs: nofree nounwind
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -234,11 +224,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nofree nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #9 = { nofree nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -256,12 +245,11 @@ attributes #13 = { nounwind willreturn memory(read) }
 !11 = !{!"any pointer", !12, i64 0}
 !12 = !{!"omnipotent char", !6, i64 0}
 !13 = !{!"long", !12, i64 0}
-!14 = !{!8, !13, i64 8}
-!15 = !{!12, !12, i64 0}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"_ZTSN3gmx23TextLineWrapperSettingsE", !18, i64 0, !18, i64 4, !18, i64 8, !19, i64 12, !12, i64 13}
-!18 = !{!"int", !12, i64 0}
-!19 = !{!"bool", !12, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
+!14 = !{!12, !12, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_ZTSN3gmx23TextLineWrapperSettingsE", !17, i64 0, !17, i64 4, !17, i64 8, !18, i64 12, !12, i64 13}
+!17 = !{!"int", !12, i64 0}
+!18 = !{!"bool", !12, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20}

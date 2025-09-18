@@ -152,24 +152,24 @@ define void @"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
   %30 = alloca [720 x i8], align 8
   %31 = alloca [16 x i8], align 4
   %32 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %33 unwind label %211
+          to label %33 unwind label %201
 
 33:                                               ; preds = %3
   %34 = invoke noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17hb1ff3c51f92bcf6aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.4)
-          to label %35 unwind label %211
+          to label %35 unwind label %201
 
 35:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr null, ptr %24, align 8
   %36 = invoke noundef align 8 dereferenceable(3576) ptr @_ZN8settings14settings_store13SettingsStore3get17h2e1f599423ddaf10E(ptr noalias noundef nonnull readonly align 8 dereferenceable(328) %34, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %24)
-          to label %37 unwind label %211
+          to label %37 unwind label %201
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 792
   invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
-          to label %39 unwind label %211
+          to label %39 unwind label %201
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 728
@@ -182,7 +182,7 @@ define void @"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
   %44 = load float, ptr %43, align 4, !noundef !8
   %45 = fsub float 1.000000e+00, %44
   invoke void @_ZN4gpui5color4Hsla8fade_out17hb80c6ec016349bfeE(ptr noalias noundef nonnull align 4 dereferenceable(16) %31, float noundef %45)
-          to label %46 unwind label %211
+          to label %46 unwind label %201
 
 46:                                               ; preds = %39, %42
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -236,13 +236,13 @@ default.unreachable:                              ; preds = %50
 58:                                               ; preds = %56
   %59 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %23) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %23) #8
           to label %.thread unwind label %60, !noalias !19
 
 60:                                               ; preds = %58
   %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !19
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !19
   unreachable
 
 _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
@@ -271,13 +271,13 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 66:                                               ; preds = %64
   %67 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %12) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %12) #8
           to label %.thread19.i unwind label %68, !noalias !26
 
 68:                                               ; preds = %66
   %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !26
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !26
   unreachable
 
 70:                                               ; preds = %64
@@ -292,7 +292,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 73:                                               ; preds = %77, %75, %70
   %74 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %13) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %13) #8
           to label %.thread19.i unwind label %79, !noalias !32
 
 75:                                               ; preds = %70
@@ -306,7 +306,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 79:                                               ; preds = %73
   %80 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !32
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !32
   unreachable
 
 81:                                               ; preds = %77
@@ -321,7 +321,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 84:                                               ; preds = %88, %86, %81
   %85 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %14) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %14) #8
           to label %.thread19.i unwind label %90, !noalias !38
 
 86:                                               ; preds = %81
@@ -335,7 +335,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 90:                                               ; preds = %84
   %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !38
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !38
   unreachable
 
 92:                                               ; preds = %88
@@ -350,7 +350,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 95:                                               ; preds = %99, %97, %92
   %96 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %15) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %15) #8
           to label %.thread19.i unwind label %101, !noalias !44
 
 97:                                               ; preds = %92
@@ -364,7 +364,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 101:                                              ; preds = %95
   %102 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !44
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !44
   unreachable
 
 103:                                              ; preds = %99
@@ -387,7 +387,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 106:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h237f323e57217141E.llvm.14036908944705627615.exit.i.i", %105
   %107 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %16) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %16) #8
           to label %.thread19.i unwind label %109, !noalias !56
 
 "_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h237f323e57217141E.llvm.14036908944705627615.exit.i.i": ; preds = %105
@@ -399,7 +399,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 109:                                              ; preds = %106
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !56
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !56
   unreachable
 
 111:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h237f323e57217141E.llvm.14036908944705627615.exit.i.i"
@@ -417,18 +417,18 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 113:                                              ; preds = %103
   %114 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %16) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %16) #8
           to label %.thread19.i unwind label %115, !noalias !47
 
 115:                                              ; preds = %.thread19.i, %113
   %116 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !47
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !47
   unreachable
 
 .thread19.i:                                      ; preds = %113, %106, %95, %84, %73, %66, %.thread31.i
   %.pn18.i = phi { ptr, i32 } [ %63, %.thread31.i ], [ %67, %66 ], [ %74, %73 ], [ %85, %84 ], [ %96, %95 ], [ %114, %113 ], [ %107, %106 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %18) #9
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %18) #8
           to label %.thread unwind label %115, !noalias !47
 
 117:                                              ; preds = %111
@@ -443,13 +443,13 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   %119 = load i8, ptr %118, align 4, !range !9, !noundef !8
   %120 = trunc nuw i8 %119 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %20, ptr noundef nonnull align 8 dereferenceable(720) %28, i64 720, i1 false)
-  br i1 %120, label %121, label %141
+  br i1 %120, label %121, label %139
 
 121:                                              ; preds = %"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hd86a857fb0af280eE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %9, ptr noundef nonnull align 8 dereferenceable(720) %28, i64 720, i1 false)
   %122 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
-          to label %123 unwind label %134, !noalias !59
+          to label %123 unwind label %133, !noalias !59
 
 123:                                              ; preds = %121
   call void @llvm.experimental.noalias.scope.decl(metadata !63)
@@ -460,15 +460,15 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 125:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i.i", %123
   %126 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9) #9
-          to label %.thread unwind label %132, !noalias !68
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9) #8
+          to label %.thread unwind label %131, !noalias !68
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %129 = load i64, ptr %128, align 8, !range !72, !alias.scope !69, !noalias !68, !noundef !8
   %130 = icmp eq i64 %129, 3
-  br i1 %130, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i.i", label %138
+  br i1 %130, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i.i", label %137
 
 "_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i.i": ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !73
@@ -478,252 +478,232 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 .noexc.i.i:                                       ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %128, ptr noundef nonnull align 8 dereferenceable(160) %8, i64 160, i1 false), !noalias !68
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !73
-  %.pre.i.i.i = load i64, ptr %128, align 8, !range !72, !alias.scope !69, !noalias !68
-  %131 = icmp ne i64 %.pre.i.i.i, 3
-  br label %138
+  br label %137
 
-132:                                              ; preds = %125
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %125
+  %132 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !68
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !68
   unreachable
 
-134:                                              ; preds = %121
-  %135 = landingpad { ptr, i32 }
+133:                                              ; preds = %121
+  %134 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9) #9
-          to label %.thread unwind label %136, !noalias !59
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %9) #8
+          to label %.thread unwind label %135, !noalias !59
 
-136:                                              ; preds = %134
-  %137 = landingpad { ptr, i32 }
+135:                                              ; preds = %133
+  %136 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !59
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !59
   unreachable
 
-138:                                              ; preds = %.noexc.i.i, %127
-  %139 = phi i1 [ true, %127 ], [ %131, %.noexc.i.i ]
-  call void @llvm.assume(i1 %139)
-  %140 = getelementptr inbounds nuw i8, ptr %124, i64 144
-  store i64 %122, ptr %140, align 8, !noalias !68
+137:                                              ; preds = %.noexc.i.i, %127
+  %138 = getelementptr inbounds nuw i8, ptr %124, i64 144
+  store i64 %122, ptr %138, align 8, !noalias !68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %20, ptr noundef nonnull align 8 dereferenceable(720) %9, i64 720, i1 false), !alias.scope !74, !noalias !75
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !59
-  br label %141
+  br label %139
 
-141:                                              ; preds = %"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hd86a857fb0af280eE.exit", %138
+139:                                              ; preds = %"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hd86a857fb0af280eE.exit", %137
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 814
-  %143 = load i8, ptr %142, align 2, !range !9, !noundef !8
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %158
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 814
+  %141 = load i8, ptr %140, align 2, !range !9, !noundef !8
+  %142 = trunc nuw i8 %141 to i1
+  br i1 %142, label %143, label %154
 
-145:                                              ; preds = %141
-  %146 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %20)
-          to label %149 unwind label %147, !noalias !76
+143:                                              ; preds = %139
+  %144 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %20)
+          to label %147 unwind label %145, !noalias !76
 
-147:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i", %145
-  %148 = landingpad { ptr, i32 }
+145:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i", %143
+  %146 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %20) #9
-          to label %.thread unwind label %154, !noalias !76
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %20) #8
+          to label %.thread unwind label %151, !noalias !76
 
-149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %146, i64 80
+147:                                              ; preds = %143
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  %151 = load i64, ptr %150, align 8, !range !72, !alias.scope !79, !noalias !76, !noundef !8
-  %152 = icmp eq i64 %151, 3
-  br i1 %152, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i", label %_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit
+  %149 = load i64, ptr %148, align 8, !range !72, !alias.scope !79, !noalias !76, !noundef !8
+  %150 = icmp eq i64 %149, 3
+  br i1 %150, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i", label %_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i": ; preds = %149
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i": ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !82
   invoke void @"_ZN75_$LT$gpui..style..TextStyleRefinement$u20$as$u20$core..default..Default$GT$7default17h1b13b3ade9f768b8E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %7)
-          to label %.noexc.i unwind label %147, !noalias !76
+          to label %.noexc.i unwind label %145, !noalias !76
 
 .noexc.i:                                         ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %150, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false), !noalias !76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %148, ptr noundef nonnull align 8 dereferenceable(160) %7, i64 160, i1 false), !noalias !76
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !82
-  %.pre.i.i = load i64, ptr %150, align 8, !range !72, !alias.scope !79, !noalias !76
-  %153 = icmp ne i64 %.pre.i.i, 3
   br label %_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit
 
-154:                                              ; preds = %147
-  %155 = landingpad { ptr, i32 }
+151:                                              ; preds = %145
+  %152 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !76
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !76
   unreachable
 
-_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.i
-  %156 = phi i1 [ true, %149 ], [ %153, %.noexc.i ]
-  call void @llvm.assume(i1 %156)
-  %157 = getelementptr inbounds nuw i8, ptr %146, i64 238
-  store i8 1, ptr %157, align 2, !noalias !76
-  br label %158
+_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %147, %.noexc.i
+  %153 = getelementptr inbounds nuw i8, ptr %144, i64 238
+  store i8 1, ptr %153, align 2, !noalias !76
+  br label %154
 
-158:                                              ; preds = %141, %_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit
+154:                                              ; preds = %139, %_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %19, ptr noundef nonnull align 8 dereferenceable(720) %20, i64 720, i1 false)
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 815
-  %160 = load i8, ptr %159, align 1, !range !9, !noundef !8
-  %161 = trunc nuw i8 %160 to i1
-  br i1 %161, label %173, label %162
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 815
+  %156 = load i8, ptr %155, align 1, !range !9, !noundef !8
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %168, label %158
 
-162:                                              ; preds = %186, %158
+158:                                              ; preds = %180, %154
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !84)
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %163 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %19)
-          to label %166 unwind label %164, !noalias !89
+  %159 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %19)
+          to label %162 unwind label %160, !noalias !89
 
-164:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21", %162
-  %165 = landingpad { ptr, i32 }
+160:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21", %158
+  %161 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %19) #9
-          to label %.thread unwind label %171, !noalias !89
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %19) #8
+          to label %.thread unwind label %166, !noalias !89
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 80
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %168 = load i64, ptr %167, align 8, !range !72, !alias.scope !91, !noalias !89, !noundef !8
-  %169 = icmp eq i64 %168, 3
-  br i1 %169, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21", label %189
+  %164 = load i64, ptr %163, align 8, !range !72, !alias.scope !91, !noalias !89, !noundef !8
+  %165 = icmp eq i64 %164, 3
+  br i1 %165, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21", label %182
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21": ; preds = %166
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21": ; preds = %162
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !94
   invoke void @"_ZN75_$LT$gpui..style..TextStyleRefinement$u20$as$u20$core..default..Default$GT$7default17h1b13b3ade9f768b8E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %6)
-          to label %.noexc.i22 unwind label %164, !noalias !89
+          to label %.noexc.i22 unwind label %160, !noalias !89
 
 .noexc.i22:                                       ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i21"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %167, ptr noundef nonnull align 8 dereferenceable(160) %6, i64 160, i1 false), !noalias !89
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %163, ptr noundef nonnull align 8 dereferenceable(160) %6, i64 160, i1 false), !noalias !89
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !94
-  %.pre.i.i23 = load i64, ptr %167, align 8, !range !72, !alias.scope !91, !noalias !89
-  %170 = icmp ne i64 %.pre.i.i23, 3
-  br label %189
+  br label %182
 
-171:                                              ; preds = %164
-  %172 = landingpad { ptr, i32 }
+166:                                              ; preds = %160
+  %167 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !89
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !89
   unreachable
 
-173:                                              ; preds = %158
+168:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %21, ptr noundef nonnull align 8 dereferenceable(720) %19, i64 720, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  %174 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
-          to label %177 unwind label %175, !noalias !100
+  %169 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
+          to label %172 unwind label %170, !noalias !100
 
-175:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i", %177, %173
-  %176 = landingpad { ptr, i32 }
+170:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i", %172, %168
+  %171 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %21) #9
-          to label %.thread unwind label %184, !noalias !95
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %21) #8
+          to label %.thread unwind label %178, !noalias !95
 
-177:                                              ; preds = %173
-  %178 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %21)
-          to label %179 unwind label %175, !noalias !95
+172:                                              ; preds = %168
+  %173 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %21)
+          to label %174 unwind label %170, !noalias !95
 
-179:                                              ; preds = %177
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 80
+174:                                              ; preds = %172
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %181 = load i64, ptr %180, align 8, !range !72, !alias.scope !101, !noalias !95, !noundef !8
-  %182 = icmp eq i64 %181, 3
-  br i1 %182, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i", label %186
+  %176 = load i64, ptr %175, align 8, !range !72, !alias.scope !101, !noalias !95, !noundef !8
+  %177 = icmp eq i64 %176, 3
+  br i1 %177, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i", label %180
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i": ; preds = %179
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i": ; preds = %174
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !104
   invoke void @"_ZN75_$LT$gpui..style..TextStyleRefinement$u20$as$u20$core..default..Default$GT$7default17h1b13b3ade9f768b8E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %5)
-          to label %.noexc.i28 unwind label %175, !noalias !95
+          to label %.noexc.i28 unwind label %170, !noalias !95
 
 .noexc.i28:                                       ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %180, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false), !noalias !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %175, ptr noundef nonnull align 8 dereferenceable(160) %5, i64 160, i1 false), !noalias !95
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !104
-  %.pre.i.i29 = load i64, ptr %180, align 8, !range !72, !alias.scope !101, !noalias !95
-  %183 = icmp ne i64 %.pre.i.i29, 3
-  br label %186
+  br label %180
 
-184:                                              ; preds = %175
-  %185 = landingpad { ptr, i32 }
+178:                                              ; preds = %170
+  %179 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !95
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !95
   unreachable
 
-186:                                              ; preds = %.noexc.i28, %179
-  %187 = phi i1 [ true, %179 ], [ %183, %.noexc.i28 ]
-  call void @llvm.assume(i1 %187)
-  %188 = getelementptr inbounds nuw i8, ptr %178, i64 208
-  store i32 0, ptr %188, align 8, !noalias !95
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %178, i64 228
-  store float %174, ptr %.sroa.42.0..sroa_idx.i, align 4, !noalias !95
-  %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %178, i64 232
+180:                                              ; preds = %.noexc.i28, %174
+  %181 = getelementptr inbounds nuw i8, ptr %173, i64 208
+  store i32 0, ptr %181, align 8, !noalias !95
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %173, i64 228
+  store float %169, ptr %.sroa.42.0..sroa_idx.i, align 4, !noalias !95
+  %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %173, i64 232
   store i8 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %19, ptr noundef nonnull align 8 dereferenceable(720) %21, i64 720, i1 false), !alias.scope !100
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %162
+  br label %158
 
-189:                                              ; preds = %.noexc.i22, %166
-  %190 = phi i1 [ true, %166 ], [ %170, %.noexc.i22 ]
-  call void @llvm.assume(i1 %190)
-  %191 = getelementptr inbounds nuw i8, ptr %163, i64 168
-  store i32 1, ptr %191, align 8, !noalias !89
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %163, i64 172
+182:                                              ; preds = %.noexc.i22, %162
+  %183 = getelementptr inbounds nuw i8, ptr %159, i64 168
+  store i32 1, ptr %183, align 8, !noalias !89
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %159, i64 172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !noalias !84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %29, ptr noundef nonnull align 8 dereferenceable(720) %19, i64 720, i1 false), !alias.scope !105, !noalias !106
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %193 = load i32, ptr %192, align 8, !range !7, !noundef !8
-  %194 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %trunc6 = trunc nuw i32 %193 to i1
-  %195 = getelementptr inbounds nuw i8, ptr %1, i64 724
-  %spec.select = select i1 %trunc6, ptr %195, ptr %194
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  %185 = load i32, ptr %184, align 8, !range !7, !noundef !8
+  %186 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %trunc6 = trunc nuw i32 %185 to i1
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 724
+  %spec.select = select i1 %trunc6, ptr %187, ptr %186
   %.sroa.03.0 = load float, ptr %spec.select, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
   call void @llvm.experimental.noalias.scope.decl(metadata !110)
-  %196 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %29)
-          to label %199 unwind label %197, !noalias !107
+  %188 = invoke noundef align 8 dereferenceable(568) ptr @"_ZN65_$LT$gpui..elements..div..Div$u20$as$u20$gpui..styled..Styled$GT$5style17h27bf275940f3791eE"(ptr noalias noundef nonnull align 8 dereferenceable(720) %29)
+          to label %191 unwind label %189, !noalias !107
 
-197:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34", %189
-  %198 = landingpad { ptr, i32 }
+189:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34", %182
+  %190 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %29) #9
-          to label %.thread unwind label %204, !noalias !107
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %29) #8
+          to label %.thread unwind label %195, !noalias !107
 
-199:                                              ; preds = %189
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 80
+191:                                              ; preds = %182
+  %192 = getelementptr inbounds nuw i8, ptr %188, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  %201 = load i64, ptr %200, align 8, !range !72, !alias.scope !112, !noalias !107, !noundef !8
-  %202 = icmp eq i64 %201, 3
-  br i1 %202, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34", label %206
+  %193 = load i64, ptr %192, align 8, !range !72, !alias.scope !112, !noalias !107, !noundef !8
+  %194 = icmp eq i64 %193, 3
+  br i1 %194, label %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34", label %197
 
-"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34": ; preds = %199
+"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34": ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !115
   invoke void @"_ZN75_$LT$gpui..style..TextStyleRefinement$u20$as$u20$core..default..Default$GT$7default17h1b13b3ade9f768b8E"(ptr noalias noundef nonnull sret([160 x i8]) align 8 captures(none) dereferenceable(160) %4)
-          to label %.noexc.i35 unwind label %197, !noalias !107
+          to label %.noexc.i35 unwind label %189, !noalias !107
 
 .noexc.i35:                                       ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$gpui..style..TextStyleRefinement$GT$$GT$17h94985ae455de4d68E.llvm.14036908944705627615.exit.i.i34"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %200, ptr noundef nonnull align 8 dereferenceable(160) %4, i64 160, i1 false), !noalias !107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %192, ptr noundef nonnull align 8 dereferenceable(160) %4, i64 160, i1 false), !noalias !107
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !115
-  %.pre.i.i36 = load i64, ptr %200, align 8, !range !72, !alias.scope !112, !noalias !107
-  %203 = icmp ne i64 %.pre.i.i36, 3
-  br label %206
+  br label %197
 
-204:                                              ; preds = %197
-  %205 = landingpad { ptr, i32 }
+195:                                              ; preds = %189
+  %196 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10, !noalias !107
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9, !noalias !107
   unreachable
 
-206:                                              ; preds = %.noexc.i35, %199
-  %207 = phi i1 [ true, %199 ], [ %203, %.noexc.i35 ]
-  call void @llvm.assume(i1 %207)
-  %208 = getelementptr inbounds nuw i8, ptr %196, i64 104
-  store i32 1, ptr %208, align 8, !noalias !107
-  %209 = getelementptr inbounds nuw i8, ptr %196, i64 108
-  store float %.sroa.03.0, ptr %209, align 4, !noalias !107
+197:                                              ; preds = %.noexc.i35, %191
+  %198 = getelementptr inbounds nuw i8, ptr %188, i64 104
+  store i32 1, ptr %198, align 8, !noalias !107
+  %199 = getelementptr inbounds nuw i8, ptr %188, i64 108
+  store float %.sroa.03.0, ptr %199, align 4, !noalias !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %30, ptr noundef nonnull align 8 dereferenceable(720) %29, i64 720, i1 false), !alias.scope !116
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %210 = getelementptr inbounds nuw i8, ptr %1, i64 736
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %210, i64 56, i1 false)
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 736
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %200, i64 56, i1 false)
   call void @_ZN4gpui7element13ParentElement8children17h2cddcf9ba33a3c4aE(ptr noalias noundef nonnull sret([720 x i8]) align 8 captures(none) dereferenceable(720) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(720) %30, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -735,26 +715,26 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
           cleanup
   br label %.thread
 
-211:                                              ; preds = %42, %37, %35, %33, %3
+201:                                              ; preds = %42, %37, %35, %33, %3
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #9
-          to label %.thread unwind label %212
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$gpui..elements..div..Div$GT$17h62a116304fb2bda7E"(ptr noalias noundef nonnull align 8 dereferenceable(720) %1) #8
+          to label %.thread unwind label %202
 
-212:                                              ; preds = %.thread, %211
-  %213 = landingpad { ptr, i32 }
+202:                                              ; preds = %.thread, %201
+  %203 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 "_ZN4core3ptr93drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..element..AnyElement$u3b$$u20$2$u5d$$GT$$GT$17h22cc52eef00b743aE.exit": ; preds = %.thread
   resume { ptr, i32 } %eh.lpad-body4655
 
-.thread:                                          ; preds = %197, %175, %164, %147, %125, %134, %58, %.thread19.i, %211, %.thread59
-  %eh.lpad-body4655 = phi { ptr, i32 } [ %lpad.thr_comm57, %.thread59 ], [ %lpad.thr_comm.split-lp, %211 ], [ %59, %58 ], [ %.pn18.i, %.thread19.i ], [ %135, %134 ], [ %126, %125 ], [ %148, %147 ], [ %165, %164 ], [ %176, %175 ], [ %198, %197 ]
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 736
-  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba4172180bbc87eE.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(56) %214)
-          to label %"_ZN4core3ptr93drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..element..AnyElement$u3b$$u20$2$u5d$$GT$$GT$17h22cc52eef00b743aE.exit" unwind label %212
+.thread:                                          ; preds = %189, %170, %160, %145, %125, %133, %58, %.thread19.i, %201, %.thread59
+  %eh.lpad-body4655 = phi { ptr, i32 } [ %lpad.thr_comm57, %.thread59 ], [ %lpad.thr_comm.split-lp, %201 ], [ %59, %58 ], [ %.pn18.i, %.thread19.i ], [ %134, %133 ], [ %126, %125 ], [ %146, %145 ], [ %161, %160 ], [ %171, %170 ], [ %190, %189 ]
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 736
+  invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba4172180bbc87eE.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(56) %204)
+          to label %"_ZN4core3ptr93drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..element..AnyElement$u3b$$u20$2$u5d$$GT$$GT$17h22cc52eef00b743aE.exit" unwind label %202
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -771,7 +751,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_017h6866b966b2dda2
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -821,7 +801,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -836,7 +816,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_017h7a8fb80aab
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -890,7 +870,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -905,7 +885,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_0p517h67d201f44dee
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -955,7 +935,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -970,7 +950,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_0p517ha25a681b
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1024,7 +1004,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1039,7 +1019,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_117h30b65c919ff72b
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1089,7 +1069,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1104,7 +1084,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_117h1b4f1cfba6
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1158,7 +1138,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1173,7 +1153,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_1p517h394e9fbfb5ff
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1223,7 +1203,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1238,7 +1218,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1p517h5bf852b4
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1292,7 +1272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1307,7 +1287,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_217he9a052cd72bb38
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1357,7 +1337,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1372,7 +1352,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_217h483bf4c40e
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1426,7 +1406,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1441,7 +1421,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_2p517h62ce13e0f0b8
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1491,7 +1471,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1506,7 +1486,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2p517ha8c8e0d4
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1560,7 +1540,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1575,7 +1555,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_317h8f76d7e7a74f5a
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1625,7 +1605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1640,7 +1620,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_317h0fc43193e2
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1694,7 +1674,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1709,7 +1689,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_3p517ha1718699a5a9
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1759,7 +1739,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1774,7 +1754,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_3p517h676f8f02
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1828,7 +1808,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1843,7 +1823,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_417h35c545e3bbe86b
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1893,7 +1873,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -1908,7 +1888,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_417h1cc2a8d619
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -1962,7 +1942,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -1977,7 +1957,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_517hc22faf7baa0142
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2027,7 +2007,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2042,7 +2022,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_517hdea5a93862
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2096,7 +2076,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2111,7 +2091,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_617h72e5fda56eb535
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2161,7 +2141,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2176,7 +2156,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_617hade97f3d2f
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2230,7 +2210,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2245,7 +2225,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_717h17fe014e1b2fef
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2295,7 +2275,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2310,7 +2290,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_717h9f8cd2159e
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2364,7 +2344,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2379,7 +2359,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_817h2b0707f1b04328
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2429,7 +2409,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2444,7 +2424,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_817hbb8616e5d8
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2498,7 +2478,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2513,7 +2493,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike3m_917h6cfc7bf3f16610
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2563,7 +2543,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2578,7 +2558,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7m_neg_917h5360192014
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2632,7 +2612,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2647,7 +2627,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_1017h821f5c66b2546
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2697,7 +2677,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2712,7 +2692,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1017h83cfa3a87
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2766,7 +2746,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2781,7 +2761,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_1117hf7e1a12012276
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2831,7 +2811,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2846,7 +2826,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1117hb3d12ab07
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2900,7 +2880,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -2915,7 +2895,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_1217h79cadaab04b72
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -2965,7 +2945,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -2980,7 +2960,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1217h8fb0fb6e6
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3034,7 +3014,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3049,7 +3029,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_1617hf1ce2ad496536
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3099,7 +3079,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3114,7 +3094,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_1617hc7abdde06
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3168,7 +3148,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3183,7 +3163,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_2017hdbbb914521213
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3233,7 +3213,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3248,7 +3228,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_2017h308956c20
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3302,7 +3282,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3317,7 +3297,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_2417hd44ba6e421c5f
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3367,7 +3347,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3382,7 +3362,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_2417he2c3c51e4
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3436,7 +3416,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3451,7 +3431,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_3217he8bf0323519dc
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3501,7 +3481,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3516,7 +3496,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_3217h4160dd4fe
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3570,7 +3550,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3585,7 +3565,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_4017h83bef5163d896
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3635,7 +3615,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3650,7 +3630,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_4017h9d5027ce8
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3704,7 +3684,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3719,7 +3699,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_4817hac0f608d7127d
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3769,7 +3749,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3784,7 +3764,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_4817he346b2382
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3838,7 +3818,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3853,7 +3833,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_5617h228eaafc70348
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3903,7 +3883,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -3918,7 +3898,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_5617h356b406ec
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -3972,7 +3952,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -3987,7 +3967,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_6417he3d689dbcf361
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4037,7 +4017,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4052,7 +4032,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_6417h4e6ebc784
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4106,7 +4086,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4121,7 +4101,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_7217hcd557ad5f95a2
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4171,7 +4151,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4186,7 +4166,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_7217h456f07051
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4240,7 +4220,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4255,7 +4235,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_8017h2b9c07fef8775
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4305,7 +4285,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4320,7 +4300,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_8017hb7644de34
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4374,7 +4354,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4389,7 +4369,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_9617h122e436ddb136
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4439,7 +4419,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4454,7 +4434,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_9617hfbcb54247
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4508,7 +4488,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4523,7 +4503,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_11217haa6afc5e4dc9
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4573,7 +4553,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4588,7 +4568,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_11217h8f5aa8ef
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4642,7 +4622,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4657,7 +4637,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_12817h482d690b1c5f
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4707,7 +4687,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4722,7 +4702,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_12817h732bc96f
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4776,7 +4756,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4791,7 +4771,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6m_auto17h384da04d8e0
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4825,7 +4805,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -4840,7 +4820,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4m_px17he0d868c583cd9
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4890,7 +4870,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -4905,7 +4885,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8m_neg_px17he92aba778
 4:                                                ; preds = %2, %25, %22, %19, %16, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %32 unwind label %30
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -4959,7 +4939,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 30:                                               ; preds = %4
   %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 32:                                               ; preds = %4
@@ -4974,7 +4954,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6m_full17h37a2ab271ac
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5024,7 +5004,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -5039,7 +5019,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10m_neg_full17hbfa875
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5125,7 +5105,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -5140,7 +5120,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_1_217h5d8236e427b2
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5190,7 +5170,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -5205,7 +5185,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_217hd975375e
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5291,7 +5271,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -5306,7 +5286,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_1_317h5eea0d9fbbc8
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5356,7 +5336,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -5371,7 +5351,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_317hee156e0f
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5457,7 +5437,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -5472,7 +5452,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_2_317h7e6a77224016
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5522,7 +5502,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -5537,7 +5517,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2_317haf73aa45
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5623,7 +5603,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -5638,7 +5618,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_1_417hcf06f563ef2f
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5688,7 +5668,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -5703,7 +5683,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_417h608dc142
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5789,7 +5769,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -5804,7 +5784,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_2_417h9b39a21e5039
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5854,7 +5834,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -5869,7 +5849,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2_417h039011fc
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -5955,7 +5935,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -5970,7 +5950,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_3_417hf3fc39abed31
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6020,7 +6000,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -6035,7 +6015,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_3_417hf40745fe
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6121,7 +6101,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -6136,7 +6116,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_1_517ha4a5f587a8ee
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6186,7 +6166,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -6201,7 +6181,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_517h0eef3a17
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6287,7 +6267,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -6302,7 +6282,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_2_517h0fea05e4e956
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6352,7 +6332,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -6367,7 +6347,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_2_517h5b1adfbd
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6453,7 +6433,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -6468,7 +6448,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_3_517hd6579ed0b07e
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6518,7 +6498,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -6533,7 +6513,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_3_517h55f80695
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6619,7 +6599,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -6634,7 +6614,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_4_517h5c278b67c426
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6684,7 +6664,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -6699,7 +6679,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_4_517hfc71ba87
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6785,7 +6765,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -6800,7 +6780,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_1_617h10a77765bead
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6850,7 +6830,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -6865,7 +6845,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_1_617h89845b2a
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -6951,7 +6931,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -6966,7 +6946,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5m_5_617hcb13b59c2736
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7016,7 +6996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -7031,7 +7011,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9m_neg_5_617hb8ceab9e
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7117,7 +7097,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -7132,7 +7112,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6m_1_1217h8346d88f214
 4:                                                ; preds = %2, %22, %19, %17, %14, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %28 unwind label %26
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7182,7 +7162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 26:                                               ; preds = %4
   %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 28:                                               ; preds = %4
@@ -7197,7 +7177,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10m_neg_1_1217hf869ea
 4:                                                ; preds = %2, %34, %31, %25, %22, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %44 unwind label %42
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7283,7 +7263,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 42:                                               ; preds = %4
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 44:                                               ; preds = %4
@@ -7298,7 +7278,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_017h63571b3eeeeb4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7318,7 +7298,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7333,7 +7313,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_017hcd621b546
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7354,7 +7334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7369,7 +7349,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_0p517hf9b3015608d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7389,7 +7369,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7404,7 +7384,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_0p517hed0ef2
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7425,7 +7405,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7440,7 +7420,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_117h703a1fe0eda67
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7460,7 +7440,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7475,7 +7455,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_117h703966036
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7496,7 +7476,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7511,7 +7491,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_1p517h08c59be495a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7531,7 +7511,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7546,7 +7526,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1p517h49de08
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7567,7 +7547,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7582,7 +7562,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_217h44400e9c280c4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7602,7 +7582,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7617,7 +7597,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_217hfaa26ffbb
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7638,7 +7618,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7653,7 +7633,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_2p517h8f572266a3f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7673,7 +7653,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7688,7 +7668,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2p517h732900
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7709,7 +7689,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7724,7 +7704,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_317h9a4b4f09f0a10
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7744,7 +7724,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7759,7 +7739,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_317hf89973268
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7780,7 +7760,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7795,7 +7775,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_3p517h5c4bf36a412
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7815,7 +7795,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7830,7 +7810,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_3p517hd58171
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7851,7 +7831,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7866,7 +7846,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_417ha8804d42d31f3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7886,7 +7866,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7901,7 +7881,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_417h57f6c2186
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7922,7 +7902,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -7937,7 +7917,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_517h677474167d1d1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7957,7 +7937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -7972,7 +7952,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_517h9c67b2c1d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -7993,7 +7973,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8008,7 +7988,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_617he2095b03fa55e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8028,7 +8008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8043,7 +8023,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_617h4cc0f3146
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8064,7 +8044,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8079,7 +8059,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_717h8315f3f4cc3a1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8099,7 +8079,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8114,7 +8094,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_717hc908e204f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8135,7 +8115,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8150,7 +8130,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_817h0d9e7f9d52c49
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8170,7 +8150,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8185,7 +8165,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_817h8c381ae2c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8206,7 +8186,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8221,7 +8201,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mt_917h66eb6890f93ec
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8241,7 +8221,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8256,7 +8236,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mt_neg_917hc2f0f02a8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8277,7 +8257,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8292,7 +8272,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_1017ha2da605078ed
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8312,7 +8292,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8327,7 +8307,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1017hedd566cf
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8348,7 +8328,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8363,7 +8343,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_1117hcd687f858bef
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8383,7 +8363,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8398,7 +8378,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1117h9c37dcf0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8419,7 +8399,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8434,7 +8414,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_1217hd4217724bdd3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8454,7 +8434,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8469,7 +8449,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1217h02195e31
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8490,7 +8470,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8505,7 +8485,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_1617h2c66a4d01f12
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8525,7 +8505,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8540,7 +8520,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_1617hcc3e1f3b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8561,7 +8541,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8576,7 +8556,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_2017h903f18a26de0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8596,7 +8576,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8611,7 +8591,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_2017h3ca177f2
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8632,7 +8612,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8647,7 +8627,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_2417h6fabcd21dd44
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8667,7 +8647,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8682,7 +8662,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_2417hf6997a91
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8703,7 +8683,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8718,7 +8698,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_3217h8aa65056adf0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8738,7 +8718,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8753,7 +8733,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_3217h0f73980f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8774,7 +8754,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8789,7 +8769,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_4017h1eee41ff1191
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8809,7 +8789,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8824,7 +8804,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_4017h58804374
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8845,7 +8825,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8860,7 +8840,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_4817hcd22995b1702
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8880,7 +8860,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8895,7 +8875,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_4817h62b400c5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8916,7 +8896,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -8931,7 +8911,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_5617h729e487ca935
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8951,7 +8931,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -8966,7 +8946,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_5617h423a3846
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -8987,7 +8967,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9002,7 +8982,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_6417hf24408f38003
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9022,7 +9002,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9037,7 +9017,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_6417hbb7af54b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9058,7 +9038,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9073,7 +9053,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_7217h655474607fa1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9093,7 +9073,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9108,7 +9088,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_7217h0e16f032
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9129,7 +9109,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9144,7 +9124,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_8017h52acbdecc608
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9164,7 +9144,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9179,7 +9159,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_8017h0e0e8b43
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9200,7 +9180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9215,7 +9195,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_9617h0c4813d2669a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9235,7 +9215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9250,7 +9230,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_9617hf2ab2162
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9271,7 +9251,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9286,7 +9266,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_11217h5013051b0cb
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9306,7 +9286,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9321,7 +9301,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_11217h272ca5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9342,7 +9322,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9357,7 +9337,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_12817h7662ad73c3e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9377,7 +9357,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9392,7 +9372,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_12817h3cd759
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9413,7 +9393,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9428,7 +9408,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mt_auto17h7d19f5b39e
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %11 unwind label %9
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9444,7 +9424,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 9:                                                ; preds = %4
   %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 11:                                               ; preds = %4
@@ -9459,7 +9439,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mt_px17h55431aefc7df
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9479,7 +9459,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9494,7 +9474,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mt_neg_px17h2e379ca9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9515,7 +9495,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -9530,7 +9510,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mt_full17h0f3f0a90d0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9550,7 +9530,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9565,7 +9545,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mt_neg_full17hc29c0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9594,7 +9574,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -9609,7 +9589,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_217h31d10121596
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9629,7 +9609,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9644,7 +9624,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_217hf030fa
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9673,7 +9653,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -9688,7 +9668,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_317hdfa3863c360
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9708,7 +9688,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9723,7 +9703,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_317h42542c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9752,7 +9732,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -9767,7 +9747,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_2_317he4dd7b4edea
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9787,7 +9767,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9802,7 +9782,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2_317hcb535c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9831,7 +9811,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -9846,7 +9826,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_417hcf0ab4f5fb7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9866,7 +9846,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9881,7 +9861,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_417h88248c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9910,7 +9890,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -9925,7 +9905,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_2_417he810c571c71
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9945,7 +9925,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -9960,7 +9940,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2_417h65071d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -9989,7 +9969,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10004,7 +9984,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_3_417h0f0442c17b2
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10024,7 +10004,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10039,7 +10019,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_3_417h3a880b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10068,7 +10048,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10083,7 +10063,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_517hc5d5852095a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10103,7 +10083,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10118,7 +10098,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_517ha4b836
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10147,7 +10127,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10162,7 +10142,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_2_517h9f1cc7eac29
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10182,7 +10162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10197,7 +10177,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_2_517hae03ac
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10226,7 +10206,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10241,7 +10221,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_3_517h909b38b8feb
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10261,7 +10241,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10276,7 +10256,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_3_517h01eba6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10305,7 +10285,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10320,7 +10300,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_4_517h1e436420ff9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10340,7 +10320,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10355,7 +10335,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_4_517h68065d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10384,7 +10364,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10399,7 +10379,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_1_617h39820fd69ce
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10419,7 +10399,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10434,7 +10414,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_1_617hcacea9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10463,7 +10443,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10478,7 +10458,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mt_5_617h836f247a4e1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10498,7 +10478,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10513,7 +10493,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mt_neg_5_617hc95d90
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10542,7 +10522,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10557,7 +10537,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mt_1_1217h68d7fcac73
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10577,7 +10557,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10592,7 +10572,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mt_neg_1_1217h104dc
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10621,7 +10601,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -10636,7 +10616,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_017h961d6c2443374
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10656,7 +10636,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10671,7 +10651,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_017hba5561172
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10692,7 +10672,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -10707,7 +10687,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_0p517h260364245e4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10727,7 +10707,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10742,7 +10722,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_0p517h9dac7a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10763,7 +10743,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -10778,7 +10758,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_117hd5b667d93d243
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10798,7 +10778,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10813,7 +10793,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_117h1aeef188b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10834,7 +10814,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -10849,7 +10829,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_1p517hb060a063a97
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10869,7 +10849,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10884,7 +10864,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1p517h71c6f1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10905,7 +10885,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -10920,7 +10900,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_217h9161e11c5d2cb
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10940,7 +10920,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -10955,7 +10935,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_217h86503d8c8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -10976,7 +10956,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -10991,7 +10971,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_2p517h2fdf964d4a4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11011,7 +10991,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11026,7 +11006,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2p517h8ccf1f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11047,7 +11027,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11062,7 +11042,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_317h22b4b3d17f8f9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11082,7 +11062,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11097,7 +11077,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_317hfca650f1f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11118,7 +11098,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11133,7 +11113,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_3p517h8f5e5418afc
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11153,7 +11133,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11168,7 +11148,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_3p517h74baf2
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11189,7 +11169,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11204,7 +11184,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_417hc4b8e09202a53
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11224,7 +11204,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11239,7 +11219,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_417h7a030bfc6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11260,7 +11240,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11275,7 +11255,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_517h8ad53697590a4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11295,7 +11275,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11310,7 +11290,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_517h0166c2cb1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11331,7 +11311,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11346,7 +11326,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_617ha0c2db555f17a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11366,7 +11346,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11381,7 +11361,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_617h6090296f9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11402,7 +11382,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11417,7 +11397,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_717h94b6425ff2ea3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11437,7 +11417,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11452,7 +11432,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_717h2f9489f60
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11473,7 +11453,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11488,7 +11468,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_817h27f1741a43960
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11508,7 +11488,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11523,7 +11503,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_817h3efffd983
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11544,7 +11524,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11559,7 +11539,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mb_917hb782ff08226d9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11579,7 +11559,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11594,7 +11574,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mb_neg_917h737cab585
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11615,7 +11595,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11630,7 +11610,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_1017h63b2e64e8723
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11650,7 +11630,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11665,7 +11645,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1017h0b30a1a0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11686,7 +11666,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11701,7 +11681,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_1117hb24637649e81
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11721,7 +11701,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11736,7 +11716,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1117hd0ff0579
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11757,7 +11737,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11772,7 +11752,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_1217h597372837bac
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11792,7 +11772,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11807,7 +11787,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1217he29ca9e4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11828,7 +11808,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11843,7 +11823,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_1617h14fbfaf45cfb
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11863,7 +11843,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11878,7 +11858,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_1617h9cc724ea
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11899,7 +11879,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11914,7 +11894,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_2017h76fdacbf3359
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11934,7 +11914,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -11949,7 +11929,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_2017h7ec12ef8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -11970,7 +11950,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -11985,7 +11965,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_2417ha0a35a23d50b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12005,7 +11985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12020,7 +12000,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_2417h9d5aaf46
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12041,7 +12021,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12056,7 +12036,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_3217ha0c3e6f8540f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12076,7 +12056,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12091,7 +12071,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_3217hc381695b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12112,7 +12092,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12127,7 +12107,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_4017hfa83f2d79bba
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12147,7 +12127,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12162,7 +12142,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_4017h4e9581f8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12183,7 +12163,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12198,7 +12178,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_4817hf7bba4bba476
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12218,7 +12198,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12233,7 +12213,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_4817h17cb78f9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12254,7 +12234,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12269,7 +12249,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_5617h38fa6cff9e91
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12289,7 +12269,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12304,7 +12284,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_5617h09f95963
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12325,7 +12305,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12340,7 +12320,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_6417h7e28c0eb0c42
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12360,7 +12340,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12375,7 +12355,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_6417hc07a8ce4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12396,7 +12376,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12411,7 +12391,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_7217h4b59e270a86b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12431,7 +12411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12446,7 +12426,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_7217hd2ec902a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12467,7 +12447,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12482,7 +12462,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_8017hccf15707026f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12502,7 +12482,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12517,7 +12497,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_8017h83b19172
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12538,7 +12518,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12553,7 +12533,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_9617h9ddb6c684ba4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12573,7 +12553,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12588,7 +12568,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_9617h6db02374
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12609,7 +12589,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12624,7 +12604,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_11217h722bd4718ac
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12644,7 +12624,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12659,7 +12639,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_11217hc71d4c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12680,7 +12660,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12695,7 +12675,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_12817hddb4ee81e4a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12715,7 +12695,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12730,7 +12710,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_12817h5f2071
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12751,7 +12731,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12766,7 +12746,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mb_auto17hedb7f295e0
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %11 unwind label %9
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12782,7 +12762,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 9:                                                ; preds = %4
   %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 11:                                               ; preds = %4
@@ -12797,7 +12777,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mb_px17haf04226a0853
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12817,7 +12797,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12832,7 +12812,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mb_neg_px17hf28776f3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12853,7 +12833,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -12868,7 +12848,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mb_full17hc8743e12ab
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12888,7 +12868,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12903,7 +12883,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mb_neg_full17h18089
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12932,7 +12912,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -12947,7 +12927,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_217he01fc930c99
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -12967,7 +12947,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -12982,7 +12962,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_217ha58f0d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13011,7 +12991,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13026,7 +13006,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_317hff247315ef9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13046,7 +13026,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13061,7 +13041,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_317h198b6f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13090,7 +13070,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13105,7 +13085,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_2_317h6011af53359
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13125,7 +13105,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13140,7 +13120,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2_317h3f2b4b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13169,7 +13149,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13184,7 +13164,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_417h46c660df3ad
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13204,7 +13184,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13219,7 +13199,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_417hdb0849
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13248,7 +13228,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13263,7 +13243,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_2_417h36892f11f10
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13283,7 +13263,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13298,7 +13278,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2_417hed374c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13327,7 +13307,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13342,7 +13322,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_3_417hef55e422a75
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13362,7 +13342,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13377,7 +13357,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_3_417h3d2013
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13406,7 +13386,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13421,7 +13401,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_517h11885088482
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13441,7 +13421,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13456,7 +13436,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_517hb5dbb4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13485,7 +13465,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13500,7 +13480,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_2_517heea03325d71
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13520,7 +13500,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13535,7 +13515,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_2_517hb8cab7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13564,7 +13544,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13579,7 +13559,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_3_517hdbcc20379e8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13599,7 +13579,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13614,7 +13594,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_3_517hb7db2c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13643,7 +13623,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13658,7 +13638,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_4_517h1e0f73519d3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13678,7 +13658,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13693,7 +13673,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_4_517hea1f9b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13722,7 +13702,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13737,7 +13717,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_1_617h99b0c73a496
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13757,7 +13737,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13772,7 +13752,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_1_617h5a8ea4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13801,7 +13781,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13816,7 +13796,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mb_5_617ha343713b21a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13836,7 +13816,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13851,7 +13831,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mb_neg_5_617hd8d692
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13880,7 +13860,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13895,7 +13875,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mb_1_1217h208156df0e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13915,7 +13895,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -13930,7 +13910,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mb_neg_1_1217hfd9f9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -13959,7 +13939,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -13974,7 +13954,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_017h0a0147f2e8fcb
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14004,7 +13984,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14019,7 +13999,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_017h825154870
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14051,7 +14031,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14066,7 +14046,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_0p517h0879405dc5e
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14096,7 +14076,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14111,7 +14091,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_0p517h0c0586
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14143,7 +14123,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14158,7 +14138,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_117ha3f2bd0d6d9f3
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14188,7 +14168,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14203,7 +14183,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_117h2a47f5bd8
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14235,7 +14215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14250,7 +14230,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_1p517hdd720bdef12
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14280,7 +14260,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14295,7 +14275,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1p517h301eb8
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14327,7 +14307,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14342,7 +14322,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_217h67cbbcb1b996b
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14372,7 +14352,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14387,7 +14367,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_217hc61a0059e
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14419,7 +14399,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14434,7 +14414,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_2p517hba40960b2b3
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14464,7 +14444,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14479,7 +14459,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2p517hb930d6
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14511,7 +14491,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14526,7 +14506,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_317h15f457ba77a3a
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14556,7 +14536,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14571,7 +14551,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_317h7b4a8a7c3
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14603,7 +14583,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14618,7 +14598,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_3p517h32ece2e5563
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14648,7 +14628,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14663,7 +14643,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_3p517h2c020d
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14695,7 +14675,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14710,7 +14690,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_417h067be76707288
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14740,7 +14720,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14755,7 +14735,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_417h81b70fa16
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14787,7 +14767,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14802,7 +14782,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_517hdfb19ced1d927
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14832,7 +14812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14847,7 +14827,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_517h25503e45c
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14879,7 +14859,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14894,7 +14874,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_617h5a89be24747f0
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14924,7 +14904,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -14939,7 +14919,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_617h0d2eca65f
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -14971,7 +14951,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -14986,7 +14966,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_717h00cb8cc9845f7
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15016,7 +14996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15031,7 +15011,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_717h17427e3ce
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15063,7 +15043,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15078,7 +15058,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_817hd2655d8cedc3b
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15108,7 +15088,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15123,7 +15103,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_817h897103ec0
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15155,7 +15135,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15170,7 +15150,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4my_917h156ec6cb7d5c4
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15200,7 +15180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15215,7 +15195,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8my_neg_917h4c9ad7a81
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15247,7 +15227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15262,7 +15242,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_1017h3b8b4b7680b0
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15292,7 +15272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15307,7 +15287,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1017h29f85fdb
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15339,7 +15319,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15354,7 +15334,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_1117h0e7bced27be1
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15384,7 +15364,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15399,7 +15379,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1117h4f6e458b
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15431,7 +15411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15446,7 +15426,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_1217h52602b9a2d27
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15476,7 +15456,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15491,7 +15471,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1217h8aec5c83
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15523,7 +15503,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15538,7 +15518,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_1617h49826a14b399
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15568,7 +15548,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15583,7 +15563,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_1617h5364fba3
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15615,7 +15595,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15630,7 +15610,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_2017h793ec1c62706
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15660,7 +15640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15675,7 +15655,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_2017h441dbe0e
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15707,7 +15687,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15722,7 +15702,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_2417h6895ceda7f63
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15752,7 +15732,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15767,7 +15747,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_2417h08b2afca
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15799,7 +15779,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15814,7 +15794,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_3217h34d82c25d440
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15844,7 +15824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15859,7 +15839,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_3217h1a263a2f
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15891,7 +15871,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15906,7 +15886,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_4017he49195ca6d5b
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15936,7 +15916,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -15951,7 +15931,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_4017h381ad675
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -15983,7 +15963,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -15998,7 +15978,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_4817h0b46ff3b1f2b
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16028,7 +16008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16043,7 +16023,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_4817h06c7334c
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16075,7 +16055,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16090,7 +16070,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_5617hdc5f740db4aa
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16120,7 +16100,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16135,7 +16115,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_5617h317a055b
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16167,7 +16147,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16182,7 +16162,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_6417hf13d38293ab4
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16212,7 +16192,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16227,7 +16207,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_6417hed2bdfed
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16259,7 +16239,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16274,7 +16254,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_7217h62e7d30ab18a
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16304,7 +16284,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16319,7 +16299,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_7217h9ffb103b
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16351,7 +16331,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16366,7 +16346,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_8017hcc310a16f343
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16396,7 +16376,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16411,7 +16391,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_8017hac34a9f5
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16443,7 +16423,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16458,7 +16438,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_9617h6db7d1b6a392
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16488,7 +16468,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16503,7 +16483,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_9617h7846f397
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16535,7 +16515,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16550,7 +16530,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_11217hb890810706a
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16580,7 +16560,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16595,7 +16575,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_11217h94b3f0
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16627,7 +16607,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16642,7 +16622,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_12817h2ee4d9de28a
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16672,7 +16652,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16687,7 +16667,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_12817h452f6a
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16719,7 +16699,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16734,7 +16714,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7my_auto17h6a7947fdc7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16756,7 +16736,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -16771,7 +16751,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5my_px17h725b8ea337a3
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16801,7 +16781,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16816,7 +16796,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9my_neg_px17h1feb2c67
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16848,7 +16828,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -16863,7 +16843,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7my_full17ha8b9d93c82
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16893,7 +16873,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -16908,7 +16888,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11my_neg_full17h3011e
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -16956,7 +16936,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -16971,7 +16951,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_1_217h01d07ef3dab
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17001,7 +16981,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17016,7 +16996,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_217hd3cb08
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17064,7 +17044,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17079,7 +17059,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_1_317h6b7feb4c591
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17109,7 +17089,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17124,7 +17104,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_317h66ecfa
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17172,7 +17152,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17187,7 +17167,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_2_317h3d7afa792fd
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17217,7 +17197,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17232,7 +17212,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2_317h667c14
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17280,7 +17260,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17295,7 +17275,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_1_417ha8ed44b2708
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17325,7 +17305,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17340,7 +17320,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_417haf8c81
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17388,7 +17368,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17403,7 +17383,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_2_417h58145ce42c5
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17433,7 +17413,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17448,7 +17428,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2_417h0945d3
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17496,7 +17476,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17511,7 +17491,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_3_417h4a1a11fd16a
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17541,7 +17521,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17556,7 +17536,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_3_417h4bda18
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17604,7 +17584,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17619,7 +17599,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_1_517ha6283a308ca
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17649,7 +17629,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17664,7 +17644,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_517h5dc52d
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17712,7 +17692,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17727,7 +17707,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_2_517h8de82c9f598
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17757,7 +17737,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17772,7 +17752,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_2_517h6b5e73
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17820,7 +17800,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17835,7 +17815,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_3_517h0392ac4fdab
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17865,7 +17845,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17880,7 +17860,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_3_517hacf3dd
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17928,7 +17908,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -17943,7 +17923,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_4_517he039b2173fa
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -17973,7 +17953,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -17988,7 +17968,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_4_517h016a24
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18036,7 +18016,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -18051,7 +18031,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_1_617h322045bbd92
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18081,7 +18061,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18096,7 +18076,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_1_617h6f4b75
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18144,7 +18124,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -18159,7 +18139,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6my_5_617he2663c9bcc6
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18189,7 +18169,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18204,7 +18184,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10my_neg_5_617h62752d
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18252,7 +18232,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -18267,7 +18247,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7my_1_1217h9514b90b11
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18297,7 +18277,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18312,7 +18292,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11my_neg_1_1217h5d5b6
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18360,7 +18340,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -18375,7 +18355,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_017h6b701d7d21004
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18405,7 +18385,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18420,7 +18400,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_017hc0b3bf43b
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18452,7 +18432,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -18467,7 +18447,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_0p517h4ac6b441b4d
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18497,7 +18477,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18512,7 +18492,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_0p517heaa73a
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18544,7 +18524,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -18559,7 +18539,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_117h95adb49e8ea47
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18589,7 +18569,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18604,7 +18584,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_117h29eb086a9
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18636,7 +18616,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -18651,7 +18631,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_1p517h4efdf329b6c
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18681,7 +18661,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18696,7 +18676,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1p517h28c254
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18728,7 +18708,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -18743,7 +18723,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_217h3e2b203d45ca3
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18773,7 +18753,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18788,7 +18768,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_217h94ff94804
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18820,7 +18800,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -18835,7 +18815,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_2p517ha1ad09beb45
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18865,7 +18845,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18880,7 +18860,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2p517h1f6e66
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18912,7 +18892,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -18927,7 +18907,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_317h90f995c4053ef
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -18957,7 +18937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -18972,7 +18952,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_317hc660f5fa2
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19004,7 +18984,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19019,7 +18999,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_3p517hf36271fe6ab
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19049,7 +19029,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19064,7 +19044,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_3p517hf727a9
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19096,7 +19076,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19111,7 +19091,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_417h4026254e6c171
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19141,7 +19121,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19156,7 +19136,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_417hc0b7db56c
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19188,7 +19168,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19203,7 +19183,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_517h5a1a96eddaf89
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19233,7 +19213,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19248,7 +19228,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_517h6f6c4b16c
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19280,7 +19260,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19295,7 +19275,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_617h03b275df1f45c
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19325,7 +19305,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19340,7 +19320,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_617h6e473dd98
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19372,7 +19352,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19387,7 +19367,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_717h53209404cdc46
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19417,7 +19397,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19432,7 +19412,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_717h63b04d891
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19464,7 +19444,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19479,7 +19459,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_817h85623830ce91d
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19509,7 +19489,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19524,7 +19504,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_817hd999299d5
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19556,7 +19536,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19571,7 +19551,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mx_917h33101e5fc73a8
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19601,7 +19581,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19616,7 +19596,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mx_neg_917h1da66e827
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19648,7 +19628,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19663,7 +19643,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_1017h9fe0bb4f9540
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19693,7 +19673,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19708,7 +19688,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1017h1ab22bc7
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19740,7 +19720,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19755,7 +19735,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_1117h0c379f3ac932
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19785,7 +19765,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19800,7 +19780,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1117h7f2d3127
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19832,7 +19812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19847,7 +19827,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_1217heaa13689e167
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19877,7 +19857,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19892,7 +19872,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1217hceb7a10b
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19924,7 +19904,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -19939,7 +19919,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_1617h2673793f83b4
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -19969,7 +19949,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -19984,7 +19964,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_1617h2e44c54c
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20016,7 +19996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20031,7 +20011,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_2017h91e8ca02b6d0
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20061,7 +20041,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20076,7 +20056,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_2017h35ee460b
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20108,7 +20088,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20123,7 +20103,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_2417h1797d1a2bce8
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20153,7 +20133,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20168,7 +20148,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_2417h0e36841e
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20200,7 +20180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20215,7 +20195,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_3217h5546e30b4954
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20245,7 +20225,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20260,7 +20240,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_3217h55dbed1d
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20292,7 +20272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20307,7 +20287,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_4017hfb4634e0f3d9
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20337,7 +20317,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20352,7 +20332,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_4017h0c7ee9a6
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20384,7 +20364,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20399,7 +20379,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_4817hdc61bc5da00f
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20429,7 +20409,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20444,7 +20424,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_4817ha6a1a52e
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20476,7 +20456,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20491,7 +20471,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_5617h3d6699e5b8a7
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20521,7 +20501,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20536,7 +20516,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_5617h31878e7f
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20568,7 +20548,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20583,7 +20563,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_6417h2de494f218fe
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20613,7 +20593,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20628,7 +20608,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_6417h7852cb5f
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20660,7 +20640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20675,7 +20655,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_7217h8648e22e7672
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20705,7 +20685,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20720,7 +20700,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_7217h2a28d979
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20752,7 +20732,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20767,7 +20747,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_8017h2890bb5bb0c7
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20797,7 +20777,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20812,7 +20792,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_8017h6b82080c
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20844,7 +20824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20859,7 +20839,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_9617h080ac67b6a3d
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20889,7 +20869,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20904,7 +20884,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_9617hb856fefc
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20936,7 +20916,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -20951,7 +20931,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_11217h16ab6719300
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -20981,7 +20961,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -20996,7 +20976,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_11217hd9afdd
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21028,7 +21008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -21043,7 +21023,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_12817h56ec907094b
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21073,7 +21053,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21088,7 +21068,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_12817hb07b0a
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21120,7 +21100,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -21135,7 +21115,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mx_auto17hc6763fd5a0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21157,7 +21137,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -21172,7 +21152,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mx_px17h6beec072f5e1
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21202,7 +21182,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21217,7 +21197,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mx_neg_px17hd6a8d80a
 4:                                                ; preds = %2, %13, %10, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %20 unwind label %18
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21249,7 +21229,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 18:                                               ; preds = %4
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 20:                                               ; preds = %4
@@ -21264,7 +21244,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mx_full17hc48de46461
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21294,7 +21274,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21309,7 +21289,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mx_neg_full17hf1fb7
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21357,7 +21337,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -21372,7 +21352,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_217h174fc5e88f3
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21402,7 +21382,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21417,7 +21397,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_217he56f4e
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21465,7 +21445,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -21480,7 +21460,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_317h49e8314c258
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21510,7 +21490,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21525,7 +21505,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_317h710e1e
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21573,7 +21553,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -21588,7 +21568,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_2_317h24ccbef0588
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21618,7 +21598,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21633,7 +21613,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2_317h72b52c
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21681,7 +21661,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -21696,7 +21676,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_417hd93d9102031
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21726,7 +21706,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21741,7 +21721,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_417h430aaa
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21789,7 +21769,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -21804,7 +21784,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_2_417h4c8f4429117
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21834,7 +21814,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21849,7 +21829,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2_417hd6a714
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21897,7 +21877,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -21912,7 +21892,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_3_417h2ae1ff91095
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -21942,7 +21922,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -21957,7 +21937,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_3_417h704592
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22005,7 +21985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22020,7 +22000,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_517h336454f91f7
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22050,7 +22030,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22065,7 +22045,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_517h29c5ec
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22113,7 +22093,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22128,7 +22108,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_2_517h434acd11ddf
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22158,7 +22138,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22173,7 +22153,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_2_517h917215
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22221,7 +22201,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22236,7 +22216,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_3_517he0224be5d34
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22266,7 +22246,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22281,7 +22261,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_3_517h79d4de
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22329,7 +22309,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22344,7 +22324,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_4_517ha46529cf015
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22374,7 +22354,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22389,7 +22369,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_4_517h50f71a
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22437,7 +22417,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22452,7 +22432,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_1_617h9dda29d7ec3
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22482,7 +22462,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22497,7 +22477,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_1_617h18e666
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22545,7 +22525,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22560,7 +22540,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mx_5_617heb5e0a6ecd2
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22590,7 +22570,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22605,7 +22585,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mx_neg_5_617ha8369b
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22653,7 +22633,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22668,7 +22648,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mx_1_1217h97dd39f79a
 4:                                                ; preds = %2, %12, %9, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %18 unwind label %16
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22698,7 +22678,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 18:                                               ; preds = %4
@@ -22713,7 +22693,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mx_neg_1_1217h0f687
 4:                                                ; preds = %2, %16, %13, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %26 unwind label %24
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22761,7 +22741,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 24:                                               ; preds = %4
   %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 26:                                               ; preds = %4
@@ -22776,7 +22756,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_017hae2f90f1809e2
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22796,7 +22776,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -22811,7 +22791,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_017h3c63d290b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22832,7 +22812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -22847,7 +22827,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_0p517h24b7f628685
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22867,7 +22847,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -22882,7 +22862,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_0p517hff719f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22903,7 +22883,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -22918,7 +22898,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_117hf353593909855
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22938,7 +22918,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -22953,7 +22933,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_117h2fb28d40e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -22974,7 +22954,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -22989,7 +22969,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_1p517haee034eb0be
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23009,7 +22989,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23024,7 +23004,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1p517h2ecdc7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23045,7 +23025,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23060,7 +23040,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_217h98813f13e41d5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23080,7 +23060,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23095,7 +23075,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_217h64e457cf0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23116,7 +23096,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23131,7 +23111,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_2p517h3ffe8ef3883
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23151,7 +23131,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23166,7 +23146,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2p517h63d9e7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23187,7 +23167,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23202,7 +23182,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_317hba683b0256f2e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23222,7 +23202,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23237,7 +23217,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_317h32aac669c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23258,7 +23238,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23273,7 +23253,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_3p517h1f04d5be05c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23293,7 +23273,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23308,7 +23288,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_3p517h6ce009
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23329,7 +23309,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23344,7 +23324,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_417h8dc6632106fc5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23364,7 +23344,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23379,7 +23359,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_417h7a7102e7b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23400,7 +23380,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23415,7 +23395,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_517hbd76b17d6b517
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23435,7 +23415,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23450,7 +23430,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_517hb96bab41c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23471,7 +23451,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23486,7 +23466,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_617h76701fe3eb9ed
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23506,7 +23486,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23521,7 +23501,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_617h1f734f472
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23542,7 +23522,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23557,7 +23537,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_717ha3b2f790baaa6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23577,7 +23557,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23592,7 +23572,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_717hd28997a99
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23613,7 +23593,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23628,7 +23608,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_817h68346bef401bd
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23648,7 +23628,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23663,7 +23643,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_817hc8b8282d8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23684,7 +23664,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23699,7 +23679,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4ml_917h28d632ade5174
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23719,7 +23699,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23734,7 +23714,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8ml_neg_917hf0616a226
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23755,7 +23735,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23770,7 +23750,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_1017h65ebebb5226e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23790,7 +23770,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23805,7 +23785,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1017hfc0e0b12
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23826,7 +23806,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23841,7 +23821,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_1117hb60cc7d40587
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23861,7 +23841,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23876,7 +23856,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1117hf1c26512
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23897,7 +23877,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23912,7 +23892,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_1217h713b9f868646
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23932,7 +23912,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -23947,7 +23927,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1217h6d37b7e1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -23968,7 +23948,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -23983,7 +23963,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_1617h6b66cc3d0de1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24003,7 +23983,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24018,7 +23998,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_1617hbff053e7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24039,7 +24019,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24054,7 +24034,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_2017h40553c240f23
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24074,7 +24054,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24089,7 +24069,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_2017h771cc39e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24110,7 +24090,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24125,7 +24105,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_2417h97adfe9d27df
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24145,7 +24125,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24160,7 +24140,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_2417h25e390aa
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24181,7 +24161,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24196,7 +24176,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_3217h854737922212
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24216,7 +24196,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24231,7 +24211,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_3217h4ac111db
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24252,7 +24232,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24267,7 +24247,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_4017hb14be651e068
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24287,7 +24267,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24302,7 +24282,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_4017h6cd06dcf
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24323,7 +24303,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24338,7 +24318,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_4817h51891a35cba4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24358,7 +24338,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24373,7 +24353,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_4817ha9955525
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24394,7 +24374,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24409,7 +24389,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_5617hf32d90676ec0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24429,7 +24409,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24444,7 +24424,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_5617h43e5e328
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24465,7 +24445,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24480,7 +24460,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_6417h406a23c85093
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24500,7 +24480,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24515,7 +24495,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_6417hc5217200
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24536,7 +24516,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24551,7 +24531,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_7217hcbf928a2eca0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24571,7 +24551,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24586,7 +24566,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_7217he8de741f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24607,7 +24587,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24622,7 +24602,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_8017h69013428b1b3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24642,7 +24622,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24657,7 +24637,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_8017hb93a335a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24678,7 +24658,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24693,7 +24673,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_9617h65f4a91025b3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24713,7 +24693,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24728,7 +24708,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_9617h9bd85ca6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24749,7 +24729,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24764,7 +24744,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_11217h65e0e7db3b2
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24784,7 +24764,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24799,7 +24779,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_11217h2fcb3c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24820,7 +24800,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24835,7 +24815,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_12817h001655cebe6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24855,7 +24835,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24870,7 +24850,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_12817hf10be9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24891,7 +24871,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -24906,7 +24886,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7ml_auto17h2e7ed2f5a2
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %11 unwind label %9
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24922,7 +24902,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 9:                                                ; preds = %4
   %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 11:                                               ; preds = %4
@@ -24937,7 +24917,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5ml_px17h15e5a3ee4995
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24957,7 +24937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -24972,7 +24952,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9ml_neg_px17h9392fb31
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -24993,7 +24973,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -25008,7 +24988,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7ml_full17h77bef60598
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25028,7 +25008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25043,7 +25023,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11ml_neg_full17hbbf31
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25072,7 +25052,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25087,7 +25067,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_217h9ed323a1647
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25107,7 +25087,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25122,7 +25102,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_217h03bfba
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25151,7 +25131,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25166,7 +25146,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_317hae8e7fb35ac
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25186,7 +25166,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25201,7 +25181,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_317hdd2c8e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25230,7 +25210,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25245,7 +25225,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_2_317h8baf6a9cab8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25265,7 +25245,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25280,7 +25260,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2_317haf45fd
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25309,7 +25289,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25324,7 +25304,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_417h01c972b31b7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25344,7 +25324,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25359,7 +25339,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_417h6e5df5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25388,7 +25368,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25403,7 +25383,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_2_417h7f520c6d07d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25423,7 +25403,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25438,7 +25418,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2_417h7d6c9c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25467,7 +25447,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25482,7 +25462,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_3_417h893e690ab66
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25502,7 +25482,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25517,7 +25497,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_3_417h955e4e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25546,7 +25526,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25561,7 +25541,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_517hbe2d4d58c73
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25581,7 +25561,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25596,7 +25576,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_517h88d145
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25625,7 +25605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25640,7 +25620,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_2_517h42b20d757c5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25660,7 +25640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25675,7 +25655,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_2_517h86c84b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25704,7 +25684,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25719,7 +25699,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_3_517h63d36223ee3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25739,7 +25719,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25754,7 +25734,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_3_517hb815dc
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25783,7 +25763,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25798,7 +25778,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_4_517he1c8ebe5c6e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25818,7 +25798,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25833,7 +25813,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_4_517h806641
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25862,7 +25842,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25877,7 +25857,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_1_617he36e163105e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25897,7 +25877,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25912,7 +25892,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_1_617hb986ed
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25941,7 +25921,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -25956,7 +25936,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6ml_5_617h3a7f9c9a9bf
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -25976,7 +25956,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -25991,7 +25971,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10ml_neg_5_617hb2f3f3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26020,7 +26000,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -26035,7 +26015,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7ml_1_1217h276596b67b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26055,7 +26035,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26070,7 +26050,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11ml_neg_1_1217h351ae
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26099,7 +26079,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -26114,7 +26094,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_017h954a276cc2fb1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26134,7 +26114,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26149,7 +26129,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_017hd54199048
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26170,7 +26150,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26185,7 +26165,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_0p517h47b29b1a276
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26205,7 +26185,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26220,7 +26200,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_0p517h663409
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26241,7 +26221,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26256,7 +26236,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_117h832f420366cee
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26276,7 +26256,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26291,7 +26271,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_117hd803f23d4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26312,7 +26292,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26327,7 +26307,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_1p517h30e2f8fb013
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26347,7 +26327,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26362,7 +26342,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1p517h1051cc
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26383,7 +26363,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26398,7 +26378,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_217hab482756819c6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26418,7 +26398,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26433,7 +26413,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_217h59bd5a862
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26454,7 +26434,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26469,7 +26449,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_2p517hc840bbf61db
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26489,7 +26469,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26504,7 +26484,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2p517hfc18ba
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26525,7 +26505,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26540,7 +26520,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_317h0f74570fb5289
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26560,7 +26540,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26575,7 +26555,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_317h7dd8442ba
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26596,7 +26576,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26611,7 +26591,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_3p517h4380f4dfe7d
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26631,7 +26611,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26646,7 +26626,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_3p517h51f529
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26667,7 +26647,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26682,7 +26662,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_417hc653d3243ef0b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26702,7 +26682,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26717,7 +26697,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_417hf3284f512
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26738,7 +26718,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26753,7 +26733,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_517hd0e8f7a0641fb
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26773,7 +26753,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26788,7 +26768,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_517h9fd60e0d1
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26809,7 +26789,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26824,7 +26804,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_617hca29d60a90919
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26844,7 +26824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26859,7 +26839,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_617h40f2f2ea3
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26880,7 +26860,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26895,7 +26875,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_717hfdf32a56a9cab
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26915,7 +26895,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -26930,7 +26910,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_717h6833d30e6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26951,7 +26931,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -26966,7 +26946,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_817h1abde97ba931e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -26986,7 +26966,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27001,7 +26981,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_817ha7e651c00
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27022,7 +27002,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27037,7 +27017,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike4mr_917h4452716d2f4fa
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27057,7 +27037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27072,7 +27052,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike8mr_neg_917h782215ba8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27093,7 +27073,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27108,7 +27088,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_1017hc145530ed468
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27128,7 +27108,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27143,7 +27123,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1017h0e470a24
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27164,7 +27144,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27179,7 +27159,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_1117h1891278a6ed7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27199,7 +27179,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27214,7 +27194,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1117h05e16692
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27235,7 +27215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27250,7 +27230,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_1217had5759d49480
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27270,7 +27250,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27285,7 +27265,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1217hc88799d5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27306,7 +27286,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27321,7 +27301,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_1617h753601f1f8ae
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27341,7 +27321,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27356,7 +27336,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_1617h023bd55a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27377,7 +27357,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27392,7 +27372,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_2017hd5e7624ab6e0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27412,7 +27392,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27427,7 +27407,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_2017hae74f199
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27448,7 +27428,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27463,7 +27443,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_2417hbfda1dde57a6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27483,7 +27463,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27498,7 +27478,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_2417h221ff496
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27519,7 +27499,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27534,7 +27514,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_3217h5d0967ed3d63
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27554,7 +27534,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27569,7 +27549,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_3217hc79a735c
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27590,7 +27570,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27605,7 +27585,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_4017he53ff3e3a503
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27625,7 +27605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27640,7 +27620,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_4017h084238af
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27661,7 +27641,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27676,7 +27656,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_4817h7d61baad8ef4
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27696,7 +27676,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27711,7 +27691,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_4817h8ec8af1a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27732,7 +27712,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27747,7 +27727,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_5617h6db36b040fd8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27767,7 +27747,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27782,7 +27762,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_5617hfaa99add
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27803,7 +27783,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27818,7 +27798,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_6417h9546a4897be5
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27838,7 +27818,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27853,7 +27833,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_6417h5e798d81
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27874,7 +27854,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27889,7 +27869,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_7217hc77f78a13a3e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27909,7 +27889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27924,7 +27904,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_7217hd83351ed
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27945,7 +27925,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -27960,7 +27940,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_8017h43ac9e3fd437
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -27980,7 +27960,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -27995,7 +27975,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_8017h0965d0b7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28016,7 +27996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -28031,7 +28011,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_9617h4a0c20479770
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28051,7 +28031,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28066,7 +28046,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_9617h2fb4dec7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28087,7 +28067,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -28102,7 +28082,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_11217h5d57d1a484f
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28122,7 +28102,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28137,7 +28117,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_11217hf2d1e6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28158,7 +28138,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -28173,7 +28153,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_12817h770d21149f6
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28193,7 +28173,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28208,7 +28188,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_12817h378eb8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28229,7 +28209,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -28244,7 +28224,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mr_auto17hd13494891f
 4:                                                ; preds = %2, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %11 unwind label %9
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28260,7 +28240,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 9:                                                ; preds = %4
   %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 11:                                               ; preds = %4
@@ -28275,7 +28255,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike5mr_px17hc14b4f028d14
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28295,7 +28275,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28310,7 +28290,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike9mr_neg_px17hc53a79dc
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %14 unwind label %12
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28331,7 +28311,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 12:                                               ; preds = %4
   %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 14:                                               ; preds = %4
@@ -28346,7 +28326,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mr_full17hd1e8a46803
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28366,7 +28346,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28381,7 +28361,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mr_neg_full17h56747
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28410,7 +28390,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28425,7 +28405,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_217hd512c8d1a40
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28445,7 +28425,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28460,7 +28440,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_217h01c393
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28489,7 +28469,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28504,7 +28484,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_317h0c7e6941cd7
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28524,7 +28504,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28539,7 +28519,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_317hd71363
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28568,7 +28548,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28583,7 +28563,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_2_317h525def07783
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28603,7 +28583,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28618,7 +28598,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2_317he43966
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28647,7 +28627,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28662,7 +28642,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_417h6c913d97d78
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28682,7 +28662,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28697,7 +28677,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_417h0495e9
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28726,7 +28706,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28741,7 +28721,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_2_417ha72b38fe4c8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28761,7 +28741,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28776,7 +28756,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2_417h21b07b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28805,7 +28785,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28820,7 +28800,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_3_417hbd8ae273549
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28840,7 +28820,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28855,7 +28835,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_3_417h1a6b6a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28884,7 +28864,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28899,7 +28879,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_517hd4254c776de
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28919,7 +28899,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -28934,7 +28914,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_517hcedd2b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28963,7 +28943,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -28978,7 +28958,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_2_517hc8b4021dd5b
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -28998,7 +28978,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -29013,7 +28993,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_2_517h922d95
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29042,7 +29022,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -29057,7 +29037,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_3_517he6ab510b671
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29077,7 +29057,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -29092,7 +29072,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_3_517h4fc8a8
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29121,7 +29101,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -29136,7 +29116,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_4_517h10f4e903666
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29156,7 +29136,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -29171,7 +29151,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_4_517hdeffd0
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29200,7 +29180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -29215,7 +29195,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_1_617hfd504328f1a
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29235,7 +29215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -29250,7 +29230,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_1_617h47a52e
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29279,7 +29259,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -29294,7 +29274,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike6mr_5_617h99fa6427c26
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29314,7 +29294,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -29329,7 +29309,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike10mr_neg_5_617h54f9ab
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29358,7 +29338,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -29373,7 +29353,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike7mr_1_1217h524c7c3944
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %13 unwind label %11
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29393,7 +29373,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 11:                                               ; preds = %4
   %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 13:                                               ; preds = %4
@@ -29408,7 +29388,7 @@ define void @_ZN2ui10components5label10label_like9LabelLike11mr_neg_1_1217h28bdd
 4:                                                ; preds = %2, %7, %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #9
+  invoke void @"_ZN4core3ptr65drop_in_place$LT$ui..components..label..label_like..LabelLike$GT$17h656e4061a5320177E"(ptr noalias noundef nonnull align 8 dereferenceable(824) %1) #8
           to label %17 unwind label %15
 
 _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ; preds = %2
@@ -29437,7 +29417,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
 15:                                               ; preds = %4
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #10
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #9
   unreachable
 
 17:                                               ; preds = %4
@@ -29452,9 +29432,6 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr dead_on_unwind noalias noundef writable sret([720 x i8]) align 8 captures(none) dereferenceable(720), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
@@ -29472,7 +29449,7 @@ declare void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr dead_on_un
 declare void @_ZN4gpui5color4Hsla8fade_out17hb80c6ec016349bfeE(ptr noalias noundef align 4 dereferenceable(16), float noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() unnamed_addr #5
+declare void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
 declare i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef) unnamed_addr #0
@@ -29532,28 +29509,27 @@ declare hidden void @_ZN2ui6styles10typography16StyledTypography10text_ui_sm17h7
 declare hidden void @_ZN2ui6styles10typography16StyledTypography10text_ui_xs17hcfaacf5f2ad14b65E(ptr dead_on_unwind noalias noundef writable sret([720 x i8]) align 8 captures(none) dereferenceable(720), ptr noalias noundef align 8 captures(none) dereferenceable(720), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { cold }
-attributes #10 = { cold noreturn nounwind }
+attributes #4 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { cold }
+attributes #9 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

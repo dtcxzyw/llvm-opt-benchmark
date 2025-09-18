@@ -101,7 +101,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT
   %16 = phi i64 [ %21, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit" ], [ %.promoted7, %3 ]
   %17 = phi ptr [ %20, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit" ], [ %.promoted, %3 ]
   %.not.not.not.not.not.not = icmp ne ptr %17, %8
-  br i1 %.not.not.not.not.not.not, label %18, label %53
+  br i1 %.not.not.not.not.not.not, label %18, label %51
 
 18:                                               ; preds = %15
   %19 = load i64, ptr %17, align 8, !noundef !4
@@ -122,58 +122,55 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT
 
 25:                                               ; preds = %18
   %26 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hc9bc42cf81fbf4d4E.llvm.9811035351545843126"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %11, i1 noundef zeroext true)
-  %27 = extractvalue { i64, i64 } %26, 0
-  %28 = icmp eq i64 %27, -9223372036854775807
-  call void @llvm.assume(i1 %28)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h02999d60158e39e7E.llvm.2903763967427937413.exit.i.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h02999d60158e39e7E.llvm.2903763967427937413.exit.i.i.i.i.i.i": ; preds = %25, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !22
   store ptr %5, ptr %4, align 8, !noalias !22
   store ptr %2, ptr %12, align 8, !noalias !22
-  %29 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.2903763967427937413(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, i64 noundef %22, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.76d2967b10f1c269eb827272f2a23b63.130.llvm.2903763967427937413)
-  %30 = extractvalue { i64, i64 } %29, 0
-  %31 = load ptr, ptr %2, align 8, !alias.scope !30, !noalias !31, !nonnull !4
+  %27 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h8a34f073cb252b20E.llvm.2903763967427937413(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, i64 noundef %22, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.76d2967b10f1c269eb827272f2a23b63.130.llvm.2903763967427937413)
+  %28 = extractvalue { i64, i64 } %27, 0
+  %29 = load ptr, ptr %2, align 8, !alias.scope !30, !noalias !31, !nonnull !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !16
-  %switch.i.i.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %switch.i.i.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit", label %32
+  %switch.i.i.i.i.i.i = icmp eq i64 %28, 0
+  br i1 %switch.i.i.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit", label %30
 
-32:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h02999d60158e39e7E.llvm.2903763967427937413.exit.i.i.i.i.i.i"
-  %33 = extractvalue { i64, i64 } %29, 1
-  %34 = load i64, ptr %6, align 8, !noalias !16, !noundef !4
+30:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h02999d60158e39e7E.llvm.2903763967427937413.exit.i.i.i.i.i.i"
+  %31 = extractvalue { i64, i64 } %27, 1
+  %32 = load i64, ptr %6, align 8, !noalias !16, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %35 = getelementptr inbounds i8, ptr %31, i64 %33
-  %36 = load i8, ptr %35, align 1, !noalias !32, !noundef !4
-  %37 = and i8 %36, 1
-  %38 = zext nneg i8 %37 to i64
-  %39 = load i64, ptr %10, align 8, !alias.scope !35, !noundef !4
-  %40 = sub i64 %39, %38
-  store i64 %40, ptr %10, align 8, !alias.scope !35
-  %41 = lshr i64 %22, 57
-  %42 = trunc nuw nsw i64 %41 to i8
-  %43 = add i64 %33, -16
-  %44 = load i64, ptr %13, align 8, !alias.scope !35, !noundef !4
-  %45 = and i64 %44, %43
-  store i8 %42, ptr %35, align 1, !noalias !32
-  %46 = getelementptr i8, ptr %31, i64 %45
-  %47 = getelementptr i8, ptr %46, i64 16
-  store i8 %42, ptr %47, align 1, !noalias !32
-  %48 = load i64, ptr %14, align 8, !alias.scope !35, !noundef !4
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %14, align 8, !alias.scope !35
-  %50 = sub nsw i64 0, %33
-  %51 = getelementptr inbounds i64, ptr %31, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -8
-  store i64 %34, ptr %52, align 8, !noalias !32
+  %33 = getelementptr inbounds i8, ptr %29, i64 %31
+  %34 = load i8, ptr %33, align 1, !noalias !32, !noundef !4
+  %35 = and i8 %34, 1
+  %36 = zext nneg i8 %35 to i64
+  %37 = load i64, ptr %10, align 8, !alias.scope !35, !noundef !4
+  %38 = sub i64 %37, %36
+  store i64 %38, ptr %10, align 8, !alias.scope !35
+  %39 = lshr i64 %22, 57
+  %40 = trunc nuw nsw i64 %39 to i8
+  %41 = add i64 %31, -16
+  %42 = load i64, ptr %13, align 8, !alias.scope !35, !noundef !4
+  %43 = and i64 %42, %41
+  store i8 %40, ptr %33, align 1, !noalias !32
+  %44 = getelementptr i8, ptr %29, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 16
+  store i8 %40, ptr %45, align 1, !noalias !32
+  %46 = load i64, ptr %14, align 8, !alias.scope !35, !noundef !4
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %14, align 8, !alias.scope !35
+  %48 = sub nsw i64 0, %31
+  %49 = getelementptr inbounds i64, ptr %29, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -8
+  store i64 %32, ptr %50, align 8, !noalias !32
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit"
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h02999d60158e39e7E.llvm.2903763967427937413.exit.i.i.i.i.i.i", %32
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h02999d60158e39e7E.llvm.2903763967427937413.exit.i.i.i.i.i.i", %30
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not6 = icmp eq i64 %21, 0
-  br i1 %.not6, label %53, label %15
+  br i1 %.not6, label %51, label %15
 
-53:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit", %15
+51:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h7ae8dca385d0c200E.exit", %15
   ret i1 %.not.not.not.not.not.not
 }
 
@@ -5572,8 +5569,6 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
   br label %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$language..diagnostic_set..DiagnosticEntry$LT$usize$GT$$GT$$GT$$GT$17h76cf6ed337732650E.exit"
 
 57:                                               ; preds = %2, %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$language..diagnostic_set..DiagnosticEntry$LT$usize$GT$$GT$$GT$$GT$17h76cf6ed337732650E.exit"
-  %58 = phi i1 [ true, %2 ], [ %59, %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$language..diagnostic_set..DiagnosticEntry$LT$usize$GT$$GT$$GT$$GT$17h76cf6ed337732650E.exit" ]
-  tail call void @llvm.assume(i1 %58)
   ret ptr %0
 
 "_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$language..diagnostic_set..DiagnosticEntry$LT$usize$GT$$GT$$GT$$GT$17h76cf6ed337732650E.exit": ; preds = %49, %29, %18
@@ -5581,7 +5576,6 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.58.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %.sroa.58.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(168) %.sroa.5, i64 168, i1 false)
-  %59 = icmp ne i64 %.sroa.0.0, -9223372036854775807
   br label %57
 }
 
@@ -16669,16 +16663,13 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17hc8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %7 = icmp ugt i64 %1, %6
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h797229a2b46dd9aaE.llvm.9890526598091136527"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i1 noundef zeroext true)
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = icmp eq i64 %10, -9223372036854775807
-  tail call void @llvm.assume(i1 %11)
-  br label %12
+  br label %10
 
-12:                                               ; preds = %4, %8
+10:                                               ; preds = %4, %8
   ret void
 }
 

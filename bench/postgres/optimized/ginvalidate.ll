@@ -23,15 +23,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #4
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 14, i64 noundef %2) #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 51, ptr noundef nonnull @__func__.ginvalidate) #4
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 51, ptr noundef nonnull @__func__.ginvalidate) #3
   unreachable
 
 7:                                                ; preds = %1
@@ -50,10 +49,10 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.not119 = icmp eq i32 %18, 0
   %spec.select = select i1 %.not119, i32 %16, i32 %18
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = tail call ptr @get_opfamily_name(i32 noundef %14, i1 noundef zeroext false) #4
+  %20 = tail call ptr @get_opfamily_name(i32 noundef %14, i1 noundef zeroext false) #3
   %21 = zext i32 %14 to i64
-  %22 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %21, i64 noundef 0, i64 noundef 0) #4
-  %23 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %21, i64 noundef 0, i64 noundef 0) #4
+  %22 = tail call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %21, i64 noundef 0, i64 noundef 0) #3
+  %23 = tail call ptr @SearchSysCacheList(i32 noundef 5, i32 noundef 1, i64 noundef %21, i64 noundef 0, i64 noundef 0) #3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
@@ -93,16 +92,16 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not127, label %52, label %44
 
 44:                                               ; preds = %32
-  %45 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %45 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %44
-  %47 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %47 = tail call i32 @errcode(i32 noundef 117833860) #3
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = tail call ptr @format_procedure(i32 noundef %49) #4
-  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %50) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.ginvalidate) #4
+  %50 = tail call ptr @format_procedure(i32 noundef %49) #3
+  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %50) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 85, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %52
 
 52:                                               ; preds = %44, %46, %32
@@ -127,64 +126,64 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %59 = load i32, ptr %58, align 4
-  %60 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %59, i32 noundef 23, i1 noundef zeroext false, i32 noundef 2, i32 noundef 2, i32 noundef %spec.select, i32 noundef %spec.select) #4
+  %60 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %59, i32 noundef 23, i1 noundef zeroext false, i32 noundef 2, i32 noundef 2, i32 noundef %spec.select, i32 noundef %spec.select) #3
   br i1 %60, label %96, label %87
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %63 = load i32, ptr %62, align 4
-  %64 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %63, i32 noundef 2281, i1 noundef zeroext false, i32 noundef 2, i32 noundef 3, i32 noundef %16, i32 noundef 2281, i32 noundef 2281) #4
+  %64 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %63, i32 noundef 2281, i1 noundef zeroext false, i32 noundef 2, i32 noundef 3, i32 noundef %16, i32 noundef 2281, i32 noundef 2281) #3
   br i1 %64, label %96, label %87
 
 65:                                               ; preds = %54
   %66 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %67, i32 noundef 2281, i1 noundef zeroext false, i32 noundef 5, i32 noundef 7, i32 noundef %16, i32 noundef 2281, i32 noundef 21, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
+  %68 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %67, i32 noundef 2281, i1 noundef zeroext false, i32 noundef 5, i32 noundef 7, i32 noundef %16, i32 noundef 2281, i32 noundef 21, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #3
   br i1 %68, label %96, label %87
 
 69:                                               ; preds = %54
   %70 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %71 = load i32, ptr %70, align 4
-  %72 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %71, i32 noundef 16, i1 noundef zeroext false, i32 noundef 6, i32 noundef 8, i32 noundef 2281, i32 noundef 21, i32 noundef %16, i32 noundef 23, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
+  %72 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %71, i32 noundef 16, i1 noundef zeroext false, i32 noundef 6, i32 noundef 8, i32 noundef 2281, i32 noundef 21, i32 noundef %16, i32 noundef 23, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #3
   br i1 %72, label %96, label %87
 
 73:                                               ; preds = %54
   %74 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %75 = load i32, ptr %74, align 4
-  %76 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %75, i32 noundef 23, i1 noundef zeroext false, i32 noundef 4, i32 noundef 4, i32 noundef %spec.select, i32 noundef %spec.select, i32 noundef 21, i32 noundef 2281) #4
+  %76 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %75, i32 noundef 23, i1 noundef zeroext false, i32 noundef 4, i32 noundef 4, i32 noundef %spec.select, i32 noundef %spec.select, i32 noundef 21, i32 noundef 2281) #3
   br i1 %76, label %96, label %87
 
 77:                                               ; preds = %54
   %78 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %79 = load i32, ptr %78, align 4
-  %80 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %79, i32 noundef 18, i1 noundef zeroext false, i32 noundef 7, i32 noundef 7, i32 noundef 2281, i32 noundef 21, i32 noundef %16, i32 noundef 23, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #4
+  %80 = tail call zeroext i1 (i32, i32, i1, i32, i32, ...) @check_amproc_signature(i32 noundef %79, i32 noundef 18, i1 noundef zeroext false, i32 noundef 7, i32 noundef 7, i32 noundef 2281, i32 noundef 21, i32 noundef %16, i32 noundef 23, i32 noundef 2281, i32 noundef 2281, i32 noundef 2281) #3
   br i1 %80, label %96, label %87
 
 81:                                               ; preds = %54
-  %82 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %82 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %82, label %.sink.split, label %96
 
 83:                                               ; preds = %54
   %84 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %85 = load i32, ptr %84, align 4
-  %86 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %85) #4
+  %86 = tail call zeroext i1 @check_amoptsproc_signature(i32 noundef %85) #3
   br i1 %86, label %96, label %87
 
 87:                                               ; preds = %77, %73, %69, %65, %61, %57, %83
-  %88 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %88 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %88, label %.sink.split, label %96
 
 .sink.split:                                      ; preds = %87, %81
   %.str.5.sink = phi ptr [ @.str.4, %81 ], [ @.str.5, %87 ]
   %.sink = phi i32 [ 145, %81 ], [ 157, %87 ]
-  %89 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %89 = tail call i32 @errcode(i32 noundef 117833860) #3
   %90 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %91 = load i32, ptr %90, align 4
-  %92 = tail call ptr @format_procedure(i32 noundef %91) #4
+  %92 = tail call ptr @format_procedure(i32 noundef %91) #3
   %93 = load i16, ptr %55, align 4
   %94 = sext i16 %93 to i32
-  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.5.sink, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %92, i32 noundef %94) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ginvalidate) #4
+  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.5.sink, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %92, i32 noundef %94) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %96
 
 96:                                               ; preds = %.sink.split, %77, %73, %69, %65, %61, %57, %83, %87, %81, %52
@@ -213,18 +212,18 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond129, label %111, label %121
 
 111:                                              ; preds = %100
-  %112 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %112 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %111
-  %114 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %114 = tail call i32 @errcode(i32 noundef 117833860) #3
   %115 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %116 = load i32, ptr %115, align 4
-  %117 = tail call ptr @format_operator(i32 noundef %116) #4
+  %117 = tail call ptr @format_operator(i32 noundef %116) #3
   %118 = load i16, ptr %108, align 4
   %119 = sext i16 %118 to i32
-  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %117, i32 noundef %119) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.ginvalidate) #4
+  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %117, i32 noundef %119) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %121
 
 121:                                              ; preds = %111, %113, %100
@@ -241,16 +240,16 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not126, label %135, label %127
 
 127:                                              ; preds = %124, %121
-  %128 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %128 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %128, label %129, label %135
 
 129:                                              ; preds = %127
-  %130 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %130 = tail call i32 @errcode(i32 noundef 117833860) #3
   %131 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %132 = load i32, ptr %131, align 4
-  %133 = tail call ptr @format_operator(i32 noundef %132) #4
-  %134 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %133) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.ginvalidate) #4
+  %133 = tail call ptr @format_operator(i32 noundef %132) #3
+  %134 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %133) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 188, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %135
 
 135:                                              ; preds = %127, %129, %124
@@ -261,19 +260,19 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %139 = load i32, ptr %138, align 4
   %140 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %141 = load i32, ptr %140, align 4
-  %142 = tail call zeroext i1 @check_amop_signature(i32 noundef %137, i32 noundef 16, i32 noundef %139, i32 noundef %141) #4
+  %142 = tail call zeroext i1 @check_amop_signature(i32 noundef %137, i32 noundef 16, i32 noundef %139, i32 noundef %141) #3
   br i1 %142, label %150, label %143
 
 143:                                              ; preds = %135
-  %144 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %144 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %144, label %145, label %150
 
 145:                                              ; preds = %143
-  %146 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %146 = tail call i32 @errcode(i32 noundef 117833860) #3
   %147 = load i32, ptr %136, align 4
-  %148 = tail call ptr @format_operator(i32 noundef %147) #4
-  %149 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %148) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.ginvalidate) #4
+  %148 = tail call ptr @format_operator(i32 noundef %147) #3
+  %149 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %20, ptr noundef nonnull @.str.3, ptr noundef %148) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 201, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %150
 
 150:                                              ; preds = %143, %145, %135
@@ -286,7 +285,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %150, %.preheader
   %.4.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.7, %150 ]
-  %154 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %22, ptr noundef %23) #4
+  %154 = tail call ptr @identify_opfamily_groups(ptr noundef nonnull %22, ptr noundef %23) #3
   %.not120 = icmp eq ptr %154, null
   br i1 %.not120, label %.critedge, label %.lr.ph145
 
@@ -353,13 +352,13 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond131, label %186, label %181
 
 181:                                              ; preds = %176
-  %182 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %182 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %182, label %183, label %186
 
 183:                                              ; preds = %181
-  %184 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %185 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, i32 noundef %177) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ginvalidate) #4
+  %184 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %185 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, i32 noundef %177) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %186
 
 186:                                              ; preds = %181, %183, %176
@@ -389,20 +388,20 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond133, label %190, label %195
 
 190:                                              ; preds = %.thread172, %187
-  %191 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #4
+  %191 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #3
   br i1 %191, label %192, label %195
 
 192:                                              ; preds = %190
-  %193 = tail call i32 @errcode(i32 noundef 117833860) #4
-  %194 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, i32 noundef 4, i32 noundef 6) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.ginvalidate) #4
+  %193 = tail call i32 @errcode(i32 noundef 117833860) #3
+  %194 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %19, ptr noundef nonnull @.str.3, i32 noundef 4, i32 noundef 6) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 253, ptr noundef nonnull @__func__.ginvalidate) #3
   br label %195
 
 195:                                              ; preds = %190, %192, %.thread172
   %.10 = phi i1 [ %.9171174, %.thread172 ], [ false, %192 ], [ false, %190 ]
-  tail call void @ReleaseCatCacheList(ptr noundef %23) #4
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %22) #4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
+  tail call void @ReleaseCatCacheList(ptr noundef %23) #3
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %22) #3
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #3
   ret i1 %.10
 }
 
@@ -517,12 +516,11 @@ define dso_local void @ginadjustmembers(i32 noundef %0, i32 noundef %1, ptr noun
 
 .split:                                           ; preds = %.lr.ph41
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 117833860) #4
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
+  %35 = tail call i32 @errcode(i32 noundef 117833860) #3
   %36 = load i32, ptr %33, align 4
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %36, ptr noundef nonnull @.str.3) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.ginadjustmembers) #4
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %36, ptr noundef nonnull @.str.3) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.ginadjustmembers) #3
   unreachable
 
 38:                                               ; preds = %29, %27
@@ -533,15 +531,11 @@ define dso_local void @ginadjustmembers(i32 noundef %0, i32 noundef %1, ptr noun
   br i1 %41, label %.lr.ph41, label %.critedge31
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { cold nounwind }
+attributes #3 = { nounwind }
+attributes #4 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

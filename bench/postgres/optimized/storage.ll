@@ -58,17 +58,16 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
 
 15:                                               ; preds = %4
   %16 = sext i8 %2 to i32
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %16) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.RelationCreateStorage) #8
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %16) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 145, ptr noundef nonnull @__func__.RelationCreateStorage) #7
   unreachable
 
 19:                                               ; preds = %4, %14, %9
   %.019 = phi i1 [ false, %9 ], [ true, %14 ], [ false, %4 ]
   %.0 = phi i32 [ %13, %9 ], [ -1, %14 ], [ -1, %4 ]
-  %20 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef %.0) #8
-  tail call void @smgrcreate(ptr noundef %20, i32 noundef 0, i1 noundef zeroext false) #8
+  %20 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef %.0) #7
+  tail call void @smgrcreate(ptr noundef %20, i32 noundef 0, i1 noundef zeroext false) #7
   br i1 %.019, label %21, label %24
 
 21:                                               ; preds = %19
@@ -76,9 +75,9 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %20, i64 12, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %22, align 4
-  tail call void @XLogBeginInsert() #8
-  call void @XLogRegisterData(ptr noundef nonnull %7, i32 noundef 16) #8
-  %23 = call i64 @XLogInsert(i8 noundef zeroext 2, i8 noundef zeroext 17) #8
+  tail call void @XLogBeginInsert() #7
+  call void @XLogRegisterData(ptr noundef nonnull %7, i32 noundef 16) #7
+  %23 = call i64 @XLogInsert(i8 noundef zeroext 2, i8 noundef zeroext 17) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %24
 
@@ -87,13 +86,13 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
 
 25:                                               ; preds = %24
   %26 = load ptr, ptr @TopMemoryContext, align 8
-  %27 = call ptr @MemoryContextAlloc(ptr noundef %26, i64 noundef 32) #8
+  %27 = call ptr @MemoryContextAlloc(ptr noundef %26, i64 noundef 32) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %.0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i8 0, ptr %29, align 8
-  %30 = call i32 @GetCurrentTransactionNestLevel() #8
+  %30 = call i32 @GetCurrentTransactionNestLevel() #7
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 %30, ptr %31, align 4
   %32 = load ptr, ptr @pendingDeletes, align 8
@@ -124,14 +123,14 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
   %43 = load ptr, ptr @TopTransactionContext, align 8
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %43, ptr %44, align 8
-  %45 = call ptr @hash_create(ptr noundef nonnull @.str.5, i64 noundef 16, ptr noundef nonnull %6, i32 noundef 1064) #8
+  %45 = call ptr @hash_create(ptr noundef nonnull @.str.5, i64 noundef 16, ptr noundef nonnull %6, i32 noundef 1064) #7
   store ptr %45, ptr @pendingSyncHash, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %AddPendingSync.exit
 
 AddPendingSync.exit:                              ; preds = %38, %40
   %46 = phi ptr [ %45, %40 ], [ %39, %38 ]
-  %47 = call ptr @hash_search(ptr noundef %46, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %5) #8
+  %47 = call ptr @hash_search(ptr noundef %46, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %5) #7
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i8 0, ptr %48, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -162,9 +161,9 @@ define dso_local void @log_smgrcreate(ptr noundef readonly captures(none) %0, i3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %1, ptr %4, align 4
-  tail call void @XLogBeginInsert() #8
-  call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 16) #8
-  %5 = call i64 @XLogInsert(i8 noundef zeroext 2, i8 noundef zeroext 17) #8
+  tail call void @XLogBeginInsert() #7
+  call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 16) #7
+  %5 = call i64 @XLogInsert(i8 noundef zeroext 2, i8 noundef zeroext 17) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -182,7 +181,7 @@ declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define dso_local void @RelationDropStorage(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @TopMemoryContext, align 8
-  %3 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 32) #8
+  %3 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 32) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
@@ -190,7 +189,7 @@ define dso_local void @RelationDropStorage(ptr noundef captures(none) %0) local_
   store i32 %5, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %7, align 8
-  %8 = tail call i32 @GetCurrentTransactionNestLevel() #8
+  %8 = tail call i32 @GetCurrentTransactionNestLevel() #7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %8, ptr %9, align 4
   %10 = load ptr, ptr @pendingDeletes, align 8
@@ -203,9 +202,9 @@ define dso_local void @RelationDropStorage(ptr noundef captures(none) %0) local_
   br i1 %.not.i, label %RelationCloseSmgr.exit, label %14
 
 14:                                               ; preds = %1
-  tail call void @smgrunpin(ptr noundef nonnull %13) #8
+  tail call void @smgrunpin(ptr noundef nonnull %13) #7
   %15 = load ptr, ptr %12, align 8
-  tail call void @smgrclose(ptr noundef %15) #8
+  tail call void @smgrclose(ptr noundef %15) #7
   store ptr null, ptr %12, align 8
   br label %RelationCloseSmgr.exit
 
@@ -267,7 +266,7 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
   br label %27
 
 27:                                               ; preds = %26, %24
-  tail call void @pfree(ptr noundef nonnull %.019) #8
+  tail call void @pfree(ptr noundef nonnull %.019) #7
   br label %28
 
 28:                                               ; preds = %6, %12, %16, %19, %27
@@ -301,9 +300,9 @@ define dso_local void @RelationTruncate(ptr noundef %0, i32 noundef %1) local_un
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %13 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %12) #8
+  %13 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %12) #7
   store ptr %13, ptr %7, align 8
-  tail call void @smgrpin(ptr noundef %13) #8
+  tail call void @smgrpin(ptr noundef %13) #7
   %.pre.i = load ptr, ptr %7, align 8
   br label %RelationGetSmgr.exit
 
@@ -312,7 +311,7 @@ RelationGetSmgr.exit:                             ; preds = %2, %10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 -1, i64 20, i1 false)
   store i32 0, ptr %3, align 4
-  %16 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 0) #8
+  %16 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 0) #7
   store i32 %16, ptr %4, align 4
   store i32 %1, ptr %5, align 4
   %17 = load ptr, ptr %7, align 8
@@ -325,19 +324,19 @@ RelationGetSmgr.exit:                             ; preds = %2, %10
   %.sroa.0.0.copyload.i45 = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i47 = load i32, ptr %.sroa.2.0..sroa_idx.i46, align 8
-  %22 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i45, i32 %.sroa.2.0.copyload.i47, i32 noundef %21) #8
+  %22 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i45, i32 %.sroa.2.0.copyload.i47, i32 noundef %21) #7
   store ptr %22, ptr %7, align 8
-  tail call void @smgrpin(ptr noundef %22) #8
+  tail call void @smgrpin(ptr noundef %22) #7
   %.pre.i48 = load ptr, ptr %7, align 8
   br label %RelationGetSmgr.exit49
 
 RelationGetSmgr.exit49:                           ; preds = %RelationGetSmgr.exit, %19
   %23 = phi ptr [ %.pre.i48, %19 ], [ %17, %RelationGetSmgr.exit ]
-  %24 = tail call zeroext i1 @smgrexists(ptr noundef %23, i32 noundef 1) #8
+  %24 = tail call zeroext i1 @smgrexists(ptr noundef %23, i32 noundef 1) #7
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %RelationGetSmgr.exit49
-  %26 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef nonnull %0, i32 noundef %1) #8
+  %26 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef nonnull %0, i32 noundef %1) #7
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %26, ptr %27, align 4
   %.not = icmp eq i32 %26, -1
@@ -346,7 +345,7 @@ RelationGetSmgr.exit49:                           ; preds = %RelationGetSmgr.exi
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %29, align 4
-  %30 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 1) #8
+  %30 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 1) #7
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %30, ptr %31, align 4
   br label %32
@@ -364,19 +363,19 @@ RelationGetSmgr.exit49:                           ; preds = %RelationGetSmgr.exi
   %.sroa.0.0.copyload.i50 = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i52 = load i32, ptr %.sroa.2.0..sroa_idx.i51, align 8
-  %38 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i50, i32 %.sroa.2.0.copyload.i52, i32 noundef %37) #8
+  %38 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i50, i32 %.sroa.2.0.copyload.i52, i32 noundef %37) #7
   store ptr %38, ptr %7, align 8
-  tail call void @smgrpin(ptr noundef %38) #8
+  tail call void @smgrpin(ptr noundef %38) #7
   %.pre.i53 = load ptr, ptr %7, align 8
   br label %RelationGetSmgr.exit54
 
 RelationGetSmgr.exit54:                           ; preds = %32, %35
   %39 = phi ptr [ %.pre.i53, %35 ], [ %33, %32 ]
-  %40 = tail call zeroext i1 @smgrexists(ptr noundef %39, i32 noundef 2) #8
+  %40 = tail call zeroext i1 @smgrexists(ptr noundef %39, i32 noundef 2) #7
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %RelationGetSmgr.exit54
-  %42 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef nonnull %0, i32 noundef %1) #8
+  %42 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef nonnull %0, i32 noundef %1) #7
   %43 = zext nneg i32 %.044 to i64
   %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   store i32 %42, ptr %44, align 4
@@ -386,7 +385,7 @@ RelationGetSmgr.exit54:                           ; preds = %32, %35
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i32, ptr %3, i64 %43
   store i32 2, ptr %46, align 4
-  %47 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 2) #8
+  %47 = tail call i32 @smgrnblocks(ptr noundef nonnull %14, i32 noundef 2) #7
   %48 = getelementptr inbounds nuw i32, ptr %4, i64 %43
   store i32 %47, ptr %48, align 4
   %49 = add nuw nsw i32 %.044, 1
@@ -409,15 +408,15 @@ RelationGetSmgr.exit54:                           ; preds = %32, %35
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %58 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %57) #8
+  %58 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %57) #7
   store ptr %58, ptr %7, align 8
-  tail call void @smgrpin(ptr noundef %58) #8
+  tail call void @smgrpin(ptr noundef %58) #7
   %.pre.i.i = load ptr, ptr %7, align 8
   br label %RelationGetSmgr.exit.i
 
 RelationGetSmgr.exit.i:                           ; preds = %55, %52
   %59 = phi ptr [ %.pre.i.i, %55 ], [ %53, %52 ]
-  %60 = tail call ptr @hash_search(ptr noundef nonnull %51, ptr noundef %59, i32 noundef 0, ptr noundef null) #8
+  %60 = tail call ptr @hash_search(ptr noundef nonnull %51, ptr noundef %59, i32 noundef 0, ptr noundef null) #7
   %.not4.i = icmp eq ptr %60, null
   br i1 %.not4.i, label %RelationPreTruncate.exit, label %61
 
@@ -466,10 +465,10 @@ RelationPreTruncate.exit:                         ; preds = %50, %RelationGetSmg
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %86, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 7, ptr %87, align 4
-  tail call void @XLogBeginInsert() #8
-  call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 20) #8
-  %88 = call i64 @XLogInsert(i8 noundef zeroext 2, i8 noundef zeroext 33) #8
-  call void @XLogFlush(i64 noundef %88) #8
+  tail call void @XLogBeginInsert() #7
+  call void @XLogRegisterData(ptr noundef nonnull %6, i32 noundef 20) #7
+  %88 = call i64 @XLogInsert(i8 noundef zeroext 2, i8 noundef zeroext 33) #7
+  call void @XLogFlush(i64 noundef %88) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %89
 
@@ -484,15 +483,15 @@ RelationPreTruncate.exit:                         ; preds = %50, %RelationGetSmg
   %.sroa.0.0.copyload.i55 = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i57 = load i32, ptr %.sroa.2.0..sroa_idx.i56, align 8
-  %95 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i55, i32 %.sroa.2.0.copyload.i57, i32 noundef %94) #8
+  %95 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i55, i32 %.sroa.2.0.copyload.i57, i32 noundef %94) #7
   store ptr %95, ptr %7, align 8
-  call void @smgrpin(ptr noundef %95) #8
+  call void @smgrpin(ptr noundef %95) #7
   %.pre.i58 = load ptr, ptr %7, align 8
   br label %RelationGetSmgr.exit59
 
 RelationGetSmgr.exit59:                           ; preds = %89, %92
   %96 = phi ptr [ %.pre.i58, %92 ], [ %90, %89 ]
-  call void @smgrtruncate(ptr noundef %96, ptr noundef nonnull %3, i32 noundef %.1, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  call void @smgrtruncate(ptr noundef %96, ptr noundef nonnull %3, i32 noundef %.1, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %97 = load volatile i32, ptr @CritSectionCount, align 4
   %98 = add i32 %97, -1
   store volatile i32 %98, ptr @CritSectionCount, align 4
@@ -504,7 +503,7 @@ RelationGetSmgr.exit59:                           ; preds = %89, %92
   br i1 %.0, label %103, label %104
 
 103:                                              ; preds = %RelationGetSmgr.exit59
-  call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %1, i32 noundef -1) #8
+  call void @FreeSpaceMapVacuumRange(ptr noundef nonnull %0, i32 noundef %1, i32 noundef -1) #7
   br label %104
 
 104:                                              ; preds = %103, %RelationGetSmgr.exit59
@@ -540,15 +539,15 @@ define dso_local void @RelationPreTruncate(ptr noundef captures(none) %0) local_
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %10 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %9) #8
+  %10 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %9) #7
   store ptr %10, ptr %4, align 8
-  tail call void @smgrpin(ptr noundef %10) #8
+  tail call void @smgrpin(ptr noundef %10) #7
   %.pre.i = load ptr, ptr %4, align 8
   br label %RelationGetSmgr.exit
 
 RelationGetSmgr.exit:                             ; preds = %3, %7
   %11 = phi ptr [ %.pre.i, %7 ], [ %5, %3 ]
-  %12 = tail call ptr @hash_search(ptr noundef nonnull %2, ptr noundef %11, i32 noundef 0, ptr noundef null) #8
+  %12 = tail call ptr @hash_search(ptr noundef nonnull %2, ptr noundef %11, i32 noundef 0, ptr noundef null) #7
   %.not4 = icmp eq ptr %12, null
   br i1 %.not4, label %15, label %13
 
@@ -586,8 +585,8 @@ define dso_local void @RelationCopyStorage(ptr noundef %0, ptr noundef %1, i32 n
 
 14:                                               ; preds = %8, %4
   %15 = phi i1 [ false, %4 ], [ %13, %8 ]
-  %16 = tail call ptr @smgr_bulk_start_smgr(ptr noundef %1, i32 noundef %2, i1 noundef zeroext %15) #8
-  %17 = tail call i32 @smgrnblocks(ptr noundef %0, i32 noundef %2) #8
+  %16 = tail call ptr @smgr_bulk_start_smgr(ptr noundef %1, i32 noundef %2, i1 noundef zeroext %15) #7
+  %17 = tail call i32 @smgrnblocks(ptr noundef %0, i32 noundef %2) #7
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
@@ -598,16 +597,16 @@ define dso_local void @RelationCopyStorage(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not, label %20, label %19, !prof !9
 
 19:                                               ; preds = %.lr.ph
-  call void @ProcessInterrupts() #8
+  call void @ProcessInterrupts() #7
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph
-  %21 = call ptr @smgr_bulk_get_buf(ptr noundef %16) #8
+  %21 = call ptr @smgr_bulk_get_buf(ptr noundef %16) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %21, ptr %5, align 8
-  call void @smgrreadv(ptr noundef %0, i32 noundef %2, i32 noundef %.030, ptr noundef nonnull %5, i32 noundef 1) #8
+  call void @smgrreadv(ptr noundef %0, i32 noundef %2, i32 noundef %.030, ptr noundef nonnull %5, i32 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %22 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %21, i32 noundef %.030, i32 noundef 3) #8
+  %22 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %21, i32 noundef %.030, i32 noundef 3) #7
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %20
@@ -618,22 +617,21 @@ define dso_local void @RelationCopyStorage(ptr noundef %0, ptr noundef %1, i32 n
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4
-  %31 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %2) #8
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 @errcode(i32 noundef 16779816) #8
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %.030, ptr noundef %31) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__func__.RelationCopyStorage) #8
+  %31 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %2) #7
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %33 = call i32 @errcode(i32 noundef 16779816) #7
+  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %.030, ptr noundef %31) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 534, ptr noundef nonnull @__func__.RelationCopyStorage) #7
   unreachable
 
 35:                                               ; preds = %20
-  call void @smgr_bulk_write(ptr noundef %16, i32 noundef %.030, ptr noundef %21, i1 noundef zeroext false) #8
+  call void @smgr_bulk_write(ptr noundef %16, i32 noundef %.030, ptr noundef %21, i1 noundef zeroext false) #7
   %36 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %36, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %35, %14
-  call void @smgr_bulk_finish(ptr noundef %16) #8
+  call void @smgr_bulk_finish(ptr noundef %16) #7
   ret void
 }
 
@@ -666,7 +664,7 @@ define dso_local zeroext i1 @RelFileLocatorSkippingWAL(i64 %0, i32 %1) local_unn
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = call ptr @hash_search(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #8
+  %6 = call ptr @hash_search(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #7
   %7 = icmp ne ptr %6, null
   br label %8
 
@@ -682,13 +680,13 @@ define dso_local i64 @EstimatePendingSyncsSpace() local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %1) #8
+  %3 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %1) #7
   %4 = add i64 %3, 1
   br label %5
 
 5:                                                ; preds = %0, %2
   %6 = phi i64 [ %4, %2 ], [ 1, %0 ]
-  %7 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 12) #8
+  %7 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 12) #7
   ret i64 %7
 }
 
@@ -714,11 +712,11 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %9, ptr %10, align 8
-  %11 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %5) #8
-  %12 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef %11, ptr noundef nonnull %3, i32 noundef 1064) #8
+  %11 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %5) #7
+  %12 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef %11, ptr noundef nonnull %3, i32 noundef 1064) #7
   %13 = load ptr, ptr @pendingSyncHash, align 8
-  call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %13) #8
-  %14 = call ptr @hash_seq_search(ptr noundef nonnull %4) #8
+  call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %13) #7
+  %14 = call ptr @hash_seq_search(ptr noundef nonnull %4) #7
   %.not3235 = icmp eq ptr %14, null
   br i1 %.not3235, label %.preheader, label %.lr.ph
 
@@ -729,8 +727,8 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %15 = phi ptr [ %17, %.lr.ph ], [ %14, %6 ]
-  %16 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %15, i32 noundef 1, ptr noundef null) #8
-  %17 = call ptr @hash_seq_search(ptr noundef nonnull %4) #8
+  %16 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %15, i32 noundef 1, ptr noundef null) #7
+  %17 = call ptr @hash_seq_search(ptr noundef nonnull %4) #7
   %.not32 = icmp eq ptr %17, null
   br i1 %.not32, label %.preheader, label %.lr.ph, !llvm.loop !11
 
@@ -742,7 +740,7 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph39
-  %22 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %.038, i32 noundef 2, ptr noundef null) #8
+  %22 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %.038, i32 noundef 2, ptr noundef null) #7
   br label %23
 
 23:                                               ; preds = %.lr.ph39, %21
@@ -752,8 +750,8 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   br i1 %.not33, label %._crit_edge, label %.lr.ph39, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %23, %.preheader
-  call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %12) #8
-  %25 = call ptr @hash_seq_search(ptr noundef nonnull %4) #8
+  call void @hash_seq_init(ptr noundef nonnull %4, ptr noundef %12) #7
+  %25 = call ptr @hash_seq_search(ptr noundef nonnull %4) #7
   %.not3440 = icmp eq ptr %25, null
   br i1 %.not3440, label %._crit_edge44, label %.lr.ph43
 
@@ -762,13 +760,13 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr noundef writeon
   %.02941 = phi ptr [ %27, %.lr.ph43 ], [ %1, %._crit_edge ]
   %27 = getelementptr inbounds nuw i8, ptr %.02941, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.02941, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false)
-  %28 = call ptr @hash_seq_search(ptr noundef nonnull %4) #8
+  %28 = call ptr @hash_seq_search(ptr noundef nonnull %4) #7
   %.not34 = icmp eq ptr %28, null
   br i1 %.not34, label %._crit_edge44, label %.lr.ph43, !llvm.loop !13
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge
   %.029.lcssa = phi ptr [ %1, %._crit_edge ], [ %27, %.lr.ph43 ]
-  call void @hash_destroy(ptr noundef %12) #8
+  call void @hash_destroy(ptr noundef %12) #7
   br label %29
 
 29:                                               ; preds = %._crit_edge44, %2
@@ -818,14 +816,14 @@ define dso_local void @RestorePendingSyncs(ptr noundef %0) local_unnamed_addr #0
   store i64 16, ptr %7, align 8
   %12 = load ptr, ptr @TopTransactionContext, align 8
   store ptr %12, ptr %8, align 8
-  %13 = call ptr @hash_create(ptr noundef nonnull @.str.5, i64 noundef 16, ptr noundef nonnull %3, i32 noundef 1064) #8
+  %13 = call ptr @hash_create(ptr noundef nonnull @.str.5, i64 noundef 16, ptr noundef nonnull %3, i32 noundef 1064) #7
   store ptr %13, ptr @pendingSyncHash, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %AddPendingSync.exit
 
 AddPendingSync.exit:                              ; preds = %9, %11
   %14 = phi ptr [ %13, %11 ], [ %10, %9 ]
-  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %.05, i32 noundef 1, ptr noundef nonnull %2) #8
+  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %.05, i32 noundef 1, ptr noundef nonnull %2) #7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i8 0, ptr %16, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -841,7 +839,7 @@ AddPendingSync.exit:                              ; preds = %9, %11
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @GetCurrentTransactionNestLevel() #8
+  %2 = tail call i32 @GetCurrentTransactionNestLevel() #7
   %3 = load ptr, ptr @pendingDeletes, align 8
   %.not46 = icmp eq ptr %3, null
   br i1 %.not46, label %._crit_edge.thread, label %.lr.ph
@@ -888,12 +886,12 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %.sroa.0.0.copyload = load i64, ptr %.03351, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.03351, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %22 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %21) #8
+  %22 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %21) #7
   %23 = icmp eq i32 %.04047, 0
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @palloc(i64 noundef 64) #8
+  %25 = tail call ptr @palloc(i64 noundef 64) #7
   br label %32
 
 26:                                               ; preds = %19
@@ -904,7 +902,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %28 = shl i32 %.04047, 1
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @repalloc(ptr noundef %.03748, i64 noundef %30) #8
+  %31 = tail call ptr @repalloc(ptr noundef %.03748, i64 noundef %30) #7
   br label %32
 
 32:                                               ; preds = %26, %27, %24
@@ -920,7 +918,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %.141 = phi i32 [ %.242, %32 ], [ %.04047, %15 ]
   %.138 = phi ptr [ %.239, %32 ], [ %.03748, %15 ]
   %.136 = phi i32 [ %33, %32 ], [ %.03549, %15 ]
-  tail call void @pfree(ptr noundef nonnull %.03351) #8
+  tail call void @pfree(ptr noundef nonnull %.03351) #7
   br label %37
 
 37:                                               ; preds = %5, %36
@@ -936,19 +934,19 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   br i1 %38, label %39, label %._crit_edge.thread
 
 39:                                               ; preds = %._crit_edge
-  tail call void @smgrdounlinkall(ptr noundef %.3, i32 noundef %.2, i1 noundef zeroext false) #8
+  tail call void @smgrdounlinkall(ptr noundef %.3, i32 noundef %.2, i1 noundef zeroext false) #7
   %wide.trip.count = zext nneg i32 %.2 to i64
   br label %41
 
 40:                                               ; preds = %41
-  tail call void @pfree(ptr noundef nonnull %.3) #8
+  tail call void @pfree(ptr noundef nonnull %.3) #7
   br label %._crit_edge.thread
 
 41:                                               ; preds = %39, %41
   %indvars.iv = phi i64 [ 0, %39 ], [ %indvars.iv.next, %41 ]
   %42 = getelementptr inbounds nuw ptr, ptr %.3, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
-  tail call void @smgrclose(ptr noundef %43) #8
+  tail call void @smgrclose(ptr noundef %43) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %40, label %41, !llvm.loop !16
@@ -1002,7 +1000,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr @pendingSyncHash, align 8
-  %15 = tail call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %.067, i32 noundef 2, ptr noundef null) #8
+  %15 = tail call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %.067, i32 noundef 2, ptr noundef null) #7
   br label %16
 
 16:                                               ; preds = %.lr.ph, %13
@@ -1017,8 +1015,8 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader64
   %18 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %.preheader64 ]
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %18) #8
-  %19 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %18) #7
+  %19 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
   %.not5871 = icmp eq ptr %19, null
   br i1 %.not5871, label %._crit_edge77.thread, label %.lr.ph76
 
@@ -1035,7 +1033,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %.sroa.05.0.copyload = load i64, ptr %20, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
-  %21 = call ptr @smgropen(i64 %.sroa.05.0.copyload, i32 %.sroa.26.0.copyload, i32 noundef -1) #8
+  %21 = call ptr @smgropen(i64 %.sroa.05.0.copyload, i32 %.sroa.26.0.copyload, i32 noundef -1) #7
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i8, ptr %22, align 4, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -1045,11 +1043,11 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph76 ]
   %.15468 = phi i64 [ %.255, %31 ], [ 0, %.lr.ph76 ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
-  %26 = call zeroext i1 @smgrexists(ptr noundef %21, i32 noundef %25) #8
+  %26 = call zeroext i1 @smgrexists(ptr noundef %21, i32 noundef %25) #7
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %.preheader62
-  %28 = call i32 @smgrnblocks(ptr noundef %21, i32 noundef %25) #8
+  %28 = call i32 @smgrnblocks(ptr noundef %21, i32 noundef %25) #7
   %29 = zext i32 %28 to i64
   %30 = add i64 %.15468, %29
   br label %31
@@ -1085,7 +1083,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %.loopexit63.thread
-  %41 = call ptr @palloc(i64 noundef 64) #8
+  %41 = call ptr @palloc(i64 noundef 64) #7
   br label %48
 
 42:                                               ; preds = %.loopexit63.thread
@@ -1096,7 +1094,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %44 = shl i32 %.04673, 1
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 3
-  %47 = call ptr @repalloc(ptr noundef %.04872, i64 noundef %46) #8
+  %47 = call ptr @repalloc(ptr noundef %.04872, i64 noundef %46) #7
   br label %48
 
 48:                                               ; preds = %42, %43, %40
@@ -1118,10 +1116,10 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 55:                                               ; preds = %52
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
-  %56 = call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #8
+  %56 = call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #7
   %57 = trunc nuw nsw i64 %indvars.iv80 to i32
-  call void @log_newpage_range(ptr noundef %56, i32 noundef %57, i32 noundef 0, i32 noundef %54, i1 noundef zeroext false) #8
-  call void @FreeFakeRelcacheEntry(ptr noundef %56) #8
+  call void @log_newpage_range(ptr noundef %56, i32 noundef %57, i32 noundef 0, i32 noundef %54, i1 noundef zeroext false) #7
+  call void @FreeFakeRelcacheEntry(ptr noundef %56) #7
   br label %58
 
 58:                                               ; preds = %52, %55
@@ -1134,7 +1132,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %.2 = phi i32 [ %.147, %48 ], [ %.04673, %58 ]
   %.1 = phi i32 [ %49, %48 ], [ %.04574, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %59 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
+  %59 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
   %.not58 = icmp eq ptr %59, null
   br i1 %.not58, label %._crit_edge77, label %.lr.ph76, !llvm.loop !20
 
@@ -1144,8 +1142,8 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   br i1 %60, label %61, label %62
 
 61:                                               ; preds = %._crit_edge77
-  call void @smgrdosyncall(ptr noundef %.250, i32 noundef %.1) #8
-  call void @pfree(ptr noundef %.250) #8
+  call void @smgrdosyncall(ptr noundef %.250, i32 noundef %.1) #7
+  call void @pfree(ptr noundef %.250) #7
   br label %62
 
 62:                                               ; preds = %._crit_edge77.thread, %._crit_edge77, %61, %2, %9, %7
@@ -1163,7 +1161,7 @@ declare void @smgrdosyncall(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @GetCurrentTransactionNestLevel() #8
+  %3 = tail call i32 @GetCurrentTransactionNestLevel() #7
   %.032 = load ptr, ptr @pendingDeletes, align 8
   %.not33 = icmp eq ptr %.032, null
   br i1 %.not33, label %._crit_edge.thread, label %.lr.ph
@@ -1212,7 +1210,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr noundef w
 20:                                               ; preds = %._crit_edge
   %21 = sext i32 %.127 to i64
   %22 = mul nsw i64 %21, 12
-  %23 = tail call ptr @palloc(i64 noundef %22) #8
+  %23 = tail call ptr @palloc(i64 noundef %22) #7
   store ptr %23, ptr %1, align 8
   %.136 = load ptr, ptr @pendingDeletes, align 8
   %.not2937 = icmp eq ptr %.136, null
@@ -1270,7 +1268,7 @@ define dso_local void @PostPrepare_smgr() local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.06, i64 24
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @pendingDeletes, align 8
-  tail call void @pfree(ptr noundef nonnull %.06) #8
+  tail call void @pfree(ptr noundef nonnull %.06) #7
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
@@ -1280,7 +1278,7 @@ define dso_local void @PostPrepare_smgr() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtSubCommit_smgr() local_unnamed_addr #0 {
-  %1 = tail call i32 @GetCurrentTransactionNestLevel() #8
+  %1 = tail call i32 @GetCurrentTransactionNestLevel() #7
   %.07 = load ptr, ptr @pendingDeletes, align 8
   %.not8 = icmp eq ptr %.07, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -1337,10 +1335,10 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %.sroa.042.0.copyload = load i64, ptr %12, align 4
   %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.243.0.copyload = load i32, ptr %.sroa.243.0..sroa_idx, align 4
-  %13 = tail call ptr @smgropen(i64 %.sroa.042.0.copyload, i32 %.sroa.243.0.copyload, i32 noundef -1) #8
+  %13 = tail call ptr @smgropen(i64 %.sroa.042.0.copyload, i32 %.sroa.243.0.copyload, i32 noundef -1) #7
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %15 = load i32, ptr %14, align 4
-  tail call void @smgrcreate(ptr noundef %13, i32 noundef %15, i1 noundef zeroext true) #8
+  tail call void @smgrcreate(ptr noundef %13, i32 noundef %15, i1 noundef zeroext true) #7
   br label %73
 
 16:                                               ; preds = %1
@@ -1355,9 +1353,9 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %.sroa.03.0.copyload = load i64, ptr %21, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 12
   %.sroa.24.0.copyload = load i32, ptr %.sroa.24.0..sroa_idx, align 4
-  %22 = tail call ptr @smgropen(i64 %.sroa.03.0.copyload, i32 %.sroa.24.0.copyload, i32 noundef -1) #8
-  tail call void @smgrcreate(ptr noundef %22, i32 noundef 0, i1 noundef zeroext true) #8
-  tail call void @XLogFlush(i64 noundef %18) #8
+  %22 = tail call ptr @smgropen(i64 %.sroa.03.0.copyload, i32 %.sroa.24.0.copyload, i32 noundef -1) #7
+  tail call void @smgrcreate(ptr noundef %22, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void @XLogFlush(i64 noundef %18) #7
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
@@ -1366,32 +1364,32 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
 
 26:                                               ; preds = %16
   store i32 0, ptr %2, align 4
-  %27 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 0) #8
+  %27 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 0) #7
   store i32 %27, ptr %4, align 4
   %28 = load i32, ptr %20, align 4
   store i32 %28, ptr %3, align 4
   %.sroa.01.0.copyload = load i64, ptr %21, align 4
   %.sroa.22.0.copyload = load i32, ptr %.sroa.24.0..sroa_idx, align 4
-  tail call void @XLogTruncateRelation(i64 %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload, i32 noundef 0, i32 noundef %28) #8
+  tail call void @XLogTruncateRelation(i64 %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload, i32 noundef 0, i32 noundef %28) #7
   br label %29
 
 29:                                               ; preds = %26, %16
   %.0 = phi i32 [ 1, %26 ], [ 0, %16 ]
   %.sroa.0.0.copyload = load i64, ptr %21, align 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.24.0..sroa_idx, align 4
-  %30 = tail call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #8
+  %30 = tail call ptr @CreateFakeRelcacheEntry(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload) #7
   %31 = load i32, ptr %23, align 4
   %32 = and i32 %31, 4
   %.not57 = icmp eq i32 %32, 0
   br i1 %.not57, label %45, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call zeroext i1 @smgrexists(ptr noundef %22, i32 noundef 1) #8
+  %34 = tail call zeroext i1 @smgrexists(ptr noundef %22, i32 noundef 1) #7
   br i1 %34, label %35, label %45
 
 35:                                               ; preds = %33
   %36 = load i32, ptr %20, align 4
-  %37 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef %30, i32 noundef %36) #8
+  %37 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef %30, i32 noundef %36) #7
   %38 = zext nneg i32 %.0 to i64
   %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
   store i32 %37, ptr %39, align 4
@@ -1401,7 +1399,7 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i32, ptr %2, i64 %38
   store i32 1, ptr %41, align 4
-  %42 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 1) #8
+  %42 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 1) #7
   %43 = getelementptr inbounds nuw i32, ptr %4, i64 %38
   store i32 %42, ptr %43, align 4
   %44 = add nuw nsw i32 %.0, 1
@@ -1416,12 +1414,12 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   br i1 %.not58, label %59, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call zeroext i1 @smgrexists(ptr noundef %22, i32 noundef 2) #8
+  %49 = tail call zeroext i1 @smgrexists(ptr noundef %22, i32 noundef 2) #7
   br i1 %49, label %50, label %59
 
 50:                                               ; preds = %48
   %51 = load i32, ptr %20, align 4
-  %52 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef %30, i32 noundef %51) #8
+  %52 = tail call i32 @visibilitymap_prepare_truncate(ptr noundef %30, i32 noundef %51) #7
   %53 = zext nneg i32 %.1 to i64
   %54 = getelementptr inbounds nuw i32, ptr %3, i64 %53
   store i32 %52, ptr %54, align 4
@@ -1431,7 +1429,7 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
 .thread:                                          ; preds = %50
   %55 = getelementptr inbounds nuw i32, ptr %2, i64 %53
   store i32 2, ptr %55, align 4
-  %56 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 2) #8
+  %56 = tail call i32 @smgrnblocks(ptr noundef %22, i32 noundef 2) #7
   %57 = getelementptr inbounds nuw i32, ptr %4, i64 %53
   store i32 %56, ptr %57, align 4
   %58 = add nuw nsw i32 %.1, 1
@@ -1446,7 +1444,7 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
   %61 = load volatile i32, ptr @CritSectionCount, align 4
   %62 = add i32 %61, 1
   store volatile i32 %62, ptr @CritSectionCount, align 4
-  call void @smgrtruncate(ptr noundef %22, ptr noundef nonnull %2, i32 noundef %.260, ptr noundef nonnull %4, ptr noundef nonnull %3) #8
+  call void @smgrtruncate(ptr noundef %22, ptr noundef nonnull %2, i32 noundef %.260, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   %63 = load volatile i32, ptr @CritSectionCount, align 4
   %64 = add i32 %63, -1
   store volatile i32 %64, ptr @CritSectionCount, align 4
@@ -1457,11 +1455,11 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
 
 66:                                               ; preds = %65
   %67 = load i32, ptr %20, align 4
-  call void @FreeSpaceMapVacuumRange(ptr noundef %30, i32 noundef %67, i32 noundef -1) #8
+  call void @FreeSpaceMapVacuumRange(ptr noundef %30, i32 noundef %67, i32 noundef -1) #7
   br label %68
 
 68:                                               ; preds = %66, %65
-  call void @FreeFakeRelcacheEntry(ptr noundef %30) #8
+  call void @FreeFakeRelcacheEntry(ptr noundef %30) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1469,10 +1467,9 @@ define dso_local void @smgr_redo(ptr noundef readonly captures(none) %0) local_u
 
 69:                                               ; preds = %1
   %70 = zext i8 %9 to i32
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %70) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @__func__.smgr_redo) #8
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #6
+  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %70) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1078, ptr noundef nonnull @__func__.smgr_redo) #7
   unreachable
 
 73:                                               ; preds = %68, %10
@@ -1493,18 +1490,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { cold nounwind }
-attributes #8 = { nounwind }
+attributes #6 = { cold nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

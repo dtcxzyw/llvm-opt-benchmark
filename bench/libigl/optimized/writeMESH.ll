@@ -53,7 +53,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = load ptr, ptr %0, align 8, !tbaa !4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #9
   br label %68
 
 12:                                               ; preds = %4
@@ -63,7 +63,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !14
   %18 = trunc i64 %17 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #10
   %20 = icmp sgt i32 %18, 0
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
@@ -76,7 +76,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !17
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #11
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #10
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph61.preheader, label %._crit_edge62
 
@@ -94,7 +94,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %31 = load double, ptr %30, align 8, !tbaa !21
   %32 = getelementptr i8, ptr %28, i64 16
   %33 = load double, ptr %32, align 8, !tbaa !21
-  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %31, double noundef %33) #11
+  %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %31, double noundef %33) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -104,7 +104,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !25
   %38 = trunc i64 %37 to i32
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %38) #11
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %38) #10
   %40 = icmp sgt i32 %38, 0
   br i1 %40, label %.lr.ph65.preheader, label %._crit_edge66
 
@@ -125,7 +125,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %48 = getelementptr i8, ptr %42, i64 8
   %49 = load i32, ptr %48, align 4, !tbaa !28
   %50 = add nsw i32 %49, 1
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %44, i32 noundef %47, i32 noundef %50) #11
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %44, i32 noundef %47, i32 noundef %50) #10
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !30
@@ -152,7 +152,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %64 = getelementptr i8, ptr %54, i64 %.idx57
   %65 = load i32, ptr %64, align 4, !tbaa !28
   %66 = add nsw i32 %65, 1
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %56, i32 noundef %60, i32 noundef %63, i32 noundef %66) #11
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %56, i32 noundef %60, i32 noundef %63, i32 noundef %66) #10
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
   br i1 %exitcond77.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !32
@@ -180,7 +180,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = load ptr, ptr %0, align 8, !tbaa !4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #9
   br label %71
 
 12:                                               ; preds = %4
@@ -190,7 +190,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !33
   %18 = trunc i64 %17 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #10
   %20 = icmp sgt i32 %18, 0
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
@@ -203,7 +203,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !17
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #11
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #10
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph61.preheader, label %._crit_edge62
 
@@ -224,7 +224,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
   %34 = getelementptr i8, ptr %28, i64 8
   %35 = load float, ptr %34, align 4, !tbaa !37
   %36 = fpext float %35 to double
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %30, double noundef %33, double noundef %36) #11
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %30, double noundef %33, double noundef %36) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -234,7 +234,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !25
   %41 = trunc i64 %40 to i32
-  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %41) #11
+  %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %41) #10
   %43 = icmp sgt i32 %41, 0
   br i1 %43, label %.lr.ph65.preheader, label %._crit_edge66
 
@@ -255,7 +255,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
   %51 = getelementptr i8, ptr %45, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !28
   %53 = add nsw i32 %52, 1
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %47, i32 noundef %50, i32 noundef %53) #11
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %47, i32 noundef %50, i32 noundef %53) #10
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !40
@@ -282,7 +282,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIf
   %67 = getelementptr i8, ptr %57, i64 %.idx57
   %68 = load i32, ptr %67, align 4, !tbaa !28
   %69 = add nsw i32 %68, 1
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %59, i32 noundef %63, i32 noundef %66, i32 noundef %69) #11
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %59, i32 noundef %63, i32 noundef %66, i32 noundef %69) #10
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
   br i1 %exitcond77.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !41
@@ -301,7 +301,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = load ptr, ptr %0, align 8, !tbaa !4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #9
   br label %70
 
 12:                                               ; preds = %4
@@ -311,7 +311,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !42
   %18 = trunc i64 %17 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #10
   %20 = icmp sgt i32 %18, 0
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
@@ -324,7 +324,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !44
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #11
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #10
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph58.preheader, label %._crit_edge59
 
@@ -343,7 +343,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %.idx54 = shl i64 %30, 4
   %33 = getelementptr i8, ptr %28, i64 %.idx54
   %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %32, double noundef %34) #11
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %32, double noundef %34) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
@@ -353,7 +353,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !25
   %39 = trunc i64 %38 to i32
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %39) #11
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %39) #10
   %41 = icmp sgt i32 %39, 0
   br i1 %41, label %.lr.ph62.preheader, label %._crit_edge63
 
@@ -375,7 +375,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %50 = getelementptr i8, ptr %43, i64 %.idx53
   %51 = load i32, ptr %50, align 4, !tbaa !28
   %52 = add nsw i32 %51, 1
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %45, i32 noundef %49, i32 noundef %52) #11
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %45, i32 noundef %49, i32 noundef %52) #10
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !49
@@ -402,7 +402,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %66 = getelementptr i8, ptr %56, i64 %.idx52
   %67 = load i32, ptr %66, align 4, !tbaa !28
   %68 = add nsw i32 %67, 1
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %58, i32 noundef %62, i32 noundef %65, i32 noundef %68) #11
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %58, i32 noundef %62, i32 noundef %65, i32 noundef %68) #10
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !50
@@ -421,19 +421,19 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = load ptr, ptr %0, align 8, !tbaa !4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #9
   br label %62
 
 12:                                               ; preds = %4
   %13 = tail call i64 @fwrite(ptr nonnull @.str.4, i64 23, i64 1, ptr nonnull %6)
   %14 = tail call i64 @fwrite(ptr nonnull @.str.5, i64 12, i64 1, ptr nonnull %6)
   %15 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 9, i64 1, ptr nonnull %6)
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef 8) #11
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef 8) #10
   br label %20
 
 17:                                               ; preds = %20
   %18 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 10, i64 1, ptr nonnull %6)
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef 12) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef 12) #10
   br label %35
 
 20:                                               ; preds = %12, %20
@@ -444,7 +444,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %24 = load double, ptr %23, align 8, !tbaa !21
   %25 = getelementptr i8, ptr %21, i64 128
   %26 = load double, ptr %25, align 8, !tbaa !21
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %22, double noundef %24, double noundef %26) #11
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %22, double noundef %24, double noundef %26) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %17, label %20, !llvm.loop !51
@@ -454,7 +454,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !25
   %32 = trunc i64 %31 to i32
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %32) #11
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %32) #10
   %34 = icmp sgt i32 %32, 0
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge
 
@@ -473,7 +473,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %42 = getelementptr i8, ptr %36, i64 96
   %43 = load i32, ptr %42, align 4, !tbaa !28
   %44 = add nsw i32 %43, 1
-  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %38, i32 noundef %41, i32 noundef %44) #11
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %38, i32 noundef %41, i32 noundef %44) #10
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 12
   br i1 %exitcond60.not, label %28, label %35, !llvm.loop !52
@@ -500,7 +500,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %58 = getelementptr i8, ptr %48, i64 %.idx52
   %59 = load i32, ptr %58, align 4, !tbaa !28
   %60 = add nsw i32 %59, 1
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %50, i32 noundef %54, i32 noundef %57, i32 noundef %60) #11
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %50, i32 noundef %54, i32 noundef %57, i32 noundef %60) #10
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
   br i1 %exitcond64.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
@@ -519,7 +519,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = load ptr, ptr %0, align 8, !tbaa !4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #9
   br label %70
 
 12:                                               ; preds = %4
@@ -529,7 +529,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !54
   %18 = trunc i64 %17 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #10
   %20 = icmp sgt i32 %18, 0
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
@@ -542,7 +542,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !25
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #11
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #10
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph58.preheader, label %._crit_edge59
 
@@ -561,7 +561,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %.idx54 = shl i64 %30, 4
   %33 = getelementptr i8, ptr %28, i64 %.idx54
   %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %32, double noundef %34) #11
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %32, double noundef %34) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
@@ -571,7 +571,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !25
   %39 = trunc i64 %38 to i32
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %39) #11
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %39) #10
   %41 = icmp sgt i32 %39, 0
   br i1 %41, label %.lr.ph62.preheader, label %._crit_edge63
 
@@ -593,7 +593,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %50 = getelementptr i8, ptr %43, i64 %.idx53
   %51 = load i32, ptr %50, align 4, !tbaa !28
   %52 = add nsw i32 %51, 1
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %45, i32 noundef %49, i32 noundef %52) #11
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %45, i32 noundef %49, i32 noundef %52) #10
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !58
@@ -620,7 +620,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %66 = getelementptr i8, ptr %56, i64 %.idx52
   %67 = load i32, ptr %66, align 4, !tbaa !28
   %68 = add nsw i32 %67, 1
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %58, i32 noundef %62, i32 noundef %65, i32 noundef %68) #11
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %58, i32 noundef %62, i32 noundef %65, i32 noundef %68) #10
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !59
@@ -639,7 +639,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
 8:                                                ; preds = %4
   %9 = load ptr, ptr @stderr, align 8, !tbaa !12
   %10 = load ptr, ptr %0, align 8, !tbaa !4
-  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #10
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %10) #9
   br label %74
 
 12:                                               ; preds = %4
@@ -649,7 +649,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !54
   %18 = trunc i64 %17 to i32
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #11
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %18) #10
   %20 = icmp sgt i32 %18, 0
   br i1 %20, label %.lr.ph.preheader, label %._crit_edge
 
@@ -662,7 +662,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !25
   %24 = trunc i64 %23 to i32
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #11
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %24) #10
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph58.preheader, label %._crit_edge59
 
@@ -681,7 +681,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %.idx54 = shl i64 %30, 4
   %33 = getelementptr i8, ptr %28, i64 %.idx54
   %34 = load double, ptr %33, align 8, !tbaa !21
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %32, double noundef %34) #11
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, double noundef %29, double noundef %32, double noundef %34) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
@@ -691,7 +691,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !54
   %39 = trunc i64 %38 to i32
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %39) #11
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %39) #10
   %41 = icmp sgt i32 %39, 0
   br i1 %41, label %.lr.ph62.preheader, label %._crit_edge63
 
@@ -713,7 +713,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %50 = getelementptr i8, ptr %43, i64 %.idx53
   %51 = load i32, ptr %50, align 4, !tbaa !28
   %52 = add nsw i32 %51, 1
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %45, i32 noundef %49, i32 noundef %52) #11
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.11, i32 noundef %45, i32 noundef %49, i32 noundef %52) #10
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
   br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !61
@@ -744,7 +744,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixId
   %70 = load double, ptr %69, align 8, !tbaa !21
   %71 = fptosi double %70 to i32
   %72 = add nsw i32 %71, 1
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %59, i32 noundef %64, i32 noundef %68, i32 noundef %72) #11
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.13, i32 noundef %59, i32 noundef %64, i32 noundef %68, i32 noundef %72) #10
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !62
@@ -837,67 +837,55 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl9writeMESHIdiEEbNSt7__cxx11
   store i8 0, ptr %36, align 1, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %37 = invoke noundef zeroext i1 @_ZN3igl9writeMESHIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEES4_EEbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_10MatrixBaseIT_EERKNSB_IT0_EERKNSB_IT1_EE(ptr noundef nonnull %9, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %38 unwind label %45
+          to label %38 unwind label %43
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %9, align 8, !tbaa !4
   %40 = icmp eq ptr %39, %21
-  br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %38
-  %41 = load i64, ptr %34, align 8, !tbaa !64
-  %42 = icmp ult i64 %41, 16
-  call void @llvm.assume(i1 %42)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %38
-  %43 = load i64, ptr %21, align 8, !tbaa !66
-  %44 = add i64 %43, 1
-  call void @_ZdlPvm(ptr noundef %39, i64 noundef %44) #12
+  %41 = load i64, ptr %21, align 8, !tbaa !66
+  %42 = add i64 %41, 1
+  call void @_ZdlPvm(ptr noundef %39, i64 noundef %42) #11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-45:                                               ; preds = %32
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %32
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %9, align 8, !tbaa !4
-  %48 = icmp eq ptr %47, %21
-  br i1 %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
+  %45 = load ptr, ptr %9, align 8, !tbaa !4
+  %46 = icmp eq ptr %45, %21
+  br i1 %46, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16: ; preds = %45
-  %49 = load i64, ptr %34, align 8, !tbaa !64
-  %50 = icmp ult i64 %49, 16
-  call void @llvm.assume(i1 %50)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %43
+  %47 = load i64, ptr %21, align 8, !tbaa !66
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %45, i64 noundef %48) #11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %45
-  %51 = load i64, ptr %21, align 8, !tbaa !66
-  %52 = add i64 %51, 1
-  call void @_ZdlPvm(ptr noundef %47, i64 noundef %52) #12
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %19, %16, %11
-  %.011 = phi i1 [ false, %11 ], [ false, %16 ], [ false, %19 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
-  %53 = load ptr, ptr %8, align 8, !tbaa !31
-  call void @free(ptr noundef %53) #11
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %19, %16, %11
+  %.011 = phi i1 [ false, %11 ], [ false, %16 ], [ false, %19 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %37, %38 ]
+  %49 = load ptr, ptr %8, align 8, !tbaa !31
+  call void @free(ptr noundef %49) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %54 = load ptr, ptr %7, align 8, !tbaa !31
-  call void @free(ptr noundef %54) #11
+  %50 = load ptr, ptr %7, align 8, !tbaa !31
+  call void @free(ptr noundef %50) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = load ptr, ptr %6, align 8, !tbaa !56
-  call void @free(ptr noundef %55) #11
+  %51 = load ptr, ptr %6, align 8, !tbaa !56
+  call void @free(ptr noundef %51) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.011
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %12
-  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16 ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15 ]
-  %56 = load ptr, ptr %8, align 8, !tbaa !31
-  call void @free(ptr noundef %56) #11
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15, %12
+  %.pn = phi { ptr, i32 } [ %13, %12 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15 ], [ %44, %43 ]
+  %52 = load ptr, ptr %8, align 8, !tbaa !31
+  call void @free(ptr noundef %52) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %57 = load ptr, ptr %7, align 8, !tbaa !31
-  call void @free(ptr noundef %57) #11
+  %53 = load ptr, ptr %7, align 8, !tbaa !31
+  call void @free(ptr noundef %53) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %58 = load ptr, ptr %6, align 8, !tbaa !56
-  call void @free(ptr noundef %58) #11
+  %54 = load ptr, ptr %6, align 8, !tbaa !56
+  call void @free(ptr noundef %54) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn
 }
@@ -925,14 +913,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -941,12 +926,11 @@ attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nofree nounwind }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { builtin nounwind }
+attributes #7 = { nofree nounwind }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @assign_query_collations(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @assign_query_collations_walker, ptr noundef %0, i32 noundef 10) #5
+  %3 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef %1, ptr noundef nonnull @assign_query_collations_walker, ptr noundef %0, i32 noundef 10) #4
   ret void
 }
 
@@ -194,7 +194,7 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   ]
 
 19:                                               ; preds = %11
-  %20 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %20 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -202,14 +202,14 @@ define internal noundef zeroext i1 @assign_collations_walker(ptr noundef %0, ptr
   br label %237
 
 25:                                               ; preds = %11
-  %26 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %26 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %28 = load i32, ptr %27, align 4
   %.not143 = icmp eq i32 %28, 0
   br i1 %.not143, label %237, label %29
 
 29:                                               ; preds = %25
-  %30 = call i32 @exprLocation(ptr noundef nonnull %0) #5
+  %30 = call i32 @exprLocation(ptr noundef nonnull %0) #4
   br label %237
 
 31:                                               ; preds = %11
@@ -301,7 +301,7 @@ select_common_collation.exit:                     ; preds = %71
   %78 = load ptr, ptr %67, align 8
   %79 = load ptr, ptr %77, align 8
   %80 = load ptr, ptr %1, align 8
-  %81 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %78, ptr %79) #5
+  %81 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %78, ptr %79) #4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %80, ptr %7, align 8
   store i32 0, ptr %57, align 8
@@ -313,22 +313,22 @@ select_common_collation.exit:                     ; preds = %71
   %85 = load i32, ptr %57, align 8
   %spec.select = select i1 %84, i32 0, i32 %85
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %86 = tail call ptr @lappend_oid(ptr noundef %.0127, i32 noundef %spec.select) #5
+  %86 = tail call ptr @lappend_oid(ptr noundef %.0127, i32 noundef %spec.select) #4
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   br label %.split.split, !llvm.loop !4
 
 87:                                               ; preds = %11
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load i32, ptr %88, align 8
-  %90 = tail call i32 @get_typcollation(i32 noundef %89) #5
-  %91 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %90 = tail call i32 @get_typcollation(i32 noundef %89) #4
+  %91 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   switch i32 %90, label %92 [
     i32 0, label %.thread149
     i32 100, label %94
   ]
 
 92:                                               ; preds = %87
-  %93 = call i32 @exprLocation(ptr noundef nonnull %0) #5
+  %93 = call i32 @exprLocation(ptr noundef nonnull %0) #4
   br label %.thread149
 
 94:                                               ; preds = %87
@@ -339,18 +339,18 @@ select_common_collation.exit:                     ; preds = %71
   br i1 %98, label %99, label %.thread149
 
 99:                                               ; preds = %94
-  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef 0) #5
+  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef 0) #4
   br label %237
 
 .thread149:                                       ; preds = %87, %92, %94
   %.2155 = phi i32 [ %95, %94 ], [ %90, %87 ], [ %90, %92 ]
   %.2117154 = phi i32 [ %96, %94 ], [ %90, %87 ], [ 1, %92 ]
   %.2122153 = phi i32 [ %97, %94 ], [ -1, %87 ], [ %93, %92 ]
-  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.2155) #5
+  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.2155) #4
   br label %237
 
 100:                                              ; preds = %11
-  %101 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %101 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   %102 = load i32, ptr %13, align 8
   %103 = load i32, ptr %14, align 4
   %104 = load i32, ptr %15, align 8
@@ -364,23 +364,22 @@ select_common_collation.exit:                     ; preds = %71
   br i1 %.not139, label %237, label %109
 
 109:                                              ; preds = %106
-  %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %110)
-  %111 = call i32 @errcode(i32 noundef 17432708) #5
+  %110 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %111 = call i32 @errcode(i32 noundef 17432708) #4
   %112 = load i32, ptr %13, align 8
-  %113 = call ptr @get_collation_name(i32 noundef %112) #5
+  %113 = call ptr @get_collation_name(i32 noundef %112) #4
   %114 = load i32, ptr %16, align 4
-  %115 = call ptr @get_collation_name(i32 noundef %114) #5
-  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %113, ptr noundef %115) #5
-  %117 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #5
+  %115 = call ptr @get_collation_name(i32 noundef %114) #4
+  %116 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %113, ptr noundef %115) #4
+  %117 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #4
   %118 = load ptr, ptr %1, align 8
   %119 = load i32, ptr %17, align 8
-  %120 = call i32 @parser_errposition(ptr noundef %118, i32 noundef %119) #5
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 480, ptr noundef nonnull @__func__.assign_collations_walker) #5
+  %120 = call i32 @parser_errposition(ptr noundef %118, i32 noundef %119) #4
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 480, ptr noundef nonnull @__func__.assign_collations_walker) #4
   unreachable
 
 121:                                              ; preds = %11, %11, %11, %11, %11, %11, %11
-  %122 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %122 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   br label %assign_list_collations.exit
 
 123:                                              ; preds = %11
@@ -401,23 +400,23 @@ select_common_collation.exit:                     ; preds = %71
 133:                                              ; preds = %127
   %134 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %135 = load ptr, ptr %134, align 8
-  %136 = tail call i32 @exprCollation(ptr noundef %135) #5
+  %136 = tail call i32 @exprCollation(ptr noundef %135) #4
   %137 = load ptr, ptr %134, align 8
-  %138 = tail call i32 @exprLocation(ptr noundef %137) #5
+  %138 = tail call i32 @exprLocation(ptr noundef %137) #4
   br label %237
 
 139:                                              ; preds = %11
-  %140 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %140 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   %141 = load i32, ptr %13, align 8
   %142 = load i32, ptr %14, align 4
   %143 = load i32, ptr %15, align 8
   br label %237
 
 144:                                              ; preds = %11, %11, %11, %11, %11, %11, %11
-  %145 = tail call i32 @exprCollation(ptr noundef nonnull %0) #5
+  %145 = tail call i32 @exprCollation(ptr noundef nonnull %0) #4
   %.not = icmp ne i32 %145, 0
   %. = zext i1 %.not to i32
-  %146 = tail call i32 @exprLocation(ptr noundef nonnull %0) #5
+  %146 = tail call i32 @exprLocation(ptr noundef nonnull %0) #4
   br label %237
 
 147:                                              ; preds = %11
@@ -442,12 +441,11 @@ select_common_collation.exit:                     ; preds = %71
   br label %158
 
 153:                                              ; preds = %147
-  %154 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %154)
+  %154 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %155 = load i8, ptr %148, align 2
   %156 = sext i8 %155 to i32
-  %157 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %156) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.assign_collations_walker) #5
+  %157 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %156) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.assign_collations_walker) #4
   unreachable
 
 158:                                              ; preds = %152, %151, %150
@@ -556,12 +554,12 @@ select_common_collation.exit:                     ; preds = %71
   br label %221
 
 219:                                              ; preds = %11
-  %220 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #5
+  %220 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @assign_collations_walker, ptr noundef nonnull %9) #4
   br label %221
 
 221:                                              ; preds = %219, %199, %.critedge, %166, %158
-  %222 = call i32 @exprType(ptr noundef nonnull %0) #5
-  %223 = call i32 @get_typcollation(i32 noundef %222) #5
+  %222 = call i32 @exprType(ptr noundef nonnull %0) #4
+  %223 = call i32 @get_typcollation(i32 noundef %222) #4
   %.not146 = icmp eq i32 %223, 0
   br i1 %.not146, label %.thread162, label %224
 
@@ -571,7 +569,7 @@ select_common_collation.exit:                     ; preds = %71
   br i1 %.not147, label %226, label %228
 
 226:                                              ; preds = %224
-  %227 = call i32 @exprLocation(ptr noundef nonnull %0) #5
+  %227 = call i32 @exprLocation(ptr noundef nonnull %0) #4
   br label %.thread162
 
 228:                                              ; preds = %224
@@ -586,18 +584,18 @@ select_common_collation.exit:                     ; preds = %71
   %.4171 = phi i32 [ 0, %221 ], [ %223, %226 ], [ %229, %228 ]
   %.5168 = phi i32 [ 0, %221 ], [ 1, %226 ], [ %225, %228 ]
   %.4124166 = phi i32 [ -1, %221 ], [ %227, %226 ], [ %230, %228 ]
-  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.4170.sink) #5
+  call void @exprSetCollation(ptr noundef nonnull %0, i32 noundef %.4170.sink) #4
   %232 = load i32, ptr %14, align 4
   %233 = icmp eq i32 %232, 2
   br i1 %233, label %234, label %235
 
 234:                                              ; preds = %.thread162
-  call void @exprSetInputCollation(ptr noundef nonnull %0, i32 noundef 0) #5
+  call void @exprSetInputCollation(ptr noundef nonnull %0, i32 noundef 0) #4
   br label %237
 
 235:                                              ; preds = %.thread162
   %236 = load i32, ptr %13, align 8
-  call void @exprSetInputCollation(ptr noundef nonnull %0, i32 noundef %236) #5
+  call void @exprSetInputCollation(ptr noundef nonnull %0, i32 noundef %236) #4
   br label %237
 
 237:                                              ; preds = %133, %234, %235, %99, %.thread149, %29, %25, %100, %106, %144, %139, %19
@@ -634,21 +632,20 @@ define dso_local i32 @select_common_collation(ptr noundef %0, ptr noundef %1, i1
   br i1 %2, label %28, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 17432708) #5
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %14 = tail call i32 @errcode(i32 noundef 17432708) #4
   %15 = load i32, ptr %5, align 8
-  %16 = tail call ptr @get_collation_name(i32 noundef %15) #5
+  %16 = tail call ptr @get_collation_name(i32 noundef %15) #4
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %18 = load i32, ptr %17, align 4
-  %19 = tail call ptr @get_collation_name(i32 noundef %18) #5
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %16, ptr noundef %19) #5
-  %21 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #5
+  %19 = tail call ptr @get_collation_name(i32 noundef %18) #4
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %16, ptr noundef %19) #4
+  %21 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #4
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 @parser_errposition(ptr noundef %22, i32 noundef %24) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 232, ptr noundef nonnull @__func__.select_common_collation) #5
+  %25 = tail call i32 @parser_errposition(ptr noundef %22, i32 noundef %24) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 232, ptr noundef nonnull @__func__.select_common_collation) #4
   unreachable
 
 26:                                               ; preds = %3
@@ -761,7 +758,7 @@ list_length.exit:                                 ; preds = %2
 9:                                                ; preds = %list_length.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
-  %12 = tail call i32 @get_func_variadictype(i32 noundef %11) #5
+  %12 = tail call i32 @get_func_variadictype(i32 noundef %11) #4
   %.fr23 = freeze i32 %12
   %13 = icmp eq i32 %.fr23, 0
   br label %list_length.exit.thread
@@ -857,7 +854,7 @@ list_length.exit:                                 ; preds = %list_head.exit
 17:                                               ; preds = %list_length.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = tail call i32 @get_func_variadictype(i32 noundef %19) #5
+  %20 = tail call i32 @get_func_variadictype(i32 noundef %19) #4
   %21 = icmp eq i32 %20, 0
   %.pre = load ptr, ptr %4, align 8
   br label %list_length.exit.thread
@@ -947,19 +944,18 @@ list_length.exit43:                               ; preds = %list_length.exit41,
   br i1 %64, label %65, label %77
 
 65:                                               ; preds = %55
-  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %66)
-  %67 = tail call i32 @errcode(i32 noundef 17432708) #5
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %67 = tail call i32 @errcode(i32 noundef 17432708) #4
   %68 = load i32, ptr %39, align 8
-  %69 = tail call ptr @get_collation_name(i32 noundef %68) #5
+  %69 = tail call ptr @get_collation_name(i32 noundef %68) #4
   %70 = load i32, ptr %42, align 4
-  %71 = tail call ptr @get_collation_name(i32 noundef %70) #5
-  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %69, ptr noundef %71) #5
-  %73 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #5
+  %71 = tail call ptr @get_collation_name(i32 noundef %70) #4
+  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %69, ptr noundef %71) #4
+  %73 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #4
   %74 = load ptr, ptr %3, align 8
   %75 = load i32, ptr %43, align 8
-  %76 = tail call i32 @parser_errposition(ptr noundef %74, i32 noundef %75) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1010, ptr noundef nonnull @__func__.assign_hypothetical_collations) #5
+  %76 = tail call i32 @parser_errposition(ptr noundef %74, i32 noundef %75) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1010, ptr noundef nonnull @__func__.assign_hypothetical_collations) #4
   unreachable
 
 77:                                               ; preds = %55
@@ -969,16 +965,16 @@ list_length.exit43:                               ; preds = %list_length.exit41,
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr %60, align 8
-  %81 = tail call i32 @exprCollation(ptr noundef %80) #5
+  %81 = tail call i32 @exprCollation(ptr noundef %80) #4
   %.not31 = icmp eq i32 %78, %81
   br i1 %.not31, label %88, label %82
 
 82:                                               ; preds = %79
   %83 = load ptr, ptr %60, align 8
-  %84 = tail call i32 @exprType(ptr noundef %83) #5
+  %84 = tail call i32 @exprType(ptr noundef %83) #4
   %85 = load ptr, ptr %60, align 8
-  %86 = tail call i32 @exprTypmod(ptr noundef %85) #5
-  %87 = tail call ptr @makeRelabelType(ptr noundef %83, i32 noundef %84, i32 noundef %86, i32 noundef %78, i32 noundef 2) #5
+  %86 = tail call i32 @exprTypmod(ptr noundef %85) #4
+  %87 = tail call ptr @makeRelabelType(ptr noundef %83, i32 noundef %84, i32 noundef %86, i32 noundef %78, i32 noundef 2) #4
   store ptr %87, ptr %60, align 8
   br label %88
 
@@ -1090,16 +1086,15 @@ define internal fastcc void @merge_collation_state(i32 noundef %0, i32 noundef %
   br i1 %.not41, label %41, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 @errcode(i32 noundef 17432708) #5
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %33 = tail call i32 @errcode(i32 noundef 17432708) #4
   %34 = load i32, ptr %29, align 8
-  %35 = tail call ptr @get_collation_name(i32 noundef %34) #5
-  %36 = tail call ptr @get_collation_name(i32 noundef %0) #5
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %35, ptr noundef %36) #5
+  %35 = tail call ptr @get_collation_name(i32 noundef %34) #4
+  %36 = tail call ptr @get_collation_name(i32 noundef %0) #4
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %35, ptr noundef %36) #4
   %38 = load ptr, ptr %5, align 8
-  %39 = tail call i32 @parser_errposition(ptr noundef %38, i32 noundef %2) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 858, ptr noundef nonnull @__func__.merge_collation_state) #5
+  %39 = tail call i32 @parser_errposition(ptr noundef %38, i32 noundef %2) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 858, ptr noundef nonnull @__func__.merge_collation_state) #4
   unreachable
 
 .sink.split:                                      ; preds = %14, %24, %26
@@ -1125,16 +1120,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

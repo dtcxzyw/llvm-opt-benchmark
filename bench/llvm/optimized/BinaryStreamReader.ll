@@ -1248,41 +1248,38 @@ define dso_local noundef zeroext i8 @_ZNK4llvm18BinaryStreamReader4peekEv(ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %10, ptr %3, align 8, !tbaa !28
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %11 = load ptr, ptr %2, align 8, !tbaa !28
-  %.not.i.i.i = icmp eq ptr %11, null
-  call void @llvm.assume(i1 %.not.i.i.i)
-  %12 = load ptr, ptr %3, align 8, !tbaa !28
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %_ZN4llvm5ErrorD2Ev.exit, label %14
+  %11 = load ptr, ptr %3, align 8, !tbaa !28
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %_ZN4llvm5ErrorD2Ev.exit, label %13
 
-14:                                               ; preds = %1
-  %15 = load ptr, ptr %12, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  call void %17(ptr noundef nonnull align 8 dereferenceable(8) %12) #15
+13:                                               ; preds = %1
+  %14 = load ptr, ptr %11, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = load ptr, ptr %15, align 8
+  call void %16(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %14, %1
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %13, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %18 = load ptr, ptr %5, align 8, !tbaa !41
-  %19 = load i8, ptr %18, align 1, !tbaa !14
-  %20 = load ptr, ptr %6, align 8, !tbaa !28
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %_ZN4llvm5ErrorD2Ev.exit1, label %22
+  %17 = load ptr, ptr %5, align 8, !tbaa !41
+  %18 = load i8, ptr %17, align 1, !tbaa !14
+  %19 = load ptr, ptr %6, align 8, !tbaa !28
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %_ZN4llvm5ErrorD2Ev.exit1, label %21
 
-22:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %23 = load ptr, ptr %20, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #15
+21:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit
+  %22 = load ptr, ptr %19, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %19) #15
   br label %_ZN4llvm5ErrorD2Ev.exit1
 
-_ZN4llvm5ErrorD2Ev.exit1:                         ; preds = %_ZN4llvm5ErrorD2Ev.exit, %22
+_ZN4llvm5ErrorD2Ev.exit1:                         ; preds = %_ZN4llvm5ErrorD2Ev.exit, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i8 %19
+  ret i8 %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

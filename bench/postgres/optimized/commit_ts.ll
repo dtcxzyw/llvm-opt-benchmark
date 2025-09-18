@@ -98,8 +98,8 @@ define dso_local void @TransactionTreeSetCommitTsData(i32 noundef %0, i32 nounde
   %37 = shl nuw nsw i32 %33, 7
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
-  %40 = tail call zeroext i1 @LWLockAcquire(ptr noundef %39, i32 noundef 0) #9
-  %41 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef range(i64 0, 5244161) %22, i1 noundef zeroext true, i32 noundef %.034) #9
+  %40 = tail call zeroext i1 @LWLockAcquire(ptr noundef %39, i32 noundef 0) #8
+  %41 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef range(i64 0, 5244161) %22, i1 noundef zeroext true, i32 noundef %.034) #8
   %42 = load ptr, ptr @CommitTsCtlData, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
@@ -145,7 +145,7 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %45
   store i8 1, ptr %64, align 1
-  tail call void @LWLockRelease(ptr noundef %39) #9
+  tail call void @LWLockRelease(ptr noundef %39) #8
   br i1 %.lcssa, label %65, label %70
 
 65:                                               ; preds = %SetXidCommitTsInPage.exit
@@ -158,7 +158,7 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
 70:                                               ; preds = %SetXidCommitTsInPage.exit
   %71 = load ptr, ptr @MainLWLockArray, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4992
-  %73 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %72, i32 noundef 0) #9
+  %73 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %72, i32 noundef 0) #8
   %74 = load ptr, ptr @commitTsShared, align 8
   store i32 %0, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -168,7 +168,7 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
   %77 = load ptr, ptr @TransamVariables, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 44
   %79 = load i32, ptr %78, align 4
-  %80 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %79, i32 noundef %.033) #9
+  %80 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %79, i32 noundef %.033) #8
   br i1 %80, label %81, label %84
 
 81:                                               ; preds = %70
@@ -180,7 +180,7 @@ SetXidCommitTsInPage.exit:                        ; preds = %.lr.ph.i, %._crit_e
 84:                                               ; preds = %81, %70
   %85 = load ptr, ptr @MainLWLockArray, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %86) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %86) #8
   br label %87
 
 87:                                               ; preds = %5, %84
@@ -202,11 +202,10 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 0) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 287, ptr noundef nonnull @__func__.TransactionIdGetCommitTsData) #9
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %9 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 0) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 287, ptr noundef nonnull @__func__.TransactionIdGetCommitTsData) #8
   unreachable
 
 11:                                               ; preds = %3
@@ -225,7 +224,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
 15:                                               ; preds = %11
   %16 = load ptr, ptr @MainLWLockArray, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4992
-  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %17, i32 noundef 1) #9
+  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %17, i32 noundef 1) #8
   %19 = load ptr, ptr @commitTsShared, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load i8, ptr %20, align 8, !range !4, !noundef !5
@@ -257,7 +256,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
 33:                                               ; preds = %30, %27
   %34 = load ptr, ptr @MainLWLockArray, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %35) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %35) #8
   %36 = load i64, ptr %1, align 8
   %37 = icmp ne i64 %36, 0
   br label %74
@@ -270,16 +269,16 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %45) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %45) #8
   %.not35 = icmp eq i32 %41, 0
   br i1 %.not35, label %50, label %46
 
 46:                                               ; preds = %38
-  %47 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %41) #9
+  %47 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %0, i32 noundef %41) #8
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %43, i32 noundef %0) #9
+  %49 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %43, i32 noundef %0) #8
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48, %46, %38
@@ -292,7 +291,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   br label %74
 
 52:                                               ; preds = %48
-  %53 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @CommitTsCtlData, i64 noundef %5, i32 noundef %0) #9
+  %53 = tail call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @CommitTsCtlData, i64 noundef %5, i32 noundef %0) #8
   %54 = load ptr, ptr @CommitTsCtlData, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -323,7 +322,7 @@ define dso_local zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %0, ptr no
   %69 = shl nuw nsw i32 %65, 7
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 %70
-  tail call void @LWLockRelease(ptr noundef %71) #9
+  tail call void @LWLockRelease(ptr noundef %71) #8
   %72 = load i64, ptr %1, align 8
   %73 = icmp ne i64 %72, 0
   br label %74
@@ -344,14 +343,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @error_commit_ts_disabled() unnamed_addr #3 {
-  %1 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %1)
-  %2 = tail call i32 @errcode(i32 noundef 325) #9
-  %3 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #9
-  %4 = tail call zeroext i1 @RecoveryInProgress() #9
+  %1 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %2 = tail call i32 @errcode(i32 noundef 325) #8
+  %3 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #8
+  %4 = tail call zeroext i1 @RecoveryInProgress() #8
   %.str.10..str.12 = select i1 %4, ptr @.str.10, ptr @.str.12
-  %5 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.10..str.12, ptr noundef nonnull @.str.11) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 390, ptr noundef nonnull @__func__.error_commit_ts_disabled) #9
+  %5 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.10..str.12, ptr noundef nonnull @.str.11) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 390, ptr noundef nonnull @__func__.error_commit_ts_disabled) #8
   unreachable
 }
 
@@ -361,7 +359,7 @@ declare i32 @SimpleLruReadPage_ReadOnly(ptr noundef, i64 noundef, i32 noundef) l
 define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4992
-  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #9
+  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #8
   %6 = load ptr, ptr @commitTsShared, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !4, !noundef !5
@@ -396,7 +394,7 @@ define dso_local i32 @GetLatestCommitTsData(ptr noundef writeonly captures(addre
 20:                                               ; preds = %17, %16
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %22) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %22) #8
   ret i32 %12
 }
 
@@ -435,7 +433,7 @@ define dso_local i64 @pg_last_committed_xact(ptr noundef %0) local_unnamed_addr 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4992
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #9
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #8
   %8 = load ptr, ptr @commitTsShared, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
@@ -454,16 +452,15 @@ GetLatestCommitTsData.exit:                       ; preds = %1
   %17 = load i16, ptr %16, align 8
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %19) #9
-  %20 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %19) #8
+  %20 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %20, 1
   br i1 %.not, label %24, label %21
 
 21:                                               ; preds = %GetLatestCommitTsData.exit
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %22)
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__func__.pg_last_committed_xact) #9
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__func__.pg_last_committed_xact) #8
   unreachable
 
 24:                                               ; preds = %GetLatestCommitTsData.exit
@@ -491,10 +488,10 @@ GetLatestCommitTsData.exit:                       ; preds = %1
 
 34:                                               ; preds = %27, %26
   %35 = load ptr, ptr %4, align 8
-  %36 = call ptr @heap_form_tuple(ptr noundef %35, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %36 = call ptr @heap_form_tuple(ptr noundef %35, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %37 = getelementptr i8, ptr %36, i64 16
   %.val = load ptr, ptr %37, align 8
-  %38 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  %38 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -526,15 +523,14 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = call zeroext i1 @TransactionIdGetCommitTsData(i32 noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %2)
-  %11 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %6) #9
+  %11 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %6) #8
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %1
-  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %13)
-  %14 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 478, ptr noundef nonnull @__func__.pg_xact_commit_timestamp_origin) #9
+  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %14 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 478, ptr noundef nonnull @__func__.pg_xact_commit_timestamp_origin) #8
   unreachable
 
 15:                                               ; preds = %1
@@ -558,10 +554,10 @@ define dso_local i64 @pg_xact_commit_timestamp_origin(ptr noundef %0) local_unna
 
 23:                                               ; preds = %17, %16
   %24 = load ptr, ptr %6, align 8
-  %25 = call ptr @heap_form_tuple(ptr noundef %24, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %25 = call ptr @heap_form_tuple(ptr noundef %24, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %26 = getelementptr i8, ptr %25, i64 16
   %.val = load ptr, ptr %26, align 8
-  %27 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  %27 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -577,7 +573,7 @@ define dso_local i64 @CommitTsShmemSize() local_unnamed_addr #0 {
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #9
+  %4 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #8
   br label %CommitTsShmemBuffers.exit
 
 5:                                                ; preds = %0
@@ -587,7 +583,7 @@ define dso_local i64 @CommitTsShmemSize() local_unnamed_addr #0 {
 
 CommitTsShmemBuffers.exit:                        ; preds = %3, %5
   %.0.i = phi i32 [ %4, %3 ], [ %7, %5 ]
-  %8 = tail call i64 @SimpleLruShmemSize(i32 noundef %.0.i, i32 noundef 0) #9
+  %8 = tail call i64 @SimpleLruShmemSize(i32 noundef %.0.i, i32 noundef 0) #8
   %9 = add i64 %8, 32
   ret i64 %9
 }
@@ -605,9 +601,9 @@ define dso_local void @CommitTsShmemInit() local_unnamed_addr #0 {
 
 CommitTsShmemBuffers.exit:                        ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #9
-  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %5) #9
-  call void @SetConfigOption(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 1) #9
+  %5 = tail call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #8
+  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %5) #8
+  call void @SetConfigOption(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 1) #8
   %7 = load i32, ptr @commit_timestamp_buffers, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread3
@@ -617,7 +613,7 @@ CommitTsShmemBuffers.exit:                        ; preds = %0
   br label %.sink.split
 
 9:                                                ; preds = %CommitTsShmemBuffers.exit
-  call void @SetConfigOption(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 10) #9
+  call void @SetConfigOption(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 10) #8
   %.pr.pr = load i32, ptr @commit_timestamp_buffers, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr @CommitTsPagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @CommitTsCtlData, i64 16), align 8
@@ -625,7 +621,7 @@ CommitTsShmemBuffers.exit:                        ; preds = %0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #9
+  %12 = call i32 @SimpleLruAutotuneBuffers(i32 noundef 512, i32 noundef 1024) #8
   br label %CommitTsShmemBuffers.exit2
 
 .sink.split:                                      ; preds = %0, %.thread3
@@ -641,8 +637,8 @@ CommitTsShmemBuffers.exit:                        ; preds = %0
 
 CommitTsShmemBuffers.exit2:                       ; preds = %11, %13
   %.0.i1 = phi i32 [ %12, %11 ], [ %16, %13 ]
-  call void @SimpleLruInit(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @.str.5, i32 noundef %.0.i1, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 54, i32 noundef 84, i32 noundef 2, i1 noundef zeroext false) #9
-  %17 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.7, i64 noundef 32, ptr noundef nonnull %1) #9
+  call void @SimpleLruInit(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @.str.5, i32 noundef %.0.i1, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 54, i32 noundef 84, i32 noundef 2, i1 noundef zeroext false) #8
+  %17 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.7, i64 noundef 32, ptr noundef nonnull %1) #8
   store ptr %17, ptr @commitTsShared, align 8
   %18 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %19 = trunc nuw i8 %18 to i1
@@ -675,12 +671,12 @@ define internal zeroext i1 @CommitTsPagePrecedes(i64 noundef %0, i64 noundef %1)
   %6 = trunc i64 %1 to i32
   %7 = mul i32 %6, 819
   %8 = add i32 %7, 4
-  %9 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %8) #9
+  %9 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %8) #8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
   %11 = add i32 %7, 822
-  %12 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %11) #9
+  %12 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %5, i32 noundef %11) #8
   br label %13
 
 13:                                               ; preds = %10, %2
@@ -694,7 +690,7 @@ declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_commit_ts_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.4, ptr noundef %0) #9
+  %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.4, ptr noundef %0) #8
   ret i1 %4
 }
 
@@ -715,14 +711,14 @@ define dso_local void @StartupCommitTs() local_unnamed_addr #0 {
 define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4992
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #9
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #8
   %4 = load ptr, ptr @commitTsShared, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i8, ptr %5, align 8, !range !4, !noundef !5
   %7 = trunc nuw i8 %6 to i1
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %9) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %9) #8
   br i1 %7, label %55, label %10
 
 10:                                               ; preds = %0
@@ -737,7 +733,7 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   store volatile i64 %16, ptr %18, align 8
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4992
-  %21 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %20, i32 noundef 0) #9
+  %21 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %20, i32 noundef 0) #8
   %22 = load ptr, ptr @TransamVariables, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8
@@ -745,7 +741,7 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %10
-  %27 = tail call i64 @ReadNextFullTransactionId() #9
+  %27 = tail call i64 @ReadNextFullTransactionId() #8
   %28 = trunc i64 %27 to i32
   %29 = load ptr, ptr @TransamVariables, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
@@ -757,8 +753,8 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
 32:                                               ; preds = %26, %10
   %33 = load ptr, ptr @MainLWLockArray, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %34) #9
-  %35 = tail call zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef nonnull @CommitTsCtlData, i64 noundef %16) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %34) #8
+  %35 = tail call zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef nonnull @CommitTsCtlData, i64 noundef %16) #8
   br i1 %35, label %47, label %36
 
 36:                                               ; preds = %32
@@ -771,22 +767,22 @@ define internal fastcc void @ActivateCommitTs() unnamed_addr #0 {
   %42 = shl nuw nsw i32 %38, 7
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
-  %45 = tail call zeroext i1 @LWLockAcquire(ptr noundef %44, i32 noundef 0) #9
-  %46 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %16) #9
-  tail call void @SimpleLruWritePage(ptr noundef nonnull @CommitTsCtlData, i32 noundef %46) #9
-  tail call void @LWLockRelease(ptr noundef %44) #9
+  %45 = tail call zeroext i1 @LWLockAcquire(ptr noundef %44, i32 noundef 0) #8
+  %46 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %16) #8
+  tail call void @SimpleLruWritePage(ptr noundef nonnull @CommitTsCtlData, i32 noundef %46) #8
+  tail call void @LWLockRelease(ptr noundef %44) #8
   br label %47
 
 47:                                               ; preds = %36, %32
   %48 = load ptr, ptr @MainLWLockArray, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4992
-  %50 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %49, i32 noundef 0) #9
+  %50 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %49, i32 noundef 0) #8
   %51 = load ptr, ptr @commitTsShared, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i8 1, ptr %52, align 8
   %53 = load ptr, ptr @MainLWLockArray, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %54) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %54) #8
   br label %55
 
 55:                                               ; preds = %0, %47
@@ -802,7 +798,7 @@ define dso_local void @CompleteCommitTsInitialization() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4992
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #9
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #8
   %7 = load ptr, ptr @commitTsShared, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i8 0, ptr %8, align 8
@@ -816,10 +812,10 @@ define dso_local void @CompleteCommitTsInitialization() local_unnamed_addr #0 {
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 0, ptr %13, align 4
-  %14 = tail call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #9
+  %14 = tail call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #8
   %15 = load ptr, ptr @MainLWLockArray, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %16) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %16) #8
   br label %18
 
 17:                                               ; preds = %0
@@ -851,7 +847,7 @@ define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef
 10:                                               ; preds = %9
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4992
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 0) #9
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 0) #8
   %14 = load ptr, ptr @commitTsShared, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i8 0, ptr %15, align 8
@@ -865,10 +861,10 @@ define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef
   store i32 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 44
   store i32 0, ptr %20, align 4
-  %21 = tail call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #9
+  %21 = tail call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #8
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %23) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %23) #8
   br label %24
 
 24:                                               ; preds = %9, %10, %7, %8
@@ -877,7 +873,7 @@ define dso_local void @CommitTsParameterChange(i1 noundef zeroext %0, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckPointCommitTs() local_unnamed_addr #0 {
-  tail call void @SimpleLruWriteAll(ptr noundef nonnull @CommitTsCtlData, i1 noundef zeroext true) #9
+  tail call void @SimpleLruWriteAll(ptr noundef nonnull @CommitTsCtlData, i1 noundef zeroext true) #8
   ret void
 }
 
@@ -911,23 +907,23 @@ define dso_local void @ExtendCommitTs(i32 noundef %0) local_unnamed_addr #0 {
   %19 = shl nuw nsw i32 %15, 7
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
-  %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #9
+  %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #8
   %23 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
-  %25 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %13) #9
+  %25 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %13) #8
   br i1 %24, label %ZeroCommitTsPage.exit, label %26
 
 26:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %13, ptr %2, align 8
-  tail call void @XLogBeginInsert() #9
-  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 8) #9
-  %27 = call i64 @XLogInsert(i8 noundef zeroext 18, i8 noundef zeroext 0) #9
+  tail call void @XLogBeginInsert() #8
+  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 8) #8
+  %27 = call i64 @XLogInsert(i8 noundef zeroext 18, i8 noundef zeroext 0) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %ZeroCommitTsPage.exit
 
 ZeroCommitTsPage.exit:                            ; preds = %12, %26
-  call void @LWLockRelease(ptr noundef %21) #9
+  call void @LWLockRelease(ptr noundef %21) #8
   br label %28
 
 28:                                               ; preds = %7, %1, %ZeroCommitTsPage.exit
@@ -942,7 +938,7 @@ define dso_local void @TruncateCommitTs(i32 noundef %0) local_unnamed_addr #0 {
   %4 = udiv i32 %0, 819
   %5 = zext nneg i32 %4 to i64
   store i64 %5, ptr %3, align 8
-  %6 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbReportPresence, ptr noundef nonnull %3) #9
+  %6 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @CommitTsCtlData, ptr noundef nonnull @SlruScanDirCbReportPresence, ptr noundef nonnull %3) #8
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %1
@@ -951,12 +947,12 @@ define dso_local void @TruncateCommitTs(i32 noundef %0) local_unnamed_addr #0 {
   store i64 %8, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %9, align 8
-  call void @XLogBeginInsert() #9
-  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 12) #9
-  %10 = call i64 @XLogInsert(i8 noundef zeroext 18, i8 noundef zeroext 16) #9
+  call void @XLogBeginInsert() #8
+  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 12) #8
+  %10 = call i64 @XLogInsert(i8 noundef zeroext 18, i8 noundef zeroext 16) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = load i64, ptr %3, align 8
-  call void @SimpleLruTruncate(ptr noundef nonnull @CommitTsCtlData, i64 noundef %11) #9
+  call void @SimpleLruTruncate(ptr noundef nonnull @CommitTsCtlData, i64 noundef %11) #8
   br label %12
 
 12:                                               ; preds = %1, %7
@@ -974,7 +970,7 @@ declare void @SimpleLruTruncate(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4992
-  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #9
+  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #8
   %6 = load ptr, ptr @TransamVariables, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8
@@ -982,7 +978,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %19, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %8, i32 noundef %0) #9
+  %10 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %8, i32 noundef %0) #8
   %.pre = load ptr, ptr @TransamVariables, align 8
   br i1 %10, label %11, label %13
 
@@ -994,7 +990,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
 13:                                               ; preds = %11, %9
   %14 = getelementptr inbounds nuw i8, ptr %.pre, i64 44
   %15 = load i32, ptr %14, align 4
-  %16 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %1, i32 noundef %15) #9
+  %16 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %1, i32 noundef %15) #8
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %13
@@ -1014,7 +1010,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
 21:                                               ; preds = %.sink.split, %13
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %23) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %23) #8
   ret void
 }
 
@@ -1022,7 +1018,7 @@ define dso_local void @SetCommitTsLimit(i32 noundef %0, i32 noundef %1) local_un
 define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4992
-  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #9
+  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #8
   %5 = load ptr, ptr @TransamVariables, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8
@@ -1030,7 +1026,7 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_ad
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %7, i32 noundef %0) #9
+  %9 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %7, i32 noundef %0) #8
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %8
@@ -1042,7 +1038,7 @@ define dso_local void @AdvanceOldestCommitTsXid(i32 noundef %0) local_unnamed_ad
 13:                                               ; preds = %10, %8, %1
   %14 = load ptr, ptr @MainLWLockArray, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %15) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %15) #8
   ret void
 }
 
@@ -1070,10 +1066,10 @@ define dso_local void @commit_ts_redo(ptr noundef readonly captures(none) %0) lo
   %15 = load ptr, ptr %14, align 8
   %16 = shl nsw i64 %12, 7
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #9
-  %19 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %.0.copyload) #9
-  tail call void @SimpleLruWritePage(ptr noundef nonnull @CommitTsCtlData, i32 noundef %19) #9
-  tail call void @LWLockRelease(ptr noundef %17) #9
+  %18 = tail call zeroext i1 @LWLockAcquire(ptr noundef %17, i32 noundef 0) #8
+  %19 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @CommitTsCtlData, i64 noundef %.0.copyload) #8
+  tail call void @SimpleLruWritePage(ptr noundef nonnull @CommitTsCtlData, i32 noundef %19) #8
+  tail call void @LWLockRelease(ptr noundef %17) #8
   br label %45
 
 20:                                               ; preds = %1
@@ -1083,7 +1079,7 @@ define dso_local void @commit_ts_redo(ptr noundef readonly captures(none) %0) lo
   %24 = load i32, ptr %23, align 8
   %25 = load ptr, ptr @MainLWLockArray, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4992
-  %27 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %26, i32 noundef 0) #9
+  %27 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %26, i32 noundef 0) #8
   %28 = load ptr, ptr @TransamVariables, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load i32, ptr %29, align 8
@@ -1091,7 +1087,7 @@ define dso_local void @commit_ts_redo(ptr noundef readonly captures(none) %0) lo
   br i1 %.not.i, label %AdvanceOldestCommitTsXid.exit, label %31
 
 31:                                               ; preds = %20
-  %32 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %30, i32 noundef %24) #9
+  %32 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %30, i32 noundef %24) #8
   br i1 %32, label %33, label %AdvanceOldestCommitTsXid.exit
 
 33:                                               ; preds = %31
@@ -1103,20 +1099,19 @@ define dso_local void @commit_ts_redo(ptr noundef readonly captures(none) %0) lo
 AdvanceOldestCommitTsXid.exit:                    ; preds = %20, %31, %33
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4992
-  tail call void @LWLockRelease(ptr noundef nonnull %37) #9
+  tail call void @LWLockRelease(ptr noundef nonnull %37) #8
   %38 = load ptr, ptr @CommitTsCtlData, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %40 = load i64, ptr %22, align 8
   store volatile i64 %40, ptr %39, align 8
-  tail call void @SimpleLruTruncate(ptr noundef nonnull @CommitTsCtlData, i64 noundef %40) #9
+  tail call void @SimpleLruTruncate(ptr noundef nonnull @CommitTsCtlData, i64 noundef %40) #8
   br label %45
 
 41:                                               ; preds = %1
   %42 = zext i8 %6 to i32
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %42) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1056, ptr noundef nonnull @__func__.commit_ts_redo) #9
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #9
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %42) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1056, ptr noundef nonnull @__func__.commit_ts_redo) #8
   unreachable
 
 45:                                               ; preds = %AdvanceOldestCommitTsXid.exit, %7
@@ -1127,7 +1122,7 @@ declare void @SimpleLruWritePage(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @committssyncfiletag(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @SlruSyncFileTag(ptr noundef nonnull @CommitTsCtlData, ptr noundef %0, ptr noundef %1) #9
+  %3 = tail call i32 @SlruSyncFileTag(ptr noundef nonnull @CommitTsCtlData, ptr noundef %0, ptr noundef %1) #8
   ret i32 %3
 }
 
@@ -1163,14 +1158,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #8
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1179,10 +1171,9 @@ attributes #3 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "n
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

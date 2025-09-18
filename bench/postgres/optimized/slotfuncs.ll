@@ -71,31 +71,30 @@ define dso_local i64 @pg_create_physical_replication_slot(ptr noundef %0) local_
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4) #9
+  %11 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4) #8
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %1
-  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %13)
-  %14 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.pg_create_physical_replication_slot) #9
+  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %14 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.pg_create_physical_replication_slot) #8
   unreachable
 
 15:                                               ; preds = %1
   %.not10 = icmp eq i64 %10, 0
   %.not9 = icmp eq i64 %8, 0
   %16 = inttoptr i64 %6 to ptr
-  call void @CheckSlotPermissions() #9
-  call void @CheckSlotRequirements() #9
+  call void @CheckSlotPermissions() #8
+  call void @CheckSlotRequirements() #8
   %17 = select i1 %.not10, i32 0, i32 2
-  call void @ReplicationSlotCreate(ptr noundef %16, i1 noundef zeroext false, i32 noundef %17, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  call void @ReplicationSlotCreate(ptr noundef %16, i1 noundef zeroext false, i32 noundef %17, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8
   br i1 %.not9, label %23, label %18
 
 18:                                               ; preds = %15
-  call void @ReplicationSlotReserveWal() #9
-  call void @ReplicationSlotMarkDirty() #9
-  call void @ReplicationSlotSave() #9
+  call void @ReplicationSlotReserveWal() #8
+  call void @ReplicationSlotMarkDirty() #8
+  call void @ReplicationSlotSave() #8
   %19 = load ptr, ptr @MyReplicationSlot, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load i64, ptr %20, align 8
@@ -117,11 +116,11 @@ define dso_local i64 @pg_create_physical_replication_slot(ptr noundef %0) local_
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %.sink, ptr %26, align 1
   %27 = load ptr, ptr %4, align 8
-  %28 = call ptr @heap_form_tuple(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
+  %28 = call ptr @heap_form_tuple(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
   %29 = getelementptr i8, ptr %28, i64 16
   %.val = load ptr, ptr %29, align 8
-  %30 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @ReplicationSlotRelease() #9
+  %30 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #8
+  call void @ReplicationSlotRelease() #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -164,15 +163,14 @@ define dso_local i64 @pg_create_logical_replication_slot(ptr noundef %0) local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %16 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3) #9
+  %16 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3) #8
   %.not = icmp eq i32 %16, 1
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %1
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %18)
-  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.pg_create_logical_replication_slot) #9
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 183, ptr noundef nonnull @__func__.pg_create_logical_replication_slot) #8
   unreachable
 
 20:                                               ; preds = %1
@@ -181,19 +179,19 @@ define dso_local i64 @pg_create_logical_replication_slot(ptr noundef %0) local_u
   %.not13 = icmp eq i64 %11, 0
   %23 = inttoptr i64 %9 to ptr
   %24 = inttoptr i64 %7 to ptr
-  call void @CheckSlotPermissions() #9
-  call void @CheckLogicalDecodingRequirements() #9
+  call void @CheckSlotPermissions() #8
+  call void @CheckLogicalDecodingRequirements() #8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = select i1 %.not13, i32 1, i32 2
-  call void @ReplicationSlotCreate(ptr noundef %24, i1 noundef zeroext true, i32 noundef %25, i1 noundef zeroext %22, i1 noundef zeroext %21, i1 noundef zeroext false) #9
+  call void @ReplicationSlotCreate(ptr noundef %24, i1 noundef zeroext true, i32 noundef %25, i1 noundef zeroext %22, i1 noundef zeroext %21, i1 noundef zeroext false) #8
   store ptr @read_local_xlog_page, ptr %2, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wal_segment_open, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @wal_segment_close, ptr %27, align 8
-  %28 = call ptr @CreateInitDecodingContext(ptr noundef %23, ptr noundef null, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  call void @DecodingContextFindStartpoint(ptr noundef %28) #9
-  call void @FreeDecodingContext(ptr noundef %28) #9
+  %28 = call ptr @CreateInitDecodingContext(ptr noundef %23, ptr noundef null, i1 noundef zeroext false, i64 noundef 0, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  call void @DecodingContextFindStartpoint(ptr noundef %28) #8
+  call void @FreeDecodingContext(ptr noundef %28) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = load ptr, ptr @MyReplicationSlot, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -205,18 +203,18 @@ define dso_local i64 @pg_create_logical_replication_slot(ptr noundef %0) local_u
   store i64 %33, ptr %34, align 8
   store i16 0, ptr %5, align 2
   %35 = load ptr, ptr %3, align 8
-  %36 = call ptr @heap_form_tuple(ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %36 = call ptr @heap_form_tuple(ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %37 = getelementptr i8, ptr %36, i64 16
   %.val = load ptr, ptr %37, align 8
-  %38 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  %38 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #8
   br i1 %.not13, label %39, label %40
 
 39:                                               ; preds = %20
-  call void @ReplicationSlotPersist() #9
+  call void @ReplicationSlotPersist() #8
   br label %40
 
 40:                                               ; preds = %39, %20
-  call void @ReplicationSlotRelease() #9
+  call void @ReplicationSlotRelease() #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -235,9 +233,9 @@ define dso_local noundef i64 @pg_drop_replication_slot(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void @CheckSlotPermissions() #9
-  tail call void @CheckSlotRequirements() #9
-  tail call void @ReplicationSlotDrop(ptr noundef %4, i1 noundef zeroext true) #9
+  tail call void @CheckSlotPermissions() #8
+  tail call void @CheckSlotRequirements() #8
+  tail call void @ReplicationSlotDrop(ptr noundef %4, i1 noundef zeroext true) #8
   ret i64 0
 }
 
@@ -250,11 +248,11 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %4 = alloca [19 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #9
-  %7 = tail call i64 @GetXLogWriteRecPtr() #9
+  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #8
+  %7 = tail call i64 @GetXLogWriteRecPtr() #8
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4736
-  %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #9
+  %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #8
   %11 = load i32, ptr @max_replication_slots, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
@@ -314,17 +312,17 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br i1 %56, label %57, label %202
 
 57:                                               ; preds = %50
-  %58 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %53, i8 1, ptr nonnull elementtype(i8) %53) #9, !srcloc !6
+  %58 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %53, i8 1, ptr nonnull elementtype(i8) %53) #8, !srcloc !6
   %.not = icmp eq i8 %58, 0
   br i1 %.not, label %61, label %59
 
 59:                                               ; preds = %57
-  %60 = call i32 @s_lock(ptr noundef nonnull %53, ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.pg_get_replication_slots) #9
+  %60 = call i32 @s_lock(ptr noundef nonnull %53, ptr noundef nonnull @.str.1, i32 noundef 268, ptr noundef nonnull @__func__.pg_get_replication_slots) #8
   br label %61
 
 61:                                               ; preds = %57, %59
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr nonnull align 8 %53, i64 280, i1 true)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
   store i8 0, ptr %53, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %3, i8 0, i64 152, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(19) %4, i8 0, i64 19, i1 false)
@@ -343,7 +341,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 
 66:                                               ; preds = %65, %64
   %.str.3.sink = phi ptr [ @.str.3, %65 ], [ @.str.2, %64 ]
-  %67 = call ptr @cstring_to_text(ptr noundef nonnull %.str.3.sink) #9
+  %67 = call ptr @cstring_to_text(ptr noundef nonnull %.str.3.sink) #8
   %storemerge = ptrtoint ptr %67 to i64
   store i64 %storemerge, ptr %19, align 16
   %68 = load i32, ptr %15, align 8
@@ -440,7 +438,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br i1 %.not92, label %103, label %.thread95
 
 103:                                              ; preds = %101
-  %104 = call i32 @GetWALAvailability(i64 noundef %94) #9
+  %104 = call i32 @GetWALAvailability(i64 noundef %94) #8
   switch i32 %104, label %131 [
     i32 0, label %105
     i32 1, label %106
@@ -458,19 +456,19 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br label %131
 
 106:                                              ; preds = %103
-  %107 = call ptr @cstring_to_text(ptr noundef nonnull @.str.4) #9
+  %107 = call ptr @cstring_to_text(ptr noundef nonnull @.str.4) #8
   %108 = ptrtoint ptr %107 to i64
   store i64 %108, ptr %42, align 8
   br label %131
 
 109:                                              ; preds = %103
-  %110 = call ptr @cstring_to_text(ptr noundef nonnull @.str.5) #9
+  %110 = call ptr @cstring_to_text(ptr noundef nonnull @.str.5) #8
   %111 = ptrtoint ptr %110 to i64
   store i64 %111, ptr %42, align 8
   br label %131
 
 112:                                              ; preds = %103
-  %113 = call ptr @cstring_to_text(ptr noundef nonnull @.str.6) #9
+  %113 = call ptr @cstring_to_text(ptr noundef nonnull @.str.6) #8
   %114 = ptrtoint ptr %113 to i64
   store i64 %114, ptr %42, align 8
   br label %131
@@ -481,12 +479,12 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   br i1 %116, label %.thread102, label %117
 
 117:                                              ; preds = %.thread95
-  %118 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %53, i8 1, ptr nonnull elementtype(i8) %53) #9, !srcloc !6
+  %118 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %53, i8 1, ptr nonnull elementtype(i8) %53) #8, !srcloc !6
   %.not93 = icmp eq i8 %118, 0
   br i1 %.not93, label %121, label %119
 
 119:                                              ; preds = %117
-  %120 = call i32 @s_lock(ptr noundef nonnull %53, ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.pg_get_replication_slots) #9
+  %120 = call i32 @s_lock(ptr noundef nonnull %53, ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.pg_get_replication_slots) #8
   br label %121
 
 121:                                              ; preds = %117, %119
@@ -495,19 +493,19 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %124 = getelementptr inbounds nuw i8, ptr %53, i64 104
   %125 = load i64, ptr %124, align 8
   store i64 %125, ptr %35, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   store i8 0, ptr %53, align 8
   %.not94 = icmp eq i32 %123, 0
   br i1 %.not94, label %.thread102, label %126
 
 126:                                              ; preds = %121
-  %127 = call ptr @cstring_to_text(ptr noundef nonnull @.str.6) #9
+  %127 = call ptr @cstring_to_text(ptr noundef nonnull @.str.6) #8
   %128 = ptrtoint ptr %127 to i64
   store i64 %128, ptr %42, align 8
   br label %131
 
 .thread102:                                       ; preds = %.thread95, %121
-  %129 = call ptr @cstring_to_text(ptr noundef nonnull @.str.7) #9
+  %129 = call ptr @cstring_to_text(ptr noundef nonnull @.str.7) #8
   %130 = ptrtoint ptr %129 to i64
   store i64 %130, ptr %42, align 8
   br label %134
@@ -614,7 +612,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   %185 = zext i32 %168 to i64
   %186 = getelementptr inbounds nuw ptr, ptr @SlotInvalidationCauses, i64 %185
   %187 = load ptr, ptr %186, align 8
-  %188 = call ptr @cstring_to_text(ptr noundef %187) #9
+  %188 = call ptr @cstring_to_text(ptr noundef %187) #8
   %189 = ptrtoint ptr %188 to i64
   %190 = zext nneg i32 %.13110 to i64
   %191 = getelementptr inbounds nuw i64, ptr %3, i64 %190
@@ -633,7 +631,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
   store i64 %198, ptr %199, align 8
   %200 = load ptr, ptr %48, align 8
   %201 = load ptr, ptr %49, align 8
-  call void @tuplestore_putvalues(ptr noundef %200, ptr noundef %201, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  call void @tuplestore_putvalues(ptr noundef %200, ptr noundef %201, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
   %.pre115 = load i32, ptr @max_replication_slots, align 4
   br label %202
@@ -652,7 +650,7 @@ define dso_local noundef i64 @pg_get_replication_slots(ptr noundef %0) local_unn
 ._crit_edge:                                      ; preds = %202, %1
   %207 = load ptr, ptr @MainLWLockArray, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4736
-  call void @LWLockRelease(ptr noundef nonnull %208) #9
+  call void @LWLockRelease(ptr noundef nonnull %208) #8
   ret i64 0
 }
 
@@ -688,55 +686,53 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  tail call void @CheckSlotPermissions() #9
+  tail call void @CheckSlotPermissions() #8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__func__.pg_replication_slot_advance) #9
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %13 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__func__.pg_replication_slot_advance) #8
   unreachable
 
 15:                                               ; preds = %1
-  %16 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #9
+  %16 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %16, 1
   br i1 %.not, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %18)
-  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 527, ptr noundef nonnull @__func__.pg_replication_slot_advance) #9
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %19 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 527, ptr noundef nonnull @__func__.pg_replication_slot_advance) #8
   unreachable
 
 20:                                               ; preds = %15
-  %21 = call zeroext i1 @RecoveryInProgress() #9
+  %21 = call zeroext i1 @RecoveryInProgress() #8
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %20
-  %23 = call i64 @GetFlushRecPtr(ptr noundef null) #9
+  %23 = call i64 @GetFlushRecPtr(ptr noundef null) #8
   %24 = icmp ult i64 %9, %23
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = call i64 @GetFlushRecPtr(ptr noundef null) #9
+  %26 = call i64 @GetFlushRecPtr(ptr noundef null) #8
   br label %32
 
 27:                                               ; preds = %20
-  %28 = call i64 @GetXLogReplayRecPtr(ptr noundef null) #9
+  %28 = call i64 @GetXLogReplayRecPtr(ptr noundef null) #8
   %29 = icmp ult i64 %9, %28
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %27
-  %31 = call i64 @GetXLogReplayRecPtr(ptr noundef null) #9
+  %31 = call i64 @GetXLogReplayRecPtr(ptr noundef null) #8
   br label %32
 
 32:                                               ; preds = %30, %27, %25, %22
   %.0 = phi i64 [ %26, %25 ], [ %9, %22 ], [ %31, %30 ], [ %9, %27 ]
-  call void @ReplicationSlotAcquire(ptr noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #9
+  call void @ReplicationSlotAcquire(ptr noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #8
   %33 = load ptr, ptr @MyReplicationSlot, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %35 = load i64, ptr %34, align 8
@@ -744,12 +740,11 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %32
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode(i32 noundef 325) #9
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %7) #9
-  %41 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 547, ptr noundef nonnull @__func__.pg_replication_slot_advance) #9
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %39 = call i32 @errcode(i32 noundef 325) #8
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef %7) #8
+  %41 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 547, ptr noundef nonnull @__func__.pg_replication_slot_advance) #8
   unreachable
 
 42:                                               ; preds = %32
@@ -770,21 +765,20 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
 
 50:                                               ; preds = %.thread, %45
   %.02127 = phi i64 [ %48, %.thread ], [ %35, %45 ]
-  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %51)
-  %52 = call i32 @errcode(i32 noundef 325) #9
+  %51 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %52 = call i32 @errcode(i32 noundef 325) #8
   %53 = lshr i64 %.0, 32
   %54 = trunc nuw i64 %53 to i32
   %55 = trunc i64 %.0 to i32
   %56 = lshr i64 %.02127, 32
   %57 = trunc nuw i64 %56 to i32
   %58 = trunc i64 %.02127 to i32
-  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %58) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.pg_replication_slot_advance) #9
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %54, i32 noundef %55, i32 noundef %57, i32 noundef %58) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.pg_replication_slot_advance) #8
   unreachable
 
 60:                                               ; preds = %.thread
-  %61 = call i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %.0, ptr noundef null) #9
+  %61 = call i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %.0, ptr noundef null) #8
   br label %pg_physical_replication_slot_advance.exit
 
 62:                                               ; preds = %45
@@ -792,24 +786,24 @@ define dso_local i64 @pg_replication_slot_advance(ptr noundef %0) local_unnamed_
   br i1 %63, label %64, label %pg_physical_replication_slot_advance.exit
 
 64:                                               ; preds = %62
-  %65 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #9, !srcloc !6
+  %65 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %33, i8 1, ptr nonnull elementtype(i8) %33) #8, !srcloc !6
   %.not.i = icmp eq i8 %65, 0
   br i1 %.not.i, label %69, label %66
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @MyReplicationSlot, align 8
-  %68 = call i32 @s_lock(ptr noundef %67, ptr noundef nonnull @.str.1, i32 noundef 468, ptr noundef nonnull @__func__.pg_physical_replication_slot_advance) #9
+  %68 = call i32 @s_lock(ptr noundef %67, ptr noundef nonnull @.str.1, i32 noundef 468, ptr noundef nonnull @__func__.pg_physical_replication_slot_advance) #8
   br label %69
 
 69:                                               ; preds = %66, %64
   %70 = load ptr, ptr @MyReplicationSlot, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
   store i64 %.0, ptr %71, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   %72 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %72, align 8
-  call void @ReplicationSlotMarkDirty() #9
-  call void @PhysicalWakeupLogicalWalSnd() #9
+  call void @ReplicationSlotMarkDirty() #8
+  call void @PhysicalWakeupLogicalWalSnd() #8
   br label %pg_physical_replication_slot_advance.exit
 
 pg_physical_replication_slot_advance.exit:        ; preds = %69, %62, %60
@@ -819,18 +813,18 @@ pg_physical_replication_slot_advance.exit:        ; preds = %69, %62, %60
   %75 = ptrtoint ptr %74 to i64
   store i64 %75, ptr %3, align 16
   store i8 0, ptr %4, align 1
-  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #9
-  call void @ReplicationSlotsComputeRequiredLSN() #9
-  call void @ReplicationSlotRelease() #9
+  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #8
+  call void @ReplicationSlotsComputeRequiredLSN() #8
+  call void @ReplicationSlotRelease() #8
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.020, ptr %76, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %77, align 1
   %78 = load ptr, ptr %2, align 8
-  %79 = call ptr @heap_form_tuple(ptr noundef %78, ptr noundef nonnull %3, ptr noundef nonnull %4) #9
+  %79 = call ptr @heap_form_tuple(ptr noundef %78, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %80 = getelementptr i8, ptr %79, i64 16
   %.val = load ptr, ptr %80, align 8
-  %81 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
+  %81 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -880,33 +874,32 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %15 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8) #9
+  %15 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8) #8
   %.not72 = icmp eq i32 %15, 1
   br i1 %.not72, label %19, label %16
 
 16:                                               ; preds = %2
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %17)
-  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 616, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 616, ptr noundef nonnull @__func__.copy_replication_slot) #8
   unreachable
 
 19:                                               ; preds = %2
-  call void @CheckSlotPermissions() #9
+  call void @CheckSlotPermissions() #8
   br i1 %1, label %20, label %21
 
 20:                                               ; preds = %19
-  call void @CheckLogicalDecodingRequirements() #9
+  call void @CheckLogicalDecodingRequirements() #8
   br label %22
 
 21:                                               ; preds = %19
-  call void @CheckSlotRequirements() #9
+  call void @CheckSlotRequirements() #8
   br label %22
 
 22:                                               ; preds = %21, %20
   %23 = load ptr, ptr @MainLWLockArray, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4736
-  %25 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 1) #9
+  %25 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 1) #8
   %26 = load i32, ptr @max_replication_slots, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -926,17 +919,17 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %11) #11
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %11) #10
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %34
-  %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #9, !srcloc !6
+  %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #8, !srcloc !6
   %.not73 = icmp eq i8 %39, 0
   br i1 %.not73, label %48, label %40
 
 40:                                               ; preds = %38
-  %41 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %41 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @__func__.copy_replication_slot) #8
   br label %48
 
 42:                                               ; preds = %34, %29
@@ -947,21 +940,20 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 ._crit_edge:                                      ; preds = %42, %22
   %43 = load ptr, ptr @MainLWLockArray, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4736
-  call void @LWLockRelease(ptr noundef nonnull %44) #9
-  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %45)
-  %46 = call i32 @errcode(i32 noundef 67137668) #9
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %11) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 658, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  call void @LWLockRelease(ptr noundef nonnull %44) #8
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %46 = call i32 @errcode(i32 noundef 67137668) #8
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %11) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 658, ptr noundef nonnull @__func__.copy_replication_slot) #8
   unreachable
 
 48:                                               ; preds = %40, %38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull align 8 %30, i64 280, i1 true)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   store i8 0, ptr %30, align 8
   %49 = load ptr, ptr @MainLWLockArray, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4736
-  call void @LWLockRelease(ptr noundef nonnull %50) #9
+  call void @LWLockRelease(ptr noundef nonnull %50) #8
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %52 = load i32, ptr %51, align 8
   %53 = icmp ne i32 %52, 0
@@ -976,12 +968,11 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %48
-  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %63)
-  %64 = call i32 @errcode(i32 noundef 1088) #9
+  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %64 = call i32 @errcode(i32 noundef 1088) #8
   %.str.18..str.19 = select i1 %53, ptr @.str.18, ptr @.str.19
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.18..str.19, ptr noundef nonnull %11) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 673, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.18..str.19, ptr noundef nonnull %11) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 673, ptr noundef nonnull @__func__.copy_replication_slot) #8
   unreachable
 
 66:                                               ; preds = %48
@@ -989,11 +980,10 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %69)
-  %70 = call i32 @errcode(i32 noundef 325) #9
-  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 679, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %70 = call i32 @errcode(i32 noundef 325) #8
+  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 679, ptr noundef nonnull @__func__.copy_replication_slot) #8
   unreachable
 
 72:                                               ; preds = %66
@@ -1023,39 +1013,39 @@ define internal fastcc i64 @copy_replication_slot(ptr noundef %0, i1 noundef zer
 84:                                               ; preds = %.thread84
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %85 = select i1 %.064.in86, i32 2, i32 1
-  call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext true, i32 noundef %85, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext true, i32 noundef %85, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8
   store ptr @read_local_xlog_page, ptr %3, align 8
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @wal_segment_open, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @wal_segment_close, ptr %87, align 8
-  %88 = call ptr @CreateInitDecodingContext(ptr noundef %.065, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #9
-  call void @FreeDecodingContext(ptr noundef %88) #9
+  %88 = call ptr @CreateInitDecodingContext(ptr noundef %.065, ptr noundef null, i1 noundef zeroext false, i64 noundef %55, ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  call void @FreeDecodingContext(ptr noundef %88) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %92
 
 create_physical_replication_slot.exit:            ; preds = %.thread84
   %89 = select i1 %.064.in86, i32 2, i32 0
-  call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext false, i32 noundef %89, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  call void @ReplicationSlotCreate(ptr noundef %14, i1 noundef zeroext false, i32 noundef %89, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8
   %90 = load ptr, ptr @MyReplicationSlot, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 104
   store i64 %55, ptr %91, align 8
-  call void @ReplicationSlotMarkDirty() #9
-  call void @ReplicationSlotSave() #9
+  call void @ReplicationSlotMarkDirty() #8
+  call void @ReplicationSlotSave() #8
   br label %92
 
 92:                                               ; preds = %create_physical_replication_slot.exit, %84
-  %93 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #9, !srcloc !6
+  %93 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i8 1, ptr nonnull elementtype(i8) %30) #8, !srcloc !6
   %.not75 = icmp eq i8 %93, 0
   br i1 %.not75, label %96, label %94
 
 94:                                               ; preds = %92
-  %95 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %95 = call i32 @s_lock(ptr noundef nonnull %30, ptr noundef nonnull @.str.1, i32 noundef 735, ptr noundef nonnull @__func__.copy_replication_slot) #8
   br label %96
 
 96:                                               ; preds = %92, %94
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull align 8 %30, i64 280, i1 true)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
   store i8 0, ptr %30, align 8
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %98 = load i32, ptr %97, align 4
@@ -1081,16 +1071,15 @@ create_physical_replication_slot.exit:            ; preds = %.thread84
   br i1 %.not76, label %115, label %117
 
 115:                                              ; preds = %111
-  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %11) #11
+  %116 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(1) %11) #10
   %.not77 = icmp eq i32 %116, 0
   br i1 %.not77, label %121, label %117
 
 117:                                              ; preds = %115, %111, %96
-  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %118)
-  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %11) #9
-  %120 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.22) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 767, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %11) #8
+  %120 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.22) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 767, ptr noundef nonnull @__func__.copy_replication_slot) #8
   unreachable
 
 121:                                              ; preds = %115
@@ -1099,23 +1088,22 @@ create_physical_replication_slot.exit:            ; preds = %.thread84
   br i1 %or.cond, label %123, label %128
 
 123:                                              ; preds = %121
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 @errcode(i32 noundef 1088) #9
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %11) #9
-  %127 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.24) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 775, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %125 = call i32 @errcode(i32 noundef 1088) #8
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %11) #8
+  %127 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.24) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 775, ptr noundef nonnull @__func__.copy_replication_slot) #8
   unreachable
 
 128:                                              ; preds = %121
   %129 = load ptr, ptr @MyReplicationSlot, align 8
-  %130 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129, i8 1, ptr elementtype(i8) %129) #9, !srcloc !6
+  %130 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %129, i8 1, ptr elementtype(i8) %129) #8, !srcloc !6
   %.not78 = icmp eq i8 %130, 0
   br i1 %.not78, label %134, label %131
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr @MyReplicationSlot, align 8
-  %133 = call i32 @s_lock(ptr noundef %132, ptr noundef nonnull @.str.1, i32 noundef 778, ptr noundef nonnull @__func__.copy_replication_slot) #9
+  %133 = call i32 @s_lock(ptr noundef %132, ptr noundef nonnull @.str.1, i32 noundef 778, ptr noundef nonnull @__func__.copy_replication_slot) #8
   br label %134
 
 134:                                              ; preds = %128, %131
@@ -1132,19 +1120,19 @@ create_physical_replication_slot.exit:            ; preds = %.thread84
   store i64 %107, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 120
   store i64 %109, ptr %141, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   %142 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %142, align 8
-  call void @ReplicationSlotMarkDirty() #9
-  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #9
-  call void @ReplicationSlotsComputeRequiredLSN() #9
-  call void @ReplicationSlotSave() #9
+  call void @ReplicationSlotMarkDirty() #8
+  call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #8
+  call void @ReplicationSlotsComputeRequiredLSN() #8
+  call void @ReplicationSlotSave() #8
   %.not = xor i1 %1, true
   %or.cond3 = select i1 %.not, i1 true, i1 %.064.in86
   br i1 %or.cond3, label %144, label %143
 
 143:                                              ; preds = %134
-  call void @ReplicationSlotPersist() #9
+  call void @ReplicationSlotPersist() #8
   br label %144
 
 144:                                              ; preds = %143, %134
@@ -1166,11 +1154,11 @@ create_physical_replication_slot.exit:            ; preds = %.thread84
   %152 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %.sink, ptr %152, align 1
   %153 = load ptr, ptr %8, align 8
-  %154 = call ptr @heap_form_tuple(ptr noundef %153, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %154 = call ptr @heap_form_tuple(ptr noundef %153, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %155 = getelementptr i8, ptr %154, i64 16
   %.val = load ptr, ptr %155, align 8
-  %156 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #9
-  call void @ReplicationSlotRelease() #9
+  %156 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #8
+  call void @ReplicationSlotRelease() #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1209,34 +1197,33 @@ define dso_local noundef i64 @pg_sync_replication_slots(ptr noundef readnone cap
   %3 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @CheckSlotPermissions() #9
-  %4 = tail call zeroext i1 @RecoveryInProgress() #9
+  tail call void @CheckSlotPermissions() #8
+  %4 = tail call zeroext i1 @RecoveryInProgress() #8
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 325) #9
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.pg_sync_replication_slots) #9
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %7 = tail call i32 @errcode(i32 noundef 325) #8
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.pg_sync_replication_slots) #8
   unreachable
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @ValidateSlotSyncParams(i32 noundef 21) #9
-  tail call void @load_file(ptr noundef nonnull @.str.13, i1 noundef zeroext false) #9
-  %11 = tail call ptr @CheckAndGetDbnameFromConninfo() #9
-  call void @initStringInfo(ptr noundef nonnull %3) #9
+  %10 = tail call zeroext i1 @ValidateSlotSyncParams(i32 noundef 21) #8
+  tail call void @load_file(ptr noundef nonnull @.str.13, i1 noundef zeroext false) #8
+  %11 = tail call ptr @CheckAndGetDbnameFromConninfo() #8
+  call void @initStringInfo(ptr noundef nonnull %3) #8
   %12 = load ptr, ptr @cluster_name, align 8
   %13 = load i8, ptr %12, align 1
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %9
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %12) #9
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %12) #8
   br label %16
 
 15:                                               ; preds = %9
-  call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull @.str.15) #9
+  call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull @.str.15) #8
   br label %16
 
 16:                                               ; preds = %15, %14
@@ -1244,28 +1231,27 @@ define dso_local noundef i64 @pg_sync_replication_slots(ptr noundef readnone cap
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @PrimaryConnInfo, align 8
   %20 = load ptr, ptr %3, align 8
-  %21 = call ptr %18(ptr noundef %19, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %20, ptr noundef nonnull %2) #9
+  %21 = call ptr %18(ptr noundef %19, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %20, ptr noundef nonnull %2) #8
   %22 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %22) #9
+  call void @pfree(ptr noundef %22) #8
   %.not3 = icmp eq ptr %21, null
   br i1 %.not3, label %23, label %29
 
 23:                                               ; preds = %16
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %24)
-  %25 = call i32 @errcode(i32 noundef 100663808) #9
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %25 = call i32 @errcode(i32 noundef 100663808) #8
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %2, align 8
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %26, ptr noundef %27) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 898, ptr noundef nonnull @__func__.pg_sync_replication_slots) #9
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef %26, ptr noundef %27) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 898, ptr noundef nonnull @__func__.pg_sync_replication_slots) #8
   unreachable
 
 29:                                               ; preds = %16
-  call void @SyncReplicationSlots(ptr noundef nonnull %21) #9
+  call void @SyncReplicationSlots(ptr noundef nonnull %21) #8
   %30 = load ptr, ptr @WalReceiverFunctions, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull %21) #9
+  call void %32(ptr noundef nonnull %21) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 0
@@ -1324,11 +1310,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1337,11 +1320,10 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

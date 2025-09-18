@@ -320,1021 +320,1008 @@ define dso_local noundef range(i32 0, 3) i32 @_Z21cmDependsJava_yyparsePv(ptr no
   store i64 128, ptr %7, align 8, !tbaa !9
   store i16 0, ptr %3, align 16, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %14
+  br label %13
 
-12:                                               ; preds = %1517, %1468, %51
-  %.11493 = phi ptr [ %.31495, %1517 ], [ %.01544, %1468 ], [ %.01544, %51 ]
-  %.11454 = phi i32 [ 3, %1517 ], [ %.014531545, %1468 ], [ %spec.select, %51 ]
-  %.11451 = phi i32 [ %1518, %1517 ], [ %1470, %1468 ], [ %47, %51 ]
-  %.11445.idx = phi i64 [ %.31447.idx, %1517 ], [ %.01444.add, %1468 ], [ %.01444.idx1547, %51 ]
-  %.11435 = phi ptr [ %1519, %1517 ], [ %1447, %1468 ], [ %52, %51 ]
-  %.1 = phi i32 [ %.6, %1517 ], [ %.7, %1468 ], [ -2, %51 ]
+11:                                               ; preds = %1512, %1463, %50
+  %.11493 = phi ptr [ %.31495, %1512 ], [ %.01544, %1463 ], [ %.01544, %50 ]
+  %.11454 = phi i32 [ 3, %1512 ], [ %.014531545, %1463 ], [ %spec.select, %50 ]
+  %.11451 = phi i32 [ %1513, %1512 ], [ %1465, %1463 ], [ %46, %50 ]
+  %.11445.idx = phi i64 [ %.31447.idx, %1512 ], [ %.01444.add, %1463 ], [ %.01444.idx1547, %50 ]
+  %.11435 = phi ptr [ %1514, %1512 ], [ %1442, %1463 ], [ %51, %50 ]
+  %.1 = phi i32 [ %.6, %1512 ], [ %.7, %1463 ], [ -2, %50 ]
   %.11445.add = add nsw i64 %.11445.idx, 2
   %.01444.ptr = getelementptr inbounds i8, ptr %3, i64 %.11445.add
-  %13 = trunc nsw i32 %.11451 to i16
-  store i16 %13, ptr %.01444.ptr, align 2, !tbaa !11
+  %12 = trunc nsw i32 %.11451 to i16
+  store i16 %12, ptr %.01444.ptr, align 2, !tbaa !11
   %.not = icmp slt i64 %.11445.idx, 396
-  br i1 %.not, label %14, label %1521
+  br i1 %.not, label %13, label %1516
 
-14:                                               ; preds = %1, %12
-  %.01444.ptr1551 = phi ptr [ %3, %1 ], [ %.01444.ptr, %12 ]
-  %.014261550 = phi i32 [ -2, %1 ], [ %.1, %12 ]
-  %.014341549 = phi ptr [ %4, %1 ], [ %.11435, %12 ]
-  %.01444.idx1547 = phi i64 [ 0, %1 ], [ %.11445.add, %12 ]
-  %.014501546 = phi i32 [ 0, %1 ], [ %.11451, %12 ]
-  %.014531545 = phi i32 [ 0, %1 ], [ %.11454, %12 ]
-  %.01544 = phi ptr [ %6, %1 ], [ %.11493, %12 ]
-  %15 = icmp eq i32 %.014501546, 23
-  br i1 %15, label %.thread1517, label %16
+13:                                               ; preds = %1, %11
+  %.01444.ptr1551 = phi ptr [ %3, %1 ], [ %.01444.ptr, %11 ]
+  %.014261550 = phi i32 [ -2, %1 ], [ %.1, %11 ]
+  %.014341549 = phi ptr [ %4, %1 ], [ %.11435, %11 ]
+  %.01444.idx1547 = phi i64 [ 0, %1 ], [ %.11445.add, %11 ]
+  %.014501546 = phi i32 [ 0, %1 ], [ %.11451, %11 ]
+  %.014531545 = phi i32 [ 0, %1 ], [ %.11454, %11 ]
+  %.01544 = phi ptr [ %6, %1 ], [ %.11493, %11 ]
+  %14 = icmp eq i32 %.014501546, 23
+  br i1 %14, label %.thread1517, label %15
 
-16:                                               ; preds = %14
-  %17 = sext i32 %.014501546 to i64
-  %18 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %17
-  %19 = load i16, ptr %18, align 2, !tbaa !11
-  %20 = sext i16 %19 to i32
-  %21 = icmp eq i16 %19, -503
-  br i1 %21, label %54, label %22
+15:                                               ; preds = %13
+  %16 = sext i32 %.014501546 to i64
+  %17 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %16
+  %18 = load i16, ptr %17, align 2, !tbaa !11
+  %19 = sext i16 %18 to i32
+  %20 = icmp eq i16 %18, -503
+  br i1 %20, label %53, label %21
 
-22:                                               ; preds = %16
-  %23 = icmp eq i32 %.014261550, -2
-  br i1 %23, label %24, label %26
+21:                                               ; preds = %15
+  %22 = icmp eq i32 %.014261550, -2
+  br i1 %22, label %23, label %25
 
-24:                                               ; preds = %22
-  %25 = call noundef i32 @_Z19cmDependsJava_yylexPN25cmDependsJavaParserHelper10ParserTypeEPv(ptr noundef nonnull %2, ptr noundef %0)
-  br label %26
+23:                                               ; preds = %21
+  %24 = call noundef i32 @_Z19cmDependsJava_yylexPN25cmDependsJavaParserHelper10ParserTypeEPv(ptr noundef nonnull %2, ptr noundef %0)
+  br label %25
 
-26:                                               ; preds = %24, %22
-  %.4 = phi i32 [ %25, %24 ], [ %.014261550, %22 ]
-  %27 = icmp slt i32 %.4, 1
-  br i1 %27, label %37, label %28
+25:                                               ; preds = %23, %21
+  %.4 = phi i32 [ %24, %23 ], [ %.014261550, %21 ]
+  %26 = icmp slt i32 %.4, 1
+  br i1 %26, label %36, label %27
 
-28:                                               ; preds = %26
-  %29 = icmp eq i32 %.4, 256
-  br i1 %29, label %.thread, label %30
+27:                                               ; preds = %25
+  %28 = icmp eq i32 %.4, 256
+  br i1 %28, label %.thread, label %29
 
-30:                                               ; preds = %28
-  %31 = icmp samesign ult i32 %.4, 361
-  br i1 %31, label %32, label %37
+29:                                               ; preds = %27
+  %30 = icmp samesign ult i32 %.4, 361
+  br i1 %30, label %31, label %36
 
-32:                                               ; preds = %30
-  %33 = zext nneg i32 %.4 to i64
-  %34 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !13
-  %36 = sext i8 %35 to i32
-  br label %37
+31:                                               ; preds = %29
+  %32 = zext nneg i32 %.4 to i64
+  %33 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %32
+  %34 = load i8, ptr %33, align 1, !tbaa !13
+  %35 = sext i8 %34 to i32
+  br label %36
 
-37:                                               ; preds = %32, %30, %26
-  %.01431 = phi i32 [ 0, %26 ], [ %36, %32 ], [ 2, %30 ]
-  %.5 = phi i32 [ 0, %26 ], [ %.4, %32 ], [ %.4, %30 ]
-  %38 = add nsw i32 %.01431, %20
-  %or.cond3 = icmp ugt i32 %38, 2215
-  br i1 %or.cond3, label %54, label %39
+36:                                               ; preds = %31, %29, %25
+  %.01431 = phi i32 [ 0, %25 ], [ %35, %31 ], [ 2, %29 ]
+  %.5 = phi i32 [ 0, %25 ], [ %.4, %31 ], [ %.4, %29 ]
+  %37 = add nsw i32 %.01431, %19
+  %or.cond3 = icmp ugt i32 %37, 2215
+  br i1 %or.cond3, label %53, label %38
 
-39:                                               ; preds = %37
-  %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !11
-  %43 = sext i16 %42 to i32
-  %.not1472 = icmp eq i32 %.01431, %43
-  br i1 %.not1472, label %44, label %54
+38:                                               ; preds = %36
+  %39 = zext nneg i32 %37 to i64
+  %40 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !11
+  %42 = sext i16 %41 to i32
+  %.not1472 = icmp eq i32 %.01431, %42
+  br i1 %.not1472, label %43, label %53
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %40
-  %46 = load i16, ptr %45, align 2, !tbaa !11
-  %47 = sext i16 %46 to i32
-  %48 = icmp slt i16 %46, 1
-  br i1 %48, label %49, label %51
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %39
+  %45 = load i16, ptr %44, align 2, !tbaa !11
+  %46 = sext i16 %45 to i32
+  %47 = icmp slt i16 %45, 1
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %44
-  %50 = sub nsw i32 0, %47
-  br label %59
+48:                                               ; preds = %43
+  %49 = sub nsw i32 0, %46
+  br label %58
 
-51:                                               ; preds = %44
+50:                                               ; preds = %43
   %spec.select = call i32 @llvm.usub.sat.i32(i32 %.014531545, i32 1)
-  %52 = getelementptr inbounds nuw i8, ptr %.014341549, i64 8
-  %53 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %53, ptr %52, align 8, !tbaa !4
-  br label %12
+  %51 = getelementptr inbounds nuw i8, ptr %.014341549, i64 8
+  %52 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %52, ptr %51, align 8, !tbaa !4
+  br label %11
 
-54:                                               ; preds = %37, %39, %16
-  %.3 = phi i32 [ %.014261550, %16 ], [ %.5, %37 ], [ %.5, %39 ]
-  %55 = getelementptr inbounds i16, ptr @_ZL8yydefact, i64 %17
-  %56 = load i16, ptr %55, align 2, !tbaa !11
-  %57 = sext i16 %56 to i32
-  %58 = icmp eq i16 %56, 0
-  br i1 %58, label %1471, label %59
+53:                                               ; preds = %36, %38, %15
+  %.3 = phi i32 [ %.014261550, %15 ], [ %.5, %36 ], [ %.5, %38 ]
+  %54 = getelementptr inbounds i16, ptr @_ZL8yydefact, i64 %16
+  %55 = load i16, ptr %54, align 2, !tbaa !11
+  %56 = sext i16 %55 to i32
+  %57 = icmp eq i16 %55, 0
+  br i1 %57, label %1466, label %58
 
-59:                                               ; preds = %54, %49
-  %.01433 = phi i32 [ %57, %54 ], [ %50, %49 ]
-  %.7 = phi i32 [ %.3, %54 ], [ %.5, %49 ]
-  %60 = sext i32 %.01433 to i64
-  %61 = getelementptr inbounds i8, ptr @_ZL4yyr2, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !13
-  %63 = sext i8 %62 to i64
-  %64 = sub nsw i64 1, %63
-  %65 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341549, i64 %64
-  %66 = load i64, ptr %65, align 8, !tbaa !4
-  store i64 %66, ptr %5, align 8, !tbaa !4
-  switch i32 %.01433, label %1444 [
-    i32 2, label %67
-    i32 3, label %71
-    i32 4, label %75
-    i32 5, label %79
-    i32 6, label %83
-    i32 7, label %87
-    i32 8, label %91
-    i32 9, label %95
-    i32 10, label %99
-    i32 11, label %103
-    i32 12, label %107
-    i32 13, label %111
-    i32 14, label %113
-    i32 15, label %115
-    i32 16, label %117
-    i32 17, label %119
-    i32 18, label %121
-    i32 19, label %123
-    i32 20, label %125
-    i32 21, label %127
-    i32 22, label %131
-    i32 23, label %135
-    i32 24, label %142
-    i32 25, label %146
-    i32 26, label %150
-    i32 27, label %154
-    i32 28, label %162
-    i32 29, label %165
-    i32 30, label %168
-    i32 31, label %171
-    i32 32, label %174
-    i32 33, label %177
-    i32 34, label %189
-    i32 35, label %198
-    i32 36, label %207
-    i32 37, label %211
-    i32 38, label %215
-    i32 39, label %219
-    i32 40, label %223
-    i32 41, label %226
-    i32 42, label %230
-    i32 43, label %233
-    i32 44, label %237
-    i32 45, label %240
-    i32 46, label %244
-    i32 47, label %253
-    i32 48, label %257
-    i32 49, label %261
-    i32 50, label %270
-    i32 51, label %303
-    i32 52, label %307
-    i32 53, label %311
-    i32 54, label %315
-    i32 55, label %319
-    i32 67, label %323
-    i32 68, label %329
-    i32 69, label %334
-    i32 70, label %339
-    i32 71, label %344
-    i32 72, label %349
-    i32 73, label %352
-    i32 74, label %356
-    i32 75, label %360
-    i32 76, label %364
-    i32 77, label %368
-    i32 78, label %372
-    i32 79, label %376
-    i32 80, label %379
-    i32 81, label %383
-    i32 82, label %387
-    i32 83, label %391
-    i32 84, label %395
-    i32 85, label %399
-    i32 86, label %403
-    i32 87, label %407
-    i32 88, label %409
-    i32 89, label %413
-    i32 90, label %417
-    i32 91, label %421
-    i32 92, label %425
-    i32 93, label %430
-    i32 94, label %434
-    i32 95, label %438
-    i32 96, label %442
-    i32 97, label %446
-    i32 98, label %450
-    i32 99, label %454
-    i32 100, label %458
-    i32 101, label %462
-    i32 102, label %465
-    i32 103, label %469
-    i32 104, label %475
-    i32 105, label %477
-    i32 107, label %480
-    i32 108, label %482
-    i32 109, label %486
-    i32 110, label %490
-    i32 111, label %494
-    i32 112, label %496
-    i32 113, label %500
-    i32 114, label %504
-    i32 115, label %508
-    i32 116, label %512
-    i32 117, label %516
-    i32 118, label %522
-    i32 119, label %526
-    i32 120, label %529
-    i32 121, label %533
-    i32 122, label %537
-    i32 123, label %541
-    i32 124, label %547
-    i32 125, label %552
-    i32 126, label %555
-    i32 127, label %559
-    i32 128, label %563
-    i32 129, label %567
-    i32 130, label %571
-    i32 131, label %574
-    i32 132, label %577
-    i32 133, label %581
-    i32 134, label %585
-    i32 135, label %589
-    i32 136, label %592
-    i32 137, label %596
-    i32 138, label %599
-    i32 139, label %603
-    i32 140, label %607
-    i32 141, label %611
-    i32 142, label %615
-    i32 143, label %619
-    i32 144, label %622
-    i32 145, label %626
-    i32 146, label %630
-    i32 147, label %634
-    i32 148, label %638
-    i32 149, label %641
-    i32 150, label %644
-    i32 151, label %648
-    i32 152, label %652
-    i32 153, label %656
-    i32 154, label %660
-    i32 155, label %664
-    i32 156, label %668
-    i32 157, label %672
-    i32 158, label %676
-    i32 159, label %680
-    i32 160, label %684
-    i32 161, label %688
-    i32 162, label %692
-    i32 163, label %696
-    i32 164, label %700
-    i32 165, label %704
-    i32 166, label %708
-    i32 167, label %712
-    i32 168, label %716
-    i32 169, label %720
-    i32 170, label %724
-    i32 171, label %728
-    i32 172, label %732
-    i32 173, label %736
-    i32 174, label %740
-    i32 175, label %744
-    i32 176, label %748
-    i32 177, label %752
-    i32 178, label %756
-    i32 179, label %760
-    i32 180, label %764
-    i32 181, label %768
-    i32 182, label %772
-    i32 183, label %776
-    i32 184, label %782
-    i32 185, label %786
-    i32 186, label %790
-    i32 187, label %794
-    i32 188, label %798
-    i32 189, label %802
-    i32 190, label %806
-    i32 191, label %810
-    i32 192, label %814
-    i32 193, label %818
-    i32 194, label %822
-    i32 195, label %826
-    i32 196, label %830
-    i32 197, label %832
-    i32 198, label %834
-    i32 199, label %837
-    i32 200, label %841
-    i32 201, label %844
-    i32 202, label %848
-    i32 203, label %852
-    i32 204, label %856
-    i32 205, label %860
-    i32 206, label %864
-    i32 207, label %868
-    i32 208, label %870
-    i32 209, label %872
-    i32 210, label %874
-    i32 211, label %876
-    i32 212, label %879
-    i32 213, label %883
-    i32 214, label %886
-    i32 215, label %890
-    i32 216, label %893
-    i32 217, label %896
-    i32 218, label %900
-    i32 219, label %904
-    i32 220, label %908
-    i32 221, label %912
-    i32 222, label %916
-    i32 223, label %920
-    i32 224, label %924
-    i32 225, label %928
-    i32 226, label %934
-    i32 227, label %937
-    i32 228, label %939
-    i32 229, label %945
-    i32 230, label %949
-    i32 231, label %953
-    i32 232, label %957
-    i32 233, label %961
-    i32 234, label %965
-    i32 235, label %968
-    i32 236, label %972
-    i32 237, label %976
-    i32 238, label %980
-    i32 239, label %982
-    i32 240, label %986
-    i32 241, label %990
-    i32 242, label %994
-    i32 243, label %998
-    i32 244, label %1000
-    i32 245, label %1004
-    i32 246, label %1008
-    i32 247, label %1012
-    i32 248, label %1016
-    i32 249, label %1020
-    i32 250, label %1024
-    i32 251, label %1027
-    i32 252, label %1031
-    i32 253, label %1034
-    i32 254, label %1038
-    i32 255, label %1042
-    i32 256, label %1046
-    i32 257, label %1050
-    i32 258, label %1054
-    i32 259, label %1058
-    i32 260, label %1062
-    i32 261, label %1065
-    i32 262, label %1069
-    i32 263, label %1073
-    i32 264, label %1077
-    i32 265, label %1081
-    i32 266, label %1083
-    i32 267, label %1085
-    i32 268, label %1090
-    i32 269, label %1095
-    i32 270, label %1100
-    i32 271, label %1105
-    i32 272, label %1111
-    i32 273, label %1119
-    i32 274, label %1125
-    i32 275, label %1131
-    i32 276, label %1137
-    i32 277, label %1141
-    i32 278, label %1145
-    i32 279, label %1149
-    i32 280, label %1153
-    i32 281, label %1157
-    i32 282, label %1161
-    i32 283, label %1165
-    i32 284, label %1169
-    i32 285, label %1173
-    i32 286, label %1177
-    i32 287, label %1181
-    i32 288, label %1185
-    i32 289, label %1189
-    i32 290, label %1193
-    i32 291, label %1197
-    i32 292, label %1201
-    i32 293, label %1205
-    i32 294, label %1209
-    i32 295, label %1213
-    i32 296, label %1217
-    i32 297, label %1221
-    i32 298, label %1223
-    i32 299, label %1227
-    i32 300, label %1231
-    i32 301, label %1235
-    i32 302, label %1239
-    i32 303, label %1243
-    i32 304, label %1247
-    i32 305, label %1251
-    i32 306, label %1255
-    i32 307, label %1259
-    i32 308, label %1263
-    i32 309, label %1267
-    i32 310, label %1271
-    i32 311, label %1275
-    i32 312, label %1279
-    i32 313, label %1283
-    i32 314, label %1287
-    i32 315, label %1291
-    i32 316, label %1295
-    i32 317, label %1299
-    i32 318, label %1303
-    i32 319, label %1307
-    i32 320, label %1311
-    i32 321, label %1315
-    i32 322, label %1319
-    i32 323, label %1323
-    i32 324, label %1327
-    i32 325, label %1331
-    i32 326, label %1335
-    i32 327, label %1339
-    i32 328, label %1343
-    i32 329, label %1347
-    i32 330, label %1351
-    i32 331, label %1355
-    i32 332, label %1359
-    i32 333, label %1363
-    i32 334, label %1368
-    i32 335, label %1372
-    i32 336, label %1376
-    i32 337, label %1380
-    i32 338, label %1384
-    i32 339, label %1388
-    i32 340, label %1392
-    i32 341, label %1396
-    i32 342, label %1400
-    i32 343, label %1404
-    i32 344, label %1408
-    i32 345, label %1412
-    i32 346, label %1416
-    i32 347, label %1420
-    i32 348, label %1424
-    i32 349, label %1428
-    i32 350, label %1432
-    i32 351, label %1436
+58:                                               ; preds = %53, %48
+  %.01433 = phi i32 [ %56, %53 ], [ %49, %48 ]
+  %.7 = phi i32 [ %.3, %53 ], [ %.5, %48 ]
+  %59 = sext i32 %.01433 to i64
+  %60 = getelementptr inbounds i8, ptr @_ZL4yyr2, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !13
+  %62 = sext i8 %61 to i64
+  %63 = sub nsw i64 1, %62
+  %64 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341549, i64 %63
+  %65 = load i64, ptr %64, align 8, !tbaa !4
+  store i64 %65, ptr %5, align 8, !tbaa !4
+  switch i32 %.01433, label %1439 [
+    i32 2, label %66
+    i32 3, label %70
+    i32 4, label %74
+    i32 5, label %78
+    i32 6, label %82
+    i32 7, label %86
+    i32 8, label %90
+    i32 9, label %94
+    i32 10, label %98
+    i32 11, label %102
+    i32 12, label %106
+    i32 13, label %110
+    i32 14, label %112
+    i32 15, label %114
+    i32 16, label %116
+    i32 17, label %118
+    i32 18, label %120
+    i32 19, label %122
+    i32 20, label %124
+    i32 21, label %126
+    i32 22, label %130
+    i32 23, label %134
+    i32 24, label %141
+    i32 25, label %145
+    i32 26, label %149
+    i32 27, label %153
+    i32 28, label %161
+    i32 29, label %164
+    i32 30, label %167
+    i32 31, label %170
+    i32 32, label %173
+    i32 33, label %176
+    i32 34, label %188
+    i32 35, label %197
+    i32 36, label %206
+    i32 37, label %210
+    i32 38, label %214
+    i32 39, label %218
+    i32 40, label %222
+    i32 41, label %225
+    i32 42, label %229
+    i32 43, label %232
+    i32 44, label %236
+    i32 45, label %239
+    i32 46, label %243
+    i32 47, label %252
+    i32 48, label %256
+    i32 49, label %260
+    i32 50, label %269
+    i32 51, label %298
+    i32 52, label %302
+    i32 53, label %306
+    i32 54, label %310
+    i32 55, label %314
+    i32 67, label %318
+    i32 68, label %324
+    i32 69, label %329
+    i32 70, label %334
+    i32 71, label %339
+    i32 72, label %344
+    i32 73, label %347
+    i32 74, label %351
+    i32 75, label %355
+    i32 76, label %359
+    i32 77, label %363
+    i32 78, label %367
+    i32 79, label %371
+    i32 80, label %374
+    i32 81, label %378
+    i32 82, label %382
+    i32 83, label %386
+    i32 84, label %390
+    i32 85, label %394
+    i32 86, label %398
+    i32 87, label %402
+    i32 88, label %404
+    i32 89, label %408
+    i32 90, label %412
+    i32 91, label %416
+    i32 92, label %420
+    i32 93, label %425
+    i32 94, label %429
+    i32 95, label %433
+    i32 96, label %437
+    i32 97, label %441
+    i32 98, label %445
+    i32 99, label %449
+    i32 100, label %453
+    i32 101, label %457
+    i32 102, label %460
+    i32 103, label %464
+    i32 104, label %470
+    i32 105, label %472
+    i32 107, label %475
+    i32 108, label %477
+    i32 109, label %481
+    i32 110, label %485
+    i32 111, label %489
+    i32 112, label %491
+    i32 113, label %495
+    i32 114, label %499
+    i32 115, label %503
+    i32 116, label %507
+    i32 117, label %511
+    i32 118, label %517
+    i32 119, label %521
+    i32 120, label %524
+    i32 121, label %528
+    i32 122, label %532
+    i32 123, label %536
+    i32 124, label %542
+    i32 125, label %547
+    i32 126, label %550
+    i32 127, label %554
+    i32 128, label %558
+    i32 129, label %562
+    i32 130, label %566
+    i32 131, label %569
+    i32 132, label %572
+    i32 133, label %576
+    i32 134, label %580
+    i32 135, label %584
+    i32 136, label %587
+    i32 137, label %591
+    i32 138, label %594
+    i32 139, label %598
+    i32 140, label %602
+    i32 141, label %606
+    i32 142, label %610
+    i32 143, label %614
+    i32 144, label %617
+    i32 145, label %621
+    i32 146, label %625
+    i32 147, label %629
+    i32 148, label %633
+    i32 149, label %636
+    i32 150, label %639
+    i32 151, label %643
+    i32 152, label %647
+    i32 153, label %651
+    i32 154, label %655
+    i32 155, label %659
+    i32 156, label %663
+    i32 157, label %667
+    i32 158, label %671
+    i32 159, label %675
+    i32 160, label %679
+    i32 161, label %683
+    i32 162, label %687
+    i32 163, label %691
+    i32 164, label %695
+    i32 165, label %699
+    i32 166, label %703
+    i32 167, label %707
+    i32 168, label %711
+    i32 169, label %715
+    i32 170, label %719
+    i32 171, label %723
+    i32 172, label %727
+    i32 173, label %731
+    i32 174, label %735
+    i32 175, label %739
+    i32 176, label %743
+    i32 177, label %747
+    i32 178, label %751
+    i32 179, label %755
+    i32 180, label %759
+    i32 181, label %763
+    i32 182, label %767
+    i32 183, label %771
+    i32 184, label %777
+    i32 185, label %781
+    i32 186, label %785
+    i32 187, label %789
+    i32 188, label %793
+    i32 189, label %797
+    i32 190, label %801
+    i32 191, label %805
+    i32 192, label %809
+    i32 193, label %813
+    i32 194, label %817
+    i32 195, label %821
+    i32 196, label %825
+    i32 197, label %827
+    i32 198, label %829
+    i32 199, label %832
+    i32 200, label %836
+    i32 201, label %839
+    i32 202, label %843
+    i32 203, label %847
+    i32 204, label %851
+    i32 205, label %855
+    i32 206, label %859
+    i32 207, label %863
+    i32 208, label %865
+    i32 209, label %867
+    i32 210, label %869
+    i32 211, label %871
+    i32 212, label %874
+    i32 213, label %878
+    i32 214, label %881
+    i32 215, label %885
+    i32 216, label %888
+    i32 217, label %891
+    i32 218, label %895
+    i32 219, label %899
+    i32 220, label %903
+    i32 221, label %907
+    i32 222, label %911
+    i32 223, label %915
+    i32 224, label %919
+    i32 225, label %923
+    i32 226, label %929
+    i32 227, label %932
+    i32 228, label %934
+    i32 229, label %940
+    i32 230, label %944
+    i32 231, label %948
+    i32 232, label %952
+    i32 233, label %956
+    i32 234, label %960
+    i32 235, label %963
+    i32 236, label %967
+    i32 237, label %971
+    i32 238, label %975
+    i32 239, label %977
+    i32 240, label %981
+    i32 241, label %985
+    i32 242, label %989
+    i32 243, label %993
+    i32 244, label %995
+    i32 245, label %999
+    i32 246, label %1003
+    i32 247, label %1007
+    i32 248, label %1011
+    i32 249, label %1015
+    i32 250, label %1019
+    i32 251, label %1022
+    i32 252, label %1026
+    i32 253, label %1029
+    i32 254, label %1033
+    i32 255, label %1037
+    i32 256, label %1041
+    i32 257, label %1045
+    i32 258, label %1049
+    i32 259, label %1053
+    i32 260, label %1057
+    i32 261, label %1060
+    i32 262, label %1064
+    i32 263, label %1068
+    i32 264, label %1072
+    i32 265, label %1076
+    i32 266, label %1078
+    i32 267, label %1080
+    i32 268, label %1085
+    i32 269, label %1090
+    i32 270, label %1095
+    i32 271, label %1100
+    i32 272, label %1106
+    i32 273, label %1114
+    i32 274, label %1120
+    i32 275, label %1126
+    i32 276, label %1132
+    i32 277, label %1136
+    i32 278, label %1140
+    i32 279, label %1144
+    i32 280, label %1148
+    i32 281, label %1152
+    i32 282, label %1156
+    i32 283, label %1160
+    i32 284, label %1164
+    i32 285, label %1168
+    i32 286, label %1172
+    i32 287, label %1176
+    i32 288, label %1180
+    i32 289, label %1184
+    i32 290, label %1188
+    i32 291, label %1192
+    i32 292, label %1196
+    i32 293, label %1200
+    i32 294, label %1204
+    i32 295, label %1208
+    i32 296, label %1212
+    i32 297, label %1216
+    i32 298, label %1218
+    i32 299, label %1222
+    i32 300, label %1226
+    i32 301, label %1230
+    i32 302, label %1234
+    i32 303, label %1238
+    i32 304, label %1242
+    i32 305, label %1246
+    i32 306, label %1250
+    i32 307, label %1254
+    i32 308, label %1258
+    i32 309, label %1262
+    i32 310, label %1266
+    i32 311, label %1270
+    i32 312, label %1274
+    i32 313, label %1278
+    i32 314, label %1282
+    i32 315, label %1286
+    i32 316, label %1290
+    i32 317, label %1294
+    i32 318, label %1298
+    i32 319, label %1302
+    i32 320, label %1306
+    i32 321, label %1310
+    i32 322, label %1314
+    i32 323, label %1318
+    i32 324, label %1322
+    i32 325, label %1326
+    i32 326, label %1330
+    i32 327, label %1334
+    i32 328, label %1338
+    i32 329, label %1342
+    i32 330, label %1346
+    i32 331, label %1350
+    i32 332, label %1354
+    i32 333, label %1358
+    i32 334, label %1363
+    i32 335, label %1367
+    i32 336, label %1371
+    i32 337, label %1375
+    i32 338, label %1379
+    i32 339, label %1383
+    i32 340, label %1387
+    i32 341, label %1391
+    i32 342, label %1395
+    i32 343, label %1399
+    i32 344, label %1403
+    i32 345, label %1407
+    i32 346, label %1411
+    i32 347, label %1415
+    i32 348, label %1419
+    i32 349, label %1423
+    i32 350, label %1427
+    i32 351, label %1431
   ]
 
-67:                                               ; preds = %59
+66:                                               ; preds = %58
+  %67 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %67, ptr noundef nonnull %5)
   %68 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %68, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %68, i32 noundef 187, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %69 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %69, i32 noundef 187, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %70 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %70, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %69, ptr noundef nonnull @.str)
+  br label %1439
 
-71:                                               ; preds = %59
+70:                                               ; preds = %58
+  %71 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %71, ptr noundef nonnull %5)
   %72 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %72, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %72, i32 noundef 196, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %73 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %73, i32 noundef 196, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %74 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %74, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %73, ptr noundef nonnull @.str)
+  br label %1439
 
-75:                                               ; preds = %59
+74:                                               ; preds = %58
+  %75 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %75, ptr noundef nonnull %5)
   %76 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %76, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %76, i32 noundef 204, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %77 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %77, i32 noundef 204, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %78 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %78, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %77, ptr noundef nonnull @.str)
+  br label %1439
 
-79:                                               ; preds = %59
+78:                                               ; preds = %58
+  %79 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %79, ptr noundef nonnull %5)
   %80 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %80, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %80, i32 noundef 212, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %81 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %81, i32 noundef 212, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %82 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %82, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %81, ptr noundef nonnull @.str)
+  br label %1439
 
-83:                                               ; preds = %59
+82:                                               ; preds = %58
+  %83 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %83, ptr noundef nonnull %5)
   %84 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %84, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %84, i32 noundef 220, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %85 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %85, i32 noundef 220, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %86 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %86, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %85, ptr noundef nonnull @.str)
+  br label %1439
 
-87:                                               ; preds = %59
+86:                                               ; preds = %58
+  %87 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %87, ptr noundef nonnull %5)
   %88 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %88, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %88, i32 noundef 228, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %89 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %89, i32 noundef 228, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %90 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %90, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %89, ptr noundef nonnull @.str)
+  br label %1439
 
-91:                                               ; preds = %59
+90:                                               ; preds = %58
+  %91 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %91, ptr noundef nonnull %5)
   %92 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %92, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %92, i32 noundef 236, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %93 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %93, i32 noundef 236, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %94 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %94, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %93, ptr noundef nonnull @.str)
+  br label %1439
 
-95:                                               ; preds = %59
+94:                                               ; preds = %58
+  %95 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %95, ptr noundef nonnull %5)
   %96 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %96, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %96, i32 noundef 245, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %97 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %97, i32 noundef 245, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %98 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %98, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %97, ptr noundef nonnull @.str)
+  br label %1439
 
-99:                                               ; preds = %59
+98:                                               ; preds = %58
+  %99 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %99, ptr noundef nonnull %5)
   %100 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %100, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %100, i32 noundef 253, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %101 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %101, i32 noundef 253, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %102 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %102, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %101, ptr noundef nonnull @.str)
+  br label %1439
 
-103:                                              ; preds = %59
+102:                                              ; preds = %58
+  %103 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %103, ptr noundef nonnull %5)
   %104 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %104, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %104, i32 noundef 262, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %105 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %105, i32 noundef 262, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %106 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %106, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %105, ptr noundef nonnull @.str)
+  br label %1439
 
-107:                                              ; preds = %59
+106:                                              ; preds = %58
+  %107 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %107, ptr noundef nonnull %5)
   %108 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %108, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %108, i32 noundef 270, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %109 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %109, i32 noundef 270, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %110 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %110, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %109, ptr noundef nonnull @.str)
+  br label %1439
 
-111:                                              ; preds = %59
-  %112 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %112, ptr noundef nonnull %5)
-  br label %1444
+110:                                              ; preds = %58
+  %111 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %111, ptr noundef nonnull %5)
+  br label %1439
 
-113:                                              ; preds = %59
-  %114 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %114, ptr noundef nonnull %5)
-  br label %1444
+112:                                              ; preds = %58
+  %113 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %113, ptr noundef nonnull %5)
+  br label %1439
 
-115:                                              ; preds = %59
-  %116 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %116, ptr noundef nonnull %5)
-  br label %1444
+114:                                              ; preds = %58
+  %115 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %115, ptr noundef nonnull %5)
+  br label %1439
 
-117:                                              ; preds = %59
-  %118 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %118, ptr noundef nonnull %5)
-  br label %1444
+116:                                              ; preds = %58
+  %117 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %117, ptr noundef nonnull %5)
+  br label %1439
 
-119:                                              ; preds = %59
-  %120 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %120, ptr noundef nonnull %5)
-  br label %1444
+118:                                              ; preds = %58
+  %119 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %119, ptr noundef nonnull %5)
+  br label %1439
 
-121:                                              ; preds = %59
-  %122 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %122, ptr noundef nonnull %5)
-  br label %1444
+120:                                              ; preds = %58
+  %121 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %121, ptr noundef nonnull %5)
+  br label %1439
 
-123:                                              ; preds = %59
-  %124 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %124, ptr noundef nonnull %5)
-  br label %1444
+122:                                              ; preds = %58
+  %123 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %123, ptr noundef nonnull %5)
+  br label %1439
 
-125:                                              ; preds = %59
-  %126 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %126, ptr noundef nonnull %5)
-  br label %1444
+124:                                              ; preds = %58
+  %125 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %125, ptr noundef nonnull %5)
+  br label %1439
 
-127:                                              ; preds = %59
+126:                                              ; preds = %58
+  %127 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %127, ptr noundef nonnull %5)
   %128 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %128, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %128, i32 noundef 320, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %129 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %129, i32 noundef 320, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %130 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %130, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %129, ptr noundef nonnull @.str)
+  br label %1439
 
-131:                                              ; preds = %59
+130:                                              ; preds = %58
+  %131 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %131, ptr noundef nonnull %5)
   %132 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %132, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %132, i32 noundef 328, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %133 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %133, i32 noundef 328, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %134 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %134, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %133, ptr noundef nonnull @.str)
+  br label %1439
 
-135:                                              ; preds = %59
+134:                                              ; preds = %58
+  %135 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %135, ptr noundef nonnull %5)
   %136 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %136, ptr noundef nonnull %5)
-  %137 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %138 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %137, ptr noundef %138)
+  %137 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %136, ptr noundef %137)
+  %138 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %138, ptr noundef nonnull %.014341549)
   %139 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %139, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %139, i32 noundef 338, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %140 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %140, i32 noundef 338, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %141 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %141, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %140, ptr noundef nonnull @.str)
+  br label %1439
 
-142:                                              ; preds = %59
+141:                                              ; preds = %58
+  %142 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %142, ptr noundef nonnull %5)
   %143 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %143, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %143, i32 noundef 347, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %144 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %144, i32 noundef 347, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %145 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %145, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %144, ptr noundef nonnull @.str)
+  br label %1439
 
-146:                                              ; preds = %59
+145:                                              ; preds = %58
+  %146 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %146, ptr noundef nonnull %5)
   %147 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %147, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %147, i32 noundef 356, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %148 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %148, i32 noundef 356, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %149 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %149, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %148, ptr noundef nonnull @.str)
+  br label %1439
 
-150:                                              ; preds = %59
+149:                                              ; preds = %58
+  %150 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %150, ptr noundef nonnull %5)
   %151 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %151, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %151, i32 noundef 365, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %152 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %152, i32 noundef 365, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %153 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %153, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %152, ptr noundef nonnull @.str)
+  br label %1439
 
-154:                                              ; preds = %59
+153:                                              ; preds = %58
+  %154 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %154, ptr noundef nonnull %5)
   %155 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %155, ptr noundef nonnull %5)
-  %156 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %157 = getelementptr inbounds i8, ptr %.014341549, i64 -8
-  %158 = load ptr, ptr %157, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %156, ptr noundef %158)
+  %156 = getelementptr inbounds i8, ptr %.014341549, i64 -8
+  %157 = load ptr, ptr %156, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %155, ptr noundef %157)
+  %158 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %158, ptr noundef nonnull %156)
   %159 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %159, ptr noundef nonnull %157)
-  %160 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %160, i32 noundef 374, i32 noundef 2, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %159, i32 noundef 374, i32 noundef 2, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %161 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %161, ptr noundef nonnull @.str)
-  br label %1444
+  %160 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %160, ptr noundef nonnull @.str)
+  br label %1439
 
-162:                                              ; preds = %59
-  %163 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %163, ptr noundef nonnull %5)
-  %164 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  store ptr %164, ptr %5, align 8, !tbaa !14
-  br label %1444
+161:                                              ; preds = %58
+  %162 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %162, ptr noundef nonnull %5)
+  %163 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  store ptr %163, ptr %5, align 8, !tbaa !14
+  br label %1439
 
-165:                                              ; preds = %59
-  %166 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %166, ptr noundef nonnull %5)
-  %167 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  store ptr %167, ptr %5, align 8, !tbaa !14
-  br label %1444
+164:                                              ; preds = %58
+  %165 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %165, ptr noundef nonnull %5)
+  %166 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  store ptr %166, ptr %5, align 8, !tbaa !14
+  br label %1439
 
-168:                                              ; preds = %59
-  %169 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %169, ptr noundef nonnull %5)
-  %170 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  store ptr %170, ptr %5, align 8, !tbaa !14
-  br label %1444
+167:                                              ; preds = %58
+  %168 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %168, ptr noundef nonnull %5)
+  %169 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  store ptr %169, ptr %5, align 8, !tbaa !14
+  br label %1439
 
-171:                                              ; preds = %59
-  %172 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %172, ptr noundef nonnull %5)
-  %173 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  store ptr %173, ptr %5, align 8, !tbaa !14
-  br label %1444
+170:                                              ; preds = %58
+  %171 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %171, ptr noundef nonnull %5)
+  %172 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  store ptr %172, ptr %5, align 8, !tbaa !14
+  br label %1439
 
-174:                                              ; preds = %59
-  %175 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %175, ptr noundef nonnull %5)
-  %176 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  store ptr %176, ptr %5, align 8, !tbaa !14
-  br label %1444
+173:                                              ; preds = %58
+  %174 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %174, ptr noundef nonnull %5)
+  %175 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  store ptr %175, ptr %5, align 8, !tbaa !14
+  br label %1439
 
-177:                                              ; preds = %59
+176:                                              ; preds = %58
+  %177 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %177, ptr noundef nonnull %5)
   %178 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %178, ptr noundef nonnull %5)
-  %179 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %180 = getelementptr inbounds i8, ptr %.014341549, i64 -16
-  %181 = load ptr, ptr %180, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %179, ptr noundef %181)
-  %182 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %183 = load ptr, ptr %180, align 8, !tbaa !14
-  %184 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13UpdateCombineEPKcS1_(ptr noundef nonnull align 8 dereferenceable(248) %182, ptr noundef %183, ptr noundef %184)
+  %179 = getelementptr inbounds i8, ptr %.014341549, i64 -16
+  %180 = load ptr, ptr %179, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %178, ptr noundef %180)
+  %181 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %182 = load ptr, ptr %179, align 8, !tbaa !14
+  %183 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13UpdateCombineEPKcS1_(ptr noundef nonnull align 8 dereferenceable(248) %181, ptr noundef %182, ptr noundef %183)
+  %184 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %184, ptr noundef nonnull %179)
   %185 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %185, ptr noundef nonnull %180)
-  %186 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 144
-  %188 = load ptr, ptr %187, align 8, !tbaa !16
-  store ptr %188, ptr %5, align 8, !tbaa !14
-  br label %1444
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 144
+  %187 = load ptr, ptr %186, align 8, !tbaa !16
+  store ptr %187, ptr %5, align 8, !tbaa !14
+  br label %1439
 
-189:                                              ; preds = %59
+188:                                              ; preds = %58
+  %189 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %189, ptr noundef nonnull %5)
   %190 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %190, ptr noundef nonnull %5)
-  %191 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %192 = getelementptr inbounds i8, ptr %.014341549, i64 -16
-  %193 = load ptr, ptr %192, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %191, ptr noundef %193)
+  %191 = getelementptr inbounds i8, ptr %.014341549, i64 -16
+  %192 = load ptr, ptr %191, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %190, ptr noundef %192)
+  %193 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %193, ptr noundef nonnull %191)
   %194 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %194, ptr noundef nonnull %192)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %194, i32 noundef 426, i32 noundef 3, ptr noundef nonnull %.014341549)
   %195 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %195, i32 noundef 426, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %195, ptr noundef nonnull @.str)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %196 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %196, ptr noundef nonnull @.str)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %197 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %197, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-198:                                              ; preds = %59
+197:                                              ; preds = %58
+  %198 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %198, ptr noundef nonnull %5)
   %199 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %199, ptr noundef nonnull %5)
-  %200 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %201 = getelementptr inbounds i8, ptr %.014341549, i64 -16
-  %202 = load ptr, ptr %201, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %200, ptr noundef %202)
+  %200 = getelementptr inbounds i8, ptr %.014341549, i64 -16
+  %201 = load ptr, ptr %200, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %199, ptr noundef %201)
+  %202 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %202, ptr noundef nonnull %200)
   %203 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %203, ptr noundef nonnull %201)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %203, ptr noundef nonnull @.str)
   %204 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %204, ptr noundef nonnull @.str)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %204, i32 noundef 437, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %205 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %205, i32 noundef 437, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %206 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %206, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %205, ptr noundef nonnull @.str)
+  br label %1439
 
-207:                                              ; preds = %59
+206:                                              ; preds = %58
+  %207 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %207, ptr noundef nonnull %5)
   %208 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %208, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %208, i32 noundef 445, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %209 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %209, i32 noundef 445, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %210 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %210, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %209, ptr noundef nonnull @.str)
+  br label %1439
 
-211:                                              ; preds = %59
+210:                                              ; preds = %58
+  %211 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %211, ptr noundef nonnull %5)
   %212 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %212, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %212, i32 noundef 454, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %213 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %213, i32 noundef 454, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %214 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %214, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %213, ptr noundef nonnull @.str)
+  br label %1439
 
-215:                                              ; preds = %59
+214:                                              ; preds = %58
+  %215 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %215, ptr noundef nonnull %5)
   %216 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %216, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %216, i32 noundef 462, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %217 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %217, i32 noundef 462, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %218 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %218, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %217, ptr noundef nonnull @.str)
+  br label %1439
 
-219:                                              ; preds = %59
+218:                                              ; preds = %58
+  %219 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %219, ptr noundef nonnull %5)
   %220 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %220, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %220, i32 noundef 471, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %221 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %221, i32 noundef 471, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %222 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %222, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %221, ptr noundef nonnull @.str)
+  br label %1439
 
-223:                                              ; preds = %59
+222:                                              ; preds = %58
+  %223 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %223, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %224 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %224, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %225 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %225, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %224, ptr noundef nonnull @.str)
+  br label %1439
 
-226:                                              ; preds = %59
+225:                                              ; preds = %58
+  %226 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %226, ptr noundef nonnull %5)
   %227 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %227, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %227, i32 noundef 486, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %228 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %228, i32 noundef 486, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %229 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %229, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %228, ptr noundef nonnull @.str)
+  br label %1439
 
-230:                                              ; preds = %59
+229:                                              ; preds = %58
+  %230 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %230, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %231 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %231, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %232 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %232, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %231, ptr noundef nonnull @.str)
+  br label %1439
 
-233:                                              ; preds = %59
+232:                                              ; preds = %58
+  %233 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %233, ptr noundef nonnull %5)
   %234 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %234, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %234, i32 noundef 501, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %235 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %235, i32 noundef 501, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %236 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %236, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %235, ptr noundef nonnull @.str)
+  br label %1439
 
-237:                                              ; preds = %59
+236:                                              ; preds = %58
+  %237 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %237, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %238 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %238, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %239 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %239, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %238, ptr noundef nonnull @.str)
+  br label %1439
 
-240:                                              ; preds = %59
+239:                                              ; preds = %58
+  %240 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %240, ptr noundef nonnull %5)
   %241 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %241, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %241, i32 noundef 516, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %242 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %242, i32 noundef 516, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %243 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %243, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %242, ptr noundef nonnull @.str)
+  br label %1439
 
-244:                                              ; preds = %59
+243:                                              ; preds = %58
+  %244 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %244, ptr noundef nonnull %5)
   %245 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %245, ptr noundef nonnull %5)
-  %246 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %247 = getelementptr inbounds i8, ptr %.014341549, i64 -8
-  %248 = load ptr, ptr %247, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentPackageEPKc(ptr noundef nonnull align 8 dereferenceable(248) %246, ptr noundef %248)
+  %246 = getelementptr inbounds i8, ptr %.014341549, i64 -8
+  %247 = load ptr, ptr %246, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentPackageEPKc(ptr noundef nonnull align 8 dereferenceable(248) %245, ptr noundef %247)
+  %248 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %248, ptr noundef nonnull %246)
   %249 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %249, ptr noundef nonnull %247)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %249, ptr noundef nonnull @.str)
   %250 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %250, ptr noundef nonnull @.str)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %250, i32 noundef 528, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %251 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %251, i32 noundef 528, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %252 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %252, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %251, ptr noundef nonnull @.str)
+  br label %1439
 
-253:                                              ; preds = %59
+252:                                              ; preds = %58
+  %253 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %253, ptr noundef nonnull %5)
   %254 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %254, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %254, i32 noundef 537, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %255 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %255, i32 noundef 537, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %256 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %256, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %255, ptr noundef nonnull @.str)
+  br label %1439
 
-257:                                              ; preds = %59
+256:                                              ; preds = %58
+  %257 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %257, ptr noundef nonnull %5)
   %258 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %258, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %258, i32 noundef 545, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %259 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %259, i32 noundef 545, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %260 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %260, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %259, ptr noundef nonnull @.str)
+  br label %1439
 
-261:                                              ; preds = %59
+260:                                              ; preds = %58
+  %261 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %261, ptr noundef nonnull %5)
   %262 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %262, ptr noundef nonnull %5)
-  %263 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %264 = getelementptr inbounds i8, ptr %.014341549, i64 -8
-  %265 = load ptr, ptr %264, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper17AddPackagesImportEPKc(ptr noundef nonnull align 8 dereferenceable(248) %263, ptr noundef %265)
+  %263 = getelementptr inbounds i8, ptr %.014341549, i64 -8
+  %264 = load ptr, ptr %263, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17AddPackagesImportEPKc(ptr noundef nonnull align 8 dereferenceable(248) %262, ptr noundef %264)
+  %265 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %265, ptr noundef nonnull %263)
   %266 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %266, ptr noundef nonnull %264)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %266, ptr noundef nonnull @.str)
   %267 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %267, ptr noundef nonnull @.str)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %267, i32 noundef 557, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %268 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %268, i32 noundef 557, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %269 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %269, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %268, ptr noundef nonnull @.str)
+  br label %1439
 
-270:                                              ; preds = %59
-  %271 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %271, ptr noundef nonnull %5)
+269:                                              ; preds = %58
+  %270 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %270, ptr noundef nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %272 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  %273 = load ptr, ptr %272, align 8, !tbaa !14
+  %271 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  %272 = load ptr, ptr %271, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %273, ptr noundef nonnull align 1 dereferenceable(1) %9)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %272, ptr noundef nonnull align 1 dereferenceable(1) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %274 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.1)
-          to label %275 unwind label %295
+  %273 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.1)
+          to label %274 unwind label %292
 
-275:                                              ; preds = %270
-  %276 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-          to label %277 unwind label %295
+274:                                              ; preds = %269
+  %275 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+          to label %276 unwind label %292
 
-277:                                              ; preds = %275
-  %278 = load ptr, ptr %8, align 8, !tbaa !16
-  invoke void @_ZN25cmDependsJavaParserHelper17AddPackagesImportEPKc(ptr noundef nonnull align 8 dereferenceable(248) %276, ptr noundef %278)
-          to label %279 unwind label %295
+276:                                              ; preds = %274
+  %277 = load ptr, ptr %8, align 8, !tbaa !16
+  invoke void @_ZN25cmDependsJavaParserHelper17AddPackagesImportEPKc(ptr noundef nonnull align 8 dereferenceable(248) %275, ptr noundef %277)
+          to label %278 unwind label %292
 
-279:                                              ; preds = %277
-  %280 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-          to label %281 unwind label %295
+278:                                              ; preds = %276
+  %279 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+          to label %280 unwind label %292
 
-281:                                              ; preds = %279
-  invoke void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %280, ptr noundef nonnull %272)
-          to label %282 unwind label %295
+280:                                              ; preds = %278
+  invoke void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %279, ptr noundef nonnull %271)
+          to label %281 unwind label %292
 
-282:                                              ; preds = %281
-  %283 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-          to label %284 unwind label %295
+281:                                              ; preds = %280
+  %282 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+          to label %283 unwind label %292
 
-284:                                              ; preds = %282
-  invoke void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %283, ptr noundef nonnull @.str)
-          to label %285 unwind label %295
+283:                                              ; preds = %281
+  invoke void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %282, ptr noundef nonnull @.str)
+          to label %284 unwind label %292
 
-285:                                              ; preds = %284
+284:                                              ; preds = %283
   store ptr null, ptr %5, align 8, !tbaa !14
-  %286 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-          to label %287 unwind label %295
+  %285 = invoke noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+          to label %286 unwind label %292
 
-287:                                              ; preds = %285
-  invoke void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %286, ptr noundef nonnull @.str)
-          to label %288 unwind label %295
+286:                                              ; preds = %284
+  invoke void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %285, ptr noundef nonnull @.str)
+          to label %287 unwind label %292
 
-288:                                              ; preds = %287
-  %289 = load ptr, ptr %8, align 8, !tbaa !16
-  %290 = icmp eq ptr %289, %10
-  br i1 %290, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+287:                                              ; preds = %286
+  %288 = load ptr, ptr %8, align 8, !tbaa !16
+  %289 = icmp eq ptr %288, %10
+  br i1 %289, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %288
-  %291 = load i64, ptr %11, align 8, !tbaa !19
-  %292 = icmp ult i64 %291, 16
-  call void @llvm.assume(i1 %292)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %287
+  %290 = load i64, ptr %10, align 8, !tbaa !13
+  %291 = add i64 %290, 1
+  call void @_ZdlPvm(ptr noundef %288, i64 noundef %291) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %288
-  %293 = load i64, ptr %10, align 8, !tbaa !13
-  %294 = add i64 %293, 1
-  call void @_ZdlPvm(ptr noundef %289, i64 noundef %294) #13
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %287, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %1444
+  br label %1439
 
-295:                                              ; preds = %287, %285, %284, %282, %281, %279, %277, %275, %270
-  %296 = landingpad { ptr, i32 }
+292:                                              ; preds = %286, %284, %283, %281, %280, %278, %276, %274, %269
+  %293 = landingpad { ptr, i32 }
           cleanup
-  %297 = load ptr, ptr %8, align 8, !tbaa !16
-  %298 = icmp eq ptr %297, %10
-  br i1 %298, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1487, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1486
+  %294 = load ptr, ptr %8, align 8, !tbaa !16
+  %295 = icmp eq ptr %294, %10
+  br i1 %295, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1486
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1487: ; preds = %295
-  %299 = load i64, ptr %11, align 8, !tbaa !19
-  %300 = icmp ult i64 %299, 16
-  call void @llvm.assume(i1 %300)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1486: ; preds = %292
+  %296 = load i64, ptr %10, align 8, !tbaa !13
+  %297 = add i64 %296, 1
+  call void @_ZdlPvm(ptr noundef %294, i64 noundef %297) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1486: ; preds = %295
-  %301 = load i64, ptr %10, align 8, !tbaa !13
-  %302 = add i64 %301, 1
-  call void @_ZdlPvm(ptr noundef %297, i64 noundef %302) #13
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1486, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i1487
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %292, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1486
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1342,3013 +1329,3013 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1488: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %296
+  resume { ptr, i32 } %293
 
-303:                                              ; preds = %59
+298:                                              ; preds = %58
+  %299 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %299, ptr noundef nonnull %5)
+  %300 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %300, i32 noundef 579, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %301 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %301, ptr noundef nonnull @.str)
+  br label %1439
+
+302:                                              ; preds = %58
+  %303 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %303, ptr noundef nonnull %5)
   %304 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %304, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %304, i32 noundef 587, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %305 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %305, i32 noundef 579, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %306 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %306, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %305, ptr noundef nonnull @.str)
+  br label %1439
 
-307:                                              ; preds = %59
+306:                                              ; preds = %58
+  %307 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %307, ptr noundef nonnull %5)
   %308 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %308, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %308, i32 noundef 595, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %309 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %309, i32 noundef 587, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %310 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %310, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %309, ptr noundef nonnull @.str)
+  br label %1439
 
-311:                                              ; preds = %59
+310:                                              ; preds = %58
+  %311 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %311, ptr noundef nonnull %5)
   %312 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %312, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %312, i32 noundef 604, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %313 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %313, i32 noundef 595, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %314 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %314, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %313, ptr noundef nonnull @.str)
+  br label %1439
 
-315:                                              ; preds = %59
+314:                                              ; preds = %58
+  %315 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %315, ptr noundef nonnull %5)
   %316 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %316, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %316, i32 noundef 612, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %317 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %317, i32 noundef 604, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %318 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %318, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %317, ptr noundef nonnull @.str)
+  br label %1439
 
-319:                                              ; preds = %59
-  %320 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %320, ptr noundef nonnull %5)
+318:                                              ; preds = %58
+  %319 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %320 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull align 8 dereferenceable(248) %319, ptr noundef %320)
   %321 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %321, i32 noundef 612, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %321, ptr noundef nonnull %5)
   %322 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %322, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %322, ptr noundef nonnull %.014341549)
+  %323 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %323, i32 noundef 629, i32 noundef 3, ptr noundef nonnull %.014341549)
+  br label %1439
 
-323:                                              ; preds = %59
-  %324 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %325 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull align 8 dereferenceable(248) %324, ptr noundef %325)
+324:                                              ; preds = %58
+  %325 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %325, ptr noundef nonnull %5)
   %326 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %326, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %326, i32 noundef 637, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %327 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %327, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %327, ptr noundef nonnull @.str)
   %328 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %328, i32 noundef 629, i32 noundef 3, ptr noundef nonnull %.014341549)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %328)
+  br label %1439
 
-329:                                              ; preds = %59
+329:                                              ; preds = %58
   %330 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %330, ptr noundef nonnull %5)
   %331 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %331, i32 noundef 637, i32 noundef 2, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %331, i32 noundef 646, i32 noundef 2, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %332 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %332, ptr noundef nonnull @.str)
   %333 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %333)
-  br label %1444
+  br label %1439
 
-334:                                              ; preds = %59
+334:                                              ; preds = %58
   %335 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %335, ptr noundef nonnull %5)
   %336 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %336, i32 noundef 646, i32 noundef 2, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %336, i32 noundef 655, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %337 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %337, ptr noundef nonnull @.str)
   %338 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %338)
-  br label %1444
+  br label %1439
 
-339:                                              ; preds = %59
+339:                                              ; preds = %58
   %340 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %340, ptr noundef nonnull %5)
   %341 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %341, i32 noundef 655, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %341, i32 noundef 664, i32 noundef 4, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %342 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %342, ptr noundef nonnull @.str)
   %343 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %343)
-  br label %1444
+  br label %1439
 
-344:                                              ; preds = %59
+344:                                              ; preds = %58
   %345 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %345, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %346 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %346, i32 noundef 664, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %347 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %347, ptr noundef nonnull @.str)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %346, ptr noundef nonnull @.str)
+  br label %1439
+
+347:                                              ; preds = %58
   %348 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %348)
-  br label %1444
-
-349:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %348, ptr noundef nonnull %5)
+  %349 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %349, i32 noundef 680, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %350 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %350, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %351 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %351, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %350, ptr noundef nonnull @.str)
+  br label %1439
 
-352:                                              ; preds = %59
+351:                                              ; preds = %58
+  %352 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %352, ptr noundef nonnull %5)
   %353 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %353, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %353, i32 noundef 689, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %354 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %354, i32 noundef 680, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %355 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %355, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %354, ptr noundef nonnull @.str)
+  br label %1439
 
-356:                                              ; preds = %59
+355:                                              ; preds = %58
+  %356 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %356, ptr noundef nonnull %5)
   %357 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %357, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %357, i32 noundef 698, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %358 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %358, i32 noundef 689, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %359 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %359, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %358, ptr noundef nonnull @.str)
+  br label %1439
 
-360:                                              ; preds = %59
+359:                                              ; preds = %58
+  %360 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %360, ptr noundef nonnull %5)
   %361 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %361, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %361, i32 noundef 707, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %362 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %362, i32 noundef 698, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %363 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %363, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %362, ptr noundef nonnull @.str)
+  br label %1439
 
-364:                                              ; preds = %59
+363:                                              ; preds = %58
+  %364 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %364, ptr noundef nonnull %5)
   %365 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %365, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %365, i32 noundef 715, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %366 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %366, i32 noundef 707, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %367 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %367, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %366, ptr noundef nonnull @.str)
+  br label %1439
 
-368:                                              ; preds = %59
+367:                                              ; preds = %58
+  %368 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %368, ptr noundef nonnull %5)
   %369 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %369, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %369, i32 noundef 724, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %370 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %370, i32 noundef 715, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %371 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %371, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %370, ptr noundef nonnull @.str)
+  br label %1439
 
-372:                                              ; preds = %59
+371:                                              ; preds = %58
+  %372 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %372, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %373 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %373, ptr noundef nonnull %5)
-  %374 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %374, i32 noundef 724, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %373, ptr noundef nonnull @.str)
+  br label %1439
+
+374:                                              ; preds = %58
   %375 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %375, ptr noundef nonnull @.str)
-  br label %1444
-
-376:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %375, ptr noundef nonnull %5)
+  %376 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %376, i32 noundef 739, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %377 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %377, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %378 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %378, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %377, ptr noundef nonnull @.str)
+  br label %1439
 
-379:                                              ; preds = %59
+378:                                              ; preds = %58
+  %379 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %379, ptr noundef nonnull %5)
   %380 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %380, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %380, i32 noundef 748, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %381 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %381, i32 noundef 739, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %382 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %382, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %381, ptr noundef nonnull @.str)
+  br label %1439
 
-383:                                              ; preds = %59
+382:                                              ; preds = %58
+  %383 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %383, ptr noundef nonnull %5)
   %384 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %384, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %384, i32 noundef 756, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %385 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %385, i32 noundef 748, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %386 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %386, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %385, ptr noundef nonnull @.str)
+  br label %1439
 
-387:                                              ; preds = %59
+386:                                              ; preds = %58
+  %387 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %387, ptr noundef nonnull %5)
   %388 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %388, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %388, i32 noundef 764, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %389 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %389, i32 noundef 756, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %390 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %390, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %389, ptr noundef nonnull @.str)
+  br label %1439
 
-391:                                              ; preds = %59
+390:                                              ; preds = %58
+  %391 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %391, ptr noundef nonnull %5)
   %392 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %392, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %392, i32 noundef 772, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %393 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %393, i32 noundef 764, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %394 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %394, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %393, ptr noundef nonnull @.str)
+  br label %1439
 
-395:                                              ; preds = %59
+394:                                              ; preds = %58
+  %395 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %395, ptr noundef nonnull %5)
   %396 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %396, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %396, i32 noundef 781, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %397 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %397, i32 noundef 772, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %398 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %398, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %397, ptr noundef nonnull @.str)
+  br label %1439
 
-399:                                              ; preds = %59
+398:                                              ; preds = %58
+  %399 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %399, ptr noundef nonnull %5)
   %400 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %400, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %400, i32 noundef 789, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %401 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %401, i32 noundef 781, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %402 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %402, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %401, ptr noundef nonnull @.str)
+  br label %1439
 
-403:                                              ; preds = %59
-  %404 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %404, ptr noundef nonnull %5)
+402:                                              ; preds = %58
+  %403 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %403, ptr noundef nonnull %5)
+  br label %1439
+
+404:                                              ; preds = %58
   %405 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %405, i32 noundef 789, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %405, ptr noundef nonnull %5)
   %406 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %406, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %406, i32 noundef 804, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %407 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %407, ptr noundef nonnull @.str)
+  br label %1439
 
-407:                                              ; preds = %59
-  %408 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %408, ptr noundef nonnull %5)
-  br label %1444
-
-409:                                              ; preds = %59
+408:                                              ; preds = %58
+  %409 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %409, ptr noundef nonnull %5)
   %410 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %410, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %410, i32 noundef 812, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %411 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %411, i32 noundef 804, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %412 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %412, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %411, ptr noundef nonnull @.str)
+  br label %1439
 
-413:                                              ; preds = %59
+412:                                              ; preds = %58
+  %413 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %413, ptr noundef nonnull %5)
   %414 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %414, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %414, i32 noundef 821, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %415 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %415, i32 noundef 812, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %416 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %416, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %415, ptr noundef nonnull @.str)
+  br label %1439
 
-417:                                              ; preds = %59
+416:                                              ; preds = %58
+  %417 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %417, ptr noundef nonnull %5)
   %418 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %418, ptr noundef nonnull %5)
-  %419 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %419, i32 noundef 821, i32 noundef 1, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %418, i32 noundef 829, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %420 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %420, ptr noundef nonnull @.str)
-  br label %1444
+  %419 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %419, ptr noundef nonnull @.str)
+  br label %1439
 
-421:                                              ; preds = %59
+420:                                              ; preds = %58
+  %421 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %421, ptr noundef nonnull %5)
   %422 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %422, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %422, ptr noundef nonnull %.014341549)
   %423 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %423, i32 noundef 829, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %423, i32 noundef 839, i32 noundef 1, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %424 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %424, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-425:                                              ; preds = %59
+425:                                              ; preds = %58
   %426 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %426, ptr noundef nonnull %5)
   %427 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %427, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %427, i32 noundef 847, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %428 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %428, i32 noundef 839, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %429 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %429, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %428, ptr noundef nonnull @.str)
+  br label %1439
 
-430:                                              ; preds = %59
+429:                                              ; preds = %58
+  %430 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %430, ptr noundef nonnull %5)
   %431 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %431, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %431, i32 noundef 856, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %432 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %432, i32 noundef 847, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %433 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %433, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %432, ptr noundef nonnull @.str)
+  br label %1439
 
-434:                                              ; preds = %59
+433:                                              ; preds = %58
+  %434 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %434, ptr noundef nonnull %5)
   %435 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %435, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %435, i32 noundef 864, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %436 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %436, i32 noundef 856, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %437 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %437, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %436, ptr noundef nonnull @.str)
+  br label %1439
 
-438:                                              ; preds = %59
+437:                                              ; preds = %58
+  %438 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %438, ptr noundef nonnull %5)
   %439 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %439, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %439, i32 noundef 873, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %440 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %440, i32 noundef 864, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %441 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %441, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %440, ptr noundef nonnull @.str)
+  br label %1439
 
-442:                                              ; preds = %59
+441:                                              ; preds = %58
+  %442 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %442, ptr noundef nonnull %5)
   %443 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %443, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %443, i32 noundef 881, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %444 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %444, i32 noundef 873, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %445 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %445, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %444, ptr noundef nonnull @.str)
+  br label %1439
 
-446:                                              ; preds = %59
+445:                                              ; preds = %58
+  %446 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %446, ptr noundef nonnull %5)
   %447 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %447, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %447, i32 noundef 889, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %448 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %448, i32 noundef 881, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %449 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %449, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %448, ptr noundef nonnull @.str)
+  br label %1439
 
-450:                                              ; preds = %59
+449:                                              ; preds = %58
+  %450 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %450, ptr noundef nonnull %5)
   %451 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %451, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %451, i32 noundef 898, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %452 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %452, i32 noundef 889, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %453 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %453, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %452, ptr noundef nonnull @.str)
+  br label %1439
 
-454:                                              ; preds = %59
+453:                                              ; preds = %58
+  %454 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %454, ptr noundef nonnull %5)
   %455 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %455, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %455, i32 noundef 907, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %456 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %456, i32 noundef 898, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %457 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %457, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %456, ptr noundef nonnull @.str)
+  br label %1439
 
-458:                                              ; preds = %59
+457:                                              ; preds = %58
+  %458 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %458, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %459 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %459, ptr noundef nonnull %5)
-  %460 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %460, i32 noundef 907, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %459, ptr noundef nonnull @.str)
+  br label %1439
+
+460:                                              ; preds = %58
   %461 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %461, ptr noundef nonnull @.str)
-  br label %1444
-
-462:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %461, ptr noundef nonnull %5)
+  %462 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %462, i32 noundef 924, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %463 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %463, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %464 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %464, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %463, ptr noundef nonnull @.str)
+  br label %1439
 
-465:                                              ; preds = %59
+464:                                              ; preds = %58
+  %465 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %465, ptr noundef nonnull %5)
   %466 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %466, ptr noundef nonnull %5)
-  %467 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %467, i32 noundef 924, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  %467 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %466, ptr noundef nonnull %467)
   %468 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %468, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %468, i32 noundef 935, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %469 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %469, ptr noundef nonnull @.str)
+  br label %1439
 
-469:                                              ; preds = %59
-  %470 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %470, ptr noundef nonnull %5)
+470:                                              ; preds = %58
   %471 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %472 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %471, ptr noundef nonnull %472)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %471, ptr noundef nonnull %5)
+  br label %1439
+
+472:                                              ; preds = %58
   %473 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %473, i32 noundef 935, i32 noundef 4, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %473, ptr noundef nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !14
   %474 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %474, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-475:                                              ; preds = %59
+475:                                              ; preds = %58
   %476 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %476, ptr noundef nonnull %5)
-  br label %1444
+  br label %1439
 
-477:                                              ; preds = %59
+477:                                              ; preds = %58
   %478 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %478, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
   %479 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %479, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %479, i32 noundef 967, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %480 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %480, ptr noundef nonnull @.str)
+  br label %1439
 
-480:                                              ; preds = %59
-  %481 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %481, ptr noundef nonnull %5)
-  br label %1444
-
-482:                                              ; preds = %59
+481:                                              ; preds = %58
+  %482 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %482, ptr noundef nonnull %5)
   %483 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %483, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %483, i32 noundef 977, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %484 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %484, i32 noundef 967, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %485 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %485, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %484, ptr noundef nonnull @.str)
+  br label %1439
 
-486:                                              ; preds = %59
+485:                                              ; preds = %58
+  %486 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %486, ptr noundef nonnull %5)
   %487 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %487, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %487, i32 noundef 987, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %488 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %488, i32 noundef 977, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %489 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %489, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %488, ptr noundef nonnull @.str)
+  br label %1439
 
-490:                                              ; preds = %59
-  %491 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %491, ptr noundef nonnull %5)
+489:                                              ; preds = %58
+  %490 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %490, ptr noundef nonnull %5)
+  br label %1439
+
+491:                                              ; preds = %58
   %492 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %492, i32 noundef 987, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %492, ptr noundef nonnull %5)
   %493 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %493, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %493, i32 noundef 1003, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %494 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %494, ptr noundef nonnull @.str)
+  br label %1439
 
-494:                                              ; preds = %59
-  %495 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %495, ptr noundef nonnull %5)
-  br label %1444
-
-496:                                              ; preds = %59
+495:                                              ; preds = %58
+  %496 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %496, ptr noundef nonnull %5)
   %497 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %497, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %497, i32 noundef 1013, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %498 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %498, i32 noundef 1003, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %499 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %499, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %498, ptr noundef nonnull @.str)
+  br label %1439
 
-500:                                              ; preds = %59
+499:                                              ; preds = %58
+  %500 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %500, ptr noundef nonnull %5)
   %501 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %501, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %501, i32 noundef 1023, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %502 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %502, i32 noundef 1013, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %503 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %503, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %502, ptr noundef nonnull @.str)
+  br label %1439
 
-504:                                              ; preds = %59
+503:                                              ; preds = %58
+  %504 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %504, ptr noundef nonnull %5)
   %505 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %505, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %505, i32 noundef 1033, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %506 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %506, i32 noundef 1023, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %507 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %507, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %506, ptr noundef nonnull @.str)
+  br label %1439
 
-508:                                              ; preds = %59
+507:                                              ; preds = %58
+  %508 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %508, ptr noundef nonnull %5)
   %509 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %509, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %509, i32 noundef 1042, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %510 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %510, i32 noundef 1033, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %511 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %511, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %510, ptr noundef nonnull @.str)
+  br label %1439
 
-512:                                              ; preds = %59
+511:                                              ; preds = %58
+  %512 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %512, ptr noundef nonnull %5)
   %513 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %513, ptr noundef nonnull %5)
-  %514 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %514, i32 noundef 1042, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  %514 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %513, ptr noundef nonnull %514)
   %515 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %515, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %515, i32 noundef 1053, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %516 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %516, ptr noundef nonnull @.str)
+  br label %1439
 
-516:                                              ; preds = %59
-  %517 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %517, ptr noundef nonnull %5)
+517:                                              ; preds = %58
   %518 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %519 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %518, ptr noundef nonnull %519)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %518, ptr noundef nonnull %5)
+  %519 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %519, i32 noundef 1063, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %520 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %520, i32 noundef 1053, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %521 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %521, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %520, ptr noundef nonnull @.str)
+  br label %1439
 
-522:                                              ; preds = %59
+521:                                              ; preds = %58
+  %522 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %522, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %523 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %523, ptr noundef nonnull %5)
-  %524 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %524, i32 noundef 1063, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %523, ptr noundef nonnull @.str)
+  br label %1439
+
+524:                                              ; preds = %58
   %525 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %525, ptr noundef nonnull @.str)
-  br label %1444
-
-526:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %525, ptr noundef nonnull %5)
+  %526 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %526, i32 noundef 1080, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %527 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %527, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %528 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %528, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %527, ptr noundef nonnull @.str)
+  br label %1439
 
-529:                                              ; preds = %59
+528:                                              ; preds = %58
+  %529 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %529, ptr noundef nonnull %5)
   %530 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %530, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %530, i32 noundef 1090, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %531 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %531, i32 noundef 1080, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %532 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %532, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %531, ptr noundef nonnull @.str)
+  br label %1439
 
-533:                                              ; preds = %59
+532:                                              ; preds = %58
+  %533 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %533, ptr noundef nonnull %5)
   %534 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %534, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %534, i32 noundef 1099, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %535 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %535, i32 noundef 1090, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %536 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %536, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %535, ptr noundef nonnull @.str)
+  br label %1439
 
-537:                                              ; preds = %59
-  %538 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %538, ptr noundef nonnull %5)
+536:                                              ; preds = %58
+  %537 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %538 = load ptr, ptr %.014341549, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull align 8 dereferenceable(248) %537, ptr noundef %538)
   %539 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %539, i32 noundef 1099, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %539, ptr noundef nonnull %5)
   %540 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %540, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %540, ptr noundef nonnull %.014341549)
+  %541 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %541, i32 noundef 1111, i32 noundef 3, ptr noundef nonnull %.014341549)
+  br label %1439
 
-541:                                              ; preds = %59
-  %542 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %543 = load ptr, ptr %.014341549, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper10StartClassEPKc(ptr noundef nonnull align 8 dereferenceable(248) %542, ptr noundef %543)
+542:                                              ; preds = %58
+  %543 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %543, ptr noundef nonnull %5)
   %544 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %544, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %544, i32 noundef 1118, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %545 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %545, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %545, ptr noundef nonnull @.str)
   %546 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %546, i32 noundef 1111, i32 noundef 3, ptr noundef nonnull %.014341549)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %546)
+  br label %1439
 
-547:                                              ; preds = %59
+547:                                              ; preds = %58
   %548 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %548, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %549 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %549, i32 noundef 1118, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %550 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %550, ptr noundef nonnull @.str)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %549, ptr noundef nonnull @.str)
+  br label %1439
+
+550:                                              ; preds = %58
   %551 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper8EndClassEv(ptr noundef nonnull align 8 dereferenceable(248) %551)
-  br label %1444
-
-552:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %551, ptr noundef nonnull %5)
+  %552 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %552, i32 noundef 1134, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %553 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %553, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %554 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %554, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %553, ptr noundef nonnull @.str)
+  br label %1439
 
-555:                                              ; preds = %59
+554:                                              ; preds = %58
+  %555 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %555, ptr noundef nonnull %5)
   %556 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %556, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %556, i32 noundef 1144, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %557 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %557, i32 noundef 1134, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %558 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %558, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %557, ptr noundef nonnull @.str)
+  br label %1439
 
-559:                                              ; preds = %59
+558:                                              ; preds = %58
+  %559 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %559, ptr noundef nonnull %5)
   %560 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %560, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %560, i32 noundef 1153, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %561 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %561, i32 noundef 1144, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %562 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %562, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %561, ptr noundef nonnull @.str)
+  br label %1439
 
-563:                                              ; preds = %59
+562:                                              ; preds = %58
+  %563 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %563, ptr noundef nonnull %5)
   %564 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %564, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %564, i32 noundef 1163, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %565 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %565, i32 noundef 1153, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %566 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %566, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %565, ptr noundef nonnull @.str)
+  br label %1439
 
-567:                                              ; preds = %59
+566:                                              ; preds = %58
+  %567 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %567, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %568 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %568, ptr noundef nonnull %5)
-  %569 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %569, i32 noundef 1163, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %568, ptr noundef nonnull @.str)
+  br label %1439
+
+569:                                              ; preds = %58
   %570 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %570, ptr noundef nonnull @.str)
-  br label %1444
-
-571:                                              ; preds = %59
-  %572 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %572, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %570, ptr noundef nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !14
+  %571 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %571, ptr noundef nonnull @.str)
+  br label %1439
+
+572:                                              ; preds = %58
   %573 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %573, ptr noundef nonnull @.str)
-  br label %1444
-
-574:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %573, ptr noundef nonnull %5)
+  %574 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %574, i32 noundef 1189, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %575 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %575, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %576 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %576, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %575, ptr noundef nonnull @.str)
+  br label %1439
 
-577:                                              ; preds = %59
+576:                                              ; preds = %58
+  %577 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %577, ptr noundef nonnull %5)
   %578 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %578, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %578, i32 noundef 1198, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %579 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %579, i32 noundef 1189, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %580 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %580, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %579, ptr noundef nonnull @.str)
+  br label %1439
 
-581:                                              ; preds = %59
+580:                                              ; preds = %58
+  %581 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %581, ptr noundef nonnull %5)
   %582 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %582, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %582, i32 noundef 1207, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %583 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %583, i32 noundef 1198, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %584 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %584, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %583, ptr noundef nonnull @.str)
+  br label %1439
 
-585:                                              ; preds = %59
+584:                                              ; preds = %58
+  %585 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %585, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %586 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %586, ptr noundef nonnull %5)
-  %587 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %587, i32 noundef 1207, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %586, ptr noundef nonnull @.str)
+  br label %1439
+
+587:                                              ; preds = %58
   %588 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %588, ptr noundef nonnull @.str)
-  br label %1444
-
-589:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %588, ptr noundef nonnull %5)
+  %589 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %589, i32 noundef 1224, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %590 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %590, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %591 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %591, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %590, ptr noundef nonnull @.str)
+  br label %1439
 
-592:                                              ; preds = %59
+591:                                              ; preds = %58
+  %592 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %592, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %593 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %593, ptr noundef nonnull %5)
-  %594 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %594, i32 noundef 1224, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %593, ptr noundef nonnull @.str)
+  br label %1439
+
+594:                                              ; preds = %58
   %595 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %595, ptr noundef nonnull @.str)
-  br label %1444
-
-596:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %595, ptr noundef nonnull %5)
+  %596 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %596, i32 noundef 1242, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %597 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %597, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %598 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %598, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %597, ptr noundef nonnull @.str)
+  br label %1439
 
-599:                                              ; preds = %59
+598:                                              ; preds = %58
+  %599 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %599, ptr noundef nonnull %5)
   %600 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %600, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %600, i32 noundef 1252, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %601 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %601, i32 noundef 1242, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %602 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %602, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %601, ptr noundef nonnull @.str)
+  br label %1439
 
-603:                                              ; preds = %59
+602:                                              ; preds = %58
+  %603 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %603, ptr noundef nonnull %5)
   %604 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %604, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %604, i32 noundef 1262, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %605 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %605, i32 noundef 1252, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %606 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %606, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %605, ptr noundef nonnull @.str)
+  br label %1439
 
-607:                                              ; preds = %59
+606:                                              ; preds = %58
+  %607 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %607, ptr noundef nonnull %5)
   %608 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %608, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %608, i32 noundef 1271, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %609 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %609, i32 noundef 1262, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %610 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %610, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %609, ptr noundef nonnull @.str)
+  br label %1439
 
-611:                                              ; preds = %59
+610:                                              ; preds = %58
+  %611 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %611, ptr noundef nonnull %5)
   %612 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %612, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %612, i32 noundef 1281, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %613 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %613, i32 noundef 1271, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %614 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %614, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %613, ptr noundef nonnull @.str)
+  br label %1439
 
-615:                                              ; preds = %59
+614:                                              ; preds = %58
+  %615 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %615, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %616 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %616, ptr noundef nonnull %5)
-  %617 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %617, i32 noundef 1281, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %616, ptr noundef nonnull @.str)
+  br label %1439
+
+617:                                              ; preds = %58
   %618 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %618, ptr noundef nonnull @.str)
-  br label %1444
-
-619:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %618, ptr noundef nonnull %5)
+  %619 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %619, i32 noundef 1298, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %620 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %620, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %621 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %621, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %620, ptr noundef nonnull @.str)
+  br label %1439
 
-622:                                              ; preds = %59
+621:                                              ; preds = %58
+  %622 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %622, ptr noundef nonnull %5)
   %623 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %623, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %623, i32 noundef 1307, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %624 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %624, i32 noundef 1298, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %625 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %625, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %624, ptr noundef nonnull @.str)
+  br label %1439
 
-626:                                              ; preds = %59
+625:                                              ; preds = %58
+  %626 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %626, ptr noundef nonnull %5)
   %627 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %627, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %627, i32 noundef 1317, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %628 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %628, i32 noundef 1307, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %629 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %629, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %628, ptr noundef nonnull @.str)
+  br label %1439
 
-630:                                              ; preds = %59
+629:                                              ; preds = %58
+  %630 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %630, ptr noundef nonnull %5)
   %631 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %631, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %631, i32 noundef 1326, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %632 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %632, i32 noundef 1317, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %633 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %633, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %632, ptr noundef nonnull @.str)
+  br label %1439
 
-634:                                              ; preds = %59
+633:                                              ; preds = %58
+  %634 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %634, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %635 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %635, ptr noundef nonnull %5)
-  %636 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %636, i32 noundef 1326, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %635, ptr noundef nonnull @.str)
+  br label %1439
+
+636:                                              ; preds = %58
   %637 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %637, ptr noundef nonnull @.str)
-  br label %1444
-
-638:                                              ; preds = %59
-  %639 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %639, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %637, ptr noundef nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !14
+  %638 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %638, ptr noundef nonnull @.str)
+  br label %1439
+
+639:                                              ; preds = %58
   %640 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %640, ptr noundef nonnull @.str)
-  br label %1444
-
-641:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %640, ptr noundef nonnull %5)
+  %641 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %641, i32 noundef 1352, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %642 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %642, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %643 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %643, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %642, ptr noundef nonnull @.str)
+  br label %1439
 
-644:                                              ; preds = %59
+643:                                              ; preds = %58
+  %644 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %644, ptr noundef nonnull %5)
   %645 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %645, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %645, i32 noundef 1362, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %646 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %646, i32 noundef 1352, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %647 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %647, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %646, ptr noundef nonnull @.str)
+  br label %1439
 
-648:                                              ; preds = %59
+647:                                              ; preds = %58
+  %648 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %648, ptr noundef nonnull %5)
   %649 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %649, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %649, i32 noundef 1371, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %650 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %650, i32 noundef 1362, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %651 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %651, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %650, ptr noundef nonnull @.str)
+  br label %1439
 
-652:                                              ; preds = %59
+651:                                              ; preds = %58
+  %652 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %652, ptr noundef nonnull %5)
   %653 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %653, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %653, i32 noundef 1381, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %654 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %654, i32 noundef 1371, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %655 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %655, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %654, ptr noundef nonnull @.str)
+  br label %1439
 
-656:                                              ; preds = %59
+655:                                              ; preds = %58
+  %656 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %656, ptr noundef nonnull %5)
   %657 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %657, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %657, i32 noundef 1390, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %658 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %658, i32 noundef 1381, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %659 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %659, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %658, ptr noundef nonnull @.str)
+  br label %1439
 
-660:                                              ; preds = %59
+659:                                              ; preds = %58
+  %660 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %660, ptr noundef nonnull %5)
   %661 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %661, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %661, i32 noundef 1399, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %662 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %662, i32 noundef 1390, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %663 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %663, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %662, ptr noundef nonnull @.str)
+  br label %1439
 
-664:                                              ; preds = %59
+663:                                              ; preds = %58
+  %664 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %664, ptr noundef nonnull %5)
   %665 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %665, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %665, i32 noundef 1409, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %666 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %666, i32 noundef 1399, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %667 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %667, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %666, ptr noundef nonnull @.str)
+  br label %1439
 
-668:                                              ; preds = %59
+667:                                              ; preds = %58
+  %668 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %668, ptr noundef nonnull %5)
   %669 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %669, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %669, i32 noundef 1419, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %670 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %670, i32 noundef 1409, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %671 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %671, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %670, ptr noundef nonnull @.str)
+  br label %1439
 
-672:                                              ; preds = %59
+671:                                              ; preds = %58
+  %672 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %672, ptr noundef nonnull %5)
   %673 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %673, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %673, i32 noundef 1428, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %674 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %674, i32 noundef 1419, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %675 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %675, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %674, ptr noundef nonnull @.str)
+  br label %1439
 
-676:                                              ; preds = %59
+675:                                              ; preds = %58
+  %676 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %676, ptr noundef nonnull %5)
   %677 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %677, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %677, i32 noundef 1438, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %678 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %678, i32 noundef 1428, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %679 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %679, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %678, ptr noundef nonnull @.str)
+  br label %1439
 
-680:                                              ; preds = %59
+679:                                              ; preds = %58
+  %680 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %680, ptr noundef nonnull %5)
   %681 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %681, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %681, i32 noundef 1447, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %682 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %682, i32 noundef 1438, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %683 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %683, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %682, ptr noundef nonnull @.str)
+  br label %1439
 
-684:                                              ; preds = %59
+683:                                              ; preds = %58
+  %684 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %684, ptr noundef nonnull %5)
   %685 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %685, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %685, i32 noundef 1456, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %686 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %686, i32 noundef 1447, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %687 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %687, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %686, ptr noundef nonnull @.str)
+  br label %1439
 
-688:                                              ; preds = %59
+687:                                              ; preds = %58
+  %688 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %688, ptr noundef nonnull %5)
   %689 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %689, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %689, i32 noundef 1465, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %690 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %690, i32 noundef 1456, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %691 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %691, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %690, ptr noundef nonnull @.str)
+  br label %1439
 
-692:                                              ; preds = %59
+691:                                              ; preds = %58
+  %692 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %692, ptr noundef nonnull %5)
   %693 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %693, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %693, i32 noundef 1474, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %694 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %694, i32 noundef 1465, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %695 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %695, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %694, ptr noundef nonnull @.str)
+  br label %1439
 
-696:                                              ; preds = %59
+695:                                              ; preds = %58
+  %696 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %696, ptr noundef nonnull %5)
   %697 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %697, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %697, i32 noundef 1483, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %698 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %698, i32 noundef 1474, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %699 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %699, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %698, ptr noundef nonnull @.str)
+  br label %1439
 
-700:                                              ; preds = %59
+699:                                              ; preds = %58
+  %700 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %700, ptr noundef nonnull %5)
   %701 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %701, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %701, i32 noundef 1493, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %702 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %702, i32 noundef 1483, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %703 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %703, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %702, ptr noundef nonnull @.str)
+  br label %1439
 
-704:                                              ; preds = %59
+703:                                              ; preds = %58
+  %704 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %704, ptr noundef nonnull %5)
   %705 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %705, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %705, i32 noundef 1502, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %706 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %706, i32 noundef 1493, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %707 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %707, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %706, ptr noundef nonnull @.str)
+  br label %1439
 
-708:                                              ; preds = %59
+707:                                              ; preds = %58
+  %708 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %708, ptr noundef nonnull %5)
   %709 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %709, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %709, i32 noundef 1511, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %710 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %710, i32 noundef 1502, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %711 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %711, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %710, ptr noundef nonnull @.str)
+  br label %1439
 
-712:                                              ; preds = %59
+711:                                              ; preds = %58
+  %712 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %712, ptr noundef nonnull %5)
   %713 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %713, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %713, i32 noundef 1520, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %714 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %714, i32 noundef 1511, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %715 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %715, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %714, ptr noundef nonnull @.str)
+  br label %1439
 
-716:                                              ; preds = %59
+715:                                              ; preds = %58
+  %716 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %716, ptr noundef nonnull %5)
   %717 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %717, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %717, i32 noundef 1529, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %718 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %718, i32 noundef 1520, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %719 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %719, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %718, ptr noundef nonnull @.str)
+  br label %1439
 
-720:                                              ; preds = %59
+719:                                              ; preds = %58
+  %720 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %720, ptr noundef nonnull %5)
   %721 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %721, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %721, i32 noundef 1539, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %722 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %722, i32 noundef 1529, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %723 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %723, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %722, ptr noundef nonnull @.str)
+  br label %1439
 
-724:                                              ; preds = %59
+723:                                              ; preds = %58
+  %724 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %724, ptr noundef nonnull %5)
   %725 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %725, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %725, i32 noundef 1548, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %726 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %726, i32 noundef 1539, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %727 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %727, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %726, ptr noundef nonnull @.str)
+  br label %1439
 
-728:                                              ; preds = %59
+727:                                              ; preds = %58
+  %728 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %728, ptr noundef nonnull %5)
   %729 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %729, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %729, i32 noundef 1557, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %730 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %730, i32 noundef 1548, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %731 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %731, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %730, ptr noundef nonnull @.str)
+  br label %1439
 
-732:                                              ; preds = %59
+731:                                              ; preds = %58
+  %732 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %732, ptr noundef nonnull %5)
   %733 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %733, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %733, i32 noundef 1566, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %734 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %734, i32 noundef 1557, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %735 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %735, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %734, ptr noundef nonnull @.str)
+  br label %1439
 
-736:                                              ; preds = %59
+735:                                              ; preds = %58
+  %736 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %736, ptr noundef nonnull %5)
   %737 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %737, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %737, i32 noundef 1575, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %738 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %738, i32 noundef 1566, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %739 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %739, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %738, ptr noundef nonnull @.str)
+  br label %1439
 
-740:                                              ; preds = %59
+739:                                              ; preds = %58
+  %740 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %740, ptr noundef nonnull %5)
   %741 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %741, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %741, i32 noundef 1584, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %742 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %742, i32 noundef 1575, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %743 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %743, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %742, ptr noundef nonnull @.str)
+  br label %1439
 
-744:                                              ; preds = %59
+743:                                              ; preds = %58
+  %744 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %744, ptr noundef nonnull %5)
   %745 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %745, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %745, i32 noundef 1593, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %746 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %746, i32 noundef 1584, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %747 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %747, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %746, ptr noundef nonnull @.str)
+  br label %1439
 
-748:                                              ; preds = %59
+747:                                              ; preds = %58
+  %748 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %748, ptr noundef nonnull %5)
   %749 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %749, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %749, i32 noundef 1602, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %750 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %750, i32 noundef 1593, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %751 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %751, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %750, ptr noundef nonnull @.str)
+  br label %1439
 
-752:                                              ; preds = %59
+751:                                              ; preds = %58
+  %752 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %752, ptr noundef nonnull %5)
   %753 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %753, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %753, i32 noundef 1611, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %754 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %754, i32 noundef 1602, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %755 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %755, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %754, ptr noundef nonnull @.str)
+  br label %1439
 
-756:                                              ; preds = %59
+755:                                              ; preds = %58
+  %756 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %756, ptr noundef nonnull %5)
   %757 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %757, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %757, i32 noundef 1620, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %758 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %758, i32 noundef 1611, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %759 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %759, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %758, ptr noundef nonnull @.str)
+  br label %1439
 
-760:                                              ; preds = %59
+759:                                              ; preds = %58
+  %760 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %760, ptr noundef nonnull %5)
   %761 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %761, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %761, i32 noundef 1629, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %762 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %762, i32 noundef 1620, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %763 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %763, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %762, ptr noundef nonnull @.str)
+  br label %1439
 
-764:                                              ; preds = %59
+763:                                              ; preds = %58
+  %764 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %764, ptr noundef nonnull %5)
   %765 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %765, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %765, i32 noundef 1638, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %766 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %766, i32 noundef 1629, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %767 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %767, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %766, ptr noundef nonnull @.str)
+  br label %1439
 
-768:                                              ; preds = %59
+767:                                              ; preds = %58
+  %768 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %768, ptr noundef nonnull %5)
   %769 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %769, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %769, i32 noundef 1648, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %770 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %770, i32 noundef 1638, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %771 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %771, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %770, ptr noundef nonnull @.str)
+  br label %1439
 
-772:                                              ; preds = %59
+771:                                              ; preds = %58
+  %772 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %772, ptr noundef nonnull %5)
   %773 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %773, ptr noundef nonnull %5)
-  %774 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %774, i32 noundef 1648, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  %774 = getelementptr inbounds i8, ptr %.014341549, i64 -16
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %773, ptr noundef nonnull %774)
   %775 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %775, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %775, i32 noundef 1659, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %776 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %776, ptr noundef nonnull @.str)
+  br label %1439
 
-776:                                              ; preds = %59
-  %777 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %777, ptr noundef nonnull %5)
+777:                                              ; preds = %58
   %778 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %779 = getelementptr inbounds i8, ptr %.014341549, i64 -16
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %778, ptr noundef nonnull %779)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %778, ptr noundef nonnull %5)
+  %779 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %779, i32 noundef 1669, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %780 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %780, i32 noundef 1659, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %781 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %781, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %780, ptr noundef nonnull @.str)
+  br label %1439
 
-782:                                              ; preds = %59
+781:                                              ; preds = %58
+  %782 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %782, ptr noundef nonnull %5)
   %783 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %783, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %783, i32 noundef 1679, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %784 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %784, i32 noundef 1669, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %785 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %785, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %784, ptr noundef nonnull @.str)
+  br label %1439
 
-786:                                              ; preds = %59
+785:                                              ; preds = %58
+  %786 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %786, ptr noundef nonnull %5)
   %787 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %787, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %787, i32 noundef 1689, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %788 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %788, i32 noundef 1679, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %789 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %789, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %788, ptr noundef nonnull @.str)
+  br label %1439
 
-790:                                              ; preds = %59
+789:                                              ; preds = %58
+  %790 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %790, ptr noundef nonnull %5)
   %791 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %791, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %791, i32 noundef 1698, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %792 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %792, i32 noundef 1689, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %793 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %793, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %792, ptr noundef nonnull @.str)
+  br label %1439
 
-794:                                              ; preds = %59
+793:                                              ; preds = %58
+  %794 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %794, ptr noundef nonnull %5)
   %795 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %795, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %795, i32 noundef 1707, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %796 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %796, i32 noundef 1698, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %797 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %797, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %796, ptr noundef nonnull @.str)
+  br label %1439
 
-798:                                              ; preds = %59
+797:                                              ; preds = %58
+  %798 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %798, ptr noundef nonnull %5)
   %799 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %799, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %799, i32 noundef 1716, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %800 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %800, i32 noundef 1707, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %801 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %801, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %800, ptr noundef nonnull @.str)
+  br label %1439
 
-802:                                              ; preds = %59
+801:                                              ; preds = %58
+  %802 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %802, ptr noundef nonnull %5)
   %803 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %803, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %803, i32 noundef 1725, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %804 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %804, i32 noundef 1716, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %805 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %805, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %804, ptr noundef nonnull @.str)
+  br label %1439
 
-806:                                              ; preds = %59
+805:                                              ; preds = %58
+  %806 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %806, ptr noundef nonnull %5)
   %807 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %807, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %807, i32 noundef 1734, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %808 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %808, i32 noundef 1725, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %809 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %809, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %808, ptr noundef nonnull @.str)
+  br label %1439
 
-810:                                              ; preds = %59
+809:                                              ; preds = %58
+  %810 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %810, ptr noundef nonnull %5)
   %811 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %811, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %811, i32 noundef 1743, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %812 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %812, i32 noundef 1734, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %813 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %813, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %812, ptr noundef nonnull @.str)
+  br label %1439
 
-814:                                              ; preds = %59
+813:                                              ; preds = %58
+  %814 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %814, ptr noundef nonnull %5)
   %815 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %815, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %815, i32 noundef 1753, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %816 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %816, i32 noundef 1743, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %817 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %817, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %816, ptr noundef nonnull @.str)
+  br label %1439
 
-818:                                              ; preds = %59
+817:                                              ; preds = %58
+  %818 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %818, ptr noundef nonnull %5)
   %819 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %819, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %819, i32 noundef 1763, i32 noundef 7, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %820 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %820, i32 noundef 1753, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %821 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %821, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %820, ptr noundef nonnull @.str)
+  br label %1439
 
-822:                                              ; preds = %59
+821:                                              ; preds = %58
+  %822 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %822, ptr noundef nonnull %5)
   %823 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %823, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %823, i32 noundef 1773, i32 noundef 7, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %824 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %824, i32 noundef 1763, i32 noundef 7, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %825 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %825, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %824, ptr noundef nonnull @.str)
+  br label %1439
 
-826:                                              ; preds = %59
-  %827 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %827, ptr noundef nonnull %5)
+825:                                              ; preds = %58
+  %826 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %826, ptr noundef nonnull %5)
+  br label %1439
+
+827:                                              ; preds = %58
   %828 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %828, i32 noundef 1773, i32 noundef 7, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %828, ptr noundef nonnull %5)
+  br label %1439
+
+829:                                              ; preds = %58
+  %830 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %830, ptr noundef nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %829 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %829, ptr noundef nonnull @.str)
-  br label %1444
-
-830:                                              ; preds = %59
   %831 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %831, ptr noundef nonnull %5)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %831, ptr noundef nonnull @.str)
+  br label %1439
 
-832:                                              ; preds = %59
+832:                                              ; preds = %58
   %833 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %833, ptr noundef nonnull %5)
-  br label %1444
-
-834:                                              ; preds = %59
+  %834 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %834, i32 noundef 1804, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %835 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %835, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %836 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %836, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %835, ptr noundef nonnull @.str)
+  br label %1439
 
-837:                                              ; preds = %59
+836:                                              ; preds = %58
+  %837 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %837, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %838 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %838, ptr noundef nonnull %5)
-  %839 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %839, i32 noundef 1804, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %838, ptr noundef nonnull @.str)
+  br label %1439
+
+839:                                              ; preds = %58
   %840 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %840, ptr noundef nonnull @.str)
-  br label %1444
-
-841:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %840, ptr noundef nonnull %5)
+  %841 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %841, i32 noundef 1821, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %842 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %842, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %843 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %843, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %842, ptr noundef nonnull @.str)
+  br label %1439
 
-844:                                              ; preds = %59
+843:                                              ; preds = %58
+  %844 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %844, ptr noundef nonnull %5)
   %845 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %845, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %845, i32 noundef 1831, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %846 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %846, i32 noundef 1821, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %847 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %847, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %846, ptr noundef nonnull @.str)
+  br label %1439
 
-848:                                              ; preds = %59
+847:                                              ; preds = %58
+  %848 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %848, ptr noundef nonnull %5)
   %849 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %849, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %849, i32 noundef 1841, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %850 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %850, i32 noundef 1831, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %851 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %851, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %850, ptr noundef nonnull @.str)
+  br label %1439
 
-852:                                              ; preds = %59
+851:                                              ; preds = %58
+  %852 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %852, ptr noundef nonnull %5)
   %853 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %853, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %853, i32 noundef 1850, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %854 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %854, i32 noundef 1841, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %855 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %855, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %854, ptr noundef nonnull @.str)
+  br label %1439
 
-856:                                              ; preds = %59
+855:                                              ; preds = %58
+  %856 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %856, ptr noundef nonnull %5)
   %857 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %857, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %857, i32 noundef 1860, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %858 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %858, i32 noundef 1850, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %859 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %859, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %858, ptr noundef nonnull @.str)
+  br label %1439
 
-860:                                              ; preds = %59
+859:                                              ; preds = %58
+  %860 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %860, ptr noundef nonnull %5)
   %861 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %861, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %861, i32 noundef 1869, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %862 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %862, i32 noundef 1860, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %863 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %863, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %862, ptr noundef nonnull @.str)
+  br label %1439
 
-864:                                              ; preds = %59
-  %865 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %865, ptr noundef nonnull %5)
+863:                                              ; preds = %58
+  %864 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %864, ptr noundef nonnull %5)
+  br label %1439
+
+865:                                              ; preds = %58
   %866 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %866, i32 noundef 1869, i32 noundef 2, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %866, ptr noundef nonnull %5)
+  br label %1439
+
+867:                                              ; preds = %58
+  %868 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %868, ptr noundef nonnull %5)
+  br label %1439
+
+869:                                              ; preds = %58
+  %870 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %870, ptr noundef nonnull %5)
+  br label %1439
+
+871:                                              ; preds = %58
+  %872 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %872, ptr noundef nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %867 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %867, ptr noundef nonnull @.str)
-  br label %1444
-
-868:                                              ; preds = %59
-  %869 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %869, ptr noundef nonnull %5)
-  br label %1444
-
-870:                                              ; preds = %59
-  %871 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %871, ptr noundef nonnull %5)
-  br label %1444
-
-872:                                              ; preds = %59
   %873 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %873, ptr noundef nonnull %5)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %873, ptr noundef nonnull @.str)
+  br label %1439
 
-874:                                              ; preds = %59
+874:                                              ; preds = %58
   %875 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %875, ptr noundef nonnull %5)
-  br label %1444
-
-876:                                              ; preds = %59
+  %876 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %876, i32 noundef 1915, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %877 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %877, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %878 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %878, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %877, ptr noundef nonnull @.str)
+  br label %1439
 
-879:                                              ; preds = %59
+878:                                              ; preds = %58
+  %879 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %879, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %880 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %880, ptr noundef nonnull %5)
-  %881 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %881, i32 noundef 1915, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %880, ptr noundef nonnull @.str)
+  br label %1439
+
+881:                                              ; preds = %58
   %882 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %882, ptr noundef nonnull @.str)
-  br label %1444
-
-883:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %882, ptr noundef nonnull %5)
+  %883 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %883, i32 noundef 1932, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %884 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %884, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %885 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %885, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %884, ptr noundef nonnull @.str)
+  br label %1439
 
-886:                                              ; preds = %59
+885:                                              ; preds = %58
+  %886 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %886, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %887 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %887, ptr noundef nonnull %5)
-  %888 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %888, i32 noundef 1932, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %887, ptr noundef nonnull @.str)
+  br label %1439
+
+888:                                              ; preds = %58
   %889 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %889, ptr noundef nonnull @.str)
-  br label %1444
-
-890:                                              ; preds = %59
-  %891 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %891, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %889, ptr noundef nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !14
+  %890 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %890, ptr noundef nonnull @.str)
+  br label %1439
+
+891:                                              ; preds = %58
   %892 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %892, ptr noundef nonnull @.str)
-  br label %1444
-
-893:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %892, ptr noundef nonnull %5)
+  %893 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %893, i32 noundef 1959, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %894 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %894, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %895 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %895, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %894, ptr noundef nonnull @.str)
+  br label %1439
 
-896:                                              ; preds = %59
+895:                                              ; preds = %58
+  %896 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %896, ptr noundef nonnull %5)
   %897 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %897, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %897, i32 noundef 1969, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %898 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %898, i32 noundef 1959, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %899 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %899, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %898, ptr noundef nonnull @.str)
+  br label %1439
 
-900:                                              ; preds = %59
+899:                                              ; preds = %58
+  %900 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %900, ptr noundef nonnull %5)
   %901 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %901, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %901, i32 noundef 1978, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %902 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %902, i32 noundef 1969, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %903 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %903, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %902, ptr noundef nonnull @.str)
+  br label %1439
 
-904:                                              ; preds = %59
+903:                                              ; preds = %58
+  %904 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %904, ptr noundef nonnull %5)
   %905 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %905, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %905, i32 noundef 1988, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %906 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %906, i32 noundef 1978, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %907 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %907, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %906, ptr noundef nonnull @.str)
+  br label %1439
 
-908:                                              ; preds = %59
+907:                                              ; preds = %58
+  %908 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %908, ptr noundef nonnull %5)
   %909 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %909, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %909, i32 noundef 1998, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %910 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %910, i32 noundef 1988, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %911 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %911, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %910, ptr noundef nonnull @.str)
+  br label %1439
 
-912:                                              ; preds = %59
+911:                                              ; preds = %58
+  %912 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %912, ptr noundef nonnull %5)
   %913 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %913, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %913, i32 noundef 2007, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %914 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %914, i32 noundef 1998, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %915 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %915, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %914, ptr noundef nonnull @.str)
+  br label %1439
 
-916:                                              ; preds = %59
+915:                                              ; preds = %58
+  %916 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %916, ptr noundef nonnull %5)
   %917 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %917, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %917, i32 noundef 2017, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %918 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %918, i32 noundef 2007, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %919 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %919, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %918, ptr noundef nonnull @.str)
+  br label %1439
 
-920:                                              ; preds = %59
+919:                                              ; preds = %58
+  %920 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %920, ptr noundef nonnull %5)
   %921 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %921, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %921, i32 noundef 2026, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %922 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %922, i32 noundef 2017, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %923 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %923, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %922, ptr noundef nonnull @.str)
+  br label %1439
 
-924:                                              ; preds = %59
+923:                                              ; preds = %58
+  %924 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %924, ptr noundef nonnull %5)
   %925 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %925, ptr noundef nonnull %5)
-  %926 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %926, i32 noundef 2026, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  %926 = getelementptr inbounds i8, ptr %.014341549, i64 -8
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %925, ptr noundef nonnull %926)
   %927 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %927, ptr noundef nonnull @.str)
-  br label %1444
-
-928:                                              ; preds = %59
-  %929 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %929, ptr noundef nonnull %5)
-  %930 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %931 = getelementptr inbounds i8, ptr %.014341549, i64 -8
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %930, ptr noundef nonnull %931)
-  %932 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %932, i32 noundef 2037, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %927, i32 noundef 2037, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %933 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %933, ptr noundef nonnull @.str)
-  br label %1444
+  %928 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %928, ptr noundef nonnull @.str)
+  br label %1439
 
-934:                                              ; preds = %59
+929:                                              ; preds = %58
+  %930 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %930, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %931 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %931, ptr noundef nonnull @.str)
+  br label %1439
+
+932:                                              ; preds = %58
+  %933 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %933, ptr noundef nonnull %5)
+  br label %1439
+
+934:                                              ; preds = %58
   %935 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %935, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
   %936 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %936, ptr noundef nonnull @.str)
-  br label %1444
-
-937:                                              ; preds = %59
+  %937 = getelementptr inbounds i8, ptr %.014341549, i64 -8
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %936, ptr noundef nonnull %937)
   %938 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %938, ptr noundef nonnull %5)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %938, i32 noundef 2062, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %939 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %939, ptr noundef nonnull @.str)
+  br label %1439
 
-939:                                              ; preds = %59
-  %940 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %940, ptr noundef nonnull %5)
+940:                                              ; preds = %58
   %941 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %942 = getelementptr inbounds i8, ptr %.014341549, i64 -8
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %941, ptr noundef nonnull %942)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %941, ptr noundef nonnull %5)
+  %942 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %942, i32 noundef 2072, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %943 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %943, i32 noundef 2062, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %944 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %944, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %943, ptr noundef nonnull @.str)
+  br label %1439
 
-945:                                              ; preds = %59
+944:                                              ; preds = %58
+  %945 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %945, ptr noundef nonnull %5)
   %946 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %946, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %946, i32 noundef 2082, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %947 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %947, i32 noundef 2072, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %948 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %948, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %947, ptr noundef nonnull @.str)
+  br label %1439
 
-949:                                              ; preds = %59
+948:                                              ; preds = %58
+  %949 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %949, ptr noundef nonnull %5)
   %950 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %950, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %950, i32 noundef 2092, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %951 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %951, i32 noundef 2082, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %952 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %952, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %951, ptr noundef nonnull @.str)
+  br label %1439
 
-953:                                              ; preds = %59
+952:                                              ; preds = %58
+  %953 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %953, ptr noundef nonnull %5)
   %954 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %954, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %954, i32 noundef 2102, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %955 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %955, i32 noundef 2092, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %956 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %956, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %955, ptr noundef nonnull @.str)
+  br label %1439
 
-957:                                              ; preds = %59
+956:                                              ; preds = %58
+  %957 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %957, ptr noundef nonnull %5)
   %958 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %958, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %958, i32 noundef 2111, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %959 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %959, i32 noundef 2102, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %960 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %960, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %959, ptr noundef nonnull @.str)
+  br label %1439
 
-961:                                              ; preds = %59
+960:                                              ; preds = %58
+  %961 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %961, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %962 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %962, ptr noundef nonnull %5)
-  %963 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %963, i32 noundef 2111, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %962, ptr noundef nonnull @.str)
+  br label %1439
+
+963:                                              ; preds = %58
   %964 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %964, ptr noundef nonnull @.str)
-  br label %1444
-
-965:                                              ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %964, ptr noundef nonnull %5)
+  %965 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %965, i32 noundef 2128, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %966 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %966, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %967 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %967, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %966, ptr noundef nonnull @.str)
+  br label %1439
 
-968:                                              ; preds = %59
+967:                                              ; preds = %58
+  %968 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %968, ptr noundef nonnull %5)
   %969 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %969, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %969, i32 noundef 2138, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %970 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %970, i32 noundef 2128, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %971 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %971, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %970, ptr noundef nonnull @.str)
+  br label %1439
 
-972:                                              ; preds = %59
+971:                                              ; preds = %58
+  %972 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %972, ptr noundef nonnull %5)
   %973 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %973, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %973, i32 noundef 2147, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %974 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %974, i32 noundef 2138, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %975 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %975, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %974, ptr noundef nonnull @.str)
+  br label %1439
 
-976:                                              ; preds = %59
-  %977 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %977, ptr noundef nonnull %5)
+975:                                              ; preds = %58
+  %976 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %976, ptr noundef nonnull %5)
+  br label %1439
+
+977:                                              ; preds = %58
   %978 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %978, i32 noundef 2147, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %978, ptr noundef nonnull %5)
   %979 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %979, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %979, i32 noundef 2164, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %980 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %980, ptr noundef nonnull @.str)
+  br label %1439
 
-980:                                              ; preds = %59
-  %981 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %981, ptr noundef nonnull %5)
-  br label %1444
-
-982:                                              ; preds = %59
+981:                                              ; preds = %58
+  %982 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %982, ptr noundef nonnull %5)
   %983 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %983, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %983, i32 noundef 2174, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %984 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %984, i32 noundef 2164, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %985 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %985, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %984, ptr noundef nonnull @.str)
+  br label %1439
 
-986:                                              ; preds = %59
+985:                                              ; preds = %58
+  %986 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %986, ptr noundef nonnull %5)
   %987 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %987, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %987, i32 noundef 2183, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %988 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %988, i32 noundef 2174, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %989 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %989, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %988, ptr noundef nonnull @.str)
+  br label %1439
 
-990:                                              ; preds = %59
+989:                                              ; preds = %58
+  %990 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %990, ptr noundef nonnull %5)
   %991 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %991, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %991, i32 noundef 2193, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %992 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %992, i32 noundef 2183, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %993 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %993, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %992, ptr noundef nonnull @.str)
+  br label %1439
 
-994:                                              ; preds = %59
-  %995 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %995, ptr noundef nonnull %5)
+993:                                              ; preds = %58
+  %994 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %994, ptr noundef nonnull %5)
+  br label %1439
+
+995:                                              ; preds = %58
   %996 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %996, i32 noundef 2193, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %996, ptr noundef nonnull %5)
   %997 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %997, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %997, i32 noundef 2208, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %998 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %998, ptr noundef nonnull @.str)
+  br label %1439
 
-998:                                              ; preds = %59
-  %999 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %999, ptr noundef nonnull %5)
-  br label %1444
-
-1000:                                             ; preds = %59
+999:                                              ; preds = %58
+  %1000 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1000, ptr noundef nonnull %5)
   %1001 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1001, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1001, i32 noundef 2217, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1002 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1002, i32 noundef 2208, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1003 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1003, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1002, ptr noundef nonnull @.str)
+  br label %1439
 
-1004:                                             ; preds = %59
+1003:                                             ; preds = %58
+  %1004 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1004, ptr noundef nonnull %5)
   %1005 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1005, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1005, i32 noundef 2226, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1006 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1006, i32 noundef 2217, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1007 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1007, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1006, ptr noundef nonnull @.str)
+  br label %1439
 
-1008:                                             ; preds = %59
+1007:                                             ; preds = %58
+  %1008 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1008, ptr noundef nonnull %5)
   %1009 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1009, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1009, i32 noundef 2235, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1010 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1010, i32 noundef 2226, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1011 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1011, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1010, ptr noundef nonnull @.str)
+  br label %1439
 
-1012:                                             ; preds = %59
+1011:                                             ; preds = %58
+  %1012 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1012, ptr noundef nonnull %5)
   %1013 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1013, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1013, i32 noundef 2244, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1014 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1014, i32 noundef 2235, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1015 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1015, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1014, ptr noundef nonnull @.str)
+  br label %1439
 
-1016:                                             ; preds = %59
+1015:                                             ; preds = %58
+  %1016 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1016, ptr noundef nonnull %5)
   %1017 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1017, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1017, i32 noundef 2254, i32 noundef 6, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1018 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1018, i32 noundef 2244, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1019 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1019, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1018, ptr noundef nonnull @.str)
+  br label %1439
 
-1020:                                             ; preds = %59
+1019:                                             ; preds = %58
+  %1020 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1020, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1021 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1021, ptr noundef nonnull %5)
-  %1022 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1022, i32 noundef 2254, i32 noundef 6, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1021, ptr noundef nonnull @.str)
+  br label %1439
+
+1022:                                             ; preds = %58
   %1023 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1023, ptr noundef nonnull @.str)
-  br label %1444
-
-1024:                                             ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1023, ptr noundef nonnull %5)
+  %1024 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1024, i32 noundef 2271, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1025 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1025, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1026 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1026, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1025, ptr noundef nonnull @.str)
+  br label %1439
 
-1027:                                             ; preds = %59
+1026:                                             ; preds = %58
+  %1027 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1027, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1028 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1028, ptr noundef nonnull %5)
-  %1029 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1029, i32 noundef 2271, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1028, ptr noundef nonnull @.str)
+  br label %1439
+
+1029:                                             ; preds = %58
   %1030 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1030, ptr noundef nonnull @.str)
-  br label %1444
-
-1031:                                             ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1030, ptr noundef nonnull %5)
+  %1031 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1031, i32 noundef 2288, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1032 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1032, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1033 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1033, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1032, ptr noundef nonnull @.str)
+  br label %1439
 
-1034:                                             ; preds = %59
+1033:                                             ; preds = %58
+  %1034 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1034, ptr noundef nonnull %5)
   %1035 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1035, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1035, i32 noundef 2298, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1036 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1036, i32 noundef 2288, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1037 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1037, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1036, ptr noundef nonnull @.str)
+  br label %1439
 
-1038:                                             ; preds = %59
+1037:                                             ; preds = %58
+  %1038 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1038, ptr noundef nonnull %5)
   %1039 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1039, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1039, i32 noundef 2307, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1040 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1040, i32 noundef 2298, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1041 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1041, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1040, ptr noundef nonnull @.str)
+  br label %1439
 
-1042:                                             ; preds = %59
+1041:                                             ; preds = %58
+  %1042 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1042, ptr noundef nonnull %5)
   %1043 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1043, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1043, i32 noundef 2317, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1044 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1044, i32 noundef 2307, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1045 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1045, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1044, ptr noundef nonnull @.str)
+  br label %1439
 
-1046:                                             ; preds = %59
+1045:                                             ; preds = %58
+  %1046 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1046, ptr noundef nonnull %5)
   %1047 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1047, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1047, i32 noundef 2326, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1048 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1048, i32 noundef 2317, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1049 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1049, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1048, ptr noundef nonnull @.str)
+  br label %1439
 
-1050:                                             ; preds = %59
+1049:                                             ; preds = %58
+  %1050 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1050, ptr noundef nonnull %5)
   %1051 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1051, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1051, i32 noundef 2335, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1052 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1052, i32 noundef 2326, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1053 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1053, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1052, ptr noundef nonnull @.str)
+  br label %1439
 
-1054:                                             ; preds = %59
+1053:                                             ; preds = %58
+  %1054 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1054, ptr noundef nonnull %5)
   %1055 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1055, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1055, i32 noundef 2344, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1056 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1056, i32 noundef 2335, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1057 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1057, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1056, ptr noundef nonnull @.str)
+  br label %1439
 
-1058:                                             ; preds = %59
+1057:                                             ; preds = %58
+  %1058 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1058, ptr noundef nonnull %5)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1059 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1059, ptr noundef nonnull %5)
-  %1060 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1060, i32 noundef 2344, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1059, ptr noundef nonnull @.str)
+  br label %1439
+
+1060:                                             ; preds = %58
   %1061 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1061, ptr noundef nonnull @.str)
-  br label %1444
-
-1062:                                             ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1061, ptr noundef nonnull %5)
+  %1062 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1062, i32 noundef 2361, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1063 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1063, ptr noundef nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1064 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1064, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1063, ptr noundef nonnull @.str)
+  br label %1439
 
-1065:                                             ; preds = %59
+1064:                                             ; preds = %58
+  %1065 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1065, ptr noundef nonnull %5)
   %1066 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1066, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1066, i32 noundef 2371, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1067 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1067, i32 noundef 2361, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1068 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1068, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1067, ptr noundef nonnull @.str)
+  br label %1439
 
-1069:                                             ; preds = %59
+1068:                                             ; preds = %58
+  %1069 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1069, ptr noundef nonnull %5)
   %1070 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1070, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1070, i32 noundef 2380, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1071 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1071, i32 noundef 2371, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1072 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1072, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1071, ptr noundef nonnull @.str)
+  br label %1439
 
-1073:                                             ; preds = %59
+1072:                                             ; preds = %58
+  %1073 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1073, ptr noundef nonnull %5)
   %1074 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1074, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1074, i32 noundef 2390, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1075 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1075, i32 noundef 2380, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1076 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1076, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1075, ptr noundef nonnull @.str)
+  br label %1439
 
-1077:                                             ; preds = %59
-  %1078 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1078, ptr noundef nonnull %5)
+1076:                                             ; preds = %58
+  %1077 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1077, ptr noundef nonnull %5)
+  br label %1439
+
+1078:                                             ; preds = %58
   %1079 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1079, i32 noundef 2390, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1080 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1080, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1079, ptr noundef nonnull %5)
+  br label %1439
 
-1081:                                             ; preds = %59
+1080:                                             ; preds = %58
+  %1081 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1081, ptr noundef nonnull %5)
   %1082 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1082, ptr noundef nonnull %5)
-  br label %1444
-
-1083:                                             ; preds = %59
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1082, ptr noundef nonnull %.014341549)
+  %1083 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1083, i32 noundef 2414, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1084 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1084, ptr noundef nonnull %5)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1084, ptr noundef nonnull @.str)
+  br label %1439
 
-1085:                                             ; preds = %59
+1085:                                             ; preds = %58
   %1086 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1086, ptr noundef nonnull %5)
   %1087 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1087, ptr noundef nonnull %.014341549)
   %1088 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1088, i32 noundef 2414, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1088, i32 noundef 2424, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %1089 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1089, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-1090:                                             ; preds = %59
+1090:                                             ; preds = %58
   %1091 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1091, ptr noundef nonnull %5)
   %1092 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1092, ptr noundef nonnull %.014341549)
   %1093 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1093, i32 noundef 2424, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1093, i32 noundef 2434, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %1094 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1094, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-1095:                                             ; preds = %59
+1095:                                             ; preds = %58
   %1096 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1096, ptr noundef nonnull %5)
   %1097 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1097, ptr noundef nonnull %.014341549)
   %1098 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1098, i32 noundef 2434, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1098, i32 noundef 2444, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %1099 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1099, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-1100:                                             ; preds = %59
+1100:                                             ; preds = %58
   %1101 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1101, ptr noundef nonnull %5)
   %1102 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1102, ptr noundef nonnull %.014341549)
-  %1103 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1103, i32 noundef 2444, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  %1103 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1102, ptr noundef nonnull %1103)
   %1104 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1104, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1104, i32 noundef 2455, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %1105 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1105, ptr noundef nonnull @.str)
+  br label %1439
 
-1105:                                             ; preds = %59
-  %1106 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1106, ptr noundef nonnull %5)
+1106:                                             ; preds = %58
   %1107 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1108 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1107, ptr noundef nonnull %1108)
-  %1109 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1109, i32 noundef 2455, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1107, ptr noundef nonnull %5)
+  %1108 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %1109 = getelementptr inbounds i8, ptr %.014341549, i64 -40
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1108, ptr noundef nonnull %1109)
   %1110 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1110, ptr noundef nonnull @.str)
-  br label %1444
-
-1111:                                             ; preds = %59
+  %1111 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1110, ptr noundef nonnull %1111)
   %1112 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1112, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1112, i32 noundef 2466, i32 noundef 6, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1113 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1114 = getelementptr inbounds i8, ptr %.014341549, i64 -40
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1113, ptr noundef nonnull %1114)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1113, ptr noundef nonnull @.str)
+  br label %1439
+
+1114:                                             ; preds = %58
   %1115 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1116 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1115, ptr noundef nonnull %1116)
-  %1117 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1117, i32 noundef 2466, i32 noundef 6, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1115, ptr noundef nonnull %5)
+  %1116 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %1117 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1116, ptr noundef nonnull %1117)
   %1118 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1118, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1118, i32 noundef 2476, i32 noundef 6, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %1119 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1119, ptr noundef nonnull @.str)
+  br label %1439
 
-1119:                                             ; preds = %59
-  %1120 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1120, ptr noundef nonnull %5)
+1120:                                             ; preds = %58
   %1121 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1122 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1121, ptr noundef nonnull %1122)
-  %1123 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1123, i32 noundef 2476, i32 noundef 6, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1121, ptr noundef nonnull %5)
+  %1122 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %1123 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1122, ptr noundef nonnull %1123)
   %1124 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1124, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1124, i32 noundef 2486, i32 noundef 6, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %1125 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1125, ptr noundef nonnull @.str)
+  br label %1439
 
-1125:                                             ; preds = %59
-  %1126 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1126, ptr noundef nonnull %5)
+1126:                                             ; preds = %58
   %1127 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1128 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1127, ptr noundef nonnull %1128)
-  %1129 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1129, i32 noundef 2486, i32 noundef 6, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1127, ptr noundef nonnull %5)
+  %1128 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  %1129 = getelementptr inbounds i8, ptr %.014341549, i64 -24
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1128, ptr noundef nonnull %1129)
   %1130 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1130, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1130, i32 noundef 2497, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %1131 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1131, ptr noundef nonnull @.str)
+  br label %1439
 
-1131:                                             ; preds = %59
-  %1132 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1132, ptr noundef nonnull %5)
+1132:                                             ; preds = %58
   %1133 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1134 = getelementptr inbounds i8, ptr %.014341549, i64 -24
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1133, ptr noundef nonnull %1134)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1133, ptr noundef nonnull %5)
+  %1134 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1134, i32 noundef 2506, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1135 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1135, i32 noundef 2497, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1136 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1136, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1135, ptr noundef nonnull @.str)
+  br label %1439
 
-1137:                                             ; preds = %59
+1136:                                             ; preds = %58
+  %1137 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1137, ptr noundef nonnull %5)
   %1138 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1138, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1138, i32 noundef 2516, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1139 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1139, i32 noundef 2506, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1140 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1140, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1139, ptr noundef nonnull @.str)
+  br label %1439
 
-1141:                                             ; preds = %59
+1140:                                             ; preds = %58
+  %1141 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1141, ptr noundef nonnull %5)
   %1142 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1142, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1142, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1143 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1143, i32 noundef 2516, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1144 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1144, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1143, ptr noundef nonnull @.str)
+  br label %1439
 
-1145:                                             ; preds = %59
+1144:                                             ; preds = %58
+  %1145 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1145, ptr noundef nonnull %5)
   %1146 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1146, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1146, i32 noundef 2534, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1147 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1147, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1148 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1148, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1147, ptr noundef nonnull @.str)
+  br label %1439
 
-1149:                                             ; preds = %59
+1148:                                             ; preds = %58
+  %1149 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1149, ptr noundef nonnull %5)
   %1150 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1150, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1150, i32 noundef 2543, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1151 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1151, i32 noundef 2534, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1152 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1152, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1151, ptr noundef nonnull @.str)
+  br label %1439
 
-1153:                                             ; preds = %59
+1152:                                             ; preds = %58
+  %1153 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1153, ptr noundef nonnull %5)
   %1154 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1154, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1154, i32 noundef 2552, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1155 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1155, i32 noundef 2543, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1156 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1156, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1155, ptr noundef nonnull @.str)
+  br label %1439
 
-1157:                                             ; preds = %59
+1156:                                             ; preds = %58
+  %1157 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1157, ptr noundef nonnull %5)
   %1158 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1158, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1158, i32 noundef 2562, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1159 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1159, i32 noundef 2552, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1160 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1160, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1159, ptr noundef nonnull @.str)
+  br label %1439
 
-1161:                                             ; preds = %59
+1160:                                             ; preds = %58
+  %1161 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1161, ptr noundef nonnull %5)
   %1162 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1162, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1162, i32 noundef 2572, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1163 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1163, i32 noundef 2562, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1164 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1164, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1163, ptr noundef nonnull @.str)
+  br label %1439
 
-1165:                                             ; preds = %59
+1164:                                             ; preds = %58
+  %1165 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1165, ptr noundef nonnull %5)
   %1166 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1166, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1166, i32 noundef 2582, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1167 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1167, i32 noundef 2572, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1168 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1168, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1167, ptr noundef nonnull @.str)
+  br label %1439
 
-1169:                                             ; preds = %59
+1168:                                             ; preds = %58
+  %1169 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1169, ptr noundef nonnull %5)
   %1170 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1170, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1170, i32 noundef 2591, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1171 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1171, i32 noundef 2582, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1172 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1172, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1171, ptr noundef nonnull @.str)
+  br label %1439
 
-1173:                                             ; preds = %59
+1172:                                             ; preds = %58
+  %1173 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1173, ptr noundef nonnull %5)
   %1174 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1174, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1174, i32 noundef 2600, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1175 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1175, i32 noundef 2591, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1176 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1176, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1175, ptr noundef nonnull @.str)
+  br label %1439
 
-1177:                                             ; preds = %59
+1176:                                             ; preds = %58
+  %1177 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1177, ptr noundef nonnull %5)
   %1178 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1178, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1178, i32 noundef 2609, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1179 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1179, i32 noundef 2600, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1180 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1180, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1179, ptr noundef nonnull @.str)
+  br label %1439
 
-1181:                                             ; preds = %59
+1180:                                             ; preds = %58
+  %1181 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1181, ptr noundef nonnull %5)
   %1182 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1182, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1182, i32 noundef 2618, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1183 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1183, i32 noundef 2609, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1184 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1184, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1183, ptr noundef nonnull @.str)
+  br label %1439
 
-1185:                                             ; preds = %59
+1184:                                             ; preds = %58
+  %1185 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1185, ptr noundef nonnull %5)
   %1186 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1186, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1186, i32 noundef 2628, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1187 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1187, i32 noundef 2618, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1188 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1188, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1187, ptr noundef nonnull @.str)
+  br label %1439
 
-1189:                                             ; preds = %59
+1188:                                             ; preds = %58
+  %1189 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1189, ptr noundef nonnull %5)
   %1190 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1190, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1190, i32 noundef 2638, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1191 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1191, i32 noundef 2628, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1192 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1192, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1191, ptr noundef nonnull @.str)
+  br label %1439
 
-1193:                                             ; preds = %59
+1192:                                             ; preds = %58
+  %1193 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1193, ptr noundef nonnull %5)
   %1194 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1194, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1194, i32 noundef 2648, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1195 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1195, i32 noundef 2638, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1196 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1196, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1195, ptr noundef nonnull @.str)
+  br label %1439
 
-1197:                                             ; preds = %59
+1196:                                             ; preds = %58
+  %1197 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1197, ptr noundef nonnull %5)
   %1198 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1198, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1198, i32 noundef 2657, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1199 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1199, i32 noundef 2648, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1200 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1200, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1199, ptr noundef nonnull @.str)
+  br label %1439
 
-1201:                                             ; preds = %59
+1200:                                             ; preds = %58
+  %1201 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1201, ptr noundef nonnull %5)
   %1202 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1202, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1202, i32 noundef 2666, i32 noundef 2, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1203 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1203, i32 noundef 2657, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1204 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1204, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1203, ptr noundef nonnull @.str)
+  br label %1439
 
-1205:                                             ; preds = %59
+1204:                                             ; preds = %58
+  %1205 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1205, ptr noundef nonnull %5)
   %1206 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1206, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1206, i32 noundef 2675, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1207 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1207, i32 noundef 2666, i32 noundef 2, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1208 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1208, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1207, ptr noundef nonnull @.str)
+  br label %1439
 
-1209:                                             ; preds = %59
+1208:                                             ; preds = %58
+  %1209 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1209, ptr noundef nonnull %5)
   %1210 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1210, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1210, i32 noundef 2685, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1211 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1211, i32 noundef 2675, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1212 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1212, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1211, ptr noundef nonnull @.str)
+  br label %1439
 
-1213:                                             ; preds = %59
+1212:                                             ; preds = %58
+  %1213 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1213, ptr noundef nonnull %5)
   %1214 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1214, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1214, i32 noundef 2694, i32 noundef 4, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1215 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1215, i32 noundef 2685, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1216 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1216, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1215, ptr noundef nonnull @.str)
+  br label %1439
 
-1217:                                             ; preds = %59
-  %1218 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1218, ptr noundef nonnull %5)
+1216:                                             ; preds = %58
+  %1217 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1217, ptr noundef nonnull %5)
+  br label %1439
+
+1218:                                             ; preds = %58
   %1219 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1219, i32 noundef 2694, i32 noundef 4, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1219, ptr noundef nonnull %5)
   %1220 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1220, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1220, i32 noundef 2710, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
+  %1221 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1221, ptr noundef nonnull @.str)
+  br label %1439
 
-1221:                                             ; preds = %59
-  %1222 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1222, ptr noundef nonnull %5)
-  br label %1444
-
-1223:                                             ; preds = %59
+1222:                                             ; preds = %58
+  %1223 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1223, ptr noundef nonnull %5)
   %1224 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1224, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1224, i32 noundef 2719, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1225 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1225, i32 noundef 2710, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1226 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1226, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1225, ptr noundef nonnull @.str)
+  br label %1439
 
-1227:                                             ; preds = %59
+1226:                                             ; preds = %58
+  %1227 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1227, ptr noundef nonnull %5)
   %1228 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1228, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1228, i32 noundef 2728, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1229 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1229, i32 noundef 2719, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1230 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1230, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1229, ptr noundef nonnull @.str)
+  br label %1439
 
-1231:                                             ; preds = %59
+1230:                                             ; preds = %58
+  %1231 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1231, ptr noundef nonnull %5)
   %1232 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1232, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1232, i32 noundef 2737, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1233 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1233, i32 noundef 2728, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1234 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1234, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1233, ptr noundef nonnull @.str)
+  br label %1439
 
-1235:                                             ; preds = %59
+1234:                                             ; preds = %58
+  %1235 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1235, ptr noundef nonnull %5)
   %1236 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1236, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1236, i32 noundef 2747, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1237 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1237, i32 noundef 2737, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1238 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1238, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1237, ptr noundef nonnull @.str)
+  br label %1439
 
-1239:                                             ; preds = %59
+1238:                                             ; preds = %58
+  %1239 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1239, ptr noundef nonnull %5)
   %1240 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1240, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1240, i32 noundef 2756, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1241 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1241, i32 noundef 2747, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1242 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1242, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1241, ptr noundef nonnull @.str)
+  br label %1439
 
-1243:                                             ; preds = %59
+1242:                                             ; preds = %58
+  %1243 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1243, ptr noundef nonnull %5)
   %1244 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1244, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1244, i32 noundef 2765, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1245 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1245, i32 noundef 2756, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1246 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1246, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1245, ptr noundef nonnull @.str)
+  br label %1439
 
-1247:                                             ; preds = %59
+1246:                                             ; preds = %58
+  %1247 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1247, ptr noundef nonnull %5)
   %1248 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1248, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1248, i32 noundef 2775, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1249 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1249, i32 noundef 2765, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1250 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1250, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1249, ptr noundef nonnull @.str)
+  br label %1439
 
-1251:                                             ; preds = %59
+1250:                                             ; preds = %58
+  %1251 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1251, ptr noundef nonnull %5)
   %1252 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1252, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1252, i32 noundef 2784, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1253 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1253, i32 noundef 2775, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1254 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1254, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1253, ptr noundef nonnull @.str)
+  br label %1439
 
-1255:                                             ; preds = %59
+1254:                                             ; preds = %58
+  %1255 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1255, ptr noundef nonnull %5)
   %1256 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1256, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1256, i32 noundef 2793, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1257 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1257, i32 noundef 2784, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1258 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1258, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1257, ptr noundef nonnull @.str)
+  br label %1439
 
-1259:                                             ; preds = %59
+1258:                                             ; preds = %58
+  %1259 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1259, ptr noundef nonnull %5)
   %1260 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1260, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1260, i32 noundef 2802, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1261 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1261, i32 noundef 2793, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1262 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1262, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1261, ptr noundef nonnull @.str)
+  br label %1439
 
-1263:                                             ; preds = %59
+1262:                                             ; preds = %58
+  %1263 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1263, ptr noundef nonnull %5)
   %1264 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1264, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1264, i32 noundef 2812, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1265 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1265, i32 noundef 2802, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1266 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1266, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1265, ptr noundef nonnull @.str)
+  br label %1439
 
-1267:                                             ; preds = %59
+1266:                                             ; preds = %58
+  %1267 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1267, ptr noundef nonnull %5)
   %1268 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1268, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1268, i32 noundef 2821, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1269 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1269, i32 noundef 2812, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1270 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1270, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1269, ptr noundef nonnull @.str)
+  br label %1439
 
-1271:                                             ; preds = %59
+1270:                                             ; preds = %58
+  %1271 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1271, ptr noundef nonnull %5)
   %1272 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1272, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1272, i32 noundef 2830, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1273 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1273, i32 noundef 2821, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1274 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1274, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1273, ptr noundef nonnull @.str)
+  br label %1439
 
-1275:                                             ; preds = %59
+1274:                                             ; preds = %58
+  %1275 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1275, ptr noundef nonnull %5)
   %1276 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1276, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1276, i32 noundef 2839, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1277 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1277, i32 noundef 2830, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1278 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1278, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1277, ptr noundef nonnull @.str)
+  br label %1439
 
-1279:                                             ; preds = %59
+1278:                                             ; preds = %58
+  %1279 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1279, ptr noundef nonnull %5)
   %1280 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1280, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1280, i32 noundef 2848, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1281 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1281, i32 noundef 2839, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1282 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1282, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1281, ptr noundef nonnull @.str)
+  br label %1439
 
-1283:                                             ; preds = %59
+1282:                                             ; preds = %58
+  %1283 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1283, ptr noundef nonnull %5)
   %1284 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1284, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1284, i32 noundef 2857, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1285 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1285, i32 noundef 2848, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1286 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1286, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1285, ptr noundef nonnull @.str)
+  br label %1439
 
-1287:                                             ; preds = %59
+1286:                                             ; preds = %58
+  %1287 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1287, ptr noundef nonnull %5)
   %1288 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1288, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1288, i32 noundef 2867, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1289 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1289, i32 noundef 2857, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1290 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1290, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1289, ptr noundef nonnull @.str)
+  br label %1439
 
-1291:                                             ; preds = %59
+1290:                                             ; preds = %58
+  %1291 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1291, ptr noundef nonnull %5)
   %1292 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1292, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1292, i32 noundef 2876, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1293 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1293, i32 noundef 2867, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1294 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1294, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1293, ptr noundef nonnull @.str)
+  br label %1439
 
-1295:                                             ; preds = %59
+1294:                                             ; preds = %58
+  %1295 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1295, ptr noundef nonnull %5)
   %1296 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1296, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1296, i32 noundef 2885, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1297 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1297, i32 noundef 2876, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1298 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1298, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1297, ptr noundef nonnull @.str)
+  br label %1439
 
-1299:                                             ; preds = %59
+1298:                                             ; preds = %58
+  %1299 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1299, ptr noundef nonnull %5)
   %1300 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1300, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1300, i32 noundef 2895, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1301 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1301, i32 noundef 2885, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1302 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1302, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1301, ptr noundef nonnull @.str)
+  br label %1439
 
-1303:                                             ; preds = %59
+1302:                                             ; preds = %58
+  %1303 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1303, ptr noundef nonnull %5)
   %1304 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1304, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1304, i32 noundef 2904, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1305 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1305, i32 noundef 2895, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1306 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1306, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1305, ptr noundef nonnull @.str)
+  br label %1439
 
-1307:                                             ; preds = %59
+1306:                                             ; preds = %58
+  %1307 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1307, ptr noundef nonnull %5)
   %1308 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1308, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1308, i32 noundef 2914, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1309 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1309, i32 noundef 2904, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1310 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1310, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1309, ptr noundef nonnull @.str)
+  br label %1439
 
-1311:                                             ; preds = %59
+1310:                                             ; preds = %58
+  %1311 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1311, ptr noundef nonnull %5)
   %1312 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1312, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1312, i32 noundef 2923, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1313 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1313, i32 noundef 2914, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1314 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1314, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1313, ptr noundef nonnull @.str)
+  br label %1439
 
-1315:                                             ; preds = %59
+1314:                                             ; preds = %58
+  %1315 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1315, ptr noundef nonnull %5)
   %1316 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1316, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1316, i32 noundef 2933, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1317 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1317, i32 noundef 2923, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1318 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1318, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1317, ptr noundef nonnull @.str)
+  br label %1439
 
-1319:                                             ; preds = %59
+1318:                                             ; preds = %58
+  %1319 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1319, ptr noundef nonnull %5)
   %1320 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1320, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1320, i32 noundef 2942, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1321 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1321, i32 noundef 2933, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1322 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1322, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1321, ptr noundef nonnull @.str)
+  br label %1439
 
-1323:                                             ; preds = %59
+1322:                                             ; preds = %58
+  %1323 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1323, ptr noundef nonnull %5)
   %1324 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1324, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1324, i32 noundef 2952, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1325 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1325, i32 noundef 2942, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1326 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1326, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1325, ptr noundef nonnull @.str)
+  br label %1439
 
-1327:                                             ; preds = %59
+1326:                                             ; preds = %58
+  %1327 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1327, ptr noundef nonnull %5)
   %1328 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1328, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1328, i32 noundef 2961, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1329 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1329, i32 noundef 2952, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1330 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1330, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1329, ptr noundef nonnull @.str)
+  br label %1439
 
-1331:                                             ; preds = %59
+1330:                                             ; preds = %58
+  %1331 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1331, ptr noundef nonnull %5)
   %1332 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1332, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1332, i32 noundef 2971, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1333 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1333, i32 noundef 2961, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1334 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1334, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1333, ptr noundef nonnull @.str)
+  br label %1439
 
-1335:                                             ; preds = %59
+1334:                                             ; preds = %58
+  %1335 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1335, ptr noundef nonnull %5)
   %1336 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1336, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1336, i32 noundef 2980, i32 noundef 3, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1337 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1337, i32 noundef 2971, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1338 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1338, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1337, ptr noundef nonnull @.str)
+  br label %1439
 
-1339:                                             ; preds = %59
+1338:                                             ; preds = %58
+  %1339 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1339, ptr noundef nonnull %5)
   %1340 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1340, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1340, i32 noundef 2990, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1341 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1341, i32 noundef 2980, i32 noundef 3, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1342 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1342, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1341, ptr noundef nonnull @.str)
+  br label %1439
 
-1343:                                             ; preds = %59
+1342:                                             ; preds = %58
+  %1343 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1343, ptr noundef nonnull %5)
   %1344 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1344, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1344, i32 noundef 2999, i32 noundef 5, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1345 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1345, i32 noundef 2990, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1346 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1346, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1345, ptr noundef nonnull @.str)
+  br label %1439
 
-1347:                                             ; preds = %59
+1346:                                             ; preds = %58
+  %1347 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1347, ptr noundef nonnull %5)
   %1348 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1348, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1348, i32 noundef 3009, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1349 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1349, i32 noundef 2999, i32 noundef 5, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1350 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1350, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1349, ptr noundef nonnull @.str)
+  br label %1439
 
-1351:                                             ; preds = %59
+1350:                                             ; preds = %58
+  %1351 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1351, ptr noundef nonnull %5)
   %1352 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1352, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1352, i32 noundef 3018, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1353 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1353, i32 noundef 3009, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1354 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1354, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1353, ptr noundef nonnull @.str)
+  br label %1439
 
-1355:                                             ; preds = %59
+1354:                                             ; preds = %58
+  %1355 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1355, ptr noundef nonnull %5)
   %1356 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1356, ptr noundef nonnull %5)
-  %1357 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1357, i32 noundef 3018, i32 noundef 1, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1356, i32 noundef 3028, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %1358 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1358, ptr noundef nonnull @.str)
-  br label %1444
+  %1357 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1357, ptr noundef nonnull @.str)
+  br label %1439
 
-1359:                                             ; preds = %59
+1358:                                             ; preds = %58
+  %1359 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1359, ptr noundef nonnull %5)
   %1360 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1360, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1360, ptr noundef nonnull %.014341549)
   %1361 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1361, i32 noundef 3028, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1361, i32 noundef 3039, i32 noundef 1, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
   %1362 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1362, ptr noundef nonnull @.str)
-  br label %1444
+  br label %1439
 
-1363:                                             ; preds = %59
+1363:                                             ; preds = %58
   %1364 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
   call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1364, ptr noundef nonnull %5)
   %1365 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1365, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1365, i32 noundef 3048, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1366 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1366, i32 noundef 3039, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1367 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1367, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1366, ptr noundef nonnull @.str)
+  br label %1439
 
-1368:                                             ; preds = %59
+1367:                                             ; preds = %58
+  %1368 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1368, ptr noundef nonnull %5)
   %1369 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1369, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1369, i32 noundef 3057, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1370 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1370, i32 noundef 3048, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1371 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1371, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1370, ptr noundef nonnull @.str)
+  br label %1439
 
-1372:                                             ; preds = %59
+1371:                                             ; preds = %58
+  %1372 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1372, ptr noundef nonnull %5)
   %1373 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1373, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1373, i32 noundef 3067, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1374 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1374, i32 noundef 3057, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1375 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1375, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1374, ptr noundef nonnull @.str)
+  br label %1439
 
-1376:                                             ; preds = %59
+1375:                                             ; preds = %58
+  %1376 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1376, ptr noundef nonnull %5)
   %1377 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1377, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1377, i32 noundef 3076, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1378 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1378, i32 noundef 3067, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1379 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1379, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1378, ptr noundef nonnull @.str)
+  br label %1439
 
-1380:                                             ; preds = %59
+1379:                                             ; preds = %58
+  %1380 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1380, ptr noundef nonnull %5)
   %1381 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1381, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1381, i32 noundef 3085, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1382 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1382, i32 noundef 3076, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1383 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1383, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1382, ptr noundef nonnull @.str)
+  br label %1439
 
-1384:                                             ; preds = %59
+1383:                                             ; preds = %58
+  %1384 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1384, ptr noundef nonnull %5)
   %1385 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1385, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1385, i32 noundef 3094, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1386 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1386, i32 noundef 3085, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1387 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1387, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1386, ptr noundef nonnull @.str)
+  br label %1439
 
-1388:                                             ; preds = %59
+1387:                                             ; preds = %58
+  %1388 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1388, ptr noundef nonnull %5)
   %1389 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1389, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1389, i32 noundef 3103, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1390 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1390, i32 noundef 3094, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1391 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1391, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1390, ptr noundef nonnull @.str)
+  br label %1439
 
-1392:                                             ; preds = %59
+1391:                                             ; preds = %58
+  %1392 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1392, ptr noundef nonnull %5)
   %1393 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1393, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1393, i32 noundef 3112, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1394 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1394, i32 noundef 3103, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1395 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1395, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1394, ptr noundef nonnull @.str)
+  br label %1439
 
-1396:                                             ; preds = %59
+1395:                                             ; preds = %58
+  %1396 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1396, ptr noundef nonnull %5)
   %1397 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1397, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1397, i32 noundef 3121, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1398 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1398, i32 noundef 3112, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1399 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1399, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1398, ptr noundef nonnull @.str)
+  br label %1439
 
-1400:                                             ; preds = %59
+1399:                                             ; preds = %58
+  %1400 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1400, ptr noundef nonnull %5)
   %1401 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1401, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1401, i32 noundef 3130, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1402 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1402, i32 noundef 3121, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1403 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1403, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1402, ptr noundef nonnull @.str)
+  br label %1439
 
-1404:                                             ; preds = %59
+1403:                                             ; preds = %58
+  %1404 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1404, ptr noundef nonnull %5)
   %1405 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1405, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1405, i32 noundef 3139, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1406 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1406, i32 noundef 3130, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1407 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1407, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1406, ptr noundef nonnull @.str)
+  br label %1439
 
-1408:                                             ; preds = %59
+1407:                                             ; preds = %58
+  %1408 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1408, ptr noundef nonnull %5)
   %1409 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1409, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1409, i32 noundef 3148, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1410 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1410, i32 noundef 3139, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1411 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1411, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1410, ptr noundef nonnull @.str)
+  br label %1439
 
-1412:                                             ; preds = %59
+1411:                                             ; preds = %58
+  %1412 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1412, ptr noundef nonnull %5)
   %1413 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1413, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1413, i32 noundef 3157, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1414 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1414, i32 noundef 3148, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1415 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1415, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1414, ptr noundef nonnull @.str)
+  br label %1439
 
-1416:                                             ; preds = %59
+1415:                                             ; preds = %58
+  %1416 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1416, ptr noundef nonnull %5)
   %1417 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1417, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1417, i32 noundef 3166, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1418 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1418, i32 noundef 3157, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1419 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1419, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1418, ptr noundef nonnull @.str)
+  br label %1439
 
-1420:                                             ; preds = %59
+1419:                                             ; preds = %58
+  %1420 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1420, ptr noundef nonnull %5)
   %1421 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1421, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1421, i32 noundef 3176, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1422 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1422, i32 noundef 3166, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1423 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1423, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1422, ptr noundef nonnull @.str)
+  br label %1439
 
-1424:                                             ; preds = %59
+1423:                                             ; preds = %58
+  %1424 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1424, ptr noundef nonnull %5)
   %1425 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1425, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1425, i32 noundef 3186, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1426 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1426, i32 noundef 3176, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1427 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1427, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1426, ptr noundef nonnull @.str)
+  br label %1439
 
-1428:                                             ; preds = %59
+1427:                                             ; preds = %58
+  %1428 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1428, ptr noundef nonnull %5)
   %1429 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1429, ptr noundef nonnull %5)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1429, i32 noundef 3196, i32 noundef 1, ptr noundef nonnull %.014341549)
+  store ptr null, ptr %5, align 8, !tbaa !14
   %1430 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1430, i32 noundef 3186, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1431 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1431, ptr noundef nonnull @.str)
-  br label %1444
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1430, ptr noundef nonnull @.str)
+  br label %1439
 
-1432:                                             ; preds = %59
+1431:                                             ; preds = %58
+  %1432 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1432, ptr noundef nonnull %5)
   %1433 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1433, ptr noundef nonnull %5)
-  %1434 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1434, i32 noundef 3196, i32 noundef 1, ptr noundef nonnull %.014341549)
-  store ptr null, ptr %5, align 8, !tbaa !14
-  %1435 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1435, ptr noundef nonnull @.str)
-  br label %1444
-
-1436:                                             ; preds = %59
+  %1434 = getelementptr inbounds i8, ptr %.014341549, i64 -16
+  %1435 = load ptr, ptr %1434, align 8, !tbaa !14
+  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1433, ptr noundef %1435)
+  %1436 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1436, ptr noundef nonnull %1434)
   %1437 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper14PrepareElementEPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1437, ptr noundef nonnull %5)
-  %1438 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  %1439 = getelementptr inbounds i8, ptr %.014341549, i64 -16
-  %1440 = load ptr, ptr %1439, align 8, !tbaa !14
-  call void @_ZN25cmDependsJavaParserHelper13AddClassFoundEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1438, ptr noundef %1440)
-  %1441 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper20DeallocateParserTypeEPPc(ptr noundef nonnull align 8 dereferenceable(248) %1441, ptr noundef nonnull %1439)
-  %1442 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1442, i32 noundef 3206, i32 noundef 3, ptr noundef nonnull %.014341549)
+  call void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr noundef nonnull align 8 dereferenceable(248) %1437, i32 noundef 3206, i32 noundef 3, ptr noundef nonnull %.014341549)
   store ptr null, ptr %5, align 8, !tbaa !14
-  %1443 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1443, ptr noundef nonnull @.str)
-  br label %1444
+  %1438 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1438, ptr noundef nonnull @.str)
+  br label %1439
 
-1444:                                             ; preds = %59, %1436, %1432, %1428, %1424, %1420, %1416, %1412, %1408, %1404, %1400, %1396, %1392, %1388, %1384, %1380, %1376, %1372, %1368, %1363, %1359, %1355, %1351, %1347, %1343, %1339, %1335, %1331, %1327, %1323, %1319, %1315, %1311, %1307, %1303, %1299, %1295, %1291, %1287, %1283, %1279, %1275, %1271, %1267, %1263, %1259, %1255, %1251, %1247, %1243, %1239, %1235, %1231, %1227, %1223, %1221, %1217, %1213, %1209, %1205, %1201, %1197, %1193, %1189, %1185, %1181, %1177, %1173, %1169, %1165, %1161, %1157, %1153, %1149, %1145, %1141, %1137, %1131, %1125, %1119, %1111, %1105, %1100, %1095, %1090, %1085, %1083, %1081, %1077, %1073, %1069, %1065, %1062, %1058, %1054, %1050, %1046, %1042, %1038, %1034, %1031, %1027, %1024, %1020, %1016, %1012, %1008, %1004, %1000, %998, %994, %990, %986, %982, %980, %976, %972, %968, %965, %961, %957, %953, %949, %945, %939, %937, %934, %928, %924, %920, %916, %912, %908, %904, %900, %896, %893, %890, %886, %883, %879, %876, %874, %872, %870, %868, %864, %860, %856, %852, %848, %844, %841, %837, %834, %832, %830, %826, %822, %818, %814, %810, %806, %802, %798, %794, %790, %786, %782, %776, %772, %768, %764, %760, %756, %752, %748, %744, %740, %736, %732, %728, %724, %720, %716, %712, %708, %704, %700, %696, %692, %688, %684, %680, %676, %672, %668, %664, %660, %656, %652, %648, %644, %641, %638, %634, %630, %626, %622, %619, %615, %611, %607, %603, %599, %596, %592, %589, %585, %581, %577, %574, %571, %567, %563, %559, %555, %552, %547, %541, %537, %533, %529, %526, %522, %516, %512, %508, %504, %500, %496, %494, %490, %486, %482, %480, %477, %475, %469, %465, %462, %458, %454, %450, %446, %442, %438, %434, %430, %425, %421, %417, %413, %409, %407, %403, %399, %395, %391, %387, %383, %379, %376, %372, %368, %364, %360, %356, %352, %349, %344, %339, %334, %329, %323, %319, %315, %311, %307, %303, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %261, %257, %253, %244, %240, %237, %233, %230, %226, %223, %219, %215, %211, %207, %198, %189, %177, %174, %171, %168, %165, %162, %154, %150, %146, %142, %135, %131, %127, %125, %123, %121, %119, %117, %115, %113, %111, %107, %103, %99, %95, %91, %87, %83, %79, %75, %71, %67
-  %1445 = sub nsw i64 0, %63
-  %1446 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341549, i64 %1445
-  %.idx = shl nsw i64 %1445, 1
+1439:                                             ; preds = %58, %1431, %1427, %1423, %1419, %1415, %1411, %1407, %1403, %1399, %1395, %1391, %1387, %1383, %1379, %1375, %1371, %1367, %1363, %1358, %1354, %1350, %1346, %1342, %1338, %1334, %1330, %1326, %1322, %1318, %1314, %1310, %1306, %1302, %1298, %1294, %1290, %1286, %1282, %1278, %1274, %1270, %1266, %1262, %1258, %1254, %1250, %1246, %1242, %1238, %1234, %1230, %1226, %1222, %1218, %1216, %1212, %1208, %1204, %1200, %1196, %1192, %1188, %1184, %1180, %1176, %1172, %1168, %1164, %1160, %1156, %1152, %1148, %1144, %1140, %1136, %1132, %1126, %1120, %1114, %1106, %1100, %1095, %1090, %1085, %1080, %1078, %1076, %1072, %1068, %1064, %1060, %1057, %1053, %1049, %1045, %1041, %1037, %1033, %1029, %1026, %1022, %1019, %1015, %1011, %1007, %1003, %999, %995, %993, %989, %985, %981, %977, %975, %971, %967, %963, %960, %956, %952, %948, %944, %940, %934, %932, %929, %923, %919, %915, %911, %907, %903, %899, %895, %891, %888, %885, %881, %878, %874, %871, %869, %867, %865, %863, %859, %855, %851, %847, %843, %839, %836, %832, %829, %827, %825, %821, %817, %813, %809, %805, %801, %797, %793, %789, %785, %781, %777, %771, %767, %763, %759, %755, %751, %747, %743, %739, %735, %731, %727, %723, %719, %715, %711, %707, %703, %699, %695, %691, %687, %683, %679, %675, %671, %667, %663, %659, %655, %651, %647, %643, %639, %636, %633, %629, %625, %621, %617, %614, %610, %606, %602, %598, %594, %591, %587, %584, %580, %576, %572, %569, %566, %562, %558, %554, %550, %547, %542, %536, %532, %528, %524, %521, %517, %511, %507, %503, %499, %495, %491, %489, %485, %481, %477, %475, %472, %470, %464, %460, %457, %453, %449, %445, %441, %437, %433, %429, %425, %420, %416, %412, %408, %404, %402, %398, %394, %390, %386, %382, %378, %374, %371, %367, %363, %359, %355, %351, %347, %344, %339, %334, %329, %324, %318, %314, %310, %306, %302, %298, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %260, %256, %252, %243, %239, %236, %232, %229, %225, %222, %218, %214, %210, %206, %197, %188, %176, %173, %170, %167, %164, %161, %153, %149, %145, %141, %134, %130, %126, %124, %122, %120, %118, %116, %114, %112, %110, %106, %102, %98, %94, %90, %86, %82, %78, %74, %70, %66
+  %1440 = sub nsw i64 0, %62
+  %1441 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %.014341549, i64 %1440
+  %.idx = shl nsw i64 %1440, 1
   %.01444.add = add nsw i64 %.idx, %.01444.idx1547
   %.ptr1470 = getelementptr inbounds i8, ptr %3, i64 %.01444.add
-  %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 8
-  %1448 = load i64, ptr %5, align 8, !tbaa !4
-  store i64 %1448, ptr %1447, align 8, !tbaa !4
-  %1449 = getelementptr inbounds i16, ptr @_ZL4yyr1, i64 %60
-  %1450 = load i16, ptr %1449, align 2, !tbaa !11
-  %1451 = sext i16 %1450 to i64
-  %1452 = add nsw i64 %1451, -106
-  %1453 = getelementptr inbounds i16, ptr @_ZL7yypgoto, i64 %1452
-  %1454 = load i16, ptr %1453, align 2, !tbaa !11
-  %1455 = sext i16 %1454 to i32
-  %1456 = load i16, ptr %.ptr1470, align 2, !tbaa !11
-  %1457 = sext i16 %1456 to i32
-  %1458 = add nsw i32 %1457, %1455
-  %or.cond5 = icmp ult i32 %1458, 2216
-  br i1 %or.cond5, label %1459, label %1466
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 8
+  %1443 = load i64, ptr %5, align 8, !tbaa !4
+  store i64 %1443, ptr %1442, align 8, !tbaa !4
+  %1444 = getelementptr inbounds i16, ptr @_ZL4yyr1, i64 %59
+  %1445 = load i16, ptr %1444, align 2, !tbaa !11
+  %1446 = sext i16 %1445 to i64
+  %1447 = add nsw i64 %1446, -106
+  %1448 = getelementptr inbounds i16, ptr @_ZL7yypgoto, i64 %1447
+  %1449 = load i16, ptr %1448, align 2, !tbaa !11
+  %1450 = sext i16 %1449 to i32
+  %1451 = load i16, ptr %.ptr1470, align 2, !tbaa !11
+  %1452 = sext i16 %1451 to i32
+  %1453 = add nsw i32 %1452, %1450
+  %or.cond5 = icmp ult i32 %1453, 2216
+  br i1 %or.cond5, label %1454, label %1461
 
-1459:                                             ; preds = %1444
-  %1460 = zext nneg i32 %1458 to i64
-  %1461 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %1460
-  %1462 = load i16, ptr %1461, align 2, !tbaa !11
-  %1463 = icmp eq i16 %1462, %1456
-  br i1 %1463, label %1464, label %1466
+1454:                                             ; preds = %1439
+  %1455 = zext nneg i32 %1453 to i64
+  %1456 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %1455
+  %1457 = load i16, ptr %1456, align 2, !tbaa !11
+  %1458 = icmp eq i16 %1457, %1451
+  br i1 %1458, label %1459, label %1461
 
-1464:                                             ; preds = %1459
-  %1465 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %1460
-  br label %1468
+1459:                                             ; preds = %1454
+  %1460 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %1455
+  br label %1463
 
-1466:                                             ; preds = %1459, %1444
-  %1467 = getelementptr inbounds i16, ptr @_ZL9yydefgoto, i64 %1452
-  br label %1468
+1461:                                             ; preds = %1454, %1439
+  %1462 = getelementptr inbounds i16, ptr @_ZL9yydefgoto, i64 %1447
+  br label %1463
 
-1468:                                             ; preds = %1466, %1464
-  %.in = phi ptr [ %1465, %1464 ], [ %1467, %1466 ]
-  %1469 = load i16, ptr %.in, align 2, !tbaa !11
-  %1470 = sext i16 %1469 to i32
-  br label %12
+1463:                                             ; preds = %1461, %1459
+  %.in = phi ptr [ %1460, %1459 ], [ %1462, %1461 ]
+  %1464 = load i16, ptr %.in, align 2, !tbaa !11
+  %1465 = sext i16 %1464 to i32
+  br label %11
 
-1471:                                             ; preds = %54
-  %1472 = icmp eq i32 %.3, -2
-  br i1 %1472, label %1479, label %1473
+1466:                                             ; preds = %53
+  %1467 = icmp eq i32 %.3, -2
+  br i1 %1467, label %1474, label %1468
 
-1473:                                             ; preds = %1471
+1468:                                             ; preds = %1466
   %or.cond7 = icmp ult i32 %.3, 361
-  br i1 %or.cond7, label %1474, label %1479
+  br i1 %or.cond7, label %1469, label %1474
 
-1474:                                             ; preds = %1473
-  %1475 = zext nneg i32 %.3 to i64
-  %1476 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %1475
-  %1477 = load i8, ptr %1476, align 1, !tbaa !13
-  %1478 = sext i8 %1477 to i32
-  br label %1479
+1469:                                             ; preds = %1468
+  %1470 = zext nneg i32 %.3 to i64
+  %1471 = getelementptr inbounds nuw i8, ptr @_ZL11yytranslate, i64 %1470
+  %1472 = load i8, ptr %1471, align 1, !tbaa !13
+  %1473 = sext i8 %1472 to i32
+  br label %1474
 
-1479:                                             ; preds = %1474, %1473, %1471
-  %1480 = phi i32 [ -2, %1471 ], [ %1478, %1474 ], [ 2, %1473 ]
+1474:                                             ; preds = %1469, %1468, %1466
+  %1475 = phi i32 [ -2, %1466 ], [ %1473, %1469 ], [ 2, %1468 ]
   switch i32 %.014531545, label %.thread [
-    i32 0, label %1481
-    i32 3, label %1495
+    i32 0, label %1476
+    i32 3, label %1490
   ]
 
-1481:                                             ; preds = %1479
-  %1482 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr %.01544, ptr nonnull %.01444.ptr1551, i32 %1480)
-  switch i32 %1482, label %1493 [
-    i32 0, label %1483
-    i32 -1, label %1484
+1476:                                             ; preds = %1474
+  %1477 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr %.01544, ptr nonnull %.01444.ptr1551, i32 %1475)
+  switch i32 %1477, label %1488 [
+    i32 0, label %1478
+    i32 -1, label %1479
   ]
 
-1483:                                             ; preds = %1481
-  br label %1493
+1478:                                             ; preds = %1476
+  br label %1488
+
+1479:                                             ; preds = %1476
+  %.not1476 = icmp eq ptr %.01544, %6
+  br i1 %.not1476, label %1481, label %1480
+
+1480:                                             ; preds = %1479
+  call void @free(ptr noundef %.01544) #13
+  br label %1481
+
+1481:                                             ; preds = %1480, %1479
+  %1482 = load i64, ptr %7, align 8, !tbaa !9
+  %1483 = call noalias ptr @malloc(i64 noundef %1482) #14
+  %.not1477 = icmp eq ptr %1483, null
+  br i1 %.not1477, label %1487, label %1484
 
 1484:                                             ; preds = %1481
-  %.not1476 = icmp eq ptr %.01544, %6
-  br i1 %.not1476, label %1486, label %1485
+  %1485 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr nonnull %1483, ptr nonnull %.01444.ptr1551, i32 %1475)
+  %1486 = icmp eq i32 %1485, -2
+  br label %1488
 
-1485:                                             ; preds = %1484
-  call void @free(ptr noundef %.01544) #14
-  br label %1486
-
-1486:                                             ; preds = %1485, %1484
-  %1487 = load i64, ptr %7, align 8, !tbaa !9
-  %1488 = call noalias ptr @malloc(i64 noundef %1487) #15
-  %.not1477 = icmp eq ptr %1488, null
-  br i1 %.not1477, label %1492, label %1489
-
-1489:                                             ; preds = %1486
-  %1490 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr nonnull %1488, ptr nonnull %.01444.ptr1551, i32 %1480)
-  %1491 = icmp eq i32 %1490, -2
-  br label %1493
-
-1492:                                             ; preds = %1486
+1487:                                             ; preds = %1481
   store i64 128, ptr %7, align 8, !tbaa !9
-  br label %1493
+  br label %1488
 
-1493:                                             ; preds = %1481, %1492, %1489, %1483
-  %.51497 = phi ptr [ %.01544, %1481 ], [ %.01544, %1483 ], [ %6, %1492 ], [ %1488, %1489 ]
-  %.01424 = phi ptr [ @.str.2, %1481 ], [ %.01544, %1483 ], [ @.str.2, %1492 ], [ %1488, %1489 ]
-  %.01423 = phi i1 [ true, %1481 ], [ false, %1483 ], [ true, %1492 ], [ %1491, %1489 ]
-  %1494 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1494, ptr noundef %.01424)
-  br i1 %.01423, label %1521, label %.thread
+1488:                                             ; preds = %1476, %1487, %1484, %1478
+  %.51497 = phi ptr [ %.01544, %1476 ], [ %.01544, %1478 ], [ %6, %1487 ], [ %1483, %1484 ]
+  %.01424 = phi ptr [ @.str.2, %1476 ], [ %.01544, %1478 ], [ @.str.2, %1487 ], [ %1483, %1484 ]
+  %.01423 = phi i1 [ true, %1476 ], [ false, %1478 ], [ true, %1487 ], [ %1486, %1484 ]
+  %1489 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1489, ptr noundef %.01424)
+  br i1 %.01423, label %1516, label %.thread
 
-1495:                                             ; preds = %1479
-  %1496 = icmp slt i32 %.3, 1
-  br i1 %1496, label %1497, label %.thread
+1490:                                             ; preds = %1474
+  %1491 = icmp slt i32 %.3, 1
+  br i1 %1491, label %1492, label %.thread
 
-1497:                                             ; preds = %1495
-  %1498 = icmp eq i32 %.3, 0
-  br i1 %1498, label %.thread1517, label %.thread
+1492:                                             ; preds = %1490
+  %1493 = icmp eq i32 %.3, 0
+  br i1 %1493, label %.thread1517, label %.thread
 
-.thread:                                          ; preds = %1479, %1493, %1495, %28, %1497
-  %.31495 = phi ptr [ %.01544, %1497 ], [ %.01544, %28 ], [ %.01544, %1495 ], [ %.51497, %1493 ], [ %.01544, %1479 ]
-  %.6 = phi i32 [ %.3, %1497 ], [ 257, %28 ], [ -2, %1495 ], [ %.3, %1493 ], [ %.3, %1479 ]
-  br label %1499
+.thread:                                          ; preds = %1474, %1488, %1490, %27, %1492
+  %.31495 = phi ptr [ %.01544, %1492 ], [ %.01544, %27 ], [ %.01544, %1490 ], [ %.51497, %1488 ], [ %.01544, %1474 ]
+  %.6 = phi i32 [ %.3, %1492 ], [ 257, %27 ], [ -2, %1490 ], [ %.3, %1488 ], [ %.3, %1474 ]
+  br label %1494
 
-1499:                                             ; preds = %1514, %.thread
-  %1500 = phi i16 [ %19, %.thread ], [ %.pre, %1514 ]
-  %.31447.idx = phi i64 [ %.01444.idx1547, %.thread ], [ %.31447.add, %1514 ]
-  %.31437 = phi ptr [ %.014341549, %.thread ], [ %1515, %1514 ]
-  %1501 = icmp sgt i16 %1500, -2
-  br i1 %1501, label %1502, label %1512
+1494:                                             ; preds = %1509, %.thread
+  %1495 = phi i16 [ %18, %.thread ], [ %.pre, %1509 ]
+  %.31447.idx = phi i64 [ %.01444.idx1547, %.thread ], [ %.31447.add, %1509 ]
+  %.31437 = phi ptr [ %.014341549, %.thread ], [ %1510, %1509 ]
+  %1496 = icmp sgt i16 %1495, -2
+  br i1 %1496, label %1497, label %1507
 
-1502:                                             ; preds = %1499
-  %1503 = sext i16 %1500 to i64
-  %1504 = add nsw i64 %1503, 1
-  %1505 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %1504
-  %1506 = load i16, ptr %1505, align 2, !tbaa !11
-  %1507 = icmp eq i16 %1506, 1
-  br i1 %1507, label %1508, label %1512
+1497:                                             ; preds = %1494
+  %1498 = sext i16 %1495 to i64
+  %1499 = add nsw i64 %1498, 1
+  %1500 = getelementptr inbounds nuw i16, ptr @_ZL7yycheck, i64 %1499
+  %1501 = load i16, ptr %1500, align 2, !tbaa !11
+  %1502 = icmp eq i16 %1501, 1
+  br i1 %1502, label %1503, label %1507
 
-1508:                                             ; preds = %1502
-  %1509 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %1504
-  %1510 = load i16, ptr %1509, align 2, !tbaa !11
-  %1511 = icmp sgt i16 %1510, 0
-  br i1 %1511, label %1517, label %1512
+1503:                                             ; preds = %1497
+  %1504 = getelementptr inbounds nuw i16, ptr @_ZL7yytable, i64 %1499
+  %1505 = load i16, ptr %1504, align 2, !tbaa !11
+  %1506 = icmp sgt i16 %1505, 0
+  br i1 %1506, label %1512, label %1507
 
-1512:                                             ; preds = %1502, %1508, %1499
-  %1513 = icmp eq i64 %.31447.idx, 0
-  br i1 %1513, label %.thread1517, label %1514
+1507:                                             ; preds = %1497, %1503, %1494
+  %1508 = icmp eq i64 %.31447.idx, 0
+  br i1 %1508, label %.thread1517, label %1509
 
-1514:                                             ; preds = %1512
-  %1515 = getelementptr inbounds i8, ptr %.31437, i64 -8
+1509:                                             ; preds = %1507
+  %1510 = getelementptr inbounds i8, ptr %.31437, i64 -8
   %.31447.add = add nsw i64 %.31447.idx, -2
   %.ptr1471 = getelementptr inbounds i8, ptr %3, i64 %.31447.add
-  %1516 = load i16, ptr %.ptr1471, align 2, !tbaa !11
-  %.phi.trans.insert = sext i16 %1516 to i64
+  %1511 = load i16, ptr %.ptr1471, align 2, !tbaa !11
+  %.phi.trans.insert = sext i16 %1511 to i64
   %.phi.trans.insert1561 = getelementptr inbounds i16, ptr @_ZL6yypact, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert1561, align 2, !tbaa !11
-  br label %1499, !llvm.loop !20
+  br label %1494, !llvm.loop !19
 
-1517:                                             ; preds = %1508
-  %1518 = zext nneg i16 %1510 to i32
-  %1519 = getelementptr inbounds nuw i8, ptr %.31437, i64 8
-  %1520 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %1520, ptr %1519, align 8, !tbaa !4
-  br label %12
+1512:                                             ; preds = %1503
+  %1513 = zext nneg i16 %1505 to i32
+  %1514 = getelementptr inbounds nuw i8, ptr %.31437, i64 8
+  %1515 = load i64, ptr %2, align 8, !tbaa !4
+  store i64 %1515, ptr %1514, align 8, !tbaa !4
+  br label %11
 
-1521:                                             ; preds = %1493, %12
-  %.21494 = phi ptr [ %.51497, %1493 ], [ %.11493, %12 ]
-  %1522 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
-  call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1522, ptr noundef nonnull @.str.5)
+1516:                                             ; preds = %1488, %11
+  %.21494 = phi ptr [ %.51497, %1488 ], [ %.11493, %11 ]
+  %1517 = call noundef ptr @_Z25cmDependsJava_yyget_extraPv(ptr noundef %0)
+  call void @_ZN25cmDependsJavaParserHelper5ErrorEPKc(ptr noundef nonnull align 8 dereferenceable(248) %1517, ptr noundef nonnull @.str.5)
   br label %.thread1517
 
-.thread1517:                                      ; preds = %14, %1497, %1512, %1521
-  %.014321515 = phi i32 [ 2, %1521 ], [ 1, %1512 ], [ 0, %14 ], [ 1, %1497 ]
-  %.614981509 = phi ptr [ %.21494, %1521 ], [ %.31495, %1512 ], [ %.01544, %1497 ], [ %.01544, %14 ]
+.thread1517:                                      ; preds = %13, %1492, %1507, %1516
+  %.014321515 = phi i32 [ 2, %1516 ], [ 1, %1507 ], [ 0, %13 ], [ 1, %1492 ]
+  %.614981509 = phi ptr [ %.21494, %1516 ], [ %.31495, %1507 ], [ %.01544, %1492 ], [ %.01544, %13 ]
   %.not1480 = icmp eq ptr %.614981509, %6
-  br i1 %.not1480, label %1524, label %1523
+  br i1 %.not1480, label %1519, label %1518
 
-1523:                                             ; preds = %.thread1517
-  call void @free(ptr noundef %.614981509) #14
-  br label %1524
+1518:                                             ; preds = %.thread1517
+  call void @free(ptr noundef %.614981509) #13
+  br label %1519
 
-1524:                                             ; preds = %.thread1517, %1523
+1519:                                             ; preds = %.thread1517, %1518
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -4373,8 +4360,8 @@ declare void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10ParserTypeE(ptr
 define linkonce_odr dso_local void @_ZN25cmDependsJavaParserHelper17SetCurrentCombineEPKc(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5 = load i64, ptr %4, align 8, !tbaa !19
-  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %5 = load i64, ptr %4, align 8, !tbaa !21
+  %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %5, ptr noundef nonnull %1, i64 noundef %6)
   ret void
 }
@@ -4388,8 +4375,8 @@ declare void @_ZN25cmDependsJavaParserHelper13UpdateCombineEPKcS1_(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN25cmDependsJavaParserHelper17SetCurrentPackageEPKc(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !19
-  %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %4 = load i64, ptr %3, align 8, !tbaa !21
+  %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %4, ptr noundef nonnull %1, i64 noundef %5)
   ret void
 }
@@ -4405,11 +4392,11 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.278) #16
+  tail call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.278) #15
   unreachable
 
 8:                                                ; preds = %3
-  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %9, ptr %4, align 8, !tbaa !9
   %10 = icmp ugt i64 %9, 15
@@ -4441,7 +4428,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 17:                                               ; preds = %16, %14, %._crit_edge.i
   %18 = load i64, ptr %4, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %19, align 8, !tbaa !19
+  store i64 %18, ptr %19, align 8, !tbaa !21
   %20 = load ptr, ptr %0, align 8, !tbaa !16
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !13
@@ -4556,7 +4543,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit: ; preds 
 _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: ; preds = %24, %.critedge.thread.i.i, %1, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit, %35, %34, %33, %32
   %.1.i5 = phi i32 [ 5, %35 ], [ 2, %32 ], [ 3, %33 ], [ 4, %34 ], [ %31, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ 0, %1 ], [ 1, %.critedge.thread.i.i ], [ 1, %24 ]
   %.046 = phi ptr [ @.str.12, %35 ], [ @.str.9, %32 ], [ @.str.10, %33 ], [ @.str.11, %34 ], [ @.str.2, %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit ], [ @.str.2, %1 ], [ @.str.8, %.critedge.thread.i.i ], [ @.str.8, %24 ]
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #17
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #16
   %37 = shl nsw i32 %.1.i5, 1
   %38 = sext i32 %37 to i64
   %reass.sub = sub i64 %36, %38
@@ -4604,7 +4591,7 @@ _ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6: 
   br label %.preheader.split.us.i, !llvm.loop !26
 
 .thread.i:                                        ; preds = %49, %.preheader.split.us.i, %.preheader.split.us.i, %.lr.ph
-  %54 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #17
+  %54 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #16
   br label %_ZL9yytnamerrPcPKc.exit
 
 _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us.i, %.thread.i
@@ -4693,7 +4680,7 @@ _ZL9yytnamerrPcPKc.exit:                          ; preds = %.preheader.split.us
   br label %_ZL9yytnamerrPcPKc.exit68
 
 .thread.thread.i:                                 ; preds = %79, %.preheader.split.i, %.preheader.split.i, %67
-  %86 = tail call ptr @stpcpy(ptr noundef nonnull %.039, ptr noundef nonnull readonly %74) #14
+  %86 = tail call ptr @stpcpy(ptr noundef nonnull %.039, ptr noundef nonnull readonly %74) #13
   %87 = ptrtoint ptr %86 to i64
   %88 = ptrtoint ptr %.039 to i64
   %89 = sub i64 %87, %88
@@ -4743,14 +4730,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #12
+declare i32 @llvm.usub.sat.i32(i32, i32) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -4763,13 +4747,12 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { noreturn }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { builtin nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { noreturn }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -4792,13 +4775,13 @@ attributes #17 = { nounwind willreturn memory(read) }
 !16 = !{!17, !5, i64 0}
 !17 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !18, i64 0, !10, i64 8, !7, i64 16}
 !18 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
-!19 = !{!17, !10, i64 8}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.mustprogress"}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = !{!17, !10, i64 8}
 !22 = !{!18, !5, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"_ZTS15yysymbol_kind_t", !7, i64 0}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}

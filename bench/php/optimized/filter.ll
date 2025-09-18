@@ -603,59 +603,56 @@ define dso_local ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %zend_hash_str_find_ptr.exit48.thread
-  %.03563 = phi ptr [ %27, %zend_hash_str_find_ptr.exit48.thread ], [ %16, %.lr.ph.preheader ]
-  %17 = load i8, ptr %.03563, align 1, !tbaa !18
-  %18 = icmp eq i8 %17, 46
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %.03563, i64 1
-  store i8 42, ptr %19, align 1, !tbaa !18
-  %20 = getelementptr inbounds nuw i8, ptr %.03563, i64 2
-  store i8 0, ptr %20, align 1, !tbaa !18
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
-  %22 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %5, ptr noundef nonnull %11, i64 noundef %21) #15
-  %.not.i46 = icmp eq ptr %22, null
-  br i1 %.not.i46, label %zend_hash_str_find_ptr.exit48.thread, label %23
+  %.03563 = phi ptr [ %25, %zend_hash_str_find_ptr.exit48.thread ], [ %16, %.lr.ph.preheader ]
+  %17 = getelementptr inbounds nuw i8, ptr %.03563, i64 1
+  store i8 42, ptr %17, align 1, !tbaa !18
+  %18 = getelementptr inbounds nuw i8, ptr %.03563, i64 2
+  store i8 0, ptr %18, align 1, !tbaa !18
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
+  %20 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %5, ptr noundef nonnull %11, i64 noundef %19) #15
+  %.not.i46 = icmp eq ptr %20, null
+  br i1 %.not.i46, label %zend_hash_str_find_ptr.exit48.thread, label %21
 
-23:                                               ; preds = %.lr.ph
-  %24 = load ptr, ptr %22, align 8, !tbaa !18, !nonnull !38, !noundef !38
-  %25 = load ptr, ptr %24, align 8, !tbaa !39
-  %26 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2) #15
+21:                                               ; preds = %.lr.ph
+  %22 = load ptr, ptr %20, align 8, !tbaa !18, !nonnull !38, !noundef !38
+  %23 = load ptr, ptr %22, align 8, !tbaa !39
+  %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2) #15
   br label %zend_hash_str_find_ptr.exit48.thread
 
-zend_hash_str_find_ptr.exit48.thread:             ; preds = %.lr.ph, %23
-  %.2 = phi ptr [ %26, %23 ], [ null, %.lr.ph ]
+zend_hash_str_find_ptr.exit48.thread:             ; preds = %.lr.ph, %21
+  %.2 = phi ptr [ %24, %21 ], [ null, %.lr.ph ]
   store i8 0, ptr %.03563, align 1, !tbaa !18
-  %27 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #14
-  %28 = icmp ne ptr %27, null
+  %25 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #14
+  %26 = icmp ne ptr %25, null
   %.not44 = icmp eq ptr %.2, null
-  %29 = select i1 %28, i1 %.not44, i1 false
-  br i1 %29, label %.lr.ph, label %30
+  %27 = select i1 %26, i1 %.not44, i1 false
+  br i1 %27, label %.lr.ph, label %28
 
-30:                                               ; preds = %zend_hash_str_find_ptr.exit48.thread
+28:                                               ; preds = %zend_hash_str_find_ptr.exit48.thread
   tail call void @_efree(ptr noundef nonnull %11) #15
-  %31 = icmp eq ptr %.2, null
-  br i1 %31, label %36, label %37
+  %29 = icmp eq ptr %.2, null
+  br i1 %29, label %34, label %35
 
 .thread:                                          ; preds = %3
-  %32 = load ptr, ptr %7, align 8, !tbaa !18, !nonnull !38, !noundef !38
-  %33 = load ptr, ptr %32, align 8, !tbaa !39
-  %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2) #15
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread74, label %37
+  %30 = load ptr, ptr %7, align 8, !tbaa !18, !nonnull !38, !noundef !38
+  %31 = load ptr, ptr %30, align 8, !tbaa !39
+  %32 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2) #15
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %.thread74, label %35
 
-36:                                               ; preds = %30
+34:                                               ; preds = %28
   br i1 %.not.i46, label %.sink.split, label %.thread74
 
-.thread74:                                        ; preds = %.thread, %36
+.thread74:                                        ; preds = %.thread, %34
   br label %.sink.split
 
-.sink.split:                                      ; preds = %36, %8, %.thread79, %.thread74
-  %.str.sink = phi ptr [ @.str.1, %.thread74 ], [ @.str, %.thread79 ], [ @.str, %8 ], [ @.str, %36 ]
+.sink.split:                                      ; preds = %34, %8, %.thread79, %.thread74
+  %.str.sink = phi ptr [ @.str.1, %.thread74 ], [ @.str, %.thread79 ], [ @.str, %8 ], [ @.str, %34 ]
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.sink, ptr noundef nonnull %0) #15
-  br label %37
+  br label %35
 
-37:                                               ; preds = %.sink.split, %.thread, %30
-  %.03656 = phi ptr [ %.2, %30 ], [ %34, %.thread ], [ null, %.sink.split ]
+35:                                               ; preds = %.sink.split, %.thread, %28
+  %.03656 = phi ptr [ %.2, %28 ], [ %32, %.thread ], [ null, %.sink.split ]
   ret ptr %.03656
 }
 

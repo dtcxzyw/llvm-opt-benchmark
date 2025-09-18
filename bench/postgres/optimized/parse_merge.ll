@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i8], align 1
   %4 = alloca ptr, align 8
-  %5 = tail call noundef ptr @palloc0(i64 noundef 280) #6
+  %5 = tail call noundef ptr @palloc0(i64 noundef 280) #5
   store i32 67, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -39,15 +39,14 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 16801924) #6
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 129, ptr noundef nonnull @__func__.transformMergeStmt) #6
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %16 = tail call i32 @errcode(i32 noundef 16801924) #5
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 129, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
 18:                                               ; preds = %10
-  %19 = tail call ptr @transformWithClause(ptr noundef %0, ptr noundef nonnull %9) #6
+  %19 = tail call ptr @transformWithClause(ptr noundef %0, ptr noundef nonnull %9) #5
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -101,7 +100,7 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load i8, ptr %42, align 8, !range !4, !noundef !5
   %44 = trunc nuw i8 %43 to i1
-  %45 = tail call i32 @setTargetTable(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %44, i1 noundef zeroext false, i64 noundef %.0141.lcssa) #6
+  %45 = tail call i32 @setTargetTable(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %44, i1 noundef zeroext false, i64 noundef %.0141.lcssa) #5
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %45, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -119,10 +118,9 @@ define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef rea
   ]
 
 .split:                                           ; preds = %34
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.transformMergeStmt) #6
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
 switch.lookup:                                    ; preds = %34
@@ -139,11 +137,10 @@ switch.lookup:                                    ; preds = %34
   br i1 %63, label %.split194, label %67
 
 .split194:                                        ; preds = %switch.lookup
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 @errcode(i32 noundef 16801924) #6
-  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.transformMergeStmt) #6
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %65 = tail call i32 @errcode(i32 noundef 16801924) #5
+  %66 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
 67:                                               ; preds = %switch.lookup
@@ -162,28 +159,27 @@ switch.lookup:                                    ; preds = %34
   br i1 %exitcond.not, label %.critedge166, label %34
 
 73:                                               ; preds = %.critedge166
-  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %74)
-  %75 = tail call i32 @errcode(i32 noundef 1088) #6
+  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %75 = tail call i32 @errcode(i32 noundef 1088) #5
   %76 = load ptr, ptr %48, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
-  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %79) #6
+  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %79) #5
   %81 = load ptr, ptr %48, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 115
   %85 = load i8, ptr %84, align 1
-  %86 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %85) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 205, ptr noundef nonnull @__func__.transformMergeStmt) #6
+  %86 = tail call i32 @errdetail_relkind_not_supported(i8 noundef signext %85) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 205, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
 87:                                               ; preds = %.critedge166, %.critedge166, %.critedge166
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %89) #6
-  tail call void @transformFromClause(ptr noundef nonnull %0, ptr noundef %90) #6
+  %90 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %89) #5
+  tail call void @transformFromClause(ptr noundef nonnull %0, ptr noundef %90) #5
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load ptr, ptr %91, align 8
   %.not.i = icmp eq ptr %92, null
@@ -196,7 +192,7 @@ switch.lookup:                                    ; preds = %34
 
 list_length.exit:                                 ; preds = %87, %93
   %96 = phi i32 [ %95, %93 ], [ 0, %87 ]
-  %97 = tail call ptr @GetNSItemByRangeTablePosn(ptr noundef nonnull %0, i32 noundef %96, i32 noundef 0) #6
+  %97 = tail call ptr @GetNSItemByRangeTablePosn(ptr noundef nonnull %0, i32 noundef %96, i32 noundef 0) #5
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %99 = load ptr, ptr %98, align 8
   %100 = load ptr, ptr %99, align 8
@@ -205,21 +201,20 @@ list_length.exit:                                 ; preds = %87, %93
   %103 = load ptr, ptr %97, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
-  %106 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %105) #8
+  %106 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %105) #7
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %117
 
 108:                                              ; preds = %list_length.exit
-  %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %109)
-  %110 = tail call i32 @errcode(i32 noundef 33845380) #6
+  %109 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %110 = tail call i32 @errcode(i32 noundef 33845380) #5
   %111 = load ptr, ptr %98, align 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %114) #6
-  %116 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.transformMergeStmt) #6
+  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %114) #5
+  %116 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 224, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
 117:                                              ; preds = %list_length.exit
@@ -233,20 +228,20 @@ list_length.exit:                                 ; preds = %87, %93
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %122, ptr %123, align 8
   %124 = load ptr, ptr %98, align 8
-  tail call void @addNSItemToQuery(ptr noundef nonnull %0, ptr noundef %124, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #6
+  tail call void @addNSItemToQuery(ptr noundef nonnull %0, ptr noundef %124, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true) #5
   %125 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call ptr @transformExpr(ptr noundef nonnull %0, ptr noundef %126, i32 noundef 2) #6
+  %127 = tail call ptr @transformExpr(ptr noundef nonnull %0, ptr noundef %126, i32 noundef 2) #5
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store ptr %127, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %130 = load ptr, ptr %129, align 8
-  %131 = tail call ptr @makeFromExpr(ptr noundef %130, ptr noundef null) #6
+  %131 = tail call ptr @makeFromExpr(ptr noundef %130, ptr noundef null) #5
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %131, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %134 = load ptr, ptr %133, align 8
-  tail call void @transformReturningClause(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %134, i32 noundef 25) #6
+  tail call void @transformReturningClause(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %134, i32 noundef 25) #5
   %135 = load ptr, ptr %27, align 8
   %.not160 = icmp eq ptr %135, null
   br i1 %.not160, label %.critedge168, label %.lr.ph202
@@ -268,7 +263,7 @@ list_length.exit:                                 ; preds = %87, %93
   %144 = load ptr, ptr %137, align 8
   %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv226289
   %146 = load ptr, ptr %145, align 8
-  %147 = call noundef ptr @palloc0(i64 noundef 40) #6
+  %147 = call noundef ptr @palloc0(i64 noundef 40) #5
   store i32 54, ptr %147, align 4
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %149 = load i32, ptr %148, align 8
@@ -511,7 +506,7 @@ setNamespaceVisibilityForRTE.exit28.sink.split.i: ; preds = %.critedge17.i44.i, 
 setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.lr.ph.i52.i, %.lr.ph.i30.i, %.lr.ph.i.i, %164, %setNamespaceVisibilityForRTE.exit.i, %.lr.ph.i19.i, %185, %setNamespaceVisibilityForRTE.exit39.i, %.lr.ph.i41.i, %206, %setNamespaceVisibilityForRTE.exit61.i, %.lr.ph.i63.i, %setNamespaceVisibilityForRTE.exit28.sink.split.i
   %229 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %230 = load ptr, ptr %229, align 8
-  %231 = call ptr @transformWhereClause(ptr noundef nonnull %0, ptr noundef %230, i32 noundef 18, ptr noundef nonnull @.str.7) #6
+  %231 = call ptr @transformWhereClause(ptr noundef nonnull %0, ptr noundef %230, i32 noundef 18, ptr noundef nonnull @.str.7) #5
   %232 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %231, ptr %232, align 8
   %233 = load i32, ptr %150, align 8
@@ -532,7 +527,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   %237 = load i8, ptr %236, align 1, !range !4, !noundef !5
   %238 = getelementptr inbounds nuw i8, ptr %5, i64 47
   store i8 %237, ptr %238, align 1
-  call void @assign_query_collations(ptr noundef nonnull %0, ptr noundef nonnull %5) #6
+  call void @assign_query_collations(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %5
 
@@ -541,7 +536,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   store i8 1, ptr %141, align 8
   %240 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %241 = load ptr, ptr %240, align 8
-  %242 = call ptr @checkInsertTargets(ptr noundef nonnull %0, ptr noundef %241, ptr noundef nonnull %4) #6
+  %242 = call ptr @checkInsertTargets(ptr noundef nonnull %0, ptr noundef %241, ptr noundef nonnull %4) #5
   %243 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %244 = load i32, ptr %243, align 4
   %245 = getelementptr inbounds nuw i8, ptr %147, i64 12
@@ -552,10 +547,10 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   br i1 %248, label %254, label %249
 
 249:                                              ; preds = %239
-  %250 = call ptr @transformExpressionList(ptr noundef nonnull %0, ptr noundef nonnull %247, i32 noundef 27, i1 noundef zeroext true) #6
+  %250 = call ptr @transformExpressionList(ptr noundef nonnull %0, ptr noundef nonnull %247, i32 noundef 27, i1 noundef zeroext true) #5
   %251 = load ptr, ptr %240, align 8
   %252 = load ptr, ptr %4, align 8
-  %253 = call ptr @transformInsertRow(ptr noundef nonnull %0, ptr noundef %250, ptr noundef %251, ptr noundef %242, ptr noundef %252, i1 noundef zeroext false) #6
+  %253 = call ptr @transformInsertRow(ptr noundef nonnull %0, ptr noundef %250, ptr noundef %251, ptr noundef %242, ptr noundef %252, i1 noundef zeroext false) #5
   br label %254
 
 254:                                              ; preds = %239, %249
@@ -635,15 +630,15 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   %298 = trunc i32 %297 to i16
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %300 = load ptr, ptr %299, align 8
-  %301 = call ptr @makeTargetEntry(ptr noundef %295, i16 noundef signext %298, ptr noundef %300, i1 noundef zeroext false) #6
+  %301 = call ptr @makeTargetEntry(ptr noundef %295, i16 noundef signext %298, ptr noundef %300, i1 noundef zeroext false) #5
   %302 = load ptr, ptr %265, align 8
-  %303 = call ptr @lappend(ptr noundef %302, ptr noundef %301) #6
+  %303 = call ptr @lappend(ptr noundef %302, ptr noundef %301) #5
   store ptr %303, ptr %265, align 8
   %304 = load ptr, ptr %266, align 8
   %sext = shl i32 %297, 16
   %305 = ashr exact i32 %sext, 16
   %306 = add nsw i32 %305, 7
-  %307 = call ptr @bms_add_member(ptr noundef %304, i32 noundef %306) #6
+  %307 = call ptr @bms_add_member(ptr noundef %304, i32 noundef %306) #5
   store ptr %307, ptr %266, align 8
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   br label %.split199, !llvm.loop !6
@@ -652,7 +647,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   store i8 0, ptr %141, align 8
   %309 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %310 = load ptr, ptr %309, align 8
-  %311 = call ptr @transformUpdateTargetList(ptr noundef nonnull %0, ptr noundef %310) #6
+  %311 = call ptr @transformUpdateTargetList(ptr noundef nonnull %0, ptr noundef %310) #5
   %312 = getelementptr inbounds nuw i8, ptr %147, i64 24
   store ptr %311, ptr %312, align 8
   br label %318
@@ -663,14 +658,13 @@ setNamespaceForMergeWhen.exit:                    ; preds = %201, %180, %222, %.
   br label %318
 
 315:                                              ; preds = %setNamespaceForMergeWhen.exit
-  %316 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %316)
-  %317 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.transformMergeStmt) #6
+  %316 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %317 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 398, ptr noundef nonnull @__func__.transformMergeStmt) #5
   unreachable
 
 318:                                              ; preds = %313, %308, %.critedge, %setNamespaceForMergeWhen.exit
-  %319 = call ptr @lappend(ptr noundef %.0143201290, ptr noundef nonnull %147) #6
+  %319 = call ptr @lappend(ptr noundef %.0143201290, ptr noundef nonnull %147) #5
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226289, 1
   %320 = load i32, ptr %136, align 4
   %321 = sext i32 %320 to i64
@@ -740,18 +734,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

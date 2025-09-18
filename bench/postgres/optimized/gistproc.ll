@@ -65,17 +65,16 @@ define dso_local range(i64 0, 2) i64 @gist_box_consistent(ptr noundef readonly c
 30:                                               ; preds = %28
   %31 = trunc i64 %9 to i32
   %32 = and i32 %31, 65535
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %32) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 939, ptr noundef nonnull @__func__.gist_box_leaf_consistent) #16
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %32) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 939, ptr noundef nonnull @__func__.gist_box_leaf_consistent) #15
   unreachable
 
 switch.lookup:                                    ; preds = %28
   %35 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gist_box_consistent, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %switch.load, i32 noundef 0, i64 noundef %14, i64 noundef %6) #16
+  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull %switch.load, i32 noundef 0, i64 noundef %14, i64 noundef %6) #15
   %.0.in.i = icmp ne i64 %36, 0
   br label %39
 
@@ -109,86 +108,85 @@ define internal fastcc zeroext i1 @rtree_internal_consistent(ptr noundef %0, ptr
 4:                                                ; preds = %3
   %5 = ptrtoint ptr %0 to i64
   %6 = ptrtoint ptr %1 to i64
-  %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %5, i64 noundef %6) #16
+  %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %5, i64 noundef %6) #15
   %.not30 = icmp eq i64 %7, 0
   br label %55
 
 8:                                                ; preds = %3
   %9 = ptrtoint ptr %0 to i64
   %10 = ptrtoint ptr %1 to i64
-  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %10) #16
+  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %10) #15
   %.not29 = icmp eq i64 %11, 0
   br label %55
 
 12:                                               ; preds = %3
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %1 to i64
-  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %13, i64 noundef %14) #16
+  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %13, i64 noundef %14) #15
   %16 = icmp ne i64 %15, 0
   br label %55
 
 17:                                               ; preds = %3
   %18 = ptrtoint ptr %0 to i64
   %19 = ptrtoint ptr %1 to i64
-  %20 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %18, i64 noundef %19) #16
+  %20 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %18, i64 noundef %19) #15
   %.not28 = icmp eq i64 %20, 0
   br label %55
 
 21:                                               ; preds = %3
   %22 = ptrtoint ptr %0 to i64
   %23 = ptrtoint ptr %1 to i64
-  %24 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %22, i64 noundef %23) #16
+  %24 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %22, i64 noundef %23) #15
   %.not27 = icmp eq i64 %24, 0
   br label %55
 
 25:                                               ; preds = %3, %3
   %26 = ptrtoint ptr %0 to i64
   %27 = ptrtoint ptr %1 to i64
-  %28 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %26, i64 noundef %27) #16
+  %28 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %26, i64 noundef %27) #15
   %29 = icmp ne i64 %28, 0
   br label %55
 
 30:                                               ; preds = %3
   %31 = ptrtoint ptr %0 to i64
   %32 = ptrtoint ptr %1 to i64
-  %33 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %31, i64 noundef %32) #16
+  %33 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %31, i64 noundef %32) #15
   %34 = icmp ne i64 %33, 0
   br label %55
 
 35:                                               ; preds = %3
   %36 = ptrtoint ptr %0 to i64
   %37 = ptrtoint ptr %1 to i64
-  %38 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %36, i64 noundef %37) #16
+  %38 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %36, i64 noundef %37) #15
   %.not26 = icmp eq i64 %38, 0
   br label %55
 
 39:                                               ; preds = %3
   %40 = ptrtoint ptr %0 to i64
   %41 = ptrtoint ptr %1 to i64
-  %42 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %40, i64 noundef %41) #16
+  %42 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %40, i64 noundef %41) #15
   %.not25 = icmp eq i64 %42, 0
   br label %55
 
 43:                                               ; preds = %3
   %44 = ptrtoint ptr %0 to i64
   %45 = ptrtoint ptr %1 to i64
-  %46 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %44, i64 noundef %45) #16
+  %46 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %44, i64 noundef %45) #15
   %.not24 = icmp eq i64 %46, 0
   br label %55
 
 47:                                               ; preds = %3
   %48 = ptrtoint ptr %0 to i64
   %49 = ptrtoint ptr %1 to i64
-  %50 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %48, i64 noundef %49) #16
+  %50 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %48, i64 noundef %49) #15
   %.not = icmp eq i64 %50, 0
   br label %55
 
 51:                                               ; preds = %3
   %52 = zext i16 %2 to i32
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %52) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1020, ptr noundef nonnull @__func__.rtree_internal_consistent) #16
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %52) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1020, ptr noundef nonnull @__func__.rtree_internal_consistent) #15
   unreachable
 
 55:                                               ; preds = %47, %43, %39, %35, %30, %25, %21, %17, %12, %8, %4
@@ -204,7 +202,7 @@ define dso_local noundef i64 @gist_box_union(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = load i32, ptr %4, align 8
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -429,7 +427,7 @@ rt_box_union.exit:                                ; preds = %float8_min.exit.i, 
   br i1 %or.cond.i, label %float8_mi.exit, label %55
 
 55:                                               ; preds = %50
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit:                                   ; preds = %rt_box_union.exit, %50
@@ -455,8 +453,8 @@ define dso_local i64 @gist_box_picksplit(ptr noundef readonly captures(none) %0)
   store i32 %11, ptr %2, align 8
   %13 = zext nneg i32 %11 to i64
   %14 = shl nuw nsw i64 %13, 4
-  %15 = tail call ptr @palloc(i64 noundef %14) #16
-  %16 = tail call ptr @palloc(i64 noundef %14) #16
+  %15 = tail call ptr @palloc(i64 noundef %14) #15
+  %16 = tail call ptr @palloc(i64 noundef %14) #15
   %17 = and i32 %9, 65535
   %.not308 = icmp eq i32 %17, 1
   br i1 %.not308, label %._crit_edge, label %.lr.ph
@@ -612,8 +610,8 @@ adjustBox.exit:                                   ; preds = %float8_gt.exit17.i,
 
 ._crit_edge313:                                   ; preds = %.lr.ph312.split, %.lr.ph312.split.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
-  tail call void @pg_qsort(ptr noundef %15, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_lower) #16
-  tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #16
+  tail call void @pg_qsort(ptr noundef %15, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_lower) #15
+  tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #15
   %96 = load double, ptr %16, align 8
   %97 = load double, ptr %15, align 8
   br label %.lr.ph317
@@ -787,8 +785,8 @@ float8_gt.exit.thread:                            ; preds = %139, %145, %float8_
 
 ._crit_edge332.critedge:                          ; preds = %.preheader
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %15, i64 %14, i1 false)
-  tail call void @pg_qsort(ptr noundef %15, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_lower) #16
-  tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #16
+  tail call void @pg_qsort(ptr noundef %15, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_lower) #15
+  tail call void @pg_qsort(ptr noundef %16, i64 noundef %13, i64 noundef 16, ptr noundef nonnull @interval_cmp_upper) #15
   br label %._crit_edge332
 
 ._crit_edge332:                                   ; preds = %.critedge6, %float8_gt.exit.thread, %._crit_edge332.critedge
@@ -806,9 +804,9 @@ float8_gt.exit.thread:                            ; preds = %139, %145, %float8_
   %173 = shl nuw nsw i32 %172, 1
   %174 = add nuw nsw i32 %173, 4
   %175 = zext nneg i32 %174 to i64
-  %176 = tail call ptr @palloc(i64 noundef %175) #16
+  %176 = tail call ptr @palloc(i64 noundef %175) #15
   store ptr %176, ptr %8, align 8
-  %177 = tail call ptr @palloc(i64 noundef %175) #16
+  %177 = tail call ptr @palloc(i64 noundef %175) #15
   %178 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %177, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -846,7 +844,7 @@ float8_gt.exit.thread:                            ; preds = %139, %145, %float8_
   br i1 %195, label %196, label %198
 
 196:                                              ; preds = %190
-  %197 = tail call ptr @palloc(i64 noundef 32) #16
+  %197 = tail call ptr @palloc(i64 noundef 32) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
   br label %adjustBox.exit.i
 
@@ -937,7 +935,7 @@ adjustBox.exit.i:                                 ; preds = %232, %float8_gt.exi
   br i1 %240, label %241, label %243
 
 241:                                              ; preds = %235
-  %242 = tail call ptr @palloc(i64 noundef 32) #16
+  %242 = tail call ptr @palloc(i64 noundef 32) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %242, ptr noundef nonnull align 8 dereferenceable(32) %189, i64 32, i1 false)
   br label %adjustBox.exit50.i
 
@@ -1040,18 +1038,18 @@ fallbackSplit.exit:                               ; preds = %169, %._crit_edge.l
 
 286:                                              ; preds = %166
   %287 = shl nuw nsw i64 %13, 1
-  %288 = tail call ptr @palloc(i64 noundef %287) #16
+  %288 = tail call ptr @palloc(i64 noundef %287) #15
   store ptr %288, ptr %8, align 8
-  %289 = tail call ptr @palloc(i64 noundef %287) #16
+  %289 = tail call ptr @palloc(i64 noundef %287) #15
   %290 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %289, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 0, ptr %292, align 8
-  %293 = tail call ptr @palloc0(i64 noundef 32) #16
-  %294 = tail call ptr @palloc0(i64 noundef 32) #16
-  %295 = tail call ptr @palloc(i64 noundef %14) #16
+  %293 = tail call ptr @palloc0(i64 noundef 32) #15
+  %294 = tail call ptr @palloc0(i64 noundef 32) #15
+  %295 = tail call ptr @palloc(i64 noundef %14) #15
   br i1 %.not308, label %.loopexit, label %.lr.ph348
 
 .lr.ph348:                                        ; preds = %286
@@ -1313,7 +1311,7 @@ adjustBox.exit270:                                ; preds = %399, %float8_gt.exi
   br i1 %or.cond.i, label %float8_mi.exit, label %433
 
 433:                                              ; preds = %428
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit:                                   ; preds = %415, %428
@@ -1326,7 +1324,7 @@ float8_mi.exit:                                   ; preds = %415, %428
 
 438:                                              ; preds = %float8_mi.exit
   %439 = zext nneg i32 %.1242 to i64
-  tail call void @pg_qsort(ptr noundef nonnull %295, i64 noundef %439, i64 noundef 16, ptr noundef nonnull @common_entry_cmp) #16
+  tail call void @pg_qsort(ptr noundef nonnull %295, i64 noundef %439, i64 noundef 16, ptr noundef nonnull @common_entry_cmp) #15
   %440 = getelementptr inbounds nuw i8, ptr %293, i64 16
   %441 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %442 = getelementptr inbounds nuw i8, ptr %293, i64 24
@@ -1734,7 +1732,7 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 define internal i32 @interval_cmp_lower(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
-  %5 = tail call i32 @float8_cmp_internal(double noundef %3, double noundef %4) #16
+  %5 = tail call i32 @float8_cmp_internal(double noundef %3, double noundef %4) #15
   ret i32 %5
 }
 
@@ -1744,7 +1742,7 @@ define internal i32 @interval_cmp_upper(ptr noundef readonly captures(none) %0, 
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
-  %7 = tail call i32 @float8_cmp_internal(double noundef %4, double noundef %6) #16
+  %7 = tail call i32 @float8_cmp_internal(double noundef %4, double noundef %6) #15
   ret i32 %7
 }
 
@@ -1769,7 +1767,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
   br i1 %15, label %16, label %17, !prof !6
 
 16:                                               ; preds = %12
-  tail call void @float_zero_divide_error() #17
+  tail call void @float_zero_divide_error() #16
   unreachable
 
 17:                                               ; preds = %12
@@ -1781,7 +1779,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
   br i1 %22, label %23, label %24, !prof !6
 
 23:                                               ; preds = %17
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 24:                                               ; preds = %17
@@ -1793,7 +1791,7 @@ define internal fastcc void @g_box_consider_split(ptr noundef nonnull captures(n
   br i1 %27, label %float4_div.exit, label %28
 
 28:                                               ; preds = %26
-  tail call void @float_underflow_error() #17
+  tail call void @float_underflow_error() #16
   unreachable
 
 float4_div.exit:                                  ; preds = %24, %26
@@ -1824,7 +1822,7 @@ float4_div.exit:                                  ; preds = %24, %26
   br i1 %or.cond.i, label %float8_mi.exit, label %46
 
 46:                                               ; preds = %41
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 47:                                               ; preds = %31
@@ -1846,7 +1844,7 @@ float4_div.exit:                                  ; preds = %24, %26
   br i1 %or.cond.i59, label %float8_mi.exit, label %60
 
 60:                                               ; preds = %55
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit:                                   ; preds = %55, %47, %41, %33
@@ -1865,7 +1863,7 @@ float8_mi.exit:                                   ; preds = %55, %47, %41, %33
   br i1 %or.cond.i61, label %float8_mi.exit62, label %69
 
 69:                                               ; preds = %64
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
@@ -1877,7 +1875,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
   br i1 %72, label %74, label %73
 
 73:                                               ; preds = %71
-  tail call void @float_zero_divide_error() #17
+  tail call void @float_zero_divide_error() #16
   unreachable
 
 74:                                               ; preds = %71, %float8_mi.exit62
@@ -1890,7 +1888,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
   br i1 %63, label %80, label %79
 
 79:                                               ; preds = %78
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 80:                                               ; preds = %78, %74
@@ -1905,7 +1903,7 @@ float8_mi.exit62:                                 ; preds = %float8_mi.exit, %64
   br i1 %or.cond.i63, label %float8_div.exit, label %86
 
 86:                                               ; preds = %82
-  tail call void @float_underflow_error() #17
+  tail call void @float_underflow_error() #16
   unreachable
 
 float8_div.exit:                                  ; preds = %80, %82
@@ -1989,7 +1987,7 @@ define internal i32 @common_entry_cmp(ptr noundef readonly captures(none) %0, pt
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
-  %7 = tail call i32 @float8_cmp_internal(double noundef %4, double noundef %6) #16
+  %7 = tail call i32 @float8_cmp_internal(double noundef %4, double noundef %6) #15
   ret i32 %7
 }
 
@@ -2077,11 +2075,11 @@ define dso_local i64 @gist_poly_compress(ptr noundef readonly captures(none) %0)
 8:                                                ; preds = %1
   %9 = load i64, ptr %4, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #16
-  %12 = tail call ptr @palloc(i64 noundef 32) #16
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #15
+  %12 = tail call ptr @palloc(i64 noundef 32) #15
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
-  %14 = tail call ptr @palloc(i64 noundef 32) #16
+  %14 = tail call ptr @palloc(i64 noundef 32) #15
   %15 = ptrtoint ptr %12 to i64
   store i64 %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2114,7 +2112,7 @@ define dso_local range(i64 0, 2) i64 @gist_poly_consistent(ptr noundef readonly 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2138,7 +2136,7 @@ define dso_local range(i64 0, 2) i64 @gist_poly_consistent(ptr noundef readonly 
   br i1 %.not, label %25, label %24
 
 24:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %8) #16
+  tail call void @pfree(ptr noundef nonnull %8) #15
   br label %25
 
 25:                                               ; preds = %24, %17
@@ -2165,7 +2163,7 @@ define dso_local i64 @gist_circle_compress(ptr noundef readonly captures(none) %
 8:                                                ; preds = %1
   %9 = load i64, ptr %4, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @palloc(i64 noundef 32) #16
+  %11 = tail call ptr @palloc(i64 noundef 32) #15
   %12 = load double, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load double, ptr %13, align 8
@@ -2183,7 +2181,7 @@ define dso_local i64 @gist_circle_compress(ptr noundef readonly captures(none) %
   br i1 %or.cond.i, label %float8_pl.exit, label %23
 
 23:                                               ; preds = %18
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_pl.exit:                                   ; preds = %8, %18
@@ -2204,7 +2202,7 @@ float8_pl.exit:                                   ; preds = %8, %18
   br i1 %or.cond.i26, label %float8_mi.exit, label %34
 
 34:                                               ; preds = %29
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %29
@@ -2227,7 +2225,7 @@ float8_mi.exit:                                   ; preds = %float8_pl.exit, %29
   br i1 %or.cond.i27, label %float8_pl.exit28, label %47
 
 47:                                               ; preds = %42
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_pl.exit28:                                 ; preds = %float8_mi.exit, %42
@@ -2249,13 +2247,13 @@ float8_pl.exit28:                                 ; preds = %float8_mi.exit, %42
   br i1 %or.cond.i29, label %float8_mi.exit30, label %59
 
 59:                                               ; preds = %54
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit30:                                 ; preds = %float8_pl.exit28, %54
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store double %51, ptr %60, align 8
-  %61 = tail call ptr @palloc(i64 noundef 32) #16
+  %61 = tail call ptr @palloc(i64 noundef 32) #15
   %62 = ptrtoint ptr %11 to i64
   store i64 %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2321,7 +2319,7 @@ define dso_local range(i64 0, 2) i64 @gist_circle_consistent(ptr noundef readonl
   br i1 %or.cond.i, label %float8_pl.exit, label %30
 
 30:                                               ; preds = %25
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_pl.exit:                                   ; preds = %18, %25
@@ -2340,7 +2338,7 @@ float8_pl.exit:                                   ; preds = %18, %25
   br i1 %or.cond.i20, label %float8_mi.exit, label %39
 
 39:                                               ; preds = %34
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %34
@@ -2362,7 +2360,7 @@ float8_mi.exit:                                   ; preds = %float8_pl.exit, %34
   br i1 %or.cond.i21, label %float8_pl.exit22, label %51
 
 51:                                               ; preds = %46
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_pl.exit22:                                 ; preds = %float8_mi.exit, %46
@@ -2382,7 +2380,7 @@ float8_pl.exit22:                                 ; preds = %float8_mi.exit, %46
   br i1 %or.cond.i23, label %float8_mi.exit24, label %61
 
 61:                                               ; preds = %56
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit24:                                 ; preds = %float8_pl.exit22, %56
@@ -2410,10 +2408,10 @@ define dso_local i64 @gist_point_compress(ptr noundef readonly captures(none) %0
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @palloc(i64 noundef 32) #16
+  %9 = tail call ptr @palloc(i64 noundef 32) #15
   %10 = load i64, ptr %4, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @palloc(i64 noundef 32) #16
+  %12 = tail call ptr @palloc(i64 noundef 32) #15
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
@@ -2448,8 +2446,8 @@ define dso_local i64 @gist_point_fetch(ptr noundef readonly captures(none) %0) l
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @palloc(i64 noundef 32) #16
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %7 = tail call ptr @palloc(i64 noundef 32) #15
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = load double, ptr %6, align 8
   store double %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2615,10 +2613,9 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
 
 97:                                               ; preds = %15
   %98 = zext nneg i16 %14 to i32
-  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %99)
-  %100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %98) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1322, ptr noundef nonnull @__func__.gist_point_consistent_internal) #16
+  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %98) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1322, ptr noundef nonnull @__func__.gist_point_consistent_internal) #15
   unreachable
 
 101:                                              ; preds = %1
@@ -2660,9 +2657,9 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %130 = load i64, ptr %129, align 8
   %131 = inttoptr i64 %130 to ptr
-  %132 = tail call ptr @pg_detoast_datum(ptr noundef %131) #16
+  %132 = tail call ptr @pg_detoast_datum(ptr noundef %131) #15
   %133 = ptrtoint ptr %132 to i64
-  %134 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_poly_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %133, i64 noundef 3, i64 noundef 0, i64 noundef %9) #16
+  %134 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_poly_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %133, i64 noundef 3, i64 noundef 0, i64 noundef %9) #15
   %135 = icmp ne i64 %134, 0
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %137 = load ptr, ptr %136, align 8
@@ -2679,14 +2676,14 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
 
 146:                                              ; preds = %128
   %147 = load i64, ptr %4, align 8
-  %148 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @poly_contain_pt, i32 noundef 0, i64 noundef %133, i64 noundef %147) #16
+  %148 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @poly_contain_pt, i32 noundef 0, i64 noundef %133, i64 noundef %147) #15
   %149 = icmp ne i64 %148, 0
   br label %.sink.split
 
 150:                                              ; preds = %1
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %152 = load i64, ptr %151, align 8
-  %153 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_circle_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %152, i64 noundef 3, i64 noundef 0, i64 noundef %9) #16
+  %153 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_circle_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %152, i64 noundef 3, i64 noundef 0, i64 noundef %9) #15
   %154 = icmp ne i64 %153, 0
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %156 = load ptr, ptr %155, align 8
@@ -2703,16 +2700,15 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
 
 165:                                              ; preds = %150
   %166 = load i64, ptr %4, align 8
-  %167 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @circle_contain_pt, i32 noundef 0, i64 noundef %152, i64 noundef %166) #16
+  %167 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @circle_contain_pt, i32 noundef 0, i64 noundef %152, i64 noundef %166) #15
   %168 = icmp ne i64 %167, 0
   br label %.sink.split
 
 169:                                              ; preds = %1
   %.0 = zext i16 %narrow to i32
-  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %170)
-  %171 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1446, ptr noundef nonnull @__func__.gist_point_consistent) #16
+  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %171 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1446, ptr noundef nonnull @__func__.gist_point_consistent) #15
   unreachable
 
 .sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %146, %165
@@ -2775,10 +2771,9 @@ define dso_local i64 @gist_point_distance(ptr noundef readonly captures(none) %0
 26:                                               ; preds = %1
   %27 = trunc i64 %3 to i32
   %28 = and i32 %27, 65535
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %28) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1470, ptr noundef nonnull @__func__.gist_point_distance) #16
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %28) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1470, ptr noundef nonnull @__func__.gist_point_distance) #15
   unreachable
 }
 
@@ -2791,7 +2786,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %6 = ptrtoint ptr %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = ptrtoint ptr %7 to i64
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %6, i64 noundef %8) #16
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %6, i64 noundef %8) #15
   %10 = bitcast i64 %9 to double
   br label %float8_mi.exit
 
@@ -2844,7 +2839,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   br i1 %or.cond.i, label %float8_mi.exit, label %44
 
 44:                                               ; preds = %39
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 45:                                               ; preds = %29
@@ -2868,14 +2863,13 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   br i1 %or.cond.i70, label %float8_mi.exit, label %58
 
 58:                                               ; preds = %53
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 59:                                               ; preds = %45
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1245, ptr noundef nonnull @__func__.computeDistance) #16
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1245, ptr noundef nonnull @__func__.computeDistance) #15
   unreachable
 
 62:                                               ; preds = %15, %11
@@ -2912,7 +2906,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   br i1 %or.cond.i72, label %float8_mi.exit, label %84
 
 84:                                               ; preds = %79
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 85:                                               ; preds = %73
@@ -2935,14 +2929,13 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   br i1 %or.cond.i74, label %float8_mi.exit, label %97
 
 97:                                               ; preds = %92
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 98:                                               ; preds = %85
-  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %99)
-  %100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1256, ptr noundef nonnull @__func__.computeDistance) #16
+  %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1256, ptr noundef nonnull @__func__.computeDistance) #15
   unreachable
 
 101:                                              ; preds = %68, %62
@@ -2950,10 +2943,10 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %102 = ptrtoint ptr %2 to i64
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %104 = ptrtoint ptr %103 to i64
-  %105 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %104) #16
+  %105 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %104) #15
   %106 = bitcast i64 %105 to double
   %107 = ptrtoint ptr %1 to i64
-  %108 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %107) #16
+  %108 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %107) #15
   %109 = bitcast i64 %108 to double
   %110 = fcmp ogt double %106, %109
   %.1 = select i1 %110, double %109, double %106
@@ -2963,7 +2956,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %112, ptr %113, align 8
   %114 = ptrtoint ptr %4 to i64
-  %115 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %114) #16
+  %115 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %114) #15
   %116 = bitcast i64 %115 to double
   %117 = fcmp ogt double %.1, %116
   %.2 = select i1 %117, double %116, double %.1
@@ -2972,7 +2965,7 @@ define internal fastcc double @computeDistance(i1 noundef zeroext %0, ptr nounde
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %120 = load double, ptr %119, align 8
   store double %120, ptr %113, align 8
-  %121 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %114) #16
+  %121 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_distance, i32 noundef 0, i64 noundef %102, i64 noundef %114) #15
   %122 = bitcast i64 %121 to double
   %123 = fcmp ogt double %.2, %122
   %.3 = select i1 %123, double %122, double %.2
@@ -2995,10 +2988,9 @@ define dso_local i64 @gist_box_distance(ptr noundef readonly captures(none) %0) 
 5:                                                ; preds = %1
   %6 = trunc i64 %3 to i32
   %7 = and i32 %6, 65535
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.gist_bbox_distance) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.gist_bbox_distance) #15
   unreachable
 
 gist_bbox_distance.exit:                          ; preds = %1
@@ -3026,10 +3018,9 @@ define dso_local i64 @gist_circle_distance(ptr noundef readonly captures(none) %
 5:                                                ; preds = %1
   %6 = trunc i64 %3 to i32
   %7 = and i32 %6, 65535
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.gist_bbox_distance) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.gist_bbox_distance) #15
   unreachable
 
 gist_bbox_distance.exit:                          ; preds = %1
@@ -3061,10 +3052,9 @@ define dso_local i64 @gist_poly_distance(ptr noundef readonly captures(none) %0)
 5:                                                ; preds = %1
   %6 = trunc i64 %3 to i32
   %7 = and i32 %6, 65535
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.gist_bbox_distance) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1492, ptr noundef nonnull @__func__.gist_bbox_distance) #15
   unreachable
 
 gist_bbox_distance.exit:                          ; preds = %1
@@ -3394,7 +3384,7 @@ define internal fastcc double @size_box(ptr noundef readonly captures(none) %0) 
   br i1 %or.cond.i, label %float8_mi.exit, label %26
 
 26:                                               ; preds = %21
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit:                                   ; preds = %17, %21
@@ -3412,7 +3402,7 @@ float8_mi.exit:                                   ; preds = %17, %21
   br i1 %or.cond.i11, label %float8_mi.exit12, label %35
 
 35:                                               ; preds = %30
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 float8_mi.exit12:                                 ; preds = %float8_mi.exit, %30
@@ -3426,7 +3416,7 @@ float8_mi.exit12:                                 ; preds = %float8_mi.exit, %30
   br i1 %or.cond11.i, label %41, label %40
 
 40:                                               ; preds = %39
-  tail call void @float_overflow_error() #17
+  tail call void @float_overflow_error() #16
   unreachable
 
 41:                                               ; preds = %39, %float8_mi.exit12
@@ -3440,7 +3430,7 @@ float8_mi.exit12:                                 ; preds = %float8_mi.exit, %30
   br i1 %or.cond.i13, label %46, label %float8_mul.exit
 
 46:                                               ; preds = %43
-  tail call void @float_underflow_error() #17
+  tail call void @float_underflow_error() #16
   unreachable
 
 float8_mul.exit:                                  ; preds = %43, %41, %16, %1, %8
@@ -3493,17 +3483,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #13
+declare float @llvm.fabs.f32(float) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3517,12 +3504,11 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

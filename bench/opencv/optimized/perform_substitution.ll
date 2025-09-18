@@ -616,8 +616,6 @@ _ZNKSt13unordered_mapIN3ade6HandleINS0_4NodeEEES3_NS0_12HandleHasherIS2_EESt8equ
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %239
   %244 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %245 = load atomic i32, ptr %237 monotonic, align 8, !noalias !56
-  %.fr.i.i.i.i.i = freeze i32 %245
-  %.not.i.i.i.i.i88 = icmp ne i32 %.fr.i.i.i.i.i, 0
   %246 = load ptr, ptr %244, align 8, !noalias !56
   %247 = load atomic i64, ptr %237 acquire, align 8
   %248 = icmp eq i64 %247, 4294967297
@@ -663,7 +661,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i89: ; preds = %262,
 
 _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %250, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i89, %265
   %266 = icmp ne ptr %246, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i88)
   call void @llvm.assume(i1 %266)
   call void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange") align 8 %11, ptr noundef nonnull align 8 dereferenceable(72) %246)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)

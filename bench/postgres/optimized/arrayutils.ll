@@ -75,7 +75,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %.preheader
-  %10 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #8
+  %10 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #7
   br i1 %10, label %.critedge.sink.split, label %.critedge
 
 11:                                               ; preds = %.preheader
@@ -88,7 +88,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
   br i1 %.not, label %5, label %16
 
 16:                                               ; preds = %11
-  %17 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #8
+  %17 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #7
   br i1 %17, label %.critedge.sink.split, label %.critedge
 
 18:                                               ; preds = %5
@@ -97,14 +97,14 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #8
+  %22 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #7
   br i1 %22, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %21, %16, %9
   %.sink = phi i32 [ 84, %9 ], [ 93, %16 ], [ 100, %21 ]
-  %23 = tail call i32 @errcode(i32 noundef 261) #8
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 134217727) #8
-  tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ArrayGetNItemsSafe) #8
+  %23 = tail call i32 @errcode(i32 noundef 261) #7
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef 134217727) #7
+  tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.ArrayGetNItemsSafe) #7
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %9, %16, %18, %21, %3
@@ -145,15 +145,15 @@ define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr noundef readonly cap
   br i1 %11, label %12, label %5
 
 12:                                               ; preds = %.critedge.i
-  %13 = tail call zeroext i1 @errsave_start(ptr noundef null, ptr noundef null) #8
+  %13 = tail call zeroext i1 @errsave_start(ptr noundef null, ptr noundef null) #7
   br i1 %13, label %14, label %ArrayCheckBoundsSafe.exit
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
-  %16 = tail call i32 @errcode(i32 noundef 261) #8
+  %16 = tail call i32 @errcode(i32 noundef 261) #7
   %17 = load i32, ptr %15, align 4
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %17) #8
-  tail call void @errsave_finish(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #8
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %17) #7
+  tail call void @errsave_finish(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
   br label %ArrayCheckBoundsSafe.exit
 
 ArrayCheckBoundsSafe.exit:                        ; preds = %5, %3, %12, %14
@@ -185,15 +185,15 @@ define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr no
   br i1 %12, label %13, label %6
 
 13:                                               ; preds = %.critedge
-  %14 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #8
+  %14 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #7
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %17 = tail call i32 @errcode(i32 noundef 261) #8
+  %17 = tail call i32 @errcode(i32 noundef 261) #7
   %18 = load i32, ptr %16, align 4
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %18) #8
-  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #8
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %18) #7
+  tail call void @errsave_finish(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.ArrayCheckBoundsSafe) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %6, %4, %15, %13
@@ -377,11 +377,10 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 352845954) #8
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #8
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %8 = tail call i32 @errcode(i32 noundef 352845954) #7
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #7
   unreachable
 
 10:                                               ; preds = %2
@@ -391,31 +390,29 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
   br i1 %.not12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 352845954) #8
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #8
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %15 = tail call i32 @errcode(i32 noundef 352845954) #7
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #7
   unreachable
 
 17:                                               ; preds = %10
-  %18 = tail call zeroext i1 @array_contains_nulls(ptr noundef nonnull %0) #8
+  %18 = tail call zeroext i1 @array_contains_nulls(ptr noundef nonnull %0) #7
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 67108994) #8
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #8
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %21 = tail call i32 @errcode(i32 noundef 67108994) #7
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 252, ptr noundef nonnull @__func__.ArrayGetIntegerTypmods) #7
   unreachable
 
 23:                                               ; preds = %17
-  call void @deconstruct_array_builtin(ptr noundef nonnull %0, i32 noundef 2275, ptr noundef nonnull %3, ptr noundef null, ptr noundef %1) #8
+  call void @deconstruct_array_builtin(ptr noundef nonnull %0, i32 noundef 2275, ptr noundef nonnull %3, ptr noundef null, ptr noundef %1) #7
   %24 = load i32, ptr %1, align 4
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
-  %27 = call ptr @palloc(i64 noundef %26) #8
+  %27 = call ptr @palloc(i64 noundef %26) #7
   %28 = load i32, ptr %1, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
@@ -426,7 +423,7 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
   %31 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = inttoptr i64 %32 to ptr
-  %34 = call i32 @pg_strtoint32(ptr noundef %33) #8
+  %34 = call i32 @pg_strtoint32(ptr noundef %33) #7
   %35 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   store i32 %34, ptr %35, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -437,7 +434,7 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %39 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %39) #8
+  call void @pfree(ptr noundef %39) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %27
 }
@@ -466,9 +463,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -476,9 +470,8 @@ attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

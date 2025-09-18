@@ -11005,16 +11005,13 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load i8, ptr %2, align 8, !range !746, !noundef !4
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %8, label %5
+  br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
   %6 = tail call { ptr, i64 } @"_ZN103_$LT$mini_lsm..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$3key17hd870239e4eb668a3E"(ptr noundef nonnull align 8 %0)
-  %.sroa.0.0 = extractvalue { ptr, i64 } %6, 0
-  %7 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %7)
   ret { ptr, i64 } %6
 
-8:                                                ; preds = %1
+7:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7c19c97e3fdb202712c0ff18ddcac760.63.llvm.18239827628611957360, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c19c97e3fdb202712c0ff18ddcac760.66.llvm.18239827628611957360) #38
   unreachable
 }
@@ -11492,7 +11489,7 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load i8, ptr %3, align 8, !range !746, !noundef !4
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %20, label %6
+  br i1 %5, label %19, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -11523,12 +11520,9 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
 "_ZN103_$LT$mini_lsm..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17he3c5ceb34cefcb70E.exit": ; preds = %"_ZN103_$LT$mini_lsm..lsm_iterator..FusedIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$8is_valid17h9f80dd2e35893bccE.exit.i"
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = tail call { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17ha2907d344fc48c30E.llvm.10393531995006364539"(ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %17)
-  %.sroa.0.0 = extractvalue { ptr, i64 } %18, 0
-  %19 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %19)
   ret { ptr, i64 } %18
 
-20:                                               ; preds = %1
+19:                                               ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.7c19c97e3fdb202712c0ff18ddcac760.63.llvm.18239827628611957360, i64 noundef 15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c19c97e3fdb202712c0ff18ddcac760.65.llvm.18239827628611957360) #38
   unreachable
 }
@@ -11604,9 +11598,6 @@ define hidden { ptr, i64 } @"_ZN127_$LT$mini_lsm..iterators..two_merge_iterator.
 
 37:                                               ; preds = %35, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hc71706b9abcb33a0E.exit"
   %.pn = phi { ptr, i64 } [ %36, %35 ], [ %34, %"_ZN116_$LT$mini_lsm..iterators..merge_iterator..MergeIterator$LT$I$GT$$u20$as$u20$mini_lsm..iterators..StorageIterator$GT$5value17hc71706b9abcb33a0E.exit" ]
-  %.sroa.0.0 = extractvalue { ptr, i64 } %.pn, 0
-  %38 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %38)
   ret { ptr, i64 } %.pn
 }
 

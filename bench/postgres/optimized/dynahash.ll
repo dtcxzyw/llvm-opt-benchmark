@@ -54,25 +54,25 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   %storemerge.in = select i1 %.not134, ptr @TopMemoryContext, ptr %10
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr @CurrentDynaHashCxt, align 8
-  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %storemerge, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
+  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %storemerge, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
   br label %.loopexit157
 
 .loopexit157:                                     ; preds = %8, %6
   %storemerge135 = phi ptr [ %11, %8 ], [ %7, %6 ]
   store ptr %storemerge135, ptr @CurrentDynaHashCxt, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %13 = add i64 %12, 97
-  %14 = tail call ptr @MemoryContextAllocExtended(ptr noundef %storemerge135, i64 noundef %13, i32 noundef 2) #17
+  %14 = tail call ptr @MemoryContextAllocExtended(ptr noundef %storemerge135, i64 noundef %13, i32 noundef 2) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %14, i8 0, i64 96, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %15, ptr %16, align 8
-  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %0) #17
+  %17 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %0) #16
   br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %.loopexit157
   %19 = load ptr, ptr @CurrentDynaHashCxt, align 8
-  tail call void @MemoryContextSetIdentifier(ptr noundef %19, ptr noundef nonnull %15) #17
+  tail call void @MemoryContextSetIdentifier(ptr noundef %19, ptr noundef nonnull %15) #16
   br label %20
 
 20:                                               ; preds = %18, %.loopexit157
@@ -219,17 +219,16 @@ define dso_local ptr @hash_create(ptr noundef readonly captures(none) %0, i64 no
   br i1 %.not142, label %87, label %hdefault.exit
 
 87:                                               ; preds = %.thread178, %86
-  %88 = tail call ptr %63(i64 noundef 848) #17
+  %88 = tail call ptr %63(i64 noundef 848) #16
   store ptr %88, ptr %14, align 8
   %.not143 = icmp eq ptr %88, null
   br i1 %.not143, label %89, label %hdefault.exit
 
 89:                                               ; preds = %87
-  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %90)
-  %91 = tail call i32 @errcode(i32 noundef 8389) #17
-  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 516, ptr noundef nonnull @__func__.hash_create) #17
+  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %91 = tail call i32 @errcode(i32 noundef 8389) #16
+  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 516, ptr noundef nonnull @__func__.hash_create) #16
   unreachable
 
 hdefault.exit:                                    ; preds = %87, %86
@@ -322,7 +321,7 @@ hdefault.exit:                                    ; preds = %87, %86
 
 .preheader.i:                                     ; preds = %126, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %126 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
   %143 = getelementptr inbounds nuw %struct.FreeListData, ptr %140, i64 %indvars.iv.i
   store i8 0, ptr %143, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -405,7 +404,7 @@ hdefault.exit:                                    ; preds = %87, %86
   store ptr %188, ptr @CurrentDynaHashCxt, align 8
   %189 = load ptr, ptr %64, align 8
   %190 = shl i64 %183, 3
-  %191 = tail call ptr %189(i64 noundef %190) #17
+  %191 = tail call ptr %189(i64 noundef %190) #16
   store ptr %191, ptr %184, align 8
   %.not45.i = icmp eq ptr %191, null
   br i1 %.not45.i, label %233, label %192
@@ -428,7 +427,7 @@ hdefault.exit:                                    ; preds = %87, %86
   %200 = load ptr, ptr %64, align 8
   %201 = load i64, ptr %136, align 8
   %202 = shl i64 %201, 3
-  %203 = tail call ptr %200(i64 noundef %202) #17
+  %203 = tail call ptr %200(i64 noundef %202) #16
   %.not.i.i = icmp eq ptr %203, null
   br i1 %.not.i.i, label %seg_alloc.exit.i, label %204
 
@@ -491,11 +490,10 @@ seg_alloc.exit.i:                                 ; preds = %198
   br i1 %232, label %228, label %237, !llvm.loop !9
 
 233:                                              ; preds = %178, %186, %seg_alloc.exit.i
-  %234 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %234)
+  %234 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %235 = load ptr, ptr %16, align 8
-  %236 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %235) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 568, ptr noundef nonnull @__func__.hash_create) #17
+  %236 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %235) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 568, ptr noundef nonnull @__func__.hash_create) #16
   unreachable
 
 237:                                              ; preds = %228
@@ -553,7 +551,7 @@ seg_alloc.exit.i:                                 ; preds = %198
   %275 = load ptr, ptr %64, align 8
   %276 = sext i32 %264 to i64
   %277 = mul i64 %273, %276
-  %278 = tail call ptr %275(i64 noundef %277) #17
+  %278 = tail call ptr %275(i64 noundef %277) #16
   %.not.i149 = icmp eq ptr %278, null
   br i1 %.not.i149, label %element_alloc.exit, label %.preheader.i150
 
@@ -580,12 +578,12 @@ seg_alloc.exit.i:                                 ; preds = %198
 
 284:                                              ; preds = %._crit_edge.i151
   %285 = getelementptr inbounds nuw %struct.FreeListData, ptr %265, i64 %indvars.iv
-  %286 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %285, i8 1, ptr elementtype(i8) %285) #17, !srcloc !13
+  %286 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %285, i8 1, ptr elementtype(i8) %285) #16, !srcloc !13
   %.not36.i = icmp eq i8 %286, 0
   br i1 %.not36.i, label %._crit_edge._crit_edge.i, label %287
 
 287:                                              ; preds = %284
-  %288 = tail call i32 @s_lock(ptr noundef %285, ptr noundef nonnull @.str.2, i32 noundef 1739, ptr noundef nonnull @__func__.element_alloc) #17
+  %288 = tail call i32 @s_lock(ptr noundef %285, ptr noundef nonnull @.str.2, i32 noundef 1739, ptr noundef nonnull @__func__.element_alloc) #16
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %287, %284, %._crit_edge.i151
@@ -599,16 +597,15 @@ seg_alloc.exit.i:                                 ; preds = %198
   br i1 %.not37.i, label %297, label %293
 
 293:                                              ; preds = %._crit_edge._crit_edge.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !14
   store i8 0, ptr %289, align 8
   br label %297
 
 element_alloc.exit:                               ; preds = %268, %261
-  %294 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %294)
-  %295 = tail call i32 @errcode(i32 noundef 8389) #17
-  %296 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.hash_create) #17
+  %294 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %295 = tail call i32 @errcode(i32 noundef 8389) #16
+  %296 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 616, ptr noundef nonnull @__func__.hash_create) #16
   unreachable
 
 297:                                              ; preds = %293, %._crit_edge._crit_edge.i
@@ -635,7 +632,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 ; Function Attrs: nounwind uwtable
 define internal ptr @DynaHashAlloc(i64 noundef %0) #0 {
   %2 = load ptr, ptr @CurrentDynaHashCxt, align 8
-  %3 = tail call ptr @MemoryContextAllocExtended(ptr noundef %2, i64 noundef %0, i32 noundef 2) #17
+  %3 = tail call ptr @MemoryContextAllocExtended(ptr noundef %2, i64 noundef %0, i32 noundef 2) #16
   ret ptr %3
 }
 
@@ -659,7 +656,7 @@ declare i32 @string_hash(ptr noundef, i64 noundef) #1
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @string_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #5 {
   %4 = add i64 %2, -1
-  %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #18
+  %5 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %4) #17
   ret i32 %5
 }
 
@@ -720,10 +717,10 @@ define dso_local i64 @hash_estimate_size(i64 noundef %0, i64 noundef %1) local_u
   br i1 %14, label %13, label %16, !llvm.loop !16
 
 16:                                               ; preds = %13
-  %17 = tail call i64 @mul_size(i64 noundef %.0, i64 noundef 8) #17
-  %18 = tail call i64 @add_size(i64 noundef 848, i64 noundef %17) #17
-  %19 = tail call i64 @mul_size(i64 noundef %12, i64 noundef 2048) #17
-  %20 = tail call i64 @add_size(i64 noundef %18, i64 noundef %19) #17
+  %17 = tail call i64 @mul_size(i64 noundef %.0, i64 noundef 8) #16
+  %18 = tail call i64 @add_size(i64 noundef 848, i64 noundef %17) #16
+  %19 = tail call i64 @mul_size(i64 noundef %12, i64 noundef 2048) #16
+  %20 = tail call i64 @add_size(i64 noundef %18, i64 noundef %19) #16
   %21 = add i64 %1, 7
   %22 = and i64 %21, -8
   %23 = add i64 %22, 16
@@ -742,9 +739,9 @@ choose_nelem_alloc.exit:                          ; preds = %24
   %30 = add i64 %0, -1
   %31 = sdiv i64 %30, %29
   %32 = add nsw i64 %31, 1
-  %33 = tail call i64 @mul_size(i64 noundef %29, i64 noundef %23) #17
-  %34 = tail call i64 @mul_size(i64 noundef %32, i64 noundef %33) #17
-  %35 = tail call i64 @add_size(i64 noundef %20, i64 noundef %34) #17
+  %33 = tail call i64 @mul_size(i64 noundef %29, i64 noundef %23) #16
+  %34 = tail call i64 @mul_size(i64 noundef %32, i64 noundef %33) #16
+  %35 = tail call i64 @add_size(i64 noundef %20, i64 noundef %34) #16
   ret i64 %35
 }
 
@@ -795,7 +792,7 @@ define dso_local void @hash_destroy(ptr noundef readonly captures(address_is_nul
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  tail call void @MemoryContextDelete(ptr noundef %4) #17
+  tail call void @MemoryContextDelete(ptr noundef %4) #16
   br label %5
 
 5:                                                ; preds = %2, %1
@@ -815,7 +812,7 @@ define dso_local i32 @get_hash_value(ptr noundef readonly captures(none) %0, ptr
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
-  %7 = tail call i32 %4(ptr noundef %1, i64 noundef %6) #17
+  %7 = tail call i32 %4(ptr noundef %1, i64 noundef %6) #16
   ret i32 %7
 }
 
@@ -825,7 +822,7 @@ define dso_local ptr @hash_search(ptr noundef captures(address) %0, ptr noundef 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i32 %6(ptr noundef %1, i64 noundef %8) #17
+  %9 = tail call i32 %6(ptr noundef %1, i64 noundef %8) #16
   %10 = tail call ptr @hash_search_with_hash_value(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef %2, ptr noundef %3)
   ret ptr %10
 }
@@ -919,7 +916,7 @@ define dso_local ptr @hash_search_with_hash_value(ptr noundef captures(address) 
   store ptr %54, ptr @CurrentDynaHashCxt, align 8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call ptr %56(i64 noundef %50) #17
+  %57 = tail call ptr %56(i64 noundef %50) #16
   %58 = ptrtoint ptr %57 to i64
   %.not40.i.i = icmp eq ptr %57, null
   br i1 %.not40.i.i, label %has_seq_scans.exit, label %59
@@ -961,7 +958,7 @@ dir_realloc.exit.i:                               ; preds = %dir_realloc.exit.si
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 768
   store i64 %49, ptr %76, align 8
-  tail call void @pfree(ptr noundef %52) #17
+  tail call void @pfree(ptr noundef %52) #16
   %.pre.i = load i64, ptr %36, align 8
   br label %77
 
@@ -973,7 +970,7 @@ dir_realloc.exit.i:                               ; preds = %dir_realloc.exit.si
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8
   %83 = shl i64 %78, 3
-  %84 = tail call ptr %82(i64 noundef %83) #17
+  %84 = tail call ptr %82(i64 noundef %83) #16
   %.not.i62.i = icmp eq ptr %84, null
   br i1 %.not.i62.i, label %seg_alloc.exit.i, label %85
 
@@ -1127,7 +1124,7 @@ calc_bucket.exit.i77:                             ; preds = %152, %has_seq_scans
   br i1 %164, label %165, label %hash_initial_lookup.exit
 
 165:                                              ; preds = %calc_bucket.exit.i77
-  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %0) #20
+  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %0) #19
   unreachable
 
 hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i77
@@ -1155,7 +1152,7 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
 
 179:                                              ; preds = %.lr.ph
   %180 = getelementptr inbounds nuw i8, ptr %.068100, i64 16
-  %181 = tail call i32 %173(ptr noundef nonnull %180, ptr noundef %1, i64 noundef %175) #17
+  %181 = tail call i32 %173(ptr noundef nonnull %180, ptr noundef %1, i64 noundef %175) #16
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %._crit_edge, label %183
 
@@ -1200,12 +1197,12 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
 
 192:                                              ; preds = %190
   %193 = getelementptr inbounds nuw %struct.FreeListData, ptr %6, i64 %.pre
-  %194 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %193, i8 1, ptr elementtype(i8) %193) #17, !srcloc !13
+  %194 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %193, i8 1, ptr elementtype(i8) %193) #16, !srcloc !13
   %.not74 = icmp eq i8 %194, 0
   br i1 %.not74, label %._crit_edge115, label %195
 
 195:                                              ; preds = %192
-  %196 = tail call i32 @s_lock(ptr noundef %193, ptr noundef nonnull @.str.2, i32 noundef 1049, ptr noundef nonnull @__func__.hash_search_with_hash_value) #17
+  %196 = tail call i32 @s_lock(ptr noundef %193, ptr noundef nonnull @.str.2, i32 noundef 1049, ptr noundef nonnull @__func__.hash_search_with_hash_value) #16
   br label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %190, %195, %192
@@ -1225,7 +1222,7 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
   br i1 %.not75, label %206, label %205
 
 205:                                              ; preds = %._crit_edge115
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !21
   store i8 0, ptr %197, align 8
   br label %206
 
@@ -1247,12 +1244,11 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i7
   br i1 %214, label %215, label %220
 
 215:                                              ; preds = %211
-  %216 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %216)
+  %216 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %218 = load ptr, ptr %217, align 8
-  %219 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %218) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1083, ptr noundef nonnull @__func__.hash_search_with_hash_value) #17
+  %219 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %218) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1083, ptr noundef nonnull @__func__.hash_search_with_hash_value) #16
   unreachable
 
 220:                                              ; preds = %211
@@ -1273,12 +1269,12 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
   br i1 %.not.i78, label %235, label %231
 
 231:                                              ; preds = %element_alloc.exit.i
-  %232 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %224, i8 1, ptr nonnull elementtype(i8) %224) #17, !srcloc !13
+  %232 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %224, i8 1, ptr nonnull elementtype(i8) %224) #16, !srcloc !13
   %.not56.i = icmp eq i8 %232, 0
   br i1 %.not56.i, label %235, label %233
 
 233:                                              ; preds = %231
-  %234 = tail call i32 @s_lock(ptr noundef nonnull %224, ptr noundef nonnull @.str.2, i32 noundef 1265, ptr noundef nonnull @__func__.get_hash_entry) #17
+  %234 = tail call i32 @s_lock(ptr noundef nonnull %224, ptr noundef nonnull @.str.2, i32 noundef 1265, ptr noundef nonnull @__func__.get_hash_entry) #16
   br label %235
 
 235:                                              ; preds = %233, %231, %element_alloc.exit.i
@@ -1292,7 +1288,7 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
   br i1 %.not58.i, label %240, label %239
 
 239:                                              ; preds = %237
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !22
   store i8 0, ptr %224, align 8
   br label %240
 
@@ -1314,7 +1310,7 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
   %252 = load ptr, ptr %229, align 8
   %253 = sext i32 %241 to i64
   %254 = mul i64 %250, %253
-  %255 = tail call ptr %252(i64 noundef %254) #17
+  %255 = tail call ptr %252(i64 noundef %254) #16
   %.not.i.i79 = icmp eq ptr %255, null
   br i1 %.not.i.i79, label %271, label %.preheader.i.i
 
@@ -1341,12 +1337,12 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
 
 261:                                              ; preds = %._crit_edge.i.i
   %262 = getelementptr inbounds nuw %struct.FreeListData, ptr %242, i64 %223
-  %263 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %262, i8 1, ptr elementtype(i8) %262) #17, !srcloc !13
+  %263 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %262, i8 1, ptr elementtype(i8) %262) #16, !srcloc !13
   %.not36.i.i = icmp eq i8 %263, 0
   br i1 %.not36.i.i, label %._crit_edge._crit_edge.i.i, label %264
 
 264:                                              ; preds = %261
-  %265 = tail call i32 @s_lock(ptr noundef %262, ptr noundef nonnull @.str.2, i32 noundef 1739, ptr noundef nonnull @__func__.element_alloc) #17
+  %265 = tail call i32 @s_lock(ptr noundef %262, ptr noundef nonnull @.str.2, i32 noundef 1739, ptr noundef nonnull @__func__.element_alloc) #16
   br label %._crit_edge._crit_edge.i.i
 
 ._crit_edge._crit_edge.i.i:                       ; preds = %264, %261, %._crit_edge.i.i
@@ -1360,7 +1356,7 @@ element_alloc.exit.i:                             ; preds = %element_alloc.exit.
   br i1 %.not37.i.i, label %element_alloc.exit.i.backedge, label %270
 
 270:                                              ; preds = %._crit_edge._crit_edge.i.i
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !14
   store i8 0, ptr %266, align 8
   br label %element_alloc.exit.i.backedge
 
@@ -1382,12 +1378,12 @@ element_alloc.exit.i.backedge:                    ; preds = %270, %._crit_edge._
   %276 = phi i32 [ %297, %295 ], [ %274, %.preheader.i ]
   %277 = zext nneg i32 %276 to i64
   %278 = getelementptr inbounds nuw %struct.FreeListData, ptr %221, i64 %277
-  %279 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %278, i8 1, ptr elementtype(i8) %278) #17, !srcloc !13
+  %279 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %278, i8 1, ptr elementtype(i8) %278) #16, !srcloc !13
   %.not60.i = icmp eq i8 %279, 0
   br i1 %.not60.i, label %282, label %280
 
 280:                                              ; preds = %.lr.ph.i81
-  %281 = tail call i32 @s_lock(ptr noundef %278, ptr noundef nonnull @.str.2, i32 noundef 1303, ptr noundef nonnull @__func__.get_hash_entry) #17
+  %281 = tail call i32 @s_lock(ptr noundef %278, ptr noundef nonnull @.str.2, i32 noundef 1303, ptr noundef nonnull @__func__.get_hash_entry) #16
   br label %282
 
 282:                                              ; preds = %280, %.lr.ph.i81
@@ -1400,14 +1396,14 @@ element_alloc.exit.i.backedge:                    ; preds = %270, %._crit_edge._
   %286 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %287 = load ptr, ptr %284, align 8
   store ptr %287, ptr %286, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !23
   store i8 0, ptr %278, align 8
-  %288 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %224, i8 1, ptr nonnull elementtype(i8) %224) #17, !srcloc !13
+  %288 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %224, i8 1, ptr nonnull elementtype(i8) %224) #16, !srcloc !13
   %.not62.i = icmp eq i8 %288, 0
   br i1 %.not62.i, label %291, label %289
 
 289:                                              ; preds = %285
-  %290 = tail call i32 @s_lock(ptr noundef nonnull %224, ptr noundef nonnull @.str.2, i32 noundef 1312, ptr noundef nonnull @__func__.get_hash_entry) #17
+  %290 = tail call i32 @s_lock(ptr noundef nonnull %224, ptr noundef nonnull @.str.2, i32 noundef 1312, ptr noundef nonnull @__func__.get_hash_entry) #16
   br label %291
 
 291:                                              ; preds = %289, %285
@@ -1415,11 +1411,11 @@ element_alloc.exit.i.backedge:                    ; preds = %270, %._crit_edge._
   %293 = load i64, ptr %292, align 8
   %294 = add i64 %293, 1
   store i64 %294, ptr %292, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !24
   br label %.loopexit.sink.split.i
 
 295:                                              ; preds = %282
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !25
   store i8 0, ptr %278, align 8
   %296 = add nuw nsw i32 %276, 1
   %297 = and i32 %296, 31
@@ -1438,7 +1434,7 @@ element_alloc.exit.i.backedge:                    ; preds = %270, %._crit_edge._
   br i1 %.not63.i, label %get_hash_entry.exit, label %305
 
 305:                                              ; preds = %299
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !26
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !26
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %305, %291
@@ -1453,19 +1449,18 @@ element_alloc.exit.i.backedge:                    ; preds = %270, %._crit_edge._
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %308 = load i8, ptr %307, align 8, !range !10, !noundef !11
   %309 = trunc nuw i8 %308 to i1
-  %310 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %310)
-  %311 = tail call i32 @errcode(i32 noundef 8389) #17
+  %310 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %311 = tail call i32 @errcode(i32 noundef 8389) #16
   br i1 %309, label %312, label %314
 
 312:                                              ; preds = %306
-  %313 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1095, ptr noundef nonnull @__func__.hash_search_with_hash_value) #17
+  %313 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1095, ptr noundef nonnull @__func__.hash_search_with_hash_value) #16
   unreachable
 
 314:                                              ; preds = %306
-  %315 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1099, ptr noundef nonnull @__func__.hash_search_with_hash_value) #17
+  %315 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1099, ptr noundef nonnull @__func__.hash_search_with_hash_value) #16
   unreachable
 
 get_hash_entry.exit:                              ; preds = %.loopexit.sink.split.i, %299
@@ -1477,14 +1472,13 @@ get_hash_entry.exit:                              ; preds = %.loopexit.sink.spli
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %320 = tail call ptr %318(ptr noundef nonnull %319, ptr noundef %1, i64 noundef %175) #17
+  %320 = tail call ptr %318(ptr noundef nonnull %319, ptr noundef %1, i64 noundef %175) #16
   br label %324
 
 321:                                              ; preds = %186
-  %322 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %322)
-  %323 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %3) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1120, ptr noundef nonnull @__func__.hash_search_with_hash_value) #17
+  %322 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %323 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %3) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1120, ptr noundef nonnull @__func__.hash_search_with_hash_value) #16
   unreachable
 
 324:                                              ; preds = %187, %.loopexit, %189, %get_hash_entry.exit, %209, %206
@@ -1503,12 +1497,11 @@ define dso_local noundef zeroext i1 @hash_update_hash_key(ptr noundef readonly c
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %9)
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %11) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1167, ptr noundef nonnull @__func__.hash_update_hash_key) #17
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %11) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1167, ptr noundef nonnull @__func__.hash_update_hash_key) #16
   unreachable
 
 13:                                               ; preds = %3
@@ -1543,7 +1536,7 @@ calc_bucket.exit.i:                               ; preds = %23, %13
   br i1 %35, label %36, label %hash_initial_lookup.exit
 
 36:                                               ; preds = %calc_bucket.exit.i
-  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %0) #20
+  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %0) #19
   unreachable
 
 hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i
@@ -1567,12 +1560,11 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i
   br i1 %.not, label %46, label %51
 
 46:                                               ; preds = %45
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %47)
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %49) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1188, ptr noundef nonnull @__func__.hash_update_hash_key) #17
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, ptr noundef %49) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1188, ptr noundef nonnull @__func__.hash_update_hash_key) #16
   unreachable
 
 51:                                               ; preds = %45
@@ -1580,7 +1572,7 @@ hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %55 = load i64, ptr %54, align 8
-  %56 = tail call i32 %53(ptr noundef %2, i64 noundef %55) #17
+  %56 = tail call i32 %53(ptr noundef %2, i64 noundef %55) #16
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 788
   %59 = load i32, ptr %58, align 4
@@ -1608,7 +1600,7 @@ calc_bucket.exit.i43:                             ; preds = %64, %51
   br i1 %74, label %75, label %hash_initial_lookup.exit45
 
 75:                                               ; preds = %calc_bucket.exit.i43
-  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %0) #20
+  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %0) #19
   unreachable
 
 hash_initial_lookup.exit45:                       ; preds = %calc_bucket.exit.i43
@@ -1633,7 +1625,7 @@ hash_initial_lookup.exit45:                       ; preds = %calc_bucket.exit.i4
 
 87:                                               ; preds = %.lr.ph
   %88 = getelementptr inbounds nuw i8, ptr %.155, i64 16
-  %89 = tail call i32 %82(ptr noundef nonnull %88, ptr noundef %2, i64 noundef %83) #17
+  %89 = tail call i32 %82(ptr noundef nonnull %88, ptr noundef %2, i64 noundef %83) #16
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %.loopexit, label %91
 
@@ -1658,7 +1650,7 @@ hash_initial_lookup.exit45:                       ; preds = %calc_bucket.exit.i4
   store i32 %56, ptr %14, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr %96(ptr noundef %1, ptr noundef %2, i64 noundef %83) #17
+  %97 = tail call ptr %96(ptr noundef %1, ptr noundef %2, i64 noundef %83) #16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %87, %94
@@ -1712,19 +1704,18 @@ define dso_local void @hash_seq_init(ptr noundef writeonly captures(none) initia
   br i1 %11, label %12, label %register_seq_scan.exit
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %13)
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef %15) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1869, ptr noundef nonnull @__func__.register_seq_scan) #17
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef %15) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1869, ptr noundef nonnull @__func__.register_seq_scan) #16
   unreachable
 
 register_seq_scan.exit:                           ; preds = %9
   %17 = sext i32 %10 to i64
   %18 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %17
   store ptr %1, ptr %18, align 8
-  %19 = tail call i32 @GetCurrentTransactionNestLevel() #17
+  %19 = tail call i32 @GetCurrentTransactionNestLevel() #16
   %20 = load i32, ptr @num_seq_scans, align 4
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %21
@@ -1757,19 +1748,18 @@ define dso_local void @hash_seq_init_with_hash_value(ptr noundef writeonly captu
   br i1 %12, label %13, label %register_seq_scan.exit.i
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %14)
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef %16) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1869, ptr noundef nonnull @__func__.register_seq_scan) #17
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef %16) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1869, ptr noundef nonnull @__func__.register_seq_scan) #16
   unreachable
 
 register_seq_scan.exit.i:                         ; preds = %10
   %18 = sext i32 %11 to i64
   %19 = getelementptr inbounds ptr, ptr @seq_scan_tables, i64 %18
   store ptr %1, ptr %19, align 8
-  %20 = tail call i32 @GetCurrentTransactionNestLevel() #17
+  %20 = tail call i32 @GetCurrentTransactionNestLevel() #16
   %21 = load i32, ptr @num_seq_scans, align 4
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i32, ptr @seq_scan_level, i64 %22
@@ -1811,7 +1801,7 @@ calc_bucket.exit.i:                               ; preds = %33, %hash_seq_init.
   br i1 %45, label %46, label %hash_initial_lookup.exit
 
 46:                                               ; preds = %calc_bucket.exit.i
-  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %1) #20
+  tail call fastcc void @hash_corrupted(ptr noundef nonnull readonly %1) #19
   unreachable
 
 hash_initial_lookup.exit:                         ; preds = %calc_bucket.exit.i
@@ -1885,12 +1875,11 @@ define dso_local ptr @hash_seq_search(ptr noundef captures(none) %0) local_unnam
   br i1 %31, label %deregister_seq_scan.exit.i, label %24, !llvm.loop !31
 
 32:                                               ; preds = %24
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %33)
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %35) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #17
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %35) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #16
   unreachable
 
 deregister_seq_scan.exit.i:                       ; preds = %27
@@ -1966,12 +1955,11 @@ deregister_seq_scan.exit.i:                       ; preds = %27
   br i1 %79, label %deregister_seq_scan.exit.i67, label %72, !llvm.loop !31
 
 80:                                               ; preds = %72
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %81)
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %82 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %83) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #17
+  %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %83) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #16
   unreachable
 
 deregister_seq_scan.exit.i67:                     ; preds = %75
@@ -2041,12 +2029,11 @@ deregister_seq_scan.exit.i67:                     ; preds = %75
   br i1 %124, label %deregister_seq_scan.exit.i71, label %117, !llvm.loop !31
 
 125:                                              ; preds = %117
-  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %126)
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %127 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %128) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #17
+  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %128) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #16
   unreachable
 
 deregister_seq_scan.exit.i71:                     ; preds = %120
@@ -2128,12 +2115,11 @@ define dso_local void @hash_seq_term(ptr noundef readonly captures(none) %0) loc
   br i1 %16, label %deregister_seq_scan.exit, label %9, !llvm.loop !31
 
 17:                                               ; preds = %9
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %18)
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %20) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #17
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %20) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1893, ptr noundef nonnull @__func__.deregister_seq_scan) #16
   unreachable
 
 deregister_seq_scan.exit:                         ; preds = %12
@@ -2162,12 +2148,11 @@ define dso_local void @hash_freeze(ptr noundef captures(address) %0) local_unnam
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %6)
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %8) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1537, ptr noundef nonnull @__func__.hash_freeze) #17
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef %8) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1537, ptr noundef nonnull @__func__.hash_freeze) #16
   unreachable
 
 10:                                               ; preds = %1
@@ -2198,12 +2183,11 @@ define dso_local void @hash_freeze(ptr noundef captures(address) %0) local_unnam
   br i1 %20, label %has_seq_scans.exit, label %17
 
 has_seq_scans.exit:                               ; preds = %.lr.ph.i
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %21)
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %23) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1540, ptr noundef nonnull @__func__.hash_freeze) #17
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %23) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1540, ptr noundef nonnull @__func__.hash_freeze) #16
   unreachable
 
 has_seq_scans.exit.thread:                        ; preds = %17, %14, %10
@@ -2220,14 +2204,14 @@ define dso_local void @AtEOXact_HashTables(i1 noundef zeroext %0) local_unnamed_
 
 .lr.ph:                                           ; preds = %1, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %1 ]
-  %4 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %4 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %7) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1930, ptr noundef nonnull @__func__.AtEOXact_HashTables) #17
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %7) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1930, ptr noundef nonnull @__func__.AtEOXact_HashTables) #16
   br label %9
 
 9:                                                ; preds = %.lr.ph, %5
@@ -2261,14 +2245,14 @@ define dso_local void @AtEOSubXact_HashTables(i1 noundef zeroext %0, i32 noundef
   br i1 %.not.us, label %23, label %8
 
 8:                                                ; preds = %.lr.ph.split.us
-  %9 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %9 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw ptr, ptr @seq_scan_tables, i64 %indvars.iv12
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %12) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1953, ptr noundef nonnull @__func__.AtEOSubXact_HashTables) #17
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %12) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1953, ptr noundef nonnull @__func__.AtEOSubXact_HashTables) #16
   br label %14
 
 14:                                               ; preds = %10, %8
@@ -2340,19 +2324,17 @@ define internal fastcc void @hash_corrupted(ptr noundef readonly captures(none) 
   br i1 %4, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %7)
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #18
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %8) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1787, ptr noundef nonnull @__func__.hash_corrupted) #17
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %8) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1787, ptr noundef nonnull @__func__.hash_corrupted) #16
   unreachable
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %11)
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #18
   %12 = load ptr, ptr %5, align 8
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %12) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.hash_corrupted) #17
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %12) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.hash_corrupted) #16
   unreachable
 }
 
@@ -2361,17 +2343,14 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 declare i32 @GetCurrentTransactionNestLevel() local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2388,12 +2367,11 @@ attributes #11 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { cold nounwind }
-attributes #20 = { noreturn }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { cold nounwind }
+attributes #19 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

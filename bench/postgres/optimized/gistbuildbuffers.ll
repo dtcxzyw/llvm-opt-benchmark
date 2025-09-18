@@ -20,12 +20,12 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @gistInitBuildBuffers(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @palloc(i64 noundef 104) #6
+  %5 = tail call ptr @palloc(i64 noundef 104) #5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %0, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %1, ptr %7, align 8
-  %8 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext false) #6
+  %8 = tail call ptr @BufFileCreateTemp(i1 noundef zeroext false) #5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -34,7 +34,7 @@ define dso_local ptr @gistInitBuildBuffers(i32 noundef %0, i32 noundef %1, i32 n
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 32, ptr %12, align 4
-  %13 = tail call ptr @palloc(i64 noundef 256) #6
+  %13 = tail call ptr @palloc(i64 noundef 256) #5
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -45,20 +45,20 @@ define dso_local ptr @gistInitBuildBuffers(i32 noundef %0, i32 noundef %1, i32 n
   store i64 32, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %15, ptr %18, align 8
-  %19 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 1024, ptr noundef nonnull %4, i32 noundef 1064) #6
+  %19 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 1024, ptr noundef nonnull %4, i32 noundef 1064) #5
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr null, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 1, ptr %22, align 8
-  %23 = call ptr @palloc(i64 noundef 8) #6
+  %23 = call ptr @palloc(i64 noundef 8) #5
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %23, ptr %24, align 8
   store ptr null, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 32, ptr %25, align 4
-  %26 = call ptr @palloc(i64 noundef 256) #6
+  %26 = call ptr @palloc(i64 noundef 256) #5
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -83,7 +83,7 @@ define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readn
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
-  %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #6
+  %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #5
   %10 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %44, label %12
@@ -115,7 +115,7 @@ define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readn
   %26 = add i32 %3, 1
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 3
-  %29 = call ptr @repalloc(ptr noundef %25, i64 noundef %28) #6
+  %29 = call ptr @repalloc(ptr noundef %25, i64 noundef %28) #5
   store ptr %29, ptr %24, align 8
   %30 = load i32, ptr %21, align 8
   %.not2930 = icmp sgt i32 %30, %3
@@ -141,7 +141,7 @@ define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readn
   %38 = sext i32 %3 to i64
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = call ptr @lcons(ptr noundef nonnull %9, ptr noundef %40) #6
+  %41 = call ptr @lcons(ptr noundef nonnull %9, ptr noundef %40) #5
   %42 = load ptr, ptr %36, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %38
   store ptr %41, ptr %43, align 8
@@ -210,22 +210,21 @@ gistBuffersGetFreeBlock.exit.i:                   ; preds = %26, %20
   %29 = load ptr, ptr %9, align 8
   %30 = and i64 %.0.i.i, 4294967295
   %31 = load ptr, ptr %15, align 8
-  %32 = tail call i32 @BufFileSeekBlock(ptr noundef %29, i64 noundef range(i64 0, 4294967296) %30) #6
+  %32 = tail call i32 @BufFileSeekBlock(ptr noundef %29, i64 noundef range(i64 0, 4294967296) %30) #5
   %.not.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i, label %WriteTempFileBlock.exit.i, label %33
 
 33:                                               ; preds = %gistBuffersGetFreeBlock.exit.i
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %30) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 761, ptr noundef nonnull @__func__.WriteTempFileBlock) #6
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %30) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 761, ptr noundef nonnull @__func__.WriteTempFileBlock) #5
   unreachable
 
 WriteTempFileBlock.exit.i:                        ; preds = %gistBuffersGetFreeBlock.exit.i
   %36 = trunc i64 %.0.i.i to i32
-  tail call void @BufFileWrite(ptr noundef %29, ptr noundef %31, i64 noundef 8192) #6
+  tail call void @BufFileWrite(ptr noundef %29, ptr noundef %31, i64 noundef 8192) #5
   %37 = load ptr, ptr %15, align 8
-  tail call void @pfree(ptr noundef %37) #6
+  tail call void @pfree(ptr noundef %37) #5
   store ptr null, ptr %15, align 8
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %36, ptr %38, align 8
@@ -255,7 +254,7 @@ define dso_local void @gistPushItupToNodeBuffer(ptr noundef captures(none) %0, p
   br i1 %8, label %9, label %gistAddLoadedBuffer.exit
 
 9:                                                ; preds = %3
-  %10 = tail call noundef ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 8192) #6
+  %10 = tail call noundef ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 8192) #5
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 8184, ptr %11, align 4
@@ -287,7 +286,7 @@ define dso_local void @gistPushItupToNodeBuffer(ptr noundef captures(none) %0, p
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %22 to i64
   %26 = shl nsw i64 %25, 3
-  %27 = tail call ptr @repalloc(ptr noundef %24, i64 noundef %26) #6
+  %27 = tail call ptr @repalloc(ptr noundef %24, i64 noundef %26) #5
   store ptr %27, ptr %23, align 8
   %.pre11.i = load i32, ptr %17, align 8
   br label %28
@@ -356,20 +355,19 @@ gistBuffersGetFreeBlock.exit:                     ; preds = %51, %58
   %63 = load ptr, ptr %62, align 8
   %64 = and i64 %.0.i, 4294967295
   %65 = load ptr, ptr %35, align 8
-  %66 = tail call i32 @BufFileSeekBlock(ptr noundef %63, i64 noundef range(i64 0, 4294967296) %64) #6
+  %66 = tail call i32 @BufFileSeekBlock(ptr noundef %63, i64 noundef range(i64 0, 4294967296) %64) #5
   %.not.i30 = icmp eq i32 %66, 0
   br i1 %.not.i30, label %WriteTempFileBlock.exit, label %67
 
 67:                                               ; preds = %gistBuffersGetFreeBlock.exit
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %68)
-  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %64) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 761, ptr noundef nonnull @__func__.WriteTempFileBlock) #6
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %69 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %64) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 761, ptr noundef nonnull @__func__.WriteTempFileBlock) #5
   unreachable
 
 WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeBlock.exit
   %70 = trunc i64 %.0.i to i32
-  tail call void @BufFileWrite(ptr noundef %63, ptr noundef %65, i64 noundef 8192) #6
+  tail call void @BufFileWrite(ptr noundef %63, ptr noundef %65, i64 noundef 8192) #5
   %71 = load ptr, ptr %35, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 8184, ptr %72, align 4
@@ -417,7 +415,7 @@ WriteTempFileBlock.exit:                          ; preds = %gistBuffersGetFreeB
 94:                                               ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call ptr @lcons(ptr noundef nonnull %1, ptr noundef %96) #6
+  %97 = tail call ptr @lcons(ptr noundef nonnull %1, ptr noundef %96) #5
   store ptr %97, ptr %95, align 8
   store i8 1, ptr %91, align 8
   br label %98
@@ -442,7 +440,7 @@ define internal fastcc void @gistLoadNodeBuffer(ptr noundef captures(none) %0, p
 
 9:                                                ; preds = %5
   %.val = load ptr, ptr %0, align 8
-  %10 = tail call noundef ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef 8192) #6
+  %10 = tail call noundef ptr @MemoryContextAllocZero(ptr noundef %.val, i64 noundef 8192) #5
   store i32 -1, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 8184, ptr %11, align 4
@@ -452,19 +450,18 @@ define internal fastcc void @gistLoadNodeBuffer(ptr noundef captures(none) %0, p
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = tail call i32 @BufFileSeekBlock(ptr noundef %13, i64 noundef range(i64 0, 4294967296) %16) #6
+  %17 = tail call i32 @BufFileSeekBlock(ptr noundef %13, i64 noundef range(i64 0, 4294967296) %16) #5
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %ReadTempFileBlock.exit, label %18
 
 18:                                               ; preds = %9
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %16) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 753, ptr noundef nonnull @__func__.ReadTempFileBlock) #6
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %16) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 753, ptr noundef nonnull @__func__.ReadTempFileBlock) #5
   unreachable
 
 ReadTempFileBlock.exit:                           ; preds = %9
-  tail call void @BufFileReadExact(ptr noundef %13, ptr noundef nonnull %10, i64 noundef 8192) #6
+  tail call void @BufFileReadExact(ptr noundef %13, ptr noundef nonnull %10, i64 noundef 8192) #5
   %21 = load i32, ptr %14, align 8
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -486,7 +483,7 @@ ReadTempFileBlock.exit:                           ; preds = %9
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %28 to i64
   %32 = shl nsw i64 %31, 3
-  %33 = tail call ptr @repalloc(ptr noundef %30, i64 noundef %32) #6
+  %33 = tail call ptr @repalloc(ptr noundef %30, i64 noundef %32) #5
   store ptr %33, ptr %29, align 8
   %.pre.i = load i32, ptr %23, align 8
   br label %gistBuffersReleaseBlock.exit
@@ -524,7 +521,7 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %27
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %48 to i64
   %52 = shl nsw i64 %51, 3
-  %53 = tail call ptr @repalloc(ptr noundef %50, i64 noundef %52) #6
+  %53 = tail call ptr @repalloc(ptr noundef %50, i64 noundef %52) #5
   store ptr %53, ptr %49, align 8
   %.pre11.i = load i32, ptr %43, align 8
   br label %54
@@ -577,7 +574,7 @@ define dso_local noundef zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef captu
   %.val.i = load i16, ptr %18, align 2
   %19 = and i16 %.val.i, 8191
   %20 = zext nneg i16 %19 to i64
-  %21 = tail call ptr @palloc(i64 noundef %20) #6
+  %21 = tail call ptr @palloc(i64 noundef %20) #5
   store ptr %21, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %21, ptr nonnull align 2 %17, i64 %20, i1 false)
   %22 = load i32, ptr %14, align 4
@@ -604,19 +601,18 @@ define dso_local noundef zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef captu
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %33 to i64
-  %38 = tail call i32 @BufFileSeekBlock(ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #6
+  %38 = tail call i32 @BufFileSeekBlock(ptr noundef %36, i64 noundef range(i64 0, 4294967296) %37) #5
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %ReadTempFileBlock.exit, label %39
 
 39:                                               ; preds = %34
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %37) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 753, ptr noundef nonnull @__func__.ReadTempFileBlock) #6
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i64 noundef range(i64 0, 4294967296) %37) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 753, ptr noundef nonnull @__func__.ReadTempFileBlock) #5
   unreachable
 
 ReadTempFileBlock.exit:                           ; preds = %34
-  tail call void @BufFileReadExact(ptr noundef %36, ptr noundef nonnull %26, i64 noundef 8192) #6
+  tail call void @BufFileReadExact(ptr noundef %36, ptr noundef nonnull %26, i64 noundef 8192) #5
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -636,7 +632,7 @@ ReadTempFileBlock.exit:                           ; preds = %34
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %47 to i64
   %51 = shl nsw i64 %50, 3
-  %52 = tail call ptr @repalloc(ptr noundef %49, i64 noundef %51) #6
+  %52 = tail call ptr @repalloc(ptr noundef %49, i64 noundef %51) #5
   store ptr %52, ptr %48, align 8
   %.pre.i = load i32, ptr %42, align 8
   br label %gistBuffersReleaseBlock.exit
@@ -652,7 +648,7 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %46
   br label %59
 
 58:                                               ; preds = %30
-  tail call void @pfree(ptr noundef nonnull %26) #6
+  tail call void @pfree(ptr noundef nonnull %26) #5
   store ptr null, ptr %8, align 8
   br label %59
 
@@ -666,7 +662,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local void @gistFreeBuildBuffers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  tail call void @BufFileClose(ptr noundef %3) #6
+  tail call void @BufFileClose(ptr noundef %3) #5
   ret void
 }
 
@@ -704,11 +700,11 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   br i1 %.not100, label %136, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @BufferGetBlockNumber(i32 noundef %4) #6
+  %23 = tail call i32 @BufferGetBlockNumber(i32 noundef %4) #5
   store i32 %23, ptr %8, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = call ptr @hash_search(ptr noundef %25, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %7) #6
+  %26 = call ptr @hash_search(ptr noundef %25, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %7) #5
   %27 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %136
@@ -732,7 +728,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %36 = freeze i32 %35
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %37, 1072
-  %39 = call ptr @palloc(i64 noundef %38) #6
+  %39 = call ptr @palloc(i64 noundef %38) #5
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %42 = load i32, ptr %40, align 4
@@ -748,9 +744,9 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1024
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %48, ptr noundef null, i16 noundef zeroext 0, ptr noundef %49, ptr noundef nonnull %50) #6
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %48, ptr noundef null, i16 noundef zeroext 0, ptr noundef %49, ptr noundef nonnull %50) #5
   %51 = load i32, ptr %46, align 8
-  %52 = call i32 @BufferGetBlockNumber(i32 noundef %51) #6
+  %52 = call i32 @BufferGetBlockNumber(i32 noundef %51) #5
   %53 = call ptr @gistGetNodeBuffer(ptr noundef nonnull %0, ptr poison, i32 noundef %52, i32 noundef %3)
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 1064
   store ptr %53, ptr %54, align 8
@@ -767,7 +763,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   br i1 %59, label %.lr.ph135, label %._crit_edge136
 
 .critedge.thread:                                 ; preds = %29
-  %60 = call ptr @palloc(i64 noundef 0) #6
+  %60 = call ptr @palloc(i64 noundef 0) #5
   %61 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
   br i1 %61, label %.lr.ph135.split, label %._crit_edge136
 
@@ -783,7 +779,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 .lr.ph130.us:                                     ; preds = %.lr.ph130.us.preheader, %84
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %64 = load ptr, ptr %9, align 8
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %64, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %64, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
   store float -1.000000e+00, ptr %13, align 16
   br label %65
 
@@ -811,13 +807,13 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @gistgetadjusted(ptr noundef nonnull %2, ptr noundef %78, ptr noundef %64, ptr noundef %1) #6
+  %79 = call ptr @gistgetadjusted(ptr noundef nonnull %2, ptr noundef %78, ptr noundef %64, ptr noundef %1) #5
   %.not103.us = icmp eq ptr %79, null
   br i1 %.not103.us, label %84, label %80
 
 80:                                               ; preds = %._crit_edge131.us
   %81 = getelementptr inbounds nuw i8, ptr %72, i64 1024
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %79, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %72, ptr noundef nonnull %81) #6
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %79, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %72, ptr noundef nonnull %81) #5
   %82 = load ptr, ptr %75, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %79, ptr %83, align 8
@@ -841,7 +837,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %93 = load i8, ptr %92, align 1, !range !4, !noundef !5
   %94 = trunc nuw i8 %93 to i1
   %95 = trunc nuw nsw i64 %indvars.iv142 to i32
-  %96 = call float @gistpenalty(ptr noundef %1, i32 noundef %95, ptr noundef %87, i1 noundef zeroext %90, ptr noundef nonnull %91, i1 noundef zeroext %94) #6
+  %96 = call float @gistpenalty(ptr noundef %1, i32 noundef %95, ptr noundef %87, i1 noundef zeroext %90, ptr noundef nonnull %91, i1 noundef zeroext %94) #5
   %97 = fcmp ule float %96, 0.000000e+00
   %.2.us = select i1 %97, i1 %.086122.us, i1 false
   %98 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv142
@@ -907,19 +903,19 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 123:                                              ; preds = %.lr.ph135.split, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %124 = load ptr, ptr %9, align 8
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %124, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #6
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %124, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %10, ptr noundef nonnull %11) #5
   store float -1.000000e+00, ptr %13, align 16
   %125 = load ptr, ptr %120, align 8
   call void @gistPushItupToNodeBuffer(ptr noundef %0, ptr noundef %125, ptr noundef %124)
   %126 = load ptr, ptr %121, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8
-  %129 = call ptr @gistgetadjusted(ptr noundef %2, ptr noundef %128, ptr noundef %124, ptr noundef %1) #6
+  %129 = call ptr @gistgetadjusted(ptr noundef %2, ptr noundef %128, ptr noundef %124, ptr noundef %1) #5
   %.not103 = icmp eq ptr %129, null
   br i1 %.not103, label %133, label %130
 
 130:                                              ; preds = %123
-  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %129, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %119, ptr noundef nonnull %122) #6
+  call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %129, ptr noundef null, i16 noundef zeroext 0, ptr noundef nonnull %119, ptr noundef nonnull %122) #5
   %131 = load ptr, ptr %121, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   store ptr %129, ptr %132, align 8
@@ -932,7 +928,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 
 ._crit_edge136:                                   ; preds = %84, %133, %.critedge.thread, %.critedge
   %135 = phi ptr [ %60, %.critedge.thread ], [ %39, %.critedge ], [ %119, %133 ], [ %39, %84 ]
-  call void @pfree(ptr noundef %135) #6
+  call void @pfree(ptr noundef %135) #5
   br label %136
 
 136:                                              ; preds = %22, %6, %14, %19, %._crit_edge136
@@ -977,17 +973,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

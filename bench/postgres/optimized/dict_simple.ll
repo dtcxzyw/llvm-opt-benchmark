@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @palloc0(i64 noundef 24) #5
+  %4 = tail call ptr @palloc0(i64 noundef 24) #4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 1, ptr %5, align 8
   %.not = icmp eq i64 %3, 0
@@ -40,7 +40,7 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str) #6
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str) #5
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %19, label %25
 
@@ -52,20 +52,19 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   br i1 %.02733, label %.split32, label %23
 
 .split32:                                         ; preds = %19
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 50856066) #5
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.dsimple_init) #5
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %21 = tail call i32 @errcode(i32 noundef 50856066) #4
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.dsimple_init) #4
   unreachable
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @defGetString(ptr noundef nonnull %13) #5
-  tail call void @readstoplist(ptr noundef %24, ptr noundef %4, ptr noundef nonnull @str_tolower) #5
+  %24 = tail call ptr @defGetString(ptr noundef nonnull %13) #4
+  tail call void @readstoplist(ptr noundef %24, ptr noundef %4, ptr noundef nonnull @str_tolower) #4
   br label %40
 
 25:                                               ; preds = %.lr.ph36
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.3) #6
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.3) #5
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.split
 
@@ -73,27 +72,25 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   br i1 %.0172634, label %.split30, label %32
 
 .split30:                                         ; preds = %28
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 50856066) #5
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 59, ptr noundef nonnull @__func__.dsimple_init) #5
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %30 = tail call i32 @errcode(i32 noundef 50856066) #4
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 59, ptr noundef nonnull @__func__.dsimple_init) #4
   unreachable
 
 32:                                               ; preds = %28
-  %33 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %13) #5
+  %33 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %13) #4
   %34 = zext i1 %33 to i8
   store i8 %34, ptr %5, align 8
   br label %40
 
 .split:                                           ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 @errcode(i32 noundef 50856066) #5
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %37 = tail call i32 @errcode(i32 noundef 50856066) #4
   %38 = load ptr, ptr %35, align 8
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %38) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 68, ptr noundef nonnull @__func__.dsimple_init) #5
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %38) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 68, ptr noundef nonnull @__func__.dsimple_init) #4
   unreachable
 
 40:                                               ; preds = %32, %23
@@ -140,18 +137,18 @@ define dso_local i64 @dsimple_lexize(ptr noundef readonly captures(none) %0) loc
   %9 = load i64, ptr %8, align 8
   %sext = shl i64 %9, 32
   %10 = ashr exact i64 %sext, 32
-  %11 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %10, i32 noundef 100) #5
+  %11 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %10, i32 noundef 100) #4
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %16, label %14
 
 14:                                               ; preds = %1
-  %15 = tail call zeroext i1 @searchstoplist(ptr noundef %4, ptr noundef nonnull %11) #5
+  %15 = tail call zeroext i1 @searchstoplist(ptr noundef %4, ptr noundef nonnull %11) #4
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14, %1
-  tail call void @pfree(ptr noundef nonnull %11) #5
-  %17 = tail call ptr @palloc0(i64 noundef 32) #5
+  tail call void @pfree(ptr noundef nonnull %11) #4
+  %17 = tail call ptr @palloc0(i64 noundef 32) #4
   %18 = ptrtoint ptr %17 to i64
   br label %28
 
@@ -162,14 +159,14 @@ define dso_local i64 @dsimple_lexize(ptr noundef readonly captures(none) %0) loc
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @palloc0(i64 noundef 32) #5
+  %24 = tail call ptr @palloc0(i64 noundef 32) #4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %11, ptr %25, align 8
   %26 = ptrtoint ptr %24 to i64
   br label %28
 
 27:                                               ; preds = %19
-  tail call void @pfree(ptr noundef nonnull %11) #5
+  tail call void @pfree(ptr noundef nonnull %11) #4
   br label %28
 
 28:                                               ; preds = %27, %23, %16
@@ -181,17 +178,13 @@ declare zeroext i1 @searchstoplist(ptr noundef, ptr noundef) local_unnamed_addr 
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -29868,7 +29868,6 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit: ; preds = %_ZNK4llvm3LLT1
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %131, %139
-  call void @llvm.assume(i1 %137)
   br i1 %82, label %141, label %162
 
 141:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit

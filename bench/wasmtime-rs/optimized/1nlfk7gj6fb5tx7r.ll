@@ -578,32 +578,24 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a5
   %4 = load i64, ptr %0, align 8, !noundef !3
   %5 = sub i64 %4, %1
   %6 = icmp ugt i64 %2, %5
-  br i1 %6, label %7, label %13
+  br i1 %6, label %7, label %._crit_edge
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h736f6b2cce9b2e5bE"(ptr nonnull align 8 %0, i64 %1, i64 %2)
   %9 = extractvalue { i64, i64 } %8, 0
   %10 = icmp eq i64 %9, -9223372036854775807
   %11 = extractvalue { i64, i64 } %8, 1
-  br i1 %10, label %._crit_edge, label %14
+  br i1 %10, label %._crit_edge, label %12
 
-._crit_edge:                                      ; preds = %7
-  %.pre = load i64, ptr %0, align 8
-  %.pre11 = sub i64 %.pre, %1
-  %12 = icmp ule i64 %2, %.pre11
-  br label %13
+._crit_edge:                                      ; preds = %7, %3
+  br label %12
 
-13:                                               ; preds = %._crit_edge, %3
-  %.pre-phi = phi i1 [ %12, %._crit_edge ], [ true, %3 ]
-  tail call void @llvm.assume(i1 %.pre-phi)
-  br label %14
-
-14:                                               ; preds = %7, %13
-  %.sroa.3.0 = phi i64 [ undef, %13 ], [ %11, %7 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %13 ], [ %9, %7 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %16
+12:                                               ; preds = %7, %._crit_edge
+  %.sroa.3.0 = phi i64 [ undef, %._crit_edge ], [ %11, %7 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %._crit_edge ], [ %9, %7 ]
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

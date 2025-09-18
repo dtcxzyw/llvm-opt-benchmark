@@ -807,7 +807,7 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %1
   %11 = load ptr, ptr %10, align 8, !tbaa !264
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 1, !tbaa !253
-  br label %47
+  br label %44
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -829,7 +829,7 @@ _ZNK5clang5Token9isLiteralEv.exit.thread:         ; preds = %17
 
 20:                                               ; preds = %_ZNK5clang5Token9isLiteralEv.exit.thread
   %21 = load i8, ptr %19, align 1, !tbaa !253
-  br label %47
+  br label %44
 
 22:                                               ; preds = %17, %_ZNK5clang5Token9isLiteralEv.exit.thread
   %23 = load i32, ptr %0, align 8, !tbaa !252
@@ -844,7 +844,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   %.sroa.01.0.i = phi i32 [ %26, %25 ], [ %23, %22 ]
   %27 = tail call noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %.88.val, i32 %.sroa.01.0.i, ptr noundef null) #7
   %28 = load i8, ptr %27, align 1, !tbaa !253
-  br label %47
+  br label %44
 
 29:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -861,7 +861,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   %36 = load i8, ptr %35, align 1, !tbaa !253
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %47
+  br label %44
 
 37:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -870,26 +870,19 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
   %39 = load i8, ptr %38, align 1, !tbaa !253
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = icmp eq ptr %38, %40
-  br i1 %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !259
-  %44 = icmp ult i64 %43, 16
-  call void @llvm.assume(i1 %44)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %41, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %37
-  %45 = load i64, ptr %40, align 8, !tbaa !253
-  %46 = add i64 %45, 1
-  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %46) #8
+  %42 = load i64, ptr %40, align 8, !tbaa !253
+  %43 = add i64 %42, 1
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %43) #8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %47
+  br label %44
 
-47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit, %20, %9
+44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %33, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit, %20, %9
   %.0 = phi i8 [ %13, %9 ], [ %36, %33 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %21, %20 ], [ %28, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit ]
   ret i8 %.0
 }

@@ -100,7 +100,7 @@ entry:
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   store i8 0, ptr %0, align 8, !tbaa !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 3, i8 noundef signext 0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef 3, i8 noundef signext 0) #13
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
   store i8 98, ptr %1, align 1, !tbaa !17
   %2 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
@@ -115,62 +115,44 @@ entry:
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i4, align 8, !tbaa !14
   store i8 0, ptr %4, align 8, !tbaa !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i8 noundef signext 0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i8 noundef signext 0) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3)
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 16
   store ptr %5, ptr %ref.tmp3, align 8, !tbaa !12
   %_M_string_length.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i15, align 8, !tbaa !14
   store i8 0, ptr %5, align 8, !tbaa !17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, i8 noundef signext 0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, i8 noundef signext 0) #13
   %call.i = call noundef i32 @_ZN3irr4core15isFileExtensionERKNS0_6stringIcEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3)
   %6 = load ptr, ptr %ref.tmp3, align 8, !tbaa !18
   %cmp.i.i.i.i = icmp eq ptr %6, %5
-  br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %7 = load i64, ptr %_M_string_length.i.i.i.i15, align 8, !tbaa !14
-  %cmp3.i.i.i.i = icmp ult i64 %7, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN3irr4core6stringIcED2Ev.exit
+  br i1 %cmp.i.i.i.i, label %_ZN3irr4core6stringIcED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  call void @_ZdlPv(ptr noundef %6) #15
+  call void @_ZdlPv(ptr noundef %6) #14
   br label %_ZN3irr4core6stringIcED2Ev.exit
 
-_ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %entry, %if.then.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3)
-  %8 = load ptr, ptr %ref.tmp2, align 8, !tbaa !18
-  %cmp.i.i.i.i27 = icmp eq ptr %8, %4
-  br i1 %cmp.i.i.i.i27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29, label %if.then.i.i.i28
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29: ; preds = %_ZN3irr4core6stringIcED2Ev.exit
-  %9 = load i64, ptr %_M_string_length.i.i.i.i4, align 8, !tbaa !14
-  %cmp3.i.i.i.i31 = icmp ult i64 %9, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i31)
-  br label %_ZN3irr4core6stringIcED2Ev.exit32
+  %7 = load ptr, ptr %ref.tmp2, align 8, !tbaa !18
+  %cmp.i.i.i.i27 = icmp eq ptr %7, %4
+  br i1 %cmp.i.i.i.i27, label %_ZN3irr4core6stringIcED2Ev.exit32, label %if.then.i.i.i28
 
 if.then.i.i.i28:                                  ; preds = %_ZN3irr4core6stringIcED2Ev.exit
-  call void @_ZdlPv(ptr noundef %8) #15
+  call void @_ZdlPv(ptr noundef %7) #14
   br label %_ZN3irr4core6stringIcED2Ev.exit32
 
-_ZN3irr4core6stringIcED2Ev.exit32:                ; preds = %if.then.i.i.i28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i29
+_ZN3irr4core6stringIcED2Ev.exit32:                ; preds = %_ZN3irr4core6stringIcED2Ev.exit, %if.then.i.i.i28
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp2)
-  %10 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
-  %cmp.i.i.i.i33 = icmp eq ptr %10, %0
-  br i1 %cmp.i.i.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35, label %if.then.i.i.i34
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35: ; preds = %_ZN3irr4core6stringIcED2Ev.exit32
-  %11 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
-  %cmp3.i.i.i.i37 = icmp ult i64 %11, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i37)
-  br label %_ZN3irr4core6stringIcED2Ev.exit38
+  %8 = load ptr, ptr %ref.tmp, align 8, !tbaa !18
+  %cmp.i.i.i.i33 = icmp eq ptr %8, %0
+  br i1 %cmp.i.i.i.i33, label %_ZN3irr4core6stringIcED2Ev.exit38, label %if.then.i.i.i34
 
 if.then.i.i.i34:                                  ; preds = %_ZN3irr4core6stringIcED2Ev.exit32
-  call void @_ZdlPv(ptr noundef %10) #15
+  call void @_ZdlPv(ptr noundef %8) #14
   br label %_ZN3irr4core6stringIcED2Ev.exit38
 
-_ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %if.then.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35
+_ZN3irr4core6stringIcED2Ev.exit38:                ; preds = %_ZN3irr4core6stringIcED2Ev.exit32, %if.then.i.i.i34
   %cmp.i = icmp sgt i32 %call.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   ret i1 %cmp.i
@@ -183,7 +165,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %headerID)
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %0 = load ptr, ptr %vtable, align 8
-  %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %headerID, i64 noundef 2) #14
+  %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %headerID, i64 noundef 2) #13
   %1 = load i16, ptr %headerID, align 2, !tbaa !19
   %cmp = icmp eq i16 %1, 19778
   call void @llvm.lifetime.end.p0(ptr nonnull %headerID)
@@ -199,7 +181,7 @@ entry:
   %add = add nsw i32 %pitch, %width
   %mul = mul nsw i32 %add, %height
   %conv = sext i32 %mul to i64
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #16
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #15
   %add.ptr5 = getelementptr inbounds i8, ptr %call, i64 %conv
   %cmp195 = icmp sgt i32 %size, 0
   %cmp6196 = icmp sgt i32 %mul, 0
@@ -465,7 +447,7 @@ exit:                                             ; preds = %exit.loopexit, %ent
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %exit
-  tail call void @_ZdaPv(ptr noundef nonnull %43) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %43) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %exit
@@ -490,7 +472,7 @@ entry:
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
   %mul = mul nsw i32 %add2, %height
   %conv = sext i32 %mul to i64
-  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #16
+  %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv) #15
   %add.ptr5 = getelementptr inbounds i8, ptr %call, i64 %conv
   %cmp305 = icmp sgt i32 %size, 0
   %cmp6306 = icmp sgt i32 %mul, 0
@@ -700,7 +682,7 @@ exit:                                             ; preds = %exit.loopexit, %ent
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %exit
-  tail call void @_ZdaPv(ptr noundef nonnull %27) #15
+  tail call void @_ZdaPv(ptr noundef nonnull %27) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %exit
@@ -717,7 +699,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %header)
   %vtable = load ptr, ptr %file, align 8, !tbaa !3
   %0 = load ptr, ptr %vtable, align 8
-  %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %header, i64 noundef 54) #14
+  %call = call noundef i64 %0(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %header, i64 noundef 54) #13
   %1 = load i16, ptr %header, align 2, !tbaa !33
   %cmp.not = icmp eq i16 %1, 19778
   br i1 %cmp.not, label %if.end, label %cleanup164
@@ -729,7 +711,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, i32 noundef 3) #14
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.2, i32 noundef 3) #13
   br label %cleanup164
 
 if.end4:                                          ; preds = %if.end
@@ -749,7 +731,7 @@ lor.lhs.false:                                    ; preds = %if.end4
   br i1 %6, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %lor.lhs.false, %if.end4
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 3) #14
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 3) #13
   br label %cleanup164
 
 if.end9:                                          ; preds = %lor.lhs.false
@@ -762,7 +744,7 @@ if.end9:                                          ; preds = %lor.lhs.false
   %vtable12 = load ptr, ptr %file, align 8, !tbaa !3
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 24
   %8 = load ptr, ptr %vfn13, align 8
-  %call14 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %file) #14
+  %call14 = call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %file) #13
   %BitmapDataOffset = getelementptr inbounds nuw i8, ptr %header, i64 10
   %9 = load i32, ptr %BitmapDataOffset, align 2, !tbaa !40
   %conv15 = zext i32 %9 to i64
@@ -774,13 +756,13 @@ if.end9:                                          ; preds = %lor.lhs.false
 
 if.then19:                                        ; preds = %if.end9
   %10 = call i32 @llvm.umin.i32(i32 %conv17, i32 256)
-  %call20 = call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #16
+  %call20 = call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %call20, i8 0, i64 1024, i1 false)
   %11 = shl nuw nsw i32 %10, 2
   %mul = zext nneg i32 %11 to i64
   %vtable22 = load ptr, ptr %file, align 8, !tbaa !3
   %12 = load ptr, ptr %vtable22, align 8
-  %call24 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call20, i64 noundef %mul) #14
+  %call24 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call20, i64 noundef %mul) #13
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.end9
@@ -797,7 +779,7 @@ if.then28:                                        ; preds = %if.end25
   %vtable29 = load ptr, ptr %file, align 8, !tbaa !3
   %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 16
   %14 = load ptr, ptr %vfn30, align 8
-  %call31 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %file) #14
+  %call31 = call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(8) %file) #13
   %conv32 = trunc i64 %call31 to i32
   %15 = load i32, ptr %BitmapDataOffset, align 2, !tbaa !40
   %sub34 = sub i32 %conv32, %15
@@ -810,7 +792,7 @@ if.end36:                                         ; preds = %if.then28, %if.end2
   %vtable39 = load ptr, ptr %file, align 8, !tbaa !3
   %vfn40 = getelementptr inbounds nuw i8, ptr %vtable39, i64 8
   %17 = load ptr, ptr %vfn40, align 8
-  %call41 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef %conv38, i1 noundef zeroext false) #14
+  %call41 = call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %file, i64 noundef %conv38, i1 noundef zeroext false) #13
   %18 = load i32, ptr %Width, align 2, !tbaa !37
   %conv43 = uitofp i32 %18 to float
   %19 = load i16, ptr %BPP, align 2, !tbaa !36
@@ -828,11 +810,11 @@ if.end36:                                         ; preds = %if.then28, %if.end2
   call void @llvm.lifetime.start.p0(ptr nonnull %bmpData)
   %20 = load i32, ptr %BitmapDataSize, align 2, !tbaa !39
   %conv61 = zext i32 %20 to i64
-  %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv61) #16
+  %call62 = call noalias noundef nonnull ptr @_Znam(i64 noundef %conv61) #15
   store ptr %call62, ptr %bmpData, align 8, !tbaa !21
   %vtable65 = load ptr, ptr %file, align 8, !tbaa !3
   %21 = load ptr, ptr %vtable65, align 8
-  %call67 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call62, i64 noundef %conv61) #14
+  %call67 = call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %file, ptr noundef nonnull %call62, i64 noundef %conv61) #13
   %22 = load i32, ptr %Compression, align 2, !tbaa !35
   %.pre212 = load i32, ptr %BitmapDataSize, align 2, !tbaa !39
   switch i32 %22, label %if.end36.sw.epilog_crit_edge [
@@ -876,12 +858,12 @@ sw.epilog:                                        ; preds = %sw.bb77, %sw.bb, %i
   br i1 %cmp91, label %if.then92, label %if.end96
 
 if.then92:                                        ; preds = %sw.epilog
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.4, i32 noundef 3) #14
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.4, i32 noundef 3) #13
   %isnull = icmp eq ptr %paletteData.0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.then92
-  call void @_ZdaPv(ptr noundef nonnull %paletteData.0) #15
+  call void @_ZdaPv(ptr noundef nonnull %paletteData.0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %if.then92
@@ -890,7 +872,7 @@ delete.end:                                       ; preds = %delete.notnull, %if
   br i1 %isnull93, label %cleanup, label %delete.notnull94
 
 delete.notnull94:                                 ; preds = %delete.end
-  call void @_ZdaPv(ptr noundef nonnull %33) #15
+  call void @_ZdaPv(ptr noundef nonnull %33) #14
   br label %cleanup
 
 if.end96:                                         ; preds = %sw.epilog
@@ -910,69 +892,69 @@ if.end96:                                         ; preds = %sw.epilog
   ]
 
 sw.bb103:                                         ; preds = %if.end96
-  %call104 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
-  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call104, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
+  %call104 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call104, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #13
   %36 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i = getelementptr inbounds nuw i8, ptr %call104, i64 24
   %37 = load ptr, ptr %Data.i, align 8, !tbaa !44
   %38 = load i32, ptr %Width, align 2, !tbaa !37
   %39 = load i32, ptr %Height, align 2, !tbaa !38
-  call void @_ZN3irr5video15CColorConverter18convert1BitTo16BitEPKhPsiiib(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %rem57, i1 noundef zeroext true) #14
+  call void @_ZN3irr5video15CColorConverter18convert1BitTo16BitEPKhPsiiib(ptr noundef %36, ptr noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %rem57, i1 noundef zeroext true) #13
   br label %sw.epilog151
 
 sw.bb111:                                         ; preds = %if.end96
-  %call112 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
-  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call112, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
+  %call112 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call112, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #13
   %40 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i206 = getelementptr inbounds nuw i8, ptr %call112, i64 24
   %41 = load ptr, ptr %Data.i206, align 8, !tbaa !44
   %42 = load i32, ptr %Width, align 2, !tbaa !37
   %43 = load i32, ptr %Height, align 2, !tbaa !38
-  call void @_ZN3irr5video15CColorConverter18convert4BitTo16BitEPKhPsiiPKiib(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef %paletteData.0, i32 noundef %rem57, i1 noundef zeroext true) #14
+  call void @_ZN3irr5video15CColorConverter18convert4BitTo16BitEPKhPsiiPKiib(ptr noundef %40, ptr noundef %41, i32 noundef %42, i32 noundef %43, ptr noundef %paletteData.0, i32 noundef %rem57, i1 noundef zeroext true) #13
   br label %sw.epilog151
 
 sw.bb119:                                         ; preds = %if.end96
-  %call120 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
-  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call120, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
+  %call120 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call120, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #13
   %44 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i207 = getelementptr inbounds nuw i8, ptr %call120, i64 24
   %45 = load ptr, ptr %Data.i207, align 8, !tbaa !44
   %46 = load i32, ptr %Width, align 2, !tbaa !37
   %47 = load i32, ptr %Height, align 2, !tbaa !38
-  call void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, ptr noundef %paletteData.0, i32 noundef %rem57, i1 noundef zeroext true) #14
+  call void @_ZN3irr5video15CColorConverter18convert8BitTo16BitEPKhPsiiPKiib(ptr noundef %44, ptr noundef %45, i32 noundef %46, i32 noundef %47, ptr noundef %paletteData.0, i32 noundef %rem57, i1 noundef zeroext true) #13
   br label %sw.epilog151
 
 sw.bb127:                                         ; preds = %if.end96
-  %call128 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
-  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call128, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
+  %call128 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call128, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %dim) #13
   %48 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i208 = getelementptr inbounds nuw i8, ptr %call128, i64 24
   %49 = load ptr, ptr %Data.i208, align 8, !tbaa !44
   %50 = load i32, ptr %Width, align 2, !tbaa !37
   %51 = load i32, ptr %Height, align 2, !tbaa !38
-  call void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %rem57, i1 noundef zeroext true) #14
+  call void @_ZN3irr5video15CColorConverter19convert16BitTo16BitEPKsPsiiib(ptr noundef %48, ptr noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef %rem57, i1 noundef zeroext true) #13
   br label %sw.epilog151
 
 sw.bb135:                                         ; preds = %if.end96
-  %call136 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
-  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call136, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
+  %call136 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call136, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %dim) #13
   %52 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i209 = getelementptr inbounds nuw i8, ptr %call136, i64 24
   %53 = load ptr, ptr %Data.i209, align 8, !tbaa !44
   %54 = load i32, ptr %Width, align 2, !tbaa !37
   %55 = load i32, ptr %Height, align 2, !tbaa !38
-  call void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %rem57, i1 noundef zeroext true, i1 noundef zeroext true) #14
+  call void @_ZN3irr5video15CColorConverter19convert24BitTo24BitEPKhPhiiibb(ptr noundef %52, ptr noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef %rem57, i1 noundef zeroext true, i1 noundef zeroext true) #13
   br label %sw.epilog151
 
 sw.bb143:                                         ; preds = %if.end96
-  %call144 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
-  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call144, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %dim) #14
+  %call144 = call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #15
+  call void @_ZN3irr5video6CImageC1ENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(50) %call144, i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(8) %dim) #13
   %56 = load ptr, ptr %bmpData, align 8, !tbaa !21
   %Data.i210 = getelementptr inbounds nuw i8, ptr %call144, i64 24
   %57 = load ptr, ptr %Data.i210, align 8, !tbaa !44
   %58 = load i32, ptr %Width, align 2, !tbaa !37
   %59 = load i32, ptr %Height, align 2, !tbaa !38
-  call void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %rem57, i1 noundef zeroext true) #14
+  call void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr noundef %56, ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %rem57, i1 noundef zeroext true) #13
   br label %sw.epilog151
 
 sw.epilog151:                                     ; preds = %sw.bb143, %sw.bb135, %sw.bb127, %sw.bb119, %sw.bb111, %sw.bb103, %if.end96
@@ -981,7 +963,7 @@ sw.epilog151:                                     ; preds = %sw.bb143, %sw.bb135
   br i1 %isnull152, label %delete.end154, label %delete.notnull153
 
 delete.notnull153:                                ; preds = %sw.epilog151
-  call void @_ZdaPv(ptr noundef nonnull %paletteData.0) #15
+  call void @_ZdaPv(ptr noundef nonnull %paletteData.0) #14
   br label %delete.end154
 
 delete.end154:                                    ; preds = %delete.notnull153, %sw.epilog151
@@ -990,7 +972,7 @@ delete.end154:                                    ; preds = %delete.notnull153, 
   br i1 %isnull155, label %delete.end157, label %delete.notnull156
 
 delete.notnull156:                                ; preds = %delete.end154
-  call void @_ZdaPv(ptr noundef nonnull %60) #15
+  call void @_ZdaPv(ptr noundef nonnull %60) #14
   br label %delete.end157
 
 delete.end157:                                    ; preds = %delete.notnull156, %delete.end154
@@ -1033,7 +1015,7 @@ declare void @_ZN3irr5video15CColorConverter19convert32BitTo32BitEPKiPiiiib(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define noalias noundef nonnull ptr @_ZN3irr5video20createImageLoaderBMPEv() local_unnamed_addr #2 {
 entry:
-  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #16
+  %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !6
@@ -1049,28 +1031,28 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video12IImageLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video12IImageLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZTv0_n24_N3irr5video12IImageLoaderD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #16
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZTv0_n24_N3irr5video12IImageLoaderD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #16
   unreachable
 }
 
@@ -1083,7 +1065,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video15CImageLoaderBMPD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -1100,7 +1082,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
   ret void
 }
 
@@ -1110,7 +1092,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN3irr4core15isFileExtensionERKNS0_6stringIcEES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %ext0, ptr noundef nonnull align 8 dereferenceable(32) %ext1, ptr noundef nonnull align 8 dereferenceable(32) %ext2) local_unnamed_addr #7 comdat {
 entry:
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 46, i64 noundef -1) #14
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 46, i64 noundef -1) #13
   %conv.i4.i = trunc i64 %call2.i to i32
   %cmp = icmp slt i32 %conv.i4.i, 0
   br i1 %cmp, label %cleanup, label %if.end
@@ -1285,17 +1267,14 @@ declare void @llvm.trap() #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1308,13 +1287,12 @@ attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind }
-attributes #16 = { builtin nounwind allocsize(0) }
-attributes #17 = { noreturn nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
+attributes #15 = { builtin nounwind allocsize(0) }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

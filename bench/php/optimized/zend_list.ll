@@ -675,44 +675,40 @@ define dso_local i32 @zend_fetch_list_dtor_id(ptr noundef readonly captures(none
   %4 = zext i32 %3 to i64
   %.idx = shl nuw nsw i64 %4, 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 8), align 8, !tbaa !13
-  %7 = and i32 %6, 4
-  %8 = icmp ne i32 %7, 0
-  tail call void @llvm.assume(i1 %8)
   %.not20 = icmp eq i32 %3, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %22
-  %.01621 = phi ptr [ %23, %22 ], [ %2, %1 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.01621, i64 8
-  %10 = load i8, ptr %9, align 8, !tbaa !13
-  %11 = icmp eq i8 %10, 0
-  br i1 %11, label %22, label %12, !prof !62
+.lr.ph:                                           ; preds = %1, %19
+  %.01621 = phi ptr [ %20, %19 ], [ %2, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01621, i64 8
+  %7 = load i8, ptr %6, align 8, !tbaa !13
+  %8 = icmp eq i8 %7, 0
+  br i1 %8, label %19, label %9, !prof !62
 
-12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr %.01621, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %.not19 = icmp eq ptr %15, null
-  br i1 %.not19, label %22, label %16
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %.01621, align 8, !tbaa !13
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !61
+  %.not19 = icmp eq ptr %12, null
+  br i1 %.not19, label %19, label %13
 
-16:                                               ; preds = %12
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #16
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %22
+13:                                               ; preds = %9
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %12) #16
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %19
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !60
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %18 = load i32, ptr %17, align 4, !tbaa !60
   br label %.loopexit
 
-22:                                               ; preds = %12, %16, %.lr.ph
-  %23 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
-  %.not = icmp eq ptr %23, %5
+19:                                               ; preds = %9, %13, %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
+  %.not = icmp eq ptr %20, %5
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %22, %1, %19
-  %spec.select = phi i32 [ %21, %19 ], [ 0, %1 ], [ 0, %22 ]
+.loopexit:                                        ; preds = %19, %1, %16
+  %spec.select = phi i32 [ %18, %16 ], [ 0, %1 ], [ 0, %19 ]
   ret i32 %spec.select
 }
 

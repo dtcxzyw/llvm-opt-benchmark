@@ -208,10 +208,7 @@ define hidden { ptr, i64 } @_ZN3std4path7PathBuf15into_boxed_path17h2cab78752db2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %3 = call { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17hca300b0c192dab1dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-  %4 = extractvalue { ptr, i64 } %3, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %5 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %5)
   ret { ptr, i64 } %3
 }
 
@@ -554,10 +551,7 @@ define hidden { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17he2293a27224
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, i64 24, i1 false)
   %3 = call { ptr, i64 } @_ZN3std3ffi6os_str8OsString17into_boxed_os_str17hca300b0c192dab1dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2), !noalias !70
-  %4 = extractvalue { ptr, i64 } %3, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !70
-  %5 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %5)
   ret { ptr, i64 } %3
 }
 
@@ -4206,7 +4200,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = icmp ugt i64 %10, %12
   %14 = select i1 %11, i1 true, i1 %13
-  br i1 %14, label %27, label %_ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i
+  br i1 %14, label %25, label %_ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i: ; preds = %4
   %15 = icmp eq i64 %10, 0
@@ -4220,20 +4214,16 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i: ; preds = %4
   %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !879
   %20 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %10, i64 noundef range(i64 1, -9223372036854775807) %1) #29, !noalias !879
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %27, label %22
+  br i1 %21, label %25, label %22
 
 22:                                               ; preds = %18, %16
   %.sroa.4.0.ph = phi i64 [ 0, %16 ], [ %0, %18 ]
   %.sroa.10.0.ph = phi ptr [ %17, %16 ], [ %20, %18 ]
-  %23 = icmp eq i64 %2, 0
-  %24 = icmp ule i64 %0, %.sroa.4.0.ph
-  %.sroa.03.0 = or i1 %23, %24
-  tail call void @llvm.assume(i1 %.sroa.03.0)
-  %25 = insertvalue { i64, ptr } poison, i64 %.sroa.4.0.ph, 0
-  %26 = insertvalue { i64, ptr } %25, ptr %.sroa.10.0.ph, 1
-  ret { i64, ptr } %26
+  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.4.0.ph, 0
+  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.10.0.ph, 1
+  ret { i64, ptr } %24
 
-27:                                               ; preds = %4, %18
+25:                                               ; preds = %4, %18
   %.sroa.4.0 = phi i64 [ 0, %4 ], [ %1, %18 ]
   %.sroa.10.0 = phi i64 [ undef, %4 ], [ %10, %18 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %.sroa.4.0, i64 %.sroa.10.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #33

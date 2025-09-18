@@ -61,17 +61,17 @@ define dso_local zeroext i1 @PGSharedMemoryIsInUse(i64 noundef %0, i64 noundef %
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i32 @shmdt(ptr noundef nonnull %6) #11
+  %8 = tail call i32 @shmdt(ptr noundef nonnull %6) #10
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %11 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.PGSharedMemoryIsInUse) #11
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %6) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.PGSharedMemoryIsInUse) #10
   br label %14
 
 14:                                               ; preds = %10, %12, %7, %2
@@ -87,12 +87,12 @@ define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0,
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %1, align 8
-  %5 = call i32 @shmctl(i32 noundef %0, i32 noundef 2, ptr noundef nonnull %3) #11
+  %5 = call i32 @shmctl(i32 noundef %0, i32 noundef 2, ptr noundef nonnull %3) #10
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %11 [
     i32 22, label %40
@@ -108,17 +108,17 @@ define internal fastcc range(i32 0, 5) i32 @PGSharedMemoryAttach(i32 noundef %0,
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr @DataDir, align 8
-  %14 = call i32 @stat(ptr noundef %13, ptr noundef nonnull %4) #11
+  %14 = call i32 @stat(ptr noundef %13, ptr noundef nonnull %4) #10
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %40, label %16
 
 16:                                               ; preds = %12
-  %17 = call ptr @shmat(i32 noundef %0, ptr noundef null, i32 noundef 0) #11
+  %17 = call ptr @shmat(i32 noundef %0, ptr noundef null, i32 noundef 0) #10
   %18 = icmp eq ptr %17, inttoptr (i64 -1 to ptr)
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #12
+  %20 = tail call ptr @__errno_location() #11
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %23 [
     i32 22, label %40
@@ -184,7 +184,7 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly captures(address_is
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
-  %6 = tail call ptr @AllocateFile(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #11
+  %6 = tail call ptr @AllocateFile(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -197,11 +197,11 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly captures(address_is
   br i1 %.not22, label %.loopexit.thread, label %9
 
 .loopexit.thread:                                 ; preds = %.preheader
-  %8 = call i32 @FreeFile(ptr noundef nonnull %6) #11
+  %8 = call i32 @FreeFile(ptr noundef nonnull %6) #10
   br label %.sink.split
 
 9:                                                ; preds = %.preheader
-  %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %11 = icmp eq i32 %10, 2
   %12 = load i8, ptr %5, align 1
   %13 = icmp eq i8 %12, 107
@@ -213,7 +213,7 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly captures(address_is
   %.fr = freeze i32 %14
   %15 = zext i32 %.fr to i64
   %16 = shl nuw nsw i64 %15, 10
-  %17 = call i32 @FreeFile(ptr noundef nonnull %6) #11
+  %17 = call i32 @FreeFile(ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -293,17 +293,16 @@ define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef w
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = load ptr, ptr @DataDir, align 8
-  %9 = call i32 @stat(ptr noundef %8, ptr noundef nonnull %6) #11
+  %9 = call i32 @stat(ptr noundef %8, ptr noundef nonnull %6) #10
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %2
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode_for_file_access() #11
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %13 = tail call i32 @errcode_for_file_access() #10
   %14 = load ptr, ptr @DataDir, align 8
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %14) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 718, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #11
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %14) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 718, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #10
   unreachable
 
 16:                                               ; preds = %2
@@ -315,11 +314,10 @@ define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef w
   br i1 %or.cond, label %21, label %25
 
 21:                                               ; preds = %16
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 1088) #11
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 732, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #11
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %23 = tail call i32 @errcode(i32 noundef 1088) #10
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 732, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #10
   unreachable
 
 25:                                               ; preds = %16
@@ -343,8 +341,8 @@ define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef w
   %.125.i = add i64 %33, %0
   %34 = load i32, ptr %5, align 4
   %35 = or i32 %34, 33
-  %36 = call ptr @mmap(ptr noundef null, i64 noundef %.125.i, i32 noundef 3, i32 noundef %35, i32 noundef -1, i64 noundef 0) #11
-  %37 = tail call ptr @__errno_location() #12
+  %36 = call ptr @mmap(ptr noundef null, i64 noundef %.125.i, i32 noundef 3, i32 noundef %35, i32 noundef -1, i64 noundef 0) #10
+  %37 = tail call ptr @__errno_location() #11
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr @huge_pages, align 4
   %40 = icmp eq i32 %39, 2
@@ -353,12 +351,12 @@ define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef w
   br i1 %or.cond3.i, label %42, label %46
 
 42:                                               ; preds = %29
-  %43 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
+  %43 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i64 noundef %.125.i) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.CreateAnonymousSegment) #11
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i64 noundef %.125.i) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.CreateAnonymousSegment) #10
   br label %46
 
 46:                                               ; preds = %44, %42, %29
@@ -372,15 +370,15 @@ define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef w
   %.0.i = phi i32 [ %38, %46 ], [ 0, %27 ]
   %48 = icmp eq ptr %.022.i, inttoptr (i64 -1 to ptr)
   %49 = select i1 %48, ptr @.str.8, ptr @.str.14
-  call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 1) #11
+  call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull %49, i32 noundef 0, i32 noundef 1) #10
   %50 = load i32, ptr @huge_pages, align 4
   %51 = icmp ne i32 %50, 1
   %or.cond5.i = select i1 %48, i1 %51, i1 false
   br i1 %or.cond5.i, label %52, label %56
 
 52:                                               ; preds = %47
-  %53 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #11
-  %54 = tail call ptr @__errno_location() #12
+  %53 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #10
+  %54 = tail call ptr @__errno_location() #11
   %55 = load i32, ptr %54, align 4
   br label %56
 
@@ -392,30 +390,29 @@ define dso_local nonnull ptr @PGSharedMemoryCreate(i64 noundef %0, ptr noundef w
   br i1 %57, label %58, label %CreateAnonymousSegment.exit
 
 58:                                               ; preds = %56
-  %59 = tail call ptr @__errno_location() #12
+  %59 = tail call ptr @__errno_location() #11
   store i32 %.1.i, ptr %59, align 4
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #11
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #10
   %62 = icmp eq i32 %.1.i, 12
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %58
-  %64 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16, i64 noundef %.2.i) #11
+  %64 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16, i64 noundef %.2.i) #10
   br label %65
 
 65:                                               ; preds = %63, %58
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 663, ptr noundef nonnull @__func__.CreateAnonymousSegment) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 663, ptr noundef nonnull @__func__.CreateAnonymousSegment) #10
   unreachable
 
 CreateAnonymousSegment.exit:                      ; preds = %56
   store ptr %.123.i, ptr @AnonymousShmem, align 8
   store i64 %.2.i, ptr @AnonymousShmemSize, align 8
-  call void @on_shmem_exit(ptr noundef nonnull @AnonymousShmemDetach, i64 noundef 0) #11
+  call void @on_shmem_exit(ptr noundef nonnull @AnonymousShmemDetach, i64 noundef 0) #10
   br label %67
 
 66:                                               ; preds = %25
-  tail call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 0, i32 noundef 1) #11
+  tail call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 0, i32 noundef 1) #10
   br label %67
 
 67:                                               ; preds = %66, %CreateAnonymousSegment.exit
@@ -429,12 +426,12 @@ CreateAnonymousSegment.exit:                      ; preds = %56
 71:                                               ; preds = %148, %67
   %.033 = phi i32 [ %70, %67 ], [ %.2, %148 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %72 = call i32 @shmget(i32 noundef %.033, i64 noundef %.032, i32 noundef 1920) #11
+  %72 = call i32 @shmget(i32 noundef %.033, i64 noundef %.032, i32 noundef 1920) #10
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %101
 
 74:                                               ; preds = %71
-  %75 = tail call ptr @__errno_location() #12
+  %75 = tail call ptr @__errno_location() #11
   %76 = load i32, ptr %75, align 4
   switch i32 %76, label %93 [
     i32 43, label %InternalIpcMemoryCreate.exit.thread
@@ -444,7 +441,7 @@ CreateAnonymousSegment.exit:                      ; preds = %56
   ]
 
 77:                                               ; preds = %74
-  %78 = call i32 @shmget(i32 noundef %.033, i64 noundef 0, i32 noundef 1920) #11
+  %78 = call i32 @shmget(i32 noundef %.033, i64 noundef 0, i32 noundef 1920) #10
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %82
 
@@ -457,34 +454,32 @@ CreateAnonymousSegment.exit:                      ; preds = %56
   ]
 
 82:                                               ; preds = %77
-  %83 = call i32 @shmctl(i32 noundef %78, i32 noundef 0, ptr noundef null) #11
+  %83 = call i32 @shmctl(i32 noundef %78, i32 noundef 0, ptr noundef null) #10
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %.thread.i
 
 85:                                               ; preds = %82
-  %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %86 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %86, label %87, label %.thread.i
 
 87:                                               ; preds = %85
-  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %78, i32 noundef 0) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.InternalIpcMemoryCreate) #11
+  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %78, i32 noundef 0) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.InternalIpcMemoryCreate) #10
   br label %.thread.i
 
 .thread.i:                                        ; preds = %80, %87, %85, %82
   store i32 22, ptr %75, align 4
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  call void @llvm.assume(i1 %89)
-  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #11
+  %89 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #10
   %91 = sext i32 %.033 to i64
-  %92 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %91, i64 noundef %.032, i32 noundef 1920) #11
+  %92 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %91, i64 noundef %.032, i32 noundef 1920) #10
   br label %.sink.split.i
 
 93:                                               ; preds = %74
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  call void @llvm.assume(i1 %94)
-  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #11
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %95 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #10
   %96 = sext i32 %.033 to i64
-  %97 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %96, i64 noundef %.032, i32 noundef 1920) #11
+  %97 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.19, i64 noundef %96, i64 noundef %.032, i32 noundef 1920) #10
   switch i32 %76, label %100 [
     i32 12, label %.sink.split.i
     i32 28, label %98
@@ -495,40 +490,39 @@ CreateAnonymousSegment.exit:                      ; preds = %56
 
 .sink.split.i:                                    ; preds = %98, %93, %.thread.i
   %.str.20.sink.i = phi ptr [ @.str.20, %.thread.i ], [ @.str.22, %98 ], [ @.str.21, %93 ]
-  %99 = call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.20.sink.i) #11
+  %99 = call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.20.sink.i) #10
   br label %100
 
 100:                                              ; preds = %.sink.split.i, %93
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.InternalIpcMemoryCreate) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.InternalIpcMemoryCreate) #10
   unreachable
 
 101:                                              ; preds = %71
   %102 = zext nneg i32 %72 to i64
-  call void @on_shmem_exit(ptr noundef nonnull @IpcMemoryDelete, i64 noundef %102) #11
-  %103 = call ptr @shmat(i32 noundef %72, ptr noundef null, i32 noundef 0) #11
+  call void @on_shmem_exit(ptr noundef nonnull @IpcMemoryDelete, i64 noundef %102) #10
+  %103 = call ptr @shmat(i32 noundef %72, ptr noundef null, i32 noundef 0) #10
   %104 = icmp eq ptr %103, inttoptr (i64 -1 to ptr)
   br i1 %104, label %105, label %InternalIpcMemoryCreate.exit
 
 105:                                              ; preds = %101
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  call void @llvm.assume(i1 %106)
-  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %72, ptr noundef null, i32 noundef 0) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.InternalIpcMemoryCreate) #11
+  %106 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %72, ptr noundef null, i32 noundef 0) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.InternalIpcMemoryCreate) #10
   unreachable
 
 InternalIpcMemoryCreate.exit:                     ; preds = %101
   %108 = ptrtoint ptr %103 to i64
-  call void @on_shmem_exit(ptr noundef nonnull @IpcMemoryDetach, i64 noundef %108) #11
+  call void @on_shmem_exit(ptr noundef nonnull @IpcMemoryDetach, i64 noundef %108) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %109 = sext i32 %.033 to i64
-  %110 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.24, i64 noundef %109, i64 noundef %102) #11
-  call void @AddToDataDirLockFile(i32 noundef 7, ptr noundef nonnull %3) #11
+  %110 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.24, i64 noundef %109, i64 noundef %102) #10
+  call void @AddToDataDirLockFile(i32 noundef 7, ptr noundef nonnull %3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %103, null
   br i1 %.not, label %InternalIpcMemoryCreate.exit.thread, label %149
 
 InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, %80, %80, %InternalIpcMemoryCreate.exit
-  %111 = call i32 @shmget(i32 noundef %.033, i64 noundef 56, i32 noundef 0) #11
+  %111 = call i32 @shmget(i32 noundef %.033, i64 noundef 56, i32 noundef 0) #10
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %.thread, label %113
 
@@ -547,26 +541,25 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, 
   ]
 
 115:                                              ; preds = %113, %113
-  %116 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  call void @llvm.assume(i1 %116)
-  %117 = call i32 @errcode(i32 noundef 16777238) #11
+  %116 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
+  %117 = call i32 @errcode(i32 noundef 16777238) #10
   %118 = sext i32 %.033 to i64
   %119 = zext nneg i32 %111 to i64
-  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i64 noundef %118, i64 noundef %119) #11
+  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i64 noundef %118, i64 noundef %119) #10
   %121 = load ptr, ptr @DataDir, align 8
-  %122 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef %121) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 802, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #11
+  %122 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, ptr noundef %121) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 802, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #10
   unreachable
 
 123:                                              ; preds = %113
-  %124 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %124 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %124, label %125, label %139
 
 125:                                              ; preds = %123
   %126 = sext i32 %.033 to i64
   %127 = zext nneg i32 %111 to i64
-  %128 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i64 noundef %126, i64 noundef %127) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #11
+  %128 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i64 noundef %126, i64 noundef %127) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 814, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #10
   br label %139
 
 129:                                              ; preds = %.thread, %113
@@ -581,11 +574,11 @@ InternalIpcMemoryCreate.exit.thread:              ; preds = %74, %74, %74, %80, 
   br i1 %.not38, label %136, label %135
 
 135:                                              ; preds = %131
-  call void @dsm_cleanup_using_control_segment(i32 noundef %134) #11
+  call void @dsm_cleanup_using_control_segment(i32 noundef %134) #10
   br label %136
 
 136:                                              ; preds = %135, %131
-  %137 = call i32 @shmctl(i32 noundef %111, i32 noundef 0, ptr noundef null) #11
+  %137 = call i32 @shmctl(i32 noundef %111, i32 noundef 0, ptr noundef null) #10
   %138 = lshr i32 %137, 31
   %spec.select = add i32 %138, %.033
   br label %139
@@ -600,17 +593,17 @@ default.unreachable114:                           ; preds = %113
   br i1 %.not39, label %148, label %141
 
 141:                                              ; preds = %139
-  %142 = call i32 @shmdt(ptr noundef nonnull %140) #11
+  %142 = call i32 @shmdt(ptr noundef nonnull %140) #10
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %144, label %148
 
 144:                                              ; preds = %141
-  %145 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %145 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
-  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %140) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 839, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #11
+  %147 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef nonnull %140) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 839, ptr noundef nonnull @__func__.PGSharedMemoryCreate) #10
   br label %148
 
 148:                                              ; preds = %139, %141, %146, %144
@@ -619,7 +612,7 @@ default.unreachable114:                           ; preds = %113
 
 149:                                              ; preds = %InternalIpcMemoryCreate.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %150 = call i32 @getpid() #11
+  %150 = call i32 @getpid() #10
   %151 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 %150, ptr %151, align 4
   store i32 679834894, ptr %103, align 8
@@ -670,19 +663,19 @@ define internal void @AnonymousShmemDetach(i32 %0, i64 %1) #0 {
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @AnonymousShmemSize, align 8
-  %6 = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef %5) #11
+  %6 = tail call i32 @munmap(ptr noundef nonnull %3, i64 noundef %5) #10
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %4
-  %9 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %9 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @AnonymousShmem, align 8
   %12 = load i64, ptr @AnonymousShmemSize, align 8
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %11, i64 noundef %12) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 682, ptr noundef nonnull @__func__.AnonymousShmemDetach) #11
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %11, i64 noundef %12) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 682, ptr noundef nonnull @__func__.AnonymousShmemDetach) #10
   br label %14
 
 14:                                               ; preds = %10, %8, %4
@@ -718,18 +711,18 @@ define dso_local void @PGSharedMemoryDetach() local_unnamed_addr #0 {
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call i32 @shmdt(ptr noundef nonnull %1) #11
+  %3 = tail call i32 @shmdt(ptr noundef nonnull %1) #10
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %6 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @UsedShmemSegAddr, align 8
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 980, ptr noundef nonnull @__func__.PGSharedMemoryDetach) #11
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 980, ptr noundef nonnull @__func__.PGSharedMemoryDetach) #10
   br label %10
 
 10:                                               ; preds = %7, %5, %2
@@ -743,19 +736,19 @@ define dso_local void @PGSharedMemoryDetach() local_unnamed_addr #0 {
 
 13:                                               ; preds = %11
   %14 = load i64, ptr @AnonymousShmemSize, align 8
-  %15 = tail call i32 @munmap(ptr noundef nonnull %12, i64 noundef %14) #11
+  %15 = tail call i32 @munmap(ptr noundef nonnull %12, i64 noundef %14) #10
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %18 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @AnonymousShmem, align 8
   %21 = load i64, ptr @AnonymousShmemSize, align 8
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %20, i64 noundef %21) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 988, ptr noundef nonnull @__func__.PGSharedMemoryDetach) #11
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %20, i64 noundef %21) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 988, ptr noundef nonnull @__func__.PGSharedMemoryDetach) #10
   br label %23
 
 23:                                               ; preds = %19, %17, %13
@@ -786,17 +779,17 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal void @IpcMemoryDelete(i32 %0, i64 noundef %1) #0 {
   %3 = trunc i64 %1 to i32
-  %4 = tail call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #11
+  %4 = tail call i32 @shmctl(i32 noundef %3, i32 noundef 0, ptr noundef null) #10
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %3, i32 noundef 0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 302, ptr noundef nonnull @__func__.IpcMemoryDelete) #11
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %3, i32 noundef 0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 302, ptr noundef nonnull @__func__.IpcMemoryDelete) #10
   br label %10
 
 10:                                               ; preds = %8, %6, %2
@@ -806,17 +799,17 @@ define internal void @IpcMemoryDelete(i32 %0, i64 noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @IpcMemoryDetach(i32 %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
-  %4 = tail call i32 @shmdt(ptr noundef %3) #11
+  %4 = tail call i32 @shmdt(ptr noundef %3) #10
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @__func__.IpcMemoryDetach) #11
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 290, ptr noundef nonnull @__func__.IpcMemoryDetach) #10
   br label %10
 
 10:                                               ; preds = %8, %6, %2
@@ -833,9 +826,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -846,10 +836,9 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { cold nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -2670,9 +2670,6 @@ define { ptr, i64 } @_ZN20ruff_python_semantic10definition6Member4name17h3232e55
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !align !8, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
-  %.sroa.0.0 = extractvalue { ptr, i64 } %5, 0
-  %6 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %6)
   ret { ptr, i64 } %5
 }
 
@@ -2745,7 +2742,7 @@ define noundef zeroext i1 @_ZN20ruff_python_semantic10definition10Definition9is_
 define { ptr, i64 } @_ZN20ruff_python_semantic10definition10Definition4name17hea5d7c22feaf7b98E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !307, !noundef !7
   %3 = icmp eq i64 %2, 2
-  br i1 %3, label %4, label %10
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
@@ -2753,22 +2750,19 @@ define { ptr, i64 } @_ZN20ruff_python_semantic10definition10Definition4name17hea
   %6 = load ptr, ptr %5, align 8, !alias.scope !308, !nonnull !7, !align !8, !noundef !7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7), !noalias !308
-  %.sroa.0.0.i = extractvalue { ptr, i64 } %8, 0
-  %9 = icmp ne ptr %.sroa.0.0.i, null
-  tail call void @llvm.assume(i1 %9)
-  br label %17
+  br label %16
 
-10:                                               ; preds = %1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !alias.scope !311, !align !9, !noundef !7
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load i64, ptr %13, align 8, !alias.scope !311
-  %15 = insertvalue { ptr, i64 } poison, ptr %12, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %14, 1
-  br label %17
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = load ptr, ptr %10, align 8, !alias.scope !311, !align !9, !noundef !7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = load i64, ptr %12, align 8, !alias.scope !311
+  %14 = insertvalue { ptr, i64 } poison, ptr %11, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %13, 1
+  br label %16
 
-17:                                               ; preds = %10, %4
-  %.pn = phi { ptr, i64 } [ %8, %4 ], [ %16, %10 ]
+16:                                               ; preds = %9, %4
+  %.pn = phi { ptr, i64 } [ %8, %4 ], [ %15, %9 ]
   ret { ptr, i64 } %.pn
 }
 

@@ -90,12 +90,11 @@ define dso_local void @populate_compact_attribute(ptr noundef captures(none) %0,
 
 43:                                               ; preds = %2
   store i8 0, ptr %39, align 4
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %44)
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %45 = load i8, ptr %37, align 1
   %46 = sext i8 %45 to i32
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %46) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__func__.populate_compact_attribute_internal) #11
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %46) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__func__.populate_compact_attribute_internal) #10
   unreachable
 
 populate_compact_attribute_internal.exit:         ; preds = %2, %40, %41, %42
@@ -114,7 +113,7 @@ define dso_local noundef ptr @CreateTemplateTupleDesc(i32 noundef %0) local_unna
   %2 = sext i32 %0 to i64
   %reass.mul = mul nsw i64 %2, 116
   %3 = add nsw i64 %reass.mul, 24
-  %4 = tail call ptr @palloc(i64 noundef %3) #11
+  %4 = tail call ptr @palloc(i64 noundef %3) #10
   store i32 %0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %5, align 8
@@ -134,7 +133,7 @@ define dso_local noundef ptr @CreateTupleDesc(i32 noundef %0, ptr noundef readon
   %3 = sext i32 %0 to i64
   %reass.mul.i = mul nsw i64 %3, 116
   %4 = add nsw i64 %reass.mul.i, 24
-  %5 = tail call ptr @palloc(i64 noundef %4) #11
+  %5 = tail call ptr @palloc(i64 noundef %4) #10
   store i32 %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %6, align 8
@@ -181,7 +180,7 @@ define dso_local noundef ptr @CreateTupleDescCopy(ptr noundef readonly captures(
   %3 = sext i32 %2 to i64
   %reass.mul.i = mul nsw i64 %3, 116
   %4 = add nsw i64 %reass.mul.i, 24
-  %5 = tail call ptr @palloc(i64 noundef %4) #11
+  %5 = tail call ptr @palloc(i64 noundef %4) #10
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %6, align 8
@@ -237,7 +236,7 @@ define dso_local noundef ptr @CreateTupleDescTruncatedCopy(ptr noundef readonly 
   %3 = sext i32 %1 to i64
   %reass.mul.i = mul nsw i64 %3, 116
   %4 = add nsw i64 %reass.mul.i, 24
-  %5 = tail call ptr @palloc(i64 noundef %4) #11
+  %5 = tail call ptr @palloc(i64 noundef %4) #10
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %6, align 8
@@ -296,7 +295,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %5 = sext i32 %4 to i64
   %reass.mul.i = mul nsw i64 %5, 116
   %6 = add nsw i64 %reass.mul.i, 24
-  %7 = tail call ptr @palloc(i64 noundef %6) #11
+  %7 = tail call ptr @palloc(i64 noundef %6) #10
   store i32 %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %8, align 8
@@ -333,7 +332,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   br i1 %.not, label %147, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = tail call ptr @palloc0(i64 noundef 32) #11
+  %27 = tail call ptr @palloc0(i64 noundef 32) #10
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %29 = load i8, ptr %28, align 4, !range !4, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 28
@@ -356,7 +355,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
 40:                                               ; preds = %26
   %41 = zext i16 %38 to i64
   %42 = shl nuw nsw i64 %41, 4
-  %43 = tail call ptr @palloc(i64 noundef %42) #11
+  %43 = tail call ptr @palloc(i64 noundef %42) #10
   store ptr %43, ptr %27, align 8
   %44 = load ptr, ptr %3, align 8
   %45 = load i16, ptr %39, align 8
@@ -378,7 +377,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %51 = getelementptr inbounds nuw %struct.AttrDefault, ptr %50, i64 %indvars.iv.next
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @pstrdup(ptr noundef %53) #11
+  %54 = tail call ptr @pstrdup(ptr noundef %53) #10
   %55 = load ptr, ptr %27, align 8
   %56 = getelementptr inbounds nuw %struct.AttrDefault, ptr %55, i64 %indvars.iv.next
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -396,7 +395,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %62 = load i32, ptr %0, align 8
   %63 = sext i32 %62 to i64
   %64 = shl nsw i64 %63, 4
-  %65 = tail call ptr @palloc(i64 noundef %64) #11
+  %65 = tail call ptr @palloc(i64 noundef %64) #10
   %66 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %65, ptr %66, align 8
   %67 = load ptr, ptr %59, align 8
@@ -432,7 +431,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %88 = load i16, ptr %87, align 4
   %89 = sext i16 %88 to i32
-  %90 = tail call i64 @datumCopy(i64 noundef %83, i1 noundef zeroext %86, i32 noundef %89) #11
+  %90 = tail call i64 @datumCopy(i64 noundef %83, i1 noundef zeroext %86, i32 noundef %89) #10
   %91 = load ptr, ptr %66, align 8
   %92 = getelementptr inbounds nuw %struct.AttrMissing, ptr %91, i64 %indvars.iv106
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -455,7 +454,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
 99:                                               ; preds = %.loopexit90
   %100 = zext i16 %97 to i64
   %101 = mul nuw nsw i64 %100, 24
-  %102 = tail call ptr @palloc(i64 noundef %101) #11
+  %102 = tail call ptr @palloc(i64 noundef %101) #10
   %103 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %102, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -478,7 +477,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %111 = load ptr, ptr %104, align 8
   %112 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %111, i64 %indvars.iv.next110
   %113 = load ptr, ptr %112, align 8
-  %114 = tail call ptr @pstrdup(ptr noundef %113) #11
+  %114 = tail call ptr @pstrdup(ptr noundef %113) #10
   %115 = load ptr, ptr %103, align 8
   %116 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %115, i64 %indvars.iv.next110
   store ptr %114, ptr %116, align 8
@@ -486,7 +485,7 @@ define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly cap
   %118 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %117, i64 %indvars.iv.next110
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = tail call ptr @pstrdup(ptr noundef %120) #11
+  %121 = tail call ptr @pstrdup(ptr noundef %120) #10
   %122 = load ptr, ptr %103, align 8
   %123 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %122, i64 %indvars.iv.next110
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -625,12 +624,12 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw %struct.AttrDefault, ptr %8, i64 %indvars.iv.next
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  tail call void @pfree(ptr noundef %13) #11
+  tail call void @pfree(ptr noundef %13) #10
   %14 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %14, label %10, label %15, !llvm.loop !15
 
 15:                                               ; preds = %10
-  tail call void @pfree(ptr noundef nonnull %8) #11
+  tail call void @pfree(ptr noundef nonnull %8) #10
   %.pre = load ptr, ptr %2, align 8
   br label %16
 
@@ -673,7 +672,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %38 = load i64, ptr %37, align 8
   %39 = inttoptr i64 %38 to ptr
-  tail call void @pfree(ptr noundef %39) #11
+  tail call void @pfree(ptr noundef %39) #10
   br label %40
 
 40:                                               ; preds = %.lr.ph, %27, %36
@@ -682,7 +681,7 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %40, %20
-  tail call void @pfree(ptr noundef nonnull %19) #11
+  tail call void @pfree(ptr noundef nonnull %19) #10
   %.pre50 = load ptr, ptr %2, align 8
   br label %42
 
@@ -704,25 +703,25 @@ define dso_local void @FreeTupleDesc(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
   %51 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %48, i64 %indvars.iv.next48
   %52 = load ptr, ptr %51, align 8
-  tail call void @pfree(ptr noundef %52) #11
+  tail call void @pfree(ptr noundef %52) #10
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load ptr, ptr %53, align 8
-  tail call void @pfree(ptr noundef %54) #11
+  tail call void @pfree(ptr noundef %54) #10
   %55 = icmp samesign ugt i64 %indvars.iv47, 1
   br i1 %55, label %50, label %56, !llvm.loop !17
 
 56:                                               ; preds = %50
-  tail call void @pfree(ptr noundef nonnull %48) #11
+  tail call void @pfree(ptr noundef nonnull %48) #10
   %.pre51 = load ptr, ptr %2, align 8
   br label %57
 
 57:                                               ; preds = %56, %42
   %58 = phi ptr [ %.pre51, %56 ], [ %43, %42 ]
-  tail call void @pfree(ptr noundef %58) #11
+  tail call void @pfree(ptr noundef %58) #10
   br label %59
 
 59:                                               ; preds = %57, %1
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -731,14 +730,14 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @IncrTupleDescRefCount(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #11
+  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr %3, align 4
   %6 = load ptr, ptr @CurrentResourceOwner, align 8
   %7 = ptrtoint ptr %0 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %6, i64 noundef %7, ptr noundef nonnull @tupdesc_resowner_desc) #11
+  tail call void @ResourceOwnerRemember(ptr noundef %6, i64 noundef %7, ptr noundef nonnull @tupdesc_resowner_desc) #10
   ret void
 }
 
@@ -748,7 +747,7 @@ declare void @ResourceOwnerEnlarge(ptr noundef) local_unnamed_addr #2
 define dso_local void @DecrTupleDescRefCount(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
   %3 = ptrtoint ptr %0 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @tupdesc_resowner_desc) #11
+  tail call void @ResourceOwnerForget(ptr noundef %2, i64 noundef %3, ptr noundef nonnull @tupdesc_resowner_desc) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, -1
@@ -805,7 +804,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %22 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %18, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %24) #12
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %24) #11
   %.not148 = icmp eq i32 %25, 0
   br i1 %.not148, label %26, label %.critedge
 
@@ -1010,7 +1009,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %143 = load ptr, ptr %142, align 8
-  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %143) #12
+  %144 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %141, ptr noundef nonnull dereferenceable(1) %143) #11
   %.not147 = icmp eq i32 %144, 0
   br i1 %.not147, label %133, label %.critedge
 
@@ -1061,7 +1060,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %170 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %171 = load i16, ptr %170, align 4
   %172 = sext i16 %171 to i32
-  %173 = tail call zeroext i1 @datumIsEqual(i64 noundef %164, i64 noundef %166, i1 noundef zeroext %169, i32 noundef %172) #11
+  %173 = tail call zeroext i1 @datumIsEqual(i64 noundef %164, i64 noundef %166, i1 noundef zeroext %169, i32 noundef %172) #10
   br i1 %173, label %..critedge169_crit_edge, label %.critedge
 
 ..critedge169_crit_edge:                          ; preds = %161
@@ -1109,7 +1108,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %189 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %185, i64 %indvars.iv201
   %190 = load ptr, ptr %188, align 8
   %191 = load ptr, ptr %189, align 8
-  %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull dereferenceable(1) %191) #12
+  %192 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull dereferenceable(1) %191) #11
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %.critedge
 
@@ -1118,7 +1117,7 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captur
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %198 = load ptr, ptr %197, align 8
-  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %196, ptr noundef nonnull dereferenceable(1) %198) #12
+  %199 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %196, ptr noundef nonnull dereferenceable(1) %198) #11
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %.critedge
 
@@ -1202,7 +1201,7 @@ define dso_local noundef zeroext i1 @equalRowTypes(ptr noundef readonly captures
   %20 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %16, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22) #12
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %22) #11
   %.not27 = icmp eq i32 %23, 0
   br i1 %.not27, label %24, label %.critedge
 
@@ -1246,11 +1245,11 @@ define dso_local noundef zeroext i1 @equalRowTypes(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @hashRowType(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
-  %3 = tail call i32 @hash_bytes_uint32(i32 noundef %2) #11
+  %3 = tail call i32 @hash_bytes_uint32(i32 noundef %2) #10
   %4 = add i32 %3, -1640531527
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = tail call i32 @hash_bytes_uint32(i32 noundef %6) #11
+  %7 = tail call i32 @hash_bytes_uint32(i32 noundef %6) #10
   %8 = add i32 %7, -1640531527
   %9 = shl i32 %4, 6
   %10 = add i32 %8, %9
@@ -1271,7 +1270,7 @@ define dso_local i32 @hashRowType(ptr noundef readonly captures(none) %0) local_
   %20 = getelementptr %struct.FormData_pg_attribute, ptr %19, i64 %indvars.iv
   %21 = getelementptr i8, ptr %20, i64 92
   %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 @hash_bytes_uint32(i32 noundef %22) #11
+  %23 = tail call i32 @hash_bytes_uint32(i32 noundef %22) #10
   %24 = shl i32 %.0910, 6
   %25 = lshr i32 %.0910, 2
   %26 = add i32 %24, -1640531527
@@ -1329,7 +1328,7 @@ define dso_local void @TupleDescInitEntry(ptr noundef %0, i16 noundef signext %1
   br i1 %.not, label %.loopexit, label %27
 
 27:                                               ; preds = %26
-  tail call void @namestrcpy(ptr noundef nonnull %.ptr61, ptr noundef nonnull %2) #11
+  tail call void @namestrcpy(ptr noundef nonnull %.ptr61, ptr noundef nonnull %2) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader.preheader, %25, %26, %27
@@ -1347,15 +1346,14 @@ define dso_local void @TupleDescInitEntry(ptr noundef %0, i16 noundef signext %1
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 94
   store i16 0, ptr %34, align 2
   %35 = zext i32 %3 to i64
-  %36 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %35) #11
+  %36 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %35) #10
   %.not62 = icmp eq ptr %36, null
   br i1 %.not62, label %37, label %40
 
 37:                                               ; preds = %.loopexit
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @__func__.TupleDescInitEntry) #11
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @__func__.TupleDescInitEntry) #10
   unreachable
 
 40:                                               ; preds = %.loopexit
@@ -1390,7 +1388,7 @@ define dso_local void @TupleDescInitEntry(ptr noundef %0, i16 noundef signext %1
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 96
   store i32 %61, ptr %62, align 4
   tail call void @populate_compact_attribute(ptr noundef nonnull %0, i32 noundef %8)
-  tail call void @ReleaseSysCache(ptr noundef nonnull %36) #11
+  tail call void @ReleaseSysCache(ptr noundef nonnull %36) #10
   ret void
 }
 
@@ -1423,7 +1421,7 @@ define dso_local void @TupleDescInitBuiltinEntry(ptr noundef %0, i16 noundef sig
   %15 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %13, i64 %14
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  tail call void @namestrcpy(ptr noundef nonnull %16, ptr noundef %2) #11
+  tail call void @namestrcpy(ptr noundef nonnull %16, ptr noundef %2) #10
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 76
   store i32 %4, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 74
@@ -1458,10 +1456,9 @@ define dso_local void @TupleDescInitBuiltinEntry(ptr noundef %0, i16 noundef sig
   br label %31
 
 28:                                               ; preds = %6
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 972, ptr noundef nonnull @__func__.TupleDescInitBuiltinEntry) #11
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 972, ptr noundef nonnull @__func__.TupleDescInitBuiltinEntry) #10
   unreachable
 
 31:                                               ; preds = %6, %6, %27, %26, %25
@@ -1514,7 +1511,7 @@ list_length.exit:                                 ; preds = %4, %5
   %9 = sext i32 %8 to i64
   %reass.mul.i = mul nsw i64 %9, 116
   %10 = add nsw i64 %reass.mul.i, 24
-  %11 = tail call ptr @palloc(i64 noundef %10) #11
+  %11 = tail call ptr @palloc(i64 noundef %10) #10
   store i32 %8, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %12, align 8
@@ -1665,7 +1662,7 @@ define dso_local ptr @TupleDescGetDefault(ptr noundef readonly captures(none) %0
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @stringToNode(ptr noundef %15) #11
+  %16 = tail call ptr @stringToNode(ptr noundef %15) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %5, %13, %2
@@ -1702,7 +1699,7 @@ define internal ptr @ResOwnerPrintTupleDesc(i64 noundef %0) #0 {
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
-  %7 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %4, i32 noundef %6) #11
+  %7 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, ptr noundef %2, i32 noundef %4, i32 noundef %6) #10
   ret ptr %7
 }
 
@@ -1711,9 +1708,6 @@ declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 declare void @ResourceOwnerForget(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @hash_bytes_uint32(i32 noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1724,10 +1718,9 @@ attributes #5 = { nofree norecurse nounwind memory(argmem: read) uwtable "min-le
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

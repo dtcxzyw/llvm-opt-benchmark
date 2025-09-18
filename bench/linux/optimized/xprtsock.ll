@@ -341,12 +341,12 @@ xs_setup_xprt.exit:                               ; preds = %24, %26, %30, %31
   tail call void @init_timer_key(ptr noundef nonnull %54, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
   %55 = load i16, ptr %3, align 2
   %56 = icmp eq i16 %55, 1
-  br i1 %56, label %57, label %65
+  br i1 %56, label %57, label %64
 
 57:                                               ; preds = %33
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %59 = load i8, ptr %58, align 2
-  switch i8 %59, label %65 [
+  switch i8 %59, label %64 [
     i8 47, label %60
     i8 0, label %60
   ]
@@ -354,44 +354,42 @@ xs_setup_xprt.exit:                               ; preds = %24, %26, %30, %31
 60:                                               ; preds = %57, %57
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 1032
   %62 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %61, i64 4, ptr nonnull elementtype(i64) %61) #12, !srcloc !6
-  %63 = icmp ult i8 %62, 2
-  tail call void @llvm.assume(i1 %63)
   tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %12, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.11)
-  %64 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
-  br i1 %64, label %xs_setup_xprt.exit.thread, label %65
+  %63 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
+  br i1 %63, label %xs_setup_xprt.exit.thread, label %64
 
-65:                                               ; preds = %60, %57, %33
-  %66 = phi ptr [ inttoptr (i64 -22 to ptr), %57 ], [ inttoptr (i64 -97 to ptr), %33 ], [ inttoptr (i64 -22 to ptr), %60 ]
-  %67 = getelementptr inbounds nuw i8, ptr %12, i64 1392
-  br label %68
+64:                                               ; preds = %60, %57, %33
+  %65 = phi ptr [ inttoptr (i64 -22 to ptr), %57 ], [ inttoptr (i64 -97 to ptr), %33 ], [ inttoptr (i64 -22 to ptr), %60 ]
+  %66 = getelementptr inbounds nuw i8, ptr %12, i64 1392
+  br label %67
 
-68:                                               ; preds = %74, %65
-  %69 = phi i64 [ 0, %65 ], [ %75, %74 ]
-  %70 = trunc i64 %69 to i32
-  switch i32 %70, label %71 [
-    i32 2, label %74
-    i32 5, label %74
+67:                                               ; preds = %73, %64
+  %68 = phi i64 [ 0, %64 ], [ %74, %73 ]
+  %69 = trunc i64 %68 to i32
+  switch i32 %69, label %70 [
+    i32 2, label %73
+    i32 5, label %73
   ]
 
-71:                                               ; preds = %68
-  %72 = getelementptr ptr, ptr %67, i64 %69
-  %73 = load ptr, ptr %72, align 8
-  tail call void @kfree(ptr noundef %73) #12
-  br label %74
+70:                                               ; preds = %67
+  %71 = getelementptr ptr, ptr %66, i64 %68
+  %72 = load ptr, ptr %71, align 8
+  tail call void @kfree(ptr noundef %72) #12
+  br label %73
 
-74:                                               ; preds = %71, %68, %68
-  %75 = add nuw nsw i64 %69, 1
-  %76 = icmp eq i64 %75, 6
-  br i1 %76, label %xs_setup_xprt.exit.thread.sink.split, label %68, !llvm.loop !7
+73:                                               ; preds = %70, %67, %67
+  %74 = add nuw nsw i64 %68, 1
+  %75 = icmp eq i64 %74, 6
+  br i1 %75, label %xs_setup_xprt.exit.thread.sink.split, label %67, !llvm.loop !7
 
-xs_setup_xprt.exit.thread.sink.split:             ; preds = %74, %26
-  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %26 ], [ %66, %74 ]
+xs_setup_xprt.exit.thread.sink.split:             ; preds = %73, %26
+  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %26 ], [ %65, %73 ]
   tail call void @xprt_free(ptr noundef %12) #12
   br label %xs_setup_xprt.exit.thread
 
 xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %60, %xs_setup_xprt.exit
-  %77 = phi ptr [ %12, %xs_setup_xprt.exit ], [ %12, %60 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
-  ret ptr %77
+  %76 = phi ptr [ %12, %xs_setup_xprt.exit ], [ %12, %60 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+  ret ptr %76
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1517,8 +1515,6 @@ define internal void @xs_local_rpcbind(ptr noundef readonly captures(none) %0) #
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   %5 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 4, ptr nonnull elementtype(i64) %4) #12, !srcloc !6
-  %6 = icmp ult i8 %5, 2
-  tail call void @llvm.assume(i1 %6)
   ret void
 }
 
@@ -2867,7 +2863,7 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 1584
   tail call void @init_timer_key(ptr noundef nonnull %53, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
   %54 = load i16, ptr %3, align 2
-  switch i16 %54, label %78 [
+  switch i16 %54, label %74 [
     i16 2, label %55
     i16 10, label %62
   ]
@@ -2876,7 +2872,7 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %57 = load i16, ptr %56, align 2
   %58 = icmp eq i16 %57, 0
-  br i1 %58, label %73, label %59
+  br i1 %58, label %69, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 1032
@@ -2887,60 +2883,53 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %64 = load i16, ptr %63, align 2
   %65 = icmp eq i16 %64, 0
-  br i1 %65, label %73, label %66
+  br i1 %65, label %69, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 1032
   %68 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %67, i64 4, ptr nonnull elementtype(i64) %67) #12, !srcloc !6
   br label %69
 
-69:                                               ; preds = %66, %59
-  %70 = phi i8 [ %68, %66 ], [ %61, %59 ]
-  %71 = phi ptr [ @.str.24, %66 ], [ @.str.23, %59 ]
-  %72 = icmp ult i8 %70, 2
-  tail call void @llvm.assume(i1 %72)
-  br label %73
+69:                                               ; preds = %59, %66, %62, %55
+  %70 = phi ptr [ @.str.23, %55 ], [ @.str.24, %62 ], [ @.str.24, %66 ], [ @.str.23, %59 ]
+  tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %11, ptr noundef nonnull @.str.23, ptr noundef nonnull %70)
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 1032
+  %72 = load volatile i64, ptr %71, align 8
+  %73 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
+  br i1 %73, label %xs_setup_xprt.exit.thread, label %74
 
-73:                                               ; preds = %69, %62, %55
-  %74 = phi ptr [ @.str.23, %55 ], [ @.str.24, %62 ], [ %71, %69 ]
-  tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %11, ptr noundef nonnull @.str.23, ptr noundef nonnull %74)
-  %75 = getelementptr inbounds nuw i8, ptr %11, i64 1032
-  %76 = load volatile i64, ptr %75, align 8
-  %77 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
-  br i1 %77, label %xs_setup_xprt.exit.thread, label %78
+74:                                               ; preds = %69, %32
+  %75 = phi ptr [ inttoptr (i64 -97 to ptr), %32 ], [ inttoptr (i64 -22 to ptr), %69 ]
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 1392
+  br label %77
 
-78:                                               ; preds = %73, %32
-  %79 = phi ptr [ inttoptr (i64 -97 to ptr), %32 ], [ inttoptr (i64 -22 to ptr), %73 ]
-  %80 = getelementptr inbounds nuw i8, ptr %11, i64 1392
-  br label %81
-
-81:                                               ; preds = %87, %78
-  %82 = phi i64 [ 0, %78 ], [ %88, %87 ]
-  %83 = trunc i64 %82 to i32
-  switch i32 %83, label %84 [
-    i32 2, label %87
-    i32 5, label %87
+77:                                               ; preds = %83, %74
+  %78 = phi i64 [ 0, %74 ], [ %84, %83 ]
+  %79 = trunc i64 %78 to i32
+  switch i32 %79, label %80 [
+    i32 2, label %83
+    i32 5, label %83
   ]
 
-84:                                               ; preds = %81
-  %85 = getelementptr ptr, ptr %80, i64 %82
-  %86 = load ptr, ptr %85, align 8
-  tail call void @kfree(ptr noundef %86) #12
-  br label %87
+80:                                               ; preds = %77
+  %81 = getelementptr ptr, ptr %76, i64 %78
+  %82 = load ptr, ptr %81, align 8
+  tail call void @kfree(ptr noundef %82) #12
+  br label %83
 
-87:                                               ; preds = %84, %81, %81
-  %88 = add nuw nsw i64 %82, 1
-  %89 = icmp eq i64 %88, 6
-  br i1 %89, label %xs_setup_xprt.exit.thread.sink.split, label %81, !llvm.loop !7
+83:                                               ; preds = %80, %77, %77
+  %84 = add nuw nsw i64 %78, 1
+  %85 = icmp eq i64 %84, 6
+  br i1 %85, label %xs_setup_xprt.exit.thread.sink.split, label %77, !llvm.loop !7
 
-xs_setup_xprt.exit.thread.sink.split:             ; preds = %87, %25
-  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %25 ], [ %79, %87 ]
+xs_setup_xprt.exit.thread.sink.split:             ; preds = %83, %25
+  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %25 ], [ %75, %83 ]
   tail call void @xprt_free(ptr noundef %11) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %73, %xs_setup_xprt.exit
-  %90 = phi ptr [ %11, %xs_setup_xprt.exit ], [ %11, %73 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
-  ret ptr %90
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %69, %xs_setup_xprt.exit
+  %86 = phi ptr [ %11, %xs_setup_xprt.exit ], [ %11, %69 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+  ret ptr %86
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4047,7 +4036,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 1584
   tail call void @init_timer_key(ptr noundef nonnull %74, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
   %75 = load i16, ptr %3, align 2
-  switch i16 %75, label %99 [
+  switch i16 %75, label %95 [
     i16 2, label %76
     i16 10, label %83
   ]
@@ -4056,7 +4045,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, 0
-  br i1 %79, label %94, label %80
+  br i1 %79, label %90, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 1032
@@ -4067,60 +4056,53 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %85 = load i16, ptr %84, align 2
   %86 = icmp eq i16 %85, 0
-  br i1 %86, label %94, label %87
+  br i1 %86, label %90, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %17, i64 1032
   %89 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %88, i64 4, ptr nonnull elementtype(i64) %88) #12, !srcloc !6
   br label %90
 
-90:                                               ; preds = %87, %80
-  %91 = phi i8 [ %89, %87 ], [ %82, %80 ]
-  %92 = phi ptr [ @.str.32, %87 ], [ @.str.31, %80 ]
-  %93 = icmp ult i8 %91, 2
-  tail call void @llvm.assume(i1 %93)
-  br label %94
+90:                                               ; preds = %80, %87, %83, %76
+  %91 = phi ptr [ @.str.31, %76 ], [ @.str.32, %83 ], [ @.str.32, %87 ], [ @.str.31, %80 ]
+  tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %17, ptr noundef nonnull @.str.31, ptr noundef nonnull %91)
+  %92 = getelementptr inbounds nuw i8, ptr %17, i64 1032
+  %93 = load volatile i64, ptr %92, align 8
+  %94 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
+  br i1 %94, label %xs_setup_xprt.exit.thread, label %95
 
-94:                                               ; preds = %90, %83, %76
-  %95 = phi ptr [ @.str.31, %76 ], [ @.str.32, %83 ], [ %92, %90 ]
-  tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %17, ptr noundef nonnull @.str.31, ptr noundef nonnull %95)
-  %96 = getelementptr inbounds nuw i8, ptr %17, i64 1032
-  %97 = load volatile i64, ptr %96, align 8
-  %98 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
-  br i1 %98, label %xs_setup_xprt.exit.thread, label %99
+95:                                               ; preds = %90, %61
+  %96 = phi ptr [ inttoptr (i64 -97 to ptr), %61 ], [ inttoptr (i64 -22 to ptr), %90 ]
+  %97 = getelementptr inbounds nuw i8, ptr %17, i64 1392
+  br label %98
 
-99:                                               ; preds = %94, %61
-  %100 = phi ptr [ inttoptr (i64 -97 to ptr), %61 ], [ inttoptr (i64 -22 to ptr), %94 ]
-  %101 = getelementptr inbounds nuw i8, ptr %17, i64 1392
-  br label %102
-
-102:                                              ; preds = %108, %99
-  %103 = phi i64 [ 0, %99 ], [ %109, %108 ]
-  %104 = trunc i64 %103 to i32
-  switch i32 %104, label %105 [
-    i32 2, label %108
-    i32 5, label %108
+98:                                               ; preds = %104, %95
+  %99 = phi i64 [ 0, %95 ], [ %105, %104 ]
+  %100 = trunc i64 %99 to i32
+  switch i32 %100, label %101 [
+    i32 2, label %104
+    i32 5, label %104
   ]
 
-105:                                              ; preds = %102
-  %106 = getelementptr ptr, ptr %101, i64 %103
-  %107 = load ptr, ptr %106, align 8
-  tail call void @kfree(ptr noundef %107) #12
-  br label %108
+101:                                              ; preds = %98
+  %102 = getelementptr ptr, ptr %97, i64 %99
+  %103 = load ptr, ptr %102, align 8
+  tail call void @kfree(ptr noundef %103) #12
+  br label %104
 
-108:                                              ; preds = %105, %102, %102
-  %109 = add nuw nsw i64 %103, 1
-  %110 = icmp eq i64 %109, 6
-  br i1 %110, label %xs_setup_xprt.exit.thread.sink.split, label %102, !llvm.loop !7
+104:                                              ; preds = %101, %98, %98
+  %105 = add nuw nsw i64 %99, 1
+  %106 = icmp eq i64 %105, 6
+  br i1 %106, label %xs_setup_xprt.exit.thread.sink.split, label %98, !llvm.loop !7
 
-xs_setup_xprt.exit.thread.sink.split:             ; preds = %108, %31
-  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %31 ], [ %100, %108 ]
+xs_setup_xprt.exit.thread.sink.split:             ; preds = %104, %31
+  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %31 ], [ %96, %104 ]
   tail call void @xprt_free(ptr noundef %17) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %94, %xs_setup_xprt.exit
-  %111 = phi ptr [ %17, %xs_setup_xprt.exit ], [ %17, %94 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
-  ret ptr %111
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %90, %xs_setup_xprt.exit
+  %107 = phi ptr [ %17, %xs_setup_xprt.exit ], [ %17, %90 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+  ret ptr %107
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5261,7 +5243,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, -1
   %60 = icmp ult i32 %59, 2
-  br i1 %60, label %61, label %92
+  br i1 %60, label %61, label %88
 
 61:                                               ; preds = %38
   %62 = getelementptr inbounds nuw i8, ptr %17, i64 1088
@@ -5277,7 +5259,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %67 = getelementptr inbounds nuw i8, ptr %17, i64 1584
   tail call void @init_timer_key(ptr noundef nonnull %67, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
   %68 = load i16, ptr %3, align 2
-  switch i16 %68, label %92 [
+  switch i16 %68, label %88 [
     i16 2, label %69
     i16 10, label %76
   ]
@@ -5286,7 +5268,7 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %71, 0
-  br i1 %72, label %87, label %73
+  br i1 %72, label %83, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 1032
@@ -5297,60 +5279,53 @@ xs_setup_xprt.exit:                               ; preds = %29, %31, %35, %36
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, 0
-  br i1 %79, label %87, label %80
+  br i1 %79, label %83, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %17, i64 1032
   %82 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %81, i64 4, ptr nonnull elementtype(i64) %81) #12, !srcloc !6
   br label %83
 
-83:                                               ; preds = %80, %73
-  %84 = phi i8 [ %82, %80 ], [ %75, %73 ]
-  %85 = phi ptr [ @.str.32, %80 ], [ @.str.31, %73 ]
-  %86 = icmp ult i8 %84, 2
-  tail call void @llvm.assume(i1 %86)
-  br label %87
+83:                                               ; preds = %73, %80, %76, %69
+  %84 = phi ptr [ @.str.31, %69 ], [ @.str.32, %76 ], [ @.str.32, %80 ], [ @.str.31, %73 ]
+  tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %17, ptr noundef nonnull @.str.31, ptr noundef nonnull %84)
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 1032
+  %86 = load volatile i64, ptr %85, align 8
+  %87 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
+  br i1 %87, label %xs_setup_xprt.exit.thread, label %88
 
-87:                                               ; preds = %83, %76, %69
-  %88 = phi ptr [ @.str.31, %69 ], [ @.str.32, %76 ], [ %85, %83 ]
-  tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %17, ptr noundef nonnull @.str.31, ptr noundef nonnull %88)
-  %89 = getelementptr inbounds nuw i8, ptr %17, i64 1032
-  %90 = load volatile i64, ptr %89, align 8
-  %91 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
-  br i1 %91, label %xs_setup_xprt.exit.thread, label %92
+88:                                               ; preds = %83, %61, %38
+  %89 = phi ptr [ inttoptr (i64 -13 to ptr), %38 ], [ inttoptr (i64 -97 to ptr), %61 ], [ inttoptr (i64 -22 to ptr), %83 ]
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 1392
+  br label %91
 
-92:                                               ; preds = %87, %61, %38
-  %93 = phi ptr [ inttoptr (i64 -13 to ptr), %38 ], [ inttoptr (i64 -97 to ptr), %61 ], [ inttoptr (i64 -22 to ptr), %87 ]
-  %94 = getelementptr inbounds nuw i8, ptr %17, i64 1392
-  br label %95
-
-95:                                               ; preds = %101, %92
-  %96 = phi i64 [ 0, %92 ], [ %102, %101 ]
-  %97 = trunc i64 %96 to i32
-  switch i32 %97, label %98 [
-    i32 2, label %101
-    i32 5, label %101
+91:                                               ; preds = %97, %88
+  %92 = phi i64 [ 0, %88 ], [ %98, %97 ]
+  %93 = trunc i64 %92 to i32
+  switch i32 %93, label %94 [
+    i32 2, label %97
+    i32 5, label %97
   ]
 
-98:                                               ; preds = %95
-  %99 = getelementptr ptr, ptr %94, i64 %96
-  %100 = load ptr, ptr %99, align 8
-  tail call void @kfree(ptr noundef %100) #12
-  br label %101
+94:                                               ; preds = %91
+  %95 = getelementptr ptr, ptr %90, i64 %92
+  %96 = load ptr, ptr %95, align 8
+  tail call void @kfree(ptr noundef %96) #12
+  br label %97
 
-101:                                              ; preds = %98, %95, %95
-  %102 = add nuw nsw i64 %96, 1
-  %103 = icmp eq i64 %102, 6
-  br i1 %103, label %xs_setup_xprt.exit.thread.sink.split, label %95, !llvm.loop !7
+97:                                               ; preds = %94, %91, %91
+  %98 = add nuw nsw i64 %92, 1
+  %99 = icmp eq i64 %98, 6
+  br i1 %99, label %xs_setup_xprt.exit.thread.sink.split, label %91, !llvm.loop !7
 
-xs_setup_xprt.exit.thread.sink.split:             ; preds = %101, %31
-  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %31 ], [ %93, %101 ]
+xs_setup_xprt.exit.thread.sink.split:             ; preds = %97, %31
+  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %31 ], [ %89, %97 ]
   tail call void @xprt_free(ptr noundef %17) #12
   br label %xs_setup_xprt.exit.thread
 
-xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %87, %xs_setup_xprt.exit
-  %104 = phi ptr [ %17, %xs_setup_xprt.exit ], [ %17, %87 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
-  ret ptr %104
+xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %83, %xs_setup_xprt.exit
+  %100 = phi ptr [ %17, %xs_setup_xprt.exit ], [ %17, %83 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+  ret ptr %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -6022,16 +5997,14 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
   store ptr @xs_tcp_default_timeout, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 1032
   %38 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %37, i64 4, ptr nonnull elementtype(i64) %37) #12, !srcloc !6
-  %39 = icmp ult i8 %38, 2
-  tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 1072
-  %41 = getelementptr inbounds nuw i8, ptr %11, i64 1184
-  store i64 0, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr @bc_tcp_ops, ptr %42, align 8
-  %43 = load i16, ptr %3, align 2
-  switch i16 %43, label %62 [
+  %39 = getelementptr inbounds nuw i8, ptr %11, i64 1072
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 1184
+  store i64 0, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  store ptr @bc_tcp_ops, ptr %41, align 8
+  %42 = load i16, ptr %3, align 2
+  switch i16 %42, label %61 [
     i16 2, label %.split1
     i16 10, label %.split
   ]
@@ -6042,68 +6015,68 @@ xs_setup_xprt.exit:                               ; preds = %23, %25, %29, %30
 .split1:                                          ; preds = %32, %.split
   %.str.31.sink = phi ptr [ @.str.32, %.split ], [ @.str.31, %32 ]
   tail call fastcc void @xs_format_peer_addresses(ptr noundef nonnull %11, ptr noundef nonnull @.str.31, ptr noundef nonnull %.str.31.sink)
-  %44 = tail call ptr @xprt_get(ptr noundef nonnull %11) #12
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 504
-  store ptr %11, ptr %47, align 8
-  %48 = load ptr, ptr %45, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %11, i64 1264
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 520
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %11, i64 1480
-  store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 528
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %11, i64 1488
-  store ptr %54, ptr %55, align 8
+  %43 = tail call ptr @xprt_get(ptr noundef nonnull %11) #12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 504
+  store ptr %11, ptr %46, align 8
+  %47 = load ptr, ptr %44, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 1264
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 520
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 1480
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 528
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %11, i64 1488
+  store ptr %53, ptr %54, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %37, i32 2, ptr nonnull elementtype(i8) %37) #12, !srcloc !36
-  %56 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
-  br i1 %56, label %xs_setup_xprt.exit.thread, label %57
+  %55 = tail call zeroext i1 @try_module_get(ptr noundef null) #12
+  br i1 %55, label %xs_setup_xprt.exit.thread, label %56
 
-57:                                               ; preds = %.split1
-  %58 = load ptr, ptr %45, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 504
-  store ptr null, ptr %59, align 8
-  %60 = load ptr, ptr %45, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 512
-  store ptr null, ptr %61, align 8
+56:                                               ; preds = %.split1
+  %57 = load ptr, ptr %44, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 504
+  store ptr null, ptr %58, align 8
+  %59 = load ptr, ptr %44, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 512
+  store ptr null, ptr %60, align 8
   tail call void @xprt_put(ptr noundef nonnull %11) #12
-  br label %62
+  br label %61
 
-62:                                               ; preds = %57, %32
-  %63 = phi ptr [ inttoptr (i64 -22 to ptr), %57 ], [ inttoptr (i64 -97 to ptr), %32 ]
-  %64 = getelementptr inbounds nuw i8, ptr %11, i64 1392
-  br label %65
+61:                                               ; preds = %56, %32
+  %62 = phi ptr [ inttoptr (i64 -22 to ptr), %56 ], [ inttoptr (i64 -97 to ptr), %32 ]
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 1392
+  br label %64
 
-65:                                               ; preds = %71, %62
-  %66 = phi i64 [ 0, %62 ], [ %72, %71 ]
-  %67 = trunc i64 %66 to i32
-  switch i32 %67, label %68 [
-    i32 2, label %71
-    i32 5, label %71
+64:                                               ; preds = %70, %61
+  %65 = phi i64 [ 0, %61 ], [ %71, %70 ]
+  %66 = trunc i64 %65 to i32
+  switch i32 %66, label %67 [
+    i32 2, label %70
+    i32 5, label %70
   ]
 
-68:                                               ; preds = %65
-  %69 = getelementptr ptr, ptr %64, i64 %66
-  %70 = load ptr, ptr %69, align 8
-  tail call void @kfree(ptr noundef %70) #12
-  br label %71
+67:                                               ; preds = %64
+  %68 = getelementptr ptr, ptr %63, i64 %65
+  %69 = load ptr, ptr %68, align 8
+  tail call void @kfree(ptr noundef %69) #12
+  br label %70
 
-71:                                               ; preds = %68, %65, %65
-  %72 = add nuw nsw i64 %66, 1
-  %73 = icmp eq i64 %72, 6
-  br i1 %73, label %xs_setup_xprt.exit.thread.sink.split, label %65, !llvm.loop !7
+70:                                               ; preds = %67, %64, %64
+  %71 = add nuw nsw i64 %65, 1
+  %72 = icmp eq i64 %71, 6
+  br i1 %72, label %xs_setup_xprt.exit.thread.sink.split, label %64, !llvm.loop !7
 
-xs_setup_xprt.exit.thread.sink.split:             ; preds = %71, %25
-  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %25 ], [ %63, %71 ]
+xs_setup_xprt.exit.thread.sink.split:             ; preds = %70, %25
+  %.ph = phi ptr [ inttoptr (i64 -97 to ptr), %25 ], [ %62, %70 ]
   tail call void @xprt_free(ptr noundef %11) #12
   br label %xs_setup_xprt.exit.thread
 
 xs_setup_xprt.exit.thread:                        ; preds = %xs_setup_xprt.exit.thread.sink.split, %7, %1, %.split1, %xs_setup_xprt.exit
-  %74 = phi ptr [ %11, %xs_setup_xprt.exit ], [ %11, %.split1 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
-  ret ptr %74
+  %73 = phi ptr [ %11, %xs_setup_xprt.exit ], [ %11, %.split1 ], [ inttoptr (i64 -12 to ptr), %7 ], [ inttoptr (i64 -9 to ptr), %1 ], [ %.ph, %xs_setup_xprt.exit.thread.sink.split ]
+  ret ptr %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

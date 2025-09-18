@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitLimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 280) #6
+  %4 = tail call noundef ptr @palloc0(i64 noundef 280) #5
   store i32 436, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
@@ -25,32 +25,32 @@ define dso_local noundef ptr @ExecInitLimit(ptr noundef %0, ptr noundef %1, i32 
   store ptr @ExecLimit, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 244
   store i32 0, ptr %8, align 4
-  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %4) #6
+  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %4) #5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @ExecInitNode(ptr noundef %10, ptr noundef %1, i32 noundef %2) #6
+  %11 = tail call ptr @ExecInitNode(ptr noundef %10, ptr noundef %1, i32 noundef %2) #5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @ExecInitExpr(ptr noundef %14, ptr noundef %4) #6
+  %15 = tail call ptr @ExecInitExpr(ptr noundef %14, ptr noundef %4) #5
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @ExecInitExpr(ptr noundef %18, ptr noundef %4) #6
+  %19 = tail call ptr @ExecInitExpr(ptr noundef %18, ptr noundef %4) #5
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 216
   store i32 %22, ptr %23, align 8
-  tail call void @ExecInitResultTypeTL(ptr noundef %4) #6
+  tail call void @ExecInitResultTypeTL(ptr noundef %4) #5
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 199
   store i8 1, ptr %24, align 1
   %25 = load ptr, ptr %12, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 195
-  %27 = tail call ptr @ExecGetResultSlotOps(ptr noundef %25, ptr noundef nonnull %26) #6
+  %27 = tail call ptr @ExecGetResultSlotOps(ptr noundef %25, ptr noundef nonnull %26) #5
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 136
@@ -61,10 +61,10 @@ define dso_local noundef ptr @ExecInitLimit(ptr noundef %0, ptr noundef %1, i32 
 
 32:                                               ; preds = %3
   %33 = load ptr, ptr %12, align 8
-  %34 = tail call ptr @ExecGetResultType(ptr noundef %33) #6
+  %34 = tail call ptr @ExecGetResultType(ptr noundef %33) #5
   %35 = load ptr, ptr %12, align 8
-  %36 = tail call ptr @ExecGetResultSlotOps(ptr noundef %35, ptr noundef null) #6
-  %37 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef %1, ptr noundef %34, ptr noundef %36) #6
+  %36 = tail call ptr @ExecGetResultSlotOps(ptr noundef %35, ptr noundef null) #5
+  %37 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef %1, ptr noundef %34, ptr noundef %36) #5
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 272
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -75,7 +75,7 @@ define dso_local noundef ptr @ExecInitLimit(ptr noundef %0, ptr noundef %1, i32 
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @execTuplesMatchPrepare(ptr noundef %34, i32 noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %4) #6
+  %47 = tail call ptr @execTuplesMatchPrepare(ptr noundef %34, i32 noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %4) #5
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 264
   store ptr %47, ptr %48, align 8
   br label %49
@@ -94,7 +94,7 @@ define internal ptr @ExecLimit(ptr noundef %0) #0 {
   br i1 %.not, label %7, label %6, !prof !4
 
 6:                                                ; preds = %1
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -157,12 +157,12 @@ define internal ptr @ExecLimit(ptr noundef %0) #0 {
   br i1 %.not.i, label %ExecProcNode.exit, label %38
 
 38:                                               ; preds = %36
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit
 
 ExecProcNode.exit:                                ; preds = %36, %38
   %39 = load ptr, ptr %30, align 8
-  %40 = tail call ptr %39(ptr noundef nonnull %13) #6
+  %40 = tail call ptr %39(ptr noundef nonnull %13) #5
   %41 = icmp eq ptr %40, null
   br i1 %41, label %46, label %42
 
@@ -197,7 +197,7 @@ ExecProcNode.exit:                                ; preds = %36, %38
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
-  tail call void %60(ptr noundef %56, ptr noundef nonnull %40) #6
+  tail call void %60(ptr noundef %56, ptr noundef nonnull %40) #5
   %.pre = load i64, ptr %32, align 8
   %.pre137 = load i64, ptr %33, align 8
   br label %61
@@ -257,13 +257,13 @@ ExecProcNode.exit:                                ; preds = %36, %38
   br i1 %.not.i120, label %ExecProcNode.exit121, label %89
 
 89:                                               ; preds = %86
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit121
 
 ExecProcNode.exit121:                             ; preds = %86, %89
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call ptr %91(ptr noundef nonnull %13) #6
+  %92 = tail call ptr %91(ptr noundef nonnull %13) #5
   %93 = icmp eq ptr %92, null
   br i1 %93, label %98, label %94
 
@@ -303,7 +303,7 @@ ExecProcNode.exit121:                             ; preds = %86, %89
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %119 = load ptr, ptr %118, align 8
-  tail call void %119(ptr noundef %115, ptr noundef nonnull %92) #6
+  tail call void %119(ptr noundef %115, ptr noundef nonnull %92) #5
   br label %120
 
 120:                                              ; preds = %113, %103, %99
@@ -335,13 +335,13 @@ ExecProcNode.exit121:                             ; preds = %86, %89
   br i1 %.not.i122, label %ExecProcNode.exit123, label %135
 
 135:                                              ; preds = %132
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit123
 
 ExecProcNode.exit123:                             ; preds = %132, %135
   %136 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %137 = load ptr, ptr %136, align 8
-  %138 = tail call ptr %137(ptr noundef nonnull %13) #6
+  %138 = tail call ptr %137(ptr noundef nonnull %13) #5
   %139 = icmp eq ptr %138, null
   br i1 %139, label %144, label %140
 
@@ -353,10 +353,9 @@ ExecProcNode.exit123:                             ; preds = %132, %135
   br i1 %.not113, label %147, label %144
 
 144:                                              ; preds = %140, %ExecProcNode.exit123
-  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %145)
-  %146 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.ExecLimit) #6
+  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %146 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.ExecLimit) #5
   unreachable
 
 147:                                              ; preds = %140
@@ -378,13 +377,13 @@ ExecProcNode.exit123:                             ; preds = %132, %135
   br i1 %.not.i124, label %ExecProcNode.exit125, label %156
 
 156:                                              ; preds = %153
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit125
 
 ExecProcNode.exit125:                             ; preds = %153, %156
   %157 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call ptr %158(ptr noundef nonnull %13) #6
+  %159 = tail call ptr %158(ptr noundef nonnull %13) #5
   %160 = icmp eq ptr %159, null
   br i1 %160, label %165, label %161
 
@@ -416,7 +415,7 @@ ExecQualAndReset.exit.thread:                     ; preds = %166
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %175 = load ptr, ptr %174, align 8
-  tail call void @MemoryContextReset(ptr noundef %175) #6
+  tail call void @MemoryContextReset(ptr noundef %175) #5
   br label %183
 
 ExecQualAndReset.exit:                            ; preds = %166
@@ -426,12 +425,12 @@ ExecQualAndReset.exit:                            ; preds = %166
   store ptr %177, ptr @CurrentMemoryContext, align 8
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %180 = load ptr, ptr %179, align 8
-  %181 = call i64 %180(ptr noundef nonnull %172, ptr noundef nonnull %4, ptr noundef nonnull %2) #6
+  %181 = call i64 %180(ptr noundef nonnull %172, ptr noundef nonnull %4, ptr noundef nonnull %2) #5
   store ptr %178, ptr @CurrentMemoryContext, align 8
   %.not133 = icmp eq i64 %181, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %182 = load ptr, ptr %176, align 8
-  call void @MemoryContextReset(ptr noundef %182) #6
+  call void @MemoryContextReset(ptr noundef %182) #5
   br i1 %.not133, label %188, label %183
 
 183:                                              ; preds = %ExecQualAndReset.exit.thread, %ExecQualAndReset.exit
@@ -467,13 +466,13 @@ ExecQualAndReset.exit:                            ; preds = %166
   br i1 %.not.i126, label %ExecProcNode.exit127, label %199
 
 199:                                              ; preds = %196
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit127
 
 ExecProcNode.exit127:                             ; preds = %196, %199
   %200 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %201 = load ptr, ptr %200, align 8
-  %202 = tail call ptr %201(ptr noundef nonnull %13) #6
+  %202 = tail call ptr %201(ptr noundef nonnull %13) #5
   %203 = icmp eq ptr %202, null
   br i1 %203, label %208, label %204
 
@@ -485,10 +484,9 @@ ExecProcNode.exit127:                             ; preds = %196, %199
   br i1 %.not116, label %211, label %208
 
 208:                                              ; preds = %204, %ExecProcNode.exit127
-  %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %209)
-  %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.ExecLimit) #6
+  %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.ExecLimit) #5
   unreachable
 
 211:                                              ; preds = %204
@@ -511,13 +509,13 @@ ExecProcNode.exit127:                             ; preds = %196, %199
   br i1 %.not.i128, label %ExecProcNode.exit129, label %220
 
 220:                                              ; preds = %217
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit129
 
 ExecProcNode.exit129:                             ; preds = %217, %220
   %221 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %222 = load ptr, ptr %221, align 8
-  %223 = tail call ptr %222(ptr noundef nonnull %13) #6
+  %223 = tail call ptr %222(ptr noundef nonnull %13) #5
   %224 = icmp eq ptr %223, null
   br i1 %224, label %229, label %225
 
@@ -529,10 +527,9 @@ ExecProcNode.exit129:                             ; preds = %217, %220
   br i1 %.not111, label %232, label %229
 
 229:                                              ; preds = %225, %ExecProcNode.exit129
-  %230 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %230)
-  %231 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.ExecLimit) #6
+  %230 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %231 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.ExecLimit) #5
   unreachable
 
 232:                                              ; preds = %225
@@ -558,13 +555,13 @@ ExecProcNode.exit129:                             ; preds = %217, %220
   br i1 %.not.i130, label %ExecProcNode.exit131, label %243
 
 243:                                              ; preds = %240
-  tail call void @ExecReScan(ptr noundef nonnull %13) #6
+  tail call void @ExecReScan(ptr noundef nonnull %13) #5
   br label %ExecProcNode.exit131
 
 ExecProcNode.exit131:                             ; preds = %240, %243
   %244 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %245 = load ptr, ptr %244, align 8
-  %246 = tail call ptr %245(ptr noundef nonnull %13) #6
+  %246 = tail call ptr %245(ptr noundef nonnull %13) #5
   %247 = icmp eq ptr %246, null
   br i1 %247, label %252, label %248
 
@@ -576,10 +573,9 @@ ExecProcNode.exit131:                             ; preds = %240, %243
   br i1 %.not110, label %255, label %252
 
 252:                                              ; preds = %248, %ExecProcNode.exit131
-  %253 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %253)
-  %254 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 305, ptr noundef nonnull @__func__.ExecLimit) #6
+  %253 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %254 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 305, ptr noundef nonnull @__func__.ExecLimit) #5
   unreachable
 
 255:                                              ; preds = %248
@@ -605,11 +601,10 @@ ExecProcNode.exit131:                             ; preds = %240, %243
   br label %269
 
 265:                                              ; preds = %7
-  %266 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %266)
+  %266 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   %267 = load i32, ptr %14, align 4
-  %268 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %267) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 336, ptr noundef nonnull @__func__.ExecLimit) #6
+  %268 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %267) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 336, ptr noundef nonnull @__func__.ExecLimit) #5
   unreachable
 
 269:                                              ; preds = %66, %120, %147, %232, %262, %211, %183, %257, %255, %260, %234, %215, %7, %17, %195, %188, %165, %131, %98, %85, %46, %27
@@ -637,7 +632,7 @@ declare ptr @execTuplesMatchPrepare(ptr noundef, i32 noundef, ptr noundef, ptr n
 define dso_local void @ExecEndLimit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  tail call void @ExecEndNode(ptr noundef %3) #6
+  tail call void @ExecEndNode(ptr noundef %3) #5
   ret void
 }
 
@@ -654,7 +649,7 @@ define dso_local void @ExecReScanLimit(ptr noundef captures(none) initializes((2
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void @ExecReScan(ptr noundef nonnull %3) #6
+  tail call void @ExecReScan(ptr noundef nonnull %3) #5
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -679,7 +674,7 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = call i64 %12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %2) #6
+  %13 = call i64 %12(ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull %2) #5
   store ptr %10, ptr @CurrentMemoryContext, align 8
   %14 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %15 = trunc nuw i8 %14 to i1
@@ -696,11 +691,10 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 @errcode(i32 noundef 671350914) #6
-  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__func__.recompute_limits) #6
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %22 = call i32 @errcode(i32 noundef 671350914) #5
+  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 373, ptr noundef nonnull @__func__.recompute_limits) #5
   unreachable
 
 24:                                               ; preds = %1
@@ -721,7 +715,7 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   store ptr %31, ptr @CurrentMemoryContext, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %34 = load ptr, ptr %33, align 8
-  %35 = call i64 %34(ptr noundef nonnull %28, ptr noundef %4, ptr noundef nonnull %2) #6
+  %35 = call i64 %34(ptr noundef nonnull %28, ptr noundef %4, ptr noundef nonnull %2) #5
   store ptr %32, ptr @CurrentMemoryContext, align 8
   %36 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %37 = trunc nuw i8 %36 to i1
@@ -738,11 +732,10 @@ define internal fastcc void @recompute_limits(ptr noundef captures(none) initial
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %40
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %43)
-  %44 = call i32 @errcode(i32 noundef 654573698) #6
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.recompute_limits) #6
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %44 = call i32 @errcode(i32 noundef 654573698) #5
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 399, ptr noundef nonnull @__func__.recompute_limits) #5
   unreachable
 
 46:                                               ; preds = %26
@@ -781,7 +774,7 @@ compute_tuples_needed.exit:                       ; preds = %.thread, %51, %58
   %.0.i = phi i64 [ %61, %58 ], [ -1, %51 ], [ -1, %.thread ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load ptr, ptr %62, align 8
-  call void @ExecSetTupleBound(i64 noundef %.0.i, ptr noundef %63) #6
+  call void @ExecSetTupleBound(i64 noundef %.0.i, ptr noundef %63) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -813,20 +806,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

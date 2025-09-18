@@ -13320,28 +13320,23 @@ switch.lookup:                                    ; preds = %2
 define dso_local i32 @nghttp2_session_upgrade(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call fastcc i32 @nghttp2_session_upgrade_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3)
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %nghttp2_session_get_stream.exit, label %17
+  br i1 %.not, label %nghttp2_session_get_stream.exit, label %14
 
 nghttp2_session_get_stream.exit:                  ; preds = %4
   %6 = tail call ptr @nghttp2_map_find(ptr noundef %0, i32 noundef 1) #20
   %7 = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %9 = load i8, ptr %8, align 8, !tbaa !41
-  %10 = and i8 %9, 2
-  %.not.i = icmp eq i8 %10, 0
-  tail call void @llvm.assume(i1 %.not.i)
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 204
-  %12 = load i32, ptr %11, align 4, !tbaa !42
-  %13 = icmp eq i32 %12, 5
-  %spec.select.i = select i1 %13, ptr null, ptr %6
-  %14 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 212
-  %15 = load i32, ptr %14, align 4, !tbaa !246
-  %16 = or i32 %15, 1024
-  store i32 %16, ptr %14, align 4, !tbaa !246
-  br label %17
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 204
+  %9 = load i32, ptr %8, align 4, !tbaa !42
+  %10 = icmp eq i32 %9, 5
+  %spec.select.i = select i1 %10, ptr null, ptr %6
+  %11 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 212
+  %12 = load i32, ptr %11, align 4, !tbaa !246
+  %13 = or i32 %12, 1024
+  store i32 %13, ptr %11, align 4, !tbaa !246
+  br label %14
 
-17:                                               ; preds = %4, %nghttp2_session_get_stream.exit
+14:                                               ; preds = %4, %nghttp2_session_get_stream.exit
   ret i32 %5
 }
 

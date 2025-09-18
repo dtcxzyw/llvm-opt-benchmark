@@ -317,32 +317,29 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot
 
 11:                                               ; preds = %5
   %12 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h4d9d7a78b288d757E"(ptr nonnull align 8 %1, i64 1, ptr align 8 %4, i1 zeroext true)
-  %13 = extractvalue { i64, i64 } %12, 0
-  %14 = icmp eq i64 %13, -9223372036854775807
-  tail call void @llvm.assume(i1 %14)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit": ; preds = %5, %11
   store ptr %7, ptr %6, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %15, align 8
-  %16 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h07e31e66c8c26dd8E(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.7458ebae92ae501bf455c852ce8a6113.3)
-  %17 = extractvalue { i64, i64 } %16, 0
-  %18 = extractvalue { i64, i64 } %16, 1
-  %19 = icmp eq i64 %17, 0
-  br i1 %19, label %20, label %24
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %13, align 8
+  %14 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h07e31e66c8c26dd8E(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.7458ebae92ae501bf455c852ce8a6113.3)
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %17 = icmp eq i64 %15, 0
+  br i1 %17, label %18, label %22
 
-20:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit"
-  %21 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %22 = call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %21, i64 %18)
-  %23 = ptrtoint ptr %22 to i64
-  br label %24
+18:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit"
+  %19 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
+  %20 = call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17hf4dbda852b95975dE"(ptr nonnull %19, i64 %16)
+  %21 = ptrtoint ptr %20 to i64
+  br label %22
 
-24:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit", %20
-  %.sink = phi i64 [ %23, %20 ], [ %18, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit" ]
-  %storemerge = phi i64 [ 0, %20 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit" ]
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %25, align 8
+22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit", %18
+  %.sink = phi i64 [ %21, %18 ], [ %16, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit" ]
+  %storemerge = phi i64 [ 0, %18 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db2E.exit" ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %23, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -366,16 +363,13 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hb0cac6effa409db
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h4d9d7a78b288d757E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i1 zeroext true)
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = icmp eq i64 %9, -9223372036854775807
-  tail call void @llvm.assume(i1 %10)
-  br label %11
+  br label %9
 
-11:                                               ; preds = %7, %3
+9:                                                ; preds = %7, %3
   ret void
 }
 

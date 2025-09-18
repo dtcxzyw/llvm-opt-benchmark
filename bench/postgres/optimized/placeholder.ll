@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @make_placeholder_expr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #5
+  %4 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 318, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
@@ -61,33 +61,32 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.thread
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.find_placeholder_info) #5
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.find_placeholder_info) #4
   unreachable
 
 20:                                               ; preds = %.thread
-  %21 = tail call noundef ptr @palloc0(i64 noundef 48) #5
+  %21 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 323, ptr %21, align 4
   %22 = load i32, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %22, ptr %23, align 4
-  %24 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #5
+  %24 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store ptr null, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @pull_varnos(ptr noundef nonnull %0, ptr noundef %28) #5
+  %29 = tail call ptr @pull_varnos(ptr noundef nonnull %0, ptr noundef %28) #4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @bms_difference(ptr noundef %29, ptr noundef %31) #5
+  %32 = tail call ptr @bms_difference(ptr noundef %29, ptr noundef %31) #4
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %32, ptr %33, align 8
   %34 = load ptr, ptr %30, align 8
-  %35 = tail call ptr @bms_int_members(ptr noundef %29, ptr noundef %34) #5
+  %35 = tail call ptr @bms_int_members(ptr noundef %29, ptr noundef %34) #4
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %35, ptr %36, align 8
   %37 = icmp eq ptr %35, null
@@ -95,7 +94,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
 
 38:                                               ; preds = %20
   %39 = load ptr, ptr %30, align 8
-  %40 = tail call ptr @bms_copy(ptr noundef %39) #5
+  %40 = tail call ptr @bms_copy(ptr noundef %39) #4
   store ptr %40, ptr %36, align 8
   br label %41
 
@@ -103,15 +102,15 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr null, ptr %42, align 8
   %43 = load ptr, ptr %27, align 8
-  %44 = tail call i32 @exprType(ptr noundef %43) #5
+  %44 = tail call i32 @exprType(ptr noundef %43) #4
   %45 = load ptr, ptr %27, align 8
-  %46 = tail call i32 @exprTypmod(ptr noundef %45) #5
-  %47 = tail call i32 @get_typavgwidth(i32 noundef %44, i32 noundef %46) #5
+  %46 = tail call i32 @exprTypmod(ptr noundef %45) #4
+  %47 = tail call i32 @get_typavgwidth(i32 noundef %44, i32 noundef %46) #4
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 %47, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @lappend(ptr noundef %50, ptr noundef nonnull %21) #5
+  %51 = tail call ptr @lappend(ptr noundef %50, ptr noundef nonnull %21) #4
   store ptr %51, ptr %49, align 8
   %52 = load i32, ptr %23, align 4
   %53 = load i32, ptr %5, align 8
@@ -146,13 +145,13 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %63 = shl nsw i64 %62, 3
   %64 = sext i32 %.0 to i64
   %65 = shl nsw i64 %64, 3
-  %66 = tail call ptr @repalloc0(ptr noundef nonnull %60, i64 noundef %63, i64 noundef %65) #5
+  %66 = tail call ptr @repalloc0(ptr noundef nonnull %60, i64 noundef %63, i64 noundef %65) #4
   br label %71
 
 67:                                               ; preds = %58
   %68 = sext i32 %.0 to i64
   %69 = shl nsw i64 %68, 3
-  %70 = tail call ptr @palloc0(i64 noundef %69) #5
+  %70 = tail call ptr @palloc0(i64 noundef %69) #4
   br label %71
 
 71:                                               ; preds = %67, %61
@@ -171,7 +170,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %77 = load ptr, ptr %25, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr @pull_var_clause(ptr noundef %79, i32 noundef 26) #5
+  %80 = tail call ptr @pull_var_clause(ptr noundef %79, i32 noundef 26) #4
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.not.i = icmp eq ptr %80, null
   br i1 %.not.i, label %find_placeholders_in_expr.exit, label %.lr.ph
@@ -205,7 +204,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   br i1 %96, label %.lr.ph66, label %find_placeholders_in_expr.exit
 
 find_placeholders_in_expr.exit:                   ; preds = %93, %.lr.ph, %72
-  tail call void @list_free(ptr noundef %80) #5
+  tail call void @list_free(ptr noundef %80) #4
   br label %97
 
 97:                                               ; preds = %8, %find_placeholders_in_expr.exit
@@ -304,7 +303,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
 .critedge:                                        ; preds = %.lr.ph36, %.lr.ph, %6
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @pull_var_clause(ptr noundef %20, i32 noundef 26) #5
+  %21 = tail call ptr @pull_var_clause(ptr noundef %20, i32 noundef 26) #4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %.sink.split, label %.lr.ph.i
@@ -346,7 +345,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   tail call fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef %42)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call ptr @pull_var_clause(ptr noundef %44, i32 noundef 26) #5
+  %45 = tail call ptr @pull_var_clause(ptr noundef %44, i32 noundef 26) #4
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %.not.i26 = icmp eq ptr %45, null
   br i1 %.not.i26, label %.sink.split, label %.lr.ph.i27
@@ -380,16 +379,15 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   br i1 %61, label %.lr.ph16.i28, label %.sink.split
 
 62:                                               ; preds = %4
-  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %63)
+  %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %64 = load i32, ptr %1, align 4
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %64) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.find_placeholders_recurse) #5
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %64) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.find_placeholders_recurse) #4
   unreachable
 
 .sink.split:                                      ; preds = %58, %34, %.lr.ph.i27, %38, %.lr.ph.i, %.critedge
   %.sink = phi ptr [ %21, %.critedge ], [ %21, %.lr.ph.i ], [ %45, %38 ], [ %45, %.lr.ph.i27 ], [ %21, %34 ], [ %45, %58 ]
-  tail call void @list_free(ptr noundef %.sink) #5
+  tail call void @list_free(ptr noundef %.sink) #4
   br label %66
 
 66:                                               ; preds = %.sink.split, %4, %2
@@ -419,11 +417,11 @@ define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #5
+  %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void @add_vars_to_targetlist(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %17) #5
-  tail call void @list_free(ptr noundef %15) #5
+  tail call void @add_vars_to_targetlist(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %17) #4
+  tail call void @list_free(ptr noundef %15) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
@@ -463,11 +461,11 @@ define dso_local void @rebuild_placeholder_attr_needed(ptr noundef %0) local_unn
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #5
+  %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void @add_vars_to_attr_needed(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %17) #5
-  tail call void @list_free(ptr noundef %15) #5
+  tail call void @add_vars_to_attr_needed(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %17) #4
+  tail call void @list_free(ptr noundef %15) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
@@ -503,7 +501,7 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %14 = call zeroext i1 @bms_get_singleton_member(ptr noundef %13, ptr noundef nonnull %2) #5
+  %14 = call zeroext i1 @bms_get_singleton_member(ptr noundef %13, ptr noundef nonnull %2) #4
   br i1 %14, label %15, label %32
 
 .critedge:                                        ; preds = %32, %.lr.ph, %1
@@ -512,20 +510,20 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
 15:                                               ; preds = %.lr.ph19
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = call zeroext i1 @bms_nonempty_difference(ptr noundef %17, ptr noundef %13) #5
+  %18 = call zeroext i1 @bms_nonempty_difference(ptr noundef %17, ptr noundef %13) #4
   br i1 %18, label %19, label %32
 
 19:                                               ; preds = %15
   %20 = load i32, ptr %2, align 4
-  %21 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %20) #5
+  %21 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %20) #4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = call ptr @copyObjectImpl(ptr noundef %27) #5
-  %29 = call ptr @lappend(ptr noundef %25, ptr noundef %28) #5
+  %28 = call ptr @copyObjectImpl(ptr noundef %27) #4
+  %29 = call ptr @lappend(ptr noundef %25, ptr noundef %28) #4
   %30 = load ptr, ptr %22, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %29, ptr %31, align 8
@@ -580,12 +578,12 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = call zeroext i1 @bms_is_subset(ptr noundef %28, ptr noundef %8) #5
+  %29 = call zeroext i1 @bms_is_subset(ptr noundef %28, ptr noundef %8) #4
   br i1 %29, label %33, label %76
 
 .critedge:                                        ; preds = %76, %.lr.ph, %5
   %.0.lcssa = phi i64 [ %13, %5 ], [ %13, %.lr.ph ], [ %.1, %76 ]
-  %30 = call i32 @clamp_width_est(i64 noundef %.0.lcssa) #5
+  %30 = call i32 @clamp_width_est(i64 noundef %.0.lcssa) #4
   %31 = load ptr, ptr %9, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store i32 %30, ptr %32, align 8
@@ -594,36 +592,36 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
 33:                                               ; preds = %.lr.ph40
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %35 = load ptr, ptr %34, align 8
-  %36 = call zeroext i1 @bms_nonempty_difference(ptr noundef %35, ptr noundef %8) #5
+  %36 = call zeroext i1 @bms_nonempty_difference(ptr noundef %35, ptr noundef %8) #4
   br i1 %36, label %37, label %71
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %27, align 8
   %39 = load ptr, ptr %18, align 8
-  %40 = call zeroext i1 @bms_is_subset(ptr noundef %38, ptr noundef %39) #5
+  %40 = call zeroext i1 @bms_is_subset(ptr noundef %38, ptr noundef %39) #4
   br i1 %40, label %71, label %41
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %27, align 8
   %43 = load ptr, ptr %19, align 8
-  %44 = call zeroext i1 @bms_is_subset(ptr noundef %42, ptr noundef %43) #5
+  %44 = call zeroext i1 @bms_is_subset(ptr noundef %42, ptr noundef %43) #4
   br i1 %44, label %71, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = call ptr @copyObjectImpl(ptr noundef %47) #5
+  %48 = call ptr @copyObjectImpl(ptr noundef %47) #4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %49 = load ptr, ptr %9, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @lappend(ptr noundef %51, ptr noundef %48) #5
+  %52 = call ptr @lappend(ptr noundef %51, ptr noundef %48) #4
   %53 = load ptr, ptr %9, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %52, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %56 = load ptr, ptr %55, align 8
-  call void @cost_qual_eval_node(ptr noundef nonnull %6, ptr noundef %56, ptr noundef %0) #5
+  call void @cost_qual_eval_node(ptr noundef nonnull %6, ptr noundef %56, ptr noundef %0) #4
   %57 = load double, ptr %6, align 8
   %58 = load ptr, ptr %9, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
@@ -648,7 +646,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
   %72 = load ptr, ptr %21, align 8
   %73 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = call ptr @bms_add_members(ptr noundef %72, ptr noundef %74) #5
+  %75 = call ptr @bms_add_members(ptr noundef %72, ptr noundef %74) #4
   store ptr %75, ptr %21, align 8
   br label %76
 
@@ -703,16 +701,16 @@ define dso_local zeroext i1 @contain_placeholder_references_to(ptr noundef reado
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @bms_is_member(i32 noundef %2, ptr noundef %21) #5
+  %22 = tail call zeroext i1 @bms_is_member(i32 noundef %2, ptr noundef %21) #4
   br label %contain_placeholder_references_walker.exit
 
 23:                                               ; preds = %13
   store i32 1, ptr %11, align 4
-  %24 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef nonnull %4, i32 noundef 0) #5
+  %24 = call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef nonnull %4, i32 noundef 0) #4
   br label %contain_placeholder_references_walker.exit
 
 .thread.i:                                        ; preds = %15, %13
-  %25 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef nonnull %4) #5
+  %25 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %1, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef nonnull %4) #4
   br label %contain_placeholder_references_walker.exit
 
 contain_placeholder_references_walker.exit:       ; preds = %.thread.i, %23, %19, %10, %3
@@ -745,7 +743,7 @@ define internal zeroext i1 @contain_placeholder_references_walker(ptr noundef %0
   %13 = load i32, ptr %1, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @bms_is_member(i32 noundef %13, ptr noundef %15) #5
+  %16 = tail call zeroext i1 @bms_is_member(i32 noundef %13, ptr noundef %15) #4
   br label %25
 
 17:                                               ; preds = %4
@@ -753,14 +751,14 @@ define internal zeroext i1 @contain_placeholder_references_walker(ptr noundef %0
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
-  %21 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef %1, i32 noundef 0) #5
+  %21 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef %1, i32 noundef 0) #4
   %22 = load i32, ptr %18, align 4
   %23 = add i32 %22, -1
   store i32 %23, ptr %18, align 4
   br label %25
 
 .thread:                                          ; preds = %6, %4
-  %24 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef %1) #5
+  %24 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_placeholder_references_walker, ptr noundef %1) #4
   br label %25
 
 25:                                               ; preds = %12, %2, %.thread, %17
@@ -780,16 +778,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

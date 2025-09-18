@@ -97,19 +97,19 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %8 = load i32, ptr %4, align 8
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
-  %11 = tail call ptr @palloc(i64 noundef %10) #8
+  %11 = tail call ptr @palloc(i64 noundef %10) #7
   %12 = load i32, ptr %4, align 8
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 3
-  %15 = tail call ptr @palloc(i64 noundef %14) #8
+  %15 = tail call ptr @palloc(i64 noundef %14) #7
   %16 = load i32, ptr %4, align 8
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 3
-  %19 = tail call ptr @palloc(i64 noundef %18) #8
+  %19 = tail call ptr @palloc(i64 noundef %18) #7
   %20 = load i32, ptr %4, align 8
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 3
-  %23 = tail call ptr @palloc(i64 noundef %22) #8
+  %23 = tail call ptr @palloc(i64 noundef %22) #7
   %24 = load i32, ptr %4, align 8
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %.._crit_edge_crit_edge
@@ -151,19 +151,19 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
 
 ._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %44, %27 ]
-  tail call void @pg_qsort(ptr noundef %11, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @compareDoubles) #8
+  tail call void @pg_qsort(ptr noundef %11, i64 noundef %.pre-phi, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %46 = load i32, ptr %4, align 8
   %47 = sext i32 %46 to i64
-  tail call void @pg_qsort(ptr noundef %15, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @compareDoubles) #8
+  tail call void @pg_qsort(ptr noundef %15, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %48 = load i32, ptr %4, align 8
   %49 = sext i32 %48 to i64
-  tail call void @pg_qsort(ptr noundef %19, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @compareDoubles) #8
+  tail call void @pg_qsort(ptr noundef %19, i64 noundef %49, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %50 = load i32, ptr %4, align 8
   %51 = sext i32 %50 to i64
-  tail call void @pg_qsort(ptr noundef %23, i64 noundef %51, i64 noundef 8, ptr noundef nonnull @compareDoubles) #8
+  tail call void @pg_qsort(ptr noundef %23, i64 noundef %51, i64 noundef 8, ptr noundef nonnull @compareDoubles) #7
   %52 = load i32, ptr %4, align 8
   %53 = sdiv i32 %52, 2
-  %54 = tail call ptr @palloc(i64 noundef 32) #8
+  %54 = tail call ptr @palloc(i64 noundef 32) #7
   %55 = sext i32 %53 to i64
   %56 = getelementptr inbounds double, ptr %11, i64 %55
   %57 = load double, ptr %56, align 8
@@ -191,13 +191,13 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %71 = load i32, ptr %4, align 8
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
-  %74 = tail call ptr @palloc(i64 noundef %73) #8
+  %74 = tail call ptr @palloc(i64 noundef %73) #7
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %74, ptr %75, align 8
   %76 = load i32, ptr %4, align 8
   %77 = sext i32 %76 to i64
   %78 = shl nsw i64 %77, 3
-  %79 = tail call ptr @palloc(i64 noundef %78) #8
+  %79 = tail call ptr @palloc(i64 noundef %78) #7
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %79, ptr %80, align 8
   %81 = load i32, ptr %4, align 8
@@ -282,7 +282,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   br i1 %.not, label %10, label %19
 
 10:                                               ; preds = %1
-  %11 = tail call ptr @palloc(i64 noundef 64) #8
+  %11 = tail call ptr @palloc(i64 noundef 64) #7
   store double 0xFFF0000000000000, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double 0x7FF0000000000000, ptr %12, align 8
@@ -313,7 +313,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
   store i32 %25, ptr %7, align 8
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 2
-  %28 = tail call ptr @palloc(i64 noundef %27) #8
+  %28 = tail call ptr @palloc(i64 noundef %27) #7
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr %24, align 8
@@ -343,7 +343,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
 42:                                               ; preds = %._crit_edge178
   %43 = zext nneg i32 %40 to i64
   %44 = shl nuw nsw i64 %43, 3
-  %45 = tail call ptr @palloc(i64 noundef %44) #8
+  %45 = tail call ptr @palloc(i64 noundef %44) #7
   %46 = load i32, ptr %39, align 4
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph181, label %._crit_edge182
@@ -403,7 +403,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
 
 pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %.0.i = phi double [ %74, %73 ], [ %79, %78 ], [ 0.000000e+00, %75 ]
-  %80 = tail call double @pg_hypot(double noundef %.018.i, double noundef %.0.i) #8
+  %80 = tail call double @pg_hypot(double noundef %.018.i, double noundef %.0.i) #7
   %81 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv202
   store double %80, ptr %81, align 8
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
@@ -416,7 +416,7 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %85 = load i32, ptr %24, align 8
   %86 = sext i32 %85 to i64
   %87 = shl nsw i64 %86, 3
-  %88 = tail call ptr @palloc(i64 noundef %87) #8
+  %88 = tail call ptr @palloc(i64 noundef %87) #7
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %88, ptr %89, align 8
   store ptr %45, ptr %88, align 8
@@ -429,7 +429,7 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %92 = load i32, ptr %39, align 4
   %93 = sext i32 %92 to i64
   %94 = shl nsw i64 %93, 3
-  %95 = tail call ptr @palloc(i64 noundef %94) #8
+  %95 = tail call ptr @palloc(i64 noundef %94) #7
   %96 = load ptr, ptr %89, align 8
   %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv205
   store ptr %95, ptr %97, align 8
@@ -450,7 +450,7 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %109 = load i64, ptr %108, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = tail call ptr @palloc(i64 noundef 32) #8
+  %111 = tail call ptr @palloc(i64 noundef 32) #7
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %113 = load double, ptr %112, align 8
   store double %113, ptr %111, align 8
@@ -469,7 +469,7 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %123 = load i32, ptr %122, align 8
   %124 = sext i32 %123 to i64
   %125 = shl nsw i64 %124, 3
-  %126 = tail call ptr @palloc(i64 noundef %125) #8
+  %126 = tail call ptr @palloc(i64 noundef %125) #7
   %127 = load i32, ptr %122, align 8
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %.lr.ph, label %._crit_edge
@@ -495,22 +495,21 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %138 = getelementptr inbounds nuw i8, ptr %130, i64 64
   %139 = load i64, ptr %138, align 8
   %140 = inttoptr i64 %139 to ptr
-  %141 = tail call ptr @pg_detoast_datum(ptr noundef %140) #8
+  %141 = tail call ptr @pg_detoast_datum(ptr noundef %140) #7
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   br label %spg_box_quad_get_scankey_bbox.exit
 
 143:                                              ; preds = %.lr.ph
   %144 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %145)
+  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %146 = load i32, ptr %144, align 8
-  %147 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %146) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 544, ptr noundef nonnull @__func__.spg_box_quad_get_scankey_bbox) #8
+  %147 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %146) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 544, ptr noundef nonnull @__func__.spg_box_quad_get_scankey_bbox) #7
   unreachable
 
 spg_box_quad_get_scankey_bbox.exit:               ; preds = %133, %137
   %.0.i152 = phi ptr [ %136, %133 ], [ %142, %137 ]
-  %148 = tail call ptr @palloc(i64 noundef 32) #8
+  %148 = tail call ptr @palloc(i64 noundef 32) #7
   %149 = getelementptr inbounds nuw i8, ptr %.0.i152, i64 16
   %150 = load double, ptr %149, align 8
   store double %150, ptr %148, align 8
@@ -539,13 +538,13 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %133, %137
   %164 = load i32, ptr %163, align 8
   %165 = sext i32 %164 to i64
   %166 = shl nsw i64 %165, 2
-  %167 = tail call ptr @palloc(i64 noundef %166) #8
+  %167 = tail call ptr @palloc(i64 noundef %166) #7
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %167, ptr %168, align 8
   %169 = load i32, ptr %163, align 8
   %170 = sext i32 %169 to i64
   %171 = shl nsw i64 %170, 3
-  %172 = tail call ptr @palloc(i64 noundef %171) #8
+  %172 = tail call ptr @palloc(i64 noundef %171) #7
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %172, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -557,7 +556,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %133, %137
   %178 = load i32, ptr %163, align 8
   %179 = sext i32 %178 to i64
   %180 = shl nsw i64 %179, 3
-  %181 = tail call ptr @palloc(i64 noundef %180) #8
+  %181 = tail call ptr @palloc(i64 noundef %180) #7
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %181, ptr %182, align 8
   br label %183
@@ -579,7 +578,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %133, %137
 191:                                              ; preds = %.lr.ph173, %452
   %192 = phi i32 [ 0, %.lr.ph173 ], [ %454, %452 ]
   %.0138171 = phi i8 [ 0, %.lr.ph173 ], [ %453, %452 ]
-  %193 = tail call ptr @palloc(i64 noundef 64) #8
+  %193 = tail call ptr @palloc(i64 noundef 64) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %193, ptr noundef nonnull readonly align 8 dereferenceable(64) %.0134, i64 64, i1 false)
   %194 = and i32 %192, 8
   %.not.i = icmp eq i32 %194, 0
@@ -890,10 +889,9 @@ contained2D.exit.i:                               ; preds = %283
 
 387:                                              ; preds = %218
   %388 = zext i16 %221 to i32
-  %389 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %389)
-  %390 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %388) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_box_quad_inner_consistent) #8
+  %389 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %390 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %388) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.spg_box_quad_inner_consistent) #7
   unreachable
 
 overlap4D.exit:                                   ; preds = %380
@@ -924,7 +922,7 @@ overlap4D.exit:                                   ; preds = %380
 404:                                              ; preds = %._crit_edge167
   %405 = zext nneg i32 %402 to i64
   %406 = shl nuw nsw i64 %405, 3
-  %407 = tail call ptr @palloc(i64 noundef %406) #8
+  %407 = tail call ptr @palloc(i64 noundef %406) #7
   %408 = load ptr, ptr %189, align 8
   %409 = load i32, ptr %7, align 8
   %410 = sext i32 %409 to i64
@@ -988,7 +986,7 @@ overlap4D.exit:                                   ; preds = %380
 
 pointToRectBoxDistance.exit155:                   ; preds = %438, %440, %443
   %.0.i154 = phi double [ %439, %438 ], [ %444, %443 ], [ 0.000000e+00, %440 ]
-  %445 = tail call double @pg_hypot(double noundef %.018.i153, double noundef %.0.i154) #8
+  %445 = tail call double @pg_hypot(double noundef %.018.i153, double noundef %.0.i154) #7
   %446 = getelementptr inbounds nuw double, ptr %407, i64 %indvars.iv196
   store double %445, ptr %446, align 8
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
@@ -1004,7 +1002,7 @@ pointToRectBoxDistance.exit155:                   ; preds = %438, %440, %443
   br label %452
 
 overlap4D.exit.thread:                            ; preds = %380, %369, %358, %348, %338, %328, %318, %308, %270, %278, %283, %289, %295, %301, %contained2D.exit.i, %246, %258, %contain2D.exit.i, %222, %234, %overlap2D.exit.i, %overlap4D.exit, %240, %264, %304, %314, %325, %335, %344, %355, %365, %376
-  tail call void @pfree(ptr noundef nonnull %193) #8
+  tail call void @pfree(ptr noundef nonnull %193) #7
   br label %452
 
 452:                                              ; preds = %overlap4D.exit.thread, %.loopexit159
@@ -1099,18 +1097,17 @@ is_bounding_box_test_exact.exit.thread.i:         ; preds = %is_bounding_box_tes
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %30 = load i64, ptr %29, align 8
   %31 = inttoptr i64 %30 to ptr
-  %32 = tail call ptr @pg_detoast_datum(ptr noundef %31) #8
+  %32 = tail call ptr @pg_detoast_datum(ptr noundef %31) #7
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = ptrtoint ptr %33 to i64
   br label %spg_box_quad_get_scankey_bbox.exit
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %37)
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %38 = load i32, ptr %36, align 8
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %38) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 544, ptr noundef nonnull @__func__.spg_box_quad_get_scankey_bbox) #8
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %38) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 544, ptr noundef nonnull @__func__.spg_box_quad_get_scankey_bbox) #7
   unreachable
 
 spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_box_test_exact.exit.thread.i
@@ -1131,70 +1128,69 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   ]
 
 40:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %41 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %41 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overlap, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not69 = icmp eq i64 %41, 0
   br i1 %.not69, label %.thread, label %68
 
 42:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %43 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %43 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not68 = icmp eq i64 %43, 0
   br i1 %.not68, label %.thread, label %68
 
 44:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %45 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %45 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contained, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not67 = icmp eq i64 %45, 0
   br i1 %.not67, label %.thread, label %68
 
 46:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %47 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %47 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_same, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not66 = icmp eq i64 %47, 0
   br i1 %.not66, label %.thread, label %68
 
 48:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %49 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %49 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_left, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not65 = icmp eq i64 %49, 0
   br i1 %.not65, label %.thread, label %68
 
 50:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %51 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %51 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overleft, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not64 = icmp eq i64 %51, 0
   br i1 %.not64, label %.thread, label %68
 
 52:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %53 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %53 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_right, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not63 = icmp eq i64 %53, 0
   br i1 %.not63, label %.thread, label %68
 
 54:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %55 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %55 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overright, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not62 = icmp eq i64 %55, 0
   br i1 %.not62, label %.thread, label %68
 
 56:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %57 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %57 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_above, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not61 = icmp eq i64 %57, 0
   br i1 %.not61, label %.thread, label %68
 
 58:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %59 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overabove, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not60 = icmp eq i64 %59, 0
   br i1 %.not60, label %.thread, label %68
 
 60:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %61 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %61 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_below, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not59 = icmp eq i64 %61, 0
   br i1 %.not59, label %.thread, label %68
 
 62:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
   %63 = zext i16 %22 to i32
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %63) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 831, ptr noundef nonnull @__func__.spg_box_quad_leaf_consistent) #8
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %63) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 831, ptr noundef nonnull @__func__.spg_box_quad_leaf_consistent) #7
   unreachable
 
 66:                                               ; preds = %spg_box_quad_get_scankey_bbox.exit
-  %67 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #8
+  %67 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_overbelow, i32 noundef 0, i64 noundef %9, i64 noundef %.0.i) #7
   %.not = icmp eq i64 %67, 0
   br i1 %.not, label %.thread, label %68
 
@@ -1216,7 +1212,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %25, %is_bounding_bo
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load i32, ptr %77, align 8
-  %79 = tail call ptr @spg_key_orderbys_distances(i64 noundef %9, i1 noundef zeroext false, ptr noundef %76, i32 noundef %72) #8
+  %79 = tail call ptr @spg_key_orderbys_distances(i64 noundef %9, i1 noundef zeroext false, ptr noundef %76, i32 noundef %72) #7
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %79, ptr %80, align 8
   %81 = icmp eq i32 %78, 3292
@@ -1280,8 +1276,8 @@ define dso_local noundef i64 @spg_poly_quad_compress(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #8
-  %6 = tail call ptr @palloc(i64 noundef 32) #8
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #7
+  %6 = tail call ptr @palloc(i64 noundef 32) #7
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %8 = ptrtoint ptr %6 to i64
@@ -1292,9 +1288,6 @@ declare double @pg_hypot(double noundef, double noundef) local_unnamed_addr #3
 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1302,9 +1295,8 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

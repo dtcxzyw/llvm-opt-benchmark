@@ -809,68 +809,66 @@ define internal void @dataDeviceHandleEnter(ptr readnone captures(none) %0, ptr 
   tail call void @llvm.assume(i1 %.not23)
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137504), align 8, !tbaa !180
   %24 = tail call ptr %23(ptr noundef nonnull %3) #20
-  %25 = icmp eq ptr %24, getelementptr inbounds nuw (i8, ptr @_glfw, i64 134088)
-  tail call void @llvm.assume(i1 %25)
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137488), align 8, !tbaa !181
-  %27 = tail call ptr %26(ptr noundef nonnull %3) #20
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 904
-  %29 = load ptr, ptr %28, align 8, !tbaa !135
-  %30 = icmp eq ptr %3, %29
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137488), align 8, !tbaa !181
+  %26 = tail call ptr %25(ptr noundef nonnull %3) #20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 904
+  %28 = load ptr, ptr %27, align 8, !tbaa !135
+  %29 = icmp eq ptr %3, %28
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134032), align 8, !tbaa !173
-  br i1 %30, label %31, label %36
+  br i1 %29, label %30, label %35
 
-31:                                               ; preds = %22
-  %32 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !182
-  %.not24 = icmp eq i32 %34, 0
-  br i1 %.not24, label %36, label %35
+30:                                               ; preds = %22
+  %31 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !182
+  %.not24 = icmp eq i32 %33, 0
+  br i1 %.not24, label %35, label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !177
-  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134072), align 8, !tbaa !183
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134072), align 8, !tbaa !183
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134080), align 8, !tbaa !184
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %31, %22
-  %37 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
-  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
-  %39 = add i32 %38, -1
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !185
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
-  %43 = add i32 %42, -1
-  store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
+35:                                               ; preds = %34, %30, %22
+  %36 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %indvars.iv
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
+  %38 = add i32 %37, -1
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw %struct._GLFWofferWayland, ptr %.pre, i64 %39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !185
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
+  %42 = add i32 %41, -1
+  store i32 %42, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134040), align 8, !tbaa !174
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %14, %36
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137504), align 8, !tbaa !180
-  %45 = tail call ptr %44(ptr noundef %3) #20
-  %.not25 = icmp eq ptr %45, getelementptr inbounds nuw (i8, ptr @_glfw, i64 134088)
-  br i1 %.not25, label %46, label %59
+.loopexit:                                        ; preds = %17, %14, %35
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137504), align 8, !tbaa !180
+  %44 = tail call ptr %43(ptr noundef %3) #20
+  %.not25 = icmp eq ptr %44, getelementptr inbounds nuw (i8, ptr @_glfw, i64 134088)
+  br i1 %.not25, label %45, label %58
 
-46:                                               ; preds = %.loopexit
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !177
-  %.not26 = icmp eq ptr %47, null
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
-  %50 = tail call i32 %49(ptr noundef %6) #20
-  br i1 %.not26, label %53, label %51
+45:                                               ; preds = %.loopexit
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134064), align 8, !tbaa !177
+  %.not26 = icmp eq ptr %46, null
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
+  %49 = tail call i32 %48(ptr noundef %6) #20
+  br i1 %.not26, label %52, label %50
 
-51:                                               ; preds = %46
-  %52 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %48(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %50, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.41) #20
-  br label %59
+50:                                               ; preds = %45
+  %51 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %47(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %49, i32 noundef 0, i32 noundef %2, ptr noundef nonnull @.str.41) #20
+  br label %58
 
-53:                                               ; preds = %46
-  %54 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %48(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %50, i32 noundef 0, i32 noundef %2, ptr noundef null) #20
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
-  %57 = tail call i32 %56(ptr noundef %6) #20
-  %58 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %55(ptr noundef %6, i32 noundef 2, ptr noundef null, i32 noundef %57, i32 noundef 1) #20
-  br label %59
+52:                                               ; preds = %45
+  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %47(ptr noundef %6, i32 noundef 0, ptr noundef null, i32 noundef %49, i32 noundef 0, i32 noundef %2, ptr noundef null) #20
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137528), align 8, !tbaa !136
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137520), align 8, !tbaa !93
+  %56 = tail call i32 %55(ptr noundef %6) #20
+  %57 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %54(ptr noundef %6, i32 noundef 2, ptr noundef null, i32 noundef %56, i32 noundef 1) #20
+  br label %58
 
-59:                                               ; preds = %.loopexit, %53, %51
+58:                                               ; preds = %.loopexit, %52, %50
   ret void
 }
 

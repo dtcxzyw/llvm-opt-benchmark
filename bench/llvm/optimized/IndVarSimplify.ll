@@ -4152,7 +4152,6 @@ _ZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS1_12SCEVExp
 1260:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %1261 = load ptr, ptr %640, align 8, !tbaa !132
   %1262 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %1261, ptr noundef %.0.val19.i.i.i.i.i.i.i.i, ptr noundef %1256) #21
-  call void @llvm.assume(i1 %1262)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_.exit.i.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPNS4_10BasicBlockEPSD_EEbRT_T0_.exit.i.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -12212,7 +12211,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 38:                                               ; preds = %35
   %39 = load ptr, ptr %10, align 8, !tbaa !132
   %40 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %39, ptr noundef %.val35.i.i, ptr noundef %.val34.i.i) #21
-  tail call void @llvm.assume(i1 %40)
   %.val25.pre.i.i = load ptr, ptr %9, align 8, !tbaa !74
   br label %63
 
@@ -12230,7 +12228,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 45:                                               ; preds = %42
   %46 = load ptr, ptr %10, align 8, !tbaa !132
   %47 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %46, ptr noundef %.val32.i.i, ptr noundef %.val31.i.i) #21
-  tail call void @llvm.assume(i1 %47)
   %.val29.pre.i.i = load ptr, ptr %33, align 8, !tbaa !74
   br label %50
 
@@ -12255,7 +12252,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 55:                                               ; preds = %52
   %56 = load ptr, ptr %10, align 8, !tbaa !132
   %57 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %56, ptr noundef %.val29.i.i, ptr noundef %.val28.i.i) #21
-  tail call void @llvm.assume(i1 %57)
   %.pre.i.i = load ptr, ptr %9, align 8, !tbaa !74
   br label %60
 
@@ -12287,7 +12283,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 68:                                               ; preds = %65
   %69 = load ptr, ptr %10, align 8, !tbaa !132
   %70 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %69, ptr noundef %.val26.i.i, ptr noundef %.val25.i.i) #21
-  tail call void @llvm.assume(i1 %70)
   %.val23.pre.i.i = load ptr, ptr %33, align 8, !tbaa !74
   br label %73
 
@@ -12312,7 +12307,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 78:                                               ; preds = %75
   %79 = load ptr, ptr %10, align 8, !tbaa !132
   %80 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %79, ptr noundef %.val23.i.i, ptr noundef %.val22.i.i) #21
-  tail call void @llvm.assume(i1 %80)
   %.pre52.i.i = load ptr, ptr %32, align 8, !tbaa !74
   br label %83
 
@@ -12352,7 +12346,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 89:                                               ; preds = %.lr.ph.i.i
   %90 = load ptr, ptr %10, align 8, !tbaa !132
   %91 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %90, ptr noundef %.val1735.i.i, ptr noundef %.1.val34.i.i) #21
-  tail call void @llvm.assume(i1 %91)
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i12.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i12.i": ; preds = %92, %89, %"_ZSt22__move_median_to_firstIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
@@ -12382,7 +12375,6 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 99:                                               ; preds = %96
   %100 = load ptr, ptr %10, align 8, !tbaa !132
   %101 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %100, ptr noundef %.114.val.i.i, ptr noundef %.val15.i.i) #21
-  tail call void @llvm.assume(i1 %101)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit19.i.i", %99
@@ -12439,7 +12431,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__g
 20:                                               ; preds = %17
   %21 = load ptr, ptr %9, align 8, !tbaa !132
   %22 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %21, ptr noundef %.val30, ptr noundef %.val29) #21
-  tail call void @llvm.assume(i1 %22)
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread"
 
 23:                                               ; preds = %17
@@ -12502,7 +12493,6 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__g
 51:                                               ; preds = %48
   %52 = load ptr, ptr %44, align 8, !tbaa !132
   %53 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %52, ptr noundef %3, ptr noundef %.val14.i) #21
-  tail call void @llvm.assume(i1 %53)
   br label %"_ZSt11__push_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESD_EEbT_RT0_.exit.i": ; preds = %48
@@ -12550,7 +12540,6 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gn
 12:                                               ; preds = %9
   %13 = load ptr, ptr %5, align 8, !tbaa !132
   %14 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %13, ptr noundef %.val18, ptr noundef %.0.val) #21
-  tail call void @llvm.assume(i1 %14)
   %.pre = load ptr, ptr %.026, align 8, !tbaa !74
   br label %22
 
@@ -12583,7 +12572,6 @@ define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gn
 27:                                               ; preds = %.lr.ph.i
   %28 = load ptr, ptr %5, align 8, !tbaa !132
   %29 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %28, ptr noundef %.0.val19.i, ptr noundef %23) #21
-  tail call void @llvm.assume(i1 %29)
   br label %"_ZSt25__unguarded_linear_insertIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPNS4_10BasicBlockEPSD_EEbRT_T0_.exit.i": ; preds = %.lr.ph.i

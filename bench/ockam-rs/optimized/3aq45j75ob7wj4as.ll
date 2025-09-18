@@ -396,7 +396,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h58b8073c04b8c1f8E.llvm.25304
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8, !noalias !48
   invoke void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete28_$u7b$$u7b$closure$u7d$$u7d$17h7e7d3909f5e51fdbE.llvm.6390491434047147085"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-          to label %15 unwind label %5
+          to label %11 unwind label %5
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
@@ -411,22 +411,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h58b8073c04b8c1f8E.llvm.25304
   call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #21
   unreachable
 
-__rust_try.llvm.2530427196549672958.exit:         ; preds = %5
-  %11 = extractvalue { ptr, ptr } %8, 0
-  %12 = extractvalue { ptr, ptr } %8, 1
-  %13 = icmp ne ptr %11, null
-  call void @llvm.assume(i1 %13)
-  %14 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %14)
-  br label %17
-
-15:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !44
-  %16 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
-  br label %17
+  %12 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
+  br label %__rust_try.llvm.2530427196549672958.exit
 
-17:                                               ; preds = %__rust_try.llvm.2530427196549672958.exit, %15
-  %.merged = phi { ptr, ptr } [ %16, %15 ], [ %8, %__rust_try.llvm.2530427196549672958.exit ]
+__rust_try.llvm.2530427196549672958.exit:         ; preds = %5, %11
+  %.merged = phi { ptr, ptr } [ %12, %11 ], [ %8, %5 ]
   ret { ptr, ptr } %.merged
 }
 
@@ -581,7 +572,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha4f1ac27e07776d0E.llvm.25304
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8, !noalias !88
   invoke void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$8complete28_$u7b$$u7b$closure$u7d$$u7d$17h3593209a27fac120E.llvm.6390491434047147085"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3)
-          to label %15 unwind label %5
+          to label %11 unwind label %5
 
 5:                                                ; preds = %2
   %6 = landingpad { ptr, i32 }
@@ -596,22 +587,13 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17ha4f1ac27e07776d0E.llvm.25304
   call void @_ZN4core9panicking19panic_cannot_unwind17h4e1a7daf8e600394E() #21
   unreachable
 
-__rust_try.llvm.2530427196549672958.exit:         ; preds = %5
-  %11 = extractvalue { ptr, ptr } %8, 0
-  %12 = extractvalue { ptr, ptr } %8, 1
-  %13 = icmp ne ptr %11, null
-  call void @llvm.assume(i1 %13)
-  %14 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %14)
-  br label %17
-
-15:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !84
-  %16 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
-  br label %17
+  %12 = insertvalue { ptr, ptr } { ptr null, ptr poison }, ptr %1, 1
+  br label %__rust_try.llvm.2530427196549672958.exit
 
-17:                                               ; preds = %__rust_try.llvm.2530427196549672958.exit, %15
-  %.merged = phi { ptr, ptr } [ %16, %15 ], [ %8, %__rust_try.llvm.2530427196549672958.exit ]
+__rust_try.llvm.2530427196549672958.exit:         ; preds = %5, %11
+  %.merged = phi { ptr, ptr } [ %12, %11 ], [ %8, %5 ]
   ret { ptr, ptr } %.merged
 }
 

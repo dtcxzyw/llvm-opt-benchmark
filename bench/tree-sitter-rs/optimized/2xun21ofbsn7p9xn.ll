@@ -1106,16 +1106,13 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !7
   %7 = icmp ugt i64 %1, %6
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h0f64cbad47d6b929E.llvm.15079368588067787622"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i1 noundef zeroext true)
-  %.fca.0.extract = extractvalue { i64, i64 } %9, 0
-  %10 = icmp eq i64 %.fca.0.extract, -9223372036854775807
-  tail call void @llvm.assume(i1 %10)
-  br label %11
+  br label %10
 
-11:                                               ; preds = %4, %8
+10:                                               ; preds = %4, %8
   ret void
 }
 

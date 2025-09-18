@@ -49,7 +49,7 @@ define dso_local noundef ptr @statext_mcv_build(ptr noundef %0, double noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = tail call ptr @multi_sort_init(i32 noundef %7) #13
+  %8 = tail call ptr @multi_sort_init(i32 noundef %7) #12
   %9 = icmp sgt i32 %7, 0
   br i1 %9, label %.lr.ph.i, label %build_mss.exit
 
@@ -65,7 +65,7 @@ define dso_local noundef ptr @statext_mcv_build(ptr noundef %0, double noundef %
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @lookup_type_cache(i32 noundef %16, i32 noundef 2) #13
+  %17 = tail call ptr @lookup_type_cache(i32 noundef %16, i32 noundef 2) #12
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
@@ -73,18 +73,17 @@ define dso_local noundef ptr @statext_mcv_build(ptr noundef %0, double noundef %
 
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %23)
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %24 = load i32, ptr %22, align 4
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %24) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.build_mss) #13
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %24) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.build_mss) #12
   unreachable
 
 26:                                               ; preds = %11
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call void @multi_sort_add_dimension(ptr noundef %8, i32 noundef %29, i32 noundef %19, i32 noundef %28) #13
+  tail call void @multi_sort_add_dimension(ptr noundef %8, i32 noundef %29, i32 noundef %19, i32 noundef %28) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %build_mss.exit, label %11, !llvm.loop !4
@@ -93,7 +92,7 @@ build_mss.exit:                                   ; preds = %26, %3
   %30 = load i32, ptr %6, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @build_sorted_items(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %8, i32 noundef %30, ptr noundef %32) #13
+  %33 = call ptr @build_sorted_items(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %8, i32 noundef %30, ptr noundef %32) #12
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %253, label %34
 
@@ -113,7 +112,7 @@ build_mss.exit:                                   ; preds = %26, %3
   %.011.i.i = phi i32 [ 1, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %39 = getelementptr %struct.SortItem, ptr %33, i64 %indvars.iv.i.i
   %40 = getelementptr i8, ptr %39, i64 -24
-  %41 = call i32 @multi_sort_compare(ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef %8) #13
+  %41 = call i32 @multi_sort_compare(ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef %8) #12
   %.not.i.i = icmp ne i32 %41, 0
   %42 = zext i1 %.not.i.i to i32
   %spec.select.i.i = add i32 %.011.i.i, %42
@@ -125,7 +124,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
   %.0.lcssa.i.i = phi i32 [ 1, %34 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %43 = sext i32 %.0.lcssa.i.i to i64
   %44 = mul nsw i64 %43, 24
-  %45 = call ptr @palloc(i64 noundef %44) #13
+  %45 = call ptr @palloc(i64 noundef %44) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 1, ptr %46, align 8
@@ -140,7 +139,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
   %.02728.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %56 ]
   %47 = getelementptr %struct.SortItem, ptr %33, i64 %indvars.iv.i90
   %48 = getelementptr i8, ptr %47, i64 -24
-  %49 = call i32 @multi_sort_compare(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef %8) #13
+  %49 = call i32 @multi_sort_compare(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef %8) #12
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %.lr.ph._crit_edge.i, label %51
 
@@ -173,7 +172,7 @@ count_distinct_groups.exit.i:                     ; preds = %.lr.ph.i.i, %34
   br i1 %exitcond.not.i92, label %build_distinct_groups.exit, label %.lr.ph.i89, !llvm.loop !7
 
 build_distinct_groups.exit:                       ; preds = %56, %count_distinct_groups.exit.i
-  call void @qsort_interruptible(ptr noundef nonnull %45, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @compare_sort_item_count, ptr noundef null) #13
+  call void @qsort_interruptible(ptr noundef nonnull %45, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @compare_sort_item_count, ptr noundef null) #12
   %spec.store.select = call i32 @llvm.smin.i32(i32 %2, i32 %.0.lcssa.i.i)
   store i32 %spec.store.select, ptr %4, align 4
   %60 = sitofp i32 %36 to double
@@ -214,15 +213,15 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 .critedge:                                        ; preds = %75, %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %76 = call ptr @palloc(i64 noundef 72) #13
+  %76 = call ptr @palloc(i64 noundef 72) #12
   %77 = sext i32 %35 to i64
   %78 = shl nsw i64 %77, 2
-  %79 = call ptr @palloc0(i64 noundef %78) #13
+  %79 = call ptr @palloc0(i64 noundef %78) #12
   %80 = load i32, ptr %8, align 8
   %81 = sext i32 %80 to i64
   %82 = add nsw i64 %44, 8
   %83 = mul i64 %82, %81
-  %84 = call ptr @palloc(i64 noundef %83) #13
+  %84 = call ptr @palloc(i64 noundef %83) #12
   %85 = load i32, ptr %8, align 8
   %86 = sext i32 %85 to i64
   %87 = shl nsw i64 %86, 3
@@ -249,7 +248,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 .lr.ph77.us.loopexit.i:                           ; preds = %.lr.ph.us.i
   %93 = getelementptr inbounds nuw %struct.SortSupportData, ptr %90, i64 %indvars.iv108.i
   %.pre.i95 = load ptr, ptr %92, align 8
-  call void @qsort_interruptible(ptr noundef %.pre.i95, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %93) #13
+  call void @qsort_interruptible(ptr noundef %.pre.i95, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %93) #12
   %94 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv108.i
   store i32 1, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -280,7 +279,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 114:                                              ; preds = %113
   %115 = load ptr, ptr %95, align 8
-  %116 = call i32 %115(i64 noundef %102, i64 noundef %108, ptr noundef nonnull %93) #13
+  %116 = call i32 %115(i64 noundef %102, i64 noundef %108, ptr noundef nonnull %93) #12
   %117 = load i8, ptr %96, align 4, !range !9, !noundef !10
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %sort_item_compare.exit.us.i
@@ -396,7 +395,7 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_com
   %175 = getelementptr inbounds nuw %struct.SortSupportData, ptr %90, i64 %indvars.iv95.i
   %176 = getelementptr inbounds nuw i8, ptr %.06880.us84.i, i64 %44
   %177 = load ptr, ptr %165, align 8
-  call void @qsort_interruptible(ptr noundef %177, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %175) #13
+  call void @qsort_interruptible(ptr noundef %177, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %175) #12
   %178 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv95.i
   store i32 1, ptr %178, align 4
   %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
@@ -412,7 +411,7 @@ sort_item_compare.exit.thread72.us.i:             ; preds = %123, %sort_item_com
   %183 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i93
   store ptr %.06880.i, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %.06880.i, i64 %44
-  call void @qsort_interruptible(ptr noundef %.06880.i, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %182) #13
+  call void @qsort_interruptible(ptr noundef %.06880.i, i64 noundef %43, i64 noundef 24, ptr noundef nonnull @sort_item_compare, ptr noundef nonnull %182) #12
   %185 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i93
   store i32 1, ptr %185, align 4
   %indvars.iv.next.i94 = add nuw nsw i64 %indvars.iv.i93, 1
@@ -426,7 +425,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
   %190 = sext i32 %189 to i64
   %191 = shl nsw i64 %190, 5
   %192 = add nsw i64 %191, 48
-  %193 = call ptr @palloc0(i64 noundef %192) #13
+  %193 = call ptr @palloc0(i64 noundef %192) #12
   store i32 -509193790, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   store i32 1, ptr %194, align 4
@@ -479,10 +478,10 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
 216:                                              ; preds = %.lr.ph108, %._crit_edge
   %indvars.iv125 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next126, %._crit_edge ]
   %217 = getelementptr inbounds nuw %struct.MCVItem, ptr %204, i64 %indvars.iv125
-  %218 = call ptr @palloc(i64 noundef %205) #13
+  %218 = call ptr @palloc(i64 noundef %205) #12
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store ptr %218, ptr %219, align 8
-  %220 = call ptr @palloc(i64 noundef %77) #13
+  %220 = call ptr @palloc(i64 noundef %77) #12
   %221 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store ptr %220, ptr %221, align 8
   %222 = load ptr, ptr %219, align 8
@@ -518,7 +517,7 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
   %240 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv120
   %241 = load i32, ptr %240, align 4
   %242 = sext i32 %241 to i64
-  %243 = call ptr @bsearch_arg(ptr noundef nonnull %5, ptr noundef %239, i64 noundef %242, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef nonnull %76) #13
+  %243 = call ptr @bsearch_arg(ptr noundef nonnull %5, ptr noundef %239, i64 noundef %242, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef nonnull %76) #12
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = load i32, ptr %244, align 8
   %246 = sitofp i32 %245 to double
@@ -538,15 +537,15 @@ build_column_frequencies.exit:                    ; preds = %.lr.ph82.split.spli
   br i1 %252, label %216, label %._crit_edge109, !llvm.loop !16
 
 ._crit_edge109:                                   ; preds = %._crit_edge, %.preheader
-  call void @pfree(ptr noundef %79) #13
-  call void @pfree(ptr noundef %84) #13
+  call void @pfree(ptr noundef %79) #12
+  call void @pfree(ptr noundef %84) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %build_distinct_groups.exit, %._crit_edge109, %thread-pre-split
   %.083 = phi ptr [ %193, %._crit_edge109 ], [ null, %thread-pre-split ], [ null, %build_distinct_groups.exit ]
-  call void @pfree(ptr noundef nonnull %33) #13
-  call void @pfree(ptr noundef nonnull %45) #13
+  call void @pfree(ptr noundef nonnull %33) #12
+  call void @pfree(ptr noundef nonnull %45) #12
   br label %253
 
 253:                                              ; preds = %build_mss.exit, %thread-pre-split.thread
@@ -576,35 +575,33 @@ define dso_local ptr @statext_mcv_load(i32 noundef %0, i1 noundef zeroext %1) lo
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
   %5 = zext i1 %1 to i64
-  %6 = tail call ptr @SearchSysCache2(i32 noundef 62, i64 noundef %4, i64 noundef %5) #13
+  %6 = tail call ptr @SearchSysCache2(i32 noundef 62, i64 noundef %4, i64 noundef %5) #12
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 567, ptr noundef nonnull @__func__.statext_mcv_load) #13
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 567, ptr noundef nonnull @__func__.statext_mcv_load) #12
   unreachable
 
 10:                                               ; preds = %2
-  %11 = call i64 @SysCacheGetAttr(i32 noundef 62, ptr noundef nonnull %6, i16 noundef signext 5, ptr noundef nonnull %3) #13
+  %11 = call i64 @SysCacheGetAttr(i32 noundef 62, ptr noundef nonnull %6, i16 noundef signext 5, ptr noundef nonnull %3) #12
   %12 = load i8, ptr %3, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %15)
-  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 109, i32 noundef %0) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 575, ptr noundef nonnull @__func__.statext_mcv_load) #13
+  %15 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %16 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 109, i32 noundef %0) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 575, ptr noundef nonnull @__func__.statext_mcv_load) #12
   unreachable
 
 17:                                               ; preds = %10
   %18 = inttoptr i64 %11 to ptr
-  %19 = call ptr @pg_detoast_datum(ptr noundef %18) #13
+  %19 = call ptr @pg_detoast_datum(ptr noundef %18) #12
   %20 = call ptr @statext_mcv_deserialize(ptr noundef %19)
-  call void @ReleaseSysCache(ptr noundef nonnull %6) #13
+  call void @ReleaseSysCache(ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %20
 }
@@ -666,8 +663,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %25, label %.thread, label %47
 
 .thread:                                          ; preds = %8, %23
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %26)
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %27 = load i8, ptr %0, align 1
   %28 = icmp eq i8 %27, 1
   br i1 %28, label %29, label %36
@@ -701,12 +697,12 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 
 44:                                               ; preds = %41, %29
   %45 = phi i64 [ %35, %29 ], [ %43, %41 ]
-  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i64 noundef %45, i64 noundef 18) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1032, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i64 noundef %45, i64 noundef 18) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1032, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 47:                                               ; preds = %23
-  %48 = tail call ptr @palloc0(i64 noundef 48) #13
+  %48 = tail call ptr @palloc0(i64 noundef 48) #12
   %49 = load i8, ptr %0, align 1
   %50 = and i8 %49, 1
   %.not301 = icmp eq i8 %50, 0
@@ -732,11 +728,10 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %.not302, label %69, label %65
 
 65:                                               ; preds = %47
-  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %66)
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %67 = load i32, ptr %48, align 8
-  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %67, i32 noundef -509193790) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1057, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %67, i32 noundef -509193790) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1057, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 69:                                               ; preds = %47
@@ -744,11 +739,10 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %.not303, label %74, label %70
 
 70:                                               ; preds = %69
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %71)
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %72 = load i32, ptr %56, align 4
-  %73 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %72, i32 noundef 1) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1061, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %73 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %72, i32 noundef 1) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1061, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 74:                                               ; preds = %69
@@ -757,10 +751,9 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %74
-  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %78)
-  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1064, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1064, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 80:                                               ; preds = %74
@@ -768,12 +761,11 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %or.cond315, label %81, label %86
 
 81:                                               ; preds = %80
-  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %82)
+  %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %83 = load i16, ptr %62, align 4
   %84 = sext i16 %83 to i32
-  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %84) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1068, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %84) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1068, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 86:                                               ; preds = %80
@@ -781,10 +773,9 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86
-  %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %89)
-  %90 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1071, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %90 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1071, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 91:                                               ; preds = %86
@@ -792,11 +783,10 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %91
-  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %94)
+  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %95 = load i32, ptr %59, align 8
-  %96 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %95) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1074, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %96 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %95) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1074, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 97:                                               ; preds = %91
@@ -849,8 +839,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %129, label %130, label %.lr.ph.preheader
 
 130:                                              ; preds = %127
-  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %131)
+  %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %132 = load i8, ptr %0, align 1
   %133 = icmp eq i8 %132, 1
   br i1 %133, label %134, label %140
@@ -883,15 +872,15 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 
 148:                                              ; preds = %145, %134
   %149 = phi i64 [ %139, %134 ], [ %147, %145 ]
-  %150 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %149, i64 noundef %107) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1093, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %150 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %149, i64 noundef %107) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1093, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 .lr.ph.preheader:                                 ; preds = %127
   %151 = getelementptr inbounds nuw i8, ptr %48, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %151, ptr nonnull align 1 %64, i64 %99, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %64, i64 %99
-  %153 = tail call ptr @palloc(i64 noundef %101) #13
+  %153 = tail call ptr @palloc(i64 noundef %101) #12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %153, ptr nonnull align 1 %152, i64 %101, i1 false)
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 %101
   %wide.trip.count = zext nneg i32 %75 to i64
@@ -949,8 +938,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br i1 %.not306, label %.lr.ph342.preheader, label %181
 
 181:                                              ; preds = %179
-  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %182)
+  %182 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %183 = load i8, ptr %0, align 1
   %184 = icmp eq i8 %183, 1
   br i1 %184, label %185, label %191
@@ -983,13 +971,13 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
 
 199:                                              ; preds = %196, %185
   %200 = phi i64 [ %190, %185 ], [ %198, %196 ]
-  %201 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %200, i64 noundef %159) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1125, ptr noundef nonnull @__func__.statext_mcv_deserialize) #13
+  %201 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %200, i64 noundef %159) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1125, ptr noundef nonnull @__func__.statext_mcv_deserialize) #12
   unreachable
 
 .lr.ph342.preheader:                              ; preds = %179
   %202 = shl nuw nsw i64 %98, 3
-  %203 = tail call ptr @palloc(i64 noundef %202) #13
+  %203 = tail call ptr @palloc(i64 noundef %202) #12
   %wide.trip.count408 = zext nneg i32 %75 to i64
   br label %.lr.ph342
 
@@ -1000,7 +988,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %205 = load i32, ptr %204, align 4
   %206 = sext i32 %205 to i64
   %207 = shl nsw i64 %206, 3
-  %208 = tail call ptr @palloc(i64 noundef %207) #13
+  %208 = tail call ptr @palloc(i64 noundef %207) #12
   %209 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv404
   store ptr %208, ptr %209, align 8
   %210 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -1024,7 +1012,7 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   %223 = add i64 %213, 7
   %224 = and i64 %223, -8
   %225 = add i64 %222, %224
-  %226 = tail call ptr @repalloc(ptr noundef nonnull %48, i64 noundef %225) #13
+  %226 = tail call ptr @repalloc(ptr noundef nonnull %48, i64 noundef %225) #12
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 %216
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 %217
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 %221
@@ -1150,10 +1138,9 @@ define dso_local ptr @statext_mcv_deserialize(ptr noundef readonly captures(addr
   br label %fetch_att.exit
 
 276:                                              ; preds = %265
-  %277 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %277)
-  %278 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %266) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #13
+  %277 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %278 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %266) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #12
   unreachable
 
 fetch_att.exit:                                   ; preds = %269, %271, %273, %275
@@ -1297,13 +1284,13 @@ fetch_att.exit:                                   ; preds = %269, %271, %273, %2
   %indvars.iv440 = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvars.iv.next441, %.lr.ph385 ]
   %345 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv440
   %346 = load ptr, ptr %345, align 8
-  tail call void @pfree(ptr noundef %346) #13
+  tail call void @pfree(ptr noundef %346) #12
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond445.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count444
   br i1 %exitcond445.not, label %._crit_edge386, label %.lr.ph385, !llvm.loop !26
 
 ._crit_edge386:                                   ; preds = %.lr.ph385
-  tail call void @pfree(ptr noundef nonnull %203) #13
+  tail call void @pfree(ptr noundef nonnull %203) #12
   br label %347
 
 347:                                              ; preds = %1, %._crit_edge386
@@ -1323,13 +1310,13 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %6 = sext i16 %5 to i32
   %7 = sext i16 %5 to i64
   %8 = shl nsw i64 %7, 3
-  %9 = tail call ptr @palloc0(i64 noundef %8) #13
+  %9 = tail call ptr @palloc0(i64 noundef %8) #12
   %10 = shl nsw i64 %7, 2
-  %11 = tail call ptr @palloc0(i64 noundef %10) #13
+  %11 = tail call ptr @palloc0(i64 noundef %10) #12
   %12 = mul nsw i64 %7, 20
-  %13 = tail call ptr @palloc0(i64 noundef %12) #13
+  %13 = tail call ptr @palloc0(i64 noundef %12) #12
   %14 = shl nsw i64 %7, 6
-  %15 = tail call ptr @palloc0(i64 noundef %14) #13
+  %15 = tail call ptr @palloc0(i64 noundef %14) #12
   %16 = icmp sgt i16 %5, 0
   br i1 %16, label %.lr.ph346, label %._crit_edge347.thread
 
@@ -1350,7 +1337,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = tail call ptr @lookup_type_cache(i32 noundef %25, i32 noundef 2) #13
+  %26 = tail call ptr @lookup_type_cache(i32 noundef %25, i32 noundef 2) #12
   %27 = load ptr, ptr %22, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
@@ -1370,7 +1357,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %41 = load i32, ptr %19, align 8
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
-  %44 = tail call ptr @palloc0(i64 noundef %43) #13
+  %44 = tail call ptr @palloc0(i64 noundef %43) #12
   %45 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv387
   store ptr %44, ptr %45, align 8
   %46 = load i32, ptr %19, align 8
@@ -1434,11 +1421,11 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   store i8 0, ptr %82, align 1
   %83 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %84 = load i32, ptr %83, align 4
-  tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %84, ptr noundef nonnull %77) #13
+  tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %84, ptr noundef nonnull %77) #12
   %85 = load ptr, ptr %45, align 8
   %86 = load i32, ptr %72, align 4
   %87 = sext i32 %86 to i64
-  tail call void @qsort_interruptible(ptr noundef %85, i64 noundef %87, i64 noundef 8, ptr noundef nonnull @compare_scalars_simple, ptr noundef nonnull %77) #13
+  tail call void @qsort_interruptible(ptr noundef %85, i64 noundef %87, i64 noundef 8, ptr noundef nonnull @compare_scalars_simple, ptr noundef nonnull %77) #12
   %88 = load i32, ptr %72, align 4
   %89 = icmp sgt i32 %88, 1
   br i1 %89, label %.lr.ph336, label %._crit_edge337
@@ -1451,7 +1438,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %92 = getelementptr i8, ptr %91, i64 -8
   %93 = load i64, ptr %92, align 8
   %94 = load i64, ptr %91, align 8
-  %95 = tail call i32 @compare_datums_simple(i64 noundef %93, i64 noundef %94, ptr noundef nonnull %77) #13
+  %95 = tail call i32 @compare_datums_simple(i64 noundef %93, i64 noundef %94, ptr noundef nonnull %77) #12
   %.not324 = icmp eq i32 %95, 0
   br i1 %.not324, label %103, label %96
 
@@ -1520,7 +1507,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %128 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv384
   %129 = load i64, ptr %128, align 8
   %130 = inttoptr i64 %129 to ptr
-  %131 = tail call ptr @pg_detoast_datum(ptr noundef %130) #13
+  %131 = tail call ptr @pg_detoast_datum(ptr noundef %130) #12
   %132 = ptrtoint ptr %131 to i64
   %133 = load ptr, ptr %45, align 8
   %134 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv384
@@ -1597,7 +1584,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %178 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv381
   %179 = load i64, ptr %178, align 8
   %180 = inttoptr i64 %179 to ptr
-  %181 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %180) #15
+  %181 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %180) #14
   %182 = trunc i64 %181 to i32
   %183 = add i32 %182, 5
   %184 = add i32 %183, %176
@@ -1651,7 +1638,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %201 = mul nuw nsw i64 %.0305.lcssa418, %200
   %202 = add i64 %.0308.lcssa, 4
   %203 = add i64 %202, %201
-  %204 = tail call ptr @palloc0(i64 noundef %203) #13
+  %204 = tail call ptr @palloc0(i64 noundef %203) #12
   %205 = trunc i64 %203 to i32
   %206 = shl i32 %205, 2
   store i32 %206, ptr %204, align 4
@@ -1750,7 +1737,7 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   %252 = load i32, ptr %251, align 4
   %253 = sext i32 %252 to i64
   %254 = getelementptr inbounds nuw %struct.SortSupportData, ptr %15, i64 %indvars.iv403
-  %255 = tail call ptr @bsearch_arg(ptr noundef %248, ptr noundef %250, i64 noundef %253, i64 noundef 8, ptr noundef nonnull @compare_scalars_simple, ptr noundef %254) #13
+  %255 = tail call ptr @bsearch_arg(ptr noundef %248, ptr noundef %250, i64 noundef %253, i64 noundef 8, ptr noundef nonnull @compare_scalars_simple, ptr noundef %254) #12
   %256 = load ptr, ptr %249, align 8
   %257 = ptrtoint ptr %255 to i64
   %258 = ptrtoint ptr %256 to i64
@@ -1813,10 +1800,9 @@ define dso_local noundef ptr @statext_mcv_serialize(ptr noundef readonly capture
   br label %store_att_byval.exit
 
 282:                                              ; preds = %273
-  %283 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %283)
-  %284 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %274) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 230, ptr noundef nonnull @__func__.store_att_byval) #13
+  %283 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %284 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %274) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 230, ptr noundef nonnull @__func__.store_att_byval) #12
   unreachable
 
 store_att_byval.exit:                             ; preds = %275, %277, %279, %281
@@ -1899,7 +1885,7 @@ store_att_byval.exit:                             ; preds = %275, %277, %279, %2
 
 327:                                              ; preds = %298
   %328 = inttoptr i64 %270 to ptr
-  %329 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #15
+  %329 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #14
   %330 = trunc i64 %329 to i32
   %331 = add i32 %330, 1
   store i32 %331, ptr %.1310355, align 1
@@ -1945,8 +1931,8 @@ store_att_byval.exit:                             ; preds = %275, %277, %279, %2
   br i1 %351, label %.lr.ph371.split, label %._crit_edge372, !llvm.loop !34
 
 ._crit_edge372:                                   ; preds = %.lr.ph371.split, %._crit_edge367.us, %.preheader.thread, %.preheader
-  tail call void @pfree(ptr noundef %9) #13
-  tail call void @pfree(ptr noundef %11) #13
+  tail call void @pfree(ptr noundef %9) #12
+  tail call void @pfree(ptr noundef %11) #12
   ret ptr %204
 }
 
@@ -1981,7 +1967,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #13
+  %13 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1989,7 +1975,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call ptr @pg_detoast_datum(ptr noundef %19) #13
+  %20 = tail call ptr @pg_detoast_datum(ptr noundef %19) #12
   %21 = tail call ptr @statext_mcv_deserialize(ptr noundef %20)
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %21, ptr %22, align 8
@@ -2006,23 +1992,22 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   br label %28
 
 28:                                               ; preds = %24, %12
-  %29 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #13
+  %29 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #12
   %.not58 = icmp eq i32 %29, 1
   br i1 %.not58, label %34, label %30
 
 30:                                               ; preds = %28
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %31)
-  %32 = call i32 @errcode(i32 noundef 1088) #13
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1369, ptr noundef nonnull @__func__.pg_stats_ext_mcvlist_items) #13
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %32 = call i32 @errcode(i32 noundef 1088) #12
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1369, ptr noundef nonnull @__func__.pg_stats_ext_mcvlist_items) #12
   unreachable
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %2, align 8
-  %36 = call ptr @BlessTupleDesc(ptr noundef %35) #13
+  %36 = call ptr @BlessTupleDesc(ptr noundef %35) #12
   store ptr %36, ptr %2, align 8
-  %37 = call ptr @TupleDescGetAttInMetadata(ptr noundef %36) #13
+  %37 = call ptr @TupleDescGetAttInMetadata(ptr noundef %36) #12
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %37, ptr %38, align 8
   store ptr %16, ptr @CurrentMemoryContext, align 8
@@ -2030,7 +2015,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   br label %39
 
 39:                                               ; preds = %34, %1
-  %40 = call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #13
+  %40 = call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #12
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i64, ptr %42, align 8
@@ -2064,7 +2049,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   %59 = load i8, ptr %58, align 1, !range !9, !noundef !10
   %60 = zext nneg i8 %59 to i64
   %61 = load ptr, ptr @CurrentMemoryContext, align 8
-  %62 = call ptr @accumArrayResult(ptr noundef %.05660, i64 noundef %60, i1 noundef zeroext false, i32 noundef 16, ptr noundef %61) #13
+  %62 = call ptr @accumArrayResult(ptr noundef %.05660, i64 noundef %60, i1 noundef zeroext false, i32 noundef 16, ptr noundef %61) #12
   %63 = load ptr, ptr %53, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !range !9, !noundef !10
@@ -2077,18 +2062,18 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4
-  call void @getTypeOutputInfo(i32 noundef %69, ptr noundef nonnull %6, ptr noundef nonnull %5) #13
+  call void @getTypeOutputInfo(i32 noundef %69, ptr noundef nonnull %6, ptr noundef nonnull %5) #12
   %70 = load i32, ptr %6, align 4
-  call void @fmgr_info(i32 noundef %70, ptr noundef nonnull %7) #13
+  call void @fmgr_info(i32 noundef %70, ptr noundef nonnull %7) #12
   %71 = load ptr, ptr %55, align 8
   %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8
-  %74 = call i64 @FunctionCall1Coll(ptr noundef nonnull %7, i32 noundef 0, i64 noundef %73) #13
+  %74 = call i64 @FunctionCall1Coll(ptr noundef nonnull %7, i32 noundef 0, i64 noundef %73) #12
   %75 = inttoptr i64 %74 to ptr
-  %76 = call ptr @cstring_to_text(ptr noundef %75) #13
+  %76 = call ptr @cstring_to_text(ptr noundef %75) #12
   %77 = ptrtoint ptr %76 to i64
   %78 = load ptr, ptr @CurrentMemoryContext, align 8
-  %79 = call ptr @accumArrayResult(ptr noundef %.05461, i64 noundef %77, i1 noundef zeroext false, i32 noundef 25, ptr noundef %78) #13
+  %79 = call ptr @accumArrayResult(ptr noundef %.05461, i64 noundef %77, i1 noundef zeroext false, i32 noundef 25, ptr noundef %78) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2096,7 +2081,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
 
 80:                                               ; preds = %56
   %81 = load ptr, ptr @CurrentMemoryContext, align 8
-  %82 = call ptr @accumArrayResult(ptr noundef %.05461, i64 noundef 0, i1 noundef zeroext true, i32 noundef 25, ptr noundef %81) #13
+  %82 = call ptr @accumArrayResult(ptr noundef %.05461, i64 noundef 0, i1 noundef zeroext true, i32 noundef 25, ptr noundef %81) #12
   br label %83
 
 83:                                               ; preds = %67, %80
@@ -2119,11 +2104,11 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   %88 = ashr exact i64 %sext, 32
   store i64 %88, ptr %3, align 16
   %89 = load ptr, ptr @CurrentMemoryContext, align 8
-  %90 = call i64 @makeArrayResult(ptr noundef %.054.lcssa, ptr noundef %89) #13
+  %90 = call i64 @makeArrayResult(ptr noundef %.054.lcssa, ptr noundef %89) #12
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %90, ptr %91, align 8
   %92 = load ptr, ptr @CurrentMemoryContext, align 8
-  %93 = call i64 @makeArrayResult(ptr noundef %.056.lcssa, ptr noundef %92) #13
+  %93 = call i64 @makeArrayResult(ptr noundef %.056.lcssa, ptr noundef %92) #12
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %93, ptr %94, align 16
   %95 = load i64, ptr %49, align 8
@@ -2137,10 +2122,10 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   %100 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = call ptr @heap_form_tuple(ptr noundef %102, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
+  %103 = call ptr @heap_form_tuple(ptr noundef %102, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %104 = getelementptr i8, ptr %103, i64 16
   %.val = load ptr, ptr %104, align 8
-  %105 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
+  %105 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #12
   %106 = load i64, ptr %40, align 8
   %107 = add i64 %106, 1
   store i64 %107, ptr %40, align 8
@@ -2153,7 +2138,7 @@ define dso_local i64 @pg_stats_ext_mcvlist_items(ptr noundef %0) local_unnamed_a
   br label %116
 
 111:                                              ; preds = %39
-  call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %40) #13
+  call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %40) #12
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
@@ -2202,17 +2187,16 @@ declare void @end_MultiFuncCall(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_mcv_list_in(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #13
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1480, ptr noundef nonnull @__func__.pg_mcv_list_in) #13
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1480, ptr noundef nonnull @__func__.pg_mcv_list_in) #12
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_mcv_list_out(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @byteaout(ptr noundef %0) #13
+  %2 = tail call i64 @byteaout(ptr noundef %0) #12
   ret i64 %2
 }
 
@@ -2220,17 +2204,16 @@ declare i64 @byteaout(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @pg_mcv_list_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #13
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1511, ptr noundef nonnull @__func__.pg_mcv_list_recv) #13
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %3 = tail call i32 @errcode(i32 noundef 1088) #12
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1511, ptr noundef nonnull @__func__.pg_mcv_list_recv) #12
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_mcv_list_send(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @byteasend(ptr noundef %0) #13
+  %2 = tail call i64 @byteasend(ptr noundef %0) #12
   ret i64 %2
 }
 
@@ -2358,7 +2341,7 @@ define internal fastcc ptr @mcv_get_match_bitmap(ptr noundef readonly captures(a
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
-  %25 = tail call ptr @palloc(i64 noundef %24) #13
+  %25 = tail call ptr @palloc(i64 noundef %24) #12
   %26 = xor i1 %4, true
   %27 = zext i1 %26 to i8
   %28 = load i32, ptr %22, align 8
@@ -2411,18 +2394,17 @@ is_opclause.exit:                                 ; preds = %.lr.ph89, %is_opcla
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %46 = getelementptr inbounds nuw i8, ptr %.02313, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = call i32 @get_opcode(i32 noundef %47) #13
-  call void @fmgr_info(i32 noundef %48, ptr noundef nonnull %6) #13
+  %48 = call i32 @get_opcode(i32 noundef %47) #12
+  call void @fmgr_info(i32 noundef %48, ptr noundef nonnull %6) #12
   %49 = getelementptr inbounds nuw i8, ptr %.02313, i64 32
   %50 = load ptr, ptr %49, align 8
-  %51 = call zeroext i1 @examine_opclause_args(ptr noundef %50, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
+  %51 = call zeroext i1 @examine_opclause_args(ptr noundef %50, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %45
-  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %53)
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1647, ptr noundef nonnull @__func__.mcv_get_match_bitmap) #13
+  %53 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1647, ptr noundef nonnull @__func__.mcv_get_match_bitmap) #12
   unreachable
 
 55:                                               ; preds = %45
@@ -2496,7 +2478,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph89, %is_opcla
   %93 = load i64, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %95 = load i64, ptr %94, align 8
-  %96 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %93, i64 noundef %95) #13
+  %96 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %93, i64 noundef %95) #12
   br label %105
 
 97:                                               ; preds = %86
@@ -2506,7 +2488,7 @@ is_opclause.exit:                                 ; preds = %.lr.ph89, %is_opcla
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i64, ptr %101, i64 %59
   %103 = load i64, ptr %102, align 8
-  %104 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %99, i64 noundef %103) #13
+  %104 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %99, i64 noundef %103) #12
   br label %105
 
 105:                                              ; preds = %97, %89
@@ -2561,18 +2543,17 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %122 = getelementptr inbounds nuw i8, ptr %.0231410, i64 4
   %123 = load i32, ptr %122, align 4
-  %124 = call i32 @get_opcode(i32 noundef %123) #13
-  call void @fmgr_info(i32 noundef %124, ptr noundef nonnull %11) #13
+  %124 = call i32 @get_opcode(i32 noundef %123) #12
+  call void @fmgr_info(i32 noundef %124, ptr noundef nonnull %11) #12
   %125 = getelementptr inbounds nuw i8, ptr %.0231410, i64 32
   %126 = load ptr, ptr %125, align 8
-  %127 = call zeroext i1 @examine_opclause_args(ptr noundef %126, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #13
+  %127 = call zeroext i1 @examine_opclause_args(ptr noundef %126, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14) #12
   br i1 %127, label %131, label %128
 
 128:                                              ; preds = %121
-  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %129)
-  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1735, ptr noundef nonnull @__func__.mcv_get_match_bitmap) #13
+  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1735, ptr noundef nonnull @__func__.mcv_get_match_bitmap) #12
   unreachable
 
 131:                                              ; preds = %121
@@ -2581,10 +2562,9 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   br i1 %133, label %137, label %134
 
 134:                                              ; preds = %131
-  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %135)
-  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #13
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1739, ptr noundef nonnull @__func__.mcv_get_match_bitmap) #13
+  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1739, ptr noundef nonnull @__func__.mcv_get_match_bitmap) #12
   unreachable
 
 137:                                              ; preds = %131
@@ -2598,17 +2578,17 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %143 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %144 = load i64, ptr %143, align 8
   %145 = inttoptr i64 %144 to ptr
-  %146 = call ptr @pg_detoast_datum(ptr noundef %145) #13
+  %146 = call ptr @pg_detoast_datum(ptr noundef %145) #12
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %148 = load i32, ptr %147, align 4
-  call void @get_typlenbyvalalign(i32 noundef %148, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18) #13
+  call void @get_typlenbyvalalign(i32 noundef %148, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18) #12
   %149 = load i32, ptr %147, align 4
   %150 = load i16, ptr %16, align 2
   %151 = sext i16 %150 to i32
   %152 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %153 = trunc nuw i8 %152 to i1
   %154 = load i8, ptr %18, align 1
-  call void @deconstruct_array(ptr noundef %146, i32 noundef %149, i32 noundef %151, i1 noundef zeroext %153, i8 noundef signext %154, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %19) #13
+  call void @deconstruct_array(ptr noundef %146, i32 noundef %149, i32 noundef %151, i1 noundef zeroext %153, i8 noundef signext %154, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %19) #12
   br label %155
 
 155:                                              ; preds = %142, %137
@@ -2721,7 +2701,7 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %211 = load ptr, ptr %192, align 8
   %212 = getelementptr inbounds i64, ptr %211, i64 %160
   %213 = load i64, ptr %212, align 8
-  %214 = call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %161, i64 noundef %213, i64 noundef %198) #13
+  %214 = call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %161, i64 noundef %213, i64 noundef %198) #12
   %215 = icmp ne i64 %214, 0
   %216 = load i8, ptr %159, align 4, !range !9, !noundef !10
   %217 = trunc nuw i8 %216 to i1
@@ -2882,7 +2862,7 @@ is_orclause.exit252:                              ; preds = %is_orclause.exit, %
   br i1 %298, label %.lr.ph47, label %._crit_edge48, !llvm.loop !43
 
 ._crit_edge48:                                    ; preds = %294, %is_orclause.exit252
-  call void @pfree(ptr noundef %284) #13
+  call void @pfree(ptr noundef %284) #12
   br label %.loopexit
 
 299:                                              ; preds = %is_orclause.exit
@@ -2923,7 +2903,7 @@ is_orclause.exit252:                              ; preds = %is_orclause.exit, %
   br i1 %317, label %.lr.ph44, label %._crit_edge45, !llvm.loop !44
 
 ._crit_edge45:                                    ; preds = %313, %299
-  call void @pfree(ptr noundef %302) #13
+  call void @pfree(ptr noundef %302) #12
   br label %.loopexit
 
 .thread20:                                        ; preds = %277
@@ -2934,7 +2914,7 @@ is_orclause.exit252:                              ; preds = %is_orclause.exit, %
   %320 = getelementptr inbounds nuw i8, ptr %.0231410, i64 8
   %321 = load i16, ptr %320, align 8
   %322 = sext i16 %321 to i32
-  %323 = call i32 @bms_member_index(ptr noundef %1, i32 noundef %322) #13
+  %323 = call i32 @bms_member_index(ptr noundef %1, i32 noundef %322) #12
   %324 = load i32, ptr %22, align 8
   %.not64 = icmp eq i32 %324, 0
   br i1 %.not64, label %.loopexit, label %.lr.ph53
@@ -3059,12 +3039,12 @@ define dso_local double @mcv_clause_selectivity_or(ptr noundef readnone captures
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = tail call ptr @palloc0(i64 noundef %15) #13
+  %16 = tail call ptr @palloc0(i64 noundef %15) #12
   store ptr %16, ptr %4, align 8
   br label %17
 
 17:                                               ; preds = %12, %9
-  %18 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %3) #13
+  %18 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %3) #12
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3144,7 +3124,7 @@ define dso_local double @mcv_clause_selectivity_or(ptr noundef readnone captures
 
 ._crit_edge:                                      ; preds = %61, %17
   %.0.lcssa = phi double [ 0.000000e+00, %17 ], [ %.1, %61 ]
-  tail call void @pfree(ptr noundef %23) #13
+  tail call void @pfree(ptr noundef %23) #12
   ret double %.0.lcssa
 }
 
@@ -3206,7 +3186,7 @@ define internal i32 @sort_item_compare(ptr noundef readonly captures(none) %0, p
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 %28(i64 noundef %5, i64 noundef %11, ptr noundef %2) #13
+  %29 = tail call i32 %28(i64 noundef %5, i64 noundef %11, ptr noundef %2) #12
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %31 = load i8, ptr %30, align 4, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
@@ -3249,27 +3229,26 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = sext i16 %13 to i32
-  %15 = tail call i32 @bms_member_index(ptr noundef %1, i32 noundef %14) #13
+  %15 = tail call i32 @bms_member_index(ptr noundef %1, i32 noundef %14) #12
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %11
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1550, ptr noundef nonnull @__func__.mcv_match_expression) #13
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1550, ptr noundef nonnull @__func__.mcv_match_expression) #12
   unreachable
 
 20:                                               ; preds = %4
   br i1 %.not31, label %23, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call i32 @exprCollation(ptr noundef nonnull %0) #13
+  %22 = tail call i32 @exprCollation(ptr noundef nonnull %0) #12
   store i32 %22, ptr %3, align 4
   br label %23
 
 23:                                               ; preds = %21, %20
-  %24 = tail call i32 @bms_num_members(ptr noundef %1) #13
+  %24 = tail call i32 @bms_num_members(ptr noundef %1) #12
   %.not29 = icmp eq ptr %2, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -3286,7 +3265,7 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
   %29 = load ptr, ptr %26, align 8
   %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call zeroext i1 @equal(ptr noundef nonnull %0, ptr noundef %31) #13
+  %32 = tail call zeroext i1 @equal(ptr noundef nonnull %0, ptr noundef %31) #12
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %.lr.ph44
@@ -3298,10 +3277,9 @@ define internal fastcc i32 @mcv_match_expression(ptr noundef %0, ptr noundef %1,
   br i1 %37, label %.lr.ph44, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %33, %.lr.ph, %23
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1573, ptr noundef nonnull @__func__.mcv_match_expression) #13
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1573, ptr noundef nonnull @__func__.mcv_match_expression) #12
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph44, %11
@@ -3329,17 +3307,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3352,11 +3327,10 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -90,12 +90,11 @@ define dso_local range(i32 0, 7) i32 @anytime_typmod_check(i1 noundef zeroext %0
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 @errcode(i32 noundef 50856066) #16
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %6 = tail call i32 @errcode(i32 noundef 50856066) #15
   %7 = select i1 %0, ptr @.str.1, ptr @.str.2
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef nonnull %7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.anytime_typmod_check) #16
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %1, ptr noundef nonnull %7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 77, ptr noundef nonnull @__func__.anytime_typmod_check) #15
   unreachable
 
 9:                                                ; preds = %2
@@ -103,14 +102,14 @@ define dso_local range(i32 0, 7) i32 @anytime_typmod_check(i1 noundef zeroext %0
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
+  %12 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @errcode(i32 noundef 50856066) #16
+  %14 = tail call i32 @errcode(i32 noundef 50856066) #15
   %15 = select i1 %0, ptr @.str.1, ptr @.str.2
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef nonnull %15, i32 noundef 6) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 84, ptr noundef nonnull @__func__.anytime_typmod_check) #16
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %1, ptr noundef nonnull %15, i32 noundef 6) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 84, ptr noundef nonnull @__func__.anytime_typmod_check) #15
   br label %17
 
 17:                                               ; preds = %13, %11, %9
@@ -154,19 +153,19 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr noundef cap
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %16 = call i32 @ParseDateTime(ptr noundef %13, ptr noundef nonnull %9, i64 noundef 129, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 25, ptr noundef nonnull %6) #16
+  %16 = call i32 @ParseDateTime(ptr noundef %13, ptr noundef nonnull %9, i64 noundef 129, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 25, ptr noundef nonnull %6) #15
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %1
   %19 = load i32, ptr %6, align 4
-  %20 = call i32 @DecodeDateTime(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %10) #16
+  %20 = call i32 @DecodeDateTime(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %22, label %.thread
 
 .thread:                                          ; preds = %1, %18
   %.03750 = phi i32 [ %20, %18 ], [ %16, %1 ]
-  call void @DateTimeParseError(i32 noundef %.03750, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %15) #16
+  call void @DateTimeParseError(i32 noundef %.03750, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %15) #15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %21, align 4
   br label %61
@@ -181,14 +180,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr noundef cap
   ]
 
 24:                                               ; preds = %22
-  call void @GetEpochTime(ptr noundef nonnull %3) #16
+  call void @GetEpochTime(ptr noundef nonnull %3) #15
   br label %28
 
 25:                                               ; preds = %22
   br label %61
 
 26:                                               ; preds = %22
-  call void @DateTimeParseError(i32 noundef -1, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %15) #16
+  call void @DateTimeParseError(i32 noundef -1, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef %15) #15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %27, align 4
   br label %61
@@ -225,31 +224,31 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_in(ptr noundef cap
   br i1 %or.cond47, label %.thread51, label %44
 
 44:                                               ; preds = %39, %32
-  %45 = call zeroext i1 @errsave_start(ptr noundef %15, ptr noundef null) #16
+  %45 = call zeroext i1 @errsave_start(ptr noundef %15, ptr noundef null) #15
   br i1 %45, label %46, label %61
 
 46:                                               ; preds = %44
-  %47 = call i32 @errcode(i32 noundef 134217858) #16
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %13) #16
-  call void @errsave_finish(ptr noundef %15, ptr noundef nonnull @.str.3, i32 noundef 167, ptr noundef nonnull @__func__.date_in) #16
+  %47 = call i32 @errcode(i32 noundef 134217858) #15
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %13) #15
+  call void @errsave_finish(ptr noundef %15, ptr noundef nonnull @.str.3, i32 noundef 167, ptr noundef nonnull @__func__.date_in) #15
   br label %61
 
 .thread51:                                        ; preds = %..thread51_crit_edge, %32, %39
   %49 = phi i32 [ %.pre, %..thread51_crit_edge ], [ %35, %32 ], [ %42, %39 ]
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %51 = load i32, ptr %50, align 4
-  %52 = call i32 @date2j(i32 noundef %30, i32 noundef %49, i32 noundef %51) #16
+  %52 = call i32 @date2j(i32 noundef %30, i32 noundef %49, i32 noundef %51) #15
   %or.cond = icmp ult i32 %52, 2147483494
   br i1 %or.cond, label %58, label %53
 
 53:                                               ; preds = %.thread51
-  %54 = call zeroext i1 @errsave_start(ptr noundef %15, ptr noundef null) #16
+  %54 = call zeroext i1 @errsave_start(ptr noundef %15, ptr noundef null) #15
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %53
-  %56 = call i32 @errcode(i32 noundef 134217858) #16
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %13) #16
-  call void @errsave_finish(ptr noundef %15, ptr noundef nonnull @.str.3, i32 noundef 175, ptr noundef nonnull @__func__.date_in) #16
+  %56 = call i32 @errcode(i32 noundef 134217858) #15
+  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %13) #15
+  call void @errsave_finish(ptr noundef %15, ptr noundef nonnull @.str.3, i32 noundef 175, ptr noundef nonnull @__func__.date_in) #15
   br label %61
 
 58:                                               ; preds = %.thread51
@@ -303,11 +302,11 @@ define dso_local i64 @date_out(ptr noundef readonly captures(none) %0) local_unn
   br i1 %switch, label %9, label %10
 
 9:                                                ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #15
   br label %EncodeSpecialDate.exit
 
 10:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.11, i64 9, i1 false) #16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.11, i64 9, i1 false) #15
   br label %EncodeSpecialDate.exit
 
 11:                                               ; preds = %1
@@ -315,13 +314,13 @@ define dso_local i64 @date_out(ptr noundef readonly captures(none) %0) local_unn
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = load i32, ptr @DateStyle, align 4
-  call void @EncodeDateOnly(ptr noundef nonnull %2, i32 noundef %16, ptr noundef nonnull %3) #16
+  call void @EncodeDateOnly(ptr noundef nonnull %2, i32 noundef %16, ptr noundef nonnull %3) #15
   br label %EncodeSpecialDate.exit
 
 EncodeSpecialDate.exit:                           ; preds = %10, %9, %11
-  %17 = call ptr @pstrdup(ptr noundef nonnull %3) #16
+  %17 = call ptr @pstrdup(ptr noundef nonnull %3) #15
   %18 = ptrtoint ptr %17 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -336,18 +335,17 @@ define dso_local void @EncodeSpecialDate(i32 noundef %0, ptr noundef writeonly c
   ]
 
 3:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #15
   br label %8
 
 4:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(9) @.str.11, i64 9, i1 false) #16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(9) @.str.11, i64 9, i1 false) #15
   br label %8
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 308, ptr noundef nonnull @__func__.EncodeSpecialDate) #16
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 308, ptr noundef nonnull @__func__.EncodeSpecialDate) #15
   unreachable
 
 8:                                                ; preds = %4, %3
@@ -365,7 +363,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_recv(ptr noundef r
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #16
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #15
   %6 = add i32 %5, -2147483647
   %or.cond = icmp ult i32 %6, 2
   %7 = add i32 %5, 2451545
@@ -374,11 +372,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_recv(ptr noundef r
   br i1 %or.cond9, label %12, label %8
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 222, ptr noundef nonnull @__func__.date_recv) #16
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %10 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 222, ptr noundef nonnull @__func__.date_recv) #15
   unreachable
 
 12:                                               ; preds = %1
@@ -395,8 +392,8 @@ define dso_local i64 @date_send(ptr noundef readonly captures(none) %0) local_un
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
   %7 = load ptr, ptr %2, align 8, !alias.scope !4
@@ -407,7 +404,7 @@ define dso_local i64 @date_send(ptr noundef readonly captures(none) %0) local_un
   store i32 %6, ptr %11, align 1, !noalias !4
   %12 = add i32 %9, 4
   store i32 %12, ptr %8, align 8, !alias.scope !4
-  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -445,11 +442,10 @@ define dso_local range(i64 -2451545, 2145031949) i64 @make_date(ptr noundef read
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %5, i32 noundef %9, i32 noundef %13) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 266, ptr noundef nonnull @__func__.make_date) #16
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %5, i32 noundef %9, i32 noundef %13) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 266, ptr noundef nonnull @__func__.make_date) #15
   unreachable
 
 23:                                               ; preds = %16
@@ -458,19 +454,18 @@ define dso_local range(i64 -2451545, 2145031949) i64 @make_date(ptr noundef read
   br label %25
 
 25:                                               ; preds = %23, %1
-  %26 = call i32 @ValidateDate(i32 noundef 14, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %15, ptr noundef nonnull %2) #16
+  %26 = call i32 @ValidateDate(i32 noundef 14, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %15, ptr noundef nonnull %2) #15
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %28)
-  %29 = call i32 @errcode(i32 noundef 134217858) #16
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = call i32 @errcode(i32 noundef 134217858) #15
   %30 = load i32, ptr %6, align 4
   %31 = load i32, ptr %10, align 8
   %32 = load i32, ptr %14, align 4
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %30, i32 noundef %31, i32 noundef %32) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 276, ptr noundef nonnull @__func__.make_date) #16
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %30, i32 noundef %31, i32 noundef %32) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 276, ptr noundef nonnull @__func__.make_date) #15
   unreachable
 
 34:                                               ; preds = %25
@@ -496,31 +491,29 @@ define dso_local range(i64 -2451545, 2145031949) i64 @make_date(ptr noundef read
   br i1 %or.cond5, label %.thread, label %45
 
 45:                                               ; preds = %42, %37
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %46)
-  %47 = call i32 @errcode(i32 noundef 134217858) #16
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %47 = call i32 @errcode(i32 noundef 134217858) #15
   %48 = load i32, ptr %6, align 4
   %49 = load i32, ptr %10, align 8
   %50 = load i32, ptr %14, align 4
-  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %48, i32 noundef %49, i32 noundef %50) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 283, ptr noundef nonnull @__func__.make_date) #16
+  %51 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %48, i32 noundef %49, i32 noundef %50) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 283, ptr noundef nonnull @__func__.make_date) #15
   unreachable
 
 .thread:                                          ; preds = %37, %42, %40
   %52 = load i32, ptr %14, align 4
-  %53 = call i32 @date2j(i32 noundef %35, i32 noundef %.pre, i32 noundef %52) #16
+  %53 = call i32 @date2j(i32 noundef %35, i32 noundef %.pre, i32 noundef %52) #15
   %or.cond7 = icmp ult i32 %53, 2147483494
   br i1 %or.cond7, label %61, label %54
 
 54:                                               ; preds = %.thread
-  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %55)
-  %56 = call i32 @errcode(i32 noundef 134217858) #16
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %56 = call i32 @errcode(i32 noundef 134217858) #15
   %57 = load i32, ptr %6, align 4
   %58 = load i32, ptr %10, align 8
   %59 = load i32, ptr %14, align 4
-  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %57, i32 noundef %58, i32 noundef %59) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 292, ptr noundef nonnull @__func__.make_date) #16
+  %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %57, i32 noundef %58, i32 noundef %59) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 292, ptr noundef nonnull @__func__.make_date) #15
   unreachable
 
 61:                                               ; preds = %.thread
@@ -538,7 +531,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 define dso_local i32 @GetSQLCurrentDate() local_unnamed_addr #0 {
   %1 = alloca %struct.pg_tm, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  call void @GetCurrentDateTime(ptr noundef nonnull %1) #16
+  call void @GetCurrentDateTime(ptr noundef nonnull %1) #15
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr @GetSQLCurrentDate.cache_year, align 4
@@ -565,7 +558,7 @@ define dso_local i32 @GetSQLCurrentDate() local_unnamed_addr #0 {
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = call i32 @date2j(i32 noundef %3, i32 noundef %6, i32 noundef %14) #16
+  %15 = call i32 @date2j(i32 noundef %3, i32 noundef %6, i32 noundef %14) #15
   %16 = add i32 %15, -2451545
   store i32 %16, ptr @GetSQLCurrentDate.cache_date, align 4
   %17 = load i32, ptr %2, align 4
@@ -592,8 +585,8 @@ define dso_local noundef ptr @GetSQLCurrentTime(i32 noundef %0) local_unnamed_ad
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @GetCurrentTimeUsec(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
-  %5 = call ptr @palloc(i64 noundef 16) #16
+  call void @GetCurrentTimeUsec(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
+  %5 = call ptr @palloc(i64 noundef 16) #15
   %6 = load i32, ptr %3, align 4
   %7 = load i32, ptr %4, align 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -724,7 +717,7 @@ define dso_local i64 @GetSQLLocalTime(i32 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @GetCurrentTimeUsec(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
+  call void @GetCurrentTimeUsec(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
@@ -902,7 +895,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashdate(ptr noundef readonly cap
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @hash_bytes_uint32(i32 noundef %4) #16
+  %5 = tail call i32 @hash_bytes_uint32(i32 noundef %4) #15
   %6 = zext i32 %5 to i64
   ret i64 %6
 }
@@ -914,7 +907,7 @@ define dso_local i64 @hashdateextended(ptr noundef readonly captures(none) %0) l
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
-  %7 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %4, i64 noundef %6) #16
+  %7 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %4, i64 noundef %6) #15
   ret i64 %7
 }
 
@@ -971,11 +964,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_mi(ptr noundef rea
   br i1 %or.cond5, label %11, label %15
 
 11:                                               ; preds = %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 514, ptr noundef nonnull @__func__.date_mi) #16
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %13 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 514, ptr noundef nonnull @__func__.date_mi) #15
   unreachable
 
 15:                                               ; preds = %1
@@ -1021,11 +1013,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_pli(ptr noundef re
   br i1 %or.cond3, label %24, label %20
 
 20:                                               ; preds = %18, %16, %14
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 539, ptr noundef nonnull @__func__.date_pli) #16
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 539, ptr noundef nonnull @__func__.date_pli) #15
   unreachable
 
 24:                                               ; preds = %18
@@ -1073,11 +1064,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_mii(ptr noundef re
   br i1 %or.cond3, label %24, label %20
 
 20:                                               ; preds = %18, %16, %14
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 563, ptr noundef nonnull @__func__.date_mii) #16
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %22 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 563, ptr noundef nonnull @__func__.date_mii) #15
   unreachable
 
 24:                                               ; preds = %18
@@ -1119,11 +1109,10 @@ define dso_local noundef i64 @date2timestamp_opt_overflow(i32 noundef %0, ptr no
   br label %17
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 14:                                               ; preds = %6
@@ -1168,11 +1157,10 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2
   br label %39
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 675, ptr noundef nonnull @__func__.date2timestamptz_opt_overflow) #16
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %13 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 675, ptr noundef nonnull @__func__.date2timestamptz_opt_overflow) #15
   unreachable
 
 15:                                               ; preds = %7
@@ -1180,14 +1168,14 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  call void @j2date(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #16
+  call void @j2date(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #15
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %21, align 4
   store i32 0, ptr %3, align 8
   %22 = load ptr, ptr @session_timezone, align 8
-  %23 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %3, ptr noundef %22) #16
+  %23 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %3, ptr noundef %22) #15
   %24 = sext i32 %0 to i64
   %25 = mul i64 %24, 86400000000
   %26 = sext i32 %23 to i64
@@ -1213,11 +1201,10 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2
   br label %39
 
 35:                                               ; preds = %30
-  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %36)
-  %37 = call i32 @errcode(i32 noundef 134217858) #16
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 711, ptr noundef nonnull @__func__.date2timestamptz_opt_overflow) #16
+  %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %37 = call i32 @errcode(i32 noundef 134217858) #15
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 711, ptr noundef nonnull @__func__.date2timestamptz_opt_overflow) #15
   unreachable
 
 39:                                               ; preds = %15, %33, %34, %6, %5, %10
@@ -1274,7 +1261,7 @@ date2timestamp_opt_overflow.exit:                 ; preds = %4
 
 11:                                               ; preds = %6, %2, %3
   %.010.i.ph = phi i64 [ -9223372036854775808, %2 ], [ %8, %6 ], [ 9223372036854775807, %3 ]
-  %12 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph, i64 noundef %1) #16
+  %12 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph, i64 noundef %1) #15
   br label %13
 
 13:                                               ; preds = %11, %date2timestamp_opt_overflow.exit
@@ -1311,7 +1298,7 @@ define dso_local range(i64 0, 2) i64 @date_eq_timestamp(ptr noundef readonly cap
 
 13:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %15 = icmp eq i32 %14, 0
   %16 = zext i1 %15 to i64
   br label %date_cmp_timestamp_internal.exit
@@ -1348,7 +1335,7 @@ define dso_local range(i64 0, 2) i64 @date_ne_timestamp(ptr noundef readonly cap
 
 13:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
   br label %date_cmp_timestamp_internal.exit
@@ -1389,7 +1376,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 14:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %16 = icmp slt i32 %15, 0
   br label %date_cmp_timestamp_internal.exit
 
@@ -1431,7 +1418,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 15:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   br label %date_cmp_timestamp_internal.exit
 
 date_cmp_timestamp_internal.exit:                 ; preds = %date2timestamp_opt_overflow.exit.i, %15
@@ -1472,7 +1459,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 14:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   %16 = icmp slt i32 %15, 1
   br label %date_cmp_timestamp_internal.exit
 
@@ -1514,7 +1501,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 15:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   br label %date_cmp_timestamp_internal.exit
 
 date_cmp_timestamp_internal.exit:                 ; preds = %date2timestamp_opt_overflow.exit.i, %15
@@ -1556,7 +1543,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 15:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #16
+  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %6) #15
   br label %date_cmp_timestamp_internal.exit
 
 date_cmp_timestamp_internal.exit:                 ; preds = %date2timestamp_opt_overflow.exit.i, %15
@@ -1586,14 +1573,14 @@ define dso_local i32 @date_cmp_timestamptz_internal(i32 noundef %0, i64 noundef 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  call void @j2date(i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #16
+  call void @j2date(i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %13, align 4
   store i32 0, ptr %3, align 8
   %14 = load ptr, ptr @session_timezone, align 8
-  %15 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %3, ptr noundef %14) #16
+  %15 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %3, ptr noundef %14) #15
   %16 = sext i32 %0 to i64
   %17 = mul i64 %16, 86400000000
   %18 = sext i32 %15 to i64
@@ -1622,7 +1609,7 @@ define dso_local i32 @date_cmp_timestamptz_internal(i32 noundef %0, i64 noundef 
 30:                                               ; preds = %4, %2, %7
   %.0.i.ph.ph = phi i64 [ 9223372036854775807, %4 ], [ %20, %7 ], [ -9223372036854775808, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph, i64 noundef %1) #16
+  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph, i64 noundef %1) #15
   br label %32
 
 32:                                               ; preds = %30, %27, %24
@@ -1656,14 +1643,14 @@ define dso_local range(i64 0, 2) i64 @date_eq_timestamptz(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -1689,7 +1676,7 @@ define dso_local range(i64 0, 2) i64 @date_eq_timestamptz(ptr noundef readonly c
 30:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   %32 = icmp eq i32 %31, 0
   %33 = zext i1 %32 to i64
   br label %date_cmp_timestamptz_internal.exit
@@ -1725,14 +1712,14 @@ define dso_local range(i64 0, 2) i64 @date_ne_timestamptz(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -1758,7 +1745,7 @@ define dso_local range(i64 0, 2) i64 @date_ne_timestamptz(ptr noundef readonly c
 30:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i64
   br label %date_cmp_timestamptz_internal.exit
@@ -1794,14 +1781,14 @@ define dso_local range(i64 0, 2) i64 @date_lt_timestamptz(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -1831,7 +1818,7 @@ define dso_local range(i64 0, 2) i64 @date_lt_timestamptz(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -1867,14 +1854,14 @@ define dso_local range(i64 0, 2) i64 @date_gt_timestamptz(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -1904,7 +1891,7 @@ define dso_local range(i64 0, 2) i64 @date_gt_timestamptz(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -1940,14 +1927,14 @@ define dso_local range(i64 0, 2) i64 @date_le_timestamptz(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -1977,7 +1964,7 @@ define dso_local range(i64 0, 2) i64 @date_le_timestamptz(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2013,14 +2000,14 @@ define dso_local range(i64 0, 2) i64 @date_ge_timestamptz(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2050,7 +2037,7 @@ define dso_local range(i64 0, 2) i64 @date_ge_timestamptz(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2086,14 +2073,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_cmp_timestamptz(pt
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %4, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2123,7 +2110,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_cmp_timestamptz(pt
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %7) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2159,7 +2146,7 @@ define dso_local range(i64 0, 2) i64 @timestamp_eq_date(ptr noundef readonly cap
 
 13:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %15 = icmp eq i32 %14, 0
   %16 = zext i1 %15 to i64
   br label %date_cmp_timestamp_internal.exit
@@ -2196,7 +2183,7 @@ define dso_local range(i64 0, 2) i64 @timestamp_ne_date(ptr noundef readonly cap
 
 13:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %14 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %15 = icmp ne i32 %14, 0
   %16 = zext i1 %15 to i64
   br label %date_cmp_timestamp_internal.exit
@@ -2238,7 +2225,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 15:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   br label %date_cmp_timestamp_internal.exit
 
 date_cmp_timestamp_internal.exit:                 ; preds = %date2timestamp_opt_overflow.exit.i, %15
@@ -2279,7 +2266,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 14:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %16 = icmp slt i32 %15, 0
   br label %date_cmp_timestamp_internal.exit
 
@@ -2321,7 +2308,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 15:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   br label %date_cmp_timestamp_internal.exit
 
 date_cmp_timestamp_internal.exit:                 ; preds = %date2timestamp_opt_overflow.exit.i, %15
@@ -2362,7 +2349,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 14:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %15 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   %16 = icmp slt i32 %15, 1
   br label %date_cmp_timestamp_internal.exit
 
@@ -2404,7 +2391,7 @@ date2timestamp_opt_overflow.exit.i:               ; preds = %8
 
 15:                                               ; preds = %10, %7, %1
   %.010.i.ph.i = phi i64 [ -9223372036854775808, %1 ], [ %12, %10 ], [ 9223372036854775807, %7 ]
-  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #16
+  %16 = tail call i32 @timestamp_cmp_internal(i64 noundef %.010.i.ph.i, i64 noundef %3) #15
   br label %date_cmp_timestamp_internal.exit
 
 date_cmp_timestamp_internal.exit:                 ; preds = %date2timestamp_opt_overflow.exit.i, %15
@@ -2440,14 +2427,14 @@ define dso_local range(i64 0, 2) i64 @timestamptz_eq_date(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2473,7 +2460,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_eq_date(ptr noundef readonly c
 30:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   %32 = icmp eq i32 %31, 0
   %33 = zext i1 %32 to i64
   br label %date_cmp_timestamptz_internal.exit
@@ -2509,14 +2496,14 @@ define dso_local range(i64 0, 2) i64 @timestamptz_ne_date(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2542,7 +2529,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_ne_date(ptr noundef readonly c
 30:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %31 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i64
   br label %date_cmp_timestamptz_internal.exit
@@ -2578,14 +2565,14 @@ define dso_local range(i64 0, 2) i64 @timestamptz_lt_date(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2615,7 +2602,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_lt_date(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2651,14 +2638,14 @@ define dso_local range(i64 0, 2) i64 @timestamptz_gt_date(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2688,7 +2675,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_gt_date(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2724,14 +2711,14 @@ define dso_local range(i64 0, 2) i64 @timestamptz_le_date(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2761,7 +2748,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_le_date(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2797,14 +2784,14 @@ define dso_local range(i64 0, 2) i64 @timestamptz_ge_date(ptr noundef readonly c
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2834,7 +2821,7 @@ define dso_local range(i64 0, 2) i64 @timestamptz_ge_date(ptr noundef readonly c
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2870,14 +2857,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamptz_cmp_date(pt
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %17, align 4
   store i32 0, ptr %2, align 8
   %18 = load ptr, ptr @session_timezone, align 8
-  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #16
+  %19 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %18) #15
   %sext = shl i64 %6, 32
   %20 = ashr exact i64 %sext, 32
   %21 = mul i64 %20, 86400000000
@@ -2907,7 +2894,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamptz_cmp_date(pt
 34:                                               ; preds = %11, %8, %1
   %.0.i.ph.ph.i = phi i64 [ 9223372036854775807, %8 ], [ %24, %11 ], [ -9223372036854775808, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #16
+  %35 = call i32 @timestamp_cmp_internal(i64 noundef %.0.i.ph.ph.i, i64 noundef %4) #15
   br label %date_cmp_timestamptz_internal.exit
 
 date_cmp_timestamptz_internal.exit:               ; preds = %28, %31, %34
@@ -2944,11 +2931,10 @@ define dso_local i64 @in_range_date_interval(ptr noundef readonly captures(none)
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %15
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %19 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 21:                                               ; preds = %15
@@ -2972,11 +2958,10 @@ date2timestamp.exit:                              ; preds = %1, %14, %21
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 31:                                               ; preds = %25
@@ -2991,7 +2976,7 @@ date2timestamp.exit12:                            ; preds = %date2timestamp.exit
   %35 = icmp ne i64 %11, 0
   %36 = zext i1 %35 to i64
   %37 = zext i1 %34 to i64
-  %38 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_timestamp_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %.010.i.i11, i64 noundef %9, i64 noundef %36, i64 noundef %37) #16
+  %38 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @in_range_timestamp_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %.010.i.i11, i64 noundef %9, i64 noundef %36, i64 noundef %37) #15
   ret i64 %38
 }
 
@@ -3008,7 +2993,7 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = trunc i64 %11 to i32
@@ -3051,13 +3036,13 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
 
 34:                                               ; preds = %27, %30, %20
   %35 = phi i32 [ %25, %20 ], [ %29, %27 ], [ %33, %30 ]
-  %36 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %18, i32 noundef %35, i1 noundef zeroext false) #16
-  %37 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %2) #16
+  %36 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %18, i32 noundef %35, i1 noundef zeroext false) #15
+  %37 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %2) #15
   %38 = icmp eq i32 %37, 31
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %34
-  %40 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %2) #16
+  %40 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %2) #15
   br label %41
 
 41:                                               ; preds = %39, %34
@@ -3101,26 +3086,25 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   br i1 %42, label %50, label %55
 
 50:                                               ; preds = %49
-  %51 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.15 to i64), i64 noundef 0, i64 noundef -1) #16
+  %51 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.15 to i64), i64 noundef 0, i64 noundef -1) #15
   %52 = inttoptr i64 %51 to ptr
-  %53 = call ptr @pg_detoast_datum(ptr noundef %52) #16
+  %53 = call ptr @pg_detoast_datum(ptr noundef %52) #15
   %54 = ptrtoint ptr %53 to i64
   br label %174
 
 55:                                               ; preds = %49
-  %56 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.16 to i64), i64 noundef 0, i64 noundef -1) #16
+  %56 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.16 to i64), i64 noundef 0, i64 noundef -1) #15
   %57 = inttoptr i64 %56 to ptr
-  %58 = call ptr @pg_detoast_datum(ptr noundef %57) #16
+  %58 = call ptr @pg_detoast_datum(ptr noundef %57) #15
   %59 = ptrtoint ptr %58 to i64
   br label %174
 
 60:                                               ; preds = %45
-  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %61)
-  %62 = call i32 @errcode(i32 noundef 1088) #16
-  %63 = call ptr @format_type_be(i32 noundef 1082) #16
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %63) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1142, ptr noundef nonnull @__func__.extract_date) #16
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %62 = call i32 @errcode(i32 noundef 1088) #15
+  %63 = call ptr @format_type_be(i32 noundef 1082) #15
+  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %63) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1142, ptr noundef nonnull @__func__.extract_date) #15
   unreachable
 
 65:                                               ; preds = %41
@@ -3131,7 +3115,7 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
 
 66:                                               ; preds = %65
   %67 = add i32 %12, 2451545
-  call void @j2date(i32 noundef %67, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  call void @j2date(i32 noundef %67, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   %68 = load i32, ptr %2, align 4
   switch i32 %68, label %150 [
     i32 21, label %69
@@ -3171,7 +3155,7 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   %82 = load i32, ptr %3, align 4
   %83 = load i32, ptr %4, align 4
   %84 = load i32, ptr %5, align 4
-  %85 = call i32 @date2isoweek(i32 noundef %82, i32 noundef %83, i32 noundef %84) #16
+  %85 = call i32 @date2isoweek(i32 noundef %82, i32 noundef %83, i32 noundef %84) #15
   %86 = sext i32 %85 to i64
   br label %171
 
@@ -3247,7 +3231,7 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   %127 = load i32, ptr %3, align 4
   %128 = load i32, ptr %4, align 4
   %129 = load i32, ptr %5, align 4
-  %130 = call i32 @date2isoyear(i32 noundef %127, i32 noundef %128, i32 noundef %129) #16
+  %130 = call i32 @date2isoyear(i32 noundef %127, i32 noundef %128, i32 noundef %129) #15
   %131 = sext i32 %130 to i64
   %132 = icmp slt i32 %130, 1
   %133 = sext i1 %132 to i64
@@ -3255,7 +3239,7 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   br label %171
 
 134:                                              ; preds = %66, %66
-  %135 = call i32 @j2day(i32 noundef %67) #16
+  %135 = call i32 @j2day(i32 noundef %67) #15
   %136 = sext i32 %135 to i64
   %137 = load i32, ptr %2, align 4
   %138 = icmp eq i32 %137, 37
@@ -3268,21 +3252,20 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   %141 = load i32, ptr %3, align 4
   %142 = load i32, ptr %4, align 4
   %143 = load i32, ptr %5, align 4
-  %144 = call i32 @date2j(i32 noundef %141, i32 noundef %142, i32 noundef %143) #16
+  %144 = call i32 @date2j(i32 noundef %141, i32 noundef %142, i32 noundef %143) #15
   %145 = load i32, ptr %3, align 4
-  %146 = call i32 @date2j(i32 noundef %145, i32 noundef 1, i32 noundef 1) #16
+  %146 = call i32 @date2j(i32 noundef %145, i32 noundef 1, i32 noundef 1) #15
   %147 = add i32 %144, 1
   %148 = sub i32 %147, %146
   %149 = sext i32 %148 to i64
   br label %171
 
 150:                                              ; preds = %66
-  %151 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %151)
-  %152 = call i32 @errcode(i32 noundef 1088) #16
-  %153 = call ptr @format_type_be(i32 noundef 1082) #16
-  %154 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %153) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1225, ptr noundef nonnull @__func__.extract_date) #16
+  %151 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %152 = call i32 @errcode(i32 noundef 1088) #15
+  %153 = call ptr @format_type_be(i32 noundef 1082) #15
+  %154 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %153) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1225, ptr noundef nonnull @__func__.extract_date) #15
   unreachable
 
 155:                                              ; preds = %65
@@ -3298,26 +3281,24 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   br label %171
 
 161:                                              ; preds = %155
-  %162 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %162)
-  %163 = call i32 @errcode(i32 noundef 1088) #16
-  %164 = call ptr @format_type_be(i32 noundef 1082) #16
-  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %164) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1241, ptr noundef nonnull @__func__.extract_date) #16
+  %162 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %163 = call i32 @errcode(i32 noundef 1088) #15
+  %164 = call ptr @format_type_be(i32 noundef 1082) #15
+  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %164) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1241, ptr noundef nonnull @__func__.extract_date) #15
   unreachable
 
 166:                                              ; preds = %44, %65
-  %167 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %167)
-  %168 = call i32 @errcode(i32 noundef 50856066) #16
-  %169 = call ptr @format_type_be(i32 noundef 1082) #16
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %36, ptr noundef %169) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1250, ptr noundef nonnull @__func__.extract_date) #16
+  %167 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %168 = call i32 @errcode(i32 noundef 50856066) #15
+  %169 = call ptr @format_type_be(i32 noundef 1082) #15
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %36, ptr noundef %169) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1250, ptr noundef nonnull @__func__.extract_date) #15
   unreachable
 
 171:                                              ; preds = %126, %134, %157, %117, %121, %107, %111, %98, %101, %90, %92, %140, %124, %81, %75, %72, %69
   %.041 = phi i64 [ %71, %69 ], [ %74, %72 ], [ %80, %75 ], [ %86, %81 ], [ %91, %90 ], [ %94, %92 ], [ %100, %98 ], [ %103, %101 ], [ %110, %107 ], [ %113, %111 ], [ %120, %117 ], [ %123, %121 ], [ %125, %124 ], [ %spec.store.select, %134 ], [ %149, %140 ], [ %160, %157 ], [ %spec.select, %126 ]
-  %172 = call ptr @int64_to_numeric(i64 noundef %.041) #16
+  %172 = call ptr @int64_to_numeric(i64 noundef %.041) #15
   %173 = ptrtoint ptr %172 to i64
   br label %174
 
@@ -3372,11 +3353,10 @@ define dso_local i64 @date_pl_interval(ptr noundef readonly captures(none) %0) l
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 14:                                               ; preds = %8
@@ -3387,7 +3367,7 @@ define dso_local i64 @date_pl_interval(ptr noundef readonly captures(none) %0) l
 
 date2timestamp.exit:                              ; preds = %1, %7, %14
   %.010.i.i = phi i64 [ 9223372036854775807, %7 ], [ %16, %14 ], [ -9223372036854775808, %1 ]
-  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamp_pl_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %6) #16
+  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamp_pl_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %6) #15
   ret i64 %17
 }
 
@@ -3415,11 +3395,10 @@ define dso_local i64 @date_mi_interval(ptr noundef readonly captures(none) %0) l
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 14:                                               ; preds = %8
@@ -3430,7 +3409,7 @@ define dso_local i64 @date_mi_interval(ptr noundef readonly captures(none) %0) l
 
 date2timestamp.exit:                              ; preds = %1, %7, %14
   %.010.i.i = phi i64 [ 9223372036854775807, %7 ], [ %16, %14 ], [ -9223372036854775808, %1 ]
-  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamp_mi_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %6) #16
+  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timestamp_mi_interval, i32 noundef 0, i64 noundef %.010.i.i, i64 noundef %6) #15
   ret i64 %17
 }
 
@@ -3454,11 +3433,10 @@ define dso_local i64 @date_timestamp(ptr noundef readonly captures(none) %0) loc
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %10 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 12:                                               ; preds = %6
@@ -3489,16 +3467,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamp_date(ptr noun
   br label %23
 
 7:                                                ; preds = %1
-  %8 = call i32 @timestamp2tm(i64 noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #16
+  %8 = call i32 @timestamp2tm(i64 noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #15
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %10)
-  %11 = call i32 @errcode(i32 noundef 134217858) #16
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1333, ptr noundef nonnull @__func__.timestamp_date) #16
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = call i32 @errcode(i32 noundef 134217858) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1333, ptr noundef nonnull @__func__.timestamp_date) #15
   unreachable
 
 13:                                               ; preds = %7
@@ -3508,7 +3485,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamp_date(ptr noun
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = call i32 @date2j(i32 noundef %15, i32 noundef %17, i32 noundef %19) #16
+  %20 = call i32 @date2j(i32 noundef %15, i32 noundef %17, i32 noundef %19) #15
   %21 = add i32 %20, -2451545
   %22 = sext i32 %21 to i64
   br label %23
@@ -3550,16 +3527,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamptz_date(ptr no
   br label %24
 
 8:                                                ; preds = %1
-  %9 = call i32 @timestamp2tm(i64 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #16
+  %9 = call i32 @timestamp2tm(i64 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #15
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %8
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %11)
-  %12 = call i32 @errcode(i32 noundef 134217858) #16
-  %13 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1379, ptr noundef nonnull @__func__.timestamptz_date) #16
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = call i32 @errcode(i32 noundef 134217858) #15
+  %13 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1379, ptr noundef nonnull @__func__.timestamptz_date) #15
   unreachable
 
 14:                                               ; preds = %8
@@ -3569,7 +3545,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @timestamptz_date(ptr no
   %18 = load i32, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = call i32 @date2j(i32 noundef %16, i32 noundef %18, i32 noundef %20) #16
+  %21 = call i32 @date2j(i32 noundef %16, i32 noundef %18, i32 noundef %20) #15
   %22 = add i32 %21, -2451545
   %23 = sext i32 %22 to i64
   br label %24
@@ -3610,19 +3586,19 @@ define dso_local i64 @time_in(ptr noundef captures(none) %0) local_unnamed_addr 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %19 = call i32 @ParseDateTime(ptr noundef %13, ptr noundef nonnull %6, i64 noundef 129, ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %5) #16
+  %19 = call i32 @ParseDateTime(ptr noundef %13, ptr noundef nonnull %6, i64 noundef 129, ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %5) #15
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %1
   %22 = load i32, ptr %5, align 4
-  %23 = call i32 @DecodeTimeOnly(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %10) #16
+  %23 = call i32 @DecodeTimeOnly(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %25, label %.thread
 
 .thread:                                          ; preds = %1, %21
   %.019 = phi i32 [ %23, %21 ], [ %19, %1 ]
-  call void @DateTimeParseError(i32 noundef %.019, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.20, ptr noundef %18) #16
+  call void @DateTimeParseError(i32 noundef %.019, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.20, ptr noundef %18) #15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %24, align 4
   br label %AdjustTimeForTypmod.exit
@@ -3810,8 +3786,8 @@ define dso_local i64 @time_out(ptr noundef readonly captures(none) %0) local_unn
   %18 = add i64 %.neg16.i, %15
   %19 = trunc i64 %18 to i32
   %20 = load i32, ptr @DateStyle, align 4
-  call void @EncodeTimeOnly(ptr noundef nonnull %2, i32 noundef %19, i1 noundef zeroext false, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %3) #16
-  %21 = call ptr @pstrdup(ptr noundef nonnull %3) #16
+  call void @EncodeTimeOnly(ptr noundef nonnull %2, i32 noundef %19, i1 noundef zeroext false, i32 noundef 0, i32 noundef %20, ptr noundef nonnull %3) #15
+  %21 = call ptr @pstrdup(ptr noundef nonnull %3) #15
   %22 = ptrtoint ptr %21 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3827,17 +3803,16 @@ define dso_local i64 @time_recv(ptr noundef readonly captures(none) %0) local_un
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
-  %7 = tail call i64 @pq_getmsgint64(ptr noundef %4) #16
+  %7 = tail call i64 @pq_getmsgint64(ptr noundef %4) #15
   %.fr15.i = freeze i64 %7
   %or.cond = icmp ugt i64 %.fr15.i, 86400000000
   br i1 %or.cond, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1555, ptr noundef nonnull @__func__.time_recv) #16
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %10 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1555, ptr noundef nonnull @__func__.time_recv) #15
   unreachable
 
 12:                                               ; preds = %1
@@ -3870,8 +3845,8 @@ define dso_local i64 @time_send(ptr noundef readonly captures(none) %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %5 = call i64 @llvm.bswap.i64(i64 %4)
   %6 = load ptr, ptr %2, align 8, !alias.scope !7
@@ -3882,7 +3857,7 @@ define dso_local i64 @time_send(ptr noundef readonly captures(none) %0) local_un
   store i64 %5, ptr %10, align 1, !noalias !7
   %11 = add i32 %8, 8
   store i32 %11, ptr %7, align 8, !alias.scope !7
-  %12 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  %12 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %13 = ptrtoint ptr %12 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %13
@@ -3894,19 +3869,18 @@ define dso_local range(i64 0, 7) i64 @timetypmodin(ptr noundef readonly captures
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = call ptr @ArrayGetIntegerTypmods(ptr noundef %6, ptr noundef nonnull %2) #16
+  %7 = call ptr @ArrayGetIntegerTypmods(ptr noundef %6, ptr noundef nonnull %2) #15
   %8 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %8, 1
   br i1 %.not.i, label %anytime_typmodin.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %10)
-  %11 = call i32 @errcode(i32 noundef 50856066) #16
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 64, ptr noundef nonnull @__func__.anytime_typmodin) #16
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = call i32 @errcode(i32 noundef 50856066) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 64, ptr noundef nonnull @__func__.anytime_typmodin) #15
   unreachable
 
 anytime_typmodin.exit:                            ; preds = %1
@@ -3928,11 +3902,11 @@ define dso_local i64 @timetypmodout(ptr noundef readonly captures(none) %0) loca
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.34, i32 noundef %4, ptr noundef nonnull @.str.33) #16
+  %7 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.34, i32 noundef %4, ptr noundef nonnull @.str.33) #15
   br label %anytime_typmodout.exit
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @pstrdup(ptr noundef nonnull @.str.33) #16
+  %9 = tail call ptr @pstrdup(ptr noundef nonnull @.str.33) #15
   br label %anytime_typmodout.exit
 
 anytime_typmodout.exit:                           ; preds = %6, %8
@@ -3978,11 +3952,10 @@ float_time_overflows.exit:                        ; preds = %12
   br i1 %24, label %float_time_overflows.exit.thread, label %28
 
 float_time_overflows.exit.thread:                 ; preds = %12, %1, %float_time_overflows.exit
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %4, i32 noundef %7, double noundef %9) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1608, ptr noundef nonnull @__func__.make_time) #16
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %26 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %4, i32 noundef %7, double noundef %9) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1608, ptr noundef nonnull @__func__.make_time) #15
   unreachable
 
 28:                                               ; preds = %float_time_overflows.exit
@@ -4001,7 +3974,7 @@ define dso_local i64 @time_support(ptr noundef readonly captures(none) %0) local
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @TemporalSimplify(i32 noundef 6, ptr noundef %9) #16
+  %10 = tail call ptr @TemporalSimplify(i32 noundef 6, ptr noundef %9) #15
   %11 = ptrtoint ptr %10 to i64
   br label %12
 
@@ -4128,7 +4101,7 @@ define dso_local range(i64 -1, 2) i64 @time_cmp(ptr noundef readonly captures(no
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @time_hash(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @hashint8(ptr noundef %0) #16
+  %2 = tail call i64 @hashint8(ptr noundef %0) #15
   ret i64 %2
 }
 
@@ -4136,7 +4109,7 @@ declare i64 @hashint8(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @time_hash_extended(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @hashint8extended(ptr noundef %0) #16
+  %2 = tail call i64 @hashint8extended(ptr noundef %0) #15
   ret i64 %2
 }
 
@@ -4282,16 +4255,15 @@ define dso_local range(i64 -2147485795483648, 2147485794483648) i64 @timestamp_t
   br label %30
 
 9:                                                ; preds = %1
-  %10 = call i32 @timestamp2tm(i64 noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #16
+  %10 = call i32 @timestamp2tm(i64 noundef %5, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, ptr noundef null) #15
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %9
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %12)
-  %13 = call i32 @errcode(i32 noundef 134217858) #16
-  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1938, ptr noundef nonnull @__func__.timestamp_time) #16
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %13 = call i32 @errcode(i32 noundef 134217858) #15
+  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1938, ptr noundef nonnull @__func__.timestamp_time) #15
   unreachable
 
 15:                                               ; preds = %9
@@ -4338,16 +4310,15 @@ define dso_local range(i64 -2147485795483648, 2147485794483648) i64 @timestamptz
   br label %31
 
 10:                                               ; preds = %1
-  %11 = call i32 @timestamp2tm(i64 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #16
+  %11 = call i32 @timestamp2tm(i64 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #15
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %13)
-  %14 = call i32 @errcode(i32 noundef 134217858) #16
-  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1969, ptr noundef nonnull @__func__.timestamptz_time) #16
+  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %14 = call i32 @errcode(i32 noundef 134217858) #15
+  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1969, ptr noundef nonnull @__func__.timestamptz_time) #15
   unreachable
 
 16:                                               ; preds = %10
@@ -4395,11 +4366,10 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @datet
   br i1 %9, label %10, label %date2timestamp.exit
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 612, ptr noundef nonnull @__func__.date2timestamp_opt_overflow) #15
   unreachable
 
 date2timestamp.exit:                              ; preds = %8
@@ -4416,11 +4386,10 @@ date2timestamp.exit:                              ; preds = %8
   br i1 %or.cond3, label %date2timestamp.exit.thread, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1998, ptr noundef nonnull @__func__.datetime_timestamp) #16
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1998, ptr noundef nonnull @__func__.datetime_timestamp) #15
   unreachable
 
 date2timestamp.exit.thread:                       ; preds = %1, %7, %16, %date2timestamp.exit
@@ -4432,7 +4401,7 @@ date2timestamp.exit.thread:                       ; preds = %1, %7, %16, %date2t
 define dso_local noundef i64 @time_interval(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @palloc(i64 noundef 16) #16
+  %4 = tail call ptr @palloc(i64 noundef 16) #15
   store i64 %3, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
@@ -4477,11 +4446,10 @@ define dso_local range(i64 -86399999999, 172800000000) i64 @interval_time(ptr no
   br i1 %or.cond13, label %17, label %.thread
 
 17:                                               ; preds = %12, %7
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2039, ptr noundef nonnull @__func__.interval_time) #16
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %19 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2039, ptr noundef nonnull @__func__.interval_time) #15
   unreachable
 
 .thread:                                          ; preds = %..thread_crit_edge, %7, %12
@@ -4499,7 +4467,7 @@ define dso_local noundef i64 @time_mi_time(ptr noundef readonly captures(none) %
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
-  %6 = tail call ptr @palloc(i64 noundef 16) #16
+  %6 = tail call ptr @palloc(i64 noundef 16) #15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4547,11 +4515,10 @@ define dso_local range(i64 0, 86400000000) i64 @time_pl_interval(ptr noundef rea
   br i1 %or.cond19, label %19, label %.thread
 
 19:                                               ; preds = %14, %9
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2080, ptr noundef nonnull @__func__.time_pl_interval) #16
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2080, ptr noundef nonnull @__func__.time_pl_interval) #15
   unreachable
 
 .thread:                                          ; preds = %..thread_crit_edge, %9, %14
@@ -4603,11 +4570,10 @@ define dso_local range(i64 0, 86400000000) i64 @time_mi_interval(ptr noundef rea
   br i1 %or.cond19, label %19, label %.thread
 
 19:                                               ; preds = %14, %9
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2103, ptr noundef nonnull @__func__.time_mi_interval) #16
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2103, ptr noundef nonnull @__func__.time_mi_interval) #15
   unreachable
 
 .thread:                                          ; preds = %..thread_crit_edge, %9, %14
@@ -4639,11 +4605,10 @@ define dso_local range(i64 0, 2) i64 @in_range_time_interval(ptr noundef readonl
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %1
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 50593922) #16
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2134, ptr noundef nonnull @__func__.in_range_time_interval) #16
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %16 = tail call i32 @errcode(i32 noundef 50593922) #15
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2134, ptr noundef nonnull @__func__.in_range_time_interval) #15
   unreachable
 
 18:                                               ; preds = %1
@@ -4692,7 +4657,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #16
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4731,13 +4696,13 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
 
 31:                                               ; preds = %24, %27, %17
   %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
-  %33 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %15, i32 noundef %32, i1 noundef zeroext false) #16
-  %34 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %33, ptr noundef nonnull %3) #16
+  %33 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %15, i32 noundef %32, i1 noundef zeroext false) #15
+  %34 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %33, ptr noundef nonnull %3) #15
   %35 = icmp eq i32 %34, 31
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %31
-  %37 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %33, ptr noundef nonnull %3) #16
+  %37 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %33, ptr noundef nonnull %3) #15
   br label %38
 
 38:                                               ; preds = %36, %31
@@ -4789,7 +4754,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   %sext62 = shl i64 %49, 32
   %61 = ashr exact i64 %sext62, 32
   %62 = add nsw i64 %61, %60
-  %63 = call ptr @int64_div_fast_to_numeric(i64 noundef %62, i32 noundef 3) #16
+  %63 = call ptr @int64_div_fast_to_numeric(i64 noundef %62, i32 noundef 3) #15
   %64 = ptrtoint ptr %63 to i64
   br label %.thread
 
@@ -4811,7 +4776,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   %sext60 = shl i64 %49, 32
   %75 = ashr exact i64 %sext60, 32
   %76 = add nsw i64 %75, %74
-  %77 = call ptr @int64_div_fast_to_numeric(i64 noundef %76, i32 noundef 6) #16
+  %77 = call ptr @int64_div_fast_to_numeric(i64 noundef %76, i32 noundef 6) #15
   %78 = ptrtoint ptr %77 to i64
   br label %.thread
 
@@ -4827,12 +4792,11 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   br label %108
 
 86:                                               ; preds = %40
-  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %87)
-  %88 = call i32 @errcode(i32 noundef 1088) #16
-  %89 = call ptr @format_type_be(i32 noundef 1083) #16
-  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %33, ptr noundef %89) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2235, ptr noundef nonnull @__func__.time_part_common) #16
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %88 = call i32 @errcode(i32 noundef 1088) #15
+  %89 = call ptr @format_type_be(i32 noundef 1083) #15
+  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %33, ptr noundef %89) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2235, ptr noundef nonnull @__func__.time_part_common) #15
   unreachable
 
 91:                                               ; preds = %38
@@ -4846,7 +4810,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   br i1 %1, label %96, label %99
 
 96:                                               ; preds = %95
-  %97 = call ptr @int64_div_fast_to_numeric(i64 noundef %9, i32 noundef 6) #16
+  %97 = call ptr @int64_div_fast_to_numeric(i64 noundef %9, i32 noundef 6) #15
   %98 = ptrtoint ptr %97 to i64
   br label %.thread
 
@@ -4857,12 +4821,11 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   br label %.thread
 
 103:                                              ; preds = %91
-  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %104)
-  %105 = call i32 @errcode(i32 noundef 50856066) #16
-  %106 = call ptr @format_type_be(i32 noundef 1083) #16
-  %107 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %33, ptr noundef %106) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2251, ptr noundef nonnull @__func__.time_part_common) #16
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %105 = call i32 @errcode(i32 noundef 50856066) #15
+  %106 = call ptr @format_type_be(i32 noundef 1083) #15
+  %107 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %33, ptr noundef %106) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2251, ptr noundef nonnull @__func__.time_part_common) #15
   unreachable
 
 108:                                              ; preds = %40, %85, %52
@@ -4870,7 +4833,7 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   br i1 %1, label %109, label %112
 
 109:                                              ; preds = %108
-  %110 = call ptr @int64_to_numeric(i64 noundef %.140) #16
+  %110 = call ptr @int64_to_numeric(i64 noundef %.140) #15
   %111 = ptrtoint ptr %110 to i64
   br label %.thread
 
@@ -4919,25 +4882,25 @@ define dso_local noundef i64 @timetz_in(ptr noundef captures(none) %0) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %19 = call i32 @ParseDateTime(ptr noundef %13, ptr noundef nonnull %6, i64 noundef 129, ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %5) #16
+  %19 = call i32 @ParseDateTime(ptr noundef %13, ptr noundef nonnull %6, i64 noundef 129, ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef 25, ptr noundef nonnull %5) #15
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %1
   %22 = load i32, ptr %5, align 4
-  %23 = call i32 @DecodeTimeOnly(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %10) #16
+  %23 = call i32 @DecodeTimeOnly(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %22, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %10) #15
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %25, label %.thread
 
 .thread:                                          ; preds = %1, %21
   %.020 = phi i32 [ %23, %21 ], [ %19, %1 ]
-  call void @DateTimeParseError(i32 noundef %.020, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.27, ptr noundef %18) #16
+  call void @DateTimeParseError(i32 noundef %.020, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull @.str.27, ptr noundef %18) #15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %24, align 4
   br label %58
 
 25:                                               ; preds = %21
-  %26 = call ptr @palloc(i64 noundef 16) #16
+  %26 = call ptr @palloc(i64 noundef 16) #15
   %27 = load i32, ptr %2, align 4
   %28 = load i32, ptr %4, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5043,8 +5006,8 @@ define dso_local i64 @timetz_out(ptr noundef readonly captures(none) %0) local_u
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = load i32, ptr @DateStyle, align 4
-  call void @EncodeTimeOnly(ptr noundef nonnull %2, i32 noundef %21, i1 noundef zeroext true, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %3) #16
-  %25 = call ptr @pstrdup(ptr noundef nonnull %3) #16
+  call void @EncodeTimeOnly(ptr noundef nonnull %2, i32 noundef %21, i1 noundef zeroext true, i32 noundef %23, i32 noundef %24, ptr noundef nonnull %3) #15
+  %25 = call ptr @pstrdup(ptr noundef nonnull %3) #15
   %26 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -5098,22 +5061,21 @@ define dso_local i64 @timetz_recv(ptr noundef readonly captures(none) %0) local_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %4) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %4) #15
   store i64 %9, ptr %8, align 8
   %or.cond = icmp ugt i64 %9, 86400000000
   br i1 %or.cond, label %10, label %14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2371, ptr noundef nonnull @__func__.timetz_recv) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2371, ptr noundef nonnull @__func__.timetz_recv) #15
   unreachable
 
 14:                                               ; preds = %1
-  %15 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #16
+  %15 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #15
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %15, ptr %16, align 8
   %17 = add i32 %15, -57600
@@ -5121,11 +5083,10 @@ define dso_local i64 @timetz_recv(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond13, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 150995074) #16
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2379, ptr noundef nonnull @__func__.timetz_recv) #16
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %20 = tail call i32 @errcode(i32 noundef 150995074) #15
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2379, ptr noundef nonnull @__func__.timetz_recv) #15
   unreachable
 
 22:                                               ; preds = %14
@@ -5173,9 +5134,9 @@ define dso_local i64 @timetz_send(ptr noundef readonly captures(none) %0) local_
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %6 = load i64, ptr %5, align 8
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %7 = call i64 @llvm.bswap.i64(i64 %6)
   %8 = load ptr, ptr %2, align 8, !alias.scope !12
@@ -5188,7 +5149,7 @@ define dso_local i64 @timetz_send(ptr noundef readonly captures(none) %0) local_
   store i32 %13, ptr %9, align 8, !alias.scope !12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load i32, ptr %14, align 8
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %16 = call i32 @llvm.bswap.i32(i32 %15)
   %17 = load ptr, ptr %2, align 8, !alias.scope !15
@@ -5198,7 +5159,7 @@ define dso_local i64 @timetz_send(ptr noundef readonly captures(none) %0) local_
   store i32 %16, ptr %20, align 1, !noalias !15
   %21 = add i32 %18, 4
   store i32 %21, ptr %9, align 8, !alias.scope !15
-  %22 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  %22 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %23 = ptrtoint ptr %22 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %23
@@ -5210,19 +5171,18 @@ define dso_local range(i64 0, 7) i64 @timetztypmodin(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = call ptr @ArrayGetIntegerTypmods(ptr noundef %6, ptr noundef nonnull %2) #16
+  %7 = call ptr @ArrayGetIntegerTypmods(ptr noundef %6, ptr noundef nonnull %2) #15
   %8 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %8, 1
   br i1 %.not.i, label %anytime_typmodin.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %10)
-  %11 = call i32 @errcode(i32 noundef 50856066) #16
-  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 64, ptr noundef nonnull @__func__.anytime_typmodin) #16
+  %10 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = call i32 @errcode(i32 noundef 50856066) #15
+  %12 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 64, ptr noundef nonnull @__func__.anytime_typmodin) #15
   unreachable
 
 anytime_typmodin.exit:                            ; preds = %1
@@ -5242,11 +5202,11 @@ define dso_local i64 @timetztypmodout(ptr noundef readonly captures(none) %0) lo
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.34, i32 noundef %4, ptr noundef nonnull @.str.32) #16
+  %7 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.34, i32 noundef %4, ptr noundef nonnull @.str.32) #15
   br label %anytime_typmodout.exit
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @pstrdup(ptr noundef nonnull @.str.32) #16
+  %9 = tail call ptr @pstrdup(ptr noundef nonnull @.str.32) #15
   br label %anytime_typmodout.exit
 
 anytime_typmodout.exit:                           ; preds = %6, %8
@@ -5263,7 +5223,7 @@ define dso_local noundef i64 @timetz_scale(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = load i64, ptr %4, align 8
   %.fr15.i = freeze i64 %9
   store i64 %.fr15.i, ptr %8, align 8
@@ -5565,11 +5525,11 @@ define dso_local range(i64 0, 4294967296) i64 @timetz_hash(ptr noundef readonly 
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load i64, ptr %4, align 8
-  %6 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashint8, i32 noundef 0, i64 noundef %5) #16
+  %6 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @hashint8, i32 noundef 0, i64 noundef %5) #15
   %7 = trunc i64 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = tail call i32 @hash_bytes_uint32(i32 noundef %9) #16
+  %10 = tail call i32 @hash_bytes_uint32(i32 noundef %9) #15
   %11 = xor i32 %10, %7
   %12 = zext i32 %11 to i64
   ret i64 %12
@@ -5585,10 +5545,10 @@ define dso_local i64 @timetz_hash_extended(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
-  %8 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @hashint8extended, i32 noundef 0, i64 noundef %7, i64 noundef %6) #16
+  %8 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @hashint8extended, i32 noundef 0, i64 noundef %7, i64 noundef %6) #15
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %10, i64 noundef %6) #16
+  %11 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %10, i64 noundef %6) #15
   %12 = xor i64 %11, %8
   ret i64 %12
 }
@@ -5699,16 +5659,15 @@ define dso_local noundef i64 @timetz_pl_interval(ptr noundef readonly captures(n
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20, %13
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2624, ptr noundef nonnull @__func__.timetz_pl_interval) #16
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %25 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2624, ptr noundef nonnull @__func__.timetz_pl_interval) #15
   unreachable
 
 .thread:                                          ; preds = %1, %9, %13, %20, %16
   %27 = inttoptr i64 %3 to ptr
-  %28 = tail call ptr @palloc(i64 noundef 16) #16
+  %28 = tail call ptr @palloc(i64 noundef 16) #15
   %29 = load i64, ptr %27, align 8
   %30 = load i64, ptr %6, align 8
   %.fr18 = freeze i64 %29
@@ -5764,16 +5723,15 @@ define dso_local noundef i64 @timetz_mi_interval(ptr noundef readonly captures(n
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %20, %13
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2651, ptr noundef nonnull @__func__.timetz_mi_interval) #16
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %25 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2651, ptr noundef nonnull @__func__.timetz_mi_interval) #15
   unreachable
 
 .thread:                                          ; preds = %1, %9, %13, %20, %16
   %27 = inttoptr i64 %3 to ptr
-  %28 = tail call ptr @palloc(i64 noundef 16) #16
+  %28 = tail call ptr @palloc(i64 noundef 16) #15
   %29 = load i64, ptr %27, align 8
   %30 = load i64, ptr %6, align 8
   %.fr18 = freeze i64 %29
@@ -5811,11 +5769,10 @@ define dso_local range(i64 0, 2) i64 @in_range_timetz_interval(ptr noundef reado
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %1
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 50593922) #16
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2686, ptr noundef nonnull @__func__.in_range_timetz_interval) #16
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %18 = tail call i32 @errcode(i32 noundef 50593922) #15
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2686, ptr noundef nonnull @__func__.in_range_timetz_interval) #15
   unreachable
 
 20:                                               ; preds = %1
@@ -5906,7 +5863,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br i1 %15, label %26, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %3, i64 noundef %5) #16
+  %25 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %3, i64 noundef %5) #15
   %.not = icmp eq i64 %25, 0
   %spec.select = select i1 %.not, i64 %5, i64 %3
   %spec.select54 = select i1 %.not, i64 %3, i64 %5
@@ -5925,7 +5882,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br i1 %21, label %31, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %7, i64 noundef %9) #16
+  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %7, i64 noundef %9) #15
   %.not57 = icmp eq i64 %30, 0
   %spec.select55 = select i1 %.not57, i64 %9, i64 %7
   %spec.select56 = select i1 %.not57, i64 %7, i64 %9
@@ -5935,7 +5892,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   %.053 = phi i64 [ %9, %28 ], [ %9, %27 ], [ %spec.select55, %29 ]
   %.052 = phi i64 [ %7, %28 ], [ %9, %27 ], [ %spec.select56, %29 ]
   %.049 = phi i8 [ 1, %28 ], [ 1, %27 ], [ 0, %29 ]
-  %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #16
+  %32 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_gt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #15
   %.not58 = icmp eq i64 %32, 0
   br i1 %.not58, label %39, label %33
 
@@ -5944,7 +5901,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br i1 %34, label %.sink.split, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.048, i64 noundef %.053) #16
+  %36 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.048, i64 noundef %.053) #15
   %.not61 = icmp eq i64 %36, 0
   br i1 %.not61, label %37, label %50
 
@@ -5953,7 +5910,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br i1 %38, label %.sink.split, label %50
 
 39:                                               ; preds = %31
-  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #16
+  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.048, i64 noundef %.052) #15
   %.not59 = icmp eq i64 %40, 0
   br i1 %.not59, label %47, label %41
 
@@ -5962,7 +5919,7 @@ define dso_local range(i64 0, 2) i64 @overlaps_timetz(ptr noundef captures(none)
   br i1 %42, label %.sink.split, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.052, i64 noundef %.050) #16
+  %44 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_lt, i32 noundef 0, i64 noundef %.052, i64 noundef %.050) #15
   %.not60 = icmp eq i64 %44, 0
   br i1 %.not60, label %45, label %50
 
@@ -6000,7 +5957,7 @@ define dso_local noundef i64 @time_timetz(ptr noundef readonly captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @GetCurrentDateTime(ptr noundef nonnull %2) #16
+  call void @GetCurrentDateTime(ptr noundef nonnull %2) #15
   %5 = sdiv i64 %4, 3600000000
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6021,8 +5978,8 @@ define dso_local noundef i64 @time_timetz(ptr noundef readonly captures(none) %0
   %16 = trunc i64 %15 to i32
   store i32 %16, ptr %2, align 8
   %17 = load ptr, ptr @session_timezone, align 8
-  %18 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %17) #16
-  %19 = call ptr @palloc(i64 noundef 16) #16
+  %18 = call i32 @DetermineTimeZoneOffset(ptr noundef nonnull %2, ptr noundef %17) #15
+  %19 = call ptr @palloc(i64 noundef 16) #15
   store i64 %4, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %18, ptr %20, align 8
@@ -6051,20 +6008,19 @@ define dso_local noundef i64 @timestamptz_timetz(ptr noundef captures(none) %0) 
   br label %35
 
 10:                                               ; preds = %1
-  %11 = call i32 @timestamp2tm(i64 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #16
+  %11 = call i32 @timestamp2tm(i64 noundef %6, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #15
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %10
-  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %13)
-  %14 = call i32 @errcode(i32 noundef 134217858) #16
-  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2888, ptr noundef nonnull @__func__.timestamptz_timetz) #16
+  %13 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %14 = call i32 @errcode(i32 noundef 134217858) #15
+  %15 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2888, ptr noundef nonnull @__func__.timestamptz_timetz) #15
   unreachable
 
 16:                                               ; preds = %10
-  %17 = call ptr @palloc(i64 noundef 16) #16
+  %17 = call ptr @palloc(i64 noundef 16) #15
   %18 = load i32, ptr %4, align 4
   %19 = load i32, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6115,11 +6071,10 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @datet
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2925, ptr noundef nonnull @__func__.datetimetz_timestamptz) #16
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %13 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2925, ptr noundef nonnull @__func__.datetimetz_timestamptz) #15
   unreachable
 
 15:                                               ; preds = %9
@@ -6138,11 +6093,10 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @datet
   br i1 %or.cond, label %30, label %26
 
 26:                                               ; preds = %15
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 134217858) #16
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2935, ptr noundef nonnull @__func__.datetimetz_timestamptz) #16
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %28 = tail call i32 @errcode(i32 noundef 134217858) #15
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2935, ptr noundef nonnull @__func__.datetimetz_timestamptz) #15
   unreachable
 
 30:                                               ; preds = %1, %8, %15
@@ -6162,7 +6116,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #16
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
@@ -6202,13 +6156,13 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
 
 32:                                               ; preds = %25, %28, %18
   %33 = phi i32 [ %23, %18 ], [ %27, %25 ], [ %31, %28 ]
-  %34 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %16, i32 noundef %33, i1 noundef zeroext false) #16
-  %35 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %34, ptr noundef nonnull %3) #16
+  %34 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %16, i32 noundef %33, i1 noundef zeroext false) #15
+  %35 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %34, ptr noundef nonnull %3) #15
   %36 = icmp eq i32 %35, 31
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %32
-  %38 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %34, ptr noundef nonnull %3) #16
+  %38 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %34, ptr noundef nonnull %3) #15
   br label %39
 
 39:                                               ; preds = %37, %32
@@ -6284,7 +6238,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   %sext68 = shl i64 %51, 32
   %77 = ashr exact i64 %sext68, 32
   %78 = add nsw i64 %77, %76
-  %79 = call ptr @int64_div_fast_to_numeric(i64 noundef %78, i32 noundef 3) #16
+  %79 = call ptr @int64_div_fast_to_numeric(i64 noundef %78, i32 noundef 3) #15
   %80 = ptrtoint ptr %79 to i64
   br label %141
 
@@ -6306,7 +6260,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   %sext66 = shl i64 %51, 32
   %91 = ashr exact i64 %sext66, 32
   %92 = add nsw i64 %91, %90
-  %93 = call ptr @int64_div_fast_to_numeric(i64 noundef %92, i32 noundef 6) #16
+  %93 = call ptr @int64_div_fast_to_numeric(i64 noundef %92, i32 noundef 6) #15
   %94 = ptrtoint ptr %93 to i64
   br label %141
 
@@ -6322,12 +6276,11 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   br label %134
 
 102:                                              ; preds = %41
-  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %103)
-  %104 = call i32 @errcode(i32 noundef 1088) #16
-  %105 = call ptr @format_type_be(i32 noundef 1266) #16
-  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %34, ptr noundef %105) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3031, ptr noundef nonnull @__func__.timetz_part_common) #16
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %104 = call i32 @errcode(i32 noundef 1088) #15
+  %105 = call ptr @format_type_be(i32 noundef 1266) #15
+  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %34, ptr noundef %105) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3031, ptr noundef nonnull @__func__.timetz_part_common) #15
   unreachable
 
 107:                                              ; preds = %39
@@ -6347,7 +6300,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   %116 = sext i32 %115 to i64
   %117 = mul nsw i64 %116, 1000000
   %118 = add i64 %117, %112
-  %119 = call ptr @int64_div_fast_to_numeric(i64 noundef %118, i32 noundef 6) #16
+  %119 = call ptr @int64_div_fast_to_numeric(i64 noundef %118, i32 noundef 6) #15
   %120 = ptrtoint ptr %119 to i64
   br label %141
 
@@ -6362,12 +6315,11 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   br label %141
 
 129:                                              ; preds = %107
-  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %130)
-  %131 = call i32 @errcode(i32 noundef 50856066) #16
-  %132 = call ptr @format_type_be(i32 noundef 1266) #16
-  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %34, ptr noundef %132) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3051, ptr noundef nonnull @__func__.timetz_part_common) #16
+  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %131 = call i32 @errcode(i32 noundef 50856066) #15
+  %132 = call ptr @format_type_be(i32 noundef 1266) #15
+  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %34, ptr noundef %132) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3051, ptr noundef nonnull @__func__.timetz_part_common) #15
   unreachable
 
 134:                                              ; preds = %41, %101, %68, %64, %59, %56
@@ -6375,7 +6327,7 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   br i1 %1, label %135, label %138
 
 135:                                              ; preds = %134
-  %136 = call ptr @int64_to_numeric(i64 noundef %.142.ph) #16
+  %136 = call ptr @int64_to_numeric(i64 noundef %.142.ph) #15
   %137 = ptrtoint ptr %136 to i64
   br label %141
 
@@ -6408,15 +6360,15 @@ define dso_local noundef i64 @timetz_zone(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #16
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @text_to_cstring_buffer(ptr noundef %12, ptr noundef nonnull %3, i64 noundef 256) #16
-  %15 = call i32 @DecodeTimezoneName(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  call void @text_to_cstring_buffer(ptr noundef %12, ptr noundef nonnull %3, i64 noundef 256) #15
+  %15 = call i32 @DecodeTimezoneName(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
   switch i32 %15, label %23 [
     i32 0, label %16
     i32 1, label %19
@@ -6429,29 +6381,28 @@ define dso_local noundef i64 @timetz_zone(ptr noundef readonly captures(none) %0
   br label %32
 
 19:                                               ; preds = %1
-  %20 = call i64 @GetCurrentTransactionStartTimestamp() #16
+  %20 = call i64 @GetCurrentTransactionStartTimestamp() #15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = load ptr, ptr %5, align 8
-  %22 = call i32 @DetermineTimeZoneAbbrevOffsetTS(i64 noundef %20, ptr noundef nonnull %3, ptr noundef %21, ptr noundef nonnull %6) #16
+  %22 = call i32 @DetermineTimeZoneAbbrevOffsetTS(i64 noundef %20, ptr noundef nonnull %3, ptr noundef %21, ptr noundef nonnull %6) #15
   store i32 %22, ptr %2, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %32
 
 23:                                               ; preds = %1
-  %24 = call i64 @GetCurrentTransactionStartTimestamp() #16
+  %24 = call i64 @GetCurrentTransactionStartTimestamp() #15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @timestamp2tm(i64 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef %25) #16
+  %26 = call i32 @timestamp2tm(i64 noundef %24, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef %25) #15
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %23
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %28)
-  %29 = call i32 @errcode(i32 noundef 134217858) #16
-  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3120, ptr noundef nonnull @__func__.timetz_zone) #16
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %29 = call i32 @errcode(i32 noundef 134217858) #15
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3120, ptr noundef nonnull @__func__.timetz_zone) #15
   unreachable
 
 31:                                               ; preds = %23
@@ -6461,7 +6412,7 @@ define dso_local noundef i64 @timetz_zone(ptr noundef readonly captures(none) %0
 
 32:                                               ; preds = %19, %31, %16
   %33 = inttoptr i64 %14 to ptr
-  %34 = call ptr @palloc(i64 noundef 16) #16
+  %34 = call ptr @palloc(i64 noundef 16) #15
   %35 = load i64, ptr %33, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %36, align 8
@@ -6541,13 +6492,12 @@ define dso_local noundef i64 @timetz_izone(ptr noundef readonly captures(none) %
   br i1 %22, label %23, label %.thread25
 
 23:                                               ; preds = %20, %13
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %26 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @interval_out, i32 noundef 0, i64 noundef %3) #16
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %25 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %26 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @interval_out, i32 noundef 0, i64 noundef %3) #15
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %27) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3153, ptr noundef nonnull @__func__.timetz_izone) #16
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %27) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3153, ptr noundef nonnull @__func__.timetz_izone) #15
   unreachable
 
 29:                                               ; preds = %1
@@ -6557,13 +6507,12 @@ define dso_local noundef i64 @timetz_izone(ptr noundef readonly captures(none) %
   br i1 %.not23, label %37, label %.thread25
 
 .thread25:                                        ; preds = %1, %9, %13, %16, %20, %29
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %34 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @interval_out, i32 noundef 0, i64 noundef %3) #16
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %33 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %34 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @interval_out, i32 noundef 0, i64 noundef %3) #15
   %35 = inttoptr i64 %34 to ptr
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %35) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3160, ptr noundef nonnull @__func__.timetz_izone) #16
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %35) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3160, ptr noundef nonnull @__func__.timetz_izone) #15
   unreachable
 
 37:                                               ; preds = %29
@@ -6571,7 +6520,7 @@ define dso_local noundef i64 @timetz_izone(ptr noundef readonly captures(none) %
   %39 = load i64, ptr %4, align 8
   %.neg = sdiv i64 %39, -1000000
   %40 = trunc i64 %.neg to i32
-  %41 = tail call ptr @palloc(i64 noundef 16) #16
+  %41 = tail call ptr @palloc(i64 noundef 16) #15
   %42 = load i64, ptr %38, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load i32, ptr %43, align 8
@@ -6607,10 +6556,10 @@ define dso_local i64 @timetz_at_local(ptr noundef readonly captures(none) %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr @session_timezone, align 8
-  %5 = tail call ptr @pg_get_timezone_name(ptr noundef %4) #16
-  %6 = tail call ptr @cstring_to_text(ptr noundef %5) #16
+  %5 = tail call ptr @pg_get_timezone_name(ptr noundef %4) #15
+  %6 = tail call ptr @cstring_to_text(ptr noundef %5) #15
   %7 = ptrtoint ptr %6 to i64
-  %8 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_zone, i32 noundef 0, i64 noundef %7, i64 noundef %3) #16
+  %8 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @timetz_zone, i32 noundef 0, i64 noundef %7, i64 noundef %3) #15
   ret i64 %8
 }
 
@@ -6651,32 +6600,29 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #13
+declare i64 @llvm.smax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #13
+declare i64 @llvm.smin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i64 -1, 2) i64 @llvm.scmp.i64.i32(i32, i32) #13
+declare range(i64 -1, 2) i64 @llvm.scmp.i64.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i64 -1, 2) i64 @llvm.scmp.i64.i64(i64, i64) #13
+declare range(i64 -1, 2) i64 @llvm.scmp.i64.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6689,12 +6635,11 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

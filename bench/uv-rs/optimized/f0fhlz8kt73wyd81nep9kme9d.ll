@@ -8503,118 +8503,114 @@ define void @"_ZN73_$LT$uv_pep440..version..VersionFull$u20$as$u20$rkyv..traits.
 20:                                               ; preds = %4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %24 = load i8, ptr %23, align 8, !range !212, !alias.scope !1591, !noundef !3
-  %25 = icmp ne i8 %24, 3
-  tail call void @llvm.assume(i1 %25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1594)
   store i8 %18, ptr %22, align 1, !noalias !1597
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %27 = load i64, ptr %21, align 8, !alias.scope !1597, !noundef !3
-  store i64 %27, ptr %26, align 8, !noalias !1597
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %24 = load i64, ptr %21, align 8, !alias.scope !1597, !noundef !3
+  store i64 %24, ptr %23, align 8, !noalias !1597
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit"
 
 "_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit": ; preds = %4, %20
   %.sink.i = phi i8 [ 1, %20 ], [ 0, %4 ]
   store i8 %.sink.i, ptr %16, align 1, !noalias !1591
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %30 = load i8, ptr %29, align 4, !range !483, !noundef !3
-  %31 = trunc nuw i8 %30 to i1
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %27 = load i8, ptr %26, align 4, !range !483, !noundef !3
+  %28 = trunc nuw i8 %27 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1598)
-  br i1 %31, label %32, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit"
+  br i1 %28, label %29, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit"
 
-32:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit"
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+29:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit"
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1601)
-  %35 = load i64, ptr %34, align 8, !alias.scope !1604, !noundef !3
-  store i64 %35, ptr %33, align 8, !noalias !1604
+  %32 = load i64, ptr %31, align 8, !alias.scope !1604, !noundef !3
+  store i64 %32, ptr %30, align 8, !noalias !1604
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit"
 
-"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit": ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit", %32
-  %.sink.i1 = phi i8 [ 1, %32 ], [ 0, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit" ]
-  store i8 %.sink.i1, ptr %28, align 1, !noalias !1598
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %38 = load i8, ptr %37, align 1, !range !483, !noundef !3
-  %39 = trunc nuw i8 %38 to i1
+"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit": ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit", %29
+  %.sink.i1 = phi i8 [ 1, %29 ], [ 0, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hf90c8f6c6b923dfeE.exit" ]
+  store i8 %.sink.i1, ptr %25, align 1, !noalias !1598
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  %35 = load i8, ptr %34, align 1, !range !483, !noundef !3
+  %36 = trunc nuw i8 %35 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1605)
-  br i1 %39, label %40, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
+  br i1 %36, label %37, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
 
-40:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit"
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+37:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit"
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1608)
-  %43 = load i64, ptr %42, align 8, !alias.scope !1611, !noundef !3
-  store i64 %43, ptr %41, align 8, !noalias !1611
+  %40 = load i64, ptr %39, align 8, !alias.scope !1611, !noundef !3
+  store i64 %40, ptr %38, align 8, !noalias !1611
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
 
-"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3": ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit", %40
-  %.sink.i2 = phi i8 [ 1, %40 ], [ 0, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit" ]
-  store i8 %.sink.i2, ptr %36, align 1, !noalias !1605
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %45 = load i32, ptr %1, align 4, !range !1612, !noundef !3
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %47 = load i32, ptr %46, align 4
+"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3": ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit", %37
+  %.sink.i2 = phi i8 [ 1, %37 ], [ 0, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit" ]
+  store i8 %.sink.i2, ptr %33, align 1, !noalias !1605
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %42 = load i32, ptr %1, align 4, !range !1612, !noundef !3
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %44 = load i32, ptr %43, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1613)
-  %trunc.i = trunc nuw i32 %45 to i1
-  br i1 %trunc.i, label %56, label %48
+  %trunc.i = trunc nuw i32 %42 to i1
+  br i1 %trunc.i, label %53, label %45
 
-48:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
-  store i8 0, ptr %44, align 4, !noalias !1613
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %50 = add i64 %3, 76
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %52 = load i64, ptr %51, align 8, !alias.scope !1613, !noundef !3
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %54 = zext i32 %47 to i64
-  tail call void @"_ZN4rkyv7rel_ptr18RawRelPtr$LT$O$GT$11try_emplace17hc75e60298af64023E.llvm.4561438521817157030"(i64 noundef %54, ptr noundef nonnull %49, i64 noundef %50), !noalias !1613
-  %55 = trunc i64 %52 to i32
-  store i32 %55, ptr %53, align 4, !noalias !1613
+45:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
+  store i8 0, ptr %41, align 4, !noalias !1613
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 76
+  %47 = add i64 %3, 76
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %49 = load i64, ptr %48, align 8, !alias.scope !1613, !noundef !3
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %51 = zext i32 %44 to i64
+  tail call void @"_ZN4rkyv7rel_ptr18RawRelPtr$LT$O$GT$11try_emplace17hc75e60298af64023E.llvm.4561438521817157030"(i64 noundef %51, ptr noundef nonnull %46, i64 noundef %47), !noalias !1613
+  %52 = trunc i64 %49 to i32
+  store i32 %52, ptr %50, align 4, !noalias !1613
   br label %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit"
 
-56:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
-  store i8 1, ptr %44, align 1, !noalias !1613
+53:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit3"
+  store i8 1, ptr %41, align 1, !noalias !1613
   br label %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit"
 
-"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit": ; preds = %48, %56
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  %59 = load i8, ptr %58, align 2, !range !483, !noundef !3
-  %60 = trunc nuw i8 %59 to i1
+"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit": ; preds = %45, %53
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  %56 = load i8, ptr %55, align 2, !range !483, !noundef !3
+  %57 = trunc nuw i8 %56 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1616)
-  br i1 %60, label %61, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5"
+  br i1 %57, label %58, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5"
 
-61:                                               ; preds = %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit"
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
+58:                                               ; preds = %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit"
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1619)
-  %64 = load i64, ptr %63, align 8, !alias.scope !1622, !noundef !3
-  store i64 %64, ptr %62, align 8, !noalias !1622
+  %61 = load i64, ptr %60, align 8, !alias.scope !1622, !noundef !3
+  store i64 %61, ptr %59, align 8, !noalias !1622
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5"
 
-"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5": ; preds = %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit", %61
-  %.sink.i4 = phi i8 [ 1, %61 ], [ 0, %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit" ]
-  store i8 %.sink.i4, ptr %57, align 1, !noalias !1616
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %66 = load i8, ptr %65, align 1, !range !483, !noundef !3
-  %67 = trunc nuw i8 %66 to i1
+"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5": ; preds = %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit", %58
+  %.sink.i4 = phi i8 [ 1, %58 ], [ 0, %"_ZN9uv_pep4407version1_84_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$uv_pep440..version..LocalVersion$GT$7resolve17hdbeae272dfc82c67E.exit" ]
+  store i8 %.sink.i4, ptr %54, align 1, !noalias !1616
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 15
+  %63 = load i8, ptr %62, align 1, !range !483, !noundef !3
+  %64 = trunc nuw i8 %63 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1623)
-  br i1 %67, label %68, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit7"
+  br i1 %64, label %65, label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit7"
 
-68:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5"
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
+65:                                               ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5"
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1626)
-  %71 = load i64, ptr %70, align 8, !alias.scope !1629, !noundef !3
-  store i64 %71, ptr %69, align 8, !noalias !1629
+  %68 = load i64, ptr %67, align 8, !alias.scope !1629, !noundef !3
+  store i64 %68, ptr %66, align 8, !noalias !1629
   br label %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit7"
 
-"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit7": ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5", %68
-  %.sink.i6 = phi i8 [ 1, %68 ], [ 0, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5" ]
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i8 %.sink.i6, ptr %72, align 1, !noalias !1623
+"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit7": ; preds = %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5", %65
+  %.sink.i6 = phi i8 [ 1, %65 ], [ 0, %"_ZN4rkyv5impls4core6option81_$LT$impl$u20$rkyv..traits..Archive$u20$for$u20$core..option..Option$LT$T$GT$$GT$7resolve17hb43cb9b6010846ceE.exit5" ]
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  store i8 %.sink.i6, ptr %69, align 1, !noalias !1623
   ret void
 }
 

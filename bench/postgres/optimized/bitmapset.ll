@@ -29,7 +29,7 @@ define dso_local ptr @bms_copy(ptr noundef readonly captures(address_is_null) %0
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 3
   %8 = add nsw i64 %7, 8
-  %9 = tail call ptr @palloc(i64 noundef %8) #11
+  %9 = tail call ptr @palloc(i64 noundef %8) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr nonnull align 8 %0, i64 %8, i1 false)
   br label %10
 
@@ -147,10 +147,9 @@ define dso_local noundef ptr @bms_make_singleton(i32 noundef %0) local_unnamed_a
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.bms_make_singleton) #11
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__func__.bms_make_singleton) #10
   unreachable
 
 6:                                                ; preds = %1
@@ -160,7 +159,7 @@ define dso_local noundef ptr @bms_make_singleton(i32 noundef %0) local_unnamed_a
   %10 = shl nuw nsw i32 %9, 3
   %narrow = add nuw nsw i32 %10, 8
   %11 = zext nneg i32 %narrow to i64
-  %12 = tail call ptr @palloc0(i64 noundef %11) #11
+  %12 = tail call ptr @palloc0(i64 noundef %11) #10
   store i32 444, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %9, ptr %13, align 4
@@ -188,7 +187,7 @@ define dso_local void @bms_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -226,7 +225,7 @@ define dso_local ptr @bms_union(ptr noundef readonly captures(address_is_null) %
   %15 = sext i32 %. to i64
   %16 = shl nsw i64 %15, 3
   %17 = add nsw i64 %16, 8
-  %18 = tail call ptr @palloc(i64 noundef %17) #11
+  %18 = tail call ptr @palloc(i64 noundef %17) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr nonnull readonly align 8 %.44, i64 %17, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %.45, i64 4
   %20 = load i32, ptr %19, align 4
@@ -254,7 +253,7 @@ bms_copy.exit.sink.split:                         ; preds = %9, %6
   %29 = sext i32 %.sink43 to i64
   %30 = shl nsw i64 %29, 3
   %31 = add nsw i64 %30, 8
-  %32 = tail call ptr @palloc(i64 noundef %31) #11
+  %32 = tail call ptr @palloc(i64 noundef %31) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr nonnull readonly align 8 %.sink38, i64 %31, i1 false)
   br label %bms_copy.exit
 
@@ -282,7 +281,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
   %10 = sext i32 %. to i64
   %11 = shl nsw i64 %10, 3
   %12 = add nsw i64 %11, 8
-  %13 = tail call ptr @palloc(i64 noundef %12) #11
+  %13 = tail call ptr @palloc(i64 noundef %12) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull readonly align 8 %.42, i64 %12, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
@@ -313,7 +312,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly captures(address_is_nul
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %25
-  tail call void @pfree(ptr noundef nonnull %13) #11
+  tail call void @pfree(ptr noundef nonnull %13) #10
   br label %30
 
 28:                                               ; preds = %25
@@ -341,7 +340,7 @@ bms_copy.exit:                                    ; preds = %4
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
   %10 = add nsw i64 %9, 8
-  %11 = tail call ptr @palloc(i64 noundef %10) #11
+  %11 = tail call ptr @palloc(i64 noundef %10) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr nonnull readonly align 8 %0, i64 %10, i1 false)
   br label %bms_nonempty_difference.exit
 
@@ -378,7 +377,7 @@ bms_copy.exit33:                                  ; preds = %18, %12
   %26 = sext i32 %7 to i64
   %27 = shl nsw i64 %26, 3
   %28 = add nsw i64 %27, 8
-  %29 = tail call ptr @palloc(i64 noundef %28) #11
+  %29 = tail call ptr @palloc(i64 noundef %28) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %29, ptr nonnull readonly align 8 %0, i64 %28, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -613,10 +612,9 @@ define dso_local zeroext i1 @bms_is_member(i32 noundef %0, ptr noundef readonly 
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.bms_is_member) #11
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.bms_is_member) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -653,10 +651,9 @@ define dso_local i32 @bms_member_index(ptr noundef readonly captures(address_is_
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.bms_is_member) #11
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 519, ptr noundef nonnull @__func__.bms_is_member) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -696,7 +693,7 @@ bms_is_member.exit:                               ; preds = %9
 
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr @pg_popcount64, align 8
-  %26 = tail call i32 %25(i64 noundef %23) #11
+  %26 = tail call i32 %25(i64 noundef %23) #10
   %27 = add i32 %26, %.01923
   br label %28
 
@@ -717,7 +714,7 @@ bms_is_member.exit:                               ; preds = %9
   %30 = xor i64 %notmask, -1
   %31 = load ptr, ptr @pg_popcount64, align 8
   %32 = and i64 %29, %30
-  %33 = tail call i32 %31(i64 noundef %32) #11
+  %33 = tail call i32 %31(i64 noundef %32) #10
   %34 = add i32 %33, %.019.lcssa
   br label %bms_is_member.exit.thread
 
@@ -792,10 +789,9 @@ define dso_local noundef zeroext i1 @bms_overlap_list(ptr noundef readonly captu
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @__func__.bms_overlap_list) #11
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @__func__.bms_overlap_list) #10
   unreachable
 
 18:                                               ; preds = %11
@@ -831,10 +827,9 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 681, ptr noundef nonnull @__func__.bms_singleton_member) #11
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 681, ptr noundef nonnull @__func__.bms_singleton_member) #10
   unreachable
 
 6:                                                ; preds = %1
@@ -861,10 +856,9 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly captures(address
   br i1 %or.cond, label %19, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 692, ptr noundef nonnull @__func__.bms_singleton_member) #11
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 692, ptr noundef nonnull @__func__.bms_singleton_member) #10
   unreachable
 
 19:                                               ; preds = %13
@@ -959,7 +953,7 @@ define dso_local i32 @bms_num_members(ptr noundef readonly captures(address_is_n
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr @pg_popcount64, align 8
-  %12 = tail call i32 %11(i64 noundef %9) #11
+  %12 = tail call i32 %11(i64 noundef %9) #10
   %13 = add i32 %12, %.011
   br label %14
 
@@ -1019,10 +1013,9 @@ define dso_local ptr @bms_add_member(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 823, ptr noundef nonnull @__func__.bms_add_member) #11
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 823, ptr noundef nonnull @__func__.bms_add_member) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -1036,7 +1029,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %12 = shl nuw nsw i32 %11, 3
   %narrow.i = add nuw nsw i32 %12, 8
   %13 = zext nneg i32 %narrow.i to i64
-  %14 = tail call ptr @palloc0(i64 noundef %13) #11
+  %14 = tail call ptr @palloc0(i64 noundef %13) #10
   store i32 444, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %11, ptr %15, align 4
@@ -1059,7 +1052,7 @@ bms_make_singleton.exit:                          ; preds = %7
   %26 = shl nuw nsw i32 %25, 3
   %narrow = add nuw nsw i32 %26, 8
   %27 = zext nneg i32 %narrow to i64
-  %28 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %27) #11
+  %28 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %27) #10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %25, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1101,10 +1094,9 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 876, ptr noundef nonnull @__func__.bms_del_member) #11
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 876, ptr noundef nonnull @__func__.bms_del_member) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -1158,7 +1150,7 @@ define dso_local noundef ptr @bms_del_member(ptr noundef %0, i32 noundef %1) loc
   br label %34
 
 .critedge:                                        ; preds = %.preheader
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %34
 
 34:                                               ; preds = %32, %13, %9, %7, %.critedge
@@ -1181,7 +1173,7 @@ define dso_local ptr @bms_add_members(ptr noundef %0, ptr noundef readonly captu
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
-  %12 = tail call ptr @palloc(i64 noundef %11) #11
+  %12 = tail call ptr @palloc(i64 noundef %11) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
@@ -1200,7 +1192,7 @@ bms_copy.exit27:                                  ; preds = %14
   %20 = sext i32 %18 to i64
   %21 = shl nsw i64 %20, 3
   %22 = add nsw i64 %21, 8
-  %23 = tail call ptr @palloc(i64 noundef %22) #11
+  %23 = tail call ptr @palloc(i64 noundef %22) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr nonnull readonly align 8 %1, i64 %22, i1 false)
   %.pre = load i32, ptr %15, align 4
   br label %24
@@ -1232,7 +1224,7 @@ bms_copy.exit27:                                  ; preds = %14
   br i1 %.not, label %bms_copy.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %bms_copy.exit
 
 bms_copy.exit:                                    ; preds = %6, %5, %34, %35, %13
@@ -1255,7 +1247,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
   %11 = add nsw i64 %10, 8
-  %12 = tail call ptr @palloc(i64 noundef %11) #11
+  %12 = tail call ptr @palloc(i64 noundef %11) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull readonly align 8 %1, i64 %11, i1 false)
   br label %bms_copy.exit
 
@@ -1263,7 +1255,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
   br i1 %4, label %14, label %15
 
 14:                                               ; preds = %13
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %bms_copy.exit
 
 15:                                               ; preds = %13
@@ -1278,7 +1270,7 @@ define dso_local ptr @bms_replace_members(ptr noundef %0, ptr noundef readonly c
   %22 = sext i32 %19 to i64
   %23 = shl nsw i64 %22, 3
   %24 = add nsw i64 %23, 8
-  %25 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %24) #11
+  %25 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %24) #10
   br label %26
 
 26:                                               ; preds = %21, %15
@@ -1319,10 +1311,9 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.bms_add_range) #11
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.bms_add_range) #10
   unreachable
 
 10:                                               ; preds = %5
@@ -1336,7 +1327,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 3
   %18 = add nsw i64 %17, 8
-  %19 = tail call ptr @palloc0(i64 noundef %18) #11
+  %19 = tail call ptr @palloc0(i64 noundef %18) #10
   store i32 444, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %15, ptr %20, align 4
@@ -1353,7 +1344,7 @@ define dso_local ptr @bms_add_range(ptr noundef %0, i32 noundef %1, i32 noundef 
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 3
   %28 = add nsw i64 %27, 8
-  %29 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %28) #11
+  %29 = tail call ptr @repalloc(ptr noundef nonnull %0, i64 noundef %28) #10
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %25, ptr %30, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1442,7 +1433,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %26
 
 7:                                                ; preds = %4
@@ -1478,7 +1469,7 @@ define dso_local noundef ptr @bms_int_members(ptr noundef %0, ptr noundef readon
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %26
 
 24:                                               ; preds = %21
@@ -1552,7 +1543,7 @@ define dso_local noundef ptr @bms_del_members(ptr noundef %0, ptr noundef readon
   br i1 %.not34, label %.thread, label %32
 
 .thread:                                          ; preds = %31
-  tail call void @pfree(ptr noundef nonnull %0) #11
+  tail call void @pfree(ptr noundef nonnull %0) #10
   br label %.loopexit
 
 32:                                               ; preds = %31
@@ -1607,7 +1598,7 @@ define dso_local ptr @bms_join(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %22
-  tail call void @pfree(ptr noundef nonnull %.26) #11
+  tail call void @pfree(ptr noundef nonnull %.26) #10
   br label %24
 
 24:                                               ; preds = %22, %23, %4, %2
@@ -1732,7 +1723,7 @@ define dso_local i32 @bms_hash_value(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = shl i32 %6, 3
-  %8 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef %7) #11
+  %8 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef %7) #10
   br label %9
 
 9:                                                ; preds = %1, %3
@@ -1751,7 +1742,7 @@ define dso_local i32 @bitmap_hash(ptr noundef readonly captures(none) %0, i64 no
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 3
-  %10 = tail call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef %9) #11
+  %10 = tail call i32 @hash_bytes(ptr noundef nonnull %6, i32 noundef %9) #10
   br label %bms_hash_value.exit
 
 bms_hash_value.exit:                              ; preds = %2, %5
@@ -1811,20 +1802,17 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 declare i32 @hash_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #9
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1834,11 +1822,10 @@ attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

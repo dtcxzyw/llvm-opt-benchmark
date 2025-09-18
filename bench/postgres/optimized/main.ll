@@ -82,125 +82,119 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i1 true, ptr @reached_main, align 1
   %3 = load ptr, ptr %1, align 8
-  %4 = tail call ptr @get_progname(ptr noundef %3) #16
+  %4 = tail call ptr @get_progname(ptr noundef %3) #15
   store ptr %4, ptr @progname, align 8
-  %5 = tail call ptr @save_ps_display_args(i32 noundef %0, ptr noundef nonnull %1) #16
-  %6 = tail call i32 @getpid() #16
+  %5 = tail call ptr @save_ps_display_args(i32 noundef %0, ptr noundef nonnull %1) #15
+  %6 = tail call i32 @getpid() #15
   store i32 %6, ptr @MyProcPid, align 4
-  tail call void @MemoryContextInit() #16
-  %7 = tail call ptr @set_stack_base() #16
+  tail call void @MemoryContextInit() #15
+  %7 = tail call ptr @set_stack_base() #15
   %8 = load ptr, ptr %5, align 8
-  tail call void @set_pglocale_pgservice(ptr noundef %8, ptr noundef nonnull @.str) #16
-  %9 = tail call ptr @pg_perm_setlocale(i32 noundef 3, ptr noundef nonnull @.str.2) #16
+  tail call void @set_pglocale_pgservice(ptr noundef %8, ptr noundef nonnull @.str) #15
+  %9 = tail call ptr @pg_perm_setlocale(i32 noundef 3, ptr noundef nonnull @.str.2) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %init_locale.exit
 
 11:                                               ; preds = %2
-  %12 = tail call ptr @pg_perm_setlocale(i32 noundef 3, ptr noundef nonnull @.str.6) #16
+  %12 = tail call ptr @pg_perm_setlocale(i32 noundef 3, ptr noundef nonnull @.str.6) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %init_locale.exit
 
 14:                                               ; preds = %11
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #16
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #15
   unreachable
 
 init_locale.exit:                                 ; preds = %2, %11
-  %17 = tail call ptr @pg_perm_setlocale(i32 noundef 0, ptr noundef nonnull @.str.2) #16
+  %17 = tail call ptr @pg_perm_setlocale(i32 noundef 0, ptr noundef nonnull @.str.2) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %init_locale.exit29
 
 19:                                               ; preds = %init_locale.exit
-  %20 = tail call ptr @pg_perm_setlocale(i32 noundef 0, ptr noundef nonnull @.str.6) #16
+  %20 = tail call ptr @pg_perm_setlocale(i32 noundef 0, ptr noundef nonnull @.str.6) #15
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %init_locale.exit29
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #16
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #15
   unreachable
 
 init_locale.exit29:                               ; preds = %init_locale.exit, %19
-  %25 = tail call ptr @pg_perm_setlocale(i32 noundef 5, ptr noundef nonnull @.str.2) #16
+  %25 = tail call ptr @pg_perm_setlocale(i32 noundef 5, ptr noundef nonnull @.str.2) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %init_locale.exit30
 
 27:                                               ; preds = %init_locale.exit29
-  %28 = tail call ptr @pg_perm_setlocale(i32 noundef 5, ptr noundef nonnull @.str.6) #16
+  %28 = tail call ptr @pg_perm_setlocale(i32 noundef 5, ptr noundef nonnull @.str.6) #15
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %init_locale.exit30
 
 30:                                               ; preds = %27
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #16
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #15
   unreachable
 
 init_locale.exit30:                               ; preds = %init_locale.exit29, %27
-  %33 = tail call ptr @pg_perm_setlocale(i32 noundef 4, ptr noundef nonnull @.str.6) #16
+  %33 = tail call ptr @pg_perm_setlocale(i32 noundef 4, ptr noundef nonnull @.str.6) #15
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %init_locale.exit31
 
 35:                                               ; preds = %init_locale.exit30
-  %36 = tail call ptr @pg_perm_setlocale(i32 noundef 4, ptr noundef nonnull @.str.6) #16
+  %36 = tail call ptr @pg_perm_setlocale(i32 noundef 4, ptr noundef nonnull @.str.6) #15
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %init_locale.exit31
 
 38:                                               ; preds = %35
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #16
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #15
   unreachable
 
 init_locale.exit31:                               ; preds = %init_locale.exit30, %35
-  %41 = tail call ptr @pg_perm_setlocale(i32 noundef 1, ptr noundef nonnull @.str.6) #16
+  %41 = tail call ptr @pg_perm_setlocale(i32 noundef 1, ptr noundef nonnull @.str.6) #15
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %init_locale.exit32
 
 43:                                               ; preds = %init_locale.exit31
-  %44 = tail call ptr @pg_perm_setlocale(i32 noundef 1, ptr noundef nonnull @.str.6) #16
+  %44 = tail call ptr @pg_perm_setlocale(i32 noundef 1, ptr noundef nonnull @.str.6) #15
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %init_locale.exit32
 
 46:                                               ; preds = %43
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #16
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #15
   unreachable
 
 init_locale.exit32:                               ; preds = %init_locale.exit31, %43
-  %49 = tail call ptr @pg_perm_setlocale(i32 noundef 2, ptr noundef nonnull @.str.6) #16
+  %49 = tail call ptr @pg_perm_setlocale(i32 noundef 2, ptr noundef nonnull @.str.6) #15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %init_locale.exit33
 
 51:                                               ; preds = %init_locale.exit32
-  %52 = tail call ptr @pg_perm_setlocale(i32 noundef 2, ptr noundef nonnull @.str.6) #16
+  %52 = tail call ptr @pg_perm_setlocale(i32 noundef 2, ptr noundef nonnull @.str.6) #15
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %init_locale.exit33
 
 54:                                               ; preds = %51
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #16
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 373, ptr noundef nonnull @__func__.init_locale) #15
   unreachable
 
 init_locale.exit33:                               ; preds = %init_locale.exit32, %51
-  %57 = tail call i32 @unsetenv(ptr noundef nonnull @.str.9) #16
+  %57 = tail call i32 @unsetenv(ptr noundef nonnull @.str.9) #15
   %58 = icmp sgt i32 %0, 1
   br i1 %58, label %59, label %.critedge
 
 59:                                               ; preds = %init_locale.exit33
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(7) @.str.10) #18
+  %62 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(7) @.str.10) #17
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %70, label %sub_0
 
@@ -224,21 +218,21 @@ sub_1:                                            ; preds = %sub_0
 70:                                               ; preds = %.tail, %59
   %71 = load ptr, ptr @progname, align 8
   tail call fastcc void @help(ptr noundef %71)
-  tail call void @exit(i32 noundef 0) #19
+  tail call void @exit(i32 noundef 0) #18
   unreachable
 
 .tail.thread:                                     ; preds = %sub_1
-  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.12) #18
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.12) #17
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %83, label %sub_138
 
 .tail.thread.thread:                              ; preds = %sub_0
-  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.12) #18
+  %74 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.12) #17
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %83, label %.tail36.thread
 
 .thread:                                          ; preds = %.tail
-  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.12) #18
+  %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(10) @.str.12) #17
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %83, label %sub_138
 
@@ -257,11 +251,11 @@ sub_138:                                          ; preds = %.tail.thread, %.thr
 83:                                               ; preds = %.tail.thread.thread, %.thread, %.tail36, %.tail.thread
   %84 = load ptr, ptr @stdout, align 8
   %85 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 30, i64 1, ptr %84)
-  tail call void @exit(i32 noundef 0) #19
+  tail call void @exit(i32 noundef 0) #18
   unreachable
 
 .tail36.thread:                                   ; preds = %.tail.thread.thread, %sub_138, %.tail36
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(18) @.str.15) #18
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(18) @.str.15) #17
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %.critedge28.thread, label %88
 
@@ -284,24 +278,24 @@ sub_143:                                          ; preds = %88
 
 .critedge:                                        ; preds = %88, %sub_143, %init_locale.exit33, %.tail41
   %94 = load ptr, ptr @progname, align 8
-  %95 = tail call i32 @geteuid() #16
+  %95 = tail call i32 @geteuid() #15
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %.critedge
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.69) #16
-  tail call void @exit(i32 noundef 1) #20
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.69) #15
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 98:                                               ; preds = %.critedge
-  %99 = tail call i32 @getuid() #16
-  %100 = tail call i32 @geteuid() #16
+  %99 = tail call i32 @getuid() #15
+  %100 = tail call i32 @geteuid() #15
   %.not.i = icmp eq i32 %99, %100
   br i1 %.not.i, label %.critedge28, label %101
 
 101:                                              ; preds = %98
-  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.70, ptr noundef %94) #16
-  tail call void @exit(i32 noundef 1) #20
+  tail call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.70, ptr noundef %94) #15
+  tail call void @exit(i32 noundef 1) #19
   unreachable
 
 .critedge28:                                      ; preds = %98
@@ -338,7 +332,7 @@ sub_143:                                          ; preds = %88
 113:                                              ; preds = %111
   %114 = getelementptr inbounds nuw ptr, ptr @DispatchOptionNames, i64 %indvars.iv.i
   %115 = load ptr, ptr %114, align 8
-  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull readonly dereferenceable(1) %110) #18
+  %116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef nonnull readonly dereferenceable(1) %110) #17
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %parse_dispatch_option.exit, label %118
 
@@ -357,30 +351,30 @@ parse_dispatch_option.exit:                       ; preds = %113
   ]
 
 120:                                              ; preds = %parse_dispatch_option.exit
-  tail call void @BootstrapModeMain(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext true) #19
+  tail call void @BootstrapModeMain(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext true) #18
   unreachable
 
 121:                                              ; preds = %parse_dispatch_option.exit
-  tail call void @BootstrapModeMain(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false) #19
+  tail call void @BootstrapModeMain(i32 noundef %0, ptr noundef nonnull %5, i1 noundef zeroext false) #18
   unreachable
 
 122:                                              ; preds = %parse_dispatch_option.exit
-  tail call void @GucInfoMain() #19
+  tail call void @GucInfoMain() #18
   unreachable
 
 123:                                              ; preds = %parse_dispatch_option.exit
   %124 = load ptr, ptr @progname, align 8
-  %125 = tail call ptr @get_user_name_or_exit(ptr noundef %124) #16
-  %126 = tail call noalias ptr @strdup(ptr noundef %125) #16
-  tail call void @PostgresSingleUserMain(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %126) #19
+  %125 = tail call ptr @get_user_name_or_exit(ptr noundef %124) #15
+  %126 = tail call noalias ptr @strdup(ptr noundef %125) #15
+  tail call void @PostgresSingleUserMain(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %126) #18
   unreachable
 
 parse_dispatch_option.exit.thread:                ; preds = %118, %.critedge28, %.critedge28.thread, %.critedge28.thread.thread
-  tail call void @PostmasterMain(i32 noundef %0, ptr noundef nonnull %5) #19
+  tail call void @PostmasterMain(i32 noundef %0, ptr noundef nonnull %5) #18
   unreachable
 
 127:                                              ; preds = %parse_dispatch_option.exit
-  tail call void @abort() #19
+  tail call void @abort() #18
   unreachable
 }
 
@@ -405,48 +399,48 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @help(ptr noundef %0) unnamed_addr #5 {
-  %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.25, ptr noundef %0) #16
-  %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %0) #16
-  %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.27) #16
-  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28) #16
-  %6 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.29) #16
-  %7 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30) #16
-  %8 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31) #16
-  %9 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.32) #16
-  %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.33) #16
-  %11 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.34) #16
-  %12 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35) #16
-  %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36) #16
-  %14 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37) #16
-  %15 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38) #16
-  %16 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.39) #16
-  %17 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40) #16
-  %18 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41) #16
-  %19 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42) #16
-  %20 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.43) #16
-  %21 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44) #16
-  %22 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.45) #16
-  %23 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.46) #16
-  %24 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.47) #16
-  %25 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.48) #16
-  %26 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.49) #16
-  %27 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.50) #16
-  %28 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.51) #16
-  %29 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.52) #16
-  %30 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.53) #16
-  %31 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54) #16
-  %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.55) #16
-  %33 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.56) #16
-  %34 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.57) #16
-  %35 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.58) #16
-  %36 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.59) #16
-  %37 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.60) #16
-  %38 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.61) #16
-  %39 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.62) #16
-  %40 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.63) #16
-  %41 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.59) #16
-  %42 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #16
-  %43 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68) #16
+  %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.25, ptr noundef %0) #15
+  %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %0) #15
+  %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.27) #15
+  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28) #15
+  %6 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.29) #15
+  %7 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.30) #15
+  %8 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.31) #15
+  %9 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.32) #15
+  %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.33) #15
+  %11 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.34) #15
+  %12 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35) #15
+  %13 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36) #15
+  %14 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.37) #15
+  %15 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.38) #15
+  %16 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.39) #15
+  %17 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.40) #15
+  %18 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.41) #15
+  %19 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.42) #15
+  %20 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.43) #15
+  %21 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.44) #15
+  %22 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.45) #15
+  %23 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.46) #15
+  %24 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.47) #15
+  %25 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.48) #15
+  %26 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.49) #15
+  %27 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.50) #15
+  %28 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.51) #15
+  %29 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.52) #15
+  %30 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.53) #15
+  %31 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.54) #15
+  %32 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.55) #15
+  %33 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.56) #15
+  %34 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.57) #15
+  %35 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.58) #15
+  %36 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.59) #15
+  %37 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.60) #15
+  %38 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.61) #15
+  %39 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.62) #15
+  %40 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.63) #15
+  %41 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.59) #15
+  %42 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #15
+  %43 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68) #15
   ret void
 }
 
@@ -465,7 +459,7 @@ define dso_local i32 @parse_dispatch_option(ptr noundef readonly captures(none) 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw ptr, ptr @DispatchOptionNames, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #18
+  %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.split.loop.exit, label %9
 
@@ -509,7 +503,7 @@ define dso_local noundef ptr @__ubsan_default_options() local_unnamed_addr #11 {
   br i1 %.b1, label %1, label %3
 
 1:                                                ; preds = %0
-  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #16
+  %2 = tail call ptr @getenv(ptr noundef nonnull @.str.17) #15
   br label %3
 
 3:                                                ; preds = %0, %1
@@ -539,11 +533,8 @@ declare void @write_stderr(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nounwind
 declare i32 @getuid() local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
-
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -559,13 +550,12 @@ attributes #10 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stac
 attributes #11 = { nofree nounwind memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nofree nounwind }
-attributes #16 = { nounwind }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { cold noreturn nounwind }
+attributes #14 = { nofree nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -23141,114 +23141,96 @@ define hidden void @Init_eval_method() local_unnamed_addr #2 {
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.split.i.i.i.i, %0
   %.lcssa31 = phi i64 [ %37, %0 ], [ %45, %.lr.ph.split.i.i.i.i ]
   %46 = inttoptr i64 %.lcssa31 to ptr
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !350, !nonnull !60, !noundef !60
-  %49 = load i64, ptr %48, align 8
-  %50 = and i64 %49, 15
-  %51 = icmp ne i64 %50, 7
-  call void @llvm.assume(i1 %51)
-  %52 = load i64, ptr @rb_eException, align 8, !tbaa !7
-  %53 = load i64, ptr %46, align 8, !tbaa !200
-  %54 = trunc i64 %53 to i32
-  %55 = lshr i32 %54, 16
-  %56 = and i32 %55, 3
-  %57 = call fastcc ptr @method_entry_set(i64 noundef %52, i64 noundef 2897, ptr noundef nonnull readonly %46, i32 noundef %56, i64 noundef %52)
-  %58 = load i64, ptr @rb_eException, align 8, !tbaa !7
-  %.not18.i.i.i.i6 = icmp ne i64 %58, 0
+  %47 = load i64, ptr @rb_eException, align 8, !tbaa !7
+  %48 = load i64, ptr %46, align 8, !tbaa !200
+  %49 = trunc i64 %48 to i32
+  %50 = lshr i32 %49, 16
+  %51 = and i32 %50, 3
+  %52 = call fastcc ptr @method_entry_set(i64 noundef %47, i64 noundef 2897, ptr noundef nonnull readonly %46, i32 noundef %51, i64 noundef %47)
+  %53 = load i64, ptr @rb_eException, align 8, !tbaa !7
+  %.not18.i.i.i.i6 = icmp ne i64 %53, 0
   call void @llvm.assume(i1 %.not18.i.i.i.i6)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %59 = inttoptr i64 %58 to ptr
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !335
-  %62 = call i32 @rb_id_table_lookup(ptr noundef %61, i64 noundef 156, ptr noundef nonnull %2) #20
-  %.not.i.i.i.i.i935 = icmp eq i32 %62, 0
-  %63 = load i64, ptr %2, align 8
+  %54 = inttoptr i64 %53 to ptr
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %56 = load ptr, ptr %55, align 8, !tbaa !335
+  %57 = call i32 @rb_id_table_lookup(ptr noundef %56, i64 noundef 156, ptr noundef nonnull %2) #20
+  %.not.i.i.i.i.i935 = icmp eq i32 %57, 0
+  %58 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not1443.i.i.i.i1036 = icmp eq i64 %63, 0
+  %.not1443.i.i.i.i1036 = icmp eq i64 %58, 0
   %.not14.i.i.i.i1137 = select i1 %.not.i.i.i.i.i935, i1 true, i1 %.not1443.i.i.i.i1036
   br i1 %.not14.i.i.i.i1137, label %.lr.ph.split.i.i.i.i7, label %._crit_edge.i.i.i.i12
 
 .lr.ph.split.i.i.i.i7:                            ; preds = %._crit_edge.i.i.i.i, %.lr.ph.split.i.i.i.i7
-  %64 = phi ptr [ %67, %.lr.ph.split.i.i.i.i7 ], [ %59, %._crit_edge.i.i.i.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i64, ptr %65, align 8, !tbaa !184
-  %.not.i.i.i.i16 = icmp ne i64 %66, 0
+  %59 = phi ptr [ %62, %.lr.ph.split.i.i.i.i7 ], [ %54, %._crit_edge.i.i.i.i ]
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = load i64, ptr %60, align 8, !tbaa !184
+  %.not.i.i.i.i16 = icmp ne i64 %61, 0
   call void @llvm.assume(i1 %.not.i.i.i.i16)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !335
-  %70 = call i32 @rb_id_table_lookup(ptr noundef %69, i64 noundef 156, ptr noundef nonnull %2) #20
-  %.not.i.i.i.i.i9 = icmp eq i32 %70, 0
-  %71 = load i64, ptr %2, align 8
+  %62 = inttoptr i64 %61 to ptr
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !335
+  %65 = call i32 @rb_id_table_lookup(ptr noundef %64, i64 noundef 156, ptr noundef nonnull %2) #20
+  %.not.i.i.i.i.i9 = icmp eq i32 %65, 0
+  %66 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.not1443.i.i.i.i10 = icmp eq i64 %71, 0
+  %.not1443.i.i.i.i10 = icmp eq i64 %66, 0
   %.not14.i.i.i.i11 = select i1 %.not.i.i.i.i.i9, i1 true, i1 %.not1443.i.i.i.i10
   br i1 %.not14.i.i.i.i11, label %.lr.ph.split.i.i.i.i7, label %._crit_edge.i.i.i.i12
 
 ._crit_edge.i.i.i.i12:                            ; preds = %.lr.ph.split.i.i.i.i7, %._crit_edge.i.i.i.i
-  %.lcssa30 = phi i64 [ %63, %._crit_edge.i.i.i.i ], [ %71, %.lr.ph.split.i.i.i.i7 ]
-  %72 = inttoptr i64 %.lcssa30 to ptr
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !350, !nonnull !60, !noundef !60
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, 15
-  %77 = icmp ne i64 %76, 7
-  call void @llvm.assume(i1 %77)
-  %78 = load i64, ptr @rb_eException, align 8, !tbaa !7
-  %79 = load i64, ptr %72, align 8, !tbaa !200
-  %80 = trunc i64 %79 to i32
-  %81 = lshr i32 %80, 16
-  %82 = and i32 %81, 3
-  %83 = call fastcc ptr @method_entry_set(i64 noundef %78, i64 noundef 156, ptr noundef nonnull readonly %72, i32 noundef %82, i64 noundef %78)
-  %84 = load i64, ptr @rb_eException, align 8, !tbaa !7
-  %.not18.i.i.i.i18 = icmp ne i64 %84, 0
+  %.lcssa30 = phi i64 [ %58, %._crit_edge.i.i.i.i ], [ %66, %.lr.ph.split.i.i.i.i7 ]
+  %67 = inttoptr i64 %.lcssa30 to ptr
+  %68 = load i64, ptr @rb_eException, align 8, !tbaa !7
+  %69 = load i64, ptr %67, align 8, !tbaa !200
+  %70 = trunc i64 %69 to i32
+  %71 = lshr i32 %70, 16
+  %72 = and i32 %71, 3
+  %73 = call fastcc ptr @method_entry_set(i64 noundef %68, i64 noundef 156, ptr noundef nonnull readonly %67, i32 noundef %72, i64 noundef %68)
+  %74 = load i64, ptr @rb_eException, align 8, !tbaa !7
+  %.not18.i.i.i.i18 = icmp ne i64 %74, 0
   call void @llvm.assume(i1 %.not18.i.i.i.i18)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %87 = load ptr, ptr %86, align 8, !tbaa !335
-  %88 = call i32 @rb_id_table_lookup(ptr noundef %87, i64 noundef 157, ptr noundef nonnull %1) #20
-  %.not.i.i.i.i.i2140 = icmp eq i32 %88, 0
-  %89 = load i64, ptr %1, align 8
+  %75 = inttoptr i64 %74 to ptr
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
+  %77 = load ptr, ptr %76, align 8, !tbaa !335
+  %78 = call i32 @rb_id_table_lookup(ptr noundef %77, i64 noundef 157, ptr noundef nonnull %1) #20
+  %.not.i.i.i.i.i2140 = icmp eq i32 %78, 0
+  %79 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.not1443.i.i.i.i2241 = icmp eq i64 %89, 0
+  %.not1443.i.i.i.i2241 = icmp eq i64 %79, 0
   %.not14.i.i.i.i2342 = select i1 %.not.i.i.i.i.i2140, i1 true, i1 %.not1443.i.i.i.i2241
   br i1 %.not14.i.i.i.i2342, label %.lr.ph.split.i.i.i.i19, label %._crit_edge.i.i.i.i24
 
 .lr.ph.split.i.i.i.i19:                           ; preds = %._crit_edge.i.i.i.i12, %.lr.ph.split.i.i.i.i19
-  %90 = phi ptr [ %93, %.lr.ph.split.i.i.i.i19 ], [ %85, %._crit_edge.i.i.i.i12 ]
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !184
-  %.not.i.i.i.i28 = icmp ne i64 %92, 0
+  %80 = phi ptr [ %83, %.lr.ph.split.i.i.i.i19 ], [ %75, %._crit_edge.i.i.i.i12 ]
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load i64, ptr %81, align 8, !tbaa !184
+  %.not.i.i.i.i28 = icmp ne i64 %82, 0
   call void @llvm.assume(i1 %.not.i.i.i.i28)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !335
-  %96 = call i32 @rb_id_table_lookup(ptr noundef %95, i64 noundef 157, ptr noundef nonnull %1) #20
-  %.not.i.i.i.i.i21 = icmp eq i32 %96, 0
-  %97 = load i64, ptr %1, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load ptr, ptr %84, align 8, !tbaa !335
+  %86 = call i32 @rb_id_table_lookup(ptr noundef %85, i64 noundef 157, ptr noundef nonnull %1) #20
+  %.not.i.i.i.i.i21 = icmp eq i32 %86, 0
+  %87 = load i64, ptr %1, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %.not1443.i.i.i.i22 = icmp eq i64 %97, 0
+  %.not1443.i.i.i.i22 = icmp eq i64 %87, 0
   %.not14.i.i.i.i23 = select i1 %.not.i.i.i.i.i21, i1 true, i1 %.not1443.i.i.i.i22
   br i1 %.not14.i.i.i.i23, label %.lr.ph.split.i.i.i.i19, label %._crit_edge.i.i.i.i24
 
 ._crit_edge.i.i.i.i24:                            ; preds = %.lr.ph.split.i.i.i.i19, %._crit_edge.i.i.i.i12
-  %.lcssa = phi i64 [ %89, %._crit_edge.i.i.i.i12 ], [ %97, %.lr.ph.split.i.i.i.i19 ]
-  %98 = inttoptr i64 %.lcssa to ptr
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8, !tbaa !350, !nonnull !60, !noundef !60
-  %101 = load i64, ptr %100, align 8
-  %102 = and i64 %101, 15
-  %103 = icmp ne i64 %102, 7
-  call void @llvm.assume(i1 %103)
-  %104 = load i64, ptr @rb_eException, align 8, !tbaa !7
-  %105 = load i64, ptr %98, align 8, !tbaa !200
-  %106 = trunc i64 %105 to i32
-  %107 = lshr i32 %106, 16
-  %108 = and i32 %107, 3
-  %109 = call fastcc ptr @method_entry_set(i64 noundef %104, i64 noundef 157, ptr noundef nonnull readonly %98, i32 noundef %108, i64 noundef %104)
+  %.lcssa = phi i64 [ %79, %._crit_edge.i.i.i.i12 ], [ %87, %.lr.ph.split.i.i.i.i19 ]
+  %88 = inttoptr i64 %.lcssa to ptr
+  %89 = load i64, ptr @rb_eException, align 8, !tbaa !7
+  %90 = load i64, ptr %88, align 8, !tbaa !200
+  %91 = trunc i64 %90 to i32
+  %92 = lshr i32 %91, 16
+  %93 = and i32 %92, 3
+  %94 = call fastcc ptr @method_entry_set(i64 noundef %89, i64 noundef 157, ptr noundef nonnull readonly %88, i32 noundef %93, i64 noundef %89)
   ret void
 }
 

@@ -667,15 +667,12 @@ define void @_ZN21command_palette_hooks20CommandPaletteFilter17hide_action_types
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hd1c9f7f10a8ecadfE.llvm.3979017099963316329"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %.sroa.0.0.i.i, ptr noalias noundef nonnull readonly align 1 %24, i1 noundef zeroext true)
-  %26 = extractvalue { i64, i64 } %25, 0
-  %27 = icmp eq i64 %26, -9223372036854775807
-  call void @llvm.assume(i1 %27)
   br label %"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17haf3af58c7ea54813E.exit"
 
 "_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17haf3af58c7ea54813E.exit": ; preds = %19, %23
-  %28 = load ptr, ptr %6, align 8, !noalias !173, !nonnull !12, !noundef !12
-  %29 = load ptr, ptr %9, align 8, !noalias !173, !noundef !12
-  call void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he94bcb7e5a2224acE"(ptr noundef nonnull %28, ptr noundef %29, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  %26 = load ptr, ptr %6, align 8, !noalias !173, !nonnull !12, !noundef !12
+  %27 = load ptr, ptr %9, align 8, !noalias !173, !noundef !12
+  call void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he94bcb7e5a2224acE"(ptr noundef nonnull %26, ptr noundef %27, ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !173
   ret void
 }

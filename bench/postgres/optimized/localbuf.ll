@@ -83,7 +83,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchLocalBuffer(ptr noundef %
 
 17:                                               ; preds = %16, %3
   %18 = phi ptr [ %.pre, %16 ], [ %14, %3 ]
-  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #14
+  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #13
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %25, label %20
 
@@ -101,7 +101,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchLocalBuffer(ptr noundef %
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %25
-  %30 = call zeroext i1 @smgrprefetch(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #14
+  %30 = call zeroext i1 @smgrprefetch(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #13
   %spec.select = select i1 %30, i64 4294967296, i64 0
   br label %31
 
@@ -124,20 +124,19 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %0
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 322) #14
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 598, ptr noundef nonnull @__func__.InitLocalBuffers) #14
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call i32 @errcode(i32 noundef 322) #13
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 598, ptr noundef nonnull @__func__.InitLocalBuffers) #13
   unreachable
 
 9:                                                ; preds = %0
   %10 = sext i32 %2 to i64
-  %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 52) #16
+  %11 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 52) #15
   store ptr %11, ptr @LocalBufferDescriptors, align 8
-  %12 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #16
+  %12 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 8) #15
   store ptr %12, ptr @LocalBufferBlockPointers, align 8
-  %13 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #16
+  %13 = tail call noalias ptr @calloc(i64 noundef %10, i64 noundef 4) #15
   store ptr %13, ptr @LocalRefCount, align 8
   %14 = icmp ne ptr %11, null
   %15 = icmp ne ptr %12, null
@@ -147,11 +146,10 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
   br i1 %or.cond3, label %21, label %17
 
 17:                                               ; preds = %9
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 8389) #14
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 607, ptr noundef nonnull @__func__.InitLocalBuffers) #14
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %19 = tail call i32 @errcode(i32 noundef 8389) #13
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 607, ptr noundef nonnull @__func__.InitLocalBuffers) #13
   unreachable
 
 21:                                               ; preds = %9
@@ -180,16 +178,15 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
   store i64 20, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 24, ptr %29, align 8
-  %30 = call ptr @hash_create(ptr noundef nonnull @.str.9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 40) #14
+  %30 = call ptr @hash_create(ptr noundef nonnull @.str.9, i64 noundef %10, ptr noundef nonnull %1, i32 noundef 40) #13
   store ptr %30, ptr @LocalBufHash, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %31, label %34
 
 31:                                               ; preds = %._crit_edge
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.InitLocalBuffers) #14
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.InitLocalBuffers) #13
   unreachable
 
 34:                                               ; preds = %._crit_edge
@@ -232,9 +229,9 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
 
 19:                                               ; preds = %18, %4
   %20 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %20) #14
+  tail call void @ResourceOwnerEnlarge(ptr noundef %20) #13
   %21 = load ptr, ptr @LocalBufHash, align 8
-  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #14
+  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #13
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %53, label %23
 
@@ -279,7 +276,7 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
   %.val12.i = load i32, ptr %29, align 4
   %48 = add i32 %.val12.i, 1
   %49 = sext i32 %48 to i64
-  call void @ResourceOwnerRemember(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  call void @ResourceOwnerRemember(ptr noundef %47, i64 noundef %49, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   %50 = lshr i32 %.0.i, 24
   %51 = trunc nuw i32 %50 to i8
   %52 = and i8 %51, 1
@@ -289,16 +286,15 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
   %54 = call fastcc i32 @GetLocalVictimBuffer()
   %55 = load ptr, ptr @LocalBufferDescriptors, align 8
   %56 = load ptr, ptr @LocalBufHash, align 8
-  %57 = call ptr @hash_search(ptr noundef %56, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #14
+  %57 = call ptr @hash_search(ptr noundef %56, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #13
   %58 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %53
-  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %61)
-  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.LocalBufferAlloc) #14
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %62 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.LocalBufferAlloc) #13
   unreachable
 
 63:                                               ; preds = %53
@@ -364,7 +360,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
   %.val12 = load i32, ptr %3, align 4
   %23 = add i32 %.val12, 1
   %24 = sext i32 %23 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %22, i64 noundef %24, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  tail call void @ResourceOwnerRemember(ptr noundef %22, i64 noundef %24, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   %25 = and i32 %.0, 16777216
   %26 = icmp ne i32 %25, 0
   ret i1 %26
@@ -374,7 +370,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
 define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #14
+  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #13
   %nextFreeLocalBufId.promoted = load i32, ptr @nextFreeLocalBufId, align 4
   br label %.outer
 
@@ -436,7 +432,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
   %.val12.i = load i32, ptr %19, align 4
   %31 = add i32 %.val12.i, 1
   %32 = sext i32 %31 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %30, i64 noundef %32, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  tail call void @ResourceOwnerRemember(ptr noundef %30, i64 noundef %32, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   %33 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %34 = load i32, ptr %19, align 4
   %35 = sub i32 -2, %34
@@ -453,11 +449,10 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
 
 43:                                               ; preds = %40
   store i32 %spec.store.select, ptr @nextFreeLocalBufId, align 4
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 197) #14
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 220, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #14
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %45 = tail call i32 @errcode(i32 noundef 197) #13
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 220, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #13
   unreachable
 
 47:                                               ; preds = %PinLocalBuffer.exit
@@ -477,7 +472,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @TopMemoryContext, align 8
-  %55 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %54, ptr noundef nonnull @.str.6, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #14
+  %55 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %54, ptr noundef nonnull @.str.6, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
   store ptr %55, ptr @GetLocalBufferStorage.LocalBufferContext, align 8
   %.pre.i = load i32, ptr @GetLocalBufferStorage.num_bufs_in_block, align 4
   br label %56
@@ -495,7 +490,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
   %66 = shl nuw nsw i32 %65, 13
   %67 = or disjoint i32 %66, 4096
   %68 = zext nneg i32 %67 to i64
-  %69 = tail call ptr @MemoryContextAlloc(ptr noundef %57, i64 noundef %68) #14
+  %69 = tail call ptr @MemoryContextAlloc(ptr noundef %57, i64 noundef %68) #13
   %70 = ptrtoint ptr %69 to i64
   %71 = add i64 %70, 4095
   %72 = and i64 %71, -4096
@@ -541,21 +536,21 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %94 = getelementptr i8, ptr %12, i64 8
   %.val.i43 = load i32, ptr %94, align 4
   %95 = load i32, ptr @MyProcNumber, align 4
-  %96 = tail call ptr @smgropen(i64 %93, i32 %.val.i43, i32 noundef %95) #14
+  %96 = tail call ptr @smgropen(i64 %93, i32 %.val.i43, i32 noundef %95) #13
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %98 = load i32, ptr %97, align 4
-  tail call void @PageSetChecksumInplace(ptr noundef %92, i32 noundef %98) #14
+  tail call void @PageSetChecksumInplace(ptr noundef %92, i32 noundef %98) #13
   %99 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
   %100 = trunc nuw i8 %99 to i1
-  %101 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %100) #14
+  %101 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %100) #13
   %102 = getelementptr i8, ptr %12, i64 12
   %.val42 = load i32, ptr %102, align 4
   %103 = load i32, ptr %97, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %92, ptr %1, align 8
-  call void @smgrwritev(ptr noundef %96, i32 noundef %.val42, i32 noundef %103, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false) #14
+  call void @smgrwritev(ptr noundef %96, i32 noundef %.val42, i32 noundef %103, ptr noundef nonnull %1, i32 noundef 1, i1 noundef zeroext false) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 7, i64 %101, i32 noundef 1, i64 noundef 8192) #14
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 7, i64 %101, i32 noundef 1, i64 noundef 8192) #13
   %104 = and i32 %14, -12320769
   store volatile i32 %104, ptr %13, align 4
   %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
@@ -571,15 +566,14 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr @LocalBufHash, align 8
-  %111 = call ptr @hash_search(ptr noundef %110, ptr noundef nonnull %12, i32 noundef 2, ptr noundef null) #14
+  %111 = call ptr @hash_search(ptr noundef %110, ptr noundef nonnull %12, i32 noundef 2, ptr noundef null) #13
   %.not41 = icmp eq ptr %111, null
   br i1 %.not41, label %112, label %115
 
 112:                                              ; preds = %109
-  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %113)
-  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #14
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %114 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.GetLocalVictimBuffer) #13
   unreachable
 
 115:                                              ; preds = %109
@@ -594,7 +588,7 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   store i32 -1, ptr %119, align 4
   %120 = and i32 %.036, 262143
   store volatile i32 %120, ptr %13, align 4
-  call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 1, i64 noundef 0) #14
+  call void @pgstat_count_io_op(i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 1, i64 noundef 0) #13
   br label %121
 
 121:                                              ; preds = %115, %107
@@ -670,7 +664,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %.pre-phi = phi i64 [ 0, %LimitAdditionalLocalPins.exit ], [ %wide.trip.count, %.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 @smgrnblocks(ptr noundef %20, i32 noundef %1) #14
+  %21 = tail call i32 @smgrnblocks(ptr noundef %20, i32 noundef %1) #13
   %22 = zext i32 %21 to i64
   %23 = add nuw nsw i64 %.pre-phi, %22
   %24 = icmp samesign ugt i64 %23, 4294967293
@@ -710,9 +704,8 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 44:                                               ; preds = %._crit_edge
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 @errcode(i32 noundef 261) #14
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %46 = tail call i32 @errcode(i32 noundef 261) #13
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %20, align 8
@@ -720,19 +713,19 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %53 = load i32, ptr %52, align 4
-  %54 = tail call ptr @GetRelationPath(i32 noundef %48, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %1) #14
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %54, i32 noundef -2) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.ExtendBufferedRelLocal) #14
+  %54 = tail call ptr @GetRelationPath(i32 noundef %48, i32 noundef %49, i32 noundef %51, i32 noundef %53, i32 noundef %1) #13
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %54, i32 noundef -2) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.ExtendBufferedRelLocal) #13
   unreachable
 
 ._crit_edge82:                                    ; preds = %122
   %56 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
   %57 = trunc nuw i8 %56 to i1
-  %58 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %57) #14
-  call void @smgrzeroextend(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
+  %58 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %57) #13
+  call void @smgrzeroextend(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #13
   %59 = shl i32 %.078, 13
   %60 = zext i32 %59 to i64
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %58, i32 noundef 1, i64 noundef %60) #14
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %58, i32 noundef 1, i64 noundef %60) #13
   br label %.lr.ph85
 
 61:                                               ; preds = %.lr.ph81, %122
@@ -746,7 +739,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %66 = zext i32 %64 to i64
   %67 = getelementptr inbounds nuw %struct.BufferDesc, ptr %65, i64 %66
   %68 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %68) #14
+  call void @ResourceOwnerEnlarge(ptr noundef %68) #13
   %69 = trunc nuw i64 %indvars.iv90 to i32
   %70 = add i32 %21, %69
   %71 = load i32, ptr %20, align 4
@@ -758,7 +751,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   store i32 %1, ptr %29, align 4
   store i32 %70, ptr %30, align 4
   %74 = load ptr, ptr @LocalBufHash, align 8
-  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #14
+  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #13
   %76 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %117
@@ -786,7 +779,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
 UnpinLocalBuffer.exit:                            ; preds = %78, %88
   %91 = load ptr, ptr @CurrentResourceOwner, align 8
   %92 = sext i32 %80 to i64
-  call void @ResourceOwnerForget(ptr noundef %91, i64 noundef %92, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  call void @ResourceOwnerForget(ptr noundef %91, i64 noundef %92, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   %93 = getelementptr inbounds nuw i8, ptr %75, i64 20
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr @LocalBufferDescriptors, align 8
@@ -817,7 +810,7 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
   %.val12.i = load i32, ptr %98, align 4
   %112 = add i32 %.val12.i, 1
   %113 = sext i32 %112 to i64
-  call void @ResourceOwnerRemember(ptr noundef %111, i64 noundef %113, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  call void @ResourceOwnerRemember(ptr noundef %111, i64 noundef %113, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   %.val70 = load i32, ptr %98, align 4
   %114 = add i32 %.val70, 1
   store i32 %114, ptr %62, align 4
@@ -846,9 +839,9 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
 ._crit_edge86.critedge:                           ; preds = %.preheader
   %123 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
   %124 = trunc nuw i8 %123 to i1
-  %125 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %124) #14
-  tail call void @smgrzeroextend(ptr noundef %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
-  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %125, i32 noundef 1, i64 noundef 0) #14
+  %125 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %124) #13
+  tail call void @smgrzeroextend(ptr noundef %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #13
+  tail call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 5, i64 %125, i32 noundef 1, i64 noundef 0) #13
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge86.critedge
@@ -904,7 +897,7 @@ define dso_local void @UnpinLocalBuffer(i32 noundef %0) local_unnamed_addr #0 {
 UnpinLocalBufferNoOwner.exit:                     ; preds = %1, %9
   %12 = load ptr, ptr @CurrentResourceOwner, align 8
   %13 = sext i32 %0 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @buffer_pin_resowner_desc) #14
+  tail call void @ResourceOwnerForget(ptr noundef %12, i64 noundef %13, ptr noundef nonnull @buffer_pin_resowner_desc) #13
   ret void
 }
 
@@ -999,8 +992,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
   br i1 %.not40, label %42, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %33)
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %34 = load i32, ptr %26, align 4
   %35 = load i64, ptr %9, align 4
   %.val.i43 = load i32, ptr %20, align 4
@@ -1009,25 +1001,24 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
   %.sroa.06.0.extract.trunc = trunc i64 %35 to i32
   %36 = load i32, ptr @MyProcNumber, align 4
   %.val42 = load i32, ptr %23, align 4
-  %37 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i43, i32 noundef %36, i32 noundef %.val42) #14
+  %37 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i43, i32 noundef %36, i32 noundef %.val42) #13
   %38 = load ptr, ptr @LocalRefCount, align 8
   %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %34, ptr noundef %37, i32 noundef %40) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #14
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %34, ptr noundef %37, i32 noundef %40) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #13
   unreachable
 
 42:                                               ; preds = %28
   %43 = load ptr, ptr @LocalBufHash, align 8
-  %44 = tail call ptr @hash_search(ptr noundef %43, ptr noundef nonnull %9, i32 noundef 2, ptr noundef null) #14
+  %44 = tail call ptr @hash_search(ptr noundef %43, ptr noundef nonnull %9, i32 noundef 2, ptr noundef null) #13
   %.not41 = icmp eq ptr %44, null
   br i1 %.not41, label %45, label %48
 
 45:                                               ; preds = %42
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %46)
-  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #14
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %47 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 520, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #13
   unreachable
 
 48:                                               ; preds = %42
@@ -1103,8 +1094,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
   br i1 %.not35, label %36, label %24
 
 24:                                               ; preds = %20
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %25)
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load i32, ptr %26, align 4
   %28 = load i64, ptr %7, align 4
@@ -1115,25 +1105,24 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
   %29 = load i32, ptr @MyProcNumber, align 4
   %30 = getelementptr i8, ptr %7, i64 12
   %.val = load i32, ptr %30, align 4
-  %31 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i37, i32 noundef %29, i32 noundef %.val) #14
+  %31 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i37, i32 noundef %29, i32 noundef %.val) #13
   %32 = load ptr, ptr @LocalRefCount, align 8
   %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %31, i32 noundef %34) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 559, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #14
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %31, i32 noundef %34) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 559, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #13
   unreachable
 
 36:                                               ; preds = %20
   %37 = load ptr, ptr @LocalBufHash, align 8
-  %38 = tail call ptr @hash_search(ptr noundef %37, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #14
+  %38 = tail call ptr @hash_search(ptr noundef %37, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #13
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #14
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 564, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #13
   unreachable
 
 42:                                               ; preds = %36
@@ -1198,10 +1187,10 @@ define dso_local noundef zeroext i1 @check_temp_buffers(ptr noundef readonly cap
   br i1 %.not, label %13, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @__errno_location() #17
+  %10 = tail call ptr @__errno_location() #16
   %11 = load i32, ptr %10, align 4
-  tail call void @pre_format_elog_string(i32 noundef %11, ptr noundef null) #14
-  %12 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.4) #14
+  tail call void @pre_format_elog_string(i32 noundef %11, ptr noundef null) #13
+  %12 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.4) #13
   store ptr %12, ptr @GUC_check_errdetail_string, align 8
   br label %13
 
@@ -1254,17 +1243,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #13
+declare i32 @llvm.umin.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1278,12 +1264,11 @@ attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind allocsize(0,1) }
-attributes #17 = { nounwind willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind allocsize(0,1) }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -454,10 +454,10 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x i64], align 8
   %6 = alloca [1 x i8], align 1
-  %7 = tail call ptr @palloc0(i64 noundef 96) #13
+  %7 = tail call ptr @palloc0(i64 noundef 96) #12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 10
   store i8 1, ptr %8, align 2
-  %9 = tail call ptr @makeStringInfo() #13
+  %9 = tail call ptr @makeStringInfo() #12
   store ptr %9, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -492,7 +492,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str) #14
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str) #13
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %37, label %40
 
@@ -506,112 +506,112 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br i1 %36, label %168, label %176
 
 37:                                               ; preds = %.lr.ph229
-  %38 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %38 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %39 = zext i1 %38 to i8
   store i8 %39, ptr %24, align 1
   br label %164
 
 40:                                               ; preds = %.lr.ph229
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.1) #14
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.1) #13
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %40
-  %44 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %44 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %45 = zext i1 %44 to i8
   store i8 %45, ptr %23, align 8
   br label %164
 
 46:                                               ; preds = %40
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(6) @.str.2) #14
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(6) @.str.2) #13
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %50 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %51 = zext i1 %50 to i8
   store i8 %51, ptr %8, align 2
   br label %164
 
 52:                                               ; preds = %46
-  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.3) #14
+  %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.3) #13
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %52
-  %56 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %56 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %57 = zext i1 %56 to i8
   store i8 %57, ptr %22, align 1
   br label %164
 
 58:                                               ; preds = %52
-  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(4) @.str.4) #14
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(4) @.str.4) #13
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %62 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %63 = zext i1 %62 to i8
   store i8 %63, ptr %21, align 4
   br label %164
 
 64:                                               ; preds = %58
-  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(9) @.str.5) #14
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(9) @.str.5) #13
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %64
-  %68 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %68 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %69 = zext i1 %68 to i8
   store i8 %69, ptr %20, align 8
   br label %164
 
 70:                                               ; preds = %64
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.6) #14
+  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(13) @.str.6) #13
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %70
-  %74 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %74 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %75 = zext i1 %74 to i8
   store i8 %75, ptr %19, align 1
   br label %164
 
 76:                                               ; preds = %70
-  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.7) #14
+  %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.7) #13
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %76
-  %80 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %80 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %81 = zext i1 %80 to i8
   store i8 %81, ptr %18, align 1
   br label %164
 
 82:                                               ; preds = %76
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.8) #14
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(8) @.str.8) #13
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %82
-  %86 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %86 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %87 = zext i1 %86 to i8
   store i8 %87, ptr %17, align 2
   br label %164
 
 88:                                               ; preds = %82
-  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.9) #14
+  %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.9) #13
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %91, label %94
 
 91:                                               ; preds = %88
-  %92 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #13
+  %92 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %29) #12
   %93 = zext i1 %92 to i8
   store i8 %93, ptr %16, align 1
   br label %164
 
 94:                                               ; preds = %88
-  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(10) @.str.10) #14
+  %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(10) @.str.10) #13
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %126
 
@@ -622,13 +622,13 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not140, label %125, label %100
 
 100:                                              ; preds = %97
-  %101 = tail call ptr @defGetString(ptr noundef nonnull %29) #13
-  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(4) @.str.11) #14
+  %101 = tail call ptr @defGetString(ptr noundef nonnull %29) #12
+  %102 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(4) @.str.11) #13
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %107, label %104
 
 104:                                              ; preds = %100
-  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(5) @.str.12) #14
+  %105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(5) @.str.12) #13
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %108
 
@@ -637,7 +637,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br label %164
 
 108:                                              ; preds = %104
-  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(5) @.str.13) #14
+  %109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(5) @.str.13) #13
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %112
 
@@ -646,7 +646,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br label %164
 
 112:                                              ; preds = %108
-  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(7) @.str.14) #14
+  %113 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %101, ptr noundef nonnull dereferenceable(7) @.str.14) #13
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %116
 
@@ -656,15 +656,14 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
 
 116:                                              ; preds = %112
   %117 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %119 = tail call i32 @errcode(i32 noundef 50856066) #12
   %120 = load ptr, ptr %117, align 8
-  %121 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %120, ptr noundef nonnull %101) #13
+  %121 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %120, ptr noundef nonnull %101) #12
   %122 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %123 = load i32, ptr %122, align 4
-  %124 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %123) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 255, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %124 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %123) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 255, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 125:                                              ; preds = %97
@@ -672,13 +671,13 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br label %164
 
 126:                                              ; preds = %94
-  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.17) #14
+  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(7) @.str.17) #13
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %129, label %155
 
 129:                                              ; preds = %126
-  %130 = tail call ptr @defGetString(ptr noundef nonnull %29) #13
-  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(5) @.str.13) #14
+  %130 = tail call ptr @defGetString(ptr noundef nonnull %29) #12
+  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(5) @.str.13) #13
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %134
 
@@ -687,7 +686,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br label %164
 
 134:                                              ; preds = %129
-  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(4) @.str.18) #14
+  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(4) @.str.18) #13
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %138
 
@@ -696,7 +695,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br label %164
 
 138:                                              ; preds = %134
-  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(5) @.str.19) #14
+  %139 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(5) @.str.19) #13
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %142
 
@@ -705,7 +704,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br label %164
 
 142:                                              ; preds = %138
-  %143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(5) @.str.20) #14
+  %143 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %130, ptr noundef nonnull dereferenceable(5) @.str.20) #13
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %146
 
@@ -715,28 +714,26 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %148 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %148)
-  %149 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %148 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %149 = tail call i32 @errcode(i32 noundef 50856066) #12
   %150 = load ptr, ptr %147, align 8
-  %151 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %150, ptr noundef nonnull %130) #13
+  %151 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %150, ptr noundef nonnull %130) #12
   %152 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %153 = load i32, ptr %152, align 4
-  %154 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %153) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %154 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %153) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 280, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 155:                                              ; preds = %126
   %156 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %157)
-  %158 = tail call i32 @errcode(i32 noundef 16801924) #13
+  %157 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %158 = tail call i32 @errcode(i32 noundef 16801924) #12
   %159 = load ptr, ptr %156, align 8
-  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %159) #13
+  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %159) #12
   %161 = getelementptr inbounds nuw i8, ptr %29, i64 36
   %162 = load i32, ptr %161, align 4
-  %163 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %162) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 287, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %163 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %162) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 287, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 164:                                              ; preds = %133, %141, %145, %137, %107, %115, %111, %43, %55, %67, %79, %91, %125, %85, %73, %61, %49, %37
@@ -756,11 +753,10 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br i1 %171, label %176, label %172
 
 172:                                              ; preds = %168
-  %173 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %173)
-  %174 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %175 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 294, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %173 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %174 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %175 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 294, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 176:                                              ; preds = %168, %.critedge
@@ -782,11 +778,10 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br i1 %183, label %188, label %184
 
 184:                                              ; preds = %181
-  %185 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %185)
-  %186 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %187 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 306, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %185 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %186 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %187 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 306, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 188:                                              ; preds = %181, %176
@@ -801,11 +796,10 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br i1 %193, label %198, label %194
 
 194:                                              ; preds = %191
-  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %195)
-  %196 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.25) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 312, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %196 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.25) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 312, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 198:                                              ; preds = %191, %188
@@ -820,11 +814,10 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   br i1 %204, label %205, label %209
 
 205:                                              ; preds = %202
-  %206 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %206)
-  %207 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %208 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 318, ptr noundef nonnull @__func__.ExplainQuery) #13
+  %206 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %207 = tail call i32 @errcode(i32 noundef 50856066) #12
+  %208 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 318, ptr noundef nonnull @__func__.ExplainQuery) #12
   unreachable
 
 209:                                              ; preds = %202, %198
@@ -846,7 +839,7 @@ IsQueryIdEnabled.exit:                            ; preds = %209
   br i1 %215, label %IsQueryIdEnabled.exit.thread, label %IsQueryIdEnabled.exit.thread145
 
 IsQueryIdEnabled.exit.thread:                     ; preds = %209, %IsQueryIdEnabled.exit
-  %216 = tail call ptr @JumbleQuery(ptr noundef %212) #13
+  %216 = tail call ptr @JumbleQuery(ptr noundef %212) #12
   br label %IsQueryIdEnabled.exit.thread145
 
 IsQueryIdEnabled.exit.thread145:                  ; preds = %209, %IsQueryIdEnabled.exit.thread, %IsQueryIdEnabled.exit
@@ -856,12 +849,12 @@ IsQueryIdEnabled.exit.thread145:                  ; preds = %209, %IsQueryIdEnab
   br i1 %.not136, label %219, label %218
 
 218:                                              ; preds = %IsQueryIdEnabled.exit.thread145
-  tail call void %217(ptr noundef %0, ptr noundef %212, ptr noundef %.0) #13
+  tail call void %217(ptr noundef %0, ptr noundef %212, ptr noundef %.0) #12
   br label %219
 
 219:                                              ; preds = %218, %IsQueryIdEnabled.exit.thread145
   %220 = load ptr, ptr %211, align 8
-  %221 = tail call ptr @QueryRewrite(ptr noundef %220) #13
+  %221 = tail call ptr @QueryRewrite(ptr noundef %220) #12
   %222 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %223 = load i32, ptr %222, align 8
   switch i32 %223, label %ExplainBeginOutput.exit [
@@ -872,7 +865,7 @@ IsQueryIdEnabled.exit.thread145:                  ; preds = %209, %IsQueryIdEnab
 
 224:                                              ; preds = %219
   %225 = load ptr, ptr %7, align 8
-  tail call void @appendStringInfoString(ptr noundef %225, ptr noundef nonnull @.str.60) #13
+  tail call void @appendStringInfoString(ptr noundef %225, ptr noundef nonnull @.str.60) #12
   %226 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %227 = load i32, ptr %226, align 4
   %228 = add i32 %227, 1
@@ -881,10 +874,10 @@ IsQueryIdEnabled.exit.thread145:                  ; preds = %209, %IsQueryIdEnab
 
 229:                                              ; preds = %219
   %230 = load ptr, ptr %7, align 8
-  tail call void @appendStringInfoChar(ptr noundef %230, i8 noundef signext 91) #13
+  tail call void @appendStringInfoChar(ptr noundef %230, i8 noundef signext 91) #12
   %231 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %232 = load ptr, ptr %231, align 8
-  %233 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %232) #13
+  %233 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %232) #12
   store ptr %233, ptr %231, align 8
   %234 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %235 = load i32, ptr %234, align 4
@@ -895,7 +888,7 @@ IsQueryIdEnabled.exit.thread145:                  ; preds = %209, %IsQueryIdEnab
 237:                                              ; preds = %219
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %239 = load ptr, ptr %238, align 8
-  %240 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %239) #13
+  %240 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %239) #12
   store ptr %240, ptr %238, align 8
   br label %ExplainBeginOutput.exit
 
@@ -922,7 +915,7 @@ ExplainBeginOutput.exit:                          ; preds = %219, %224, %229, %2
 
 250:                                              ; preds = %247
   %251 = load ptr, ptr %7, align 8
-  tail call void @appendStringInfoString(ptr noundef %251, ptr noundef nonnull @.str.27) #13
+  tail call void @appendStringInfoString(ptr noundef %251, ptr noundef nonnull @.str.27) #12
   br label %.critedge142thread-pre-split
 
 252:                                              ; preds = %.lr.ph179, %ExplainSeparatePlans.exit
@@ -949,7 +942,7 @@ ExplainBeginOutput.exit:                          ; preds = %219, %224, %229, %2
   br i1 %.not.i, label %267, label %266
 
 266:                                              ; preds = %262
-  tail call void %263(ptr noundef nonnull %255, i32 noundef 2048, ptr noundef null, ptr noundef %7, ptr noundef %264, ptr noundef %2, ptr noundef %265) #13
+  tail call void %263(ptr noundef nonnull %255, i32 noundef 2048, ptr noundef null, ptr noundef %7, ptr noundef %264, ptr noundef %2, ptr noundef %265) #12
   br label %ExplainOneQuery.exit
 
 267:                                              ; preds = %262
@@ -972,7 +965,7 @@ ExplainOneQuery.exit:                             ; preds = %259, %266, %267
 
 273:                                              ; preds = %271
   %274 = load ptr, ptr %7, align 8
-  tail call void @appendStringInfoChar(ptr noundef %274, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %274, i8 noundef signext 10) #12
   %.pre = load i32, ptr %242, align 4
   %.pre187 = sext i32 %.pre to i64
   br label %ExplainSeparatePlans.exit
@@ -1001,7 +994,7 @@ ExplainSeparatePlans.exit:                        ; preds = %273, %271, %Explain
   %279 = add i32 %278, -1
   store i32 %279, ptr %277, align 4
   %280 = load ptr, ptr %7, align 8
-  tail call void @appendStringInfoString(ptr noundef %280, ptr noundef nonnull @.str.61) #13
+  tail call void @appendStringInfoString(ptr noundef %280, ptr noundef nonnull @.str.61) #12
   br label %ExplainEndOutput.exit
 
 281:                                              ; preds = %.critedge142
@@ -1010,23 +1003,23 @@ ExplainSeparatePlans.exit:                        ; preds = %273, %271, %Explain
   %284 = add i32 %283, -1
   store i32 %284, ptr %282, align 4
   %285 = load ptr, ptr %7, align 8
-  tail call void @appendStringInfoString(ptr noundef %285, ptr noundef nonnull @.str.62) #13
+  tail call void @appendStringInfoString(ptr noundef %285, ptr noundef nonnull @.str.62) #12
   %286 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %287 = load ptr, ptr %286, align 8
-  %288 = tail call ptr @list_delete_first(ptr noundef %287) #13
+  %288 = tail call ptr @list_delete_first(ptr noundef %287) #12
   store ptr %288, ptr %286, align 8
   br label %ExplainEndOutput.exit
 
 289:                                              ; preds = %.critedge142
   %290 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %291 = load ptr, ptr %290, align 8
-  %292 = tail call ptr @list_delete_first(ptr noundef %291) #13
+  %292 = tail call ptr @list_delete_first(ptr noundef %291) #12
   store ptr %292, ptr %290, align 8
   br label %ExplainEndOutput.exit
 
 ExplainEndOutput.exit:                            ; preds = %.critedge142, %276, %281, %289
   %293 = tail call ptr @ExplainResultDesc(ptr noundef %1)
-  %294 = tail call ptr @begin_tup_output_tupdesc(ptr noundef %3, ptr noundef %293, ptr noundef nonnull @TTSOpsVirtual) #13
+  %294 = tail call ptr @begin_tup_output_tupdesc(ptr noundef %3, ptr noundef %293, ptr noundef nonnull @TTSOpsVirtual) #12
   %295 = load i32, ptr %222, align 8
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %297, label %300
@@ -1034,7 +1027,7 @@ ExplainEndOutput.exit:                            ; preds = %.critedge142, %276,
 297:                                              ; preds = %ExplainEndOutput.exit
   %298 = load ptr, ptr %7, align 8
   %299 = load ptr, ptr %298, align 8
-  tail call void @do_text_output_multiline(ptr noundef %294, ptr noundef %299) #13
+  tail call void @do_text_output_multiline(ptr noundef %294, ptr noundef %299) #12
   br label %307
 
 300:                                              ; preds = %ExplainEndOutput.exit
@@ -1042,32 +1035,32 @@ ExplainEndOutput.exit:                            ; preds = %.critedge142, %276,
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %301 = load ptr, ptr %7, align 8
   %302 = load ptr, ptr %301, align 8
-  %303 = tail call ptr @cstring_to_text(ptr noundef %302) #13
+  %303 = tail call ptr @cstring_to_text(ptr noundef %302) #12
   %304 = ptrtoint ptr %303 to i64
   store i64 %304, ptr %5, align 8
   store i8 0, ptr %6, align 1
-  call void @do_tup_output(ptr noundef %294, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
+  call void @do_tup_output(ptr noundef %294, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %305 = load i64, ptr %5, align 8
   %306 = inttoptr i64 %305 to ptr
-  call void @pfree(ptr noundef %306) #13
+  call void @pfree(ptr noundef %306) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %307
 
 307:                                              ; preds = %300, %297
-  call void @end_tup_output(ptr noundef %294) #13
+  call void @end_tup_output(ptr noundef %294) #12
   %308 = load ptr, ptr %7, align 8
   %309 = load ptr, ptr %308, align 8
-  call void @pfree(ptr noundef %309) #13
+  call void @pfree(ptr noundef %309) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @NewExplainState() local_unnamed_addr #0 {
-  %1 = tail call ptr @palloc0(i64 noundef 96) #13
+  %1 = tail call ptr @palloc0(i64 noundef 96) #12
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 10
   store i8 1, ptr %2, align 2
-  %3 = tail call ptr @makeStringInfo() #13
+  %3 = tail call ptr @makeStringInfo() #12
   store ptr %3, ptr %1, align 8
   ret ptr %1
 }
@@ -1109,7 +1102,7 @@ define dso_local void @ExplainBeginOutput(ptr noundef captures(none) %0) local_u
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull @.str.60) #13
+  tail call void @appendStringInfoString(ptr noundef %5, ptr noundef nonnull @.str.60) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
@@ -1118,10 +1111,10 @@ define dso_local void @ExplainBeginOutput(ptr noundef captures(none) %0) local_u
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %10, i8 noundef signext 91) #13
+  tail call void @appendStringInfoChar(ptr noundef %10, i8 noundef signext 91) #12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %12) #13
+  %13 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %12) #12
   store ptr %13, ptr %11, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
@@ -1132,7 +1125,7 @@ define dso_local void @ExplainBeginOutput(ptr noundef captures(none) %0) local_u
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %19) #13
+  %20 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %19) #12
   store ptr %20, ptr %18, align 8
   br label %21
 
@@ -1151,7 +1144,7 @@ define dso_local void @ExplainSeparatePlans(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %5, i8 noundef signext 10) #12
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -1174,7 +1167,7 @@ define dso_local void @ExplainEndOutput(ptr noundef captures(none) %0) local_unn
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4
   %8 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %8, ptr noundef nonnull @.str.61) #13
+  tail call void @appendStringInfoString(ptr noundef %8, ptr noundef nonnull @.str.61) #12
   br label %21
 
 9:                                                ; preds = %1
@@ -1183,17 +1176,17 @@ define dso_local void @ExplainEndOutput(ptr noundef captures(none) %0) local_unn
   %12 = add i32 %11, -1
   store i32 %12, ptr %10, align 4
   %13 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull @.str.62) #13
+  tail call void @appendStringInfoString(ptr noundef %13, ptr noundef nonnull @.str.62) #12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @list_delete_first(ptr noundef %15) #13
+  %16 = tail call ptr @list_delete_first(ptr noundef %15) #12
   store ptr %16, ptr %14, align 8
   br label %21
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @list_delete_first(ptr noundef %19) #13
+  %20 = tail call ptr @list_delete_first(ptr noundef %19) #12
   store ptr %20, ptr %18, align 8
   br label %21
 
@@ -1225,24 +1218,24 @@ define dso_local noundef ptr @ExplainResultDesc(ptr noundef readonly captures(no
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(7) @.str.17) #14
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(7) @.str.17) #13
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %16, label %23
 
 .critedge:                                        ; preds = %23, %.lr.ph, %1
   %.012.lcssa = phi i32 [ 25, %1 ], [ 25, %.lr.ph ], [ %.1, %23 ]
-  %15 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 1) #13
-  tail call void @TupleDescInitEntry(ptr noundef %15, i16 noundef signext 1, ptr noundef nonnull @.str.28, i32 noundef %.012.lcssa, i32 noundef -1, i32 noundef 0) #13
+  %15 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 1) #12
+  tail call void @TupleDescInitEntry(ptr noundef %15, i16 noundef signext 1, ptr noundef nonnull @.str.28, i32 noundef %.012.lcssa, i32 noundef -1, i32 noundef 0) #12
   ret ptr %15
 
 16:                                               ; preds = %.lr.ph22
-  %17 = tail call ptr @defGetString(ptr noundef nonnull %10) #13
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.18) #14
+  %17 = tail call ptr @defGetString(ptr noundef nonnull %10) #12
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(4) @.str.18) #13
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.19) #14
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.19) #13
   %22 = icmp eq i32 %21, 0
   %. = select i1 %22, i32 114, i32 25
   br label %23
@@ -1293,7 +1286,7 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
 
 17:                                               ; preds = %7
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
-  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef nonnull @.str.29, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef nonnull @.str.29, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #12
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %19, ptr @CurrentMemoryContext, align 8
   br label %21
@@ -1312,14 +1305,14 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
 
 26:                                               ; preds = %25, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #13
+  %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #12
   %28 = load i64, ptr %9, align 8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load i64, ptr %29, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %31 = call ptr @pg_plan_query(ptr noundef %0, ptr noundef %4, i32 noundef %1, ptr noundef %5) #13
+  %31 = call ptr @pg_plan_query(ptr noundef %0, ptr noundef %4, i32 noundef %1, ptr noundef %5) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #13
+  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #12
   %33 = load i64, ptr %8, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %35 = load i64, ptr %34, align 8
@@ -1335,7 +1328,7 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
 
 40:                                               ; preds = %26
   store ptr %.020, ptr @CurrentMemoryContext, align 8
-  call void @MemoryContextMemConsumed(ptr noundef %.0, ptr noundef nonnull %13) #13
+  call void @MemoryContextMemConsumed(ptr noundef %.0, ptr noundef nonnull %13) #12
   br label %41
 
 41:                                               ; preds = %40, %26
@@ -1345,7 +1338,7 @@ define dso_local void @standard_ExplainOneQuery(ptr noundef %0, i32 noundef %1, 
 
 44:                                               ; preds = %41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %12, i8 0, i64 128, i1 false)
-  call void @BufferUsageAccumDiff(ptr noundef nonnull %12, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull %11) #13
+  call void @BufferUsageAccumDiff(ptr noundef nonnull %12, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull %11) #12
   %.pre = load i8, ptr %22, align 1, !range !4
   %45 = trunc nuw i8 %.pre to i1
   %46 = select i1 %45, ptr %12, ptr null
@@ -1414,19 +1407,19 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   %35 = zext nneg i8 %34 to i32
   %.288 = or disjoint i32 %spec.select99, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #13
+  %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %17) #12
   %37 = load i64, ptr %17, align 8
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %39 = load i64, ptr %38, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %40 = call ptr @GetActiveSnapshot() #13
-  call void @PushCopiedSnapshot(ptr noundef %40) #13
-  call void @UpdateActiveSnapshotCommandId() #13
+  %40 = call ptr @GetActiveSnapshot() #12
+  call void @PushCopiedSnapshot(ptr noundef %40) #12
+  call void @UpdateActiveSnapshotCommandId() #12
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %43, label %41
 
 41:                                               ; preds = %27
-  %42 = call ptr @CreateIntoRelDestReceiver(ptr noundef nonnull %1) #13
+  %42 = call ptr @CreateIntoRelDestReceiver(ptr noundef nonnull %1) #12
   br label %55
 
 43:                                               ; preds = %27
@@ -1436,7 +1429,7 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not95, label %53, label %46
 
 46:                                               ; preds = %43
-  %47 = call ptr @palloc0(i64 noundef 256) #13
+  %47 = call ptr @palloc0(i64 noundef 256) #12
   store ptr @serializeAnalyzeReceive, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr @serializeAnalyzeStartup, ptr %48, align 8
@@ -1456,8 +1449,8 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
 
 55:                                               ; preds = %46, %53, %41
   %.0 = phi ptr [ %42, %41 ], [ %47, %46 ], [ %54, %53 ]
-  %56 = call ptr @GetActiveSnapshot() #13
-  %57 = call ptr @CreateQueryDesc(ptr noundef %0, ptr noundef %3, ptr noundef %56, ptr noundef null, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %.288) #13
+  %56 = call ptr @GetActiveSnapshot() #12
+  %57 = call ptr @CreateQueryDesc(ptr noundef %0, ptr noundef %3, ptr noundef %56, ptr noundef null, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %.288) #12
   %58 = load i8, ptr %20, align 1, !range !4, !noundef !5
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %60 = load i8, ptr %59, align 1, !range !4, !noundef !5
@@ -1468,15 +1461,15 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %63, label %.thread
 
 63:                                               ; preds = %55
-  call void @ExecutorStart(ptr noundef %57, i32 noundef %.1) #13
+  call void @ExecutorStart(ptr noundef %57, i32 noundef %.1) #12
   %64 = load i8, ptr %20, align 1, !range !4, !noundef !5
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %74, label %85
 
 .thread:                                          ; preds = %55
-  %66 = call i32 @GetIntoRelEFlags(ptr noundef nonnull %1) #13
+  %66 = call i32 @GetIntoRelEFlags(ptr noundef nonnull %1) #12
   %67 = or i32 %66, %.1
-  call void @ExecutorStart(ptr noundef %57, i32 noundef %67) #13
+  call void @ExecutorStart(ptr noundef %57, i32 noundef %67) #12
   %68 = load i8, ptr %20, align 1, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %85
@@ -1492,10 +1485,10 @@ define dso_local void @ExplainOnePlan(ptr noundef %0, ptr noundef %1, ptr nounde
 
 75:                                               ; preds = %70, %74
   %.084 = phi i32 [ 1, %74 ], [ 0, %70 ]
-  call void @ExecutorRun(ptr noundef %57, i32 noundef %.084, i64 noundef 0) #13
-  call void @ExecutorFinish(ptr noundef %57) #13
+  call void @ExecutorRun(ptr noundef %57, i32 noundef %.084, i64 noundef 0) #12
+  call void @ExecutorFinish(ptr noundef %57) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #13
+  %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #12
   %77 = load i64, ptr %16, align 8
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %79 = load i64, ptr %78, align 8
@@ -1541,7 +1534,7 @@ GetSerializationMetrics.exit:                     ; preds = %92, %94
 95:                                               ; preds = %GetSerializationMetrics.exit, %85
   %96 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef %.0) #13
+  call void %97(ptr noundef %.0) #12
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.37, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %2)
   call void @ExplainPrintPlan(ptr noundef nonnull %2, ptr noundef %57)
   %98 = icmp eq ptr %7, null
@@ -1700,13 +1693,13 @@ peek_buffer_usage.exit:                           ; preds = %95, %171
   %192 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %193 = load i32, ptr %192, align 4
   %194 = shl i32 %193, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %180, i32 noundef %194) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %180, i32 noundef %194) #12
   %.pre = load ptr, ptr %2, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %184, %191
   %195 = phi ptr [ %180, %184 ], [ %.pre, %191 ]
-  call void @appendStringInfoString(ptr noundef %195, ptr noundef nonnull @.str.39) #13
+  call void @appendStringInfoString(ptr noundef %195, ptr noundef nonnull @.str.39) #12
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %197 = load i32, ptr %196, align 4
   %198 = add i32 %197, 1
@@ -1756,24 +1749,24 @@ ExplainIndentText.exit:                           ; preds = %184, %191
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %225 = load i32, ptr %224, align 4
   %226 = shl i32 %225, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %212, i32 noundef %226) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %212, i32 noundef %226) #12
   %.pre.i = load ptr, ptr %2, align 8
   br label %ExplainIndentText.exit.i
 
 ExplainIndentText.exit.i:                         ; preds = %223, %216
   %227 = phi ptr [ %212, %216 ], [ %.pre.i, %223 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %227, ptr noundef nonnull @.str.390, i64 noundef %207, i64 noundef %208) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %227, ptr noundef nonnull @.str.390, i64 noundef %207, i64 noundef %208) #12
   %228 = load ptr, ptr %2, align 8
-  call void @appendStringInfoChar(ptr noundef %228, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %228, i8 noundef signext 10) #12
   br label %show_memory_counters.exit
 
 229:                                              ; preds = %202
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %230 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %207) #13
+  %230 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %207) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.391, ptr noundef nonnull @.str.86, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %231 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %208) #13
+  %231 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %208) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.392, ptr noundef nonnull @.str.86, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %show_memory_counters.exit
@@ -1807,9 +1800,9 @@ show_memory_counters.exit:                        ; preds = %229, %ExplainIndent
   %246 = sitofp i64 %245 to double
   %247 = fdiv double %246, 1.000000e+09
   %248 = fmul double %247, 1.000000e+03
-  %249 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %248) #13
+  %249 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %248) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef %249, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @pfree(ptr noundef %249) #13
+  call void @pfree(ptr noundef %249) #12
   br label %250
 
 250:                                              ; preds = %244, %239
@@ -1846,7 +1839,7 @@ show_memory_counters.exit:                        ; preds = %229, %ExplainIndent
 
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 8
-  call void @InstrJitAgg(ptr noundef nonnull %13, ptr noundef nonnull %268) #13
+  call void @InstrJitAgg(ptr noundef nonnull %13, ptr noundef nonnull %268) #12
   %.pre.i104 = load ptr, ptr %259, align 8
   br label %269
 
@@ -1858,7 +1851,7 @@ show_memory_counters.exit:                        ; preds = %229, %ExplainIndent
   br i1 %.not9.i, label %274, label %273
 
 273:                                              ; preds = %269
-  call void @InstrJitAgg(ptr noundef nonnull %13, ptr noundef nonnull %272) #13
+  call void @InstrJitAgg(ptr noundef nonnull %13, ptr noundef nonnull %272) #12
   %.pre10.i = load ptr, ptr %259, align 8
   br label %274
 
@@ -1907,7 +1900,7 @@ ExplainPrintJITSummary.exit:                      ; preds = %258, %274
   %298 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %299 = load i32, ptr %298, align 4
   %300 = shl i32 %299, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %286, i32 noundef %300) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %286, i32 noundef %300) #12
   %.pre131 = load ptr, ptr %2, align 8
   br label %ExplainIndentText.exit.i105
 
@@ -1927,14 +1920,14 @@ ExplainIndentText.exit.i105:                      ; preds = %297, %290
   %311 = load i64, ptr %18, align 8
   %312 = add i64 %311, 1023
   %313 = lshr i64 %312, 10
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %301, ptr noundef nonnull @.str.82, double noundef %310, i64 noundef %313, ptr noundef nonnull %.str.13..str.14.i) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %301, ptr noundef nonnull @.str.82, double noundef %310, i64 noundef %313, ptr noundef nonnull %.str.13..str.14.i) #12
   br label %318
 
 314:                                              ; preds = %ExplainIndentText.exit.i105
   %315 = load i64, ptr %18, align 8
   %316 = add i64 %315, 1023
   %317 = lshr i64 %316, 10
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %301, ptr noundef nonnull @.str.83, i64 noundef %317, ptr noundef nonnull %.str.13..str.14.i) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %301, ptr noundef nonnull @.str.83, i64 noundef %317, ptr noundef nonnull %.str.13..str.14.i) #12
   br label %318
 
 318:                                              ; preds = %314, %305
@@ -2050,9 +2043,9 @@ peek_buffer_usage.exit.thread.i:                  ; preds = %peek_buffer_usage.e
   %393 = sitofp i64 %392 to double
   %394 = fdiv double %393, 1.000000e+09
   %395 = fmul double %394, 1.000000e+03
-  %396 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %395) #13
+  %396 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %395) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.41, ptr noundef %396, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @pfree(ptr noundef %396) #13
+  call void @pfree(ptr noundef %396) #12
   br label %397
 
 397:                                              ; preds = %390, %386
@@ -2060,7 +2053,7 @@ peek_buffer_usage.exit.thread.i:                  ; preds = %peek_buffer_usage.e
   %399 = add i64 %398, 1023
   %400 = lshr i64 %399, 10
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %401 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %400) #13
+  %401 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %400) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.86, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef nonnull %.str.13..str.14.i, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
@@ -2079,25 +2072,25 @@ ExplainPrintSerialize.exit:                       ; preds = %318, %peek_buffer_u
 
 406:                                              ; preds = %ExplainPrintSerialize.exit, %278
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %407 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #13
+  %407 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #12
   %408 = load i64, ptr %11, align 8
   %409 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %410 = load i64, ptr %409, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @ExecutorEnd(ptr noundef %57) #13
-  call void @FreeQueryDesc(ptr noundef %57) #13
-  call void @PopActiveSnapshot() #13
+  call void @ExecutorEnd(ptr noundef %57) #12
+  call void @FreeQueryDesc(ptr noundef %57) #12
+  call void @PopActiveSnapshot() #12
   %411 = load i8, ptr %20, align 1, !range !4, !noundef !5
   %412 = trunc nuw i8 %411 to i1
   br i1 %412, label %413, label %414
 
 413:                                              ; preds = %406
-  call void @CommandCounterIncrement() #13
+  call void @CommandCounterIncrement() #12
   br label %414
 
 414:                                              ; preds = %413, %406
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %415 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #13
+  %415 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #12
   %416 = load i64, ptr %10, align 8
   %417 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %418 = load i64, ptr %417, align 8
@@ -2120,9 +2113,9 @@ ExplainPrintSerialize.exit:                       ; preds = %318, %peek_buffer_u
 
 429:                                              ; preds = %426
   %430 = fmul double %423, 1.000000e+03
-  %431 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %430) #13
+  %431 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %430) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.41, ptr noundef %431, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  call void @pfree(ptr noundef %431) #13
+  call void @pfree(ptr noundef %431) #12
   br label %432
 
 432:                                              ; preds = %429, %426, %414
@@ -2148,7 +2141,7 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call zeroext i1 @CreateTableAsRelExists(ptr noundef nonnull %.tr83) #13
+  %9 = tail call zeroext i1 @CreateTableAsRelExists(ptr noundef nonnull %.tr83) #12
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %8
@@ -2168,17 +2161,16 @@ define dso_local void @ExplainOneUtility(ptr noundef %0, ptr noundef %1, ptr nou
   br label %ExplainOneQuery.exit
 
 15:                                               ; preds = %10
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %16)
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %17 = load i32, ptr %11, align 8
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %17) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 569, ptr noundef nonnull @__func__.ExplainOneUtility) #13
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, i32 noundef %17) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 569, ptr noundef nonnull @__func__.ExplainOneUtility) #12
   unreachable
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %.tr83, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @copyObjectImpl(ptr noundef %21) #13
+  %22 = tail call ptr @copyObjectImpl(ptr noundef %21) #12
   %23 = load i32, ptr @compute_query_id, align 4
   switch i32 %23, label %IsQueryIdEnabled.exit [
     i32 0, label %IsQueryIdEnabled.exit.thread59
@@ -2191,7 +2183,7 @@ IsQueryIdEnabled.exit:                            ; preds = %19
   br i1 %25, label %IsQueryIdEnabled.exit.thread, label %IsQueryIdEnabled.exit.thread59
 
 IsQueryIdEnabled.exit.thread:                     ; preds = %19, %IsQueryIdEnabled.exit
-  %26 = tail call ptr @JumbleQuery(ptr noundef %22) #13
+  %26 = tail call ptr @JumbleQuery(ptr noundef %22) #12
   br label %IsQueryIdEnabled.exit.thread59
 
 IsQueryIdEnabled.exit.thread59:                   ; preds = %19, %IsQueryIdEnabled.exit.thread, %IsQueryIdEnabled.exit
@@ -2201,11 +2193,11 @@ IsQueryIdEnabled.exit.thread59:                   ; preds = %19, %IsQueryIdEnabl
   br i1 %.not52, label %29, label %28
 
 28:                                               ; preds = %IsQueryIdEnabled.exit.thread59
-  tail call void %27(ptr noundef %3, ptr noundef %22, ptr noundef %.046) #13
+  tail call void %27(ptr noundef %3, ptr noundef %22, ptr noundef %.046) #12
   br label %29
 
 29:                                               ; preds = %28, %IsQueryIdEnabled.exit.thread59
-  %30 = tail call ptr @QueryRewrite(ptr noundef %22) #13
+  %30 = tail call ptr @QueryRewrite(ptr noundef %22) #12
   %31 = getelementptr i8, ptr %30, i64 16
   %.val = load ptr, ptr %31, align 8
   %32 = load ptr, ptr %.val, align 8
@@ -2234,7 +2226,7 @@ tailrecurse.backedge:                             ; preds = %57, %29
   br i1 %.not.i, label %46, label %45
 
 45:                                               ; preds = %39
-  tail call void %40(ptr noundef nonnull %32, i32 noundef 2048, ptr noundef %34, ptr noundef %2, ptr noundef %42, ptr noundef %4, ptr noundef %44) #13
+  tail call void %40(ptr noundef nonnull %32, i32 noundef 2048, ptr noundef %34, ptr noundef %2, ptr noundef %42, ptr noundef %4, ptr noundef %44) #12
   br label %ExplainOneQuery.exit
 
 46:                                               ; preds = %39
@@ -2244,7 +2236,7 @@ tailrecurse.backedge:                             ; preds = %57, %29
 47:                                               ; preds = %.lr.ph
   %48 = getelementptr inbounds nuw i8, ptr %.tr83, i64 24
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call ptr @copyObjectImpl(ptr noundef %49) #13
+  %50 = tail call ptr @copyObjectImpl(ptr noundef %49) #12
   %51 = load i32, ptr @compute_query_id, align 4
   switch i32 %51, label %IsQueryIdEnabled.exit55 [
     i32 0, label %IsQueryIdEnabled.exit55.thread62
@@ -2257,7 +2249,7 @@ IsQueryIdEnabled.exit55:                          ; preds = %47
   br i1 %53, label %IsQueryIdEnabled.exit55.thread, label %IsQueryIdEnabled.exit55.thread62
 
 IsQueryIdEnabled.exit55.thread:                   ; preds = %47, %IsQueryIdEnabled.exit55
-  %54 = tail call ptr @JumbleQuery(ptr noundef %50) #13
+  %54 = tail call ptr @JumbleQuery(ptr noundef %50) #12
   br label %IsQueryIdEnabled.exit55.thread62
 
 IsQueryIdEnabled.exit55.thread62:                 ; preds = %47, %IsQueryIdEnabled.exit55.thread, %IsQueryIdEnabled.exit55
@@ -2267,11 +2259,11 @@ IsQueryIdEnabled.exit55.thread62:                 ; preds = %47, %IsQueryIdEnabl
   br i1 %.not, label %57, label %56
 
 56:                                               ; preds = %IsQueryIdEnabled.exit55.thread62
-  tail call void %55(ptr noundef %3, ptr noundef %50, ptr noundef %.0) #13
+  tail call void %55(ptr noundef %3, ptr noundef %50, ptr noundef %.0) #12
   br label %57
 
 57:                                               ; preds = %56, %IsQueryIdEnabled.exit55.thread62
-  %58 = tail call ptr @QueryRewrite(ptr noundef %50) #13
+  %58 = tail call ptr @QueryRewrite(ptr noundef %50) #12
   %59 = getelementptr i8, ptr %58, i64 16
   %.val53 = load ptr, ptr %59, align 8
   %60 = load ptr, ptr %.val53, align 8
@@ -2292,7 +2284,7 @@ IsQueryIdEnabled.exit55.thread62:                 ; preds = %47, %IsQueryIdEnabl
   br i1 %.not.i56, label %73, label %72
 
 72:                                               ; preds = %66
-  tail call void %67(ptr noundef nonnull %60, i32 noundef %62, ptr noundef null, ptr noundef %2, ptr noundef %69, ptr noundef %4, ptr noundef %71) #13
+  tail call void %67(ptr noundef nonnull %60, i32 noundef %62, ptr noundef null, ptr noundef %2, ptr noundef %69, ptr noundef %4, ptr noundef %71) #12
   br label %ExplainOneQuery.exit
 
 73:                                               ; preds = %66
@@ -2300,7 +2292,7 @@ IsQueryIdEnabled.exit55.thread62:                 ; preds = %47, %IsQueryIdEnabl
   br label %ExplainOneQuery.exit
 
 74:                                               ; preds = %.lr.ph
-  tail call void @ExplainExecuteQuery(ptr noundef nonnull %.tr83, ptr noundef %.tr6484, ptr noundef %2, ptr noundef %3, ptr noundef %4) #13
+  tail call void @ExplainExecuteQuery(ptr noundef nonnull %.tr83, ptr noundef %.tr6484, ptr noundef %2, ptr noundef %3, ptr noundef %4) #12
   br label %ExplainOneQuery.exit
 
 75:                                               ; preds = %.lr.ph
@@ -2311,7 +2303,7 @@ IsQueryIdEnabled.exit55.thread62:                 ; preds = %47, %IsQueryIdEnabl
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %80, ptr noundef nonnull @.str.33) #13
+  tail call void @appendStringInfoString(ptr noundef %80, ptr noundef nonnull @.str.33) #12
   br label %ExplainOneQuery.exit
 
 81:                                               ; preds = %75
@@ -2326,7 +2318,7 @@ IsQueryIdEnabled.exit55.thread62:                 ; preds = %47, %IsQueryIdEnabl
 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %87, ptr noundef nonnull @.str.35) #13
+  tail call void @appendStringInfoString(ptr noundef %87, ptr noundef nonnull @.str.35) #12
   br label %ExplainOneQuery.exit
 
 88:                                               ; preds = %82
@@ -2364,7 +2356,7 @@ define internal fastcc void @ExplainDummyGroup(ptr noundef %0, ptr noundef reado
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %1, align 8
-  tail call void @appendStringInfoChar(ptr noundef %12, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %12, i8 noundef signext 44) #12
   br label %ExplainJSONLineEnding.exit
 
 13:                                               ; preds = %6
@@ -2373,14 +2365,14 @@ define internal fastcc void @ExplainDummyGroup(ptr noundef %0, ptr noundef reado
 
 ExplainJSONLineEnding.exit:                       ; preds = %11, %13
   %14 = load ptr, ptr %1, align 8
-  tail call void @appendStringInfoChar(ptr noundef %14, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %14, i8 noundef signext 10) #12
   %15 = load ptr, ptr %1, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = shl i32 %17, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %15, i32 noundef %18) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %15, i32 noundef %18) #12
   %19 = load ptr, ptr %1, align 8
-  tail call void @escape_json(ptr noundef %19, ptr noundef %0) #13
+  tail call void @escape_json(ptr noundef %19, ptr noundef %0) #12
   br label %35
 
 20:                                               ; preds = %2
@@ -2398,19 +2390,19 @@ ExplainJSONLineEnding.exit:                       ; preds = %11, %13
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %1, align 8
-  tail call void @appendStringInfoChar(ptr noundef %28, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %28, i8 noundef signext 10) #12
   %29 = load ptr, ptr %1, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = shl i32 %31, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %29, i32 noundef %32) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %29, i32 noundef %32) #12
   br label %ExplainYAMLLineStarting.exit
 
 ExplainYAMLLineStarting.exit:                     ; preds = %26, %27
   %33 = load ptr, ptr %1, align 8
-  tail call void @appendStringInfoString(ptr noundef %33, ptr noundef nonnull @.str.52) #13
+  tail call void @appendStringInfoString(ptr noundef %33, ptr noundef nonnull @.str.52) #12
   %34 = load ptr, ptr %1, align 8
-  tail call void @escape_json(ptr noundef %34, ptr noundef %0) #13
+  tail call void @escape_json(ptr noundef %34, ptr noundef %0) #12
   br label %35
 
 35:                                               ; preds = %ExplainYAMLLineStarting.exit, %ExplainJSONLineEnding.exit, %5, %2
@@ -2433,7 +2425,7 @@ declare ptr @CreateIntoRelDestReceiver(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateExplainSerializeDestReceiver(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc0(i64 noundef 256) #13
+  %2 = tail call ptr @palloc0(i64 noundef 256) #12
   store ptr @serializeAnalyzeReceive, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @serializeAnalyzeStartup, ptr %3, align 8
@@ -2487,7 +2479,7 @@ define dso_local void @ExplainOpenGroup(ptr noundef readonly captures(none) %0, 
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %17, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %17, i8 noundef signext 44) #12
   br label %ExplainJSONLineEnding.exit
 
 18:                                               ; preds = %11
@@ -2496,28 +2488,28 @@ define dso_local void @ExplainOpenGroup(ptr noundef readonly captures(none) %0, 
 
 ExplainJSONLineEnding.exit:                       ; preds = %16, %18
   %19 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %19, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %19, i8 noundef signext 10) #12
   %20 = load ptr, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = shl i32 %22, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %20, i32 noundef %23) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %20, i32 noundef %23) #12
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %ExplainJSONLineEnding.exit
   %25 = load ptr, ptr %3, align 8
-  tail call void @escape_json(ptr noundef %25, ptr noundef nonnull %1) #13
+  tail call void @escape_json(ptr noundef %25, ptr noundef nonnull %1) #12
   %26 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoString(ptr noundef %26, ptr noundef nonnull @.str.59) #13
+  tail call void @appendStringInfoString(ptr noundef %26, ptr noundef nonnull @.str.59) #12
   br label %27
 
 27:                                               ; preds = %24, %ExplainJSONLineEnding.exit
   %28 = load ptr, ptr %3, align 8
   %29 = select i1 %2, i8 123, i8 91
-  tail call void @appendStringInfoChar(ptr noundef %28, i8 noundef signext %29) #13
+  tail call void @appendStringInfoChar(ptr noundef %28, i8 noundef signext %29) #12
   %30 = load ptr, ptr %12, align 8
-  %31 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %30) #13
+  %31 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %30) #12
   store ptr %31, ptr %12, align 8
   %32 = load i32, ptr %21, align 4
   %33 = add i32 %32, 1
@@ -2539,12 +2531,12 @@ ExplainJSONLineEnding.exit:                       ; preds = %16, %18
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %42, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %42, i8 noundef signext 10) #12
   %43 = load ptr, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = shl i32 %45, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %43, i32 noundef %46) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %43, i32 noundef %46) #12
   br label %ExplainYAMLLineStarting.exit
 
 ExplainYAMLLineStarting.exit:                     ; preds = %40, %41
@@ -2553,17 +2545,17 @@ ExplainYAMLLineStarting.exit:                     ; preds = %40, %41
   br i1 %.not25, label %49, label %48
 
 48:                                               ; preds = %ExplainYAMLLineStarting.exit
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %47, ptr noundef nonnull @.str.47, ptr noundef nonnull %1) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %47, ptr noundef nonnull @.str.47, ptr noundef nonnull %1) #12
   br label %50
 
 49:                                               ; preds = %ExplainYAMLLineStarting.exit
-  tail call void @appendStringInfoString(ptr noundef %47, ptr noundef nonnull @.str.52) #13
+  tail call void @appendStringInfoString(ptr noundef %47, ptr noundef nonnull @.str.52) #12
   br label %50
 
 50:                                               ; preds = %49, %48
   %.sink = phi i32 [ 0, %49 ], [ 1, %48 ]
   %51 = load ptr, ptr %35, align 8
-  %52 = tail call ptr @lcons_int(i32 noundef %.sink, ptr noundef %51) #13
+  %52 = tail call ptr @lcons_int(i32 noundef %.sink, ptr noundef %51) #12
   store ptr %52, ptr %35, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %54 = load i32, ptr %53, align 4
@@ -2596,11 +2588,11 @@ define dso_local void @ExplainPrintPlan(ptr noundef initializes((40, 80), (84, 8
   %15 = call zeroext i1 @ExplainPreScanNode(ptr noundef %14, ptr noundef nonnull %6)
   %16 = load ptr, ptr %12, align 8
   %17 = load ptr, ptr %6, align 8
-  %18 = call ptr @select_rtable_names_for_explain(ptr noundef %16, ptr noundef %17) #13
+  %18 = call ptr @select_rtable_names_for_explain(ptr noundef %16, ptr noundef %17) #12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  %21 = call ptr @deparse_context_for_plan_tree(ptr noundef %20, ptr noundef %18) #13
+  %21 = call ptr @deparse_context_for_plan_tree(ptr noundef %20, ptr noundef %18) #12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2678,7 +2670,7 @@ list_length.exit:                                 ; preds = %2
   br i1 %54, label %55, label %ExplainPrintSettings.exit
 
 55:                                               ; preds = %51
-  %56 = call ptr @get_explain_guc_options(ptr noundef nonnull %4) #13
+  %56 = call ptr @get_explain_guc_options(ptr noundef nonnull %4) #12
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load i32, ptr %57, align 8
   %.not.i42 = icmp eq i32 %58, 0
@@ -2699,7 +2691,7 @@ list_length.exit:                                 ; preds = %2
   %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = call ptr @GetConfigOptionByName(ptr noundef %64, ptr noundef null, i1 noundef zeroext true) #13
+  %65 = call ptr @GetConfigOptionByName(ptr noundef %64, ptr noundef null, i1 noundef zeroext true) #12
   %66 = load ptr, ptr %63, align 8
   call fastcc void @ExplainProperty(ptr noundef %66, ptr noundef null, ptr noundef %65, i1 noundef zeroext false, ptr noundef nonnull readonly %0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2715,7 +2707,7 @@ list_length.exit:                                 ; preds = %2
   br i1 %72, label %73, label %.critedge.i
 
 73:                                               ; preds = %70
-  call void @initStringInfo(ptr noundef nonnull %5) #13
+  call void @initStringInfo(ptr noundef nonnull %5) #12
   %74 = load i32, ptr %4, align 4
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph31.i, label %._crit_edge32.i
@@ -2734,22 +2726,22 @@ list_length.exit:                                 ; preds = %2
   br i1 %.not27.i, label %80, label %79
 
 79:                                               ; preds = %.lr.ph31.i
-  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.48) #13
+  call void @appendStringInfoString(ptr noundef nonnull %5, ptr noundef nonnull @.str.48) #12
   br label %80
 
 80:                                               ; preds = %79, %.lr.ph31.i
   %81 = load ptr, ptr %78, align 8
-  %82 = call ptr @GetConfigOptionByName(ptr noundef %81, ptr noundef null, i1 noundef zeroext true) #13
+  %82 = call ptr @GetConfigOptionByName(ptr noundef %81, ptr noundef null, i1 noundef zeroext true) #12
   %.not26.i = icmp eq ptr %82, null
   %83 = load ptr, ptr %78, align 8
   br i1 %.not26.i, label %85, label %84
 
 84:                                               ; preds = %80
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.64, ptr noundef %83, ptr noundef nonnull %82) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.64, ptr noundef %83, ptr noundef nonnull %82) #12
   br label %86
 
 85:                                               ; preds = %80
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, ptr noundef %83) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %5, ptr noundef nonnull @.str.65, ptr noundef %83) #12
   br label %86
 
 86:                                               ; preds = %85, %84
@@ -2782,7 +2774,7 @@ ExplainPrintSettings.exit:                        ; preds = %51, %._crit_edge.i,
 
 100:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %101 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %96) #13
+  %101 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %96) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %102
@@ -2813,7 +2805,7 @@ define internal fastcc void @ExplainIndentText(ptr noundef readonly captures(non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = shl i32 %15, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %2, i32 noundef %16) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %2, i32 noundef %16) #12
   br label %17
 
 17:                                               ; preds = %13, %6
@@ -2963,25 +2955,25 @@ define internal fastcc void @show_buffer_usage(ptr noundef readonly captures(non
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = shl i32 %100, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %87, i32 noundef %101) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %87, i32 noundef %101) #12
   %.pre = load ptr, ptr %0, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %91, %98
   %102 = phi ptr [ %87, %91 ], [ %.pre, %98 ]
-  tail call void @appendStringInfoString(ptr noundef %102, ptr noundef nonnull @.str.363) #13
+  tail call void @appendStringInfoString(ptr noundef %102, ptr noundef nonnull @.str.363) #12
   br i1 %32, label %103, label %130
 
 103:                                              ; preds = %ExplainIndentText.exit
   %104 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %104, ptr noundef nonnull @.str.364) #13
+  tail call void @appendStringInfoString(ptr noundef %104, ptr noundef nonnull @.str.364) #12
   %105 = load i64, ptr %1, align 8
   %106 = icmp sgt i64 %105, 0
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %108, ptr noundef nonnull @.str.365, i64 noundef %105) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %108, ptr noundef nonnull @.str.365, i64 noundef %105) #12
   br label %109
 
 109:                                              ; preds = %107, %103
@@ -2992,7 +2984,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 113:                                              ; preds = %109
   %114 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %114, ptr noundef nonnull @.str.366, i64 noundef %111) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %114, ptr noundef nonnull @.str.366, i64 noundef %111) #12
   br label %115
 
 115:                                              ; preds = %113, %109
@@ -3003,7 +2995,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 119:                                              ; preds = %115
   %120 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %120, ptr noundef nonnull @.str.367, i64 noundef %117) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %120, ptr noundef nonnull @.str.367, i64 noundef %117) #12
   br label %121
 
 121:                                              ; preds = %119, %115
@@ -3014,7 +3006,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %126, ptr noundef nonnull @.str.368, i64 noundef %123) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %126, ptr noundef nonnull @.str.368, i64 noundef %123) #12
   br label %127
 
 127:                                              ; preds = %125, %121
@@ -3023,7 +3015,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 128:                                              ; preds = %127
   %129 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %129, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %129, i8 noundef signext 44) #12
   br label %130
 
 130:                                              ; preds = %128, %127, %ExplainIndentText.exit
@@ -3031,14 +3023,14 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %132, ptr noundef nonnull @.str.369) #13
+  tail call void @appendStringInfoString(ptr noundef %132, ptr noundef nonnull @.str.369) #12
   %133 = load i64, ptr %33, align 8
   %134 = icmp sgt i64 %133, 0
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %136, ptr noundef nonnull @.str.365, i64 noundef %133) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %136, ptr noundef nonnull @.str.365, i64 noundef %133) #12
   br label %137
 
 137:                                              ; preds = %135, %131
@@ -3049,7 +3041,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 141:                                              ; preds = %137
   %142 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %142, ptr noundef nonnull @.str.366, i64 noundef %139) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %142, ptr noundef nonnull @.str.366, i64 noundef %139) #12
   br label %143
 
 143:                                              ; preds = %141, %137
@@ -3060,7 +3052,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %148, ptr noundef nonnull @.str.367, i64 noundef %145) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %148, ptr noundef nonnull @.str.367, i64 noundef %145) #12
   br label %149
 
 149:                                              ; preds = %147, %143
@@ -3071,7 +3063,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 153:                                              ; preds = %149
   %154 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %154, ptr noundef nonnull @.str.368, i64 noundef %151) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %154, ptr noundef nonnull @.str.368, i64 noundef %151) #12
   br label %155
 
 155:                                              ; preds = %153, %149
@@ -3079,7 +3071,7 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 .thread:                                          ; preds = %155
   %156 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %156, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %156, i8 noundef signext 44) #12
   br label %158
 
 157:                                              ; preds = %130
@@ -3087,14 +3079,14 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 158:                                              ; preds = %.thread, %157
   %159 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %159, ptr noundef nonnull @.str.370) #13
+  tail call void @appendStringInfoString(ptr noundef %159, ptr noundef nonnull @.str.370) #12
   %160 = load i64, ptr %50, align 8
   %161 = icmp sgt i64 %160, 0
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %158
   %163 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %163, ptr noundef nonnull @.str.366, i64 noundef %160) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %163, ptr noundef nonnull @.str.366, i64 noundef %160) #12
   br label %164
 
 164:                                              ; preds = %162, %158
@@ -3105,12 +3097,12 @@ ExplainIndentText.exit:                           ; preds = %91, %98
 
 168:                                              ; preds = %164
   %169 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %169, ptr noundef nonnull @.str.368, i64 noundef %166) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %169, ptr noundef nonnull @.str.368, i64 noundef %166) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %155, %164, %168, %157
   %170 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %170, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %170, i8 noundef signext 10) #12
   br label %171
 
 171:                                              ; preds = %84, %.critedge
@@ -3138,18 +3130,18 @@ ExplainIndentText.exit:                           ; preds = %91, %98
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %186 = load i32, ptr %185, align 4
   %187 = shl i32 %186, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %173, i32 noundef %187) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %173, i32 noundef %187) #12
   %.pre160 = load ptr, ptr %0, align 8
   br label %ExplainIndentText.exit158
 
 ExplainIndentText.exit158:                        ; preds = %177, %184
   %188 = phi ptr [ %173, %177 ], [ %.pre160, %184 ]
-  tail call void @appendStringInfoString(ptr noundef %188, ptr noundef nonnull @.str.371) #13
+  tail call void @appendStringInfoString(ptr noundef %188, ptr noundef nonnull @.str.371) #12
   br i1 %67, label %189, label %208
 
 189:                                              ; preds = %ExplainIndentText.exit158
   %190 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %190, ptr noundef nonnull @.str.364) #13
+  tail call void @appendStringInfoString(ptr noundef %190, ptr noundef nonnull @.str.364) #12
   %191 = load i64, ptr %59, align 8
   %192 = icmp eq i64 %191, 0
   br i1 %192, label %197, label %193
@@ -3158,7 +3150,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %194 = load ptr, ptr %0, align 8
   %195 = sitofp i64 %191 to double
   %196 = fdiv double %195, 1.000000e+06
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %194, ptr noundef nonnull @.str.372, double noundef %196) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %194, ptr noundef nonnull @.str.372, double noundef %196) #12
   br label %197
 
 197:                                              ; preds = %193, %189
@@ -3171,7 +3163,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %202 = load ptr, ptr %0, align 8
   %203 = sitofp i64 %199 to double
   %204 = fdiv double %203, 1.000000e+06
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %202, ptr noundef nonnull @.str.373, double noundef %204) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %202, ptr noundef nonnull @.str.373, double noundef %204) #12
   br label %205
 
 205:                                              ; preds = %201, %197
@@ -3180,7 +3172,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
 
 206:                                              ; preds = %205
   %207 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %207, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %207, i8 noundef signext 44) #12
   br label %208
 
 208:                                              ; preds = %206, %205, %ExplainIndentText.exit158
@@ -3188,7 +3180,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
 
 209:                                              ; preds = %208
   %210 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %210, ptr noundef nonnull @.str.369) #13
+  tail call void @appendStringInfoString(ptr noundef %210, ptr noundef nonnull @.str.369) #12
   %211 = load i64, ptr %68, align 8
   %212 = icmp eq i64 %211, 0
   br i1 %212, label %217, label %213
@@ -3197,7 +3189,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %214 = load ptr, ptr %0, align 8
   %215 = sitofp i64 %211 to double
   %216 = fdiv double %215, 1.000000e+06
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %214, ptr noundef nonnull @.str.372, double noundef %216) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %214, ptr noundef nonnull @.str.372, double noundef %216) #12
   br label %217
 
 217:                                              ; preds = %213, %209
@@ -3210,7 +3202,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %222 = load ptr, ptr %0, align 8
   %223 = sitofp i64 %219 to double
   %224 = fdiv double %223, 1.000000e+06
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %222, ptr noundef nonnull @.str.373, double noundef %224) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %222, ptr noundef nonnull @.str.373, double noundef %224) #12
   br label %225
 
 225:                                              ; preds = %221, %217
@@ -3218,7 +3210,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
 
 .thread159:                                       ; preds = %225
   %226 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %226, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %226, i8 noundef signext 44) #12
   br label %228
 
 227:                                              ; preds = %208
@@ -3226,7 +3218,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
 
 228:                                              ; preds = %.thread159, %227
   %229 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoString(ptr noundef %229, ptr noundef nonnull @.str.370) #13
+  tail call void @appendStringInfoString(ptr noundef %229, ptr noundef nonnull @.str.370) #12
   %230 = load i64, ptr %77, align 8
   %231 = icmp eq i64 %230, 0
   br i1 %231, label %236, label %232
@@ -3235,7 +3227,7 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %233 = load ptr, ptr %0, align 8
   %234 = sitofp i64 %230 to double
   %235 = fdiv double %234, 1.000000e+06
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %233, ptr noundef nonnull @.str.372, double noundef %235) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %233, ptr noundef nonnull @.str.372, double noundef %235) #12
   br label %236
 
 236:                                              ; preds = %232, %228
@@ -3248,71 +3240,71 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %241 = load ptr, ptr %0, align 8
   %242 = sitofp i64 %238 to double
   %243 = fdiv double %242, 1.000000e+06
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %241, ptr noundef nonnull @.str.373, double noundef %243) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %241, ptr noundef nonnull @.str.373, double noundef %243) #12
   br label %.critedge157
 
 .critedge157:                                     ; preds = %225, %236, %240, %227
   %244 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %244, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %244, i8 noundef signext 10) #12
   br label %307
 
 245:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %246 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %16) #13
+  %246 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %16) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.374, ptr noundef null, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %248 = load i64, ptr %247, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %249 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %248) #13
+  %249 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %248) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.375, ptr noundef null, ptr noundef nonnull %11, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %251 = load i64, ptr %250, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %252 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %251) #13
+  %252 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %251) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.376, ptr noundef null, ptr noundef nonnull %10, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %254 = load i64, ptr %253, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %255 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %254) #13
+  %255 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %254) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.377, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %257 = load i64, ptr %256, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %258 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %257) #13
+  %258 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %257) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.378, ptr noundef null, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %260 = load i64, ptr %259, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %261 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %260) #13
+  %261 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %260) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.379, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %263 = load i64, ptr %262, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %264 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %263) #13
+  %264 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %263) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.380, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %266 = load i64, ptr %265, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %267 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %266) #13
+  %267 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %266) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.381, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %269 = load i64, ptr %268, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %270 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %269) #13
+  %270 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %269) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.382, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %272 = load i64, ptr %271, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %273 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %272) #13
+  %273 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %272) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.383, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %274 = load i8, ptr @track_io_timing, align 1, !range !4, !noundef !5
@@ -3324,44 +3316,44 @@ ExplainIndentText.exit158:                        ; preds = %177, %184
   %278 = load i64, ptr %277, align 8
   %279 = sitofp i64 %278 to double
   %280 = fdiv double %279, 1.000000e+06
-  %281 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %280) #13
+  %281 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %280) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.384, ptr noundef nonnull @.str.41, ptr noundef %281, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %281) #13
+  call void @pfree(ptr noundef %281) #12
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %283 = load i64, ptr %282, align 8
   %284 = sitofp i64 %283 to double
   %285 = fdiv double %284, 1.000000e+06
-  %286 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %285) #13
+  %286 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %285) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.385, ptr noundef nonnull @.str.41, ptr noundef %286, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %286) #13
+  call void @pfree(ptr noundef %286) #12
   %287 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %288 = load i64, ptr %287, align 8
   %289 = sitofp i64 %288 to double
   %290 = fdiv double %289, 1.000000e+06
-  %291 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %290) #13
+  %291 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %290) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.386, ptr noundef nonnull @.str.41, ptr noundef %291, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %291) #13
+  call void @pfree(ptr noundef %291) #12
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %293 = load i64, ptr %292, align 8
   %294 = sitofp i64 %293 to double
   %295 = fdiv double %294, 1.000000e+06
-  %296 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %295) #13
+  %296 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %295) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.387, ptr noundef nonnull @.str.41, ptr noundef %296, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %296) #13
+  call void @pfree(ptr noundef %296) #12
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %298 = load i64, ptr %297, align 8
   %299 = sitofp i64 %298 to double
   %300 = fdiv double %299, 1.000000e+06
-  %301 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %300) #13
+  %301 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %300) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.388, ptr noundef nonnull @.str.41, ptr noundef %301, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %301) #13
+  call void @pfree(ptr noundef %301) #12
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %303 = load i64, ptr %302, align 8
   %304 = sitofp i64 %303 to double
   %305 = fdiv double %304, 1.000000e+06
-  %306 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %305) #13
+  %306 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %305) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.389, ptr noundef nonnull @.str.41, ptr noundef %306, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %306) #13
+  call void @pfree(ptr noundef %306) #12
   br label %307
 
 307:                                              ; preds = %.critedge157, %171, %245, %276
@@ -3392,17 +3384,17 @@ define dso_local void @ExplainCloseGroup(ptr noundef readonly captures(none) %0,
   %14 = add i32 %13, -1
   store i32 %14, ptr %12, align 4
   %15 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 10) #12
   %16 = load ptr, ptr %3, align 8
   %17 = load i32, ptr %12, align 4
   %18 = shl i32 %17, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %16, i32 noundef %18) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %16, i32 noundef %18) #12
   %19 = load ptr, ptr %3, align 8
   %20 = select i1 %2, i8 125, i8 93
-  tail call void @appendStringInfoChar(ptr noundef %19, i8 noundef signext %20) #13
+  tail call void @appendStringInfoChar(ptr noundef %19, i8 noundef signext %20) #12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @list_delete_first(ptr noundef %22) #13
+  %23 = tail call ptr @list_delete_first(ptr noundef %22) #12
   store ptr %23, ptr %21, align 8
   br label %31
 
@@ -3413,7 +3405,7 @@ define dso_local void @ExplainCloseGroup(ptr noundef readonly captures(none) %0,
   store i32 %27, ptr %25, align 4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @list_delete_first(ptr noundef %29) #13
+  %30 = tail call ptr @list_delete_first(ptr noundef %29) #12
   store ptr %30, ptr %28, align 8
   br label %31
 
@@ -3423,9 +3415,9 @@ define dso_local void @ExplainCloseGroup(ptr noundef readonly captures(none) %0,
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExplainPropertyFloat(ptr noundef %0, ptr noundef %1, double noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
-  %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef %3, double noundef %2) #13
+  %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef %3, double noundef %2) #12
   tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef %6, i1 noundef zeroext true, ptr noundef %4)
-  tail call void @pfree(ptr noundef %6) #13
+  tail call void @pfree(ptr noundef %6) #12
   ret void
 }
 
@@ -3547,7 +3539,7 @@ define dso_local void @ExplainPrintJITSummary(ptr noundef captures(none) %0, ptr
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @InstrJitAgg(ptr noundef nonnull %3, ptr noundef nonnull %13) #13
+  call void @InstrJitAgg(ptr noundef nonnull %3, ptr noundef nonnull %13) #12
   %.pre = load ptr, ptr %4, align 8
   br label %14
 
@@ -3559,7 +3551,7 @@ define dso_local void @ExplainPrintJITSummary(ptr noundef captures(none) %0, ptr
   br i1 %.not9, label %19, label %18
 
 18:                                               ; preds = %14
-  call void @InstrJitAgg(ptr noundef nonnull %3, ptr noundef nonnull %17) #13
+  call void @InstrJitAgg(ptr noundef nonnull %3, ptr noundef nonnull %17) #12
   %.pre10 = load ptr, ptr %4, align 8
   br label %19
 
@@ -3614,28 +3606,28 @@ define internal zeroext i1 @ExplainPreScanNode(ptr noundef %0, ptr noundef %1) #
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %9 = load i32, ptr %8, align 8
-  %10 = tail call ptr @bms_add_member(ptr noundef %7, i32 noundef %9) #13
+  %10 = tail call ptr @bms_add_member(ptr noundef %7, i32 noundef %9) #12
   br label %.sink.split
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %1, align 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @bms_add_members(ptr noundef %12, ptr noundef %14) #13
+  %15 = tail call ptr @bms_add_members(ptr noundef %12, ptr noundef %14) #12
   br label %.sink.split
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %1, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @bms_add_members(ptr noundef %17, ptr noundef %19) #13
+  %20 = tail call ptr @bms_add_members(ptr noundef %17, ptr noundef %19) #12
   br label %.sink.split
 
 21:                                               ; preds = %2
   %22 = load ptr, ptr %1, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %24 = load i32, ptr %23, align 8
-  %25 = tail call ptr @bms_add_member(ptr noundef %22, i32 noundef %24) #13
+  %25 = tail call ptr @bms_add_member(ptr noundef %22, i32 noundef %24) #12
   store ptr %25, ptr %1, align 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %27 = load i32, ptr %26, align 8
@@ -3643,21 +3635,21 @@ define internal zeroext i1 @ExplainPreScanNode(ptr noundef %0, ptr noundef %1) #
   br i1 %.not, label %40, label %28
 
 28:                                               ; preds = %21
-  %29 = tail call ptr @bms_add_member(ptr noundef %25, i32 noundef %27) #13
+  %29 = tail call ptr @bms_add_member(ptr noundef %25, i32 noundef %27) #12
   br label %.sink.split
 
 30:                                               ; preds = %2
   %31 = load ptr, ptr %1, align 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr @bms_add_members(ptr noundef %31, ptr noundef %33) #13
+  %34 = tail call ptr @bms_add_members(ptr noundef %31, ptr noundef %33) #12
   br label %.sink.split
 
 35:                                               ; preds = %2
   %36 = load ptr, ptr %1, align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @bms_add_members(ptr noundef %36, ptr noundef %38) #13
+  %39 = tail call ptr @bms_add_members(ptr noundef %36, ptr noundef %38) #12
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %11, %16, %30, %35, %28
@@ -3666,7 +3658,7 @@ define internal zeroext i1 @ExplainPreScanNode(ptr noundef %0, ptr noundef %1) #
   br label %40
 
 40:                                               ; preds = %.sink.split, %2, %21
-  %41 = tail call zeroext i1 @planstate_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @ExplainPreScanNode, ptr noundef %1) #13
+  %41 = tail call zeroext i1 @planstate_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @ExplainPreScanNode, ptr noundef %1) #12
   ret i1 %41
 }
 
@@ -3748,18 +3740,18 @@ define internal fastcc void @ExplainNode(ptr noundef %0, ptr noundef %1, ptr nou
 
 69:                                               ; preds = %65
   %70 = load i32, ptr %60, align 8
-  %71 = tail call ptr @palloc(i64 noundef 40) #13
+  %71 = tail call ptr @palloc(i64 noundef 40) #12
   store i32 %70, ptr %71, align 8
   %72 = sext i32 %70 to i64
-  %73 = tail call ptr @palloc0(i64 noundef %72) #13
+  %73 = tail call ptr @palloc0(i64 noundef %72) #12
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %73, ptr %74, align 8
   %75 = mul nsw i64 %72, 24
-  %76 = tail call ptr @palloc0(i64 noundef %75) #13
+  %76 = tail call ptr @palloc0(i64 noundef %75) #12
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %76, ptr %77, align 8
   %78 = shl nsw i64 %72, 2
-  %79 = tail call ptr @palloc(i64 noundef %78) #13
+  %79 = tail call ptr @palloc(i64 noundef %78) #12
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %79, ptr %80, align 8
   br label %81
@@ -3943,7 +3935,7 @@ define internal fastcc void @ExplainNode(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not695, label %161, label %127
 
 127:                                              ; preds = %123
-  %128 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.138, ptr noundef nonnull %126) #13
+  %128 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.138, ptr noundef nonnull %126) #12
   br label %161
 
 129:                                              ; preds = %81
@@ -3986,7 +3978,7 @@ switch.lookup:                                    ; preds = %134
   br i1 %.not693, label %146, label %144
 
 144:                                              ; preds = %140
-  %145 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.153, ptr noundef nonnull %.1) #13
+  %145 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.153, ptr noundef nonnull %.1) #12
   br label %161
 
 146:                                              ; preds = %140
@@ -3995,7 +3987,7 @@ switch.lookup:                                    ; preds = %134
   br i1 %.not694, label %161, label %148
 
 148:                                              ; preds = %146
-  %149 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155, ptr noundef nonnull %.1) #13
+  %149 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155, ptr noundef nonnull %.1) #12
   br label %161
 
 150:                                              ; preds = %81
@@ -4070,13 +4062,13 @@ switch.lookup:                                    ; preds = %134
 179:                                              ; preds = %172, %167
   %180 = load i32, ptr %57, align 4
   %181 = shl i32 %180, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %168, i32 noundef %181) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %168, i32 noundef %181) #12
   %.pre = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %172, %179
   %182 = phi ptr [ %168, %172 ], [ %.pre, %179 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %182, ptr noundef nonnull @.str.165, ptr noundef nonnull %3) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %182, ptr noundef nonnull @.str.165, ptr noundef nonnull %3) #12
   %183 = load i32, ptr %57, align 4
   %184 = add i32 %183, 1
   store i32 %184, ptr %57, align 4
@@ -4109,13 +4101,13 @@ thread-pre-split:                                 ; preds = %166
 
 199:                                              ; preds = %192, %187
   %200 = shl i32 %186, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %188, i32 noundef %200) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %188, i32 noundef %200) #12
   %.pre1087 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit763
 
 ExplainIndentText.exit763:                        ; preds = %192, %199
   %201 = phi ptr [ %188, %192 ], [ %.pre1087, %199 ]
-  tail call void @appendStringInfoString(ptr noundef %201, ptr noundef nonnull @.str.166) #13
+  tail call void @appendStringInfoString(ptr noundef %201, ptr noundef nonnull @.str.166) #12
   %202 = load i32, ptr %57, align 4
   %203 = add i32 %202, 2
   store i32 %203, ptr %57, align 4
@@ -4129,7 +4121,7 @@ ExplainIndentText.exit763:                        ; preds = %192, %199
 
 208:                                              ; preds = %204
   %209 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %209, ptr noundef nonnull @.str.167) #13
+  tail call void @appendStringInfoString(ptr noundef %209, ptr noundef nonnull @.str.167) #12
   br label %210
 
 210:                                              ; preds = %208, %204
@@ -4140,12 +4132,12 @@ ExplainIndentText.exit763:                        ; preds = %192, %199
 
 214:                                              ; preds = %210
   %215 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %215, ptr noundef nonnull @.str.168) #13
+  tail call void @appendStringInfoString(ptr noundef %215, ptr noundef nonnull @.str.168) #12
   br label %216
 
 216:                                              ; preds = %214, %210
   %217 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %217, ptr noundef %.0656) #13
+  tail call void @appendStringInfoString(ptr noundef %217, ptr noundef %.0656) #12
   %218 = load i32, ptr %57, align 4
   %219 = add i32 %218, 1
   store i32 %219, ptr %57, align 4
@@ -4282,20 +4274,19 @@ ExplainIndentText.exit763:                        ; preds = %192, %199
   br i1 %.not.i, label %.thread.i, label %268
 
 268:                                              ; preds = %264
-  %269 = tail call ptr %267(i32 noundef %266) #13
+  %269 = tail call ptr %267(i32 noundef %266) #12
   %270 = icmp eq ptr %269, null
   br i1 %270, label %.thread.i, label %explain_get_index_name.exit
 
 .thread.i:                                        ; preds = %268, %264
-  %271 = tail call ptr @get_rel_name(i32 noundef %266) #13
+  %271 = tail call ptr @get_rel_name(i32 noundef %266) #12
   %272 = icmp eq ptr %271, null
   br i1 %272, label %273, label %explain_get_index_name.exit
 
 273:                                              ; preds = %.thread.i
-  %274 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %274)
-  %275 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.253, i32 noundef %266) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 4019, ptr noundef nonnull @__func__.explain_get_index_name) #13
+  %274 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %275 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.253, i32 noundef %266) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 4019, ptr noundef nonnull @__func__.explain_get_index_name) #12
   unreachable
 
 explain_get_index_name.exit:                      ; preds = %268, %.thread.i
@@ -4306,8 +4297,8 @@ explain_get_index_name.exit:                      ; preds = %268, %.thread.i
 
 278:                                              ; preds = %explain_get_index_name.exit
   %279 = load ptr, ptr %4, align 8
-  %280 = tail call ptr @quote_identifier(ptr noundef nonnull %.1.i) #13
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %279, ptr noundef nonnull @.str.91, ptr noundef %280) #13
+  %280 = tail call ptr @quote_identifier(ptr noundef nonnull %.1.i) #12
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %279, ptr noundef nonnull @.str.91, ptr noundef %280) #12
   br label %318
 
 281:                                              ; preds = %explain_get_index_name.exit
@@ -4372,7 +4363,7 @@ explain_get_index_name.exit:                      ; preds = %268, %.thread.i
 
 301:                                              ; preds = %300
   %302 = load ptr, ptr %4, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %302, ptr noundef nonnull @.str.187, ptr noundef nonnull %.0668) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %302, ptr noundef nonnull @.str.187, ptr noundef nonnull %.0668) #12
   br label %318
 
 .thread959:                                       ; preds = %.thread, %300
@@ -4381,7 +4372,7 @@ explain_get_index_name.exit:                      ; preds = %268, %.thread.i
 
 304:                                              ; preds = %.thread959
   %305 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %305, ptr noundef nonnull @.str.188) #13
+  tail call void @appendStringInfoString(ptr noundef %305, ptr noundef nonnull @.str.188) #12
   br label %318
 
 306:                                              ; preds = %.thread, %295
@@ -4409,7 +4400,7 @@ switch.lookup1338:                                ; preds = %307
 
 315:                                              ; preds = %312
   %316 = load ptr, ptr %4, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %316, ptr noundef nonnull @.str.194, ptr noundef nonnull %.0669) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %316, ptr noundef nonnull @.str.194, ptr noundef nonnull %.0669) #12
   br label %318
 
 317:                                              ; preds = %312
@@ -4437,30 +4428,30 @@ switch.lookup1338:                                ; preds = %307
   %332 = load double, ptr %331, align 8
   %333 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %334 = load i32, ptr %333, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %326, ptr noundef nonnull @.str.196, double noundef %328, double noundef %330, double noundef %332, i32 noundef %334) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %326, ptr noundef nonnull @.str.196, double noundef %328, double noundef %330, double noundef %332, i32 noundef %334) #12
   br label %349
 
 335:                                              ; preds = %322
   %336 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %337 = load double, ptr %336, align 8
-  %338 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 2, double noundef %337) #13
+  %338 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 2, double noundef %337) #12
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.197, ptr noundef null, ptr noundef %338, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  tail call void @pfree(ptr noundef %338) #13
+  tail call void @pfree(ptr noundef %338) #12
   %339 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %340 = load double, ptr %339, align 8
-  %341 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 2, double noundef %340) #13
+  %341 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 2, double noundef %340) #12
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.198, ptr noundef null, ptr noundef %341, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  tail call void @pfree(ptr noundef %341) #13
+  tail call void @pfree(ptr noundef %341) #12
   %342 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %343 = load double, ptr %342, align 8
-  %344 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %343) #13
+  %344 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %343) #12
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.199, ptr noundef null, ptr noundef %344, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  tail call void @pfree(ptr noundef %344) #13
+  tail call void @pfree(ptr noundef %344) #12
   %345 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %346 = load i32, ptr %345, align 8
   %347 = sext i32 %346 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %348 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %52, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %347) #13
+  %348 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %52, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %347) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef nonnull %52, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %349
@@ -4472,7 +4463,7 @@ switch.lookup1338:                                ; preds = %307
   br i1 %.not706, label %353, label %352
 
 352:                                              ; preds = %349
-  call void @InstrEndLoop(ptr noundef nonnull %351) #13
+  call void @InstrEndLoop(ptr noundef nonnull %351) #12
   br label %353
 
 353:                                              ; preds = %352, %349
@@ -4520,32 +4511,32 @@ switch.lookup1338:                                ; preds = %307
   br i1 %378, label %381, label %382
 
 381:                                              ; preds = %379
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %380, ptr noundef nonnull @.str.201, double noundef %367, double noundef %371, double noundef %374, double noundef %361) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %380, ptr noundef nonnull @.str.201, double noundef %367, double noundef %371, double noundef %374, double noundef %361) #12
   br label %405
 
 382:                                              ; preds = %379
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %380, ptr noundef nonnull @.str.202, double noundef %374, double noundef %361) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %380, ptr noundef nonnull @.str.202, double noundef %374, double noundef %361) #12
   br label %405
 
 383:                                              ; preds = %363
   br i1 %378, label %384, label %387
 
 384:                                              ; preds = %383
-  %385 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %367) #13
+  %385 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %367) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.41, ptr noundef %385, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %385) #13
-  %386 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %371) #13
+  call void @pfree(ptr noundef %385) #12
+  %386 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %371) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.41, ptr noundef %386, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %386) #13
+  call void @pfree(ptr noundef %386) #12
   br label %387
 
 387:                                              ; preds = %384, %383
-  %388 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %374) #13
+  %388 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %374) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef %388, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %388) #13
-  %389 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %361) #13
+  call void @pfree(ptr noundef %388) #12
+  %389 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %361) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef %389, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %389) #13
+  call void @pfree(ptr noundef %389) #12
   br label %405
 
 390:                                              ; preds = %._crit_edge, %359
@@ -4555,7 +4546,7 @@ switch.lookup1338:                                ; preds = %307
 
 393:                                              ; preds = %390
   %394 = load ptr, ptr %4, align 8
-  call void @appendStringInfoString(ptr noundef %394, ptr noundef nonnull @.str.207) #13
+  call void @appendStringInfoString(ptr noundef %394, ptr noundef nonnull @.str.207) #12
   br label %405
 
 395:                                              ; preds = %390
@@ -4565,21 +4556,21 @@ switch.lookup1338:                                ; preds = %307
   br i1 %398, label %399, label %402
 
 399:                                              ; preds = %395
-  %400 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef 0.000000e+00) #13
+  %400 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef 0.000000e+00) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.41, ptr noundef %400, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %400) #13
-  %401 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef 0.000000e+00) #13
+  call void @pfree(ptr noundef %400) #12
+  %401 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef 0.000000e+00) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.41, ptr noundef %401, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %401) #13
+  call void @pfree(ptr noundef %401) #12
   br label %402
 
 402:                                              ; preds = %399, %395
-  %403 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef 0.000000e+00) #13
+  %403 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef 0.000000e+00) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef %403, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %403) #13
-  %404 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef 0.000000e+00) #13
+  call void @pfree(ptr noundef %403) #12
+  %404 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef 0.000000e+00) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef %404, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %404) #13
+  call void @pfree(ptr noundef %404) #12
   br label %405
 
 405:                                              ; preds = %353, %387, %382, %381, %402, %393
@@ -4589,7 +4580,7 @@ switch.lookup1338:                                ; preds = %307
 
 408:                                              ; preds = %405
   %409 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %409, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %409, i8 noundef signext 10) #12
   br label %410
 
 410:                                              ; preds = %408, %405
@@ -4813,7 +4804,7 @@ plan_is_disabled.exit:                            ; preds = %410, %.critedge.i
 526:                                              ; preds = %519, %514
   %527 = load i32, ptr %57, align 4
   %528 = shl i32 %527, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %515, i32 noundef %528) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %515, i32 noundef %528) #12
   br label %ExplainIndentText.exit766
 
 ExplainIndentText.exit766:                        ; preds = %519, %526
@@ -4823,11 +4814,11 @@ ExplainIndentText.exit766:                        ; preds = %519, %526
   br i1 %530, label %532, label %533
 
 532:                                              ; preds = %ExplainIndentText.exit766
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %531, ptr noundef nonnull @.str.209, double noundef %503, double noundef %507, double noundef %510, double noundef %497) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %531, ptr noundef nonnull @.str.209, double noundef %503, double noundef %507, double noundef %510, double noundef %497) #12
   br label %543
 
 533:                                              ; preds = %ExplainIndentText.exit766
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %531, ptr noundef nonnull @.str.210, double noundef %510, double noundef %497) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %531, ptr noundef nonnull @.str.210, double noundef %510, double noundef %497) #12
   br label %543
 
 534:                                              ; preds = %499
@@ -4836,21 +4827,21 @@ ExplainIndentText.exit766:                        ; preds = %519, %526
   br i1 %536, label %537, label %540
 
 537:                                              ; preds = %534
-  %538 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %503) #13
+  %538 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %503) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.203, ptr noundef nonnull @.str.41, ptr noundef %538, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %538) #13
-  %539 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %507) #13
+  call void @pfree(ptr noundef %538) #12
+  %539 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %507) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.204, ptr noundef nonnull @.str.41, ptr noundef %539, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %539) #13
+  call void @pfree(ptr noundef %539) #12
   br label %540
 
 540:                                              ; preds = %537, %534
-  %541 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %510) #13
+  %541 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %510) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.205, ptr noundef null, ptr noundef %541, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %541) #13
-  %542 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %497) #13
+  call void @pfree(ptr noundef %541) #12
+  %542 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %497) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef %542, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %542) #13
+  call void @pfree(ptr noundef %542) #12
   br label %543
 
 543:                                              ; preds = %532, %533, %540
@@ -4896,7 +4887,7 @@ ExplainIndentText.exit766:                        ; preds = %519, %526
 560:                                              ; preds = %557, %555
   %561 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %562 = load ptr, ptr %561, align 8
-  %563 = call ptr @set_deparse_context_plan(ptr noundef %562, ptr noundef nonnull %.val, ptr noundef %1) #13
+  %563 = call ptr @set_deparse_context_plan(ptr noundef %562, ptr noundef nonnull %.val, ptr noundef %1) #12
   %564 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %565 = load i32, ptr %564, align 4
   %566 = icmp sgt i32 %565, 1
@@ -4919,8 +4910,8 @@ ExplainIndentText.exit766:                        ; preds = %519, %526
   %574 = load ptr, ptr %573, align 8
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 8
   %576 = load ptr, ptr %575, align 8
-  %577 = call ptr @deparse_expression(ptr noundef %576, ptr noundef %563, i1 noundef zeroext %566, i1 noundef zeroext false) #13
-  %578 = call ptr @lappend(ptr noundef %.026.i, ptr noundef %577) #13
+  %577 = call ptr @deparse_expression(ptr noundef %576, ptr noundef %563, i1 noundef zeroext %566, i1 noundef zeroext false) #12
+  %578 = call ptr @lappend(ptr noundef %.026.i, ptr noundef %577) #12
   %indvars.iv.next.i771 = add nuw nsw i64 %indvars.iv.i770, 1
   %579 = load i32, ptr %568, align 4
   %580 = sext i32 %579 to i64
@@ -5027,12 +5018,12 @@ thread-pre-split963:                              ; preds = %587, %590, %594, %s
   br i1 %608, label %show_scan_qual.exit.thread, label %show_scan_qual.exit
 
 show_scan_qual.exit:                              ; preds = %606
-  %609 = call ptr @make_ands_explicit(ptr noundef nonnull %599) #13
+  %609 = call ptr @make_ands_explicit(ptr noundef nonnull %599) #12
   %.val.i.i = load ptr, ptr %53, align 8
   %610 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %611 = load ptr, ptr %610, align 8
-  %612 = call ptr @set_deparse_context_plan(ptr noundef %611, ptr noundef %.val.i.i, ptr noundef %1) #13
-  %613 = call ptr @deparse_expression(ptr noundef %609, ptr noundef %612, i1 noundef zeroext %607, i1 noundef zeroext false) #13
+  %612 = call ptr @set_deparse_context_plan(ptr noundef %611, ptr noundef %.val.i.i, ptr noundef %1) #12
+  %613 = call ptr @deparse_expression(ptr noundef %609, ptr noundef %612, i1 noundef zeroext %607, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %613, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1128 = load ptr, ptr %598, align 8
   %614 = icmp eq ptr %.pre1128, null
@@ -5061,12 +5052,12 @@ show_scan_qual.exit.thread:                       ; preds = %606, %615, %show_sc
   br i1 %626, label %show_scan_qual.exit773, label %627
 
 627:                                              ; preds = %624
-  %628 = call ptr @make_ands_explicit(ptr noundef nonnull %617) #13
+  %628 = call ptr @make_ands_explicit(ptr noundef nonnull %617) #12
   %.val.i.i772 = load ptr, ptr %53, align 8
   %629 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %630 = load ptr, ptr %629, align 8
-  %631 = call ptr @set_deparse_context_plan(ptr noundef %630, ptr noundef %.val.i.i772, ptr noundef %1) #13
-  %632 = call ptr @deparse_expression(ptr noundef %628, ptr noundef %631, i1 noundef zeroext %625, i1 noundef zeroext false) #13
+  %631 = call ptr @set_deparse_context_plan(ptr noundef %630, ptr noundef %.val.i.i772, ptr noundef %1) #12
+  %632 = call ptr @deparse_expression(ptr noundef %628, ptr noundef %631, i1 noundef zeroext %625, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %632, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1129 = load ptr, ptr %53, align 8
   %.pre1130 = load i32, ptr %.pre1129, align 4
@@ -5090,12 +5081,12 @@ show_scan_qual.exit773:                           ; preds = %624, %627
   br i1 %642, label %show_scan_qual.exit783, label %show_scan_qual.exit775
 
 show_scan_qual.exit775:                           ; preds = %640
-  %643 = call ptr @make_ands_explicit(ptr noundef nonnull %635) #13
+  %643 = call ptr @make_ands_explicit(ptr noundef nonnull %635) #12
   %.val.i.i774 = load ptr, ptr %53, align 8
   %644 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %645 = load ptr, ptr %644, align 8
-  %646 = call ptr @set_deparse_context_plan(ptr noundef %645, ptr noundef %.val.i.i774, ptr noundef %1) #13
-  %647 = call ptr @deparse_expression(ptr noundef %643, ptr noundef %646, i1 noundef zeroext %641, i1 noundef zeroext false) #13
+  %646 = call ptr @set_deparse_context_plan(ptr noundef %645, ptr noundef %.val.i.i774, ptr noundef %1) #12
+  %647 = call ptr @deparse_expression(ptr noundef %643, ptr noundef %646, i1 noundef zeroext %641, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %647, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1131 = load ptr, ptr %634, align 8
   %648 = icmp eq ptr %.pre1131, null
@@ -5124,12 +5115,12 @@ show_scan_qual.exit775:                           ; preds = %640
   br i1 %661, label %show_scan_qual.exit777, label %662
 
 662:                                              ; preds = %659
-  %663 = call ptr @make_ands_explicit(ptr noundef nonnull %652) #13
+  %663 = call ptr @make_ands_explicit(ptr noundef nonnull %652) #12
   %.val.i.i776 = load ptr, ptr %53, align 8
   %664 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %665 = load ptr, ptr %664, align 8
-  %666 = call ptr @set_deparse_context_plan(ptr noundef %665, ptr noundef %.val.i.i776, ptr noundef %1) #13
-  %667 = call ptr @deparse_expression(ptr noundef %663, ptr noundef %666, i1 noundef zeroext %660, i1 noundef zeroext false) #13
+  %666 = call ptr @set_deparse_context_plan(ptr noundef %665, ptr noundef %.val.i.i776, ptr noundef %1) #12
+  %667 = call ptr @deparse_expression(ptr noundef %663, ptr noundef %666, i1 noundef zeroext %660, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %667, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit777
 
@@ -5162,12 +5153,12 @@ show_scan_qual.exit777:                           ; preds = %659, %662
   br i1 %682, label %show_scan_qual.exit779, label %683
 
 683:                                              ; preds = %680
-  %684 = call ptr @make_ands_explicit(ptr noundef nonnull %673) #13
+  %684 = call ptr @make_ands_explicit(ptr noundef nonnull %673) #12
   %.val.i.i778 = load ptr, ptr %53, align 8
   %685 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %686 = load ptr, ptr %685, align 8
-  %687 = call ptr @set_deparse_context_plan(ptr noundef %686, ptr noundef %.val.i.i778, ptr noundef %1) #13
-  %688 = call ptr @deparse_expression(ptr noundef %684, ptr noundef %687, i1 noundef zeroext %681, i1 noundef zeroext false) #13
+  %687 = call ptr @set_deparse_context_plan(ptr noundef %686, ptr noundef %.val.i.i778, ptr noundef %1) #12
+  %688 = call ptr @deparse_expression(ptr noundef %684, ptr noundef %687, i1 noundef zeroext %681, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %688, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1125 = load ptr, ptr %53, align 8
   %.pre1126 = load i32, ptr %.pre1125, align 4
@@ -5191,12 +5182,12 @@ show_scan_qual.exit779:                           ; preds = %680, %683
   br i1 %698, label %show_scan_qual.exit781.thread, label %show_scan_qual.exit781
 
 show_scan_qual.exit781:                           ; preds = %696
-  %699 = call ptr @make_ands_explicit(ptr noundef nonnull %691) #13
+  %699 = call ptr @make_ands_explicit(ptr noundef nonnull %691) #12
   %.val.i.i780 = load ptr, ptr %53, align 8
   %700 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %701 = load ptr, ptr %700, align 8
-  %702 = call ptr @set_deparse_context_plan(ptr noundef %701, ptr noundef %.val.i.i780, ptr noundef %1) #13
-  %703 = call ptr @deparse_expression(ptr noundef %699, ptr noundef %702, i1 noundef zeroext %697, i1 noundef zeroext false) #13
+  %702 = call ptr @set_deparse_context_plan(ptr noundef %701, ptr noundef %.val.i.i780, ptr noundef %1) #12
+  %703 = call ptr @deparse_expression(ptr noundef %699, ptr noundef %702, i1 noundef zeroext %697, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %703, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1127 = load ptr, ptr %690, align 8
   %704 = icmp eq ptr %.pre1127, null
@@ -5237,12 +5228,12 @@ show_scan_qual.exit781.thread:                    ; preds = %696, %705, %show_sc
   br i1 %723, label %show_scan_qual.exit783, label %724
 
 724:                                              ; preds = %721
-  %725 = call ptr @make_ands_explicit(ptr noundef nonnull %714) #13
+  %725 = call ptr @make_ands_explicit(ptr noundef nonnull %714) #12
   %.val.i.i782 = load ptr, ptr %53, align 8
   %726 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %727 = load ptr, ptr %726, align 8
-  %728 = call ptr @set_deparse_context_plan(ptr noundef %727, ptr noundef %.val.i.i782, ptr noundef %1) #13
-  %729 = call ptr @deparse_expression(ptr noundef %725, ptr noundef %728, i1 noundef zeroext %722, i1 noundef zeroext false) #13
+  %728 = call ptr @set_deparse_context_plan(ptr noundef %727, ptr noundef %.val.i.i782, ptr noundef %1) #12
+  %729 = call ptr @deparse_expression(ptr noundef %725, ptr noundef %728, i1 noundef zeroext %722, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %729, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit783
 
@@ -5265,12 +5256,12 @@ show_scan_qual.exit781.thread:                    ; preds = %696, %705, %show_sc
   br i1 %741, label %show_scan_qual.exit785.thread, label %show_scan_qual.exit785
 
 show_scan_qual.exit785:                           ; preds = %739
-  %742 = call ptr @make_ands_explicit(ptr noundef nonnull %732) #13
+  %742 = call ptr @make_ands_explicit(ptr noundef nonnull %732) #12
   %.val.i.i784 = load ptr, ptr %53, align 8
   %743 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %744 = load ptr, ptr %743, align 8
-  %745 = call ptr @set_deparse_context_plan(ptr noundef %744, ptr noundef %.val.i.i784, ptr noundef %1) #13
-  %746 = call ptr @deparse_expression(ptr noundef %742, ptr noundef %745, i1 noundef zeroext %740, i1 noundef zeroext false) #13
+  %745 = call ptr @set_deparse_context_plan(ptr noundef %744, ptr noundef %.val.i.i784, ptr noundef %1) #12
+  %746 = call ptr @deparse_expression(ptr noundef %742, ptr noundef %745, i1 noundef zeroext %740, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.218, ptr noundef null, ptr noundef %746, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1123 = load ptr, ptr %731, align 8
   %747 = icmp eq ptr %.pre1123, null
@@ -5299,12 +5290,12 @@ show_scan_qual.exit785.thread:                    ; preds = %739, %748, %show_sc
   br i1 %759, label %show_scan_qual.exit787.thread, label %show_scan_qual.exit787
 
 show_scan_qual.exit787:                           ; preds = %757
-  %760 = call ptr @make_ands_explicit(ptr noundef nonnull %750) #13
+  %760 = call ptr @make_ands_explicit(ptr noundef nonnull %750) #12
   %.val.i.i786 = load ptr, ptr %53, align 8
   %761 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %762 = load ptr, ptr %761, align 8
-  %763 = call ptr @set_deparse_context_plan(ptr noundef %762, ptr noundef %.val.i.i786, ptr noundef %1) #13
-  %764 = call ptr @deparse_expression(ptr noundef %760, ptr noundef %763, i1 noundef zeroext %758, i1 noundef zeroext false) #13
+  %763 = call ptr @set_deparse_context_plan(ptr noundef %762, ptr noundef %.val.i.i786, ptr noundef %1) #12
+  %764 = call ptr @deparse_expression(ptr noundef %760, ptr noundef %763, i1 noundef zeroext %758, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %764, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1124 = load ptr, ptr %749, align 8
   %765 = icmp eq ptr %.pre1124, null
@@ -5328,13 +5319,13 @@ show_scan_qual.exit787.thread:                    ; preds = %757, %766, %show_sc
 
 773:                                              ; preds = %769
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %774 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %51, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %772) #13
+  %774 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %51, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %772) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef nonnull %51, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %775 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %776 = load i64, ptr %775, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %777 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %50, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %776) #13
+  %777 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %50, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %776) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.259, ptr noundef null, ptr noundef nonnull %50, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   br label %808
@@ -5368,20 +5359,20 @@ show_scan_qual.exit787.thread:                    ; preds = %757, %766, %show_sc
 794:                                              ; preds = %787, %782
   %795 = load i32, ptr %57, align 4
   %796 = shl i32 %795, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %783, i32 noundef %796) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %783, i32 noundef %796) #12
   %.pre.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i
 
 ExplainIndentText.exit.i:                         ; preds = %794, %787
   %797 = phi ptr [ %783, %787 ], [ %.pre.i, %794 ]
-  call void @appendStringInfoString(ptr noundef %797, ptr noundef nonnull @.str.260) #13
+  call void @appendStringInfoString(ptr noundef %797, ptr noundef nonnull @.str.260) #12
   %798 = load i64, ptr %771, align 8
   %.not50.i = icmp eq i64 %798, 0
   br i1 %.not50.i, label %801, label %799
 
 799:                                              ; preds = %ExplainIndentText.exit.i
   %800 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %800, ptr noundef nonnull @.str.261, i64 noundef %798) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %800, ptr noundef nonnull @.str.261, i64 noundef %798) #12
   br label %801
 
 801:                                              ; preds = %799, %ExplainIndentText.exit.i
@@ -5392,12 +5383,12 @@ ExplainIndentText.exit.i:                         ; preds = %794, %787
 
 804:                                              ; preds = %801
   %805 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %805, ptr noundef nonnull @.str.262, i64 noundef %803) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %805, ptr noundef nonnull @.str.262, i64 noundef %803) #12
   br label %806
 
 806:                                              ; preds = %804, %801
   %807 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %807, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %807, i8 noundef signext 10) #12
   br label %808
 
 808:                                              ; preds = %806, %779, %773
@@ -5462,20 +5453,20 @@ ExplainIndentText.exit.i:                         ; preds = %794, %787
 843:                                              ; preds = %836, %831
   %844 = load i32, ptr %57, align 4
   %845 = shl i32 %844, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %832, i32 noundef %845) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %832, i32 noundef %845) #12
   %.pre60.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit57.i
 
 ExplainIndentText.exit57.i:                       ; preds = %843, %836
   %846 = phi ptr [ %832, %836 ], [ %.pre60.i, %843 ]
-  call void @appendStringInfoString(ptr noundef %846, ptr noundef nonnull @.str.260) #13
+  call void @appendStringInfoString(ptr noundef %846, ptr noundef nonnull @.str.260) #12
   %847 = load i64, ptr %817, align 8
   %.not54.i = icmp eq i64 %847, 0
   br i1 %.not54.i, label %850, label %848
 
 848:                                              ; preds = %ExplainIndentText.exit57.i
   %849 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %849, ptr noundef nonnull @.str.261, i64 noundef %847) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %849, ptr noundef nonnull @.str.261, i64 noundef %847) #12
   br label %850
 
 850:                                              ; preds = %848, %ExplainIndentText.exit57.i
@@ -5486,24 +5477,24 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
 
 853:                                              ; preds = %850
   %854 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %854, ptr noundef nonnull @.str.262, i64 noundef %852) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %854, ptr noundef nonnull @.str.262, i64 noundef %852) #12
   br label %855
 
 855:                                              ; preds = %853, %850
   %856 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %856, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %856, i8 noundef signext 10) #12
   br label %863
 
 857:                                              ; preds = %828
   %858 = load i64, ptr %817, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %859 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %49, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %858) #13
+  %859 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %49, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %858) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef nonnull %49, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %860 = getelementptr inbounds nuw i8, ptr %817, i64 8
   %861 = load i64, ptr %860, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %862 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %48, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %861) #13
+  %862 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %48, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %861) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.259, ptr noundef null, ptr noundef nonnull %48, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %863
@@ -5532,13 +5523,13 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
   %.val755 = load ptr, ptr %53, align 8
   %875 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %876 = load ptr, ptr %875, align 8
-  %877 = call ptr @set_deparse_context_plan(ptr noundef %876, ptr noundef %.val755, ptr noundef %1) #13
+  %877 = call ptr @set_deparse_context_plan(ptr noundef %876, ptr noundef %.val755, ptr noundef %1) #12
   %878 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %879 = load i32, ptr %878, align 4
   %880 = icmp sgt i32 %879, 1
   %881 = getelementptr inbounds nuw i8, ptr %874, i64 4
   %882 = load i32, ptr %881, align 4
-  %883 = call ptr @get_func_name(i32 noundef %882) #13
+  %883 = call ptr @get_func_name(i32 noundef %882) #12
   %884 = getelementptr inbounds nuw i8, ptr %874, i64 8
   %885 = load ptr, ptr %884, align 8
   %886 = getelementptr inbounds nuw i8, ptr %885, i64 4
@@ -5557,8 +5548,8 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
   %890 = load ptr, ptr %887, align 8
   %891 = getelementptr inbounds nuw %union.ListCell, ptr %890, i64 %indvars.iv.i803
   %892 = load ptr, ptr %891, align 8
-  %893 = call ptr @deparse_expression(ptr noundef %892, ptr noundef %877, i1 noundef zeroext %880, i1 noundef zeroext false) #13
-  %894 = call ptr @lappend(ptr noundef %.026.i804, ptr noundef %893) #13
+  %893 = call ptr @deparse_expression(ptr noundef %892, ptr noundef %877, i1 noundef zeroext %880, i1 noundef zeroext false) #12
+  %894 = call ptr @lappend(ptr noundef %.026.i804, ptr noundef %893) #12
   %indvars.iv.next.i805 = add nuw nsw i64 %indvars.iv.i803, 1
   %895 = load i32, ptr %886, align 4
   %896 = sext i32 %895 to i64
@@ -5573,7 +5564,7 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
   br i1 %.not52.i796, label %902, label %900
 
 900:                                              ; preds = %.critedge.i794
-  %901 = call ptr @deparse_expression(ptr noundef nonnull %899, ptr noundef %877, i1 noundef zeroext %880, i1 noundef zeroext false) #13
+  %901 = call ptr @deparse_expression(ptr noundef nonnull %899, ptr noundef %877, i1 noundef zeroext %880, i1 noundef zeroext false) #12
   br label %902
 
 902:                                              ; preds = %900, %.critedge.i794
@@ -5601,13 +5592,13 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
 917:                                              ; preds = %910, %905
   %918 = load i32, ptr %57, align 4
   %919 = shl i32 %918, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %906, i32 noundef %919) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %906, i32 noundef %919) #12
   %.pre.i801 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i798
 
 ExplainIndentText.exit.i798:                      ; preds = %917, %910
   %920 = phi ptr [ %906, %910 ], [ %.pre.i801, %917 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %920, ptr noundef nonnull @.str.263, ptr noundef %883) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %920, ptr noundef nonnull @.str.263, ptr noundef %883) #12
   %921 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i795, i64 4
   %.not54.i799 = icmp eq ptr %.0.lcssa.i795, null
   br i1 %.not54.i799, label %.critedge58.i, label %.lr.ph11.i
@@ -5627,19 +5618,19 @@ ExplainIndentText.exit.i798:                      ; preds = %917, %910
 
 .critedge58.i:                                    ; preds = %930, %.lr.ph11.i, %ExplainIndentText.exit.i798
   %927 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %927, i8 noundef signext 41) #13
+  call void @appendStringInfoChar(ptr noundef %927, i8 noundef signext 41) #12
   %.not56.i800 = icmp eq ptr %.046.i, null
   br i1 %.not56.i800, label %938, label %936
 
 928:                                              ; preds = %.lr.ph15.i
   %929 = load ptr, ptr %4, align 8
-  call void @appendStringInfoString(ptr noundef %929, ptr noundef nonnull @.str.48) #13
+  call void @appendStringInfoString(ptr noundef %929, ptr noundef nonnull @.str.48) #12
   br label %930
 
 930:                                              ; preds = %928, %.lr.ph15.i
   %931 = load ptr, ptr %4, align 8
   %932 = load ptr, ptr %926, align 8
-  call void @appendStringInfoString(ptr noundef %931, ptr noundef %932) #13
+  call void @appendStringInfoString(ptr noundef %931, ptr noundef %932) #12
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %933 = load i32, ptr %921, align 4
   %934 = sext i32 %933 to i64
@@ -5648,12 +5639,12 @@ ExplainIndentText.exit.i798:                      ; preds = %917, %910
 
 936:                                              ; preds = %.critedge58.i
   %937 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %937, ptr noundef nonnull @.str.264, ptr noundef nonnull %.046.i) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %937, ptr noundef nonnull @.str.264, ptr noundef nonnull %.046.i) #12
   br label %938
 
 938:                                              ; preds = %936, %.critedge58.i
   %939 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %939, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %939, i8 noundef signext 10) #12
   br label %show_tablesample.exit
 
 940:                                              ; preds = %902
@@ -5685,12 +5676,12 @@ show_tablesample.exit:                            ; preds = %941, %940, %938, %t
   br i1 %952, label %show_instrumentation_count.exit, label %show_scan_qual.exit807
 
 show_scan_qual.exit807:                           ; preds = %950
-  %953 = call ptr @make_ands_explicit(ptr noundef nonnull %943) #13
+  %953 = call ptr @make_ands_explicit(ptr noundef nonnull %943) #12
   %.val.i.i806 = load ptr, ptr %53, align 8
   %954 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %955 = load ptr, ptr %954, align 8
-  %956 = call ptr @set_deparse_context_plan(ptr noundef %955, ptr noundef %.val.i.i806, ptr noundef %1) #13
-  %957 = call ptr @deparse_expression(ptr noundef %953, ptr noundef %956, i1 noundef zeroext %951, i1 noundef zeroext false) #13
+  %956 = call ptr @set_deparse_context_plan(ptr noundef %955, ptr noundef %.val.i.i806, ptr noundef %1) #12
+  %957 = call ptr @deparse_expression(ptr noundef %953, ptr noundef %956, i1 noundef zeroext %951, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %957, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1122 = load ptr, ptr %942, align 8
   %958 = icmp eq ptr %.pre1122, null
@@ -5723,9 +5714,9 @@ show_scan_qual.exit807:                           ; preds = %950
   %970 = fcmp ogt double %966, 0.000000e+00
   %971 = fdiv double %.0.i809, %966
   %.sink20.i = select i1 %970, double %971, double 0.000000e+00
-  %972 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %.sink20.i) #13
+  %972 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %.sink20.i) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.216, ptr noundef null, ptr noundef %972, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %972) #13
+  call void @pfree(ptr noundef %972) #12
   br label %show_instrumentation_count.exit
 
 show_instrumentation_count.exit:                  ; preds = %950, %.sink.split.i, %968, %962, %959, %show_scan_qual.exit807
@@ -5747,7 +5738,7 @@ show_instrumentation_count.exit:                  ; preds = %950, %.sink.split.i
   br i1 %or.cond.not.i, label %981, label %show_ctescan_info.exit
 
 981:                                              ; preds = %975
-  call void @tuplestore_get_stats(ptr noundef nonnull %.val756.val, ptr noundef nonnull %46, ptr noundef nonnull %47) #13
+  call void @tuplestore_get_stats(ptr noundef nonnull %.val756.val, ptr noundef nonnull %46, ptr noundef nonnull %47) #12
   %982 = load ptr, ptr %46, align 8
   %983 = load i64, ptr %47, align 8
   call fastcc void @show_storage_info(ptr noundef %982, i64 noundef %983, ptr noundef nonnull readonly %4)
@@ -5777,12 +5768,12 @@ show_ctescan_info.exit:                           ; preds = %975, %981
   br i1 %995, label %show_scan_qual.exit811.thread, label %show_scan_qual.exit811
 
 show_scan_qual.exit811:                           ; preds = %993
-  %996 = call ptr @make_ands_explicit(ptr noundef nonnull %986) #13
+  %996 = call ptr @make_ands_explicit(ptr noundef nonnull %986) #12
   %.val.i.i810 = load ptr, ptr %53, align 8
   %997 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %998 = load ptr, ptr %997, align 8
-  %999 = call ptr @set_deparse_context_plan(ptr noundef %998, ptr noundef %.val.i.i810, ptr noundef %1) #13
-  %1000 = call ptr @deparse_expression(ptr noundef %996, ptr noundef %999, i1 noundef zeroext %994, i1 noundef zeroext false) #13
+  %999 = call ptr @set_deparse_context_plan(ptr noundef %998, ptr noundef %.val.i.i810, ptr noundef %1) #12
+  %1000 = call ptr @deparse_expression(ptr noundef %996, ptr noundef %999, i1 noundef zeroext %994, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1000, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1121 = load ptr, ptr %985, align 8
   %1001 = icmp eq ptr %.pre1121, null
@@ -5797,7 +5788,7 @@ show_scan_qual.exit811.thread:                    ; preds = %993, %1002, %show_s
   %1004 = load i32, ptr %1003, align 8
   %1005 = sext i32 %1004 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %1006 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %45, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1005) #13
+  %1006 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %45, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1005) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %45, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1007 = load i8, ptr %354, align 1, !range !4, !noundef !5
@@ -5846,12 +5837,12 @@ show_scan_qual.exit811.thread:                    ; preds = %993, %1002, %show_s
   br i1 %1032, label %show_scan_qual.exit813.thread, label %show_scan_qual.exit813
 
 show_scan_qual.exit813:                           ; preds = %1030
-  %1033 = call ptr @make_ands_explicit(ptr noundef nonnull %1023) #13
+  %1033 = call ptr @make_ands_explicit(ptr noundef nonnull %1023) #12
   %.val.i.i812 = load ptr, ptr %53, align 8
   %1034 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1035 = load ptr, ptr %1034, align 8
-  %1036 = call ptr @set_deparse_context_plan(ptr noundef %1035, ptr noundef %.val.i.i812, ptr noundef %1) #13
-  %1037 = call ptr @deparse_expression(ptr noundef %1033, ptr noundef %1036, i1 noundef zeroext %1031, i1 noundef zeroext false) #13
+  %1036 = call ptr @set_deparse_context_plan(ptr noundef %1035, ptr noundef %.val.i.i812, ptr noundef %1) #12
+  %1037 = call ptr @deparse_expression(ptr noundef %1033, ptr noundef %1036, i1 noundef zeroext %1031, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1037, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1120 = load ptr, ptr %1022, align 8
   %1038 = icmp eq ptr %.pre1120, null
@@ -5866,7 +5857,7 @@ show_scan_qual.exit813.thread:                    ; preds = %1030, %1039, %show_
   %1041 = load i32, ptr %1040, align 8
   %1042 = sext i32 %1041 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %1043 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %44, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1042) #13
+  %1043 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %44, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1042) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %44, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %1044 = load i8, ptr %354, align 1, !range !4, !noundef !5
@@ -5906,7 +5897,7 @@ show_scan_qual.exit813.thread:                    ; preds = %1030, %1039, %show_
   %1062 = load ptr, ptr %1061, align 8
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 8
   %1064 = load ptr, ptr %1063, align 8
-  %1065 = call ptr @lappend(ptr noundef %.06729971004, ptr noundef %1064) #13
+  %1065 = call ptr @lappend(ptr noundef %.06729971004, ptr noundef %1064) #12
   %indvars.iv.next1052 = add nuw nsw i64 %indvars.iv1051, 1
   %1066 = load i32, ptr %1056, align 4
   %1067 = sext i32 %1066 to i64
@@ -5944,12 +5935,12 @@ show_scan_qual.exit813.thread:                    ; preds = %1030, %1039, %show_
   br i1 %1082, label %show_scan_qual.exit783, label %show_scan_qual.exit815
 
 show_scan_qual.exit815:                           ; preds = %1080
-  %1083 = call ptr @make_ands_explicit(ptr noundef nonnull %1073) #13
+  %1083 = call ptr @make_ands_explicit(ptr noundef nonnull %1073) #12
   %.val.i.i814 = load ptr, ptr %53, align 8
   %1084 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1085 = load ptr, ptr %1084, align 8
-  %1086 = call ptr @set_deparse_context_plan(ptr noundef %1085, ptr noundef %.val.i.i814, ptr noundef %1) #13
-  %1087 = call ptr @deparse_expression(ptr noundef %1083, ptr noundef %1086, i1 noundef zeroext %1081, i1 noundef zeroext false) #13
+  %1086 = call ptr @set_deparse_context_plan(ptr noundef %1085, ptr noundef %.val.i.i814, ptr noundef %1) #12
+  %1087 = call ptr @deparse_expression(ptr noundef %1083, ptr noundef %1086, i1 noundef zeroext %1081, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1087, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1119 = load ptr, ptr %1072, align 8
   %1088 = icmp eq ptr %.pre1119, null
@@ -5991,12 +5982,12 @@ show_scan_qual.exit815:                           ; preds = %1080
   br i1 %1107, label %show_scan_qual.exit817.thread, label %show_scan_qual.exit817
 
 show_scan_qual.exit817:                           ; preds = %1105
-  %1108 = call ptr @make_ands_explicit(ptr noundef nonnull %1099) #13
+  %1108 = call ptr @make_ands_explicit(ptr noundef nonnull %1099) #12
   %.val.i.i816 = load ptr, ptr %53, align 8
   %1109 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1110 = load ptr, ptr %1109, align 8
-  %1111 = call ptr @set_deparse_context_plan(ptr noundef %1110, ptr noundef %.val.i.i816, ptr noundef %1) #13
-  %1112 = call ptr @deparse_expression(ptr noundef %1108, ptr noundef %1111, i1 noundef zeroext %1106, i1 noundef zeroext false) #13
+  %1111 = call ptr @set_deparse_context_plan(ptr noundef %1110, ptr noundef %.val.i.i816, ptr noundef %1) #12
+  %1112 = call ptr @deparse_expression(ptr noundef %1108, ptr noundef %1111, i1 noundef zeroext %1106, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1112, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1117 = load ptr, ptr %1098, align 8
   %1113 = icmp eq ptr %.pre1117, null
@@ -6018,7 +6009,7 @@ show_scan_qual.exit817.thread:                    ; preds = %1105, %1114, %show_
   br i1 %or.cond.not.i818, label %1119, label %show_table_func_scan_info.exit
 
 1119:                                             ; preds = %show_scan_qual.exit817.thread
-  call void @tuplestore_get_stats(ptr noundef nonnull %.val757, ptr noundef nonnull %42, ptr noundef nonnull %43) #13
+  call void @tuplestore_get_stats(ptr noundef nonnull %.val757, ptr noundef nonnull %42, ptr noundef nonnull %43) #12
   %1120 = load ptr, ptr %42, align 8
   %1121 = load i64, ptr %43, align 8
   call fastcc void @show_storage_info(ptr noundef %1120, i64 noundef %1121, ptr noundef nonnull readonly %4)
@@ -6042,8 +6033,8 @@ list_length.exit:                                 ; preds = %1122
   br i1 %1127, label %1128, label %list_length.exit.thread
 
 1128:                                             ; preds = %list_length.exit
-  %1129 = call ptr @make_orclause(ptr noundef nonnull %1124) #13
-  %1130 = call ptr @list_make1_impl(i32 noundef 1, ptr %1129) #13
+  %1129 = call ptr @make_orclause(ptr noundef nonnull %1124) #12
+  %1130 = call ptr @list_make1_impl(i32 noundef 1, ptr %1129) #12
   br label %list_length.exit.thread
 
 list_length.exit.thread:                          ; preds = %1122, %1128, %list_length.exit
@@ -6064,12 +6055,12 @@ list_length.exit.thread:                          ; preds = %1122, %1128, %list_
   br i1 %1139, label %show_scan_qual.exit821, label %1140
 
 1140:                                             ; preds = %1137
-  %1141 = call ptr @make_ands_explicit(ptr noundef nonnull %.0667) #13
+  %1141 = call ptr @make_ands_explicit(ptr noundef nonnull %.0667) #12
   %.val.i.i820 = load ptr, ptr %53, align 8
   %1142 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1143 = load ptr, ptr %1142, align 8
-  %1144 = call ptr @set_deparse_context_plan(ptr noundef %1143, ptr noundef %.val.i.i820, ptr noundef %1) #13
-  %1145 = call ptr @deparse_expression(ptr noundef %1141, ptr noundef %1144, i1 noundef zeroext %1138, i1 noundef zeroext false) #13
+  %1144 = call ptr @set_deparse_context_plan(ptr noundef %1143, ptr noundef %.val.i.i820, ptr noundef %1) #12
+  %1145 = call ptr @deparse_expression(ptr noundef %1141, ptr noundef %1144, i1 noundef zeroext %1138, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef %1145, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1112 = load ptr, ptr %53, align 8
   %.pre1113 = load i32, ptr %.pre1112, align 4
@@ -6093,12 +6084,12 @@ show_scan_qual.exit821:                           ; preds = %1137, %1140
   br i1 %1155, label %show_scan_qual.exit783, label %show_scan_qual.exit823
 
 show_scan_qual.exit823:                           ; preds = %1153
-  %1156 = call ptr @make_ands_explicit(ptr noundef nonnull %1148) #13
+  %1156 = call ptr @make_ands_explicit(ptr noundef nonnull %1148) #12
   %.val.i.i822 = load ptr, ptr %53, align 8
   %1157 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1158 = load ptr, ptr %1157, align 8
-  %1159 = call ptr @set_deparse_context_plan(ptr noundef %1158, ptr noundef %.val.i.i822, ptr noundef %1) #13
-  %1160 = call ptr @deparse_expression(ptr noundef %1156, ptr noundef %1159, i1 noundef zeroext %1154, i1 noundef zeroext false) #13
+  %1159 = call ptr @set_deparse_context_plan(ptr noundef %1158, ptr noundef %.val.i.i822, ptr noundef %1) #12
+  %1160 = call ptr @deparse_expression(ptr noundef %1156, ptr noundef %1159, i1 noundef zeroext %1154, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1160, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1114 = load ptr, ptr %1147, align 8
   %1161 = icmp eq ptr %.pre1114, null
@@ -6121,8 +6112,8 @@ list_length.exit825:                              ; preds = %1163
   br i1 %1168, label %1169, label %list_length.exit825.thread
 
 1169:                                             ; preds = %list_length.exit825
-  %1170 = call ptr @make_andclause(ptr noundef nonnull %1165) #13
-  %1171 = call ptr @list_make1_impl(i32 noundef 1, ptr %1170) #13
+  %1170 = call ptr @make_andclause(ptr noundef nonnull %1165) #12
+  %1171 = call ptr @list_make1_impl(i32 noundef 1, ptr %1170) #12
   br label %list_length.exit825.thread
 
 list_length.exit825.thread:                       ; preds = %1163, %1169, %list_length.exit825
@@ -6143,12 +6134,12 @@ list_length.exit825.thread:                       ; preds = %1163, %1169, %list_
   br i1 %1180, label %show_scan_qual.exit827, label %1181
 
 1181:                                             ; preds = %1178
-  %1182 = call ptr @make_ands_explicit(ptr noundef nonnull %.0665) #13
+  %1182 = call ptr @make_ands_explicit(ptr noundef nonnull %.0665) #12
   %.val.i.i826 = load ptr, ptr %53, align 8
   %1183 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1184 = load ptr, ptr %1183, align 8
-  %1185 = call ptr @set_deparse_context_plan(ptr noundef %1184, ptr noundef %.val.i.i826, ptr noundef %1) #13
-  %1186 = call ptr @deparse_expression(ptr noundef %1182, ptr noundef %1185, i1 noundef zeroext %1179, i1 noundef zeroext false) #13
+  %1185 = call ptr @set_deparse_context_plan(ptr noundef %1184, ptr noundef %.val.i.i826, ptr noundef %1) #12
+  %1186 = call ptr @deparse_expression(ptr noundef %1182, ptr noundef %1185, i1 noundef zeroext %1179, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef %1186, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1109 = load ptr, ptr %53, align 8
   %.pre1110 = load i32, ptr %.pre1109, align 4
@@ -6172,12 +6163,12 @@ show_scan_qual.exit827:                           ; preds = %1178, %1181
   br i1 %1196, label %show_scan_qual.exit783, label %show_scan_qual.exit829
 
 show_scan_qual.exit829:                           ; preds = %1194
-  %1197 = call ptr @make_ands_explicit(ptr noundef nonnull %1189) #13
+  %1197 = call ptr @make_ands_explicit(ptr noundef nonnull %1189) #12
   %.val.i.i828 = load ptr, ptr %53, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1199 = load ptr, ptr %1198, align 8
-  %1200 = call ptr @set_deparse_context_plan(ptr noundef %1199, ptr noundef %.val.i.i828, ptr noundef %1) #13
-  %1201 = call ptr @deparse_expression(ptr noundef %1197, ptr noundef %1200, i1 noundef zeroext %1195, i1 noundef zeroext false) #13
+  %1200 = call ptr @set_deparse_context_plan(ptr noundef %1199, ptr noundef %.val.i.i828, ptr noundef %1) #12
+  %1201 = call ptr @deparse_expression(ptr noundef %1197, ptr noundef %1200, i1 noundef zeroext %1195, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1201, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1111 = load ptr, ptr %1188, align 8
   %1202 = icmp eq ptr %.pre1111, null
@@ -6206,12 +6197,12 @@ show_scan_qual.exit829:                           ; preds = %1194
   br i1 %1215, label %show_scan_qual.exit831.thread, label %show_scan_qual.exit831
 
 show_scan_qual.exit831:                           ; preds = %1213
-  %1216 = call ptr @make_ands_explicit(ptr noundef nonnull %1206) #13
+  %1216 = call ptr @make_ands_explicit(ptr noundef nonnull %1206) #12
   %.val.i.i830 = load ptr, ptr %53, align 8
   %1217 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1218 = load ptr, ptr %1217, align 8
-  %1219 = call ptr @set_deparse_context_plan(ptr noundef %1218, ptr noundef %.val.i.i830, ptr noundef %1) #13
-  %1220 = call ptr @deparse_expression(ptr noundef %1216, ptr noundef %1219, i1 noundef zeroext %1214, i1 noundef zeroext false) #13
+  %1219 = call ptr @set_deparse_context_plan(ptr noundef %1218, ptr noundef %.val.i.i830, ptr noundef %1) #12
+  %1220 = call ptr @deparse_expression(ptr noundef %1216, ptr noundef %1219, i1 noundef zeroext %1214, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1220, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1108 = load ptr, ptr %1205, align 8
   %1221 = icmp eq ptr %.pre1108, null
@@ -6244,7 +6235,7 @@ show_scan_qual.exit831.thread:                    ; preds = %1213, %1222, %show_
 
 .sink.split.i833:                                 ; preds = %1231, %1228
   %.sink.i = phi ptr [ %1230, %1228 ], [ %1233, %1231 ]
-  call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %4) #13
+  call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %4) #12
   br label %show_scan_qual.exit783
 
 1234:                                             ; preds = %thread-pre-split963
@@ -6266,12 +6257,12 @@ show_scan_qual.exit831.thread:                    ; preds = %1213, %1222, %show_
   br i1 %1245, label %show_scan_qual.exit835.thread, label %show_scan_qual.exit835
 
 show_scan_qual.exit835:                           ; preds = %1243
-  %1246 = call ptr @make_ands_explicit(ptr noundef nonnull %1236) #13
+  %1246 = call ptr @make_ands_explicit(ptr noundef nonnull %1236) #12
   %.val.i.i834 = load ptr, ptr %53, align 8
   %1247 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1248 = load ptr, ptr %1247, align 8
-  %1249 = call ptr @set_deparse_context_plan(ptr noundef %1248, ptr noundef %.val.i.i834, ptr noundef %1) #13
-  %1250 = call ptr @deparse_expression(ptr noundef %1246, ptr noundef %1249, i1 noundef zeroext %1244, i1 noundef zeroext false) #13
+  %1249 = call ptr @set_deparse_context_plan(ptr noundef %1248, ptr noundef %.val.i.i834, ptr noundef %1) #12
+  %1250 = call ptr @deparse_expression(ptr noundef %1246, ptr noundef %1249, i1 noundef zeroext %1244, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1250, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1107 = load ptr, ptr %1235, align 8
   %1251 = icmp eq ptr %.pre1107, null
@@ -6290,7 +6281,7 @@ show_scan_qual.exit835.thread:                    ; preds = %1243, %1252, %show_
   br i1 %.not721, label %show_scan_qual.exit783, label %1257
 
 1257:                                             ; preds = %show_scan_qual.exit835.thread
-  call void %1256(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #13
+  call void %1256(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #12
   br label %show_scan_qual.exit783
 
 1258:                                             ; preds = %thread-pre-split963
@@ -6312,12 +6303,12 @@ show_scan_qual.exit835.thread:                    ; preds = %1243, %1252, %show_
   br i1 %1269, label %show_upper_qual.exit.thread, label %show_upper_qual.exit
 
 show_upper_qual.exit:                             ; preds = %1267
-  %1270 = call ptr @make_ands_explicit(ptr noundef nonnull %1260) #13
+  %1270 = call ptr @make_ands_explicit(ptr noundef nonnull %1260) #12
   %.val.i.i836 = load ptr, ptr %53, align 8
   %1271 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1272 = load ptr, ptr %1271, align 8
-  %1273 = call ptr @set_deparse_context_plan(ptr noundef %1272, ptr noundef %.val.i.i836, ptr noundef %1) #13
-  %1274 = call ptr @deparse_expression(ptr noundef %1270, ptr noundef %1273, i1 noundef zeroext %1268, i1 noundef zeroext false) #13
+  %1273 = call ptr @set_deparse_context_plan(ptr noundef %1272, ptr noundef %.val.i.i836, ptr noundef %1) #12
+  %1274 = call ptr @deparse_expression(ptr noundef %1270, ptr noundef %1273, i1 noundef zeroext %1268, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.225, ptr noundef null, ptr noundef %1274, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1105 = load ptr, ptr %1259, align 8
   %1275 = icmp eq ptr %.pre1105, null
@@ -6345,12 +6336,12 @@ show_upper_qual.exit.thread:                      ; preds = %1267, %1276, %show_
   br i1 %1286, label %show_scan_qual.exit783, label %show_upper_qual.exit838
 
 show_upper_qual.exit838:                          ; preds = %1284
-  %1287 = call ptr @make_ands_explicit(ptr noundef nonnull %1278) #13
+  %1287 = call ptr @make_ands_explicit(ptr noundef nonnull %1278) #12
   %.val.i.i837 = load ptr, ptr %53, align 8
   %1288 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1289 = load ptr, ptr %1288, align 8
-  %1290 = call ptr @set_deparse_context_plan(ptr noundef %1289, ptr noundef %.val.i.i837, ptr noundef %1) #13
-  %1291 = call ptr @deparse_expression(ptr noundef %1287, ptr noundef %1290, i1 noundef zeroext %1285, i1 noundef zeroext false) #13
+  %1290 = call ptr @set_deparse_context_plan(ptr noundef %1289, ptr noundef %.val.i.i837, ptr noundef %1) #12
+  %1291 = call ptr @deparse_expression(ptr noundef %1287, ptr noundef %1290, i1 noundef zeroext %1285, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1291, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1106 = load ptr, ptr %1277, align 8
   %1292 = icmp eq ptr %.pre1106, null
@@ -6379,12 +6370,12 @@ show_upper_qual.exit838:                          ; preds = %1284
   br i1 %1305, label %show_upper_qual.exit840, label %1306
 
 1306:                                             ; preds = %1303
-  %1307 = call ptr @make_ands_explicit(ptr noundef nonnull %1296) #13
+  %1307 = call ptr @make_ands_explicit(ptr noundef nonnull %1296) #12
   %.val.i.i839 = load ptr, ptr %53, align 8
   %1308 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1309 = load ptr, ptr %1308, align 8
-  %1310 = call ptr @set_deparse_context_plan(ptr noundef %1309, ptr noundef %.val.i.i839, ptr noundef %1) #13
-  %1311 = call ptr @deparse_expression(ptr noundef %1307, ptr noundef %1310, i1 noundef zeroext %1304, i1 noundef zeroext false) #13
+  %1310 = call ptr @set_deparse_context_plan(ptr noundef %1309, ptr noundef %.val.i.i839, ptr noundef %1) #12
+  %1311 = call ptr @deparse_expression(ptr noundef %1307, ptr noundef %1310, i1 noundef zeroext %1304, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.227, ptr noundef null, ptr noundef %1311, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1102 = load i32, ptr %1297, align 4
   br label %show_upper_qual.exit840
@@ -6407,12 +6398,12 @@ show_upper_qual.exit840:                          ; preds = %1303, %1306
   br i1 %1321, label %show_upper_qual.exit842.thread, label %show_upper_qual.exit842
 
 show_upper_qual.exit842:                          ; preds = %1319
-  %1322 = call ptr @make_ands_explicit(ptr noundef nonnull %1314) #13
+  %1322 = call ptr @make_ands_explicit(ptr noundef nonnull %1314) #12
   %.val.i.i841 = load ptr, ptr %53, align 8
   %1323 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1324 = load ptr, ptr %1323, align 8
-  %1325 = call ptr @set_deparse_context_plan(ptr noundef %1324, ptr noundef %.val.i.i841, ptr noundef %1) #13
-  %1326 = call ptr @deparse_expression(ptr noundef %1322, ptr noundef %1325, i1 noundef zeroext %1320, i1 noundef zeroext false) #13
+  %1325 = call ptr @set_deparse_context_plan(ptr noundef %1324, ptr noundef %.val.i.i841, ptr noundef %1) #12
+  %1326 = call ptr @deparse_expression(ptr noundef %1322, ptr noundef %1325, i1 noundef zeroext %1320, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.225, ptr noundef null, ptr noundef %1326, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1103 = load ptr, ptr %1313, align 8
   %1327 = icmp eq ptr %.pre1103, null
@@ -6440,12 +6431,12 @@ show_upper_qual.exit842.thread:                   ; preds = %1319, %1328, %show_
   br i1 %1338, label %show_scan_qual.exit783, label %show_upper_qual.exit844
 
 show_upper_qual.exit844:                          ; preds = %1336
-  %1339 = call ptr @make_ands_explicit(ptr noundef nonnull %1330) #13
+  %1339 = call ptr @make_ands_explicit(ptr noundef nonnull %1330) #12
   %.val.i.i843 = load ptr, ptr %53, align 8
   %1340 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1341 = load ptr, ptr %1340, align 8
-  %1342 = call ptr @set_deparse_context_plan(ptr noundef %1341, ptr noundef %.val.i.i843, ptr noundef %1) #13
-  %1343 = call ptr @deparse_expression(ptr noundef %1339, ptr noundef %1342, i1 noundef zeroext %1337, i1 noundef zeroext false) #13
+  %1342 = call ptr @set_deparse_context_plan(ptr noundef %1341, ptr noundef %.val.i.i843, ptr noundef %1) #12
+  %1343 = call ptr @deparse_expression(ptr noundef %1339, ptr noundef %1342, i1 noundef zeroext %1337, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1343, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1104 = load ptr, ptr %1329, align 8
   %1344 = icmp eq ptr %.pre1104, null
@@ -6474,12 +6465,12 @@ show_upper_qual.exit844:                          ; preds = %1336
   br i1 %1357, label %show_upper_qual.exit846, label %1358
 
 1358:                                             ; preds = %1355
-  %1359 = call ptr @make_ands_explicit(ptr noundef nonnull %1348) #13
+  %1359 = call ptr @make_ands_explicit(ptr noundef nonnull %1348) #12
   %.val.i.i845 = load ptr, ptr %53, align 8
   %1360 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1361 = load ptr, ptr %1360, align 8
-  %1362 = call ptr @set_deparse_context_plan(ptr noundef %1361, ptr noundef %.val.i.i845, ptr noundef %1) #13
-  %1363 = call ptr @deparse_expression(ptr noundef %1359, ptr noundef %1362, i1 noundef zeroext %1356, i1 noundef zeroext false) #13
+  %1362 = call ptr @set_deparse_context_plan(ptr noundef %1361, ptr noundef %.val.i.i845, ptr noundef %1) #12
+  %1363 = call ptr @deparse_expression(ptr noundef %1359, ptr noundef %1362, i1 noundef zeroext %1356, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.228, ptr noundef null, ptr noundef %1363, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1099 = load i32, ptr %1349, align 4
   br label %show_upper_qual.exit846
@@ -6502,12 +6493,12 @@ show_upper_qual.exit846:                          ; preds = %1355, %1358
   br i1 %1373, label %show_upper_qual.exit848.thread, label %show_upper_qual.exit848
 
 show_upper_qual.exit848:                          ; preds = %1371
-  %1374 = call ptr @make_ands_explicit(ptr noundef nonnull %1366) #13
+  %1374 = call ptr @make_ands_explicit(ptr noundef nonnull %1366) #12
   %.val.i.i847 = load ptr, ptr %53, align 8
   %1375 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1376 = load ptr, ptr %1375, align 8
-  %1377 = call ptr @set_deparse_context_plan(ptr noundef %1376, ptr noundef %.val.i.i847, ptr noundef %1) #13
-  %1378 = call ptr @deparse_expression(ptr noundef %1374, ptr noundef %1377, i1 noundef zeroext %1372, i1 noundef zeroext false) #13
+  %1377 = call ptr @set_deparse_context_plan(ptr noundef %1376, ptr noundef %.val.i.i847, ptr noundef %1) #12
+  %1378 = call ptr @deparse_expression(ptr noundef %1374, ptr noundef %1377, i1 noundef zeroext %1372, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.225, ptr noundef null, ptr noundef %1378, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1100 = load ptr, ptr %1365, align 8
   %1379 = icmp eq ptr %.pre1100, null
@@ -6535,12 +6526,12 @@ show_upper_qual.exit848.thread:                   ; preds = %1371, %1380, %show_
   br i1 %1390, label %show_scan_qual.exit783, label %show_upper_qual.exit850
 
 show_upper_qual.exit850:                          ; preds = %1388
-  %1391 = call ptr @make_ands_explicit(ptr noundef nonnull %1382) #13
+  %1391 = call ptr @make_ands_explicit(ptr noundef nonnull %1382) #12
   %.val.i.i849 = load ptr, ptr %53, align 8
   %1392 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1393 = load ptr, ptr %1392, align 8
-  %1394 = call ptr @set_deparse_context_plan(ptr noundef %1393, ptr noundef %.val.i.i849, ptr noundef %1) #13
-  %1395 = call ptr @deparse_expression(ptr noundef %1391, ptr noundef %1394, i1 noundef zeroext %1389, i1 noundef zeroext false) #13
+  %1394 = call ptr @set_deparse_context_plan(ptr noundef %1393, ptr noundef %.val.i.i849, ptr noundef %1) #12
+  %1395 = call ptr @deparse_expression(ptr noundef %1391, ptr noundef %1394, i1 noundef zeroext %1389, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1395, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1101 = load ptr, ptr %1381, align 8
   %1396 = icmp eq ptr %.pre1101, null
@@ -6564,7 +6555,7 @@ show_upper_qual.exit850:                          ; preds = %1388
   br i1 %.not.i851, label %show_agg_keys.exit, label %1406
 
 1406:                                             ; preds = %1403, %1398
-  %1407 = call ptr @lcons(ptr noundef nonnull %1399, ptr noundef %1) #13
+  %1407 = call ptr @lcons(ptr noundef nonnull %1399, ptr noundef %1) #12
   %1408 = getelementptr inbounds nuw i8, ptr %1399, i64 168
   %1409 = load ptr, ptr %1408, align 8
   %.not16.i852 = icmp eq ptr %1409, null
@@ -6577,7 +6568,7 @@ show_upper_qual.exit850:                          ; preds = %1388
   %1414 = load ptr, ptr %1413, align 8
   %1415 = getelementptr inbounds nuw i8, ptr %1411, i64 8
   %1416 = load ptr, ptr %1415, align 8
-  %1417 = call ptr @set_deparse_context_plan(ptr noundef %1414, ptr noundef %1416, ptr noundef %1407) #13
+  %1417 = call ptr @set_deparse_context_plan(ptr noundef %1414, ptr noundef %1416, ptr noundef %1407) #12
   %1418 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %1419 = load i32, ptr %1418, align 4
   %1420 = icmp sgt i32 %1419, 1
@@ -6632,7 +6623,7 @@ show_grouping_sets.exit.i:                        ; preds = %.lr.ph31.i.i, %.lr.
   br label %1445
 
 1445:                                             ; preds = %1440, %show_grouping_sets.exit.i
-  %1446 = call ptr @list_delete_first(ptr noundef %1407) #13
+  %1446 = call ptr @list_delete_first(ptr noundef %1407) #12
   br label %show_agg_keys.exit
 
 show_agg_keys.exit:                               ; preds = %1403, %1445
@@ -6654,12 +6645,12 @@ show_agg_keys.exit:                               ; preds = %1403, %1445
   br i1 %1457, label %show_upper_qual.exit854, label %1458
 
 1458:                                             ; preds = %1455
-  %1459 = call ptr @make_ands_explicit(ptr noundef nonnull %1448) #13
+  %1459 = call ptr @make_ands_explicit(ptr noundef nonnull %1448) #12
   %.val.i.i853 = load ptr, ptr %53, align 8
   %1460 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1461 = load ptr, ptr %1460, align 8
-  %1462 = call ptr @set_deparse_context_plan(ptr noundef %1461, ptr noundef %.val.i.i853, ptr noundef %1) #13
-  %1463 = call ptr @deparse_expression(ptr noundef %1459, ptr noundef %1462, i1 noundef zeroext %1456, i1 noundef zeroext false) #13
+  %1462 = call ptr @set_deparse_context_plan(ptr noundef %1461, ptr noundef %.val.i.i853, ptr noundef %1) #12
+  %1463 = call ptr @deparse_expression(ptr noundef %1459, ptr noundef %1462, i1 noundef zeroext %1456, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1463, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_upper_qual.exit854
 
@@ -6690,7 +6681,7 @@ show_upper_qual.exit854:                          ; preds = %1455, %1458
   %1479 = load i32, ptr %1478, align 8
   %1480 = sext i32 %1479 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %1481 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %41, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1480) #13
+  %1481 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %41, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1480) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.288, ptr noundef null, ptr noundef nonnull %41, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   br label %1482
@@ -6710,17 +6701,17 @@ show_upper_qual.exit854:                          ; preds = %1455, %1458
   %1489 = load i32, ptr %1488, align 8
   %1490 = sext i32 %1489 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %1491 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %40, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1490) #13
+  %1491 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %40, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1490) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.289, ptr noundef null, ptr noundef nonnull %40, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %1492 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %39, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1468) #13
+  %1492 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %39, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1468) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %39, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %1493 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1494 = load i64, ptr %1493, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %1495 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %38, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1494) #13
+  %1495 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %38, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1494) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.86, ptr noundef nonnull %38, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %1550
@@ -6753,7 +6744,7 @@ show_upper_qual.exit854:                          ; preds = %1455, %1458
 1513:                                             ; preds = %1506, %1501
   %1514 = load i32, ptr %57, align 4
   %1515 = shl i32 %1514, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1502, i32 noundef %1515) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1502, i32 noundef %1515) #12
   %.pre.i863 = load ptr, ptr %4, align 8
   %.pre80.i = load i32, ptr %1498, align 8
   br label %ExplainIndentText.exit.i862
@@ -6761,7 +6752,7 @@ show_upper_qual.exit854:                          ; preds = %1455, %1458
 ExplainIndentText.exit.i862:                      ; preds = %1513, %1506
   %1516 = phi i32 [ %1499, %1506 ], [ %.pre80.i, %1513 ]
   %1517 = phi ptr [ %1502, %1506 ], [ %.pre.i863, %1513 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1517, ptr noundef nonnull @.str.292, i32 noundef %1516) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1517, ptr noundef nonnull @.str.292, i32 noundef %1516) #12
   br label %1518
 
 1518:                                             ; preds = %ExplainIndentText.exit.i862, %1497, %1496
@@ -6801,7 +6792,7 @@ ExplainIndentText.exit.i862:                      ; preds = %1513, %1506
 
 ExplainIndentText.exit75.sink.split.i:            ; preds = %1536, %1523
   %.sink.i861 = phi i32 [ %1538, %1536 ], [ 2, %1523 ]
-  call void @appendStringInfoSpaces(ptr noundef %1524, i32 noundef %.sink.i861) #13
+  call void @appendStringInfoSpaces(ptr noundef %1524, i32 noundef %.sink.i861) #12
   %.pre1098 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit75.i
 
@@ -6809,7 +6800,7 @@ ExplainIndentText.exit75.i:                       ; preds = %ExplainIndentText.e
   %1539 = phi ptr [ %.pre1098, %ExplainIndentText.exit75.sink.split.i ], [ %1524, %1529 ]
   %1540 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %1541 = load i32, ptr %1540, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1539, ptr noundef nonnull @.str.293, i32 noundef %1541, i64 noundef %1468) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1539, ptr noundef nonnull @.str.293, i32 noundef %1541, i64 noundef %1468) #12
   %1542 = load i32, ptr %1540, align 8
   %1543 = icmp sgt i32 %1542, 1
   br i1 %1543, label %1544, label %.thread.i860
@@ -6818,7 +6809,7 @@ ExplainIndentText.exit75.i:                       ; preds = %ExplainIndentText.e
   %1545 = load ptr, ptr %4, align 8
   %1546 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %1547 = load i64, ptr %1546, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1545, ptr noundef nonnull @.str.294, i64 noundef %1547) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1545, ptr noundef nonnull @.str.294, i64 noundef %1547) #12
   br label %.thread.i860
 
 1548:                                             ; preds = %1521, %1518
@@ -6826,7 +6817,7 @@ ExplainIndentText.exit75.i:                       ; preds = %ExplainIndentText.e
 
 .thread.i860:                                     ; preds = %1548, %1544, %ExplainIndentText.exit75.i
   %1549 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1549, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1549, i8 noundef signext 10) #12
   br label %1550
 
 1550:                                             ; preds = %.thread.i860, %1548, %1487, %1485, %1482
@@ -6894,38 +6885,38 @@ ExplainIndentText.exit75.i:                       ; preds = %ExplainIndentText.e
 1588:                                             ; preds = %1581, %1576
   %1589 = load i32, ptr %57, align 4
   %1590 = shl i32 %1589, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1577, i32 noundef %1590) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1577, i32 noundef %1590) #12
   %.pre81.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit76.i
 
 ExplainIndentText.exit76.i:                       ; preds = %1588, %1581
   %1591 = phi ptr [ %1577, %1581 ], [ %.pre81.i, %1588 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1591, ptr noundef nonnull @.str.293, i32 noundef %1567, i64 noundef %1569) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1591, ptr noundef nonnull @.str.293, i32 noundef %1567, i64 noundef %1569) #12
   %1592 = icmp sgt i32 %1567, 1
   br i1 %1592, label %1593, label %1595
 
 1593:                                             ; preds = %ExplainIndentText.exit76.i
   %1594 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1594, ptr noundef nonnull @.str.294, i64 noundef %1565) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1594, ptr noundef nonnull @.str.294, i64 noundef %1565) #12
   br label %1595
 
 1595:                                             ; preds = %1593, %ExplainIndentText.exit76.i
   %1596 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1596, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1596, i8 noundef signext 10) #12
   br label %1602
 
 1597:                                             ; preds = %1573
   %1598 = sext i32 %1567 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %1599 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1598) #13
+  %1599 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %37, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1598) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.289, ptr noundef null, ptr noundef nonnull %37, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %1600 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %36, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1569) #13
+  %1600 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %36, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1569) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %36, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %1601 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1565) #13
+  %1601 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %35, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1565) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.86, ptr noundef nonnull %35, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   br label %1602
@@ -6976,12 +6967,12 @@ show_hashagg_info.exit:                           ; preds = %1606, %show_upper_q
   br i1 %1624, label %show_upper_qual.exit865.thread, label %show_upper_qual.exit865
 
 show_upper_qual.exit865:                          ; preds = %1622
-  %1625 = call ptr @make_ands_explicit(ptr noundef nonnull %1615) #13
+  %1625 = call ptr @make_ands_explicit(ptr noundef nonnull %1615) #12
   %.val.i.i864 = load ptr, ptr %53, align 8
   %1626 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1627 = load ptr, ptr %1626, align 8
-  %1628 = call ptr @set_deparse_context_plan(ptr noundef %1627, ptr noundef %.val.i.i864, ptr noundef %1) #13
-  %1629 = call ptr @deparse_expression(ptr noundef %1625, ptr noundef %1628, i1 noundef zeroext %1623, i1 noundef zeroext false) #13
+  %1628 = call ptr @set_deparse_context_plan(ptr noundef %1627, ptr noundef %.val.i.i864, ptr noundef %1) #12
+  %1629 = call ptr @deparse_expression(ptr noundef %1625, ptr noundef %1628, i1 noundef zeroext %1623, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1629, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1097 = load ptr, ptr %1614, align 8
   %1630 = icmp eq ptr %.pre1097, null
@@ -7009,12 +7000,12 @@ show_upper_qual.exit865.thread:                   ; preds = %1622, %1631, %show_
   br i1 %1641, label %show_upper_qual.exit867, label %1642
 
 1642:                                             ; preds = %1639
-  %1643 = call ptr @make_ands_explicit(ptr noundef nonnull %1633) #13
+  %1643 = call ptr @make_ands_explicit(ptr noundef nonnull %1633) #12
   %.val.i.i866 = load ptr, ptr %53, align 8
   %1644 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1645 = load ptr, ptr %1644, align 8
-  %1646 = call ptr @set_deparse_context_plan(ptr noundef %1645, ptr noundef %.val.i.i866, ptr noundef %1) #13
-  %1647 = call ptr @deparse_expression(ptr noundef %1643, ptr noundef %1646, i1 noundef zeroext %1640, i1 noundef zeroext false) #13
+  %1646 = call ptr @set_deparse_context_plan(ptr noundef %1645, ptr noundef %.val.i.i866, ptr noundef %1) #12
+  %1647 = call ptr @deparse_expression(ptr noundef %1643, ptr noundef %1646, i1 noundef zeroext %1640, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.229, ptr noundef null, ptr noundef %1647, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_upper_qual.exit867
 
@@ -7030,7 +7021,7 @@ show_upper_qual.exit867:                          ; preds = %1639, %1642
   br i1 %or.cond.not.i868, label %1652, label %show_windowagg_info.exit
 
 1652:                                             ; preds = %show_upper_qual.exit867
-  call void @tuplestore_get_stats(ptr noundef nonnull %.val758, ptr noundef nonnull %33, ptr noundef nonnull %34) #13
+  call void @tuplestore_get_stats(ptr noundef nonnull %.val758, ptr noundef nonnull %33, ptr noundef nonnull %34) #12
   %1653 = load ptr, ptr %33, align 8
   %1654 = load i64, ptr %34, align 8
   call fastcc void @show_storage_info(ptr noundef %1653, i64 noundef %1654, ptr noundef nonnull readonly %4)
@@ -7043,7 +7034,7 @@ show_windowagg_info.exit:                         ; preds = %show_upper_qual.exi
 
 1655:                                             ; preds = %thread-pre-split963
   %1656 = load ptr, ptr %53, align 8
-  %1657 = call ptr @lcons(ptr noundef %1656, ptr noundef %1) #13
+  %1657 = call ptr @lcons(ptr noundef %1656, ptr noundef %1) #12
   %1658 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1659 = load ptr, ptr %1658, align 8
   %1660 = getelementptr inbounds nuw i8, ptr %1656, i64 104
@@ -7053,7 +7044,7 @@ show_windowagg_info.exit:                         ; preds = %show_upper_qual.exi
   %1664 = getelementptr i8, ptr %1659, i64 8
   %.val.i869 = load ptr, ptr %1664, align 8
   call fastcc void @show_sort_group_keys(ptr %.val.i869, ptr noundef nonnull @.str.271, i32 noundef %1661, i32 noundef 0, ptr noundef %1663, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1657, ptr noundef nonnull readonly %4)
-  %1665 = call ptr @list_delete_first(ptr noundef %1657) #13
+  %1665 = call ptr @list_delete_first(ptr noundef %1657) #12
   %1666 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %1667 = load ptr, ptr %1666, align 8
   %1668 = getelementptr inbounds nuw i8, ptr %4, i64 84
@@ -7072,12 +7063,12 @@ show_windowagg_info.exit:                         ; preds = %show_upper_qual.exi
   br i1 %1676, label %show_scan_qual.exit783, label %show_upper_qual.exit871
 
 show_upper_qual.exit871:                          ; preds = %1674
-  %1677 = call ptr @make_ands_explicit(ptr noundef nonnull %1667) #13
+  %1677 = call ptr @make_ands_explicit(ptr noundef nonnull %1667) #12
   %.val.i.i870 = load ptr, ptr %53, align 8
   %1678 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1679 = load ptr, ptr %1678, align 8
-  %1680 = call ptr @set_deparse_context_plan(ptr noundef %1679, ptr noundef %.val.i.i870, ptr noundef %1) #13
-  %1681 = call ptr @deparse_expression(ptr noundef %1677, ptr noundef %1680, i1 noundef zeroext %1675, i1 noundef zeroext false) #13
+  %1680 = call ptr @set_deparse_context_plan(ptr noundef %1679, ptr noundef %.val.i.i870, ptr noundef %1) #12
+  %1681 = call ptr @deparse_expression(ptr noundef %1677, ptr noundef %1680, i1 noundef zeroext %1675, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1681, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1096 = load ptr, ptr %1666, align 8
   %1682 = icmp eq ptr %.pre1096, null
@@ -7118,12 +7109,12 @@ show_upper_qual.exit871:                          ; preds = %1674
 
 1704:                                             ; preds = %1701
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  call void @tuplesort_get_stats(ptr noundef nonnull %1703, ptr noundef nonnull %32) #13
+  call void @tuplesort_get_stats(ptr noundef nonnull %1703, ptr noundef nonnull %32) #12
   %1705 = load i32, ptr %32, align 8
-  %1706 = call ptr @tuplesort_method_name(i32 noundef %1705) #13
+  %1706 = call ptr @tuplesort_method_name(i32 noundef %1705) #12
   %1707 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %1708 = load i32, ptr %1707, align 4
-  %1709 = call ptr @tuplesort_space_type_name(i32 noundef %1708) #13
+  %1709 = call ptr @tuplesort_space_type_name(i32 noundef %1708) #12
   %1710 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %1711 = load i64, ptr %1710, align 8
   %1712 = load i32, ptr %163, align 8
@@ -7149,19 +7140,19 @@ show_upper_qual.exit871:                          ; preds = %1674
 1726:                                             ; preds = %1719, %1714
   %1727 = load i32, ptr %57, align 4
   %1728 = shl i32 %1727, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1715, i32 noundef %1728) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1715, i32 noundef %1728) #12
   %.pre.i879 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i878
 
 ExplainIndentText.exit.i878:                      ; preds = %1726, %1719
   %1729 = phi ptr [ %1715, %1719 ], [ %.pre.i879, %1726 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1729, ptr noundef nonnull @.str.295, ptr noundef %1706, ptr noundef %1709, i64 noundef %1711) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1729, ptr noundef nonnull @.str.295, ptr noundef %1706, ptr noundef %1709, i64 noundef %1711) #12
   br label %1732
 
 1730:                                             ; preds = %1704
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.296, ptr noundef null, ptr noundef %1706, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %1731 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %31, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1711) #13
+  %1731 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %31, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1711) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.86, ptr noundef nonnull %31, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.298, ptr noundef null, ptr noundef %1709, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
@@ -7192,10 +7183,10 @@ ExplainIndentText.exit.i878:                      ; preds = %1726, %1719
   br i1 %1742, label %1778, label %1743
 
 1743:                                             ; preds = %.lr.ph.i873
-  %1744 = call ptr @tuplesort_method_name(i32 noundef %1741) #13
+  %1744 = call ptr @tuplesort_method_name(i32 noundef %1741) #12
   %1745 = getelementptr inbounds nuw i8, ptr %1740, i64 4
   %1746 = load i32, ptr %1745, align 4
-  %1747 = call ptr @tuplesort_space_type_name(i32 noundef %1746) #13
+  %1747 = call ptr @tuplesort_space_type_name(i32 noundef %1746) #12
   %1748 = getelementptr inbounds nuw i8, ptr %1740, i64 8
   %1749 = load i64, ptr %1748, align 8
   %1750 = load ptr, ptr %55, align 8
@@ -7231,19 +7222,19 @@ ExplainIndentText.exit.i878:                      ; preds = %1726, %1719
 1768:                                             ; preds = %1761, %1756
   %1769 = load i32, ptr %57, align 4
   %1770 = shl i32 %1769, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1757, i32 noundef %1770) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1757, i32 noundef %1770) #12
   %.pre52.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit49.i
 
 ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
   %1771 = phi ptr [ %1757, %1761 ], [ %.pre52.i, %1768 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1771, ptr noundef nonnull @.str.295, ptr noundef %1744, ptr noundef %1747, i64 noundef %1749) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %1771, ptr noundef nonnull @.str.295, ptr noundef %1744, ptr noundef %1747, i64 noundef %1749) #12
   br label %1774
 
 1772:                                             ; preds = %1753
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.296, ptr noundef null, ptr noundef %1744, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %1773 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %30, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1749) #13
+  %1773 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %30, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1749) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.297, ptr noundef nonnull @.str.86, ptr noundef nonnull %30, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.298, ptr noundef null, ptr noundef %1747, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
@@ -7306,7 +7297,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
 
 1809:                                             ; preds = %1806
   %1810 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1810, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1810, i8 noundef signext 10) #12
   br label %1811
 
 1811:                                             ; preds = %1809, %1806
@@ -7320,7 +7311,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
 
 1815:                                             ; preds = %1812
   %1816 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1816, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1816, i8 noundef signext 10) #12
   br label %1817
 
 1817:                                             ; preds = %1815, %1812, %1799
@@ -7375,7 +7366,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
 
 1842:                                             ; preds = %1839
   %1843 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1843, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1843, i8 noundef signext 10) #12
   br label %1844
 
 1844:                                             ; preds = %1842, %1839
@@ -7389,7 +7380,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
 
 1848:                                             ; preds = %1845
   %1849 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1849, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1849, i8 noundef signext 10) #12
   br label %1850
 
 1850:                                             ; preds = %1848, %1845
@@ -7444,12 +7435,12 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
   br i1 %1881, label %show_upper_qual.exit887, label %1882
 
 1882:                                             ; preds = %1879
-  %1883 = call ptr @make_ands_explicit(ptr noundef nonnull %1872) #13
+  %1883 = call ptr @make_ands_explicit(ptr noundef nonnull %1872) #12
   %.val.i.i886 = load ptr, ptr %53, align 8
   %1884 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1885 = load ptr, ptr %1884, align 8
-  %1886 = call ptr @set_deparse_context_plan(ptr noundef %1885, ptr noundef %.val.i.i886, ptr noundef %1) #13
-  %1887 = call ptr @deparse_expression(ptr noundef %1883, ptr noundef %1886, i1 noundef zeroext %1880, i1 noundef zeroext false) #13
+  %1886 = call ptr @set_deparse_context_plan(ptr noundef %1885, ptr noundef %.val.i.i886, ptr noundef %1) #12
+  %1887 = call ptr @deparse_expression(ptr noundef %1883, ptr noundef %1886, i1 noundef zeroext %1880, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.230, ptr noundef null, ptr noundef %1887, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1094 = load i32, ptr %1873, align 4
   br label %show_upper_qual.exit887
@@ -7472,12 +7463,12 @@ show_upper_qual.exit887:                          ; preds = %1879, %1882
   br i1 %1897, label %show_scan_qual.exit783, label %show_upper_qual.exit889
 
 show_upper_qual.exit889:                          ; preds = %1895
-  %1898 = call ptr @make_ands_explicit(ptr noundef nonnull %1890) #13
+  %1898 = call ptr @make_ands_explicit(ptr noundef nonnull %1890) #12
   %.val.i.i888 = load ptr, ptr %53, align 8
   %1899 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %1900 = load ptr, ptr %1899, align 8
-  %1901 = call ptr @set_deparse_context_plan(ptr noundef %1900, ptr noundef %.val.i.i888, ptr noundef %1) #13
-  %1902 = call ptr @deparse_expression(ptr noundef %1898, ptr noundef %1901, i1 noundef zeroext %1896, i1 noundef zeroext false) #13
+  %1901 = call ptr @set_deparse_context_plan(ptr noundef %1900, ptr noundef %.val.i.i888, ptr noundef %1) #12
+  %1902 = call ptr @deparse_expression(ptr noundef %1898, ptr noundef %1901, i1 noundef zeroext %1896, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1902, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1095 = load ptr, ptr %1889, align 8
   %1903 = icmp eq ptr %.pre1095, null
@@ -7571,7 +7562,7 @@ switch.lookup1341:                                ; preds = %1905
 1947:                                             ; preds = %1940, %1935
   %1948 = load i32, ptr %57, align 4
   %1949 = shl i32 %1948, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %1936, i32 noundef %1949) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %1936, i32 noundef %1949) #12
   %.pre158.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.us.i
 
@@ -7579,7 +7570,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %1950 = phi ptr [ %.pre158.i, %1947 ], [ %1936, %1940 ]
   %.not134.us.i = icmp eq ptr %1932, null
   %1951 = select i1 %.not134.us.i, ptr %.0.i890, ptr %.0114.i
-  call void @appendStringInfoString(ptr noundef %1950, ptr noundef nonnull %1951) #13
+  call void @appendStringInfoString(ptr noundef %1950, ptr noundef nonnull %1951) #12
   br label %1952
 
 1952:                                             ; preds = %ExplainIndentText.exit.us.i, %.lr.ph.split.us.i
@@ -7592,7 +7583,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
 
 1957:                                             ; preds = %1952
   %1958 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %1958, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %1958, i8 noundef signext 10) #12
   %1959 = load i32, ptr %57, align 4
   %1960 = add i32 %1959, 1
   store i32 %1960, ptr %57, align 4
@@ -7619,7 +7610,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %1972 = getelementptr inbounds nuw %union.ListCell, ptr %.val.us.i, i64 %indvars.iv151.i
   %1973 = load ptr, ptr %1972, align 8
   %1974 = trunc nuw nsw i64 %indvars.iv151.i to i32
-  call void %1968(ptr noundef nonnull %0, ptr noundef nonnull %1930, ptr noundef %1973, i32 noundef %1974, ptr noundef nonnull %4) #13
+  call void %1968(ptr noundef nonnull %0, ptr noundef nonnull %1930, ptr noundef %1973, i32 noundef %1974, ptr noundef nonnull %4) #12
   br label %1975
 
 1975:                                             ; preds = %1969, %1966, %1961
@@ -7668,7 +7659,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %2000 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i897, i64 %indvars.iv.i894
   %2001 = load ptr, ptr %2000, align 8
   %2002 = trunc nuw nsw i64 %indvars.iv.i894 to i32
-  call void %1996(ptr noundef nonnull %0, ptr noundef nonnull %1987, ptr noundef %2001, i32 noundef %2002, ptr noundef %4) #13
+  call void %1996(ptr noundef nonnull %0, ptr noundef nonnull %1987, ptr noundef %2001, i32 noundef %2002, ptr noundef %4) #12
   %.pre157.i = load i32, ptr %1913, align 8
   br label %2003
 
@@ -7699,8 +7690,8 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %2014 = load ptr, ptr %2011, align 8
   %2015 = getelementptr inbounds nuw %union.ListCell, ptr %2014, i64 %indvars.iv154.i
   %2016 = load i32, ptr %2015, align 8
-  %2017 = call ptr @get_rel_name(i32 noundef %2016) #13
-  %2018 = call ptr @lappend(ptr noundef %.0116140146.i, ptr noundef %2017) #13
+  %2017 = call ptr @get_rel_name(i32 noundef %2016) #12
+  %2018 = call ptr @lappend(ptr noundef %.0116140146.i, ptr noundef %2017) #12
   %indvars.iv.next155.i = add nuw nsw i64 %indvars.iv154.i, 1
   %2019 = load i32, ptr %2010, align 4
   %2020 = sext i32 %2019 to i64
@@ -7744,12 +7735,12 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
 
 show_upper_qual.exit.i:                           ; preds = %2035, %2031
   %2038 = phi i1 [ true, %2031 ], [ %2037, %2035 ]
-  %2039 = call ptr @make_ands_explicit(ptr noundef nonnull %2030) #13
+  %2039 = call ptr @make_ands_explicit(ptr noundef nonnull %2030) #12
   %.val.i.i.i = load ptr, ptr %53, align 8
   %2040 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %2041 = load ptr, ptr %2040, align 8
-  %2042 = call ptr @set_deparse_context_plan(ptr noundef %2041, ptr noundef %.val.i.i.i, ptr noundef %1) #13
-  %2043 = call ptr @deparse_expression(ptr noundef %2039, ptr noundef %2042, i1 noundef zeroext %2038, i1 noundef zeroext false) #13
+  %2042 = call ptr @set_deparse_context_plan(ptr noundef %2041, ptr noundef %.val.i.i.i, ptr noundef %1) #12
+  %2043 = call ptr @deparse_expression(ptr noundef %2039, ptr noundef %2042, i1 noundef zeroext %2038, i1 noundef zeroext false) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.320, ptr noundef null, ptr noundef %2043, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %2044 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %2045 = trunc nuw i8 %2044 to i1
@@ -7777,9 +7768,9 @@ show_upper_qual.exit.i:                           ; preds = %2035, %2031
   %2054 = fcmp ogt double %2050, 0.000000e+00
   %2055 = fdiv double %.0.i.i, %2050
   %.sink20.i.i = select i1 %2054, double %2055, double 0.000000e+00
-  %2056 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %.sink20.i.i) #13
+  %2056 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %.sink20.i.i) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.321, ptr noundef null, ptr noundef %2056, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2056) #13
+  call void @pfree(ptr noundef %2056) #12
   br label %show_instrumentation_count.exit.i
 
 show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2052, %2046, %show_upper_qual.exit.i, %2028
@@ -7797,7 +7788,7 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
   %2063 = load ptr, ptr %2062, align 8
   %2064 = getelementptr inbounds nuw i8, ptr %2063, i64 40
   %2065 = load ptr, ptr %2064, align 8
-  call void @InstrEndLoop(ptr noundef %2065) #13
+  call void @InstrEndLoop(ptr noundef %2065) #12
   %2066 = load ptr, ptr %2062, align 8
   %2067 = getelementptr inbounds nuw i8, ptr %2066, i64 40
   %2068 = load ptr, ptr %2067, align 8
@@ -7807,12 +7798,12 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
   %2072 = getelementptr inbounds nuw i8, ptr %2071, i64 224
   %2073 = load double, ptr %2072, align 8
   %2074 = fsub double %2070, %2073
-  %2075 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2074) #13
+  %2075 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2074) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.322, ptr noundef null, ptr noundef %2075, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2075) #13
-  %2076 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2073) #13
+  call void @pfree(ptr noundef %2075) #12
+  %2076 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2073) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.323, ptr noundef null, ptr noundef %2076, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2076) #13
+  call void @pfree(ptr noundef %2076) #12
   br label %2132
 
 2077:                                             ; preds = %.critedge.i891
@@ -7835,7 +7826,7 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
   %2087 = load ptr, ptr %2086, align 8
   %2088 = getelementptr inbounds nuw i8, ptr %2087, i64 40
   %2089 = load ptr, ptr %2088, align 8
-  call void @InstrEndLoop(ptr noundef %2089) #13
+  call void @InstrEndLoop(ptr noundef %2089) #12
   %2090 = load ptr, ptr %2086, align 8
   %2091 = getelementptr inbounds nuw i8, ptr %2090, i64 40
   %2092 = load ptr, ptr %2091, align 8
@@ -7861,13 +7852,13 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 2108:                                             ; preds = %2106
   call fastcc void @ExplainIndentText(ptr noundef nonnull %4)
   %2109 = load ptr, ptr %4, align 8
-  call void @appendStringInfoString(ptr noundef %2109, ptr noundef nonnull @.str.324) #13
+  call void @appendStringInfoString(ptr noundef %2109, ptr noundef nonnull @.str.324) #12
   %2110 = fcmp ogt double %2096, 0.000000e+00
   br i1 %2110, label %2111, label %2113
 
 2111:                                             ; preds = %2108
   %2112 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2112, ptr noundef nonnull @.str.325, double noundef %2096) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2112, ptr noundef nonnull @.str.325, double noundef %2096) #12
   br label %2113
 
 2113:                                             ; preds = %2111, %2108
@@ -7876,7 +7867,7 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 
 2115:                                             ; preds = %2113
   %2116 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2116, ptr noundef nonnull @.str.326, double noundef %2098) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2116, ptr noundef nonnull @.str.326, double noundef %2098) #12
   br label %2117
 
 2117:                                             ; preds = %2115, %2113
@@ -7885,7 +7876,7 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 
 2119:                                             ; preds = %2117
   %2120 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2120, ptr noundef nonnull @.str.327, double noundef %2100) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2120, ptr noundef nonnull @.str.327, double noundef %2100) #12
   br label %2121
 
 2121:                                             ; preds = %2119, %2117
@@ -7894,27 +7885,27 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 
 2123:                                             ; preds = %2121
   %2124 = load ptr, ptr %4, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2124, ptr noundef nonnull @.str.328, double noundef %2103) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2124, ptr noundef nonnull @.str.328, double noundef %2103) #12
   br label %2125
 
 2125:                                             ; preds = %2123, %2121
   %2126 = load ptr, ptr %4, align 8
-  call void @appendStringInfoChar(ptr noundef %2126, i8 noundef signext 10) #13
+  call void @appendStringInfoChar(ptr noundef %2126, i8 noundef signext 10) #12
   br label %2132
 
 2127:                                             ; preds = %2085
-  %2128 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2096) #13
+  %2128 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2096) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.322, ptr noundef null, ptr noundef %2128, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2128) #13
-  %2129 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2098) #13
+  call void @pfree(ptr noundef %2128) #12
+  %2129 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2098) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef %2129, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2129) #13
-  %2130 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2100) #13
+  call void @pfree(ptr noundef %2129) #12
+  %2130 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2100) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef %2130, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2130) #13
-  %2131 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2103) #13
+  call void @pfree(ptr noundef %2130) #12
+  %2131 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %2103) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef %2131, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
-  call void @pfree(ptr noundef %2131) #13
+  call void @pfree(ptr noundef %2131) #12
   br label %2132
 
 2132:                                             ; preds = %2127, %2125, %2106, %2083, %2080, %2077, %2061, %2059, %show_instrumentation_count.exit.i
@@ -8008,26 +7999,26 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 2164:                                             ; preds = %2160
   %2165 = sext i32 %.sroa.0.1.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %2166 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %29, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2165) #13
+  %2166 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %29, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2165) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef nonnull %29, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %2167 = sext i32 %.sroa.11.1.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %2168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2167) #13
+  %2168 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2167) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.333, ptr noundef null, ptr noundef nonnull %28, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %2169 = zext nneg i32 %.sroa.17.1.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %2170 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %27, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2169) #13
+  %2170 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %27, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2169) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.334, ptr noundef null, ptr noundef nonnull %27, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %2171 = sext i32 %.sroa.25.1.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %2172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %26, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2171) #13
+  %2172 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %26, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2171) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.335, ptr noundef null, ptr noundef nonnull %26, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %2173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %25, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %2162) #13
+  %2173 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %25, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %2162) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %25, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %show_scan_qual.exit783
@@ -8057,13 +8048,13 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
 2187:                                             ; preds = %2180, %2179
   %2188 = load i32, ptr %57, align 4
   %2189 = shl i32 %2188, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2175, i32 noundef %2189) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2175, i32 noundef %2189) #12
   %.pre.i902 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i901
 
 ExplainIndentText.exit.i901:                      ; preds = %2187, %2180
   %2190 = phi ptr [ %2175, %2180 ], [ %.pre.i902, %2187 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2190, ptr noundef nonnull @.str.336, i32 noundef %.sroa.0.1.i, i32 noundef %.sroa.11.1.i, i32 noundef %.sroa.17.1.i, i32 noundef %.sroa.25.1.i, i64 noundef %2162) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2190, ptr noundef nonnull @.str.336, i32 noundef %.sroa.0.1.i, i32 noundef %.sroa.11.1.i, i32 noundef %.sroa.17.1.i, i32 noundef %.sroa.25.1.i, i64 noundef %2162) #12
   br label %show_scan_qual.exit783
 
 2191:                                             ; preds = %2174
@@ -8081,13 +8072,13 @@ ExplainIndentText.exit.i901:                      ; preds = %2187, %2180
 2199:                                             ; preds = %2192, %2191
   %2200 = load i32, ptr %57, align 4
   %2201 = shl i32 %2200, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2175, i32 noundef %2201) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2175, i32 noundef %2201) #12
   %.pre97.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit82.i
 
 ExplainIndentText.exit82.i:                       ; preds = %2199, %2192
   %2202 = phi ptr [ %2175, %2192 ], [ %.pre97.i, %2199 ]
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2202, ptr noundef nonnull @.str.337, i32 noundef %.sroa.11.1.i, i32 noundef %.sroa.25.1.i, i64 noundef %2162) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2202, ptr noundef nonnull @.str.337, i32 noundef %.sroa.11.1.i, i32 noundef %.sroa.25.1.i, i64 noundef %2162) #12
   br label %show_scan_qual.exit783
 
 2203:                                             ; preds = %thread-pre-split963
@@ -8102,7 +8093,7 @@ ExplainIndentText.exit82.i:                       ; preds = %2199, %2192
   br i1 %or.cond.not.i908, label %2208, label %show_material_info.exit
 
 2208:                                             ; preds = %2203
-  call void @tuplestore_get_stats(ptr noundef nonnull %.val762, ptr noundef nonnull %23, ptr noundef nonnull %24) #13
+  call void @tuplestore_get_stats(ptr noundef nonnull %.val762, ptr noundef nonnull %23, ptr noundef nonnull %24) #12
   %2209 = load ptr, ptr %23, align 8
   %2210 = load i64, ptr %24, align 8
   call fastcc void @show_storage_info(ptr noundef %2209, i64 noundef %2210, ptr noundef nonnull readonly %4)
@@ -8116,7 +8107,7 @@ show_material_info.exit:                          ; preds = %2203, %2208
 2211:                                             ; preds = %thread-pre-split963
   %2212 = load ptr, ptr %53, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  call void @initStringInfo(ptr noundef nonnull %22) #13
+  call void @initStringInfo(ptr noundef nonnull %22) #12
   %2213 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %2214 = load i32, ptr %2213, align 4
   %2215 = icmp sgt i32 %2214, 1
@@ -8131,7 +8122,7 @@ show_material_info.exit:                          ; preds = %2203, %2208
   %2220 = phi i1 [ true, %2211 ], [ %2218, %2216 ]
   %2221 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %2222 = load ptr, ptr %2221, align 8
-  %2223 = call ptr @set_deparse_context_plan(ptr noundef %2222, ptr noundef %2212, ptr noundef %1) #13
+  %2223 = call ptr @set_deparse_context_plan(ptr noundef %2222, ptr noundef %2212, ptr noundef %1) #12
   %2224 = getelementptr inbounds nuw i8, ptr %2212, i64 128
   %2225 = load ptr, ptr %2224, align 8
   %2226 = getelementptr inbounds nuw i8, ptr %2225, i64 4
@@ -8150,9 +8141,9 @@ show_material_info.exit:                          ; preds = %2203, %2208
   %2230 = load ptr, ptr %2227, align 8
   %2231 = getelementptr inbounds nuw %union.ListCell, ptr %2230, i64 %indvars.iv.i917
   %2232 = load ptr, ptr %2231, align 8
-  call void @appendStringInfoString(ptr noundef nonnull %22, ptr noundef nonnull %.0809597.i) #13
-  %2233 = call ptr @deparse_expression(ptr noundef %2232, ptr noundef %2223, i1 noundef zeroext %2220, i1 noundef zeroext false) #13
-  call void @appendStringInfoString(ptr noundef nonnull %22, ptr noundef %2233) #13
+  call void @appendStringInfoString(ptr noundef nonnull %22, ptr noundef nonnull %.0809597.i) #12
+  %2233 = call ptr @deparse_expression(ptr noundef %2232, ptr noundef %2223, i1 noundef zeroext %2220, i1 noundef zeroext false) #12
+  call void @appendStringInfoString(ptr noundef nonnull %22, ptr noundef %2233) #12
   %indvars.iv.next.i918 = add nuw nsw i64 %indvars.iv.i917, 1
   %2234 = load i32, ptr %2226, align 4
   %2235 = sext i32 %2234 to i64
@@ -8193,14 +8184,14 @@ show_material_info.exit:                          ; preds = %2203, %2208
 2256:                                             ; preds = %2249, %2244
   %2257 = load i32, ptr %57, align 4
   %2258 = shl i32 %2257, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2245, i32 noundef %2258) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2245, i32 noundef %2258) #12
   %.pre.i916 = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit.i915
 
 ExplainIndentText.exit.i915:                      ; preds = %2256, %2249
   %2259 = phi ptr [ %2245, %2249 ], [ %.pre.i916, %2256 ]
   %2260 = load ptr, ptr %22, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2259, ptr noundef nonnull @.str.342, ptr noundef %2260) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2259, ptr noundef nonnull @.str.342, ptr noundef %2260) #12
   %2261 = load ptr, ptr %4, align 8
   %2262 = getelementptr inbounds nuw i8, ptr %2261, i64 8
   %2263 = load i32, ptr %2262, align 8
@@ -8219,7 +8210,7 @@ ExplainIndentText.exit.i915:                      ; preds = %2256, %2249
 2272:                                             ; preds = %2265, %ExplainIndentText.exit.i915
   %2273 = load i32, ptr %57, align 4
   %2274 = shl i32 %2273, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2261, i32 noundef %2274) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2261, i32 noundef %2274) #12
   %.pre106.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit91.i
 
@@ -8229,12 +8220,12 @@ ExplainIndentText.exit91.i:                       ; preds = %2272, %2265
   %2277 = load i8, ptr %2276, align 1, !range !4, !noundef !5
   %2278 = trunc nuw i8 %2277 to i1
   %2279 = select i1 %2278, ptr @.str.14, ptr @.str.341
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2275, ptr noundef nonnull @.str.343, ptr noundef nonnull %2279) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2275, ptr noundef nonnull @.str.343, ptr noundef nonnull %2279) #12
   br label %2280
 
 2280:                                             ; preds = %ExplainIndentText.exit91.i, %2238
   %2281 = load ptr, ptr %22, align 8
-  call void @pfree(ptr noundef %2281) #13
+  call void @pfree(ptr noundef %2281) #12
   %2282 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %2283 = trunc nuw i8 %2282 to i1
   br i1 %2283, label %2284, label %show_memoize_info.exit
@@ -8268,28 +8259,28 @@ ExplainIndentText.exit91.i:                       ; preds = %2272, %2265
 2296:                                             ; preds = %2294
   %2297 = load i64, ptr %2285, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %2298 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2297) #13
+  %2298 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %21, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2297) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef nonnull %21, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %2299 = load i64, ptr %2286, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %2300 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2299) #13
+  %2300 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %20, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2299) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef nonnull %20, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %2301 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %2302 = load i64, ptr %2301, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %2303 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2302) #13
+  %2303 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2302) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.346, ptr noundef null, ptr noundef nonnull %19, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %2304 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %2305 = load i64, ptr %2304, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %2306 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2305) #13
+  %2306 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2305) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.347, ptr noundef null, ptr noundef nonnull %18, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %2307 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %.081.i) #13
+  %2307 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %.081.i) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %2330
@@ -8313,7 +8304,7 @@ ExplainIndentText.exit91.i:                       ; preds = %2272, %2265
 2320:                                             ; preds = %2313, %2308
   %2321 = load i32, ptr %57, align 4
   %2322 = shl i32 %2321, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2309, i32 noundef %2322) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2309, i32 noundef %2322) #12
   %.pre107.i = load ptr, ptr %4, align 8
   %.pre108.i = load i64, ptr %2286, align 8
   br label %ExplainIndentText.exit92.i
@@ -8326,7 +8317,7 @@ ExplainIndentText.exit92.i:                       ; preds = %2320, %2313
   %2327 = load i64, ptr %2326, align 8
   %2328 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %2329 = load i64, ptr %2328, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2324, ptr noundef nonnull @.str.348, i64 noundef %2325, i64 noundef %2323, i64 noundef %2327, i64 noundef %2329, i64 noundef %.081.i) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2324, ptr noundef nonnull @.str.348, i64 noundef %2325, i64 noundef %2323, i64 noundef %2327, i64 noundef %2329, i64 noundef %.081.i) #12
   br label %2330
 
 2330:                                             ; preds = %ExplainIndentText.exit92.i, %2296, %2284
@@ -8388,7 +8379,7 @@ ExplainIndentText.exit92.i:                       ; preds = %2320, %2313
 2365:                                             ; preds = %2358, %2353
   %2366 = load i32, ptr %57, align 4
   %2367 = shl i32 %2366, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %2354, i32 noundef %2367) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %2354, i32 noundef %2367) #12
   %.pre109.i = load ptr, ptr %4, align 8
   br label %ExplainIndentText.exit93.i
 
@@ -8400,34 +8391,34 @@ ExplainIndentText.exit93.i:                       ; preds = %2365, %2358
   %2372 = load i64, ptr %2371, align 8
   %2373 = getelementptr inbounds nuw i8, ptr %2338, i64 24
   %2374 = load i64, ptr %2373, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2368, ptr noundef nonnull @.str.348, i64 noundef %2369, i64 noundef %2370, i64 noundef %2372, i64 noundef %2374, i64 noundef %2350) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %2368, ptr noundef nonnull @.str.348, i64 noundef %2369, i64 noundef %2370, i64 noundef %2372, i64 noundef %2374, i64 noundef %2350) #12
   br label %2387
 
 2375:                                             ; preds = %2346
   %2376 = load i64, ptr %2338, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %2377 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2376) #13
+  %2377 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2376) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef nonnull %16, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %2378 = load i64, ptr %2339, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %2379 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2378) #13
+  %2379 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2378) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef nonnull %15, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %2380 = getelementptr inbounds nuw i8, ptr %2338, i64 16
   %2381 = load i64, ptr %2380, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %2382 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2381) #13
+  %2382 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2381) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.346, ptr noundef null, ptr noundef nonnull %14, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %2383 = getelementptr inbounds nuw i8, ptr %2338, i64 24
   %2384 = load i64, ptr %2383, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %2385 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2384) #13
+  %2385 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2384) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.347, ptr noundef null, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %2386 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2350) #13
+  %2386 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2350) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.290, ptr noundef nonnull @.str.86, ptr noundef nonnull %12, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %2387
@@ -8466,10 +8457,10 @@ show_memoize_info.exit:                           ; preds = %2391, %2280, %2330,
 2399:                                             ; preds = %2396
   %2400 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %2401 = load ptr, ptr %2400, align 8
-  call void @tuplestore_get_stats(ptr noundef %2401, ptr noundef nonnull %9, ptr noundef nonnull %11) #13
+  call void @tuplestore_get_stats(ptr noundef %2401, ptr noundef nonnull %9, ptr noundef nonnull %11) #12
   %2402 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %2403 = load ptr, ptr %2402, align 8
-  call void @tuplestore_get_stats(ptr noundef %2403, ptr noundef nonnull %8, ptr noundef nonnull %10) #13
+  call void @tuplestore_get_stats(ptr noundef %2403, ptr noundef nonnull %8, ptr noundef nonnull %10) #12
   %2404 = load i64, ptr %11, align 8
   %2405 = load i64, ptr %10, align 8
   %2406 = icmp sgt i64 %2404, %2405
@@ -8682,12 +8673,12 @@ show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, 
   %2500 = load ptr, ptr %2491, align 8
   %2501 = getelementptr inbounds nuw %struct.StringInfoData, ptr %2500, i64 %indvars.iv.i923
   %2502 = load ptr, ptr %2501, align 8
-  call void @appendStringInfoString(ptr noundef %2499, ptr noundef %2502) #13
+  call void @appendStringInfoString(ptr noundef %2499, ptr noundef %2502) #12
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.254, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %4)
   %2503 = load ptr, ptr %2491, align 8
   %2504 = getelementptr inbounds nuw %struct.StringInfoData, ptr %2503, i64 %indvars.iv.i923
   %2505 = load ptr, ptr %2504, align 8
-  call void @pfree(ptr noundef %2505) #13
+  call void @pfree(ptr noundef %2505) #12
   %.pre.i925 = load i32, ptr %.pr9661293, align 8
   br label %2506
 
@@ -8702,14 +8693,14 @@ ExplainFlushWorkersState.exit:                    ; preds = %2506, %.loopexit.th
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.358, ptr nonnull poison, i1 noundef zeroext false, ptr noundef nonnull %4)
   %2510 = getelementptr inbounds nuw i8, ptr %.pr9661293, i64 8
   %2511 = load ptr, ptr %2510, align 8
-  call void @pfree(ptr noundef %2511) #13
+  call void @pfree(ptr noundef %2511) #12
   %2512 = getelementptr inbounds nuw i8, ptr %.pr9661293, i64 16
   %2513 = load ptr, ptr %2512, align 8
-  call void @pfree(ptr noundef %2513) #13
+  call void @pfree(ptr noundef %2513) #12
   %2514 = getelementptr inbounds nuw i8, ptr %.pr9661293, i64 24
   %2515 = load ptr, ptr %2514, align 8
-  call void @pfree(ptr noundef %2515) #13
-  call void @pfree(ptr noundef nonnull %.pr9661293) #13
+  call void @pfree(ptr noundef %2515) #12
+  call void @pfree(ptr noundef nonnull %.pr9661293) #12
   br label %.thread967
 
 .thread967:                                       ; preds = %2450, %ExplainFlushWorkersState.exit, %.loopexit
@@ -8747,7 +8738,7 @@ list_length.exit927:                              ; preds = %2517, %2522
   %2530 = sub i32 %2525, %2519
   %2531 = sext i32 %2530 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %2532 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2531) #13
+  %2532 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2531) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %ExplainMissingMembers.exit
@@ -8779,7 +8770,7 @@ list_length.exit930:                              ; preds = %2533, %2538
   %2546 = sub i32 %2541, %2535
   %2547 = sext i32 %2546 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %2548 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2547) #13
+  %2548 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2547) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ExplainMissingMembers.exit
@@ -8831,7 +8822,7 @@ ExplainMissingMembers.exit:                       ; preds = %2545, %2543, %2529,
 
 2568:                                             ; preds = %2565, %2562, %2557, %2557, %2557, %2557, %2557, %2554, %2551, %ExplainMissingMembers.exit
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.231, ptr noundef nonnull @.str.231, i1 noundef zeroext false, ptr noundef nonnull %4)
-  %2569 = call ptr @lcons(ptr noundef nonnull %54, ptr noundef %1) #13
+  %2569 = call ptr @lcons(ptr noundef nonnull %54, ptr noundef %1) #12
   %.pre1134 = load ptr, ptr %2549, align 8
   %.not749 = icmp eq ptr %.pre1134, null
   br i1 %.not749, label %ExplainSubPlans.exit, label %.preheader978
@@ -8858,21 +8849,21 @@ ExplainMissingMembers.exit:                       ; preds = %2545, %2543, %2529,
   %2580 = getelementptr inbounds nuw i8, ptr %2579, i64 24
   %2581 = load i32, ptr %2580, align 8
   %2582 = load ptr, ptr %2573, align 8
-  %2583 = call zeroext i1 @bms_is_member(i32 noundef %2581, ptr noundef %2582) #13
+  %2583 = call zeroext i1 @bms_is_member(i32 noundef %2581, ptr noundef %2582) #12
   br i1 %2583, label %2594, label %2584
 
 2584:                                             ; preds = %2574
   %2585 = load ptr, ptr %2573, align 8
   %2586 = load i32, ptr %2580, align 8
-  %2587 = call ptr @bms_add_member(ptr noundef %2585, i32 noundef %2586) #13
+  %2587 = call ptr @bms_add_member(ptr noundef %2585, i32 noundef %2586) #12
   store ptr %2587, ptr %2573, align 8
-  %2588 = call ptr @lcons(ptr noundef nonnull %2579, ptr noundef %.0.i9331012) #13
+  %2588 = call ptr @lcons(ptr noundef nonnull %2579, ptr noundef %.0.i9331012) #12
   %2589 = getelementptr inbounds nuw i8, ptr %2577, i64 16
   %2590 = load ptr, ptr %2589, align 8
   %2591 = getelementptr inbounds nuw i8, ptr %2579, i64 32
   %2592 = load ptr, ptr %2591, align 8
   call fastcc void @ExplainNode(ptr noundef %2590, ptr noundef %2588, ptr noundef nonnull @.str.232, ptr noundef %2592, ptr noundef nonnull %4)
-  %2593 = call ptr @list_delete_first(ptr noundef %2588) #13
+  %2593 = call ptr @list_delete_first(ptr noundef %2588) #12
   br label %2594
 
 2594:                                             ; preds = %2584, %2574
@@ -9062,21 +9053,21 @@ ExplainMemberNodes.exit:                          ; preds = %.lr.ph1018, %.lr.ph
   %2667 = getelementptr inbounds nuw i8, ptr %2666, i64 24
   %2668 = load i32, ptr %2667, align 8
   %2669 = load ptr, ptr %2660, align 8
-  %2670 = call zeroext i1 @bms_is_member(i32 noundef %2668, ptr noundef %2669) #13
+  %2670 = call zeroext i1 @bms_is_member(i32 noundef %2668, ptr noundef %2669) #12
   br i1 %2670, label %2681, label %2671
 
 2671:                                             ; preds = %2661
   %2672 = load ptr, ptr %2660, align 8
   %2673 = load i32, ptr %2667, align 8
-  %2674 = call ptr @bms_add_member(ptr noundef %2672, i32 noundef %2673) #13
+  %2674 = call ptr @bms_add_member(ptr noundef %2672, i32 noundef %2673) #12
   store ptr %2674, ptr %2660, align 8
-  %2675 = call ptr @lcons(ptr noundef nonnull %2666, ptr noundef %.0.i9491029) #13
+  %2675 = call ptr @lcons(ptr noundef nonnull %2666, ptr noundef %.0.i9491029) #12
   %2676 = getelementptr inbounds nuw i8, ptr %2664, i64 16
   %2677 = load ptr, ptr %2676, align 8
   %2678 = getelementptr inbounds nuw i8, ptr %2666, i64 32
   %2679 = load ptr, ptr %2678, align 8
   call fastcc void @ExplainNode(ptr noundef %2677, ptr noundef %2675, ptr noundef nonnull @.str.235, ptr noundef %2679, ptr noundef nonnull %4)
-  %2680 = call ptr @list_delete_first(ptr noundef %2675) #13
+  %2680 = call ptr @list_delete_first(ptr noundef %2675) #12
   br label %2681
 
 2681:                                             ; preds = %2671, %2661
@@ -9091,7 +9082,7 @@ ExplainSubPlans.exit953:                          ; preds = %2681, %.preheader, 
   br i1 %2597, label %2684, label %2686
 
 2684:                                             ; preds = %ExplainSubPlans.exit953
-  %2685 = call ptr @list_delete_first(ptr noundef %.01297) #13
+  %2685 = call ptr @list_delete_first(ptr noundef %.01297) #12
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.231, ptr nonnull poison, i1 noundef zeroext false, ptr noundef %4)
   br label %2686
 
@@ -9113,7 +9104,7 @@ ExplainSubPlans.exit953:                          ; preds = %2681, %.preheader, 
 define dso_local void @ExplainPropertyInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2) #13
+  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %2) #12
   call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -9152,7 +9143,7 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw %struct.Trigger, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds nuw %struct.Instrumentation, ptr %20, i64 %indvars.iv
-  tail call void @InstrEndLoop(ptr noundef %21) #13
+  tail call void @InstrEndLoop(ptr noundef %21) #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 216
   %23 = load double, ptr %22, align 8
   %24 = fcmp oeq double %23, 0.000000e+00
@@ -9170,7 +9161,7 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   br i1 %.not51, label %34, label %32
 
 32:                                               ; preds = %25
-  %33 = tail call ptr @get_constraint_name(i32 noundef %31) #13
+  %33 = tail call ptr @get_constraint_name(i32 noundef %31) #12
   br label %34
 
 34:                                               ; preds = %32, %25
@@ -9188,18 +9179,18 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   br i1 %or.cond, label %42, label %.thread
 
 .thread:                                          ; preds = %37
-  tail call void @appendStringInfoString(ptr noundef %41, ptr noundef nonnull @.str.88) #13
+  tail call void @appendStringInfoString(ptr noundef %41, ptr noundef nonnull @.str.88) #12
   br label %45
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %44 = load ptr, ptr %43, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %41, ptr noundef nonnull @.str.89, ptr noundef %44) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %41, ptr noundef nonnull @.str.89, ptr noundef %44) #12
   br i1 %40, label %47, label %45
 
 45:                                               ; preds = %.thread, %42
   %46 = load ptr, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %46, ptr noundef nonnull @.str.90, ptr noundef nonnull %.0) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %46, ptr noundef nonnull @.str.90, ptr noundef nonnull %.0) #12
   br label %47
 
 47:                                               ; preds = %45, %42
@@ -9207,7 +9198,7 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %49, ptr noundef nonnull @.str.91, ptr noundef nonnull %29) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %49, ptr noundef nonnull @.str.91, ptr noundef nonnull %29) #12
   br label %50
 
 50:                                               ; preds = %48, %47
@@ -9221,12 +9212,12 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   %56 = load double, ptr %55, align 8
   %57 = fmul double %56, 1.000000e+03
   %58 = load double, ptr %22, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %53, ptr noundef nonnull @.str.92, double noundef %57, double noundef %58) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %53, ptr noundef nonnull @.str.92, double noundef %57, double noundef %58) #12
   br label %76
 
 59:                                               ; preds = %50
   %60 = load double, ptr %22, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %53, ptr noundef nonnull @.str.93, double noundef %60) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %53, ptr noundef nonnull @.str.93, double noundef %60) #12
   br label %76
 
 61:                                               ; preds = %34
@@ -9250,16 +9241,16 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 208
   %70 = load double, ptr %69, align 8
   %71 = fmul double %70, 1.000000e+03
-  %72 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %71) #13
+  %72 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %71) #12
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.41, ptr noundef %72, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  tail call void @pfree(ptr noundef %72) #13
+  tail call void @pfree(ptr noundef %72) #12
   br label %73
 
 73:                                               ; preds = %68, %65
   %74 = load double, ptr %22, align 8
-  %75 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %74) #13
+  %75 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %74) #12
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef %75, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
-  tail call void @pfree(ptr noundef %75) #13
+  tail call void @pfree(ptr noundef %75) #12
   br label %76
 
 76:                                               ; preds = %54, %59, %73
@@ -9267,7 +9258,7 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   br i1 %.not54, label %78, label %77
 
 77:                                               ; preds = %76
-  tail call void @pfree(ptr noundef nonnull %.0) #13
+  tail call void @pfree(ptr noundef nonnull %.0) #12
   br label %78
 
 78:                                               ; preds = %77, %76
@@ -9335,20 +9326,20 @@ define internal fastcc void @ExplainPrintJIT(ptr noundef captures(none) %0, i32 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = shl i32 %37, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %24, i32 noundef %38) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %24, i32 noundef %38) #12
   %.pre = load ptr, ptr %0, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %28, %35
   %39 = phi ptr [ %24, %28 ], [ %.pre, %35 ]
-  tail call void @appendStringInfoString(ptr noundef %39, ptr noundef nonnull @.str.67) #13
+  tail call void @appendStringInfoString(ptr noundef %39, ptr noundef nonnull @.str.67) #12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4
   %43 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %43) #13
+  %44 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %43) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %45 = load ptr, ptr %0, align 8
@@ -9369,7 +9360,7 @@ ExplainIndentText.exit:                           ; preds = %28, %35
 56:                                               ; preds = %49, %ExplainIndentText.exit
   %57 = load i32, ptr %40, align 4
   %58 = shl i32 %57, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %45, i32 noundef %58) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %45, i32 noundef %58) #12
   %.pre72 = load ptr, ptr %0, align 8
   br label %ExplainIndentText.exit66
 
@@ -9387,7 +9378,7 @@ ExplainIndentText.exit66:                         ; preds = %49, %56
   %66 = and i32 %1, 16
   %.not65 = icmp eq i32 %66, 0
   %67 = select i1 %.not65, ptr @.str.58, ptr @.str.57
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %59, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %61, ptr noundef nonnull @.str.71, ptr noundef nonnull %63, ptr noundef nonnull @.str.72, ptr noundef nonnull %65, ptr noundef nonnull @.str.73, ptr noundef nonnull %67) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %59, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %61, ptr noundef nonnull @.str.71, ptr noundef nonnull %63, ptr noundef nonnull @.str.72, ptr noundef nonnull %65, ptr noundef nonnull @.str.73, ptr noundef nonnull %67) #12
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %69 = load i8, ptr %68, align 1, !range !4, !noundef !5
   %70 = trunc nuw i8 %69 to i1
@@ -9418,7 +9409,7 @@ ExplainIndentText.exit66:                         ; preds = %49, %56
 87:                                               ; preds = %80, %75
   %88 = load i32, ptr %40, align 4
   %89 = shl i32 %88, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %76, i32 noundef %89) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %76, i32 noundef %89) #12
   %.pre73 = load ptr, ptr %0, align 8
   br label %ExplainIndentText.exit67
 
@@ -9448,7 +9439,7 @@ ExplainIndentText.exit67:                         ; preds = %80, %87
   %112 = sitofp i64 %19 to double
   %113 = fdiv double %112, 1.000000e+09
   %114 = fmul double %113, 1.000000e+03
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %90, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, double noundef %94, ptr noundef nonnull @.str.76, double noundef %99, ptr noundef nonnull @.str.70, double noundef %103, ptr noundef nonnull @.str.71, double noundef %107, ptr noundef nonnull @.str.77, double noundef %111, ptr noundef nonnull @.str.78, double noundef %114) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %90, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, double noundef %94, ptr noundef nonnull @.str.76, double noundef %99, ptr noundef nonnull @.str.70, double noundef %103, ptr noundef nonnull @.str.71, double noundef %107, ptr noundef nonnull @.str.77, double noundef %111, ptr noundef nonnull @.str.78, double noundef %114) #12
   br label %115
 
 115:                                              ; preds = %ExplainIndentText.exit67, %71, %ExplainIndentText.exit66
@@ -9460,7 +9451,7 @@ ExplainIndentText.exit67:                         ; preds = %80, %87
 118:                                              ; preds = %8
   %119 = load i64, ptr %2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %120 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %119) #13
+  %120 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %119) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.79, i1 noundef zeroext true, ptr noundef nonnull %0)
@@ -9500,44 +9491,44 @@ ExplainIndentText.exit67:                         ; preds = %80, %87
   %139 = sitofp i64 %138 to double
   %140 = fdiv double %139, 1.000000e+09
   %141 = fmul double %140, 1.000000e+03
-  %142 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %141) #13
+  %142 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %141) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41, ptr noundef %142, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %142) #13
+  call void @pfree(ptr noundef %142) #12
   %143 = load i64, ptr %9, align 8
   %144 = sitofp i64 %143 to double
   %145 = fdiv double %144, 1.000000e+09
   %146 = fmul double %145, 1.000000e+03
-  %147 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %146) #13
+  %147 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %146) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.41, ptr noundef %147, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %147) #13
+  call void @pfree(ptr noundef %147) #12
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.75, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   %148 = load i64, ptr %11, align 8
   %149 = sitofp i64 %148 to double
   %150 = fdiv double %149, 1.000000e+09
   %151 = fmul double %150, 1.000000e+03
-  %152 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %151) #13
+  %152 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %151) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.41, ptr noundef %152, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %152) #13
+  call void @pfree(ptr noundef %152) #12
   %153 = load i64, ptr %14, align 8
   %154 = sitofp i64 %153 to double
   %155 = fdiv double %154, 1.000000e+09
   %156 = fmul double %155, 1.000000e+03
-  %157 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %156) #13
+  %157 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %156) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.41, ptr noundef %157, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %157) #13
+  call void @pfree(ptr noundef %157) #12
   %158 = load i64, ptr %17, align 8
   %159 = sitofp i64 %158 to double
   %160 = fdiv double %159, 1.000000e+09
   %161 = fmul double %160, 1.000000e+03
-  %162 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %161) #13
+  %162 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %161) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.41, ptr noundef %162, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %162) #13
+  call void @pfree(ptr noundef %162) #12
   %163 = sitofp i64 %19 to double
   %164 = fdiv double %163, 1.000000e+09
   %165 = fmul double %164, 1.000000e+03
-  %166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %165) #13
+  %166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %165) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.41, ptr noundef %166, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
-  call void @pfree(ptr noundef %166) #13
+  call void @pfree(ptr noundef %166) #12
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.80, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   br label %167
 
@@ -9584,7 +9575,7 @@ define dso_local void @ExplainQueryParameters(ptr noundef readonly captures(none
   br i1 %or.cond, label %15, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @BuildParamLogString(ptr noundef nonnull %1, ptr noundef null, i32 noundef %2) #13
+  %11 = tail call ptr @BuildParamLogString(ptr noundef nonnull %1, ptr noundef null, i32 noundef %2) #12
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
@@ -9634,13 +9625,13 @@ define dso_local void @ExplainPropertyList(ptr noundef %0, ptr noundef readonly 
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = shl i32 %20, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %7, i32 noundef %21) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %7, i32 noundef %21) #12
   %.pre = load ptr, ptr %2, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %11, %18
   %22 = phi ptr [ %7, %11 ], [ %.pre, %18 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %22, ptr noundef nonnull @.str.47, ptr noundef %0) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %22, ptr noundef nonnull @.str.47, ptr noundef %0) #12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not80 = icmp eq ptr %1, null
   br i1 %.not80, label %.critedge, label %.lr.ph106
@@ -9660,18 +9651,18 @@ ExplainIndentText.exit:                           ; preds = %11, %18
 
 .critedge:                                        ; preds = %32, %.lr.ph106, %ExplainIndentText.exit
   %29 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %29, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %29, i8 noundef signext 10) #12
   br label %.critedge87
 
 30:                                               ; preds = %.lr.ph110
   %31 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %31, ptr noundef nonnull @.str.48) #13
+  tail call void @appendStringInfoString(ptr noundef %31, ptr noundef nonnull @.str.48) #12
   br label %32
 
 32:                                               ; preds = %30, %.lr.ph110
   %33 = load ptr, ptr %2, align 8
   %34 = load ptr, ptr %28, align 8
-  tail call void @appendStringInfoString(ptr noundef %33, ptr noundef %34) #13
+  tail call void @appendStringInfoString(ptr noundef %33, ptr noundef %34) #12
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %35 = load i32, ptr %23, align 4
   %36 = sext i32 %35 to i64
@@ -9699,16 +9690,16 @@ ExplainIndentText.exit:                           ; preds = %11, %18
   %47 = load i32, ptr %41, align 4
   %48 = shl i32 %47, 1
   %49 = add i32 %48, 2
-  tail call void @appendStringInfoSpaces(ptr noundef %46, i32 noundef %49) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %46, i32 noundef %49) #12
   %50 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %50, ptr noundef nonnull @.str.49) #13
+  tail call void @appendStringInfoString(ptr noundef %50, ptr noundef nonnull @.str.49) #12
   %51 = load ptr, ptr %45, align 8
-  %52 = tail call ptr @escape_xml(ptr noundef %51) #13
+  %52 = tail call ptr @escape_xml(ptr noundef %51) #12
   %53 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %53, ptr noundef %52) #13
-  tail call void @pfree(ptr noundef %52) #13
+  tail call void @appendStringInfoString(ptr noundef %53, ptr noundef %52) #12
+  tail call void @pfree(ptr noundef %52) #12
   %54 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %54, ptr noundef nonnull @.str.50) #13
+  tail call void @appendStringInfoString(ptr noundef %54, ptr noundef nonnull @.str.50) #12
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %55 = load i32, ptr %39, align 4
   %56 = sext i32 %55 to i64
@@ -9730,7 +9721,7 @@ ExplainIndentText.exit:                           ; preds = %11, %18
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %64, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %64, i8 noundef signext 44) #12
   br label %ExplainJSONLineEnding.exit
 
 65:                                               ; preds = %58
@@ -9739,16 +9730,16 @@ ExplainIndentText.exit:                           ; preds = %11, %18
 
 ExplainJSONLineEnding.exit:                       ; preds = %63, %65
   %66 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %66, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %66, i8 noundef signext 10) #12
   %67 = load ptr, ptr %2, align 8
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = shl i32 %69, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %67, i32 noundef %70) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %67, i32 noundef %70) #12
   %71 = load ptr, ptr %2, align 8
-  tail call void @escape_json(ptr noundef %71, ptr noundef %0) #13
+  tail call void @escape_json(ptr noundef %71, ptr noundef %0) #12
   %72 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %72, ptr noundef nonnull @.str.51) #13
+  tail call void @appendStringInfoString(ptr noundef %72, ptr noundef nonnull @.str.51) #12
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not76 = icmp eq ptr %1, null
   br i1 %.not76, label %.critedge85, label %.lr.ph94
@@ -9768,18 +9759,18 @@ ExplainJSONLineEnding.exit:                       ; preds = %63, %65
 
 .critedge85:                                      ; preds = %82, %.lr.ph94, %ExplainJSONLineEnding.exit
   %79 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %79, i8 noundef signext 93) #13
+  tail call void @appendStringInfoChar(ptr noundef %79, i8 noundef signext 93) #12
   br label %.critedge87
 
 80:                                               ; preds = %.lr.ph98
   %81 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %81, ptr noundef nonnull @.str.48) #13
+  tail call void @appendStringInfoString(ptr noundef %81, ptr noundef nonnull @.str.48) #12
   br label %82
 
 82:                                               ; preds = %80, %.lr.ph98
   %83 = load ptr, ptr %2, align 8
   %84 = load ptr, ptr %78, align 8
-  tail call void @escape_json(ptr noundef %83, ptr noundef %84) #13
+  tail call void @escape_json(ptr noundef %83, ptr noundef %84) #12
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %85 = load i32, ptr %73, align 4
   %86 = sext i32 %85 to i64
@@ -9801,17 +9792,17 @@ ExplainJSONLineEnding.exit:                       ; preds = %63, %65
 
 95:                                               ; preds = %88
   %96 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %96, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %96, i8 noundef signext 10) #12
   %97 = load ptr, ptr %2, align 8
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %99 = load i32, ptr %98, align 4
   %100 = shl i32 %99, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %97, i32 noundef %100) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %97, i32 noundef %100) #12
   br label %ExplainYAMLLineStarting.exit
 
 ExplainYAMLLineStarting.exit:                     ; preds = %94, %95
   %101 = load ptr, ptr %2, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %101, ptr noundef nonnull @.str.47, ptr noundef %0) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %101, ptr noundef nonnull @.str.47, ptr noundef %0) #12
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge87, label %.lr.ph
@@ -9828,17 +9819,17 @@ ExplainYAMLLineStarting.exit:                     ; preds = %94, %95
   %107 = load ptr, ptr %103, align 8
   %108 = getelementptr inbounds nuw %union.ListCell, ptr %107, i64 %indvars.iv
   %109 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %109, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %109, i8 noundef signext 10) #12
   %110 = load ptr, ptr %2, align 8
   %111 = load i32, ptr %104, align 4
   %112 = shl i32 %111, 1
   %113 = add i32 %112, 2
-  tail call void @appendStringInfoSpaces(ptr noundef %110, i32 noundef %113) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %110, i32 noundef %113) #12
   %114 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %114, ptr noundef nonnull @.str.52) #13
+  tail call void @appendStringInfoString(ptr noundef %114, ptr noundef nonnull @.str.52) #12
   %115 = load ptr, ptr %2, align 8
   %116 = load ptr, ptr %108, align 8
-  tail call void @escape_json(ptr noundef %115, ptr noundef %116) #13
+  tail call void @escape_json(ptr noundef %115, ptr noundef %116) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load i32, ptr %102, align 4
   %118 = sext i32 %117 to i64
@@ -9863,7 +9854,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = shl i32 %8, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %6, i32 noundef %9) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %6, i32 noundef %9) #12
   br label %10
 
 10:                                               ; preds = %5, %3
@@ -9877,7 +9868,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   br i1 %.not, label %18, label %17
 
 17:                                               ; preds = %10
-  tail call void @appendStringInfoChar(ptr noundef nonnull %11, i8 noundef signext 60) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %11, i8 noundef signext 60) #12
   br label %29
 
 18:                                               ; preds = %10
@@ -9912,7 +9903,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   br i1 %.not43, label %39, label %38
 
 38:                                               ; preds = %31
-  tail call void @appendStringInfoChar(ptr noundef nonnull %32, i8 noundef signext 47) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %32, i8 noundef signext 47) #12
   br label %50
 
 39:                                               ; preds = %31
@@ -9944,7 +9935,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.395, i32 %54, i64 66)
   %.not48 = icmp eq ptr %memchr, null
   %spec.select = select i1 %.not48, i8 45, i8 %52
-  tail call void @appendStringInfoChar(ptr noundef %53, i8 noundef signext %spec.select) #13
+  tail call void @appendStringInfoChar(ptr noundef %53, i8 noundef signext %spec.select) #12
   %55 = getelementptr inbounds nuw i8, ptr %.050, i64 1
   %56 = load i8, ptr %55, align 1
   %.not44 = icmp eq i8 %56, 0
@@ -9957,7 +9948,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
 
 58:                                               ; preds = %._crit_edge
   %59 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %59, ptr noundef nonnull @.str.396) #13
+  tail call void @appendStringInfoString(ptr noundef %59, ptr noundef nonnull @.str.396) #12
   br label %60
 
 60:                                               ; preds = %58, %._crit_edge
@@ -9971,7 +9962,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   br i1 %.not46, label %68, label %67
 
 67:                                               ; preds = %60
-  tail call void @appendStringInfoChar(ptr noundef nonnull %61, i8 noundef signext 62) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %61, i8 noundef signext 62) #12
   br label %79
 
 68:                                               ; preds = %60
@@ -10004,7 +9995,7 @@ define internal fastcc void @ExplainXMLTag(ptr noundef readonly captures(none) %
   br i1 %.not47, label %88, label %87
 
 87:                                               ; preds = %80
-  tail call void @appendStringInfoChar(ptr noundef nonnull %81, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef nonnull %81, i8 noundef signext 10) #12
   br label %99
 
 88:                                               ; preds = %80
@@ -10059,7 +10050,7 @@ define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef rea
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %13, i8 noundef signext 44) #12
   br label %ExplainJSONLineEnding.exit
 
 14:                                               ; preds = %7
@@ -10068,14 +10059,14 @@ define dso_local void @ExplainPropertyListNested(ptr noundef %0, ptr noundef rea
 
 ExplainJSONLineEnding.exit:                       ; preds = %12, %14
   %15 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %15, i8 noundef signext 10) #12
   %16 = load ptr, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = shl i32 %18, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %16, i32 noundef %19) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %16, i32 noundef %19) #12
   %20 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 91) #13
+  tail call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 91) #12
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not37 = icmp eq ptr %1, null
   br i1 %.not37, label %.critedge, label %.lr.ph49
@@ -10095,18 +10086,18 @@ ExplainJSONLineEnding.exit:                       ; preds = %12, %14
 
 .critedge:                                        ; preds = %30, %.lr.ph49, %ExplainJSONLineEnding.exit
   %27 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %27, i8 noundef signext 93) #13
+  tail call void @appendStringInfoChar(ptr noundef %27, i8 noundef signext 93) #12
   br label %65
 
 28:                                               ; preds = %.lr.ph53
   %29 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %29, ptr noundef nonnull @.str.48) #13
+  tail call void @appendStringInfoString(ptr noundef %29, ptr noundef nonnull @.str.48) #12
   br label %30
 
 30:                                               ; preds = %28, %.lr.ph53
   %31 = load ptr, ptr %2, align 8
   %32 = load ptr, ptr %26, align 8
-  tail call void @escape_json(ptr noundef %31, ptr noundef %32) #13
+  tail call void @escape_json(ptr noundef %31, ptr noundef %32) #12
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %33 = load i32, ptr %21, align 4
   %34 = sext i32 %33 to i64
@@ -10128,17 +10119,17 @@ ExplainJSONLineEnding.exit:                       ; preds = %12, %14
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %44, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %44, i8 noundef signext 10) #12
   %45 = load ptr, ptr %2, align 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = shl i32 %47, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %45, i32 noundef %48) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %45, i32 noundef %48) #12
   br label %ExplainYAMLLineStarting.exit
 
 ExplainYAMLLineStarting.exit:                     ; preds = %42, %43
   %49 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %49, ptr noundef nonnull @.str.53) #13
+  tail call void @appendStringInfoString(ptr noundef %49, ptr noundef nonnull @.str.53) #12
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge40, label %.lr.ph
@@ -10158,18 +10149,18 @@ ExplainYAMLLineStarting.exit:                     ; preds = %42, %43
 
 .critedge40:                                      ; preds = %59, %.lr.ph, %ExplainYAMLLineStarting.exit
   %56 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoChar(ptr noundef %56, i8 noundef signext 93) #13
+  tail call void @appendStringInfoChar(ptr noundef %56, i8 noundef signext 93) #12
   br label %65
 
 57:                                               ; preds = %.lr.ph46
   %58 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %58, ptr noundef nonnull @.str.48) #13
+  tail call void @appendStringInfoString(ptr noundef %58, ptr noundef nonnull @.str.48) #12
   br label %59
 
 59:                                               ; preds = %57, %.lr.ph46
   %60 = load ptr, ptr %2, align 8
   %61 = load ptr, ptr %55, align 8
-  tail call void @escape_json(ptr noundef %60, ptr noundef %61) #13
+  tail call void @escape_json(ptr noundef %60, ptr noundef %61) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %50, align 4
   %63 = sext i32 %62 to i64
@@ -10211,7 +10202,7 @@ define internal fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %22 = load i32, ptr %21, align 4
   %23 = shl i32 %22, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %9, i32 noundef %23) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %9, i32 noundef %23) #12
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %13, %20
@@ -10220,11 +10211,11 @@ ExplainIndentText.exit:                           ; preds = %13, %20
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %ExplainIndentText.exit
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %24, ptr noundef nonnull @.str.393, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %1) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %24, ptr noundef nonnull @.str.393, ptr noundef %0, ptr noundef %2, ptr noundef nonnull %1) #12
   br label %70
 
 26:                                               ; preds = %ExplainIndentText.exit
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %24, ptr noundef nonnull @.str.394, ptr noundef %0, ptr noundef %2) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %24, ptr noundef nonnull @.str.394, ptr noundef %0, ptr noundef %2) #12
   br label %70
 
 27:                                               ; preds = %5
@@ -10232,15 +10223,15 @@ ExplainIndentText.exit:                           ; preds = %13, %20
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = shl i32 %30, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %28, i32 noundef %31) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %28, i32 noundef %31) #12
   tail call fastcc void @ExplainXMLTag(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %4)
-  %32 = tail call ptr @escape_xml(ptr noundef %2) #13
+  %32 = tail call ptr @escape_xml(ptr noundef %2) #12
   %33 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %33, ptr noundef %32) #13
-  tail call void @pfree(ptr noundef %32) #13
+  tail call void @appendStringInfoString(ptr noundef %33, ptr noundef %32) #12
+  tail call void @pfree(ptr noundef %32) #12
   tail call fastcc void @ExplainXMLTag(ptr noundef %0, i32 noundef 5, ptr noundef nonnull %4)
   %34 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoChar(ptr noundef %34, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %34, i8 noundef signext 10) #12
   br label %70
 
 35:                                               ; preds = %5
@@ -10254,7 +10245,7 @@ ExplainIndentText.exit:                           ; preds = %13, %20
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoChar(ptr noundef %41, i8 noundef signext 44) #13
+  tail call void @appendStringInfoChar(ptr noundef %41, i8 noundef signext 44) #12
   br label %ExplainJSONLineEnding.exit
 
 42:                                               ; preds = %35
@@ -10263,25 +10254,25 @@ ExplainIndentText.exit:                           ; preds = %13, %20
 
 ExplainJSONLineEnding.exit:                       ; preds = %40, %42
   %43 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoChar(ptr noundef %43, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %43, i8 noundef signext 10) #12
   %44 = load ptr, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = shl i32 %46, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %44, i32 noundef %47) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %44, i32 noundef %47) #12
   %48 = load ptr, ptr %4, align 8
-  tail call void @escape_json(ptr noundef %48, ptr noundef %0) #13
+  tail call void @escape_json(ptr noundef %48, ptr noundef %0) #12
   %49 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoString(ptr noundef %49, ptr noundef nonnull @.str.59) #13
+  tail call void @appendStringInfoString(ptr noundef %49, ptr noundef nonnull @.str.59) #12
   %50 = load ptr, ptr %4, align 8
   br i1 %3, label %51, label %52
 
 51:                                               ; preds = %ExplainJSONLineEnding.exit
-  tail call void @appendStringInfoString(ptr noundef %50, ptr noundef %2) #13
+  tail call void @appendStringInfoString(ptr noundef %50, ptr noundef %2) #12
   br label %70
 
 52:                                               ; preds = %ExplainJSONLineEnding.exit
-  tail call void @escape_json(ptr noundef %50, ptr noundef %2) #13
+  tail call void @escape_json(ptr noundef %50, ptr noundef %2) #12
   br label %70
 
 53:                                               ; preds = %5
@@ -10299,26 +10290,26 @@ ExplainJSONLineEnding.exit:                       ; preds = %40, %42
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %4, align 8
-  tail call void @appendStringInfoChar(ptr noundef %61, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %61, i8 noundef signext 10) #12
   %62 = load ptr, ptr %4, align 8
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = shl i32 %64, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %62, i32 noundef %65) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %62, i32 noundef %65) #12
   br label %ExplainYAMLLineStarting.exit
 
 ExplainYAMLLineStarting.exit:                     ; preds = %59, %60
   %66 = load ptr, ptr %4, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %66, ptr noundef nonnull @.str.47, ptr noundef %0) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %66, ptr noundef nonnull @.str.47, ptr noundef %0) #12
   %67 = load ptr, ptr %4, align 8
   br i1 %3, label %68, label %69
 
 68:                                               ; preds = %ExplainYAMLLineStarting.exit
-  tail call void @appendStringInfoString(ptr noundef %67, ptr noundef %2) #13
+  tail call void @appendStringInfoString(ptr noundef %67, ptr noundef %2) #12
   br label %70
 
 69:                                               ; preds = %ExplainYAMLLineStarting.exit
-  tail call void @escape_json(ptr noundef %67, ptr noundef %2) #13
+  tail call void @escape_json(ptr noundef %67, ptr noundef %2) #12
   br label %70
 
 70:                                               ; preds = %68, %69, %51, %52, %25, %26, %27, %5
@@ -10331,7 +10322,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 define dso_local void @ExplainPropertyUInteger(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %2) #13
+  %6 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %2) #12
   call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -10372,7 +10363,7 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #13
+  %19 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #12
   %20 = load i64, ptr %7, align 8
   %.neg = mul i64 %20, -1000000000
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -10413,7 +10404,7 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
   br i1 %.not.i, label %39, label %38
 
 38:                                               ; preds = %35
-  call void @pfree(ptr noundef nonnull %37) #13
+  call void @pfree(ptr noundef nonnull %37) #12
   br label %39
 
 39:                                               ; preds = %38, %35
@@ -10427,7 +10418,7 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
 42:                                               ; preds = %39
   %43 = zext nneg i32 %12 to i64
   %44 = mul nuw nsw i64 %43, 48
-  %45 = call ptr @palloc0(i64 noundef %44) #13
+  %45 = call ptr @palloc0(i64 noundef %44) #12
   store ptr %45, ptr %36, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   br label %47
@@ -10454,29 +10445,28 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
 57:                                               ; preds = %47
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %59 = load i32, ptr %58, align 4
-  call void @getTypeOutputInfo(i32 noundef %59, ptr noundef nonnull %4, ptr noundef nonnull %6) #13
+  call void @getTypeOutputInfo(i32 noundef %59, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   br label %69
 
 60:                                               ; preds = %47
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 68
   %62 = load i32, ptr %61, align 4
-  call void @getTypeBinaryOutputInfo(i32 noundef %62, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
+  call void @getTypeBinaryOutputInfo(i32 noundef %62, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   br label %69
 
 63:                                               ; preds = %47
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %64)
-  %65 = call i32 @errcode(i32 noundef 50856066) #13
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %65 = call i32 @errcode(i32 noundef 50856066) #12
   %66 = load i8, ptr %46, align 8
   %67 = sext i8 %66 to i32
-  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.397, i32 noundef %67) #13
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 5708, ptr noundef nonnull @__func__.serialize_prepare_info) #13
+  %68 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.397, i32 noundef %67) #12
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 5708, ptr noundef nonnull @__func__.serialize_prepare_info) #12
   unreachable
 
 69:                                               ; preds = %60, %57
   %.sink29.i = phi ptr [ %5, %60 ], [ %4, %57 ]
   %70 = load i32, ptr %.sink29.i, align 4
-  call void @fmgr_info(i32 noundef %70, ptr noundef %49) #13
+  call void @fmgr_info(i32 noundef %70, ptr noundef %49) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -10494,7 +10484,7 @@ serialize_prepare_info.exit:                      ; preds = %69, %39, %32
   br i1 %76, label %77, label %slot_getallattrs.exit
 
 77:                                               ; preds = %serialize_prepare_info.exit
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef %72) #13
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %0, i32 noundef %72) #12
   br label %slot_getallattrs.exit
 
 slot_getallattrs.exit:                            ; preds = %serialize_prepare_info.exit, %77
@@ -10502,9 +10492,9 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %79, ptr @CurrentMemoryContext, align 8
-  call void @pq_beginmessage_reuse(ptr noundef nonnull %11, i8 noundef signext 68) #13
+  call void @pq_beginmessage_reuse(ptr noundef nonnull %11, i8 noundef signext 68) #12
   %81 = trunc i32 %12 to i16
-  call void @enlargeStringInfo(ptr noundef nonnull %11, i32 noundef 2) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %11, i32 noundef 2) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %82 = call i16 @llvm.bswap.i16(i16 %81)
   %83 = load ptr, ptr %11, align 8, !alias.scope !29
@@ -10539,7 +10529,7 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   store i64 %98, ptr %96, align 8
   store ptr %80, ptr @CurrentMemoryContext, align 8
   %99 = load ptr, ptr %78, align 8
-  call void @MemoryContextReset(ptr noundef %99) #13
+  call void @MemoryContextReset(ptr noundef %99) #12
   %100 = load ptr, ptr %13, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 13
   %102 = load i8, ptr %101, align 1, !range !4, !noundef !5
@@ -10560,7 +10550,7 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   br i1 %113, label %114, label %120
 
 114:                                              ; preds = %104
-  call void @enlargeStringInfo(ptr noundef nonnull %11, i32 noundef 4) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %11, i32 noundef 4) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %115 = load ptr, ptr %11, align 8, !alias.scope !32
   %116 = load i32, ptr %84, align 8, !alias.scope !32
@@ -10577,18 +10567,18 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   br i1 %122, label %123, label %127
 
 123:                                              ; preds = %120
-  %124 = call ptr @OutputFunctionCall(ptr noundef %106, i64 noundef %109) #13
-  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #14
+  %124 = call ptr @OutputFunctionCall(ptr noundef %106, i64 noundef %109) #12
+  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #13
   %126 = trunc i64 %125 to i32
-  call void @pq_sendcountedtext(ptr noundef nonnull %11, ptr noundef nonnull %124, i32 noundef %126) #13
+  call void @pq_sendcountedtext(ptr noundef nonnull %11, ptr noundef nonnull %124, i32 noundef %126) #12
   br label %142
 
 127:                                              ; preds = %120
-  %128 = call ptr @SendFunctionCall(ptr noundef %106, i64 noundef %109) #13
+  %128 = call ptr @SendFunctionCall(ptr noundef %106, i64 noundef %109) #12
   %129 = load i32, ptr %128, align 4
   %130 = lshr i32 %129, 2
   %131 = add nsw i32 %130, -4
-  call void @enlargeStringInfo(ptr noundef nonnull %11, i32 noundef 4) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %11, i32 noundef 4) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %132 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %131)
   %133 = load ptr, ptr %11, align 8, !alias.scope !35
@@ -10602,7 +10592,7 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
   %139 = load i32, ptr %128, align 4
   %140 = lshr i32 %139, 2
   %141 = add nsw i32 %140, -4
-  call void @pq_sendbytes(ptr noundef nonnull %11, ptr noundef nonnull %138, i32 noundef %141) #13
+  call void @pq_sendbytes(ptr noundef nonnull %11, ptr noundef nonnull %138, i32 noundef %141) #12
   br label %142
 
 142:                                              ; preds = %123, %127, %114
@@ -10612,7 +10602,7 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
 
 143:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %144 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #13
+  %144 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
   %145 = load i64, ptr %3, align 8
   %146 = mul i64 %145, 1000000000
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -10636,7 +10626,7 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
 
 159:                                              ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @BufferUsageAccumDiff(ptr noundef nonnull %160, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull %8) #13
+  call void @BufferUsageAccumDiff(ptr noundef nonnull %160, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull %8) #12
   br label %161
 
 161:                                              ; preds = %159, %154
@@ -10666,11 +10656,11 @@ define internal void @serializeAnalyzeStartup(ptr noundef initializes((80, 88)) 
 
 10:                                               ; preds = %.sink.split, %3
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
-  %12 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %11, ptr noundef nonnull @.str.398, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #13
+  %12 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %11, ptr noundef nonnull @.str.398, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %12, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  tail call void @initStringInfo(ptr noundef nonnull %14) #13
+  tail call void @initStringInfo(ptr noundef nonnull %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %15, i8 0, i64 144, i1 false)
   ret void
@@ -10684,7 +10674,7 @@ define internal void @serializeAnalyzeShutdown(ptr noundef captures(none) %0) #0
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %3) #13
+  tail call void @pfree(ptr noundef nonnull %3) #12
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -10695,7 +10685,7 @@ define internal void @serializeAnalyzeShutdown(ptr noundef captures(none) %0) #0
   br i1 %.not12, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void @pfree(ptr noundef nonnull %7) #13
+  tail call void @pfree(ptr noundef nonnull %7) #12
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -10706,7 +10696,7 @@ define internal void @serializeAnalyzeShutdown(ptr noundef captures(none) %0) #0
   br i1 %.not13, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @MemoryContextDelete(ptr noundef nonnull %11) #13
+  tail call void @MemoryContextDelete(ptr noundef nonnull %11) #12
   br label %13
 
 13:                                               ; preds = %12, %9
@@ -10716,7 +10706,7 @@ define internal void @serializeAnalyzeShutdown(ptr noundef captures(none) %0) #0
 
 ; Function Attrs: nounwind uwtable
 define internal void @serializeAnalyzeDestroy(ptr noundef %0) #0 {
-  tail call void @pfree(ptr noundef %0) #13
+  tail call void @pfree(ptr noundef %0) #12
   ret void
 }
 
@@ -10746,20 +10736,19 @@ define internal fastcc void @ExplainIndexScanDetails(i32 noundef %0, i32 noundef
   br i1 %.not.i, label %.thread.i, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr %4(i32 noundef %0) #13
+  %6 = tail call ptr %4(i32 noundef %0) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.thread.i, label %explain_get_index_name.exit
 
 .thread.i:                                        ; preds = %5, %3
-  %8 = tail call ptr @get_rel_name(i32 noundef %0) #13
+  %8 = tail call ptr @get_rel_name(i32 noundef %0) #12
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %explain_get_index_name.exit
 
 10:                                               ; preds = %.thread.i
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.253, i32 noundef %0) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 4019, ptr noundef nonnull @__func__.explain_get_index_name) #13
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.253, i32 noundef %0) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 4019, ptr noundef nonnull @__func__.explain_get_index_name) #12
   unreachable
 
 explain_get_index_name.exit:                      ; preds = %5, %.thread.i
@@ -10775,13 +10764,13 @@ explain_get_index_name.exit:                      ; preds = %5, %.thread.i
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %19, ptr noundef nonnull @.str.248) #13
+  tail call void @appendStringInfoString(ptr noundef %19, ptr noundef nonnull @.str.248) #12
   br label %20
 
 20:                                               ; preds = %18, %16
   %21 = load ptr, ptr %2, align 8
-  %22 = tail call ptr @quote_identifier(ptr noundef nonnull %.1.i) #13
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %21, ptr noundef nonnull @.str.249, ptr noundef %22) #13
+  %22 = tail call ptr @quote_identifier(ptr noundef nonnull %.1.i) #12
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %21, ptr noundef nonnull @.str.249, ptr noundef %22) #12
   br label %24
 
 23:                                               ; preds = %explain_get_index_name.exit
@@ -10819,7 +10808,7 @@ define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr noundef captu
   br i1 %13, label %34, label %17
 
 17:                                               ; preds = %2
-  tail call void @initStringInfo(ptr noundef %16) #13
+  tail call void @initStringInfo(ptr noundef %16) #12
   %18 = load ptr, ptr %14, align 8
   %19 = getelementptr inbounds %struct.StringInfoData, ptr %18, i64 %10
   store ptr %19, ptr %1, align 8
@@ -10834,7 +10823,7 @@ define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr noundef captu
 .sink.split.sink.split.i:                         ; preds = %17, %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %23) #13
+  %24 = tail call ptr @lcons_int(i32 noundef 0, ptr noundef %23) #12
   store ptr %24, ptr %22, align 8
   %.pr.pre = load i32, ptr %20, align 8
   br label %.sink.split.i
@@ -10854,7 +10843,7 @@ ExplainOpenSetAsideGroup.exit:                    ; preds = %17, %.sink.split.i
 
 29:                                               ; preds = %ExplainOpenSetAsideGroup.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %10) #13
+  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %10) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.255, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
@@ -10882,7 +10871,7 @@ ExplainOpenSetAsideGroup.exit:                    ; preds = %17, %.sink.split.i
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @lcons_int(i32 noundef %40, ptr noundef %42) #13
+  %43 = tail call ptr @lcons_int(i32 noundef %40, ptr noundef %42) #12
   store ptr %43, ptr %41, align 8
   br label %.sink.split.i28
 
@@ -10910,9 +10899,9 @@ ExplainIndentText.exit:                           ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = shl i32 %56, 1
-  call void @appendStringInfoSpaces(ptr noundef nonnull %51, i32 noundef %57) #13
+  call void @appendStringInfoSpaces(ptr noundef nonnull %51, i32 noundef %57) #12
   %58 = load ptr, ptr %1, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %58, ptr noundef nonnull @.str.256, i32 noundef %0) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %58, ptr noundef nonnull @.str.256, i32 noundef %0) #12
   br label %59
 
 59:                                               ; preds = %ExplainIndentText.exit, %50
@@ -10961,7 +10950,7 @@ define internal fastcc void @ExplainCloseWorker(i32 noundef %0, ptr noundef capt
   %22 = load i32, ptr %.val14.i, align 8
   store i32 %22, ptr %8, align 4
   %23 = load ptr, ptr %19, align 8
-  %24 = tail call ptr @list_delete_first(ptr noundef %23) #13
+  %24 = tail call ptr @list_delete_first(ptr noundef %23) #12
   store ptr %24, ptr %19, align 8
   br label %ExplainSaveGroup.exitthread-pre-split
 
@@ -10977,7 +10966,7 @@ define internal fastcc void @ExplainCloseWorker(i32 noundef %0, ptr noundef capt
   %32 = load i32, ptr %.val.i, align 8
   store i32 %32, ptr %8, align 4
   %33 = load ptr, ptr %29, align 8
-  %34 = tail call ptr @list_delete_first(ptr noundef %33) #13
+  %34 = tail call ptr @list_delete_first(ptr noundef %33) #12
   store ptr %34, ptr %29, align 8
   br label %ExplainSaveGroup.exitthread-pre-split
 
@@ -11068,9 +11057,9 @@ define internal fastcc void @show_instrumentation_count(ptr noundef %0, i32 noun
   %19 = fcmp ogt double %14, 0.000000e+00
   %20 = fdiv double %.0, %14
   %.sink20 = select i1 %19, double %20, double 0.000000e+00
-  %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %.sink20) #13
+  %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 0, double noundef %.sink20) #12
   tail call fastcc void @ExplainProperty(ptr noundef %0, ptr noundef null, ptr noundef %21, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
-  tail call void @pfree(ptr noundef %21) #13
+  tail call void @pfree(ptr noundef %21) #12
   br label %22
 
 22:                                               ; preds = %.sink.split, %16, %4, %8
@@ -11083,8 +11072,8 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 define internal fastcc void @show_expression(ptr noundef %0, ptr noundef %1, ptr %.8.val, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @set_deparse_context_plan(ptr noundef %7, ptr noundef %.8.val, ptr noundef %2) #13
-  %9 = tail call ptr @deparse_expression(ptr noundef %0, ptr noundef %8, i1 noundef zeroext %3, i1 noundef zeroext false) #13
+  %8 = tail call ptr @set_deparse_context_plan(ptr noundef %7, ptr noundef %.8.val, ptr noundef %2) #12
+  %9 = tail call ptr @deparse_expression(ptr noundef %0, ptr noundef %8, i1 noundef zeroext %3, i1 noundef zeroext false) #12
   tail call fastcc void @ExplainProperty(ptr noundef %1, ptr noundef null, ptr noundef %9, i1 noundef zeroext false, ptr noundef readonly %4)
   ret void
 }
@@ -11149,20 +11138,20 @@ define internal fastcc void @show_wal_usage(ptr noundef readonly captures(none) 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %38 = load i32, ptr %37, align 4
   %39 = shl i32 %38, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %25, i32 noundef %39) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %25, i32 noundef %39) #12
   %.pre = load ptr, ptr %0, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %29, %36
   %40 = phi ptr [ %25, %29 ], [ %.pre, %36 ]
-  tail call void @appendStringInfoString(ptr noundef %40, ptr noundef nonnull @.str.349) #13
+  tail call void @appendStringInfoString(ptr noundef %40, ptr noundef nonnull @.str.349) #12
   %41 = load i64, ptr %1, align 8
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %ExplainIndentText.exit
   %44 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %44, ptr noundef nonnull @.str.350, i64 noundef %41) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %44, ptr noundef nonnull @.str.350, i64 noundef %41) #12
   br label %45
 
 45:                                               ; preds = %43, %ExplainIndentText.exit
@@ -11173,7 +11162,7 @@ ExplainIndentText.exit:                           ; preds = %29, %36
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %50, ptr noundef nonnull @.str.351, i64 noundef %47) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %50, ptr noundef nonnull @.str.351, i64 noundef %47) #12
   br label %51
 
 51:                                               ; preds = %49, %45
@@ -11184,7 +11173,7 @@ ExplainIndentText.exit:                           ; preds = %29, %36
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %55, ptr noundef nonnull @.str.352, i64 noundef %53) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %55, ptr noundef nonnull @.str.352, i64 noundef %53) #12
   br label %56
 
 56:                                               ; preds = %54, %51
@@ -11195,35 +11184,35 @@ ExplainIndentText.exit:                           ; preds = %29, %36
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %61, ptr noundef nonnull @.str.353, i64 noundef %58) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %61, ptr noundef nonnull @.str.353, i64 noundef %58) #12
   br label %62
 
 62:                                               ; preds = %60, %56
   %63 = load ptr, ptr %0, align 8
-  tail call void @appendStringInfoChar(ptr noundef %63, i8 noundef signext 10) #13
+  tail call void @appendStringInfoChar(ptr noundef %63, i8 noundef signext 10) #12
   br label %75
 
 64:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %65 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %10) #13
+  %65 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %10) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.354, ptr noundef null, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i64, ptr %66, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %67) #13
+  %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %67) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.355, ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %70 = load i64, ptr %69, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %71 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %70) #13
+  %71 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.55, i64 noundef %70) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.356, ptr noundef null, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load i64, ptr %72, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %74 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %73) #13
+  %74 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %73) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.357, ptr noundef null, ptr noundef nonnull %3, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
@@ -11286,7 +11275,7 @@ define internal fastcc void @ExplainTargetRel(ptr noundef readonly captures(none
 24:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %22, %22
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %26 = load i32, ptr %25, align 4
-  %27 = tail call ptr @get_rel_name(i32 noundef %26) #13
+  %27 = tail call ptr @get_rel_name(i32 noundef %26) #12
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load i8, ptr %28, align 8, !range !4, !noundef !5
   %30 = trunc nuw i8 %29 to i1
@@ -11294,8 +11283,8 @@ define internal fastcc void @ExplainTargetRel(ptr noundef readonly captures(none
 
 31:                                               ; preds = %24
   %32 = load i32, ptr %25, align 4
-  %33 = tail call i32 @get_rel_namespace(i32 noundef %32) #13
-  %34 = tail call ptr @get_namespace_name_or_temp(i32 noundef %33) #13
+  %33 = tail call i32 @get_rel_namespace(i32 noundef %32) #12
+  %34 = tail call ptr @get_namespace_name_or_temp(i32 noundef %33) #12
   br label %list_length.exit.thread
 
 35:                                               ; preds = %22
@@ -11323,15 +11312,15 @@ list_length.exit:                                 ; preds = %35
 48:                                               ; preds = %41
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %50 = load i32, ptr %49, align 4
-  %51 = tail call ptr @get_func_name(i32 noundef %50) #13
+  %51 = tail call ptr @get_func_name(i32 noundef %50) #12
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load i8, ptr %52, align 8, !range !4, !noundef !5
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %list_length.exit.thread
 
 55:                                               ; preds = %48
-  %56 = tail call i32 @get_func_namespace(i32 noundef %50) #13
-  %57 = tail call ptr @get_namespace_name_or_temp(i32 noundef %56) #13
+  %56 = tail call i32 @get_func_namespace(i32 noundef %50) #12
+  %57 = tail call ptr @get_namespace_name_or_temp(i32 noundef %56) #12
   br label %list_length.exit.thread
 
 58:                                               ; preds = %22
@@ -11348,11 +11337,10 @@ list_length.exit:                                 ; preds = %35
   br label %list_length.exit.thread
 
 64:                                               ; preds = %58
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %65)
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %66 = load i32, ptr %61, align 4
-  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.240, i32 noundef %66) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 4443, ptr noundef nonnull @__func__.ExplainTargetRel) #13
+  %67 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.240, i32 noundef %66) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 4443, ptr noundef nonnull @__func__.ExplainTargetRel) #12
   unreachable
 
 68:                                               ; preds = %22
@@ -11382,7 +11370,7 @@ list_length.exit.thread:                          ; preds = %35, %63, %58, %list
 
 81:                                               ; preds = %list_length.exit.thread
   %82 = load ptr, ptr %2, align 8
-  tail call void @appendStringInfoString(ptr noundef %82, ptr noundef nonnull @.str.244) #13
+  tail call void @appendStringInfoString(ptr noundef %82, ptr noundef nonnull @.str.244) #12
   %.not56 = icmp eq ptr %.150, null
   br i1 %.not56, label %83, label %86
 
@@ -11392,27 +11380,27 @@ list_length.exit.thread:                          ; preds = %35, %63, %58, %list
 
 .thread:                                          ; preds = %83
   %84 = load ptr, ptr %2, align 8
-  %85 = tail call ptr @quote_identifier(ptr noundef nonnull %.0) #13
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %84, ptr noundef nonnull @.str.194, ptr noundef %85) #13
+  %85 = tail call ptr @quote_identifier(ptr noundef nonnull %.0) #12
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %84, ptr noundef nonnull @.str.194, ptr noundef %85) #12
   br label %91
 
 86:                                               ; preds = %81
   %87 = load ptr, ptr %2, align 8
-  %88 = tail call ptr @quote_identifier(ptr noundef nonnull %.150) #13
-  %89 = tail call ptr @quote_identifier(ptr noundef %.0) #13
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %87, ptr noundef nonnull @.str.245, ptr noundef %88, ptr noundef %89) #13
+  %88 = tail call ptr @quote_identifier(ptr noundef nonnull %.150) #12
+  %89 = tail call ptr @quote_identifier(ptr noundef %.0) #12
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %87, ptr noundef nonnull @.str.245, ptr noundef %88, ptr noundef %89) #12
   %90 = icmp eq ptr %.0, null
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %.thread, %86
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.054, ptr noundef nonnull dereferenceable(1) %.0) #14
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.054, ptr noundef nonnull dereferenceable(1) %.0) #13
   %.not58 = icmp eq i32 %92, 0
   br i1 %.not58, label %102, label %93
 
 93:                                               ; preds = %83, %91, %86
   %94 = load ptr, ptr %2, align 8
-  %95 = tail call ptr @quote_identifier(ptr noundef %.054) #13
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %94, ptr noundef nonnull @.str.194, ptr noundef %95) #13
+  %95 = tail call ptr @quote_identifier(ptr noundef %.054) #12
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %94, ptr noundef nonnull @.str.194, ptr noundef %95) #12
   br label %102
 
 96:                                               ; preds = %list_length.exit.thread
@@ -11471,7 +11459,7 @@ define internal fastcc void @show_storage_info(ptr noundef %0, i64 noundef %1, p
 9:                                                ; preds = %3
   tail call fastcc void @ExplainProperty(ptr noundef nonnull @.str.268, ptr noundef null, ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %6) #13
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %6) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.86, ptr noundef nonnull %4, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
@@ -11496,13 +11484,13 @@ define internal fastcc void @show_storage_info(ptr noundef %0, i64 noundef %1, p
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %25, 1
-  tail call void @appendStringInfoSpaces(ptr noundef nonnull %12, i32 noundef %26) #13
+  tail call void @appendStringInfoSpaces(ptr noundef nonnull %12, i32 noundef %26) #12
   %.pre = load ptr, ptr %2, align 8
   br label %ExplainIndentText.exit
 
 ExplainIndentText.exit:                           ; preds = %16, %23
   %27 = phi ptr [ %12, %16 ], [ %.pre, %23 ]
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %27, ptr noundef nonnull @.str.270, ptr noundef %0, i64 noundef %6) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %27, ptr noundef nonnull @.str.270, ptr noundef %0, i64 noundef %6) #12
   br label %28
 
 28:                                               ; preds = %ExplainIndentText.exit, %9
@@ -11518,10 +11506,10 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   br i1 %12, label %102, label %13
 
 13:                                               ; preds = %9
-  call void @initStringInfo(ptr noundef nonnull %11) #13
+  call void @initStringInfo(ptr noundef nonnull %11) #12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = call ptr @set_deparse_context_plan(ptr noundef %15, ptr noundef %.8.val, ptr noundef %7) #13
+  %16 = call ptr @set_deparse_context_plan(ptr noundef %15, ptr noundef %.8.val, ptr noundef %7) #12
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 84
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 1
@@ -11548,24 +11536,24 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   %27 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv35
   %28 = load i16, ptr %27, align 2
   %29 = load ptr, ptr %25, align 8
-  %30 = call ptr @get_tle_by_resno(ptr noundef %29, i16 noundef signext %28) #13
+  %30 = call ptr @get_tle_by_resno(ptr noundef %29, i16 noundef signext %28) #12
   %.not.us = icmp eq ptr %30, null
   br i1 %.not.us, label %.split.us, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = call ptr @deparse_expression(ptr noundef %33, ptr noundef %16, i1 noundef zeroext %24, i1 noundef zeroext true) #13
-  call void @resetStringInfo(ptr noundef nonnull %11) #13
-  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef %34) #13
+  %34 = call ptr @deparse_expression(ptr noundef %33, ptr noundef %16, i1 noundef zeroext %24, i1 noundef zeroext true) #12
+  call void @resetStringInfo(ptr noundef nonnull %11) #12
+  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef %34) #12
   %35 = load ptr, ptr %11, align 8
-  %36 = call ptr @pstrdup(ptr noundef %35) #13
-  %37 = call ptr @lappend(ptr noundef %.015.us, ptr noundef %36) #13
+  %36 = call ptr @pstrdup(ptr noundef %35) #12
+  %37 = call ptr @lappend(ptr noundef %.015.us, ptr noundef %36) #12
   %38 = icmp slt i64 %indvars.iv35, %26
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %31
-  %40 = call ptr @lappend(ptr noundef %.03814.us, ptr noundef %34) #13
+  %40 = call ptr @lappend(ptr noundef %.03814.us, ptr noundef %34) #12
   br label %41
 
 41:                                               ; preds = %39, %31
@@ -11581,25 +11569,24 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   %42 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2
   %44 = load ptr, ptr %25, align 8
-  %45 = call ptr @get_tle_by_resno(ptr noundef %44, i16 noundef signext %43) #13
+  %45 = call ptr @get_tle_by_resno(ptr noundef %44, i16 noundef signext %43) #12
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.split.us, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i16 [ %28, %.lr.ph.split.us ], [ %43, %.lr.ph.split ]
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %46)
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %47 = sext i16 %.us-phi to i32
-  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef %47) #13
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 2941, ptr noundef nonnull @__func__.show_sort_group_keys) #13
+  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef %47) #12
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 2941, ptr noundef nonnull @__func__.show_sort_group_keys) #12
   unreachable
 
 49:                                               ; preds = %.lr.ph.split
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = call ptr @deparse_expression(ptr noundef %51, ptr noundef %16, i1 noundef zeroext %24, i1 noundef zeroext true) #13
-  call void @resetStringInfo(ptr noundef nonnull %11) #13
-  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef %52) #13
+  %52 = call ptr @deparse_expression(ptr noundef %51, ptr noundef %16, i1 noundef zeroext %24, i1 noundef zeroext true) #12
+  call void @resetStringInfo(ptr noundef nonnull %11) #12
+  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef %52) #12
   %53 = load ptr, ptr %50, align 8
   %54 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
@@ -11608,33 +11595,32 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !range !4, !noundef !5
   %60 = trunc nuw i8 %59 to i1
-  %61 = call i32 @exprType(ptr noundef %53) #13
+  %61 = call i32 @exprType(ptr noundef %53) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1
-  %62 = call ptr @lookup_type_cache(i32 noundef %61, i32 noundef 6) #13
+  %62 = call ptr @lookup_type_cache(i32 noundef %61, i32 noundef 6) #12
   %.not31.i = icmp eq i32 %57, 0
   br i1 %.not31.i, label %73, label %63
 
 63:                                               ; preds = %49
-  %64 = call i32 @get_typcollation(i32 noundef %61) #13
+  %64 = call i32 @get_typcollation(i32 noundef %61) #12
   %.not32.i = icmp eq i32 %57, %64
   br i1 %.not32.i, label %73, label %65
 
 65:                                               ; preds = %63
-  %66 = call ptr @get_collation_name(i32 noundef %57) #13
+  %66 = call ptr @get_collation_name(i32 noundef %57) #12
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %65
-  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %69)
-  %70 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.281, i32 noundef %57) #13
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 2992, ptr noundef nonnull @__func__.show_sortorder_options) #13
+  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %70 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.281, i32 noundef %57) #12
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 2992, ptr noundef nonnull @__func__.show_sortorder_options) #12
   unreachable
 
 71:                                               ; preds = %65
-  %72 = call ptr @quote_identifier(ptr noundef nonnull %66) #13
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.282, ptr noundef %72) #13
+  %72 = call ptr @quote_identifier(ptr noundef nonnull %66) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.282, ptr noundef %72) #12
   br label %73
 
 73:                                               ; preds = %71, %63, %49
@@ -11644,7 +11630,7 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   br i1 %76, label %.thread.i, label %77
 
 .thread.i:                                        ; preds = %73
-  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef nonnull @.str.283) #13
+  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef nonnull @.str.283) #12
   store i8 1, ptr %10, align 1
   %.not37.i = xor i1 %60, true
   br label %91
@@ -11656,20 +11642,19 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   br i1 %.not33.i, label %89, label %80
 
 80:                                               ; preds = %77
-  %81 = call ptr @get_opname(i32 noundef %55) #13
+  %81 = call ptr @get_opname(i32 noundef %55) #12
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %80
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %84)
-  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.284, i32 noundef %55) #13
-  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 3007, ptr noundef nonnull @__func__.show_sortorder_options) #13
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.284, i32 noundef %55) #12
+  call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 3007, ptr noundef nonnull @__func__.show_sortorder_options) #12
   unreachable
 
 86:                                               ; preds = %80
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.285, ptr noundef nonnull %81) #13
-  %87 = call i32 @get_equality_op_for_ordering_op(i32 noundef %55, ptr noundef nonnull %10) #13
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.285, ptr noundef nonnull %81) #12
+  %87 = call i32 @get_equality_op_for_ordering_op(i32 noundef %55, ptr noundef nonnull %10) #12
   %.pre.i = load i8, ptr %10, align 1, !range !4
   %88 = trunc nuw i8 %.pre.i to i1
   br label %89
@@ -11688,19 +11673,19 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
 
 .sink.split.i:                                    ; preds = %91, %89
   %.str.287.sink.i = phi ptr [ @.str.286, %89 ], [ @.str.287, %91 ]
-  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef nonnull %.str.287.sink.i) #13
+  call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef nonnull %.str.287.sink.i) #12
   br label %show_sortorder_options.exit
 
 show_sortorder_options.exit:                      ; preds = %91, %.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %93 = load ptr, ptr %11, align 8
-  %94 = call ptr @pstrdup(ptr noundef %93) #13
-  %95 = call ptr @lappend(ptr noundef %.015, ptr noundef %94) #13
+  %94 = call ptr @pstrdup(ptr noundef %93) #12
+  %95 = call ptr @lappend(ptr noundef %.015, ptr noundef %94) #12
   %96 = icmp slt i64 %indvars.iv, %26
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %show_sortorder_options.exit
-  %98 = call ptr @lappend(ptr noundef %.03814, ptr noundef %52) #13
+  %98 = call ptr @lappend(ptr noundef %.03814, ptr noundef %52) #12
   br label %99
 
 99:                                               ; preds = %97, %show_sortorder_options.exit
@@ -11811,7 +11796,7 @@ define internal fastcc void @show_grouping_set_keys(ptr noundef readonly capture
   %53 = getelementptr inbounds nuw i16, ptr %13, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = load ptr, ptr %38, align 8
-  %56 = tail call ptr @get_tle_by_resno(ptr noundef %55, i16 noundef signext %54) #13
+  %56 = tail call ptr @get_tle_by_resno(ptr noundef %55, i16 noundef signext %54) #12
   %.not73 = icmp eq ptr %56, null
   br i1 %.not73, label %.split83, label %60
 
@@ -11824,18 +11809,17 @@ define internal fastcc void @show_grouping_set_keys(ptr noundef readonly capture
   br label %71
 
 .split83:                                         ; preds = %.lr.ph88
-  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %57)
+  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   %58 = sext i16 %54 to i32
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef %58) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 2862, ptr noundef nonnull @__func__.show_grouping_set_keys) #13
+  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.278, i32 noundef %58) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.16, i32 noundef 2862, ptr noundef nonnull @__func__.show_grouping_set_keys) #12
   unreachable
 
 60:                                               ; preds = %.lr.ph88
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @deparse_expression(ptr noundef %62, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext true) #13
-  %64 = tail call ptr @lappend(ptr noundef %.0617887, ptr noundef %63) #13
+  %63 = tail call ptr @deparse_expression(ptr noundef %62, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext true) #12
+  %64 = tail call ptr @lappend(ptr noundef %.0617887, ptr noundef %63) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load i32, ptr %45, align 4
   %66 = sext i32 %65 to i64
@@ -11933,8 +11917,8 @@ define internal fastcc void @show_incremental_sort_group_info(ptr noundef readon
   br i1 %.not73, label %25, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call ptr @tuplesort_method_name(i32 noundef %19) #13
-  %24 = tail call ptr @lappend(ptr noundef %.07077, ptr noundef %23) #13
+  %23 = tail call ptr @tuplesort_method_name(i32 noundef %19) #12
+  %24 = tail call ptr @lappend(ptr noundef %.07077, ptr noundef %23) #12
   br label %25
 
 25:                                               ; preds = %22, %18
@@ -11951,19 +11935,19 @@ define internal fastcc void @show_incremental_sort_group_info(ptr noundef readon
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = shl i32 %31, 1
-  tail call void @appendStringInfoSpaces(ptr noundef %29, i32 noundef %32) #13
+  tail call void @appendStringInfoSpaces(ptr noundef %29, i32 noundef %32) #12
   br label %33
 
 33:                                               ; preds = %28, %27
   %34 = load ptr, ptr %3, align 8
   %35 = load i64, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %34, ptr noundef nonnull @.str.301, ptr noundef %1, i64 noundef %35) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %34, ptr noundef nonnull @.str.301, ptr noundef %1, i64 noundef %35) #12
   %.not.i = icmp eq ptr %.1, null
   br i1 %.not.i, label %.thread82, label %list_length.exit
 
 .thread82:                                        ; preds = %33
   %36 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoString(ptr noundef %36, ptr noundef nonnull @.str.59) #13
+  tail call void @appendStringInfoString(ptr noundef %36, ptr noundef nonnull @.str.59) #12
   br label %.critedge
 
 list_length.exit:                                 ; preds = %33
@@ -11973,7 +11957,7 @@ list_length.exit:                                 ; preds = %33
   %40 = load ptr, ptr %3, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %.str.302..str.59 = select i1 %39, ptr @.str.302, ptr @.str.59
-  tail call void @appendStringInfoString(ptr noundef %40, ptr noundef nonnull %.str.302..str.59) #13
+  tail call void @appendStringInfoString(ptr noundef %40, ptr noundef nonnull %.str.302..str.59) #12
   %42 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %43 = load i32, ptr %41, align 4
   %44 = icmp sgt i32 %43, 0
@@ -11985,7 +11969,7 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %3, align 8
   %48 = load ptr, ptr %46, align 8
-  tail call void @appendStringInfoString(ptr noundef %47, ptr noundef %48) #13
+  tail call void @appendStringInfoString(ptr noundef %47, ptr noundef %48) #12
   %49 = load i32, ptr %41, align 4
   %50 = add i32 %49, -1
   %51 = sext i32 %50 to i64
@@ -12000,7 +11984,7 @@ list_length.exit75:                               ; preds = %list_length.exit, %
 
 56:                                               ; preds = %list_length.exit75
   %57 = load ptr, ptr %3, align 8
-  tail call void @appendStringInfoString(ptr noundef %57, ptr noundef nonnull @.str.48) #13
+  tail call void @appendStringInfoString(ptr noundef %57, ptr noundef nonnull @.str.48) #12
   %.pre = load i32, ptr %41, align 4
   br label %58
 
@@ -12016,10 +12000,10 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %64 = load i64, ptr %63, align 8
   %65 = load i64, ptr %0, align 8
   %66 = sdiv i64 %64, %65
-  %67 = tail call ptr @tuplesort_space_type_name(i32 noundef 1) #13
+  %67 = tail call ptr @tuplesort_space_type_name(i32 noundef 1) #12
   %68 = load ptr, ptr %3, align 8
   %69 = load i64, ptr %53, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %68, ptr noundef nonnull @.str.303, ptr noundef %67, i64 noundef %66, ptr noundef %67, i64 noundef %69) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %68, ptr noundef nonnull @.str.303, ptr noundef %67, i64 noundef %66, ptr noundef %67, i64 noundef %69) #12
   br label %70
 
 70:                                               ; preds = %62, %.critedge
@@ -12033,21 +12017,21 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %76 = load i64, ptr %75, align 8
   %77 = load i64, ptr %0, align 8
   %78 = sdiv i64 %76, %77
-  %79 = tail call ptr @tuplesort_space_type_name(i32 noundef 0) #13
+  %79 = tail call ptr @tuplesort_space_type_name(i32 noundef 0) #12
   %80 = load ptr, ptr %3, align 8
   %81 = load i64, ptr %71, align 8
-  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %80, ptr noundef nonnull @.str.303, ptr noundef %79, i64 noundef %78, ptr noundef %79, i64 noundef %81) #13
+  tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %80, ptr noundef nonnull @.str.303, ptr noundef %79, i64 noundef %78, ptr noundef %79, i64 noundef %81) #12
   br label %114
 
 82:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @initStringInfo(ptr noundef nonnull %10) #13
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %10, ptr noundef nonnull @.str.304, ptr noundef %1) #13
+  call void @initStringInfo(ptr noundef nonnull %10) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %10, ptr noundef nonnull @.str.304, ptr noundef %1) #12
   %83 = load ptr, ptr %10, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.305, ptr noundef %83, i1 noundef zeroext true, ptr noundef nonnull %3)
   %84 = load i64, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %85 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %84) #13
+  %85 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %84) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.306, ptr noundef null, ptr noundef nonnull %9, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @ExplainPropertyList(ptr noundef nonnull @.str.307, ptr noundef %.1, ptr noundef nonnull %3)
@@ -12062,18 +12046,18 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %92 = load i64, ptr %0, align 8
   %93 = sdiv i64 %91, %92
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %94 = call ptr @tuplesort_space_type_name(i32 noundef 1) #13
-  call void @initStringInfo(ptr noundef nonnull %11) #13
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.308, ptr noundef %94) #13
+  %94 = call ptr @tuplesort_space_type_name(i32 noundef 1) #12
+  call void @initStringInfo(ptr noundef nonnull %11) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %11, ptr noundef nonnull @.str.308, ptr noundef %94) #12
   %95 = load ptr, ptr %11, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.309, ptr noundef %95, i1 noundef zeroext true, ptr noundef nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %93) #13
+  %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %93) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.86, ptr noundef nonnull %8, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %97 = load i64, ptr %86, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %97) #13
+  %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %97) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.311, ptr noundef nonnull @.str.86, ptr noundef nonnull %7, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.309, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
@@ -12092,18 +12076,18 @@ list_length.exit75:                               ; preds = %list_length.exit, %
   %106 = load i64, ptr %0, align 8
   %107 = sdiv i64 %105, %106
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %108 = call ptr @tuplesort_space_type_name(i32 noundef 0) #13
-  call void @initStringInfo(ptr noundef nonnull %12) #13
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %12, ptr noundef nonnull @.str.308, ptr noundef %108) #13
+  %108 = call ptr @tuplesort_space_type_name(i32 noundef 0) #12
+  call void @initStringInfo(ptr noundef nonnull %12) #12
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %12, ptr noundef nonnull @.str.308, ptr noundef %108) #12
   %109 = load ptr, ptr %12, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.309, ptr noundef %109, i1 noundef zeroext true, ptr noundef nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %110 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %107) #13
+  %110 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %107) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.86, ptr noundef nonnull %6, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %111 = load i64, ptr %100, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %111) #13
+  %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %111) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.311, ptr noundef nonnull @.str.86, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef nonnull readonly %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.309, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %3)
@@ -12160,20 +12144,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #10
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #12
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -12184,13 +12165,12 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { cold nounwind }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
+attributes #14 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

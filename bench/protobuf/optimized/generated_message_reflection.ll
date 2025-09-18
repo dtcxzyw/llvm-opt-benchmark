@@ -20781,29 +20781,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds i32, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store i32 %value, ptr %add.ptr.i.i18, align 4
-  %26 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -21699,29 +21694,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIlE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds i64, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store i64 %value, ptr %add.ptr.i.i18, align 8
-  %26 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIlEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -22617,29 +22607,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIjE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds i32, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store i32 %value, ptr %add.ptr.i.i18, align 4
-  %26 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIjEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -23535,29 +23520,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldImE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds i64, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store i64 %value, ptr %add.ptr.i.i18, align 8
-  %26 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldImEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -24453,29 +24433,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIfE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds float, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store float %value, ptr %add.ptr.i.i18, align 4
-  %26 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIfEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -25371,29 +25346,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIdE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds double, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store double %value, ptr %add.ptr.i.i18, align 8
-  %26 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIdEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -26299,29 +26269,24 @@ if.else:                                          ; preds = %if.end12
 if.then.i.i19:                                    ; preds = %if.else
   %add.i.i = add nsw i32 %22, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIbE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %22, i32 noundef %add.i.i)
-  %24 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i19
-  %25 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
-  %total_size.0.i.i = phi i32 [ %24, %if.then.i.i19 ], [ %22, %if.else ]
+  %24 = phi i32 [ %.pre.i.i, %if.then.i.i19 ], [ %23, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %25, 1
+  %add7.i.i = add nsw i32 %24, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i17 = sext i32 %25 to i64
+  %idx.ext.i.i17 = sext i32 %24 to i64
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %elem.0.i.i, i64 %idx.ext.i.i17
   store i8 %frombool, ptr %add.ptr.i.i18, align 1
-  %26 = load i32, ptr %call.i, align 8
-  %cmp11.i.i = icmp eq i32 %add7.i.i, %26
+  %25 = load i32, ptr %call.i, align 8
+  %cmp11.i.i = icmp eq i32 %add7.i.i, %25
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %27 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp12.i.i = icmp eq ptr %elem.0.i.i, %27
+  %26 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp12.i.i = icmp eq ptr %elem.0.i.i, %26
   tail call void @llvm.assume(i1 %cmp12.i.i)
-  %28 = load i32, ptr %total_size_.i.i, align 4
-  %cmp14.i.i = icmp eq i32 %total_size.0.i.i, %28
-  tail call void @llvm.assume(i1 %cmp14.i.i)
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIbEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -31865,29 +31830,24 @@ if.else:                                          ; preds = %entry
 if.then.i.i9:                                     ; preds = %if.else
   %add.i.i = add nsw i32 %11, 1
   tail call void @_ZN6google8protobuf13RepeatedFieldIiE14GrowNoAnnotateEii(ptr noundef nonnull align 8 dereferenceable(16) %call.i, i32 noundef %11, i32 noundef %add.i.i)
-  %13 = load i32, ptr %total_size_.i.i, align 4
   %.pre.i.i = load i32, ptr %call.i, align 8
   br label %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit
 
 _ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit: ; preds = %if.else, %if.then.i.i9
-  %14 = phi i32 [ %.pre.i.i, %if.then.i.i9 ], [ %12, %if.else ]
-  %total_size.0.i.i = phi i32 [ %13, %if.then.i.i9 ], [ %11, %if.else ]
+  %13 = phi i32 [ %.pre.i.i, %if.then.i.i9 ], [ %12, %if.else ]
   %arena_or_elements_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %elem.0.i.i = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %add7.i.i = add nsw i32 %14, 1
+  %add7.i.i = add nsw i32 %13, 1
   store i32 %add7.i.i, ptr %call.i, align 8
-  %idx.ext.i.i7 = sext i32 %14 to i64
+  %idx.ext.i.i7 = sext i32 %13 to i64
   %add.ptr.i.i8 = getelementptr inbounds i32, ptr %elem.0.i.i, i64 %idx.ext.i.i7
   store i32 %value, ptr %add.ptr.i.i8, align 4
-  %15 = load i32, ptr %call.i, align 8
-  %cmp10.i.i = icmp eq i32 %add7.i.i, %15
+  %14 = load i32, ptr %call.i, align 8
+  %cmp10.i.i = icmp eq i32 %add7.i.i, %14
   tail call void @llvm.assume(i1 %cmp10.i.i)
-  %16 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
-  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %16
+  %15 = load ptr, ptr %arena_or_elements_.i.i.i, align 8
+  %cmp11.i.i = icmp eq ptr %elem.0.i.i, %15
   tail call void @llvm.assume(i1 %cmp11.i.i)
-  %17 = load i32, ptr %total_size_.i.i, align 4
-  %cmp13.i.i = icmp eq i32 %total_size.0.i.i, %17
-  tail call void @llvm.assume(i1 %cmp13.i.i)
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK6google8protobuf10Reflection8AddFieldIiEEvPNS0_7MessageEPKNS0_15FieldDescriptorERKT_.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit

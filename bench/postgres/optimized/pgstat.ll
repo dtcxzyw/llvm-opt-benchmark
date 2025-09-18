@@ -121,40 +121,40 @@ define dso_local void @pgstat_restore_stats(i64 noundef %0) local_unnamed_addr #
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = load ptr, ptr @pgStatLocal, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %10 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %1
   %12 = lshr i64 %0, 32
   %13 = trunc nuw i64 %12 to i32
   %14 = trunc i64 %0 to i32
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str, i32 noundef %13, i32 noundef %14) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str, i32 noundef %13, i32 noundef %14) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1789, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %16
 
 16:                                               ; preds = %11, %1
-  %17 = tail call ptr @AllocateFile(ptr noundef nonnull @.str, ptr noundef nonnull @.str.43) #17
+  %17 = tail call ptr @AllocateFile(ptr noundef nonnull @.str, ptr noundef nonnull @.str.43) #16
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %46
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #18
+  %20 = tail call ptr @__errno_location() #17
   %21 = load i32, ptr %20, align 4
   %.not80.i = icmp eq i32 %21, 2
   br i1 %.not80.i, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %23 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @errcode_for_file_access() #17
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1806, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %25 = tail call i32 @errcode_for_file_access() #16
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1806, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %27
 
 27:                                               ; preds = %24, %22, %19
-  %28 = tail call i64 @GetCurrentTimestamp() #17
+  %28 = tail call i64 @GetCurrentTimestamp() #16
   br label %29
 
 29:                                               ; preds = %pgstat_get_kind_info.exit.thread.i.i, %27
@@ -191,7 +191,7 @@ pgstat_get_kind_info.exit.i.i:                    ; preds = %35
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %.0.i12.i.i, i64 104
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(i64 noundef %28) #17
+  tail call void %45(i64 noundef %28) #16
   br label %pgstat_get_kind_info.exit.thread.i.i
 
 pgstat_get_kind_info.exit.thread.i.i:             ; preds = %43, %40, %pgstat_get_kind_info.exit.i.i, %35, %32
@@ -200,7 +200,7 @@ pgstat_get_kind_info.exit.thread.i.i:             ; preds = %43, %40, %pgstat_ge
   br i1 %exitcond.not.i.i, label %pgstat_reset_after_failure.exit.i, label %29, !llvm.loop !4
 
 pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_info.exit.thread.i.i
-  tail call void @pgstat_drop_all_entries() #17
+  tail call void @pgstat_drop_all_entries() #16
   br label %pgstat_read_statsfile.exit
 
 46:                                               ; preds = %16
@@ -209,12 +209,12 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %50 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %50, label %51, label %.thread129.i
 
 51:                                               ; preds = %49
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1816, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1816, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread129.i
 
 53:                                               ; preds = %46
@@ -223,12 +223,12 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   br i1 %.not.i, label %59, label %55
 
 55:                                               ; preds = %53
-  %56 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %56 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %56, label %57, label %.thread129.i
 
 57:                                               ; preds = %55
-  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, i32 noundef %54, i32 noundef 27638963) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1823, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, i32 noundef %54, i32 noundef 27638963) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1823, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread129.i
 
 59:                                               ; preds = %53
@@ -237,12 +237,12 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %59
-  %63 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %63 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %63, label %64, label %.thread129.i
 
 64:                                               ; preds = %62
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1832, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1832, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread129.i
 
 66:                                               ; preds = %59
@@ -257,7 +257,7 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   br label %.backedge.i
 
 71:                                               ; preds = %66
-  %72 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %72 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %72, label %73, label %.thread129.i
 
 73:                                               ; preds = %71
@@ -267,8 +267,8 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   %77 = lshr i64 %0, 32
   %78 = trunc nuw i64 %77 to i32
   %79 = trunc i64 %0 to i32
-  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48, i32 noundef %75, i32 noundef %76, i32 noundef %78, i32 noundef %79) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1839, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.48, i32 noundef %75, i32 noundef %76, i32 noundef %78, i32 noundef %79) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1839, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread129.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %.preheader.i
@@ -287,11 +287,11 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   br i1 %84, label %89, label %85
 
 85:                                               ; preds = %82
-  %86 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %86 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %86, label %87, label %.thread110.i
 
 87:                                               ; preds = %85
-  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49, i32 noundef 70) #17
+  %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49, i32 noundef 70) #16
   br label %.thread110.sink.split.i
 
 89:                                               ; preds = %82
@@ -304,11 +304,11 @@ pgstat_reset_after_failure.exit.i:                ; preds = %pgstat_get_kind_inf
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %89
-  %97 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %97 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %97, label %98, label %.thread110.i
 
 98:                                               ; preds = %96
-  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %90, i32 noundef 70) #17
+  %99 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %90, i32 noundef 70) #16
   br label %.thread110.sink.split.i
 
 100:                                              ; preds = %89
@@ -330,11 +330,11 @@ pgstat_get_kind_info.exit.i:                      ; preds = %102
   br i1 %.not79.i, label %pgstat_get_kind_info.exit.thread.i, label %.thread.i
 
 pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_info.exit.i, %102, %101
-  %108 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %108 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %108, label %109, label %.thread110.i
 
 109:                                              ; preds = %pgstat_get_kind_info.exit.thread.i
-  %110 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %90, i32 noundef 70) #17
+  %110 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %90, i32 noundef 70) #16
   br label %.thread110.sink.split.i
 
 111:                                              ; preds = %100
@@ -350,11 +350,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %117, label %.thread106.i, label %118
 
 118:                                              ; preds = %.thread.i, %111
-  %119 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %119 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %119, label %120, label %.thread110.i
 
 120:                                              ; preds = %118
-  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.52, i32 noundef %90, i32 noundef 70) #17
+  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.52, i32 noundef %90, i32 noundef 70) #16
   br label %.thread110.sink.split.i
 
 122:                                              ; preds = %111
@@ -384,18 +384,18 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %138, label %145, label %139
 
 139:                                              ; preds = %129
-  %140 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %140 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %140, label %141, label %.thread110.i
 
 141:                                              ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %.sink214.i, i64 20
   %143 = load i32, ptr %142, align 4
-  %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %90, i32 noundef 70, i32 noundef %143) #17
+  %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %90, i32 noundef 70, i32 noundef %143) #16
   br label %.thread110.sink.split.i
 
 .thread110.sink.split.i:                          ; preds = %141, %120, %109, %98, %87
   %.sink215.i = phi i32 [ 1862, %87 ], [ 1869, %98 ], [ 1877, %109 ], [ 1884, %120 ], [ 1903, %141 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink215.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink215.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread110.i
 
 .thread110.i:                                     ; preds = %.thread110.sink.split.i, %139, %118, %pgstat_get_kind_info.exit.thread.i, %96, %85
@@ -413,7 +413,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %.not75.i, label %149, label %148, !prof !6
 
 148:                                              ; preds = %146
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #16
   br label %149
 
 149:                                              ; preds = %148, %146
@@ -426,11 +426,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %151
-  %155 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %155 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %155, label %156, label %.thread179.i
 
 156:                                              ; preds = %154
-  %157 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.54, i32 noundef 83) #17
+  %157 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.54, i32 noundef 83) #16
   br label %.thread179.sink.split.i
 
 158:                                              ; preds = %151
@@ -443,14 +443,14 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %164, label %239, label %165
 
 165:                                              ; preds = %158
-  %166 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %166 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %166, label %167, label %.thread179.i
 
 167:                                              ; preds = %165
   %168 = load i32, ptr %6, align 8
   %169 = load i32, ptr %68, align 4
   %170 = load i64, ptr %69, align 8
-  %171 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, i32 noundef %168, i32 noundef %169, i64 noundef %170, i32 noundef 83) #17
+  %171 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, i32 noundef %168, i32 noundef %169, i64 noundef %170, i32 noundef 83) #16
   br label %.thread179.sink.split.i
 
 172:                                              ; preds = %149
@@ -461,11 +461,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %174, label %179, label %175
 
 175:                                              ; preds = %172
-  %176 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %176 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %176, label %177, label %.thread182.i
 
 177:                                              ; preds = %175
-  %178 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49, i32 noundef %81) #17
+  %178 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49, i32 noundef %81) #16
   br label %.thread182.sink.split.i
 
 179:                                              ; preds = %172
@@ -474,12 +474,12 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %181, label %187, label %182
 
 182:                                              ; preds = %179
-  %183 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %183 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %183, label %184, label %.thread182.i
 
 184:                                              ; preds = %182
   %185 = load i32, ptr %7, align 4
-  %186 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef %185, i32 noundef %81) #17
+  %186 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef %185, i32 noundef %81) #16
   br label %.thread182.sink.split.i
 
 187:                                              ; preds = %179
@@ -492,11 +492,11 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   br i1 %193, label %198, label %194
 
 194:                                              ; preds = %187
-  %195 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %195 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %195, label %196, label %.thread182.i
 
 196:                                              ; preds = %194
-  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %188, i32 noundef %81) #17
+  %197 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %188, i32 noundef %81) #16
   br label %.thread182.sink.split.i
 
 198:                                              ; preds = %187
@@ -523,11 +523,11 @@ pgstat_get_kind_info.exit82.i:                    ; preds = %202
   br i1 %.not76.i, label %pgstat_get_kind_info.exit82.thread.i, label %211
 
 pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_info.exit82.i, %202, %201
-  %208 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %208 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %208, label %209, label %.thread182.i
 
 209:                                              ; preds = %pgstat_get_kind_info.exit82.thread.i
-  %210 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %188, i32 noundef %81) #17
+  %210 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %188, i32 noundef %81) #16
   br label %.thread182.sink.split.i
 
 211:                                              ; preds = %pgstat_get_kind_info.exit82.i, %pgstat_get_kind_info.exit82.thread115.i
@@ -538,15 +538,15 @@ pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_inf
   br i1 %.not77.i, label %214, label %218
 
 214:                                              ; preds = %211
-  %215 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %215 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %215, label %216, label %.thread182.i
 
 216:                                              ; preds = %214
-  %217 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %188, i32 noundef %81) #17
+  %217 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %188, i32 noundef %81) #16
   br label %.thread182.sink.split.i
 
 218:                                              ; preds = %211
-  %219 = call zeroext i1 %213(ptr noundef nonnull %8, ptr noundef nonnull %6) #17
+  %219 = call zeroext i1 %213(ptr noundef nonnull %8, ptr noundef nonnull %6) #16
   br i1 %219, label %238, label %220
 
 220:                                              ; preds = %218
@@ -575,11 +575,11 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
   br i1 %.not78.i, label %292, label %234
 
 234:                                              ; preds = %pgstat_get_entry_len.exit.i
-  %235 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %235 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %235, label %236, label %.thread182.i
 
 236:                                              ; preds = %234
-  %237 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, ptr noundef nonnull %8, i32 noundef %188, i32 noundef %81) #17
+  %237 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.58, ptr noundef nonnull %8, i32 noundef %188, i32 noundef %81) #16
   br label %.thread182.sink.split.i
 
 238:                                              ; preds = %218
@@ -589,29 +589,29 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
 
 239:                                              ; preds = %238, %158
   %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  %241 = call ptr @dshash_find_or_insert(ptr noundef %240, ptr noundef nonnull %6, ptr noundef nonnull %3) #17
+  %241 = call ptr @dshash_find_or_insert(ptr noundef %240, ptr noundef nonnull %6, ptr noundef nonnull %3) #16
   %242 = load i8, ptr %3, align 1, !range !8, !noundef !7
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %252
 
 244:                                              ; preds = %239
   %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %245, ptr noundef %241) #17
-  %246 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  call void @dshash_release_lock(ptr noundef %245, ptr noundef %241) #16
+  %246 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %246, label %247, label %.thread179.i
 
 247:                                              ; preds = %244
   %248 = load i32, ptr %6, align 8
   %249 = load i32, ptr %68, align 4
   %250 = load i64, ptr %69, align 8
-  %251 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, i32 noundef %248, i32 noundef %249, i64 noundef %250, i32 noundef %81) #17
+  %251 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.59, i32 noundef %248, i32 noundef %249, i64 noundef %250, i32 noundef %81) #16
   br label %.thread179.sink.split.i
 
 252:                                              ; preds = %239
   %253 = load i32, ptr %6, align 8
-  %254 = call ptr @pgstat_init_entry(i32 noundef %253, ptr noundef %241) #17
+  %254 = call ptr @pgstat_init_entry(i32 noundef %253, ptr noundef %241) #16
   %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_release_lock(ptr noundef %255, ptr noundef %241) #17
+  call void @dshash_release_lock(ptr noundef %255, ptr noundef %241) #16
   %256 = load i32, ptr %6, align 8
   %257 = add i32 %256, -1
   %258 = icmp ult i32 %257, 12
@@ -644,14 +644,14 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %262, %259
   br i1 %273, label %281, label %274
 
 274:                                              ; preds = %pgstat_get_entry_len.exit88.i
-  %275 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %275 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %275, label %276, label %.thread179.i
 
 276:                                              ; preds = %274
   %277 = load i32, ptr %6, align 8
   %278 = load i32, ptr %68, align 4
   %279 = load i64, ptr %69, align 8
-  %280 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %277, i32 noundef %278, i64 noundef %279, i32 noundef %81) #17
+  %280 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %277, i32 noundef %278, i64 noundef %279, i32 noundef %81) #16
   br label %.thread179.sink.split.i
 
 281:                                              ; preds = %pgstat_get_entry_len.exit88.i
@@ -664,26 +664,26 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %262, %259
   br i1 %.not74.i, label %.thread131.i, label %284
 
 284:                                              ; preds = %282
-  %285 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %285 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %285, label %286, label %.thread129.i
 
 286:                                              ; preds = %284
-  %287 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2031, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %287 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.61) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2031, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread129.i
 
 288:                                              ; preds = %.backedge.i
-  %289 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %289 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %289, label %290, label %.thread129.i
 
 290:                                              ; preds = %288
-  %291 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62, i32 noundef %81) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2038, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %291 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.62, i32 noundef %81) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2038, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread129.i
 
 .thread179.sink.split.i:                          ; preds = %276, %247, %167, %156
   %.sink216.i = phi i32 [ 2017, %276 ], [ 2004, %247 ], [ 1931, %167 ], [ 1923, %156 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink216.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink216.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread179.i
 
 .thread179.i:                                     ; preds = %.thread179.sink.split.i, %274, %244, %165, %154
@@ -692,7 +692,7 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %262, %259
 
 .thread182.sink.split.i:                          ; preds = %236, %216, %209, %196, %184, %177
   %.sink217.i = phi i32 [ 1981, %236 ], [ 1971, %216 ], [ 1964, %209 ], [ 1956, %196 ], [ 1950, %184 ], [ 1944, %177 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink217.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink217.i, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %.thread182.i
 
 .thread182.i:                                     ; preds = %.thread182.sink.split.i, %234, %214, %pgstat_get_kind_info.exit82.thread.i, %194, %182, %175
@@ -711,30 +711,30 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %262, %259
   br label %.backedge.i
 
 .thread131.i:                                     ; preds = %pgstat_reset_after_failure.exit97.i, %282
-  %293 = call i32 @FreeFile(ptr noundef nonnull %17) #17
-  %294 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %293 = call i32 @FreeFile(ptr noundef nonnull %17) #16
+  %294 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
   br i1 %294, label %295, label %297
 
 295:                                              ; preds = %.thread131.i
-  %296 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2046, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %296 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2046, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %297
 
 297:                                              ; preds = %295, %.thread131.i
-  %298 = call i32 @unlink(ptr noundef nonnull @.str) #17
+  %298 = call i32 @unlink(ptr noundef nonnull @.str) #16
   br label %pgstat_read_statsfile.exit
 
 .thread129.i:                                     ; preds = %.thread182.i, %.thread179.i, %290, %288, %286, %284, %.thread110.i, %73, %71, %64, %62, %57, %55, %51, %49
-  %299 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %299 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %299, label %300, label %302
 
 300:                                              ; preds = %.thread129.i
-  %301 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2053, ptr noundef nonnull @__func__.pgstat_read_statsfile) #17
+  %301 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2053, ptr noundef nonnull @__func__.pgstat_read_statsfile) #16
   br label %302
 
 302:                                              ; preds = %300, %.thread129.i
-  %303 = call i64 @GetCurrentTimestamp() #17
+  %303 = call i64 @GetCurrentTimestamp() #16
   br label %304
 
 304:                                              ; preds = %pgstat_get_kind_info.exit.thread.i90.i, %302
@@ -771,7 +771,7 @@ pgstat_get_kind_info.exit.i93.i:                  ; preds = %310
 318:                                              ; preds = %315
   %319 = getelementptr inbounds nuw i8, ptr %.0.i12.i95.i, i64 104
   %320 = load ptr, ptr %319, align 8
-  call void %320(i64 noundef %303) #17
+  call void %320(i64 noundef %303) #16
   br label %pgstat_get_kind_info.exit.thread.i90.i
 
 pgstat_get_kind_info.exit.thread.i90.i:           ; preds = %318, %315, %pgstat_get_kind_info.exit.i93.i, %310, %307
@@ -780,7 +780,7 @@ pgstat_get_kind_info.exit.thread.i90.i:           ; preds = %318, %315, %pgstat_
   br i1 %exitcond.not.i92.i, label %pgstat_reset_after_failure.exit97.i, label %304, !llvm.loop !4
 
 pgstat_reset_after_failure.exit97.i:              ; preds = %pgstat_get_kind_info.exit.thread.i90.i
-  call void @pgstat_drop_all_entries() #17
+  call void @pgstat_drop_all_entries() #16
   br label %.thread131.i
 
 pgstat_read_statsfile.exit:                       ; preds = %pgstat_reset_after_failure.exit.i, %297
@@ -792,49 +792,49 @@ pgstat_read_statsfile.exit:                       ; preds = %pgstat_reset_after_
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_discard_stats() local_unnamed_addr #0 {
-  %1 = tail call i32 @unlink(ptr noundef nonnull @.str) #17
+  %1 = tail call i32 @unlink(ptr noundef nonnull @.str) #16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %15, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @__errno_location() #18
+  %3 = tail call ptr @__errno_location() #17
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %7 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %6
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #17
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str) #16
   br label %.sink.split
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %11 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @errcode_for_file_access() #17
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #17
+  %13 = tail call i32 @errcode_for_file_access() #16
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str) #16
   br label %.sink.split
 
 15:                                               ; preds = %0
-  %16 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %16 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @errcode_for_file_access() #17
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #17
+  %18 = tail call i32 @errcode_for_file_access() #16
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str) #16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %8, %17
   %.sink = phi i32 [ 542, %17 ], [ 530, %8 ], [ 535, %12 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.pgstat_discard_stats) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.pgstat_discard_stats) #16
   br label %20
 
 20:                                               ; preds = %.sink.split, %15, %6, %10
-  %21 = tail call i64 @GetCurrentTimestamp() #17
+  %21 = tail call i64 @GetCurrentTimestamp() #16
   br label %22
 
 22:                                               ; preds = %pgstat_get_kind_info.exit.thread.i, %20
@@ -871,7 +871,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %28
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.0.i12.i, i64 104
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(i64 noundef %21) #17
+  tail call void %38(i64 noundef %21) #16
   br label %pgstat_get_kind_info.exit.thread.i
 
 pgstat_get_kind_info.exit.thread.i:               ; preds = %36, %33, %pgstat_get_kind_info.exit.i, %28, %25
@@ -880,7 +880,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %36, %33, %pgstat_ge
   br i1 %exitcond.not.i, label %pgstat_reset_after_failure.exit, label %22, !llvm.loop !4
 
 pgstat_reset_after_failure.exit:                  ; preds = %pgstat_get_kind_info.exit.thread.i
-  tail call void @pgstat_drop_all_entries() #17
+  tail call void @pgstat_drop_all_entries() #16
   ret void
 }
 
@@ -918,36 +918,36 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
   %11 = load ptr, ptr @pgStatLocal, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i8 1, ptr %12, align 8
-  %13 = tail call i64 @GetRedoRecPtr() #17
+  %13 = tail call i64 @GetRedoRecPtr() #16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %13, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr @pgstat_fetch_consistency, align 4
-  %14 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
+  %14 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
   %16 = lshr i64 %13, 32
   %17 = trunc nuw i64 %16 to i32
   %18 = trunc i64 %13 to i32
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str, i32 noundef %17, i32 noundef %18) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1606, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str, i32 noundef %17, i32 noundef %18) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1606, ptr noundef nonnull @__func__.pgstat_write_statsfile) #16
   br label %20
 
 20:                                               ; preds = %15, %10
-  %21 = tail call ptr @AllocateFile(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #17
+  %21 = tail call ptr @AllocateFile(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.37) #16
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %20
-  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %24 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %24, label %25, label %pgstat_write_statsfile.exit
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @errcode_for_file_access() #17
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.35) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1617, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
+  %26 = tail call i32 @errcode_for_file_access() #16
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.35) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1617, ptr noundef nonnull @__func__.pgstat_write_statsfile) #16
   br label %pgstat_write_statsfile.exit
 
 28:                                               ; preds = %20
@@ -961,8 +961,8 @@ define dso_local void @pgstat_before_server_shutdown(i32 noundef %0, i64 noundef
 31:                                               ; preds = %pgstat_get_kind_info.exit.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_seq_init(ptr noundef nonnull %5, ptr noundef %32, i1 noundef zeroext false) #17
-  %33 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
+  call void @dshash_seq_init(ptr noundef nonnull %5, ptr noundef %32, i1 noundef zeroext false) #16
+  %33 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #16
   %.not76.i = icmp eq ptr %33, null
   br i1 %.not76.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1027,7 +1027,7 @@ pgstat_get_kind_info.exit.i.i:                    ; preds = %50, %48
 60:                                               ; preds = %57, %56
   %61 = getelementptr inbounds nuw i8, ptr %.0.i718790.i, i64 112
   %62 = load ptr, ptr %61, align 8
-  tail call void %62() #17
+  tail call void %62() #16
   store i8 1, ptr %55, align 1
   br label %pgstat_build_snapshot_fixed.exit.i
 
@@ -1072,7 +1072,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %73, %.thread.i, %44
   br i1 %.not54.i, label %84, label %83, !prof !6
 
 83:                                               ; preds = %.lr.ph.i
-  call void @ProcessInterrupts() #17
+  call void @ProcessInterrupts() #16
   br label %84
 
 84:                                               ; preds = %83, %.lr.ph.i
@@ -1091,7 +1091,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %73, %.thread.i, %44
   br i1 %94, label %104, label %95
 
 95:                                               ; preds = %88
-  %96 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
+  %96 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
   br i1 %96, label %97, label %151, !llvm.loop !10
 
 97:                                               ; preds = %95
@@ -1100,15 +1100,15 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %73, %.thread.i, %44
   %100 = load i32, ptr %99, align 4
   %101 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %102 = load i64, ptr %101, align 8
-  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %98, i32 noundef %100, i64 noundef %102) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
+  %103 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %98, i32 noundef %100, i64 noundef %102) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @__func__.pgstat_write_statsfile) #16
   br label %151, !llvm.loop !10
 
 104:                                              ; preds = %88
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %106 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %107 = load i64, ptr %106, align 8
-  %108 = call ptr @dsa_get_address(ptr noundef %105, i64 noundef %107) #17
+  %108 = call ptr @dsa_get_address(ptr noundef %105, i64 noundef %107) #16
   %109 = load i32, ptr %81, align 8
   %110 = add i32 %109, -1
   %111 = icmp ult i32 %110, 12
@@ -1147,7 +1147,7 @@ pgstat_get_kind_info.exit61.i:                    ; preds = %115, %112
 
 129:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void %125(ptr noundef nonnull %81, ptr noundef %108, ptr noundef nonnull %7) #17
+  call void %125(ptr noundef nonnull %81, ptr noundef %108, ptr noundef nonnull %7) #16
   %130 = call i32 @fputc(i32 noundef 78, ptr noundef nonnull %21)
   %131 = call i64 @fwrite(ptr noundef nonnull readonly %81, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %21)
   %132 = call i64 @fwrite(ptr noundef nonnull readonly %7, i64 noundef 64, i64 noundef 1, ptr noundef nonnull %21)
@@ -1186,58 +1186,58 @@ pgstat_get_entry_len.exit.i:                      ; preds = %140, %137
   br label %151
 
 151:                                              ; preds = %pgstat_get_entry_len.exit.i, %pgstat_get_kind_info.exit61.i, %97, %95, %84
-  %152 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
+  %152 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #16
   %.not.i = icmp eq ptr %152, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %151, %31
-  call void @dshash_seq_term(ptr noundef nonnull %5) #17
+  call void @dshash_seq_term(ptr noundef nonnull %5) #16
   %153 = call i32 @fputc(i32 noundef 69, ptr noundef nonnull %21)
-  %154 = call i32 @ferror(ptr noundef nonnull %21) #17
+  %154 = call i32 @ferror(ptr noundef nonnull %21) #16
   %.not53.i = icmp eq i32 %154, 0
   br i1 %.not53.i, label %163, label %155
 
 155:                                              ; preds = %._crit_edge.i
-  %156 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %156 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %156, label %157, label %160
 
 157:                                              ; preds = %155
-  %158 = call i32 @errcode_for_file_access() #17
-  %159 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.35) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1741, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
+  %158 = call i32 @errcode_for_file_access() #16
+  %159 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.35) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1741, ptr noundef nonnull @__func__.pgstat_write_statsfile) #16
   br label %160
 
 160:                                              ; preds = %157, %155
-  %161 = call i32 @FreeFile(ptr noundef nonnull %21) #17
-  %162 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+  %161 = call i32 @FreeFile(ptr noundef nonnull %21) #16
+  %162 = call i32 @unlink(ptr noundef nonnull @.str.35) #16
   br label %pgstat_write_statsfile.exit
 
 163:                                              ; preds = %._crit_edge.i
-  %164 = call i32 @FreeFile(ptr noundef nonnull %21) #17
+  %164 = call i32 @FreeFile(ptr noundef nonnull %21) #16
   %165 = icmp slt i32 %164, 0
   br i1 %165, label %166, label %173
 
 166:                                              ; preds = %163
-  %167 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %167 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %166
-  %169 = call i32 @errcode_for_file_access() #17
-  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.35) #17
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1750, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
+  %169 = call i32 @errcode_for_file_access() #16
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.35) #16
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1750, ptr noundef nonnull @__func__.pgstat_write_statsfile) #16
   br label %171
 
 171:                                              ; preds = %168, %166
-  %172 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+  %172 = call i32 @unlink(ptr noundef nonnull @.str.35) #16
   br label %pgstat_write_statsfile.exit
 
 173:                                              ; preds = %163
-  %174 = call i32 @durable_rename(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str, i32 noundef 15) #17
+  %174 = call i32 @durable_rename(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str, i32 noundef 15) #16
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %pgstat_write_statsfile.exit
 
 176:                                              ; preds = %173
-  %177 = call i32 @unlink(ptr noundef nonnull @.str.35) #17
+  %177 = call i32 @unlink(ptr noundef nonnull @.str.35) #16
   br label %pgstat_write_statsfile.exit
 
 pgstat_write_statsfile.exit:                      ; preds = %23, %25, %160, %171, %173, %176
@@ -1300,7 +1300,7 @@ pgstat_get_kind_info.exit:                        ; preds = %12
   br i1 %.not45, label %pgstat_get_kind_info.exit.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call zeroext i1 %19() #17
+  %21 = tail call zeroext i1 %19() #16
   br i1 %21, label %.loopexit, label %pgstat_get_kind_info.exit.thread
 
 pgstat_get_kind_info.exit.thread:                 ; preds = %9, %12, %pgstat_get_kind_info.exit, %17, %20
@@ -1312,17 +1312,17 @@ pgstat_get_kind_info.exit.thread:                 ; preds = %9, %12, %pgstat_get
   br i1 %.029, label %22, label %24
 
 22:                                               ; preds = %.loopexit
-  %23 = tail call i64 @GetCurrentTimestamp() #17
+  %23 = tail call i64 @GetCurrentTimestamp() #16
   br label %38
 
 24:                                               ; preds = %.loopexit
-  %25 = tail call i64 @GetCurrentTransactionStopTimestamp() #17
+  %25 = tail call i64 @GetCurrentTransactionStopTimestamp() #16
   %26 = load i64, ptr @pgstat_report_stat.pending_since, align 8
   %27 = icmp sgt i64 %26, 0
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
-  %29 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %26, i64 noundef %25, i32 noundef 60000) #17
+  %29 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %26, i64 noundef %25, i32 noundef 60000) #16
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %28, %24
@@ -1331,7 +1331,7 @@ pgstat_get_kind_info.exit.thread:                 ; preds = %9, %12, %pgstat_get
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %30
-  %34 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %31, i64 noundef %25, i32 noundef 1000) #17
+  %34 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %31, i64 noundef %25, i32 noundef 1000) #16
   br i1 %34, label %38, label %35
 
 35:                                               ; preds = %33
@@ -1342,7 +1342,7 @@ pgstat_get_kind_info.exit.thread:                 ; preds = %9, %12, %pgstat_get
 38:                                               ; preds = %28, %33, %30, %22
   %.038 = phi i64 [ %23, %22 ], [ %25, %33 ], [ %25, %30 ], [ %25, %28 ]
   %39 = phi i1 [ false, %22 ], [ true, %33 ], [ true, %30 ], [ false, %28 ]
-  tail call void @pgstat_update_dbstats(i64 noundef %.038) #17
+  tail call void @pgstat_update_dbstats(i64 noundef %.038) #16
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   %41 = icmp eq ptr %40, @pgStatPending
   %.not1821.i = icmp eq ptr %40, null
@@ -1380,7 +1380,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %49, %46
   %.0.i.i = phi ptr [ %48, %46 ], [ %54, %49 ]
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call zeroext i1 %56(ptr noundef nonnull %42, i1 noundef zeroext %39) #17
+  %57 = tail call zeroext i1 %56(ptr noundef nonnull %42, i1 noundef zeroext %39) #16
   %58 = getelementptr i8, ptr %.11419.i, i64 8
   %.114.val.i = load ptr, ptr %58, align 8
   %.not17.i = icmp eq ptr %.114.val.i, @pgStatPending
@@ -1416,11 +1416,11 @@ pgstat_get_kind_info.exit.i.i:                    ; preds = %67, %64
   br i1 %.not.i.i, label %pgstat_delete_pending_entry.exit.i, label %77
 
 77:                                               ; preds = %pgstat_get_kind_info.exit.i.i
-  tail call void %76(ptr noundef nonnull %42) #17
+  tail call void %76(ptr noundef nonnull %42) #16
   br label %pgstat_delete_pending_entry.exit.i
 
 pgstat_delete_pending_entry.exit.i:               ; preds = %77, %pgstat_get_kind_info.exit.i.i
-  tail call void @pfree(ptr noundef %74) #17
+  tail call void @pfree(ptr noundef %74) #16
   store ptr null, ptr %73, align 8
   %78 = load ptr, ptr %58, align 8
   %79 = load ptr, ptr %.11419.i, align 8
@@ -1474,7 +1474,7 @@ pgstat_get_kind_info.exit49:                      ; preds = %89
   br i1 %.not47, label %pgstat_get_kind_info.exit49.thread, label %97
 
 97:                                               ; preds = %94
-  %98 = tail call zeroext i1 %96(i1 noundef zeroext %39) #17
+  %98 = tail call zeroext i1 %96(i1 noundef zeroext %39) #16
   %99 = or i1 %.03667, %98
   br label %pgstat_get_kind_info.exit49.thread
 
@@ -1504,7 +1504,7 @@ declare i64 @GetRedoRecPtr() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_initialize() local_unnamed_addr #0 {
-  tail call void @pgstat_attach_shmem() #17
+  tail call void @pgstat_attach_shmem() #16
   %1 = load ptr, ptr @pgstat_kind_custom_infos, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %pgstat_init_snapshot_fixed.exit.preheader.preheader, label %.split
@@ -1535,7 +1535,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %.split
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = tail call ptr @MemoryContextAlloc(ptr noundef %12, i64 noundef %15) #17
+  %16 = tail call ptr @MemoryContextAlloc(ptr noundef %12, i64 noundef %15) #16
   %17 = getelementptr ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 50000), i64 %indvars.iv.i
   %18 = getelementptr i8, ptr %17, i64 -1024
   store ptr %16, ptr %18, align 8
@@ -1549,7 +1549,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %11, %8, %pgstat_get
   br i1 %exitcond.not.i, label %pgstat_init_snapshot_fixed.exit.preheader.preheader, label %.split, !llvm.loop !14
 
 20:                                               ; preds = %pgstat_get_kind_info.exit.thread
-  tail call void @before_shmem_exit(ptr noundef nonnull @pgstat_shutdown_hook, i64 noundef 0) #17
+  tail call void @before_shmem_exit(ptr noundef nonnull @pgstat_shutdown_hook, i64 noundef 0) #16
   ret void
 
 pgstat_init_snapshot_fixed.exit.preheader:        ; preds = %pgstat_init_snapshot_fixed.exit.preheader.preheader, %pgstat_get_kind_info.exit.thread
@@ -1585,7 +1585,7 @@ pgstat_get_kind_info.exit:                        ; preds = %26
   br i1 %35, label %pgstat_get_kind_info.exit.thread, label %36
 
 36:                                               ; preds = %32
-  tail call void %34() #17
+  tail call void %34() #16
   br label %pgstat_get_kind_info.exit.thread
 
 pgstat_get_kind_info.exit.thread:                 ; preds = %23, %26, %pgstat_get_kind_info.exit, %32, %36
@@ -1637,7 +1637,7 @@ define internal void @pgstat_shutdown_hook(i32 %0, i64 %1) #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @pgstat_report_disconnect(i32 noundef %3) #17
+  tail call void @pgstat_report_disconnect(i32 noundef %3) #16
   br label %5
 
 5:                                                ; preds = %4, %2
@@ -1646,15 +1646,15 @@ define internal void @pgstat_shutdown_hook(i32 %0, i64 %1) #0 {
   store ptr @pgStatPending, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
   %7 = load i32, ptr @MyProcNumber, align 4
   %8 = sext i32 %7 to i64
-  %9 = tail call zeroext i1 @pgstat_drop_entry(i32 noundef 6, i32 noundef 0, i64 noundef %8) #17
+  %9 = tail call zeroext i1 @pgstat_drop_entry(i32 noundef 6, i32 noundef 0, i64 noundef %8) #16
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %5
-  tail call void @pgstat_request_entry_refs_gc() #17
+  tail call void @pgstat_request_entry_refs_gc() #16
   br label %11
 
 11:                                               ; preds = %10, %5
-  tail call void @pgstat_detach_shmem() #17
+  tail call void @pgstat_detach_shmem() #16
   ret void
 }
 
@@ -1674,10 +1674,10 @@ define dso_local void @pgstat_force_next_flush() local_unnamed_addr #6 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pgstat_reset_counters() local_unnamed_addr #0 {
-  %1 = tail call i64 @GetCurrentTimestamp() #17
+  %1 = tail call i64 @GetCurrentTimestamp() #16
   %2 = load i32, ptr @MyDatabaseId, align 4
   %3 = zext i32 %2 to i64
-  tail call void @pgstat_reset_matching_entries(ptr noundef nonnull @match_db_entries, i64 noundef %3, i64 noundef %1) #17
+  tail call void @pgstat_reset_matching_entries(ptr noundef nonnull @match_db_entries, i64 noundef %3, i64 noundef %1) #16
   ret void
 }
 
@@ -1721,15 +1721,15 @@ define dso_local void @pgstat_reset(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 pgstat_get_kind_info.exit:                        ; preds = %6, %9, %12, %15
   %.0.i = phi ptr [ %8, %6 ], [ null, %12 ], [ null, %9 ], [ %18, %15 ]
-  %19 = tail call i64 @GetCurrentTimestamp() #17
-  tail call void @pgstat_reset_entry(i32 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %19) #17
+  %19 = tail call i64 @GetCurrentTimestamp() #16
+  tail call void @pgstat_reset_entry(i32 noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %19) #16
   %20 = load i8, ptr %.0.i, align 8
   %21 = and i8 %20, 2
   %.not = icmp eq i8 %21, 0
   br i1 %.not, label %22, label %23
 
 22:                                               ; preds = %pgstat_get_kind_info.exit
-  tail call void @pgstat_reset_database_timestamp(i32 noundef %1, i64 noundef %19) #17
+  tail call void @pgstat_reset_database_timestamp(i32 noundef %1, i64 noundef %19) #16
   br label %23
 
 23:                                               ; preds = %22, %pgstat_get_kind_info.exit
@@ -1769,7 +1769,7 @@ define dso_local void @pgstat_reset_of_kind(i32 noundef %0) local_unnamed_addr #
 
 pgstat_get_kind_info.exit:                        ; preds = %4, %7, %10, %13
   %.0.i = phi ptr [ %6, %4 ], [ null, %10 ], [ null, %7 ], [ %16, %13 ]
-  %17 = tail call i64 @GetCurrentTimestamp() #17
+  %17 = tail call i64 @GetCurrentTimestamp() #16
   %18 = load i8, ptr %.0.i, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %23
@@ -1777,11 +1777,11 @@ pgstat_get_kind_info.exit:                        ; preds = %4, %7, %10, %13
 20:                                               ; preds = %pgstat_get_kind_info.exit
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 104
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(i64 noundef %17) #17
+  tail call void %22(i64 noundef %17) #16
   br label %24
 
 23:                                               ; preds = %pgstat_get_kind_info.exit
-  tail call void @pgstat_reset_entries_of_kind(i32 noundef %0, i64 noundef %17) #17
+  tail call void @pgstat_reset_entries_of_kind(i32 noundef %0, i64 noundef %17) #16
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -1801,12 +1801,12 @@ define dso_local void @pgstat_clear_snapshot() local_unnamed_addr #0 {
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
-  tail call void @MemoryContextDelete(ptr noundef nonnull %1) #17
+  tail call void @MemoryContextDelete(ptr noundef nonnull %1) #16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51032), align 8
   br label %3
 
 3:                                                ; preds = %2, %0
-  tail call void @pgstat_clear_backend_activity_snapshot() #17
+  tail call void @pgstat_clear_backend_activity_snapshot() #16
   store i1 false, ptr @force_stats_snapshot_clear, align 1
   ret void
 }
@@ -1952,7 +1952,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
 
 71:                                               ; preds = %.loopexit, %26
   store i32 %27, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
-  %72 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext false, ptr noundef null) #17
+  %72 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext false, ptr noundef null) #16
   %73 = icmp eq ptr %72, null
   br i1 %73, label %79, label %74
 
@@ -1990,7 +1990,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   %90 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %91 = load i32, ptr %90, align 4
   %92 = zext i32 %91 to i64
-  %93 = tail call ptr @palloc(i64 noundef %92) #17
+  %93 = tail call ptr @palloc(i64 noundef %92) #16
   br label %100
 
 94:                                               ; preds = %86
@@ -1998,12 +1998,12 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   %96 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %97 = load i32, ptr %96, align 4
   %98 = zext i32 %97 to i64
-  %99 = tail call ptr @MemoryContextAlloc(ptr noundef %95, i64 noundef %98) #17
+  %99 = tail call ptr @MemoryContextAlloc(ptr noundef %95, i64 noundef %98) #16
   br label %100
 
 100:                                              ; preds = %94, %89
   %.047 = phi ptr [ %93, %89 ], [ %99, %94 ]
-  %101 = tail call zeroext i1 @pgstat_lock_entry_shared(ptr noundef nonnull %72, i1 noundef zeroext false) #17
+  %101 = tail call zeroext i1 @pgstat_lock_entry_shared(ptr noundef nonnull %72, i1 noundef zeroext false) #16
   %102 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %103 = load ptr, ptr %102, align 8
   br i1 %9, label %104, label %107
@@ -2031,7 +2031,7 @@ pgstat_get_entry_data.exit:                       ; preds = %104, %107
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047, ptr align 1 %116, i64 %119, i1 false)
-  tail call void @pgstat_unlock_entry(ptr noundef nonnull %72) #17
+  tail call void @pgstat_unlock_entry(ptr noundef nonnull %72) #16
   %120 = load i32, ptr @pgstat_fetch_consistency, align 4
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %122, label %126
@@ -2069,12 +2069,12 @@ define internal fastcc void @pgstat_prep_snapshot() unnamed_addr #0 {
   br i1 %.not.i, label %pgstat_clear_snapshot.exit, label %3
 
 3:                                                ; preds = %1
-  tail call void @MemoryContextDelete(ptr noundef nonnull %2) #17
+  tail call void @MemoryContextDelete(ptr noundef nonnull %2) #16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51032), align 8
   br label %pgstat_clear_snapshot.exit
 
 pgstat_clear_snapshot.exit:                       ; preds = %1, %3
-  tail call void @pgstat_clear_backend_activity_snapshot() #17
+  tail call void @pgstat_clear_backend_activity_snapshot() #16
   store i1 false, ptr @force_stats_snapshot_clear, align 1
   br label %4
 
@@ -2093,18 +2093,18 @@ pgstat_clear_snapshot.exit:                       ; preds = %1, %3
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr @TopMemoryContext, align 8
-  %13 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %12, ptr noundef nonnull @.str.21, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #17
+  %13 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %12, ptr noundef nonnull @.str.21, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #16
   store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51032), align 8
   br label %14
 
 14:                                               ; preds = %11, %9
   %15 = phi ptr [ %13, %11 ], [ %10, %9 ]
-  %16 = tail call ptr @MemoryContextAllocZero(ptr noundef %15, i64 noundef 48) #17
+  %16 = tail call ptr @MemoryContextAllocZero(ptr noundef %15, i64 noundef 48) #16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %15, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr null, ptr %18, align 8
-  %19 = tail call ptr @MemoryContextAllocExtended(ptr noundef %15, i64 noundef 32768, i32 noundef 5) #17
+  %19 = tail call ptr @MemoryContextAllocExtended(ptr noundef %15, i64 noundef 32768, i32 noundef 5) #16
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %19, ptr %20, align 8
   store i64 1024, ptr %16, align 8
@@ -2130,11 +2130,11 @@ define internal fastcc void @pgstat_build_snapshot() unnamed_addr #0 {
 
 5:                                                ; preds = %0
   tail call fastcc void @pgstat_prep_snapshot()
-  %6 = tail call i64 @GetCurrentTimestamp() #17
+  %6 = tail call i64 @GetCurrentTimestamp() #16
   store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 32), align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
-  call void @dshash_seq_init(ptr noundef nonnull %1, ptr noundef %7, i1 noundef zeroext false) #17
-  %8 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #17
+  call void @dshash_seq_init(ptr noundef nonnull %1, ptr noundef %7, i1 noundef zeroext false) #16
+  %8 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #16
   %.not40 = icmp eq ptr %8, null
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
@@ -2193,7 +2193,7 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %39 = load i64, ptr %38, align 8
-  %40 = call ptr @dsa_get_address(ptr noundef %37, i64 noundef %39) #17
+  %40 = call ptr @dsa_get_address(ptr noundef %37, i64 noundef %39) #16
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51040), align 8
   %42 = load i64, ptr %9, align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2203,11 +2203,11 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
-  %50 = call ptr @MemoryContextAlloc(ptr noundef %46, i64 noundef %49) #17
+  %50 = call ptr @MemoryContextAlloc(ptr noundef %46, i64 noundef %49) #16
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %53 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %52, i32 noundef 1) #17
+  %53 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %52, i32 noundef 1) #16
   %54 = load ptr, ptr %51, align 8
   br i1 %12, label %55, label %58
 
@@ -2233,17 +2233,17 @@ pgstat_get_entry_data.exit:                       ; preds = %55, %58
   %68 = load i32, ptr %47, align 4
   %69 = zext i32 %68 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %67, i64 %69, i1 false)
-  call void @LWLockRelease(ptr noundef nonnull %52) #17
+  call void @LWLockRelease(ptr noundef nonnull %52) #16
   br label %70
 
 70:                                               ; preds = %32, %29, %pgstat_get_entry_data.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %71 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #17
+  %71 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #16
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %70, %5
-  call void @dshash_seq_term(ptr noundef nonnull %1) #17
+  call void @dshash_seq_term(ptr noundef nonnull %1) #16
   br label %73
 
 72:                                               ; preds = %pgstat_build_snapshot_fixed.exit
@@ -2307,7 +2307,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %83, %89
 98:                                               ; preds = %95, %94
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 112
   %100 = load ptr, ptr %99, align 8
-  call void %100() #17
+  call void %100() #16
   store i8 1, ptr %93, align 1
   br label %pgstat_build_snapshot_fixed.exit
 
@@ -2381,10 +2381,9 @@ pgstat_hash_hash_key.exit:                        ; preds = %8
   br i1 %35, label %36, label %39, !prof !20
 
 36:                                               ; preds = %33
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.19, i32 noundef 630, ptr noundef nonnull @__func__.pgstat_snapshot_insert_hash_internal) #17
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.19, i32 noundef 630, ptr noundef nonnull @__func__.pgstat_snapshot_insert_hash_internal) #16
   unreachable
 
 39:                                               ; preds = %33
@@ -2583,12 +2582,12 @@ define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef writeonly c
   br i1 %.not.i, label %pgstat_clear_snapshot.exit, label %4
 
 4:                                                ; preds = %2
-  tail call void @MemoryContextDelete(ptr noundef nonnull %3) #17
+  tail call void @MemoryContextDelete(ptr noundef nonnull %3) #16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51032), align 8
   br label %pgstat_clear_snapshot.exit
 
 pgstat_clear_snapshot.exit:                       ; preds = %2, %4
-  tail call void @pgstat_clear_backend_activity_snapshot() #17
+  tail call void @pgstat_clear_backend_activity_snapshot() #16
   store i1 false, ptr @force_stats_snapshot_clear, align 1
   br label %5
 
@@ -2637,7 +2636,7 @@ pgstat_get_kind_info.exit:                        ; preds = %6, %9
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %pgstat_get_kind_info.exit
-  %18 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext false, ptr noundef null) #17
+  %18 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext false, ptr noundef null) #16
   %19 = icmp ne ptr %18, null
   br label %20
 
@@ -2661,12 +2660,12 @@ define dso_local void @pgstat_snapshot_fixed(i32 noundef %0) local_unnamed_addr 
   br i1 %.not.i, label %pgstat_clear_snapshot.exit, label %4
 
 4:                                                ; preds = %2
-  tail call void @MemoryContextDelete(ptr noundef nonnull %3) #17
+  tail call void @MemoryContextDelete(ptr noundef nonnull %3) #16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 51032), align 8
   br label %pgstat_clear_snapshot.exit
 
 pgstat_clear_snapshot.exit:                       ; preds = %2, %4
-  tail call void @pgstat_clear_backend_activity_snapshot() #17
+  tail call void @pgstat_clear_backend_activity_snapshot() #16
   store i1 false, ptr @force_stats_snapshot_clear, align 1
   br label %5
 
@@ -2726,7 +2725,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %21, %18, %15, %12
 32:                                               ; preds = %29, %28
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   %34 = load ptr, ptr %33, align 8
-  tail call void %34() #17
+  tail call void %34() #16
   store i8 1, ptr %27, align 1
   br label %pgstat_build_snapshot_fixed.exit
 
@@ -2742,12 +2741,12 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @TopMemoryContext, align 8
-  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #17
+  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #16
   store ptr %8, ptr @pgStatPendingContext, align 8
   br label %9
 
 9:                                                ; preds = %6, %4
-  %10 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext true, ptr noundef %3) #17
+  %10 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext true, ptr noundef %3) #16
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -2777,7 +2776,7 @@ pgstat_get_kind_info.exit:                        ; preds = %17, %20
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %29 = load ptr, ptr @pgStatPendingContext, align 8
-  %30 = tail call ptr @MemoryContextAllocZero(ptr noundef %29, i64 noundef %28) #17
+  %30 = tail call ptr @MemoryContextAllocZero(ptr noundef %29, i64 noundef %28) #16
   store ptr %30, ptr %11, align 8
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatPending, i64 8), align 8
@@ -2812,7 +2811,7 @@ declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pgstat_fetch_pending_entry(i32 noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext false, ptr noundef null) #17
+  %4 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext false, ptr noundef null) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
@@ -2859,11 +2858,11 @@ pgstat_get_kind_info.exit:                        ; preds = %6, %9
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %pgstat_get_kind_info.exit
-  tail call void %18(ptr noundef nonnull %0) #17
+  tail call void %18(ptr noundef nonnull %0) #16
   br label %20
 
 20:                                               ; preds = %19, %pgstat_get_kind_info.exit
-  tail call void @pfree(ptr noundef %16) #17
+  tail call void @pfree(ptr noundef %16) #16
   store ptr null, ptr %15, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2887,7 +2886,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
   %3 = getelementptr inbounds nuw %struct.PgStat_KindInfo, ptr @pgstat_kind_builtin_infos, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %5) #17
+  %6 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %5) #16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
@@ -2913,7 +2912,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %17) #17
+  %18 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef %17) #16
   %19 = icmp eq i32 %18, 0
   %.pre = load ptr, ptr @pgstat_kind_custom_infos, align 8
   br i1 %19, label %.loopexit, label %20
@@ -2925,11 +2924,10 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
   br i1 %exitcond48.not, label %.thread31, label %.preheader, !llvm.loop !23
 
 .thread31:                                        ; preds = %20, %9
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 50856066) #17
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %0) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1444, ptr noundef nonnull @__func__.pgstat_get_kind_from_str) #17
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %23 = tail call i32 @errcode(i32 noundef 50856066) #16
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %0) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1444, ptr noundef nonnull @__func__.pgstat_get_kind_from_str) #16
   unreachable
 
 .loopexit:                                        ; preds = %2, %15
@@ -2956,11 +2954,10 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7, %2
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #17
-  %12 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1490, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #16
+  %12 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.8) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1490, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   unreachable
 
 13:                                               ; preds = %7
@@ -2968,11 +2965,10 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %0) #17
-  %18 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, i32 noundef 128, i32 noundef 256) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1495, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %0) #16
+  %18 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.10, i32 noundef 128, i32 noundef 256) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1495, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   unreachable
 
 19:                                               ; preds = %13
@@ -2981,12 +2977,11 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %23)
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %24 = load ptr, ptr %4, align 8
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %24, i32 noundef %0) #17
-  %26 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1500, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %24, i32 noundef %0) #16
+  %26 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1500, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   unreachable
 
 27:                                               ; preds = %19
@@ -3001,11 +2996,10 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #17
-  %37 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1510, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #16
+  %37 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.14) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1510, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   unreachable
 
 38:                                               ; preds = %30, %27
@@ -3015,7 +3009,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @TopMemoryContext, align 8
-  %43 = tail call ptr @MemoryContextAllocZero(ptr noundef %42, i64 noundef 1032) #17
+  %43 = tail call ptr @MemoryContextAllocZero(ptr noundef %42, i64 noundef 1032) #16
   store ptr %43, ptr @pgstat_kind_custom_infos, align 8
   br label %44
 
@@ -3037,23 +3031,22 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not29, label %.preheader, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %52)
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %53 = load ptr, ptr %4, align 8
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %53, i32 noundef %0) #17
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %53, i32 noundef %0) #16
   %55 = load ptr, ptr @pgstat_kind_custom_infos, align 8
   %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %45
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef %59) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1528, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %60 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef %59) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1528, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   unreachable
 
 61:                                               ; preds = %81
   %62 = getelementptr inbounds nuw ptr, ptr %82, i64 %45
   store ptr %1, ptr %62, align 8
-  %63 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
+  %63 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #16
   br i1 %63, label %83, label %86
 
 64:                                               ; preds = %.preheader, %81
@@ -3069,19 +3062,18 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 120
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %4, align 8
-  %74 = tail call i32 @pg_strcasecmp(ptr noundef %72, ptr noundef %73) #17
+  %74 = tail call i32 @pg_strcasecmp(ptr noundef %72, ptr noundef %73) #16
   %.not30 = icmp eq i32 %74, 0
   %.pre = load ptr, ptr @pgstat_kind_custom_infos, align 8
   br i1 %.not30, label %75, label %81
 
 75:                                               ; preds = %70
   %76 = trunc nuw nsw i64 %indvars.iv to i32
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %77)
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   %78 = load ptr, ptr %4, align 8
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %78, i32 noundef %0) #17
-  %80 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, i32 noundef %76) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1540, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %78, i32 noundef %0) #16
+  %80 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, i32 noundef %76) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1540, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   unreachable
 
 81:                                               ; preds = %70, %64
@@ -3092,8 +3084,8 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
 
 83:                                               ; preds = %61
   %84 = load ptr, ptr %4, align 8
-  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %84, i32 noundef %0) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1547, ptr noundef nonnull @__func__.pgstat_register_kind) #17
+  %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %84, i32 noundef %0) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1547, ptr noundef nonnull @__func__.pgstat_register_kind) #16
   br label %86
 
 86:                                               ; preds = %83, %61
@@ -3143,16 +3135,15 @@ define internal fastcc void @pgstat_snapshot_grow(ptr noundef captures(none) %0,
   br i1 %13, label %14, label %pgstat_snapshot_compute_size.exit, !prof !20
 
 14:                                               ; preds = %2
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.19, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_snapshot_compute_size) #17
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.19, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_snapshot_compute_size) #16
   unreachable
 
 pgstat_snapshot_compute_size.exit:                ; preds = %2
   %17 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %17, align 8
-  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #17
+  %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #16
   store ptr %18, ptr %4, align 8
   %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.0.i.i)
   %20 = icmp samesign ult i64 %19, 2
@@ -3165,10 +3156,9 @@ pgstat_snapshot_compute_size.exit:                ; preds = %2
   br i1 %25, label %26, label %pgstat_snapshot_update_parameters.exit, !prof !20
 
 26:                                               ; preds = %pgstat_snapshot_compute_size.exit
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #17
-  tail call void @errfinish(ptr noundef nonnull @.str.19, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_snapshot_compute_size) #17
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.19, i32 noundef 327, ptr noundef nonnull @__func__.pgstat_snapshot_compute_size) #16
   unreachable
 
 pgstat_snapshot_update_parameters.exit:           ; preds = %pgstat_snapshot_compute_size.exit
@@ -3308,7 +3298,7 @@ pgstat_snapshot_entry_hash.exit63:                ; preds = %.preheader
   br i1 %106, label %.lr.ph79, label %._crit_edge80, !llvm.loop !26
 
 ._crit_edge80:                                    ; preds = %101, %pgstat_snapshot_update_parameters.exit
-  tail call void @pfree(ptr noundef %5) #17
+  tail call void @pfree(ptr noundef %5) #16
   ret void
 }
 
@@ -3445,17 +3435,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #15
+declare i64 @llvm.ctpop.i64(i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3471,12 +3458,11 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { cold nounwind }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

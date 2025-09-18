@@ -2647,7 +2647,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm9StringRef11getAsDoubleERdb(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i8, ptr %11, align 8, !noalias !57
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit, label %24
+  br i1 %13, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit, label %23
 
 _ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit: ; preds = %3
   %14 = load i64, ptr %9, align 8, !tbaa !60, !noalias !57
@@ -2662,76 +2662,73 @@ _ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit: ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %16, ptr %5, align 8, !tbaa !62
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %17 = load ptr, ptr %4, align 8, !tbaa !62
-  %.not.i.i.i.i = icmp eq ptr %17, null
-  call void @llvm.assume(i1 %.not.i.i.i.i)
-  %18 = load ptr, ptr %5, align 8, !tbaa !62
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %_ZN4llvm5ErrorD2Ev.exit, label %20
+  %17 = load ptr, ptr %5, align 8, !tbaa !62
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %_ZN4llvm5ErrorD2Ev.exit, label %19
 
-20:                                               ; preds = %15
-  %21 = load ptr, ptr %18, align 8, !tbaa !64
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %18) #21
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %17, align 8, !tbaa !64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %17) #21
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %15, %20
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %15, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %28
+  br label %27
 
-24:                                               ; preds = %3
+23:                                               ; preds = %3
   %.pr = load i32, ptr %9, align 8, !tbaa !66
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %.thread, label %25
+  br i1 %.not, label %.thread, label %24
 
-25:                                               ; preds = %24
-  %26 = and i32 %.pr, 16
-  %.not6 = icmp ne i32 %26, 0
+24:                                               ; preds = %23
+  %25 = and i32 %.pr, 16
+  %.not6 = icmp ne i32 %25, 0
   %or.cond.not = and i1 %2, %.not6
-  br i1 %or.cond.not, label %.thread, label %28
+  br i1 %or.cond.not, label %.thread, label %27
 
-.thread:                                          ; preds = %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit, %25, %24
-  %27 = call noundef double @_ZNK4llvm7APFloat15convertToDoubleEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
-  store double %27, ptr %1, align 8, !tbaa !68
-  br label %28
+.thread:                                          ; preds = %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEE9takeErrorEv.exit, %24, %23
+  %26 = call noundef double @_ZNK4llvm7APFloat15convertToDoubleEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
+  store double %26, ptr %1, align 8, !tbaa !68
+  br label %27
 
-28:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %.thread, %25
-  %.0 = phi i1 [ true, %_ZN4llvm5ErrorD2Ev.exit ], [ false, %.thread ], [ true, %25 ]
-  %29 = load i8, ptr %11, align 8
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
+27:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit, %.thread, %24
+  %.0 = phi i1 [ true, %_ZN4llvm5ErrorD2Ev.exit ], [ false, %.thread ], [ true, %24 ]
+  %28 = load i8, ptr %11, align 8
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %9, align 8, !tbaa !60
-  %.not.i.i = icmp eq ptr %32, null
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %9, align 8, !tbaa !60
+  %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !64
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32) #21
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !64
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31) #21
   br label %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit: ; preds = %31, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %28
+_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit: ; preds = %30, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %36 = load ptr, ptr %8, align 8, !tbaa !13
-  %37 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #23
-  %.not.i = icmp eq ptr %36, %37
-  br i1 %.not.i, label %39, label %38
+  %35 = load ptr, ptr %8, align 8, !tbaa !13
+  %36 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #23
+  %.not.i = icmp eq ptr %35, %36
+  br i1 %.not.i, label %38, label %37
 
-38:                                               ; preds = %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
+37:                                               ; preds = %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
   call void @_ZN4llvm6detail9IEEEFloatD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-39:                                               ; preds = %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
+38:                                               ; preds = %_ZN4llvm8ExpectedINS_11APFloatBase8opStatusEED2Ev.exit
   call void @_ZN4llvm6detail13DoubleAPFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #21
   br label %_ZN4llvm7APFloatD2Ev.exit
 
-_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %38, %39
+_ZN4llvm7APFloatD2Ev.exit:                        ; preds = %37, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }

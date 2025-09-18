@@ -176,8 +176,8 @@ $_ZTSN4ncnn11Layer_finalE = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4ncnn5LayerD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #19
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 208) #18
   ret void
 }
 
@@ -299,7 +299,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKSt6vectorINS_3MatESaIS2_EER
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %64
 
 64:                                               ; preds = %63
-  call void @free(ptr noundef nonnull %58) #18
+  call void @free(ptr noundef nonnull %58) #17
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %63, %64, %59, %52, %49
@@ -367,14 +367,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
   br i1 %.not.i25, label %_ZN4ncnn3MatD2Ev.exit, label %97
 
 97:                                               ; preds = %96
-  call void @free(ptr noundef nonnull %91) #18
+  call void @free(ptr noundef nonnull %91) #17
   br label %_ZN4ncnn3MatD2Ev.exit
 
 98:                                               ; preds = %92
   %99 = landingpad { ptr, i32 }
           catch ptr null
   %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #20
+  call void @__clang_call_terminate(ptr %100) #19
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %86, %_ZN4ncnn3MataSERKS0_.exit, %92, %96, %97
@@ -425,14 +425,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %.not.i26, label %_ZN4ncnn3MatD2Ev.exit20, label %126
 
 126:                                              ; preds = %125
-  call void @free(ptr noundef nonnull %120) #18
+  call void @free(ptr noundef nonnull %120) #17
   br label %_ZN4ncnn3MatD2Ev.exit20
 
 127:                                              ; preds = %121
   %128 = landingpad { ptr, i32 }
           catch ptr null
   %129 = extractvalue { ptr, i32 } %128, 0
-  call void @__clang_call_terminate(ptr %129) #20
+  call void @__clang_call_terminate(ptr %129) #19
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit20:                          ; preds = %115, %112, %121, %125, %126
@@ -507,7 +507,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer7forwardERKNS_3MatERS1_RKNS_6OptionE(p
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %31
 
 31:                                               ; preds = %30
-  call void @free(ptr noundef nonnull %25) #18
+  call void @free(ptr noundef nonnull %25) #17
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %30, %31, %26, %19, %16
@@ -582,14 +582,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %9, %_ZN4ncnn3Mat7re
   br i1 %.not.i14, label %_ZN4ncnn3MatD2Ev.exit, label %74
 
 74:                                               ; preds = %73
-  call void @free(ptr noundef nonnull %68) #18
+  call void @free(ptr noundef nonnull %68) #17
   br label %_ZN4ncnn3MatD2Ev.exit
 
 75:                                               ; preds = %69
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  call void @__clang_call_terminate(ptr %77) #20
+  call void @__clang_call_terminate(ptr %77) #19
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %62, %_ZN4ncnn3MataSERKS0_.exit, %69, %73, %74
@@ -639,14 +639,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %.not.i15, label %_ZN4ncnn3MatD2Ev.exit9, label %102
 
 102:                                              ; preds = %101
-  call void @free(ptr noundef nonnull %96) #18
+  call void @free(ptr noundef nonnull %96) #17
   br label %_ZN4ncnn3MatD2Ev.exit9
 
 103:                                              ; preds = %97
   %104 = landingpad { ptr, i32 }
           catch ptr null
   %105 = extractvalue { ptr, i32 } %104, 0
-  call void @__clang_call_terminate(ptr %105) #20
+  call void @__clang_call_terminate(ptr %105) #19
   unreachable
 
 _ZN4ncnn3MatD2Ev.exit9:                           ; preds = %90, %87, %97, %101, %102
@@ -677,7 +677,7 @@ define hidden noundef i32 @_ZNK4ncnn5Layer15forward_inplaceERNS_3MatERKNS_6Optio
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20AbsVal_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn6AbsValC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -687,7 +687,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20AbsVal_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -703,7 +703,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23BatchNorm_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #20
   invoke void @_ZN4ncnn9BatchNormC1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
 
@@ -713,7 +713,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23BatchNorm_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #18
   resume { ptr, i32 } %5
 }
 
@@ -721,7 +721,7 @@ declare void @_ZN4ncnn9BatchNormC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27BatchNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #20
   invoke void @_ZN4ncnn13BatchNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
 
@@ -731,7 +731,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27BatchNorm_x86_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #18
   resume { ptr, i32 } %5
 }
 
@@ -739,7 +739,7 @@ declare void @_ZN4ncnn13BatchNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34BatchNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #20
   invoke void @_ZN4ncnn20BatchNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
 
@@ -749,7 +749,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34BatchNorm_x86_avx512_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #18
   resume { ptr, i32 } %5
 }
 
@@ -757,7 +757,7 @@ declare void @_ZN4ncnn20BatchNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #20
   invoke void @_ZN4ncnn17BatchNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
 
@@ -767,7 +767,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_fma_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #18
   resume { ptr, i32 } %5
 }
 
@@ -775,7 +775,7 @@ declare void @_ZN4ncnn17BatchNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(648) ptr @_Znwm(i64 noundef 648) #20
   invoke void @_ZN4ncnn17BatchNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(648) %2)
           to label %3 unwind label %4
 
@@ -785,7 +785,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31BatchNorm_x86_avx_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 648) #18
   resume { ptr, i32 } %5
 }
 
@@ -793,7 +793,7 @@ declare void @_ZN4ncnn17BatchNorm_x86_avxC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Bias_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn4BiasC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -803,7 +803,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Bias_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -811,7 +811,7 @@ declare void @_ZN4ncnn4BiasC1Ev(ptr noundef nonnull align 8 dereferenceable(288)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Bias_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -822,7 +822,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Bias_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -830,7 +830,7 @@ declare void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Bias_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -841,13 +841,13 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Bias_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -858,13 +858,13 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn4BiasC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -875,13 +875,13 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Bias_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18BNLL_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn4BNLLC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -891,7 +891,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18BNLL_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -899,7 +899,7 @@ declare void @_ZN4ncnn4BNLLC1Ev(ptr noundef nonnull align 8 dereferenceable(208)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22BNLL_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn8BNLL_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -909,7 +909,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22BNLL_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -917,7 +917,7 @@ declare void @_ZN4ncnn8BNLL_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29BNLL_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15BNLL_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -927,7 +927,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29BNLL_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -935,7 +935,7 @@ declare void @_ZN4ncnn15BNLL_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn12BNLL_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -945,7 +945,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -953,7 +953,7 @@ declare void @_ZN4ncnn12BNLL_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn12BNLL_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -963,7 +963,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26BNLL_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -971,7 +971,7 @@ declare void @_ZN4ncnn12BNLL_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20Concat_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn6ConcatC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -981,7 +981,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Concat_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -989,7 +989,7 @@ declare void @_ZN4ncnn6ConcatC1Ev(ptr noundef nonnull align 8 dereferenceable(21
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24Concat_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn10Concat_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -999,7 +999,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Concat_x86_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1007,7 +1007,7 @@ declare void @_ZN4ncnn10Concat_x86C1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31Concat_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn17Concat_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1017,7 +1017,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Concat_x86_avx512_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1025,7 +1025,7 @@ declare void @_ZN4ncnn17Concat_x86_avx512C1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn14Concat_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1035,7 +1035,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_fma_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1043,7 +1043,7 @@ declare void @_ZN4ncnn14Concat_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn14Concat_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1053,7 +1053,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Concat_x86_avx_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1061,7 +1061,7 @@ declare void @_ZN4ncnn14Concat_x86_avxC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Convolution_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(712) ptr @_Znwm(i64 noundef 712) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(712) ptr @_Znwm(i64 noundef 712) #20
   invoke void @_ZN4ncnn11ConvolutionC1Ev(ptr noundef nonnull align 8 dereferenceable(712) %2)
           to label %3 unwind label %4
 
@@ -1071,7 +1071,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Convolution_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 712) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 712) #18
   resume { ptr, i32 } %5
 }
 
@@ -1079,7 +1079,7 @@ declare void @_ZN4ncnn11ConvolutionC1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Convolution_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #20
   invoke void @_ZN4ncnn15Convolution_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
 
@@ -1089,7 +1089,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Convolution_x86_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #18
   resume { ptr, i32 } %5
 }
 
@@ -1097,7 +1097,7 @@ declare void @_ZN4ncnn15Convolution_x86C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36Convolution_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #20
   invoke void @_ZN4ncnn22Convolution_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
 
@@ -1107,7 +1107,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36Convolution_x86_avx512_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #18
   resume { ptr, i32 } %5
 }
 
@@ -1115,7 +1115,7 @@ declare void @_ZN4ncnn22Convolution_x86_avx512C1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #20
   invoke void @_ZN4ncnn19Convolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
 
@@ -1125,7 +1125,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_fma_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #18
   resume { ptr, i32 } %5
 }
 
@@ -1133,7 +1133,7 @@ declare void @_ZN4ncnn19Convolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1168) ptr @_Znwm(i64 noundef 1168) #20
   invoke void @_ZN4ncnn19Convolution_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1168) %2)
           to label %3 unwind label %4
 
@@ -1143,7 +1143,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33Convolution_x86_avx_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1168) #18
   resume { ptr, i32 } %5
 }
 
@@ -1151,7 +1151,7 @@ declare void @_ZN4ncnn19Convolution_x86_avxC1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Crop_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn4CropC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
 
@@ -1161,7 +1161,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Crop_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -1169,7 +1169,7 @@ declare void @_ZN4ncnn4CropC1Ev(ptr noundef nonnull align 8 dereferenceable(472)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Crop_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn8Crop_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
 
@@ -1179,7 +1179,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Crop_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -1187,7 +1187,7 @@ declare void @_ZN4ncnn8Crop_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Crop_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn15Crop_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
 
@@ -1197,7 +1197,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Crop_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -1205,7 +1205,7 @@ declare void @_ZN4ncnn15Crop_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn12Crop_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
 
@@ -1215,7 +1215,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -1223,7 +1223,7 @@ declare void @_ZN4ncnn12Crop_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn12Crop_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
 
@@ -1233,7 +1233,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Crop_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -1241,7 +1241,7 @@ declare void @_ZN4ncnn12Crop_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Deconvolution_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #20
   invoke void @_ZN4ncnn13DeconvolutionC1Ev(ptr noundef nonnull align 8 dereferenceable(504) %2)
           to label %3 unwind label %4
 
@@ -1251,7 +1251,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Deconvolution_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #18
   resume { ptr, i32 } %5
 }
 
@@ -1259,7 +1259,7 @@ declare void @_ZN4ncnn13DeconvolutionC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31Deconvolution_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #20
   invoke void @_ZN4ncnn17Deconvolution_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
 
@@ -1269,7 +1269,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Deconvolution_x86_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #18
   resume { ptr, i32 } %5
 }
 
@@ -1277,7 +1277,7 @@ declare void @_ZN4ncnn17Deconvolution_x86C1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38Deconvolution_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #20
   invoke void @_ZN4ncnn24Deconvolution_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
 
@@ -1287,7 +1287,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38Deconvolution_x86_avx512_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #18
   resume { ptr, i32 } %5
 }
 
@@ -1295,7 +1295,7 @@ declare void @_ZN4ncnn24Deconvolution_x86_avx512C1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #20
   invoke void @_ZN4ncnn21Deconvolution_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
 
@@ -1305,7 +1305,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_fma_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #18
   resume { ptr, i32 } %5
 }
 
@@ -1313,7 +1313,7 @@ declare void @_ZN4ncnn21Deconvolution_x86_fmaC1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #20
   invoke void @_ZN4ncnn21Deconvolution_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
 
@@ -1323,7 +1323,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Deconvolution_x86_avx_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #18
   resume { ptr, i32 } %5
 }
 
@@ -1331,7 +1331,7 @@ declare void @_ZN4ncnn21Deconvolution_x86_avxC1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Dropout_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn7DropoutC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1341,7 +1341,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Dropout_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1349,7 +1349,7 @@ declare void @_ZN4ncnn7DropoutC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Dropout_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn11Dropout_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1359,7 +1359,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Dropout_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1367,7 +1367,7 @@ declare void @_ZN4ncnn11Dropout_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Dropout_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn18Dropout_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1377,7 +1377,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Dropout_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1385,7 +1385,7 @@ declare void @_ZN4ncnn18Dropout_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15Dropout_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1395,7 +1395,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1403,7 +1403,7 @@ declare void @_ZN4ncnn15Dropout_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15Dropout_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1413,7 +1413,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Dropout_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1421,7 +1421,7 @@ declare void @_ZN4ncnn15Dropout_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Eltwise_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn7EltwiseC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -1431,7 +1431,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Eltwise_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -1439,7 +1439,7 @@ declare void @_ZN4ncnn7EltwiseC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Eltwise_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn11Eltwise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -1449,7 +1449,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Eltwise_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -1457,7 +1457,7 @@ declare void @_ZN4ncnn11Eltwise_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Eltwise_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn18Eltwise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -1467,7 +1467,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Eltwise_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -1475,7 +1475,7 @@ declare void @_ZN4ncnn18Eltwise_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn15Eltwise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -1485,7 +1485,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -1493,7 +1493,7 @@ declare void @_ZN4ncnn15Eltwise_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn15Eltwise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -1503,7 +1503,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Eltwise_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -1511,7 +1511,7 @@ declare void @_ZN4ncnn15Eltwise_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17ELU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn3ELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1521,7 +1521,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17ELU_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1529,7 +1529,7 @@ declare void @_ZN4ncnn3ELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21ELU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn7ELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1539,7 +1539,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21ELU_x86_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1547,7 +1547,7 @@ declare void @_ZN4ncnn7ELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28ELU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn14ELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1557,7 +1557,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28ELU_x86_avx512_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1565,7 +1565,7 @@ declare void @_ZN4ncnn14ELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn11ELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1575,7 +1575,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_fma_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1583,7 +1583,7 @@ declare void @_ZN4ncnn11ELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn11ELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -1593,7 +1593,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25ELU_x86_avx_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -1601,7 +1601,7 @@ declare void @_ZN4ncnn11ELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Embed_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #20
   invoke void @_ZN4ncnn5EmbedC1Ev(ptr noundef nonnull align 8 dereferenceable(380) %2)
           to label %3 unwind label %4
 
@@ -1611,7 +1611,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Embed_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 384) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 384) #18
   resume { ptr, i32 } %5
 }
 
@@ -1619,7 +1619,7 @@ declare void @_ZN4ncnn5EmbedC1Ev(ptr noundef nonnull align 8 dereferenceable(380
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17Exp_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn3ExpC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -1629,7 +1629,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17Exp_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -1637,7 +1637,7 @@ declare void @_ZN4ncnn3ExpC1Ev(ptr noundef nonnull align 8 dereferenceable(220))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Flatten_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn7FlattenC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -1647,7 +1647,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Flatten_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -1655,7 +1655,7 @@ declare void @_ZN4ncnn7FlattenC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Flatten_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn11Flatten_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -1665,7 +1665,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Flatten_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -1673,7 +1673,7 @@ declare void @_ZN4ncnn11Flatten_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Flatten_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn18Flatten_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -1683,7 +1683,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Flatten_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -1691,7 +1691,7 @@ declare void @_ZN4ncnn18Flatten_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15Flatten_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -1701,7 +1701,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -1709,7 +1709,7 @@ declare void @_ZN4ncnn15Flatten_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15Flatten_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -1719,7 +1719,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Flatten_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -1727,7 +1727,7 @@ declare void @_ZN4ncnn15Flatten_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26InnerProduct_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(592) ptr @_Znwm(i64 noundef 592) #20
   invoke void @_ZN4ncnn12InnerProductC1Ev(ptr noundef nonnull align 8 dereferenceable(592) %2)
           to label %3 unwind label %4
 
@@ -1737,7 +1737,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26InnerProduct_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 592) #18
   resume { ptr, i32 } %5
 }
 
@@ -1745,7 +1745,7 @@ declare void @_ZN4ncnn12InnerProductC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30InnerProduct_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #20
   invoke void @_ZN4ncnn16InnerProduct_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
 
@@ -1755,7 +1755,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30InnerProduct_x86_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #18
   resume { ptr, i32 } %5
 }
 
@@ -1763,7 +1763,7 @@ declare void @_ZN4ncnn16InnerProduct_x86C1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn37InnerProduct_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #20
   invoke void @_ZN4ncnn23InnerProduct_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
 
@@ -1773,7 +1773,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn37InnerProduct_x86_avx512_layer_creat
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #18
   resume { ptr, i32 } %5
 }
 
@@ -1781,7 +1781,7 @@ declare void @_ZN4ncnn23InnerProduct_x86_avx512C1Ev(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #20
   invoke void @_ZN4ncnn20InnerProduct_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
 
@@ -1791,7 +1791,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_fma_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #18
   resume { ptr, i32 } %5
 }
 
@@ -1799,7 +1799,7 @@ declare void @_ZN4ncnn20InnerProduct_x86_fmaC1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(744) ptr @_Znwm(i64 noundef 744) #20
   invoke void @_ZN4ncnn20InnerProduct_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(744) %2)
           to label %3 unwind label %4
 
@@ -1809,7 +1809,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34InnerProduct_x86_avx_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 744) #18
   resume { ptr, i32 } %5
 }
 
@@ -1817,7 +1817,7 @@ declare void @_ZN4ncnn20InnerProduct_x86_avxC1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Input_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn5InputC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -1827,7 +1827,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Input_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -1835,7 +1835,7 @@ declare void @_ZN4ncnn5InputC1Ev(ptr noundef nonnull align 8 dereferenceable(224
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17Log_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn3LogC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -1845,7 +1845,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17Log_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -1853,7 +1853,7 @@ declare void @_ZN4ncnn3LogC1Ev(ptr noundef nonnull align 8 dereferenceable(220))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17LRN_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn3LRNC1Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
 
@@ -1863,7 +1863,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17LRN_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -1871,7 +1871,7 @@ declare void @_ZN4ncnn3LRNC1Ev(ptr noundef nonnull align 8 dereferenceable(228))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21LRN_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
 
@@ -1882,7 +1882,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21LRN_x86_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -1890,7 +1890,7 @@ declare void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28LRN_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
 
@@ -1901,13 +1901,13 @@ define hidden noundef nonnull ptr @_ZN4ncnn28LRN_x86_avx512_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
 
@@ -1918,13 +1918,13 @@ define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_fma_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn3LRNC2Ev(ptr noundef nonnull align 8 dereferenceable(228) %2)
           to label %3 unwind label %4
 
@@ -1935,13 +1935,13 @@ define hidden noundef nonnull ptr @_ZN4ncnn25LRN_x86_avx_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24MemoryData_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #20
   invoke void @_ZN4ncnn10MemoryDataC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %2)
           to label %3 unwind label %4
 
@@ -1951,7 +1951,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24MemoryData_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #18
   resume { ptr, i32 } %5
 }
 
@@ -1959,7 +1959,7 @@ declare void @_ZN4ncnn10MemoryDataC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17MVN_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn3MVNC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -1969,7 +1969,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17MVN_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -1977,7 +1977,7 @@ declare void @_ZN4ncnn3MVNC1Ev(ptr noundef nonnull align 8 dereferenceable(220))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Pooling_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN4ncnn7PoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
 
@@ -1987,7 +1987,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Pooling_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #18
   resume { ptr, i32 } %5
 }
 
@@ -1995,7 +1995,7 @@ declare void @_ZN4ncnn7PoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Pooling_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN4ncnn11Pooling_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
 
@@ -2005,7 +2005,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Pooling_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #18
   resume { ptr, i32 } %5
 }
 
@@ -2013,7 +2013,7 @@ declare void @_ZN4ncnn11Pooling_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Pooling_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN4ncnn18Pooling_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
 
@@ -2023,7 +2023,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Pooling_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #18
   resume { ptr, i32 } %5
 }
 
@@ -2031,7 +2031,7 @@ declare void @_ZN4ncnn18Pooling_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN4ncnn15Pooling_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
 
@@ -2041,7 +2041,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #18
   resume { ptr, i32 } %5
 }
 
@@ -2049,7 +2049,7 @@ declare void @_ZN4ncnn15Pooling_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #20
   invoke void @_ZN4ncnn15Pooling_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(268) %2)
           to label %3 unwind label %4
 
@@ -2059,7 +2059,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Pooling_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 272) #18
   resume { ptr, i32 } %5
 }
 
@@ -2067,7 +2067,7 @@ declare void @_ZN4ncnn15Pooling_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Power_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn5PowerC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -2077,7 +2077,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Power_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -2085,7 +2085,7 @@ declare void @_ZN4ncnn5PowerC1Ev(ptr noundef nonnull align 8 dereferenceable(220
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19PReLU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn5PReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -2095,7 +2095,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19PReLU_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -2103,7 +2103,7 @@ declare void @_ZN4ncnn5PReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(288
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23PReLU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn9PReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -2113,7 +2113,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23PReLU_x86_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -2121,7 +2121,7 @@ declare void @_ZN4ncnn9PReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30PReLU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn16PReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -2131,7 +2131,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30PReLU_x86_avx512_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -2139,7 +2139,7 @@ declare void @_ZN4ncnn16PReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn13PReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -2149,7 +2149,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_fma_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -2157,7 +2157,7 @@ declare void @_ZN4ncnn13PReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn13PReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -2167,7 +2167,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27PReLU_x86_avx_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -2175,7 +2175,7 @@ declare void @_ZN4ncnn13PReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Proposal_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(448) ptr @_Znwm(i64 noundef 448) #20
   invoke void @_ZN4ncnn8ProposalC1Ev(ptr noundef nonnull align 8 dereferenceable(448) %2)
           to label %3 unwind label %4
 
@@ -2185,7 +2185,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Proposal_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 448) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 448) #18
   resume { ptr, i32 } %5
 }
 
@@ -2193,7 +2193,7 @@ declare void @_ZN4ncnn8ProposalC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Reduction_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #20
   invoke void @_ZN4ncnn9ReductionC1Ev(ptr noundef nonnull align 8 dereferenceable(300) %2)
           to label %3 unwind label %4
 
@@ -2203,7 +2203,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Reduction_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #18
   resume { ptr, i32 } %5
 }
 
@@ -2211,7 +2211,7 @@ declare void @_ZN4ncnn9ReductionC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18ReLU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4ReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2221,7 +2221,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18ReLU_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2229,7 +2229,7 @@ declare void @_ZN4ncnn4ReLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22ReLU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn8ReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2239,7 +2239,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22ReLU_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2247,7 +2247,7 @@ declare void @_ZN4ncnn8ReLU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29ReLU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15ReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2257,7 +2257,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29ReLU_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2265,7 +2265,7 @@ declare void @_ZN4ncnn15ReLU_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12ReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2275,7 +2275,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2283,7 +2283,7 @@ declare void @_ZN4ncnn12ReLU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12ReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2293,7 +2293,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26ReLU_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2301,7 +2301,7 @@ declare void @_ZN4ncnn12ReLU_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Reshape_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn7ReshapeC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -2311,7 +2311,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Reshape_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -2319,7 +2319,7 @@ declare void @_ZN4ncnn7ReshapeC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Reshape_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn11Reshape_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -2329,7 +2329,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Reshape_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -2337,7 +2337,7 @@ declare void @_ZN4ncnn11Reshape_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Reshape_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn18Reshape_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -2347,7 +2347,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Reshape_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -2355,7 +2355,7 @@ declare void @_ZN4ncnn18Reshape_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn15Reshape_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -2365,7 +2365,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -2373,7 +2373,7 @@ declare void @_ZN4ncnn15Reshape_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn15Reshape_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -2383,7 +2383,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Reshape_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -2391,7 +2391,7 @@ declare void @_ZN4ncnn15Reshape_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24ROIPooling_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn10ROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -2401,7 +2401,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24ROIPooling_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -2409,7 +2409,7 @@ declare void @_ZN4ncnn10ROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Scale_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn5ScaleC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -2419,7 +2419,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Scale_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2427,7 +2427,7 @@ declare void @_ZN4ncnn5ScaleC1Ev(ptr noundef nonnull align 8 dereferenceable(360
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Scale_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn9Scale_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -2437,7 +2437,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Scale_x86_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2445,7 +2445,7 @@ declare void @_ZN4ncnn9Scale_x86C1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30Scale_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn16Scale_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -2455,7 +2455,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Scale_x86_avx512_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2463,7 +2463,7 @@ declare void @_ZN4ncnn16Scale_x86_avx512C1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn13Scale_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -2473,7 +2473,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_fma_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2481,7 +2481,7 @@ declare void @_ZN4ncnn13Scale_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn13Scale_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -2491,7 +2491,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Scale_x86_avx_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2499,7 +2499,7 @@ declare void @_ZN4ncnn13Scale_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Sigmoid_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn7SigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2509,7 +2509,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Sigmoid_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2517,7 +2517,7 @@ declare void @_ZN4ncnn7SigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Sigmoid_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn11Sigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2527,7 +2527,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Sigmoid_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2535,7 +2535,7 @@ declare void @_ZN4ncnn11Sigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Sigmoid_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn18Sigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2545,7 +2545,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Sigmoid_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2553,7 +2553,7 @@ declare void @_ZN4ncnn18Sigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15Sigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2563,7 +2563,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2571,7 +2571,7 @@ declare void @_ZN4ncnn15Sigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15Sigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2581,7 +2581,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Sigmoid_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2589,7 +2589,7 @@ declare void @_ZN4ncnn15Sigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Slice_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
 
@@ -2599,7 +2599,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Slice_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2607,7 +2607,7 @@ declare void @_ZN4ncnn5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(356
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Slice_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn9Slice_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
 
@@ -2617,7 +2617,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Slice_x86_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2625,7 +2625,7 @@ declare void @_ZN4ncnn9Slice_x86C1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30Slice_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn16Slice_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
 
@@ -2635,7 +2635,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Slice_x86_avx512_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2643,7 +2643,7 @@ declare void @_ZN4ncnn16Slice_x86_avx512C1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn13Slice_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
 
@@ -2653,7 +2653,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_fma_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2661,7 +2661,7 @@ declare void @_ZN4ncnn13Slice_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn13Slice_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(356) %2)
           to label %3 unwind label %4
 
@@ -2671,7 +2671,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Slice_x86_avx_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -2679,7 +2679,7 @@ declare void @_ZN4ncnn13Slice_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Softmax_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn7SoftmaxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2689,7 +2689,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Softmax_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2697,7 +2697,7 @@ declare void @_ZN4ncnn7SoftmaxC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Softmax_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn11Softmax_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2707,7 +2707,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Softmax_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2715,7 +2715,7 @@ declare void @_ZN4ncnn11Softmax_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Softmax_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn18Softmax_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2725,7 +2725,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Softmax_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2733,7 +2733,7 @@ declare void @_ZN4ncnn18Softmax_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15Softmax_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2743,7 +2743,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2751,7 +2751,7 @@ declare void @_ZN4ncnn15Softmax_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15Softmax_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2761,7 +2761,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Softmax_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2769,7 +2769,7 @@ declare void @_ZN4ncnn15Softmax_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Split_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn5SplitC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2779,7 +2779,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Split_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2787,7 +2787,7 @@ declare void @_ZN4ncnn5SplitC1Ev(ptr noundef nonnull align 8 dereferenceable(208
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18TanH_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn4TanHC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2797,7 +2797,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18TanH_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2805,7 +2805,7 @@ declare void @_ZN4ncnn4TanHC1Ev(ptr noundef nonnull align 8 dereferenceable(208)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22TanH_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn8TanH_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2815,7 +2815,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22TanH_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2823,7 +2823,7 @@ declare void @_ZN4ncnn8TanH_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29TanH_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15TanH_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2833,7 +2833,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29TanH_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2841,7 +2841,7 @@ declare void @_ZN4ncnn15TanH_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn12TanH_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2851,7 +2851,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2859,7 +2859,7 @@ declare void @_ZN4ncnn12TanH_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn12TanH_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -2869,7 +2869,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26TanH_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -2877,7 +2877,7 @@ declare void @_ZN4ncnn12TanH_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Threshold_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn9ThresholdC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -2887,7 +2887,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Threshold_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -2895,7 +2895,7 @@ declare void @_ZN4ncnn9ThresholdC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Tile_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn4TileC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -2905,7 +2905,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Tile_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -2913,7 +2913,7 @@ declare void @_ZN4ncnn4TileC1Ev(ptr noundef nonnull align 8 dereferenceable(288)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17RNN_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #20
   invoke void @_ZN4ncnn3RNNC1Ev(ptr noundef nonnull align 8 dereferenceable(584) %2)
           to label %3 unwind label %4
 
@@ -2923,7 +2923,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17RNN_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 584) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 584) #18
   resume { ptr, i32 } %5
 }
 
@@ -2931,7 +2931,7 @@ declare void @_ZN4ncnn3RNNC1Ev(ptr noundef nonnull align 8 dereferenceable(584))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18LSTM_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(664) ptr @_Znwm(i64 noundef 664) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(664) ptr @_Znwm(i64 noundef 664) #20
   invoke void @_ZN4ncnn4LSTMC1Ev(ptr noundef nonnull align 8 dereferenceable(664) %2)
           to label %3 unwind label %4
 
@@ -2941,7 +2941,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18LSTM_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 664) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 664) #18
   resume { ptr, i32 } %5
 }
 
@@ -2949,7 +2949,7 @@ declare void @_ZN4ncnn4LSTMC1Ev(ptr noundef nonnull align 8 dereferenceable(664)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22LSTM_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #20
   invoke void @_ZN4ncnn8LSTM_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
 
@@ -2959,7 +2959,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22LSTM_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #18
   resume { ptr, i32 } %5
 }
 
@@ -2967,7 +2967,7 @@ declare void @_ZN4ncnn8LSTM_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29LSTM_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #20
   invoke void @_ZN4ncnn15LSTM_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
 
@@ -2977,7 +2977,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29LSTM_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #18
   resume { ptr, i32 } %5
 }
 
@@ -2985,7 +2985,7 @@ declare void @_ZN4ncnn15LSTM_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #20
   invoke void @_ZN4ncnn12LSTM_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
 
@@ -2995,7 +2995,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #18
   resume { ptr, i32 } %5
 }
 
@@ -3003,7 +3003,7 @@ declare void @_ZN4ncnn12LSTM_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znwm(i64 noundef 1024) #20
   invoke void @_ZN4ncnn12LSTM_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1024) %2)
           to label %3 unwind label %4
 
@@ -3013,7 +3013,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26LSTM_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1024) #18
   resume { ptr, i32 } %5
 }
 
@@ -3021,7 +3021,7 @@ declare void @_ZN4ncnn12LSTM_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22BinaryOp_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn8BinaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -3031,7 +3031,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22BinaryOp_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -3039,7 +3039,7 @@ declare void @_ZN4ncnn8BinaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26BinaryOp_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn12BinaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -3049,7 +3049,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26BinaryOp_x86_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -3057,7 +3057,7 @@ declare void @_ZN4ncnn12BinaryOp_x86C1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33BinaryOp_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn19BinaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -3067,7 +3067,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33BinaryOp_x86_avx512_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -3075,7 +3075,7 @@ declare void @_ZN4ncnn19BinaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn16BinaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -3085,7 +3085,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_fma_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -3093,7 +3093,7 @@ declare void @_ZN4ncnn16BinaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn16BinaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(220) %2)
           to label %3 unwind label %4
 
@@ -3103,7 +3103,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30BinaryOp_x86_avx_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -3111,7 +3111,7 @@ declare void @_ZN4ncnn16BinaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21UnaryOp_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn7UnaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -3121,7 +3121,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21UnaryOp_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3129,7 +3129,7 @@ declare void @_ZN4ncnn7UnaryOpC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25UnaryOp_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn11UnaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -3139,7 +3139,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25UnaryOp_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3147,7 +3147,7 @@ declare void @_ZN4ncnn11UnaryOp_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32UnaryOp_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn18UnaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -3157,7 +3157,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32UnaryOp_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3165,7 +3165,7 @@ declare void @_ZN4ncnn18UnaryOp_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15UnaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -3175,7 +3175,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3183,7 +3183,7 @@ declare void @_ZN4ncnn15UnaryOp_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15UnaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -3193,7 +3193,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29UnaryOp_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3201,7 +3201,7 @@ declare void @_ZN4ncnn15UnaryOp_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34ConvolutionDepthWise_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(720) ptr @_Znwm(i64 noundef 720) #20
   invoke void @_ZN4ncnn20ConvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 dereferenceable(720) %2)
           to label %3 unwind label %4
 
@@ -3211,7 +3211,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34ConvolutionDepthWise_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 720) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 720) #18
   resume { ptr, i32 } %5
 }
 
@@ -3219,7 +3219,7 @@ declare void @_ZN4ncnn20ConvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38ConvolutionDepthWise_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #20
   invoke void @_ZN4ncnn24ConvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
 
@@ -3229,7 +3229,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38ConvolutionDepthWise_x86_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #18
   resume { ptr, i32 } %5
 }
 
@@ -3237,7 +3237,7 @@ declare void @_ZN4ncnn24ConvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn45ConvolutionDepthWise_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #20
   invoke void @_ZN4ncnn31ConvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
 
@@ -3247,7 +3247,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn45ConvolutionDepthWise_x86_avx512_lay
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #18
   resume { ptr, i32 } %5
 }
 
@@ -3255,7 +3255,7 @@ declare void @_ZN4ncnn31ConvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #20
   invoke void @_ZN4ncnn28ConvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
 
@@ -3265,7 +3265,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_fma_layer_
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #18
   resume { ptr, i32 } %5
 }
 
@@ -3273,7 +3273,7 @@ declare void @_ZN4ncnn28ConvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(824) ptr @_Znwm(i64 noundef 824) #20
   invoke void @_ZN4ncnn28ConvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(824) %2)
           to label %3 unwind label %4
 
@@ -3283,7 +3283,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn42ConvolutionDepthWise_x86_avx_layer_
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 824) #18
   resume { ptr, i32 } %5
 }
 
@@ -3291,7 +3291,7 @@ declare void @_ZN4ncnn28ConvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Padding_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
   invoke void @_ZN4ncnn7PaddingC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
 
@@ -3301,7 +3301,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Padding_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #18
   resume { ptr, i32 } %5
 }
 
@@ -3309,7 +3309,7 @@ declare void @_ZN4ncnn7PaddingC1Ev(ptr noundef nonnull align 8 dereferenceable(3
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Padding_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
   invoke void @_ZN4ncnn11Padding_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
 
@@ -3319,7 +3319,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Padding_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #18
   resume { ptr, i32 } %5
 }
 
@@ -3327,7 +3327,7 @@ declare void @_ZN4ncnn11Padding_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Padding_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
   invoke void @_ZN4ncnn18Padding_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
 
@@ -3337,7 +3337,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Padding_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #18
   resume { ptr, i32 } %5
 }
 
@@ -3345,7 +3345,7 @@ declare void @_ZN4ncnn18Padding_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
   invoke void @_ZN4ncnn15Padding_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
 
@@ -3355,7 +3355,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #18
   resume { ptr, i32 } %5
 }
 
@@ -3363,7 +3363,7 @@ declare void @_ZN4ncnn15Padding_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
   invoke void @_ZN4ncnn15Padding_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
 
@@ -3373,7 +3373,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Padding_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #18
   resume { ptr, i32 } %5
 }
 
@@ -3381,7 +3381,7 @@ declare void @_ZN4ncnn15Padding_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Squeeze_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn7SqueezeC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -3391,7 +3391,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Squeeze_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -3399,7 +3399,7 @@ declare void @_ZN4ncnn7SqueezeC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24ExpandDims_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn10ExpandDimsC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -3409,7 +3409,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24ExpandDims_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -3417,7 +3417,7 @@ declare void @_ZN4ncnn10ExpandDimsC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Normalize_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #20
   invoke void @_ZN4ncnn9NormalizeC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %2)
           to label %3 unwind label %4
 
@@ -3427,7 +3427,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Normalize_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #18
   resume { ptr, i32 } %5
 }
 
@@ -3435,7 +3435,7 @@ declare void @_ZN4ncnn9NormalizeC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Permute_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn7PermuteC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -3445,7 +3445,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Permute_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3453,7 +3453,7 @@ declare void @_ZN4ncnn7PermuteC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22PriorBox_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn8PriorBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(470) %2)
           to label %3 unwind label %4
 
@@ -3463,7 +3463,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22PriorBox_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -3471,7 +3471,7 @@ declare void @_ZN4ncnn8PriorBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29DetectionOutput_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #20
   invoke void @_ZN4ncnn15DetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(244) %2)
           to label %3 unwind label %4
 
@@ -3481,7 +3481,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29DetectionOutput_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #18
   resume { ptr, i32 } %5
 }
 
@@ -3489,7 +3489,7 @@ declare void @_ZN4ncnn15DetectionOutputC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20Interp_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #20
   invoke void @_ZN4ncnn6InterpC1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
 
@@ -3499,7 +3499,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Interp_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #18
   resume { ptr, i32 } %5
 }
 
@@ -3507,7 +3507,7 @@ declare void @_ZN4ncnn6InterpC1Ev(ptr noundef nonnull align 8 dereferenceable(23
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24Interp_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #20
   invoke void @_ZN4ncnn10Interp_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
 
@@ -3517,7 +3517,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Interp_x86_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #18
   resume { ptr, i32 } %5
 }
 
@@ -3525,7 +3525,7 @@ declare void @_ZN4ncnn10Interp_x86C1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31Interp_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #20
   invoke void @_ZN4ncnn17Interp_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
 
@@ -3535,7 +3535,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Interp_x86_avx512_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #18
   resume { ptr, i32 } %5
 }
 
@@ -3543,7 +3543,7 @@ declare void @_ZN4ncnn17Interp_x86_avx512C1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #20
   invoke void @_ZN4ncnn14Interp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
 
@@ -3553,7 +3553,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_fma_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #18
   resume { ptr, i32 } %5
 }
 
@@ -3561,7 +3561,7 @@ declare void @_ZN4ncnn14Interp_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #20
   invoke void @_ZN4ncnn14Interp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(236) %2)
           to label %3 unwind label %4
 
@@ -3571,7 +3571,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Interp_x86_avx_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 240) #18
   resume { ptr, i32 } %5
 }
 
@@ -3579,7 +3579,7 @@ declare void @_ZN4ncnn14Interp_x86_avxC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36DeconvolutionDepthWise_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn22DeconvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -3589,7 +3589,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36DeconvolutionDepthWise_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -3597,7 +3597,7 @@ declare void @_ZN4ncnn22DeconvolutionDepthWiseC1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn40DeconvolutionDepthWise_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #20
   invoke void @_ZN4ncnn26DeconvolutionDepthWise_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
 
@@ -3607,7 +3607,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn40DeconvolutionDepthWise_x86_layer_cr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #18
   resume { ptr, i32 } %5
 }
 
@@ -3615,7 +3615,7 @@ declare void @_ZN4ncnn26DeconvolutionDepthWise_x86C1Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn47DeconvolutionDepthWise_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #20
   invoke void @_ZN4ncnn33DeconvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
 
@@ -3625,7 +3625,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn47DeconvolutionDepthWise_x86_avx512_l
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #18
   resume { ptr, i32 } %5
 }
 
@@ -3633,7 +3633,7 @@ declare void @_ZN4ncnn33DeconvolutionDepthWise_x86_avx512C1Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #20
   invoke void @_ZN4ncnn30DeconvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
 
@@ -3643,7 +3643,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_fma_laye
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #18
   resume { ptr, i32 } %5
 }
 
@@ -3651,7 +3651,7 @@ declare void @_ZN4ncnn30DeconvolutionDepthWise_x86_fmaC1Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(608) ptr @_Znwm(i64 noundef 608) #20
   invoke void @_ZN4ncnn30DeconvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(608) %2)
           to label %3 unwind label %4
 
@@ -3661,7 +3661,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn44DeconvolutionDepthWise_x86_avx_laye
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 608) #18
   resume { ptr, i32 } %5
 }
 
@@ -3669,7 +3669,7 @@ declare void @_ZN4ncnn30DeconvolutionDepthWise_x86_avxC1Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28ShuffleChannel_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn14ShuffleChannelC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3679,7 +3679,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28ShuffleChannel_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3687,7 +3687,7 @@ declare void @_ZN4ncnn14ShuffleChannelC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32ShuffleChannel_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn18ShuffleChannel_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3697,7 +3697,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32ShuffleChannel_x86_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3705,7 +3705,7 @@ declare void @_ZN4ncnn18ShuffleChannel_x86C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn39ShuffleChannel_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn25ShuffleChannel_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3715,7 +3715,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn39ShuffleChannel_x86_avx512_layer_cre
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3723,7 +3723,7 @@ declare void @_ZN4ncnn25ShuffleChannel_x86_avx512C1Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn22ShuffleChannel_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3733,7 +3733,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_fma_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3741,7 +3741,7 @@ declare void @_ZN4ncnn22ShuffleChannel_x86_fmaC1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn22ShuffleChannel_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3751,7 +3751,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ShuffleChannel_x86_avx_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3759,7 +3759,7 @@ declare void @_ZN4ncnn22ShuffleChannel_x86_avxC1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26InstanceNorm_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn12InstanceNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -3769,7 +3769,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26InstanceNorm_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -3777,7 +3777,7 @@ declare void @_ZN4ncnn12InstanceNormC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Clip_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4ClipC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3787,7 +3787,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Clip_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3795,7 +3795,7 @@ declare void @_ZN4ncnn4ClipC1Ev(ptr noundef nonnull align 8 dereferenceable(216)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Clip_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn8Clip_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3805,7 +3805,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Clip_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3813,7 +3813,7 @@ declare void @_ZN4ncnn8Clip_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Clip_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15Clip_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3823,7 +3823,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Clip_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3831,7 +3831,7 @@ declare void @_ZN4ncnn15Clip_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12Clip_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3841,7 +3841,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3849,7 +3849,7 @@ declare void @_ZN4ncnn12Clip_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12Clip_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3859,7 +3859,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Clip_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3867,7 +3867,7 @@ declare void @_ZN4ncnn12Clip_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Reorg_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn5ReorgC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -3877,7 +3877,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Reorg_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -3885,7 +3885,7 @@ declare void @_ZN4ncnn5ReorgC1Ev(ptr noundef nonnull align 8 dereferenceable(216
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33YoloDetectionOutput_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #20
   invoke void @_ZN4ncnn19YoloDetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(304) %2)
           to label %3 unwind label %4
 
@@ -3895,7 +3895,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33YoloDetectionOutput_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 304) #18
   resume { ptr, i32 } %5
 }
 
@@ -3903,7 +3903,7 @@ declare void @_ZN4ncnn19YoloDetectionOutputC1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Quantize_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn8QuantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -3913,7 +3913,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Quantize_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -3921,7 +3921,7 @@ declare void @_ZN4ncnn8QuantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Quantize_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn12Quantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -3931,7 +3931,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Quantize_x86_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -3939,7 +3939,7 @@ declare void @_ZN4ncnn12Quantize_x86C1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33Quantize_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn19Quantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -3949,7 +3949,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33Quantize_x86_avx512_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -3957,7 +3957,7 @@ declare void @_ZN4ncnn19Quantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn16Quantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -3967,7 +3967,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_fma_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -3975,7 +3975,7 @@ declare void @_ZN4ncnn16Quantize_x86_fmaC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn16Quantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -3985,7 +3985,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Quantize_x86_avx_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -3993,7 +3993,7 @@ declare void @_ZN4ncnn16Quantize_x86_avxC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24Dequantize_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn10DequantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -4003,7 +4003,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Dequantize_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -4011,7 +4011,7 @@ declare void @_ZN4ncnn10DequantizeC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28Dequantize_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn14Dequantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -4021,7 +4021,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Dequantize_x86_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -4029,7 +4029,7 @@ declare void @_ZN4ncnn14Dequantize_x86C1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Dequantize_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn21Dequantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -4039,7 +4039,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Dequantize_x86_avx512_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -4047,7 +4047,7 @@ declare void @_ZN4ncnn21Dequantize_x86_avx512C1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn18Dequantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -4057,7 +4057,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_fma_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -4065,7 +4065,7 @@ declare void @_ZN4ncnn18Dequantize_x86_fmaC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   invoke void @_ZN4ncnn18Dequantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(360) %2)
           to label %3 unwind label %4
 
@@ -4075,7 +4075,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Dequantize_x86_avx_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 360) #18
   resume { ptr, i32 } %5
 }
 
@@ -4083,7 +4083,7 @@ declare void @_ZN4ncnn18Dequantize_x86_avxC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Yolov3DetectionOutput_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #20
   invoke void @_ZN4ncnn21Yolov3DetectionOutputC1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
 
@@ -4093,7 +4093,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Yolov3DetectionOutput_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #18
   resume { ptr, i32 } %5
 }
 
@@ -4101,7 +4101,7 @@ declare void @_ZN4ncnn21Yolov3DetectionOutputC1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn39Yolov3DetectionOutput_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #20
   invoke void @_ZN4ncnn25Yolov3DetectionOutput_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
 
@@ -4111,7 +4111,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn39Yolov3DetectionOutput_x86_layer_cre
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #18
   resume { ptr, i32 } %5
 }
 
@@ -4119,7 +4119,7 @@ declare void @_ZN4ncnn25Yolov3DetectionOutput_x86C1Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn46Yolov3DetectionOutput_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #20
   invoke void @_ZN4ncnn32Yolov3DetectionOutput_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
 
@@ -4129,7 +4129,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn46Yolov3DetectionOutput_x86_avx512_la
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #18
   resume { ptr, i32 } %5
 }
 
@@ -4137,7 +4137,7 @@ declare void @_ZN4ncnn32Yolov3DetectionOutput_x86_avx512C1Ev(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #20
   invoke void @_ZN4ncnn29Yolov3DetectionOutput_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
 
@@ -4147,7 +4147,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_fma_layer
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #18
   resume { ptr, i32 } %5
 }
 
@@ -4155,7 +4155,7 @@ declare void @_ZN4ncnn29Yolov3DetectionOutput_x86_fmaC1Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(456) ptr @_Znwm(i64 noundef 456) #20
   invoke void @_ZN4ncnn29Yolov3DetectionOutput_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(456) %2)
           to label %3 unwind label %4
 
@@ -4165,7 +4165,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn43Yolov3DetectionOutput_x86_avx_layer
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 456) #18
   resume { ptr, i32 } %5
 }
 
@@ -4173,7 +4173,7 @@ declare void @_ZN4ncnn29Yolov3DetectionOutput_x86_avxC1Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26PSROIPooling_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn12PSROIPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4183,7 +4183,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26PSROIPooling_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4191,7 +4191,7 @@ declare void @_ZN4ncnn12PSROIPoolingC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22ROIAlign_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn8ROIAlignC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4201,7 +4201,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22ROIAlign_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4209,7 +4209,7 @@ declare void @_ZN4ncnn8ROIAlignC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26ROIAlign_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn12ROIAlign_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4219,7 +4219,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26ROIAlign_x86_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4227,7 +4227,7 @@ declare void @_ZN4ncnn12ROIAlign_x86C1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33ROIAlign_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn19ROIAlign_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4237,7 +4237,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33ROIAlign_x86_avx512_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4245,7 +4245,7 @@ declare void @_ZN4ncnn19ROIAlign_x86_avx512C1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn16ROIAlign_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4255,7 +4255,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_fma_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4263,7 +4263,7 @@ declare void @_ZN4ncnn16ROIAlign_x86_fmaC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn16ROIAlign_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4273,7 +4273,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30ROIAlign_x86_avx_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4281,7 +4281,7 @@ declare void @_ZN4ncnn16ROIAlign_x86_avxC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21Packing_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn7PackingC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4291,7 +4291,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21Packing_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4299,7 +4299,7 @@ declare void @_ZN4ncnn7PackingC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Packing_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn11Packing_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4309,7 +4309,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Packing_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4317,7 +4317,7 @@ declare void @_ZN4ncnn11Packing_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Packing_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn18Packing_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4327,7 +4327,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Packing_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4335,7 +4335,7 @@ declare void @_ZN4ncnn18Packing_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn15Packing_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4345,7 +4345,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4353,7 +4353,7 @@ declare void @_ZN4ncnn15Packing_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #20
   invoke void @_ZN4ncnn15Packing_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
           to label %3 unwind label %4
 
@@ -4363,7 +4363,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Packing_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 232) #18
   resume { ptr, i32 } %5
 }
 
@@ -4371,7 +4371,7 @@ declare void @_ZN4ncnn15Packing_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24Requantize_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn10RequantizeC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -4381,7 +4381,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24Requantize_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -4389,7 +4389,7 @@ declare void @_ZN4ncnn10RequantizeC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28Requantize_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn14Requantize_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -4399,7 +4399,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28Requantize_x86_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -4407,7 +4407,7 @@ declare void @_ZN4ncnn14Requantize_x86C1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Requantize_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn21Requantize_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -4417,7 +4417,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Requantize_x86_avx512_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -4425,7 +4425,7 @@ declare void @_ZN4ncnn21Requantize_x86_avx512C1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn18Requantize_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -4435,7 +4435,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_fma_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -4443,7 +4443,7 @@ declare void @_ZN4ncnn18Requantize_x86_fmaC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn18Requantize_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -4453,7 +4453,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32Requantize_x86_avx_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -4461,7 +4461,7 @@ declare void @_ZN4ncnn18Requantize_x86_avxC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Cast_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4CastC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4471,7 +4471,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Cast_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4479,7 +4479,7 @@ declare void @_ZN4ncnn4CastC1Ev(ptr noundef nonnull align 8 dereferenceable(216)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Cast_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn8Cast_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4489,7 +4489,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Cast_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4497,7 +4497,7 @@ declare void @_ZN4ncnn8Cast_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Cast_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15Cast_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4507,7 +4507,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Cast_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4515,7 +4515,7 @@ declare void @_ZN4ncnn15Cast_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12Cast_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4525,7 +4525,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4533,7 +4533,7 @@ declare void @_ZN4ncnn12Cast_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12Cast_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4543,7 +4543,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Cast_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4551,7 +4551,7 @@ declare void @_ZN4ncnn12Cast_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25HardSigmoid_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn11HardSigmoidC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4561,7 +4561,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25HardSigmoid_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4569,7 +4569,7 @@ declare void @_ZN4ncnn11HardSigmoidC1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29HardSigmoid_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn15HardSigmoid_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4579,7 +4579,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29HardSigmoid_x86_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4587,7 +4587,7 @@ declare void @_ZN4ncnn15HardSigmoid_x86C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36HardSigmoid_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn22HardSigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4597,7 +4597,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36HardSigmoid_x86_avx512_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4605,7 +4605,7 @@ declare void @_ZN4ncnn22HardSigmoid_x86_avx512C1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn19HardSigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4615,7 +4615,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_fma_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4623,7 +4623,7 @@ declare void @_ZN4ncnn19HardSigmoid_x86_fmaC1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn19HardSigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4633,7 +4633,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn33HardSigmoid_x86_avx_layer_creatorEP
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4641,7 +4641,7 @@ declare void @_ZN4ncnn19HardSigmoid_x86_avxC1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18SELU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4SELUC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4651,7 +4651,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18SELU_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4659,7 +4659,7 @@ declare void @_ZN4ncnn4SELUC1Ev(ptr noundef nonnull align 8 dereferenceable(216)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22SELU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn8SELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4669,7 +4669,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22SELU_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4677,7 +4677,7 @@ declare void @_ZN4ncnn8SELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29SELU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15SELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4687,7 +4687,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29SELU_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4695,7 +4695,7 @@ declare void @_ZN4ncnn15SELU_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12SELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4705,7 +4705,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4713,7 +4713,7 @@ declare void @_ZN4ncnn12SELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12SELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4723,7 +4723,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26SELU_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4731,7 +4731,7 @@ declare void @_ZN4ncnn12SELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23HardSwish_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn9HardSwishC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4741,7 +4741,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23HardSwish_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4749,7 +4749,7 @@ declare void @_ZN4ncnn9HardSwishC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27HardSwish_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn13HardSwish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4759,7 +4759,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27HardSwish_x86_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4767,7 +4767,7 @@ declare void @_ZN4ncnn13HardSwish_x86C1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34HardSwish_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn20HardSwish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4777,7 +4777,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34HardSwish_x86_avx512_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4785,7 +4785,7 @@ declare void @_ZN4ncnn20HardSwish_x86_avx512C1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn17HardSwish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4795,7 +4795,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_fma_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4803,7 +4803,7 @@ declare void @_ZN4ncnn17HardSwish_x86_fmaC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn17HardSwish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -4813,7 +4813,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31HardSwish_x86_avx_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -4821,7 +4821,7 @@ declare void @_ZN4ncnn17HardSwish_x86_avxC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Noop_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn4NoopC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4831,7 +4831,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Noop_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4839,7 +4839,7 @@ declare void @_ZN4ncnn4NoopC1Ev(ptr noundef nonnull align 8 dereferenceable(208)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26PixelShuffle_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12PixelShuffleC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -4849,7 +4849,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26PixelShuffle_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4857,7 +4857,7 @@ declare void @_ZN4ncnn12PixelShuffleC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22DeepCopy_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn8DeepCopyC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4867,7 +4867,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22DeepCopy_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4875,7 +4875,7 @@ declare void @_ZN4ncnn8DeepCopyC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Mish_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn4MishC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4885,7 +4885,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Mish_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4893,7 +4893,7 @@ declare void @_ZN4ncnn4MishC1Ev(ptr noundef nonnull align 8 dereferenceable(208)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Mish_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn8Mish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4903,7 +4903,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Mish_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4911,7 +4911,7 @@ declare void @_ZN4ncnn8Mish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Mish_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn15Mish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4921,7 +4921,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Mish_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4929,7 +4929,7 @@ declare void @_ZN4ncnn15Mish_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn12Mish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4939,7 +4939,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4947,7 +4947,7 @@ declare void @_ZN4ncnn12Mish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn12Mish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4957,7 +4957,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Mish_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -4965,7 +4965,7 @@ declare void @_ZN4ncnn12Mish_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31StatisticsPooling_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn17StatisticsPoolingC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -4975,7 +4975,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31StatisticsPooling_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -4983,7 +4983,7 @@ declare void @_ZN4ncnn17StatisticsPoolingC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn19Swish_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn5SwishC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -4993,7 +4993,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn19Swish_layer_creatorEPv(ptr readnone
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -5001,7 +5001,7 @@ declare void @_ZN4ncnn5SwishC1Ev(ptr noundef nonnull align 8 dereferenceable(208
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Swish_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn9Swish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -5011,7 +5011,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Swish_x86_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -5019,7 +5019,7 @@ declare void @_ZN4ncnn9Swish_x86C1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30Swish_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn16Swish_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -5029,7 +5029,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30Swish_x86_avx512_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -5037,7 +5037,7 @@ declare void @_ZN4ncnn16Swish_x86_avx512C1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn13Swish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -5047,7 +5047,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_fma_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -5055,7 +5055,7 @@ declare void @_ZN4ncnn13Swish_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn13Swish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -5065,7 +5065,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Swish_x86_avx_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -5073,7 +5073,7 @@ declare void @_ZN4ncnn13Swish_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Gemm_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #20
   invoke void @_ZN4ncnn4GemmC1Ev(ptr noundef nonnull align 8 dereferenceable(580) %2)
           to label %3 unwind label %4
 
@@ -5083,7 +5083,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Gemm_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 584) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 584) #18
   resume { ptr, i32 } %5
 }
 
@@ -5091,7 +5091,7 @@ declare void @_ZN4ncnn4GemmC1Ev(ptr noundef nonnull align 8 dereferenceable(580)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Gemm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #20
   invoke void @_ZN4ncnn8Gemm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(800) %2)
           to label %3 unwind label %4
 
@@ -5101,7 +5101,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Gemm_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #18
   resume { ptr, i32 } %5
 }
 
@@ -5109,7 +5109,7 @@ declare void @_ZN4ncnn8Gemm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Gemm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #20
   invoke void @_ZN4ncnn15Gemm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(800) %2)
           to label %3 unwind label %4
 
@@ -5119,7 +5119,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Gemm_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #18
   resume { ptr, i32 } %5
 }
 
@@ -5127,7 +5127,7 @@ declare void @_ZN4ncnn15Gemm_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #20
   invoke void @_ZN4ncnn12Gemm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(800) %2)
           to label %3 unwind label %4
 
@@ -5137,7 +5137,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #18
   resume { ptr, i32 } %5
 }
 
@@ -5145,7 +5145,7 @@ declare void @_ZN4ncnn12Gemm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(800) ptr @_Znwm(i64 noundef 800) #20
   invoke void @_ZN4ncnn12Gemm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(800) %2)
           to label %3 unwind label %4
 
@@ -5155,7 +5155,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26Gemm_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 800) #18
   resume { ptr, i32 } %5
 }
 
@@ -5163,7 +5163,7 @@ declare void @_ZN4ncnn12Gemm_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23GroupNorm_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn9GroupNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5173,7 +5173,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23GroupNorm_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5181,7 +5181,7 @@ declare void @_ZN4ncnn9GroupNormC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27GroupNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn13GroupNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5191,7 +5191,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27GroupNorm_x86_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5199,7 +5199,7 @@ declare void @_ZN4ncnn13GroupNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34GroupNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn20GroupNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5209,7 +5209,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34GroupNorm_x86_avx512_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5217,7 +5217,7 @@ declare void @_ZN4ncnn20GroupNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn17GroupNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5227,7 +5227,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_fma_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5235,7 +5235,7 @@ declare void @_ZN4ncnn17GroupNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn17GroupNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5245,7 +5245,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31GroupNorm_x86_avx_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5253,7 +5253,7 @@ declare void @_ZN4ncnn17GroupNorm_x86_avxC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23LayerNorm_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn9LayerNormC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5263,7 +5263,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23LayerNorm_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5271,7 +5271,7 @@ declare void @_ZN4ncnn9LayerNormC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27LayerNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn13LayerNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5281,7 +5281,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27LayerNorm_x86_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5289,7 +5289,7 @@ declare void @_ZN4ncnn13LayerNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34LayerNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn20LayerNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5299,7 +5299,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34LayerNorm_x86_avx512_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5307,7 +5307,7 @@ declare void @_ZN4ncnn20LayerNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn17LayerNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5317,7 +5317,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_fma_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5325,7 +5325,7 @@ declare void @_ZN4ncnn17LayerNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn17LayerNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -5335,7 +5335,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31LayerNorm_x86_avx_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -5343,7 +5343,7 @@ declare void @_ZN4ncnn17LayerNorm_x86_avxC1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22Softplus_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn8SoftplusC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -5353,7 +5353,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22Softplus_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -5361,7 +5361,7 @@ declare void @_ZN4ncnn8SoftplusC1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17GRU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #20
   invoke void @_ZN4ncnn3GRUC1Ev(ptr noundef nonnull align 8 dereferenceable(584) %2)
           to label %3 unwind label %4
 
@@ -5371,7 +5371,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17GRU_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 584) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 584) #18
   resume { ptr, i32 } %5
 }
 
@@ -5379,7 +5379,7 @@ declare void @_ZN4ncnn3GRUC1Ev(ptr noundef nonnull align 8 dereferenceable(584))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32MultiHeadAttention_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1040) ptr @_Znwm(i64 noundef 1040) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1040) ptr @_Znwm(i64 noundef 1040) #20
   invoke void @_ZN4ncnn18MultiHeadAttentionC1Ev(ptr noundef nonnull align 8 dereferenceable(1036) %2)
           to label %3 unwind label %4
 
@@ -5389,7 +5389,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32MultiHeadAttention_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1040) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1040) #18
   resume { ptr, i32 } %5
 }
 
@@ -5397,7 +5397,7 @@ declare void @_ZN4ncnn18MultiHeadAttentionC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36MultiHeadAttention_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #20
   invoke void @_ZN4ncnn22MultiHeadAttention_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(1096) %2)
           to label %3 unwind label %4
 
@@ -5407,7 +5407,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36MultiHeadAttention_x86_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #18
   resume { ptr, i32 } %5
 }
 
@@ -5415,7 +5415,7 @@ declare void @_ZN4ncnn22MultiHeadAttention_x86C1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn43MultiHeadAttention_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #20
   invoke void @_ZN4ncnn29MultiHeadAttention_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(1096) %2)
           to label %3 unwind label %4
 
@@ -5425,7 +5425,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn43MultiHeadAttention_x86_avx512_layer
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #18
   resume { ptr, i32 } %5
 }
 
@@ -5433,7 +5433,7 @@ declare void @_ZN4ncnn29MultiHeadAttention_x86_avx512C1Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #20
   invoke void @_ZN4ncnn26MultiHeadAttention_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(1096) %2)
           to label %3 unwind label %4
 
@@ -5443,7 +5443,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_fma_layer_cr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #18
   resume { ptr, i32 } %5
 }
 
@@ -5451,7 +5451,7 @@ declare void @_ZN4ncnn26MultiHeadAttention_x86_fmaC1Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(1096) ptr @_Znwm(i64 noundef 1096) #20
   invoke void @_ZN4ncnn26MultiHeadAttention_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(1096) %2)
           to label %3 unwind label %4
 
@@ -5461,7 +5461,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn40MultiHeadAttention_x86_avx_layer_cr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 1096) #18
   resume { ptr, i32 } %5
 }
 
@@ -5469,7 +5469,7 @@ declare void @_ZN4ncnn26MultiHeadAttention_x86_avxC1Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18GELU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4GELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -5479,7 +5479,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18GELU_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -5487,7 +5487,7 @@ declare void @_ZN4ncnn4GELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn22GELU_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn8GELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -5497,7 +5497,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn22GELU_x86_layer_creatorEPv(ptr readn
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -5505,7 +5505,7 @@ declare void @_ZN4ncnn8GELU_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29GELU_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn15GELU_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -5515,7 +5515,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29GELU_x86_avx512_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -5523,7 +5523,7 @@ declare void @_ZN4ncnn15GELU_x86_avx512C1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12GELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -5533,7 +5533,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_fma_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -5541,7 +5541,7 @@ declare void @_ZN4ncnn12GELU_x86_fmaC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn12GELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -5551,7 +5551,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn26GELU_x86_avx_layer_creatorEPv(ptr r
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -5559,7 +5559,7 @@ declare void @_ZN4ncnn12GELU_x86_avxC1Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Convolution1D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #20
   invoke void @_ZN4ncnn13Convolution1DC1Ev(ptr noundef nonnull align 8 dereferenceable(472) %2)
           to label %3 unwind label %4
 
@@ -5569,7 +5569,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Convolution1D_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 472) #18
   resume { ptr, i32 } %5
 }
 
@@ -5577,7 +5577,7 @@ declare void @_ZN4ncnn13Convolution1DC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31Convolution1D_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20
   invoke void @_ZN4ncnn17Convolution1D_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
 
@@ -5587,7 +5587,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31Convolution1D_x86_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #18
   resume { ptr, i32 } %5
 }
 
@@ -5595,7 +5595,7 @@ declare void @_ZN4ncnn17Convolution1D_x86C1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38Convolution1D_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20
   invoke void @_ZN4ncnn24Convolution1D_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
 
@@ -5605,7 +5605,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38Convolution1D_x86_avx512_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #18
   resume { ptr, i32 } %5
 }
 
@@ -5613,7 +5613,7 @@ declare void @_ZN4ncnn24Convolution1D_x86_avx512C1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20
   invoke void @_ZN4ncnn21Convolution1D_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
 
@@ -5623,7 +5623,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_fma_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #18
   resume { ptr, i32 } %5
 }
 
@@ -5631,7 +5631,7 @@ declare void @_ZN4ncnn21Convolution1D_x86_fmaC1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #20
   invoke void @_ZN4ncnn21Convolution1D_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(544) %2)
           to label %3 unwind label %4
 
@@ -5641,7 +5641,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35Convolution1D_x86_avx_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 544) #18
   resume { ptr, i32 } %5
 }
 
@@ -5649,7 +5649,7 @@ declare void @_ZN4ncnn21Convolution1D_x86_avxC1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Pooling1D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #20
   invoke void @_ZN4ncnn9Pooling1DC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2)
           to label %3 unwind label %4
 
@@ -5659,7 +5659,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Pooling1D_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 248) #18
   resume { ptr, i32 } %5
 }
 
@@ -5667,7 +5667,7 @@ declare void @_ZN4ncnn9Pooling1DC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise1D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #20
   invoke void @_ZN4ncnn22ConvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
 
@@ -5677,7 +5677,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise1D_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #18
   resume { ptr, i32 } %5
 }
 
@@ -5685,7 +5685,7 @@ declare void @_ZN4ncnn22ConvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27Convolution3D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(504) ptr @_Znwm(i64 noundef 504) #20
   invoke void @_ZN4ncnn13Convolution3DC1Ev(ptr noundef nonnull align 8 dereferenceable(504) %2)
           to label %3 unwind label %4
 
@@ -5695,7 +5695,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27Convolution3D_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 504) #18
   resume { ptr, i32 } %5
 }
 
@@ -5703,7 +5703,7 @@ declare void @_ZN4ncnn13Convolution3DC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise3D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20
   invoke void @_ZN4ncnn22ConvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %2)
           to label %3 unwind label %4
 
@@ -5713,7 +5713,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn36ConvolutionDepthWise3D_layer_creato
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 512) #18
   resume { ptr, i32 } %5
 }
 
@@ -5721,7 +5721,7 @@ declare void @_ZN4ncnn22ConvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn23Pooling3D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   invoke void @_ZN4ncnn9Pooling3DC1Ev(ptr noundef nonnull align 8 dereferenceable(288) %2)
           to label %3 unwind label %4
 
@@ -5731,7 +5731,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn23Pooling3D_layer_creatorEPv(ptr read
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 288) #18
   resume { ptr, i32 } %5
 }
 
@@ -5739,7 +5739,7 @@ declare void @_ZN4ncnn9Pooling3DC1Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20MatMul_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn6MatMulC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -5749,7 +5749,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20MatMul_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -5757,7 +5757,7 @@ declare void @_ZN4ncnn6MatMulC1Ev(ptr noundef nonnull align 8 dereferenceable(21
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24MatMul_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn10MatMul_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -5767,7 +5767,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24MatMul_x86_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -5775,7 +5775,7 @@ declare void @_ZN4ncnn10MatMul_x86C1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn31MatMul_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn17MatMul_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -5785,7 +5785,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn31MatMul_x86_avx512_layer_creatorEPv(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -5793,7 +5793,7 @@ declare void @_ZN4ncnn17MatMul_x86_avx512C1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn14MatMul_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -5803,7 +5803,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_fma_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -5811,7 +5811,7 @@ declare void @_ZN4ncnn14MatMul_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn14MatMul_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -5821,7 +5821,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28MatMul_x86_avx_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -5829,7 +5829,7 @@ declare void @_ZN4ncnn14MatMul_x86_avxC1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution1D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #20
   invoke void @_ZN4ncnn15Deconvolution1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
 
@@ -5839,7 +5839,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution1D_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #18
   resume { ptr, i32 } %5
 }
 
@@ -5847,7 +5847,7 @@ declare void @_ZN4ncnn15Deconvolution1DC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise1D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #20
   invoke void @_ZN4ncnn24DeconvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
 
@@ -5857,7 +5857,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise1D_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #18
   resume { ptr, i32 } %5
 }
 
@@ -5865,7 +5865,7 @@ declare void @_ZN4ncnn24DeconvolutionDepthWise1DC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution3D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #20
   invoke void @_ZN4ncnn15Deconvolution3DC1Ev(ptr noundef nonnull align 8 dereferenceable(528) %2)
           to label %3 unwind label %4
 
@@ -5875,7 +5875,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29Deconvolution3D_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 528) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 528) #18
   resume { ptr, i32 } %5
 }
 
@@ -5883,7 +5883,7 @@ declare void @_ZN4ncnn15Deconvolution3DC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise3D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #20
   invoke void @_ZN4ncnn24DeconvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8 dereferenceable(528) %2)
           to label %3 unwind label %4
 
@@ -5893,7 +5893,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeconvolutionDepthWise3D_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 528) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 528) #18
   resume { ptr, i32 } %5
 }
 
@@ -5901,7 +5901,7 @@ declare void @_ZN4ncnn24DeconvolutionDepthWise3DC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20Einsum_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(264) ptr @_Znwm(i64 noundef 264) #20
   invoke void @_ZN4ncnn6EinsumC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %2)
           to label %3 unwind label %4
 
@@ -5911,7 +5911,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Einsum_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 264) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 264) #18
   resume { ptr, i32 } %5
 }
 
@@ -5919,7 +5919,7 @@ declare void @_ZN4ncnn6EinsumC1Ev(ptr noundef nonnull align 8 dereferenceable(26
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn30DeformableConv2D_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #20
   invoke void @_ZN4ncnn16DeformableConv2DC1Ev(ptr noundef nonnull align 8 dereferenceable(480) %2)
           to label %3 unwind label %4
 
@@ -5929,7 +5929,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn30DeformableConv2D_layer_creatorEPv(p
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 480) #18
   resume { ptr, i32 } %5
 }
 
@@ -5937,7 +5937,7 @@ declare void @_ZN4ncnn16DeformableConv2DC1Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn34DeformableConv2D_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #20
   invoke void @_ZN4ncnn20DeformableConv2D_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
 
@@ -5947,7 +5947,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn34DeformableConv2D_x86_layer_creatorE
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #18
   resume { ptr, i32 } %5
 }
 
@@ -5955,7 +5955,7 @@ declare void @_ZN4ncnn20DeformableConv2D_x86C1Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn41DeformableConv2D_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #20
   invoke void @_ZN4ncnn27DeformableConv2D_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
 
@@ -5965,7 +5965,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn41DeformableConv2D_x86_avx512_layer_c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #18
   resume { ptr, i32 } %5
 }
 
@@ -5973,7 +5973,7 @@ declare void @_ZN4ncnn27DeformableConv2D_x86_avx512C1Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #20
   invoke void @_ZN4ncnn24DeformableConv2D_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
 
@@ -5983,7 +5983,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_fma_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #18
   resume { ptr, i32 } %5
 }
 
@@ -5991,7 +5991,7 @@ declare void @_ZN4ncnn24DeformableConv2D_x86_fmaC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(568) ptr @_Znwm(i64 noundef 568) #20
   invoke void @_ZN4ncnn24DeformableConv2D_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(568) %2)
           to label %3 unwind label %4
 
@@ -6001,7 +6001,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn38DeformableConv2D_x86_avx_layer_crea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 568) #18
   resume { ptr, i32 } %5
 }
 
@@ -6009,7 +6009,7 @@ declare void @_ZN4ncnn24DeformableConv2D_x86_avxC1Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17GLU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn3GLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -6019,7 +6019,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17GLU_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -6027,7 +6027,7 @@ declare void @_ZN4ncnn3GLUC1Ev(ptr noundef nonnull align 8 dereferenceable(212))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Fold_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #20
   invoke void @_ZN4ncnn4FoldC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2)
           to label %3 unwind label %4
 
@@ -6037,7 +6037,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Fold_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 256) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 256) #18
   resume { ptr, i32 } %5
 }
 
@@ -6045,7 +6045,7 @@ declare void @_ZN4ncnn4FoldC1Ev(ptr noundef nonnull align 8 dereferenceable(256)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20Unfold_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #20
   invoke void @_ZN4ncnn6UnfoldC1Ev(ptr noundef nonnull align 8 dereferenceable(252) %2)
           to label %3 unwind label %4
 
@@ -6055,7 +6055,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Unfold_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 256) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 256) #18
   resume { ptr, i32 } %5
 }
 
@@ -6063,7 +6063,7 @@ declare void @_ZN4ncnn6UnfoldC1Ev(ptr noundef nonnull align 8 dereferenceable(25
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn24GridSample_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn10GridSampleC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -6073,7 +6073,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn24GridSample_layer_creatorEPv(ptr rea
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -6081,7 +6081,7 @@ declare void @_ZN4ncnn10GridSampleC1Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn28GridSample_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn14GridSample_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -6091,7 +6091,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn28GridSample_x86_layer_creatorEPv(ptr
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -6099,7 +6099,7 @@ declare void @_ZN4ncnn14GridSample_x86C1Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn35GridSample_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn21GridSample_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -6109,7 +6109,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn35GridSample_x86_avx512_layer_creator
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -6117,7 +6117,7 @@ declare void @_ZN4ncnn21GridSample_x86_avx512C1Ev(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn18GridSample_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -6127,7 +6127,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_fma_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -6135,7 +6135,7 @@ declare void @_ZN4ncnn18GridSample_x86_fmaC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   invoke void @_ZN4ncnn18GridSample_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(224) %2)
           to label %3 unwind label %4
 
@@ -6145,7 +6145,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32GridSample_x86_avx_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 224) #18
   resume { ptr, i32 } %5
 }
 
@@ -6153,7 +6153,7 @@ declare void @_ZN4ncnn18GridSample_x86_avxC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn27CumulativeSum_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn13CumulativeSumC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -6163,7 +6163,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn27CumulativeSum_layer_creatorEPv(ptr 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -6171,7 +6171,7 @@ declare void @_ZN4ncnn13CumulativeSumC1Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20CopyTo_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #20
   invoke void @_ZN4ncnn6CopyToC1Ev(ptr noundef nonnull align 8 dereferenceable(368) %2)
           to label %3 unwind label %4
 
@@ -6181,7 +6181,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20CopyTo_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 368) #18
   resume { ptr, i32 } %5
 }
 
@@ -6189,7 +6189,7 @@ declare void @_ZN4ncnn6CopyToC1Ev(ptr noundef nonnull align 8 dereferenceable(36
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn17Erf_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #20
   invoke void @_ZN4ncnn3ErfC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %4
 
@@ -6199,7 +6199,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn17Erf_layer_creatorEPv(ptr readnone c
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #18
   resume { ptr, i32 } %5
 }
 
@@ -6207,7 +6207,7 @@ declare void @_ZN4ncnn3ErfC1Ev(ptr noundef nonnull align 8 dereferenceable(208))
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18Diag_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4DiagC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -6217,7 +6217,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18Diag_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -6225,7 +6225,7 @@ declare void @_ZN4ncnn4DiagC1Ev(ptr noundef nonnull align 8 dereferenceable(212)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn18CELU_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn4CELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212) %2)
           to label %3 unwind label %4
 
@@ -6235,7 +6235,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn18CELU_layer_creatorEPv(ptr readnone 
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -6243,7 +6243,7 @@ declare void @_ZN4ncnn4CELUC1Ev(ptr noundef nonnull align 8 dereferenceable(212)
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn20Shrink_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   invoke void @_ZN4ncnn6ShrinkC1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %3 unwind label %4
 
@@ -6253,7 +6253,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn20Shrink_layer_creatorEPv(ptr readnon
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 216) #18
   resume { ptr, i32 } %5
 }
 
@@ -6261,7 +6261,7 @@ declare void @_ZN4ncnn6ShrinkC1Ev(ptr noundef nonnull align 8 dereferenceable(21
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn21RMSNorm_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn7RMSNormC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -6271,7 +6271,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn21RMSNorm_layer_creatorEPv(ptr readno
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -6279,7 +6279,7 @@ declare void @_ZN4ncnn7RMSNormC1Ev(ptr noundef nonnull align 8 dereferenceable(2
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25RMSNorm_x86_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn11RMSNorm_x86C1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -6289,7 +6289,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25RMSNorm_x86_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -6297,7 +6297,7 @@ declare void @_ZN4ncnn11RMSNorm_x86C1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32RMSNorm_x86_avx512_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn18RMSNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -6307,7 +6307,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32RMSNorm_x86_avx512_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -6315,7 +6315,7 @@ declare void @_ZN4ncnn18RMSNorm_x86_avx512C1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_fma_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn15RMSNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -6325,7 +6325,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_fma_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -6333,7 +6333,7 @@ declare void @_ZN4ncnn15RMSNorm_x86_fmaC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_avx_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #20
   invoke void @_ZN4ncnn15RMSNorm_x86_avxC1Ev(ptr noundef nonnull align 8 dereferenceable(296) %2)
           to label %3 unwind label %4
 
@@ -6343,7 +6343,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn29RMSNorm_x86_avx_layer_creatorEPv(pt
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 296) #18
   resume { ptr, i32 } %5
 }
 
@@ -6351,7 +6351,7 @@ declare void @_ZN4ncnn15RMSNorm_x86_avxC1Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn25Spectrogram_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
   invoke void @_ZN4ncnn11SpectrogramC1Ev(ptr noundef nonnull align 8 dereferenceable(320) %2)
           to label %3 unwind label %4
 
@@ -6361,7 +6361,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn25Spectrogram_layer_creatorEPv(ptr re
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 320) #18
   resume { ptr, i32 } %5
 }
 
@@ -6369,7 +6369,7 @@ declare void @_ZN4ncnn11SpectrogramC1Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_ZN4ncnn32InverseSpectrogram_layer_creatorEPv(ptr readnone captures(none) %0) #2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #21
+  %2 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #20
   invoke void @_ZN4ncnn18InverseSpectrogramC1Ev(ptr noundef nonnull align 8 dereferenceable(312) %2)
           to label %3 unwind label %4
 
@@ -6379,7 +6379,7 @@ define hidden noundef nonnull ptr @_ZN4ncnn32InverseSpectrogram_layer_creatorEPv
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 312) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 312) #18
   resume { ptr, i32 } %5
 }
 
@@ -6413,8 +6413,8 @@ define hidden void @_ZN4ncnn5LayerC2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #7 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
-  tail call void @_ZSt9terminatev() #20
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
+  tail call void @_ZSt9terminatev() #19
   unreachable
 }
 
@@ -6464,14 +6464,14 @@ define hidden void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 captures(addr
   br i1 %.not.i1.i.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i, label %20
 
 20:                                               ; preds = %19
-  tail call void @free(ptr noundef nonnull %14) #18
+  tail call void @free(ptr noundef nonnull %14) #17
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i
 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #20
+  tail call void @__clang_call_terminate(ptr %23) #19
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i:      ; preds = %20, %19, %15, %8, %.lr.ph.i.i.i.i
@@ -6499,7 +6499,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
-  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #18
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i, %28
@@ -6541,14 +6541,14 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit:        ; preds = %_ZSt8_DestroyIPN4nc
   br i1 %.not.i1.i.i.i.i.i12, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i5, label %52
 
 52:                                               ; preds = %51
-  tail call void @free(ptr noundef nonnull %46) #18
+  tail call void @free(ptr noundef nonnull %46) #17
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i5
 
 53:                                               ; preds = %47
   %54 = landingpad { ptr, i32 }
           catch ptr null
   %55 = extractvalue { ptr, i32 } %54, 0
-  tail call void @__clang_call_terminate(ptr %55) #20
+  tail call void @__clang_call_terminate(ptr %55) #19
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i.i5:     ; preds = %52, %51, %47, %40, %.lr.ph.i.i.i.i2
@@ -6576,7 +6576,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i9: ; preds = %_ZSt8_DestroyIP
   %63 = ptrtoint ptr %62 to i64
   %64 = ptrtoint ptr %59 to i64
   %65 = sub i64 %63, %64
-  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %59, i64 noundef %65) #18
   br label %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit13
 
 _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit13:      ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit.i9, %60
@@ -6591,7 +6591,7 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit13:      ; preds = %_ZSt8_DestroyIPN4nc
   %71 = ptrtoint ptr %70 to i64
   %72 = ptrtoint ptr %67 to i64
   %73 = sub i64 %71, %72
-  tail call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %73) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %73) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN4ncnn3MatESaIS1_EED2Ev.exit13, %68
@@ -6606,7 +6606,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN4ncnn
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %75 to i64
   %81 = sub i64 %79, %80
-  tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #18
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit16
 
 _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %76
@@ -6614,42 +6614,28 @@ _ZNSt6vectorIiSaIiEED2Ev.exit16:                  ; preds = %_ZNSt6vectorIiSaIiE
   %83 = load ptr, ptr %82, align 8, !tbaa !57
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %85 = icmp eq ptr %83, %84
-  br i1 %85, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit16
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %87 = load i64, ptr %86, align 8, !tbaa !49
-  %88 = icmp ult i64 %87, 16
-  tail call void @llvm.assume(i1 %88)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %85, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit16
-  %89 = load i64, ptr %84, align 8, !tbaa !50
-  %90 = add i64 %89, 1
-  tail call void @_ZdlPvm(ptr noundef %83, i64 noundef %90) #19
+  %86 = load i64, ptr %84, align 8, !tbaa !50
+  %87 = add i64 %86, 1
+  tail call void @_ZdlPvm(ptr noundef %83, i64 noundef %87) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %92 = load ptr, ptr %91, align 8, !tbaa !57
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %94 = icmp eq ptr %92, %93
-  br i1 %94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %96 = load i64, ptr %95, align 8, !tbaa !49
-  %97 = icmp ult i64 %96, 16
-  tail call void @llvm.assume(i1 %97)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %89 = load ptr, ptr %88, align 8, !tbaa !57
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %91 = icmp eq ptr %89, %90
+  br i1 %91, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %98 = load i64, ptr %93, align 8, !tbaa !50
-  %99 = add i64 %98, 1
-  tail call void @_ZdlPvm(ptr noundef %92, i64 noundef %99) #19
+  %92 = load i64, ptr %90, align 8, !tbaa !50
+  %93 = add i64 %92, 1
+  tail call void @_ZdlPvm(ptr noundef %89, i64 noundef %93) #18
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   ret void
 }
 
@@ -6683,11 +6669,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br i1 %19, label %20, label %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE11_M_allocateEm.exit.i, !prof !58
 
 20:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE11_M_allocateEm.exit.i: ; preds = %17
-  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #21
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
   %.not11.i.i.i.i.i = icmp eq ptr %6, %5
   br i1 %.not11.i.i.i.i.i, label %_ZNSt6vectorIN4ncnn3MatESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_.exit, label %.lr.ph.i.i.i.i.i
 
@@ -6791,14 +6777,14 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_ite
   br i1 %.not.i1.i.i.i.i, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i, label %74
 
 74:                                               ; preds = %73
-  tail call void @free(ptr noundef nonnull %68) #18
+  tail call void @free(ptr noundef nonnull %68) #17
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i
 
 75:                                               ; preds = %69
   %76 = landingpad { ptr, i32 }
           catch ptr null
   %77 = extractvalue { ptr, i32 } %76, 0
-  tail call void @__clang_call_terminate(ptr %77) #20
+  tail call void @__clang_call_terminate(ptr %77) #19
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i:        ; preds = %74, %73, %69, %62, %.lr.ph.i.i.i
@@ -6825,7 +6811,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN4n
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %81 to i64
   %86 = sub i64 %84, %85
-  tail call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %86) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %86) #18
   br label %_ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit, %82
@@ -6885,14 +6871,14 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   br i1 %.not.i1.i.i.i.i32, label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i29, label %113
 
 113:                                              ; preds = %112
-  tail call void @free(ptr noundef nonnull %107) #18
+  tail call void @free(ptr noundef nonnull %107) #17
   br label %_ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i29
 
 114:                                              ; preds = %108
   %115 = landingpad { ptr, i32 }
           catch ptr null
   %116 = extractvalue { ptr, i32 } %115, 0
-  tail call void @__clang_call_terminate(ptr %116) #20
+  tail call void @__clang_call_terminate(ptr %116) #19
   unreachable
 
 _ZSt8_DestroyIN4ncnn3MatEEvPT_.exit.i.i.i29:      ; preds = %113, %112, %108, %101, %.lr.ph.i.i.i27
@@ -7056,7 +7042,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %30
 
 30:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %24) #18
+  tail call void @free(ptr noundef nonnull %24) #17
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %29, %30, %25, %18, %15
@@ -7176,7 +7162,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt11__copy_moveILb0ELb0ESt26random_ac
   br i1 %.not.i18.i, label %_ZN4ncnn3Mat7releaseEv.exit.i, label %30
 
 30:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %24) #18
+  tail call void @free(ptr noundef nonnull %24) #17
   br label %_ZN4ncnn3Mat7releaseEv.exit.i
 
 _ZN4ncnn3Mat7releaseEv.exit.i:                    ; preds = %29, %30, %25, %18, %15
@@ -7241,7 +7227,7 @@ define hidden noundef i32 @_ZN4ncnn14layer_to_indexEPKc(ptr noundef readonly cap
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16, !tbaa !65
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #22
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.split.loop.exit, label %7
 
@@ -7270,7 +7256,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEPKc(ptr noundef readonly captu
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
   %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16, !tbaa !65
-  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #22
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZN4ncnn14layer_to_indexEPKc.exit, label %7
 
@@ -7350,7 +7336,7 @@ define hidden noundef ptr @_ZN4ncnn12create_layerEi(i32 noundef %0) local_unname
   %27 = tail call noundef ptr %.11523.i(ptr noundef null)
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store i32 %0, ptr %28, align 8, !tbaa !51
-  %29 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #21
+  %29 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #20
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr %31, ptr %30, align 8, !tbaa !48
@@ -7439,7 +7425,7 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr noundef readonly
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
   %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16, !tbaa !65
-  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #22
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZN4ncnn14layer_to_indexEPKc.exit, label %7
 
@@ -7502,7 +7488,7 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr noundef readonly c
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
   %3 = getelementptr inbounds nuw %"struct.ncnn::layer_registry_entry", ptr @_ZN4ncnnL14layer_registryE, i64 %indvars.iv.i
   %4 = load ptr, ptr %3, align 16, !tbaa !65
-  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #23
+  %5 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #22
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZN4ncnn14layer_to_indexEPKc.exit, label %7
 
@@ -7636,11 +7622,11 @@ define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD2Ev(ptr noundef nonnull a
   %6 = load ptr, ptr %3, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %3) #18
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %3) #17
   br label %9
 
 9:                                                ; preds = %5, %1
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #18
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) #17
   ret void
 }
 
@@ -7656,12 +7642,12 @@ define linkonce_odr hidden void @_ZN4ncnn11Layer_finalD0Ev(ptr noundef nonnull a
   %6 = load ptr, ptr %3, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %3) #18
+  tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %3) #17
   br label %_ZN4ncnn11Layer_finalD2Ev.exit
 
 _ZN4ncnn11Layer_finalD2Ev.exit:                   ; preds = %1, %5
-  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #18
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #19
+  tail call void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #18
   ret void
 }
 
@@ -7920,11 +7906,11 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
   br i1 %18, label %19, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i, !prof !58
 
 19:                                               ; preds = %17
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #21
   unreachable
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %17
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #21
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #20
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit, label %21
 
@@ -7937,7 +7923,7 @@ _ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_
   br i1 %.not.i, label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit, label %22
 
 22:                                               ; preds = %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #18
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %_ZNSt6vectorIiSaIiEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEPimT_S9_.exit, %22
@@ -8019,14 +8005,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 attributes #0 = { mustprogress nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
@@ -8043,15 +8026,14 @@ attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(read
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-infs-fp-math"="true" "no-nans-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "reciprocal-estimates"="none" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "unsafe-fp-math"="true" }
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { builtin nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { builtin allocsize(0) }
-attributes #22 = { noreturn }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #16 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind }
+attributes #18 = { builtin nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { builtin allocsize(0) }
+attributes #21 = { noreturn }
+attributes #22 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -77,19 +77,6 @@ atomic_load_p.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noalias noundef ptr @je_prof_tctx_create(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr i8, ptr %0, i64 888
-  %.val = load i8, ptr %2, align 8, !tbaa !4
-  %3 = icmp ult i8 %.val, 3
-  br i1 %3, label %4, label %8
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %6 = load i8, ptr %5, align 1, !tbaa !4
-  %7 = icmp sgt i8 %6, 0
-  tail call void @llvm.assume(i1 %7)
-  br label %8
-
-8:                                                ; preds = %4, %1
   ret ptr null
 }
 
@@ -125,7 +112,7 @@ define hidden void @je_prof_gdump(ptr noundef readnone captures(none) %0) local_
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @je_prof_tdata_init(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 72)) #10
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 72)) #9
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %malloc_mutex_trylock_final.exit.i.i, label %3
 
@@ -134,31 +121,31 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %1
   br label %4
 
 3:                                                ; preds = %1
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @next_thr_uid_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @next_thr_uid_mtx) #9
   br label %4
 
 4:                                                ; preds = %3, %malloc_mutex_trylock_final.exit.i.i
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 56), align 8, !tbaa !7
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 56), align 8, !tbaa !4
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 56), align 8, !tbaa !7
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 48), align 8, !tbaa !15
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 56), align 8, !tbaa !4
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 48), align 8, !tbaa !14
   %.not.i.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i.i, label %prof_thr_uid_alloc.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 48), align 8, !tbaa !15
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 40), align 8, !tbaa !16
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 48), align 8, !tbaa !14
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 40), align 8, !tbaa !15
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 40), align 8, !tbaa !16
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 40), align 8, !tbaa !15
   br label %prof_thr_uid_alloc.exit
 
 prof_thr_uid_alloc.exit:                          ; preds = %4, %8
-  %11 = load i64, ptr @next_thr_uid, align 8, !tbaa !17
+  %11 = load i64, ptr @next_thr_uid, align 8, !tbaa !16
   %12 = add i64 %11, 1
-  store i64 %12, ptr @next_thr_uid, align 8, !tbaa !17
+  store i64 %12, ptr @next_thr_uid, align 8, !tbaa !16
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 64) monotonic, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 72)) #10
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_thr_uid_mtx, i64 72)) #9
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #9
   %.not.i.i3 = icmp eq i32 %14, 0
   br i1 %.not.i.i3, label %malloc_mutex_trylock_final.exit.i.i5, label %15
 
@@ -167,30 +154,30 @@ malloc_mutex_trylock_final.exit.i.i5:             ; preds = %prof_thr_uid_alloc.
   br label %16
 
 15:                                               ; preds = %prof_thr_uid_alloc.exit
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_thread_active_init_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_thread_active_init_mtx) #9
   br label %16
 
 16:                                               ; preds = %15, %malloc_mutex_trylock_final.exit.i.i5
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !7
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !4
   %18 = add i64 %17, 1
-  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !7
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !15
+  store i64 %18, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !4
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !14
   %.not.i.i.i4 = icmp eq ptr %19, %0
   br i1 %.not.i.i.i4, label %je_prof_thread_active_init_get.exit, label %20
 
 20:                                               ; preds = %16
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !15
-  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !16
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !14
+  %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !15
   %22 = add i64 %21, 1
-  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !16
+  store i64 %22, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !15
   br label %je_prof_thread_active_init_get.exit
 
 je_prof_thread_active_init_get.exit:              ; preds = %16, %20
-  %23 = load i8, ptr @prof_thread_active_init, align 1, !tbaa !18, !range !20, !noundef !21
+  %23 = load i8, ptr @prof_thread_active_init, align 1, !tbaa !17, !range !19, !noundef !20
   %24 = trunc nuw i8 %23 to i1
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 64) monotonic, align 8
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
-  %26 = tail call ptr @je_prof_tdata_init_impl(ptr noundef %0, i64 noundef %11, i64 noundef 0, ptr noundef null, i1 noundef zeroext %24) #10
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #9
+  %26 = tail call ptr @je_prof_tdata_init_impl(ptr noundef %0, i64 noundef %11, i64 noundef 0, ptr noundef null, i1 noundef zeroext %24) #9
   ret ptr %26
 }
 
@@ -198,7 +185,7 @@ declare ptr @je_prof_tdata_init_impl(ptr noundef, i64 noundef, i64 noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_prof_thread_active_init_get(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #9
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %3
 
@@ -207,29 +194,29 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %1
   br label %4
 
 3:                                                ; preds = %1
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_thread_active_init_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_thread_active_init_mtx) #9
   br label %4
 
 4:                                                ; preds = %3, %malloc_mutex_trylock_final.exit.i
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !7
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !4
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !7
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !15
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !4
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !15
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !16
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !14
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !15
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !16
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %11 = load i8, ptr @prof_thread_active_init, align 1, !tbaa !18, !range !20, !noundef !21
+  %11 = load i8, ptr @prof_thread_active_init, align 1, !tbaa !17, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 64) monotonic, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #9
   ret i1 %12
 }
 
@@ -237,18 +224,18 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
 define hidden ptr @je_prof_tdata_reinit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !29
+  %7 = load i64, ptr %6, align 8, !tbaa !28
   %8 = add i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %10 = load i8, ptr %9, align 4, !tbaa !30, !range !20, !noundef !21
+  %10 = load i8, ptr %9, align 4, !tbaa !29, !range !19, !noundef !20
   %11 = trunc nuw i8 %10 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %13 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #10
-  call void @je_prof_tdata_detach(ptr noundef %0, ptr noundef %1) #10
-  %14 = call ptr @je_prof_tdata_init_impl(ptr noundef %0, i64 noundef %5, i64 noundef %8, ptr noundef nonnull %3, i1 noundef zeroext %11) #10
+  %13 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #9
+  call void @je_prof_tdata_detach(ptr noundef %0, ptr noundef %1) #9
+  %14 = call ptr @je_prof_tdata_init_impl(ptr noundef %0, i64 noundef %5, i64 noundef %8, ptr noundef nonnull %3, i1 noundef zeroext %11) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %14
 }
@@ -280,12 +267,12 @@ define hidden noalias noundef nonnull ptr @je_prof_thread_name_get(ptr noundef r
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @je_prof_thread_name_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = load i8, ptr @je_opt_prof_sys_thread_name, align 1, !tbaa !18, !range !20, !noundef !21
+  %3 = load i8, ptr @je_opt_prof_sys_thread_name, align 1, !tbaa !17, !range !19, !noundef !20
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @je_prof_thread_name_set_impl(ptr noundef %0, ptr noundef %1) #10
+  %6 = tail call i32 @je_prof_thread_name_set_impl(ptr noundef %0, ptr noundef %1) #9
   br label %7
 
 7:                                                ; preds = %2, %5
@@ -307,7 +294,7 @@ define hidden noundef zeroext i1 @je_prof_thread_active_set(ptr noundef readnone
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_prof_thread_active_init_set(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #9
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %4
 
@@ -316,37 +303,37 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %2
   br label %5
 
 4:                                                ; preds = %2
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_thread_active_init_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_thread_active_init_mtx) #9
   br label %5
 
 5:                                                ; preds = %4, %malloc_mutex_trylock_final.exit.i
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !7
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !4
   %7 = add i64 %6, 1
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !7
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !15
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 56), align 8, !tbaa !4
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %8, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %9
 
 9:                                                ; preds = %5
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !15
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !16
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 48), align 8, !tbaa !14
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !15
   %11 = add i64 %10, 1
-  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !16
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %5, %9
   %12 = zext i1 %1 to i8
-  %13 = load i8, ptr @prof_thread_active_init, align 1, !tbaa !18, !range !20, !noundef !21
+  %13 = load i8, ptr @prof_thread_active_init, align 1, !tbaa !17, !range !19, !noundef !20
   %14 = trunc nuw i8 %13 to i1
-  store i8 %12, ptr @prof_thread_active_init, align 1, !tbaa !18
+  store i8 %12, ptr @prof_thread_active_init, align 1, !tbaa !17
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 64) monotonic, align 8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #10
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_thread_active_init_mtx, i64 72)) #9
   ret i1 %14
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_prof_gdump_get(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #10
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #9
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %3
 
@@ -355,35 +342,35 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %1
   br label %4
 
 3:                                                ; preds = %1
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_gdump_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_gdump_mtx) #9
   br label %4
 
 4:                                                ; preds = %3, %malloc_mutex_trylock_final.exit.i
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !7
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !4
   %6 = add i64 %5, 1
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !7
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !15
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !4
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %7, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %8
 
 8:                                                ; preds = %4
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !15
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !16
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !14
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !15
   %10 = add i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !16
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %11 = load i8, ptr @je_prof_gdump_val, align 1, !tbaa !18, !range !20, !noundef !21
+  %11 = load i8, ptr @je_prof_gdump_val, align 1, !tbaa !17, !range !19, !noundef !20
   %12 = trunc nuw i8 %11 to i1
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 64) monotonic, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #10
+  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #9
   ret i1 %12
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_prof_gdump_set(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #10
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #9
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %4
 
@@ -392,31 +379,31 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %2
   br label %5
 
 4:                                                ; preds = %2
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_gdump_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @prof_gdump_mtx) #9
   br label %5
 
 5:                                                ; preds = %4, %malloc_mutex_trylock_final.exit.i
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !7
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !4
   %7 = add i64 %6, 1
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !7
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !15
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 56), align 8, !tbaa !4
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !14
   %.not.i.i = icmp eq ptr %8, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %9
 
 9:                                                ; preds = %5
-  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !15
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !16
+  store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 48), align 8, !tbaa !14
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !15
   %11 = add i64 %10, 1
-  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !16
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %5, %9
   %12 = zext i1 %1 to i8
-  %13 = load i8, ptr @je_prof_gdump_val, align 1, !tbaa !18, !range !20, !noundef !21
+  %13 = load i8, ptr @je_prof_gdump_val, align 1, !tbaa !17, !range !19, !noundef !20
   %14 = trunc nuw i8 %13 to i1
-  store i8 %12, ptr @je_prof_gdump_val, align 1, !tbaa !18
+  store i8 %12, ptr @je_prof_gdump_val, align 1, !tbaa !17
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 64) monotonic, align 8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #10
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @prof_gdump_mtx, i64 72)) #9
   ret i1 %14
 }
 
@@ -517,9 +504,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -529,8 +513,7 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -538,30 +521,29 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!5, !5, i64 0}
-!5 = !{!"omnipotent char", !6, i64 0}
-!6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !10, i64 56}
-!8 = !{!"", !9, i64 0, !9, i64 8, !10, i64 16, !10, i64 24, !11, i64 32, !12, i64 36, !10, i64 40, !13, i64 48, !10, i64 56}
-!9 = !{!"", !10, i64 0}
-!10 = !{!"long", !5, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"", !11, i64 0}
-!13 = !{!"p1 _ZTS6tsdn_s", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!8, !13, i64 48}
-!16 = !{!8, !10, i64 40}
-!17 = !{!10, !10, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"_Bool", !5, i64 0}
-!20 = !{i8 0, i8 2}
-!21 = !{}
-!22 = !{!23, !10, i64 8}
-!23 = !{!"prof_tdata_s", !24, i64 0, !10, i64 8, !10, i64 16, !25, i64 24, !10, i64 40, !27, i64 48, !5, i64 96, !19, i64 112, !19, i64 113, !19, i64 114, !19, i64 115, !19, i64 116, !19, i64 117, !19, i64 118, !28, i64 120, !14, i64 184}
-!24 = !{!"p1 _ZTS14malloc_mutex_s", !14, i64 0}
-!25 = !{!"", !26, i64 0, !26, i64 8}
-!26 = !{!"p1 _ZTS12prof_tdata_s", !14, i64 0}
-!27 = !{!"", !10, i64 0, !10, i64 8, !11, i64 16, !11, i64 20, !14, i64 24, !14, i64 32, !14, i64 40}
-!28 = !{!"prof_cnt_s", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56}
-!29 = !{!23, !10, i64 16}
-!30 = !{!23, !19, i64 116}
+!4 = !{!5, !7, i64 56}
+!5 = !{!"", !6, i64 0, !6, i64 8, !7, i64 16, !7, i64 24, !10, i64 32, !11, i64 36, !7, i64 40, !12, i64 48, !7, i64 56}
+!6 = !{!"", !7, i64 0}
+!7 = !{!"long", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"", !10, i64 0}
+!12 = !{!"p1 _ZTS6tsdn_s", !13, i64 0}
+!13 = !{!"any pointer", !8, i64 0}
+!14 = !{!5, !12, i64 48}
+!15 = !{!5, !7, i64 40}
+!16 = !{!7, !7, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"_Bool", !8, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = !{!22, !7, i64 8}
+!22 = !{!"prof_tdata_s", !23, i64 0, !7, i64 8, !7, i64 16, !24, i64 24, !7, i64 40, !26, i64 48, !8, i64 96, !18, i64 112, !18, i64 113, !18, i64 114, !18, i64 115, !18, i64 116, !18, i64 117, !18, i64 118, !27, i64 120, !13, i64 184}
+!23 = !{!"p1 _ZTS14malloc_mutex_s", !13, i64 0}
+!24 = !{!"", !25, i64 0, !25, i64 8}
+!25 = !{!"p1 _ZTS12prof_tdata_s", !13, i64 0}
+!26 = !{!"", !7, i64 0, !7, i64 8, !10, i64 16, !10, i64 20, !13, i64 24, !13, i64 32, !13, i64 40}
+!27 = !{!"prof_cnt_s", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
+!28 = !{!22, !7, i64 16}
+!29 = !{!22, !18, i64 116}

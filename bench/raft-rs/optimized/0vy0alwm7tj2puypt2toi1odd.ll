@@ -9015,57 +9015,54 @@ define void @_ZN10raft_proto6protos7eraftpb7Message12set_priority17h46be760e4975
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN83_$LT$raft_proto..protos..eraftpb..Message$u20$as$u20$protobuf..message..Message$GT$14is_initialized17hfbbae0ef63bf9b0bE"(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
   %2 = tail call { ptr, ptr } @"_ZN108_$LT$$RF$protobuf..repeated..RepeatedField$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0ab751076e7d9159E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 1
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i8, ptr %5, align 8, !range !806, !noundef !3
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %._crit_edge
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = load i8, ptr %3, align 8, !range !806, !noundef !3
+  %5 = trunc nuw i8 %4 to i1
+  br i1 %5, label %6, label %._crit_edge
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !align !4, !noundef !3
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %23, label %.lr.ph.split.us, !prof !5
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8, !align !4, !noundef !3
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %21, label %.lr.ph.split.us, !prof !5
 
-.lr.ph.split.us:                                  ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %12 = load i8, ptr %11, align 8, !range !806, !noundef !3
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %._crit_edge
+.lr.ph.split.us:                                  ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %10 = load i8, ptr %9, align 8, !range !806, !noundef !3
+  %11 = trunc nuw i8 %10 to i1
+  br i1 %11, label %12, label %._crit_edge
 
-14:                                               ; preds = %.lr.ph.split.us
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %16 = load ptr, ptr %15, align 8, !align !4, !noundef !3
-  %.not.i.us = icmp eq ptr %16, null
+12:                                               ; preds = %.lr.ph.split.us
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %14 = load ptr, ptr %13, align 8, !align !4, !noundef !3
+  %.not.i.us = icmp eq ptr %14, null
   br i1 %.not.i.us, label %.split.us, label %.lr.ph.split.us.i.us, !prof !5
 
-.lr.ph.split.us.i.us:                             ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load i8, ptr %17, align 8, !range !806, !noundef !3
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %20, label %._crit_edge
+.lr.ph.split.us.i.us:                             ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load i8, ptr %15, align 8, !range !806, !noundef !3
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %18, label %._crit_edge
 
-20:                                               ; preds = %.lr.ph.split.us.i.us
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %22 = load ptr, ptr %21, align 8, !align !4, !noundef !3
-  %.not.i.us.i.us = icmp eq ptr %22, null
+18:                                               ; preds = %.lr.ph.split.us.i.us
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %20 = load ptr, ptr %19, align 8, !align !4, !noundef !3
+  %.not.i.us.i.us = icmp eq ptr %20, null
   br i1 %.not.i.us.i.us, label %.split.us.i, label %._crit_edge, !prof !5
 
-23:                                               ; preds = %8
+21:                                               ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d336f4e79768327cfaf698b6c1712a21.81) #23
   unreachable
 
-.split.us:                                        ; preds = %14
+.split.us:                                        ; preds = %12
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d336f4e79768327cfaf698b6c1712a21.81) #23
   unreachable
 
-.split.us.i:                                      ; preds = %20
+.split.us.i:                                      ; preds = %18
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d336f4e79768327cfaf698b6c1712a21.81) #23
   unreachable
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us.i.us, %20, %1, %.lr.ph.split.us
+._crit_edge:                                      ; preds = %.lr.ph.split.us.i.us, %18, %1, %.lr.ph.split.us
   ret i1 true
 }
 
@@ -14581,9 +14578,6 @@ define void @_ZN10raft_proto6protos7eraftpb12ConfChangeV212take_context17hd5cac5
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN88_$LT$raft_proto..protos..eraftpb..ConfChangeV2$u20$as$u20$protobuf..message..Message$GT$14is_initialized17h606891c17521de74E"(ptr noundef nonnull align 8 %0) unnamed_addr #2 {
   %2 = tail call { ptr, ptr } @"_ZN108_$LT$$RF$protobuf..repeated..RepeatedField$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h73e2f1507fb8abc0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %3 = extractvalue { ptr, ptr } %2, 1
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret i1 true
 }
 

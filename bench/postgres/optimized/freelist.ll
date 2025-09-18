@@ -73,13 +73,13 @@ define dso_local ptr @StrategyGetBuffer(ptr noundef captures(address_is_null) %0
   %17 = load ptr, ptr @BufferDescriptors, align 8
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %17, i64 %18
-  %20 = tail call i32 @LockBufHdr(ptr noundef %19) #9
+  %20 = tail call i32 @LockBufHdr(ptr noundef %19) #8
   %21 = and i32 %20, 3932159
   %or.cond.i = icmp eq i32 %21, 0
   br i1 %or.cond.i, label %GetBufferFromRing.exit, label %22
 
 22:                                               ; preds = %15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !4
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = and i32 %20, -4194305
   store volatile i32 %24, ptr %23, align 4
@@ -108,14 +108,14 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %32 = sext i32 %28 to i64
   %33 = getelementptr inbounds %struct.PGPROC, ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %34) #9
+  tail call void @SetLatch(ptr noundef nonnull %34) #8
   %.pre = load ptr, ptr @StrategyControl, align 8
   br label %35
 
 35:                                               ; preds = %29, %GetBufferFromRing.exit.thread
   %36 = phi ptr [ %.pre, %29 ], [ %26, %GetBufferFromRing.exit.thread ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %38 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 1, ptr nonnull elementtype(i32) %37) #9, !srcloc !5
+  %38 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 1, ptr nonnull elementtype(i32) %37) #8, !srcloc !5
   %39 = load ptr, ptr @StrategyControl, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 4
@@ -124,13 +124,13 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 .preheader:                                       ; preds = %35, %74
   %43 = phi ptr [ %.pre64, %74 ], [ %39, %35 ]
-  %44 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43, i8 1, ptr elementtype(i8) %43) #9, !srcloc !6
+  %44 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %43, i8 1, ptr elementtype(i8) %43) #8, !srcloc !6
   %.not47 = icmp eq i8 %44, 0
   br i1 %.not47, label %48, label %45
 
 45:                                               ; preds = %.preheader
   %46 = load ptr, ptr @StrategyControl, align 8
-  %47 = tail call i32 @s_lock(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @__func__.StrategyGetBuffer) #9
+  %47 = tail call i32 @s_lock(ptr noundef %46, ptr noundef nonnull @.str, i32 noundef 273, ptr noundef nonnull @__func__.StrategyGetBuffer) #8
   br label %48
 
 48:                                               ; preds = %.preheader, %45
@@ -141,7 +141,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %48
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !7
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !7
   %54 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %54, align 4
   br label %77
@@ -154,10 +154,10 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %50, align 4
   store i32 -2, ptr %59, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %61 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %61, align 4
-  %62 = tail call i32 @LockBufHdr(ptr noundef %58) #9
+  %62 = tail call i32 @LockBufHdr(ptr noundef %58) #8
   %63 = and i32 %62, 4194303
   %or.cond = icmp eq i32 %63, 0
   br i1 %or.cond, label %64, label %74
@@ -182,7 +182,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   br label %143
 
 74:                                               ; preds = %55
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !4
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %76 = and i32 %62, -4194305
   store volatile i32 %76, ptr %75, align 4
@@ -198,7 +198,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %81 = phi ptr [ %78, %77 ], [ %.pre65, %140 ]
   %.037 = phi i32 [ %79, %77 ], [ %.1, %140 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %83 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 1, ptr nonnull elementtype(i32) %82) #9, !srcloc !5
+  %83 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 1, ptr nonnull elementtype(i32) %82) #8, !srcloc !5
   %84 = load i32, ptr @NBuffers, align 4
   %.not.i51 = icmp ult i32 %83, %84
   br i1 %.not.i51, label %ClockSweepTick.exit, label %85
@@ -215,7 +215,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 
 .critedge.i:                                      ; preds = %98
   %90 = extractvalue { i32, i8 } %103, 0
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   %91 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %91, align 4
   br label %92
@@ -223,13 +223,13 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
 92:                                               ; preds = %.critedge.i, %88
   %93 = phi ptr [ %.pre.i, %88 ], [ %91, %.critedge.i ]
   %.01415.i = phi i32 [ %89, %88 ], [ %90, %.critedge.i ]
-  %94 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %93, i8 1, ptr elementtype(i8) %93) #9, !srcloc !6
+  %94 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %93, i8 1, ptr elementtype(i8) %93) #8, !srcloc !6
   %.not12.i = icmp eq i8 %94, 0
   br i1 %.not12.i, label %98, label %95
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr @StrategyControl, align 8
-  %97 = tail call i32 @s_lock(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.ClockSweepTick) #9
+  %97 = tail call i32 @s_lock(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @__func__.ClockSweepTick) #8
   br label %98
 
 98:                                               ; preds = %95, %92
@@ -237,7 +237,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %100 = urem i32 %.01415.i, %99
   %101 = load ptr, ptr @StrategyControl, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %103 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 %.01415.i, i32 %100, ptr nonnull elementtype(i32) %102) #9, !srcloc !10
+  %103 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 %.01415.i, i32 %100, ptr nonnull elementtype(i32) %102) #8, !srcloc !10
   %104 = extractvalue { i32, i8 } %103, 1
   %.not16.i = icmp eq i8 %104, 0
   br i1 %.not16.i, label %.critedge.i, label %105
@@ -248,7 +248,7 @@ GetBufferFromRing.exit.thread:                    ; preds = %4, %22, %GetBufferF
   %108 = load i32, ptr %107, align 4
   %109 = add i32 %108, 1
   store i32 %109, ptr %107, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   %110 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %110, align 4
   br label %ClockSweepTick.exit, !llvm.loop !11
@@ -258,7 +258,7 @@ ClockSweepTick.exit:                              ; preds = %80, %85, %105
   %111 = load ptr, ptr @BufferDescriptors, align 8
   %112 = zext i32 %.09.i to i64
   %113 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %111, i64 %112
-  %114 = tail call i32 @LockBufHdr(ptr noundef %113) #9
+  %114 = tail call i32 @LockBufHdr(ptr noundef %113) #8
   %115 = and i32 %114, 262143
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %132
@@ -298,20 +298,19 @@ ClockSweepTick.exit:                              ; preds = %80, %85, %105
   br i1 %134, label %135, label %140
 
 135:                                              ; preds = %132
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !4
   %136 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %137 = and i32 %114, -4194305
   store volatile i32 %137, ptr %136, align 4
-  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %138)
-  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #9
-  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.StrategyGetBuffer) #9
+  %138 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #8
+  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.StrategyGetBuffer) #8
   unreachable
 
 140:                                              ; preds = %132, %119
   %.1 = phi i32 [ %121, %119 ], [ %133, %132 ]
   %.0 = phi i32 [ %120, %119 ], [ %114, %132 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !4
   %141 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %142 = and i32 %.0, -4194305
   store volatile i32 %142, ptr %141, align 4
@@ -339,13 +338,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local void @StrategyFreeBuffer(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @StrategyControl, align 8
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #9, !srcloc !6
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #8, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @StrategyControl, align 8
-  %6 = tail call i32 @s_lock(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @__func__.StrategyFreeBuffer) #9
+  %6 = tail call i32 @s_lock(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 365, ptr noundef nonnull @__func__.StrategyFreeBuffer) #8
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -374,7 +373,7 @@ define dso_local void @StrategyFreeBuffer(ptr noundef captures(none) %0) local_u
   br label %20
 
 20:                                               ; preds = %7, %._crit_edge
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
   %21 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %21, align 4
   ret void
@@ -383,13 +382,13 @@ define dso_local void @StrategyFreeBuffer(ptr noundef captures(none) %0) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @StrategyControl, align 8
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #9, !srcloc !6
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #8, !srcloc !6
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @StrategyControl, align 8
-  %7 = tail call i32 @s_lock(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 399, ptr noundef nonnull @__func__.StrategySyncStart) #9
+  %7 = tail call i32 @s_lock(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 399, ptr noundef nonnull @__func__.StrategySyncStart) #8
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -422,7 +421,7 @@ define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly c
 
 23:                                               ; preds = %19, %20
   %24 = urem i32 %11, %12
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !14
   %25 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %25, align 4
   ret i32 %24
@@ -431,20 +430,20 @@ define dso_local range(i32 0, -1) i32 @StrategySyncStart(ptr noundef writeonly c
 ; Function Attrs: nounwind uwtable
 define dso_local void @StrategyNotifyBgWriter(i32 noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @StrategyControl, align 8
-  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #9, !srcloc !6
+  %3 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i8 1, ptr elementtype(i8) %2) #8, !srcloc !6
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @StrategyControl, align 8
-  %6 = tail call i32 @s_lock(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @__func__.StrategyNotifyBgWriter) #9
+  %6 = tail call i32 @s_lock(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @__func__.StrategyNotifyBgWriter) #8
   br label %7
 
 7:                                                ; preds = %1, %4
   %8 = load ptr, ptr @StrategyControl, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %0, ptr %9, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   %10 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %10, align 4
   ret void
@@ -454,9 +453,9 @@ define dso_local void @StrategyNotifyBgWriter(i32 noundef %0) local_unnamed_addr
 define dso_local i64 @StrategyShmemSize() local_unnamed_addr #1 {
   %1 = load i32, ptr @NBuffers, align 4
   %2 = add i32 %1, 128
-  %3 = tail call i64 @BufTableShmemSize(i32 noundef %2) #9
-  %4 = tail call i64 @add_size(i64 noundef 0, i64 noundef %3) #9
-  %5 = tail call i64 @add_size(i64 noundef %4, i64 noundef 32) #9
+  %3 = tail call i64 @BufTableShmemSize(i32 noundef %2) #8
+  %4 = tail call i64 @add_size(i64 noundef 0, i64 noundef %3) #8
+  %5 = tail call i64 @add_size(i64 noundef %4, i64 noundef 32) #8
   ret i64 %5
 }
 
@@ -470,15 +469,15 @@ define dso_local void @StrategyInitialize(i1 noundef zeroext %0) local_unnamed_a
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = load i32, ptr @NBuffers, align 4
   %4 = add i32 %3, 128
-  tail call void @InitBufTable(i32 noundef %4) #9
-  %5 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef 28, ptr noundef nonnull %2) #9
+  tail call void @InitBufTable(i32 noundef %4) #8
+  %5 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.2, i64 noundef 28, ptr noundef nonnull %2) #8
   store ptr %5, ptr @StrategyControl, align 8
   %6 = load i8, ptr %2, align 1, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !18
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   %9 = load ptr, ptr @StrategyControl, align 8
   store i8 0, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -522,10 +521,9 @@ define dso_local noundef ptr @GetAccessStrategy(i32 noundef %0) local_unnamed_ad
   br label %GetAccessStrategyWithSize.exit
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #9
-  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 569, ptr noundef nonnull @__func__.GetAccessStrategy) #9
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #8
+  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 569, ptr noundef nonnull @__func__.GetAccessStrategy) #8
   unreachable
 
 GetAccessStrategyWithSize.exit:                   ; preds = %1, %3, %2
@@ -536,7 +534,7 @@ GetAccessStrategyWithSize.exit:                   ; preds = %1, %3, %2
   %9 = sext i32 %..i to i64
   %10 = shl nsw i64 %9, 2
   %11 = add nsw i64 %10, 12
-  %12 = tail call ptr @palloc0(i64 noundef %11) #9
+  %12 = tail call ptr @palloc0(i64 noundef %11) #8
   store i32 %0, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %..i, ptr %13, align 4
@@ -561,7 +559,7 @@ define dso_local noundef ptr @GetAccessStrategyWithSize(i32 noundef %0, i32 noun
   %8 = sext i32 %. to i64
   %9 = shl nsw i64 %8, 2
   %10 = add nsw i64 %9, 12
-  %11 = tail call ptr @palloc0(i64 noundef %10) #9
+  %11 = tail call ptr @palloc0(i64 noundef %10) #8
   store i32 %0, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %., ptr %12, align 4
@@ -620,7 +618,7 @@ define dso_local void @FreeAccessStrategy(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %0) #9
+  tail call void @pfree(ptr noundef nonnull %0) #8
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -641,11 +639,10 @@ define dso_local range(i32 0, 5) i32 @IOContextForStrategy(ptr noundef readonly 
   br i1 %4, label %switch.lookup, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %6)
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %7 = load i32, ptr %0, align 4
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %7) #9
-  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 782, ptr noundef nonnull @__func__.IOContextForStrategy) #9
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %7) #8
+  tail call void @errfinish(ptr noundef nonnull @.str, i32 noundef 782, ptr noundef nonnull @__func__.IOContextForStrategy) #8
   unreachable
 
 switch.lookup:                                    ; preds = %2
@@ -694,11 +691,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -707,10 +701,9 @@ attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

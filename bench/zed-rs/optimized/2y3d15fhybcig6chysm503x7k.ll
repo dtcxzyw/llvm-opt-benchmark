@@ -2659,7 +2659,7 @@ define noundef range(i8 0, 4) i8 @_ZN3git6status9GitStatus3get17hf353843cd49339f
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !419
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !419
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %26, label %18
+  br i1 %17, label %24, label %18
 
 18:                                               ; preds = %.lr.ph.i
   %19 = icmp eq i8 %16, 1
@@ -2669,25 +2669,16 @@ define noundef range(i8 0, 4) i8 @_ZN3git6status9GitStatus3get17hf353843cd49339f
   %.sroa.013.0.i = select i1 %20, i64 %21, i64 %.sroa.03.021.i
   %22 = sub i64 %.sroa.014.0.i, %.sroa.013.0.i
   %23 = icmp ult i64 %.sroa.013.0.i, %.sroa.014.0.i
-  br i1 %23, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit"
+  br i1 %23, label %.lr.ph.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit": ; preds = %18
-  %24 = icmp ule i64 %.sroa.013.0.i, %8
-  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit"
-
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit", %3
-  %.sroa.03.0.lcssa.i = phi i1 [ true, %3 ], [ %24, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit.loopexit" ]
-  tail call void @llvm.assume(i1 %.sroa.03.0.lcssa.i)
-  br label %25
-
-25:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit", %26
-  %.sroa.0.0 = phi i8 [ %28, %26 ], [ 3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit" ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit": ; preds = %18, %3, %24
+  %.sroa.0.0 = phi i8 [ %26, %24 ], [ 3, %3 ], [ 3, %18 ]
   ret i8 %.sroa.0.0
 
-26:                                               ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %28 = load i8, ptr %27, align 8, !range !140, !noundef !4
-  br label %25
+24:                                               ; preds = %.lr.ph.i
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %26 = load i8, ptr %25, align 8, !range !140, !noundef !4
+  br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h36f54d32a14c2317E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

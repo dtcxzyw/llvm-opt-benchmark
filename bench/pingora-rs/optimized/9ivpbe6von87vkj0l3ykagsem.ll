@@ -219,18 +219,15 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17hcaa90edf2
 define hidden noundef nonnull align 8 dereferenceable(232) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hb7732fbe70de1ee5E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5, !prof !15
+  br i1 %.not, label %5, label %4, !prof !15
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hd65ae1120f7cec90E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i64, ptr %4, align 8, !range !16, !noundef !8
-  %7 = icmp ne i64 %6, 3
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -238,16 +235,13 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell4sy
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load atomic ptr, ptr %3 acquire, align 8
   %.not = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %8, label %5, !prof !15
+  br i1 %.not, label %6, label %5, !prof !15
 
 5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h42f88872ec67ef8aE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load ptr, ptr %0, align 8, !noundef !8
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %6
 
-8:                                                ; preds = %2, %5
+6:                                                ; preds = %2, %5
   ret ptr %0
 }
 
@@ -327,4 +321,3 @@ attributes #13 = { noreturn }
 !13 = distinct !{!13, !14, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E: argument 0"}
 !14 = distinct !{!14, !"_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E"}
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!16 = !{i64 0, i64 4}

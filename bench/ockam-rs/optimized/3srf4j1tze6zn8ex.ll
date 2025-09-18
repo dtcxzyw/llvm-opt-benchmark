@@ -2602,19 +2602,15 @@ define hidden void @"_ZN96_$LT$opentelemetry..trace..context..SynchronizedSpan$u
 define hidden noundef nonnull align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h0f16d4c0578a6bd3E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  br i1 %.not, label %7, label %4
+  br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h804b532cd8d7de33E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i8, ptr %5, align 8, !range !73, !noundef !8
-  %trunc.i = trunc nuw i8 %6 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %2, %4
-  %8 = getelementptr i8, ptr %0, i64 9
-  ret ptr %8
+5:                                                ; preds = %2, %4
+  %6 = getelementptr i8, ptr %0, i64 9
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2636,19 +2632,15 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell4sy
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf654564437b90a89E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %3, 2
-  br i1 %.not, label %7, label %4
+  br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hf71373ec836d4689E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !range !4, !noundef !8
-  %trunc.i = trunc nuw i64 %6 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %2, %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  ret ptr %8
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

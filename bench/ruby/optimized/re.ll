@@ -11068,7 +11068,6 @@ RSTRING_PTR.exit:                                 ; preds = %._crit_edge, %64
 .lr.ph111:                                        ; preds = %.preheader100
   %66 = getelementptr i8, ptr %2, i64 40
   %67 = load ptr, ptr %66, align 8, !tbaa !92
-  %.not24.i = icmp ne i32 %.077.lcssa, 0
   %68 = getelementptr i8, ptr %2, i64 56
   %69 = getelementptr i8, ptr %2, i64 48
   %wide.trip.count125 = zext nneg i32 %7 to i64
@@ -11089,25 +11088,22 @@ RSTRING_PTR.exit:                                 ; preds = %._crit_edge, %64
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
   br i1 %exitcond121.not, label %.preheader100, label %.lr.ph108, !llvm.loop !299
 
-76:                                               ; preds = %.lr.ph111, %119
-  %indvars.iv122 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next123, %119 ]
+76:                                               ; preds = %.lr.ph111, %117
+  %indvars.iv122 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next123, %117 ]
   %77 = getelementptr i64, ptr %67, i64 %indvars.iv122
   %78 = load i64, ptr %77, align 8, !tbaa !18
   %79 = icmp slt i64 %78, 0
-  br i1 %79, label %80, label %.lr.ph.i
+  br i1 %79, label %80, label %.lr.ph.i.outer
 
 80:                                               ; preds = %76
   %81 = load ptr, ptr %68, align 8, !tbaa !224
   %82 = getelementptr %struct.rmatch_offset, ptr %81, i64 %indvars.iv122
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 -1, i64 16, i1 false)
-  br label %119
+  br label %117
 
-.lr.ph.i:                                         ; preds = %76, %93
-  %.not24.i.sink = phi i1 [ %94, %93 ], [ %.not24.i, %76 ]
-  %.01621.i = phi i64 [ %.1.i, %93 ], [ 0, %76 ]
-  %.01720.i = phi i64 [ %.118.i, %93 ], [ %58, %76 ]
-  call void @llvm.assume(i1 %.not24.i.sink)
-  %83 = add i64 %.01720.i, %.01621.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %.lr.ph.i
+  %.01720.i = phi i64 [ %84, %.lr.ph.i ], [ %.01720.i.ph, %.lr.ph.i.outer ]
+  %83 = add i64 %.01720.i, %.01621.i.ph
   %84 = lshr i64 %83, 1
   %85 = shl i64 %84, 4
   %86 = getelementptr i8, ptr %39, i64 %85
@@ -11116,75 +11112,74 @@ RSTRING_PTR.exit:                                 ; preds = %._crit_edge, %64
   %.not.i95 = icmp ne i64 %78, %87
   %89 = icmp slt i64 %88, 1
   %narrow = and i1 %.not.i95, %89
-  br i1 %narrow, label %93, label %90
+  br i1 %narrow, label %.lr.ph.i, label %90
 
 90:                                               ; preds = %.lr.ph.i
   br i1 %.not.i95, label %91, label %bsearch.exit
 
 91:                                               ; preds = %90
   %92 = add nuw i64 %84, 1
-  br label %93
+  br label %.lr.ph.i.outer
 
-93:                                               ; preds = %91, %.lr.ph.i
-  %.118.i = phi i64 [ %.01720.i, %91 ], [ %84, %.lr.ph.i ]
-  %.1.i = phi i64 [ %92, %91 ], [ %.01621.i, %.lr.ph.i ]
-  %94 = icmp ult i64 %.1.i, %.118.i
+.lr.ph.i.outer:                                   ; preds = %76, %91
+  %.01621.i.ph = phi i64 [ %92, %91 ], [ 0, %76 ]
+  %.01720.i.ph = phi i64 [ %.01720.i, %91 ], [ %58, %76 ]
   br label %.lr.ph.i
 
 bsearch.exit:                                     ; preds = %90
-  %95 = getelementptr i8, ptr %39, i64 %85
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load i64, ptr %96, align 8, !tbaa !298
-  %98 = load ptr, ptr %68, align 8, !tbaa !224
-  %99 = getelementptr %struct.rmatch_offset, ptr %98, i64 %indvars.iv122
-  store i64 %97, ptr %99, align 8, !tbaa !230
-  %100 = load ptr, ptr %69, align 8, !tbaa !93
-  %101 = getelementptr i64, ptr %100, i64 %indvars.iv122
-  %102 = load i64, ptr %101, align 8, !tbaa !18
+  %93 = getelementptr i8, ptr %39, i64 %85
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %95 = load i64, ptr %94, align 8, !tbaa !298
+  %96 = load ptr, ptr %68, align 8, !tbaa !224
+  %97 = getelementptr %struct.rmatch_offset, ptr %96, i64 %indvars.iv122
+  store i64 %95, ptr %97, align 8, !tbaa !230
+  %98 = load ptr, ptr %69, align 8, !tbaa !93
+  %99 = getelementptr i64, ptr %98, i64 %indvars.iv122
+  %100 = load i64, ptr %99, align 8, !tbaa !18
   br label %.lr.ph.i87
 
-.lr.ph.i87:                                       ; preds = %113, %bsearch.exit
-  %.01621.i88 = phi i64 [ %.1.i92, %113 ], [ 0, %bsearch.exit ]
-  %.01720.i89 = phi i64 [ %.118.i91, %113 ], [ %58, %bsearch.exit ]
-  %103 = add i64 %.01720.i89, %.01621.i88
-  %104 = lshr i64 %103, 1
-  %105 = shl i64 %104, 4
-  %106 = getelementptr i8, ptr %39, i64 %105
-  %107 = load i64, ptr %106, align 16, !tbaa !292
-  %108 = sub i64 %102, %107
-  %.not.i96 = icmp ne i64 %102, %107
-  %109 = icmp slt i64 %108, 1
-  %narrow99 = and i1 %.not.i96, %109
-  br i1 %narrow99, label %113, label %110
+.lr.ph.i87:                                       ; preds = %111, %bsearch.exit
+  %.01621.i88 = phi i64 [ %.1.i92, %111 ], [ 0, %bsearch.exit ]
+  %.01720.i89 = phi i64 [ %.118.i91, %111 ], [ %58, %bsearch.exit ]
+  %101 = add i64 %.01720.i89, %.01621.i88
+  %102 = lshr i64 %101, 1
+  %103 = shl i64 %102, 4
+  %104 = getelementptr i8, ptr %39, i64 %103
+  %105 = load i64, ptr %104, align 16, !tbaa !292
+  %106 = sub i64 %100, %105
+  %.not.i96 = icmp ne i64 %100, %105
+  %107 = icmp slt i64 %106, 1
+  %narrow99 = and i1 %.not.i96, %107
+  br i1 %narrow99, label %111, label %108
 
-110:                                              ; preds = %.lr.ph.i87
-  br i1 %.not.i96, label %111, label %bsearch.exit94
+108:                                              ; preds = %.lr.ph.i87
+  br i1 %.not.i96, label %109, label %bsearch.exit94
 
-111:                                              ; preds = %110
-  %112 = add nuw i64 %104, 1
-  br label %113
+109:                                              ; preds = %108
+  %110 = add nuw i64 %102, 1
+  br label %111
 
-113:                                              ; preds = %111, %.lr.ph.i87
-  %.118.i91 = phi i64 [ %.01720.i89, %111 ], [ %104, %.lr.ph.i87 ]
-  %.1.i92 = phi i64 [ %112, %111 ], [ %.01621.i88, %.lr.ph.i87 ]
-  %114 = icmp ult i64 %.1.i92, %.118.i91
-  call void @llvm.assume(i1 %114)
+111:                                              ; preds = %109, %.lr.ph.i87
+  %.118.i91 = phi i64 [ %.01720.i89, %109 ], [ %102, %.lr.ph.i87 ]
+  %.1.i92 = phi i64 [ %110, %109 ], [ %.01621.i88, %.lr.ph.i87 ]
+  %112 = icmp ult i64 %.1.i92, %.118.i91
+  call void @llvm.assume(i1 %112)
   br label %.lr.ph.i87
 
-bsearch.exit94:                                   ; preds = %110
-  %115 = getelementptr i8, ptr %39, i64 %105
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load i64, ptr %116, align 8, !tbaa !298
-  %118 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i64 %117, ptr %118, align 8, !tbaa !232
-  br label %119
+bsearch.exit94:                                   ; preds = %108
+  %113 = getelementptr i8, ptr %39, i64 %103
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load i64, ptr %114, align 8, !tbaa !298
+  %116 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 %115, ptr %116, align 8, !tbaa !232
+  br label %117
 
-119:                                              ; preds = %bsearch.exit94, %80
+117:                                              ; preds = %bsearch.exit94, %80
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
   br i1 %exitcond126.not, label %.loopexit, label %76, !llvm.loop !300
 
-.loopexit:                                        ; preds = %119, %26, %.preheader100, %.preheader, %1
+.loopexit:                                        ; preds = %117, %26, %.preheader100, %.preheader, %1
   ret void
 }
 

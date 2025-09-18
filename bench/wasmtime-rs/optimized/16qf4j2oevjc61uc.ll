@@ -4246,7 +4246,6 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN114_$LT$alloc.
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %115
 
 default.unreachable:                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a2885b483bbe5f3E.exit"
@@ -4550,12 +4549,12 @@ _ZN5alloc11collections5btree3mem7replace17h2008bf9bfb035d0aE.llvm.26514680571674
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit44.outer.backedge"
 
-"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit36": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit", %126, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb8f8a98b5efdf119E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a2885b483bbe5f3E.exit", %85, %.preheader, %31, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit.thread60", %_ZN5alloc11collections5btree3mem7replace17h2008bf9bfb035d0aE.llvm.2651468057167481930.exit.i.i34, %52
-  %.0 = phi ptr [ %67, %_ZN5alloc11collections5btree3mem7replace17h2008bf9bfb035d0aE.llvm.2651468057167481930.exit.i.i34 ], [ null, %52 ], [ %127, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit.thread60" ], [ null, %31 ], [ null, %.preheader ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb8f8a98b5efdf119E.exit" ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a2885b483bbe5f3E.exit" ], [ null, %85 ], [ null, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit" ], [ %127, %126 ]
+"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit36": ; preds = %131, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit", %126, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb8f8a98b5efdf119E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a2885b483bbe5f3E.exit", %85, %.preheader, %31, %_ZN5alloc11collections5btree3mem7replace17h2008bf9bfb035d0aE.llvm.2651468057167481930.exit.i.i34, %52
+  %.0 = phi ptr [ %67, %_ZN5alloc11collections5btree3mem7replace17h2008bf9bfb035d0aE.llvm.2651468057167481930.exit.i.i34 ], [ null, %52 ], [ null, %31 ], [ null, %.preheader ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17hb8f8a98b5efdf119E.exit" ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9a2885b483bbe5f3E.exit" ], [ null, %85 ], [ %127, %131 ], [ null, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit" ], [ %127, %126 ]
   ret ptr %.0
 
 115:                                              ; preds = %.lr.ph, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit"
-  %116 = phi i64 [ %26, %.lr.ph ], [ %136, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit" ]
+  %116 = phi i64 [ %26, %.lr.ph ], [ %135, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !925)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !927)
   %117 = add i64 %116, -1
@@ -4608,20 +4607,13 @@ _ZN5alloc11collections5btree3mem7replace17h2008bf9bfb035d0aE.llvm.26514680571674
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h8ad02d68b5eed3f2E.llvm.2651468057167481930"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull %129, i64 noundef %133, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %127), !noalias !934
   %134 = load i64, ptr %3, align 8, !range !5, !noalias !939, !noundef !4
   %trunc.i = trunc nuw i64 %134 to i1
-  br i1 %trunc.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit.thread60", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit.thread60": ; preds = %131
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !939
-  br label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit36"
+  br i1 %trunc.i, label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit36", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf5228fd2f9b875bE.exit": ; preds = %131
-  %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !939
-  %135 = icmp ult i64 %.sroa.27.0.copyload.i, 11
-  tail call void @llvm.assume(i1 %135)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !939
-  %136 = load i64, ptr %25, align 8, !alias.scope !940, !noundef !4
-  %137 = icmp eq i64 %136, 0
-  br i1 %137, label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit36", label %115
+  %135 = load i64, ptr %25, align 8, !alias.scope !940, !noundef !4
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2826b67a1b8ae18eE.exit36", label %115
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4665,7 +4657,6 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN114_$LT$alloc.
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %115
 
 default.unreachable:                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h71feaf0d86389f2eE.exit"
@@ -4969,12 +4960,12 @@ _ZN5alloc11collections5btree3mem7replace17h3fadfd4655011974E.llvm.26514680571674
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit44.outer.backedge"
 
-"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit36": ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit", %126, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h62ec7799e04e00c5E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17h71feaf0d86389f2eE.exit", %85, %.preheader, %31, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit.thread60", %_ZN5alloc11collections5btree3mem7replace17h3fadfd4655011974E.llvm.2651468057167481930.exit.i.i34, %52
-  %.0 = phi ptr [ %67, %_ZN5alloc11collections5btree3mem7replace17h3fadfd4655011974E.llvm.2651468057167481930.exit.i.i34 ], [ null, %52 ], [ %127, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit.thread60" ], [ null, %31 ], [ null, %.preheader ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h62ec7799e04e00c5E.exit" ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$6map_or17h71feaf0d86389f2eE.exit" ], [ null, %85 ], [ null, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit" ], [ %127, %126 ]
+"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit36": ; preds = %131, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit", %126, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h62ec7799e04e00c5E.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17h71feaf0d86389f2eE.exit", %85, %.preheader, %31, %_ZN5alloc11collections5btree3mem7replace17h3fadfd4655011974E.llvm.2651468057167481930.exit.i.i34, %52
+  %.0 = phi ptr [ %67, %_ZN5alloc11collections5btree3mem7replace17h3fadfd4655011974E.llvm.2651468057167481930.exit.i.i34 ], [ null, %52 ], [ null, %31 ], [ null, %.preheader ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h62ec7799e04e00c5E.exit" ], [ %.021.ph, %"_ZN4core6option15Option$LT$T$GT$6map_or17h71feaf0d86389f2eE.exit" ], [ null, %85 ], [ %127, %131 ], [ null, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit" ], [ %127, %126 ]
   ret ptr %.0
 
 115:                                              ; preds = %.lr.ph, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit"
-  %116 = phi i64 [ %26, %.lr.ph ], [ %136, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit" ]
+  %116 = phi i64 [ %26, %.lr.ph ], [ %135, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1019)
   %117 = add i64 %116, -1
@@ -5027,20 +5018,13 @@ _ZN5alloc11collections5btree3mem7replace17h3fadfd4655011974E.llvm.26514680571674
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he560ea7ff32d4713E.llvm.2651468057167481930"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull %129, i64 noundef %133, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %127), !noalias !1026
   %134 = load i64, ptr %3, align 8, !range !5, !noalias !1031, !noundef !4
   %trunc.i = trunc nuw i64 %134 to i1
-  br i1 %trunc.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit.thread60", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit.thread60": ; preds = %131
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1031
-  br label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit36"
+  br i1 %trunc.i, label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit36", label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h57729958df3036e3E.exit": ; preds = %131
-  %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !noalias !1031
-  %135 = icmp ult i64 %.sroa.27.0.copyload.i, 11
-  tail call void @llvm.assume(i1 %135)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1031
-  %136 = load i64, ptr %25, align 8, !alias.scope !1032, !noundef !4
-  %137 = icmp eq i64 %136, 0
-  br i1 %137, label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit36", label %115
+  %135 = load i64, ptr %25, align 8, !alias.scope !1032, !noundef !4
+  %136 = icmp eq i64 %135, 0
+  br i1 %136, label %"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha954e5d03a6fbf2cE.exit36", label %115
 }
 
 ; Function Attrs: nonlazybind uwtable

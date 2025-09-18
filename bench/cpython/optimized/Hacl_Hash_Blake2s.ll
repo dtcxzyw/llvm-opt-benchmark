@@ -1365,7 +1365,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2s_update_last(i32 noundef %0,
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %13, i64 %11, i1 false)
   %14 = add i64 %4, %9
   call fastcc void @update_block(ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext %3, i64 noundef %14, ptr noundef nonnull %8)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
@@ -1411,7 +1411,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2s_finish(i32 noundef %0, ptr 
   store i32 %26, ptr %24, align 4
   %27 = zext i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %4, i64 %27, i1 false)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %4, i64 noundef 32) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %4, i64 noundef 32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -1420,13 +1420,13 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2s_finish(i32 noundef %0, ptr 
 define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_malloc_with_params_and_key(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #7 {
   %.sroa.02.0.copyload = load i16, ptr %0, align 8
   %.sroa.01.0.insert.insert = tail call i16 @llvm.bswap.i16(i16 %.sroa.02.0.copyload)
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #21
-  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #21
-  %6 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #21
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #20
+  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #20
+  %6 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #20
   %7 = zext i1 %1 to i8
   %.not.i = icmp ult i16 %.sroa.02.0.copyload, 256
   %..i = select i1 %.not.i, i64 0, i64 64
-  %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #22
+  %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
   %.sroa.0104.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %7, ptr %.sroa.0104.sroa.5.0..sroa_idx.i, align 2, !tbaa !9
@@ -1774,7 +1774,6 @@ reset_raw.exit:                                   ; preds = %2, %4
 define hidden void @python_hashlib_Hacl_Hash_Blake2s_reset(ptr noundef captures(none) initializes((32, 40)) %0) local_unnamed_addr #9 {
 python_hashlib_Hacl_Hash_Blake2s_reset_with_key.exit:
   %.sroa.8120.i.i = alloca [13 x i8], align 1
-  %.sroa.0.0.copyload.i.i = load i8, ptr %0, align 8, !tbaa !18
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8120.i.i)
@@ -1784,41 +1783,39 @@ python_hashlib_Hacl_Hash_Blake2s_reset_with_key.exit:
   %.sroa.7129.0.copyload.i.i = load ptr, ptr %.sroa.7129.0..sroa_idx.i.i, align 8, !tbaa !11
   %.sroa.8130.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.8130.0.copyload.i.i = load ptr, ptr %.sroa.8130.0..sroa_idx.i.i, align 8, !tbaa !14
-  %1 = icmp eq i8 %.sroa.0.0.copyload.i.i, 0
-  tail call void @llvm.assume(i1 %1)
   %.sroa.0.0.insert.ext.i = zext i8 %.sroa.4.0.copyload.i.i to i32
-  %2 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 16
-  %3 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 32
-  %4 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 48
-  store i32 1779033703, ptr %3, align 4, !tbaa !3
-  %5 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 36
-  store i32 -1150833019, ptr %5, align 4, !tbaa !3
-  %6 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 40
-  store i32 1013904242, ptr %6, align 4, !tbaa !3
-  %7 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 44
-  store i32 -1521486534, ptr %7, align 4, !tbaa !3
-  store i32 1359893119, ptr %4, align 4, !tbaa !3
-  %8 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 52
-  store i32 -1694144372, ptr %8, align 4, !tbaa !3
-  %9 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 56
-  store i32 528734635, ptr %9, align 4, !tbaa !3
-  %10 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 60
-  store i32 1541459225, ptr %10, align 4, !tbaa !3
-  %11 = xor i32 %.sroa.0.0.insert.ext.i, 1795745383
-  store i32 %11, ptr %.sroa.7129.0.copyload.i.i, align 4, !tbaa !3
-  %12 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 4
-  store i32 -1150833019, ptr %12, align 4, !tbaa !3
-  %13 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 8
-  store i32 1013904242, ptr %13, align 4, !tbaa !3
-  %14 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 12
-  store i32 -1521486534, ptr %14, align 4, !tbaa !3
-  store i32 1359893119, ptr %2, align 4, !tbaa !3
-  %15 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 20
-  store i32 -1694144372, ptr %15, align 4, !tbaa !3
-  %16 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 24
-  store i32 528734635, ptr %16, align 4, !tbaa !3
-  %17 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 28
-  store i32 1541459225, ptr %17, align 4, !tbaa !3
+  %1 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 16
+  %2 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 32
+  %3 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 48
+  store i32 1779033703, ptr %2, align 4, !tbaa !3
+  %4 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 36
+  store i32 -1150833019, ptr %4, align 4, !tbaa !3
+  %5 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 40
+  store i32 1013904242, ptr %5, align 4, !tbaa !3
+  %6 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 44
+  store i32 -1521486534, ptr %6, align 4, !tbaa !3
+  store i32 1359893119, ptr %3, align 4, !tbaa !3
+  %7 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 52
+  store i32 -1694144372, ptr %7, align 4, !tbaa !3
+  %8 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 56
+  store i32 528734635, ptr %8, align 4, !tbaa !3
+  %9 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 60
+  store i32 1541459225, ptr %9, align 4, !tbaa !3
+  %10 = xor i32 %.sroa.0.0.insert.ext.i, 1795745383
+  store i32 %10, ptr %.sroa.7129.0.copyload.i.i, align 4, !tbaa !3
+  %11 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 4
+  store i32 -1150833019, ptr %11, align 4, !tbaa !3
+  %12 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 8
+  store i32 1013904242, ptr %12, align 4, !tbaa !3
+  %13 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 12
+  store i32 -1521486534, ptr %13, align 4, !tbaa !3
+  store i32 1359893119, ptr %1, align 4, !tbaa !3
+  %14 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 20
+  store i32 -1694144372, ptr %14, align 4, !tbaa !3
+  %15 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 24
+  store i32 528734635, ptr %15, align 4, !tbaa !3
+  %16 = getelementptr i8, ptr %.sroa.7129.0.copyload.i.i, i64 28
+  store i32 1541459225, ptr %16, align 4, !tbaa !3
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %0, align 8, !tbaa !18
   store i8 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !18
@@ -2040,7 +2037,7 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef re
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %19, i64 %15, i1 false)
   call fastcc void @update_block(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext %16, i64 noundef %.sroa.649.0.copyload, ptr noundef nonnull %4)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %4, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %4, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2075,7 +2072,7 @@ define hidden zeroext i8 @python_hashlib_Hacl_Hash_Blake2s_digest(ptr noundef re
   store i32 %41, ptr %39, align 4
   %42 = zext i8 %.sroa.457.0.copyload to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %3, i64 %42, i1 false)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %3, i64 noundef 32) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %3, i64 noundef 32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.4.0.copyload = load i8, ptr %.sroa.457.0..sroa_idx, align 1, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2109,10 +2106,10 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2s_free(ptr noundef captures(n
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !11
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !14
-  tail call void @free(ptr noundef %.sroa.44.0.copyload) #20
-  tail call void @free(ptr noundef %.sroa.5.0.copyload) #20
-  tail call void @free(ptr noundef %.sroa.6.0.copyload) #20
-  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef %.sroa.44.0.copyload) #19
+  tail call void @free(ptr noundef %.sroa.5.0.copyload) #19
+  tail call void @free(ptr noundef %.sroa.6.0.copyload) #19
+  tail call void @free(ptr noundef %0) #19
   ret void
 }
 
@@ -2133,12 +2130,12 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_copy(ptr nou
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !16
   %2 = and i8 %.sroa.524.0.copyload, 1
-  %3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #21
+  %3 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.827.0.copyload, i64 64, i1 false)
-  %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #21
-  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #21
+  %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #20
+  %5 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 16, i64 noundef 4) #20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 4 dereferenceable(64) %.sroa.726.0.copyload, i64 64, i1 false)
-  %6 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #22
+  %6 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   store i8 %.sroa.022.0.copyload, ptr %6, align 8, !tbaa !18
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %.sroa.423.0.copyload, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1, !tbaa !18
@@ -2233,10 +2230,10 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2s_hash_with_key(ptr noundef w
   store i32 %44, ptr %43, align 4
   %45 = zext i32 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %7, i64 %45, i1 false)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 32) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 64) #20
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 64) #19
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -2261,7 +2258,7 @@ define internal fastcc void @update(ptr noundef nonnull captures(none) initializ
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, ptr noundef nonnull readonly align 1 dereferenceable(1) %3, i64 %11, i1 false)
   %16 = icmp eq i32 %4, 0
   call fastcc void @update_block(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %16, i1 noundef zeroext false, i64 noundef 64, ptr noundef nonnull %9)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %9, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br i1 %16, label %53, label %17
 
@@ -2305,7 +2302,7 @@ update_blocks.exit:                               ; preds = %.lr.ph.i.i, %17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %34, i64 %32, i1 false)
   %35 = add nuw nsw i64 %29, 64
   call fastcc void @update_block(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, i64 noundef %35, ptr noundef nonnull %8)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
@@ -2347,7 +2344,7 @@ update_blocks.exit25:                             ; preds = %.lr.ph.i.i21, %36
   %52 = getelementptr i8, ptr %48, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr readonly align 1 %52, i64 %50, i1 false)
   call fastcc void @update_block(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext false, i64 noundef %47, ptr noundef nonnull %7)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %53
 
@@ -2462,10 +2459,10 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2s_hash_with_key_and_params(pt
   store i32 %76, ptr %75, align 4
   %77 = zext i8 %24 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %6, i64 %77, i1 false)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 32) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 32) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #20
-  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #20
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 64) #19
+  call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -2482,9 +2479,6 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #18
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -2505,10 +2499,9 @@ attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,unin
 attributes #16 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { nounwind }
-attributes #21 = { nounwind allocsize(0,1) }
-attributes #22 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

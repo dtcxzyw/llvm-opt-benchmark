@@ -265,7 +265,7 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
 23:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !53
   store ptr null, ptr %2, align 8, !noalias !53
-  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #11, !noalias !53
+  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #10, !noalias !53
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
@@ -378,7 +378,7 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
 23:                                               ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !73
   store ptr null, ptr %2, align 8, !noalias !73
-  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #11, !noalias !73
+  call void @_ZN4core9panicking13assert_failed17h94904da2cd0a0a24E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.97fc90d330a912cf015a353b43f9b78d.1) #10, !noalias !73
   unreachable
 
 _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit: ; preds = %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
@@ -712,15 +712,6 @@ define void @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inclusive..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u128$GT$7opt_len17hc352089400ed1535E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE.exit.thread":
-  %1 = load i128, ptr %0, align 8, !alias.scope !123, !noalias !126, !noundef !10
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i128, ptr %2, align 8, !alias.scope !123, !noalias !126, !noundef !10
-  %.not.i = icmp ugt i128 %1, %3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !123, !noalias !126
-  %6 = icmp ne i8 %5, 0
-  %or.cond.i.not = select i1 %.not.i, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %or.cond.i.not)
   ret { i64, i64 } { i64 1, i64 0 }
 }
 
@@ -732,15 +723,6 @@ define void @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i128$GT$7opt_len17h90156dd4ff398ddcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E.exit.thread":
-  %1 = load i128, ptr %0, align 8, !alias.scope !128, !noalias !131, !noundef !10
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i128, ptr %2, align 8, !alias.scope !128, !noalias !131, !noundef !10
-  %.not.i = icmp sgt i128 %1, %3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !128, !noalias !131
-  %6 = icmp ne i8 %5, 0
-  %or.cond.i.not = select i1 %.not.i, i1 true, i1 %6
-  tail call void @llvm.assume(i1 %or.cond.i.not)
   ret { i64, i64 } { i64 1, i64 0 }
 }
 
@@ -803,9 +785,6 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -816,8 +795,7 @@ attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { noreturn }
+attributes #10 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
@@ -945,13 +923,3 @@ attributes #11 = { noreturn }
 !120 = distinct !{!120, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE"}
 !121 = !{!122}
 !122 = distinct !{!122, !120, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE: argument 0"}
-!123 = !{!124}
-!124 = distinct !{!124, !125, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 1"}
-!125 = distinct !{!125, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE"}
-!126 = !{!127}
-!127 = distinct !{!127, !125, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hdd91f230d6f5cc9aE: argument 0"}
-!128 = !{!129}
-!129 = distinct !{!129, !130, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 1"}
-!130 = distinct !{!130, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E"}
-!131 = !{!132}
-!132 = distinct !{!132, !130, !"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h064ca31ab29b9ba6E: argument 0"}

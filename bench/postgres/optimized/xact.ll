@@ -271,11 +271,10 @@ IsInParallelMode.exit:                            ; preds = %1
   br i1 %or.cond, label %IsInParallelMode.exit.thread, label %17
 
 IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMode.exit
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 322) #21
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @__func__.AssignTransactionId) #21
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %15 = tail call i32 @errcode(i32 noundef 322) #20
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 651, ptr noundef nonnull @__func__.AssignTransactionId) #20
   unreachable
 
 17:                                               ; preds = %IsInParallelMode.exit
@@ -292,7 +291,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
-  %26 = tail call ptr @palloc(i64 noundef %25) #21
+  %26 = tail call ptr @palloc(i64 noundef %25) #20
   br label %27
 
 27:                                               ; preds = %21, %30
@@ -327,7 +326,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
-  tail call void @pfree(ptr noundef %26) #21
+  tail call void @pfree(ptr noundef %26) #20
   br label %38
 
 38:                                               ; preds = %._crit_edge, %18, %17
@@ -338,14 +337,14 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 98), align 2, !range !4
   %42 = trunc nuw i8 %41 to i1
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %42
-  %43 = tail call i64 @GetNewTransactionId(i1 noundef zeroext %5) #21
+  %43 = tail call i64 @GetNewTransactionId(i1 noundef zeroext %5) #20
   store i64 %43, ptr %0, align 8
   br i1 %5, label %.critedge46, label %.critedge48
 
 .critedge48:                                      ; preds = %38
   store i64 %43, ptr @XactTopFullTransactionId.0, align 8
   %44 = trunc i64 %43 to i32
-  tail call void @RegisterPredicateLockingXid(i32 noundef %44) #21
+  tail call void @RegisterPredicateLockingXid(i32 noundef %44) #20
   br label %49
 
 .critedge46:                                      ; preds = %38
@@ -353,7 +352,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   %46 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %46, align 8
   %48 = trunc i64 %47 to i32
-  tail call void @SubTransSetParent(i32 noundef %45, i32 noundef %48) #21
+  tail call void @SubTransSetParent(i32 noundef %45, i32 noundef %48) #20
   br label %49
 
 49:                                               ; preds = %.critedge46, %.critedge48
@@ -363,7 +362,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   store ptr %52, ptr @CurrentResourceOwner, align 8
   %53 = load i64, ptr %0, align 8
   %54 = trunc i64 %53 to i32
-  tail call void @XactLockTableInsert(i32 noundef %54) #21
+  tail call void @XactLockTableInsert(i32 noundef %54) #20
   store ptr %50, ptr @CurrentResourceOwner, align 8
   %55 = load i32, ptr @wal_level, align 4
   %56 = icmp sgt i32 %55, 0
@@ -403,12 +402,12 @@ GetTopTransactionId.exit:                         ; preds = %65, %68
   store i32 %71, ptr %2, align 4
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %69, ptr %72, align 4
-  tail call void @XLogBeginInsert() #21
-  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 8) #21
+  tail call void @XLogBeginInsert() #20
+  call void @XLogRegisterData(ptr noundef nonnull %2, i32 noundef 8) #20
   %73 = load i32, ptr @nUnreportedXids, align 4
   %74 = shl i32 %73, 2
-  call void @XLogRegisterData(ptr noundef nonnull @unreportedXids, i32 noundef %74) #21
-  %75 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 80) #21
+  call void @XLogRegisterData(ptr noundef nonnull @unreportedXids, i32 noundef %74) #20
+  %75 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 80) #20
   store i32 0, ptr @nUnreportedXids, align 4
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 98), align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -593,7 +592,7 @@ define dso_local i32 @GetStableLatestTransactionId() local_unnamed_addr #1 {
   br i1 %.not1, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = tail call i64 @ReadNextFullTransactionId() #21
+  %9 = tail call i64 @ReadNextFullTransactionId() #20
   %10 = trunc i64 %9 to i32
   store i32 %10, ptr @GetStableLatestTransactionId.stablexid, align 4
   br label %11
@@ -651,11 +650,10 @@ define dso_local i32 @GetCurrentCommandId(i1 noundef zeroext %0) local_unnamed_a
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 322) #21
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 842, ptr noundef nonnull @__func__.GetCurrentCommandId) #21
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %7 = tail call i32 @errcode(i32 noundef 322) #20
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 842, ptr noundef nonnull @__func__.GetCurrentCommandId) #20
   unreachable
 
 9:                                                ; preds = %2
@@ -704,7 +702,7 @@ define dso_local i64 @GetCurrentTransactionStopTimestamp() local_unnamed_addr #1
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = tail call i64 @GetCurrentTimestamp() #21
+  %4 = tail call i64 @GetCurrentTimestamp() #20
   store i64 %4, ptr @xactStopTimestamp, align 8
   br label %5
 
@@ -722,7 +720,7 @@ define dso_local void @SetCurrentStatementStartTimestamp() local_unnamed_addr #1
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i64 @GetCurrentTimestamp() #21
+  %4 = tail call i64 @GetCurrentTimestamp() #20
   store i64 %4, ptr @stmtStartTimestamp, align 8
   br label %5
 
@@ -827,7 +825,7 @@ define dso_local noundef zeroext i1 @TransactionIdIsCurrentTransactionId(i32 nou
   br i1 %.not61, label %.critedge, label %44
 
 44:                                               ; preds = %36
-  %45 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %43, i32 noundef %0) #21
+  %45 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %43, i32 noundef %0) #20
   %46 = add i32 %39, 1
   %47 = add i32 %39, -1
   %.244 = select i1 %45, i32 %46, i32 %.04272
@@ -918,11 +916,10 @@ IsInParallelMode.exit:                            ; preds = %1
   br i1 %or.cond, label %IsInParallelMode.exit.thread, label %13
 
 IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMode.exit
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 322) #21
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.CommandCounterIncrement) #21
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %11 = tail call i32 @errcode(i32 noundef 322) #20
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.CommandCounterIncrement) #20
   unreachable
 
 13:                                               ; preds = %IsInParallelMode.exit
@@ -934,18 +931,17 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 
 17:                                               ; preds = %13
   store i32 %14, ptr @currentCommandId, align 4
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 261) #21
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1125, ptr noundef nonnull @__func__.CommandCounterIncrement) #21
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %19 = tail call i32 @errcode(i32 noundef 261) #20
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1125, ptr noundef nonnull @__func__.CommandCounterIncrement) #20
   unreachable
 
 21:                                               ; preds = %13
   store i1 false, ptr @currentCommandIdUsed, align 1
-  tail call void @SnapshotSetCommandId(i32 noundef %15) #21
-  tail call void @AtCCI_RelationMap() #21
-  tail call void @CommandEndInvalidationMessages() #21
+  tail call void @SnapshotSetCommandId(i32 noundef %15) #20
+  tail call void @AtCCI_RelationMap() #20
+  tail call void @CommandEndInvalidationMessages() #20
   br label %22
 
 22:                                               ; preds = %21, %0
@@ -989,12 +985,11 @@ define dso_local void @StartTransactionCommand() local_unnamed_addr #1 {
   br label %10
 
 5:                                                ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %6)
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   %7 = load i32, ptr %2, align 8
   %8 = tail call fastcc ptr @BlockStateAsString(i32 noundef %7)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %8) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3106, ptr noundef nonnull @__func__.StartTransactionCommand) #21
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %8) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3106, ptr noundef nonnull @__func__.StartTransactionCommand) #20
   unreachable
 
 10:                                               ; preds = %4, %0
@@ -1017,7 +1012,7 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call double @pg_prng_double(ptr noundef nonnull @pg_global_prng_state) #21
+  %6 = tail call double @pg_prng_double(ptr noundef nonnull @pg_global_prng_state) #20
   %7 = load double, ptr @log_xact_sample_rate, align 8
   %8 = fcmp ole double %6, %7
   %9 = zext i1 %8 to i8
@@ -1029,8 +1024,8 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 36), align 4
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 40), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 72), i8 0, i64 16, i1 false)
-  tail call void @GetUserIdAndSecContext(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 88), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 92)) #21
-  %12 = tail call zeroext i1 @RecoveryInProgress() #21
+  tail call void @GetUserIdAndSecContext(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 88), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 92)) #20
+  %12 = tail call zeroext i1 @RecoveryInProgress() #20
   %13 = load i8, ptr @DefaultXactReadOnly, align 1, !range !4
   %spec.select = zext i1 %12 to i8
   %spec.select19 = select i1 %12, i8 1, i8 %13
@@ -1058,7 +1053,7 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr @TopMemoryContext, align 8
-  %23 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %22, ptr noundef nonnull @.str.38, i64 noundef 32768, i64 noundef 32768, i64 noundef 32768) #21
+  %23 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %22, ptr noundef nonnull @.str.38, i64 noundef 32768, i64 noundef 32768, i64 noundef 32768) #20
   store ptr %23, ptr @TransactionAbortContext, align 8
   br label %24
 
@@ -1069,7 +1064,7 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr @TopMemoryContext, align 8
-  %29 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %28, ptr noundef nonnull @.str.39, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #21
+  %29 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %28, ptr noundef nonnull @.str.39, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #20
   store ptr %29, ptr @TopTransactionContext, align 8
   br label %AtStart_Memory.exit
 
@@ -1080,19 +1075,19 @@ AtStart_Memory.exit:                              ; preds = %24, %27
   store ptr %30, ptr %31, align 8
   store ptr %30, ptr @CurrentMemoryContext, align 8
   %32 = load ptr, ptr @CurrentTransactionState, align 8
-  %33 = tail call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.40) #21
+  %33 = tail call ptr @ResourceOwnerCreate(ptr noundef null, ptr noundef nonnull @.str.40) #20
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 56
   store ptr %33, ptr %34, align 8
   store ptr %33, ptr @TopTransactionResourceOwner, align 8
   store ptr %33, ptr @CurTransactionResourceOwner, align 8
   store ptr %33, ptr @CurrentResourceOwner, align 8
   %35 = load i32, ptr @MyProcNumber, align 4
-  %36 = tail call i32 @GetNextLocalTransactionId() #21
+  %36 = tail call i32 @GetNextLocalTransactionId() #20
   %.sroa.4.0.insert.ext = zext i32 %36 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.01.0.insert.ext = zext i32 %35 to i64
   %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.01.0.insert.ext
-  tail call void @VirtualXactLockTableInsert(i64 %.sroa.01.0.insert.insert) #21
+  tail call void @VirtualXactLockTableInsert(i64 %.sroa.01.0.insert.insert) #20
   %37 = load ptr, ptr @MyProc, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 72
   store i32 %36, ptr %38, align 4
@@ -1105,7 +1100,7 @@ AtStart_Memory.exit._crit_edge:                   ; preds = %AtStart_Memory.exit
   br label %47
 
 41:                                               ; preds = %AtStart_Memory.exit
-  %42 = tail call zeroext i1 @SPI_inside_nonatomic_context() #21
+  %42 = tail call zeroext i1 @SPI_inside_nonatomic_context() #20
   br i1 %42, label %45, label %43
 
 43:                                               ; preds = %41
@@ -1114,28 +1109,28 @@ AtStart_Memory.exit._crit_edge:                   ; preds = %AtStart_Memory.exit
   br label %47
 
 45:                                               ; preds = %41
-  %46 = tail call i64 @GetCurrentTimestamp() #21
+  %46 = tail call i64 @GetCurrentTimestamp() #20
   store i64 %46, ptr @xactStartTimestamp, align 8
   br label %47
 
 47:                                               ; preds = %AtStart_Memory.exit._crit_edge, %43, %45
   %48 = phi i64 [ %.pre, %AtStart_Memory.exit._crit_edge ], [ %44, %43 ], [ %46, %45 ]
-  tail call void @pgstat_report_xact_timestamp(i64 noundef %48) #21
+  tail call void @pgstat_report_xact_timestamp(i64 noundef %48) #20
   store i64 0, ptr @xactStopTimestamp, align 8
-  tail call void @AtStart_GUC() #21
-  tail call void @AcceptInvalidationMessages() #21
-  tail call void @AfterTriggerBeginXact() #21
+  tail call void @AtStart_GUC() #20
+  tail call void @AcceptInvalidationMessages() #20
+  tail call void @AfterTriggerBeginXact() #20
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 28), align 4
   %49 = load i32, ptr @TransactionTimeout, align 4
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %47
-  tail call void @enable_timeout_after(i32 noundef 8, i32 noundef %49) #21
+  tail call void @enable_timeout_after(i32 noundef 8, i32 noundef %49) #20
   br label %52
 
 52:                                               ; preds = %51, %47
-  %53 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  %53 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %53, label %54, label %ShowTransactionState.exit
 
 54:                                               ; preds = %52
@@ -1225,12 +1220,11 @@ define dso_local void @CommitTransactionCommand() local_unnamed_addr #1 {
 
 8:                                                ; preds = %1, %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %11 = load i32, ptr %9, align 8
   %12 = tail call fastcc ptr @BlockStateAsString(i32 noundef %11)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, ptr noundef nonnull %12) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3186, ptr noundef nonnull @__func__.CommitTransactionCommandInternal) #21
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, ptr noundef nonnull %12) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3186, ptr noundef nonnull @__func__.CommitTransactionCommandInternal) #20
   unreachable
 
 14:                                               ; preds = %1
@@ -1360,12 +1354,11 @@ define dso_local void @CommitTransactionCommand() local_unnamed_addr #1 {
 
 56:                                               ; preds = %.preheader54.i
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %58)
+  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   %59 = load i32, ptr %57, align 8
   %60 = tail call fastcc ptr @BlockStateAsString(i32 noundef %59)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, ptr noundef nonnull %60) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3352, ptr noundef nonnull @__func__.CommitTransactionCommandInternal) #21
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.55, ptr noundef nonnull %60) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3352, ptr noundef nonnull @__func__.CommitTransactionCommandInternal) #20
   unreachable
 
 62:                                               ; preds = %1
@@ -1537,11 +1530,10 @@ define dso_local void @PreventInTransactionBlock(i1 noundef zeroext %0, ptr noun
   br i1 %switch.i, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 16777538) #21
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %1) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3650, ptr noundef nonnull @__func__.PreventInTransactionBlock) #21
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %8 = tail call i32 @errcode(i32 noundef 16777538) #20
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %1) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3650, ptr noundef nonnull @__func__.PreventInTransactionBlock) #20
   unreachable
 
 10:                                               ; preds = %2
@@ -1551,22 +1543,20 @@ define dso_local void @PreventInTransactionBlock(i1 noundef zeroext %0, ptr noun
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 16777538) #21
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %1) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3660, ptr noundef nonnull @__func__.PreventInTransactionBlock) #21
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %16 = tail call i32 @errcode(i32 noundef 16777538) #20
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %1) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3660, ptr noundef nonnull @__func__.PreventInTransactionBlock) #20
   unreachable
 
 18:                                               ; preds = %10
   br i1 %0, label %23, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16777538) #21
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %1) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3669, ptr noundef nonnull @__func__.PreventInTransactionBlock) #21
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %21 = tail call i32 @errcode(i32 noundef 16777538) #20
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %1) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3669, ptr noundef nonnull @__func__.PreventInTransactionBlock) #20
   unreachable
 
 23:                                               ; preds = %18
@@ -1601,13 +1591,13 @@ define dso_local void @WarnNoTransactionBlock(i1 noundef zeroext %0, ptr noundef
   br i1 %or.cond.i, label %10, label %CheckTransactionBlock.exit
 
 10:                                               ; preds = %6
-  %11 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %11 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %11, label %12, label %CheckTransactionBlock.exit
 
 12:                                               ; preds = %10
-  %13 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %1) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3741, ptr noundef nonnull @__func__.CheckTransactionBlock) #21
+  %13 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %1) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3741, ptr noundef nonnull @__func__.CheckTransactionBlock) #20
   br label %CheckTransactionBlock.exit
 
 CheckTransactionBlock.exit:                       ; preds = %10, %12, %2, %6
@@ -1630,11 +1620,10 @@ define dso_local void @RequireTransactionBlock(i1 noundef zeroext %0, ptr nounde
   br i1 %or.cond.i, label %10, label %CheckTransactionBlock.exit
 
 10:                                               ; preds = %6
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %1) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3741, ptr noundef nonnull @__func__.CheckTransactionBlock) #21
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %12 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %1) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3741, ptr noundef nonnull @__func__.CheckTransactionBlock) #20
   unreachable
 
 CheckTransactionBlock.exit:                       ; preds = %2, %6
@@ -1665,7 +1654,7 @@ define dso_local zeroext i1 @IsInTransactionBlock(i1 noundef zeroext %0) local_u
 ; Function Attrs: nounwind uwtable
 define dso_local void @RegisterXactCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @TopMemoryContext, align 8
-  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #21
+  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1703,7 +1692,7 @@ define dso_local void @UnregisterXactCallback(ptr noundef readnone captures(addr
   %11 = load ptr, ptr %.01219, align 8
   %Xact_callbacks..018.lcssa = select i1 %.not13, ptr @Xact_callbacks, ptr %.018
   store ptr %11, ptr %Xact_callbacks..018.lcssa, align 8
-  tail call void @pfree(ptr noundef nonnull %.01219) #21
+  tail call void @pfree(ptr noundef nonnull %.01219) #20
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph, %6
@@ -1720,7 +1709,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define dso_local void @RegisterSubXactCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @TopMemoryContext, align 8
-  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #21
+  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1756,7 +1745,7 @@ define dso_local void @UnregisterSubXactCallback(ptr noundef readnone captures(a
   %11 = load ptr, ptr %.01219, align 8
   %SubXact_callbacks..018.lcssa = select i1 %.not13, ptr @SubXact_callbacks, ptr %.018
   store ptr %11, ptr %SubXact_callbacks..018.lcssa, align 8
-  tail call void @pfree(ptr noundef nonnull %.01219) #21
+  tail call void @pfree(ptr noundef nonnull %.01219) #20
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph, %6
@@ -1805,22 +1794,21 @@ define dso_local void @BeginTransactionBlock() local_unnamed_addr #1 {
   br label %16
 
 6:                                                ; preds = %0, %0, %0, %0, %0
-  %7 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %7 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @errcode(i32 noundef 16777538) #21
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3948, ptr noundef nonnull @__func__.BeginTransactionBlock) #21
+  %9 = tail call i32 @errcode(i32 noundef 16777538) #20
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3948, ptr noundef nonnull @__func__.BeginTransactionBlock) #20
   br label %16
 
 11:                                               ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %12)
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %13 = load i32, ptr %2, align 8
   %14 = tail call fastcc ptr @BlockStateAsString(i32 noundef %13)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %14) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3966, ptr noundef nonnull @__func__.BeginTransactionBlock) #21
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, ptr noundef nonnull %14) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3966, ptr noundef nonnull @__func__.BeginTransactionBlock) #20
   unreachable
 
 16:                                               ; preds = %6, %8, %5, %4, %0
@@ -1851,7 +1839,7 @@ define dso_local noundef zeroext i1 @PrepareTransactionBlock(ptr noundef %0) loc
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr @TopTransactionContext, align 8
-  %14 = tail call ptr @MemoryContextStrdup(ptr noundef %13, ptr noundef %0) #21
+  %14 = tail call ptr @MemoryContextStrdup(ptr noundef %13, ptr noundef %0) #20
   store ptr %14, ptr @prepareGID, align 8
   store i32 10, ptr %9, align 8
   br label %15
@@ -1917,21 +1905,20 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   br i1 %0, label %13, label %17
 
 13:                                               ; preds = %12
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4063, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %15 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4063, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 17:                                               ; preds = %12
-  %18 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %18 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4067, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %20 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4067, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   br label %22
 
 22:                                               ; preds = %17, %19
@@ -1958,12 +1945,11 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   br i1 %.not32, label %._crit_edge42, label %.lr.ph41, !llvm.loop !18
 
 31:                                               ; preds = %.lr.ph41
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %32)
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %33 = load i32, ptr %25, align 8
   %34 = tail call fastcc ptr @BlockStateAsString(i32 noundef %33)
-  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %34) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4091, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %34) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4091, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 ._crit_edge42:                                    ; preds = %28
@@ -1979,12 +1965,11 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
 
 39:                                               ; preds = %._crit_edge42.thread, %._crit_edge42
   %40 = phi ptr [ %10, %._crit_edge42.thread ], [ %37, %._crit_edge42 ]
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %41)
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %42 = load i32, ptr %40, align 8
   %43 = tail call fastcc ptr @BlockStateAsString(i32 noundef %42)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %43) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4098, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %43) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4098, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader33, %54
@@ -2001,12 +1986,11 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   br label %54
 
 49:                                               ; preds = %.lr.ph
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %50)
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %51 = load i32, ptr %46, align 8
   %52 = tail call fastcc ptr @BlockStateAsString(i32 noundef %51)
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %52) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4116, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %52) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4116, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 54:                                               ; preds = %.lr.ph, %48
@@ -2036,50 +2020,46 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
 
 60:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %61 = phi ptr [ %7, %._crit_edge.thread ], [ %57, %._crit_edge ]
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %62)
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %63 = load i32, ptr %61, align 8
   %64 = tail call fastcc ptr @BlockStateAsString(i32 noundef %63)
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %64) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4125, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %64) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4125, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 66:                                               ; preds = %1
   br i1 %0, label %67, label %71
 
 67:                                               ; preds = %66
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %68)
-  %69 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4142, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %69 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4142, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 71:                                               ; preds = %66
-  %72 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %72 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %72, label %73, label %85
 
 73:                                               ; preds = %71
-  %74 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4146, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %74 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %75 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4146, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   br label %85
 
 76:                                               ; preds = %1
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 @errcode(i32 noundef 322) #21
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4157, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
+  %78 = tail call i32 @errcode(i32 noundef 322) #20
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4157, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 80:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %81)
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %82 = load i32, ptr %3, align 8
   %83 = tail call fastcc ptr @BlockStateAsString(i32 noundef %82)
-  %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %83) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4175, ptr noundef nonnull @__func__.EndTransactionBlock) #21
+  %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, ptr noundef nonnull %83) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4175, ptr noundef nonnull @__func__.EndTransactionBlock) #20
   unreachable
 
 85:                                               ; preds = %73, %71, %58, %59, %38, %23, %22, %11, %1
@@ -2149,12 +2129,11 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   br label %19
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %15)
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %16 = load i32, ptr %11, align 8
   %17 = tail call fastcc ptr @BlockStateAsString(i32 noundef %16)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %17) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4235, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #21
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %17) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4235, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #20
   unreachable
 
 19:                                               ; preds = %.lr.ph, %13
@@ -2188,33 +2167,31 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   br label %51
 
 26:                                               ; preds = %._crit_edge
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %27)
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %28 = load i32, ptr %23, align 8
   %29 = tail call fastcc ptr @BlockStateAsString(i32 noundef %28)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %29) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4244, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #21
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %29) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4244, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #20
   unreachable
 
 31:                                               ; preds = %1, %1
   br i1 %0, label %32, label %36
 
 32:                                               ; preds = %31
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.17) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4265, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #21
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %34 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.17) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4265, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #20
   unreachable
 
 36:                                               ; preds = %31
-  %37 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %37 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4269, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #21
+  %39 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4269, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #20
   br label %41
 
 41:                                               ; preds = %36, %38
@@ -2222,20 +2199,18 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   br label %51
 
 42:                                               ; preds = %1
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode(i32 noundef 322) #21
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4280, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #21
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
+  %44 = tail call i32 @errcode(i32 noundef 322) #20
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4280, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #20
   unreachable
 
 46:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %47)
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %48 = load i32, ptr %3, align 8
   %49 = tail call fastcc ptr @BlockStateAsString(i32 noundef %48)
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %49) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4298, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #21
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, ptr noundef nonnull %49) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4298, ptr noundef nonnull @__func__.UserAbortTransactionBlock) #20
   unreachable
 
 51:                                               ; preds = %24, %25, %41, %6, %5, %1
@@ -2296,11 +2271,10 @@ IsInParallelMode.exit:                            ; preds = %1
   br i1 %or.cond, label %IsInParallelMode.exit.thread, label %13
 
 IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMode.exit
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 322) #21
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4379, ptr noundef nonnull @__func__.DefineSavepoint) #21
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %11 = tail call i32 @errcode(i32 noundef 322) #20
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4379, ptr noundef nonnull @__func__.DefineSavepoint) #20
   unreachable
 
 13:                                               ; preds = %IsInParallelMode.exit
@@ -2337,26 +2311,24 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 17:                                               ; preds = %16
   %18 = load ptr, ptr @CurrentTransactionState, align 8
   %19 = load ptr, ptr @TopTransactionContext, align 8
-  %20 = tail call ptr @MemoryContextStrdup(ptr noundef %19, ptr noundef nonnull %0) #21
+  %20 = tail call ptr @MemoryContextStrdup(ptr noundef %19, ptr noundef nonnull %0) #20
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %20, ptr %21, align 8
   br label %31
 
 22:                                               ; preds = %13
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.20) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4416, ptr noundef nonnull @__func__.DefineSavepoint) #21
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %24 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.20) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4416, ptr noundef nonnull @__func__.DefineSavepoint) #20
   unreachable
 
 26:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %27)
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %28 = load i32, ptr %14, align 8
   %29 = tail call fastcc ptr @BlockStateAsString(i32 noundef %28)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, ptr noundef nonnull %29) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4438, ptr noundef nonnull @__func__.DefineSavepoint) #21
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, ptr noundef nonnull %29) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4438, ptr noundef nonnull @__func__.DefineSavepoint) #20
   unreachable
 
 31:                                               ; preds = %16, %17, %13
@@ -2367,7 +2339,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
 define internal fastcc void @PushTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
   %2 = load ptr, ptr @TopTransactionContext, align 8
-  %3 = tail call ptr @MemoryContextAllocZero(ptr noundef %2, i64 noundef 120) #21
+  %3 = tail call ptr @MemoryContextAllocZero(ptr noundef %2, i64 noundef 120) #20
   %4 = load i32, ptr @currentSubTransactionId, align 4
   %5 = add i32 %4, 1
   store i32 %5, ptr @currentSubTransactionId, align 4
@@ -2376,12 +2348,11 @@ define internal fastcc void @PushTransaction() unnamed_addr #1 {
 
 7:                                                ; preds = %0
   store i32 %4, ptr @currentSubTransactionId, align 4
-  tail call void @pfree(ptr noundef %3) #21
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 261) #21
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5426, ptr noundef nonnull @__func__.PushTransaction) #21
+  tail call void @pfree(ptr noundef %3) #20
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %9 = tail call i32 @errcode(i32 noundef 261) #20
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5426, ptr noundef nonnull @__func__.PushTransaction) #20
   unreachable
 
 11:                                               ; preds = %0
@@ -2395,7 +2366,7 @@ define internal fastcc void @PushTransaction() unnamed_addr #1 {
   %16 = add i32 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %16, ptr %17, align 4
-  %18 = tail call i32 @NewGUCNestLevel() #21
+  %18 = tail call i32 @NewGUCNestLevel() #20
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %18, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2408,7 +2379,7 @@ define internal fastcc void @PushTransaction() unnamed_addr #1 {
   store i32 11, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  tail call void @GetUserIdAndSecContext(ptr noundef nonnull %25, ptr noundef nonnull %26) #21
+  tail call void @GetUserIdAndSecContext(ptr noundef nonnull %25, ptr noundef nonnull %26) #20
   %27 = load i8, ptr @XactReadOnly, align 1, !range !4, !noundef !5
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 %27, ptr %28, align 8
@@ -2456,11 +2427,10 @@ IsInParallelMode.exit:                            ; preds = %1
   br i1 %or.cond, label %IsInParallelMode.exit.thread, label %13
 
 IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMode.exit
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 322) #21
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4466, ptr noundef nonnull @__func__.ReleaseSavepoint) #21
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %11 = tail call i32 @errcode(i32 noundef 322) #20
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4466, ptr noundef nonnull @__func__.ReleaseSavepoint) #20
   unreachable
 
 13:                                               ; preds = %IsInParallelMode.exit
@@ -2489,28 +2459,25 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   ]
 
 16:                                               ; preds = %13
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 16778371) #21
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4476, ptr noundef nonnull @__func__.ReleaseSavepoint) #21
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %18 = tail call i32 @errcode(i32 noundef 16778371) #20
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4476, ptr noundef nonnull @__func__.ReleaseSavepoint) #20
   unreachable
 
 20:                                               ; preds = %13
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.24) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4485, ptr noundef nonnull @__func__.ReleaseSavepoint) #21
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %22 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.24) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4485, ptr noundef nonnull @__func__.ReleaseSavepoint) #20
   unreachable
 
 24:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %25)
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %26 = load i32, ptr %14, align 8
   %27 = tail call fastcc ptr @BlockStateAsString(i32 noundef %26)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, ptr noundef nonnull %27) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4514, ptr noundef nonnull @__func__.ReleaseSavepoint) #21
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, ptr noundef nonnull %27) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4514, ptr noundef nonnull @__func__.ReleaseSavepoint) #20
   unreachable
 
 .lr.ph:                                           ; preds = %13, %34
@@ -2521,7 +2488,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %.not21, label %34, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %0) #22
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %0) #21
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %40, label %34
 
@@ -2532,11 +2499,10 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %34
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 16778371) #21
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4527, ptr noundef nonnull @__func__.ReleaseSavepoint) #21
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %38 = tail call i32 @errcode(i32 noundef 16778371) #20
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4527, ptr noundef nonnull @__func__.ReleaseSavepoint) #20
   unreachable
 
 40:                                               ; preds = %31
@@ -2548,11 +2514,10 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %.not22, label %.preheader, label %45
 
 45:                                               ; preds = %40
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %46)
-  %47 = tail call i32 @errcode(i32 noundef 16778371) #21
-  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4533, ptr noundef nonnull @__func__.ReleaseSavepoint) #21
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %47 = tail call i32 @errcode(i32 noundef 16778371) #20
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4533, ptr noundef nonnull @__func__.ReleaseSavepoint) #20
   unreachable
 
 .preheader:                                       ; preds = %40, %.preheader
@@ -2589,11 +2554,10 @@ IsInParallelMode.exit:                            ; preds = %1
   br i1 %or.cond, label %IsInParallelMode.exit.thread, label %13
 
 IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMode.exit
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 322) #21
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4575, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %11 = tail call i32 @errcode(i32 noundef 322) #20
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4575, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 13:                                               ; preds = %IsInParallelMode.exit
@@ -2621,28 +2585,25 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   ]
 
 16:                                               ; preds = %13, %13
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 16778371) #21
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4587, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %18 = tail call i32 @errcode(i32 noundef 16778371) #20
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4587, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 20:                                               ; preds = %13
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 16908610) #21
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.28) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4596, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %22 = tail call i32 @errcode(i32 noundef 16908610) #20
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.28) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4596, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 24:                                               ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %25)
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %26 = load i32, ptr %14, align 8
   %27 = tail call fastcc ptr @BlockStateAsString(i32 noundef %26)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %27) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4623, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %27) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4623, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 .lr.ph:                                           ; preds = %13, %34
@@ -2653,7 +2614,7 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %.not32, label %34, label %31
 
 31:                                               ; preds = %.lr.ph
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %0) #22
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %0) #21
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %40, label %34
 
@@ -2664,11 +2625,10 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %34
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 16778371) #21
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4636, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %38 = tail call i32 @errcode(i32 noundef 16778371) #20
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %0) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4636, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 40:                                               ; preds = %31
@@ -2684,11 +2644,10 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br i1 %45, label %._crit_edge, label %.lr.ph43
 
 46:                                               ; preds = %40
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 @errcode(i32 noundef 16778371) #21
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4642, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %48 = tail call i32 @errcode(i32 noundef 16778371) #20
+  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %0) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4642, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 .lr.ph43:                                         ; preds = %.preheader, %58
@@ -2704,12 +2663,11 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br label %58
 
 53:                                               ; preds = %.lr.ph43
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %54)
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %55 = load i32, ptr %50, align 8
   %56 = tail call fastcc ptr @BlockStateAsString(i32 noundef %55)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %56) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4660, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %56) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4660, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 58:                                               ; preds = %.lr.ph43, %52
@@ -2738,12 +2696,11 @@ IsInParallelMode.exit.thread:                     ; preds = %1, %IsInParallelMod
   br label %69
 
 64:                                               ; preds = %._crit_edge
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %65)
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %66 = load i32, ptr %62, align 8
   %67 = tail call fastcc ptr @BlockStateAsString(i32 noundef %66)
-  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %67) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4672, ptr noundef nonnull @__func__.RollbackToSavepoint) #21
+  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %67) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4672, ptr noundef nonnull @__func__.RollbackToSavepoint) #20
   unreachable
 
 69:                                               ; preds = %._crit_edge, %63
@@ -2790,18 +2747,17 @@ define dso_local void @BeginInternalSubTransaction(ptr noundef %0) local_unnamed
 7:                                                ; preds = %6
   %8 = load ptr, ptr @CurrentTransactionState, align 8
   %9 = load ptr, ptr @TopTransactionContext, align 8
-  %10 = tail call ptr @MemoryContextStrdup(ptr noundef %9, ptr noundef nonnull %0) #21
+  %10 = tail call ptr @MemoryContextStrdup(ptr noundef %9, ptr noundef nonnull %0) #20
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %10, ptr %11, align 8
   br label %17
 
 12:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %13)
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %14 = load i32, ptr %4, align 8
   %15 = tail call fastcc ptr @BlockStateAsString(i32 noundef %14)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef nonnull %15) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4742, ptr noundef nonnull @__func__.BeginInternalSubTransaction) #21
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef nonnull %15) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4742, ptr noundef nonnull @__func__.BeginInternalSubTransaction) #20
   unreachable
 
 17:                                               ; preds = %6, %7, %1
@@ -2833,12 +2789,11 @@ define dso_local void @BeginInternalSubTransaction(ptr noundef %0) local_unnamed
   br label %StartTransactionCommand.exit
 
 22:                                               ; preds = %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17, %17
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %23)
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   %24 = load i32, ptr %19, align 8
   %25 = tail call fastcc ptr @BlockStateAsString(i32 noundef %24)
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %25) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3106, ptr noundef nonnull @__func__.StartTransactionCommand) #21
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %25) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3106, ptr noundef nonnull @__func__.StartTransactionCommand) #20
   unreachable
 
 StartTransactionCommand.exit:                     ; preds = %17, %21
@@ -2857,12 +2812,11 @@ define dso_local void @ReleaseCurrentSubTransaction() local_unnamed_addr #1 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %5)
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
   %6 = load i32, ptr %2, align 8
   %7 = tail call fastcc ptr @BlockStateAsString(i32 noundef %6)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull %7) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4772, ptr noundef nonnull @__func__.ReleaseCurrentSubTransaction) #21
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull %7) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4772, ptr noundef nonnull @__func__.ReleaseCurrentSubTransaction) #20
   unreachable
 
 9:                                                ; preds = %0
@@ -2875,7 +2829,7 @@ define dso_local void @ReleaseCurrentSubTransaction() local_unnamed_addr #1 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CommitSubTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
-  %2 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  %2 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %2, label %3, label %ShowTransactionState.exit
 
 3:                                                ; preds = %0
@@ -2890,7 +2844,7 @@ ShowTransactionState.exit:                        ; preds = %0, %3
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %ShowTransactionState.exit
-  %8 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %8 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %7
@@ -2906,8 +2860,8 @@ switch.lookup:                                    ; preds = %9
 
 TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %9 ]
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5104, ptr noundef nonnull @.str.66) #21
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5104, ptr noundef nonnull @.str.66) #20
   br label %14
 
 14:                                               ; preds = %7, %TransStateAsString.exit, %ShowTransactionState.exit
@@ -2928,7 +2882,7 @@ TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %26 = load ptr, ptr %25, align 8
-  tail call void %24(i32 noundef 3, i32 noundef %16, i32 noundef %20, ptr noundef %26) #21
+  tail call void %24(i32 noundef 3, i32 noundef %16, i32 noundef %20, ptr noundef %26) #20
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %CallSubXactCallbacks.exit.loopexit, label %.lr.ph.i, !llvm.loop !23
 
@@ -2938,20 +2892,20 @@ CallSubXactCallbacks.exit.loopexit:               ; preds = %.lr.ph.i
 
 CallSubXactCallbacks.exit:                        ; preds = %CallSubXactCallbacks.exit.loopexit, %14
   %27 = phi i32 [ %.pre, %CallSubXactCallbacks.exit.loopexit ], [ %16, %14 ]
-  tail call void @AtEOSubXact_Parallel(i1 noundef zeroext true, i32 noundef %27) #21
+  tail call void @AtEOSubXact_Parallel(i1 noundef zeroext true, i32 noundef %27) #20
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %29 = load i32, ptr %28, align 4
   %.not43 = icmp eq i32 %29, 0
   br i1 %.not43, label %36, label %30
 
 30:                                               ; preds = %CallSubXactCallbacks.exit
-  %31 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %31 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
   %33 = load i32, ptr %28, align 4
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %33) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5119, ptr noundef nonnull @.str.66) #21
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.68, i32 noundef %33) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5119, ptr noundef nonnull @.str.66) #20
   br label %35
 
 35:                                               ; preds = %32, %30
@@ -2988,11 +2942,10 @@ CallSubXactCallbacks.exit:                        ; preds = %CallSubXactCallback
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %52
-  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %57)
-  %58 = tail call i32 @errcode(i32 noundef 261) #21
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, i32 noundef 268435455) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1695, ptr noundef nonnull @__func__.AtSubCommit_childXids) #21
+  %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %58 = tail call i32 @errcode(i32 noundef 261) #20
+  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.69, i32 noundef 268435455) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1695, ptr noundef nonnull @__func__.AtSubCommit_childXids) #20
   unreachable
 
 60:                                               ; preds = %52
@@ -3005,13 +2958,13 @@ CallSubXactCallbacks.exit:                        ; preds = %CallSubXactCallback
   %65 = load ptr, ptr @TopTransactionContext, align 8
   %66 = sext i32 %54 to i64
   %67 = shl nsw i64 %66, 2
-  %68 = tail call ptr @MemoryContextAlloc(ptr noundef %65, i64 noundef %67) #21
+  %68 = tail call ptr @MemoryContextAlloc(ptr noundef %65, i64 noundef %67) #20
   br label %73
 
 69:                                               ; preds = %60
   %70 = sext i32 %54 to i64
   %71 = shl nsw i64 %70, 2
-  %72 = tail call ptr @repalloc(ptr noundef nonnull %62, i64 noundef %71) #21
+  %72 = tail call ptr @repalloc(ptr noundef nonnull %62, i64 noundef %71) #20
   br label %73
 
 73:                                               ; preds = %69, %64
@@ -3067,7 +3020,7 @@ CallSubXactCallbacks.exit:                        ; preds = %CallSubXactCallback
   br i1 %.not.i46, label %AtSubCommit_childXids.exit, label %107
 
 107:                                              ; preds = %102
-  tail call void @pfree(ptr noundef nonnull %106) #21
+  tail call void @pfree(ptr noundef nonnull %106) #20
   br label %AtSubCommit_childXids.exit
 
 AtSubCommit_childXids.exit:                       ; preds = %102, %107
@@ -3075,7 +3028,7 @@ AtSubCommit_childXids.exit:                       ; preds = %102, %107
   br label %108
 
 108:                                              ; preds = %AtSubCommit_childXids.exit, %36
-  tail call void @AfterTriggerEndSubXact(i1 noundef zeroext true) #21
+  tail call void @AfterTriggerEndSubXact(i1 noundef zeroext true) #20
   %109 = load i32, ptr %15, align 8
   %110 = load ptr, ptr %17, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -3084,13 +3037,13 @@ AtSubCommit_childXids.exit:                       ; preds = %102, %107
   %114 = load i32, ptr %113, align 4
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 56
   %116 = load ptr, ptr %115, align 8
-  tail call void @AtSubCommit_Portals(i32 noundef %109, i32 noundef %112, i32 noundef %114, ptr noundef %116) #21
+  tail call void @AtSubCommit_Portals(i32 noundef %109, i32 noundef %112, i32 noundef %114, ptr noundef %116) #20
   %117 = load i32, ptr %15, align 8
   %118 = load ptr, ptr %17, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 8
-  tail call void @AtEOSubXact_LargeObject(i1 noundef zeroext true, i32 noundef %117, i32 noundef %120) #21
-  tail call void @AtSubCommit_Notify() #21
+  tail call void @AtEOSubXact_LargeObject(i1 noundef zeroext true, i32 noundef %117, i32 noundef %120) #20
+  tail call void @AtSubCommit_Notify() #20
   %121 = load i32, ptr %15, align 8
   %122 = load ptr, ptr %17, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
@@ -3106,22 +3059,22 @@ AtSubCommit_childXids.exit:                       ; preds = %102, %107
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds nuw i8, ptr %.08.i50, i64 16
   %130 = load ptr, ptr %129, align 8
-  tail call void %128(i32 noundef 1, i32 noundef %121, i32 noundef %124, ptr noundef %130) #21
+  tail call void %128(i32 noundef 1, i32 noundef %121, i32 noundef %124, ptr noundef %130) #20
   %.not.i51 = icmp eq ptr %126, null
   br i1 %.not.i51, label %CallSubXactCallbacks.exit52, label %.lr.ph.i49, !llvm.loop !23
 
 CallSubXactCallbacks.exit52:                      ; preds = %.lr.ph.i49, %108
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %132 = load ptr, ptr %131, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %132, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %132, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false) #20
   %133 = load i32, ptr %15, align 8
   %134 = load ptr, ptr %17, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load i32, ptr %135, align 8
-  tail call void @AtEOSubXact_RelationCache(i1 noundef zeroext true, i32 noundef %133, i32 noundef %136) #21
-  tail call void @AtEOSubXact_TypeCache() #21
-  tail call void @AtEOSubXact_Inval(i1 noundef zeroext true) #21
-  tail call void @AtSubCommit_smgr() #21
+  tail call void @AtEOSubXact_RelationCache(i1 noundef zeroext true, i32 noundef %133, i32 noundef %136) #20
+  tail call void @AtEOSubXact_TypeCache() #20
+  tail call void @AtEOSubXact_Inval(i1 noundef zeroext true) #20
+  tail call void @AtSubCommit_smgr() #20
   %137 = load ptr, ptr %131, align 8
   store ptr %137, ptr @CurrentResourceOwner, align 8
   %138 = load i64, ptr %1, align 8
@@ -3130,42 +3083,42 @@ CallSubXactCallbacks.exit52:                      ; preds = %.lr.ph.i49, %108
   br i1 %.not45, label %141, label %140
 
 140:                                              ; preds = %CallSubXactCallbacks.exit52
-  tail call void @XactLockTableDelete(i32 noundef %139) #21
+  tail call void @XactLockTableDelete(i32 noundef %139) #20
   %.pre53 = load ptr, ptr %131, align 8
   br label %141
 
 141:                                              ; preds = %140, %CallSubXactCallbacks.exit52
   %142 = phi ptr [ %.pre53, %140 ], [ %137, %CallSubXactCallbacks.exit52 ]
-  tail call void @ResourceOwnerRelease(ptr noundef %142, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %142, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false) #20
   %143 = load ptr, ptr %131, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %143, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext false) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %143, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext false) #20
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %145 = load i32, ptr %144, align 8
-  tail call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef %145) #21
+  tail call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef %145) #20
   %146 = load i32, ptr %15, align 8
-  tail call void @AtEOSubXact_SPI(i1 noundef zeroext true, i32 noundef %146) #21
+  tail call void @AtEOSubXact_SPI(i1 noundef zeroext true, i32 noundef %146) #20
   %147 = load i32, ptr %15, align 8
   %148 = load ptr, ptr %17, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load i32, ptr %149, align 8
-  tail call void @AtEOSubXact_on_commit_actions(i1 noundef zeroext true, i32 noundef %147, i32 noundef %150) #21
+  tail call void @AtEOSubXact_on_commit_actions(i1 noundef zeroext true, i32 noundef %147, i32 noundef %150) #20
   %151 = load i32, ptr %15, align 8
   %152 = load ptr, ptr %17, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i32, ptr %153, align 8
-  tail call void @AtEOSubXact_Namespace(i1 noundef zeroext true, i32 noundef %151, i32 noundef %154) #21
+  tail call void @AtEOSubXact_Namespace(i1 noundef zeroext true, i32 noundef %151, i32 noundef %154) #20
   %155 = load i32, ptr %15, align 8
   %156 = load ptr, ptr %17, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load i32, ptr %157, align 8
-  tail call void @AtEOSubXact_Files(i1 noundef zeroext true, i32 noundef %155, i32 noundef %158) #21
+  tail call void @AtEOSubXact_Files(i1 noundef zeroext true, i32 noundef %155, i32 noundef %158) #20
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %160 = load i32, ptr %159, align 4
-  tail call void @AtEOSubXact_HashTables(i1 noundef zeroext true, i32 noundef %160) #21
+  tail call void @AtEOSubXact_HashTables(i1 noundef zeroext true, i32 noundef %160) #20
   %161 = load i32, ptr %159, align 4
-  tail call void @AtEOSubXact_PgStat(i1 noundef zeroext true, i32 noundef %161) #21
+  tail call void @AtEOSubXact_PgStat(i1 noundef zeroext true, i32 noundef %161) #20
   %162 = load i32, ptr %159, align 4
-  tail call void @AtSubCommit_Snapshot(i32 noundef %162) #21
+  tail call void @AtSubCommit_Snapshot(i32 noundef %162) #20
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %164 = load i8, ptr %163, align 8, !range !4, !noundef !5
   store i8 %164, ptr @XactReadOnly, align 1
@@ -3175,7 +3128,7 @@ CallSubXactCallbacks.exit52:                      ; preds = %.lr.ph.i49, %108
   store ptr %167, ptr @CurrentResourceOwner, align 8
   store ptr %167, ptr @CurTransactionResourceOwner, align 8
   %168 = load ptr, ptr %131, align 8
-  tail call void @ResourceOwnerDelete(ptr noundef %168) #21
+  tail call void @ResourceOwnerDelete(ptr noundef %168) #20
   store ptr null, ptr %131, align 8
   %169 = load ptr, ptr @CurrentTransactionState, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 112
@@ -3186,12 +3139,12 @@ CallSubXactCallbacks.exit52:                      ; preds = %.lr.ph.i49, %108
   store ptr %173, ptr @CurrentMemoryContext, align 8
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %175 = load ptr, ptr %174, align 8
-  %176 = tail call zeroext i1 @MemoryContextIsEmpty(ptr noundef %175) #21
+  %176 = tail call zeroext i1 @MemoryContextIsEmpty(ptr noundef %175) #20
   br i1 %176, label %177, label %AtSubCommit_Memory.exit
 
 177:                                              ; preds = %141
   %178 = load ptr, ptr %174, align 8
-  tail call void @MemoryContextDelete(ptr noundef %178) #21
+  tail call void @MemoryContextDelete(ptr noundef %178) #20
   store ptr null, ptr %174, align 8
   br label %AtSubCommit_Memory.exit
 
@@ -3229,12 +3182,11 @@ define dso_local void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_a
   ]
 
 4:                                                ; preds = %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0, %0
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %5)
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %6 = load i32, ptr %2, align 8
   %7 = tail call fastcc ptr @BlockStateAsString(i32 noundef %6)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %7) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4825, ptr noundef nonnull @__func__.RollbackAndReleaseCurrentSubTransaction) #21
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %7) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4825, ptr noundef nonnull @__func__.RollbackAndReleaseCurrentSubTransaction) #20
   unreachable
 
 9:                                                ; preds = %0
@@ -3257,17 +3209,17 @@ define internal fastcc void @AbortSubTransaction() unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr @CurrentResourceOwner, align 8
-  tail call void @LWLockReleaseAll() #21
+  tail call void @LWLockReleaseAll() #20
   %7 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %7, align 4
-  tail call void @pgstat_progress_end_command() #21
-  tail call void @UnlockBuffers() #21
-  tail call void @XLogResetInsertion() #21
-  %8 = tail call zeroext i1 @ConditionVariableCancelSleep() #21
-  tail call void @LockErrorCleanup() #21
-  tail call void @reschedule_timeouts() #21
-  %9 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #21
-  %10 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  tail call void @pgstat_progress_end_command() #20
+  tail call void @UnlockBuffers() #20
+  tail call void @XLogResetInsertion() #20
+  %8 = tail call zeroext i1 @ConditionVariableCancelSleep() #20
+  tail call void @LockErrorCleanup() #20
+  tail call void @reschedule_timeouts() #20
+  %9 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #20
+  %10 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %10, label %11, label %ShowTransactionState.exit
 
 11:                                               ; preds = %0
@@ -3282,7 +3234,7 @@ ShowTransactionState.exit:                        ; preds = %0, %11
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %ShowTransactionState.exit
-  %16 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %16 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
@@ -3298,8 +3250,8 @@ switch.lookup:                                    ; preds = %17
 
 TransStateAsString.exit:                          ; preds = %17, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %17 ]
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5272, ptr noundef nonnull @.str.72) #21
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.73, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5272, ptr noundef nonnull @.str.72) #20
   br label %22
 
 22:                                               ; preds = %15, %TransStateAsString.exit, %ShowTransactionState.exit
@@ -3308,14 +3260,14 @@ TransStateAsString.exit:                          ; preds = %17, %switch.lookup
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %26 = load i32, ptr %25, align 4
-  tail call void @SetUserIdAndSecContext(i32 noundef %24, i32 noundef %26) #21
+  tail call void @SetUserIdAndSecContext(i32 noundef %24, i32 noundef %26) #20
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %28 = load i32, ptr %27, align 4
-  tail call void @ResetReindexState(i32 noundef %28) #21
-  tail call void @ResetLogicalStreamingState() #21
+  tail call void @ResetReindexState(i32 noundef %28) #20
+  tail call void @ResetLogicalStreamingState() #20
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
-  tail call void @AtEOSubXact_Parallel(i1 noundef zeroext false, i32 noundef %30) #21
+  tail call void @AtEOSubXact_Parallel(i1 noundef zeroext false, i32 noundef %30) #20
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 0, ptr %31, align 4
   %32 = load ptr, ptr %5, align 8
@@ -3323,7 +3275,7 @@ TransStateAsString.exit:                          ; preds = %17, %switch.lookup
   br i1 %.not35, label %90, label %33
 
 33:                                               ; preds = %22
-  tail call void @AfterTriggerEndSubXact(i1 noundef zeroext false) #21
+  tail call void @AfterTriggerEndSubXact(i1 noundef zeroext false) #20
   %34 = load i32, ptr %29, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %36 = load ptr, ptr %35, align 8
@@ -3332,13 +3284,13 @@ TransStateAsString.exit:                          ; preds = %17, %switch.lookup
   %39 = load ptr, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %41 = load ptr, ptr %40, align 8
-  tail call void @AtSubAbort_Portals(i32 noundef %34, i32 noundef %38, ptr noundef %39, ptr noundef %41) #21
+  tail call void @AtSubAbort_Portals(i32 noundef %34, i32 noundef %38, ptr noundef %39, ptr noundef %41) #20
   %42 = load i32, ptr %29, align 8
   %43 = load ptr, ptr %35, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
-  tail call void @AtEOSubXact_LargeObject(i1 noundef zeroext false, i32 noundef %42, i32 noundef %45) #21
-  tail call void @AtSubAbort_Notify() #21
+  tail call void @AtEOSubXact_LargeObject(i1 noundef zeroext false, i32 noundef %42, i32 noundef %45) #20
+  tail call void @AtSubAbort_Notify() #20
   %46 = tail call fastcc i32 @RecordTransactionAbort(i1 noundef zeroext true)
   %47 = load i64, ptr %1, align 8
   %48 = and i64 %47, 4294967295
@@ -3353,7 +3305,7 @@ TransStateAsString.exit:                          ; preds = %17, %switch.lookup
   br i1 %.not.i, label %AtSubAbort_childXids.exit, label %53
 
 53:                                               ; preds = %49
-  tail call void @pfree(ptr noundef nonnull %52) #21
+  tail call void @pfree(ptr noundef nonnull %52) #20
   br label %AtSubAbort_childXids.exit
 
 AtSubAbort_childXids.exit:                        ; preds = %49, %53
@@ -3376,51 +3328,51 @@ AtSubAbort_childXids.exit:                        ; preds = %49, %53
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %64 = load ptr, ptr %63, align 8
-  tail call void %62(i32 noundef 2, i32 noundef %55, i32 noundef %58, ptr noundef %64) #21
+  tail call void %62(i32 noundef 2, i32 noundef %55, i32 noundef %58, ptr noundef %64) #20
   %.not.i37 = icmp eq ptr %60, null
   br i1 %.not.i37, label %CallSubXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !23
 
 CallSubXactCallbacks.exit:                        ; preds = %.lr.ph.i, %54
   %65 = load ptr, ptr %5, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %65, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %65, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false) #20
   %66 = load i32, ptr %29, align 8
   %67 = load ptr, ptr %35, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
-  tail call void @AtEOSubXact_RelationCache(i1 noundef zeroext false, i32 noundef %66, i32 noundef %69) #21
-  tail call void @AtEOSubXact_TypeCache() #21
-  tail call void @AtEOSubXact_Inval(i1 noundef zeroext false) #21
+  tail call void @AtEOSubXact_RelationCache(i1 noundef zeroext false, i32 noundef %66, i32 noundef %69) #20
+  tail call void @AtEOSubXact_TypeCache() #20
+  tail call void @AtEOSubXact_Inval(i1 noundef zeroext false) #20
   %70 = load ptr, ptr %5, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %70, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext false) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %70, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext false) #20
   %71 = load ptr, ptr %5, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %71, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false) #21
-  tail call void @AtSubAbort_smgr() #21
+  tail call void @ResourceOwnerRelease(ptr noundef %71, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext false) #20
+  tail call void @AtSubAbort_smgr() #20
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %73 = load i32, ptr %72, align 8
-  tail call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %73) #21
+  tail call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %73) #20
   %74 = load i32, ptr %29, align 8
-  tail call void @AtEOSubXact_SPI(i1 noundef zeroext false, i32 noundef %74) #21
+  tail call void @AtEOSubXact_SPI(i1 noundef zeroext false, i32 noundef %74) #20
   %75 = load i32, ptr %29, align 8
   %76 = load ptr, ptr %35, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 8
-  tail call void @AtEOSubXact_on_commit_actions(i1 noundef zeroext false, i32 noundef %75, i32 noundef %78) #21
+  tail call void @AtEOSubXact_on_commit_actions(i1 noundef zeroext false, i32 noundef %75, i32 noundef %78) #20
   %79 = load i32, ptr %29, align 8
   %80 = load ptr, ptr %35, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 8
-  tail call void @AtEOSubXact_Namespace(i1 noundef zeroext false, i32 noundef %79, i32 noundef %82) #21
+  tail call void @AtEOSubXact_Namespace(i1 noundef zeroext false, i32 noundef %79, i32 noundef %82) #20
   %83 = load i32, ptr %29, align 8
   %84 = load ptr, ptr %35, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8
-  tail call void @AtEOSubXact_Files(i1 noundef zeroext false, i32 noundef %83, i32 noundef %86) #21
+  tail call void @AtEOSubXact_Files(i1 noundef zeroext false, i32 noundef %83, i32 noundef %86) #20
   %87 = load i32, ptr %27, align 4
-  tail call void @AtEOSubXact_HashTables(i1 noundef zeroext false, i32 noundef %87) #21
+  tail call void @AtEOSubXact_HashTables(i1 noundef zeroext false, i32 noundef %87) #20
   %88 = load i32, ptr %27, align 4
-  tail call void @AtEOSubXact_PgStat(i1 noundef zeroext false, i32 noundef %88) #21
+  tail call void @AtEOSubXact_PgStat(i1 noundef zeroext false, i32 noundef %88) #20
   %89 = load i32, ptr %27, align 4
-  tail call void @AtSubAbort_Snapshot(i32 noundef %89) #21
+  tail call void @AtSubAbort_Snapshot(i32 noundef %89) #20
   br label %90
 
 90:                                               ; preds = %CallSubXactCallbacks.exit, %22
@@ -3436,7 +3388,7 @@ CallSubXactCallbacks.exit:                        ; preds = %.lr.ph.i, %54
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @CleanupSubTransaction() unnamed_addr #1 {
   %1 = load ptr, ptr @CurrentTransactionState, align 8
-  %2 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  %2 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %2, label %3, label %ShowTransactionState.exit
 
 3:                                                ; preds = %0
@@ -3451,7 +3403,7 @@ ShowTransactionState.exit:                        ; preds = %0, %3
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %ShowTransactionState.exit
-  %8 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %8 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %7
@@ -3467,14 +3419,14 @@ switch.lookup:                                    ; preds = %9
 
 TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %9 ]
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5379, ptr noundef nonnull @.str.74) #21
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.75, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5379, ptr noundef nonnull @.str.74) #20
   br label %14
 
 14:                                               ; preds = %7, %TransStateAsString.exit, %ShowTransactionState.exit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
-  tail call void @AtSubCleanup_Portals(i32 noundef %16) #21
+  tail call void @AtSubCleanup_Portals(i32 noundef %16) #20
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -3487,7 +3439,7 @@ TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   br i1 %.not9, label %24, label %23
 
 23:                                               ; preds = %14
-  tail call void @ResourceOwnerDelete(ptr noundef nonnull %22) #21
+  tail call void @ResourceOwnerDelete(ptr noundef nonnull %22) #20
   br label %24
 
 24:                                               ; preds = %23, %14
@@ -3506,7 +3458,7 @@ TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   br i1 %.not.i, label %34, label %33
 
 33:                                               ; preds = %24
-  tail call void @MemoryContextReset(ptr noundef nonnull %32) #21
+  tail call void @MemoryContextReset(ptr noundef nonnull %32) #20
   br label %34
 
 34:                                               ; preds = %33, %24
@@ -3516,7 +3468,7 @@ TransStateAsString.exit:                          ; preds = %9, %switch.lookup
   br i1 %.not6.i, label %AtSubCleanup_Memory.exit, label %37
 
 37:                                               ; preds = %34
-  tail call void @MemoryContextDelete(ptr noundef nonnull %36) #21
+  tail call void @MemoryContextDelete(ptr noundef nonnull %36) #20
   br label %AtSubCleanup_Memory.exit
 
 AtSubCleanup_Memory.exit:                         ; preds = %34, %37
@@ -3589,7 +3541,7 @@ define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #1 {
   br label %30
 
 13:                                               ; preds = %4, %4
-  tail call void @AtAbort_Portals() #21
+  tail call void @AtAbort_Portals() #20
   tail call fastcc void @CleanupTransaction()
   store i32 0, ptr %6, align 8
   br label %30
@@ -3615,7 +3567,7 @@ define dso_local void @AbortOutOfAnyTransaction() local_unnamed_addr #1 {
   %25 = load i32, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %27 = load ptr, ptr %26, align 8
-  tail call void @AtSubAbort_Portals(i32 noundef %21, i32 noundef %25, ptr noundef nonnull %18, ptr noundef %27) #21
+  tail call void @AtSubAbort_Portals(i32 noundef %21, i32 noundef %25, ptr noundef nonnull %18, ptr noundef %27) #20
   br label %28
 
 28:                                               ; preds = %19, %16
@@ -3647,7 +3599,7 @@ define internal fastcc void @AbortTransaction() unnamed_addr #1 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %0
-  tail call void @disable_timeout(i32 noundef 8, i1 noundef zeroext false) #21
+  tail call void @disable_timeout(i32 noundef 8, i1 noundef zeroext false) #20
   br label %7
 
 7:                                                ; preds = %6, %0
@@ -3658,16 +3610,16 @@ define internal fastcc void @AbortTransaction() unnamed_addr #1 {
   store ptr %storemerge.i, ptr @CurrentMemoryContext, align 8
   %10 = load ptr, ptr @TopTransactionResourceOwner, align 8
   store ptr %10, ptr @CurrentResourceOwner, align 8
-  tail call void @LWLockReleaseAll() #21
+  tail call void @LWLockReleaseAll() #20
   %11 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %11, align 4
-  tail call void @pgstat_progress_end_command() #21
-  tail call void @UnlockBuffers() #21
-  tail call void @XLogResetInsertion() #21
-  %12 = tail call zeroext i1 @ConditionVariableCancelSleep() #21
-  tail call void @LockErrorCleanup() #21
-  tail call void @reschedule_timeouts() #21
-  %13 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #21
+  tail call void @pgstat_progress_end_command() #20
+  tail call void @UnlockBuffers() #20
+  tail call void @XLogResetInsertion() #20
+  %12 = tail call zeroext i1 @ConditionVariableCancelSleep() #20
+  tail call void @LockErrorCleanup() #20
+  tail call void @reschedule_timeouts() #20
+  %13 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #20
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 5
@@ -3679,7 +3631,7 @@ define internal fastcc void @AbortTransaction() unnamed_addr #1 {
   ]
 
 19:                                               ; preds = %7
-  %20 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %20 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %19
@@ -3695,8 +3647,8 @@ switch.lookup:                                    ; preds = %21
 
 TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %21 ]
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2870, ptr noundef nonnull @__func__.AbortTransaction) #21
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.63, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2870, ptr noundef nonnull @__func__.AbortTransaction) #20
   br label %26
 
 26:                                               ; preds = %7, %7, %19, %TransStateAsString.exit
@@ -3705,24 +3657,24 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %30 = load i32, ptr %29, align 4
-  tail call void @SetUserIdAndSecContext(i32 noundef %28, i32 noundef %30) #21
+  tail call void @SetUserIdAndSecContext(i32 noundef %28, i32 noundef %30) #20
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %32 = load i32, ptr %31, align 4
-  tail call void @ResetReindexState(i32 noundef %32) #21
-  tail call void @ResetLogicalStreamingState() #21
-  tail call void @SnapBuildResetExportedSnapshotState() #21
-  tail call void @AtEOXact_Parallel(i1 noundef zeroext false) #21
+  tail call void @ResetReindexState(i32 noundef %32) #20
+  tail call void @ResetLogicalStreamingState() #20
+  tail call void @SnapBuildResetExportedSnapshotState() #20
+  tail call void @AtEOXact_Parallel(i1 noundef zeroext false) #20
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store i32 0, ptr %33, align 4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 0, ptr %34, align 8
-  tail call void @AfterTriggerEndXact(i1 noundef zeroext false) #21
-  tail call void @AtAbort_Portals() #21
-  tail call void @smgrDoPendingSyncs(i1 noundef zeroext false, i1 noundef zeroext %16) #21
-  tail call void @AtEOXact_LargeObject(i1 noundef zeroext false) #21
-  tail call void @AtAbort_Notify() #21
-  tail call void @AtEOXact_RelationMap(i1 noundef zeroext false, i1 noundef zeroext %16) #21
-  tail call void @AtAbort_Twophase() #21
+  tail call void @AfterTriggerEndXact(i1 noundef zeroext false) #20
+  tail call void @AtAbort_Portals() #20
+  tail call void @smgrDoPendingSyncs(i1 noundef zeroext false, i1 noundef zeroext %16) #20
+  tail call void @AtEOXact_LargeObject(i1 noundef zeroext false) #20
+  tail call void @AtAbort_Notify() #20
+  tail call void @AtEOXact_RelationMap(i1 noundef zeroext false, i1 noundef zeroext %16) #20
+  tail call void @AtAbort_Twophase() #20
   br i1 %16, label %37, label %35
 
 35:                                               ; preds = %26
@@ -3731,13 +3683,13 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
 
 37:                                               ; preds = %26
   %38 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @XLogSetAsyncXactLSN(i64 noundef %38) #21
+  tail call void @XLogSetAsyncXactLSN(i64 noundef %38) #20
   br label %39
 
 39:                                               ; preds = %35, %37
   %.0 = phi i32 [ 0, %37 ], [ %36, %35 ]
   %40 = load ptr, ptr @MyProc, align 8
-  tail call void @ProcArrayEndTransaction(ptr noundef %40, i32 noundef %.0) #21
+  tail call void @ProcArrayEndTransaction(ptr noundef %40, i32 noundef %.0) #20
   %41 = load ptr, ptr @TopTransactionResourceOwner, align 8
   %.not18 = icmp eq ptr %41, null
   br i1 %.not18, label %59, label %42
@@ -3757,7 +3709,7 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %49 = load ptr, ptr %48, align 8
-  tail call void %47(i32 noundef 3, ptr noundef %49) #21
+  tail call void %47(i32 noundef 3, ptr noundef %49) #20
   %.not.i19 = icmp eq ptr %45, null
   br i1 %.not.i19, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !25
 
@@ -3771,36 +3723,36 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.06.i22, i64 16
   %55 = load ptr, ptr %54, align 8
-  tail call void %53(i32 noundef 2, ptr noundef %55) #21
+  tail call void %53(i32 noundef 2, ptr noundef %55) #20
   %.not.i23 = icmp eq ptr %51, null
   br i1 %.not.i23, label %CallXactCallbacks.exit, label %.lr.ph.i21, !llvm.loop !25
 
 CallXactCallbacks.exit:                           ; preds = %.lr.ph.i21, %.lr.ph.i, %50, %44
   %56 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %56, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext true) #21
-  tail call void @AtEOXact_Buffers(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_RelationCache(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_TypeCache() #21
-  tail call void @AtEOXact_Inval(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_MultiXact() #21
+  tail call void @ResourceOwnerRelease(ptr noundef %56, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext true) #20
+  tail call void @AtEOXact_Buffers(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_RelationCache(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_TypeCache() #20
+  tail call void @AtEOXact_Inval(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_MultiXact() #20
   %57 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %57, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %57, i32 noundef 2, i1 noundef zeroext false, i1 noundef zeroext true) #20
   %58 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %58, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext true) #21
-  tail call void @smgrDoPendingDeletes(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef 1) #21
-  tail call void @AtEOXact_SPI(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_Enum() #21
-  tail call void @AtEOXact_on_commit_actions(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_Namespace(i1 noundef zeroext false, i1 noundef zeroext %16) #21
-  tail call void @AtEOXact_SMgr() #21
-  tail call void @AtEOXact_Files(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_ComboCid() #21
-  tail call void @AtEOXact_HashTables(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_PgStat(i1 noundef zeroext false, i1 noundef zeroext %16) #21
-  tail call void @AtEOXact_ApplyLauncher(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext false) #21
-  tail call void @pgstat_report_xact_timestamp(i64 noundef 0) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %58, i32 noundef 3, i1 noundef zeroext false, i1 noundef zeroext true) #20
+  tail call void @smgrDoPendingDeletes(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef 1) #20
+  tail call void @AtEOXact_SPI(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_Enum() #20
+  tail call void @AtEOXact_on_commit_actions(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_Namespace(i1 noundef zeroext false, i1 noundef zeroext %16) #20
+  tail call void @AtEOXact_SMgr() #20
+  tail call void @AtEOXact_Files(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_ComboCid() #20
+  tail call void @AtEOXact_HashTables(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_PgStat(i1 noundef zeroext false, i1 noundef zeroext %16) #20
+  tail call void @AtEOXact_ApplyLauncher(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext false) #20
+  tail call void @pgstat_report_xact_timestamp(i64 noundef 0) #20
   br label %59
 
 59:                                               ; preds = %39, %CallXactCallbacks.exit
@@ -3819,24 +3771,23 @@ define internal fastcc void @CleanupTransaction() unnamed_addr #1 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %5)
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %6 = load i32, ptr %2, align 4
   %7 = tail call fastcc ptr @TransStateAsString(i32 noundef %6)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.65, ptr noundef nonnull %7) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3010, ptr noundef nonnull @__func__.CleanupTransaction) #21
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.65, ptr noundef nonnull %7) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3010, ptr noundef nonnull @__func__.CleanupTransaction) #20
   unreachable
 
 9:                                                ; preds = %0
-  tail call void @AtCleanup_Portals() #21
-  tail call void @AtEOXact_Snapshot(i1 noundef zeroext false, i1 noundef zeroext true) #21
+  tail call void @AtCleanup_Portals() #20
+  tail call void @AtEOXact_Snapshot(i1 noundef zeroext false, i1 noundef zeroext true) #20
   store ptr null, ptr @CurrentResourceOwner, align 8
   %10 = load ptr, ptr @TopTransactionResourceOwner, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %11
 
 11:                                               ; preds = %9
-  tail call void @ResourceOwnerDelete(ptr noundef nonnull %10) #21
+  tail call void @ResourceOwnerDelete(ptr noundef nonnull %10) #20
   br label %12
 
 12:                                               ; preds = %11, %9
@@ -3853,7 +3804,7 @@ define internal fastcc void @CleanupTransaction() unnamed_addr #1 {
   br i1 %.not.i, label %19, label %18
 
 18:                                               ; preds = %12
-  tail call void @MemoryContextReset(ptr noundef nonnull %17) #21
+  tail call void @MemoryContextReset(ptr noundef nonnull %17) #20
   br label %19
 
 19:                                               ; preds = %18, %12
@@ -3862,7 +3813,7 @@ define internal fastcc void @CleanupTransaction() unnamed_addr #1 {
   br i1 %.not3.i, label %AtCleanup_Memory.exit, label %21
 
 21:                                               ; preds = %19
-  tail call void @MemoryContextReset(ptr noundef nonnull %20) #21
+  tail call void @MemoryContextReset(ptr noundef nonnull %20) #20
   br label %AtCleanup_Memory.exit
 
 AtCleanup_Memory.exit:                            ; preds = %19, %21
@@ -3910,12 +3861,11 @@ define dso_local signext range(i8 69, 85) i8 @TransactionBlockStatusCode() local
   br i1 %4, label %switch.lookup, label %5
 
 5:                                                ; preds = %0
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %6)
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
   %7 = load i32, ptr %2, align 8
   %8 = tail call fastcc ptr @BlockStateAsString(i32 noundef %7)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %8) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5028, ptr noundef nonnull @__func__.TransactionBlockStatusCode) #21
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %8) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5028, ptr noundef nonnull @__func__.TransactionBlockStatusCode) #20
   unreachable
 
 switch.lookup:                                    ; preds = %0
@@ -3940,7 +3890,7 @@ define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #1 {
   br i1 %.not8, label %5, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = tail call i64 @add_size(i64 noundef %.0711, i64 noundef 1) #21
+  %4 = tail call i64 @add_size(i64 noundef %.0711, i64 noundef 1) #20
   br label %5
 
 5:                                                ; preds = %3, %.lr.ph
@@ -3948,7 +3898,7 @@ define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %.012, i64 80
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = tail call i64 @add_size(i64 noundef %.1, i64 noundef %8) #21
+  %9 = tail call i64 @add_size(i64 noundef %.1, i64 noundef %8) #20
   %10 = getelementptr inbounds nuw i8, ptr %.012, i64 112
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
@@ -3956,8 +3906,8 @@ define dso_local i64 @EstimateTransactionStateSpace() local_unnamed_addr #1 {
 
 ._crit_edge:                                      ; preds = %5, %0
   %.07.lcssa = phi i64 [ 0, %0 ], [ %9, %5 ]
-  %11 = tail call i64 @mul_size(i64 noundef 4, i64 noundef %.07.lcssa) #21
-  %12 = tail call i64 @add_size(i64 noundef 32, i64 noundef %11) #21
+  %11 = tail call i64 @mul_size(i64 noundef 4, i64 noundef %.07.lcssa) #20
+  %12 = tail call i64 @add_size(i64 noundef 32, i64 noundef %11) #20
   ret i64 %12
 }
 
@@ -4005,7 +3955,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   br i1 %.not43, label %25, label %23
 
 23:                                               ; preds = %.lr.ph
-  %24 = tail call i64 @add_size(i64 noundef %.03446, i64 noundef 1) #21
+  %24 = tail call i64 @add_size(i64 noundef %.03446, i64 noundef 1) #20
   br label %25
 
 25:                                               ; preds = %23, %.lr.ph
@@ -4013,7 +3963,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   %26 = getelementptr inbounds nuw i8, ptr %.047, i64 80
   %27 = load i32, ptr %26, align 8
   %28 = sext i32 %27 to i64
-  %29 = tail call i64 @add_size(i64 noundef %.135, i64 noundef %28) #21
+  %29 = tail call i64 @add_size(i64 noundef %.135, i64 noundef %28) #20
   %30 = getelementptr inbounds nuw i8, ptr %.047, i64 112
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
@@ -4021,7 +3971,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
 
 ._crit_edge:                                      ; preds = %25
   %31 = shl i64 %29, 2
-  %32 = tail call ptr @palloc(i64 noundef %31) #21
+  %32 = tail call ptr @palloc(i64 noundef %31) #20
   %.148 = load ptr, ptr @CurrentTransactionState, align 8
   %.not4149 = icmp eq ptr %.148, null
   br i1 %.not4149, label %._crit_edge54, label %.lr.ph53
@@ -4067,7 +4017,7 @@ define dso_local void @SerializeTransactionState(i64 noundef %0, ptr noundef wri
   br i1 %.not41, label %._crit_edge54, label %.lr.ph53, !llvm.loop !28
 
 ._crit_edge54:                                    ; preds = %48, %._crit_edge
-  tail call void @pg_qsort(ptr noundef %32, i64 noundef %29, i64 noundef 4, ptr noundef nonnull @xidComparator) #21
+  tail call void @pg_qsort(ptr noundef %32, i64 noundef %29, i64 noundef 4, ptr noundef nonnull @xidComparator) #20
   %53 = trunc i64 %29 to i32
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %53, ptr %54, align 4
@@ -4143,7 +4093,7 @@ define internal fastcc void @CommitTransaction() unnamed_addr #1 {
   br label %13
 
 13:                                               ; preds = %9, %0
-  %14 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  %14 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %14, label %15, label %ShowTransactionState.exit
 
 15:                                               ; preds = %13
@@ -4158,7 +4108,7 @@ ShowTransactionState.exit:                        ; preds = %13, %15
   br i1 %.not, label %.preheader, label %19
 
 19:                                               ; preds = %ShowTransactionState.exit
-  %20 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %20 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %20, label %21, label %.preheader
 
 21:                                               ; preds = %19
@@ -4174,16 +4124,16 @@ switch.lookup:                                    ; preds = %21
 
 TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %21 ]
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2246, ptr noundef nonnull @.str.77) #21
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.78, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2246, ptr noundef nonnull @.str.77) #20
   br label %.preheader
 
 .preheader:                                       ; preds = %19, %TransStateAsString.exit, %ShowTransactionState.exit
   br label %26
 
 26:                                               ; preds = %.preheader, %26
-  tail call void @AfterTriggerFireDeferred() #21
-  %27 = tail call zeroext i1 @PreCommit_Portals(i1 noundef zeroext false) #21
+  tail call void @AfterTriggerFireDeferred() #20
+  %27 = tail call zeroext i1 @PreCommit_Portals(i1 noundef zeroext false) #20
   br i1 %27, label %26, label %28
 
 28:                                               ; preds = %26
@@ -4199,12 +4149,12 @@ TransStateAsString.exit:                          ; preds = %21, %switch.lookup
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %35 = load ptr, ptr %34, align 8
-  tail call void %33(i32 noundef range(i32 0, 8) %29, ptr noundef %35) #21
+  tail call void %33(i32 noundef range(i32 0, 8) %29, ptr noundef %35) #20
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !25
 
 CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
-  tail call void @AtEOXact_Parallel(i1 noundef zeroext true) #21
+  tail call void @AtEOXact_Parallel(i1 noundef zeroext true) #20
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 100
   %37 = load i32, ptr %36, align 4
   br i1 %8, label %38, label %41
@@ -4214,7 +4164,7 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   br i1 %.not31, label %46, label %39
 
 39:                                               ; preds = %38
-  %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %40 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %40, label %.sink.split, label %46
 
 41:                                               ; preds = %CallXactCallbacks.exit
@@ -4222,34 +4172,34 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   br i1 %.not30, label %46, label %42
 
 42:                                               ; preds = %41
-  %43 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %43 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %43, label %.sink.split, label %46
 
 .sink.split:                                      ; preds = %42, %39
   %.str.80.sink = phi ptr [ @.str.79, %39 ], [ @.str.80, %42 ]
   %.sink = phi i32 [ 2294, %39 ], [ 2300, %42 ]
   %44 = load i32, ptr %36, align 4
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.80.sink, i32 noundef %44) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @.str.77) #21
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull %.str.80.sink, i32 noundef %44) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @.str.77) #20
   br label %46
 
 46:                                               ; preds = %.sink.split, %41, %42, %38, %39
-  tail call void @AfterTriggerEndXact(i1 noundef zeroext true) #21
-  tail call void @PreCommit_on_commit_actions() #21
-  tail call void @smgrDoPendingSyncs(i1 noundef zeroext true, i1 noundef zeroext %8) #21
-  tail call void @AtEOXact_LargeObject(i1 noundef zeroext true) #21
-  tail call void @PreCommit_Notify() #21
+  tail call void @AfterTriggerEndXact(i1 noundef zeroext true) #20
+  tail call void @PreCommit_on_commit_actions() #20
+  tail call void @smgrDoPendingSyncs(i1 noundef zeroext true, i1 noundef zeroext %8) #20
+  tail call void @AtEOXact_LargeObject(i1 noundef zeroext true) #20
+  tail call void @PreCommit_Notify() #20
   br i1 %8, label %48, label %47
 
 47:                                               ; preds = %46
-  tail call void @PreCommit_CheckForSerializationFailure() #21
+  tail call void @PreCommit_CheckForSerializationFailure() #20
   br label %48
 
 48:                                               ; preds = %47, %46
   %49 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %50 = add i32 %49, 1
   store volatile i32 %50, ptr @InterruptHoldoffCount, align 4
-  tail call void @AtEOXact_RelationMap(i1 noundef zeroext true, i1 noundef zeroext %8) #21
+  tail call void @AtEOXact_RelationMap(i1 noundef zeroext true, i1 noundef zeroext %8) #20
   store i32 3, ptr %17, align 4
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i32 0, ptr %51, align 4
@@ -4260,7 +4210,7 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %48
-  tail call void @disable_timeout(i32 noundef 8, i1 noundef zeroext false) #21
+  tail call void @disable_timeout(i32 noundef 8, i1 noundef zeroext false) #20
   br label %56
 
 56:                                               ; preds = %55, %48
@@ -4282,11 +4232,11 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %57
-  tail call void @LogLogicalInvalidations() #21
+  tail call void @LogLogicalInvalidations() #20
   br label %63
 
 63:                                               ; preds = %62, %57
-  %64 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %1) #21
+  %64 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %1) #20
   %65 = load ptr, ptr @CurrentTransactionState, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
   %67 = load i32, ptr %66, align 8
@@ -4300,13 +4250,13 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %28
 
 xactGetCommittedChildren.exit.i:                  ; preds = %69, %63
   %storemerge.i.i = phi ptr [ %71, %69 ], [ null, %63 ]
-  %72 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %2) #21
+  %72 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %2) #20
   %73 = load i32, ptr @wal_level, align 4
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %xactGetCommittedChildren.exit.i
-  %76 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %3, ptr noundef nonnull %4) #21
+  %76 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %3, ptr noundef nonnull %4) #20
   br label %77
 
 77:                                               ; preds = %75, %xactGetCommittedChildren.exit.i
@@ -4322,10 +4272,9 @@ xactGetCommittedChildren.exit.i:                  ; preds = %69, %63
   br i1 %or.cond.i, label %83, label %86
 
 83:                                               ; preds = %80
-  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  call void @llvm.assume(i1 %84)
-  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81) #21
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1364, ptr noundef nonnull @__func__.RecordTransactionCommit) #21
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %85 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81) #20
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1364, ptr noundef nonnull @__func__.RecordTransactionCommit) #20
   unreachable
 
 86:                                               ; preds = %80
@@ -4336,7 +4285,7 @@ xactGetCommittedChildren.exit.i:                  ; preds = %69, %63
   %87 = load ptr, ptr %3, align 8
   %88 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %89 = trunc nuw i8 %88 to i1
-  call void @LogStandbyInvalidations(i32 noundef %.045.i, ptr noundef %87, i1 noundef zeroext %89) #21
+  call void @LogStandbyInvalidations(i32 noundef %.045.i, ptr noundef %87, i1 noundef zeroext %89) #20
   br label %126
 
 90:                                               ; preds = %86
@@ -4359,7 +4308,7 @@ xactGetCommittedChildren.exit.i:                  ; preds = %69, %63
   br i1 %102, label %103, label %GetCurrentTransactionStopTimestamp.exit.i
 
 103:                                              ; preds = %91
-  %104 = call i64 @GetCurrentTimestamp() #21
+  %104 = call i64 @GetCurrentTimestamp() #20
   store i64 %104, ptr @xactStopTimestamp, align 8
   br label %GetCurrentTransactionStopTimestamp.exit.i
 
@@ -4377,7 +4326,7 @@ GetCurrentTransactionStopTimestamp.exit.i:        ; preds = %103, %91
 113:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit.i
   %114 = load i64, ptr @replorigin_session_origin_lsn, align 8
   %115 = load i64, ptr @XactLastRecEnd, align 8
-  call void @replorigin_session_advance(i64 noundef %114, i64 noundef %115) #21
+  call void @replorigin_session_advance(i64 noundef %114, i64 noundef %115) #20
   %116 = load i64, ptr @replorigin_session_origin_timestamp, align 8
   %117 = icmp eq i64 %116, 0
   br i1 %117, label %.thread58.i, label %123
@@ -4388,7 +4337,7 @@ GetCurrentTransactionStopTimestamp.exit.i:        ; preds = %103, %91
   br i1 %119, label %120, label %GetCurrentTransactionStopTimestamp.exit52.i
 
 120:                                              ; preds = %.thread58.i
-  %121 = call i64 @GetCurrentTimestamp() #21
+  %121 = call i64 @GetCurrentTimestamp() #20
   store i64 %121, ptr @xactStopTimestamp, align 8
   br label %GetCurrentTransactionStopTimestamp.exit52.i
 
@@ -4400,7 +4349,7 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
 123:                                              ; preds = %GetCurrentTransactionStopTimestamp.exit52.i, %113
   %124 = phi i64 [ %116, %113 ], [ %122, %GetCurrentTransactionStopTimestamp.exit52.i ]
   %125 = load i16, ptr @replorigin_session_origin, align 2
-  call void @TransactionTreeSetCommitTsData(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i, i64 noundef %124, i16 noundef zeroext %125) #21
+  call void @TransactionTreeSetCommitTsData(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i, i64 noundef %124, i16 noundef zeroext %125) #20
   br label %126
 
 126:                                              ; preds = %123, %90, %.thread.i
@@ -4416,20 +4365,20 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
   br i1 %or.cond11.i, label %131, label %133
 
 131:                                              ; preds = %126
-  call void @XLogFlush(i64 noundef %130) #21
+  call void @XLogFlush(i64 noundef %130) #20
   br i1 %.not60.i, label %.critedge.i, label %132
 
 132:                                              ; preds = %131
-  call void @TransactionIdCommitTree(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i) #21
+  call void @TransactionIdCommitTree(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i) #20
   br label %136
 
 133:                                              ; preds = %126
-  call void @XLogSetAsyncXactLSN(i64 noundef %130) #21
+  call void @XLogSetAsyncXactLSN(i64 noundef %130) #20
   br i1 %.not60.i, label %.critedge.i, label %134
 
 134:                                              ; preds = %133
   %135 = load i64, ptr @XactLastRecEnd, align 8
-  call void @TransactionIdAsyncCommitTree(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i, i64 noundef %135) #21
+  call void @TransactionIdAsyncCommitTree(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i, i64 noundef %135) #20
   br label %136
 
 136:                                              ; preds = %134, %132
@@ -4444,12 +4393,12 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %136, %133, %131
-  %143 = call i32 @TransactionIdLatest(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i) #21
+  %143 = call i32 @TransactionIdLatest(i32 noundef %59, i32 noundef %67, ptr noundef %storemerge.i.i) #20
   br i1 %.1.i, label %144, label %146
 
 144:                                              ; preds = %.critedge.i
   %145 = load i64, ptr @XactLastRecEnd, align 8
-  call void @SyncRepWaitForLSN(i64 noundef %145, i1 noundef zeroext true) #21
+  call void @SyncRepWaitForLSN(i64 noundef %145, i1 noundef zeroext true) #20
   br label %146
 
 146:                                              ; preds = %144, %.critedge.i
@@ -4465,7 +4414,7 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
   br i1 %.not.i33, label %151, label %150
 
 150:                                              ; preds = %148
-  call void @pfree(ptr noundef nonnull %149) #21
+  call void @pfree(ptr noundef nonnull %149) #20
   br label %151
 
 151:                                              ; preds = %150, %148
@@ -4474,7 +4423,7 @@ GetCurrentTransactionStopTimestamp.exit52.i:      ; preds = %120, %.thread58.i
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %153) #21
+  call void @pfree(ptr noundef %153) #20
   br label %RecordTransactionCommit.exit
 
 RecordTransactionCommit.exit:                     ; preds = %151, %152
@@ -4486,13 +4435,13 @@ RecordTransactionCommit.exit:                     ; preds = %151, %152
 
 154:                                              ; preds = %56
   %155 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @ParallelWorkerReportLastRecEnd(i64 noundef %155) #21
+  tail call void @ParallelWorkerReportLastRecEnd(i64 noundef %155) #20
   br label %156
 
 156:                                              ; preds = %RecordTransactionCommit.exit, %154
   %.0 = phi i32 [ 0, %154 ], [ %.0.i32, %RecordTransactionCommit.exit ]
   %157 = load ptr, ptr @MyProc, align 8
-  call void @ProcArrayEndTransaction(ptr noundef %157, i32 noundef %.0) #21
+  call void @ProcArrayEndTransaction(ptr noundef %157, i32 noundef %.0) #20
   %158 = zext i1 %8 to i32
   %159 = load ptr, ptr @Xact_callbacks, align 8
   %.not5.i34 = icmp eq ptr %159, null
@@ -4505,41 +4454,41 @@ RecordTransactionCommit.exit:                     ; preds = %151, %152
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %.06.i36, i64 16
   %164 = load ptr, ptr %163, align 8
-  call void %162(i32 noundef range(i32 0, 8) %158, ptr noundef %164) #21
+  call void %162(i32 noundef range(i32 0, 8) %158, ptr noundef %164) #20
   %.not.i37 = icmp eq ptr %160, null
   br i1 %.not.i37, label %CallXactCallbacks.exit38, label %.lr.ph.i35, !llvm.loop !25
 
 CallXactCallbacks.exit38:                         ; preds = %.lr.ph.i35, %156
   store ptr null, ptr @CurrentResourceOwner, align 8
   %165 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerRelease(ptr noundef %165, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext true) #21
-  call void @AtEOXact_Buffers(i1 noundef zeroext true) #21
-  call void @AtEOXact_RelationCache(i1 noundef zeroext true) #21
-  call void @AtEOXact_TypeCache() #21
-  call void @AtEOXact_Inval(i1 noundef zeroext true) #21
-  call void @AtEOXact_MultiXact() #21
+  call void @ResourceOwnerRelease(ptr noundef %165, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  call void @AtEOXact_Buffers(i1 noundef zeroext true) #20
+  call void @AtEOXact_RelationCache(i1 noundef zeroext true) #20
+  call void @AtEOXact_TypeCache() #20
+  call void @AtEOXact_Inval(i1 noundef zeroext true) #20
+  call void @AtEOXact_MultiXact() #20
   %166 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerRelease(ptr noundef %166, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #21
+  call void @ResourceOwnerRelease(ptr noundef %166, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #20
   %167 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerRelease(ptr noundef %167, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext true) #21
-  call void @smgrDoPendingDeletes(i1 noundef zeroext true) #21
-  call void @AtCommit_Notify() #21
-  call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef 1) #21
-  call void @AtEOXact_SPI(i1 noundef zeroext true) #21
-  call void @AtEOXact_Enum() #21
-  call void @AtEOXact_on_commit_actions(i1 noundef zeroext true) #21
-  call void @AtEOXact_Namespace(i1 noundef zeroext true, i1 noundef zeroext %8) #21
-  call void @AtEOXact_SMgr() #21
-  call void @AtEOXact_Files(i1 noundef zeroext true) #21
-  call void @AtEOXact_ComboCid() #21
-  call void @AtEOXact_HashTables(i1 noundef zeroext true) #21
-  call void @AtEOXact_PgStat(i1 noundef zeroext true, i1 noundef zeroext %8) #21
-  call void @AtEOXact_Snapshot(i1 noundef zeroext true, i1 noundef zeroext false) #21
-  call void @AtEOXact_ApplyLauncher(i1 noundef zeroext true) #21
-  call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext true) #21
-  call void @pgstat_report_xact_timestamp(i64 noundef 0) #21
+  call void @ResourceOwnerRelease(ptr noundef %167, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  call void @smgrDoPendingDeletes(i1 noundef zeroext true) #20
+  call void @AtCommit_Notify() #20
+  call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef 1) #20
+  call void @AtEOXact_SPI(i1 noundef zeroext true) #20
+  call void @AtEOXact_Enum() #20
+  call void @AtEOXact_on_commit_actions(i1 noundef zeroext true) #20
+  call void @AtEOXact_Namespace(i1 noundef zeroext true, i1 noundef zeroext %8) #20
+  call void @AtEOXact_SMgr() #20
+  call void @AtEOXact_Files(i1 noundef zeroext true) #20
+  call void @AtEOXact_ComboCid() #20
+  call void @AtEOXact_HashTables(i1 noundef zeroext true) #20
+  call void @AtEOXact_PgStat(i1 noundef zeroext true, i1 noundef zeroext %8) #20
+  call void @AtEOXact_Snapshot(i1 noundef zeroext true, i1 noundef zeroext false) #20
+  call void @AtEOXact_ApplyLauncher(i1 noundef zeroext true) #20
+  call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext true) #20
+  call void @pgstat_report_xact_timestamp(i64 noundef 0) #20
   %168 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  call void @ResourceOwnerDelete(ptr noundef %168) #21
+  call void @ResourceOwnerDelete(ptr noundef %168) #20
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr null, ptr %169, align 8
   store ptr null, ptr @CurTransactionResourceOwner, align 8
@@ -4549,7 +4498,7 @@ CallXactCallbacks.exit38:                         ; preds = %.lr.ph.i35, %156
   %172 = load ptr, ptr %171, align 8
   store ptr %172, ptr @CurrentMemoryContext, align 8
   %173 = load ptr, ptr @TopTransactionContext, align 8
-  call void @MemoryContextReset(ptr noundef %173) #21
+  call void @MemoryContextReset(ptr noundef %173) #20
   store ptr null, ptr @CurTransactionContext, align 8
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 48
   store ptr null, ptr %174, align 8
@@ -4743,20 +4692,20 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
 
 82:                                               ; preds = %77, %74
   %83 = phi i32 [ 1, %77 ], [ %75, %74 ]
-  tail call void @XLogBeginInsert() #21
-  call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 8) #21
+  tail call void @XLogBeginInsert() #20
+  call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 8) #20
   %.not37 = icmp eq i32 %83, 0
   br i1 %.not37, label %.thread67, label %84
 
 84:                                               ; preds = %82
-  call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 4) #20
   %.pre = load i32, ptr %15, align 4
   %85 = and i32 %.pre, 1
   %.not38 = icmp eq i32 %85, 0
   br i1 %.not38, label %87, label %86
 
 86:                                               ; preds = %84
-  call void @XLogRegisterData(ptr noundef nonnull %16, i32 noundef 8) #21
+  call void @XLogRegisterData(ptr noundef nonnull %16, i32 noundef 8) #20
   %.pre46 = load i32, ptr %15, align 4
   br label %87
 
@@ -4767,9 +4716,9 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   br i1 %.not39, label %92, label %90
 
 90:                                               ; preds = %87
-  call void @XLogRegisterData(ptr noundef nonnull %17, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %17, i32 noundef 4) #20
   %91 = shl i32 %1, 2
-  call void @XLogRegisterData(ptr noundef %2, i32 noundef %91) #21
+  call void @XLogRegisterData(ptr noundef %2, i32 noundef %91) #20
   %.pre47 = load i32, ptr %15, align 4
   br label %92
 
@@ -4780,9 +4729,9 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   br i1 %.not40, label %97, label %95
 
 95:                                               ; preds = %92
-  call void @XLogRegisterData(ptr noundef nonnull %18, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %18, i32 noundef 4) #20
   %96 = mul i32 %3, 12
-  call void @XLogRegisterData(ptr noundef %4, i32 noundef %96) #21
+  call void @XLogRegisterData(ptr noundef %4, i32 noundef %96) #20
   %.pre48 = load i32, ptr %15, align 4
   br label %97
 
@@ -4793,9 +4742,9 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   br i1 %.not41, label %102, label %100
 
 100:                                              ; preds = %97
-  call void @XLogRegisterData(ptr noundef nonnull %19, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %19, i32 noundef 4) #20
   %101 = shl i32 %5, 4
-  call void @XLogRegisterData(ptr noundef %6, i32 noundef %101) #21
+  call void @XLogRegisterData(ptr noundef %6, i32 noundef %101) #20
   %.pre49 = load i32, ptr %15, align 4
   br label %102
 
@@ -4806,9 +4755,9 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   br i1 %.not42, label %107, label %105
 
 105:                                              ; preds = %102
-  call void @XLogRegisterData(ptr noundef nonnull %20, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %20, i32 noundef 4) #20
   %106 = shl i32 %7, 4
-  call void @XLogRegisterData(ptr noundef %8, i32 noundef %106) #21
+  call void @XLogRegisterData(ptr noundef %8, i32 noundef %106) #20
   %.pre50 = load i32, ptr %15, align 4
   br label %107
 
@@ -4819,17 +4768,17 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   br i1 %.not43, label %117, label %110
 
 110:                                              ; preds = %107
-  call void @XLogRegisterData(ptr noundef nonnull %21, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %21, i32 noundef 4) #20
   %111 = load i32, ptr %15, align 4
   %112 = and i32 %111, 128
   %.not44 = icmp eq i32 %112, 0
   br i1 %.not44, label %117, label %113
 
 113:                                              ; preds = %110
-  %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #22
+  %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #21
   %115 = trunc i64 %114 to i32
   %116 = add i32 %115, 1
-  call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef %116) #21
+  call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef %116) #20
   %.pre51 = load i32, ptr %15, align 4
   br label %117
 
@@ -4840,14 +4789,14 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   br i1 %.not45, label %.thread67, label %120
 
 120:                                              ; preds = %117
-  call void @XLogRegisterData(ptr noundef nonnull %22, i32 noundef 16) #21
+  call void @XLogRegisterData(ptr noundef nonnull %22, i32 noundef 16) #20
   br label %.thread67
 
 .thread67:                                        ; preds = %82, %120, %117
   %121 = or i8 %.1, -128
   %spec.select = select i1 %.not37, i8 %.1, i8 %121
-  call void @XLogSetRecordFlags(i8 noundef zeroext 1) #21
-  %122 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #21
+  call void @XLogSetRecordFlags(i8 noundef zeroext 1) #20
+  %122 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -4976,20 +4925,20 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
 
 55:                                               ; preds = %50, %.thread
   %56 = phi i32 [ 1, %50 ], [ %48, %.thread ]
-  tail call void @XLogBeginInsert() #21
-  call void @XLogRegisterData(ptr noundef nonnull %11, i32 noundef 8) #21
+  tail call void @XLogBeginInsert() #20
+  call void @XLogRegisterData(ptr noundef nonnull %11, i32 noundef 8) #20
   %.not29 = icmp eq i32 %56, 0
   br i1 %.not29, label %.thread58, label %57
 
 57:                                               ; preds = %55
-  call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef 4) #20
   %.pre = load i32, ptr %12, align 4
   %58 = and i32 %.pre, 1
   %.not30 = icmp eq i32 %58, 0
   br i1 %.not30, label %60, label %59
 
 59:                                               ; preds = %57
-  call void @XLogRegisterData(ptr noundef nonnull %17, i32 noundef 8) #21
+  call void @XLogRegisterData(ptr noundef nonnull %17, i32 noundef 8) #20
   %.pre39 = load i32, ptr %12, align 4
   br label %60
 
@@ -5000,9 +4949,9 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not31, label %65, label %63
 
 63:                                               ; preds = %60
-  call void @XLogRegisterData(ptr noundef nonnull %13, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %13, i32 noundef 4) #20
   %64 = shl i32 %1, 2
-  call void @XLogRegisterData(ptr noundef %2, i32 noundef %64) #21
+  call void @XLogRegisterData(ptr noundef %2, i32 noundef %64) #20
   %.pre40 = load i32, ptr %12, align 4
   br label %65
 
@@ -5013,9 +4962,9 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not32, label %70, label %68
 
 68:                                               ; preds = %65
-  call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 4) #20
   %69 = mul i32 %3, 12
-  call void @XLogRegisterData(ptr noundef %4, i32 noundef %69) #21
+  call void @XLogRegisterData(ptr noundef %4, i32 noundef %69) #20
   %.pre41 = load i32, ptr %12, align 4
   br label %70
 
@@ -5026,9 +4975,9 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not33, label %75, label %73
 
 73:                                               ; preds = %70
-  call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 4) #20
   %74 = shl i32 %5, 4
-  call void @XLogRegisterData(ptr noundef %6, i32 noundef %74) #21
+  call void @XLogRegisterData(ptr noundef %6, i32 noundef %74) #20
   %.pre42 = load i32, ptr %12, align 4
   br label %75
 
@@ -5039,17 +4988,17 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not34, label %85, label %78
 
 78:                                               ; preds = %75
-  call void @XLogRegisterData(ptr noundef nonnull %16, i32 noundef 4) #21
+  call void @XLogRegisterData(ptr noundef nonnull %16, i32 noundef 4) #20
   %79 = load i32, ptr %12, align 4
   %80 = and i32 %79, 128
   %.not35 = icmp eq i32 %80, 0
   br i1 %.not35, label %85, label %81
 
 81:                                               ; preds = %78
-  %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
+  %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %83 = trunc i64 %82 to i32
   %84 = add i32 %83, 1
-  call void @XLogRegisterData(ptr noundef nonnull %9, i32 noundef %84) #21
+  call void @XLogRegisterData(ptr noundef nonnull %9, i32 noundef %84) #20
   %.pre43 = load i32, ptr %12, align 4
   br label %85
 
@@ -5060,14 +5009,14 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   br i1 %.not36, label %.thread58, label %88
 
 88:                                               ; preds = %85
-  call void @XLogRegisterData(ptr noundef nonnull %18, i32 noundef 16) #21
+  call void @XLogRegisterData(ptr noundef nonnull %18, i32 noundef 16) #20
   br label %.thread58
 
 .thread58:                                        ; preds = %55, %88, %85
   %89 = or i8 %.1, -128
   %spec.select = select i1 %.not29, i8 %.1, i8 %89
-  call void @XLogSetRecordFlags(i8 noundef zeroext 1) #21
-  %90 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #21
+  call void @XLogSetRecordFlags(i8 noundef zeroext 1) #20
+  %90 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext %spec.select) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5106,7 +5055,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @ParseCommitRecord(i8 noundef zeroext %9, ptr noundef %14, ptr noundef nonnull %2) #21
+  call void @ParseCommitRecord(i8 noundef zeroext %9, ptr noundef %14, ptr noundef nonnull %2) #20
   %15 = load ptr, ptr %6, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %17 = load i32, ptr %16, align 4
@@ -5122,7 +5071,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @ParseCommitRecord(i8 noundef zeroext %9, ptr noundef %24, ptr noundef nonnull %3) #21
+  call void @ParseCommitRecord(i8 noundef zeroext %9, ptr noundef %24, ptr noundef nonnull %3) #20
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5133,12 +5082,12 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   call fastcc void @xact_redo_commit(ptr noundef %3, i32 noundef %26, i64 noundef %28, i16 noundef zeroext %31)
   %32 = load ptr, ptr @MainLWLockArray, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 2304
-  %34 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %33, i32 noundef 0) #21
+  %34 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %33, i32 noundef 0) #20
   %35 = load i32, ptr %25, align 8
-  call void @PrepareRedoRemove(i32 noundef %35, i1 noundef zeroext false) #21
+  call void @PrepareRedoRemove(i32 noundef %35, i1 noundef zeroext false) #20
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2304
-  call void @LWLockRelease(ptr noundef nonnull %37) #21
+  call void @LWLockRelease(ptr noundef nonnull %37) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %92
 
@@ -5146,7 +5095,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %40 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @ParseAbortRecord(i8 noundef zeroext %9, ptr noundef %40, ptr noundef nonnull %4) #21
+  call void @ParseAbortRecord(i8 noundef zeroext %9, ptr noundef %40, ptr noundef nonnull %4) #20
   %41 = load ptr, ptr %6, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 44
   %43 = load i32, ptr %42, align 4
@@ -5162,7 +5111,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @ParseAbortRecord(i8 noundef zeroext %9, ptr noundef %50, ptr noundef nonnull %5) #21
+  call void @ParseAbortRecord(i8 noundef zeroext %9, ptr noundef %50, ptr noundef nonnull %5) #20
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %52 = load i32, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5173,19 +5122,19 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   call fastcc void @xact_redo_abort(ptr noundef %5, i32 noundef %52, i64 noundef %54, i16 noundef zeroext %57)
   %58 = load ptr, ptr @MainLWLockArray, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2304
-  %60 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %59, i32 noundef 0) #21
+  %60 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %59, i32 noundef 0) #20
   %61 = load i32, ptr %51, align 8
-  call void @PrepareRedoRemove(i32 noundef %61, i1 noundef zeroext false) #21
+  call void @PrepareRedoRemove(i32 noundef %61, i1 noundef zeroext false) #20
   %62 = load ptr, ptr @MainLWLockArray, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2304
-  call void @LWLockRelease(ptr noundef nonnull %63) #21
+  call void @LWLockRelease(ptr noundef nonnull %63) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %92
 
 64:                                               ; preds = %1
   %65 = load ptr, ptr @MainLWLockArray, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 2304
-  %67 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %66, i32 noundef 0) #21
+  %67 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %66, i32 noundef 0) #20
   %68 = load ptr, ptr %6, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 72
   %70 = load ptr, ptr %69, align 8
@@ -5195,10 +5144,10 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %76 = load i16, ptr %75, align 8
-  tail call void @PrepareRedoAdd(ptr noundef %70, i64 noundef %72, i64 noundef %74, i16 noundef zeroext %76) #21
+  tail call void @PrepareRedoAdd(ptr noundef %70, i64 noundef %72, i64 noundef %74, i16 noundef zeroext %76) #20
   %77 = load ptr, ptr @MainLWLockArray, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %78) #21
+  tail call void @LWLockRelease(ptr noundef nonnull %78) #20
   br label %92
 
 79:                                               ; preds = %1
@@ -5213,7 +5162,7 @@ define dso_local void @xact_redo(ptr noundef readonly captures(none) %0) local_u
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  tail call void @ProcArrayApplyXidAssignment(i32 noundef %84, i32 noundef %86, ptr noundef nonnull %87) #21
+  tail call void @ProcArrayApplyXidAssignment(i32 noundef %84, i32 noundef %86, ptr noundef nonnull %87) #20
   br label %92
 
 default.unreachable:                              ; preds = %1
@@ -5221,10 +5170,9 @@ default.unreachable:                              ; preds = %1
 
 88:                                               ; preds = %1
   %89 = zext nneg i8 %10 to i32
-  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %90)
-  %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %89) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6433, ptr noundef nonnull @__func__.xact_redo) #21
+  %90 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #19
+  %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %89) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 6433, ptr noundef nonnull @__func__.xact_redo) #20
   unreachable
 
 92:                                               ; preds = %1, %79, %81, %22, %48, %64, %38, %12
@@ -5239,8 +5187,8 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @TransactionIdLatest(i32 noundef %1, i32 noundef %6, ptr noundef %8) #21
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %9) #21
+  %9 = tail call i32 @TransactionIdLatest(i32 noundef %1, i32 noundef %6, ptr noundef %8) #20
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %9) #20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 32
@@ -5250,7 +5198,7 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   %.0 = load i64, ptr %.0.in, align 8
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %7, align 8
-  tail call void @TransactionTreeSetCommitTsData(i32 noundef %1, i32 noundef %13, ptr noundef %14, i64 noundef %.0, i16 noundef zeroext %3) #21
+  tail call void @TransactionTreeSetCommitTsData(i32 noundef %1, i32 noundef %13, ptr noundef %14, i64 noundef %.0, i16 noundef zeroext %3) #20
   %15 = load i32, ptr @standbyState, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %20
@@ -5258,17 +5206,17 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
 17:                                               ; preds = %4
   %18 = load i32, ptr %5, align 4
   %19 = load ptr, ptr %7, align 8
-  tail call void @TransactionIdCommitTree(i32 noundef %1, i32 noundef %18, ptr noundef %19) #21
+  tail call void @TransactionIdCommitTree(i32 noundef %1, i32 noundef %18, ptr noundef %19) #20
   br label %41
 
 20:                                               ; preds = %4
-  tail call void @RecordKnownAssignedTransactionIds(i32 noundef %9) #21
+  tail call void @RecordKnownAssignedTransactionIds(i32 noundef %9) #20
   %21 = load i32, ptr %5, align 4
   %22 = load ptr, ptr %7, align 8
-  tail call void @TransactionIdAsyncCommitTree(i32 noundef %1, i32 noundef %21, ptr noundef %22, i64 noundef %2) #21
+  tail call void @TransactionIdAsyncCommitTree(i32 noundef %1, i32 noundef %21, ptr noundef %22, i64 noundef %2) #20
   %23 = load i32, ptr %5, align 4
   %24 = load ptr, ptr %7, align 8
-  tail call void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %1, i32 noundef %23, ptr noundef %24, i32 noundef %9) #21
+  tail call void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %1, i32 noundef %23, ptr noundef %24, i32 noundef %9) #20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5280,7 +5228,7 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
-  tail call void @ProcessCommittedInvalidationMessages(ptr noundef %26, i32 noundef %28, i1 noundef zeroext %31, i32 noundef %33, i32 noundef %35) #21
+  tail call void @ProcessCommittedInvalidationMessages(ptr noundef %26, i32 noundef %28, i1 noundef zeroext %31, i32 noundef %33, i32 noundef %35) #20
   %36 = load i32, ptr %10, align 8
   %37 = and i32 %36, 64
   %.not47 = icmp eq i32 %37, 0
@@ -5289,7 +5237,7 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
 38:                                               ; preds = %20
   %39 = load i32, ptr %5, align 4
   %40 = load ptr, ptr %7, align 8
-  tail call void @StandbyReleaseLockTree(i32 noundef %1, i32 noundef %39, ptr noundef %40) #21
+  tail call void @StandbyReleaseLockTree(i32 noundef %1, i32 noundef %39, ptr noundef %40) #20
   br label %41
 
 41:                                               ; preds = %20, %38, %17
@@ -5301,7 +5249,7 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load i64, ptr %45, align 8
-  tail call void @replorigin_advance(i16 noundef zeroext %3, i64 noundef %46, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #21
+  tail call void @replorigin_advance(i16 noundef zeroext %3, i64 noundef %46, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #20
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -5311,11 +5259,11 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %47
-  tail call void @XLogFlush(i64 noundef %2) #21
+  tail call void @XLogFlush(i64 noundef %2) #20
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %48, align 8
-  tail call void @DropRelationFiles(ptr noundef %53, i32 noundef %54, i1 noundef zeroext true) #21
+  tail call void @DropRelationFiles(ptr noundef %53, i32 noundef %54, i1 noundef zeroext true) #20
   br label %55
 
 55:                                               ; preds = %51, %47
@@ -5325,11 +5273,11 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %55
-  tail call void @XLogFlush(i64 noundef %2) #21
+  tail call void @XLogFlush(i64 noundef %2) #20
   %60 = load i32, ptr %56, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load ptr, ptr %61, align 8
-  tail call void @pgstat_execute_transactional_drops(i32 noundef %60, ptr noundef %62, i1 noundef zeroext true) #21
+  tail call void @pgstat_execute_transactional_drops(i32 noundef %60, ptr noundef %62, i1 noundef zeroext true) #20
   br label %63
 
 63:                                               ; preds = %59, %55
@@ -5338,7 +5286,7 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   br i1 %.not49, label %66, label %65
 
 65:                                               ; preds = %63
-  tail call void @XLogFlush(i64 noundef %2) #21
+  tail call void @XLogFlush(i64 noundef %2) #20
   %.pre = load i32, ptr %10, align 8
   br label %66
 
@@ -5349,7 +5297,7 @@ define internal fastcc void @xact_redo_commit(ptr noundef nonnull readonly captu
   br i1 %.not50, label %70, label %69
 
 69:                                               ; preds = %66
-  tail call void @XLogRequestWalReceiverReply() #21
+  tail call void @XLogRequestWalReceiverReply() #20
   br label %70
 
 70:                                               ; preds = %69, %66
@@ -5370,8 +5318,8 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @TransactionIdLatest(i32 noundef %1, i32 noundef %6, ptr noundef %8) #21
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %9) #21
+  %9 = tail call i32 @TransactionIdLatest(i32 noundef %1, i32 noundef %6, ptr noundef %8) #20
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %9) #20
   %10 = load i32, ptr @standbyState, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %15
@@ -5379,17 +5327,17 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
 12:                                               ; preds = %4
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %7, align 8
-  tail call void @TransactionIdAbortTree(i32 noundef %1, i32 noundef %13, ptr noundef %14) #21
+  tail call void @TransactionIdAbortTree(i32 noundef %1, i32 noundef %13, ptr noundef %14) #20
   br label %26
 
 15:                                               ; preds = %4
-  tail call void @RecordKnownAssignedTransactionIds(i32 noundef %9) #21
+  tail call void @RecordKnownAssignedTransactionIds(i32 noundef %9) #20
   %16 = load i32, ptr %5, align 4
   %17 = load ptr, ptr %7, align 8
-  tail call void @TransactionIdAbortTree(i32 noundef %1, i32 noundef %16, ptr noundef %17) #21
+  tail call void @TransactionIdAbortTree(i32 noundef %1, i32 noundef %16, ptr noundef %17) #20
   %18 = load i32, ptr %5, align 4
   %19 = load ptr, ptr %7, align 8
-  tail call void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %1, i32 noundef %18, ptr noundef %19, i32 noundef %9) #21
+  tail call void @ExpireTreeKnownAssignedTransactionIds(i32 noundef %1, i32 noundef %18, ptr noundef %19, i32 noundef %9) #20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 64
@@ -5399,7 +5347,7 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
 23:                                               ; preds = %15
   %24 = load i32, ptr %5, align 4
   %25 = load ptr, ptr %7, align 8
-  tail call void @StandbyReleaseLockTree(i32 noundef %1, i32 noundef %24, ptr noundef %25) #21
+  tail call void @StandbyReleaseLockTree(i32 noundef %1, i32 noundef %24, ptr noundef %25) #20
   br label %26
 
 26:                                               ; preds = %15, %23, %12
@@ -5412,7 +5360,7 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %32 = load i64, ptr %31, align 8
-  tail call void @replorigin_advance(i16 noundef zeroext %3, i64 noundef %32, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #21
+  tail call void @replorigin_advance(i16 noundef zeroext %3, i64 noundef %32, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #20
   br label %33
 
 33:                                               ; preds = %30, %26
@@ -5422,11 +5370,11 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
-  tail call void @XLogFlush(i64 noundef %2) #21
+  tail call void @XLogFlush(i64 noundef %2) #20
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %34, align 8
-  tail call void @DropRelationFiles(ptr noundef %39, i32 noundef %40, i1 noundef zeroext true) #21
+  tail call void @DropRelationFiles(ptr noundef %39, i32 noundef %40, i1 noundef zeroext true) #20
   br label %41
 
 41:                                               ; preds = %37, %33
@@ -5436,11 +5384,11 @@ define internal fastcc void @xact_redo_abort(ptr noundef nonnull readonly captur
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
-  tail call void @XLogFlush(i64 noundef %2) #21
+  tail call void @XLogFlush(i64 noundef %2) #20
   %46 = load i32, ptr %42, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load ptr, ptr %47, align 8
-  tail call void @pgstat_execute_transactional_drops(i32 noundef %46, ptr noundef %48, i1 noundef zeroext true) #21
+  tail call void @pgstat_execute_transactional_drops(i32 noundef %46, ptr noundef %48, i1 noundef zeroext true) #20
   br label %49
 
 49:                                               ; preds = %45, %41
@@ -5503,18 +5451,18 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @stack_is_too_deep() #21
+  %7 = tail call zeroext i1 @stack_is_too_deep() #20
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 @errstart(i32 noundef 10, ptr noundef null) #21
+  %9 = tail call zeroext i1 @errstart(i32 noundef 10, ptr noundef null) #20
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i32, ptr %11, align 4
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %0, i32 noundef %12) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5662, ptr noundef nonnull @__func__.ShowTransactionStateRec) #21
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, ptr noundef %0, i32 noundef %12) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5662, ptr noundef nonnull @__func__.ShowTransactionStateRec) #20
   br label %16
 
 14:                                               ; preds = %6
@@ -5523,7 +5471,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
   br label %16
 
 16:                                               ; preds = %14, %10, %8, %2
-  call void @initStringInfo(ptr noundef nonnull %3) #21
+  call void @initStringInfo(ptr noundef nonnull %3) #20
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
@@ -5533,7 +5481,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.42, i32 noundef %23) #21
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.42, i32 noundef %23) #20
   %24 = load i32, ptr %17, align 8
   %25 = icmp sgt i32 %24, 1
   br i1 %25, label %.lr.ph, label %.loopexit
@@ -5543,7 +5491,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
   %26 = load ptr, ptr %21, align 8
   %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, i32 noundef %28) #21
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %3, ptr noundef nonnull @.str.43, i32 noundef %28) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %17, align 8
   %30 = sext i32 %29 to i64
@@ -5551,7 +5499,7 @@ define internal fastcc void @ShowTransactionStateRec(ptr noundef %0, ptr noundef
   br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
-  %32 = call zeroext i1 @errstart(i32 noundef 10, ptr noundef null) #21
+  %32 = call zeroext i1 @errstart(i32 noundef 10, ptr noundef null) #20
   br i1 %32, label %33, label %54
 
 33:                                               ; preds = %.loopexit
@@ -5595,13 +5543,13 @@ TransStateAsString.exit:                          ; preds = %BlockStateAsString.
   %.b21 = load i1, ptr @currentCommandIdUsed, align 1
   %51 = select i1 %.b21, ptr @.str.46, ptr @.str.47
   %52 = load ptr, ptr %3, align 8
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, ptr noundef %0, i32 noundef %35, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i22, i32 noundef %47, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %51, ptr noundef %52) #21
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5686, ptr noundef nonnull @__func__.ShowTransactionStateRec) #21
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, ptr noundef %0, i32 noundef %35, ptr noundef nonnull %spec.select, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i22, i32 noundef %47, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %51, ptr noundef %52) #20
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5686, ptr noundef nonnull @__func__.ShowTransactionStateRec) #20
   br label %54
 
 54:                                               ; preds = %TransStateAsString.exit, %.loopexit
   %55 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %55) #21
+  call void @pfree(ptr noundef %55) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -5644,7 +5592,7 @@ define internal fastcc void @PrepareTransaction() unnamed_addr #1 {
 GetCurrentTransactionId.exit:                     ; preds = %0, %4
   %5 = phi i64 [ %.pre.i, %4 ], [ %2, %0 ]
   %6 = trunc i64 %5 to i32
-  %7 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  %7 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %7, label %8, label %ShowTransactionState.exit
 
 8:                                                ; preds = %GetCurrentTransactionId.exit
@@ -5659,7 +5607,7 @@ ShowTransactionState.exit:                        ; preds = %GetCurrentTransacti
   br i1 %.not, label %.preheader, label %12
 
 12:                                               ; preds = %ShowTransactionState.exit
-  %13 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %13 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %13, label %14, label %.preheader
 
 14:                                               ; preds = %12
@@ -5675,16 +5623,16 @@ switch.lookup:                                    ; preds = %14
 
 TransStateAsString.exit:                          ; preds = %14, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %14 ]
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2528, ptr noundef nonnull @.str.56) #21
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2528, ptr noundef nonnull @.str.56) #20
   br label %.preheader
 
 .preheader:                                       ; preds = %12, %TransStateAsString.exit, %ShowTransactionState.exit
   br label %19
 
 19:                                               ; preds = %.preheader, %19
-  tail call void @AfterTriggerFireDeferred() #21
-  %20 = tail call zeroext i1 @PreCommit_Portals(i1 noundef zeroext true) #21
+  tail call void @AfterTriggerFireDeferred() #20
+  %20 = tail call zeroext i1 @PreCommit_Portals(i1 noundef zeroext true) #20
   br i1 %20, label %19, label %21
 
 21:                                               ; preds = %19
@@ -5699,39 +5647,37 @@ TransStateAsString.exit:                          ; preds = %14, %switch.lookup
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.06.i, i64 16
   %27 = load ptr, ptr %26, align 8
-  tail call void %25(i32 noundef 7, ptr noundef %27) #21
+  tail call void %25(i32 noundef 7, ptr noundef %27) #20
   %.not.i20 = icmp eq ptr %23, null
   br i1 %.not.i20, label %CallXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !25
 
 CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %21
-  tail call void @AfterTriggerEndXact(i1 noundef zeroext true) #21
-  tail call void @PreCommit_on_commit_actions() #21
-  tail call void @smgrDoPendingSyncs(i1 noundef zeroext true, i1 noundef zeroext false) #21
-  tail call void @AtEOXact_LargeObject(i1 noundef zeroext true) #21
-  tail call void @PreCommit_CheckForSerializationFailure() #21
+  tail call void @AfterTriggerEndXact(i1 noundef zeroext true) #20
+  tail call void @PreCommit_on_commit_actions() #20
+  tail call void @smgrDoPendingSyncs(i1 noundef zeroext true, i1 noundef zeroext false) #20
+  tail call void @AtEOXact_LargeObject(i1 noundef zeroext true) #20
+  tail call void @PreCommit_CheckForSerializationFailure() #20
   %28 = load i32, ptr @MyXactFlags, align 4
   %29 = and i32 %28, 1
   %.not19 = icmp eq i32 %29, 0
   br i1 %.not19, label %34, label %30
 
 30:                                               ; preds = %CallXactCallbacks.exit
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 1088) #21
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2613, ptr noundef nonnull @.str.56) #21
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %32 = tail call i32 @errcode(i32 noundef 1088) #20
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2613, ptr noundef nonnull @.str.56) #20
   unreachable
 
 34:                                               ; preds = %CallXactCallbacks.exit
-  %35 = tail call zeroext i1 @XactHasExportedSnapshots() #21
+  %35 = tail call zeroext i1 @XactHasExportedSnapshots() #20
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 1088) #21
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2623, ptr noundef nonnull @.str.56) #21
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %38 = tail call i32 @errcode(i32 noundef 1088) #20
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2623, ptr noundef nonnull @.str.56) #20
   unreachable
 
 40:                                               ; preds = %34
@@ -5744,28 +5690,28 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %21
   br i1 %44, label %45, label %46
 
 45:                                               ; preds = %40
-  tail call void @disable_timeout(i32 noundef 8, i1 noundef zeroext false) #21
+  tail call void @disable_timeout(i32 noundef 8, i1 noundef zeroext false) #20
   br label %46
 
 46:                                               ; preds = %45, %40
-  %47 = tail call i64 @GetCurrentTimestamp() #21
+  %47 = tail call i64 @GetCurrentTimestamp() #20
   %48 = load ptr, ptr @prepareGID, align 8
-  %49 = tail call i32 @GetUserId() #21
+  %49 = tail call i32 @GetUserId() #20
   %50 = load i32, ptr @MyDatabaseId, align 4
-  %51 = tail call ptr @MarkAsPreparing(i32 noundef %6, ptr noundef %48, i64 noundef %47, i32 noundef %49, i32 noundef %50) #21
+  %51 = tail call ptr @MarkAsPreparing(i32 noundef %6, ptr noundef %48, i64 noundef %47, i32 noundef %49, i32 noundef %50) #20
   store ptr null, ptr @prepareGID, align 8
-  tail call void @StartPrepare(ptr noundef %51) #21
-  tail call void @AtPrepare_Notify() #21
-  tail call void @AtPrepare_Locks() #21
-  tail call void @AtPrepare_PredicateLocks() #21
-  tail call void @AtPrepare_PgStat() #21
-  tail call void @AtPrepare_MultiXact() #21
-  tail call void @AtPrepare_RelationMap() #21
-  tail call void @EndPrepare(ptr noundef %51) #21
+  tail call void @StartPrepare(ptr noundef %51) #20
+  tail call void @AtPrepare_Notify() #20
+  tail call void @AtPrepare_Locks() #20
+  tail call void @AtPrepare_PredicateLocks() #20
+  tail call void @AtPrepare_PgStat() #20
+  tail call void @AtPrepare_MultiXact() #20
+  tail call void @AtPrepare_RelationMap() #20
+  tail call void @EndPrepare(ptr noundef %51) #20
   store i64 0, ptr @XactLastRecEnd, align 8
-  tail call void @PostPrepare_Locks(i32 noundef %6) #21
+  tail call void @PostPrepare_Locks(i32 noundef %6) #20
   %52 = load ptr, ptr @MyProc, align 8
-  tail call void @ProcArrayClearTransaction(ptr noundef %52) #21
+  tail call void @ProcArrayClearTransaction(ptr noundef %52) #20
   %53 = load ptr, ptr @Xact_callbacks, align 8
   %.not5.i21 = icmp eq ptr %53, null
   br i1 %.not5.i21, label %CallXactCallbacks.exit25, label %.lr.ph.i22
@@ -5777,42 +5723,42 @@ CallXactCallbacks.exit:                           ; preds = %.lr.ph.i, %21
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %.06.i23, i64 16
   %58 = load ptr, ptr %57, align 8
-  tail call void %56(i32 noundef 4, ptr noundef %58) #21
+  tail call void %56(i32 noundef 4, ptr noundef %58) #20
   %.not.i24 = icmp eq ptr %54, null
   br i1 %.not.i24, label %CallXactCallbacks.exit25, label %.lr.ph.i22, !llvm.loop !25
 
 CallXactCallbacks.exit25:                         ; preds = %.lr.ph.i22, %46
   %59 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %59, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext true) #21
-  tail call void @AtEOXact_Buffers(i1 noundef zeroext true) #21
-  tail call void @AtEOXact_RelationCache(i1 noundef zeroext true) #21
-  tail call void @AtEOXact_TypeCache() #21
-  tail call void @PostPrepare_PgStat() #21
-  tail call void @PostPrepare_Inval() #21
-  tail call void @PostPrepare_smgr() #21
-  tail call void @PostPrepare_MultiXact(i32 noundef %6) #21
-  tail call void @PostPrepare_PredicateLocks(i32 noundef %6) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %59, i32 noundef 1, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  tail call void @AtEOXact_Buffers(i1 noundef zeroext true) #20
+  tail call void @AtEOXact_RelationCache(i1 noundef zeroext true) #20
+  tail call void @AtEOXact_TypeCache() #20
+  tail call void @PostPrepare_PgStat() #20
+  tail call void @PostPrepare_Inval() #20
+  tail call void @PostPrepare_smgr() #20
+  tail call void @PostPrepare_MultiXact(i32 noundef %6) #20
+  tail call void @PostPrepare_PredicateLocks(i32 noundef %6) #20
   %60 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %60, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %60, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true) #20
   %61 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerRelease(ptr noundef %61, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext true) #21
-  tail call void @PostPrepare_Twophase() #21
-  tail call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef 1) #21
-  tail call void @AtEOXact_SPI(i1 noundef zeroext true) #21
-  tail call void @AtEOXact_Enum() #21
-  tail call void @AtEOXact_on_commit_actions(i1 noundef zeroext true) #21
-  tail call void @AtEOXact_Namespace(i1 noundef zeroext true, i1 noundef zeroext false) #21
-  tail call void @AtEOXact_SMgr() #21
-  tail call void @AtEOXact_Files(i1 noundef zeroext true) #21
-  tail call void @AtEOXact_ComboCid() #21
-  tail call void @AtEOXact_HashTables(i1 noundef zeroext true) #21
-  tail call void @AtEOXact_Snapshot(i1 noundef zeroext true, i1 noundef zeroext true) #21
-  tail call void @AtEOXact_ApplyLauncher(i1 noundef zeroext false) #21
-  tail call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext false) #21
-  tail call void @pgstat_report_xact_timestamp(i64 noundef 0) #21
+  tail call void @ResourceOwnerRelease(ptr noundef %61, i32 noundef 3, i1 noundef zeroext true, i1 noundef zeroext true) #20
+  tail call void @PostPrepare_Twophase() #20
+  tail call void @AtEOXact_GUC(i1 noundef zeroext true, i32 noundef 1) #20
+  tail call void @AtEOXact_SPI(i1 noundef zeroext true) #20
+  tail call void @AtEOXact_Enum() #20
+  tail call void @AtEOXact_on_commit_actions(i1 noundef zeroext true) #20
+  tail call void @AtEOXact_Namespace(i1 noundef zeroext true, i1 noundef zeroext false) #20
+  tail call void @AtEOXact_SMgr() #20
+  tail call void @AtEOXact_Files(i1 noundef zeroext true) #20
+  tail call void @AtEOXact_ComboCid() #20
+  tail call void @AtEOXact_HashTables(i1 noundef zeroext true) #20
+  tail call void @AtEOXact_Snapshot(i1 noundef zeroext true, i1 noundef zeroext true) #20
+  tail call void @AtEOXact_ApplyLauncher(i1 noundef zeroext false) #20
+  tail call void @AtEOXact_LogicalRepWorkers(i1 noundef zeroext false) #20
+  tail call void @pgstat_report_xact_timestamp(i64 noundef 0) #20
   store ptr null, ptr @CurrentResourceOwner, align 8
   %62 = load ptr, ptr @TopTransactionResourceOwner, align 8
-  tail call void @ResourceOwnerDelete(ptr noundef %62) #21
+  tail call void @ResourceOwnerDelete(ptr noundef %62) #20
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %63, align 8
   store ptr null, ptr @CurTransactionResourceOwner, align 8
@@ -5822,7 +5768,7 @@ CallXactCallbacks.exit25:                         ; preds = %.lr.ph.i22, %46
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr @CurrentMemoryContext, align 8
   %67 = load ptr, ptr @TopTransactionContext, align 8
-  tail call void @MemoryContextReset(ptr noundef %67) #21
+  tail call void @MemoryContextReset(ptr noundef %67) #20
   store ptr null, ptr @CurTransactionContext, align 8
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store ptr null, ptr %68, align 8
@@ -5853,7 +5799,7 @@ define internal fastcc void @StartSubTransaction() unnamed_addr #1 {
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %5 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
@@ -5869,8 +5815,8 @@ switch.lookup:                                    ; preds = %6
 
 TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %6 ]
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5065, ptr noundef nonnull @__func__.StartSubTransaction) #21
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5065, ptr noundef nonnull @__func__.StartSubTransaction) #20
   br label %11
 
 11:                                               ; preds = %4, %TransStateAsString.exit, %0
@@ -5880,7 +5826,7 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @CurTransactionContext, align 8
-  %16 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %15, ptr noundef nonnull @.str.61, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #21
+  %16 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %15, ptr noundef nonnull @.str.61, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #20
   store ptr %16, ptr @CurTransactionContext, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %16, ptr %17, align 8
@@ -5890,12 +5836,12 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @ResourceOwnerCreate(ptr noundef %22, ptr noundef nonnull @.str.62) #21
+  %23 = tail call ptr @ResourceOwnerCreate(ptr noundef %22, ptr noundef nonnull @.str.62) #20
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %23, ptr %24, align 8
   store ptr %23, ptr @CurTransactionResourceOwner, align 8
   store ptr %23, ptr @CurrentResourceOwner, align 8
-  tail call void @AfterTriggerBeginSubXact() #21
+  tail call void @AfterTriggerBeginSubXact() #20
   store i32 2, ptr %2, align 4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
@@ -5914,12 +5860,12 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.08.i, i64 16
   %36 = load ptr, ptr %35, align 8
-  tail call void %34(i32 noundef 0, i32 noundef %26, i32 noundef %30, ptr noundef %36) #21
+  tail call void %34(i32 noundef 0, i32 noundef %26, i32 noundef %30, ptr noundef %36) #20
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %CallSubXactCallbacks.exit, label %.lr.ph.i, !llvm.loop !23
 
 CallSubXactCallbacks.exit:                        ; preds = %.lr.ph.i, %11
-  %37 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #21
+  %37 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 10) #20
   br i1 %37, label %38, label %ShowTransactionState.exit
 
 38:                                               ; preds = %CallSubXactCallbacks.exit
@@ -6077,21 +6023,20 @@ define internal fastcc i32 @RecordTransactionAbort(i1 noundef zeroext %0) unname
   br label %57
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %6) #21
+  %10 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %6) #20
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, i32 noundef %6) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1793, ptr noundef nonnull @__func__.RecordTransactionAbort) #21
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #19
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.64, i32 noundef %6) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1793, ptr noundef nonnull @__func__.RecordTransactionAbort) #20
   unreachable
 
 14:                                               ; preds = %9
   %15 = load i16, ptr @replorigin_session_origin, align 2
   %16 = add i16 %15, -1
   %17 = icmp ult i16 %16, -2
-  %18 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef nonnull %2) #21
+  %18 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef nonnull %2) #20
   %19 = load ptr, ptr @CurrentTransactionState, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load i32, ptr %20, align 8
@@ -6105,14 +6050,14 @@ define internal fastcc i32 @RecordTransactionAbort(i1 noundef zeroext %0) unname
 
 xactGetCommittedChildren.exit:                    ; preds = %14, %23
   %storemerge.i = phi ptr [ %25, %23 ], [ null, %14 ]
-  %26 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef nonnull %3) #21
+  %26 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef nonnull %3) #20
   %27 = load volatile i32, ptr @CritSectionCount, align 4
   %28 = add i32 %27, 1
   store volatile i32 %28, ptr @CritSectionCount, align 4
   br i1 %0, label %29, label %31
 
 29:                                               ; preds = %xactGetCommittedChildren.exit
-  %30 = call i64 @GetCurrentTimestamp() #21
+  %30 = call i64 @GetCurrentTimestamp() #20
   br label %GetCurrentTransactionStopTimestamp.exit
 
 31:                                               ; preds = %xactGetCommittedChildren.exit
@@ -6121,7 +6066,7 @@ xactGetCommittedChildren.exit:                    ; preds = %14, %23
   br i1 %33, label %34, label %GetCurrentTransactionStopTimestamp.exit
 
 34:                                               ; preds = %31
-  %35 = call i64 @GetCurrentTimestamp() #21
+  %35 = call i64 @GetCurrentTimestamp() #20
   store i64 %35, ptr @xactStopTimestamp, align 8
   br label %GetCurrentTransactionStopTimestamp.exit
 
@@ -6136,7 +6081,7 @@ GetCurrentTransactionStopTimestamp.exit:          ; preds = %34, %31, %29
 40:                                               ; preds = %GetCurrentTransactionStopTimestamp.exit
   %41 = load i64, ptr @replorigin_session_origin_lsn, align 8
   %42 = load i64, ptr @XactLastRecEnd, align 8
-  call void @replorigin_session_advance(i64 noundef %41, i64 noundef %42) #21
+  call void @replorigin_session_advance(i64 noundef %41, i64 noundef %42) #20
   br label %43
 
 43:                                               ; preds = %40, %GetCurrentTransactionStopTimestamp.exit
@@ -6144,19 +6089,19 @@ GetCurrentTransactionStopTimestamp.exit:          ; preds = %34, %31, %29
 
 44:                                               ; preds = %43
   %45 = load i64, ptr @XactLastRecEnd, align 8
-  call void @XLogSetAsyncXactLSN(i64 noundef %45) #21
+  call void @XLogSetAsyncXactLSN(i64 noundef %45) #20
   br label %46
 
 46:                                               ; preds = %44, %43
-  call void @TransactionIdAbortTree(i32 noundef %6, i32 noundef %21, ptr noundef %storemerge.i) #21
+  call void @TransactionIdAbortTree(i32 noundef %6, i32 noundef %21, ptr noundef %storemerge.i) #20
   %47 = load volatile i32, ptr @CritSectionCount, align 4
   %48 = add i32 %47, -1
   store volatile i32 %48, ptr @CritSectionCount, align 4
-  %49 = call i32 @TransactionIdLatest(i32 noundef %6, i32 noundef %21, ptr noundef %storemerge.i) #21
+  %49 = call i32 @TransactionIdLatest(i32 noundef %6, i32 noundef %21, ptr noundef %storemerge.i) #20
   br i1 %0, label %50, label %.critedge
 
 50:                                               ; preds = %46
-  call void @XidCacheRemoveRunningXids(i32 noundef %6, i32 noundef %21, ptr noundef %storemerge.i, i32 noundef %49) #21
+  call void @XidCacheRemoveRunningXids(i32 noundef %6, i32 noundef %21, ptr noundef %storemerge.i, i32 noundef %49) #20
   br label %51
 
 .critedge:                                        ; preds = %46
@@ -6169,7 +6114,7 @@ GetCurrentTransactionStopTimestamp.exit:          ; preds = %34, %31, %29
   br i1 %.not26, label %54, label %53
 
 53:                                               ; preds = %51
-  call void @pfree(ptr noundef nonnull %52) #21
+  call void @pfree(ptr noundef nonnull %52) #20
   br label %54
 
 54:                                               ; preds = %53, %51
@@ -6178,7 +6123,7 @@ GetCurrentTransactionStopTimestamp.exit:          ; preds = %34, %31, %29
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %3, align 8
-  call void @pfree(ptr noundef %56) #21
+  call void @pfree(ptr noundef %56) #20
   br label %57
 
 57:                                               ; preds = %54, %55, %7, %8
@@ -6259,7 +6204,7 @@ define internal fastcc void @PopTransaction() unnamed_addr #1 {
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #21
+  %5 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #20
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
@@ -6275,8 +6220,8 @@ switch.lookup:                                    ; preds = %6
 
 TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.54, %6 ]
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.70, ptr noundef nonnull %.0.i) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5472, ptr noundef nonnull @__func__.PopTransaction) #21
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.70, ptr noundef nonnull %.0.i) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5472, ptr noundef nonnull @__func__.PopTransaction) #20
   br label %11
 
 11:                                               ; preds = %4, %TransStateAsString.exit, %0
@@ -6286,10 +6231,9 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71) #21
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5475, ptr noundef nonnull @__func__.PopTransaction) #21
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #19
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.71) #20
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5475, ptr noundef nonnull @__func__.PopTransaction) #20
   unreachable
 
 18:                                               ; preds = %11
@@ -6308,11 +6252,11 @@ TransStateAsString.exit:                          ; preds = %6, %switch.lookup
   br i1 %.not11, label %26, label %25
 
 25:                                               ; preds = %18
-  tail call void @pfree(ptr noundef nonnull %24) #21
+  tail call void @pfree(ptr noundef nonnull %24) #20
   br label %26
 
 26:                                               ; preds = %25, %18
-  tail call void @pfree(ptr noundef nonnull %1) #21
+  tail call void @pfree(ptr noundef nonnull %1) #20
   ret void
 }
 
@@ -6380,14 +6324,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -6406,12 +6347,11 @@ attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { cold nounwind }
-attributes #21 = { nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { cold nounwind }
+attributes #20 = { nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

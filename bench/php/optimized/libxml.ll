@@ -703,47 +703,44 @@ define dso_local void @php_libxml_set_old_ns(ptr noundef captures(address_is_nul
   br i1 %3, label %php_libxml_set_old_ns_list.exit, label %4, !prof !74
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !83
-  %6 = icmp eq ptr %5, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !87
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %23, !prof !74
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %21, !prof !74
 
-10:                                               ; preds = %4
-  %11 = load ptr, ptr @xmlMalloc, align 8, !tbaa !4
-  %12 = tail call ptr %11(i64 noundef 48) #18
-  store ptr %12, ptr %7, align 8, !tbaa !87
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %php_libxml_set_old_ns_list.exit, label %14
+8:                                                ; preds = %4
+  %9 = load ptr, ptr @xmlMalloc, align 8, !tbaa !4
+  %10 = tail call ptr %9(i64 noundef 48) #18
+  store ptr %10, ptr %5, align 8, !tbaa !83
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %php_libxml_set_old_ns_list.exit, label %12
 
-14:                                               ; preds = %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
-  %15 = load ptr, ptr %7, align 8, !tbaa !87
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 18, ptr %16, align 8, !tbaa !92
-  %17 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.29) #18
-  %18 = load ptr, ptr %7, align 8, !tbaa !87
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %17, ptr %19, align 8, !tbaa !93
-  %20 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.30) #18
-  %21 = load ptr, ptr %7, align 8, !tbaa !87
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %20, ptr %22, align 8, !tbaa !94
-  br label %25
+12:                                               ; preds = %8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
+  %13 = load ptr, ptr %5, align 8, !tbaa !83
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 18, ptr %14, align 8, !tbaa !90
+  %15 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.29) #18
+  %16 = load ptr, ptr %5, align 8, !tbaa !83
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %15, ptr %17, align 8, !tbaa !92
+  %18 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.30) #18
+  %19 = load ptr, ptr %5, align 8, !tbaa !83
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store ptr %18, ptr %20, align 8, !tbaa !93
+  br label %23
 
-23:                                               ; preds = %4
-  %24 = load ptr, ptr %8, align 8, !tbaa !83
-  store ptr %24, ptr %1, align 8, !tbaa !83
-  br label %25
+21:                                               ; preds = %4
+  %22 = load ptr, ptr %6, align 8, !tbaa !94
+  store ptr %22, ptr %1, align 8, !tbaa !94
+  br label %23
 
-25:                                               ; preds = %23, %14
-  %26 = phi ptr [ %8, %23 ], [ %21, %14 ]
-  store ptr %1, ptr %26, align 8, !tbaa !83
+23:                                               ; preds = %21, %12
+  %24 = phi ptr [ %6, %21 ], [ %19, %12 ]
+  store ptr %1, ptr %24, align 8, !tbaa !94
   br label %php_libxml_set_old_ns_list.exit
 
-php_libxml_set_old_ns_list.exit:                  ; preds = %2, %10, %25
+php_libxml_set_old_ns_list.exit:                  ; preds = %2, %8, %23
   ret void
 }
 
@@ -1283,46 +1280,46 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 .preheader:                                       ; preds = %152, %.preheader
   %.0 = phi ptr [ %155, %.preheader ], [ %151, %152 ]
-  %155 = load ptr, ptr %.0, align 8, !tbaa !83
+  %155 = load ptr, ptr %.0, align 8, !tbaa !94
   %.not92 = icmp eq ptr %155, null
   br i1 %.not92, label %156, label %.preheader
 
 156:                                              ; preds = %.preheader
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 96
-  %158 = load ptr, ptr %157, align 8, !tbaa !87
+  %158 = load ptr, ptr %157, align 8, !tbaa !83
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %173, !prof !74
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr @xmlMalloc, align 8, !tbaa !4
   %162 = tail call ptr %161(i64 noundef 48) #18
-  store ptr %162, ptr %157, align 8, !tbaa !87
+  store ptr %162, ptr %157, align 8, !tbaa !83
   %163 = icmp eq ptr %162, null
   br i1 %163, label %php_libxml_set_old_ns_list.exit, label %164
 
 164:                                              ; preds = %160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %162, i8 0, i64 48, i1 false)
-  %165 = load ptr, ptr %157, align 8, !tbaa !87
+  %165 = load ptr, ptr %157, align 8, !tbaa !83
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store i32 18, ptr %166, align 8, !tbaa !92
+  store i32 18, ptr %166, align 8, !tbaa !90
   %167 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.29) #18
-  %168 = load ptr, ptr %157, align 8, !tbaa !87
+  %168 = load ptr, ptr %157, align 8, !tbaa !83
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  store ptr %167, ptr %169, align 8, !tbaa !93
+  store ptr %167, ptr %169, align 8, !tbaa !92
   %170 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.30) #18
-  %171 = load ptr, ptr %157, align 8, !tbaa !87
+  %171 = load ptr, ptr %157, align 8, !tbaa !83
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  store ptr %170, ptr %172, align 8, !tbaa !94
+  store ptr %170, ptr %172, align 8, !tbaa !93
   br label %175
 
 173:                                              ; preds = %156
-  %174 = load ptr, ptr %158, align 8, !tbaa !83
-  store ptr %174, ptr %.0, align 8, !tbaa !83
+  %174 = load ptr, ptr %158, align 8, !tbaa !94
+  store ptr %174, ptr %.0, align 8, !tbaa !94
   br label %175
 
 175:                                              ; preds = %173, %164
   %176 = phi ptr [ %158, %173 ], [ %171, %164 ]
-  store ptr %151, ptr %176, align 8, !tbaa !83
+  store ptr %151, ptr %176, align 8, !tbaa !94
   br label %php_libxml_set_old_ns_list.exit
 
 php_libxml_set_old_ns_list.exit:                  ; preds = %160, %175
@@ -4571,63 +4568,63 @@ attributes #21 = { nounwind allocsize(1) }
 !80 = !{!71, !71, i64 0}
 !81 = !{!68, !15, i64 0}
 !82 = !{!68, !21, i64 8}
-!83 = !{!84, !85, i64 0}
-!84 = !{!"_xmlNs", !85, i64 0, !13, i64 8, !9, i64 16, !9, i64 24, !5, i64 32, !86, i64 40}
-!85 = !{!"p1 _ZTS6_xmlNs", !5, i64 0}
+!83 = !{!84, !88, i64 96}
+!84 = !{!"_xmlDoc", !5, i64 0, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !85, i64 40, !85, i64 48, !85, i64 56, !86, i64 64, !13, i64 72, !13, i64 76, !87, i64 80, !87, i64 88, !88, i64 96, !9, i64 104, !9, i64 112, !5, i64 120, !5, i64 128, !9, i64 136, !13, i64 144, !89, i64 152, !5, i64 160, !13, i64 168, !13, i64 172}
+!85 = !{!"p1 _ZTS8_xmlNode", !5, i64 0}
 !86 = !{!"p1 _ZTS7_xmlDoc", !5, i64 0}
-!87 = !{!88, !85, i64 96}
-!88 = !{!"_xmlDoc", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !89, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !13, i64 72, !13, i64 76, !90, i64 80, !90, i64 88, !85, i64 96, !9, i64 104, !9, i64 112, !5, i64 120, !5, i64 128, !9, i64 136, !13, i64 144, !91, i64 152, !5, i64 160, !13, i64 168, !13, i64 172}
-!89 = !{!"p1 _ZTS8_xmlNode", !5, i64 0}
-!90 = !{!"p1 _ZTS7_xmlDtd", !5, i64 0}
-!91 = !{!"p1 _ZTS8_xmlDict", !5, i64 0}
-!92 = !{!84, !13, i64 8}
-!93 = !{!84, !9, i64 16}
-!94 = !{!84, !9, i64 24}
+!87 = !{!"p1 _ZTS7_xmlDtd", !5, i64 0}
+!88 = !{!"p1 _ZTS6_xmlNs", !5, i64 0}
+!89 = !{!"p1 _ZTS8_xmlDict", !5, i64 0}
+!90 = !{!91, !13, i64 8}
+!91 = !{!"_xmlNs", !88, i64 0, !13, i64 8, !9, i64 16, !9, i64 24, !5, i64 32, !86, i64 40}
+!92 = !{!91, !9, i64 16}
+!93 = !{!91, !9, i64 24}
+!94 = !{!91, !88, i64 0}
 !95 = !{!96, !5, i64 0}
-!96 = !{!"_xmlNode", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !89, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !85, i64 72, !9, i64 80, !97, i64 88, !85, i64 96, !5, i64 104, !98, i64 112, !98, i64 114}
+!96 = !{!"_xmlNode", !5, i64 0, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !85, i64 40, !85, i64 48, !85, i64 56, !86, i64 64, !88, i64 72, !9, i64 80, !97, i64 88, !88, i64 96, !5, i64 104, !98, i64 112, !98, i64 114}
 !97 = !{!"p1 _ZTS8_xmlAttr", !5, i64 0}
 !98 = !{!"short", !6, i64 0}
-!99 = !{!96, !89, i64 48}
+!99 = !{!96, !85, i64 48}
 !100 = !{!96, !13, i64 8}
 !101 = !{!102, !5, i64 16}
-!102 = !{!"_php_libxml_node_ptr", !89, i64 0, !13, i64 8, !5, i64 16}
+!102 = !{!"_php_libxml_node_ptr", !85, i64 0, !13, i64 8, !5, i64 16}
 !103 = !{!104, !106, i64 8}
 !104 = !{!"_php_libxml_node_object", !105, i64 0, !106, i64 8, !107, i64 16}
 !105 = !{!"p1 _ZTS20_php_libxml_node_ptr", !5, i64 0}
 !106 = !{!"p1 _ZTS19_php_libxml_ref_obj", !5, i64 0}
 !107 = !{!"_zend_object", !29, i64 0, !13, i64 8, !13, i64 12, !14, i64 16, !52, i64 24, !17, i64 32, !6, i64 40}
 !108 = !{!96, !86, i64 64}
-!109 = !{!110, !90, i64 40}
-!110 = !{!"_xmlEntity", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !90, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !9, i64 72, !9, i64 80, !13, i64 88, !13, i64 92, !9, i64 96, !9, i64 104, !111, i64 112, !9, i64 120, !13, i64 128, !13, i64 132}
+!109 = !{!110, !87, i64 40}
+!110 = !{!"_xmlEntity", !5, i64 0, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !87, i64 40, !85, i64 48, !85, i64 56, !86, i64 64, !9, i64 72, !9, i64 80, !13, i64 88, !13, i64 92, !9, i64 96, !9, i64 104, !111, i64 112, !9, i64 120, !13, i64 128, !13, i64 132}
 !111 = !{!"p1 _ZTS10_xmlEntity", !5, i64 0}
 !112 = !{!113, !5, i64 96}
-!113 = !{!"_xmlDtd", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !86, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !9, i64 104, !9, i64 112, !5, i64 120}
+!113 = !{!"_xmlDtd", !5, i64 0, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !86, i64 40, !85, i64 48, !85, i64 56, !86, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !9, i64 104, !9, i64 112, !5, i64 120}
 !114 = !{!110, !9, i64 16}
 !115 = !{!113, !5, i64 120}
 !116 = !{!117, !13, i64 80}
-!117 = !{!"_xmlAttr", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !89, i64 40, !97, i64 48, !97, i64 56, !86, i64 64, !85, i64 72, !13, i64 80, !5, i64 88}
-!118 = !{!96, !89, i64 24}
+!117 = !{!"_xmlAttr", !5, i64 0, !13, i64 8, !9, i64 16, !85, i64 24, !85, i64 32, !85, i64 40, !97, i64 48, !97, i64 56, !86, i64 64, !88, i64 72, !13, i64 80, !5, i64 88}
+!118 = !{!96, !85, i64 24}
 !119 = !{!96, !97, i64 88}
 !120 = !{!104, !105, i64 0}
 !121 = !{!102, !13, i64 8}
-!122 = !{!102, !89, i64 0}
+!122 = !{!102, !85, i64 0}
 !123 = !{!110, !13, i64 92}
-!124 = !{!110, !89, i64 24}
+!124 = !{!110, !85, i64 24}
 !125 = !{!110, !13, i64 128}
-!126 = !{!96, !89, i64 40}
+!126 = !{!96, !85, i64 40}
 !127 = !{!110, !86, i64 64}
-!128 = !{!88, !91, i64 152}
+!128 = !{!84, !89, i64 152}
 !129 = !{!110, !9, i64 96}
 !130 = !{!110, !9, i64 104}
 !131 = !{!110, !9, i64 120}
 !132 = !{!110, !9, i64 80}
 !133 = !{!110, !9, i64 72}
 !134 = !{!96, !9, i64 16}
-!135 = !{!96, !85, i64 72}
-!136 = !{!84, !5, i64 32}
+!135 = !{!96, !88, i64 72}
+!136 = !{!91, !5, i64 32}
 !137 = !{!138, !5, i64 8}
 !138 = !{!"php_libxml_private_data_header", !5, i64 0, !5, i64 8}
-!139 = !{!96, !85, i64 96}
+!139 = !{!96, !88, i64 96}
 !140 = !{!141, !142, i64 56}
 !141 = !{!"", !13, i64 0, !21, i64 8, !18, i64 16, !21, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !142, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !13, i64 88, !143, i64 96, !9, i64 128, !21, i64 136}
 !142 = !{!"p1 _ZTS19_php_stream_context", !5, i64 0}
@@ -4639,14 +4636,14 @@ attributes #21 = { nounwind allocsize(1) }
 !148 = !{!146, !13, i64 68}
 !149 = !{!146, !9, i64 8}
 !150 = !{!151, !153, i64 56}
-!151 = !{!"_xmlParserCtxt", !152, i64 0, !5, i64 8, !86, i64 16, !13, i64 24, !13, i64 28, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 52, !153, i64 56, !13, i64 64, !13, i64 68, !154, i64 72, !89, i64 80, !13, i64 88, !13, i64 92, !155, i64 96, !13, i64 104, !156, i64 112, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !158, i64 160, !13, i64 272, !13, i64 276, !9, i64 280, !9, i64 288, !13, i64 296, !13, i64 300, !144, i64 304, !21, i64 312, !21, i64 320, !13, i64 328, !13, i64 332, !13, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !162, i64 368, !13, i64 376, !13, i64 380, !162, i64 384, !13, i64 392, !153, i64 400, !13, i64 408, !13, i64 412, !13, i64 416, !13, i64 420, !5, i64 424, !13, i64 432, !13, i64 436, !5, i64 440, !13, i64 448, !13, i64 452, !91, i64 456, !144, i64 464, !13, i64 472, !13, i64 476, !9, i64 480, !9, i64 488, !9, i64 496, !13, i64 504, !13, i64 508, !13, i64 512, !144, i64 520, !162, i64 528, !163, i64 536, !164, i64 544, !164, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !13, i64 572, !89, i64 576, !13, i64 584, !97, i64 592, !146, i64 600, !13, i64 688, !21, i64 696, !21, i64 704, !157, i64 712, !13, i64 720, !13, i64 724, !157, i64 728, !13, i64 736, !21, i64 744}
+!151 = !{!"_xmlParserCtxt", !152, i64 0, !5, i64 8, !86, i64 16, !13, i64 24, !13, i64 28, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 52, !153, i64 56, !13, i64 64, !13, i64 68, !154, i64 72, !85, i64 80, !13, i64 88, !13, i64 92, !155, i64 96, !13, i64 104, !156, i64 112, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !158, i64 160, !13, i64 272, !13, i64 276, !9, i64 280, !9, i64 288, !13, i64 296, !13, i64 300, !144, i64 304, !21, i64 312, !21, i64 320, !13, i64 328, !13, i64 332, !13, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !162, i64 368, !13, i64 376, !13, i64 380, !162, i64 384, !13, i64 392, !153, i64 400, !13, i64 408, !13, i64 412, !13, i64 416, !13, i64 420, !5, i64 424, !13, i64 432, !13, i64 436, !5, i64 440, !13, i64 448, !13, i64 452, !89, i64 456, !144, i64 464, !13, i64 472, !13, i64 476, !9, i64 480, !9, i64 488, !9, i64 496, !13, i64 504, !13, i64 508, !13, i64 512, !144, i64 520, !162, i64 528, !163, i64 536, !164, i64 544, !164, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !13, i64 572, !85, i64 576, !13, i64 584, !97, i64 592, !146, i64 600, !13, i64 688, !21, i64 696, !21, i64 704, !157, i64 712, !13, i64 720, !13, i64 724, !157, i64 728, !13, i64 736, !21, i64 744}
 !152 = !{!"p1 _ZTS14_xmlSAXHandler", !5, i64 0}
 !153 = !{!"p1 _ZTS15_xmlParserInput", !5, i64 0}
 !154 = !{!"p2 _ZTS15_xmlParserInput", !5, i64 0}
 !155 = !{!"p2 _ZTS8_xmlNode", !5, i64 0}
 !156 = !{!"_xmlParserNodeInfoSeq", !21, i64 0, !21, i64 8, !157, i64 16}
 !157 = !{!"p1 _ZTS18_xmlParserNodeInfo", !5, i64 0}
-!158 = !{!"_xmlValidCtxt", !5, i64 0, !5, i64 8, !5, i64 16, !89, i64 24, !13, i64 32, !13, i64 36, !155, i64 40, !13, i64 48, !86, i64 56, !13, i64 64, !159, i64 72, !13, i64 80, !13, i64 84, !159, i64 88, !160, i64 96, !161, i64 104}
+!158 = !{!"_xmlValidCtxt", !5, i64 0, !5, i64 8, !5, i64 16, !85, i64 24, !13, i64 32, !13, i64 36, !155, i64 40, !13, i64 48, !86, i64 56, !13, i64 64, !159, i64 72, !13, i64 80, !13, i64 84, !159, i64 88, !160, i64 96, !161, i64 104}
 !159 = !{!"p1 _ZTS14_xmlValidState", !5, i64 0}
 !160 = !{!"p1 _ZTS12_xmlAutomata", !5, i64 0}
 !161 = !{!"p1 _ZTS17_xmlAutomataState", !5, i64 0}
@@ -4730,7 +4727,7 @@ attributes #21 = { nounwind allocsize(1) }
 !239 = !{!138, !5, i64 0}
 !240 = !{!241, !17, i64 0}
 !241 = !{!"_libxml_doc_props", !17, i64 0, !18, i64 8, !18, i64 9, !18, i64 10, !18, i64 11, !18, i64 12, !18, i64 13, !18, i64 14}
-!242 = !{!117, !89, i64 24}
+!242 = !{!117, !85, i64 24}
 !243 = !{!96, !9, i64 80}
 !244 = !{!110, !5, i64 0}
 !245 = !{!246, !9, i64 0}

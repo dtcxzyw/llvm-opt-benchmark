@@ -142,61 +142,51 @@ define dso_local void @zend_observer_post_startup() local_unnamed_addr #0 {
   %39 = zext i32 %38 to i64
   %.idx = shl nuw nsw i64 %39, 5
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
-  %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %42 = load i32, ptr %41, align 8, !tbaa !34
-  %43 = and i32 %42, 4
-  %.not36 = icmp eq i32 %43, 0
-  tail call void @llvm.assume(i1 %.not36)
   %.not3748 = icmp eq i32 %38, 0
   br i1 %.not3748, label %.loopexit40, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %._crit_edge, %.loopexit
-  %.03349 = phi ptr [ %68, %.loopexit ], [ %36, %._crit_edge ]
-  %44 = getelementptr inbounds nuw i8, ptr %.03349, i64 8
-  %45 = load i8, ptr %44, align 8, !tbaa !34
-  %46 = icmp eq i8 %45, 0
-  br i1 %46, label %.loopexit, label %47, !prof !35
+  %.03349 = phi ptr [ %62, %.loopexit ], [ %36, %._crit_edge ]
+  %41 = getelementptr inbounds nuw i8, ptr %.03349, i64 8
+  %42 = load i8, ptr %41, align 8, !tbaa !34
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %.loopexit, label %44, !prof !35
 
-47:                                               ; preds = %.lr.ph51
-  %48 = load ptr, ptr %.03349, align 8, !tbaa !34
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 80
-  %50 = load ptr, ptr %49, align 8, !tbaa !34
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 88
-  %52 = load i32, ptr %51, align 8, !tbaa !33
-  %53 = zext i32 %52 to i64
-  %.idx52 = shl nuw nsw i64 %53, 5
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx52
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 72
-  %56 = load i32, ptr %55, align 8, !tbaa !34
-  %57 = and i32 %56, 4
-  %.not38 = icmp eq i32 %57, 0
-  tail call void @llvm.assume(i1 %.not38)
-  %.not3944 = icmp eq i32 %52, 0
+44:                                               ; preds = %.lr.ph51
+  %45 = load ptr, ptr %.03349, align 8, !tbaa !34
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 80
+  %47 = load ptr, ptr %46, align 8, !tbaa !34
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 88
+  %49 = load i32, ptr %48, align 8, !tbaa !33
+  %50 = zext i32 %49 to i64
+  %.idx52 = shl nuw nsw i64 %50, 5
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx52
+  %.not3944 = icmp eq i32 %49, 0
   br i1 %.not3944, label %.loopexit, label %.lr.ph47
 
-.lr.ph47:                                         ; preds = %47, %66
-  %.03145 = phi ptr [ %67, %66 ], [ %50, %47 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.03145, i64 8
-  %59 = load i8, ptr %58, align 8, !tbaa !34
-  %60 = icmp eq i8 %59, 0
-  br i1 %60, label %66, label %61, !prof !35
+.lr.ph47:                                         ; preds = %44, %60
+  %.03145 = phi ptr [ %61, %60 ], [ %47, %44 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.03145, i64 8
+  %53 = load i8, ptr %52, align 8, !tbaa !34
+  %54 = icmp eq i8 %53, 0
+  br i1 %54, label %60, label %55, !prof !35
 
-61:                                               ; preds = %.lr.ph47
-  %62 = load ptr, ptr %.03145, align 8, !tbaa !34
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
-  %64 = load i32, ptr %63, align 8, !tbaa !36
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 8, !tbaa !36
-  br label %66
+55:                                               ; preds = %.lr.ph47
+  %56 = load ptr, ptr %.03145, align 8, !tbaa !34
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
+  %58 = load i32, ptr %57, align 8, !tbaa !36
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8, !tbaa !36
+  br label %60
 
-66:                                               ; preds = %.lr.ph47, %61
-  %67 = getelementptr inbounds nuw i8, ptr %.03145, i64 32
-  %.not39 = icmp eq ptr %67, %54
+60:                                               ; preds = %.lr.ph47, %55
+  %61 = getelementptr inbounds nuw i8, ptr %.03145, i64 32
+  %.not39 = icmp eq ptr %61, %51
   br i1 %.not39, label %.loopexit, label %.lr.ph47
 
-.loopexit:                                        ; preds = %66, %47, %.lr.ph51
-  %68 = getelementptr inbounds nuw i8, ptr %.03349, i64 32
-  %.not37 = icmp eq ptr %68, %40
+.loopexit:                                        ; preds = %60, %44, %.lr.ph51
+  %62 = getelementptr inbounds nuw i8, ptr %.03349, i64 32
+  %.not37 = icmp eq ptr %62, %40
   br i1 %.not37, label %.loopexit40, label %.lr.ph51
 
 .loopexit40:                                      ; preds = %.loopexit, %._crit_edge, %0
@@ -420,29 +410,25 @@ define dso_local void @zend_observer_add_end_handler(ptr noundef readonly captur
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %3
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %.not16 = icmp eq ptr %21, inttoptr (i64 2 to ptr)
-  br i1 %.not16, label %29, label %22
+  br i1 %.not16, label %26, label %22
 
 22:                                               ; preds = %12
-  %23 = add i64 %3, -1
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !4
-  %26 = icmp eq ptr %25, null
-  tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %28 = shl i64 %23, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %20, i64 %28, i1 false)
-  br label %33
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %24 = shl i64 %3, 3
+  %25 = add i64 %24, -8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %20, i64 %25, i1 false)
+  br label %30
 
-29:                                               ; preds = %12
-  %30 = load ptr, ptr %19, align 8, !tbaa !4
-  %31 = icmp eq ptr %30, inttoptr (i64 3 to ptr)
-  br i1 %31, label %32, label %33
+26:                                               ; preds = %12
+  %27 = load ptr, ptr %19, align 8, !tbaa !4
+  %28 = icmp eq ptr %27, inttoptr (i64 3 to ptr)
+  br i1 %28, label %29, label %30
 
-32:                                               ; preds = %29
+29:                                               ; preds = %26
   store ptr inttoptr (i64 2 to ptr), ptr %19, align 8, !tbaa !4
-  br label %33
+  br label %30
 
-33:                                               ; preds = %29, %32, %22
+30:                                               ; preds = %26, %29, %22
   store ptr %1, ptr %20, align 8, !tbaa !4
   ret void
 }

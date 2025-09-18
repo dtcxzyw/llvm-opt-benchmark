@@ -1521,9 +1521,6 @@ common.resume.i:                                  ; preds = %11, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = call { ptr, i1 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h18a61473787edc3cE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !207
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !210
-  %18 = extractvalue { ptr, i1 } %17, 0
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
   ret { ptr, i1 } %17
 }
 
@@ -2742,9 +2739,6 @@ common.resume.i:                                  ; preds = %11, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = call { ptr, i1 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17h1f06e4fb65fd12aeE"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !392
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !395
-  %18 = extractvalue { ptr, i1 } %17, 0
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
   ret { ptr, i1 } %17
 }
 
@@ -4253,9 +4247,6 @@ common.resume.i:                                  ; preds = %11, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = call { ptr, i1 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17hfef70cd8902947b8E"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !606
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !609
-  %18 = extractvalue { ptr, i1 } %17, 0
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
   ret { ptr, i1 } %17
 }
 
@@ -5007,9 +4998,6 @@ common.resume.i:                                  ; preds = %11, %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = call { ptr, i1 } @"_ZN5tokio7runtime7context6scoped15Scoped$LT$T$GT$3set17he83cd28a39f9e859E"(ptr noundef nonnull align 8 %16, ptr noundef nonnull align 8 %.sroa.0.0.copyload.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !722
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !725
-  %18 = extractvalue { ptr, i1 } %17, 0
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
   ret { ptr, i1 } %17
 }
 

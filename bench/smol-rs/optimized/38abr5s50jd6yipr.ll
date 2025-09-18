@@ -152,9 +152,6 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 
 "_ZN4core3ptr150drop_in_place$LT$core..option..Option$LT$core..cell..RefCell$LT$core..option..Option$LT$$LP$parking..Parker$C$event_listener..Task$RP$$GT$$GT$$GT$$GT$17hbc5065edd50b130cE.llvm.4631799374070668439.exit": ; preds = %"_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal6PARKER7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h46dff6fd20d42d36E.llvm.4631799374070668439.exit", %9, %27, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %36 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  %37 = icmp ne i64 %36, 0
-  call void @llvm.assume(i1 %37)
   ret ptr %.sroa.4.0..sroa_idx
 }
 
@@ -302,9 +299,6 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local4laz
 
 "_ZN4core3ptr182drop_in_place$LT$core..option..Option$LT$core..cell..RefCell$LT$$LP$parking..Parker$C$core..task..wake..Waker$C$alloc..sync..Arc$LT$core..sync..atomic..AtomicBool$GT$$RP$$GT$$GT$$GT$17hbe057a410a9c8a79E.llvm.4631799374070668439.exit": ; preds = %"_ZN8async_io6driver8block_on5CACHE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hdc4ae658c8fd561bE.llvm.4631799374070668439.exit", %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h3c85060682a40652E.llvm.14408593437386099104.exit2.i.i.i.i", %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %38 = load i64, ptr %0, align 8, !range !11, !noundef !4
-  %39 = icmp ne i64 %38, 0
-  call void @llvm.assume(i1 %39)
   ret ptr %.sroa.4.0..sroa_idx
 }
 

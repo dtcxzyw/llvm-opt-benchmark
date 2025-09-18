@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @CreateQueryDesc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = tail call ptr @palloc(i64 noundef 112) #11
+  %9 = tail call ptr @palloc(i64 noundef 112) #10
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %9, align 8
@@ -53,10 +53,10 @@ define dso_local noundef ptr @CreateQueryDesc(ptr noundef %0, ptr noundef %1, pt
   store ptr %0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %1, ptr %13, align 8
-  %14 = tail call ptr @RegisterSnapshot(ptr noundef %2) #11
+  %14 = tail call ptr @RegisterSnapshot(ptr noundef %2) #10
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %14, ptr %15, align 8
-  %16 = tail call ptr @RegisterSnapshot(ptr noundef %3) #11
+  %16 = tail call ptr @RegisterSnapshot(ptr noundef %3) #10
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %16, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -82,11 +82,11 @@ declare ptr @RegisterSnapshot(ptr noundef) local_unnamed_addr #1
 define dso_local void @FreeQueryDesc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %3) #11
+  tail call void @UnregisterSnapshot(ptr noundef %3) #10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %5) #11
-  tail call void @pfree(ptr noundef %0) #11
+  tail call void @UnregisterSnapshot(ptr noundef %5) #10
+  tail call void @pfree(ptr noundef %0) #10
   ret void
 }
 
@@ -139,7 +139,7 @@ list_length.exit:                                 ; preds = %1
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i1 @UtilityReturnsTuples(ptr noundef %22) #11
+  %23 = tail call zeroext i1 @UtilityReturnsTuples(ptr noundef %22) #10
   %.76 = select i1 %23, i32 3, i32 4
   br label %.thread90
 
@@ -167,16 +167,15 @@ list_length.exit:                                 ; preds = %1
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call zeroext i1 @UtilityReturnsTuples(ptr noundef %37) #11
+  %38 = tail call zeroext i1 @UtilityReturnsTuples(ptr noundef %37) #10
   %.78 = select i1 %38, i32 3, i32 4
   br label %.thread90
 
 39:                                               ; preds = %5
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %40)
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %41 = load i32, ptr %7, align 4
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %41) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.ChoosePortalStrategy) #11
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %41) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.ChoosePortalStrategy) #10
   unreachable
 
 .lr.ph:                                           ; preds = %list_length.exit
@@ -245,11 +244,10 @@ list_length.exit:                                 ; preds = %1
   br i1 %76, label %.thread103, label %.thread90
 
 .split:                                           ; preds = %46
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %77)
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %78 = load i32, ptr %48, align 4
-  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %78) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.ChoosePortalStrategy) #11
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %78) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.ChoosePortalStrategy) #10
   unreachable
 
 .thread103:                                       ; preds = %63, %50, %73, %60
@@ -287,7 +285,7 @@ define dso_local ptr @FetchPortalTargetList(ptr noundef %0) local_unnamed_addr #
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #11
+  %6 = tail call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
   %7 = tail call ptr @FetchStatementTargetList(ptr noundef %6)
   br label %8
 
@@ -382,22 +380,22 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly captures(add
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %.229, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call ptr @GetPortalByName(ptr noundef %44) #11
+  %45 = tail call ptr @GetPortalByName(ptr noundef %44) #10
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 4
   br i1 %48, label %FetchPortalTargetList.exit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %42
-  %49 = tail call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %45) #11
+  %49 = tail call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %45) #10
   %50 = icmp eq ptr %49, null
   br i1 %50, label %FetchPortalTargetList.exit, label %.lr.ph
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %.229, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @FetchPreparedStatement(ptr noundef %53, i1 noundef zeroext true) #11
-  %55 = tail call ptr @FetchPreparedStatementTargetList(ptr noundef %54) #11
+  %54 = tail call ptr @FetchPreparedStatement(ptr noundef %53, i1 noundef zeroext true) #10
+  %55 = tail call ptr @FetchPreparedStatementTargetList(ptr noundef %54) #10
   br label %FetchPortalTargetList.exit
 
 FetchPortalTargetList.exit:                       ; preds = %tailrecurse, %40, %42, %1, %23, %32, %28, %8, %11, %51
@@ -422,7 +420,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   %9 = load ptr, ptr @PG_exception_stack, align 8
   %10 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %11 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #13
+  %11 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #12
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %86
 
@@ -464,23 +462,23 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not55, label %27, label %29
 
 27:                                               ; preds = %26
-  %28 = call ptr @GetTransactionSnapshot() #11
+  %28 = call ptr @GetTransactionSnapshot() #10
   br label %29
 
 29:                                               ; preds = %26, %27
   %.sink = phi ptr [ %28, %27 ], [ %3, %26 ]
-  call void @PushActiveSnapshot(ptr noundef %.sink) #11
+  call void @PushActiveSnapshot(ptr noundef %.sink) #10
   %30 = load ptr, ptr %22, align 8
   %31 = getelementptr i8, ptr %30, i64 16
   %.val = load ptr, ptr %31, align 8
   %32 = load ptr, ptr %.val, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr @GetActiveSnapshot() #11
+  %35 = call ptr @GetActiveSnapshot() #10
   %36 = load ptr, ptr @None_Receiver, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = load ptr, ptr %37, align 8
-  %39 = call ptr @palloc(i64 noundef 112) #11
+  %39 = call ptr @palloc(i64 noundef 112) #10
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %39, align 8
@@ -488,10 +486,10 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   store ptr %32, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %34, ptr %43, align 8
-  %44 = call ptr @RegisterSnapshot(ptr noundef %35) #11
+  %44 = call ptr @RegisterSnapshot(ptr noundef %35) #10
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %44, ptr %45, align 8
-  %46 = call ptr @RegisterSnapshot(ptr noundef null) #11
+  %46 = call ptr @RegisterSnapshot(ptr noundef null) #10
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 40
@@ -512,7 +510,7 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.not56 = icmp eq i32 %56, 0
   %57 = or i32 %2, 12
   %.0 = select i1 %.not56, i32 %2, i32 %57
-  call void @ExecutorStart(ptr noundef nonnull %39, i32 noundef %.0) #11
+  call void @ExecutorStart(ptr noundef nonnull %39, i32 noundef %.0) #10
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %39, ptr %58, align 8
   %59 = load ptr, ptr %52, align 8
@@ -524,16 +522,16 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   store i8 0, ptr %62, align 1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 0, ptr %63, align 8
-  call void @PopActiveSnapshot() #11
+  call void @PopActiveSnapshot() #10
   br label %87
 
 64:                                               ; preds = %17, %17
-  %65 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #11
+  %65 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8
-  %70 = call ptr @ExecCleanTypeFromTL(ptr noundef %69) #11
+  %70 = call ptr @ExecCleanTypeFromTL(ptr noundef %69) #10
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -545,10 +543,10 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %87
 
 75:                                               ; preds = %17
-  %76 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #11
+  %76 = call ptr @PortalGetPrimaryStmt(ptr noundef nonnull %0) #10
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 136
   %78 = load ptr, ptr %77, align 8
-  %79 = call ptr @UtilityTupleDescriptor(ptr noundef %78) #11
+  %79 = call ptr @UtilityTupleDescriptor(ptr noundef %78) #10
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %79, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -567,11 +565,11 @@ define dso_local void @PortalStart(ptr noundef %0, ptr noundef %1, i32 noundef %
 86:                                               ; preds = %4
   store ptr %9, ptr @PG_exception_stack, align 8
   store ptr %10, ptr @error_context_stack, align 8
-  call void @MarkPortalFailed(ptr noundef %0) #11
+  call void @MarkPortalFailed(ptr noundef %0) #10
   store ptr %6, ptr @ActivePortal, align 8
   store ptr %7, ptr @CurrentResourceOwner, align 8
   store ptr %8, ptr @PortalContext, align 8
-  call void @pg_re_throw() #14
+  call void @pg_re_throw() #13
   unreachable
 
 default.unreachable59:                            ; preds = %17
@@ -625,7 +623,7 @@ define dso_local void @PortalSetResultFormat(ptr noundef captures(none) %0, i32 
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = shl nsw i64 %11, 1
-  %13 = tail call ptr @MemoryContextAlloc(ptr noundef %10, i64 noundef %12) #11
+  %13 = tail call ptr @MemoryContextAlloc(ptr noundef %10, i64 noundef %12) #10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %13, ptr %14, align 8
   %15 = icmp sgt i32 %1, 1
@@ -636,11 +634,10 @@ define dso_local void @PortalSetResultFormat(ptr noundef captures(none) %0, i32 
   br i1 %.not, label %21, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 16908800) #11
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %1, i32 noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.PortalSetResultFormat) #11
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %19 = tail call i32 @errcode(i32 noundef 16908800) #10
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %1, i32 noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 642, ptr noundef nonnull @__func__.PortalSetResultFormat) #10
   unreachable
 
 21:                                               ; preds = %16
@@ -706,7 +703,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  call void @InitializeQueryCompletion(ptr noundef nonnull %5) #11
+  call void @InitializeQueryCompletion(ptr noundef nonnull %5) #10
   br label %9
 
 9:                                                ; preds = %8, %6
@@ -721,20 +718,20 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   br i1 %.not60, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #11
+  %16 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #10
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @.str.3) #11
+  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @.str.3) #10
   br label %19
 
 19:                                               ; preds = %17, %15
-  call void @ResetUsage() #11
+  call void @ResetUsage() #10
   br label %20
 
 20:                                               ; preds = %19, %12, %9
-  call void @MarkPortalActive(ptr noundef %0) #11
+  call void @MarkPortalActive(ptr noundef %0) #10
   %21 = load ptr, ptr @TopTransactionResourceOwner, align 8
   %22 = load ptr, ptr @TopTransactionContext, align 8
   %23 = load ptr, ptr @ActivePortal, align 8
@@ -744,7 +741,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   %27 = load ptr, ptr @PG_exception_stack, align 8
   %28 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %29 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #13
+  %29 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #12
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %61
 
@@ -811,21 +808,20 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
 
 56:                                               ; preds = %35
   call fastcc void @PortalRunMulti(ptr noundef nonnull %0, i1 noundef zeroext %2, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  call void @MarkPortalDone(ptr noundef nonnull %0) #11
+  call void @MarkPortalDone(ptr noundef nonnull %0) #10
   br label %66
 
 57:                                               ; preds = %35
-  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %58)
+  %58 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %59 = load i32, ptr %38, align 8
-  %60 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %59) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 799, ptr noundef nonnull @.str.3) #11
+  %60 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %59) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 799, ptr noundef nonnull @.str.3) #10
   unreachable
 
 61:                                               ; preds = %20
   store ptr %27, ptr @PG_exception_stack, align 8
   store ptr %28, ptr @error_context_stack, align 8
-  call void @MarkPortalFailed(ptr noundef %0) #11
+  call void @MarkPortalFailed(ptr noundef %0) #10
   %62 = icmp eq ptr %26, %22
   %63 = load ptr, ptr @TopTransactionContext, align 8
   %storemerge67 = select i1 %62, ptr %63, ptr %26
@@ -836,7 +832,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   %storemerge = select i1 %64, ptr %65, ptr %24
   store ptr %storemerge, ptr @CurrentResourceOwner, align 8
   store ptr %25, ptr @PortalContext, align 8
-  call void @pg_re_throw() #14
+  call void @pg_re_throw() #13
   unreachable
 
 66:                                               ; preds = %56, %51
@@ -864,7 +860,7 @@ define dso_local zeroext i1 @PortalRun(ptr noundef %0, i64 noundef %1, i1 nounde
   br i1 %.not66, label %76, label %75
 
 75:                                               ; preds = %73
-  call void @ShowUsage(ptr noundef nonnull @.str.5) #11
+  call void @ShowUsage(ptr noundef nonnull @.str.5) #10
   br label %76
 
 76:                                               ; preds = %66, %73, %75
@@ -881,14 +877,14 @@ declare void @MarkPortalActive(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.QueryCompletion, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @InitializeQueryCompletion(ptr noundef nonnull %3) #11
-  call void @PortalCreateHoldStore(ptr noundef %0) #11
-  %4 = call ptr @CreateDestReceiver(i32 noundef 6) #11
+  call void @InitializeQueryCompletion(ptr noundef nonnull %3) #10
+  call void @PortalCreateHoldStore(ptr noundef %0) #10
+  %4 = call ptr @CreateDestReceiver(i32 noundef 6) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8
-  call void @SetTuplestoreDestReceiverParams(ptr noundef %4, ptr noundef %6, ptr noundef %8, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #11
+  call void @SetTuplestoreDestReceiverParams(ptr noundef %4, ptr noundef %6, ptr noundef %8, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %18 [
@@ -912,11 +908,10 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
   br label %22
 
 18:                                               ; preds = %2
-  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %19)
+  %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %20 = load i32, ptr %9, align 8
-  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %20) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1031, ptr noundef nonnull @__func__.FillPortalStore) #11
+  %21 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %20) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1031, ptr noundef nonnull @__func__.FillPortalStore) #10
   unreachable
 
 22:                                               ; preds = %13, %11
@@ -936,7 +931,7 @@ define internal fastcc void @FillPortalStore(ptr noundef %0, i1 noundef zeroext 
 29:                                               ; preds = %24, %22
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %31 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef %4) #11
+  call void %31(ptr noundef %4) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -979,13 +974,13 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr noundef captures(none) %
 20:                                               ; preds = %10
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %22 = load ptr, ptr %21, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %22) #11
-  tail call void @ExecutorRun(ptr noundef %6, i32 noundef %.69, i64 noundef %spec.store.select) #11
+  tail call void @PushActiveSnapshot(ptr noundef %22) #10
+  tail call void @ExecutorRun(ptr noundef %6, i32 noundef %.69, i64 noundef %spec.store.select) #10
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 208
   %26 = load i64, ptr %25, align 8
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %27
 
 27:                                               ; preds = %20, %18
@@ -1026,12 +1021,11 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr noundef captures(none) %
   br i1 %.not64, label %48, label %43
 
 43:                                               ; preds = %39
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 325) #11
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #11
-  %47 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 940, ptr noundef nonnull @__func__.PortalRunSelect) #11
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %45 = tail call i32 @errcode(i32 noundef 325) #10
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #10
+  %47 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 940, ptr noundef nonnull @__func__.PortalRunSelect) #10
   unreachable
 
 48:                                               ; preds = %39
@@ -1057,13 +1051,13 @@ define internal fastcc noundef i64 @PortalRunSelect(ptr noundef captures(none) %
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %60 = load ptr, ptr %59, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %60) #11
-  tail call void @ExecutorRun(ptr noundef %6, i32 noundef %.72, i64 noundef %spec.store.select4) #11
+  tail call void @PushActiveSnapshot(ptr noundef %60) #10
+  tail call void @ExecutorRun(ptr noundef %6, i32 noundef %.72, i64 noundef %spec.store.select4) #10
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 208
   %64 = load i64, ptr %63, align 8
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %65
 
 65:                                               ; preds = %58, %56
@@ -1151,7 +1145,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br i1 %.not56, label %30, label %29, !prof !9
 
 29:                                               ; preds = %.lr.ph78
-  tail call void @ProcessInterrupts() #11
+  tail call void @ProcessInterrupts() #10
   br label %30
 
 30:                                               ; preds = %29, %.lr.ph78
@@ -1166,7 +1160,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  tail call void @ResetUsage() #11
+  tail call void @ResetUsage() #10
   br label %38
 
 38:                                               ; preds = %37, %34
@@ -1174,21 +1168,21 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %38
-  %41 = tail call ptr @GetTransactionSnapshot() #11
+  %41 = tail call ptr @GetTransactionSnapshot() #10
   br i1 %2, label %42, label %44
 
 42:                                               ; preds = %40
-  %43 = tail call ptr @RegisterSnapshot(ptr noundef %41) #11
+  %43 = tail call ptr @RegisterSnapshot(ptr noundef %41) #10
   store ptr %43, ptr %18, align 8
   br label %44
 
 44:                                               ; preds = %42, %40
   %.0 = phi ptr [ %43, %42 ], [ %41, %40 ]
-  tail call void @PushCopiedSnapshot(ptr noundef %.0) #11
+  tail call void @PushCopiedSnapshot(ptr noundef %.0) #10
   br label %46
 
 45:                                               ; preds = %38
-  tail call void @UpdateActiveSnapshotCommandId() #11
+  tail call void @UpdateActiveSnapshotCommandId() #10
   br label %46
 
 46:                                               ; preds = %45, %44
@@ -1214,7 +1208,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %55
-  tail call void @ShowUsage(ptr noundef nonnull @.str.5) #11
+  tail call void @ShowUsage(ptr noundef nonnull @.str.5) #10
   br label %65
 
 59:                                               ; preds = %30
@@ -1234,7 +1228,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
 65:                                               ; preds = %63, %64, %58, %55
   %.3 = phi i8 [ 1, %58 ], [ 1, %55 ], [ %.0506577, %63 ], [ %.0506577, %64 ]
   %66 = load ptr, ptr %22, align 8
-  tail call void @MemoryContextDeleteChildren(ptr noundef %66) #11
+  tail call void @MemoryContextDeleteChildren(ptr noundef %66) #10
   %67 = load ptr, ptr %14, align 8
   %.not58 = icmp eq ptr %67, null
   br i1 %.not58, label %.critedge62.loopexit, label %68
@@ -1251,7 +1245,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br i1 %.not64, label %74, label %75
 
 74:                                               ; preds = %68
-  tail call void @CommandCounterIncrement() #11
+  tail call void @CommandCounterIncrement() #10
   br label %75
 
 75:                                               ; preds = %74, %68
@@ -1266,7 +1260,7 @@ define internal fastcc void @PortalRunMulti(ptr noundef captures(none) %0, i1 no
   br i1 %79, label %80, label %.critedge62.thread
 
 80:                                               ; preds = %.critedge62.loopexit
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %.critedge62.thread
 
 .critedge62.thread:                               ; preds = %.lr.ph, %6, %80, %.critedge62.loopexit
@@ -1303,14 +1297,14 @@ declare void @ShowUsage(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
-  call void @MarkPortalActive(ptr noundef %0) #11
+  call void @MarkPortalActive(ptr noundef %0) #10
   %6 = load ptr, ptr @ActivePortal, align 8
   %7 = load ptr, ptr @CurrentResourceOwner, align 8
   %8 = load ptr, ptr @PortalContext, align 8
   %9 = load ptr, ptr @PG_exception_stack, align 8
   %10 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %11 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #13
+  %11 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #12
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %30
 
@@ -1352,20 +1346,19 @@ define dso_local i64 @PortalRunFetch(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %31
 
 27:                                               ; preds = %17
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %28)
-  %29 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1442, ptr noundef nonnull @__func__.PortalRunFetch) #11
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %29 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1442, ptr noundef nonnull @__func__.PortalRunFetch) #10
   unreachable
 
 30:                                               ; preds = %4
   store ptr %9, ptr @PG_exception_stack, align 8
   store ptr %10, ptr @error_context_stack, align 8
-  call void @MarkPortalFailed(ptr noundef %0) #11
+  call void @MarkPortalFailed(ptr noundef %0) #10
   store ptr %6, ptr @ActivePortal, align 8
   store ptr %7, ptr @CurrentResourceOwner, align 8
   store ptr %8, ptr @PortalContext, align 8
-  call void @pg_re_throw() #14
+  call void @pg_re_throw() #13
   unreachable
 
 31:                                               ; preds = %23, %26, %17
@@ -1484,13 +1477,13 @@ define internal fastcc i64 @DoPortalRunFetch(ptr noundef captures(none) %0, i32 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %51 = load ptr, ptr %50, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %51) #11
-  tail call void @ExecutorRun(ptr noundef %38, i32 noundef %.69.i, i64 noundef %..i) #11
+  tail call void @PushActiveSnapshot(ptr noundef %51) #10
+  tail call void @ExecutorRun(ptr noundef %38, i32 noundef %.69.i, i64 noundef %..i) #10
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
   %55 = load i64, ptr %54, align 8
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %56
 
 56:                                               ; preds = %49, %47
@@ -1551,13 +1544,13 @@ define internal fastcc i64 @DoPortalRunFetch(ptr noundef captures(none) %0, i32 
 81:                                               ; preds = %73
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %83 = load ptr, ptr %82, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %83) #11
-  tail call void @ExecutorRun(ptr noundef %70, i32 noundef %.69.i107, i64 noundef 0) #11
+  tail call void @PushActiveSnapshot(ptr noundef %83) #10
+  tail call void @ExecutorRun(ptr noundef %70, i32 noundef %.69.i107, i64 noundef 0) #10
   %84 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 208
   %87 = load i64, ptr %86, align 8
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %88
 
 88:                                               ; preds = %81, %79
@@ -1620,13 +1613,13 @@ PortalRunSelect.exit112:                          ; preds = %88, %93
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %114 = load ptr, ptr %113, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %114) #11
-  tail call void @ExecutorRun(ptr noundef %104, i32 noundef 0, i64 noundef 0) #11
+  tail call void @PushActiveSnapshot(ptr noundef %114) #10
+  tail call void @ExecutorRun(ptr noundef %104, i32 noundef 0, i64 noundef 0) #10
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 208
   %118 = load i64, ptr %117, align 8
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %PortalRunSelect.exit122
 
 PortalRunSelect.exit122:                          ; preds = %110, %112
@@ -1678,13 +1671,13 @@ PortalRunSelect.exit122:                          ; preds = %110, %112
 140:                                              ; preds = %132
   %141 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %142 = load ptr, ptr %141, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %142) #11
-  tail call void @ExecutorRun(ptr noundef %129, i32 noundef %.69.i126, i64 noundef %..i124) #11
+  tail call void @PushActiveSnapshot(ptr noundef %142) #10
+  tail call void @ExecutorRun(ptr noundef %129, i32 noundef %.69.i126, i64 noundef %..i124) #10
   %143 = getelementptr inbounds nuw i8, ptr %129, i64 80
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 208
   %146 = load i64, ptr %145, align 8
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %147
 
 147:                                              ; preds = %140, %138
@@ -1731,10 +1724,9 @@ PortalRunSelect.exit122:                          ; preds = %110, %112
   br label %PortalRunSelect.exit
 
 166:                                              ; preds = %4
-  %167 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %167)
-  %168 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1613, ptr noundef nonnull @__func__.DoPortalRunFetch) #11
+  %167 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %168 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1613, ptr noundef nonnull @__func__.DoPortalRunFetch) #10
   unreachable
 
 169:                                              ; preds = %7, %5
@@ -1859,7 +1851,7 @@ define dso_local noundef zeroext i1 @PlannedStmtRequiresSnapshot(ptr noundef rea
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @EnsurePortalSnapshotExists() local_unnamed_addr #0 {
-  %1 = tail call zeroext i1 @ActiveSnapshotSet() #11
+  %1 = tail call zeroext i1 @ActiveSnapshotSet() #10
   br i1 %1, label %14, label %2
 
 2:                                                ; preds = %0
@@ -1868,18 +1860,17 @@ define dso_local void @EnsurePortalSnapshotExists() local_unnamed_addr #0 {
   br i1 %4, label %5, label %8, !prof !10
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1786, ptr noundef nonnull @__func__.EnsurePortalSnapshotExists) #11
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1786, ptr noundef nonnull @__func__.EnsurePortalSnapshotExists) #10
   unreachable
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @GetTransactionSnapshot() #11
+  %9 = tail call ptr @GetTransactionSnapshot() #10
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i32, ptr %10, align 8
-  tail call void @PushActiveSnapshotWithLevel(ptr noundef %9, i32 noundef %11) #11
-  %12 = tail call ptr @GetActiveSnapshot() #11
+  tail call void @PushActiveSnapshotWithLevel(ptr noundef %9, i32 noundef %11) #10
+  %12 = tail call ptr @GetActiveSnapshot() #10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store ptr %12, ptr %13, align 8
   br label %14
@@ -1896,11 +1887,11 @@ declare void @PushActiveSnapshotWithLevel(ptr noundef, i32 noundef) local_unname
 define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -1, 2) %1, i64 noundef range(i64 0, -9223372036854775808) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsMinimalTuple) #11
+  %7 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsMinimalTuple) #10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
-  tail call void %9(ptr noundef %3, i32 noundef 1, ptr noundef %10) #11
+  tail call void %9(ptr noundef %3, i32 noundef 1, ptr noundef %10) #10
   %11 = icmp eq i32 %1, 0
   br i1 %11, label %.thread, label %12
 
@@ -1917,27 +1908,27 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %17, ptr @CurrentMemoryContext, align 8
   %19 = load ptr, ptr %15, align 8
-  %20 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %19, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #11
+  %20 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %19, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #10
   store ptr %18, ptr @CurrentMemoryContext, align 8
   br i1 %20, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.split.us, %23
   %.1.us31 = phi i64 [ %27, %23 ], [ 0, %.split.us ]
   %21 = load ptr, ptr %3, align 8
-  %22 = tail call zeroext i1 %21(ptr noundef %7, ptr noundef nonnull %3) #11
+  %22 = tail call zeroext i1 %21(ptr noundef %7, ptr noundef nonnull %3) #10
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr %16, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef %7) #11
+  tail call void %26(ptr noundef %7) #10
   %27 = add i64 %.1.us31, 1
   %28 = load ptr, ptr %14, align 8
   %29 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %28, ptr @CurrentMemoryContext, align 8
   %30 = load ptr, ptr %15, align 8
-  %31 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %30, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #11
+  %31 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %30, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #10
   store ptr %29, ptr @CurrentMemoryContext, align 8
   br i1 %31, label %.lr.ph, label %.thread
 
@@ -1947,20 +1938,20 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %33 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %32, ptr @CurrentMemoryContext, align 8
   %34 = load ptr, ptr %15, align 8
-  %35 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %34, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #11
+  %35 = tail call zeroext i1 @tuplestore_gettupleslot(ptr noundef %34, i1 noundef zeroext %13, i1 noundef zeroext false, ptr noundef %7) #10
   store ptr %33, ptr @CurrentMemoryContext, align 8
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %.split
   %37 = load ptr, ptr %3, align 8
-  %38 = tail call zeroext i1 %37(ptr noundef %7, ptr noundef nonnull %3) #11
+  %38 = tail call zeroext i1 %37(ptr noundef %7, ptr noundef nonnull %3) #10
   br i1 %38, label %39, label %.thread
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %16, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef %7) #11
+  tail call void %42(ptr noundef %7) #10
   %43 = add nuw nsw i64 %.1, 1
   %44 = icmp eq i64 %2, %43
   br i1 %44, label %.thread, label %.split
@@ -1969,8 +1960,8 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %.024 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us31, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull %3) #11
-  tail call void @ExecDropSingleTupleTableSlot(ptr noundef %7) #11
+  tail call void %46(ptr noundef nonnull %3) #10
+  tail call void @ExecDropSingleTupleTableSlot(ptr noundef %7) #10
   ret i64 %.024
 }
 
@@ -1996,11 +1987,11 @@ define internal fastcc void @PortalRunUtility(ptr noundef captures(none) initial
   br i1 %7, label %8, label %17
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @GetTransactionSnapshot() #11
+  %9 = tail call ptr @GetTransactionSnapshot() #10
   br i1 %3, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @RegisterSnapshot(ptr noundef %9) #11
+  %11 = tail call ptr @RegisterSnapshot(ptr noundef %9) #10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %11, ptr %12, align 8
   br label %13
@@ -2009,8 +2000,8 @@ define internal fastcc void @PortalRunUtility(ptr noundef captures(none) initial
   %.0 = phi ptr [ %11, %10 ], [ %9, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load i32, ptr %14, align 8
-  tail call void @PushActiveSnapshotWithLevel(ptr noundef %.0, i32 noundef %15) #11
-  %16 = tail call ptr @GetActiveSnapshot() #11
+  tail call void @PushActiveSnapshotWithLevel(ptr noundef %.0, i32 noundef %15) #10
+  %16 = tail call ptr @GetActiveSnapshot() #10
   br label %17
 
 17:                                               ; preds = %6, %13
@@ -2028,7 +2019,7 @@ define internal fastcc void @PortalRunUtility(ptr noundef captures(none) initial
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %28 = load ptr, ptr %27, align 8
-  tail call void @ProcessUtility(ptr noundef %1, ptr noundef %20, i1 noundef zeroext %23, i32 noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %4, ptr noundef %5) #11
+  tail call void @ProcessUtility(ptr noundef %1, ptr noundef %20, i1 noundef zeroext %23, i32 noundef %24, ptr noundef %26, ptr noundef %28, ptr noundef %4, ptr noundef %5) #10
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr @CurrentMemoryContext, align 8
@@ -2038,11 +2029,11 @@ define internal fastcc void @PortalRunUtility(ptr noundef captures(none) initial
   br i1 %.not, label %36, label %33
 
 33:                                               ; preds = %17
-  %34 = tail call zeroext i1 @ActiveSnapshotSet() #11
+  %34 = tail call zeroext i1 @ActiveSnapshotSet() #10
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %33
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PopActiveSnapshot() #10
   br label %36
 
 36:                                               ; preds = %35, %33, %17
@@ -2060,8 +2051,8 @@ declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
-  %7 = tail call ptr @GetActiveSnapshot() #11
-  %8 = tail call ptr @palloc(i64 noundef 112) #11
+  %7 = tail call ptr @GetActiveSnapshot() #10
+  %8 = tail call ptr @palloc(i64 noundef 112) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %8, align 8
@@ -2069,10 +2060,10 @@ define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %1, ptr %12, align 8
-  %13 = tail call ptr @RegisterSnapshot(ptr noundef %7) #11
+  %13 = tail call ptr @RegisterSnapshot(ptr noundef %7) #10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %13, ptr %14, align 8
-  %15 = tail call ptr @RegisterSnapshot(ptr noundef null) #11
+  %15 = tail call ptr @RegisterSnapshot(ptr noundef null) #10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -2087,8 +2078,8 @@ define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr no
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr null, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %21, i8 0, i64 25, i1 false)
-  tail call void @ExecutorStart(ptr noundef nonnull %8, i32 noundef 0) #11
-  tail call void @ExecutorRun(ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #11
+  tail call void @ExecutorStart(ptr noundef nonnull %8, i32 noundef 0) #10
+  tail call void @ExecutorRun(ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #10
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %32, label %23
 
@@ -2116,13 +2107,13 @@ switch.lookup:                                    ; preds = %23
   br label %32
 
 32:                                               ; preds = %.sink.split, %6
-  tail call void @ExecutorFinish(ptr noundef nonnull %8) #11
-  tail call void @ExecutorEnd(ptr noundef nonnull %8) #11
+  tail call void @ExecutorFinish(ptr noundef nonnull %8) #10
+  tail call void @ExecutorEnd(ptr noundef nonnull %8) #10
   %33 = load ptr, ptr %14, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %33) #11
+  tail call void @UnregisterSnapshot(ptr noundef %33) #10
   %34 = load ptr, ptr %16, align 8
-  tail call void @UnregisterSnapshot(ptr noundef %34) #11
-  tail call void @pfree(ptr noundef nonnull %8) #11
+  tail call void @UnregisterSnapshot(ptr noundef %34) #10
+  tail call void @pfree(ptr noundef nonnull %8) #10
   ret void
 }
 
@@ -2155,12 +2146,11 @@ define internal fastcc void @DoPortalRewind(ptr noundef captures(none) %0) unnam
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 325) #11
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #11
-  %17 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1693, ptr noundef nonnull @__func__.DoPortalRewind) #11
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15 = tail call i32 @errcode(i32 noundef 325) #10
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #10
+  %17 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.9) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1693, ptr noundef nonnull @__func__.DoPortalRewind) #10
   unreachable
 
 18:                                               ; preds = %9
@@ -2174,7 +2164,7 @@ define internal fastcc void @DoPortalRewind(ptr noundef captures(none) %0) unnam
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %23, ptr @CurrentMemoryContext, align 8
-  tail call void @tuplestore_rescan(ptr noundef nonnull %20) #11
+  tail call void @tuplestore_rescan(ptr noundef nonnull %20) #10
   store ptr %24, ptr @CurrentMemoryContext, align 8
   br label %25
 
@@ -2187,9 +2177,9 @@ define internal fastcc void @DoPortalRewind(ptr noundef captures(none) %0) unnam
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %30 = load ptr, ptr %29, align 8
-  tail call void @PushActiveSnapshot(ptr noundef %30) #11
-  tail call void @ExecutorRewind(ptr noundef nonnull %27) #11
-  tail call void @PopActiveSnapshot() #11
+  tail call void @PushActiveSnapshot(ptr noundef %30) #10
+  tail call void @ExecutorRewind(ptr noundef nonnull %27) #10
+  tail call void @PopActiveSnapshot() #10
   br label %31
 
 31:                                               ; preds = %28, %25
@@ -2214,14 +2204,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #10
+declare i64 @llvm.abs.i64(i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2231,13 +2218,12 @@ attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind returns_twice }
-attributes #14 = { noreturn nounwind }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind returns_twice }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

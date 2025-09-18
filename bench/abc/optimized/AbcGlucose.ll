@@ -92,9 +92,9 @@ $_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6insertEi = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_Z20glucose_solver_startv() local_unnamed_addr #0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %1) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %1) #29
+  %1 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %1) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %1) #28
   ret ptr %1
 }
 
@@ -114,7 +114,7 @@ define void @_Z19glucose_solver_stopPN5Gluco10SimpSolverE(ptr noundef %0) local_
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(1484) %0) #29
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(1484) %0) #28
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -126,7 +126,7 @@ define void @_Z20glucose_solver_resetPN5Gluco10SimpSolverE(ptr noundef %0) local
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(1484) %0) #29
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(1484) %0) #28
   ret void
 }
 
@@ -145,9 +145,9 @@ define noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSo
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
-  %.014 = phi i32 [ 0, %.preheader.lr.ph ], [ %46, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
-  %.0813 = phi ptr [ %1, %.preheader.lr.ph ], [ %47, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
-  %9 = phi ptr [ null, %.preheader.lr.ph ], [ %42, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %.014 = phi i32 [ 0, %.preheader.lr.ph ], [ %42, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %.0813 = phi ptr [ %1, %.preheader.lr.ph ], [ %43, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %9 = phi ptr [ null, %.preheader.lr.ph ], [ %38, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
   %10 = load i32, ptr %.0813, align 4, !tbaa !6
   %11 = sdiv i32 %10, 2
   %12 = load i32, ptr %6, align 8, !tbaa !9
@@ -155,11 +155,11 @@ define noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSo
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge15:                                    ; preds = %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit, %3
-  %.lcssa10 = phi ptr [ null, %3 ], [ %42, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %.lcssa10 = phi ptr [ null, %3 ], [ %38, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
   store ptr %.lcssa10, ptr %4, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %13)
-  %14 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 8 dereferenceable(16) %13) #29
+  %14 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull align 8 dereferenceable(16) %13) #28
   %15 = load ptr, ptr %4, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZN5Gluco3vecINS_3LitEED2Ev.exit, label %.preheader.i.i
@@ -167,7 +167,7 @@ define noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSo
 .preheader.i.i:                                   ; preds = %._crit_edge15
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %16, align 8, !tbaa !16
-  call void @free(ptr noundef nonnull %15) #29
+  call void @free(ptr noundef nonnull %15) #28
   br label %_ZN5Gluco3vecINS_3LitEED2Ev.exit
 
 _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %._crit_edge15, %.preheader.i.i
@@ -176,7 +176,7 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %._crit_edge15, %.pr
   ret i32 %17
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %18 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %18 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %19 = load i32, ptr %.0813, align 4, !tbaa !6
   %20 = sdiv i32 %19, 2
   %21 = load i32, ptr %6, align 8, !tbaa !9
@@ -204,31 +204,24 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %._crit_edge15, %.pr
   store i32 %33, ptr %8, align 4, !tbaa !19
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 2
-  %36 = tail call ptr @realloc(ptr noundef %9, i64 noundef %35) #30
+  %36 = tail call ptr @realloc(ptr noundef %9, i64 noundef %35) #29
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
+  br i1 %37, label %.loopexit, label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
 
-38:                                               ; preds = %32
-  %39 = tail call ptr @__errno_location() #31
-  %40 = load i32, ptr %39, align 4, !tbaa !6
-  %41 = icmp eq i32 %40, 12
-  tail call void @llvm.assume(i1 %41)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %25, %38
+.loopexit:                                        ; preds = %25, %32
   tail call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._crit_edge, %32
-  %42 = phi ptr [ %36, %32 ], [ %9, %._crit_edge ]
-  %43 = add nsw i32 %22, 1
-  store i32 %43, ptr %7, align 8, !tbaa !16
-  %44 = sext i32 %22 to i64
-  %45 = getelementptr inbounds %"struct.Gluco::Lit", ptr %42, i64 %44
-  store i32 %.lcssa, ptr %45, align 4, !tbaa !6
-  %46 = add nuw nsw i32 %.014, 1
-  %47 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
-  %exitcond.not = icmp eq i32 %46, %2
+  %38 = phi ptr [ %36, %32 ], [ %9, %._crit_edge ]
+  %39 = add nsw i32 %22, 1
+  store i32 %39, ptr %7, align 8, !tbaa !16
+  %40 = sext i32 %22 to i64
+  %41 = getelementptr inbounds %"struct.Gluco::Lit", ptr %38, i64 %40
+  store i32 %.lcssa, ptr %41, align 4, !tbaa !6
+  %42 = add nuw nsw i32 %.014, 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0813, i64 4
+  %exitcond.not = icmp eq i32 %42, %2
   br i1 %exitcond.not, label %._crit_edge15, label %.preheader, !llvm.loop !20
 }
 
@@ -259,19 +252,19 @@ define noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolve
   br label %11
 
 ._crit_edge:                                      ; preds = %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit, %3
-  %.lcssa = phi ptr [ null, %3 ], [ %34, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %.lcssa = phi ptr [ null, %3 ], [ %30, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
   store ptr %.lcssa, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 760
   call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %9 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %9 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %10 = load ptr, ptr %4, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN5Gluco3vecINS_3LitEED2Ev.exit, label %.preheader.i.i
 
 11:                                               ; preds = %.lr.ph, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
-  %.013 = phi i32 [ 0, %.lr.ph ], [ %38, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
-  %.0512 = phi ptr [ %1, %.lr.ph ], [ %39, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
-  %12 = phi ptr [ null, %.lr.ph ], [ %34, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %.013 = phi i32 [ 0, %.lr.ph ], [ %34, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %.0512 = phi ptr [ %1, %.lr.ph ], [ %35, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
+  %12 = phi ptr [ null, %.lr.ph ], [ %30, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ]
   %13 = load i32, ptr %.0512, align 4, !tbaa !6
   %14 = load i32, ptr %6, align 8, !tbaa !16
   %15 = load i32, ptr %7, align 4, !tbaa !19
@@ -292,51 +285,44 @@ define noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolve
   store i32 %25, ptr %7, align 4, !tbaa !19
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 2
-  %28 = tail call ptr @realloc(ptr noundef %12, i64 noundef %27) #30
+  %28 = tail call ptr @realloc(ptr noundef %12, i64 noundef %27) #29
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
+  br i1 %29, label %.loopexit, label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
 
-30:                                               ; preds = %24
-  %31 = tail call ptr @__errno_location() #31
-  %32 = load i32, ptr %31, align 4, !tbaa !6
-  %33 = icmp eq i32 %32, 12
-  tail call void @llvm.assume(i1 %33)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %17, %30
+.loopexit:                                        ; preds = %17, %24
   tail call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %11, %24
-  %34 = phi ptr [ %28, %24 ], [ %12, %11 ]
-  %35 = add nsw i32 %14, 1
-  store i32 %35, ptr %6, align 8, !tbaa !16
-  %36 = sext i32 %14 to i64
-  %37 = getelementptr inbounds %"struct.Gluco::Lit", ptr %34, i64 %36
-  store i32 %13, ptr %37, align 4, !tbaa !6
-  %38 = add nuw nsw i32 %.013, 1
-  %39 = getelementptr inbounds nuw i8, ptr %.0512, i64 4
-  %exitcond.not = icmp eq i32 %38, %2
+  %30 = phi ptr [ %28, %24 ], [ %12, %11 ]
+  %31 = add nsw i32 %14, 1
+  store i32 %31, ptr %6, align 8, !tbaa !16
+  %32 = sext i32 %14 to i64
+  %33 = getelementptr inbounds %"struct.Gluco::Lit", ptr %30, i64 %32
+  store i32 %13, ptr %33, align 4, !tbaa !6
+  %34 = add nuw nsw i32 %.013, 1
+  %35 = getelementptr inbounds nuw i8, ptr %.0512, i64 4
+  %exitcond.not = icmp eq i32 %34, %2
   br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !50
 
 .preheader.i.i:                                   ; preds = %._crit_edge
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %40, align 8, !tbaa !16
-  call void @free(ptr noundef nonnull %10) #29
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %36, align 8, !tbaa !16
+  call void @free(ptr noundef nonnull %10) #28
   br label %_ZN5Gluco3vecINS_3LitEED2Ev.exit
 
 _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %._crit_edge, %.preheader.i.i
-  %41 = icmp eq i8 %9, 0
-  %42 = icmp eq i8 %9, 1
-  %43 = sext i1 %42 to i32
-  %44 = select i1 %41, i32 1, i32 %43
+  %37 = icmp eq i8 %9, 0
+  %38 = icmp eq i8 %9, 1
+  %39 = sext i1 %38 to i32
+  %40 = select i1 %37, i32 1, i32 %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %44
+  ret i32 %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 -2147483648, 2147483647) i32 @_Z21glucose_solver_addvarPN5Gluco10SimpSolverE(ptr noundef nonnull %0) local_unnamed_addr #0 {
-  %2 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %2 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %5 = add nsw i32 %4, -1
@@ -369,9 +355,9 @@ define void @_Z22glucose_solver_setstopPN5Gluco10SimpSolverEPi(ptr noundef write
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @bmcg_sat_solver_start() local_unnamed_addr #0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %1) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %1) #29
+  %1 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %1) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %1) #28
   ret ptr %1
 }
 
@@ -384,7 +370,7 @@ define void @bmcg_sat_solver_stop(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(1484) %0) #29
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(1484) %0) #28
   br label %_Z19glucose_solver_stopPN5Gluco10SimpSolverE.exit
 
 _Z19glucose_solver_stopPN5Gluco10SimpSolverE.exit: ; preds = %1, %3
@@ -396,7 +382,7 @@ define void @bmcg_sat_solver_reset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(1484) %0) #29
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(1484) %0) #28
   ret void
 }
 
@@ -435,7 +421,7 @@ define i32 @bmcg_sat_solver_final(ptr noundef readonly captures(none) %0, ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 -2147483648, 2147483647) i32 @bmcg_sat_solver_addvar(ptr noundef nonnull %0) local_unnamed_addr #0 {
-  %2 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %2 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %4 = load i32, ptr %3, align 8, !tbaa !9
   %5 = add nsw i32 %4, -1
@@ -451,7 +437,7 @@ define void @bmcg_sat_solver_set_nvars(ptr noundef %0, i32 noundef %1) local_unn
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.04 = phi i32 [ %7, %.lr.ph ], [ %4, %2 ]
-  %6 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %6 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %7 = add i32 %.04, 1
   %exitcond.not = icmp eq i32 %7, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
@@ -470,7 +456,7 @@ define i32 @bmcg_sat_solver_varnum(ptr noundef readonly captures(none) %0) local
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, 2) i32 @bmcg_sat_solver_eliminate(ptr noundef nonnull %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne i32 %1, 0
-  %4 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext %3) #29
+  %4 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1484) %0, i1 noundef zeroext %3) #28
   %5 = zext i1 %4 to i32
   ret i32 %5
 }
@@ -666,7 +652,7 @@ tailrecurse:                                      ; preds = %11, %4
   %8 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef readonly %1, i32 noundef %3)
   %9 = icmp ne i32 %8, -1
   %10 = zext i1 %9 to i32
-  br label %78
+  br label %74
 
 11:                                               ; preds = %tailrecurse
   %12 = sdiv i32 %5, 2
@@ -744,91 +730,84 @@ _ZN5Gluco3vecIiE5clearEb.exit:                    ; preds = %22, %.preheader.i
   store i32 %47, ptr %28, align 4, !tbaa !79
   %48 = sext i32 %47 to i64
   %49 = shl nsw i64 %48, 2
-  %50 = tail call ptr @realloc(ptr noundef %35, i64 noundef %49) #30
+  %50 = tail call ptr @realloc(ptr noundef %35, i64 noundef %49) #29
   store ptr %50, ptr %17, align 8, !tbaa !73
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
+  br i1 %51, label %.loopexit, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
 
 ._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge:        ; preds = %46
   %.pre = load i32, ptr %27, align 8, !tbaa !72
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
-52:                                               ; preds = %46
-  %53 = tail call ptr @__errno_location() #31
-  %54 = load i32, ptr %53, align 4, !tbaa !6
-  %55 = icmp eq i32 %54, 12
-  tail call void @llvm.assume(i1 %55)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %39, %52
+.loopexit:                                        ; preds = %39, %46
   tail call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %34, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
-  %56 = phi i32 [ %.pre, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ], [ %36, %34 ]
+  %52 = phi i32 [ %.pre, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ], [ %36, %34 ]
   %.pre.i107 = phi ptr [ %50, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ], [ %35, %34 ]
-  %57 = load i32, ptr %gep, align 4, !tbaa !6
-  %58 = add nsw i32 %56, 1
-  store i32 %58, ptr %27, align 8, !tbaa !72
-  %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds i32, ptr %.pre.i107, i64 %59
-  store i32 %57, ptr %60, align 4, !tbaa !6
+  %53 = load i32, ptr %gep, align 4, !tbaa !6
+  %54 = add nsw i32 %52, 1
+  store i32 %54, ptr %27, align 8, !tbaa !72
+  %55 = sext i32 %52 to i64
+  %56 = getelementptr inbounds i32, ptr %.pre.i107, i64 %55
+  store i32 %53, ptr %56, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader78, label %34, !llvm.loop !80
 
 .preheader:                                       ; preds = %.lr.ph87, %.preheader78
-  %61 = add nsw i32 %23, %3
+  %57 = add nsw i32 %23, %3
   br i1 %26, label %.lr.ph89, label %._crit_edge
 
 .lr.ph89:                                         ; preds = %.preheader
-  %62 = sext i32 %61 to i64
+  %58 = sext i32 %57 to i64
   %wide.trip.count104 = zext nneg i32 %12 to i64
-  %invariant.gep122 = getelementptr i32, ptr %1, i64 %62
-  br label %64
+  %invariant.gep122 = getelementptr i32, ptr %1, i64 %58
+  br label %60
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv95 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next96, %.lr.ph87 ]
   %gep119 = getelementptr i32, ptr %invariant.gep118, i64 %indvars.iv95
-  %63 = load i32, ptr %gep119, align 4, !tbaa !6
+  %59 = load i32, ptr %gep119, align 4, !tbaa !6
   %gep121 = getelementptr i32, ptr %invariant.gep120, i64 %indvars.iv95
-  store i32 %63, ptr %gep121, align 4, !tbaa !6
+  store i32 %59, ptr %gep121, align 4, !tbaa !6
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %.preheader, label %.lr.ph87, !llvm.loop !81
 
-64:                                               ; preds = %.lr.ph89, %64
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next101, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv100
-  %66 = load i32, ptr %65, align 4, !tbaa !6
+60:                                               ; preds = %.lr.ph89, %60
+  %indvars.iv100 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next101, %60 ]
+  %61 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv100
+  %62 = load i32, ptr %61, align 4, !tbaa !6
   %gep123 = getelementptr i32, ptr %invariant.gep122, i64 %indvars.iv100
-  store i32 %66, ptr %gep123, align 4, !tbaa !6
+  store i32 %62, ptr %gep123, align 4, !tbaa !6
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge, label %64, !llvm.loop !82
+  br i1 %exitcond105.not, label %._crit_edge, label %60, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %64, %.preheader
-  %67 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %61)
-  %68 = icmp eq i32 %67, -1
-  br i1 %68, label %78, label %69
+._crit_edge:                                      ; preds = %60, %.preheader
+  %63 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %57)
+  %64 = icmp eq i32 %63, -1
+  br i1 %64, label %74, label %65
 
-69:                                               ; preds = %._crit_edge
-  %70 = and i32 %5, -2
-  %71 = icmp eq i32 %70, 2
-  br i1 %71, label %75, label %72
+65:                                               ; preds = %._crit_edge
+  %66 = and i32 %5, -2
+  %67 = icmp eq i32 %66, 2
+  br i1 %67, label %71, label %68
 
-72:                                               ; preds = %69
-  %73 = add nsw i32 %61, %12
-  %74 = tail call i32 @bmcg_sat_solver_minimize_assumptions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %73, i32 noundef %61)
-  br label %75
+68:                                               ; preds = %65
+  %69 = add nsw i32 %57, %12
+  %70 = tail call i32 @bmcg_sat_solver_minimize_assumptions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %69, i32 noundef %57)
+  br label %71
 
-75:                                               ; preds = %69, %72
-  %76 = phi i32 [ %74, %72 ], [ 1, %69 ]
-  %77 = add nsw i32 %76, %23
-  br label %78
+71:                                               ; preds = %65, %68
+  %72 = phi i32 [ %70, %68 ], [ 1, %65 ]
+  %73 = add nsw i32 %72, %23
+  br label %74
 
-78:                                               ; preds = %._crit_edge, %75, %7
-  %.0 = phi i32 [ %10, %7 ], [ %77, %75 ], [ %23, %._crit_edge ]
+74:                                               ; preds = %._crit_edge, %71, %7
+  %.0 = phi i32 [ %10, %7 ], [ %73, %71 ], [ %23, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -948,7 +927,7 @@ define void @_Z19glucose_print_statsRN5Gluco10SimpSolverEl(ptr noundef nonnull r
   %3 = trunc i64 %1 to i32
   %4 = uitofp i32 %3 to double
   %5 = fdiv double %4, 1.000000e+06
-  %6 = tail call noundef double @_ZN5Gluco7memUsedEv() #29
+  %6 = tail call noundef double @_ZN5Gluco7memUsedEv() #28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %8 = load i64, ptr %7, align 8, !tbaa !84
   %9 = trunc i64 %8 to i32
@@ -1055,7 +1034,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z18Glucose_ReadDimacsPcRN5Gluco10SimpSolverE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1484) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %4 = tail call ptr @Extra_FileReadContents(ptr noundef %0) #29
+  %4 = tail call ptr @Extra_FileReadContents(ptr noundef %0) #28
   %5 = load ptr, ptr %3, align 8, !tbaa !13
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %_ZN5Gluco3vecINS_3LitEE5clearEb.exit, label %.preheader.i
@@ -1073,11 +1052,11 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %2, %.preheader.i
   br label %11
 
 11:                                               ; preds = %.critedge2, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit
-  %.040 = phi ptr [ %4, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit ], [ %69, %.critedge2 ]
+  %.040 = phi ptr [ %4, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit ], [ %65, %.critedge2 ]
   %.0 = phi i32 [ 0, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit ], [ %.1, %.critedge2 ]
   %12 = load i8, ptr %.040, align 1, !tbaa !59
   switch i8 %12, label %.preheader [
-    i8 0, label %70
+    i8 0, label %66
     i8 99, label %.preheader73
     i8 112, label %.preheader73
   ]
@@ -1120,7 +1099,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %2, %.preheader.i
   %21 = icmp eq i8 %20, 43
   %spec.select.idx = zext i1 %21 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.4, i64 %spec.select.idx
-  %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %spec.select, ptr noundef null, i32 noundef 10) #29
+  %22 = tail call i64 @strtol(ptr noundef nonnull captures(none) %spec.select, ptr noundef null, i32 noundef 10) #28
   %23 = trunc i64 %22 to i32
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %34
@@ -1136,14 +1115,14 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %2, %.preheader.i
   br i1 %.not1.i, label %_ZN5Gluco10SimpSolver6addVarEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
-  %30 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %1, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %30 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %1, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %31 = load i32, ptr %9, align 8, !tbaa !9
   %.not.i51 = icmp slt i32 %.0, %31
   br i1 %.not.i51, label %_ZN5Gluco10SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !101
 
 _ZN5Gluco10SimpSolver6addVarEi.exit:              ; preds = %.lr.ph.i, %28
   tail call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %32 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %1, ptr noundef nonnull align 8 dereferenceable(16) %10) #29
+  %32 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %1, ptr noundef nonnull align 8 dereferenceable(16) %10) #28
   %33 = load ptr, ptr %3, align 8, !tbaa !13
   %.not.i52 = icmp eq ptr %33, null
   br i1 %.not.i52, label %_ZN5Gluco3vecINS_3LitEE5clearEb.exit54, label %.preheader.i53
@@ -1181,63 +1160,56 @@ _ZN5Gluco10SimpSolver6addVarEi.exit:              ; preds = %.lr.ph.i, %28
   store i32 %51, ptr %8, align 4, !tbaa !19
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 2
-  %54 = tail call ptr @realloc(ptr noundef %50, i64 noundef %53) #30
+  %54 = tail call ptr @realloc(ptr noundef %50, i64 noundef %53) #29
   store ptr %54, ptr %3, align 8, !tbaa !13
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge
+  br i1 %55, label %.loopexit56, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge
 
 ._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %49
   %.pre60 = load i32, ptr %7, align 8, !tbaa !16
   br label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
 
-56:                                               ; preds = %49
-  %57 = tail call ptr @__errno_location() #31
-  %58 = load i32, ptr %57, align 4, !tbaa !6
-  %59 = icmp eq i32 %58, 12
-  tail call void @llvm.assume(i1 %59)
-  br label %.loopexit56
-
-.loopexit56:                                      ; preds = %42, %56
+.loopexit56:                                      ; preds = %42, %49
   tail call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i
-  %60 = phi i32 [ %39, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre60, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %61 = phi ptr [ %.pre.i, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %54, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %62 = add nsw i32 %60, 1
-  store i32 %62, ptr %7, align 8, !tbaa !16
-  %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds %"struct.Gluco::Lit", ptr %61, i64 %63
-  store i32 %38, ptr %64, align 4, !tbaa !6
+  %56 = phi i32 [ %39, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre60, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %57 = phi ptr [ %.pre.i, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %54, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %58 = add nsw i32 %56, 1
+  store i32 %58, ptr %7, align 8, !tbaa !16
+  %59 = sext i32 %56 to i64
+  %60 = getelementptr inbounds %"struct.Gluco::Lit", ptr %57, i64 %59
+  store i32 %38, ptr %60, align 4, !tbaa !6
   br label %_ZN5Gluco3vecINS_3LitEE5clearEb.exit54
 
 _ZN5Gluco3vecINS_3LitEE5clearEb.exit54:           ; preds = %.preheader.i53, %_ZN5Gluco10SimpSolver6addVarEi.exit, %25, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
   %.2 = phi i32 [ %.0, %25 ], [ %36, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ %.0, %_ZN5Gluco10SimpSolver6addVarEi.exit ], [ %.0, %.preheader.i53 ]
-  br label %65
+  br label %61
 
-65:                                               ; preds = %65, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit54
-  %.6 = phi ptr [ %spec.select, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit54 ], [ %68, %65 ]
-  %66 = load i8, ptr %.6, align 1, !tbaa !59
-  %67 = add i8 %66, -48
-  %or.cond = icmp ult i8 %67, 10
-  %68 = getelementptr inbounds nuw i8, ptr %.6, i64 1
-  br i1 %or.cond, label %65, label %.critedge2, !llvm.loop !102
+61:                                               ; preds = %61, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit54
+  %.6 = phi ptr [ %spec.select, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit54 ], [ %64, %61 ]
+  %62 = load i8, ptr %.6, align 1, !tbaa !59
+  %63 = add i8 %62, -48
+  %or.cond = icmp ult i8 %63, 10
+  %64 = getelementptr inbounds nuw i8, ptr %.6, i64 1
+  br i1 %or.cond, label %61, label %.critedge2, !llvm.loop !102
 
-.critedge2:                                       ; preds = %13, %65
-  %.242 = phi ptr [ %.6, %65 ], [ %.141, %13 ]
-  %.1 = phi i32 [ %.2, %65 ], [ %.0, %13 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.242, i64 1
+.critedge2:                                       ; preds = %13, %61
+  %.242 = phi ptr [ %.6, %61 ], [ %.141, %13 ]
+  %.1 = phi i32 [ %.2, %61 ], [ %.0, %13 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.242, i64 1
   br label %11, !llvm.loop !103
 
-70:                                               ; preds = %11
+66:                                               ; preds = %11
   %.not49 = icmp eq ptr %4, null
-  br i1 %.not49, label %72, label %71
+  br i1 %.not49, label %68, label %67
 
-71:                                               ; preds = %70
-  tail call void @free(ptr noundef nonnull %4) #29
-  br label %72
+67:                                               ; preds = %66
+  tail call void @free(ptr noundef nonnull %4) #28
+  br label %68
 
-72:                                               ; preds = %70, %71
+68:                                               ; preds = %66, %67
   ret void
 }
 
@@ -1255,7 +1227,7 @@ define void @Glucose_SolveCnf(ptr noundef %0, ptr noundef readonly captures(none
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %"class.Gluco::SimpSolver", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #29
+  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #28
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %_ZL9Abc_Clockv.exit, label %12
 
@@ -1272,7 +1244,7 @@ _ZL9Abc_Clockv.exit:                              ; preds = %3, %12
   %.0.i = phi i64 [ %18, %12 ], [ -1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %9) #29
+  call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %9) #28
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !107
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -1309,14 +1281,14 @@ _ZL9Abc_Clockv.exit:                              ; preds = %3, %12
   br i1 %.not14, label %64, label %40
 
 40:                                               ; preds = %38
-  %41 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1484) %9, i1 noundef zeroext true) #29
+  %41 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1484) %9, i1 noundef zeroext true) #28
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 1252
   %43 = load i32, ptr %42, align 4, !tbaa !74
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 1256
   %45 = load i32, ptr %44, align 8, !tbaa !112
   %46 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %43, i32 noundef %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %47 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #29
+  %47 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #28
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %_ZL9Abc_Clockv.exit19, label %49
 
@@ -1341,10 +1313,10 @@ _ZL9Abc_Clockv.exit19:                            ; preds = %40, %49
   br i1 %.not15, label %64, label %59
 
 59:                                               ; preds = %_ZL9Abc_Clockv.exit19
-  %60 = call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.20) #29
+  %60 = call ptr @Extra_FileNameGenericAppend(ptr noundef %0, ptr noundef nonnull @.str.20) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @_ZN5Gluco6Solver8toDimacsEPKcRKNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1216) %9, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %6) #29
+  call void @_ZN5Gluco6Solver8toDimacsEPKcRKNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1216) %9, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %6) #28
   %61 = load ptr, ptr %6, align 8, !tbaa !13
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZN5Gluco6Solver8toDimacsEPKc.exit, label %.preheader.i.i.i
@@ -1352,7 +1324,7 @@ _ZL9Abc_Clockv.exit19:                            ; preds = %40, %49
 .preheader.i.i.i:                                 ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %62, align 8, !tbaa !16
-  call void @free(ptr noundef nonnull %61) #29
+  call void @free(ptr noundef nonnull %61) #28
   br label %_ZN5Gluco6Solver8toDimacsEPKc.exit
 
 _ZN5Gluco6Solver8toDimacsEPKc.exit:               ; preds = %59, %.preheader.i.i.i
@@ -1401,7 +1373,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit.i:           ; preds = %64
   br i1 %83, label %84, label %.lr.ph.preheader.i.i
 
 84:                                               ; preds = %79
-  %85 = tail call ptr @__errno_location() #31
+  %85 = tail call ptr @__errno_location() #30
   %86 = load i32, ptr %85, align 4, !tbaa !6
   %87 = icmp eq i32 %86, 12
   br i1 %87, label %88, label %.lr.ph.preheader.i.i
@@ -1428,14 +1400,14 @@ _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.sink.split: ; preds = %.lr.ph.i.i, %64
   br label %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit
 
 _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit:        ; preds = %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.sink.split, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit.i
-  %92 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %9, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %92 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %9, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %93 = load i32, ptr %19, align 4, !tbaa !107
   %.not16 = icmp eq i32 %93, 0
   br i1 %.not16, label %105, label %94
 
 94:                                               ; preds = %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %95 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %95 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #28
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %_ZL9Abc_Clockv.exit21, label %97
 
@@ -1462,7 +1434,7 @@ _ZL9Abc_Clockv.exit21:                            ; preds = %94, %97
   %108 = select i1 %106, ptr @.str.23, ptr %.str.24..str.25
   %109 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %110 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
+  %110 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #28
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %_ZN5Gluco3vecINS_3LitEED2Ev.exit, label %112
 
@@ -1486,7 +1458,7 @@ _ZN5Gluco3vecINS_3LitEED2Ev.exit:                 ; preds = %112, %105
   br label %122
 
 122:                                              ; preds = %_ZN5Gluco3vecINS_3LitEED2Ev.exit, %_ZN5Gluco6Solver8toDimacsEPKc.exit
-  call void @_ZN5Gluco10SimpSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %9) #29
+  call void @_ZN5Gluco10SimpSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %9) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
@@ -1501,7 +1473,7 @@ define noalias noundef ptr @_Z21Glucose_SolverFromAigP10Gia_Man_t_RN5Gluco10Simp
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
+  %5 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #28
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %_ZL9Abc_Clockv.exit, label %7
 
@@ -1518,7 +1490,7 @@ _ZL9Abc_Clockv.exit:                              ; preds = %2, %7
   %.0.i.neg = phi i64 [ %.neg30, %7 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %12 = call ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef 8, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #29
+  %12 = call ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef 8, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !114
   %15 = icmp sgt i32 %14, 0
@@ -1538,13 +1510,13 @@ _ZL9Abc_Clockv.exit:                              ; preds = %2, %7
   %23 = load ptr, ptr %22, align 8, !tbaa !119
   %24 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %24, align 8, !tbaa !120
-  %25 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %25 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %.val, ptr %26, align 4, !tbaa !136
   store i32 %.val, ptr %25, align 8, !tbaa !137
   %27 = sext i32 %.val to i64
   %28 = shl nsw i64 %27, 2
-  %29 = call noalias ptr @malloc(i64 noundef %28) #32
+  %29 = call noalias ptr @malloc(i64 noundef %28) #31
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %29, ptr %30, align 8, !tbaa !138
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %29, ptr readonly align 4 %23, i64 %28, i1 false)
@@ -1554,7 +1526,7 @@ _ZL9Abc_Clockv.exit:                              ; preds = %2, %7
   %34 = load i32, ptr %33, align 4, !tbaa !140
   %35 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %32, i32 noundef %21, i32 noundef %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
+  %36 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #28
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %_ZL9Abc_Clockv.exit27, label %38
 
@@ -1575,7 +1547,7 @@ _ZL9Abc_Clockv.exit27:                            ; preds = %._crit_edge39, %38
   %46 = sitofp i64 %45 to double
   %47 = fdiv double %46, 1.000000e+06
   call void (i32, ptr, ...) @_ZL9Abc_PrintiPKcz(i32 poison, ptr noundef nonnull @.str.43, double noundef %47)
-  call void @Cnf_DataFree(ptr noundef nonnull %12) #29
+  call void @Cnf_DataFree(ptr noundef nonnull %12) #28
   ret ptr %25
 
 48:                                               ; preds = %.lr.ph38, %._crit_edge
@@ -1600,14 +1572,14 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %48, %.preheader.i
 
 ._crit_edge:                                      ; preds = %_ZN5Gluco10SimpSolver6addVarEi.exit, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit
   call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %20)
-  %56 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %1, ptr noundef nonnull align 8 dereferenceable(16) %20) #29
+  %56 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %1, ptr noundef nonnull align 8 dereferenceable(16) %20) #28
   %57 = load i32, ptr %13, align 8, !tbaa !114
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
   br i1 %59, label %48, label %._crit_edge39, !llvm.loop !142
 
 .lr.ph:                                           ; preds = %_ZN5Gluco3vecINS_3LitEE5clearEb.exit, %_ZN5Gluco10SimpSolver6addVarEi.exit
-  %.02536 = phi ptr [ %92, %_ZN5Gluco10SimpSolver6addVarEi.exit ], [ %52, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit ]
+  %.02536 = phi ptr [ %88, %_ZN5Gluco10SimpSolver6addVarEi.exit ], [ %52, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit ]
   %60 = load i32, ptr %.02536, align 4, !tbaa !6
   %61 = load i32, ptr %16, align 8, !tbaa !16
   %62 = load i32, ptr %18, align 4, !tbaa !19
@@ -1633,53 +1605,46 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %48, %.preheader.i
   store i32 %73, ptr %18, align 4, !tbaa !19
   %74 = sext i32 %73 to i64
   %75 = shl nsw i64 %74, 2
-  %76 = call ptr @realloc(ptr noundef %72, i64 noundef %75) #30
+  %76 = call ptr @realloc(ptr noundef %72, i64 noundef %75) #29
   store ptr %76, ptr %11, align 8, !tbaa !13
   %77 = icmp eq ptr %76, null
-  br i1 %77, label %78, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge
+  br i1 %77, label %.loopexit, label %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge
 
 ._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %71
   %.pre = load i32, ptr %16, align 8, !tbaa !16
   br label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
 
-78:                                               ; preds = %71
-  %79 = tail call ptr @__errno_location() #31
-  %80 = load i32, ptr %79, align 4, !tbaa !6
-  %81 = icmp eq i32 %80, 12
-  call void @llvm.assume(i1 %81)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %64, %78
+.loopexit:                                        ; preds = %64, %71
   call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit:          ; preds = %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i
-  %82 = phi i32 [ %61, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %83 = phi ptr [ %.pre.i, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %76, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %84 = add nsw i32 %82, 1
-  store i32 %84, ptr %16, align 8, !tbaa !16
-  %85 = sext i32 %82 to i64
-  %86 = getelementptr inbounds %"struct.Gluco::Lit", ptr %83, i64 %85
-  store i32 %60, ptr %86, align 4, !tbaa !6
-  %87 = load i32, ptr %.02536, align 4, !tbaa !6
-  %88 = ashr i32 %87, 1
-  %89 = load i32, ptr %19, align 8, !tbaa !9
-  %.not1.i = icmp slt i32 %88, %89
+  %78 = phi i32 [ %61, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %79 = phi ptr [ %.pre.i, %._ZN5Gluco3vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %76, %._ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %80 = add nsw i32 %78, 1
+  store i32 %80, ptr %16, align 8, !tbaa !16
+  %81 = sext i32 %78 to i64
+  %82 = getelementptr inbounds %"struct.Gluco::Lit", ptr %79, i64 %81
+  store i32 %60, ptr %82, align 4, !tbaa !6
+  %83 = load i32, ptr %.02536, align 4, !tbaa !6
+  %84 = ashr i32 %83, 1
+  %85 = load i32, ptr %19, align 8, !tbaa !9
+  %.not1.i = icmp slt i32 %84, %85
   br i1 %.not1.i, label %_ZN5Gluco10SimpSolver6addVarEi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit, %.lr.ph.i
-  %90 = call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %1, i1 noundef zeroext true, i1 noundef zeroext true) #29
-  %91 = load i32, ptr %19, align 8, !tbaa !9
-  %.not.i28 = icmp slt i32 %88, %91
+  %86 = call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %1, i1 noundef zeroext true, i1 noundef zeroext true) #28
+  %87 = load i32, ptr %19, align 8, !tbaa !9
+  %.not.i28 = icmp slt i32 %84, %87
   br i1 %.not.i28, label %_ZN5Gluco10SimpSolver6addVarEi.exit, label %.lr.ph.i, !llvm.loop !101
 
 _ZN5Gluco10SimpSolver6addVarEi.exit:              ; preds = %.lr.ph.i, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
-  %92 = getelementptr inbounds nuw i8, ptr %.02536, i64 4
-  %93 = load ptr, ptr %17, align 8, !tbaa !141
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.next
-  %95 = load ptr, ptr %94, align 8, !tbaa !55
-  %96 = icmp ult ptr %92, %95
-  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !143
+  %88 = getelementptr inbounds nuw i8, ptr %.02536, i64 4
+  %89 = load ptr, ptr %17, align 8, !tbaa !141
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.next
+  %91 = load ptr, ptr %90, align 8, !tbaa !55
+  %92 = icmp ult ptr %88, %91
+  br i1 %92, label %.lr.ph, label %._crit_edge, !llvm.loop !143
 }
 
 declare ptr @Mf_ManGenerateCnf(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1688,7 +1653,7 @@ declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noalias noundef ptr @_Z22Glucose_SolverFromAig2P10Gia_Man_t_RN5Gluco10SimpSolverE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1484) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef 8, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #29
+  %3 = tail call ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef 8, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0) #28
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !114
   %6 = icmp sgt i32 %5, 0
@@ -1703,17 +1668,17 @@ define noalias noundef ptr @_Z22Glucose_SolverFromAig2P10Gia_Man_t_RN5Gluco10Sim
   %9 = load ptr, ptr %8, align 8, !tbaa !119
   %10 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %10, align 8, !tbaa !120
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %.val, ptr %12, align 4, !tbaa !136
   store i32 %.val, ptr %11, align 8, !tbaa !137
   %13 = sext i32 %.val to i64
   %14 = shl nsw i64 %13, 2
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #32
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #31
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %15, ptr %16, align 8, !tbaa !138
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %15, ptr readonly align 4 %9, i64 %14, i1 false)
-  tail call void @Cnf_DataFree(ptr noundef nonnull %3) #29
+  tail call void @Cnf_DataFree(ptr noundef nonnull %3) #28
   ret ptr %11
 
 17:                                               ; preds = %.lr.ph, %17
@@ -1741,14 +1706,14 @@ define noalias noundef ptr @_Z21Glucose_GenerateCubesPPvP10Vec_Int_t_S2_i(ptr no
   %5 = alloca %"class.Gluco::vec.0", align 8
   %6 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %6, align 4, !tbaa !136
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !145
   store i32 1000, ptr %7, align 8, !tbaa !147
-  %9 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #32
+  %9 = tail call noalias dereferenceable_or_null(1000) ptr @malloc(i64 noundef 1000) #31
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !148
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %12 = add i32 %.val, -1
   %or.cond.i = icmp ult i32 %12, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %.val
@@ -1761,7 +1726,7 @@ define noalias noundef ptr @_Z21Glucose_GenerateCubesPPvP10Vec_Int_t_S2_i(ptr no
 14:                                               ; preds = %4
   %15 = sext i32 %spec.store.select.i to i64
   %16 = shl nsw i64 %15, 2
-  %17 = tail call noalias ptr @malloc(i64 noundef %16) #32
+  %17 = tail call noalias ptr @malloc(i64 noundef %16) #31
   br label %_ZL12Vec_IntAlloci.exit
 
 _ZL12Vec_IntAlloci.exit:                          ; preds = %4, %14
@@ -1769,7 +1734,7 @@ _ZL12Vec_IntAlloci.exit:                          ; preds = %4, %14
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !138
   %20 = add nsw i32 %.val, 4
-  %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %22 = add nsw i32 %.val, 3
   %or.cond.i77 = icmp ult i32 %22, 15
   %spec.store.select.i78 = select i1 %or.cond.i77, i32 16, i32 %20
@@ -1780,7 +1745,7 @@ _ZL12Vec_IntAlloci.exit:                          ; preds = %4, %14
 
 _ZL12Vec_StrAlloci.exit:                          ; preds = %_ZL12Vec_IntAlloci.exit
   %24 = sext i32 %spec.store.select.i78 to i64
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #32
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #31
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %25, ptr %26, align 8, !tbaa !148
   %.not.i.i = icmp slt i32 %spec.store.select.i78, %.val
@@ -1806,13 +1771,13 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.thread:     ; preds = %_ZL12Vec_StrAlloci.
   br i1 %.not9.i.i, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call ptr @realloc(ptr noundef nonnull %25, i64 noundef %30) #30
+  %32 = tail call ptr @realloc(ptr noundef nonnull %25, i64 noundef %30) #29
   br label %37
 
 33:                                               ; preds = %.thread, %29
   %34 = phi i64 [ %28, %.thread ], [ %30, %29 ]
   %35 = phi ptr [ %27, %.thread ], [ %26, %29 ]
-  %36 = tail call noalias ptr @malloc(i64 noundef %34) #32
+  %36 = tail call noalias ptr @malloc(i64 noundef %34) #31
   br label %37
 
 37:                                               ; preds = %33, %31
@@ -1871,14 +1836,14 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit:             ; preds = %.lr.ph.i, %_ZL11Vec
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %59)
-  %60 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %58, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %60 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %58, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %61 = load ptr, ptr %5, align 8, !tbaa !13
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %57
   store i32 0, ptr %49, align 8, !tbaa !16
-  call void @free(ptr noundef nonnull %61) #29
+  call void @free(ptr noundef nonnull %61) #28
   br label %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit
 
 _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit: ; preds = %57, %.preheader.i.i.i
@@ -1930,11 +1895,11 @@ _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit: ; preds = %57, %.preheade
   br i1 %.not9.i.i80, label %86, label %84
 
 84:                                               ; preds = %82
-  %85 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %83, i64 noundef 64) #30
+  %85 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %83, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 86:                                               ; preds = %82
-  %87 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %87 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %86, %84
@@ -1952,11 +1917,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %86, %84
   br i1 %.not9.i9.i, label %96, label %94
 
 94:                                               ; preds = %89
-  %95 = call ptr @realloc(ptr noundef nonnull %91, i64 noundef %93) #30
+  %95 = call ptr @realloc(ptr noundef nonnull %91, i64 noundef %93) #29
   br label %98
 
 96:                                               ; preds = %89
-  %97 = call noalias ptr @malloc(i64 noundef %93) #32
+  %97 = call noalias ptr @malloc(i64 noundef %93) #31
   br label %98
 
 98:                                               ; preds = %96, %94
@@ -2016,11 +1981,11 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   br i1 %.not9.i.i86, label %117, label %115
 
 115:                                              ; preds = %113
-  %116 = call ptr @realloc(ptr noundef nonnull %114, i64 noundef %51) #30
+  %116 = call ptr @realloc(ptr noundef nonnull %114, i64 noundef %51) #29
   br label %119
 
 117:                                              ; preds = %113
-  %118 = call noalias ptr @malloc(i64 noundef %51) #32
+  %118 = call noalias ptr @malloc(i64 noundef %51) #31
   br label %119
 
 119:                                              ; preds = %117, %115
@@ -2086,7 +2051,7 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit87:           ; preds = %.lr.ph.i83, %_ZL11V
 ._crit_edge107:                                   ; preds = %140, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87
   %.061.lcssa = phi i32 [ 0, %_ZL11Vec_StrFillP10Vec_Str_t_ic.exit87 ], [ %.1, %140 ]
   %.val76 = load ptr, ptr %46, align 8, !tbaa !148
-  %141 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val76) #33
+  %141 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.val76) #32
   %142 = trunc i64 %141 to i32
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.lr.ph.i.i, label %_ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit
@@ -2118,11 +2083,11 @@ _ZL11Vec_StrFillP10Vec_Str_t_ic.exit87:           ; preds = %.lr.ph.i83, %_ZL11V
   br i1 %.not9.i.i.i.i, label %156, label %154
 
 154:                                              ; preds = %152
-  %155 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %153, i64 noundef 16) #30
+  %155 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %153, i64 noundef 16) #29
   br label %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.i.i
 
 156:                                              ; preds = %152
-  %157 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %157 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   br label %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.i.i
 
 _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.i.i:        ; preds = %156, %154
@@ -2139,11 +2104,11 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i.i.i:        ; preds = %156, %154
   br i1 %.not9.i9.i.i.i, label %165, label %163
 
 163:                                              ; preds = %159
-  %164 = call ptr @realloc(ptr noundef nonnull %161, i64 noundef %162) #30
+  %164 = call ptr @realloc(ptr noundef nonnull %161, i64 noundef %162) #29
   br label %167
 
 165:                                              ; preds = %159
-  %166 = call noalias ptr @malloc(i64 noundef %162) #32
+  %166 = call noalias ptr @malloc(i64 noundef %162) #31
   br label %167
 
 167:                                              ; preds = %165, %163
@@ -2179,21 +2144,21 @@ _ZL13Vec_StrAppendP10Vec_Str_t_PKc.exit:          ; preds = %_ZL11Vec_StrPushP10
   br i1 %.not.i88, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %176
 
 176:                                              ; preds = %.thread97
-  call void @free(ptr noundef nonnull %175) #29
+  call void @free(ptr noundef nonnull %175) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.thread97, %176
-  call void @free(ptr noundef nonnull %11) #29
+  call void @free(ptr noundef nonnull %11) #28
   %177 = load ptr, ptr %46, align 8, !tbaa !148
   %.not.i89 = icmp eq ptr %177, null
   br i1 %.not.i89, label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit, label %178
 
 178:                                              ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  call void @free(ptr noundef nonnull %177) #29
+  call void @free(ptr noundef nonnull %177) #28
   br label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit
 
 _ZL11Vec_StrFreeP10Vec_Str_t_.exit:               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %178
-  call void @free(ptr noundef nonnull %21) #29
+  call void @free(ptr noundef nonnull %21) #28
   %179 = load i32, ptr %8, align 4, !tbaa !145
   %180 = load i32, ptr %7, align 8, !tbaa !147
   %181 = icmp eq i32 %179, %180
@@ -2213,11 +2178,11 @@ _ZL11Vec_StrFreeP10Vec_Str_t_.exit:               ; preds = %_ZL11Vec_IntFreeP10
   br i1 %.not9.i.i93, label %188, label %186
 
 186:                                              ; preds = %184
-  %187 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %185, i64 noundef 16) #30
+  %187 = call dereferenceable_or_null(16) ptr @realloc(ptr noundef nonnull %185, i64 noundef 16) #29
   br label %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i94
 
 188:                                              ; preds = %184
-  %189 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %189 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   br label %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i94
 
 _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i94:          ; preds = %188, %186
@@ -2234,11 +2199,11 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit.i94:          ; preds = %188, %186
   br i1 %.not9.i9.i92, label %197, label %195
 
 195:                                              ; preds = %191
-  %196 = call ptr @realloc(ptr noundef nonnull %193, i64 noundef %194) #30
+  %196 = call ptr @realloc(ptr noundef nonnull %193, i64 noundef %194) #29
   br label %199
 
 197:                                              ; preds = %191
-  %198 = call noalias ptr @malloc(i64 noundef %194) #32
+  %198 = call noalias ptr @malloc(i64 noundef %194) #31
   br label %199
 
 199:                                              ; preds = %197, %195
@@ -2277,12 +2242,12 @@ define internal void @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef captures(n
   br i1 %.not9.i, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = call ptr @realloc(ptr noundef nonnull %8, i64 noundef %10) #30
+  %12 = call ptr @realloc(ptr noundef nonnull %8, i64 noundef %10) #29
   %.val19.pre.pre = load i32, ptr %4, align 4, !tbaa !145
   br label %15
 
 13:                                               ; preds = %9
-  %14 = call noalias ptr @malloc(i64 noundef %10) #32
+  %14 = call noalias ptr @malloc(i64 noundef %10) #31
   br label %15
 
 15:                                               ; preds = %13, %11
@@ -2298,7 +2263,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit:              ; preds = %2, %15
   %17 = getelementptr i8, ptr %0, i64 8
   %18 = sext i32 %.val19 to i64
   %19 = getelementptr inbounds i8, ptr %.val20, i64 %18
-  %20 = call i32 @vsnprintf(ptr noundef %19, i64 noundef 1000, ptr noundef %1, ptr noundef nonnull %3) #29
+  %20 = call i32 @vsnprintf(ptr noundef %19, i64 noundef 1000, ptr noundef %1, ptr noundef nonnull %3) #28
   %21 = icmp sgt i32 %20, 1000
   br i1 %21, label %22, label %38
 
@@ -2317,12 +2282,12 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit:              ; preds = %2, %15
   br i1 %.not9.i26, label %30, label %28
 
 28:                                               ; preds = %26
-  %29 = call ptr @realloc(ptr noundef nonnull %.val22.pre, i64 noundef %27) #30
+  %29 = call ptr @realloc(ptr noundef nonnull %.val22.pre, i64 noundef %27) #29
   %.val21.pre.pre = load i32, ptr %4, align 4, !tbaa !145
   br label %32
 
 30:                                               ; preds = %26
-  %31 = call noalias ptr @malloc(i64 noundef %27) #32
+  %31 = call noalias ptr @malloc(i64 noundef %27) #31
   br label %32
 
 32:                                               ; preds = %30, %28
@@ -2338,7 +2303,7 @@ _ZL11Vec_StrGrowP10Vec_Str_t_i.exit27:            ; preds = %22, %32
   %34 = sext i32 %.val21 to i64
   %35 = getelementptr inbounds i8, ptr %.val22, i64 %34
   %36 = zext nneg i32 %20 to i64
-  %37 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %36, ptr noundef %1, ptr noundef nonnull %3) #29
+  %37 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %36, ptr noundef %1, ptr noundef nonnull %3) #28
   br label %38
 
 38:                                               ; preds = %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit27, %_ZL11Vec_StrGrowP10Vec_Str_t_i.exit
@@ -2355,16 +2320,16 @@ define noalias noundef ptr @bmcg_sat_solver_sop(ptr noundef %0, i32 noundef %1) 
   %3 = alloca [2 x ptr], align 16
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %5) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %5) #29
+  %5 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %5) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %5) #28
   store ptr %5, ptr %3, align 16, !tbaa !151
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %7) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %7) #28
   store ptr %7, ptr %6, align 8, !tbaa !151
-  %8 = tail call ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #29
+  %8 = tail call ptr @Mf_ManGenerateCnf(ptr noundef %0, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #28
   %9 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %9, align 8, !tbaa !156
   %10 = getelementptr i8, ptr %.val, i64 4
@@ -2375,13 +2340,13 @@ define noalias noundef ptr @bmcg_sat_solver_sop(ptr noundef %0, i32 noundef %1) 
   %13 = sub nsw i32 %12, %.val.val
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %indvars.iv90.sroa.gep130 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv90.sroa.gep129 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %16
 
-16:                                               ; preds = %2, %121
-  %17 = phi i1 [ true, %2 ], [ false, %121 ]
-  %indvars.iv90.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv90.sroa.gep130, %121 ]
-  %indvars.iv90 = phi i32 [ 0, %2 ], [ 1, %121 ]
+16:                                               ; preds = %2, %117
+  %17 = phi i1 [ true, %2 ], [ false, %117 ]
+  %indvars.iv90.sroa.phi = phi ptr [ %3, %2 ], [ %indvars.iv90.sroa.gep129, %117 ]
+  %indvars.iv90 = phi i32 [ 0, %2 ], [ 1, %117 ]
   %18 = load ptr, ptr %indvars.iv90.sroa.phi, align 8, !tbaa !151
   %19 = load i32, ptr %11, align 8, !tbaa !139
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 736
@@ -2391,7 +2356,7 @@ define noalias noundef ptr @bmcg_sat_solver_sop(ptr noundef %0, i32 noundef %1) 
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %.04.i = phi i32 [ %24, %.lr.ph.i ], [ %21, %16 ]
-  %23 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %18, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %23 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %18, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %24 = add i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %24, %19
   br i1 %exitcond.not.i, label %bmcg_sat_solver_set_nvars.exit, label %.lr.ph.i, !llvm.loop !56
@@ -2432,8 +2397,8 @@ bmcg_sat_solver_set_nvars.exit:                   ; preds = %.lr.ph.i, %16
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i
   %indvars.iv = phi i64 [ 0, %.preheader.i.preheader ], [ %indvars.iv.next, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
   %.sroa.12.3 = phi i32 [ 0, %.preheader.i.preheader ], [ %.sroa.12.4, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
-  %.0813.i = phi ptr [ %33, %.preheader.i.preheader ], [ %110, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
-  %42 = phi ptr [ null, %.preheader.i.preheader ], [ %108, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
+  %.0813.i = phi ptr [ %33, %.preheader.i.preheader ], [ %106, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
+  %42 = phi ptr [ null, %.preheader.i.preheader ], [ %104, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
   %43 = load i32, ptr %.0813.i, align 4, !tbaa !6
   %44 = sdiv i32 %43, 2
   %45 = load i32, ptr %20, align 8, !tbaa !9
@@ -2442,7 +2407,7 @@ bmcg_sat_solver_set_nvars.exit:                   ; preds = %.lr.ph.i, %16
 
 ._crit_edge15.i:                                  ; preds = %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i, %30
   %.sroa.6.2 = phi i32 [ 0, %30 ], [ %40, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
-  %.lcssa10.i = phi ptr [ null, %30 ], [ %108, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
+  %.lcssa10.i = phi ptr [ null, %30 ], [ %104, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i ]
   %46 = load ptr, ptr %28, align 8, !tbaa !13
   %.not.i.i53 = icmp eq ptr %46, null
   br i1 %.not.i.i53, label %._ZN5Gluco3vecINS_3LitEE5clearEb.exit_crit_edge.i, label %.preheader.i.i
@@ -2482,13 +2447,13 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit.i:           ; preds = %.preheader.i.i, %._
   store i32 %61, ptr %29, align 4, !tbaa !19
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 2
-  %64 = tail call ptr @realloc(ptr noundef %46, i64 noundef %63) #30
+  %64 = tail call ptr @realloc(ptr noundef %46, i64 noundef %63) #29
   store ptr %64, ptr %28, align 8, !tbaa !13
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %_ZN5Gluco3vecINS_3LitEE8capacityEi.exit.i.i
 
 66:                                               ; preds = %60
-  %67 = tail call ptr @__errno_location() #31
+  %67 = tail call ptr @__errno_location() #30
   %68 = load i32, ptr %67, align 4, !tbaa !6
   %69 = icmp eq i32 %68, 12
   br i1 %69, label %70, label %_ZN5Gluco3vecINS_3LitEE8capacityEi.exit.i.i
@@ -2540,20 +2505,20 @@ _ZN5Gluco3vecINS_3LitEE6growToEi.exit.i:          ; preds = %._crit_edge.i.i, %_
   br i1 %exitcond86.not, label %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.thread, label %79, !llvm.loop !157
 
 _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.thread: ; preds = %79
-  %83 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %18, ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  %83 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %18, ptr noundef nonnull align 8 dereferenceable(16) %28) #28
   br label %.preheader.i.i.i
 
 _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit:        ; preds = %_ZN5Gluco3vecINS_3LitEE6growToEi.exit.i
-  %84 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %18, ptr noundef nonnull align 8 dereferenceable(16) %28) #29
+  %84 = tail call noundef zeroext i1 @_ZN5Gluco10SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1484) %18, ptr noundef nonnull align 8 dereferenceable(16) %28) #28
   %.not.i.i.i = icmp eq ptr %.lcssa10.i, null
   br i1 %.not.i.i.i, label %_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.thread, %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit
-  tail call void @free(ptr noundef nonnull %.lcssa10.i) #29
+  tail call void @free(ptr noundef nonnull %.lcssa10.i) #28
   br label %_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii.exit
 
 .lr.ph.i50:                                       ; preds = %.preheader.i, %.lr.ph.i50
-  %85 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %18, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %85 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %18, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %86 = load i32, ptr %.0813.i, align 4, !tbaa !6
   %87 = sdiv i32 %86, 2
   %88 = load i32, ptr %20, align 8, !tbaa !9
@@ -2579,204 +2544,197 @@ _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit:        ; preds = %_ZN5Gluco3vecINS_3L
   %99 = add nuw nsw i32 %95, %92
   %100 = zext nneg i32 %99 to i64
   %101 = shl nuw nsw i64 %100, 2
-  %102 = tail call ptr @realloc(ptr noundef %42, i64 noundef %101) #30
+  %102 = tail call ptr @realloc(ptr noundef %42, i64 noundef %101) #29
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i
+  br i1 %103, label %.loopexit.i, label %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i
 
-104:                                              ; preds = %98
-  %105 = tail call ptr @__errno_location() #31
-  %106 = load i32, ptr %105, align 4, !tbaa !6
-  %107 = icmp eq i32 %106, 12
-  tail call void @llvm.assume(i1 %107)
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %91, %104
+.loopexit.i:                                      ; preds = %91, %98
   tail call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit.i:        ; preds = %98, %._crit_edge.i
   %.sroa.12.4 = phi i32 [ %99, %98 ], [ %.sroa.12.3, %._crit_edge.i ]
-  %108 = phi ptr [ %102, %98 ], [ %42, %._crit_edge.i ]
+  %104 = phi ptr [ %102, %98 ], [ %42, %._crit_edge.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = getelementptr inbounds nuw %"struct.Gluco::Lit", ptr %108, i64 %indvars.iv
-  store i32 %.lcssa.i, ptr %109, align 4, !tbaa !6
-  %110 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 4
+  %105 = getelementptr inbounds nuw %"struct.Gluco::Lit", ptr %104, i64 %indvars.iv
+  store i32 %.lcssa.i, ptr %105, align 4, !tbaa !6
+  %106 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 4
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge15.i, label %.preheader.i, !llvm.loop !20
 
 _Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii.exit: ; preds = %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit, %.preheader.i.i.i
-  %111 = load i32, ptr %14, align 8, !tbaa !114
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next88, %112
-  br i1 %113, label %30, label %._crit_edge, !llvm.loop !158
+  %107 = load i32, ptr %14, align 8, !tbaa !114
+  %108 = sext i32 %107 to i64
+  %109 = icmp slt i64 %indvars.iv.next88, %108
+  br i1 %109, label %30, label %._crit_edge, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii.exit, %bmcg_sat_solver_set_nvars.exit
-  %114 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %18, ptr noundef nonnull readonly %4, i32 noundef 1)
-  %.not = icmp eq i32 %114, 0
-  br i1 %.not, label %115, label %121
+  %110 = call noundef range(i32 0, 2) i32 @_Z24glucose_solver_addclausePN5Gluco10SimpSolverEPii(ptr noundef nonnull %18, ptr noundef nonnull readonly %4, i32 noundef 1)
+  %.not = icmp eq i32 %110, 0
+  br i1 %.not, label %111, label %117
 
-115:                                              ; preds = %._crit_edge
-  %116 = xor i32 %indvars.iv90, 1
-  %117 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  store i32 0, ptr %118, align 4, !tbaa !145
-  store i32 16, ptr %117, align 8, !tbaa !147
-  %119 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %119, ptr %120, align 8, !tbaa !148
-  tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef nonnull %117, ptr noundef nonnull @.str.29, i32 noundef %116)
-  tail call void @Cnf_DataFree(ptr noundef nonnull %8) #29
-  br label %178
+111:                                              ; preds = %._crit_edge
+  %112 = xor i32 %indvars.iv90, 1
+  %113 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
+  store i32 0, ptr %114, align 4, !tbaa !145
+  store i32 16, ptr %113, align 8, !tbaa !147
+  %115 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store ptr %115, ptr %116, align 8, !tbaa !148
+  tail call void (ptr, ptr, ...) @_ZL13Vec_StrPrintFP10Vec_Str_t_PKcz(ptr noundef nonnull %113, ptr noundef nonnull @.str.29, i32 noundef %112)
+  tail call void @Cnf_DataFree(ptr noundef nonnull %8) #28
+  br label %174
 
-121:                                              ; preds = %._crit_edge
-  br i1 %17, label %16, label %122, !llvm.loop !159
+117:                                              ; preds = %._crit_edge
+  br i1 %17, label %16, label %118, !llvm.loop !159
 
-122:                                              ; preds = %121
-  tail call void @Cnf_DataFree(ptr noundef nonnull %8) #29
-  %123 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  store i32 0, ptr %124, align 4, !tbaa !136
-  store i32 100, ptr %123, align 8, !tbaa !137
-  %125 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #32
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store ptr %125, ptr %126, align 8, !tbaa !138
-  %127 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
-  %128 = add i32 %12, -1
-  %or.cond.i.i = icmp ult i32 %128, 15
+118:                                              ; preds = %117
+  tail call void @Cnf_DataFree(ptr noundef nonnull %8) #28
+  %119 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
+  store i32 0, ptr %120, align 4, !tbaa !136
+  store i32 100, ptr %119, align 8, !tbaa !137
+  %121 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #31
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  store ptr %121, ptr %122, align 8, !tbaa !138
+  %123 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
+  %124 = add i32 %12, -1
+  %or.cond.i.i = icmp ult i32 %124, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %12
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  store i32 %spec.store.select.i.i, ptr %127, align 8, !tbaa !137
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  store i32 %spec.store.select.i.i, ptr %123, align 8, !tbaa !137
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %_ZL12Vec_IntAlloci.exit.thread.i, label %_ZL12Vec_IntAlloci.exit.i
 
-_ZL12Vec_IntAlloci.exit.thread.i:                 ; preds = %122
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr null, ptr %130, align 8, !tbaa !138
-  store i32 %12, ptr %129, align 4, !tbaa !136
+_ZL12Vec_IntAlloci.exit.thread.i:                 ; preds = %118
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store ptr null, ptr %126, align 8, !tbaa !138
+  store i32 %12, ptr %125, align 4, !tbaa !136
   br label %_ZL16Vec_IntStartFulli.exit
 
-_ZL12Vec_IntAlloci.exit.i:                        ; preds = %122
-  %131 = sext i32 %spec.store.select.i.i to i64
-  %132 = shl nsw i64 %131, 2
-  %133 = tail call noalias ptr @malloc(i64 noundef %132) #32
-  %134 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  store ptr %133, ptr %134, align 8, !tbaa !138
-  store i32 %12, ptr %129, align 4, !tbaa !136
-  %.not.i = icmp eq ptr %133, null
-  br i1 %.not.i, label %_ZL16Vec_IntStartFulli.exit, label %135
+_ZL12Vec_IntAlloci.exit.i:                        ; preds = %118
+  %127 = sext i32 %spec.store.select.i.i to i64
+  %128 = shl nsw i64 %127, 2
+  %129 = tail call noalias ptr @malloc(i64 noundef %128) #31
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store ptr %129, ptr %130, align 8, !tbaa !138
+  store i32 %12, ptr %125, align 4, !tbaa !136
+  %.not.i = icmp eq ptr %129, null
+  br i1 %.not.i, label %_ZL16Vec_IntStartFulli.exit, label %131
 
-135:                                              ; preds = %_ZL12Vec_IntAlloci.exit.i
-  %136 = sext i32 %12 to i64
-  %137 = shl nsw i64 %136, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %133, i8 -1, i64 %137, i1 false)
+131:                                              ; preds = %_ZL12Vec_IntAlloci.exit.i
+  %132 = sext i32 %12 to i64
+  %133 = shl nsw i64 %132, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %129, i8 -1, i64 %133, i1 false)
   br label %_ZL16Vec_IntStartFulli.exit
 
-_ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.exit.thread.i, %_ZL12Vec_IntAlloci.exit.i, %135
-  %.val45 = phi ptr [ null, %_ZL12Vec_IntAlloci.exit.thread.i ], [ null, %_ZL12Vec_IntAlloci.exit.i ], [ %133, %135 ]
-  %138 = icmp sgt i32 %.val.val, 0
-  br i1 %138, label %.lr.ph75, label %._crit_edge76
+_ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.exit.thread.i, %_ZL12Vec_IntAlloci.exit.i, %131
+  %.val45 = phi ptr [ null, %_ZL12Vec_IntAlloci.exit.thread.i ], [ null, %_ZL12Vec_IntAlloci.exit.i ], [ %129, %131 ]
+  %134 = icmp sgt i32 %.val.val, 0
+  br i1 %134, label %.lr.ph75, label %._crit_edge76
 
 .lr.ph75:                                         ; preds = %_ZL16Vec_IntStartFulli.exit
   %wide.trip.count96 = zext nneg i32 %.val.val to i64
-  br label %139
+  br label %135
 
-139:                                              ; preds = %.lr.ph75, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
-  %140 = phi ptr [ %125, %.lr.ph75 ], [ %.pre.i100, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit ]
+135:                                              ; preds = %.lr.ph75, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
+  %136 = phi ptr [ %121, %.lr.ph75 ], [ %.pre.i100, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit ]
   %indvars.iv93 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next94, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit ]
-  %141 = trunc nuw nsw i64 %indvars.iv93 to i32
-  %142 = add nsw i32 %13, %141
-  %143 = load i32, ptr %124, align 4, !tbaa !136
-  %144 = load i32, ptr %123, align 8, !tbaa !137
-  %145 = icmp eq i32 %143, %144
-  br i1 %145, label %146, label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
+  %137 = trunc nuw nsw i64 %indvars.iv93 to i32
+  %138 = add nsw i32 %13, %137
+  %139 = load i32, ptr %120, align 4, !tbaa !136
+  %140 = load i32, ptr %119, align 8, !tbaa !137
+  %141 = icmp eq i32 %139, %140
+  br i1 %141, label %142, label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
 
-146:                                              ; preds = %139
-  %147 = icmp slt i32 %143, 16
-  br i1 %147, label %148, label %153
+142:                                              ; preds = %135
+  %143 = icmp slt i32 %139, 16
+  br i1 %143, label %144, label %149
 
-148:                                              ; preds = %146
-  %.not9.i.i = icmp eq ptr %140, null
-  br i1 %.not9.i.i, label %151, label %149
+144:                                              ; preds = %142
+  %.not9.i.i = icmp eq ptr %136, null
+  br i1 %.not9.i.i, label %147, label %145
 
-149:                                              ; preds = %148
-  %150 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %140, i64 noundef 64) #30
+145:                                              ; preds = %144
+  %146 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %136, i64 noundef 64) #29
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split
 
-151:                                              ; preds = %148
-  %152 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+147:                                              ; preds = %144
+  %148 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split
 
-153:                                              ; preds = %146
-  %154 = shl nuw nsw i32 %143, 1
-  %.not9.i9.i = icmp eq ptr %140, null
-  %155 = zext nneg i32 %154 to i64
-  %156 = shl nuw nsw i64 %155, 2
-  br i1 %.not9.i9.i, label %159, label %157
+149:                                              ; preds = %142
+  %150 = shl nuw nsw i32 %139, 1
+  %.not9.i9.i = icmp eq ptr %136, null
+  %151 = zext nneg i32 %150 to i64
+  %152 = shl nuw nsw i64 %151, 2
+  br i1 %.not9.i9.i, label %155, label %153
 
-157:                                              ; preds = %153
-  %158 = tail call ptr @realloc(ptr noundef nonnull %140, i64 noundef %156) #30
+153:                                              ; preds = %149
+  %154 = tail call ptr @realloc(ptr noundef nonnull %136, i64 noundef %152) #29
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split
 
-159:                                              ; preds = %153
-  %160 = tail call noalias ptr @malloc(i64 noundef %156) #32
+155:                                              ; preds = %149
+  %156 = tail call noalias ptr @malloc(i64 noundef %152) #31
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split
 
-_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split:   ; preds = %157, %159, %149, %151
-  %.sink119 = phi ptr [ %150, %149 ], [ %152, %151 ], [ %158, %157 ], [ %160, %159 ]
-  %.sink = phi i32 [ 16, %149 ], [ 16, %151 ], [ %154, %157 ], [ %154, %159 ]
-  store ptr %.sink119, ptr %126, align 8, !tbaa !138
-  store i32 %.sink, ptr %123, align 8, !tbaa !137
+_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split:   ; preds = %153, %155, %145, %147
+  %.sink119 = phi ptr [ %146, %145 ], [ %148, %147 ], [ %154, %153 ], [ %156, %155 ]
+  %.sink = phi i32 [ 16, %145 ], [ 16, %147 ], [ %150, %153 ], [ %150, %155 ]
+  store ptr %.sink119, ptr %122, align 8, !tbaa !138
+  store i32 %.sink, ptr %119, align 8, !tbaa !137
   br label %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
 
-_ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split, %139
-  %.pre.i100 = phi ptr [ %140, %139 ], [ %.sink119, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split ]
-  %161 = add nsw i32 %143, 1
-  store i32 %161, ptr %124, align 4, !tbaa !136
-  %162 = sext i32 %143 to i64
-  %163 = getelementptr inbounds i32, ptr %.pre.i100, i64 %162
-  store i32 %142, ptr %163, align 4, !tbaa !6
-  %164 = sext i32 %142 to i64
-  %165 = getelementptr inbounds i32, ptr %.val45, i64 %164
-  store i32 %141, ptr %165, align 4, !tbaa !6
+_ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split, %135
+  %.pre.i100 = phi ptr [ %136, %135 ], [ %.sink119, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit.sink.split ]
+  %157 = add nsw i32 %139, 1
+  store i32 %157, ptr %120, align 4, !tbaa !136
+  %158 = sext i32 %139 to i64
+  %159 = getelementptr inbounds i32, ptr %.pre.i100, i64 %158
+  store i32 %138, ptr %159, align 4, !tbaa !6
+  %160 = sext i32 %138 to i64
+  %161 = getelementptr inbounds i32, ptr %.val45, i64 %160
+  store i32 %137, ptr %161, align 4, !tbaa !6
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %._crit_edge76, label %139, !llvm.loop !160
+  br i1 %exitcond97.not, label %._crit_edge76, label %135, !llvm.loop !160
 
 ._crit_edge76:                                    ; preds = %_ZL11Vec_IntPushP10Vec_Int_t_i.exit, %_ZL16Vec_IntStartFulli.exit
-  %166 = phi ptr [ %125, %_ZL16Vec_IntStartFulli.exit ], [ %.pre.i100, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit ]
-  %167 = call noundef ptr @_Z21Glucose_GenerateCubesPPvP10Vec_Int_t_S2_i(ptr noundef nonnull %3, ptr noundef nonnull %123, ptr noundef nonnull %127, i32 noundef %1)
-  %168 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %169 = load ptr, ptr %168, align 8, !tbaa !138
-  %.not.i46 = icmp eq ptr %169, null
-  br i1 %.not.i46, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %170
+  %162 = phi ptr [ %121, %_ZL16Vec_IntStartFulli.exit ], [ %.pre.i100, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit ]
+  %163 = call noundef ptr @_Z21Glucose_GenerateCubesPPvP10Vec_Int_t_S2_i(ptr noundef nonnull %3, ptr noundef nonnull %119, ptr noundef nonnull %123, i32 noundef %1)
+  %164 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %165 = load ptr, ptr %164, align 8, !tbaa !138
+  %.not.i46 = icmp eq ptr %165, null
+  br i1 %.not.i46, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %166
 
-170:                                              ; preds = %._crit_edge76
-  tail call void @free(ptr noundef nonnull %169) #29
+166:                                              ; preds = %._crit_edge76
+  tail call void @free(ptr noundef nonnull %165) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
-_ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %._crit_edge76, %170
-  tail call void @free(ptr noundef nonnull %127) #29
-  %.not.i47 = icmp eq ptr %166, null
-  br i1 %.not.i47, label %bmcg_sat_solver_stop.exit49, label %171
+_ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %._crit_edge76, %166
+  tail call void @free(ptr noundef nonnull %123) #28
+  %.not.i47 = icmp eq ptr %162, null
+  br i1 %.not.i47, label %bmcg_sat_solver_stop.exit49, label %167
 
-171:                                              ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  tail call void @free(ptr noundef nonnull %166) #29
+167:                                              ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
+  tail call void @free(ptr noundef nonnull %162) #28
   br label %bmcg_sat_solver_stop.exit49
 
-bmcg_sat_solver_stop.exit49:                      ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %171
-  tail call void @free(ptr noundef nonnull %123) #29
-  %172 = load ptr, ptr %5, align 8, !tbaa !3
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %174 = load ptr, ptr %173, align 8
-  tail call void %174(ptr noundef nonnull align 8 dereferenceable(1484) %5) #29
-  %175 = load ptr, ptr %7, align 8, !tbaa !3
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %177 = load ptr, ptr %176, align 8
-  tail call void %177(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
-  br label %178
+bmcg_sat_solver_stop.exit49:                      ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %167
+  tail call void @free(ptr noundef nonnull %119) #28
+  %168 = load ptr, ptr %5, align 8, !tbaa !3
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load ptr, ptr %169, align 8
+  tail call void %170(ptr noundef nonnull align 8 dereferenceable(1484) %5) #28
+  %171 = load ptr, ptr %7, align 8, !tbaa !3
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %173 = load ptr, ptr %172, align 8
+  tail call void %173(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
+  br label %174
 
-178:                                              ; preds = %bmcg_sat_solver_stop.exit49, %115
-  %.0 = phi ptr [ %117, %115 ], [ %167, %bmcg_sat_solver_stop.exit49 ]
+174:                                              ; preds = %bmcg_sat_solver_stop.exit49, %111
+  %.0 = phi ptr [ %113, %111 ], [ %163, %bmcg_sat_solver_stop.exit49 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
@@ -2792,32 +2750,32 @@ define void @_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_(ptr noundef %0) local_un
   br i1 %.not.i, label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit, label %5
 
 5:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %.val) #29
+  tail call void @free(ptr noundef nonnull %.val) #28
   br label %_ZL11Vec_StrFreeP10Vec_Str_t_.exit
 
 _ZL11Vec_StrFreeP10Vec_Str_t_.exit:               ; preds = %1, %5
-  tail call void @free(ptr noundef nonnull %2) #29
+  tail call void @free(ptr noundef nonnull %2) #28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z29bmcg_sat_solver_print_sop_litP10Gia_Man_t_i(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4, !tbaa !136
   store i32 100, ptr %4, align 8, !tbaa !137
-  %6 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #32
+  %6 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #31
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !138
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = ashr i32 %1, 1
   store i32 %8, ptr %3, align 4, !tbaa !6
-  call void @Gia_ManCollectCis(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #29
+  call void @Gia_ManCollectCis(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #28
   %.val21 = load i32, ptr %5, align 4, !tbaa !136
   %.val22 = load ptr, ptr %7, align 8, !tbaa !138
   %9 = sext i32 %.val21 to i64
-  call void @qsort(ptr noundef %.val22, i64 noundef %9, i64 noundef 4, ptr noundef nonnull @_ZL19Vec_IntSortCompare1PiS_) #29
+  call void @qsort(ptr noundef %.val22, i64 noundef %9, i64 noundef 4, ptr noundef nonnull @_ZL19Vec_IntSortCompare1PiS_) #28
   %.val25 = load i32, ptr %5, align 4, !tbaa !136
   %10 = icmp sgt i32 %.val25, 0
   br i1 %10, label %.lr.ph, label %.critedge
@@ -2866,17 +2824,17 @@ define void @_Z29bmcg_sat_solver_print_sop_litP10Gia_Man_t_i(ptr noundef %0, i32
 
 _ZL12Vec_IntPrintP10Vec_Int_t_.exit:              ; preds = %.lr.ph.i, %.critedge
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %29 = call ptr @Gia_ManDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4) #29
+  %29 = call ptr @Gia_ManDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4) #28
   %30 = load ptr, ptr %7, align 8, !tbaa !138
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %31
 
 31:                                               ; preds = %_ZL12Vec_IntPrintP10Vec_Int_t_.exit
-  call void @free(ptr noundef nonnull %30) #29
+  call void @free(ptr noundef nonnull %30) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %_ZL12Vec_IntPrintP10Vec_Int_t_.exit, %31
-  call void @free(ptr noundef nonnull %4) #29
+  call void @free(ptr noundef nonnull %4) #28
   %32 = call ptr @bmcg_sat_solver_sop(ptr noundef %29, i32 noundef 0)
   %33 = getelementptr i8, ptr %32, i64 8
   %.val.i24 = load ptr, ptr %33, align 8, !tbaa !148
@@ -2885,12 +2843,12 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %_ZL12Vec_IntPrintP1
   br i1 %.not.i.i, label %_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit, label %35
 
 35:                                               ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  call void @free(ptr noundef nonnull %.val.i24) #29
+  call void @free(ptr noundef nonnull %.val.i24) #28
   br label %_Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit
 
 _Z25bmcg_sat_solver_print_sopP10Gia_Man_t_.exit:  ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %35
-  call void @free(ptr noundef nonnull %32) #29
-  call void @Gia_ManStop(ptr noundef %29) #29
+  call void @free(ptr noundef nonnull %32) #28
+  call void @Gia_ManStop(ptr noundef %29) #28
   %putchar = call i32 @putchar(i32 10)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2909,7 +2867,7 @@ define void @_Z23bmcg_sat_generate_dvarsP10Vec_Int_t_P10Vec_Str_t_S0_(ptr nounde
   %5 = getelementptr i8, ptr %0, i64 4
   %.val40 = load i32, ptr %5, align 4, !tbaa !136
   %6 = shl nsw i32 %.val40, 1
-  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %8 = add i32 %6, -1
   %or.cond.i.i = icmp ult i32 %8, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %6
@@ -2927,7 +2885,7 @@ _ZL12Vec_IntAlloci.exit.thread.i:                 ; preds = %3
 _ZL12Vec_IntAlloci.exit.i:                        ; preds = %3
   %11 = sext i32 %spec.store.select.i.i to i64
   %12 = shl nsw i64 %11, 2
-  %13 = tail call noalias ptr @malloc(i64 noundef %12) #32
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #31
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !138
   store i32 %6, ptr %9, align 4, !tbaa !136
@@ -3052,11 +3010,11 @@ _ZL12Vec_IntStarti.exit:                          ; preds = %_ZL12Vec_IntAlloci.
   br i1 %.not9.i.i, label %64, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %61, i64 noundef 64) #30
+  %63 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %61, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 64:                                               ; preds = %60
-  %65 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %65 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %64, %62
@@ -3074,11 +3032,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %64, %62
   br i1 %.not9.i9.i, label %74, label %72
 
 72:                                               ; preds = %67
-  %73 = tail call ptr @realloc(ptr noundef nonnull %69, i64 noundef %71) #30
+  %73 = tail call ptr @realloc(ptr noundef nonnull %69, i64 noundef %71) #29
   br label %76
 
 74:                                               ; preds = %67
-  %75 = tail call noalias ptr @malloc(i64 noundef %71) #32
+  %75 = tail call noalias ptr @malloc(i64 noundef %71) #31
   br label %76
 
 76:                                               ; preds = %74, %72
@@ -3110,16 +3068,16 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %86 = getelementptr i8, ptr %2, i64 8
   %.val45 = load ptr, ptr %86, align 8, !tbaa !138
   %87 = sext i32 %.val44 to i64
-  tail call void @qsort(ptr noundef %.val45, i64 noundef %87, i64 noundef 4, ptr noundef nonnull @_ZL19Vec_IntSortCompare1PiS_) #29
+  tail call void @qsort(ptr noundef %.val45, i64 noundef %87, i64 noundef 4, ptr noundef nonnull @_ZL19Vec_IntSortCompare1PiS_) #28
   %.not.i48 = icmp eq ptr %18, null
   br i1 %.not.i48, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %88
 
 88:                                               ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %18) #29
+  tail call void @free(ptr noundef nonnull %18) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge2, %88
-  tail call void @free(ptr noundef nonnull %7) #29
+  tail call void @free(ptr noundef nonnull %7) #28
   ret void
 }
 
@@ -3129,18 +3087,18 @@ define noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = ashr i32 %1, 1
   store i32 %8, ptr %7, align 4, !tbaa !6
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %10, align 4, !tbaa !136
   store i32 100, ptr %9, align 8, !tbaa !137
-  %11 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #32
+  %11 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #31
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !138
-  call void @Gia_ManCollectCis(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %9) #29
+  call void @Gia_ManCollectCis(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %9) #28
   %.val89 = load i32, ptr %10, align 4, !tbaa !136
   %.val90 = load ptr, ptr %12, align 8, !tbaa !138
   %13 = sext i32 %.val89 to i64
-  call void @qsort(ptr noundef %.val90, i64 noundef %13, i64 noundef 4, ptr noundef nonnull @_ZL19Vec_IntSortCompare1PiS_) #29
+  call void @qsort(ptr noundef %.val90, i64 noundef %13, i64 noundef 4, ptr noundef nonnull @_ZL19Vec_IntSortCompare1PiS_) #28
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %16, label %14
 
@@ -3182,7 +3140,7 @@ define noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec
   br i1 %29, label %20, label %.critedge, !llvm.loop !167
 
 .critedge:                                        ; preds = %20, %.preheader
-  %30 = call ptr @Gia_ManDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9) #29
+  %30 = call ptr @Gia_ManDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %9) #28
   %.val100 = load i32, ptr %10, align 4, !tbaa !136
   %31 = icmp sgt i32 %.val100, 0
   br i1 %31, label %.lr.ph104, label %.critedge2
@@ -3193,14 +3151,14 @@ define noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec
   %.val86 = load ptr, ptr %12, align 8, !tbaa !138
   %32 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv106
   %33 = load i32, ptr %32, align 4, !tbaa !6
-  %34 = call noundef i32 %3(ptr noundef %4, i32 noundef %33) #29
+  %34 = call noundef i32 %3(ptr noundef %4, i32 noundef %33) #28
   %.not84 = icmp eq i32 %34, 0
   br i1 %.not84, label %35, label %38
 
 35:                                               ; preds = %.lr.ph104
   %36 = trunc nuw nsw i64 %indvars.iv106 to i32
-  %37 = call ptr @Gia_ManDupExist(ptr noundef %.074103, i32 noundef %36) #29
-  call void @Gia_ManStop(ptr noundef %.074103) #29
+  %37 = call ptr @Gia_ManDupExist(ptr noundef %.074103, i32 noundef %36) #28
+  call void @Gia_ManStop(ptr noundef %.074103) #28
   br label %38
 
 38:                                               ; preds = %.lr.ph104, %35
@@ -3236,7 +3194,7 @@ define noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec
   br i1 %.not.i, label %.sink.split, label %.sink.split.sink.split
 
 51:                                               ; preds = %.critedge2
-  %52 = call i32 @Gia_ManDupConeBack(ptr noundef %0, ptr noundef nonnull %.074.lcssa, ptr noundef nonnull %9) #29
+  %52 = call i32 @Gia_ManDupConeBack(ptr noundef %0, ptr noundef nonnull %.074.lcssa, ptr noundef nonnull %9) #28
   %53 = load ptr, ptr %12, align 8, !tbaa !138
   %.not.i95 = icmp eq ptr %53, null
   br i1 %.not.i95, label %.sink.split, label %.sink.split.sink.split
@@ -3244,13 +3202,13 @@ define noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec
 .sink.split.sink.split:                           ; preds = %51, %48
   %.sink = phi ptr [ %50, %48 ], [ %53, %51 ]
   %.0.ph.ph = phi i32 [ %.lobit, %48 ], [ %52, %51 ]
-  call void @free(ptr noundef nonnull %.sink) #29
+  call void @free(ptr noundef nonnull %.sink) #28
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %51, %48
   %.0.ph = phi i32 [ %.lobit, %48 ], [ %52, %51 ], [ %.0.ph.ph, %.sink.split.sink.split ]
-  call void @free(ptr noundef nonnull %9) #29
-  call void @Gia_ManStop(ptr noundef nonnull %.074.lcssa) #29
+  call void @free(ptr noundef nonnull %9) #28
+  call void @Gia_ManStop(ptr noundef nonnull %.074.lcssa) #28
   br label %54
 
 54:                                               ; preds = %.sink.split, %16
@@ -3323,11 +3281,11 @@ define noundef i32 @_Z24Gia_ManSatAndCollect_recP10Gia_Man_t_iP10Vec_Int_t_S2_(p
   br i1 %.not9.i.i, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %34, i64 noundef 64) #30
+  %36 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %34, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 37:                                               ; preds = %32
-  %38 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %38 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %37, %35
@@ -3346,11 +3304,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %37, %35
   br i1 %.not9.i9.i, label %48, label %46
 
 46:                                               ; preds = %40
-  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #30
+  %47 = tail call ptr @realloc(ptr noundef nonnull %43, i64 noundef %45) #29
   br label %50
 
 48:                                               ; preds = %40
-  %49 = tail call noalias ptr @malloc(i64 noundef %45) #32
+  %49 = tail call noalias ptr @malloc(i64 noundef %45) #31
   br label %50
 
 50:                                               ; preds = %48, %46
@@ -3402,11 +3360,11 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   br i1 %.not9.i.i43, label %72, label %70
 
 70:                                               ; preds = %67
-  %71 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %69, i64 noundef 64) #30
+  %71 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %69, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i44
 
 72:                                               ; preds = %67
-  %73 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %73 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i44
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i44:          ; preds = %72, %70
@@ -3425,11 +3383,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i44:          ; preds = %72, %70
   br i1 %.not9.i9.i42, label %83, label %81
 
 81:                                               ; preds = %75
-  %82 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %80) #30
+  %82 = tail call ptr @realloc(ptr noundef nonnull %78, i64 noundef %80) #29
   br label %85
 
 83:                                               ; preds = %75
-  %84 = tail call noalias ptr @malloc(i64 noundef %80) #32
+  %84 = tail call noalias ptr @malloc(i64 noundef %80) #31
   br label %85
 
 85:                                               ; preds = %83, %81
@@ -3462,7 +3420,7 @@ define void @_Z19Gia_ManQuantLoadCnfP10Gia_Man_t_P10Vec_Int_t_PPv(ptr noundef re
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !151
   %.not = icmp eq ptr %12, null
@@ -3472,7 +3430,7 @@ define void @_Z19Gia_ManQuantLoadCnfP10Gia_Man_t_P10Vec_Int_t_PPv(ptr noundef re
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(1484) %12) #29
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(1484) %12) #28
   br label %17
 
 17:                                               ; preds = %13, %3
@@ -3486,7 +3444,7 @@ define void @_Z19Gia_ManQuantLoadCnfP10Gia_Man_t_P10Vec_Int_t_PPv(ptr noundef re
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %.04.i = phi i32 [ %24, %.lr.ph.i ], [ %21, %17 ]
-  %23 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %18, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %23 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %18, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %24 = add i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %24, %.val54
   br i1 %exitcond.not.i, label %bmcg_sat_solver_set_nvars.exit.loopexit, label %.lr.ph.i, !llvm.loop !56
@@ -3509,7 +3467,7 @@ bmcg_sat_solver_set_nvars.exit:                   ; preds = %bmcg_sat_solver_set
 
 .lr.ph.i70:                                       ; preds = %26, %.lr.ph.i70
   %.04.i71 = phi i32 [ %31, %.lr.ph.i70 ], [ %28, %26 ]
-  %30 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %25, i1 noundef zeroext true, i1 noundef zeroext true) #29
+  %30 = tail call noundef i32 @_ZN5Gluco10SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1484) %25, i1 noundef zeroext true, i1 noundef zeroext true) #28
   %31 = add i32 %.04.i71, 1
   %exitcond.not.i72 = icmp eq i32 %31, %.val82.pre86
   br i1 %exitcond.not.i72, label %bmcg_sat_solver_set_nvars.exit73.loopexit, label %.lr.ph.i70, !llvm.loop !56
@@ -3690,7 +3648,7 @@ bmcg_sat_solver_add_and.exit79:                   ; preds = %85, %91, %98
 define noundef i32 @_Z16Gia_ManFactorSopP10Gia_Man_t_P10Vec_Int_t_P10Vec_Str_t_i(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 8
   %.val35 = load ptr, ptr %5, align 8, !tbaa !148
-  %6 = tail call ptr @Abc_SopSynthesizeOne(ptr noundef %.val35, i32 noundef 1) #29
+  %6 = tail call ptr @Abc_SopSynthesizeOne(ptr noundef %.val35, i32 noundef 1) #28
   %7 = getelementptr i8, ptr %6, i64 32
   %.val40 = load ptr, ptr %7, align 8, !tbaa !161
   %.val40.fr = freeze ptr %.val40
@@ -3845,13 +3803,13 @@ define noundef i32 @_Z16Gia_ManFactorSopP10Gia_Man_t_P10Vec_Int_t_P10Vec_Str_t_i
   %108 = and i64 %storemerge.i.us, 536870911
   %109 = sub nsw i64 0, %108
   %110 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %49, i64 %109
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef nonnull %49) #29
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef nonnull %49) #28
   %111 = load i64, ptr %49, align 4
   %112 = lshr i64 %111, 32
   %113 = and i64 %112, 536870911
   %114 = sub nsw i64 0, %113
   %115 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %49, i64 %114
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %115, ptr noundef nonnull %49) #29
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %115, ptr noundef nonnull %49) #28
   br label %116
 
 116:                                              ; preds = %107, %105
@@ -3929,7 +3887,7 @@ define noundef i32 @_Z16Gia_ManFactorSopP10Gia_Man_t_P10Vec_Int_t_P10Vec_Str_t_i
   %165 = sub i64 %51, %164
   %166 = sdiv exact i64 %165, 12
   %167 = trunc i64 %166 to i32
-  tail call void @Gia_ManBuiltInSimPerform(ptr noundef nonnull %0, i32 noundef %167) #29
+  tail call void @Gia_ManBuiltInSimPerform(ptr noundef nonnull %0, i32 noundef %167) #28
   br label %168
 
 168:                                              ; preds = %144, %142
@@ -3938,7 +3896,7 @@ define noundef i32 @_Z16Gia_ManFactorSopP10Gia_Man_t_P10Vec_Int_t_P10Vec_Str_t_i
   br i1 %.not71.i.us, label %_ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us, label %170
 
 170:                                              ; preds = %168
-  tail call void @Gia_ManQuantSetSuppAnd(ptr noundef nonnull %0, ptr noundef nonnull %49) #29
+  tail call void @Gia_ManQuantSetSuppAnd(ptr noundef nonnull %0, ptr noundef nonnull %49) #28
   br label %_ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us
 
 _ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us:     ; preds = %170, %168
@@ -4011,7 +3969,7 @@ _ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us:     ; preds = %170, %168
   %210 = trunc nuw nsw i64 %209 to i32
   %211 = and i32 %210, 1
   %212 = xor i32 %208, %211
-  %213 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %202, i32 noundef %212) #29
+  %213 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %202, i32 noundef %212) #28
   %214 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 %213, ptr %214, align 4, !tbaa !171
   %.pre = load i32, ptr %16, align 8, !tbaa !120
@@ -4043,7 +4001,7 @@ _ZL16Gia_ManAppendAndP10Gia_Man_t_ii.exit.us:     ; preds = %170, %168
   %230 = lshr i32 %229, 29
   %231 = and i32 %230, 1
   %232 = xor i32 %231, %228
-  tail call void @Gia_ManStop(ptr noundef nonnull %6) #29
+  tail call void @Gia_ManStop(ptr noundef nonnull %6) #28
   ret i32 %232
 }
 
@@ -4054,18 +4012,18 @@ define noundef i32 @bmcg_sat_solver_quantify(ptr noundef readonly captures(none)
   %8 = alloca %"class.Gluco::vec.0", align 8
   %9 = alloca %"class.Gluco::vec.0", align 8
   %10 = alloca i32, align 4
-  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %11 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 0, ptr %12, align 4, !tbaa !136
   store i32 100, ptr %11, align 8, !tbaa !137
-  %13 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #32
+  %13 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #31
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !138
-  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %15 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4, !tbaa !136
   store i32 100, ptr %15, align 8, !tbaa !137
-  %17 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #32
+  %17 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #31
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !138
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4109,11 +4067,11 @@ define noundef i32 @bmcg_sat_solver_quantify(ptr noundef readonly captures(none)
   br i1 %.not9.i.i, label %40, label %38
 
 38:                                               ; preds = %33
-  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %37) #30
+  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %37) #29
   br label %42
 
 40:                                               ; preds = %33
-  %41 = tail call noalias ptr @malloc(i64 noundef %37) #32
+  %41 = tail call noalias ptr @malloc(i64 noundef %37) #31
   br label %42
 
 42:                                               ; preds = %40, %38
@@ -4133,11 +4091,11 @@ define noundef i32 @bmcg_sat_solver_quantify(ptr noundef readonly captures(none)
   br i1 %.not9.i21.i, label %52, label %50
 
 50:                                               ; preds = %45
-  %51 = tail call ptr @realloc(ptr noundef nonnull %47, i64 noundef %49) #30
+  %51 = tail call ptr @realloc(ptr noundef nonnull %47, i64 noundef %49) #29
   br label %54
 
 52:                                               ; preds = %45
-  %53 = tail call noalias ptr @malloc(i64 noundef %49) #32
+  %53 = tail call noalias ptr @malloc(i64 noundef %49) #31
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -4192,11 +4150,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %_ZL11Vec_IntGrowP10
   br i1 %.not9.i.i112, label %75, label %73
 
 73:                                               ; preds = %71
-  %74 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %72, i64 noundef 64) #30
+  %74 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %72, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113
 
 75:                                               ; preds = %71
-  %76 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %76 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113:         ; preds = %75, %73
@@ -4214,11 +4172,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i113:         ; preds = %75, %73
   br i1 %.not9.i9.i, label %85, label %83
 
 83:                                               ; preds = %78
-  %84 = tail call ptr @realloc(ptr noundef nonnull %80, i64 noundef %82) #30
+  %84 = tail call ptr @realloc(ptr noundef nonnull %80, i64 noundef %82) #29
   br label %87
 
 85:                                               ; preds = %78
-  %86 = tail call noalias ptr @malloc(i64 noundef %82) #32
+  %86 = tail call noalias ptr @malloc(i64 noundef %82) #31
   br label %87
 
 87:                                               ; preds = %85, %83
@@ -4258,7 +4216,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %105)
-  %106 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %104, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %106 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %104, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %107 = load ptr, ptr %9, align 8, !tbaa !13
   %.not.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i, label %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit, label %.preheader.i.i.i
@@ -4266,7 +4224,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
 .preheader.i.i.i:                                 ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %108, align 8, !tbaa !16
-  call void @free(ptr noundef nonnull %107) #29
+  call void @free(ptr noundef nonnull %107) #28
   br label %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit
 
 _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit: ; preds = %103, %.preheader.i.i.i
@@ -4288,7 +4246,7 @@ _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit: ; preds = %103, %.prehead
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @_ZNK5Gluco3vecINS_3LitEE6copyToERS2_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %116)
-  %117 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %115, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %117 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %115, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %118 = load ptr, ptr %8, align 8, !tbaa !13
   %.not.i.i.i124 = icmp eq ptr %118, null
   br i1 %.not.i.i.i124, label %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit126, label %.preheader.i.i.i125
@@ -4296,7 +4254,7 @@ _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit: ; preds = %103, %.prehead
 .preheader.i.i.i125:                              ; preds = %114
   %119 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %119, align 8, !tbaa !16
-  call void @free(ptr noundef nonnull %118) #29
+  call void @free(ptr noundef nonnull %118) #28
   br label %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit126
 
 _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit126: ; preds = %114, %.preheader.i.i.i125
@@ -4306,7 +4264,7 @@ _Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit126: ; preds = %114, %.preh
 
 121:                                              ; preds = %_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii.exit126
   %.val98 = load i32, ptr %12, align 4, !tbaa !136
-  %122 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %122 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %123 = add i32 %.val98, -1
   %or.cond.i.i = icmp ult i32 %123, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val98
@@ -4324,7 +4282,7 @@ _ZL12Vec_IntAlloci.exit.thread.i:                 ; preds = %121
 _ZL12Vec_IntAlloci.exit.i:                        ; preds = %121
   %126 = sext i32 %spec.store.select.i.i to i64
   %127 = shl nsw i64 %126, 2
-  %128 = call noalias ptr @malloc(i64 noundef %127) #32
+  %128 = call noalias ptr @malloc(i64 noundef %127) #31
   %129 = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr %128, ptr %129, align 8, !tbaa !138
   store i32 %.val98, ptr %124, align 4, !tbaa !136
@@ -4364,7 +4322,7 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   %143 = lshr i64 %.val109, 32
   %144 = trunc nuw i64 %143 to i32
   %145 = and i32 %144, 536870911
-  %146 = call noundef i32 %4(ptr noundef %5, i32 noundef %145) #29
+  %146 = call noundef i32 %4(ptr noundef %5, i32 noundef %145) #28
   %.not92 = icmp eq i32 %146, 0
   br i1 %.not92, label %151, label %147
 
@@ -4458,21 +4416,21 @@ _ZL16Vec_IntStartFulli.exit:                      ; preds = %_ZL12Vec_IntAlloci.
   br i1 %.not.i116, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %172, %.critedge4
-  call void @free(ptr noundef nonnull %.pre157) #29
+  call void @free(ptr noundef nonnull %.pre157) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge4, %.critedge4.thread
-  call void @free(ptr noundef nonnull %11) #29
+  call void @free(ptr noundef nonnull %11) #28
   %179 = load ptr, ptr %18, align 8, !tbaa !138
   %.not.i117 = icmp eq ptr %179, null
   br i1 %.not.i117, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit118, label %180
 
 180:                                              ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
-  call void @free(ptr noundef nonnull %179) #29
+  call void @free(ptr noundef nonnull %179) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit118
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit118:            ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, %180
-  call void @free(ptr noundef nonnull %15) #29
+  call void @free(ptr noundef nonnull %15) #28
   %181 = icmp eq ptr %.0135, null
   br i1 %181, label %_ZL12Vec_IntFreePPP10Vec_Int_t_.exit, label %182
 
@@ -4483,11 +4441,11 @@ _ZL11Vec_IntFreeP10Vec_Int_t_.exit118:            ; preds = %_ZL11Vec_IntFreeP10
   br i1 %.not.i119, label %185, label %.thread.i
 
 .thread.i:                                        ; preds = %182
-  call void @free(ptr noundef nonnull %184) #29
+  call void @free(ptr noundef nonnull %184) #28
   br label %185
 
 185:                                              ; preds = %.thread.i, %182
-  call void @free(ptr noundef nonnull %.0135) #29
+  call void @free(ptr noundef nonnull %.0135) #28
   br label %_ZL12Vec_IntFreePPP10Vec_Int_t_.exit
 
 _ZL12Vec_IntFreePPP10Vec_Int_t_.exit:             ; preds = %_ZL11Vec_IntFreeP10Vec_Int_t_.exit118, %185
@@ -4501,11 +4459,11 @@ _ZL12Vec_IntFreePPP10Vec_Int_t_.exit:             ; preds = %_ZL11Vec_IntFreeP10
   br i1 %.not.i120, label %190, label %.thread.i121
 
 .thread.i121:                                     ; preds = %187
-  call void @free(ptr noundef nonnull %189) #29
+  call void @free(ptr noundef nonnull %189) #28
   br label %190
 
 190:                                              ; preds = %.thread.i121, %187
-  call void @free(ptr noundef nonnull %.0134) #29
+  call void @free(ptr noundef nonnull %.0134) #28
   br label %_ZL12Vec_StrFreePPP10Vec_Str_t_.exit
 
 _ZL12Vec_StrFreePPP10Vec_Str_t_.exit:             ; preds = %190, %_ZL12Vec_IntFreePPP10Vec_Int_t_.exit, %21
@@ -4530,22 +4488,22 @@ define void @_Z23Glucose_QuantifyAigTestP10Gia_Man_t_(ptr noundef %0) local_unna
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %7) #29
+  %7 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %7) #28
   store ptr %7, ptr %6, align 16, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %9) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %9) #29
+  %9 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %9) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %9) #28
   store ptr %9, ptr %8, align 8, !tbaa !151
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %11 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %11) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %11) #29
+  %11 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %11) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %11) #28
   store ptr %11, ptr %10, align 16, !tbaa !151
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %12 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #28
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %_ZL9Abc_Clockv.exit, label %14
 
@@ -4580,7 +4538,7 @@ _ZL9Abc_Clockv.exit:                              ; preds = %1, %14
   %30 = or disjoint i32 %29, %28
   %31 = call i32 @bmcg_sat_solver_quantify(ptr noundef nonnull %6, ptr noundef %0, i32 noundef %30, i32 noundef 0, ptr noundef nonnull @_Z17Gia_ManCiIsToKeepPvi, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
+  %32 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #28
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %_ZL9Abc_Clockv.exit23, label %34
 
@@ -4597,7 +4555,7 @@ _ZL9Abc_Clockv.exit23:                            ; preds = %_ZL9Abc_Clockv.exit
   %.0.i22 = phi i64 [ %40, %34 ], [ -1, %_ZL9Abc_Clockv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
+  %41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #28
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %_ZL9Abc_Clockv.exit25, label %43
 
@@ -4630,7 +4588,7 @@ _ZL9Abc_Clockv.exit25:                            ; preds = %_ZL9Abc_Clockv.exit
   %57 = or disjoint i32 %56, %55
   %58 = call noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec_Int_t_(ptr noundef nonnull %0, i32 noundef %57, i32 poison, ptr noundef nonnull @_Z17Gia_ManCiIsToKeepPvi, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %59 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #29
+  %59 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #28
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %_ZL9Abc_Clockv.exit28, label %61
 
@@ -4665,15 +4623,15 @@ _ZL9Abc_Clockv.exit28:                            ; preds = %_ZL9Abc_Clockv.exit
   %75 = load ptr, ptr %7, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
+  call void %77(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
   %78 = load ptr, ptr %9, align 8, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(1484) %9) #29
+  call void %80(ptr noundef nonnull align 8 dereferenceable(1484) %9) #28
   %81 = load ptr, ptr %11, align 8, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(1484) %11) #29
+  call void %83(ptr noundef nonnull align 8 dereferenceable(1484) %11) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
@@ -4686,10 +4644,10 @@ define range(i32 0, 2) i32 @bmcg_sat_solver_equiv_overlap_check(ptr noundef %0, 
   store ptr %0, ptr %6, align 16, !tbaa !151
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %8, align 8, !tbaa !151
-  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
+  %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 100, ptr %9, align 8, !tbaa !137
-  %11 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #32
+  %11 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #31
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !138
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4720,11 +4678,11 @@ define range(i32 0, 2) i32 @bmcg_sat_solver_equiv_overlap_check(ptr noundef %0, 
   br i1 %.not9.i.i, label %29, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #30
+  %28 = tail call ptr @realloc(ptr noundef nonnull %24, i64 noundef %26) #29
   br label %31
 
 29:                                               ; preds = %22
-  %30 = tail call noalias ptr @malloc(i64 noundef %26) #32
+  %30 = tail call noalias ptr @malloc(i64 noundef %26) #31
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -4744,11 +4702,11 @@ define range(i32 0, 2) i32 @bmcg_sat_solver_equiv_overlap_check(ptr noundef %0, 
   br i1 %.not9.i21.i, label %41, label %39
 
 39:                                               ; preds = %34
-  %40 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %38) #30
+  %40 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %38) #29
   br label %43
 
 41:                                               ; preds = %34
-  %42 = tail call noalias ptr @malloc(i64 noundef %38) #32
+  %42 = tail call noalias ptr @malloc(i64 noundef %38) #31
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -4829,11 +4787,11 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %_ZL16Vec_IntFillExt
   br i1 %.not.i48, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %68, %.critedge
-  tail call void @free(ptr noundef nonnull %.pre52) #29
+  tail call void @free(ptr noundef nonnull %.pre52) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %.critedge.thread
-  tail call void @free(ptr noundef nonnull %9) #29
+  tail call void @free(ptr noundef nonnull %9) #28
   %.not = icmp eq i32 %4, 0
   store i32 %63, ptr %7, align 4, !tbaa !6
   br i1 %.not, label %82, label %75
@@ -4933,11 +4891,11 @@ define internal fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %0, 
   br i1 %.not9.i.i, label %46, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %43, i64 noundef 64) #30
+  %45 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %43, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 46:                                               ; preds = %41
-  %47 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %47 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %46, %44
@@ -4956,11 +4914,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %46, %44
   br i1 %.not9.i9.i, label %57, label %55
 
 55:                                               ; preds = %49
-  %56 = tail call ptr @realloc(ptr noundef nonnull %52, i64 noundef %54) #30
+  %56 = tail call ptr @realloc(ptr noundef nonnull %52, i64 noundef %54) #29
   br label %59
 
 57:                                               ; preds = %49
-  %58 = tail call noalias ptr @malloc(i64 noundef %54) #32
+  %58 = tail call noalias ptr @malloc(i64 noundef %54) #31
   br label %59
 
 59:                                               ; preds = %57, %55
@@ -4987,7 +4945,7 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
   %70 = and i64 %69, 536870911
   %71 = sub nsw i64 0, %70
   %72 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %3, i64 %71
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #29
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %72, ptr noundef nonnull %3) #28
   br label %73
 
 73:                                               ; preds = %68, %_ZL11Vec_IntPushP10Vec_Int_t_i.exit
@@ -4996,11 +4954,11 @@ _ZL11Vec_IntPushP10Vec_Int_t_i.exit:              ; preds = %._ZL11Vec_IntGrowP1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_Z29bmcg_sat_solver_quantify_testPPvP10Gia_Man_t_iiPFiS_iES_P10Vec_Int_t_(ptr noundef readnone captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
-  %8 = tail call i32 @Gia_ManQuantExist(ptr noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef %5) #29
+  %8 = tail call i32 @Gia_ManQuantExist(ptr noundef %1, i32 noundef %2, ptr noundef %4, ptr noundef %5) #28
   %9 = tail call noundef i32 @_Z25bmcg_sat_solver_quantify2P10Gia_Man_t_iiPFiPviES1_P10Vec_Int_t_(ptr noundef %1, i32 noundef %2, i32 poison, ptr noundef %4, ptr noundef %5, ptr noundef null)
-  %10 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %10) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %10) #29
+  %10 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %10) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %10) #28
   %11 = tail call i32 @bmcg_sat_solver_equiv_overlap_check(ptr noundef nonnull %10, ptr noundef %1, i32 noundef %8, i32 noundef %9, i32 noundef 1)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %13, label %12
@@ -5024,9 +4982,9 @@ declare i32 @Gia_ManQuantExist(ptr noundef, i32 noundef, ptr noundef, ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_Z25Glucose_CheckTwoNodesTestP10Gia_Man_t_(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #28
-  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %2) #29
-  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %2) #29
+  %2 = tail call noalias noundef nonnull dereferenceable(1488) ptr @_Znwm(i64 noundef 1488) #27
+  tail call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %2) #28
+  tail call void @_ZN5Gluco6Solver18setIncrementalModeEv(ptr noundef nonnull align 8 dereferenceable(1216) %2) #28
   %3 = getelementptr i8, ptr %0, i64 32
   %4 = getelementptr i8, ptr %0, i64 72
   br label %5
@@ -5065,7 +5023,7 @@ define void @_Z25Glucose_CheckTwoNodesTestP10Gia_Man_t_(ptr noundef %0) local_un
   %29 = load ptr, ptr %2, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef nonnull align 8 dereferenceable(1484) %2) #29
+  tail call void %31(ptr noundef nonnull align 8 dereferenceable(1484) %2) #28
   %32 = select i1 %.not, ptr @.str.38, ptr @.str.37
   %.not12 = icmp eq i32 %28, 0
   %.str.39..str.40 = select i1 %.not12, ptr @.str.40, ptr @.str.39
@@ -5076,7 +5034,7 @@ define void @_Z25Glucose_CheckTwoNodesTestP10Gia_Man_t_(ptr noundef %0) local_un
   %35 = load ptr, ptr %2, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(1484) %2) #29
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(1484) %2) #28
   ret void
 }
 
@@ -5088,7 +5046,7 @@ define range(i32 0, 21) i32 @Glucose_SolveAig(ptr noundef %0, ptr noundef readon
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %"class.Gluco::SimpSolver", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #29
+  %8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #28
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %_ZL9Abc_Clockv.exit, label %10
 
@@ -5105,7 +5063,7 @@ _ZL9Abc_Clockv.exit:                              ; preds = %2, %10
   %.0.i = phi i64 [ %16, %10 ], [ -1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
+  call void @_ZN5Gluco10SimpSolverC1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !107
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 128
@@ -5149,14 +5107,14 @@ _ZL9Abc_Clockv.exit:                              ; preds = %2, %10
   br i1 %.not25, label %61, label %42
 
 42:                                               ; preds = %40
-  %43 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1484) %7, i1 noundef zeroext true) #29
+  %43 = call noundef zeroext i1 @_ZN5Gluco10SimpSolver9eliminateEb(ptr noundef nonnull align 8 dereferenceable(1484) %7, i1 noundef zeroext true) #28
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 1252
   %45 = load i32, ptr %44, align 4, !tbaa !74
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 1256
   %47 = load i32, ptr %46, align 8, !tbaa !112
   %48 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %45, i32 noundef %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %49 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #29
+  %49 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #28
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %_ZL9Abc_Clockv.exit34, label %51
 
@@ -5219,7 +5177,7 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit.i:           ; preds = %61
   br i1 %80, label %81, label %.lr.ph.preheader.i.i
 
 81:                                               ; preds = %76
-  %82 = tail call ptr @__errno_location() #31
+  %82 = tail call ptr @__errno_location() #30
   %83 = load i32, ptr %82, align 4, !tbaa !6
   %84 = icmp eq i32 %83, 12
   br i1 %84, label %85, label %.lr.ph.preheader.i.i
@@ -5246,14 +5204,14 @@ _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.sink.split: ; preds = %.lr.ph.i.i, %61
   br label %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit
 
 _ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit:        ; preds = %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit.sink.split, %_ZN5Gluco3vecINS_3LitEE5clearEb.exit.i
-  %89 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %7, i1 noundef zeroext false, i1 noundef zeroext false) #29
+  %89 = call i8 @_ZN5Gluco10SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1484) %7, i1 noundef zeroext false, i1 noundef zeroext false) #28
   %90 = load i32, ptr %17, align 4, !tbaa !107
   %.not26 = icmp eq i32 %90, 0
   br i1 %.not26, label %102, label %91
 
 91:                                               ; preds = %_ZNK5Gluco3vecINS_3LitEE6copyToERS2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %92 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #29
+  %92 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #28
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %_ZL9Abc_Clockv.exit36, label %94
 
@@ -5280,7 +5238,7 @@ _ZL9Abc_Clockv.exit36:                            ; preds = %91, %94
   %105 = select i1 %103, ptr @.str.23, ptr %.str.24..str.25
   %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %105)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %107 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #29
+  %107 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #28
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %_ZL9Abc_Clockv.exit38, label %109
 
@@ -5308,7 +5266,7 @@ _ZL9Abc_Clockv.exit38:                            ; preds = %102, %109
   %.val29 = load ptr, ptr %120, align 8, !tbaa !156
   %121 = getelementptr i8, ptr %.val29, i64 4
   %.val29.val = load i32, ptr %121, align 4, !tbaa !136
-  %122 = call ptr @Abc_CexAlloc(i32 noundef 0, i32 noundef %.val29.val, i32 noundef 1) #29
+  %122 = call ptr @Abc_CexAlloc(i32 noundef 0, i32 noundef %.val29.val, i32 noundef 1) #28
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %122, ptr %123, align 8, !tbaa !188
   %124 = load ptr, ptr %120, align 8, !tbaa !156
@@ -5374,14 +5332,14 @@ _ZL9Abc_Clockv.exit38:                            ; preds = %102, %109
   br i1 %.not.i, label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit, label %157
 
 157:                                              ; preds = %.critedge
-  call void @free(ptr noundef nonnull %156) #29
+  call void @free(ptr noundef nonnull %156) #28
   br label %_ZL11Vec_IntFreeP10Vec_Int_t_.exit
 
 _ZL11Vec_IntFreeP10Vec_Int_t_.exit:               ; preds = %.critedge, %157
-  call void @free(ptr noundef nonnull %31) #29
+  call void @free(ptr noundef nonnull %31) #28
   %158 = select i1 %104, i32 20, i32 0
   %159 = select i1 %103, i32 10, i32 %158
-  call void @_ZN5Gluco10SimpSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #29
+  call void @_ZN5Gluco10SimpSolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1484) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %159
 }
@@ -5434,13 +5392,13 @@ _ZN5Gluco3vecINS_3LitEE5clearEb.exit:             ; preds = %._ZN5Gluco3vecINS_3
   store i32 %22, ptr %9, align 4, !tbaa !19
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 2
-  %25 = tail call ptr @realloc(ptr noundef %3, i64 noundef %24) #30
+  %25 = tail call ptr @realloc(ptr noundef %3, i64 noundef %24) #29
   store ptr %25, ptr %1, align 8, !tbaa !13
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN5Gluco3vecINS_3LitEE8capacityEi.exit.i
 
 27:                                               ; preds = %21
-  %28 = tail call ptr @__errno_location() #31
+  %28 = tail call ptr @__errno_location() #30
   %29 = load i32, ptr %28, align 4, !tbaa !6
   %30 = icmp eq i32 %29, 12
   br i1 %30, label %31, label %_ZN5Gluco3vecINS_3LitEE8capacityEi.exit.i
@@ -5516,8 +5474,8 @@ declare ptr @__errno_location() local_unnamed_addr #15
 ; Function Attrs: cold inlinehint mustprogress nofree noreturn nounwind uwtable
 define internal fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv() unnamed_addr #16 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !190
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 14, i64 1, ptr %1) #34
-  tail call void @abort() #35
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 14, i64 1, ptr %1) #33
+  tail call void @abort() #34
   unreachable
 }
 
@@ -5760,13 +5718,13 @@ define linkonce_odr void @_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr n
   store i32 %22, ptr %8, align 4, !tbaa !79
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 2
-  %25 = tail call ptr @realloc(ptr noundef %21, i64 noundef %24) #30
+  %25 = tail call ptr @realloc(ptr noundef %21, i64 noundef %24) #29
   store ptr %25, ptr %3, align 8, !tbaa !73
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN5Gluco3vecIiE8capacityEi.exit.i
 
 27:                                               ; preds = %20
-  %28 = tail call ptr @__errno_location() #31
+  %28 = tail call ptr @__errno_location() #30
   %29 = load i32, ptr %28, align 4, !tbaa !6
   %30 = icmp eq i32 %29, 12
   br i1 %30, label %31, label %_ZN5Gluco3vecIiE8capacityEi.exit.i
@@ -5819,7 +5777,7 @@ _ZN5Gluco3vecIiE6growToEiRKi.exit:                ; preds = %2, %._crit_edge.i
   %51 = add nuw nsw i32 %50, 2
   %52 = sub nsw i32 2147483647, %40
   %53 = icmp samesign ugt i32 %51, %52
-  br i1 %53, label %65, label %54
+  br i1 %53, label %61, label %54
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr %38, align 8, !tbaa !73
@@ -5827,7 +5785,7 @@ _ZN5Gluco3vecIiE6growToEiRKi.exit:                ; preds = %2, %._crit_edge.i
   store i32 %56, ptr %44, align 4, !tbaa !79
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 2
-  %59 = tail call ptr @realloc(ptr noundef %55, i64 noundef %58) #30
+  %59 = tail call ptr @realloc(ptr noundef %55, i64 noundef %58) #29
   store ptr %59, ptr %38, align 8, !tbaa !73
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge
@@ -5837,85 +5795,78 @@ _ZN5Gluco3vecIiE6growToEiRKi.exit:                ; preds = %2, %._crit_edge.i
   %.pre13 = load ptr, ptr %3, align 8, !tbaa !73
   br label %_ZN5Gluco3vecIiE4pushERKi.exit
 
-61:                                               ; preds = %54
-  %62 = tail call ptr @__errno_location() #31
-  %63 = load i32, ptr %62, align 4, !tbaa !6
-  %64 = icmp eq i32 %63, 12
-  tail call void @llvm.assume(i1 %64)
-  br label %65
-
-65:                                               ; preds = %61, %47
+61:                                               ; preds = %54, %47
   tail call fastcc void @_ZN5GlucoL19fatal_out_of_memoryEv()
   unreachable
 
 _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i
-  %66 = phi ptr [ %41, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
-  %67 = phi i32 [ %40, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
-  %68 = phi ptr [ %.pre.i1, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
-  %69 = add nsw i32 %67, 1
-  store i32 %69, ptr %39, align 8, !tbaa !72
-  %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds i32, ptr %68, i64 %70
-  store i32 %1, ptr %71, align 4, !tbaa !6
-  %72 = getelementptr inbounds i32, ptr %66, i64 %42
-  %73 = load i32, ptr %72, align 4, !tbaa !6
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %68, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !6
-  %.not21.i = icmp eq i32 %73, 0
+  %62 = phi ptr [ %41, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
+  %63 = phi i32 [ %40, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
+  %64 = phi ptr [ %.pre.i1, %._ZN5Gluco3vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN5Gluco3vecIiE4pushERKi.exit_crit_edge ]
+  %65 = add nsw i32 %63, 1
+  store i32 %65, ptr %39, align 8, !tbaa !72
+  %66 = sext i32 %63 to i64
+  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  store i32 %1, ptr %67, align 4, !tbaa !6
+  %68 = getelementptr inbounds i32, ptr %62, i64 %42
+  %69 = load i32, ptr %68, align 4, !tbaa !6
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %64, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !6
+  %.not21.i = icmp eq i32 %69, 0
   br i1 %.not21.i, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %_ZN5Gluco3vecIiE4pushERKi.exit
-  %77 = load ptr, ptr %0, align 8, !tbaa !191
-  %78 = shl nsw i32 %76, 1
-  %79 = load ptr, ptr %77, align 8, !tbaa !73
-  %80 = sext i32 %78 to i64
-  %81 = getelementptr i32, ptr %79, i64 %80
-  %82 = getelementptr i8, ptr %81, i64 4
-  br label %83
+  %73 = load ptr, ptr %0, align 8, !tbaa !191
+  %74 = shl nsw i32 %72, 1
+  %75 = load ptr, ptr %73, align 8, !tbaa !73
+  %76 = sext i32 %74 to i64
+  %77 = getelementptr i32, ptr %75, i64 %76
+  %78 = getelementptr i8, ptr %77, i64 4
+  br label %79
 
-83:                                               ; preds = %104, %.lr.ph.i3
-  %.01522.i = phi i32 [ %73, %.lr.ph.i3 ], [ %.023.i, %104 ]
+79:                                               ; preds = %100, %.lr.ph.i3
+  %.01522.i = phi i32 [ %69, %.lr.ph.i3 ], [ %.023.i, %100 ]
   %.023.in.i = add nsw i32 %.01522.i, -1
   %.023.i = ashr i32 %.023.in.i, 1
-  %84 = sext i32 %.023.i to i64
-  %85 = getelementptr inbounds i32, ptr %68, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !6
-  %87 = load i32, ptr %81, align 4, !tbaa !6
-  %88 = sext i32 %87 to i64
-  %89 = load i32, ptr %82, align 4, !tbaa !6
-  %90 = sext i32 %89 to i64
-  %91 = mul nsw i64 %90, %88
-  %92 = shl nsw i32 %86, 1
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr i32, ptr %79, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !6
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr i8, ptr %94, i64 4
-  %98 = load i32, ptr %97, align 4, !tbaa !6
-  %99 = sext i32 %98 to i64
-  %100 = mul nsw i64 %99, %96
-  %101 = icmp ult i64 %91, %100
-  %102 = sext i32 %.01522.i to i64
-  %103 = getelementptr inbounds i32, ptr %68, i64 %102
-  br i1 %101, label %104, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit
+  %80 = sext i32 %.023.i to i64
+  %81 = getelementptr inbounds i32, ptr %64, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !6
+  %83 = load i32, ptr %77, align 4, !tbaa !6
+  %84 = sext i32 %83 to i64
+  %85 = load i32, ptr %78, align 4, !tbaa !6
+  %86 = sext i32 %85 to i64
+  %87 = mul nsw i64 %86, %84
+  %88 = shl nsw i32 %82, 1
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr i32, ptr %75, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !6
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr i8, ptr %90, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !6
+  %95 = sext i32 %94 to i64
+  %96 = mul nsw i64 %95, %92
+  %97 = icmp ult i64 %87, %96
+  %98 = sext i32 %.01522.i to i64
+  %99 = getelementptr inbounds i32, ptr %64, i64 %98
+  br i1 %97, label %100, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit
 
-104:                                              ; preds = %83
-  store i32 %86, ptr %103, align 4, !tbaa !6
-  %105 = load i32, ptr %85, align 4, !tbaa !6
-  %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %66, i64 %106
-  store i32 %.01522.i, ptr %107, align 4, !tbaa !6
+100:                                              ; preds = %79
+  store i32 %82, ptr %99, align 4, !tbaa !6
+  %101 = load i32, ptr %81, align 4, !tbaa !6
+  %102 = sext i32 %101 to i64
+  %103 = getelementptr inbounds i32, ptr %62, i64 %102
+  store i32 %.01522.i, ptr %103, align 4, !tbaa !6
   %.not.i4 = icmp ult i32 %.023.in.i, 2
-  br i1 %.not.i4, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %83, !llvm.loop !192
+  br i1 %.not.i4, label %_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %79, !llvm.loop !192
 
-_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %104, %83, %_ZN5Gluco3vecIiE4pushERKi.exit
-  %.01518.i = phi i32 [ 0, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ %.023.i, %104 ], [ %.01522.i, %83 ]
-  %phi.call.i = phi ptr [ %68, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ %68, %104 ], [ %103, %83 ]
-  store i32 %76, ptr %phi.call.i, align 4, !tbaa !6
-  %108 = sext i32 %76 to i64
-  %109 = getelementptr inbounds i32, ptr %66, i64 %108
-  store i32 %.01518.i, ptr %109, align 4, !tbaa !6
+_ZN5Gluco4HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %100, %79, %_ZN5Gluco3vecIiE4pushERKi.exit
+  %.01518.i = phi i32 [ 0, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ %.023.i, %100 ], [ %.01522.i, %79 ]
+  %phi.call.i = phi ptr [ %64, %_ZN5Gluco3vecIiE4pushERKi.exit ], [ %64, %100 ], [ %99, %79 ]
+  store i32 %72, ptr %phi.call.i, align 4, !tbaa !6
+  %104 = sext i32 %72 to i64
+  %105 = getelementptr inbounds i32, ptr %62, i64 %104
+  store i32 %.01518.i, ptr %105, align 4, !tbaa !6
   ret void
 }
 
@@ -5934,24 +5885,24 @@ define internal void @_ZL9Abc_PrintiPKcz(i32 %0, ptr noundef %1, ...) unnamed_ad
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @Abc_FrameIsBridgeMode() #29
+  %6 = tail call i32 @Abc_FrameIsBridgeMode() #28
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = call i32 @Abc_FrameIsBridgeMode() #29
+  %7 = call i32 @Abc_FrameIsBridgeMode() #28
   %.not9 = icmp eq i32 %7, 0
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #29
+  %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #28
   %10 = load ptr, ptr @stdout, align 8, !tbaa !190
-  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #33
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #32
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #29
-  call void @free(ptr noundef %9) #29
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #28
+  call void @free(ptr noundef %9) #28
   br label %17
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @stdout, align 8, !tbaa !190, !noalias !193
-  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #29
+  %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #28
   br label %17
 
 17:                                               ; preds = %14, %8
@@ -6017,7 +5968,7 @@ define internal fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr nound
 
 11:                                               ; preds = %7
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  tail call void @exit(i32 noundef 1) #36
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 12:                                               ; preds = %7
@@ -6039,11 +5990,11 @@ define internal fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr nound
   br i1 %.not33, label %24, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #30
+  %23 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %21) #29
   br label %26
 
 24:                                               ; preds = %17
-  %25 = tail call noalias ptr @malloc(i64 noundef %21) #32
+  %25 = tail call noalias ptr @malloc(i64 noundef %21) #31
   br label %26
 
 26:                                               ; preds = %24, %22
@@ -6064,7 +6015,7 @@ define internal fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr nound
 36:                                               ; preds = %26
   %37 = sext i32 %9 to i64
   %38 = shl nsw i64 %37, 2
-  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #30
+  %39 = tail call ptr @realloc(ptr noundef nonnull %35, i64 noundef %38) #29
   store ptr %39, ptr %34, align 8, !tbaa !198
   %40 = load i32, ptr %4, align 4, !tbaa !196
   %41 = sext i32 %40 to i64
@@ -6109,11 +6060,11 @@ define internal fastcc noundef ptr @_ZL16Gia_ManAppendObjP10Gia_Man_t_(ptr nound
   br i1 %.not9.i.i, label %62, label %60
 
 60:                                               ; preds = %57
-  %61 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %59, i64 noundef 64) #30
+  %61 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %59, i64 noundef 64) #29
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 62:                                               ; preds = %57
-  %63 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #32
+  %63 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #31
   br label %_ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i
 
 _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %62, %60
@@ -6132,11 +6083,11 @@ _ZL11Vec_IntGrowP10Vec_Int_t_i.exit.i:            ; preds = %62, %60
   br i1 %.not9.i9.i, label %73, label %71
 
 71:                                               ; preds = %65
-  %72 = tail call ptr @realloc(ptr noundef nonnull %68, i64 noundef %70) #30
+  %72 = tail call ptr @realloc(ptr noundef nonnull %68, i64 noundef %70) #29
   br label %75
 
 73:                                               ; preds = %65
-  %74 = tail call noalias ptr @malloc(i64 noundef %70) #32
+  %74 = tail call noalias ptr @malloc(i64 noundef %70) #31
   br label %75
 
 75:                                               ; preds = %73, %71
@@ -6196,9 +6147,6 @@ declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #25
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #27
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #25
 
@@ -6232,16 +6180,15 @@ attributes #23 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-pro
 attributes #24 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nofree nounwind }
-attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #28 = { builtin nounwind allocsize(0) }
-attributes #29 = { nounwind }
-attributes #30 = { nounwind allocsize(1) }
-attributes #31 = { nounwind willreturn memory(none) }
-attributes #32 = { nounwind allocsize(0) }
-attributes #33 = { nounwind willreturn memory(read) }
-attributes #34 = { cold }
-attributes #35 = { noreturn nounwind }
-attributes #36 = { cold noreturn nounwind }
+attributes #27 = { builtin nounwind allocsize(0) }
+attributes #28 = { nounwind }
+attributes #29 = { nounwind allocsize(1) }
+attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { nounwind allocsize(0) }
+attributes #32 = { nounwind willreturn memory(read) }
+attributes #33 = { cold }
+attributes #34 = { noreturn nounwind }
+attributes #35 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

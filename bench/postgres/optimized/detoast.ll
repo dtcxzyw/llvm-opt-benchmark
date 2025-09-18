@@ -61,7 +61,7 @@ tailrecurse:                                      ; preds = %9, %1
 20:                                               ; preds = %15, %17
   %21 = phi i32 [ %16, %15 ], [ %19, %17 ]
   %22 = zext nneg i32 %21 to i64
-  %23 = tail call ptr @palloc(i64 noundef %22) #6
+  %23 = tail call ptr @palloc(i64 noundef %22) #5
   %24 = load i8, ptr %.sroa.0.0.copyload, align 1
   %25 = zext i8 %24 to i32
   %26 = icmp eq i8 %24, 1
@@ -108,10 +108,10 @@ tailrecurse:                                      ; preds = %9, %1
 
 49:                                               ; preds = %46
   %50 = ptrtoint ptr %.tr to i64
-  %51 = tail call ptr @DatumGetEOHP(i64 noundef %50) #6
-  %52 = tail call i64 @EOH_get_flat_size(ptr noundef %51) #6
-  %53 = tail call ptr @palloc(i64 noundef %52) #6
-  tail call void @EOH_flatten_into(ptr noundef %51, ptr noundef %53, i64 noundef %52) #6
+  %51 = tail call ptr @DatumGetEOHP(i64 noundef %50) #5
+  %52 = tail call i64 @EOH_get_flat_size(ptr noundef %51) #5
+  %53 = tail call ptr @palloc(i64 noundef %52) #5
+  tail call void @EOH_flatten_into(ptr noundef %51, ptr noundef %53, i64 noundef %52) #5
   br label %54
 
 54:                                               ; preds = %44, %tailrecurse, %7, %49, %46
@@ -132,10 +132,9 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr noundef readonly captu
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4, %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.toast_fetch_datum) #6
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.toast_fetch_datum) #5
   unreachable
 
 11:                                               ; preds = %4
@@ -150,7 +149,7 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr noundef readonly captu
   %13 = and i32 %.sroa.4.0.copyload, 1073741823
   %14 = add nuw nsw i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = tail call ptr @palloc(i64 noundef %15) #6
+  %16 = tail call ptr @palloc(i64 noundef %15) #5
   %17 = add i32 %.sroa.0.0.copyload, -4
   %18 = icmp ult i32 %13, %17
   %19 = shl i32 %14, 2
@@ -161,13 +160,13 @@ define internal fastcc noundef ptr @toast_fetch_datum(ptr noundef readonly captu
   br i1 %21, label %28, label %22
 
 22:                                               ; preds = %11
-  %23 = tail call ptr @table_open(i32 noundef %.sroa.7.0.copyload, i32 noundef 1) #6
+  %23 = tail call ptr @table_open(i32 noundef %.sroa.7.0.copyload, i32 noundef 1) #5
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 320
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 320
   %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %23, i32 noundef %.sroa.6.0.copyload, i32 noundef range(i32 0, 1073741824) %13, i32 noundef 0, i32 noundef range(i32 -1073741822, -2147483648) %13, ptr noundef nonnull %16) #6
-  tail call void @table_close(ptr noundef %23, i32 noundef 1) #6
+  tail call void %27(ptr noundef %23, i32 noundef %.sroa.6.0.copyload, i32 noundef range(i32 0, 1073741824) %13, i32 noundef 0, i32 noundef range(i32 -1073741822, -2147483648) %13, ptr noundef nonnull %16) #5
+  tail call void @table_close(ptr noundef %23, i32 noundef 1) #5
   br label %28
 
 28:                                               ; preds = %11, %22
@@ -216,23 +215,22 @@ define dso_local ptr @detoast_attr(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %8) #6
+  %17 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %8) #5
   br label %toast_decompress_datum.exit
 
 18:                                               ; preds = %12
-  %19 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %8) #6
+  %19 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %8) #5
   br label %toast_decompress_datum.exit
 
 20:                                               ; preds = %12
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %15) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #6
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %15) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #5
   unreachable
 
 toast_decompress_datum.exit:                      ; preds = %16, %18
   %.0.i = phi ptr [ %17, %16 ], [ %19, %18 ]
-  tail call void @pfree(ptr noundef nonnull %8) #6
+  tail call void @pfree(ptr noundef nonnull %8) #5
   br label %toast_decompress_datum.exit58
 
 23:                                               ; preds = %4
@@ -279,7 +277,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
 
 48:                                               ; preds = %45, %31
   %49 = phi i64 [ %37, %31 ], [ %47, %45 ]
-  %50 = tail call ptr @palloc(i64 noundef %49) #6
+  %50 = tail call ptr @palloc(i64 noundef %49) #5
   %51 = load i8, ptr %25, align 1
   %52 = zext i8 %51 to i32
   %53 = icmp eq i8 %51, 1
@@ -344,18 +342,17 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   ]
 
 86:                                               ; preds = %82
-  %87 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %0) #6
+  %87 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %0) #5
   br label %toast_decompress_datum.exit58
 
 88:                                               ; preds = %82
-  %89 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %0) #6
+  %89 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %0) #5
   br label %toast_decompress_datum.exit58
 
 90:                                               ; preds = %82
-  %91 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %91)
-  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %85) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #6
+  %91 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %92 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %85) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #5
   unreachable
 
 93:                                               ; preds = %78
@@ -369,7 +366,7 @@ toast_decompress_datum.exit:                      ; preds = %16, %18
   %97 = zext nneg i32 %96 to i64
   %98 = add nsw i64 %97, -1
   %99 = add nuw nsw i64 %97, 3
-  %100 = tail call ptr @palloc(i64 noundef %99) #6
+  %100 = tail call ptr @palloc(i64 noundef %99) #5
   %101 = trunc nuw nsw i64 %99 to i32
   %102 = shl nuw nsw i32 %101, 2
   store i32 %102, ptr %100, align 4
@@ -391,10 +388,9 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br i1 %4, label %5, label %.lr.ph.split
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 215, ptr noundef nonnull @__func__.detoast_attr_slice) #6
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 215, ptr noundef nonnull @__func__.detoast_attr_slice) #5
   unreachable
 
 .lr.ph.split:                                     ; preds = %3, %tailrecurse
@@ -445,7 +441,7 @@ define dso_local noundef ptr @detoast_attr_slice(ptr noundef %0, i32 noundef %1,
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @pglz_maximum_compressed_size(i32 noundef %.082, i32 noundef %20) #6
+  %28 = tail call i32 @pglz_maximum_compressed_size(i32 noundef %.082, i32 noundef %20) #5
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -501,18 +497,17 @@ tailrecurse:                                      ; preds = %16
   ]
 
 51:                                               ; preds = %50
-  %52 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.2) #6
+  %52 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.2) #5
   br label %toast_decompress_datum_slice.exit
 
 53:                                               ; preds = %50
-  %54 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.2) #6
+  %54 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.2) #5
   br label %toast_decompress_datum_slice.exit
 
 55:                                               ; preds = %50
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %49) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #6
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %49) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #5
   unreachable
 
 58:                                               ; preds = %47
@@ -522,18 +517,17 @@ tailrecurse:                                      ; preds = %16
   ]
 
 59:                                               ; preds = %58
-  %60 = tail call ptr @pglz_decompress_datum_slice(ptr noundef nonnull %.2, i32 noundef range(i32 0, -2147483648) %.082) #6
+  %60 = tail call ptr @pglz_decompress_datum_slice(ptr noundef nonnull %.2, i32 noundef range(i32 0, -2147483648) %.082) #5
   br label %toast_decompress_datum_slice.exit
 
 61:                                               ; preds = %58
-  %62 = tail call ptr @lz4_decompress_datum_slice(ptr noundef nonnull %.2, i32 noundef range(i32 0, -2147483648) %.082) #6
+  %62 = tail call ptr @lz4_decompress_datum_slice(ptr noundef nonnull %.2, i32 noundef range(i32 0, -2147483648) %.082) #5
   br label %toast_decompress_datum_slice.exit
 
 63:                                               ; preds = %58
-  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %64)
-  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %49) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.toast_decompress_datum_slice) #6
+  %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %65 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %49) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.toast_decompress_datum_slice) #5
   unreachable
 
 66:                                               ; preds = %43
@@ -544,18 +538,17 @@ tailrecurse:                                      ; preds = %16
   ]
 
 68:                                               ; preds = %66
-  %69 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.2) #6
+  %69 = tail call ptr @pglz_decompress_datum(ptr noundef nonnull %.2) #5
   br label %toast_decompress_datum_slice.exit
 
 70:                                               ; preds = %66
-  %71 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.2) #6
+  %71 = tail call ptr @lz4_decompress_datum(ptr noundef nonnull %.2) #5
   br label %toast_decompress_datum_slice.exit
 
 72:                                               ; preds = %66
-  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %73)
-  %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %67) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #6
+  %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %74 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %67) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.toast_decompress_datum) #5
   unreachable
 
 toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, %53, %51
@@ -564,7 +557,7 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br i1 %.not, label %76, label %75
 
 75:                                               ; preds = %toast_decompress_datum_slice.exit
-  tail call void @pfree(ptr noundef nonnull %.2) #6
+  tail call void @pfree(ptr noundef nonnull %.2) #5
   br label %76
 
 76:                                               ; preds = %toast_decompress_datum_slice.exit, %75, %.thread
@@ -607,7 +600,7 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   %95 = getelementptr inbounds nuw i8, ptr %.3, i64 %88
   %96 = add i32 %.161, 4
   %97 = sext i32 %96 to i64
-  %98 = tail call ptr @palloc(i64 noundef %97) #6
+  %98 = tail call ptr @palloc(i64 noundef %97) #5
   %99 = shl i32 %96, 2
   store i32 %99, ptr %98, align 4
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
@@ -618,7 +611,7 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br i1 %.not77, label %104, label %103
 
 103:                                              ; preds = %94
-  tail call void @pfree(ptr noundef nonnull %.3) #6
+  tail call void @pfree(ptr noundef nonnull %.3) #5
   br label %104
 
 104:                                              ; preds = %33, %94, %103
@@ -646,10 +639,9 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr noundef readonly
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %6, %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 405, ptr noundef nonnull @__func__.toast_fetch_datum_slice) #6
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 405, ptr noundef nonnull @__func__.toast_fetch_datum_slice) #5
   unreachable
 
 13:                                               ; preds = %6
@@ -679,7 +671,7 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr noundef readonly
   %.2 = select i1 %or.cond3, i32 %22, i32 %.1
   %23 = add i32 %.2, 4
   %24 = sext i32 %23 to i64
-  %25 = tail call ptr @palloc(i64 noundef %24) #6
+  %25 = tail call ptr @palloc(i64 noundef %24) #5
   %26 = shl i32 %23, 2
   %27 = or disjoint i32 %26, 2
   %storemerge = select i1 %17, i32 %27, i32 %26
@@ -688,13 +680,13 @@ define internal fastcc noundef ptr @toast_fetch_datum_slice(ptr noundef readonly
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %13
-  %30 = tail call ptr @table_open(i32 noundef %.sroa.9.0.copyload, i32 noundef 1) #6
+  %30 = tail call ptr @table_open(i32 noundef %.sroa.9.0.copyload, i32 noundef 1) #5
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 320
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 320
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %30, i32 noundef %.sroa.8.0.copyload, i32 noundef range(i32 0, 1073741824) %15, i32 noundef range(i32 0, 1073741823) %spec.select36, i32 noundef range(i32 -1073741822, -2147483648) %.2, ptr noundef nonnull %25) #6
-  tail call void @table_close(ptr noundef %30, i32 noundef 1) #6
+  tail call void %34(ptr noundef %30, i32 noundef %.sroa.8.0.copyload, i32 noundef range(i32 0, 1073741824) %15, i32 noundef range(i32 0, 1073741823) %spec.select36, i32 noundef range(i32 -1073741822, -2147483648) %.2, ptr noundef nonnull %25) #5
+  tail call void @table_close(ptr noundef %30, i32 noundef 1) #5
   br label %35
 
 35:                                               ; preds = %13, %29
@@ -740,8 +732,8 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %17, label %18, label %.thread22
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @DatumGetEOHP(i64 noundef %.tr31) #6
-  %20 = tail call i64 @EOH_get_flat_size(ptr noundef %19) #6
+  %19 = tail call ptr @DatumGetEOHP(i64 noundef %.tr31) #5
+  %20 = tail call i64 @EOH_get_flat_size(ptr noundef %19) #5
   br label %39
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
@@ -821,8 +813,8 @@ tailrecurse:                                      ; preds = %.lr.ph
   br i1 %17, label %18, label %.thread19
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @DatumGetEOHP(i64 noundef %.tr28) #6
-  %20 = tail call i64 @EOH_get_flat_size(ptr noundef %19) #6
+  %19 = tail call ptr @DatumGetEOHP(i64 noundef %.tr28) #5
+  %20 = tail call i64 @EOH_get_flat_size(ptr noundef %19) #5
   br label %30
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
@@ -865,17 +857,13 @@ declare ptr @pglz_decompress_datum_slice(ptr noundef, i32 noundef) local_unnamed
 
 declare ptr @lz4_decompress_datum_slice(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

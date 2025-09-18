@@ -6664,7 +6664,7 @@ _ZNK5clang10ASTContext15getNSObjectNameEv.exit23: ; preds = %39, %48
 define dso_local noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl38isDesignatedInitializerForTheInterfaceEPPKS0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZNK5clang14ObjCMethodDecl15getMethodFamilyEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %.not = icmp eq i32 %3, 3
-  br i1 %.not, label %4, label %25
+  br i1 %.not, label %4, label %23
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6680,7 +6680,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %4
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 127
   %13 = icmp eq i16 %12, 17
-  br i1 %13, label %25, label %_ZN5clang4Decl14getDeclContextEv.exit.i.i
+  br i1 %13, label %23, label %_ZN5clang4Decl14getDeclContextEv.exit.i.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread:    ; preds = %4
   %14 = load ptr, ptr %9, align 8, !tbaa !562
@@ -6688,46 +6688,34 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread:    ; preds = %4
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 127
   %18 = icmp eq i16 %17, 17
-  br i1 %18, label %25, label %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i
+  br i1 %18, label %23, label %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i
 
 _ZN5clang4Decl14getDeclContextEv.exit.i.i:        ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
   %19 = getelementptr inbounds i8, ptr %9, i64 -48
-  switch i16 %12, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.sink.split [
-    i16 18, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread
-    i16 21, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit
-  ]
+  %cond = icmp eq i16 %12, 18
+  br i1 %cond, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit
 
 _ZN5clang4Decl14getDeclContextEv.exit.thread.i.i: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread
   %20 = getelementptr inbounds i8, ptr %14, i64 -48
-  switch i16 %17, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.sink.split [
-    i16 18, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread
-    i16 21, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit
-  ]
+  %cond23 = icmp eq i16 %17, 18
+  br i1 %cond23, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit
 
-_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.sink.split: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i, %_ZN5clang4Decl14getDeclContextEv.exit.i.i
-  %.sink = phi i16 [ %12, %_ZN5clang4Decl14getDeclContextEv.exit.i.i ], [ %17, %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i ]
-  %.pn.i.i.pn.ph = phi ptr [ %9, %_ZN5clang4Decl14getDeclContextEv.exit.i.i ], [ %14, %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i ]
-  %21 = add nsw i16 %.sink, -19
-  %22 = icmp ult i16 %21, 2
-  tail call void @llvm.assume(i1 %22)
-  br label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit
-
-_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit: ; preds = %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.sink.split, %_ZN5clang4Decl14getDeclContextEv.exit.i.i, %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i
-  %.pn.i.i.pn = phi ptr [ %9, %_ZN5clang4Decl14getDeclContextEv.exit.i.i ], [ %14, %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i ], [ %.pn.i.i.pn.ph, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.sink.split ]
+_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i, %_ZN5clang4Decl14getDeclContextEv.exit.i.i
+  %.pn.i.i.pn = phi ptr [ %9, %_ZN5clang4Decl14getDeclContextEv.exit.i.i ], [ %14, %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i ]
   %.1.i.i.in = getelementptr inbounds nuw i8, ptr %.pn.i.i.pn, i64 40
   %.1.i.i = load ptr, ptr %.1.i.i.in, align 8, !tbaa !536
   %.not7 = icmp eq ptr %.1.i.i, null
-  br i1 %.not7, label %25, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread
+  br i1 %.not7, label %23, label %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread
 
 _ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i, %_ZN5clang4Decl14getDeclContextEv.exit.i.i, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit
   %.1.i.i11 = phi ptr [ %.1.i.i, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit ], [ %20, %_ZN5clang4Decl14getDeclContextEv.exit.thread.i.i ], [ %19, %_ZN5clang4Decl14getDeclContextEv.exit.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %23, align 8, !tbaa !35
-  %24 = tail call noundef zeroext i1 @_ZNK5clang17ObjCInterfaceDecl23isDesignatedInitializerENS_8SelectorEPPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(128) %.1.i.i11, i64 %.sroa.0.0.copyload.i.i, ptr noundef %1)
-  br label %25
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.0.0.copyload.i.i = load i64, ptr %21, align 8, !tbaa !35
+  %22 = tail call noundef zeroext i1 @_ZNK5clang17ObjCInterfaceDecl23isDesignatedInitializerENS_8SelectorEPPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(128) %.1.i.i11, i64 %.sroa.0.0.copyload.i.i, ptr noundef %1)
+  br label %23
 
-25:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ false, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ], [ %24, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread ], [ false, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit ]
+23:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit, %_ZNK5clang4Decl14getDeclContextEv.exit.thread, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ false, %_ZNK5clang4Decl14getDeclContextEv.exit.thread ], [ %22, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit.thread ], [ false, %_ZNK5clang14ObjCMethodDecl17getClassInterfaceEv.exit ]
   ret i1 %.0
 }
 
@@ -7951,8 +7939,8 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1
   %9 = and i16 %8, 127
   %10 = getelementptr inbounds i8, ptr %6, i64 -48
   switch i16 %9, label %_ZN5clang4Decl14getDeclContextEv.exit25 [
-    i16 18, label %27
-    i16 21, label %16
+    i16 18, label %_ZN5clang4Decl14getDeclContextEv.exit29
+    i16 21, label %_ZN5clang4Decl14getDeclContextEv.exit29.sink.split
   ]
 
 _ZN5clang4Decl14getDeclContextEv.exit.thread:     ; preds = %1
@@ -7962,40 +7950,28 @@ _ZN5clang4Decl14getDeclContextEv.exit.thread:     ; preds = %1
   %14 = and i16 %13, 127
   %15 = getelementptr inbounds i8, ptr %11, i64 -48
   switch i16 %14, label %_ZN5clang4Decl14getDeclContextEv.exit25.thread [
-    i16 18, label %27
-    i16 21, label %16
+    i16 18, label %_ZN5clang4Decl14getDeclContextEv.exit29
+    i16 21, label %_ZN5clang4Decl14getDeclContextEv.exit29.sink.split
   ]
 
-16:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.thread, %_ZN5clang4Decl14getDeclContextEv.exit
-  %.pn58 = phi ptr [ %6, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %11, %_ZN5clang4Decl14getDeclContextEv.exit.thread ]
-  %17 = getelementptr inbounds nuw i8, ptr %.pn58, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !578
-  br label %27
-
 _ZN5clang4Decl14getDeclContextEv.exit25:          ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
-  %19 = add nsw i16 %9, -19
-  %20 = icmp ult i16 %19, 2
-  br i1 %20, label %23, label %_ZN5clang4Decl14getDeclContextEv.exit29
+  %16 = add nsw i16 %9, -19
+  %17 = icmp ult i16 %16, 2
+  br i1 %17, label %_ZN5clang4Decl14getDeclContextEv.exit29.sink.split, label %_ZN5clang4Decl14getDeclContextEv.exit29
 
 _ZN5clang4Decl14getDeclContextEv.exit25.thread:   ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.thread
-  %21 = add nsw i16 %14, -19
-  %22 = icmp ult i16 %21, 2
-  br i1 %22, label %23, label %_ZN5clang4Decl14getDeclContextEv.exit29
+  %18 = add nsw i16 %14, -19
+  %19 = icmp ult i16 %18, 2
+  br i1 %19, label %_ZN5clang4Decl14getDeclContextEv.exit29.sink.split, label %_ZN5clang4Decl14getDeclContextEv.exit29
 
-23:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit25.thread, %_ZN5clang4Decl14getDeclContextEv.exit25
-  %.pn = phi ptr [ %11, %_ZN5clang4Decl14getDeclContextEv.exit25.thread ], [ %6, %_ZN5clang4Decl14getDeclContextEv.exit25 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.pn, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !570
-  br label %27
+_ZN5clang4Decl14getDeclContextEv.exit29.sink.split: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit25, %_ZN5clang4Decl14getDeclContextEv.exit25.thread, %_ZN5clang4Decl14getDeclContextEv.exit, %_ZN5clang4Decl14getDeclContextEv.exit.thread
+  %.pn.sink = phi ptr [ %6, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %11, %_ZN5clang4Decl14getDeclContextEv.exit.thread ], [ %11, %_ZN5clang4Decl14getDeclContextEv.exit25.thread ], [ %6, %_ZN5clang4Decl14getDeclContextEv.exit25 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.pn.sink, i64 40
+  %21 = load ptr, ptr %20, align 8, !tbaa !536
+  br label %_ZN5clang4Decl14getDeclContextEv.exit29
 
-_ZN5clang4Decl14getDeclContextEv.exit29:          ; preds = %_ZN5clang4Decl14getDeclContextEv.exit25.thread, %_ZN5clang4Decl14getDeclContextEv.exit25
-  %.pre-phi = phi i16 [ %9, %_ZN5clang4Decl14getDeclContextEv.exit25 ], [ %14, %_ZN5clang4Decl14getDeclContextEv.exit25.thread ]
-  %26 = icmp eq i16 %.pre-phi, 17
-  tail call void @llvm.assume(i1 %26)
-  br label %27
-
-27:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.thread, %_ZN5clang4Decl14getDeclContextEv.exit, %23, %16, %_ZN5clang4Decl14getDeclContextEv.exit29
-  %.1 = phi ptr [ null, %_ZN5clang4Decl14getDeclContextEv.exit29 ], [ %25, %23 ], [ %18, %16 ], [ %10, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %15, %_ZN5clang4Decl14getDeclContextEv.exit.thread ]
+_ZN5clang4Decl14getDeclContextEv.exit29:          ; preds = %_ZN5clang4Decl14getDeclContextEv.exit29.sink.split, %_ZN5clang4Decl14getDeclContextEv.exit25, %_ZN5clang4Decl14getDeclContextEv.exit25.thread, %_ZN5clang4Decl14getDeclContextEv.exit.thread, %_ZN5clang4Decl14getDeclContextEv.exit
+  %.1 = phi ptr [ %10, %_ZN5clang4Decl14getDeclContextEv.exit ], [ %15, %_ZN5clang4Decl14getDeclContextEv.exit.thread ], [ null, %_ZN5clang4Decl14getDeclContextEv.exit25.thread ], [ null, %_ZN5clang4Decl14getDeclContextEv.exit25 ], [ %21, %_ZN5clang4Decl14getDeclContextEv.exit29.sink.split ]
   ret ptr %.1
 }
 

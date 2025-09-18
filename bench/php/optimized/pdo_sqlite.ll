@@ -3,38 +3,25 @@ source_filename = "bench/php/original/pdo_sqlite.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_executor_globals = type { %struct._zval_struct, %struct._zval_struct, [32 x ptr], ptr, ptr, %struct._zend_array, %struct._zend_array, ptr, i32, i8, %struct._zval_struct, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, i32, i64, i32, i32, i32, i8, i8, %struct.zend_atomic_bool_s, %struct.zend_atomic_bool_s, ptr, i64, ptr, ptr, %struct._zend_array, %struct._zend_array, i32, i8, %struct._zval_struct, %struct._zval_struct, %struct._zend_stack, %struct._zend_stack, %struct._zend_stack, ptr, i32, i32, i64, ptr, ptr, ptr, %struct._zend_objects_store, %struct._zend_lazy_objects_store, ptr, ptr, ptr, [3 x %struct._zend_op], ptr, i8, i8, i64, i32, i32, ptr, [16 x %struct._HashTableIterator], ptr, %union._zend_function, %struct._zend_op, %struct._zend_array, i64, %struct.zend_get_gc_buffer, ptr, ptr, ptr, i64, i8, i32, ptr, ptr, i64, %struct._zend_call_stack, i64, i64, %struct._zend_strtod_state, [6 x ptr] }
-%struct.zend_atomic_bool_s = type { i8 }
-%struct._zval_struct = type { %union._zend_value, %union.anon, %union.anon.2 }
-%union._zend_value = type { i64 }
-%union.anon = type { i32 }
-%union.anon.2 = type { i32 }
-%struct._zend_stack = type { i32, i32, i32, ptr }
-%struct._zend_objects_store = type { ptr, i32, i32, i32 }
-%struct._zend_lazy_objects_store = type { %struct._zend_array }
-%struct._HashTableIterator = type { ptr, i32, i32 }
-%union._zend_function = type { %struct._zend_op_array }
-%struct._zend_op_array = type { i8, [3 x i8], i32, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, [6 x ptr] }
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
-%struct._zend_array = type { %struct._zend_refcounted_h, %union.anon.4, i32, %union.anon.6, i32, i32, i32, i32, i64, ptr }
-%struct._zend_refcounted_h = type { i32, %union.anon.3 }
-%union.anon.3 = type { i32 }
-%union.anon.4 = type { i32 }
-%union.anon.6 = type { ptr }
-%struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
-%struct._zend_call_stack = type { ptr, i64 }
-%struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct._php_stream_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.pdo_driver_t = type { ptr, i64, i64, ptr }
 %struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
 %struct._zend_class_entry = type { i8, ptr, %union.anon.8, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.9, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.10, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.11 }
 %union.anon.8 = type { ptr }
+%struct._zend_array = type { %struct._zend_refcounted_h, %union.anon.4, i32, %union.anon.6, i32, i32, i32, i32, i64, ptr }
+%struct._zend_refcounted_h = type { i32, %union.anon.3 }
+%union.anon.3 = type { i32 }
+%union.anon.4 = type { i32 }
+%union.anon.6 = type { ptr }
 %union.anon.9 = type { ptr }
 %union.anon.10 = type { ptr }
 %union.anon.11 = type { %struct.anon.12 }
 %struct.anon.12 = type { ptr, i32, i32 }
+%struct._zval_struct = type { %union._zend_value, %union.anon, %union.anon.2 }
+%union._zend_value = type { i64 }
+%union.anon = type { i32 }
+%union.anon.2 = type { i32 }
 %struct.zend_type = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"pdo_sqlite\00", align 1
@@ -42,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [16 x i8] c"API20240925,NTS\00", align 1
 @pdo_sqlite_module_entry = hidden local_unnamed_addr global { i16, [2 x i8], i32, i8, i8, [6 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i32, i8, [3 x i8], ptr, i32, [4 x i8], ptr } { i16 168, [2 x i8] zeroinitializer, i32 20240925, i8 0, i8 0, [6 x i8] zeroinitializer, ptr null, ptr @pdo_sqlite_deps, ptr @.str, ptr null, ptr @zm_startup_pdo_sqlite, ptr @zm_shutdown_pdo_sqlite, ptr null, ptr null, ptr @zm_info_pdo_sqlite, ptr @.str.1, i64 0, ptr null, ptr null, ptr null, ptr null, i32 0, i8 0, [3 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @.str.2 }, align 8
 @.str.3 = private unnamed_addr constant [2 x i8] c"p\00", align 1
-@executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 @.str.4 = private unnamed_addr constant [27 x i8] c"%s object is uninitialized\00", align 1
 @.str.5 = private unnamed_addr constant [30 x i8] c"Unable to load extension \22%s\22\00", align 1
 @.str.6 = private unnamed_addr constant [5 x i8] c"main\00", align 1
@@ -517,88 +503,70 @@ define hidden void @zim_Pdo_Sqlite_loadExtension(ptr noundef readonly captures(n
   %9 = load i32, ptr %8, align 4, !tbaa !30
   %10 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %6) #11
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %12, label %15
+  br i1 %11, label %48, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %14 = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %14)
-  br label %59
+  %13 = load i64, ptr %6, align 8, !tbaa !37
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %16
 
-15:                                               ; preds = %2
-  %16 = load i64, ptr %6, align 8, !tbaa !63
-  %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %21
-
-18:                                               ; preds = %15
+15:                                               ; preds = %12
   call void @zend_argument_must_not_be_empty_error(i32 noundef 1) #11
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %59
+  br label %48
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %7, align 8, !tbaa !30
-  %23 = getelementptr i8, ptr %22, i64 -8
-  %.val = load ptr, ptr %23, align 8, !tbaa !64
-  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %25 = load ptr, ptr %24, align 8, !tbaa !68
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %26, label %34
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %7, align 8, !tbaa !30
+  %18 = getelementptr i8, ptr %17, i64 -8
+  %.val = load ptr, ptr %18, align 8, !tbaa !38
+  %19 = getelementptr inbounds nuw i8, ptr %.val, i64 120
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
+  %.not = icmp eq ptr %20, null
+  br i1 %.not, label %21, label %27
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !72
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !10
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %31) #11
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %33 = icmp ne ptr %32, null
-  call void @llvm.assume(i1 %33)
-  br label %59
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !49
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %26) #11
+  br label %48
 
-34:                                               ; preds = %21
-  %35 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !73
-  %37 = load ptr, ptr %3, align 8, !tbaa !35
-  %38 = call ptr @tsrm_realpath(ptr noundef %37, ptr noundef nonnull %5) #11
-  %.not10 = icmp eq ptr %38, null
-  br i1 %.not10, label %39, label %45
+27:                                               ; preds = %16
+  %28 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %30 = load ptr, ptr %3, align 8, !tbaa !35
+  %31 = call ptr @tsrm_realpath(ptr noundef %30, ptr noundef nonnull %5) #11
+  %.not10 = icmp eq ptr %31, null
+  br i1 %.not10, label %32, label %36
 
-39:                                               ; preds = %34
-  %40 = call ptr @php_pdo_get_exception() #11
-  %41 = load ptr, ptr %3, align 8, !tbaa !35
-  %42 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %40, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %41) #11
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %44 = icmp ne ptr %43, null
-  call void @llvm.assume(i1 %44)
-  br label %59
+32:                                               ; preds = %27
+  %33 = call ptr @php_pdo_get_exception() #11
+  %34 = load ptr, ptr %3, align 8, !tbaa !35
+  %35 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %33, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %34) #11
+  br label %48
 
-45:                                               ; preds = %34
-  %46 = load ptr, ptr %36, align 8, !tbaa !74
-  %47 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %46, i32 noundef 1005, i32 noundef 1, ptr noundef null) #11
-  %48 = call i32 @sqlite3_load_extension(ptr noundef %46, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #11
-  %.not11 = icmp eq i32 %48, 0
-  br i1 %.not11, label %57, label %49
+36:                                               ; preds = %27
+  %37 = load ptr, ptr %29, align 8, !tbaa !51
+  %38 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %37, i32 noundef 1005, i32 noundef 1, ptr noundef null) #11
+  %39 = call i32 @sqlite3_load_extension(ptr noundef %37, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #11
+  %.not11 = icmp eq i32 %39, 0
+  br i1 %.not11, label %46, label %40
 
-49:                                               ; preds = %45
-  %50 = call ptr @php_pdo_get_exception() #11
-  %51 = load ptr, ptr %4, align 8, !tbaa !35
-  %52 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %50, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %51) #11
-  %53 = load ptr, ptr %4, align 8, !tbaa !35
-  call void @sqlite3_free(ptr noundef %53) #11
-  %54 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %46, i32 noundef 1005, i32 noundef 0, ptr noundef null) #11
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %56 = icmp ne ptr %55, null
-  call void @llvm.assume(i1 %56)
-  br label %59
+40:                                               ; preds = %36
+  %41 = call ptr @php_pdo_get_exception() #11
+  %42 = load ptr, ptr %4, align 8, !tbaa !35
+  %43 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %41, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %42) #11
+  %44 = load ptr, ptr %4, align 8, !tbaa !35
+  call void @sqlite3_free(ptr noundef %44) #11
+  %45 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %37, i32 noundef 1005, i32 noundef 0, ptr noundef null) #11
+  br label %48
 
-57:                                               ; preds = %45
-  %58 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %46, i32 noundef 1005, i32 noundef 0, ptr noundef null) #11
-  br label %59
+46:                                               ; preds = %36
+  %47 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %37, i32 noundef 1005, i32 noundef 0, ptr noundef null) #11
+  br label %48
 
-59:                                               ; preds = %49, %57, %39, %26, %18, %12
+48:                                               ; preds = %2, %40, %46, %32, %21, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -647,104 +615,95 @@ define hidden void @zim_Pdo_Sqlite_openBlob(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i64 1, ptr %10, align 8, !tbaa !63
+  store i64 1, ptr %10, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store ptr null, ptr %11, align 8, !tbaa !80
+  store ptr null, ptr %11, align 8, !tbaa !57
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr i8, ptr %13, i64 -8
-  %.val = load ptr, ptr %14, align 8, !tbaa !64
+  %.val = load ptr, ptr %14, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 120
-  %16 = load ptr, ptr %15, align 8, !tbaa !68
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %17, label %25
+  br i1 %.not, label %17, label %23
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !72
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %22) #11
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %24 = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %24)
-  br label %68
+  br label %63
 
-25:                                               ; preds = %2
-  %26 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !73
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %29 = load i32, ptr %28, align 4, !tbaa !30
-  %30 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %29, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %10) #11
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %35
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !50
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %27 = load i32, ptr %26, align 4, !tbaa !30
+  %28 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %27, ptr noundef nonnull @.str.8, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %10) #11
+  %29 = icmp eq i32 %28, -1
+  br i1 %29, label %63, label %30
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !37
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %68
+30:                                               ; preds = %23
+  %31 = load ptr, ptr %25, align 8, !tbaa !51
+  %32 = load i64, ptr %10, align 8, !tbaa !37
+  %33 = and i64 %32, 2
+  %.lobit = lshr exact i64 %33, 1
+  %34 = trunc nuw nsw i64 %.lobit to i32
+  %35 = load ptr, ptr %5, align 8, !tbaa !35
+  %36 = load ptr, ptr %3, align 8, !tbaa !35
+  %37 = load ptr, ptr %4, align 8, !tbaa !35
+  %38 = load i64, ptr %9, align 8, !tbaa !37
+  %39 = call i32 @sqlite3_blob_open(ptr noundef %31, ptr noundef %35, ptr noundef %36, ptr noundef %37, i64 noundef %38, i32 noundef %34, ptr noundef nonnull %11) #11
+  %.not25 = icmp eq i32 %39, 0
+  br i1 %.not25, label %43, label %40
 
-35:                                               ; preds = %25
-  %36 = load ptr, ptr %27, align 8, !tbaa !74
-  %37 = load i64, ptr %10, align 8, !tbaa !63
-  %38 = and i64 %37, 2
-  %.lobit = lshr exact i64 %38, 1
-  %39 = trunc nuw nsw i64 %.lobit to i32
-  %40 = load ptr, ptr %5, align 8, !tbaa !35
-  %41 = load ptr, ptr %3, align 8, !tbaa !35
-  %42 = load ptr, ptr %4, align 8, !tbaa !35
-  %43 = load i64, ptr %9, align 8, !tbaa !63
-  %44 = call i32 @sqlite3_blob_open(ptr noundef %36, ptr noundef %40, ptr noundef %41, ptr noundef %42, i64 noundef %43, i32 noundef %39, ptr noundef nonnull %11) #11
-  %.not25 = icmp eq i32 %44, 0
-  br i1 %.not25, label %48, label %45
+40:                                               ; preds = %30
+  %41 = call ptr @sqlite3_errmsg(ptr noundef %31) #11
+  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %41) #11
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %42, align 8, !tbaa !30
+  br label %63
 
-45:                                               ; preds = %35
-  %46 = call ptr @sqlite3_errmsg(ptr noundef %36) #11
-  call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %46) #11
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %47, align 8, !tbaa !30
-  br label %68
-
-48:                                               ; preds = %35
-  %.not24.not = icmp eq i64 %38, 0
-  %49 = call noalias ptr @_emalloc_32() #11
-  %50 = load ptr, ptr %11, align 8, !tbaa !80
-  store ptr %50, ptr %49, align 8, !tbaa !82
-  %51 = load i64, ptr %10, align 8, !tbaa !63
-  %52 = trunc i64 %51 to i32
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  store i32 %52, ptr %53, align 8, !tbaa !84
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 0, ptr %54, align 8, !tbaa !85
-  %55 = call i32 @sqlite3_blob_bytes(ptr noundef %50) #11
-  %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i64 %56, ptr %57, align 8, !tbaa !86
+43:                                               ; preds = %30
+  %.not24.not = icmp eq i64 %33, 0
+  %44 = call noalias ptr @_emalloc_32() #11
+  %45 = load ptr, ptr %11, align 8, !tbaa !57
+  store ptr %45, ptr %44, align 8, !tbaa !59
+  %46 = load i64, ptr %10, align 8, !tbaa !37
+  %47 = trunc i64 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  store i32 %47, ptr %48, align 8, !tbaa !61
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i64 0, ptr %49, align 8, !tbaa !62
+  %50 = call i32 @sqlite3_blob_bytes(ptr noundef %45) #11
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i64 %51, ptr %52, align 8, !tbaa !63
   %spec.select = select i1 %.not24.not, ptr @.str.7, ptr @.str.10
-  %58 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_pdosqlite3_ops, ptr noundef nonnull %49, ptr noundef null, ptr noundef nonnull %spec.select) #11
-  %.not26 = icmp eq ptr %58, null
-  br i1 %.not26, label %66, label %59
+  %53 = call ptr @_php_stream_alloc(ptr noundef nonnull @php_stream_pdosqlite3_ops, ptr noundef nonnull %44, ptr noundef null, ptr noundef nonnull %spec.select) #11
+  %.not26 = icmp eq ptr %53, null
+  br i1 %.not26, label %61, label %54
 
-59:                                               ; preds = %48
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 120
-  %61 = load ptr, ptr %60, align 8, !tbaa !87
-  store ptr %61, ptr %1, align 8, !tbaa !30
+54:                                               ; preds = %43
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 120
+  %56 = load ptr, ptr %55, align 8, !tbaa !64
+  store ptr %56, ptr %1, align 8, !tbaa !30
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 265, ptr %57, align 8, !tbaa !30
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 96
+  %59 = load i16, ptr %58, align 8
+  %60 = or i16 %59, 16
+  store i16 %60, ptr %58, align 8
+  br label %63
+
+61:                                               ; preds = %43
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 265, ptr %62, align 8, !tbaa !30
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 96
-  %64 = load i16, ptr %63, align 8
-  %65 = or i16 %64, 16
-  store i16 %65, ptr %63, align 8
-  br label %68
+  store i32 2, ptr %62, align 8, !tbaa !30
+  br label %63
 
-66:                                               ; preds = %48
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %67, align 8, !tbaa !30
-  br label %68
-
-68:                                               ; preds = %45, %66, %59, %32, %17
+63:                                               ; preds = %23, %40, %61, %54, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -800,9 +759,9 @@ zend_string_alloc.exit18:
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !97
+  store i64 0, ptr %12, align 8, !tbaa !74
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %7, ptr %13, align 8, !tbaa !99
+  store i64 %7, ptr %13, align 8, !tbaa !76
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %2, i64 range(i64 -2147483648, 2147483648) %7, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %7
@@ -819,9 +778,9 @@ zend_string_alloc.exit18:
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 22, ptr %22, align 4, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 0, ptr %23, align 8, !tbaa !97
+  store i64 0, ptr %23, align 8, !tbaa !74
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i64 %18, ptr %24, align 8, !tbaa !99
+  store i64 %18, ptr %24, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %4, i64 range(i64 -2147483648, 2147483648) %18, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %18
@@ -830,16 +789,16 @@ zend_string_alloc.exit18:
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 262, ptr %27, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !100
+  %29 = load ptr, ptr %28, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !30
   %32 = and i32 %31, 262144
   %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %zend_call_known_fcc.exit, label %33, !prof !102
+  br i1 %.not.i, label %zend_call_known_fcc.exit, label %33, !prof !79
 
 33:                                               ; preds = %zend_string_alloc.exit18
   %34 = tail call noalias ptr @_emalloc_256() #11
-  %35 = load ptr, ptr %28, align 8, !tbaa !100
+  %35 = load ptr, ptr %28, align 8, !tbaa !77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %34, ptr noundef nonnull align 8 dereferenceable(256) %35, i64 256, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !30
@@ -858,9 +817,9 @@ zend_string_alloc.exit18:
 zend_call_known_fcc.exit:                         ; preds = %41, %33, %zend_string_alloc.exit18
   %.0.i = phi ptr [ %29, %zend_string_alloc.exit18 ], [ %34, %33 ], [ %34, %41 ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = load ptr, ptr %44, align 8, !tbaa !103
+  %45 = load ptr, ptr %44, align 8, !tbaa !80
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !104
+  %47 = load ptr, ptr %46, align 8, !tbaa !81
   call void @zend_call_known_function(ptr noundef nonnull %.0.i, ptr noundef %45, ptr noundef %47, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #11
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !30
@@ -947,9 +906,9 @@ declare void @php_info_print_table_end() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !82
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !84
+  %7 = load i32, ptr %6, align 8, !tbaa !61
   %8 = and i32 %7, 1
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -960,10 +919,10 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(no
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !85
+  %12 = load i64, ptr %11, align 8, !tbaa !62
   %13 = add i64 %12, %2
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !86
+  %15 = load i64, ptr %14, align 8, !tbaa !63
   %16 = icmp ugt i64 %13, %15
   br i1 %16, label %17, label %18
 
@@ -972,7 +931,7 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(no
   br label %33
 
 18:                                               ; preds = %10
-  %19 = load ptr, ptr %5, align 8, !tbaa !82
+  %19 = load ptr, ptr %5, align 8, !tbaa !59
   %20 = trunc i64 %2 to i32
   %21 = trunc i64 %12 to i32
   %22 = tail call i32 @sqlite3_blob_write(ptr noundef %19, ptr noundef %1, i32 noundef %20, i32 noundef %21) #11
@@ -980,9 +939,9 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(no
   br i1 %.not19, label %23, label %33
 
 23:                                               ; preds = %18
-  %24 = load i64, ptr %11, align 8, !tbaa !85
+  %24 = load i64, ptr %11, align 8, !tbaa !62
   %25 = add i64 %24, %2
-  %26 = load i64, ptr %14, align 8, !tbaa !86
+  %26 = load i64, ptr %14, align 8, !tbaa !63
   %.not20 = icmp ult i64 %25, %26
   br i1 %.not20, label %32, label %27
 
@@ -991,12 +950,12 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(no
   %29 = load i16, ptr %28, align 8
   %30 = or i16 %29, 8
   store i16 %30, ptr %28, align 8
-  %31 = load i64, ptr %14, align 8, !tbaa !86
+  %31 = load i64, ptr %14, align 8, !tbaa !63
   br label %32
 
 32:                                               ; preds = %23, %27
   %storemerge = phi i64 [ %31, %27 ], [ %25, %23 ]
-  store i64 %storemerge, ptr %11, align 8, !tbaa !85
+  store i64 %storemerge, ptr %11, align 8, !tbaa !62
   br label %33
 
 33:                                               ; preds = %18, %32, %17, %9
@@ -1007,12 +966,12 @@ define internal noundef i64 @php_pdosqlite3_stream_write(ptr noundef captures(no
 ; Function Attrs: nounwind uwtable
 define internal i64 @php_pdosqlite3_stream_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !82
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !85
+  %7 = load i64, ptr %6, align 8, !tbaa !62
   %8 = add i64 %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !86
+  %10 = load i64, ptr %9, align 8, !tbaa !63
   %.not = icmp ult i64 %8, %10
   br i1 %.not, label %16, label %11
 
@@ -1030,18 +989,18 @@ define internal i64 @php_pdosqlite3_stream_read(ptr noundef captures(none) %0, p
   br i1 %.not17, label %26, label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %5, align 8, !tbaa !82
+  %18 = load ptr, ptr %5, align 8, !tbaa !59
   %19 = trunc i64 %.015 to i32
-  %20 = load i64, ptr %6, align 8, !tbaa !85
+  %20 = load i64, ptr %6, align 8, !tbaa !62
   %21 = trunc i64 %20 to i32
   %22 = tail call i32 @sqlite3_blob_read(ptr noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef %21) #11
   %.not18 = icmp eq i32 %22, 0
   br i1 %.not18, label %23, label %26
 
 23:                                               ; preds = %17
-  %24 = load i64, ptr %6, align 8, !tbaa !85
+  %24 = load i64, ptr %6, align 8, !tbaa !62
   %25 = add i64 %24, %.015
-  store i64 %25, ptr %6, align 8, !tbaa !85
+  store i64 %25, ptr %6, align 8, !tbaa !62
   br label %26
 
 26:                                               ; preds = %16, %23, %17
@@ -1052,8 +1011,8 @@ define internal i64 @php_pdosqlite3_stream_read(ptr noundef captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_pdosqlite3_stream_close(ptr noundef readonly captures(none) %0, i32 %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !105
-  %5 = load ptr, ptr %4, align 8, !tbaa !82
+  %4 = load ptr, ptr %3, align 8, !tbaa !82
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
   %6 = tail call i32 @sqlite3_blob_close(ptr noundef %5) #11
   tail call void @_efree(ptr noundef nonnull %4) #11
   ret i32 0
@@ -1067,7 +1026,7 @@ define internal noundef i32 @php_pdosqlite3_stream_flush(ptr readnone captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !105
+  %6 = load ptr, ptr %5, align 8, !tbaa !82
   switch i32 %2, label %57 [
     i32 1, label %7
     i32 0, label %30
@@ -1077,7 +1036,7 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
 7:                                                ; preds = %4
   %8 = icmp slt i64 %1, 0
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !85
+  %10 = load i64, ptr %9, align 8, !tbaa !62
   br i1 %8, label %11, label %20
 
 11:                                               ; preds = %7
@@ -1086,14 +1045,14 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i64 0, ptr %9, align 8, !tbaa !85
-  store i64 -1, ptr %3, align 8, !tbaa !63
+  store i64 0, ptr %9, align 8, !tbaa !62
+  store i64 -1, ptr %3, align 8, !tbaa !37
   br label %60
 
 15:                                               ; preds = %11
   %16 = add i64 %10, %1
-  store i64 %16, ptr %9, align 8, !tbaa !85
-  store i64 %16, ptr %3, align 8, !tbaa !63
+  store i64 %16, ptr %9, align 8, !tbaa !62
+  store i64 %16, ptr %3, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, -9
@@ -1103,18 +1062,18 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
 20:                                               ; preds = %7
   %21 = add i64 %10, %1
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !86
+  %23 = load i64, ptr %22, align 8, !tbaa !63
   %24 = icmp ugt i64 %21, %23
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %20
-  store i64 %23, ptr %9, align 8, !tbaa !85
-  store i64 -1, ptr %3, align 8, !tbaa !63
+  store i64 %23, ptr %9, align 8, !tbaa !62
+  store i64 -1, ptr %3, align 8, !tbaa !37
   br label %60
 
 26:                                               ; preds = %20
-  store i64 %21, ptr %9, align 8, !tbaa !85
-  store i64 %21, ptr %3, align 8, !tbaa !63
+  store i64 %21, ptr %9, align 8, !tbaa !62
+  store i64 %21, ptr %3, align 8, !tbaa !37
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i16, ptr %27, align 8
   %29 = and i16 %28, -9
@@ -1123,19 +1082,19 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !86
+  %32 = load i64, ptr %31, align 8, !tbaa !63
   %33 = icmp ult i64 %32, %1
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %33, label %35, label %36
 
 35:                                               ; preds = %30
-  store i64 %32, ptr %34, align 8, !tbaa !85
-  store i64 -1, ptr %3, align 8, !tbaa !63
+  store i64 %32, ptr %34, align 8, !tbaa !62
+  store i64 -1, ptr %3, align 8, !tbaa !37
   br label %60
 
 36:                                               ; preds = %30
-  store i64 %1, ptr %34, align 8, !tbaa !85
-  store i64 %1, ptr %3, align 8, !tbaa !63
+  store i64 %1, ptr %34, align 8, !tbaa !62
+  store i64 %1, ptr %3, align 8, !tbaa !37
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %38 = load i16, ptr %37, align 8
   %39 = and i16 %38, -9
@@ -1145,13 +1104,13 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
 40:                                               ; preds = %4
   %41 = icmp sgt i64 %1, 0
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !86
+  %43 = load i64, ptr %42, align 8, !tbaa !63
   br i1 %41, label %44, label %46
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %43, ptr %45, align 8, !tbaa !85
-  store i64 -1, ptr %3, align 8, !tbaa !63
+  store i64 %43, ptr %45, align 8, !tbaa !62
+  store i64 -1, ptr %3, align 8, !tbaa !37
   br label %60
 
 46:                                               ; preds = %40
@@ -1161,15 +1120,15 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %50, align 8, !tbaa !85
-  store i64 -1, ptr %3, align 8, !tbaa !63
+  store i64 0, ptr %50, align 8, !tbaa !62
+  store i64 -1, ptr %3, align 8, !tbaa !37
   br label %60
 
 51:                                               ; preds = %46
   %52 = add i64 %43, %1
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %52, ptr %53, align 8, !tbaa !85
-  store i64 %52, ptr %3, align 8, !tbaa !63
+  store i64 %52, ptr %53, align 8, !tbaa !62
+  store i64 %52, ptr %3, align 8, !tbaa !37
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %55 = load i16, ptr %54, align 8
   %56 = and i16 %55, -9
@@ -1178,8 +1137,8 @@ define internal range(i32 -1, 1) i32 @php_pdosqlite3_stream_seek(ptr noundef cap
 
 57:                                               ; preds = %4
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !85
-  store i64 %59, ptr %3, align 8, !tbaa !63
+  %59 = load i64, ptr %58, align 8, !tbaa !62
+  store i64 %59, ptr %3, align 8, !tbaa !37
   br label %60
 
 60:                                               ; preds = %57, %51, %49, %44, %36, %35, %26, %25, %15, %14
@@ -1195,11 +1154,11 @@ define internal noundef i32 @php_pdosqlite3_stream_cast(ptr readnone captures(no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @php_pdosqlite3_stream_stat(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((48, 56)) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !105
+  %4 = load ptr, ptr %3, align 8, !tbaa !82
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !86
+  %6 = load i64, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 %6, ptr %7, align 8, !tbaa !106
+  store i64 %6, ptr %7, align 8, !tbaa !83
   ret i32 0
 }
 
@@ -1300,76 +1259,53 @@ attributes #12 = { nounwind allocsize(0) }
 !34 = !{!16, !13, i64 0}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"p1 omnipotent char", !6, i64 0}
-!37 = !{!38, !51, i64 960}
-!38 = !{!"_zend_executor_globals", !39, i64 0, !39, i64 16, !7, i64 32, !40, i64 288, !40, i64 296, !15, i64 304, !15, i64 360, !41, i64 416, !13, i64 424, !42, i64 428, !39, i64 432, !13, i64 448, !28, i64 456, !28, i64 464, !28, i64 472, !14, i64 480, !14, i64 488, !43, i64 496, !17, i64 504, !44, i64 512, !5, i64 520, !13, i64 528, !44, i64 536, !13, i64 544, !17, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !42, i64 572, !42, i64 573, !45, i64 574, !45, i64 575, !28, i64 576, !17, i64 584, !6, i64 592, !6, i64 600, !15, i64 608, !15, i64 664, !13, i64 720, !42, i64 724, !39, i64 728, !39, i64 744, !46, i64 760, !46, i64 784, !46, i64 808, !5, i64 832, !13, i64 840, !13, i64 844, !17, i64 848, !28, i64 856, !28, i64 864, !47, i64 872, !48, i64 880, !50, i64 904, !51, i64 960, !51, i64 968, !52, i64 976, !7, i64 984, !53, i64 1080, !42, i64 1088, !7, i64 1089, !17, i64 1096, !13, i64 1104, !13, i64 1108, !54, i64 1112, !7, i64 1120, !6, i64 1376, !7, i64 1384, !55, i64 1640, !15, i64 1672, !17, i64 1728, !56, i64 1736, !57, i64 1760, !57, i64 1768, !58, i64 1776, !17, i64 1784, !42, i64 1792, !13, i64 1796, !59, i64 1800, !12, i64 1808, !17, i64 1816, !60, i64 1824, !17, i64 1840, !17, i64 1848, !61, i64 1856, !7, i64 1936}
-!39 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!40 = !{!"p2 _ZTS11_zend_array", !6, i64 0}
-!41 = !{!"p1 _ZTS13__jmp_buf_tag", !6, i64 0}
-!42 = !{!"_Bool", !7, i64 0}
-!43 = !{!"p1 _ZTS14_zend_vm_stack", !6, i64 0}
-!44 = !{!"p1 _ZTS18_zend_execute_data", !6, i64 0}
-!45 = !{!"zend_atomic_bool_s", !7, i64 0}
-!46 = !{!"_zend_stack", !13, i64 0, !13, i64 4, !13, i64 8, !6, i64 16}
-!47 = !{!"p1 _ZTS15_zend_ini_entry", !6, i64 0}
-!48 = !{!"_zend_objects_store", !49, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!49 = !{!"p2 _ZTS12_zend_object", !6, i64 0}
-!50 = !{!"_zend_lazy_objects_store", !15, i64 0}
-!51 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
-!52 = !{!"p1 _ZTS8_zend_op", !6, i64 0}
-!53 = !{!"p1 _ZTS18_zend_module_entry", !6, i64 0}
-!54 = !{!"p1 _ZTS18_HashTableIterator", !6, i64 0}
-!55 = !{!"_zend_op", !6, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !13, i64 20, !13, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!56 = !{!"", !14, i64 0, !14, i64 8, !14, i64 16}
-!57 = !{!"p1 _ZTS19_zend_fiber_context", !6, i64 0}
-!58 = !{!"p1 _ZTS11_zend_fiber", !6, i64 0}
-!59 = !{!"p2 _ZTS16_zend_error_info", !6, i64 0}
-!60 = !{!"_zend_call_stack", !6, i64 0, !17, i64 8}
-!61 = !{!"_zend_strtod_state", !7, i64 0, !62, i64 64, !36, i64 72}
-!62 = !{!"p1 _ZTS19_zend_strtod_bigint", !6, i64 0}
-!63 = !{!17, !17, i64 0}
-!64 = !{!65, !66, i64 0}
-!65 = !{!"_pdo_dbh_object_t", !66, i64 0, !67, i64 8}
-!66 = !{!"p1 _ZTS10_pdo_dbh_t", !6, i64 0}
-!67 = !{!"_zend_object", !16, i64 0, !13, i64 8, !13, i64 12, !5, i64 16, !22, i64 24, !28, i64 32, !7, i64 40}
-!68 = !{!69, !6, i64 120}
-!69 = !{!"_pdo_dbh_t", !70, i64 0, !6, i64 8, !36, i64 16, !36, i64 24, !13, i64 32, !13, i64 32, !13, i64 32, !13, i64 32, !42, i64 32, !13, i64 32, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 34, !36, i64 40, !17, i64 48, !7, i64 56, !13, i64 64, !13, i64 68, !13, i64 72, !36, i64 80, !17, i64 88, !13, i64 96, !7, i64 104, !6, i64 120, !5, i64 128, !39, i64 136, !71, i64 152, !51, i64 160, !13, i64 168}
-!70 = !{!"p1 _ZTS15pdo_dbh_methods", !6, i64 0}
-!71 = !{!"p1 _ZTS11_pdo_stmt_t", !6, i64 0}
-!72 = !{!67, !5, i64 16}
-!73 = !{!69, !6, i64 8}
-!74 = !{!75, !76, i64 0}
-!75 = !{!"", !76, i64 0, !77, i64 8, !78, i64 32, !79, i64 40}
-!76 = !{!"p1 _ZTS7sqlite3", !6, i64 0}
-!77 = !{!"", !36, i64 0, !13, i64 8, !13, i64 12, !36, i64 16}
-!78 = !{!"p1 _ZTS15pdo_sqlite_func", !6, i64 0}
-!79 = !{!"p1 _ZTS20pdo_sqlite_collation", !6, i64 0}
-!80 = !{!81, !81, i64 0}
-!81 = !{!"p1 _ZTS12sqlite3_blob", !6, i64 0}
-!82 = !{!83, !81, i64 0}
-!83 = !{!"", !81, i64 0, !17, i64 8, !17, i64 16, !13, i64 24}
-!84 = !{!83, !13, i64 24}
-!85 = !{!83, !17, i64 8}
-!86 = !{!83, !17, i64 16}
-!87 = !{!88, !95, i64 120}
-!88 = !{!"_php_stream", !89, i64 0, !6, i64 8, !90, i64 16, !90, i64 40, !93, i64 64, !6, i64 72, !39, i64 80, !94, i64 96, !94, i64 96, !94, i64 96, !94, i64 96, !94, i64 96, !94, i64 96, !94, i64 97, !7, i64 98, !13, i64 116, !95, i64 120, !96, i64 128, !36, i64 136, !95, i64 144, !17, i64 152, !36, i64 160, !17, i64 168, !17, i64 176, !17, i64 184, !17, i64 192, !92, i64 200}
-!89 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
-!90 = !{!"_php_stream_filter_chain", !91, i64 0, !91, i64 8, !92, i64 16}
-!91 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
-!92 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
-!93 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
-!94 = !{!"short", !7, i64 0}
-!95 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
-!96 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!97 = !{!98, !17, i64 8}
-!98 = !{!"_zend_string", !16, i64 0, !17, i64 8, !17, i64 16, !7, i64 24}
-!99 = !{!98, !17, i64 16}
-!100 = !{!101, !21, i64 0}
-!101 = !{!"_zend_fcall_info_cache", !21, i64 0, !5, i64 8, !5, i64 16, !51, i64 24, !51, i64 32}
-!102 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!103 = !{!101, !51, i64 24}
-!104 = !{!101, !5, i64 16}
-!105 = !{!88, !6, i64 8}
-!106 = !{!107, !17, i64 48}
-!107 = !{!"_php_stream_statbuf", !108, i64 0}
-!108 = !{!"stat", !17, i64 0, !17, i64 8, !17, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !109, i64 72, !109, i64 88, !109, i64 104, !7, i64 120}
-!109 = !{!"timespec", !17, i64 0, !17, i64 8}
+!37 = !{!17, !17, i64 0}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"_pdo_dbh_object_t", !40, i64 0, !41, i64 8}
+!40 = !{!"p1 _ZTS10_pdo_dbh_t", !6, i64 0}
+!41 = !{!"_zend_object", !16, i64 0, !13, i64 8, !13, i64 12, !5, i64 16, !22, i64 24, !28, i64 32, !7, i64 40}
+!42 = !{!43, !6, i64 120}
+!43 = !{!"_pdo_dbh_t", !44, i64 0, !6, i64 8, !36, i64 16, !36, i64 24, !13, i64 32, !13, i64 32, !13, i64 32, !13, i64 32, !45, i64 32, !13, i64 32, !13, i64 33, !13, i64 33, !13, i64 33, !13, i64 34, !36, i64 40, !17, i64 48, !7, i64 56, !13, i64 64, !13, i64 68, !13, i64 72, !36, i64 80, !17, i64 88, !13, i64 96, !7, i64 104, !6, i64 120, !5, i64 128, !46, i64 136, !47, i64 152, !48, i64 160, !13, i64 168}
+!44 = !{!"p1 _ZTS15pdo_dbh_methods", !6, i64 0}
+!45 = !{!"_Bool", !7, i64 0}
+!46 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!47 = !{!"p1 _ZTS11_pdo_stmt_t", !6, i64 0}
+!48 = !{!"p1 _ZTS12_zend_object", !6, i64 0}
+!49 = !{!41, !5, i64 16}
+!50 = !{!43, !6, i64 8}
+!51 = !{!52, !53, i64 0}
+!52 = !{!"", !53, i64 0, !54, i64 8, !55, i64 32, !56, i64 40}
+!53 = !{!"p1 _ZTS7sqlite3", !6, i64 0}
+!54 = !{!"", !36, i64 0, !13, i64 8, !13, i64 12, !36, i64 16}
+!55 = !{!"p1 _ZTS15pdo_sqlite_func", !6, i64 0}
+!56 = !{!"p1 _ZTS20pdo_sqlite_collation", !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS12sqlite3_blob", !6, i64 0}
+!59 = !{!60, !58, i64 0}
+!60 = !{!"", !58, i64 0, !17, i64 8, !17, i64 16, !13, i64 24}
+!61 = !{!60, !13, i64 24}
+!62 = !{!60, !17, i64 8}
+!63 = !{!60, !17, i64 16}
+!64 = !{!65, !72, i64 120}
+!65 = !{!"_php_stream", !66, i64 0, !6, i64 8, !67, i64 16, !67, i64 40, !70, i64 64, !6, i64 72, !46, i64 80, !71, i64 96, !71, i64 96, !71, i64 96, !71, i64 96, !71, i64 96, !71, i64 96, !71, i64 97, !7, i64 98, !13, i64 116, !72, i64 120, !73, i64 128, !36, i64 136, !72, i64 144, !17, i64 152, !36, i64 160, !17, i64 168, !17, i64 176, !17, i64 184, !17, i64 192, !69, i64 200}
+!66 = !{!"p1 _ZTS15_php_stream_ops", !6, i64 0}
+!67 = !{!"_php_stream_filter_chain", !68, i64 0, !68, i64 8, !69, i64 16}
+!68 = !{!"p1 _ZTS18_php_stream_filter", !6, i64 0}
+!69 = !{!"p1 _ZTS11_php_stream", !6, i64 0}
+!70 = !{!"p1 _ZTS19_php_stream_wrapper", !6, i64 0}
+!71 = !{!"short", !7, i64 0}
+!72 = !{!"p1 _ZTS14_zend_resource", !6, i64 0}
+!73 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!74 = !{!75, !17, i64 8}
+!75 = !{!"_zend_string", !16, i64 0, !17, i64 8, !17, i64 16, !7, i64 24}
+!76 = !{!75, !17, i64 16}
+!77 = !{!78, !21, i64 0}
+!78 = !{!"_zend_fcall_info_cache", !21, i64 0, !5, i64 8, !5, i64 16, !48, i64 24, !48, i64 32}
+!79 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!80 = !{!78, !48, i64 24}
+!81 = !{!78, !5, i64 16}
+!82 = !{!65, !6, i64 8}
+!83 = !{!84, !17, i64 48}
+!84 = !{!"_php_stream_statbuf", !85, i64 0}
+!85 = !{!"stat", !17, i64 0, !17, i64 8, !17, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !86, i64 72, !86, i64 88, !86, i64 104, !7, i64 120}
+!86 = !{!"timespec", !17, i64 0, !17, i64 8}

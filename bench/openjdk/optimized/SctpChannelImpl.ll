@@ -736,76 +736,72 @@ handleAssocChange.exit:                           ; preds = %7, %73, %62, %switc
 define hidden void @handleMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %5) #12
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %54, label %9
+  br i1 %8, label %51, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %11 = load i64, ptr %10, align 8
-  %12 = icmp ugt i64 %11, 15
-  tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %14 = load ptr, ptr %13, align 8, !nonnull !8, !noundef !8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %43, %9
-  %.019.i = phi ptr [ %44, %43 ], [ %14, %9 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, 132
-  br i1 %17, label %18, label %43
+.lr.ph.i:                                         ; preds = %40, %9
+  %.019.i = phi ptr [ %41, %40 ], [ %11, %9 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp eq i32 %13, 132
+  br i1 %14, label %15, label %40
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw i8, ptr %.019.i, i64 12
-  %20 = load i32, ptr %19, align 4
-  %21 = icmp eq i32 %20, 1
-  br i1 %21, label %getControlData.exit, label %43
+15:                                               ; preds = %.lr.ph.i
+  %16 = getelementptr inbounds nuw i8, ptr %.019.i, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = icmp eq i32 %17, 1
+  br i1 %18, label %getControlData.exit, label %40
 
-getControlData.exit:                              ; preds = %18
-  %22 = icmp eq i32 %3, 0
-  %spec.store.select = select i1 %22, i32 -1, i32 %3
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 44
-  %25 = load i32, ptr %24, align 4
-  %26 = load i16, ptr %23, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 20
-  %28 = load i16, ptr %27, align 4
-  %29 = and i16 %28, 1
-  %30 = zext nneg i16 %29 to i32
-  %31 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
-  %32 = load i32, ptr %31, align 4
-  %33 = tail call i32 @ntohl(i32 noundef %32) #13
-  %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr @smi_class, align 8
-  %38 = load ptr, ptr @smi_ctrID, align 8
-  %39 = zext i16 %26 to i32
+getControlData.exit:                              ; preds = %15
+  %19 = icmp eq i32 %3, 0
+  %spec.store.select = select i1 %19, i32 -1, i32 %3
+  %20 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.019.i, i64 44
+  %22 = load i32, ptr %21, align 4
+  %23 = load i16, ptr %20, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %.019.i, i64 20
+  %25 = load i16, ptr %24, align 4
+  %26 = and i16 %25, 1
+  %27 = zext nneg i16 %26 to i32
+  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
+  %29 = load i32, ptr %28, align 4
+  %30 = tail call i32 @ntohl(i32 noundef %29) #13
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 224
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr @smi_class, align 8
+  %35 = load ptr, ptr @smi_ctrID, align 8
+  %36 = zext i16 %23 to i32
   %.not = icmp ne i8 %4, 0
-  %40 = zext i1 %.not to i32
-  %41 = tail call ptr (ptr, ptr, ptr, ...) %36(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38, i32 noundef %25, ptr noundef nonnull %7, i32 noundef %spec.store.select, i32 noundef %39, i32 noundef %40, i32 noundef %30, i32 noundef %33) #12
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %54, label %45
+  %37 = zext i1 %.not to i32
+  %38 = tail call ptr (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %35, i32 noundef %22, ptr noundef nonnull %7, i32 noundef %spec.store.select, i32 noundef %36, i32 noundef %37, i32 noundef %27, i32 noundef %30) #12
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %51, label %42
 
-43:                                               ; preds = %18, %.lr.ph.i
-  %44 = tail call ptr @__cmsg_nxthdr(ptr noundef %2, ptr noundef nonnull %.019.i) #12
-  %.not.i = icmp ne ptr %44, null
+40:                                               ; preds = %15, %.lr.ph.i
+  %41 = tail call ptr @__cmsg_nxthdr(ptr noundef %2, ptr noundef nonnull %.019.i) #12
+  %.not.i = icmp ne ptr %41, null
   tail call void @llvm.assume(i1 %.not.i)
   br label %.lr.ph.i
 
-45:                                               ; preds = %getControlData.exit
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 832
-  %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr @src_valueID, align 8
-  tail call void %48(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %49, ptr noundef nonnull %41) #12
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 872
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr @src_typeID, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %53, i32 noundef 1) #12
-  br label %54
+42:                                               ; preds = %getControlData.exit
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 832
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr @src_valueID, align 8
+  tail call void %45(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %46, ptr noundef nonnull %38) #12
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 872
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr @src_typeID, align 8
+  tail call void %49(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %50, i32 noundef 1) #12
+  br label %51
 
-54:                                               ; preds = %getControlData.exit, %6, %45
+51:                                               ; preds = %getControlData.exit, %6, %42
   ret void
 }
 

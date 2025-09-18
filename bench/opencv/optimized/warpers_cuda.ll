@@ -45,7 +45,7 @@ define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_Ii
           to label %9 unwind label %10
 
 9:                                                ; preds = %6
-  invoke fastcc void @_ZL13throw_no_cudav() #12
+  invoke fastcc void @_ZL13throw_no_cudav() #11
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %9
@@ -63,7 +63,7 @@ define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_Ii
 
 14:                                               ; preds = %12, %10
   %.pn = phi { ptr, i32 } [ %13, %12 ], [ %11, %10 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %8) #13
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %8) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
@@ -71,7 +71,7 @@ define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_Ii
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef { i64, i64 } @_ZN2cv6detail14PlaneWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_S6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #11
   unreachable
 }
 
@@ -87,11 +87,11 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #13
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #13
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
+  tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
   ret void
 }
 
@@ -115,7 +115,7 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #6 personality p
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i8 0, ptr %6, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.1, i32 noundef 106) #12
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.1, i32 noundef 106) #11
           to label %7 unwind label %8
 
 7:                                                ; preds = %.noexc.i
@@ -126,19 +126,13 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #6 personality p
           cleanup
   %10 = load ptr, ptr %1, align 8, !tbaa !11
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %8
-  %12 = load i64, ptr %5, align 8, !tbaa !14
-  %13 = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %13)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %8
-  call void @_ZdlPv(ptr noundef %10) #14
+  call void @_ZdlPv(ptr noundef %10) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %9
 }
@@ -154,7 +148,7 @@ define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11
           to label %10 unwind label %11
 
 10:                                               ; preds = %7
-  invoke fastcc void @_ZL13throw_no_cudav() #12
+  invoke fastcc void @_ZL13throw_no_cudav() #11
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %10
@@ -172,7 +166,7 @@ define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %9) #13
+  call void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %9) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn
@@ -180,31 +174,31 @@ define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZN2cv6detail14PlaneWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_S8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %7) local_unnamed_addr #3 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef { i64, i64 } @_ZN2cv6detail18SphericalWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5) local_unnamed_addr #3 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZN2cv6detail18SphericalWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef { i64, i64 } @_ZN2cv6detail20CylindricalWarperGpu9buildMapsENS_5Size_IiEERKNS_11_InputArrayES6_RNS_4cuda6GpuMatES9_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, i64 %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %4, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %5) local_unnamed_addr #3 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZN2cv6detail20CylindricalWarperGpu4warpERKNS_4cuda6GpuMatERKNS_11_InputArrayES8_iiRS3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(424) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %6) local_unnamed_addr #3 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #12
+  tail call fastcc void @_ZL13throw_no_cudav() #11
   unreachable
 }
 
@@ -222,7 +216,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_warpers_cuda.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #12
   ret void
 }
 
@@ -231,9 +225,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -246,10 +237,9 @@ attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #8 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { noreturn }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
+attributes #11 = { noreturn }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

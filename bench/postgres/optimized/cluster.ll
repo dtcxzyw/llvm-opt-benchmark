@@ -106,7 +106,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str) #7
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str) #6
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %.split
 
@@ -123,7 +123,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %.not60, label %.critedge70, label %35
 
 22:                                               ; preds = %.lr.ph94
-  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %14) #8
+  %23 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %14) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %8, align 4
   %25 = sext i32 %24 to i64
@@ -132,20 +132,19 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
 
 .split:                                           ; preds = %.lr.ph94
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 @errcode(i32 noundef 16801924) #8
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %29 = tail call i32 @errcode(i32 noundef 16801924) #7
   %30 = load ptr, ptr %27, align 8
-  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %30) #8
+  %31 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %30) #7
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %33 = load i32, ptr %32, align 4
-  %34 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %33) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.cluster) #8
+  %34 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %33) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.cluster) #7
   unreachable
 
 35:                                               ; preds = %.critedge
-  %36 = tail call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %21, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackMaintainsTable, ptr noundef null) #8
-  %37 = tail call ptr @table_open(i32 noundef %36, i32 noundef 0) #8
+  %36 = tail call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %21, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackMaintainsTable, ptr noundef null) #7
+  %37 = tail call ptr @table_open(i32 noundef %36, i32 noundef 0) #7
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 114
@@ -160,11 +159,10 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %43
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 @errcode(i32 noundef 1088) #8
-  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__.cluster) #8
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %49 = tail call i32 @errcode(i32 noundef 1088) #7
+  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 158, ptr noundef nonnull @__func__.cluster) #7
   unreachable
 
 51:                                               ; preds = %43, %35
@@ -174,7 +172,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %54, label %55, label %75
 
 55:                                               ; preds = %51
-  %56 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %37) #8
+  %56 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %37) #7
   %.not62 = icmp eq ptr %56, null
   br i1 %.not62, label %.critedge68.thread, label %.lr.ph96
 
@@ -197,7 +195,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %65 = load ptr, ptr %58, align 8
   %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv106
   %67 = load i32, ptr %66, align 8
-  %68 = tail call zeroext i1 @get_index_isclustered(i32 noundef %67) #8
+  %68 = tail call zeroext i1 @get_index_isclustered(i32 noundef %67) #7
   br i1 %68, label %.critedge68, label %61
 
 .critedge68:                                      ; preds = %.lr.ph100
@@ -205,33 +203,31 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %.not64, label %.critedge68.thread, label %87
 
 .critedge68.thread:                               ; preds = %61, %55, %.lr.ph96, %.critedge68
-  %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %69)
-  %70 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %69 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %70 = tail call i32 @errcode(i32 noundef 67137668) #7
   %71 = load ptr, ptr %20, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %73) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__func__.cluster) #8
+  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %73) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 177, ptr noundef nonnull @__func__.cluster) #7
   unreachable
 
 75:                                               ; preds = %51
   %76 = getelementptr inbounds nuw i8, ptr %39, i64 68
   %77 = load i32, ptr %76, align 4
-  %78 = tail call i32 @get_relname_relid(ptr noundef nonnull %53, i32 noundef %77) #8
+  %78 = tail call i32 @get_relname_relid(ptr noundef nonnull %53, i32 noundef %77) #7
   %.not61 = icmp eq i32 %78, 0
   br i1 %.not61, label %79, label %87
 
 79:                                               ; preds = %75
-  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %80)
-  %81 = tail call i32 @errcode(i32 noundef 67137668) #8
+  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %81 = tail call i32 @errcode(i32 noundef 67137668) #7
   %82 = load ptr, ptr %52, align 8
   %83 = load ptr, ptr %20, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %82, ptr noundef %85) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 191, ptr noundef nonnull @__func__.cluster) #8
+  %86 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %82, ptr noundef %85) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 191, ptr noundef nonnull @__func__.cluster) #7
   unreachable
 
 87:                                               ; preds = %.critedge68, %75
@@ -249,9 +245,9 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
 .critedge70:                                      ; preds = %87, %.critedge
   %.052 = phi i32 [ 0, %.critedge ], [ %.3, %87 ]
   %.050 = phi ptr [ null, %.critedge ], [ %37, %87 ]
-  tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.6) #8
+  tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.6) #7
   %92 = load ptr, ptr @PortalContext, align 8
-  %93 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %92, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
+  %93 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %92, ptr noundef nonnull @.str.7, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %94 = or disjoint i32 %.049.lcssa, 2
   store i32 %94, ptr %5, align 4
   %.not66 = icmp eq ptr %.050, null
@@ -259,7 +255,7 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
 
 95:                                               ; preds = %.critedge70
   tail call void @check_index_is_clusterable(ptr noundef nonnull %.050, i32 noundef %.052, i32 noundef 1)
-  %96 = tail call ptr @find_all_inheritors(i32 noundef %.052, i32 noundef 0, ptr noundef null) #8
+  %96 = tail call ptr @find_all_inheritors(i32 noundef %.052, i32 noundef 0, ptr noundef null) #7
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %.not.i = icmp eq ptr %96, null
   br i1 %.not.i, label %get_tables_to_cluster_partitioned.exit, label %.lr.ph.i
@@ -276,35 +272,35 @@ define dso_local void @cluster(ptr noundef %0, ptr noundef readonly captures(non
   %101 = load ptr, ptr %98, align 8
   %102 = getelementptr inbounds nuw %union.ListCell, ptr %101, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 8
-  %104 = tail call i32 @IndexGetRelation(i32 noundef %103, i1 noundef zeroext false) #8
-  %105 = tail call signext i8 @get_rel_relkind(i32 noundef %103) #8
+  %104 = tail call i32 @IndexGetRelation(i32 noundef %103, i1 noundef zeroext false) #7
+  %105 = tail call signext i8 @get_rel_relkind(i32 noundef %103) #7
   %.not21.i = icmp eq i8 %105, 105
   br i1 %.not21.i, label %106, label %cluster_is_permitted_for_relation.exit.thread.i
 
 106:                                              ; preds = %.lr.ph29.i
-  %107 = tail call i32 @GetUserId() #8
-  %108 = tail call i32 @pg_class_aclcheck(i32 noundef %104, i32 noundef %107, i64 noundef 16384) #8
+  %107 = tail call i32 @GetUserId() #7
+  %108 = tail call i32 @pg_class_aclcheck(i32 noundef %104, i32 noundef %107, i64 noundef 16384) #7
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %cluster_is_permitted_for_relation.exit.i, label %110
 
 110:                                              ; preds = %106
-  %111 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  %111 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %111, label %112, label %cluster_is_permitted_for_relation.exit.thread.i
 
 112:                                              ; preds = %110
-  %113 = tail call ptr @get_rel_name(i32 noundef %104) #8
-  %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %113) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #8
+  %113 = tail call ptr @get_rel_name(i32 noundef %104) #7
+  %114 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %113) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #7
   br label %cluster_is_permitted_for_relation.exit.thread.i
 
 cluster_is_permitted_for_relation.exit.i:         ; preds = %106
   %115 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %93, ptr @CurrentMemoryContext, align 8
-  %116 = tail call ptr @palloc(i64 noundef 8) #8
+  %116 = tail call ptr @palloc(i64 noundef 8) #7
   store i32 %104, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %103, ptr %117, align 4
-  %118 = tail call ptr @lappend(ptr noundef %.0182327.i, ptr noundef nonnull %116) #8
+  %118 = tail call ptr @lappend(ptr noundef %.0182327.i, ptr noundef nonnull %116) #7
   store ptr %115, ptr @CurrentMemoryContext, align 8
   br label %cluster_is_permitted_for_relation.exit.thread.i
 
@@ -318,15 +314,15 @@ cluster_is_permitted_for_relation.exit.thread.i:  ; preds = %cluster_is_permitte
 
 get_tables_to_cluster_partitioned.exit:           ; preds = %cluster_is_permitted_for_relation.exit.thread.i, %95, %.lr.ph.i
   %.018.lcssa.i = phi ptr [ null, %95 ], [ null, %.lr.ph.i ], [ %.1.i, %cluster_is_permitted_for_relation.exit.thread.i ]
-  tail call void @table_close(ptr noundef nonnull %.050, i32 noundef 8) #8
+  tail call void @table_close(ptr noundef nonnull %.050, i32 noundef 8) #7
   br label %155
 
 122:                                              ; preds = %.critedge70
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %123 = tail call ptr @table_open(i32 noundef 2610, i32 noundef 1) #8
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 10, i16 noundef zeroext 3, i32 noundef 60, i64 noundef 1) #8
-  %124 = call ptr @table_beginscan_catalog(ptr noundef %123, i32 noundef 1, ptr noundef nonnull %4) #8
-  %125 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #8
+  %123 = tail call ptr @table_open(i32 noundef 2610, i32 noundef 1) #7
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 10, i16 noundef zeroext 3, i32 noundef 60, i64 noundef 1) #7
+  %124 = call ptr @table_beginscan_catalog(ptr noundef %123, i32 noundef 1, ptr noundef nonnull %4) #7
+  %125 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #7
   %.not16.i = icmp eq ptr %125, null
   br i1 %.not16.i, label %get_tables_to_cluster.exit, label %.lr.ph.i71
 
@@ -341,37 +337,37 @@ get_tables_to_cluster_partitioned.exit:           ; preds = %cluster_is_permitte
   %131 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i32, ptr %132, align 4
-  %134 = call i32 @GetUserId() #8
-  %135 = call i32 @pg_class_aclcheck(i32 noundef %133, i32 noundef %134, i64 noundef 16384) #8
+  %134 = call i32 @GetUserId() #7
+  %135 = call i32 @pg_class_aclcheck(i32 noundef %133, i32 noundef %134, i64 noundef 16384) #7
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %cluster_is_permitted_for_relation.exit.i75, label %137
 
 137:                                              ; preds = %.lr.ph.i71
-  %138 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  %138 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %138, label %139, label %cluster_is_permitted_for_relation.exit.thread.i72
 
 139:                                              ; preds = %137
-  %140 = call ptr @get_rel_name(i32 noundef %133) #8
-  %141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %140) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #8
+  %140 = call ptr @get_rel_name(i32 noundef %133) #7
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %140) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #7
   br label %cluster_is_permitted_for_relation.exit.thread.i72
 
 cluster_is_permitted_for_relation.exit.i75:       ; preds = %.lr.ph.i71
   %142 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %93, ptr @CurrentMemoryContext, align 8
-  %143 = call ptr @palloc(i64 noundef 8) #8
+  %143 = call ptr @palloc(i64 noundef 8) #7
   %144 = load i32, ptr %132, align 4
   store i32 %144, ptr %143, align 4
   %145 = load i32, ptr %131, align 4
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 4
   store i32 %145, ptr %146, align 4
-  %147 = call ptr @lappend(ptr noundef %.017.i, ptr noundef nonnull %143) #8
+  %147 = call ptr @lappend(ptr noundef %.017.i, ptr noundef nonnull %143) #7
   store ptr %142, ptr @CurrentMemoryContext, align 8
   br label %cluster_is_permitted_for_relation.exit.thread.i72
 
 cluster_is_permitted_for_relation.exit.thread.i72: ; preds = %cluster_is_permitted_for_relation.exit.i75, %139, %137
   %.1.i73 = phi ptr [ %147, %cluster_is_permitted_for_relation.exit.i75 ], [ %.017.i, %137 ], [ %.017.i, %139 ]
-  %148 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #8
+  %148 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #7
   %.not.i74 = icmp eq ptr %148, null
   br i1 %.not.i74, label %get_tables_to_cluster.exit, label %.lr.ph.i71
 
@@ -382,8 +378,8 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
-  call void %153(ptr noundef nonnull %124) #8
-  call void @relation_close(ptr noundef %123, i32 noundef 1) #8
+  call void %153(ptr noundef nonnull %124) #7
+  call void @relation_close(ptr noundef %123, i32 noundef 1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %154 = or disjoint i32 %.049.lcssa, 6
   store i32 %154, ptr %5, align 4
@@ -391,8 +387,8 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
 
 155:                                              ; preds = %get_tables_to_cluster.exit, %get_tables_to_cluster_partitioned.exit
   %.053 = phi ptr [ %.018.lcssa.i, %get_tables_to_cluster_partitioned.exit ], [ %.0.lcssa.i, %get_tables_to_cluster.exit ]
-  call void @PopActiveSnapshot() #8
-  call void @CommitTransactionCommand() #8
+  call void @PopActiveSnapshot() #7
+  call void @CommitTransactionCommand() #7
   %156 = getelementptr inbounds nuw i8, ptr %.053, i64 4
   %.not.i76 = icmp eq ptr %.053, null
   br i1 %.not.i76, label %cluster_multiple_rels.exit, label %.lr.ph.i77
@@ -408,16 +404,16 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
   %160 = load ptr, ptr %157, align 8
   %161 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv.i78
   %162 = load ptr, ptr %161, align 8
-  call void @StartTransactionCommand() #8
-  %163 = call ptr @GetTransactionSnapshot() #8
-  call void @PushActiveSnapshot(ptr noundef %163) #8
+  call void @StartTransactionCommand() #7
+  %163 = call ptr @GetTransactionSnapshot() #7
+  call void @PushActiveSnapshot(ptr noundef %163) #7
   %164 = load i32, ptr %162, align 4
-  %165 = call ptr @table_open(i32 noundef %164, i32 noundef 8) #8
+  %165 = call ptr @table_open(i32 noundef %164, i32 noundef 8) #7
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %167 = load i32, ptr %166, align 4
   call void @cluster_rel(ptr noundef %165, i32 noundef %167, ptr noundef nonnull readonly %5)
-  call void @PopActiveSnapshot() #8
-  call void @CommitTransactionCommand() #8
+  call void @PopActiveSnapshot() #7
+  call void @CommitTransactionCommand() #7
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %168 = load i32, ptr %156, align 4
   %169 = sext i32 %168 to i64
@@ -425,8 +421,8 @@ get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitte
   br i1 %170, label %.lr.ph15.i, label %cluster_multiple_rels.exit
 
 cluster_multiple_rels.exit:                       ; preds = %.lr.ph15.i, %155, %.lr.ph.i77
-  call void @StartTransactionCommand() #8
-  call void @MemoryContextDelete(ptr noundef %93) #8
+  call void @StartTransactionCommand() #7
+  call void @MemoryContextDelete(ptr noundef %93) #7
   br label %171
 
 171:                                              ; preds = %91, %cluster_multiple_rels.exit
@@ -491,44 +487,44 @@ define dso_local void @cluster_rel(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %.not37, label %19, label %18, !prof !6
 
 18:                                               ; preds = %3
-  tail call void @ProcessInterrupts() #8
+  tail call void @ProcessInterrupts() #7
   br label %19
 
 19:                                               ; preds = %18, %3
-  tail call void @pgstat_progress_start_command(i32 noundef 3, i32 noundef %13) #8
+  tail call void @pgstat_progress_start_command(i32 noundef 3, i32 noundef %13) #7
   %.not38 = icmp eq i32 %1, 0
   %. = select i1 %.not38, i64 2, i64 1
-  tail call void @pgstat_progress_update_param(i32 noundef 0, i64 noundef %.) #8
-  call void @GetUserIdAndSecContext(ptr noundef nonnull %10, ptr noundef nonnull %11) #8
+  tail call void @pgstat_progress_update_param(i32 noundef 0, i64 noundef %.) #7
+  call void @GetUserIdAndSecContext(ptr noundef nonnull %10, ptr noundef nonnull %11) #7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %11, align 4
   %25 = or i32 %24, 2
-  call void @SetUserIdAndSecContext(i32 noundef %23, i32 noundef %25) #8
-  %26 = call i32 @NewGUCNestLevel() #8
-  call void @RestrictSearchPath() #8
+  call void @SetUserIdAndSecContext(i32 noundef %23, i32 noundef %25) #7
+  %26 = call i32 @NewGUCNestLevel() #7
+  call void @RestrictSearchPath() #7
   br i1 %.not, label %57, label %27
 
 27:                                               ; preds = %19
   %28 = load i32, ptr %10, align 4
-  %29 = call i32 @pg_class_aclcheck(i32 noundef %13, i32 noundef %28, i64 noundef 16384) #8
+  %29 = call i32 @pg_class_aclcheck(i32 noundef %13, i32 noundef %28, i64 noundef 16384) #7
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %cluster_is_permitted_for_relation.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
+  %32 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #7
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %31
-  %34 = call ptr @get_rel_name(i32 noundef %13) #8
-  %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %34) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #8
+  %34 = call ptr @get_rel_name(i32 noundef %13) #7
+  %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %34) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1747, ptr noundef nonnull @__func__.cluster_is_permitted_for_relation) #7
   br label %36
 
 36:                                               ; preds = %31, %33
-  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #8
+  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #7
   br label %226
 
 cluster_is_permitted_for_relation.exit:           ; preds = %27
@@ -545,7 +541,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %41
-  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #8
+  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #7
   br label %226
 
 46:                                               ; preds = %41, %cluster_is_permitted_for_relation.exit
@@ -553,11 +549,11 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
 
 47:                                               ; preds = %46
   %48 = zext i32 %1 to i64
-  %49 = call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %48, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %49 = call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %48, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   br i1 %49, label %51, label %50
 
 50:                                               ; preds = %47
-  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #8
+  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #7
   br label %226
 
 51:                                               ; preds = %47
@@ -567,11 +563,11 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br i1 %.not39, label %.thread, label %54
 
 54:                                               ; preds = %51
-  %55 = call zeroext i1 @get_index_isclustered(i32 noundef %1) #8
+  %55 = call zeroext i1 @get_index_isclustered(i32 noundef %1) #7
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %54
-  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #8
+  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #7
   br label %226
 
 57:                                               ; preds = %19
@@ -589,11 +585,10 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br i1 %61, label %62, label %.critedge
 
 62:                                               ; preds = %.thread
-  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %63)
-  %64 = call i32 @errcode(i32 noundef 1088) #8
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 410, ptr noundef nonnull @__func__.cluster_rel) #8
+  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %64 = call i32 @errcode(i32 noundef 1088) #7
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 410, ptr noundef nonnull @__func__.cluster_rel) #7
   unreachable
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %46, %.thread
@@ -610,29 +605,28 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br i1 %73, label %81, label %74
 
 74:                                               ; preds = %70
-  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %75)
-  %76 = call i32 @errcode(i32 noundef 1088) #8
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %76 = call i32 @errcode(i32 noundef 1088) #7
   br i1 %.not38, label %79, label %77
 
 77:                                               ; preds = %74
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 421, ptr noundef nonnull @__func__.cluster_rel) #8
+  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 421, ptr noundef nonnull @__func__.cluster_rel) #7
   unreachable
 
 79:                                               ; preds = %74
-  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 425, ptr noundef nonnull @__func__.cluster_rel) #8
+  %80 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 425, ptr noundef nonnull @__func__.cluster_rel) #7
   unreachable
 
 81:                                               ; preds = %70, %.critedge
   %82 = select i1 %.not38, ptr @.str.10, ptr @.str.6
-  call void @CheckTableNotInUse(ptr noundef nonnull %0, ptr noundef nonnull %82) #8
+  call void @CheckTableNotInUse(ptr noundef nonnull %0, ptr noundef nonnull %82) #7
   br i1 %.not38, label %85, label %83
 
 83:                                               ; preds = %81
   call void @check_index_is_clusterable(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 8)
-  %84 = call ptr @index_open(i32 noundef %1, i32 noundef 0) #8
+  %84 = call ptr @index_open(i32 noundef %1, i32 noundef 0) #7
   br label %85
 
 85:                                               ; preds = %81, %83
@@ -650,11 +644,11 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br i1 %93, label %95, label %94
 
 94:                                               ; preds = %90
-  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #8
+  call void @relation_close(ptr noundef nonnull %0, i32 noundef 8) #7
   br label %226
 
 95:                                               ; preds = %90, %85
-  call void @TransferPredicateLocksToHeapRelation(ptr noundef nonnull %0) #8
+  call void @TransferPredicateLocksToHeapRelation(ptr noundef nonnull %0) #7
   %96 = load i32, ptr %12, align 8
   %97 = load ptr, ptr %20, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 84
@@ -675,9 +669,9 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %106 = phi ptr [ %.pre.i, %102 ], [ %97, %95 ]
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 114
   %108 = load i8, ptr %107, align 2
-  %109 = call zeroext i1 @IsSystemRelation(ptr noundef nonnull %0) #8
+  %109 = call zeroext i1 @IsSystemRelation(ptr noundef nonnull %0) #7
   %110 = call i32 @make_new_heap(i32 noundef %96, i32 noundef %101, i32 noundef %99, i8 noundef signext %108, i32 noundef 0)
-  %111 = call ptr @table_open(i32 noundef %110, i32 noundef 0) #8
+  %111 = call ptr @table_open(i32 noundef %110, i32 noundef 0) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -688,11 +682,11 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   store double 0.000000e+00, ptr %8, align 8
   %112 = select i1 %.not40, i32 13, i32 17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @pg_rusage_init(ptr noundef nonnull %9) #8
+  call void @pg_rusage_init(ptr noundef nonnull %9) #7
   %113 = load ptr, ptr %20, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 68
   %115 = load i32, ptr %114, align 4
-  %116 = call ptr @get_namespace_name(i32 noundef %115) #8
+  %116 = call ptr @get_namespace_name(i32 noundef %115) #7
   %117 = load ptr, ptr %20, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 108
   %119 = load i32, ptr %118, align 4
@@ -700,7 +694,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   br i1 %.not.i.i, label %.thread.i.i, label %120
 
 120:                                              ; preds = %105
-  call void @LockRelationOid(i32 noundef %119, i32 noundef 8) #8
+  call void @LockRelationOid(i32 noundef %119, i32 noundef 8) #7
   %.pre.i.i = load ptr, ptr %20, align 8
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 108
   %.pre119.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
@@ -723,7 +717,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
 .thread.i.i:                                      ; preds = %127, %122, %120, %105
   %.0.i = phi i1 [ true, %127 ], [ false, %122 ], [ false, %120 ], [ false, %105 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %129 = call zeroext i1 @vacuum_get_cutoffs(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  %129 = call zeroext i1 @vacuum_get_cutoffs(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %130 = load ptr, ptr %20, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 132
   %132 = load i32, ptr %131, align 4
@@ -733,7 +727,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
 133:                                              ; preds = %.thread.i.i
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %135 = load i32, ptr %134, align 4
-  %136 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %135, i32 noundef %132) #8
+  %136 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %135, i32 noundef %132) #7
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %133
@@ -750,7 +744,7 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %144 = load i32, ptr %143, align 4
-  %145 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %144, i32 noundef %141) #8
+  %145 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %144, i32 noundef %141) #7
   br i1 %145, label %146, label %147
 
 146:                                              ; preds = %142
@@ -772,11 +766,11 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %155 = load i32, ptr %12, align 8
   %156 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %157 = load i32, ptr %156, align 8
-  %158 = call zeroext i1 @plan_cluster_use_sort(i32 noundef %155, i32 noundef %157) #8
+  %158 = call zeroext i1 @plan_cluster_use_sort(i32 noundef %155, i32 noundef %157) #7
   br i1 %158, label %166, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %154, %148
-  %159 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #8
+  %159 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #7
   br i1 %159, label %160, label %177
 
 160:                                              ; preds = %.critedge.i.i
@@ -784,33 +778,33 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load ptr, ptr %149, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %116, ptr noundef nonnull %162, ptr noundef nonnull %164) #8
+  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %116, ptr noundef nonnull %162, ptr noundef nonnull %164) #7
   br label %.sink.split.i.i
 
 166:                                              ; preds = %154
-  %167 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #8
+  %167 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #7
   br i1 %167, label %168, label %177
 
 168:                                              ; preds = %166
   %169 = load ptr, ptr %20, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  %171 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %116, ptr noundef nonnull %170) #8
+  %171 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %116, ptr noundef nonnull %170) #7
   br label %.sink.split.i.i
 
 .thread116.i.i:                                   ; preds = %147
-  %172 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #8
+  %172 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #7
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %.thread116.i.i
   %174 = load ptr, ptr %20, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %176 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %116, ptr noundef nonnull %175) #8
+  %176 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %116, ptr noundef nonnull %175) #7
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %173, %168, %160
   %.sink.i.i = phi i32 [ 974, %173 ], [ 969, %168 ], [ 964, %160 ]
   %.0115.ph.i.i = phi i1 [ false, %173 ], [ true, %168 ], [ false, %160 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i.i, ptr noundef nonnull @__func__.copy_table_data) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink.i.i, ptr noundef nonnull @__func__.copy_table_data) #7
   br label %177
 
 177:                                              ; preds = %.sink.split.i.i, %.thread116.i.i, %166, %.critedge.i.i
@@ -823,13 +817,13 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 248
   %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %.0, i1 noundef zeroext %.0115.i.i, i32 noundef %179, ptr noundef nonnull %180, ptr noundef nonnull %181, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
+  call void %185(ptr noundef nonnull %0, ptr noundef %111, ptr noundef %.0, i1 noundef zeroext %.0115.i.i, i32 noundef %179, ptr noundef nonnull %180, ptr noundef nonnull %181, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %186 = load i32, ptr %180, align 4
   %187 = load i32, ptr %181, align 4
   %188 = getelementptr inbounds nuw i8, ptr %111, i64 472
   store i32 0, ptr %188, align 8
-  %189 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %111, i32 noundef 0) #8
-  %190 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #8
+  %189 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %111, i32 noundef 0) #7
+  %190 = call zeroext i1 @errstart(i32 noundef %112, ptr noundef null) #7
   br i1 %190, label %191, label %201
 
 191:                                              ; preds = %177
@@ -837,29 +831,28 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = load double, ptr %7, align 8
   %195 = load double, ptr %6, align 8
-  %196 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef nonnull %0, i32 noundef 0) #8
-  %197 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %116, ptr noundef nonnull %193, double noundef %194, double noundef %195, i32 noundef %196) #8
+  %196 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef nonnull %0, i32 noundef 0) #7
+  %197 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %116, ptr noundef nonnull %193, double noundef %194, double noundef %195, i32 noundef %196) #7
   %198 = load double, ptr %8, align 8
-  %199 = call ptr @pg_rusage_show(ptr noundef nonnull %9) #8
-  %200 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.27, double noundef %198, ptr noundef %199) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1007, ptr noundef nonnull @__func__.copy_table_data) #8
+  %199 = call ptr @pg_rusage_show(ptr noundef nonnull %9) #7
+  %200 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.27, double noundef %198, ptr noundef %199) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1007, ptr noundef nonnull @__func__.copy_table_data) #7
   br label %201
 
 201:                                              ; preds = %191, %177
-  %202 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #8
+  %202 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #7
   %203 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %204 = load i32, ptr %203, align 8
   %205 = zext i32 %204 to i64
-  %206 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %205, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %206 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %205, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not110.i.i = icmp eq ptr %206, null
   br i1 %.not110.i.i, label %207, label %211
 
 207:                                              ; preds = %201
-  %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %208)
+  %208 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %209 = load i32, ptr %203, align 8
-  %210 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %209) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1016, ptr noundef nonnull @__func__.copy_table_data) #8
+  %210 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %209) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1016, ptr noundef nonnull @__func__.copy_table_data) #7
   unreachable
 
 211:                                              ; preds = %201
@@ -881,41 +874,41 @@ cluster_is_permitted_for_relation.exit:           ; preds = %27
 
 222:                                              ; preds = %211
   %223 = getelementptr inbounds nuw i8, ptr %206, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %202, ptr noundef nonnull %223, ptr noundef nonnull %206) #8
+  call void @CatalogTupleUpdate(ptr noundef %202, ptr noundef nonnull %223, ptr noundef nonnull %206) #7
   br label %copy_table_data.exit.i
 
 224:                                              ; preds = %211
-  call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %206) #8
+  call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %206) #7
   br label %copy_table_data.exit.i
 
 copy_table_data.exit.i:                           ; preds = %224, %222
-  call void @heap_freetuple(ptr noundef nonnull %206) #8
-  call void @table_close(ptr noundef %202, i32 noundef 3) #8
-  call void @CommandCounterIncrement() #8
+  call void @heap_freetuple(ptr noundef nonnull %206) #7
+  call void @table_close(ptr noundef %202, i32 noundef 3) #7
+  call void @CommandCounterIncrement() #7
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @table_close(ptr noundef nonnull %0, i32 noundef 0) #8
+  call void @table_close(ptr noundef nonnull %0, i32 noundef 0) #7
   br i1 %.not.i, label %rebuild_relation.exit, label %225
 
 225:                                              ; preds = %copy_table_data.exit.i
-  call void @index_close(ptr noundef nonnull %.0, i32 noundef 0) #8
+  call void @index_close(ptr noundef nonnull %.0, i32 noundef 0) #7
   br label %rebuild_relation.exit
 
 rebuild_relation.exit:                            ; preds = %copy_table_data.exit.i, %225
-  call void @table_close(ptr noundef nonnull %111, i32 noundef 0) #8
+  call void @table_close(ptr noundef nonnull %111, i32 noundef 0) #7
   call void @finish_heap_swap(i32 noundef %96, i32 noundef %110, i1 noundef zeroext %109, i1 noundef zeroext %.0.i, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef %186, i32 noundef %187, i8 noundef signext %108)
   br label %226
 
 226:                                              ; preds = %rebuild_relation.exit, %94, %56, %50, %45, %36
-  call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %26) #8
+  call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %26) #7
   %227 = load i32, ptr %10, align 4
   %228 = load i32, ptr %11, align 4
-  call void @SetUserIdAndSecContext(i32 noundef %227, i32 noundef %228) #8
-  call void @pgstat_progress_end_command() #8
+  call void @SetUserIdAndSecContext(i32 noundef %227, i32 noundef %228) #7
+  call void @pgstat_progress_end_command() #7
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
@@ -927,7 +920,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @check_index_is_clusterable(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @index_open(i32 noundef %1, i32 noundef %2) #8
+  %4 = tail call ptr @index_open(i32 noundef %1, i32 noundef %2) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -942,17 +935,16 @@ define dso_local void @check_index_is_clusterable(ptr noundef readonly captures(
   br i1 %.not, label %23, label %13
 
 13:                                               ; preds = %8, %3
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 151027844) #8
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %15 = tail call i32 @errcode(i32 noundef 151027844) #7
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %18, ptr noundef nonnull %21) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 509, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %18, ptr noundef nonnull %21) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 509, ptr noundef nonnull @__func__.check_index_is_clusterable) #7
   unreachable
 
 23:                                               ; preds = %8
@@ -964,31 +956,29 @@ define dso_local void @check_index_is_clusterable(ptr noundef readonly captures(
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %23
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 @errcode(i32 noundef 1088) #8
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %31 = tail call i32 @errcode(i32 noundef 1088) #7
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %34) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 516, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %34) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 516, ptr noundef nonnull @__func__.check_index_is_clusterable) #7
   unreachable
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call zeroext i1 @heap_attisnull(ptr noundef %38, i32 noundef 21, ptr noundef null) #8
+  %39 = tail call zeroext i1 @heap_attisnull(ptr noundef %38, i32 noundef 21, ptr noundef null) #7
   br i1 %39, label %47, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 1088) #8
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %42 = tail call i32 @errcode(i32 noundef 1088) #7
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %45) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 528, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %45) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 528, ptr noundef nonnull @__func__.check_index_is_clusterable) #7
   unreachable
 
 47:                                               ; preds = %36
@@ -999,18 +989,17 @@ define dso_local void @check_index_is_clusterable(ptr noundef readonly captures(
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %47
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode(i32 noundef 1088) #8
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %54 = tail call i32 @errcode(i32 noundef 1088) #7
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %57) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 542, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
+  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %57) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 542, ptr noundef nonnull @__func__.check_index_is_clusterable) #7
   unreachable
 
 59:                                               ; preds = %47
-  tail call void @index_close(ptr noundef nonnull %4, i32 noundef 0) #8
+  tail call void @index_close(ptr noundef nonnull %4, i32 noundef 0) #7
   ret void
 }
 
@@ -1062,11 +1051,10 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 1088) #8
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 565, ptr noundef nonnull @__func__.mark_index_clustered) #8
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %11 = tail call i32 @errcode(i32 noundef 1088) #7
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 565, ptr noundef nonnull @__func__.mark_index_clustered) #7
   unreachable
 
 13:                                               ; preds = %3
@@ -1074,12 +1062,12 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %.not, label %16, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call zeroext i1 @get_index_isclustered(i32 noundef %1) #8
+  %15 = tail call zeroext i1 @get_index_isclustered(i32 noundef %1) #7
   br i1 %15, label %55, label %16
 
 16:                                               ; preds = %14, %13
-  %17 = tail call ptr @table_open(i32 noundef 2610, i32 noundef 3) #8
-  %18 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %0) #8
+  %17 = tail call ptr @table_open(i32 noundef 2610, i32 noundef 3) #7
+  %18 = tail call ptr @RelationGetIndexList(ptr noundef nonnull %0) #7
   %.not32 = icmp eq ptr %18, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 
@@ -1096,19 +1084,18 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8
   %26 = zext i32 %25 to i64
-  %27 = tail call ptr @SearchSysCacheCopy(i32 noundef 34, i64 noundef %26, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %27 = tail call ptr @SearchSysCacheCopy(i32 noundef 34, i64 noundef %26, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not34 = icmp eq ptr %27, null
   br i1 %.not34, label %.split, label %30
 
 .critedge:                                        ; preds = %51, %.lr.ph, %16
-  tail call void @table_close(ptr noundef %17, i32 noundef 3) #8
+  tail call void @table_close(ptr noundef %17, i32 noundef 3) #7
   br label %55
 
 .split:                                           ; preds = %.lr.ph42
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %25) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.mark_index_clustered) #8
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.16, i32 noundef %25) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 588, ptr noundef nonnull @__func__.mark_index_clustered) #7
   unreachable
 
 30:                                               ; preds = %.lr.ph42
@@ -1134,17 +1121,16 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %44, label %.sink.split, label %.split40
 
 .split40:                                         ; preds = %41
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 604, ptr noundef nonnull @__func__.mark_index_clustered) #8
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 604, ptr noundef nonnull @__func__.mark_index_clustered) #7
   unreachable
 
 .sink.split:                                      ; preds = %41, %30
   %.sink = phi i8 [ 0, %30 ], [ 1, %41 ]
   store i8 %.sink, ptr %36, align 1
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %17, ptr noundef nonnull %47, ptr noundef nonnull %27) #8
+  tail call void @CatalogTupleUpdate(ptr noundef %17, ptr noundef nonnull %47, ptr noundef nonnull %27) #7
   br label %48
 
 48:                                               ; preds = %.sink.split, %39
@@ -1153,11 +1139,11 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %.not35, label %51, label %50
 
 50:                                               ; preds = %48
-  tail call void @RunObjectPostAlterHook(i32 noundef 2610, i32 noundef %25, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %2) #8
+  tail call void @RunObjectPostAlterHook(i32 noundef 2610, i32 noundef %25, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %2) #7
   br label %51
 
 51:                                               ; preds = %50, %48
-  tail call void @heap_freetuple(ptr noundef nonnull %27) #8
+  tail call void @heap_freetuple(ptr noundef nonnull %27) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %19, align 4
   %53 = sext i32 %52 to i64
@@ -1184,23 +1170,22 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = tail call ptr @table_open(i32 noundef %0, i32 noundef %4) #8
+  %8 = tail call ptr @table_open(i32 noundef %0, i32 noundef %4) #7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %0 to i64
-  %12 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %11) #8
+  %12 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %11) #7
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %16
 
 13:                                               ; preds = %5
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 733, ptr noundef nonnull @__func__.make_new_heap) #8
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 733, ptr noundef nonnull @__func__.make_new_heap) #7
   unreachable
 
 16:                                               ; preds = %5
-  %17 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %12, i16 noundef signext 32, ptr noundef nonnull %7) #8
+  %17 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %12, i16 noundef signext 32, ptr noundef nonnull %7) #7
   %18 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %19 = trunc nuw i8 %18 to i1
   %spec.store.select = select i1 %19, i64 0, i64 %17
@@ -1208,7 +1193,7 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %16
-  %22 = call i32 @LookupCreationNamespace(ptr noundef nonnull @.str.19) #8
+  %22 = call i32 @LookupCreationNamespace(ptr noundef nonnull @.str.19) #7
   br label %28
 
 23:                                               ; preds = %16
@@ -1220,7 +1205,7 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 28:                                               ; preds = %23, %21
   %.0 = phi i32 [ %22, %21 ], [ %27, %23 ]
-  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %0) #8
+  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %0) #7
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
@@ -1243,9 +1228,9 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 40:                                               ; preds = %28, %36
   %41 = phi i1 [ %39, %36 ], [ false, %28 ]
-  %42 = call i32 @heap_create_with_catalog(ptr noundef nonnull %6, i32 noundef %.0, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %33, i32 noundef %2, ptr noundef %10, ptr noundef null, i8 noundef signext 114, i8 noundef signext %3, i1 noundef zeroext false, i1 noundef zeroext %41, i32 noundef 0, i64 noundef %spec.store.select, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %0, ptr noundef null) #8
-  call void @ReleaseSysCache(ptr noundef nonnull %12) #8
-  call void @CommandCounterIncrement() #8
+  %42 = call i32 @heap_create_with_catalog(ptr noundef nonnull %6, i32 noundef %.0, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %33, i32 noundef %2, ptr noundef %10, ptr noundef null, i8 noundef signext 114, i8 noundef signext %3, i1 noundef zeroext false, i1 noundef zeroext %41, i32 noundef 0, i64 noundef %spec.store.select, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %0, ptr noundef null) #7
+  call void @ReleaseSysCache(ptr noundef nonnull %12) #7
+  call void @CommandCounterIncrement() #7
   %43 = load ptr, ptr %30, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 108
   %45 = load i32, ptr %44, align 4
@@ -1254,28 +1239,27 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 46:                                               ; preds = %40
   %47 = zext i32 %45 to i64
-  %48 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %47) #8
+  %48 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %47) #7
   %.not43 = icmp eq ptr %48, null
   br i1 %.not43, label %49, label %52
 
 49:                                               ; preds = %46
-  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %50)
-  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %45) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 806, ptr noundef nonnull @__func__.make_new_heap) #8
+  %50 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %51 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %45) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 806, ptr noundef nonnull @__func__.make_new_heap) #7
   unreachable
 
 52:                                               ; preds = %46
-  %53 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %48, i16 noundef signext 32, ptr noundef nonnull %7) #8
+  %53 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %48, i16 noundef signext 32, ptr noundef nonnull %7) #7
   %54 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
   %spec.store.select1 = select i1 %55, i64 0, i64 %53
-  call void @NewHeapCreateToastTable(i32 noundef %42, i64 noundef %spec.store.select1, i32 noundef %4, i32 noundef %45) #8
-  call void @ReleaseSysCache(ptr noundef nonnull %48) #8
+  call void @NewHeapCreateToastTable(i32 noundef %42, i64 noundef %spec.store.select1, i32 noundef %4, i32 noundef %45) #7
+  call void @ReleaseSysCache(ptr noundef nonnull %48) #7
   br label %56
 
 56:                                               ; preds = %52, %40
-  call void @table_close(ptr noundef nonnull %8, i32 noundef 0) #8
+  call void @table_close(ptr noundef nonnull %8, i32 noundef 0) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %42
@@ -1307,14 +1291,14 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8
-  tail call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 5) #8
+  tail call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %14 = icmp eq i32 %0, 1259
   call fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %14, i1 noundef zeroext %3, i1 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef %11)
   br i1 %2, label %15, label %16
 
 15:                                               ; preds = %9
-  call void @CacheInvalidateCatalog(i32 noundef %0) #8
+  call void @CacheInvalidateCatalog(i32 noundef %0) #7
   br label %16
 
 16:                                               ; preds = %15, %9
@@ -1334,22 +1318,21 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
 
 21:                                               ; preds = %16, %19, %17
   %.1 = phi i32 [ %18, %17 ], [ %20, %19 ], [ %spec.select, %16 ]
-  call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 6) #8
-  %22 = call zeroext i1 @reindex_relation(ptr noundef null, i32 noundef %0, i32 noundef %.1, ptr noundef nonnull %12) #8
-  call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 7) #8
+  call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 6) #7
+  %22 = call zeroext i1 @reindex_relation(ptr noundef null, i32 noundef %0, i32 noundef %.1, ptr noundef nonnull %12) #7
+  call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 7) #7
   br i1 %14, label %23, label %38
 
 23:                                               ; preds = %21
-  %24 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #8
-  %25 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef 1259, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %24 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #7
+  %25 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef 1259, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %27)
-  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef 1259) #8
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1538, ptr noundef nonnull @__func__.finish_heap_swap) #8
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef 1259) #7
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1538, ptr noundef nonnull @__func__.finish_heap_swap) #7
   unreachable
 
 29:                                               ; preds = %23
@@ -1364,8 +1347,8 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 136
   store i32 %7, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %24, ptr noundef nonnull %37, ptr noundef nonnull %25) #8
-  call void @table_close(ptr noundef %24, i32 noundef 3) #8
+  call void @CatalogTupleUpdate(ptr noundef %24, ptr noundef nonnull %37, ptr noundef nonnull %25) #7
+  call void @table_close(ptr noundef %24, i32 noundef 3) #7
   br label %38
 
 38:                                               ; preds = %29, %21
@@ -1374,7 +1357,7 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   store i32 %1, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %40, align 4
-  call void @performDeletion(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1) #8
+  call void @performDeletion(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1) #7
   %41 = load i32, ptr %11, align 16
   %.not5254 = icmp eq i32 %41, 0
   br i1 %.not5254, label %._crit_edge, label %.lr.ph
@@ -1382,7 +1365,7 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
 .lr.ph:                                           ; preds = %38, %.lr.ph
   %42 = phi i32 [ %46, %.lr.ph ], [ %41, %38 ]
   %.04755 = phi i32 [ %43, %.lr.ph ], [ 0, %38 ]
-  call void @RelationMapRemoveMapping(i32 noundef %42) #8
+  call void @RelationMapRemoveMapping(i32 noundef %42) #7
   %43 = add i32 %.04755, 1
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i32, ptr %11, i64 %44
@@ -1394,7 +1377,7 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   br i1 %3, label %64, label %47
 
 47:                                               ; preds = %._crit_edge
-  %48 = call ptr @table_open(i32 noundef %0, i32 noundef 0) #8
+  %48 = call ptr @table_open(i32 noundef %0, i32 noundef 0) #7
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 108
@@ -1404,33 +1387,33 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
 
 53:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %54 = call i32 @toast_get_valid_index(i32 noundef %52, i32 noundef 0) #8
-  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.21, i32 noundef %0) #8
+  %54 = call i32 @toast_get_valid_index(i32 noundef %52, i32 noundef 0) #7
+  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.21, i32 noundef %0) #7
   %56 = load ptr, ptr %49, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 108
   %58 = load i32, ptr %57, align 4
-  call void @RenameRelationInternal(i32 noundef %58, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext false) #8
-  %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %0) #8
-  call void @RenameRelationInternal(i32 noundef %54, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext true) #8
-  call void @CommandCounterIncrement() #8
+  call void @RenameRelationInternal(i32 noundef %58, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext false) #7
+  %59 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %0) #7
+  call void @RenameRelationInternal(i32 noundef %54, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext true) #7
+  call void @CommandCounterIncrement() #7
   %60 = load ptr, ptr %49, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 108
   %62 = load i32, ptr %61, align 4
-  call void @ResetRelRewrite(i32 noundef %62) #8
+  call void @ResetRelRewrite(i32 noundef %62) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %63
 
 63:                                               ; preds = %53, %47
-  call void @relation_close(ptr noundef nonnull %48, i32 noundef 0) #8
+  call void @relation_close(ptr noundef nonnull %48, i32 noundef 0) #7
   br label %64
 
 64:                                               ; preds = %63, %._crit_edge
   br i1 %2, label %67, label %65
 
 65:                                               ; preds = %64
-  %66 = call ptr @table_open(i32 noundef %0, i32 noundef 0) #8
-  call void @RelationClearMissing(ptr noundef %66) #8
-  call void @relation_close(ptr noundef %66, i32 noundef 0) #8
+  %66 = call ptr @table_open(i32 noundef %0, i32 noundef 0) #7
+  call void @RelationClearMissing(ptr noundef %66) #7
+  call void @relation_close(ptr noundef %66, i32 noundef 0) #7
   br label %67
 
 67:                                               ; preds = %65, %64
@@ -1444,17 +1427,16 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
 define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca %struct.ObjectAddress, align 4
   %10 = alloca %struct.ObjectAddress, align 4
-  %11 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #8
+  %11 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #7
   %12 = zext i32 %0 to i64
-  %13 = tail call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %12, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %13 = tail call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %12, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %14, label %17
 
 14:                                               ; preds = %8
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1087, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1087, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 17:                                               ; preds = %8
@@ -1465,15 +1447,14 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %.val217, i64 %21
   %23 = zext i32 %1 to i64
-  %24 = tail call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %23, i64 noundef 0, i64 noundef 0, i64 noundef 0) #8
+  %24 = tail call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %23, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
   %.not193 = icmp eq ptr %24, null
   br i1 %.not193, label %25, label %28
 
 25:                                               ; preds = %17
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1092, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1092, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 28:                                               ; preds = %17
@@ -1531,11 +1512,10 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %or.cond3, label %61, label %65
 
 61:                                               ; preds = %60
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %62)
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %63 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, ptr noundef nonnull %63) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1142, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, ptr noundef nonnull %63) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1142, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 65:                                               ; preds = %60
@@ -1547,11 +1527,10 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not194, label %74, label %70
 
 70:                                               ; preds = %65
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %71)
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %72 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %73 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %72) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1153, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %73 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %72) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1153, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 74:                                               ; preds = %65
@@ -1563,11 +1542,10 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not195, label %83, label %79
 
 79:                                               ; preds = %74
-  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %80)
+  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef nonnull %81) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1156, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef nonnull %81) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1156, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 83:                                               ; preds = %74
@@ -1575,11 +1553,10 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not196, label %88, label %84
 
 84:                                               ; preds = %83
-  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %85)
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %86 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull %86) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1159, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull %86) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1159, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 88:                                               ; preds = %83
@@ -1598,60 +1575,57 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not198, label %99, label %95
 
 95:                                               ; preds = %92, %89
-  %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %96)
+  %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %97 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %98 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %97) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1163, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %98 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %97) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1163, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 99:                                               ; preds = %92, %88
   %100 = getelementptr inbounds nuw i8, ptr %22, i64 113
   %101 = load i8, ptr %100, align 1, !range !4, !noundef !5
   %102 = trunc nuw i8 %101 to i1
-  %103 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zeroext %102) #8
+  %103 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zeroext %102) #7
   %.not199 = icmp eq i32 %103, 0
   br i1 %.not199, label %104, label %108
 
 104:                                              ; preds = %99
-  %105 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %105)
+  %105 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %106 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %107 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %106, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1171, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %107 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %106, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1171, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 108:                                              ; preds = %99
   %109 = getelementptr inbounds nuw i8, ptr %33, i64 113
   %110 = load i8, ptr %109, align 1, !range !4, !noundef !5
   %111 = trunc nuw i8 %110 to i1
-  %112 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %1, i1 noundef zeroext %111) #8
+  %112 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %1, i1 noundef zeroext %111) #7
   %.not200 = icmp eq i32 %112, 0
   br i1 %.not200, label %113, label %117
 
 113:                                              ; preds = %108
-  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %114)
+  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %115 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %115, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1175, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %115, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1175, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 117:                                              ; preds = %108
   %118 = load i8, ptr %100, align 1, !range !4, !noundef !5
   %119 = trunc nuw i8 %118 to i1
-  tail call void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %112, i1 noundef zeroext %119, i1 noundef zeroext false) #8
+  tail call void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %112, i1 noundef zeroext %119, i1 noundef zeroext false) #7
   %120 = load i8, ptr %109, align 1, !range !4, !noundef !5
   %121 = trunc nuw i8 %120 to i1
-  tail call void @RelationMapUpdateMap(i32 noundef %1, i32 noundef %103, i1 noundef zeroext %121, i1 noundef zeroext false) #8
+  tail call void @RelationMapUpdateMap(i32 noundef %1, i32 noundef %103, i1 noundef zeroext %121, i1 noundef zeroext false) #7
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %1, ptr %7, align 4
   br label %123
 
 123:                                              ; preds = %44, %55, %117
   %.0 = phi ptr [ %7, %44 ], [ %7, %55 ], [ %122, %117 ]
-  %124 = tail call ptr @relation_open(i32 noundef %0, i32 noundef 0) #8
-  %125 = tail call ptr @relation_open(i32 noundef %1, i32 noundef 0) #8
+  %124 = tail call ptr @relation_open(i32 noundef %0, i32 noundef 0) #7
+  %125 = tail call ptr @relation_open(i32 noundef %1, i32 noundef 0) #7
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %127 = load i32, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 40
@@ -1664,9 +1638,9 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   %133 = load i32, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %125, i64 48
   store i32 %133, ptr %134, align 8
-  tail call void @RelationAssumeNewRelfilelocator(ptr noundef %124) #8
-  tail call void @relation_close(ptr noundef %124, i32 noundef 0) #8
-  tail call void @relation_close(ptr noundef %125, i32 noundef 0) #8
+  tail call void @RelationAssumeNewRelfilelocator(ptr noundef %124) #7
+  tail call void @relation_close(ptr noundef %124, i32 noundef 0) #7
+  tail call void @relation_close(ptr noundef %125, i32 noundef 0) #7
   %135 = getelementptr inbounds nuw i8, ptr %22, i64 115
   %136 = load i8, ptr %135, align 1
   %.not201 = icmp eq i8 %136, 105
@@ -1701,17 +1675,17 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %2, label %157, label %153
 
 153:                                              ; preds = %140
-  %154 = tail call ptr @CatalogOpenIndexes(ptr noundef %11) #8
+  %154 = tail call ptr @CatalogOpenIndexes(ptr noundef %11) #7
   %155 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  tail call void @CatalogTupleUpdateWithInfo(ptr noundef %11, ptr noundef nonnull %155, ptr noundef nonnull %13, ptr noundef %154) #8
+  tail call void @CatalogTupleUpdateWithInfo(ptr noundef %11, ptr noundef nonnull %155, ptr noundef nonnull %13, ptr noundef %154) #7
   %156 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  tail call void @CatalogTupleUpdateWithInfo(ptr noundef %11, ptr noundef nonnull %156, ptr noundef nonnull %24, ptr noundef %154) #8
-  tail call void @CatalogCloseIndexes(ptr noundef %154) #8
+  tail call void @CatalogTupleUpdateWithInfo(ptr noundef %11, ptr noundef nonnull %156, ptr noundef nonnull %24, ptr noundef %154) #7
+  tail call void @CatalogCloseIndexes(ptr noundef %154) #7
   br label %158
 
 157:                                              ; preds = %140
-  tail call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %13) #8
-  tail call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %24) #8
+  tail call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %13) #7
+  tail call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %24) #7
   br label %158
 
 158:                                              ; preds = %157, %153
@@ -1719,33 +1693,31 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not202, label %175, label %159
 
 159:                                              ; preds = %158
-  %160 = tail call i64 @changeDependencyFor(i32 noundef 1259, i32 noundef %0, i32 noundef 2601, i32 noundef %39, i32 noundef %41) #8
+  %160 = tail call i64 @changeDependencyFor(i32 noundef 1259, i32 noundef %0, i32 noundef 2601, i32 noundef %39, i32 noundef %41) #7
   %.not203 = icmp eq i64 %160, 1
   br i1 %.not203, label %167, label %161
 
 161:                                              ; preds = %159
-  %162 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %162)
-  %163 = tail call i32 @get_rel_namespace(i32 noundef %0) #8
-  %164 = tail call ptr @get_namespace_name(i32 noundef %163) #8
-  %165 = tail call ptr @get_rel_name(i32 noundef %0) #8
-  %166 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %164, ptr noundef %165) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1284, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %162 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %163 = tail call i32 @get_rel_namespace(i32 noundef %0) #7
+  %164 = tail call ptr @get_namespace_name(i32 noundef %163) #7
+  %165 = tail call ptr @get_rel_name(i32 noundef %0) #7
+  %166 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %164, ptr noundef %165) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1284, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 167:                                              ; preds = %159
-  %168 = tail call i64 @changeDependencyFor(i32 noundef 1259, i32 noundef %1, i32 noundef 2601, i32 noundef %41, i32 noundef %39) #8
+  %168 = tail call i64 @changeDependencyFor(i32 noundef 1259, i32 noundef %1, i32 noundef 2601, i32 noundef %41, i32 noundef %39) #7
   %.not204 = icmp eq i64 %168, 1
   br i1 %.not204, label %175, label %169
 
 169:                                              ; preds = %167
-  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %170)
-  %171 = tail call i32 @get_rel_namespace(i32 noundef %1) #8
-  %172 = tail call ptr @get_namespace_name(i32 noundef %171) #8
-  %173 = tail call ptr @get_rel_name(i32 noundef %1) #8
-  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %172, ptr noundef %173) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1292, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %171 = tail call i32 @get_rel_namespace(i32 noundef %1) #7
+  %172 = tail call ptr @get_namespace_name(i32 noundef %171) #7
+  %173 = tail call ptr @get_rel_name(i32 noundef %1) #7
+  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, ptr noundef %172, ptr noundef %173) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1292, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 175:                                              ; preds = %158, %167
@@ -1754,13 +1726,13 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not205, label %.thread, label %177
 
 177:                                              ; preds = %175
-  tail call void @RunObjectPostAlterHook(i32 noundef 1259, i32 noundef %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %4) #8
+  tail call void @RunObjectPostAlterHook(i32 noundef 1259, i32 noundef %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %4) #7
   %.pr = load ptr, ptr @object_access_hook, align 8
   %.not206 = icmp eq ptr %.pr, null
   br i1 %.not206, label %.thread, label %178
 
 178:                                              ; preds = %177
-  tail call void @RunObjectPostAlterHook(i32 noundef 1259, i32 noundef %1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true) #8
+  tail call void @RunObjectPostAlterHook(i32 noundef 1259, i32 noundef %1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext true) #7
   br label %.thread
 
 .thread:                                          ; preds = %175, %178, %177
@@ -1792,23 +1764,21 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br label %224
 
 188:                                              ; preds = %184, %185
-  %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %189)
-  %190 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1327, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %189 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %190 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.35) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1327, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 191:                                              ; preds = %.thread219, %184
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %192 = tail call zeroext i1 @IsSystemClass(i32 noundef %0, ptr noundef nonnull %22) #8
+  %192 = tail call zeroext i1 @IsSystemClass(i32 noundef %0, ptr noundef nonnull %22) #7
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %194)
-  %195 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1354, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %194 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %195 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1354, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 196:                                              ; preds = %191
@@ -1817,15 +1787,14 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not209, label %203, label %198
 
 198:                                              ; preds = %196
-  %199 = tail call i64 @deleteDependencyRecordsFor(i32 noundef 1259, i32 noundef %197, i1 noundef zeroext false) #8
+  %199 = tail call i64 @deleteDependencyRecordsFor(i32 noundef 1259, i32 noundef %197, i1 noundef zeroext false) #7
   %.not210 = icmp eq i64 %199, 1
   br i1 %.not210, label %203, label %200
 
 200:                                              ; preds = %198
-  %201 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %201)
-  %202 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i64 noundef %199) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1364, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %201 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %202 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i64 noundef %199) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1364, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 203:                                              ; preds = %198, %196
@@ -1835,15 +1804,14 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not211, label %211, label %206
 
 206:                                              ; preds = %203
-  %207 = tail call i64 @deleteDependencyRecordsFor(i32 noundef 1259, i32 noundef %205, i1 noundef zeroext false) #8
+  %207 = tail call i64 @deleteDependencyRecordsFor(i32 noundef 1259, i32 noundef %205, i1 noundef zeroext false) #7
   %.not212 = icmp eq i64 %207, 1
   br i1 %.not212, label %211, label %208
 
 208:                                              ; preds = %206
-  %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %209)
-  %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i64 noundef %207) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1373, ptr noundef nonnull @__func__.swap_relation_files) #8
+  %209 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %210 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.37, i64 noundef %207) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1373, ptr noundef nonnull @__func__.swap_relation_files) #7
   unreachable
 
 211:                                              ; preds = %206, %203
@@ -1862,7 +1830,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   store i32 %0, ptr %216, align 4
   %217 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %214, ptr %217, align 4
-  call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 105) #8
+  call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 105) #7
   br label %218
 
 218:                                              ; preds = %215, %211
@@ -1875,7 +1843,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   store i32 %1, ptr %221, align 4
   %222 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %219, ptr %222, align 4
-  call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 105) #8
+  call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 105) #7
   br label %.thread222
 
 .thread222:                                       ; preds = %218, %220
@@ -1898,15 +1866,15 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %230, label %231, label %234
 
 231:                                              ; preds = %227
-  %232 = tail call i32 @toast_get_valid_index(i32 noundef %0, i32 noundef 8) #8
-  %233 = tail call i32 @toast_get_valid_index(i32 noundef %1, i32 noundef 8) #8
+  %232 = tail call i32 @toast_get_valid_index(i32 noundef %0, i32 noundef 8) #7
+  %233 = tail call i32 @toast_get_valid_index(i32 noundef %1, i32 noundef 8) #7
   tail call fastcc void @swap_relation_files(i32 noundef %232, i32 noundef %233, i1 noundef zeroext %2, i1 noundef zeroext true, i1 noundef zeroext %4, i32 noundef 0, i32 noundef 0, ptr noundef %.0)
   br label %234
 
 234:                                              ; preds = %.thread222, %231, %227, %224, %223
-  call void @heap_freetuple(ptr noundef nonnull %13) #8
-  call void @heap_freetuple(ptr noundef nonnull %24) #8
-  call void @table_close(ptr noundef %11, i32 noundef 3) #8
+  call void @heap_freetuple(ptr noundef nonnull %13) #7
+  call void @heap_freetuple(ptr noundef nonnull %24) #7
+  call void @table_close(ptr noundef %11, i32 noundef 3) #7
   ret void
 }
 
@@ -2010,19 +1978,15 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

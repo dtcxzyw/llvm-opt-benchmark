@@ -662,7 +662,6 @@ define dso_local ptr @transformStmt(ptr noundef %0, ptr noundef %1) local_unname
 
 89:                                               ; preds = %86, %75
   %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %90)
   %91 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__func__.transformInsertStmt) #11
   unreachable
@@ -805,7 +804,6 @@ list_length.exit80:                               ; preds = %154, %155
 
 159:                                              ; preds = %list_length.exit80
   %160 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %160)
   %161 = call i32 @errcode(i32 noundef 16801924) #11
   %162 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #11
   %163 = call i32 @exprLocation(ptr noundef %142) #11
@@ -1379,7 +1377,6 @@ list_length.exit175.i:                            ; preds = %475, %474
 
 479:                                              ; preds = %list_length.exit175.i
   %480 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %480)
   %481 = tail call i32 @errcode(i32 noundef 16801924) #11
   %482 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30) #11
   %483 = tail call i32 @exprLocation(ptr noundef %463) #11
@@ -1590,7 +1587,6 @@ list_length.exit175.i:                            ; preds = %475, %474
 
 582:                                              ; preds = %559
   %583 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %583)
   %584 = tail call i32 @errcode(i32 noundef 1088) #11
   %585 = load ptr, ptr %580, align 8
   %586 = getelementptr i8, ptr %585, i64 16
@@ -1734,7 +1730,6 @@ transformReturnStmt.exit:                         ; preds = %612, %625
 
 672:                                              ; preds = %.lr.ph.i58
   %673 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %673)
   %674 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2846, ptr noundef nonnull @__func__.transformPLAssignStmt) #11
   unreachable
@@ -1785,7 +1780,6 @@ list_length.exit.i47:                             ; preds = %.loopexit.i
 
 list_length.exit.thread.i:                        ; preds = %list_length.exit.i47
   %702 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %702)
   %703 = tail call i32 @errcode(i32 noundef 16801924) #11
   %704 = load i32, ptr %700, align 4
   %705 = sext i32 %704 to i64
@@ -1793,7 +1787,6 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i4
 
 list_length.exit170.critedge.i:                   ; preds = %.loopexit.i
   %706 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %706)
   %707 = tail call i32 @errcode(i32 noundef 16801924) #11
   br label %list_length.exit170.i
 
@@ -1857,7 +1850,6 @@ list_head.exit.i:                                 ; preds = %711
 
 737:                                              ; preds = %733
   %738 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %738)
   %739 = tail call i32 @errcode(i32 noundef 67141764) #11
   %740 = load ptr, ptr %657, align 8
   %741 = tail call ptr @format_type_be(i32 noundef %684) #11
@@ -2034,7 +2026,6 @@ list_head.exit.i:                                 ; preds = %711
 
 846:                                              ; preds = %842
   %847 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %847)
   %848 = tail call i32 @errcode(i32 noundef 17170564) #11
   %849 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3073, ptr noundef nonnull @__func__.transformDeclareCursorStmt) #11
@@ -2047,7 +2038,6 @@ list_head.exit.i:                                 ; preds = %711
 
 852:                                              ; preds = %850
   %853 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %853)
   %854 = tail call i32 @errcode(i32 noundef 17170564) #11
   %855 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3081, ptr noundef nonnull @__func__.transformDeclareCursorStmt) #11
@@ -2070,7 +2060,6 @@ list_head.exit.i:                                 ; preds = %711
 
 865:                                              ; preds = %862, %856
   %866 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %866)
   %867 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3090, ptr noundef nonnull @__func__.transformDeclareCursorStmt) #11
   unreachable
@@ -2083,7 +2072,6 @@ list_head.exit.i:                                 ; preds = %711
 
 872:                                              ; preds = %868
   %873 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %873)
   %874 = tail call i32 @errcode(i32 noundef 1088) #11
   %875 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3100, ptr noundef nonnull @__func__.transformDeclareCursorStmt) #11
@@ -2103,7 +2091,6 @@ list_head.exit.i:                                 ; preds = %711
 
 882:                                              ; preds = %879
   %883 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %883)
   %884 = tail call i32 @errcode(i32 noundef 1088) #11
   %885 = load ptr, ptr %877, align 8
   %886 = getelementptr i8, ptr %885, i64 16
@@ -2124,7 +2111,6 @@ list_head.exit.i:                                 ; preds = %711
 
 895:                                              ; preds = %893
   %896 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %896)
   %897 = tail call i32 @errcode(i32 noundef 1088) #11
   %898 = load ptr, ptr %877, align 8
   %899 = getelementptr i8, ptr %898, i64 16
@@ -2145,7 +2131,6 @@ list_head.exit.i:                                 ; preds = %711
 
 908:                                              ; preds = %906
   %909 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %909)
   %910 = tail call i32 @errcode(i32 noundef 17170564) #11
   %911 = load ptr, ptr %877, align 8
   %912 = getelementptr i8, ptr %911, i64 16
@@ -2354,7 +2339,6 @@ transformExplainStmt.exit:                        ; preds = %transformOptionalSe
 
 1001:                                             ; preds = %997
   %1002 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %1002)
   %1003 = tail call i32 @errcode(i32 noundef 1088) #11
   %1004 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.75) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3227, ptr noundef nonnull @__func__.transformCreateTableAsStmt) #11
@@ -2366,7 +2350,6 @@ transformExplainStmt.exit:                        ; preds = %transformOptionalSe
 
 1007:                                             ; preds = %1005
   %1008 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %1008)
   %1009 = tail call i32 @errcode(i32 noundef 1088) #11
   %1010 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.76) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3237, ptr noundef nonnull @__func__.transformCreateTableAsStmt) #11
@@ -2378,7 +2361,6 @@ transformExplainStmt.exit:                        ; preds = %transformOptionalSe
 
 1013:                                             ; preds = %1011
   %1014 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %1014)
   %1015 = tail call i32 @errcode(i32 noundef 1088) #11
   %1016 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.77) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3247, ptr noundef nonnull @__func__.transformCreateTableAsStmt) #11
@@ -2396,7 +2378,6 @@ transformExplainStmt.exit:                        ; preds = %transformOptionalSe
 
 1025:                                             ; preds = %1017
   %1026 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %1026)
   %1027 = tail call i32 @errcode(i32 noundef 1088) #11
   %1028 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.78) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3259, ptr noundef nonnull @__func__.transformCreateTableAsStmt) #11
@@ -2472,7 +2453,6 @@ transformCreateTableAsStmt.exit:                  ; preds = %990, %1029
 
 1065:                                             ; preds = %.critedge.i68
   %1066 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %1066)
   %1067 = load i32, ptr %1061, align 4
   %1068 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.79, i32 noundef %1067) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3320, ptr noundef nonnull @__func__.transformCallStmt) #11
@@ -2529,7 +2509,6 @@ list_length.exit.i70:                             ; preds = %1082, %1078
 
 1097:                                             ; preds = %1094, %1091, %1088, %list_length.exit.i70
   %1098 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1098)
   %1099 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.80, i32 noundef %1085) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3356, ptr noundef nonnull @__func__.transformCallStmt) #11
   unreachable
@@ -2584,7 +2563,6 @@ list_length.exit.i70:                             ; preds = %1082, %1078
 .split.i72:                                       ; preds = %.lr.ph120.i
   %1119 = getelementptr inbounds nuw i8, ptr %1101, i64 %indvars.iv126.i
   %1120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1120)
   %1121 = load i8, ptr %1119, align 1
   %1122 = sext i8 %1121 to i32
   %1123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.81, i32 noundef %1122) #11
@@ -2737,7 +2715,6 @@ define internal fastcc noundef ptr @transformSelectStmt(ptr noundef %0, ptr noun
 
 20:                                               ; preds = %17
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %21)
   %22 = tail call i32 @errcode(i32 noundef 16801924) #11
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #11
   %24 = load ptr, ptr %18, align 8
@@ -2963,7 +2940,6 @@ define internal fastcc noundef ptr @transformSetOperationStmt(ptr noundef %0, pt
 
 11:                                               ; preds = %.critedge
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 16801924) #11
   %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32) #11
   %15 = load ptr, ptr %9, align 8
@@ -2990,7 +2966,6 @@ define internal fastcc noundef ptr @transformSetOperationStmt(ptr noundef %0, pt
 
 29:                                               ; preds = %18
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %30)
   %31 = tail call i32 @errcode(i32 noundef 1088) #11
   %32 = getelementptr i8, ptr %26, i64 16
   %.val = load ptr, ptr %32, align 8
@@ -3261,7 +3236,6 @@ list_length.exit221:                              ; preds = %list_length.exit219
 
 190:                                              ; preds = %list_length.exit221
   %191 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %191)
   %192 = tail call i32 @errcode(i32 noundef 1088) #11
   %193 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #11
   %194 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.47) #11
@@ -3409,7 +3383,6 @@ list_length.exit85:                               ; preds = %list_length.exit, %
 
 16:                                               ; preds = %list_length.exit85
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %17)
   %18 = tail call i32 @errcode(i32 noundef 16801924) #11
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
   br i1 %.not.i84, label %list_length.exit87, label %20
@@ -3459,7 +3432,6 @@ list_length.exit91:                               ; preds = %list_length.exit89,
 
 41:                                               ; preds = %list_length.exit91
   %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %42)
   %43 = tail call i32 @errcode(i32 noundef 16801924) #11
   %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #11
   br i1 %.not.i, label %list_length.exit97, label %list_length.exit93
@@ -3997,7 +3969,6 @@ list_head.exit:                                   ; preds = %15, %20
 
 .split:                                           ; preds = %43
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %45)
   %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2613, ptr noundef nonnull @__func__.transformUpdateTargetList) #11
   unreachable
@@ -4013,7 +3984,6 @@ list_head.exit:                                   ; preds = %15, %20
 
 .split59:                                         ; preds = %47
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %54)
   %55 = tail call i32 @errcode(i32 noundef 50360452) #11
   %56 = load ptr, ptr %50, align 8
   %57 = load ptr, ptr %6, align 8
@@ -4077,7 +4047,6 @@ list_head.exit:                                   ; preds = %15, %20
 
 95:                                               ; preds = %.critedge
   %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %96)
   %97 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2641, ptr noundef nonnull @__func__.transformUpdateTargetList) #11
   unreachable
@@ -4156,7 +4125,6 @@ list_length.exit:                                 ; preds = %4, %7
 
 31:                                               ; preds = %29
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %32)
   %33 = tail call i32 @errcode(i32 noundef 16801924) #11
   %34 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -4178,7 +4146,6 @@ list_length.exit:                                 ; preds = %4, %7
 
 43:                                               ; preds = %41
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %44)
   %45 = tail call i32 @errcode(i32 noundef 16801924) #11
   %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.9) #11
   %47 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -4195,7 +4162,6 @@ list_length.exit:                                 ; preds = %4, %7
 
 53:                                               ; preds = %.lr.ph102
   %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %54)
   %55 = load i32, ptr %27, align 4
   %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %55) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2730, ptr noundef nonnull @__func__.transformReturningClause) #11
@@ -4210,7 +4176,6 @@ list_length.exit:                                 ; preds = %4, %7
 
 61:                                               ; preds = %57
   %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %62)
   %63 = tail call i32 @errcode(i32 noundef 33845380) #11
   %64 = load ptr, ptr %59, align 8
   %65 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef %64) #11
@@ -4334,7 +4299,6 @@ addNSItemForReturning.exit:                       ; preds = %.lr.ph.i, %list_len
 
 132:                                              ; preds = %124
   %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %133)
   %134 = tail call i32 @errcode(i32 noundef 16801924) #11
   %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #11
   %136 = load ptr, ptr %127, align 8
@@ -4473,7 +4437,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode(i32 noundef 1088) #11
   %8 = tail call ptr @LCS_asString(i32 noundef %1)
   %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %8) #11
@@ -4488,7 +4451,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 13:                                               ; preds = %10
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 @errcode(i32 noundef 1088) #11
   %16 = tail call ptr @LCS_asString(i32 noundef %1)
   %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %16) #11
@@ -4509,7 +4471,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 24:                                               ; preds = %21, %18
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %25)
   %26 = tail call i32 @errcode(i32 noundef 1088) #11
   %27 = tail call ptr @LCS_asString(i32 noundef %1)
   %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %27) #11
@@ -4524,7 +4485,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 32:                                               ; preds = %29
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 1088) #11
   %35 = tail call ptr @LCS_asString(i32 noundef %1)
   %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef nonnull %35) #11
@@ -4539,7 +4499,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 41:                                               ; preds = %37
   %42 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %42)
   %43 = tail call i32 @errcode(i32 noundef 1088) #11
   %44 = tail call ptr @LCS_asString(i32 noundef %1)
   %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef nonnull %44) #11
@@ -4554,7 +4513,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 50:                                               ; preds = %46
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %51)
   %52 = tail call i32 @errcode(i32 noundef 1088) #11
   %53 = tail call ptr @LCS_asString(i32 noundef %1)
   %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull %53) #11
@@ -4569,7 +4527,6 @@ define dso_local void @CheckSelectLocking(ptr noundef readonly captures(none) %0
 
 59:                                               ; preds = %55
   %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %60)
   %61 = tail call i32 @errcode(i32 noundef 1088) #11
   %62 = tail call ptr @LCS_asString(i32 noundef %1)
   %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef nonnull %62) #11
@@ -4908,7 +4865,6 @@ applyLockingClause.exit129:                       ; preds = %81, %92
 
 116:                                              ; preds = %113, %106
   %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %117)
   %118 = tail call i32 @errcode(i32 noundef 16801924) #11
   %119 = load i32, ptr %7, align 8
   %120 = tail call ptr @LCS_asString(i32 noundef %119)
@@ -5110,7 +5066,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 220:                                              ; preds = %.split
   %221 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %221)
   %222 = tail call i32 @errcode(i32 noundef 1088) #11
   %223 = load i32, ptr %7, align 8
   %224 = tail call ptr @LCS_asString(i32 noundef %223)
@@ -5123,7 +5078,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 229:                                              ; preds = %.split
   %230 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %230)
   %231 = tail call i32 @errcode(i32 noundef 1088) #11
   %232 = load i32, ptr %7, align 8
   %233 = tail call ptr @LCS_asString(i32 noundef %232)
@@ -5136,7 +5090,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 238:                                              ; preds = %.split
   %239 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %239)
   %240 = tail call i32 @errcode(i32 noundef 1088) #11
   %241 = load i32, ptr %7, align 8
   %242 = tail call ptr @LCS_asString(i32 noundef %241)
@@ -5149,7 +5102,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 247:                                              ; preds = %.split
   %248 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %248)
   %249 = tail call i32 @errcode(i32 noundef 1088) #11
   %250 = load i32, ptr %7, align 8
   %251 = tail call ptr @LCS_asString(i32 noundef %250)
@@ -5162,7 +5114,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 256:                                              ; preds = %.split
   %257 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %257)
   %258 = tail call i32 @errcode(i32 noundef 1088) #11
   %259 = load i32, ptr %7, align 8
   %260 = tail call ptr @LCS_asString(i32 noundef %259)
@@ -5175,7 +5126,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 265:                                              ; preds = %.split
   %266 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %266)
   %267 = tail call i32 @errcode(i32 noundef 1088) #11
   %268 = load i32, ptr %7, align 8
   %269 = tail call ptr @LCS_asString(i32 noundef %268)
@@ -5189,7 +5139,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 274:                                              ; preds = %.split
   %275 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %276 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %276)
   %277 = load i32, ptr %275, align 8
   %278 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i32 noundef %277) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3700, ptr noundef nonnull @__func__.transformLockingClause) #11
@@ -5201,7 +5150,6 @@ applyLockingClause.exit135:                       ; preds = %199, %210
 
 .thread142:                                       ; preds = %.lr.ph, %125, %279
   %280 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %280)
   %281 = tail call i32 @errcode(i32 noundef 16908420) #11
   %282 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %283 = load ptr, ptr %282, align 8
@@ -5256,7 +5204,6 @@ define internal fastcc noundef ptr @transformSetOperationTree(ptr noundef %0, pt
 
 15:                                               ; preds = %4
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode(i32 noundef 16801924) #11
   %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49) #11
   %19 = load ptr, ptr %13, align 8
@@ -5273,7 +5220,6 @@ define internal fastcc noundef ptr @transformSetOperationTree(ptr noundef %0, pt
 
 25:                                               ; preds = %22
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 @errcode(i32 noundef 1088) #11
   %28 = load ptr, ptr %23, align 8
   %29 = getelementptr i8, ptr %28, i64 16
@@ -5348,7 +5294,6 @@ define internal fastcc noundef ptr @transformSetOperationTree(ptr noundef %0, pt
 
 64:                                               ; preds = %62
   %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %65)
   %66 = tail call i32 @errcode(i32 noundef 393348) #11
   %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50) #11
   %68 = tail call i32 @locate_var_of_level(ptr noundef %59, i32 noundef 1) #11
@@ -5490,7 +5435,6 @@ list_length.exit195:                              ; preds = %list_length.exit193
 
 141:                                              ; preds = %list_length.exit195
   %142 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %142)
   %143 = call i32 @errcode(i32 noundef 16801924) #11
   %144 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, ptr noundef nonnull %117) #11
   %145 = call i32 @exprLocation(ptr noundef %136) #11

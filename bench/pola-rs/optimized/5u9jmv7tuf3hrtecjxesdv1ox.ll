@@ -5106,7 +5106,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5124,29 +5124,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h8f57d5b1db7bd4c0E(ptr noalias noundef nonnull readonly align 2 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h8f57d5b1db7bd4c0E(ptr noalias noundef nonnull readonly align 2 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5183,7 +5177,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5201,29 +5195,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h1bd2b57057c1d3d4E(ptr noalias noundef nonnull readonly align 2 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h1bd2b57057c1d3d4E(ptr noalias noundef nonnull readonly align 2 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5260,7 +5248,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5278,29 +5266,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h7a20daec7b880205E(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h7a20daec7b880205E(ptr noalias noundef nonnull readonly align 4 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5337,7 +5319,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5355,29 +5337,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h95e4706144750d90E(ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h95e4706144750d90E(ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5414,7 +5390,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5432,29 +5408,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hd0a732d55c6db3dfE(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hd0a732d55c6db3dfE(ptr noalias noundef nonnull readonly align 8 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5491,7 +5461,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5509,29 +5479,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h761c68810c5bc999E(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h761c68810c5bc999E(ptr noalias noundef nonnull readonly align 8 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5568,7 +5532,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5586,29 +5550,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h09b72b5c04c30eb1E(ptr noalias noundef nonnull readonly align 16 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h09b72b5c04c30eb1E(ptr noalias noundef nonnull readonly align 16 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5645,7 +5603,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5663,29 +5621,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hfcc3f6a8b6d41647E(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hfcc3f6a8b6d41647E(ptr noalias noundef nonnull readonly align 4 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5722,7 +5674,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5740,29 +5692,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h4450086c2988e0beE(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h4450086c2988e0beE(ptr noalias noundef nonnull readonly align 8 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5799,7 +5745,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5817,29 +5763,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hccc53b5013e387c0E(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hccc53b5013e387c0E(ptr noalias noundef nonnull readonly align 4 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5876,7 +5816,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5894,29 +5834,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.43) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h5b27386eaf2a530eE(ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h5b27386eaf2a530eE(ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.44) #24
   unreachable
 }
@@ -5953,7 +5887,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5971,29 +5905,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h8ed3484f7f54d654E(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h8ed3484f7f54d654E(ptr noalias noundef nonnull readonly align 4 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6030,7 +5958,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6048,29 +5976,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hab8196b3964e875fE(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hab8196b3964e875fE(ptr noalias noundef nonnull readonly align 8 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6107,7 +6029,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6125,29 +6047,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h2c438768eb41b5ebE(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h2c438768eb41b5ebE(ptr noalias noundef nonnull readonly align 8 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6184,7 +6100,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6202,29 +6118,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h0834b31d39a8cc2fE(ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h0834b31d39a8cc2fE(ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6261,7 +6171,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6279,29 +6189,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hcaef8572b11e7a1cE(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17hcaef8572b11e7a1cE(ptr noalias noundef nonnull readonly align 4 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6338,7 +6242,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6356,29 +6260,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h64bd55caab7e4febE(ptr noalias noundef nonnull readonly align 2 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h64bd55caab7e4febE(ptr noalias noundef nonnull readonly align 2 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6415,7 +6313,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6433,29 +6331,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h0f3137162ae6f414E(ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h0f3137162ae6f414E(ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6492,7 +6384,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6510,29 +6402,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h1e4061e3bf1db958E(ptr noalias noundef nonnull readonly align 4 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h1e4061e3bf1db958E(ptr noalias noundef nonnull readonly align 4 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6569,7 +6455,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6587,29 +6473,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h45f3f05607879e10E(ptr noalias noundef nonnull readonly align 8 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h45f3f05607879e10E(ptr noalias noundef nonnull readonly align 8 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6646,7 +6526,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6664,29 +6544,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h1f7fb42e518f3ce4E(ptr noalias noundef nonnull readonly align 16 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h1f7fb42e518f3ce4E(ptr noalias noundef nonnull readonly align 16 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }
@@ -6723,7 +6597,7 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   br i1 %.not9, label %28, label %21, !prof !1259
 
 20:                                               ; preds = %16
-  br i1 %.not9, label %39, label %32, !prof !1259
+  br i1 %.not9, label %37, label %30, !prof !1259
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6741,29 +6615,23 @@ define hidden { ptr, ptr } @_ZN14polars_compute7rolling5nulls7min_max11rolling_m
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.46) #24
   unreachable
 
-29:                                               ; preds = %32, %21
-  %.pn = phi { ptr, ptr } [ %38, %32 ], [ %27, %21 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %30 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %30, %21
+  %.pn = phi { ptr, ptr } [ %36, %30 ], [ %27, %21 ]
   ret { ptr, ptr } %.pn
 
-32:                                               ; preds = %20
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !noundef !4
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i8 9, ptr %37, align 8
-  %38 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h56e3b3146de3acbbE(ptr noalias noundef nonnull readonly align 2 %36, i64 noundef %34, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i8 9, ptr %35, align 8
+  %36 = call { ptr, ptr } @_ZN14polars_compute7rolling5nulls24rolling_apply_agg_window17h56e3b3146de3acbbE(ptr noalias noundef nonnull readonly align 2 %34, i64 noundef %32, ptr noundef nonnull align 8 %17, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %29
 
-39:                                               ; preds = %20
+37:                                               ; preds = %20
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8aee856584dbcc66b1d81918865b646.47) #24
   unreachable
 }

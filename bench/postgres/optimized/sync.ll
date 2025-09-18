@@ -49,9 +49,9 @@ define dso_local void @InitSync() local_unnamed_addr #0 {
 6:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %7 = load ptr, ptr @TopMemoryContext, align 8
-  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
+  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
   store ptr %8, ptr @pendingOpsCxt, align 8
-  tail call void @MemoryContextAllowInCriticalSection(ptr noundef %8, i1 noundef zeroext true) #9
+  tail call void @MemoryContextAllowInCriticalSection(ptr noundef %8, i1 noundef zeroext true) #8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 24, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -59,7 +59,7 @@ define dso_local void @InitSync() local_unnamed_addr #0 {
   %11 = load ptr, ptr @pendingOpsCxt, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %11, ptr %12, align 8
-  %13 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 100, ptr noundef nonnull %1, i32 noundef 1064) #9
+  %13 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 100, ptr noundef nonnull %1, i32 noundef 1064) #8
   store ptr %13, ptr @pendingOps, align 8
   store ptr null, ptr @pendingUnlinks, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -77,7 +77,7 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SyncPreCheckpoint() local_unnamed_addr #0 {
-  tail call void @AbsorbSyncRequests() #9
+  tail call void @AbsorbSyncRequests() #8
   %1 = load i16, ptr @checkpoint_cycle_ctr, align 2
   %2 = add i16 %1, 1
   store i16 %2, ptr @checkpoint_cycle_ctr, align 2
@@ -125,24 +125,24 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %21 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = call i32 %23(ptr noundef nonnull %9, ptr noundef nonnull %1) #9
+  %24 = call i32 %23(ptr noundef nonnull %9, ptr noundef nonnull %1) #8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %18
-  %27 = tail call ptr @__errno_location() #10
+  %27 = tail call ptr @__errno_location() #9
   %28 = load i32, ptr %27, align 4
   %.not25 = icmp eq i32 %28, 2
   br i1 %.not25, label %34, label %29
 
 29:                                               ; preds = %26
-  %30 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #9
+  %30 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #8
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = call i32 @errcode_for_file_access() #9
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #9
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 243, ptr noundef nonnull @__func__.SyncPostCheckpoint) #9
+  %32 = call i32 @errcode_for_file_access() #8
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #8
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 243, ptr noundef nonnull @__func__.SyncPostCheckpoint) #8
   br label %34
 
 34:                                               ; preds = %26, %31, %29, %18
@@ -152,7 +152,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %34
-  call void @AbsorbSyncRequests() #9
+  call void @AbsorbSyncRequests() #8
   br label %38
 
 38:                                               ; preds = %.lr.ph45, %37, %34
@@ -188,7 +188,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 
 .thread35:                                        ; preds = %.thread35.loopexit, %.lr.ph, %0
   %52 = phi ptr [ %.pre55, %.thread35.loopexit ], [ %2, %.lr.ph ], [ null, %0 ]
-  call void @list_free_deep(ptr noundef %52) #9
+  call void @list_free_deep(ptr noundef %52) #8
   br label %60
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph47
@@ -197,7 +197,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.split
   %53 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %43, %.split ]
-  %54 = call ptr @list_delete_first_n(ptr noundef %53, i32 noundef %49) #9
+  %54 = call ptr @list_delete_first_n(ptr noundef %53, i32 noundef %49) #8
   br label %60
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
@@ -207,7 +207,7 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %.val26 = load ptr, ptr %56, align 8
   %57 = getelementptr inbounds nuw %union.ListCell, ptr %.val26, i64 %indvars.iv52
   %58 = load ptr, ptr %57, align 8
-  call void @pfree(ptr noundef %58) #9
+  call void @pfree(ptr noundef %58) #8
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %59 = icmp samesign ult i64 %indvars.iv.next53, %51
   br i1 %59, label %.lr.ph47, label %._crit_edge.loopexit, !llvm.loop !6
@@ -250,21 +250,20 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %0
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 308, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 308, ptr noundef nonnull @__func__.ProcessSyncRequests) #8
   unreachable
 
 9:                                                ; preds = %0
-  tail call void @AbsorbSyncRequests() #9
+  tail call void @AbsorbSyncRequests() #8
   %.b48 = load i1, ptr @ProcessSyncRequests.sync_in_progress, align 1
   br i1 %.b48, label %10, label %.loopexit59
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr @pendingOps, align 8
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %11) #9
-  %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %11) #8
+  %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not4965 = icmp eq ptr %12, null
   br i1 %.not4965, label %.loopexit59, label %.lr.ph
 
@@ -273,7 +272,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %14 = load i16, ptr @sync_cycle_ctr, align 2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i16 %14, ptr %15, align 8
-  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not49 = icmp eq ptr %16, null
   br i1 %.not49, label %.loopexit59, label %.lr.ph, !llvm.loop !8
 
@@ -283,8 +282,8 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   store i16 %18, ptr @sync_cycle_ctr, align 2
   store i1 true, ptr @ProcessSyncRequests.sync_in_progress, align 1
   %19 = load ptr, ptr @pendingOps, align 8
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %19) #9
-  %20 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %19) #8
+  %20 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not5069 = icmp eq ptr %20, null
   br i1 %.not5069, label %._crit_edge, label %.lr.ph74
 
@@ -316,7 +315,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %32
-  call void @AbsorbSyncRequests() #9
+  call void @AbsorbSyncRequests() #8
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -329,7 +328,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
 .lr.ph68.preheader:                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %40 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
+  %40 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #8
   %41 = load i64, ptr %2, align 8
   %42 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -337,19 +336,19 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %44 = sext i16 %43 to i64
   %45 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = call i32 %46(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
+  %47 = call i32 %46(ptr noundef nonnull %24, ptr noundef nonnull %4) #8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.lr.ph68._crit_edge, label %.lr.ph93.preheader
 
 .lr.ph93.preheader:                               ; preds = %.lr.ph68.preheader
-  %49 = tail call ptr @__errno_location() #10
+  %49 = tail call ptr @__errno_location() #9
   br label %.lr.ph93
 
 .lr.ph68:                                         ; preds = %90
   %50 = add i32 %.0276692, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #9
+  %51 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #8
   %52 = load i64, ptr %2, align 8
   %53 = load i64, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -357,7 +356,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %55 = sext i16 %54 to i64
   %56 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %55
   %57 = load ptr, ptr %56, align 8
-  %58 = call i32 %57(ptr noundef nonnull %24, ptr noundef nonnull %4) #9
+  %58 = call i32 %57(ptr noundef nonnull %24, ptr noundef nonnull %4) #8
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.lr.ph68._crit_edge, label %.lr.ph93, !llvm.loop !10
 
@@ -366,7 +365,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %.lcssa89 = phi i64 [ %41, %.lr.ph68.preheader ], [ %52, %.lr.ph68 ]
   %.lcssa = phi i64 [ %42, %.lr.ph68.preheader ], [ %53, %.lr.ph68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #9
+  %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #8
   %61 = load i64, ptr %1, align 8
   %62 = load i64, ptr %22, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -383,14 +382,14 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %.lr.ph68._crit_edge
-  %71 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  %71 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #8
   br i1 %71, label %72, label %.thread
 
 72:                                               ; preds = %70
   %73 = uitofp i64 %65 to double
   %74 = fdiv double %73, 1.000000e+03
-  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %67, ptr noundef nonnull %4, double noundef %74) #9
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 432, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
+  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %67, ptr noundef nonnull %4, double noundef %74) #8
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 432, ptr noundef nonnull @__func__.ProcessSyncRequests) #8
   br label %.thread
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph68
@@ -402,22 +401,22 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %or.cond, label %79, label %85
 
 79:                                               ; preds = %.lr.ph93
-  %80 = call i32 @data_sync_elevel(i32 noundef 21) #9
-  %81 = call zeroext i1 @errstart(i32 noundef %80, ptr noundef null) #9
+  %80 = call i32 @data_sync_elevel(i32 noundef 21) #8
+  %81 = call zeroext i1 @errstart(i32 noundef %80, ptr noundef null) #8
   br i1 %81, label %82, label %90
 
 82:                                               ; preds = %79
-  %83 = call i32 @errcode_for_file_access() #9
-  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #9
+  %83 = call i32 @errcode_for_file_access() #8
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #8
   br label %.sink.split
 
 85:                                               ; preds = %.lr.ph93
-  %86 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  %86 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #8
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %85
-  %88 = call i32 @errcode_for_file_access() #9
-  %89 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #9
+  %88 = call i32 @errcode_for_file_access() #8
+  %89 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %4) #8
   br label %.sink.split
 
 .thread:                                          ; preds = %70, %72, %.lr.ph68._crit_edge
@@ -426,11 +425,11 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %82, %87
   %.sink = phi i32 [ 452, %87 ], [ 447, %82 ]
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.ProcessSyncRequests) #8
   br label %90
 
 90:                                               ; preds = %.sink.split, %85, %79
-  call void @AbsorbSyncRequests() #9
+  call void @AbsorbSyncRequests() #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %91 = load i8, ptr %37, align 2, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
@@ -442,15 +441,14 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %.230 = phi i64 [ %.02872, %29 ], [ %66, %.thread ], [ %.02872, %36 ], [ %.02872, %90 ]
   %.2 = phi i32 [ %.073, %29 ], [ %.467.lcssa, %.thread ], [ %.3, %36 ], [ 10, %90 ]
   %93 = load ptr, ptr @pendingOps, align 8
-  %94 = call ptr @hash_search(ptr noundef %93, ptr noundef nonnull %24, i32 noundef 2, ptr noundef null) #9
+  %94 = call ptr @hash_search(ptr noundef %93, ptr noundef nonnull %24, i32 noundef 2, ptr noundef null) #8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %.loopexit
-  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %97)
-  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 465, ptr noundef nonnull @__func__.ProcessSyncRequests) #9
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #8
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 465, ptr noundef nonnull @__func__.ProcessSyncRequests) #8
   unreachable
 
 99:                                               ; preds = %.loopexit, %23
@@ -458,7 +456,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   %.134 = phi i64 [ %.03371, %23 ], [ %.235, %.loopexit ]
   %.129 = phi i64 [ %.02872, %23 ], [ %.230, %.loopexit ]
   %.1 = phi i32 [ %.073, %23 ], [ %.2, %.loopexit ]
-  %100 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  %100 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not50 = icmp eq ptr %100, null
   br i1 %.not50, label %._crit_edge, label %23
 
@@ -499,7 +497,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @pendingOps, align 8
-  %7 = tail call ptr @hash_search(ptr noundef %6, ptr noundef %0, i32 noundef 0, ptr noundef null) #9
+  %7 = tail call ptr @hash_search(ptr noundef %6, ptr noundef %0, i32 noundef 0, ptr noundef null) #8
   %.not39 = icmp eq ptr %7, null
   br i1 %.not39, label %75, label %8
 
@@ -511,8 +509,8 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load ptr, ptr @pendingOps, align 8
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %11) #9
-  %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %11) #8
+  %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not40 = icmp eq ptr %12, null
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
@@ -528,7 +526,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %19 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = call zeroext i1 %21(ptr noundef nonnull %0, ptr noundef nonnull %13) #9
+  %22 = call zeroext i1 %21(ptr noundef nonnull %0, ptr noundef nonnull %13) #8
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %17
@@ -537,7 +535,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   br label %25
 
 25:                                               ; preds = %23, %17, %.lr.ph
-  %26 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
+  %26 = call ptr @hash_seq_search(ptr noundef nonnull %3) #8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
@@ -572,7 +570,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %40 = getelementptr inbounds %struct.SyncOps, ptr @syncsw, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = call zeroext i1 %42(ptr noundef nonnull %0, ptr noundef nonnull %34) #9
+  %43 = call zeroext i1 %42(ptr noundef nonnull %0, ptr noundef nonnull %34) #8
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %38
@@ -591,7 +589,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %51 = load ptr, ptr @pendingOpsCxt, align 8
   %52 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
-  %53 = tail call ptr @palloc(i64 noundef 32) #9
+  %53 = tail call ptr @palloc(i64 noundef 32) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %54 = load i16, ptr @checkpoint_cycle_ctr, align 2
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
@@ -599,7 +597,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 26
   store i8 0, ptr %56, align 2
   %57 = load ptr, ptr @pendingUnlinks, align 8
-  %58 = tail call ptr @lappend(ptr noundef %57, ptr noundef nonnull %53) #9
+  %58 = tail call ptr @lappend(ptr noundef %57, ptr noundef nonnull %53) #8
   store ptr %58, ptr @pendingUnlinks, align 8
   store ptr %52, ptr @CurrentMemoryContext, align 8
   br label %75
@@ -610,7 +608,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   store ptr %60, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = load ptr, ptr @pendingOps, align 8
-  %63 = call ptr @hash_search(ptr noundef %62, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #9
+  %63 = call ptr @hash_search(ptr noundef %62, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %4) #8
   %64 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %70
@@ -649,7 +647,7 @@ define dso_local zeroext i1 @RegisterSyncRequest(ptr noundef %0, i32 noundef %1,
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3
-  %5 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
+  %5 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #8
   %.not9 = xor i1 %2, true
   %brmerge10 = or i1 %5, %.not9
   br i1 %brmerge10, label %.loopexit, label %.lr.ph.split
@@ -659,8 +657,8 @@ define dso_local zeroext i1 @RegisterSyncRequest(ptr noundef %0, i32 noundef %1,
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.preheader, %.lr.ph.split
-  %7 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #9
-  %8 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #9
+  %7 = tail call i32 @WaitLatch(ptr noundef null, i32 noundef 40, i64 noundef 10, i32 noundef 150994949) #8
+  %8 = tail call zeroext i1 @ForwardSyncRequest(ptr noundef %0, i32 noundef %1) #8
   br i1 %8, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.preheader, %6
@@ -695,11 +693,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -708,11 +703,10 @@ attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

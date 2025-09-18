@@ -494,7 +494,7 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
           to label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i unwind label %87
 
 62:                                               ; preds = %.loopexit.i.i.i
-  invoke void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.088754bc4880653e265a9a5a04678466.27, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.088754bc4880653e265a9a5a04678466.29) #9
+  invoke void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.088754bc4880653e265a9a5a04678466.27, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.088754bc4880653e265a9a5a04678466.29) #8
           to label %.noexc13 unwind label %87
 
 .noexc13:                                         ; preds = %62
@@ -565,7 +565,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7d508a09378c
 87:                                               ; preds = %84, %81, %77, %70, %62, %60, %57, %91
   %88 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$yara_x_proto_json..yara..AclEntry$GT$17h4d981e06ac78e194E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %5) #10
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$yara_x_proto_json..yara..AclEntry$GT$17h4d981e06ac78e194E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %5) #9
           to label %100 unwind label %98
 
 _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7d508a09378c187eE.exit: ; preds = %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i.i, %.noexc14
@@ -603,7 +603,7 @@ _ZN8protobuf18coded_input_stream16CodedInputStream13merge_message17h7d508a09378c
 98:                                               ; preds = %87
   %99 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #10
   unreachable
 
 100:                                              ; preds = %87
@@ -621,7 +621,7 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
 5:                                                ; preds = %8, %2
   %6 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr56drop_in_place$LT$yara_x_proto_json..test..SubMessage$GT$17h58ac6bd0f028ebfbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %3) #10
+  invoke void @"_ZN4core3ptr56drop_in_place$LT$yara_x_proto_json..test..SubMessage$GT$17h58ac6bd0f028ebfbE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %3) #9
           to label %17 unwind label %15
 
 7:                                                ; preds = %2
@@ -655,7 +655,7 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream12read_mes
 15:                                               ; preds = %5
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #10
   unreachable
 
 17:                                               ; preds = %5
@@ -774,7 +774,7 @@ define hidden noundef align 8 ptr @_ZN8protobuf18coded_input_stream16CodedInputS
   br label %_ZN8protobuf18coded_input_stream16CodedInputStream17read_raw_varint6417h8ad128cc40412e8eE.exit.i
 
 61:                                               ; preds = %.loopexit.i.i
-  tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.088754bc4880653e265a9a5a04678466.27, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.088754bc4880653e265a9a5a04678466.29) #9, !noalias !88
+  tail call void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1 @anon.088754bc4880653e265a9a5a04678466.27, i64 noundef 54, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.088754bc4880653e265a9a5a04678466.29) #8, !noalias !88
   unreachable
 
 62:                                               ; preds = %.loopexit.i.i
@@ -865,108 +865,90 @@ define hidden void @_ZN8protobuf18coded_input_stream16CodedInputStream20read_enu
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h02d6696c4ffcfd3bE"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hba16ab977a40b71aE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h0f78dd6af3cb2ae2E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h185964a423deec7eE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h1244cf2aa07f6859E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hb27739b02a58c063E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h2c588920407adcf1E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17ha57e9fc2aec1d75fE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h445e519ed0bf666cE"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h9b6df9e0b7eeff5dE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h63f3ca2b75733e5eE"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hbbf781a830ac0b9cE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -974,16 +956,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h2136457e078791d2E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !92, !noundef !3
-  %6 = icmp ne i64 %5, -9223372036854775808
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -991,18 +970,15 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h71f6c89ba76dc402E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h94d1eb4c69d0bdb3E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1010,16 +986,13 @@ define hidden noundef nonnull align 8 dereferenceable(352) ptr @"_ZN9once_cell4s
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h1aa3dccadc898ad0E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !92, !noundef !3
-  %6 = icmp ne i64 %5, -9223372036854775808
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -1028,16 +1001,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hc87f8c23f9966c9cE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !93, !noundef !3
-  %6 = icmp ne i64 %5, -9223372036854775807
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -1046,16 +1016,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17he2f06f570e56c194E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -1063,36 +1030,30 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hab16977fb16e949bE"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hfbef1e85cc01154eE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hb8d179969ca3b7a8E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hb0dbe03f20b8383cE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1100,16 +1061,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hbd6e3dae3e98391eE"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !92, !noundef !3
-  %6 = icmp ne i64 %5, -9223372036854775808
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -1118,16 +1076,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h81b955772b639bb0E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -1135,18 +1090,15 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17heaea7cc9f7b62b24E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h0d56b66ba1a9cc49E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1154,16 +1106,13 @@ define hidden noundef nonnull align 8 dereferenceable(352) ptr @"_ZN9once_cell4s
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load atomic ptr, ptr %2 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %5, label %4, !prof !90
 
 4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17he4a55ace485b53a6E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %0, align 8, !range !92, !noundef !3
-  %6 = icmp ne i64 %5, -9223372036854775808
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %5
 
-7:                                                ; preds = %1, %4
+5:                                                ; preds = %1, %4
   ret ptr %0
 }
 
@@ -1171,18 +1120,15 @@ define hidden noundef nonnull align 8 dereferenceable(352) ptr @"_ZN9once_cell4s
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf0506db9ca61a549E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %7, label %4, !prof !90
+  br i1 %.not, label %4, label %3, !prof !90
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h7a76706b0af1a2e1E"(ptr noundef nonnull align 8 %0)
-  %5 = load i64, ptr %3, align 8, !range !91, !noundef !3
-  %6 = icmp ne i64 %5, 2
-  tail call void @llvm.assume(i1 %6)
-  br label %7
+  br label %4
 
-7:                                                ; preds = %1, %4
-  ret ptr %3
+4:                                                ; preds = %1, %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %5
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -1208,9 +1154,6 @@ declare noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN4core3fmt9Formatter10debug_list17h7a39ccee36dbce39E(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17ha3e1f9e4e25419aeE(ptr noalias noundef align 8 dereferenceable(16), ptr noundef nonnull, ptr noundef) unnamed_addr #0
@@ -1288,13 +1231,13 @@ declare void @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$protobuf..
 declare hidden noundef align 8 ptr @_ZN8protobuf7message7Message17check_initialized17h56a0f9f1cd2e351aE(ptr noundef nonnull align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr54drop_in_place$LT$yara_x_proto_json..yara..AclEntry$GT$17h4d981e06ac78e194E"(ptr noalias noundef align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: cold minsize noreturn nounwind nonlazybind optsize uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() unnamed_addr #4
+declare void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() unnamed_addr #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN82_$LT$yara_x_proto_json..test..SubMessage$u20$as$u20$protobuf..message..Message$GT$3new17h5b70866797c2b0d5E"(ptr dead_on_unwind noalias noundef writable sret([96 x i8]) align 8 captures(none) dereferenceable(96)) unnamed_addr #0
@@ -1306,13 +1249,13 @@ declare hidden noundef align 8 ptr @_ZN8protobuf7message7Message17check_initiali
 declare hidden void @"_ZN4core3ptr56drop_in_place$LT$yara_x_proto_json..test..SubMessage$GT$17h58ac6bd0f028ebfbE"(ptr noalias noundef align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
-declare noundef nonnull align 8 ptr @"_ZN100_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..ProtobufError$GT$$GT$4from17h5b5e7f0b90eaaa24E"(ptr noalias noundef align 8 captures(none) dereferenceable(72)) unnamed_addr #5
+declare noundef nonnull align 8 ptr @"_ZN100_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..ProtobufError$GT$$GT$4from17h5b5e7f0b90eaaa24E"(ptr noalias noundef align 8 captures(none) dereferenceable(72)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
 declare { i64, ptr } @_ZN8protobuf18coded_input_stream16CodedInputStream22read_raw_varint64_slow17h35a56117de128046E(ptr noalias noundef align 8 dereferenceable(120)) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
+declare void @_ZN4core9panicking5panic17h239804395728b21fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN8protobuf18coded_input_stream16CodedInputStream10read_int3217h2489ec20ed4e4095E(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16), ptr noalias noundef align 8 dereferenceable(120)) unnamed_addr #0
@@ -1330,83 +1273,82 @@ declare void @_ZN8protobuf18coded_input_stream16CodedInputStream9pop_limit17ha5a
 declare noundef align 8 ptr @"_ZN82_$LT$yara_x_proto_json..test..SubMessage$u20$as$u20$protobuf..message..Message$GT$10merge_from17h08c32280bcd668adE"(ptr noalias noundef align 8 dereferenceable(96), ptr noalias noundef align 8 dereferenceable(120)) unnamed_addr #0
 
 ; Function Attrs: cold nonlazybind uwtable
-declare noundef nonnull align 8 ptr @"_ZN96_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..WireError$GT$$GT$4from17hfe7b713300b9815eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #5
+declare noundef nonnull align 8 ptr @"_ZN96_$LT$protobuf..error..Error$u20$as$u20$core..convert..From$LT$protobuf..error..WireError$GT$$GT$4from17hfe7b713300b9815eE"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hba16ab977a40b71aE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hba16ab977a40b71aE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h185964a423deec7eE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h185964a423deec7eE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hb27739b02a58c063E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hb27739b02a58c063E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17ha57e9fc2aec1d75fE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17ha57e9fc2aec1d75fE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h9b6df9e0b7eeff5dE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h9b6df9e0b7eeff5dE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hbbf781a830ac0b9cE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hbbf781a830ac0b9cE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h2136457e078791d2E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h2136457e078791d2E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h94d1eb4c69d0bdb3E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h94d1eb4c69d0bdb3E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h1aa3dccadc898ad0E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h1aa3dccadc898ad0E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hc87f8c23f9966c9cE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hc87f8c23f9966c9cE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17he2f06f570e56c194E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17he2f06f570e56c194E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hfbef1e85cc01154eE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hfbef1e85cc01154eE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hb0dbe03f20b8383cE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hb0dbe03f20b8383cE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hbd6e3dae3e98391eE"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hbd6e3dae3e98391eE"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h81b955772b639bb0E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h81b955772b639bb0E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h0d56b66ba1a9cc49E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h0d56b66ba1a9cc49E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17he4a55ace485b53a6E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17he4a55ace485b53a6E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h7a76706b0af1a2e1E"(ptr noundef nonnull align 8) unnamed_addr #5
+declare hidden void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h7a76706b0af1a2e1E"(ptr noundef nonnull align 8) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #8
+declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #9 = { noreturn }
-attributes #10 = { cold }
-attributes #11 = { cold noreturn nounwind }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #8 = { noreturn }
+attributes #9 = { cold }
+attributes #10 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}
@@ -1502,6 +1444,3 @@ attributes #11 = { cold noreturn nounwind }
 !88 = !{!71, !68, !75}
 !89 = !{i32 0, i32 2}
 !90 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!91 = !{i64 0, i64 3}
-!92 = !{i64 0, i64 -9223372036854775807}
-!93 = !{i64 0, i64 -9223372036854775806}

@@ -798,10 +798,6 @@ dom_free_node_after_zval_single_node_creation.exit.i: ; preds = %24, %17
 26:                                               ; preds = %13
   %27 = icmp eq i32 %15, 3
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
-  %30 = icmp eq ptr %29, null
-  tail call void @llvm.assume(i1 %30)
   tail call void @xmlFreeNode(ptr noundef nonnull %1) #6
   br label %dom_insert_node_list_cleanup.exit
 
@@ -1735,10 +1731,6 @@ dom_free_node_after_zval_single_node_creation.exit.i: ; preds = %70, %63
 72:                                               ; preds = %59
   %73 = icmp eq i32 %61, 3
   tail call void @llvm.assume(i1 %73)
-  %74 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  %75 = load ptr, ptr %74, align 8, !tbaa !26
-  %76 = icmp eq ptr %75, null
-  tail call void @llvm.assume(i1 %76)
   tail call void @xmlFreeNode(ptr noundef nonnull %45) #6
   br label %dom_insert_node_list_cleanup.exit
 
@@ -1847,10 +1839,6 @@ dom_free_node_after_zval_single_node_creation.exit.i: ; preds = %46, %39
 48:                                               ; preds = %35
   %49 = icmp eq i32 %37, 3
   tail call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !26
-  %52 = icmp eq ptr %51, null
-  tail call void @llvm.assume(i1 %52)
   tail call void @xmlFreeNode(ptr noundef nonnull %23) #6
   br label %dom_insert_node_list_cleanup.exit
 

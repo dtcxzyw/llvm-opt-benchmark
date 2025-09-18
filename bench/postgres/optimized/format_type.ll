@@ -67,7 +67,7 @@ define dso_local i64 @format_type(ptr noundef captures(none) %0) local_unnamed_a
 
 19:                                               ; preds = %.split, %.split13
   %phi.call = phi ptr [ %18, %.split ], [ %14, %.split13 ]
-  %20 = tail call ptr @cstring_to_text(ptr noundef %phi.call) #7
+  %20 = tail call ptr @cstring_to_text(ptr noundef %phi.call) #6
   %21 = ptrtoint ptr %20 to i64
   br label %22
 
@@ -97,12 +97,12 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %.not86, label %.split77, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr @pstrdup(ptr noundef nonnull @.str) #7
+  %12 = tail call ptr @pstrdup(ptr noundef nonnull @.str) #6
   br label %177
 
 .split77:                                         ; preds = %9, %.split
   %phi.call = phi i64 [ %5, %.split ], [ 0, %9 ]
-  %13 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %phi.call) #7
+  %13 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %phi.call) #6
   %.not87 = icmp eq ptr %13, null
   br i1 %.not87, label %14, label %24
 
@@ -118,14 +118,13 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %.not89, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @pstrdup(ptr noundef nonnull @.str.1) #7
+  %20 = tail call ptr @pstrdup(ptr noundef nonnull @.str.1) #6
   br label %177
 
 21:                                               ; preds = %17
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @__func__.format_type_extended) #7
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 137, ptr noundef nonnull @__func__.format_type_extended) #6
   unreachable
 
 24:                                               ; preds = %.split77
@@ -153,9 +152,9 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %.not91, label %58, label %39
 
 39:                                               ; preds = %36
-  tail call void @ReleaseSysCache(ptr noundef nonnull %13) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %13) #6
   %40 = zext i32 %31 to i64
-  %41 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %40) #7
+  %41 = tail call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %40) #6
   %.not92 = icmp eq ptr %41, null
   br i1 %.not92, label %42, label %52
 
@@ -171,14 +170,13 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %.not94, label %49, label %47
 
 47:                                               ; preds = %45
-  %48 = tail call ptr @pstrdup(ptr noundef nonnull @.str.4) #7
+  %48 = tail call ptr @pstrdup(ptr noundef nonnull @.str.4) #6
   br label %177
 
 49:                                               ; preds = %45
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 162, ptr noundef nonnull @__func__.format_type_extended) #7
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 162, ptr noundef nonnull @__func__.format_type_extended) #6
   unreachable
 
 52:                                               ; preds = %39
@@ -233,11 +231,11 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %61, label %.thread, label %70
 
 70:                                               ; preds = %69
-  %71 = tail call ptr @pstrdup(ptr noundef nonnull @.str.5) #7
+  %71 = tail call ptr @pstrdup(ptr noundef nonnull @.str.5) #6
   br label %150
 
 72:                                               ; preds = %58
-  %73 = tail call ptr @pstrdup(ptr noundef nonnull @.str.6) #7
+  %73 = tail call ptr @pstrdup(ptr noundef nonnull @.str.6) #6
   br label %150
 
 74:                                               ; preds = %58
@@ -253,27 +251,27 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %61, label %.thread, label %80
 
 80:                                               ; preds = %79
-  %81 = tail call ptr @pstrdup(ptr noundef nonnull @.str.7) #7
+  %81 = tail call ptr @pstrdup(ptr noundef nonnull @.str.7) #6
   br label %150
 
 82:                                               ; preds = %58
-  %83 = tail call ptr @pstrdup(ptr noundef nonnull @.str.8) #7
+  %83 = tail call ptr @pstrdup(ptr noundef nonnull @.str.8) #6
   br label %150
 
 84:                                               ; preds = %58
-  %85 = tail call ptr @pstrdup(ptr noundef nonnull @.str.9) #7
+  %85 = tail call ptr @pstrdup(ptr noundef nonnull @.str.9) #6
   br label %150
 
 86:                                               ; preds = %58
-  %87 = tail call ptr @pstrdup(ptr noundef nonnull @.str.10) #7
+  %87 = tail call ptr @pstrdup(ptr noundef nonnull @.str.10) #6
   br label %150
 
 88:                                               ; preds = %58
-  %89 = tail call ptr @pstrdup(ptr noundef nonnull @.str.11) #7
+  %89 = tail call ptr @pstrdup(ptr noundef nonnull @.str.11) #6
   br label %150
 
 90:                                               ; preds = %58
-  %91 = tail call ptr @pstrdup(ptr noundef nonnull @.str.12) #7
+  %91 = tail call ptr @pstrdup(ptr noundef nonnull @.str.12) #6
   br label %150
 
 92:                                               ; preds = %58
@@ -286,7 +284,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 97:                                               ; preds = %92
-  %98 = tail call ptr @pstrdup(ptr noundef nonnull @.str.13) #7
+  %98 = tail call ptr @pstrdup(ptr noundef nonnull @.str.13) #6
   br label %150
 
 99:                                               ; preds = %58
@@ -299,7 +297,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 104:                                              ; preds = %99
-  %105 = tail call ptr @pstrdup(ptr noundef nonnull @.str.14) #7
+  %105 = tail call ptr @pstrdup(ptr noundef nonnull @.str.14) #6
   br label %150
 
 106:                                              ; preds = %58
@@ -312,7 +310,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 111:                                              ; preds = %106
-  %112 = tail call ptr @pstrdup(ptr noundef nonnull @.str.16) #7
+  %112 = tail call ptr @pstrdup(ptr noundef nonnull @.str.16) #6
   br label %150
 
 113:                                              ; preds = %58
@@ -325,7 +323,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 118:                                              ; preds = %113
-  %119 = tail call ptr @pstrdup(ptr noundef nonnull @.str.17) #7
+  %119 = tail call ptr @pstrdup(ptr noundef nonnull @.str.17) #6
   br label %150
 
 120:                                              ; preds = %58
@@ -338,7 +336,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 125:                                              ; preds = %120
-  %126 = tail call ptr @pstrdup(ptr noundef nonnull @.str.19) #7
+  %126 = tail call ptr @pstrdup(ptr noundef nonnull @.str.19) #6
   br label %150
 
 127:                                              ; preds = %58
@@ -351,7 +349,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 132:                                              ; preds = %127
-  %133 = tail call ptr @pstrdup(ptr noundef nonnull @.str.20) #7
+  %133 = tail call ptr @pstrdup(ptr noundef nonnull @.str.20) #6
   br label %150
 
 134:                                              ; preds = %58
@@ -364,7 +362,7 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 139:                                              ; preds = %134
-  %140 = tail call ptr @pstrdup(ptr noundef nonnull @.str.21) #7
+  %140 = tail call ptr @pstrdup(ptr noundef nonnull @.str.21) #6
   br label %150
 
 141:                                              ; preds = %58
@@ -377,11 +375,11 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br label %150
 
 146:                                              ; preds = %141
-  %147 = tail call ptr @pstrdup(ptr noundef nonnull @.str.22) #7
+  %147 = tail call ptr @pstrdup(ptr noundef nonnull @.str.22) #6
   br label %150
 
 148:                                              ; preds = %58
-  %149 = tail call ptr @pstrdup(ptr noundef nonnull @.str.23) #7
+  %149 = tail call ptr @pstrdup(ptr noundef nonnull @.str.23) #6
   br label %150
 
 150:                                              ; preds = %142, %146, %135, %139, %128, %132, %121, %125, %114, %118, %107, %111, %100, %104, %93, %97, %75, %80, %65, %70, %148, %90, %88, %86, %84, %82, %72
@@ -395,19 +393,19 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %.thread
-  %155 = tail call zeroext i1 @TypeIsVisible(i32 noundef %.072) #7
+  %155 = tail call zeroext i1 @TypeIsVisible(i32 noundef %.072) #6
   br i1 %155, label %160, label %156
 
 156:                                              ; preds = %154, %.thread
   %157 = getelementptr inbounds nuw i8, ptr %.076, i64 68
   %158 = load i32, ptr %157, align 4
-  %159 = tail call ptr @get_namespace_name_or_temp(i32 noundef %158) #7
+  %159 = tail call ptr @get_namespace_name_or_temp(i32 noundef %158) #6
   br label %160
 
 160:                                              ; preds = %154, %156
   %.071 = phi ptr [ %159, %156 ], [ null, %154 ]
   %161 = getelementptr inbounds nuw i8, ptr %.076, i64 4
-  %162 = tail call ptr @quote_qualified_identifier(ptr noundef %.071, ptr noundef nonnull %161) #7
+  %162 = tail call ptr @quote_qualified_identifier(ptr noundef %.071, ptr noundef nonnull %161) #6
   br i1 %63, label %163, label %printTypmod.exit
 
 163:                                              ; preds = %160
@@ -417,14 +415,14 @@ define dso_local ptr @format_type_extended(i32 noundef %0, i32 noundef %1, i16 n
   br i1 %166, label %167, label %169
 
 167:                                              ; preds = %163
-  %168 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %162, i32 noundef range(i32 0, -2147483648) %1) #7
+  %168 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %162, i32 noundef range(i32 0, -2147483648) %1) #6
   br label %printTypmod.exit
 
 169:                                              ; preds = %163
   %170 = zext nneg i32 %1 to i64
-  %171 = tail call i64 @OidFunctionCall1Coll(i32 noundef %165, i32 noundef 0, i64 noundef %170) #7
+  %171 = tail call i64 @OidFunctionCall1Coll(i32 noundef %165, i32 noundef 0, i64 noundef %170) #6
   %172 = inttoptr i64 %171 to ptr
-  %173 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %162, ptr noundef %172) #7
+  %173 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %162, ptr noundef %172) #6
   br label %printTypmod.exit
 
 printTypmod.exit:                                 ; preds = %169, %167, %160, %150
@@ -432,12 +430,12 @@ printTypmod.exit:                                 ; preds = %169, %167, %160, %1
   br i1 %.074, label %174, label %176
 
 174:                                              ; preds = %printTypmod.exit
-  %175 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %.1) #7
+  %175 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef %.1) #6
   br label %176
 
 176:                                              ; preds = %174, %printTypmod.exit
   %.3 = phi ptr [ %175, %174 ], [ %.1, %printTypmod.exit ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %.075) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %.075) #6
   br label %177
 
 177:                                              ; preds = %42, %14, %6, %176, %47, %19, %11
@@ -466,14 +464,14 @@ define internal fastcc ptr @printTypmod(ptr noundef %0, i32 noundef range(i32 0,
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %0, i32 noundef %1) #7
+  %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef %0, i32 noundef %1) #6
   br label %12
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %9 = tail call i64 @OidFunctionCall1Coll(i32 noundef %2, i32 noundef 0, i64 noundef %8) #7
+  %9 = tail call i64 @OidFunctionCall1Coll(i32 noundef %2, i32 noundef 0, i64 noundef %8) #6
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %0, ptr noundef %10) #7
+  %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %0, ptr noundef %10) #6
   br label %12
 
 12:                                               ; preds = %7, %5
@@ -523,14 +521,14 @@ define dso_local i32 @type_maximum_size(i32 noundef %0, i32 noundef %1) local_un
 
 5:                                                ; preds = %4, %4
   %6 = add nsw i32 %1, -4
-  %7 = tail call i32 @GetDatabaseEncoding() #7
-  %8 = tail call i32 @pg_encoding_max_length(i32 noundef %7) #7
+  %7 = tail call i32 @GetDatabaseEncoding() #6
+  %8 = tail call i32 @pg_encoding_max_length(i32 noundef %7) #6
   %9 = mul i32 %8, %6
   %10 = add i32 %9, 4
   br label %16
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @numeric_maximum_size(i32 noundef %1) #7
+  %12 = tail call i32 @numeric_maximum_size(i32 noundef %1) #6
   br label %16
 
 13:                                               ; preds = %4, %4
@@ -560,7 +558,7 @@ define dso_local i64 @oidvectortypes(ptr noundef readonly captures(none) %0) loc
   %7 = mul i32 %6, 20
   %8 = or disjoint i32 %7, 1
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @palloc(i64 noundef %9) #7
+  %10 = tail call ptr @palloc(i64 noundef %9) #6
   store i8 0, ptr %10, align 1
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -579,14 +577,14 @@ define dso_local i64 @oidvectortypes(ptr noundef readonly captures(none) %0) loc
   %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @format_type_extended(i32 noundef %16, i32 noundef -1, i16 noundef zeroext 2)
-  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #9
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #8
   %19 = add i64 %18, 2
   %20 = icmp ult i64 %.02834, %19
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %14
   %22 = add i64 %19, %.03033
-  %23 = tail call ptr @repalloc(ptr noundef nonnull %.036, i64 noundef %22) #7
+  %23 = tail call ptr @repalloc(ptr noundef nonnull %.036, i64 noundef %22) #6
   %24 = add i64 %19, %.02834
   br label %25
 
@@ -606,7 +604,7 @@ define dso_local i64 @oidvectortypes(ptr noundef readonly captures(none) %0) loc
 
 28:                                               ; preds = %26, %25
   %.2 = phi i64 [ %27, %26 ], [ %.129, %25 ]
-  %29 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %17) #7
+  %29 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %17) #6
   %30 = sub i64 %.2, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -614,7 +612,7 @@ define dso_local i64 @oidvectortypes(ptr noundef readonly captures(none) %0) loc
 
 ._crit_edge:                                      ; preds = %28, %1
   %.0.lcssa = phi ptr [ %10, %1 ], [ %.1, %28 ]
-  %31 = tail call ptr @cstring_to_text(ptr noundef nonnull %.0.lcssa) #7
+  %31 = tail call ptr @cstring_to_text(ptr noundef nonnull %.0.lcssa) #6
   %32 = ptrtoint ptr %31 to i64
   ret i64 %32
 }
@@ -631,22 +629,18 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly c
 
 declare i64 @OidFunctionCall1Coll(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

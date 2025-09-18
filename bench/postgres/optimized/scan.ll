@@ -754,7 +754,6 @@ addlitchar.exit741:                               ; preds = %223, %240
 
 345:                                              ; preds = %332
   %346 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %346)
   %347 = tail call i32 @errcode(i32 noundef 1088) #22
   %348 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #22
   %349 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #22
@@ -1164,7 +1163,6 @@ addlit.exit758:                                   ; preds = %497, %506
   %611 = load ptr, ptr %11, align 8
   store i32 %610, ptr %611, align 4
   %612 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %612)
   %613 = tail call i32 @errcode(i32 noundef 84410498) #22
   %614 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #22
   %615 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.11) #22
@@ -1202,7 +1200,6 @@ addlit.exit758:                                   ; preds = %497, %506
 
 634:                                              ; preds = %624, %631
   %635 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %635)
   %636 = tail call i32 @errcode(i32 noundef 100794498) #22
   %637 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #22
   %638 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.13) #22
@@ -3518,7 +3515,6 @@ define dso_local void @scanner_yyerror(ptr noundef %0, ptr noundef readonly capt
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 0
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 @errcode(i32 noundef 16801924) #22
   br i1 %11, label %14, label %19
 
@@ -5091,7 +5087,6 @@ define dso_local nonnull ptr @scanner_init(ptr noundef readonly captures(none) %
   %9 = tail call ptr @__errno_location() #26
   store i32 12, ptr %9, align 4
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38) #22
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1258, ptr noundef nonnull @__func__.scanner_init) #22
   unreachable
@@ -5257,7 +5252,6 @@ declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #15
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #1 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #24
-  tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.46, ptr noundef %0) #22
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 59, ptr noundef nonnull @__func__.fprintf_to_ereport) #22
   unreachable

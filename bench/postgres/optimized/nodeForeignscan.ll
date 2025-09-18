@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
-  %6 = tail call noundef ptr @palloc0(i64 noundef 264) #5
+  %6 = tail call noundef ptr @palloc0(i64 noundef 264) #4
   store i32 417, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -23,23 +23,23 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @ExecForeignScan, ptr %9, align 8
-  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %6) #5
+  tail call void @ExecAssignExprContext(ptr noundef %1, ptr noundef %6) #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread, label %15
 
 .thread:                                          ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %11 = load i32, ptr %10, align 4
-  %12 = tail call ptr @GetFdwRoutineByServerId(i32 noundef %11) #5
+  %12 = tail call ptr @GetFdwRoutineByServerId(i32 noundef %11) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %14 = load ptr, ptr %13, align 8
   br label %23
 
 15:                                               ; preds = %3
-  %16 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %5, i32 noundef %2) #5
+  %16 = tail call ptr @ExecOpenScanRelation(ptr noundef %1, i32 noundef %5, i32 noundef %2) #4
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store ptr %16, ptr %17, align 8
-  %18 = tail call ptr @GetFdwRoutineForRelation(ptr noundef %16, i1 noundef zeroext true) #5
+  %18 = tail call ptr @GetFdwRoutineForRelation(ptr noundef %16, i1 noundef zeroext true) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
@@ -50,34 +50,34 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
 23:                                               ; preds = %.thread, %15
   %24 = phi ptr [ %14, %.thread ], [ %20, %15 ]
   %.06780 = phi ptr [ %12, %.thread ], [ %18, %15 ]
-  %25 = tail call ptr @ExecTypeFromTL(ptr noundef %24) #5
+  %25 = tail call ptr @ExecTypeFromTL(ptr noundef %24) #4
   br label %30
 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @CreateTupleDescCopy(ptr noundef %28) #5
+  %29 = tail call ptr @CreateTupleDescCopy(ptr noundef %28) #4
   br label %30
 
 30:                                               ; preds = %26, %23
   %.sink = phi ptr [ %29, %26 ], [ %25, %23 ]
   %.06779 = phi ptr [ %18, %26 ], [ %.06780, %23 ]
   %.066 = phi i32 [ %5, %26 ], [ -3, %23 ]
-  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %.sink, ptr noundef nonnull @TTSOpsHeapTuple) #5
+  tail call void @ExecInitScanTupleSlot(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %.sink, ptr noundef nonnull @TTSOpsHeapTuple) #4
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i8 0, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 196
   store i8 1, ptr %32, align 4
-  tail call void @ExecInitResultTypeTL(ptr noundef nonnull %6) #5
-  tail call void @ExecAssignScanProjectionInfoWithVarno(ptr noundef nonnull %6, i32 noundef %.066) #5
+  tail call void @ExecInitResultTypeTL(ptr noundef nonnull %6) #4
+  tail call void @ExecAssignScanProjectionInfoWithVarno(ptr noundef nonnull %6, i32 noundef %.066) #4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @ExecInitQual(ptr noundef %34, ptr noundef nonnull %6) #5
+  %35 = tail call ptr @ExecInitQual(ptr noundef %34, ptr noundef nonnull %6) #4
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @ExecInitQual(ptr noundef %38, ptr noundef nonnull %6) #5
+  %39 = tail call ptr @ExecInitQual(ptr noundef %38, ptr noundef nonnull %6) #4
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store ptr %39, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 38
@@ -126,10 +126,9 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %64, %60
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.ExecInitForeignScan) #5
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.ExecInitForeignScan) #4
   unreachable
 
 73:                                               ; preds = %64
@@ -144,7 +143,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   br i1 %.not74, label %81, label %78
 
 78:                                               ; preds = %75
-  %79 = tail call ptr @ExecInitNode(ptr noundef nonnull %77, ptr noundef %1, i32 noundef %2) #5
+  %79 = tail call ptr @ExecInitNode(ptr noundef nonnull %77, ptr noundef %1, i32 noundef %2) #4
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %79, ptr %80, align 8
   br label %81
@@ -165,7 +164,7 @@ define dso_local noundef ptr @ExecInitForeignScan(ptr noundef %0, ptr noundef %1
   %.sink88 = phi i64 [ 184, %84 ], [ 32, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %.06779, i64 %.sink88
   %89 = load ptr, ptr %88, align 8
-  tail call void %89(ptr noundef nonnull %6, i32 noundef %2) #5
+  tail call void %89(ptr noundef nonnull %6, i32 noundef %2) #4
   br label %90
 
 90:                                               ; preds = %.sink.split, %84
@@ -190,7 +189,7 @@ define internal ptr @ExecForeignScan(ptr noundef %0) #0 {
   br i1 %.not7, label %11, label %13
 
 11:                                               ; preds = %6, %1
-  %12 = tail call ptr @ExecScan(ptr noundef nonnull %0, ptr noundef nonnull @ForeignNext, ptr noundef nonnull @ForeignRecheck) #5
+  %12 = tail call ptr @ExecScan(ptr noundef nonnull %0, ptr noundef nonnull @ForeignNext, ptr noundef nonnull @ForeignRecheck) #4
   br label %13
 
 13:                                               ; preds = %6, %11
@@ -250,7 +249,7 @@ define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink12
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull %0) #5
+  tail call void %15(ptr noundef nonnull %0) #4
   br label %16
 
 16:                                               ; preds = %.sink.split, %6
@@ -260,7 +259,7 @@ define dso_local void @ExecEndForeignScan(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not10, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @ExecEndNode(ptr noundef nonnull %18) #5
+  tail call void @ExecEndNode(ptr noundef nonnull %18) #4
   br label %20
 
 20:                                               ; preds = %19, %16
@@ -293,7 +292,7 @@ define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr 
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull %0) #5
+  tail call void %17(ptr noundef nonnull %0) #4
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %23, label %18
 
@@ -304,11 +303,11 @@ define dso_local void @ExecReScanForeignScan(ptr noundef %0) local_unnamed_addr 
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  tail call void @ExecReScan(ptr noundef nonnull %5) #5
+  tail call void @ExecReScan(ptr noundef nonnull %5) #4
   br label %23
 
 23:                                               ; preds = %22, %18, %13
-  tail call void @ExecScanReScan(ptr noundef nonnull %0) #5
+  tail call void @ExecScanReScan(ptr noundef nonnull %0) #4
   br label %24
 
 24:                                               ; preds = %8, %23
@@ -329,18 +328,18 @@ define dso_local void @ExecForeignScanEstimate(ptr noundef %0, ptr noundef %1) l
   br i1 %.not, label %18, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1) #5
+  %8 = tail call i64 %6(ptr noundef nonnull %0, ptr noundef %1) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %8, 31
   %13 = and i64 %12, -32
-  %14 = tail call i64 @add_size(i64 noundef %11, i64 noundef %13) #5
+  %14 = tail call i64 @add_size(i64 noundef %11, i64 noundef %13) #4
   store i64 %14, ptr %10, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i64, ptr %15, align 8
-  %17 = tail call i64 @add_size(i64 noundef %16, i64 noundef 1) #5
+  %17 = tail call i64 @add_size(i64 noundef %16, i64 noundef 1) #4
   store i64 %17, ptr %15, align 8
   br label %18
 
@@ -368,12 +367,12 @@ define dso_local void @ExecForeignScanInitializeDSM(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %15 = load i64, ptr %14, align 8
-  %16 = tail call ptr @shm_toc_allocate(ptr noundef %13, i64 noundef %15) #5
+  %16 = tail call ptr @shm_toc_allocate(ptr noundef %13, i64 noundef %15) #4
   %17 = load ptr, ptr %5, align 8
-  tail call void %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %16) #5
+  tail call void %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %16) #4
   %18 = load ptr, ptr %12, align 8
   %19 = sext i32 %11 to i64
-  tail call void @shm_toc_insert(ptr noundef %18, i64 noundef %19, ptr noundef %16) #5
+  tail call void @shm_toc_insert(ptr noundef %18, i64 noundef %19, ptr noundef %16) #4
   br label %20
 
 20:                                               ; preds = %7, %2
@@ -401,9 +400,9 @@ define dso_local void @ExecForeignScanReInitializeDSM(ptr noundef %0, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = tail call ptr @shm_toc_lookup(ptr noundef %13, i64 noundef %14, i1 noundef zeroext false) #5
+  %15 = tail call ptr @shm_toc_lookup(ptr noundef %13, i64 noundef %14, i1 noundef zeroext false) #4
   %16 = load ptr, ptr %5, align 8
-  tail call void %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %15) #5
+  tail call void %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %15) #4
   br label %17
 
 17:                                               ; preds = %7, %2
@@ -429,10 +428,10 @@ define dso_local void @ExecForeignScanInitializeWorker(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = tail call ptr @shm_toc_lookup(ptr noundef %13, i64 noundef %14, i1 noundef zeroext false) #5
+  %15 = tail call ptr @shm_toc_lookup(ptr noundef %13, i64 noundef %14, i1 noundef zeroext false) #4
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %12, align 8
-  tail call void %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %15) #5
+  tail call void %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %15) #4
   br label %18
 
 18:                                               ; preds = %7, %2
@@ -449,7 +448,7 @@ define dso_local void @ExecShutdownForeignScan(ptr noundef %0) local_unnamed_add
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void %5(ptr noundef nonnull %0) #5
+  tail call void %5(ptr noundef nonnull %0) #4
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -464,7 +463,7 @@ define dso_local void @ExecAsyncForeignScanRequest(ptr noundef %0) local_unnamed
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #5
+  tail call void %7(ptr noundef %0) #4
   ret void
 }
 
@@ -476,7 +475,7 @@ define dso_local void @ExecAsyncForeignScanConfigureWait(ptr noundef %0) local_u
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #5
+  tail call void %7(ptr noundef %0) #4
   ret void
 }
 
@@ -488,7 +487,7 @@ define dso_local void @ExecAsyncForeignScanNotify(ptr noundef %0) local_unnamed_
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef %0) #5
+  tail call void %7(ptr noundef %0) #4
   ret void
 }
 
@@ -514,7 +513,7 @@ define internal ptr @ForeignNext(ptr noundef %0) #0 {
   %. = select i1 %.not16, i64 40, i64 192
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr %14(ptr noundef nonnull %0) #5
+  %15 = tail call ptr %14(ptr noundef nonnull %0) #4
   store ptr %8, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %17 = load i8, ptr %16, align 8, !range !4, !noundef !5
@@ -554,14 +553,14 @@ define internal zeroext i1 @ForeignRecheck(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
-  tail call void @MemoryContextReset(ptr noundef %10) #5
+  tail call void @MemoryContextReset(ptr noundef %10) #4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %15, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call zeroext i1 %12(ptr noundef nonnull %0, ptr noundef %1) #5
+  %14 = tail call zeroext i1 %12(ptr noundef nonnull %0, ptr noundef %1) #4
   br i1 %14, label %15, label %26
 
 15:                                               ; preds = %13, %2
@@ -577,7 +576,7 @@ define internal zeroext i1 @ForeignRecheck(ptr noundef %0, ptr noundef %1) #0 {
   store ptr %20, ptr @CurrentMemoryContext, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = call i64 %23(ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef nonnull %3) #5
+  %24 = call i64 %23(ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef nonnull %3) #4
   store ptr %21, ptr @CurrentMemoryContext, align 8
   %25 = icmp ne i64 %24, 0
   br label %ExecQual.exit
@@ -600,16 +599,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

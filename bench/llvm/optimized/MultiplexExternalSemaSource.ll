@@ -87,11 +87,11 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSourceD2Ev(ptr noundef no
   br i1 %10, label %_ZN4llvm11SmallVectorIPN5clang18ExternalSemaSourceELj2EED2Ev.exit, label %11
 
 11:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %8) #8
+  tail call void @free(ptr noundef %8) #7
   br label %_ZN4llvm11SmallVectorIPN5clang18ExternalSemaSourceELj2EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPN5clang18ExternalSemaSourceELj2EED2Ev.exit: ; preds = %._crit_edge, %11
-  tail call void @_ZN5clang18ExternalSemaSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  tail call void @_ZN5clang18ExternalSemaSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #7
   ret void
 
 .lr.ph:                                           ; preds = %1, %_ZNK4llvm14RefCountedBaseIN5clang17ExternalASTSourceEE7ReleaseEv.exit
@@ -108,7 +108,7 @@ _ZN4llvm11SmallVectorIPN5clang18ExternalSemaSourceELj2EED2Ev.exit: ; preds = %._
   %18 = load ptr, ptr %12, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %12) #8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %12) #7
   br label %_ZNK4llvm14RefCountedBaseIN5clang17ExternalASTSourceEE7ReleaseEv.exit
 
 _ZNK4llvm14RefCountedBaseIN5clang17ExternalASTSourceEE7ReleaseEv.exit: ; preds = %.lr.ph, %17
@@ -122,8 +122,8 @@ declare void @_ZN5clang18ExternalSemaSourceD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang27MultiplexExternalSemaSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN5clang27MultiplexExternalSemaSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #9
+  tail call void @_ZN5clang27MultiplexExternalSemaSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #8
   ret void
 }
 
@@ -148,7 +148,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource9AddSourceEPNS_18Ex
   %12 = zext i32 %8 to i64
   %13 = add nuw nsw i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 8) #8
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %14, i64 noundef %13, i64 noundef 8) #7
   %.pre.i = load i32, ptr %7, align 8, !tbaa !16
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang18ExternalSemaSourceELb1EE9push_backES3_.exit
 
@@ -188,7 +188,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource15GetExterna
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 %1) #8
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 %1) #7
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %6, label %._crit_edge
 
@@ -219,7 +219,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19CompleteRedeclCha
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -250,7 +250,7 @@ define dso_local i64 @_ZN5clang27MultiplexExternalSemaSource19GetExternalSelecto
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i64 %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %1) #8
+  %17 = tail call i64 %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %1) #7
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %6, label %._crit_edge
 
@@ -283,7 +283,7 @@ define dso_local noundef i32 @_ZN5clang27MultiplexExternalSemaSource23GetNumExte
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
   %13 = add i32 %12, %.056
   %14 = add nuw nsw i64 %.07, 1
   %15 = load i32, ptr %2, align 8, !tbaa !16
@@ -315,7 +315,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource19GetExterna
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %1) #8
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %1) #7
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %6, label %._crit_edge
 
@@ -347,7 +347,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource28GetExterna
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %1) #8
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %1) #7
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %6, label %._crit_edge
 
@@ -379,7 +379,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource30GetExterna
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %1) #8
+  %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %1) #7
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %9, label %._crit_edge
 
@@ -411,7 +411,7 @@ define dso_local noundef range(i32 1, 0) i32 @_ZN5clang27MultiplexExternalSemaSo
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1) #8
+  %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1) #7
   %16 = and i32 %15, -3
   %or.cond.not = icmp eq i32 %16, 0
   br i1 %or.cond.not, label %9, label %._crit_edge
@@ -445,7 +445,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource30Fin
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1, i64 %2, ptr noundef %3) #8
+  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1, i64 %2, ptr noundef %3) #7
   %16 = or i1 %.010, %15
   %17 = add nuw nsw i64 %.089, 1
   %18 = load i32, ptr %5, align 8, !tbaa !16
@@ -478,7 +478,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource27Loa
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %1, i1 noundef zeroext %2) #8
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %1, i1 noundef zeroext %2) #7
   %15 = or i1 %.078, %14
   %16 = add nuw nsw i64 %.09, 1
   %17 = load i32, ptr %4, align 8, !tbaa !16
@@ -511,7 +511,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource27Loa
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1, ptr %2, i64 %3) #8
+  %15 = tail call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %1, ptr %2, i64 %3) #7
   %16 = or i1 %.010, %15
   %17 = add nuw nsw i64 %.089, 1
   %18 = load i32, ptr %5, align 8, !tbaa !16
@@ -542,7 +542,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23completeVisibleDe
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -572,7 +572,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource24FindExternalLexic
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %16 = add nuw nsw i64 %.07, 1
   %17 = load i32, ptr %6, align 8, !tbaa !16
   %18 = zext i32 %17 to i64
@@ -602,7 +602,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19FindFileRegionDec
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %15 = load ptr, ptr %14, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %16 = add nuw nsw i64 %.07, 1
   %17 = load i32, ptr %6, align 8, !tbaa !16
   %18 = zext i32 %17 to i64
@@ -632,7 +632,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12CompleteTypeEPNS_
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -662,7 +662,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12CompleteTypeEPNS_
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -692,7 +692,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource12ReadCommentsEv(pt
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
   %12 = add nuw nsw i64 %.03, 1
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
@@ -722,7 +722,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20StartedDeserializ
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
   %12 = add nuw nsw i64 %.03, 1
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
@@ -752,7 +752,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource21FinishedDeseriali
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
   %12 = add nuw nsw i64 %.03, 1
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
@@ -782,7 +782,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20StartTranslationU
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -812,7 +812,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource10PrintStatsEv(ptr 
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
   %12 = add nuw nsw i64 %.03, 1
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
@@ -843,7 +843,7 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource9getModuleEj
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %1) #8
+  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %1) #7
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %6, label %._crit_edge
 
@@ -878,7 +878,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource16lay
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 208
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %5, ptr noundef nonnull align 1 %6) #8
+  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %5, ptr noundef nonnull align 1 %6) #7
   br i1 %22, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %11, %15, %7
@@ -908,7 +908,7 @@ define dso_local void @_ZNK5clang27MultiplexExternalSemaSource20getMemoryBufferS
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 216
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -938,7 +938,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource14InitializeSemaERN
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 232
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(17504) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(17504) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -968,7 +968,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource10ForgetSemaEv(ptr 
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 240
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
   %12 = add nuw nsw i64 %.03, 1
   %13 = load i32, ptr %2, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
@@ -998,7 +998,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource14ReadMethodPoolENS
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1028,7 +1028,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23updateOutOfDateSe
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 256
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1058,7 +1058,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource19ReadKnownNamespac
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1088,7 +1088,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource20ReadUndefinedButU
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 272
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1117,7 +1117,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource32ReadMismatchingDe
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %13, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1148,7 +1148,7 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource17Loo
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %2) #8
+  %16 = tail call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %2) #7
   %17 = add nuw nsw i64 %.06, 1
   %18 = load i32, ptr %4, align 8, !tbaa !16
   %19 = zext i32 %18 to i64
@@ -1178,7 +1178,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource24ReadTentativeDefi
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 296
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1208,7 +1208,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource25ReadUnusedFileSco
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 304
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1238,7 +1238,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource26ReadDelegatingCon
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1268,7 +1268,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource18ReadExtVectorDecl
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 320
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1298,7 +1298,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource32ReadDeclsToCheckF
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 376
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1328,7 +1328,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource36ReadUnusedLocalTy
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 328
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(72) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1358,7 +1358,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23ReadReferencedSel
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 336
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1388,7 +1388,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource29ReadWeakUndeclare
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 344
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1418,7 +1418,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource15ReadUsedVTablesER
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1448,7 +1448,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource25ReadPendingInstan
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 360
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1478,7 +1478,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23ReadLateParsedTem
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 368
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(40) %1) #7
   %13 = add nuw nsw i64 %.04, 1
   %14 = load i32, ptr %3, align 8, !tbaa !16
   %15 = zext i32 %14 to i64
@@ -1504,14 +1504,14 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZN5clang14TypoCorrectionD2Ev.exit
-  %.01621 = phi i64 [ 0, %.lr.ph ], [ %90, %_ZN5clang14TypoCorrectionD2Ev.exit ]
+  %.01621 = phi i64 [ 0, %.lr.ph ], [ %84, %_ZN5clang14TypoCorrectionD2Ev.exit ]
   %21 = load ptr, ptr %11, align 8, !tbaa !12
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.01621
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 384
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr dead_on_unwind writable sret(%"class.clang::TypoCorrection") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9) #8
+  tail call void %26(ptr dead_on_unwind writable sret(%"class.clang::TypoCorrection") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i1 noundef zeroext %8, ptr noundef %9) #7
   %27 = load i64, ptr %0, align 8, !tbaa !61
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %28, label %.critedge
@@ -1523,7 +1523,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %28, %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %80, %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i ], [ %29, %28 ]
+  %.05.i.i.i.i.i = phi ptr [ %74, %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i ], [ %29, %28 ]
   %31 = load ptr, ptr %.05.i.i.i.i.i, align 8, !tbaa !68
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i, label %32
@@ -1572,81 +1572,67 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   %54 = load ptr, ptr %53, align 8, !tbaa !76
   %55 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -24
   %56 = icmp eq ptr %54, %55
-  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %57 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -32
-  %58 = load i64, ptr %57, align 8, !tbaa !80
-  %59 = icmp ult i64 %58, 16
-  tail call void @llvm.assume(i1 %59)
-  br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i
+  br i1 %56, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %60 = load i64, ptr %55, align 8, !tbaa !81
-  %61 = add i64 %60, 1
-  tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %61) #9
+  %57 = load i64, ptr %55, align 8, !tbaa !80
+  %58 = add i64 %57, 1
+  tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %58) #8
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i
 
-_ZN5clang9FixItHintD2Ev.exit.i.i.i.i:             ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
+_ZN5clang9FixItHintD2Ev.exit.i.i.i.i:             ; preds = %.lr.ph.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   %.not.i.i.i.i17 = icmp eq ptr %47, %52
-  br i1 %.not.i.i.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !82
+  br i1 %.not.i.i.i.i17, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !81
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %46, align 8, !tbaa !12
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i, %45
-  %62 = phi ptr [ %.pre.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i ], [ %47, %45 ]
-  %63 = getelementptr inbounds nuw i8, ptr %31, i64 544
-  %64 = icmp eq ptr %62, %63
-  br i1 %64, label %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i, label %65
+  %59 = phi ptr [ %.pre.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i.i ], [ %47, %45 ]
+  %60 = getelementptr inbounds nuw i8, ptr %31, i64 544
+  %61 = icmp eq ptr %59, %60
+  br i1 %61, label %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i, label %62
 
-65:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i
-  tail call void @free(ptr noundef %62) #8
+62:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i
+  tail call void @free(ptr noundef %59) #7
   br label %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i
 
-_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i: ; preds = %65, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %31, i64 416
-  %67 = load ptr, ptr %66, align 8, !tbaa !12
-  %68 = getelementptr inbounds nuw i8, ptr %31, i64 432
-  %69 = icmp eq ptr %67, %68
-  br i1 %69, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader, label %70
+_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i: ; preds = %62, %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %31, i64 416
+  %64 = load ptr, ptr %63, align 8, !tbaa !12
+  %65 = getelementptr inbounds nuw i8, ptr %31, i64 432
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader, label %67
 
-70:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i
-  tail call void @free(ptr noundef %67) #8
+67:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i
+  tail call void @free(ptr noundef %64) #7
   br label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader
 
-_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader: ; preds = %70, %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i
+_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader: ; preds = %67, %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit.i.i
   br label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
 
 _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   %.idx.i.i = phi i64 [ %.add.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ], [ 416, %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i.preheader ]
   %.add.i.i = add nsw i64 %.idx.i.i, -32
   %.ptr1.i.i = getelementptr inbounds i8, ptr %31, i64 %.add.i.i
-  %71 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !76
-  %72 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 16
-  %73 = icmp eq ptr %71, %72
-  br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !80
-  %76 = icmp ult i64 %75, 16
-  tail call void @llvm.assume(i1 %76)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+  %68 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !76
+  %69 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 16
+  %70 = icmp eq ptr %68, %69
+  br i1 %70, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
-  %77 = load i64, ptr %72, align 8, !tbaa !81
-  %78 = add i64 %77, 1
-  tail call void @_ZdlPvm(ptr noundef %71, i64 noundef %78) #9
+  %71 = load i64, ptr %69, align 8, !tbaa !80
+  %72 = add i64 %71, 1
+  tail call void @_ZdlPvm(ptr noundef %68, i64 noundef %72) #8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %79 = icmp eq i64 %.add.i.i, 96
-  br i1 %79, label %_ZN5clang17DiagnosticStorageD2Ev.exit.i, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %73 = icmp eq i64 %.add.i.i, 96
+  br i1 %73, label %_ZN5clang17DiagnosticStorageD2Ev.exit.i, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.i.i
 
 _ZN5clang17DiagnosticStorageD2Ev.exit.i:          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 928) #9
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 928) #8
   br label %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit
 
 _ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit: ; preds = %39, %_ZN5clang17DiagnosticStorageD2Ev.exit.i
@@ -1654,52 +1640,52 @@ _ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit: ; pre
   br label %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i: ; preds = %_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit, %32, %.lr.ph.i.i.i.i.i
-  %80 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i = icmp eq ptr %80, %30
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
+  %74 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i = icmp eq ptr %74, %30
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !82
 
 _ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5clang17PartialDiagnosticEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %15, align 8, !tbaa !64
   br label %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %28
-  %81 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %29, %28 ]
-  %.not.i.i.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, label %82
+  %75 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %29, %28 ]
+  %.not.i.i.i.i = icmp eq ptr %75, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, label %76
 
-82:                                               ; preds = %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
-  %83 = load ptr, ptr %17, align 8, !tbaa !84
-  %84 = ptrtoint ptr %83 to i64
-  %85 = ptrtoint ptr %81 to i64
-  %86 = sub i64 %84, %85
-  tail call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef %86) #9
+76:                                               ; preds = %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
+  %77 = load ptr, ptr %17, align 8, !tbaa !83
+  %78 = ptrtoint ptr %77 to i64
+  %79 = ptrtoint ptr %75 to i64
+  %80 = sub i64 %78, %79
+  tail call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %80) #8
   br label %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i
 
-_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i: ; preds = %82, %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
-  %87 = load ptr, ptr %18, align 8, !tbaa !12
-  %88 = icmp eq ptr %87, %19
-  br i1 %88, label %_ZN5clang14TypoCorrectionD2Ev.exit, label %89
+_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i: ; preds = %76, %_ZSt8_DestroyIPN5clang17PartialDiagnosticES1_EvT_S3_RSaIT0_E.exit.i.i
+  %81 = load ptr, ptr %18, align 8, !tbaa !12
+  %82 = icmp eq ptr %81, %19
+  br i1 %82, label %_ZN5clang14TypoCorrectionD2Ev.exit, label %83
 
-89:                                               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i
-  tail call void @free(ptr noundef %87) #8
+83:                                               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i
+  tail call void @free(ptr noundef %81) #7
   br label %_ZN5clang14TypoCorrectionD2Ev.exit
 
-_ZN5clang14TypoCorrectionD2Ev.exit:               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, %89
-  %90 = add nuw nsw i64 %.01621, 1
-  %exitcond.not = icmp eq i64 %90, %14
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !85
+_ZN5clang14TypoCorrectionD2Ev.exit:               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, %83
+  %84 = add nuw nsw i64 %.01621, 1
+  %exitcond.not = icmp eq i64 %84, %14
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %_ZN5clang14TypoCorrectionD2Ev.exit, %10
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
-  store ptr %92, ptr %91, align 8, !tbaa !12
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 1, ptr %93, align 4, !tbaa !15
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %94, i8 0, i64 22, i1 false)
+  store ptr %86, ptr %85, align 8, !tbaa !12
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 1, ptr %87, align 4, !tbaa !15
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %88, i8 0, i64 22, i1 false)
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %._crit_edge
@@ -1726,11 +1712,11 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource32May
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 392
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 %1, i64 %2) #8
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 %1, i64 %2) #7
   %15 = add nuw nsw i64 %.0912, 1
   %exitcond.not = icmp eq i64 %15, %7
   %or.cond = select i1 %14, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !86
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ %14, %.lr.ph ]
@@ -1758,7 +1744,7 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource23AssignedLambdaNum
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 400
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %1) #7
   %13 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %13, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1792,9 +1778,6 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1802,9 +1785,8 @@ attributes #3 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -1888,10 +1870,9 @@ attributes #9 = { builtin nounwind }
 !77 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !78, i64 0, !63, i64 8, !6, i64 16}
 !78 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !79, i64 0}
 !79 = !{!"p1 omnipotent char", !14, i64 0}
-!80 = !{!77, !63, i64 8}
-!81 = !{!6, !6, i64 0}
+!80 = !{!6, !6, i64 0}
+!81 = distinct !{!81, !21}
 !82 = distinct !{!82, !21}
-!83 = distinct !{!83, !21}
-!84 = !{!65, !66, i64 16}
+!83 = !{!65, !66, i64 16}
+!84 = distinct !{!84, !21}
 !85 = distinct !{!85, !21}
-!86 = distinct !{!86, !21}

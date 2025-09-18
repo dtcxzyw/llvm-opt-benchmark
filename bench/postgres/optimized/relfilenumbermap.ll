@@ -40,18 +40,18 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br i1 %11, label %12, label %.preheader.preheader.i
 
 12:                                               ; preds = %9
-  tail call void @CreateCacheMemoryContext() #7
+  tail call void @CreateCacheMemoryContext() #6
   br label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %12, %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) @relfilenumber_skey, i8 0, i64 144, i1 false)
   %13 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 16), ptr noundef %13) #7
+  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 16), ptr noundef %13) #6
   store i16 3, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 6), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 8), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 12), align 4
   %14 = load ptr, ptr @CacheMemoryContext, align 8
-  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 88), ptr noundef %14) #7
+  tail call void @fmgr_info_cxt(i32 noundef 184, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 88), ptr noundef %14) #6
   store i16 3, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 78), align 2
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 80), align 16
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @relfilenumber_skey, i64 84), align 4
@@ -64,9 +64,9 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %17 = load ptr, ptr @CacheMemoryContext, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %17, ptr %18, align 8
-  %19 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef 64, ptr noundef nonnull %3, i32 noundef 1064) #7
+  %19 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef 64, ptr noundef nonnull %3, i32 noundef 1064) #6
   store ptr %19, ptr @RelfilenumberMapHash, align 8
-  call void @CacheRegisterRelcacheCallback(ptr noundef nonnull @RelfilenumberMapInvalidateCallback, i64 noundef 0) #7
+  call void @CacheRegisterRelcacheCallback(ptr noundef nonnull @RelfilenumberMapInvalidateCallback, i64 noundef 0) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %20
 
@@ -78,7 +78,7 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %1, ptr %23, align 4
   %24 = load ptr, ptr @RelfilenumberMapHash, align 8
-  %25 = call ptr @hash_search(ptr noundef %24, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #7
+  %25 = call ptr @hash_search(ptr noundef %24, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #6
   %26 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %31
@@ -93,12 +93,12 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %31
-  %34 = call i32 @RelationMapFilenumberToOid(i32 noundef %1, i1 noundef zeroext true) #7
+  %34 = call i32 @RelationMapFilenumberToOid(i32 noundef %1, i1 noundef zeroext true) #6
   br label %62
 
 35:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #7
+  %36 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %6, ptr noundef nonnull align 16 dereferenceable(144) @relfilenumber_skey, i64 144, i1 false)
   %37 = zext i32 %spec.store.select to i64
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -106,9 +106,9 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %39 = zext i32 %1 to i64
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i64 %39, ptr %40, align 8
-  %41 = call ptr @systable_beginscan(ptr noundef %36, i32 noundef 3455, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #7
+  %41 = call ptr @systable_beginscan(ptr noundef %36, i32 noundef 3455, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %6) #6
   store i8 0, ptr %5, align 1
-  %42 = call ptr @systable_getnext(ptr noundef %41) #7
+  %42 = call ptr @systable_getnext(ptr noundef %41) #6
   %.not41 = icmp eq ptr %42, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
@@ -119,10 +119,9 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %.lr.ph
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %47)
-  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %spec.store.select, i32 noundef %1) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @__func__.RelidByRelfilenumber) #7
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %48 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %spec.store.select, i32 noundef %1) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @__func__.RelidByRelfilenumber) #6
   unreachable
 
 49:                                               ; preds = %.lr.ph
@@ -134,20 +133,20 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
   %54 = getelementptr inbounds nuw i8, ptr %.val, i64 %53
   store i8 1, ptr %5, align 1
   %55 = load i32, ptr %54, align 4
-  %56 = call ptr @systable_getnext(ptr noundef %41) #7
+  %56 = call ptr @systable_getnext(ptr noundef %41) #6
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %49, %35
   %.1.lcssa = phi i32 [ 0, %35 ], [ %55, %49 ]
-  call void @systable_endscan(ptr noundef %41) #7
-  call void @table_close(ptr noundef %36, i32 noundef 1) #7
+  call void @systable_endscan(ptr noundef %41) #6
+  call void @table_close(ptr noundef %36, i32 noundef 1) #6
   %57 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %._crit_edge
-  %60 = call i32 @RelationMapFilenumberToOid(i32 noundef %1, i1 noundef zeroext false) #7
+  %60 = call i32 @RelationMapFilenumberToOid(i32 noundef %1, i1 noundef zeroext false) #6
   br label %61
 
 61:                                               ; preds = %59, %._crit_edge
@@ -158,16 +157,15 @@ define dso_local i32 @RelidByRelfilenumber(i32 noundef %0, i32 noundef %1) local
 62:                                               ; preds = %61, %33
   %.037 = phi i32 [ %34, %33 ], [ %.2, %61 ]
   %63 = load ptr, ptr @RelfilenumberMapHash, align 8
-  %64 = call ptr @hash_search(ptr noundef %63, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #7
+  %64 = call ptr @hash_search(ptr noundef %63, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #6
   %65 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %62
-  %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %68)
-  %69 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.RelidByRelfilenumber) #7
+  %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %69 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.RelidByRelfilenumber) #6
   unreachable
 
 70:                                               ; preds = %62
@@ -222,8 +220,8 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @RelfilenumberMapHash, align 8
-  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %4) #7
-  %5 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
+  call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %4) #6
+  %5 = call ptr @hash_seq_search(ptr noundef nonnull %3) #6
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -234,12 +232,12 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %11
   %7 = phi ptr [ %12, %11 ], [ %5, %.lr.ph ]
   %8 = load ptr, ptr @RelfilenumberMapHash, align 8
-  %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #7
+  %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %7, i32 noundef 2, ptr noundef null) #6
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.split.us, label %11
 
 11:                                               ; preds = %.lr.ph.split.us
-  %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
+  %12 = call ptr @hash_seq_search(ptr noundef nonnull %3) #6
   %.not.us = icmp eq ptr %12, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
 
@@ -254,19 +252,18 @@ define internal void @RelfilenumberMapInvalidateCallback(i64 %0, i32 noundef %1)
 
 18:                                               ; preds = %.lr.ph.split
   %19 = load ptr, ptr @RelfilenumberMapHash, align 8
-  %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %13, i32 noundef 2, ptr noundef null) #7
+  %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %13, i32 noundef 2, ptr noundef null) #6
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.split.us, label %24
 
 .split.us:                                        ; preds = %18, %.lr.ph.split.us
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %22)
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @__func__.RelfilenumberMapInvalidateCallback) #7
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @__func__.RelfilenumberMapInvalidateCallback) #6
   unreachable
 
 24:                                               ; preds = %.lr.ph.split, %18
-  %25 = call ptr @hash_seq_search(ptr noundef nonnull %3) #7
+  %25 = call ptr @hash_seq_search(ptr noundef nonnull %3) #6
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
@@ -285,18 +282,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

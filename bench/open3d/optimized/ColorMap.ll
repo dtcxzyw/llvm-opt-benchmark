@@ -187,7 +187,7 @@ $_ZTSSt15_Sp_counted_ptrIPN6open3d13visualization11ColorMapHotELN9__gnu_cxx12_Lo
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d13visualization11ColorMapJetD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
@@ -341,7 +341,7 @@ _ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7: ; preds = %_ZNK6open3d1
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d13visualization12ColorMapGrayD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
@@ -357,7 +357,7 @@ define void @_ZNK6open3d13visualization12ColorMapGray8GetColorEd(ptr dead_on_unw
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d13visualization14ColorMapSummerD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
@@ -389,7 +389,7 @@ _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit4: ; preds = %3, %5, 
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d13visualization14ColorMapWinterD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
@@ -426,7 +426,7 @@ define linkonce_odr void @_ZN6open3d13visualization8ColorMapD2Ev(ptr noundef non
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZN6open3d13visualization11ColorMapHotD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
 }
 
@@ -542,8 +542,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noinline noreturn nounwind ssp uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #22
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -559,7 +559,7 @@ define void @_ZN6open3d13visualization17GetGlobalColorMapEv(ptr dead_on_unwind n
   br i1 %3, label %4, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit, !prof !18
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit, label %6
 
@@ -568,14 +568,14 @@ define void @_ZN6open3d13visualization17GetGlobalColorMapEv(ptr dead_on_unwind n
           to label %7 unwind label %9
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   resume { ptr, i32 } %10
 
 _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit: ; preds = %1, %4, %7
@@ -612,20 +612,20 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress ssp uwtable
 define internal fastcc void @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonC2Ev() unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d13visualization11ColorMapJetE, i64 16), ptr %1, align 8, !tbaa !28
   store ptr %1, ptr @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, align 8, !tbaa !19
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, i64 8), align 8, !tbaa !25
-  %2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt10shared_ptrIKN6open3d13visualization8ColorMapEEC2INS1_11ColorMapJetEvEEPT_.exit unwind label %3
 
 3:                                                ; preds = %0
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
-  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #21
-  invoke void @__cxa_rethrow() #25
+  %6 = tail call ptr @__cxa_begin_catch(ptr %5) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #20
+  invoke void @__cxa_rethrow() #24
           to label %12 unwind label %7
 
 7:                                                ; preds = %3
@@ -642,7 +642,7 @@ common.resume:                                    ; preds = %7, %17
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #23
+  tail call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
 12:                                               ; preds = %3
@@ -666,7 +666,7 @@ _ZNSt10shared_ptrIKN6open3d13visualization8ColorMapEEC2INS1_11ColorMapJetEvEEPT_
 17:                                               ; preds = %_ZNSt10shared_ptrIKN6open3d13visualization8ColorMapEEC2INS1_11ColorMapJetEvEEPT_.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %common.resume
 }
 
@@ -695,11 +695,11 @@ define internal void @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev(ptr 
   %12 = load ptr, ptr %4, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   %15 = load ptr, ptr %4, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 18:                                               ; preds = %5
@@ -722,7 +722,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %22, %20
   br i1 %24, label %25, label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 25:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %2, %10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %25
@@ -732,7 +732,7 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #23
+  tail call void @__clang_call_terminate(ptr %28) #22
   unreachable
 }
 
@@ -758,7 +758,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogDebug_IJEEEvPKciS4_S4_DpO
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
   %8 = tail call noundef i32 @_ZNK6open3d7utility6Logger17GetVerbosityLevelEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   %9 = icmp sgt i32 %8, 2
-  br i1 %9, label %10, label %43
+  br i1 %9, label %10, label %39
 
 10:                                               ; preds = %4
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6open3d7utility6Logger11GetInstanceEv()
@@ -769,11 +769,11 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogDebug_IJEEEvPKciS4_S4_DpO
   br i1 %13, label %.noexc, label %14
 
 .noexc:                                           ; preds = %10
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #25
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.4) #24
   unreachable
 
 14:                                               ; preds = %10
-  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22
+  %15 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %15, ptr %5, align 8, !tbaa !40
   %16 = icmp ugt i64 %15, 15
@@ -811,53 +811,41 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogDebug_IJEEEvPKciS4_S4_DpO
   store i8 0, ptr %27, align 1, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @_ZNK6open3d7utility6Logger6VDebugEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %28 unwind label %35
+          to label %28 unwind label %33
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %6, align 8, !tbaa !42
   %30 = icmp eq ptr %29, %12
-  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %31 = load i64, ptr %25, align 8, !tbaa !44
-  %32 = icmp ult i64 %31, 16
-  call void @llvm.assume(i1 %32)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
-  %33 = load i64, ptr %12, align 8, !tbaa !8
-  %34 = add i64 %33, 1
-  call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #21
+  %31 = load i64, ptr %12, align 8, !tbaa !8
+  %32 = add i64 %31, 1
+  call void @_ZdlPvm(ptr noundef %29, i64 noundef %32) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %43
+  br label %39
 
-35:                                               ; preds = %23
-  %36 = landingpad { ptr, i32 }
+33:                                               ; preds = %23
+  %34 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %6, align 8, !tbaa !42
-  %38 = icmp eq ptr %37, %12
-  br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
+  %35 = load ptr, ptr %6, align 8, !tbaa !42
+  %36 = icmp eq ptr %35, %12
+  br i1 %36, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %35
-  %39 = load i64, ptr %25, align 8, !tbaa !44
-  %40 = icmp ult i64 %39, 16
-  call void @llvm.assume(i1 %40)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %33
+  %37 = load i64, ptr %12, align 8, !tbaa !8
+  %38 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %35, i64 noundef %38) #20
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %35
-  %41 = load i64, ptr %12, align 8, !tbaa !8
-  %42 = add i64 %41, 1
-  call void @_ZdlPvm(ptr noundef %37, i64 noundef %42) #21
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %34
 
-43:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4
   ret void
 }
 
@@ -867,7 +855,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11ColorMapJetELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -879,7 +867,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11Color
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #20
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -888,7 +876,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11Color
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11ColorMapJetELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -916,7 +904,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !8
   %.not.i = icmp eq i8 %6, 0
@@ -941,7 +929,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -963,7 +951,7 @@ define void @_ZN6open3d13visualization17SetGlobalColorMapENS0_8ColorMap14ColorMa
   br i1 %3, label %5, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit, !prof !18
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit, label %7
 
@@ -972,13 +960,13 @@ define void @_ZN6open3d13visualization17SetGlobalColorMapENS0_8ColorMap14ColorMa
           to label %8 unwind label %10
 
 8:                                                ; preds = %7
-  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %9 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit
 
 common.resume:                                    ; preds = %46, %37, %28, %19, %10
   %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %20, %19 ], [ %29, %28 ], [ %38, %37 ], [ %47, %46 ]
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
@@ -987,7 +975,7 @@ common.resume:                                    ; preds = %46, %37, %28, %19, 
   br label %common.resume
 
 _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit: ; preds = %4, %5, %8
-  %12 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %12 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d13visualization12ColorMapGrayE, i64 16), ptr %12, align 8, !tbaa !28
   tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_12ColorMapGrayEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr noundef nonnull %12)
   br label %50
@@ -996,7 +984,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit: ; preds =
   br i1 %3, label %14, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3, !prof !18
 
 14:                                               ; preds = %13
-  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %15 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   %.not.i2 = icmp eq i32 %15, 0
   br i1 %.not.i2, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3, label %16
 
@@ -1005,8 +993,8 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit: ; preds =
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %18 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3
 
 19:                                               ; preds = %16
@@ -1015,7 +1003,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit: ; preds =
   br label %common.resume
 
 _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3: ; preds = %13, %14, %17
-  %21 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %21 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d13visualization14ColorMapSummerE, i64 16), ptr %21, align 8, !tbaa !28
   tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_14ColorMapSummerEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr noundef nonnull %21)
   br label %50
@@ -1024,7 +1012,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3: ; preds 
   br i1 %3, label %23, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5, !prof !18
 
 23:                                               ; preds = %22
-  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %24 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   %.not.i4 = icmp eq i32 %24, 0
   br i1 %.not.i4, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5, label %25
 
@@ -1033,8 +1021,8 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3: ; preds 
           to label %26 unwind label %28
 
 26:                                               ; preds = %25
-  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %27 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5
 
 28:                                               ; preds = %25
@@ -1043,7 +1031,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit3: ; preds 
   br label %common.resume
 
 _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5: ; preds = %22, %23, %26
-  %30 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %30 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d13visualization14ColorMapWinterE, i64 16), ptr %30, align 8, !tbaa !28
   tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_14ColorMapWinterEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr noundef nonnull %30)
   br label %50
@@ -1052,7 +1040,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5: ; preds 
   br i1 %3, label %32, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7, !prof !18
 
 32:                                               ; preds = %31
-  %33 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %33 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   %.not.i6 = icmp eq i32 %33, 0
   br i1 %.not.i6, label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7, label %34
 
@@ -1061,8 +1049,8 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5: ; preds 
           to label %35 unwind label %37
 
 35:                                               ; preds = %34
-  %36 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %36 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7
 
 37:                                               ; preds = %34
@@ -1071,7 +1059,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit5: ; preds 
   br label %common.resume
 
 _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7: ; preds = %31, %32, %35
-  %39 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %39 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d13visualization11ColorMapHotE, i64 16), ptr %39, align 8, !tbaa !28
   tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_11ColorMapHotEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr noundef nonnull %39)
   br label %50
@@ -1080,7 +1068,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7: ; preds 
   br i1 %3, label %41, label %48, !prof !18
 
 41:                                               ; preds = %40
-  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   %.not.i8 = icmp eq i32 %42, 0
   br i1 %.not.i8, label %48, label %43
 
@@ -1089,8 +1077,8 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7: ; preds 
           to label %44 unwind label %46
 
 44:                                               ; preds = %43
-  %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #22
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #22
+  %45 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6open3d12_GLOBAL__N_123GlobalColorMapSingletonD2Ev, ptr nonnull @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr nonnull @__dso_handle) #21
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton) #21
   br label %48
 
 46:                                               ; preds = %43
@@ -1099,7 +1087,7 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7: ; preds 
   br label %common.resume
 
 48:                                               ; preds = %44, %41, %40
-  %49 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
+  %49 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6open3d13visualization11ColorMapJetE, i64 16), ptr %49, align 8, !tbaa !28
   tail call void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_11ColorMapJetEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEvE9singleton, ptr noundef nonnull %49)
   br label %50
@@ -1110,23 +1098,23 @@ _ZN6open3d12_GLOBAL__N_123GlobalColorMapSingleton11GetInstanceEv.exit7: ; preds 
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_12ColorMapGrayEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_12ColorMapGrayEvEEPT_.exit unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %8 = icmp eq ptr %1, null
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #20
   br label %10
 
 10:                                               ; preds = %9, %4
-  invoke void @__cxa_rethrow() #25
+  invoke void @__cxa_rethrow() #24
           to label %17 unwind label %11
 
 11:                                               ; preds = %10
@@ -1142,7 +1130,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapE
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
 17:                                               ; preds = %10
@@ -1177,11 +1165,11 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %30 = load ptr, ptr %22, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   %33 = load ptr, ptr %22, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 36:                                               ; preds = %23
@@ -1204,7 +1192,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
   br i1 %42, label %43, label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_12ColorMapGrayEvEEPT_.exit, %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %43
@@ -1213,23 +1201,23 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_14ColorMapSummerEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_14ColorMapSummerEvEEPT_.exit unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %8 = icmp eq ptr %1, null
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #20
   br label %10
 
 10:                                               ; preds = %9, %4
-  invoke void @__cxa_rethrow() #25
+  invoke void @__cxa_rethrow() #24
           to label %17 unwind label %11
 
 11:                                               ; preds = %10
@@ -1245,7 +1233,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapE
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
 17:                                               ; preds = %10
@@ -1280,11 +1268,11 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %30 = load ptr, ptr %22, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   %33 = load ptr, ptr %22, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 36:                                               ; preds = %23
@@ -1307,7 +1295,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
   br i1 %42, label %43, label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_14ColorMapSummerEvEEPT_.exit, %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %43
@@ -1316,23 +1304,23 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_14ColorMapWinterEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_14ColorMapWinterEvEEPT_.exit unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %8 = icmp eq ptr %1, null
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #20
   br label %10
 
 10:                                               ; preds = %9, %4
-  invoke void @__cxa_rethrow() #25
+  invoke void @__cxa_rethrow() #24
           to label %17 unwind label %11
 
 11:                                               ; preds = %10
@@ -1348,7 +1336,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapE
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
 17:                                               ; preds = %10
@@ -1383,11 +1371,11 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %30 = load ptr, ptr %22, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   %33 = load ptr, ptr %22, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 36:                                               ; preds = %23
@@ -1410,7 +1398,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
   br i1 %42, label %43, label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_14ColorMapWinterEvEEPT_.exit, %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %43
@@ -1419,23 +1407,23 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_11ColorMapHotEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_11ColorMapHotEvEEPT_.exit unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %8 = icmp eq ptr %1, null
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #20
   br label %10
 
 10:                                               ; preds = %9, %4
-  invoke void @__cxa_rethrow() #25
+  invoke void @__cxa_rethrow() #24
           to label %17 unwind label %11
 
 11:                                               ; preds = %10
@@ -1451,7 +1439,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapE
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
 17:                                               ; preds = %10
@@ -1486,11 +1474,11 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %30 = load ptr, ptr %22, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   %33 = load ptr, ptr %22, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 36:                                               ; preds = %23
@@ -1513,7 +1501,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
   br i1 %42, label %43, label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_11ColorMapHotEvEEPT_.exit, %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %43
@@ -1522,23 +1510,23 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
 
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EE5resetINS1_11ColorMapJetEEENSt9enable_ifIXsr21__sp_is_constructibleIS3_T_EE5valueEvE4typeEPSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
+  %3 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
           to label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_11ColorMapJetEvEEPT_.exit unwind label %4
 
 4:                                                ; preds = %2
   %5 = landingpad { ptr, i32 }
           catch ptr null
   %6 = extractvalue { ptr, i32 } %5, 0
-  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #22
+  %7 = tail call ptr @__cxa_begin_catch(ptr %6) #21
   %8 = icmp eq ptr %1, null
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %4
-  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #20
   br label %10
 
 10:                                               ; preds = %9, %4
-  invoke void @__cxa_rethrow() #25
+  invoke void @__cxa_rethrow() #24
           to label %17 unwind label %11
 
 11:                                               ; preds = %10
@@ -1554,7 +1542,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapE
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  tail call void @__clang_call_terminate(ptr %16) #23
+  tail call void @__clang_call_terminate(ptr %16) #22
   unreachable
 
 17:                                               ; preds = %10
@@ -1589,11 +1577,11 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %30 = load ptr, ptr %22, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   %33 = load ptr, ptr %22, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 36:                                               ; preds = %23
@@ -1616,7 +1604,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %40, %38
   br i1 %42, label %43, label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 43:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policyE2EEC2INS1_11ColorMapJetEvEEPT_.exit, %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %43
@@ -1644,11 +1632,11 @@ define linkonce_odr void @_ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapE
   %11 = load ptr, ptr %3, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %14 = load ptr, ptr %3, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
@@ -1671,7 +1659,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !36
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i, %24
@@ -1680,7 +1668,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization12ColorMapGrayELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1692,7 +1680,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization12Color
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #20
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -1701,7 +1689,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization12Color
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization12ColorMapGrayELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1712,7 +1700,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14ColorMapSummerELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1724,7 +1712,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14Color
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #20
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -1733,7 +1721,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14Color
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14ColorMapSummerELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1744,7 +1732,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14ColorMapWinterELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1756,7 +1744,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14Color
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #20
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -1765,7 +1753,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14Color
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization14ColorMapWinterELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1781,7 +1769,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
 
 ; Function Attrs: inlinehint mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11ColorMapHotELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1793,7 +1781,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11Color
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 8) #20
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -1802,7 +1790,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11Color
 
 ; Function Attrs: mustprogress nounwind ssp uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN6open3d13visualization11ColorMapHotELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #20
   ret void
 }
 
@@ -1831,14 +1819,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #17
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <2 x double> @llvm.copysign.v2f64(<2 x double>, <2 x double>) #19
+declare <2 x double> @llvm.copysign.v2f64(<2 x double>, <2 x double>) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 attributes #0 = { inlinehint mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1858,14 +1843,13 @@ attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #15 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { builtin allocsize(0) }
-attributes #25 = { noreturn }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { builtin nounwind }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin allocsize(0) }
+attributes #24 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

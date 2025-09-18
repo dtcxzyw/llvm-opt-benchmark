@@ -95,34 +95,30 @@ define hidden void @zif_pdo_drivers(ptr noundef readonly captures(none) %0, ptr 
   %11 = zext i32 %10 to i64
   %.idx = shl nuw nsw i64 %11, 5
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_hash, i64 8), align 8, !tbaa !11
-  %14 = and i32 %13, 4
-  %.not18 = icmp eq i32 %14, 0
-  tail call void @llvm.assume(i1 %.not18)
   %.not1920 = icmp eq i32 %10, 0
   br i1 %.not1920, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %24
-  %.021 = phi ptr [ %25, %24 ], [ %9, %6 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.021, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !11
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %24, label %18, !prof !17
+.lr.ph:                                           ; preds = %6, %22
+  %.021 = phi ptr [ %23, %22 ], [ %9, %6 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %14 = load i8, ptr %13, align 8, !tbaa !11
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %22, label %16, !prof !17
 
-18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %.021, align 8, !tbaa !11
-  %20 = load ptr, ptr %19, align 8, !tbaa !18
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !21
-  %23 = tail call i32 @add_next_index_stringl(ptr noundef nonnull %1, ptr noundef %20, i64 noundef %22) #13
-  br label %24
+16:                                               ; preds = %.lr.ph
+  %17 = load ptr, ptr %.021, align 8, !tbaa !11
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !21
+  %21 = tail call i32 @add_next_index_stringl(ptr noundef nonnull %1, ptr noundef %18, i64 noundef %20) #13
+  br label %22
 
-24:                                               ; preds = %.lr.ph, %18
-  %25 = getelementptr inbounds nuw i8, ptr %.021, i64 32
-  %.not19 = icmp eq ptr %25, %12
+22:                                               ; preds = %.lr.ph, %16
+  %23 = getelementptr inbounds nuw i8, ptr %.021, i64 32
+  %.not19 = icmp eq ptr %23, %12
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %24, %6, %5
+.loopexit:                                        ; preds = %22, %6, %5
   ret void
 }
 
@@ -251,47 +247,43 @@ define hidden void @zm_info_pdo(ptr readnone captures(none) %0) #1 {
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pdo_driver_hash, i64 8), align 8, !tbaa !11
-  %9 = and i32 %8, 4
-  %.not = icmp eq i32 %9, 0
-  tail call void @llvm.assume(i1 %.not)
   %.not1619 = icmp eq i32 %5, 0
   br i1 %.not1619, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %19
-  %10 = phi ptr [ %20, %19 ], [ null, %1 ]
-  %.021 = phi ptr [ %.1, %19 ], [ %3, %1 ]
-  %.01420 = phi ptr [ %21, %19 ], [ %4, %1 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !11
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %19, label %14, !prof !17
+.lr.ph:                                           ; preds = %1, %17
+  %8 = phi ptr [ %18, %17 ], [ null, %1 ]
+  %.021 = phi ptr [ %.1, %17 ], [ %3, %1 ]
+  %.01420 = phi ptr [ %19, %17 ], [ %4, %1 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.01420, i64 8
+  %10 = load i8, ptr %9, align 8, !tbaa !11
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %17, label %12, !prof !17
 
-14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %.01420, align 8, !tbaa !11
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
-  %17 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %.021, ptr noundef %16) #13
+12:                                               ; preds = %.lr.ph
+  %13 = load ptr, ptr %.01420, align 8, !tbaa !11
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
+  %15 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %2, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %.021, ptr noundef %14) #13
   call void @_efree(ptr noundef %.021) #13
-  %18 = load ptr, ptr %2, align 8, !tbaa !49
-  br label %19
+  %16 = load ptr, ptr %2, align 8, !tbaa !49
+  br label %17
 
-19:                                               ; preds = %.lr.ph, %14
-  %20 = phi ptr [ %18, %14 ], [ %10, %.lr.ph ]
-  %.1 = phi ptr [ %18, %14 ], [ %.021, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i8, ptr %.01420, i64 32
-  %.not16 = icmp eq ptr %21, %7
+17:                                               ; preds = %.lr.ph, %12
+  %18 = phi ptr [ %16, %12 ], [ %8, %.lr.ph ]
+  %.1 = phi ptr [ %16, %12 ], [ %.021, %.lr.ph ]
+  %19 = getelementptr inbounds nuw i8, ptr %.01420, i64 32
+  %.not16 = icmp eq ptr %19, %7
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %19, %1
-  %22 = phi ptr [ null, %1 ], [ %20, %19 ]
-  %.0.lcssa = phi ptr [ %3, %1 ], [ %.1, %19 ]
-  %.not17 = icmp eq ptr %22, null
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
-  %24 = select i1 %.not17, ptr @.str.7, ptr %23
-  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %24) #13
-  %25 = load ptr, ptr %2, align 8, !tbaa !49
-  %.not18 = icmp eq ptr %25, null
-  %.0.lcssa. = select i1 %.not18, ptr %.0.lcssa, ptr %25
+._crit_edge:                                      ; preds = %17, %1
+  %20 = phi ptr [ null, %1 ], [ %18, %17 ]
+  %.0.lcssa = phi ptr [ %3, %1 ], [ %.1, %17 ]
+  %.not17 = icmp eq ptr %20, null
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  %22 = select i1 %.not17, ptr @.str.7, ptr %21
+  call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %22) #13
+  %23 = load ptr, ptr %2, align 8, !tbaa !49
+  %.not18 = icmp eq ptr %23, null
+  %.0.lcssa. = select i1 %.not18, ptr %.0.lcssa, ptr %23
   call void @_efree(ptr noundef %.0.lcssa.) #13
   call void @php_info_print_table_end() #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

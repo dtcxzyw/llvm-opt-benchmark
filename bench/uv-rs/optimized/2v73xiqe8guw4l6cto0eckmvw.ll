@@ -7952,22 +7952,18 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !37, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %16, label %10
+  br i1 %trunc, label %14, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %12 = icmp eq i64 %2, 0
-  %13 = icmp ule i64 %0, %8
-  %.sroa.03.0 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
-  ret { i64, ptr } %15
+  %12 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %11, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %4
-  %17 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
+14:                                               ; preds = %4
+  %15 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #30
   unreachable
 }
 
@@ -9600,22 +9596,19 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hca
   call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hac782cc1ef314e1bE"(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %10 = load i64, ptr %4, align 8, !range !2034, !noundef !3
   %11 = icmp eq i64 %10, 25
-  br i1 %11, label %13, label %17
+  br i1 %11, label %13, label %15
 
-12:                                               ; preds = %17, %13, %7
+12:                                               ; preds = %15, %13, %7
   ret void
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %14 = load i64, ptr %6, align 8, !range !9, !noundef !3
-  %15 = icmp ne i64 %14, -9223372036854775807
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %16, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %6, ptr %14, align 8
   store i64 25, ptr %0, align 8
   br label %12
 
-17:                                               ; preds = %9
+15:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %4, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %12

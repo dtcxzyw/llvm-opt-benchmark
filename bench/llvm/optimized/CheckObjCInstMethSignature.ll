@@ -1021,21 +1021,15 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i.i:              ; preds = %241, %_ZN4llvm11raw
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %248 = load ptr, ptr %5, align 8, !tbaa !121
   %249 = icmp eq ptr %248, %39
-  br i1 %249, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i
-  %250 = load i64, ptr %40, align 8, !tbaa !103
-  %251 = icmp ult i64 %250, 16
-  call void @llvm.assume(i1 %251)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+  br i1 %249, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i
-  %252 = load i64, ptr %39, align 8, !tbaa !88
-  %253 = add i64 %252, 1
-  call void @_ZdlPvm(ptr noundef %248, i64 noundef %253) #16
+  %250 = load i64, ptr %39, align 8, !tbaa !88
+  %251 = add i64 %250, 1
+  call void @_ZdlPvm(ptr noundef %248, i64 noundef %251) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZL18CompareReturnTypesPKN5clang14ObjCMethodDeclES2_RNS_4ento11BugReporterERNS_10ASTContextEPKNS_22ObjCImplementationDeclEPKNS3_11CheckerBaseE.exit.i.i
 
@@ -1048,48 +1042,48 @@ _ZL18CompareReturnTypesPKN5clang14ObjCMethodDeclES2_RNS_4ento11BugReporterERNS_1
 
 .critedge.i.i:                                    ; preds = %_ZL18CompareReturnTypesPKN5clang14ObjCMethodDeclES2_RNS_4ento11BugReporterERNS_10ASTContextEPKNS_22ObjCImplementationDeclEPKNS3_11CheckerBaseE.exit.i.i, %112, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEPNS2_14ObjCMethodDeclENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findERKS3_.exit.i.i
   %.3.i.i = phi i32 [ %117, %_ZL18CompareReturnTypesPKN5clang14ObjCMethodDeclES2_RNS_4ento11BugReporterERNS_10ASTContextEPKNS_22ObjCImplementationDeclEPKNS3_11CheckerBaseE.exit.i.i ], [ %.281.i.i, %112 ], [ %.281.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang8SelectorEPNS2_14ObjCMethodDeclENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findERKS3_.exit.i.i ]
-  %254 = getelementptr inbounds nuw i8, ptr %.sroa.066.080.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i51.i.i = load i64, ptr %254, align 8
-  %255 = and i64 %.0.copyload.i.i.i.i.i.i51.i.i, -8
-  %256 = inttoptr i64 %255 to ptr
-  %.not4.i.i52.i.i = icmp eq i64 %255, 0
+  %252 = getelementptr inbounds nuw i8, ptr %.sroa.066.080.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i51.i.i = load i64, ptr %252, align 8
+  %253 = and i64 %.0.copyload.i.i.i.i.i.i51.i.i, -8
+  %254 = inttoptr i64 %253 to ptr
+  %.not4.i.i52.i.i = icmp eq i64 %253, 0
   br i1 %.not4.i.i52.i.i, label %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i, label %.lr.ph.i.i53.i.i
 
 .lr.ph.i.i53.i.i:                                 ; preds = %.critedge.i.i, %.critedge2.i.i54.i.i
-  %.sroa.066.1.i.i = phi ptr [ %267, %.critedge2.i.i54.i.i ], [ %256, %.critedge.i.i ]
-  %257 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.i.i, i64 28
-  %258 = load i32, ptr %257, align 4
-  %259 = and i32 %258, 127
-  %260 = icmp eq i32 %259, 16
-  br i1 %260, label %261, label %.critedge2.i.i54.i.i
+  %.sroa.066.1.i.i = phi ptr [ %265, %.critedge2.i.i54.i.i ], [ %254, %.critedge.i.i ]
+  %255 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.i.i, i64 28
+  %256 = load i32, ptr %255, align 4
+  %257 = and i32 %256, 127
+  %258 = icmp eq i32 %257, 16
+  br i1 %258, label %259, label %.critedge2.i.i54.i.i
 
-261:                                              ; preds = %.lr.ph.i.i53.i.i
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.i.i, i64 56
-  %263 = load i24, ptr %262, align 8
-  %264 = and i24 %263, 131072
-  %.not3.i.i57.i.i = icmp eq i24 %264, 0
+259:                                              ; preds = %.lr.ph.i.i53.i.i
+  %260 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.i.i, i64 56
+  %261 = load i24, ptr %260, align 8
+  %262 = and i24 %261, 131072
+  %.not3.i.i57.i.i = icmp eq i24 %262, 0
   br i1 %.not3.i.i57.i.i, label %.critedge2.i.i54.i.i, label %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i
 
-.critedge2.i.i54.i.i:                             ; preds = %261, %.lr.ph.i.i53.i.i
-  %265 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i55.i.i = load i64, ptr %265, align 8
-  %266 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i, -8
-  %267 = inttoptr i64 %266 to ptr
-  %.not.i.i56.i.i = icmp eq i64 %266, 0
+.critedge2.i.i54.i.i:                             ; preds = %259, %.lr.ph.i.i53.i.i
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i55.i.i = load i64, ptr %263, align 8
+  %264 = and i64 %.0.copyload.i.i.i.i.i.i.i55.i.i, -8
+  %265 = inttoptr i64 %264 to ptr
+  %.not.i.i56.i.i = icmp eq i64 %264, 0
   br i1 %.not.i.i56.i.i, label %_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i, label %.lr.ph.i.i53.i.i, !llvm.loop !80
 
-_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i: ; preds = %.critedge2.i.i54.i.i, %261, %.critedge.i.i
-  %.sroa.066.2.i.i = phi ptr [ %256, %.critedge.i.i ], [ %.sroa.066.1.i.i, %261 ], [ %267, %.critedge2.i.i54.i.i ]
+_ZN5clang11DeclContext22filtered_decl_iteratorINS_14ObjCMethodDeclEXadL_ZNKS2_16isInstanceMethodEvEEEppEv.exit58.i.i: ; preds = %.critedge2.i.i54.i.i, %259, %.critedge.i.i
+  %.sroa.066.2.i.i = phi ptr [ %254, %.critedge.i.i ], [ %.sroa.066.1.i.i, %259 ], [ %265, %.critedge2.i.i54.i.i ]
   %.not75.i.i = icmp eq ptr %.sroa.066.2.i.i, null
   br i1 %.not75.i.i, label %._crit_edge.i.i, label %.lr.ph82.i.i
 
 ._crit_edge87.i.i:                                ; preds = %.critedge2.i.i.i.i.i.i, %._crit_edge.i.i, %.preheader.i.i, %18
-  %268 = load ptr, ptr %13, align 8, !tbaa !84
-  %269 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %270 = load i32, ptr %269, align 8, !tbaa !87
-  %271 = zext i32 %270 to i64
-  %272 = shl nuw nsw i64 %271, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %268, i64 noundef %272, i64 noundef 8) #17
+  %266 = load ptr, ptr %13, align 8, !tbaa !84
+  %267 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %268 = load i32, ptr %267, align 8, !tbaa !87
+  %269 = zext i32 %268 to i64
+  %270 = shl nuw nsw i64 %269, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %266, i64 noundef %270, i64 noundef 8) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK12_GLOBAL__N_119ObjCMethSigsChecker12checkASTDeclEPKN5clang22ObjCImplementationDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 

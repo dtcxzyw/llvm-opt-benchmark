@@ -5397,9 +5397,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_RNvMNtCs1LoaDTb7
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6option6OptionINtNtNtCs68wO5nsWeTG_5alloc3vec9into_iter8IntoIterTINtNtCseG2FYMysgNb_3wax5token9ComponentTjjEENtB1U_15LiteralSequenceEEEEB1W_.exit: ; preds = %2, %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %8 = load ptr, ptr %0, align 8, !noundef !5
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
   ret ptr %0
 }
 

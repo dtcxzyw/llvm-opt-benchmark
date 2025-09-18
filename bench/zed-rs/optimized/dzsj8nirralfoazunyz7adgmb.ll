@@ -6396,13 +6396,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define hidden noundef i64 @"_ZN49_$LT$isize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h45eca7af36403f33E.llvm.16247273651722951349"(i64 noundef %0, i64 noundef %1) unnamed_addr #8 {
-  %3 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %0, i64 %1)
-  %4 = extractvalue { i64, i1 } %3, 0
-  %5 = extractvalue { i64, i1 } %3, 1
-  %6 = icmp sgt i64 %1, -1
-  %7 = xor i1 %6, %5
-  tail call void @llvm.assume(i1 %7)
-  ret i64 %4
+  %3 = add i64 %0, %1
+  ret i64 %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -53546,9 +53541,6 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17hd22e98231b5622eeE"(ptr noalias noundef align 8 dereferenceable(32), ptr noundef nonnull, ptr noundef) unnamed_addr #0
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.sadd.with.overflow.i64(i64, i64) #24
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26

@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @spghandler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noundef ptr @palloc0(i64 noundef 240) #10
+  %2 = tail call noundef ptr @palloc0(i64 noundef 240) #9
   store i32 437, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 0, ptr %3, align 4
@@ -136,7 +136,7 @@ declare void @spgcostestimate(ptr noundef, ptr noundef, double noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @spgoptions(i64 noundef %0, i1 noundef zeroext %1) #0 {
-  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 256, i64 noundef 8, ptr noundef nonnull @spgoptions.tab, i32 noundef 1) #10
+  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 256, i64 noundef 8, ptr noundef nonnull @spgoptions.tab, i32 noundef 1) #9
   ret ptr %3
 }
 
@@ -152,18 +152,18 @@ define dso_local noundef zeroext i1 @spgproperty(i32 noundef %0, i32 noundef %1,
   br i1 %or.cond, label %10, label %55
 
 10:                                               ; preds = %6
-  %11 = tail call i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) #10
+  %11 = tail call i32 @get_index_column_opclass(i32 noundef %0, i32 noundef %1) #9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.sink.split, label %12
 
 12:                                               ; preds = %10
-  %13 = call zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+  %13 = call zeroext i1 @get_opclass_opfamily_and_input_type(i32 noundef %11, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   br i1 %13, label %14, label %.sink.split
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %7, align 4
   %16 = zext i32 %15 to i64
-  %17 = call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %16, i64 noundef 0, i64 noundef 0) #10
+  %17 = call ptr @SearchSysCacheList(i32 noundef 4, i32 noundef 1, i64 noundef %16, i64 noundef 0, i64 noundef 0) #9
   store i8 0, ptr %4, align 1
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load i32, ptr %18, align 8
@@ -208,8 +208,8 @@ define dso_local noundef zeroext i1 @spgproperty(i32 noundef %0, i32 noundef %1,
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %47 = load i32, ptr %46, align 4
-  %48 = call i32 @get_op_rettype(i32 noundef %47) #10
-  %49 = call zeroext i1 @opfamily_can_sort_type(i32 noundef %45, i32 noundef %48) #10
+  %48 = call i32 @get_op_rettype(i32 noundef %47) #9
+  %49 = call zeroext i1 @opfamily_can_sort_type(i32 noundef %45, i32 noundef %48) #9
   br i1 %49, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %43
@@ -228,7 +228,7 @@ define dso_local noundef zeroext i1 @spgproperty(i32 noundef %0, i32 noundef %1,
   br i1 %54, label %22, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %51, %14, %50
-  call void @ReleaseCatCacheList(ptr noundef nonnull %17) #10
+  call void @ReleaseCatCacheList(ptr noundef nonnull %17) #9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %12, %10, %.loopexit
@@ -268,7 +268,7 @@ define dso_local ptr @spgGetCache(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @MemoryContextAllocZero(ptr noundef %8, i64 noundef 128) #10
+  %9 = tail call ptr @MemoryContextAllocZero(ptr noundef %8, i64 noundef 128) #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
@@ -297,7 +297,7 @@ define dso_local ptr @spgGetCache(ptr noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 @get_atttype(i32 noundef %20, i16 noundef signext %17) #10
+  %21 = tail call i32 @get_atttype(i32 noundef %20, i16 noundef signext %17) #9
   br label %.sink.split.i
 
 22:                                               ; preds = %13
@@ -307,7 +307,7 @@ define dso_local ptr @spgGetCache(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not60.i, label %25, label %.thread.i
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @RelationGetIndexExpressions(ptr noundef nonnull %0) #10
+  %26 = tail call ptr @RelationGetIndexExpressions(ptr noundef nonnull %0) #9
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %list_head.exit.i, label %.thread.i
 
@@ -347,10 +347,9 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %40
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__func__.GetIndexInputType) #10
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 151, ptr noundef nonnull @__func__.GetIndexInputType) #9
   unreachable
 
 45:                                               ; preds = %40
@@ -359,7 +358,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %.05570.i, align 8
-  %49 = tail call i32 @exprType(ptr noundef %48) #10
+  %49 = tail call i32 @exprType(ptr noundef %48) #9
   br label %.sink.split.i
 
 50:                                               ; preds = %45
@@ -379,27 +378,26 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
   br i1 %exitcond.not.i, label %.critedge.i, label %35, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %55, %list_head.exit.i
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.GetIndexInputType) #10
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.GetIndexInputType) #9
   unreachable
 
 .sink.split.i:                                    ; preds = %47, %18
   %.sink.i = phi i32 [ %49, %47 ], [ %21, %18 ]
-  %58 = tail call i32 @getBaseType(i32 noundef %.sink.i) #10
+  %58 = tail call i32 @getBaseType(i32 noundef %.sink.i) #9
   br label %GetIndexInputType.exit
 
 GetIndexInputType.exit:                           ; preds = %6, %.sink.split.i
   %.057.i = phi i32 [ %12, %6 ], [ %58, %.sink.split.i ]
   store i32 %.057.i, ptr %2, align 4
-  %59 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #10
+  %59 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #9
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %61, align 4
   %63 = ptrtoint ptr %2 to i64
   %64 = ptrtoint ptr %9 to i64
-  %65 = call i64 @FunctionCall2Coll(ptr noundef %59, i32 noundef %62, i64 noundef %63, i64 noundef %64) #10
+  %65 = call i64 @FunctionCall2Coll(ptr noundef %59, i32 noundef %62, i64 noundef %63, i64 noundef %64) #9
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %67 = load i32, ptr %66, align 4
   %.not = icmp eq i32 %67, 0
@@ -419,7 +417,7 @@ GetIndexInputType.exit:                           ; preds = %6, %.sink.split.i
   br i1 %.not45, label %80, label %77
 
 77:                                               ; preds = %68
-  %78 = call zeroext i1 @IsBinaryCoercible(i32 noundef %76, i32 noundef %.057.i) #10
+  %78 = call zeroext i1 @IsBinaryCoercible(i32 noundef %76, i32 noundef %.057.i) #9
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
@@ -430,15 +428,14 @@ GetIndexInputType.exit:                           ; preds = %6, %.sink.split.i
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.057.i, ptr %81, align 4
   %82 = zext i32 %.057.i to i64
-  %83 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %82) #10
+  %83 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %82) #9
   %.not.i50 = icmp eq ptr %83, null
   br i1 %.not.i50, label %84, label %fillTypeDesc.exit
 
 84:                                               ; preds = %80
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %85)
-  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %.057.i) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #10
+  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %86 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %.057.i) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #9
   unreachable
 
 fillTypeDesc.exit:                                ; preds = %80
@@ -464,22 +461,21 @@ fillTypeDesc.exit:                                ; preds = %80
   %102 = load i8, ptr %101, align 1
   %103 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i8 %102, ptr %103, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %83) #10
+  call void @ReleaseSysCache(ptr noundef nonnull %83) #9
   %104 = load i32, ptr %66, align 4
   %.not46 = icmp eq i32 %104, %.057.i
   br i1 %.not46, label %136, label %105
 
 105:                                              ; preds = %fillTypeDesc.exit
-  %106 = call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext 1, i16 noundef zeroext 6) #10
+  %106 = call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext 1, i16 noundef zeroext 6) #9
   %.not47 = icmp eq i32 %106, 0
   br i1 %.not47, label %107, label %111
 
 107:                                              ; preds = %105
-  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %108)
-  %109 = call i32 @errcode(i32 noundef 50856066) #10
-  %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.spgGetCache) #10
+  %108 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %109 = call i32 @errcode(i32 noundef 50856066) #9
+  %110 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 248, ptr noundef nonnull @__func__.spgGetCache) #9
   unreachable
 
 111:                                              ; preds = %105
@@ -487,15 +483,14 @@ fillTypeDesc.exit:                                ; preds = %80
   %113 = load i32, ptr %66, align 4
   store i32 %113, ptr %112, align 4
   %114 = zext i32 %113 to i64
-  %115 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %114) #10
+  %115 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %114) #9
   %.not.i51 = icmp eq ptr %115, null
   br i1 %.not.i51, label %116, label %fillTypeDesc.exit53
 
 116:                                              ; preds = %111
-  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %117)
-  %118 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %113) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #10
+  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %118 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %113) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #9
   unreachable
 
 fillTypeDesc.exit53:                              ; preds = %111
@@ -521,7 +516,7 @@ fillTypeDesc.exit53:                              ; preds = %111
   %134 = load i8, ptr %133, align 1
   %135 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i8 %134, ptr %135, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %115) #10
+  call void @ReleaseSysCache(ptr noundef nonnull %115) #9
   br label %138
 
 136:                                              ; preds = %fillTypeDesc.exit
@@ -534,15 +529,14 @@ fillTypeDesc.exit53:                              ; preds = %111
   %140 = load i32, ptr %9, align 4
   store i32 %140, ptr %139, align 4
   %141 = zext i32 %140 to i64
-  %142 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %141) #10
+  %142 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %141) #9
   %.not.i54 = icmp eq ptr %142, null
   br i1 %.not.i54, label %143, label %fillTypeDesc.exit56
 
 143:                                              ; preds = %138
-  %144 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %144)
-  %145 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %140) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #10
+  %144 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %145 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %140) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #9
   unreachable
 
 fillTypeDesc.exit56:                              ; preds = %138
@@ -568,21 +562,20 @@ fillTypeDesc.exit56:                              ; preds = %138
   %161 = load i8, ptr %160, align 1
   %162 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i8 %161, ptr %162, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %142) #10
+  call void @ReleaseSysCache(ptr noundef nonnull %142) #9
   %163 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %164 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %165 = load i32, ptr %164, align 4
   store i32 %165, ptr %163, align 4
   %166 = zext i32 %165 to i64
-  %167 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %166) #10
+  %167 = call ptr @SearchSysCache1(i32 noundef 82, i64 noundef %166) #9
   %.not.i57 = icmp eq ptr %167, null
   br i1 %.not.i57, label %168, label %fillTypeDesc.exit59
 
 168:                                              ; preds = %fillTypeDesc.exit56
-  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %169)
-  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %165) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #10
+  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, i32 noundef %165) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.fillTypeDesc) #9
   unreachable
 
 fillTypeDesc.exit59:                              ; preds = %fillTypeDesc.exit56
@@ -608,7 +601,7 @@ fillTypeDesc.exit59:                              ; preds = %fillTypeDesc.exit56
   %186 = load i8, ptr %185, align 1
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i8 %186, ptr %187, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %167) #10
+  call void @ReleaseSysCache(ptr noundef nonnull %167) #9
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 115
@@ -617,8 +610,8 @@ fillTypeDesc.exit59:                              ; preds = %fillTypeDesc.exit56
   br i1 %.not48, label %217, label %192
 
 192:                                              ; preds = %fillTypeDesc.exit59
-  %193 = call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef 0) #10
-  call void @LockBuffer(i32 noundef %193, i32 noundef 1) #10
+  %193 = call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef 0) #9
+  call void @LockBuffer(i32 noundef %193, i32 noundef 1) #9
   %194 = icmp slt i32 %193, 0
   br i1 %194, label %195, label %201
 
@@ -646,19 +639,18 @@ BufferGetPage.exit:                               ; preds = %195, %201
   br i1 %.not49, label %214, label %209
 
 209:                                              ; preds = %BufferGetPage.exit
-  %210 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %210)
+  %210 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %211 = load ptr, ptr %188, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 4
-  %213 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull %212) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.spgGetCache) #10
+  %213 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef nonnull %212) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.spgGetCache) #9
   unreachable
 
 214:                                              ; preds = %BufferGetPage.exit
   %215 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %215, ptr noundef nonnull align 4 dereferenceable(64) %216, i64 64, i1 false)
-  call void @UnlockReleaseBuffer(i32 noundef %193) #10
+  call void @UnlockReleaseBuffer(i32 noundef %193) #9
   br label %217
 
 217:                                              ; preds = %214, %fillTypeDesc.exit59
@@ -716,7 +708,7 @@ define dso_local noundef ptr @getSpGistTupleDesc(ptr noundef readonly captures(n
   br i1 %12, label %43, label %13
 
 13:                                               ; preds = %2
-  %14 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %5) #10
+  %14 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %5) #9
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 4
@@ -756,7 +748,7 @@ define dso_local noundef ptr @getSpGistTupleDesc(ptr noundef readonly captures(n
   br label %40
 
 ._crit_edge:                                      ; preds = %40, %13
-  tail call void @populate_compact_attribute(ptr noundef nonnull %14, i32 noundef 0) #10
+  tail call void @populate_compact_attribute(ptr noundef nonnull %14, i32 noundef 0) #9
   br label %43
 
 40:                                               ; preds = %.lr.ph, %40
@@ -808,7 +800,7 @@ define dso_local void @initSpGistState(ptr noundef captures(none) initializes((0
   br i1 %23, label %getSpGistTupleDesc.exit, label %24
 
 24:                                               ; preds = %2
-  %25 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %16) #10
+  %25 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %16) #9
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 4
@@ -848,7 +840,7 @@ define dso_local void @initSpGistState(ptr noundef captures(none) initializes((0
   br label %51
 
 ._crit_edge.i:                                    ; preds = %51, %24
-  tail call void @populate_compact_attribute(ptr noundef nonnull %25, i32 noundef 0) #10
+  tail call void @populate_compact_attribute(ptr noundef nonnull %25, i32 noundef 0) #9
   br label %getSpGistTupleDesc.exit
 
 51:                                               ; preds = %51, %.lr.ph.i
@@ -863,10 +855,10 @@ getSpGistTupleDesc.exit:                          ; preds = %2, %._crit_edge.i
   %.024.i = phi ptr [ %25, %._crit_edge.i ], [ %16, %2 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %.024.i, ptr %53, align 8
-  %54 = tail call ptr @palloc0(i64 noundef 16) #10
+  %54 = tail call ptr @palloc0(i64 noundef 16) #9
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %54, ptr %55, align 8
-  %56 = tail call i32 @GetTopTransactionIdIfAny() #10
+  %56 = tail call i32 @GetTopTransactionIdIfAny() #9
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %56, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -881,7 +873,7 @@ declare i32 @GetTopTransactionIdIfAny() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SpGistNewBuffer(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.BufferManagerRelation, align 8
-  %3 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #10
+  %3 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #9
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -891,8 +883,8 @@ define dso_local i32 @SpGistNewBuffer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %38, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef %5) #10
-  %9 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %8) #10
+  %8 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef %5) #9
+  %9 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %8) #9
   br i1 %9, label %10, label %37
 
 10:                                               ; preds = %7
@@ -939,15 +931,15 @@ BufferGetPage.exit:                               ; preds = %12, %18
   br i1 %35, label %.thread29, label %36
 
 36:                                               ; preds = %33
-  tail call void @LockBuffer(i32 noundef %8, i32 noundef 0) #10
+  tail call void @LockBuffer(i32 noundef %8, i32 noundef 0) #9
   br label %37
 
 37:                                               ; preds = %36, %7
-  tail call void @ReleaseBuffer(i32 noundef %8) #10
+  tail call void @ReleaseBuffer(i32 noundef %8) #9
   br label %38
 
 38:                                               ; preds = %.lr.ph, %37
-  %39 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #10
+  %39 = tail call i32 @GetFreeIndexPage(ptr noundef %0) #9
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %._crit_edge, label %.lr.ph
 
@@ -955,7 +947,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   store ptr %0, ptr %2, align 8
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  %42 = tail call i32 @ExtendBufferedRel(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %2, i32 noundef 0, ptr noundef null, i32 noundef 8) #10
+  %42 = tail call i32 @ExtendBufferedRel(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %2, i32 noundef 0, ptr noundef null, i32 noundef 8) #9
   br label %.thread29
 
 .thread29:                                        ; preds = %BufferGetPage.exit, %33, %26, %._crit_edge
@@ -982,8 +974,8 @@ define dso_local void @SpGistUpdateMetaPage(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef 0) #10
-  %6 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %5) #10
+  %5 = tail call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef 0) #9
+  %6 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %5) #9
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %4
@@ -1013,12 +1005,12 @@ BufferGetPage.exit:                               ; preds = %9, %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %21, ptr noundef nonnull align 4 dereferenceable(64) %22, i64 64, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   store i16 92, ptr %23, align 4
-  tail call void @MarkBufferDirty(i32 noundef %5) #10
-  tail call void @UnlockReleaseBuffer(i32 noundef %5) #10
+  tail call void @MarkBufferDirty(i32 noundef %5) #9
+  tail call void @UnlockReleaseBuffer(i32 noundef %5) #9
   br label %25
 
 24:                                               ; preds = %4
-  tail call void @ReleaseBuffer(i32 noundef %5) #10
+  tail call void @ReleaseBuffer(i32 noundef %5) #9
   br label %25
 
 25:                                               ; preds = %BufferGetPage.exit, %24, %1
@@ -1034,10 +1026,9 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 573, ptr noundef nonnull @__func__.SpGistGetBuffer) #10
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 573, ptr noundef nonnull @__func__.SpGistGetBuffer) #9
   unreachable
 
 10:                                               ; preds = %4
@@ -1078,12 +1069,12 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %.not76, label %106, label %34
 
 34:                                               ; preds = %31
-  %35 = tail call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef %27) #10
-  %36 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %35) #10
+  %35 = tail call i32 @ReadBuffer(ptr noundef nonnull %0, i32 noundef %27) #9
+  %36 = tail call zeroext i1 @ConditionalLockBuffer(i32 noundef %35) #9
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %34
-  tail call void @ReleaseBuffer(i32 noundef %35) #10
+  tail call void @ReleaseBuffer(i32 noundef %35) #9
   store i8 1, ptr %3, align 1
   %38 = tail call fastcc i32 @allocNewBuffer(ptr noundef nonnull %0, i32 noundef %1)
   br label %.thread
@@ -1159,7 +1150,7 @@ BufferGetPage.exit:                               ; preds = %41, %47
 
 SpGistInitBuffer.exit:                            ; preds = %71, %77
   %.0.i.i.i = phi ptr [ %76, %71 ], [ %82, %77 ]
-  tail call void @PageInit(ptr noundef %.0.i.i.i, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %.0.i.i.i, i64 noundef 8192, i64 noundef 8) #9
   %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %84 = load i16, ptr %83, align 4
   %85 = zext i16 %84 to i64
@@ -1167,7 +1158,7 @@ SpGistInitBuffer.exit:                            ; preds = %71, %77
   store i16 %.169, ptr %86, align 2
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 6
   store i16 -126, ptr %87, align 2
-  %88 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #10
+  %88 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #9
   %89 = trunc i64 %88 to i32
   %90 = sub i32 %89, %22
   store i32 %90, ptr %32, align 4
@@ -1191,7 +1182,7 @@ SpGistInitBuffer.exit:                            ; preds = %71, %77
   br i1 %99, label %105, label %100
 
 100:                                              ; preds = %96
-  %101 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #10
+  %101 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %.0.i.i) #9
   %102 = trunc i64 %101 to i32
   %.not83 = icmp sgt i32 %22, %102
   br i1 %.not83, label %105, label %103
@@ -1203,7 +1194,7 @@ SpGistInitBuffer.exit:                            ; preds = %71, %77
   br label %.thread
 
 105:                                              ; preds = %96, %91, %100
-  tail call void @UnlockReleaseBuffer(i32 noundef %35) #10
+  tail call void @UnlockReleaseBuffer(i32 noundef %35) #9
   br label %106
 
 106:                                              ; preds = %105, %31
@@ -1252,7 +1243,7 @@ define internal fastcc i32 @allocNewBuffer(ptr noundef %0, i32 noundef %1) unnam
 
 SpGistInitBuffer.exit.us:                         ; preds = %17, %11
   %.0.i.i.i.us = phi ptr [ %22, %17 ], [ %16, %11 ]
-  tail call void @PageInit(ptr noundef %.0.i.i.i.us, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %.0.i.i.i.us, i64 noundef 8192, i64 noundef 8) #9
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us, i64 16
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i64
@@ -1289,7 +1280,7 @@ SpGistInitBuffer.exit.us:                         ; preds = %17, %11
 
 SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
   %.0.i.i.i.us43 = phi ptr [ %41, %36 ], [ %35, %30 ]
-  tail call void @PageInit(ptr noundef %.0.i.i.i.us43, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %.0.i.i.i.us43, i64 noundef 8192, i64 noundef 8) #9
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.us43, i64 16
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i64
@@ -1297,7 +1288,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
   store i16 0, ptr %45, align 2
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 6
   store i16 -126, ptr %46, align 2
-  %47 = tail call i32 @BufferGetBlockNumber(i32 noundef %28) #10
+  %47 = tail call i32 @BufferGetBlockNumber(i32 noundef %28) #9
   %48 = urem i32 %47, 3
   %.not.us = icmp eq i32 %4, %48
   br i1 %.not.us, label %.split41, label %49
@@ -1326,11 +1317,11 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
 
 64:                                               ; preds = %58, %52
   %.0.i.i.us = phi ptr [ %63, %58 ], [ %57, %52 ]
-  %65 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.us) #10
+  %65 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i.us) #9
   %66 = trunc i64 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %66, ptr %67, align 4
-  tail call void @UnlockReleaseBuffer(i32 noundef %28) #10
+  tail call void @UnlockReleaseBuffer(i32 noundef %28) #9
   br label %.split.split.us
 
 .split.split:                                     ; preds = %.split, %105
@@ -1356,7 +1347,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
 
 SpGistInitBuffer.exit:                            ; preds = %70, %76
   %.0.i.i.i = phi ptr [ %75, %70 ], [ %81, %76 ]
-  tail call void @PageInit(ptr noundef %.0.i.i.i, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %.0.i.i.i, i64 noundef 8192, i64 noundef 8) #9
   %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %83 = load i16, ptr %82, align 4
   %84 = zext i16 %83 to i64
@@ -1364,7 +1355,7 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
   store i16 %.131, ptr %85, align 2
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 6
   store i16 -126, ptr %86, align 2
-  %87 = tail call i32 @BufferGetBlockNumber(i32 noundef %68) #10
+  %87 = tail call i32 @BufferGetBlockNumber(i32 noundef %68) #9
   %88 = urem i32 %87, 3
   %.not = icmp eq i32 %4, %88
   br i1 %.not, label %.split41, label %89
@@ -1394,11 +1385,11 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
 
 105:                                              ; preds = %99, %93
   %.0.i.i = phi ptr [ %98, %93 ], [ %104, %99 ]
-  %106 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #10
+  %106 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #9
   %107 = trunc i64 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 36
   store i32 %107, ptr %108, align 4
-  tail call void @UnlockReleaseBuffer(i32 noundef %68) #10
+  tail call void @UnlockReleaseBuffer(i32 noundef %68) #9
   br label %.split.split
 
 .split41:                                         ; preds = %SpGistInitBuffer.exit, %SpGistInitBuffer.exit.us42, %SpGistInitBuffer.exit.us
@@ -1429,7 +1420,7 @@ define dso_local void @SpGistInitBuffer(i32 noundef %0, i16 noundef zeroext %1) 
 
 BufferGetPage.exit:                               ; preds = %4, %10
   %.0.i.i = phi ptr [ %9, %4 ], [ %15, %10 ]
-  tail call void @PageInit(ptr noundef %.0.i.i, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %.0.i.i, i64 noundef 8192, i64 noundef 8) #9
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %17 = load i16, ptr %16, align 4
   %18 = zext i16 %17 to i64
@@ -1466,7 +1457,7 @@ define dso_local void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %1) loc
 
 BufferGetPage.exit:                               ; preds = %5, %11
   %.0.i.i = phi ptr [ %10, %5 ], [ %16, %11 ]
-  %17 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #10
+  %17 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #9
   %18 = icmp ult i32 %17, 3
   br i1 %18, label %44, label %19
 
@@ -1487,7 +1478,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %31 = zext nneg i32 %.1 to i64
   %32 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %30, i64 %31
-  %33 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #10
+  %33 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #9
   %34 = trunc i64 %33 to i32
   %35 = load i32, ptr %32, align 4
   %36 = icmp eq i32 %35, -1
@@ -1515,7 +1506,7 @@ declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SpGistInitPage(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 8) #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -1530,7 +1521,7 @@ declare void @PageInit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SpGistInitMetapage(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 8) #10
+  tail call void @PageInit(ptr noundef %0, i64 noundef 8192, i64 noundef 8) #9
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i64
@@ -1619,7 +1610,7 @@ define dso_local range(i32 0, 1073741831) i32 @SpGistGetInnerTypeSize(ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 16, -7) i64 @SpGistGetLeafTupleSize(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 .loopexit:
-  %3 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #10
+  %3 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #9
   %4 = add i64 %3, 23
   %5 = tail call i64 @llvm.umax.i64(i64 %4, i64 16)
   %spec.store.select = and i64 %5, -8
@@ -1655,11 +1646,11 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr noundef readonly captures(non
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ %12, %.preheader ]
-  %13 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3) #10
+  %13 = tail call i64 @heap_compute_data_size(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3) #9
   %14 = add i64 %13, 23
   %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 16)
   %spec.store.select = and i64 %15, -8
-  %16 = tail call ptr @palloc0(i64 noundef %spec.store.select) #10
+  %16 = tail call ptr @palloc0(i64 noundef %spec.store.select) #9
   %17 = trunc i64 %15 to i32
   %18 = load i32, ptr %16, align 4
   %19 = shl i32 %17, 2
@@ -1692,7 +1683,7 @@ define dso_local noundef ptr @spgFormLeafTuple(ptr noundef readonly captures(non
 
 .sink.split:                                      ; preds = %31, %32, %28
   %.sink = phi ptr [ %30, %28 ], [ null, %32 ], [ null, %31 ]
-  call void @heap_fill_tuple(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %27, i64 noundef %13, ptr noundef nonnull %5, ptr noundef %.sink) #10
+  call void @heap_fill_tuple(ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %27, i64 noundef %13, ptr noundef nonnull %5, ptr noundef %.sink) #9
   br label %35
 
 35:                                               ; preds = %.sink.split, %32
@@ -1769,19 +1760,18 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
   br i1 %.not, label %.thread, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 261) #10
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %42 = tail call i32 @errcode(i32 noundef 261) #9
   %43 = zext nneg i32 %39 to i64
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i64 noundef %43, i64 noundef 8191) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 976, ptr noundef nonnull @__func__.spgFormNodeTuple) #10
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i64 noundef %43, i64 noundef 8191) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 976, ptr noundef nonnull @__func__.spgFormNodeTuple) #9
   unreachable
 
 .thread:                                          ; preds = %.thread29, %4, %3, %36
   %spec.select = phi i32 [ 0, %36 ], [ 32768, %3 ], [ 0, %4 ], [ 0, %.thread29 ]
   %.01924 = phi i32 [ %39, %36 ], [ 8, %3 ], [ 16, %4 ], [ %35, %.thread29 ]
   %45 = zext nneg i32 %.01924 to i64
-  %46 = tail call ptr @palloc0(i64 noundef %45) #10
+  %46 = tail call ptr @palloc0(i64 noundef %45) #9
   %47 = or disjoint i32 %.01924, %spec.select
   %48 = trunc nuw i32 %47 to i16
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 6
@@ -1946,12 +1936,11 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %30, %
   br i1 %46, label %47, label %52
 
 47:                                               ; preds = %._crit_edge
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 @errcode(i32 noundef 261) #10
-  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %45, i64 noundef 8156) #10
-  %51 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @__func__.spgFormInnerTuple) #10
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %49 = tail call i32 @errcode(i32 noundef 261) #9
+  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i64 noundef %45, i64 noundef 8156) #9
+  %51 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @__func__.spgFormInnerTuple) #9
   unreachable
 
 52:                                               ; preds = %._crit_edge
@@ -1961,14 +1950,13 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %30, %
   br i1 %or.cond3, label %55, label %58
 
 55:                                               ; preds = %52
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1045, ptr noundef nonnull @__func__.spgFormInnerTuple) #10
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1045, ptr noundef nonnull @__func__.spgFormInnerTuple) #9
   unreachable
 
 58:                                               ; preds = %52
-  %59 = tail call ptr @palloc0(i64 noundef %45) #10
+  %59 = tail call ptr @palloc0(i64 noundef %45) #9
   %60 = load i32, ptr %59, align 4
   %61 = shl i32 %3, 3
   %62 = and i32 %60, 7
@@ -2142,7 +2130,7 @@ define dso_local void @spgDeformLeafTuple(ptr noundef %0, ptr noundef %1, ptr no
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.lobit = lshr i16 %7, 15
   %15 = zext nneg i16 %.lobit to i32
-  tail call void @index_deform_tuple_internal(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %15) #10
+  tail call void @index_deform_tuple_internal(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %15) #9
   br label %16
 
 16:                                               ; preds = %12, %11
@@ -2178,10 +2166,9 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %.lr.ph36
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1170, ptr noundef nonnull @__func__.spgExtractNodeLabels) #10
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1170, ptr noundef nonnull @__func__.spgExtractNodeLabels) #9
   unreachable
 
 17:                                               ; preds = %.lr.ph36
@@ -2195,7 +2182,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
 22:                                               ; preds = %2
   %23 = and i32 %4, 65528
   %24 = zext nneg i32 %23 to i64
-  %25 = tail call ptr @palloc(i64 noundef %24) #10
+  %25 = tail call ptr @palloc(i64 noundef %24) #9
   %26 = load i32, ptr %1, align 4
   %27 = and i32 %26, 65528
   %.not = icmp eq i32 %27, 0
@@ -2217,10 +2204,9 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1181, ptr noundef nonnull @__func__.spgExtractNodeLabels) #10
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1181, ptr noundef nonnull @__func__.spgExtractNodeLabels) #9
   unreachable
 
 38:                                               ; preds = %32
@@ -2272,7 +2258,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   br i1 %.not, label %58, label %13
 
 13:                                               ; preds = %6
-  %14 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %1) #10
+  %14 = tail call i64 @PageGetExactFreeSpace(ptr noundef nonnull %1) #9
   %15 = add i64 %14, 16
   %16 = add i64 %3, 7
   %17 = and i64 %16, -8
@@ -2364,8 +2350,8 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 
 .critedge:                                        ; preds = %._crit_edge, %._crit_edge.us
   %.us-phi = phi i16 [ %.14965.us, %._crit_edge.us ], [ %.14965, %._crit_edge ]
-  tail call void @PageIndexTupleDelete(ptr noundef nonnull %1, i16 noundef zeroext %.us-phi) #10
-  %49 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %.us-phi, i32 noundef 0) #10
+  tail call void @PageIndexTupleDelete(ptr noundef nonnull %1, i16 noundef zeroext %.us-phi) #9
+  %49 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext %.us-phi, i32 noundef 0) #9
   %.not60 = icmp eq i16 %49, 0
   br i1 %.not60, label %55, label %50
 
@@ -2381,23 +2367,21 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
   br label %64
 
 55:                                               ; preds = %.critedge
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1271, ptr noundef nonnull @__func__.SpGistPageAddNewItem) #10
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1271, ptr noundef nonnull @__func__.SpGistPageAddNewItem) #9
   unreachable
 
 58:                                               ; preds = %.split70.us, %13, %6
-  %59 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext 0, i32 noundef 0) #10
+  %59 = tail call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, i16 noundef zeroext 0, i32 noundef 0) #9
   %60 = icmp ne i16 %59, 0
   %or.cond = or i1 %5, %60
   br i1 %or.cond, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1283, ptr noundef nonnull @__func__.SpGistPageAddNewItem) #10
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %63 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i64 noundef %3) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1283, ptr noundef nonnull @__func__.SpGistPageAddNewItem) #9
   unreachable
 
 64:                                               ; preds = %58, %53, %50
@@ -2439,20 +2423,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #9
+declare i16 @llvm.umax.i16(i16, i16) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2462,10 +2443,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

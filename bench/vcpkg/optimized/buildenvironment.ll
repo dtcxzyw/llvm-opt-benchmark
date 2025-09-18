@@ -59,7 +59,7 @@ define dso_local void @_ZN5vcpkg14make_cmake_cmdERKNS_10VcpkgPathsERKNS_4PathEOS
 
 14:                                               ; preds = %4
   invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr nonnull align 1 dereferenceable(15) @.str, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %.noexc unwind label %77
+          to label %.noexc unwind label %74
 
 .noexc:                                           ; preds = %14
   %15 = load ptr, ptr %7, align 8, !tbaa !10
@@ -69,11 +69,11 @@ define dso_local void @_ZN5vcpkg14make_cmake_cmdERKNS_10VcpkgPathsERKNS_4PathEOS
 
 17:                                               ; preds = %4
   invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA15_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %9, ptr noundef nonnull align 1 dereferenceable(15) @.str, ptr noundef nonnull align 8 dereferenceable(32) %13)
-          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit unwind label %77
+          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit unwind label %74
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit: ; preds = %17, %.noexc
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths8packagesEv(ptr noundef nonnull align 8 dereferenceable(440) %1)
-          to label %19 unwind label %77
+          to label %19 unwind label %74
 
 19:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit
   %20 = load ptr, ptr %7, align 8, !tbaa !10
@@ -83,7 +83,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
 
 22:                                               ; preds = %19
   invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr nonnull align 1 dereferenceable(13) @.str.1, i64 12, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %.noexc12 unwind label %77
+          to label %.noexc12 unwind label %74
 
 .noexc12:                                         ; preds = %22
   %23 = load ptr, ptr %7, align 8, !tbaa !10
@@ -93,11 +93,11 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
 
 25:                                               ; preds = %19
   invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA13_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %20, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, ptr noundef nonnull align 8 dereferenceable(32) %18)
-          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit unwind label %77
+          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit unwind label %74
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit: ; preds = %25, %.noexc12
   %26 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths10buildtreesEv(ptr noundef nonnull align 8 dereferenceable(440) %1)
-          to label %27 unwind label %77
+          to label %27 unwind label %74
 
 27:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit
   %28 = load ptr, ptr %7, align 8, !tbaa !10
@@ -107,7 +107,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEE
 
 30:                                               ; preds = %27
   invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr nonnull align 1 dereferenceable(15) @.str.2, i64 14, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %.noexc16 unwind label %77
+          to label %.noexc16 unwind label %74
 
 .noexc16:                                         ; preds = %30
   %31 = load ptr, ptr %7, align 8, !tbaa !10
@@ -117,11 +117,11 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEE
 
 33:                                               ; preds = %27
   invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA15_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %28, ptr noundef nonnull align 1 dereferenceable(15) @.str.2, ptr noundef nonnull align 8 dereferenceable(32) %26)
-          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18 unwind label %77
+          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18 unwind label %74
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18: ; preds = %33, %.noexc16
   %34 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths9installedEv(ptr noundef nonnull align 8 dereferenceable(440) %1)
-          to label %35 unwind label %77
+          to label %35 unwind label %74
 
 35:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18
   %36 = load ptr, ptr %7, align 8, !tbaa !10
@@ -131,7 +131,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
 
 38:                                               ; preds = %35
   invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr nonnull align 1 dereferenceable(21) @.str.3, i64 20, ptr noundef nonnull align 8 dereferenceable(32) %34)
-          to label %.noexc21 unwind label %77
+          to label %.noexc21 unwind label %74
 
 .noexc21:                                         ; preds = %38
   %39 = load ptr, ptr %7, align 8, !tbaa !10
@@ -141,7 +141,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEE
 
 41:                                               ; preds = %35
   invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA21_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %36, ptr noundef nonnull align 1 dereferenceable(21) @.str.3, ptr noundef nonnull align 8 dereferenceable(32) %34)
-          to label %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge unwind label %77
+          to label %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge unwind label %74
 
 ._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge: ; preds = %41
   %.pre = load ptr, ptr %7, align 8, !tbaa !10
@@ -157,7 +157,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEE
 
 46:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit
   invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewERKNS_4PathE(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr nonnull align 1 dereferenceable(10) @.str.4, i64 9, ptr noundef nonnull align 8 dereferenceable(32) %44)
-          to label %.noexc25 unwind label %77
+          to label %.noexc25 unwind label %74
 
 .noexc25:                                         ; preds = %46
   %47 = load ptr, ptr %7, align 8, !tbaa !10
@@ -167,7 +167,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEE
 
 49:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA21_KcRKNS0_4PathEEEERS1_DpOT_.exit
   invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA10_KcRKNS0_4PathEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %42, ptr noundef nonnull align 1 dereferenceable(10) @.str.4, ptr noundef nonnull align 8 dereferenceable(32) %44)
-          to label %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge unwind label %77
+          to label %._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge unwind label %74
 
 ._ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit_crit_edge: ; preds = %49
   %.pre31 = load ptr, ptr %7, align 8, !tbaa !10
@@ -181,7 +181,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEE
 
 52:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit
   invoke void @_ZN5vcpkg13CMakeVariableC1ENS_10StringViewEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr nonnull align 1 dereferenceable(23) @.str.5, i64 22, ptr noundef nonnull align 1 dereferenceable(4) @.str.6)
-          to label %.noexc29 unwind label %77
+          to label %.noexc29 unwind label %74
 
 .noexc29:                                         ; preds = %52
   %53 = load ptr, ptr %7, align 8, !tbaa !10
@@ -191,16 +191,16 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEE
 
 55:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA10_KcRKNS0_4PathEEEERS1_DpOT_.exit
   invoke void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE17_M_realloc_insertIJRA23_KcRA4_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %50, ptr noundef nonnull align 1 dereferenceable(23) @.str.5, ptr noundef nonnull align 1 dereferenceable(4) @.str.6)
-          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit unwind label %77
+          to label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit unwind label %74
 
 _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit: ; preds = %55, %.noexc29
   %56 = load ptr, ptr @_ZN5vcpkg8out_sinkE, align 8, !tbaa !36
   %57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths12get_tool_exeENS_10StringViewERNS_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(440) %1, ptr nonnull @.str.7, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %56)
-          to label %58 unwind label %77
+          to label %58 unwind label %74
 
 58:                                               ; preds = %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit
   invoke void @_ZN5vcpkg20make_basic_cmake_cmdERKNS_4PathES2_RKSt6vectorINS_13CMakeVariableESaIS4_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Command") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %5)
-          to label %59 unwind label %77
+          to label %59 unwind label %74
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %5, align 8, !tbaa !4
@@ -209,57 +209,50 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %59, %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %70, %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i ], [ %60, %59 ]
+  %.05.i.i.i.i = phi ptr [ %67, %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i ], [ %60, %59 ]
   %62 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !38
   %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %64 = icmp eq ptr %62, %63
-  br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !39
-  %67 = icmp ult i64 %66, 16
-  call void @llvm.assume(i1 %67)
-  br label %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i
+  br i1 %64, label %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %68 = load i64, ptr %63, align 8, !tbaa !40
-  %69 = add i64 %68, 1
-  call void @_ZdlPvm(ptr noundef %62, i64 noundef %69) #15
+  %65 = load i64, ptr %63, align 8, !tbaa !39
+  %66 = add i64 %65, 1
+  call void @_ZdlPvm(ptr noundef %62, i64 noundef %66) #15
   br label %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i
 
-_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %70, %61
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
+_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %67, %61
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %5, align 8, !tbaa !4
   br label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %59
-  %71 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %60, %59 ]
-  %.not.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit, label %72
+  %68 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %60, %59 ]
+  %.not.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit, label %69
 
-72:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i
-  %73 = load ptr, ptr %10, align 8, !tbaa !11
-  %74 = ptrtoint ptr %73 to i64
-  %75 = ptrtoint ptr %71 to i64
-  %76 = sub i64 %74, %75
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %76) #15
+69:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i
+  %70 = load ptr, ptr %10, align 8, !tbaa !11
+  %71 = ptrtoint ptr %70 to i64
+  %72 = ptrtoint ptr %68 to i64
+  %73 = sub i64 %71, %72
+  call void @_ZdlPvm(ptr noundef nonnull %68, i64 noundef %73) #15
   br label %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i, %72
+_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit.i, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-77:                                               ; preds = %55, %52, %49, %46, %41, %38, %33, %30, %25, %22, %17, %14, %58, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit
-  %78 = landingpad { ptr, i32 }
+74:                                               ; preds = %55, %52, %49, %46, %41, %38, %33, %30, %25, %22, %17, %14, %58, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA23_KcRA4_S5_EEERS1_DpOT_.exit, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit18, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA13_KcRKNS0_4PathEEEERS1_DpOT_.exit, %_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE12emplace_backIJRA15_KcRKNS0_4PathEEEERS1_DpOT_.exit
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %78
+  resume { ptr, i32 } %75
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -286,49 +279,42 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i
-  %.05.i.i.i = phi ptr [ %13, %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i ], [ %2, %1 ]
+  %.05.i.i.i = phi ptr [ %10, %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 16
   %7 = icmp eq ptr %5, %6
-  br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !39
-  %10 = icmp ult i64 %9, 16
-  tail call void @llvm.assume(i1 %10)
-  br label %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i
+  br i1 %7, label %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  %11 = load i64, ptr %6, align 8, !tbaa !40
-  %12 = add i64 %11, 1
-  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #15
+  %8 = load i64, ptr %6, align 8, !tbaa !39
+  %9 = add i64 %8, 1
+  tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %9) #15
   br label %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i
 
-_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !41
+_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i: ; preds = %.lr.ph.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %10, %4
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !40
 
 _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5vcpkg13CMakeVariableEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !4
   br label %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split, %1
-  %14 = phi ptr [ %.pr, %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
-  %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit, label %15
+  %11 = phi ptr [ %.pr, %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exitthread-pre-split ], [ %2, %1 ]
+  %.not.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit, label %12
 
-15:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !11
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %14 to i64
-  %20 = sub i64 %18, %19
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %20) #15
+12:                                               ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = load ptr, ptr %13, align 8, !tbaa !11
+  %15 = ptrtoint ptr %14 to i64
+  %16 = ptrtoint ptr %11 to i64
+  %17 = sub i64 %15, %16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %17) #15
   br label %_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit, %15
+_ZNSt12_Vector_baseIN5vcpkg13CMakeVariableESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5vcpkg13CMakeVariableES1_EvT_S3_RSaIT0_E.exit, %12
   ret void
 }
 
@@ -387,18 +373,18 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %38, %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %21, %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %37, %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %7, %_ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_4PathEEEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !48, !alias.scope !43, !noalias !46
-  %25 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !46, !noalias !43
+  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !47, !alias.scope !42, !noalias !45
+  %25 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !45, !noalias !42
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %27 = icmp eq ptr %25, %26
   br i1 %27, label %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %.lr.ph.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !39, !alias.scope !46, !noalias !43
+  %30 = load i64, ptr %29, align 8, !tbaa !48, !alias.scope !45, !noalias !42
   %31 = icmp ult i64 %30, 16
   tail call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
@@ -406,21 +392,21 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA15_KcRKNS0_
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %25, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !43, !noalias !46
-  %33 = load i64, ptr %26, align 8, !tbaa !40, !alias.scope !46, !noalias !43
-  store i64 %33, ptr %24, align 8, !tbaa !40, !alias.scope !43, !noalias !46
+  store ptr %25, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !42, !noalias !45
+  %33 = load i64, ptr %26, align 8, !tbaa !39, !alias.scope !45, !noalias !42
+  store i64 %33, ptr %24, align 8, !tbaa !39, !alias.scope !42, !noalias !45
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !39, !alias.scope !46, !noalias !43
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !48, !alias.scope !45, !noalias !42
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %28
   %34 = phi i64 [ %30, %28 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !43, !noalias !46
-  store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !46, !noalias !43
-  store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !46, !noalias !43
-  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !46, !noalias !43
+  store i64 %34, ptr %36, align 8, !tbaa !48, !alias.scope !42, !noalias !45
+  store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !45, !noalias !42
+  store i64 0, ptr %35, align 8, !tbaa !48, !alias.scope !45, !noalias !42
+  store i8 0, ptr %26, align 8, !tbaa !39, !alias.scope !45, !noalias !42
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -438,7 +424,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
-  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !48, !alias.scope !51, !noalias !54
+  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !47, !alias.scope !51, !noalias !54
   %41 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !54, !noalias !51
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
   %43 = icmp eq ptr %41, %42
@@ -446,7 +432,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 44:                                               ; preds = %.lr.ph.i.i.i28
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !39, !alias.scope !54, !noalias !51
+  %46 = load i64, ptr %45, align 8, !tbaa !48, !alias.scope !54, !noalias !51
   %47 = icmp ult i64 %46, 16
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %46, 1
@@ -455,20 +441,20 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31: ; preds = %.lr.ph.i.i.i28
   store ptr %41, ptr %.012.i.i.i29, align 8, !tbaa !38, !alias.scope !51, !noalias !54
-  %49 = load i64, ptr %42, align 8, !tbaa !40, !alias.scope !54, !noalias !51
-  store i64 %49, ptr %40, align 8, !tbaa !40, !alias.scope !51, !noalias !54
+  %49 = load i64, ptr %42, align 8, !tbaa !39, !alias.scope !54, !noalias !51
+  store i64 %49, ptr %40, align 8, !tbaa !39, !alias.scope !51, !noalias !54
   %.phi.trans.insert.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !39, !alias.scope !54, !noalias !51
+  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !48, !alias.scope !54, !noalias !51
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31, %44
   %50 = phi i64 [ %46, %44 ], [ %.pre.i.i.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
-  store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !51, !noalias !54
+  store i64 %50, ptr %52, align 8, !tbaa !48, !alias.scope !51, !noalias !54
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !54, !noalias !51
-  store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !54, !noalias !51
-  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !54, !noalias !51
+  store i64 0, ptr %51, align 8, !tbaa !48, !alias.scope !54, !noalias !51
+  store i8 0, ptr %42, align 8, !tbaa !39, !alias.scope !54, !noalias !51
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -581,7 +567,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA13_KcRKNS0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !48, !alias.scope !57, !noalias !60
+  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !47, !alias.scope !57, !noalias !60
   %25 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !60, !noalias !57
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %27 = icmp eq ptr %25, %26
@@ -589,7 +575,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA13_KcRKNS0_
 
 28:                                               ; preds = %.lr.ph.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !39, !alias.scope !60, !noalias !57
+  %30 = load i64, ptr %29, align 8, !tbaa !48, !alias.scope !60, !noalias !57
   %31 = icmp ult i64 %30, 16
   tail call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
@@ -598,20 +584,20 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA13_KcRKNS0_
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   store ptr %25, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !57, !noalias !60
-  %33 = load i64, ptr %26, align 8, !tbaa !40, !alias.scope !60, !noalias !57
-  store i64 %33, ptr %24, align 8, !tbaa !40, !alias.scope !57, !noalias !60
+  %33 = load i64, ptr %26, align 8, !tbaa !39, !alias.scope !60, !noalias !57
+  store i64 %33, ptr %24, align 8, !tbaa !39, !alias.scope !57, !noalias !60
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !39, !alias.scope !60, !noalias !57
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !48, !alias.scope !60, !noalias !57
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %28
   %34 = phi i64 [ %30, %28 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !57, !noalias !60
+  store i64 %34, ptr %36, align 8, !tbaa !48, !alias.scope !57, !noalias !60
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !60, !noalias !57
-  store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !60, !noalias !57
-  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !60, !noalias !57
+  store i64 0, ptr %35, align 8, !tbaa !48, !alias.scope !60, !noalias !57
+  store i8 0, ptr %26, align 8, !tbaa !39, !alias.scope !60, !noalias !57
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -629,7 +615,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
-  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !48, !alias.scope !63, !noalias !66
+  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !47, !alias.scope !63, !noalias !66
   %41 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !66, !noalias !63
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
   %43 = icmp eq ptr %41, %42
@@ -637,7 +623,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 44:                                               ; preds = %.lr.ph.i.i.i28
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !39, !alias.scope !66, !noalias !63
+  %46 = load i64, ptr %45, align 8, !tbaa !48, !alias.scope !66, !noalias !63
   %47 = icmp ult i64 %46, 16
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %46, 1
@@ -646,20 +632,20 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31: ; preds = %.lr.ph.i.i.i28
   store ptr %41, ptr %.012.i.i.i29, align 8, !tbaa !38, !alias.scope !63, !noalias !66
-  %49 = load i64, ptr %42, align 8, !tbaa !40, !alias.scope !66, !noalias !63
-  store i64 %49, ptr %40, align 8, !tbaa !40, !alias.scope !63, !noalias !66
+  %49 = load i64, ptr %42, align 8, !tbaa !39, !alias.scope !66, !noalias !63
+  store i64 %49, ptr %40, align 8, !tbaa !39, !alias.scope !63, !noalias !66
   %.phi.trans.insert.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !39, !alias.scope !66, !noalias !63
+  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !48, !alias.scope !66, !noalias !63
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31, %44
   %50 = phi i64 [ %46, %44 ], [ %.pre.i.i.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
-  store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !63, !noalias !66
+  store i64 %50, ptr %52, align 8, !tbaa !48, !alias.scope !63, !noalias !66
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !66, !noalias !63
-  store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !66, !noalias !63
-  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !66, !noalias !63
+  store i64 0, ptr %51, align 8, !tbaa !48, !alias.scope !66, !noalias !63
+  store i8 0, ptr %42, align 8, !tbaa !39, !alias.scope !66, !noalias !63
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -757,7 +743,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA21_KcRKNS0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !48, !alias.scope !69, !noalias !72
+  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !47, !alias.scope !69, !noalias !72
   %25 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !72, !noalias !69
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %27 = icmp eq ptr %25, %26
@@ -765,7 +751,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA21_KcRKNS0_
 
 28:                                               ; preds = %.lr.ph.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !39, !alias.scope !72, !noalias !69
+  %30 = load i64, ptr %29, align 8, !tbaa !48, !alias.scope !72, !noalias !69
   %31 = icmp ult i64 %30, 16
   tail call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
@@ -774,20 +760,20 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA21_KcRKNS0_
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   store ptr %25, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !69, !noalias !72
-  %33 = load i64, ptr %26, align 8, !tbaa !40, !alias.scope !72, !noalias !69
-  store i64 %33, ptr %24, align 8, !tbaa !40, !alias.scope !69, !noalias !72
+  %33 = load i64, ptr %26, align 8, !tbaa !39, !alias.scope !72, !noalias !69
+  store i64 %33, ptr %24, align 8, !tbaa !39, !alias.scope !69, !noalias !72
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !39, !alias.scope !72, !noalias !69
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !48, !alias.scope !72, !noalias !69
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %28
   %34 = phi i64 [ %30, %28 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !69, !noalias !72
+  store i64 %34, ptr %36, align 8, !tbaa !48, !alias.scope !69, !noalias !72
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !72, !noalias !69
-  store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !72, !noalias !69
-  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !72, !noalias !69
+  store i64 0, ptr %35, align 8, !tbaa !48, !alias.scope !72, !noalias !69
+  store i8 0, ptr %26, align 8, !tbaa !39, !alias.scope !72, !noalias !69
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -805,7 +791,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
-  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !48, !alias.scope !75, !noalias !78
+  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !47, !alias.scope !75, !noalias !78
   %41 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !78, !noalias !75
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
   %43 = icmp eq ptr %41, %42
@@ -813,7 +799,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 44:                                               ; preds = %.lr.ph.i.i.i28
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !39, !alias.scope !78, !noalias !75
+  %46 = load i64, ptr %45, align 8, !tbaa !48, !alias.scope !78, !noalias !75
   %47 = icmp ult i64 %46, 16
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %46, 1
@@ -822,20 +808,20 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31: ; preds = %.lr.ph.i.i.i28
   store ptr %41, ptr %.012.i.i.i29, align 8, !tbaa !38, !alias.scope !75, !noalias !78
-  %49 = load i64, ptr %42, align 8, !tbaa !40, !alias.scope !78, !noalias !75
-  store i64 %49, ptr %40, align 8, !tbaa !40, !alias.scope !75, !noalias !78
+  %49 = load i64, ptr %42, align 8, !tbaa !39, !alias.scope !78, !noalias !75
+  store i64 %49, ptr %40, align 8, !tbaa !39, !alias.scope !75, !noalias !78
   %.phi.trans.insert.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !39, !alias.scope !78, !noalias !75
+  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !48, !alias.scope !78, !noalias !75
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31, %44
   %50 = phi i64 [ %46, %44 ], [ %.pre.i.i.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
-  store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !75, !noalias !78
+  store i64 %50, ptr %52, align 8, !tbaa !48, !alias.scope !75, !noalias !78
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !78, !noalias !75
-  store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !78, !noalias !75
-  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !78, !noalias !75
+  store i64 0, ptr %51, align 8, !tbaa !48, !alias.scope !78, !noalias !75
+  store i8 0, ptr %42, align 8, !tbaa !39, !alias.scope !78, !noalias !75
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -933,7 +919,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA10_KcRKNS0_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !48, !alias.scope !81, !noalias !84
+  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !47, !alias.scope !81, !noalias !84
   %25 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !84, !noalias !81
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %27 = icmp eq ptr %25, %26
@@ -941,7 +927,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA10_KcRKNS0_
 
 28:                                               ; preds = %.lr.ph.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !39, !alias.scope !84, !noalias !81
+  %30 = load i64, ptr %29, align 8, !tbaa !48, !alias.scope !84, !noalias !81
   %31 = icmp ult i64 %30, 16
   tail call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
@@ -950,20 +936,20 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA10_KcRKNS0_
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   store ptr %25, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !81, !noalias !84
-  %33 = load i64, ptr %26, align 8, !tbaa !40, !alias.scope !84, !noalias !81
-  store i64 %33, ptr %24, align 8, !tbaa !40, !alias.scope !81, !noalias !84
+  %33 = load i64, ptr %26, align 8, !tbaa !39, !alias.scope !84, !noalias !81
+  store i64 %33, ptr %24, align 8, !tbaa !39, !alias.scope !81, !noalias !84
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !39, !alias.scope !84, !noalias !81
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !48, !alias.scope !84, !noalias !81
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %28
   %34 = phi i64 [ %30, %28 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !81, !noalias !84
+  store i64 %34, ptr %36, align 8, !tbaa !48, !alias.scope !81, !noalias !84
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !84, !noalias !81
-  store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !84, !noalias !81
-  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !84, !noalias !81
+  store i64 0, ptr %35, align 8, !tbaa !48, !alias.scope !84, !noalias !81
+  store i8 0, ptr %26, align 8, !tbaa !39, !alias.scope !84, !noalias !81
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -981,7 +967,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
-  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !48, !alias.scope !87, !noalias !90
+  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !47, !alias.scope !87, !noalias !90
   %41 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !90, !noalias !87
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
   %43 = icmp eq ptr %41, %42
@@ -989,7 +975,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 44:                                               ; preds = %.lr.ph.i.i.i28
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !39, !alias.scope !90, !noalias !87
+  %46 = load i64, ptr %45, align 8, !tbaa !48, !alias.scope !90, !noalias !87
   %47 = icmp ult i64 %46, 16
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %46, 1
@@ -998,20 +984,20 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31: ; preds = %.lr.ph.i.i.i28
   store ptr %41, ptr %.012.i.i.i29, align 8, !tbaa !38, !alias.scope !87, !noalias !90
-  %49 = load i64, ptr %42, align 8, !tbaa !40, !alias.scope !90, !noalias !87
-  store i64 %49, ptr %40, align 8, !tbaa !40, !alias.scope !87, !noalias !90
+  %49 = load i64, ptr %42, align 8, !tbaa !39, !alias.scope !90, !noalias !87
+  store i64 %49, ptr %40, align 8, !tbaa !39, !alias.scope !87, !noalias !90
   %.phi.trans.insert.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !39, !alias.scope !90, !noalias !87
+  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !48, !alias.scope !90, !noalias !87
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31, %44
   %50 = phi i64 [ %46, %44 ], [ %.pre.i.i.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
-  store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !87, !noalias !90
+  store i64 %50, ptr %52, align 8, !tbaa !48, !alias.scope !87, !noalias !90
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !90, !noalias !87
-  store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !90, !noalias !87
-  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !90, !noalias !87
+  store i64 0, ptr %51, align 8, !tbaa !48, !alias.scope !90, !noalias !87
+  store i8 0, ptr %42, align 8, !tbaa !39, !alias.scope !90, !noalias !87
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -1109,7 +1095,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA23_KcRA4_S5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !48, !alias.scope !93, !noalias !96
+  store ptr %24, ptr %.012.i.i.i, align 8, !tbaa !47, !alias.scope !93, !noalias !96
   %25 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !96, !noalias !93
   %26 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %27 = icmp eq ptr %25, %26
@@ -1117,7 +1103,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA23_KcRA4_S5
 
 28:                                               ; preds = %.lr.ph.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !39, !alias.scope !96, !noalias !93
+  %30 = load i64, ptr %29, align 8, !tbaa !48, !alias.scope !96, !noalias !93
   %31 = icmp ult i64 %30, 16
   tail call void @llvm.assume(i1 %31)
   %32 = add nuw nsw i64 %30, 1
@@ -1126,20 +1112,20 @@ _ZNSt16allocator_traitsISaIN5vcpkg13CMakeVariableEEE9constructIS1_JRA23_KcRA4_S5
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
   store ptr %25, ptr %.012.i.i.i, align 8, !tbaa !38, !alias.scope !93, !noalias !96
-  %33 = load i64, ptr %26, align 8, !tbaa !40, !alias.scope !96, !noalias !93
-  store i64 %33, ptr %24, align 8, !tbaa !40, !alias.scope !93, !noalias !96
+  %33 = load i64, ptr %26, align 8, !tbaa !39, !alias.scope !96, !noalias !93
+  store i64 %33, ptr %24, align 8, !tbaa !39, !alias.scope !93, !noalias !96
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !39, !alias.scope !96, !noalias !93
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !48, !alias.scope !96, !noalias !93
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %28
   %34 = phi i64 [ %30, %28 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %34, ptr %36, align 8, !tbaa !39, !alias.scope !93, !noalias !96
+  store i64 %34, ptr %36, align 8, !tbaa !48, !alias.scope !93, !noalias !96
   store ptr %26, ptr %.0911.i.i.i, align 8, !tbaa !38, !alias.scope !96, !noalias !93
-  store i64 0, ptr %35, align 8, !tbaa !39, !alias.scope !96, !noalias !93
-  store i8 0, ptr %26, align 8, !tbaa !40, !alias.scope !96, !noalias !93
+  store i64 0, ptr %35, align 8, !tbaa !48, !alias.scope !96, !noalias !93
+  store i8 0, ptr %26, align 8, !tbaa !39, !alias.scope !96, !noalias !93
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %37, %1
@@ -1157,7 +1143,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 16
-  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !48, !alias.scope !99, !noalias !102
+  store ptr %40, ptr %.012.i.i.i29, align 8, !tbaa !47, !alias.scope !99, !noalias !102
   %41 = load ptr, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !102, !noalias !99
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 16
   %43 = icmp eq ptr %41, %42
@@ -1165,7 +1151,7 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 44:                                               ; preds = %.lr.ph.i.i.i28
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !39, !alias.scope !102, !noalias !99
+  %46 = load i64, ptr %45, align 8, !tbaa !48, !alias.scope !102, !noalias !99
   %47 = icmp ult i64 %46, 16
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %46, 1
@@ -1174,20 +1160,20 @@ _ZNSt6vectorIN5vcpkg13CMakeVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ;
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31: ; preds = %.lr.ph.i.i.i28
   store ptr %41, ptr %.012.i.i.i29, align 8, !tbaa !38, !alias.scope !99, !noalias !102
-  %49 = load i64, ptr %42, align 8, !tbaa !40, !alias.scope !102, !noalias !99
-  store i64 %49, ptr %40, align 8, !tbaa !40, !alias.scope !99, !noalias !102
+  %49 = load i64, ptr %42, align 8, !tbaa !39, !alias.scope !102, !noalias !99
+  store i64 %49, ptr %40, align 8, !tbaa !39, !alias.scope !99, !noalias !102
   %.phi.trans.insert.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
-  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !39, !alias.scope !102, !noalias !99
+  %.pre.i.i.i.i33 = load i64, ptr %.phi.trans.insert.i.i.i.i32, align 8, !tbaa !48, !alias.scope !102, !noalias !99
   br label %_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34
 
 _ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i34: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31, %44
   %50 = phi i64 [ %46, %44 ], [ %.pre.i.i.i.i33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i31 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 8
-  store i64 %50, ptr %52, align 8, !tbaa !39, !alias.scope !99, !noalias !102
+  store i64 %50, ptr %52, align 8, !tbaa !48, !alias.scope !99, !noalias !102
   store ptr %42, ptr %.0911.i.i.i30, align 8, !tbaa !38, !alias.scope !102, !noalias !99
-  store i64 0, ptr %51, align 8, !tbaa !39, !alias.scope !102, !noalias !99
-  store i8 0, ptr %42, align 8, !tbaa !40, !alias.scope !102, !noalias !99
+  store i64 0, ptr %51, align 8, !tbaa !48, !alias.scope !102, !noalias !99
+  store i8 0, ptr %42, align 8, !tbaa !39, !alias.scope !102, !noalias !99
   %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i30, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i29, i64 32
   %.not.i.i.i35 = icmp eq ptr %53, %6
@@ -1328,18 +1314,18 @@ attributes #20 = { nounwind willreturn memory(read) }
 !36 = !{!37, !37, i64 0}
 !37 = !{!"p1 _ZTSN5vcpkg11MessageSinkE", !7, i64 0}
 !38 = !{!15, !17, i64 0}
-!39 = !{!15, !18, i64 8}
-!40 = !{!8, !8, i64 0}
-!41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!48 = !{!16, !17, i64 0}
-!49 = !{!44, !47}
-!50 = distinct !{!50, !42}
+!39 = !{!8, !8, i64 0}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!47 = !{!16, !17, i64 0}
+!48 = !{!15, !18, i64 8}
+!49 = !{!43, !46}
+!50 = distinct !{!50, !41}
 !51 = !{!52}
 !52 = distinct !{!52, !53, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
 !53 = distinct !{!53, !"_ZSt19__relocate_object_aIN5vcpkg13CMakeVariableES1_SaIS1_EEvPT_PT0_RT1_"}

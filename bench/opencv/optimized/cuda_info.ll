@@ -22,7 +22,7 @@ define noundef i32 @_ZN2cv4cuda25getCudaEnabledDeviceCountEv() local_unnamed_add
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda9setDeviceEi(i32 noundef %0) local_unnamed_addr #1 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
@@ -46,7 +46,7 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #2 personality p
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i8 0, ptr %6, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.1, i32 noundef 106) #10
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.1, i32 noundef 106) #9
           to label %7 unwind label %8
 
 7:                                                ; preds = %.noexc.i
@@ -57,410 +57,404 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #2 personality p
           cleanup
   %10 = load ptr, ptr %1, align 8, !tbaa !11
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %8
-  %12 = load i64, ptr %5, align 8, !tbaa !14
-  %13 = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %13)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %8
-  call void @_ZdlPv(ptr noundef %10) #11
+  call void @_ZdlPv(ptr noundef %10) #10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %9
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZN2cv4cuda9getDeviceEv() local_unnamed_addr #1 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda11resetDeviceEv() local_unnamed_addr #1 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda14deviceSupportsENS0_10FeatureSetE(i32 noundef %0) local_unnamed_addr #1 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda11TargetArchs9builtWithENS0_10FeatureSetE(i32 noundef %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda11TargetArchs6hasPtxEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda11TargetArchs6hasBinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda11TargetArchs17hasEqualOrLessPtxEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda11TargetArchs20hasEqualOrGreaterPtxEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZN2cv4cuda11TargetArchs20hasEqualOrGreaterBinEii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull ptr @_ZNK2cv4cuda10DeviceInfo4nameEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo14totalGlobalMemEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo17sharedMemPerBlockEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo12regsPerBlockEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo8warpSizeEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo8memPitchEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo18maxThreadsPerBlockEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo13maxThreadsDimEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo11maxGridSizeEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo9clockRateEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo13totalConstMemEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo12majorVersionEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo12minorVersionEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo16textureAlignmentEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo21texturePitchAlignmentEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo19multiProcessorCountEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo24kernelExecTimeoutEnabledEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo10integratedEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo16canMapHostMemoryEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo11computeModeEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo12maxTexture1DEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo18maxTexture1DMipmapEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo18maxTexture1DLinearEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo12maxTexture2DEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo18maxTexture2DMipmapEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo18maxTexture2DLinearEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo18maxTexture2DGatherEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo12maxTexture3DEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo17maxTextureCubemapEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo19maxTexture1DLayeredEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo19maxTexture2DLayeredEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo24maxTextureCubemapLayeredEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo12maxSurface1DEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo12maxSurface2DEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo12maxSurface3DEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo19maxSurface1DLayeredEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo19maxSurface2DLayeredEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo17maxSurfaceCubemapEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo24maxSurfaceCubemapLayeredEv(ptr dead_on_unwind noalias readnone sret(%"class.cv::Vec.0") align 4 captures(none) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i64 @_ZNK2cv4cuda10DeviceInfo16surfaceAlignmentEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo17concurrentKernelsEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo10ECCEnabledEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo8pciBusIDEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo11pciDeviceIDEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo11pciDomainIDEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo9tccDriverEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo16asyncEngineCountEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo17unifiedAddressingEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo15memoryClockRateEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo14memoryBusWidthEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo11l2CacheSizeEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef i32 @_ZNK2cv4cuda10DeviceInfo27maxThreadsPerMultiProcessorEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZNK2cv4cuda10DeviceInfo11queryMemoryERmS2_(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda10DeviceInfo12isCompatibleEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda19printCudaDeviceInfoEi(i32 noundef %0) local_unnamed_addr #1 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda24printShortCudaDeviceInfoEi(i32 noundef %0) local_unnamed_addr #1 {
-  tail call fastcc void @_ZL13throw_no_cudav() #10
+  tail call fastcc void @_ZL13throw_no_cudav() #9
   unreachable
 }
 
@@ -503,9 +497,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -515,9 +506,8 @@ attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { noreturn }
-attributes #11 = { builtin nounwind }
+attributes #9 = { noreturn }
+attributes #10 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

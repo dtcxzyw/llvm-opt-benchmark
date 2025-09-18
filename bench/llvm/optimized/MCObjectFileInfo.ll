@@ -210,7 +210,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
   store i8 0, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %5 = load ptr, ptr %4, align 8, !tbaa !13
-  %6 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %5, ptr nonnull @.str, i64 6, ptr nonnull @.str.1, i64 10, i32 noundef 1744830475, i32 noundef 0, i32 4, ptr noundef null) #12
+  %6 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %5, ptr nonnull @.str, i64 6, ptr nonnull @.str.1, i64 10, i32 noundef 1744830475, i32 noundef 0, i32 4, ptr noundef null) #11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %6, ptr %7, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -249,7 +249,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initMachOMCObjectFileInfoERKN
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
   %21 = load ptr, ptr %4, align 8, !tbaa !13
-  %22 = tail call noundef i32 @_ZNK4llvm9MCContext19emitDwarfUnwindInfoEv(ptr noundef nonnull align 8 dereferenceable(2432) %21) #12
+  %22 = tail call noundef i32 @_ZNK4llvm9MCContext19emitDwarfUnwindInfoEv(ptr noundef nonnull align 8 dereferenceable(2432) %21) #11
   switch i32 %22, label %32 [
     i32 0, label %.sink.split
     i32 1, label %23
@@ -278,59 +278,59 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 16, ptr %33, align 4, !tbaa !33
   %34 = load ptr, ptr %4, align 8, !tbaa !13
-  %35 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr nonnull @.str, i64 6, ptr nonnull @.str.2, i64 6, i32 noundef -2147483648, i32 noundef 0, i32 2, ptr noundef null) #12
+  %35 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr nonnull @.str, i64 6, ptr nonnull @.str.2, i64 6, i32 noundef -2147483648, i32 noundef 0, i32 2, ptr noundef null) #11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %35, ptr %36, align 8, !tbaa !34
   %37 = load ptr, ptr %4, align 8, !tbaa !13
-  %38 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %37, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.4, i64 6, i32 noundef 0, i32 noundef 0, i32 19, ptr noundef null) #12
+  %38 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %37, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.4, i64 6, i32 noundef 0, i32 noundef 0, i32 19, ptr noundef null) #11
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %38, ptr %39, align 8, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %40, align 8, !tbaa !36
   %41 = load ptr, ptr %4, align 8, !tbaa !13
-  %42 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %41, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.5, i64 13, i32 noundef 17, i32 noundef 0, i32 19, ptr noundef null) #12
+  %42 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %41, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.5, i64 13, i32 noundef 17, i32 noundef 0, i32 19, ptr noundef null) #11
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %42, ptr %43, align 8, !tbaa !37
   %44 = load ptr, ptr %4, align 8, !tbaa !13
-  %45 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %44, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.6, i64 12, i32 noundef 18, i32 noundef 0, i32 12, ptr noundef null) #12
+  %45 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %44, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.6, i64 12, i32 noundef 18, i32 noundef 0, i32 12, ptr noundef null) #11
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %45, ptr %46, align 8, !tbaa !38
   %47 = load ptr, ptr %4, align 8, !tbaa !13
-  %48 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %47, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.7, i64 13, i32 noundef 19, i32 noundef 0, i32 19, ptr noundef null) #12
+  %48 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %47, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.7, i64 13, i32 noundef 19, i32 noundef 0, i32 19, ptr noundef null) #11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr %48, ptr %49, align 8, !tbaa !39
   %50 = load ptr, ptr %4, align 8, !tbaa !13
-  %51 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %50, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.8, i64 13, i32 noundef 21, i32 noundef 0, i32 19, ptr noundef null) #12
+  %51 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %50, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.8, i64 13, i32 noundef 21, i32 noundef 0, i32 19, ptr noundef null) #11
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr %51, ptr %52, align 8, !tbaa !40
   %53 = load ptr, ptr %4, align 8, !tbaa !13
-  %54 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %53, ptr nonnull @.str, i64 6, ptr nonnull @.str.9, i64 9, i32 noundef 2, i32 noundef 0, i32 5, ptr noundef null) #12
+  %54 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %53, ptr nonnull @.str, i64 6, ptr nonnull @.str.9, i64 9, i32 noundef 2, i32 noundef 0, i32 5, ptr noundef null) #11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr %54, ptr %55, align 8, !tbaa !41
   %56 = load ptr, ptr %4, align 8, !tbaa !13
-  %57 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %56, ptr nonnull @.str, i64 6, ptr nonnull @.str.10, i64 9, i32 noundef 0, i32 noundef 0, i32 6, ptr noundef null) #12
+  %57 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %56, ptr nonnull @.str, i64 6, ptr nonnull @.str.10, i64 9, i32 noundef 0, i32 noundef 0, i32 6, ptr noundef null) #11
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr %57, ptr %58, align 8, !tbaa !42
   %59 = load ptr, ptr %4, align 8, !tbaa !13
-  %60 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %59, ptr nonnull @.str, i64 6, ptr nonnull @.str.11, i64 10, i32 noundef 3, i32 noundef 0, i32 8, ptr noundef null) #12
+  %60 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %59, ptr nonnull @.str, i64 6, ptr nonnull @.str.11, i64 10, i32 noundef 3, i32 noundef 0, i32 8, ptr noundef null) #11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store ptr %60, ptr %61, align 8, !tbaa !43
   %62 = load ptr, ptr %4, align 8, !tbaa !13
-  %63 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %62, ptr nonnull @.str, i64 6, ptr nonnull @.str.12, i64 10, i32 noundef 4, i32 noundef 0, i32 9, ptr noundef null) #12
+  %63 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %62, ptr nonnull @.str, i64 6, ptr nonnull @.str.12, i64 10, i32 noundef 4, i32 noundef 0, i32 9, ptr noundef null) #11
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store ptr %63, ptr %64, align 8, !tbaa !44
   %65 = load ptr, ptr %4, align 8, !tbaa !13
-  %66 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %65, ptr nonnull @.str, i64 6, ptr nonnull @.str.13, i64 11, i32 noundef 14, i32 noundef 0, i32 10, ptr noundef null) #12
+  %66 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %65, ptr nonnull @.str, i64 6, ptr nonnull @.str.13, i64 11, i32 noundef 14, i32 noundef 0, i32 10, ptr noundef null) #11
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store ptr %66, ptr %67, align 8, !tbaa !45
   %68 = load ptr, ptr %4, align 8, !tbaa !13
-  %69 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %68, ptr nonnull @.str, i64 6, ptr nonnull @.str.14, i64 7, i32 noundef 0, i32 noundef 0, i32 4, ptr noundef null) #12
+  %69 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %68, ptr nonnull @.str, i64 6, ptr nonnull @.str.14, i64 7, i32 noundef 0, i32 noundef 0, i32 4, ptr noundef null) #11
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %69, ptr %70, align 8, !tbaa !46
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %72 = load i32, ptr %71, align 8, !tbaa !27
   %73 = load ptr, ptr %4, align 8, !tbaa !13
-  %74 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %73, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.14, i64 7, i32 noundef 0, i32 noundef 0, i32 20, ptr noundef null) #12
+  %74 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %73, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.14, i64 7, i32 noundef 0, i32 noundef 0, i32 20, ptr noundef null) #11
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %74, ptr %75, align 8, !tbaa !47
   %76 = and i32 %72, -3
@@ -339,15 +339,15 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
 
 77:                                               ; preds = %32
   %78 = load ptr, ptr %4, align 8, !tbaa !13
-  %79 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %78, ptr nonnull @.str, i64 6, ptr nonnull @.str.15, i64 13, i32 noundef -2147483637, i32 noundef 0, i32 2, ptr noundef null) #12
+  %79 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %78, ptr nonnull @.str, i64 6, ptr nonnull @.str.15, i64 13, i32 noundef -2147483637, i32 noundef 0, i32 2, ptr noundef null) #11
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store ptr %79, ptr %80, align 8, !tbaa !48
   %81 = load ptr, ptr %4, align 8, !tbaa !13
-  %82 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %81, ptr nonnull @.str, i64 6, ptr nonnull @.str.16, i64 12, i32 noundef 11, i32 noundef 0, i32 4, ptr noundef null) #12
+  %82 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %81, ptr nonnull @.str, i64 6, ptr nonnull @.str.16, i64 12, i32 noundef 11, i32 noundef 0, i32 4, ptr noundef null) #11
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr %82, ptr %83, align 8, !tbaa !49
   %84 = load ptr, ptr %4, align 8, !tbaa !13
-  %85 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %84, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.17, i64 13, i32 noundef 11, i32 noundef 0, i32 19, ptr noundef null) #12
+  %85 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %84, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.17, i64 13, i32 noundef 11, i32 noundef 0, i32 19, ptr noundef null) #11
   br label %92
 
 86:                                               ; preds = %32
@@ -368,31 +368,31 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %.sink, ptr %94, align 8, !tbaa !51
   %95 = load ptr, ptr %4, align 8, !tbaa !13
-  %96 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %95, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.18, i64 8, i32 noundef 1, i32 noundef 0, i32 15, ptr noundef null) #12
+  %96 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %95, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.18, i64 8, i32 noundef 1, i32 noundef 0, i32 15, ptr noundef null) #11
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store ptr %96, ptr %97, align 8, !tbaa !52
   %98 = load ptr, ptr %4, align 8, !tbaa !13
-  %99 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %98, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.19, i64 5, i32 noundef 1, i32 noundef 0, i32 15, ptr noundef null) #12
+  %99 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %98, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.19, i64 5, i32 noundef 1, i32 noundef 0, i32 15, ptr noundef null) #11
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store ptr %99, ptr %100, align 8, !tbaa !53
   %101 = load ptr, ptr %4, align 8, !tbaa !13
-  %102 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %101, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.20, i64 15, i32 noundef 7, i32 noundef 0, i32 0, ptr noundef null) #12
+  %102 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %101, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.20, i64 15, i32 noundef 7, i32 noundef 0, i32 0, ptr noundef null) #11
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store ptr %102, ptr %103, align 8, !tbaa !54
   %104 = load ptr, ptr %4, align 8, !tbaa !13
-  %105 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.21, i64 15, i32 noundef 6, i32 noundef 0, i32 0, ptr noundef null) #12
+  %105 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.21, i64 15, i32 noundef 6, i32 noundef 0, i32 0, ptr noundef null) #11
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr %105, ptr %106, align 8, !tbaa !55
   %107 = load ptr, ptr %4, align 8, !tbaa !13
-  %108 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %107, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.22, i64 12, i32 noundef 20, i32 noundef 0, i32 0, ptr noundef null) #12
+  %108 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %107, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.22, i64 12, i32 noundef 20, i32 noundef 0, i32 0, ptr noundef null) #11
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store ptr %108, ptr %109, align 8, !tbaa !56
   %110 = load ptr, ptr %4, align 8, !tbaa !13
-  %111 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %110, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.23, i64 14, i32 noundef 0, i32 noundef 0, i32 19, ptr noundef null) #12
+  %111 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %110, ptr nonnull @.str.3, i64 6, ptr nonnull @.str.23, i64 14, i32 noundef 0, i32 noundef 0, i32 19, ptr noundef null) #11
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %111, ptr %112, align 8, !tbaa !57
   %113 = load ptr, ptr %4, align 8, !tbaa !13
-  %114 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %113, ptr nonnull @.str, i64 6, ptr nonnull @.str.24, i64 16, i32 noundef 0, i32 noundef 0, i32 20, ptr noundef null) #12
+  %114 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %113, ptr nonnull @.str, i64 6, ptr nonnull @.str.24, i64 16, i32 noundef 0, i32 noundef 0, i32 20, ptr noundef null) #11
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %114, ptr %115, align 8, !tbaa !58
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -428,7 +428,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
   br i1 %spec.select.i.i.i, label %127, label %129
 
 127:                                              ; preds = %126
-  %128 = tail call noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 10, i32 noundef 6, i32 noundef 0) #12
+  %128 = tail call noundef zeroext i1 @_ZNK4llvm6Triple17isMacOSXVersionLTEjjj(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef 10, i32 noundef 6, i32 noundef 0) #11
   br i1 %128, label %._crit_edge.i, label %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread
 
 ._crit_edge.i:                                    ; preds = %127
@@ -462,7 +462,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit:              ; preds = %11, %19, %15
 
 _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread: ; preds = %137, %131, %127, %122, %120, %120
   %139 = load ptr, ptr %4, align 8, !tbaa !13
-  %140 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %139, ptr nonnull @.str.25, i64 4, ptr nonnull @.str.26, i64 16, i32 noundef 33554432, i32 noundef 0, i32 4, ptr noundef null) #12
+  %140 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %139, ptr nonnull @.str.25, i64 4, ptr nonnull @.str.26, i64 16, i32 noundef 33554432, i32 noundef 0, i32 4, ptr noundef null) #11
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %140, ptr %141, align 8, !tbaa !59
   %142 = load i32, ptr %71, align 8, !tbaa !27
@@ -489,127 +489,127 @@ _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split: ; preds = %144,
 
 _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698: ; preds = %_ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698.sink.split, %144, %137, %131, %119
   %147 = load ptr, ptr %4, align 8, !tbaa !13
-  %148 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %147, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.28, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.29) #12
+  %148 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %147, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.28, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.29) #11
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %148, ptr %149, align 8, !tbaa !61
   %150 = load ptr, ptr %4, align 8, !tbaa !13
-  %151 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %150, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.30, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.31) #12
+  %151 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %150, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.30, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.31) #11
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %151, ptr %152, align 8, !tbaa !62
   %153 = load ptr, ptr %4, align 8, !tbaa !13
-  %154 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %153, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.32, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.33) #12
+  %154 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %153, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.32, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.33) #11
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %154, ptr %155, align 8, !tbaa !63
   %156 = load ptr, ptr %4, align 8, !tbaa !13
-  %157 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %156, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.34, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.35) #12
+  %157 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %156, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.34, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.35) #11
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %157, ptr %158, align 8, !tbaa !64
   %159 = load ptr, ptr %4, align 8, !tbaa !13
-  %160 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %159, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.36, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.37) #12
+  %160 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %159, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.36, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.37) #11
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %160, ptr %161, align 8, !tbaa !65
   %162 = load ptr, ptr %4, align 8, !tbaa !13
-  %163 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %162, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.38, i64 11, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %163 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %162, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.38, i64 11, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %163, ptr %164, align 8, !tbaa !66
   %165 = load ptr, ptr %4, align 8, !tbaa !13
-  %166 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %165, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.39, i64 14, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.40) #12
+  %166 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %165, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.39, i64 14, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.40) #11
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %166, ptr %167, align 8, !tbaa !67
   %168 = load ptr, ptr %4, align 8, !tbaa !13
-  %169 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %168, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.41, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.42) #12
+  %169 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %168, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.41, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.42) #11
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %169, ptr %170, align 8, !tbaa !68
   %171 = load ptr, ptr %4, align 8, !tbaa !13
-  %172 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %171, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.43, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.44) #12
+  %172 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %171, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.43, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.44) #11
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %172, ptr %173, align 8, !tbaa !69
   %174 = load ptr, ptr %4, align 8, !tbaa !13
-  %175 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %174, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.45, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.46) #12
+  %175 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %174, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.45, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.46) #11
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %175, ptr %176, align 8, !tbaa !70
   %177 = load ptr, ptr %4, align 8, !tbaa !13
-  %178 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %177, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.47, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.48) #12
+  %178 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %177, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.47, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.48) #11
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %178, ptr %179, align 8, !tbaa !71
   %180 = load ptr, ptr %4, align 8, !tbaa !13
-  %181 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %180, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.49, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %181 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %180, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.49, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %181, ptr %182, align 8, !tbaa !72
   %183 = load ptr, ptr %4, align 8, !tbaa !13
-  %184 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %183, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.50, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %184 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %183, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.50, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %184, ptr %185, align 8, !tbaa !73
   %186 = load ptr, ptr %4, align 8, !tbaa !13
-  %187 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %186, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.51, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %187 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %186, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.51, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %187, ptr %188, align 8, !tbaa !74
   %189 = load ptr, ptr %4, align 8, !tbaa !13
-  %190 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %189, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.52, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %190 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %189, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.52, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %190, ptr %191, align 8, !tbaa !75
   %192 = load ptr, ptr %4, align 8, !tbaa !13
-  %193 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %192, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.53, i64 11, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.54) #12
+  %193 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %192, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.53, i64 11, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.54) #11
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %193, ptr %194, align 8, !tbaa !76
   %195 = load ptr, ptr %4, align 8, !tbaa !13
-  %196 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %195, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.55, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.56) #12
+  %196 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %195, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.55, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.56) #11
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %196, ptr %197, align 8, !tbaa !77
   %198 = load ptr, ptr %4, align 8, !tbaa !13
-  %199 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %198, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.57, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.42) #12
+  %199 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %198, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.57, i64 12, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.42) #11
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %199, ptr %200, align 8, !tbaa !78
   %201 = load ptr, ptr %4, align 8, !tbaa !13
-  %202 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %201, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.58, i64 11, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.59) #12
+  %202 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %201, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.58, i64 11, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.59) #11
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %202, ptr %203, align 8, !tbaa !79
   %204 = load ptr, ptr %4, align 8, !tbaa !13
-  %205 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %204, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.60, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.59) #12
+  %205 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %204, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.60, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.59) #11
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %205, ptr %206, align 8, !tbaa !80
   %207 = load ptr, ptr %4, align 8, !tbaa !13
-  %208 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %207, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.61, i64 15, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %208 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %207, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.61, i64 15, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %208, ptr %209, align 8, !tbaa !81
   %210 = load ptr, ptr %4, align 8, !tbaa !13
-  %211 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %210, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.62, i64 14, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.63) #12
+  %211 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %210, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.62, i64 14, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.63) #11
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %211, ptr %212, align 8, !tbaa !82
   %213 = load ptr, ptr %4, align 8, !tbaa !13
-  %214 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %213, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.64, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.63) #12
+  %214 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %213, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.64, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.63) #11
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %214, ptr %215, align 8, !tbaa !83
   %216 = load ptr, ptr %4, align 8, !tbaa !13
-  %217 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %216, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.65, i64 15, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.66) #12
+  %217 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %216, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.65, i64 15, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.66) #11
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %217, ptr %218, align 8, !tbaa !84
   %219 = load ptr, ptr %4, align 8, !tbaa !13
-  %220 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %219, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.67, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.68) #12
+  %220 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %219, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.67, i64 13, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef nonnull @.str.68) #11
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %220, ptr %221, align 8, !tbaa !85
   %222 = load ptr, ptr %4, align 8, !tbaa !13
-  %223 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %222, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.69, i64 15, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %223 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %222, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.69, i64 15, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %223, ptr %224, align 8, !tbaa !86
   %225 = load ptr, ptr %4, align 8, !tbaa !13
-  %226 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %225, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.70, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %226 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %225, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.70, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %226, ptr %227, align 8, !tbaa !87
   %228 = load ptr, ptr %4, align 8, !tbaa !13
-  %229 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %228, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.71, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %229 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %228, ptr nonnull @.str.27, i64 7, ptr nonnull @.str.71, i64 16, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %229, ptr %230, align 8, !tbaa !88
   %231 = load ptr, ptr %4, align 8, !tbaa !13
-  %232 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %231, ptr nonnull @.str.72, i64 16, ptr nonnull @.str.73, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %232 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %231, ptr nonnull @.str.72, i64 16, ptr nonnull @.str.73, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr %232, ptr %233, align 8, !tbaa !89
   %234 = load ptr, ptr %4, align 8, !tbaa !13
-  %235 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %234, ptr nonnull @.str.74, i64 16, ptr nonnull @.str.75, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %235 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %234, ptr nonnull @.str.74, i64 16, ptr nonnull @.str.75, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %235, ptr %236, align 8, !tbaa !90
   %237 = load ptr, ptr %4, align 8, !tbaa !13
-  %238 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %237, ptr nonnull @.str.76, i64 6, ptr nonnull @.str.77, i64 9, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #12
+  %238 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %237, ptr nonnull @.str.76, i64 6, ptr nonnull @.str.77, i64 9, i32 noundef 33554432, i32 noundef 0, i32 0, ptr noundef null) #11
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr %238, ptr %239, align 8, !tbaa !91
   %240 = load ptr, ptr %4, align 8, !tbaa !13
@@ -625,12 +625,12 @@ _ZL16useCompactUnwindRKN4llvm6TripleE.exit.thread698: ; preds = %_ZL16useCompact
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %247
 
 247:                                              ; preds = %244
-  %248 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %246) #12
+  %248 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %246) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %244, %247
   %249 = phi i64 [ %248, %247 ], [ 0, %244 ]
-  %250 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %240, ptr %246, i64 %249, ptr nonnull @.str.78, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %250 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %240, ptr %246, i64 %249, ptr nonnull @.str.78, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr %250, ptr %251, align 8, !tbaa !95
   %252 = load ptr, ptr %4, align 8, !tbaa !13
@@ -640,12 +640,12 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %244, %247
   br i1 %.not.i411, label %_ZN4llvm9StringRefC2EPKc.exit412, label %255
 
 255:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit
-  %256 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #12
+  %256 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit412
 
 _ZN4llvm9StringRefC2EPKc.exit412:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %255
   %257 = phi i64 [ %256, %255 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit ]
-  %258 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %252, ptr %254, i64 %257, ptr nonnull @.str.79, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %258 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %252, ptr %254, i64 %257, ptr nonnull @.str.79, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store ptr %258, ptr %259, align 8, !tbaa !95
   %260 = load ptr, ptr %4, align 8, !tbaa !13
@@ -655,12 +655,12 @@ _ZN4llvm9StringRefC2EPKc.exit412:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i413, label %_ZN4llvm9StringRefC2EPKc.exit414, label %263
 
 263:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit412
-  %264 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %262) #12
+  %264 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %262) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit414
 
 _ZN4llvm9StringRefC2EPKc.exit414:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit412, %263
   %265 = phi i64 [ %264, %263 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit412 ]
-  %266 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %260, ptr %262, i64 %265, ptr nonnull @.str.80, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %266 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %260, ptr %262, i64 %265, ptr nonnull @.str.80, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr %266, ptr %267, align 8, !tbaa !95
   %268 = load ptr, ptr %4, align 8, !tbaa !13
@@ -670,12 +670,12 @@ _ZN4llvm9StringRefC2EPKc.exit414:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i415, label %_ZN4llvm9StringRefC2EPKc.exit416, label %271
 
 271:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit414
-  %272 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %270) #12
+  %272 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %270) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit416
 
 _ZN4llvm9StringRefC2EPKc.exit416:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit414, %271
   %273 = phi i64 [ %272, %271 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit414 ]
-  %274 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %268, ptr %270, i64 %273, ptr nonnull @.str.81, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %274 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %268, ptr %270, i64 %273, ptr nonnull @.str.81, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr %274, ptr %275, align 8, !tbaa !95
   %276 = load ptr, ptr %4, align 8, !tbaa !13
@@ -685,12 +685,12 @@ _ZN4llvm9StringRefC2EPKc.exit416:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i417, label %_ZN4llvm9StringRefC2EPKc.exit418, label %279
 
 279:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit416
-  %280 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %278) #12
+  %280 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %278) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit418
 
 _ZN4llvm9StringRefC2EPKc.exit418:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit416, %279
   %281 = phi i64 [ %280, %279 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit416 ]
-  %282 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %276, ptr %278, i64 %281, ptr nonnull @.str.82, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %282 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %276, ptr %278, i64 %281, ptr nonnull @.str.82, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr %282, ptr %283, align 8, !tbaa !95
   %284 = load ptr, ptr %4, align 8, !tbaa !13
@@ -700,12 +700,12 @@ _ZN4llvm9StringRefC2EPKc.exit418:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i419, label %_ZN4llvm9StringRefC2EPKc.exit420, label %287
 
 287:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit418
-  %288 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %286) #12
+  %288 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %286) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit420
 
 _ZN4llvm9StringRefC2EPKc.exit420:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit418, %287
   %289 = phi i64 [ %288, %287 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit418 ]
-  %290 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %284, ptr %286, i64 %289, ptr nonnull @.str.83, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %290 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %284, ptr %286, i64 %289, ptr nonnull @.str.83, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store ptr %290, ptr %291, align 8, !tbaa !95
   %292 = load ptr, ptr %4, align 8, !tbaa !13
@@ -715,12 +715,12 @@ _ZN4llvm9StringRefC2EPKc.exit420:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i421, label %_ZN4llvm9StringRefC2EPKc.exit422, label %295
 
 295:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit420
-  %296 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %294) #12
+  %296 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %294) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit422
 
 _ZN4llvm9StringRefC2EPKc.exit422:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit420, %295
   %297 = phi i64 [ %296, %295 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit420 ]
-  %298 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %292, ptr %294, i64 %297, ptr nonnull @.str.84, i64 14, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %298 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %292, ptr %294, i64 %297, ptr nonnull @.str.84, i64 14, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store ptr %298, ptr %299, align 8, !tbaa !95
   %300 = load ptr, ptr %4, align 8, !tbaa !13
@@ -730,12 +730,12 @@ _ZN4llvm9StringRefC2EPKc.exit422:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i423, label %_ZN4llvm9StringRefC2EPKc.exit424, label %303
 
 303:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit422
-  %304 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %302) #12
+  %304 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %302) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit424
 
 _ZN4llvm9StringRefC2EPKc.exit424:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit422, %303
   %305 = phi i64 [ %304, %303 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit422 ]
-  %306 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr %302, i64 %305, ptr nonnull @.str.85, i64 15, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %306 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr %302, i64 %305, ptr nonnull @.str.85, i64 15, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %306, ptr %307, align 8, !tbaa !95
   %308 = load ptr, ptr %4, align 8, !tbaa !13
@@ -745,12 +745,12 @@ _ZN4llvm9StringRefC2EPKc.exit424:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i425, label %_ZN4llvm9StringRefC2EPKc.exit426, label %311
 
 311:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit424
-  %312 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #12
+  %312 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %310) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit426
 
 _ZN4llvm9StringRefC2EPKc.exit426:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit424, %311
   %313 = phi i64 [ %312, %311 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit424 ]
-  %314 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %308, ptr %310, i64 %313, ptr nonnull @.str.86, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %314 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %308, ptr %310, i64 %313, ptr nonnull @.str.86, i64 16, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store ptr %314, ptr %315, align 8, !tbaa !95
   %316 = load ptr, ptr %4, align 8, !tbaa !13
@@ -760,12 +760,12 @@ _ZN4llvm9StringRefC2EPKc.exit426:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i427, label %_ZN4llvm9StringRefC2EPKc.exit428, label %319
 
 319:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit426
-  %320 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %318) #12
+  %320 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %318) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit428
 
 _ZN4llvm9StringRefC2EPKc.exit428:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit426, %319
   %321 = phi i64 [ %320, %319 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit426 ]
-  %322 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %316, ptr %318, i64 %321, ptr nonnull @.str.87, i64 15, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %322 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %316, ptr %318, i64 %321, ptr nonnull @.str.87, i64 15, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 888
   store ptr %322, ptr %323, align 8, !tbaa !95
   %324 = load ptr, ptr %4, align 8, !tbaa !13
@@ -775,12 +775,12 @@ _ZN4llvm9StringRefC2EPKc.exit428:                 ; preds = %_ZN4llvm9StringRefC
   br i1 %.not.i429, label %_ZN4llvm9StringRefC2EPKc.exit430, label %327
 
 327:                                              ; preds = %_ZN4llvm9StringRefC2EPKc.exit428
-  %328 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %326) #12
+  %328 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %326) #11
   br label %_ZN4llvm9StringRefC2EPKc.exit430
 
 _ZN4llvm9StringRefC2EPKc.exit430:                 ; preds = %_ZN4llvm9StringRefC2EPKc.exit428, %327
   %329 = phi i64 [ %328, %327 ], [ 0, %_ZN4llvm9StringRefC2EPKc.exit428 ]
-  %330 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %324, ptr %326, i64 %329, ptr nonnull @.str.38, i64 11, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #12
+  %330 = tail call noundef ptr @_ZN4llvm9MCContext15getMachOSectionENS_9StringRefES1_jjNS_11SectionKindEPKc(ptr noundef nonnull align 8 dereferenceable(2432) %324, ptr %326, i64 %329, ptr nonnull @.str.38, i64 11, i32 noundef 0, i32 noundef 0, i32 0, ptr noundef null) #11
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 896
   store ptr %330, ptr %331, align 8, !tbaa !95
   br label %332
@@ -981,7 +981,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %149 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i16 257, ptr %149, align 8
-  %150 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr noundef nonnull align 8 dereferenceable(34) %60, i32 noundef 8, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %59, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %150 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr noundef nonnull align 8 dereferenceable(34) %60, i32 noundef 8, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %59, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %150, ptr %151, align 8, !tbaa !36
@@ -996,7 +996,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %155 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i16 257, ptr %155, align 8
-  %156 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr noundef nonnull align 8 dereferenceable(34) %61, i32 noundef 1, i32 noundef 6, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %58, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %156 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr noundef nonnull align 8 dereferenceable(34) %61, i32 noundef 1, i32 noundef 6, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %58, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %156, ptr %157, align 8, !tbaa !34
@@ -1011,7 +1011,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %161 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i16 257, ptr %161, align 8
-  %162 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr noundef nonnull align 8 dereferenceable(34) %62, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %57, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %162 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr noundef nonnull align 8 dereferenceable(34) %62, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %57, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %162, ptr %163, align 8, !tbaa !35
@@ -1026,7 +1026,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %167 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store i16 257, ptr %167, align 8
-  %168 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %164, ptr noundef nonnull align 8 dereferenceable(34) %63, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %56, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %168 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %164, ptr noundef nonnull align 8 dereferenceable(34) %63, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %56, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %168, ptr %169, align 8, !tbaa !46
@@ -1041,7 +1041,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %173 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store i16 257, ptr %173, align 8
-  %174 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %170, ptr noundef nonnull align 8 dereferenceable(34) %64, i32 noundef 1, i32 noundef 1027, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %55, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %174 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %170, ptr noundef nonnull align 8 dereferenceable(34) %64, i32 noundef 1, i32 noundef 1027, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %55, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %174, ptr %175, align 8, !tbaa !37
@@ -1056,7 +1056,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %179 = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i16 257, ptr %179, align 8
-  %180 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %176, ptr noundef nonnull align 8 dereferenceable(34) %65, i32 noundef 8, i32 noundef 1027, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %54, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %180 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %176, ptr noundef nonnull align 8 dereferenceable(34) %65, i32 noundef 8, i32 noundef 1027, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %54, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %180, ptr %181, align 8, !tbaa !38
@@ -1071,7 +1071,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %185 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store i16 257, ptr %185, align 8
-  %186 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %182, ptr noundef nonnull align 8 dereferenceable(34) %66, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %53, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %186 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %182, ptr noundef nonnull align 8 dereferenceable(34) %66, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %53, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store ptr %186, ptr %187, align 8, !tbaa !262
@@ -1086,7 +1086,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %191 = getelementptr inbounds nuw i8, ptr %52, i64 32
   store i16 257, ptr %191, align 8
-  %192 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %188, ptr noundef nonnull align 8 dereferenceable(34) %67, i32 noundef 1, i32 noundef 18, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(34) %52, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %192 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %188, ptr noundef nonnull align 8 dereferenceable(34) %67, i32 noundef 1, i32 noundef 18, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(34) %52, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store ptr %192, ptr %193, align 8, !tbaa !263
@@ -1101,7 +1101,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %197 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i16 257, ptr %197, align 8
-  %198 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %194, ptr noundef nonnull align 8 dereferenceable(34) %68, i32 noundef 1, i32 noundef 18, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(34) %51, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %198 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %194, ptr noundef nonnull align 8 dereferenceable(34) %68, i32 noundef 1, i32 noundef 18, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(34) %51, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %198, ptr %199, align 8, !tbaa !264
@@ -1116,7 +1116,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %203 = getelementptr inbounds nuw i8, ptr %50, i64 32
   store i16 257, ptr %203, align 8
-  %204 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr noundef nonnull align 8 dereferenceable(34) %69, i32 noundef 1, i32 noundef 18, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(34) %50, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %204 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr noundef nonnull align 8 dereferenceable(34) %69, i32 noundef 1, i32 noundef 18, i32 noundef 16, ptr noundef nonnull align 8 dereferenceable(34) %50, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %204, ptr %205, align 8, !tbaa !265
@@ -1131,7 +1131,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %209 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i16 257, ptr %209, align 8
-  %210 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %206, ptr noundef nonnull align 8 dereferenceable(34) %70, i32 noundef 1, i32 noundef 18, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(34) %49, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %210 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %206, ptr noundef nonnull align 8 dereferenceable(34) %70, i32 noundef 1, i32 noundef 18, i32 noundef 32, ptr noundef nonnull align 8 dereferenceable(34) %49, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store ptr %210, ptr %211, align 8, !tbaa !266
@@ -1146,7 +1146,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %215 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i16 257, ptr %215, align 8
-  %216 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %212, ptr noundef nonnull align 8 dereferenceable(34) %71, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %48, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %216 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %212, ptr noundef nonnull align 8 dereferenceable(34) %71, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %48, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %216, ptr %217, align 8, !tbaa !58
@@ -1168,7 +1168,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   %225 = getelementptr inbounds nuw i8, ptr %47, i64 32
   store i16 257, ptr %225, align 8
-  %226 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %222, ptr noundef nonnull align 8 dereferenceable(34) %72, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %47, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %226 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %222, ptr noundef nonnull align 8 dereferenceable(34) %72, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %47, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %226, ptr %227, align 8, !tbaa !67
@@ -1183,7 +1183,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %231 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i16 257, ptr %231, align 8
-  %232 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %228, ptr noundef nonnull align 8 dereferenceable(34) %73, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %46, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %232 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %228, ptr noundef nonnull align 8 dereferenceable(34) %73, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %46, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %232, ptr %233, align 8, !tbaa !68
@@ -1198,7 +1198,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %237 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i16 257, ptr %237, align 8
-  %238 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %234, ptr noundef nonnull align 8 dereferenceable(34) %74, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %45, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %238 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %234, ptr noundef nonnull align 8 dereferenceable(34) %74, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %45, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %238, ptr %239, align 8, !tbaa !69
@@ -1213,7 +1213,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %243 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store i16 257, ptr %243, align 8
-  %244 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %240, ptr noundef nonnull align 8 dereferenceable(34) %75, i32 noundef %spec.select44, i32 noundef 48, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %44, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %244 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %240, ptr noundef nonnull align 8 dereferenceable(34) %75, i32 noundef %spec.select44, i32 noundef 48, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %44, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %244, ptr %245, align 8, !tbaa !70
@@ -1228,7 +1228,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %249 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i16 257, ptr %249, align 8
-  %250 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %246, ptr noundef nonnull align 8 dereferenceable(34) %76, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %43, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %250 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %246, ptr noundef nonnull align 8 dereferenceable(34) %76, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %43, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %250, ptr %251, align 8, !tbaa !71
@@ -1243,7 +1243,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %255 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i16 257, ptr %255, align 8
-  %256 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %252, ptr noundef nonnull align 8 dereferenceable(34) %77, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %42, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %256 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %252, ptr noundef nonnull align 8 dereferenceable(34) %77, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %42, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %256, ptr %257, align 8, !tbaa !72
@@ -1258,7 +1258,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %261 = getelementptr inbounds nuw i8, ptr %41, i64 32
   store i16 257, ptr %261, align 8
-  %262 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %258, ptr noundef nonnull align 8 dereferenceable(34) %78, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %41, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %262 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %258, ptr noundef nonnull align 8 dereferenceable(34) %78, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %41, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %262, ptr %263, align 8, !tbaa !73
@@ -1273,7 +1273,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %267 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i16 257, ptr %267, align 8
-  %268 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %264, ptr noundef nonnull align 8 dereferenceable(34) %79, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %40, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %268 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %264, ptr noundef nonnull align 8 dereferenceable(34) %79, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %40, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %268, ptr %269, align 8, !tbaa !74
@@ -1288,7 +1288,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %273 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i16 257, ptr %273, align 8
-  %274 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %270, ptr noundef nonnull align 8 dereferenceable(34) %80, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %39, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %274 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %270, ptr noundef nonnull align 8 dereferenceable(34) %80, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %39, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %274, ptr %275, align 8, !tbaa !75
@@ -1303,7 +1303,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %279 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i16 257, ptr %279, align 8
-  %280 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %276, ptr noundef nonnull align 8 dereferenceable(34) %81, i32 noundef %spec.select44, i32 noundef 48, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %38, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %280 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %276, ptr noundef nonnull align 8 dereferenceable(34) %81, i32 noundef %spec.select44, i32 noundef 48, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %38, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %280, ptr %281, align 8, !tbaa !76
@@ -1318,7 +1318,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %285 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i16 257, ptr %285, align 8
-  %286 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %282, ptr noundef nonnull align 8 dereferenceable(34) %82, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %37, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %286 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %282, ptr noundef nonnull align 8 dereferenceable(34) %82, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %37, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %286, ptr %287, align 8, !tbaa !79
@@ -1333,7 +1333,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %291 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i16 257, ptr %291, align 8
-  %292 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %288, ptr noundef nonnull align 8 dereferenceable(34) %83, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %36, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %292 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %288, ptr noundef nonnull align 8 dereferenceable(34) %83, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %36, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %292, ptr %293, align 8, !tbaa !81
@@ -1348,7 +1348,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %297 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i16 257, ptr %297, align 8
-  %298 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %294, ptr noundef nonnull align 8 dereferenceable(34) %84, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %35, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %298 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %294, ptr noundef nonnull align 8 dereferenceable(34) %84, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %35, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %298, ptr %299, align 8, !tbaa !82
@@ -1363,7 +1363,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %303 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i16 257, ptr %303, align 8
-  %304 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr noundef nonnull align 8 dereferenceable(34) %85, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %34, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %304 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr noundef nonnull align 8 dereferenceable(34) %85, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %34, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %304, ptr %305, align 8, !tbaa !84
@@ -1378,7 +1378,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %309 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i16 257, ptr %309, align 8
-  %310 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %306, ptr noundef nonnull align 8 dereferenceable(34) %86, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %33, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %310 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %306, ptr noundef nonnull align 8 dereferenceable(34) %86, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %33, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %310, ptr %311, align 8, !tbaa !85
@@ -1393,7 +1393,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %315 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i16 257, ptr %315, align 8
-  %316 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %312, ptr noundef nonnull align 8 dereferenceable(34) %87, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %32, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %316 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %312, ptr noundef nonnull align 8 dereferenceable(34) %87, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %32, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %316, ptr %317, align 8, !tbaa !61
@@ -1408,7 +1408,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %321 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i16 257, ptr %321, align 8
-  %322 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %318, ptr noundef nonnull align 8 dereferenceable(34) %88, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %31, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %322 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %318, ptr noundef nonnull align 8 dereferenceable(34) %88, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %31, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %322, ptr %323, align 8, !tbaa !62
@@ -1423,7 +1423,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %327 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i16 257, ptr %327, align 8
-  %328 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %324, ptr noundef nonnull align 8 dereferenceable(34) %89, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %30, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %328 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %324, ptr noundef nonnull align 8 dereferenceable(34) %89, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %30, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %328, ptr %329, align 8, !tbaa !63
@@ -1438,7 +1438,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %333 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i16 257, ptr %333, align 8
-  %334 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %330, ptr noundef nonnull align 8 dereferenceable(34) %90, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %29, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %334 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %330, ptr noundef nonnull align 8 dereferenceable(34) %90, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %29, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %334, ptr %335, align 8, !tbaa !64
@@ -1453,7 +1453,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %339 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i16 257, ptr %339, align 8
-  %340 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %336, ptr noundef nonnull align 8 dereferenceable(34) %91, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %28, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %340 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %336, ptr noundef nonnull align 8 dereferenceable(34) %91, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %28, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %340, ptr %341, align 8, !tbaa !65
@@ -1468,7 +1468,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %345 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i16 257, ptr %345, align 8
-  %346 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %342, ptr noundef nonnull align 8 dereferenceable(34) %92, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %27, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %346 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %342, ptr noundef nonnull align 8 dereferenceable(34) %92, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %27, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %346, ptr %347, align 8, !tbaa !77
@@ -1483,7 +1483,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %351 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i16 257, ptr %351, align 8
-  %352 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %348, ptr noundef nonnull align 8 dereferenceable(34) %93, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %26, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %352 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %348, ptr noundef nonnull align 8 dereferenceable(34) %93, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %26, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %352, ptr %353, align 8, !tbaa !78
@@ -1498,7 +1498,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %357 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i16 257, ptr %357, align 8
-  %358 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %354, ptr noundef nonnull align 8 dereferenceable(34) %94, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %25, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %358 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %354, ptr noundef nonnull align 8 dereferenceable(34) %94, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %25, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %358, ptr %359, align 8, !tbaa !83
@@ -1513,7 +1513,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %363 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i16 257, ptr %363, align 8
-  %364 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %360, ptr noundef nonnull align 8 dereferenceable(34) %95, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %24, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %364 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %360, ptr noundef nonnull align 8 dereferenceable(34) %95, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %24, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %364, ptr %365, align 8, !tbaa !80
@@ -1528,7 +1528,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %369 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 257, ptr %369, align 8
-  %370 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %366, ptr noundef nonnull align 8 dereferenceable(34) %96, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %23, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %370 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %366, ptr noundef nonnull align 8 dereferenceable(34) %96, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %23, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %370, ptr %371, align 8, !tbaa !267
@@ -1543,7 +1543,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %375 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i16 257, ptr %375, align 8
-  %376 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %372, ptr noundef nonnull align 8 dereferenceable(34) %97, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %22, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %376 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %372, ptr noundef nonnull align 8 dereferenceable(34) %97, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %22, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %376, ptr %377, align 8, !tbaa !268
@@ -1558,7 +1558,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %381 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i16 257, ptr %381, align 8
-  %382 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %378, ptr noundef nonnull align 8 dereferenceable(34) %98, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %21, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %382 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %378, ptr noundef nonnull align 8 dereferenceable(34) %98, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %21, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %382, ptr %383, align 8, !tbaa !269
@@ -1573,7 +1573,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %387 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i16 257, ptr %387, align 8
-  %388 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %384, ptr noundef nonnull align 8 dereferenceable(34) %99, i32 noundef %spec.select44, i32 noundef -2147483600, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %20, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %388 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %384, ptr noundef nonnull align 8 dereferenceable(34) %99, i32 noundef %spec.select44, i32 noundef -2147483600, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %20, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %388, ptr %389, align 8, !tbaa !270
@@ -1588,7 +1588,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %393 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i16 257, ptr %393, align 8
-  %394 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %390, ptr noundef nonnull align 8 dereferenceable(34) %100, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %19, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %394 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %390, ptr noundef nonnull align 8 dereferenceable(34) %100, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %19, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %394, ptr %395, align 8, !tbaa !271
@@ -1603,7 +1603,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %399 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i16 257, ptr %399, align 8
-  %400 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %396, ptr noundef nonnull align 8 dereferenceable(34) %101, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %18, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %400 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %396, ptr noundef nonnull align 8 dereferenceable(34) %101, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %18, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %400, ptr %401, align 8, !tbaa !272
@@ -1618,7 +1618,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %405 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i16 257, ptr %405, align 8
-  %406 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %402, ptr noundef nonnull align 8 dereferenceable(34) %102, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %17, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %406 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %402, ptr noundef nonnull align 8 dereferenceable(34) %102, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %17, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %406, ptr %407, align 8, !tbaa !273
@@ -1633,7 +1633,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %411 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i16 257, ptr %411, align 8
-  %412 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %408, ptr noundef nonnull align 8 dereferenceable(34) %103, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %16, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %412 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %408, ptr noundef nonnull align 8 dereferenceable(34) %103, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %16, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %412, ptr %413, align 8, !tbaa !274
@@ -1648,7 +1648,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %417 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i16 257, ptr %417, align 8
-  %418 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %414, ptr noundef nonnull align 8 dereferenceable(34) %104, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %15, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %418 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %414, ptr noundef nonnull align 8 dereferenceable(34) %104, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %15, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %418, ptr %419, align 8, !tbaa !275
@@ -1663,7 +1663,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %423 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i16 257, ptr %423, align 8
-  %424 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %420, ptr noundef nonnull align 8 dereferenceable(34) %105, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %14, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %424 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %420, ptr noundef nonnull align 8 dereferenceable(34) %105, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %14, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %424, ptr %425, align 8, !tbaa !276
@@ -1678,7 +1678,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %429 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i16 257, ptr %429, align 8
-  %430 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %426, ptr noundef nonnull align 8 dereferenceable(34) %106, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %430 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %426, ptr noundef nonnull align 8 dereferenceable(34) %106, i32 noundef %spec.select44, i32 noundef -2147483648, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %430, ptr %431, align 8, !tbaa !277
@@ -1693,7 +1693,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %435 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i16 257, ptr %435, align 8
-  %436 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %432, ptr noundef nonnull align 8 dereferenceable(34) %107, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %436 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %432, ptr noundef nonnull align 8 dereferenceable(34) %107, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %436, ptr %437, align 8, !tbaa !87
@@ -1708,7 +1708,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %441 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i16 257, ptr %441, align 8
-  %442 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %438, ptr noundef nonnull align 8 dereferenceable(34) %108, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %442 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %438, ptr noundef nonnull align 8 dereferenceable(34) %108, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %442, ptr %443, align 8, !tbaa !88
@@ -1723,7 +1723,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %447 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i16 257, ptr %447, align 8
-  %448 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %444, ptr noundef nonnull align 8 dereferenceable(34) %109, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %448 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %444, ptr noundef nonnull align 8 dereferenceable(34) %109, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr %448, ptr %449, align 8, !tbaa !89
@@ -1738,7 +1738,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %453 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 257, ptr %453, align 8
-  %454 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %450, ptr noundef nonnull align 8 dereferenceable(34) %110, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %454 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %450, ptr noundef nonnull align 8 dereferenceable(34) %110, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %454, ptr %455, align 8, !tbaa !90
@@ -1753,7 +1753,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %459 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i16 257, ptr %459, align 8
-  %460 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %456, ptr noundef nonnull align 8 dereferenceable(34) %111, i32 noundef %221, i32 noundef %.043, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %460 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %456, ptr noundef nonnull align 8 dereferenceable(34) %111, i32 noundef %221, i32 noundef %.043, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %8, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %460, ptr %461, align 8, !tbaa !14
@@ -1768,7 +1768,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %465 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i16 257, ptr %465, align 8
-  %466 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %462, ptr noundef nonnull align 8 dereferenceable(34) %112, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %466 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %462, ptr noundef nonnull align 8 dereferenceable(34) %112, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %7, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %466, ptr %467, align 8, !tbaa !278
@@ -1783,7 +1783,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %471 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i16 257, ptr %471, align 8
-  %472 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %468, ptr noundef nonnull align 8 dereferenceable(34) %113, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %472 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %468, ptr noundef nonnull align 8 dereferenceable(34) %113, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %472, ptr %473, align 8, !tbaa !279
@@ -1798,7 +1798,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %477 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i16 257, ptr %477, align 8
-  %478 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %474, ptr noundef nonnull align 8 dereferenceable(34) %114, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %478 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %474, ptr noundef nonnull align 8 dereferenceable(34) %114, i32 noundef %spec.select44, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr %478, ptr %479, align 8, !tbaa !280
@@ -1813,7 +1813,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %483 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %483, align 8
-  %484 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %480, ptr noundef nonnull align 8 dereferenceable(34) %115, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #12
+  %484 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %480, ptr noundef nonnull align 8 dereferenceable(34) %115, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext false, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %484, ptr %485, align 8, !tbaa !281
@@ -1825,33 +1825,33 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
 define dso_local void @_ZN4llvm16MCObjectFileInfo24initGOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 captures(none) dereferenceable(920) initializes((24, 32), (40, 48), (752, 792)) %0, ptr nonnull readnone align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.89, i64 5, i32 2, ptr noundef null, i32 noundef 0) #12
+  %5 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.89, i64 5, i32 2, ptr noundef null, i32 noundef 0) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8, !tbaa !34
   %7 = load ptr, ptr %3, align 8, !tbaa !13
-  %8 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr nonnull @.str.88, i64 4, i32 15, ptr noundef null, i32 noundef 0) #12
+  %8 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %7, ptr nonnull @.str.88, i64 4, i32 15, ptr noundef null, i32 noundef 0) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %8, ptr %9, align 8, !tbaa !36
   %10 = load ptr, ptr %3, align 8, !tbaa !13
   %11 = load ptr, ptr %6, align 8, !tbaa !34
-  %12 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %10, ptr nonnull @.str.144, i64 5, i32 0, ptr noundef %11, i32 noundef 2) #12
+  %12 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %10, ptr nonnull @.str.144, i64 5, i32 0, ptr noundef %11, i32 noundef 2) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store ptr %12, ptr %13, align 8, !tbaa !282
   %14 = load ptr, ptr %3, align 8, !tbaa !13
   %15 = load ptr, ptr %6, align 8, !tbaa !34
-  %16 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %14, ptr nonnull @.str.145, i64 5, i32 0, ptr noundef %15, i32 noundef 4) #12
+  %16 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %14, ptr nonnull @.str.145, i64 5, i32 0, ptr noundef %15, i32 noundef 4) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 760
   store ptr %16, ptr %17, align 8, !tbaa !283
   %18 = load ptr, ptr %3, align 8, !tbaa !13
-  %19 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %18, ptr nonnull @.str.146, i64 9, i32 19, ptr noundef null, i32 noundef 0) #12
+  %19 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %18, ptr nonnull @.str.146, i64 9, i32 19, ptr noundef null, i32 noundef 0) #11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store ptr %19, ptr %20, align 8, !tbaa !284
   %21 = load ptr, ptr %3, align 8, !tbaa !13
-  %22 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr nonnull @.str.147, i64 4, i32 19, ptr noundef null, i32 noundef 0) #12
+  %22 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %21, ptr nonnull @.str.147, i64 4, i32 19, ptr noundef null, i32 noundef 0) #11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store ptr %22, ptr %23, align 8, !tbaa !285
   %24 = load ptr, ptr %3, align 8, !tbaa !13
-  %25 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %24, ptr nonnull @.str.148, i64 6, i32 19, ptr noundef null, i32 noundef 0) #12
+  %25 = tail call noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11SectionKindEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(2432) %24, ptr nonnull @.str.148, i64 6, i32 19, ptr noundef null, i32 noundef 0) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store ptr %25, ptr %26, align 8, !tbaa !286
   ret void
@@ -1863,27 +1863,27 @@ declare noundef ptr @_ZN4llvm9MCContext14getGOFFSectionENS_9StringRefENS_11Secti
 define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(920) initializes((24, 64), (80, 128), (136, 336), (352, 384), (392, 416), (424, 432), (440, 448), (464, 472), (688, 752)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.139, i64 9, i32 noundef 1073741888) #12
+  %5 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.139, i64 9, i32 noundef 1073741888) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   store ptr %5, ptr %6, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = icmp eq i32 %8, 35
   %10 = load ptr, ptr %3, align 8, !tbaa !13
-  %11 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %10, ptr nonnull @.str.88, i64 4, i32 noundef -1073741696) #12
+  %11 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %10, ptr nonnull @.str.88, i64 4, i32 noundef -1073741696) #11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %12, align 8, !tbaa !36
   %13 = load ptr, ptr %3, align 8, !tbaa !13
   %14 = select i1 %9, i32 1610743840, i32 1610612768
-  %15 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %13, ptr nonnull @.str.89, i64 5, i32 noundef %14) #12
+  %15 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %13, ptr nonnull @.str.89, i64 5, i32 noundef %14) #11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8, !tbaa !34
   %17 = load ptr, ptr %3, align 8, !tbaa !13
-  %18 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %17, ptr nonnull @.str.90, i64 5, i32 noundef -1073741760) #12
+  %18 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %17, ptr nonnull @.str.90, i64 5, i32 noundef -1073741760) #11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %18, ptr %19, align 8, !tbaa !35
   %20 = load ptr, ptr %3, align 8, !tbaa !13
-  %21 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %20, ptr nonnull @.str.149, i64 6, i32 noundef 1073741888) #12
+  %21 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %20, ptr nonnull @.str.149, i64 6, i32 noundef 1073741888) #11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %21, ptr %22, align 8, !tbaa !46
   %23 = load i32, ptr %7, align 8, !tbaa !27
@@ -1901,7 +1901,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS
 
 26:                                               ; preds = %2
   %27 = load ptr, ptr %3, align 8, !tbaa !13
-  %28 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %27, ptr nonnull @.str.99, i64 17, i32 noundef 1073741888) #12
+  %28 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %27, ptr nonnull @.str.99, i64 17, i32 noundef 1073741888) #11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %28, ptr %29, align 8, !tbaa !58
   %.pre = load i32, ptr %7, align 8, !tbaa !27
@@ -1914,202 +1914,202 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initCOFFMCObjectFileInfoERKNS
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %3, align 8, !tbaa !13
-  %35 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr nonnull @.str.150, i64 8, i32 noundef 512) #12
+  %35 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr nonnull @.str.150, i64 8, i32 noundef 512) #11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %35, ptr %36, align 8, !tbaa !287
   br label %37
 
 37:                                               ; preds = %33, %30
   %38 = load ptr, ptr %3, align 8, !tbaa !13
-  %39 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %38, ptr nonnull @.str.151, i64 8, i32 noundef 1107296320) #12
+  %39 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %38, ptr nonnull @.str.151, i64 8, i32 noundef 1107296320) #11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %39, ptr %40, align 8, !tbaa !288
   %41 = load ptr, ptr %3, align 8, !tbaa !13
-  %42 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %41, ptr nonnull @.str.152, i64 8, i32 noundef 1107296320) #12
+  %42 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %41, ptr nonnull @.str.152, i64 8, i32 noundef 1107296320) #11
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %42, ptr %43, align 8, !tbaa !289
   %44 = load ptr, ptr %3, align 8, !tbaa !13
-  %45 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %44, ptr nonnull @.str.153, i64 8, i32 noundef 1107296320) #12
+  %45 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %44, ptr nonnull @.str.153, i64 8, i32 noundef 1107296320) #11
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr %45, ptr %46, align 8, !tbaa !290
   %47 = load ptr, ptr %3, align 8, !tbaa !13
-  %48 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %47, ptr nonnull @.str.100, i64 13, i32 noundef 1107296320) #12
+  %48 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %47, ptr nonnull @.str.100, i64 13, i32 noundef 1107296320) #11
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %48, ptr %49, align 8, !tbaa !67
   %50 = load ptr, ptr %3, align 8, !tbaa !13
-  %51 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %50, ptr nonnull @.str.101, i64 11, i32 noundef 1107296320) #12
+  %51 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %50, ptr nonnull @.str.101, i64 11, i32 noundef 1107296320) #11
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %51, ptr %52, align 8, !tbaa !68
   %53 = load ptr, ptr %3, align 8, !tbaa !13
-  %54 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %53, ptr nonnull @.str.102, i64 11, i32 noundef 1107296320) #12
+  %54 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %53, ptr nonnull @.str.102, i64 11, i32 noundef 1107296320) #11
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %54, ptr %55, align 8, !tbaa !69
   %56 = load ptr, ptr %3, align 8, !tbaa !13
-  %57 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %56, ptr nonnull @.str.103, i64 15, i32 noundef 1107296320) #12
+  %57 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %56, ptr nonnull @.str.103, i64 15, i32 noundef 1107296320) #11
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %57, ptr %58, align 8, !tbaa !70
   %59 = load ptr, ptr %3, align 8, !tbaa !13
-  %60 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %59, ptr nonnull @.str.104, i64 12, i32 noundef 1107296320) #12
+  %60 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %59, ptr nonnull @.str.104, i64 12, i32 noundef 1107296320) #11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %60, ptr %61, align 8, !tbaa !71
   %62 = load ptr, ptr %3, align 8, !tbaa !13
-  %63 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %62, ptr nonnull @.str.105, i64 15, i32 noundef 1107296320) #12
+  %63 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %62, ptr nonnull @.str.105, i64 15, i32 noundef 1107296320) #11
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %63, ptr %64, align 8, !tbaa !72
   %65 = load ptr, ptr %3, align 8, !tbaa !13
-  %66 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %65, ptr nonnull @.str.106, i64 15, i32 noundef 1107296320) #12
+  %66 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %65, ptr nonnull @.str.106, i64 15, i32 noundef 1107296320) #11
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %66, ptr %67, align 8, !tbaa !73
   %68 = load ptr, ptr %3, align 8, !tbaa !13
-  %69 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %68, ptr nonnull @.str.107, i64 19, i32 noundef 1107296320) #12
+  %69 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %68, ptr nonnull @.str.107, i64 19, i32 noundef 1107296320) #11
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %69, ptr %70, align 8, !tbaa !74
   %71 = load ptr, ptr %3, align 8, !tbaa !13
-  %72 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %71, ptr nonnull @.str.108, i64 19, i32 noundef 1107296320) #12
+  %72 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %71, ptr nonnull @.str.108, i64 19, i32 noundef 1107296320) #11
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %72, ptr %73, align 8, !tbaa !75
   %74 = load ptr, ptr %3, align 8, !tbaa !13
-  %75 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %74, ptr nonnull @.str.109, i64 10, i32 noundef 1107296320) #12
+  %75 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %74, ptr nonnull @.str.109, i64 10, i32 noundef 1107296320) #11
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %75, ptr %76, align 8, !tbaa !76
   %77 = load ptr, ptr %3, align 8, !tbaa !13
-  %78 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %77, ptr nonnull @.str.120, i64 18, i32 noundef 1107296320) #12
+  %78 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %77, ptr nonnull @.str.120, i64 18, i32 noundef 1107296320) #11
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %78, ptr %79, align 8, !tbaa !77
   %80 = load ptr, ptr %3, align 8, !tbaa !13
-  %81 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %80, ptr nonnull @.str.110, i64 10, i32 noundef 1107296320) #12
+  %81 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %80, ptr nonnull @.str.110, i64 10, i32 noundef 1107296320) #11
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %81, ptr %82, align 8, !tbaa !79
   %83 = load ptr, ptr %3, align 8, !tbaa !13
-  %84 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %83, ptr nonnull @.str.123, i64 15, i32 noundef 1107296320) #12
+  %84 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %83, ptr nonnull @.str.123, i64 15, i32 noundef 1107296320) #11
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %84, ptr %85, align 8, !tbaa !80
   %86 = load ptr, ptr %3, align 8, !tbaa !13
-  %87 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %86, ptr nonnull @.str.111, i64 14, i32 noundef 1107296320) #12
+  %87 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %86, ptr nonnull @.str.111, i64 14, i32 noundef 1107296320) #11
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %87, ptr %88, align 8, !tbaa !81
   %89 = load ptr, ptr %3, align 8, !tbaa !13
-  %90 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %89, ptr nonnull @.str.112, i64 13, i32 noundef 1107296320) #12
+  %90 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %89, ptr nonnull @.str.112, i64 13, i32 noundef 1107296320) #11
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %90, ptr %91, align 8, !tbaa !82
   %92 = load ptr, ptr %3, align 8, !tbaa !13
-  %93 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %92, ptr nonnull @.str.122, i64 15, i32 noundef 1107296320) #12
+  %93 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %92, ptr nonnull @.str.122, i64 15, i32 noundef 1107296320) #11
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %93, ptr %94, align 8, !tbaa !83
   %95 = load ptr, ptr %3, align 8, !tbaa !13
-  %96 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %95, ptr nonnull @.str.113, i64 14, i32 noundef 1107296320) #12
+  %96 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %95, ptr nonnull @.str.113, i64 14, i32 noundef 1107296320) #11
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %96, ptr %97, align 8, !tbaa !84
   %98 = load ptr, ptr %3, align 8, !tbaa !13
-  %99 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %98, ptr nonnull @.str.114, i64 12, i32 noundef 1107296320) #12
+  %99 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %98, ptr nonnull @.str.114, i64 12, i32 noundef 1107296320) #11
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %99, ptr %100, align 8, !tbaa !85
   %101 = load ptr, ptr %3, align 8, !tbaa !13
-  %102 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %101, ptr nonnull @.str.132, i64 18, i32 noundef 1107296320) #12
+  %102 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %101, ptr nonnull @.str.132, i64 18, i32 noundef 1107296320) #11
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %102, ptr %103, align 8, !tbaa !275
   %104 = load ptr, ptr %3, align 8, !tbaa !13
-  %105 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr nonnull @.str.133, i64 16, i32 noundef 1107296320) #12
+  %105 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr nonnull @.str.133, i64 16, i32 noundef 1107296320) #11
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %105, ptr %106, align 8, !tbaa !276
   %107 = load ptr, ptr %3, align 8, !tbaa !13
-  %108 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %107, ptr nonnull @.str.124, i64 15, i32 noundef 1107296320) #12
+  %108 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %107, ptr nonnull @.str.124, i64 15, i32 noundef 1107296320) #11
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %108, ptr %109, align 8, !tbaa !267
   %110 = load ptr, ptr %3, align 8, !tbaa !13
-  %111 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %110, ptr nonnull @.str.125, i64 16, i32 noundef 1107296320) #12
+  %111 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %110, ptr nonnull @.str.125, i64 16, i32 noundef 1107296320) #11
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %111, ptr %112, align 8, !tbaa !268
   %113 = load ptr, ptr %3, align 8, !tbaa !13
-  %114 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %113, ptr nonnull @.str.126, i64 17, i32 noundef 1107296320) #12
+  %114 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %113, ptr nonnull @.str.126, i64 17, i32 noundef 1107296320) #11
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %114, ptr %115, align 8, !tbaa !269
   %116 = load ptr, ptr %3, align 8, !tbaa !13
-  %117 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %116, ptr nonnull @.str.127, i64 14, i32 noundef 1107296320) #12
+  %117 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %116, ptr nonnull @.str.127, i64 14, i32 noundef 1107296320) #11
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %117, ptr %118, align 8, !tbaa !270
   %119 = load ptr, ptr %3, align 8, !tbaa !13
-  %120 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %119, ptr nonnull @.str.128, i64 15, i32 noundef 1107296320) #12
+  %120 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %119, ptr nonnull @.str.128, i64 15, i32 noundef 1107296320) #11
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %120, ptr %121, align 8, !tbaa !271
   %122 = load ptr, ptr %3, align 8, !tbaa !13
-  %123 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %122, ptr nonnull @.str.129, i64 14, i32 noundef 1107296320) #12
+  %123 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %122, ptr nonnull @.str.129, i64 14, i32 noundef 1107296320) #11
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %123, ptr %124, align 8, !tbaa !272
   %125 = load ptr, ptr %3, align 8, !tbaa !13
-  %126 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %125, ptr nonnull @.str.130, i64 22, i32 noundef 1107296320) #12
+  %126 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %125, ptr nonnull @.str.130, i64 22, i32 noundef 1107296320) #11
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %126, ptr %127, align 8, !tbaa !273
   %128 = load ptr, ptr %3, align 8, !tbaa !13
-  %129 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %128, ptr nonnull @.str.121, i64 11, i32 noundef 1107296320) #12
+  %129 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %128, ptr nonnull @.str.121, i64 11, i32 noundef 1107296320) #11
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %129, ptr %130, align 8, !tbaa !78
   %131 = load ptr, ptr %3, align 8, !tbaa !13
-  %132 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %131, ptr nonnull @.str.135, i64 15, i32 noundef 1107296320) #12
+  %132 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %131, ptr nonnull @.str.135, i64 15, i32 noundef 1107296320) #11
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %132, ptr %133, align 8, !tbaa !87
   %134 = load ptr, ptr %3, align 8, !tbaa !13
-  %135 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %134, ptr nonnull @.str.136, i64 15, i32 noundef 1107296320) #12
+  %135 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %134, ptr nonnull @.str.136, i64 15, i32 noundef 1107296320) #11
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %135, ptr %136, align 8, !tbaa !88
   %137 = load ptr, ptr %3, align 8, !tbaa !13
-  %138 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %137, ptr nonnull @.str.115, i64 12, i32 noundef 1107296320) #12
+  %138 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %137, ptr nonnull @.str.115, i64 12, i32 noundef 1107296320) #11
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %138, ptr %139, align 8, !tbaa !61
   %140 = load ptr, ptr %3, align 8, !tbaa !13
-  %141 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %140, ptr nonnull @.str.116, i64 12, i32 noundef 1107296320) #12
+  %141 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %140, ptr nonnull @.str.116, i64 12, i32 noundef 1107296320) #11
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %141, ptr %142, align 8, !tbaa !62
   %143 = load ptr, ptr %3, align 8, !tbaa !13
-  %144 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %143, ptr nonnull @.str.118, i64 17, i32 noundef 1107296320) #12
+  %144 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %143, ptr nonnull @.str.118, i64 17, i32 noundef 1107296320) #11
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %144, ptr %145, align 8, !tbaa !64
   %146 = load ptr, ptr %3, align 8, !tbaa !13
-  %147 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr nonnull @.str.119, i64 12, i32 noundef 1107296320) #12
+  %147 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr nonnull @.str.119, i64 12, i32 noundef 1107296320) #11
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %147, ptr %148, align 8, !tbaa !65
   %149 = load ptr, ptr %3, align 8, !tbaa !13
-  %150 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %149, ptr nonnull @.str.117, i64 11, i32 noundef 1107296320) #12
+  %150 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %149, ptr nonnull @.str.117, i64 11, i32 noundef 1107296320) #11
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %150, ptr %151, align 8, !tbaa !63
   %152 = load ptr, ptr %3, align 8, !tbaa !13
-  %153 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr nonnull @.str.154, i64 8, i32 noundef 2560) #12
+  %153 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr nonnull @.str.154, i64 8, i32 noundef 2560) #11
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %153, ptr %154, align 8, !tbaa !291
   %155 = load ptr, ptr %3, align 8, !tbaa !13
-  %156 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %155, ptr nonnull @.str.155, i64 6, i32 noundef 1073741888) #12
+  %156 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %155, ptr nonnull @.str.155, i64 6, i32 noundef 1073741888) #11
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store ptr %156, ptr %157, align 8, !tbaa !292
   %158 = load ptr, ptr %3, align 8, !tbaa !13
-  %159 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr nonnull @.str.156, i64 6, i32 noundef 1073741888) #12
+  %159 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr nonnull @.str.156, i64 6, i32 noundef 1073741888) #11
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %159, ptr %160, align 8, !tbaa !293
   %161 = load ptr, ptr %3, align 8, !tbaa !13
-  %162 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %161, ptr nonnull @.str.157, i64 7, i32 noundef 512) #12
+  %162 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %161, ptr nonnull @.str.157, i64 7, i32 noundef 512) #11
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store ptr %162, ptr %163, align 8, !tbaa !294
   %164 = load ptr, ptr %3, align 8, !tbaa !13
-  %165 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %164, ptr nonnull @.str.158, i64 10, i32 noundef 1073741888) #12
+  %165 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %164, ptr nonnull @.str.158, i64 10, i32 noundef 1073741888) #11
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %165, ptr %166, align 8, !tbaa !295
   %167 = load ptr, ptr %3, align 8, !tbaa !13
-  %168 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %167, ptr nonnull @.str.159, i64 8, i32 noundef 1073741888) #12
+  %168 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %167, ptr nonnull @.str.159, i64 8, i32 noundef 1073741888) #11
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr %168, ptr %169, align 8, !tbaa !296
   %170 = load ptr, ptr %3, align 8, !tbaa !13
-  %171 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %170, ptr nonnull @.str.160, i64 8, i32 noundef 1073741888) #12
+  %171 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %170, ptr nonnull @.str.160, i64 8, i32 noundef 1073741888) #11
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store ptr %171, ptr %172, align 8, !tbaa !297
   %173 = load ptr, ptr %3, align 8, !tbaa !13
-  %174 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %173, ptr nonnull @.str.161, i64 8, i32 noundef 1073741888) #12
+  %174 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %173, ptr nonnull @.str.161, i64 8, i32 noundef 1073741888) #11
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr %174, ptr %175, align 8, !tbaa !298
   %176 = load ptr, ptr %3, align 8, !tbaa !13
-  %177 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %176, ptr nonnull @.str.162, i64 5, i32 noundef -1073741760) #12
+  %177 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %176, ptr nonnull @.str.162, i64 5, i32 noundef -1073741760) #11
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %177, ptr %178, align 8, !tbaa !37
   %179 = load ptr, ptr %3, align 8, !tbaa !13
-  %180 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %179, ptr nonnull @.str.137, i64 15, i32 noundef 1073741888) #12
+  %180 = tail call noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(2432) %179, ptr nonnull @.str.137, i64 15, i32 noundef 1073741888) #11
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr %180, ptr %181, align 8, !tbaa !89
   ret void
@@ -2121,7 +2121,7 @@ declare noundef ptr @_ZN4llvm9MCContext14getCOFFSectionENS_9StringRefEj(ptr noun
 define dso_local void @_ZN4llvm16MCObjectFileInfo25initSPIRVMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 captures(none) dereferenceable(920) initializes((24, 32)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = tail call noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432) %4) #12
+  %5 = tail call noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432) %4) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8, !tbaa !34
   ret void
@@ -2218,7 +2218,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %83 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i16 257, ptr %83, align 8
-  %84 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %80, ptr noundef nonnull align 8 dereferenceable(34) %41, i32 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %40, i32 noundef -1) #12
+  %84 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %80, ptr noundef nonnull align 8 dereferenceable(34) %41, i32 2, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %40, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %84, ptr %85, align 8, !tbaa !34
@@ -2233,7 +2233,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %89 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i16 257, ptr %89, align 8
-  %90 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %86, ptr noundef nonnull align 8 dereferenceable(34) %42, i32 19, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %39, i32 noundef -1) #12
+  %90 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %86, ptr noundef nonnull align 8 dereferenceable(34) %42, i32 19, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %39, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %90, ptr %91, align 8, !tbaa !35
@@ -2248,7 +2248,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %95 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i16 257, ptr %95, align 8
-  %96 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %92, ptr noundef nonnull align 8 dereferenceable(34) %43, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %38, i32 noundef -1) #12
+  %96 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %92, ptr noundef nonnull align 8 dereferenceable(34) %43, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %38, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %96, ptr %97, align 8, !tbaa !69
@@ -2263,7 +2263,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %101 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i16 257, ptr %101, align 8
-  %102 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %98, ptr noundef nonnull align 8 dereferenceable(34) %44, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %37, i32 noundef -1) #12
+  %102 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %98, ptr noundef nonnull align 8 dereferenceable(34) %44, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %37, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %102, ptr %103, align 8, !tbaa !70
@@ -2278,7 +2278,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %107 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store i16 257, ptr %107, align 8
-  %108 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr noundef nonnull align 8 dereferenceable(34) %45, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %36, i32 noundef -1) #12
+  %108 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %104, ptr noundef nonnull align 8 dereferenceable(34) %45, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %36, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %108, ptr %109, align 8, !tbaa !76
@@ -2293,7 +2293,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %113 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i16 257, ptr %113, align 8
-  %114 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %110, ptr noundef nonnull align 8 dereferenceable(34) %46, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %35, i32 noundef -1) #12
+  %114 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %110, ptr noundef nonnull align 8 dereferenceable(34) %46, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %35, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %114, ptr %115, align 8, !tbaa !79
@@ -2308,7 +2308,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %119 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store i16 257, ptr %119, align 8
-  %120 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %116, ptr noundef nonnull align 8 dereferenceable(34) %47, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %34, i32 noundef -1) #12
+  %120 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %116, ptr noundef nonnull align 8 dereferenceable(34) %47, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %34, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %120, ptr %121, align 8, !tbaa !67
@@ -2323,7 +2323,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %125 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i16 257, ptr %125, align 8
-  %126 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %122, ptr noundef nonnull align 8 dereferenceable(34) %48, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %33, i32 noundef -1) #12
+  %126 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %122, ptr noundef nonnull align 8 dereferenceable(34) %48, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %33, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %126, ptr %127, align 8, !tbaa !81
@@ -2338,7 +2338,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %131 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i16 257, ptr %131, align 8
-  %132 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %128, ptr noundef nonnull align 8 dereferenceable(34) %49, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %32, i32 noundef -1) #12
+  %132 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %128, ptr noundef nonnull align 8 dereferenceable(34) %49, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %32, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %132, ptr %133, align 8, !tbaa !82
@@ -2353,7 +2353,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %137 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i16 257, ptr %137, align 8
-  %138 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %134, ptr noundef nonnull align 8 dereferenceable(34) %50, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %31, i32 noundef -1) #12
+  %138 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %134, ptr noundef nonnull align 8 dereferenceable(34) %50, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %31, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %138, ptr %139, align 8, !tbaa !84
@@ -2368,7 +2368,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %143 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i16 257, ptr %143, align 8
-  %144 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %140, ptr noundef nonnull align 8 dereferenceable(34) %51, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %30, i32 noundef -1) #12
+  %144 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %140, ptr noundef nonnull align 8 dereferenceable(34) %51, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %30, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %144, ptr %145, align 8, !tbaa !85
@@ -2383,7 +2383,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %149 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store i16 257, ptr %149, align 8
-  %150 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr noundef nonnull align 8 dereferenceable(34) %52, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %29, i32 noundef -1) #12
+  %150 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %146, ptr noundef nonnull align 8 dereferenceable(34) %52, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %29, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %150, ptr %151, align 8, !tbaa !87
@@ -2398,7 +2398,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %155 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i16 257, ptr %155, align 8
-  %156 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr noundef nonnull align 8 dereferenceable(34) %53, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %28, i32 noundef -1) #12
+  %156 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %152, ptr noundef nonnull align 8 dereferenceable(34) %53, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %28, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr %156, ptr %157, align 8, !tbaa !88
@@ -2413,7 +2413,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %161 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i16 257, ptr %161, align 8
-  %162 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr noundef nonnull align 8 dereferenceable(34) %54, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 noundef -1) #12
+  %162 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %158, ptr noundef nonnull align 8 dereferenceable(34) %54, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %162, ptr %163, align 8, !tbaa !68
@@ -2428,7 +2428,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %167 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i16 257, ptr %167, align 8
-  %168 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %164, ptr noundef nonnull align 8 dereferenceable(34) %55, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %26, i32 noundef -1) #12
+  %168 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %164, ptr noundef nonnull align 8 dereferenceable(34) %55, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %26, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %168, ptr %169, align 8, !tbaa !71
@@ -2443,7 +2443,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %173 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i16 257, ptr %173, align 8
-  %174 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %170, ptr noundef nonnull align 8 dereferenceable(34) %56, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %25, i32 noundef -1) #12
+  %174 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %170, ptr noundef nonnull align 8 dereferenceable(34) %56, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %25, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %174, ptr %175, align 8, !tbaa !72
@@ -2458,7 +2458,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %179 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i16 257, ptr %179, align 8
-  %180 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %176, ptr noundef nonnull align 8 dereferenceable(34) %57, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %24, i32 noundef -1) #12
+  %180 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %176, ptr noundef nonnull align 8 dereferenceable(34) %57, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %24, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %180, ptr %181, align 8, !tbaa !73
@@ -2473,7 +2473,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %185 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i16 257, ptr %185, align 8
-  %186 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %182, ptr noundef nonnull align 8 dereferenceable(34) %58, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %23, i32 noundef -1) #12
+  %186 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %182, ptr noundef nonnull align 8 dereferenceable(34) %58, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %23, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %186, ptr %187, align 8, !tbaa !74
@@ -2488,7 +2488,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %191 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i16 257, ptr %191, align 8
-  %192 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %188, ptr noundef nonnull align 8 dereferenceable(34) %59, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %22, i32 noundef -1) #12
+  %192 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %188, ptr noundef nonnull align 8 dereferenceable(34) %59, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %22, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store ptr %192, ptr %193, align 8, !tbaa !75
@@ -2503,7 +2503,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %197 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i16 257, ptr %197, align 8
-  %198 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %194, ptr noundef nonnull align 8 dereferenceable(34) %60, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %21, i32 noundef -1) #12
+  %198 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %194, ptr noundef nonnull align 8 dereferenceable(34) %60, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %21, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %198, ptr %199, align 8, !tbaa !61
@@ -2518,7 +2518,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %203 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i16 257, ptr %203, align 8
-  %204 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr noundef nonnull align 8 dereferenceable(34) %61, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %20, i32 noundef -1) #12
+  %204 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %200, ptr noundef nonnull align 8 dereferenceable(34) %61, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %20, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %204, ptr %205, align 8, !tbaa !77
@@ -2533,7 +2533,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %209 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store i16 257, ptr %209, align 8
-  %210 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %206, ptr noundef nonnull align 8 dereferenceable(34) %62, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %19, i32 noundef -1) #12
+  %210 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %206, ptr noundef nonnull align 8 dereferenceable(34) %62, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %19, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr %210, ptr %211, align 8, !tbaa !78
@@ -2548,7 +2548,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %215 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i16 257, ptr %215, align 8
-  %216 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %212, ptr noundef nonnull align 8 dereferenceable(34) %63, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %18, i32 noundef -1) #12
+  %216 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %212, ptr noundef nonnull align 8 dereferenceable(34) %63, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %18, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr %216, ptr %217, align 8, !tbaa !83
@@ -2563,7 +2563,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %221 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i16 257, ptr %221, align 8
-  %222 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %218, ptr noundef nonnull align 8 dereferenceable(34) %64, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 noundef -1) #12
+  %222 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %218, ptr noundef nonnull align 8 dereferenceable(34) %64, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %17, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %222, ptr %223, align 8, !tbaa !80
@@ -2578,7 +2578,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %227 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i16 257, ptr %227, align 8
-  %228 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %224, ptr noundef nonnull align 8 dereferenceable(34) %65, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %16, i32 noundef -1) #12
+  %228 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %224, ptr noundef nonnull align 8 dereferenceable(34) %65, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %16, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %228, ptr %229, align 8, !tbaa !267
@@ -2593,7 +2593,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %233 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i16 257, ptr %233, align 8
-  %234 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %230, ptr noundef nonnull align 8 dereferenceable(34) %66, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %15, i32 noundef -1) #12
+  %234 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %230, ptr noundef nonnull align 8 dereferenceable(34) %66, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %15, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %234, ptr %235, align 8, !tbaa !268
@@ -2608,7 +2608,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %239 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store i16 257, ptr %239, align 8
-  %240 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %236, ptr noundef nonnull align 8 dereferenceable(34) %67, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef -1) #12
+  %240 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %236, ptr noundef nonnull align 8 dereferenceable(34) %67, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %14, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %240, ptr %241, align 8, !tbaa !269
@@ -2623,7 +2623,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %245 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i16 257, ptr %245, align 8
-  %246 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %242, ptr noundef nonnull align 8 dereferenceable(34) %68, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 noundef -1) #12
+  %246 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %242, ptr noundef nonnull align 8 dereferenceable(34) %68, i32 0, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %246, ptr %247, align 8, !tbaa !270
@@ -2638,7 +2638,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %251 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i16 257, ptr %251, align 8
-  %252 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %248, ptr noundef nonnull align 8 dereferenceable(34) %69, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef -1) #12
+  %252 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %248, ptr noundef nonnull align 8 dereferenceable(34) %69, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %252, ptr %253, align 8, !tbaa !271
@@ -2653,7 +2653,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %257 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i16 257, ptr %257, align 8
-  %258 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %254, ptr noundef nonnull align 8 dereferenceable(34) %70, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef -1) #12
+  %258 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %254, ptr noundef nonnull align 8 dereferenceable(34) %70, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store ptr %258, ptr %259, align 8, !tbaa !272
@@ -2668,7 +2668,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %263 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i16 257, ptr %263, align 8
-  %264 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %260, ptr noundef nonnull align 8 dereferenceable(34) %71, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef -1) #12
+  %264 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %260, ptr noundef nonnull align 8 dereferenceable(34) %71, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %10, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %264, ptr %265, align 8, !tbaa !273
@@ -2683,7 +2683,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %269 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i16 257, ptr %269, align 8
-  %270 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %266, ptr noundef nonnull align 8 dereferenceable(34) %72, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef -1) #12
+  %270 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %266, ptr noundef nonnull align 8 dereferenceable(34) %72, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %270, ptr %271, align 8, !tbaa !274
@@ -2698,7 +2698,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %275 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i16 257, ptr %275, align 8
-  %276 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %272, ptr noundef nonnull align 8 dereferenceable(34) %73, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef -1) #12
+  %276 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %272, ptr noundef nonnull align 8 dereferenceable(34) %73, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %276, ptr %277, align 8, !tbaa !275
@@ -2713,7 +2713,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %281 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i16 257, ptr %281, align 8
-  %282 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %278, ptr noundef nonnull align 8 dereferenceable(34) %74, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 noundef -1) #12
+  %282 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %278, ptr noundef nonnull align 8 dereferenceable(34) %74, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %282, ptr %283, align 8, !tbaa !276
@@ -2728,7 +2728,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %287 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i16 257, ptr %287, align 8
-  %288 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %284, ptr noundef nonnull align 8 dereferenceable(34) %75, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef -1) #12
+  %288 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %284, ptr noundef nonnull align 8 dereferenceable(34) %75, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %288, ptr %289, align 8, !tbaa !277
@@ -2743,7 +2743,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %293 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i16 257, ptr %293, align 8
-  %294 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %290, ptr noundef nonnull align 8 dereferenceable(34) %76, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef -1) #12
+  %294 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %290, ptr noundef nonnull align 8 dereferenceable(34) %76, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %294, ptr %151, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
@@ -2757,7 +2757,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %298 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i16 257, ptr %298, align 8
-  %299 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %295, ptr noundef nonnull align 8 dereferenceable(34) %77, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef -1) #12
+  %299 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %295, ptr noundef nonnull align 8 dereferenceable(34) %77, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr %299, ptr %157, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
@@ -2771,7 +2771,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %303 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i16 257, ptr %303, align 8
-  %304 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr noundef nonnull align 8 dereferenceable(34) %78, i32 20, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef -1) #12
+  %304 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %300, ptr noundef nonnull align 8 dereferenceable(34) %78, i32 20, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %304, ptr %305, align 8, !tbaa !58
@@ -2783,7 +2783,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo24initWasmMCObjectFileInfoERKNS
 define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 captures(none) dereferenceable(920) initializes((24, 40), (48, 72), (80, 104), (112, 128), (136, 176), (184, 192), (424, 432), (792, 816)) %0, ptr nonnull readnone align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.164, i64 8, i32 2, i24 65792, i1 noundef zeroext true, i64 0) #12
+  %5 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.164, i64 8, i32 2, i24 65792, i1 noundef zeroext true, i64 0) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 152
@@ -2799,87 +2799,87 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo25initXCOFFMCObjectFileInfoERKN
   %.sroa.2.0..sroa_idx.i155 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i64 0, ptr %.sroa.2.0..sroa_idx.i155, align 8, !tbaa !328
   %12 = load ptr, ptr %3, align 8, !tbaa !13
-  %13 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %12, ptr nonnull @.str.90, i64 5, i32 19, i24 65797, i1 noundef zeroext true, i64 0) #12
+  %13 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %12, ptr nonnull @.str.90, i64 5, i32 19, i24 65797, i1 noundef zeroext true, i64 0) #11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %13, ptr %14, align 8, !tbaa !35
   %15 = load ptr, ptr %3, align 8, !tbaa !13
-  %16 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %15, ptr nonnull @.str.91, i64 7, i32 4, i24 65793, i1 noundef zeroext true, i64 0) #12
+  %16 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %15, ptr nonnull @.str.91, i64 7, i32 4, i24 65793, i1 noundef zeroext true, i64 0) #11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %16, ptr %17, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i8 2, ptr %18, align 8, !tbaa !260
   %19 = load ptr, ptr %3, align 8, !tbaa !13
-  %20 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %19, ptr nonnull @.str.166, i64 9, i32 4, i24 65793, i1 noundef zeroext true, i64 0) #12
+  %20 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %19, ptr nonnull @.str.166, i64 9, i32 4, i24 65793, i1 noundef zeroext true, i64 0) #11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 800
   store ptr %20, ptr %21, align 8, !tbaa !342
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 3, ptr %22, align 8, !tbaa !260
   %23 = load ptr, ptr %3, align 8, !tbaa !13
-  %24 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr nonnull @.str.167, i64 10, i32 4, i24 65793, i1 noundef zeroext true, i64 0) #12
+  %24 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %23, ptr nonnull @.str.167, i64 10, i32 4, i24 65793, i1 noundef zeroext true, i64 0) #11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store ptr %24, ptr %25, align 8, !tbaa !343
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 4, ptr %26, align 8, !tbaa !260
   %27 = load ptr, ptr %3, align 8, !tbaa !13
-  %28 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %27, ptr nonnull @.str.92, i64 6, i32 13, i24 65812, i1 noundef zeroext true, i64 0) #12
+  %28 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %27, ptr nonnull @.str.92, i64 6, i32 13, i24 65812, i1 noundef zeroext true, i64 0) #11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %28, ptr %29, align 8, !tbaa !37
   %30 = load ptr, ptr %3, align 8, !tbaa !13
-  %31 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %30, ptr nonnull @.str.168, i64 3, i32 19, i24 65807, i1 noundef zeroext false, i64 0) #12
+  %31 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %30, ptr nonnull @.str.168, i64 3, i32 19, i24 65807, i1 noundef zeroext false, i64 0) #11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store ptr %31, ptr %32, align 8, !tbaa !344
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   store i8 2, ptr %33, align 8, !tbaa !260
   %34 = load ptr, ptr %3, align 8, !tbaa !13
-  %35 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr nonnull @.str.99, i64 17, i32 4, i24 65793, i1 noundef zeroext false, i64 0) #12
+  %35 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %34, ptr nonnull @.str.99, i64 17, i32 4, i24 65793, i1 noundef zeroext false, i64 0) #11
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %35, ptr %36, align 8, !tbaa !58
   %37 = load ptr, ptr %3, align 8, !tbaa !13
-  %38 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %37, ptr nonnull @.str.169, i64 14, i32 19, i24 65797, i1 noundef zeroext false, i64 0) #12
+  %38 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %37, ptr nonnull @.str.169, i64 14, i32 19, i24 65797, i1 noundef zeroext false, i64 0) #11
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %38, ptr %39, align 8, !tbaa !59
   %40 = load ptr, ptr %3, align 8, !tbaa !13
-  %41 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %40, ptr nonnull @.str.170, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295360512) #12
+  %41 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %40, ptr nonnull @.str.170, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295360512) #11
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %41, ptr %42, align 8, !tbaa !67
   %43 = load ptr, ptr %3, align 8, !tbaa !13
-  %44 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %43, ptr nonnull @.str.171, i64 7, i32 0, i24 0, i1 noundef zeroext true, i64 4295032832) #12
+  %44 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %43, ptr nonnull @.str.171, i64 7, i32 0, i24 0, i1 noundef zeroext true, i64 4295032832) #11
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %44, ptr %45, align 8, !tbaa !68
   %46 = load ptr, ptr %3, align 8, !tbaa !13
-  %47 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %46, ptr nonnull @.str.172, i64 7, i32 0, i24 0, i1 noundef zeroext true, i64 4295098368) #12
+  %47 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %46, ptr nonnull @.str.172, i64 7, i32 0, i24 0, i1 noundef zeroext true, i64 4295098368) #11
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %47, ptr %48, align 8, !tbaa !69
   %49 = load ptr, ptr %3, align 8, !tbaa !13
-  %50 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %49, ptr nonnull @.str.173, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295622656) #12
+  %50 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %49, ptr nonnull @.str.173, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295622656) #11
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %50, ptr %51, align 8, !tbaa !71
   %52 = load ptr, ptr %3, align 8, !tbaa !13
-  %53 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %52, ptr nonnull @.str.174, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295163904) #12
+  %53 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %52, ptr nonnull @.str.174, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295163904) #11
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %53, ptr %54, align 8, !tbaa !72
   %55 = load ptr, ptr %3, align 8, !tbaa !13
-  %56 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %55, ptr nonnull @.str.175, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295229440) #12
+  %56 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %55, ptr nonnull @.str.175, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295229440) #11
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %56, ptr %57, align 8, !tbaa !73
   %58 = load ptr, ptr %3, align 8, !tbaa !13
-  %59 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %58, ptr nonnull @.str.176, i64 6, i32 0, i24 0, i1 noundef zeroext true, i64 4295426048) #12
+  %59 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %58, ptr nonnull @.str.176, i64 6, i32 0, i24 0, i1 noundef zeroext true, i64 4295426048) #11
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %59, ptr %60, align 8, !tbaa !76
   %61 = load ptr, ptr %3, align 8, !tbaa !13
-  %62 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %61, ptr nonnull @.str.177, i64 6, i32 0, i24 0, i1 noundef zeroext true, i64 4295557120) #12
+  %62 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %61, ptr nonnull @.str.177, i64 6, i32 0, i24 0, i1 noundef zeroext true, i64 4295557120) #11
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %62, ptr %63, align 8, !tbaa !79
   %64 = load ptr, ptr %3, align 8, !tbaa !13
-  %65 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %64, ptr nonnull @.str.178, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295294976) #12
+  %65 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %64, ptr nonnull @.str.178, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295294976) #11
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %65, ptr %66, align 8, !tbaa !81
   %67 = load ptr, ptr %3, align 8, !tbaa !13
-  %68 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %67, ptr nonnull @.str.179, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295491584) #12
+  %68 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %67, ptr nonnull @.str.179, i64 8, i32 0, i24 0, i1 noundef zeroext true, i64 4295491584) #11
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %68, ptr %69, align 8, !tbaa !82
   %70 = load ptr, ptr %3, align 8, !tbaa !13
-  %71 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %70, ptr nonnull @.str.180, i64 6, i32 0, i24 0, i1 noundef zeroext true, i64 4295688192) #12
+  %71 = tail call noundef ptr @_ZN4llvm9MCContext15getXCOFFSectionENS_9StringRefENS_11SectionKindESt8optionalINS_5XCOFF15CsectPropertiesEEbS3_INS4_24DwarfSectionSubtypeFlagsEE(ptr noundef nonnull align 8 dereferenceable(2432) %70, ptr nonnull @.str.180, i64 6, i32 0, i24 0, i1 noundef zeroext true, i64 4295688192) #11
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %71, ptr %72, align 8, !tbaa !84
   ret void
@@ -2894,7 +2894,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local void @_ZN4llvm16MCObjectFileInfo29initDXContainerObjectFileInfoERKNS_6TripleE(ptr noundef nonnull align 8 captures(none) dereferenceable(920) initializes((24, 32)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = tail call noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.181, i64 4, i32 2) #12
+  %5 = tail call noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432) %4, ptr nonnull @.str.181, i64 4, i32 2) #11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8, !tbaa !34
   ret void
@@ -2909,8 +2909,8 @@ define dso_local void @_ZN4llvm16MCObjectFileInfoD2Ev(ptr nonnull readnone align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm16MCObjectFileInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 {
-  tail call void @_ZN4llvm16MCObjectFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) #12
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 920) #13
+  tail call void @_ZN4llvm16MCObjectFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(920) %0) #11
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 920) #12
   ret void
 }
 
@@ -2970,7 +2970,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCC
   br label %30
 
 22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432) %1) #12
+  %23 = tail call noundef ptr @_ZN4llvm9MCContext15getSPIRVSectionEv(ptr noundef nonnull align 8 dereferenceable(2432) %1) #11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %23, ptr %24, align 8, !tbaa !34
   br label %30
@@ -2984,7 +2984,7 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo20initMCObjectFileInfoERNS_9MCC
   br label %30
 
 27:                                               ; preds = %4
-  %28 = tail call noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr nonnull @.str.181, i64 4, i32 2) #12
+  %28 = tail call noundef ptr @_ZN4llvm9MCContext21getDXContainerSectionENS_9StringRefENS_11SectionKindE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr nonnull @.str.181, i64 4, i32 2) #11
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %28, ptr %29, align 8, !tbaa !34
   br label %30
@@ -3009,16 +3009,16 @@ define dso_local noundef ptr @_ZNK4llvm16MCObjectFileInfo21getDwarfComdatSection
   %15 = load ptr, ptr %14, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 76
   %17 = load i32, ptr %16, align 4, !tbaa !346
-  switch i32 %17, label %95 [
+  switch i32 %17, label %91 [
     i32 3, label %18
-    i32 7, label %56
-    i32 5, label %94
-    i32 1, label %94
-    i32 4, label %94
-    i32 6, label %94
-    i32 8, label %94
-    i32 2, label %94
-    i32 0, label %94
+    i32 7, label %54
+    i32 5, label %90
+    i32 1, label %90
+    i32 4, label %90
+    i32 6, label %90
+    i32 8, label %90
+    i32 2, label %90
+    i32 0, label %90
   ]
 
 18:                                               ; preds = %3
@@ -3077,7 +3077,7 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %18, %22
   br i1 %36, label %37, label %._crit_edge.i.i.i
 
 37:                                               ; preds = %._crit_edge.i
-  %38 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #12
+  %38 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0) #11
   store ptr %38, ptr %10, align 8, !tbaa !354, !alias.scope !347
   %39 = load i64, ptr %6, align 8, !tbaa !328, !noalias !347
   store i64 %39, ptr %31, align 8, !tbaa !260, !alias.scope !347
@@ -3112,152 +3112,140 @@ _ZN4llvm6utostrB5cxx11Emb.exit:                   ; preds = %._crit_edge.i.i.i, 
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 33
   store i8 1, ptr %48, align 1, !tbaa !257
   store ptr %10, ptr %9, align 8, !tbaa !260
-  %49 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %15, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef 1, i32 noundef 512, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true, i32 noundef -1, ptr noundef null) #12
+  %49 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %15, ptr noundef nonnull align 8 dereferenceable(34) %8, i32 noundef 1, i32 noundef 512, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %9, i1 noundef zeroext true, i32 noundef -1, ptr noundef null) #11
   %50 = load ptr, ptr %10, align 8, !tbaa !354
   %51 = icmp eq ptr %50, %31
-  br i1 %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit
-  %52 = load i64, ptr %32, align 8, !tbaa !353
-  %53 = icmp ult i64 %52, 16
-  call void @llvm.assume(i1 %53)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit
-  %54 = load i64, ptr %31, align 8, !tbaa !260
-  %55 = add i64 %54, 1
-  call void @_ZdlPvm(ptr noundef %50, i64 noundef %55) #13
+  %52 = load i64, ptr %31, align 8, !tbaa !260
+  %53 = add i64 %52, 1
+  call void @_ZdlPvm(ptr noundef %50, i64 noundef %53) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %96
+  br label %92
 
-56:                                               ; preds = %3
+54:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  store i8 1, ptr %58, align 1, !tbaa !257
-  %59 = load i8, ptr %1, align 1, !tbaa !260
-  %.not.i6 = icmp eq i8 %59, 0
-  br i1 %.not.i6, label %_ZN4llvm5TwineC2EPKc.exit8, label %60
+  %55 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 33
+  store i8 1, ptr %56, align 1, !tbaa !257
+  %57 = load i8, ptr %1, align 1, !tbaa !260
+  %.not.i6 = icmp eq i8 %57, 0
+  br i1 %.not.i6, label %_ZN4llvm5TwineC2EPKc.exit8, label %58
 
-60:                                               ; preds = %56
+58:                                               ; preds = %54
   store ptr %1, ptr %11, align 8, !tbaa !260
   br label %_ZN4llvm5TwineC2EPKc.exit8
 
-_ZN4llvm5TwineC2EPKc.exit8:                       ; preds = %56, %60
-  %storemerge.i7 = phi i8 [ 3, %60 ], [ 1, %56 ]
-  store i8 %storemerge.i7, ptr %57, align 8, !tbaa !261
+_ZN4llvm5TwineC2EPKc.exit8:                       ; preds = %54, %58
+  %storemerge.i7 = phi i8 [ 3, %58 ], [ 1, %54 ]
+  store i8 %storemerge.i7, ptr %55, align 8, !tbaa !261
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !355
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 21
-  %62 = icmp eq i64 %2, 0
-  br i1 %62, label %.thread.i16, label %.lr.ph.i9
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 21
+  %60 = icmp eq i64 %2, 0
+  br i1 %60, label %.thread.i16, label %.lr.ph.i9
 
 .thread.i16:                                      ; preds = %_ZN4llvm5TwineC2EPKc.exit8
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i8 48, ptr %63, align 4, !tbaa !260, !noalias !355
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  store i8 48, ptr %61, align 4, !tbaa !260, !noalias !355
   br label %._crit_edge.i13
 
 .lr.ph.i9:                                        ; preds = %_ZN4llvm5TwineC2EPKc.exit8, %.lr.ph.i9
-  %.111.i10 = phi ptr [ %67, %.lr.ph.i9 ], [ %61, %_ZN4llvm5TwineC2EPKc.exit8 ]
-  %.0810.i11 = phi i64 [ %68, %.lr.ph.i9 ], [ %2, %_ZN4llvm5TwineC2EPKc.exit8 ]
-  %64 = urem i64 %.0810.i11, 10
-  %65 = trunc nuw nsw i64 %64 to i8
-  %66 = or disjoint i8 %65, 48
-  %67 = getelementptr inbounds i8, ptr %.111.i10, i64 -1
-  store i8 %66, ptr %67, align 1, !tbaa !260, !noalias !355
-  %68 = udiv i64 %.0810.i11, 10
+  %.111.i10 = phi ptr [ %65, %.lr.ph.i9 ], [ %59, %_ZN4llvm5TwineC2EPKc.exit8 ]
+  %.0810.i11 = phi i64 [ %66, %.lr.ph.i9 ], [ %2, %_ZN4llvm5TwineC2EPKc.exit8 ]
+  %62 = urem i64 %.0810.i11, 10
+  %63 = trunc nuw nsw i64 %62 to i8
+  %64 = or disjoint i8 %63, 48
+  %65 = getelementptr inbounds i8, ptr %.111.i10, i64 -1
+  store i8 %64, ptr %65, align 1, !tbaa !260, !noalias !355
+  %66 = udiv i64 %.0810.i11, 10
   %.not.i12 = icmp ult i64 %.0810.i11, 10
   br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i9, !llvm.loop !350
 
 ._crit_edge.i13:                                  ; preds = %.lr.ph.i9, %.thread.i16
-  %.1.lcssa.i14 = phi ptr [ %63, %.thread.i16 ], [ %67, %.lr.ph.i9 ]
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %69, ptr %13, align 8, !tbaa !352, !alias.scope !355
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 0, ptr %70, align 8, !tbaa !353, !alias.scope !355
+  %.1.lcssa.i14 = phi ptr [ %61, %.thread.i16 ], [ %65, %.lr.ph.i9 ]
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %67, ptr %13, align 8, !tbaa !352, !alias.scope !355
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 0, ptr %68, align 8, !tbaa !353, !alias.scope !355
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !355
-  %71 = ptrtoint ptr %61 to i64
-  %72 = ptrtoint ptr %.1.lcssa.i14 to i64
-  %73 = sub i64 %71, %72
-  store i64 %73, ptr %4, align 8, !tbaa !328, !noalias !355
-  %74 = icmp ugt i64 %73, 15
-  br i1 %74, label %75, label %._crit_edge.i.i.i15
+  %69 = ptrtoint ptr %59 to i64
+  %70 = ptrtoint ptr %.1.lcssa.i14 to i64
+  %71 = sub i64 %69, %70
+  store i64 %71, ptr %4, align 8, !tbaa !328, !noalias !355
+  %72 = icmp ugt i64 %71, 15
+  br i1 %72, label %73, label %._crit_edge.i.i.i15
 
-75:                                               ; preds = %._crit_edge.i13
-  %76 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #12
-  store ptr %76, ptr %13, align 8, !tbaa !354, !alias.scope !355
-  %77 = load i64, ptr %4, align 8, !tbaa !328, !noalias !355
-  store i64 %77, ptr %69, align 8, !tbaa !260, !alias.scope !355
+73:                                               ; preds = %._crit_edge.i13
+  %74 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0) #11
+  store ptr %74, ptr %13, align 8, !tbaa !354, !alias.scope !355
+  %75 = load i64, ptr %4, align 8, !tbaa !328, !noalias !355
+  store i64 %75, ptr %67, align 8, !tbaa !260, !alias.scope !355
   br label %._crit_edge.i.i.i15
 
-._crit_edge.i.i.i15:                              ; preds = %75, %._crit_edge.i13
-  %78 = phi ptr [ %76, %75 ], [ %69, %._crit_edge.i13 ]
-  switch i64 %73, label %81 [
-    i64 1, label %79
+._crit_edge.i.i.i15:                              ; preds = %73, %._crit_edge.i13
+  %76 = phi ptr [ %74, %73 ], [ %67, %._crit_edge.i13 ]
+  switch i64 %71, label %79 [
+    i64 1, label %77
     i64 0, label %_ZN4llvm6utostrB5cxx11Emb.exit17
   ]
 
+77:                                               ; preds = %._crit_edge.i.i.i15
+  %78 = load i8, ptr %.1.lcssa.i14, align 1, !tbaa !260, !noalias !355
+  store i8 %78, ptr %76, align 1, !tbaa !260
+  br label %_ZN4llvm6utostrB5cxx11Emb.exit17
+
 79:                                               ; preds = %._crit_edge.i.i.i15
-  %80 = load i8, ptr %.1.lcssa.i14, align 1, !tbaa !260, !noalias !355
-  store i8 %80, ptr %78, align 1, !tbaa !260
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull align 1 %.1.lcssa.i14, i64 %71, i1 false)
   br label %_ZN4llvm6utostrB5cxx11Emb.exit17
 
-81:                                               ; preds = %._crit_edge.i.i.i15
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr nonnull align 1 %.1.lcssa.i14, i64 %73, i1 false)
-  br label %_ZN4llvm6utostrB5cxx11Emb.exit17
-
-_ZN4llvm6utostrB5cxx11Emb.exit17:                 ; preds = %._crit_edge.i.i.i15, %79, %81
-  %82 = load i64, ptr %4, align 8, !tbaa !328, !noalias !355
-  store i64 %82, ptr %70, align 8, !tbaa !353, !alias.scope !355
-  %83 = load ptr, ptr %13, align 8, !tbaa !354, !alias.scope !355
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
-  store i8 0, ptr %84, align 1, !tbaa !260
+_ZN4llvm6utostrB5cxx11Emb.exit17:                 ; preds = %._crit_edge.i.i.i15, %77, %79
+  %80 = load i64, ptr %4, align 8, !tbaa !328, !noalias !355
+  store i64 %80, ptr %68, align 8, !tbaa !353, !alias.scope !355
+  %81 = load ptr, ptr %13, align 8, !tbaa !354, !alias.scope !355
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
+  store i8 0, ptr %82, align 1, !tbaa !260
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !355
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !355
-  %85 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 4, ptr %85, align 8, !tbaa !261
-  %86 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %86, align 1, !tbaa !257
+  %83 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i8 4, ptr %83, align 8, !tbaa !261
+  %84 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %84, align 1, !tbaa !257
   store ptr %13, ptr %12, align 8, !tbaa !260
-  %87 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %15, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef -1) #12
-  %88 = load ptr, ptr %13, align 8, !tbaa !354
-  %89 = icmp eq ptr %88, %69
-  br i1 %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit17
-  %90 = load i64, ptr %70, align 8, !tbaa !353
-  %91 = icmp ult i64 %90, 16
-  call void @llvm.assume(i1 %91)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
+  %85 = call noundef ptr @_ZN4llvm9MCContext14getWasmSectionERKNS_5TwineENS_11SectionKindEjS3_j(ptr noundef nonnull align 8 dereferenceable(2432) %15, ptr noundef nonnull align 8 dereferenceable(34) %11, i32 0, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %12, i32 noundef -1) #11
+  %86 = load ptr, ptr %13, align 8, !tbaa !354
+  %87 = icmp eq ptr %86, %67
+  br i1 %87, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit17
-  %92 = load i64, ptr %69, align 8, !tbaa !260
-  %93 = add i64 %92, 1
-  call void @_ZdlPvm(ptr noundef %88, i64 noundef %93) #13
+  %88 = load i64, ptr %67, align 8, !tbaa !260
+  %89 = add i64 %88, 1
+  call void @_ZdlPvm(ptr noundef %86, i64 noundef %89) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN4llvm6utostrB5cxx11Emb.exit17, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %96
+  br label %92
 
-94:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
-  tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.182, i1 noundef zeroext true) #14
+90:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
+  tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.182, i1 noundef zeroext true) #13
   unreachable
 
-95:                                               ; preds = %3
+91:                                               ; preds = %3
   unreachable
 
-96:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.0 = phi ptr [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
+92:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.0 = phi ptr [ %49, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20 ]
   ret ptr %.0
 }
 
@@ -3341,7 +3329,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %28, %24, %_ZNK4llvm
   %39 = load i32, ptr %38, align 4, !tbaa !362
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !366
-  %42 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %39, ptr noundef %41) #12
+  %42 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %39, ptr noundef %41) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
@@ -3407,7 +3395,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %16, %12, %8
   %27 = load i32, ptr %26, align 4, !tbaa !362
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !366
-  %30 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1879002122, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %27, ptr noundef %29) #12
+  %30 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1879002122, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %27, ptr noundef %29) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
@@ -3471,7 +3459,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %16, %12, %8
   %27 = load i32, ptr %26, align 4, !tbaa !362
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !366
-  %30 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %27, ptr noundef %29) #12
+  %30 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %27, ptr noundef %29) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
@@ -3548,7 +3536,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %19, %15, %11
   %34 = load i32, ptr %33, align 4, !tbaa !362
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !366
-  %37 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %34, ptr noundef %36) #12
+  %37 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %6, ptr noundef nonnull align 8 dereferenceable(34) %3, i32 noundef 1, i32 noundef %.09, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true, i32 noundef %34, ptr noundef %36) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %38
@@ -3624,7 +3612,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %14
   store i8 2, ptr %34, align 8, !tbaa !261, !alias.scope !373
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 5, ptr %35, align 1, !tbaa !257, !alias.scope !373
-  %36 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef %26, i32 noundef %20, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true, i32 noundef -1, ptr noundef null) #12
+  %36 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef %26, i32 noundef %20, i32 noundef %28, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true, i32 noundef -1, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3707,7 +3695,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit:                ; preds = %20, %16, %10
   %32 = load i32, ptr %31, align 4, !tbaa !362
   %33 = getelementptr inbounds nuw i8, ptr %.010, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !366
-  %35 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 1, i32 noundef %.011, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true, i32 noundef %32, ptr noundef %34) #12
+  %35 = call noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE(ptr noundef nonnull align 8 dereferenceable(2432) %8, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 1, i32 noundef %.011, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true, i32 noundef %32, ptr noundef %34) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %36
@@ -3740,11 +3728,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3756,11 +3741,10 @@ attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

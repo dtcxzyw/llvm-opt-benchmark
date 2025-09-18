@@ -21,11 +21,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #5
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -96,14 +96,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
 
 54:                                               ; preds = %47, %50, %40
   %55 = phi i32 [ %45, %40 ], [ %49, %47 ], [ %53, %50 ]
-  %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext false) #6
+  %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext false) #5
   %57 = load i64, ptr %2, align 8
   %58 = inttoptr i64 %57 to ptr
   %.not34 = icmp eq ptr %5, %58
   br i1 %.not34, label %60, label %59
 
 59:                                               ; preds = %54
-  tail call void @pfree(ptr noundef nonnull %5) #6
+  tail call void @pfree(ptr noundef nonnull %5) #5
   br label %60
 
 60:                                               ; preds = %54, %59
@@ -113,7 +113,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_tslexeme(ptr no
   br i1 %.not35, label %64, label %63
 
 63:                                               ; preds = %60
-  tail call void @pfree(ptr noundef nonnull %9) #6
+  tail call void @pfree(ptr noundef nonnull %9) #5
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -132,11 +132,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #6
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #6
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #5
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -207,14 +207,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
 
 54:                                               ; preds = %47, %50, %40
   %55 = phi i32 [ %45, %40 ], [ %49, %47 ], [ %53, %50 ]
-  %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext true) #6
+  %56 = tail call i32 @tsCompareString(ptr noundef nonnull %15, i32 noundef %32, ptr noundef nonnull %38, i32 noundef %55, i1 noundef zeroext true) #5
   %57 = load i64, ptr %2, align 8
   %58 = inttoptr i64 %57 to ptr
   %.not35 = icmp eq ptr %5, %58
   br i1 %.not35, label %60, label %59
 
 59:                                               ; preds = %54
-  tail call void @pfree(ptr noundef nonnull %5) #6
+  tail call void @pfree(ptr noundef nonnull %5) #5
   br label %60
 
 60:                                               ; preds = %54, %59
@@ -224,7 +224,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_cmp_prefix(ptr noun
   br i1 %.not36, label %64, label %63
 
 63:                                               ; preds = %60
-  tail call void @pfree(ptr noundef nonnull %9) #6
+  tail call void @pfree(ptr noundef nonnull %9) #5
   br label %64
 
 64:                                               ; preds = %63, %60
@@ -239,7 +239,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #6
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -253,7 +253,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = zext nneg i32 %10 to i64
   %15 = shl nuw nsw i64 %14, 3
-  %16 = tail call ptr @palloc(i64 noundef %15) #6
+  %16 = tail call ptr @palloc(i64 noundef %15) #5
   %17 = load i32, ptr %9, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %.loopexit
@@ -270,7 +270,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
   %26 = lshr i32 %22, 1
   %27 = and i32 %26, 2047
-  %28 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %25, i32 noundef %27) #6
+  %28 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %25, i32 noundef %27) #5
   %29 = ptrtoint ptr %28 to i64
   %30 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   store i64 %29, ptr %30, align 8
@@ -289,7 +289,7 @@ define dso_local i64 @gin_extract_tsvector(ptr noundef readonly captures(none) %
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %.loopexit
-  tail call void @pfree(ptr noundef nonnull %5) #6
+  tail call void @pfree(ptr noundef nonnull %5) #5
   br label %38
 
 38:                                               ; preds = %37, %.loopexit
@@ -326,7 +326,7 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
 19:                                               ; preds = %1
   %20 = inttoptr i64 %15 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = tail call zeroext i1 @tsquery_requires_match(ptr noundef nonnull %21) #6
+  %22 = tail call zeroext i1 @tsquery_requires_match(ptr noundef nonnull %21) #5
   %. = select i1 %22, i32 0, i32 2
   store i32 %., ptr %20, align 4
   %23 = load i32, ptr %16, align 4
@@ -354,15 +354,15 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
   store i32 %.053.lcssa, ptr %7, align 4
   %29 = sext i32 %.053.lcssa to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @palloc(i64 noundef %30) #6
-  %32 = tail call ptr @palloc(i64 noundef %29) #6
+  %31 = tail call ptr @palloc(i64 noundef %30) #5
+  %32 = tail call ptr @palloc(i64 noundef %29) #5
   store ptr %32, ptr %10, align 8
-  %33 = tail call ptr @palloc(i64 noundef %30) #6
+  %33 = tail call ptr @palloc(i64 noundef %30) #5
   store ptr %33, ptr %13, align 8
   %34 = load i32, ptr %16, align 4
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 2
-  %37 = tail call ptr @palloc0(i64 noundef %36) #6
+  %37 = tail call ptr @palloc0(i64 noundef %36) #5
   %38 = load i32, ptr %16, align 4
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph62, label %.loopexit
@@ -386,7 +386,7 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %51
   %53 = and i32 %49, 4095
-  %54 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %52, i32 noundef %53) #6
+  %54 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %52, i32 noundef %53) #5
   %55 = ptrtoint ptr %54 to i64
   %56 = sext i32 %.259 to i64
   %57 = getelementptr inbounds i64, ptr %31, i64 %56
@@ -419,7 +419,7 @@ define dso_local i64 @gin_extract_tsquery(ptr noundef readonly captures(none) %0
   br i1 %.not, label %71, label %70
 
 70:                                               ; preds = %.loopexit
-  tail call void @pfree(ptr noundef nonnull %4) #6
+  tail call void @pfree(ptr noundef nonnull %4) #5
   br label %71
 
 71:                                               ; preds = %70, %.loopexit
@@ -461,7 +461,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent(ptr noundef readonl
   %21 = load ptr, ptr %17, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = call i32 @TS_execute_ternary(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
+  %23 = call i32 @TS_execute_ternary(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #5
   switch i32 %23, label %26 [
     i32 2, label %25
     i32 1, label %24
@@ -546,7 +546,7 @@ define dso_local range(i64 -128, 128) i64 @gin_tsquery_triconsistent(ptr noundef
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %18, ptr %19, align 8
-  %20 = call i32 @TS_execute_ternary(ptr noundef nonnull %16, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
+  %20 = call i32 @TS_execute_ternary(ptr noundef nonnull %16, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #5
   %21 = zext i32 %20 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %sext = shl i64 %21, 56
@@ -566,17 +566,16 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 307, ptr noundef nonnull @__func__.gin_extract_tsvector_2args) #6
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 307, ptr noundef nonnull @__func__.gin_extract_tsvector_2args) #5
   unreachable
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #6
+  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load i64, ptr %13, align 8
   %15 = inttoptr i64 %14 to ptr
@@ -590,7 +589,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %21 = zext nneg i32 %17 to i64
   %22 = shl nuw nsw i64 %21, 3
-  %23 = tail call ptr @palloc(i64 noundef %22) #6
+  %23 = tail call ptr @palloc(i64 noundef %22) #5
   %24 = load i32, ptr %16, align 4
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.i, label %.loopexit.i
@@ -607,7 +606,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
   %33 = lshr i32 %29, 1
   %34 = and i32 %33, 2047
-  %35 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %32, i32 noundef %34) #6
+  %35 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %32, i32 noundef %34) #5
   %36 = ptrtoint ptr %35 to i64
   %37 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i
   store i64 %36, ptr %37, align 8
@@ -626,7 +625,7 @@ define dso_local i64 @gin_extract_tsvector_2args(ptr noundef readonly captures(n
   br i1 %.not.i, label %gin_extract_tsvector.exit, label %44
 
 44:                                               ; preds = %.loopexit.i
-  tail call void @pfree(ptr noundef nonnull %12) #6
+  tail call void @pfree(ptr noundef nonnull %12) #5
   br label %gin_extract_tsvector.exit
 
 gin_extract_tsvector.exit:                        ; preds = %.loopexit.i, %44
@@ -649,10 +648,9 @@ define dso_local i64 @gin_extract_tsquery_5args(ptr noundef readonly captures(no
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__.gin_extract_tsquery_5args) #6
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 319, ptr noundef nonnull @__func__.gin_extract_tsquery_5args) #5
   unreachable
 
 8:                                                ; preds = %1
@@ -669,10 +667,9 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr noundef r
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @__func__.gin_tsquery_consistent_6args) #6
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 331, ptr noundef nonnull @__func__.gin_tsquery_consistent_6args) #5
   unreachable
 
 9:                                                ; preds = %1
@@ -703,7 +700,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_6args(ptr noundef r
   %28 = load ptr, ptr %24, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %28, ptr %29, align 8
-  %30 = call i32 @TS_execute_ternary(ptr noundef nonnull %26, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
+  %30 = call i32 @TS_execute_ternary(ptr noundef nonnull %26, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #5
   switch i32 %30, label %33 [
     i32 2, label %32
     i32 1, label %31
@@ -762,7 +759,7 @@ define dso_local range(i64 0, 2) i64 @gin_tsquery_consistent_oldsig(ptr noundef 
   %21 = load ptr, ptr %17, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = call i32 @TS_execute_ternary(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #6
+  %23 = call i32 @TS_execute_ternary(ptr noundef nonnull %19, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @checkcondition_gin) #5
   switch i32 %23, label %26 [
     i32 2, label %25
     i32 1, label %24
@@ -793,17 +790,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

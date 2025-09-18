@@ -327,7 +327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store i64 %67, ptr %68, align 8, !tbaa !49
   store ptr %52, ptr %9, align 8, !tbaa !58
   store i64 0, ptr %53, align 8, !tbaa !49
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 69:                                               ; preds = %_ZN4llvm4copyIRNS_8ArrayRefINS_7support6detail31packed_endian_specific_integralItLNS_10endiannessE1ELm1ELm1EEEEEPtEET0_OT_SA_.exit
   %70 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15, !noalias !59
@@ -348,69 +348,63 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %70, ptr %0, align 8, !tbaa !42, !alias.scope !66
   %.pre65 = load ptr, ptr %9, align 8, !tbaa !58
   %77 = icmp eq ptr %.pre65, %52
-  br i1 %77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.thread, %69
-  %78 = load i64, ptr %53, align 8, !tbaa !49
-  %79 = icmp ult i64 %78, 16
-  call void @llvm.assume(i1 %79)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %77, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23: ; preds = %69
-  %80 = load i64, ptr %52, align 8, !tbaa !41
-  %81 = add i64 %80, 1
-  call void @_ZdlPvm(ptr noundef %.pre65, i64 noundef %81) #17
+  %78 = load i64, ptr %52, align 8, !tbaa !41
+  %79 = add i64 %78, 1
+  call void @_ZdlPvm(ptr noundef %.pre65, i64 noundef %79) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %69, %.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %82 = load ptr, ptr %8, align 8, !tbaa !51
-  %83 = icmp eq ptr %82, %39
-  br i1 %83, label %85, label %84
+  %80 = load ptr, ptr %8, align 8, !tbaa !51
+  %81 = icmp eq ptr %80, %39
+  br i1 %81, label %83, label %82
 
-84:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  call void @free(ptr noundef %82) #16
-  br label %85
+82:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  call void @free(ptr noundef %80) #16
+  br label %83
 
-85:                                               ; preds = %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+83:                                               ; preds = %82, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24: ; preds = %33
-  %86 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15, !noalias !69
+  %84 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15, !noalias !69
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !69
-  %87 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %87, align 1, !tbaa !40, !noalias !69
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %85, align 1, !tbaa !40, !noalias !69
   store ptr @.str.9, ptr %5, align 8, !tbaa !41, !noalias !69
-  %88 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 3, ptr %88, align 8, !tbaa !37, !noalias !69
-  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %86, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 4) #16, !noalias !69
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 3, ptr %86, align 8, !tbaa !37, !noalias !69
+  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %84, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 4) #16, !noalias !69
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !69
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %90 = load i8, ptr %89, align 8
-  %91 = or i8 %90, 1
-  store i8 %91, ptr %89, align 8
-  store ptr %86, ptr %0, align 8, !tbaa !42, !alias.scope !80
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %88 = load i8, ptr %87, align 8
+  %89 = or i8 %88, 1
+  store i8 %89, ptr %87, align 8
+  store ptr %84, ptr %0, align 8, !tbaa !42, !alias.scope !80
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27: ; preds = %3
-  %92 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15, !noalias !83
+  %90 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15, !noalias !83
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !83
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %93, align 1, !tbaa !40, !noalias !83
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %91, align 1, !tbaa !40, !noalias !83
   store ptr @.str.9, ptr %7, align 8, !tbaa !41, !noalias !83
-  %94 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 3, ptr %94, align 8, !tbaa !37, !noalias !83
-  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %92, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 noundef 4) #16, !noalias !83
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 3, ptr %92, align 8, !tbaa !37, !noalias !83
+  call void @_ZN4llvm6object18GenericBinaryErrorC1ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %90, ptr noundef nonnull align 8 dereferenceable(34) %7, i32 noundef 4) #16, !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !83
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %96 = load i8, ptr %95, align 8
-  %97 = or i8 %96, 1
-  store i8 %97, ptr %95, align 8
-  store ptr %92, ptr %0, align 8, !tbaa !42, !alias.scope !94
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %94 = load i8, ptr %93, align 8
+  %95 = or i8 %94, 1
+  store i8 %95, ptr %93, align 8
+  store ptr %90, ptr %0, align 8, !tbaa !42, !alias.scope !94
   br label %_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24, %85, %_ZN4llvm5ErrorD2Ev.exit10, %._crit_edge.i.i.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27
+_ZN4llvm8ExpectedINS_8ArrayRefINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i24, %83, %_ZN4llvm5ErrorD2Ev.exit10, %._crit_edge.i.i.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i27
   ret void
 }
 

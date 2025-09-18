@@ -36,8 +36,8 @@ define hidden void @je_prof_backtrace(ptr noundef readnone captures(none) %0, pt
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_prof_hooks_init() local_unnamed_addr #1 {
-  tail call void @je_prof_backtrace_hook_set(ptr noundef nonnull @prof_backtrace_impl) #10
-  tail call void @je_prof_dump_hook_set(ptr noundef null) #10
+  tail call void @je_prof_backtrace_hook_set(ptr noundef nonnull @prof_backtrace_impl) #9
+  tail call void @je_prof_dump_hook_set(ptr noundef null) #9
   ret void
 }
 
@@ -57,8 +57,8 @@ define hidden void @je_prof_unwind_init() local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prof_sys_thread_name_read_impl(ptr noundef %0, i64 noundef %1) #1 {
-  %3 = tail call i64 @pthread_self() #11
-  %4 = tail call i32 @pthread_getname_np(i64 noundef %3, ptr noundef %0, i64 noundef %1) #10
+  %3 = tail call i64 @pthread_self() #10
+  %4 = tail call i32 @pthread_getname_np(i64 noundef %3, ptr noundef %0, i64 noundef %1) #9
   ret i32 %4
 }
 
@@ -66,13 +66,13 @@ define internal i32 @prof_sys_thread_name_read_impl(ptr noundef %0, i64 noundef 
 define hidden void @je_prof_sys_thread_name_fetch(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call i64 @pthread_self() #11
-  %4 = call i32 @pthread_getname_np(i64 noundef %3, ptr noundef nonnull %2, i64 noundef 16) #10
+  %3 = tail call i64 @pthread_self() #10
+  %4 = call i32 @pthread_getname_np(i64 noundef %3, ptr noundef nonnull %2, i64 noundef 16) #9
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = call i32 @je_prof_thread_name_set_impl(ptr noundef %0, ptr noundef nonnull %2) #10
+  %6 = call i32 @je_prof_thread_name_set_impl(ptr noundef %0, ptr noundef nonnull %2) #9
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -84,7 +84,7 @@ declare i32 @je_prof_thread_name_set_impl(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @je_prof_getpid() local_unnamed_addr #1 {
-  %1 = tail call i32 @getpid() #10
+  %1 = tail call i32 @getpid() #9
   ret i32 %1
 }
 
@@ -93,24 +93,24 @@ declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @prof_dump_open_file_impl(ptr noundef %0, i32 noundef %1) #1 {
-  %3 = tail call i32 @creat(ptr noundef %0, i32 noundef %1) #10
+  %3 = tail call i32 @creat(ptr noundef %0, i32 noundef %1) #9
   ret i32 %3
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal i64 @malloc_write_fd(i32 noundef %0, ptr noundef %1, i64 noundef %2) #5 {
-  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef %0, ptr noundef %1, i64 noundef %2) #10
+  %4 = tail call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef %0, ptr noundef %1, i64 noundef %2) #9
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_prof_get_default_filename(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %6, label %5
 
 5:                                                ; preds = %3
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #9
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %6
 
@@ -130,10 +130,10 @@ define hidden void @je_prof_get_default_filename(ptr noundef %0, ptr noundef %1,
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %6, %10
-  %13 = tail call i32 @getpid() #10
-  %14 = tail call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef %1, i64 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @je_opt_prof_prefix, i32 noundef %13, i64 noundef %2) #10
+  %13 = tail call i32 @getpid() #9
+  %14 = tail call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef %1, i64 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull @je_opt_prof_prefix, i32 noundef %13, i64 noundef %2) #9
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   ret void
 }
 
@@ -141,10 +141,8 @@ declare i64 @je_malloc_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) loca
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @je_prof_fdump_impl(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
-  %.not.i = icmp ne i32 %2, 0
-  tail call void @llvm.assume(i1 %.not.i)
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #10
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #9
   unreachable
 }
 
@@ -155,12 +153,12 @@ define hidden noundef zeroext i1 @je_prof_prefix_set(ptr noundef readnone captur
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_prof_idump_impl(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #9
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %4
 
@@ -180,59 +178,51 @@ define hidden void @je_prof_idump_impl(ptr noundef %0) local_unnamed_addr #1 {
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %11 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !16
-  %12 = icmp eq i8 %11, 0
-  tail call void @llvm.assume(i1 %12)
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_prof_mdump_impl(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #1 {
-  %3 = icmp eq ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
-  %.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i, label %6, label %5
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
+  %.not.i = icmp eq i32 %3, 0
+  br i1 %.not.i, label %5, label %4
 
-5:                                                ; preds = %2
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #10
+4:                                                ; preds = %2
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #9
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
-  br label %6
+  br label %5
 
-6:                                                ; preds = %5, %2
-  %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !4
-  %8 = add i64 %7, 1
-  store i64 %8, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !4
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
-  %.not.i.i = icmp eq ptr %9, %0
-  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %10
+5:                                                ; preds = %4, %2
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !4
+  %7 = add i64 %6, 1
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 56), align 8, !tbaa !4
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
+  %.not.i.i = icmp eq ptr %8, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %9
 
-10:                                               ; preds = %6
+9:                                                ; preds = %5
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 48), align 8, !tbaa !14
-  %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
-  %12 = add i64 %11, 1
-  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
+  %11 = add i64 %10, 1
+  store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 40), align 8, !tbaa !15
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %6, %10
-  %13 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !16
-  %14 = icmp eq i8 %13, 0
-  tail call void @llvm.assume(i1 %14)
+malloc_mutex_lock.exit:                           ; preds = %5, %9
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
-  %15 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_prof_gdump_impl(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %2 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #10
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_filename_mtx) #9
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
   br label %4
 
@@ -252,11 +242,8 @@ define hidden void @je_prof_gdump_impl(ptr noundef %0) local_unnamed_addr #1 {
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %4, %8
-  %11 = load i8, ptr @je_opt_prof_prefix, align 1, !tbaa !16
-  %12 = icmp eq i8 %11, 0
-  tail call void @llvm.assume(i1 %12)
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 104) monotonic, align 8
-  %13 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10
+  %11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #9
   ret void
 }
 
@@ -290,9 +277,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -302,9 +286,8 @@ attributes #5 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-t
 attributes #6 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -324,4 +307,3 @@ attributes #11 = { nounwind willreturn memory(none) }
 !13 = !{!"any pointer", !8, i64 0}
 !14 = !{!5, !12, i64 48}
 !15 = !{!5, !7, i64 40}
-!16 = !{!8, !8, i64 0}

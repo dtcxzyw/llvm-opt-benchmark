@@ -27,40 +27,38 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
   %8 = alloca %struct.ObjectAddress, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @GetUserId() #6
+  %11 = tail call i32 @GetUserId() #5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %12 = tail call zeroext i1 @superuser() #6
+  %12 = tail call zeroext i1 @superuser() #5
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %1
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 16797828) #6
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.CreateProceduralLanguage) #6
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %15 = tail call i32 @errcode(i32 noundef 16797828) #5
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 66, ptr noundef nonnull @__func__.CreateProceduralLanguage) #5
   unreachable
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @LookupFuncName(ptr noundef %19, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #6
-  %21 = tail call i32 @get_func_rettype(i32 noundef %20) #6
+  %20 = tail call i32 @LookupFuncName(ptr noundef %19, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #5
+  %21 = tail call i32 @get_func_rettype(i32 noundef %20) #5
   %.not = icmp eq i32 %21, 2280
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %17
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 @errcode(i32 noundef 151027844) #6
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %24 = tail call i32 @errcode(i32 noundef 151027844) #5
   %25 = load ptr, ptr %18, align 8
-  %26 = tail call ptr @NameListToString(ptr noundef %25) #6
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %26, ptr noundef nonnull @.str.3) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @__func__.CreateProceduralLanguage) #6
+  %26 = tail call ptr @NameListToString(ptr noundef %25) #5
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %26, ptr noundef nonnull @.str.3) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 79, ptr noundef nonnull @__func__.CreateProceduralLanguage) #5
   unreachable
 
 28:                                               ; preds = %17
@@ -71,7 +69,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
 
 31:                                               ; preds = %28
   store i32 2281, ptr %3, align 4
-  %32 = call i32 @LookupFuncName(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %32 = call i32 @LookupFuncName(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #5
   br label %33
 
 33:                                               ; preds = %28, %31
@@ -83,18 +81,18 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
 
 36:                                               ; preds = %33
   store i32 26, ptr %3, align 4
-  %37 = call i32 @LookupFuncName(ptr noundef nonnull %35, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #6
+  %37 = call i32 @LookupFuncName(ptr noundef nonnull %35, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #5
   br label %38
 
 38:                                               ; preds = %33, %36
   %.048 = phi i32 [ %37, %36 ], [ 0, %33 ]
-  %39 = call ptr @table_open(i32 noundef 2612, i32 noundef 3) #6
+  %39 = call ptr @table_open(i32 noundef 2612, i32 noundef 3) #5
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load ptr, ptr %40, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %4, i8 0, i64 72, i1 false)
   store i64 0, ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 1, i64 9, i1 false)
-  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %10) #6
+  call void @namestrcpy(ptr noundef nonnull %7, ptr noundef %10) #5
   %42 = ptrtoint ptr %7 to i64
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %42, ptr %43, align 8
@@ -120,7 +118,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %57, align 8
   %58 = ptrtoint ptr %10 to i64
-  %59 = call ptr @SearchSysCache1(i32 noundef 35, i64 noundef %58) #6
+  %59 = call ptr @SearchSysCache1(i32 noundef 35, i64 noundef %58) #5
   %.not54 = icmp ne ptr %59, null
   br i1 %.not54, label %60, label %.critedge
 
@@ -131,11 +129,10 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %60
-  %65 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %65)
-  %66 = call i32 @errcode(i32 noundef 290948) #6
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %10) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.CreateProceduralLanguage) #6
+  %65 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %66 = call i32 @errcode(i32 noundef 290948) #5
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %10) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 131, ptr noundef nonnull @__func__.CreateProceduralLanguage) #5
   unreachable
 
 68:                                               ; preds = %60
@@ -150,44 +147,44 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
   store i8 0, ptr %74, align 1
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 0, ptr %75, align 1
-  %76 = call ptr @heap_modify_tuple(ptr noundef nonnull %59, ptr noundef %41, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
+  %76 = call ptr @heap_modify_tuple(ptr noundef nonnull %59, ptr noundef %41, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %39, ptr noundef nonnull %77, ptr noundef %76) #6
+  call void @CatalogTupleUpdate(ptr noundef nonnull %39, ptr noundef nonnull %77, ptr noundef %76) #5
   %78 = load i32, ptr %73, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %59) #6
+  call void @ReleaseSysCache(ptr noundef nonnull %59) #5
   store i32 2612, ptr %2, align 8
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %78, ptr %79, align 4
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %80, align 8
-  %81 = call i64 @deleteDependencyRecordsFor(i32 noundef 2612, i32 noundef %78, i1 noundef zeroext true) #6
+  %81 = call i64 @deleteDependencyRecordsFor(i32 noundef 2612, i32 noundef %78, i1 noundef zeroext true) #5
   br label %87
 
 .critedge:                                        ; preds = %38
-  %82 = call i32 @GetNewOidWithIndex(ptr noundef nonnull %39, i32 noundef 2682, i16 noundef signext 1) #6
+  %82 = call i32 @GetNewOidWithIndex(ptr noundef nonnull %39, i32 noundef 2682, i16 noundef signext 1) #5
   %83 = zext i32 %82 to i64
   store i64 %83, ptr %4, align 16
-  %84 = call ptr @heap_form_tuple(ptr noundef %41, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  call void @CatalogTupleInsert(ptr noundef nonnull %39, ptr noundef %84) #6
+  %84 = call ptr @heap_form_tuple(ptr noundef %41, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
+  call void @CatalogTupleInsert(ptr noundef nonnull %39, ptr noundef %84) #5
   store i32 2612, ptr %2, align 8
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %82, ptr %85, align 4
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %86, align 8
-  call void @recordDependencyOnOwner(i32 noundef 2612, i32 noundef %82, i32 noundef %11) #6
+  call void @recordDependencyOnOwner(i32 noundef 2612, i32 noundef %82, i32 noundef %11) #5
   br label %87
 
 87:                                               ; preds = %68, %.critedge
   %88 = phi ptr [ %80, %68 ], [ %86, %.critedge ]
   %89 = phi ptr [ %79, %68 ], [ %85, %.critedge ]
-  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %2, i1 noundef zeroext %.not54) #6
-  %90 = call ptr @new_object_addresses() #6
+  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %2, i1 noundef zeroext %.not54) #5
+  %90 = call ptr @new_object_addresses() #5
   store i32 1255, ptr %8, align 4
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %20, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %92, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %90) #6
+  call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %90) #5
   %.not55 = icmp eq i32 %.0, 0
   br i1 %.not55, label %94, label %93
 
@@ -195,7 +192,7 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
   store i32 1255, ptr %8, align 4
   store i32 %.0, ptr %91, align 4
   store i32 0, ptr %92, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %90) #6
+  call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %90) #5
   br label %94
 
 94:                                               ; preds = %93, %87
@@ -206,23 +203,23 @@ define dso_local { i64, i32 } @CreateProceduralLanguage(ptr noundef readonly cap
   store i32 1255, ptr %8, align 4
   store i32 %.048, ptr %91, align 4
   store i32 0, ptr %92, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %90) #6
+  call void @add_exact_object_address(ptr noundef nonnull %8, ptr noundef %90) #5
   br label %96
 
 96:                                               ; preds = %95, %94
-  call void @record_object_address_dependencies(ptr noundef nonnull %2, ptr noundef %90, i32 noundef 110) #6
-  call void @free_object_addresses(ptr noundef %90) #6
+  call void @record_object_address_dependencies(ptr noundef nonnull %2, ptr noundef %90, i32 noundef 110) #5
+  call void @free_object_addresses(ptr noundef %90) #5
   %97 = load ptr, ptr @object_access_hook, align 8
   %.not57 = icmp eq ptr %97, null
   br i1 %.not57, label %100, label %98
 
 98:                                               ; preds = %96
   %99 = load i32, ptr %89, align 4
-  call void @RunObjectPostCreateHook(i32 noundef 2612, i32 noundef %99, i32 noundef 0, i1 noundef zeroext false) #6
+  call void @RunObjectPostCreateHook(i32 noundef 2612, i32 noundef %99, i32 noundef 0, i1 noundef zeroext false) #5
   br label %100
 
 100:                                              ; preds = %98, %96
-  call void @table_close(ptr noundef nonnull %39, i32 noundef 3) #6
+  call void @table_close(ptr noundef nonnull %39, i32 noundef 3) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -297,17 +294,16 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_language_oid(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = tail call i32 @GetSysCacheOid(i32 noundef 35, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  %4 = tail call i32 @GetSysCacheOid(i32 noundef 35, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   %5 = icmp ne i32 %4, 0
   %or.cond = or i1 %1, %5
   br i1 %or.cond, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 67137668) #6
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 235, ptr noundef nonnull @__func__.get_language_oid) #6
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #5
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 235, ptr noundef nonnull @__func__.get_language_oid) #5
   unreachable
 
 10:                                               ; preds = %2
@@ -322,17 +318,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

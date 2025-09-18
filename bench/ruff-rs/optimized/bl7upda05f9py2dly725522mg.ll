@@ -14955,9 +14955,6 @@ define hidden { ptr, i64 } @_ZN18ty_python_semantic5types13TypeAliasType4name17h
 10:                                               ; preds = %8, %6
   %.sink = phi ptr [ %9, %8 ], [ %7, %6 ]
   %11 = tail call { ptr, i64 } @_ZN15ruff_python_ast4name4Name6as_str17hea18ebf34490796bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sink)
-  %.sroa.02.0 = extractvalue { ptr, i64 } %11, 0
-  %12 = icmp ne ptr %.sroa.02.0, null
-  tail call void @llvm.assume(i1 %12)
   ret { ptr, i64 } %11
 }
 

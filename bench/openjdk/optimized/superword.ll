@@ -3912,7 +3912,7 @@ _ZN26GrowableArrayWithAllocatorIP9Node_List13GrowableArrayIS1_EE6appendERKS1_.ex
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %209 = load ptr, ptr %208, align 8
   %210 = call noundef zeroext i1 %209(ptr noundef nonnull align 8 dereferenceable(8) %.3) #12
-  br i1 %210, label %211, label %288
+  br i1 %210, label %211, label %283
 
 211:                                              ; preds = %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit"
   %212 = load ptr, ptr %.3, align 8
@@ -3973,78 +3973,69 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i.i.i: ; preds
   %252 = load i32, ptr %251, align 4
   %253 = and i32 %252, 7
   %254 = icmp eq i32 %253, 5
-  %spec.select.i.i.i.i.i = select i1 %254, ptr %249, ptr %246
+  %255 = ptrtoint ptr %249 to i64
+  %256 = select i1 %254, i64 %255, i64 %245
   br label %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i.i
 
 _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i.i:  ; preds = %250, %232
-  %.0.i.i.i.i.i = phi ptr [ %234, %232 ], [ %spec.select.i.i.i.i.i, %250 ]
-  %255 = ptrtoint ptr %.0.i.i.i.i.i to i64
-  %256 = add nsw i64 %255, 1
-  %257 = inttoptr i64 %256 to ptr
-  store ptr %257, ptr %228, align 8
+  %.0.i.i.i.i.i = phi i64 [ %233, %232 ], [ %256, %250 ]
+  %257 = add nsw i64 %.0.i.i.i.i.i, 1
+  %258 = inttoptr i64 %257 to ptr
+  store ptr %258, ptr %228, align 8
   %.pre = load i32, ptr %220, align 8
   br label %_ZNK5VLoop5in_bbEPK4Node.exit.i.i
 
 _ZNK5VLoop5in_bbEPK4Node.exit.i.i:                ; preds = %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i.i, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i.i, %211
-  %258 = phi i32 [ %.pre, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i.i ], [ %221, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i.i ], [ %221, %211 ]
-  %259 = phi ptr [ %.0.i.i.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i.i ], [ %217, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i.i ], [ %217, %211 ]
-  %260 = getelementptr inbounds nuw i8, ptr %217, i64 32
-  %261 = load i32, ptr %260, align 8
-  %.not7.i.i.i = icmp ne i32 %261, 0
-  %262 = getelementptr inbounds nuw i8, ptr %218, i64 24
+  %259 = phi i32 [ %.pre, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i.i ], [ %221, %_ZNK14PhaseIdealLoop8has_ctrlEPK4Node.exit.i.i.i ], [ %221, %211 ]
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %261 = load ptr, ptr %260, align 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 32
   %263 = load ptr, ptr %262, align 8
-  %264 = icmp eq ptr %259, %263
-  call void @llvm.assume(i1 %.not7.i.i.i)
-  call void @llvm.assume(i1 %264)
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 32
-  %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
+  %265 = load ptr, ptr %264, align 8
+  %266 = sext i32 %259 to i64
+  %267 = getelementptr inbounds i32, ptr %265, i64 %266
+  %268 = load i32, ptr %267, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %270 = load ptr, ptr %269, align 8
-  %271 = sext i32 %258 to i64
-  %272 = getelementptr inbounds i32, ptr %270, i64 %271
-  %273 = load i32, ptr %272, align 4
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %275 = load ptr, ptr %274, align 8
-  %276 = sext i32 %273 to i64
-  %277 = getelementptr inbounds ptr, ptr %275, i64 %276
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %217, ptr %279, align 8
-  %280 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  %281 = load i32, ptr %280, align 8
-  %282 = load ptr, ptr %217, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %282, i64 216
-  %284 = load ptr, ptr %283, align 8
-  %285 = call noundef i32 %284(ptr noundef nonnull align 8 dereferenceable(56) %217) #12
-  %286 = mul i32 %285, %281
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %286, ptr %287, align 8
-  br label %288
+  %271 = sext i32 %268 to i64
+  %272 = getelementptr inbounds ptr, ptr %270, i64 %271
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store ptr %217, ptr %274, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 24
+  %276 = load i32, ptr %275, align 8
+  %277 = load ptr, ptr %217, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 216
+  %279 = load ptr, ptr %278, align 8
+  %280 = call noundef i32 %279(ptr noundef nonnull align 8 dereferenceable(56) %217) #12
+  %281 = mul i32 %280, %276
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %281, ptr %282, align 8
+  br label %283
 
-288:                                              ; preds = %_ZNK5VLoop5in_bbEPK4Node.exit.i.i, %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit"
-  %289 = load ptr, ptr %12, align 8
-  %.not.i.i.i.i7 = icmp eq ptr %289, null
-  br i1 %.not.i.i.i.i7, label %291, label %290
+283:                                              ; preds = %_ZNK5VLoop5in_bbEPK4Node.exit.i.i, %"_ZN7PackSet12filter_packsIZN9SuperWord26filter_packs_for_alignmentEvE3$_0EEvPKcS4_T_.exit"
+  %284 = load ptr, ptr %12, align 8
+  %.not.i.i.i.i7 = icmp eq ptr %284, null
+  br i1 %.not.i.i.i.i7, label %286, label %285
 
-290:                                              ; preds = %288
+285:                                              ; preds = %283
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %10, i64 noundef %18) #12
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %12) #12
-  br label %291
+  br label %286
 
-291:                                              ; preds = %290, %288
-  %292 = load ptr, ptr %13, align 8
-  %.not8.i.i.i.i = icmp eq ptr %292, %14
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %293
+286:                                              ; preds = %285, %283
+  %287 = load ptr, ptr %13, align 8
+  %.not8.i.i.i.i = icmp eq ptr %287, %14
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %288
 
-293:                                              ; preds = %291
+288:                                              ; preds = %286
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   store ptr %16, ptr %15, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %293, %291, %1
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %288, %286, %1
   ret void
 }
 

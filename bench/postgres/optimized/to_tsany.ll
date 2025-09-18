@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 4294967296) i64 @get_current_ts_config(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %2 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   %3 = zext i32 %2 to i64
   ret i64 %3
 }
@@ -41,7 +41,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %9, i16 16383)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 2, ptr %10, align 2
-  %11 = tail call ptr @palloc(i64 noundef 4) #8
+  %11 = tail call ptr @palloc(i64 noundef 4) #7
   store ptr %11, ptr %8, align 8
   store i16 1, ptr %11, align 2
   %12 = load ptr, ptr %8, align 8
@@ -52,13 +52,13 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
 
 .lr.ph.preheader.i:                               ; preds = %5
   %14 = zext nneg i32 %3 to i64
-  tail call void @pg_qsort(ptr noundef %6, i64 noundef %14, i64 noundef 24, ptr noundef nonnull @compareWORD) #8
+  tail call void @pg_qsort(ptr noundef %6, i64 noundef %14, i64 noundef 24, ptr noundef nonnull @compareWORD) #7
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i16, ptr %15, align 8
   %spec.select85.i = tail call i16 @llvm.umin.i16(i16 %16, i16 16383)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 6
   store i16 2, ptr %17, align 2
-  %18 = tail call ptr @palloc(i64 noundef 4) #8
+  %18 = tail call ptr @palloc(i64 noundef 4) #7
   store ptr %18, ptr %15, align 8
   store i16 1, ptr %18, align 2
   %19 = load ptr, ptr %15, align 8
@@ -85,7 +85,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %30 = getelementptr inbounds nuw i8, ptr %.093.i, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = zext i16 %23 to i64
-  %33 = tail call i32 @strncmp(ptr noundef %29, ptr noundef %31, i64 noundef %32) #9
+  %33 = tail call i32 @strncmp(ptr noundef %29, ptr noundef %31, i64 noundef %32) #8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %48, label %35
 
@@ -102,7 +102,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %spec.select86.i = tail call i16 @llvm.umin.i16(i16 %42, i16 16383)
   %43 = getelementptr inbounds nuw i8, ptr %.093.i, i64 30
   store i16 2, ptr %43, align 2
-  %44 = tail call ptr @palloc(i64 noundef 4) #8
+  %44 = tail call ptr @palloc(i64 noundef 4) #7
   %45 = getelementptr inbounds nuw i8, ptr %.093.i, i64 32
   store ptr %44, ptr %45, align 8
   store i16 1, ptr %44, align 2
@@ -112,7 +112,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   br label %84
 
 48:                                               ; preds = %27
-  tail call void @pfree(ptr noundef %29) #8
+  tail call void @pfree(ptr noundef %29) #7
   %49 = getelementptr inbounds nuw i8, ptr %.093.i, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i16, ptr %50, align 2
@@ -146,7 +146,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   store i16 %66, ptr %63, align 2
   %67 = shl nuw nsw i16 %64, 2
   %68 = zext nneg i16 %67 to i64
-  %69 = tail call ptr @repalloc(ptr noundef nonnull %50, i64 noundef %68) #8
+  %69 = tail call ptr @repalloc(ptr noundef nonnull %50, i64 noundef %68) #7
   store ptr %69, ptr %49, align 8
   %.pre.i = load i16, ptr %69, align 2
   %.pre96.pre.i = load i16, ptr %58, align 8
@@ -244,11 +244,10 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   br i1 %116, label %117, label %._crit_edge.thread
 
 117:                                              ; preds = %._crit_edge
-  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 @errcode(i32 noundef 261) #8
-  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %.187, i32 noundef 1048575) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.make_tsvector) #8
+  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %119 = tail call i32 @errcode(i32 noundef 261) #7
+  %120 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %.187, i32 noundef 1048575) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.make_tsvector) #7
   unreachable
 
 ._crit_edge.thread:                               ; preds = %1, %89, %._crit_edge
@@ -258,7 +257,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %123 = add nsw i32 %.086.lcssa129, 8
   %124 = add i32 %123, %122
   %125 = sext i32 %124 to i64
-  %126 = tail call ptr @palloc0(i64 noundef %125) #8
+  %126 = tail call ptr @palloc0(i64 noundef %125) #7
   %127 = shl i32 %124, 2
   store i32 %127, ptr %126, align 4
   %128 = load i32, ptr %2, align 4
@@ -305,7 +304,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %159 = add i32 %.084103, %158
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %161 = load ptr, ptr %160, align 8
-  tail call void @pfree(ptr noundef %161) #8
+  tail call void @pfree(ptr noundef %161) #7
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds nuw %struct.ParsedWord, ptr %162, i64 %indvars.iv115
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 6
@@ -372,7 +371,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   %203 = getelementptr inbounds nuw %struct.ParsedWord, ptr %202, i64 %indvars.iv115
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8
-  tail call void @pfree(ptr noundef %205) #8
+  tail call void @pfree(ptr noundef %205) #7
   br label %209
 
 206:                                              ; preds = %.lr.ph106
@@ -396,7 +395,7 @@ define dso_local noundef ptr @make_tsvector(ptr noundef captures(none) %0) local
   br i1 %.not, label %216, label %215
 
 215:                                              ; preds = %._crit_edge107
-  tail call void @pfree(ptr noundef nonnull %214) #8
+  tail call void @pfree(ptr noundef nonnull %214) #7
   br label %216
 
 216:                                              ; preds = %215, %._crit_edge107
@@ -428,7 +427,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
@@ -491,7 +490,7 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   store i32 0, ptr %43, align 8
   %44 = and i64 %41, 2147483647
   %45 = mul nuw nsw i64 %44, 24
-  %46 = tail call ptr @palloc(i64 noundef %45) #8
+  %46 = tail call ptr @palloc(i64 noundef %45) #7
   store ptr %46, ptr %2, align 8
   %47 = load i8, ptr %9, align 1
   %48 = zext i8 %47 to i32
@@ -528,14 +527,14 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
 
 68:                                               ; preds = %61, %64, %54
   %69 = phi i32 [ %59, %54 ], [ %63, %61 ], [ %67, %64 ]
-  call void @parsetext(i32 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %52, i32 noundef %69) #8
+  call void @parsetext(i32 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %52, i32 noundef %69) #7
   %70 = load i64, ptr %6, align 8
   %71 = inttoptr i64 %70 to ptr
   %.not29 = icmp eq ptr %9, %71
   br i1 %.not29, label %73, label %72
 
 72:                                               ; preds = %68
-  call void @pfree(ptr noundef nonnull %9) #8
+  call void @pfree(ptr noundef nonnull %9) #7
   br label %73
 
 73:                                               ; preds = %72, %68
@@ -556,11 +555,11 @@ define dso_local i64 @to_tsvector(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
-  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   %7 = zext i32 %6 to i64
   %8 = ptrtoint ptr %5 to i64
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @to_tsvector_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @to_tsvector_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #7
   ret i64 %9
 }
 
@@ -576,7 +575,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr noundef readonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #8
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -585,7 +584,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr noundef readonly
   store ptr %3, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %12, align 8
-  call void @iterate_jsonb_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_jsonb_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %13 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -595,7 +594,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector_byid(ptr noundef readonly
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  call void @pfree(ptr noundef %10) #8
+  call void @pfree(ptr noundef %10) #7
   br label %17
 
 17:                                               ; preds = %16, %1
@@ -610,8 +609,8 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr noundef readonly capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
-  %8 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #7
+  %8 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -620,7 +619,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr noundef readonly capt
   store ptr %3, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %8, ptr %10, align 8
-  call void @iterate_jsonb_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_jsonb_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %11 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -630,7 +629,7 @@ define dso_local noundef i64 @jsonb_string_to_tsvector(ptr noundef readonly capt
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %1
-  call void @pfree(ptr noundef %7) #8
+  call void @pfree(ptr noundef %7) #7
   br label %15
 
 15:                                               ; preds = %14, %1
@@ -648,12 +647,12 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #8
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #8
-  %15 = tail call i32 @parse_jsonb_index_flags(ptr noundef %14) #8
+  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #7
+  %15 = tail call i32 @parse_jsonb_index_flags(ptr noundef %14) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -662,7 +661,7 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captur
   store ptr %3, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %17, align 8
-  call void @iterate_jsonb_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_jsonb_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %18 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -672,7 +671,7 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captur
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %1
-  call void @pfree(ptr noundef %10) #8
+  call void @pfree(ptr noundef %10) #7
   br label %22
 
 22:                                               ; preds = %1, %21
@@ -682,7 +681,7 @@ define dso_local noundef i64 @jsonb_to_tsvector_byid(ptr noundef readonly captur
   br i1 %.not14, label %26, label %25
 
 25:                                               ; preds = %22
-  call void @pfree(ptr noundef %14) #8
+  call void @pfree(ptr noundef %14) #7
   br label %26
 
 26:                                               ; preds = %25, %22
@@ -699,13 +698,13 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #8
-  %12 = tail call i32 @parse_jsonb_index_flags(ptr noundef %11) #8
-  %13 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #7
+  %12 = tail call i32 @parse_jsonb_index_flags(ptr noundef %11) #7
+  %13 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -714,7 +713,7 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(no
   store ptr %3, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %13, ptr %15, align 8
-  call void @iterate_jsonb_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_jsonb_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %16 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -724,7 +723,7 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(no
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %1
-  call void @pfree(ptr noundef %7) #8
+  call void @pfree(ptr noundef %7) #7
   br label %20
 
 20:                                               ; preds = %1, %19
@@ -734,7 +733,7 @@ define dso_local noundef i64 @jsonb_to_tsvector(ptr noundef readonly captures(no
   br i1 %.not13, label %24, label %23
 
 23:                                               ; preds = %20
-  call void @pfree(ptr noundef %11) #8
+  call void @pfree(ptr noundef %11) #7
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -752,7 +751,7 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr noundef readonly 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #8
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -761,7 +760,7 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr noundef readonly 
   store ptr %3, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %12, align 8
-  call void @iterate_json_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_json_values(ptr noundef %10, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %13 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -771,7 +770,7 @@ define dso_local noundef i64 @json_string_to_tsvector_byid(ptr noundef readonly 
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  call void @pfree(ptr noundef %10) #8
+  call void @pfree(ptr noundef %10) #7
   br label %17
 
 17:                                               ; preds = %16, %1
@@ -788,8 +787,8 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
-  %8 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #7
+  %8 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -798,7 +797,7 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr noundef readonly captu
   store ptr %3, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %8, ptr %10, align 8
-  call void @iterate_json_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_json_values(ptr noundef %7, i32 noundef 2, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %11 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -808,7 +807,7 @@ define dso_local noundef i64 @json_string_to_tsvector(ptr noundef readonly captu
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %1
-  call void @pfree(ptr noundef %7) #8
+  call void @pfree(ptr noundef %7) #7
   br label %15
 
 15:                                               ; preds = %14, %1
@@ -826,12 +825,12 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly capture
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #8
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #8
-  %15 = tail call i32 @parse_jsonb_index_flags(ptr noundef %14) #8
+  %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #7
+  %15 = tail call i32 @parse_jsonb_index_flags(ptr noundef %14) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -840,7 +839,7 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly capture
   store ptr %3, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %6, ptr %17, align 8
-  call void @iterate_json_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_json_values(ptr noundef %10, i32 noundef %15, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %18 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -850,7 +849,7 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly capture
   br i1 %.not, label %22, label %21
 
 21:                                               ; preds = %1
-  call void @pfree(ptr noundef %10) #8
+  call void @pfree(ptr noundef %10) #7
   br label %22
 
 22:                                               ; preds = %1, %21
@@ -860,7 +859,7 @@ define dso_local noundef i64 @json_to_tsvector_byid(ptr noundef readonly capture
   br i1 %.not14, label %26, label %25
 
 25:                                               ; preds = %22
-  call void @pfree(ptr noundef %14) #8
+  call void @pfree(ptr noundef %14) #7
   br label %26
 
 26:                                               ; preds = %25, %22
@@ -875,13 +874,13 @@ define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #8
-  %12 = tail call i32 @parse_jsonb_index_flags(ptr noundef %11) #8
-  %13 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #7
+  %12 = tail call i32 @parse_jsonb_index_flags(ptr noundef %11) #7
+  %13 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
@@ -890,7 +889,7 @@ define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(non
   store ptr %3, ptr %2, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %13, ptr %15, align 8
-  call void @iterate_json_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #8
+  call void @iterate_json_values(ptr noundef %7, i32 noundef %12, ptr noundef nonnull %2, ptr noundef nonnull @add_to_tsvector) #7
   %16 = call noundef ptr @make_tsvector(ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -900,7 +899,7 @@ define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(non
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %1
-  call void @pfree(ptr noundef %7) #8
+  call void @pfree(ptr noundef %7) #7
   br label %20
 
 20:                                               ; preds = %1, %19
@@ -910,7 +909,7 @@ define dso_local noundef i64 @json_to_tsvector(ptr noundef readonly captures(non
   br i1 %.not13, label %24, label %23
 
 23:                                               ; preds = %20
-  call void @pfree(ptr noundef %11) #8
+  call void @pfree(ptr noundef %11) #7
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -925,16 +924,16 @@ define dso_local i64 @to_tsquery_byid(ptr noundef readonly captures(none) %0) #0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4, ptr %10, align 4
-  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
+  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #7
   %12 = ptrtoint ptr %2 to i64
-  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 0, ptr noundef null) #8
+  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 0, ptr noundef null) #7
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -955,10 +954,10 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   store i32 0, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %11, align 8
-  %12 = tail call ptr @palloc(i64 noundef 96) #8
+  %12 = tail call ptr @palloc(i64 noundef 96) #7
   store ptr %12, ptr %7, align 8
   %13 = load i32, ptr %8, align 4
-  call void @parsetext(i32 noundef %13, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %3) #8
+  call void @parsetext(i32 noundef %13, ptr noundef nonnull %7, ptr noundef %2, i32 noundef %3) #7
   %14 = load i32, ptr %10, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph78, label %115
@@ -993,14 +992,14 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph:                                           ; preds = %19, %31
   %27 = phi i32 [ %33, %31 ], [ %20, %19 ]
   %.24960 = phi i32 [ %32, %31 ], [ %.04776, %19 ]
-  call void @pushStop(ptr noundef %1) #8
+  call void @pushStop(ptr noundef %1) #7
   %.not58 = icmp eq i32 %.24960, 0
   br i1 %.not58, label %31, label %28
 
 28:                                               ; preds = %.lr.ph
   %29 = load i32, ptr %16, align 4
   %30 = trunc i32 %29 to i8
-  call void @pushOperator(ptr noundef %1, i8 noundef signext %30, i16 noundef signext 1) #8
+  call void @pushOperator(ptr noundef %1, i8 noundef signext %30, i16 noundef signext 1) #7
   br label %31
 
 31:                                               ; preds = %28, %.lr.ph
@@ -1090,17 +1089,17 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   %86 = and i16 %85, 2
   %87 = icmp ne i16 %86, 0
   %88 = or i1 %5, %87
-  call void @pushValue(ptr noundef %1, ptr noundef %81, i32 noundef %84, i16 noundef signext %4, i1 noundef zeroext %88) #8
+  call void @pushValue(ptr noundef %1, ptr noundef %81, i32 noundef %84, i16 noundef signext %4, i1 noundef zeroext %88) #7
   %89 = load ptr, ptr %7, align 8
   %90 = getelementptr inbounds %struct.ParsedWord, ptr %89, i64 %73
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  call void @pfree(ptr noundef %92) #8
+  call void @pfree(ptr noundef %92) #7
   %.not57 = icmp eq i32 %.04661102, 0
   br i1 %.not57, label %94, label %93
 
 93:                                               ; preds = %79
-  call void @pushOperator(ptr noundef %1, i8 noundef signext 2, i16 noundef signext 0) #8
+  call void @pushOperator(ptr noundef %1, i8 noundef signext 2, i16 noundef signext 0) #7
   br label %94
 
 94:                                               ; preds = %93, %79
@@ -1120,7 +1119,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not56, label %101, label %100
 
 100:                                              ; preds = %.critedge2
-  call void @pushOperator(ptr noundef %1, i8 noundef signext 3, i16 noundef signext 0) #8
+  call void @pushOperator(ptr noundef %1, i8 noundef signext 3, i16 noundef signext 0) #7
   %.pre80 = load i32, ptr %10, align 4
   br label %101
 
@@ -1140,7 +1139,7 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 107:                                              ; preds = %.critedge
   %108 = load i32, ptr %16, align 4
   %109 = trunc i32 %108 to i8
-  call void @pushOperator(ptr noundef %1, i8 noundef signext %109, i16 noundef signext 1) #8
+  call void @pushOperator(ptr noundef %1, i8 noundef signext %109, i16 noundef signext 1) #7
   %.pre81 = load i32, ptr %10, align 4
   br label %110
 
@@ -1152,11 +1151,11 @@ define internal void @pushval_morph(i64 noundef %0, ptr noundef %1, ptr noundef 
 
 ._crit_edge:                                      ; preds = %110
   %114 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %114) #8
+  call void @pfree(ptr noundef %114) #7
   br label %116
 
 115:                                              ; preds = %6
-  call void @pushStop(ptr noundef %1) #8
+  call void @pushStop(ptr noundef %1) #7
   br label %116
 
 116:                                              ; preds = %115, %._crit_edge
@@ -1169,11 +1168,11 @@ define dso_local i64 @to_tsquery(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
-  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   %7 = zext i32 %6 to i64
   %8 = ptrtoint ptr %5 to i64
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @to_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @to_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #7
   ret i64 %9
 }
 
@@ -1184,16 +1183,16 @@ define dso_local i64 @plainto_tsquery_byid(ptr noundef readonly captures(none) %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 2, ptr %10, align 4
-  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
+  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #7
   %12 = ptrtoint ptr %2 to i64
-  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 1, ptr noundef null) #8
+  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 1, ptr noundef null) #7
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -1204,11 +1203,11 @@ define dso_local i64 @plainto_tsquery(ptr noundef readonly captures(none) %0) lo
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
-  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   %7 = zext i32 %6 to i64
   %8 = ptrtoint ptr %5 to i64
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @plainto_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @plainto_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #7
   ret i64 %9
 }
 
@@ -1219,16 +1218,16 @@ define dso_local i64 @phraseto_tsquery_byid(ptr noundef readonly captures(none) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4, ptr %10, align 4
-  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
+  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #7
   %12 = ptrtoint ptr %2 to i64
-  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 1, ptr noundef null) #8
+  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 1, ptr noundef null) #7
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -1239,11 +1238,11 @@ define dso_local i64 @phraseto_tsquery(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
-  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   %7 = zext i32 %6 to i64
   %8 = ptrtoint ptr %5 to i64
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @phraseto_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @phraseto_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #7
   ret i64 %9
 }
 
@@ -1254,16 +1253,16 @@ define dso_local i64 @websearch_to_tsquery_byid(ptr noundef readonly captures(no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load i64, ptr %3, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %2, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 4, ptr %10, align 4
-  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #8
+  %11 = tail call ptr @text_to_cstring(ptr noundef %7) #7
   %12 = ptrtoint ptr %2 to i64
-  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 2, ptr noundef null) #8
+  %13 = call ptr @parse_tsquery(ptr noundef %11, ptr noundef nonnull @pushval_morph, i64 noundef %12, i32 noundef 2, ptr noundef null) #7
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -1274,11 +1273,11 @@ define dso_local i64 @websearch_to_tsquery(ptr noundef readonly captures(none) %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
-  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %6 = tail call i32 @getTSCurrentConfig(i1 noundef zeroext true) #7
   %7 = zext i32 %6 to i64
   %8 = ptrtoint ptr %5 to i64
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @websearch_to_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #8
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @websearch_to_tsquery_byid, i32 noundef 0, i64 noundef %7, i64 noundef %8) #7
   ret i64 %9
 }
 
@@ -1296,7 +1295,7 @@ define internal i32 @compareWORD(ptr noundef readonly captures(none) %0, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  %13 = tail call i32 @tsCompareString(ptr noundef %4, i32 noundef %7, ptr noundef %9, i32 noundef %12, i1 noundef zeroext false) #8
+  %13 = tail call i32 @tsCompareString(ptr noundef %4, i32 noundef %7, ptr noundef %9, i32 noundef %12, i1 noundef zeroext false) #7
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %24
 
@@ -1342,7 +1341,7 @@ define internal void @add_to_tsvector(ptr noundef readonly captures(none) %0, pt
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 16, ptr %8, align 8
-  %9 = tail call ptr @palloc(i64 noundef 384) #8
+  %9 = tail call ptr @palloc(i64 noundef 384) #7
   store ptr %9, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %10, align 4
@@ -1355,7 +1354,7 @@ define internal void @add_to_tsvector(ptr noundef readonly captures(none) %0, pt
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  tail call void @parsetext(i32 noundef %16, ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2) #8
+  tail call void @parsetext(i32 noundef %16, ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2) #7
   %17 = load i32, ptr %14, align 4
   %18 = icmp sgt i32 %17, %13
   br i1 %18, label %19, label %23
@@ -1385,11 +1384,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #7
+declare i16 @llvm.umin.i16(i16, i16) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1397,11 +1393,10 @@ attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -529,31 +529,28 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_inser
 
 11:                                               ; preds = %6
   %12 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h189e659e9ed331e6E"(ptr nonnull align 8 %1, i64 1, ptr align 8 %4, i64 %5, i1 zeroext true)
-  %13 = extractvalue { i64, i64 } %12, 0
-  %14 = icmp eq i64 %13, -9223372036854775807
-  tail call void @llvm.assume(i1 %14)
   br label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit"
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit": ; preds = %6, %11
   store ptr %3, ptr %7, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %1, ptr %15, align 8
-  %16 = call { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$30find_or_find_insert_slot_inner17h15e19359f701234eE"(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.a8ff55dff27edab685fde9af042aace2.3)
-  %17 = extractvalue { i64, i64 } %16, 0
-  %18 = extractvalue { i64, i64 } %16, 1
-  %19 = icmp eq i64 %17, 0
-  br i1 %19, label %20, label %23
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %1, ptr %13, align 8
+  %14 = call { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$30find_or_find_insert_slot_inner17h15e19359f701234eE"(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.a8ff55dff27edab685fde9af042aace2.3)
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %17 = icmp eq i64 %15, 0
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit"
-  %21 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %1, i64 %18)
-  %22 = ptrtoint ptr %21 to i64
-  br label %23
+18:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit"
+  %19 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %1, i64 %16)
+  %20 = ptrtoint ptr %19 to i64
+  br label %21
 
-23:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit", %20
-  %.sink = phi i64 [ %22, %20 ], [ %18, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit" ]
-  %storemerge = phi i64 [ 0, %20 ], [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit" ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %24, align 8
+21:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit", %18
+  %.sink = phi i64 [ %20, %18 ], [ %16, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit" ]
+  %storemerge = phi i64 [ 0, %18 ], [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5a7735a2E.exit" ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -568,31 +565,28 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_inser
 
 11:                                               ; preds = %6
   %12 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h89e34470646161c8E"(ptr nonnull align 8 %1, i64 1, ptr align 8 %4, i64 %5, i1 zeroext true)
-  %13 = extractvalue { i64, i64 } %12, 0
-  %14 = icmp eq i64 %13, -9223372036854775807
-  tail call void @llvm.assume(i1 %14)
   br label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit"
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit": ; preds = %6, %11
   store ptr %3, ptr %7, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %1, ptr %15, align 8
-  %16 = call { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$30find_or_find_insert_slot_inner17h15e19359f701234eE"(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.a8ff55dff27edab685fde9af042aace2.4)
-  %17 = extractvalue { i64, i64 } %16, 0
-  %18 = extractvalue { i64, i64 } %16, 1
-  %19 = icmp eq i64 %17, 0
-  br i1 %19, label %20, label %23
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %1, ptr %13, align 8
+  %14 = call { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$30find_or_find_insert_slot_inner17h15e19359f701234eE"(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %7, ptr nonnull align 8 @anon.a8ff55dff27edab685fde9af042aace2.4)
+  %15 = extractvalue { i64, i64 } %14, 0
+  %16 = extractvalue { i64, i64 } %14, 1
+  %17 = icmp eq i64 %15, 0
+  br i1 %17, label %18, label %21
 
-20:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit"
-  %21 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %1, i64 %18)
-  %22 = ptrtoint ptr %21 to i64
-  br label %23
+18:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit"
+  %19 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6bucket17ha5562e178d469f32E"(ptr nonnull align 8 %1, i64 %16)
+  %20 = ptrtoint ptr %19 to i64
+  br label %21
 
-23:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit", %20
-  %.sink = phi i64 [ %22, %20 ], [ %18, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit" ]
-  %storemerge = phi i64 [ 0, %20 ], [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit" ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %24, align 8
+21:                                               ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit", %18
+  %.sink = phi i64 [ %20, %18 ], [ %16, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit" ]
+  %storemerge = phi i64 [ 0, %18 ], [ 1, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de22cfc2eE.exit" ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -930,16 +924,13 @@ define ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6insert17h8a1a8ae6ad9
   br i1 %14, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019db44874E.exit", label %.critedge
 
 .critedge:                                        ; preds = %5, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019db44874E.exit", %10
-  %.03 = phi i64 [ %19, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019db44874E.exit" ], [ %6, %10 ], [ %6, %5 ]
+  %.03 = phi i64 [ %17, %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019db44874E.exit" ], [ %6, %10 ], [ %6, %5 ]
   %15 = tail call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17h930e78526498703cE"(ptr nonnull align 8 %0, i64 %1, i64 %.03, i64 %2)
   ret ptr %15
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019db44874E.exit": ; preds = %10
   %16 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hdc6ef1e835730292E"(ptr nonnull align 8 %0, i64 1, ptr align 8 %3, i64 %4, i1 zeroext true)
-  %17 = extractvalue { i64, i64 } %16, 0
-  %18 = icmp eq i64 %17, -9223372036854775807
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i64 @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$16find_insert_slot17h3338bd9f74dd83ffE"(ptr nonnull align 8 %0, i64 %1)
+  %17 = tail call i64 @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$16find_insert_slot17h3338bd9f74dd83ffE"(ptr nonnull align 8 %0, i64 %1)
   br label %.critedge
 }
 
@@ -948,16 +939,13 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h301ff33de
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ugt i64 %1, %6
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h89e34470646161c8E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i64 %3, i1 zeroext true)
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = icmp eq i64 %10, -9223372036854775807
-  tail call void @llvm.assume(i1 %11)
-  br label %12
+  br label %10
 
-12:                                               ; preds = %4, %8
+10:                                               ; preds = %4, %8
   ret void
 }
 
@@ -966,16 +954,13 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17h3989da019
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ugt i64 %1, %6
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17hdc6ef1e835730292E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i64 %3, i1 zeroext true)
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = icmp eq i64 %10, -9223372036854775807
-  tail call void @llvm.assume(i1 %11)
-  br label %12
+  br label %10
 
-12:                                               ; preds = %4, %8
+10:                                               ; preds = %4, %8
   ret void
 }
 
@@ -984,16 +969,13 @@ define void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$7reserve17ha427611a5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ugt i64 %1, %6
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
   %9 = tail call { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17h189e659e9ed331e6E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i64 %3, i1 zeroext true)
-  %10 = extractvalue { i64, i64 } %9, 0
-  %11 = icmp eq i64 %10, -9223372036854775807
-  tail call void @llvm.assume(i1 %11)
-  br label %12
+  br label %10
 
-12:                                               ; preds = %4, %8
+10:                                               ; preds = %4, %8
   ret void
 }
 

@@ -1273,31 +1273,27 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_html(ptr
   tail call void @lxb_html_tree_parse_error(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
   %3 = tail call ptr @lxb_html_tree_open_elements_find(ptr noundef %0, i64 noundef 179, i64 noundef 2, ptr noundef null) #6
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %lxb_html_tree_open_elements_first.exit, label %15
+  br i1 %.not, label %lxb_html_tree_open_elements_first.exit, label %13
 
 lxb_html_tree_open_elements_first.exit:           ; preds = %2
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !33
-  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !34
-  %.not.i.not.i = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %.not.i.not.i)
-  %7 = load ptr, ptr %.val, align 8, !tbaa !36
-  %8 = load ptr, ptr %7, align 8, !tbaa !37
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !61
-  %11 = tail call i32 @lxb_html_tree_append_attributes(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %1, i64 noundef %10) #6
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %11, ptr %12, align 8, !tbaa !22
-  %.not13 = icmp eq i32 %11, 0
-  br i1 %.not13, label %15, label %13
+  %5 = load ptr, ptr %.val, align 8, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %8 = load i64, ptr %7, align 8, !tbaa !61
+  %9 = tail call i32 @lxb_html_tree_append_attributes(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %1, i64 noundef %8) #6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 %9, ptr %10, align 8, !tbaa !22
+  %.not13 = icmp eq i32 %9, 0
+  br i1 %.not13, label %13, label %11
 
-13:                                               ; preds = %lxb_html_tree_open_elements_first.exit
-  %14 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #6
-  br label %15
+11:                                               ; preds = %lxb_html_tree_open_elements_first.exit
+  %12 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #6
+  br label %13
 
-15:                                               ; preds = %lxb_html_tree_open_elements_first.exit, %2, %13
-  %.0 = phi i1 [ %14, %13 ], [ true, %2 ], [ true, %lxb_html_tree_open_elements_first.exit ]
+13:                                               ; preds = %lxb_html_tree_open_elements_first.exit, %2, %11
+  %.0 = phi i1 [ %12, %11 ], [ true, %2 ], [ true, %lxb_html_tree_open_elements_first.exit ]
   ret i1 %.0
 }
 
@@ -2713,25 +2709,19 @@ define internal fastcc zeroext i1 @lxb_html_tree_insertion_mode_in_body_rprt(ptr
   br label %lxb_html_tree_current_node.exit
 
 lxb_html_tree_current_node.exit:                  ; preds = %4, %2
-  %5 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %5, align 8, !tbaa !33
-  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !34
-  %8 = icmp ne i64 %7, 0
-  tail call void @llvm.assume(i1 %8)
   tail call void @lxb_html_tree_parse_error(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 23) #6
-  %9 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 2) #6
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %14
+  %5 = tail call ptr @lxb_html_tree_insert_foreign_element(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 2) #6
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %7, label %10
 
-11:                                               ; preds = %lxb_html_tree_current_node.exit
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 2, ptr %12, align 8, !tbaa !22
-  %13 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #6
-  br label %14
+7:                                                ; preds = %lxb_html_tree_current_node.exit
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 2, ptr %8, align 8, !tbaa !22
+  %9 = tail call zeroext i1 @lxb_html_tree_process_abort(ptr noundef nonnull %0) #6
+  br label %10
 
-14:                                               ; preds = %lxb_html_tree_current_node.exit, %11
-  %.0 = phi i1 [ %13, %11 ], [ true, %lxb_html_tree_current_node.exit ]
+10:                                               ; preds = %lxb_html_tree_current_node.exit, %7
+  %.0 = phi i1 [ %9, %7 ], [ true, %lxb_html_tree_current_node.exit ]
   ret i1 %.0
 }
 

@@ -160,7 +160,7 @@ define internal void @ResOwnerReleaseBufferIO(i64 noundef %0) #0 {
   br i1 %.not2.i.i, label %LockBufHdr.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %16 = atomicrmw or ptr %13, i32 4194304 seq_cst, align 4
   %17 = and i32 %16, 4194304
   %.not.i.i = icmp eq i32 %17, 0
@@ -168,11 +168,11 @@ define internal void @ResOwnerReleaseBufferIO(i64 noundef %0) #0 {
 
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
   %.lcssa.i.i = phi i32 [ %14, %1 ], [ %16, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = and i32 %.lcssa.i.i, 16777216
   %.not.i = icmp eq i32 %18, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
   br i1 %.not.i, label %19, label %21
 
 19:                                               ; preds = %LockBufHdr.exit.i
@@ -196,21 +196,21 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
   %.sroa.06.0.extract.trunc.i = trunc i64 %25 to i32
   %27 = getelementptr i8, ptr %7, i64 12
   %.val.i = load i32, ptr %27, align 4
-  %28 = call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc.i, i32 noundef %.sroa.06.0.extract.trunc.i, i32 noundef %.val.i.i, i32 noundef -1, i32 noundef %.val.i) #16
-  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
+  %28 = call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc.i, i32 noundef %.sroa.06.0.extract.trunc.i, i32 noundef %.val.i.i, i32 noundef -1, i32 noundef %.val.i) #15
+  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %29, label %30, label %36
 
 30:                                               ; preds = %24
-  %31 = call i32 @errcode(i32 noundef 786949) #16
+  %31 = call i32 @errcode(i32 noundef 786949) #15
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %33 = load i32, ptr %32, align 4
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %33, ptr noundef %28) #16
-  %35 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.20) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5621, ptr noundef nonnull @__func__.AbortBufferIO) #16
+  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %33, ptr noundef %28) #15
+  %35 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.20) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5621, ptr noundef nonnull @__func__.AbortBufferIO) #15
   br label %36
 
 36:                                               ; preds = %30, %24
-  call void @pfree(ptr noundef %28) #16
+  call void @pfree(ptr noundef %28) #15
   br label %37
 
 37:                                               ; preds = %36, %21, %19
@@ -232,7 +232,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
   br i1 %.not2.i.i.i, label %AbortBufferIO.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %37, %.lr.ph.i.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %45 = atomicrmw or ptr %13, i32 4194304 seq_cst, align 4
   %46 = and i32 %45, 4194304
   %.not.i.i.i = icmp eq i32 %46, 0
@@ -240,10 +240,10 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %1
 
 AbortBufferIO.exit:                               ; preds = %.lr.ph.i.i.i, %37
   %.lcssa.i.i.i = phi i32 [ %43, %37 ], [ %45, %.lr.ph.i.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.0.i.i = and i32 %.lcssa.i.i.i, -205520897
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %47 = or disjoint i32 %.0.i.i, 134217728
   store volatile i32 %47, ptr %13, align 4
   %48 = getelementptr i8, ptr %7, i64 20
@@ -251,14 +251,14 @@ AbortBufferIO.exit:                               ; preds = %.lr.ph.i.i.i, %37
   %49 = load ptr, ptr @BufferIOCVArray, align 8
   %50 = sext i32 %.val11.i.i to i64
   %51 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %49, i64 %50
-  call void @ConditionVariableBroadcast(ptr noundef %51) #16
+  call void @ConditionVariableBroadcast(ptr noundef %51) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @ResOwnerPrintBufferIO(i64 noundef %0) #0 {
   %2 = trunc i64 %0 to i32
-  %3 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, i32 noundef %2) #16
+  %3 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, i32 noundef %2) #15
   ret ptr %3
 }
 
@@ -269,10 +269,9 @@ define internal void @ResOwnerReleaseBufferPin(i64 noundef %0) #0 {
   br i1 %.not, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6009, ptr noundef nonnull @__func__.ResOwnerReleaseBufferPin) #16
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6009, ptr noundef nonnull @__func__.ResOwnerReleaseBufferPin) #15
   unreachable
 
 6:                                                ; preds = %1
@@ -280,7 +279,7 @@ define internal void @ResOwnerReleaseBufferPin(i64 noundef %0) #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void @UnpinLocalBufferNoOwner(i32 noundef %2) #16
+  tail call void @UnpinLocalBufferNoOwner(i32 noundef %2) #15
   br label %14
 
 9:                                                ; preds = %6
@@ -320,15 +319,15 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef 
   store i32 %1, ptr %12, align 4
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %13, align 4
-  %14 = call i32 @BufTableHashCode(ptr noundef nonnull %4) #16
+  %14 = call i32 @BufTableHashCode(ptr noundef nonnull %4) #15
   %15 = load ptr, ptr @MainLWLockArray, align 8
   %16 = and i32 %14, 127
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw %union.LWLockPadded, ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 6784
-  %20 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 1) #16
-  %21 = call i32 @BufTableLookup(ptr noundef nonnull %4, i32 noundef %14) #16
-  call void @LWLockRelease(ptr noundef nonnull %19) #16
+  %20 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 1) #15
+  %21 = call i32 @BufTableLookup(ptr noundef nonnull %4, i32 noundef %14) #15
+  call void @LWLockRelease(ptr noundef nonnull %19) #15
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %29
 
@@ -339,7 +338,7 @@ define dso_local range(i64 0, 4294967297) i64 @PrefetchSharedBuffer(ptr noundef 
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %23
-  %28 = call zeroext i1 @smgrprefetch(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #16
+  %28 = call zeroext i1 @smgrprefetch(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef 1) #15
   %spec.select = select i1 %28, i64 4294967296, i64 0
   br label %32
 
@@ -383,11 +382,10 @@ define dso_local i64 @PrefetchBuffer(ptr noundef captures(none) %0, i32 noundef 
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 1088) #16
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 650, ptr noundef nonnull @__func__.PrefetchBuffer) #16
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %15 = tail call i32 @errcode(i32 noundef 1088) #15
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 650, ptr noundef nonnull @__func__.PrefetchBuffer) #15
   unreachable
 
 17:                                               ; preds = %9
@@ -402,15 +400,15 @@ define dso_local i64 @PrefetchBuffer(ptr noundef captures(none) %0, i32 noundef 
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %24 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %23) #16
+  %24 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %23) #15
   store ptr %24, ptr %18, align 8
-  tail call void @smgrpin(ptr noundef %24) #16
+  tail call void @smgrpin(ptr noundef %24) #15
   %.pre.i = load ptr, ptr %18, align 8
   br label %RelationGetSmgr.exit
 
 RelationGetSmgr.exit:                             ; preds = %17, %21
   %25 = phi ptr [ %.pre.i, %21 ], [ %19, %17 ]
-  %26 = tail call i64 @PrefetchLocalBuffer(ptr noundef %25, i32 noundef %1, i32 noundef %2) #16
+  %26 = tail call i64 @PrefetchLocalBuffer(ptr noundef %25, i32 noundef %1, i32 noundef %2) #15
   br label %37
 
 27:                                               ; preds = %3
@@ -425,9 +423,9 @@ RelationGetSmgr.exit:                             ; preds = %17, %21
   %.sroa.0.0.copyload.i8 = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i10 = load i32, ptr %.sroa.2.0..sroa_idx.i9, align 8
-  %34 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i8, i32 %.sroa.2.0.copyload.i10, i32 noundef %33) #16
+  %34 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i8, i32 %.sroa.2.0.copyload.i10, i32 noundef %33) #15
   store ptr %34, ptr %28, align 8
-  tail call void @smgrpin(ptr noundef %34) #16
+  tail call void @smgrpin(ptr noundef %34) #15
   %.pre.i11 = load ptr, ptr %28, align 8
   br label %RelationGetSmgr.exit12
 
@@ -463,7 +461,7 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %9 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %9) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %9) #15
   %10 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -495,7 +493,7 @@ define dso_local noundef zeroext i1 @ReadRecentBuffer(i64 %0, i32 %1, i32 nounde
   %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %20
   store ptr %21, ptr @ReservedRefCountEntry, align 8
   %22 = load ptr, ptr @PrivateRefCountHash, align 8
-  %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %8) #16
+  %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %8) #15
   %24 = load ptr, ptr @ReservedRefCountEntry, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -554,7 +552,7 @@ BufferTagsEqual.exit:                             ; preds = %50
   br i1 %56, label %.critedge, label %BufferTagsEqual.exit.thread
 
 .critedge:                                        ; preds = %BufferTagsEqual.exit
-  %57 = call zeroext i1 @PinLocalBuffer(ptr noundef nonnull %35, i1 noundef zeroext true) #16
+  %57 = call zeroext i1 @PinLocalBuffer(ptr noundef nonnull %35, i1 noundef zeroext true) #15
   %58 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
   %59 = add i64 %58, 1
   store i64 %59, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 32), align 8
@@ -597,7 +595,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %71
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %71
   %74 = load ptr, ptr @PrivateRefCountHash, align 8
-  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null) #16
+  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %76 = icmp eq ptr %75, null
   br i1 %76, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
@@ -634,7 +632,7 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %GetPrivateRefCount.exit.thread, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %6) #16
+  call void @perform_spin_delay(ptr noundef nonnull %6) #15
   %91 = atomicrmw or ptr %88, i32 4194304 seq_cst, align 4
   %92 = and i32 %91, 4194304
   %.not.i28 = icmp eq i32 %92, 0
@@ -642,7 +640,7 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %GetPrivateRefCount.exit.thread
   %.lcssa.i = phi i32 [ %89, %GetPrivateRefCount.exit.thread ], [ %91, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %6) #16
+  call void @finish_spin_delay(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %93
 
@@ -693,7 +691,7 @@ BufferTagsEqual.exit29:                           ; preds = %107
   %118 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %119 = load volatile i32, ptr %118, align 4
   %120 = add i32 %119, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %121 = and i32 %120, -4194305
   store volatile i32 %121, ptr %118, align 4
   %122 = getelementptr i8, ptr %64, i64 20
@@ -706,7 +704,7 @@ BufferTagsEqual.exit29:                           ; preds = %107
   store i32 1, ptr %125, align 4
   %126 = load ptr, ptr @CurrentResourceOwner, align 8
   %127 = sext i32 %123 to i64
-  call void @ResourceOwnerRemember(ptr noundef %126, i64 noundef %127, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %126, i64 noundef %127, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   br label %128
 
 128:                                              ; preds = %117, %115
@@ -719,7 +717,7 @@ BufferTagsEqual.exit29.thread:                    ; preds = %96, %99, %103, %107
   br i1 %94, label %BufferTagsEqual.exit.thread, label %131
 
 131:                                              ; preds = %BufferTagsEqual.exit29.thread
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %132 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %133 = and i32 %.024, -4194305
   store volatile i32 %133, ptr %132, align 4
@@ -769,7 +767,7 @@ define internal fastcc void @ReservePrivateRefCountEntry() unnamed_addr #0 {
   %13 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %12
   store ptr %13, ptr @ReservedRefCountEntry, align 8
   %14 = load ptr, ptr @PrivateRefCountHash, align 8
-  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %1) #16
+  %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %13, i32 noundef 1, ptr noundef nonnull %1) #15
   %16 = load ptr, ptr @ReservedRefCountEntry, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
@@ -824,7 +822,7 @@ GetPrivateRefCountEntry.exit.thread:              ; preds = %9
 
 GetPrivateRefCountEntry.exit:                     ; preds = %9
   %12 = load ptr, ptr @PrivateRefCountHash, align 8
-  %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
+  %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %18, label %15
@@ -862,7 +860,7 @@ define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr noundef captures(none
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %11 = atomicrmw or ptr %8, i32 4194304 seq_cst, align 4
   %12 = and i32 %11, 4194304
   %.not = icmp eq i32 %12, 0
@@ -870,7 +868,7 @@ define dso_local range(i32 4194304, 0) i32 @LockBufHdr(ptr noundef captures(none
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.lcssa = phi i32 [ %9, %1 ], [ %11, %.lr.ph ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   %13 = or disjoint i32 %.lcssa, 4194304
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %13
@@ -922,7 +920,7 @@ define internal fastcc zeroext i1 @PinBuffer(ptr noundef %0, ptr noundef readnon
   br i1 %.not4.i.us, label %WaitBufHdrUnlocked.exit.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %20, %.lr.ph.i.us
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %.0.i.us = load volatile i32, ptr %11, align 4
   %22 = and i32 %.0.i.us, 4194304
   %.not.i.us = icmp eq i32 %22, 0
@@ -930,7 +928,7 @@ define internal fastcc zeroext i1 @PinBuffer(ptr noundef %0, ptr noundef readnon
 
 WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
   %.0.lcssa.i.us = phi i32 [ %.03.i.us, %20 ], [ %.0.i.us, %.lr.ph.i.us ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %23
 
@@ -941,7 +939,7 @@ WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
   %26 = icmp samesign ult i32 %25, 1310720
   %27 = add nuw i32 %.1.us, 262145
   %spec.select.us = select i1 %26, i32 %27, i32 %24
-  %28 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.1.us, i32 %spec.select.us, ptr nonnull elementtype(i32) %11) #16, !srcloc !12
+  %28 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.1.us, i32 %spec.select.us, ptr nonnull elementtype(i32) %11) #15, !srcloc !12
   %29 = extractvalue { i32, i8 } %28, 0
   %30 = extractvalue { i32, i8 } %28, 1
   %.not25.us = icmp eq i8 %30, 0
@@ -967,7 +965,7 @@ WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
   br i1 %.not4.i, label %WaitBufHdrUnlocked.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %.0.i = load volatile i32, ptr %11, align 4
   %34 = and i32 %.0.i, 4194304
   %.not.i = icmp eq i32 %34, 0
@@ -975,7 +973,7 @@ WaitBufHdrUnlocked.exit.us:                       ; preds = %.lr.ph.i.us, %20
 
 WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %32
   %.0.lcssa.i = phi i32 [ %.03.i, %32 ], [ %.0.i, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %35
 
@@ -986,7 +984,7 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %32
   %38 = icmp eq i32 %37, 0
   %39 = add nuw i32 %.1, 262145
   %spec.select21 = select i1 %38, i32 %39, i32 %36
-  %40 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.1, i32 %spec.select21, ptr nonnull elementtype(i32) %11) #16, !srcloc !12
+  %40 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %.1, i32 %spec.select21, ptr nonnull elementtype(i32) %11) #15, !srcloc !12
   %41 = extractvalue { i32, i8 } %40, 0
   %42 = extractvalue { i32, i8 } %40, 1
   %.not25 = icmp eq i8 %42, 0
@@ -1008,7 +1006,7 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %32
   store i32 %49, ptr %47, align 4
   %50 = load ptr, ptr @CurrentResourceOwner, align 8
   %51 = sext i32 %5 to i64
-  call void @ResourceOwnerRemember(ptr noundef %50, i64 noundef %51, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %50, i64 noundef %51, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   ret i1 %.019.in
 }
 
@@ -1039,11 +1037,10 @@ define dso_local i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 1088) #16
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 806, ptr noundef nonnull @__func__.ReadBufferExtended) #16
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %22 = tail call i32 @errcode(i32 noundef 1088) #15
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 806, ptr noundef nonnull @__func__.ReadBufferExtended) #15
   unreachable
 
 24:                                               ; preds = %16, %5
@@ -1058,9 +1055,9 @@ define dso_local i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 nou
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %31 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %30) #16
+  %31 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %30) #15
   store ptr %31, ptr %25, align 8
-  tail call void @smgrpin(ptr noundef %31) #16
+  tail call void @smgrpin(ptr noundef %31) #15
   %.pre.i = load ptr, ptr %25, align 8
   br label %RelationGetSmgr.exit
 
@@ -1096,7 +1093,7 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   br i1 %45, label %46, label %53
 
 46:                                               ; preds = %44
-  %47 = call ptr @LocalBufferAlloc(ptr noundef %32, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %10) #16
+  %47 = call ptr @LocalBufferAlloc(ptr noundef %32, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %10) #15
   %48 = load i8, ptr %10, align 1, !range !5, !noundef !6
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %102
@@ -1108,10 +1105,10 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   br label %102
 
 53:                                               ; preds = %44
-  %54 = tail call i32 @IOContextForStrategy(ptr noundef %4) #16
+  %54 = tail call i32 @IOContextForStrategy(ptr noundef %4) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %55 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %55) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %55) #15
   tail call fastcc void @ReservePrivateRefCountEntry()
   %56 = load i32, ptr %32, align 4
   store i32 %56, ptr %6, align 4
@@ -1127,14 +1124,14 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   store i32 %1, ptr %63, align 4
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 %2, ptr %64, align 4
-  %65 = call i32 @BufTableHashCode(ptr noundef nonnull %6) #16
+  %65 = call i32 @BufTableHashCode(ptr noundef nonnull %6) #15
   %66 = load ptr, ptr @MainLWLockArray, align 8
   %67 = and i32 %65, 127
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw %union.LWLockPadded, ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 6784
-  %71 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 1) #16
-  %72 = call i32 @BufTableLookup(ptr noundef nonnull %6, i32 noundef %65) #16
+  %71 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 1) #15
+  %72 = call i32 @BufTableLookup(ptr noundef nonnull %6, i32 noundef %65) #15
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %74, label %79
 
@@ -1143,23 +1140,23 @@ RelationGetSmgr.exit:                             ; preds = %24, %28
   %76 = zext nneg i32 %72 to i64
   %77 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %75, i64 %76
   %78 = call fastcc zeroext i1 @PinBuffer(ptr noundef %77, ptr noundef %4)
-  call void @LWLockRelease(ptr noundef nonnull %70) #16
+  call void @LWLockRelease(ptr noundef nonnull %70) #15
   %spec.select.i12 = zext i1 %78 to i8
   store i8 %spec.select.i12, ptr %10, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %78, label %99, label %102
 
 79:                                               ; preds = %53
-  call void @LWLockRelease(ptr noundef nonnull %70) #16
+  call void @LWLockRelease(ptr noundef nonnull %70) #15
   %80 = call fastcc i32 @GetVictimBuffer(ptr noundef %4, i32 noundef %54)
   %81 = add i32 %80, -1
   %82 = load ptr, ptr @BufferDescriptors, align 8
   %83 = zext i32 %81 to i64
   %84 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %82, i64 %83
-  %85 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 0) #16
+  %85 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %70, i32 noundef 0) #15
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %87 = load i32, ptr %86, align 4
-  %88 = call i32 @BufTableInsert(ptr noundef nonnull %6, i32 noundef %65, i32 noundef %87) #16
+  %88 = call i32 @BufTableInsert(ptr noundef nonnull %6, i32 noundef %65, i32 noundef %87) #15
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %BufferAlloc.exit, label %BufferAlloc.exit.thread
 
@@ -1170,24 +1167,24 @@ BufferAlloc.exit.thread:                          ; preds = %79
   %92 = icmp eq i32 %1, 3
   %or.cond.i10 = or i1 %92, %91
   %spec.select50.i.v = select i1 %or.cond.i10, i32 -2113667072, i32 33816576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %93 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %.masked = and i32 %90, -38010881
   %94 = or i32 %.masked, %spec.select50.i.v
   store volatile i32 %94, ptr %93, align 4
-  call void @LWLockRelease(ptr noundef nonnull %70) #16
+  call void @LWLockRelease(ptr noundef nonnull %70) #15
   store i8 0, ptr %10, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %102
 
 BufferAlloc.exit:                                 ; preds = %79
   call fastcc void @UnpinBuffer(ptr noundef nonnull %84)
-  call void @StrategyFreeBuffer(ptr noundef nonnull %84) #16
+  call void @StrategyFreeBuffer(ptr noundef nonnull %84) #15
   %95 = load ptr, ptr @BufferDescriptors, align 8
   %96 = zext nneg i32 %88 to i64
   %97 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %95, i64 %96
   %98 = call fastcc zeroext i1 @PinBuffer(ptr noundef %97, ptr noundef %4)
-  call void @LWLockRelease(ptr noundef nonnull %70) #16
+  call void @LWLockRelease(ptr noundef nonnull %70) #15
   %spec.select49.i = zext i1 %98 to i8
   store i8 %spec.select49.i, ptr %10, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1217,7 +1214,7 @@ BufferAlloc.exit:                                 ; preds = %79
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %105
-  call void @pgstat_assoc_relation(ptr noundef nonnull %0) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %0) #15
   %.pre = load ptr, ptr %103, align 8
   %.pre19.pre = load i8, ptr %10, align 1, !range !5
   br label %110
@@ -1255,7 +1252,7 @@ BufferAlloc.exit:                                 ; preds = %79
   br i1 %125, label %126, label %.thread
 
 126:                                              ; preds = %122
-  call void @pgstat_assoc_relation(ptr noundef nonnull %0) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %0) #15
   %.pre20 = load ptr, ptr %103, align 8
   %.pre21.pre = load i8, ptr %10, align 1, !range !5
   %127 = trunc nuw i8 %.pre21.pre to i1
@@ -1266,7 +1263,7 @@ BufferAlloc.exit:                                 ; preds = %79
   br i1 %127, label %.thread, label %PinBufferForBlock.exit
 
 .thread:                                          ; preds = %122, %.thread35, %126
-  call void @pgstat_count_io_op(i32 noundef %.0.i17, i32 noundef %.029.i815, i32 noundef 2, i32 noundef 1, i64 noundef 0) #16
+  call void @pgstat_count_io_op(i32 noundef %.0.i17, i32 noundef %.029.i815, i32 noundef 2, i32 noundef 1, i64 noundef 0) #15
   %131 = load i8, ptr @VacuumCostActive, align 1, !range !5, !noundef !6
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %PinBufferForBlock.exit
@@ -1325,7 +1322,7 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %9 = alloca %struct.ReadBuffersOperation, align 8
   %10 = alloca i32, align 4
   %11 = alloca %struct.BufferManagerRelation, align 8
-  %12 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #16
+  %12 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #15
   %13 = select i1 %6, i8 112, i8 117
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1345,10 +1342,10 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   br i1 %or.cond.i, label %19, label %76, !prof !7
 
 19:                                               ; preds = %18
-  %20 = tail call i32 @IOContextForStrategy(ptr noundef %5) #16
+  %20 = tail call i32 @IOContextForStrategy(ptr noundef %5) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %21 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %21) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %21) #15
   tail call fastcc void @ReservePrivateRefCountEntry()
   %22 = load i32, ptr %12, align 4
   store i32 %22, ptr %8, align 4
@@ -1364,14 +1361,14 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   store i32 %2, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %3, ptr %30, align 4
-  %31 = call i32 @BufTableHashCode(ptr noundef nonnull %8) #16
+  %31 = call i32 @BufTableHashCode(ptr noundef nonnull %8) #15
   %32 = load ptr, ptr @MainLWLockArray, align 8
   %33 = and i32 %31, 127
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw %union.LWLockPadded, ptr %32, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6784
-  %37 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %36, i32 noundef 1) #16
-  %38 = call i32 @BufTableLookup(ptr noundef nonnull %8, i32 noundef %31) #16
+  %37 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %36, i32 noundef 1) #15
+  %38 = call i32 @BufTableLookup(ptr noundef nonnull %8, i32 noundef %31) #15
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %40, label %45
 
@@ -1380,21 +1377,21 @@ define dso_local i32 @ReadBufferWithoutRelcache(i64 %0, i32 %1, i32 noundef %2, 
   %42 = zext nneg i32 %38 to i64
   %43 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %41, i64 %42
   %44 = call fastcc zeroext i1 @PinBuffer(ptr noundef %43, ptr noundef %5)
-  call void @LWLockRelease(ptr noundef nonnull %36) #16
+  call void @LWLockRelease(ptr noundef nonnull %36) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %44, label %64, label %PinBufferForBlock.exit
 
 45:                                               ; preds = %19
-  call void @LWLockRelease(ptr noundef nonnull %36) #16
+  call void @LWLockRelease(ptr noundef nonnull %36) #15
   %46 = call fastcc i32 @GetVictimBuffer(ptr noundef %5, i32 noundef %20)
   %47 = add i32 %46, -1
   %48 = load ptr, ptr @BufferDescriptors, align 8
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %48, i64 %49
-  %51 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %36, i32 noundef 0) #16
+  %51 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %36, i32 noundef 0) #15
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %53 = load i32, ptr %52, align 4
-  %54 = call i32 @BufTableInsert(ptr noundef nonnull %8, i32 noundef %31, i32 noundef %53) #16
+  %54 = call i32 @BufTableInsert(ptr noundef nonnull %8, i32 noundef %31, i32 noundef %53) #15
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %BufferAlloc.exit, label %BufferAlloc.exit.thread
 
@@ -1404,23 +1401,23 @@ BufferAlloc.exit.thread:                          ; preds = %45
   %57 = icmp eq i32 %2, 3
   %or.cond.i9 = or i1 %57, %6
   %spec.select50.i.v = select i1 %or.cond.i9, i32 -2113667072, i32 33816576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %.masked = and i32 %56, -38010881
   %59 = or i32 %.masked, %spec.select50.i.v
   store volatile i32 %59, ptr %58, align 4
-  call void @LWLockRelease(ptr noundef nonnull %36) #16
+  call void @LWLockRelease(ptr noundef nonnull %36) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %PinBufferForBlock.exit
 
 BufferAlloc.exit:                                 ; preds = %45
   call fastcc void @UnpinBuffer(ptr noundef nonnull %50)
-  call void @StrategyFreeBuffer(ptr noundef nonnull %50) #16
+  call void @StrategyFreeBuffer(ptr noundef nonnull %50) #15
   %60 = load ptr, ptr @BufferDescriptors, align 8
   %61 = zext nneg i32 %54 to i64
   %62 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %60, i64 %61
   %63 = call fastcc zeroext i1 @PinBuffer(ptr noundef %62, ptr noundef %5)
-  call void @LWLockRelease(ptr noundef nonnull %36) #16
+  call void @LWLockRelease(ptr noundef nonnull %36) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %63, label %64, label %PinBufferForBlock.exit
 
@@ -1429,7 +1426,7 @@ BufferAlloc.exit:                                 ; preds = %45
   %65 = load i64, ptr @pgBufferUsage, align 8
   %66 = add i64 %65, 1
   store i64 %66, ptr @pgBufferUsage, align 8
-  call void @pgstat_count_io_op(i32 noundef 0, i32 noundef %20, i32 noundef 2, i32 noundef 1, i64 noundef 0) #16
+  call void @pgstat_count_io_op(i32 noundef 0, i32 noundef %20, i32 noundef 2, i32 noundef 1, i64 noundef 0) #15
   %67 = load i8, ptr @VacuumCostActive, align 1, !range !5, !noundef !6
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %PinBufferForBlock.exit
@@ -1510,9 +1507,9 @@ define dso_local i32 @ExtendBufferedRel(ptr noundef readonly byval(%struct.Buffe
   %.sroa.0.0.copyload.i.i = load i64, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  %19 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %18) #16
+  %19 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %18) #15
   store ptr %19, ptr %13, align 8
-  tail call void @smgrpin(ptr noundef %19) #16
+  tail call void @smgrpin(ptr noundef %19) #15
   %.pre.i.i = load ptr, ptr %13, align 8
   br label %RelationGetSmgr.exit.i
 
@@ -1556,9 +1553,9 @@ define dso_local i32 @ExtendBufferedRelBy(ptr noundef byval(%struct.BufferManage
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %19 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %18) #16
+  %19 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %18) #15
   store ptr %19, ptr %13, align 8
-  tail call void @smgrpin(ptr noundef %19) #16
+  tail call void @smgrpin(ptr noundef %19) #15
   %.pre.i = load ptr, ptr %13, align 8
   br label %RelationGetSmgr.exit
 
@@ -1595,7 +1592,7 @@ define internal fastcc i32 @ExtendBufferedRelCommon(ptr noundef readonly byval(%
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %8
-  %21 = call i32 @ExtendBufferedRelLocal(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %16) #16
+  %21 = call i32 @ExtendBufferedRelLocal(ptr noundef nonnull byval(%struct.BufferManagerRelation) align 8 %0, i32 noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull %16) #15
   %.pre = load i32, ptr %16, align 4
   br label %ExtendBufferedRelShared.exit
 
@@ -1603,7 +1600,7 @@ define internal fastcc i32 @ExtendBufferedRelCommon(ptr noundef readonly byval(%
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
-  %23 = tail call i32 @IOContextForStrategy(ptr noundef %2) #16
+  %23 = tail call i32 @IOContextForStrategy(ptr noundef %2) #15
   %24 = icmp ult i32 %4, 2
   br i1 %24, label %LimitAdditionalPins.exit.i, label %LimitAdditionalPins.exit.thread.i
 
@@ -1655,7 +1652,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 44:                                               ; preds = %._crit_edge.i
-  tail call void @LockRelationForExtension(ptr noundef %.sroa.0.0.copyload, i32 noundef 7) #16
+  tail call void @LockRelationForExtension(ptr noundef %.sroa.0.0.copyload, i32 noundef 7) #15
   br label %45
 
 45:                                               ; preds = %44, %._crit_edge.i
@@ -1671,7 +1668,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br label %._crit_edge229.i
 
 ._crit_edge229.i:                                 ; preds = %47, %45
-  %51 = tail call i32 @smgrnblocks(ptr noundef %.sroa.6.0.copyload, i32 noundef %1) #16
+  %51 = tail call i32 @smgrnblocks(ptr noundef %.sroa.6.0.copyload, i32 noundef %1) #15
   %.not129.i = icmp eq i32 %5, -1
   br i1 %.not129.i, label %..critedge_crit_edge.i, label %52
 
@@ -1708,13 +1705,13 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %65 = load ptr, ptr @BufferDescriptors, align 8
   %66 = zext i32 %64 to i64
   %67 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %65, i64 %66
-  tail call void @StrategyFreeBuffer(ptr noundef %67) #16
+  tail call void @StrategyFreeBuffer(ptr noundef %67) #15
   %68 = getelementptr i8, ptr %67, i64 20
   %.val.i.i = load i32, ptr %68, align 4
   %69 = add i32 %.val.i.i, 1
   %70 = load ptr, ptr @CurrentResourceOwner, align 8
   %71 = sext i32 %69 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %70, i64 noundef %71, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  tail call void @ResourceOwnerForget(ptr noundef %70, i64 noundef %71, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef %67)
   %indvars.iv.next216.i = add nuw nsw i64 %indvars.iv215.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next216.i to i32
@@ -1725,7 +1722,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br i1 %.not.i, label %73, label %ExtendBufferedRelShared.exit
 
 73:                                               ; preds = %72
-  tail call void @UnlockRelationForExtension(ptr noundef %.sroa.0.0.copyload, i32 noundef 7) #16
+  tail call void @UnlockRelationForExtension(ptr noundef %.sroa.0.0.copyload, i32 noundef 7) #15
   br label %ExtendBufferedRelShared.exit
 
 .critedge.i:                                      ; preds = %._crit_edge191.i, %..critedge_crit_edge.i
@@ -1774,9 +1771,8 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br label %120
 
 105:                                              ; preds = %.critedge.i
-  %106 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %106)
-  %107 = tail call i32 @errcode(i32 noundef 261) #16
+  %106 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %107 = tail call i32 @errcode(i32 noundef 261) #15
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = load i32, ptr %.sroa.6.0.copyload, align 8
@@ -1784,16 +1780,16 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %112 = load i32, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 12
   %114 = load i32, ptr %113, align 4
-  %115 = tail call ptr @GetRelationPath(i32 noundef %109, i32 noundef %110, i32 noundef %112, i32 noundef %114, i32 noundef %1) #16
-  %116 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %115, i32 noundef -2) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2288, ptr noundef nonnull @__func__.ExtendBufferedRelShared) #16
+  %115 = tail call ptr @GetRelationPath(i32 noundef %109, i32 noundef %110, i32 noundef %112, i32 noundef %114, i32 noundef %1) #15
+  %116 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %115, i32 noundef -2) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2288, ptr noundef nonnull @__func__.ExtendBufferedRelShared) #15
   unreachable
 
 ._crit_edge196.i:                                 ; preds = %237, %.preheader.i
   %117 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %118 = trunc nuw i8 %117 to i1
-  %119 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %118) #16
-  call void @smgrzeroextend(ptr noundef %.sroa.6.0.copyload, i32 noundef %1, i32 noundef %51, i32 noundef %.0.i, i1 noundef zeroext false) #16
+  %119 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %118) #15
+  call void @smgrzeroextend(ptr noundef %.sroa.6.0.copyload, i32 noundef %1, i32 noundef %51, i32 noundef %.0.i, i1 noundef zeroext false) #15
   br i1 %.not.i, label %238, label %239
 
 120:                                              ; preds = %237, %.lr.ph195.i
@@ -1806,7 +1802,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %126 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %124, i64 %125
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %127 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %127) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %127) #15
   %128 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i.i = icmp eq ptr %128, null
   br i1 %.not.i.i, label %.critedge.i.i, label %ReservePrivateRefCountEntry.exit.i
@@ -1838,7 +1834,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   %139 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %138
   store ptr %139, ptr @ReservedRefCountEntry, align 8
   %140 = load ptr, ptr @PrivateRefCountHash, align 8
-  %141 = call ptr @hash_search(ptr noundef %140, ptr noundef nonnull %139, i32 noundef 1, ptr noundef nonnull %14) #16
+  %141 = call ptr @hash_search(ptr noundef %140, ptr noundef nonnull %139, i32 noundef 1, ptr noundef nonnull %14) #15
   %142 = load ptr, ptr @ReservedRefCountEntry, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4
@@ -1863,16 +1859,16 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
   store i32 %152, ptr %78, align 4
   store i32 %1, ptr %79, align 4
   store i32 %149, ptr %80, align 4
-  %153 = call i32 @BufTableHashCode(ptr noundef nonnull %15) #16
+  %153 = call i32 @BufTableHashCode(ptr noundef nonnull %15) #15
   %154 = load ptr, ptr @MainLWLockArray, align 8
   %155 = and i32 %153, 127
   %156 = zext nneg i32 %155 to i64
   %157 = getelementptr inbounds nuw %union.LWLockPadded, ptr %154, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 6784
-  %159 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %158, i32 noundef 0) #16
+  %159 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %158, i32 noundef 0) #15
   %160 = getelementptr inbounds nuw i8, ptr %126, i64 20
   %161 = load i32, ptr %160, align 4
-  %162 = call i32 @BufTableInsert(ptr noundef nonnull %15, i32 noundef %153, i32 noundef %161) #16
+  %162 = call i32 @BufTableInsert(ptr noundef nonnull %15, i32 noundef %153, i32 noundef %161) #15
   %163 = icmp sgt i32 %162, -1
   br i1 %163, label %164, label %229
 
@@ -1881,13 +1877,13 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
   %166 = zext nneg i32 %162 to i64
   %167 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %165, i64 %166
   %168 = call fastcc zeroext i1 @PinBuffer(ptr noundef %167, ptr noundef %2)
-  call void @LWLockRelease(ptr noundef nonnull %158) #16
-  call void @StrategyFreeBuffer(ptr noundef nonnull %126) #16
+  call void @LWLockRelease(ptr noundef nonnull %158) #15
+  call void @StrategyFreeBuffer(ptr noundef nonnull %126) #15
   %.val.i138.i = load i32, ptr %160, align 4
   %169 = add i32 %.val.i138.i, 1
   %170 = load ptr, ptr @CurrentResourceOwner, align 8
   %171 = sext i32 %169 to i64
-  call void @ResourceOwnerForget(ptr noundef %170, i64 noundef %171, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %170, i64 noundef %171, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %126)
   %172 = getelementptr i8, ptr %167, i64 20
   %.val.i = load i32, ptr %172, align 4
@@ -1907,8 +1903,7 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
   br i1 %181, label %194, label %182
 
 182:                                              ; preds = %174
-  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %183)
+  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %184 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %185 = load i32, ptr %184, align 4
   %186 = load i32, ptr %102, align 4
@@ -1916,10 +1911,10 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
   %188 = load i32, ptr %103, align 8
   %189 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 12
   %190 = load i32, ptr %189, align 4
-  %191 = call ptr @GetRelationPath(i32 noundef %186, i32 noundef %187, i32 noundef %188, i32 noundef %190, i32 noundef %1) #16
-  %192 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, i32 noundef %185, ptr noundef %191) #16
-  %193 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2359, ptr noundef nonnull @__func__.ExtendBufferedRelShared) #16
+  %191 = call ptr @GetRelationPath(i32 noundef %186, i32 noundef %187, i32 noundef %188, i32 noundef %190, i32 noundef %1) #15
+  %192 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, i32 noundef %185, ptr noundef %191) #15
+  %193 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2359, ptr noundef nonnull @__func__.ExtendBufferedRelShared) #15
   unreachable
 
 194:                                              ; preds = %174, %164
@@ -1940,7 +1935,7 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
   br i1 %.not2.i.i, label %LockBufHdr.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %196, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %13) #16
+  call void @perform_spin_delay(ptr noundef nonnull %13) #15
   %199 = atomicrmw or ptr %195, i32 4194304 seq_cst, align 4
   %200 = and i32 %199, 4194304
   %.not.i139.i = icmp eq i32 %200, 0
@@ -1948,13 +1943,13 @@ ReservePrivateRefCountEntry.exit.i:               ; preds = %134, %132, %120
 
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %196
   %.lcssa.i.i = phi i32 [ %197, %196 ], [ %199, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %13) #16
+  call void @finish_spin_delay(ptr noundef nonnull %13) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %201 = and i32 %.lcssa.i.i, -20971521
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   store volatile i32 %201, ptr %195, align 4
   %202 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %202) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %202) #15
   br label %.split.i.i
 
 .split.i.i:                                       ; preds = %WaitIO.exit.i, %LockBufHdr.exit.i
@@ -1971,7 +1966,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %196
   br i1 %.not2.i.i.i, label %LockBufHdr.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.split.i.i, %.lr.ph.i.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %12) #16
+  call void @perform_spin_delay(ptr noundef nonnull %12) #15
   %205 = atomicrmw or ptr %195, i32 4194304 seq_cst, align 4
   %206 = and i32 %205, 4194304
   %.not.i.i.i = icmp eq i32 %206, 0
@@ -1979,21 +1974,21 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %196
 
 LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.split.i.i
   %.lcssa.i.i.i = phi i32 [ %203, %.split.i.i ], [ %205, %.lr.ph.i.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %12) #16
+  call void @finish_spin_delay(ptr noundef nonnull %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %207 = and i32 %.lcssa.i.i.i, 67108864
   %.not.i140.i = icmp eq i32 %207, 0
   br i1 %.not.i140.i, label %.split21.us.i.i, label %208
 
 208:                                              ; preds = %LockBufHdr.exit.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %209 = and i32 %.lcssa.i.i.i, -4194305
   store volatile i32 %209, ptr %195, align 4
   %.val.i155.i = load i32, ptr %172, align 4
   %210 = load ptr, ptr @BufferIOCVArray, align 8
   %211 = sext i32 %.val.i155.i to i64
   %212 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %210, i64 %211
-  call void @ConditionVariablePrepareToSleep(ptr noundef %212) #16
+  call void @ConditionVariablePrepareToSleep(ptr noundef %212) #15
   br label %213
 
 213:                                              ; preds = %220, %208
@@ -2010,7 +2005,7 @@ LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.spl
   br i1 %.not2.i.i156.i, label %LockBufHdr.exit.i159.i, label %.lr.ph.i.i157.i
 
 .lr.ph.i.i157.i:                                  ; preds = %213, %.lr.ph.i.i157.i
-  call void @perform_spin_delay(ptr noundef nonnull %9) #16
+  call void @perform_spin_delay(ptr noundef nonnull %9) #15
   %216 = atomicrmw or ptr %195, i32 4194304 seq_cst, align 4
   %217 = and i32 %216, 4194304
   %.not.i.i158.i = icmp eq i32 %217, 0
@@ -2018,9 +2013,9 @@ LockBufHdr.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %.spl
 
 LockBufHdr.exit.i159.i:                           ; preds = %.lr.ph.i.i157.i, %213
   %.lcssa.i.i160.i = phi i32 [ %214, %213 ], [ %216, %.lr.ph.i.i157.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %9) #16
+  call void @finish_spin_delay(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %218 = and i32 %.lcssa.i.i160.i, -4194305
   store volatile i32 %218, ptr %195, align 4
   %219 = and i32 %.lcssa.i.i160.i, 67108864
@@ -2028,17 +2023,17 @@ LockBufHdr.exit.i159.i:                           ; preds = %.lr.ph.i.i157.i, %2
   br i1 %.not.i161.i, label %WaitIO.exit.i, label %220
 
 220:                                              ; preds = %LockBufHdr.exit.i159.i
-  call void @ConditionVariableSleep(ptr noundef %212, i32 noundef 134217736) #16
+  call void @ConditionVariableSleep(ptr noundef %212, i32 noundef 134217736) #15
   br label %213
 
 WaitIO.exit.i:                                    ; preds = %LockBufHdr.exit.i159.i
-  %221 = call zeroext i1 @ConditionVariableCancelSleep() #16
+  %221 = call zeroext i1 @ConditionVariableCancelSleep() #15
   br label %.split.i.i
 
 .split21.us.i.i:                                  ; preds = %LockBufHdr.exit.i.i
   %222 = and i32 %.lcssa.i.i.i, 16777216
   %.not16.i.i = icmp eq i32 %222, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
   br i1 %.not16.i.i, label %StartBufferIO.exit.thread.i, label %StartBufferIO.exit.i
 
 StartBufferIO.exit.thread.i:                      ; preds = %.split21.us.i.i
@@ -2049,7 +2044,7 @@ StartBufferIO.exit.thread.i:                      ; preds = %.split21.us.i.i
   %.val.i141.i = load i32, ptr %172, align 4
   %226 = add i32 %.val.i141.i, 1
   %227 = sext i32 %226 to i64
-  call void @ResourceOwnerRemember(ptr noundef %225, i64 noundef %227, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %225, i64 noundef %227, ptr noundef nonnull @buffer_io_resowner_desc) #15
   br label %237
 
 StartBufferIO.exit.i:                             ; preds = %.split21.us.i.i
@@ -2072,7 +2067,7 @@ StartBufferIO.exit.i:                             ; preds = %.split21.us.i.i
   br i1 %.not2.i142.i, label %LockBufHdr.exit146.i, label %.lr.ph.i143.i
 
 .lr.ph.i143.i:                                    ; preds = %229, %.lr.ph.i143.i
-  call void @perform_spin_delay(ptr noundef nonnull %11) #16
+  call void @perform_spin_delay(ptr noundef nonnull %11) #15
   %233 = atomicrmw or ptr %230, i32 4194304 seq_cst, align 4
   %234 = and i32 %233, 4194304
   %.not.i144.i = icmp eq i32 %234, 0
@@ -2080,14 +2075,14 @@ StartBufferIO.exit.i:                             ; preds = %.split21.us.i.i
 
 LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %229
   %.lcssa.i145.i = phi i32 [ %231, %229 ], [ %233, %.lr.ph.i143.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %11) #16
+  call void @finish_spin_delay(ptr noundef nonnull %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %126, ptr noundef nonnull align 4 dereferenceable(20) %15, i64 20, i1 false)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %.lcssa.i145.masked.i = and i32 %.lcssa.i145.i, -38010881
   %235 = or i32 %.lcssa.i145.masked.i, %spec.select.v.i
   store volatile i32 %235, ptr %230, align 4
-  call void @LWLockRelease(ptr noundef nonnull %158) #16
+  call void @LWLockRelease(ptr noundef nonnull %158) #15
   %236 = call fastcc zeroext i1 @StartBufferIO(ptr noundef nonnull %126, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %237
 
@@ -2098,13 +2093,13 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %229
   br i1 %exitcond223.not.i, label %._crit_edge196.i, label %120, !llvm.loop !16
 
 238:                                              ; preds = %._crit_edge196.i
-  call void @UnlockRelationForExtension(ptr noundef %.sroa.0.0.copyload, i32 noundef 7) #16
+  call void @UnlockRelationForExtension(ptr noundef %.sroa.0.0.copyload, i32 noundef 7) #15
   br label %239
 
 239:                                              ; preds = %238, %._crit_edge196.i
   %240 = shl i32 %.0.i, 13
   %241 = zext i32 %240 to i64
-  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %23, i32 noundef 5, i64 %119, i32 noundef 1, i64 noundef %241) #16
+  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %23, i32 noundef 5, i64 %119, i32 noundef 1, i64 noundef %241) #15
   br i1 %.not204.i, label %._crit_edge201.i, label %.lr.ph200.i
 
 .lr.ph200.i:                                      ; preds = %239
@@ -2147,7 +2142,7 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %229
 
 .critedge136.i:                                   ; preds = %261, %253
   %264 = getelementptr inbounds nuw i8, ptr %259, i64 36
-  %265 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %264, i32 noundef 0) #16
+  %265 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %264, i32 noundef 0) #15
   br label %.critedge134.i
 
 .critedge134.i:                                   ; preds = %.critedge136.i, %261
@@ -2165,7 +2160,7 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %229
   br i1 %.not2.i.i147.i, label %TerminateBufferIO.exit.i, label %.lr.ph.i.i148.i
 
 .lr.ph.i.i148.i:                                  ; preds = %.critedge134.i, %.lr.ph.i.i148.i
-  call void @perform_spin_delay(ptr noundef nonnull %10) #16
+  call void @perform_spin_delay(ptr noundef nonnull %10) #15
   %269 = atomicrmw or ptr %266, i32 4194304 seq_cst, align 4
   %270 = and i32 %269, 4194304
   %.not.i.i149.i = icmp eq i32 %270, 0
@@ -2173,10 +2168,10 @@ LockBufHdr.exit146.i:                             ; preds = %.lr.ph.i143.i, %229
 
 TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i148.i, %.critedge134.i
   %.lcssa.i.i151.i = phi i32 [ %267, %.critedge134.i ], [ %269, %.lr.ph.i.i148.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %10) #16
+  call void @finish_spin_delay(ptr noundef nonnull %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.0.i153.i = and i32 %.lcssa.i.i151.i, -222298113
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %271 = or disjoint i32 %.0.i153.i, 16777216
   store volatile i32 %271, ptr %266, align 4
   %272 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -2184,12 +2179,12 @@ TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i148.i, %.
   %.val.i154.i = load i32, ptr %273, align 4
   %274 = add i32 %.val.i154.i, 1
   %275 = sext i32 %274 to i64
-  call void @ResourceOwnerForget(ptr noundef %272, i64 noundef %275, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %272, i64 noundef %275, ptr noundef nonnull @buffer_io_resowner_desc) #15
   %.val11.i.i = load i32, ptr %273, align 4
   %276 = load ptr, ptr @BufferIOCVArray, align 8
   %277 = sext i32 %.val11.i.i to i64
   %278 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %276, i64 %277
-  call void @ConditionVariableBroadcast(ptr noundef %278) #16
+  call void @ConditionVariableBroadcast(ptr noundef %278) #15
   %indvars.iv.next225.i = add nuw nsw i64 %indvars.iv224.i, 1
   %exitcond228.not.i = icmp eq i64 %indvars.iv.next225.i, %74
   br i1 %exitcond228.not.i, label %._crit_edge201.i, label %253, !llvm.loop !17
@@ -2231,9 +2226,9 @@ define dso_local i32 @ExtendBufferedRelTo(ptr noundef byval(%struct.BufferManage
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %25 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %24) #16
+  %25 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %24) #15
   store ptr %25, ptr %19, align 8
-  tail call void @smgrpin(ptr noundef %25) #16
+  tail call void @smgrpin(ptr noundef %25) #15
   %.pre.i = load ptr, ptr %19, align 8
   br label %RelationGetSmgr.exit
 
@@ -2265,23 +2260,23 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   ]
 
 40:                                               ; preds = %35, %35
-  %41 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %33, i32 noundef %1) #16
+  %41 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %33, i32 noundef %1) #15
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %0, align 8
-  tail call void @LockRelationForExtension(ptr noundef %43, i32 noundef 7) #16
-  %44 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %33, i32 noundef %1) #16
+  tail call void @LockRelationForExtension(ptr noundef %43, i32 noundef 7) #15
+  %44 = tail call zeroext i1 @smgrexists(ptr noundef nonnull %33, i32 noundef %1) #15
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %42
   %46 = and i32 %3, 2
   %47 = icmp ne i32 %46, 0
-  tail call void @smgrcreate(ptr noundef nonnull %33, i32 noundef %1, i1 noundef zeroext %47) #16
+  tail call void @smgrcreate(ptr noundef nonnull %33, i32 noundef %1, i1 noundef zeroext %47) #15
   br label %48
 
 48:                                               ; preds = %45, %42
-  tail call void @UnlockRelationForExtension(ptr noundef %43, i32 noundef 7) #16
+  tail call void @UnlockRelationForExtension(ptr noundef %43, i32 noundef 7) #15
   br label %49
 
 49:                                               ; preds = %35, %48, %40, %32
@@ -2298,7 +2293,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   br label %55
 
 55:                                               ; preds = %51, %49
-  %56 = tail call i32 @smgrnblocks(ptr noundef %.pre, i32 noundef %1) #16
+  %56 = tail call i32 @smgrnblocks(ptr noundef %.pre, i32 noundef %1) #15
   %57 = add i32 %5, -1
   %or.cond = icmp ult i32 %57, 2
   %58 = or i32 %3, 32
@@ -2349,10 +2344,9 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   br i1 %.not.i54, label %75, label %78
 
 75:                                               ; preds = %74
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4866, ptr noundef nonnull @__func__.ReleaseBuffer) #16
+  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4866, ptr noundef nonnull @__func__.ReleaseBuffer) #15
   unreachable
 
 78:                                               ; preds = %74
@@ -2360,7 +2354,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %78
-  call void @UnpinLocalBuffer(i32 noundef %73) #16
+  call void @UnpinLocalBuffer(i32 noundef %73) #15
   br label %ReleaseBuffer.exit
 
 81:                                               ; preds = %78
@@ -2373,7 +2367,7 @@ RelationGetSmgr.exit:                             ; preds = %17, %22
   %87 = add i32 %.val.i.i, 1
   %88 = load ptr, ptr @CurrentResourceOwner, align 8
   %89 = sext i32 %87 to i64
-  call void @ResourceOwnerForget(ptr noundef %88, i64 noundef %89, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %88, i64 noundef %89, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef %85)
   br label %ReleaseBuffer.exit
 
@@ -2427,7 +2421,7 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   br i1 %107, label %108, label %115
 
 108:                                              ; preds = %106
-  %109 = call ptr @LocalBufferAlloc(ptr noundef %.pre, i32 noundef %1, i32 noundef %94, ptr noundef nonnull %11) #16
+  %109 = call ptr @LocalBufferAlloc(ptr noundef %.pre, i32 noundef %1, i32 noundef %94, ptr noundef nonnull %11) #15
   %110 = load i8, ptr %11, align 1, !range !5, !noundef !6
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %164
@@ -2439,10 +2433,10 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   br label %164
 
 115:                                              ; preds = %106
-  %116 = call i32 @IOContextForStrategy(ptr noundef %2) #16
+  %116 = call i32 @IOContextForStrategy(ptr noundef %2) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %117 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %117) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %117) #15
   call fastcc void @ReservePrivateRefCountEntry()
   %118 = load i32, ptr %.pre, align 4
   store i32 %118, ptr %7, align 4
@@ -2458,14 +2452,14 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   store i32 %1, ptr %125, align 4
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %94, ptr %126, align 4
-  %127 = call i32 @BufTableHashCode(ptr noundef nonnull %7) #16
+  %127 = call i32 @BufTableHashCode(ptr noundef nonnull %7) #15
   %128 = load ptr, ptr @MainLWLockArray, align 8
   %129 = and i32 %127, 127
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds nuw %union.LWLockPadded, ptr %128, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 6784
-  %133 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 1) #16
-  %134 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %127) #16
+  %133 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 1) #15
+  %134 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %127) #15
   %135 = icmp sgt i32 %134, -1
   br i1 %135, label %136, label %141
 
@@ -2474,23 +2468,23 @@ ReleaseBuffer.exit:                               ; preds = %.lr.ph, %81, %80
   %138 = zext nneg i32 %134 to i64
   %139 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %137, i64 %138
   %140 = call fastcc zeroext i1 @PinBuffer(ptr noundef %139, ptr noundef %2)
-  call void @LWLockRelease(ptr noundef nonnull %132) #16
+  call void @LWLockRelease(ptr noundef nonnull %132) #15
   %spec.select.i53 = zext i1 %140 to i8
   store i8 %spec.select.i53, ptr %11, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %140, label %161, label %164
 
 141:                                              ; preds = %115
-  call void @LWLockRelease(ptr noundef nonnull %132) #16
+  call void @LWLockRelease(ptr noundef nonnull %132) #15
   %142 = call fastcc i32 @GetVictimBuffer(ptr noundef %2, i32 noundef %116)
   %143 = add i32 %142, -1
   %144 = load ptr, ptr @BufferDescriptors, align 8
   %145 = zext i32 %143 to i64
   %146 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %144, i64 %145
-  %147 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 0) #16
+  %147 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %132, i32 noundef 0) #15
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 20
   %149 = load i32, ptr %148, align 4
-  %150 = call i32 @BufTableInsert(ptr noundef nonnull %7, i32 noundef %127, i32 noundef %149) #16
+  %150 = call i32 @BufTableInsert(ptr noundef nonnull %7, i32 noundef %127, i32 noundef %149) #15
   %151 = icmp sgt i32 %150, -1
   br i1 %151, label %BufferAlloc.exit, label %BufferAlloc.exit.thread
 
@@ -2501,24 +2495,24 @@ BufferAlloc.exit.thread:                          ; preds = %141
   %154 = icmp eq i32 %1, 3
   %or.cond.i51 = or i1 %154, %153
   %spec.select50.i.v = select i1 %or.cond.i51, i32 -2113667072, i32 33816576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %.masked = and i32 %152, -38010881
   %156 = or i32 %.masked, %spec.select50.i.v
   store volatile i32 %156, ptr %155, align 4
-  call void @LWLockRelease(ptr noundef nonnull %132) #16
+  call void @LWLockRelease(ptr noundef nonnull %132) #15
   store i8 0, ptr %11, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %164
 
 BufferAlloc.exit:                                 ; preds = %141
   call fastcc void @UnpinBuffer(ptr noundef nonnull %146)
-  call void @StrategyFreeBuffer(ptr noundef nonnull %146) #16
+  call void @StrategyFreeBuffer(ptr noundef nonnull %146) #15
   %157 = load ptr, ptr @BufferDescriptors, align 8
   %158 = zext nneg i32 %150 to i64
   %159 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %157, i64 %158
   %160 = call fastcc zeroext i1 @PinBuffer(ptr noundef %159, ptr noundef %2)
-  call void @LWLockRelease(ptr noundef nonnull %132) #16
+  call void @LWLockRelease(ptr noundef nonnull %132) #15
   %spec.select49.i = zext i1 %160 to i8
   store i8 %spec.select49.i, ptr %11, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2551,7 +2545,7 @@ BufferAlloc.exit:                                 ; preds = %141
   br i1 %171, label %172, label %178
 
 172:                                              ; preds = %168
-  call void @pgstat_assoc_relation(ptr noundef nonnull %91) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %91) #15
   %.pre71 = load ptr, ptr %166, align 8
   %.pre72.pre = load i8, ptr %11, align 1, !range !5
   br label %173
@@ -2582,7 +2576,7 @@ BufferAlloc.exit:                                 ; preds = %141
   br i1 %185, label %186, label %.thread
 
 186:                                              ; preds = %182
-  call void @pgstat_assoc_relation(ptr noundef nonnull %91) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %91) #15
   %.pre73 = load ptr, ptr %166, align 8
   %.pre74.pre = load i8, ptr %11, align 1, !range !5
   br label %187
@@ -2602,7 +2596,7 @@ BufferAlloc.exit:                                 ; preds = %141
   br i1 %194, label %.thread, label %PinBufferForBlock.exit
 
 .thread:                                          ; preds = %182, %192
-  call void @pgstat_count_io_op(i32 noundef %.0.i59, i32 noundef %.029.i4957, i32 noundef 2, i32 noundef 1, i64 noundef 0) #16
+  call void @pgstat_count_io_op(i32 noundef %.0.i59, i32 noundef %.029.i4957, i32 noundef 2, i32 noundef 1, i64 noundef 0) #15
   %195 = load i8, ptr @VacuumCostActive, align 1, !range !5, !noundef !6
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %PinBufferForBlock.exit
@@ -2677,10 +2671,9 @@ define dso_local void @ReleaseBuffer(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %2, label %5
 
 2:                                                ; preds = %1
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4866, ptr noundef nonnull @__func__.ReleaseBuffer) #16
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4866, ptr noundef nonnull @__func__.ReleaseBuffer) #15
   unreachable
 
 5:                                                ; preds = %1
@@ -2688,7 +2681,7 @@ define dso_local void @ReleaseBuffer(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %5
-  tail call void @UnpinLocalBuffer(i32 noundef %0) #16
+  tail call void @UnpinLocalBuffer(i32 noundef %0) #15
   br label %17
 
 8:                                                ; preds = %5
@@ -2701,7 +2694,7 @@ define dso_local void @ReleaseBuffer(i32 noundef %0) local_unnamed_addr #0 {
   %14 = add i32 %.val.i, 1
   %15 = load ptr, ptr @CurrentResourceOwner, align 8
   %16 = sext i32 %14 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %15, i64 noundef %16, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  tail call void @ResourceOwnerForget(ptr noundef %15, i64 noundef %16, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef %12)
   br label %17
 
@@ -2750,7 +2743,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %25
-  %34 = call ptr @LocalBufferAlloc(ptr noundef %27, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %9) #16
+  %34 = call ptr @LocalBufferAlloc(ptr noundef %27, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %9) #15
   %35 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %112
@@ -2762,10 +2755,10 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   br label %112
 
 40:                                               ; preds = %25
-  %41 = call i32 @IOContextForStrategy(ptr noundef %31) #16
+  %41 = call i32 @IOContextForStrategy(ptr noundef %31) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %42 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %42) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %42) #15
   %43 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i7 = icmp eq ptr %43, null
   br i1 %.not.i7, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -2797,7 +2790,7 @@ define dso_local noundef zeroext i1 @StartReadBuffers(ptr noundef captures(none)
   %54 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %53
   store ptr %54, ptr @ReservedRefCountEntry, align 8
   %55 = load ptr, ptr @PrivateRefCountHash, align 8
-  %56 = call ptr @hash_search(ptr noundef %55, ptr noundef nonnull %54, i32 noundef 1, ptr noundef nonnull %7) #16
+  %56 = call ptr @hash_search(ptr noundef %55, ptr noundef nonnull %54, i32 noundef 1, ptr noundef nonnull %7) #15
   %57 = load ptr, ptr @ReservedRefCountEntry, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
@@ -2822,14 +2815,14 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   store i32 %67, ptr %17, align 4
   store i32 %29, ptr %18, align 4
   store i32 %30, ptr %19, align 4
-  %68 = call i32 @BufTableHashCode(ptr noundef nonnull %8) #16
+  %68 = call i32 @BufTableHashCode(ptr noundef nonnull %8) #15
   %69 = load ptr, ptr @MainLWLockArray, align 8
   %70 = and i32 %68, 127
   %71 = zext nneg i32 %70 to i64
   %72 = getelementptr inbounds nuw %union.LWLockPadded, ptr %69, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6784
-  %74 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %73, i32 noundef 1) #16
-  %75 = call i32 @BufTableLookup(ptr noundef nonnull %8, i32 noundef %68) #16
+  %74 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %73, i32 noundef 1) #15
+  %75 = call i32 @BufTableLookup(ptr noundef nonnull %8, i32 noundef %68) #15
   %76 = icmp sgt i32 %75, -1
   br i1 %76, label %77, label %82
 
@@ -2838,23 +2831,23 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   %79 = zext nneg i32 %75 to i64
   %80 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %78, i64 %79
   %81 = call fastcc zeroext i1 @PinBuffer(ptr noundef %80, ptr noundef %31)
-  call void @LWLockRelease(ptr noundef nonnull %73) #16
+  call void @LWLockRelease(ptr noundef nonnull %73) #15
   %spec.select.i = zext i1 %81 to i8
   store i8 %spec.select.i, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %81, label %109, label %112
 
 82:                                               ; preds = %ReservePrivateRefCountEntry.exit
-  call void @LWLockRelease(ptr noundef nonnull %73) #16
+  call void @LWLockRelease(ptr noundef nonnull %73) #15
   %83 = call fastcc i32 @GetVictimBuffer(ptr noundef %31, i32 noundef %41)
   %84 = add i32 %83, -1
   %85 = load ptr, ptr @BufferDescriptors, align 8
   %86 = zext i32 %84 to i64
   %87 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %85, i64 %86
-  %88 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %73, i32 noundef 0) #16
+  %88 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %73, i32 noundef 0) #15
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 20
   %90 = load i32, ptr %89, align 4
-  %91 = call i32 @BufTableInsert(ptr noundef nonnull %8, i32 noundef %68, i32 noundef %90) #16
+  %91 = call i32 @BufTableInsert(ptr noundef nonnull %8, i32 noundef %68, i32 noundef %90) #15
   %92 = icmp sgt i32 %91, -1
   br i1 %92, label %BufferAlloc.exit, label %93
 
@@ -2873,7 +2866,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
   br i1 %.not2.i, label %BufferAlloc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %93, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %6) #16
+  call void @perform_spin_delay(ptr noundef nonnull %6) #15
   %97 = atomicrmw or ptr %94, i32 4194304 seq_cst, align 4
   %98 = and i32 %97, 4194304
   %.not.i8 = icmp eq i32 %98, 0
@@ -2881,18 +2874,18 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %40, %47, %49
 
 BufferAlloc.exit.thread:                          ; preds = %.lr.ph.i, %93
   %.lcssa.i = phi i32 [ %95, %93 ], [ %97, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %6) #16
+  call void @finish_spin_delay(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %87, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   %99 = icmp eq i8 %28, 112
   %100 = icmp eq i32 %29, 3
   %or.cond.i5 = or i1 %99, %100
   %spec.select50.i.v = select i1 %or.cond.i5, i32 -2113667072, i32 33816576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %.lcssa.i.masked = and i32 %.lcssa.i, -38010881
   %101 = or i32 %.lcssa.i.masked, %spec.select50.i.v
   store volatile i32 %101, ptr %94, align 4
-  call void @LWLockRelease(ptr noundef nonnull %73) #16
+  call void @LWLockRelease(ptr noundef nonnull %73) #15
   store i8 0, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %112
@@ -2902,14 +2895,14 @@ BufferAlloc.exit:                                 ; preds = %82
   %102 = add i32 %.val.i, 1
   %103 = load ptr, ptr @CurrentResourceOwner, align 8
   %104 = sext i32 %102 to i64
-  call void @ResourceOwnerForget(ptr noundef %103, i64 noundef %104, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %103, i64 noundef %104, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %87)
-  call void @StrategyFreeBuffer(ptr noundef nonnull %87) #16
+  call void @StrategyFreeBuffer(ptr noundef nonnull %87) #15
   %105 = load ptr, ptr @BufferDescriptors, align 8
   %106 = zext nneg i32 %91 to i64
   %107 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %105, i64 %106
   %108 = call fastcc zeroext i1 @PinBuffer(ptr noundef %107, ptr noundef %31)
-  call void @LWLockRelease(ptr noundef nonnull %73) #16
+  call void @LWLockRelease(ptr noundef nonnull %73) #15
   %spec.select49.i = zext i1 %108 to i8
   store i8 %spec.select49.i, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2943,7 +2936,7 @@ BufferAlloc.exit:                                 ; preds = %82
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %116
-  call void @pgstat_assoc_relation(ptr noundef nonnull %26) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %26) #15
   %.pre = load ptr, ptr %114, align 8
   %.pre37.pre = load i8, ptr %9, align 1, !range !5
   br label %121
@@ -2974,7 +2967,7 @@ BufferAlloc.exit:                                 ; preds = %82
   br i1 %133, label %134, label %.thread
 
 134:                                              ; preds = %130
-  call void @pgstat_assoc_relation(ptr noundef nonnull %26) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %26) #15
   %.pre38 = load ptr, ptr %114, align 8
   %.pre39.pre = load i8, ptr %9, align 1, !range !5
   br label %135
@@ -2994,7 +2987,7 @@ BufferAlloc.exit:                                 ; preds = %82
   br i1 %142, label %.thread, label %PinBufferForBlock.exit
 
 .thread:                                          ; preds = %130, %140
-  call void @pgstat_count_io_op(i32 noundef %.0.i13, i32 noundef %.029.i11, i32 noundef 2, i32 noundef 1, i64 noundef 0) #16
+  call void @pgstat_count_io_op(i32 noundef %.0.i13, i32 noundef %.029.i11, i32 noundef 2, i32 noundef 1, i64 noundef 0) #15
   %143 = load i8, ptr @VacuumCostActive, align 1, !range !5, !noundef !6
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %PinBufferForBlock.exit
@@ -3026,17 +3019,17 @@ PinBufferForBlock.exit:                           ; preds = %126, %140, %.thread
 157:                                              ; preds = %154
   %158 = load ptr, ptr %12, align 8
   %159 = load i32, ptr %14, align 4
-  %160 = call i32 @smgrmaxcombine(ptr noundef %158, i32 noundef %159, i32 noundef %2) #16
+  %160 = call i32 @smgrmaxcombine(ptr noundef %158, i32 noundef %159, i32 noundef %2) #15
   %161 = icmp slt i32 %160, %.048.i26
   br i1 %161, label %162, label %168, !prof !7
 
 162:                                              ; preds = %157
-  %163 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #16
+  %163 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
   br i1 %163, label %164, label %168
 
 164:                                              ; preds = %162
-  %165 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %2, i32 noundef %.048.i26, i32 noundef %160) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1307, ptr noundef nonnull @__func__.StartReadBuffersImpl) #16
+  %165 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %2, i32 noundef %.048.i26, i32 noundef %160) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1307, ptr noundef nonnull @__func__.StartReadBuffersImpl) #15
   br label %168
 
 166:                                              ; preds = %PinBufferForBlock.exit
@@ -3086,7 +3079,7 @@ PinBufferForBlock.exit:                           ; preds = %126, %140, %.thread
   %184 = load i32, ptr %183, align 4
   %sext.i = shl i32 %.047.i24, 16
   %185 = ashr exact i32 %sext.i, 16
-  %186 = call zeroext i1 @smgrprefetch(ptr noundef %182, i32 noundef %184, i32 noundef %2, i32 noundef %185) #16
+  %186 = call zeroext i1 @smgrprefetch(ptr noundef %182, i32 noundef %184, i32 noundef %2, i32 noundef %185) #15
   br label %StartReadBuffersImpl.exit
 
 StartReadBuffersImpl.exit:                        ; preds = %5, %.loopexit, %171, %180
@@ -3123,7 +3116,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %4
-  %29 = call ptr @LocalBufferAlloc(ptr noundef %23, i32 noundef %25, i32 noundef %2, ptr noundef nonnull %8) #16
+  %29 = call ptr @LocalBufferAlloc(ptr noundef %23, i32 noundef %25, i32 noundef %2, ptr noundef nonnull %8) #15
   %30 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %107
@@ -3135,10 +3128,10 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   br label %107
 
 35:                                               ; preds = %4
-  %36 = tail call i32 @IOContextForStrategy(ptr noundef %26) #16
+  %36 = tail call i32 @IOContextForStrategy(ptr noundef %26) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %37 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %37) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %37) #15
   %38 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i7 = icmp eq ptr %38, null
   br i1 %.not.i7, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -3170,7 +3163,7 @@ define dso_local noundef zeroext i1 @StartReadBuffer(ptr noundef captures(none) 
   %49 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %48
   store ptr %49, ptr @ReservedRefCountEntry, align 8
   %50 = load ptr, ptr @PrivateRefCountHash, align 8
-  %51 = call ptr @hash_search(ptr noundef %50, ptr noundef nonnull %49, i32 noundef 1, ptr noundef nonnull %6) #16
+  %51 = call ptr @hash_search(ptr noundef %50, ptr noundef nonnull %49, i32 noundef 1, ptr noundef nonnull %6) #15
   %52 = load ptr, ptr @ReservedRefCountEntry, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
@@ -3195,14 +3188,14 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   store i32 %62, ptr %12, align 4
   store i32 %25, ptr %13, align 4
   store i32 %2, ptr %14, align 4
-  %63 = call i32 @BufTableHashCode(ptr noundef nonnull %7) #16
+  %63 = call i32 @BufTableHashCode(ptr noundef nonnull %7) #15
   %64 = load ptr, ptr @MainLWLockArray, align 8
   %65 = and i32 %63, 127
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds nuw %union.LWLockPadded, ptr %64, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6784
-  %69 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 1) #16
-  %70 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %63) #16
+  %69 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 1) #15
+  %70 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %63) #15
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %72, label %77
 
@@ -3211,23 +3204,23 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   %74 = zext nneg i32 %70 to i64
   %75 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %73, i64 %74
   %76 = call fastcc zeroext i1 @PinBuffer(ptr noundef %75, ptr noundef %26)
-  call void @LWLockRelease(ptr noundef nonnull %68) #16
+  call void @LWLockRelease(ptr noundef nonnull %68) #15
   %spec.select.i = zext i1 %76 to i8
   store i8 %spec.select.i, ptr %8, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %76, label %104, label %107
 
 77:                                               ; preds = %ReservePrivateRefCountEntry.exit
-  call void @LWLockRelease(ptr noundef nonnull %68) #16
+  call void @LWLockRelease(ptr noundef nonnull %68) #15
   %78 = call fastcc i32 @GetVictimBuffer(ptr noundef %26, i32 noundef %36)
   %79 = add i32 %78, -1
   %80 = load ptr, ptr @BufferDescriptors, align 8
   %81 = zext i32 %79 to i64
   %82 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %80, i64 %81
-  %83 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 0) #16
+  %83 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %68, i32 noundef 0) #15
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 20
   %85 = load i32, ptr %84, align 4
-  %86 = call i32 @BufTableInsert(ptr noundef nonnull %7, i32 noundef %63, i32 noundef %85) #16
+  %86 = call i32 @BufTableInsert(ptr noundef nonnull %7, i32 noundef %63, i32 noundef %85) #15
   %87 = icmp sgt i32 %86, -1
   br i1 %87, label %BufferAlloc.exit, label %88
 
@@ -3246,7 +3239,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
   br i1 %.not2.i, label %BufferAlloc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %88, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %5) #16
+  call void @perform_spin_delay(ptr noundef nonnull %5) #15
   %92 = atomicrmw or ptr %89, i32 4194304 seq_cst, align 4
   %93 = and i32 %92, 4194304
   %.not.i8 = icmp eq i32 %93, 0
@@ -3254,18 +3247,18 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %35, %42, %44
 
 BufferAlloc.exit.thread:                          ; preds = %.lr.ph.i, %88
   %.lcssa.i = phi i32 [ %90, %88 ], [ %92, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %5) #16
+  call void @finish_spin_delay(ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %82, ptr noundef nonnull align 4 dereferenceable(20) %7, i64 20, i1 false)
   %94 = icmp eq i8 %24, 112
   %95 = icmp eq i32 %25, 3
   %or.cond.i5 = or i1 %94, %95
   %spec.select50.i.v = select i1 %or.cond.i5, i32 -2113667072, i32 33816576
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %.lcssa.i.masked = and i32 %.lcssa.i, -38010881
   %96 = or i32 %.lcssa.i.masked, %spec.select50.i.v
   store volatile i32 %96, ptr %89, align 4
-  call void @LWLockRelease(ptr noundef nonnull %68) #16
+  call void @LWLockRelease(ptr noundef nonnull %68) #15
   store i8 0, ptr %8, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %107
@@ -3275,14 +3268,14 @@ BufferAlloc.exit:                                 ; preds = %77
   %97 = add i32 %.val.i, 1
   %98 = load ptr, ptr @CurrentResourceOwner, align 8
   %99 = sext i32 %97 to i64
-  call void @ResourceOwnerForget(ptr noundef %98, i64 noundef %99, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %98, i64 noundef %99, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %82)
-  call void @StrategyFreeBuffer(ptr noundef nonnull %82) #16
+  call void @StrategyFreeBuffer(ptr noundef nonnull %82) #15
   %100 = load ptr, ptr @BufferDescriptors, align 8
   %101 = zext nneg i32 %86 to i64
   %102 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %100, i64 %101
   %103 = call fastcc zeroext i1 @PinBuffer(ptr noundef %102, ptr noundef %26)
-  call void @LWLockRelease(ptr noundef nonnull %68) #16
+  call void @LWLockRelease(ptr noundef nonnull %68) #15
   %spec.select49.i = zext i1 %103 to i8
   store i8 %spec.select49.i, ptr %8, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3316,7 +3309,7 @@ BufferAlloc.exit:                                 ; preds = %77
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %111
-  call void @pgstat_assoc_relation(ptr noundef nonnull %22) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %22) #15
   %.pre = load ptr, ptr %109, align 8
   %.pre36.pre = load i8, ptr %8, align 1, !range !5
   br label %116
@@ -3347,7 +3340,7 @@ BufferAlloc.exit:                                 ; preds = %77
   br i1 %128, label %129, label %.thread
 
 129:                                              ; preds = %125
-  call void @pgstat_assoc_relation(ptr noundef nonnull %22) #16
+  call void @pgstat_assoc_relation(ptr noundef nonnull %22) #15
   %.pre37 = load ptr, ptr %109, align 8
   %.pre38.pre = load i8, ptr %8, align 1, !range !5
   br label %130
@@ -3367,7 +3360,7 @@ BufferAlloc.exit:                                 ; preds = %77
   br i1 %137, label %.thread, label %PinBufferForBlock.exit
 
 .thread:                                          ; preds = %125, %135
-  call void @pgstat_count_io_op(i32 noundef %.0.i13, i32 noundef %.029.i11, i32 noundef 2, i32 noundef 1, i64 noundef 0) #16
+  call void @pgstat_count_io_op(i32 noundef %.0.i13, i32 noundef %.029.i11, i32 noundef 2, i32 noundef 1, i64 noundef 0) #15
   %138 = load i8, ptr @VacuumCostActive, align 1, !range !5, !noundef !6
   %139 = trunc nuw i8 %138 to i1
   br i1 %139, label %140, label %PinBufferForBlock.exit
@@ -3407,7 +3400,7 @@ PinBufferForBlock.exit:                           ; preds = %121, %135, %.thread
 155:                                              ; preds = %148
   %156 = load ptr, ptr %9, align 8
   %157 = load i32, ptr %10, align 4
-  %158 = call zeroext i1 @smgrprefetch(ptr noundef %156, i32 noundef %157, i32 noundef %2, i32 noundef 1) #16
+  %158 = call zeroext i1 @smgrprefetch(ptr noundef %156, i32 noundef %157, i32 noundef %2, i32 noundef 1) #15
   br label %StartReadBuffersImpl.exit
 
 StartReadBuffersImpl.exit:                        ; preds = %PinBufferForBlock.exit, %148, %155
@@ -3449,7 +3442,7 @@ define dso_local void @WaitReadBuffers(ptr noundef readonly captures(none) %0) l
 24:                                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @IOContextForStrategy(ptr noundef %26) #16
+  %27 = tail call i32 @IOContextForStrategy(ptr noundef %26) #15
   %28 = sext i16 %7 to i64
   %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 8), align 8
   %30 = add i64 %29, %28
@@ -3562,7 +3555,7 @@ BufferGetBlock.exit:                              ; preds = %68, %75
   %91 = zext i32 %89 to i64
   %92 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %90, i64 %91
   %93 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %93) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %93) #15
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
@@ -3577,7 +3570,7 @@ BufferGetBlock.exit:                              ; preds = %68, %75
   br i1 %.not2.i.us.i, label %LockBufHdr.exit.us.i, label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %88, %.lr.ph.i.us.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %97 = atomicrmw or ptr %94, i32 4194304 seq_cst, align 4
   %98 = and i32 %97, 4194304
   %.not.i.us.i = icmp eq i32 %98, 0
@@ -3585,20 +3578,20 @@ BufferGetBlock.exit:                              ; preds = %68, %75
 
 LockBufHdr.exit.us.i:                             ; preds = %.lr.ph.i.us.i, %88
   %.lcssa.i.us.i = phi i32 [ %95, %88 ], [ %97, %.lr.ph.i.us.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %99 = and i32 %.lcssa.i.us.i, 67108864
   %.not.us.i = icmp eq i32 %99, 0
   br i1 %.not.us.i, label %.split21.us.i, label %.loopexit.split.us.i
 
 .loopexit.split.us.i:                             ; preds = %LockBufHdr.exit.us.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   br label %.critedge.sink.split
 
 .split21.us.i:                                    ; preds = %LockBufHdr.exit.us.i
   %100 = and i32 %.lcssa.i.us.i, 16777216
   %.not16.i = icmp eq i32 %100, 0
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
   br i1 %.not16.i, label %111, label %.critedge.sink.split
 
 WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
@@ -3627,7 +3620,7 @@ WaitReadBuffersCanStartIO.exit84:                 ; preds = %.lr.ph
   %.val.i89 = load i32, ptr %115, align 4
   %116 = add i32 %.val.i89, 1
   %117 = sext i32 %116 to i64
-  call void @ResourceOwnerRemember(ptr noundef %114, i64 noundef %117, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %114, i64 noundef %117, ptr noundef nonnull @buffer_io_resowner_desc) #15
   %.pre136 = load i32, ptr %85, align 4
   %118 = sext i32 %.079111 to i64
   %119 = getelementptr inbounds i32, ptr %4, i64 %118
@@ -3675,12 +3668,12 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %.2104 = phi i32 [ %.078118, %BufferGetBlock.exit ], [ %.2112, %.critedge.sink.split ], [ %.2112, %WaitReadBuffersCanStartIO.exit84 ], [ %46, %BufferGetBlock.exit86 ]
   %140 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %141 = trunc nuw i8 %140 to i1
-  %142 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %141) #16
+  %142 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %141) #15
   %143 = load ptr, ptr %38, align 8
-  call void @smgrreadv(ptr noundef %143, i32 noundef %16, i32 noundef %81, ptr noundef nonnull %5, i32 noundef %.079107) #16
+  call void @smgrreadv(ptr noundef %143, i32 noundef %16, i32 noundef %81, ptr noundef nonnull %5, i32 noundef %.079107) #15
   %144 = shl i32 %.079107, 13
   %145 = sext i32 %144 to i64
-  call void @pgstat_count_io_op_time(i32 noundef %.07792, i32 noundef %.094, i32 noundef 6, i64 %142, i32 noundef 1, i64 noundef %145) #16
+  call void @pgstat_count_io_op_time(i32 noundef %.07792, i32 noundef %.094, i32 noundef 6, i64 %142, i32 noundef 1, i64 noundef %145) #15
   %146 = icmp sgt i32 %.079107, 0
   br i1 %146, label %.lr.ph117.preheader, label %._crit_edge
 
@@ -3731,7 +3724,7 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %.074 = phi ptr [ %162, %151 ], [ %173, %163 ]
   %175 = trunc nuw nsw i64 %indvars.iv132 to i32
   %176 = add i32 %81, %175
-  %177 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %.074, i32 noundef %176, i32 noundef 3) #16
+  %177 = call zeroext i1 @PageIsVerifiedExtended(ptr noundef %.074, i32 noundef %176, i32 noundef 3) #15
   br i1 %177, label %212, label %178
 
 178:                                              ; preds = %174
@@ -3744,11 +3737,11 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   br i1 %or.cond, label %184, label %199
 
 184:                                              ; preds = %178
-  %185 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
+  %185 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %185, label %186, label %198
 
 186:                                              ; preds = %184
-  %187 = call i32 @errcode(i32 noundef 16779816) #16
+  %187 = call i32 @errcode(i32 noundef 16779816) #15
   %188 = load ptr, ptr %38, align 8
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i32, ptr %189, align 4
@@ -3757,9 +3750,9 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %193 = load i32, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 12
   %195 = load i32, ptr %194, align 4
-  %196 = call ptr @GetRelationPath(i32 noundef %190, i32 noundef %191, i32 noundef %193, i32 noundef %195, i32 noundef %16) #16
-  %197 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %176, ptr noundef %196) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1544, ptr noundef nonnull @__func__.WaitReadBuffers) #16
+  %196 = call ptr @GetRelationPath(i32 noundef %190, i32 noundef %191, i32 noundef %193, i32 noundef %195, i32 noundef %16) #15
+  %197 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %176, ptr noundef %196) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1544, ptr noundef nonnull @__func__.WaitReadBuffers) #15
   br label %198
 
 198:                                              ; preds = %186, %184
@@ -3767,9 +3760,8 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   br label %212
 
 199:                                              ; preds = %178
-  %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %200)
-  %201 = call i32 @errcode(i32 noundef 16779816) #16
+  %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %201 = call i32 @errcode(i32 noundef 16779816) #15
   %202 = load ptr, ptr %38, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %204 = load i32, ptr %203, align 4
@@ -3778,9 +3770,9 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   %207 = load i32, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 12
   %209 = load i32, ptr %208, align 4
-  %210 = call ptr @GetRelationPath(i32 noundef %204, i32 noundef %205, i32 noundef %207, i32 noundef %209, i32 noundef %16) #16
-  %211 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i32 noundef %176, ptr noundef %210) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1552, ptr noundef nonnull @__func__.WaitReadBuffers) #16
+  %210 = call ptr @GetRelationPath(i32 noundef %204, i32 noundef %205, i32 noundef %207, i32 noundef %209, i32 noundef %16) #15
+  %211 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i32 noundef %176, ptr noundef %210) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1552, ptr noundef nonnull @__func__.WaitReadBuffers) #15
   unreachable
 
 212:                                              ; preds = %198, %174
@@ -3808,7 +3800,7 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
   br i1 %.not2.i.i, label %TerminateBufferIO.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %217, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %221 = atomicrmw or ptr %218, i32 4194304 seq_cst, align 4
   %222 = and i32 %221, 4194304
   %.not.i.i = icmp eq i32 %222, 0
@@ -3816,10 +3808,10 @@ BufferGetBlock.exit86:                            ; preds = %121, %129
 
 TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %217
   %.lcssa.i.i = phi i32 [ %219, %217 ], [ %221, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.0.i87 = and i32 %.lcssa.i.i, -222298113
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %223 = or disjoint i32 %.0.i87, 16777216
   store volatile i32 %223, ptr %218, align 4
   %224 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -3827,12 +3819,12 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %217
   %.val.i = load i32, ptr %225, align 4
   %226 = add i32 %.val.i, 1
   %227 = sext i32 %226 to i64
-  call void @ResourceOwnerForget(ptr noundef %224, i64 noundef %227, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %224, i64 noundef %227, ptr noundef nonnull @buffer_io_resowner_desc) #15
   %.val11.i = load i32, ptr %225, align 4
   %228 = load ptr, ptr @BufferIOCVArray, align 8
   %229 = sext i32 %.val11.i to i64
   %230 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %228, i64 %229
-  call void @ConditionVariableBroadcast(ptr noundef %230) #16
+  call void @ConditionVariableBroadcast(ptr noundef %230) #15
   br label %231
 
 231:                                              ; preds = %213, %TerminateBufferIO.exit
@@ -3909,7 +3901,7 @@ define dso_local zeroext i1 @BufferIsExclusiveLocked(i32 noundef %0) local_unnam
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %9 = tail call zeroext i1 @LWLockHeldByMeInMode(ptr noundef nonnull %8, i32 noundef 0) #16
+  %9 = tail call zeroext i1 @LWLockHeldByMeInMode(ptr noundef nonnull %8, i32 noundef 0) #15
   br label %10
 
 10:                                               ; preds = %1, %3
@@ -3954,10 +3946,9 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not13, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2536, ptr noundef nonnull @__func__.MarkBufferDirty) #16
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2536, ptr noundef nonnull @__func__.MarkBufferDirty) #15
   unreachable
 
 6:                                                ; preds = %1
@@ -3965,7 +3956,7 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void @MarkLocalBufferDirty(i32 noundef %0) #16
+  tail call void @MarkLocalBufferDirty(i32 noundef %0) #15
   br label %41
 
 9:                                                ; preds = %6
@@ -4001,7 +3992,7 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not4.i, label %WaitBufHdrUnlocked.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %.0.i = load volatile i32, ptr %13, align 4
   %24 = and i32 %.0.i, 4194304
   %.not.i = icmp eq i32 %24, 0
@@ -4009,14 +4000,14 @@ define dso_local void @MarkBufferDirty(i32 noundef %0) local_unnamed_addr #0 {
 
 WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %22
   %.0.lcssa.i = phi i32 [ %.03.i, %22 ], [ %.0.i, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
 25:                                               ; preds = %WaitBufHdrUnlocked.exit, %20
   %.1 = phi i32 [ %.0, %20 ], [ %.0.lcssa.i, %WaitBufHdrUnlocked.exit ]
   %26 = or i32 %.1, 276824064
-  %27 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 %.1, i32 %26, ptr nonnull elementtype(i32) %13) #16, !srcloc !12
+  %27 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 %.1, i32 %26, ptr nonnull elementtype(i32) %13) #15, !srcloc !12
   %28 = extractvalue { i32, i8 } %27, 0
   %29 = extractvalue { i32, i8 } %27, 1
   %.not14 = icmp eq i8 %29, 0
@@ -4098,7 +4089,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %18
   br i1 %30, label %62, label %BufTagMatchesRelFileLocator.exit.thread
 
 BufTagMatchesRelFileLocator.exit.thread:          ; preds = %14, %18, %28, %BufTagMatchesRelFileLocator.exit, %6
-  tail call void @UnpinLocalBuffer(i32 noundef %0) #16
+  tail call void @UnpinLocalBuffer(i32 noundef %0) #15
   br label %60
 
 31:                                               ; preds = %4
@@ -4145,7 +4136,7 @@ BufTagMatchesRelFileLocator.exit25.thread:        ; preds = %39, %43, %53, %BufT
   %57 = add i32 %.val.i26, 1
   %58 = load ptr, ptr @CurrentResourceOwner, align 8
   %59 = sext i32 %57 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %58, i64 noundef %59, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  tail call void @ResourceOwnerForget(ptr noundef %58, i64 noundef %59, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %35)
   br label %60
 
@@ -4167,7 +4158,7 @@ define internal fastcc void @UnpinBuffer(ptr noundef %0) unnamed_addr #0 {
   %3 = add i32 %.val, 1
   %4 = load ptr, ptr @CurrentResourceOwner, align 8
   %5 = sext i32 %3 to i64
-  tail call void @ResourceOwnerForget(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  tail call void @ResourceOwnerForget(ptr noundef %4, i64 noundef %5, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef %0)
   ret void
 }
@@ -4178,7 +4169,7 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 @StrategySyncStart(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  %4 = call i32 @StrategySyncStart(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
   %5 = load i32, ptr %3, align 4
   %6 = zext i32 %5 to i64
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @PendingBgWriterStats, i64 16), align 8
@@ -4441,7 +4432,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
   %21 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %20
   store ptr %21, ptr @ReservedRefCountEntry, align 8
   %22 = load ptr, ptr @PrivateRefCountHash, align 8
-  %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %5) #16
+  %23 = call ptr @hash_search(ptr noundef %22, ptr noundef nonnull %21, i32 noundef 1, ptr noundef nonnull %5) #15
   %24 = load ptr, ptr @ReservedRefCountEntry, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -4457,7 +4448,7 @@ define internal fastcc range(i32 0, 4) i32 @SyncOneBuffer(i32 noundef %0, i1 nou
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %3, %14, %16
   %30 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %30) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %30) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4477,7 +4468,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %3, %14, %16
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ReservePrivateRefCountEntry.exit, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %4) #16
+  call void @perform_spin_delay(ptr noundef nonnull %4) #15
   %39 = atomicrmw or ptr %36, i32 4194304 seq_cst, align 4
   %40 = and i32 %39, 4194304
   %.not.i27 = icmp eq i32 %40, 0
@@ -4485,7 +4476,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %3, %14, %16
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %37, %ReservePrivateRefCountEntry.exit ], [ %39, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %4) #16
+  call void @finish_spin_delay(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %41 = and i32 %.lcssa.i, 4194303
   %or.cond = icmp ne i32 %41, 0
@@ -4494,7 +4485,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   br i1 %brmerge.not, label %42, label %44
 
 42:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %43 = and i32 %.lcssa.i, -4194305
   store volatile i32 %43, ptr %36, align 4
   br label %85
@@ -4505,7 +4496,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   br i1 %or.cond26.not, label %48, label %46
 
 46:                                               ; preds = %44
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %47 = and i32 %.lcssa.i, -4194305
   store volatile i32 %47, ptr %36, align 4
   br label %85
@@ -4513,7 +4504,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
 48:                                               ; preds = %44
   %49 = load volatile i32, ptr %36, align 4
   %50 = add i32 %49, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %51 = and i32 %50, -4194305
   store volatile i32 %51, ptr %36, align 4
   %52 = getelementptr i8, ptr %9, i64 20
@@ -4526,17 +4517,17 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   store i32 1, ptr %55, align 4
   %56 = load ptr, ptr @CurrentResourceOwner, align 8
   %57 = sext i32 %53 to i64
-  call void @ResourceOwnerRemember(ptr noundef %56, i64 noundef %57, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %56, i64 noundef %57, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %59 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %58, i32 noundef 1) #16
+  %59 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %58, i32 noundef 1) #15
   call fastcc void @FlushBuffer(ptr noundef %9, ptr noundef null, i32 noundef 3)
-  call void @LWLockRelease(ptr noundef nonnull %58) #16
+  call void @LWLockRelease(ptr noundef nonnull %58) #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   %.val.i28 = load i32, ptr %52, align 4
   %60 = add i32 %.val.i28, 1
   %61 = load ptr, ptr @CurrentResourceOwner, align 8
   %62 = sext i32 %60 to i64
-  call void @ResourceOwnerForget(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %61, i64 noundef %62, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %9)
   %63 = load i32, ptr @io_direct_flags, align 4
   %64 = and i32 %63, 1
@@ -4588,7 +4579,7 @@ ScheduleBufferTagForWriteback.exit:               ; preds = %48, %79, %83
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOXact_Buffers(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  tail call void @AtEOXact_LocalBuffers(i1 noundef zeroext %0) #16
+  tail call void @AtEOXact_LocalBuffers(i1 noundef zeroext %0) #15
   ret void
 }
 
@@ -4603,9 +4594,9 @@ define dso_local void @InitBufferManagerAccess() local_unnamed_addr #0 {
   store i64 4, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 8, ptr %3, align 8
-  %4 = call ptr @hash_create(ptr noundef nonnull @.str.7, i64 noundef 100, ptr noundef nonnull %1, i32 noundef 40) #16
+  %4 = call ptr @hash_create(ptr noundef nonnull @.str.7, i64 noundef 100, ptr noundef nonnull %1, i32 noundef 40) #15
   store ptr %4, ptr @PrivateRefCountHash, align 8
-  call void @on_shmem_exit(ptr noundef nonnull @AtProcExit_Buffers, i64 noundef 0) #16
+  call void @on_shmem_exit(ptr noundef nonnull @AtProcExit_Buffers, i64 noundef 0) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -4641,7 +4632,7 @@ define internal void @AtProcExit_Buffers(i32 %0, i64 %1) #0 {
   br i1 %.not2.i.i, label %LockBufHdr.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %14 = atomicrmw or ptr %11, i32 4194304 seq_cst, align 4
   %15 = and i32 %14, 4194304
   %.not.i.i = icmp eq i32 %15, 0
@@ -4649,7 +4640,7 @@ define internal void @AtProcExit_Buffers(i32 %0, i64 %1) #0 {
 
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %5
   %.lcssa.i.i = phi i32 [ %12, %5 ], [ %14, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %16 = and i32 %.lcssa.i.i, 536870912
   %.not7.i = icmp eq i32 %16, 0
@@ -4666,14 +4657,14 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %5
 
 23:                                               ; preds = %17, %LockBufHdr.exit.i
   %.0.i = phi i32 [ %.lcssa.i.i, %LockBufHdr.exit.i ], [ %spec.select.i, %17 ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %24 = and i32 %.0.i, -4194305
   store volatile i32 %24, ptr %11, align 4
   store ptr null, ptr @PinCountWaitBuf, align 8
   br label %UnlockBuffers.exit
 
 UnlockBuffers.exit:                               ; preds = %2, %23
-  call void @AtProcExit_LocalBuffers() #16
+  call void @AtProcExit_LocalBuffers() #15
   ret void
 }
 
@@ -4731,7 +4722,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %24
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %24
   %27 = load ptr, ptr @PrivateRefCountHash, align 8
-  %28 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
+  %28 = call ptr @hash_search(ptr noundef %27, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %29 = icmp eq ptr %28, null
   br i1 %29, label %GetPrivateRefCount.exit, label %30
@@ -4754,15 +4745,15 @@ GetPrivateRefCount.exit:                          ; preds = %30, %GetPrivateRefC
   %.sroa.06.0.extract.trunc = trunc i64 %33 to i32
   %35 = getelementptr i8, ptr %.0, i64 12
   %.0.val = load i32, ptr %35, align 4
-  %36 = call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i, i32 noundef %.033, i32 noundef %.0.val) #16
+  %36 = call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i, i32 noundef %.033, i32 noundef %.0.val) #15
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %38 = load volatile i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %38, -4194304
   %42 = and i32 %38, 262143
-  %43 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, i32 noundef %0, ptr noundef %36, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %.032) #16
-  call void @pfree(ptr noundef %36) #16
+  %43 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, i32 noundef %0, ptr noundef %36, i32 noundef %40, i32 noundef %41, i32 noundef %42, i32 noundef %.032) #15
+  call void @pfree(ptr noundef %36) #15
   ret ptr %43
 }
 
@@ -4809,7 +4800,7 @@ define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not2.i.i, label %LockBufHdr.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %18 = atomicrmw or ptr %15, i32 4194304 seq_cst, align 4
   %19 = and i32 %18, 4194304
   %.not.i.i = icmp eq i32 %19, 0
@@ -4817,7 +4808,7 @@ define dso_local void @CheckPointBuffers(i32 noundef %0) local_unnamed_addr #0 {
 
 LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %.lcssa.i.i = phi i32 [ %16, %12 ], [ %18, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = or i32 %.lcssa.i.i, %spec.select.i
   %21 = icmp eq i32 %20, -1
@@ -4851,7 +4842,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 38:                                               ; preds = %22, %LockBufHdr.exit.i
   %.1.i = phi i32 [ %25, %22 ], [ %.084105.i, %LockBufHdr.exit.i ]
   %.0.i = phi i32 [ %23, %22 ], [ %.lcssa.i.i, %LockBufHdr.exit.i ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %39 = and i32 %.0.i, -4194305
   store volatile i32 %39, ptr %15, align 4
   %40 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
@@ -4859,7 +4850,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %.not103.i, label %42, label %41
 
 41:                                               ; preds = %38
-  call void @ProcessProcSignalBarrier() #16
+  call void @ProcessProcSignalBarrier() #15
   br label %42
 
 42:                                               ; preds = %41, %38
@@ -4884,7 +4875,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %51, label %.lr.ph112.preheader.i, label %._crit_edge113.thread.i
 
 ._crit_edge113.thread.i:                          ; preds = %47
-  %52 = call ptr @binaryheap_allocate(i32 noundef 0, ptr noundef nonnull @ts_ckpt_progress_comparator, ptr noundef null) #16
+  %52 = call ptr @binaryheap_allocate(i32 noundef 0, ptr noundef nonnull @ts_ckpt_progress_comparator, ptr noundef null) #15
   br label %._crit_edge119.i
 
 .lr.ph112.preheader.i:                            ; preds = %47
@@ -4912,11 +4903,11 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %57
-  %63 = call ptr @palloc(i64 noundef %60) #16
+  %63 = call ptr @palloc(i64 noundef %60) #15
   br label %66
 
 64:                                               ; preds = %57
-  %65 = call ptr @repalloc(ptr noundef nonnull %.091109.i, i64 noundef %60) #16
+  %65 = call ptr @repalloc(ptr noundef nonnull %.091109.i, i64 noundef %60) #15
   br label %66
 
 66:                                               ; preds = %64, %62
@@ -4950,7 +4941,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %.not102.i, label %81, label %80
 
 80:                                               ; preds = %75
-  call void @ProcessProcSignalBarrier() #16
+  call void @ProcessProcSignalBarrier() #15
   br label %81
 
 81:                                               ; preds = %80, %75
@@ -4959,7 +4950,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %exitcond.not.i, label %._crit_edge113.i, label %.lr.ph112.i, !llvm.loop !26
 
 ._crit_edge113.i:                                 ; preds = %81
-  %82 = call ptr @binaryheap_allocate(i32 noundef %.186.i, ptr noundef nonnull @ts_ckpt_progress_comparator, ptr noundef null) #16
+  %82 = call ptr @binaryheap_allocate(i32 noundef %.186.i, ptr noundef nonnull @ts_ckpt_progress_comparator, ptr noundef null) #15
   %83 = icmp sgt i32 %.186.i, 0
   br i1 %83, label %.lr.ph118.i, label %._crit_edge119.i
 
@@ -4978,7 +4969,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 16
   store double %90, ptr %91, align 8
   %92 = ptrtoint ptr %86 to i64
-  call void @binaryheap_add_unordered(ptr noundef %82, i64 noundef %92) #16
+  call void @binaryheap_add_unordered(ptr noundef %82, i64 noundef %92) #15
   %indvars.iv.next132.i = add nuw nsw i64 %indvars.iv131.i, 1
   %exitcond135.not.i = icmp eq i64 %indvars.iv.next132.i, %wide.trip.count134.i
   br i1 %exitcond135.not.i, label %._crit_edge119.i, label %85, !llvm.loop !27
@@ -4986,7 +4977,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 ._crit_edge119.i:                                 ; preds = %85, %._crit_edge113.i, %._crit_edge113.thread.i
   %93 = phi ptr [ %52, %._crit_edge113.thread.i ], [ %82, %._crit_edge113.i ], [ %82, %85 ]
   %.091.lcssa139.i = phi ptr [ null, %._crit_edge113.thread.i ], [ %.2.i, %._crit_edge113.i ], [ %.2.i, %85 ]
-  call void @binaryheap_build(ptr noundef %93) #16
+  call void @binaryheap_build(ptr noundef %93) #15
   %94 = load i32, ptr %93, align 8
   %.not98120.i = icmp eq i32 %94, 0
   br i1 %.not98120.i, label %._crit_edge125.i, label %.lr.ph124.i
@@ -4998,7 +4989,7 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 96:                                               ; preds = %137, %.lr.ph124.i
   %.087122.i = phi i32 [ 0, %.lr.ph124.i ], [ %109, %137 ]
   %.089121.i = phi i32 [ 0, %.lr.ph124.i ], [ %.190.i, %137 ]
-  %97 = call i64 @binaryheap_first(ptr noundef nonnull %93) #16
+  %97 = call i64 @binaryheap_first(ptr noundef nonnull %93) #15
   %98 = inttoptr i64 %97 to ptr
   %99 = load ptr, ptr @CkptBufferIds, align 8
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -5051,17 +5042,17 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
   br i1 %133, label %134, label %136
 
 134:                                              ; preds = %120
-  %135 = call i64 @binaryheap_remove_first(ptr noundef nonnull %93) #16
+  %135 = call i64 @binaryheap_remove_first(ptr noundef nonnull %93) #15
   br label %137
 
 136:                                              ; preds = %120
-  call void @binaryheap_replace_first(ptr noundef nonnull %93, i64 noundef %97) #16
+  call void @binaryheap_replace_first(ptr noundef nonnull %93, i64 noundef %97) #15
   br label %137
 
 137:                                              ; preds = %136, %134
   %138 = sitofp i32 %109 to double
   %139 = fdiv double %138, %95
-  call void @CheckpointWriteDelay(i32 noundef %0, double noundef %139) #16
+  call void @CheckpointWriteDelay(i32 noundef %0, double noundef %139) #15
   %140 = load i32, ptr %93, align 8
   %.not98.i = icmp eq i32 %140, 0
   br i1 %.not98.i, label %._crit_edge125.i, label %96, !llvm.loop !28
@@ -5069,8 +5060,8 @@ LockBufHdr.exit.i:                                ; preds = %.lr.ph.i.i, %12
 ._crit_edge125.i:                                 ; preds = %137, %._crit_edge119.i
   %.089.lcssa.i = phi i32 [ 0, %._crit_edge119.i ], [ %.190.i, %137 ]
   call void @IssuePendingWritebacks(ptr noundef nonnull %3, i32 noundef 3)
-  call void @pfree(ptr noundef %.091.lcssa139.i) #16
-  call void @binaryheap_free(ptr noundef nonnull %93) #16
+  call void @pfree(ptr noundef %.091.lcssa139.i) #15
+  call void @binaryheap_free(ptr noundef nonnull %93) #15
   %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
   %142 = add i32 %141, %.089.lcssa.i
   store i32 %142, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
@@ -5162,7 +5153,7 @@ define dso_local i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 nounde
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 296
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i64 %11(ptr noundef nonnull %0, i32 noundef %1) #16
+  %12 = tail call i64 %11(ptr noundef nonnull %0, i32 noundef %1) #15
   %13 = add i64 %12, 8191
   %14 = lshr i64 %13, 13
   %15 = trunc i64 %14 to i32
@@ -5180,15 +5171,15 @@ define dso_local i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 nounde
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %23 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %22) #16
+  %23 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %22) #15
   store ptr %23, ptr %17, align 8
-  tail call void @smgrpin(ptr noundef %23) #16
+  tail call void @smgrpin(ptr noundef %23) #15
   %.pre.i = load ptr, ptr %17, align 8
   br label %RelationGetSmgr.exit
 
 RelationGetSmgr.exit:                             ; preds = %16, %20
   %24 = phi ptr [ %.pre.i, %20 ], [ %18, %16 ]
-  %25 = tail call i32 @smgrnblocks(ptr noundef %24, i32 noundef %1) #16
+  %25 = tail call i32 @smgrnblocks(ptr noundef %24, i32 noundef %1) #15
   br label %26
 
 26:                                               ; preds = %2, %RelationGetSmgr.exit, %7
@@ -5243,7 +5234,7 @@ define dso_local i64 @BufferGetLSNAtomic(i32 noundef %0) local_unnamed_addr #0 {
 
 BufferGetPage.exit:                               ; preds = %8, %14
   %.0.i.i = phi ptr [ %13, %8 ], [ %18, %14 ]
-  %19 = tail call zeroext i1 @DataChecksumsEnabled() #16
+  %19 = tail call zeroext i1 @DataChecksumsEnabled() #15
   %20 = load i8, ptr @wal_log_hints, align 1, !range !5
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 true, i1 %21
@@ -5276,7 +5267,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %34 = atomicrmw or ptr %31, i32 4194304 seq_cst, align 4
   %35 = and i32 %34, 4194304
   %.not.i = icmp eq i32 %35, 0
@@ -5284,11 +5275,11 @@ BufferGetPage.exit:                               ; preds = %8, %14
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %25
   %.lcssa.i = phi i32 [ %32, %25 ], [ %34, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.val12 = load i64, ptr %.0.i.i, align 4
   %36 = call i64 @llvm.fshl.i64(i64 %.val12, i64 %.val12, i64 32)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %37 = and i32 %.lcssa.i, -4194305
   store volatile i32 %37, ptr %31, align 4
   br label %38
@@ -5341,7 +5332,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  tail call void @DropRelationLocalBuffers(i64 %.sroa.0.0.copyload62, i32 %.sroa.9.0.copyload, i32 noundef %13, i32 noundef %15) #16
+  tail call void @DropRelationLocalBuffers(i64 %.sroa.0.0.copyload62, i32 %.sroa.9.0.copyload, i32 noundef %13, i32 noundef %15) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
@@ -5351,7 +5342,7 @@ define dso_local void @DropRelationBuffers(ptr noundef %0, ptr noundef readonly 
   %.05382 = phi i64 [ 0, %.lr.ph84.preheader ], [ %26, %21 ]
   %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv99
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i32 @smgrnblocks_cached(ptr noundef nonnull %0, i32 noundef %17) #16
+  %18 = tail call i32 @smgrnblocks_cached(ptr noundef nonnull %0, i32 noundef %17) #15
   %19 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv99
   store i32 %18, ptr %19, align 4
   %20 = icmp eq i32 %18, -1
@@ -5455,7 +5446,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %50
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %5) #16
+  call void @perform_spin_delay(ptr noundef nonnull %5) #15
   %60 = atomicrmw or ptr %57, i32 4194304 seq_cst, align 4
   %61 = and i32 %60, 4194304
   %.not.i = icmp eq i32 %61, 0
@@ -5463,7 +5454,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %50
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %56
   %.lcssa.i = phi i32 [ %58, %56 ], [ %60, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %5) #16
+  call void @finish_spin_delay(ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %7, label %.lr.ph88, label %._crit_edge89
 
@@ -5512,7 +5503,7 @@ BufTagMatchesRelFileLocator.exit60.thread.us.us.us: ; preds = %72, %BufTagMatche
   br label %BufTagMatchesRelFileLocator.exit.thread
 
 ._crit_edge89:                                    ; preds = %BufTagMatchesRelFileLocator.exit60.thread.us.us.us, %.lr.ph88.split.us.split.us, %.lr.ph88.split.us, %.lr.ph88, %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %76 = and i32 %.lcssa.i, -4194305
   store volatile i32 %76, ptr %57, align 4
   br label %BufTagMatchesRelFileLocator.exit.thread
@@ -5561,15 +5552,15 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
   store i32 %1, ptr %9, align 8
   store i32 %2, ptr %10, align 4
   store i32 %.024, ptr %11, align 8
-  %18 = call i32 @BufTableHashCode(ptr noundef nonnull %7) #16
+  %18 = call i32 @BufTableHashCode(ptr noundef nonnull %7) #15
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = and i32 %18, 127
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6784
-  %24 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 1) #16
-  %25 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %18) #16
-  call void @LWLockRelease(ptr noundef nonnull %23) #16
+  %24 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 1) #15
+  %25 = call i32 @BufTableLookup(ptr noundef nonnull %7, i32 noundef %18) #15
+  call void @LWLockRelease(ptr noundef nonnull %23) #15
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %52, label %27
 
@@ -5591,7 +5582,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %6) #16
+  call void @perform_spin_delay(ptr noundef nonnull %6) #15
   %34 = atomicrmw or ptr %31, i32 4194304 seq_cst, align 4
   %35 = and i32 %34, 4194304
   %.not.i = icmp eq i32 %35, 0
@@ -5599,7 +5590,7 @@ define internal fastcc void @FindAndDropRelationBuffers(i64 %0, i32 %1, i32 noun
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %27
   %.lcssa.i = phi i32 [ %32, %27 ], [ %34, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %6) #16
+  call void @finish_spin_delay(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %36 = load i32, ptr %30, align 4
   %37 = icmp eq i32 %36, %.sroa.0.0.extract.trunc
@@ -5634,7 +5625,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %38
   br label %52
 
 BufTagMatchesRelFileLocator.exit.thread:          ; preds = %LockBufHdr.exit, %38, %47, %44, %BufTagMatchesRelFileLocator.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %51 = and i32 %.lcssa.i, -4194305
   store volatile i32 %51, ptr %31, align 4
   br label %52
@@ -5658,10 +5649,10 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load volatile i32, ptr %5, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %7 = and i32 %6, -4194305
   store volatile i32 %7, ptr %5, align 4
-  %8 = call i32 @BufTableHashCode(ptr noundef nonnull %4) #16
+  %8 = call i32 @BufTableHashCode(ptr noundef nonnull %4) #15
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = and i32 %8, 127
   %11 = zext nneg i32 %10 to i64
@@ -5684,7 +5675,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %GetPrivateRefCount.exit.thread, %1
-  %29 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #16
+  %29 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %14, align 4
@@ -5698,7 +5689,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %32 = atomicrmw or ptr %5, i32 4194304 seq_cst, align 4
   %33 = and i32 %32, 4194304
   %.not.i = icmp eq i32 %33, 0
@@ -5706,7 +5697,7 @@ define internal fastcc void @InvalidateBuffer(ptr noundef %0) unnamed_addr #0 {
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %28
   %.lcssa.i = phi i32 [ %30, %28 ], [ %32, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = load i32, ptr %0, align 4
   %35 = load i32, ptr %4, align 4
@@ -5738,10 +5729,10 @@ BufferTagsEqual.exit:                             ; preds = %45
   br i1 %51, label %53, label %BufferTagsEqual.exit.thread
 
 BufferTagsEqual.exit.thread:                      ; preds = %LockBufHdr.exit, %37, %41, %45, %BufferTagsEqual.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %52 = and i32 %.lcssa.i, -4194305
   store volatile i32 %52, ptr %5, align 4
-  call void @LWLockRelease(ptr noundef nonnull %13) #16
+  call void @LWLockRelease(ptr noundef nonnull %13) #15
   br label %80
 
 53:                                               ; preds = %BufferTagsEqual.exit
@@ -5750,10 +5741,10 @@ BufferTagsEqual.exit.thread:                      ; preds = %LockBufHdr.exit, %3
   br i1 %.not, label %76, label %55
 
 55:                                               ; preds = %53
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %56 = and i32 %.lcssa.i, -4194305
   store volatile i32 %56, ptr %5, align 4
-  call void @LWLockRelease(ptr noundef nonnull %13) #16
+  call void @LWLockRelease(ptr noundef nonnull %13) #15
   %.val = load i32, ptr %27, align 4
   %57 = add i32 %.val, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5788,7 +5779,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %64
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %64
   %67 = load ptr, ptr @PrivateRefCountHash, align 8
-  %68 = call ptr @hash_search(ptr noundef %67, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
+  %68 = call ptr @hash_search(ptr noundef %67, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
@@ -5801,10 +5792,9 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
   br i1 %72, label %73, label %GetPrivateRefCount.exit.thread
 
 73:                                               ; preds = %GetPrivateRefCount.exit
-  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %74)
-  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1838, ptr noundef nonnull @__func__.InvalidateBuffer) #16
+  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %75 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1838, ptr noundef nonnull @__func__.InvalidateBuffer) #15
   unreachable
 
 GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %GetPrivateRefCount.exit
@@ -5817,19 +5807,19 @@ GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountE
   store i32 0, ptr %21, align 4
   store i32 -1, ptr %25, align 4
   store i32 -1, ptr %23, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   store volatile i32 0, ptr %5, align 4
   %77 = and i32 %.lcssa.i, 33554432
   %.not25 = icmp eq i32 %77, 0
   br i1 %.not25, label %79, label %78
 
 78:                                               ; preds = %76
-  call void @BufTableDelete(ptr noundef nonnull %4, i32 noundef %8) #16
+  call void @BufTableDelete(ptr noundef nonnull %4, i32 noundef %8) #15
   br label %79
 
 79:                                               ; preds = %78, %76
-  call void @LWLockRelease(ptr noundef nonnull %13) #16
-  call void @StrategyFreeBuffer(ptr noundef nonnull %0) #16
+  call void @LWLockRelease(ptr noundef nonnull %13) #15
+  call void @StrategyFreeBuffer(ptr noundef nonnull %0) #15
   br label %80
 
 80:                                               ; preds = %79, %BufferTagsEqual.exit.thread
@@ -5846,7 +5836,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 5:                                                ; preds = %2
   %6 = sext i32 %1 to i64
   %7 = shl nsw i64 %6, 3
-  %8 = tail call ptr @palloc(i64 noundef %7) #16
+  %8 = tail call ptr @palloc(i64 noundef %7) #15
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -5873,7 +5863,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %.sroa.027.0.copyload = load i64, ptr %11, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.228.0.copyload = load i32, ptr %.sroa.228.0..sroa_idx, align 8
-  tail call void @DropRelationAllLocalBuffers(i64 %.sroa.027.0.copyload, i32 %.sroa.228.0.copyload) #16
+  tail call void @DropRelationAllLocalBuffers(i64 %.sroa.027.0.copyload, i32 %.sroa.228.0.copyload) #15
   br label %22
 
 18:                                               ; preds = %.lr.ph
@@ -5894,13 +5884,13 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   br i1 %23, label %._crit_edge.thread, label %24
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  tail call void @pfree(ptr noundef %8) #16
+  tail call void @pfree(ptr noundef %8) #15
   br label %136
 
 24:                                               ; preds = %._crit_edge
   %25 = sext i32 %.1100 to i64
   %26 = shl nsw i64 %25, 4
-  %27 = tail call ptr @palloc(i64 noundef %26) #16
+  %27 = tail call ptr @palloc(i64 noundef %26) #15
   %28 = icmp sgt i32 %.1100, 0
   br i1 %28, label %.preheader132, label %.thread206
 
@@ -5916,7 +5906,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   %.1102139 = phi i64 [ %.0101141, %.preheader132 ], [ %.2103, %43 ]
   %32 = load ptr, ptr %29, align 8
   %33 = trunc nuw nsw i64 %indvars.iv166 to i32
-  %34 = tail call i32 @smgrnblocks_cached(ptr noundef %32, i32 noundef %33) #16
+  %34 = tail call i32 @smgrnblocks_cached(ptr noundef %32, i32 noundef %33) #15
   %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv166
   store i32 %34, ptr %35, align 4
   %36 = icmp eq i32 %34, -1
@@ -5924,7 +5914,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %29, align 8
-  %39 = tail call zeroext i1 @smgrexists(ptr noundef %38, i32 noundef %33) #16
+  %39 = tail call zeroext i1 @smgrexists(ptr noundef %38, i32 noundef %33) #15
   br i1 %39, label %._crit_edge143, label %43
 
 40:                                               ; preds = %31
@@ -5993,14 +5983,14 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   br i1 %exitcond188.not, label %54, label %55, !llvm.loop !39
 
 ._crit_edge158:                                   ; preds = %54, %.thread206
-  tail call void @pfree(ptr noundef %27) #16
-  tail call void @pfree(ptr noundef %8) #16
+  tail call void @pfree(ptr noundef %27) #15
+  tail call void @pfree(ptr noundef %8) #15
   br label %136
 
 ._crit_edge143:                                   ; preds = %37, %.thread206, %46
-  tail call void @pfree(ptr noundef %27) #16
+  tail call void @pfree(ptr noundef %27) #15
   %62 = mul nsw i64 %25, 12
-  %63 = tail call ptr @palloc(i64 noundef %62) #16
+  %63 = tail call ptr @palloc(i64 noundef %62) #15
   br i1 %28, label %.lr.ph148.preheader, label %._crit_edge149.thread
 
 .lr.ph148.preheader:                              ; preds = %._crit_edge143
@@ -6022,7 +6012,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   br i1 %67, label %68, label %._crit_edge149.thread
 
 68:                                               ; preds = %._crit_edge149
-  tail call void @pg_qsort(ptr noundef nonnull %63, i64 noundef %25, i64 noundef 12, ptr noundef nonnull @rlocator_comparator) #16
+  tail call void @pg_qsort(ptr noundef nonnull %63, i64 noundef %25, i64 noundef 12, ptr noundef nonnull @rlocator_comparator) #15
   br label %._crit_edge149.thread
 
 ._crit_edge149.thread:                            ; preds = %._crit_edge143, %68, %._crit_edge149
@@ -6151,7 +6141,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i115
 
 .lr.ph.i115:                                      ; preds = %bsearch.exit, %.lr.ph.i115
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %116 = atomicrmw or ptr %113, i32 4194304 seq_cst, align 4
   %117 = and i32 %116, 4194304
   %.not.i116 = icmp eq i32 %117, 0
@@ -6159,7 +6149,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i115, %bsearch.exit
   %.lcssa.i = phi i32 [ %114, %bsearch.exit ], [ %116, %.lr.ph.i115 ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %118 = load i32, ptr %79, align 4
   %119 = load i32, ptr %.1109, align 4
@@ -6187,7 +6177,7 @@ BufTagMatchesRelFileLocator.exit118:              ; preds = %121
   br label %bsearch.exit.thread
 
 BufTagMatchesRelFileLocator.exit118.thread:       ; preds = %LockBufHdr.exit, %121, %BufTagMatchesRelFileLocator.exit118
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %132 = and i32 %.lcssa.i, -4194305
   store volatile i32 %132, ptr %113, align 4
   br label %bsearch.exit.thread
@@ -6200,8 +6190,8 @@ bsearch.exit.thread:                              ; preds = %BufTagMatchesRelFil
   br i1 %135, label %77, label %._crit_edge155, !llvm.loop !43
 
 ._crit_edge155:                                   ; preds = %bsearch.exit.thread, %._crit_edge149.thread
-  call void @pfree(ptr noundef %63) #16
-  call void @pfree(ptr noundef %8) #16
+  call void @pfree(ptr noundef %63) #15
+  call void @pfree(ptr noundef %8) #15
   br label %136
 
 136:                                              ; preds = %2, %._crit_edge155, %._crit_edge158, %._crit_edge.thread
@@ -6294,7 +6284,7 @@ define dso_local void @DropDatabaseBuffers(i32 noundef %0) local_unnamed_addr #0
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %19 = atomicrmw or ptr %16, i32 4194304 seq_cst, align 4
   %20 = and i32 %19, 4194304
   %.not.i = icmp eq i32 %20, 0
@@ -6302,7 +6292,7 @@ define dso_local void @DropDatabaseBuffers(i32 noundef %0) local_unnamed_addr #0
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %15
   %.lcssa.i = phi i32 [ %17, %15 ], [ %19, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = load i32, ptr %13, align 4
   %22 = icmp eq i32 %21, %0
@@ -6313,7 +6303,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %15
   br label %26
 
 24:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %25 = and i32 %.lcssa.i, -4194305
   store volatile i32 %25, ptr %16, align 4
   br label %26
@@ -6346,9 +6336,9 @@ define dso_local void @FlushRelationBuffers(ptr noundef captures(none) %0) local
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %12 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %11) #16
+  %12 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %11) #15
   store ptr %12, ptr %6, align 8
-  tail call void @smgrpin(ptr noundef %12) #16
+  tail call void @smgrpin(ptr noundef %12) #15
   %.pre.i = load ptr, ptr %6, align 8
   br label %RelationGetSmgr.exit
 
@@ -6436,18 +6426,18 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %41
   store ptr %5, ptr @error_context_stack, align 8
   %63 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %64 = load i32, ptr %63, align 4
-  call void @PageSetChecksumInplace(ptr noundef %61, i32 noundef %64) #16
+  call void @PageSetChecksumInplace(ptr noundef %61, i32 noundef %64) #15
   %65 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %66 = trunc nuw i8 %65 to i1
-  %67 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %66) #16
+  %67 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %66) #15
   %68 = getelementptr i8, ptr %37, i64 12
   %.val = load i32, ptr %68, align 4
   %69 = load i32, ptr %63, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %61, ptr %4, align 8
-  call void @smgrwritev(ptr noundef %13, i32 noundef %.val, i32 noundef %69, ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false) #16
+  call void @smgrwritev(ptr noundef %13, i32 noundef %.val, i32 noundef %69, ptr noundef nonnull %4, i32 noundef 1, i1 noundef zeroext false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 7, i64 %67, i32 noundef 1, i64 noundef 8192) #16
+  call void @pgstat_count_io_op_time(i32 noundef 1, i32 noundef 3, i32 noundef 7, i64 %67, i32 noundef 1, i64 noundef 8192) #15
   %70 = and i32 %51, -276824065
   store volatile i32 %70, ptr %50, align 4
   %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 56), align 8
@@ -6523,7 +6513,7 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
   %104 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %103
   store ptr %104, ptr @ReservedRefCountEntry, align 8
   %105 = load ptr, ptr @PrivateRefCountHash, align 8
-  %106 = call ptr @hash_search(ptr noundef %105, ptr noundef nonnull %104, i32 noundef 1, ptr noundef nonnull %3) #16
+  %106 = call ptr @hash_search(ptr noundef %105, ptr noundef nonnull %104, i32 noundef 1, ptr noundef nonnull %3) #15
   %107 = load ptr, ptr @ReservedRefCountEntry, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
@@ -6539,7 +6529,7 @@ BufTagMatchesRelFileLocator.exit38:               ; preds = %84
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %92, %97, %99
   %113 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %113) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %113) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %23, align 4
@@ -6554,7 +6544,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %92, %97, %99
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ReservePrivateRefCountEntry.exit, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %117 = atomicrmw or ptr %114, i32 4194304 seq_cst, align 4
   %118 = and i32 %117, 4194304
   %.not.i39 = icmp eq i32 %118, 0
@@ -6562,7 +6552,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %92, %97, %99
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %115, %ReservePrivateRefCountEntry.exit ], [ %117, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %119 = load i32, ptr %80, align 4
   %120 = load i32, ptr %0, align 4
@@ -6587,7 +6577,7 @@ BufTagMatchesRelFileLocator.exit41:               ; preds = %122
 130:                                              ; preds = %BufTagMatchesRelFileLocator.exit41
   %131 = load volatile i32, ptr %114, align 4
   %132 = add i32 %131, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %133 = and i32 %132, -4194305
   store volatile i32 %133, ptr %114, align 4
   %134 = getelementptr i8, ptr %80, i64 20
@@ -6600,21 +6590,21 @@ BufTagMatchesRelFileLocator.exit41:               ; preds = %122
   store i32 1, ptr %137, align 4
   %138 = load ptr, ptr @CurrentResourceOwner, align 8
   %139 = sext i32 %135 to i64
-  call void @ResourceOwnerRemember(ptr noundef %138, i64 noundef %139, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %138, i64 noundef %139, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   %140 = getelementptr inbounds nuw i8, ptr %80, i64 36
-  %141 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %140, i32 noundef 1) #16
+  %141 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %140, i32 noundef 1) #15
   call fastcc void @FlushBuffer(ptr noundef nonnull %80, ptr noundef %13, i32 noundef 3)
-  call void @LWLockRelease(ptr noundef nonnull %140) #16
+  call void @LWLockRelease(ptr noundef nonnull %140) #15
   %.val.i43 = load i32, ptr %134, align 4
   %142 = add i32 %.val.i43, 1
   %143 = load ptr, ptr @CurrentResourceOwner, align 8
   %144 = sext i32 %142 to i64
-  call void @ResourceOwnerForget(ptr noundef %143, i64 noundef %144, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %143, i64 noundef %144, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %80)
   br label %BufTagMatchesRelFileLocator.exit38.thread
 
 BufTagMatchesRelFileLocator.exit41.thread:        ; preds = %LockBufHdr.exit, %122, %BufTagMatchesRelFileLocator.exit41
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %145 = and i32 %.lcssa.i, -4194305
   store volatile i32 %145, ptr %114, align 4
   br label %BufTagMatchesRelFileLocator.exit38.thread
@@ -6645,12 +6635,12 @@ define internal void @local_buffer_write_error_callback(ptr noundef readonly cap
   %5 = load i32, ptr @MyProcNumber, align 4
   %6 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %6, align 4
-  %7 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i, i32 noundef %5, i32 noundef %.val) #16
-  %8 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
+  %7 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i, i32 noundef %5, i32 noundef %.val) #15
+  %8 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 4
-  %11 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.18, i32 noundef %10, ptr noundef %7) #16
-  tail call void @pfree(ptr noundef %7) #16
+  %11 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.18, i32 noundef %10, ptr noundef %7) #15
+  tail call void @pfree(ptr noundef %7) #15
   br label %12
 
 12:                                               ; preds = %2, %1
@@ -6684,7 +6674,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
   %15 = load i64, ptr %0, align 4
   %16 = getelementptr i8, ptr %0, i64 8
   %.val.i = load i32, ptr %16, align 4
-  %17 = call ptr @smgropen(i64 %15, i32 %.val.i, i32 noundef -1) #16
+  %17 = call ptr @smgropen(i64 %15, i32 %.val.i, i32 noundef -1) #15
   br label %18
 
 18:                                               ; preds = %9, %14
@@ -6708,7 +6698,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %6) #16
+  call void @perform_spin_delay(ptr noundef nonnull %6) #15
   %27 = atomicrmw or ptr %24, i32 4194304 seq_cst, align 4
   %28 = and i32 %27, 4194304
   %.not.i = icmp eq i32 %28, 0
@@ -6716,7 +6706,7 @@ define internal fastcc void @FlushBuffer(ptr noundef %0, ptr noundef %1, i32 nou
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   %.lcssa.i = phi i32 [ %25, %18 ], [ %27, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %6) #16
+  call void @finish_spin_delay(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %29 = load ptr, ptr @BufferBlocks, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6725,7 +6715,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   %33 = shl nsw i64 %32, 13
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 %33
   %.val26 = load i64, ptr %34, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %35 = and i32 %.lcssa.i, -272629761
   store volatile i32 %35, ptr %24, align 4
   %36 = icmp slt i32 %.lcssa.i, 0
@@ -6733,7 +6723,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
 
 37:                                               ; preds = %LockBufHdr.exit
   %38 = call i64 @llvm.fshl.i64(i64 %.val26, i64 %.val26, i64 32)
-  call void @XLogFlush(i64 noundef %38) #16
+  call void @XLogFlush(i64 noundef %38) #15
   br label %39
 
 39:                                               ; preds = %37, %LockBufHdr.exit
@@ -6744,18 +6734,18 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i32, ptr %45, align 4
-  %47 = call ptr @PageSetChecksumCopy(ptr noundef %44, i32 noundef %46) #16
+  %47 = call ptr @PageSetChecksumCopy(ptr noundef %44, i32 noundef %46) #15
   %48 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %49 = trunc nuw i8 %48 to i1
-  %50 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %49) #16
+  %50 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %49) #15
   %51 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %51, align 4
   %52 = load i32, ptr %45, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %47, ptr %5, align 8
-  call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %52, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #16
+  call void @smgrwritev(ptr noundef %.0, i32 noundef %.val, i32 noundef %52, ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext false) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 7, i64 %50, i32 noundef 1, i64 noundef 8192) #16
+  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %2, i32 noundef 7, i64 %50, i32 noundef 1, i64 noundef 8192) #15
   %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
   %54 = add i64 %53, 1
   store i64 %54, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 24), align 8
@@ -6777,7 +6767,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
   br i1 %.not2.i.i, label %TerminateBufferIO.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %4) #16
+  call void @perform_spin_delay(ptr noundef nonnull %4) #15
   %62 = atomicrmw or ptr %24, i32 4194304 seq_cst, align 4
   %63 = and i32 %62, 4194304
   %.not.i.i = icmp eq i32 %63, 0
@@ -6785,24 +6775,24 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %18
 
 TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %39
   %.lcssa.i.i = phi i32 [ %60, %39 ], [ %62, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %4) #16
+  call void @finish_spin_delay(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = and i32 %.lcssa.i.i, 268435456
   %.not.i27 = icmp eq i32 %64, 0
   %.0.v.i = select i1 %.not.i27, i32 -1556086785, i32 -205520897
   %.0.i = and i32 %.0.v.i, %.lcssa.i.i
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   store volatile i32 %.0.i, ptr %24, align 4
   %65 = load ptr, ptr @CurrentResourceOwner, align 8
   %.val.i28 = load i32, ptr %30, align 4
   %66 = add i32 %.val.i28, 1
   %67 = sext i32 %66 to i64
-  call void @ResourceOwnerForget(ptr noundef %65, i64 noundef %67, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %65, i64 noundef %67, ptr noundef nonnull @buffer_io_resowner_desc) #15
   %.val11.i = load i32, ptr %30, align 4
   %68 = load ptr, ptr @BufferIOCVArray, align 8
   %69 = sext i32 %.val11.i to i64
   %70 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %68, i64 %69
-  call void @ConditionVariableBroadcast(ptr noundef %70) #16
+  call void @ConditionVariableBroadcast(ptr noundef %70) #15
   %71 = load ptr, ptr %7, align 8
   store ptr %71, ptr @error_context_stack, align 8
   br label %72
@@ -6822,7 +6812,7 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
 6:                                                ; preds = %2
   %7 = sext i32 %1 to i64
   %8 = mul nsw i64 %7, 24
-  %9 = tail call ptr @palloc(i64 noundef %8) #16
+  %9 = tail call ptr @palloc(i64 noundef %8) #15
   %10 = icmp sgt i32 %1, 0
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -6848,7 +6838,7 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
   br i1 %16, label %17, label %._crit_edge.thread
 
 17:                                               ; preds = %._crit_edge
-  tail call void @pg_qsort(ptr noundef nonnull %9, i64 noundef %7, i64 noundef 24, ptr noundef nonnull @rlocator_comparator) #16
+  tail call void @pg_qsort(ptr noundef nonnull %9, i64 noundef %7, i64 noundef 24, ptr noundef nonnull @rlocator_comparator) #15
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %6, %17, %._crit_edge
@@ -6994,7 +6984,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
   %73 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %72
   store ptr %73, ptr @ReservedRefCountEntry, align 8
   %74 = load ptr, ptr @PrivateRefCountHash, align 8
-  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %73, i32 noundef 1, ptr noundef nonnull %4) #16
+  %75 = call ptr @hash_search(ptr noundef %74, ptr noundef nonnull %73, i32 noundef 1, ptr noundef nonnull %4) #15
   %76 = load ptr, ptr @ReservedRefCountEntry, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
@@ -7010,7 +7000,7 @@ bsearch.exit:                                     ; preds = %BufTagMatchesRelFil
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %bsearch.exit, %66, %68
   %82 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %82) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %82) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %21, align 4
@@ -7025,7 +7015,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %bsearch.exit, %66, 
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %ReservePrivateRefCountEntry.exit, %.lr.ph.i53
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %86 = atomicrmw or ptr %83, i32 4194304 seq_cst, align 4
   %87 = and i32 %86, 4194304
   %.not.i54 = icmp eq i32 %87, 0
@@ -7033,7 +7023,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %bsearch.exit, %66, 
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i53, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %84, %ReservePrivateRefCountEntry.exit ], [ %86, %.lr.ph.i53 ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %88 = load i32, ptr %28, align 4
   %89 = load i32, ptr %.147, align 4
@@ -7062,7 +7052,7 @@ BufTagMatchesRelFileLocator.exit56:               ; preds = %91
 103:                                              ; preds = %BufTagMatchesRelFileLocator.exit56
   %104 = load volatile i32, ptr %83, align 4
   %105 = add i32 %104, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %106 = and i32 %105, -4194305
   store volatile i32 %106, ptr %83, align 4
   %107 = getelementptr i8, ptr %28, i64 20
@@ -7075,23 +7065,23 @@ BufTagMatchesRelFileLocator.exit56:               ; preds = %91
   store i32 1, ptr %110, align 4
   %111 = load ptr, ptr @CurrentResourceOwner, align 8
   %112 = sext i32 %108 to i64
-  call void @ResourceOwnerRemember(ptr noundef %111, i64 noundef %112, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %111, i64 noundef %112, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   %113 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %114 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %113, i32 noundef 1) #16
+  %114 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %113, i32 noundef 1) #15
   %115 = getelementptr inbounds nuw i8, ptr %.147, i64 16
   %116 = load ptr, ptr %115, align 8
   call fastcc void @FlushBuffer(ptr noundef nonnull %28, ptr noundef %116, i32 noundef 3)
-  call void @LWLockRelease(ptr noundef nonnull %113) #16
+  call void @LWLockRelease(ptr noundef nonnull %113) #15
   %.val.i58 = load i32, ptr %107, align 4
   %117 = add i32 %.val.i58, 1
   %118 = load ptr, ptr @CurrentResourceOwner, align 8
   %119 = sext i32 %117 to i64
-  call void @ResourceOwnerForget(ptr noundef %118, i64 noundef %119, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %118, i64 noundef %119, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %28)
   br label %bsearch.exit.thread
 
 BufTagMatchesRelFileLocator.exit56.thread:        ; preds = %LockBufHdr.exit, %91, %BufTagMatchesRelFileLocator.exit56
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %120 = and i32 %.lcssa.i, -4194305
   store volatile i32 %120, ptr %83, align 4
   br label %bsearch.exit.thread
@@ -7104,7 +7094,7 @@ bsearch.exit.thread:                              ; preds = %BufTagMatchesRelFil
   br i1 %123, label %26, label %._crit_edge80, !llvm.loop !49
 
 ._crit_edge80:                                    ; preds = %bsearch.exit.thread, %._crit_edge.thread
-  call void @pfree(ptr noundef %9) #16
+  call void @pfree(ptr noundef %9) #15
   br label %124
 
 124:                                              ; preds = %2, %._crit_edge80
@@ -7118,20 +7108,20 @@ define dso_local void @CreateAndCopyRelationData(i64 %0, i32 %1, i64 %2, i32 %3,
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %.sroa.227.0..sroa_idx, align 8
   %7 = select i1 %4, i8 112, i8 117
-  %8 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #16
-  %9 = tail call ptr @smgropen(i64 %2, i32 %3, i32 noundef -1) #16
-  %10 = tail call ptr @RelationCreateStorage(i64 %2, i32 %3, i8 noundef signext %7, i1 noundef zeroext false) #16
+  %8 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #15
+  %9 = tail call ptr @smgropen(i64 %2, i32 %3, i32 noundef -1) #15
+  %10 = tail call ptr @RelationCreateStorage(i64 %2, i32 %3, i8 noundef signext %7, i1 noundef zeroext false) #15
   tail call fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 %2, i32 %3, i32 noundef 0, i1 noundef zeroext %4)
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %5, %13
   %.035.us = phi i32 [ %14, %13 ], [ 1, %5 ]
-  %11 = call zeroext i1 @smgrexists(ptr noundef %8, i32 noundef %.035.us) #16
+  %11 = call zeroext i1 @smgrexists(ptr noundef %8, i32 noundef %.035.us) #15
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %.split.us
-  call void @smgrcreate(ptr noundef %9, i32 noundef %.035.us, i1 noundef zeroext false) #16
-  call void @log_smgrcreate(ptr noundef nonnull %6, i32 noundef %.035.us) #16
+  call void @smgrcreate(ptr noundef %9, i32 noundef %.035.us, i1 noundef zeroext false) #15
+  call void @log_smgrcreate(ptr noundef nonnull %6, i32 noundef %.035.us) #15
   %.sroa.0.0.copyload.us = load i64, ptr %6, align 8
   %.sroa.2.0.copyload.us = load i32, ptr %.sroa.227.0..sroa_idx, align 8
   call fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 %.sroa.0.0.copyload.us, i32 %.sroa.2.0.copyload.us, i32 noundef %.035.us, i1 noundef zeroext true)
@@ -7147,16 +7137,16 @@ define dso_local void @CreateAndCopyRelationData(i64 %0, i32 %1, i64 %2, i32 %3,
 
 .split:                                           ; preds = %5, %20
   %.035 = phi i32 [ %21, %20 ], [ 1, %5 ]
-  %15 = call zeroext i1 @smgrexists(ptr noundef %8, i32 noundef %.035) #16
+  %15 = call zeroext i1 @smgrexists(ptr noundef %8, i32 noundef %.035) #15
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.split
-  call void @smgrcreate(ptr noundef %9, i32 noundef %.035, i1 noundef zeroext false) #16
+  call void @smgrcreate(ptr noundef %9, i32 noundef %.035, i1 noundef zeroext false) #15
   %17 = icmp eq i32 %.035, 3
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  call void @log_smgrcreate(ptr noundef nonnull %6, i32 noundef 3) #16
+  call void @log_smgrcreate(ptr noundef nonnull %6, i32 noundef 3) #15
   br label %19
 
 19:                                               ; preds = %16, %18
@@ -7190,24 +7180,24 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
 
 14:                                               ; preds = %11, %6
   %15 = phi i1 [ false, %6 ], [ %13, %11 ]
-  %16 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #16
-  %17 = tail call i32 @smgrnblocks(ptr noundef %16, i32 noundef %4) #16
+  %16 = tail call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #15
+  %17 = tail call i32 @smgrnblocks(ptr noundef %16, i32 noundef %4) #15
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %92, label %19
 
 19:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %7, i8 0, i64 8192, i1 false)
-  %20 = tail call ptr @smgropen(i64 %2, i32 %3, i32 noundef -1) #16
+  %20 = tail call ptr @smgropen(i64 %2, i32 %3, i32 noundef -1) #15
   %21 = add i32 %17, -1
-  call void @smgrextend(ptr noundef %20, i32 noundef %4, i32 noundef %21, ptr noundef nonnull %7, i1 noundef zeroext true) #16
-  %22 = call ptr @GetAccessStrategy(i32 noundef 1) #16
-  %23 = call ptr @GetAccessStrategy(i32 noundef 2) #16
+  call void @smgrextend(ptr noundef %20, i32 noundef %4, i32 noundef %21, ptr noundef nonnull %7, i1 noundef zeroext true) #15
+  %22 = call ptr @GetAccessStrategy(i32 noundef 1) #15
+  %23 = call ptr @GetAccessStrategy(i32 noundef 2) #15
   store i32 0, ptr %8, align 4
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %17, ptr %24, align 4
-  %25 = call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #16
+  %25 = call ptr @smgropen(i64 %0, i32 %1, i32 noundef -1) #15
   %26 = select i1 %5, i8 112, i8 117
-  %27 = call ptr @read_stream_begin_smgr_relation(i32 noundef 4, ptr noundef %22, ptr noundef %25, i8 noundef signext %26, i32 noundef %4, ptr noundef nonnull @block_range_read_stream_cb, ptr noundef nonnull %8, i64 noundef 0) #16
+  %27 = call ptr @read_stream_begin_smgr_relation(i32 noundef 4, ptr noundef %22, ptr noundef %25, i8 noundef signext %26, i32 noundef %4, ptr noundef nonnull @block_range_read_stream_cb, ptr noundef nonnull %8, i64 noundef 0) #15
   br label %28
 
 28:                                               ; preds = %19, %UnlockReleaseBuffer.exit51
@@ -7217,11 +7207,11 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
   br i1 %.not, label %31, label %30, !prof !51
 
 30:                                               ; preds = %28
-  call void @ProcessInterrupts() #16
+  call void @ProcessInterrupts() #15
   br label %31
 
 31:                                               ; preds = %30, %28
-  %32 = call i32 @read_stream_next_buffer(ptr noundef %27, ptr noundef null) #16
+  %32 = call i32 @read_stream_next_buffer(ptr noundef %27, ptr noundef null) #15
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %34, label %42
 
@@ -7241,7 +7231,7 @@ define internal fastcc void @RelationCopyStorageUsingBuffer(i64 %0, i32 %1, i64 
   %45 = zext i32 %43 to i64
   %46 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  %48 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %47, i32 noundef 1) #16
+  %48 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %47, i32 noundef 1) #15
   %49 = load ptr, ptr @BufferBlocks, align 8
   %50 = sext i32 %43 to i64
   %51 = shl nsw i64 %50, 13
@@ -7285,7 +7275,7 @@ BufferGetPage.exit50:                             ; preds = %59, %65
   br i1 %15, label %73, label %75
 
 73:                                               ; preds = %BufferGetPage.exit50
-  %74 = call i64 @log_newpage_buffer(i32 noundef %57, i1 noundef zeroext true) #16
+  %74 = call i64 @log_newpage_buffer(i32 noundef %57, i1 noundef zeroext true) #15
   br label %75
 
 75:                                               ; preds = %BufferGetPage.exit50, %73
@@ -7300,7 +7290,7 @@ BufferGetPage.exit50:                             ; preds = %59, %65
   %81 = zext i32 %79 to i64
   %82 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 36
-  call void @LWLockRelease(ptr noundef nonnull %83) #16
+  call void @LWLockRelease(ptr noundef nonnull %83) #15
   br label %UnlockReleaseBuffer.exit
 
 UnlockReleaseBuffer.exit:                         ; preds = %75, %78
@@ -7313,7 +7303,7 @@ UnlockReleaseBuffer.exit:                         ; preds = %75, %78
   %87 = zext i32 %85 to i64
   %88 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 36
-  call void @LWLockRelease(ptr noundef nonnull %89) #16
+  call void @LWLockRelease(ptr noundef nonnull %89) #15
   br label %UnlockReleaseBuffer.exit51
 
 UnlockReleaseBuffer.exit51:                       ; preds = %UnlockReleaseBuffer.exit, %84
@@ -7323,9 +7313,9 @@ UnlockReleaseBuffer.exit51:                       ; preds = %UnlockReleaseBuffer
   br i1 %exitcond.not, label %91, label %28, !llvm.loop !52
 
 91:                                               ; preds = %UnlockReleaseBuffer.exit51
-  call void @read_stream_end(ptr noundef %27) #16
-  call void @FreeAccessStrategy(ptr noundef %22) #16
-  call void @FreeAccessStrategy(ptr noundef %23) #16
+  call void @read_stream_end(ptr noundef %27) #15
+  call void @FreeAccessStrategy(ptr noundef %22) #15
+  call void @FreeAccessStrategy(ptr noundef %23) #15
   br label %92
 
 92:                                               ; preds = %14, %91
@@ -7393,7 +7383,7 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
   %28 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %27
   store ptr %28, ptr @ReservedRefCountEntry, align 8
   %29 = load ptr, ptr @PrivateRefCountHash, align 8
-  %30 = call ptr @hash_search(ptr noundef %29, ptr noundef nonnull %28, i32 noundef 1, ptr noundef nonnull %3) #16
+  %30 = call ptr @hash_search(ptr noundef %29, ptr noundef nonnull %28, i32 noundef 1, ptr noundef nonnull %3) #15
   %31 = load ptr, ptr @ReservedRefCountEntry, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
@@ -7409,7 +7399,7 @@ define dso_local void @FlushDatabaseBuffers(i32 noundef %0) local_unnamed_addr #
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %16, %21, %23
   %37 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %37) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %37) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   store i32 0, ptr %6, align 4
@@ -7424,7 +7414,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %16, %21, %23
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ReservePrivateRefCountEntry.exit, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %41 = atomicrmw or ptr %38, i32 4194304 seq_cst, align 4
   %42 = and i32 %41, 4194304
   %.not.i17 = icmp eq i32 %42, 0
@@ -7432,7 +7422,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %16, %21, %23
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %39, %ReservePrivateRefCountEntry.exit ], [ %41, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %43 = load i32, ptr %14, align 4
   %44 = icmp eq i32 %43, %0
@@ -7444,7 +7434,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
 47:                                               ; preds = %LockBufHdr.exit
   %48 = load volatile i32, ptr %38, align 4
   %49 = add i32 %48, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %50 = and i32 %49, -4194305
   store volatile i32 %50, ptr %38, align 4
   %51 = getelementptr i8, ptr %13, i64 20
@@ -7457,21 +7447,21 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   store i32 1, ptr %54, align 4
   %55 = load ptr, ptr @CurrentResourceOwner, align 8
   %56 = sext i32 %52 to i64
-  call void @ResourceOwnerRemember(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %58 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %57, i32 noundef 1) #16
+  %58 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %57, i32 noundef 1) #15
   call fastcc void @FlushBuffer(ptr noundef nonnull %13, ptr noundef null, i32 noundef 3)
-  call void @LWLockRelease(ptr noundef nonnull %57) #16
+  call void @LWLockRelease(ptr noundef nonnull %57) #15
   %.val.i18 = load i32, ptr %51, align 4
   %59 = add i32 %.val.i18, 1
   %60 = load ptr, ptr @CurrentResourceOwner, align 8
   %61 = sext i32 %59 to i64
-  call void @ResourceOwnerForget(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %60, i64 noundef %61, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %13)
   br label %64
 
 62:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %63 = and i32 %.lcssa.i, -4194305
   store volatile i32 %63, ptr %38, align 4
   br label %64
@@ -7508,7 +7498,7 @@ define dso_local void @UnlockReleaseBuffer(i32 noundef %0) local_unnamed_addr #0
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  tail call void @LWLockRelease(ptr noundef nonnull %8) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %8) #15
   br label %LockBuffer.exit
 
 LockBuffer.exit:                                  ; preds = %1, %3
@@ -7534,24 +7524,23 @@ define dso_local void @LockBuffer(i32 noundef %0, i32 noundef %1) local_unnamed_
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  tail call void @LWLockRelease(ptr noundef nonnull %10) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %10) #15
   br label %20
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 1) #16
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 1) #15
   br label %20
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #16
+  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %15, i32 noundef 0) #15
   br label %20
 
 17:                                               ; preds = %4
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %1) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5114, ptr noundef nonnull @__func__.LockBuffer) #16
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %1) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5114, ptr noundef nonnull @__func__.LockBuffer) #15
   unreachable
 
 20:                                               ; preds = %9, %14, %11, %2
@@ -7561,7 +7550,7 @@ define dso_local void @LockBuffer(i32 noundef %0, i32 noundef %1) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @IncrBufferRefCount(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %2) #15
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %11
 
@@ -7586,7 +7575,7 @@ define dso_local void @IncrBufferRefCount(i32 noundef %0) local_unnamed_addr #0 
 16:                                               ; preds = %11, %4
   %17 = load ptr, ptr @CurrentResourceOwner, align 8
   %18 = sext i32 %0 to i64
-  tail call void @ResourceOwnerRemember(ptr noundef %17, i64 noundef %18, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  tail call void @ResourceOwnerRemember(ptr noundef %17, i64 noundef %18, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   ret void
 }
 
@@ -7617,7 +7606,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @PrivateRefCountHash, align 8
-  %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #16
+  %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null) #15
   %17 = icmp ne ptr %16, null
   %brmerge.not = and i1 %1, %17
   br i1 %brmerge.not, label %18, label %.loopexit
@@ -7654,7 +7643,7 @@ define internal fastcc ptr @GetPrivateRefCountEntry(i32 noundef %0, i1 noundef z
   %30 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %29
   store ptr %30, ptr @ReservedRefCountEntry, align 8
   %31 = load ptr, ptr @PrivateRefCountHash, align 8
-  %32 = call ptr @hash_search(ptr noundef %31, ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %3) #16
+  %32 = call ptr @hash_search(ptr noundef %31, ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %3) #15
   %33 = load ptr, ptr @ReservedRefCountEntry, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
@@ -7678,7 +7667,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %18, %23, %25
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %42, ptr %43, align 4
   %44 = load ptr, ptr @PrivateRefCountHash, align 8
-  %45 = call ptr @hash_search(ptr noundef %44, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5) #16
+  %45 = call ptr @hash_search(ptr noundef %44, ptr noundef nonnull %4, i32 noundef 2, ptr noundef nonnull %5) #15
   %46 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %47 = add i32 %46, -1
   store i32 %47, ptr @PrivateRefCountOverflowed, align 4
@@ -7710,14 +7699,13 @@ BufferGetPage.exit:                               ; preds = %2
   br i1 %.not36, label %10, label %14
 
 10:                                               ; preds = %BufferGetPage.exit
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4933, ptr noundef nonnull @__func__.MarkBufferDirtyHint) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4933, ptr noundef nonnull @__func__.MarkBufferDirtyHint) #15
   unreachable
 
 13:                                               ; preds = %2
-  tail call void @MarkLocalBufferDirty(i32 noundef %0) #16
+  tail call void @MarkLocalBufferDirty(i32 noundef %0) #15
   br label %.critedge
 
 14:                                               ; preds = %BufferGetPage.exit
@@ -7732,7 +7720,7 @@ BufferGetPage.exit:                               ; preds = %2
   br i1 %.not, label %.critedge, label %22
 
 22:                                               ; preds = %14
-  %23 = tail call zeroext i1 @DataChecksumsEnabled() #16
+  %23 = tail call zeroext i1 @DataChecksumsEnabled() #15
   %24 = load i8, ptr @wal_log_hints, align 1, !range !5
   %25 = trunc nuw i8 %24 to i1
   %or.cond = select i1 %23, i1 true, i1 %25
@@ -7744,14 +7732,14 @@ BufferGetPage.exit:                               ; preds = %2
   br i1 %.not30, label %40, label %28
 
 28:                                               ; preds = %26
-  %29 = tail call zeroext i1 @RecoveryInProgress() #16
+  %29 = tail call zeroext i1 @RecoveryInProgress() #15
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %28
   %31 = load i64, ptr %18, align 4
   %32 = getelementptr i8, ptr %17, i64 -56
   %.val.i = load i32, ptr %32, align 4
-  %33 = tail call zeroext i1 @RelFileLocatorSkippingWAL(i64 %31, i32 %.val.i) #16
+  %33 = tail call zeroext i1 @RelFileLocatorSkippingWAL(i64 %31, i32 %.val.i) #15
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %30
@@ -7760,7 +7748,7 @@ BufferGetPage.exit:                               ; preds = %2
   %37 = load i32, ptr %36, align 8
   %38 = or i32 %37, 1
   store i32 %38, ptr %36, align 8
-  %39 = tail call i64 @XLogSaveBufferForHint(i32 noundef %0, i1 noundef zeroext %1) #16
+  %39 = tail call i64 @XLogSaveBufferForHint(i32 noundef %0, i1 noundef zeroext %1) #15
   br label %40
 
 40:                                               ; preds = %22, %34, %26
@@ -7784,7 +7772,7 @@ BufferGetPage.exit:                               ; preds = %2
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %48 = atomicrmw or ptr %19, i32 4194304 seq_cst, align 4
   %49 = and i32 %48, 4194304
   %.not.i = icmp eq i32 %49, 0
@@ -7792,7 +7780,7 @@ BufferGetPage.exit:                               ; preds = %2
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %40
   %.lcssa.i = phi i32 [ %46, %40 ], [ %48, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = and i32 %.lcssa.i, 8388608
   %.not31 = icmp ne i32 %50, 0
@@ -7810,7 +7798,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %40
   br label %57
 
 57:                                               ; preds = %52, %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %58 = and i32 %.lcssa.i, -281018369
   %59 = or disjoint i32 %58, 276824064
   store volatile i32 %59, ptr %19, align 4
@@ -7879,7 +7867,7 @@ define dso_local void @UnlockBuffers() local_unnamed_addr #0 {
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %1) #16
+  call void @perform_spin_delay(ptr noundef nonnull %1) #15
   %12 = atomicrmw or ptr %9, i32 4194304 seq_cst, align 4
   %13 = and i32 %12, 4194304
   %.not.i = icmp eq i32 %13, 0
@@ -7887,7 +7875,7 @@ define dso_local void @UnlockBuffers() local_unnamed_addr #0 {
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %3
   %.lcssa.i = phi i32 [ %10, %3 ], [ %12, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %1) #16
+  call void @finish_spin_delay(ptr noundef nonnull %1) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %14 = and i32 %.lcssa.i, 536870912
   %.not7 = icmp eq i32 %14, 0
@@ -7904,7 +7892,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %3
 
 21:                                               ; preds = %15, %LockBufHdr.exit
   %.0 = phi i32 [ %.lcssa.i, %LockBufHdr.exit ], [ %spec.select, %15 ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %22 = and i32 %.0, -4194305
   store volatile i32 %22, ptr %9, align 4
   store ptr null, ptr @PinCountWaitBuf, align 8
@@ -7925,7 +7913,7 @@ define dso_local zeroext i1 @ConditionalLockBuffer(i32 noundef %0) local_unnamed
   %6 = zext i32 %4 to i64
   %7 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %9 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %8, i32 noundef 0) #16
+  %9 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %8, i32 noundef 0) #15
   br label %10
 
 10:                                               ; preds = %1, %3
@@ -7951,13 +7939,12 @@ define dso_local void @CheckBufferIsPinnedOnce(i32 noundef %0) local_unnamed_add
   br i1 %.not5, label %34, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %11)
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %12 = load ptr, ptr @LocalRefCount, align 8
   %13 = getelementptr inbounds nuw i32, ptr %12, i64 %7
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5150, ptr noundef nonnull @__func__.CheckBufferIsPinnedOnce) #16
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5150, ptr noundef nonnull @__func__.CheckBufferIsPinnedOnce) #15
   unreachable
 
 16:                                               ; preds = %1
@@ -7993,7 +7980,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %23
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %23
   %26 = load ptr, ptr @PrivateRefCountHash, align 8
-  %27 = call ptr @hash_search(ptr noundef %26, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #16
+  %27 = call ptr @hash_search(ptr noundef %26, ptr noundef nonnull %2, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
@@ -8006,11 +7993,10 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
   br i1 %.not, label %34, label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %GetPrivateRefCount.exit
-  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %31)
+  %31 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %32 = call fastcc i32 @GetPrivateRefCount(i32 noundef %0)
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %32) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5156, ptr noundef nonnull @__func__.CheckBufferIsPinnedOnce) #16
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %32) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5156, ptr noundef nonnull @__func__.CheckBufferIsPinnedOnce) #15
   unreachable
 
 34:                                               ; preds = %GetPrivateRefCount.exit, %4
@@ -8051,7 +8037,7 @@ LockBuffer.exit:                                  ; preds = %81, %5
   %.0 = phi i64 [ 0, %5 ], [ %.3, %81 ]
   %23 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %22, i64 %8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  %25 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 0) #16
+  %25 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8
   store i32 0, ptr %10, align 4
@@ -8065,7 +8051,7 @@ LockBuffer.exit:                                  ; preds = %81, %5
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %LockBuffer.exit, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %28 = atomicrmw or ptr %15, i32 4194304 seq_cst, align 4
   %29 = and i32 %28, 4194304
   %.not.i = icmp eq i32 %29, 0
@@ -8073,22 +8059,22 @@ LockBuffer.exit:                                  ; preds = %81, %5
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %LockBuffer.exit
   %.lcssa.i = phi i32 [ %26, %LockBuffer.exit ], [ %28, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = and i32 %.lcssa.i, 262143
   %.not52 = icmp eq i32 %30, 1
   br i1 %.not52, label %31, label %39
 
 31:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %32 = and i32 %.lcssa.i, -4456447
   store volatile i32 %32, ptr %15, align 4
   %33 = trunc nuw i8 %.041 to i1
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
-  %35 = call i64 @GetCurrentTimestamp() #16
-  call void @LogRecoveryConflict(i32 noundef 12, i64 noundef %.0, i64 noundef %35, ptr noundef null, i1 noundef zeroext false) #16
+  %35 = call i64 @GetCurrentTimestamp() #15
+  call void @LogRecoveryConflict(i32 noundef 12, i64 noundef %.0, i64 noundef %35, ptr noundef null, i1 noundef zeroext false) #15
   br label %36
 
 36:                                               ; preds = %34, %31
@@ -8096,7 +8082,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %LockBuff
   br i1 %37, label %38, label %.thread63
 
 38:                                               ; preds = %36
-  call void @set_ps_display_remove_suffix() #16
+  call void @set_ps_display_remove_suffix() #15
   br label %.thread63
 
 39:                                               ; preds = %LockBufHdr.exit
@@ -8105,28 +8091,27 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %LockBuff
   br i1 %.not, label %LockBuffer.exit53, label %41
 
 41:                                               ; preds = %39
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %42 = and i32 %.lcssa.i, -4194305
   store volatile i32 %42, ptr %15, align 4
   call void @LockBuffer(i32 noundef %0, i32 noundef 0)
-  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %43)
-  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #16
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5232, ptr noundef nonnull @__func__.LockBufferForCleanup) #16
+  %43 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %44 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #15
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5232, ptr noundef nonnull @__func__.LockBufferForCleanup) #15
   unreachable
 
 LockBuffer.exit53:                                ; preds = %39
   %45 = load i32, ptr @MyProcNumber, align 4
   store i32 %45, ptr %16, align 4
   store ptr %9, ptr @PinCountWaitBuf, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %46 = and i32 %.lcssa.i, -541065217
   %47 = or disjoint i32 %46, 536870912
   store volatile i32 %47, ptr %15, align 4
   %48 = load ptr, ptr @BufferDescriptors, align 8
   %49 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %48, i64 %8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 36
-  call void @LWLockRelease(ptr noundef nonnull %50) #16
+  call void @LWLockRelease(ptr noundef nonnull %50) #15
   %51 = load i32, ptr @standbyState, align 4
   %52 = icmp ugt i32 %51, 1
   br i1 %52, label %53, label %69
@@ -8136,7 +8121,7 @@ LockBuffer.exit53:                                ; preds = %39
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %53
-  call void @set_ps_display_suffix(ptr noundef nonnull @.str.12) #16
+  call void @set_ps_display_suffix(ptr noundef nonnull @.str.12) #15
   br label %56
 
 56:                                               ; preds = %55, %53
@@ -8146,13 +8131,13 @@ LockBuffer.exit53:                                ; preds = %39
   br i1 %or.cond, label %64, label %59
 
 59:                                               ; preds = %56
-  %60 = call i64 @GetCurrentTimestamp() #16
+  %60 = call i64 @GetCurrentTimestamp() #15
   %61 = load i32, ptr @DeadlockTimeout, align 4
-  %62 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0, i64 noundef %60, i32 noundef %61) #16
+  %62 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0, i64 noundef %60, i32 noundef %61) #15
   br i1 %62, label %63, label %.thread
 
 63:                                               ; preds = %59
-  call void @LogRecoveryConflict(i32 noundef 12, i64 noundef %.0, i64 noundef %60, ptr noundef null, i1 noundef zeroext true) #16
+  call void @LogRecoveryConflict(i32 noundef 12, i64 noundef %.0, i64 noundef %60, ptr noundef null, i1 noundef zeroext true) #15
   br label %.thread
 
 64:                                               ; preds = %56
@@ -8162,19 +8147,19 @@ LockBuffer.exit53:                                ; preds = %39
   br i1 %or.cond3, label %67, label %.thread
 
 67:                                               ; preds = %64
-  %68 = call i64 @GetCurrentTimestamp() #16
+  %68 = call i64 @GetCurrentTimestamp() #15
   br label %.thread
 
 .thread:                                          ; preds = %63, %59, %67, %64
   %.24361 = phi i8 [ %.041, %67 ], [ %.041, %64 ], [ 0, %59 ], [ 1, %63 ]
   %.2 = phi i64 [ %68, %67 ], [ %.0, %64 ], [ %.0, %59 ], [ %.0, %63 ]
-  call void @SetStartupBufferPinWaitBufId(i32 noundef %6) #16
-  call void @ResolveRecoveryConflictWithBufferPin() #16
-  call void @SetStartupBufferPinWaitBufId(i32 noundef -1) #16
+  call void @SetStartupBufferPinWaitBufId(i32 noundef %6) #15
+  call void @ResolveRecoveryConflictWithBufferPin() #15
+  call void @SetStartupBufferPinWaitBufId(i32 noundef -1) #15
   br label %70
 
 69:                                               ; preds = %LockBuffer.exit53
-  call void @ProcWaitForSignal(i32 noundef 67108864) #16
+  call void @ProcWaitForSignal(i32 noundef 67108864) #15
   br label %70
 
 70:                                               ; preds = %69, %.thread
@@ -8194,7 +8179,7 @@ LockBuffer.exit53:                                ; preds = %39
   br i1 %.not2.i54, label %LockBufHdr.exit58, label %.lr.ph.i55
 
 .lr.ph.i55:                                       ; preds = %70, %.lr.ph.i55
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %73 = atomicrmw or ptr %15, i32 4194304 seq_cst, align 4
   %74 = and i32 %73, 4194304
   %.not.i56 = icmp eq i32 %74, 0
@@ -8202,7 +8187,7 @@ LockBuffer.exit53:                                ; preds = %39
 
 LockBufHdr.exit58:                                ; preds = %.lr.ph.i55, %70
   %.lcssa.i57 = phi i32 [ %71, %70 ], [ %73, %.lr.ph.i55 ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %75 = and i32 %.lcssa.i57, 536870912
   %.not51 = icmp eq i32 %75, 0
@@ -8218,7 +8203,7 @@ LockBufHdr.exit58:                                ; preds = %.lr.ph.i55, %70
 
 81:                                               ; preds = %LockBufHdr.exit58, %76
   %.039 = phi i32 [ %.lcssa.i57, %LockBufHdr.exit58 ], [ %spec.select, %76 ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %82 = and i32 %.039, -4194305
   store volatile i32 %82, ptr %15, align 4
   store ptr null, ptr @PinCountWaitBuf, align 8
@@ -8248,7 +8233,7 @@ declare void @ProcWaitForSignal(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HoldingBufferPinThatDelaysRecovery() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = tail call i32 @GetStartupBufferPinWaitBufId() #16
+  %2 = tail call i32 @GetStartupBufferPinWaitBufId() #15
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %GetPrivateRefCount.exit, label %4
 
@@ -8286,7 +8271,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %12
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %12
   %15 = load ptr, ptr @PrivateRefCountHash, align 8
-  %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #16
+  %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %GetPrivateRefCount.exit, label %18
@@ -8354,7 +8339,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %18
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %18
   %21 = load ptr, ptr @PrivateRefCountHash, align 8
-  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
+  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
@@ -8372,7 +8357,7 @@ ConditionalLockBuffer.exit:                       ; preds = %GetPrivateRefCount.
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  %31 = call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %30, i32 noundef 0) #16
+  %31 = call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %30, i32 noundef 0) #15
   br i1 %31, label %32, label %GetPrivateRefCount.exit.thread
 
 32:                                               ; preds = %ConditionalLockBuffer.exit
@@ -8397,7 +8382,7 @@ ConditionalLockBuffer.exit:                       ; preds = %GetPrivateRefCount.
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %43 = atomicrmw or ptr %40, i32 4194304 seq_cst, align 4
   %44 = and i32 %43, 4194304
   %.not.i = icmp eq i32 %44, 0
@@ -8405,11 +8390,11 @@ ConditionalLockBuffer.exit:                       ; preds = %GetPrivateRefCount.
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %32
   %.lcssa.i = phi i32 [ %41, %32 ], [ %43, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %45 = and i32 %.lcssa.i, 262143
   %46 = icmp eq i32 %45, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15
   br i1 %46, label %47, label %LockBuffer.exit
 
 47:                                               ; preds = %LockBufHdr.exit
@@ -8423,7 +8408,7 @@ LockBuffer.exit:                                  ; preds = %LockBufHdr.exit
   %50 = load ptr, ptr @BufferDescriptors, align 8
   %51 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %50, i64 %28
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 36
-  call void @LWLockRelease(ptr noundef nonnull %52) #16
+  call void @LWLockRelease(ptr noundef nonnull %52) #15
   br label %GetPrivateRefCount.exit.thread
 
 GetPrivateRefCount.exit.thread:                   ; preds = %GetPrivateRefCountEntry.exit.thread.i, %GetPrivateRefCountEntry.exit.i, %ConditionalLockBuffer.exit, %GetPrivateRefCount.exit, %5, %LockBuffer.exit, %47
@@ -8480,7 +8465,7 @@ GetPrivateRefCountEntry.exit.thread.i:            ; preds = %18
 
 GetPrivateRefCountEntry.exit.i:                   ; preds = %18
   %21 = load ptr, ptr @PrivateRefCountHash, align 8
-  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
+  %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GetPrivateRefCount.exit.thread, label %GetPrivateRefCount.exit
@@ -8516,7 +8501,7 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %39 = atomicrmw or ptr %36, i32 4194304 seq_cst, align 4
   %40 = and i32 %39, 4194304
   %.not.i = icmp eq i32 %40, 0
@@ -8524,11 +8509,11 @@ GetPrivateRefCount.exit:                          ; preds = %GetPrivateRefCountE
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %26
   %.lcssa.i = phi i32 [ %37, %26 ], [ %39, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %41 = and i32 %.lcssa.i, 262143
   %42 = icmp eq i32 %41, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %43 = and i32 %.lcssa.i, -4194305
   store volatile i32 %43, ptr %36, align 4
   br label %GetPrivateRefCount.exit.thread
@@ -8607,7 +8592,7 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
   tail call fastcc void @sort_pending_writebacks(ptr noundef nonnull %7, i64 noundef %8)
   %9 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
-  %11 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %10) #16
+  %11 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %10) #15
   %12 = load i32, ptr %3, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph96, label %._crit_edge97
@@ -8683,15 +8668,15 @@ define dso_local void @IssuePendingWritebacks(ptr noundef %0, i32 noundef %1) lo
 ._crit_edge:                                      ; preds = %41, %28, %.lr.ph, %37, %.lr.ph96
   %.061.lcssa = phi i32 [ 1, %.lr.ph96 ], [ %.06181, %37 ], [ %.06181, %.lr.ph ], [ %.06181, %28 ], [ %.162, %41 ]
   %.lcssa = phi i32 [ %17, %.lr.ph96 ], [ %21, %37 ], [ %21, %.lr.ph ], [ %21, %28 ], [ %14, %41 ]
-  %43 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.4.0.copyload, i32 noundef -1) #16
-  tail call void @smgrwriteback(ptr noundef %43, i32 noundef %.sroa.5.0.copyload, i32 noundef %.sroa.6.0.copyload, i32 noundef %.061.lcssa) #16
+  %43 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.4.0.copyload, i32 noundef -1) #15
+  tail call void @smgrwriteback(ptr noundef %43, i32 noundef %.sroa.5.0.copyload, i32 noundef %.sroa.6.0.copyload, i32 noundef %.061.lcssa) #15
   %44 = load i32, ptr %3, align 8
   %45 = icmp slt i32 %.lcssa, %44
   br i1 %45, label %.lr.ph96, label %._crit_edge97, !llvm.loop !55
 
 ._crit_edge97:                                    ; preds = %._crit_edge, %6
   %.lcssa80 = phi i32 [ %12, %6 ], [ %44, %._crit_edge ]
-  tail call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %1, i32 noundef 4, i64 %11, i32 noundef %.lcssa80, i64 noundef 0) #16
+  tail call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %1, i32 noundef 4, i64 %11, i32 noundef %.lcssa80, i64 noundef 0) #15
   store i32 0, ptr %3, align 8
   br label %46
 
@@ -9181,7 +9166,7 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
   %2 = alloca %struct.SpinDelayStatus, align 8
   %3 = alloca i8, align 1
   %4 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %4) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %4) #15
   %5 = load ptr, ptr @ReservedRefCountEntry, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %.critedge.i, label %ReservePrivateRefCountEntry.exit
@@ -9213,7 +9198,7 @@ define dso_local noundef zeroext i1 @EvictUnpinnedBuffer(i32 noundef %0) local_u
   %16 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %15
   store ptr %16, ptr @ReservedRefCountEntry, align 8
   %17 = load ptr, ptr @PrivateRefCountHash, align 8
-  %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %3) #16
+  %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %16, i32 noundef 1, ptr noundef nonnull %3) #15
   %19 = load ptr, ptr @ReservedRefCountEntry, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
@@ -9251,7 +9236,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %1, %9, %11
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ReservePrivateRefCountEntry.exit, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %37 = atomicrmw or ptr %34, i32 4194304 seq_cst, align 4
   %38 = and i32 %37, 4194304
   %.not.i17 = icmp eq i32 %38, 0
@@ -9259,14 +9244,14 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %1, %9, %11
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReservePrivateRefCountEntry.exit
   %.lcssa.i = phi i32 [ %35, %ReservePrivateRefCountEntry.exit ], [ %37, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %39 = and i32 %.lcssa.i, 16777216
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %42 = and i32 %.lcssa.i, -20971521
   store volatile i32 %42, ptr %34, align 4
   br label %66
@@ -9277,7 +9262,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %43
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %46 = and i32 %.lcssa.i, -4194305
   store volatile i32 %46, ptr %34, align 4
   br label %66
@@ -9285,7 +9270,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
 47:                                               ; preds = %43
   %48 = load volatile i32, ptr %34, align 4
   %49 = add i32 %48, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %50 = and i32 %49, -4194305
   store volatile i32 %50, ptr %34, align 4
   %51 = getelementptr i8, ptr %28, i64 20
@@ -9298,16 +9283,16 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   store i32 1, ptr %54, align 4
   %55 = load ptr, ptr @CurrentResourceOwner, align 8
   %56 = sext i32 %52 to i64
-  call void @ResourceOwnerRemember(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %55, i64 noundef %56, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   %57 = and i32 %.lcssa.i, 8388608
   %.not16 = icmp eq i32 %57, 0
   br i1 %.not16, label %61, label %58
 
 58:                                               ; preds = %47
   %59 = getelementptr inbounds nuw i8, ptr %28, i64 36
-  %60 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %59, i32 noundef 1) #16
+  %60 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %59, i32 noundef 1) #15
   call fastcc void @FlushBuffer(ptr noundef nonnull %28, ptr noundef null, i32 noundef 3)
-  call void @LWLockRelease(ptr noundef nonnull %59) #16
+  call void @LWLockRelease(ptr noundef nonnull %59) #15
   br label %61
 
 61:                                               ; preds = %58, %47
@@ -9316,7 +9301,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %ReserveP
   %63 = add i32 %.val.i18, 1
   %64 = load ptr, ptr @CurrentResourceOwner, align 8
   %65 = sext i32 %63 to i64
-  call void @ResourceOwnerForget(ptr noundef %64, i64 noundef %65, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %64, i64 noundef %65, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %28)
   br label %66
 
@@ -9331,13 +9316,13 @@ define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0
   %3 = alloca %struct.buftag, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %0, i64 20, i1 false)
-  %4 = call i32 @BufTableHashCode(ptr noundef nonnull %3) #16
+  %4 = call i32 @BufTableHashCode(ptr noundef nonnull %3) #15
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = and i32 %4, 127
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw %union.LWLockPadded, ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 6784
-  %10 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 0) #16
+  %10 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -9357,7 +9342,7 @@ define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %19 = atomicrmw or ptr %16, i32 4194304 seq_cst, align 4
   %20 = and i32 %19, 4194304
   %.not.i = icmp eq i32 %20, 0
@@ -9365,14 +9350,14 @@ define internal fastcc noundef zeroext i1 @InvalidateVictimBuffer(ptr noundef %0
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i32 [ %17, %1 ], [ %19, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %21 = and i32 %.lcssa.i, 8650751
   %or.cond = icmp eq i32 %21, 1
   br i1 %or.cond, label %24, label %22
 
 22:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %23 = and i32 %.lcssa.i, -4194305
   store volatile i32 %23, ptr %16, align 4
   br label %29
@@ -9387,13 +9372,13 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %1
   store i32 -1, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %28, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   store volatile i32 1, ptr %16, align 4
-  call void @BufTableDelete(ptr noundef nonnull %3, i32 noundef %4) #16
+  call void @BufTableDelete(ptr noundef nonnull %3, i32 noundef %4) #15
   br label %29
 
 29:                                               ; preds = %24, %22
-  call void @LWLockRelease(ptr noundef nonnull %9) #16
+  call void @LWLockRelease(ptr noundef nonnull %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %or.cond
 }
@@ -9437,7 +9422,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %26, i8 0, i64 8192, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 36
-  %28 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %27, i32 noundef 0) #16
+  %28 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %27, i32 noundef 0) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -9457,7 +9442,7 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
   br i1 %.not2.i.i, label %TerminateBufferIO.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.i.i
-  call void @perform_spin_delay(ptr noundef nonnull %4) #16
+  call void @perform_spin_delay(ptr noundef nonnull %4) #15
   %37 = atomicrmw or ptr %34, i32 4194304 seq_cst, align 4
   %38 = and i32 %37, 4194304
   %.not.i.i = icmp eq i32 %38, 0
@@ -9465,10 +9450,10 @@ define internal fastcc void @ZeroAndLockBuffer(i32 noundef %0, i32 noundef %1, i
 
 TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %22
   %.lcssa.i.i = phi i32 [ %35, %22 ], [ %37, %.lr.ph.i.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %4) #16
+  call void @finish_spin_delay(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.0.i = and i32 %.lcssa.i.i, -222298113
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %39 = or disjoint i32 %.0.i, 16777216
   store volatile i32 %39, ptr %34, align 4
   %40 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -9476,12 +9461,12 @@ TerminateBufferIO.exit:                           ; preds = %.lr.ph.i.i, %22
   %.val.i = load i32, ptr %41, align 4
   %42 = add i32 %.val.i, 1
   %43 = sext i32 %42 to i64
-  call void @ResourceOwnerForget(ptr noundef %40, i64 noundef %43, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %40, i64 noundef %43, ptr noundef nonnull @buffer_io_resowner_desc) #15
   %.val11.i = load i32, ptr %41, align 4
   %44 = load ptr, ptr @BufferIOCVArray, align 8
   %45 = sext i32 %.val11.i to i64
   %46 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %44, i64 %45
-  call void @ConditionVariableBroadcast(ptr noundef %46) #16
+  call void @ConditionVariableBroadcast(ptr noundef %46) #15
   br label %.critedge.thread
 
 .critedge23:                                      ; preds = %7
@@ -9507,7 +9492,7 @@ LockBuffer.exit:                                  ; preds = %.critedge.thread31
   %55 = zext i32 %53 to i64
   %56 = getelementptr inbounds nuw %union.BufferDescPadded, ptr %54, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
-  %58 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %57, i32 noundef 0) #16
+  %58 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %57, i32 noundef 0) #15
   br label %.critedge.thread
 
 59:                                               ; preds = %.critedge.thread31
@@ -9563,7 +9548,7 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
   %18 = getelementptr inbounds nuw %struct.PrivateRefCountEntry, ptr @PrivateRefCountArray, i64 %17
   store ptr %18, ptr @ReservedRefCountEntry, align 8
   %19 = load ptr, ptr @PrivateRefCountHash, align 8
-  %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %18, i32 noundef 1, ptr noundef nonnull %4) #16
+  %20 = call ptr @hash_search(ptr noundef %19, ptr noundef nonnull %18, i32 noundef 1, ptr noundef nonnull %4) #15
   %21 = load ptr, ptr @ReservedRefCountEntry, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
@@ -9579,7 +9564,7 @@ define internal fastcc i32 @GetVictimBuffer(ptr noundef %0, i32 noundef %1) unna
 
 ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
   %27 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @ResourceOwnerEnlarge(ptr noundef %27) #16
+  call void @ResourceOwnerEnlarge(ptr noundef %27) #15
   %.not27 = icmp eq ptr %0, null
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9589,14 +9574,14 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
   br label %33
 
 33:                                               ; preds = %.backedge, %ReservePrivateRefCountEntry.exit
-  %34 = call ptr @StrategyGetBuffer(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %34 = call ptr @StrategyGetBuffer(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %35 = getelementptr i8, ptr %34, i64 20
   %.val = load i32, ptr %35, align 4
   %36 = add i32 %.val, 1
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load volatile i32, ptr %37, align 4
   %39 = add i32 %38, 1
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %40 = and i32 %39, -4194305
   store volatile i32 %40, ptr %37, align 4
   %.val.i = load i32, ptr %35, align 4
@@ -9608,7 +9593,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
   store i32 1, ptr %43, align 4
   %44 = load ptr, ptr @CurrentResourceOwner, align 8
   %45 = sext i32 %41 to i64
-  call void @ResourceOwnerRemember(ptr noundef %44, i64 noundef %45, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %44, i64 noundef %45, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call void @CheckBufferIsPinnedOnce(i32 noundef %36)
   %46 = load i32, ptr %5, align 4
   %47 = and i32 %46, 8388608
@@ -9617,7 +9602,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
 
 48:                                               ; preds = %33
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 36
-  %50 = call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %49, i32 noundef 1) #16
+  %50 = call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %49, i32 noundef 1) #15
   br i1 %50, label %51, label %.backedge
 
 51:                                               ; preds = %48
@@ -9637,7 +9622,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %3) #16
+  call void @perform_spin_delay(ptr noundef nonnull %3) #15
   %55 = atomicrmw or ptr %37, i32 4194304 seq_cst, align 4
   %56 = and i32 %55, 4194304
   %.not.i32 = icmp eq i32 %56, 0
@@ -9645,7 +9630,7 @@ ReservePrivateRefCountEntry.exit:                 ; preds = %2, %11, %13
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %52
   %.lcssa.i = phi i32 [ %53, %52 ], [ %55, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %3) #16
+  call void @finish_spin_delay(ptr noundef nonnull %3) #15
   %57 = or disjoint i32 %.lcssa.i, 4194304
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 %57, ptr %5, align 4
@@ -9656,25 +9641,25 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %52
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 %61
   %.val30 = load i64, ptr %62, align 4
   %63 = call i64 @llvm.fshl.i64(i64 %.val30, i64 %.val30, i64 32)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %64 = and i32 %.lcssa.i, -4194305
   store volatile i32 %64, ptr %37, align 4
-  %65 = call zeroext i1 @XLogNeedsFlush(i64 noundef %63) #16
+  %65 = call zeroext i1 @XLogNeedsFlush(i64 noundef %63) #15
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %LockBufHdr.exit
   %67 = load i8, ptr %6, align 1, !range !5, !noundef !6
   %68 = trunc nuw i8 %67 to i1
-  %69 = call zeroext i1 @StrategyRejectBuffer(ptr noundef nonnull %0, ptr noundef nonnull %34, i1 noundef zeroext %68) #16
+  %69 = call zeroext i1 @StrategyRejectBuffer(ptr noundef nonnull %0, ptr noundef nonnull %34, i1 noundef zeroext %68) #15
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %66
-  call void @LWLockRelease(ptr noundef nonnull %49) #16
+  call void @LWLockRelease(ptr noundef nonnull %49) #15
   br label %.backedge
 
 .thread:                                          ; preds = %LockBufHdr.exit, %66, %51
   call fastcc void @FlushBuffer(ptr noundef nonnull %34, ptr noundef null, i32 noundef %1)
-  call void @LWLockRelease(ptr noundef nonnull %49) #16
+  call void @LWLockRelease(ptr noundef nonnull %49) #15
   %71 = load i32, ptr @io_direct_flags, align 4
   %72 = and i32 %71, 1
   %73 = icmp eq i32 %72, 0
@@ -9720,7 +9705,7 @@ ScheduleBufferTagForWriteback.exit.thread:        ; preds = %88, %85, %.thread, 
   %92 = load i8, ptr %6, align 1, !range !5, !noundef !6
   %93 = trunc nuw i8 %92 to i1
   %94 = select i1 %93, i32 3, i32 0
-  call void @pgstat_count_io_op(i32 noundef 0, i32 noundef %1, i32 noundef %94, i32 noundef 1, i64 noundef 0) #16
+  call void @pgstat_count_io_op(i32 noundef 0, i32 noundef %1, i32 noundef %94, i32 noundef 1, i64 noundef 0) #15
   %.pre = load i32, ptr %5, align 4
   br label %95
 
@@ -9739,7 +9724,7 @@ ScheduleBufferTagForWriteback.exit.thread:        ; preds = %88, %85, %.thread, 
   %100 = add i32 %.val.i31, 1
   %101 = load ptr, ptr @CurrentResourceOwner, align 8
   %102 = sext i32 %100 to i64
-  call void @ResourceOwnerForget(ptr noundef %101, i64 noundef %102, ptr noundef nonnull @buffer_pin_resowner_desc) #16
+  call void @ResourceOwnerForget(ptr noundef %101, i64 noundef %102, ptr noundef nonnull @buffer_pin_resowner_desc) #15
   call fastcc void @UnpinBufferNoOwner(ptr noundef nonnull %34)
   br label %33
 
@@ -9763,7 +9748,7 @@ declare zeroext i1 @StrategyRejectBuffer(ptr noundef, ptr noundef, i1 noundef ze
 define internal fastcc noundef zeroext i1 @StartBufferIO(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.SpinDelayStatus, align 8
   %5 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerEnlarge(ptr noundef %5) #16
+  tail call void @ResourceOwnerEnlarge(ptr noundef %5) #15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -9786,7 +9771,7 @@ define internal fastcc noundef zeroext i1 @StartBufferIO(ptr noundef %0, i1 noun
   br i1 %.not2.i.us, label %LockBufHdr.exit.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.split.us, %.lr.ph.i.us
-  call void @perform_spin_delay(ptr noundef nonnull %4) #16
+  call void @perform_spin_delay(ptr noundef nonnull %4) #15
   %14 = atomicrmw or ptr %11, i32 4194304 seq_cst, align 4
   %15 = and i32 %14, 4194304
   %.not.i.us = icmp eq i32 %15, 0
@@ -9794,14 +9779,14 @@ define internal fastcc noundef zeroext i1 @StartBufferIO(ptr noundef %0, i1 noun
 
 LockBufHdr.exit.us:                               ; preds = %.lr.ph.i.us, %.split.us
   %.lcssa.i.us = phi i32 [ %12, %.split.us ], [ %14, %.lr.ph.i.us ]
-  call void @finish_spin_delay(ptr noundef nonnull %4) #16
+  call void @finish_spin_delay(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %16 = and i32 %.lcssa.i.us, 67108864
   %.not.us = icmp eq i32 %16, 0
   br i1 %.not.us, label %.split21.us, label %.loopexit.split.us
 
 .loopexit.split.us:                               ; preds = %LockBufHdr.exit.us
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %17 = and i32 %.lcssa.i.us, -4194305
   store volatile i32 %17, ptr %11, align 4
   br label %38
@@ -9820,7 +9805,7 @@ LockBufHdr.exit.us:                               ; preds = %.lr.ph.i.us, %.spli
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %4) #16
+  call void @perform_spin_delay(ptr noundef nonnull %4) #15
   %20 = atomicrmw or ptr %11, i32 4194304 seq_cst, align 4
   %21 = and i32 %20, 4194304
   %.not.i = icmp eq i32 %21, 0
@@ -9828,14 +9813,14 @@ LockBufHdr.exit.us:                               ; preds = %.lr.ph.i.us, %.spli
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %.split
   %.lcssa.i = phi i32 [ %18, %.split ], [ %20, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %4) #16
+  call void @finish_spin_delay(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %22 = and i32 %.lcssa.i, 67108864
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.split21.us, label %23
 
 23:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %24 = and i32 %.lcssa.i, -4194305
   store volatile i32 %24, ptr %11, align 4
   call fastcc void @WaitIO(ptr noundef nonnull %0)
@@ -9856,13 +9841,13 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %.split
   br i1 %.not15, label %29, label %31
 
 29:                                               ; preds = %27, %25
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %30 = and i32 %.us-phi, -71303169
   store volatile i32 %30, ptr %11, align 4
   br label %38
 
 31:                                               ; preds = %27, %25
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %32 = and i32 %.us-phi, -71303169
   %33 = or disjoint i32 %32, 67108864
   store volatile i32 %33, ptr %11, align 4
@@ -9871,7 +9856,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %.split
   %.val = load i32, ptr %35, align 4
   %36 = add i32 %.val, 1
   %37 = sext i32 %36 to i64
-  call void @ResourceOwnerRemember(ptr noundef %34, i64 noundef %37, ptr noundef nonnull @buffer_io_resowner_desc) #16
+  call void @ResourceOwnerRemember(ptr noundef %34, i64 noundef %37, ptr noundef nonnull @buffer_io_resowner_desc) #15
   br label %38
 
 38:                                               ; preds = %.loopexit.split.us, %31, %29
@@ -9887,7 +9872,7 @@ define internal fastcc void @WaitIO(ptr noundef %0) unnamed_addr #0 {
   %4 = load ptr, ptr @BufferIOCVArray, align 8
   %5 = sext i32 %.val to i64
   %6 = getelementptr inbounds %union.ConditionVariableMinimallyPadded, ptr %4, i64 %5
-  tail call void @ConditionVariablePrepareToSleep(ptr noundef %6) #16
+  tail call void @ConditionVariablePrepareToSleep(ptr noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9910,7 +9895,7 @@ define internal fastcc void @WaitIO(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %2) #16
+  call void @perform_spin_delay(ptr noundef nonnull %2) #15
   %16 = atomicrmw or ptr %12, i32 4194304 seq_cst, align 4
   %17 = and i32 %16, 4194304
   %.not.i = icmp eq i32 %17, 0
@@ -9918,9 +9903,9 @@ define internal fastcc void @WaitIO(ptr noundef %0) unnamed_addr #0 {
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %13
   %.lcssa.i = phi i32 [ %14, %13 ], [ %16, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %2) #16
+  call void @finish_spin_delay(ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %18 = and i32 %.lcssa.i, -4194305
   store volatile i32 %18, ptr %12, align 4
   %19 = and i32 %.lcssa.i, 67108864
@@ -9928,11 +9913,11 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i, %13
   br i1 %.not, label %21, label %20
 
 20:                                               ; preds = %LockBufHdr.exit
-  call void @ConditionVariableSleep(ptr noundef %6, i32 noundef 134217736) #16
+  call void @ConditionVariableSleep(ptr noundef %6, i32 noundef 134217736) #15
   br label %13
 
 21:                                               ; preds = %LockBufHdr.exit
-  %22 = call zeroext i1 @ConditionVariableCancelSleep() #16
+  %22 = call zeroext i1 @ConditionVariableCancelSleep() #15
   ret void
 }
 
@@ -9985,7 +9970,7 @@ define internal fastcc void @UnpinBufferNoOwner(ptr noundef %0) unnamed_addr #0 
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @PrivateRefCountHash, align 8
-  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #16
+  %19 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null) #15
   br label %GetPrivateRefCountEntry.exit
 
 GetPrivateRefCountEntry.exit.loopexit:            ; preds = %10
@@ -10032,7 +10017,7 @@ GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountE
   br i1 %.not4.i, label %WaitBufHdrUnlocked.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %.lr.ph.i
-  call void @perform_spin_delay(ptr noundef nonnull %5) #16
+  call void @perform_spin_delay(ptr noundef nonnull %5) #15
   %.0.i23 = load volatile i32, ptr %26, align 4
   %37 = and i32 %.0.i23, 4194304
   %.not.i = icmp eq i32 %37, 0
@@ -10040,14 +10025,14 @@ GetPrivateRefCountEntry.exit:                     ; preds = %GetPrivateRefCountE
 
 WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %35
   %.0.lcssa.i = phi i32 [ %.03.i, %35 ], [ %.0.i23, %.lr.ph.i ]
-  call void @finish_spin_delay(ptr noundef nonnull %5) #16
+  call void @finish_spin_delay(ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %38
 
 38:                                               ; preds = %WaitBufHdrUnlocked.exit, %33
   %.1 = phi i32 [ %.0, %33 ], [ %.0.lcssa.i, %WaitBufHdrUnlocked.exit ]
   %39 = add i32 %.1, -1
-  %40 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 %.1, i32 %39, ptr nonnull elementtype(i32) %26) #16, !srcloc !12
+  %40 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %26, i32 %.1, i32 %39, ptr nonnull elementtype(i32) %26) #15, !srcloc !12
   %41 = extractvalue { i32, i8 } %40, 0
   %42 = extractvalue { i32, i8 } %40, 1
   %.not28 = icmp eq i8 %42, 0
@@ -10077,7 +10062,7 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %35
   br i1 %.not2.i, label %LockBufHdr.exit, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %45, %.lr.ph.i24
-  call void @perform_spin_delay(ptr noundef nonnull %4) #16
+  call void @perform_spin_delay(ptr noundef nonnull %4) #15
   %53 = atomicrmw or ptr %26, i32 4194304 seq_cst, align 4
   %54 = and i32 %53, 4194304
   %.not.i25 = icmp eq i32 %54, 0
@@ -10085,7 +10070,7 @@ WaitBufHdrUnlocked.exit:                          ; preds = %.lr.ph.i, %35
 
 LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   %.lcssa.i = phi i32 [ %51, %45 ], [ %53, %.lr.ph.i24 ]
-  call void @finish_spin_delay(ptr noundef nonnull %4) #16
+  call void @finish_spin_delay(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %55 = and i32 %.lcssa.i, 537133055
   %or.cond = icmp eq i32 %55, 536870913
@@ -10095,13 +10080,13 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %.lcssa.i, -541327359
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   store volatile i32 %59, ptr %26, align 4
-  call void @ProcSendSignal(i32 noundef %58) #16
+  call void @ProcSendSignal(i32 noundef %58) #15
   br label %62
 
 60:                                               ; preds = %LockBufHdr.exit
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !4
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !4
   %61 = and i32 %.lcssa.i, -4194305
   store volatile i32 %61, ptr %26, align 4
   br label %62
@@ -10123,7 +10108,7 @@ LockBufHdr.exit:                                  ; preds = %.lr.ph.i24, %45
   %67 = load i32, ptr %.0.i, align 4
   store i32 %67, ptr %3, align 4
   %68 = load ptr, ptr @PrivateRefCountHash, align 8
-  %69 = call ptr @hash_search(ptr noundef %68, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %2) #16
+  %69 = call ptr @hash_search(ptr noundef %68, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %2) #15
   %70 = load i32, ptr @PrivateRefCountOverflowed, align 4
   %71 = add i32 %70, -1
   store i32 %71, ptr @PrivateRefCountOverflowed, align 4
@@ -10833,12 +10818,12 @@ define internal void @shared_buffer_write_error_callback(ptr noundef readonly ca
   %.sroa.06.0.extract.trunc = trunc i64 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %5, align 4
-  %6 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i, i32 noundef -1, i32 noundef %.val) #16
-  %7 = tail call i32 @set_errcontext_domain(ptr noundef null) #16
+  %6 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i, i32 noundef -1, i32 noundef %.val) #15
+  %7 = tail call i32 @set_errcontext_domain(ptr noundef null) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 4
-  %10 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.18, i32 noundef %9, ptr noundef %6) #16
-  tail call void @pfree(ptr noundef %6) #16
+  %10 = tail call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.18, i32 noundef %9, ptr noundef %6) #15
+  tail call void @pfree(ptr noundef %6) #15
   br label %11
 
 11:                                               ; preds = %2, %1
@@ -11131,20 +11116,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i64 @llvm.fshl.i64(i64, i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #15
+declare i64 @llvm.smin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -11160,10 +11142,9 @@ attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #11 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { cold nounwind }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

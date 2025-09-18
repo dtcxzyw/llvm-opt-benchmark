@@ -25227,11 +25227,8 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$alloc..raw_vec..RawVec$LT$$R
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN4core3ptr60drop_in_place$LT$rayon..vec..SliceDrain$LT$$RF$usize$GT$$GT$17h8a24895d5e797ac8E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !12349, !noundef !4
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %0, align 8, !alias.scope !12349
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %2, align 8, !alias.scope !12349
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret void
 }
 
@@ -39224,11 +39221,8 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$hashbrown..rustc_entry..Rust
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN4core3ptr98drop_in_place$LT$rayon..vec..SliceDrain$LT$$LP$$LP$$LP$u32$C$u32$RP$$C$i32$RP$$C$usize$RP$$GT$$GT$17hf4302647afd24cc0E"(ptr noalias noundef align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !alias.scope !19356, !noundef !4
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %0, align 8, !alias.scope !19356
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %2, align 8, !alias.scope !19356
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret void
 }
 
@@ -45481,22 +45475,16 @@ define hidden void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..o
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN73_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h65e81003213374ebE.llvm.1287153784043347726"(ptr noalias noundef align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !noundef !4
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %0, align 8
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN73_$LT$rayon..vec..SliceDrain$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6ee6d894bea839b1E.llvm.1287153784043347726"(ptr noalias noundef align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !noundef !4
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %0, align 8
   store ptr @anon.cc3f4e4b77d95411c10dc1945529338b.19.llvm.1287153784043347726, ptr %2, align 8
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret void
 }
 

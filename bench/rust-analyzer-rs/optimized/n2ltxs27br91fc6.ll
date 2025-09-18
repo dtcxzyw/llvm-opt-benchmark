@@ -17206,9 +17206,6 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hfca938fd4399c0ca
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN8triomphe6header119_$LT$impl$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$GT$$GT$$u20$for$u20$triomphe..arc..Arc$LT$$u5b$T$u5d$$GT$$GT$4from17h2efbfd3e798dcddbE.llvm.11299677790444244242"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
   %2 = tail call { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$$GT$19from_header_and_vec17h247f636180397edcE.llvm.11299677790444244242"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0)
-  %3 = extractvalue { ptr, i64 } %2, 0
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret { ptr, i64 } %2
 }
 

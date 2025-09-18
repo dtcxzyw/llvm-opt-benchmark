@@ -86,11 +86,11 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearchD2Ev(ptr noundef nonnull 
   %12 = load ptr, ptr %4, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   %15 = load ptr, ptr %4, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   br label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 18:                                               ; preds = %5
@@ -113,7 +113,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %22, %20
   br i1 %24, label %25, label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !18
 
 25:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   br label %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 _ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %25, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %10, %1
@@ -124,7 +124,7 @@ _ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   br i1 %29, label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i, label %30
 
 30:                                               ; preds = %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  tail call void @free(ptr noundef %27) #14
+  tail call void @free(ptr noundef %27) #13
   br label %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i
 
 _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i:   ; preds = %30, %_ZNSt12__shared_ptrIN6open3d4core4BlobELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -135,7 +135,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i:   ; preds = %30, %_ZNSt12__share
   br i1 %34, label %_ZN6open3d4core6TensorD2Ev.exit, label %35
 
 35:                                               ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i
-  tail call void @free(ptr noundef %32) #14
+  tail call void @free(ptr noundef %32) #13
   br label %_ZN6open3d4core6TensorD2Ev.exit
 
 _ZN6open3d4core6TensorD2Ev.exit:                  ; preds = %_ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit.i, %35
@@ -148,7 +148,7 @@ _ZNKSt14default_deleteIN6open3d4core3nns8KnnIndexEEclEPS3_.exit.i: ; preds = %_Z
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(360) %37) #14
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(360) %37) #13
   br label %_ZNSt10unique_ptrIN6open3d4core3nns8KnnIndexESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6open3d4core3nns8KnnIndexESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN6open3d4core6TensorD2Ev.exit, %_ZNKSt14default_deleteIN6open3d4core3nns8KnnIndexEEclEPS3_.exit.i
@@ -162,7 +162,7 @@ _ZNKSt14default_deleteIN6open3d4core3nns16FixedRadiusIndexEEclEPS3_.exit.i: ; pr
   %43 = load ptr, ptr %42, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(856) %42) #14
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(856) %42) #13
   br label %_ZNSt10unique_ptrIN6open3d4core3nns16FixedRadiusIndexESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6open3d4core3nns16FixedRadiusIndexESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6open3d4core3nns8KnnIndexESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN6open3d4core3nns16FixedRadiusIndexEEclEPS3_.exit.i
@@ -175,7 +175,7 @@ _ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i: ; pred
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr noundef nonnull align 8 dereferenceable(208) %46) #14
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(208) %46) #13
   br label %_ZNSt10unique_ptrIN6open3d4core3nns14NanoFlannIndexESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6open3d4core3nns14NanoFlannIndexESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6open3d4core3nns16FixedRadiusIndexESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i
@@ -190,7 +190,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !16
   %.not.i = icmp eq i8 %6, 0
@@ -215,7 +215,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -227,7 +227,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress ssp uwtable
 define noundef zeroext i1 @_ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv(ptr noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #14
   invoke void @_ZN6open3d4core3nns14NanoFlannIndexC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %15
 
@@ -241,7 +241,7 @@ _ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i: ; pr
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(208) %4) #14
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(208) %4) #13
   %.pre = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZNSt10unique_ptrIN6open3d4core3nns14NanoFlannIndexESt14default_deleteIS3_EE5resetEPS3_.exit
 
@@ -258,7 +258,7 @@ _ZNSt10unique_ptrIN6open3d4core3nns14NanoFlannIndexESt14default_deleteIS3_EE5res
 15:                                               ; preds = %1
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #15
   resume { ptr, i32 } %16
 }
 
@@ -282,11 +282,11 @@ define noundef zeroext i1 @_ZN6open3d4core3nns21NearestNeighborSearch8KnnIndexEv
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch8KnnIndexEv, ptr noundef nonnull @.str.1) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 31, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch8KnnIndexEv, ptr noundef nonnull @.str.1) #16
   unreachable
 
 10:                                               ; preds = %1
-  %11 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15
+  %11 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #14
   invoke void @_ZN6open3d4core3nns14NanoFlannIndexC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %11)
           to label %12 unwind label %17
 
@@ -300,14 +300,14 @@ _ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i: ; 
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(208) %13) #14
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(208) %13) #13
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 208) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 208) #15
   resume { ptr, i32 } %18
 
 _ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit: ; preds = %12, %_ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i
@@ -332,11 +332,11 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
   br i1 %9, label %.noexc, label %10
 
 .noexc:                                           ; preds = %4
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #17
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.2) #16
   unreachable
 
 10:                                               ; preds = %4
-  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %11, ptr %5, align 8, !tbaa !30
   %12 = icmp ugt i64 %11, 15
@@ -373,7 +373,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #17
+  invoke void @_ZNK6open3d7utility6Logger6VErrorEPKciS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #16
           to label %24 unwind label %25
 
 24:                                               ; preds = %19
@@ -384,21 +384,15 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
           cleanup
   %27 = load ptr, ptr %6, align 8, !tbaa !32
   %28 = icmp eq ptr %27, %8
-  br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %25
-  %29 = load i64, ptr %21, align 8, !tbaa !34
-  %30 = icmp ult i64 %29, 16
-  call void @llvm.assume(i1 %30)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %28, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %25
-  %31 = load i64, ptr %8, align 8, !tbaa !16
-  %32 = add i64 %31, 1
-  call void @_ZdlPvm(ptr noundef %27, i64 noundef %32) #16
+  %29 = load i64, ptr %8, align 8, !tbaa !16
+  %30 = add i64 %29, 1
+  call void @_ZdlPvm(ptr noundef %27, i64 noundef %30) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %26
 }
@@ -421,7 +415,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress ssp uwtable
 define noundef zeroext i1 @_ZN6open3d4core3nns21NearestNeighborSearch16MultiRadiusIndexEv(ptr noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15
+  %2 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #14
   invoke void @_ZN6open3d4core3nns14NanoFlannIndexC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %2)
           to label %3 unwind label %8
 
@@ -435,14 +429,14 @@ _ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i: ; 
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(208) %4) #14
+  tail call void %7(ptr noundef nonnull align 8 dereferenceable(208) %4) #13
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit
 
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 208) #15
   resume { ptr, i32 } %9
 
 _ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit: ; preds = %3, %_ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i
@@ -473,15 +467,15 @@ define noundef zeroext i1 @_ZN6open3d4core3nns21NearestNeighborSearch16FixedRadi
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 43, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch16FixedRadiusIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.3) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 43, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch16FixedRadiusIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.3) #16
   unreachable
 
 14:                                               ; preds = %10
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch16FixedRadiusIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.4) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch16FixedRadiusIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.4) #16
   unreachable
 
 15:                                               ; preds = %2
-  %16 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15
+  %16 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #14
   invoke void @_ZN6open3d4core3nns14NanoFlannIndexC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %16)
           to label %17 unwind label %22
 
@@ -495,14 +489,14 @@ _ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i: ; 
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(208) %18) #14
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(208) %18) #13
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit
 
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 208) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 208) #15
   resume { ptr, i32 } %23
 
 _ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit: ; preds = %17, %_ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i
@@ -532,15 +526,15 @@ define noundef zeroext i1 @_ZN6open3d4core3nns21NearestNeighborSearch11HybridInd
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch11HybridIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.5) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch11HybridIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.5) #16
   unreachable
 
 14:                                               ; preds = %10
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch11HybridIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.1) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch11HybridIndexENS_7utility8optionalIdEE, ptr noundef nonnull @.str.1) #16
   unreachable
 
 15:                                               ; preds = %2
-  %16 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #15
+  %16 = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #14
   invoke void @_ZN6open3d4core3nns14NanoFlannIndexC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %16)
           to label %17 unwind label %22
 
@@ -554,14 +548,14 @@ _ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i: ; 
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(208) %18) #14
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(208) %18) #13
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !25
   br label %_ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit
 
 22:                                               ; preds = %15
   %23 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 208) #16
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 208) #15
   resume { ptr, i32 } %23
 
 _ZN6open3d4core3nns21NearestNeighborSearch8SetIndexEv.exit: ; preds = %17, %_ZNKSt14default_deleteIN6open3d4core3nns14NanoFlannIndexEEclEPS3_.exit.i.i.i
@@ -598,7 +592,7 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorE
   br i1 %.not5, label %17, label %21
 
 17:                                               ; preds = %14
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorEi, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorEi, ptr noundef nonnull @.str.6) #16
   unreachable
 
 18:                                               ; preds = %4
@@ -607,7 +601,7 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorE
   br i1 %.not, label %20, label %21
 
 20:                                               ; preds = %18
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorEi, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch9KnnSearchERKNS0_6TensorEi, ptr noundef nonnull @.str.6) #16
   unreachable
 
 21:                                               ; preds = %18, %14
@@ -654,7 +648,7 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0
   br label %30
 
 22:                                               ; preds = %15
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0_6TensorEdb, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 107, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0_6TensorEdb, ptr noundef nonnull @.str.6) #16
   unreachable
 
 23:                                               ; preds = %5
@@ -670,7 +664,7 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0
   br label %30
 
 29:                                               ; preds = %23
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0_6TensorEdb, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 113, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch17FixedRadiusSearchERKNS0_6TensorEdb, ptr noundef nonnull @.str.6) #16
   unreachable
 
 30:                                               ; preds = %25, %18
@@ -690,7 +684,7 @@ define void @_ZN6open3d4core3nns21NearestNeighborSearch17MultiRadiusSearchERKNS0
   br i1 %12, label %13, label %_ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE.exit
 
 13:                                               ; preds = %4
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE, ptr noundef nonnull @.str.7) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE, ptr noundef nonnull @.str.7) #16
   unreachable
 
 _ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE.exit: ; preds = %4
@@ -708,7 +702,7 @@ _ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE.exit: 
   br i1 %.not, label %16, label %17
 
 16:                                               ; preds = %_ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE.exit
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 125, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch17MultiRadiusSearchERKNS0_6TensorES5_, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 125, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d4core3nns21NearestNeighborSearch17MultiRadiusSearchERKNS0_6TensorES5_, ptr noundef nonnull @.str.6) #16
   unreachable
 
 17:                                               ; preds = %_ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE.exit
@@ -730,7 +724,7 @@ define void @_ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6T
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE, ptr noundef nonnull @.str.7) #17
+  tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 157, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch13AssertNotCUDAERKNS0_6TensorE, ptr noundef nonnull @.str.7) #16
   unreachable
 
 10:                                               ; preds = %2
@@ -763,7 +757,7 @@ define void @_ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6Te
   br i1 %.not7, label %18, label %22
 
 18:                                               ; preds = %15
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 141, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6TensorEdi, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 141, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6TensorEdi, ptr noundef nonnull @.str.6) #16
   unreachable
 
 19:                                               ; preds = %5
@@ -772,7 +766,7 @@ define void @_ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6Te
   br i1 %.not, label %21, label %22
 
 21:                                               ; preds = %19
-  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6TensorEdi, ptr noundef nonnull @.str.6) #17
+  call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 148, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK6open3d4core3nns21NearestNeighborSearch12HybridSearchERKNS0_6TensorEdi, ptr noundef nonnull @.str.6) #16
   unreachable
 
 22:                                               ; preds = %19, %15
@@ -804,9 +798,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
-
 attributes #0 = { mustprogress nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress noinline nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -820,11 +811,10 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin allocsize(0) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn }
+attributes #13 = { nounwind }
+attributes #14 = { builtin allocsize(0) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

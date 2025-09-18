@@ -144,8 +144,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E
     i32 1, label %25
     i32 0, label %23
     i32 4, label %.loopexit
-    i32 2, label %48
-    i32 3, label %50
+    i32 2, label %45
+    i32 3, label %47
   ]
 
 .split18.us:                                      ; preds = %.split, %.split.us
@@ -168,7 +168,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E
   %.sroa.07.0.i = extractvalue { i32, i1 } %24, 0
   br i1 %.sroa.18.0.in.i, label %.split20.us, label %.split.backedge
 
-.loopexit:                                        ; preds = %.split, %.split.us, %45
+.loopexit:                                        ; preds = %.split, %.split.us, %42
   ret void
 
 25:                                               ; preds = %.split
@@ -192,50 +192,46 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E
   store i32 1, ptr %30, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %31 = load ptr, ptr %.val, align 8, !align !11, !noundef !10
-  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %33 = load ptr, ptr %32, align 8
   store ptr null, ptr %.val, align 8
-  %34 = icmp eq ptr %31, null
-  br i1 %34, label %35, label %36
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
 
-35:                                               ; preds = %.split20.us
+33:                                               ; preds = %.split20.us
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.12) #16
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %40
 
-.noexc:                                           ; preds = %35
+.noexc:                                           ; preds = %33
   unreachable
 
-36:                                               ; preds = %.split20.us
-  %37 = icmp ne ptr %33, null
-  tail call void @llvm.assume(i1 %37)
+34:                                               ; preds = %.split20.us
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !12
   invoke void @_ZN6semver10VersionReq5parse17ha6b915e8f2a40f83E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.eb4eab04d47276429ebce30616ff951d.89, i64 noundef 6)
-          to label %.noexc10 unwind label %43
+          to label %.noexc10 unwind label %40
 
-.noexc10:                                         ; preds = %36
+.noexc10:                                         ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  %38 = load i64, ptr %7, align 8, !range !20, !alias.scope !17, !noalias !21, !noundef !10
-  %39 = icmp eq i64 %38, -9223372036854775808
-  br i1 %39, label %40, label %45
+  %35 = load i64, ptr %7, align 8, !range !20, !alias.scope !17, !noalias !21, !noundef !10
+  %36 = icmp eq i64 %35, -9223372036854775808
+  br i1 %36, label %37, label %42
 
-40:                                               ; preds = %.noexc10
+37:                                               ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !24
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %42 = load i64, ptr %41, align 8, !alias.scope !17, !noalias !21
-  store i64 %42, ptr %6, align 8, !noalias !24
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = load i64, ptr %38, align 8, !alias.scope !17, !noalias !21
+  store i64 %39, ptr %6, align 8, !noalias !24
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.eb4eab04d47276429ebce30616ff951d.38, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.91) #16
-          to label %.noexc11 unwind label %43
+          to label %.noexc11 unwind label %40
 
-.noexc11:                                         ; preds = %40
+.noexc11:                                         ; preds = %37
   unreachable
 
-43:                                               ; preds = %40, %36, %35
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %37, %34, %33
+  %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %46
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %43
 
-45:                                               ; preds = %.noexc10
+42:                                               ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !12
@@ -246,28 +242,28 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h4d926b16ec7dd628E
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+43:                                               ; preds = %40
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %43
-  resume { ptr, i32 } %44
+"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %40
+  resume { ptr, i32 } %41
 
-48:                                               ; preds = %.split
-  %49 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %49, 1
-  %.sroa.07.0.i16 = extractvalue { i32, i1 } %49, 0
-  br i1 %.sroa.18.0.in.i13, label %50, label %.split.backedge
+45:                                               ; preds = %.split
+  %46 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %46, 1
+  %.sroa.07.0.i16 = extractvalue { i32, i1 } %46, 0
+  br i1 %.sroa.18.0.in.i13, label %47, label %.split.backedge
 
-50:                                               ; preds = %.split, %48
-  %51 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %52 = load atomic i32, ptr %0 acquire, align 4
+47:                                               ; preds = %.split, %45
+  %48 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %49 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %50, %23, %48
-  %.0.be = phi i32 [ %52, %50 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %48 ]
+.split.backedge:                                  ; preds = %47, %23, %45
+  %.0.be = phi i32 [ %49, %47 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %45 ]
   br label %.split
 }
 
@@ -318,8 +314,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd323c85a68f273E
     i32 1, label %23
     i32 0, label %21
     i32 4, label %.loopexit
-    i32 2, label %42
-    i32 3, label %44
+    i32 2, label %39
+    i32 3, label %41
   ]
 
 .split18.us:                                      ; preds = %.split, %.split.us
@@ -342,7 +338,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd323c85a68f273E
   %.sroa.07.0.i = extractvalue { i32, i1 } %22, 0
   br i1 %.sroa.18.0.in.i, label %.split20.us, label %.split.backedge
 
-.loopexit:                                        ; preds = %.split, %.split.us, %39
+.loopexit:                                        ; preds = %.split, %.split.us, %36
   ret void
 
 23:                                               ; preds = %.split
@@ -366,37 +362,33 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd323c85a68f273E
   store i32 1, ptr %28, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %29 = load ptr, ptr %.val, align 8, !align !11, !noundef !10
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %31 = load ptr, ptr %30, align 8
   store ptr null, ptr %.val, align 8
-  %32 = icmp eq ptr %29, null
-  br i1 %32, label %33, label %34
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %.split20.us
+31:                                               ; preds = %.split20.us
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.12) #16
-          to label %.noexc unwind label %37
+          to label %.noexc unwind label %34
 
-.noexc:                                           ; preds = %33
+.noexc:                                           ; preds = %31
   unreachable
 
-34:                                               ; preds = %.split20.us
-  %35 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %35)
-  %36 = invoke noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E()
-          to label %.noexc10 unwind label %37
+32:                                               ; preds = %.split20.us
+  %33 = invoke noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E()
+          to label %.noexc10 unwind label %34
 
-.noexc10:                                         ; preds = %34
+.noexc10:                                         ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h2f17d5cdb46171d5E.llvm.3421199298475542611"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
-          to label %39 unwind label %37
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h2f17d5cdb46171d5E.llvm.3421199298475542611"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %33)
+          to label %36 unwind label %34
 
-37:                                               ; preds = %.noexc10, %34, %33
-  %38 = landingpad { ptr, i32 }
+34:                                               ; preds = %.noexc10, %32, %31
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %40
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %37
 
-39:                                               ; preds = %.noexc10
+36:                                               ; preds = %.noexc10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   store i32 4, ptr %28, align 8
@@ -404,28 +396,28 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h7fd323c85a68f273E
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+37:                                               ; preds = %34
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %37
-  resume { ptr, i32 } %38
+"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %34
+  resume { ptr, i32 } %35
 
-42:                                               ; preds = %.split
-  %43 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %43, 1
-  %.sroa.07.0.i16 = extractvalue { i32, i1 } %43, 0
-  br i1 %.sroa.18.0.in.i13, label %44, label %.split.backedge
+39:                                               ; preds = %.split
+  %40 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %40, 1
+  %.sroa.07.0.i16 = extractvalue { i32, i1 } %40, 0
+  br i1 %.sroa.18.0.in.i13, label %41, label %.split.backedge
 
-44:                                               ; preds = %.split, %42
-  %45 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %46 = load atomic i32, ptr %0 acquire, align 4
+41:                                               ; preds = %.split, %39
+  %42 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %43 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %44, %21, %42
-  %.0.be = phi i32 [ %46, %44 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %42 ]
+.split.backedge:                                  ; preds = %41, %21, %39
+  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
   br label %.split
 }
 
@@ -478,8 +470,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE
     i32 1, label %25
     i32 0, label %23
     i32 4, label %.loopexit
-    i32 2, label %48
-    i32 3, label %50
+    i32 2, label %45
+    i32 3, label %47
   ]
 
 .split18.us:                                      ; preds = %.split, %.split.us
@@ -502,7 +494,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE
   %.sroa.07.0.i = extractvalue { i32, i1 } %24, 0
   br i1 %.sroa.18.0.in.i, label %.split20.us, label %.split.backedge
 
-.loopexit:                                        ; preds = %.split, %.split.us, %45
+.loopexit:                                        ; preds = %.split, %.split.us, %42
   ret void
 
 25:                                               ; preds = %.split
@@ -526,50 +518,46 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE
   store i32 1, ptr %30, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %31 = load ptr, ptr %.val, align 8, !align !11, !noundef !10
-  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %33 = load ptr, ptr %32, align 8
   store ptr null, ptr %.val, align 8
-  %34 = icmp eq ptr %31, null
-  br i1 %34, label %35, label %36
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
 
-35:                                               ; preds = %.split20.us
+33:                                               ; preds = %.split20.us
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.12) #16
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %40
 
-.noexc:                                           ; preds = %35
+.noexc:                                           ; preds = %33
   unreachable
 
-36:                                               ; preds = %.split20.us
-  %37 = icmp ne ptr %33, null
-  tail call void @llvm.assume(i1 %37)
+34:                                               ; preds = %.split20.us
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !37
   invoke void @_ZN6semver10VersionReq5parse17ha6b915e8f2a40f83E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.eb4eab04d47276429ebce30616ff951d.89, i64 noundef 6)
-          to label %.noexc10 unwind label %43
+          to label %.noexc10 unwind label %40
 
-.noexc10:                                         ; preds = %36
+.noexc10:                                         ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %38 = load i64, ptr %7, align 8, !range !20, !alias.scope !42, !noalias !45, !noundef !10
-  %39 = icmp eq i64 %38, -9223372036854775808
-  br i1 %39, label %40, label %45
+  %35 = load i64, ptr %7, align 8, !range !20, !alias.scope !42, !noalias !45, !noundef !10
+  %36 = icmp eq i64 %35, -9223372036854775808
+  br i1 %36, label %37, label %42
 
-40:                                               ; preds = %.noexc10
+37:                                               ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !48
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %42 = load i64, ptr %41, align 8, !alias.scope !42, !noalias !45
-  store i64 %42, ptr %6, align 8, !noalias !48
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = load i64, ptr %38, align 8, !alias.scope !42, !noalias !45
+  store i64 %39, ptr %6, align 8, !noalias !48
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.eb4eab04d47276429ebce30616ff951d.38, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.92) #16
-          to label %.noexc11 unwind label %43
+          to label %.noexc11 unwind label %40
 
-.noexc11:                                         ; preds = %40
+.noexc11:                                         ; preds = %37
   unreachable
 
-43:                                               ; preds = %40, %36, %35
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %37, %34, %33
+  %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %46
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %43
 
-45:                                               ; preds = %.noexc10
+42:                                               ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !37
@@ -580,28 +568,28 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hef6091a92609785eE
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+43:                                               ; preds = %40
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %43
-  resume { ptr, i32 } %44
+"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %40
+  resume { ptr, i32 } %41
 
-48:                                               ; preds = %.split
-  %49 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %49, 1
-  %.sroa.07.0.i16 = extractvalue { i32, i1 } %49, 0
-  br i1 %.sroa.18.0.in.i13, label %50, label %.split.backedge
+45:                                               ; preds = %.split
+  %46 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %46, 1
+  %.sroa.07.0.i16 = extractvalue { i32, i1 } %46, 0
+  br i1 %.sroa.18.0.in.i13, label %47, label %.split.backedge
 
-50:                                               ; preds = %.split, %48
-  %51 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %52 = load atomic i32, ptr %0 acquire, align 4
+47:                                               ; preds = %.split, %45
+  %48 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %49 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %50, %23, %48
-  %.0.be = phi i32 [ %52, %50 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %48 ]
+.split.backedge:                                  ; preds = %47, %23, %45
+  %.0.be = phi i32 [ %49, %47 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %45 ]
   br label %.split
 }
 
@@ -654,8 +642,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE
     i32 1, label %25
     i32 0, label %23
     i32 4, label %.loopexit
-    i32 2, label %48
-    i32 3, label %50
+    i32 2, label %45
+    i32 3, label %47
   ]
 
 .split18.us:                                      ; preds = %.split, %.split.us
@@ -678,7 +666,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE
   %.sroa.07.0.i = extractvalue { i32, i1 } %24, 0
   br i1 %.sroa.18.0.in.i, label %.split20.us, label %.split.backedge
 
-.loopexit:                                        ; preds = %.split, %.split.us, %45
+.loopexit:                                        ; preds = %.split, %.split.us, %42
   ret void
 
 25:                                               ; preds = %.split
@@ -702,50 +690,46 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE
   store i32 1, ptr %30, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %31 = load ptr, ptr %.val, align 8, !align !11, !noundef !10
-  %32 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %33 = load ptr, ptr %32, align 8
   store ptr null, ptr %.val, align 8
-  %34 = icmp eq ptr %31, null
-  br i1 %34, label %35, label %36
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %34
 
-35:                                               ; preds = %.split20.us
+33:                                               ; preds = %.split20.us
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.12) #16
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %40
 
-.noexc:                                           ; preds = %35
+.noexc:                                           ; preds = %33
   unreachable
 
-36:                                               ; preds = %.split20.us
-  %37 = icmp ne ptr %33, null
-  tail call void @llvm.assume(i1 %37)
+34:                                               ; preds = %.split20.us
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !55
   invoke void @_ZN6semver10VersionReq5parse17ha6b915e8f2a40f83E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.eb4eab04d47276429ebce30616ff951d.89, i64 noundef 6)
-          to label %.noexc10 unwind label %43
+          to label %.noexc10 unwind label %40
 
-.noexc10:                                         ; preds = %36
+.noexc10:                                         ; preds = %34
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
-  %38 = load i64, ptr %7, align 8, !range !20, !alias.scope !60, !noalias !63, !noundef !10
-  %39 = icmp eq i64 %38, -9223372036854775808
-  br i1 %39, label %40, label %45
+  %35 = load i64, ptr %7, align 8, !range !20, !alias.scope !60, !noalias !63, !noundef !10
+  %36 = icmp eq i64 %35, -9223372036854775808
+  br i1 %36, label %37, label %42
 
-40:                                               ; preds = %.noexc10
+37:                                               ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !66
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %42 = load i64, ptr %41, align 8, !alias.scope !60, !noalias !63
-  store i64 %42, ptr %6, align 8, !noalias !66
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %39 = load i64, ptr %38, align 8, !alias.scope !60, !noalias !63
+  store i64 %39, ptr %6, align 8, !noalias !66
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.eb4eab04d47276429ebce30616ff951d.38, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.39, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.93) #16
-          to label %.noexc11 unwind label %43
+          to label %.noexc11 unwind label %40
 
-.noexc11:                                         ; preds = %40
+.noexc11:                                         ; preds = %37
   unreachable
 
-43:                                               ; preds = %40, %36, %35
-  %44 = landingpad { ptr, i32 }
+40:                                               ; preds = %37, %34, %33
+  %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %46
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %43
 
-45:                                               ; preds = %.noexc10
+42:                                               ; preds = %.noexc10
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.i.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !55
@@ -756,28 +740,28 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hf1f3131d6dadbd9cE
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+43:                                               ; preds = %40
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %43
-  resume { ptr, i32 } %44
+"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %40
+  resume { ptr, i32 } %41
 
-48:                                               ; preds = %.split
-  %49 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %49, 1
-  %.sroa.07.0.i16 = extractvalue { i32, i1 } %49, 0
-  br i1 %.sroa.18.0.in.i13, label %50, label %.split.backedge
+45:                                               ; preds = %.split
+  %46 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %46, 1
+  %.sroa.07.0.i16 = extractvalue { i32, i1 } %46, 0
+  br i1 %.sroa.18.0.in.i13, label %47, label %.split.backedge
 
-50:                                               ; preds = %.split, %48
-  %51 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %52 = load atomic i32, ptr %0 acquire, align 4
+47:                                               ; preds = %.split, %45
+  %48 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %49 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %50, %23, %48
-  %.0.be = phi i32 [ %52, %50 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %48 ]
+.split.backedge:                                  ; preds = %47, %23, %45
+  %.0.be = phi i32 [ %49, %47 ], [ %.sroa.07.0.i, %23 ], [ %.sroa.07.0.i16, %45 ]
   br label %.split
 }
 
@@ -828,8 +812,8 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfecf829c791b67a0E
     i32 1, label %23
     i32 0, label %21
     i32 4, label %.loopexit
-    i32 2, label %42
-    i32 3, label %44
+    i32 2, label %39
+    i32 3, label %41
   ]
 
 .split18.us:                                      ; preds = %.split, %.split.us
@@ -852,7 +836,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfecf829c791b67a0E
   %.sroa.07.0.i = extractvalue { i32, i1 } %22, 0
   br i1 %.sroa.18.0.in.i, label %.split20.us, label %.split.backedge
 
-.loopexit:                                        ; preds = %.split, %.split.us, %39
+.loopexit:                                        ; preds = %.split, %.split.us, %36
   ret void
 
 23:                                               ; preds = %.split
@@ -876,37 +860,33 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfecf829c791b67a0E
   store i32 1, ptr %28, align 8
   %.val = load ptr, ptr %2, align 8, !nonnull !10, !align !11, !noundef !10
   %29 = load ptr, ptr %.val, align 8, !align !11, !noundef !10
-  %30 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %31 = load ptr, ptr %30, align 8
   store ptr null, ptr %.val, align 8
-  %32 = icmp eq ptr %29, null
-  br i1 %32, label %33, label %34
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %32
 
-33:                                               ; preds = %.split20.us
+31:                                               ; preds = %.split20.us
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.eb4eab04d47276429ebce30616ff951d.12) #16
-          to label %.noexc unwind label %37
+          to label %.noexc unwind label %34
 
-.noexc:                                           ; preds = %33
+.noexc:                                           ; preds = %31
   unreachable
 
-34:                                               ; preds = %.split20.us
-  %35 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %35)
-  %36 = invoke noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E()
-          to label %.noexc10 unwind label %37
+32:                                               ; preds = %.split20.us
+  %33 = invoke noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E()
+          to label %.noexc10 unwind label %34
 
-.noexc10:                                         ; preds = %34
+.noexc10:                                         ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17ha0bd22851abdc638E.llvm.3421199298475542611"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
-          to label %39 unwind label %37
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17ha0bd22851abdc638E.llvm.3421199298475542611"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %33)
+          to label %36 unwind label %34
 
-37:                                               ; preds = %.noexc10, %34, %33
-  %38 = landingpad { ptr, i32 }
+34:                                               ; preds = %.noexc10, %32, %31
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %40
+          to label %"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit" unwind label %37
 
-39:                                               ; preds = %.noexc10
+36:                                               ; preds = %.noexc10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i)
   store i32 4, ptr %28, align 8
@@ -914,28 +894,28 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hfecf829c791b67a0E
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
-40:                                               ; preds = %37
-  %41 = landingpad { ptr, i32 }
+37:                                               ; preds = %34
+  %38 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #17
   unreachable
 
-"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %37
-  resume { ptr, i32 } %38
+"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex..CompletionGuard$GT$17h1d63f427fb813fe2E.exit": ; preds = %34
+  resume { ptr, i32 } %35
 
-42:                                               ; preds = %.split
-  %43 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %43, 1
-  %.sroa.07.0.i16 = extractvalue { i32, i1 } %43, 0
-  br i1 %.sroa.18.0.in.i13, label %44, label %.split.backedge
+39:                                               ; preds = %.split
+  %40 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
+  %.sroa.18.0.in.i13 = extractvalue { i32, i1 } %40, 1
+  %.sroa.07.0.i16 = extractvalue { i32, i1 } %40, 0
+  br i1 %.sroa.18.0.in.i13, label %41, label %.split.backedge
 
-44:                                               ; preds = %.split, %42
-  %45 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
-  %46 = load atomic i32, ptr %0 acquire, align 4
+41:                                               ; preds = %.split, %39
+  %42 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17h0f261bd28f79721cE(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
+  %43 = load atomic i32, ptr %0 acquire, align 4
   br label %.split.backedge
 
-.split.backedge:                                  ; preds = %44, %21, %42
-  %.0.be = phi i32 [ %46, %44 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %42 ]
+.split.backedge:                                  ; preds = %41, %21, %39
+  %.0.be = phi i32 [ %43, %41 ], [ %.sroa.07.0.i, %21 ], [ %.sroa.07.0.i16, %39 ]
   br label %.split
 }
 

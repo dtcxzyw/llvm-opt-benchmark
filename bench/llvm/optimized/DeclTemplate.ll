@@ -10517,29 +10517,25 @@ _ZN5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1
   br i1 %22, label %.lr.ph.i.i, label %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit
 
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
-  %.04.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %21, %17 ]
+  %.04.i.i = phi ptr [ %24, %.lr.ph.i.i ], [ %21, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 96
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %23, align 8
-  %24 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
-  %.not.i.i.i.i.i = icmp eq i64 %24, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %25 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i)
-  %26 = call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %25) #22
-  br i1 %26, label %.lr.ph.i.i, label %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit, !llvm.loop !166
+  %24 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i)
+  %25 = call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %24) #22
+  br i1 %25, label %.lr.ph.i.i, label %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit, !llvm.loop !166
 
 _ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit: ; preds = %.lr.ph.i.i, %17, %_ZN5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit
-  %27 = phi ptr [ null, %_ZN5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit ], [ %21, %17 ], [ %25, %.lr.ph.i.i ]
-  %28 = load ptr, ptr %4, align 8, !tbaa !79
-  %29 = icmp eq ptr %28, %5
-  br i1 %29, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %30
+  %26 = phi ptr [ null, %_ZN5clang31ClassTemplateSpecializationDecl7ProfileERN4llvm16FoldingSetNodeIDENS1_8ArrayRefINS_16TemplateArgumentEEERKNS_10ASTContextE.exit ], [ %21, %17 ], [ %24, %.lr.ph.i.i ]
+  %27 = load ptr, ptr %4, align 8, !tbaa !79
+  %28 = icmp eq ptr %27, %5
+  br i1 %28, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %29
 
-30:                                               ; preds = %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit
-  call void @free(ptr noundef %28) #22
+29:                                               ; preds = %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit
+  call void @free(ptr noundef %27) #22
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit, %30
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN5clang31ClassTemplateSpecializationDecl17getMostRecentDeclEv.exit, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %27
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10669,29 +10665,25 @@ define linkonce_odr noundef ptr @_ZN5clang24RedeclarableTemplateDecl25findSpecia
   br i1 %19, label %.lr.ph.i.i.i, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit
 
 .lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
-  %.04.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %18, %14 ]
+  %.04.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %18, %14 ]
   %20 = getelementptr inbounds nuw i8, ptr %.04.i.i.i, i64 96
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %20, align 8
-  %21 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
-  %.not.i.i.i.i.i.i = icmp eq i64 %21, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %22 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i.i)
-  %23 = call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %22) #22
-  br i1 %23, label %.lr.ph.i.i.i, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, !llvm.loop !166
+  %21 = call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(144) %.04.i.i.i)
+  %22 = call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %21) #22
+  br i1 %22, label %.lr.ph.i.i.i, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, !llvm.loop !166
 
 _ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit: ; preds = %.lr.ph.i.i.i, %14, %5
-  %24 = phi ptr [ null, %5 ], [ %18, %14 ], [ %22, %.lr.ph.i.i.i ]
-  %25 = load ptr, ptr %6, align 8, !tbaa !79
-  %26 = icmp eq ptr %25, %7
-  br i1 %26, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %27
+  %23 = phi ptr [ null, %5 ], [ %18, %14 ], [ %21, %.lr.ph.i.i.i ]
+  %24 = load ptr, ptr %6, align 8, !tbaa !79
+  %25 = icmp eq ptr %24, %7
+  br i1 %25, label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit, label %26
 
-27:                                               ; preds = %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit
-  call void @free(ptr noundef %25) #22
+26:                                               ; preds = %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit
+  call void @free(ptr noundef %24) #22
   br label %_ZN4llvm16FoldingSetNodeIDD2Ev.exit
 
-_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, %27
+_ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %24
+  ret ptr %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

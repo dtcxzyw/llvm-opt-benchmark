@@ -4304,41 +4304,35 @@ _ZN4core3ops8function6FnOnce9call_once17ha690472f05d7439aE.exit: ; preds = %8
   store i64 1, ptr @"_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6c0181e6ff742effE", align 8
   store ptr %.sroa.03.0, ptr getelementptr inbounds nuw (i8, ptr @"_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6c0181e6ff742effE", i64 8), align 8
   %26 = icmp eq i64 %24, 0
-  br i1 %26, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h2520e1519c15ba78E.exit", label %29
+  br i1 %26, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h2520e1519c15ba78E.exit", label %27
 
 "_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h2520e1519c15ba78E.exit": ; preds = %23
   tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17hab4d876f0e897c95E(ptr noundef nonnull @"_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6c0181e6ff742effE", ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17hf184fff1f1e04194E)
-  %27 = load i64, ptr @"_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6c0181e6ff742effE", align 8, !range !748, !noundef !3
-  %28 = icmp eq i64 %27, 1
-  tail call void @llvm.assume(i1 %28)
   br label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit23"
 
-29:                                               ; preds = %23
+27:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %24, ptr %3, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %25, ptr %30, align 8
-  %31 = icmp eq i64 %24, 1
-  br i1 %31, label %32, label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit"
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %25, ptr %28, align 8
+  %29 = icmp eq i64 %24, 1
+  br i1 %29, label %30, label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit"
 
-32:                                               ; preds = %29
-  %33 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !749
-  %34 = icmp eq i64 %33, 1
-  br i1 %34, label %35, label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit"
+30:                                               ; preds = %27
+  %31 = atomicrmw sub ptr %25, i64 1 release, align 8, !noalias !749
+  %32 = icmp eq i64 %31, 1
+  br i1 %32, label %33, label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit"
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h84dbba6f0b22cebcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %30)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h84dbba6f0b22cebcE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
   br label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit"
 
 "_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit23": ; preds = %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h2520e1519c15ba78E.exit", %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit"
   ret void
 
-"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit": ; preds = %35, %32, %29
+"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit": ; preds = %33, %30, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %36 = load i64, ptr @"_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6c0181e6ff742effE", align 8, !range !748, !noundef !3
-  %37 = icmp eq i64 %36, 1
-  call void @llvm.assume(i1 %37)
   br label %"_ZN4core3ptr149drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$alloc..sync..Arc$LT$futures_executor..local_pool..ThreadNotify$GT$$C$$LP$$RP$$GT$$GT$17he778da28e7f2b573E.exit23"
 }
 
@@ -19297,22 +19291,18 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8, !range !225, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %16, label %10
+  br i1 %trunc, label %14, label %10
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %12 = icmp eq i64 %2, 0
-  %13 = icmp ule i64 %0, %8
-  %.sroa.03.0 = or i1 %12, %13
-  tail call void @llvm.assume(i1 %.sroa.03.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %14 = insertvalue { i64, ptr } poison, i64 %8, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %11, 1
-  ret { i64, ptr } %15
+  %12 = insertvalue { i64, ptr } poison, i64 %8, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %11, 1
+  ret { i64, ptr } %13
 
-16:                                               ; preds = %4
-  %17 = load i64, ptr %9, align 8
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
+14:                                               ; preds = %4
+  %15 = load i64, ptr %9, align 8
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %8, i64 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #46
   unreachable
 }
 

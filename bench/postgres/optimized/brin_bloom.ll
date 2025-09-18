@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @brin_bloom_opcinfo(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc0(i64 noundef 80) #8
+  %2 = tail call ptr @palloc0(i64 noundef 80) #7
   store i16 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 1, ptr %3, align 2
@@ -35,7 +35,7 @@ define dso_local noundef i64 @brin_bloom_opcinfo(ptr noundef readnone captures(n
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = tail call ptr @lookup_type_cache(i32 noundef 4600, i32 noundef 0) #8
+  %10 = tail call ptr @lookup_type_cache(i32 noundef 4600, i32 noundef 0) #7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %10, ptr %11, align 8
   %12 = ptrtoint ptr %2 to i64
@@ -57,7 +57,7 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_add_value(ptr noundef readonly 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call ptr @get_fn_opclass_options(ptr noundef %10) #8
+  %11 = tail call ptr @get_fn_opclass_options(ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = load i16, ptr %7, align 8
@@ -120,7 +120,7 @@ brin_bloom_get_ndistinct.exit:                    ; preds = %26, %28, %32
 47:                                               ; preds = %brin_bloom_get_ndistinct.exit, %42, %46
   %48 = phi double [ %44, %46 ], [ 1.000000e-02, %42 ], [ 1.000000e-02, %brin_bloom_get_ndistinct.exit ]
   %49 = sitofp i32 %41 to double
-  %50 = tail call double @log(double noundef %48) #8
+  %50 = tail call double @log(double noundef %48) #7
   %51 = fneg double %49
   %52 = fmul double %50, %51
   %53 = fdiv double %52, 0x3FDEBFBDFF82C58E
@@ -132,10 +132,9 @@ brin_bloom_get_ndistinct.exit:                    ; preds = %26, %28, %32
   br i1 %58, label %59, label %bloom_init.exit
 
 59:                                               ; preds = %47
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %57, i64 noundef 8144) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__func__.bloom_init) #8
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %57, i64 noundef 8144) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 344, ptr noundef nonnull @__func__.bloom_init) #7
   unreachable
 
 bloom_init.exit:                                  ; preds = %47
@@ -151,7 +150,7 @@ bloom_init.exit:                                  ; preds = %47
   %71 = fptosi double %70 to i32
   %narrow.i = add nuw nsw i32 %57, 16
   %72 = zext nneg i32 %narrow.i to i64
-  %73 = tail call ptr @palloc0(i64 noundef %72) #8
+  %73 = tail call ptr @palloc0(i64 noundef %72) #7
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i16 0, ptr %74, align 4
   %75 = trunc i32 %71 to i8
@@ -173,7 +172,7 @@ bloom_init.exit:                                  ; preds = %47
   %84 = load ptr, ptr %83, align 8
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
-  %87 = tail call ptr @pg_detoast_datum(ptr noundef %86) #8
+  %87 = tail call ptr @pg_detoast_datum(ptr noundef %86) #7
   br label %88
 
 88:                                               ; preds = %82, %bloom_init.exit
@@ -199,15 +198,15 @@ bloom_init.exit:                                  ; preds = %47
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call i32 @index_getprocid(ptr noundef %104, i16 noundef signext %14, i16 noundef zeroext 11) #8
+  %105 = tail call i32 @index_getprocid(ptr noundef %104, i16 noundef signext %14, i16 noundef zeroext 11) #7
   %.not.i28 = icmp eq i32 %105, 0
   br i1 %.not.i28, label %110, label %106
 
 106:                                              ; preds = %102
   %107 = load ptr, ptr %103, align 8
-  %108 = tail call ptr @index_getprocinfo(ptr noundef %107, i16 noundef signext %14, i16 noundef zeroext 11) #8
+  %108 = tail call ptr @index_getprocinfo(ptr noundef %107, i16 noundef signext %14, i16 noundef zeroext 11) #7
   %109 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %94, ptr noundef %108, ptr noundef %109) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %94, ptr noundef %108, ptr noundef %109) #7
   br label %bloom_get_procinfo.exit
 
 110:                                              ; preds = %102
@@ -216,14 +215,14 @@ bloom_init.exit:                                  ; preds = %47
 
 bloom_get_procinfo.exit:                          ; preds = %88, %98, %106, %110
   %.0.i27 = phi ptr [ null, %110 ], [ null, %88 ], [ %94, %106 ], [ %94, %98 ]
-  %111 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i27, i32 noundef %13, i64 noundef %9) #8
+  %111 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i27, i32 noundef %13, i64 noundef %9) #7
   %112 = trunc i64 %111 to i32
-  %113 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %112, i64 noundef 1910056111) #8
+  %113 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %112, i64 noundef 1910056111) #7
   %114 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %115 = load i32, ptr %114, align 4
   %116 = zext i32 %115 to i64
   %117 = urem i64 %113, %116
-  %118 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %112, i64 noundef 3125326612) #8
+  %118 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %112, i64 noundef 3125326612) #7
   %119 = load i32, ptr %114, align 4
   %120 = zext i32 %119 to i64
   %121 = urem i64 %118, %120
@@ -306,7 +305,7 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr noundef readonly
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %17, align 8
   %19 = inttoptr i64 %18 to ptr
-  %20 = tail call ptr @pg_detoast_datum(ptr noundef %19) #8
+  %20 = tail call ptr @pg_detoast_datum(ptr noundef %19) #7
   %21 = icmp slt i32 %13, 1
   br i1 %21, label %bloom_contains_value.exit.thread, label %.lr.ph
 
@@ -351,15 +350,15 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr noundef readonly
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %23, align 8
-  %51 = tail call i32 @index_getprocid(ptr noundef %50, i16 noundef signext %36, i16 noundef zeroext 11) #8
+  %51 = tail call i32 @index_getprocid(ptr noundef %50, i16 noundef signext %36, i16 noundef zeroext 11) #7
   %.not.i = icmp eq i32 %51, 0
   br i1 %.not.i, label %56, label %52
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %23, align 8
-  %54 = tail call ptr @index_getprocinfo(ptr noundef %53, i16 noundef signext %36, i16 noundef zeroext 11) #8
+  %54 = tail call ptr @index_getprocinfo(ptr noundef %53, i16 noundef signext %36, i16 noundef zeroext 11) #7
   %55 = load ptr, ptr %4, align 8
-  tail call void @fmgr_info_copy(ptr noundef nonnull %41, ptr noundef %54, ptr noundef %55) #8
+  tail call void @fmgr_info_copy(ptr noundef nonnull %41, ptr noundef %54, ptr noundef %55) #7
   br label %bloom_get_procinfo.exit
 
 56:                                               ; preds = %49
@@ -368,13 +367,13 @@ define dso_local range(i64 0, 2) i64 @brin_bloom_consistent(ptr noundef readonly
 
 bloom_get_procinfo.exit:                          ; preds = %32, %45, %52, %56
   %.0.i = phi ptr [ null, %56 ], [ null, %32 ], [ %41, %52 ], [ %41, %45 ]
-  %57 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i, i32 noundef %15, i64 noundef %34) #8
+  %57 = tail call i64 @FunctionCall1Coll(ptr noundef %.0.i, i32 noundef %15, i64 noundef %34) #7
   %58 = trunc i64 %57 to i32
-  %59 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %58, i64 noundef 1910056111) #8
+  %59 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %58, i64 noundef 1910056111) #7
   %60 = load i32, ptr %24, align 4
   %61 = zext i32 %60 to i64
   %62 = urem i64 %59, %61
-  %63 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %58, i64 noundef 3125326612) #8
+  %63 = tail call i64 @hash_bytes_uint32_extended(i32 noundef %58, i64 noundef 3125326612) #7
   %64 = load i32, ptr %24, align 4
   %65 = zext i32 %64 to i64
   %66 = urem i64 %63, %65
@@ -414,12 +413,11 @@ bloom_contains_value.exit:                        ; preds = %69, %bloom_get_proc
 
 82:                                               ; preds = %27
   %83 = getelementptr inbounds nuw i8, ptr %29, i64 6
-  %84 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %84)
+  %84 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %85 = load i16, ptr %83, align 2
   %86 = zext i16 %85 to i32
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %86) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @__func__.brin_bloom_consistent) #8
+  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %86) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @__func__.brin_bloom_consistent) #7
   unreachable
 
 bloom_contains_value.exit.thread:                 ; preds = %bloom_contains_value.exit, %70, %1
@@ -446,12 +444,12 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
   %9 = load ptr, ptr %8, align 8
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #8
+  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #7
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  %17 = tail call ptr @pg_detoast_datum(ptr noundef %16) #8
+  %17 = tail call ptr @pg_detoast_datum(ptr noundef %16) #7
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 4
   %20 = lshr i32 %19, 3
@@ -498,7 +496,7 @@ define dso_local noundef i64 @brin_bloom_union(ptr noundef readonly captures(non
 
 39:                                               ; preds = %._crit_edge
   %40 = load ptr, ptr @pg_popcount_optimized, align 8
-  %41 = tail call i64 %40(ptr noundef nonnull %29, i32 noundef range(i32 0, 536870912) %20) #8
+  %41 = tail call i64 %40(ptr noundef nonnull %29, i32 noundef range(i32 0, 536870912) %20) #7
   br label %pg_popcount.exit
 
 pg_popcount.exit:                                 ; preds = %.lr.ph.i, %1, %39
@@ -514,9 +512,9 @@ define dso_local noundef i64 @brin_bloom_options(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void @init_local_reloptions(ptr noundef %4, i64 noundef 24) #8
-  tail call void @add_local_real_reloption(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, double noundef -1.000000e-01, double noundef -1.000000e+00, double noundef 0x41DFFFFFFFC00000, i32 noundef 8) #8
-  tail call void @add_local_real_reloption(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, double noundef 1.000000e-02, double noundef 1.000000e-04, double noundef 2.500000e-01, i32 noundef 16) #8
+  tail call void @init_local_reloptions(ptr noundef %4, i64 noundef 24) #7
+  tail call void @add_local_real_reloption(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, double noundef -1.000000e-01, double noundef -1.000000e+00, double noundef 0x41DFFFFFFFC00000, i32 noundef 8) #7
+  tail call void @add_local_real_reloption(ptr noundef %4, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, double noundef 1.000000e-02, double noundef 1.000000e-04, double noundef 2.500000e-01, i32 noundef 16) #7
   ret i64 0
 }
 
@@ -526,11 +524,10 @@ declare void @add_local_real_reloption(ptr noundef, ptr noundef, ptr noundef, do
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @brin_bloom_summary_in(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #8
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__.brin_bloom_summary_in) #8
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %3 = tail call i32 @errcode(i32 noundef 1088) #7
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 782, ptr noundef nonnull @__func__.brin_bloom_summary_in) #7
   unreachable
 }
 
@@ -545,9 +542,9 @@ define dso_local i64 @brin_bloom_summary_out(ptr noundef readonly captures(none)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #8
-  call void @initStringInfo(ptr noundef nonnull %2) #8
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #8
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #7
+  call void @initStringInfo(ptr noundef nonnull %2) #7
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 123) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i32
@@ -555,8 +552,8 @@ define dso_local i64 @brin_bloom_summary_out(ptr noundef readonly captures(none)
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, i32 noundef %9, i32 noundef %11, i32 noundef %13) #8
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.8, i32 noundef %9, i32 noundef %11, i32 noundef %13) #7
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #7
   %14 = load ptr, ptr %2, align 8
   %15 = ptrtoint ptr %14 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -571,17 +568,16 @@ declare void @appendStringInfo(ptr noundef, ptr noundef, ...) local_unnamed_addr
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noundef i64 @brin_bloom_summary_recv(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #8
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 824, ptr noundef nonnull @__func__.brin_bloom_summary_recv) #8
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %3 = tail call i32 @errcode(i32 noundef 1088) #7
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 824, ptr noundef nonnull @__func__.brin_bloom_summary_recv) #7
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @brin_bloom_summary_send(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @byteasend(ptr noundef %0) #8
+  %2 = tail call i64 @byteasend(ptr noundef %0) #7
   ret i64 %2
 }
 
@@ -610,9 +606,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -620,9 +613,8 @@ attributes #3 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "n
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

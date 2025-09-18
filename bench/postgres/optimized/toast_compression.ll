@@ -69,19 +69,19 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
 30:                                               ; preds = %26
   %31 = sext i32 %22 to i64
   %32 = add nsw i64 %31, 12
-  %33 = tail call ptr @palloc(i64 noundef %32) #7
+  %33 = tail call ptr @palloc(i64 noundef %32) #6
   %34 = load i8, ptr %0, align 1
   %35 = and i8 %34, 1
   %.not24 = icmp eq i8 %35, 0
   %.v = select i1 %.not24, i64 4, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %38 = tail call i32 @pglz_compress(ptr noundef nonnull %36, i32 noundef %22, ptr noundef nonnull %37, ptr noundef null) #7
+  %38 = tail call i32 @pglz_compress(ptr noundef nonnull %36, i32 noundef %22, ptr noundef nonnull %37, ptr noundef null) #6
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %30
-  tail call void @pfree(ptr noundef nonnull %33) #7
+  tail call void @pfree(ptr noundef nonnull %33) #6
   br label %43
 
 41:                                               ; preds = %30
@@ -108,7 +108,7 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) local_unnamed_addr #
   %4 = and i32 %3, 1073741823
   %5 = add nuw nsw i32 %4, 4
   %6 = zext nneg i32 %5 to i64
-  %7 = tail call ptr @palloc(i64 noundef %6) #7
+  %7 = tail call ptr @palloc(i64 noundef %6) #6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %0, align 4
   %10 = lshr i32 %9, 2
@@ -116,16 +116,15 @@ define dso_local ptr @pglz_decompress_datum(ptr noundef %0) local_unnamed_addr #
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %13 = load i32, ptr %2, align 4
   %14 = and i32 %13, 1073741823
-  %15 = tail call i32 @pglz_decompress(ptr noundef nonnull %8, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %14, i1 noundef zeroext true) #7
+  %15 = tail call i32 @pglz_decompress(ptr noundef nonnull %8, i32 noundef %11, ptr noundef nonnull %12, i32 noundef %14, i1 noundef zeroext true) #6
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %1
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 16779816) #7
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.pglz_decompress_datum) #7
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %19 = tail call i32 @errcode(i32 noundef 16779816) #6
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 98, ptr noundef nonnull @__func__.pglz_decompress_datum) #6
   unreachable
 
 21:                                               ; preds = %1
@@ -150,22 +149,21 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, 4
   %4 = sext i32 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #7
+  %5 = tail call ptr @palloc(i64 noundef %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %0, align 4
   %8 = lshr i32 %7, 2
   %9 = add nsw i32 %8, -8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %11 = tail call i32 @pglz_decompress(ptr noundef nonnull %6, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %1, i1 noundef zeroext false) #7
+  %11 = tail call i32 @pglz_decompress(ptr noundef nonnull %6, i32 noundef %9, ptr noundef nonnull %10, i32 noundef %1, i1 noundef zeroext false) #6
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %2
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 16779816) #7
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.pglz_decompress_datum_slice) #7
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %15 = tail call i32 @errcode(i32 noundef 16779816) #6
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 126, ptr noundef nonnull @__func__.pglz_decompress_datum_slice) #6
   unreachable
 
 17:                                               ; preds = %2
@@ -177,12 +175,11 @@ define dso_local ptr @pglz_decompress_datum_slice(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @lz4_compress_datum(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #7
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.lz4_compress_datum) #7
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %3 = tail call i32 @errcode(i32 noundef 1088) #6
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.lz4_compress_datum) #6
   unreachable
 }
 
@@ -192,23 +189,21 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @lz4_decompress_datum(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 1088) #7
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
-  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__func__.lz4_decompress_datum) #7
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %3 = tail call i32 @errcode(i32 noundef 1088) #6
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
+  %5 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__func__.lz4_decompress_datum) #6
   unreachable
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local noalias noundef nonnull ptr @lz4_decompress_datum_slice(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 @errcode(i32 noundef 1088) #7
-  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
-  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.lz4_decompress_datum_slice) #7
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %4 = tail call i32 @errcode(i32 noundef 1088) #6
+  %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
+  %6 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.lz4_decompress_datum_slice) #6
   unreachable
 }
 
@@ -254,22 +249,21 @@ define dso_local range(i32 0, 4) i32 @toast_get_compression_id(ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define dso_local signext range(i8 0, 113) i8 @CompressionNameToMethod(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.4) #9
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.4) #8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.5) #9
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.5) #8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 1088) #7
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
-  %11 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.CompressionNameToMethod) #7
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %9 = tail call i32 @errcode(i32 noundef 1088) #6
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
+  %11 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 292, ptr noundef nonnull @__func__.CompressionNameToMethod) #6
   unreachable
 
 12:                                               ; preds = %4, %1
@@ -292,10 +286,9 @@ define dso_local noundef nonnull ptr @GetCompressionMethodName(i8 noundef signex
 
 3:                                                ; preds = %1
   %4 = sext i8 %0 to i32
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %4) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__func__.GetCompressionMethodName) #7
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %4) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 313, ptr noundef nonnull @__func__.GetCompressionMethodName) #6
   unreachable
 
 7:                                                ; preds = %1, %2
@@ -303,19 +296,15 @@ define dso_local noundef nonnull ptr @GetCompressionMethodName(i8 noundef signex
   ret ptr %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

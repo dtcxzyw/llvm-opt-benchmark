@@ -1120,7 +1120,6 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
 
 675:                                              ; preds = %662, %659
   %676 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %676)
   %677 = load ptr, ptr %72, align 8
   %678 = load i64, ptr %73, align 8
   %679 = getelementptr inbounds nuw ptr, ptr %677, i64 %678
@@ -3387,7 +3386,6 @@ boot_yyfree.exit28:                               ; preds = %boot_yyfree.exit, %
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local void @boot_yyerror(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3440,7 +3438,6 @@ declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #3 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, ptr noundef %0) #15
   tail call void @errfinish(ptr noundef nonnull @.str.20, i32 noundef 39, ptr noundef nonnull @__func__.fprintf_to_ereport) #15
   unreachable

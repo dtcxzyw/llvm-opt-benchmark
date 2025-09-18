@@ -1430,219 +1430,217 @@ do_op2.exit:                                      ; preds = %33
   %41 = and i32 %40, 255
   %42 = tail call ptr @tcg_temp_new_vec(i32 noundef %41) #5
   %43 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 156, i32 noundef %41, i32 noundef %0) #5
-  %44 = icmp ne i32 %43, 0
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 166, i32 noundef %41, i32 noundef %0) #5
-  %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %87
+  %44 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 166, i32 noundef %41, i32 noundef %0) #5
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %86
 
-47:                                               ; preds = %do_op2.exit
-  %48 = tail call ptr @tcg_constant_vec_matching(ptr noundef %42, i32 noundef %0, i64 noundef 0) #5
-  %49 = load ptr, ptr %4, align 8
-  %50 = ptrtoint ptr %42 to i64
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
-  %52 = ptrtoint ptr %48 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %8
-  %55 = ptrtoint ptr %51 to i64
+46:                                               ; preds = %do_op2.exit
+  %47 = tail call ptr @tcg_constant_vec_matching(ptr noundef %42, i32 noundef %0, i64 noundef 0) #5
+  %48 = load ptr, ptr %4, align 8
+  %49 = ptrtoint ptr %42 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
+  %51 = ptrtoint ptr %47 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 %8
+  %54 = ptrtoint ptr %50 to i64
+  %55 = ptrtoint ptr %52 to i64
   %56 = ptrtoint ptr %53 to i64
-  %57 = ptrtoint ptr %54 to i64
-  %58 = load i64, ptr %51, align 8
-  %59 = trunc i64 %58 to i32
-  %60 = lshr i32 %59, 16
-  %61 = and i32 %60, 255
-  %62 = load i64, ptr %53, align 8
-  %63 = trunc i64 %62 to i32
-  %64 = lshr i32 %63, 16
-  %65 = and i32 %64, 255
-  %66 = icmp samesign uge i32 %65, %61
-  tail call void @llvm.assume(i1 %66)
-  %67 = load i64, ptr %54, align 8
-  %68 = trunc i64 %67 to i32
-  %69 = lshr i32 %68, 16
-  %70 = and i32 %69, 255
-  %71 = icmp samesign uge i32 %70, %61
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %61, i32 noundef %0) #5
-  %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %74, label %85
+  %57 = load i64, ptr %50, align 8
+  %58 = trunc i64 %57 to i32
+  %59 = lshr i32 %58, 16
+  %60 = and i32 %59, 255
+  %61 = load i64, ptr %52, align 8
+  %62 = trunc i64 %61 to i32
+  %63 = lshr i32 %62, 16
+  %64 = and i32 %63, 255
+  %65 = icmp samesign uge i32 %64, %60
+  tail call void @llvm.assume(i1 %65)
+  %66 = load i64, ptr %53, align 8
+  %67 = trunc i64 %66 to i32
+  %68 = lshr i32 %67, 16
+  %69 = and i32 %68, 255
+  %70 = icmp samesign uge i32 %69, %60
+  tail call void @llvm.assume(i1 %70)
+  %71 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %60, i32 noundef %0) #5
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %73, label %84
 
-74:                                               ; preds = %47
-  %75 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %76 = load i32, ptr %75, align 8
-  %77 = shl nuw nsw i32 %61, 16
-  %78 = and i32 %76, 65535
-  %79 = shl i32 %0, 24
-  %80 = or disjoint i32 %78, %77
-  %81 = or disjoint i32 %80, %79
-  store i32 %81, ptr %75, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 32
+73:                                               ; preds = %46
+  %74 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %75 = load i32, ptr %74, align 8
+  %76 = shl nuw nsw i32 %60, 16
+  %77 = and i32 %75, 65535
+  %78 = shl i32 %0, 24
+  %79 = or disjoint i32 %77, %76
+  %80 = or disjoint i32 %79, %78
+  store i32 %80, ptr %74, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  store i64 %54, ptr %81, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 40
   store i64 %55, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %75, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %74, i64 48
   store i64 %56, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  store i64 %57, ptr %84, align 8
   br label %tcg_gen_neg_vec.exit
 
-85:                                               ; preds = %47
-  %86 = icmp ne i32 %72, 0
-  tail call void @llvm.assume(i1 %86)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %61, i32 noundef %0, i64 noundef %55, i64 noundef %56, i64 noundef %57) #5
+84:                                               ; preds = %46
+  %85 = icmp ne i32 %71, 0
+  tail call void @llvm.assume(i1 %85)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %60, i32 noundef %0, i64 noundef %54, i64 noundef %55, i64 noundef %56) #5
   br label %tcg_gen_neg_vec.exit
 
-tcg_gen_neg_vec.exit:                             ; preds = %74, %85
+tcg_gen_neg_vec.exit:                             ; preds = %73, %84
   tail call void @tcg_gen_smax_vec(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %42)
   br label %tcg_gen_sub_vec.exit
 
-87:                                               ; preds = %do_op2.exit
-  %88 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 179, i32 noundef %41, i32 noundef %0) #5
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %90, label %94
+86:                                               ; preds = %do_op2.exit
+  %87 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 179, i32 noundef %41, i32 noundef %0) #5
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %89, label %93
 
-90:                                               ; preds = %87
-  %91 = shl i32 8, %0
-  %92 = add i32 %91, -1
-  %93 = sext i32 %92 to i64
-  tail call fastcc void @do_shifti(i32 noundef 179, i32 noundef %0, ptr noundef %42, ptr noundef %2, i64 noundef %93)
+89:                                               ; preds = %86
+  %90 = shl i32 8, %0
+  %91 = add i32 %90, -1
+  %92 = sext i32 %91 to i64
+  tail call fastcc void @do_shifti(i32 noundef 179, i32 noundef %0, ptr noundef %42, ptr noundef %2, i64 noundef %92)
   %.pre = ptrtoint ptr %42 to i64
   br label %tcg_gen_cmp_vec.exit
 
-94:                                               ; preds = %87
-  %95 = tail call ptr @tcg_constant_vec(i32 noundef %41, i32 noundef %0, i64 noundef 0) #5
-  %96 = load ptr, ptr %4, align 8
-  %97 = ptrtoint ptr %42 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 %8
-  %100 = ptrtoint ptr %95 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %96, i64 %100
+93:                                               ; preds = %86
+  %94 = tail call ptr @tcg_constant_vec(i32 noundef %41, i32 noundef %0, i64 noundef 0) #5
+  %95 = load ptr, ptr %4, align 8
+  %96 = ptrtoint ptr %42 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 %8
+  %99 = ptrtoint ptr %94 to i64
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 %99
+  %101 = ptrtoint ptr %97 to i64
   %102 = ptrtoint ptr %98 to i64
-  %103 = ptrtoint ptr %99 to i64
-  %104 = ptrtoint ptr %101 to i64
-  %105 = load i64, ptr %98, align 8
-  %106 = trunc i64 %105 to i32
-  %107 = lshr i32 %106, 16
-  %108 = and i32 %107, 255
-  %109 = load i64, ptr %99, align 8
-  %110 = trunc i64 %109 to i32
-  %111 = lshr i32 %110, 16
-  %112 = and i32 %111, 255
-  %113 = icmp samesign uge i32 %112, %108
-  tail call void @llvm.assume(i1 %113)
-  %114 = load i64, ptr %101, align 8
-  %115 = trunc i64 %114 to i32
-  %116 = lshr i32 %115, 16
-  %117 = and i32 %116, 255
-  %118 = icmp samesign uge i32 %117, %108
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %108, i32 noundef %0) #5
-  %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %121, label %133
+  %103 = ptrtoint ptr %100 to i64
+  %104 = load i64, ptr %97, align 8
+  %105 = trunc i64 %104 to i32
+  %106 = lshr i32 %105, 16
+  %107 = and i32 %106, 255
+  %108 = load i64, ptr %98, align 8
+  %109 = trunc i64 %108 to i32
+  %110 = lshr i32 %109, 16
+  %111 = and i32 %110, 255
+  %112 = icmp samesign uge i32 %111, %107
+  tail call void @llvm.assume(i1 %112)
+  %113 = load i64, ptr %100, align 8
+  %114 = trunc i64 %113 to i32
+  %115 = lshr i32 %114, 16
+  %116 = and i32 %115, 255
+  %117 = icmp samesign uge i32 %116, %107
+  tail call void @llvm.assume(i1 %117)
+  %118 = tail call i32 @tcg_can_emit_vec_op(i32 noundef 190, i32 noundef %107, i32 noundef %0) #5
+  %119 = icmp sgt i32 %118, 0
+  br i1 %119, label %120, label %132
 
-121:                                              ; preds = %94
-  %122 = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
-  %123 = load i32, ptr %122, align 8
-  %124 = shl nuw nsw i32 %108, 16
-  %125 = and i32 %123, 65535
-  %126 = shl i32 %0, 24
-  %127 = or disjoint i32 %125, %124
-  %128 = or disjoint i32 %127, %126
-  store i32 %128, ptr %122, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %122, i64 32
+120:                                              ; preds = %93
+  %121 = tail call ptr @tcg_emit_op(i32 noundef 190, i32 noundef 4) #5
+  %122 = load i32, ptr %121, align 8
+  %123 = shl nuw nsw i32 %107, 16
+  %124 = and i32 %122, 65535
+  %125 = shl i32 %0, 24
+  %126 = or disjoint i32 %124, %123
+  %127 = or disjoint i32 %126, %125
+  store i32 %127, ptr %121, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 32
+  store i64 %101, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store i64 %102, ptr %129, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %121, i64 48
   store i64 %103, ptr %130, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %122, i64 48
-  store i64 %104, ptr %131, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %122, i64 56
-  store i64 2, ptr %132, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %121, i64 56
+  store i64 2, ptr %131, align 8
   br label %tcg_gen_cmp_vec.exit
 
-133:                                              ; preds = %94
-  %134 = icmp ne i32 %119, 0
-  tail call void @llvm.assume(i1 %134)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %108, i32 noundef %0, i64 noundef %102, i64 noundef %103, i64 noundef %104, i32 noundef 2) #5
+132:                                              ; preds = %93
+  %133 = icmp ne i32 %118, 0
+  tail call void @llvm.assume(i1 %133)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef 190, i32 noundef %107, i32 noundef %0, i64 noundef %101, i64 noundef %102, i64 noundef %103, i32 noundef 2) #5
   br label %tcg_gen_cmp_vec.exit
 
-tcg_gen_cmp_vec.exit:                             ; preds = %133, %121, %90
-  %.pre-phi = phi i64 [ %97, %133 ], [ %97, %121 ], [ %.pre, %90 ]
-  %135 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %6
-  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %8
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 %.pre-phi
-  %139 = load i64, ptr %136, align 8
-  %140 = trunc i64 %139 to i32
-  %141 = lshr i32 %140, 16
-  %142 = and i32 %141, 255
-  %143 = load i64, ptr %137, align 8
-  %144 = trunc i64 %143 to i32
-  %145 = lshr i32 %144, 16
-  %146 = and i32 %145, 255
-  %147 = icmp samesign uge i32 %146, %142
-  tail call void @llvm.assume(i1 %147)
-  %148 = load i64, ptr %138, align 8
-  %149 = trunc i64 %148 to i32
-  %150 = lshr i32 %149, 16
-  %151 = and i32 %150, 255
-  %152 = icmp samesign uge i32 %151, %142
-  tail call void @llvm.assume(i1 %152)
+tcg_gen_cmp_vec.exit:                             ; preds = %132, %120, %89
+  %.pre-phi = phi i64 [ %96, %132 ], [ %96, %120 ], [ %.pre, %89 ]
+  %134 = load ptr, ptr %4, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %6
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 %8
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 %.pre-phi
+  %138 = load i64, ptr %135, align 8
+  %139 = trunc i64 %138 to i32
+  %140 = lshr i32 %139, 16
+  %141 = and i32 %140, 255
+  %142 = load i64, ptr %136, align 8
+  %143 = trunc i64 %142 to i32
+  %144 = lshr i32 %143, 16
+  %145 = and i32 %144, 255
+  %146 = icmp samesign uge i32 %145, %141
+  tail call void @llvm.assume(i1 %146)
+  %147 = load i64, ptr %137, align 8
+  %148 = trunc i64 %147 to i32
+  %149 = lshr i32 %148, 16
+  %150 = and i32 %149, 255
+  %151 = icmp samesign uge i32 %150, %141
+  tail call void @llvm.assume(i1 %151)
+  %152 = ptrtoint ptr %135 to i64
   %153 = ptrtoint ptr %136 to i64
   %154 = ptrtoint ptr %137 to i64
-  %155 = ptrtoint ptr %138 to i64
-  %156 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
-  %157 = load i32, ptr %156, align 8
-  %158 = shl nuw nsw i32 %142, 16
-  %159 = and i32 %157, 65535
-  %160 = or disjoint i32 %159, %158
-  store i32 %160, ptr %156, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %156, i64 32
+  %155 = tail call ptr @tcg_emit_op(i32 noundef 170, i32 noundef 3) #5
+  %156 = load i32, ptr %155, align 8
+  %157 = shl nuw nsw i32 %141, 16
+  %158 = and i32 %156, 65535
+  %159 = or disjoint i32 %158, %157
+  store i32 %159, ptr %155, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 32
+  store i64 %152, ptr %160, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 40
   store i64 %153, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %156, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %155, i64 48
   store i64 %154, ptr %162, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %156, i64 48
-  store i64 %155, ptr %163, align 8
-  %164 = load ptr, ptr %4, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %6
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 %.pre-phi
+  %163 = load ptr, ptr %4, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %6
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %.pre-phi
+  %166 = ptrtoint ptr %164 to i64
   %167 = ptrtoint ptr %165 to i64
-  %168 = ptrtoint ptr %166 to i64
-  %169 = load i64, ptr %165, align 8
-  %170 = trunc i64 %169 to i32
-  %171 = lshr i32 %170, 16
-  %172 = and i32 %171, 255
-  %173 = load i64, ptr %166, align 8
-  %174 = trunc i64 %173 to i32
-  %175 = lshr i32 %174, 16
-  %176 = and i32 %175, 255
-  %177 = icmp samesign uge i32 %176, %172
-  tail call void @llvm.assume(i1 %177)
-  %178 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %172, i32 noundef %0) #5
-  %179 = icmp sgt i32 %178, 0
-  br i1 %179, label %180, label %191
+  %168 = load i64, ptr %164, align 8
+  %169 = trunc i64 %168 to i32
+  %170 = lshr i32 %169, 16
+  %171 = and i32 %170, 255
+  %172 = load i64, ptr %165, align 8
+  %173 = trunc i64 %172 to i32
+  %174 = lshr i32 %173, 16
+  %175 = and i32 %174, 255
+  %176 = icmp samesign uge i32 %175, %171
+  tail call void @llvm.assume(i1 %176)
+  %177 = tail call i32 @tcg_can_emit_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %171, i32 noundef %0) #5
+  %178 = icmp sgt i32 %177, 0
+  br i1 %178, label %179, label %190
 
-180:                                              ; preds = %tcg_gen_cmp_vec.exit
-  %181 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
-  %182 = load i32, ptr %181, align 8
-  %183 = shl nuw nsw i32 %172, 16
-  %184 = and i32 %182, 65535
-  %185 = shl i32 %0, 24
-  %186 = or disjoint i32 %184, %183
-  %187 = or disjoint i32 %186, %185
-  store i32 %187, ptr %181, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %181, i64 32
-  store i64 %167, ptr %188, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %181, i64 40
+179:                                              ; preds = %tcg_gen_cmp_vec.exit
+  %180 = tail call ptr @tcg_emit_op(i32 noundef range(i32 155, 190) 156, i32 noundef 3) #5
+  %181 = load i32, ptr %180, align 8
+  %182 = shl nuw nsw i32 %171, 16
+  %183 = and i32 %181, 65535
+  %184 = shl i32 %0, 24
+  %185 = or disjoint i32 %183, %182
+  %186 = or disjoint i32 %185, %184
+  store i32 %186, ptr %180, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %180, i64 32
+  store i64 %166, ptr %187, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %180, i64 40
+  store i64 %166, ptr %188, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %180, i64 48
   store i64 %167, ptr %189, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %181, i64 48
-  store i64 %168, ptr %190, align 8
   br label %tcg_gen_sub_vec.exit
 
-191:                                              ; preds = %tcg_gen_cmp_vec.exit
-  %192 = icmp ne i32 %178, 0
-  tail call void @llvm.assume(i1 %192)
-  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %172, i32 noundef %0, i64 noundef %167, i64 noundef %167, i64 noundef %168) #5
+190:                                              ; preds = %tcg_gen_cmp_vec.exit
+  %191 = icmp ne i32 %177, 0
+  tail call void @llvm.assume(i1 %191)
+  tail call void (i32, i32, i32, i64, ...) @tcg_expand_vec_op(i32 noundef range(i32 155, 190) 156, i32 noundef %171, i32 noundef %0, i64 noundef %166, i64 noundef %166, i64 noundef %167) #5
   br label %tcg_gen_sub_vec.exit
 
-tcg_gen_sub_vec.exit:                             ; preds = %191, %180, %tcg_gen_neg_vec.exit
+tcg_gen_sub_vec.exit:                             ; preds = %190, %179, %tcg_gen_neg_vec.exit
   tail call void @tcg_temp_free_vec(ptr noundef %42) #5
   br label %do_op2.exit.thread
 

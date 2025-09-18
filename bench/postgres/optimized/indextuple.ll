@@ -47,11 +47,10 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   br label %.lr.ph
 
 11:                                               ; preds = %4
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 17039621) #9
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %8, i32 noundef 32) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.index_form_tuple_context) #9
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %13 = tail call i32 @errcode(i32 noundef 17039621) #8
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %8, i32 noundef 32) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.index_form_tuple_context) #8
   unreachable
 
 .lr.ph84.preheader:                               ; preds = %56
@@ -90,7 +89,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %31
-  %36 = tail call ptr @detoast_external_attr(ptr noundef nonnull %32) #9
+  %36 = tail call ptr @detoast_external_attr(ptr noundef nonnull %32) #8
   %37 = ptrtoint ptr %36 to i64
   store i64 %37, ptr %23, align 8
   store i8 1, ptr %24, align 1
@@ -121,7 +120,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
 49:                                               ; preds = %46, %46
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 85
   %51 = load i8, ptr %50, align 1
-  %52 = tail call i64 @toast_compress_datum(i64 noundef %40, i8 noundef signext %51) #9
+  %52 = tail call i64 @toast_compress_datum(i64 noundef %40, i8 noundef signext %51) #8
   %.not80 = icmp eq i64 %52, 0
   br i1 %.not80, label %56, label %53
 
@@ -129,7 +128,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   br i1 %34, label %54, label %55
 
 54:                                               ; preds = %53
-  tail call void @pfree(ptr noundef nonnull %.pre-phi) #9
+  tail call void @pfree(ptr noundef nonnull %.pre-phi) #8
   br label %55
 
 55:                                               ; preds = %54, %53
@@ -158,15 +157,15 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   %.lcssa = phi i1 [ false, %.preheader81 ], [ %60, %.lr.ph84 ], [ %60, %57 ]
   %phi.call = phi i64 [ 8, %.preheader81 ], [ 8, %57 ], [ 16, %.lr.ph84 ]
   %.069 = phi i16 [ 0, %.preheader81 ], [ 0, %57 ], [ -32768, %.lr.ph84 ]
-  %61 = call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2) #9
+  %61 = call i64 @heap_compute_data_size(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2) #8
   %62 = or disjoint i64 %phi.call, 7
   %63 = add i64 %62, %61
   %64 = and i64 %63, -8
-  %65 = call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef %64) #9
+  %65 = call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef %64) #8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %phi.call
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %spec.select107 = select i1 %.lcssa, ptr %67, ptr null
-  call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %66, i64 noundef %61, ptr noundef nonnull %5, ptr noundef %spec.select107) #9
+  call void @heap_fill_tuple(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %66, i64 noundef %61, ptr noundef nonnull %5, ptr noundef %spec.select107) #8
   br i1 %10, label %.lr.ph92.preheader, label %._crit_edge
 
 .lr.ph92.preheader:                               ; preds = %.split72
@@ -184,7 +183,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   %72 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv99
   %73 = load i64, ptr %72, align 8
   %74 = inttoptr i64 %73 to ptr
-  call void @pfree(ptr noundef %74) #9
+  call void @pfree(ptr noundef %74) #8
   br label %75
 
 75:                                               ; preds = %.lr.ph92, %71
@@ -197,11 +196,10 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   br i1 %.not78, label %80, label %76
 
 76:                                               ; preds = %._crit_edge
-  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %77)
-  %78 = call i32 @errcode(i32 noundef 261) #9
-  %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i64 noundef %64, i64 noundef 8191) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__func__.index_form_tuple_context) #9
+  %77 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %78 = call i32 @errcode(i32 noundef 261) #8
+  %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i64 noundef %64, i64 noundef 8191) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 210, ptr noundef nonnull @__func__.index_form_tuple_context) #8
   unreachable
 
 80:                                               ; preds = %._crit_edge
@@ -339,10 +337,9 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 47:                                               ; preds = %35
   %48 = sext i16 %34 to i32
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %49)
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %48) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #9
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %48) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
 51:                                               ; preds = %27
@@ -616,7 +613,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br label %202
 
 198:                                              ; preds = %170
-  %199 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #10
+  %199 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #9
   %200 = add nsw i64 %172, 1
   %201 = add i64 %200, %199
   br label %202
@@ -683,10 +680,9 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 230:                                              ; preds = %218
   %231 = sext i16 %217 to i32
-  %232 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %232)
-  %233 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %231) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #9
+  %232 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %233 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %231) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
 234:                                              ; preds = %.loopexit
@@ -875,10 +871,9 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
 
 95:                                               ; preds = %82
   %96 = sext i16 %83 to i32
-  %97 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %97)
-  %98 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %96) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #9
+  %97 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %98 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef range(i32 -32768, 32768) %96) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #8
   unreachable
 
 99:                                               ; preds = %75
@@ -944,7 +939,7 @@ fetch_att.exit:                                   ; preds = %84, %87, %90, %93, 
   br label %138
 
 134:                                              ; preds = %108
-  %135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #10
+  %135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #9
   %136 = add nsw i64 %76, 1
   %137 = add i64 %136, %135
   br label %138
@@ -973,7 +968,7 @@ define dso_local ptr @CopyIndexTuple(ptr noundef readonly captures(none) %0) loc
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, 8191
   %4 = zext nneg i16 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #9
+  %5 = tail call ptr @palloc(i64 noundef %4) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %5, ptr align 2 %0, i64 %4, i1 false)
   ret ptr %5
 }
@@ -998,12 +993,12 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   %.val.i = load i16, ptr %9, align 2
   %10 = and i16 %.val.i, 8191
   %11 = zext nneg i16 %10 to i64
-  %12 = tail call ptr @palloc(i64 noundef %11) #9
+  %12 = tail call ptr @palloc(i64 noundef %11) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %12, ptr readonly align 2 %1, i64 %11, i1 false)
   br label %22
 
 13:                                               ; preds = %3
-  %14 = tail call ptr @CreateTupleDescTruncatedCopy(ptr noundef nonnull %0, i32 noundef %2) #9
+  %14 = tail call ptr @CreateTupleDescTruncatedCopy(ptr noundef nonnull %0, i32 noundef %2) #8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %17 = load i16, ptr %16, align 2
@@ -1016,7 +1011,7 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
   %21 = call ptr @index_form_tuple_context(ptr noundef %14, ptr noundef nonnull readonly %4, ptr noundef nonnull %5, ptr noundef %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %21, ptr noundef nonnull align 2 dereferenceable(6) %1, i64 6, i1 false)
-  call void @pfree(ptr noundef %14) #9
+  call void @pfree(ptr noundef %14) #8
   br label %22
 
 22:                                               ; preds = %13, %8
@@ -1036,9 +1031,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1046,10 +1038,9 @@ attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -134,55 +134,53 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
   %5 = alloca %struct.nameData, align 1
   %6 = alloca %struct.ObjectAddress, align 4
   %7 = alloca %struct.ObjectAddress, align 4
-  %8 = tail call i32 @GetUserId() #16
-  %9 = tail call zeroext i1 @superuser() #16
+  %8 = tail call i32 @GetUserId() #15
+  %9 = tail call zeroext i1 @superuser() #15
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 16797828) #16
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %12 = tail call i32 @errcode(i32 noundef 16797828) #15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %14) #16
-  %16 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.CreateEventTrigger) #16
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %14) #15
+  %16 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.CreateEventTrigger) #15
   unreachable
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.3) #18
+  %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.3) #17
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %34, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(16) @.str.4) #18
+  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(16) @.str.4) #17
   %.not49 = icmp eq i32 %22, 0
   br i1 %.not49, label %34, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.5) #18
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.5) #17
   %.not50 = icmp eq i32 %24, 0
   br i1 %.not50, label %34, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.6) #18
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.6) #17
   %.not51 = icmp eq i32 %26, 0
   br i1 %.not51, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #18
+  %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #17
   %.not52 = icmp eq i32 %28, 0
   br i1 %.not52, label %34, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 @errcode(i32 noundef 16801924) #16
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %31 = tail call i32 @errcode(i32 noundef 16801924) #15
   %32 = load ptr, ptr %18, align 8
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %32) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 150, ptr noundef nonnull @__func__.CreateEventTrigger) #16
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %32) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 150, ptr noundef nonnull @__func__.CreateEventTrigger) #15
   unreachable
 
 34:                                               ; preds = %27, %25, %23, %21, %17
@@ -210,13 +208,13 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(4) @.str.9) #18
+  %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(4) @.str.9) #17
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %51, label %.split72
 
 .critedge:                                        ; preds = %52, %.lr.ph, %34
   %.046.lcssa = phi ptr [ null, %34 ], [ null, %.lr.ph ], [ %54, %52 ]
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.3) #18
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(18) @.str.3) #17
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %67, label %60
 
@@ -237,21 +235,20 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
 
 .split72:                                         ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 @errcode(i32 noundef 16801924) #16
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %57 = tail call i32 @errcode(i32 noundef 16801924) #15
   %58 = load ptr, ptr %55, align 8
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %58) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.CreateEventTrigger) #16
+  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %58) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.CreateEventTrigger) #15
   unreachable
 
 60:                                               ; preds = %.critedge
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(16) @.str.4) #18
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(16) @.str.4) #17
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %60
-  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.5) #18
+  %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(9) @.str.5) #17
   %65 = icmp eq i32 %64, 0
   %66 = icmp ne ptr %.046.lcssa, null
   %or.cond = select i1 %65, i1 %66, i1 false
@@ -262,7 +259,7 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
   br i1 %.old1.not, label %68, label %validate_table_rewrite_tags.exit.sink.split
 
 68:                                               ; preds = %67, %63
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #18
+  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(14) @.str.7) #17
   %70 = icmp eq i32 %69, 0
   %71 = icmp ne ptr %.046.lcssa, null
   %or.cond4 = select i1 %70, i1 %71, i1 false
@@ -292,30 +289,28 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = tail call i32 @GetCommandTagEnum(ptr noundef %84) #16
-  %86 = tail call zeroext i1 @command_tag_table_rewrite_ok(i32 noundef %85) #16
+  %85 = tail call i32 @GetCommandTagEnum(ptr noundef %84) #15
+  %86 = tail call zeroext i1 @command_tag_table_rewrite_ok(i32 noundef %85) #15
   br i1 %86, label %76, label %87
 
 87:                                               ; preds = %79
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %88)
-  %89 = tail call i32 @errcode(i32 noundef 1088) #16
-  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %84) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 253, ptr noundef nonnull @__func__.validate_table_rewrite_tags) #16
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %89 = tail call i32 @errcode(i32 noundef 1088) #15
+  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %84) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 253, ptr noundef nonnull @__func__.validate_table_rewrite_tags) #15
   unreachable
 
 91:                                               ; preds = %68
-  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.6) #18
+  %92 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(6) @.str.6) #17
   %93 = icmp eq i32 %92, 0
   %or.cond7 = select i1 %93, i1 %71, i1 false
   br i1 %or.cond7, label %94, label %validate_table_rewrite_tags.exit
 
 94:                                               ; preds = %91
-  %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %95)
-  %96 = tail call i32 @errcode(i32 noundef 1088) #16
-  %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 181, ptr noundef nonnull @__func__.CreateEventTrigger) #16
+  %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %96 = tail call i32 @errcode(i32 noundef 1088) #15
+  %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 181, ptr noundef nonnull @__func__.CreateEventTrigger) #15
   unreachable
 
 validate_table_rewrite_tags.exit.sink.split:      ; preds = %67, %63
@@ -326,35 +321,33 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = ptrtoint ptr %99 to i64
-  %101 = tail call ptr @SearchSysCache1(i32 noundef 25, i64 noundef %100) #16
+  %101 = tail call ptr @SearchSysCache1(i32 noundef 25, i64 noundef %100) #15
   %.not55 = icmp eq ptr %101, null
   br i1 %.not55, label %107, label %102
 
 102:                                              ; preds = %validate_table_rewrite_tags.exit
-  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %103)
-  %104 = tail call i32 @errcode(i32 noundef 290948) #16
+  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %104 = tail call i32 @errcode(i32 noundef 290948) #15
   %105 = load ptr, ptr %98, align 8
-  %106 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %105) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 192, ptr noundef nonnull @__func__.CreateEventTrigger) #16
+  %106 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %105) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 192, ptr noundef nonnull @__func__.CreateEventTrigger) #15
   unreachable
 
 107:                                              ; preds = %validate_table_rewrite_tags.exit
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %109 = load ptr, ptr %108, align 8
-  %110 = tail call i32 @LookupFuncName(ptr noundef %109, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #16
-  %111 = tail call i32 @get_func_rettype(i32 noundef %110) #16
+  %110 = tail call i32 @LookupFuncName(ptr noundef %109, i32 noundef 0, ptr noundef null, i1 noundef zeroext false) #15
+  %111 = tail call i32 @get_func_rettype(i32 noundef %110) #15
   %.not56 = icmp eq i32 %111, 3838
   br i1 %.not56, label %118, label %112
 
 112:                                              ; preds = %107
-  %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %113)
-  %114 = tail call i32 @errcode(i32 noundef 117833860) #16
+  %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %114 = tail call i32 @errcode(i32 noundef 117833860) #15
   %115 = load ptr, ptr %108, align 8
-  %116 = tail call ptr @NameListToString(ptr noundef %115) #16
-  %117 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %116, ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 201, ptr noundef nonnull @__func__.CreateEventTrigger) #16
+  %116 = tail call ptr @NameListToString(ptr noundef %115) #15
+  %117 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %116, ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 201, ptr noundef nonnull @__func__.CreateEventTrigger) #15
   unreachable
 
 118:                                              ; preds = %107
@@ -366,16 +359,16 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %121 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #16
-  %122 = tail call i32 @GetNewOidWithIndex(ptr noundef %121, i32 noundef 3468, i16 noundef signext 1) #16
+  %121 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #15
+  %122 = tail call i32 @GetNewOidWithIndex(ptr noundef %121, i32 noundef 3468, i16 noundef signext 1) #15
   %123 = zext i32 %122 to i64
   store i64 %123, ptr %2, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %3, i8 0, i64 7, i1 false)
-  call void @namestrcpy(ptr noundef nonnull %4, ptr noundef %119) #16
+  call void @namestrcpy(ptr noundef nonnull %4, ptr noundef %119) #15
   %124 = ptrtoint ptr %4 to i64
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %124, ptr %125, align 8
-  call void @namestrcpy(ptr noundef nonnull %5, ptr noundef %120) #16
+  call void @namestrcpy(ptr noundef nonnull %5, ptr noundef %120) #15
   %126 = ptrtoint ptr %5 to i64
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %126, ptr %127, align 16
@@ -400,7 +393,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   %.val.i.i = load i32, ptr %137, align 4
   %138 = sext i32 %.val.i.i to i64
   %139 = shl nsw i64 %138, 3
-  %140 = call ptr @palloc(i64 noundef %139) #16
+  %140 = call ptr @palloc(i64 noundef %139) #15
   %141 = load i32, ptr %137, align 4
   %.not26.i.i = icmp sgt i32 %141, 0
   br i1 %.not26.i.i, label %.lr.ph30.i.i, label %filter_list_to_array.exit.i
@@ -416,7 +409,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
-  %149 = call ptr @pstrdup(ptr noundef %148) #16
+  %149 = call ptr @pstrdup(ptr noundef %148) #15
   %150 = load i8, ptr %149, align 1
   %.not2324.i.i = icmp eq i8 %150, 0
   br i1 %.not2324.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -424,7 +417,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
 .lr.ph.i.i:                                       ; preds = %143, %.lr.ph.i.i
   %151 = phi i8 [ %154, %.lr.ph.i.i ], [ %150, %143 ]
   %.025.i.i = phi ptr [ %153, %.lr.ph.i.i ], [ %149, %143 ]
-  %152 = call zeroext i8 @pg_ascii_toupper(i8 noundef zeroext %151) #16
+  %152 = call zeroext i8 @pg_ascii_toupper(i8 noundef zeroext %151) #15
   store i8 %152, ptr %.025.i.i, align 1
   %153 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 1
   %154 = load i8, ptr %153, align 1
@@ -432,19 +425,19 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   br i1 %.not23.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %143
-  %155 = call ptr @cstring_to_text(ptr noundef nonnull %149) #16
+  %155 = call ptr @cstring_to_text(ptr noundef nonnull %149) #15
   %156 = ptrtoint ptr %155 to i64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %157 = getelementptr inbounds nuw i64, ptr %140, i64 %indvars.iv.i.i
   store i64 %156, ptr %157, align 8
-  call void @pfree(ptr noundef nonnull %149) #16
+  call void @pfree(ptr noundef nonnull %149) #15
   %158 = load i32, ptr %137, align 4
   %159 = sext i32 %158 to i64
   %.not.i.i = icmp slt i64 %indvars.iv.next.i.i, %159
   br i1 %.not.i.i, label %143, label %filter_list_to_array.exit.i, !llvm.loop !7
 
 filter_list_to_array.exit.i:                      ; preds = %._crit_edge.i.i, %136
-  %160 = call ptr @construct_array_builtin(ptr noundef %140, i32 noundef %.val.i.i, i32 noundef 25) #16
+  %160 = call ptr @construct_array_builtin(ptr noundef %140, i32 noundef %.val.i.i, i32 noundef 25) #15
   %161 = ptrtoint ptr %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i64 %161, ptr %162, align 16
@@ -453,10 +446,10 @@ filter_list_to_array.exit.i:                      ; preds = %._crit_edge.i.i, %1
 163:                                              ; preds = %filter_list_to_array.exit.i, %134
   %164 = getelementptr inbounds nuw i8, ptr %121, i64 64
   %165 = load ptr, ptr %164, align 8
-  %166 = call ptr @heap_form_tuple(ptr noundef %165, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
-  call void @CatalogTupleInsert(ptr noundef %121, ptr noundef %166) #16
-  call void @heap_freetuple(ptr noundef %166) #16
-  %167 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(6) @.str.6) #18
+  %166 = call ptr @heap_form_tuple(ptr noundef %165, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
+  call void @CatalogTupleInsert(ptr noundef %121, ptr noundef %166) #15
+  call void @heap_freetuple(ptr noundef %166) #15
+  %167 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(6) @.str.6) #17
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %170
 
@@ -465,7 +458,7 @@ filter_list_to_array.exit.i:                      ; preds = %._crit_edge.i.i, %1
   br label %170
 
 170:                                              ; preds = %169, %163
-  call void @recordDependencyOnOwner(i32 noundef 3466, i32 noundef %122, i32 noundef %8) #16
+  call void @recordDependencyOnOwner(i32 noundef 3466, i32 noundef %122, i32 noundef %8) #15
   store i32 3466, ptr %6, align 4
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %122, ptr %171, align 4
@@ -476,18 +469,18 @@ filter_list_to_array.exit.i:                      ; preds = %._crit_edge.i.i, %1
   store i32 %110, ptr %173, align 4
   %174 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %174, align 4
-  call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 110) #16
-  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %6, i1 noundef zeroext false) #16
+  call void @recordDependencyOn(ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 110) #15
+  call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %6, i1 noundef zeroext false) #15
   %175 = load ptr, ptr @object_access_hook, align 8
   %.not.i58 = icmp eq ptr %175, null
   br i1 %.not.i58, label %insert_event_trigger_tuple.exit, label %176
 
 176:                                              ; preds = %170
-  call void @RunObjectPostCreateHook(i32 noundef 3466, i32 noundef %122, i32 noundef 0, i1 noundef zeroext false) #16
+  call void @RunObjectPostCreateHook(i32 noundef 3466, i32 noundef %122, i32 noundef 0, i1 noundef zeroext false) #15
   br label %insert_event_trigger_tuple.exit
 
 insert_event_trigger_tuple.exit:                  ; preds = %170, %176
-  call void @table_close(ptr noundef nonnull %121, i32 noundef 3) #16
+  call void @table_close(ptr noundef nonnull %121, i32 noundef 3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -522,11 +515,10 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @error_duplicate_filter_variable(ptr noundef %0) unnamed_addr #5 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 @errcode(i32 noundef 16801924) #16
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 266, ptr noundef nonnull @__func__.error_duplicate_filter_variable) #16
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %3 = tail call i32 @errcode(i32 noundef 16801924) #15
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 266, ptr noundef nonnull @__func__.error_duplicate_filter_variable) #15
   unreachable
 }
 
@@ -555,7 +547,7 @@ define internal fastcc void @validate_ddl_tags(ptr noundef nonnull readonly capt
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 @GetCommandTagEnum(ptr noundef %13) #16
+  %14 = tail call i32 @GetCommandTagEnum(ptr noundef %13) #15
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
@@ -563,23 +555,21 @@ define internal fastcc void @validate_ddl_tags(ptr noundef nonnull readonly capt
   ret void
 
 16:                                               ; preds = %8
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 16801924) #16
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %13, ptr noundef nonnull @.str.9) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 225, ptr noundef nonnull @__func__.validate_ddl_tags) #16
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %18 = tail call i32 @errcode(i32 noundef 16801924) #15
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %13, ptr noundef nonnull @.str.9) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 225, ptr noundef nonnull @__func__.validate_ddl_tags) #15
   unreachable
 
 20:                                               ; preds = %8
-  %21 = tail call zeroext i1 @command_tag_event_trigger_ok(i32 noundef %14) #16
+  %21 = tail call zeroext i1 @command_tag_event_trigger_ok(i32 noundef %14) #15
   br i1 %21, label %5, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 @errcode(i32 noundef 1088) #16
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %13) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.validate_ddl_tags) #16
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %24 = tail call i32 @errcode(i32 noundef 1088) #15
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef %13) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 231, ptr noundef nonnull @__func__.validate_ddl_tags) #15
   unreachable
 }
 
@@ -595,21 +585,20 @@ declare ptr @NameListToString(ptr noundef) local_unnamed_addr #1
 define dso_local i32 @AlterEventTrigger(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
-  %4 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #16
+  %4 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %6 to i64
-  %8 = tail call ptr @SearchSysCacheCopy(i32 noundef 25, i64 noundef %7, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
+  %8 = tail call ptr @SearchSysCacheCopy(i32 noundef 25, i64 noundef %7, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %14
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 67137668) #16
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %11 = tail call i32 @errcode(i32 noundef 67137668) #15
   %12 = load ptr, ptr %5, align 8
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %12) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 439, ptr noundef nonnull @__func__.AlterEventTrigger) #16
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %12) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 439, ptr noundef nonnull @__func__.AlterEventTrigger) #15
   unreachable
 
 14:                                               ; preds = %1
@@ -620,22 +609,22 @@ define dso_local i32 @AlterEventTrigger(ptr noundef readonly captures(none) %0) 
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 @GetUserId() #16
-  %22 = tail call zeroext i1 @object_ownercheck(i32 noundef 3466, i32 noundef %20, i32 noundef %21) #16
+  %21 = tail call i32 @GetUserId() #15
+  %22 = tail call zeroext i1 @object_ownercheck(i32 noundef 3466, i32 noundef %20, i32 noundef %21) #15
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %14
   %24 = load ptr, ptr %5, align 8
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 14, ptr noundef %24) #16
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 14, ptr noundef %24) #15
   br label %25
 
 25:                                               ; preds = %23, %14
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 140
   store i8 %3, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %4, ptr noundef nonnull %27, ptr noundef nonnull %8) #16
+  tail call void @CatalogTupleUpdate(ptr noundef %4, ptr noundef nonnull %27, ptr noundef nonnull %8) #15
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %29 = tail call i32 @namestrcmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.6) #16
+  %29 = tail call i32 @namestrcmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.6) #15
   %30 = icmp eq i32 %29, 0
   %31 = icmp ne i8 %3, 68
   %or.cond = select i1 %30, i1 %31, i1 false
@@ -651,12 +640,12 @@ define dso_local i32 @AlterEventTrigger(ptr noundef readonly captures(none) %0) 
   br i1 %.not20, label %36, label %35
 
 35:                                               ; preds = %33
-  tail call void @RunObjectPostAlterHook(i32 noundef 3466, i32 noundef %20, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #16
+  tail call void @RunObjectPostAlterHook(i32 noundef 3466, i32 noundef %20, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #15
   br label %36
 
 36:                                               ; preds = %35, %33
-  tail call void @heap_freetuple(ptr noundef nonnull %8) #16
-  tail call void @table_close(ptr noundef %4, i32 noundef 3) #16
+  tail call void @heap_freetuple(ptr noundef nonnull %8) #15
+  tail call void @table_close(ptr noundef %4, i32 noundef 3) #15
   ret i32 %20
 }
 
@@ -675,22 +664,21 @@ declare i32 @namestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetDatabaseHasLoginEventTriggers() unnamed_addr #0 {
   %1 = alloca %struct.ItemPointerData, align 2
-  %2 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #16
+  %2 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = load i32, ptr @MyDatabaseId, align 4
-  tail call void @LockSharedObject(i32 noundef 1262, i32 noundef %3, i16 noundef zeroext 0, i32 noundef 8) #16
+  tail call void @LockSharedObject(i32 noundef 1262, i32 noundef %3, i16 noundef zeroext 0, i32 noundef 8) #15
   %4 = load i32, ptr @MyDatabaseId, align 4
   %5 = zext i32 %4 to i64
-  %6 = tail call ptr @SearchSysCacheLockedCopy1(i32 noundef 21, i64 noundef %5) #16
+  %6 = tail call ptr @SearchSysCacheLockedCopy1(i32 noundef 21, i64 noundef %5) #15
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %0
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %8)
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %9 = load i32, ptr @MyDatabaseId, align 4
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %9) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 405, ptr noundef nonnull @__func__.SetDatabaseHasLoginEventTriggers) #16
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34, i32 noundef %9) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 405, ptr noundef nonnull @__func__.SetDatabaseHasLoginEventTriggers) #15
   unreachable
 
 11:                                               ; preds = %0
@@ -709,14 +697,14 @@ define internal fastcc void @SetDatabaseHasLoginEventTriggers() unnamed_addr #0 
 
 21:                                               ; preds = %11
   store i8 1, ptr %18, align 1
-  call void @CatalogTupleUpdate(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %6) #16
-  call void @CommandCounterIncrement() #16
+  call void @CatalogTupleUpdate(ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %6) #15
+  call void @CommandCounterIncrement() #15
   br label %22
 
 22:                                               ; preds = %21, %11
-  call void @UnlockTuple(ptr noundef %2, ptr noundef nonnull %1, i32 noundef 7) #16
-  call void @table_close(ptr noundef %2, i32 noundef 3) #16
-  call void @heap_freetuple(ptr noundef nonnull %6) #16
+  call void @UnlockTuple(ptr noundef %2, ptr noundef nonnull %1, i32 noundef 7) #15
+  call void @table_close(ptr noundef %2, i32 noundef 3) #15
+  call void @heap_freetuple(ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }
@@ -729,18 +717,17 @@ declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i32 } @AlterEventTriggerOwner(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #16
+  %3 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #15
   %4 = ptrtoint ptr %0 to i64
-  %5 = tail call ptr @SearchSysCacheCopy(i32 noundef 25, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
+  %5 = tail call ptr @SearchSysCacheCopy(i32 noundef 25, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 67137668) #16
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 490, ptr noundef nonnull @__func__.AlterEventTriggerOwner) #16
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #15
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 490, ptr noundef nonnull @__func__.AlterEventTriggerOwner) #15
   unreachable
 
 10:                                               ; preds = %2
@@ -752,8 +739,8 @@ define dso_local { i64, i32 } @AlterEventTriggerOwner(ptr noundef %0, i32 nounde
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 %14
   %16 = load i32, ptr %15, align 4
   tail call fastcc void @AlterEventTriggerOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
-  tail call void @heap_freetuple(ptr noundef nonnull %5) #16
-  tail call void @table_close(ptr noundef %3, i32 noundef 3) #16
+  tail call void @heap_freetuple(ptr noundef nonnull %5) #15
+  tail call void @table_close(ptr noundef %3, i32 noundef 3) #15
   %.sroa.211.0.insert.ext = zext i32 %16 to i64
   %.sroa.211.0.insert.shift = shl nuw i64 %.sroa.211.0.insert.ext, 32
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.211.0.insert.shift, 3466
@@ -777,42 +764,41 @@ define internal fastcc void @AlterEventTriggerOwner_internal(ptr noundef %0, ptr
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %8, align 4
-  %14 = tail call i32 @GetUserId() #16
-  %15 = tail call zeroext i1 @object_ownercheck(i32 noundef 3466, i32 noundef %13, i32 noundef %14) #16
+  %14 = tail call i32 @GetUserId() #15
+  %15 = tail call zeroext i1 @object_ownercheck(i32 noundef 3466, i32 noundef %13, i32 noundef %14) #15
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 14, ptr noundef nonnull %17) #16
+  tail call void @aclcheck_error(i32 noundef 2, i32 noundef 14, ptr noundef nonnull %17) #15
   br label %18
 
 18:                                               ; preds = %16, %12
-  %19 = tail call zeroext i1 @superuser_arg(i32 noundef %2) #16
+  %19 = tail call zeroext i1 @superuser_arg(i32 noundef %2) #15
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 16797828) #16
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %22 = tail call i32 @errcode(i32 noundef 16797828) #15
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %23) #16
-  %25 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.36) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 554, ptr noundef nonnull @__func__.AlterEventTriggerOwner_internal) #16
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %23) #15
+  %25 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.36) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 554, ptr noundef nonnull @__func__.AlterEventTriggerOwner_internal) #15
   unreachable
 
 26:                                               ; preds = %18
   store i32 %2, ptr %9, align 4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %0, ptr noundef nonnull %27, ptr noundef nonnull %1) #16
+  tail call void @CatalogTupleUpdate(ptr noundef %0, ptr noundef nonnull %27, ptr noundef nonnull %1) #15
   %28 = load i32, ptr %8, align 4
-  tail call void @changeDependencyOnOwner(i32 noundef 3466, i32 noundef %28, i32 noundef %2) #16
+  tail call void @changeDependencyOnOwner(i32 noundef 3466, i32 noundef %28, i32 noundef %2) #15
   %29 = load ptr, ptr @object_access_hook, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %32, label %30
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %8, align 4
-  tail call void @RunObjectPostAlterHook(i32 noundef 3466, i32 noundef %31, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #16
+  tail call void @RunObjectPostAlterHook(i32 noundef 3466, i32 noundef %31, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #15
   br label %32
 
 32:                                               ; preds = %26, %30, %3
@@ -824,41 +810,39 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AlterEventTriggerOwner_oid(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #16
+  %3 = tail call ptr @table_open(i32 noundef 3466, i32 noundef 3) #15
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCacheCopy(i32 noundef 26, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
+  %5 = tail call ptr @SearchSysCacheCopy(i32 noundef 26, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 67137668) #16
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, i32 noundef %0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.AlterEventTriggerOwner_oid) #16
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #15
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, i32 noundef %0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.AlterEventTriggerOwner_oid) #15
   unreachable
 
 10:                                               ; preds = %2
   tail call fastcc void @AlterEventTriggerOwner_internal(ptr noundef %3, ptr noundef %5, i32 noundef %1)
-  tail call void @heap_freetuple(ptr noundef nonnull %5) #16
-  tail call void @table_close(ptr noundef %3, i32 noundef 3) #16
+  tail call void @heap_freetuple(ptr noundef nonnull %5) #15
+  tail call void @table_close(ptr noundef %3, i32 noundef 3) #15
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_event_trigger_oid(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = tail call i32 @GetSysCacheOid(i32 noundef 25, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #16
+  %4 = tail call i32 @GetSysCacheOid(i32 noundef 25, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
   %5 = icmp ne i32 %4, 0
   %or.cond = or i1 %1, %5
   br i1 %or.cond, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 67137668) #16
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 584, ptr noundef nonnull @__func__.get_event_trigger_oid) #16
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #15
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef %0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 584, ptr noundef nonnull @__func__.get_event_trigger_oid) #15
   unreachable
 
 10:                                               ; preds = %2
@@ -879,12 +863,12 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
   br i1 %or.cond, label %7, label %EventTriggerCommonSetup.exit.thread
 
 7:                                                ; preds = %1
-  %8 = tail call ptr @EventCacheLookup(i32 noundef 0) #16
+  %8 = tail call ptr @EventCacheLookup(i32 noundef 0) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %EventTriggerCommonSetup.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @CreateCommandTag(ptr noundef %0) #16
+  %11 = tail call i32 @CreateCommandTag(ptr noundef %0) #15
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4
   %.not29.i = icmp sgt i32 %13, 0
@@ -925,12 +909,12 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
   br i1 %30, label %filter_event_trigger.exit.i, label %31
 
 31:                                               ; preds = %27
-  %32 = tail call zeroext i1 @bms_is_member(i32 noundef %11, ptr noundef nonnull %29) #16
+  %32 = tail call zeroext i1 @bms_is_member(i32 noundef %11, ptr noundef nonnull %29) #15
   br i1 %32, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.i:                      ; preds = %31, %27
   %33 = load i32, ptr %17, align 8
-  %34 = tail call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %33) #16
+  %34 = tail call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %33) #15
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %31, %25, %23
@@ -950,8 +934,8 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %11, ptr %40, align 8
   call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %2)
-  call void @list_free(ptr noundef nonnull %.1.i) #16
-  call void @CommandCounterIncrement() #16
+  call void @list_free(ptr noundef nonnull %.1.i) #15
+  call void @CommandCounterIncrement() #15
   br label %EventTriggerCommonSetup.exit.thread
 
 EventTriggerCommonSetup.exit.thread:              ; preds = %10, %.critedge.i, %7, %1, %37
@@ -964,9 +948,9 @@ define internal fastcc void @EventTriggerInvoke(ptr noundef nonnull readonly cap
   %3 = alloca %union.anon.8, align 8
   %4 = alloca %struct.FmgrInfo, align 8
   %5 = alloca %struct.PgStat_FunctionCallUsage, align 8
-  tail call void @check_stack_depth() #16
+  tail call void @check_stack_depth() #15
   %6 = load ptr, ptr @CurrentMemoryContext, align 8
-  %7 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %6, ptr noundef nonnull @.str.37, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
+  %7 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %6, ptr noundef nonnull @.str.37, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -992,40 +976,40 @@ define internal fastcc void @EventTriggerInvoke(ptr noundef nonnull readonly cap
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %21 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %21 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %21, label %22, label %24
 
 .critedge:                                        ; preds = %26, %2
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  call void @MemoryContextDelete(ptr noundef %7) #16
+  call void @MemoryContextDelete(ptr noundef %7) #15
   ret void
 
 22:                                               ; preds = %17
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %20) #16
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1091, ptr noundef nonnull @__func__.EventTriggerInvoke) #16
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.38, i32 noundef %20) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1091, ptr noundef nonnull @__func__.EventTriggerInvoke) #15
   br label %24
 
 24:                                               ; preds = %22, %17
   br i1 %.02226, label %26, label %25
 
 25:                                               ; preds = %24
-  call void @CommandCounterIncrement() #16
+  call void @CommandCounterIncrement() #15
   br label %26
 
 26:                                               ; preds = %24, %25
-  call void @fmgr_info(i32 noundef %20, ptr noundef nonnull %4) #16
+  call void @fmgr_info(i32 noundef %20, ptr noundef nonnull %4) #15
   store ptr %4, ptr %3, align 8
   store ptr %1, ptr %12, align 8
   store ptr null, ptr %13, align 8
   store i32 0, ptr %14, align 8
   store i8 0, ptr %15, align 4
   store i16 0, ptr %16, align 2
-  call void @pgstat_init_function_usage(ptr noundef nonnull %3, ptr noundef nonnull %5) #16
+  call void @pgstat_init_function_usage(ptr noundef nonnull %3, ptr noundef nonnull %5) #15
   %27 = load ptr, ptr %3, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = call i64 %28(ptr noundef nonnull %3) #16
-  call void @pgstat_end_function_usage(ptr noundef nonnull %5, i1 noundef zeroext true) #16
-  call void @MemoryContextReset(ptr noundef %7) #16
+  %29 = call i64 %28(ptr noundef nonnull %3) #15
+  call void @pgstat_end_function_usage(ptr noundef nonnull %5, i1 noundef zeroext true) #15
+  call void @MemoryContextReset(ptr noundef %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1055,12 +1039,12 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
   br i1 %or.cond5.not, label %8, label %EventTriggerCommonSetup.exit.thread
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @EventCacheLookup(i32 noundef 1) #16
+  %9 = tail call ptr @EventCacheLookup(i32 noundef 1) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %EventTriggerCommonSetup.exit.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @CreateCommandTag(ptr noundef %0) #16
+  %12 = tail call i32 @CreateCommandTag(ptr noundef %0) #15
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %14 = load i32, ptr %13, align 4
   %.not29.i = icmp sgt i32 %14, 0
@@ -1101,12 +1085,12 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
   br i1 %31, label %filter_event_trigger.exit.i, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call zeroext i1 @bms_is_member(i32 noundef %12, ptr noundef nonnull %30) #16
+  %33 = tail call zeroext i1 @bms_is_member(i32 noundef %12, ptr noundef nonnull %30) #15
   br i1 %33, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.i:                      ; preds = %32, %28
   %34 = load i32, ptr %18, align 8
-  %35 = tail call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %34) #16
+  %35 = tail call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %34) #15
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %32, %26, %24
@@ -1125,9 +1109,9 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store ptr %0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %12, ptr %41, align 8
-  tail call void @CommandCounterIncrement() #16
+  tail call void @CommandCounterIncrement() #15
   call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %2)
-  call void @list_free(ptr noundef nonnull %.1.i) #16
+  call void @list_free(ptr noundef nonnull %.1.i) #15
   br label %EventTriggerCommonSetup.exit.thread
 
 EventTriggerCommonSetup.exit.thread:              ; preds = %11, %.critedge.i, %8, %1, %38
@@ -1159,12 +1143,12 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
   br i1 %12, label %EventTriggerCommonSetup.exit.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = call ptr @EventCacheLookup(i32 noundef 2) #16
+  %14 = call ptr @EventCacheLookup(i32 noundef 2) #15
   %15 = icmp eq ptr %14, null
   br i1 %15, label %EventTriggerCommonSetup.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = call i32 @CreateCommandTag(ptr noundef %0) #16
+  %17 = call i32 @CreateCommandTag(ptr noundef %0) #15
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %.not29.i = icmp sgt i32 %19, 0
@@ -1205,12 +1189,12 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
   br i1 %36, label %filter_event_trigger.exit.i, label %37
 
 37:                                               ; preds = %33
-  %38 = call zeroext i1 @bms_is_member(i32 noundef %17, ptr noundef nonnull %35) #16
+  %38 = call zeroext i1 @bms_is_member(i32 noundef %17, ptr noundef nonnull %35) #15
   br i1 %38, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.i:                      ; preds = %37, %33
   %39 = load i32, ptr %23, align 8
-  %40 = call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %39) #16
+  %40 = call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %39) #15
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %37, %31, %29
@@ -1229,14 +1213,14 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store ptr %0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %17, ptr %46, align 8
-  call void @CommandCounterIncrement() #16
+  call void @CommandCounterIncrement() #15
   %47 = load ptr, ptr @currentEventTriggerState, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store i8 1, ptr %48, align 8
   %49 = load ptr, ptr @PG_exception_stack, align 8
   %50 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %51 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #19
+  %51 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 0) #18
   %.not11 = icmp eq i32 %51, 0
   br i1 %.not11, label %52, label %.critedge
 
@@ -1249,7 +1233,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store ptr %49, ptr @PG_exception_stack, align 8
   store ptr %50, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @list_free(ptr noundef nonnull %.1.i) #16
+  call void @list_free(ptr noundef nonnull %.1.i) #15
   br label %EventTriggerCommonSetup.exit.thread
 
 .critedge:                                        ; preds = %43
@@ -1258,7 +1242,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %55 = load ptr, ptr @currentEventTriggerState, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i8 0, ptr %56, align 8
-  call void @pg_re_throw() #20
+  call void @pg_re_throw() #19
   unreachable
 
 EventTriggerCommonSetup.exit.thread:              ; preds = %16, %.critedge.i, %13, %8, %10, %1, %52
@@ -1293,8 +1277,8 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   br i1 %or.cond5, label %13, label %95
 
 13:                                               ; preds = %0
-  tail call void @StartTransactionCommand() #16
-  %14 = tail call ptr @EventCacheLookup(i32 noundef 4) #16
+  tail call void @StartTransactionCommand() #15
+  %14 = tail call ptr @EventCacheLookup(i32 noundef 4) #15
   %15 = icmp eq ptr %14, null
   br i1 %15, label %47, label %16
 
@@ -1339,12 +1323,12 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   br i1 %35, label %filter_event_trigger.exit.i, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call zeroext i1 @bms_is_member(i32 noundef 162, ptr noundef nonnull %34) #16
+  %37 = tail call zeroext i1 @bms_is_member(i32 noundef 162, ptr noundef nonnull %34) #15
   br i1 %37, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.i:                      ; preds = %36, %32
   %38 = load i32, ptr %22, align 8
-  %39 = tail call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %38) #16
+  %39 = tail call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %38) #15
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %36, %30, %28
@@ -1363,20 +1347,20 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store ptr null, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 162, ptr %45, align 8
-  %46 = tail call ptr @GetTransactionSnapshot() #16
-  tail call void @PushActiveSnapshot(ptr noundef %46) #16
+  %46 = tail call ptr @GetTransactionSnapshot() #15
+  tail call void @PushActiveSnapshot(ptr noundef %46) #15
   call fastcc void @EventTriggerInvoke(ptr noundef %.1.i, ptr noundef %1)
-  call void @list_free(ptr noundef nonnull %.1.i) #16
-  call void @PopActiveSnapshot() #16
+  call void @list_free(ptr noundef nonnull %.1.i) #15
+  call void @PopActiveSnapshot() #15
   br label %94
 
 47:                                               ; preds = %13, %.critedge.i, %16
   %48 = load i32, ptr @MyDatabaseId, align 4
-  %49 = tail call zeroext i1 @ConditionalLockSharedObject(i32 noundef 1262, i32 noundef %48, i16 noundef zeroext 0, i32 noundef 8) #16
+  %49 = tail call zeroext i1 @ConditionalLockSharedObject(i32 noundef 1262, i32 noundef %48, i16 noundef zeroext 0, i32 noundef 8) #15
   br i1 %49, label %50, label %94
 
 50:                                               ; preds = %47
-  %51 = tail call ptr @EventCacheLookup(i32 noundef 4) #16
+  %51 = tail call ptr @EventCacheLookup(i32 noundef 4) #15
   %52 = icmp eq ptr %51, null
   br i1 %52, label %65, label %53
 
@@ -1397,7 +1381,7 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv34.i
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 8
-  %61 = tail call ptr @lappend_oid(ptr noundef %.02530.us.i, i32 noundef %60) #16
+  %61 = tail call ptr @lappend_oid(ptr noundef %.02530.us.i, i32 noundef %60) #15
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %62 = load i32, ptr %54, align 4
   %63 = sext i32 %62 to i64
@@ -1409,24 +1393,23 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   br i1 %64, label %65, label %90
 
 65:                                               ; preds = %50, %.critedge.i20, %53
-  %66 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #16
+  %66 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 3) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %67 = load i32, ptr @MyDatabaseId, align 4
   %68 = zext i32 %67 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %68) #16
-  call void @systable_inplace_update_begin(ptr noundef %66, i32 noundef 2672, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %68) #15
+  call void @systable_inplace_update_begin(ptr noundef %66, i32 noundef 2672, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
   %69 = load ptr, ptr %2, align 8
   %.not16 = icmp eq ptr %69, null
   br i1 %.not16, label %70, label %74
 
 70:                                               ; preds = %65
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %71)
+  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %72 = load i32, ptr @MyDatabaseId, align 4
-  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %72) #16
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 966, ptr noundef nonnull @__func__.EventTriggerOnLogin) #16
+  %73 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17, i32 noundef %72) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 966, ptr noundef nonnull @__func__.EventTriggerOnLogin) #15
   unreachable
 
 74:                                               ; preds = %65
@@ -1445,18 +1428,18 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   store i8 0, ptr %80, align 1
   %84 = load ptr, ptr %3, align 8
   %85 = load ptr, ptr %2, align 8
-  call void @systable_inplace_update_finish(ptr noundef %84, ptr noundef %85) #16
+  call void @systable_inplace_update_finish(ptr noundef %84, ptr noundef %85) #15
   br label %88
 
 86:                                               ; preds = %74
   %87 = load ptr, ptr %3, align 8
-  call void @systable_inplace_update_cancel(ptr noundef %87) #16
+  call void @systable_inplace_update_cancel(ptr noundef %87) #15
   br label %88
 
 88:                                               ; preds = %86, %83
-  call void @table_close(ptr noundef %66, i32 noundef 3) #16
+  call void @table_close(ptr noundef %66, i32 noundef 3) #15
   %89 = load ptr, ptr %2, align 8
-  call void @heap_freetuple(ptr noundef %89) #16
+  call void @heap_freetuple(ptr noundef %89) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1470,11 +1453,11 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   store ptr null, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 162, ptr %93, align 8
-  tail call void @list_free(ptr noundef nonnull %61) #16
+  tail call void @list_free(ptr noundef nonnull %61) #15
   br label %94
 
 94:                                               ; preds = %47, %90, %88, %42
-  call void @CommitTransactionCommand() #16
+  call void @CommitTransactionCommand() #15
   br label %95
 
 95:                                               ; preds = %0, %94
@@ -1520,12 +1503,12 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
   br i1 %or.cond13.not, label %11, label %EventTriggerCommonSetup.exit.thread
 
 11:                                               ; preds = %3
-  %12 = call ptr @EventCacheLookup(i32 noundef 3) #16
+  %12 = call ptr @EventCacheLookup(i32 noundef 3) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %EventTriggerCommonSetup.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = call i32 @CreateCommandTag(ptr noundef %0) #16
+  %15 = call i32 @CreateCommandTag(ptr noundef %0) #15
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = load i32, ptr %16, align 4
   %.not29.i = icmp sgt i32 %17, 0
@@ -1566,12 +1549,12 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
   br i1 %34, label %filter_event_trigger.exit.i, label %35
 
 35:                                               ; preds = %31
-  %36 = call zeroext i1 @bms_is_member(i32 noundef %15, ptr noundef nonnull %33) #16
+  %36 = call zeroext i1 @bms_is_member(i32 noundef %15, ptr noundef nonnull %33) #15
   br i1 %36, label %filter_event_trigger.exit.i, label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.i:                      ; preds = %35, %31
   %37 = load i32, ptr %21, align 8
-  %38 = call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %37) #16
+  %38 = call ptr @lappend_oid(ptr noundef %.02530.i, i32 noundef %37) #15
   br label %filter_event_trigger.exit.thread.i
 
 filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigger.exit.i, %35, %29, %27
@@ -1598,7 +1581,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   %48 = load ptr, ptr @PG_exception_stack, align 8
   %49 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %50 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #19
+  %50 = call i32 @__sigsetjmp(ptr noundef nonnull %5, i32 noundef 0) #18
   %.not12 = icmp eq i32 %50, 0
   br i1 %.not12, label %51, label %.critedge
 
@@ -1613,8 +1596,8 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store ptr %48, ptr @PG_exception_stack, align 8
   store ptr %49, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @list_free(ptr noundef nonnull %.1.i) #16
-  call void @CommandCounterIncrement() #16
+  call void @list_free(ptr noundef nonnull %.1.i) #15
+  call void @CommandCounterIncrement() #15
   br label %EventTriggerCommonSetup.exit.thread
 
 .critedge:                                        ; preds = %41
@@ -1625,7 +1608,7 @@ filter_event_trigger.exit.thread.i:               ; preds = %filter_event_trigge
   store i32 0, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i32 0, ptr %57, align 8
-  call void @pg_re_throw() #20
+  call void @pg_re_throw() #19
   unreachable
 
 EventTriggerCommonSetup.exit.thread:              ; preds = %14, %.critedge.i, %11, %3, %51
@@ -1665,24 +1648,24 @@ define dso_local noundef zeroext i1 @EventTriggerSupportsObject(ptr noundef read
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @EventTriggerBeginCompleteQuery() local_unnamed_addr #0 {
-  %1 = tail call ptr @EventCacheLookup(i32 noundef 2) #16
+  %1 = tail call ptr @EventCacheLookup(i32 noundef 2) #15
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %2, label %trackDroppedObjectsNeeded.exit.thread
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @EventCacheLookup(i32 noundef 3) #16
+  %3 = tail call ptr @EventCacheLookup(i32 noundef 3) #15
   %.not1.i = icmp eq ptr %3, null
   br i1 %.not1.i, label %trackDroppedObjectsNeeded.exit, label %trackDroppedObjectsNeeded.exit.thread
 
 trackDroppedObjectsNeeded.exit:                   ; preds = %2
-  %4 = tail call ptr @EventCacheLookup(i32 noundef 1) #16
+  %4 = tail call ptr @EventCacheLookup(i32 noundef 1) #15
   %.not13 = icmp eq ptr %4, null
   br i1 %.not13, label %20, label %trackDroppedObjectsNeeded.exit.thread
 
 trackDroppedObjectsNeeded.exit.thread:            ; preds = %0, %2, %trackDroppedObjectsNeeded.exit
   %5 = load ptr, ptr @TopMemoryContext, align 8
-  %6 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %5, ptr noundef nonnull @.str.18, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #16
-  %7 = tail call ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef 56) #16
+  %6 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %5, ptr noundef nonnull @.str.18, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
+  %7 = tail call ptr @MemoryContextAlloc(ptr noundef %6, i64 noundef 56) #15
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr null, ptr %8, align 8
@@ -1717,17 +1700,17 @@ trackDroppedObjectsNeeded.exit.thread:            ; preds = %0, %2, %trackDroppe
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @trackDroppedObjectsNeeded() local_unnamed_addr #0 {
-  %1 = tail call ptr @EventCacheLookup(i32 noundef 2) #16
+  %1 = tail call ptr @EventCacheLookup(i32 noundef 2) #15
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %7
 
 2:                                                ; preds = %0
-  %3 = tail call ptr @EventCacheLookup(i32 noundef 3) #16
+  %3 = tail call ptr @EventCacheLookup(i32 noundef 3) #15
   %.not1 = icmp eq ptr %3, null
   br i1 %.not1, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @EventCacheLookup(i32 noundef 1) #16
+  %5 = tail call ptr @EventCacheLookup(i32 noundef 1) #15
   %6 = icmp ne ptr %5, null
   br label %7
 
@@ -1746,7 +1729,7 @@ define dso_local void @EventTriggerEndCompleteQuery() local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %1, align 8
-  tail call void @MemoryContextDelete(ptr noundef %4) #16
+  tail call void @MemoryContextDelete(ptr noundef %4) #15
   store ptr %3, ptr @currentEventTriggerState, align 8
   ret void
 }
@@ -1772,12 +1755,12 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = tail call zeroext i1 @isAnyTempNamespace(i32 noundef %13) #16
+  %14 = tail call zeroext i1 @isAnyTempNamespace(i32 noundef %13) #15
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
   %16 = load i32, ptr %12, align 4
-  %17 = tail call zeroext i1 @isTempNamespace(i32 noundef %16) #16
+  %17 = tail call zeroext i1 @isTempNamespace(i32 noundef %16) #15
   br i1 %17, label %18, label %96
 
 18:                                               ; preds = %15, %11, %8
@@ -1785,31 +1768,31 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %20, ptr @CurrentMemoryContext, align 8
-  %22 = tail call ptr @palloc0(i64 noundef 80) #16
+  %22 = tail call ptr @palloc0(i64 noundef 80) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %22, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   store i8 %5, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 65
   store i8 %6, ptr %24, align 1
   %25 = load i32, ptr %0, align 4
-  %26 = tail call zeroext i1 @is_objectclass_supported(i32 noundef %25) #16
+  %26 = tail call zeroext i1 @is_objectclass_supported(i32 noundef %25) #15
   br i1 %26, label %27, label %76
 
 27:                                               ; preds = %18
   %28 = load i32, ptr %22, align 8
-  %29 = tail call ptr @table_open(i32 noundef %28, i32 noundef 1) #16
+  %29 = tail call ptr @table_open(i32 noundef %28, i32 noundef 1) #15
   %30 = load i32, ptr %0, align 4
-  %31 = tail call signext i16 @get_object_attnum_oid(i32 noundef %30) #16
+  %31 = tail call signext i16 @get_object_attnum_oid(i32 noundef %30) #15
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = tail call ptr @get_catalog_object_by_oid(ptr noundef %29, i16 noundef signext %31, i32 noundef %33) #16
+  %34 = tail call ptr @get_catalog_object_by_oid(ptr noundef %29, i16 noundef signext %31, i32 noundef %33) #15
   %.not59 = icmp eq ptr %34, null
   br i1 %.not59, label %.critedge65, label %35
 
 35:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load i32, ptr %22, align 8
-  %37 = tail call signext i16 @get_object_attnum_namespace(i32 noundef %36) #16
+  %37 = tail call signext i16 @get_object_attnum_namespace(i32 noundef %36) #15
   %.not60 = icmp eq i16 %37, 0
   br i1 %.not60, label %54, label %38
 
@@ -1824,22 +1807,22 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 
 45:                                               ; preds = %38
   %46 = trunc i64 %42 to i32
-  %47 = call zeroext i1 @isTempNamespace(i32 noundef %46) #16
+  %47 = call zeroext i1 @isTempNamespace(i32 noundef %46) #15
   br i1 %47, label %.sink.split, label %48
 
 48:                                               ; preds = %45
-  %49 = call zeroext i1 @isAnyTempNamespace(i32 noundef %46) #16
+  %49 = call zeroext i1 @isAnyTempNamespace(i32 noundef %46) #15
   br i1 %49, label %.critedge, label %50
 
 .critedge:                                        ; preds = %48
-  call void @pfree(ptr noundef nonnull %22) #16
-  call void @table_close(ptr noundef nonnull %29, i32 noundef 1) #16
+  call void @pfree(ptr noundef nonnull %22) #15
+  call void @table_close(ptr noundef nonnull %29, i32 noundef 1) #15
   store ptr %21, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %96
 
 50:                                               ; preds = %48
-  %51 = call ptr @get_namespace_name(i32 noundef %46) #16
+  %51 = call ptr @get_namespace_name(i32 noundef %46) #15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %50
@@ -1853,7 +1836,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 
 54:                                               ; preds = %.sink.split, %38, %35
   %55 = load i32, ptr %22, align 8
-  %56 = call zeroext i1 @get_object_namensp_unique(i32 noundef %55) #16
+  %56 = call zeroext i1 @get_object_namensp_unique(i32 noundef %55) #15
   br i1 %56, label %57, label %75
 
 57:                                               ; preds = %54
@@ -1864,7 +1847,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 
 61:                                               ; preds = %57
   %62 = load i32, ptr %22, align 8
-  %63 = call signext i16 @get_object_attnum_name(i32 noundef %62) #16
+  %63 = call signext i16 @get_object_attnum_name(i32 noundef %62) #15
   %.not61 = icmp eq i16 %63, 0
   br i1 %.not61, label %75, label %64
 
@@ -1879,7 +1862,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 
 71:                                               ; preds = %64
   %72 = inttoptr i64 %68 to ptr
-  %73 = call ptr @pstrdup(ptr noundef %72) #16
+  %73 = call ptr @pstrdup(ptr noundef %72) #15
   %74 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %73, ptr %74, align 8
   br label %75
@@ -1889,7 +1872,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
   br label %.critedge65
 
 .critedge65:                                      ; preds = %75, %27
-  call void @table_close(ptr noundef %29, i32 noundef 1) #16
+  call void @table_close(ptr noundef %29, i32 noundef 1) #15
   br label %85
 
 76:                                               ; preds = %18
@@ -1900,7 +1883,7 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %81 = load i32, ptr %80, align 4
-  %82 = tail call zeroext i1 @isTempNamespace(i32 noundef %81) #16
+  %82 = tail call zeroext i1 @isTempNamespace(i32 noundef %81) #15
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %79
@@ -1911,10 +1894,10 @@ define dso_local void @EventTriggerSQLDropAddObject(ptr noundef readonly capture
 85:                                               ; preds = %.critedge65, %76, %79, %83
   %86 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %87 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %88 = call ptr @getObjectIdentityParts(ptr noundef nonnull %22, ptr noundef nonnull %86, ptr noundef nonnull %87, i1 noundef zeroext false) #16
+  %88 = call ptr @getObjectIdentityParts(ptr noundef nonnull %22, ptr noundef nonnull %86, ptr noundef nonnull %87, i1 noundef zeroext false) #15
   %89 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %88, ptr %89, align 8
-  %90 = call ptr @getObjectTypeDescription(ptr noundef nonnull %22, i1 noundef zeroext false) #16
+  %90 = call ptr @getObjectTypeDescription(ptr noundef nonnull %22, i1 noundef zeroext false) #15
   %91 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %90, ptr %91, align 8
   %92 = load ptr, ptr @currentEventTriggerState, align 8
@@ -1960,7 +1943,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %6
-  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #16
+  %15 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #15
   br label %fastgetattr.exit
 
 16:                                               ; preds = %6
@@ -2023,10 +2006,9 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 49:                                               ; preds = %37
   %50 = sext i16 %36 to i32
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef range(i32 -32768, 32768) %50) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.40, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #16
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef range(i32 -32768, 32768) %50) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.40, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #15
   unreachable
 
 53:                                               ; preds = %25
@@ -2034,7 +2016,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 55:                                               ; preds = %19
-  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #16
+  %56 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef nonnull %2) #15
   br label %fastgetattr.exit
 
 57:                                               ; preds = %16
@@ -2056,11 +2038,11 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
   br label %fastgetattr.exit
 
 69:                                               ; preds = %57
-  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #16
+  %70 = tail call i64 @nocachegetattr(ptr noundef nonnull %0, i32 noundef range(i32 1, 2048) %1, ptr noundef %2) #15
   br label %fastgetattr.exit
 
 71:                                               ; preds = %4
-  %72 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #16
+  %72 = tail call i64 @heap_getsysattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3) #15
   br label %fastgetattr.exit
 
 fastgetattr.exit:                                 ; preds = %69, %68, %55, %53, %47, %44, %41, %38, %71, %14
@@ -2099,15 +2081,14 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %7, %1
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 50463299) #16
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1405, ptr noundef nonnull @__func__.pg_event_trigger_dropped_objects) #16
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %13 = tail call i32 @errcode(i32 noundef 50463299) #15
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1405, ptr noundef nonnull @__func__.pg_event_trigger_dropped_objects) #15
   unreachable
 
 15:                                               ; preds = %7
-  tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #16
+  tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #15
   %16 = load ptr, ptr @currentEventTriggerState, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.0.052 = load ptr, ptr %17, align 8
@@ -2167,7 +2148,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   store i64 %54, ptr %22, align 8
   %55 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -32
   %56 = load ptr, ptr %55, align 8
-  %57 = call ptr @cstring_to_text(ptr noundef %56) #16
+  %57 = call ptr @cstring_to_text(ptr noundef %56) #15
   %58 = ptrtoint ptr %57 to i64
   store i64 %58, ptr %23, align 16
   %59 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -56
@@ -2176,7 +2157,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   br i1 %.not47, label %64, label %61
 
 61:                                               ; preds = %36
-  %62 = call ptr @cstring_to_text(ptr noundef nonnull %60) #16
+  %62 = call ptr @cstring_to_text(ptr noundef nonnull %60) #15
   %63 = ptrtoint ptr %62 to i64
   store i64 %63, ptr %24, align 8
   br label %65
@@ -2192,7 +2173,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   br i1 %.not48, label %71, label %68
 
 68:                                               ; preds = %65
-  %69 = call ptr @cstring_to_text(ptr noundef nonnull %67) #16
+  %69 = call ptr @cstring_to_text(ptr noundef nonnull %67) #15
   %70 = ptrtoint ptr %69 to i64
   store i64 %70, ptr %26, align 16
   br label %72
@@ -2208,7 +2189,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   br i1 %.not49, label %78, label %75
 
 75:                                               ; preds = %72
-  %76 = call ptr @cstring_to_text(ptr noundef nonnull %74) #16
+  %76 = call ptr @cstring_to_text(ptr noundef nonnull %74) #15
   %77 = ptrtoint ptr %76 to i64
   store i64 %77, ptr %28, align 8
   br label %79
@@ -2224,7 +2205,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   br i1 %.not50, label %93, label %82
 
 82:                                               ; preds = %79
-  %83 = call ptr @strlist_to_textarray(ptr noundef nonnull %81) #16
+  %83 = call ptr @strlist_to_textarray(ptr noundef nonnull %81) #15
   %84 = ptrtoint ptr %83 to i64
   store i64 %84, ptr %30, align 16
   %85 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -16
@@ -2233,13 +2214,13 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
   br i1 %.not51, label %90, label %87
 
 87:                                               ; preds = %82
-  %88 = call ptr @strlist_to_textarray(ptr noundef nonnull %86) #16
+  %88 = call ptr @strlist_to_textarray(ptr noundef nonnull %86) #15
   %89 = ptrtoint ptr %88 to i64
   store i64 %89, ptr %31, align 8
   br label %94
 
 90:                                               ; preds = %82
-  %91 = call ptr @construct_empty_array(i32 noundef 25) #16
+  %91 = call ptr @construct_empty_array(i32 noundef 25) #15
   %92 = ptrtoint ptr %91 to i64
   store i64 %92, ptr %31, align 8
   br label %94
@@ -2252,7 +2233,7 @@ define dso_local noundef i64 @pg_event_trigger_dropped_objects(ptr noundef %0) l
 94:                                               ; preds = %87, %90, %93
   %95 = load ptr, ptr %34, align 8
   %96 = load ptr, ptr %35, align 8
-  call void @tuplestore_putvalues(ptr noundef %95, ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  call void @tuplestore_putvalues(ptr noundef %95, ptr noundef %96, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.sroa.0.0 = load ptr, ptr %.sroa.0.054, align 8
@@ -2286,11 +2267,10 @@ define dso_local range(i64 1, 4294967296) i64 @pg_event_trigger_table_rewrite_oi
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3, %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 50463299) #16
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1498, ptr noundef nonnull @__func__.pg_event_trigger_table_rewrite_oid) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %9 = tail call i32 @errcode(i32 noundef 50463299) #15
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1498, ptr noundef nonnull @__func__.pg_event_trigger_table_rewrite_oid) #15
   unreachable
 
 11:                                               ; preds = %3
@@ -2311,11 +2291,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_event_trigger_table_
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3, %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 50463299) #16
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1519, ptr noundef nonnull @__func__.pg_event_trigger_table_rewrite_reason) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %9 = tail call i32 @errcode(i32 noundef 50463299) #15
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.24) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1519, ptr noundef nonnull @__func__.pg_event_trigger_table_rewrite_reason) #15
   unreachable
 
 11:                                               ; preds = %3
@@ -2369,7 +2348,7 @@ define dso_local void @EventTriggerCollectSimpleCommand(i64 %0, i32 %1, i64 %2, 
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %12, ptr @CurrentMemoryContext, align 8
-  %14 = tail call ptr @palloc(i64 noundef 56) #16
+  %14 = tail call ptr @palloc(i64 noundef 56) #15
   store i32 0, ptr %14, align 8
   %15 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -2382,13 +2361,13 @@ define dso_local void @EventTriggerCollectSimpleCommand(i64 %0, i32 %1, i64 %2, 
   store i64 %2, ptr %18, align 4
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 36
   store i32 %3, ptr %.sroa.29.0..sroa_idx, align 4
-  %19 = tail call ptr @copyObjectImpl(ptr noundef %4) #16
+  %19 = tail call ptr @copyObjectImpl(ptr noundef %4) #15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr @currentEventTriggerState, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @lappend(ptr noundef %23, ptr noundef nonnull %14) #16
+  %24 = tail call ptr @lappend(ptr noundef %23, ptr noundef nonnull %14) #15
   %25 = load ptr, ptr @currentEventTriggerState, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %24, ptr %26, align 8
@@ -2421,7 +2400,7 @@ define dso_local void @EventTriggerAlterTableStart(ptr noundef %0) local_unnamed
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc(i64 noundef 56) #16
+  %10 = tail call ptr @palloc(i64 noundef 56) #15
   store i32 1, ptr %10, align 8
   %11 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -2432,7 +2411,7 @@ define dso_local void @EventTriggerAlterTableStart(ptr noundef %0) local_unnamed
   store i32 0, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr null, ptr %15, align 8
-  %16 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
+  %16 = tail call ptr @copyObjectImpl(ptr noundef %0) #15
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr @currentEventTriggerState, align 8
@@ -2487,11 +2466,11 @@ define dso_local void @EventTriggerCollectAlterTableSubcmd(ptr noundef %0, i64 %
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = tail call ptr @palloc(i64 noundef 24) #16
+  %12 = tail call ptr @palloc(i64 noundef 24) #15
   store i64 %1, ptr %12, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %2, ptr %.sroa.26.0..sroa_idx, align 8
-  %13 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
+  %13 = tail call ptr @copyObjectImpl(ptr noundef %0) #15
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr @currentEventTriggerState, align 8
@@ -2499,7 +2478,7 @@ define dso_local void @EventTriggerCollectAlterTableSubcmd(ptr noundef %0, i64 %
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @lappend(ptr noundef %19, ptr noundef nonnull %12) #16
+  %20 = tail call ptr @lappend(ptr noundef %19, ptr noundef nonnull %12) #15
   %21 = load ptr, ptr @currentEventTriggerState, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
@@ -2540,7 +2519,7 @@ define dso_local void @EventTriggerAlterTableEnd() local_unnamed_addr #0 {
   store ptr %14, ptr @CurrentMemoryContext, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @lappend(ptr noundef %17, ptr noundef nonnull %8) #16
+  %18 = tail call ptr @lappend(ptr noundef %17, ptr noundef nonnull %8) #15
   %19 = load ptr, ptr @currentEventTriggerState, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %18, ptr %20, align 8
@@ -2548,7 +2527,7 @@ define dso_local void @EventTriggerAlterTableEnd() local_unnamed_addr #0 {
   br label %22
 
 21:                                               ; preds = %6
-  tail call void @pfree(ptr noundef nonnull %8) #16
+  tail call void @pfree(ptr noundef nonnull %8) #15
   %.pre = load ptr, ptr @currentEventTriggerState, align 8
   br label %22
 
@@ -2578,16 +2557,16 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc(i64 noundef 56) #16
+  %10 = tail call ptr @palloc(i64 noundef 56) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %0, i64 56, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @list_copy(ptr noundef %12) #16
+  %13 = tail call ptr @list_copy(ptr noundef %12) #15
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @list_copy(ptr noundef %16) #16
+  %17 = tail call ptr @list_copy(ptr noundef %16) #15
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %17, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -2610,8 +2589,8 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
   %27 = load ptr, ptr %23, align 8
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr @copyObjectImpl(ptr noundef %29) #16
-  %31 = tail call ptr @lappend(ptr noundef %26, ptr noundef %30) #16
+  %30 = tail call ptr @copyObjectImpl(ptr noundef %29) #15
+  %31 = tail call ptr @lappend(ptr noundef %26, ptr noundef %30) #15
   store ptr %31, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %22, align 4
@@ -2620,7 +2599,7 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
   br i1 %34, label %.lr.ph29, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph29, %.lr.ph, %7
-  %35 = tail call ptr @palloc(i64 noundef 56) #16
+  %35 = tail call ptr @palloc(i64 noundef 56) #15
   store i32 2, ptr %35, align 8
   %36 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -2632,7 +2611,7 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
   %40 = load ptr, ptr @currentEventTriggerState, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call ptr @lappend(ptr noundef %42, ptr noundef nonnull %35) #16
+  %43 = tail call ptr @lappend(ptr noundef %42, ptr noundef nonnull %35) #15
   %44 = load ptr, ptr @currentEventTriggerState, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   store ptr %43, ptr %45, align 8
@@ -2661,7 +2640,7 @@ define dso_local void @EventTriggerCollectAlterOpFam(ptr noundef %0, i32 noundef
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @palloc(i64 noundef 56) #16
+  %13 = tail call ptr @palloc(i64 noundef 56) #15
   store i32 3, ptr %13, align 8
   %14 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -2676,13 +2655,13 @@ define dso_local void @EventTriggerCollectAlterOpFam(ptr noundef %0, i32 noundef
   store ptr %2, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %3, ptr %20, align 8
-  %21 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
+  %21 = tail call ptr @copyObjectImpl(ptr noundef %0) #15
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr @currentEventTriggerState, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @lappend(ptr noundef %25, ptr noundef nonnull %13) #16
+  %26 = tail call ptr @lappend(ptr noundef %25, ptr noundef nonnull %13) #15
   %27 = load ptr, ptr @currentEventTriggerState, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %26, ptr %28, align 8
@@ -2709,7 +2688,7 @@ define dso_local void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noun
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @palloc0(i64 noundef 56) #16
+  %13 = tail call ptr @palloc0(i64 noundef 56) #15
   store i32 5, ptr %13, align 8
   %14 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -2724,13 +2703,13 @@ define dso_local void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noun
   store ptr %2, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %3, ptr %20, align 8
-  %21 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
+  %21 = tail call ptr @copyObjectImpl(ptr noundef %0) #15
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr @currentEventTriggerState, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @lappend(ptr noundef %25, ptr noundef nonnull %13) #16
+  %26 = tail call ptr @lappend(ptr noundef %25, ptr noundef nonnull %13) #15
   %27 = load ptr, ptr @currentEventTriggerState, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %26, ptr %28, align 8
@@ -2757,7 +2736,7 @@ define dso_local void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noun
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @palloc0(i64 noundef 56) #16
+  %13 = tail call ptr @palloc0(i64 noundef 56) #15
   store i32 6, ptr %13, align 8
   %14 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -2770,19 +2749,19 @@ define dso_local void @EventTriggerCollectAlterTSConfig(ptr noundef %0, i32 noun
   store i32 0, ptr %18, align 8
   %19 = sext i32 %3 to i64
   %20 = shl nsw i64 %19, 2
-  %21 = tail call ptr @palloc(i64 noundef %20) #16
+  %21 = tail call ptr @palloc(i64 noundef %20) #15
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %21, ptr %22, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %2, i64 %20, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %3, ptr %23, align 8
-  %24 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
+  %24 = tail call ptr @copyObjectImpl(ptr noundef %0) #15
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %24, ptr %25, align 8
   %26 = load ptr, ptr @currentEventTriggerState, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr @lappend(ptr noundef %28, ptr noundef nonnull %13) #16
+  %29 = tail call ptr @lappend(ptr noundef %28, ptr noundef nonnull %13) #15
   %30 = load ptr, ptr @currentEventTriggerState, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store ptr %29, ptr %31, align 8
@@ -2809,7 +2788,7 @@ define dso_local void @EventTriggerCollectAlterDefPrivs(ptr noundef %0) local_un
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @palloc0(i64 noundef 56) #16
+  %10 = tail call ptr @palloc0(i64 noundef 56) #15
   store i32 4, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -2820,13 +2799,13 @@ define dso_local void @EventTriggerCollectAlterDefPrivs(ptr noundef %0) local_un
   %16 = load i8, ptr @creating_extension, align 1, !range !9, !noundef !10
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %16, ptr %17, align 4
-  %18 = tail call ptr @copyObjectImpl(ptr noundef %0) #16
+  %18 = tail call ptr @copyObjectImpl(ptr noundef %0) #15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %18, ptr %19, align 8
   %20 = load ptr, ptr @currentEventTriggerState, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @lappend(ptr noundef %22, ptr noundef nonnull %10) #16
+  %23 = tail call ptr @lappend(ptr noundef %22, ptr noundef nonnull %10) #15
   %24 = load ptr, ptr @currentEventTriggerState, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store ptr %23, ptr %25, align 8
@@ -2850,15 +2829,14 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br i1 %.not, label %9, label %13
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 50463299) #16
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1932, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #16
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %11 = tail call i32 @errcode(i32 noundef 50463299) #15
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.26) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1932, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #15
   unreachable
 
 13:                                               ; preds = %1
-  tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #16
+  tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #15
   %14 = load ptr, ptr @currentEventTriggerState, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8
@@ -2948,19 +2926,19 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br label %56
 
 56:                                               ; preds = %45, %52, %54, %50, %.thread92
-  %57 = call ptr @getObjectIdentity(ptr noundef nonnull %4, i1 noundef zeroext true) #16
+  %57 = call ptr @getObjectIdentity(ptr noundef nonnull %4, i1 noundef zeroext true) #15
   %.not88 = icmp eq ptr %57, null
   br i1 %.not88, label %.critedge90, label %58
 
 58:                                               ; preds = %56
-  %59 = call ptr @getObjectTypeDescription(ptr noundef nonnull %4, i1 noundef zeroext true) #16
+  %59 = call ptr @getObjectTypeDescription(ptr noundef nonnull %4, i1 noundef zeroext true) #15
   %60 = load i32, ptr %4, align 4
-  %61 = call zeroext i1 @is_objectclass_supported(i32 noundef %60) #16
+  %61 = call zeroext i1 @is_objectclass_supported(i32 noundef %60) #15
   br i1 %61, label %62, label %93
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %4, align 4
-  %64 = call signext i16 @get_object_attnum_namespace(i32 noundef %63) #16
+  %64 = call signext i16 @get_object_attnum_namespace(i32 noundef %63) #15
   %65 = sext i16 %64 to i32
   %.not86 = icmp eq i16 %64, 0
   br i1 %.not86, label %93, label %66
@@ -2968,21 +2946,20 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
 66:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %67 = load i32, ptr %4, align 4
-  %68 = call ptr @table_open(i32 noundef %67, i32 noundef 1) #16
+  %68 = call ptr @table_open(i32 noundef %67, i32 noundef 1) #15
   %69 = load i32, ptr %4, align 4
-  %70 = call signext i16 @get_object_attnum_oid(i32 noundef %69) #16
+  %70 = call signext i16 @get_object_attnum_oid(i32 noundef %69) #15
   %71 = load i32, ptr %19, align 4
-  %72 = call ptr @get_catalog_object_by_oid(ptr noundef %68, i16 noundef signext %70, i32 noundef %71) #16
+  %72 = call ptr @get_catalog_object_by_oid(ptr noundef %68, i16 noundef signext %70, i32 noundef %71) #15
   %.not87 = icmp eq ptr %72, null
   br i1 %.not87, label %73, label %78
 
 73:                                               ; preds = %66
-  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %74)
+  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %75 = load i32, ptr %4, align 4
   %76 = load i32, ptr %19, align 4
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %75, i32 noundef %76) #16
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2022, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #16
+  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %75, i32 noundef %76) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2022, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #15
   unreachable
 
 78:                                               ; preds = %66
@@ -2994,19 +2971,18 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br i1 %83, label %84, label %90
 
 84:                                               ; preds = %78
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %85)
+  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   %86 = load i32, ptr %4, align 4
   %87 = load i32, ptr %19, align 4
   %88 = load i32, ptr %20, align 4
-  %89 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %86, i32 noundef %87, i32 noundef %88) #16
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2029, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #16
+  %89 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, i32 noundef %86, i32 noundef %87, i32 noundef %88) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2029, ptr noundef nonnull @__func__.pg_event_trigger_ddl_commands) #15
   unreachable
 
 90:                                               ; preds = %78
   %91 = trunc i64 %81 to i32
-  %92 = call ptr @get_namespace_name_or_temp(i32 noundef %91) #16
-  call void @table_close(ptr noundef nonnull %68, i32 noundef 1) #16
+  %92 = call ptr @get_namespace_name_or_temp(i32 noundef %91) #15
+  call void @table_close(ptr noundef nonnull %68, i32 noundef 1) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %93
 
@@ -3023,12 +2999,12 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   store i64 %99, ptr %30, align 16
   %100 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = call i32 @CreateCommandTag(ptr noundef %101) #16
-  %103 = call ptr @GetCommandTagName(i32 noundef %102) #16
-  %104 = call ptr @cstring_to_text(ptr noundef %103) #16
+  %102 = call i32 @CreateCommandTag(ptr noundef %101) #15
+  %103 = call ptr @GetCommandTagName(i32 noundef %102) #15
+  %104 = call ptr @cstring_to_text(ptr noundef %103) #15
   %105 = ptrtoint ptr %104 to i64
   store i64 %105, ptr %23, align 8
-  %106 = call ptr @cstring_to_text(ptr noundef %59) #16
+  %106 = call ptr @cstring_to_text(ptr noundef %59) #15
   %107 = ptrtoint ptr %106 to i64
   store i64 %107, ptr %24, align 16
   %108 = icmp eq ptr %.077, null
@@ -3039,13 +3015,13 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br label %113
 
 110:                                              ; preds = %93
-  %111 = call ptr @cstring_to_text(ptr noundef nonnull %.077) #16
+  %111 = call ptr @cstring_to_text(ptr noundef nonnull %.077) #15
   %112 = ptrtoint ptr %111 to i64
   store i64 %112, ptr %31, align 8
   br label %113
 
 113:                                              ; preds = %110, %109
-  %114 = call ptr @cstring_to_text(ptr noundef nonnull %57) #16
+  %114 = call ptr @cstring_to_text(ptr noundef nonnull %57) #15
   %115 = ptrtoint ptr %114 to i64
   store i64 %115, ptr %32, align 16
   br label %.sink.split
@@ -3056,9 +3032,9 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   store i8 1, ptr %22, align 1
   %117 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = call i32 @CreateCommandTag(ptr noundef %118) #16
-  %120 = call ptr @GetCommandTagName(i32 noundef %119) #16
-  %121 = call ptr @cstring_to_text(ptr noundef %120) #16
+  %119 = call i32 @CreateCommandTag(ptr noundef %118) #15
+  %120 = call ptr @GetCommandTagName(i32 noundef %119) #15
+  %121 = call ptr @cstring_to_text(ptr noundef %120) #15
   %122 = ptrtoint ptr %121 to i64
   store i64 %122, ptr %23, align 8
   %123 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -3161,10 +3137,9 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
   br label %stringify_adefprivs_objtype.exit
 
 139:                                              ; preds = %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116, %116
-  %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %140)
-  %141 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %124) #16
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2273, ptr noundef nonnull @__func__.stringify_adefprivs_objtype) #16
+  %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %141 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %124) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2273, ptr noundef nonnull @__func__.stringify_adefprivs_objtype) #15
   unreachable
 
 142:                                              ; preds = %116
@@ -3172,7 +3147,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
 
 stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %127, %128, %129, %130, %131, %132, %133, %134, %135, %136, %137, %138, %142
   %.0.i = phi ptr [ @.str.58, %142 ], [ @.str.60, %125 ], [ @.str.61, %126 ], [ @.str.62, %127 ], [ @.str.63, %128 ], [ @.str.64, %129 ], [ @.str.65, %130 ], [ @.str.66, %131 ], [ @.str.67, %132 ], [ @.str.68, %133 ], [ @.str.69, %134 ], [ @.str.70, %135 ], [ @.str.71, %136 ], [ @.str.72, %137 ], [ @.str.73, %138 ], [ @.str.59, %116 ]
-  %143 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i) #16
+  %143 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i) #15
   %144 = ptrtoint ptr %143 to i64
   store i64 %144, ptr %24, align 16
   store i8 1, ptr %25, align 1
@@ -3188,7 +3163,7 @@ stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %1
   %148 = load i8, ptr %147, align 8, !range !9, !noundef !10
   %149 = trunc nuw i8 %148 to i1
   %150 = select i1 %149, ptr @.str.29, ptr @.str.30
-  %151 = call ptr @cstring_to_text(ptr noundef nonnull %150) #16
+  %151 = call ptr @cstring_to_text(ptr noundef nonnull %150) #15
   %152 = ptrtoint ptr %151 to i64
   store i64 %152, ptr %23, align 8
   %153 = load ptr, ptr %146, align 8
@@ -3295,10 +3270,9 @@ stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %1
   br label %stringify_grant_objtype.exit
 
 171:                                              ; preds = %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145, %145
-  %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %172)
-  %173 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %155) #16
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2189, ptr noundef nonnull @__func__.stringify_grant_objtype) #16
+  %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %173 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %155) #15
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2189, ptr noundef nonnull @__func__.stringify_grant_objtype) #15
   unreachable
 
 174:                                              ; preds = %145
@@ -3306,7 +3280,7 @@ stringify_adefprivs_objtype.exit:                 ; preds = %116, %125, %126, %1
 
 stringify_grant_objtype.exit:                     ; preds = %145, %156, %157, %158, %159, %160, %161, %162, %163, %164, %165, %166, %167, %168, %169, %170, %174
   %.0.i91 = phi ptr [ @.str.58, %174 ], [ @.str.42, %156 ], [ @.str.43, %157 ], [ @.str.44, %158 ], [ @.str.45, %159 ], [ @.str.46, %160 ], [ @.str.47, %161 ], [ @.str.48, %162 ], [ @.str.49, %163 ], [ @.str.50, %164 ], [ @.str.51, %165 ], [ @.str.52, %166 ], [ @.str.53, %167 ], [ @.str.54, %168 ], [ @.str.55, %169 ], [ @.str.56, %170 ], [ @.str.41, %145 ]
-  %175 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i91) #16
+  %175 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i91) #15
   %176 = ptrtoint ptr %175 to i64
   store i64 %176, ptr %24, align 16
   store i8 1, ptr %25, align 1
@@ -3325,7 +3299,7 @@ stringify_grant_objtype.exit:                     ; preds = %145, %156, %157, %1
 181:                                              ; preds = %.sink.split, %.lr.ph106
   %182 = load ptr, ptr %33, align 8
   %183 = load ptr, ptr %34, align 8
-  call void @tuplestore_putvalues(ptr noundef %182, ptr noundef %183, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
+  call void @tuplestore_putvalues(ptr noundef %182, ptr noundef %183, ptr noundef nonnull %2, ptr noundef nonnull %3) #15
   br label %.critedge90
 
 .critedge90:                                      ; preds = %56, %41, %181
@@ -3409,9 +3383,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #15
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3427,12 +3398,11 @@ attributes #11 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind returns_twice }
-attributes #20 = { noreturn nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind returns_twice }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

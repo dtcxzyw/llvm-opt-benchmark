@@ -509,7 +509,7 @@ _ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_cre
 _ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit: ; preds = %1, %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
   %16 = phi ptr [ %8, %1 ], [ %.0.i.i2.i.i, %_ZN4llvm13ManagedStaticINS_12_GLOBAL__N_16legacy14PassTimingInfoENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i ]
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %123, label %17
+  br i1 %.not, label %121, label %17
 
 17:                                               ; preds = %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -753,45 +753,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i.i.i: ; 
   %113 = load ptr, ptr %5, align 8, !tbaa !80
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %115 = icmp eq ptr %113, %114
-  br i1 %115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %.critedge.i.i
-  %116 = load i64, ptr %101, align 8, !tbaa !78
-  %117 = icmp ult i64 %116, 16
-  call void @llvm.assume(i1 %117)
-  br label %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i
+  br i1 %115, label %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %.critedge.i.i
-  %118 = load i64, ptr %114, align 8, !tbaa !49
-  %119 = add i64 %118, 1
-  call void @_ZdlPvm(ptr noundef %113, i64 noundef %119) #25
+  %116 = load i64, ptr %114, align 8, !tbaa !49
+  %117 = add i64 %116, 1
+  call void @_ZdlPvm(ptr noundef %113, i64 noundef %117) #25
   br label %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i
 
-_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
+_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i: ; preds = %.critedge.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %120 = load ptr, ptr %37, align 8, !tbaa !64
+  %118 = load ptr, ptr %37, align 8, !tbaa !64
   store ptr %99, ptr %37, align 8, !tbaa !64
-  %.not.i.i20.i = icmp eq ptr %120, null
+  %.not.i.i20.i = icmp eq ptr %118, null
   br i1 %.not.i.i20.i, label %_ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EE5resetEPS1_.exit.i, label %_ZNKSt14default_deleteIN4llvm5TimerEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm5TimerEEclEPS1_.exit.i.i.i: ; preds = %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i
-  call void @_ZN4llvm5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %120) #22
-  call void @_ZdlPvm(ptr noundef nonnull %120, i64 noundef 176) #25
+  call void @_ZN4llvm5TimerD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %118) #22
+  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef 176) #25
   %.pre.i = load ptr, ptr %37, align 8, !tbaa !64
   br label %_ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EE5resetEPS1_.exit.i
 
 _ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EE5resetEPS1_.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm5TimerEEclEPS1_.exit.i.i.i, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i
-  %121 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN4llvm5TimerEEclEPS1_.exit.i.i.i ], [ %99, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i ], [ %38, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i ]
-  %122 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i.i5) #22
+  %119 = phi ptr [ %.pre.i, %_ZNKSt14default_deleteIN4llvm5TimerEEclEPS1_.exit.i.i.i ], [ %99, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12newPassTimerENS_9StringRefES3_.exit.i ], [ %38, %_ZNSt10lock_guardIN4llvm3sys10SmartMutexILb1EEEEC2ERS3_.exit.i ]
+  %120 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(44) %.0.i.i2.i.i5) #22
   br label %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12getPassTimerEPNS_4PassEPv.exit
 
 _ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12getPassTimerEPNS_4PassEPv.exit: ; preds = %17, %_ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EE5resetEPS1_.exit.i
-  %.0.i = phi ptr [ %121, %_ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EE5resetEPS1_.exit.i ], [ null, %17 ]
+  %.0.i = phi ptr [ %119, %_ZNSt10unique_ptrIN4llvm5TimerESt14default_deleteIS1_EE5resetEPS1_.exit.i ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %123
+  br label %121
 
-123:                                              ; preds = %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12getPassTimerEPNS_4PassEPv.exit
+121:                                              ; preds = %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12getPassTimerEPNS_4PassEPv.exit
   %.0 = phi ptr [ %.0.i, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo12getPassTimerEPNS_4PassEPv.exit ], [ null, %_ZN4llvm12_GLOBAL__N_16legacy14PassTimingInfo4initEv.exit ]
   ret ptr %.0
 }
@@ -917,7 +911,7 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_5TimerESt14default_deleteIS2_EEE12em
 47:                                               ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_5TimerESt14default_deleteIS2_EEE12emplace_backIJPS2_EEERS5_DpOT_.exit, %22
   %48 = load ptr, ptr %21, align 8, !tbaa !25
   %49 = load ptr, ptr %48, align 8, !tbaa !64
-  br label %102
+  br label %100
 
 50:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1034,26 +1028,20 @@ _ZN4llvm15SmallVectorImplISt10unique_ptrINS_5TimerESt14default_deleteIS2_EEE12em
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %96 = load ptr, ptr %9, align 8, !tbaa !80
   %97 = icmp eq ptr %96, %61
-  br i1 %97, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_5TimerESt14default_deleteIS2_EEE12emplace_backIJRPS2_EEERS5_DpOT_.exit
-  %98 = load i64, ptr %62, align 8, !tbaa !78
-  %99 = icmp ult i64 %98, 16
-  call void @llvm.assume(i1 %99)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %97, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_5TimerESt14default_deleteIS2_EEE12emplace_backIJRPS2_EEERS5_DpOT_.exit
-  %100 = load i64, ptr %61, align 8, !tbaa !49
-  %101 = add i64 %100, 1
-  call void @_ZdlPvm(ptr noundef %96, i64 noundef %101) #25
+  %98 = load i64, ptr %61, align 8, !tbaa !49
+  %99 = add i64 %98, 1
+  call void @_ZdlPvm(ptr noundef %96, i64 noundef %99) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4llvm15SmallVectorImplISt10unique_ptrINS_5TimerESt14default_deleteIS2_EEE12emplace_backIJRPS2_EEERS5_DpOT_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %102
+  br label %100
 
-102:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47
+100:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %47
   %.0 = phi ptr [ %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %49, %47 ]
   ret ptr %.0
 }

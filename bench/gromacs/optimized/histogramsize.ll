@@ -67,7 +67,7 @@ define noundef double @_ZN3gmx13HistogramSize28newHistogramSizeInitialStageERKNS
 20:                                               ; preds = %11, %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !11
-  br label %68
+  br label %65
 
 23:                                               ; preds = %11
   %.not4.i.i.i = icmp eq ptr %4, %5
@@ -99,7 +99,7 @@ _ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i.pre
   %39 = fdiv double %36, %38
   %40 = fadd double %39, 1.000000e+00
   %41 = fdiv double %31, %40
-  %42 = tail call double @log(double noundef %41) #12, !tbaa !36
+  %42 = tail call double @log(double noundef %41) #11, !tbaa !36
   %43 = fsub double %28, %42
   %44 = fcmp ugt double %43, %29
   %45 = fmul double %31, %38
@@ -108,7 +108,7 @@ _ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i.pre
   %48 = zext i1 %44 to i8
   store i8 %48, ptr %47, align 8, !tbaa !23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %68, label %49
+  br i1 %.not, label %65, label %49
 
 49:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -117,12 +117,12 @@ _ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i.pre
   %52 = add nsw i32 %51, 1
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str, i32 noundef %52)
   %53 = load ptr, ptr %10, align 8, !tbaa !38
-  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef %53, double noundef %2) #12
+  %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef %53, double noundef %2) #11
   br i1 %44, label %58, label %55
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %10, align 8, !tbaa !38
-  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef %56, double noundef %2) #12
+  %57 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef %56, double noundef %2) #11
   br label %58
 
 58:                                               ; preds = %55, %49
@@ -130,26 +130,19 @@ _ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i.pre
   %60 = load ptr, ptr %10, align 8, !tbaa !38
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %62 = icmp eq ptr %60, %61
-  br i1 %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !42
-  %65 = icmp ult i64 %64, 16
-  call void @llvm.assume(i1 %65)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %62, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %58
-  %66 = load i64, ptr %61, align 8, !tbaa !43
-  %67 = add i64 %66, 1
-  call void @_ZdlPvm(ptr noundef %60, i64 noundef %67) #13
+  %63 = load i64, ptr %61, align 8, !tbaa !42
+  %64 = add i64 %63, 1
+  call void @_ZdlPvm(ptr noundef %60, i64 noundef %64) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %68
+  br label %65
 
-68:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %20
+65:                                               ; preds = %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %20
   %.0 = phi double [ %22, %20 ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %46, %_ZSt4fillIN3gmx12ArrayRefIterIdEEiEvT_S3_RKT0_.exit ]
   ret double %.0
 }
@@ -176,14 +169,14 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !tbaa !23, !range !27, !noundef !28
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %88
+  br i1 %12, label %13, label %85
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8, !tbaa !29, !range !27, !noundef !28
   %16 = trunc nuw i8 %15 to i1
   %or.cond = and i1 %3, %16
-  br i1 %or.cond, label %17, label %79
+  br i1 %or.cond, label %17, label %76
 
 17:                                               ; preds = %13
   %.not4850.i = icmp eq ptr %4, %5
@@ -198,13 +191,13 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %.03152.i = phi i32 [ %.132.i, %27 ], [ 0, %17 ]
   %.sroa.045.051.i = phi ptr [ %28, %27 ], [ %4, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.045.051.i, i64 16
-  %20 = load double, ptr %19, align 8, !tbaa !44
+  %20 = load double, ptr %19, align 8, !tbaa !43
   %21 = fcmp ogt double %20, 0.000000e+00
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.045.051.i, i64 40
-  %24 = load double, ptr %23, align 8, !tbaa !46
+  %24 = load double, ptr %23, align 8, !tbaa !45
   %25 = fadd double %.053.i, %24
   %26 = add nsw i32 %.03152.i, 1
   br label %27
@@ -217,7 +210,7 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   br i1 %.not48.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %17
-  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEEENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 165) #14
+  tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEEENK3$_0clEv", ptr noundef nonnull @.str.7, i32 noundef 165) #13
   unreachable
 
 29:                                               ; preds = %._crit_edge.i
@@ -232,7 +225,7 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
   %.03657.i = phi double [ %.137.i, %48 ], [ 0.000000e+00, %29 ]
   %.sroa.0.056.i = phi ptr [ %49, %48 ], [ %4, %29 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.056.i, i64 16
-  %35 = load double, ptr %34, align 8, !tbaa !44
+  %35 = load double, ptr %34, align 8, !tbaa !43
   %36 = fcmp ule double %35, 0.000000e+00
   %37 = fcmp olt double %35, %33
   %or.cond.i = select i1 %36, i1 true, i1 %37
@@ -240,7 +233,7 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
 
 38:                                               ; preds = %.lr.ph60.i
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.056.i, i64 40
-  %40 = load double, ptr %39, align 8, !tbaa !46
+  %40 = load double, ptr %39, align 8, !tbaa !45
   %41 = fmul double %31, %40
   %42 = fdiv double %41, %35
   %43 = fadd double %42, -1.000000e+00
@@ -266,7 +259,7 @@ _ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.
   %53 = zext i1 %52 to i8
   store i8 %53, ptr %14, align 8, !tbaa !29
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %79, label %54
+  br i1 %.not, label %76, label %54
 
 54:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -280,67 +273,60 @@ _ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.
 
 60:                                               ; preds = %54
   %61 = load ptr, ptr %9, align 8, !tbaa !38
-  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %61, double noundef %2) #12
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.3, ptr noundef %61, double noundef %2) #11
   br label %70
 
 63:                                               ; preds = %54
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %65 = load i8, ptr %64, align 8, !tbaa !47, !range !27, !noundef !28
+  %65 = load i8, ptr %64, align 8, !tbaa !46, !range !27, !noundef !28
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %9, align 8, !tbaa !38
-  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef %68, double noundef %2) #12
-  store i8 1, ptr %64, align 8, !tbaa !47
+  %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef %68, double noundef %2) #11
+  store i8 1, ptr %64, align 8, !tbaa !46
   br label %70
 
 70:                                               ; preds = %63, %67, %60
   %71 = load ptr, ptr %9, align 8, !tbaa !38
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %73 = icmp eq ptr %71, %72
-  br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %75 = load i64, ptr %74, align 8, !tbaa !42
-  %76 = icmp ult i64 %75, 16
-  call void @llvm.assume(i1 %76)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %70
-  %77 = load i64, ptr %72, align 8, !tbaa !43
-  %78 = add i64 %77, 1
-  call void @_ZdlPvm(ptr noundef %71, i64 noundef %78) #13
+  %74 = load i64, ptr %72, align 8, !tbaa !42
+  %75 = add i64 %74, 1
+  call void @_ZdlPvm(ptr noundef %71, i64 noundef %75) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %79
+  br label %76
 
-79:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
-  %80 = load ptr, ptr %6, align 8, !tbaa !48
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !48
-  %83 = ptrtoint ptr %82 to i64
-  %84 = ptrtoint ptr %80 to i64
-  %85 = sub i64 %83, %84
-  %86 = getelementptr inbounds nuw i8, ptr %80, i64 %85
-  %87 = call noundef double @_ZN3gmx13HistogramSize28newHistogramSizeInitialStageERKNS_10BiasParamsEdbNS_8ArrayRefIdEEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(137) %1, double noundef %2, i1 noundef zeroext %3, ptr %80, ptr %86, ptr noundef %7)
-  br label %96
+76:                                               ; preds = %_ZN3gmx12_GLOBAL__N_123histogramIsEquilibratedENS_8ArrayRefIKNS_10PointStateEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %13
+  %77 = load ptr, ptr %6, align 8, !tbaa !47
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !47
+  %80 = ptrtoint ptr %79 to i64
+  %81 = ptrtoint ptr %77 to i64
+  %82 = sub i64 %80, %81
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 %82
+  %84 = call noundef double @_ZN3gmx13HistogramSize28newHistogramSizeInitialStageERKNS_10BiasParamsEdbNS_8ArrayRefIdEEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(137) %1, double noundef %2, i1 noundef zeroext %3, ptr %77, ptr %83, ptr noundef %7)
+  br label %93
 
-88:                                               ; preds = %8
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load double, ptr %89, align 8, !tbaa !11
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %92 = load double, ptr %91, align 8, !tbaa !33
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %94 = load double, ptr %93, align 8, !tbaa !35
-  %95 = tail call double @llvm.fmuladd.f64(double %92, double %94, double %90)
-  br label %96
+85:                                               ; preds = %8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load double, ptr %86, align 8, !tbaa !11
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %89 = load double, ptr %88, align 8, !tbaa !33
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %91 = load double, ptr %90, align 8, !tbaa !35
+  %92 = tail call double @llvm.fmuladd.f64(double %89, double %91, double %87)
+  br label %93
 
-96:                                               ; preds = %88, %79
-  %.0 = phi double [ %87, %79 ], [ %95, %88 ]
+93:                                               ; preds = %85, %76
+  %.0 = phi double [ %84, %76 ], [ %92, %85 ]
   ret double %.0
 }
 
@@ -357,7 +343,7 @@ declare double @llvm.fabs.f64(double) #6
 define void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(57) initializes((8, 16)) %0, double noundef %1, double noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %4, align 8, !tbaa !11
-  %5 = tail call double @log(double noundef %2) #12, !tbaa !36
+  %5 = tail call double @log(double noundef %2) #11, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load double, ptr %6, align 8, !tbaa !30
   %8 = fsub double %7, %5
@@ -368,30 +354,30 @@ define void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHistoryE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(57) initializes((0, 17), (32, 33), (40, 57)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !51
+  %4 = load i64, ptr %3, align 8, !tbaa !50
   store i64 %4, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !53
+  %6 = load double, ptr %5, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %6, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i8, ptr %8, align 4, !tbaa !54, !range !27, !noundef !28
+  %9 = load i8, ptr %8, align 4, !tbaa !53, !range !27, !noundef !28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %9, ptr %10, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  %12 = load i8, ptr %11, align 1, !tbaa !55, !range !27, !noundef !28
+  %12 = load i8, ptr %11, align 1, !tbaa !54, !range !27, !noundef !28
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %12, ptr %13, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load double, ptr %14, align 8, !tbaa !56
+  %15 = load double, ptr %14, align 8, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %15, ptr %16, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load double, ptr %17, align 8, !tbaa !57
+  %18 = load double, ptr %17, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %18, ptr %19, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i8 0, ptr %20, align 8, !tbaa !47
+  store i8 0, ptr %20, align 8, !tbaa !46
   ret void
 }
 
@@ -399,27 +385,27 @@ define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHisto
 define void @_ZNK3gmx13HistogramSize10storeStateEPNS_19AwhBiasStateHistoryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %0, ptr noundef writeonly captures(none) initializes((12, 14), (16, 48)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %0, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i64 %3, ptr %4, align 8, !tbaa !51
+  store i64 %3, ptr %4, align 8, !tbaa !50
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %6, ptr %7, align 8, !tbaa !53
+  store double %6, ptr %7, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8, !tbaa !23, !range !27, !noundef !28
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %9, ptr %10, align 4, !tbaa !54
+  store i8 %9, ptr %10, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i8, ptr %11, align 8, !tbaa !29, !range !27, !noundef !28
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %12, ptr %13, align 1, !tbaa !55
+  store i8 %12, ptr %13, align 1, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load double, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %15, ptr %16, align 8, !tbaa !56
+  store double %15, ptr %16, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load double, ptr %17, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double %18, ptr %19, align 8, !tbaa !57
+  store double %18, ptr %19, align 8, !tbaa !56
   ret void
 }
 
@@ -429,11 +415,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
@@ -445,11 +428,10 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -495,19 +477,18 @@ attributes #14 = { noreturn }
 !39 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !40, i64 0, !6, i64 8, !7, i64 16}
 !40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !41, i64 0}
 !41 = !{!"p1 omnipotent char", !19, i64 0}
-!42 = !{!39, !6, i64 8}
-!43 = !{!7, !7, i64 0}
-!44 = !{!45, !9, i64 16}
-!45 = !{!"_ZTSN3gmx10PointStateE", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !6, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88}
-!46 = !{!45, !9, i64 40}
-!47 = !{!5, !10, i64 56}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"_ZTSN3gmx12ArrayRefIterIdEE", !50, i64 0}
-!50 = !{!"p1 double", !19, i64 0}
-!51 = !{!52, !6, i64 40}
-!52 = !{!"_ZTSN3gmx19AwhBiasStateHistoryE", !22, i64 0, !22, i64 4, !22, i64 8, !10, i64 12, !10, i64 13, !9, i64 16, !9, i64 24, !9, i64 32, !6, i64 40}
-!53 = !{!52, !9, i64 16}
-!54 = !{!52, !10, i64 12}
-!55 = !{!52, !10, i64 13}
-!56 = !{!52, !9, i64 24}
-!57 = !{!52, !9, i64 32}
+!42 = !{!7, !7, i64 0}
+!43 = !{!44, !9, i64 16}
+!44 = !{!"_ZTSN3gmx10PointStateE", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !6, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88}
+!45 = !{!44, !9, i64 40}
+!46 = !{!5, !10, i64 56}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"_ZTSN3gmx12ArrayRefIterIdEE", !49, i64 0}
+!49 = !{!"p1 double", !19, i64 0}
+!50 = !{!51, !6, i64 40}
+!51 = !{!"_ZTSN3gmx19AwhBiasStateHistoryE", !22, i64 0, !22, i64 4, !22, i64 8, !10, i64 12, !10, i64 13, !9, i64 16, !9, i64 24, !9, i64 32, !6, i64 40}
+!52 = !{!51, !9, i64 16}
+!53 = !{!51, !10, i64 12}
+!54 = !{!51, !10, i64 13}
+!55 = !{!51, !9, i64 24}
+!56 = !{!51, !9, i64 32}

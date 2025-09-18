@@ -457,14 +457,10 @@ default.unreachable:                              ; preds = %2
 
 "_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i": ; preds = %15
   call void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00591bf96c7677e7E.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16), !noalias !140
-  %.pre.i = load i64, ptr %0, align 8, !range !150, !noalias !140
-  %21 = icmp ne i64 %.pre.i, 0
   br label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hfd8e29d81e4c9b7cE.exit"
 
 "_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hfd8e29d81e4c9b7cE.exit": ; preds = %"_ZN10actix_http8requests4head12REQUEST_POOL7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h2391ffba53ee89f3E.exit.i", %"_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i"
-  %22 = phi i1 [ true, %"_ZN10actix_http8requests4head12REQUEST_POOL7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h2391ffba53ee89f3E.exit.i" ], [ %21, %"_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !140
-  call void @llvm.assume(i1 %22)
   br label %"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h1598e7f5357ce2d8E.exit"
 
 "_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$17try_register_dtor17h1598e7f5357ce2d8E.exit": ; preds = %2, %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hfd8e29d81e4c9b7cE.exit"
@@ -500,7 +496,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   store i8 2, ptr %5, align 8, !noalias !154
   %6 = load i64, ptr %3, align 8, !range !150, !alias.scope !159, !noalias !154, !noundef !4
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %34, label %8
+  br i1 %7, label %30, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -522,7 +518,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
 
 "_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i.i.i.i.i": ; preds = %8
   invoke void @"_ZN77_$LT$alloc..raw_vec..RawVec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h00591bf96c7677e7E.llvm.8740116509709696285"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %34 unwind label %14, !noalias !162
+          to label %30 unwind label %14, !noalias !162
 
 14:                                               ; preds = %"_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i.i.i.i.i"
   %15 = landingpad { ptr, i32 }
@@ -542,45 +538,39 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   call void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() #24, !noalias !162
   unreachable
 
-.body:                                            ; preds = %21, %32, %31
+.body:                                            ; preds = %21, %28, %27
   %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() #24
   unreachable
 
 21:                                               ; preds = %.body.i
-  %22 = extractvalue { ptr, ptr } %17, 0
-  %23 = extractvalue { ptr, ptr } %17, 1
-  %24 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %24)
-  %25 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @anon.915235fa62df8856d49fc28b819877f6.4, ptr %4, align 8, !alias.scope !163, !noalias !166
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %26, align 8, !alias.scope !163, !noalias !166
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %27, align 8, !alias.scope !163, !noalias !166
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %28, align 8, !alias.scope !163, !noalias !166
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %29, align 8, !alias.scope !163, !noalias !166
-  %30 = invoke noundef ptr @_ZN3std2io5Write9write_fmt17hdef9e767174ee969E(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
-          to label %31 unwind label %.body
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %22, align 8, !alias.scope !163, !noalias !166
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %23, align 8, !alias.scope !163, !noalias !166
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %2, ptr %24, align 8, !alias.scope !163, !noalias !166
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %25, align 8, !alias.scope !163, !noalias !166
+  %26 = invoke noundef ptr @_ZN3std2io5Write9write_fmt17hdef9e767174ee969E(ptr noalias noundef nonnull align 1 %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+          to label %27 unwind label %.body
 
-31:                                               ; preds = %21
+27:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf53867f0acd9a6a7E"(ptr %30)
-          to label %32 unwind label %.body
+  invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf53867f0acd9a6a7E"(ptr %26)
+          to label %28 unwind label %.body
 
-32:                                               ; preds = %31
+28:                                               ; preds = %27
   invoke void @_ZN3std3sys3pal4unix14abort_internal17h1517cb1d25d186b6E() #25
-          to label %33 unwind label %.body
+          to label %29 unwind label %.body
 
-33:                                               ; preds = %32
+29:                                               ; preds = %28
   unreachable
 
-34:                                               ; preds = %1, %"_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i.i.i.i.i"
+30:                                               ; preds = %1, %"_ZN4core3ptr100drop_in_place$LT$actix_http..message..MessagePool$LT$actix_http..requests..head..RequestHead$GT$$GT$17h42c242dd00287577E.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !154
   ret void
 }

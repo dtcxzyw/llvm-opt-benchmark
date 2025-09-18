@@ -97113,41 +97113,26 @@ define hidden noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initial
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h167451b1d118232dE"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #41 {
-  %2 = load i64, ptr %0, align 8, !range !175, !noundef !7
-  %trunc = trunc nuw i64 %2 to i1
-  tail call void @llvm.assume(i1 %trunc)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  ret ptr %3
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17h2739ae5a51d98e49E"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #41 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !range !175, !noundef !7
-  %trunc = trunc nuw i64 %3 to i1
-  tail call void @llvm.assume(i1 %trunc)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  ret ptr %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17hc323ed7521ff159eE"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #41 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !range !175, !noundef !7
-  %trunc = trunc nuw i64 %3 to i1
-  tail call void @llvm.assume(i1 %trunc)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  ret ptr %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell3imp17OnceCell$LT$T$GT$13get_unchecked17hc3e993f0b5ce2493E"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #41 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !range !175, !noundef !7
-  %trunc = trunc nuw i64 %3 to i1
-  tail call void @llvm.assume(i1 %trunc)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  ret ptr %4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  ret ptr %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

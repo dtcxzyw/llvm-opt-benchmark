@@ -90,7 +90,6 @@ dsa_minimum_size.exit:                            ; preds = %8
 
 18:                                               ; preds = %dsa_minimum_size.exit
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %19)
   %20 = tail call i64 @dsa_minimum_size()
   %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24, i64 noundef %20, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1240, ptr noundef nonnull @__func__.create_internal) #11
@@ -280,7 +279,6 @@ define dso_local noundef ptr @dsa_attach(i32 noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %5)
   %6 = tail call i32 @errcode(i32 noundef 325) #11
   %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__func__.dsa_attach) #11
@@ -336,7 +334,6 @@ define internal fastcc noundef ptr @attach_internal(ptr noundef %0, ptr noundef 
 
 19:                                               ; preds = %2
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 @errcode(i32 noundef 325) #11
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1364, ptr noundef nonnull @__func__.attach_internal) #11
@@ -512,7 +509,6 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
 
 11:                                               ; preds = %8, %3
   %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %12)
   %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i64 noundef %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 683, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
@@ -538,7 +534,6 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
 
 25:                                               ; preds = %22
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %26)
   %27 = tail call i32 @errcode(i32 noundef 8389) #11
   %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
   %29 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
@@ -569,7 +564,6 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
 
 44:                                               ; preds = %39
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %45)
   %46 = tail call i32 @errcode(i32 noundef 8389) #11
   %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
   %48 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
@@ -585,7 +579,6 @@ define dso_local i64 @dsa_allocate_extended(ptr noundef %0, i64 noundef %1, i32 
 
 52:                                               ; preds = %.thread
   %53 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  call void @llvm.assume(i1 %53)
   %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i64 noundef %18) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 744, ptr noundef nonnull @__func__.dsa_allocate_extended) #11
   unreachable
@@ -717,7 +710,6 @@ dsa_get_address.exit:                             ; preds = %77, %97
 
 126:                                              ; preds = %123
   %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %127)
   %128 = tail call i32 @errcode(i32 noundef 8389) #11
   %129 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #11
   %130 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.4, i64 noundef %1) #11
@@ -1213,7 +1205,6 @@ dsa_get_address.exit44:                           ; preds = %check_for_freed_seg
 
 225:                                              ; preds = %221
   %226 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  call void @llvm.assume(i1 %226)
   %227 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i64 noundef %.097.i) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1719, ptr noundef nonnull @__func__.ensure_active_superblock) #11
   unreachable
@@ -1486,7 +1477,6 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
 
 54:                                               ; preds = %48
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %55)
   %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1781, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
@@ -1502,7 +1492,6 @@ check_for_freed_segments_locked.exit:             ; preds = %2, %25
 
 62:                                               ; preds = %57
   %63 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %63)
   %64 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1788, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
@@ -2432,7 +2421,6 @@ define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(re
 
 14:                                               ; preds = %8
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1781, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
@@ -2449,7 +2437,6 @@ define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(re
 
 23:                                               ; preds = %17
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1788, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
@@ -2984,7 +2971,6 @@ define dso_local void @dsa_pin(ptr noundef readonly captures(none) %0) local_unn
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 6172
   tail call void @LWLockRelease(ptr noundef nonnull %10) #11
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 981, ptr noundef nonnull @__func__.dsa_pin) #11
   unreachable
@@ -3017,7 +3003,6 @@ define dso_local void @dsa_unpin(ptr noundef readonly captures(none) %0) local_u
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 6172
   tail call void @LWLockRelease(ptr noundef nonnull %10) #11
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %11)
   %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1001, ptr noundef nonnull @__func__.dsa_unpin) #11
   unreachable
@@ -3337,7 +3322,6 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
 
 89:                                               ; preds = %83
   %90 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %90)
   %91 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1781, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable
@@ -3353,7 +3337,6 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
 
 97:                                               ; preds = %92
   %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %98)
   %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1788, ptr noundef nonnull @__func__.get_segment_by_index) #11
   unreachable

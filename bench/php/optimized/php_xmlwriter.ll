@@ -4,31 +4,14 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._zend_function_entry = type { ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct._zend_executor_globals = type { %struct._zval_struct, %struct._zval_struct, [32 x ptr], ptr, ptr, %struct._zend_array, %struct._zend_array, ptr, i32, i8, %struct._zval_struct, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, i32, ptr, i32, i64, i32, i32, i32, i8, i8, %struct.zend_atomic_bool_s, %struct.zend_atomic_bool_s, ptr, i64, ptr, ptr, %struct._zend_array, %struct._zend_array, i32, i8, %struct._zval_struct, %struct._zval_struct, %struct._zend_stack, %struct._zend_stack, %struct._zend_stack, ptr, i32, i32, i64, ptr, ptr, ptr, %struct._zend_objects_store, %struct._zend_lazy_objects_store, ptr, ptr, ptr, [3 x %struct._zend_op], ptr, i8, i8, i64, i32, i32, ptr, [16 x %struct._HashTableIterator], ptr, %union._zend_function, %struct._zend_op, %struct._zend_array, i64, %struct.zend_get_gc_buffer, ptr, ptr, ptr, i64, i8, i32, ptr, ptr, i64, %struct._zend_call_stack, i64, i64, %struct._zend_strtod_state, [6 x ptr] }
-%struct.zend_atomic_bool_s = type { i8 }
-%struct._zval_struct = type { %union._zend_value, %union.anon, %union.anon.2 }
-%union._zend_value = type { i64 }
-%union.anon = type { i32 }
-%union.anon.2 = type { i32 }
-%struct._zend_stack = type { i32, i32, i32, ptr }
-%struct._zend_objects_store = type { ptr, i32, i32, i32 }
-%struct._zend_lazy_objects_store = type { %struct._zend_array }
-%struct._HashTableIterator = type { ptr, i32, i32 }
-%union._zend_function = type { %struct._zend_op_array }
-%struct._zend_op_array = type { i8, [3 x i8], i32, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, [6 x ptr] }
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
+%struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct._zend_class_entry = type { i8, ptr, %union.anon.8, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.9, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.10, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.11 }
+%union.anon.8 = type { ptr }
 %struct._zend_array = type { %struct._zend_refcounted_h, %union.anon.4, i32, %union.anon.6, i32, i32, i32, i32, i64, ptr }
 %struct._zend_refcounted_h = type { i32, %union.anon.3 }
 %union.anon.3 = type { i32 }
 %union.anon.4 = type { i32 }
 %union.anon.6 = type { ptr }
-%struct.zend_get_gc_buffer = type { ptr, ptr, ptr }
-%struct._zend_call_stack = type { ptr, i64 }
-%struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
-%struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._zend_class_entry = type { i8, ptr, %union.anon.8, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.9, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.10, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.11 }
-%union.anon.8 = type { ptr }
 %union.anon.9 = type { ptr }
 %union.anon.10 = type { ptr }
 %union.anon.11 = type { %struct.anon.12 }
@@ -43,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 @xmlwriter_module_entry = hidden local_unnamed_addr global { i16, [2 x i8], i32, i8, i8, [6 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i32, i8, [3 x i8], ptr, i32, [4 x i8], ptr } { i16 168, [2 x i8] zeroinitializer, i32 20240925, i8 0, i8 0, [6 x i8] zeroinitializer, ptr null, ptr @xmlwriter_deps, ptr @.str, ptr @ext_functions, ptr @zm_startup_xmlwriter, ptr null, ptr null, ptr null, ptr @zm_info_xmlwriter, ptr @.str.1, i64 0, ptr null, ptr null, ptr null, ptr null, i32 0, i8 0, [3 x i8] zeroinitializer, ptr null, i32 0, [4 x i8] zeroinitializer, ptr @.str.2 }, align 8
 @.str.3 = private unnamed_addr constant [3 x i8] c"Ob\00", align 1
 @xmlwriter_class_entry_ce = internal unnamed_addr global ptr null, align 8
-@executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 @.str.4 = private unnamed_addr constant [42 x i8] c"Invalid or uninitialized XMLWriter object\00", align 1
 @.str.5 = private unnamed_addr constant [15 x i8] c"attribute name\00", align 1
 @.str.6 = private unnamed_addr constant [7 x i8] c"Os!ss!\00", align 1
@@ -291,40 +273,31 @@ define hidden void @zif_xmlwriter_set_indent(ptr noundef %0, ptr noundef writeon
   %12 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %13 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %7, ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef %12, ptr noundef nonnull %3) #12
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %15, label %18
+  br i1 %14, label %27, label %15
 
 15:                                               ; preds = %2
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %17 = icmp ne ptr %16, null
-  call void @llvm.assume(i1 %17)
-  br label %32
+  %16 = load ptr, ptr %4, align 8, !tbaa !35
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
+  %18 = getelementptr inbounds i8, ptr %17, i64 -16
+  %19 = load ptr, ptr %18, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %19, null
+  br i1 %.not.not, label %20, label %.critedge
 
-18:                                               ; preds = %2
-  %19 = load ptr, ptr %4, align 8, !tbaa !62
-  %20 = load ptr, ptr %19, align 8, !tbaa !32
-  %21 = getelementptr inbounds i8, ptr %20, i64 -16
-  %22 = load ptr, ptr %21, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %22, null
-  br i1 %.not.not, label %23, label %.critedge
-
-23:                                               ; preds = %18
+20:                                               ; preds = %15
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %25 = icmp ne ptr %24, null
-  call void @llvm.assume(i1 %25)
-  br label %32
+  br label %27
 
-.critedge:                                        ; preds = %18
-  %26 = load i8, ptr %3, align 1, !tbaa !67, !range !68, !noundef !69
-  %27 = zext nneg i8 %26 to i32
-  %28 = call i32 @xmlTextWriterSetIndent(ptr noundef nonnull %22, i32 noundef %27) #12
-  %29 = icmp eq i32 %28, 0
-  %30 = select i1 %29, i32 3, i32 2
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %30, ptr %31, align 8, !tbaa !32
-  br label %32
+.critedge:                                        ; preds = %15
+  %21 = load i8, ptr %3, align 1, !tbaa !40, !range !42, !noundef !43
+  %22 = zext nneg i8 %21 to i32
+  %23 = call i32 @xmlTextWriterSetIndent(ptr noundef nonnull %19, i32 noundef %22) #12
+  %24 = icmp eq i32 %23, 0
+  %25 = select i1 %24, i32 3, i32 2
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %25, ptr %26, align 8, !tbaa !32
+  br label %27
 
-32:                                               ; preds = %23, %.critedge, %15
+27:                                               ; preds = %2, %20, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -357,39 +330,30 @@ define hidden void @zif_xmlwriter_set_indent_string(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlTextWriterSetIndentString(ptr noundef nonnull %23, ptr noundef %27) #12
-  %.not13.i = icmp eq i32 %28, -1
-  %29 = select i1 %.not13.i, i32 2, i32 3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %29, ptr %30, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlTextWriterSetIndentString(ptr noundef nonnull %20, ptr noundef %22) #12
+  %.not13.i = icmp eq i32 %23, -1
+  %24 = select i1 %.not13.i, i32 2, i32 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %.critedge.i
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -416,52 +380,40 @@ define hidden void @zif_xmlwriter_start_attribute(ptr noundef %0, ptr noundef wr
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlValidateName(ptr noundef %27, i32 noundef 0) #12
-  %.not12.i = icmp eq i32 %28, 0
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not12.i, label %33, label %30
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlValidateName(ptr noundef %22, i32 noundef 0) #12
+  %.not12.i = icmp eq i32 %23, 0
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not12.i, label %26, label %25
 
-30:                                               ; preds = %.critedge.i
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %29) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
+25:                                               ; preds = %.critedge.i
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %24) #12
   br label %php_xmlwriter_string_arg.exit
 
-33:                                               ; preds = %.critedge.i
-  %34 = call i32 @xmlTextWriterStartAttribute(ptr noundef nonnull %23, ptr noundef %29) #12
-  %.not13.i = icmp eq i32 %34, -1
-  %35 = select i1 %.not13.i, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
+26:                                               ; preds = %.critedge.i
+  %27 = call i32 @xmlTextWriterStartAttribute(ptr noundef nonnull %20, ptr noundef %24) #12
+  %.not13.i = icmp eq i32 %27, -1
+  %28 = select i1 %.not13.i, i32 2, i32 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %29, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %30, %33
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %25, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -484,38 +436,29 @@ define hidden void @zif_xmlwriter_end_attribute(ptr noundef %0, ptr noundef writ
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndAttribute(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndAttribute(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -548,55 +491,43 @@ define hidden void @zif_xmlwriter_start_attribute_ns(ptr noundef %0, ptr noundef
   %17 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %18 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %12, ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef nonnull %9, ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8) #12
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %23
+  br i1 %19, label %37, label %20
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %44
+  %21 = load ptr, ptr %9, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %24, null
+  br i1 %.not.not, label %25, label %.critedge
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %9, align 8, !tbaa !62
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
-  %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  %27 = load ptr, ptr %26, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %28, label %.critedge
-
-28:                                               ; preds = %23
+25:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %30 = icmp ne ptr %29, null
-  call void @llvm.assume(i1 %30)
-  br label %44
+  br label %37
 
-.critedge:                                        ; preds = %23
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  %32 = call i32 @xmlValidateName(ptr noundef %31, i32 noundef 0) #12
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %37, label %33
+.critedge:                                        ; preds = %20
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  %27 = call i32 @xmlValidateName(ptr noundef %26, i32 noundef 0) #12
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
-33:                                               ; preds = %.critedge
-  %34 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %34) #12
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %44
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %29) #12
+  br label %37
 
-37:                                               ; preds = %.critedge
-  %38 = load ptr, ptr %4, align 8, !tbaa !70
-  %39 = load ptr, ptr %3, align 8, !tbaa !70
-  %40 = load ptr, ptr %5, align 8, !tbaa !70
-  %41 = call i32 @xmlTextWriterStartAttributeNS(ptr noundef nonnull %27, ptr noundef %38, ptr noundef %39, ptr noundef %40) #12
-  %.not8 = icmp eq i32 %41, -1
-  %42 = select i1 %.not8, i32 2, i32 3
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %42, ptr %43, align 8, !tbaa !32
-  br label %44
+30:                                               ; preds = %.critedge
+  %31 = load ptr, ptr %4, align 8, !tbaa !44
+  %32 = load ptr, ptr %3, align 8, !tbaa !44
+  %33 = load ptr, ptr %5, align 8, !tbaa !44
+  %34 = call i32 @xmlTextWriterStartAttributeNS(ptr noundef nonnull %24, ptr noundef %31, ptr noundef %32, ptr noundef %33) #12
+  %.not8 = icmp eq i32 %34, -1
+  %35 = select i1 %.not8, i32 2, i32 3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %35, ptr %36, align 8, !tbaa !32
+  br label %37
 
-44:                                               ; preds = %28, %37, %33, %20
+37:                                               ; preds = %2, %25, %30, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -635,53 +566,41 @@ define hidden void @zif_xmlwriter_write_attribute(ptr noundef %0, ptr noundef wr
   %15 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %16 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %10, ptr noundef %14, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %21
+  br i1 %17, label %33, label %18
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %40
+  %19 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %21 = getelementptr inbounds i8, ptr %20, i64 -16
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %22, null
+  br i1 %.not.not, label %23, label %.critedge
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %7, align 8, !tbaa !62
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %25, null
-  br i1 %.not.not, label %26, label %.critedge
-
-26:                                               ; preds = %21
+23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %40
+  br label %33
 
-.critedge:                                        ; preds = %21
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  %30 = call i32 @xmlValidateName(ptr noundef %29, i32 noundef 0) #12
-  %.not = icmp eq i32 %30, 0
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not, label %35, label %32
+.critedge:                                        ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  %25 = call i32 @xmlValidateName(ptr noundef %24, i32 noundef 0) #12
+  %.not = icmp eq i32 %25, 0
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not, label %28, label %27
 
-32:                                               ; preds = %.critedge
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %31) #12
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %40
+27:                                               ; preds = %.critedge
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %26) #12
+  br label %33
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %4, align 8, !tbaa !70
-  %37 = call i32 @xmlTextWriterWriteAttribute(ptr noundef nonnull %25, ptr noundef %31, ptr noundef %36) #12
-  %.not8 = icmp eq i32 %37, -1
-  %38 = select i1 %.not8, i32 2, i32 3
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !32
-  br label %40
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %4, align 8, !tbaa !44
+  %30 = call i32 @xmlTextWriterWriteAttribute(ptr noundef nonnull %22, ptr noundef %26, ptr noundef %29) #12
+  %.not8 = icmp eq i32 %30, -1
+  %31 = select i1 %.not8, i32 2, i32 3
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %31, ptr %32, align 8, !tbaa !32
+  br label %33
 
-40:                                               ; preds = %26, %35, %32, %18
+33:                                               ; preds = %2, %23, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -722,56 +641,44 @@ define hidden void @zif_xmlwriter_write_attribute_ns(ptr noundef %0, ptr noundef
   %19 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %20 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %18, ptr noundef nonnull @.str.9, ptr noundef nonnull %11, ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %10) #12
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %25
+  br i1 %21, label %40, label %22
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %47
+  %23 = load ptr, ptr %11, align 8, !tbaa !35
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %26, null
+  br i1 %.not.not, label %27, label %.critedge
 
-25:                                               ; preds = %2
-  %26 = load ptr, ptr %11, align 8, !tbaa !62
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
-  %28 = getelementptr inbounds i8, ptr %27, i64 -16
-  %29 = load ptr, ptr %28, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %30, label %.critedge
-
-30:                                               ; preds = %25
+27:                                               ; preds = %22
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %47
+  br label %40
 
-.critedge:                                        ; preds = %25
-  %33 = load ptr, ptr %3, align 8, !tbaa !70
-  %34 = call i32 @xmlValidateName(ptr noundef %33, i32 noundef 0) #12
-  %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %39, label %35
+.critedge:                                        ; preds = %22
+  %28 = load ptr, ptr %3, align 8, !tbaa !44
+  %29 = call i32 @xmlValidateName(ptr noundef %28, i32 noundef 0) #12
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %32, label %30
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %36) #12
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %47
+30:                                               ; preds = %.critedge
+  %31 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %31) #12
+  br label %40
 
-39:                                               ; preds = %.critedge
-  %40 = load ptr, ptr %4, align 8, !tbaa !70
-  %41 = load ptr, ptr %3, align 8, !tbaa !70
-  %42 = load ptr, ptr %5, align 8, !tbaa !70
-  %43 = load ptr, ptr %6, align 8, !tbaa !70
-  %44 = call i32 @xmlTextWriterWriteAttributeNS(ptr noundef nonnull %29, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43) #12
-  %.not8 = icmp eq i32 %44, -1
-  %45 = select i1 %.not8, i32 2, i32 3
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %45, ptr %46, align 8, !tbaa !32
-  br label %47
+32:                                               ; preds = %.critedge
+  %33 = load ptr, ptr %4, align 8, !tbaa !44
+  %34 = load ptr, ptr %3, align 8, !tbaa !44
+  %35 = load ptr, ptr %5, align 8, !tbaa !44
+  %36 = load ptr, ptr %6, align 8, !tbaa !44
+  %37 = call i32 @xmlTextWriterWriteAttributeNS(ptr noundef nonnull %26, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36) #12
+  %.not8 = icmp eq i32 %37, -1
+  %38 = select i1 %.not8, i32 2, i32 3
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %38, ptr %39, align 8, !tbaa !32
+  br label %40
 
-47:                                               ; preds = %30, %39, %35, %22
+40:                                               ; preds = %2, %27, %32, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -804,52 +711,40 @@ define hidden void @zif_xmlwriter_start_element(ptr noundef %0, ptr noundef writ
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlValidateName(ptr noundef %27, i32 noundef 0) #12
-  %.not12.i = icmp eq i32 %28, 0
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not12.i, label %33, label %30
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlValidateName(ptr noundef %22, i32 noundef 0) #12
+  %.not12.i = icmp eq i32 %23, 0
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not12.i, label %26, label %25
 
-30:                                               ; preds = %.critedge.i
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %29) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
+25:                                               ; preds = %.critedge.i
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %24) #12
   br label %php_xmlwriter_string_arg.exit
 
-33:                                               ; preds = %.critedge.i
-  %34 = call i32 @xmlTextWriterStartElement(ptr noundef nonnull %23, ptr noundef %29) #12
-  %.not13.i = icmp eq i32 %34, -1
-  %35 = select i1 %.not13.i, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
+26:                                               ; preds = %.critedge.i
+  %27 = call i32 @xmlTextWriterStartElement(ptr noundef nonnull %20, ptr noundef %24) #12
+  %.not13.i = icmp eq i32 %27, -1
+  %28 = select i1 %.not13.i, i32 2, i32 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %29, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %30, %33
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %25, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -884,55 +779,43 @@ define hidden void @zif_xmlwriter_start_element_ns(ptr noundef %0, ptr noundef w
   %17 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %18 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %12, ptr noundef %16, ptr noundef nonnull @.str.6, ptr noundef nonnull %9, ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8) #12
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %23
+  br i1 %19, label %37, label %20
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %44
+  %21 = load ptr, ptr %9, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %24, null
+  br i1 %.not.not, label %25, label %.critedge
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %9, align 8, !tbaa !62
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
-  %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  %27 = load ptr, ptr %26, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %28, label %.critedge
-
-28:                                               ; preds = %23
+25:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %30 = icmp ne ptr %29, null
-  call void @llvm.assume(i1 %30)
-  br label %44
+  br label %37
 
-.critedge:                                        ; preds = %23
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  %32 = call i32 @xmlValidateName(ptr noundef %31, i32 noundef 0) #12
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %37, label %33
+.critedge:                                        ; preds = %20
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  %27 = call i32 @xmlValidateName(ptr noundef %26, i32 noundef 0) #12
+  %.not = icmp eq i32 %27, 0
+  br i1 %.not, label %30, label %28
 
-33:                                               ; preds = %.critedge
-  %34 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %34) #12
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %36 = icmp ne ptr %35, null
-  call void @llvm.assume(i1 %36)
-  br label %44
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %29) #12
+  br label %37
 
-37:                                               ; preds = %.critedge
-  %38 = load ptr, ptr %4, align 8, !tbaa !70
-  %39 = load ptr, ptr %3, align 8, !tbaa !70
-  %40 = load ptr, ptr %5, align 8, !tbaa !70
-  %41 = call i32 @xmlTextWriterStartElementNS(ptr noundef nonnull %27, ptr noundef %38, ptr noundef %39, ptr noundef %40) #12
-  %.not8 = icmp eq i32 %41, -1
-  %42 = select i1 %.not8, i32 2, i32 3
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %42, ptr %43, align 8, !tbaa !32
-  br label %44
+30:                                               ; preds = %.critedge
+  %31 = load ptr, ptr %4, align 8, !tbaa !44
+  %32 = load ptr, ptr %3, align 8, !tbaa !44
+  %33 = load ptr, ptr %5, align 8, !tbaa !44
+  %34 = call i32 @xmlTextWriterStartElementNS(ptr noundef nonnull %24, ptr noundef %31, ptr noundef %32, ptr noundef %33) #12
+  %.not8 = icmp eq i32 %34, -1
+  %35 = select i1 %.not8, i32 2, i32 3
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %35, ptr %36, align 8, !tbaa !32
+  br label %37
 
-44:                                               ; preds = %28, %37, %33, %20
+37:                                               ; preds = %2, %25, %30, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -959,38 +842,29 @@ define hidden void @zif_xmlwriter_end_element(ptr noundef %0, ptr noundef writeo
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1011,38 +885,29 @@ define hidden void @zif_xmlwriter_full_end_element(ptr noundef %0, ptr noundef w
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterFullEndElement(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterFullEndElement(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1058,7 +923,7 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr noundef writ
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !70
+  store ptr null, ptr %4, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1072,76 +937,64 @@ define hidden void @zif_xmlwriter_write_element(ptr noundef %0, ptr noundef writ
   %15 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %16 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %10, ptr noundef %14, ptr noundef nonnull @.str.11, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %21
+  br i1 %17, label %43, label %18
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %50
+  %19 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %21 = getelementptr inbounds i8, ptr %20, i64 -16
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %22, null
+  br i1 %.not.not, label %23, label %.critedge
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %7, align 8, !tbaa !62
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %25, null
-  br i1 %.not.not, label %26, label %.critedge
-
-26:                                               ; preds = %21
+23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %50
+  br label %43
 
-.critedge:                                        ; preds = %21
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  %30 = call i32 @xmlValidateName(ptr noundef %29, i32 noundef 0) #12
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %35, label %31
+.critedge:                                        ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  %25 = call i32 @xmlValidateName(ptr noundef %24, i32 noundef 0) #12
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %28, label %26
 
-31:                                               ; preds = %.critedge
-  %32 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %32) #12
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %50
+26:                                               ; preds = %.critedge
+  %27 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %27) #12
+  br label %43
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %4, align 8, !tbaa !70
-  %.not14 = icmp eq ptr %36, null
-  %37 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not14, label %38, label %45
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %4, align 8, !tbaa !44
+  %.not14 = icmp eq ptr %29, null
+  %30 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not14, label %31, label %38
 
-38:                                               ; preds = %35
-  %39 = call i32 @xmlTextWriterStartElement(ptr noundef nonnull %25, ptr noundef %37) #12
-  %40 = icmp eq i32 %39, -1
-  br i1 %40, label %41, label %43
+31:                                               ; preds = %28
+  %32 = call i32 @xmlTextWriterStartElement(ptr noundef nonnull %22, ptr noundef %30) #12
+  %33 = icmp eq i32 %32, -1
+  br i1 %33, label %34, label %36
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %42, align 8, !tbaa !32
-  br label %50
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %35, align 8, !tbaa !32
+  br label %43
 
-43:                                               ; preds = %38
-  %44 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %25) #12
-  br label %47
+36:                                               ; preds = %31
+  %37 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %22) #12
+  br label %40
 
-45:                                               ; preds = %35
-  %46 = call i32 @xmlTextWriterWriteElement(ptr noundef nonnull %25, ptr noundef %37, ptr noundef nonnull %36) #12
-  br label %47
+38:                                               ; preds = %28
+  %39 = call i32 @xmlTextWriterWriteElement(ptr noundef nonnull %22, ptr noundef %30, ptr noundef nonnull %29) #12
+  br label %40
 
-47:                                               ; preds = %45, %43
-  %.0 = phi i32 [ %46, %45 ], [ %44, %43 ]
+40:                                               ; preds = %38, %36
+  %.0 = phi i32 [ %39, %38 ], [ %37, %36 ]
   %.not15 = icmp eq i32 %.0, -1
-  %48 = select i1 %.not15, i32 2, i32 3
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %48, ptr %49, align 8, !tbaa !32
-  br label %50
+  %41 = select i1 %.not15, i32 2, i32 3
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %41, ptr %42, align 8, !tbaa !32
+  br label %43
 
-50:                                               ; preds = %26, %47, %41, %31, %18
+43:                                               ; preds = %2, %23, %40, %34, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1167,7 +1020,7 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr noundef w
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !70
+  store ptr null, ptr %6, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1183,78 +1036,66 @@ define hidden void @zif_xmlwriter_write_element_ns(ptr noundef %0, ptr noundef w
   %19 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %20 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %18, ptr noundef nonnull @.str.12, ptr noundef nonnull %11, ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %10) #12
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %25
+  br i1 %21, label %49, label %22
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %56
+  %23 = load ptr, ptr %11, align 8, !tbaa !35
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %26, null
+  br i1 %.not.not, label %27, label %.critedge
 
-25:                                               ; preds = %2
-  %26 = load ptr, ptr %11, align 8, !tbaa !62
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
-  %28 = getelementptr inbounds i8, ptr %27, i64 -16
-  %29 = load ptr, ptr %28, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %30, label %.critedge
-
-30:                                               ; preds = %25
+27:                                               ; preds = %22
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %56
+  br label %49
 
-.critedge:                                        ; preds = %25
-  %33 = load ptr, ptr %3, align 8, !tbaa !70
-  %34 = call i32 @xmlValidateName(ptr noundef %33, i32 noundef 0) #12
-  %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %39, label %35
+.critedge:                                        ; preds = %22
+  %28 = load ptr, ptr %3, align 8, !tbaa !44
+  %29 = call i32 @xmlValidateName(ptr noundef %28, i32 noundef 0) #12
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %32, label %30
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %36) #12
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %56
+30:                                               ; preds = %.critedge
+  %31 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %31) #12
+  br label %49
 
-39:                                               ; preds = %.critedge
-  %40 = load ptr, ptr %6, align 8, !tbaa !70
-  %.not14 = icmp eq ptr %40, null
-  %41 = load ptr, ptr %4, align 8, !tbaa !70
-  %42 = load ptr, ptr %3, align 8, !tbaa !70
-  %43 = load ptr, ptr %5, align 8, !tbaa !70
-  br i1 %.not14, label %44, label %51
+32:                                               ; preds = %.critedge
+  %33 = load ptr, ptr %6, align 8, !tbaa !44
+  %.not14 = icmp eq ptr %33, null
+  %34 = load ptr, ptr %4, align 8, !tbaa !44
+  %35 = load ptr, ptr %3, align 8, !tbaa !44
+  %36 = load ptr, ptr %5, align 8, !tbaa !44
+  br i1 %.not14, label %37, label %44
 
-44:                                               ; preds = %39
-  %45 = call i32 @xmlTextWriterStartElementNS(ptr noundef nonnull %29, ptr noundef %41, ptr noundef %42, ptr noundef %43) #12
-  %46 = icmp eq i32 %45, -1
-  br i1 %46, label %47, label %49
+37:                                               ; preds = %32
+  %38 = call i32 @xmlTextWriterStartElementNS(ptr noundef nonnull %26, ptr noundef %34, ptr noundef %35, ptr noundef %36) #12
+  %39 = icmp eq i32 %38, -1
+  br i1 %39, label %40, label %42
 
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %48, align 8, !tbaa !32
-  br label %56
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %41, align 8, !tbaa !32
+  br label %49
 
-49:                                               ; preds = %44
-  %50 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %29) #12
-  br label %53
+42:                                               ; preds = %37
+  %43 = call i32 @xmlTextWriterEndElement(ptr noundef nonnull %26) #12
+  br label %46
 
-51:                                               ; preds = %39
-  %52 = call i32 @xmlTextWriterWriteElementNS(ptr noundef nonnull %29, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef nonnull %40) #12
-  br label %53
+44:                                               ; preds = %32
+  %45 = call i32 @xmlTextWriterWriteElementNS(ptr noundef nonnull %26, ptr noundef %34, ptr noundef %35, ptr noundef %36, ptr noundef nonnull %33) #12
+  br label %46
 
-53:                                               ; preds = %51, %49
-  %.0 = phi i32 [ %52, %51 ], [ %50, %49 ]
+46:                                               ; preds = %44, %42
+  %.0 = phi i32 [ %45, %44 ], [ %43, %42 ]
   %.not15 = icmp eq i32 %.0, -1
-  %54 = select i1 %.not15, i32 2, i32 3
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %54, ptr %55, align 8, !tbaa !32
-  br label %56
+  %47 = select i1 %.not15, i32 2, i32 3
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %47, ptr %48, align 8, !tbaa !32
+  br label %49
 
-56:                                               ; preds = %30, %53, %47, %35, %22
+49:                                               ; preds = %2, %27, %46, %40, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1287,52 +1128,40 @@ define hidden void @zif_xmlwriter_start_pi(ptr noundef %0, ptr noundef writeonly
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlValidateName(ptr noundef %27, i32 noundef 0) #12
-  %.not12.i = icmp eq i32 %28, 0
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not12.i, label %33, label %30
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlValidateName(ptr noundef %22, i32 noundef 0) #12
+  %.not12.i = icmp eq i32 %23, 0
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not12.i, label %26, label %25
 
-30:                                               ; preds = %.critedge.i
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef %29) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
+25:                                               ; preds = %.critedge.i
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef %24) #12
   br label %php_xmlwriter_string_arg.exit
 
-33:                                               ; preds = %.critedge.i
-  %34 = call i32 @xmlTextWriterStartPI(ptr noundef nonnull %23, ptr noundef %29) #12
-  %.not13.i = icmp eq i32 %34, -1
-  %35 = select i1 %.not13.i, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
+26:                                               ; preds = %.critedge.i
+  %27 = call i32 @xmlTextWriterStartPI(ptr noundef nonnull %20, ptr noundef %24) #12
+  %.not13.i = icmp eq i32 %27, -1
+  %28 = select i1 %.not13.i, i32 2, i32 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %29, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %30, %33
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %25, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1355,38 +1184,29 @@ define hidden void @zif_xmlwriter_end_pi(ptr noundef %0, ptr noundef writeonly c
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndPI(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndPI(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1415,53 +1235,41 @@ define hidden void @zif_xmlwriter_write_pi(ptr noundef %0, ptr noundef writeonly
   %15 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %16 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %10, ptr noundef %14, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %21
+  br i1 %17, label %33, label %18
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %40
+  %19 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %21 = getelementptr inbounds i8, ptr %20, i64 -16
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %22, null
+  br i1 %.not.not, label %23, label %.critedge
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %7, align 8, !tbaa !62
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %25, null
-  br i1 %.not.not, label %26, label %.critedge
-
-26:                                               ; preds = %21
+23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %40
+  br label %33
 
-.critedge:                                        ; preds = %21
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  %30 = call i32 @xmlValidateName(ptr noundef %29, i32 noundef 0) #12
-  %.not = icmp eq i32 %30, 0
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not, label %35, label %32
+.critedge:                                        ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  %25 = call i32 @xmlValidateName(ptr noundef %24, i32 noundef 0) #12
+  %.not = icmp eq i32 %25, 0
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not, label %28, label %27
 
-32:                                               ; preds = %.critedge
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef %31) #12
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %40
+27:                                               ; preds = %.critedge
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.13, ptr noundef %26) #12
+  br label %33
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %4, align 8, !tbaa !70
-  %37 = call i32 @xmlTextWriterWritePI(ptr noundef nonnull %25, ptr noundef %31, ptr noundef %36) #12
-  %.not8 = icmp eq i32 %37, -1
-  %38 = select i1 %.not8, i32 2, i32 3
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !32
-  br label %40
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %4, align 8, !tbaa !44
+  %30 = call i32 @xmlTextWriterWritePI(ptr noundef nonnull %22, ptr noundef %26, ptr noundef %29) #12
+  %.not8 = icmp eq i32 %30, -1
+  %31 = select i1 %.not8, i32 2, i32 3
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %31, ptr %32, align 8, !tbaa !32
+  br label %33
 
-40:                                               ; preds = %26, %35, %32, %18
+33:                                               ; preds = %2, %23, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1486,38 +1294,29 @@ define hidden void @zif_xmlwriter_start_cdata(ptr noundef %0, ptr noundef writeo
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %23, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %28
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %18, null
+  br i1 %.not.not, label %19, label %.critedge
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %21, null
-  br i1 %.not.not, label %22, label %.critedge
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %28
+  br label %23
 
-.critedge:                                        ; preds = %17
-  %25 = call i32 @xmlTextWriterStartCDATA(ptr noundef nonnull %21) #12
-  %.not = icmp eq i32 %25, -1
-  %26 = select i1 %.not, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
-  br label %28
+.critedge:                                        ; preds = %14
+  %20 = call i32 @xmlTextWriterStartCDATA(ptr noundef nonnull %18) #12
+  %.not = icmp eq i32 %20, -1
+  %21 = select i1 %.not, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
+  br label %23
 
-28:                                               ; preds = %22, %.critedge, %14
+23:                                               ; preds = %2, %19, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1538,38 +1337,29 @@ define hidden void @zif_xmlwriter_end_cdata(ptr noundef %0, ptr noundef writeonl
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndCDATA(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndCDATA(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1594,39 +1384,30 @@ define hidden void @zif_xmlwriter_write_cdata(ptr noundef %0, ptr noundef writeo
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlTextWriterWriteCDATA(ptr noundef nonnull %23, ptr noundef %27) #12
-  %.not13.i = icmp eq i32 %28, -1
-  %29 = select i1 %.not13.i, i32 2, i32 3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %29, ptr %30, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlTextWriterWriteCDATA(ptr noundef nonnull %20, ptr noundef %22) #12
+  %.not13.i = icmp eq i32 %23, -1
+  %24 = select i1 %.not13.i, i32 2, i32 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %.critedge.i
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1653,39 +1434,30 @@ define hidden void @zif_xmlwriter_write_raw(ptr noundef %0, ptr noundef writeonl
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlTextWriterWriteRaw(ptr noundef nonnull %23, ptr noundef %27) #12
-  %.not13.i = icmp eq i32 %28, -1
-  %29 = select i1 %.not13.i, i32 2, i32 3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %29, ptr %30, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlTextWriterWriteRaw(ptr noundef nonnull %20, ptr noundef %22) #12
+  %.not13.i = icmp eq i32 %23, -1
+  %24 = select i1 %.not13.i, i32 2, i32 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %.critedge.i
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1712,39 +1484,30 @@ define hidden void @zif_xmlwriter_text(ptr noundef %0, ptr noundef writeonly cap
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlTextWriterWriteString(ptr noundef nonnull %23, ptr noundef %27) #12
-  %.not13.i = icmp eq i32 %28, -1
-  %29 = select i1 %.not13.i, i32 2, i32 3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %29, ptr %30, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlTextWriterWriteString(ptr noundef nonnull %20, ptr noundef %22) #12
+  %.not13.i = icmp eq i32 %23, -1
+  %24 = select i1 %.not13.i, i32 2, i32 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %.critedge.i
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1767,38 +1530,29 @@ define hidden void @zif_xmlwriter_start_comment(ptr noundef %0, ptr noundef writ
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %23, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %28
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %18, null
+  br i1 %.not.not, label %19, label %.critedge
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %21, null
-  br i1 %.not.not, label %22, label %.critedge
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %28
+  br label %23
 
-.critedge:                                        ; preds = %17
-  %25 = call i32 @xmlTextWriterStartComment(ptr noundef nonnull %21) #12
-  %.not = icmp eq i32 %25, -1
-  %26 = select i1 %.not, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
-  br label %28
+.critedge:                                        ; preds = %14
+  %20 = call i32 @xmlTextWriterStartComment(ptr noundef nonnull %18) #12
+  %.not = icmp eq i32 %20, -1
+  %21 = select i1 %.not, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
+  br label %23
 
-28:                                               ; preds = %22, %.critedge, %14
+23:                                               ; preds = %2, %19, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1819,38 +1573,29 @@ define hidden void @zif_xmlwriter_end_comment(ptr noundef %0, ptr noundef writeo
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndComment(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndComment(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1875,39 +1620,30 @@ define hidden void @zif_xmlwriter_write_comment(ptr noundef %0, ptr noundef writ
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlTextWriterWriteComment(ptr noundef nonnull %23, ptr noundef %27) #12
-  %.not13.i = icmp eq i32 %28, -1
-  %29 = select i1 %.not13.i, i32 2, i32 3
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %29, ptr %30, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlTextWriterWriteComment(ptr noundef nonnull %20, ptr noundef %22) #12
+  %.not13.i = icmp eq i32 %23, -1
+  %24 = select i1 %.not13.i, i32 2, i32 3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %24, ptr %25, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %.critedge.i
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1926,11 +1662,11 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr noundef wri
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr null, ptr %3, align 8, !tbaa !70
+  store ptr null, ptr %3, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !70
+  store ptr null, ptr %4, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !70
+  store ptr null, ptr %5, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1945,41 +1681,32 @@ define hidden void @zif_xmlwriter_start_document(ptr noundef %0, ptr noundef wri
   %17 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %18 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %12, ptr noundef %16, ptr noundef nonnull @.str.15, ptr noundef nonnull %9, ptr noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %8) #12
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %23
+  br i1 %19, label %32, label %20
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %37
+  %21 = load ptr, ptr %9, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %24, null
+  br i1 %.not.not, label %25, label %.critedge
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %9, align 8, !tbaa !62
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
-  %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  %27 = load ptr, ptr %26, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %28, label %.critedge
-
-28:                                               ; preds = %23
+25:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %30 = icmp ne ptr %29, null
-  call void @llvm.assume(i1 %30)
-  br label %37
+  br label %32
 
-.critedge:                                        ; preds = %23
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  %32 = load ptr, ptr %4, align 8, !tbaa !70
-  %33 = load ptr, ptr %5, align 8, !tbaa !70
-  %34 = call i32 @xmlTextWriterStartDocument(ptr noundef nonnull %27, ptr noundef %31, ptr noundef %32, ptr noundef %33) #12
-  %.not = icmp eq i32 %34, -1
-  %35 = select i1 %.not, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
-  br label %37
+.critedge:                                        ; preds = %20
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  %27 = load ptr, ptr %4, align 8, !tbaa !44
+  %28 = load ptr, ptr %5, align 8, !tbaa !44
+  %29 = call i32 @xmlTextWriterStartDocument(ptr noundef nonnull %24, ptr noundef %26, ptr noundef %27, ptr noundef %28) #12
+  %.not = icmp eq i32 %29, -1
+  %30 = select i1 %.not, i32 2, i32 3
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %30, ptr %31, align 8, !tbaa !32
+  br label %32
 
-37:                                               ; preds = %28, %.critedge, %20
+32:                                               ; preds = %2, %25, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2006,38 +1733,29 @@ define hidden void @zif_xmlwriter_end_document(ptr noundef %0, ptr noundef write
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndDocument(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndDocument(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2055,9 +1773,9 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr noundef writeonl
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !70
+  store ptr null, ptr %4, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !70
+  store ptr null, ptr %5, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2072,41 +1790,32 @@ define hidden void @zif_xmlwriter_start_dtd(ptr noundef %0, ptr noundef writeonl
   %17 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %18 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %12, ptr noundef %16, ptr noundef nonnull @.str.16, ptr noundef nonnull %9, ptr noundef %17, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %8) #12
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %23
+  br i1 %19, label %32, label %20
 
 20:                                               ; preds = %2
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %22 = icmp ne ptr %21, null
-  call void @llvm.assume(i1 %22)
-  br label %37
+  %21 = load ptr, ptr %9, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
+  %23 = getelementptr inbounds i8, ptr %22, i64 -16
+  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %24, null
+  br i1 %.not.not, label %25, label %.critedge
 
-23:                                               ; preds = %2
-  %24 = load ptr, ptr %9, align 8, !tbaa !62
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
-  %26 = getelementptr inbounds i8, ptr %25, i64 -16
-  %27 = load ptr, ptr %26, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %27, null
-  br i1 %.not.not, label %28, label %.critedge
-
-28:                                               ; preds = %23
+25:                                               ; preds = %20
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %30 = icmp ne ptr %29, null
-  call void @llvm.assume(i1 %30)
-  br label %37
+  br label %32
 
-.critedge:                                        ; preds = %23
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  %32 = load ptr, ptr %4, align 8, !tbaa !70
-  %33 = load ptr, ptr %5, align 8, !tbaa !70
-  %34 = call i32 @xmlTextWriterStartDTD(ptr noundef nonnull %27, ptr noundef %31, ptr noundef %32, ptr noundef %33) #12
-  %.not = icmp eq i32 %34, -1
-  %35 = select i1 %.not, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
-  br label %37
+.critedge:                                        ; preds = %20
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  %27 = load ptr, ptr %4, align 8, !tbaa !44
+  %28 = load ptr, ptr %5, align 8, !tbaa !44
+  %29 = call i32 @xmlTextWriterStartDTD(ptr noundef nonnull %24, ptr noundef %26, ptr noundef %27, ptr noundef %28) #12
+  %.not = icmp eq i32 %29, -1
+  %30 = select i1 %.not, i32 2, i32 3
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %30, ptr %31, align 8, !tbaa !32
+  br label %32
 
-37:                                               ; preds = %28, %.critedge, %20
+32:                                               ; preds = %2, %25, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2133,38 +1842,29 @@ define hidden void @zif_xmlwriter_end_dtd(ptr noundef %0, ptr noundef writeonly 
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndDTD(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndDTD(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2184,11 +1884,11 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr noundef writeonl
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr null, ptr %4, align 8, !tbaa !70
+  store ptr null, ptr %4, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr null, ptr %5, align 8, !tbaa !70
+  store ptr null, ptr %5, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr null, ptr %6, align 8, !tbaa !70
+  store ptr null, ptr %6, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2204,42 +1904,33 @@ define hidden void @zif_xmlwriter_write_dtd(ptr noundef %0, ptr noundef writeonl
   %19 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %20 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %14, ptr noundef %18, ptr noundef nonnull @.str.17, ptr noundef nonnull %11, ptr noundef %19, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %10) #12
   %21 = icmp eq i32 %20, -1
-  br i1 %21, label %22, label %25
+  br i1 %21, label %35, label %22
 
 22:                                               ; preds = %2
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
-  br label %40
+  %23 = load ptr, ptr %11, align 8, !tbaa !35
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %26, null
+  br i1 %.not.not, label %27, label %.critedge
 
-25:                                               ; preds = %2
-  %26 = load ptr, ptr %11, align 8, !tbaa !62
-  %27 = load ptr, ptr %26, align 8, !tbaa !32
-  %28 = getelementptr inbounds i8, ptr %27, i64 -16
-  %29 = load ptr, ptr %28, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %30, label %.critedge
-
-30:                                               ; preds = %25
+27:                                               ; preds = %22
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %40
+  br label %35
 
-.critedge:                                        ; preds = %25
-  %33 = load ptr, ptr %3, align 8, !tbaa !70
-  %34 = load ptr, ptr %4, align 8, !tbaa !70
-  %35 = load ptr, ptr %5, align 8, !tbaa !70
-  %36 = load ptr, ptr %6, align 8, !tbaa !70
-  %37 = call i32 @xmlTextWriterWriteDTD(ptr noundef nonnull %29, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36) #12
-  %.not = icmp eq i32 %37, -1
-  %38 = select i1 %.not, i32 2, i32 3
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !32
-  br label %40
+.critedge:                                        ; preds = %22
+  %28 = load ptr, ptr %3, align 8, !tbaa !44
+  %29 = load ptr, ptr %4, align 8, !tbaa !44
+  %30 = load ptr, ptr %5, align 8, !tbaa !44
+  %31 = load ptr, ptr %6, align 8, !tbaa !44
+  %32 = call i32 @xmlTextWriterWriteDTD(ptr noundef nonnull %26, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31) #12
+  %.not = icmp eq i32 %32, -1
+  %33 = select i1 %.not, i32 2, i32 3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %33, ptr %34, align 8, !tbaa !32
+  br label %35
 
-40:                                               ; preds = %30, %.critedge, %22
+35:                                               ; preds = %2, %27, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2272,52 +1963,40 @@ define hidden void @zif_xmlwriter_start_dtd_element(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlValidateName(ptr noundef %27, i32 noundef 0) #12
-  %.not12.i = icmp eq i32 %28, 0
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not12.i, label %33, label %30
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlValidateName(ptr noundef %22, i32 noundef 0) #12
+  %.not12.i = icmp eq i32 %23, 0
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not12.i, label %26, label %25
 
-30:                                               ; preds = %.critedge.i
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %29) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
+25:                                               ; preds = %.critedge.i
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %24) #12
   br label %php_xmlwriter_string_arg.exit
 
-33:                                               ; preds = %.critedge.i
-  %34 = call i32 @xmlTextWriterStartDTDElement(ptr noundef nonnull %23, ptr noundef %29) #12
-  %.not13.i = icmp eq i32 %34, -1
-  %35 = select i1 %.not13.i, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
+26:                                               ; preds = %.critedge.i
+  %27 = call i32 @xmlTextWriterStartDTDElement(ptr noundef nonnull %20, ptr noundef %24) #12
+  %.not13.i = icmp eq i32 %27, -1
+  %28 = select i1 %.not13.i, i32 2, i32 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %29, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %30, %33
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %25, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2340,38 +2019,29 @@ define hidden void @zif_xmlwriter_end_dtd_element(ptr noundef %0, ptr noundef wr
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndDTDElement(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndDTDElement(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2400,53 +2070,41 @@ define hidden void @zif_xmlwriter_write_dtd_element(ptr noundef %0, ptr noundef 
   %15 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %16 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %10, ptr noundef %14, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %21
+  br i1 %17, label %33, label %18
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %40
+  %19 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %21 = getelementptr inbounds i8, ptr %20, i64 -16
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %22, null
+  br i1 %.not.not, label %23, label %.critedge
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %7, align 8, !tbaa !62
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %25, null
-  br i1 %.not.not, label %26, label %.critedge
-
-26:                                               ; preds = %21
+23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %40
+  br label %33
 
-.critedge:                                        ; preds = %21
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  %30 = call i32 @xmlValidateName(ptr noundef %29, i32 noundef 0) #12
-  %.not = icmp eq i32 %30, 0
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not, label %35, label %32
+.critedge:                                        ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  %25 = call i32 @xmlValidateName(ptr noundef %24, i32 noundef 0) #12
+  %.not = icmp eq i32 %25, 0
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not, label %28, label %27
 
-32:                                               ; preds = %.critedge
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %31) #12
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %40
+27:                                               ; preds = %.critedge
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %26) #12
+  br label %33
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %4, align 8, !tbaa !70
-  %37 = call i32 @xmlTextWriterWriteDTDElement(ptr noundef nonnull %25, ptr noundef %31, ptr noundef %36) #12
-  %.not8 = icmp eq i32 %37, -1
-  %38 = select i1 %.not8, i32 2, i32 3
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !32
-  br label %40
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %4, align 8, !tbaa !44
+  %30 = call i32 @xmlTextWriterWriteDTDElement(ptr noundef nonnull %22, ptr noundef %26, ptr noundef %29) #12
+  %.not8 = icmp eq i32 %30, -1
+  %31 = select i1 %.not8, i32 2, i32 3
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %31, ptr %32, align 8, !tbaa !32
+  br label %33
 
-40:                                               ; preds = %26, %35, %32, %18
+33:                                               ; preds = %2, %23, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2475,52 +2133,40 @@ define hidden void @zif_xmlwriter_start_dtd_attlist(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.118, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %php_xmlwriter_string_arg.exit, label %16
 
 16:                                               ; preds = %2
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %php_xmlwriter_string_arg.exit
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %20, null
+  br i1 %.not.not.i, label %21, label %.critedge.i
 
-19:                                               ; preds = %2
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %23, null
-  br i1 %.not.not.i, label %24, label %.critedge.i
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
   br label %php_xmlwriter_string_arg.exit
 
-.critedge.i:                                      ; preds = %19
-  %27 = load ptr, ptr %3, align 8, !tbaa !70
-  %28 = call i32 @xmlValidateName(ptr noundef %27, i32 noundef 0) #12
-  %.not12.i = icmp eq i32 %28, 0
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not12.i, label %33, label %30
+.critedge.i:                                      ; preds = %16
+  %22 = load ptr, ptr %3, align 8, !tbaa !44
+  %23 = call i32 @xmlValidateName(ptr noundef %22, i32 noundef 0) #12
+  %.not12.i = icmp eq i32 %23, 0
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not12.i, label %26, label %25
 
-30:                                               ; preds = %.critedge.i
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %29) #12
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
+25:                                               ; preds = %.critedge.i
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %24) #12
   br label %php_xmlwriter_string_arg.exit
 
-33:                                               ; preds = %.critedge.i
-  %34 = call i32 @xmlTextWriterStartDTDAttlist(ptr noundef nonnull %23, ptr noundef %29) #12
-  %.not13.i = icmp eq i32 %34, -1
-  %35 = select i1 %.not13.i, i32 2, i32 3
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !32
+26:                                               ; preds = %.critedge.i
+  %27 = call i32 @xmlTextWriterStartDTDAttlist(ptr noundef nonnull %20, ptr noundef %24) #12
+  %.not13.i = icmp eq i32 %27, -1
+  %28 = select i1 %.not13.i, i32 2, i32 3
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %28, ptr %29, align 8, !tbaa !32
   br label %php_xmlwriter_string_arg.exit
 
-php_xmlwriter_string_arg.exit:                    ; preds = %16, %24, %30, %33
+php_xmlwriter_string_arg.exit:                    ; preds = %2, %21, %25, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2543,38 +2189,29 @@ define hidden void @zif_xmlwriter_end_dtd_attlist(ptr noundef %0, ptr noundef wr
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndDTDAttlist(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndDTDAttlist(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2603,53 +2240,41 @@ define hidden void @zif_xmlwriter_write_dtd_attlist(ptr noundef %0, ptr noundef 
   %15 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %16 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %10, ptr noundef %14, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %15, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6) #12
   %17 = icmp eq i32 %16, -1
-  br i1 %17, label %18, label %21
+  br i1 %17, label %33, label %18
 
 18:                                               ; preds = %2
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %20 = icmp ne ptr %19, null
-  call void @llvm.assume(i1 %20)
-  br label %40
+  %19 = load ptr, ptr %7, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %21 = getelementptr inbounds i8, ptr %20, i64 -16
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %22, null
+  br i1 %.not.not, label %23, label %.critedge
 
-21:                                               ; preds = %2
-  %22 = load ptr, ptr %7, align 8, !tbaa !62
-  %23 = load ptr, ptr %22, align 8, !tbaa !32
-  %24 = getelementptr inbounds i8, ptr %23, i64 -16
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %25, null
-  br i1 %.not.not, label %26, label %.critedge
-
-26:                                               ; preds = %21
+23:                                               ; preds = %18
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
-  br label %40
+  br label %33
 
-.critedge:                                        ; preds = %21
-  %29 = load ptr, ptr %3, align 8, !tbaa !70
-  %30 = call i32 @xmlValidateName(ptr noundef %29, i32 noundef 0) #12
-  %.not = icmp eq i32 %30, 0
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  br i1 %.not, label %35, label %32
+.critedge:                                        ; preds = %18
+  %24 = load ptr, ptr %3, align 8, !tbaa !44
+  %25 = call i32 @xmlValidateName(ptr noundef %24, i32 noundef 0) #12
+  %.not = icmp eq i32 %25, 0
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  br i1 %.not, label %28, label %27
 
-32:                                               ; preds = %.critedge
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %31) #12
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
-  br label %40
+27:                                               ; preds = %.critedge
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %26) #12
+  br label %33
 
-35:                                               ; preds = %.critedge
-  %36 = load ptr, ptr %4, align 8, !tbaa !70
-  %37 = call i32 @xmlTextWriterWriteDTDAttlist(ptr noundef nonnull %25, ptr noundef %31, ptr noundef %36) #12
-  %.not8 = icmp eq i32 %37, -1
-  %38 = select i1 %.not8, i32 2, i32 3
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !32
-  br label %40
+28:                                               ; preds = %.critedge
+  %29 = load ptr, ptr %4, align 8, !tbaa !44
+  %30 = call i32 @xmlTextWriterWriteDTDAttlist(ptr noundef nonnull %22, ptr noundef %26, ptr noundef %29) #12
+  %.not8 = icmp eq i32 %30, -1
+  %31 = select i1 %.not8, i32 2, i32 3
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %31, ptr %32, align 8, !tbaa !32
+  br label %33
 
-40:                                               ; preds = %26, %35, %32, %18
+33:                                               ; preds = %2, %23, %28, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -2680,55 +2305,43 @@ define hidden void @zif_xmlwriter_start_dtd_entity(ptr noundef %0, ptr noundef w
   %14 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %15 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %9, ptr noundef %13, ptr noundef nonnull @.str.18, ptr noundef nonnull %6, ptr noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %16 = icmp eq i32 %15, -1
-  br i1 %16, label %17, label %20
+  br i1 %16, label %34, label %17
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %19 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %19)
-  br label %41
+  %18 = load ptr, ptr %6, align 8, !tbaa !35
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = getelementptr inbounds i8, ptr %19, i64 -16
+  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %21, null
+  br i1 %.not.not, label %22, label %.critedge
 
-20:                                               ; preds = %2
-  %21 = load ptr, ptr %6, align 8, !tbaa !62
-  %22 = load ptr, ptr %21, align 8, !tbaa !32
-  %23 = getelementptr inbounds i8, ptr %22, i64 -16
-  %24 = load ptr, ptr %23, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %24, null
-  br i1 %.not.not, label %25, label %.critedge
-
-25:                                               ; preds = %20
+22:                                               ; preds = %17
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %41
+  br label %34
 
-.critedge:                                        ; preds = %20
-  %28 = load ptr, ptr %3, align 8, !tbaa !70
-  %29 = call i32 @xmlValidateName(ptr noundef %28, i32 noundef 0) #12
-  %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %34, label %30
+.critedge:                                        ; preds = %17
+  %23 = load ptr, ptr %3, align 8, !tbaa !44
+  %24 = call i32 @xmlValidateName(ptr noundef %23, i32 noundef 0) #12
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %27, label %25
 
-30:                                               ; preds = %.critedge
-  %31 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %31) #12
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %33 = icmp ne ptr %32, null
-  call void @llvm.assume(i1 %33)
-  br label %41
+25:                                               ; preds = %.critedge
+  %26 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, ptr noundef %26) #12
+  br label %34
 
-34:                                               ; preds = %.critedge
-  %35 = load i8, ptr %5, align 1, !tbaa !67, !range !68, !noundef !69
-  %36 = zext nneg i8 %35 to i32
-  %37 = load ptr, ptr %3, align 8, !tbaa !70
-  %38 = call i32 @xmlTextWriterStartDTDEntity(ptr noundef nonnull %24, i32 noundef %36, ptr noundef %37) #12
-  %.not8 = icmp eq i32 %38, -1
-  %39 = select i1 %.not8, i32 2, i32 3
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %39, ptr %40, align 8, !tbaa !32
-  br label %41
+27:                                               ; preds = %.critedge
+  %28 = load i8, ptr %5, align 1, !tbaa !40, !range !42, !noundef !43
+  %29 = zext nneg i8 %28 to i32
+  %30 = load ptr, ptr %3, align 8, !tbaa !44
+  %31 = call i32 @xmlTextWriterStartDTDEntity(ptr noundef nonnull %21, i32 noundef %29, ptr noundef %30) #12
+  %.not8 = icmp eq i32 %31, -1
+  %32 = select i1 %.not8, i32 2, i32 3
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %32, ptr %33, align 8, !tbaa !32
+  br label %34
 
-41:                                               ; preds = %25, %34, %30, %17
+34:                                               ; preds = %2, %22, %27, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2752,38 +2365,29 @@ define hidden void @zif_xmlwriter_end_dtd_entity(ptr noundef %0, ptr noundef wri
   %11 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %12 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %6, ptr noundef %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %3, ptr noundef %11) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %php_xmlwriter_end.exit, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %php_xmlwriter_end.exit
+  %15 = load ptr, ptr %3, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %.not.not.i = icmp eq ptr %18, null
+  br i1 %.not.not.i, label %19, label %.critedge.i
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %3, align 8, !tbaa !62
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %.not.not.i = icmp eq ptr %21, null
-  br i1 %.not.not.i, label %22, label %.critedge.i
-
-22:                                               ; preds = %17
+19:                                               ; preds = %14
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %24 = icmp ne ptr %23, null
-  call void @llvm.assume(i1 %24)
   br label %php_xmlwriter_end.exit
 
-.critedge.i:                                      ; preds = %17
-  %25 = call i32 @xmlTextWriterEndDTDEntity(ptr noundef nonnull %21) #12
-  %.not.i = icmp eq i32 %25, -1
-  %26 = select i1 %.not.i, i32 2, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %26, ptr %27, align 8, !tbaa !32
+.critedge.i:                                      ; preds = %14
+  %20 = call i32 @xmlTextWriterEndDTDEntity(ptr noundef nonnull %18) #12
+  %.not.i = icmp eq i32 %20, -1
+  %21 = select i1 %.not.i, i32 2, i32 3
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %21, ptr %22, align 8, !tbaa !32
   br label %php_xmlwriter_end.exit
 
-php_xmlwriter_end.exit:                           ; preds = %14, %22, %.critedge.i
+php_xmlwriter_end.exit:                           ; preds = %2, %19, %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2809,13 +2413,13 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr noundef w
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr null, ptr %7, align 8, !tbaa !70
+  store ptr null, ptr %7, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store ptr null, ptr %9, align 8, !tbaa !70
+  store ptr null, ptr %9, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store i8 0, ptr %10, align 1, !tbaa !67
+  store i8 0, ptr %10, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -2830,59 +2434,47 @@ define hidden void @zif_xmlwriter_write_dtd_entity(ptr noundef %0, ptr noundef w
   %22 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %23 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %17, ptr noundef %21, ptr noundef nonnull @.str.19, ptr noundef nonnull %14, ptr noundef %22, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %13) #12
   %24 = icmp eq i32 %23, -1
-  br i1 %24, label %25, label %28
+  br i1 %24, label %46, label %25
 
 25:                                               ; preds = %2
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %53
+  %26 = load ptr, ptr %14, align 8, !tbaa !35
+  %27 = load ptr, ptr %26, align 8, !tbaa !32
+  %28 = getelementptr inbounds i8, ptr %27, i64 -16
+  %29 = load ptr, ptr %28, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %29, null
+  br i1 %.not.not, label %30, label %.critedge
 
-28:                                               ; preds = %2
-  %29 = load ptr, ptr %14, align 8, !tbaa !62
-  %30 = load ptr, ptr %29, align 8, !tbaa !32
-  %31 = getelementptr inbounds i8, ptr %30, i64 -16
-  %32 = load ptr, ptr %31, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %32, null
-  br i1 %.not.not, label %33, label %.critedge
-
-33:                                               ; preds = %28
+30:                                               ; preds = %25
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
-  br label %53
+  br label %46
 
-.critedge:                                        ; preds = %28
-  %36 = load ptr, ptr %3, align 8, !tbaa !70
-  %37 = call i32 @xmlValidateName(ptr noundef %36, i32 noundef 0) #12
-  %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %42, label %38
+.critedge:                                        ; preds = %25
+  %31 = load ptr, ptr %3, align 8, !tbaa !44
+  %32 = call i32 @xmlValidateName(ptr noundef %31, i32 noundef 0) #12
+  %.not = icmp eq i32 %32, 0
+  br i1 %.not, label %35, label %33
 
-38:                                               ; preds = %.critedge
-  %39 = load ptr, ptr %3, align 8, !tbaa !70
-  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %39) #12
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %41 = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %41)
-  br label %53
+33:                                               ; preds = %.critedge
+  %34 = load ptr, ptr %3, align 8, !tbaa !44
+  call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, ptr noundef %34) #12
+  br label %46
 
-42:                                               ; preds = %.critedge
-  %43 = load i8, ptr %10, align 1, !tbaa !67, !range !68, !noundef !69
-  %44 = zext nneg i8 %43 to i32
-  %45 = load ptr, ptr %3, align 8, !tbaa !70
-  %46 = load ptr, ptr %7, align 8, !tbaa !70
-  %47 = load ptr, ptr %8, align 8, !tbaa !70
-  %48 = load ptr, ptr %9, align 8, !tbaa !70
-  %49 = load ptr, ptr %4, align 8, !tbaa !70
-  %50 = call i32 @xmlTextWriterWriteDTDEntity(ptr noundef nonnull %32, i32 noundef %44, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49) #12
-  %.not8 = icmp eq i32 %50, -1
-  %51 = select i1 %.not8, i32 2, i32 3
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %51, ptr %52, align 8, !tbaa !32
-  br label %53
+35:                                               ; preds = %.critedge
+  %36 = load i8, ptr %10, align 1, !tbaa !40, !range !42, !noundef !43
+  %37 = zext nneg i8 %36 to i32
+  %38 = load ptr, ptr %3, align 8, !tbaa !44
+  %39 = load ptr, ptr %7, align 8, !tbaa !44
+  %40 = load ptr, ptr %8, align 8, !tbaa !44
+  %41 = load ptr, ptr %9, align 8, !tbaa !44
+  %42 = load ptr, ptr %4, align 8, !tbaa !44
+  %43 = call i32 @xmlTextWriterWriteDTDEntity(ptr noundef nonnull %29, i32 noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42) #12
+  %.not8 = icmp eq i32 %43, -1
+  %44 = select i1 %.not8, i32 2, i32 3
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %44, ptr %45, align 8, !tbaa !32
+  br label %46
 
-53:                                               ; preds = %33, %42, %38, %25
+46:                                               ; preds = %2, %30, %35, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -2916,104 +2508,95 @@ define hidden void @zif_xmlwriter_open_uri(ptr noundef readonly captures(none) %
   %11 = load i32, ptr %10, align 4, !tbaa !32
   %12 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef nonnull @.str.20, ptr noundef nonnull %3, ptr noundef nonnull %5) #12
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %14, label %17
+  br i1 %13, label %53, label %14
 
 14:                                               ; preds = %2
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %16 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %16)
-  br label %58
+  br i1 %9, label %15, label %18
 
-17:                                               ; preds = %2
-  br i1 %9, label %18, label %21
+15:                                               ; preds = %14
+  %16 = load ptr, ptr %6, align 8, !tbaa !32
+  %17 = getelementptr inbounds i8, ptr %16, i64 -16
+  br label %18
 
-18:                                               ; preds = %17
-  %19 = load ptr, ptr %6, align 8, !tbaa !32
-  %20 = getelementptr inbounds i8, ptr %19, i64 -16
-  br label %21
+18:                                               ; preds = %15, %14
+  %.0 = phi ptr [ %17, %15 ], [ null, %14 ]
+  %19 = load i64, ptr %5, align 8, !tbaa !46
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %21, label %22
 
-21:                                               ; preds = %18, %17
-  %.0 = phi ptr [ %20, %18 ], [ null, %17 ]
-  %22 = load i64, ptr %5, align 8, !tbaa !71
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %27
-
-24:                                               ; preds = %21
+21:                                               ; preds = %18
   call void @zend_argument_must_not_be_empty_error(i32 noundef 1) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %58
+  br label %53
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %3, align 8, !tbaa !70
-  %29 = call fastcc ptr @_xmlwriter_get_valid_file_path(ptr noundef %28, ptr noundef %4)
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %30, label %32
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %3, align 8, !tbaa !44
+  %24 = call fastcc ptr @_xmlwriter_get_valid_file_path(ptr noundef %23, ptr noundef %4)
+  %.not = icmp eq ptr %24, null
+  br i1 %.not, label %25, label %27
 
-30:                                               ; preds = %27
+25:                                               ; preds = %22
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.21) #12
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %31, align 8, !tbaa !32
-  br label %58
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %26, align 8, !tbaa !32
+  br label %53
 
-32:                                               ; preds = %27
-  %33 = call ptr @xmlNewTextWriterFilename(ptr noundef nonnull %29, i32 noundef 0) #12
-  %.not25 = icmp eq ptr %33, null
-  br i1 %.not25, label %34, label %36
+27:                                               ; preds = %22
+  %28 = call ptr @xmlNewTextWriterFilename(ptr noundef nonnull %24, i32 noundef 0) #12
+  %.not25 = icmp eq ptr %28, null
+  br i1 %.not25, label %29, label %31
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %30, align 8, !tbaa !32
+  br label %53
+
+31:                                               ; preds = %27
+  br i1 %9, label %32, label %37
+
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %.0, align 8, !tbaa !36
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %xmlwriter_destroy_libxml_objects.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %35, align 8, !tbaa !32
-  br label %58
-
-36:                                               ; preds = %32
-  br i1 %9, label %37, label %42
-
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %.0, align 8, !tbaa !63
-  %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %xmlwriter_destroy_libxml_objects.exit, label %39
-
-39:                                               ; preds = %37
-  call void @xmlFreeTextWriter(ptr noundef nonnull %38) #12
+  call void @xmlFreeTextWriter(ptr noundef nonnull %33) #12
   br label %xmlwriter_destroy_libxml_objects.exit
 
-xmlwriter_destroy_libxml_objects.exit:            ; preds = %37, %39
-  store ptr %33, ptr %.0, align 8, !tbaa !63
-  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr null, ptr %40, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %41, align 8, !tbaa !32
-  br label %58
+xmlwriter_destroy_libxml_objects.exit:            ; preds = %32, %34
+  store ptr %28, ptr %.0, align 8, !tbaa !36
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr null, ptr %35, align 8, !tbaa !47
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %36, align 8, !tbaa !32
+  br label %53
 
-42:                                               ; preds = %36
-  %43 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %45 = load i32, ptr %44, align 8, !tbaa !73
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 28
-  %47 = load i32, ptr %46, align 4, !tbaa !74
-  %48 = lshr i32 %47, 11
-  %.lobit.i.i = and i32 %48, 1
-  %49 = xor i32 %.lobit.i.i, 1
-  %50 = sub nsw i32 %45, %49
-  %51 = sext i32 %50 to i64
-  %52 = shl nsw i64 %51, 4
-  %53 = add nsw i64 %52, 72
-  %54 = call noalias ptr @_emalloc(i64 noundef %53) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @zend_object_std_init(ptr noundef nonnull %55, ptr noundef %43) #12
-  call void @object_properties_init(ptr noundef nonnull %55, ptr noundef %43) #12
-  store ptr %33, ptr %54, align 8, !tbaa !63
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr null, ptr %56, align 8, !tbaa !72
-  store ptr %55, ptr %1, align 8, !tbaa !32
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 776, ptr %57, align 8, !tbaa !32
-  br label %58
+37:                                               ; preds = %31
+  %38 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load i32, ptr %39, align 8, !tbaa !48
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 28
+  %42 = load i32, ptr %41, align 4, !tbaa !49
+  %43 = lshr i32 %42, 11
+  %.lobit.i.i = and i32 %43, 1
+  %44 = xor i32 %.lobit.i.i, 1
+  %45 = sub nsw i32 %40, %44
+  %46 = sext i32 %45 to i64
+  %47 = shl nsw i64 %46, 4
+  %48 = add nsw i64 %47, 72
+  %49 = call noalias ptr @_emalloc(i64 noundef %48) #13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %49, i8 0, i64 16, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  call void @zend_object_std_init(ptr noundef nonnull %50, ptr noundef %38) #12
+  call void @object_properties_init(ptr noundef nonnull %50, ptr noundef %38) #12
+  store ptr %28, ptr %49, align 8, !tbaa !36
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr null, ptr %51, align 8, !tbaa !47
+  store ptr %50, ptr %1, align 8, !tbaa !32
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 776, ptr %52, align 8, !tbaa !32
+  br label %53
 
-58:                                               ; preds = %42, %xmlwriter_destroy_libxml_objects.exit, %34, %30, %24, %14
+53:                                               ; preds = %2, %37, %xmlwriter_destroy_libxml_objects.exit, %29, %25, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3037,7 +2620,7 @@ define internal fastcc noundef ptr @_xmlwriter_get_valid_file_path(ptr noundef %
   %9 = tail call i32 @xmlParseURIReference(ptr noundef nonnull %5, ptr noundef %8) #12
   %10 = load ptr, ptr @xmlFree, align 8, !tbaa !12
   tail call void %10(ptr noundef %8) #12
-  %11 = load ptr, ptr %5, align 8, !tbaa !75
+  %11 = load ptr, ptr %5, align 8, !tbaa !50
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread, label %12
 
@@ -3143,9 +2726,9 @@ declare ptr @xmlNewTextWriterFilename(ptr noundef, i32 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @xmlwriter_object_new(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i32, ptr %2, align 8, !tbaa !73
+  %3 = load i32, ptr %2, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !74
+  %5 = load i32, ptr %4, align 4, !tbaa !49
   %6 = lshr i32 %5, 11
   %.lobit.i = and i32 %6, 1
   %7 = xor i32 %.lobit.i, 1
@@ -3169,7 +2752,7 @@ define hidden void @zim_XMLWriter_toUri(ptr noundef %0, ptr noundef %1) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !32
   %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %8, label %7, !prof !77
+  br i1 %cond, label %8, label %7, !prof !52
 
 7:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #12
@@ -3181,11 +2764,11 @@ define hidden void @zim_XMLWriter_toUri(ptr noundef %0, ptr noundef %1) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !32
   %12 = icmp eq i8 %11, 6
-  br i1 %12, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !78
+  br i1 %12, label %zend_parse_arg_str_ex.exit.thread, label %zend_parse_arg_str_ex.exit, !prof !53
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %8
   %13 = load ptr, ptr %9, align 8, !tbaa !32
-  store ptr %13, ptr %3, align 8, !tbaa !79
+  store ptr %13, ptr %3, align 8, !tbaa !54
   br label %15
 
 zend_parse_arg_str_ex.exit:                       ; preds = %8
@@ -3193,7 +2776,7 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   br i1 %14, label %thread-pre-split, label %22
 
 thread-pre-split:                                 ; preds = %zend_parse_arg_str_ex.exit
-  %.pr = load ptr, ptr %3, align 8, !tbaa !79
+  %.pr = load ptr, ptr %3, align 8, !tbaa !54
   br label %15
 
 15:                                               ; preds = %thread-pre-split, %zend_parse_arg_str_ex.exit.thread
@@ -3202,16 +2785,16 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   br i1 %.not.i, label %..critedge_crit_edge, label %17
 
 ..critedge_crit_edge:                             ; preds = %15
-  %.pre = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !80
+  %.pre = load i64, ptr inttoptr (i64 16 to ptr), align 16, !tbaa !55
   br label %.critedge
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !80
+  %20 = load i64, ptr %19, align 8, !tbaa !55
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #14
   %.not = icmp eq i64 %20, %21
-  br i1 %.not, label %.critedge, label %22, !prof !78
+  br i1 %.not, label %.critedge, label %22, !prof !53
 
 22:                                               ; preds = %zend_parse_arg_str_ex.exit, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3229,60 +2812,51 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
   %24 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %20, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %29
+  br i1 %25, label %26, label %27
 
 26:                                               ; preds = %.critedge
   call void @zend_argument_must_not_be_empty_error(i32 noundef 1) #12
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %28 = icmp ne ptr %27, null
-  call void @llvm.assume(i1 %28)
   br label %xml_writer_create_static.exit
 
-29:                                               ; preds = %.critedge
-  %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = call fastcc ptr @_xmlwriter_get_valid_file_path(ptr noundef nonnull %30, ptr noundef %4)
-  %.not45 = icmp eq ptr %31, null
-  br i1 %.not45, label %32, label %35
+27:                                               ; preds = %.critedge
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %29 = call fastcc ptr @_xmlwriter_get_valid_file_path(ptr noundef nonnull %28, ptr noundef %4)
+  %.not45 = icmp eq ptr %29, null
+  br i1 %.not45, label %30, label %31
 
-32:                                               ; preds = %29
+30:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.22) #12
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %34 = icmp ne ptr %33, null
-  call void @llvm.assume(i1 %34)
   br label %xml_writer_create_static.exit
 
-35:                                               ; preds = %29
-  %36 = call ptr @xmlNewTextWriterFilename(ptr noundef nonnull %31, i32 noundef 0) #12
-  %.not46 = icmp eq ptr %36, null
-  br i1 %.not46, label %37, label %40
+31:                                               ; preds = %27
+  %32 = call ptr @xmlNewTextWriterFilename(ptr noundef nonnull %29, i32 noundef 0) #12
+  %.not46 = icmp eq ptr %32, null
+  br i1 %.not46, label %33, label %34
 
-37:                                               ; preds = %35
+33:                                               ; preds = %31
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.23) #12
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
   br label %xml_writer_create_static.exit
 
-40:                                               ; preds = %35
-  %41 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %41, align 8, !tbaa !32
-  %42 = call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %48
+34:                                               ; preds = %31
+  %35 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %35, align 8, !tbaa !32
+  %36 = call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %42
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %1, align 8, !tbaa !32
-  %46 = getelementptr inbounds i8, ptr %45, i64 -16
-  store ptr %36, ptr %46, align 8, !tbaa !63
-  %47 = getelementptr inbounds i8, ptr %45, i64 -8
-  store ptr null, ptr %47, align 8, !tbaa !72
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %1, align 8, !tbaa !32
+  %40 = getelementptr inbounds i8, ptr %39, i64 -16
+  store ptr %32, ptr %40, align 8, !tbaa !36
+  %41 = getelementptr inbounds i8, ptr %39, i64 -8
+  store ptr null, ptr %41, align 8, !tbaa !47
   br label %xml_writer_create_static.exit
 
-48:                                               ; preds = %40
-  call void @xmlFreeTextWriter(ptr noundef nonnull %36) #12
+42:                                               ; preds = %34
+  call void @xmlFreeTextWriter(ptr noundef nonnull %32) #12
   br label %xml_writer_create_static.exit
 
-xml_writer_create_static.exit:                    ; preds = %48, %44, %23, %32, %37, %26
+xml_writer_create_static.exit:                    ; preds = %42, %38, %23, %30, %33, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -3300,96 +2874,93 @@ define hidden void @zif_xmlwriter_open_memory(ptr noundef readonly captures(none
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !32
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.critedge, label %9, !prof !78
+  br i1 %.not, label %.critedge, label %9, !prof !53
 
 9:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
-  br label %47
+  br label %45
 
 .critedge:                                        ; preds = %2
-  br i1 %6, label %12, label %15
+  br i1 %6, label %10, label %13
 
-12:                                               ; preds = %.critedge
-  %13 = load ptr, ptr %3, align 8, !tbaa !32
-  %14 = getelementptr inbounds i8, ptr %13, i64 -16
-  br label %15
+10:                                               ; preds = %.critedge
+  %11 = load ptr, ptr %3, align 8, !tbaa !32
+  %12 = getelementptr inbounds i8, ptr %11, i64 -16
+  br label %13
 
-15:                                               ; preds = %12, %.critedge
-  %.0 = phi ptr [ %14, %12 ], [ null, %.critedge ]
-  %16 = tail call noalias ptr @_emalloc_16() #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %17 = tail call ptr @xmlOutputBufferCreateIO(ptr noundef nonnull @xml_writer_stream_write_memory, ptr noundef nonnull @xml_writer_stream_close_memory, ptr noundef nonnull %16, ptr noundef null) #12
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
+13:                                               ; preds = %10, %.critedge
+  %.0 = phi ptr [ %12, %10 ], [ null, %.critedge ]
+  %14 = tail call noalias ptr @_emalloc_16() #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %15 = tail call ptr @xmlOutputBufferCreateIO(ptr noundef nonnull @xml_writer_stream_write_memory, ptr noundef nonnull @xml_writer_stream_close_memory, ptr noundef nonnull %14, ptr noundef null) #12
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %18
 
-19:                                               ; preds = %15
-  tail call void @_efree(ptr noundef nonnull %16) #12
-  br label %24
+17:                                               ; preds = %13
+  tail call void @_efree(ptr noundef nonnull %14) #12
+  br label %22
 
-20:                                               ; preds = %15
-  %21 = tail call ptr @xmlNewTextWriter(ptr noundef nonnull %17) #12
-  %.not.i22 = icmp eq ptr %21, null
-  br i1 %.not.i22, label %22, label %xml_writer_create_in_memory.exit
+18:                                               ; preds = %13
+  %19 = tail call ptr @xmlNewTextWriter(ptr noundef nonnull %15) #12
+  %.not.i22 = icmp eq ptr %19, null
+  br i1 %.not.i22, label %20, label %xml_writer_create_in_memory.exit
 
-22:                                               ; preds = %20
-  %23 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %17) #12
-  br label %24
+20:                                               ; preds = %18
+  %21 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %15) #12
+  br label %22
 
-24:                                               ; preds = %19, %22
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %25, align 8, !tbaa !32
-  br label %47
+22:                                               ; preds = %17, %20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %23, align 8, !tbaa !32
+  br label %45
 
-xml_writer_create_in_memory.exit:                 ; preds = %20
-  br i1 %6, label %26, label %31
+xml_writer_create_in_memory.exit:                 ; preds = %18
+  br i1 %6, label %24, label %29
 
-26:                                               ; preds = %xml_writer_create_in_memory.exit
-  %27 = load ptr, ptr %.0, align 8, !tbaa !63
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %xmlwriter_destroy_libxml_objects.exit, label %28
+24:                                               ; preds = %xml_writer_create_in_memory.exit
+  %25 = load ptr, ptr %.0, align 8, !tbaa !36
+  %.not.i = icmp eq ptr %25, null
+  br i1 %.not.i, label %xmlwriter_destroy_libxml_objects.exit, label %26
 
-28:                                               ; preds = %26
-  tail call void @xmlFreeTextWriter(ptr noundef nonnull %27) #12
+26:                                               ; preds = %24
+  tail call void @xmlFreeTextWriter(ptr noundef nonnull %25) #12
   br label %xmlwriter_destroy_libxml_objects.exit
 
-xmlwriter_destroy_libxml_objects.exit:            ; preds = %26, %28
-  store ptr %21, ptr %.0, align 8, !tbaa !63
-  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %16, ptr %29, align 8, !tbaa !72
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %30, align 8, !tbaa !32
-  br label %47
+xmlwriter_destroy_libxml_objects.exit:            ; preds = %24, %26
+  store ptr %19, ptr %.0, align 8, !tbaa !36
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %14, ptr %27, align 8, !tbaa !47
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 3, ptr %28, align 8, !tbaa !32
+  br label %45
 
-31:                                               ; preds = %xml_writer_create_in_memory.exit
-  %32 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %34 = load i32, ptr %33, align 8, !tbaa !73
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 28
-  %36 = load i32, ptr %35, align 4, !tbaa !74
-  %37 = lshr i32 %36, 11
-  %.lobit.i.i = and i32 %37, 1
-  %38 = xor i32 %.lobit.i.i, 1
-  %39 = sub nsw i32 %34, %38
-  %40 = sext i32 %39 to i64
-  %41 = shl nsw i64 %40, 4
-  %42 = add nsw i64 %41, 72
-  %43 = tail call noalias ptr @_emalloc(i64 noundef %42) #13
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  tail call void @zend_object_std_init(ptr noundef nonnull %44, ptr noundef %32) #12
-  tail call void @object_properties_init(ptr noundef nonnull %44, ptr noundef %32) #12
-  store ptr %21, ptr %43, align 8, !tbaa !63
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %16, ptr %45, align 8, !tbaa !72
-  store ptr %44, ptr %1, align 8, !tbaa !32
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 776, ptr %46, align 8, !tbaa !32
-  br label %47
+29:                                               ; preds = %xml_writer_create_in_memory.exit
+  %30 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load i32, ptr %31, align 8, !tbaa !48
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  %34 = load i32, ptr %33, align 4, !tbaa !49
+  %35 = lshr i32 %34, 11
+  %.lobit.i.i = and i32 %35, 1
+  %36 = xor i32 %.lobit.i.i, 1
+  %37 = sub nsw i32 %32, %36
+  %38 = sext i32 %37 to i64
+  %39 = shl nsw i64 %38, 4
+  %40 = add nsw i64 %39, 72
+  %41 = tail call noalias ptr @_emalloc(i64 noundef %40) #13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  tail call void @zend_object_std_init(ptr noundef nonnull %42, ptr noundef %30) #12
+  tail call void @object_properties_init(ptr noundef nonnull %42, ptr noundef %30) #12
+  store ptr %19, ptr %41, align 8, !tbaa !36
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %14, ptr %43, align 8, !tbaa !47
+  store ptr %42, ptr %1, align 8, !tbaa !32
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 776, ptr %44, align 8, !tbaa !32
+  br label %45
 
-47:                                               ; preds = %24, %xmlwriter_destroy_libxml_objects.exit, %31, %9
+45:                                               ; preds = %22, %xmlwriter_destroy_libxml_objects.exit, %29, %9
   ret void
 }
 
@@ -3400,7 +2971,7 @@ define hidden void @zim_XMLWriter_toMemory(ptr noundef readonly captures(none) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !32
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !78
+  br i1 %.not, label %6, label %5, !prof !53
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #12
@@ -3428,31 +2999,28 @@ define hidden void @zim_XMLWriter_toMemory(ptr noundef readonly captures(none) %
 
 15:                                               ; preds = %10, %13
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.23) #12
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %17 = icmp ne ptr %16, null
-  tail call void @llvm.assume(i1 %17)
   br label %xml_writer_create_static.exit
 
 xml_writer_create_in_memory.exit:                 ; preds = %11
-  %18 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %18, align 8, !tbaa !32
-  %19 = tail call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %25
+  %16 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %16, align 8, !tbaa !32
+  %17 = tail call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %23
 
-21:                                               ; preds = %xml_writer_create_in_memory.exit
-  %22 = load ptr, ptr %1, align 8, !tbaa !32
-  %23 = getelementptr inbounds i8, ptr %22, i64 -16
-  store ptr %12, ptr %23, align 8, !tbaa !63
-  %24 = getelementptr inbounds i8, ptr %22, i64 -8
-  store ptr %7, ptr %24, align 8, !tbaa !72
+19:                                               ; preds = %xml_writer_create_in_memory.exit
+  %20 = load ptr, ptr %1, align 8, !tbaa !32
+  %21 = getelementptr inbounds i8, ptr %20, i64 -16
+  store ptr %12, ptr %21, align 8, !tbaa !36
+  %22 = getelementptr inbounds i8, ptr %20, i64 -8
+  store ptr %7, ptr %22, align 8, !tbaa !47
   br label %xml_writer_create_static.exit
 
-25:                                               ; preds = %xml_writer_create_in_memory.exit
+23:                                               ; preds = %xml_writer_create_in_memory.exit
   tail call void @xmlFreeTextWriter(ptr noundef nonnull %12) #12
   br label %xml_writer_create_static.exit
 
-xml_writer_create_static.exit:                    ; preds = %15, %21, %25, %5
+xml_writer_create_static.exit:                    ; preds = %15, %19, %23, %5
   ret void
 }
 
@@ -3461,7 +3029,7 @@ define hidden void @zim_XMLWriter_toStream(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !32
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %5, label %.thread, !prof !77
+  br i1 %cond, label %5, label %.thread, !prof !52
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #12
@@ -3472,7 +3040,7 @@ define hidden void @zim_XMLWriter_toStream(ptr noundef %0, ptr noundef %1) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !32
   %9 = icmp eq i8 %8, 9
-  br i1 %9, label %.critedge, label %10, !prof !82
+  br i1 %9, label %.critedge, label %10, !prof !57
 
 10:                                               ; preds = %.thread, %5
   %.060 = phi i32 [ 0, %.thread ], [ 1, %5 ]
@@ -3492,59 +3060,49 @@ define hidden void @zim_XMLWriter_toStream(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 120
-  %18 = load ptr, ptr %17, align 8, !tbaa !83
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %19 = tail call ptr @xmlOutputBufferCreateIO(ptr noundef nonnull @xml_writer_stream_write, ptr noundef nonnull @xml_writer_stream_close, ptr noundef %18, ptr noundef null) #12
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %24, !prof !93
+  br i1 %20, label %21, label %22, !prof !69
 
 21:                                               ; preds = %16
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.25) #12
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %23 = icmp ne ptr %22, null
-  tail call void @llvm.assume(i1 %23)
   br label %xml_writer_create_static.exit
 
-24:                                               ; preds = %16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %26 = load i8, ptr %25, align 1, !tbaa !32
-  %27 = icmp ne i8 %26, 0
-  tail call void @llvm.assume(i1 %27)
-  %28 = load ptr, ptr %6, align 8, !tbaa !32
-  %29 = load i32, ptr %28, align 4, !tbaa !94
-  %30 = add i32 %29, 1
-  store i32 %30, ptr %28, align 4, !tbaa !94
-  %31 = tail call ptr @xmlNewTextWriter(ptr noundef nonnull %19) #12
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %37, !prof !93
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8, !tbaa !32
+  %24 = load i32, ptr %23, align 4, !tbaa !70
+  %25 = add i32 %24, 1
+  store i32 %25, ptr %23, align 4, !tbaa !70
+  %26 = tail call ptr @xmlNewTextWriter(ptr noundef nonnull %19) #12
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30, !prof !69
 
-33:                                               ; preds = %24
-  %34 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %19) #12
+28:                                               ; preds = %22
+  %29 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %19) #12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.23) #12
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %36 = icmp ne ptr %35, null
-  tail call void @llvm.assume(i1 %36)
   br label %xml_writer_create_static.exit
 
-37:                                               ; preds = %24
-  %38 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %38, align 8, !tbaa !32
-  %39 = tail call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %45
+30:                                               ; preds = %22
+  %31 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %31, align 8, !tbaa !32
+  %32 = tail call i32 @object_init_with_constructor(ptr noundef %1, ptr noundef %.val, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %38
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr %1, align 8, !tbaa !32
-  %43 = getelementptr inbounds i8, ptr %42, i64 -16
-  store ptr %31, ptr %43, align 8, !tbaa !63
-  %44 = getelementptr inbounds i8, ptr %42, i64 -8
-  store ptr null, ptr %44, align 8, !tbaa !72
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %1, align 8, !tbaa !32
+  %36 = getelementptr inbounds i8, ptr %35, i64 -16
+  store ptr %26, ptr %36, align 8, !tbaa !36
+  %37 = getelementptr inbounds i8, ptr %35, i64 -8
+  store ptr null, ptr %37, align 8, !tbaa !47
   br label %xml_writer_create_static.exit
 
-45:                                               ; preds = %37
-  tail call void @xmlFreeTextWriter(ptr noundef nonnull %31) #12
+38:                                               ; preds = %30
+  tail call void @xmlFreeTextWriter(ptr noundef nonnull %26) #12
   br label %xml_writer_create_static.exit
 
-xml_writer_create_static.exit:                    ; preds = %45, %41, %10, %21, %33, %.critedge
+xml_writer_create_static.exit:                    ; preds = %38, %34, %10, %21, %28, %.critedge
   ret void
 }
 
@@ -3559,9 +3117,9 @@ declare ptr @xmlOutputBufferCreateIO(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @xml_writer_stream_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !95
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %10, label %6, !prof !93
+  br i1 %.not, label %10, label %6, !prof !69
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
@@ -3595,7 +3153,7 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr noundef wri
   %4 = alloca i8, align 1
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i8 1, ptr %4, align 1, !tbaa !67
+  store i8 1, ptr %4, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3607,214 +3165,205 @@ define internal fastcc void @php_xmlwriter_flush(ptr noundef %0, ptr noundef wri
   %13 = load ptr, ptr @xmlwriter_class_entry_ce, align 8, !tbaa !33
   %14 = call i32 (i32, ptr, ptr, ...) @zend_parse_method_parameters(i32 noundef %8, ptr noundef %12, ptr noundef nonnull @.str.122, ptr noundef nonnull %5, ptr noundef %13, ptr noundef nonnull %4) #12
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %16, label %19
+  br i1 %15, label %109, label %16
 
 16:                                               ; preds = %3
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %18 = icmp ne ptr %17, null
-  call void @llvm.assume(i1 %18)
-  br label %114
+  %17 = load ptr, ptr %5, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %19 = getelementptr inbounds i8, ptr %18, i64 -16
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %.not.not = icmp eq ptr %20, null
+  br i1 %.not.not, label %21, label %.critedge
 
-19:                                               ; preds = %3
-  %20 = load ptr, ptr %5, align 8, !tbaa !62
-  %21 = load ptr, ptr %20, align 8, !tbaa !32
-  %22 = getelementptr inbounds i8, ptr %21, i64 -16
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %.not.not = icmp eq ptr %23, null
-  br i1 %.not.not, label %24, label %.critedge
-
-24:                                               ; preds = %19
+21:                                               ; preds = %16
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.4) #12
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %114
+  br label %109
 
-.critedge:                                        ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %21, i64 -8
-  %28 = load ptr, ptr %27, align 8, !tbaa !72
-  %29 = icmp ne i32 %2, 0
-  %30 = icmp eq ptr %28, null
-  %or.cond = select i1 %29, i1 %30, i1 false
-  br i1 %or.cond, label %31, label %34
+.critedge:                                        ; preds = %16
+  %22 = getelementptr inbounds i8, ptr %18, i64 -8
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  %24 = icmp ne i32 %2, 0
+  %25 = icmp eq ptr %23, null
+  %or.cond = select i1 %24, i1 %25, i1 false
+  br i1 %or.cond, label %26, label %29
 
-31:                                               ; preds = %.critedge
-  %32 = load ptr, ptr @zend_empty_string, align 8, !tbaa !79
-  store ptr %32, ptr %1, align 8, !tbaa !32
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 6, ptr %33, align 8, !tbaa !32
-  br label %114
+26:                                               ; preds = %.critedge
+  %27 = load ptr, ptr @zend_empty_string, align 8, !tbaa !54
+  store ptr %27, ptr %1, align 8, !tbaa !32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 6, ptr %28, align 8, !tbaa !32
+  br label %109
 
-34:                                               ; preds = %.critedge
-  %35 = call i32 @xmlTextWriterFlush(ptr noundef nonnull %23) #12
-  br i1 %30, label %111, label %36
+29:                                               ; preds = %.critedge
+  %30 = call i32 @xmlTextWriterFlush(ptr noundef nonnull %20) #12
+  br i1 %25, label %106, label %31
 
-36:                                               ; preds = %34
-  %37 = load i8, ptr %4, align 1, !tbaa !67, !range !68, !noundef !69
-  %38 = trunc nuw i8 %37 to i1
-  %39 = load ptr, ptr %28, align 8, !tbaa !97
-  %.not.i38 = icmp eq ptr %39, null
-  br i1 %38, label %40, label %92
+31:                                               ; preds = %29
+  %32 = load i8, ptr %4, align 1, !tbaa !40, !range !42, !noundef !43
+  %33 = trunc nuw i8 %32 to i1
+  %34 = load ptr, ptr %23, align 8, !tbaa !73
+  %.not.i38 = icmp eq ptr %34, null
+  br i1 %33, label %35, label %87
 
-40:                                               ; preds = %36
-  br i1 %.not.i38, label %85, label %smart_str_0.exit
+35:                                               ; preds = %31
+  br i1 %.not.i38, label %80, label %smart_str_0.exit
 
-smart_str_0.exit:                                 ; preds = %40
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !80
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %43
-  store i8 0, ptr %44, align 1, !tbaa !32
-  %45 = load ptr, ptr %28, align 8, !tbaa !97
-  %.not.i41 = icmp eq ptr %45, null
-  br i1 %.not.i41, label %smart_str_trim_to_size_ex.exit, label %46
+smart_str_0.exit:                                 ; preds = %35
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !55
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !32
+  %40 = load ptr, ptr %23, align 8, !tbaa !73
+  %.not.i41 = icmp eq ptr %40, null
+  br i1 %.not.i41, label %smart_str_trim_to_size_ex.exit, label %41
 
-46:                                               ; preds = %smart_str_0.exit
-  %47 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !99
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !80
-  %51 = icmp ugt i64 %48, %50
-  br i1 %51, label %52, label %smart_str_trim_to_size_ex.exit
+41:                                               ; preds = %smart_str_0.exit
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !75
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %45 = load i64, ptr %44, align 8, !tbaa !55
+  %46 = icmp ugt i64 %43, %45
+  br i1 %46, label %47, label %smart_str_trim_to_size_ex.exit
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !32
-  %55 = and i32 %54, 64
-  %.not.i42 = icmp eq i32 %55, 0
-  br i1 %.not.i42, label %56, label %zend_string_alloc.exit
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %49 = load i32, ptr %48, align 4, !tbaa !32
+  %50 = and i32 %49, 64
+  %.not.i42 = icmp eq i32 %50, 0
+  br i1 %.not.i42, label %51, label %zend_string_alloc.exit
 
-56:                                               ; preds = %52
-  %57 = load i32, ptr %45, align 4, !tbaa !94
-  %58 = icmp eq i32 %57, 1
-  br i1 %58, label %59, label %zend_string_alloc.exit, !prof !78
+51:                                               ; preds = %47
+  %52 = load i32, ptr %40, align 4, !tbaa !70
+  %53 = icmp eq i32 %52, 1
+  br i1 %53, label %54, label %zend_string_alloc.exit, !prof !53
 
-59:                                               ; preds = %56
-  %60 = and i64 %50, -8
-  %61 = add i64 %60, 32
-  %62 = call ptr @_erealloc(ptr noundef nonnull %45, i64 noundef %61) #15
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i64 %50, ptr %63, align 8, !tbaa !80
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i64 0, ptr %64, align 8, !tbaa !100
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !32
-  %67 = and i32 %66, -513
-  store i32 %67, ptr %65, align 4, !tbaa !32
+54:                                               ; preds = %51
+  %55 = and i64 %45, -8
+  %56 = add i64 %55, 32
+  %57 = call ptr @_erealloc(ptr noundef nonnull %40, i64 noundef %56) #15
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store i64 %45, ptr %58, align 8, !tbaa !55
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i64 0, ptr %59, align 8, !tbaa !76
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !32
+  %62 = and i32 %61, -513
+  store i32 %62, ptr %60, align 4, !tbaa !32
   br label %zend_string_realloc.exit
 
-zend_string_alloc.exit:                           ; preds = %52, %56
-  %68 = and i64 %50, -8
-  %69 = add i64 %68, 32
-  %70 = call noalias ptr @_emalloc(i64 noundef %69) #13
-  store i32 1, ptr %70, align 4, !tbaa !94
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  store i32 22, ptr %71, align 4, !tbaa !32
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i64 0, ptr %72, align 8, !tbaa !100
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i64 %50, ptr %73, align 8, !tbaa !80
-  %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %75 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %76 = load i64, ptr %49, align 8, !tbaa !80
-  %..i = call i64 @llvm.umin.i64(i64 %50, i64 %76)
-  %77 = add nuw i64 %..i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %74, ptr noundef nonnull align 8 dereferenceable(1) %75, i64 %77, i1 false)
-  %78 = load i32, ptr %53, align 4, !tbaa !32
-  %79 = and i32 %78, 64
-  %.not24.i = icmp eq i32 %79, 0
-  br i1 %.not24.i, label %80, label %zend_string_realloc.exit
+zend_string_alloc.exit:                           ; preds = %47, %51
+  %63 = and i64 %45, -8
+  %64 = add i64 %63, 32
+  %65 = call noalias ptr @_emalloc(i64 noundef %64) #13
+  store i32 1, ptr %65, align 4, !tbaa !70
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store i32 22, ptr %66, align 4, !tbaa !32
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i64 0, ptr %67, align 8, !tbaa !76
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store i64 %45, ptr %68, align 8, !tbaa !55
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %71 = load i64, ptr %44, align 8, !tbaa !55
+  %..i = call i64 @llvm.umin.i64(i64 %45, i64 %71)
+  %72 = add nuw i64 %..i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %69, ptr noundef nonnull align 8 dereferenceable(1) %70, i64 %72, i1 false)
+  %73 = load i32, ptr %48, align 4, !tbaa !32
+  %74 = and i32 %73, 64
+  %.not24.i = icmp eq i32 %74, 0
+  br i1 %.not24.i, label %75, label %zend_string_realloc.exit
 
-80:                                               ; preds = %zend_string_alloc.exit
-  %81 = load i32, ptr %45, align 4, !tbaa !94
-  %82 = icmp ne i32 %81, 0
-  call void @llvm.assume(i1 %82)
-  %83 = add i32 %81, -1
-  store i32 %83, ptr %45, align 4, !tbaa !94
+75:                                               ; preds = %zend_string_alloc.exit
+  %76 = load i32, ptr %40, align 4, !tbaa !70
+  %77 = icmp ne i32 %76, 0
+  call void @llvm.assume(i1 %77)
+  %78 = add i32 %76, -1
+  store i32 %78, ptr %40, align 4, !tbaa !70
   br label %zend_string_realloc.exit
 
-zend_string_realloc.exit:                         ; preds = %59, %zend_string_alloc.exit, %80
-  %.0.i43 = phi ptr [ %62, %59 ], [ %70, %80 ], [ %70, %zend_string_alloc.exit ]
-  store i64 %50, ptr %47, align 8, !tbaa !99
+zend_string_realloc.exit:                         ; preds = %54, %zend_string_alloc.exit, %75
+  %.0.i43 = phi ptr [ %57, %54 ], [ %65, %75 ], [ %65, %zend_string_alloc.exit ]
+  store i64 %45, ptr %42, align 8, !tbaa !75
   br label %smart_str_trim_to_size_ex.exit
 
-smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %46, %zend_string_realloc.exit
-  %84 = phi ptr [ null, %smart_str_0.exit ], [ %45, %46 ], [ %.0.i43, %zend_string_realloc.exit ]
-  store ptr null, ptr %28, align 8, !tbaa !97
+smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %41, %zend_string_realloc.exit
+  %79 = phi ptr [ null, %smart_str_0.exit ], [ %40, %41 ], [ %.0.i43, %zend_string_realloc.exit ]
+  store ptr null, ptr %23, align 8, !tbaa !73
   br label %smart_str_extract_ex.exit
 
-85:                                               ; preds = %40
-  %86 = load ptr, ptr @zend_empty_string, align 8, !tbaa !79
+80:                                               ; preds = %35
+  %81 = load ptr, ptr @zend_empty_string, align 8, !tbaa !54
   br label %smart_str_extract_ex.exit
 
-smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_size_ex.exit, %85
-  %.0.i39 = phi ptr [ %84, %smart_str_trim_to_size_ex.exit ], [ %86, %85 ]
+smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_size_ex.exit, %80
+  %.0.i39 = phi ptr [ %79, %smart_str_trim_to_size_ex.exit ], [ %81, %80 ]
   store ptr %.0.i39, ptr %1, align 8, !tbaa !32
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !32
-  %89 = and i32 %88, 64
-  %.not36 = icmp eq i32 %89, 0
-  %90 = select i1 %.not36, i32 262, i32 6
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %90, ptr %91, align 8, !tbaa !32
-  br label %114
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i39, i64 4
+  %83 = load i32, ptr %82, align 4, !tbaa !32
+  %84 = and i32 %83, 64
+  %.not36 = icmp eq i32 %84, 0
+  %85 = select i1 %.not36, i32 262, i32 6
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %85, ptr %86, align 8, !tbaa !32
+  br label %109
 
-92:                                               ; preds = %36
+87:                                               ; preds = %31
   br i1 %.not.i38, label %smart_str_get_len.exit.thread, label %smart_str_get_len.exit
 
-smart_str_get_len.exit:                           ; preds = %92
-  %93 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %94 = load i64, ptr %93, align 8, !tbaa !80
-  %.not35 = icmp eq i64 %94, 0
-  br i1 %.not35, label %smart_str_get_len.exit.thread, label %95
+smart_str_get_len.exit:                           ; preds = %87
+  %88 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %89 = load i64, ptr %88, align 8, !tbaa !55
+  %.not35 = icmp eq i64 %89, 0
+  br i1 %.not35, label %smart_str_get_len.exit.thread, label %90
 
-95:                                               ; preds = %smart_str_get_len.exit
-  %96 = getelementptr inbounds nuw i8, ptr %39, i64 4
-  %97 = load i32, ptr %96, align 4, !tbaa !32
-  %98 = and i32 %97, 64
-  %.not.i37 = icmp eq i32 %98, 0
+90:                                               ; preds = %smart_str_get_len.exit
+  %91 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  %92 = load i32, ptr %91, align 4, !tbaa !32
+  %93 = and i32 %92, 64
+  %.not.i37 = icmp eq i32 %93, 0
   br i1 %.not.i37, label %zend_string_init.exit, label %zend_string_dup.exit
 
-zend_string_init.exit:                            ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %100 = and i64 %94, -8
-  %101 = add i64 %100, 32
-  %102 = call noalias ptr @_emalloc(i64 noundef %101) #13
-  store i32 1, ptr %102, align 4, !tbaa !94
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store i32 22, ptr %103, align 4, !tbaa !32
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store i64 0, ptr %104, align 8, !tbaa !100
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store i64 %94, ptr %105, align 8, !tbaa !80
-  %106 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 1 %99, i64 %94, i1 false)
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %94
-  store i8 0, ptr %107, align 1, !tbaa !32
+zend_string_init.exit:                            ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %95 = and i64 %89, -8
+  %96 = add i64 %95, 32
+  %97 = call noalias ptr @_emalloc(i64 noundef %96) #13
+  store i32 1, ptr %97, align 4, !tbaa !70
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  store i32 22, ptr %98, align 4, !tbaa !32
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 0, ptr %99, align 8, !tbaa !76
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store i64 %89, ptr %100, align 8, !tbaa !55
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %101, ptr nonnull align 1 %94, i64 %89, i1 false)
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %89
+  store i8 0, ptr %102, align 1, !tbaa !32
   br label %zend_string_dup.exit
 
-zend_string_dup.exit:                             ; preds = %95, %zend_string_init.exit
-  %.0.i = phi ptr [ %102, %zend_string_init.exit ], [ %39, %95 ]
+zend_string_dup.exit:                             ; preds = %90, %zend_string_init.exit
+  %.0.i = phi ptr [ %97, %zend_string_init.exit ], [ %34, %90 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !32
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %103, align 8, !tbaa !32
+  br label %109
+
+smart_str_get_len.exit.thread:                    ; preds = %87, %smart_str_get_len.exit
+  %104 = load ptr, ptr @zend_empty_string, align 8, !tbaa !54
+  store ptr %104, ptr %1, align 8, !tbaa !32
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 6, ptr %105, align 8, !tbaa !32
+  br label %109
+
+106:                                              ; preds = %29
+  %107 = sext i32 %30 to i64
+  store i64 %107, ptr %1, align 8, !tbaa !32
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %108, align 8, !tbaa !32
-  br label %114
+  store i32 4, ptr %108, align 8, !tbaa !32
+  br label %109
 
-smart_str_get_len.exit.thread:                    ; preds = %92, %smart_str_get_len.exit
-  %109 = load ptr, ptr @zend_empty_string, align 8, !tbaa !79
-  store ptr %109, ptr %1, align 8, !tbaa !32
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 6, ptr %110, align 8, !tbaa !32
-  br label %114
-
-111:                                              ; preds = %34
-  %112 = sext i32 %35 to i64
-  store i64 %112, ptr %1, align 8, !tbaa !32
-  %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %113, align 8, !tbaa !32
-  br label %114
-
-114:                                              ; preds = %24, %31, %smart_str_extract_ex.exit, %zend_string_dup.exit, %smart_str_get_len.exit.thread, %111, %16
+109:                                              ; preds = %3, %21, %26, %smart_str_extract_ex.exit, %zend_string_dup.exit, %smart_str_get_len.exit.thread, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -3873,25 +3422,25 @@ declare noalias ptr @_emalloc_16() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @xml_writer_stream_write_memory(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef returned %2) #0 {
   %4 = sext i32 %2 to i64
-  %5 = load ptr, ptr %0, align 8, !tbaa !97
+  %5 = load ptr, ptr %0, align 8, !tbaa !73
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %12, label %6, !prof !93
+  br i1 %.not.i, label %12, label %6, !prof !69
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !80
+  %8 = load i64, ptr %7, align 8, !tbaa !55
   %9 = add i64 %8, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !99
+  %11 = load i64, ptr %10, align 8, !tbaa !75
   %.not12.i = icmp ult i64 %9, %11
-  br i1 %.not12.i, label %smart_str_alloc.exit, label %12, !prof !78
+  br i1 %.not12.i, label %smart_str_alloc.exit, label %12, !prof !53
 
 12:                                               ; preds = %6, %3
   %.0.i = phi i64 [ %4, %3 ], [ %9, %6 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #12
-  %.pre = load ptr, ptr %0, align 8, !tbaa !97
+  %.pre = load ptr, ptr %0, align 8, !tbaa !73
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre4 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !80
+  %.pre4 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !55
   br label %smart_str_alloc.exit
 
 smart_str_alloc.exit:                             ; preds = %6, %12
@@ -3901,15 +3450,15 @@ smart_str_alloc.exit:                             ; preds = %6, %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 range(i64 -2147483648, 2147483648) %4, i1 false)
-  %17 = load ptr, ptr %0, align 8, !tbaa !97
+  %17 = load ptr, ptr %0, align 8, !tbaa !73
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %.1.i, ptr %18, align 8, !tbaa !80
+  store i64 %.1.i, ptr %18, align 8, !tbaa !55
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @xml_writer_stream_close_memory(ptr noundef initializes((8, 16)) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !97
+  %2 = load ptr, ptr %0, align 8, !tbaa !73
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %smart_str_free_ex.exit, label %3
 
@@ -3921,11 +3470,11 @@ define internal noundef i32 @xml_writer_stream_close_memory(ptr noundef initiali
   br i1 %.not.i3, label %7, label %zend_string_release_ex.exit
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %2, align 4, !tbaa !94
+  %8 = load i32, ptr %2, align 4, !tbaa !70
   %9 = icmp ne i32 %8, 0
   tail call void @llvm.assume(i1 %9)
   %10 = add i32 %8, -1
-  store i32 %10, ptr %2, align 4, !tbaa !94
+  store i32 %10, ptr %2, align 4, !tbaa !70
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %zend_string_release_ex.exit
 
@@ -3934,12 +3483,12 @@ define internal noundef i32 @xml_writer_stream_close_memory(ptr noundef initiali
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %3, %7, %12
-  store ptr null, ptr %0, align 8, !tbaa !97
+  store ptr null, ptr %0, align 8, !tbaa !73
   br label %smart_str_free_ex.exit
 
 smart_str_free_ex.exit:                           ; preds = %1, %zend_string_release_ex.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !99
+  store i64 0, ptr %13, align 8, !tbaa !75
   tail call void @_efree(ptr noundef nonnull %0) #12
   ret i32 0
 }
@@ -3960,7 +3509,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal void @xmlwriter_object_dtor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
-  %3 = load ptr, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %xmlwriter_destroy_libxml_objects.exit, label %4
 
@@ -4047,69 +3596,45 @@ attributes #15 = { nounwind allocsize(1) }
 !32 = !{!7, !7, i64 0}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"p1 _ZTS17_zend_class_entry", !9, i64 0}
-!35 = !{!36, !49, i64 960}
-!36 = !{!"_zend_executor_globals", !37, i64 0, !37, i64 16, !7, i64 32, !38, i64 288, !38, i64 296, !17, i64 304, !17, i64 360, !39, i64 416, !6, i64 424, !40, i64 428, !37, i64 432, !6, i64 448, !30, i64 456, !30, i64 464, !30, i64 472, !16, i64 480, !16, i64 488, !41, i64 496, !19, i64 504, !42, i64 512, !34, i64 520, !6, i64 528, !42, i64 536, !6, i64 544, !19, i64 552, !6, i64 560, !6, i64 564, !6, i64 568, !40, i64 572, !40, i64 573, !43, i64 574, !43, i64 575, !30, i64 576, !19, i64 584, !9, i64 592, !9, i64 600, !17, i64 608, !17, i64 664, !6, i64 720, !40, i64 724, !37, i64 728, !37, i64 744, !44, i64 760, !44, i64 784, !44, i64 808, !34, i64 832, !6, i64 840, !6, i64 844, !19, i64 848, !30, i64 856, !30, i64 864, !45, i64 872, !46, i64 880, !48, i64 904, !49, i64 960, !49, i64 968, !50, i64 976, !7, i64 984, !51, i64 1080, !40, i64 1088, !7, i64 1089, !19, i64 1096, !6, i64 1104, !6, i64 1108, !52, i64 1112, !7, i64 1120, !9, i64 1376, !7, i64 1384, !53, i64 1640, !17, i64 1672, !19, i64 1728, !54, i64 1736, !55, i64 1760, !55, i64 1768, !56, i64 1776, !19, i64 1784, !40, i64 1792, !6, i64 1796, !57, i64 1800, !15, i64 1808, !19, i64 1816, !58, i64 1824, !19, i64 1840, !19, i64 1848, !59, i64 1856, !7, i64 1936}
-!37 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
-!38 = !{!"p2 _ZTS11_zend_array", !9, i64 0}
-!39 = !{!"p1 _ZTS13__jmp_buf_tag", !9, i64 0}
-!40 = !{!"_Bool", !7, i64 0}
-!41 = !{!"p1 _ZTS14_zend_vm_stack", !9, i64 0}
-!42 = !{!"p1 _ZTS18_zend_execute_data", !9, i64 0}
-!43 = !{!"zend_atomic_bool_s", !7, i64 0}
-!44 = !{!"_zend_stack", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16}
-!45 = !{!"p1 _ZTS15_zend_ini_entry", !9, i64 0}
-!46 = !{!"_zend_objects_store", !47, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!47 = !{!"p2 _ZTS12_zend_object", !9, i64 0}
-!48 = !{!"_zend_lazy_objects_store", !17, i64 0}
-!49 = !{!"p1 _ZTS12_zend_object", !9, i64 0}
-!50 = !{!"p1 _ZTS8_zend_op", !9, i64 0}
-!51 = !{!"p1 _ZTS18_zend_module_entry", !9, i64 0}
-!52 = !{!"p1 _ZTS18_HashTableIterator", !9, i64 0}
-!53 = !{!"_zend_op", !9, i64 0, !7, i64 8, !7, i64 12, !7, i64 16, !6, i64 20, !6, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!54 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16}
-!55 = !{!"p1 _ZTS19_zend_fiber_context", !9, i64 0}
-!56 = !{!"p1 _ZTS11_zend_fiber", !9, i64 0}
-!57 = !{!"p2 _ZTS16_zend_error_info", !9, i64 0}
-!58 = !{!"_zend_call_stack", !9, i64 0, !19, i64 8}
-!59 = !{!"_zend_strtod_state", !7, i64 0, !60, i64 64, !61, i64 72}
-!60 = !{!"p1 _ZTS19_zend_strtod_bigint", !9, i64 0}
-!61 = !{!"p1 omnipotent char", !9, i64 0}
-!62 = !{!16, !16, i64 0}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ze_xmlwriter_object", !65, i64 0, !9, i64 8, !66, i64 16}
-!65 = !{!"p1 _ZTS14_xmlTextWriter", !9, i64 0}
-!66 = !{!"_zend_object", !18, i64 0, !6, i64 8, !6, i64 12, !34, i64 16, !24, i64 24, !30, i64 32, !7, i64 40}
-!67 = !{!40, !40, i64 0}
-!68 = !{i8 0, i8 2}
-!69 = !{}
-!70 = !{!61, !61, i64 0}
-!71 = !{!19, !19, i64 0}
-!72 = !{!64, !9, i64 8}
-!73 = !{!14, !6, i64 32}
-!74 = !{!14, !6, i64 28}
-!75 = !{!76, !61, i64 0}
-!76 = !{!"_xmlURI", !61, i64 0, !61, i64 8, !61, i64 16, !61, i64 24, !61, i64 32, !6, i64 40, !61, i64 48, !61, i64 56, !61, i64 64, !6, i64 72, !61, i64 80}
-!77 = !{!"branch_weights", i32 4000000, i32 4001}
-!78 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!79 = !{!15, !15, i64 0}
-!80 = !{!81, !19, i64 16}
-!81 = !{!"_zend_string", !18, i64 0, !19, i64 8, !19, i64 16, !7, i64 24}
-!82 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!83 = !{!84, !91, i64 120}
-!84 = !{!"_php_stream", !85, i64 0, !9, i64 8, !86, i64 16, !86, i64 40, !89, i64 64, !9, i64 72, !37, i64 80, !90, i64 96, !90, i64 96, !90, i64 96, !90, i64 96, !90, i64 96, !90, i64 96, !90, i64 97, !7, i64 98, !6, i64 116, !91, i64 120, !92, i64 128, !61, i64 136, !91, i64 144, !19, i64 152, !61, i64 160, !19, i64 168, !19, i64 176, !19, i64 184, !19, i64 192, !88, i64 200}
-!85 = !{!"p1 _ZTS15_php_stream_ops", !9, i64 0}
-!86 = !{!"_php_stream_filter_chain", !87, i64 0, !87, i64 8, !88, i64 16}
-!87 = !{!"p1 _ZTS18_php_stream_filter", !9, i64 0}
-!88 = !{!"p1 _ZTS11_php_stream", !9, i64 0}
-!89 = !{!"p1 _ZTS19_php_stream_wrapper", !9, i64 0}
-!90 = !{!"short", !7, i64 0}
-!91 = !{!"p1 _ZTS14_zend_resource", !9, i64 0}
-!92 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!93 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!94 = !{!18, !6, i64 0}
-!95 = !{!96, !9, i64 24}
-!96 = !{!"_zend_resource", !18, i64 0, !19, i64 8, !6, i64 16, !9, i64 24}
-!97 = !{!98, !15, i64 0}
-!98 = !{!"", !15, i64 0, !19, i64 8}
-!99 = !{!98, !19, i64 8}
-!100 = !{!81, !19, i64 8}
+!35 = !{!16, !16, i64 0}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"_ze_xmlwriter_object", !38, i64 0, !9, i64 8, !39, i64 16}
+!38 = !{!"p1 _ZTS14_xmlTextWriter", !9, i64 0}
+!39 = !{!"_zend_object", !18, i64 0, !6, i64 8, !6, i64 12, !34, i64 16, !24, i64 24, !30, i64 32, !7, i64 40}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"_Bool", !7, i64 0}
+!42 = !{i8 0, i8 2}
+!43 = !{}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 omnipotent char", !9, i64 0}
+!46 = !{!19, !19, i64 0}
+!47 = !{!37, !9, i64 8}
+!48 = !{!14, !6, i64 32}
+!49 = !{!14, !6, i64 28}
+!50 = !{!51, !45, i64 0}
+!51 = !{!"_xmlURI", !45, i64 0, !45, i64 8, !45, i64 16, !45, i64 24, !45, i64 32, !6, i64 40, !45, i64 48, !45, i64 56, !45, i64 64, !6, i64 72, !45, i64 80}
+!52 = !{!"branch_weights", i32 4000000, i32 4001}
+!53 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!54 = !{!15, !15, i64 0}
+!55 = !{!56, !19, i64 16}
+!56 = !{!"_zend_string", !18, i64 0, !19, i64 8, !19, i64 16, !7, i64 24}
+!57 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!58 = !{!59, !67, i64 120}
+!59 = !{!"_php_stream", !60, i64 0, !9, i64 8, !61, i64 16, !61, i64 40, !64, i64 64, !9, i64 72, !65, i64 80, !66, i64 96, !66, i64 96, !66, i64 96, !66, i64 96, !66, i64 96, !66, i64 96, !66, i64 97, !7, i64 98, !6, i64 116, !67, i64 120, !68, i64 128, !45, i64 136, !67, i64 144, !19, i64 152, !45, i64 160, !19, i64 168, !19, i64 176, !19, i64 184, !19, i64 192, !63, i64 200}
+!60 = !{!"p1 _ZTS15_php_stream_ops", !9, i64 0}
+!61 = !{!"_php_stream_filter_chain", !62, i64 0, !62, i64 8, !63, i64 16}
+!62 = !{!"p1 _ZTS18_php_stream_filter", !9, i64 0}
+!63 = !{!"p1 _ZTS11_php_stream", !9, i64 0}
+!64 = !{!"p1 _ZTS19_php_stream_wrapper", !9, i64 0}
+!65 = !{!"_zval_struct", !7, i64 0, !7, i64 8, !7, i64 12}
+!66 = !{!"short", !7, i64 0}
+!67 = !{!"p1 _ZTS14_zend_resource", !9, i64 0}
+!68 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!69 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!70 = !{!18, !6, i64 0}
+!71 = !{!72, !9, i64 24}
+!72 = !{!"_zend_resource", !18, i64 0, !19, i64 8, !6, i64 16, !9, i64 24}
+!73 = !{!74, !15, i64 0}
+!74 = !{!"", !15, i64 0, !19, i64 8}
+!75 = !{!74, !19, i64 8}
+!76 = !{!56, !19, i64 8}

@@ -5341,42 +5341,39 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %10, %_ZNK4llvm8Call
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !338
-  %25 = load i32, ptr %4, align 4
-  %26 = icmp slt i32 %25, 0
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
-  %28 = extractvalue { ptr, i64 } %27, 0
-  %29 = extractvalue { ptr, i64 } %27, 1
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 -4
-  %32 = load i32, ptr %31, align 4, !tbaa !341
-  %33 = sub i32 %32, %24
+  %25 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
+  %26 = extractvalue { ptr, i64 } %25, 0
+  %27 = extractvalue { ptr, i64 } %25, 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = getelementptr inbounds i8, ptr %28, i64 -4
+  %30 = load i32, ptr %29, align 4, !tbaa !341
+  %31 = sub i32 %30, %24
   %.pre = load i32, ptr %4, align 4
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
 
 _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i, %19
-  %34 = phi i32 [ %.pre, %19 ], [ %.pre1, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
-  %.0.i = phi i32 [ %33, %19 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
-  %35 = ptrtoint ptr %3 to i64
-  %36 = and i32 %5, 134217727
-  %37 = zext nneg i32 %36 to i64
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %38
-  %40 = ptrtoint ptr %39 to i64
-  %41 = sub i64 %35, %40
-  %42 = lshr exact i64 %41, 5
-  %43 = trunc i64 %42 to i32
-  %44 = add i32 %1, 1
-  %45 = add i32 %44, %43
-  %46 = add i32 %45, %.0.i
-  %47 = and i32 %34, 134217727
-  %48 = zext nneg i32 %47 to i64
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %49
-  %51 = zext i32 %46 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::Use", ptr %50, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !75
-  ret ptr %53
+  %32 = phi i32 [ %.pre, %19 ], [ %.pre1, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
+  %.0.i = phi i32 [ %31, %19 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
+  %33 = ptrtoint ptr %3 to i64
+  %34 = and i32 %5, 134217727
+  %35 = zext nneg i32 %34 to i64
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %33, %38
+  %40 = lshr exact i64 %39, 5
+  %41 = trunc i64 %40 to i32
+  %42 = add i32 %1, 1
+  %43 = add i32 %42, %41
+  %44 = add i32 %43, %.0.i
+  %45 = and i32 %32, 134217727
+  %46 = zext nneg i32 %45 to i64
+  %47 = sub nsw i64 0, %46
+  %48 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %47
+  %49 = zext i32 %44 to i64
+  %50 = getelementptr inbounds nuw %"class.llvm::Use", ptr %48, i64 %49
+  %51 = load ptr, ptr %50, align 8, !tbaa !75
+  ret ptr %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5431,56 +5428,53 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %10, %_ZNK4llvm8Call
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !338
-  %25 = load i32, ptr %4, align 4
-  %26 = icmp slt i32 %25, 0
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
-  %28 = extractvalue { ptr, i64 } %27, 0
-  %29 = extractvalue { ptr, i64 } %27, 1
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 -4
-  %32 = load i32, ptr %31, align 4, !tbaa !341
-  %33 = sub i32 %32, %24
+  %25 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
+  %26 = extractvalue { ptr, i64 } %25, 0
+  %27 = extractvalue { ptr, i64 } %25, 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
+  %29 = getelementptr inbounds i8, ptr %28, i64 -4
+  %30 = load i32, ptr %29, align 4, !tbaa !341
+  %31 = sub i32 %30, %24
   %.pre = load i32, ptr %4, align 4
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
 
 _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i, %19
-  %34 = phi i32 [ %.pre, %19 ], [ %.pre1, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
-  %.0.i = phi i32 [ %33, %19 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
-  %35 = and i32 %34, 1073741824
-  %.not.i.i = icmp eq i32 %35, 0
-  br i1 %.not.i.i, label %39, label %36
+  %32 = phi i32 [ %.pre, %19 ], [ %.pre1, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
+  %.0.i = phi i32 [ %31, %19 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
+  %33 = and i32 %32, 1073741824
+  %.not.i.i = icmp eq i32 %33, 0
+  br i1 %.not.i.i, label %37, label %34
 
-36:                                               ; preds = %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 -8
-  %38 = load ptr, ptr %37, align 8, !tbaa !73
+34:                                               ; preds = %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
+  %35 = getelementptr inbounds i8, ptr %0, i64 -8
+  %36 = load ptr, ptr %35, align 8, !tbaa !73
   br label %_ZNK4llvm4User13getOperandUseEj.exit
 
-39:                                               ; preds = %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
-  %40 = and i32 %34, 134217727
-  %41 = zext nneg i32 %40 to i64
-  %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %42
+37:                                               ; preds = %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
+  %38 = and i32 %32, 134217727
+  %39 = zext nneg i32 %38 to i64
+  %40 = sub nsw i64 0, %39
+  %41 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %40
   br label %_ZNK4llvm4User13getOperandUseEj.exit
 
-_ZNK4llvm4User13getOperandUseEj.exit:             ; preds = %36, %39
-  %44 = phi ptr [ %38, %36 ], [ %43, %39 ]
-  %45 = ptrtoint ptr %3 to i64
-  %46 = and i32 %5, 134217727
-  %47 = zext nneg i32 %46 to i64
-  %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %48
-  %50 = ptrtoint ptr %49 to i64
-  %51 = sub i64 %45, %50
-  %52 = lshr exact i64 %51, 5
-  %53 = trunc i64 %52 to i32
-  %54 = add i32 %1, 1
-  %55 = add i32 %54, %53
-  %56 = add i32 %55, %.0.i
-  %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.llvm::Use", ptr %44, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !75
-  ret ptr %59
+_ZNK4llvm4User13getOperandUseEj.exit:             ; preds = %34, %37
+  %42 = phi ptr [ %36, %34 ], [ %41, %37 ]
+  %43 = ptrtoint ptr %3 to i64
+  %44 = and i32 %5, 134217727
+  %45 = zext nneg i32 %44 to i64
+  %46 = sub nsw i64 0, %45
+  %47 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %46
+  %48 = ptrtoint ptr %47 to i64
+  %49 = sub i64 %43, %48
+  %50 = lshr exact i64 %49, 5
+  %51 = trunc i64 %50 to i32
+  %52 = add i32 %1, 1
+  %53 = add i32 %52, %51
+  %54 = add i32 %53, %.0.i
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr inbounds nuw %"class.llvm::Use", ptr %42, i64 %55
+  %57 = load ptr, ptr %56, align 8, !tbaa !75
+  ret ptr %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15196,34 +15190,28 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   br i1 %.not.i, label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit, label %23
 
 23:                                               ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp slt i32 %24, 0
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !338
-  %30 = load i32, ptr %8, align 4
-  %31 = icmp slt i32 %30, 0
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
-  %33 = extractvalue { ptr, i64 } %32, 0
-  %34 = extractvalue { ptr, i64 } %32, 1
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 -4
-  %37 = load i32, ptr %36, align 4, !tbaa !341
-  %38 = sub i32 %37, %29
-  %39 = zext i32 %38 to i64
+  %24 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
+  %25 = extractvalue { ptr, i64 } %24, 0
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !338
+  %28 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #18
+  %29 = extractvalue { ptr, i64 } %28, 0
+  %30 = extractvalue { ptr, i64 } %28, 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
+  %32 = getelementptr inbounds i8, ptr %31, i64 -4
+  %33 = load i32, ptr %32, align 4, !tbaa !341
+  %34 = sub i32 %33, %27
+  %35 = zext i32 %34 to i64
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
 
 _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i, %23
-  %.0.i = phi i64 [ %39, %23 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
-  %40 = sub nsw i64 0, %.0.i.i
-  %41 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 -32
-  %43 = sub nsw i64 0, %.0.i
-  %44 = getelementptr inbounds %"class.llvm::Use", ptr %42, i64 %43
-  ret ptr %44
+  %.0.i = phi i64 [ %35, %23 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
+  %36 = sub nsw i64 0, %.0.i.i
+  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
+  %38 = getelementptr inbounds i8, ptr %37, i64 -32
+  %39 = sub nsw i64 0, %.0.i
+  %40 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %39
+  ret ptr %40
 }
 
 declare noundef i32 @_ZNK4llvm8CallBase34getNumSubclassExtraOperandsDynamicEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #4

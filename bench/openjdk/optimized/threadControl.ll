@@ -102,7 +102,7 @@ define hidden void @threadControl_initialize() local_unnamed_addr #0 {
   store ptr null, ptr @otherThreads, align 8
   store ptr null, ptr @runningVThreads, align 8
   store i32 0, ptr @debugThreadCount, align 4
-  %1 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str) #6
+  %1 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str) #5
   store ptr %1, ptr @threadLock, align 8
   ret void
 }
@@ -122,11 +122,11 @@ define hidden void @threadControl_onDisconnect() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_onHook() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = tail call ptr @getEnv() #6
+  %2 = tail call ptr @getEnv() #5
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
-  tail call void @createLocalRefSpace(ptr noundef %2, i32 noundef 1) #6
-  %4 = call ptr @allThreads(ptr noundef nonnull %1) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
+  tail call void @createLocalRefSpace(ptr noundef %2, i32 noundef 1) #5
+  %4 = call ptr @allThreads(ptr noundef nonnull %1) #5
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %.preheader
 
@@ -137,9 +137,9 @@ define hidden void @threadControl_onHook() local_unnamed_addr #0 {
 
 8:                                                ; preds = %0
   %9 = load ptr, ptr @stderr, align 8
-  %10 = call ptr @jvmtiErrorText(i32 noundef 188) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %10, i32 noundef 188, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 713) #6
-  call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.4) #6
+  %10 = call ptr @jvmtiErrorText(i32 noundef 188) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %10, i32 noundef 188, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 713) #5
+  call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.4) #5
   br label %20
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -158,7 +158,7 @@ define hidden void @threadControl_onHook() local_unnamed_addr #0 {
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  call void @jvmtiDeallocate(ptr noundef nonnull %4) #6
+  call void @jvmtiDeallocate(ptr noundef nonnull %4) #5
   br label %20
 
 20:                                               ; preds = %._crit_edge, %8
@@ -170,17 +170,17 @@ define hidden void @threadControl_onHook() local_unnamed_addr #0 {
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %20
-  call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 737) #6
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #6
+  call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 737) #5
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
   br label %26
 
 26:                                               ; preds = %20, %25
   %27 = load ptr, ptr %2, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %29 = load ptr, ptr %28, align 8
-  %30 = call ptr %29(ptr noundef nonnull %2, ptr noundef null) #6
+  %30 = call ptr %29(ptr noundef nonnull %2, ptr noundef null) #5
   %31 = load ptr, ptr @threadLock, align 8
-  call void @debugMonitorExit(ptr noundef %31) #6
+  call void @debugMonitorExit(ptr noundef %31) #5
   ret void
 }
 
@@ -207,53 +207,53 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %7, label %8, label %96
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @jvmtiAllocate(i32 noundef 264) #6
+  %9 = tail call ptr @jvmtiAllocate(i32 noundef 264) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
-  %13 = tail call ptr @jvmtiErrorText(i32 noundef 188) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %13, i32 noundef 188, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 356) #6
-  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.39) #6
+  %13 = tail call ptr @jvmtiErrorText(i32 noundef 188) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %13, i32 noundef 188, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 356) #5
+  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.39) #5
   br label %96
 
 14:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %9, i8 0, i64 264, i1 false)
-  %15 = tail call ptr @eventHelper_createEventBag() #6
+  %15 = tail call ptr @eventHelper_createEventBag() #5
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %9) #6
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %9) #5
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call ptr @jvmtiErrorText(i32 noundef 188) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %19, i32 noundef 188, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 363) #6
-  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.39) #6
+  %19 = tail call ptr @jvmtiErrorText(i32 noundef 188) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %19, i32 noundef 188, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 363) #5
+  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.39) #5
   br label %96
 
 20:                                               ; preds = %14
-  tail call void @saveGlobalRef(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %9) #6
+  tail call void @saveGlobalRef(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %9) #5
   %21 = load ptr, ptr %9, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %9) #6
-  tail call void @bagDestroyBag(ptr noundef nonnull %15) #6
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %9) #5
+  tail call void @bagDestroyBag(ptr noundef nonnull %15) #5
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call ptr @jvmtiErrorText(i32 noundef 188) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %24, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %25, i32 noundef 188, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 375) #6
-  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.39) #6
+  %25 = tail call ptr @jvmtiErrorText(i32 noundef 188) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %24, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %25, i32 noundef 188, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.5, i32 noundef 375) #5
+  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.39) #5
   br label %96
 
 26:                                               ; preds = %20
   br i1 %5, label %46, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @getEnv() #6
+  %28 = tail call ptr @getEnv() #5
   %29 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %29) #6
+  tail call void @debugMonitorEnter(ptr noundef %29) #5
   %30 = load i32, ptr @debugThreadCount, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph.i, label %.loopexit
@@ -269,18 +269,18 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %27 ]
   %36 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call zeroext i8 @isSameObject(ptr noundef %28, ptr noundef nonnull %21, ptr noundef %37) #6
+  %38 = tail call zeroext i8 @isSameObject(ptr noundef %28, ptr noundef nonnull %21, ptr noundef %37) #5
   %.not.i = icmp eq i8 %38, 0
   br i1 %.not.i, label %32, label %39
 
 39:                                               ; preds = %.lr.ph.i
   %40 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %40) #6
+  tail call void @debugMonitorExit(ptr noundef %40) #5
   br label %.sink.split
 
 .loopexit:                                        ; preds = %32, %27
   %41 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %41) #6
+  tail call void @debugMonitorExit(ptr noundef %41) #5
   %42 = load i32, ptr @suspendAllCount, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %74
@@ -300,8 +300,8 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i51, label %threadState.exit, label %51
 
 51:                                               ; preds = %46
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 150) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.51) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 150) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.51) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %threadState.exit
 
@@ -311,15 +311,15 @@ threadState.exit:                                 ; preds = %46, %51
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
   %56 = load ptr, ptr %55, align 8
-  %57 = call i32 %56(ptr noundef nonnull %53, ptr noundef nonnull %21, ptr noundef nonnull %4) #6
+  %57 = call i32 %56(ptr noundef nonnull %53, ptr noundef nonnull %21, ptr noundef nonnull %4) #5
   %.not48 = icmp eq i32 %57, 0
   br i1 %.not48, label %61, label %58
 
 58:                                               ; preds = %threadState.exit
   %59 = load ptr, ptr @stderr, align 8
-  %60 = call ptr @jvmtiErrorText(i32 noundef %57) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %59, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %60, i32 noundef %57, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, i32 noundef 397) #6
-  call void @debugInit_exit(i32 noundef %57, ptr noundef nonnull @.str.11) #6
+  %60 = call ptr @jvmtiErrorText(i32 noundef %57) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %59, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %60, i32 noundef %57, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, i32 noundef 397) #5
+  call void @debugInit_exit(i32 noundef %57, ptr noundef nonnull @.str.11) #5
   br label %61
 
 61:                                               ; preds = %58, %threadState.exit
@@ -419,23 +419,23 @@ declare void @debugMonitorExit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_suspendThread(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @getEnv() #6
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
-  tail call void @eventHandler_lock() #6
-  tail call void @invoker_lock() #6
-  tail call void @eventHelper_lock() #6
-  tail call void @stepControl_lock() #6
-  tail call void @commonRef_lock() #6
+  %3 = tail call ptr @getEnv() #5
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.9, ptr noundef %0, ptr noundef null, i64 noundef 0) #5
+  tail call void @eventHandler_lock() #5
+  tail call void @invoker_lock() #5
+  tail call void @eventHelper_lock() #5
+  tail call void @stepControl_lock() #5
+  tail call void @commonRef_lock() #5
   %4 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %4) #6
+  tail call void @debugMonitorEnter(ptr noundef %4) #5
   %5 = tail call fastcc i32 @commonSuspend(ptr noundef %3, ptr noundef %0, i8 noundef zeroext %1)
   %6 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %6) #6
-  tail call void @commonRef_unlock() #6
-  tail call void @stepControl_unlock() #6
-  tail call void @eventHelper_unlock() #6
-  tail call void @invoker_unlock() #6
-  tail call void @eventHandler_unlock() #6
+  tail call void @debugMonitorExit(ptr noundef %6) #5
+  tail call void @commonRef_unlock() #5
+  tail call void @stepControl_unlock() #5
+  tail call void @eventHelper_unlock() #5
+  tail call void @invoker_unlock() #5
+  tail call void @eventHandler_unlock() #5
   ret i32 %5
 }
 
@@ -443,7 +443,7 @@ declare void @log_debugee_location(ptr noundef, ptr noundef, ptr noundef, i64 no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
-  %4 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
+  %4 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
   %.not.i = icmp eq i8 %4, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %5 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %1)
@@ -451,7 +451,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
   br i1 %6, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %3
-  %7 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
+  %7 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
   %.not = icmp eq i8 %7, 0
   %otherThreads.runningVThreads = select i1 %.not, ptr @otherThreads, ptr @runningVThreads
   %8 = tail call fastcc ptr @insertThread(ptr noundef %0, ptr noundef nonnull %otherThreads.runningVThreads, ptr noundef %1)
@@ -492,7 +492,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
   %25 = and i16 %24, -9
   store i16 %25, ptr %10, align 8
   %26 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %26) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %26) #5
   br label %deferredSuspendThreadByNode.exit
 
 27:                                               ; preds = %9
@@ -536,7 +536,7 @@ define internal fastcc i32 @commonSuspend(ptr noundef %0, ptr noundef %1, i8 nou
 43:                                               ; preds = %.thread.i, %36
   %.014.i = phi i32 [ 0, %.thread.i ], [ %37, %36 ]
   %44 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %44) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %44) #5
   br label %deferredSuspendThreadByNode.exit
 
 deferredSuspendThreadByNode.exit:                 ; preds = %43, %32, %27, %23, %13
@@ -546,11 +546,11 @@ deferredSuspendThreadByNode.exit:                 ; preds = %43, %32, %27, %23, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_resumeThread(ptr noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @getEnv() #6
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.10, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
-  tail call void @eventHandler_lock() #6
+  %3 = tail call ptr @getEnv() #5
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.10, ptr noundef %0, ptr noundef null, i64 noundef 0) #5
+  tail call void @eventHandler_lock() #5
   %4 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %4) #6
+  tail call void @debugMonitorEnter(ptr noundef %4) #5
   %5 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %commonResume.exit, label %6
@@ -625,13 +625,13 @@ removeThread.exit.i:                              ; preds = %28, %26
 
 removeResumed.exit:                               ; preds = %31, %commonResume.exit
   %32 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %32) #6
-  tail call void @eventHandler_unlock() #6
+  tail call void @debugMonitorExit(ptr noundef %32) #5
+  tail call void @eventHandler_unlock() #5
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %34, label %33
 
 33:                                               ; preds = %removeResumed.exit
-  tail call void @unblockCommandLoop() #6
+  tail call void @unblockCommandLoop() #5
   br label %34
 
 34:                                               ; preds = %33, %removeResumed.exit
@@ -648,8 +648,8 @@ declare void @unblockCommandLoop() local_unnamed_addr #1
 define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %4) #6
-  %5 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  tail call void @debugMonitorEnter(ptr noundef %4) #5
+  %5 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i = icmp eq i8 %5, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %6 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
@@ -668,7 +668,7 @@ define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nounde
   br label %33
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  %13 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not17 = icmp eq i8 %13, 0
   br i1 %.not17, label %33, label %14
 
@@ -682,8 +682,8 @@ define hidden noundef i32 @threadControl_suspendCount(ptr noundef %0, ptr nounde
   br i1 %.not.i19, label %threadState.exit, label %19
 
 19:                                               ; preds = %14
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 150) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.51) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 150) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.51) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %threadState.exit
 
@@ -693,15 +693,15 @@ threadState.exit:                                 ; preds = %14, %19
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
-  %25 = call i32 %24(ptr noundef nonnull %21, ptr noundef %0, ptr noundef nonnull %3) #6
+  %25 = call i32 %24(ptr noundef nonnull %21, ptr noundef %0, ptr noundef nonnull %3) #5
   %.not18 = icmp eq i32 %25, 0
   br i1 %.not18, label %29, label %26
 
 26:                                               ; preds = %threadState.exit
   %27 = load ptr, ptr @stderr, align 8
-  %28 = call ptr @jvmtiErrorText(i32 noundef %25) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %28, i32 noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, i32 noundef 1345) #6
-  call void @debugInit_exit(i32 noundef %25, ptr noundef nonnull @.str.11) #6
+  %28 = call ptr @jvmtiErrorText(i32 noundef %25) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %27, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %28, i32 noundef %25, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, i32 noundef 1345) #5
+  call void @debugInit_exit(i32 noundef %25, ptr noundef nonnull @.str.11) #5
   br label %29
 
 29:                                               ; preds = %26, %threadState.exit
@@ -715,7 +715,7 @@ threadState.exit:                                 ; preds = %14, %19
   %.sink = phi i32 [ %11, %.thread ], [ 0, %12 ], [ %spec.select, %29 ]
   store i32 %.sink, ptr %1, align 4
   %34 = load ptr, ptr @threadLock, align 8
-  call void @debugMonitorExit(ptr noundef %34) #6
+  call void @debugMonitorExit(ptr noundef %34) #5
   ret i32 0
 }
 
@@ -732,8 +732,8 @@ define internal fastcc ptr @findThread(ptr noundef readnone captures(address) %0
   br i1 %.not.i, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 179) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.49) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 179) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.49) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %9
 
@@ -743,7 +743,7 @@ define internal fastcc ptr @findThread(ptr noundef readnone captures(address) %0
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 808
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %3) #6
+  %15 = call i32 %14(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %3) #5
   switch i32 %15, label %16 [
     i32 15, label %getThreadLocalStorage.exit.thread
     i32 0, label %getThreadLocalStorage.exit
@@ -755,9 +755,9 @@ getThreadLocalStorage.exit.thread:                ; preds = %9
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr @stderr, align 8
-  %18 = call ptr @jvmtiErrorText(i32 noundef %15) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %18, i32 noundef %15, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.5, i32 noundef 186) #6
-  call void @debugInit_exit(i32 noundef %15, ptr noundef nonnull @.str.50) #6
+  %18 = call ptr @jvmtiErrorText(i32 noundef %15) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %17, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %18, i32 noundef %15, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.5, i32 noundef 186) #5
+  call void @debugInit_exit(i32 noundef %15, ptr noundef nonnull @.str.50) #5
   br label %getThreadLocalStorage.exit
 
 getThreadLocalStorage.exit:                       ; preds = %9, %16
@@ -773,7 +773,7 @@ getThreadLocalStorage.exit:                       ; preds = %9, %16
   br i1 %or.cond, label %24, label %nonTlsSearch.exit
 
 24:                                               ; preds = %21
-  %25 = call ptr @getEnv() #6
+  %25 = call ptr @getEnv() #5
   %.08.i = load ptr, ptr @otherThreads, align 8
   %.not9.i = icmp eq ptr %.08.i, null
   br i1 %.not9.i, label %nonTlsSearch.exit, label %.lr.ph.i
@@ -781,7 +781,7 @@ getThreadLocalStorage.exit:                       ; preds = %9, %16
 .lr.ph.i:                                         ; preds = %24, %28
   %.010.i = phi ptr [ %.0.i41, %28 ], [ %.08.i, %24 ]
   %26 = load ptr, ptr %.010.i, align 8
-  %27 = call zeroext i8 @isSameObject(ptr noundef %25, ptr noundef %26, ptr noundef %1) #6
+  %27 = call zeroext i8 @isSameObject(ptr noundef %25, ptr noundef %26, ptr noundef %1) #5
   %.not7.i = icmp eq i8 %27, 0
   br i1 %.not7.i, label %28, label %nonTlsSearch.exit
 
@@ -806,7 +806,7 @@ nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24,
   br i1 %.not35, label %nonTlsSearch.exit51.thread, label %36
 
 36:                                               ; preds = %33
-  %37 = call ptr @getEnv() #6
+  %37 = call ptr @getEnv() #5
   %.08.i43 = load ptr, ptr @runningThreads, align 8
   %.not9.i44 = icmp eq ptr %.08.i43, null
   br i1 %.not9.i44, label %nonTlsSearch.exit51.thread, label %.lr.ph.i45
@@ -814,7 +814,7 @@ nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24,
 .lr.ph.i45:                                       ; preds = %36, %40
   %.010.i46 = phi ptr [ %.0.i49, %40 ], [ %.08.i43, %36 ]
   %38 = load ptr, ptr %.010.i46, align 8
-  %39 = call zeroext i8 @isSameObject(ptr noundef %37, ptr noundef %38, ptr noundef %1) #6
+  %39 = call zeroext i8 @isSameObject(ptr noundef %37, ptr noundef %38, ptr noundef %1) #5
   %.not7.i47 = icmp eq i8 %39, 0
   br i1 %.not7.i47, label %40, label %nonTlsSearch.exit51
 
@@ -825,7 +825,7 @@ nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24,
   br i1 %.not.i50, label %nonTlsSearch.exit51.thread, label %.lr.ph.i45, !llvm.loop !10
 
 nonTlsSearch.exit51:                              ; preds = %.lr.ph.i45
-  call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 257, ptr noundef nonnull @.str.47) #6
+  call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 257, ptr noundef nonnull @.str.47) #5
   br label %nonTlsSearch.exit51.thread
 
 nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSearch.exit51, %33
@@ -840,7 +840,7 @@ nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSea
   br i1 %.not38, label %nonTlsSearch.exit69, label %46
 
 46:                                               ; preds = %43
-  %47 = call ptr @getEnv() #6
+  %47 = call ptr @getEnv() #5
   %.08.i52 = load ptr, ptr @runningVThreads, align 8
   %.not9.i53 = icmp eq ptr %.08.i52, null
   br i1 %.not9.i53, label %nonTlsSearch.exit69, label %.lr.ph.i54
@@ -848,7 +848,7 @@ nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSea
 .lr.ph.i54:                                       ; preds = %46, %50
   %.010.i55 = phi ptr [ %.0.i58, %50 ], [ %.08.i52, %46 ]
   %48 = load ptr, ptr %.010.i55, align 8
-  %49 = call zeroext i8 @isSameObject(ptr noundef %47, ptr noundef %48, ptr noundef %1) #6
+  %49 = call zeroext i8 @isSameObject(ptr noundef %47, ptr noundef %48, ptr noundef %1) #5
   %.not7.i56 = icmp eq i8 %49, 0
   br i1 %.not7.i56, label %50, label %nonTlsSearch.exit60
 
@@ -859,7 +859,7 @@ nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSea
   br i1 %.not.i59, label %nonTlsSearch.exit69, label %.lr.ph.i54, !llvm.loop !10
 
 nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
-  call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 258, ptr noundef nonnull @.str.48) #6
+  call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 258, ptr noundef nonnull @.str.48) #5
   br label %nonTlsSearch.exit69
 
 52:                                               ; preds = %nonTlsSearch.exit
@@ -872,7 +872,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br i1 %or.cond3, label %56, label %.loopexit
 
 56:                                               ; preds = %54
-  %57 = call ptr @getEnv() #6
+  %57 = call ptr @getEnv() #5
   %.08.i61 = load ptr, ptr @runningThreads, align 8
   %.not9.i62 = icmp eq ptr %.08.i61, null
   br i1 %.not9.i62, label %.loopexit, label %.lr.ph.i63
@@ -880,7 +880,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
 .lr.ph.i63:                                       ; preds = %56, %60
   %.010.i64 = phi ptr [ %.0.i67, %60 ], [ %.08.i61, %56 ]
   %58 = load ptr, ptr %.010.i64, align 8
-  %59 = call zeroext i8 @isSameObject(ptr noundef %57, ptr noundef %58, ptr noundef %1) #6
+  %59 = call zeroext i8 @isSameObject(ptr noundef %57, ptr noundef %58, ptr noundef %1) #5
   %.not7.i65 = icmp eq i8 %59, 0
   br i1 %.not7.i65, label %60, label %nonTlsSearch.exit69
 
@@ -896,7 +896,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br i1 %or.cond5, label %63, label %nonTlsSearch.exit69.thread76
 
 63:                                               ; preds = %.loopexit
-  %64 = call ptr @getEnv() #6
+  %64 = call ptr @getEnv() #5
   %65 = call fastcc ptr @nonTlsSearch(ptr noundef %64, ptr noundef nonnull @runningVThreads, ptr noundef %1)
   br label %nonTlsSearch.exit69
 
@@ -924,16 +924,16 @@ declare zeroext i8 @isVThread(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = tail call ptr @getEnv() #6
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef null, i64 noundef 0) #6
-  tail call void @eventHandler_lock() #6
-  tail call void @invoker_lock() #6
-  tail call void @eventHelper_lock() #6
-  tail call void @stepControl_lock() #6
-  tail call void @commonRef_lock() #6
+  %2 = tail call ptr @getEnv() #5
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef null, i64 noundef 0) #5
+  tail call void @eventHandler_lock() #5
+  tail call void @invoker_lock() #5
+  tail call void @eventHelper_lock() #5
+  tail call void @stepControl_lock() #5
+  tail call void @commonRef_lock() #5
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
-  tail call void @createLocalRefSpace(ptr noundef %2, i32 noundef 1) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
+  tail call void @createLocalRefSpace(ptr noundef %2, i32 noundef 1) #5
   %4 = load ptr, ptr @gdata, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %6 = load i8, ptr %5, align 1
@@ -953,8 +953,8 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   br i1 %.not23, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1430) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1430) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.14) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %15
 
@@ -964,20 +964,20 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 936
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef nonnull %17, i32 noundef 0, ptr noundef null) #6
+  %21 = tail call i32 %20(ptr noundef nonnull %17, i32 noundef 0, ptr noundef null) #5
   %.not24 = icmp eq i32 %21, 0
   br i1 %.not24, label %25, label %22
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr @stderr, align 8
-  %24 = tail call ptr @jvmtiErrorText(i32 noundef %21) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %23, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %24, i32 noundef %21, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, i32 noundef 1433) #6
-  tail call void @debugInit_exit(i32 noundef %21, ptr noundef nonnull @.str.15) #6
+  %24 = tail call ptr @jvmtiErrorText(i32 noundef %21) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %23, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %24, i32 noundef %21, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.5, i32 noundef 1433) #5
+  tail call void @debugInit_exit(i32 noundef %21, ptr noundef nonnull @.str.15) #5
   br label %25
 
 25:                                               ; preds = %22, %15
   %26 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %26) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %26) #5
   br label %27
 
 27:                                               ; preds = %25, %7
@@ -1001,14 +1001,14 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !11
 
 enumerateOverThreadList.exit:                     ; preds = %.preheader, %27, %0
-  %35 = call ptr @allThreads(ptr noundef nonnull %1) #6
+  %35 = call ptr @allThreads(ptr noundef nonnull %1) #5
   %36 = icmp eq ptr %35, null
   br i1 %36, label %enumerateOverThreadList.exit39, label %37
 
 37:                                               ; preds = %enumerateOverThreadList.exit
   %38 = load i32, ptr %1, align 4
   %39 = shl nsw i32 %38, 3
-  %40 = call ptr @jvmtiAllocate(i32 noundef %39) #6
+  %40 = call ptr @jvmtiAllocate(i32 noundef %39) #5
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %43, label %newArray.exit.i
 
@@ -1020,9 +1020,9 @@ newArray.exit.i:                                  ; preds = %37
 
 43:                                               ; preds = %37
   %44 = load ptr, ptr @stderr, align 8
-  %45 = call ptr @jvmtiErrorText(i32 noundef 188) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %44, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %45, i32 noundef 188, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.5, i32 noundef 1155) #6
-  call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.52) #6
+  %45 = call ptr @jvmtiErrorText(i32 noundef 188) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %44, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %45, i32 noundef 188, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.5, i32 noundef 1155) #5
+  call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.52) #5
   br label %46
 
 46:                                               ; preds = %43, %newArray.exit.i
@@ -1093,7 +1093,7 @@ newArray.exit.i:                                  ; preds = %37
 
 74:                                               ; preds = %._crit_edge.i
   %75 = shl nsw i32 %.153.i, 2
-  %76 = call ptr @jvmtiAllocate(i32 noundef %75) #6
+  %76 = call ptr @jvmtiAllocate(i32 noundef %75) #5
   %.not.i60.i = icmp eq ptr %76, null
   br i1 %.not.i60.i, label %79, label %newArray.exit61.i
 
@@ -1105,9 +1105,9 @@ newArray.exit61.i:                                ; preds = %74
 
 79:                                               ; preds = %74
   %80 = load ptr, ptr @stderr, align 8
-  %81 = call ptr @jvmtiErrorText(i32 noundef 188) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %80, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %81, i32 noundef 188, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.5, i32 noundef 1198) #6
-  call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.53) #6
+  %81 = call ptr @jvmtiErrorText(i32 noundef 188) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %80, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %81, i32 noundef 188, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.5, i32 noundef 1198) #5
+  call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.53) #5
   br label %82
 
 82:                                               ; preds = %79, %newArray.exit61.i
@@ -1119,8 +1119,8 @@ newArray.exit61.i:                                ; preds = %74
   br i1 %.not.i29, label %.lr.ph66.preheader.i, label %87
 
 87:                                               ; preds = %82
-  call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1204) #6
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.54) #6
+  call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1204) #5
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.54) #5
   %.pre75.i = load ptr, ptr @gdata, align 8
   br label %.lr.ph66.preheader.i
 
@@ -1130,7 +1130,7 @@ newArray.exit61.i:                                ; preds = %74
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 728
   %92 = load ptr, ptr %91, align 8
-  %93 = call i32 %92(ptr noundef nonnull %89, i32 noundef %.153.i, ptr noundef %40, ptr noundef %76) #6
+  %93 = call i32 %92(ptr noundef nonnull %89, i32 noundef %.153.i, ptr noundef %40, ptr noundef %76) #5
   %wide.trip.count72.i = zext nneg i32 %.153.i to i64
   br label %.lr.ph66.i
 
@@ -1144,9 +1144,9 @@ newArray.exit61.i:                                ; preds = %74
 
 98:                                               ; preds = %.lr.ph66.i
   %99 = load ptr, ptr @stderr, align 8
-  %100 = call ptr @jvmtiErrorText(i32 noundef 203) #6
-  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %99, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %100, i32 noundef 203, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.5, i32 noundef 1211) #6
-  call void @debugInit_exit(i32 noundef 203, ptr noundef nonnull @.str.55) #6
+  %100 = call ptr @jvmtiErrorText(i32 noundef 203) #5
+  call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %99, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %100, i32 noundef 203, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.5, i32 noundef 1211) #5
+  call void @debugInit_exit(i32 noundef 203, ptr noundef nonnull @.str.55) #5
   br label %101
 
 101:                                              ; preds = %98, %.lr.ph66.i
@@ -1158,9 +1158,9 @@ newArray.exit61.i:                                ; preds = %74
   br i1 %.not57.i, label %108, label %106
 
 106:                                              ; preds = %101
-  call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1213) #6
+  call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1213) #5
   %107 = load ptr, ptr %96, align 8
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.56, ptr noundef %107) #6
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.56, ptr noundef %107) #5
   br label %108
 
 108:                                              ; preds = %106, %101
@@ -1209,14 +1209,14 @@ newArray.exit61.i:                                ; preds = %74
   br i1 %exitcond73.not.i, label %._crit_edge67.i, label %.lr.ph66.i, !llvm.loop !13
 
 ._crit_edge67.i:                                  ; preds = %125
-  call void @jvmtiDeallocate(ptr noundef nonnull %76) #6
+  call void @jvmtiDeallocate(ptr noundef nonnull %76) #5
   br label %commonSuspendList.exit
 
 commonSuspendList.exit:                           ; preds = %46, %._crit_edge.i, %._crit_edge67.i
   %.0.i = phi i32 [ %93, %._crit_edge67.i ], [ 0, %._crit_edge.i ], [ 0, %46 ]
-  call void @jvmtiDeallocate(ptr noundef %40) #6
+  call void @jvmtiDeallocate(ptr noundef %40) #5
   %126 = load ptr, ptr @threadLock, align 8
-  call void @debugMonitorNotifyAll(ptr noundef %126) #6
+  call void @debugMonitorNotifyAll(ptr noundef %126) #5
   %.not26 = icmp eq i32 %.0.i, 0
   br i1 %.not26, label %127, label %enumerateOverThreadList.exit39
 
@@ -1240,7 +1240,7 @@ commonSuspendList.exit:                           ; preds = %46, %._crit_edge.i,
   %indvars.iv.i.i.us = phi i64 [ 0, %.lr.ph.i32.us ], [ %indvars.iv.next.i.i.us, %134 ]
   %131 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i.us
   %132 = load ptr, ptr %131, align 8
-  %133 = call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %132, ptr noundef %130) #6
+  %133 = call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %132, ptr noundef %130) #5
   %.not.i.i41.us = icmp eq i8 %133, 0
   br i1 %.not.i.i41.us, label %134, label %suspendAllHelper.exit.thread.us
 
@@ -1275,7 +1275,7 @@ suspendAllHelper.exit.thread:                     ; preds = %.lr.ph.i32
   br i1 %.not11.i34, label %suspendAllHelper.exit.thread, label %enumerateOverThreadList.exit39
 
 .loopexit:                                        ; preds = %suspendAllHelper.exit.thread, %suspendAllHelper.exit.thread.us, %127
-  call void (...) @commonRef_pinAll() #6
+  call void (...) @commonRef_pinAll() #5
   %140 = load i32, ptr @suspendAllCount, align 4
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr @suspendAllCount, align 4
@@ -1283,7 +1283,7 @@ suspendAllHelper.exit.thread:                     ; preds = %.lr.ph.i32
 
 enumerateOverThreadList.exit39:                   ; preds = %.lr.ph.i32, %.loopexit.loopexit.i.us, %enumerateOverThreadList.exit, %.loopexit, %commonSuspendList.exit
   %.0 = phi i32 [ %.0.i, %commonSuspendList.exit ], [ 0, %.loopexit ], [ 188, %enumerateOverThreadList.exit ], [ %135, %.loopexit.loopexit.i.us ], [ %139, %.lr.ph.i32 ]
-  call void @jvmtiDeallocate(ptr noundef %35) #6
+  call void @jvmtiDeallocate(ptr noundef %35) #5
   %142 = load ptr, ptr @gdata, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 528
   %144 = load i32, ptr %143, align 8
@@ -1292,22 +1292,22 @@ enumerateOverThreadList.exit39:                   ; preds = %.lr.ph.i32, %.loope
   br i1 %.not27, label %147, label %146
 
 146:                                              ; preds = %enumerateOverThreadList.exit39
-  call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 1485) #6
-  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #6
+  call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 1485) #5
+  call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
   br label %147
 
 147:                                              ; preds = %enumerateOverThreadList.exit39, %146
   %148 = load ptr, ptr %2, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 160
   %150 = load ptr, ptr %149, align 8
-  %151 = call ptr %150(ptr noundef nonnull %2, ptr noundef null) #6
+  %151 = call ptr %150(ptr noundef nonnull %2, ptr noundef null) #5
   %152 = load ptr, ptr @threadLock, align 8
-  call void @debugMonitorExit(ptr noundef %152) #6
-  call void @commonRef_unlock() #6
-  call void @stepControl_unlock() #6
-  call void @eventHelper_unlock() #6
-  call void @invoker_unlock() #6
-  call void @eventHandler_unlock() #6
+  call void @debugMonitorExit(ptr noundef %152) #5
+  call void @commonRef_unlock() #5
+  call void @stepControl_unlock() #5
+  call void @eventHelper_unlock() #5
+  call void @invoker_unlock() #5
+  call void @eventHandler_unlock() #5
   ret i32 %.0
 }
 
@@ -1319,11 +1319,11 @@ declare void @commonRef_pinAll(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_resumeAll() local_unnamed_addr #0 {
-  %1 = tail call ptr @getEnv() #6
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null, i64 noundef 0) #6
-  tail call void @eventHandler_lock() #6
+  %1 = tail call ptr @getEnv() #5
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null, i64 noundef 0) #5
+  tail call void @eventHandler_lock() #5
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 19
   %5 = load i8, ptr %4, align 1
@@ -1359,7 +1359,7 @@ define hidden i32 @threadControl_resumeAll() local_unnamed_addr #0 {
   br i1 %.not5.i, label %18, label %excludeCountHelper.exit
 
 18:                                               ; preds = %14
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1506, ptr noundef nonnull @.str.57) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1506, ptr noundef nonnull @.str.57) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %excludeCountHelper.exit
 
@@ -1381,7 +1381,7 @@ enumerateOverThreadList.exit:                     ; preds = %excludeCountHelper.
 
 25:                                               ; preds = %enumerateOverThreadList.exit
   %26 = shl nsw i32 %.2, 3
-  %27 = tail call ptr @jvmtiAllocate(i32 noundef %26) #6
+  %27 = tail call ptr @jvmtiAllocate(i32 noundef %26) #5
   %.not.i20 = icmp eq ptr %27, null
   br i1 %.not.i20, label %30, label %newArray.exit
 
@@ -1393,9 +1393,9 @@ newArray.exit:                                    ; preds = %25
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr @stderr, align 8
-  %32 = tail call ptr @jvmtiErrorText(i32 noundef 188) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %31, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %32, i32 noundef 188, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.5, i32 noundef 1559) #6
-  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.18) #6
+  %32 = tail call ptr @jvmtiErrorText(i32 noundef 188) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %31, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %32, i32 noundef 188, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.5, i32 noundef 1559) #5
+  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.18) #5
   br label %33
 
 33:                                               ; preds = %newArray.exit, %30
@@ -1431,7 +1431,7 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   br i1 %.not7.i, label %43, label %44
 
 43:                                               ; preds = %39
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1517, ptr noundef nonnull @.str.57) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1517, ptr noundef nonnull @.str.57) #5
   br label %44
 
 44:                                               ; preds = %43, %39, %36, %.lr.ph.i23
@@ -1457,8 +1457,8 @@ enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.e
   br i1 %.not, label %56, label %55
 
 55:                                               ; preds = %enumerateOverThreadList.exit29
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1567) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1567) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19) #5
   %.pre58 = load ptr, ptr @gdata, align 8
   br label %56
 
@@ -1468,20 +1468,20 @@ enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.e
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 944
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 %61(ptr noundef nonnull %58, i32 noundef %.15355, ptr noundef %.0) #6
+  %62 = tail call i32 %61(ptr noundef nonnull %58, i32 noundef %.15355, ptr noundef %.0) #5
   %.not19 = icmp eq i32 %62, 0
   br i1 %.not19, label %66, label %63
 
 63:                                               ; preds = %56
   %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call ptr @jvmtiErrorText(i32 noundef %62) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %64, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %65, i32 noundef %62, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.5, i32 noundef 1570) #6
-  tail call void @debugInit_exit(i32 noundef %62, ptr noundef nonnull @.str.20) #6
+  %65 = tail call ptr @jvmtiErrorText(i32 noundef %62) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %64, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %65, i32 noundef %62, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.5, i32 noundef 1570) #5
+  tail call void @debugInit_exit(i32 noundef %62, ptr noundef nonnull @.str.20) #5
   br label %66
 
 66:                                               ; preds = %63, %56
   %67 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %67) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %67) #5
   br label %68
 
 68:                                               ; preds = %66, %0
@@ -1529,7 +1529,7 @@ resumeCountHelper.exit.i:                         ; preds = %85, %73, %.lr.ph.i.
   br i1 %or.cond10.i.i, label %85, label %84
 
 84:                                               ; preds = %80
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1018, ptr noundef nonnull @.str.44) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1018, ptr noundef nonnull @.str.44) #5
   br label %85
 
 85:                                               ; preds = %84, %80, %78
@@ -1582,7 +1582,7 @@ resumeCountHelper.exit83.i:                       ; preds = %103, %91, %.lr.ph.i
   br i1 %or.cond10.i82.i, label %103, label %102
 
 102:                                              ; preds = %98
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1018, ptr noundef nonnull @.str.44) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 1018, ptr noundef nonnull @.str.44) #5
   br label %103
 
 103:                                              ; preds = %102, %98, %96
@@ -1650,7 +1650,7 @@ resumeCopyHelper.exit.i:                          ; preds = %117, %.lr.ph.i37.i,
   br i1 %or.cond26.i.i, label %resumeCopyHelper.exit.sink.split.i, label %126
 
 126:                                              ; preds = %122
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #5
   %.pre.i.i = load i32, ptr %112, align 8
   %127 = add nsw i32 %.pre.i.i, -1
   br label %resumeCopyHelper.exit.sink.split.i
@@ -1711,14 +1711,14 @@ resumeCopyHelper.exit95.i:                        ; preds = %138, %.lr.ph.i46.i,
   br i1 %or.cond26.i92.i, label %resumeCopyHelper.exit95.sink.split.i, label %147
 
 147:                                              ; preds = %143
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #5
   %.pre.i93.i = load i32, ptr %133, align 8
   %148 = add nsw i32 %.pre.i93.i, -1
   br label %resumeCopyHelper.exit95.sink.split.i
 
 149:                                              ; preds = %enumerateOverThreadList.exit34.i
   %150 = shl nsw i32 %.5.i, 3
-  %151 = tail call ptr @jvmtiAllocate(i32 noundef %150) #6
+  %151 = tail call ptr @jvmtiAllocate(i32 noundef %150) #5
   %.not.i53.i = icmp eq ptr %151, null
   br i1 %.not.i53.i, label %154, label %newArray.exit.i
 
@@ -1730,14 +1730,14 @@ newArray.exit.i:                                  ; preds = %149
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr @stderr, align 8
-  %156 = tail call ptr @jvmtiErrorText(i32 noundef 188) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %155, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %156, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.5, i32 noundef 1094) #6
-  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.58) #6
+  %156 = tail call ptr @jvmtiErrorText(i32 noundef 188) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %155, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %156, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.5, i32 noundef 1094) #5
+  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.58) #5
   br label %157
 
 157:                                              ; preds = %154, %newArray.exit.i
   %158 = shl nsw i32 %.5.i, 2
-  %159 = tail call ptr @jvmtiAllocate(i32 noundef %158) #6
+  %159 = tail call ptr @jvmtiAllocate(i32 noundef %158) #5
   %.not.i54.i = icmp eq ptr %159, null
   br i1 %.not.i54.i, label %162, label %newArray.exit55.i
 
@@ -1749,9 +1749,9 @@ newArray.exit55.i:                                ; preds = %157
 
 162:                                              ; preds = %157
   %163 = load ptr, ptr @stderr, align 8
-  %164 = tail call ptr @jvmtiErrorText(i32 noundef 188) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %163, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %164, i32 noundef 188, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 1099) #6
-  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.59) #6
+  %164 = tail call ptr @jvmtiErrorText(i32 noundef 188) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %163, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %164, i32 noundef 188, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.5, i32 noundef 1099) #5
+  tail call void @debugInit_exit(i32 noundef 188, ptr noundef nonnull @.str.59) #5
   br label %165
 
 165:                                              ; preds = %162, %newArray.exit55.i
@@ -1808,7 +1808,7 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
   br i1 %or.cond26.i102.i, label %187, label %185
 
 185:                                              ; preds = %181
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #5
   %.pre.i103.i = load i32, ptr %171, align 8
   %186 = add nsw i32 %.pre.i103.i, -1
   br label %187
@@ -1837,7 +1837,7 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
   br i1 %or.cond27.i.i, label %197, label %196
 
 196:                                              ; preds = %193
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 994, ptr noundef nonnull @.str.44) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 994, ptr noundef nonnull @.str.44) #5
   br label %197
 
 197:                                              ; preds = %196, %193, %191
@@ -1901,7 +1901,7 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
   br i1 %or.cond26.i112.i, label %221, label %219
 
 219:                                              ; preds = %215
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 976, ptr noundef nonnull @.str.63) #5
   %.pre.i113.i = load i32, ptr %205, align 8
   %220 = add nsw i32 %.pre.i113.i, -1
   br label %221
@@ -1930,7 +1930,7 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
   br i1 %or.cond27.i118.i, label %231, label %230
 
 230:                                              ; preds = %227
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 994, ptr noundef nonnull @.str.44) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 994, ptr noundef nonnull @.str.44) #5
   br label %231
 
 231:                                              ; preds = %230, %227, %225
@@ -1948,8 +1948,8 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   br i1 %.not.i31, label %239, label %238
 
 238:                                              ; preds = %enumerateOverThreadList.exit73.i
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1109) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.60) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1109) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.60) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %239
 
@@ -1959,7 +1959,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 736
   %244 = load ptr, ptr %243, align 8
-  %245 = tail call i32 %244(ptr noundef nonnull %241, i32 noundef %.5.i, ptr noundef %151, ptr noundef %159) #6
+  %245 = tail call i32 %244(ptr noundef nonnull %241, i32 noundef %.5.i, ptr noundef %151, ptr noundef %159) #5
   %246 = icmp sgt i32 %.5.i, 0
   br i1 %246, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -1971,7 +1971,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %262 ]
   %247 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i
   %248 = load ptr, ptr %247, align 8
-  %249 = tail call zeroext i8 @isVThread(ptr noundef %248) #6
+  %249 = tail call zeroext i8 @isVThread(ptr noundef %248) #5
   %.not.i74.i = icmp eq i8 %249, 0
   %runningThreads.runningVThreads.i.i = select i1 %.not.i74.i, ptr @runningThreads, ptr @runningVThreads
   %250 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i.i, ptr noundef %248)
@@ -1980,9 +1980,9 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
 
 252:                                              ; preds = %.lr.ph.i32
   %253 = load ptr, ptr @stderr, align 8
-  %254 = tail call ptr @jvmtiErrorText(i32 noundef 203) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %253, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %254, i32 noundef 203, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.5, i32 noundef 1116) #6
-  tail call void @debugInit_exit(i32 noundef 203, ptr noundef nonnull @.str.61) #6
+  %254 = tail call ptr @jvmtiErrorText(i32 noundef 203) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %253, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %254, i32 noundef 203, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.5, i32 noundef 1116) #5
+  tail call void @debugInit_exit(i32 noundef 203, ptr noundef nonnull @.str.61) #5
   br label %255
 
 255:                                              ; preds = %252, %.lr.ph.i32
@@ -1994,9 +1994,9 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   br i1 %.not25.i, label %262, label %260
 
 260:                                              ; preds = %255
-  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1118) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1118) #5
   %261 = load ptr, ptr %250, align 8
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.62, ptr noundef %261) #6
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.62, ptr noundef %261) #5
   br label %262
 
 262:                                              ; preds = %260, %255
@@ -2017,10 +2017,10 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i32, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %262, %239
-  tail call void @jvmtiDeallocate(ptr noundef %159) #6
-  tail call void @jvmtiDeallocate(ptr noundef %151) #6
+  tail call void @jvmtiDeallocate(ptr noundef %159) #5
+  tail call void @jvmtiDeallocate(ptr noundef %151) #5
   %272 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %272) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %272) #5
   br label %commonResumeList.exit
 
 commonResumeList.exit:                            ; preds = %resumeCopyHelper.exit95.i, %enumerateOverThreadList.exit43.i, %._crit_edge.i
@@ -2113,7 +2113,7 @@ removeResumed.exit:                               ; preds = %302, %enumerateOver
   br i1 %304, label %305, label %308
 
 305:                                              ; preds = %removeResumed.exit
-  tail call void (...) @commonRef_unpinAll() #6
+  tail call void (...) @commonRef_unpinAll() #5
   %306 = load i32, ptr @suspendAllCount, align 4
   %307 = add nsw i32 %306, -1
   store i32 %307, ptr @suspendAllCount, align 4
@@ -2121,9 +2121,9 @@ removeResumed.exit:                               ; preds = %302, %enumerateOver
 
 308:                                              ; preds = %305, %removeResumed.exit
   %309 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %309) #6
-  tail call void @eventHandler_unlock() #6
-  tail call void @unblockCommandLoop() #6
+  tail call void @debugMonitorExit(ptr noundef %309) #5
+  tail call void @eventHandler_unlock() #5
+  tail call void @unblockCommandLoop() #5
   ret i32 %.016
 }
 
@@ -2132,8 +2132,8 @@ declare void @commonRef_unpinAll(...) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden ptr @threadControl_getStepRequest(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
-  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
+  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i = icmp eq i8 %3, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
@@ -2141,15 +2141,15 @@ define hidden ptr @threadControl_getStepRequest(ptr noundef %0) local_unnamed_ad
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %spec.select = select i1 %.not, ptr null, ptr %5
   %6 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %6) #6
+  tail call void @debugMonitorExit(ptr noundef %6) #5
   ret ptr %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @threadControl_getInvokeRequest(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
-  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
+  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i = icmp eq i8 %3, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
@@ -2157,25 +2157,25 @@ define hidden ptr @threadControl_getInvokeRequest(ptr noundef %0) local_unnamed_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %spec.select = select i1 %.not, ptr null, ptr %5
   %6 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %6) #6
+  tail call void @debugMonitorExit(ptr noundef %6) #5
   ret ptr %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 189) i32 @threadControl_addDebugThread(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
   %3 = load i32, ptr @debugThreadCount, align 4
   %4 = icmp sgt i32 %3, 9
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @getEnv() #6
+  %6 = tail call ptr @getEnv() #5
   %7 = load i32, ptr @debugThreadCount, align 4
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr @debugThreads, i64 %8
   store ptr null, ptr %9, align 8
-  tail call void @saveGlobalRef(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %9) #6
+  tail call void @saveGlobalRef(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %9) #5
   %10 = load i32, ptr @debugThreadCount, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds ptr, ptr @debugThreads, i64 %11
@@ -2191,7 +2191,7 @@ define hidden range(i32 0, 189) i32 @threadControl_addDebugThread(ptr noundef %0
 17:                                               ; preds = %5, %1, %15
   %.0 = phi i32 [ 0, %15 ], [ 188, %1 ], [ 188, %5 ]
   %18 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %18) #6
+  tail call void @debugMonitorExit(ptr noundef %18) #5
   ret i32 %.0
 }
 
@@ -2199,9 +2199,9 @@ declare void @saveGlobalRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @threadControl_isDebugThread(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @getEnv() #6
+  %2 = tail call ptr @getEnv() #5
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   %4 = load i32, ptr @debugThreadCount, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -2217,14 +2217,14 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_isDebugThread(ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
   %10 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %0, ptr noundef %11) #6
+  %12 = tail call zeroext i8 @isSameObject(ptr noundef %2, ptr noundef %0, ptr noundef %11) #5
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %1
   %.05 = phi i8 [ 0, %1 ], [ 1, %.lr.ph ], [ 0, %6 ]
   %13 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %13) #6
+  tail call void @debugMonitorExit(ptr noundef %13) #5
   ret i8 %.05
 }
 
@@ -2232,15 +2232,15 @@ declare zeroext i8 @isSameObject(ptr noundef, ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_popFrames(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.21, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.21, ptr noundef %0, ptr noundef null, i64 noundef 0) #5
   %3 = load ptr, ptr @popFrameEventLock, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %initLocks.exit
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str.64) #6
+  %6 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str.64) #5
   store ptr %6, ptr @popFrameEventLock, align 8
-  %7 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str.65) #6
+  %7 = tail call ptr @debugMonitorCreate(ptr noundef nonnull @.str.65) #5
   store ptr %7, ptr @popFrameProceedLock, align 8
   br label %initLocks.exit
 
@@ -2250,8 +2250,8 @@ initLocks.exit:                                   ; preds = %2, %5
 
 9:                                                ; preds = %initLocks.exit
   %10 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %10) #6
-  %11 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  tail call void @debugMonitorEnter(ptr noundef %10) #5
+  %11 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i.i = icmp eq i8 %11, 0
   %runningThreads.runningVThreads.i.i = select i1 %.not.i.i, ptr @runningThreads, ptr @runningVThreads
   %12 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i.i, ptr noundef %0)
@@ -2266,15 +2266,15 @@ initLocks.exit:                                   ; preds = %2, %5
 threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   %.0.i = phi i32 [ %15, %13 ], [ 0, %9 ]
   %16 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %16) #6
-  %17 = tail call zeroext i8 @invoker_isEnabled(ptr noundef %0) #6
+  tail call void @debugMonitorExit(ptr noundef %16) #5
+  %17 = tail call zeroext i8 @invoker_isEnabled(ptr noundef %0) #5
   %18 = tail call i32 @threadControl_setEventMode(i32 noundef 1, i32 noundef 1, ptr noundef %0)
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %97
 
 19:                                               ; preds = %threadControl_getInstructionStepMode.exit
   %20 = load ptr, ptr @popFrameEventLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %20) #6
+  tail call void @debugMonitorEnter(ptr noundef %20) #5
   tail call fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroext 1)
   %21 = add nuw i32 %1, 1
   br label %22
@@ -2294,8 +2294,8 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   br i1 %.not.i31, label %30, label %29
 
 29:                                               ; preds = %23
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1884) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.67) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1884) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.67) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %30
 
@@ -2305,7 +2305,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 632
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef nonnull %32, ptr noundef %0) #6
+  %36 = tail call i32 %35(ptr noundef nonnull %32, ptr noundef %0) #5
   %.not15.i = icmp eq i32 %36, 0
   br i1 %.not15.i, label %37, label %popOneFrame.exit.thread
 
@@ -2318,8 +2318,8 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   br i1 %.not16.i, label %43, label %42
 
 42:                                               ; preds = %37
-  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1891) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.68, ptr noundef %0) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1891) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.68, ptr noundef %0) #5
   %.pre22.i = load ptr, ptr @gdata, align 8
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre22.i, i64 528
   %.pre23.i = load i32, ptr %.phi.trans.insert.i, align 8
@@ -2333,8 +2333,8 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   br i1 %.not17.i, label %48, label %47
 
 47:                                               ; preds = %43
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1892) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1892) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #5
   %.pre24.i = load ptr, ptr @gdata, align 8
   br label %48
 
@@ -2344,7 +2344,7 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %53(ptr noundef nonnull %50, ptr noundef %0) #6
+  %54 = tail call i32 %53(ptr noundef nonnull %50, ptr noundef %0) #5
   %.not18.i = icmp eq i32 %54, 0
   br i1 %.not18.i, label %55, label %popOneFrame.exit.thread
 
@@ -2354,37 +2354,37 @@ threadControl_getInstructionStepMode.exit:        ; preds = %9, %13
 
 56:                                               ; preds = %68, %55
   %57 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %57) #6
+  tail call void @debugMonitorEnter(ptr noundef %57) #5
   %58 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %59 = icmp eq ptr %58, null
   br i1 %59, label %getPopFrameEvent.exit.thread.i, label %getPopFrameEvent.exit.i
 
 getPopFrameEvent.exit.thread.i:                   ; preds = %56
   %60 = load ptr, ptr @stderr, align 8
-  %61 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %61, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1782) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
+  %61 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %61, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1782) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #5
   %62 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %62) #6
+  tail call void @debugMonitorExit(ptr noundef %62) #5
   br label %68
 
 getPopFrameEvent.exit.i:                          ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %64 = load i16, ptr %63, align 8
   %65 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %65) #6
+  tail call void @debugMonitorExit(ptr noundef %65) #5
   %66 = and i16 %64, 64
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %getPopFrameEvent.exit.i, %getPopFrameEvent.exit.thread.i
   %69 = load ptr, ptr @popFrameEventLock, align 8
-  tail call void @debugMonitorWait(ptr noundef %69) #6
+  tail call void @debugMonitorWait(ptr noundef %69) #5
   br label %56, !llvm.loop !16
 
 70:                                               ; preds = %getPopFrameEvent.exit.i
   %71 = load ptr, ptr @popFrameProceedLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %71) #6
+  tail call void @debugMonitorEnter(ptr noundef %71) #5
   %72 = load ptr, ptr @gdata, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 528
   %74 = load i32, ptr %73, align 8
@@ -2393,8 +2393,8 @@ getPopFrameEvent.exit.i:                          ; preds = %56
   br i1 %.not19.i, label %77, label %76
 
 76:                                               ; preds = %70
-  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1907) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.69, ptr noundef %0) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 1907) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.69, ptr noundef %0) #5
   %.pre25.i = load ptr, ptr @gdata, align 8
   %.phi.trans.insert26.i = getelementptr inbounds nuw i8, ptr %.pre25.i, i64 528
   %.pre27.i = load i32, ptr %.phi.trans.insert26.i, align 8
@@ -2408,8 +2408,8 @@ getPopFrameEvent.exit.i:                          ; preds = %56
   br i1 %.not20.i, label %popOneFrame.exit, label %81
 
 81:                                               ; preds = %77
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1908) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.42) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 1908) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.42) #5
   %.pre28.i = load ptr, ptr @gdata, align 8
   br label %popOneFrame.exit
 
@@ -2419,12 +2419,12 @@ popOneFrame.exit:                                 ; preds = %77, %81
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = tail call i32 %86(ptr noundef nonnull %83, ptr noundef %0) #6
+  %87 = tail call i32 %86(ptr noundef nonnull %83, ptr noundef %0) #5
   tail call fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroext 1)
   %88 = load ptr, ptr @popFrameProceedLock, align 8
-  tail call void @debugMonitorNotify(ptr noundef %88) #6
+  tail call void @debugMonitorNotify(ptr noundef %88) #5
   %89 = load ptr, ptr @popFrameProceedLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %89) #6
+  tail call void @debugMonitorExit(ptr noundef %89) #5
   %.not29 = icmp eq i32 %87, 0
   br i1 %.not29, label %22, label %popOneFrame.exit.thread, !llvm.loop !17
 
@@ -2432,12 +2432,12 @@ popOneFrame.exit.thread:                          ; preds = %48, %30, %popOneFra
   %.1 = phi i32 [ %87, %popOneFrame.exit ], [ 0, %22 ], [ %54, %48 ], [ %36, %30 ]
   tail call fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroext 0)
   %90 = load ptr, ptr @popFrameEventLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %90) #6
+  tail call void @debugMonitorExit(ptr noundef %90) #5
   %91 = icmp eq i32 %.0.i, 1
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %popOneFrame.exit.thread
-  tail call void @stepControl_resetRequest(ptr noundef %0) #6
+  tail call void @stepControl_resetRequest(ptr noundef %0) #5
   br label %93
 
 93:                                               ; preds = %92, %popOneFrame.exit.thread
@@ -2445,7 +2445,7 @@ popOneFrame.exit.thread:                          ; preds = %48, %30, %popOneFra
   br i1 %.not30, label %95, label %94
 
 94:                                               ; preds = %93
-  tail call void @invoker_enableInvokeRequests(ptr noundef %0) #6
+  tail call void @invoker_enableInvokeRequests(ptr noundef %0) #5
   br label %95
 
 95:                                               ; preds = %94, %93
@@ -2460,8 +2460,8 @@ popOneFrame.exit.thread:                          ; preds = %48, %30, %popOneFra
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_getInstructionStepMode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
-  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
+  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i = icmp eq i8 %3, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
@@ -2476,7 +2476,7 @@ define hidden i32 @threadControl_getInstructionStepMode(ptr noundef %0) local_un
 8:                                                ; preds = %5, %1
   %.0 = phi i32 [ %7, %5 ], [ 0, %1 ]
   %9 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %9) #6
+  tail call void @debugMonitorExit(ptr noundef %9) #5
   ret i32 %.0
 }
 
@@ -2496,8 +2496,8 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not18, label %11, label %10
 
 10:                                               ; preds = %5
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2469) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2469) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %11
 
@@ -2507,14 +2507,14 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
-  %18 = tail call i32 (ptr, i32, i32, ptr, ...) %16(ptr noundef nonnull %13, i32 noundef %0, i32 noundef %17, ptr noundef null) #6
+  %17 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #5
+  %18 = tail call i32 (ptr, i32, i32, ptr, ...) %16(ptr noundef nonnull %13, i32 noundef %0, i32 noundef %17, ptr noundef null) #5
   br label %58
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %20) #6
-  %21 = tail call zeroext i8 @isVThread(ptr noundef nonnull %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %20) #5
+  %21 = tail call zeroext i8 @isVThread(ptr noundef nonnull %2) #5
   %.not.i = icmp eq i8 %21, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %22 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef nonnull %2)
@@ -2529,15 +2529,15 @@ define hidden i32 @threadControl_setEventMode(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not, label %28, label %40
 
 28:                                               ; preds = %24, %19
-  %29 = tail call ptr @getEnv() #6
-  %30 = tail call ptr @jvmtiAllocate(i32 noundef 24) #6
+  %29 = tail call ptr @getEnv() #5
+  %30 = tail call ptr @jvmtiAllocate(i32 noundef 24) #5
   %31 = icmp eq ptr %30, null
   br i1 %31, label %addDeferredEventMode.exit, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %33, align 8
-  tail call void @saveGlobalRef(ptr noundef %29, ptr noundef nonnull %2, ptr noundef nonnull %33) #6
+  tail call void @saveGlobalRef(ptr noundef %29, ptr noundef nonnull %2, ptr noundef nonnull %33) #5
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %0, ptr %34, align 4
   store i32 %1, ptr %30, align 8
@@ -2578,8 +2578,8 @@ insertEventMode.exit.i:                           ; preds = %39, %37
   br i1 %.not.i19, label %threadSetEventNotificationMode.exit, label %49
 
 49:                                               ; preds = %44
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 604) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 604) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %threadSetEventNotificationMode.exit
 
@@ -2589,14 +2589,14 @@ threadSetEventNotificationMode.exit:              ; preds = %44, %49
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #6
-  %56 = tail call i32 (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull %51, i32 noundef %0, i32 noundef %55, ptr noundef nonnull %2) #6
+  %55 = tail call i32 @eventIndex2jvmti(i32 noundef %1) #5
+  %56 = tail call i32 (ptr, i32, i32, ptr, ...) %54(ptr noundef nonnull %51, i32 noundef %0, i32 noundef %55, ptr noundef nonnull %2) #5
   br label %addDeferredEventMode.exit
 
 addDeferredEventMode.exit:                        ; preds = %insertEventMode.exit.i, %28, %threadSetEventNotificationMode.exit
   %.1 = phi i32 [ %56, %threadSetEventNotificationMode.exit ], [ 0, %insertEventMode.exit.i ], [ 188, %28 ]
   %57 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %57) #6
+  tail call void @debugMonitorExit(ptr noundef %57) #5
   br label %58
 
 58:                                               ; preds = %addDeferredEventMode.exit, %11
@@ -2607,16 +2607,16 @@ addDeferredEventMode.exit:                        ; preds = %insertEventMode.exi
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   %4 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1762) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
+  %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1762) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #5
   br label %16
 
 9:                                                ; preds = %2
@@ -2631,7 +2631,7 @@ define internal fastcc void @setPopFrameThread(ptr noundef %0, i8 noundef zeroex
 
 16:                                               ; preds = %9, %6
   %17 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %17) #6
+  tail call void @debugMonitorExit(ptr noundef %17) #5
   ret void
 }
 
@@ -2644,24 +2644,24 @@ define hidden ptr @threadControl_onEventHandlerEntry(i8 noundef signext %0, ptr 
   %4 = load i32, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @getEnv() #6
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.22, ptr noundef %6, ptr noundef null, i64 noundef 0) #6
+  %7 = tail call ptr @getEnv() #5
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.22, ptr noundef %6, ptr noundef null, i64 noundef 0) #5
   %8 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %8) #6
+  tail call void @debugMonitorEnter(ptr noundef %8) #5
   %9 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %6)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %getPopFrameThread.exit.thread.i, label %getPopFrameThread.exit.i
 
 getPopFrameThread.exit.thread.i:                  ; preds = %3
   %11 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %11) #6
+  tail call void @debugMonitorExit(ptr noundef %11) #5
   br label %checkForPopFrameEvents.exit
 
 getPopFrameThread.exit.i:                         ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %14) #6
+  tail call void @debugMonitorExit(ptr noundef %14) #5
   %15 = and i16 %13, 256
   %.not.i = icmp eq i16 %15, 0
   br i1 %.not.i, label %checkForPopFrameEvents.exit, label %16
@@ -2683,9 +2683,9 @@ getPopFrameThread.exit.i:                         ; preds = %3
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call ptr @jvmtiErrorText(i32 noundef 181) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %19, i32 noundef 181, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.5, i32 noundef 1998) #6
-  tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.70) #6
+  %19 = tail call ptr @jvmtiErrorText(i32 noundef 181) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %19, i32 noundef 181, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.5, i32 noundef 1998) #5
+  tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.70) #5
   br label %checkForPopFrameEvents.exit
 
 20:                                               ; preds = %16
@@ -2705,7 +2705,7 @@ getPopFrameThread.exit.i:                         ; preds = %3
   br i1 %.not7.i, label %checkForPopFrameEvents.exit, label %26
 
 26:                                               ; preds = %23
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2007, ptr noundef nonnull @.str.71) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2007, ptr noundef nonnull @.str.71) #5
   br label %checkForPopFrameEvents.exit
 
 27:                                               ; preds = %16
@@ -2725,35 +2725,35 @@ getPopFrameThread.exit.i:                         ; preds = %3
   br i1 %.not59, label %35, label %34
 
 34:                                               ; preds = %33
-  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 2051) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.23) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 2051) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.23) #5
   br label %35
 
 35:                                               ; preds = %33, %34
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call i32 %38(ptr noundef nonnull %7, ptr noundef nonnull %2) #6
+  %39 = tail call i32 %38(ptr noundef nonnull %7, ptr noundef nonnull %2) #5
   br label %169
 
 40:                                               ; preds = %28
   br i1 %.not59, label %42, label %41
 
 41:                                               ; preds = %40
-  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 2053) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.24) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5, i32 noundef 2053) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.24) #5
   br label %42
 
 42:                                               ; preds = %40, %41
   %43 = load ptr, ptr %7, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull %7) #6
+  tail call void %45(ptr noundef nonnull %7) #5
   br label %169
 
 checkForPopFrameEvents.exit:                      ; preds = %26, %23, %21, %20, %17, %16, %getPopFrameThread.exit.i, %getPopFrameThread.exit.thread.i
   %46 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %46) #6
+  tail call void @debugMonitorEnter(ptr noundef %46) #5
   %47 = tail call fastcc ptr @findThread(ptr noundef nonnull @otherThreads, ptr noundef %6)
   %.not51 = icmp eq ptr %47, null
   br i1 %.not51, label %89, label %48
@@ -2824,7 +2824,7 @@ removeNode.exit.i:                                ; preds = %68, %66
   br i1 %78, label %80, label %79
 
 79:                                               ; preds = %75
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 513, ptr noundef nonnull @.str.72) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 513, ptr noundef nonnull @.str.72) #5
   br label %80
 
 80:                                               ; preds = %79, %75, %72, %removeNode.exit.i
@@ -2883,7 +2883,7 @@ moveNode.exit:                                    ; preds = %85, %86
   br i1 %or.cond, label %104, label %103
 
 103:                                              ; preds = %98
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2088, ptr noundef nonnull @.str.25) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2088, ptr noundef nonnull @.str.25) #5
   br label %processDeferredEventModes.exit
 
 104:                                              ; preds = %98
@@ -2895,7 +2895,7 @@ moveNode.exit:                                    ; preds = %85, %86
   br i1 %or.cond3, label %.thread, label %.thread67
 
 .thread67:                                        ; preds = %104
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2089, ptr noundef nonnull @.str.26) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2089, ptr noundef nonnull @.str.26) #5
   br label %processDeferredEventModes.exit
 
 .thread:                                          ; preds = %96, %104
@@ -2924,7 +2924,7 @@ moveNode.exit:                                    ; preds = %85, %86
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call zeroext i8 @isSameObject(ptr noundef %7, ptr noundef %6, ptr noundef %119) #6
+  %120 = tail call zeroext i8 @isSameObject(ptr noundef %7, ptr noundef %6, ptr noundef %119) #5
   %.not21.i = icmp eq i8 %120, 0
   br i1 %.not21.i, label %153, label %121
 
@@ -2949,8 +2949,8 @@ moveNode.exit:                                    ; preds = %85, %86
   br i1 %.not.i.i62, label %threadSetEventNotificationMode.exit.i, label %133
 
 133:                                              ; preds = %128
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 604) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 604) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.36) #5
   %.pre.i.i = load ptr, ptr @gdata, align 8
   br label %threadSetEventNotificationMode.exit.i
 
@@ -2960,16 +2960,16 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8
-  %139 = tail call i32 @eventIndex2jvmti(i32 noundef %124) #6
-  %140 = tail call i32 (ptr, i32, i32, ptr, ...) %138(ptr noundef nonnull %135, i32 noundef %123, i32 noundef %139, ptr noundef %125) #6
+  %139 = tail call i32 @eventIndex2jvmti(i32 noundef %124) #5
+  %140 = tail call i32 (ptr, i32, i32, ptr, ...) %138(ptr noundef nonnull %135, i32 noundef %123, i32 noundef %139, ptr noundef %125) #5
   %.not22.i = icmp eq i32 %140, 0
   br i1 %.not22.i, label %144, label %141
 
 141:                                              ; preds = %threadSetEventNotificationMode.exit.i
   %142 = load ptr, ptr @stderr, align 8
-  %143 = tail call ptr @jvmtiErrorText(i32 noundef %140) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %142, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %143, i32 noundef %140, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.5, i32 noundef 624) #6
-  tail call void @debugInit_exit(i32 noundef %140, ptr noundef nonnull @.str.75) #6
+  %143 = tail call ptr @jvmtiErrorText(i32 noundef %140) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %142, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %143, i32 noundef %140, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.5, i32 noundef 624) #5
+  tail call void @debugInit_exit(i32 noundef %140, ptr noundef nonnull @.str.75) #5
   br label %144
 
 144:                                              ; preds = %141, %threadSetEventNotificationMode.exit.i
@@ -2995,8 +2995,8 @@ threadSetEventNotificationMode.exit.i:            ; preds = %133, %128
   br label %removeEventMode.exit.i
 
 removeEventMode.exit.i:                           ; preds = %152, %150
-  tail call void @tossGlobalRef(ptr noundef %7, ptr noundef nonnull %118) #6
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %.025.i) #6
+  tail call void @tossGlobalRef(ptr noundef %7, ptr noundef nonnull %118) #5
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %.025.i) #5
   br label %153
 
 153:                                              ; preds = %removeEventMode.exit.i, %115
@@ -3024,18 +3024,18 @@ processDeferredEventModes.exit:                   ; preds = %153, %103, %109, %.
 
 .thread68:                                        ; preds = %processDeferredEventModes.exit
   %164 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %164) #6
+  tail call void @debugMonitorExit(ptr noundef %164) #5
   br label %169
 
 165:                                              ; preds = %processDeferredEventModes.exit
   %166 = load ptr, ptr %.045, align 8
   %167 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %167) #6
+  tail call void @debugMonitorExit(ptr noundef %167) #5
   %.not57 = icmp eq ptr %166, null
   br i1 %.not57, label %169, label %168
 
 168:                                              ; preds = %165
-  tail call void @eventHelper_suspendThread(i8 noundef signext %0, ptr noundef nonnull %166) #6
+  tail call void @eventHelper_suspendThread(i8 noundef signext %0, ptr noundef nonnull %166) #5
   br label %169
 
 169:                                              ; preds = %.thread68, %165, %168, %35, %42
@@ -3053,8 +3053,8 @@ define internal fastcc void @setThreadLocalStorage(ptr noundef %0, ptr noundef %
   br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %2
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 160) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.73) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 160) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.73) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %8
 
@@ -3064,7 +3064,7 @@ define internal fastcc void @setThreadLocalStorage(ptr noundef %0, ptr noundef %
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 816
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef nonnull %10, ptr noundef %0, ptr noundef %1) #6
+  %14 = tail call i32 %13(ptr noundef nonnull %10, ptr noundef %0, ptr noundef %1) #5
   %15 = icmp ne i32 %14, 15
   %16 = icmp ne ptr %1, null
   %or.cond.not12 = or i1 %16, %15
@@ -3074,9 +3074,9 @@ define internal fastcc void @setThreadLocalStorage(ptr noundef %0, ptr noundef %
 
 18:                                               ; preds = %8
   %19 = load ptr, ptr @stderr, align 8
-  %20 = tail call ptr @jvmtiErrorText(i32 noundef %14) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %20, i32 noundef %14, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.5, i32 noundef 167) #6
-  tail call void @debugInit_exit(i32 noundef %14, ptr noundef nonnull @.str.74) #6
+  %20 = tail call ptr @jvmtiErrorText(i32 noundef %14) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %19, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %20, i32 noundef %14, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.5, i32 noundef 167) #5
+  tail call void @debugInit_exit(i32 noundef %14, ptr noundef nonnull @.str.74) #5
   br label %21
 
 21:                                               ; preds = %18, %8
@@ -3088,16 +3088,16 @@ declare void @eventHelper_suspendThread(i8 noundef signext, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = tail call ptr @getEnv() #6
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.27, ptr noundef %1, ptr noundef null, i64 noundef 0) #6
+  %5 = tail call ptr @getEnv() #5
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.27, ptr noundef %1, ptr noundef null, i64 noundef 0) #5
   %6 = icmp eq i32 %0, 6
-  br i1 %6, label %7, label %37
+  br i1 %6, label %7, label %33
 
 7:                                                ; preds = %3
-  tail call void @eventHandler_lock() #6
+  tail call void @eventHandler_lock() #5
   %8 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %8) #6
-  %9 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
+  tail call void @debugMonitorEnter(ptr noundef %8) #5
+  %9 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
   %.not.i = icmp eq i8 %9, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %10 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %1)
@@ -3149,113 +3149,108 @@ define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef
 
 .split20:                                         ; preds = %7
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %31, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2156) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #6
-  %32 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp ne i8 %34, 0
-  tail call void @llvm.assume(i1 %35)
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 476, ptr noundef nonnull @.str.32) #6
+  %31 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %31, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2156) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #5
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 476, ptr noundef nonnull @.str.32) #5
   unreachable
 
 removeThread.exit:                                ; preds = %27, %25
   tail call fastcc void @clearThread(ptr noundef %5, ptr noundef nonnull %10)
-  %36 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %36) #6
-  tail call void @eventHandler_unlock() #6
+  %32 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %32) #5
+  tail call void @eventHandler_unlock() #5
   br label %doPendingTasks.exit.thread
 
-37:                                               ; preds = %3
-  %38 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %38) #6
-  %39 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
-  %.not.i27 = icmp eq i8 %39, 0
+33:                                               ; preds = %3
+  %34 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorEnter(ptr noundef %34) #5
+  %35 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
+  %.not.i27 = icmp eq i8 %35, 0
   %runningThreads.runningVThreads.i28 = select i1 %.not.i27, ptr @runningThreads, ptr @runningVThreads
-  %40 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i28, ptr noundef %1)
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %45
+  %36 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i28, ptr noundef %1)
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %41
 
-42:                                               ; preds = %37
-  %43 = load ptr, ptr @stderr, align 8
-  %44 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %43, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %44, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2166) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #6
-  br label %45
+38:                                               ; preds = %33
+  %39 = load ptr, ptr @stderr, align 8
+  %40 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %39, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %40, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2166) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #5
+  br label %41
 
-45:                                               ; preds = %42, %37
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %47 = load i16, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %4, align 8
-  %50 = load ptr, ptr %40, align 8
-  %51 = and i16 %47, -3
-  store i16 %51, ptr %46, align 8
-  store ptr null, ptr %48, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %40, i64 192
-  store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 0, ptr %53, align 4
-  %54 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %54) #6
-  %55 = and i16 %47, 2
-  %.not.i29 = icmp eq i16 %55, 0
-  br i1 %.not.i29, label %69, label %56
+41:                                               ; preds = %38, %33
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %43 = load i16, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %4, align 8
+  %46 = load ptr, ptr %36, align 8
+  %47 = and i16 %43, -3
+  store i16 %47, ptr %42, align 8
+  store ptr null, ptr %44, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 192
+  store ptr %2, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  store i32 0, ptr %49, align 4
+  %50 = load ptr, ptr @threadLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %50) #5
+  %51 = and i16 %43, 2
+  %.not.i29 = icmp eq i16 %51, 0
+  br i1 %.not.i29, label %65, label %52
 
-56:                                               ; preds = %45
-  %57 = load ptr, ptr @gdata, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 528
-  %59 = load i32, ptr %58, align 8
-  %60 = and i32 %59, 4
-  %.not4.i = icmp eq i32 %60, 0
-  br i1 %.not4.i, label %62, label %61
+52:                                               ; preds = %41
+  %53 = load ptr, ptr @gdata, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 528
+  %55 = load i32, ptr %54, align 8
+  %56 = and i32 %55, 4
+  %.not4.i = icmp eq i32 %56, 0
+  br i1 %.not4.i, label %58, label %57
 
-61:                                               ; preds = %56
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2126) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.31) #6
+57:                                               ; preds = %52
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2126) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.31) #5
   %.pre.i = load ptr, ptr @gdata, align 8
-  br label %62
+  br label %58
 
-62:                                               ; preds = %61, %56
-  %63 = phi ptr [ %57, %56 ], [ %.pre.i, %61 ]
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 %67(ptr noundef nonnull %64, ptr noundef %50) #6
-  br label %69
+58:                                               ; preds = %57, %52
+  %59 = phi ptr [ %53, %52 ], [ %.pre.i, %57 ]
+  %60 = load ptr, ptr %59, align 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %63 = load ptr, ptr %62, align 8
+  %64 = tail call i32 %63(ptr noundef nonnull %60, ptr noundef %46) #5
+  br label %65
 
-69:                                               ; preds = %62, %45
-  %.not5.i = icmp eq ptr %49, null
-  br i1 %.not5.i, label %doPendingTasks.exit.thread, label %70
+65:                                               ; preds = %58, %41
+  %.not5.i = icmp eq ptr %45, null
+  br i1 %.not5.i, label %doPendingTasks.exit.thread, label %66
 
-70:                                               ; preds = %69
-  %71 = load ptr, ptr @gdata, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 528
-  %73 = load i32, ptr %72, align 8
-  %74 = and i32 %73, 4
-  %.not6.i = icmp eq i32 %74, 0
-  br i1 %.not6.i, label %76, label %75
+66:                                               ; preds = %65
+  %67 = load ptr, ptr @gdata, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 528
+  %69 = load i32, ptr %68, align 8
+  %70 = and i32 %69, 4
+  %.not6.i = icmp eq i32 %70, 0
+  br i1 %.not6.i, label %72, label %71
 
-75:                                               ; preds = %70
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2134) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.34) #6
+71:                                               ; preds = %66
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2134) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.34) #5
   %.pre1.i = load ptr, ptr @gdata, align 8
-  br label %76
+  br label %72
 
-76:                                               ; preds = %75, %70
-  %77 = phi ptr [ %71, %70 ], [ %.pre1.i, %75 ]
-  %78 = load ptr, ptr %77, align 8
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 %81(ptr noundef nonnull %78, ptr noundef %50, ptr noundef nonnull %49) #6
-  call void @tossGlobalRef(ptr noundef %5, ptr noundef nonnull %4) #6
+72:                                               ; preds = %71, %66
+  %73 = phi ptr [ %67, %66 ], [ %.pre1.i, %71 ]
+  %74 = load ptr, ptr %73, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call i32 %77(ptr noundef nonnull %74, ptr noundef %46, ptr noundef nonnull %45) #5
+  call void @tossGlobalRef(ptr noundef %5, ptr noundef nonnull %4) #5
   br label %doPendingTasks.exit.thread
 
-doPendingTasks.exit.thread:                       ; preds = %69, %76, %removeThread.exit
+doPendingTasks.exit.thread:                       ; preds = %65, %72, %removeThread.exit
   ret void
 }
 
@@ -3264,9 +3259,9 @@ declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.29, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.29, ptr noundef %0, ptr noundef null, i64 noundef 0) #5
   %5 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %5) #6
+  tail call void @debugMonitorEnter(ptr noundef %5) #5
   store i32 0, ptr %4, align 4
   %6 = load ptr, ptr @gdata, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 528
@@ -3276,8 +3271,8 @@ define hidden i32 @threadControl_applicationThreadStatus(ptr noundef %0, ptr nou
   br i1 %.not.i, label %threadState.exit, label %10
 
 10:                                               ; preds = %3
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 150) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.51) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 150) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.51) #5
   %.pre.i = load ptr, ptr @gdata, align 8
   br label %threadState.exit
 
@@ -3287,18 +3282,18 @@ threadState.exit:                                 ; preds = %3, %10
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
-  %16 = call i32 %15(ptr noundef nonnull %12, ptr noundef %0, ptr noundef nonnull %4) #6
+  %16 = call i32 %15(ptr noundef nonnull %12, ptr noundef %0, ptr noundef nonnull %4) #5
   %17 = load i32, ptr %4, align 4
-  %18 = call i32 @map2jdwpThreadStatus(i32 noundef %17) #6
+  %18 = call i32 @map2jdwpThreadStatus(i32 noundef %17) #5
   store i32 %18, ptr %1, align 4
   %19 = load i32, ptr %4, align 4
-  %20 = call i32 @map2jdwpSuspendStatus(i32 noundef %19) #6
+  %20 = call i32 @map2jdwpSuspendStatus(i32 noundef %19) #5
   store i32 %20, ptr %2, align 4
   %21 = icmp eq i32 %16, 0
   br i1 %21, label %22, label %29
 
 22:                                               ; preds = %threadState.exit
-  %23 = call zeroext i8 @isVThread(ptr noundef %0) #6
+  %23 = call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i10 = icmp eq i8 %23, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i10, ptr @runningThreads, ptr @runningVThreads
   %24 = call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
@@ -3317,7 +3312,7 @@ threadState.exit:                                 ; preds = %3, %10
 
 29:                                               ; preds = %22, %25, %28, %threadState.exit
   %30 = load ptr, ptr @threadLock, align 8
-  call void @debugMonitorExit(ptr noundef %30) #6
+  call void @debugMonitorExit(ptr noundef %30) #5
   ret i32 %16
 }
 
@@ -3327,7 +3322,7 @@ declare i32 @map2jdwpSuspendStatus(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_interrupt(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.30, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.30, ptr noundef %0, ptr noundef null, i64 noundef 0) #5
   %2 = load ptr, ptr @gdata, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 528
   %4 = load i32, ptr %3, align 8
@@ -3336,8 +3331,8 @@ define hidden i32 @threadControl_interrupt(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2230) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.31) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2230) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.31) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %7
 
@@ -3347,15 +3342,15 @@ define hidden i32 @threadControl_interrupt(ptr noundef %0) local_unnamed_addr #0
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef nonnull %9, ptr noundef %0) #6
+  %13 = tail call i32 %12(ptr noundef nonnull %9, ptr noundef %0) #5
   ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_clearCLEInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
-  %4 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
+  %4 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
   %.not.i = icmp eq i8 %4, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %5 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %1)
@@ -3371,20 +3366,20 @@ define hidden void @threadControl_clearCLEInfo(ptr noundef %0, ptr noundef %1) l
   br i1 %.not6, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %8) #6
+  tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %8) #5
   br label %11
 
 11:                                               ; preds = %6, %10, %2
   %12 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %12) #6
+  tail call void @debugMonitorExit(ptr noundef %12) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %6) #6
-  %7 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
+  tail call void @debugMonitorEnter(ptr noundef %6) #5
+  %7 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
   %.not.i = icmp eq i8 %7, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %8 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %1)
@@ -3412,7 +3407,7 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i8 @isSameObject(ptr noundef %0, ptr noundef %22, ptr noundef %2) #6
+  %23 = tail call zeroext i8 @isSameObject(ptr noundef %0, ptr noundef %22, ptr noundef %2) #5
   %.not12 = icmp ne i8 %23, 0
   %spec.select = zext i1 %.not12 to i8
   br label %24
@@ -3420,15 +3415,15 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_cmpCLEInfo(ptr noundef %0
 24:                                               ; preds = %20, %16, %12, %9, %5
   %.0 = phi i8 [ 0, %16 ], [ 0, %12 ], [ 0, %9 ], [ 0, %5 ], [ %spec.select, %20 ]
   %25 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %25) #6
+  tail call void @debugMonitorExit(ptr noundef %25) #5
   ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_saveCLEInfo(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %7) #6
-  %8 = tail call zeroext i8 @isVThread(ptr noundef %1) #6
+  tail call void @debugMonitorEnter(ptr noundef %7) #5
+  %8 = tail call zeroext i8 @isVThread(ptr noundef %1) #5
   %.not.i = icmp eq i8 %8, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %9 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %1)
@@ -3439,7 +3434,7 @@ define hidden void @threadControl_saveCLEInfo(ptr noundef %0, ptr noundef %1, i3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 200
   store i32 %2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 208
-  tail call void @saveGlobalRef(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12) #6
+  tail call void @saveGlobalRef(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %12) #5
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 216
   store ptr %4, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 224
@@ -3448,15 +3443,15 @@ define hidden void @threadControl_saveCLEInfo(ptr noundef %0, ptr noundef %1, i3
 
 15:                                               ; preds = %10, %6
   %16 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %16) #6
+  tail call void @debugMonitorExit(ptr noundef %16) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_setPendingInterrupt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
-  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
+  %3 = tail call zeroext i8 @isVThread(ptr noundef %0) #5
   %.not.i = icmp eq i8 %3, 0
   %runningThreads.runningVThreads.i = select i1 %.not.i, ptr @runningThreads, ptr @runningVThreads
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull %runningThreads.runningVThreads.i, ptr noundef %0)
@@ -3473,7 +3468,7 @@ define hidden void @threadControl_setPendingInterrupt(ptr noundef %0) local_unna
   br i1 %or.cond, label %12, label %11
 
 11:                                               ; preds = %6
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2309, ptr noundef nonnull @.str.32) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2309, ptr noundef nonnull @.str.32) #5
   br label %12
 
 12:                                               ; preds = %1, %6, %11
@@ -3482,15 +3477,15 @@ define hidden void @threadControl_setPendingInterrupt(ptr noundef %0) local_unna
   %15 = or i16 %14, 2
   store i16 %15, ptr %13, align 8
   %16 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %16) #6
+  tail call void @debugMonitorExit(ptr noundef %16) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @threadControl_stop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  tail call void @log_debugee_location(ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef null, i64 noundef 0) #6
+  tail call void @log_debugee_location(ptr noundef nonnull @.str.33, ptr noundef %0, ptr noundef null, i64 noundef 0) #5
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   %4 = tail call fastcc ptr @findThread(ptr noundef nonnull @runningThreads, ptr noundef %0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -3510,8 +3505,8 @@ define hidden i32 @threadControl_stop(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not10, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2329) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.34) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2329) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.34) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %15
 
@@ -3521,28 +3516,28 @@ define hidden i32 @threadControl_stop(ptr noundef %0, ptr noundef %1) local_unna
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20(ptr noundef nonnull %17, ptr noundef %0, ptr noundef %1) #6
+  %21 = tail call i32 %20(ptr noundef nonnull %17, ptr noundef %0, ptr noundef %1) #5
   br label %25
 
 22:                                               ; preds = %6
-  %23 = tail call ptr @getEnv() #6
+  %23 = tail call ptr @getEnv() #5
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  tail call void @saveGlobalRef(ptr noundef %23, ptr noundef %1, ptr noundef nonnull %24) #6
+  tail call void @saveGlobalRef(ptr noundef %23, ptr noundef %1, ptr noundef nonnull %24) #5
   br label %25
 
 25:                                               ; preds = %22, %15
   %.0 = phi i32 [ %21, %15 ], [ 0, %22 ]
   %26 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %26) #6
+  tail call void @debugMonitorExit(ptr noundef %26) #5
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_detachInvokes() local_unnamed_addr #0 {
-  %1 = tail call ptr @getEnv() #6
-  tail call void @invoker_lock() #6
+  %1 = tail call ptr @getEnv() #5
+  tail call void @invoker_lock() #5
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
   %.0812.i = load ptr, ptr @runningThreads, align 8
   %.not13.i = icmp eq ptr %.0812.i, null
   br i1 %.not13.i, label %enumerateOverThreadList.exit, label %.preheader
@@ -3550,7 +3545,7 @@ define hidden void @threadControl_detachInvokes() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %.preheader
   %.0814.i = phi ptr [ %.08.i, %.preheader ], [ %.0812.i, %0 ]
   %3 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 112
-  tail call void @invoker_detach(ptr noundef nonnull %3) #6
+  tail call void @invoker_detach(ptr noundef nonnull %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.08.i, null
@@ -3558,8 +3553,8 @@ define hidden void @threadControl_detachInvokes() local_unnamed_addr #0 {
 
 enumerateOverThreadList.exit:                     ; preds = %.preheader, %0
   %5 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %5) #6
-  tail call void @invoker_unlock() #6
+  tail call void @debugMonitorExit(ptr noundef %5) #5
+  tail call void @invoker_unlock() #5
   ret void
 }
 
@@ -3569,10 +3564,10 @@ declare void @invoker_unlock() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @threadControl_reset() local_unnamed_addr #0 {
-  %1 = tail call ptr @getEnv() #6
-  tail call void @eventHandler_lock() #6
+  %1 = tail call ptr @getEnv() #5
+  tail call void @eventHandler_lock() #5
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
   %3 = load ptr, ptr @gdata, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 19
   %5 = load i8, ptr %4, align 1
@@ -3590,8 +3585,8 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %9
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2394) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2394) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %14
 
@@ -3601,15 +3596,15 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 944
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %19(ptr noundef nonnull %16, i32 noundef 0, ptr noundef null) #6
+  %20 = tail call i32 %19(ptr noundef nonnull %16, i32 noundef 0, ptr noundef null) #5
   %.not13 = icmp eq i32 %20, 0
   br i1 %.not13, label %24, label %21
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr @stderr, align 8
-  %23 = tail call ptr @jvmtiErrorText(i32 noundef %20) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %23, i32 noundef %20, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.5, i32 noundef 2397) #6
-  tail call void @debugInit_exit(i32 noundef %20, ptr noundef nonnull @.str.20) #6
+  %23 = tail call ptr @jvmtiErrorText(i32 noundef %20) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %22, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %23, i32 noundef %20, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.5, i32 noundef 2397) #5
+  tail call void @debugInit_exit(i32 noundef %20, ptr noundef nonnull @.str.20) #5
   br label %24
 
 24:                                               ; preds = %21, %14, %0
@@ -3625,7 +3620,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %24, %25
   %.0814.i = phi ptr [ %.08.i, %25 ], [ %.0812.i, %24 ]
-  %27 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i) #6
+  %27 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i) #5
   %.not11.i = icmp eq i32 %27, 0
   br i1 %.not11.i, label %25, label %enumerateOverThreadList.exit
 
@@ -3642,7 +3637,7 @@ enumerateOverThreadList.exit:                     ; preds = %25, %.lr.ph.i, %24
 
 .lr.ph.i18:                                       ; preds = %enumerateOverThreadList.exit, %28
   %.0814.i19 = phi ptr [ %.08.i22, %28 ], [ %.0812.i16, %enumerateOverThreadList.exit ]
-  %30 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i19) #6
+  %30 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i19) #5
   %.not11.i20 = icmp eq i32 %30, 0
   br i1 %.not11.i20, label %28, label %enumerateOverThreadList.exit24
 
@@ -3659,7 +3654,7 @@ enumerateOverThreadList.exit24:                   ; preds = %28, %.lr.ph.i18, %e
 
 .lr.ph.i27:                                       ; preds = %enumerateOverThreadList.exit24, %31
   %.0814.i28 = phi ptr [ %.08.i31, %31 ], [ %.0812.i25, %enumerateOverThreadList.exit24 ]
-  %33 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i28) #6
+  %33 = tail call fastcc i32 @resetHelper(ptr noundef nonnull %.0814.i28) #5
   %.not11.i29 = icmp eq i32 %33, 0
   br i1 %.not11.i29, label %31, label %enumerateOverThreadList.exit33
 
@@ -3736,10 +3731,10 @@ removeResumed.exit:                               ; preds = %57, %enumerateOverT
   %59 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
-  tail call void @tossGlobalRef(ptr noundef %1, ptr noundef nonnull %61) #6
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %.07.i) #6
+  tail call void @tossGlobalRef(ptr noundef %1, ptr noundef nonnull %61) #5
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %.07.i) #5
   %.not.i37 = icmp eq ptr %60, null
-  br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !20
+  br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !19
 
 freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %removeResumed.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @deferredEventModes, i8 0, i64 16, i1 false)
@@ -3758,15 +3753,15 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
   br i1 %or.cond, label %70, label %69
 
 69:                                               ; preds = %63
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2413, ptr noundef nonnull @.str.35) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2413, ptr noundef nonnull @.str.35) #5
   br label %70
 
 70:                                               ; preds = %freeDeferredEventModes.exit, %63, %69
   %71 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %71) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %71) #5
   %72 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %72) #6
-  tail call void @eventHandler_unlock() #6
+  tail call void @debugMonitorExit(ptr noundef %72) #5
+  tail call void @eventHandler_unlock() #5
   %73 = load ptr, ptr @gdata, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 21
   %75 = load i8, ptr %74, align 1
@@ -3774,9 +3769,9 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
   br i1 %.not15, label %76, label %98
 
 76:                                               ; preds = %70
-  tail call void (...) @eventHandler_waitForActiveCallbacks() #6
+  tail call void (...) @eventHandler_waitForActiveCallbacks() #5
   %77 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %77) #6
+  tail call void @debugMonitorEnter(ptr noundef %77) #5
   %78 = load ptr, ptr @runningVThreads, align 8
   %.not7.i = icmp eq ptr %78, null
   br i1 %.not7.i, label %removeVThreads.exit, label %.lr.ph.i38
@@ -3827,11 +3822,11 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
 
 removeNode.exit.i:                                ; preds = %94, %92
   tail call fastcc void @clearThread(ptr noundef %1, ptr noundef nonnull %.08.i39)
-  br i1 %.not17.i.i, label %removeVThreads.exit, label %.lr.ph.i38, !llvm.loop !21
+  br i1 %.not17.i.i, label %removeVThreads.exit, label %.lr.ph.i38, !llvm.loop !20
 
 removeVThreads.exit:                              ; preds = %removeNode.exit.i, %76
   %97 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %97) #6
+  tail call void @debugMonitorExit(ptr noundef %97) #5
   br label %98
 
 98:                                               ; preds = %removeVThreads.exit, %70
@@ -3855,9 +3850,9 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
   br i1 %.not9, label %12, label %10
 
 10:                                               ; preds = %5
-  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 2370) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 2370) #5
   %11 = load ptr, ptr %0, align 8
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %11) #6
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %11) #5
   %.pre = load ptr, ptr @gdata, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 528
   %.pre11 = load i32, ptr %.phi.trans.insert, align 8
@@ -3871,8 +3866,8 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
   br i1 %.not10, label %17, label %16
 
 16:                                               ; preds = %12
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2371) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2371) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #5
   %.pre12 = load ptr, ptr @gdata, align 8
   br label %17
 
@@ -3883,7 +3878,7 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
-  %24 = tail call i32 %22(ptr noundef nonnull %19, ptr noundef %23) #6
+  %24 = tail call i32 %22(ptr noundef nonnull %19, ptr noundef %23) #5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %26 = load i64, ptr %25, align 8
   %27 = add nsw i64 %26, 1
@@ -3893,7 +3888,7 @@ define internal fastcc noundef i32 @resetHelper(ptr noundef %0) unnamed_addr #0 
 28:                                               ; preds = %17, %1
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @stepControl_clearRequest(ptr noundef %29, ptr noundef nonnull %30) #6
+  tail call void @stepControl_clearRequest(ptr noundef %29, ptr noundef nonnull %30) #5
   %31 = load i16, ptr %2, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %32, align 8
@@ -3918,8 +3913,8 @@ define hidden ptr @threadControl_currentThread() local_unnamed_addr #0 {
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %0
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2501) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.37) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 2501) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.37) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %7
 
@@ -3929,7 +3924,7 @@ define hidden ptr @threadControl_currentThread() local_unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
-  %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %1) #6
+  %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef nonnull %1) #5
   %14 = load ptr, ptr %1, align 8
   ret ptr %14
 }
@@ -3937,7 +3932,7 @@ define hidden ptr @threadControl_currentThread() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define hidden i64 @threadControl_getFrameGeneration(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
   %3 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -3950,15 +3945,15 @@ define hidden i64 @threadControl_getFrameGeneration(ptr noundef %0) local_unname
 7:                                                ; preds = %4, %1
   %.0 = phi i64 [ %6, %4 ], [ -1, %1 ]
   %8 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %8) #6
+  tail call void @debugMonitorExit(ptr noundef %8) #5
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @getEnv() #6
+  %2 = tail call ptr @getEnv() #5
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   %4 = load i32, ptr @numRunningVThreads, align 4
   store i32 %4, ptr %0, align 4
   %5 = load ptr, ptr @gdata, align 8
@@ -3979,7 +3974,7 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %.01225, i64 232
   %.012 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %.012, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader21
   %.011.lcssa = phi i32 [ 0, %.preheader21 ], [ %8, %.lr.ph ]
@@ -3987,14 +3982,14 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %._crit_edge
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2542, ptr noundef nonnull @.str.38) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 2542, ptr noundef nonnull @.str.38) #5
   %.pre = load i32, ptr @numRunningVThreads, align 4
   br label %12
 
 12:                                               ; preds = %11, %._crit_edge, %1
   %13 = phi i32 [ %.pre, %11 ], [ %4, %._crit_edge ], [ %4, %1 ]
   %14 = shl i32 %13, 3
-  %15 = tail call ptr @jvmtiAllocate(i32 noundef %14) #6
+  %15 = tail call ptr @jvmtiAllocate(i32 noundef %14) #5
   %.not18 = icmp eq ptr %15, null
   %.126 = load ptr, ptr @runningVThreads, align 8
   %.not1927 = icmp eq ptr %.126, null
@@ -4011,11 +4006,11 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.129, i64 232
   %.1 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %.1, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !23
+  br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph30, %12
   %19 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %19) #6
+  tail call void @debugMonitorExit(ptr noundef %19) #5
   ret ptr %15
 }
 
@@ -4044,9 +4039,9 @@ define internal fastcc i32 @commonSuspendByNode(ptr noundef captures(none) %0) u
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %1
-  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 747) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 747) #5
   %7 = load ptr, ptr %0, align 8
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.41, ptr noundef %7) #6
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.41, ptr noundef %7) #5
   %.pre = load ptr, ptr @gdata, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 528
   %.pre8 = load i32, ptr %.phi.trans.insert, align 8
@@ -4060,8 +4055,8 @@ define internal fastcc i32 @commonSuspendByNode(ptr noundef captures(none) %0) u
   br i1 %.not6, label %13, label %12
 
 12:                                               ; preds = %8
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 748) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.42) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 748) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.42) #5
   %.pre9 = load ptr, ptr @gdata, align 8
   br label %13
 
@@ -4072,7 +4067,7 @@ define internal fastcc i32 @commonSuspendByNode(ptr noundef captures(none) %0) u
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = tail call i32 %18(ptr noundef nonnull %15, ptr noundef %19) #6
+  %20 = tail call i32 %18(ptr noundef nonnull %15, ptr noundef %19) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %26
 
@@ -4097,7 +4092,7 @@ define internal fastcc i32 @commonSuspendByNode(ptr noundef captures(none) %0) u
   br i1 %or.cond, label %34, label %33
 
 33:                                               ; preds = %28
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 762, ptr noundef nonnull @.str.43) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 762, ptr noundef nonnull @.str.43) #5
   br label %34
 
 34:                                               ; preds = %26, %28, %33
@@ -4128,7 +4123,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   %10 = add nsw i32 %7, -1
   store i32 %10, ptr %6, align 8
   %11 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorNotifyAll(ptr noundef %11) #6
+  tail call void @debugMonitorNotifyAll(ptr noundef %11) #5
   %12 = load i32, ptr %6, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %51
@@ -4140,7 +4135,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br i1 %.not17, label %51, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @gdata, align 8, !nonnull !19, !noundef !19
+  %18 = load ptr, ptr @gdata, align 8, !nonnull !23, !noundef !23
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1
   %.not19 = icmp eq i8 %20, 0
@@ -4150,7 +4145,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br i1 %or.cond, label %23, label %22
 
 22:                                               ; preds = %17
-  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 867, ptr noundef nonnull @.str.44) #6
+  tail call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 867, ptr noundef nonnull @.str.44) #5
   %.pre = load ptr, ptr @gdata, align 8
   br label %23
 
@@ -4163,9 +4158,9 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br i1 %.not21, label %30, label %28
 
 28:                                               ; preds = %23
-  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 868) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.5, i32 noundef 868) #5
   %29 = load ptr, ptr %0, align 8
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %29) #6
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.45, ptr noundef %29) #5
   %.pre24 = load ptr, ptr @gdata, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre24, i64 528
   %.pre25 = load i32, ptr %.phi.trans.insert, align 8
@@ -4179,8 +4174,8 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br i1 %.not22, label %35, label %34
 
 34:                                               ; preds = %30
-  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 869) #6
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #6
+  tail call void @log_message_begin(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.5, i32 noundef 869) #5
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.46) #5
   %.pre26 = load ptr, ptr @gdata, align 8
   br label %35
 
@@ -4191,7 +4186,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %0, align 8
-  %42 = tail call i32 %40(ptr noundef nonnull %37, ptr noundef %41) #6
+  %42 = tail call i32 %40(ptr noundef nonnull %37, ptr noundef %41) #5
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %44 = load i64, ptr %43, align 8
   %45 = add nsw i64 %44, 1
@@ -4222,7 +4217,7 @@ define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr noundef rea
 .lr.ph:                                           ; preds = %3, %6
   %.010 = phi ptr [ %.0, %6 ], [ %.08, %3 ]
   %4 = load ptr, ptr %.010, align 8
-  %5 = tail call zeroext i8 @isSameObject(ptr noundef %0, ptr noundef %4, ptr noundef %2) #6
+  %5 = tail call zeroext i8 @isSameObject(ptr noundef %0, ptr noundef %4, ptr noundef %2) #5
   %.not7 = icmp eq i8 %5, 0
   br i1 %.not7, label %6, label %._crit_edge
 
@@ -4240,16 +4235,16 @@ define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr noundef rea
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   %4 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1801) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
+  %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1801) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #5
   br label %19
 
 9:                                                ; preds = %2
@@ -4268,7 +4263,7 @@ define internal fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext
 
 19:                                               ; preds = %9, %6
   %20 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %20) #6
+  tail call void @debugMonitorExit(ptr noundef %20) #5
   ret void
 }
 
@@ -4277,16 +4272,16 @@ declare void @debugMonitorWait(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   %4 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8
-  %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1841) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
+  %8 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %8, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1841) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #5
   br label %16
 
 9:                                                ; preds = %2
@@ -4301,7 +4296,7 @@ define internal fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroe
 
 16:                                               ; preds = %9, %6
   %17 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %17) #6
+  tail call void @debugMonitorExit(ptr noundef %17) #5
   ret void
 }
 
@@ -4310,50 +4305,50 @@ declare void @debugMonitorNotify(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @popFrameCompleteEvent(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @popFrameProceedLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %2) #6
+  tail call void @debugMonitorEnter(ptr noundef %2) #5
   %3 = load ptr, ptr @popFrameEventLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %3) #6
+  tail call void @debugMonitorEnter(ptr noundef %3) #5
   tail call fastcc void @setPopFrameEvent(ptr noundef %0, i8 noundef zeroext 1)
   %4 = load ptr, ptr @popFrameEventLock, align 8
-  tail call void @debugMonitorNotify(ptr noundef %4) #6
+  tail call void @debugMonitorNotify(ptr noundef %4) #5
   %5 = load ptr, ptr @popFrameEventLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %5) #6
+  tail call void @debugMonitorExit(ptr noundef %5) #5
   tail call fastcc void @setPopFrameProceed(ptr noundef %0, i8 noundef zeroext 0)
   br label %6
 
 6:                                                ; preds = %18, %1
   %7 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %7) #6
+  tail call void @debugMonitorEnter(ptr noundef %7) #5
   %8 = tail call fastcc ptr @findThread(ptr noundef null, ptr noundef %0)
   %9 = icmp eq ptr %8, null
   br i1 %9, label %getPopFrameProceed.exit.thread, label %getPopFrameProceed.exit
 
 getPopFrameProceed.exit.thread:                   ; preds = %6
   %10 = load ptr, ptr @stderr, align 8
-  %11 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
-  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %11, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1822) #6
-  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #6
+  %11 = tail call ptr @jvmtiErrorText(i32 noundef 201) #5
+  tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %11, i32 noundef 201, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.5, i32 noundef 1822) #5
+  tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.66) #5
   %12 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %12) #6
+  tail call void @debugMonitorExit(ptr noundef %12) #5
   br label %18
 
 getPopFrameProceed.exit:                          ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %15) #6
+  tail call void @debugMonitorExit(ptr noundef %15) #5
   %16 = and i16 %14, 128
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %getPopFrameProceed.exit.thread, %getPopFrameProceed.exit
   %19 = load ptr, ptr @popFrameProceedLock, align 8
-  tail call void @debugMonitorWait(ptr noundef %19) #6
+  tail call void @debugMonitorWait(ptr noundef %19) #5
   br label %6, !llvm.loop !24
 
 20:                                               ; preds = %getPopFrameProceed.exit
   %21 = load ptr, ptr @popFrameProceedLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %21) #6
+  tail call void @debugMonitorExit(ptr noundef %21) #5
   ret void
 }
 
@@ -4365,13 +4360,13 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %3) #6
+  tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %3) #5
   br label %6
 
 6:                                                ; preds = %5, %2
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @stepControl_clearRequest(ptr noundef %7, ptr noundef nonnull %8) #6
+  tail call void @stepControl_clearRequest(ptr noundef %7, ptr noundef nonnull %8) #5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 4
@@ -4380,9 +4375,9 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %1, align 8
-  %14 = tail call ptr @getEnv() #6
+  %14 = tail call ptr @getEnv() #5
   %15 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %15) #6
+  tail call void @debugMonitorEnter(ptr noundef %15) #5
   %16 = load i32, ptr @debugThreadCount, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i, label %threadControl_removeDebugThread.exit
@@ -4392,14 +4387,14 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %12 ]
   %18 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call zeroext i8 @isSameObject(ptr noundef %14, ptr noundef %13, ptr noundef %19) #6
+  %20 = tail call zeroext i8 @isSameObject(ptr noundef %14, ptr noundef %13, ptr noundef %19) #5
   %.not.i = icmp eq i8 %20, 0
   br i1 %.not.i, label %30, label %21
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw ptr, ptr @debugThreads, i64 %indvars.iv.i
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call void @tossGlobalRef(ptr noundef %14, ptr noundef nonnull %22) #6
+  tail call void @tossGlobalRef(ptr noundef %14, ptr noundef nonnull %22) #5
   %24 = load i32, ptr @debugThreadCount, align 4
   %.019.i = add nuw nsw i32 %23, 1
   %25 = icmp slt i32 %.019.i, %24
@@ -4436,17 +4431,17 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
 
 threadControl_removeDebugThread.exit:             ; preds = %30, %12, %._crit_edge.i
   %34 = load ptr, ptr @threadLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %34) #6
+  tail call void @debugMonitorExit(ptr noundef %34) #5
   br label %35
 
 35:                                               ; preds = %threadControl_removeDebugThread.exit, %6
   %36 = load ptr, ptr %1, align 8
   tail call fastcc void @setThreadLocalStorage(ptr noundef %36, ptr noundef null)
-  tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %1) #6
+  tail call void @tossGlobalRef(ptr noundef %0, ptr noundef nonnull %1) #5
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %38 = load ptr, ptr %37, align 8
-  tail call void @bagDestroyBag(ptr noundef %38) #6
-  tail call void @jvmtiDeallocate(ptr noundef nonnull %1) #6
+  tail call void @bagDestroyBag(ptr noundef %38) #5
+  tail call void @jvmtiDeallocate(ptr noundef nonnull %1) #5
   ret void
 }
 
@@ -4460,16 +4455,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -4492,11 +4483,11 @@ attributes #6 = { nounwind }
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = !{}
+!19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!23 = !{}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
 !26 = distinct !{!26, !7}

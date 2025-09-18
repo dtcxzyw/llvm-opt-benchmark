@@ -503,13 +503,8 @@ if.else93:                                        ; preds = %if.else89
   br i1 %cmp.i287.not, label %if.else.i288, label %if.then.i294
 
 if.then.i294:                                     ; preds = %if.else93
-  %sub.ptr.lhs.cast.i8.i297 = ptrtoint ptr %tmpSeqBuffer.sroa.59.0419 to i64
-  %sub.ptr.sub.i9.i298 = sub i64 %sub.ptr.lhs.cast.i8.i297, %sub.ptr.lhs.cast.i.i93
   %cmp4.i.i299 = icmp sgt i64 %reass.sub428, -1
   tail call void @llvm.assume(i1 %cmp4.i.i299)
-  %sub.i.i300 = xor i64 %reass.sub428, 9223372036854775807
-  %cmp6.i.i301 = icmp ule i64 %sub.ptr.sub.i9.i298, %sub.i.i300
-  tail call void @llvm.assume(i1 %cmp6.i.i301)
   %cmp8.not.i.i302 = icmp eq ptr %tmpSeqBuffer.sroa.59.0419, %tmpSeqBuffer.sroa.25.1
   br i1 %cmp8.not.i.i302, label %if.else.i.i311, label %if.then.i.i.i.i.i303
 

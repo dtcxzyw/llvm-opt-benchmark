@@ -261,7 +261,7 @@ define void @_ZN3g2o7EdgeSE2C2Ev(ptr noundef nonnull align 16 dereferenceable(43
   %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(392) %0) #23
+  call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(392) %0) #22
   resume { ptr, i32 } %28
 
 29:                                               ; preds = %26, %24, %23, %21
@@ -329,13 +329,13 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %27 = load double, ptr %26, align 16, !tbaa !3, !noalias !65
   %28 = fsub double 0x400921FB54442D18, %27
-  %29 = call double @fmod(double noundef %28, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !65
+  %29 = call double @fmod(double noundef %28, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !65
   %30 = fcmp ugt double %29, 0.000000e+00
   %.0.v.i.i = select i1 %30, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %29, %.0.v.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %32 = call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !69
-  %33 = call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !69
+  %32 = call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !69
+  %33 = call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !69
   %34 = fneg double %32
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %33, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %32, i64 1
@@ -545,8 +545,8 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %22 = getelementptr inbounds nuw i8, ptr %.sink60, i64 192
   %.sroa.413.16.copyload = load <2 x double>, ptr %22, align 16, !tbaa !81
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink55
-  %24 = tail call double @sin(double noundef %21) #23, !tbaa !68, !noalias !97
-  %25 = tail call double @cos(double noundef %21) #23, !tbaa !68, !noalias !97
+  %24 = tail call double @sin(double noundef %21) #22, !tbaa !68, !noalias !97
+  %25 = tail call double @cos(double noundef %21) #22, !tbaa !68, !noalias !97
   %26 = fneg double %24
   %.sroa.0.0.vec.insert.i.i.i7 = insertelement <2 x double> poison, double %25, i64 0
   %.sroa.0.8.vec.insert.i.i.i8 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i7, double %24, i64 1
@@ -562,7 +562,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %34 = load double, ptr %20, align 16, !tbaa !3, !noalias !97
   %35 = fadd double %21, %34
   %36 = fadd double %35, 0x400921FB54442D18
-  %37 = tail call double @fmod(double noundef %36, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !97
+  %37 = tail call double @fmod(double noundef %36, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !97
   %38 = fcmp ugt double %37, 0.000000e+00
   %.0.v.i.i.i11 = select i1 %38, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i12 = fadd double %37, %.0.v.i.i.i11
@@ -594,8 +594,8 @@ _ZN5Eigen16CommaInitializerINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6S
   %12 = load <2 x double>, ptr %10, align 16, !tbaa !81
   %13 = load <2 x double>, ptr %11, align 16, !tbaa !81
   %14 = fsub <2 x double> %12, %13
-  %15 = tail call double @sin(double noundef %9) #23, !tbaa !68
-  %16 = tail call double @cos(double noundef %9) #23, !tbaa !68
+  %15 = tail call double @sin(double noundef %9) #22, !tbaa !68
+  %16 = tail call double @cos(double noundef %9) #22, !tbaa !68
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %18 = load ptr, ptr %17, align 8, !tbaa !98
   %19 = fneg double %16
@@ -647,8 +647,8 @@ _ZN5Eigen16CommaInitializerINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6S
   store double 1.000000e+00, ptr %45, align 8, !tbaa !64
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %47 = load double, ptr %46, align 16, !tbaa !3, !noalias !142
-  %48 = tail call double @sin(double noundef %47) #23, !tbaa !68, !noalias !142
-  %49 = tail call double @cos(double noundef %47) #23, !tbaa !68, !noalias !142
+  %48 = tail call double @sin(double noundef %47) #22, !tbaa !68, !noalias !142
+  %49 = tail call double @cos(double noundef %47) #22, !tbaa !68, !noalias !142
   %50 = fneg double %48
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %49, i64 0
   %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %48, i64 1
@@ -792,52 +792,40 @@ define void @_ZN3g2o25EdgeSE2WriteGnuplotActionC2Ev(ptr noundef nonnull align 8 
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i8 0, ptr %4, align 2, !tbaa !81
   invoke void @_ZN3g2o18WriteGnuplotActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %5 unwind label %12
+          to label %5 unwind label %10
 
 5:                                                ; preds = %._crit_edge.i.i
   %6 = load ptr, ptr %1, align 8, !tbaa !151
   %7 = icmp eq ptr %6, %2
-  br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %5
-  %8 = load i64, ptr %3, align 8, !tbaa !149
-  %9 = icmp ult i64 %8, 16
-  call void @llvm.assume(i1 %9)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %7, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %5
-  %10 = load i64, ptr %2, align 8, !tbaa !81
-  %11 = add i64 %10, 1
-  call void @_ZdlPvm(ptr noundef %6, i64 noundef %11) #24
+  %8 = load i64, ptr %2, align 8, !tbaa !81
+  %9 = add i64 %8, 1
+  call void @_ZdlPvm(ptr noundef %6, i64 noundef %9) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3g2o25EdgeSE2WriteGnuplotActionE, i64 16), ptr %0, align 8, !tbaa !38
   ret void
 
-12:                                               ; preds = %._crit_edge.i.i
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %._crit_edge.i.i
+  %11 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %1, align 8, !tbaa !151
-  %15 = icmp eq ptr %14, %2
-  br i1 %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
+  %12 = load ptr, ptr %1, align 8, !tbaa !151
+  %13 = icmp eq ptr %12, %2
+  br i1 %13, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5: ; preds = %12
-  %16 = load i64, ptr %3, align 8, !tbaa !149
-  %17 = icmp ult i64 %16, 16
-  call void @llvm.assume(i1 %17)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %10
+  %14 = load i64, ptr %2, align 8, !tbaa !81
+  %15 = add i64 %14, 1
+  call void @_ZdlPvm(ptr noundef %12, i64 noundef %15) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4: ; preds = %12
-  %18 = load i64, ptr %2, align 8, !tbaa !81
-  %19 = add i64 %18, 1
-  call void @_ZdlPvm(ptr noundef %14, i64 noundef %19) #24
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %11
 }
 
 declare void @_ZN3g2o18WriteGnuplotActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
@@ -848,7 +836,7 @@ define noundef ptr @_ZN3g2o25EdgeSE2WriteGnuplotActionclEPNS_10HyperGraph17Hyper
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @__cxa_bad_typeid() #25
+  tail call void @__cxa_bad_typeid() #24
   unreachable
 
 6:                                                ; preds = %3
@@ -862,7 +850,7 @@ define noundef ptr @_ZN3g2o25EdgeSE2WriteGnuplotActionclEPNS_10HyperGraph17Hyper
   %.idx.i = zext i1 %13 to i64
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %14) #23
+  %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %14) #22
   %.not28 = icmp eq i32 %16, 0
   br i1 %.not28, label %17, label %107
 
@@ -899,7 +887,7 @@ define noundef ptr @_ZN3g2o25EdgeSE2WriteGnuplotActionclEPNS_10HyperGraph17Hyper
   br i1 %.not.i.i.i, label %43, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 43:                                               ; preds = %20
-  tail call void @_ZSt16__throw_bad_castv() #25
+  tail call void @_ZSt16__throw_bad_castv() #24
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %20
@@ -947,7 +935,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %46, 
   br i1 %.not.i.i.i18, label %74, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19
 
 74:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  tail call void @_ZSt16__throw_bad_castv() #25
+  tail call void @_ZSt16__throw_bad_castv() #24
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i19: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
@@ -984,7 +972,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22: ; preds = %77
   br i1 %.not.i.i.i23, label %94, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24
 
 94:                                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22
-  tail call void @_ZSt16__throw_bad_castv() #25
+  tail call void @_ZSt16__throw_bad_castv() #24
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i24: ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit22
@@ -1021,8 +1009,8 @@ declare void @__cxa_bad_typeid() local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o7EdgeSE2D0Ev(ptr noundef nonnull align 16 dereferenceable(432) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %0) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 432) #24
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 432) #23
   ret void
 }
 
@@ -1071,13 +1059,13 @@ define linkonce_odr void @_ZN3g2o7EdgeSE212computeErrorEv(ptr noundef nonnull al
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %9 = load double, ptr %8, align 8, !tbaa !3, !noalias !182
   %10 = fsub double 0x400921FB54442D18, %9
-  %11 = tail call double @fmod(double noundef %10, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !182
+  %11 = tail call double @fmod(double noundef %10, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !182
   %12 = fcmp ugt double %11, 0.000000e+00
   %.0.v.i.i = select i1 %12, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %11, %.0.v.i.i
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %14 = tail call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !185
-  %15 = tail call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !185
+  %14 = tail call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !185
+  %15 = tail call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !185
   %16 = fneg double %14
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %15, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %14, i64 1
@@ -1097,8 +1085,8 @@ define linkonce_odr void @_ZN3g2o7EdgeSE212computeErrorEv(ptr noundef nonnull al
   %28 = fadd <2 x double> %21, %27
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %31 = tail call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !197
-  %32 = tail call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !197
+  %31 = tail call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !197
+  %32 = tail call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !197
   %33 = fneg double %31
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x double> poison, double %32, i64 0
   %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i, double %31, i64 1
@@ -1114,15 +1102,15 @@ define linkonce_odr void @_ZN3g2o7EdgeSE212computeErrorEv(ptr noundef nonnull al
   %41 = load double, ptr %29, align 16, !tbaa !3, !noalias !205
   %42 = fadd double %.0.i.i, %41
   %43 = fadd double %42, 0x400921FB54442D18
-  %44 = tail call double @fmod(double noundef %43, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !205
+  %44 = tail call double @fmod(double noundef %43, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !205
   %45 = fcmp ugt double %44, 0.000000e+00
   %.0.v.i.i.i = select i1 %45, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i = fadd double %44, %.0.v.i.i.i
   %46 = load double, ptr %7, align 16, !noalias !206
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.sroa.418.16.copyload = load <2 x double>, ptr %47, align 16, !tbaa !81
-  %48 = tail call double @sin(double noundef %46) #23, !tbaa !68, !noalias !209
-  %49 = tail call double @cos(double noundef %46) #23, !tbaa !68, !noalias !209
+  %48 = tail call double @sin(double noundef %46) #22, !tbaa !68, !noalias !209
+  %49 = tail call double @cos(double noundef %46) #22, !tbaa !68, !noalias !209
   %50 = fneg double %48
   %.sroa.0.0.vec.insert.i.i.i3 = insertelement <2 x double> poison, double %49, i64 0
   %.sroa.0.8.vec.insert.i.i.i4 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i3, double %48, i64 1
@@ -1136,7 +1124,7 @@ define linkonce_odr void @_ZN3g2o7EdgeSE212computeErrorEv(ptr noundef nonnull al
   %56 = fadd <2 x double> %.sroa.418.16.copyload, %55
   %57 = fadd double %46, %.0.i.i.i
   %58 = fadd double %57, 0x400921FB54442D18
-  %59 = tail call double @fmod(double noundef %58, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !206
+  %59 = tail call double @fmod(double noundef %58, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !206
   %60 = fcmp ugt double %59, 0.000000e+00
   %.0.v.i.i.i7 = select i1 %60, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i8 = fadd double %59, %.0.v.i.i.i7
@@ -1166,12 +1154,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o7EdgeSE218setMeasurementDataEPKd(
   store double %5, ptr %.sroa.6.16..sroa_idx, align 8, !tbaa !81
   %.cast = bitcast i64 %7 to double
   %10 = fsub double 0x400921FB54442D18, %.cast
-  %11 = tail call double @fmod(double noundef %10, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !214
+  %11 = tail call double @fmod(double noundef %10, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !214
   %12 = fcmp ugt double %11, 0.000000e+00
   %.0.v.i.i = select i1 %12, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %11, %.0.v.i.i
-  %13 = tail call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !217
-  %14 = tail call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !217
+  %13 = tail call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !217
+  %14 = tail call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !217
   %15 = fneg double %13
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %14, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %13, i64 1
@@ -1224,13 +1212,13 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o7EdgeSE223setMeasurementFromState
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %8 = load double, ptr %7, align 8, !tbaa !3, !noalias !231
   %9 = fsub double 0x400921FB54442D18, %8
-  %10 = tail call double @fmod(double noundef %9, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !231
+  %10 = tail call double @fmod(double noundef %9, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !231
   %11 = fcmp ugt double %10, 0.000000e+00
   %.0.v.i.i = select i1 %11, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %10, %.0.v.i.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  %13 = tail call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !234
-  %14 = tail call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !234
+  %13 = tail call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !234
+  %14 = tail call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !234
   %15 = fneg double %13
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %14, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %13, i64 1
@@ -1250,8 +1238,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o7EdgeSE223setMeasurementFromState
   %27 = fadd <2 x double> %20, %26
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %30 = tail call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !246
-  %31 = tail call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !246
+  %30 = tail call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !246
+  %31 = tail call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !246
   %32 = fneg double %30
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x double> poison, double %31, i64 0
   %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i, double %30, i64 1
@@ -1267,7 +1255,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o7EdgeSE223setMeasurementFromState
   %40 = load double, ptr %28, align 16, !tbaa !3, !noalias !254
   %41 = fadd double %.0.i.i, %40
   %42 = fadd double %41, 0x400921FB54442D18
-  %43 = tail call double @fmod(double noundef %42, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !254
+  %43 = tail call double @fmod(double noundef %42, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !254
   %44 = fcmp ugt double %43, 0.000000e+00
   %.0.v.i.i.i = select i1 %44, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i = fadd double %43, %.0.v.i.i.i
@@ -1276,12 +1264,12 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o7EdgeSE223setMeasurementFromState
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store <2 x double> %39, ptr %46, align 16, !tbaa !81
   %47 = fsub double 0x400921FB54442D18, %.0.i.i.i
-  %48 = tail call double @fmod(double noundef %47, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !255
+  %48 = tail call double @fmod(double noundef %47, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !255
   %49 = fcmp ugt double %48, 0.000000e+00
   %.0.v.i.i3 = select i1 %49, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i4 = fadd double %48, %.0.v.i.i3
-  %50 = tail call double @sin(double noundef %.0.i.i4) #23, !tbaa !68, !noalias !258
-  %51 = tail call double @cos(double noundef %.0.i.i4) #23, !tbaa !68, !noalias !258
+  %50 = tail call double @sin(double noundef %.0.i.i4) #22, !tbaa !68, !noalias !258
+  %51 = tail call double @cos(double noundef %.0.i.i4) #22, !tbaa !68, !noalias !258
   %52 = fneg double %50
   %.sroa.0.0.vec.insert.i.i.i.i5 = insertelement <2 x double> poison, double %51, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i6 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i5, double %50, i64 1
@@ -1587,12 +1575,12 @@ define linkonce_odr void @_ZN3g2o7EdgeSE214setMeasurementERKNS_3SE2E(ptr noundef
   store <2 x double> %7, ptr %5, align 16, !tbaa !81
   %8 = load double, ptr %1, align 16, !tbaa !3, !noalias !283
   %9 = fsub double 0x400921FB54442D18, %8
-  %10 = tail call double @fmod(double noundef %9, double noundef 0x401921FB54442D18) #23, !tbaa !68, !noalias !283
+  %10 = tail call double @fmod(double noundef %9, double noundef 0x401921FB54442D18) #22, !tbaa !68, !noalias !283
   %11 = fcmp ugt double %10, 0.000000e+00
   %.0.v.i.i = select i1 %11, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %10, %.0.v.i.i
-  %12 = tail call double @sin(double noundef %.0.i.i) #23, !tbaa !68, !noalias !286
-  %13 = tail call double @cos(double noundef %.0.i.i) #23, !tbaa !68, !noalias !286
+  %12 = tail call double @sin(double noundef %.0.i.i) #22, !tbaa !68, !noalias !286
+  %13 = tail call double @cos(double noundef %.0.i.i) #22, !tbaa !68, !noalias !286
   %14 = fneg double %12
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %13, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %12, i64 1
@@ -1627,15 +1615,15 @@ define linkonce_odr noundef i32 @_ZNK3g2o8BaseEdgeILi3ENS_3SE2EE4rankEv(ptr noun
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o7EdgeSE2D1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %2) #23
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %2) #22
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o7EdgeSE2D0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %2) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(432) %2, i64 noundef 432) #24
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(432) %2) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull align 16 dereferenceable(432) %2, i64 noundef 432) #23
   ret void
 }
 
@@ -1646,8 +1634,8 @@ declare void @_ZN3g2o23HyperGraphElementActionD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o25EdgeSE2WriteGnuplotActionD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN3g2o23HyperGraphElementActionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #23
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #24
+  tail call void @_ZN3g2o23HyperGraphElementActionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #23
   ret void
 }
 
@@ -1720,20 +1708,20 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2ES2_EED0Ev(ptr noundef nonnull align 16 dereferenceable(376) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @llvm.trap() #26
+  tail call void @llvm.trap() #25
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2ES2_EED1Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -40
-  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(376) %2) #23
+  tail call void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 16 dereferenceable(376) %2) #22
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn40_N3g2o18BaseFixedSizedEdgeILi3ENS_3SE2EJNS_9VertexSE2ES2_EED0Ev(ptr noundef %0) unnamed_addr #11 comdat align 2 {
-  tail call void @llvm.trap() #26
+  tail call void @llvm.trap() #25
   unreachable
 }
 
@@ -1861,7 +1849,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   br i1 %50, label %51, label %_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit
 
 51:                                               ; preds = %44
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #25
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
   unreachable
 
 _ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit: ; preds = %44
@@ -1877,7 +1865,7 @@ _ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
 
 58:                                               ; preds = %_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit
   %59 = shl nuw nsw i64 %55, 3
-  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #27
+  %60 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %59) #26
   br label %61
 
 61:                                               ; preds = %58, %_ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit
@@ -1920,7 +1908,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET
 
 73:                                               ; preds = %71
   %74 = sub i64 %10, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %74) #23
   br label %_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit
 
 _ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %71, %73
@@ -1974,7 +1962,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %10, align 8, !tbaa !302
   %18 = shl i64 %14, 3
-  call void @_ZdlPvm(ptr noundef %17, i64 noundef %18) #24
+  call void @_ZdlPvm(ptr noundef %17, i64 noundef %18) #23
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit: ; preds = %13, %16
@@ -2102,7 +2090,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %57
 78:                                               ; preds = %75
   %79 = load ptr, ptr %10, align 8, !tbaa !302
   %80 = shl i64 %76, 3
-  call void @_ZdlPvm(ptr noundef %79, i64 noundef %80) #24
+  call void @_ZdlPvm(ptr noundef %79, i64 noundef %80) #23
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32: ; preds = %78, %75
@@ -2142,7 +2130,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %11, align 8, !tbaa !302
   %19 = shl i64 %15, 3
-  call void @_ZdlPvm(ptr noundef %18, i64 noundef %19) #24
+  call void @_ZdlPvm(ptr noundef %18, i64 noundef %19) #23
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit: ; preds = %14, %17
@@ -2270,7 +2258,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %58
 79:                                               ; preds = %76
   %80 = load ptr, ptr %11, align 8, !tbaa !302
   %81 = shl i64 %77, 3
-  call void @_ZdlPvm(ptr noundef %80, i64 noundef %81) #24
+  call void @_ZdlPvm(ptr noundef %80, i64 noundef %81) #23
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32: ; preds = %79, %76
@@ -3264,7 +3252,7 @@ define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraver
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_edge_se2.cpp() #18 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #23
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #22
   %2 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL4lastE)
   %3 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN5EigenL6lastp1E)
   %4 = tail call ptr @llvm.invariant.start.p0(i64 1, ptr nonnull @_ZN5EigenL3allE)
@@ -3277,20 +3265,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #22
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
@@ -3311,15 +3296,14 @@ attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-si
 attributes #16 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #17 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #18 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nounwind }
-attributes #24 = { builtin nounwind }
-attributes #25 = { noreturn }
-attributes #26 = { noreturn nounwind }
-attributes #27 = { builtin allocsize(0) }
+attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nounwind }
+attributes #23 = { builtin nounwind }
+attributes #24 = { noreturn }
+attributes #25 = { noreturn nounwind }
+attributes #26 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

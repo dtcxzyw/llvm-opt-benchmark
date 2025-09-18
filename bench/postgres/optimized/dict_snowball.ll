@@ -71,7 +71,7 @@ define noundef nonnull ptr @pg_finfo_dsnowball_lexize() local_unnamed_addr #0 {
 define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
-  %4 = tail call ptr @palloc0(i64 noundef 48) #7
+  %4 = tail call ptr @palloc0(i64 noundef 48) #6
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -94,7 +94,7 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str) #8
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str) #7
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %22, label %29
 
@@ -108,20 +108,19 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %.03260, label %23, label %27
 
 23:                                               ; preds = %22
-  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %24)
-  %25 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 240, ptr noundef nonnull @__func__.dsnowball_init) #7
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %25 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 240, ptr noundef nonnull @__func__.dsnowball_init) #6
   unreachable
 
 27:                                               ; preds = %22
-  %28 = tail call ptr @defGetString(ptr noundef nonnull %15) #7
-  tail call void @readstoplist(ptr noundef %28, ptr noundef nonnull %10, ptr noundef nonnull @str_tolower) #7
+  %28 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
+  tail call void @readstoplist(ptr noundef %28, ptr noundef nonnull %10, ptr noundef nonnull @str_tolower) #6
   br label %80
 
 29:                                               ; preds = %.lr.ph61
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.3) #8
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.3) #7
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %74
 
@@ -131,15 +130,14 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %.not22, label %38, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.dsnowball_init) #7
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.dsnowball_init) #6
   unreachable
 
 38:                                               ; preds = %32
-  %39 = tail call ptr @defGetString(ptr noundef nonnull %15) #7
+  %39 = tail call ptr @defGetString(ptr noundef nonnull %15) #6
   br label %40
 
 40:                                               ; preds = %51, %38
@@ -151,12 +149,12 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %40
-  %46 = tail call i32 @GetDatabaseEncoding() #7
+  %46 = tail call i32 @GetDatabaseEncoding() #6
   %47 = icmp eq i32 %43, %46
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45, %40
-  %49 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %41, ptr noundef %39) #7
+  %49 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %41, ptr noundef %39) #6
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %locate_stem_module.exit, label %51
 
@@ -175,7 +173,7 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %.preheader.i
-  %59 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %54, ptr noundef %39) #7
+  %59 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %54, ptr noundef %39) #6
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %locate_stem_module.exit, label %61
 
@@ -186,12 +184,11 @@ define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %.not24.i, label %64, label %.preheader.i, !llvm.loop !5
 
 64:                                               ; preds = %61
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 @errcode(i32 noundef 67137668) #7
-  %67 = tail call ptr @GetDatabaseEncodingName() #7
-  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %39, ptr noundef %67) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 218, ptr noundef nonnull @__func__.locate_stem_module) #7
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %66 = tail call i32 @errcode(i32 noundef 67137668) #6
+  %67 = tail call ptr @GetDatabaseEncodingName() #6
+  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %39, ptr noundef %67) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 218, ptr noundef nonnull @__func__.locate_stem_module) #6
   unreachable
 
 locate_stem_module.exit:                          ; preds = %48, %58
@@ -202,19 +199,18 @@ locate_stem_module.exit:                          ; preds = %48, %58
   store ptr %70, ptr %8, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.128.lcssa.sink42.i, i64 16
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call ptr %72() #7
+  %73 = tail call ptr %72() #6
   store ptr %73, ptr %4, align 8
   store i8 %.sink.i, ptr %9, align 8
   br label %80
 
 74:                                               ; preds = %29
   %75 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %76)
-  %77 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %77 = tail call i32 @errcode(i32 noundef 50856066) #6
   %78 = load ptr, ptr %75, align 8
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %78) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 257, ptr noundef nonnull @__func__.dsnowball_init) #7
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %78) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 257, ptr noundef nonnull @__func__.dsnowball_init) #6
   unreachable
 
 80:                                               ; preds = %locate_stem_module.exit, %27
@@ -226,11 +222,10 @@ locate_stem_module.exit:                          ; preds = %48, %58
   br i1 %83, label %.lr.ph61, label %.critedge
 
 84:                                               ; preds = %.critedge
-  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %85)
-  %86 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %87 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.dsnowball_init) #7
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %86 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %87 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.dsnowball_init) #6
   unreachable
 
 88:                                               ; preds = %.critedge
@@ -274,8 +269,8 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
   %10 = trunc i64 %9 to i32
   %sext = shl i64 %9, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %11, i32 noundef 100) #7
-  %13 = tail call ptr @palloc0(i64 noundef 32) #7
+  %12 = tail call ptr @str_tolower(ptr noundef %7, i64 noundef %11, i32 noundef 100) #6
+  %13 = tail call ptr @palloc0(i64 noundef 32) #6
   %14 = icmp sgt i32 %10, 1000
   br i1 %14, label %15, label %17
 
@@ -291,11 +286,11 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %22 = tail call zeroext i1 @searchstoplist(ptr noundef nonnull %21, ptr noundef nonnull %12) #7
+  %22 = tail call zeroext i1 @searchstoplist(ptr noundef nonnull %21, ptr noundef nonnull %12) #6
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20, %17
-  tail call void @pfree(ptr noundef nonnull %12) #7
+  tail call void @pfree(ptr noundef nonnull %12) #6
   br label %74
 
 24:                                               ; preds = %20
@@ -305,14 +300,14 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #8
+  %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #7
   %30 = trunc i64 %29 to i32
-  %31 = tail call ptr @pg_server_to_any(ptr noundef nonnull %12, i32 noundef %30, i32 noundef 6) #7
+  %31 = tail call ptr @pg_server_to_any(ptr noundef nonnull %12, i32 noundef %30, i32 noundef 6) #6
   %.not = icmp eq ptr %31, %12
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %28
-  tail call void @pfree(ptr noundef nonnull %12) #7
+  tail call void @pfree(ptr noundef nonnull %12) #6
   br label %33
 
 33:                                               ; preds = %28, %32, %24
@@ -322,13 +317,13 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
   %36 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
   %37 = load ptr, ptr %4, align 8
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #8
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #7
   %39 = trunc i64 %38 to i32
-  %40 = tail call i32 @SN_set_current(ptr noundef %37, i32 noundef %39, ptr noundef nonnull %.0) #7
+  %40 = tail call i32 @SN_set_current(ptr noundef %37, i32 noundef %39, ptr noundef nonnull %.0) #6
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %4, align 8
-  %44 = tail call i32 %42(ptr noundef %43) #7
+  %44 = tail call i32 %42(ptr noundef %43) #6
   store ptr %36, ptr @CurrentMemoryContext, align 8
   %45 = load ptr, ptr %4, align 8
   %46 = load ptr, ptr %45, align 8
@@ -344,7 +339,7 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
 50:                                               ; preds = %47
   %51 = add i32 %49, 1
   %52 = sext i32 %51 to i64
-  %53 = tail call ptr @repalloc(ptr noundef nonnull %.0, i64 noundef %52) #7
+  %53 = tail call ptr @repalloc(ptr noundef nonnull %.0, i64 noundef %52) #6
   %54 = load ptr, ptr %4, align 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
@@ -366,14 +361,14 @@ define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %64
-  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #8
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #7
   %69 = trunc i64 %68 to i32
-  %70 = tail call ptr @pg_any_to_server(ptr noundef nonnull %.2, i32 noundef %69, i32 noundef 6) #7
+  %70 = tail call ptr @pg_any_to_server(ptr noundef nonnull %.2, i32 noundef %69, i32 noundef 6) #6
   %.not51 = icmp eq ptr %70, %.2
   br i1 %.not51, label %72, label %71
 
 71:                                               ; preds = %67
-  tail call void @pfree(ptr noundef nonnull %.2) #7
+  tail call void @pfree(ptr noundef nonnull %.2) #6
   br label %72
 
 72:                                               ; preds = %67, %71, %64
@@ -699,19 +694,15 @@ declare void @yiddish_UTF_8_close_env(ptr noundef) #2
 
 declare i32 @yiddish_UTF_8_stem(ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
-attributes #9 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

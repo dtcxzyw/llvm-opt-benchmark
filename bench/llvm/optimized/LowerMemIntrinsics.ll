@@ -8209,7 +8209,6 @@ define internal fastcc { ptr, ptr } @_ZL30tryInsertCastToCommonAddrSpaceRN4llvm1
 
 23:                                               ; preds = %17
   %24 = tail call noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo20isValidAddrSpaceCastEjj(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %11, i32 noundef %16) #14
-  tail call void @llvm.assume(i1 %24)
   %25 = load ptr, ptr %12, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 32

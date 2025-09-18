@@ -3048,7 +3048,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEv(
 
 12:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %120
+  br label %119
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3091,7 +3091,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEv(
 
 42:                                               ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %119
+  br label %118
 
 43:                                               ; preds = %40
   store ptr %34, ptr %0, align 8, !tbaa !800
@@ -3099,7 +3099,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEv(
   store ptr null, ptr %44, align 8, !tbaa !803
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %45, align 8, !tbaa !804
-  br label %119
+  br label %118
 
 46:                                               ; preds = %38, %32
   store ptr %34, ptr %0, align 8, !tbaa !800
@@ -3107,7 +3107,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEv(
   store ptr null, ptr %47, align 8, !tbaa !803
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %48, align 8, !tbaa !804
-  br label %119
+  br label %118
 
 49:                                               ; preds = %13
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 276
@@ -3117,7 +3117,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEv(
 
 53:                                               ; preds = %49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %119
+  br label %118
 
 54:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3133,7 +3133,7 @@ define dso_local void @_ZNK5clang4ento15AnyFunctionCall20getRuntimeDefinitionEv(
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
-  br i1 %62, label %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit, label %107
+  br i1 %62, label %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit, label %106
 
 _ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit: ; preds = %54
   %63 = load i64, ptr %7, align 8, !tbaa !807, !noalias !809
@@ -3215,73 +3215,65 @@ _ZN4llvm5ErrorD2Ev.exit9.i.i:                     ; preds = %94, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !812
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.024.036.i.i, i64 8
   %.not34.i.i = icmp eq ptr %98, %74
-  br i1 %.not34.i.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i18.i.loopexit.i, label %.lr.ph.i.i
+  br i1 %.not34.i.i, label %_ZN4llvm5ErrorD2Ev.exit.sink.split, label %.lr.ph.i.i
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i.i: ; preds = %65
   %99 = load ptr, ptr %64, align 8, !tbaa !71, !noalias !826
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %101 = load ptr, ptr %100, align 8, !noalias !826
   %102 = call noundef zeroext i1 %101(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull @_ZN5clang8cross_tu10IndexError2IDE) #20, !noalias !826
-  call void @llvm.assume(i1 %102)
   call void @_ZN5clang8cross_tu27CrossTranslationUnitContext22emitCrossTUDiagnosticsERKNS0_10IndexErrorE(ptr noundef nonnull align 8 dereferenceable(216) %27, ptr noundef nonnull align 8 dereferenceable(120) %64) #20, !noalias !829
   br label %_ZN4llvm5ErrorD2Ev.exit.sink.split
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i18.i.loopexit.i: ; preds = %_ZN4llvm5ErrorD2Ev.exit9.i.i
-  %103 = icmp eq ptr %85, null
-  br label %_ZN4llvm5ErrorD2Ev.exit.sink.split
-
-_ZN4llvm5ErrorD2Ev.exit.sink.split:               ; preds = %70, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i18.i.loopexit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i.i
-  %.sroa.02.1.i.ph = phi i1 [ true, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i.i ], [ true, %70 ], [ %103, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i18.i.loopexit.i ]
-  %104 = load ptr, ptr %64, align 8, !tbaa !71, !noalias !812
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8, !noalias !812
-  call void %106(ptr noundef nonnull align 8 dereferenceable(8) %64) #20, !noalias !812
+_ZN4llvm5ErrorD2Ev.exit.sink.split:               ; preds = %_ZN4llvm5ErrorD2Ev.exit9.i.i, %70, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i11.i.i
+  %103 = load ptr, ptr %64, align 8, !tbaa !71, !noalias !812
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load ptr, ptr %104, align 8, !noalias !812
+  call void %105(ptr noundef nonnull align 8 dereferenceable(8) %64) #20, !noalias !812
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm5ErrorD2Ev.exit.sink.split, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit
-  %.sroa.02.1.i = phi i1 [ true, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEE9takeErrorEv.exit ], [ %.sroa.02.1.i.ph, %_ZN4llvm5ErrorD2Ev.exit.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.assume(i1 %.sroa.02.1.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.pre = load i8, ptr %60, align 8
-  br label %111
+  br label %110
 
-107:                                              ; preds = %54
-  %108 = load ptr, ptr %7, align 8, !tbaa !832
-  store ptr %108, ptr %0, align 8, !tbaa !800
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %109, align 8, !tbaa !803
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %110, align 8, !tbaa !804
-  br label %111
+106:                                              ; preds = %54
+  %107 = load ptr, ptr %7, align 8, !tbaa !832
+  store ptr %107, ptr %0, align 8, !tbaa !800
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %108, align 8, !tbaa !803
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %109, align 8, !tbaa !804
+  br label %110
 
-111:                                              ; preds = %107, %_ZN4llvm5ErrorD2Ev.exit
-  %112 = phi i8 [ %61, %107 ], [ %.pre, %_ZN4llvm5ErrorD2Ev.exit ]
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit
+110:                                              ; preds = %106, %_ZN4llvm5ErrorD2Ev.exit
+  %111 = phi i8 [ %61, %106 ], [ %.pre, %_ZN4llvm5ErrorD2Ev.exit ]
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %7, align 8, !tbaa !807
-  %.not.i.i23 = icmp eq ptr %115, null
+113:                                              ; preds = %110
+  %114 = load ptr, ptr %7, align 8, !tbaa !807
+  %.not.i.i23 = icmp eq ptr %114, null
   br i1 %.not.i.i23, label %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !71
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(8) %115) #20
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %113
+  %115 = load ptr, ptr %114, align 8, !tbaa !71
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(8) %114) #20
   br label %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit
 
-_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit: ; preds = %114, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %111
+_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit: ; preds = %113, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %118
+
+118:                                              ; preds = %42, %43, %46, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit, %53
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %119
 
-119:                                              ; preds = %42, %43, %46, %_ZN4llvm8ExpectedIPKN5clang12FunctionDeclEED2Ev.exit, %53
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %120
-
-120:                                              ; preds = %119, %12
+119:                                              ; preds = %118, %12
   ret void
 }
 

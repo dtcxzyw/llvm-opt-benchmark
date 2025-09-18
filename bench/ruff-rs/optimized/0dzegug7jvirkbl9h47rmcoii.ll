@@ -12442,7 +12442,7 @@ define hidden { ptr, i64 } @_ZN11quick_junit6report9XmlString3new17h584e9363b2cf
 8:                                                ; preds = %.body, %9
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %eh.lpad-body, %.body ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #31
-          to label %97 unwind label %95
+          to label %95 unwind label %93
 
 9:                                                ; preds = %91, %1
   %10 = landingpad { ptr, i32 }
@@ -12612,7 +12612,7 @@ define hidden { ptr, i64 } @_ZN11quick_junit6report9XmlString3new17h584e9363b2cf
 .body:                                            ; preds = %23, %87
   %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %.pn.i, %23 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #31
-          to label %8 unwind label %95
+          to label %8 unwind label %93
 
 89:                                               ; preds = %.critedge20.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -12622,25 +12622,22 @@ define hidden { ptr, i64 } @_ZN11quick_junit6report9XmlString3new17h584e9363b2cf
           to label %91 unwind label %87
 
 91:                                               ; preds = %89
-  %92 = extractvalue { ptr, i64 } %90, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %93 = icmp ne ptr %92, null
-  call void @llvm.assume(i1 %93)
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %94 unwind label %9
+          to label %92 unwind label %9
 
-94:                                               ; preds = %91
+92:                                               ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   ret { ptr, i64 } %90
 
-95:                                               ; preds = %.body, %8
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %.body, %8
+  %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32
   unreachable
 
-97:                                               ; preds = %8
+95:                                               ; preds = %8
   resume { ptr, i32 } %.pn
 }
 
@@ -12817,7 +12814,7 @@ define hidden { ptr, i64 } @_ZN11quick_junit6report9XmlString3new17hfcd94fad75e8
 .body:                                            ; preds = %18, %83
   %eh.lpad-body = phi { ptr, i32 } [ %84, %83 ], [ %.pn.i, %18 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #31
-          to label %82 unwind label %90
+          to label %82 unwind label %88
 
 85:                                               ; preds = %.critedge20.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12827,16 +12824,13 @@ define hidden { ptr, i64 } @_ZN11quick_junit6report9XmlString3new17hfcd94fad75e8
           to label %87 unwind label %83
 
 87:                                               ; preds = %85
-  %88 = extractvalue { ptr, i64 } %86, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %89 = icmp ne ptr %88, null
-  call void @llvm.assume(i1 %89)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret { ptr, i64 } %86
 
-90:                                               ; preds = %.body
-  %91 = landingpad { ptr, i32 }
+88:                                               ; preds = %.body
+  %89 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32
   unreachable

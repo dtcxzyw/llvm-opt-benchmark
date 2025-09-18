@@ -1513,12 +1513,6 @@ define hidden { ptr, ptr } @_ZN10ockam_node13channel_types13small_channel17h3d90
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 1, ptr %2, align 8, !noalias !259
   %3 = call { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h499ab03b7b46c69bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %1), !noalias !259
-  %4 = extractvalue { ptr, ptr } %3, 0
-  %5 = extractvalue { ptr, ptr } %3, 1
-  %6 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret { ptr, ptr } %3
 }
@@ -5529,12 +5523,6 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc7bounded7channel17h0816fcb077075c
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %0, ptr %11, align 8
   %12 = call { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h499ab03b7b46c69bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  %15 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %16)
   ret { ptr, ptr } %12
 }
 

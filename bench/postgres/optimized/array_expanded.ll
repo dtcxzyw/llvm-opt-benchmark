@@ -18,9 +18,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ArrayMetaState, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8388608) #8
-  %6 = tail call ptr @MemoryContextAlloc(ptr noundef %5, i64 noundef 136) #8
-  tail call void @EOH_init_header(ptr noundef %6, ptr noundef nonnull @EA_methods, ptr noundef %5) #8
+  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 1024, i64 noundef 8388608) #7
+  %6 = tail call ptr @MemoryContextAlloc(ptr noundef %5, i64 noundef 136) #7
+  tail call void @EOH_init_header(ptr noundef %6, ptr noundef nonnull @EA_methods, ptr noundef %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 689375833, ptr %7, align 8
   %8 = inttoptr i64 %0 to ptr
@@ -36,7 +36,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %11
-  %17 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %17 = tail call ptr @DatumGetEOHP(i64 noundef %0) #7
   %18 = icmp eq ptr %2, null
   %spec.store.select = select i1 %18, ptr %4, ptr %2
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 72
@@ -79,7 +79,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   %40 = shl i32 %36, 1
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 2
-  %43 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %42) #8
+  %43 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %42) #7
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %43, ptr %44, align 8
   %45 = sext i32 %36 to i64
@@ -108,7 +108,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   store i8 %60, ptr %61, align 1
   %62 = sext i32 %38 to i64
   %63 = shl nsw i64 %62, 3
-  %64 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %63) #8
+  %64 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %63) #7
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %64, ptr %65, align 8
   %66 = load ptr, ptr %30, align 8
@@ -119,7 +119,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   br i1 %.not.i, label %73, label %69
 
 69:                                               ; preds = %32
-  %70 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %62) #8
+  %70 = tail call ptr @MemoryContextAlloc(ptr noundef %34, i64 noundef %62) #7
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store ptr %70, ptr %71, align 8
   %72 = load ptr, ptr %67, align 8
@@ -150,7 +150,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   %.074 = phi ptr [ %2, %11 ], [ %2, %3 ], [ %spec.store.select, %29 ], [ %spec.store.select, %16 ]
   %84 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  %85 = tail call ptr @pg_detoast_datum_copy(ptr noundef nonnull %8) #8
+  %85 = tail call ptr @pg_detoast_datum_copy(ptr noundef nonnull %8) #7
   store ptr %84, ptr @CurrentMemoryContext, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
@@ -196,7 +196,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %114 = getelementptr inbounds nuw i8, ptr %6, i64 78
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 79
-  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115) #8
+  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %113, ptr noundef nonnull %114, ptr noundef nonnull %115) #7
   %116 = load i32, ptr %98, align 8
   store i32 %116, ptr %.074, align 8
   %117 = load i16, ptr %113, align 4
@@ -214,7 +214,7 @@ define dso_local i64 @expand_array(i64 noundef %0, ptr noundef %1, ptr noundef c
   %123 = getelementptr inbounds nuw i8, ptr %6, i64 76
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 78
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 79
-  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125) #8
+  call void @get_typlenbyvalalign(i32 noundef %97, ptr noundef nonnull %123, ptr noundef nonnull %124, ptr noundef nonnull %125) #7
   br label %126
 
 126:                                              ; preds = %.critedge, %112, %102
@@ -291,7 +291,7 @@ define dso_local ptr @DatumGetExpandedArray(i64 noundef %0) local_unnamed_addr #
 
 12:                                               ; preds = %5, %9
   %.sink = phi i64 [ %11, %9 ], [ %0, %5 ]
-  %13 = tail call ptr @DatumGetEOHP(i64 noundef %.sink) #8
+  %13 = tail call ptr @DatumGetEOHP(i64 noundef %.sink) #7
   ret ptr %13
 }
 
@@ -309,7 +309,7 @@ define dso_local ptr @DatumGetExpandedArrayX(i64 noundef %0, ptr noundef capture
   br i1 %9, label %10, label %24
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %11 = tail call ptr @DatumGetEOHP(i64 noundef %0) #7
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %28, label %12
 
@@ -334,7 +334,7 @@ define dso_local ptr @DatumGetExpandedArrayX(i64 noundef %0, ptr noundef capture
 24:                                               ; preds = %6, %2
   %25 = load ptr, ptr @CurrentMemoryContext, align 8
   %26 = tail call i64 @expand_array(i64 noundef %0, ptr noundef %25, ptr noundef %1)
-  %27 = tail call ptr @DatumGetEOHP(i64 noundef %26) #8
+  %27 = tail call ptr @DatumGetEOHP(i64 noundef %26) #7
   br label %28
 
 28:                                               ; preds = %10, %12, %24
@@ -357,11 +357,11 @@ define dso_local ptr @DatumGetAnyArrayP(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %11 = tail call ptr @DatumGetEOHP(i64 noundef %0) #7
   br label %14
 
 12:                                               ; preds = %5, %1
-  %13 = tail call ptr @pg_detoast_datum(ptr noundef nonnull %2) #8
+  %13 = tail call ptr @pg_detoast_datum(ptr noundef nonnull %2) #7
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -406,7 +406,7 @@ define dso_local void @deconstruct_expanded_array(ptr noundef captures(none) %0)
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %25, 0
   %. = select i1 %.not, ptr null, ptr %3
-  call void @deconstruct_array(ptr noundef %13, i32 noundef %15, i32 noundef %18, i1 noundef zeroext %21, i8 noundef signext %23, ptr noundef nonnull %2, ptr noundef %., ptr noundef nonnull %4) #8
+  call void @deconstruct_array(ptr noundef %13, i32 noundef %15, i32 noundef %18, i1 noundef zeroext %21, i8 noundef signext %23, ptr noundef nonnull %2, ptr noundef %., ptr noundef nonnull %4) #7
   %26 = load ptr, ptr %2, align 8
   store ptr %26, ptr %5, align 8
   %27 = load ptr, ptr %3, align 8
@@ -532,7 +532,7 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
   br label %61
 
 58:                                               ; preds = %33
-  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #9
+  %59 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #8
   %60 = add i64 %59, 1
   br label %61
 
@@ -567,11 +567,10 @@ define internal i64 @EA_get_flat_size(ptr noundef captures(none) %0) #0 {
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %73
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 @errcode(i32 noundef 261) #8
-  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, i32 noundef 1073741823) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 275, ptr noundef nonnull @__func__.EA_get_flat_size) #8
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %78 = tail call i32 @errcode(i32 noundef 261) #7
+  %79 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, i32 noundef 1073741823) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 275, ptr noundef nonnull @__func__.EA_get_flat_size) #7
   unreachable
 
 80:                                               ; preds = %73, %24
@@ -676,7 +675,7 @@ define internal void @EA_flatten_into(ptr noundef readonly captures(none) %0, pt
   %45 = trunc nuw i8 %44 to i1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %47 = load i8, ptr %46, align 1
-  tail call void @CopyArrayEls(ptr noundef nonnull %1, ptr noundef %38, ptr noundef %39, i32 noundef %9, i32 noundef %42, i1 noundef zeroext %45, i8 noundef signext %47, i1 noundef zeroext false) #8
+  tail call void @CopyArrayEls(ptr noundef nonnull %1, ptr noundef %38, ptr noundef %39, i32 noundef %9, i32 noundef %42, i1 noundef zeroext %45, i8 noundef signext %47, i1 noundef zeroext false) #7
   br label %48
 
 48:                                               ; preds = %21, %6
@@ -709,9 +708,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -719,10 +715,9 @@ attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

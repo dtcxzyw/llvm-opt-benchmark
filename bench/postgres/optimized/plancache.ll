@@ -998,7 +998,6 @@ define dso_local void @SaveCachedPlan(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 491, ptr noundef nonnull @__func__.SaveCachedPlan) #9
   unreachable
@@ -1148,7 +1147,6 @@ define dso_local ptr @GetCachedPlan(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 9:                                                ; preds = %5
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1180, ptr noundef nonnull @__func__.GetCachedPlan) #9
   unreachable
@@ -1923,7 +1921,6 @@ PlanCacheComputeResultDesc.exit.thread:           ; preds = %128, %PlanCacheComp
 
 178:                                              ; preds = %.thread123, %168
   %179 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %179)
   %180 = tail call i32 @errcode(i32 noundef 1088) #9
   %181 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 747, ptr noundef nonnull @__func__.RevalidateCachedQuery) #9
@@ -2408,7 +2405,6 @@ define dso_local void @CachedPlanSetParentContext(ptr noundef readonly captures(
 
 6:                                                ; preds = %2
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1507, ptr noundef nonnull @__func__.CachedPlanSetParentContext) #9
   unreachable
@@ -2421,7 +2417,6 @@ define dso_local void @CachedPlanSetParentContext(ptr noundef readonly captures(
 
 13:                                               ; preds = %9
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1509, ptr noundef nonnull @__func__.CachedPlanSetParentContext) #9
   unreachable
@@ -2454,7 +2449,6 @@ define dso_local noundef ptr @CopyCachedPlan(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %1
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #9
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1551, ptr noundef nonnull @__func__.CopyCachedPlan) #9
   unreachable

@@ -518,8 +518,6 @@ _ZNSt13unordered_mapIPN3ade4NodeENS0_6passes13TraverseStateESt4hashIS2_ESt8equal
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %69
   %74 = load atomic i32, ptr %67 monotonic, align 8, !noalias !70
-  %.fr.i.i.i.i.i = freeze i32 %74
-  %.not.i.i.i.i.i14 = icmp ne i32 %.fr.i.i.i.i.i, 0
   %75 = load ptr, ptr %1, align 8, !noalias !70
   %76 = load atomic i64, ptr %67 acquire, align 8
   %77 = icmp eq i64 %76, 4294967297
@@ -565,7 +563,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %91, %8
 
 _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %79, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %94
   %95 = icmp ne ptr %75, null
-  tail call void @llvm.assume(i1 %.not.i.i.i.i.i14)
   tail call void @llvm.assume(i1 %95)
   call void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.55") align 8 %4, ptr noundef nonnull align 8 dereferenceable(72) %75)
   %.sroa.071.0.copyload72 = load ptr, ptr %4, align 8
@@ -791,10 +788,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   br label %_ZNK3ade6HandleINS_4EdgeEEptEv.exit.i.i.i
 
 _ZNK3ade6HandleINS_4EdgeEEptEv.exit.i.i.i:        ; preds = %188, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %173
-  %.fr.i.i.i.i.i.i.i.i = freeze i32 %168
-  %.not.i.i.i.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i.i.i.i, 0
   %189 = icmp ne ptr %169, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i.i)
   call void @llvm.assume(i1 %189)
   invoke void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %169)
           to label %"_ZZN3ade6passesL5visitERSt13unordered_mapIPNS_4NodeENS0_13TraverseStateESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEERKNS_6HandleIS2_EEENK3$_0clERKNSF_INS_4EdgeEEE.exit.i.i" unwind label %204

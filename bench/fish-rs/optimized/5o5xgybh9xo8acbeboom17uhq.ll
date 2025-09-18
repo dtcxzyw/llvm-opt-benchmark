@@ -31777,9 +31777,6 @@ define { ptr, i64 } @_ZN4fish2re14to_boxed_chars17hd841a2fe4d18e042E(ptr noalias
   %12 = shl i64 %1, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr nonnull readonly align 4 %0, i64 %12, i1 false)
   %13 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h57fcdf5d8a5093c7E"(i64 noundef %7, ptr noundef nonnull %11, i64 noundef %1), !noalias !4127
-  %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
   ret { ptr, i64 } %13
 }
 

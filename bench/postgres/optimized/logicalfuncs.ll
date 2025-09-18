@@ -42,19 +42,18 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentResourceOwner, align 8
-  call void @CheckSlotPermissions() #9
-  call void @CheckLogicalDecodingRequirements() #9
+  call void @CheckSlotPermissions() #8
+  call void @CheckLogicalDecodingRequirements() #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %3
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %17)
-  %18 = call i32 @errcode(i32 noundef 67108994) #9
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %18 = call i32 @errcode(i32 noundef 67108994) #8
+  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 123, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 20:                                               ; preds = %3
@@ -94,19 +93,18 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %44)
-  %45 = call i32 @errcode(i32 noundef 67108994) #9
-  %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %44 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %45 = call i32 @errcode(i32 noundef 67108994) #8
+  %46 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 47:                                               ; preds = %39
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %49 = load i64, ptr %48, align 8
   %50 = inttoptr i64 %49 to ptr
-  %51 = call ptr @pg_detoast_datum(ptr noundef %50) #9
-  %52 = call ptr @palloc0(i64 noundef 32) #9
+  %51 = call ptr @pg_detoast_datum(ptr noundef %50) #8
+  %52 = call ptr @palloc0(i64 noundef 32) #8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i8 %9, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -121,23 +119,21 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %47
-  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %63)
-  %64 = call i32 @errcode(i32 noundef 1088) #9
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %64 = call i32 @errcode(i32 noundef 1088) #8
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 66:                                               ; preds = %47
-  %67 = call zeroext i1 @array_contains_nulls(ptr noundef nonnull %51) #9
+  %67 = call zeroext i1 @array_contains_nulls(ptr noundef nonnull %51) #8
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %66
-  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %69)
-  %70 = call i32 @errcode(i32 noundef 1088) #9
-  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %69 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %70 = call i32 @errcode(i32 noundef 1088) #8
+  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 162, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 72:                                               ; preds = %66
@@ -147,7 +143,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @deconstruct_array_builtin(ptr noundef nonnull %51, i32 noundef 25, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #9
+  call void @deconstruct_array_builtin(ptr noundef nonnull %51, i32 noundef 25, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %4) #8
   %75 = load i32, ptr %4, align 4
   %76 = and i32 %75, 1
   %.not = icmp eq i32 %76, 0
@@ -158,11 +154,10 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %77, label %.lr.ph, label %._crit_edge
 
 78:                                               ; preds = %74
-  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %79)
-  %80 = call i32 @errcode(i32 noundef 1088) #9
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %80 = call i32 @errcode(i32 noundef 1088) #8
+  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 177, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -173,16 +168,16 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %84 = getelementptr inbounds i64, ptr %82, i64 %83
   %85 = load i64, ptr %84, align 8
   %86 = inttoptr i64 %85 to ptr
-  %87 = call ptr @text_to_cstring(ptr noundef %86) #9
+  %87 = call ptr @text_to_cstring(ptr noundef %86) #8
   %88 = load ptr, ptr %5, align 8
   %89 = getelementptr i64, ptr %88, i64 %83
   %90 = getelementptr i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %92 = inttoptr i64 %91 to ptr
-  %93 = call ptr @text_to_cstring(ptr noundef %92) #9
-  %94 = call ptr @makeString(ptr noundef %93) #9
-  %95 = call ptr @makeDefElem(ptr noundef %87, ptr noundef %94, i32 noundef -1) #9
-  %96 = call ptr @lappend(ptr noundef %.188, ptr noundef %95) #9
+  %93 = call ptr @text_to_cstring(ptr noundef %92) #8
+  %94 = call ptr @makeString(ptr noundef %93) #8
+  %95 = call ptr @makeDefElem(ptr noundef %87, ptr noundef %94, i32 noundef -1) #8
+  %96 = call ptr @lappend(ptr noundef %.188, ptr noundef %95) #8
   %97 = add i32 %.07487, 2
   %98 = load i32, ptr %4, align 4
   %99 = icmp slt i32 %97, %98
@@ -196,7 +191,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 100:                                              ; preds = %._crit_edge, %72
   %.073 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %72 ]
-  call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #9
+  call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #8
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %52, align 8
@@ -204,24 +199,24 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %104, ptr %105, align 8
-  %106 = call zeroext i1 @RecoveryInProgress() #9
+  %106 = call zeroext i1 @RecoveryInProgress() #8
   br i1 %106, label %109, label %107
 
 107:                                              ; preds = %100
-  %108 = call i64 @GetFlushRecPtr(ptr noundef null) #9
+  %108 = call i64 @GetFlushRecPtr(ptr noundef null) #8
   br label %111
 
 109:                                              ; preds = %100
-  %110 = call i64 @GetXLogReplayRecPtr(ptr noundef null) #9
+  %110 = call i64 @GetXLogReplayRecPtr(ptr noundef null) #8
   br label %111
 
 111:                                              ; preds = %109, %107
   %.071 = phi i64 [ %110, %109 ], [ %108, %107 ]
-  call void @ReplicationSlotAcquire(ptr noundef %23, i1 noundef zeroext true, i1 noundef zeroext true) #9
+  call void @ReplicationSlotAcquire(ptr noundef %23, i1 noundef zeroext true, i1 noundef zeroext true) #8
   %112 = load ptr, ptr @PG_exception_stack, align 8
   %113 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %114 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #11
+  %114 = call i32 @__sigsetjmp(ptr noundef nonnull %6, i32 noundef 0) #10
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %116, label %221
 
@@ -232,7 +227,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   store ptr @wal_segment_open, ptr %117, align 8
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr @wal_segment_close, ptr %118, align 8
-  %119 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.073, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #9
+  %119 = call ptr @CreateDecodingContext(i64 noundef 0, ptr noundef %.073, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull @LogicalOutputPrepareWrite, ptr noundef nonnull @LogicalOutputWrite, ptr noundef null) #8
   store ptr %58, ptr @CurrentMemoryContext, align 8
   br i1 %2, label %133, label %120
 
@@ -243,24 +238,23 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %.not77, label %133, label %123
 
 123:                                              ; preds = %120
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 @errcode(i32 noundef 1088) #9
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %125 = call i32 @errcode(i32 noundef 1088) #8
   %126 = load ptr, ptr @MyReplicationSlot, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 137
   %128 = load ptr, ptr %0, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 8
-  %131 = call ptr @format_procedure(i32 noundef %130) #9
-  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %127, ptr noundef %131) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %131 = call ptr @format_procedure(i32 noundef %130) #8
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %127, ptr noundef %131) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 133:                                              ; preds = %120, %116
   %134 = icmp eq i64 %.069, 0
   %135 = call i64 @llvm.umin.i64(i64 %.069, i64 %.071)
   %.072 = select i1 %134, i64 %.071, i64 %135
-  call void @WaitForStandbyConfirmation(i64 noundef %.072) #9
+  call void @WaitForStandbyConfirmation(i64 noundef %.072) #8
   %136 = getelementptr inbounds nuw i8, ptr %119, i64 272
   store ptr %52, ptr %136, align 8
   %137 = getelementptr inbounds nuw i8, ptr %119, i64 16
@@ -268,8 +262,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %139 = load ptr, ptr @MyReplicationSlot, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 104
   %141 = load i64, ptr %140, align 8
-  call void @XLogBeginRead(ptr noundef %138, i64 noundef %141) #9
-  call void @InvalidateSystemCaches() #9
+  call void @XLogBeginRead(ptr noundef %138, i64 noundef %141) #8
+  call void @InvalidateSystemCaches() #8
   %142 = load ptr, ptr %137, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %144 = load i64, ptr %143, align 8
@@ -289,7 +283,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %148 = phi ptr [ %158, %157 ], [ %142, %.lr.ph90.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %149 = call ptr @XLogReadRecord(ptr noundef nonnull %148, ptr noundef nonnull %8) #9
+  %149 = call ptr @XLogReadRecord(ptr noundef nonnull %148, ptr noundef nonnull %8) #8
   %150 = load ptr, ptr %8, align 8
   %.not78.us.us = icmp eq ptr %150, null
   br i1 %.not78.us.us, label %151, label %.split.us
@@ -300,7 +294,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 152:                                              ; preds = %151
   %153 = load ptr, ptr %137, align 8
-  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %153) #9
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %153) #8
   br label %154
 
 154:                                              ; preds = %152, %151
@@ -309,7 +303,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %.not84.us.us, label %157, label %156, !prof !8
 
 156:                                              ; preds = %154
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %157
 
 157:                                              ; preds = %156, %154
@@ -324,7 +318,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %162 = phi ptr [ %174, %173 ], [ %142, %.lr.ph90.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %163 = call ptr @XLogReadRecord(ptr noundef nonnull %162, ptr noundef nonnull %8) #9
+  %163 = call ptr @XLogReadRecord(ptr noundef nonnull %162, ptr noundef nonnull %8) #8
   %164 = load ptr, ptr %8, align 8
   %.not78.us = icmp eq ptr %164, null
   br i1 %.not78.us, label %165, label %.split.us
@@ -335,7 +329,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 166:                                              ; preds = %165
   %167 = load ptr, ptr %137, align 8
-  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %167) #9
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %167) #8
   br label %168
 
 168:                                              ; preds = %166, %165
@@ -349,7 +343,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %.not84.us, label %173, label %172, !prof !8
 
 172:                                              ; preds = %170
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %173
 
 173:                                              ; preds = %172, %170
@@ -367,7 +361,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %178 = phi ptr [ %193, %191 ], [ %142, %.lr.ph90.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %179 = call ptr @XLogReadRecord(ptr noundef nonnull %178, ptr noundef nonnull %8) #9
+  %179 = call ptr @XLogReadRecord(ptr noundef nonnull %178, ptr noundef nonnull %8) #8
   %180 = load ptr, ptr %8, align 8
   %.not78.us91 = icmp eq ptr %180, null
   br i1 %.not78.us91, label %181, label %.split.us
@@ -378,7 +372,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 182:                                              ; preds = %181
   %183 = load ptr, ptr %137, align 8
-  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %183) #9
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %183) #8
   br label %184
 
 184:                                              ; preds = %182, %181
@@ -394,7 +388,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %.not84.us93, label %191, label %190, !prof !8
 
 190:                                              ; preds = %188
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   %.pre104 = load ptr, ptr %137, align 8
   %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre104, i64 48
   %.pre106 = load i64, ptr %.phi.trans.insert105, align 8
@@ -411,17 +405,16 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   %195 = phi ptr [ %215, %213 ], [ %142, %.lr.ph90.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
-  %196 = call ptr @XLogReadRecord(ptr noundef nonnull %195, ptr noundef nonnull %8) #9
+  %196 = call ptr @XLogReadRecord(ptr noundef nonnull %195, ptr noundef nonnull %8) #8
   %197 = load ptr, ptr %8, align 8
   %.not78 = icmp eq ptr %197, null
   br i1 %.not78, label %201, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph90.split.split, %.lr.ph90.split.split.us, %.lr.ph90.split.us.split, %.lr.ph90.split.us.split.us
-  %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %198)
+  %198 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %199 = load ptr, ptr %8, align 8
-  %200 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %199) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #9
+  %200 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %199) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull @__func__.pg_logical_slot_get_changes_guts) #8
   unreachable
 
 201:                                              ; preds = %.lr.ph90.split.split
@@ -430,7 +423,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 202:                                              ; preds = %201
   %203 = load ptr, ptr %137, align 8
-  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %203) #9
+  call void @LogicalDecodingProcessRecord(ptr noundef nonnull %119, ptr noundef %203) #8
   br label %204
 
 204:                                              ; preds = %202, %201
@@ -451,7 +444,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %.not84, label %213, label %212, !prof !8
 
 212:                                              ; preds = %210
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   %.pre = load ptr, ptr %137, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre103 = load i64, ptr %.phi.trans.insert, align 8
@@ -483,14 +476,14 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
   br i1 %or.cond, label %219, label %220
 
 219:                                              ; preds = %.loopexit
-  call void @LogicalConfirmReceivedLocation(i64 noundef %217) #9
-  call void @ReplicationSlotMarkDirty() #9
+  call void @LogicalConfirmReceivedLocation(i64 noundef %217) #8
+  call void @ReplicationSlotMarkDirty() #8
   br label %220
 
 220:                                              ; preds = %219, %.loopexit
-  call void @FreeDecodingContext(ptr noundef nonnull %119) #9
-  call void @ReplicationSlotRelease() #9
-  call void @InvalidateSystemCaches() #9
+  call void @FreeDecodingContext(ptr noundef nonnull %119) #8
+  call void @ReplicationSlotRelease() #8
+  call void @InvalidateSystemCaches() #8
   store ptr %112, ptr @PG_exception_stack, align 8
   store ptr %113, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -499,8 +492,8 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 221:                                              ; preds = %111
   store ptr %112, ptr @PG_exception_stack, align 8
   store ptr %113, ptr @error_context_stack, align 8
-  call void @InvalidateSystemCaches() #9
-  call void @pg_re_throw() #12
+  call void @InvalidateSystemCaches() #8
+  call void @pg_re_throw() #11
   unreachable
 }
 
@@ -529,12 +522,12 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr noundef readonly capture
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
-  %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
+  %8 = tail call ptr @text_to_cstring(ptr noundef %7) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #9
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8
   %15 = load i8, ptr %12, align 1
@@ -576,7 +569,7 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr noundef readonly capture
   %39 = icmp ne i64 %3, 0
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %41 = select i1 %.not, ptr %40, ptr %18
-  %42 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %41, i64 noundef %37, i1 noundef zeroext %39, i1 noundef zeroext %38) #9
+  %42 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %41, i64 noundef %37, i1 noundef zeroext %39, i1 noundef zeroext %38) #8
   ret i64 %42
 }
 
@@ -593,12 +586,12 @@ define dso_local i64 @pg_logical_emit_message_text(ptr noundef readonly captures
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
-  %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #8
+  %8 = tail call ptr @text_to_cstring(ptr noundef %7) #8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #9
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load i64, ptr %13, align 8
   %15 = load i8, ptr %12, align 1
@@ -640,7 +633,7 @@ pg_logical_emit_message_bytea.exit:               ; preds = %20, %27, %31
   %38 = icmp ne i64 %3, 0
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %40 = select i1 %.not.i, ptr %39, ptr %18
-  %41 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %40, i64 noundef %36, i1 noundef zeroext %38, i1 noundef zeroext %37) #9
+  %41 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %40, i64 noundef %36, i1 noundef zeroext %38, i1 noundef zeroext %37) #8
   ret i64 %41
 }
 
@@ -696,7 +689,7 @@ declare void @wal_segment_close(ptr noundef) #1
 define internal void @LogicalOutputPrepareWrite(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
-  tail call void @resetStringInfo(ptr noundef %6) #9
+  tail call void @resetStringInfo(ptr noundef %6) #8
   ret void
 }
 
@@ -714,10 +707,9 @@ define internal void @LogicalOutputWrite(ptr noundef readonly captures(none) %0,
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %4
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.LogicalOutputWrite) #9
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 71, ptr noundef nonnull @__func__.LogicalOutputWrite) #8
   unreachable
 
 15:                                               ; preds = %4
@@ -729,14 +721,14 @@ define internal void @LogicalOutputWrite(ptr noundef readonly captures(none) %0,
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %18, ptr %19, align 8
   %20 = load ptr, ptr %8, align 8
-  %21 = tail call ptr @cstring_to_text_with_len(ptr noundef %20, i32 noundef %10) #9
+  %21 = tail call ptr @cstring_to_text_with_len(ptr noundef %20, i32 noundef %10) #8
   %22 = ptrtoint ptr %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %22, ptr %23, align 16
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %26 = load ptr, ptr %25, align 8
-  call void @tuplestore_putvalues(ptr noundef %24, ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
+  call void @tuplestore_putvalues(ptr noundef %24, ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
@@ -788,11 +780,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -801,12 +790,11 @@ attributes #3 = { nounwind returns_twice "no-trapping-math"="true" "stack-protec
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind returns_twice }
-attributes #12 = { noreturn nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind returns_twice }
+attributes #11 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4931,33 +4931,31 @@ define internal fastcc noundef range(i64 3, 37) i64 @_ZN5prost8encoding7message1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h110f289c7d15dcf0E(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #5 {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
-  br i1 %.not.i.i.not.i, label %"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3446ae8b49b56e84E.exit", label %2
+  br i1 %.not.i.i.not.i, label %"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3446ae8b49b56e84E.exit", label %1
 
-2:                                                ; preds = %0
-  %3 = or i64 %.16.val, 1
-  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = xor i64 %4, 63
-  %6 = mul nuw nsw i64 %5, 9
-  %7 = add nuw nsw i64 %6, 73
-  %8 = lshr i64 %7, 6
-  %9 = add i64 %.16.val, 1
-  %10 = add i64 %9, %8
+1:                                                ; preds = %0
+  %2 = or i64 %.16.val, 1
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %4 = xor i64 %3, 63
+  %5 = mul nuw nsw i64 %4, 9
+  %6 = add nuw nsw i64 %5, 73
+  %7 = lshr i64 %6, 6
+  %8 = add i64 %.16.val, 1
+  %9 = add i64 %8, %7
   br label %"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3446ae8b49b56e84E.exit"
 
-"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3446ae8b49b56e84E.exit": ; preds = %0, %2
-  %.sroa.0.0.i = phi i64 [ %10, %2 ], [ 0, %0 ]
-  %11 = or i64 %.sroa.0.0.i, 1
-  %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
-  %13 = xor i64 %12, 63
-  %14 = mul nuw nsw i64 %13, 9
-  %15 = add nuw nsw i64 %14, 73
-  %16 = lshr i64 %15, 6
-  %17 = add i64 %.sroa.0.0.i, 2
-  %18 = add i64 %17, %16
-  ret i64 %18
+"_ZN83_$LT$proto..LspExtSwitchSourceHeaderResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3446ae8b49b56e84E.exit": ; preds = %0, %1
+  %.sroa.0.0.i = phi i64 [ %9, %1 ], [ 0, %0 ]
+  %10 = or i64 %.sroa.0.0.i, 1
+  %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %12 = xor i64 %11, 63
+  %13 = mul nuw nsw i64 %12, 9
+  %14 = add nuw nsw i64 %13, 73
+  %15 = lshr i64 %14, 6
+  %16 = add i64 %.sroa.0.0.i, 2
+  %17 = add i64 %16, %15
+  ret i64 %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5089,33 +5087,31 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h13
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h141a316469858e3dE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #5 {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
-  br i1 %.not.i.i.not.i, label %"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h3f40e3f06fc440baE.exit", label %2
+  br i1 %.not.i.i.not.i, label %"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h3f40e3f06fc440baE.exit", label %1
 
-2:                                                ; preds = %0
-  %3 = or i64 %.16.val, 1
-  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = xor i64 %4, 63
-  %6 = mul nuw nsw i64 %5, 9
-  %7 = add nuw nsw i64 %6, 73
-  %8 = lshr i64 %7, 6
-  %9 = add i64 %.16.val, 1
-  %10 = add i64 %9, %8
+1:                                                ; preds = %0
+  %2 = or i64 %.16.val, 1
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %4 = xor i64 %3, 63
+  %5 = mul nuw nsw i64 %4, 9
+  %6 = add nuw nsw i64 %5, 73
+  %7 = lshr i64 %6, 6
+  %8 = add i64 %.16.val, 1
+  %9 = add i64 %8, %7
   br label %"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h3f40e3f06fc440baE.exit"
 
-"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h3f40e3f06fc440baE.exit": ; preds = %0, %2
-  %.sroa.0.0.i = phi i64 [ %10, %2 ], [ 0, %0 ]
-  %11 = or i64 %.sroa.0.0.i, 1
-  %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
-  %13 = xor i64 %12, 63
-  %14 = mul nuw nsw i64 %13, 9
-  %15 = add nuw nsw i64 %14, 73
-  %16 = lshr i64 %15, 6
-  %17 = add i64 %.sroa.0.0.i, 2
-  %18 = add i64 %17, %16
-  ret i64 %18
+"_ZN67_$LT$proto..FuzzySearchUsers$u20$as$u20$prost..message..Message$GT$11encoded_len17h3f40e3f06fc440baE.exit": ; preds = %0, %1
+  %.sroa.0.0.i = phi i64 [ %9, %1 ], [ 0, %0 ]
+  %10 = or i64 %.sroa.0.0.i, 1
+  %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %12 = xor i64 %11, 63
+  %13 = mul nuw nsw i64 %12, 9
+  %14 = add nuw nsw i64 %13, 73
+  %15 = lshr i64 %14, 6
+  %16 = add i64 %.sroa.0.0.i, 2
+  %17 = add i64 %16, %15
+  ret i64 %17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -6885,33 +6881,31 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h32
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h370bb68424d4675eE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #5 {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
-  br i1 %.not.i.i.not.i, label %"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5d2a05a8def9f532E.exit", label %2
+  br i1 %.not.i.i.not.i, label %"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5d2a05a8def9f532E.exit", label %1
 
-2:                                                ; preds = %0
-  %3 = or i64 %.16.val, 1
-  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = xor i64 %4, 63
-  %6 = mul nuw nsw i64 %5, 9
-  %7 = add nuw nsw i64 %6, 73
-  %8 = lshr i64 %7, 6
-  %9 = add i64 %.16.val, 1
-  %10 = add i64 %9, %8
+1:                                                ; preds = %0
+  %2 = or i64 %.16.val, 1
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %4 = xor i64 %3, 63
+  %5 = mul nuw nsw i64 %4, 9
+  %6 = add nuw nsw i64 %5, 73
+  %7 = lshr i64 %6, 6
+  %8 = add i64 %.16.val, 1
+  %9 = add i64 %8, %7
   br label %"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5d2a05a8def9f532E.exit"
 
-"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5d2a05a8def9f532E.exit": ; preds = %0, %2
-  %.sroa.0.0.i = phi i64 [ %10, %2 ], [ 0, %0 ]
-  %11 = or i64 %.sroa.0.0.i, 1
-  %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
-  %13 = xor i64 %12, 63
-  %14 = mul nuw nsw i64 %13, 9
-  %15 = add nuw nsw i64 %14, 73
-  %16 = lshr i64 %15, 6
-  %17 = add i64 %.sroa.0.0.i, 2
-  %18 = add i64 %17, %16
-  ret i64 %18
+"_ZN78_$LT$proto..GetSupermavenApiKeyResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5d2a05a8def9f532E.exit": ; preds = %0, %1
+  %.sroa.0.0.i = phi i64 [ %9, %1 ], [ 0, %0 ]
+  %10 = or i64 %.sroa.0.0.i, 1
+  %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %12 = xor i64 %11, 63
+  %13 = mul nuw nsw i64 %12, 9
+  %14 = add nuw nsw i64 %13, 73
+  %15 = lshr i64 %14, 6
+  %16 = add i64 %.sroa.0.0.i, 2
+  %17 = add i64 %16, %15
+  ret i64 %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -7704,33 +7698,31 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h49
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4a5b670532aa029cE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #5 {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
-  br i1 %.not.i.i.not.i, label %"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ea0592b86ba7d2bE.exit", label %2
+  br i1 %.not.i.i.not.i, label %"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ea0592b86ba7d2bE.exit", label %1
 
-2:                                                ; preds = %0
-  %3 = or i64 %.16.val, 1
-  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = xor i64 %4, 63
-  %6 = mul nuw nsw i64 %5, 9
-  %7 = add nuw nsw i64 %6, 73
-  %8 = lshr i64 %7, 6
-  %9 = add i64 %.16.val, 1
-  %10 = add i64 %9, %8
+1:                                                ; preds = %0
+  %2 = or i64 %.16.val, 1
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %4 = xor i64 %3, 63
+  %5 = mul nuw nsw i64 %4, 9
+  %6 = add nuw nsw i64 %5, 73
+  %7 = lshr i64 %6, 6
+  %8 = add i64 %.16.val, 1
+  %9 = add i64 %8, %7
   br label %"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ea0592b86ba7d2bE.exit"
 
-"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ea0592b86ba7d2bE.exit": ; preds = %0, %2
-  %.sroa.0.0.i = phi i64 [ %10, %2 ], [ 0, %0 ]
-  %11 = or i64 %.sroa.0.0.i, 1
-  %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
-  %13 = xor i64 %12, 63
-  %14 = mul nuw nsw i64 %13, 9
-  %15 = add nuw nsw i64 %14, 73
-  %16 = lshr i64 %15, 6
-  %17 = add i64 %.sroa.0.0.i, 2
-  %18 = add i64 %17, %16
-  ret i64 %18
+"_ZN82_$LT$proto..ValidateDevServerProjectRequest$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ea0592b86ba7d2bE.exit": ; preds = %0, %1
+  %.sroa.0.0.i = phi i64 [ %9, %1 ], [ 0, %0 ]
+  %10 = or i64 %.sroa.0.0.i, 1
+  %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %12 = xor i64 %11, 63
+  %13 = mul nuw nsw i64 %12, 9
+  %14 = add nuw nsw i64 %13, 73
+  %15 = lshr i64 %14, 6
+  %16 = add i64 %.sroa.0.0.i, 2
+  %17 = add i64 %16, %15
+  ret i64 %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -8650,33 +8642,31 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h57
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5a5525926d3862ccE(ptr readnone captures(address_is_null) %.8.val, i64 %.16.val) unnamed_addr #5 {
-  %1 = icmp ne ptr %.8.val, null
-  tail call void @llvm.assume(i1 %1)
   %.not.i.i.not.i = icmp eq i64 %.16.val, 0
-  br i1 %.not.i.i.not.i, label %"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hbb1fd521eea64953E.exit", label %2
+  br i1 %.not.i.i.not.i, label %"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hbb1fd521eea64953E.exit", label %1
 
-2:                                                ; preds = %0
-  %3 = or i64 %.16.val, 1
-  %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = xor i64 %4, 63
-  %6 = mul nuw nsw i64 %5, 9
-  %7 = add nuw nsw i64 %6, 73
-  %8 = lshr i64 %7, 6
-  %9 = add i64 %.16.val, 1
-  %10 = add i64 %9, %8
+1:                                                ; preds = %0
+  %2 = or i64 %.16.val, 1
+  %3 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %2, i1 true)
+  %4 = xor i64 %3, 63
+  %5 = mul nuw nsw i64 %4, 9
+  %6 = add nuw nsw i64 %5, 73
+  %7 = lshr i64 %6, 6
+  %8 = add i64 %.16.val, 1
+  %9 = add i64 %8, %7
   br label %"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hbb1fd521eea64953E.exit"
 
-"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hbb1fd521eea64953E.exit": ; preds = %0, %2
-  %.sroa.0.0.i = phi i64 [ %10, %2 ], [ 0, %0 ]
-  %11 = or i64 %.sroa.0.0.i, 1
-  %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
-  %13 = xor i64 %12, 63
-  %14 = mul nuw nsw i64 %13, 9
-  %15 = add nuw nsw i64 %14, 73
-  %16 = lshr i64 %15, 6
-  %17 = add i64 %.sroa.0.0.i, 2
-  %18 = add i64 %17, %16
-  ret i64 %18
+"_ZN70_$LT$proto..GetLlmTokenResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hbb1fd521eea64953E.exit": ; preds = %0, %1
+  %.sroa.0.0.i = phi i64 [ %9, %1 ], [ 0, %0 ]
+  %10 = or i64 %.sroa.0.0.i, 1
+  %11 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %10, i1 true)
+  %12 = xor i64 %11, 63
+  %13 = mul nuw nsw i64 %12, 9
+  %14 = add nuw nsw i64 %13, 73
+  %15 = lshr i64 %14, 6
+  %16 = add i64 %.sroa.0.0.i, 2
+  %17 = add i64 %16, %15
+  ret i64 %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

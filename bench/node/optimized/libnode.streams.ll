@@ -2517,36 +2517,27 @@ if.end24:                                         ; preds = %do.end
   %cmp.i.i.i.i8 = icmp ne ptr %call1.i, null
   call void @llvm.assume(i1 %cmp.i.i.i.i8)
   %call5.i.i.i = call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #26
-  %cmp.i.i.i10 = icmp ugt i32 %call5.i.i.i, 39
-  call void @llvm.assume(i1 %cmp.i.i.i10)
   %24 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %24, 47
   %25 = inttoptr i64 %sub.i49.i.i.i to ptr
   %26 = load i64, ptr %25, align 8
-  %sub.i.i.i.i11 = add i64 %26, 327
-  %27 = inttoptr i64 %sub.i.i.i.i11 to ptr
+  %sub.i.i.i13 = add i64 %26, 271
+  %27 = inttoptr i64 %sub.i.i.i13 to ptr
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %30, %29
-  call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i13 = add i64 %26, 271
-  %31 = inttoptr i64 %sub.i.i.i13 to ptr
-  %32 = load i64, ptr %31, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %isolate_.i.i14 = getelementptr inbounds nuw i8, ptr %33, i64 88
-  %34 = load ptr, ptr %isolate_.i.i14, align 8
-  %call.i.i = call ptr @_ZN4node17ERR_INVALID_STATEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %34, ptr noundef nonnull @.str.66)
-  %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr %call.i.i) #26
+  %isolate_.i.i14 = getelementptr inbounds nuw i8, ptr %29, i64 88
+  %30 = load ptr, ptr %isolate_.i.i14, align 8
+  %call.i.i = call ptr @_ZN4node17ERR_INVALID_STATEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %30, ptr noundef nonnull @.str.66)
+  %call6.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr %call.i.i) #26
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end24, %_ZN2v811ReturnValueINS_5ValueEE3SetINS_6ObjectEEEvNS_5LocalIT_EE.exit
-  %35 = load ptr, ptr %reader, align 8
-  %cmp.not.i = icmp eq ptr %35, null
+  %31 = load ptr, ptr %reader, align 8
+  %cmp.not.i = icmp eq ptr %31, null
   br i1 %cmp.not.i, label %cleanup.cont, label %if.then.i15
 
 if.then.i15:                                      ; preds = %cleanup
-  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #26
+  call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #26
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.then.i15, %cleanup, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit

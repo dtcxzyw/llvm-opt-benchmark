@@ -125,16 +125,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @php_XML_ParserCreate(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call noalias ptr @_emalloc_128() #11
+  %2 = tail call noalias ptr @_emalloc_128() #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
-  %3 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0, ptr noundef null) #11
+  %3 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0, ptr noundef null) #10
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %3, ptr %4, align 8, !tbaa !4
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call void @_efree(ptr noundef nonnull %2) #11
+  tail call void @_efree(ptr noundef nonnull %2) #10
   br label %php_XML_ParserCreate_MM.exit
 
 7:                                                ; preds = %1
@@ -152,7 +152,7 @@ define dso_local noundef ptr @php_XML_ParserCreate(ptr noundef readnone captures
   store i32 1, ptr %13, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 564
   store i32 0, ptr %14, align 4, !tbaa !39
-  %15 = tail call i32 @xmlCtxtUseOptions(ptr noundef nonnull %3, i32 noundef 1048578) #11
+  %15 = tail call i32 @xmlCtxtUseOptions(ptr noundef nonnull %3, i32 noundef 1048578) #10
   %16 = load ptr, ptr %4, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 0, ptr %17, align 8, !tbaa !40
@@ -168,18 +168,18 @@ php_XML_ParserCreate_MM.exit:                     ; preds = %6, %7
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @php_XML_ParserCreate_MM(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noalias ptr @_emalloc_128() #11
+  %4 = tail call noalias ptr @_emalloc_128() #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false)
-  %6 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, ptr noundef null) #11
+  %6 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %4, ptr noundef null, i32 noundef 0, ptr noundef null) #10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %6, ptr %7, align 8, !tbaa !4
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %3
-  tail call void @_efree(ptr noundef nonnull %4) #11
-  br label %28
+  tail call void @_efree(ptr noundef nonnull %4) #10
+  br label %26
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 432
@@ -196,30 +196,27 @@ define dso_local noundef ptr @php_XML_ParserCreate_MM(ptr noundef readnone captu
   store i32 1, ptr %16, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 564
   store i32 0, ptr %17, align 4, !tbaa !39
-  %18 = tail call i32 @xmlCtxtUseOptions(ptr noundef nonnull %6, i32 noundef 1048578) #11
+  %18 = tail call i32 @xmlCtxtUseOptions(ptr noundef nonnull %6, i32 noundef 1048578) #10
   %19 = load ptr, ptr %7, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store i32 0, ptr %20, align 8, !tbaa !40
   %.not = icmp eq ptr %2, null
-  %21 = load ptr, ptr %19, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 216
-  br i1 %.not, label %27, label %23
+  br i1 %.not, label %23, label %21
+
+21:                                               ; preds = %10
+  store i32 1, ptr %4, align 8, !tbaa !44
+  %22 = tail call ptr @xmlStrdup(ptr noundef nonnull %2) #10
+  store ptr %22, ptr %5, align 8, !tbaa !45
+  br label %26
 
 23:                                               ; preds = %10
-  %24 = load i32, ptr %22, align 8, !tbaa !42
-  %25 = icmp eq i32 %24, -554844497
-  tail call void @llvm.assume(i1 %25)
-  store i32 1, ptr %4, align 8, !tbaa !44
-  %26 = tail call ptr @xmlStrdup(ptr noundef nonnull %2) #11
-  store ptr %26, ptr %5, align 8, !tbaa !45
-  br label %28
+  %24 = load ptr, ptr %19, align 8, !tbaa !41
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 216
+  store i32 1, ptr %25, align 8, !tbaa !42
+  br label %26
 
-27:                                               ; preds = %10
-  store i32 1, ptr %22, align 8, !tbaa !42
-  br label %28
-
-28:                                               ; preds = %23, %27, %9
-  %.0 = phi ptr [ null, %9 ], [ %4, %27 ], [ %4, %23 ]
+26:                                               ; preds = %21, %23, %9
+  %.0 = phi ptr [ null, %9 ], [ %4, %23 ], [ %4, %21 ]
   ret ptr %.0
 }
 
@@ -230,16 +227,16 @@ define dso_local noundef ptr @php_XML_ParserCreateNS(ptr noundef readnone captur
   store i8 %1, ptr %3, align 1, !tbaa !46
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %4, align 1, !tbaa !46
-  %5 = tail call noalias ptr @_emalloc_128() #11
+  %5 = tail call noalias ptr @_emalloc_128() #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 120, i1 false)
-  %6 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %5, ptr noundef null, i32 noundef 0, ptr noundef null) #11
+  %6 = tail call ptr @xmlCreatePushParserCtxt(ptr noundef nonnull @php_xml_compat_handlers, ptr noundef nonnull %5, ptr noundef null, i32 noundef 0, ptr noundef null) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %6, ptr %7, align 8, !tbaa !4
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  tail call void @_efree(ptr noundef nonnull %5) #11
+  tail call void @_efree(ptr noundef nonnull %5) #10
   br label %php_XML_ParserCreate_MM.exit
 
 10:                                               ; preds = %2
@@ -258,18 +255,13 @@ define dso_local noundef ptr @php_XML_ParserCreateNS(ptr noundef readnone captur
   store i32 1, ptr %17, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 564
   store i32 0, ptr %18, align 4, !tbaa !39
-  %19 = tail call i32 @xmlCtxtUseOptions(ptr noundef nonnull %6, i32 noundef 1048578) #11
+  %19 = tail call i32 @xmlCtxtUseOptions(ptr noundef nonnull %6, i32 noundef 1048578) #10
   %20 = load ptr, ptr %7, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 0, ptr %21, align 8, !tbaa !40
-  %22 = load ptr, ptr %20, align 8, !tbaa !41
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 216
-  %24 = load i32, ptr %23, align 8, !tbaa !42
-  %25 = icmp eq i32 %24, -554844497
-  tail call void @llvm.assume(i1 %25)
   store i32 1, ptr %5, align 8, !tbaa !44
-  %26 = call ptr @xmlStrdup(ptr noundef nonnull %3) #11
-  store ptr %26, ptr %11, align 8, !tbaa !45
+  %22 = call ptr @xmlStrdup(ptr noundef nonnull %3) #10
+  store ptr %22, ptr %11, align 8, !tbaa !45
   br label %php_XML_ParserCreate_MM.exit
 
 php_XML_ParserCreate_MM.exit:                     ; preds = %9, %10
@@ -289,27 +281,24 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 declare i32 @xmlCtxtUseOptions(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetUserData(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetUserData(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @XML_GetUserData(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
+define dso_local ptr @XML_GetUserData(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetElementHandler(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetElementHandler(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8, !tbaa !48
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -318,63 +307,63 @@ define dso_local void @php_XML_SetElementHandler(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetCharacterDataHandler(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetCharacterDataHandler(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !50
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetProcessingInstructionHandler(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8, !tbaa !51
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetCommentHandler(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetCommentHandler(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8, !tbaa !52
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetDefaultHandler(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetDefaultHandler(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetUnparsedEntityDeclHandler(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8, !tbaa !54
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetNotationDeclHandler(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetNotationDeclHandler(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetExternalEntityRefHandler(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8, !tbaa !56
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetStartNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8, !tbaa !57
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @php_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local void @php_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly captures(none) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8, !tbaa !58
   ret void
@@ -384,13 +373,13 @@ define dso_local void @php_XML_SetEndNamespaceDeclHandler(ptr noundef writeonly 
 define dso_local range(i32 0, 2) i32 @php_XML_Parse(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !4
-  %7 = tail call i32 @xmlParseChunk(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #11
+  %7 = tail call i32 @xmlParseChunk(ptr noundef %6, ptr noundef %1, i32 noundef %2, i32 noundef %3) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %5, align 8, !tbaa !4
-  %10 = tail call ptr @xmlCtxtGetLastError(ptr noundef %9) #11
+  %10 = tail call ptr @xmlCtxtGetLastError(ptr noundef %9) #10
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %16, label %11
 
@@ -411,7 +400,7 @@ declare i32 @xmlParseChunk(ptr noundef, ptr noundef, i32 noundef, i32 noundef) l
 declare ptr @xmlCtxtGetLastError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -420,7 +409,7 @@ define dso_local i32 @php_XML_GetErrorCode(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #7 {
+define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #6 {
   %or.cond = icmp ugt i32 %0, 101
   br i1 %or.cond, label %6, label %2
 
@@ -436,7 +425,7 @@ define dso_local ptr @php_XML_ErrorString(i32 noundef %0) local_unnamed_addr #7 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -447,7 +436,7 @@ define dso_local i32 @php_XML_GetCurrentLineNumber(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @php_XML_GetCurrentColumnNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
+define dso_local i32 @php_XML_GetCurrentColumnNumber(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -468,14 +457,14 @@ define dso_local i64 @php_XML_GetCurrentByteIndex(ptr noundef readonly captures(
   br i1 %.not, label %.thread, label %8
 
 .thread:                                          ; preds = %1
-  %7 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #11
+  %7 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #10
   br label %15
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !68
   store ptr null, ptr %9, align 8, !tbaa !68
-  %11 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #11
+  %11 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #10
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %15, label %12
 
@@ -503,14 +492,14 @@ define dso_local i32 @php_XML_GetCurrentByteCount(ptr noundef readonly captures(
   br i1 %.not.i, label %.thread.i, label %8
 
 .thread.i:                                        ; preds = %1
-  %7 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #11
+  %7 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #10
   br label %php_XML_GetCurrentByteIndex.exit
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !68
   store ptr null, ptr %9, align 8, !tbaa !68
-  %11 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #11
+  %11 = tail call i64 @xmlByteConsumed(ptr noundef nonnull %3) #10
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %php_XML_GetCurrentByteIndex.exit, label %12
 
@@ -527,7 +516,7 @@ php_XML_GetCurrentByteIndex.exit:                 ; preds = %.thread.i, %8, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @php_XML_ExpatVersion() local_unnamed_addr #7 {
+define dso_local noundef nonnull ptr @php_XML_ExpatVersion() local_unnamed_addr #6 {
   ret ptr @.str.1
 }
 
@@ -545,7 +534,7 @@ define dso_local void @php_XML_ParserFree(ptr noundef %0) local_unnamed_addr #0 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  tail call void %7(ptr noundef nonnull %5) #11
+  tail call void %7(ptr noundef nonnull %5) #10
   br label %8
 
 8:                                                ; preds = %3, %6, %1
@@ -557,7 +546,7 @@ define dso_local void @php_XML_ParserFree(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not10, label %16, label %13
 
 13:                                               ; preds = %8
-  tail call void @xmlFreeDoc(ptr noundef nonnull %12) #11
+  tail call void @xmlFreeDoc(ptr noundef nonnull %12) #10
   %14 = load ptr, ptr %9, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %15, align 8, !tbaa !73
@@ -565,8 +554,8 @@ define dso_local void @php_XML_ParserFree(ptr noundef %0) local_unnamed_addr #0 
 
 16:                                               ; preds = %13, %8
   %17 = phi ptr [ %14, %13 ], [ %10, %8 ]
-  tail call void @xmlFreeParserCtxt(ptr noundef nonnull %17) #11
-  tail call void @_efree(ptr noundef nonnull %0) #11
+  tail call void @xmlFreeParserCtxt(ptr noundef nonnull %17) #10
+  tail call void @_efree(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -584,7 +573,7 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %7, label %8, label %68
 
 8:                                                ; preds = %2
-  %9 = tail call ptr @xmlGetPredefinedEntity(ptr noundef %1) #11
+  %9 = tail call ptr @xmlGetPredefinedEntity(ptr noundef %1) #10
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.thread
 
@@ -592,7 +581,7 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %12 = load ptr, ptr %3, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !73
-  %15 = tail call ptr @xmlGetDocEntity(ptr noundef %14, ptr noundef %1) #11
+  %15 = tail call ptr @xmlGetDocEntity(ptr noundef %14, ptr noundef %1) #10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.critedge.thread, label %.thread
 
@@ -647,12 +636,12 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
 .thread55:                                        ; preds = %.critedge.thread, %32, %28
   %.1455357 = phi ptr [ %.144, %32 ], [ %.144, %28 ], [ null, %.critedge.thread ]
   %35 = phi ptr [ %24, %32 ], [ %24, %28 ], [ %26, %.critedge.thread ]
-  %36 = tail call i32 @xmlStrlen(ptr noundef %1) #11
+  %36 = tail call i32 @xmlStrlen(ptr noundef %1) #10
   %37 = sext i32 %36 to i64
   %38 = add nsw i64 %37, 2
   %39 = load ptr, ptr @xmlMalloc, align 8, !tbaa !72
   %40 = add nsw i64 %37, 3
-  %41 = tail call ptr %39(i64 noundef %40) #11
+  %41 = tail call ptr %39(i64 noundef %40) #10
   store i8 38, ptr %41, align 1, !tbaa !46
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr readonly align 1 %1, i64 range(i64 -2147483648, 2147483648) %37, i1 false)
@@ -665,9 +654,9 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !47
   %49 = trunc i64 %38 to i32
-  tail call void %46(ptr noundef %48, ptr noundef nonnull %41, i32 noundef %49) #11
+  tail call void %46(ptr noundef %48, ptr noundef nonnull %41, i32 noundef %49) #10
   %50 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  tail call void %50(ptr noundef nonnull %41) #11
+  tail call void %50(ptr noundef nonnull %41) #10
   br label %68
 
 51:                                               ; preds = %.critedge._crit_edge, %32
@@ -683,8 +672,8 @@ define internal ptr @get_entity(ptr noundef %0, ptr noundef %1) #0 {
   %57 = load ptr, ptr %56, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %.14552, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !80
-  %60 = tail call i32 @xmlStrlen(ptr noundef %59) #11
-  tail call void %52(ptr noundef %57, ptr noundef %59, i32 noundef %60) #11
+  %60 = tail call i32 @xmlStrlen(ptr noundef %59) #10
+  tail call void %52(ptr noundef %57, ptr noundef %59, i32 noundef %60) #10
   br label %68
 
 61:                                               ; preds = %21
@@ -712,7 +701,7 @@ define internal void @notation_decl_handler(ptr noundef readonly captures(none) 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !47
-  tail call void %6(ptr noundef %10, ptr noundef %1, ptr noundef null, ptr noundef %3, ptr noundef %2) #11
+  tail call void %6(ptr noundef %10, ptr noundef %1, ptr noundef null, ptr noundef %3, ptr noundef %2) #10
   br label %11
 
 11:                                               ; preds = %4, %8
@@ -729,7 +718,7 @@ define internal void @unparsed_entity_decl_handler(ptr noundef readonly captures
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !47
-  tail call void %7(ptr noundef %11, ptr noundef %1, ptr noundef null, ptr noundef %3, ptr noundef %2, ptr noundef %4) #11
+  tail call void %7(ptr noundef %11, ptr noundef %1, ptr noundef null, ptr noundef %3, ptr noundef %2, ptr noundef %4) #10
   br label %12
 
 12:                                               ; preds = %5, %9
@@ -751,8 +740,8 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   br i1 %.not, label %35, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i32 @xmlStrlen(ptr noundef %1) #11
-  %13 = tail call ptr @xmlStrncatNew(ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %12) #11
+  %12 = tail call i32 @xmlStrlen(ptr noundef %1) #10
+  %13 = tail call ptr @xmlStrncatNew(ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %12) #10
   %.not27 = icmp eq ptr %2, null
   br i1 %.not27, label %.loopexit, label %.preheader
 
@@ -770,12 +759,12 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !61
-  %19 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef %18) #11
+  %19 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef %18) #10
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %4, align 8, !tbaa !61
-  %22 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %21, i32 noundef %20) #11
+  %22 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %21, i32 noundef %20) #10
   %23 = load ptr, ptr %4, align 8, !tbaa !61
-  call void @_efree(ptr noundef %23) #11
+  call void @_efree(ptr noundef %23) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !61
@@ -784,20 +773,20 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
   %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %22, %.lr.ph ]
-  %26 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.6, i32 noundef 1) #11
+  %26 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.6, i32 noundef 1) #10
   %27 = load ptr, ptr %9, align 8, !tbaa !53
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !47
-  %30 = call i32 @xmlStrlen(ptr noundef %26) #11
-  call void %27(ptr noundef %29, ptr noundef %26, i32 noundef %30) #11
+  %30 = call i32 @xmlStrlen(ptr noundef %26) #10
+  call void %27(ptr noundef %29, ptr noundef %26, i32 noundef %30) #10
   %31 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  call void %31(ptr noundef %26) #11
+  call void %31(ptr noundef %26) #10
   br label %35
 
 32:                                               ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !47
-  tail call void %6(ptr noundef %34, ptr noundef %1, ptr noundef %2) #11
+  tail call void %6(ptr noundef %34, ptr noundef %1, ptr noundef %2) #10
   br label %35
 
 35:                                               ; preds = %8, %.loopexit, %32
@@ -820,23 +809,23 @@ define internal void @end_element_handler(ptr noundef readonly captures(none) %0
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %11 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %1) #11
+  %11 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %3, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %1) #10
   %12 = load ptr, ptr %8, align 8, !tbaa !53
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = load ptr, ptr %3, align 8, !tbaa !61
-  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #12
+  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #11
   %17 = trunc i64 %16 to i32
-  call void %12(ptr noundef %14, ptr noundef nonnull %15, i32 noundef %17) #11
+  call void %12(ptr noundef %14, ptr noundef nonnull %15, i32 noundef %17) #10
   %18 = load ptr, ptr %3, align 8, !tbaa !61
-  call void @_efree(ptr noundef %18) #11
+  call void @_efree(ptr noundef %18) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %22
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !47
-  tail call void %5(ptr noundef %21, ptr noundef %1) #11
+  tail call void %5(ptr noundef %21, ptr noundef %1) #10
   br label %22
 
 22:                                               ; preds = %7, %10, %19
@@ -860,7 +849,7 @@ define internal void @cdata_handler(ptr noundef readonly captures(none) %0, ptr 
   %.sink12 = phi ptr [ %9, %7 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !47
-  tail call void %.sink12(ptr noundef %11, ptr noundef %1, i32 noundef %2) #11
+  tail call void %.sink12(ptr noundef %11, ptr noundef %1, i32 noundef %2) #10
   br label %12
 
 12:                                               ; preds = %.sink.split, %7
@@ -883,23 +872,23 @@ define internal void @pi_handler(ptr noundef readonly captures(none) %0, ptr nou
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %12 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %2) #11
+  %12 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %2) #10
   %13 = load ptr, ptr %9, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !47
   %16 = load ptr, ptr %4, align 8, !tbaa !61
-  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #12
+  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
   %18 = trunc i64 %17 to i32
-  call void %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %18) #11
+  call void %13(ptr noundef %15, ptr noundef nonnull %16, i32 noundef %18) #10
   %19 = load ptr, ptr %4, align 8, !tbaa !61
-  call void @_efree(ptr noundef %19) #11
+  call void @_efree(ptr noundef %19) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %23
 
 20:                                               ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !47
-  tail call void %6(ptr noundef %22, ptr noundef %1, ptr noundef %2) #11
+  tail call void %6(ptr noundef %22, ptr noundef %1, ptr noundef %2) #10
   br label %23
 
 23:                                               ; preds = %8, %11, %20
@@ -914,12 +903,12 @@ define internal void @comment_handler(ptr noundef readonly captures(none) %0, pt
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @xmlStrlen(ptr noundef %1) #11
+  %6 = tail call i32 @xmlStrlen(ptr noundef %1) #10
   %7 = sext i32 %6 to i64
   %8 = add nsw i64 %7, 7
   %9 = load ptr, ptr @xmlMalloc, align 8, !tbaa !72
   %10 = add nsw i64 %7, 8
-  %11 = tail call ptr %9(i64 noundef %10) #11
+  %11 = tail call ptr %9(i64 noundef %10) #10
   store i32 757932348, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr readonly align 1 %1, i64 range(i64 -2147483648, 2147483648) %7, i1 false)
@@ -931,9 +920,9 @@ define internal void @comment_handler(ptr noundef readonly captures(none) %0, pt
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !47
   %18 = trunc i64 %8 to i32
-  tail call void %15(ptr noundef %17, ptr noundef nonnull %11, i32 noundef %18) #11
+  tail call void %15(ptr noundef %17, ptr noundef nonnull %11, i32 noundef %18) #10
   %19 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  tail call void %19(ptr noundef nonnull %11) #11
+  tail call void %19(ptr noundef nonnull %11) #10
   br label %20
 
 20:                                               ; preds = %5, %2
@@ -966,7 +955,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %21 = load ptr, ptr %20, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !61
-  tail call void %18(ptr noundef %19, ptr noundef %21, ptr noundef %23) #11
+  tail call void %18(ptr noundef %19, ptr noundef %21, ptr noundef %23) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = add nuw nsw i32 %.098145, 1
   %exitcond.not = icmp eq i32 %24, %4
@@ -989,16 +978,16 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   br i1 %.not120, label %38, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call i32 @xmlStrlen(ptr noundef nonnull %2) #11
-  %34 = tail call ptr @xmlStrncatNew(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef %33) #11
-  %35 = tail call ptr @xmlStrncat(ptr noundef %34, ptr noundef nonnull @.str.11, i32 noundef 1) #11
-  %36 = tail call i32 @xmlStrlen(ptr noundef %1) #11
-  %37 = tail call ptr @xmlStrncat(ptr noundef %35, ptr noundef %1, i32 noundef %36) #11
+  %33 = tail call i32 @xmlStrlen(ptr noundef nonnull %2) #10
+  %34 = tail call ptr @xmlStrncatNew(ptr noundef nonnull @.str.4, ptr noundef nonnull %2, i32 noundef %33) #10
+  %35 = tail call ptr @xmlStrncat(ptr noundef %34, ptr noundef nonnull @.str.11, i32 noundef 1) #10
+  %36 = tail call i32 @xmlStrlen(ptr noundef %1) #10
+  %37 = tail call ptr @xmlStrncat(ptr noundef %35, ptr noundef %1, i32 noundef %36) #10
   br label %41
 
 38:                                               ; preds = %31
-  %39 = tail call i32 @xmlStrlen(ptr noundef %1) #11
-  %40 = tail call ptr @xmlStrncatNew(ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %39) #11
+  %39 = tail call i32 @xmlStrlen(ptr noundef %1) #10
+  %40 = tail call ptr @xmlStrncatNew(ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %39) #10
   br label %41
 
 41:                                               ; preds = %38, %32
@@ -1021,20 +1010,20 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   br i1 %.not124, label %48, label %46
 
 46:                                               ; preds = %.lr.ph156
-  %47 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull %43, ptr noundef %45) #11
+  %47 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.12, ptr noundef nonnull %43, ptr noundef %45) #10
   br label %50
 
 48:                                               ; preds = %.lr.ph156
-  %49 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %45) #11
+  %49 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %10, i64 noundef 0, ptr noundef nonnull @.str.13, ptr noundef %45) #10
   br label %50
 
 50:                                               ; preds = %48, %46
   %.0108.in = phi i64 [ %47, %46 ], [ %49, %48 ]
   %.0108 = trunc i64 %.0108.in to i32
   %51 = load ptr, ptr %10, align 8, !tbaa !61
-  %52 = call ptr @xmlStrncat(ptr noundef %.1136153, ptr noundef %51, i32 noundef %.0108) #11
+  %52 = call ptr @xmlStrncat(ptr noundef %.1136153, ptr noundef %51, i32 noundef %.0108) #10
   %53 = load ptr, ptr %10, align 8, !tbaa !61
-  call void @_efree(ptr noundef %53) #11
+  call void @_efree(ptr noundef %53) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %54 = add nuw nsw i32 %.0107154, 1
   %exitcond183.not = icmp eq i32 %54, %4
@@ -1065,26 +1054,26 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   br i1 %.not123, label %66, label %64
 
 64:                                               ; preds = %.lr.ph161
-  %65 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %59, ptr noundef %57) #11
+  %65 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %59, ptr noundef %57) #10
   br label %68
 
 66:                                               ; preds = %.lr.ph161
-  %67 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %57) #11
+  %67 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %11, i64 noundef 0, ptr noundef nonnull @.str.15, ptr noundef %57) #10
   br label %68
 
 68:                                               ; preds = %66, %64
   %.0105.in = phi i64 [ %65, %64 ], [ %67, %66 ]
   %.0105 = trunc i64 %.0105.in to i32
   %69 = load ptr, ptr %11, align 8, !tbaa !61
-  %70 = call ptr @xmlStrncat(ptr noundef %.3138158, ptr noundef %69, i32 noundef %.0105) #11
+  %70 = call ptr @xmlStrncat(ptr noundef %.3138158, ptr noundef %69, i32 noundef %.0105) #10
   %71 = ptrtoint ptr %63 to i64
   %72 = ptrtoint ptr %61 to i64
   %73 = sub i64 %71, %72
   %74 = trunc i64 %73 to i32
-  %75 = call ptr @xmlStrncat(ptr noundef %70, ptr noundef %61, i32 noundef %74) #11
-  %76 = call ptr @xmlStrncat(ptr noundef %75, ptr noundef nonnull @.str.16, i32 noundef 1) #11
+  %75 = call ptr @xmlStrncat(ptr noundef %70, ptr noundef %61, i32 noundef %74) #10
+  %76 = call ptr @xmlStrncat(ptr noundef %75, ptr noundef nonnull @.str.16, i32 noundef 1) #10
   %77 = load ptr, ptr %11, align 8, !tbaa !61
-  call void @_efree(ptr noundef %77) #11
+  call void @_efree(ptr noundef %77) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %78 = add nuw nsw i32 %.1160, 1
   %exitcond187.not = icmp eq i32 %78, %6
@@ -1092,14 +1081,14 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
 
 .loopexit:                                        ; preds = %68, %.loopexit140
   %.2137 = phi ptr [ %.0135, %.loopexit140 ], [ %76, %68 ]
-  %79 = call ptr @xmlStrncat(ptr noundef %.2137, ptr noundef nonnull @.str.6, i32 noundef 1) #11
+  %79 = call ptr @xmlStrncat(ptr noundef %.2137, ptr noundef nonnull @.str.6, i32 noundef 1) #10
   %80 = load ptr, ptr %29, align 8, !tbaa !53
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !47
-  %83 = call i32 @xmlStrlen(ptr noundef %79) #11
-  call void %80(ptr noundef %82, ptr noundef %79, i32 noundef %83) #11
+  %83 = call i32 @xmlStrlen(ptr noundef %79) #10
+  call void %80(ptr noundef %82, ptr noundef %79, i32 noundef %83) #10
   %84 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  call void %84(ptr noundef %79) #11
+  call void %84(ptr noundef %79) #10
   br label %144
 
 85:                                               ; preds = %.loopexit143
@@ -1107,16 +1096,16 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   br i1 %.not.i, label %93, label %86
 
 86:                                               ; preds = %85
-  %87 = tail call ptr @xmlStrdup(ptr noundef nonnull %3) #11
+  %87 = tail call ptr @xmlStrdup(ptr noundef nonnull %3) #10
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !45
-  %90 = tail call ptr @xmlStrncat(ptr noundef %87, ptr noundef %89, i32 noundef 1) #11
-  %91 = tail call i32 @xmlStrlen(ptr noundef %1) #11
-  %92 = tail call ptr @xmlStrncat(ptr noundef %90, ptr noundef %1, i32 noundef %91) #11
+  %90 = tail call ptr @xmlStrncat(ptr noundef %87, ptr noundef %89, i32 noundef 1) #10
+  %91 = tail call i32 @xmlStrlen(ptr noundef %1) #10
+  %92 = tail call ptr @xmlStrncat(ptr noundef %90, ptr noundef %1, i32 noundef %91) #10
   br label %qualify_namespace.exit
 
 93:                                               ; preds = %85
-  %94 = tail call ptr @xmlStrdup(ptr noundef %1) #11
+  %94 = tail call ptr @xmlStrdup(ptr noundef %1) #10
   br label %qualify_namespace.exit
 
 qualify_namespace.exit:                           ; preds = %86, %93
@@ -1128,7 +1117,7 @@ qualify_namespace.exit:                           ; preds = %86, %93
   %96 = shl nsw i32 %6, 1
   %97 = or disjoint i32 %96, 1
   %98 = sext i32 %97 to i64
-  %99 = tail call noalias ptr @_safe_emalloc(i64 noundef %98, i64 noundef 8, i64 noundef 0) #11
+  %99 = tail call noalias ptr @_safe_emalloc(i64 noundef %98, i64 noundef 8, i64 noundef 0) #10
   %100 = icmp sgt i32 %6, 0
   br i1 %100, label %.lr.ph149, label %._crit_edge
 
@@ -1154,19 +1143,19 @@ qualify_namespace.exit:                           ; preds = %86, %93
   br i1 %.not.i125, label %116, label %110
 
 110:                                              ; preds = %107
-  %111 = tail call ptr @xmlStrdup(ptr noundef nonnull %109) #11
+  %111 = tail call ptr @xmlStrdup(ptr noundef nonnull %109) #10
   %112 = load ptr, ptr %101, align 8, !tbaa !45
-  %113 = tail call ptr @xmlStrncat(ptr noundef %111, ptr noundef %112, i32 noundef 1) #11
-  %114 = tail call i32 @xmlStrlen(ptr noundef %106) #11
-  %115 = tail call ptr @xmlStrncat(ptr noundef %113, ptr noundef %106, i32 noundef %114) #11
+  %113 = tail call ptr @xmlStrncat(ptr noundef %111, ptr noundef %112, i32 noundef 1) #10
+  %114 = tail call i32 @xmlStrlen(ptr noundef %106) #10
+  %115 = tail call ptr @xmlStrncat(ptr noundef %113, ptr noundef %106, i32 noundef %114) #10
   br label %qualify_namespace.exit127
 
 116:                                              ; preds = %107
-  %117 = tail call ptr @xmlStrdup(ptr noundef %106) #11
+  %117 = tail call ptr @xmlStrdup(ptr noundef %106) #10
   br label %qualify_namespace.exit127
 
 118:                                              ; preds = %102
-  %119 = tail call ptr @xmlStrdup(ptr noundef %106) #11
+  %119 = tail call ptr @xmlStrdup(ptr noundef %106) #10
   br label %qualify_namespace.exit127
 
 qualify_namespace.exit127:                        ; preds = %116, %110, %118
@@ -1181,7 +1170,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   %126 = ptrtoint ptr %122 to i64
   %127 = sub i64 %125, %126
   %128 = trunc i64 %127 to i32
-  %129 = tail call ptr @xmlStrndup(ptr noundef %122, i32 noundef %128) #11
+  %129 = tail call ptr @xmlStrndup(ptr noundef %122, i32 noundef %128) #10
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %129, ptr %130, align 8, !tbaa !61
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 2
@@ -1207,7 +1196,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   %136 = load ptr, ptr %25, align 8, !tbaa !48
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !47
-  tail call void %136(ptr noundef %138, ptr noundef %storemerge.i, ptr noundef %.0) #11
+  tail call void %136(ptr noundef %138, ptr noundef %storemerge.i, ptr noundef %.0) #10
   %.not117 = icmp eq ptr %.0, null
   br i1 %.not117, label %142, label %.preheader141
 
@@ -1224,18 +1213,18 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   %139 = load ptr, ptr @xmlFree, align 8, !tbaa !72
   %140 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv176
   %141 = load ptr, ptr %140, align 8, !tbaa !61
-  tail call void %139(ptr noundef %141) #11
+  tail call void %139(ptr noundef %141) #10
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count
   br i1 %exitcond179.not, label %._crit_edge152, label %.lr.ph151
 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader141
-  tail call void @_efree(ptr noundef nonnull %.0) #11
+  tail call void @_efree(ptr noundef nonnull %.0) #10
   br label %142
 
 142:                                              ; preds = %._crit_edge152, %135
   %143 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  tail call void %143(ptr noundef %storemerge.i) #11
+  tail call void %143(ptr noundef %storemerge.i) #10
   br label %144
 
 144:                                              ; preds = %28, %.loopexit, %142
@@ -1262,11 +1251,11 @@ define internal void @end_element_handler_ns(ptr noundef readonly captures(none)
   br i1 %.not15, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.17, ptr noundef nonnull %2, ptr noundef %1) #11
+  %14 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.17, ptr noundef nonnull %2, ptr noundef %1) #10
   br label %17
 
 15:                                               ; preds = %12
-  %16 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %1) #11
+  %16 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.7, ptr noundef %1) #10
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -1276,9 +1265,9 @@ define internal void @end_element_handler_ns(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !47
   %21 = load ptr, ptr %5, align 8, !tbaa !61
-  call void %18(ptr noundef %20, ptr noundef %21, i32 noundef %.0) #11
+  call void %18(ptr noundef %20, ptr noundef %21, i32 noundef %.0) #10
   %22 = load ptr, ptr %5, align 8, !tbaa !61
-  call void @_efree(ptr noundef %22) #11
+  call void @_efree(ptr noundef %22) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %37
 
@@ -1287,16 +1276,16 @@ define internal void @end_element_handler_ns(ptr noundef readonly captures(none)
   br i1 %.not.i, label %31, label %24
 
 24:                                               ; preds = %23
-  %25 = tail call ptr @xmlStrdup(ptr noundef nonnull %3) #11
+  %25 = tail call ptr @xmlStrdup(ptr noundef nonnull %3) #10
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !45
-  %28 = tail call ptr @xmlStrncat(ptr noundef %25, ptr noundef %27, i32 noundef 1) #11
-  %29 = tail call i32 @xmlStrlen(ptr noundef %1) #11
-  %30 = tail call ptr @xmlStrncat(ptr noundef %28, ptr noundef %1, i32 noundef %29) #11
+  %28 = tail call ptr @xmlStrncat(ptr noundef %25, ptr noundef %27, i32 noundef 1) #10
+  %29 = tail call i32 @xmlStrlen(ptr noundef %1) #10
+  %30 = tail call ptr @xmlStrncat(ptr noundef %28, ptr noundef %1, i32 noundef %29) #10
   br label %qualify_namespace.exit
 
 31:                                               ; preds = %23
-  %32 = tail call ptr @xmlStrdup(ptr noundef %1) #11
+  %32 = tail call ptr @xmlStrdup(ptr noundef %1) #10
   br label %qualify_namespace.exit
 
 qualify_namespace.exit:                           ; preds = %24, %31
@@ -1304,9 +1293,9 @@ qualify_namespace.exit:                           ; preds = %24, %31
   %33 = load ptr, ptr %6, align 8, !tbaa !49
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !47
-  tail call void %33(ptr noundef %35, ptr noundef %storemerge.i) #11
+  tail call void %33(ptr noundef %35, ptr noundef %storemerge.i) #10
   %36 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  tail call void %36(ptr noundef %storemerge.i) #11
+  tail call void %36(ptr noundef %storemerge.i) #10
   br label %37
 
 37:                                               ; preds = %9, %17, %qualify_namespace.exit
@@ -1327,14 +1316,14 @@ define internal fastcc void @external_entity_ref_handler(ptr noundef %0, ptr nou
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %3) #11
+  %9 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %3) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !4
-  tail call void @xmlStopParser(ptr noundef %12) #11
+  tail call void @xmlStopParser(ptr noundef %12) #10
   %13 = load ptr, ptr %11, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 136
   store i32 21, ptr %14, align 8, !tbaa !60
@@ -1345,7 +1334,7 @@ define internal fastcc void @external_entity_ref_handler(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @xmlStopParser(ptr noundef) local_unnamed_addr #1
 
@@ -1356,31 +1345,30 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare ptr @xmlStrncat(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare ptr @xmlStrndup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

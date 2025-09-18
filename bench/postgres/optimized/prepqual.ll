@@ -18,10 +18,9 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @__func__.negate_clause) #5
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 76, ptr noundef nonnull @__func__.negate_clause) #4
   unreachable
 
 6:                                                ; preds = %1
@@ -42,25 +41,25 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  %13 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext true) #5
+  %13 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext true) #4
   br label %148
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %.not126 = icmp eq i64 %16, 0
-  %17 = tail call ptr @makeBoolConst(i1 noundef zeroext %.not126, i1 noundef zeroext false) #5
+  %17 = tail call ptr @makeBoolConst(i1 noundef zeroext %.not126, i1 noundef zeroext false) #4
   br label %148
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call i32 @get_negator(i32 noundef %20) #5
+  %21 = tail call i32 @get_negator(i32 noundef %20) #4
   %.not111.not = icmp eq i32 %21, 0
   br i1 %.not111.not, label %.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call noundef ptr @palloc0(i64 noundef 48) #5
+  %23 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 17, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %21, ptr %24, align 4
@@ -95,12 +94,12 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 44:                                               ; preds = %6
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @get_negator(i32 noundef %46) #5
+  %47 = tail call i32 @get_negator(i32 noundef %46) #4
   %.not110.not = icmp eq i32 %47, 0
   br i1 %.not110.not, label %.thread, label %48
 
 48:                                               ; preds = %44
-  %49 = tail call noundef ptr @palloc0(i64 noundef 48) #5
+  %49 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 20, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %47, ptr %50, align 4
@@ -158,7 +157,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv149
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr @negate_clause(ptr noundef %79)
-  %81 = tail call ptr @lappend(ptr noundef %.098136143, ptr noundef %80) #5
+  %81 = tail call ptr @lappend(ptr noundef %.098136143, ptr noundef %80) #4
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %82 = load i32, ptr %73, align 4
   %83 = sext i32 %82 to i64
@@ -167,7 +166,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %.lr.ph145, %.lr.ph137, %70
   %.098.lcssa = phi ptr [ null, %70 ], [ null, %.lr.ph137 ], [ %81, %.lr.ph145 ]
-  %85 = tail call ptr @make_orclause(ptr noundef %.098.lcssa) #5
+  %85 = tail call ptr @make_orclause(ptr noundef %.098.lcssa) #4
   br label %148
 
 86:                                               ; preds = %67
@@ -190,7 +189,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %94, align 8
   %96 = tail call ptr @negate_clause(ptr noundef %95)
-  %97 = tail call ptr @lappend(ptr noundef %.0100127133, ptr noundef %96) #5
+  %97 = tail call ptr @lappend(ptr noundef %.0100127133, ptr noundef %96) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %89, align 4
   %99 = sext i32 %98 to i64
@@ -199,7 +198,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge115:                                     ; preds = %.lr.ph134, %.lr.ph, %86
   %.0100.lcssa = phi ptr [ null, %86 ], [ null, %.lr.ph ], [ %97, %.lr.ph134 ]
-  %101 = tail call ptr @make_andclause(ptr noundef %.0100.lcssa) #5
+  %101 = tail call ptr @make_andclause(ptr noundef %.0100.lcssa) #4
   br label %148
 
 102:                                              ; preds = %67
@@ -211,11 +210,10 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br label %148
 
 107:                                              ; preds = %67
-  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  tail call void @llvm.assume(i1 %108)
+  %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
   %109 = load i32, ptr %68, align 4
-  %110 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %109) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.negate_clause) #5
+  %110 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %109) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.negate_clause) #4
   unreachable
 
 111:                                              ; preds = %6
@@ -225,7 +223,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %114, label %.thread, label %115
 
 115:                                              ; preds = %111
-  %116 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %116 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 52, ptr %116, align 4
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %118 = load ptr, ptr %117, align 8
@@ -247,7 +245,7 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br label %148
 
 130:                                              ; preds = %6
-  %131 = tail call noundef ptr @palloc0(i64 noundef 24) #5
+  %131 = tail call noundef ptr @palloc0(i64 noundef 24) #4
   store i32 53, ptr %131, align 4
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %133 = load ptr, ptr %132, align 8
@@ -259,11 +257,10 @@ define dso_local ptr @negate_clause(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %137, label %switch.lookup, label %138
 
 138:                                              ; preds = %130
-  %139 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  tail call void @llvm.assume(i1 %139)
+  %139 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
   %140 = load i32, ptr %135, align 8
-  %141 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %140) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 250, ptr noundef nonnull @__func__.negate_clause) #5
+  %141 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %140) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 250, ptr noundef nonnull @__func__.negate_clause) #4
   unreachable
 
 switch.lookup:                                    ; preds = %130
@@ -279,7 +276,7 @@ switch.lookup:                                    ; preds = %130
   br label %148
 
 .thread:                                          ; preds = %111, %44, %18, %6
-  %147 = tail call ptr @make_notclause(ptr noundef nonnull %0) #5
+  %147 = tail call ptr @make_notclause(ptr noundef nonnull %0) #4
   br label %148
 
 148:                                              ; preds = %115, %48, %22, %.critedge, %.critedge115, %102, %12, %14, %.thread, %switch.lookup
@@ -382,7 +379,7 @@ is_orclause.exit:                                 ; preds = %3
   br i1 %.not124, label %37, label %.split164
 
 .split164:                                        ; preds = %26, %27
-  %30 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #5
+  %30 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #4
   br label %process_duplicate_ors.exit
 
 31:                                               ; preds = %22
@@ -395,7 +392,7 @@ is_orclause.exit:                                 ; preds = %3
   br i1 %.not123, label %37, label %process_duplicate_ors.exit
 
 35:                                               ; preds = %19, %.lr.ph168
-  %36 = tail call ptr @lappend(ptr noundef %.056154166, ptr noundef %18) #5
+  %36 = tail call ptr @lappend(ptr noundef %.056154166, ptr noundef %18) #4
   br label %37
 
 37:                                               ; preds = %35, %27, %31, %32
@@ -413,7 +410,7 @@ is_orclause.exit:                                 ; preds = %3
   br i1 %42, label %43, label %list_length.exit.i
 
 43:                                               ; preds = %._crit_edge159
-  %44 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #5
+  %44 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #4
   br label %process_duplicate_ors.exit
 
 list_length.exit.i:                               ; preds = %._crit_edge159
@@ -470,7 +467,7 @@ is_andclause.exit.i:                              ; preds = %56
   br label %69
 
 is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i, %56, %53
-  %68 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %55) #5
+  %68 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %55) #4
   br label %.critedge.i
 
 69:                                               ; preds = %65, %62
@@ -486,7 +483,7 @@ is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i
 
 .critedge.i:                                      ; preds = %69, %is_andclause.exit.thread.i, %.preheader177.i
   %.1.i = phi ptr [ %68, %is_andclause.exit.thread.i ], [ null, %.preheader177.i ], [ %.2.i, %69 ]
-  %73 = tail call ptr @list_union(ptr noundef null, ptr noundef %.1.i) #5
+  %73 = tail call ptr @list_union(ptr noundef null, ptr noundef %.1.i) #4
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.not112.i = icmp eq ptr %73, null
   br i1 %.not112.i, label %.critedge121.thread.i, label %.lr.ph191.i
@@ -539,11 +536,11 @@ is_andclause.exit131.i:                           ; preds = %88
 94:                                               ; preds = %is_andclause.exit131.i
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = tail call zeroext i1 @list_member(ptr noundef %96, ptr noundef %81) #5
+  %97 = tail call zeroext i1 @list_member(ptr noundef %96, ptr noundef %81) #4
   br i1 %97, label %99, label %.critedge123.thread.i
 
 is_andclause.exit131.thread.i:                    ; preds = %is_andclause.exit131.i, %88, %.lr.ph188.i
-  %98 = tail call zeroext i1 @equal(ptr noundef %81, ptr noundef %87) #5
+  %98 = tail call zeroext i1 @equal(ptr noundef %81, ptr noundef %87) #4
   br i1 %98, label %99, label %.critedge123.thread.i
 
 99:                                               ; preds = %is_andclause.exit131.thread.i, %94
@@ -554,7 +551,7 @@ is_andclause.exit131.thread.i:                    ; preds = %is_andclause.exit13
   br i1 %.not119.i, label %.lr.ph188.i, label %.critedge123.i, !llvm.loop !8
 
 .critedge123.i:                                   ; preds = %99, %.lr.ph198.i
-  %102 = tail call ptr @lappend(ptr noundef %.091190196.i, ptr noundef %81) #5
+  %102 = tail call ptr @lappend(ptr noundef %.091190196.i, ptr noundef %81) #4
   br label %.critedge123.thread.i
 
 .critedge123.thread.i:                            ; preds = %is_andclause.exit131.thread.i, %94, %.critedge123.i
@@ -566,7 +563,7 @@ is_andclause.exit131.thread.i:                    ; preds = %is_andclause.exit13
   br i1 %105, label %.lr.ph198.i, label %.critedge121.i
 
 .critedge121.thread.i:                            ; preds = %.critedge121.i, %.lr.ph191.i, %.critedge.i
-  %106 = tail call ptr @make_orclause(ptr noundef nonnull %41) #5
+  %106 = tail call ptr @make_orclause(ptr noundef nonnull %41) #4
   br label %process_duplicate_ors.exit
 
 .lr.ph203.i:                                      ; preds = %.preheader.i, %.thread149.i
@@ -592,7 +589,7 @@ is_andclause.exit133.i:                           ; preds = %110
 116:                                              ; preds = %is_andclause.exit133.i
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %118 = load ptr, ptr %117, align 8
-  %119 = tail call ptr @list_difference(ptr noundef %118, ptr noundef nonnull %.192.i) #5
+  %119 = tail call ptr @list_difference(ptr noundef %118, ptr noundef nonnull %.192.i) #4
   %.not116.not.i = icmp eq ptr %119, null
   br i1 %.not116.not.i, label %list_length.exit139.i, label %list_length.exit135.i
 
@@ -609,16 +606,16 @@ list_length.exit135.i:                            ; preds = %116
   br label %.thread149.i
 
 126:                                              ; preds = %list_length.exit135.i
-  %127 = tail call ptr @make_andclause(ptr noundef nonnull %119) #5
+  %127 = tail call ptr @make_andclause(ptr noundef nonnull %119) #4
   br label %.thread149.i
 
 is_andclause.exit133.thread.i:                    ; preds = %is_andclause.exit133.i, %110, %.lr.ph203.i
-  %128 = tail call zeroext i1 @list_member(ptr noundef nonnull %.192.i, ptr noundef %109) #5
+  %128 = tail call zeroext i1 @list_member(ptr noundef nonnull %.192.i, ptr noundef %109) #4
   br i1 %128, label %list_length.exit139.i, label %.thread149.i
 
 .thread149.i:                                     ; preds = %is_andclause.exit133.thread.i, %126, %123
   %.sink.i = phi ptr [ %125, %123 ], [ %127, %126 ], [ %109, %is_andclause.exit133.thread.i ]
-  %129 = tail call ptr @lappend(ptr noundef %.094201.i, ptr noundef %.sink.i) #5
+  %129 = tail call ptr @lappend(ptr noundef %.094201.i, ptr noundef %.sink.i) #4
   %indvars.iv.next214.i = add nuw nsw i64 %indvars.iv213.i, 1
   %130 = load i32, ptr %45, align 4
   %131 = sext i32 %130 to i64
@@ -643,12 +640,12 @@ list_length.exit137.i:                            ; preds = %.critedge125.i
 
 138:                                              ; preds = %list_length.exit137.i
   %139 = tail call fastcc ptr @pull_ors(ptr noundef nonnull %129)
-  %140 = tail call ptr @make_orclause(ptr noundef %139) #5
+  %140 = tail call ptr @make_orclause(ptr noundef %139) #4
   br label %141
 
 141:                                              ; preds = %138, %135
   %.sink228.i = phi ptr [ %137, %135 ], [ %140, %138 ]
-  %142 = tail call ptr @lappend(ptr noundef nonnull %.192.i, ptr noundef %.sink228.i) #5
+  %142 = tail call ptr @lappend(ptr noundef nonnull %.192.i, ptr noundef %.sink228.i) #4
   %.not.i138.i = icmp eq ptr %142, null
   br i1 %.not.i138.i, label %list_length.exit139.thread.i, label %list_length.exit139.i
 
@@ -668,7 +665,7 @@ list_length.exit139.i:                            ; preds = %is_andclause.exit13
 list_length.exit139.thread.i:                     ; preds = %list_length.exit139.i, %141
   %.293174176.i = phi ptr [ %.293173.i, %list_length.exit139.i ], [ null, %141 ]
   %149 = tail call fastcc ptr @pull_ands(ptr noundef %.293174176.i)
-  %150 = tail call ptr @make_andclause(ptr noundef %149) #5
+  %150 = tail call ptr @make_andclause(ptr noundef %149) #4
   br label %process_duplicate_ors.exit
 
 151:                                              ; preds = %is_orclause.exit
@@ -715,7 +712,7 @@ list_length.exit139.thread.i:                     ; preds = %list_length.exit139
   br i1 %.not122.us146, label %process_duplicate_ors.exit, label %select.unfold108.us147
 
 172:                                              ; preds = %162, %.lr.ph144.split.us
-  %173 = tail call ptr @lappend(ptr noundef %.061136143.us, ptr noundef %161) #5
+  %173 = tail call ptr @lappend(ptr noundef %.061136143.us, ptr noundef %161) #4
   br label %select.unfold108.us147
 
 select.unfold108.us147:                           ; preds = %172, %169, %165
@@ -754,11 +751,11 @@ select.unfold108.us147:                           ; preds = %172, %169, %165
   br i1 %.not121, label %.split, label %select.unfold108
 
 .split:                                           ; preds = %184, %188
-  %191 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #5
+  %191 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #4
   br label %process_duplicate_ors.exit
 
 192:                                              ; preds = %181, %.lr.ph144.split
-  %193 = tail call ptr @lappend(ptr noundef %.061136143, ptr noundef %180) #5
+  %193 = tail call ptr @lappend(ptr noundef %.061136143, ptr noundef %180) #4
   br label %select.unfold108
 
 select.unfold108:                                 ; preds = %192, %188
@@ -776,7 +773,7 @@ select.unfold108:                                 ; preds = %192, %188
   br i1 %198, label %199, label %list_length.exit
 
 199:                                              ; preds = %._crit_edge138
-  %200 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #5
+  %200 = tail call ptr @makeBoolConst(i1 noundef zeroext true, i1 noundef zeroext false) #4
   br label %process_duplicate_ors.exit
 
 list_length.exit:                                 ; preds = %._crit_edge138
@@ -792,7 +789,7 @@ list_length.exit:                                 ; preds = %._crit_edge138
   br label %process_duplicate_ors.exit
 
 207:                                              ; preds = %list_length.exit
-  %208 = tail call ptr @make_andclause(ptr noundef nonnull %197) #5
+  %208 = tail call ptr @make_andclause(ptr noundef nonnull %197) #4
   br label %process_duplicate_ors.exit
 
 process_duplicate_ors.exit:                       ; preds = %169, %32, %is_orclause.exit, %.split, %3, %2, %.split164, %list_length.exit139.thread.i, %146, %.critedge121.thread.i, %50, %43, %199, %204, %207
@@ -842,11 +839,11 @@ is_orclause.exit:                                 ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @pull_ors(ptr noundef %17)
-  %19 = tail call ptr @list_concat(ptr noundef %.01620, ptr noundef %18) #5
+  %19 = tail call ptr @list_concat(ptr noundef %.01620, ptr noundef %18) #4
   br label %21
 
 is_orclause.exit.thread:                          ; preds = %.lr.ph22, %9, %is_orclause.exit
-  %20 = tail call ptr @lappend(ptr noundef %.01620, ptr noundef %8) #5
+  %20 = tail call ptr @lappend(ptr noundef %.01620, ptr noundef %8) #4
   br label %21
 
 21:                                               ; preds = %is_orclause.exit.thread, %15
@@ -898,11 +895,11 @@ is_andclause.exit:                                ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @pull_ands(ptr noundef %17)
-  %19 = tail call ptr @list_concat(ptr noundef %.01620, ptr noundef %18) #5
+  %19 = tail call ptr @list_concat(ptr noundef %.01620, ptr noundef %18) #4
   br label %21
 
 is_andclause.exit.thread:                         ; preds = %.lr.ph22, %9, %is_andclause.exit
-  %20 = tail call ptr @lappend(ptr noundef %.01620, ptr noundef %8) #5
+  %20 = tail call ptr @lappend(ptr noundef %.01620, ptr noundef %8) #4
   br label %21
 
 21:                                               ; preds = %is_andclause.exit.thread, %15
@@ -926,15 +923,11 @@ declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @list_difference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { cold nounwind }
-attributes #5 = { nounwind }
+attributes #3 = { cold nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

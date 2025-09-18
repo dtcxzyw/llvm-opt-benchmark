@@ -707,8 +707,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i.i: ; preds = %169
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i.i: ; preds = %183
   %188 = load atomic i32, ptr %181 monotonic, align 8, !noalias !64
-  %.fr.i.i.i.i.i.i = freeze i32 %188
-  %.not.i.i.i.i.i79.i = icmp ne i32 %.fr.i.i.i.i.i.i, 0
   %189 = load ptr, ptr %39, align 8, !noalias !64
   %190 = load atomic i64, ptr %181 acquire, align 8, !noalias !3
   %191 = icmp eq i64 %190, 4294967297
@@ -754,7 +752,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i80.i: ; preds = %20
 
 209:                                              ; preds = %208, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i80.i, %193
   %210 = icmp ne ptr %189, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i79.i)
   call void @llvm.assume(i1 %210)
   invoke void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.78") align 8 %40, ptr noundef nonnull align 8 dereferenceable(72) %189)
           to label %211 unwind label %251, !noalias !3
@@ -802,8 +799,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i80.i: ; preds = %20
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i86.i: ; preds = %223
   %228 = load atomic i32, ptr %221 monotonic, align 8, !noalias !87
-  %.fr.i.i.i.i.i87.i = freeze i32 %228
-  %.not.i.i.i.i.i88.i = icmp ne i32 %.fr.i.i.i.i.i87.i, 0
   %229 = load ptr, ptr %39, align 8, !noalias !87
   %230 = load atomic i64, ptr %221 acquire, align 8, !noalias !3
   %231 = icmp eq i64 %230, 4294967297
@@ -882,8 +877,6 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i97.i: ; preds = %257
   %262 = load atomic i32, ptr %255 monotonic, align 8, !noalias !97
-  %.fr.i.i.i.i.i98.i = freeze i32 %262
-  %.not.i.i.i.i.i99.i = icmp ne i32 %.fr.i.i.i.i.i98.i, 0
   %263 = load ptr, ptr %42, align 8, !noalias !97
   %264 = load atomic i64, ptr %255 acquire, align 8, !noalias !3
   %265 = icmp eq i64 %264, 4294967297
@@ -929,7 +922,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i102.i: ; preds = %2
 
 283:                                              ; preds = %282, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i102.i, %267
   %284 = icmp ne ptr %263, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i99.i)
   call void @llvm.assume(i1 %284)
   invoke void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %43, ptr noundef nonnull align 8 dereferenceable(32) %263)
           to label %285 unwind label %321, !noalias !3
@@ -1103,7 +1095,6 @@ _ZN3ade6HandleINS_4EdgeEED2Ev.exit118.i:          ; preds = %349, %_ZN9__gnu_cxx
 
 353:                                              ; preds = %248, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i91.i, %233
   %354 = icmp ne ptr %229, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i88.i)
   call void @llvm.assume(i1 %354)
   invoke void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.78") align 8 %44, ptr noundef nonnull align 8 dereferenceable(72) %229)
           to label %355 unwind label %364, !noalias !3
@@ -1165,8 +1156,6 @@ _ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__no
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i125.i: ; preds = %370
   %375 = load atomic i32, ptr %368 monotonic, align 8, !noalias !109
-  %.fr.i.i.i.i.i126.i = freeze i32 %375
-  %.not.i.i.i.i.i127.i = icmp ne i32 %.fr.i.i.i.i.i126.i, 0
   %376 = load ptr, ptr %46, align 8, !noalias !109
   %377 = load atomic i64, ptr %368 acquire, align 8, !noalias !3
   %378 = icmp eq i64 %377, 4294967297
@@ -1212,7 +1201,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i130.i: ; preds = %3
 
 396:                                              ; preds = %395, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i130.i, %380
   %397 = icmp ne ptr %376, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i127.i)
   call void @llvm.assume(i1 %397)
   invoke void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %376)
           to label %398 unwind label %434, !noalias !3
@@ -9189,8 +9177,6 @@ _ZN12_GLOBAL__N_114findParentViewEPN3ade20MemoryDescriptorViewE.exit: ; preds = 
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %103
   %108 = load atomic i32, ptr %101 monotonic, align 8, !noalias !407
-  %.fr.i.i.i.i.i = freeze i32 %108
-  %.not.i.i.i.i.i32 = icmp ne i32 %.fr.i.i.i.i.i, 0
   %109 = load ptr, ptr %3, align 8, !noalias !407
   %110 = load atomic i64, ptr %101 acquire, align 8
   %111 = icmp eq i64 %110, 4294967297
@@ -9236,7 +9222,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33: ; preds = %125,
 
 _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33, %128
   %129 = icmp ne ptr %109, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i32)
   call void @llvm.assume(i1 %129)
   call void @_ZN3ade4Node7inEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.78") align 8 %15, ptr noundef nonnull align 8 dereferenceable(72) %109)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -9298,8 +9283,6 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i38: ; preds = %150
   %155 = load atomic i32, ptr %148 monotonic, align 8, !noalias !418
-  %.fr.i.i.i.i.i39 = freeze i32 %155
-  %.not.i.i.i.i.i40 = icmp ne i32 %.fr.i.i.i.i.i39, 0
   %156 = load ptr, ptr %17, align 8, !noalias !418
   %157 = load atomic i64, ptr %148 acquire, align 8
   %158 = icmp eq i64 %157, 4294967297
@@ -9345,7 +9328,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i43: ; preds = %172,
 
 176:                                              ; preds = %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i43, %160
   %177 = icmp ne ptr %156, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i40)
   call void @llvm.assume(i1 %177)
   invoke void @_ZNK3ade4Edge7srcNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %178 unwind label %230
@@ -10009,8 +9991,6 @@ _ZN12_GLOBAL__N_114findParentViewEPN3ade20MemoryDescriptorViewE.exit: ; preds = 
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %103
   %108 = load atomic i32, ptr %101 monotonic, align 8, !noalias !432
-  %.fr.i.i.i.i.i = freeze i32 %108
-  %.not.i.i.i.i.i32 = icmp ne i32 %.fr.i.i.i.i.i, 0
   %109 = load ptr, ptr %3, align 8, !noalias !432
   %110 = load atomic i64, ptr %101 acquire, align 8
   %111 = icmp eq i64 %110, 4294967297
@@ -10056,7 +10036,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33: ; preds = %125,
 
 _ZNK3ade6HandleINS_4NodeEEptEv.exit:              ; preds = %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i33, %128
   %129 = icmp ne ptr %109, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i32)
   call void @llvm.assume(i1 %129)
   call void @_ZN3ade4Node8outEdgesEv(ptr dead_on_unwind nonnull writable sret(%"struct.ade::util::Range::MapRange.78") align 8 %15, ptr noundef nonnull align 8 dereferenceable(72) %109)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -10118,8 +10097,6 @@ _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__n
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i38: ; preds = %150
   %155 = load atomic i32, ptr %148 monotonic, align 8, !noalias !443
-  %.fr.i.i.i.i.i39 = freeze i32 %155
-  %.not.i.i.i.i.i40 = icmp ne i32 %.fr.i.i.i.i.i39, 0
   %156 = load ptr, ptr %17, align 8, !noalias !443
   %157 = load atomic i64, ptr %148 acquire, align 8
   %158 = icmp eq i64 %157, 4294967297
@@ -10165,7 +10142,6 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i43: ; preds = %172,
 
 176:                                              ; preds = %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i43, %160
   %177 = icmp ne ptr %156, null
-  call void @llvm.assume(i1 %.not.i.i.i.i.i40)
   call void @llvm.assume(i1 %177)
   invoke void @_ZNK3ade4Edge7dstNodeEv(ptr dead_on_unwind nonnull writable sret(%"class.ade::Handle") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %156)
           to label %178 unwind label %231

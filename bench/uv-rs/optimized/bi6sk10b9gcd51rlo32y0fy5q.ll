@@ -46,24 +46,22 @@ define noundef ptr @__rust_realloc(ptr noundef %0, i64 noundef %1, i64 noundef %
   %5 = add i64 %2, -1
   %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
-  %7 = icmp ne i64 %1, 0
+  %7 = icmp ne i64 %3, 0
   tail call void @llvm.assume(i1 %7)
-  %8 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call noundef i32 @_ZN17tikv_jemallocator15layout_to_flags17h8467d102b0d8c6a3E(i64 noundef range(i64 1, -9223372036854775807) %2, i64 noundef %3)
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %13
+  %8 = tail call noundef i32 @_ZN17tikv_jemallocator15layout_to_flags17h8467d102b0d8c6a3E(i64 noundef range(i64 1, -9223372036854775807) %2, i64 noundef %3)
+  %9 = icmp eq i32 %8, 0
+  br i1 %9, label %10, label %12
 
-11:                                               ; preds = %4
-  %12 = tail call noundef ptr @_rjem_realloc(ptr noundef %0, i64 noundef %3) #3
+10:                                               ; preds = %4
+  %11 = tail call noundef ptr @_rjem_realloc(ptr noundef %0, i64 noundef %3) #3
   br label %"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h3422baaa5386fdd8E.exit"
 
-13:                                               ; preds = %4
-  %14 = tail call noundef ptr @_rjem_rallocx(ptr noundef %0, i64 noundef %3, i32 noundef %9) #3
+12:                                               ; preds = %4
+  %13 = tail call noundef ptr @_rjem_rallocx(ptr noundef %0, i64 noundef %3, i32 noundef %8) #3
   br label %"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h3422baaa5386fdd8E.exit"
 
-"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h3422baaa5386fdd8E.exit": ; preds = %11, %13
-  %.sroa.0.0.i = phi ptr [ %12, %11 ], [ %14, %13 ]
+"_ZN80_$LT$tikv_jemallocator..Jemalloc$u20$as$u20$core..alloc..global..GlobalAlloc$GT$7realloc17h3422baaa5386fdd8E.exit": ; preds = %10, %12
+  %.sroa.0.0.i = phi ptr [ %11, %10 ], [ %13, %12 ]
   ret ptr %.sroa.0.0.i
 }
 

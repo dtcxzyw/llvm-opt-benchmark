@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecInitBitmapOr(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 216) #5
+  %4 = tail call noundef ptr @palloc0(i64 noundef 216) #4
   store i32 400, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -31,7 +31,7 @@ list_length.exit:                                 ; preds = %3, %7
   %10 = phi i32 [ %9, %7 ], [ 0, %3 ]
   %11 = sext i32 %10 to i64
   %12 = shl nsw i64 %11, 3
-  %13 = tail call ptr @palloc0(i64 noundef %12) #5
+  %13 = tail call ptr @palloc0(i64 noundef %12) #4
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -58,7 +58,7 @@ list_length.exit:                                 ; preds = %3, %7
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @ExecInitNode(ptr noundef %26, ptr noundef %1, i32 noundef %2) #5
+  %27 = tail call ptr @ExecInitNode(ptr noundef %26, ptr noundef %1, i32 noundef %2) #4
   %28 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %27, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -75,10 +75,9 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal noalias noundef nonnull ptr @ExecBitmapOr(ptr readnone captures(none) %0) #2 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %2)
-  %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__func__.ExecBitmapOr) #5
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 45, ptr noundef nonnull @__func__.ExecBitmapOr) #4
   unreachable
 }
 
@@ -92,7 +91,7 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @InstrStartNode(ptr noundef nonnull %3) #5
+  tail call void @InstrStartNode(ptr noundef nonnull %3) #4
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -140,26 +139,25 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
 
 32:                                               ; preds = %20, %28
   %33 = phi ptr [ %31, %28 ], [ null, %20 ]
-  %34 = tail call ptr @tbm_create(i64 noundef %23, ptr noundef %33) #5
+  %34 = tail call ptr @tbm_create(i64 noundef %23, ptr noundef %33) #4
   br label %35
 
 35:                                               ; preds = %32, %18
   %.1 = phi ptr [ %34, %32 ], [ %.02938, %18 ]
   %36 = getelementptr inbounds nuw i8, ptr %15, i64 224
   store ptr %.1, ptr %36, align 8
-  %37 = tail call ptr @MultiExecProcNode(ptr noundef nonnull %15) #5
+  %37 = tail call ptr @MultiExecProcNode(ptr noundef nonnull %15) #4
   %.not35 = icmp eq ptr %37, %.1
   br i1 %.not35, label %52, label %38
 
 38:                                               ; preds = %35
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.MultiExecBitmapOr) #5
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 156, ptr noundef nonnull @__func__.MultiExecBitmapOr) #4
   unreachable
 
 41:                                               ; preds = %13
-  %42 = tail call ptr @MultiExecProcNode(ptr noundef nonnull %15) #5
+  %42 = tail call ptr @MultiExecProcNode(ptr noundef nonnull %15) #4
   %.not34 = icmp eq ptr %42, null
   br i1 %.not34, label %46, label %43
 
@@ -169,10 +167,9 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %43, %41
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 164, ptr noundef nonnull @__func__.MultiExecBitmapOr) #5
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 164, ptr noundef nonnull @__func__.MultiExecBitmapOr) #4
   unreachable
 
 49:                                               ; preds = %43
@@ -180,8 +177,8 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %49
-  tail call void @tbm_union(ptr noundef nonnull %.02938, ptr noundef nonnull %42) #5
-  tail call void @tbm_free(ptr noundef nonnull %42) #5
+  tail call void @tbm_union(ptr noundef nonnull %.02938, ptr noundef nonnull %42) #4
+  tail call void @tbm_free(ptr noundef nonnull %42) #4
   br label %52
 
 52:                                               ; preds = %49, %51, %35
@@ -195,10 +192,9 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   br i1 %53, label %._crit_edge.thread, label %56
 
 ._crit_edge.thread:                               ; preds = %5, %._crit_edge
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.MultiExecBitmapOr) #5
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 178, ptr noundef nonnull @__func__.MultiExecBitmapOr) #4
   unreachable
 
 56:                                               ; preds = %._crit_edge
@@ -207,7 +203,7 @@ define dso_local nonnull ptr @MultiExecBitmapOr(ptr noundef readonly captures(no
   br i1 %.not33, label %59, label %58
 
 58:                                               ; preds = %56
-  tail call void @InstrStopNode(ptr noundef nonnull %57, double noundef 0.000000e+00) #5
+  tail call void @InstrStopNode(ptr noundef nonnull %57, double noundef 0.000000e+00) #4
   br label %59
 
 59:                                               ; preds = %58, %56
@@ -254,7 +250,7 @@ define dso_local void @ExecEndBitmapOr(ptr noundef readonly captures(none) %0) l
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %.lr.ph
-  tail call void @ExecEndNode(ptr noundef nonnull %8) #5
+  tail call void @ExecEndNode(ptr noundef nonnull %8) #4
   br label %10
 
 10:                                               ; preds = %.lr.ph, %9
@@ -290,7 +286,7 @@ define dso_local void @ExecReScanBitmapOr(ptr noundef readonly captures(none) %0
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %7
-  tail call void @UpdateChangedParamSet(ptr noundef %10, ptr noundef nonnull %11) #5
+  tail call void @UpdateChangedParamSet(ptr noundef %10, ptr noundef nonnull %11) #4
   br label %13
 
 13:                                               ; preds = %12, %7
@@ -300,7 +296,7 @@ define dso_local void @ExecReScanBitmapOr(ptr noundef readonly captures(none) %0
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  tail call void @ExecReScan(ptr noundef nonnull %10) #5
+  tail call void @ExecReScan(ptr noundef nonnull %10) #4
   br label %18
 
 18:                                               ; preds = %17, %13
@@ -318,16 +314,12 @@ declare void @UpdateChangedParamSet(ptr noundef, ptr noundef) local_unnamed_addr
 
 declare void @ExecReScan(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

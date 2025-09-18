@@ -444,7 +444,7 @@ define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   br i1 %73, label %74, label %_ZN6Gluco215ClauseAllocatorC2Ev.exit
 
 74:                                               ; preds = %1
-  %75 = tail call ptr @__errno_location() #31
+  %75 = tail call ptr @__errno_location() #30
   %76 = load i32, ptr %75, align 4, !tbaa !55
   %77 = icmp eq i32 %76, 12
   br i1 %77, label %78, label %_ZN6Gluco215ClauseAllocatorC2Ev.exit
@@ -551,7 +551,7 @@ _ZN6Gluco26bqueueIjE8initSizeEi.exit2:            ; preds = %_ZN6Gluco26bqueueIj
 
 .sink.split:                                      ; preds = %_ZN6Gluco26bqueueIjE8initSizeEi.exit2
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Gluco219opt_certified_file_E, i64 40), align 8, !tbaa !102
-  %129 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(5) @.str.62) #32
+  %129 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(5) @.str.62) #31
   %.not = icmp eq i32 %129, 0
   %.str.63. = select i1 %.not, ptr @.str.63, ptr %128
   %130 = tail call noalias ptr @fopen(ptr noundef nonnull %.str.63., ptr noundef nonnull @.str.64)
@@ -642,7 +642,7 @@ define void @_ZN6Gluco26SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 .preheader.i.i:                                   ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   store i32 0, ptr %4, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %3) #33
+  tail call void @free(ptr noundef nonnull %3) #32
   store ptr null, ptr %2, align 8, !tbaa !112
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1412
   store i32 0, ptr %5, align 4, !tbaa !114
@@ -657,7 +657,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %1, %.preheader.i.i
 .preheader.i.i2:                                  ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store i32 0, ptr %8, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %7) #33
+  tail call void @free(ptr noundef nonnull %7) #32
   store ptr null, ptr %6, align 8, !tbaa !115
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1396
   store i32 0, ptr %9, align 4, !tbaa !117
@@ -672,7 +672,7 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i4:                                  ; preds = %_ZN6Gluco23vecIiED2Ev.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   store i32 0, ptr %12, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %11) #33
+  tail call void @free(ptr noundef nonnull %11) #32
   store ptr null, ptr %10, align 8, !tbaa !115
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   store i32 0, ptr %13, align 4, !tbaa !117
@@ -687,7 +687,7 @@ _ZN6Gluco23vecIiED2Ev.exit5:                      ; preds = %_ZN6Gluco23vecIiED2
 .preheader.i.i7:                                  ; preds = %_ZN6Gluco23vecIiED2Ev.exit5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store i32 0, ptr %16, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %15) #33
+  tail call void @free(ptr noundef nonnull %15) #32
   store ptr null, ptr %14, align 8, !tbaa !115
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1356
   store i32 0, ptr %17, align 4, !tbaa !117
@@ -702,7 +702,7 @@ _ZN6Gluco23vecIiED2Ev.exit8:                      ; preds = %_ZN6Gluco23vecIiED2
 .preheader.i.i.i:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store i32 0, ptr %20, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %19) #33
+  tail call void @free(ptr noundef nonnull %19) #32
   store ptr null, ptr %18, align 8, !tbaa !115
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1340
   store i32 0, ptr %21, align 4, !tbaa !117
@@ -717,7 +717,7 @@ _ZN6Gluco23vecIiED2Ev.exit.i:                     ; preds = %.preheader.i.i.i, %
 .preheader.i.i2.i:                                ; preds = %_ZN6Gluco23vecIiED2Ev.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i32 0, ptr %24, align 8, !tbaa !119
-  tail call void @free(ptr noundef nonnull %23) #33
+  tail call void @free(ptr noundef nonnull %23) #32
   store ptr null, ptr %22, align 8, !tbaa !118
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   store i32 0, ptr %25, align 4, !tbaa !120
@@ -732,7 +732,7 @@ _ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev.exit: ; preds = %_Z
 .preheader.i.i10:                                 ; preds = %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEED2Ev.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   store i32 0, ptr %28, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %27) #33
+  tail call void @free(ptr noundef nonnull %27) #32
   store ptr null, ptr %26, align 8, !tbaa !112
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   store i32 0, ptr %29, align 4, !tbaa !114
@@ -747,7 +747,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit11:              ; preds = %_ZN6Gluco25Heap2INS
 .preheader.i.i13:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   store i32 0, ptr %32, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %31) #33
+  tail call void @free(ptr noundef nonnull %31) #32
   store ptr null, ptr %30, align 8, !tbaa !112
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   store i32 0, ptr %33, align 4, !tbaa !114
@@ -762,7 +762,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit14:              ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i16:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit14
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   store i32 0, ptr %36, align 8, !tbaa !121
-  tail call void @free(ptr noundef nonnull %35) #33
+  tail call void @free(ptr noundef nonnull %35) #32
   store ptr null, ptr %34, align 8, !tbaa !98
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1252
   store i32 0, ptr %37, align 4, !tbaa !122
@@ -777,7 +777,7 @@ _ZN6Gluco23vecIjED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i18:                                 ; preds = %_ZN6Gluco23vecIjED2Ev.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   store i32 0, ptr %40, align 8, !tbaa !124
-  tail call void @free(ptr noundef nonnull %39) #33
+  tail call void @free(ptr noundef nonnull %39) #32
   store ptr null, ptr %38, align 8, !tbaa !123
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   store i32 0, ptr %41, align 4, !tbaa !125
@@ -792,7 +792,7 @@ _ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit:    ; preds = %_ZN6Gluco23vecIjED2
 .preheader.i.i20:                                 ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEED2Ev.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   store i32 0, ptr %44, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %43) #33
+  tail call void @free(ptr noundef nonnull %43) #32
   store ptr null, ptr %42, align 8, !tbaa !115
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   store i32 0, ptr %45, align 4, !tbaa !117
@@ -807,7 +807,7 @@ _ZN6Gluco23vecIiED2Ev.exit21:                     ; preds = %_ZN6Gluco23vecINS_6
 .preheader.i.i23:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit21
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   store i32 0, ptr %48, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %47) #33
+  tail call void @free(ptr noundef nonnull %47) #32
   store ptr null, ptr %46, align 8, !tbaa !115
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 0, ptr %49, align 4, !tbaa !117
@@ -822,7 +822,7 @@ _ZN6Gluco23vecIiED2Ev.exit24:                     ; preds = %_ZN6Gluco23vecIiED2
 .preheader.i.i26:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 0, ptr %52, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %51) #33
+  tail call void @free(ptr noundef nonnull %51) #32
   store ptr null, ptr %50, align 8, !tbaa !112
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   store i32 0, ptr %53, align 4, !tbaa !114
@@ -837,7 +837,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit27:              ; preds = %_ZN6Gluco23vecIiED2
 .preheader.i.i29:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit27
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   store i32 0, ptr %56, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %55) #33
+  tail call void @free(ptr noundef nonnull %55) #32
   store ptr null, ptr %54, align 8, !tbaa !112
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   store i32 0, ptr %57, align 4, !tbaa !114
@@ -852,7 +852,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit30:              ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i32:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit30
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i32 0, ptr %60, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %59) #33
+  tail call void @free(ptr noundef nonnull %59) #32
   store ptr null, ptr %58, align 8, !tbaa !112
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   store i32 0, ptr %61, align 4, !tbaa !114
@@ -867,7 +867,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit33:              ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i35:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit33
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store i32 0, ptr %64, align 8, !tbaa !127
-  tail call void @free(ptr noundef nonnull %63) #33
+  tail call void @free(ptr noundef nonnull %63) #32
   store ptr null, ptr %62, align 8, !tbaa !126
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   store i32 0, ptr %65, align 4, !tbaa !128
@@ -882,7 +882,7 @@ _ZN6Gluco23vecIcED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i.i37:                               ; preds = %_ZN6Gluco23vecIcED2Ev.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 968
   store i32 0, ptr %68, align 8, !tbaa !121
-  tail call void @free(ptr noundef nonnull %67) #33
+  tail call void @free(ptr noundef nonnull %67) #32
   store ptr null, ptr %66, align 8, !tbaa !98
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 972
   store i32 0, ptr %69, align 4, !tbaa !122
@@ -897,7 +897,7 @@ _ZN6Gluco26bqueueIjED2Ev.exit:                    ; preds = %_ZN6Gluco23vecIcED2
 .preheader.i.i.i39:                               ; preds = %_ZN6Gluco26bqueueIjED2Ev.exit
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 904
   store i32 0, ptr %72, align 8, !tbaa !121
-  tail call void @free(ptr noundef nonnull %71) #33
+  tail call void @free(ptr noundef nonnull %71) #32
   store ptr null, ptr %70, align 8, !tbaa !98
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 908
   store i32 0, ptr %73, align 4, !tbaa !122
@@ -910,7 +910,7 @@ _ZN6Gluco26bqueueIjED2Ev.exit40:                  ; preds = %_ZN6Gluco26bqueueIj
   br i1 %.not.i, label %_ZN6Gluco215RegionAllocatorIjED2Ev.exit, label %76
 
 76:                                               ; preds = %_ZN6Gluco26bqueueIjED2Ev.exit40
-  tail call void @free(ptr noundef nonnull %75) #33
+  tail call void @free(ptr noundef nonnull %75) #32
   br label %_ZN6Gluco215RegionAllocatorIjED2Ev.exit
 
 _ZN6Gluco215RegionAllocatorIjED2Ev.exit:          ; preds = %_ZN6Gluco26bqueueIjED2Ev.exit40, %76
@@ -922,7 +922,7 @@ _ZN6Gluco215RegionAllocatorIjED2Ev.exit:          ; preds = %_ZN6Gluco26bqueueIj
 .preheader.i.i42:                                 ; preds = %_ZN6Gluco215RegionAllocatorIjED2Ev.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 856
   store i32 0, ptr %79, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %78) #33
+  tail call void @free(ptr noundef nonnull %78) #32
   store ptr null, ptr %77, align 8, !tbaa !112
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 860
   store i32 0, ptr %80, align 4, !tbaa !114
@@ -937,7 +937,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit43:              ; preds = %_ZN6Gluco215RegionA
 .preheader.i.i45:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit43
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store i32 0, ptr %83, align 8, !tbaa !121
-  tail call void @free(ptr noundef nonnull %82) #33
+  tail call void @free(ptr noundef nonnull %82) #32
   store ptr null, ptr %81, align 8, !tbaa !98
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 844
   store i32 0, ptr %84, align 4, !tbaa !122
@@ -952,7 +952,7 @@ _ZN6Gluco23vecIjED2Ev.exit46:                     ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i.i48:                               ; preds = %_ZN6Gluco23vecIjED2Ev.exit46
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store i32 0, ptr %87, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %86) #33
+  tail call void @free(ptr noundef nonnull %86) #32
   store ptr null, ptr %85, align 8, !tbaa !115
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 812
   store i32 0, ptr %88, align 4, !tbaa !117
@@ -967,7 +967,7 @@ _ZN6Gluco23vecIiED2Ev.exit.i49:                   ; preds = %.preheader.i.i.i48,
 .preheader.i.i2.i51:                              ; preds = %_ZN6Gluco23vecIiED2Ev.exit.i49
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store i32 0, ptr %91, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %90) #33
+  tail call void @free(ptr noundef nonnull %90) #32
   store ptr null, ptr %89, align 8, !tbaa !115
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 796
   store i32 0, ptr %92, align 4, !tbaa !117
@@ -982,7 +982,7 @@ _ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev.exit: ; preds = %_ZN6Gluco23vecIiED
 .preheader.i.i53:                                 ; preds = %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEED2Ev.exit
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i32 0, ptr %95, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %94) #33
+  tail call void @free(ptr noundef nonnull %94) #32
   store ptr null, ptr %93, align 8, !tbaa !112
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 772
   store i32 0, ptr %96, align 4, !tbaa !114
@@ -997,7 +997,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit54:              ; preds = %_ZN6Gluco24HeapINS_
 .preheader.i.i56:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit54
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store i32 0, ptr %99, align 8, !tbaa !130
-  tail call void @free(ptr noundef nonnull %98) #33
+  tail call void @free(ptr noundef nonnull %98) #32
   store ptr null, ptr %97, align 8, !tbaa !129
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 740
   store i32 0, ptr %100, align 4, !tbaa !131
@@ -1012,7 +1012,7 @@ _ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit:     ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i58:                                 ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEED2Ev.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 0, ptr %103, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %102) #33
+  tail call void @free(ptr noundef nonnull %102) #32
   store ptr null, ptr %101, align 8, !tbaa !115
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 724
   store i32 0, ptr %104, align 4, !tbaa !117
@@ -1027,7 +1027,7 @@ _ZN6Gluco23vecIiED2Ev.exit59:                     ; preds = %_ZN6Gluco23vecINS_6
 .preheader.i.i61:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit59
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store i32 0, ptr %107, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %106) #33
+  tail call void @free(ptr noundef nonnull %106) #32
   store ptr null, ptr %105, align 8, !tbaa !115
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 708
   store i32 0, ptr %108, align 4, !tbaa !117
@@ -1042,7 +1042,7 @@ _ZN6Gluco23vecIiED2Ev.exit62:                     ; preds = %_ZN6Gluco23vecIiED2
 .preheader.i.i64:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit62
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store i32 0, ptr %111, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %110) #33
+  tail call void @free(ptr noundef nonnull %110) #32
   store ptr null, ptr %109, align 8, !tbaa !112
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 692
   store i32 0, ptr %112, align 4, !tbaa !114
@@ -1057,7 +1057,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit65:              ; preds = %_ZN6Gluco23vecIiED2
 .preheader.i.i67:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit65
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 0, ptr %115, align 8, !tbaa !127
-  tail call void @free(ptr noundef nonnull %114) #33
+  tail call void @free(ptr noundef nonnull %114) #32
   store ptr null, ptr %113, align 8, !tbaa !126
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 676
   store i32 0, ptr %116, align 4, !tbaa !128
@@ -1072,7 +1072,7 @@ _ZN6Gluco23vecIcED2Ev.exit68:                     ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i70:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit68
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i32 0, ptr %119, align 8, !tbaa !127
-  tail call void @free(ptr noundef nonnull %118) #33
+  tail call void @free(ptr noundef nonnull %118) #32
   store ptr null, ptr %117, align 8, !tbaa !126
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 660
   store i32 0, ptr %120, align 4, !tbaa !128
@@ -1087,7 +1087,7 @@ _ZN6Gluco23vecIcED2Ev.exit71:                     ; preds = %_ZN6Gluco23vecIcED2
 .preheader.i.i73:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit71
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 0, ptr %123, align 8, !tbaa !133
-  tail call void @free(ptr noundef nonnull %122) #33
+  tail call void @free(ptr noundef nonnull %122) #32
   store ptr null, ptr %121, align 8, !tbaa !132
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 644
   store i32 0, ptr %124, align 4, !tbaa !134
@@ -1102,7 +1102,7 @@ _ZN6Gluco23vecINS_5lboolEED2Ev.exit:              ; preds = %_ZN6Gluco23vecIcED2
 .preheader.i.i75:                                 ; preds = %_ZN6Gluco23vecINS_5lboolEED2Ev.exit
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 0, ptr %127, align 8, !tbaa !121
-  tail call void @free(ptr noundef nonnull %126) #33
+  tail call void @free(ptr noundef nonnull %126) #32
   store ptr null, ptr %125, align 8, !tbaa !98
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 628
   store i32 0, ptr %128, align 4, !tbaa !122
@@ -1117,7 +1117,7 @@ _ZN6Gluco23vecIjED2Ev.exit76:                     ; preds = %_ZN6Gluco23vecINS_5
 .preheader.i.i78:                                 ; preds = %_ZN6Gluco23vecIjED2Ev.exit76
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store i32 0, ptr %131, align 8, !tbaa !121
-  tail call void @free(ptr noundef nonnull %130) #33
+  tail call void @free(ptr noundef nonnull %130) #32
   store ptr null, ptr %129, align 8, !tbaa !98
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 612
   store i32 0, ptr %132, align 4, !tbaa !122
@@ -1133,7 +1133,7 @@ _ZN6Gluco23vecIjED2Ev.exit79:                     ; preds = %_ZN6Gluco23vecIjED2
 .preheader.i.i.i81:                               ; preds = %_ZN6Gluco23vecIjED2Ev.exit79
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store i32 0, ptr %136, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %135) #33
+  tail call void @free(ptr noundef nonnull %135) #32
   store ptr null, ptr %134, align 8, !tbaa !112
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 588
   store i32 0, ptr %137, align 4, !tbaa !114
@@ -1148,7 +1148,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit.i:              ; preds = %.preheader.i.i.i81,
 .preheader.i.i2.i83:                              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit.i
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 0, ptr %140, align 8, !tbaa !127
-  tail call void @free(ptr noundef nonnull %139) #33
+  tail call void @free(ptr noundef nonnull %139) #32
   store ptr null, ptr %138, align 8, !tbaa !126
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 572
   store i32 0, ptr %141, align 4, !tbaa !128
@@ -1172,7 +1172,7 @@ _ZN6Gluco23vecIcED2Ev.exit.i:                     ; preds = %.preheader.i.i2.i83
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %.preheader.i.i4.i
   %146 = phi ptr [ %.pre.i.i, %._crit_edge.i.loopexit.i.i ], [ %142, %.preheader.i.i4.i ]
   store i32 0, ptr %143, align 8, !tbaa !136
-  tail call void @free(ptr noundef %146) #33
+  tail call void @free(ptr noundef %146) #32
   store ptr null, ptr %133, align 8, !tbaa !135
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 556
   store i32 0, ptr %147, align 4, !tbaa !137
@@ -1190,7 +1190,7 @@ _ZN6Gluco23vecIcED2Ev.exit.i:                     ; preds = %.preheader.i.i2.i83
 .preheader.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
   store i32 0, ptr %152, align 8, !tbaa !141
-  tail call void @free(ptr noundef nonnull %151) #33
+  tail call void @free(ptr noundef nonnull %151) #32
   store ptr null, ptr %150, align 8, !tbaa !138
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 12
   store i32 0, ptr %153, align 4, !tbaa !142
@@ -1214,7 +1214,7 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED
 .preheader.i.i.i85:                               ; preds = %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev.exit
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %160, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %159) #33
+  tail call void @free(ptr noundef nonnull %159) #32
   store ptr null, ptr %158, align 8, !tbaa !112
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 532
   store i32 0, ptr %161, align 4, !tbaa !114
@@ -1229,7 +1229,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit.i86:            ; preds = %.preheader.i.i.i85,
 .preheader.i.i2.i88:                              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit.i86
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 0, ptr %164, align 8, !tbaa !127
-  tail call void @free(ptr noundef nonnull %163) #33
+  tail call void @free(ptr noundef nonnull %163) #32
   store ptr null, ptr %162, align 8, !tbaa !126
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 516
   store i32 0, ptr %165, align 4, !tbaa !128
@@ -1253,7 +1253,7 @@ _ZN6Gluco23vecIcED2Ev.exit.i89:                   ; preds = %.preheader.i.i2.i88
 ._crit_edge.i.i.i92:                              ; preds = %._crit_edge.i.loopexit.i.i100, %.preheader.i.i4.i91
   %170 = phi ptr [ %.pre.i.i101, %._crit_edge.i.loopexit.i.i100 ], [ %166, %.preheader.i.i4.i91 ]
   store i32 0, ptr %167, align 8, !tbaa !136
-  tail call void @free(ptr noundef %170) #33
+  tail call void @free(ptr noundef %170) #32
   store ptr null, ptr %157, align 8, !tbaa !135
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 500
   store i32 0, ptr %171, align 4, !tbaa !137
@@ -1271,7 +1271,7 @@ _ZN6Gluco23vecIcED2Ev.exit.i89:                   ; preds = %.preheader.i.i2.i88
 .preheader.i.i.i.i.i96:                           ; preds = %.lr.ph.i.i.i93
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store i32 0, ptr %176, align 8, !tbaa !141
-  tail call void @free(ptr noundef nonnull %175) #33
+  tail call void @free(ptr noundef nonnull %175) #32
   store ptr null, ptr %174, align 8, !tbaa !138
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store i32 0, ptr %177, align 4, !tbaa !142
@@ -1294,7 +1294,7 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED
 .preheader.i.i104:                                ; preds = %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEED2Ev.exit102
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store i32 0, ptr %183, align 8, !tbaa !145
-  tail call void @free(ptr noundef nonnull %182) #33
+  tail call void @free(ptr noundef nonnull %182) #32
   store ptr null, ptr %181, align 8, !tbaa !144
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 476
   store i32 0, ptr %184, align 4, !tbaa !146
@@ -1309,7 +1309,7 @@ _ZN6Gluco23vecIdED2Ev.exit:                       ; preds = %_ZN6Gluco28OccLists
 .preheader.i.i106:                                ; preds = %_ZN6Gluco23vecIdED2Ev.exit
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %187, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %186) #33
+  tail call void @free(ptr noundef nonnull %186) #32
   store ptr null, ptr %185, align 8, !tbaa !112
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %188, align 4, !tbaa !114
@@ -1324,7 +1324,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit107:             ; preds = %_ZN6Gluco23vecIdED2
 .preheader.i.i109:                                ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit107
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %191, align 8, !tbaa !133
-  tail call void @free(ptr noundef nonnull %190) #33
+  tail call void @free(ptr noundef nonnull %190) #32
   store ptr null, ptr %189, align 8, !tbaa !132
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %192, align 4, !tbaa !134
@@ -1339,7 +1339,7 @@ _ZN6Gluco23vecINS_5lboolEED2Ev.exit110:           ; preds = %_ZN6Gluco23vecINS_3
 .preheader.i.i112:                                ; preds = %_ZN6Gluco23vecINS_5lboolEED2Ev.exit110
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %195, align 8, !tbaa !113
-  tail call void @free(ptr noundef nonnull %194) #33
+  tail call void @free(ptr noundef nonnull %194) #32
   store ptr null, ptr %193, align 8, !tbaa !112
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %196, align 4, !tbaa !114
@@ -1354,7 +1354,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit113:             ; preds = %_ZN6Gluco23vecINS_5
 .preheader.i.i115:                                ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit113
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %199, align 8, !tbaa !116
-  tail call void @free(ptr noundef nonnull %198) #33
+  tail call void @free(ptr noundef nonnull %198) #32
   store ptr null, ptr %197, align 8, !tbaa !115
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %200, align 4, !tbaa !117
@@ -1366,8 +1366,8 @@ _ZN6Gluco23vecIiED2Ev.exit116:                    ; preds = %_ZN6Gluco23vecINS_3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6Gluco26SolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) unnamed_addr #1 align 2 {
-  tail call void @_ZN6Gluco26SolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) #33
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1416) #34
+  tail call void @_ZN6Gluco26SolverD1Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1416) #33
   ret void
 }
 
@@ -1436,14 +1436,14 @@ define noundef i32 @_ZN6Gluco26Solver6newVarEbb(ptr noundef nonnull align 8 dere
   %25 = add nuw nsw i32 %24, 2
   %26 = sub nsw i32 2147483647, %17
   %27 = icmp samesign ugt i32 %25, %26
-  br i1 %27, label %38, label %28
+  br i1 %27, label %34, label %28
 
 28:                                               ; preds = %21
   %29 = load ptr, ptr %15, align 8, !tbaa !132
   %30 = add nsw i32 %25, %17
   store i32 %30, ptr %18, align 4, !tbaa !134
   %31 = sext i32 %30 to i64
-  %32 = call ptr @realloc(ptr noundef %29, i64 noundef %31) #35
+  %32 = call ptr @realloc(ptr noundef %29, i64 noundef %31) #34
   store ptr %32, ptr %15, align 8, !tbaa !132
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %._ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit_crit_edge
@@ -1452,545 +1452,550 @@ define noundef i32 @_ZN6Gluco26Solver6newVarEbb(ptr noundef nonnull align 8 dere
   %.pre = load i32, ptr %16, align 8, !tbaa !133
   br label %_ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit
 
-34:                                               ; preds = %28
-  %35 = tail call ptr @__errno_location() #31
-  %36 = load i32, ptr %35, align 4, !tbaa !55
-  %37 = icmp eq i32 %36, 12
-  call void @llvm.assume(i1 %37)
-  br label %38
-
-38:                                               ; preds = %34, %21
+34:                                               ; preds = %28, %21
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit:       ; preds = %._ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit_crit_edge, %._ZN6Gluco23vecINS_5lboolEE8capacityEi.exit_crit_edge.i
-  %39 = phi i32 [ %17, %._ZN6Gluco23vecINS_5lboolEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit_crit_edge ]
-  %40 = phi ptr [ %.pre.i, %._ZN6Gluco23vecINS_5lboolEE8capacityEi.exit_crit_edge.i ], [ %32, %._ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit_crit_edge ]
-  %41 = add nsw i32 %39, 1
-  store i32 %41, ptr %16, align 8, !tbaa !133
-  %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %"class.Gluco2::lbool", ptr %40, i64 %42
-  store i8 2, ptr %43, align 1, !tbaa !109
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %45 = load i32, ptr %9, align 8, !tbaa !130
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 740
-  %47 = load i32, ptr %46, align 4, !tbaa !131
-  %48 = icmp eq i32 %45, %47
-  br i1 %48, label %49, label %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i
+  %35 = phi i32 [ %17, %._ZN6Gluco23vecINS_5lboolEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit_crit_edge ]
+  %36 = phi ptr [ %.pre.i, %._ZN6Gluco23vecINS_5lboolEE8capacityEi.exit_crit_edge.i ], [ %32, %._ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit_crit_edge ]
+  %37 = add nsw i32 %35, 1
+  store i32 %37, ptr %16, align 8, !tbaa !133
+  %38 = sext i32 %35 to i64
+  %39 = getelementptr inbounds %"class.Gluco2::lbool", ptr %36, i64 %38
+  store i8 2, ptr %39, align 1, !tbaa !109
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %41 = load i32, ptr %9, align 8, !tbaa !130
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 740
+  %43 = load i32, ptr %42, align 4, !tbaa !131
+  %44 = icmp eq i32 %41, %43
+  br i1 %44, label %45, label %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i
 
 ._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i: ; preds = %_ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit
-  %.pre.i11 = load ptr, ptr %44, align 8, !tbaa !129
+  %.pre.i11 = load ptr, ptr %40, align 8, !tbaa !129
   br label %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit
 
-49:                                               ; preds = %_ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit
-  %50 = ashr i32 %45, 1
-  %51 = and i32 %50, -2
-  %52 = call i32 @llvm.smax.i32(i32 %51, i32 0)
-  %53 = add nuw nsw i32 %52, 2
-  %54 = sub nsw i32 2147483647, %45
-  %55 = icmp samesign ugt i32 %53, %54
-  br i1 %55, label %67, label %56
+45:                                               ; preds = %_ZN6Gluco23vecINS_5lboolEE4pushERKS1_.exit
+  %46 = ashr i32 %41, 1
+  %47 = and i32 %46, -2
+  %48 = call i32 @llvm.smax.i32(i32 %47, i32 0)
+  %49 = add nuw nsw i32 %48, 2
+  %50 = sub nsw i32 2147483647, %41
+  %51 = icmp samesign ugt i32 %49, %50
+  br i1 %51, label %59, label %52
 
-56:                                               ; preds = %49
-  %57 = load ptr, ptr %44, align 8, !tbaa !129
-  %58 = add nsw i32 %53, %45
-  store i32 %58, ptr %46, align 4, !tbaa !131
-  %59 = sext i32 %58 to i64
-  %60 = shl nsw i64 %59, 3
-  %61 = call ptr @realloc(ptr noundef %57, i64 noundef %60) #35
-  store ptr %61, ptr %44, align 8, !tbaa !129
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %40, align 8, !tbaa !129
+  %54 = add nsw i32 %49, %41
+  store i32 %54, ptr %42, align 4, !tbaa !131
+  %55 = sext i32 %54 to i64
+  %56 = shl nsw i64 %55, 3
+  %57 = call ptr @realloc(ptr noundef %53, i64 noundef %56) #34
+  store ptr %57, ptr %40, align 8, !tbaa !129
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %59, label %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge
 
-._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge: ; preds = %56
+._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge: ; preds = %52
   %.pre77 = load i32, ptr %9, align 8, !tbaa !130
   br label %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit
 
-63:                                               ; preds = %56
-  %64 = tail call ptr @__errno_location() #31
-  %65 = load i32, ptr %64, align 4, !tbaa !55
-  %66 = icmp eq i32 %65, 12
-  call void @llvm.assume(i1 %66)
-  br label %67
-
-67:                                               ; preds = %63, %49
+59:                                               ; preds = %52, %45
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit: ; preds = %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge, %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i
-  %68 = phi i32 [ %45, %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i ], [ %.pre77, %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge ]
-  %69 = phi ptr [ %.pre.i11, %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i ], [ %61, %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge ]
-  %70 = add nsw i32 %68, 1
-  store i32 %70, ptr %9, align 8, !tbaa !130
-  %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %69, i64 %71
-  store i64 4294967295, ptr %72, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 241
-  %75 = load i8, ptr %74, align 1, !tbaa !74, !range !72, !noundef !73
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %88
+  %60 = phi i32 [ %41, %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i ], [ %.pre77, %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge ]
+  %61 = phi ptr [ %.pre.i11, %._ZN6Gluco23vecINS_6Solver7VarDataEE8capacityEi.exit_crit_edge.i ], [ %57, %._ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit_crit_edge ]
+  %62 = add nsw i32 %60, 1
+  store i32 %62, ptr %9, align 8, !tbaa !130
+  %63 = sext i32 %60 to i64
+  %64 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %61, i64 %63
+  store i64 4294967295, ptr %64, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 241
+  %67 = load i8, ptr %66, align 1, !tbaa !74, !range !72, !noundef !73
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %69, label %80
 
-77:                                               ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %79 = load double, ptr %78, align 8, !tbaa !52
-  %80 = fmul double %79, 0x413534E400000000
-  %81 = fdiv double %80, 0x41DFFFFFFFC00000
-  %82 = fptosi double %81 to i32
-  %83 = sitofp i32 %82 to double
-  %84 = fneg double %83
-  %85 = call double @llvm.fmuladd.f64(double %84, double 0x41DFFFFFFFC00000, double %80)
-  store double %85, ptr %78, align 8, !tbaa !52
-  %86 = fdiv double %85, 0x41DFFFFFFFC00000
-  %87 = fmul double %86, 1.000000e-05
-  br label %88
+69:                                               ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %71 = load double, ptr %70, align 8, !tbaa !52
+  %72 = fmul double %71, 0x413534E400000000
+  %73 = fdiv double %72, 0x41DFFFFFFFC00000
+  %74 = fptosi double %73 to i32
+  %75 = sitofp i32 %74 to double
+  %76 = fneg double %75
+  %77 = call double @llvm.fmuladd.f64(double %76, double 0x41DFFFFFFFC00000, double %72)
+  store double %77, ptr %70, align 8, !tbaa !52
+  %78 = fdiv double %77, 0x41DFFFFFFFC00000
+  %79 = fmul double %78, 1.000000e-05
+  br label %80
 
-88:                                               ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit, %77
-  %89 = phi double [ %87, %77 ], [ 0.000000e+00, %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit ]
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %91 = load i32, ptr %90, align 8, !tbaa !145
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  %93 = load i32, ptr %92, align 4, !tbaa !146
-  %94 = icmp eq i32 %91, %93
-  br i1 %94, label %95, label %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i
+80:                                               ; preds = %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit, %69
+  %81 = phi double [ %79, %69 ], [ 0.000000e+00, %_ZN6Gluco23vecINS_6Solver7VarDataEE4pushERKS2_.exit ]
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %83 = load i32, ptr %82, align 8, !tbaa !145
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 476
+  %85 = load i32, ptr %84, align 4, !tbaa !146
+  %86 = icmp eq i32 %83, %85
+  br i1 %86, label %87, label %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i
 
-._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i:   ; preds = %88
-  %.pre.i12 = load ptr, ptr %73, align 8, !tbaa !144
+._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i:   ; preds = %80
+  %.pre.i12 = load ptr, ptr %65, align 8, !tbaa !144
   br label %_ZN6Gluco23vecIdE4pushERKd.exit
 
-95:                                               ; preds = %88
-  %96 = ashr i32 %91, 1
-  %97 = and i32 %96, -2
-  %98 = call i32 @llvm.smax.i32(i32 %97, i32 0)
-  %99 = add nuw nsw i32 %98, 2
-  %100 = sub nsw i32 2147483647, %91
-  %101 = icmp samesign ugt i32 %99, %100
-  br i1 %101, label %113, label %102
+87:                                               ; preds = %80
+  %88 = ashr i32 %83, 1
+  %89 = and i32 %88, -2
+  %90 = call i32 @llvm.smax.i32(i32 %89, i32 0)
+  %91 = add nuw nsw i32 %90, 2
+  %92 = sub nsw i32 2147483647, %83
+  %93 = icmp samesign ugt i32 %91, %92
+  br i1 %93, label %101, label %94
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %73, align 8, !tbaa !144
-  %104 = add nsw i32 %99, %91
-  store i32 %104, ptr %92, align 4, !tbaa !146
-  %105 = sext i32 %104 to i64
-  %106 = shl nsw i64 %105, 3
-  %107 = call ptr @realloc(ptr noundef %103, i64 noundef %106) #35
-  store ptr %107, ptr %73, align 8, !tbaa !144
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge
+94:                                               ; preds = %87
+  %95 = load ptr, ptr %65, align 8, !tbaa !144
+  %96 = add nsw i32 %91, %83
+  store i32 %96, ptr %84, align 4, !tbaa !146
+  %97 = sext i32 %96 to i64
+  %98 = shl nsw i64 %97, 3
+  %99 = call ptr @realloc(ptr noundef %95, i64 noundef %98) #34
+  store ptr %99, ptr %65, align 8, !tbaa !144
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %101, label %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge
 
-._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge:       ; preds = %102
-  %.pre78 = load i32, ptr %90, align 8, !tbaa !145
+._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge:       ; preds = %94
+  %.pre78 = load i32, ptr %82, align 8, !tbaa !145
   br label %_ZN6Gluco23vecIdE4pushERKd.exit
 
-109:                                              ; preds = %102
-  %110 = tail call ptr @__errno_location() #31
-  %111 = load i32, ptr %110, align 4, !tbaa !55
-  %112 = icmp eq i32 %111, 12
-  call void @llvm.assume(i1 %112)
-  br label %113
-
-113:                                              ; preds = %109, %95
+101:                                              ; preds = %94, %87
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIdE4pushERKd.exit:                  ; preds = %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge, %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i
-  %114 = phi i32 [ %91, %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i ], [ %.pre78, %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge ]
-  %115 = phi ptr [ %.pre.i12, %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i ], [ %107, %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge ]
-  %116 = add nsw i32 %114, 1
-  store i32 %116, ptr %90, align 8, !tbaa !145
-  %117 = sext i32 %114 to i64
-  %118 = getelementptr inbounds double, ptr %115, i64 %117
-  store double %89, ptr %118, align 8, !tbaa !52
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  %121 = load i32, ptr %120, align 8, !tbaa !127
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1044
-  %123 = load i32, ptr %122, align 4, !tbaa !128
-  %124 = icmp eq i32 %121, %123
-  br i1 %124, label %125, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i
+  %102 = phi i32 [ %83, %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i ], [ %.pre78, %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge ]
+  %103 = phi ptr [ %.pre.i12, %._ZN6Gluco23vecIdE8capacityEi.exit_crit_edge.i ], [ %99, %._ZN6Gluco23vecIdE4pushERKd.exit_crit_edge ]
+  %104 = add nsw i32 %102, 1
+  store i32 %104, ptr %82, align 8, !tbaa !145
+  %105 = sext i32 %102 to i64
+  %106 = getelementptr inbounds double, ptr %103, i64 %105
+  store double %81, ptr %106, align 8, !tbaa !52
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  %109 = load i32, ptr %108, align 8, !tbaa !127
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1044
+  %111 = load i32, ptr %110, align 4, !tbaa !128
+  %112 = icmp eq i32 %109, %111
+  br i1 %112, label %113, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i
 
 ._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i:   ; preds = %_ZN6Gluco23vecIdE4pushERKd.exit
-  %.pre.i13 = load ptr, ptr %119, align 8, !tbaa !126
+  %.pre.i13 = load ptr, ptr %107, align 8, !tbaa !126
   br label %_ZN6Gluco23vecIcE4pushERKc.exit
 
-125:                                              ; preds = %_ZN6Gluco23vecIdE4pushERKd.exit
-  %126 = ashr i32 %121, 1
-  %127 = and i32 %126, -2
-  %128 = call i32 @llvm.smax.i32(i32 %127, i32 0)
-  %129 = add nuw nsw i32 %128, 2
-  %130 = sub nsw i32 2147483647, %121
-  %131 = icmp samesign ugt i32 %129, %130
-  br i1 %131, label %142, label %132
+113:                                              ; preds = %_ZN6Gluco23vecIdE4pushERKd.exit
+  %114 = ashr i32 %109, 1
+  %115 = and i32 %114, -2
+  %116 = call i32 @llvm.smax.i32(i32 %115, i32 0)
+  %117 = add nuw nsw i32 %116, 2
+  %118 = sub nsw i32 2147483647, %109
+  %119 = icmp samesign ugt i32 %117, %118
+  br i1 %119, label %126, label %120
 
-132:                                              ; preds = %125
-  %133 = load ptr, ptr %119, align 8, !tbaa !126
-  %134 = add nsw i32 %129, %121
-  store i32 %134, ptr %122, align 4, !tbaa !128
-  %135 = sext i32 %134 to i64
-  %136 = call ptr @realloc(ptr noundef %133, i64 noundef %135) #35
-  store ptr %136, ptr %119, align 8, !tbaa !126
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %138, label %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge
+120:                                              ; preds = %113
+  %121 = load ptr, ptr %107, align 8, !tbaa !126
+  %122 = add nsw i32 %117, %109
+  store i32 %122, ptr %110, align 4, !tbaa !128
+  %123 = sext i32 %122 to i64
+  %124 = call ptr @realloc(ptr noundef %121, i64 noundef %123) #34
+  store ptr %124, ptr %107, align 8, !tbaa !126
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %126, label %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge
 
-._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge:       ; preds = %132
-  %.pre79 = load i32, ptr %120, align 8, !tbaa !127
+._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge:       ; preds = %120
+  %.pre79 = load i32, ptr %108, align 8, !tbaa !127
   br label %_ZN6Gluco23vecIcE4pushERKc.exit
 
-138:                                              ; preds = %132
-  %139 = tail call ptr @__errno_location() #31
-  %140 = load i32, ptr %139, align 4, !tbaa !55
-  %141 = icmp eq i32 %140, 12
-  call void @llvm.assume(i1 %141)
-  br label %142
-
-142:                                              ; preds = %138, %125
+126:                                              ; preds = %120, %113
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIcE4pushERKc.exit:                  ; preds = %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i
-  %143 = phi i32 [ %121, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i ], [ %.pre79, %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge ]
-  %144 = phi ptr [ %.pre.i13, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i ], [ %136, %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge ]
-  %145 = add nsw i32 %143, 1
-  store i32 %145, ptr %120, align 8, !tbaa !127
-  %146 = sext i32 %143 to i64
-  %147 = getelementptr inbounds i8, ptr %144, i64 %146
-  store i8 0, ptr %147, align 1, !tbaa !109
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 840
-  %150 = load i32, ptr %149, align 8, !tbaa !121
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 844
-  %152 = load i32, ptr %151, align 4, !tbaa !122
-  %153 = icmp eq i32 %150, %152
-  br i1 %153, label %154, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
+  %127 = phi i32 [ %109, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i ], [ %.pre79, %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge ]
+  %128 = phi ptr [ %.pre.i13, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i ], [ %124, %._ZN6Gluco23vecIcE4pushERKc.exit_crit_edge ]
+  %129 = add nsw i32 %127, 1
+  store i32 %129, ptr %108, align 8, !tbaa !127
+  %130 = sext i32 %127 to i64
+  %131 = getelementptr inbounds i8, ptr %128, i64 %130
+  store i8 0, ptr %131, align 1, !tbaa !109
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 840
+  %134 = load i32, ptr %133, align 8, !tbaa !121
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 844
+  %136 = load i32, ptr %135, align 4, !tbaa !122
+  %137 = icmp eq i32 %134, %136
+  br i1 %137, label %138, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
 
 ._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i:   ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit
-  %.pre.i14 = load ptr, ptr %148, align 8, !tbaa !98
+  %.pre.i14 = load ptr, ptr %132, align 8, !tbaa !98
   br label %_ZN6Gluco23vecIjE4pushERKj.exit
 
-154:                                              ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit
-  %155 = ashr i32 %150, 1
-  %156 = and i32 %155, -2
-  %157 = call i32 @llvm.smax.i32(i32 %156, i32 0)
-  %158 = add nuw nsw i32 %157, 2
-  %159 = sub nsw i32 2147483647, %150
-  %160 = icmp samesign ugt i32 %158, %159
-  br i1 %160, label %172, label %161
+138:                                              ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit
+  %139 = ashr i32 %134, 1
+  %140 = and i32 %139, -2
+  %141 = call i32 @llvm.smax.i32(i32 %140, i32 0)
+  %142 = add nuw nsw i32 %141, 2
+  %143 = sub nsw i32 2147483647, %134
+  %144 = icmp samesign ugt i32 %142, %143
+  br i1 %144, label %152, label %145
 
-161:                                              ; preds = %154
-  %162 = load ptr, ptr %148, align 8, !tbaa !98
-  %163 = add nsw i32 %158, %150
-  store i32 %163, ptr %151, align 4, !tbaa !122
-  %164 = sext i32 %163 to i64
-  %165 = shl nsw i64 %164, 2
-  %166 = call ptr @realloc(ptr noundef %162, i64 noundef %165) #35
-  store ptr %166, ptr %148, align 8, !tbaa !98
-  %167 = icmp eq ptr %166, null
-  br i1 %167, label %168, label %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
+145:                                              ; preds = %138
+  %146 = load ptr, ptr %132, align 8, !tbaa !98
+  %147 = add nsw i32 %142, %134
+  store i32 %147, ptr %135, align 4, !tbaa !122
+  %148 = sext i32 %147 to i64
+  %149 = shl nsw i64 %148, 2
+  %150 = call ptr @realloc(ptr noundef %146, i64 noundef %149) #34
+  store ptr %150, ptr %132, align 8, !tbaa !98
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
 
-._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge:       ; preds = %161
-  %.pre80 = load i32, ptr %149, align 8, !tbaa !121
+._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge:       ; preds = %145
+  %.pre80 = load i32, ptr %133, align 8, !tbaa !121
   br label %_ZN6Gluco23vecIjE4pushERKj.exit
 
-168:                                              ; preds = %161
-  %169 = tail call ptr @__errno_location() #31
-  %170 = load i32, ptr %169, align 4, !tbaa !55
-  %171 = icmp eq i32 %170, 12
-  call void @llvm.assume(i1 %171)
-  br label %172
-
-172:                                              ; preds = %168, %154
+152:                                              ; preds = %145, %138
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIjE4pushERKj.exit:                  ; preds = %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
-  %173 = phi i32 [ %150, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre80, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
-  %174 = phi ptr [ %.pre.i14, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %166, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
-  %175 = add nsw i32 %173, 1
-  store i32 %175, ptr %149, align 8, !tbaa !121
-  %176 = sext i32 %173 to i64
-  %177 = getelementptr inbounds i32, ptr %174, i64 %176
-  store i32 0, ptr %177, align 4, !tbaa !55
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %180 = load i32, ptr %179, align 8, !tbaa !127
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 660
-  %182 = load i32, ptr %181, align 4, !tbaa !128
-  %183 = icmp eq i32 %180, %182
-  br i1 %183, label %184, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15
+  %153 = phi i32 [ %134, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre80, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
+  %154 = phi ptr [ %.pre.i14, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %150, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
+  %155 = add nsw i32 %153, 1
+  store i32 %155, ptr %133, align 8, !tbaa !121
+  %156 = sext i32 %153 to i64
+  %157 = getelementptr inbounds i32, ptr %154, i64 %156
+  store i32 0, ptr %157, align 4, !tbaa !55
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %160 = load i32, ptr %159, align 8, !tbaa !127
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 660
+  %162 = load i32, ptr %161, align 4, !tbaa !128
+  %163 = icmp eq i32 %160, %162
+  br i1 %163, label %164, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15
 
 ._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15: ; preds = %_ZN6Gluco23vecIjE4pushERKj.exit
-  %.pre.i16 = load ptr, ptr %178, align 8, !tbaa !126
+  %.pre.i16 = load ptr, ptr %158, align 8, !tbaa !126
   br label %_ZN6Gluco23vecIcE4pushERKc.exit17
 
-184:                                              ; preds = %_ZN6Gluco23vecIjE4pushERKj.exit
-  %185 = ashr i32 %180, 1
-  %186 = and i32 %185, -2
-  %187 = call i32 @llvm.smax.i32(i32 %186, i32 0)
-  %188 = add nuw nsw i32 %187, 2
-  %189 = sub nsw i32 2147483647, %180
-  %190 = icmp samesign ugt i32 %188, %189
-  br i1 %190, label %201, label %191
+164:                                              ; preds = %_ZN6Gluco23vecIjE4pushERKj.exit
+  %165 = ashr i32 %160, 1
+  %166 = and i32 %165, -2
+  %167 = call i32 @llvm.smax.i32(i32 %166, i32 0)
+  %168 = add nuw nsw i32 %167, 2
+  %169 = sub nsw i32 2147483647, %160
+  %170 = icmp samesign ugt i32 %168, %169
+  br i1 %170, label %177, label %171
 
-191:                                              ; preds = %184
-  %192 = load ptr, ptr %178, align 8, !tbaa !126
-  %193 = add nsw i32 %188, %180
-  store i32 %193, ptr %181, align 4, !tbaa !128
-  %194 = sext i32 %193 to i64
-  %195 = call ptr @realloc(ptr noundef %192, i64 noundef %194) #35
-  store ptr %195, ptr %178, align 8, !tbaa !126
-  %196 = icmp eq ptr %195, null
-  br i1 %196, label %197, label %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge
+171:                                              ; preds = %164
+  %172 = load ptr, ptr %158, align 8, !tbaa !126
+  %173 = add nsw i32 %168, %160
+  store i32 %173, ptr %161, align 4, !tbaa !128
+  %174 = sext i32 %173 to i64
+  %175 = call ptr @realloc(ptr noundef %172, i64 noundef %174) #34
+  store ptr %175, ptr %158, align 8, !tbaa !126
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %177, label %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge
 
-._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge:     ; preds = %191
-  %.pre81 = load i32, ptr %179, align 8, !tbaa !127
+._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge:     ; preds = %171
+  %.pre81 = load i32, ptr %159, align 8, !tbaa !127
   br label %_ZN6Gluco23vecIcE4pushERKc.exit17
 
-197:                                              ; preds = %191
-  %198 = tail call ptr @__errno_location() #31
-  %199 = load i32, ptr %198, align 4, !tbaa !55
-  %200 = icmp eq i32 %199, 12
-  call void @llvm.assume(i1 %200)
-  br label %201
-
-201:                                              ; preds = %197, %184
+177:                                              ; preds = %171, %164
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIcE4pushERKc.exit17:                ; preds = %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15
-  %202 = phi i32 [ %180, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15 ], [ %.pre81, %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge ]
-  %203 = phi ptr [ %.pre.i16, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15 ], [ %195, %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge ]
-  %204 = add nsw i32 %202, 1
-  store i32 %204, ptr %179, align 8, !tbaa !127
-  %205 = sext i32 %202 to i64
-  %206 = getelementptr inbounds i8, ptr %203, i64 %205
-  store i8 %8, ptr %206, align 1, !tbaa !109
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %209 = load i32, ptr %208, align 8, !tbaa !127
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %211 = load i32, ptr %210, align 4, !tbaa !128
-  %212 = icmp eq i32 %209, %211
-  br i1 %212, label %213, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18
+  %178 = phi i32 [ %160, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15 ], [ %.pre81, %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge ]
+  %179 = phi ptr [ %.pre.i16, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i15 ], [ %175, %._ZN6Gluco23vecIcE4pushERKc.exit17_crit_edge ]
+  %180 = add nsw i32 %178, 1
+  store i32 %180, ptr %159, align 8, !tbaa !127
+  %181 = sext i32 %178 to i64
+  %182 = getelementptr inbounds i8, ptr %179, i64 %181
+  store i8 %8, ptr %182, align 1, !tbaa !109
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %185 = load i32, ptr %184, align 8, !tbaa !127
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 676
+  %187 = load i32, ptr %186, align 4, !tbaa !128
+  %188 = icmp eq i32 %185, %187
+  br i1 %188, label %189, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18
 
 ._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18: ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit17
-  %.pre.i19 = load ptr, ptr %207, align 8, !tbaa !126
+  %.pre.i19 = load ptr, ptr %183, align 8, !tbaa !126
   br label %_ZN6Gluco23vecIcE4pushEv.exit
 
-213:                                              ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit17
-  %214 = ashr i32 %209, 1
-  %215 = and i32 %214, -2
-  %216 = call i32 @llvm.smax.i32(i32 %215, i32 0)
-  %217 = add nuw nsw i32 %216, 2
-  %218 = sub nsw i32 2147483647, %209
-  %219 = icmp samesign ugt i32 %217, %218
-  br i1 %219, label %230, label %220
+189:                                              ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit17
+  %190 = ashr i32 %185, 1
+  %191 = and i32 %190, -2
+  %192 = call i32 @llvm.smax.i32(i32 %191, i32 0)
+  %193 = add nuw nsw i32 %192, 2
+  %194 = sub nsw i32 2147483647, %185
+  %195 = icmp samesign ugt i32 %193, %194
+  br i1 %195, label %202, label %196
 
-220:                                              ; preds = %213
-  %221 = load ptr, ptr %207, align 8, !tbaa !126
-  %222 = add nsw i32 %217, %209
-  store i32 %222, ptr %210, align 4, !tbaa !128
-  %223 = sext i32 %222 to i64
-  %224 = call ptr @realloc(ptr noundef %221, i64 noundef %223) #35
-  store ptr %224, ptr %207, align 8, !tbaa !126
-  %225 = icmp eq ptr %224, null
-  br i1 %225, label %226, label %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge
+196:                                              ; preds = %189
+  %197 = load ptr, ptr %183, align 8, !tbaa !126
+  %198 = add nsw i32 %193, %185
+  store i32 %198, ptr %186, align 4, !tbaa !128
+  %199 = sext i32 %198 to i64
+  %200 = call ptr @realloc(ptr noundef %197, i64 noundef %199) #34
+  store ptr %200, ptr %183, align 8, !tbaa !126
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %202, label %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge
 
-._ZN6Gluco23vecIcE4pushEv.exit_crit_edge:         ; preds = %220
-  %.pre82 = load i32, ptr %208, align 8, !tbaa !127
+._ZN6Gluco23vecIcE4pushEv.exit_crit_edge:         ; preds = %196
+  %.pre82 = load i32, ptr %184, align 8, !tbaa !127
   br label %_ZN6Gluco23vecIcE4pushEv.exit
 
-226:                                              ; preds = %220
-  %227 = tail call ptr @__errno_location() #31
-  %228 = load i32, ptr %227, align 4, !tbaa !55
-  %229 = icmp eq i32 %228, 12
-  call void @llvm.assume(i1 %229)
-  br label %230
-
-230:                                              ; preds = %226, %213
+202:                                              ; preds = %196, %189
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIcE4pushEv.exit:                    ; preds = %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18
-  %231 = phi i32 [ %209, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18 ], [ %.pre82, %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge ]
-  %232 = phi ptr [ %.pre.i19, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18 ], [ %224, %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge ]
-  %233 = sext i32 %231 to i64
-  %234 = getelementptr inbounds i8, ptr %232, i64 %233
-  store i8 0, ptr %234, align 1, !tbaa !109
-  %235 = load i32, ptr %208, align 8, !tbaa !127
-  %236 = add nsw i32 %235, 1
-  store i32 %236, ptr %208, align 8, !tbaa !127
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  %239 = load i32, ptr %238, align 4, !tbaa !114
-  %.not.i.not = icmp sgt i32 %239, %10
-  br i1 %.not.i.not, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit, label %240
+  %203 = phi i32 [ %185, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18 ], [ %.pre82, %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge ]
+  %204 = phi ptr [ %.pre.i19, %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i18 ], [ %200, %._ZN6Gluco23vecIcE4pushEv.exit_crit_edge ]
+  %205 = sext i32 %203 to i64
+  %206 = getelementptr inbounds i8, ptr %204, i64 %205
+  store i8 0, ptr %206, align 1, !tbaa !109
+  %207 = load i32, ptr %184, align 8, !tbaa !127
+  %208 = add nsw i32 %207, 1
+  store i32 %208, ptr %184, align 8, !tbaa !127
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 692
+  %211 = load i32, ptr %210, align 4, !tbaa !114
+  %.not.i.not = icmp sgt i32 %211, %10
+  br i1 %.not.i.not, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit, label %212
 
-240:                                              ; preds = %_ZN6Gluco23vecIcE4pushEv.exit
-  %241 = add i32 %10, 2
-  %242 = sub i32 %241, %239
-  %243 = and i32 %242, -2
-  %244 = ashr i32 %239, 1
-  %245 = and i32 %244, -2
-  %246 = add nsw i32 %245, 2
-  %247 = call noundef i32 @llvm.smax.i32(i32 %246, i32 %243)
-  %248 = sub nsw i32 2147483647, %239
-  %249 = icmp samesign ugt i32 %247, %248
-  br i1 %249, label %261, label %250
+212:                                              ; preds = %_ZN6Gluco23vecIcE4pushEv.exit
+  %213 = add i32 %10, 2
+  %214 = sub i32 %213, %211
+  %215 = and i32 %214, -2
+  %216 = ashr i32 %211, 1
+  %217 = and i32 %216, -2
+  %218 = add nsw i32 %217, 2
+  %219 = call noundef i32 @llvm.smax.i32(i32 %218, i32 %215)
+  %220 = sub nsw i32 2147483647, %211
+  %221 = icmp samesign ugt i32 %219, %220
+  br i1 %221, label %233, label %222
 
-250:                                              ; preds = %240
-  %251 = load ptr, ptr %237, align 8, !tbaa !112
-  %252 = add nsw i32 %247, %239
-  store i32 %252, ptr %238, align 4, !tbaa !114
-  %253 = sext i32 %252 to i64
-  %254 = shl nsw i64 %253, 2
-  %255 = call ptr @realloc(ptr noundef %251, i64 noundef %254) #35
-  store ptr %255, ptr %237, align 8, !tbaa !112
-  %256 = icmp eq ptr %255, null
-  br i1 %256, label %257, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
+222:                                              ; preds = %212
+  %223 = load ptr, ptr %209, align 8, !tbaa !112
+  %224 = add nsw i32 %219, %211
+  store i32 %224, ptr %210, align 4, !tbaa !114
+  %225 = sext i32 %224 to i64
+  %226 = shl nsw i64 %225, 2
+  %227 = call ptr @realloc(ptr noundef %223, i64 noundef %226) #34
+  store ptr %227, ptr %209, align 8, !tbaa !112
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %229, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
 
-257:                                              ; preds = %250
-  %258 = tail call ptr @__errno_location() #31
-  %259 = load i32, ptr %258, align 4, !tbaa !55
-  %260 = icmp eq i32 %259, 12
-  br i1 %260, label %261, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
+229:                                              ; preds = %222
+  %230 = tail call ptr @__errno_location() #30
+  %231 = load i32, ptr %230, align 4, !tbaa !55
+  %232 = icmp eq i32 %231, 12
+  br i1 %232, label %233, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
 
-261:                                              ; preds = %257, %240
+233:                                              ; preds = %229, %212
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecINS_3LitEE8capacityEi.exit:         ; preds = %_ZN6Gluco23vecIcE4pushEv.exit, %250, %257
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %263 = load i32, ptr %262, align 8, !tbaa !104
-  %.not = icmp eq i32 %263, 0
-  br i1 %.not, label %477, label %264
+_ZN6Gluco23vecINS_3LitEE8capacityEi.exit:         ; preds = %_ZN6Gluco23vecIcE4pushEv.exit, %222, %229
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %235 = load i32, ptr %234, align 8, !tbaa !104
+  %.not = icmp eq i32 %235, 0
+  br i1 %.not, label %441, label %236
 
-264:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 1344
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  %267 = load i32, ptr %266, align 8, !tbaa !116
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 1356
-  %269 = load i32, ptr %268, align 4, !tbaa !117
-  %270 = icmp eq i32 %267, %269
-  br i1 %270, label %271, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
+236:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 1344
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  %239 = load i32, ptr %238, align 8, !tbaa !116
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 1356
+  %241 = load i32, ptr %240, align 4, !tbaa !117
+  %242 = icmp eq i32 %239, %241
+  br i1 %242, label %243, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
 
-._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i:   ; preds = %264
-  %.pre.i20 = load ptr, ptr %265, align 8, !tbaa !115
+._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i:   ; preds = %236
+  %.pre.i20 = load ptr, ptr %237, align 8, !tbaa !115
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
-271:                                              ; preds = %264
-  %272 = ashr i32 %267, 1
-  %273 = and i32 %272, -2
-  %274 = call i32 @llvm.smax.i32(i32 %273, i32 0)
-  %275 = add nuw nsw i32 %274, 2
-  %276 = sub nsw i32 2147483647, %267
-  %277 = icmp samesign ugt i32 %275, %276
-  br i1 %277, label %289, label %278
+243:                                              ; preds = %236
+  %244 = ashr i32 %239, 1
+  %245 = and i32 %244, -2
+  %246 = call i32 @llvm.smax.i32(i32 %245, i32 0)
+  %247 = add nuw nsw i32 %246, 2
+  %248 = sub nsw i32 2147483647, %239
+  %249 = icmp samesign ugt i32 %247, %248
+  br i1 %249, label %257, label %250
 
-278:                                              ; preds = %271
-  %279 = load ptr, ptr %265, align 8, !tbaa !115
-  %280 = add nsw i32 %275, %267
-  store i32 %280, ptr %268, align 4, !tbaa !117
-  %281 = sext i32 %280 to i64
-  %282 = shl nsw i64 %281, 2
-  %283 = call ptr @realloc(ptr noundef %279, i64 noundef %282) #35
-  store ptr %283, ptr %265, align 8, !tbaa !115
-  %284 = icmp eq ptr %283, null
-  br i1 %284, label %285, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
+250:                                              ; preds = %243
+  %251 = load ptr, ptr %237, align 8, !tbaa !115
+  %252 = add nsw i32 %247, %239
+  store i32 %252, ptr %240, align 4, !tbaa !117
+  %253 = sext i32 %252 to i64
+  %254 = shl nsw i64 %253, 2
+  %255 = call ptr @realloc(ptr noundef %251, i64 noundef %254) #34
+  store ptr %255, ptr %237, align 8, !tbaa !115
+  %256 = icmp eq ptr %255, null
+  br i1 %256, label %257, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
 
-._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge:       ; preds = %278
-  %.pre83 = load i32, ptr %266, align 8, !tbaa !116
+._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge:       ; preds = %250
+  %.pre83 = load i32, ptr %238, align 8, !tbaa !116
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
-285:                                              ; preds = %278
-  %286 = tail call ptr @__errno_location() #31
-  %287 = load i32, ptr %286, align 4, !tbaa !55
-  %288 = icmp eq i32 %287, 12
-  call void @llvm.assume(i1 %288)
-  br label %289
-
-289:                                              ; preds = %285, %271
+257:                                              ; preds = %250, %243
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
-  %290 = phi i32 [ %267, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre83, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %291 = phi ptr [ %.pre.i20, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %283, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %292 = add nsw i32 %290, 1
-  store i32 %292, ptr %266, align 8, !tbaa !116
-  %293 = sext i32 %290 to i64
-  %294 = getelementptr inbounds i32, ptr %291, i64 %293
-  store i32 -1, ptr %294, align 4, !tbaa !55
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 1360
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 1368
-  %297 = load i32, ptr %296, align 8, !tbaa !116
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  %299 = load i32, ptr %298, align 4, !tbaa !117
-  %300 = icmp eq i32 %297, %299
-  br i1 %300, label %301, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21
+  %258 = phi i32 [ %239, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre83, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %259 = phi ptr [ %.pre.i20, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %255, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %260 = add nsw i32 %258, 1
+  store i32 %260, ptr %238, align 8, !tbaa !116
+  %261 = sext i32 %258 to i64
+  %262 = getelementptr inbounds i32, ptr %259, i64 %261
+  store i32 -1, ptr %262, align 4, !tbaa !55
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 1360
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 1368
+  %265 = load i32, ptr %264, align 8, !tbaa !116
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 1372
+  %267 = load i32, ptr %266, align 4, !tbaa !117
+  %268 = icmp eq i32 %265, %267
+  br i1 %268, label %269, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21
 
 ._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21: ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
-  %.pre.i22 = load ptr, ptr %295, align 8, !tbaa !115
+  %.pre.i22 = load ptr, ptr %263, align 8, !tbaa !115
   br label %_ZN6Gluco23vecIiE4pushERKi.exit23
 
-301:                                              ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
-  %302 = ashr i32 %297, 1
-  %303 = and i32 %302, -2
-  %304 = call i32 @llvm.smax.i32(i32 %303, i32 0)
-  %305 = add nuw nsw i32 %304, 2
-  %306 = sub nsw i32 2147483647, %297
-  %307 = icmp samesign ugt i32 %305, %306
-  br i1 %307, label %319, label %308
+269:                                              ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
+  %270 = ashr i32 %265, 1
+  %271 = and i32 %270, -2
+  %272 = call i32 @llvm.smax.i32(i32 %271, i32 0)
+  %273 = add nuw nsw i32 %272, 2
+  %274 = sub nsw i32 2147483647, %265
+  %275 = icmp samesign ugt i32 %273, %274
+  br i1 %275, label %283, label %276
 
-308:                                              ; preds = %301
-  %309 = load ptr, ptr %295, align 8, !tbaa !115
-  %310 = add nsw i32 %305, %297
-  store i32 %310, ptr %298, align 4, !tbaa !117
-  %311 = sext i32 %310 to i64
-  %312 = shl nsw i64 %311, 2
-  %313 = call ptr @realloc(ptr noundef %309, i64 noundef %312) #35
-  store ptr %313, ptr %295, align 8, !tbaa !115
-  %314 = icmp eq ptr %313, null
-  br i1 %314, label %315, label %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge
+276:                                              ; preds = %269
+  %277 = load ptr, ptr %263, align 8, !tbaa !115
+  %278 = add nsw i32 %273, %265
+  store i32 %278, ptr %266, align 4, !tbaa !117
+  %279 = sext i32 %278 to i64
+  %280 = shl nsw i64 %279, 2
+  %281 = call ptr @realloc(ptr noundef %277, i64 noundef %280) #34
+  store ptr %281, ptr %263, align 8, !tbaa !115
+  %282 = icmp eq ptr %281, null
+  br i1 %282, label %283, label %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge
 
-._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge:     ; preds = %308
-  %.pre84 = load i32, ptr %296, align 8, !tbaa !116
+._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge:     ; preds = %276
+  %.pre84 = load i32, ptr %264, align 8, !tbaa !116
   br label %_ZN6Gluco23vecIiE4pushERKi.exit23
 
-315:                                              ; preds = %308
-  %316 = tail call ptr @__errno_location() #31
-  %317 = load i32, ptr %316, align 4, !tbaa !55
-  %318 = icmp eq i32 %317, 12
-  call void @llvm.assume(i1 %318)
-  br label %319
-
-319:                                              ; preds = %315, %301
+283:                                              ; preds = %276, %269
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit23:                ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21
-  %320 = phi i32 [ %297, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21 ], [ %.pre84, %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge ]
-  %321 = phi ptr [ %.pre.i22, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21 ], [ %313, %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge ]
-  %322 = add nsw i32 %320, 1
-  store i32 %322, ptr %296, align 8, !tbaa !116
-  %323 = sext i32 %320 to i64
-  %324 = getelementptr inbounds i32, ptr %321, i64 %323
-  store i32 -1, ptr %324, align 4, !tbaa !55
-  %325 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  %326 = load i32, ptr %9, align 8, !tbaa !130
-  %327 = shl i32 %326, 1
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  %329 = load i32, ptr %328, align 8, !tbaa !113
-  %.not.i24 = icmp slt i32 %329, %327
-  br i1 %.not.i24, label %330, label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
+  %284 = phi i32 [ %265, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21 ], [ %.pre84, %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge ]
+  %285 = phi ptr [ %.pre.i22, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i21 ], [ %281, %._ZN6Gluco23vecIiE4pushERKi.exit23_crit_edge ]
+  %286 = add nsw i32 %284, 1
+  store i32 %286, ptr %264, align 8, !tbaa !116
+  %287 = sext i32 %284 to i64
+  %288 = getelementptr inbounds i32, ptr %285, i64 %287
+  store i32 -1, ptr %288, align 4, !tbaa !55
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 1272
+  %290 = load i32, ptr %9, align 8, !tbaa !130
+  %291 = shl i32 %290, 1
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  %293 = load i32, ptr %292, align 8, !tbaa !113
+  %.not.i24 = icmp slt i32 %293, %291
+  br i1 %.not.i24, label %294, label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
 
-330:                                              ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit23
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 1284
+294:                                              ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit23
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 1284
+  %296 = load i32, ptr %295, align 4, !tbaa !114
+  %.not.i.i = icmp slt i32 %296, %291
+  br i1 %.not.i.i, label %297, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+
+297:                                              ; preds = %294
+  %298 = or disjoint i32 %291, 1
+  %299 = sub i32 %298, %296
+  %300 = and i32 %299, -2
+  %301 = ashr i32 %296, 1
+  %302 = and i32 %301, -2
+  %303 = add nsw i32 %302, 2
+  %304 = call noundef i32 @llvm.smax.i32(i32 %303, i32 %300)
+  %305 = sub nsw i32 2147483647, %296
+  %306 = icmp samesign ugt i32 %304, %305
+  br i1 %306, label %318, label %307
+
+307:                                              ; preds = %297
+  %308 = load ptr, ptr %289, align 8, !tbaa !112
+  %309 = add nsw i32 %304, %296
+  store i32 %309, ptr %295, align 4, !tbaa !114
+  %310 = sext i32 %309 to i64
+  %311 = shl nsw i64 %310, 2
+  %312 = call ptr @realloc(ptr noundef %308, i64 noundef %311) #34
+  store ptr %312, ptr %289, align 8, !tbaa !112
+  %313 = icmp eq ptr %312, null
+  br i1 %313, label %314, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+
+314:                                              ; preds = %307
+  %315 = tail call ptr @__errno_location() #30
+  %316 = load i32, ptr %315, align 4, !tbaa !55
+  %317 = icmp eq i32 %316, 12
+  br i1 %317, label %318, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+
+318:                                              ; preds = %314, %297
+  call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
+  unreachable
+
+_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i:       ; preds = %314, %307, %294
+  %319 = load i32, ptr %292, align 8, !tbaa !113
+  %320 = icmp slt i32 %319, %291
+  br i1 %320, label %.lr.ph.i, label %._crit_edge.i
+
+.lr.ph.i:                                         ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+  %321 = load ptr, ptr %289, align 8, !tbaa !112
+  %322 = sext i32 %319 to i64
+  %wide.trip.count.i = sext i32 %291 to i64
+  %323 = shl nsw i64 %322, 2
+  %scevgep = getelementptr i8, ptr %321, i64 %323
+  %324 = sub nsw i64 %wide.trip.count.i, %322
+  %325 = shl nsw i64 %324, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 -1, i64 %325, i1 false), !tbaa !55
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+  store i32 %291, ptr %292, align 8, !tbaa !113
+  %.pre85 = load i32, ptr %9, align 8, !tbaa !130
+  br label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
+
+_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit:      ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit23, %._crit_edge.i
+  %326 = phi i32 [ %290, %_ZN6Gluco23vecIiE4pushERKi.exit23 ], [ %.pre85, %._crit_edge.i ]
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 1256
+  %328 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  %329 = load i32, ptr %328, align 8, !tbaa !113
+  %.not.i26 = icmp slt i32 %329, %326
+  br i1 %.not.i26, label %330, label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36
+
+330:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %332 = load i32, ptr %331, align 4, !tbaa !114
-  %.not.i.i = icmp slt i32 %332, %327
-  br i1 %.not.i.i, label %333, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+  %.not.i.i27 = icmp slt i32 %332, %326
+  br i1 %.not.i.i27, label %333, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
 
 333:                                              ; preds = %330
-  %334 = or disjoint i32 %327, 1
+  %334 = add i32 %326, 1
   %335 = sub i32 %334, %332
   %336 = and i32 %335, -2
   %337 = ashr i32 %332, 1
@@ -2002,60 +2007,60 @@ _ZN6Gluco23vecIiE4pushERKi.exit23:                ; preds = %._ZN6Gluco23vecIiE4
   br i1 %342, label %354, label %343
 
 343:                                              ; preds = %333
-  %344 = load ptr, ptr %325, align 8, !tbaa !112
+  %344 = load ptr, ptr %327, align 8, !tbaa !112
   %345 = add nsw i32 %340, %332
   store i32 %345, ptr %331, align 4, !tbaa !114
   %346 = sext i32 %345 to i64
   %347 = shl nsw i64 %346, 2
-  %348 = call ptr @realloc(ptr noundef %344, i64 noundef %347) #35
-  store ptr %348, ptr %325, align 8, !tbaa !112
+  %348 = call ptr @realloc(ptr noundef %344, i64 noundef %347) #34
+  store ptr %348, ptr %327, align 8, !tbaa !112
   %349 = icmp eq ptr %348, null
-  br i1 %349, label %350, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+  br i1 %349, label %350, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
 
 350:                                              ; preds = %343
-  %351 = tail call ptr @__errno_location() #31
+  %351 = tail call ptr @__errno_location() #30
   %352 = load i32, ptr %351, align 4, !tbaa !55
   %353 = icmp eq i32 %352, 12
-  br i1 %353, label %354, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
+  br i1 %353, label %354, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
 
 354:                                              ; preds = %350, %333
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i:       ; preds = %350, %343, %330
+_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28:     ; preds = %350, %343, %330
   %355 = load i32, ptr %328, align 8, !tbaa !113
-  %356 = icmp slt i32 %355, %327
-  br i1 %356, label %.lr.ph.i, label %._crit_edge.i
+  %356 = icmp slt i32 %355, %326
+  br i1 %356, label %.lr.ph.i30, label %._crit_edge.i29
 
-.lr.ph.i:                                         ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
-  %357 = load ptr, ptr %325, align 8, !tbaa !112
+.lr.ph.i30:                                       ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
+  %357 = load ptr, ptr %327, align 8, !tbaa !112
   %358 = sext i32 %355 to i64
-  %wide.trip.count.i = sext i32 %327 to i64
+  %wide.trip.count.i31 = sext i32 %326 to i64
   %359 = shl nsw i64 %358, 2
-  %scevgep = getelementptr i8, ptr %357, i64 %359
-  %360 = sub nsw i64 %wide.trip.count.i, %358
+  %scevgep75 = getelementptr i8, ptr %357, i64 %359
+  %360 = sub nsw i64 %wide.trip.count.i31, %358
   %361 = shl nsw i64 %360, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 -1, i64 %361, i1 false), !tbaa !55
-  br label %._crit_edge.i
+  call void @llvm.memset.p0.i64(ptr align 4 %scevgep75, i8 -1, i64 %361, i1 false), !tbaa !55
+  br label %._crit_edge.i29
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i
-  store i32 %327, ptr %328, align 8, !tbaa !113
-  %.pre85 = load i32, ptr %9, align 8, !tbaa !130
-  br label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
+._crit_edge.i29:                                  ; preds = %.lr.ph.i30, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
+  store i32 %326, ptr %328, align 8, !tbaa !113
+  %.pre86 = load i32, ptr %9, align 8, !tbaa !130
+  br label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36
 
-_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit:      ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit23, %._crit_edge.i
-  %362 = phi i32 [ %326, %_ZN6Gluco23vecIiE4pushERKi.exit23 ], [ %.pre85, %._crit_edge.i ]
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 1256
-  %364 = getelementptr inbounds nuw i8, ptr %0, i64 1264
-  %365 = load i32, ptr %364, align 8, !tbaa !113
-  %.not.i26 = icmp slt i32 %365, %362
-  br i1 %.not.i26, label %366, label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36
+_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36:    ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit, %._crit_edge.i29
+  %362 = phi i32 [ %326, %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit ], [ %.pre86, %._crit_edge.i29 ]
+  %363 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 1232
+  %365 = load i32, ptr %364, align 8, !tbaa !124
+  %.not.i37 = icmp slt i32 %365, %362
+  br i1 %.not.i37, label %366, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit
 
-366:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
-  %367 = getelementptr inbounds nuw i8, ptr %0, i64 1268
-  %368 = load i32, ptr %367, align 4, !tbaa !114
-  %.not.i.i27 = icmp slt i32 %368, %362
-  br i1 %.not.i.i27, label %369, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
+366:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 1236
+  %368 = load i32, ptr %367, align 4, !tbaa !125
+  %.not.i.i38 = icmp slt i32 %368, %362
+  br i1 %.not.i.i38, label %369, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
 
 369:                                              ; preds = %366
   %370 = add i32 %362, 1
@@ -2070,270 +2075,202 @@ _ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit:      ; preds = %_ZN6Gluco23vecIiE4p
   br i1 %378, label %390, label %379
 
 379:                                              ; preds = %369
-  %380 = load ptr, ptr %363, align 8, !tbaa !112
+  %380 = load ptr, ptr %363, align 8, !tbaa !123
   %381 = add nsw i32 %376, %368
-  store i32 %381, ptr %367, align 4, !tbaa !114
+  store i32 %381, ptr %367, align 4, !tbaa !125
   %382 = sext i32 %381 to i64
-  %383 = shl nsw i64 %382, 2
-  %384 = call ptr @realloc(ptr noundef %380, i64 noundef %383) #35
-  store ptr %384, ptr %363, align 8, !tbaa !112
+  %383 = mul nsw i64 %382, 12
+  %384 = call ptr @realloc(ptr noundef %380, i64 noundef %383) #34
+  store ptr %384, ptr %363, align 8, !tbaa !123
   %385 = icmp eq ptr %384, null
-  br i1 %385, label %386, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
+  br i1 %385, label %386, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
 
 386:                                              ; preds = %379
-  %387 = tail call ptr @__errno_location() #31
+  %387 = tail call ptr @__errno_location() #30
   %388 = load i32, ptr %387, align 4, !tbaa !55
   %389 = icmp eq i32 %388, 12
-  br i1 %389, label %390, label %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
+  br i1 %389, label %390, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
 
 390:                                              ; preds = %386, %369
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28:     ; preds = %386, %379, %366
-  %391 = load i32, ptr %364, align 8, !tbaa !113
+_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i: ; preds = %386, %379, %366
+  %391 = load i32, ptr %364, align 8, !tbaa !124
   %392 = icmp slt i32 %391, %362
-  br i1 %392, label %.lr.ph.i30, label %._crit_edge.i29
-
-.lr.ph.i30:                                       ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
-  %393 = load ptr, ptr %363, align 8, !tbaa !112
-  %394 = sext i32 %391 to i64
-  %wide.trip.count.i31 = sext i32 %362 to i64
-  %395 = shl nsw i64 %394, 2
-  %scevgep75 = getelementptr i8, ptr %393, i64 %395
-  %396 = sub nsw i64 %wide.trip.count.i31, %394
-  %397 = shl nsw i64 %396, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep75, i8 -1, i64 %397, i1 false), !tbaa !55
-  br label %._crit_edge.i29
-
-._crit_edge.i29:                                  ; preds = %.lr.ph.i30, %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit.i28
-  store i32 %362, ptr %364, align 8, !tbaa !113
-  %.pre86 = load i32, ptr %9, align 8, !tbaa !130
-  br label %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36
-
-_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36:    ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit, %._crit_edge.i29
-  %398 = phi i32 [ %362, %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit ], [ %.pre86, %._crit_edge.i29 ]
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 1232
-  %401 = load i32, ptr %400, align 8, !tbaa !124
-  %.not.i37 = icmp slt i32 %401, %398
-  br i1 %.not.i37, label %402, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit
-
-402:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36
-  %403 = getelementptr inbounds nuw i8, ptr %0, i64 1236
-  %404 = load i32, ptr %403, align 4, !tbaa !125
-  %.not.i.i38 = icmp slt i32 %404, %398
-  br i1 %.not.i.i38, label %405, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
-
-405:                                              ; preds = %402
-  %406 = add i32 %398, 1
-  %407 = sub i32 %406, %404
-  %408 = and i32 %407, -2
-  %409 = ashr i32 %404, 1
-  %410 = and i32 %409, -2
-  %411 = add nsw i32 %410, 2
-  %412 = call noundef i32 @llvm.smax.i32(i32 %411, i32 %408)
-  %413 = sub nsw i32 2147483647, %404
-  %414 = icmp samesign ugt i32 %412, %413
-  br i1 %414, label %426, label %415
-
-415:                                              ; preds = %405
-  %416 = load ptr, ptr %399, align 8, !tbaa !123
-  %417 = add nsw i32 %412, %404
-  store i32 %417, ptr %403, align 4, !tbaa !125
-  %418 = sext i32 %417 to i64
-  %419 = mul nsw i64 %418, 12
-  %420 = call ptr @realloc(ptr noundef %416, i64 noundef %419) #35
-  store ptr %420, ptr %399, align 8, !tbaa !123
-  %421 = icmp eq ptr %420, null
-  br i1 %421, label %422, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
-
-422:                                              ; preds = %415
-  %423 = tail call ptr @__errno_location() #31
-  %424 = load i32, ptr %423, align 4, !tbaa !55
-  %425 = icmp eq i32 %424, 12
-  br i1 %425, label %426, label %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
-
-426:                                              ; preds = %422, %405
-  call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
-  unreachable
-
-_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i: ; preds = %422, %415, %402
-  %427 = load i32, ptr %400, align 8, !tbaa !124
-  %428 = icmp slt i32 %427, %398
-  br i1 %428, label %.lr.ph.preheader.i, label %._crit_edge.i39
+  br i1 %392, label %.lr.ph.preheader.i, label %._crit_edge.i39
 
 .lr.ph.preheader.i:                               ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
-  %429 = sext i32 %427 to i64
-  %wide.trip.count.i40 = sext i32 %398 to i64
+  %393 = sext i32 %391 to i64
+  %wide.trip.count.i40 = sext i32 %362 to i64
   br label %.lr.ph.i41
 
 ._crit_edge.i39:                                  ; preds = %.lr.ph.i41, %_ZN6Gluco23vecINS_6Solver8NodeDataEE8capacityEi.exit.i
-  store i32 %398, ptr %400, align 8, !tbaa !124
+  store i32 %362, ptr %364, align 8, !tbaa !124
   %.pre87 = load i32, ptr %9, align 8, !tbaa !130
   br label %_ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit
 
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %.lr.ph.preheader.i
-  %indvars.iv.i42 = phi i64 [ %429, %.lr.ph.preheader.i ], [ %indvars.iv.next.i43, %.lr.ph.i41 ]
-  %430 = load ptr, ptr %399, align 8, !tbaa !123
-  %431 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %430, i64 %indvars.iv.i42
-  store i64 -1, ptr %431, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %431, i64 8
+  %indvars.iv.i42 = phi i64 [ %393, %.lr.ph.preheader.i ], [ %indvars.iv.next.i43, %.lr.ph.i41 ]
+  %394 = load ptr, ptr %363, align 8, !tbaa !123
+  %395 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %394, i64 %indvars.iv.i42
+  store i64 -1, ptr %395, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %395, i64 8
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !109
   %indvars.iv.next.i43 = add nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i40
   br i1 %exitcond.not.i44, label %._crit_edge.i39, label %.lr.ph.i41, !llvm.loop !147
 
 _ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit: ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36, %._crit_edge.i39
-  %432 = phi i32 [ %398, %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36 ], [ %.pre87, %._crit_edge.i39 ]
-  %433 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %434 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %435 = load i32, ptr %434, align 8, !tbaa !121
-  %.not.i45 = icmp slt i32 %435, %432
-  br i1 %.not.i45, label %436, label %_ZN6Gluco23vecIjE6growToEiRKj.exit
+  %396 = phi i32 [ %362, %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit36 ], [ %.pre87, %._crit_edge.i39 ]
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 1248
+  %399 = load i32, ptr %398, align 8, !tbaa !121
+  %.not.i45 = icmp slt i32 %399, %396
+  br i1 %.not.i45, label %400, label %_ZN6Gluco23vecIjE6growToEiRKj.exit
 
-436:                                              ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit
-  %437 = getelementptr inbounds nuw i8, ptr %0, i64 1252
-  %438 = load i32, ptr %437, align 4, !tbaa !122
-  %.not.i.i46 = icmp slt i32 %438, %432
-  br i1 %.not.i.i46, label %439, label %_ZN6Gluco23vecIjE8capacityEi.exit.i
+400:                                              ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit
+  %401 = getelementptr inbounds nuw i8, ptr %0, i64 1252
+  %402 = load i32, ptr %401, align 4, !tbaa !122
+  %.not.i.i46 = icmp slt i32 %402, %396
+  br i1 %.not.i.i46, label %403, label %_ZN6Gluco23vecIjE8capacityEi.exit.i
 
-439:                                              ; preds = %436
-  %440 = add i32 %432, 1
-  %441 = sub i32 %440, %438
-  %442 = and i32 %441, -2
-  %443 = ashr i32 %438, 1
-  %444 = and i32 %443, -2
-  %445 = add nsw i32 %444, 2
-  %446 = call noundef i32 @llvm.smax.i32(i32 %445, i32 %442)
-  %447 = sub nsw i32 2147483647, %438
-  %448 = icmp samesign ugt i32 %446, %447
-  br i1 %448, label %460, label %449
+403:                                              ; preds = %400
+  %404 = add i32 %396, 1
+  %405 = sub i32 %404, %402
+  %406 = and i32 %405, -2
+  %407 = ashr i32 %402, 1
+  %408 = and i32 %407, -2
+  %409 = add nsw i32 %408, 2
+  %410 = call noundef i32 @llvm.smax.i32(i32 %409, i32 %406)
+  %411 = sub nsw i32 2147483647, %402
+  %412 = icmp samesign ugt i32 %410, %411
+  br i1 %412, label %424, label %413
 
-449:                                              ; preds = %439
-  %450 = load ptr, ptr %433, align 8, !tbaa !98
-  %451 = add nsw i32 %446, %438
-  store i32 %451, ptr %437, align 4, !tbaa !122
-  %452 = sext i32 %451 to i64
-  %453 = shl nsw i64 %452, 2
-  %454 = call ptr @realloc(ptr noundef %450, i64 noundef %453) #35
-  store ptr %454, ptr %433, align 8, !tbaa !98
-  %455 = icmp eq ptr %454, null
-  br i1 %455, label %456, label %_ZN6Gluco23vecIjE8capacityEi.exit.i
+413:                                              ; preds = %403
+  %414 = load ptr, ptr %397, align 8, !tbaa !98
+  %415 = add nsw i32 %410, %402
+  store i32 %415, ptr %401, align 4, !tbaa !122
+  %416 = sext i32 %415 to i64
+  %417 = shl nsw i64 %416, 2
+  %418 = call ptr @realloc(ptr noundef %414, i64 noundef %417) #34
+  store ptr %418, ptr %397, align 8, !tbaa !98
+  %419 = icmp eq ptr %418, null
+  br i1 %419, label %420, label %_ZN6Gluco23vecIjE8capacityEi.exit.i
 
-456:                                              ; preds = %449
-  %457 = tail call ptr @__errno_location() #31
-  %458 = load i32, ptr %457, align 4, !tbaa !55
-  %459 = icmp eq i32 %458, 12
-  br i1 %459, label %460, label %_ZN6Gluco23vecIjE8capacityEi.exit.i
+420:                                              ; preds = %413
+  %421 = tail call ptr @__errno_location() #30
+  %422 = load i32, ptr %421, align 4, !tbaa !55
+  %423 = icmp eq i32 %422, 12
+  br i1 %423, label %424, label %_ZN6Gluco23vecIjE8capacityEi.exit.i
 
-460:                                              ; preds = %456, %439
+424:                                              ; preds = %420, %403
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecIjE8capacityEi.exit.i:              ; preds = %456, %449, %436
-  %461 = load i32, ptr %434, align 8, !tbaa !121
-  %462 = icmp slt i32 %461, %432
-  br i1 %462, label %.lr.ph.i48, label %._crit_edge.i47
+_ZN6Gluco23vecIjE8capacityEi.exit.i:              ; preds = %420, %413, %400
+  %425 = load i32, ptr %398, align 8, !tbaa !121
+  %426 = icmp slt i32 %425, %396
+  br i1 %426, label %.lr.ph.i48, label %._crit_edge.i47
 
 .lr.ph.i48:                                       ; preds = %_ZN6Gluco23vecIjE8capacityEi.exit.i
-  %463 = load ptr, ptr %433, align 8, !tbaa !98
-  %464 = sext i32 %461 to i64
-  %wide.trip.count.i49 = sext i32 %432 to i64
-  %465 = shl nsw i64 %464, 2
-  %scevgep76 = getelementptr i8, ptr %463, i64 %465
-  %466 = sub nsw i64 %wide.trip.count.i49, %464
-  %467 = shl nsw i64 %466, 2
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep76, i8 0, i64 %467, i1 false), !tbaa !55
+  %427 = load ptr, ptr %397, align 8, !tbaa !98
+  %428 = sext i32 %425 to i64
+  %wide.trip.count.i49 = sext i32 %396 to i64
+  %429 = shl nsw i64 %428, 2
+  %scevgep76 = getelementptr i8, ptr %427, i64 %429
+  %430 = sub nsw i64 %wide.trip.count.i49, %428
+  %431 = shl nsw i64 %430, 2
+  call void @llvm.memset.p0.i64(ptr align 4 %scevgep76, i8 0, i64 %431, i1 false), !tbaa !55
   br label %._crit_edge.i47
 
 ._crit_edge.i47:                                  ; preds = %.lr.ph.i48, %_ZN6Gluco23vecIjE8capacityEi.exit.i
-  store i32 %432, ptr %434, align 8, !tbaa !121
+  store i32 %396, ptr %398, align 8, !tbaa !121
   br label %_ZN6Gluco23vecIjE6growToEiRKj.exit
 
 _ZN6Gluco23vecIjE6growToEiRKj.exit:               ; preds = %_ZN6Gluco23vecINS_6Solver8NodeDataEE6growToEiRKS2_.exit, %._crit_edge.i47
-  %468 = zext i1 %2 to i8
-  %469 = load ptr, ptr %207, align 8, !tbaa !126
-  %470 = sext i32 %10 to i64
-  %471 = getelementptr inbounds i8, ptr %469, i64 %470
-  %472 = load i8, ptr %471, align 1, !tbaa !109
-  %.not.i54 = icmp eq i8 %472, 0
-  br i1 %2, label %473, label %.critedge.i
+  %432 = zext i1 %2 to i8
+  %433 = load ptr, ptr %183, align 8, !tbaa !126
+  %434 = sext i32 %10 to i64
+  %435 = getelementptr inbounds i8, ptr %433, i64 %434
+  %436 = load i8, ptr %435, align 1, !tbaa !109
+  %.not.i54 = icmp eq i8 %436, 0
+  br i1 %2, label %437, label %.critedge.i
 
-473:                                              ; preds = %_ZN6Gluco23vecIjE6growToEiRKj.exit
+437:                                              ; preds = %_ZN6Gluco23vecIjE6growToEiRKj.exit
   br i1 %.not.i54, label %.sink.split.i, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit
 
 .critedge.i:                                      ; preds = %_ZN6Gluco23vecIjE6growToEiRKj.exit
   br i1 %.not.i54, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.critedge.i, %473
-  %.sink12.i = phi i64 [ 1, %473 ], [ -1, %.critedge.i ]
-  %474 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %475 = load i64, ptr %474, align 8, !tbaa !148
-  %476 = add nsw i64 %475, %.sink12.i
-  store i64 %476, ptr %474, align 8, !tbaa !148
+.sink.split.i:                                    ; preds = %.critedge.i, %437
+  %.sink12.i = phi i64 [ 1, %437 ], [ -1, %.critedge.i ]
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %439 = load i64, ptr %438, align 8, !tbaa !148
+  %440 = add nsw i64 %439, %.sink12.i
+  store i64 %440, ptr %438, align 8, !tbaa !148
   br label %_ZN6Gluco26Solver14setDecisionVarEibb.exit
 
-_ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %473, %.critedge.i, %.sink.split.i
-  store i8 %468, ptr %471, align 1, !tbaa !109
+_ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %437, %.critedge.i, %.sink.split.i
+  store i8 %432, ptr %435, align 1, !tbaa !109
   br label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61
 
-477:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
-  %478 = zext i1 %2 to i8
-  %479 = load ptr, ptr %207, align 8, !tbaa !126
-  %480 = sext i32 %10 to i64
-  %481 = getelementptr inbounds i8, ptr %479, i64 %480
-  %482 = load i8, ptr %481, align 1, !tbaa !109
-  %.not.i56 = icmp eq i8 %482, 0
-  br i1 %2, label %483, label %.critedge.i57
+441:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE8capacityEi.exit
+  %442 = zext i1 %2 to i8
+  %443 = load ptr, ptr %183, align 8, !tbaa !126
+  %444 = sext i32 %10 to i64
+  %445 = getelementptr inbounds i8, ptr %443, i64 %444
+  %446 = load i8, ptr %445, align 1, !tbaa !109
+  %.not.i56 = icmp eq i8 %446, 0
+  br i1 %2, label %447, label %.critedge.i57
 
-483:                                              ; preds = %477
-  br i1 %.not.i56, label %.sink.split.i58, label %487
+447:                                              ; preds = %441
+  br i1 %.not.i56, label %.sink.split.i58, label %451
 
-.critedge.i57:                                    ; preds = %477
-  br i1 %.not.i56, label %487, label %.sink.split.i58
+.critedge.i57:                                    ; preds = %441
+  br i1 %.not.i56, label %451, label %.sink.split.i58
 
-.sink.split.i58:                                  ; preds = %.critedge.i57, %483
-  %.sink12.i59 = phi i64 [ 1, %483 ], [ -1, %.critedge.i57 ]
-  %484 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %485 = load i64, ptr %484, align 8, !tbaa !148
-  %486 = add nsw i64 %485, %.sink12.i59
-  store i64 %486, ptr %484, align 8, !tbaa !148
-  br label %487
+.sink.split.i58:                                  ; preds = %.critedge.i57, %447
+  %.sink12.i59 = phi i64 [ 1, %447 ], [ -1, %.critedge.i57 ]
+  %448 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %449 = load i64, ptr %448, align 8, !tbaa !148
+  %450 = add nsw i64 %449, %.sink12.i59
+  store i64 %450, ptr %448, align 8, !tbaa !148
+  br label %451
 
-487:                                              ; preds = %.sink.split.i58, %.critedge.i57, %483
-  store i8 %478, ptr %481, align 1, !tbaa !109
-  %488 = load i32, ptr %262, align 8
-  %.not.i.i60 = icmp eq i32 %488, 0
-  br i1 %.not.i.i60, label %489, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61
+451:                                              ; preds = %.sink.split.i58, %.critedge.i57, %447
+  store i8 %442, ptr %445, align 1, !tbaa !109
+  %452 = load i32, ptr %234, align 8
+  %.not.i.i60 = icmp eq i32 %452, 0
+  br i1 %.not.i.i60, label %453, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61
 
-489:                                              ; preds = %487
-  %490 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %492 = load i32, ptr %491, align 8, !tbaa !116
-  %493 = icmp slt i32 %10, %492
-  br i1 %493, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
+453:                                              ; preds = %451
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %455 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %456 = load i32, ptr %455, align 8, !tbaa !116
+  %457 = icmp slt i32 %10, %456
+  br i1 %457, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
-_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %489
-  %494 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %495 = load ptr, ptr %494, align 8, !tbaa !115
-  %496 = getelementptr inbounds i32, ptr %495, i64 %480
-  %497 = load i32, ptr %496, align 4, !tbaa !55
-  %498 = icmp sgt i32 %497, -1
-  br i1 %498, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
+_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %453
+  %458 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %459 = load ptr, ptr %458, align 8, !tbaa !115
+  %460 = getelementptr inbounds i32, ptr %459, i64 %444
+  %461 = load i32, ptr %460, align 4, !tbaa !55
+  %462 = icmp sgt i32 %461, -1
+  br i1 %462, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
-_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i: ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %489
-  %499 = load ptr, ptr %207, align 8, !tbaa !126
-  %500 = getelementptr inbounds i8, ptr %499, i64 %480
-  %501 = load i8, ptr %500, align 1, !tbaa !109
-  %.not3.i.i = icmp eq i8 %501, 0
-  br i1 %.not3.i.i, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61, label %502
+_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i: ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %453
+  %463 = load ptr, ptr %183, align 8, !tbaa !126
+  %464 = getelementptr inbounds i8, ptr %463, i64 %444
+  %465 = load i8, ptr %464, align 1, !tbaa !109
+  %.not3.i.i = icmp eq i8 %465, 0
+  br i1 %.not3.i.i, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61, label %466
 
-502:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
-  call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %490, i32 noundef %10)
+466:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
+  call void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %454, i32 noundef %10)
   br label %_ZN6Gluco26Solver14setDecisionVarEibb.exit61
 
-_ZN6Gluco26Solver14setDecisionVarEibb.exit61:     ; preds = %502, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %487, %_ZN6Gluco26Solver14setDecisionVarEibb.exit
+_ZN6Gluco26Solver14setDecisionVarEibb.exit61:     ; preds = %466, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %451, %_ZN6Gluco26Solver14setDecisionVarEibb.exit
   ret i32 %10
 }
 
@@ -2373,13 +2310,13 @@ define linkonce_odr void @_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7Watcher
   %23 = add nsw i32 %18, %10
   store i32 %23, ptr %9, align 4, !tbaa !128
   %24 = sext i32 %23 to i64
-  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #35
+  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #34
   store ptr %25, ptr %4, align 8, !tbaa !126
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN6Gluco23vecIcE8capacityEi.exit.i
 
 27:                                               ; preds = %21
-  %28 = tail call ptr @__errno_location() #31
+  %28 = tail call ptr @__errno_location() #30
   %29 = load i32, ptr %28, align 4, !tbaa !55
   %30 = icmp eq i32 %29, 12
   br i1 %30, label %31, label %_ZN6Gluco23vecIcE8capacityEi.exit.i
@@ -2444,7 +2381,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %16 = phi ptr [ %.pre, %.lr.ph ], [ %37, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ]
+  %16 = phi ptr [ %.pre, %.lr.ph ], [ %33, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ]
   %.177125 = phi i32 [ 0, %.lr.ph ], [ %.278, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ]
   %.sroa.093.1124 = phi ptr [ null, %.lr.ph ], [ %.sroa.093.2, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ]
@@ -2467,164 +2404,157 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %2
   %28 = add nuw nsw i32 %24, %21
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
-  %31 = tail call ptr @realloc(ptr noundef %.sroa.093.1124, i64 noundef %30) #35
+  %31 = tail call ptr @realloc(ptr noundef %.sroa.093.1124, i64 noundef %30) #34
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
+  br i1 %32, label %.loopexit111, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
 
 ._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %27
   %.pre161 = load ptr, ptr %1, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-33:                                               ; preds = %27
-  %34 = tail call ptr @__errno_location() #31
-  %35 = load i32, ptr %34, align 4, !tbaa !55
-  %36 = icmp eq i32 %35, 12
-  tail call void @llvm.assume(i1 %36)
-  br label %.loopexit111
-
-.loopexit111:                                     ; preds = %20, %33
+.loopexit111:                                     ; preds = %20, %27
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge, %15
-  %37 = phi ptr [ %.pre161, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %16, %15 ]
+  %33 = phi ptr [ %.pre161, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %16, %15 ]
   %.sroa.17.1 = phi i32 [ %28, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %.sroa.17.0122, %15 ]
   %.sroa.093.2 = phi ptr [ %31, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %.sroa.093.1124, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.sroa.093.2, i64 %indvars.iv
-  %39 = load i32, ptr %17, align 4, !tbaa !55
-  store i32 %39, ptr %38, align 4, !tbaa !55
-  %40 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %37, i64 %indvars.iv
-  %.sroa.017.0.copyload = load i32, ptr %40, align 4, !tbaa !55
-  %41 = ashr i32 %.sroa.017.0.copyload, 1
-  %42 = load ptr, ptr %14, align 8, !tbaa !132
-  %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %"class.Gluco2::lbool", ptr %42, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !150
-  %46 = trunc i32 %.sroa.017.0.copyload to i8
-  %47 = and i8 %46, 1
-  %48 = icmp eq i8 %45, %47
-  %49 = icmp eq i32 %.sroa.017.0.copyload, -1
-  %or.cond102 = or i1 %49, %48
-  %50 = xor i8 %45, %47
-  %51 = icmp eq i8 %50, 1
-  %or.cond109 = or i1 %or.cond102, %51
+  %34 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.sroa.093.2, i64 %indvars.iv
+  %35 = load i32, ptr %17, align 4, !tbaa !55
+  store i32 %35, ptr %34, align 4, !tbaa !55
+  %36 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %33, i64 %indvars.iv
+  %.sroa.017.0.copyload = load i32, ptr %36, align 4, !tbaa !55
+  %37 = ashr i32 %.sroa.017.0.copyload, 1
+  %38 = load ptr, ptr %14, align 8, !tbaa !132
+  %39 = sext i32 %37 to i64
+  %40 = getelementptr inbounds %"class.Gluco2::lbool", ptr %38, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !150
+  %42 = trunc i32 %.sroa.017.0.copyload to i8
+  %43 = and i8 %42, 1
+  %44 = icmp eq i8 %41, %43
+  %45 = icmp eq i32 %.sroa.017.0.copyload, -1
+  %or.cond102 = or i1 %45, %44
+  %46 = xor i8 %41, %43
+  %47 = icmp eq i8 %46, 1
+  %or.cond109 = or i1 %or.cond102, %47
   %.278 = select i1 %or.cond109, i32 1, i32 %.177125
-  %52 = load i32, ptr %7, align 8, !tbaa !113
-  %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %15, label %.loopexit.loopexit, !llvm.loop !152
+  %48 = load i32, ptr %7, align 8, !tbaa !113
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %15, label %.loopexit.loopexit, !llvm.loop !152
 
 .loopexit.loopexit:                               ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %55 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %56 = icmp ne i32 %.278, 0
+  %51 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %52 = icmp ne i32 %.278, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit
-  %57 = phi i32 [ %12, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %52, %.loopexit.loopexit ]
-  %.sroa.11.0 = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %55, %.loopexit.loopexit ]
+  %53 = phi i32 [ %12, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %48, %.loopexit.loopexit ]
+  %.sroa.11.0 = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %51, %.loopexit.loopexit ]
   %.sroa.093.0 = phi ptr [ null, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %.sroa.093.2, %.loopexit.loopexit ]
-  %.076 = phi i1 [ false, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %56, %.loopexit.loopexit ]
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph132, label %._crit_edge
+  %.076 = phi i1 [ false, %_ZN6Gluco23vecINS_3LitEE5clearEb.exit ], [ %52, %.loopexit.loopexit ]
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %.lr.ph132, label %._crit_edge
 
 .lr.ph132:                                        ; preds = %.loopexit
-  %59 = load ptr, ptr %1, align 8, !tbaa !112
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %61 = load ptr, ptr %60, align 8, !tbaa !132
-  br label %62
+  %55 = load ptr, ptr %1, align 8, !tbaa !112
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %57 = load ptr, ptr %56, align 8, !tbaa !132
+  br label %58
 
-62:                                               ; preds = %.lr.ph132, %.critedge4
-  %63 = phi i32 [ %57, %.lr.ph132 ], [ %82, %.critedge4 ]
+58:                                               ; preds = %.lr.ph132, %.critedge4
+  %59 = phi i32 [ %53, %.lr.ph132 ], [ %78, %.critedge4 ]
   %indvars.iv152 = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next153, %.critedge4 ]
   %.sroa.042.0131 = phi i32 [ -2, %.lr.ph132 ], [ %.sroa.042.1, %.critedge4 ]
   %.074129 = phi i32 [ 0, %.lr.ph132 ], [ %.175, %.critedge4 ]
-  %64 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %59, i64 %indvars.iv152
-  %.sroa.013.0.copyload = load i32, ptr %64, align 4, !tbaa !55
-  %65 = ashr i32 %.sroa.013.0.copyload, 1
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %"class.Gluco2::lbool", ptr %61, i64 %66
-  %68 = load i8, ptr %67, align 1, !tbaa !150
-  %69 = trunc i32 %.sroa.013.0.copyload to i8
-  %70 = and i8 %69, 1
-  %71 = icmp eq i8 %68, %70
-  %72 = xor i32 %.sroa.013.0.copyload, %.sroa.042.0131
-  %73 = icmp eq i32 %72, 1
-  %or.cond104 = select i1 %71, i1 true, i1 %73
-  br i1 %or.cond104, label %.critedge2, label %74
+  %60 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %55, i64 %indvars.iv152
+  %.sroa.013.0.copyload = load i32, ptr %60, align 4, !tbaa !55
+  %61 = ashr i32 %.sroa.013.0.copyload, 1
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr inbounds %"class.Gluco2::lbool", ptr %57, i64 %62
+  %64 = load i8, ptr %63, align 1, !tbaa !150
+  %65 = trunc i32 %.sroa.013.0.copyload to i8
+  %66 = and i8 %65, 1
+  %67 = icmp eq i8 %64, %66
+  %68 = xor i32 %.sroa.013.0.copyload, %.sroa.042.0131
+  %69 = icmp eq i32 %68, 1
+  %or.cond104 = select i1 %67, i1 true, i1 %69
+  br i1 %or.cond104, label %.critedge2, label %70
 
-74:                                               ; preds = %62
-  %75 = xor i8 %68, %70
-  %76 = icmp ne i8 %75, 1
-  %77 = icmp ne i32 %.sroa.013.0.copyload, %.sroa.042.0131
-  %or.cond105 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond105, label %78, label %.critedge4
+70:                                               ; preds = %58
+  %71 = xor i8 %64, %66
+  %72 = icmp ne i8 %71, 1
+  %73 = icmp ne i32 %.sroa.013.0.copyload, %.sroa.042.0131
+  %or.cond105 = select i1 %72, i1 %73, i1 false
+  br i1 %or.cond105, label %74, label %.critedge4
 
-78:                                               ; preds = %74
-  %79 = add nsw i32 %.074129, 1
-  %80 = sext i32 %.074129 to i64
-  %81 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %59, i64 %80
-  store i32 %.sroa.013.0.copyload, ptr %81, align 4, !tbaa !55
+74:                                               ; preds = %70
+  %75 = add nsw i32 %.074129, 1
+  %76 = sext i32 %.074129 to i64
+  %77 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %55, i64 %76
+  store i32 %.sroa.013.0.copyload, ptr %77, align 4, !tbaa !55
   %.pre162 = load i32, ptr %7, align 8, !tbaa !113
   br label %.critedge4
 
-.critedge4:                                       ; preds = %74, %78
-  %82 = phi i32 [ %.pre162, %78 ], [ %63, %74 ]
-  %.175 = phi i32 [ %79, %78 ], [ %.074129, %74 ]
-  %.sroa.042.1 = phi i32 [ %.sroa.013.0.copyload, %78 ], [ %.sroa.042.0131, %74 ]
+.critedge4:                                       ; preds = %70, %74
+  %78 = phi i32 [ %.pre162, %74 ], [ %59, %70 ]
+  %.175 = phi i32 [ %75, %74 ], [ %.074129, %70 ]
+  %.sroa.042.1 = phi i32 [ %.sroa.013.0.copyload, %74 ], [ %.sroa.042.0131, %70 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next153, %83
-  br i1 %84, label %62, label %._crit_edge.loopexit, !llvm.loop !153
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next153, %79
+  br i1 %80, label %58, label %._crit_edge.loopexit, !llvm.loop !153
 
 ._crit_edge.loopexit:                             ; preds = %.critedge4
-  %85 = trunc nuw nsw i64 %indvars.iv.next153 to i32
-  %86 = sub i32 %.175, %85
+  %81 = trunc nuw nsw i64 %indvars.iv.next153 to i32
+  %82 = sub i32 %.175, %81
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit
-  %.lcssa112 = phi i32 [ %57, %.loopexit ], [ %82, %._crit_edge.loopexit ]
-  %.neg = phi i32 [ 0, %.loopexit ], [ %86, %._crit_edge.loopexit ]
-  %87 = add i32 %.lcssa112, %.neg
-  store i32 %87, ptr %7, align 8, !tbaa !113
-  %88 = load i8, ptr %9, align 8, !range !72
-  %89 = trunc nuw i8 %88 to i1
-  %or.cond = select i1 %.076, i1 %89, i1 false
-  br i1 %or.cond, label %.preheader, label %120
+  %.lcssa112 = phi i32 [ %53, %.loopexit ], [ %78, %._crit_edge.loopexit ]
+  %.neg = phi i32 [ 0, %.loopexit ], [ %82, %._crit_edge.loopexit ]
+  %83 = add i32 %.lcssa112, %.neg
+  store i32 %83, ptr %7, align 8, !tbaa !113
+  %84 = load i8, ptr %9, align 8, !range !72
+  %85 = trunc nuw i8 %84 to i1
+  %or.cond = select i1 %.076, i1 %85, i1 false
+  br i1 %or.cond, label %.preheader, label %116
 
 .preheader:                                       ; preds = %._crit_edge
-  %90 = icmp sgt i32 %87, 0
-  br i1 %90, label %.lr.ph137, label %._crit_edge138
+  %86 = icmp sgt i32 %83, 0
+  br i1 %86, label %.lr.ph137, label %._crit_edge138
 
 .lr.ph137:                                        ; preds = %.preheader
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br label %92
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  br label %88
 
-92:                                               ; preds = %.lr.ph137, %92
-  %indvars.iv155 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next156, %92 ]
-  %93 = load ptr, ptr %91, align 8, !tbaa !76
-  %94 = load ptr, ptr %1, align 8, !tbaa !112
-  %95 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %94, i64 %indvars.iv155
-  %.sroa.08.0.copyload = load i32, ptr %95, align 4, !tbaa !55
-  %96 = ashr i32 %.sroa.08.0.copyload, 1
-  %97 = add nsw i32 %96, 1
-  %98 = and i32 %.sroa.08.0.copyload, 1
-  %.not107 = icmp eq i32 %98, 0
-  %99 = xor i32 %96, -1
-  %100 = select i1 %.not107, i32 %97, i32 %99
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.65, i32 noundef %100) #33
+88:                                               ; preds = %.lr.ph137, %88
+  %indvars.iv155 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next156, %88 ]
+  %89 = load ptr, ptr %87, align 8, !tbaa !76
+  %90 = load ptr, ptr %1, align 8, !tbaa !112
+  %91 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %90, i64 %indvars.iv155
+  %.sroa.08.0.copyload = load i32, ptr %91, align 4, !tbaa !55
+  %92 = ashr i32 %.sroa.08.0.copyload, 1
+  %93 = add nsw i32 %92, 1
+  %94 = and i32 %.sroa.08.0.copyload, 1
+  %.not107 = icmp eq i32 %94, 0
+  %95 = xor i32 %92, -1
+  %96 = select i1 %.not107, i32 %93, i32 %95
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.65, i32 noundef %96) #32
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
-  %102 = load i32, ptr %7, align 8, !tbaa !113
-  %103 = sext i32 %102 to i64
-  %104 = icmp slt i64 %indvars.iv.next156, %103
-  br i1 %104, label %92, label %._crit_edge138, !llvm.loop !154
+  %98 = load i32, ptr %7, align 8, !tbaa !113
+  %99 = sext i32 %98 to i64
+  %100 = icmp slt i64 %indvars.iv.next156, %99
+  br i1 %100, label %88, label %._crit_edge138, !llvm.loop !154
 
-._crit_edge138:                                   ; preds = %92, %.preheader
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %106 = load ptr, ptr %105, align 8, !tbaa !76
-  %107 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 2, i64 1, ptr %106)
-  %108 = load ptr, ptr %105, align 8, !tbaa !76
-  %109 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 2, i64 1, ptr %108)
+._crit_edge138:                                   ; preds = %88, %.preheader
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %102 = load ptr, ptr %101, align 8, !tbaa !76
+  %103 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 2, i64 1, ptr %102)
+  %104 = load ptr, ptr %101, align 8, !tbaa !76
+  %105 = tail call i64 @fwrite(ptr nonnull @.str.67, i64 2, i64 1, ptr %104)
   %.not145 = icmp eq i32 %.sroa.11.0, 0
   br i1 %.not145, label %._crit_edge142, label %.lr.ph141.preheader
 
@@ -2634,237 +2564,230 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
   %indvars.iv158 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next159, %.lr.ph141 ]
-  %110 = load ptr, ptr %105, align 8, !tbaa !76
-  %111 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.sroa.093.0, i64 %indvars.iv158
-  %.sroa.06.0.copyload = load i32, ptr %111, align 4, !tbaa !55
-  %112 = ashr i32 %.sroa.06.0.copyload, 1
-  %113 = add nsw i32 %112, 1
-  %114 = and i32 %.sroa.06.0.copyload, 1
-  %.not106 = icmp eq i32 %114, 0
-  %115 = xor i32 %112, -1
-  %116 = select i1 %.not106, i32 %113, i32 %115
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.65, i32 noundef %116) #33
+  %106 = load ptr, ptr %101, align 8, !tbaa !76
+  %107 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.sroa.093.0, i64 %indvars.iv158
+  %.sroa.06.0.copyload = load i32, ptr %107, align 4, !tbaa !55
+  %108 = ashr i32 %.sroa.06.0.copyload, 1
+  %109 = add nsw i32 %108, 1
+  %110 = and i32 %.sroa.06.0.copyload, 1
+  %.not106 = icmp eq i32 %110, 0
+  %111 = xor i32 %108, -1
+  %112 = select i1 %.not106, i32 %109, i32 %111
+  %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %106, ptr noundef nonnull @.str.65, i32 noundef %112) #32
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge142, label %.lr.ph141, !llvm.loop !155
 
 ._crit_edge142:                                   ; preds = %.lr.ph141, %._crit_edge138
-  %118 = load ptr, ptr %105, align 8, !tbaa !76
-  %119 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 2, i64 1, ptr %118)
+  %114 = load ptr, ptr %101, align 8, !tbaa !76
+  %115 = tail call i64 @fwrite(ptr nonnull @.str.66, i64 2, i64 1, ptr %114)
   %.pr = load i32, ptr %7, align 8, !tbaa !113
-  br label %120
+  br label %116
 
-120:                                              ; preds = %._crit_edge142, %._crit_edge
-  %121 = phi i32 [ %.pr, %._crit_edge142 ], [ %87, %._crit_edge ]
-  switch i32 %121, label %157 [
-    i32 0, label %122
-    i32 1, label %123
+116:                                              ; preds = %._crit_edge142, %._crit_edge
+  %117 = phi i32 [ %.pr, %._crit_edge142 ], [ %83, %._crit_edge ]
+  switch i32 %117, label %153 [
+    i32 0, label %118
+    i32 1, label %119
   ]
 
-122:                                              ; preds = %120
+118:                                              ; preds = %116
   store i8 0, ptr %3, align 4, !tbaa !79
   br label %.critedge2
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %1, align 8, !tbaa !112
-  %.sroa.0.0.copyload = load i32, ptr %124, align 4, !tbaa !55
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %126 = load i32, ptr %125, align 8, !tbaa !104
-  %.not.i81 = icmp eq i32 %126, 0
+119:                                              ; preds = %116
+  %120 = load ptr, ptr %1, align 8, !tbaa !112
+  %.sroa.0.0.copyload = load i32, ptr %120, align 4, !tbaa !55
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %122 = load i32, ptr %121, align 8, !tbaa !104
+  %.not.i81 = icmp eq i32 %122, 0
   %.pre.i82 = ashr i32 %.sroa.0.0.copyload, 1
-  br i1 %.not.i81, label %._crit_edge.i, label %127
+  br i1 %.not.i81, label %._crit_edge.i, label %123
 
-._crit_edge.i:                                    ; preds = %123
+._crit_edge.i:                                    ; preds = %119
   %.pre10.i = sext i32 %.pre.i82 to i64
-  br label %136
+  br label %132
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %129 = load i32, ptr %128, align 8, !tbaa !105
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %131 = load ptr, ptr %130, align 8, !tbaa !98
-  %132 = sext i32 %.pre.i82 to i64
-  %133 = getelementptr inbounds i32, ptr %131, i64 %132
-  %134 = load i32, ptr %133, align 4, !tbaa !55
-  %135 = icmp eq i32 %129, %134
-  br i1 %135, label %136, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %125 = load i32, ptr %124, align 8, !tbaa !105
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %127 = load ptr, ptr %126, align 8, !tbaa !98
+  %128 = sext i32 %.pre.i82 to i64
+  %129 = getelementptr inbounds i32, ptr %127, i64 %128
+  %130 = load i32, ptr %129, align 4, !tbaa !55
+  %131 = icmp eq i32 %125, %130
+  br i1 %131, label %132, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit
 
-136:                                              ; preds = %127, %._crit_edge.i
-  %.pre-phi11.i = phi i64 [ %.pre10.i, %._crit_edge.i ], [ %132, %127 ]
-  %137 = trunc i32 %.sroa.0.0.copyload to i8
-  %138 = and i8 %137, 1
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %140 = load ptr, ptr %139, align 8, !tbaa !132
-  %141 = getelementptr inbounds %"class.Gluco2::lbool", ptr %140, i64 %.pre-phi11.i
-  store i8 %138, ptr %141, align 1, !tbaa !109
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %143 = load i32, ptr %142, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i = zext i32 %143 to i64
+132:                                              ; preds = %123, %._crit_edge.i
+  %.pre-phi11.i = phi i64 [ %.pre10.i, %._crit_edge.i ], [ %128, %123 ]
+  %133 = trunc i32 %.sroa.0.0.copyload to i8
+  %134 = and i8 %133, 1
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %136 = load ptr, ptr %135, align 8, !tbaa !132
+  %137 = getelementptr inbounds %"class.Gluco2::lbool", ptr %136, i64 %.pre-phi11.i
+  store i8 %134, ptr %137, align 1, !tbaa !109
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %139 = load i32, ptr %138, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i = zext i32 %139 to i64
   %.sroa.2.0.insert.shift.i.i = shl nuw i64 %.sroa.2.0.insert.ext.i.i, 32
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i, 4294967295
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %145 = load ptr, ptr %144, align 8, !tbaa !129
-  %146 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %145, i64 %.pre-phi11.i
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %146, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %148 = load ptr, ptr %147, align 8, !tbaa !112
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %150 = load i32, ptr %149, align 8, !tbaa !113
-  %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %149, align 8, !tbaa !113
-  %152 = sext i32 %150 to i64
-  %153 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %148, i64 %152
-  store i32 %.sroa.0.0.copyload, ptr %153, align 4, !tbaa !55
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %141 = load ptr, ptr %140, align 8, !tbaa !129
+  %142 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %141, i64 %.pre-phi11.i
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %142, align 4
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %144 = load ptr, ptr %143, align 8, !tbaa !112
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %146 = load i32, ptr %145, align 8, !tbaa !113
+  %147 = add nsw i32 %146, 1
+  store i32 %147, ptr %145, align 8, !tbaa !113
+  %148 = sext i32 %146 to i64
+  %149 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %144, i64 %148
+  store i32 %.sroa.0.0.copyload, ptr %149, align 4, !tbaa !55
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit
 
-_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %127, %136
-  %154 = tail call noundef i32 @_ZN6Gluco26Solver9propagateEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  %155 = icmp eq i32 %154, -1
-  %156 = zext i1 %155 to i8
-  store i8 %156, ptr %3, align 4, !tbaa !79
+_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit: ; preds = %123, %132
+  %150 = tail call noundef i32 @_ZN6Gluco26Solver9propagateEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
+  %151 = icmp eq i32 %150, -1
+  %152 = zext i1 %151 to i8
+  store i8 %152, ptr %3, align 4, !tbaa !79
   br label %.critedge2
 
-157:                                              ; preds = %120
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 884
-  %160 = load i8, ptr %159, align 4, !tbaa !88, !range !72, !noundef !73
-  %.not.i83 = icmp eq i8 %160, 0
-  %161 = zext nneg i8 %160 to i32
-  %162 = add i32 %121, 3
-  %163 = add i32 %162, %161
-  %164 = tail call noundef i32 @_ZN6Gluco215RegionAllocatorIjE5allocEi(ptr noundef nonnull align 8 dereferenceable(21) %158, i32 noundef %163)
-  %165 = load ptr, ptr %158, align 8, !tbaa !87
-  %166 = zext i32 %164 to i64
-  %167 = getelementptr inbounds nuw i32, ptr %165, i64 %166
-  %168 = load i64, ptr %167, align 4
-  %169 = and i64 %168, -32
-  %170 = select i1 %.not.i83, i64 0, i64 8
-  %171 = or disjoint i64 %169, %170
-  store i64 %171, ptr %167, align 4
-  %172 = load i32, ptr %7, align 8, !tbaa !113
-  %173 = zext i32 %172 to i64
-  %174 = shl nuw i64 %173, 32
-  %175 = or disjoint i64 %174, %170
-  %176 = or disjoint i64 %175, 2147483648
-  store i64 %176, ptr %167, align 4
-  %177 = load i32, ptr %7, align 8, !tbaa !113
-  %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %.lr.ph.i.i, label %._crit_edge.i.i
+153:                                              ; preds = %116
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 884
+  %156 = load i8, ptr %155, align 4, !tbaa !88, !range !72, !noundef !73
+  %.not.i83 = icmp eq i8 %156, 0
+  %157 = zext nneg i8 %156 to i32
+  %158 = add i32 %117, 3
+  %159 = add i32 %158, %157
+  %160 = tail call noundef i32 @_ZN6Gluco215RegionAllocatorIjE5allocEi(ptr noundef nonnull align 8 dereferenceable(21) %154, i32 noundef %159)
+  %161 = load ptr, ptr %154, align 8, !tbaa !87
+  %162 = zext i32 %160 to i64
+  %163 = getelementptr inbounds nuw i32, ptr %161, i64 %162
+  %164 = load i64, ptr %163, align 4
+  %165 = and i64 %164, -32
+  %166 = select i1 %.not.i83, i64 0, i64 8
+  %167 = or disjoint i64 %165, %166
+  store i64 %167, ptr %163, align 4
+  %168 = load i32, ptr %7, align 8, !tbaa !113
+  %169 = zext i32 %168 to i64
+  %170 = shl nuw i64 %169, 32
+  %171 = or disjoint i64 %170, %166
+  %172 = or disjoint i64 %171, 2147483648
+  store i64 %172, ptr %163, align 4
+  %173 = load i32, ptr %7, align 8, !tbaa !113
+  %174 = icmp sgt i32 %173, 0
+  br i1 %174, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %157
-  %179 = load ptr, ptr %1, align 8, !tbaa !112
-  %180 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  br label %181
+.lr.ph.i.i:                                       ; preds = %153
+  %175 = load ptr, ptr %1, align 8, !tbaa !112
+  %176 = getelementptr inbounds nuw i8, ptr %163, i64 12
+  br label %177
 
-._crit_edge.i.i:                                  ; preds = %181, %157
-  br i1 %.not.i83, label %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit, label %188
+._crit_edge.i.i:                                  ; preds = %177, %153
+  br i1 %.not.i83, label %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit, label %184
 
-181:                                              ; preds = %181, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %181 ]
-  %182 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %179, i64 %indvars.iv.i.i
-  %183 = getelementptr inbounds nuw %union.anon, ptr %180, i64 %indvars.iv.i.i
-  %184 = load i32, ptr %182, align 4, !tbaa !55
-  store i32 %184, ptr %183, align 4, !tbaa !55
+177:                                              ; preds = %177, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %177 ]
+  %178 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %175, i64 %indvars.iv.i.i
+  %179 = getelementptr inbounds nuw %union.anon, ptr %176, i64 %indvars.iv.i.i
+  %180 = load i32, ptr %178, align 4, !tbaa !55
+  store i32 %180, ptr %179, align 4, !tbaa !55
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %185 = load i32, ptr %7, align 8, !tbaa !113
-  %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %indvars.iv.next.i.i, %186
-  br i1 %187, label %181, label %._crit_edge.i.i, !llvm.loop !156
+  %181 = load i32, ptr %7, align 8, !tbaa !113
+  %182 = sext i32 %181 to i64
+  %183 = icmp slt i64 %indvars.iv.next.i.i, %182
+  br i1 %183, label %177, label %._crit_edge.i.i, !llvm.loop !156
 
-188:                                              ; preds = %._crit_edge.i.i
-  %189 = icmp sgt i32 %172, 0
-  br i1 %189, label %.lr.ph.i.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i
+184:                                              ; preds = %._crit_edge.i.i
+  %185 = icmp sgt i32 %168, 0
+  br i1 %185, label %.lr.ph.i.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %188
-  %190 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  br label %191
+.lr.ph.i.i.i:                                     ; preds = %184
+  %186 = getelementptr inbounds nuw i8, ptr %163, i64 12
+  br label %187
 
-191:                                              ; preds = %191, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %191 ]
-  %.07.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %196, %191 ]
-  %192 = getelementptr inbounds nuw %union.anon, ptr %190, i64 %indvars.iv.i.i.i
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %192, align 4, !tbaa !55
-  %193 = lshr i32 %.sroa.0.0.copyload.i.i.i, 1
-  %194 = and i32 %193, 31
-  %195 = shl nuw i32 1, %194
-  %196 = or i32 %195, %.07.i.i.i
+187:                                              ; preds = %187, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %187 ]
+  %.07.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %192, %187 ]
+  %188 = getelementptr inbounds nuw %union.anon, ptr %186, i64 %indvars.iv.i.i.i
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %188, align 4, !tbaa !55
+  %189 = lshr i32 %.sroa.0.0.copyload.i.i.i, 1
+  %190 = and i32 %189, 31
+  %191 = shl nuw i32 1, %190
+  %192 = or i32 %191, %.07.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %173
-  br i1 %exitcond.not.i.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i, label %191, !llvm.loop !107
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %169
+  br i1 %exitcond.not.i.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i, label %187, !llvm.loop !107
 
-_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i:    ; preds = %191, %188
-  %.0.lcssa.i.i.i = phi i32 [ 0, %188 ], [ %196, %191 ]
-  %197 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %198 = getelementptr inbounds nuw %union.anon, ptr %197, i64 %173
-  store i32 %.0.lcssa.i.i.i, ptr %198, align 4, !tbaa !109
+_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i:    ; preds = %187, %184
+  %.0.lcssa.i.i.i = phi i32 [ 0, %184 ], [ %192, %187 ]
+  %193 = getelementptr inbounds nuw i8, ptr %163, i64 12
+  %194 = getelementptr inbounds nuw %union.anon, ptr %193, i64 %169
+  store i32 %.0.lcssa.i.i.i, ptr %194, align 4, !tbaa !109
   br label %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
 
 _ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %._crit_edge.i.i, %_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %201 = load i32, ptr %200, align 8, !tbaa !121
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  %203 = load i32, ptr %202, align 4, !tbaa !122
-  %204 = icmp eq i32 %201, %203
-  br i1 %204, label %205, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %197 = load i32, ptr %196, align 8, !tbaa !121
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 612
+  %199 = load i32, ptr %198, align 4, !tbaa !122
+  %200 = icmp eq i32 %197, %199
+  br i1 %200, label %201, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
 
 ._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i:   ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
-  %.pre.i84 = load ptr, ptr %199, align 8, !tbaa !98
+  %.pre.i84 = load ptr, ptr %195, align 8, !tbaa !98
   br label %_ZN6Gluco23vecIjE4pushERKj.exit
 
-205:                                              ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
-  %206 = ashr i32 %201, 1
-  %207 = and i32 %206, -2
-  %208 = tail call i32 @llvm.smax.i32(i32 %207, i32 0)
-  %209 = add nuw nsw i32 %208, 2
-  %210 = sub nsw i32 2147483647, %201
-  %211 = icmp samesign ugt i32 %209, %210
-  br i1 %211, label %223, label %212
+201:                                              ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
+  %202 = ashr i32 %197, 1
+  %203 = and i32 %202, -2
+  %204 = tail call i32 @llvm.smax.i32(i32 %203, i32 0)
+  %205 = add nuw nsw i32 %204, 2
+  %206 = sub nsw i32 2147483647, %197
+  %207 = icmp samesign ugt i32 %205, %206
+  br i1 %207, label %215, label %208
 
-212:                                              ; preds = %205
-  %213 = load ptr, ptr %199, align 8, !tbaa !98
-  %214 = add nsw i32 %209, %201
-  store i32 %214, ptr %202, align 4, !tbaa !122
-  %215 = sext i32 %214 to i64
-  %216 = shl nsw i64 %215, 2
-  %217 = tail call ptr @realloc(ptr noundef %213, i64 noundef %216) #35
-  store ptr %217, ptr %199, align 8, !tbaa !98
-  %218 = icmp eq ptr %217, null
-  br i1 %218, label %219, label %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
+208:                                              ; preds = %201
+  %209 = load ptr, ptr %195, align 8, !tbaa !98
+  %210 = add nsw i32 %205, %197
+  store i32 %210, ptr %198, align 4, !tbaa !122
+  %211 = sext i32 %210 to i64
+  %212 = shl nsw i64 %211, 2
+  %213 = tail call ptr @realloc(ptr noundef %209, i64 noundef %212) #34
+  store ptr %213, ptr %195, align 8, !tbaa !98
+  %214 = icmp eq ptr %213, null
+  br i1 %214, label %215, label %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
 
-._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge:       ; preds = %212
-  %.pre163 = load i32, ptr %200, align 8, !tbaa !121
+._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge:       ; preds = %208
+  %.pre163 = load i32, ptr %196, align 8, !tbaa !121
   br label %_ZN6Gluco23vecIjE4pushERKj.exit
 
-219:                                              ; preds = %212
-  %220 = tail call ptr @__errno_location() #31
-  %221 = load i32, ptr %220, align 4, !tbaa !55
-  %222 = icmp eq i32 %221, 12
-  tail call void @llvm.assume(i1 %222)
-  br label %223
-
-223:                                              ; preds = %219, %205
+215:                                              ; preds = %208, %201
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIjE4pushERKj.exit:                  ; preds = %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
-  %224 = phi i32 [ %201, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre163, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
-  %225 = phi ptr [ %.pre.i84, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %217, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
-  %226 = add nsw i32 %224, 1
-  store i32 %226, ptr %200, align 8, !tbaa !121
-  %227 = sext i32 %224 to i64
-  %228 = getelementptr inbounds i32, ptr %225, i64 %227
-  store i32 %164, ptr %228, align 4, !tbaa !55
-  tail call void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %164)
+  %216 = phi i32 [ %197, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre163, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
+  %217 = phi ptr [ %.pre.i84, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %213, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
+  %218 = add nsw i32 %216, 1
+  store i32 %218, ptr %196, align 8, !tbaa !121
+  %219 = sext i32 %216 to i64
+  %220 = getelementptr inbounds i32, ptr %217, i64 %219
+  store i32 %160, ptr %220, align 4, !tbaa !55
+  tail call void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %160)
   br label %.critedge2
 
-.critedge2:                                       ; preds = %62, %_ZN6Gluco23vecIjE4pushERKj.exit, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit, %122
-  %.1 = phi i1 [ false, %122 ], [ %155, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit ], [ true, %_ZN6Gluco23vecIjE4pushERKj.exit ], [ true, %62 ]
+.critedge2:                                       ; preds = %58, %_ZN6Gluco23vecIjE4pushERKj.exit, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit, %118
+  %.1 = phi i1 [ false, %118 ], [ %151, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit ], [ true, %_ZN6Gluco23vecIjE4pushERKj.exit ], [ true, %58 ]
   %.not.i.i = icmp eq ptr %.sroa.093.0, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge2
-  tail call void @free(ptr noundef nonnull %.sroa.093.0) #33
+  tail call void @free(ptr noundef nonnull %.sroa.093.0) #32
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %.preheader.i.i, %.critedge2, %2
@@ -3145,7 +3068,7 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8
   br label %120
 
 120:                                              ; preds = %.lr.ph341, %._crit_edge334
-  %121 = phi i32 [ %107, %.lr.ph341 ], [ %379, %._crit_edge334 ]
+  %121 = phi i32 [ %107, %.lr.ph341 ], [ %371, %._crit_edge334 ]
   %.0111339 = phi i32 [ -1, %.lr.ph341 ], [ %.6117.lcssa, %._crit_edge334 ]
   %.0119338 = phi i32 [ 0, %.lr.ph341 ], [ %130, %._crit_edge334 ]
   %122 = add nsw i32 %121, 1
@@ -3432,7 +3355,7 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8
 
 ._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i: ; preds = %.critedge5.thread
   %.pre.i178 = load ptr, ptr %264, align 8, !tbaa !138
-  br label %288
+  br label %284
 
 270:                                              ; preds = %.critedge5.thread
   %271 = ashr i32 %266, 1
@@ -3449,195 +3372,181 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8
   store i32 %279, ptr %267, align 4, !tbaa !142
   %280 = sext i32 %279 to i64
   %281 = shl nsw i64 %280, 3
-  %282 = tail call ptr @realloc(ptr noundef %278, i64 noundef %281) #35
+  %282 = tail call ptr @realloc(ptr noundef %278, i64 noundef %281) #34
   store ptr %282, ptr %264, align 8, !tbaa !138
   %283 = icmp eq ptr %282, null
-  br i1 %283, label %284, label %._crit_edge380
+  br i1 %283, label %.loopexit, label %._crit_edge380
 
 ._crit_edge380:                                   ; preds = %277
   %.pre381 = load i32, ptr %265, align 8, !tbaa !141
-  br label %288
+  br label %284
 
-284:                                              ; preds = %277
-  %285 = tail call ptr @__errno_location() #31
-  %286 = load i32, ptr %285, align 4, !tbaa !55
-  %287 = icmp eq i32 %286, 12
-  tail call void @llvm.assume(i1 %287)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %270, %284
+.loopexit:                                        ; preds = %270, %277
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-288:                                              ; preds = %._crit_edge380, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i
-  %289 = phi i32 [ %266, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %.pre381, %._crit_edge380 ]
-  %290 = phi ptr [ %.pre.i178, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %282, %._crit_edge380 ]
-  %291 = add nsw i32 %289, 1
-  store i32 %291, ptr %265, align 8, !tbaa !141
-  %292 = sext i32 %289 to i64
-  %293 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %290, i64 %292
+284:                                              ; preds = %._crit_edge380, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i
+  %285 = phi i32 [ %266, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %.pre381, %._crit_edge380 ]
+  %286 = phi ptr [ %.pre.i178, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %282, %._crit_edge380 ]
+  %287 = add nsw i32 %285, 1
+  store i32 %287, ptr %265, align 8, !tbaa !141
+  %288 = sext i32 %285 to i64
+  %289 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %286, i64 %288
   %.sroa.7.0.insert.ext224 = zext i32 %213 to i64
   %.sroa.7.0.insert.shift225 = shl nuw i64 %.sroa.7.0.insert.ext224, 32
   %.sroa.0205.0.insert.insert213 = or disjoint i64 %.sroa.7.0.insert.shift225, %204
-  store i64 %.sroa.0205.0.insert.insert213, ptr %293, align 4
+  store i64 %.sroa.0205.0.insert.insert213, ptr %289, align 4
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
 
-294:                                              ; preds = %.lr.ph319
+290:                                              ; preds = %.lr.ph319
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
   %exitcond379.not = icmp eq i64 %indvars.iv.next376, %227
   br i1 %exitcond379.not, label %.thread260, label %.lr.ph319, !llvm.loop !168
 
-.lr.ph319:                                        ; preds = %.preheader, %294
-  %indvars.iv375 = phi i64 [ %indvars.iv.next376, %294 ], [ 2, %.preheader ]
-  %295 = getelementptr inbounds nuw %union.anon, ptr %206, i64 %indvars.iv375
-  %.sroa.08.0.copyload = load i32, ptr %295, align 4, !tbaa !55
-  %296 = ashr i32 %.sroa.08.0.copyload, 1
-  %297 = sext i32 %296 to i64
-  %298 = getelementptr inbounds %"class.Gluco2::lbool", ptr %190, i64 %297
-  %299 = load i8, ptr %298, align 1, !tbaa !150
-  %300 = trunc i32 %.sroa.08.0.copyload to i8
-  %301 = and i8 %300, 1
-  %302 = xor i8 %301, %299
-  %.not278 = icmp eq i8 %302, 1
-  br i1 %.not278, label %294, label %303
+.lr.ph319:                                        ; preds = %.preheader, %290
+  %indvars.iv375 = phi i64 [ %indvars.iv.next376, %290 ], [ 2, %.preheader ]
+  %291 = getelementptr inbounds nuw %union.anon, ptr %206, i64 %indvars.iv375
+  %.sroa.08.0.copyload = load i32, ptr %291, align 4, !tbaa !55
+  %292 = ashr i32 %.sroa.08.0.copyload, 1
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds %"class.Gluco2::lbool", ptr %190, i64 %293
+  %295 = load i8, ptr %294, align 1, !tbaa !150
+  %296 = trunc i32 %.sroa.08.0.copyload to i8
+  %297 = and i8 %296, 1
+  %298 = xor i8 %297, %295
+  %.not278 = icmp eq i8 %298, 1
+  br i1 %.not278, label %290, label %299
 
-303:                                              ; preds = %.lr.ph319
-  %304 = getelementptr inbounds nuw %union.anon, ptr %206, i64 %indvars.iv375
-  %305 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  store i32 %.sroa.08.0.copyload, ptr %305, align 4, !tbaa !55
-  store i32 %186, ptr %304, align 4, !tbaa !55
-  %.sroa.07.0.copyload = load i32, ptr %305, align 4, !tbaa !55
-  %306 = xor i32 %.sroa.07.0.copyload, 1
-  %307 = load ptr, ptr %2, align 8, !tbaa !135
-  %308 = sext i32 %306 to i64
-  %309 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %307, i64 %308
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %311 = load i32, ptr %310, align 8, !tbaa !141
-  %312 = getelementptr inbounds nuw i8, ptr %309, i64 12
-  %313 = load i32, ptr %312, align 4, !tbaa !142
-  %314 = icmp eq i32 %311, %313
-  br i1 %314, label %315, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181
+299:                                              ; preds = %.lr.ph319
+  %300 = getelementptr inbounds nuw %union.anon, ptr %206, i64 %indvars.iv375
+  %301 = getelementptr inbounds nuw i8, ptr %205, i64 16
+  store i32 %.sroa.08.0.copyload, ptr %301, align 4, !tbaa !55
+  store i32 %186, ptr %300, align 4, !tbaa !55
+  %.sroa.07.0.copyload = load i32, ptr %301, align 4, !tbaa !55
+  %302 = xor i32 %.sroa.07.0.copyload, 1
+  %303 = load ptr, ptr %2, align 8, !tbaa !135
+  %304 = sext i32 %302 to i64
+  %305 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %303, i64 %304
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  %307 = load i32, ptr %306, align 8, !tbaa !141
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 12
+  %309 = load i32, ptr %308, align 4, !tbaa !142
+  %310 = icmp eq i32 %307, %309
+  br i1 %310, label %311, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181
 
-._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181: ; preds = %303
-  %.pre.i182 = load ptr, ptr %309, align 8, !tbaa !138
-  br label %333
+._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181: ; preds = %299
+  %.pre.i182 = load ptr, ptr %305, align 8, !tbaa !138
+  br label %325
 
-315:                                              ; preds = %303
-  %316 = ashr i32 %311, 1
-  %317 = and i32 %316, -2
-  %318 = tail call i32 @llvm.smax.i32(i32 %317, i32 0)
-  %319 = add nuw nsw i32 %318, 2
-  %320 = sub nsw i32 2147483647, %311
-  %321 = icmp samesign ugt i32 %319, %320
-  br i1 %321, label %.loopexit280, label %322
+311:                                              ; preds = %299
+  %312 = ashr i32 %307, 1
+  %313 = and i32 %312, -2
+  %314 = tail call i32 @llvm.smax.i32(i32 %313, i32 0)
+  %315 = add nuw nsw i32 %314, 2
+  %316 = sub nsw i32 2147483647, %307
+  %317 = icmp samesign ugt i32 %315, %316
+  br i1 %317, label %.loopexit280, label %318
 
-322:                                              ; preds = %315
-  %323 = load ptr, ptr %309, align 8, !tbaa !138
-  %324 = add nsw i32 %319, %311
-  store i32 %324, ptr %312, align 4, !tbaa !142
-  %325 = sext i32 %324 to i64
-  %326 = shl nsw i64 %325, 3
-  %327 = tail call ptr @realloc(ptr noundef %323, i64 noundef %326) #35
-  store ptr %327, ptr %309, align 8, !tbaa !138
-  %328 = icmp eq ptr %327, null
-  br i1 %328, label %329, label %._crit_edge382
+318:                                              ; preds = %311
+  %319 = load ptr, ptr %305, align 8, !tbaa !138
+  %320 = add nsw i32 %315, %307
+  store i32 %320, ptr %308, align 4, !tbaa !142
+  %321 = sext i32 %320 to i64
+  %322 = shl nsw i64 %321, 3
+  %323 = tail call ptr @realloc(ptr noundef %319, i64 noundef %322) #34
+  store ptr %323, ptr %305, align 8, !tbaa !138
+  %324 = icmp eq ptr %323, null
+  br i1 %324, label %.loopexit280, label %._crit_edge382
 
-._crit_edge382:                                   ; preds = %322
-  %.pre383 = load i32, ptr %310, align 8, !tbaa !141
-  br label %333
+._crit_edge382:                                   ; preds = %318
+  %.pre383 = load i32, ptr %306, align 8, !tbaa !141
+  br label %325
 
-329:                                              ; preds = %322
-  %330 = tail call ptr @__errno_location() #31
-  %331 = load i32, ptr %330, align 4, !tbaa !55
-  %332 = icmp eq i32 %331, 12
-  tail call void @llvm.assume(i1 %332)
-  br label %.loopexit280
-
-.loopexit280:                                     ; preds = %315, %329
+.loopexit280:                                     ; preds = %311, %318
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-333:                                              ; preds = %._crit_edge382, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181
-  %334 = phi i32 [ %311, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181 ], [ %.pre383, %._crit_edge382 ]
-  %335 = phi ptr [ %.pre.i182, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181 ], [ %327, %._crit_edge382 ]
-  %336 = add nsw i32 %334, 1
-  store i32 %336, ptr %310, align 8, !tbaa !141
-  %337 = sext i32 %334 to i64
-  %338 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %335, i64 %337
+325:                                              ; preds = %._crit_edge382, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181
+  %326 = phi i32 [ %307, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181 ], [ %.pre383, %._crit_edge382 ]
+  %327 = phi ptr [ %.pre.i182, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i181 ], [ %323, %._crit_edge382 ]
+  %328 = add nsw i32 %326, 1
+  store i32 %328, ptr %306, align 8, !tbaa !141
+  %329 = sext i32 %326 to i64
+  %330 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %327, i64 %329
   %.sroa.7.0.insert.ext229 = zext i32 %213 to i64
   %.sroa.7.0.insert.shift230 = shl nuw i64 %.sroa.7.0.insert.ext229, 32
   %.sroa.0205.0.insert.insert217 = or disjoint i64 %.sroa.7.0.insert.shift230, %204
-  store i64 %.sroa.0205.0.insert.insert217, ptr %338, align 4
+  store i64 %.sroa.0205.0.insert.insert217, ptr %330, align 4
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
 
-.thread260:                                       ; preds = %242, %294, %.preheader279, %.preheader, %.critedge5
-  %339 = getelementptr inbounds nuw i8, ptr %.0126327, i64 8
+.thread260:                                       ; preds = %242, %290, %.preheader279, %.preheader, %.critedge5
+  %331 = getelementptr inbounds nuw i8, ptr %.0126327, i64 8
   %.sroa.7.0.insert.ext = zext i32 %213 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 32
   %.sroa.0205.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %204
   store i64 %.sroa.0205.0.insert.insert, ptr %.0126327, align 4
-  %340 = ashr i32 %213, 1
-  %341 = load ptr, ptr %111, align 8, !tbaa !132
-  %342 = sext i32 %340 to i64
-  %343 = getelementptr inbounds %"class.Gluco2::lbool", ptr %341, i64 %342
-  %344 = load i8, ptr %343, align 1, !tbaa !150
-  %345 = trunc i32 %213 to i8
-  %346 = and i8 %345, 1
-  %347 = xor i8 %344, %346
-  %348 = icmp eq i8 %347, 1
-  br i1 %348, label %349, label %356
+  %332 = ashr i32 %213, 1
+  %333 = load ptr, ptr %111, align 8, !tbaa !132
+  %334 = sext i32 %332 to i64
+  %335 = getelementptr inbounds %"class.Gluco2::lbool", ptr %333, i64 %334
+  %336 = load i8, ptr %335, align 1, !tbaa !150
+  %337 = trunc i32 %213 to i8
+  %338 = and i8 %337, 1
+  %339 = xor i8 %336, %338
+  %340 = icmp eq i8 %339, 1
+  br i1 %340, label %341, label %348
 
-349:                                              ; preds = %.thread260
-  %350 = load i32, ptr %106, align 8, !tbaa !113
-  store i32 %350, ptr %104, align 8, !tbaa !163
-  %351 = icmp ult ptr %214, %185
-  br i1 %351, label %.lr.ph323, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
+341:                                              ; preds = %.thread260
+  %342 = load i32, ptr %106, align 8, !tbaa !113
+  store i32 %342, ptr %104, align 8, !tbaa !163
+  %343 = icmp ult ptr %214, %185
+  br i1 %343, label %.lr.ph323, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
 
-.lr.ph323:                                        ; preds = %349, %.lr.ph323
-  %.4124321 = phi ptr [ %352, %.lr.ph323 ], [ %214, %349 ]
-  %.4130320 = phi ptr [ %353, %.lr.ph323 ], [ %339, %349 ]
-  %352 = getelementptr inbounds nuw i8, ptr %.4124321, i64 8
-  %353 = getelementptr inbounds nuw i8, ptr %.4130320, i64 8
-  %354 = load i64, ptr %.4124321, align 4
-  store i64 %354, ptr %.4130320, align 4
-  %355 = icmp ult ptr %352, %185
-  br i1 %355, label %.lr.ph323, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193, !llvm.loop !169
+.lr.ph323:                                        ; preds = %341, %.lr.ph323
+  %.4124321 = phi ptr [ %344, %.lr.ph323 ], [ %214, %341 ]
+  %.4130320 = phi ptr [ %345, %.lr.ph323 ], [ %331, %341 ]
+  %344 = getelementptr inbounds nuw i8, ptr %.4124321, i64 8
+  %345 = getelementptr inbounds nuw i8, ptr %.4130320, i64 8
+  %346 = load i64, ptr %.4124321, align 4
+  store i64 %346, ptr %.4130320, align 4
+  %347 = icmp ult ptr %344, %185
+  br i1 %347, label %.lr.ph323, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193, !llvm.loop !169
 
-356:                                              ; preds = %.thread260
-  %357 = load i32, ptr %110, align 8, !tbaa !104
-  %.not.i184 = icmp eq i32 %357, 0
-  br i1 %.not.i184, label %._crit_edge.i191, label %358
+348:                                              ; preds = %.thread260
+  %349 = load i32, ptr %110, align 8, !tbaa !104
+  %.not.i184 = icmp eq i32 %349, 0
+  br i1 %.not.i184, label %._crit_edge.i191, label %350
 
-358:                                              ; preds = %356
-  %359 = load i32, ptr %112, align 8, !tbaa !105
-  %360 = load ptr, ptr %113, align 8, !tbaa !98
-  %361 = getelementptr inbounds i32, ptr %360, i64 %342
-  %362 = load i32, ptr %361, align 4, !tbaa !55
-  %363 = icmp eq i32 %359, %362
-  br i1 %363, label %._crit_edge.i191, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
+350:                                              ; preds = %348
+  %351 = load i32, ptr %112, align 8, !tbaa !105
+  %352 = load ptr, ptr %113, align 8, !tbaa !98
+  %353 = getelementptr inbounds i32, ptr %352, i64 %334
+  %354 = load i32, ptr %353, align 4, !tbaa !55
+  %355 = icmp eq i32 %351, %354
+  br i1 %355, label %._crit_edge.i191, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
 
-._crit_edge.i191:                                 ; preds = %356, %358
-  store i8 %346, ptr %343, align 1, !tbaa !109
-  %364 = load i32, ptr %114, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i187 = zext i32 %364 to i64
+._crit_edge.i191:                                 ; preds = %348, %350
+  store i8 %338, ptr %335, align 1, !tbaa !109
+  %356 = load i32, ptr %114, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i187 = zext i32 %356 to i64
   %.sroa.2.0.insert.shift.i.i188 = shl nuw i64 %.sroa.2.0.insert.ext.i.i187, 32
   %.sroa.0.0.insert.insert.i.i190 = or disjoint i64 %.sroa.2.0.insert.shift.i.i188, %204
-  %365 = load ptr, ptr %115, align 8, !tbaa !129
-  %366 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %365, i64 %342
-  store i64 %.sroa.0.0.insert.insert.i.i190, ptr %366, align 4
-  %367 = load ptr, ptr %105, align 8, !tbaa !112
-  %368 = load i32, ptr %106, align 8, !tbaa !113
-  %369 = add nsw i32 %368, 1
-  store i32 %369, ptr %106, align 8, !tbaa !113
-  %370 = sext i32 %368 to i64
-  %371 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %367, i64 %370
-  store i32 %213, ptr %371, align 4, !tbaa !55
+  %357 = load ptr, ptr %115, align 8, !tbaa !129
+  %358 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %357, i64 %334
+  store i64 %.sroa.0.0.insert.insert.i.i190, ptr %358, align 4
+  %359 = load ptr, ptr %105, align 8, !tbaa !112
+  %360 = load i32, ptr %106, align 8, !tbaa !113
+  %361 = add nsw i32 %360, 1
+  store i32 %361, ptr %106, align 8, !tbaa !113
+  %362 = sext i32 %360 to i64
+  %363 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %359, i64 %362
+  store i32 %213, ptr %363, align 4, !tbaa !55
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193
 
-_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193: ; preds = %.lr.ph323, %349, %223, %288, %333, %358, %._crit_edge.i191, %197
-  %.1127 = phi ptr [ %199, %197 ], [ %224, %223 ], [ %.0126327, %288 ], [ %.0126327, %333 ], [ %339, %358 ], [ %339, %._crit_edge.i191 ], [ %339, %349 ], [ %353, %.lr.ph323 ]
-  %.1121 = phi ptr [ %198, %197 ], [ %214, %223 ], [ %214, %288 ], [ %214, %333 ], [ %214, %358 ], [ %214, %._crit_edge.i191 ], [ %214, %349 ], [ %352, %.lr.ph323 ]
-  %.7118 = phi i32 [ %.6117330, %197 ], [ %.6117330, %223 ], [ %.6117330, %288 ], [ %.6117330, %333 ], [ %.6117330, %358 ], [ %.6117330, %._crit_edge.i191 ], [ %202, %349 ], [ %202, %.lr.ph323 ]
+_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193: ; preds = %.lr.ph323, %341, %223, %284, %325, %350, %._crit_edge.i191, %197
+  %.1127 = phi ptr [ %199, %197 ], [ %224, %223 ], [ %.0126327, %284 ], [ %.0126327, %325 ], [ %331, %350 ], [ %331, %._crit_edge.i191 ], [ %331, %341 ], [ %345, %.lr.ph323 ]
+  %.1121 = phi ptr [ %198, %197 ], [ %214, %223 ], [ %214, %284 ], [ %214, %325 ], [ %214, %350 ], [ %214, %._crit_edge.i191 ], [ %214, %341 ], [ %344, %.lr.ph323 ]
+  %.7118 = phi i32 [ %.6117330, %197 ], [ %.6117330, %223 ], [ %.6117330, %284 ], [ %.6117330, %325 ], [ %.6117330, %350 ], [ %.6117330, %._crit_edge.i191 ], [ %202, %341 ], [ %202, %.lr.ph323 ]
   %.not146 = icmp eq ptr %.1121, %185
   br i1 %.not146, label %._crit_edge334.loopexit, label %187
 
@@ -3646,37 +3555,37 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit193: ; preds = %.lr.ph323, %34
   br label %._crit_edge334
 
 ._crit_edge334:                                   ; preds = %._crit_edge334.loopexit, %._crit_edge
-  %372 = phi i32 [ 0, %._crit_edge ], [ %.pre384, %._crit_edge334.loopexit ]
+  %364 = phi i32 [ 0, %._crit_edge ], [ %.pre384, %._crit_edge334.loopexit ]
   %.0126.lcssa = phi ptr [ %181, %._crit_edge ], [ %.1127, %._crit_edge334.loopexit ]
   %.0120.lcssa = phi ptr [ %181, %._crit_edge ], [ %185, %._crit_edge334.loopexit ]
   %.6117.lcssa = phi i32 [ %.1112, %._crit_edge ], [ %.7118, %._crit_edge334.loopexit ]
-  %373 = ptrtoint ptr %.0120.lcssa to i64
-  %374 = ptrtoint ptr %.0126.lcssa to i64
-  %375 = sub i64 %373, %374
-  %376 = lshr exact i64 %375, 3
-  %377 = trunc i64 %376 to i32
-  %378 = sub nsw i32 %372, %377
-  store i32 %378, ptr %182, align 8, !tbaa !141
-  %379 = load i32, ptr %104, align 8, !tbaa !163
-  %380 = load i32, ptr %106, align 8, !tbaa !113
-  %381 = icmp slt i32 %379, %380
-  br i1 %381, label %120, label %._crit_edge342.loopexit, !llvm.loop !170
+  %365 = ptrtoint ptr %.0120.lcssa to i64
+  %366 = ptrtoint ptr %.0126.lcssa to i64
+  %367 = sub i64 %365, %366
+  %368 = lshr exact i64 %367, 3
+  %369 = trunc i64 %368 to i32
+  %370 = sub nsw i32 %364, %369
+  store i32 %370, ptr %182, align 8, !tbaa !141
+  %371 = load i32, ptr %104, align 8, !tbaa !163
+  %372 = load i32, ptr %106, align 8, !tbaa !113
+  %373 = icmp slt i32 %371, %372
+  br i1 %373, label %120, label %._crit_edge342.loopexit, !llvm.loop !170
 
 ._crit_edge342.loopexit:                          ; preds = %._crit_edge334
-  %382 = zext nneg i32 %130 to i64
+  %374 = zext nneg i32 %130 to i64
   br label %._crit_edge342
 
 ._crit_edge342:                                   ; preds = %._crit_edge342.loopexit, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8cleanAllEv.exit169
-  %.0119.lcssa = phi i64 [ 0, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8cleanAllEv.exit169 ], [ %382, %._crit_edge342.loopexit ]
+  %.0119.lcssa = phi i64 [ 0, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8cleanAllEv.exit169 ], [ %374, %._crit_edge342.loopexit ]
   %.0111.lcssa = phi i32 [ -1, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE8cleanAllEv.exit169 ], [ %.6117.lcssa, %._crit_edge342.loopexit ]
-  %383 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %384 = load i64, ptr %383, align 8, !tbaa !171
-  %385 = add nsw i64 %384, %.0119.lcssa
-  store i64 %385, ptr %383, align 8, !tbaa !171
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %387 = load i64, ptr %386, align 8, !tbaa !172
-  %388 = sub nsw i64 %387, %.0119.lcssa
-  store i64 %388, ptr %386, align 8, !tbaa !172
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %376 = load i64, ptr %375, align 8, !tbaa !171
+  %377 = add nsw i64 %376, %.0119.lcssa
+  store i64 %377, ptr %375, align 8, !tbaa !171
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 752
+  %379 = load i64, ptr %378, align 8, !tbaa !172
+  %380 = sub nsw i64 %379, %.0119.lcssa
+  store i64 %380, ptr %378, align 8, !tbaa !172
   br label %.thread267
 
 .thread267:                                       ; preds = %135, %179, %._crit_edge342
@@ -3699,7 +3608,7 @@ define void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 captu
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload.i25 = load i32, ptr %12, align 4, !tbaa !55
-  br i1 %8, label %13, label %77
+  br i1 %8, label %13, label %69
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -3723,7 +3632,7 @@ define void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 captu
   %26 = add nuw nsw i32 %25, 2
   %27 = sub nsw i32 2147483647, %18
   %28 = icmp samesign ugt i32 %26, %27
-  br i1 %28, label %40, label %29
+  br i1 %28, label %36, label %29
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %16, align 8, !tbaa !138
@@ -3731,7 +3640,7 @@ define void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 captu
   store i32 %31, ptr %19, align 4, !tbaa !142
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 3
-  %34 = tail call ptr @realloc(ptr noundef %30, i64 noundef %33) #35
+  %34 = tail call ptr @realloc(ptr noundef %30, i64 noundef %33) #34
   store ptr %34, ptr %16, align 8, !tbaa !138
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit_crit_edge
@@ -3740,226 +3649,198 @@ define void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 captu
   %.pre55 = load i32, ptr %17, align 8, !tbaa !141
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit
 
-36:                                               ; preds = %29
-  %37 = tail call ptr @__errno_location() #31
-  %38 = load i32, ptr %37, align 4, !tbaa !55
-  %39 = icmp eq i32 %38, 12
-  tail call void @llvm.assume(i1 %39)
-  br label %40
-
-40:                                               ; preds = %36, %22
+36:                                               ; preds = %29, %22
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit: ; preds = %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit_crit_edge, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i
-  %41 = phi i32 [ %18, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %.pre55, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit_crit_edge ]
-  %42 = phi ptr [ %.pre.i, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %34, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit_crit_edge ]
-  %43 = add nsw i32 %41, 1
-  store i32 %43, ptr %17, align 8, !tbaa !141
-  %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %42, i64 %44
+  %37 = phi i32 [ %18, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %.pre55, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit_crit_edge ]
+  %38 = phi ptr [ %.pre.i, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i ], [ %34, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit_crit_edge ]
+  %39 = add nsw i32 %37, 1
+  store i32 %39, ptr %17, align 8, !tbaa !141
+  %40 = sext i32 %37 to i64
+  %41 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %38, i64 %40
   %.sroa.452.0.insert.ext = zext i32 %.sroa.0.0.copyload.i25 to i64
   %.sroa.452.0.insert.shift = shl nuw i64 %.sroa.452.0.insert.ext, 32
   %.sroa.051.0.insert.insert = or disjoint i64 %.sroa.452.0.insert.shift, %5
-  store i64 %.sroa.051.0.insert.insert, ptr %45, align 4
+  store i64 %.sroa.051.0.insert.insert, ptr %41, align 4
   %.sroa.0.0.copyload.i26 = load i32, ptr %12, align 4, !tbaa !55
-  %46 = xor i32 %.sroa.0.0.copyload.i26, 1
-  %47 = load ptr, ptr %14, align 8, !tbaa !135
-  %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %47, i64 %48
+  %42 = xor i32 %.sroa.0.0.copyload.i26, 1
+  %43 = load ptr, ptr %14, align 8, !tbaa !135
+  %44 = sext i32 %42 to i64
+  %45 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %43, i64 %44
   %.sroa.0.0.copyload.i28 = load i32, ptr %9, align 4, !tbaa !55
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !141
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !142
-  %54 = icmp eq i32 %51, %53
-  br i1 %54, label %55, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !141
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  %49 = load i32, ptr %48, align 4, !tbaa !142
+  %50 = icmp eq i32 %47, %49
+  br i1 %50, label %51, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29
 
 ._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29: ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit
-  %.pre.i30 = load ptr, ptr %49, align 8, !tbaa !138
+  %.pre.i30 = load ptr, ptr %45, align 8, !tbaa !138
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31
 
-55:                                               ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit
-  %56 = ashr i32 %51, 1
-  %57 = and i32 %56, -2
-  %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 0)
-  %59 = add nuw nsw i32 %58, 2
-  %60 = sub nsw i32 2147483647, %51
-  %61 = icmp samesign ugt i32 %59, %60
-  br i1 %61, label %73, label %62
+51:                                               ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit
+  %52 = ashr i32 %47, 1
+  %53 = and i32 %52, -2
+  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
+  %55 = add nuw nsw i32 %54, 2
+  %56 = sub nsw i32 2147483647, %47
+  %57 = icmp samesign ugt i32 %55, %56
+  br i1 %57, label %65, label %58
 
-62:                                               ; preds = %55
-  %63 = load ptr, ptr %49, align 8, !tbaa !138
-  %64 = add nsw i32 %59, %51
-  store i32 %64, ptr %52, align 4, !tbaa !142
-  %65 = sext i32 %64 to i64
-  %66 = shl nsw i64 %65, 3
-  %67 = tail call ptr @realloc(ptr noundef %63, i64 noundef %66) #35
-  store ptr %67, ptr %49, align 8, !tbaa !138
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %69, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge
+58:                                               ; preds = %51
+  %59 = load ptr, ptr %45, align 8, !tbaa !138
+  %60 = add nsw i32 %55, %47
+  store i32 %60, ptr %48, align 4, !tbaa !142
+  %61 = sext i32 %60 to i64
+  %62 = shl nsw i64 %61, 3
+  %63 = tail call ptr @realloc(ptr noundef %59, i64 noundef %62) #34
+  store ptr %63, ptr %45, align 8, !tbaa !138
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge
 
-._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge: ; preds = %62
-  %.pre56 = load i32, ptr %50, align 8, !tbaa !141
+._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge: ; preds = %58
+  %.pre56 = load i32, ptr %46, align 8, !tbaa !141
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31
 
-69:                                               ; preds = %62
-  %70 = tail call ptr @__errno_location() #31
-  %71 = load i32, ptr %70, align 4, !tbaa !55
-  %72 = icmp eq i32 %71, 12
-  tail call void @llvm.assume(i1 %72)
-  br label %73
-
-73:                                               ; preds = %69, %55
+65:                                               ; preds = %58, %51
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31: ; preds = %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29
-  %74 = phi i32 [ %51, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29 ], [ %.pre56, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge ]
-  %75 = phi ptr [ %.pre.i30, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29 ], [ %67, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge ]
-  %76 = add nsw i32 %74, 1
-  store i32 %76, ptr %50, align 8, !tbaa !141
-  br label %141
+  %66 = phi i32 [ %47, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29 ], [ %.pre56, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge ]
+  %67 = phi ptr [ %.pre.i30, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i29 ], [ %63, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31_crit_edge ]
+  %68 = add nsw i32 %66, 1
+  store i32 %68, ptr %46, align 8, !tbaa !141
+  br label %125
 
-77:                                               ; preds = %2
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %79 = load ptr, ptr %78, align 8, !tbaa !135
-  %80 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %79, i64 %11
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !141
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 12
-  %84 = load i32, ptr %83, align 4, !tbaa !142
-  %85 = icmp eq i32 %82, %84
-  br i1 %85, label %86, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35
+69:                                               ; preds = %2
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %71 = load ptr, ptr %70, align 8, !tbaa !135
+  %72 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %71, i64 %11
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load i32, ptr %73, align 8, !tbaa !141
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  %76 = load i32, ptr %75, align 4, !tbaa !142
+  %77 = icmp eq i32 %74, %76
+  br i1 %77, label %78, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35
 
-._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35: ; preds = %77
-  %.pre.i36 = load ptr, ptr %80, align 8, !tbaa !138
+._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35: ; preds = %69
+  %.pre.i36 = load ptr, ptr %72, align 8, !tbaa !138
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37
 
-86:                                               ; preds = %77
-  %87 = ashr i32 %82, 1
-  %88 = and i32 %87, -2
-  %89 = tail call i32 @llvm.smax.i32(i32 %88, i32 0)
-  %90 = add nuw nsw i32 %89, 2
-  %91 = sub nsw i32 2147483647, %82
-  %92 = icmp samesign ugt i32 %90, %91
-  br i1 %92, label %104, label %93
+78:                                               ; preds = %69
+  %79 = ashr i32 %74, 1
+  %80 = and i32 %79, -2
+  %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
+  %82 = add nuw nsw i32 %81, 2
+  %83 = sub nsw i32 2147483647, %74
+  %84 = icmp samesign ugt i32 %82, %83
+  br i1 %84, label %92, label %85
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %80, align 8, !tbaa !138
-  %95 = add nsw i32 %90, %82
-  store i32 %95, ptr %83, align 4, !tbaa !142
-  %96 = sext i32 %95 to i64
-  %97 = shl nsw i64 %96, 3
-  %98 = tail call ptr @realloc(ptr noundef %94, i64 noundef %97) #35
-  store ptr %98, ptr %80, align 8, !tbaa !138
-  %99 = icmp eq ptr %98, null
-  br i1 %99, label %100, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge
+85:                                               ; preds = %78
+  %86 = load ptr, ptr %72, align 8, !tbaa !138
+  %87 = add nsw i32 %82, %74
+  store i32 %87, ptr %75, align 4, !tbaa !142
+  %88 = sext i32 %87 to i64
+  %89 = shl nsw i64 %88, 3
+  %90 = tail call ptr @realloc(ptr noundef %86, i64 noundef %89) #34
+  store ptr %90, ptr %72, align 8, !tbaa !138
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge
 
-._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge: ; preds = %93
-  %.pre = load i32, ptr %81, align 8, !tbaa !141
+._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge: ; preds = %85
+  %.pre = load i32, ptr %73, align 8, !tbaa !141
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37
 
-100:                                              ; preds = %93
-  %101 = tail call ptr @__errno_location() #31
-  %102 = load i32, ptr %101, align 4, !tbaa !55
-  %103 = icmp eq i32 %102, 12
-  tail call void @llvm.assume(i1 %103)
-  br label %104
-
-104:                                              ; preds = %100, %86
+92:                                               ; preds = %85, %78
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37: ; preds = %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35
-  %105 = phi i32 [ %82, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35 ], [ %.pre, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge ]
-  %106 = phi ptr [ %.pre.i36, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35 ], [ %98, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge ]
-  %107 = add nsw i32 %105, 1
-  store i32 %107, ptr %81, align 8, !tbaa !141
-  %108 = sext i32 %105 to i64
-  %109 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %106, i64 %108
+  %93 = phi i32 [ %74, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35 ], [ %.pre, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge ]
+  %94 = phi ptr [ %.pre.i36, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i35 ], [ %90, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37_crit_edge ]
+  %95 = add nsw i32 %93, 1
+  store i32 %95, ptr %73, align 8, !tbaa !141
+  %96 = sext i32 %93 to i64
+  %97 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %94, i64 %96
   %.sroa.446.0.insert.ext = zext i32 %.sroa.0.0.copyload.i25 to i64
   %.sroa.446.0.insert.shift = shl nuw i64 %.sroa.446.0.insert.ext, 32
   %.sroa.045.0.insert.insert = or disjoint i64 %.sroa.446.0.insert.shift, %5
-  store i64 %.sroa.045.0.insert.insert, ptr %109, align 4
+  store i64 %.sroa.045.0.insert.insert, ptr %97, align 4
   %.sroa.0.0.copyload.i38 = load i32, ptr %12, align 4, !tbaa !55
-  %110 = xor i32 %.sroa.0.0.copyload.i38, 1
-  %111 = load ptr, ptr %78, align 8, !tbaa !135
-  %112 = sext i32 %110 to i64
-  %113 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %111, i64 %112
+  %98 = xor i32 %.sroa.0.0.copyload.i38, 1
+  %99 = load ptr, ptr %70, align 8, !tbaa !135
+  %100 = sext i32 %98 to i64
+  %101 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %99, i64 %100
   %.sroa.0.0.copyload.i40 = load i32, ptr %9, align 4, !tbaa !55
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %115 = load i32, ptr %114, align 8, !tbaa !141
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 12
-  %117 = load i32, ptr %116, align 4, !tbaa !142
-  %118 = icmp eq i32 %115, %117
-  br i1 %118, label %119, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load i32, ptr %102, align 8, !tbaa !141
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 12
+  %105 = load i32, ptr %104, align 4, !tbaa !142
+  %106 = icmp eq i32 %103, %105
+  br i1 %106, label %107, label %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41
 
 ._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41: ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37
-  %.pre.i42 = load ptr, ptr %113, align 8, !tbaa !138
+  %.pre.i42 = load ptr, ptr %101, align 8, !tbaa !138
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43
 
-119:                                              ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37
-  %120 = ashr i32 %115, 1
-  %121 = and i32 %120, -2
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
-  %123 = add nuw nsw i32 %122, 2
-  %124 = sub nsw i32 2147483647, %115
-  %125 = icmp samesign ugt i32 %123, %124
-  br i1 %125, label %137, label %126
+107:                                              ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit37
+  %108 = ashr i32 %103, 1
+  %109 = and i32 %108, -2
+  %110 = tail call i32 @llvm.smax.i32(i32 %109, i32 0)
+  %111 = add nuw nsw i32 %110, 2
+  %112 = sub nsw i32 2147483647, %103
+  %113 = icmp samesign ugt i32 %111, %112
+  br i1 %113, label %121, label %114
 
-126:                                              ; preds = %119
-  %127 = load ptr, ptr %113, align 8, !tbaa !138
-  %128 = add nsw i32 %123, %115
-  store i32 %128, ptr %116, align 4, !tbaa !142
-  %129 = sext i32 %128 to i64
-  %130 = shl nsw i64 %129, 3
-  %131 = tail call ptr @realloc(ptr noundef %127, i64 noundef %130) #35
-  store ptr %131, ptr %113, align 8, !tbaa !138
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge
+114:                                              ; preds = %107
+  %115 = load ptr, ptr %101, align 8, !tbaa !138
+  %116 = add nsw i32 %111, %103
+  store i32 %116, ptr %104, align 4, !tbaa !142
+  %117 = sext i32 %116 to i64
+  %118 = shl nsw i64 %117, 3
+  %119 = tail call ptr @realloc(ptr noundef %115, i64 noundef %118) #34
+  store ptr %119, ptr %101, align 8, !tbaa !138
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %121, label %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge
 
-._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge: ; preds = %126
-  %.pre54 = load i32, ptr %114, align 8, !tbaa !141
+._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge: ; preds = %114
+  %.pre54 = load i32, ptr %102, align 8, !tbaa !141
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43
 
-133:                                              ; preds = %126
-  %134 = tail call ptr @__errno_location() #31
-  %135 = load i32, ptr %134, align 4, !tbaa !55
-  %136 = icmp eq i32 %135, 12
-  tail call void @llvm.assume(i1 %136)
-  br label %137
-
-137:                                              ; preds = %133, %119
+121:                                              ; preds = %114, %107
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43: ; preds = %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41
-  %138 = phi i32 [ %115, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41 ], [ %.pre54, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge ]
-  %139 = phi ptr [ %.pre.i42, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41 ], [ %131, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge ]
-  %140 = add nsw i32 %138, 1
-  store i32 %140, ptr %114, align 8, !tbaa !141
-  br label %141
+  %122 = phi i32 [ %103, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41 ], [ %.pre54, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge ]
+  %123 = phi ptr [ %.pre.i42, %._ZN6Gluco23vecINS_6Solver7WatcherEE8capacityEi.exit_crit_edge.i41 ], [ %119, %._ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43_crit_edge ]
+  %124 = add nsw i32 %122, 1
+  store i32 %124, ptr %102, align 8, !tbaa !141
+  br label %125
 
-141:                                              ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31
-  %.sink = phi i32 [ %138, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43 ], [ %74, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31 ]
-  %.sink71 = phi ptr [ %139, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43 ], [ %75, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31 ]
+125:                                              ; preds = %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31
+  %.sink = phi i32 [ %122, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43 ], [ %66, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31 ]
+  %.sink71 = phi ptr [ %123, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43 ], [ %67, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31 ]
   %.sroa.0.0.copyload.i40.sink = phi i32 [ %.sroa.0.0.copyload.i40, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit43 ], [ %.sroa.0.0.copyload.i28, %_ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31 ]
-  %142 = sext i32 %.sink to i64
-  %143 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %.sink71, i64 %142
+  %126 = sext i32 %.sink to i64
+  %127 = getelementptr inbounds %"struct.Gluco2::Solver::Watcher", ptr %.sink71, i64 %126
   %.sroa.4.0.insert.ext = zext i32 %.sroa.0.0.copyload.i40.sink to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %5
-  store i64 %.sroa.0.0.insert.insert, ptr %143, align 4
-  %144 = load i64, ptr %6, align 4
-  %145 = and i64 %144, 4
-  %.not = icmp eq i64 %145, 0
+  store i64 %.sroa.0.0.insert.insert, ptr %127, align 4
+  %128 = load i64, ptr %6, align 4
+  %129 = and i64 %128, 4
+  %.not = icmp eq i64 %129, 0
   %. = select i1 %.not, i64 408, i64 416
-  %146 = ashr i64 %144, 32
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %148 = load i64, ptr %147, align 8, !tbaa !173
-  %149 = add nsw i64 %148, %146
-  store i64 %149, ptr %147, align 8, !tbaa !173
+  %130 = ashr i64 %128, 32
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %132 = load i64, ptr %131, align 8, !tbaa !173
+  %133 = add nsw i64 %132, %130
+  store i64 %133, ptr %131, align 8, !tbaa !173
   ret void
 }
 
@@ -3972,7 +3853,7 @@ define void @_ZN6Gluco26Solver12detachClauseEjb(ptr noundef nonnull align 8 capt
   %8 = load i64, ptr %7, align 4
   %.mask = and i64 %8, -4294967296
   %9 = icmp eq i64 %.mask, 8589934592
-  br i1 %9, label %10, label %143
+  br i1 %9, label %10, label %135
 
 10:                                               ; preds = %3
   br i1 %2, label %11, label %65
@@ -4144,7 +4025,7 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57: ; preds =
   %85 = add nuw nsw i32 %84, 2
   %86 = sub nsw i32 2147483647, %77
   %87 = icmp samesign ugt i32 %85, %86
-  br i1 %87, label %99, label %88
+  br i1 %87, label %95, label %88
 
 88:                                               ; preds = %81
   %89 = load ptr, ptr %75, align 8, !tbaa !112
@@ -4152,7 +4033,7 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57: ; preds =
   store i32 %90, ptr %78, align 4, !tbaa !114
   %91 = sext i32 %90 to i64
   %92 = shl nsw i64 %91, 2
-  %93 = tail call ptr @realloc(ptr noundef %89, i64 noundef %92) #35
+  %93 = tail call ptr @realloc(ptr noundef %89, i64 noundef %92) #34
   store ptr %93, ptr %75, align 8, !tbaa !112
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i
@@ -4161,387 +4042,359 @@ _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57: ; preds =
   %.pre.i = load i32, ptr %76, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
 
-95:                                               ; preds = %88
-  %96 = tail call ptr @__errno_location() #31
-  %97 = load i32, ptr %96, align 4, !tbaa !55
-  %98 = icmp eq i32 %97, 12
-  tail call void @llvm.assume(i1 %98)
-  br label %99
-
-99:                                               ; preds = %95, %81
+95:                                               ; preds = %88, %81
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i:       ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i
-  %100 = phi i32 [ %77, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i ], [ %.pre.i, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ]
-  %101 = phi ptr [ %.pre.i.i, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i ], [ %93, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ]
-  %102 = add nsw i32 %100, 1
-  store i32 %102, ptr %76, align 8, !tbaa !113
-  %103 = sext i32 %100 to i64
-  %104 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %101, i64 %103
-  store i32 %67, ptr %104, align 4, !tbaa !55
+  %96 = phi i32 [ %77, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i ], [ %.pre.i, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ]
+  %97 = phi ptr [ %.pre.i.i, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i ], [ %93, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ]
+  %98 = add nsw i32 %96, 1
+  store i32 %98, ptr %76, align 8, !tbaa !113
+  %99 = sext i32 %96 to i64
+  %100 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %97, i64 %99
+  store i32 %67, ptr %100, align 4, !tbaa !55
   %.pre154 = load ptr, ptr %68, align 8, !tbaa !126
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit
 
 _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit: ; preds = %65, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
-  %105 = phi ptr [ %69, %65 ], [ %.pre154, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
-  %106 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.0.0.copyload.i59 = load i32, ptr %106, align 4, !tbaa !55
-  %107 = xor i32 %.sroa.0.0.copyload.i59, 1
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %105, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !109
-  %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
+  %101 = phi ptr [ %69, %65 ], [ %.pre154, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.0.0.copyload.i59 = load i32, ptr %102, align 4, !tbaa !55
+  %103 = xor i32 %.sroa.0.0.copyload.i59, 1
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i8, ptr %101, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !109
+  %107 = icmp eq i8 %106, 0
+  br i1 %107, label %108, label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
 
-112:                                              ; preds = %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit
-  store i8 1, ptr %109, align 1, !tbaa !109
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %115 = load i32, ptr %114, align 8, !tbaa !113
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %117 = load i32, ptr %116, align 4, !tbaa !114
-  %118 = icmp eq i32 %115, %117
-  br i1 %118, label %119, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61
+108:                                              ; preds = %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit
+  store i8 1, ptr %105, align 1, !tbaa !109
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 576
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %111 = load i32, ptr %110, align 8, !tbaa !113
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %113 = load i32, ptr %112, align 4, !tbaa !114
+  %114 = icmp eq i32 %111, %113
+  br i1 %114, label %115, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61: ; preds = %112
-  %.pre.i.i62 = load ptr, ptr %113, align 8, !tbaa !112
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61: ; preds = %108
+  %.pre.i.i62 = load ptr, ptr %109, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63
 
-119:                                              ; preds = %112
-  %120 = ashr i32 %115, 1
-  %121 = and i32 %120, -2
-  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
-  %123 = add nuw nsw i32 %122, 2
-  %124 = sub nsw i32 2147483647, %115
-  %125 = icmp samesign ugt i32 %123, %124
-  br i1 %125, label %137, label %126
+115:                                              ; preds = %108
+  %116 = ashr i32 %111, 1
+  %117 = and i32 %116, -2
+  %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 0)
+  %119 = add nuw nsw i32 %118, 2
+  %120 = sub nsw i32 2147483647, %111
+  %121 = icmp samesign ugt i32 %119, %120
+  br i1 %121, label %129, label %122
 
-126:                                              ; preds = %119
-  %127 = load ptr, ptr %113, align 8, !tbaa !112
-  %128 = add nsw i32 %123, %115
-  store i32 %128, ptr %116, align 4, !tbaa !114
-  %129 = sext i32 %128 to i64
-  %130 = shl nsw i64 %129, 2
-  %131 = tail call ptr @realloc(ptr noundef %127, i64 noundef %130) #35
-  store ptr %131, ptr %113, align 8, !tbaa !112
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64
+122:                                              ; preds = %115
+  %123 = load ptr, ptr %109, align 8, !tbaa !112
+  %124 = add nsw i32 %119, %111
+  store i32 %124, ptr %112, align 4, !tbaa !114
+  %125 = sext i32 %124 to i64
+  %126 = shl nsw i64 %125, 2
+  %127 = tail call ptr @realloc(ptr noundef %123, i64 noundef %126) #34
+  store ptr %127, ptr %109, align 8, !tbaa !112
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %129, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64: ; preds = %126
-  %.pre.i65 = load i32, ptr %114, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64: ; preds = %122
+  %.pre.i65 = load i32, ptr %110, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63
 
-133:                                              ; preds = %126
-  %134 = tail call ptr @__errno_location() #31
-  %135 = load i32, ptr %134, align 4, !tbaa !55
-  %136 = icmp eq i32 %135, 12
-  tail call void @llvm.assume(i1 %136)
-  br label %137
-
-137:                                              ; preds = %133, %119
+129:                                              ; preds = %122, %115
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63:     ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61
-  %138 = phi i32 [ %115, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61 ], [ %.pre.i65, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64 ]
-  %139 = phi ptr [ %.pre.i.i62, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61 ], [ %131, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64 ]
-  %140 = add nsw i32 %138, 1
-  store i32 %140, ptr %114, align 8, !tbaa !113
-  %141 = sext i32 %138 to i64
-  %142 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %139, i64 %141
-  store i32 %107, ptr %142, align 4, !tbaa !55
+  %130 = phi i32 [ %111, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61 ], [ %.pre.i65, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64 ]
+  %131 = phi ptr [ %.pre.i.i62, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i61 ], [ %127, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i64 ]
+  %132 = add nsw i32 %130, 1
+  store i32 %132, ptr %110, align 8, !tbaa !113
+  %133 = sext i32 %130 to i64
+  %134 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %131, i64 %133
+  store i32 %103, ptr %134, align 4, !tbaa !55
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
 
-143:                                              ; preds = %3
-  br i1 %2, label %144, label %198
+135:                                              ; preds = %3
+  br i1 %2, label %136, label %190
 
-144:                                              ; preds = %143
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %146 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %.sroa.0.0.copyload.i67 = load i32, ptr %146, align 4, !tbaa !55
-  %147 = xor i32 %.sroa.0.0.copyload.i67, 1
-  %148 = load ptr, ptr %145, align 8, !tbaa !135
-  %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %148, i64 %149
-  %151 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  %153 = load i32, ptr %152, align 8, !tbaa !141
-  %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %.lr.ph.i77, label %.critedge.i70
+136:                                              ; preds = %135
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %138 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sroa.0.0.copyload.i67 = load i32, ptr %138, align 4, !tbaa !55
+  %139 = xor i32 %.sroa.0.0.copyload.i67, 1
+  %140 = load ptr, ptr %137, align 8, !tbaa !135
+  %141 = sext i32 %139 to i64
+  %142 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %140, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %145 = load i32, ptr %144, align 8, !tbaa !141
+  %146 = icmp sgt i32 %145, 0
+  br i1 %146, label %.lr.ph.i77, label %.critedge.i70
 
-.lr.ph.i77:                                       ; preds = %144
-  %155 = load ptr, ptr %150, align 8, !tbaa !138
-  %wide.trip.count.i78 = zext nneg i32 %153 to i64
-  br label %156
+.lr.ph.i77:                                       ; preds = %136
+  %147 = load ptr, ptr %142, align 8, !tbaa !138
+  %wide.trip.count.i78 = zext nneg i32 %145 to i64
+  br label %148
 
-156:                                              ; preds = %159, %.lr.ph.i77
-  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.i77 ], [ %indvars.iv.next.i81, %159 ]
-  %157 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %155, i64 %indvars.iv.i79
-  %158 = load i32, ptr %157, align 4, !tbaa !158
-  %.not.i80 = icmp eq i32 %158, %1
-  br i1 %.not.i80, label %.critedge.loopexit.i84, label %159
+148:                                              ; preds = %151, %.lr.ph.i77
+  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.i77 ], [ %indvars.iv.next.i81, %151 ]
+  %149 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %147, i64 %indvars.iv.i79
+  %150 = load i32, ptr %149, align 4, !tbaa !158
+  %.not.i80 = icmp eq i32 %150, %1
+  br i1 %.not.i80, label %.critedge.loopexit.i84, label %151
 
-159:                                              ; preds = %156
+151:                                              ; preds = %148
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i78
-  br i1 %exitcond.not.i82, label %.critedge.thread.i83, label %156, !llvm.loop !174
+  br i1 %exitcond.not.i82, label %.critedge.thread.i83, label %148, !llvm.loop !174
 
-.critedge.thread.i83:                             ; preds = %159
-  %160 = add nsw i32 %153, -1
+.critedge.thread.i83:                             ; preds = %151
+  %152 = add nsw i32 %145, -1
   br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
 
-.critedge.loopexit.i84:                           ; preds = %156
-  %161 = trunc nuw nsw i64 %indvars.iv.i79 to i32
+.critedge.loopexit.i84:                           ; preds = %148
+  %153 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   br label %.critedge.i70
 
-.critedge.i70:                                    ; preds = %.critedge.loopexit.i84, %144
-  %.0.lcssa.i71 = phi i32 [ 0, %144 ], [ %161, %.critedge.loopexit.i84 ]
-  %162 = add nsw i32 %153, -1
-  %163 = icmp slt i32 %.0.lcssa.i71, %162
-  br i1 %163, label %.lr.ph6.preheader.i73, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
+.critedge.i70:                                    ; preds = %.critedge.loopexit.i84, %136
+  %.0.lcssa.i71 = phi i32 [ 0, %136 ], [ %153, %.critedge.loopexit.i84 ]
+  %154 = add nsw i32 %145, -1
+  %155 = icmp slt i32 %.0.lcssa.i71, %154
+  br i1 %155, label %.lr.ph6.preheader.i73, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
 
 .lr.ph6.preheader.i73:                            ; preds = %.critedge.i70
-  %164 = zext i32 %.0.lcssa.i71 to i64
+  %156 = zext i32 %.0.lcssa.i71 to i64
   br label %.lr.ph6.i74
 
 .lr.ph6.i74:                                      ; preds = %.lr.ph6.i74, %.lr.ph6.preheader.i73
-  %indvars.iv10.i75 = phi i64 [ %164, %.lr.ph6.preheader.i73 ], [ %indvars.iv.next11.i76, %.lr.ph6.i74 ]
+  %indvars.iv10.i75 = phi i64 [ %156, %.lr.ph6.preheader.i73 ], [ %indvars.iv.next11.i76, %.lr.ph6.i74 ]
   %indvars.iv.next11.i76 = add nuw nsw i64 %indvars.iv10.i75, 1
-  %165 = load ptr, ptr %150, align 8, !tbaa !138
-  %166 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %165, i64 %indvars.iv.next11.i76
-  %167 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %165, i64 %indvars.iv10.i75
-  %168 = load i64, ptr %166, align 4
-  store i64 %168, ptr %167, align 4
-  %169 = load i32, ptr %152, align 8, !tbaa !141
-  %170 = add nsw i32 %169, -1
-  %171 = trunc nuw i64 %indvars.iv.next11.i76 to i32
-  %172 = icmp sgt i32 %170, %171
-  br i1 %172, label %.lr.ph6.i74, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit, !llvm.loop !175
+  %157 = load ptr, ptr %142, align 8, !tbaa !138
+  %158 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %157, i64 %indvars.iv.next11.i76
+  %159 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %157, i64 %indvars.iv10.i75
+  %160 = load i64, ptr %158, align 4
+  store i64 %160, ptr %159, align 4
+  %161 = load i32, ptr %144, align 8, !tbaa !141
+  %162 = add nsw i32 %161, -1
+  %163 = trunc nuw i64 %indvars.iv.next11.i76 to i32
+  %164 = icmp sgt i32 %162, %163
+  br i1 %164, label %.lr.ph6.i74, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit, !llvm.loop !175
 
 _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit: ; preds = %.lr.ph6.i74
-  %.pre153 = load ptr, ptr %145, align 8, !tbaa !135
+  %.pre153 = load ptr, ptr %137, align 8, !tbaa !135
   br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
 
 _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85: ; preds = %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit, %.critedge.thread.i83, %.critedge.i70
-  %173 = phi ptr [ %148, %.critedge.i70 ], [ %148, %.critedge.thread.i83 ], [ %.pre153, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit ]
-  %.lcssa.i72 = phi i32 [ %162, %.critedge.i70 ], [ %160, %.critedge.thread.i83 ], [ %170, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit ]
-  store i32 %.lcssa.i72, ptr %152, align 8, !tbaa !141
-  %.sroa.0.0.copyload.i86 = load i32, ptr %151, align 4, !tbaa !55
-  %174 = xor i32 %.sroa.0.0.copyload.i86, 1
-  %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %173, i64 %175
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %178 = load i32, ptr %177, align 8, !tbaa !141
-  %179 = icmp sgt i32 %178, 0
-  br i1 %179, label %.lr.ph.i96, label %.critedge.i89
+  %165 = phi ptr [ %140, %.critedge.i70 ], [ %140, %.critedge.thread.i83 ], [ %.pre153, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit ]
+  %.lcssa.i72 = phi i32 [ %154, %.critedge.i70 ], [ %152, %.critedge.thread.i83 ], [ %162, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85.loopexit ]
+  store i32 %.lcssa.i72, ptr %144, align 8, !tbaa !141
+  %.sroa.0.0.copyload.i86 = load i32, ptr %143, align 4, !tbaa !55
+  %166 = xor i32 %.sroa.0.0.copyload.i86, 1
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds %"class.Gluco2::vec.9", ptr %165, i64 %167
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  %170 = load i32, ptr %169, align 8, !tbaa !141
+  %171 = icmp sgt i32 %170, 0
+  br i1 %171, label %.lr.ph.i96, label %.critedge.i89
 
 .lr.ph.i96:                                       ; preds = %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
-  %180 = load ptr, ptr %176, align 8, !tbaa !138
-  %wide.trip.count.i97 = zext nneg i32 %178 to i64
-  br label %181
+  %172 = load ptr, ptr %168, align 8, !tbaa !138
+  %wide.trip.count.i97 = zext nneg i32 %170 to i64
+  br label %173
 
-181:                                              ; preds = %184, %.lr.ph.i96
-  %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i100, %184 ]
-  %182 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %180, i64 %indvars.iv.i98
-  %183 = load i32, ptr %182, align 4, !tbaa !158
-  %.not.i99 = icmp eq i32 %183, %1
-  br i1 %.not.i99, label %.critedge.loopexit.i103, label %184
+173:                                              ; preds = %176, %.lr.ph.i96
+  %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i100, %176 ]
+  %174 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %172, i64 %indvars.iv.i98
+  %175 = load i32, ptr %174, align 4, !tbaa !158
+  %.not.i99 = icmp eq i32 %175, %1
+  br i1 %.not.i99, label %.critedge.loopexit.i103, label %176
 
-184:                                              ; preds = %181
+176:                                              ; preds = %173
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i101 = icmp eq i64 %indvars.iv.next.i100, %wide.trip.count.i97
-  br i1 %exitcond.not.i101, label %.critedge.thread.i102, label %181, !llvm.loop !174
+  br i1 %exitcond.not.i101, label %.critedge.thread.i102, label %173, !llvm.loop !174
 
-.critedge.thread.i102:                            ; preds = %184
-  %185 = add nsw i32 %178, -1
+.critedge.thread.i102:                            ; preds = %176
+  %177 = add nsw i32 %170, -1
   br label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104
 
-.critedge.loopexit.i103:                          ; preds = %181
-  %186 = trunc nuw nsw i64 %indvars.iv.i98 to i32
+.critedge.loopexit.i103:                          ; preds = %173
+  %178 = trunc nuw nsw i64 %indvars.iv.i98 to i32
   br label %.critedge.i89
 
 .critedge.i89:                                    ; preds = %.critedge.loopexit.i103, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85
-  %.0.lcssa.i90 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85 ], [ %186, %.critedge.loopexit.i103 ]
-  %187 = add nsw i32 %178, -1
-  %188 = icmp slt i32 %.0.lcssa.i90, %187
-  br i1 %188, label %.lr.ph6.preheader.i92, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104
+  %.0.lcssa.i90 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit85 ], [ %178, %.critedge.loopexit.i103 ]
+  %179 = add nsw i32 %170, -1
+  %180 = icmp slt i32 %.0.lcssa.i90, %179
+  br i1 %180, label %.lr.ph6.preheader.i92, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104
 
 .lr.ph6.preheader.i92:                            ; preds = %.critedge.i89
-  %189 = zext i32 %.0.lcssa.i90 to i64
+  %181 = zext i32 %.0.lcssa.i90 to i64
   br label %.lr.ph6.i93
 
 .lr.ph6.i93:                                      ; preds = %.lr.ph6.i93, %.lr.ph6.preheader.i92
-  %indvars.iv10.i94 = phi i64 [ %189, %.lr.ph6.preheader.i92 ], [ %indvars.iv.next11.i95, %.lr.ph6.i93 ]
+  %indvars.iv10.i94 = phi i64 [ %181, %.lr.ph6.preheader.i92 ], [ %indvars.iv.next11.i95, %.lr.ph6.i93 ]
   %indvars.iv.next11.i95 = add nuw nsw i64 %indvars.iv10.i94, 1
-  %190 = load ptr, ptr %176, align 8, !tbaa !138
-  %191 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %190, i64 %indvars.iv.next11.i95
-  %192 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %190, i64 %indvars.iv10.i94
-  %193 = load i64, ptr %191, align 4
-  store i64 %193, ptr %192, align 4
-  %194 = load i32, ptr %177, align 8, !tbaa !141
-  %195 = add nsw i32 %194, -1
-  %196 = trunc nuw i64 %indvars.iv.next11.i95 to i32
-  %197 = icmp sgt i32 %195, %196
-  br i1 %197, label %.lr.ph6.i93, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104, !llvm.loop !175
+  %182 = load ptr, ptr %168, align 8, !tbaa !138
+  %183 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %182, i64 %indvars.iv.next11.i95
+  %184 = getelementptr inbounds nuw %"struct.Gluco2::Solver::Watcher", ptr %182, i64 %indvars.iv10.i94
+  %185 = load i64, ptr %183, align 4
+  store i64 %185, ptr %184, align 4
+  %186 = load i32, ptr %169, align 8, !tbaa !141
+  %187 = add nsw i32 %186, -1
+  %188 = trunc nuw i64 %indvars.iv.next11.i95 to i32
+  %189 = icmp sgt i32 %187, %188
+  br i1 %189, label %.lr.ph6.i93, label %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104, !llvm.loop !175
 
 _ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104: ; preds = %.lr.ph6.i93, %.critedge.thread.i102, %.critedge.i89
-  %.lcssa.i91 = phi i32 [ %187, %.critedge.i89 ], [ %185, %.critedge.thread.i102 ], [ %195, %.lr.ph6.i93 ]
-  store i32 %.lcssa.i91, ptr %177, align 8, !tbaa !141
+  %.lcssa.i91 = phi i32 [ %179, %.critedge.i89 ], [ %177, %.critedge.thread.i102 ], [ %187, %.lr.ph6.i93 ]
+  store i32 %.lcssa.i91, ptr %169, align 8, !tbaa !141
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
 
-198:                                              ; preds = %143
-  %199 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %.sroa.0.0.copyload.i105 = load i32, ptr %199, align 4, !tbaa !55
-  %200 = xor i32 %.sroa.0.0.copyload.i105, 1
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %202 = load ptr, ptr %201, align 8, !tbaa !126
-  %203 = sext i32 %200 to i64
-  %204 = getelementptr inbounds i8, ptr %202, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !109
-  %206 = icmp eq i8 %205, 0
-  br i1 %206, label %207, label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112
+190:                                              ; preds = %135
+  %191 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %.sroa.0.0.copyload.i105 = load i32, ptr %191, align 4, !tbaa !55
+  %192 = xor i32 %.sroa.0.0.copyload.i105, 1
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %194 = load ptr, ptr %193, align 8, !tbaa !126
+  %195 = sext i32 %192 to i64
+  %196 = getelementptr inbounds i8, ptr %194, i64 %195
+  %197 = load i8, ptr %196, align 1, !tbaa !109
+  %198 = icmp eq i8 %197, 0
+  br i1 %198, label %199, label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112
 
-207:                                              ; preds = %198
-  store i8 1, ptr %204, align 1, !tbaa !109
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %210 = load i32, ptr %209, align 8, !tbaa !113
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %212 = load i32, ptr %211, align 4, !tbaa !114
-  %213 = icmp eq i32 %210, %212
-  br i1 %213, label %214, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107
+199:                                              ; preds = %190
+  store i8 1, ptr %196, align 1, !tbaa !109
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %202 = load i32, ptr %201, align 8, !tbaa !113
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 532
+  %204 = load i32, ptr %203, align 4, !tbaa !114
+  %205 = icmp eq i32 %202, %204
+  br i1 %205, label %206, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107: ; preds = %207
-  %.pre.i.i108 = load ptr, ptr %208, align 8, !tbaa !112
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107: ; preds = %199
+  %.pre.i.i108 = load ptr, ptr %200, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109
 
-214:                                              ; preds = %207
-  %215 = ashr i32 %210, 1
-  %216 = and i32 %215, -2
-  %217 = tail call i32 @llvm.smax.i32(i32 %216, i32 0)
-  %218 = add nuw nsw i32 %217, 2
-  %219 = sub nsw i32 2147483647, %210
-  %220 = icmp samesign ugt i32 %218, %219
-  br i1 %220, label %232, label %221
+206:                                              ; preds = %199
+  %207 = ashr i32 %202, 1
+  %208 = and i32 %207, -2
+  %209 = tail call i32 @llvm.smax.i32(i32 %208, i32 0)
+  %210 = add nuw nsw i32 %209, 2
+  %211 = sub nsw i32 2147483647, %202
+  %212 = icmp samesign ugt i32 %210, %211
+  br i1 %212, label %220, label %213
 
-221:                                              ; preds = %214
-  %222 = load ptr, ptr %208, align 8, !tbaa !112
-  %223 = add nsw i32 %218, %210
-  store i32 %223, ptr %211, align 4, !tbaa !114
-  %224 = sext i32 %223 to i64
-  %225 = shl nsw i64 %224, 2
-  %226 = tail call ptr @realloc(ptr noundef %222, i64 noundef %225) #35
-  store ptr %226, ptr %208, align 8, !tbaa !112
-  %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110
+213:                                              ; preds = %206
+  %214 = load ptr, ptr %200, align 8, !tbaa !112
+  %215 = add nsw i32 %210, %202
+  store i32 %215, ptr %203, align 4, !tbaa !114
+  %216 = sext i32 %215 to i64
+  %217 = shl nsw i64 %216, 2
+  %218 = tail call ptr @realloc(ptr noundef %214, i64 noundef %217) #34
+  store ptr %218, ptr %200, align 8, !tbaa !112
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %220, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110: ; preds = %221
-  %.pre.i111 = load i32, ptr %209, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110: ; preds = %213
+  %.pre.i111 = load i32, ptr %201, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109
 
-228:                                              ; preds = %221
-  %229 = tail call ptr @__errno_location() #31
-  %230 = load i32, ptr %229, align 4, !tbaa !55
-  %231 = icmp eq i32 %230, 12
-  tail call void @llvm.assume(i1 %231)
-  br label %232
-
-232:                                              ; preds = %228, %214
+220:                                              ; preds = %213, %206
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109:    ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107
-  %233 = phi i32 [ %210, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107 ], [ %.pre.i111, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110 ]
-  %234 = phi ptr [ %.pre.i.i108, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107 ], [ %226, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110 ]
-  %235 = add nsw i32 %233, 1
-  store i32 %235, ptr %209, align 8, !tbaa !113
-  %236 = sext i32 %233 to i64
-  %237 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %234, i64 %236
-  store i32 %200, ptr %237, align 4, !tbaa !55
-  %.pre = load ptr, ptr %201, align 8, !tbaa !126
+  %221 = phi i32 [ %202, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107 ], [ %.pre.i111, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110 ]
+  %222 = phi ptr [ %.pre.i.i108, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i107 ], [ %218, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i110 ]
+  %223 = add nsw i32 %221, 1
+  store i32 %223, ptr %201, align 8, !tbaa !113
+  %224 = sext i32 %221 to i64
+  %225 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %222, i64 %224
+  store i32 %192, ptr %225, align 4, !tbaa !55
+  %.pre = load ptr, ptr %193, align 8, !tbaa !126
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112
 
-_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112: ; preds = %198, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109
-  %238 = phi ptr [ %202, %198 ], [ %.pre, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109 ]
-  %239 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.0.0.copyload.i113 = load i32, ptr %239, align 4, !tbaa !55
-  %240 = xor i32 %.sroa.0.0.copyload.i113, 1
-  %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i8, ptr %238, i64 %241
-  %243 = load i8, ptr %242, align 1, !tbaa !109
-  %244 = icmp eq i8 %243, 0
-  br i1 %244, label %245, label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
+_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112: ; preds = %190, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109
+  %226 = phi ptr [ %194, %190 ], [ %.pre, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i109 ]
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.0.0.copyload.i113 = load i32, ptr %227, align 4, !tbaa !55
+  %228 = xor i32 %.sroa.0.0.copyload.i113, 1
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds i8, ptr %226, i64 %229
+  %231 = load i8, ptr %230, align 1, !tbaa !109
+  %232 = icmp eq i8 %231, 0
+  br i1 %232, label %233, label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
 
-245:                                              ; preds = %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112
-  store i8 1, ptr %242, align 1, !tbaa !109
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %248 = load i32, ptr %247, align 8, !tbaa !113
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %250 = load i32, ptr %249, align 4, !tbaa !114
-  %251 = icmp eq i32 %248, %250
-  br i1 %251, label %252, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115
+233:                                              ; preds = %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112
+  store i8 1, ptr %230, align 1, !tbaa !109
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %236 = load i32, ptr %235, align 8, !tbaa !113
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 532
+  %238 = load i32, ptr %237, align 4, !tbaa !114
+  %239 = icmp eq i32 %236, %238
+  br i1 %239, label %240, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115: ; preds = %245
-  %.pre.i.i116 = load ptr, ptr %246, align 8, !tbaa !112
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115: ; preds = %233
+  %.pre.i.i116 = load ptr, ptr %234, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117
 
-252:                                              ; preds = %245
-  %253 = ashr i32 %248, 1
-  %254 = and i32 %253, -2
-  %255 = tail call i32 @llvm.smax.i32(i32 %254, i32 0)
-  %256 = add nuw nsw i32 %255, 2
-  %257 = sub nsw i32 2147483647, %248
-  %258 = icmp samesign ugt i32 %256, %257
-  br i1 %258, label %270, label %259
+240:                                              ; preds = %233
+  %241 = ashr i32 %236, 1
+  %242 = and i32 %241, -2
+  %243 = tail call i32 @llvm.smax.i32(i32 %242, i32 0)
+  %244 = add nuw nsw i32 %243, 2
+  %245 = sub nsw i32 2147483647, %236
+  %246 = icmp samesign ugt i32 %244, %245
+  br i1 %246, label %254, label %247
 
-259:                                              ; preds = %252
-  %260 = load ptr, ptr %246, align 8, !tbaa !112
-  %261 = add nsw i32 %256, %248
-  store i32 %261, ptr %249, align 4, !tbaa !114
-  %262 = sext i32 %261 to i64
-  %263 = shl nsw i64 %262, 2
-  %264 = tail call ptr @realloc(ptr noundef %260, i64 noundef %263) #35
-  store ptr %264, ptr %246, align 8, !tbaa !112
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %266, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118
+247:                                              ; preds = %240
+  %248 = load ptr, ptr %234, align 8, !tbaa !112
+  %249 = add nsw i32 %244, %236
+  store i32 %249, ptr %237, align 4, !tbaa !114
+  %250 = sext i32 %249 to i64
+  %251 = shl nsw i64 %250, 2
+  %252 = tail call ptr @realloc(ptr noundef %248, i64 noundef %251) #34
+  store ptr %252, ptr %234, align 8, !tbaa !112
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %254, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118: ; preds = %259
-  %.pre.i119 = load i32, ptr %247, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118: ; preds = %247
+  %.pre.i119 = load i32, ptr %235, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117
 
-266:                                              ; preds = %259
-  %267 = tail call ptr @__errno_location() #31
-  %268 = load i32, ptr %267, align 4, !tbaa !55
-  %269 = icmp eq i32 %268, 12
-  tail call void @llvm.assume(i1 %269)
-  br label %270
-
-270:                                              ; preds = %266, %252
+254:                                              ; preds = %247, %240
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117:    ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115
-  %271 = phi i32 [ %248, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115 ], [ %.pre.i119, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118 ]
-  %272 = phi ptr [ %.pre.i.i116, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115 ], [ %264, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118 ]
-  %273 = add nsw i32 %271, 1
-  store i32 %273, ptr %247, align 8, !tbaa !113
-  %274 = sext i32 %271 to i64
-  %275 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %272, i64 %274
-  store i32 %240, ptr %275, align 4, !tbaa !55
+  %255 = phi i32 [ %236, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115 ], [ %.pre.i119, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118 ]
+  %256 = phi ptr [ %.pre.i.i116, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i.i115 ], [ %252, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i118 ]
+  %257 = add nsw i32 %255, 1
+  store i32 %257, ptr %235, align 8, !tbaa !113
+  %258 = sext i32 %255 to i64
+  %259 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %256, i64 %258
+  store i32 %228, ptr %259, align 4, !tbaa !55
   br label %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66
 
 _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit66: ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i117, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit112, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i63, %_ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE6smudgeERKS1_.exit, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit104, %_ZN6Gluco2L6removeINS_3vecINS_6Solver7WatcherEEES3_EEvRT_RKT0_.exit57
-  %276 = load i64, ptr %7, align 4
-  %277 = and i64 %276, 4
-  %.not = icmp eq i64 %277, 0
-  %278 = ashr i64 %276, 32
+  %260 = load i64, ptr %7, align 4
+  %261 = and i64 %260, 4
+  %.not = icmp eq i64 %261, 0
+  %262 = ashr i64 %260, 32
   %. = select i1 %.not, i64 408, i64 416
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %280 = load i64, ptr %279, align 8, !tbaa !173
-  %281 = sub nsw i64 %280, %278
-  store i64 %281, ptr %279, align 8, !tbaa !173
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %264 = load i64, ptr %263, align 8, !tbaa !173
+  %265 = sub nsw i64 %264, %262
+  store i64 %265, ptr %263, align 8, !tbaa !173
   ret void
 }
 
@@ -4586,7 +4439,7 @@ define void @_ZN6Gluco26Solver12removeClauseEj(ptr noundef nonnull align 8 captu
   %.not = icmp eq i32 %26, 0
   %27 = xor i32 %24, -1
   %28 = select i1 %.not, i32 %25, i32 %27
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.65, i32 noundef %28) #33
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.65, i32 noundef %28) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i64, ptr %6, align 4
   %31 = ashr i64 %30, 32
@@ -5622,7 +5475,7 @@ define void @_ZN6Gluco26Solver7analyzeEjRNS_3vecINS_3LitEEES4_RiRjS6_(ptr nounde
   %20 = add nuw nsw i32 %19, 2
   %21 = sub nsw i32 2147483647, %12
   %22 = icmp samesign ugt i32 %20, %21
-  br i1 %22, label %34, label %23
+  br i1 %22, label %30, label %23
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %2, align 8, !tbaa !112
@@ -5630,7 +5483,7 @@ define void @_ZN6Gluco26Solver7analyzeEjRNS_3vecINS_3LitEEES4_RiRjS6_(ptr nounde
   store i32 %25, ptr %13, align 4, !tbaa !114
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 2
-  %28 = tail call ptr @realloc(ptr noundef %24, i64 noundef %27) #35
+  %28 = tail call ptr @realloc(ptr noundef %24, i64 noundef %27) #34
   store ptr %28, ptr %2, align 8, !tbaa !112
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %._ZN6Gluco23vecINS_3LitEE4pushEv.exit_crit_edge
@@ -5639,1769 +5492,1713 @@ define void @_ZN6Gluco26Solver7analyzeEjRNS_3vecINS_3LitEEES4_RiRjS6_(ptr nounde
   %.pre = load i32, ptr %11, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushEv.exit
 
-30:                                               ; preds = %23
-  %31 = tail call ptr @__errno_location() #31
-  %32 = load i32, ptr %31, align 4, !tbaa !55
-  %33 = icmp eq i32 %32, 12
-  tail call void @llvm.assume(i1 %33)
-  br label %34
-
-34:                                               ; preds = %30, %16
+30:                                               ; preds = %23, %16
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushEv.exit:             ; preds = %._ZN6Gluco23vecINS_3LitEE4pushEv.exit_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i
-  %35 = phi i32 [ %12, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushEv.exit_crit_edge ]
-  %36 = phi ptr [ %.pre.i, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %28, %._ZN6Gluco23vecINS_3LitEE4pushEv.exit_crit_edge ]
-  %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %36, i64 %37
-  store i32 0, ptr %38, align 4
-  %39 = load i32, ptr %11, align 8, !tbaa !113
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %11, align 8, !tbaa !113
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %43 = load i32, ptr %42, align 8, !tbaa !113
-  %44 = add nsw i32 %43, -1
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  store i32 0, ptr %46, align 8, !tbaa !113
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1148
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 800
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1076
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 860
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  br label %74
+  %31 = phi i32 [ %12, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushEv.exit_crit_edge ]
+  %32 = phi ptr [ %.pre.i, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %28, %._ZN6Gluco23vecINS_3LitEE4pushEv.exit_crit_edge ]
+  %33 = sext i32 %31 to i64
+  %34 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %32, i64 %33
+  store i32 0, ptr %34, align 4
+  %35 = load i32, ptr %11, align 8, !tbaa !113
+  %36 = add nsw i32 %35, 1
+  store i32 %36, ptr %11, align 8, !tbaa !113
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %39 = load i32, ptr %38, align 8, !tbaa !113
+  %40 = add nsw i32 %39, -1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  store i32 0, ptr %42, align 8, !tbaa !113
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1148
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 800
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1076
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 856
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 860
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  br label %70
 
-74:                                               ; preds = %445, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit
-  %.sroa.0331.0 = phi i32 [ -2, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %.sroa.096.0.copyload, %445 ]
-  %.0198 = phi i32 [ %44, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %447, %445 ]
-  %.0197 = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %451, %445 ]
-  %.0 = phi i32 [ %1, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %450, %445 ]
+70:                                               ; preds = %425, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit
+  %.sroa.0331.0 = phi i32 [ -2, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %.sroa.096.0.copyload, %425 ]
+  %.0198 = phi i32 [ %40, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %427, %425 ]
+  %.0197 = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %431, %425 ]
+  %.0 = phi i32 [ %1, %_ZN6Gluco23vecINS_3LitEE4pushEv.exit ], [ %430, %425 ]
   %.not340 = icmp eq i32 %.sroa.0331.0, -2
-  br i1 %.not340, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, label %75
+  br i1 %.not340, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, label %71
 
-75:                                               ; preds = %74
-  %76 = ashr i32 %.sroa.0331.0, 1
-  %77 = load ptr, ptr %48, align 8, !tbaa !129
-  %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %77, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !177
-  %81 = icmp eq i32 %80, -1
-  br i1 %81, label %91, label %82
+71:                                               ; preds = %70
+  %72 = ashr i32 %.sroa.0331.0, 1
+  %73 = load ptr, ptr %44, align 8, !tbaa !129
+  %74 = sext i32 %72 to i64
+  %75 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %73, i64 %74
+  %76 = load i32, ptr %75, align 4, !tbaa !177
+  %77 = icmp eq i32 %76, -1
+  br i1 %77, label %87, label %78
 
-82:                                               ; preds = %75
-  %83 = icmp slt i32 %80, -1
-  br i1 %83, label %84, label %91
+78:                                               ; preds = %71
+  %79 = icmp slt i32 %76, -1
+  br i1 %79, label %80, label %87
 
-84:                                               ; preds = %82
-  %85 = and i32 %80, 2147483647
-  %86 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %85, i32 noundef %76)
-  br label %91
+80:                                               ; preds = %78
+  %81 = and i32 %76, 2147483647
+  %82 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %81, i32 noundef %72)
+  br label %87
 
-_ZN6Gluco26Solver8castCRefENS_3LitE.exit:         ; preds = %74
-  %87 = tail call noundef i32 @_ZN6Gluco26Solver13getConfClauseEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %.0)
-  %88 = load ptr, ptr %47, align 8, !tbaa !87
-  %89 = zext i32 %87 to i64
+_ZN6Gluco26Solver8castCRefENS_3LitE.exit:         ; preds = %70
+  %83 = tail call noundef i32 @_ZN6Gluco26Solver13getConfClauseEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %.0)
+  %84 = load ptr, ptr %43, align 8, !tbaa !87
+  %85 = zext i32 %83 to i64
+  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %.pre532 = load i64, ptr %86, align 4
+  br label %.critedge
+
+87:                                               ; preds = %80, %78, %71
+  %.ph = phi i32 [ %76, %78 ], [ -1, %71 ], [ %82, %80 ]
+  %88 = load ptr, ptr %43, align 8, !tbaa !87
+  %89 = zext i32 %.ph to i64
   %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
-  %.pre532 = load i64, ptr %90, align 4
+  %91 = load i64, ptr %90, align 4
+  %.mask = and i64 %91, -4294967296
+  %92 = icmp eq i64 %.mask, 8589934592
+  br i1 %92, label %93, label %.critedge
+
+93:                                               ; preds = %87
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 12
+  %.sroa.0117.0.copyload = load i32, ptr %94, align 4, !tbaa !55
+  %95 = ashr i32 %.sroa.0117.0.copyload, 1
+  %96 = load ptr, ptr %45, align 8, !tbaa !132
+  %97 = sext i32 %95 to i64
+  %98 = getelementptr inbounds %"class.Gluco2::lbool", ptr %96, i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !150
+  %100 = trunc i32 %.sroa.0117.0.copyload to i8
+  %101 = and i8 %100, 1
+  %102 = xor i8 %99, %101
+  %103 = icmp eq i8 %102, 1
+  br i1 %103, label %104, label %.critedge
+
+104:                                              ; preds = %93
+  %105 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %106 = load i32, ptr %105, align 4, !tbaa !55
+  store i32 %106, ptr %94, align 4, !tbaa !55
+  store i32 %.sroa.0117.0.copyload, ptr %105, align 4, !tbaa !55
   br label %.critedge
 
-91:                                               ; preds = %84, %82, %75
-  %.ph = phi i32 [ %80, %82 ], [ -1, %75 ], [ %86, %84 ]
-  %92 = load ptr, ptr %47, align 8, !tbaa !87
-  %93 = zext i32 %.ph to i64
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
-  %95 = load i64, ptr %94, align 4
-  %.mask = and i64 %95, -4294967296
-  %96 = icmp eq i64 %.mask, 8589934592
-  br i1 %96, label %97, label %.critedge
+.critedge:                                        ; preds = %87, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, %104, %93
+  %107 = phi i64 [ %91, %104 ], [ %91, %93 ], [ %.pre532, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit ], [ %91, %87 ]
+  %108 = phi ptr [ %90, %104 ], [ %90, %93 ], [ %86, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit ], [ %90, %87 ]
+  %109 = phi ptr [ %88, %104 ], [ %88, %93 ], [ %84, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit ], [ %88, %87 ]
+  %110 = and i64 %107, 4
+  %.not341 = icmp eq i64 %110, 0
+  br i1 %.not341, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread, label %111
 
-97:                                               ; preds = %91
-  %98 = getelementptr inbounds nuw i8, ptr %94, i64 12
-  %.sroa.0117.0.copyload = load i32, ptr %98, align 4, !tbaa !55
-  %99 = ashr i32 %.sroa.0117.0.copyload, 1
-  %100 = load ptr, ptr %49, align 8, !tbaa !132
-  %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds %"class.Gluco2::lbool", ptr %100, i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !150
-  %104 = trunc i32 %.sroa.0117.0.copyload to i8
-  %105 = and i8 %104, 1
-  %106 = xor i8 %103, %105
-  %107 = icmp eq i8 %106, 1
-  br i1 %107, label %108, label %.critedge
+111:                                              ; preds = %.critedge
+  %112 = load double, ptr %46, align 8, !tbaa !80
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 12
+  %114 = lshr i64 %107, 32
+  %115 = getelementptr inbounds nuw %union.anon, ptr %113, i64 %114
+  %116 = load float, ptr %115, align 4, !tbaa !199
+  %117 = fpext float %116 to double
+  %118 = fadd double %112, %117
+  %119 = fptrunc double %118 to float
+  store float %119, ptr %115, align 4, !tbaa !199
+  %120 = fpext float %119 to double
+  %121 = fcmp ogt double %120, 1.000000e+20
+  br i1 %121, label %.preheader.i, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
 
-108:                                              ; preds = %97
-  %109 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %110 = load i32, ptr %109, align 4, !tbaa !55
-  store i32 %110, ptr %98, align 4, !tbaa !55
-  store i32 %.sroa.0117.0.copyload, ptr %109, align 4, !tbaa !55
-  br label %.critedge
-
-.critedge:                                        ; preds = %91, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, %108, %97
-  %111 = phi i64 [ %95, %108 ], [ %95, %97 ], [ %.pre532, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit ], [ %95, %91 ]
-  %112 = phi ptr [ %94, %108 ], [ %94, %97 ], [ %90, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit ], [ %94, %91 ]
-  %113 = phi ptr [ %92, %108 ], [ %92, %97 ], [ %88, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit ], [ %92, %91 ]
-  %114 = and i64 %111, 4
-  %.not341 = icmp eq i64 %114, 0
-  br i1 %.not341, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread, label %115
-
-115:                                              ; preds = %.critedge
-  %116 = load double, ptr %50, align 8, !tbaa !80
-  %117 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  %118 = lshr i64 %111, 32
-  %119 = getelementptr inbounds nuw %union.anon, ptr %117, i64 %118
-  %120 = load float, ptr %119, align 4, !tbaa !199
-  %121 = fpext float %120 to double
-  %122 = fadd double %116, %121
-  %123 = fptrunc double %122 to float
-  store float %123, ptr %119, align 4, !tbaa !199
-  %124 = fpext float %123 to double
-  %125 = fcmp ogt double %124, 1.000000e+20
-  br i1 %125, label %.preheader.i, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
-
-.preheader.i:                                     ; preds = %115
-  %126 = load i32, ptr %51, align 8, !tbaa !121
-  %127 = icmp sgt i32 %126, 0
-  br i1 %127, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %111
+  %122 = load i32, ptr %47, align 8, !tbaa !121
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %128 = load ptr, ptr %52, align 8, !tbaa !98
-  %wide.trip.count.i = zext nneg i32 %126 to i64
-  br label %131
+  %124 = load ptr, ptr %48, align 8, !tbaa !98
+  %wide.trip.count.i = zext nneg i32 %122 to i64
+  br label %127
 
-._crit_edge.i:                                    ; preds = %131, %.preheader.i
-  %129 = fmul double %116, 0x3BC79CA10C924223
-  store double %129, ptr %50, align 8, !tbaa !80
-  %.pre533 = load i64, ptr %112, align 4
+._crit_edge.i:                                    ; preds = %127, %.preheader.i
+  %125 = fmul double %112, 0x3BC79CA10C924223
+  store double %125, ptr %46, align 8, !tbaa !80
+  %.pre533 = load i64, ptr %108, align 4
   %.pre554 = and i64 %.pre533, 4
-  %130 = icmp ne i64 %.pre554, 0
+  %126 = icmp ne i64 %.pre554, 0
   br label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
 
-131:                                              ; preds = %131, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %131 ]
-  %132 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i
-  %133 = load i32, ptr %132, align 4, !tbaa !55
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %113, i64 %134
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 12
-  %137 = load i64, ptr %135, align 4
-  %138 = lshr i64 %137, 32
-  %139 = getelementptr inbounds nuw %union.anon, ptr %136, i64 %138
-  %140 = load float, ptr %139, align 4, !tbaa !199
-  %141 = fmul float %140, 0x3BC79CA100000000
-  store float %141, ptr %139, align 4, !tbaa !199
+127:                                              ; preds = %127, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %127 ]
+  %128 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i
+  %129 = load i32, ptr %128, align 4, !tbaa !55
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds nuw i32, ptr %109, i64 %130
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 12
+  %133 = load i64, ptr %131, align 4
+  %134 = lshr i64 %133, 32
+  %135 = getelementptr inbounds nuw %union.anon, ptr %132, i64 %134
+  %136 = load float, ptr %135, align 4, !tbaa !199
+  %137 = fmul float %136, 0x3BC79CA100000000
+  store float %137, ptr %135, align 4, !tbaa !199
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %131, !llvm.loop !200
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %127, !llvm.loop !200
 
-_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %115
-  %.pre-phi = phi i1 [ %130, %._crit_edge.i ], [ true, %115 ]
-  %142 = phi i64 [ %.pre533, %._crit_edge.i ], [ %111, %115 ]
-  %143 = and i64 %142, 2147483616
-  %144 = icmp samesign ugt i64 %143, 64
-  %or.cond345 = select i1 %.pre-phi, i1 %144, i1 false
-  br i1 %or.cond345, label %145, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
+_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %._crit_edge.i, %111
+  %.pre-phi = phi i1 [ %126, %._crit_edge.i ], [ true, %111 ]
+  %138 = phi i64 [ %.pre533, %._crit_edge.i ], [ %107, %111 ]
+  %139 = and i64 %138, 2147483616
+  %140 = icmp samesign ugt i64 %139, 64
+  %or.cond345 = select i1 %.pre-phi, i1 %140, i1 false
+  br i1 %or.cond345, label %141, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
 
-145:                                              ; preds = %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
-  %146 = load i32, ptr %53, align 8, !tbaa !93
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %53, align 8, !tbaa !93
-  %148 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i = icmp eq i32 %148, 0
+141:                                              ; preds = %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
+  %142 = load i32, ptr %49, align 8, !tbaa !93
+  %143 = add i32 %142, 1
+  store i32 %143, ptr %49, align 8, !tbaa !93
+  %144 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i = icmp eq i32 %144, 0
   br i1 %.not.i, label %.preheader.i236, label %.preheader36.i
 
-.preheader36.i:                                   ; preds = %145
-  %149 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %150 = load i64, ptr %112, align 4
-  %151 = lshr i64 %150, 32
-  %152 = trunc nuw i64 %151 to i32
-  %153 = icmp sgt i32 %152, 0
-  %154 = load i32, ptr %149, align 4
-  %.not3138.i = icmp ne i32 %154, 0
-  %or.cond39.i = select i1 %153, i1 %.not3138.i, i1 false
+.preheader36.i:                                   ; preds = %141
+  %145 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %146 = load i64, ptr %108, align 4
+  %147 = lshr i64 %146, 32
+  %148 = trunc nuw i64 %147 to i32
+  %149 = icmp sgt i32 %148, 0
+  %150 = load i32, ptr %145, align 4
+  %.not3138.i = icmp ne i32 %150, 0
+  %or.cond39.i = select i1 %149, i1 %.not3138.i, i1 false
   br i1 %or.cond39.i, label %.lr.ph.i232, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit
 
 .lr.ph.i232:                                      ; preds = %.preheader36.i
-  %155 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  %156 = load ptr, ptr %48, align 8
-  %157 = load ptr, ptr %56, align 8
-  br label %165
+  %151 = getelementptr inbounds nuw i8, ptr %108, i64 12
+  %152 = load ptr, ptr %44, align 8
+  %153 = load ptr, ptr %52, align 8
+  br label %161
 
-.preheader.i236:                                  ; preds = %145
-  %158 = load i64, ptr %112, align 4
-  %159 = lshr i64 %158, 32
-  %160 = trunc nuw i64 %159 to i32
-  %161 = icmp sgt i32 %160, 0
-  br i1 %161, label %.lr.ph45.i, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit
+.preheader.i236:                                  ; preds = %141
+  %154 = load i64, ptr %108, align 4
+  %155 = lshr i64 %154, 32
+  %156 = trunc nuw i64 %155 to i32
+  %157 = icmp sgt i32 %156, 0
+  br i1 %157, label %.lr.ph45.i, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit
 
 .lr.ph45.i:                                       ; preds = %.preheader.i236
-  %162 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  %163 = load ptr, ptr %48, align 8, !tbaa !129
-  %164 = load ptr, ptr %56, align 8, !tbaa !98
-  br label %191
+  %158 = getelementptr inbounds nuw i8, ptr %108, i64 12
+  %159 = load ptr, ptr %44, align 8, !tbaa !129
+  %160 = load ptr, ptr %52, align 8, !tbaa !98
+  br label %187
 
-165:                                              ; preds = %186, %.lr.ph.i232
-  %166 = phi i32 [ %154, %.lr.ph.i232 ], [ %187, %186 ]
-  %167 = phi i64 [ %150, %.lr.ph.i232 ], [ %188, %186 ]
-  %indvars.iv.i233 = phi i64 [ 0, %.lr.ph.i232 ], [ %indvars.iv.next.i235, %186 ]
-  %.042.i = phi i32 [ 0, %.lr.ph.i232 ], [ %.1.i, %186 ]
-  %.02441.i = phi i32 [ 0, %.lr.ph.i232 ], [ %.125.i, %186 ]
-  %168 = getelementptr inbounds nuw %union.anon, ptr %155, i64 %indvars.iv.i233
-  %.sroa.0.0.copyload.i.i = load i32, ptr %168, align 4, !tbaa !55
-  %169 = ashr i32 %.sroa.0.0.copyload.i.i, 1
-  %170 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i.i = icmp ne i32 %170, 0
-  %171 = load i32, ptr %55, align 8
-  %172 = icmp sgt i32 %169, %171
-  %173 = select i1 %.not.i.i, i1 %172, i1 false
-  br i1 %173, label %186, label %174
+161:                                              ; preds = %182, %.lr.ph.i232
+  %162 = phi i32 [ %150, %.lr.ph.i232 ], [ %183, %182 ]
+  %163 = phi i64 [ %146, %.lr.ph.i232 ], [ %184, %182 ]
+  %indvars.iv.i233 = phi i64 [ 0, %.lr.ph.i232 ], [ %indvars.iv.next.i235, %182 ]
+  %.042.i = phi i32 [ 0, %.lr.ph.i232 ], [ %.1.i, %182 ]
+  %.02441.i = phi i32 [ 0, %.lr.ph.i232 ], [ %.125.i, %182 ]
+  %164 = getelementptr inbounds nuw %union.anon, ptr %151, i64 %indvars.iv.i233
+  %.sroa.0.0.copyload.i.i = load i32, ptr %164, align 4, !tbaa !55
+  %165 = ashr i32 %.sroa.0.0.copyload.i.i, 1
+  %166 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i.i = icmp ne i32 %166, 0
+  %167 = load i32, ptr %51, align 8
+  %168 = icmp sgt i32 %165, %167
+  %169 = select i1 %.not.i.i, i1 %168, i1 false
+  br i1 %169, label %182, label %170
 
-174:                                              ; preds = %165
-  %175 = add nuw nsw i32 %.02441.i, 1
-  %176 = sext i32 %169 to i64
-  %177 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %156, i64 %176
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
-  %179 = load i32, ptr %178, align 4, !tbaa !181
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i32, ptr %157, i64 %180
-  %182 = load i32, ptr %181, align 4, !tbaa !55
-  %183 = load i32, ptr %53, align 8, !tbaa !93
-  %.not32.i = icmp eq i32 %182, %183
-  br i1 %.not32.i, label %186, label %184
+170:                                              ; preds = %161
+  %171 = add nuw nsw i32 %.02441.i, 1
+  %172 = sext i32 %165 to i64
+  %173 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %152, i64 %172
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
+  %175 = load i32, ptr %174, align 4, !tbaa !181
+  %176 = sext i32 %175 to i64
+  %177 = getelementptr inbounds i32, ptr %153, i64 %176
+  %178 = load i32, ptr %177, align 4, !tbaa !55
+  %179 = load i32, ptr %49, align 8, !tbaa !93
+  %.not32.i = icmp eq i32 %178, %179
+  br i1 %.not32.i, label %182, label %180
 
-184:                                              ; preds = %174
-  store i32 %183, ptr %181, align 4, !tbaa !55
-  %185 = add nsw i32 %.042.i, 1
-  %.pre.i234 = load i64, ptr %112, align 4
-  %.pre52.i = load i32, ptr %149, align 4
-  br label %186
+180:                                              ; preds = %170
+  store i32 %179, ptr %177, align 4, !tbaa !55
+  %181 = add nsw i32 %.042.i, 1
+  %.pre.i234 = load i64, ptr %108, align 4
+  %.pre52.i = load i32, ptr %145, align 4
+  br label %182
 
-186:                                              ; preds = %184, %174, %165
-  %187 = phi i32 [ %166, %165 ], [ %.pre52.i, %184 ], [ %166, %174 ]
-  %188 = phi i64 [ %167, %165 ], [ %.pre.i234, %184 ], [ %167, %174 ]
-  %.125.i = phi i32 [ %.02441.i, %165 ], [ %175, %184 ], [ %175, %174 ]
-  %.1.i = phi i32 [ %.042.i, %165 ], [ %185, %184 ], [ %.042.i, %174 ]
+182:                                              ; preds = %180, %170, %161
+  %183 = phi i32 [ %162, %161 ], [ %.pre52.i, %180 ], [ %162, %170 ]
+  %184 = phi i64 [ %163, %161 ], [ %.pre.i234, %180 ], [ %163, %170 ]
+  %.125.i = phi i32 [ %.02441.i, %161 ], [ %171, %180 ], [ %171, %170 ]
+  %.1.i = phi i32 [ %.042.i, %161 ], [ %181, %180 ], [ %.042.i, %170 ]
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i233, 1
-  %189 = ashr i64 %188, 32
-  %190 = icmp slt i64 %indvars.iv.next.i235, %189
-  %.not31.i = icmp ult i32 %.125.i, %187
-  %or.cond.i = select i1 %190, i1 %.not31.i, i1 false
-  br i1 %or.cond.i, label %165, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, !llvm.loop !201
+  %185 = ashr i64 %184, 32
+  %186 = icmp slt i64 %indvars.iv.next.i235, %185
+  %.not31.i = icmp ult i32 %.125.i, %183
+  %or.cond.i = select i1 %186, i1 %.not31.i, i1 false
+  br i1 %or.cond.i, label %161, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, !llvm.loop !201
 
-191:                                              ; preds = %205, %.lr.ph45.i
-  %192 = phi i64 [ %158, %.lr.ph45.i ], [ %206, %205 ]
-  %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next50.i, %205 ]
-  %.444.i = phi i32 [ 0, %.lr.ph45.i ], [ %.5.i, %205 ]
-  %193 = getelementptr inbounds nuw %union.anon, ptr %162, i64 %indvars.iv49.i
-  %.sroa.0.0.copyload.i34.i = load i32, ptr %193, align 4, !tbaa !55
-  %194 = ashr i32 %.sroa.0.0.copyload.i34.i, 1
+187:                                              ; preds = %201, %.lr.ph45.i
+  %188 = phi i64 [ %154, %.lr.ph45.i ], [ %202, %201 ]
+  %indvars.iv49.i = phi i64 [ 0, %.lr.ph45.i ], [ %indvars.iv.next50.i, %201 ]
+  %.444.i = phi i32 [ 0, %.lr.ph45.i ], [ %.5.i, %201 ]
+  %189 = getelementptr inbounds nuw %union.anon, ptr %158, i64 %indvars.iv49.i
+  %.sroa.0.0.copyload.i34.i = load i32, ptr %189, align 4, !tbaa !55
+  %190 = ashr i32 %.sroa.0.0.copyload.i34.i, 1
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %159, i64 %191
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
+  %194 = load i32, ptr %193, align 4, !tbaa !181
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %163, i64 %195
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
-  %198 = load i32, ptr %197, align 4, !tbaa !181
-  %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds i32, ptr %164, i64 %199
-  %201 = load i32, ptr %200, align 4, !tbaa !55
-  %202 = load i32, ptr %53, align 8, !tbaa !93
-  %.not30.i = icmp eq i32 %201, %202
-  br i1 %.not30.i, label %205, label %203
+  %196 = getelementptr inbounds i32, ptr %160, i64 %195
+  %197 = load i32, ptr %196, align 4, !tbaa !55
+  %198 = load i32, ptr %49, align 8, !tbaa !93
+  %.not30.i = icmp eq i32 %197, %198
+  br i1 %.not30.i, label %201, label %199
 
-203:                                              ; preds = %191
-  store i32 %202, ptr %200, align 4, !tbaa !55
-  %204 = add nsw i32 %.444.i, 1
-  %.pre53.i = load i64, ptr %112, align 4
-  br label %205
+199:                                              ; preds = %187
+  store i32 %198, ptr %196, align 4, !tbaa !55
+  %200 = add nsw i32 %.444.i, 1
+  %.pre53.i = load i64, ptr %108, align 4
+  br label %201
 
-205:                                              ; preds = %203, %191
-  %206 = phi i64 [ %.pre53.i, %203 ], [ %192, %191 ]
-  %.5.i = phi i32 [ %204, %203 ], [ %.444.i, %191 ]
+201:                                              ; preds = %199, %187
+  %202 = phi i64 [ %.pre53.i, %199 ], [ %188, %187 ]
+  %.5.i = phi i32 [ %200, %199 ], [ %.444.i, %187 ]
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  %207 = ashr i64 %206, 32
-  %208 = icmp slt i64 %indvars.iv.next50.i, %207
-  br i1 %208, label %191, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, !llvm.loop !202
+  %203 = ashr i64 %202, 32
+  %204 = icmp slt i64 %indvars.iv.next50.i, %203
+  br i1 %204, label %187, label %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, !llvm.loop !202
 
-_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit: ; preds = %186, %205, %.preheader36.i, %.preheader.i236
-  %209 = phi i64 [ %158, %.preheader.i236 ], [ %150, %.preheader36.i ], [ %206, %205 ], [ %188, %186 ]
-  %.3.i = phi i32 [ 0, %.preheader.i236 ], [ 0, %.preheader36.i ], [ %.5.i, %205 ], [ %.1.i, %186 ]
-  %210 = add i32 %.3.i, 1
-  %211 = trunc i64 %209 to i32
-  %212 = lshr i32 %211, 5
-  %213 = and i32 %212, 67108863
-  %214 = icmp ult i32 %210, %213
-  br i1 %214, label %215, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
+_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit: ; preds = %182, %201, %.preheader36.i, %.preheader.i236
+  %205 = phi i64 [ %154, %.preheader.i236 ], [ %146, %.preheader36.i ], [ %202, %201 ], [ %184, %182 ]
+  %.3.i = phi i32 [ 0, %.preheader.i236 ], [ 0, %.preheader36.i ], [ %.5.i, %201 ], [ %.1.i, %182 ]
+  %206 = add i32 %.3.i, 1
+  %207 = trunc i64 %205 to i32
+  %208 = lshr i32 %207, 5
+  %209 = and i32 %208, 67108863
+  %210 = icmp ult i32 %206, %209
+  br i1 %210, label %211, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
 
-215:                                              ; preds = %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit
-  %216 = load i32, ptr %57, align 4, !tbaa !61
-  %.not = icmp ugt i32 %213, %216
-  %217 = shl nsw i32 %.3.i, 5
-  %218 = and i32 %217, 2147483616
-  %219 = zext nneg i32 %218 to i64
+211:                                              ; preds = %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit
+  %212 = load i32, ptr %53, align 4, !tbaa !61
+  %.not = icmp ugt i32 %209, %212
+  %213 = shl nsw i32 %.3.i, 5
+  %214 = and i32 %213, 2147483616
+  %215 = zext nneg i32 %214 to i64
   %.v = select i1 %.not, i64 -2147483617, i64 -4294967265
-  %220 = and i64 %209, %.v
-  %221 = or disjoint i64 %220, %219
-  store i64 %221, ptr %112, align 4
+  %216 = and i64 %205, %.v
+  %217 = or disjoint i64 %216, %215
+  store i64 %217, ptr %108, align 4
   br label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
 
-_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread: ; preds = %.critedge, %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, %215, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
-  %222 = phi i64 [ %209, %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit ], [ %221, %215 ], [ %142, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit ], [ %111, %.critedge ]
-  %223 = icmp ne i32 %.sroa.0331.0, -2
-  %224 = zext i1 %223 to i32
-  %225 = lshr i64 %222, 32
-  %226 = trunc nuw i64 %225 to i32
-  %227 = icmp slt i32 %224, %226
-  br i1 %227, label %.lr.ph, label %.preheader365
+_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread: ; preds = %.critedge, %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit, %211, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
+  %218 = phi i64 [ %205, %_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE.exit ], [ %217, %211 ], [ %138, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit ], [ %107, %.critedge ]
+  %219 = icmp ne i32 %.sroa.0331.0, -2
+  %220 = zext i1 %219 to i32
+  %221 = lshr i64 %218, 32
+  %222 = trunc nuw i64 %221 to i32
+  %223 = icmp slt i32 %220, %222
+  br i1 %223, label %.lr.ph, label %.preheader365
 
 .lr.ph:                                           ; preds = %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
-  %228 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  %229 = zext i1 %223 to i64
-  br label %233
+  %224 = getelementptr inbounds nuw i8, ptr %108, i64 12
+  %225 = zext i1 %219 to i64
+  br label %229
 
-.preheader365:                                    ; preds = %433, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
-  %.1.lcssa = phi i32 [ %.0197, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread ], [ %.2, %433 ]
-  %230 = load ptr, ptr %41, align 8, !tbaa !112
-  %231 = load ptr, ptr %58, align 8, !tbaa !126
-  %232 = sext i32 %.0198 to i64
-  br label %439
+.preheader365:                                    ; preds = %413, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread
+  %.1.lcssa = phi i32 [ %.0197, %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit.thread ], [ %.2, %413 ]
+  %226 = load ptr, ptr %37, align 8, !tbaa !112
+  %227 = load ptr, ptr %54, align 8, !tbaa !126
+  %228 = sext i32 %.0198 to i64
+  br label %419
 
-233:                                              ; preds = %.lr.ph, %433
-  %indvars.iv = phi i64 [ %229, %.lr.ph ], [ %indvars.iv.next, %433 ]
-  %.1408 = phi i32 [ %.0197, %.lr.ph ], [ %.2, %433 ]
-  %234 = getelementptr inbounds nuw %union.anon, ptr %228, i64 %indvars.iv
-  %235 = load i32, ptr %234, align 4, !tbaa !55
-  %236 = ashr i32 %235, 1
-  %237 = load ptr, ptr %58, align 8, !tbaa !126
-  %238 = sext i32 %236 to i64
-  %239 = getelementptr inbounds i8, ptr %237, i64 %238
-  %240 = load i8, ptr %239, align 1, !tbaa !109
-  %.not229 = icmp eq i8 %240, 0
-  br i1 %.not229, label %241, label %433
+229:                                              ; preds = %.lr.ph, %413
+  %indvars.iv = phi i64 [ %225, %.lr.ph ], [ %indvars.iv.next, %413 ]
+  %.1408 = phi i32 [ %.0197, %.lr.ph ], [ %.2, %413 ]
+  %230 = getelementptr inbounds nuw %union.anon, ptr %224, i64 %indvars.iv
+  %231 = load i32, ptr %230, align 4, !tbaa !55
+  %232 = ashr i32 %231, 1
+  %233 = load ptr, ptr %54, align 8, !tbaa !126
+  %234 = sext i32 %232 to i64
+  %235 = getelementptr inbounds i8, ptr %233, i64 %234
+  %236 = load i8, ptr %235, align 1, !tbaa !109
+  %.not229 = icmp eq i8 %236, 0
+  br i1 %.not229, label %237, label %413
 
-241:                                              ; preds = %233
-  %242 = load ptr, ptr %48, align 8, !tbaa !129
-  %243 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %242, i64 %238
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
-  %245 = load i32, ptr %244, align 4, !tbaa !181
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %247, label %433
+237:                                              ; preds = %229
+  %238 = load ptr, ptr %44, align 8, !tbaa !129
+  %239 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %238, i64 %234
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 4
+  %241 = load i32, ptr %240, align 4, !tbaa !181
+  %242 = icmp sgt i32 %241, 0
+  br i1 %242, label %243, label %413
 
-247:                                              ; preds = %241
-  %248 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i237 = icmp ne i32 %248, 0
-  %249 = load i32, ptr %55, align 8
-  %250 = icmp sgt i32 %236, %249
-  %251 = select i1 %.not.i237, i1 %250, i1 false
-  br i1 %251, label %_ZN6Gluco26Solver15varBumpActivityEi.exit.thread, label %252
+243:                                              ; preds = %237
+  %244 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i237 = icmp ne i32 %244, 0
+  %245 = load i32, ptr %51, align 8
+  %246 = icmp sgt i32 %232, %245
+  %247 = select i1 %.not.i237, i1 %246, i1 false
+  br i1 %247, label %_ZN6Gluco26Solver15varBumpActivityEi.exit.thread, label %248
 
-252:                                              ; preds = %247
-  %253 = load double, ptr %59, align 8, !tbaa !81
-  %254 = load ptr, ptr %60, align 8, !tbaa !144
-  %255 = getelementptr inbounds double, ptr %254, i64 %238
-  %256 = load double, ptr %255, align 8, !tbaa !52
-  %257 = fadd double %253, %256
-  store double %257, ptr %255, align 8, !tbaa !52
-  %258 = fcmp ogt double %257, 1.000000e+100
-  br i1 %258, label %259, label %267
+248:                                              ; preds = %243
+  %249 = load double, ptr %55, align 8, !tbaa !81
+  %250 = load ptr, ptr %56, align 8, !tbaa !144
+  %251 = getelementptr inbounds double, ptr %250, i64 %234
+  %252 = load double, ptr %251, align 8, !tbaa !52
+  %253 = fadd double %249, %252
+  store double %253, ptr %251, align 8, !tbaa !52
+  %254 = fcmp ogt double %253, 1.000000e+100
+  br i1 %254, label %255, label %263
 
-259:                                              ; preds = %252
+255:                                              ; preds = %248
   store i8 1, ptr %10, align 8, !tbaa !198
-  %260 = load i32, ptr %61, align 8, !tbaa !130
-  %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
+  %256 = load i32, ptr %57, align 8, !tbaa !130
+  %257 = icmp sgt i32 %256, 0
+  br i1 %257, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %259
-  %wide.trip.count.i.i = zext nneg i32 %260 to i64
+.lr.ph.preheader.i.i:                             ; preds = %255
+  %wide.trip.count.i.i = zext nneg i32 %256 to i64
   br label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %259
-  %262 = load double, ptr %59, align 8, !tbaa !81
-  %263 = fmul double %262, 1.000000e-100
-  store double %263, ptr %59, align 8, !tbaa !81
-  br label %267
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %255
+  %258 = load double, ptr %55, align 8, !tbaa !81
+  %259 = fmul double %258, 1.000000e-100
+  store double %259, ptr %55, align 8, !tbaa !81
+  br label %263
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %264 = getelementptr inbounds nuw double, ptr %254, i64 %indvars.iv.i.i
-  %265 = load double, ptr %264, align 8, !tbaa !52
-  %266 = fmul double %265, 1.000000e-100
-  store double %266, ptr %264, align 8, !tbaa !52
+  %260 = getelementptr inbounds nuw double, ptr %250, i64 %indvars.iv.i.i
+  %261 = load double, ptr %260, align 8, !tbaa !52
+  %262 = fmul double %261, 1.000000e-100
+  store double %262, ptr %260, align 8, !tbaa !52
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !203
 
-267:                                              ; preds = %._crit_edge.i.i, %252
-  %268 = load i32, ptr %62, align 8, !tbaa !104
-  %.not.i.i238 = icmp eq i32 %268, 0
-  %269 = load i32, ptr %64, align 8
-  %270 = icmp slt i32 %236, %269
-  %or.cond461 = select i1 %.not.i.i238, i1 %270, i1 false
+263:                                              ; preds = %._crit_edge.i.i, %248
+  %264 = load i32, ptr %58, align 8, !tbaa !104
+  %.not.i.i238 = icmp eq i32 %264, 0
+  %265 = load i32, ptr %60, align 8
+  %266 = icmp slt i32 %232, %265
+  %or.cond461 = select i1 %.not.i.i238, i1 %266, i1 false
   br i1 %or.cond461, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZN6Gluco26Solver15varBumpActivityEi.exit
 
-_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %267
-  %271 = load ptr, ptr %65, align 8, !tbaa !115
-  %272 = getelementptr inbounds i32, ptr %271, i64 %238
-  %273 = load i32, ptr %272, align 4, !tbaa !55
-  %274 = icmp sgt i32 %273, -1
-  br i1 %274, label %275, label %_ZN6Gluco26Solver15varBumpActivityEi.exit
+_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %263
+  %267 = load ptr, ptr %61, align 8, !tbaa !115
+  %268 = getelementptr inbounds i32, ptr %267, i64 %234
+  %269 = load i32, ptr %268, align 4, !tbaa !55
+  %270 = icmp sgt i32 %269, -1
+  br i1 %270, label %271, label %_ZN6Gluco26Solver15varBumpActivityEi.exit
 
-275:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i
-  %276 = load ptr, ptr %66, align 8, !tbaa !115
-  %277 = zext nneg i32 %273 to i64
-  %278 = getelementptr inbounds nuw i32, ptr %276, i64 %277
-  %279 = load i32, ptr %278, align 4, !tbaa !55
-  %.not21.i.i.i.i = icmp eq i32 %273, 0
-  %.pre26.i.i.i.i = sext i32 %279 to i64
+271:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i
+  %272 = load ptr, ptr %62, align 8, !tbaa !115
+  %273 = zext nneg i32 %269 to i64
+  %274 = getelementptr inbounds nuw i32, ptr %272, i64 %273
+  %275 = load i32, ptr %274, align 4, !tbaa !55
+  %.not21.i.i.i.i = icmp eq i32 %269, 0
+  %.pre26.i.i.i.i = sext i32 %275 to i64
   br i1 %.not21.i.i.i.i, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %275
-  %280 = load ptr, ptr %63, align 8, !tbaa !204
-  %281 = load ptr, ptr %280, align 8, !tbaa !144
-  %282 = getelementptr inbounds double, ptr %281, i64 %.pre26.i.i.i.i
-  %283 = load double, ptr %282, align 8, !tbaa !52
-  br label %284
+.lr.ph.i.i.i.i:                                   ; preds = %271
+  %276 = load ptr, ptr %59, align 8, !tbaa !204
+  %277 = load ptr, ptr %276, align 8, !tbaa !144
+  %278 = getelementptr inbounds double, ptr %277, i64 %.pre26.i.i.i.i
+  %279 = load double, ptr %278, align 8, !tbaa !52
+  br label %280
 
-284:                                              ; preds = %294, %.lr.ph.i.i.i.i
-  %.01522.i.i.i.i = phi i32 [ %273, %.lr.ph.i.i.i.i ], [ %.023.i.i.i.i, %294 ]
+280:                                              ; preds = %290, %.lr.ph.i.i.i.i
+  %.01522.i.i.i.i = phi i32 [ %269, %.lr.ph.i.i.i.i ], [ %.023.i.i.i.i, %290 ]
   %.023.in.i.i.i.i = add nsw i32 %.01522.i.i.i.i, -1
   %.023.i.i.i.i = ashr i32 %.023.in.i.i.i.i, 1
-  %285 = sext i32 %.023.i.i.i.i to i64
-  %286 = getelementptr inbounds i32, ptr %276, i64 %285
-  %287 = load i32, ptr %286, align 4, !tbaa !55
-  %288 = sext i32 %287 to i64
-  %289 = getelementptr inbounds double, ptr %281, i64 %288
-  %290 = load double, ptr %289, align 8, !tbaa !52
-  %291 = fcmp ogt double %283, %290
-  %292 = sext i32 %.01522.i.i.i.i to i64
-  %293 = getelementptr inbounds i32, ptr %276, i64 %292
-  br i1 %291, label %294, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i
+  %281 = sext i32 %.023.i.i.i.i to i64
+  %282 = getelementptr inbounds i32, ptr %272, i64 %281
+  %283 = load i32, ptr %282, align 4, !tbaa !55
+  %284 = sext i32 %283 to i64
+  %285 = getelementptr inbounds double, ptr %277, i64 %284
+  %286 = load double, ptr %285, align 8, !tbaa !52
+  %287 = fcmp ogt double %279, %286
+  %288 = sext i32 %.01522.i.i.i.i to i64
+  %289 = getelementptr inbounds i32, ptr %272, i64 %288
+  br i1 %287, label %290, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i
 
-294:                                              ; preds = %284
-  store i32 %287, ptr %293, align 4, !tbaa !55
-  %295 = load i32, ptr %286, align 4, !tbaa !55
-  %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds i32, ptr %271, i64 %296
-  store i32 %.01522.i.i.i.i, ptr %297, align 4, !tbaa !55
+290:                                              ; preds = %280
+  store i32 %283, ptr %289, align 4, !tbaa !55
+  %291 = load i32, ptr %282, align 4, !tbaa !55
+  %292 = sext i32 %291 to i64
+  %293 = getelementptr inbounds i32, ptr %267, i64 %292
+  store i32 %.01522.i.i.i.i, ptr %293, align 4, !tbaa !55
   %.not.i.i.i.i = icmp ult i32 %.023.in.i.i.i.i, 2
-  br i1 %.not.i.i.i.i, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i, label %284, !llvm.loop !205
+  br i1 %.not.i.i.i.i, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i, label %280, !llvm.loop !205
 
-_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i: ; preds = %294, %284, %275
-  %.01518.i.i.i.i = phi i32 [ 0, %275 ], [ %.023.i.i.i.i, %294 ], [ %.01522.i.i.i.i, %284 ]
-  %phi.call.i.i.i.i = phi ptr [ %276, %275 ], [ %276, %294 ], [ %293, %284 ]
-  store i32 %279, ptr %phi.call.i.i.i.i, align 4, !tbaa !55
-  %298 = getelementptr inbounds i32, ptr %271, i64 %.pre26.i.i.i.i
-  store i32 %.01518.i.i.i.i, ptr %298, align 4, !tbaa !55
+_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i: ; preds = %290, %280, %271
+  %.01518.i.i.i.i = phi i32 [ 0, %271 ], [ %.023.i.i.i.i, %290 ], [ %.01522.i.i.i.i, %280 ]
+  %phi.call.i.i.i.i = phi ptr [ %272, %271 ], [ %272, %290 ], [ %289, %280 ]
+  store i32 %275, ptr %phi.call.i.i.i.i, align 4, !tbaa !55
+  %294 = getelementptr inbounds i32, ptr %267, i64 %.pre26.i.i.i.i
+  store i32 %.01518.i.i.i.i, ptr %294, align 4, !tbaa !55
   br label %_ZN6Gluco26Solver15varBumpActivityEi.exit
 
-_ZN6Gluco26Solver15varBumpActivityEi.exit:        ; preds = %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %267
-  store i8 1, ptr %239, align 1, !tbaa !109
-  %299 = load ptr, ptr %48, align 8, !tbaa !129
-  %300 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %299, i64 %238
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 4
-  %302 = load i32, ptr %301, align 4, !tbaa !181
-  %303 = load i32, ptr %67, align 8, !tbaa !116
-  %.not230 = icmp slt i32 %302, %303
-  br i1 %.not230, label %376, label %309
+_ZN6Gluco26Solver15varBumpActivityEi.exit:        ; preds = %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %263
+  store i8 1, ptr %235, align 1, !tbaa !109
+  %295 = load ptr, ptr %44, align 8, !tbaa !129
+  %296 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %295, i64 %234
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
+  %298 = load i32, ptr %297, align 4, !tbaa !181
+  %299 = load i32, ptr %63, align 8, !tbaa !116
+  %.not230 = icmp slt i32 %298, %299
+  br i1 %.not230, label %364, label %305
 
-_ZN6Gluco26Solver15varBumpActivityEi.exit.thread: ; preds = %247
-  store i8 1, ptr %239, align 1, !tbaa !109
-  %304 = load ptr, ptr %48, align 8, !tbaa !129
-  %305 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %304, i64 %238
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 4
-  %307 = load i32, ptr %306, align 4, !tbaa !181
-  %308 = load i32, ptr %67, align 8, !tbaa !116
-  %.not230337 = icmp slt i32 %307, %308
-  br i1 %.not230337, label %376, label %.thread
+_ZN6Gluco26Solver15varBumpActivityEi.exit.thread: ; preds = %243
+  store i8 1, ptr %235, align 1, !tbaa !109
+  %300 = load ptr, ptr %44, align 8, !tbaa !129
+  %301 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %300, i64 %234
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 4
+  %303 = load i32, ptr %302, align 4, !tbaa !181
+  %304 = load i32, ptr %63, align 8, !tbaa !116
+  %.not230337 = icmp slt i32 %303, %304
+  br i1 %.not230337, label %364, label %.thread
 
-309:                                              ; preds = %_ZN6Gluco26Solver15varBumpActivityEi.exit
-  %310 = load i32, ptr %46, align 8, !tbaa !113
-  %311 = load i32, ptr %68, align 4, !tbaa !114
-  %312 = icmp eq i32 %310, %311
-  br i1 %312, label %313, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239
+305:                                              ; preds = %_ZN6Gluco26Solver15varBumpActivityEi.exit
+  %306 = load i32, ptr %42, align 8, !tbaa !113
+  %307 = load i32, ptr %64, align 4, !tbaa !114
+  %308 = icmp eq i32 %306, %307
+  br i1 %308, label %309, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239: ; preds = %309
-  %.pre.i240 = load ptr, ptr %45, align 8, !tbaa !112
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239: ; preds = %305
+  %.pre.i240 = load ptr, ptr %41, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-313:                                              ; preds = %309
-  %314 = ashr i32 %310, 1
-  %315 = and i32 %314, -2
-  %316 = tail call i32 @llvm.smax.i32(i32 %315, i32 0)
-  %317 = add nuw nsw i32 %316, 2
-  %318 = sub nsw i32 2147483647, %310
-  %319 = icmp samesign ugt i32 %317, %318
-  br i1 %319, label %.loopexit366, label %320
+309:                                              ; preds = %305
+  %310 = ashr i32 %306, 1
+  %311 = and i32 %310, -2
+  %312 = tail call i32 @llvm.smax.i32(i32 %311, i32 0)
+  %313 = add nuw nsw i32 %312, 2
+  %314 = sub nsw i32 2147483647, %306
+  %315 = icmp samesign ugt i32 %313, %314
+  br i1 %315, label %.loopexit366, label %316
 
-320:                                              ; preds = %313
-  %321 = load ptr, ptr %45, align 8, !tbaa !112
-  %322 = add nsw i32 %317, %310
-  store i32 %322, ptr %68, align 4, !tbaa !114
-  %323 = sext i32 %322 to i64
-  %324 = shl nsw i64 %323, 2
-  %325 = tail call ptr @realloc(ptr noundef %321, i64 noundef %324) #35
-  store ptr %325, ptr %45, align 8, !tbaa !112
-  %326 = icmp eq ptr %325, null
-  br i1 %326, label %327, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
+316:                                              ; preds = %309
+  %317 = load ptr, ptr %41, align 8, !tbaa !112
+  %318 = add nsw i32 %313, %306
+  store i32 %318, ptr %64, align 4, !tbaa !114
+  %319 = sext i32 %318 to i64
+  %320 = shl nsw i64 %319, 2
+  %321 = tail call ptr @realloc(ptr noundef %317, i64 noundef %320) #34
+  store ptr %321, ptr %41, align 8, !tbaa !112
+  %322 = icmp eq ptr %321, null
+  br i1 %322, label %.loopexit366, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %320
-  %.pre534 = load i32, ptr %46, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %316
+  %.pre534 = load i32, ptr %42, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-327:                                              ; preds = %320
-  %328 = tail call ptr @__errno_location() #31
-  %329 = load i32, ptr %328, align 4, !tbaa !55
-  %330 = icmp eq i32 %329, 12
-  tail call void @llvm.assume(i1 %330)
-  br label %.loopexit366
-
-.loopexit366:                                     ; preds = %313, %327
+.loopexit366:                                     ; preds = %309, %316
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239
-  %331 = phi i32 [ %310, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239 ], [ %.pre534, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %332 = phi ptr [ %.pre.i240, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239 ], [ %325, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %333 = add nsw i32 %331, 1
-  store i32 %333, ptr %46, align 8, !tbaa !113
-  %334 = sext i32 %331 to i64
-  %335 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %332, i64 %334
-  store i32 %235, ptr %335, align 4, !tbaa !55
+  %323 = phi i32 [ %306, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239 ], [ %.pre534, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %324 = phi ptr [ %.pre.i240, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i239 ], [ %321, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %325 = add nsw i32 %323, 1
+  store i32 %325, ptr %42, align 8, !tbaa !113
+  %326 = sext i32 %323 to i64
+  %327 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %324, i64 %326
+  store i32 %231, ptr %327, align 4, !tbaa !55
   br label %.thread
 
 .thread:                                          ; preds = %_ZN6Gluco26Solver15varBumpActivityEi.exit.thread, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %336 = add nsw i32 %.1408, 1
-  %337 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i241 = icmp ne i32 %337, 0
-  %338 = load i32, ptr %55, align 8
-  %339 = icmp sgt i32 %236, %338
-  %340 = select i1 %.not.i241, i1 %339, i1 false
-  br i1 %340, label %433, label %341
+  %328 = add nsw i32 %.1408, 1
+  %329 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i241 = icmp ne i32 %329, 0
+  %330 = load i32, ptr %51, align 8
+  %331 = icmp sgt i32 %232, %330
+  %332 = select i1 %.not.i241, i1 %331, i1 false
+  br i1 %332, label %413, label %333
 
-341:                                              ; preds = %.thread
-  %342 = load ptr, ptr %48, align 8, !tbaa !129
-  %343 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %342, i64 %238
-  %344 = load i32, ptr %343, align 4, !tbaa !177
-  %or.cond = icmp slt i32 %344, 0
-  br i1 %or.cond, label %433, label %345
+333:                                              ; preds = %.thread
+  %334 = load ptr, ptr %44, align 8, !tbaa !129
+  %335 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %334, i64 %234
+  %336 = load i32, ptr %335, align 4, !tbaa !177
+  %or.cond = icmp slt i32 %336, 0
+  br i1 %or.cond, label %413, label %337
 
-345:                                              ; preds = %341
-  %346 = load ptr, ptr %47, align 8, !tbaa !87
-  %347 = zext nneg i32 %344 to i64
-  %348 = getelementptr inbounds nuw i32, ptr %346, i64 %347
-  %349 = load i64, ptr %348, align 4
-  %350 = and i64 %349, 4
-  %.not343 = icmp eq i64 %350, 0
-  br i1 %.not343, label %433, label %351
+337:                                              ; preds = %333
+  %338 = load ptr, ptr %43, align 8, !tbaa !87
+  %339 = zext nneg i32 %336 to i64
+  %340 = getelementptr inbounds nuw i32, ptr %338, i64 %339
+  %341 = load i64, ptr %340, align 4
+  %342 = and i64 %341, 4
+  %.not343 = icmp eq i64 %342, 0
+  br i1 %.not343, label %413, label %343
 
-351:                                              ; preds = %345
-  %352 = load i32, ptr %70, align 8, !tbaa !113
-  %353 = load i32, ptr %71, align 4, !tbaa !114
-  %354 = icmp eq i32 %352, %353
-  br i1 %354, label %355, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242
+343:                                              ; preds = %337
+  %344 = load i32, ptr %66, align 8, !tbaa !113
+  %345 = load i32, ptr %67, align 4, !tbaa !114
+  %346 = icmp eq i32 %344, %345
+  br i1 %346, label %347, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242: ; preds = %351
-  %.pre.i243 = load ptr, ptr %69, align 8, !tbaa !112
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242: ; preds = %343
+  %.pre.i243 = load ptr, ptr %65, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244
 
-355:                                              ; preds = %351
-  %356 = ashr i32 %352, 1
-  %357 = and i32 %356, -2
-  %358 = tail call i32 @llvm.smax.i32(i32 %357, i32 0)
-  %359 = add nuw nsw i32 %358, 2
-  %360 = sub nsw i32 2147483647, %352
-  %361 = icmp samesign ugt i32 %359, %360
-  br i1 %361, label %.loopexit367, label %362
+347:                                              ; preds = %343
+  %348 = ashr i32 %344, 1
+  %349 = and i32 %348, -2
+  %350 = tail call i32 @llvm.smax.i32(i32 %349, i32 0)
+  %351 = add nuw nsw i32 %350, 2
+  %352 = sub nsw i32 2147483647, %344
+  %353 = icmp samesign ugt i32 %351, %352
+  br i1 %353, label %.loopexit367, label %354
 
-362:                                              ; preds = %355
-  %363 = load ptr, ptr %69, align 8, !tbaa !112
-  %364 = add nsw i32 %359, %352
-  store i32 %364, ptr %71, align 4, !tbaa !114
-  %365 = sext i32 %364 to i64
-  %366 = shl nsw i64 %365, 2
-  %367 = tail call ptr @realloc(ptr noundef %363, i64 noundef %366) #35
-  store ptr %367, ptr %69, align 8, !tbaa !112
-  %368 = icmp eq ptr %367, null
-  br i1 %368, label %369, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge
+354:                                              ; preds = %347
+  %355 = load ptr, ptr %65, align 8, !tbaa !112
+  %356 = add nsw i32 %351, %344
+  store i32 %356, ptr %67, align 4, !tbaa !114
+  %357 = sext i32 %356 to i64
+  %358 = shl nsw i64 %357, 2
+  %359 = tail call ptr @realloc(ptr noundef %355, i64 noundef %358) #34
+  store ptr %359, ptr %65, align 8, !tbaa !112
+  %360 = icmp eq ptr %359, null
+  br i1 %360, label %.loopexit367, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge: ; preds = %362
-  %.pre535 = load i32, ptr %70, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge: ; preds = %354
+  %.pre535 = load i32, ptr %66, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244
 
-369:                                              ; preds = %362
-  %370 = tail call ptr @__errno_location() #31
-  %371 = load i32, ptr %370, align 4, !tbaa !55
-  %372 = icmp eq i32 %371, 12
-  tail call void @llvm.assume(i1 %372)
-  br label %.loopexit367
-
-.loopexit367:                                     ; preds = %355, %369
+.loopexit367:                                     ; preds = %347, %354
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244:      ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242
-  %373 = phi i32 [ %352, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242 ], [ %.pre535, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge ]
-  %374 = phi ptr [ %.pre.i243, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242 ], [ %367, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge ]
-  %375 = add nsw i32 %373, 1
-  store i32 %375, ptr %70, align 8, !tbaa !113
+  %361 = phi i32 [ %344, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242 ], [ %.pre535, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge ]
+  %362 = phi ptr [ %.pre.i243, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i242 ], [ %359, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244_crit_edge ]
+  %363 = add nsw i32 %361, 1
+  store i32 %363, ptr %66, align 8, !tbaa !113
   br label %.sink.split
 
-376:                                              ; preds = %_ZN6Gluco26Solver15varBumpActivityEi.exit.thread, %_ZN6Gluco26Solver15varBumpActivityEi.exit
-  %377 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i245 = icmp ne i32 %377, 0
-  %378 = load i32, ptr %55, align 8
-  %379 = icmp sgt i32 %236, %378
-  %380 = select i1 %.not.i245, i1 %379, i1 false
-  br i1 %380, label %381, label %406
+364:                                              ; preds = %_ZN6Gluco26Solver15varBumpActivityEi.exit.thread, %_ZN6Gluco26Solver15varBumpActivityEi.exit
+  %365 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i245 = icmp ne i32 %365, 0
+  %366 = load i32, ptr %51, align 8
+  %367 = icmp sgt i32 %232, %366
+  %368 = select i1 %.not.i245, i1 %367, i1 false
+  br i1 %368, label %369, label %390
 
-381:                                              ; preds = %376
-  %382 = load i32, ptr %72, align 8, !tbaa !113
-  %383 = load i32, ptr %73, align 4, !tbaa !114
-  %384 = icmp eq i32 %382, %383
-  br i1 %384, label %385, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246
+369:                                              ; preds = %364
+  %370 = load i32, ptr %68, align 8, !tbaa !113
+  %371 = load i32, ptr %69, align 4, !tbaa !114
+  %372 = icmp eq i32 %370, %371
+  br i1 %372, label %373, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246: ; preds = %381
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246: ; preds = %369
   %.pre.i247 = load ptr, ptr %3, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248
 
-385:                                              ; preds = %381
-  %386 = ashr i32 %382, 1
-  %387 = and i32 %386, -2
-  %388 = tail call i32 @llvm.smax.i32(i32 %387, i32 0)
-  %389 = add nuw nsw i32 %388, 2
-  %390 = sub nsw i32 2147483647, %382
-  %391 = icmp samesign ugt i32 %389, %390
-  br i1 %391, label %.loopexit369, label %392
+373:                                              ; preds = %369
+  %374 = ashr i32 %370, 1
+  %375 = and i32 %374, -2
+  %376 = tail call i32 @llvm.smax.i32(i32 %375, i32 0)
+  %377 = add nuw nsw i32 %376, 2
+  %378 = sub nsw i32 2147483647, %370
+  %379 = icmp samesign ugt i32 %377, %378
+  br i1 %379, label %.loopexit369, label %380
 
-392:                                              ; preds = %385
-  %393 = load ptr, ptr %3, align 8, !tbaa !112
-  %394 = add nsw i32 %389, %382
-  store i32 %394, ptr %73, align 4, !tbaa !114
-  %395 = sext i32 %394 to i64
-  %396 = shl nsw i64 %395, 2
-  %397 = tail call ptr @realloc(ptr noundef %393, i64 noundef %396) #35
-  store ptr %397, ptr %3, align 8, !tbaa !112
-  %398 = icmp eq ptr %397, null
-  br i1 %398, label %399, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge
+380:                                              ; preds = %373
+  %381 = load ptr, ptr %3, align 8, !tbaa !112
+  %382 = add nsw i32 %377, %370
+  store i32 %382, ptr %69, align 4, !tbaa !114
+  %383 = sext i32 %382 to i64
+  %384 = shl nsw i64 %383, 2
+  %385 = tail call ptr @realloc(ptr noundef %381, i64 noundef %384) #34
+  store ptr %385, ptr %3, align 8, !tbaa !112
+  %386 = icmp eq ptr %385, null
+  br i1 %386, label %.loopexit369, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge: ; preds = %392
-  %.pre537 = load i32, ptr %72, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge: ; preds = %380
+  %.pre537 = load i32, ptr %68, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248
 
-399:                                              ; preds = %392
-  %400 = tail call ptr @__errno_location() #31
-  %401 = load i32, ptr %400, align 4, !tbaa !55
-  %402 = icmp eq i32 %401, 12
-  tail call void @llvm.assume(i1 %402)
-  br label %.loopexit369
-
-.loopexit369:                                     ; preds = %385, %399
+.loopexit369:                                     ; preds = %373, %380
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248:      ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246
-  %403 = phi i32 [ %382, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246 ], [ %.pre537, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge ]
-  %404 = phi ptr [ %.pre.i247, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246 ], [ %397, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge ]
-  %405 = add nsw i32 %403, 1
-  store i32 %405, ptr %72, align 8, !tbaa !113
+  %387 = phi i32 [ %370, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246 ], [ %.pre537, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge ]
+  %388 = phi ptr [ %.pre.i247, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i246 ], [ %385, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248_crit_edge ]
+  %389 = add nsw i32 %387, 1
+  store i32 %389, ptr %68, align 8, !tbaa !113
   br label %.sink.split
 
-406:                                              ; preds = %376
-  %407 = load i32, ptr %11, align 8, !tbaa !113
-  %408 = load i32, ptr %13, align 4, !tbaa !114
-  %409 = icmp eq i32 %407, %408
-  br i1 %409, label %410, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249
+390:                                              ; preds = %364
+  %391 = load i32, ptr %11, align 8, !tbaa !113
+  %392 = load i32, ptr %13, align 4, !tbaa !114
+  %393 = icmp eq i32 %391, %392
+  br i1 %393, label %394, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249: ; preds = %406
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249: ; preds = %390
   %.pre.i250 = load ptr, ptr %2, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251
 
-410:                                              ; preds = %406
-  %411 = ashr i32 %407, 1
-  %412 = and i32 %411, -2
-  %413 = tail call i32 @llvm.smax.i32(i32 %412, i32 0)
-  %414 = add nuw nsw i32 %413, 2
-  %415 = sub nsw i32 2147483647, %407
-  %416 = icmp samesign ugt i32 %414, %415
-  br i1 %416, label %.loopexit368, label %417
+394:                                              ; preds = %390
+  %395 = ashr i32 %391, 1
+  %396 = and i32 %395, -2
+  %397 = tail call i32 @llvm.smax.i32(i32 %396, i32 0)
+  %398 = add nuw nsw i32 %397, 2
+  %399 = sub nsw i32 2147483647, %391
+  %400 = icmp samesign ugt i32 %398, %399
+  br i1 %400, label %.loopexit368, label %401
 
-417:                                              ; preds = %410
-  %418 = load ptr, ptr %2, align 8, !tbaa !112
-  %419 = add nsw i32 %414, %407
-  store i32 %419, ptr %13, align 4, !tbaa !114
-  %420 = sext i32 %419 to i64
-  %421 = shl nsw i64 %420, 2
-  %422 = tail call ptr @realloc(ptr noundef %418, i64 noundef %421) #35
-  store ptr %422, ptr %2, align 8, !tbaa !112
-  %423 = icmp eq ptr %422, null
-  br i1 %423, label %424, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge
+401:                                              ; preds = %394
+  %402 = load ptr, ptr %2, align 8, !tbaa !112
+  %403 = add nsw i32 %398, %391
+  store i32 %403, ptr %13, align 4, !tbaa !114
+  %404 = sext i32 %403 to i64
+  %405 = shl nsw i64 %404, 2
+  %406 = tail call ptr @realloc(ptr noundef %402, i64 noundef %405) #34
+  store ptr %406, ptr %2, align 8, !tbaa !112
+  %407 = icmp eq ptr %406, null
+  br i1 %407, label %.loopexit368, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge: ; preds = %417
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge: ; preds = %401
   %.pre536 = load i32, ptr %11, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251
 
-424:                                              ; preds = %417
-  %425 = tail call ptr @__errno_location() #31
-  %426 = load i32, ptr %425, align 4, !tbaa !55
-  %427 = icmp eq i32 %426, 12
-  tail call void @llvm.assume(i1 %427)
-  br label %.loopexit368
-
-.loopexit368:                                     ; preds = %410, %424
+.loopexit368:                                     ; preds = %394, %401
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251:      ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249
-  %428 = phi i32 [ %407, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249 ], [ %.pre536, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge ]
-  %429 = phi ptr [ %.pre.i250, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249 ], [ %422, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge ]
-  %430 = add nsw i32 %428, 1
-  store i32 %430, ptr %11, align 8, !tbaa !113
+  %408 = phi i32 [ %391, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249 ], [ %.pre536, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge ]
+  %409 = phi ptr [ %.pre.i250, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i249 ], [ %406, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251_crit_edge ]
+  %410 = add nsw i32 %408, 1
+  store i32 %410, ptr %11, align 8, !tbaa !113
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244
-  %.sink = phi i32 [ %373, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %428, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %403, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
-  %.sink639 = phi ptr [ %374, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %429, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %404, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
-  %.2.ph = phi i32 [ %336, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %.1408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %.1408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
-  %431 = sext i32 %.sink to i64
-  %432 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.sink639, i64 %431
-  store i32 %235, ptr %432, align 4, !tbaa !55
-  br label %433
+  %.sink = phi i32 [ %361, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %387, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
+  %.sink639 = phi ptr [ %362, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %409, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %388, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
+  %.2.ph = phi i32 [ %328, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %.1408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %.1408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
+  %411 = sext i32 %.sink to i64
+  %412 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.sink639, i64 %411
+  store i32 %231, ptr %412, align 4, !tbaa !55
+  br label %413
 
-433:                                              ; preds = %.sink.split, %345, %341, %.thread, %241, %233
-  %.2 = phi i32 [ %.1408, %233 ], [ %336, %.thread ], [ %336, %345 ], [ %336, %341 ], [ %.1408, %241 ], [ %.2.ph, %.sink.split ]
+413:                                              ; preds = %.sink.split, %337, %333, %.thread, %237, %229
+  %.2 = phi i32 [ %.1408, %229 ], [ %328, %.thread ], [ %328, %337 ], [ %328, %333 ], [ %.1408, %237 ], [ %.2.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %434 = load i64, ptr %112, align 4
-  %435 = lshr i64 %434, 32
-  %436 = trunc nuw i64 %435 to i32
-  %437 = trunc nuw i64 %indvars.iv.next to i32
-  %438 = icmp slt i32 %437, %436
-  br i1 %438, label %233, label %.preheader365, !llvm.loop !206
+  %414 = load i64, ptr %108, align 4
+  %415 = lshr i64 %414, 32
+  %416 = trunc nuw i64 %415 to i32
+  %417 = trunc nuw i64 %indvars.iv.next to i32
+  %418 = icmp slt i32 %417, %416
+  br i1 %418, label %229, label %.preheader365, !llvm.loop !206
 
-439:                                              ; preds = %.preheader365, %439
-  %indvars.iv480 = phi i64 [ %232, %.preheader365 ], [ %indvars.iv.next481, %439 ]
+419:                                              ; preds = %.preheader365, %419
+  %indvars.iv480 = phi i64 [ %228, %.preheader365 ], [ %indvars.iv.next481, %419 ]
   %indvars.iv.next481 = add nsw i64 %indvars.iv480, -1
-  %440 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %230, i64 %indvars.iv480
-  %.sroa.096.0.copyload = load i32, ptr %440, align 4, !tbaa !55
-  %441 = ashr i32 %.sroa.096.0.copyload, 1
-  %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds i8, ptr %231, i64 %442
-  %444 = load i8, ptr %443, align 1, !tbaa !109
-  %.not220 = icmp eq i8 %444, 0
-  br i1 %.not220, label %439, label %445, !llvm.loop !207
+  %420 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %226, i64 %indvars.iv480
+  %.sroa.096.0.copyload = load i32, ptr %420, align 4, !tbaa !55
+  %421 = ashr i32 %.sroa.096.0.copyload, 1
+  %422 = sext i32 %421 to i64
+  %423 = getelementptr inbounds i8, ptr %227, i64 %422
+  %424 = load i8, ptr %423, align 1, !tbaa !109
+  %.not220 = icmp eq i8 %424, 0
+  br i1 %.not220, label %419, label %425, !llvm.loop !207
 
-445:                                              ; preds = %439
-  %446 = getelementptr inbounds i8, ptr %231, i64 %442
-  %447 = trunc nsw i64 %indvars.iv.next481 to i32
-  %448 = load ptr, ptr %48, align 8, !tbaa !129
-  %449 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %448, i64 %442
-  %450 = load i32, ptr %449, align 4, !tbaa !177
-  store i8 0, ptr %446, align 1, !tbaa !109
-  %451 = add nsw i32 %.1.lcssa, -1
-  %452 = icmp sgt i32 %.1.lcssa, 1
-  br i1 %452, label %74, label %453, !llvm.loop !208
+425:                                              ; preds = %419
+  %426 = getelementptr inbounds i8, ptr %227, i64 %422
+  %427 = trunc nsw i64 %indvars.iv.next481 to i32
+  %428 = load ptr, ptr %44, align 8, !tbaa !129
+  %429 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %428, i64 %422
+  %430 = load i32, ptr %429, align 4, !tbaa !177
+  store i8 0, ptr %426, align 1, !tbaa !109
+  %431 = add nsw i32 %.1.lcssa, -1
+  %432 = icmp sgt i32 %.1.lcssa, 1
+  br i1 %432, label %70, label %433, !llvm.loop !208
 
-453:                                              ; preds = %445
-  %454 = xor i32 %.sroa.096.0.copyload, 1
-  %455 = load ptr, ptr %2, align 8, !tbaa !112
-  store i32 %454, ptr %455, align 4, !tbaa !55
-  %456 = load i32, ptr %72, align 8, !tbaa !113
-  %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %.lr.ph412, label %.preheader362
+433:                                              ; preds = %425
+  %434 = xor i32 %.sroa.096.0.copyload, 1
+  %435 = load ptr, ptr %2, align 8, !tbaa !112
+  store i32 %434, ptr %435, align 4, !tbaa !55
+  %436 = load i32, ptr %68, align 8, !tbaa !113
+  %437 = icmp sgt i32 %436, 0
+  br i1 %437, label %.lr.ph412, label %.preheader362
 
-.preheader362:                                    ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254, %453
-  %458 = load i32, ptr %11, align 8, !tbaa !113
-  %459 = icmp sgt i32 %458, 0
-  br i1 %459, label %.lr.ph414, label %._crit_edge
+.preheader362:                                    ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254, %433
+  %438 = load i32, ptr %11, align 8, !tbaa !113
+  %439 = icmp sgt i32 %438, 0
+  br i1 %439, label %.lr.ph414, label %._crit_edge
 
-.lr.ph412:                                        ; preds = %453, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254
-  %460 = phi ptr [ %.pre.i253539, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254 ], [ %455, %453 ]
-  %indvars.iv483 = phi i64 [ %indvars.iv.next484, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254 ], [ 0, %453 ]
-  %461 = load ptr, ptr %3, align 8, !tbaa !112
-  %462 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %461, i64 %indvars.iv483
-  %463 = load i32, ptr %11, align 8, !tbaa !113
-  %464 = load i32, ptr %13, align 4, !tbaa !114
-  %465 = icmp eq i32 %463, %464
-  br i1 %465, label %466, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254
+.lr.ph412:                                        ; preds = %433, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254
+  %440 = phi ptr [ %.pre.i253539, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254 ], [ %435, %433 ]
+  %indvars.iv483 = phi i64 [ %indvars.iv.next484, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254 ], [ 0, %433 ]
+  %441 = load ptr, ptr %3, align 8, !tbaa !112
+  %442 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %441, i64 %indvars.iv483
+  %443 = load i32, ptr %11, align 8, !tbaa !113
+  %444 = load i32, ptr %13, align 4, !tbaa !114
+  %445 = icmp eq i32 %443, %444
+  br i1 %445, label %446, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254
 
-466:                                              ; preds = %.lr.ph412
-  %467 = ashr i32 %463, 1
-  %468 = and i32 %467, -2
-  %469 = tail call i32 @llvm.smax.i32(i32 %468, i32 0)
-  %470 = add nuw nsw i32 %469, 2
-  %471 = sub nsw i32 2147483647, %463
-  %472 = icmp samesign ugt i32 %470, %471
-  br i1 %472, label %.loopexit364, label %473
+446:                                              ; preds = %.lr.ph412
+  %447 = ashr i32 %443, 1
+  %448 = and i32 %447, -2
+  %449 = tail call i32 @llvm.smax.i32(i32 %448, i32 0)
+  %450 = add nuw nsw i32 %449, 2
+  %451 = sub nsw i32 2147483647, %443
+  %452 = icmp samesign ugt i32 %450, %451
+  br i1 %452, label %.loopexit364, label %453
 
-473:                                              ; preds = %466
-  %474 = add nsw i32 %470, %463
-  store i32 %474, ptr %13, align 4, !tbaa !114
-  %475 = sext i32 %474 to i64
-  %476 = shl nsw i64 %475, 2
-  %477 = tail call ptr @realloc(ptr noundef %460, i64 noundef %476) #35
-  store ptr %477, ptr %2, align 8, !tbaa !112
-  %478 = icmp eq ptr %477, null
-  br i1 %478, label %479, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge
+453:                                              ; preds = %446
+  %454 = add nsw i32 %450, %443
+  store i32 %454, ptr %13, align 4, !tbaa !114
+  %455 = sext i32 %454 to i64
+  %456 = shl nsw i64 %455, 2
+  %457 = tail call ptr @realloc(ptr noundef %440, i64 noundef %456) #34
+  store ptr %457, ptr %2, align 8, !tbaa !112
+  %458 = icmp eq ptr %457, null
+  br i1 %458, label %.loopexit364, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge: ; preds = %473
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge: ; preds = %453
   %.pre540 = load i32, ptr %11, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254
 
-479:                                              ; preds = %473
-  %480 = tail call ptr @__errno_location() #31
-  %481 = load i32, ptr %480, align 4, !tbaa !55
-  %482 = icmp eq i32 %481, 12
-  tail call void @llvm.assume(i1 %482)
-  br label %.loopexit364
-
-.loopexit364:                                     ; preds = %466, %479
+.loopexit364:                                     ; preds = %446, %453
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254:      ; preds = %.lr.ph412, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge
-  %483 = phi i32 [ %.pre540, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge ], [ %463, %.lr.ph412 ]
-  %.pre.i253539 = phi ptr [ %477, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge ], [ %460, %.lr.ph412 ]
-  %484 = add nsw i32 %483, 1
-  store i32 %484, ptr %11, align 8, !tbaa !113
-  %485 = sext i32 %483 to i64
-  %486 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre.i253539, i64 %485
-  %487 = load i32, ptr %462, align 4, !tbaa !55
-  store i32 %487, ptr %486, align 4, !tbaa !55
+  %459 = phi i32 [ %.pre540, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge ], [ %443, %.lr.ph412 ]
+  %.pre.i253539 = phi ptr [ %457, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit254_crit_edge ], [ %440, %.lr.ph412 ]
+  %460 = add nsw i32 %459, 1
+  store i32 %460, ptr %11, align 8, !tbaa !113
+  %461 = sext i32 %459 to i64
+  %462 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre.i253539, i64 %461
+  %463 = load i32, ptr %442, align 4, !tbaa !55
+  store i32 %463, ptr %462, align 4, !tbaa !55
   %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
-  %488 = load i32, ptr %72, align 8, !tbaa !113
-  %489 = sext i32 %488 to i64
-  %490 = icmp slt i64 %indvars.iv.next484, %489
-  br i1 %490, label %.lr.ph412, label %.preheader362, !llvm.loop !209
+  %464 = load i32, ptr %68, align 8, !tbaa !113
+  %465 = sext i32 %464 to i64
+  %466 = icmp slt i64 %indvars.iv.next484, %465
+  br i1 %466, label %.lr.ph412, label %.preheader362, !llvm.loop !209
 
 .lr.ph414:                                        ; preds = %.preheader362, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257
   %indvars.iv486 = phi i64 [ %indvars.iv.next487, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257 ], [ 0, %.preheader362 ]
-  %491 = load ptr, ptr %2, align 8, !tbaa !112
-  %492 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %491, i64 %indvars.iv486
-  %493 = load i32, ptr %46, align 8, !tbaa !113
-  %494 = load i32, ptr %68, align 4, !tbaa !114
-  %495 = icmp eq i32 %493, %494
-  br i1 %495, label %496, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255
+  %467 = load ptr, ptr %2, align 8, !tbaa !112
+  %468 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %467, i64 %indvars.iv486
+  %469 = load i32, ptr %42, align 8, !tbaa !113
+  %470 = load i32, ptr %64, align 4, !tbaa !114
+  %471 = icmp eq i32 %469, %470
+  br i1 %471, label %472, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255
 
 ._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255: ; preds = %.lr.ph414
-  %.pre.i256 = load ptr, ptr %45, align 8, !tbaa !112
+  %.pre.i256 = load ptr, ptr %41, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257
 
-496:                                              ; preds = %.lr.ph414
-  %497 = ashr i32 %493, 1
-  %498 = and i32 %497, -2
-  %499 = tail call i32 @llvm.smax.i32(i32 %498, i32 0)
-  %500 = add nuw nsw i32 %499, 2
-  %501 = sub nsw i32 2147483647, %493
-  %502 = icmp samesign ugt i32 %500, %501
-  br i1 %502, label %.loopexit363, label %503
+472:                                              ; preds = %.lr.ph414
+  %473 = ashr i32 %469, 1
+  %474 = and i32 %473, -2
+  %475 = tail call i32 @llvm.smax.i32(i32 %474, i32 0)
+  %476 = add nuw nsw i32 %475, 2
+  %477 = sub nsw i32 2147483647, %469
+  %478 = icmp samesign ugt i32 %476, %477
+  br i1 %478, label %.loopexit363, label %479
 
-503:                                              ; preds = %496
-  %504 = load ptr, ptr %45, align 8, !tbaa !112
-  %505 = add nsw i32 %500, %493
-  store i32 %505, ptr %68, align 4, !tbaa !114
-  %506 = sext i32 %505 to i64
-  %507 = shl nsw i64 %506, 2
-  %508 = tail call ptr @realloc(ptr noundef %504, i64 noundef %507) #35
-  store ptr %508, ptr %45, align 8, !tbaa !112
-  %509 = icmp eq ptr %508, null
-  br i1 %509, label %510, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge
+479:                                              ; preds = %472
+  %480 = load ptr, ptr %41, align 8, !tbaa !112
+  %481 = add nsw i32 %476, %469
+  store i32 %481, ptr %64, align 4, !tbaa !114
+  %482 = sext i32 %481 to i64
+  %483 = shl nsw i64 %482, 2
+  %484 = tail call ptr @realloc(ptr noundef %480, i64 noundef %483) #34
+  store ptr %484, ptr %41, align 8, !tbaa !112
+  %485 = icmp eq ptr %484, null
+  br i1 %485, label %.loopexit363, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge: ; preds = %503
-  %.pre541 = load i32, ptr %46, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge: ; preds = %479
+  %.pre541 = load i32, ptr %42, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257
 
-510:                                              ; preds = %503
-  %511 = tail call ptr @__errno_location() #31
-  %512 = load i32, ptr %511, align 4, !tbaa !55
-  %513 = icmp eq i32 %512, 12
-  tail call void @llvm.assume(i1 %513)
-  br label %.loopexit363
-
-.loopexit363:                                     ; preds = %496, %510
+.loopexit363:                                     ; preds = %472, %479
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257:      ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255
-  %514 = phi i32 [ %493, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255 ], [ %.pre541, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge ]
-  %515 = phi ptr [ %.pre.i256, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255 ], [ %508, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge ]
-  %516 = add nsw i32 %514, 1
-  store i32 %516, ptr %46, align 8, !tbaa !113
-  %517 = sext i32 %514 to i64
-  %518 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %515, i64 %517
-  %519 = load i32, ptr %492, align 4, !tbaa !55
-  store i32 %519, ptr %518, align 4, !tbaa !55
+  %486 = phi i32 [ %469, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255 ], [ %.pre541, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge ]
+  %487 = phi ptr [ %.pre.i256, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i255 ], [ %484, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257_crit_edge ]
+  %488 = add nsw i32 %486, 1
+  store i32 %488, ptr %42, align 8, !tbaa !113
+  %489 = sext i32 %486 to i64
+  %490 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %487, i64 %489
+  %491 = load i32, ptr %468, align 4, !tbaa !55
+  store i32 %491, ptr %490, align 4, !tbaa !55
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
-  %520 = load i32, ptr %11, align 8, !tbaa !113
-  %521 = sext i32 %520 to i64
-  %522 = icmp slt i64 %indvars.iv.next487, %521
-  br i1 %522, label %.lr.ph414, label %._crit_edge, !llvm.loop !210
+  %492 = load i32, ptr %11, align 8, !tbaa !113
+  %493 = sext i32 %492 to i64
+  %494 = icmp slt i64 %indvars.iv.next487, %493
+  br i1 %494, label %.lr.ph414, label %._crit_edge, !llvm.loop !210
 
 ._crit_edge:                                      ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257, %.preheader362
-  %523 = phi i32 [ %458, %.preheader362 ], [ %520, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257 ]
-  %524 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %525 = load i32, ptr %524, align 8, !tbaa !68
-  switch i32 %525, label %.loopexit357 [
+  %495 = phi i32 [ %438, %.preheader362 ], [ %492, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit257 ]
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %497 = load i32, ptr %496, align 8, !tbaa !68
+  switch i32 %497, label %.loopexit357 [
     i32 2, label %.preheader358
     i32 1, label %.preheader360
   ]
 
 .preheader360:                                    ; preds = %._crit_edge
-  %526 = icmp sgt i32 %523, 1
-  br i1 %526, label %.lr.ph420, label %.loopexit357
+  %498 = icmp sgt i32 %495, 1
+  br i1 %498, label %.lr.ph420, label %.loopexit357
 
 .preheader358:                                    ; preds = %._crit_edge
-  %527 = icmp sgt i32 %523, 1
-  br i1 %527, label %.lr.ph425, label %.loopexit357
+  %499 = icmp sgt i32 %495, 1
+  br i1 %499, label %.lr.ph425, label %.loopexit357
 
 .lr.ph425:                                        ; preds = %.preheader358
-  %528 = load ptr, ptr %2, align 8, !tbaa !112
-  %529 = load ptr, ptr %48, align 8, !tbaa !129
-  %wide.trip.count498 = zext nneg i32 %523 to i64
-  br label %530
+  %500 = load ptr, ptr %2, align 8, !tbaa !112
+  %501 = load ptr, ptr %44, align 8, !tbaa !129
+  %wide.trip.count498 = zext nneg i32 %495 to i64
+  br label %502
 
-530:                                              ; preds = %.lr.ph425, %530
-  %indvars.iv495 = phi i64 [ 1, %.lr.ph425 ], [ %indvars.iv.next496, %530 ]
-  %.0211423 = phi i32 [ 0, %.lr.ph425 ], [ %539, %530 ]
-  %531 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %528, i64 %indvars.iv495
-  %.sroa.045.0.copyload = load i32, ptr %531, align 4, !tbaa !55
-  %532 = ashr i32 %.sroa.045.0.copyload, 1
-  %533 = sext i32 %532 to i64
-  %534 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %529, i64 %533
-  %535 = getelementptr inbounds nuw i8, ptr %534, i64 4
-  %536 = load i32, ptr %535, align 4, !tbaa !181
-  %537 = and i32 %536, 31
-  %538 = shl nuw i32 1, %537
-  %539 = or i32 %538, %.0211423
+502:                                              ; preds = %.lr.ph425, %502
+  %indvars.iv495 = phi i64 [ 1, %.lr.ph425 ], [ %indvars.iv.next496, %502 ]
+  %.0211423 = phi i32 [ 0, %.lr.ph425 ], [ %511, %502 ]
+  %503 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %500, i64 %indvars.iv495
+  %.sroa.045.0.copyload = load i32, ptr %503, align 4, !tbaa !55
+  %504 = ashr i32 %.sroa.045.0.copyload, 1
+  %505 = sext i32 %504 to i64
+  %506 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %501, i64 %505
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 4
+  %508 = load i32, ptr %507, align 4, !tbaa !181
+  %509 = and i32 %508, 31
+  %510 = shl nuw i32 1, %509
+  %511 = or i32 %510, %.0211423
   %indvars.iv.next496 = add nuw nsw i64 %indvars.iv495, 1
   %exitcond499.not = icmp eq i64 %indvars.iv.next496, %wide.trip.count498
-  br i1 %exitcond499.not, label %.lr.ph429, label %530, !llvm.loop !211
+  br i1 %exitcond499.not, label %.lr.ph429, label %502, !llvm.loop !211
 
-.lr.ph429:                                        ; preds = %530, %556
-  %indvars.iv500 = phi i64 [ %indvars.iv.next501, %556 ], [ 1, %530 ]
-  %.0205427 = phi i32 [ %.1206, %556 ], [ 1, %530 ]
-  %540 = load ptr, ptr %2, align 8, !tbaa !112
-  %541 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %540, i64 %indvars.iv500
-  %.sroa.044.0.copyload = load i32, ptr %541, align 4, !tbaa !55
-  %542 = ashr i32 %.sroa.044.0.copyload, 1
-  %543 = load ptr, ptr %48, align 8, !tbaa !129
-  %544 = sext i32 %542 to i64
-  %545 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %543, i64 %544
-  %546 = load i32, ptr %545, align 4, !tbaa !177
-  %547 = icmp eq i32 %546, -1
-  br i1 %547, label %550, label %548
+.lr.ph429:                                        ; preds = %502, %528
+  %indvars.iv500 = phi i64 [ %indvars.iv.next501, %528 ], [ 1, %502 ]
+  %.0205427 = phi i32 [ %.1206, %528 ], [ 1, %502 ]
+  %512 = load ptr, ptr %2, align 8, !tbaa !112
+  %513 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %512, i64 %indvars.iv500
+  %.sroa.044.0.copyload = load i32, ptr %513, align 4, !tbaa !55
+  %514 = ashr i32 %.sroa.044.0.copyload, 1
+  %515 = load ptr, ptr %44, align 8, !tbaa !129
+  %516 = sext i32 %514 to i64
+  %517 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %515, i64 %516
+  %518 = load i32, ptr %517, align 4, !tbaa !177
+  %519 = icmp eq i32 %518, -1
+  br i1 %519, label %522, label %520
 
-548:                                              ; preds = %.lr.ph429
-  %549 = tail call noundef zeroext i1 @_ZN6Gluco26Solver12litRedundantENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %.sroa.044.0.copyload, i32 noundef %539)
-  br i1 %549, label %556, label %._crit_edge542
+520:                                              ; preds = %.lr.ph429
+  %521 = tail call noundef zeroext i1 @_ZN6Gluco26Solver12litRedundantENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %.sroa.044.0.copyload, i32 noundef %511)
+  br i1 %521, label %528, label %._crit_edge542
 
-._crit_edge542:                                   ; preds = %548
+._crit_edge542:                                   ; preds = %520
   %.pre543 = load ptr, ptr %2, align 8, !tbaa !112
   %.phi.trans.insert = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre543, i64 %indvars.iv500
   %.pre544 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !55
-  br label %550
+  br label %522
 
-550:                                              ; preds = %._crit_edge542, %.lr.ph429
-  %551 = phi i32 [ %.pre544, %._crit_edge542 ], [ %.sroa.044.0.copyload, %.lr.ph429 ]
-  %552 = phi ptr [ %.pre543, %._crit_edge542 ], [ %540, %.lr.ph429 ]
-  %553 = add nsw i32 %.0205427, 1
-  %554 = sext i32 %.0205427 to i64
-  %555 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %552, i64 %554
-  store i32 %551, ptr %555, align 4, !tbaa !55
-  br label %556
+522:                                              ; preds = %._crit_edge542, %.lr.ph429
+  %523 = phi i32 [ %.pre544, %._crit_edge542 ], [ %.sroa.044.0.copyload, %.lr.ph429 ]
+  %524 = phi ptr [ %.pre543, %._crit_edge542 ], [ %512, %.lr.ph429 ]
+  %525 = add nsw i32 %.0205427, 1
+  %526 = sext i32 %.0205427 to i64
+  %527 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %524, i64 %526
+  store i32 %523, ptr %527, align 4, !tbaa !55
+  br label %528
 
-556:                                              ; preds = %548, %550
-  %.1206 = phi i32 [ %553, %550 ], [ %.0205427, %548 ]
+528:                                              ; preds = %520, %522
+  %.1206 = phi i32 [ %525, %522 ], [ %.0205427, %520 ]
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
-  %557 = load i32, ptr %11, align 8, !tbaa !113
-  %558 = sext i32 %557 to i64
-  %559 = icmp slt i64 %indvars.iv.next501, %558
-  br i1 %559, label %.lr.ph429, label %.loopexit357.loopexit, !llvm.loop !212
+  %529 = load i32, ptr %11, align 8, !tbaa !113
+  %530 = sext i32 %529 to i64
+  %531 = icmp slt i64 %indvars.iv.next501, %530
+  br i1 %531, label %.lr.ph429, label %.loopexit357.loopexit, !llvm.loop !212
 
 .lr.ph420:                                        ; preds = %.preheader360, %.loopexit359
   %indvars.iv492 = phi i64 [ %indvars.iv.next493, %.loopexit359 ], [ 1, %.preheader360 ]
   %.3208418 = phi i32 [ %.4209, %.loopexit359 ], [ 1, %.preheader360 ]
-  %560 = load ptr, ptr %2, align 8, !tbaa !112
-  %561 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %560, i64 %indvars.iv492
-  %.sroa.041.0.copyload = load i32, ptr %561, align 4, !tbaa !55
-  %562 = ashr i32 %.sroa.041.0.copyload, 1
-  %563 = load ptr, ptr %48, align 8, !tbaa !129
-  %564 = sext i32 %562 to i64
-  %565 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %563, i64 %564
-  %566 = load i32, ptr %565, align 4, !tbaa !177
-  %567 = icmp eq i32 %566, -1
-  br i1 %567, label %568, label %572
+  %532 = load ptr, ptr %2, align 8, !tbaa !112
+  %533 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %532, i64 %indvars.iv492
+  %.sroa.041.0.copyload = load i32, ptr %533, align 4, !tbaa !55
+  %534 = ashr i32 %.sroa.041.0.copyload, 1
+  %535 = load ptr, ptr %44, align 8, !tbaa !129
+  %536 = sext i32 %534 to i64
+  %537 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %535, i64 %536
+  %538 = load i32, ptr %537, align 4, !tbaa !177
+  %539 = icmp eq i32 %538, -1
+  br i1 %539, label %540, label %544
 
-568:                                              ; preds = %.lr.ph420
-  %569 = add nsw i32 %.3208418, 1
-  %570 = sext i32 %.3208418 to i64
-  %571 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %560, i64 %570
-  store i32 %.sroa.041.0.copyload, ptr %571, align 4, !tbaa !55
+540:                                              ; preds = %.lr.ph420
+  %541 = add nsw i32 %.3208418, 1
+  %542 = sext i32 %.3208418 to i64
+  %543 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %532, i64 %542
+  store i32 %.sroa.041.0.copyload, ptr %543, align 4, !tbaa !55
   br label %.loopexit359
 
-572:                                              ; preds = %.lr.ph420
-  %573 = icmp slt i32 %566, -1
-  br i1 %573, label %574, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259
+544:                                              ; preds = %.lr.ph420
+  %545 = icmp slt i32 %538, -1
+  br i1 %545, label %546, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259
 
-574:                                              ; preds = %572
-  %575 = and i32 %566, 2147483647
-  %576 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %575, i32 noundef %562)
+546:                                              ; preds = %544
+  %547 = and i32 %538, 2147483647
+  %548 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %547, i32 noundef %534)
   br label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259
 
-_ZN6Gluco26Solver8castCRefENS_3LitE.exit259:      ; preds = %572, %574
-  %.0.i258 = phi i32 [ %576, %574 ], [ %566, %572 ]
-  %577 = load ptr, ptr %47, align 8, !tbaa !87
-  %578 = zext i32 %.0.i258 to i64
-  %579 = getelementptr inbounds nuw i32, ptr %577, i64 %578
-  %580 = load i64, ptr %579, align 4
-  %581 = lshr i64 %580, 32
-  %582 = trunc nuw i64 %581 to i32
-  %583 = icmp ne i64 %581, 2
-  %584 = zext i1 %583 to i32
-  %585 = icmp slt i32 %584, %582
-  br i1 %585, label %.lr.ph417, label %.loopexit359
+_ZN6Gluco26Solver8castCRefENS_3LitE.exit259:      ; preds = %544, %546
+  %.0.i258 = phi i32 [ %548, %546 ], [ %538, %544 ]
+  %549 = load ptr, ptr %43, align 8, !tbaa !87
+  %550 = zext i32 %.0.i258 to i64
+  %551 = getelementptr inbounds nuw i32, ptr %549, i64 %550
+  %552 = load i64, ptr %551, align 4
+  %553 = lshr i64 %552, 32
+  %554 = trunc nuw i64 %553 to i32
+  %555 = icmp ne i64 %553, 2
+  %556 = zext i1 %555 to i32
+  %557 = icmp slt i32 %556, %554
+  br i1 %557, label %.lr.ph417, label %.loopexit359
 
 .lr.ph417:                                        ; preds = %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259
-  %586 = getelementptr inbounds nuw i8, ptr %579, i64 12
-  %587 = load ptr, ptr %58, align 8, !tbaa !126
-  %588 = load ptr, ptr %48, align 8
-  %589 = zext i1 %583 to i64
-  br label %590
+  %558 = getelementptr inbounds nuw i8, ptr %551, i64 12
+  %559 = load ptr, ptr %54, align 8, !tbaa !126
+  %560 = load ptr, ptr %44, align 8
+  %561 = zext i1 %555 to i64
+  br label %562
 
-590:                                              ; preds = %.lr.ph417, %608
-  %indvars.iv489 = phi i64 [ %589, %.lr.ph417 ], [ %indvars.iv.next490, %608 ]
-  %591 = getelementptr inbounds nuw %union.anon, ptr %586, i64 %indvars.iv489
-  %.sroa.032.0.copyload = load i32, ptr %591, align 4, !tbaa !55
-  %592 = ashr i32 %.sroa.032.0.copyload, 1
-  %593 = sext i32 %592 to i64
-  %594 = getelementptr inbounds i8, ptr %587, i64 %593
-  %595 = load i8, ptr %594, align 1, !tbaa !109
-  %.not222 = icmp eq i8 %595, 0
-  br i1 %.not222, label %596, label %608
+562:                                              ; preds = %.lr.ph417, %580
+  %indvars.iv489 = phi i64 [ %561, %.lr.ph417 ], [ %indvars.iv.next490, %580 ]
+  %563 = getelementptr inbounds nuw %union.anon, ptr %558, i64 %indvars.iv489
+  %.sroa.032.0.copyload = load i32, ptr %563, align 4, !tbaa !55
+  %564 = ashr i32 %.sroa.032.0.copyload, 1
+  %565 = sext i32 %564 to i64
+  %566 = getelementptr inbounds i8, ptr %559, i64 %565
+  %567 = load i8, ptr %566, align 1, !tbaa !109
+  %.not222 = icmp eq i8 %567, 0
+  br i1 %.not222, label %568, label %580
 
-596:                                              ; preds = %590
-  %597 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %588, i64 %593
-  %598 = getelementptr inbounds nuw i8, ptr %597, i64 4
-  %599 = load i32, ptr %598, align 4, !tbaa !181
-  %600 = icmp sgt i32 %599, 0
-  br i1 %600, label %601, label %608
+568:                                              ; preds = %562
+  %569 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %560, i64 %565
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 4
+  %571 = load i32, ptr %570, align 4, !tbaa !181
+  %572 = icmp sgt i32 %571, 0
+  br i1 %572, label %573, label %580
 
-601:                                              ; preds = %596
-  %602 = load ptr, ptr %2, align 8, !tbaa !112
-  %603 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %602, i64 %indvars.iv492
-  %604 = add nsw i32 %.3208418, 1
-  %605 = sext i32 %.3208418 to i64
-  %606 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %602, i64 %605
-  %607 = load i32, ptr %603, align 4, !tbaa !55
-  store i32 %607, ptr %606, align 4, !tbaa !55
+573:                                              ; preds = %568
+  %574 = load ptr, ptr %2, align 8, !tbaa !112
+  %575 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %574, i64 %indvars.iv492
+  %576 = add nsw i32 %.3208418, 1
+  %577 = sext i32 %.3208418 to i64
+  %578 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %574, i64 %577
+  %579 = load i32, ptr %575, align 4, !tbaa !55
+  store i32 %579, ptr %578, align 4, !tbaa !55
   br label %.loopexit359
 
-608:                                              ; preds = %590, %596
+580:                                              ; preds = %562, %568
   %indvars.iv.next490 = add nuw nsw i64 %indvars.iv489, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next490, %581
-  br i1 %exitcond.not, label %.loopexit359, label %590, !llvm.loop !213
+  %exitcond.not = icmp eq i64 %indvars.iv.next490, %553
+  br i1 %exitcond.not, label %.loopexit359, label %562, !llvm.loop !213
 
-.loopexit359:                                     ; preds = %608, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259, %601, %568
-  %.4209 = phi i32 [ %569, %568 ], [ %604, %601 ], [ %.3208418, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259 ], [ %.3208418, %608 ]
+.loopexit359:                                     ; preds = %580, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259, %573, %540
+  %.4209 = phi i32 [ %541, %540 ], [ %576, %573 ], [ %.3208418, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit259 ], [ %.3208418, %580 ]
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 1
-  %609 = load i32, ptr %11, align 8, !tbaa !113
-  %610 = sext i32 %609 to i64
-  %611 = icmp slt i64 %indvars.iv.next493, %610
-  br i1 %611, label %.lr.ph420, label %.loopexit357.loopexit467, !llvm.loop !214
+  %581 = load i32, ptr %11, align 8, !tbaa !113
+  %582 = sext i32 %581 to i64
+  %583 = icmp slt i64 %indvars.iv.next493, %582
+  br i1 %583, label %.lr.ph420, label %.loopexit357.loopexit467, !llvm.loop !214
 
-.loopexit357.loopexit:                            ; preds = %556
-  %612 = trunc nuw nsw i64 %indvars.iv.next501 to i32
+.loopexit357.loopexit:                            ; preds = %528
+  %584 = trunc nuw nsw i64 %indvars.iv.next501 to i32
   br label %.loopexit357
 
 .loopexit357.loopexit467:                         ; preds = %.loopexit359
-  %613 = trunc nuw nsw i64 %indvars.iv.next493 to i32
+  %585 = trunc nuw nsw i64 %indvars.iv.next493 to i32
   br label %.loopexit357
 
 .loopexit357:                                     ; preds = %.preheader358, %.loopexit357.loopexit467, %.loopexit357.loopexit, %.preheader360, %._crit_edge
-  %614 = phi i32 [ %523, %._crit_edge ], [ %523, %.preheader360 ], [ %557, %.loopexit357.loopexit ], [ %609, %.loopexit357.loopexit467 ], [ %523, %.preheader358 ]
-  %.2207 = phi i32 [ %523, %._crit_edge ], [ 1, %.preheader360 ], [ %.1206, %.loopexit357.loopexit ], [ %.4209, %.loopexit357.loopexit467 ], [ 1, %.preheader358 ]
-  %.4 = phi i32 [ %523, %._crit_edge ], [ 1, %.preheader360 ], [ %612, %.loopexit357.loopexit ], [ %613, %.loopexit357.loopexit467 ], [ 1, %.preheader358 ]
-  %615 = sext i32 %614 to i64
-  %616 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %617 = load i64, ptr %616, align 8, !tbaa !215
-  %618 = add nsw i64 %617, %615
-  store i64 %618, ptr %616, align 8, !tbaa !215
+  %586 = phi i32 [ %495, %._crit_edge ], [ %495, %.preheader360 ], [ %529, %.loopexit357.loopexit ], [ %581, %.loopexit357.loopexit467 ], [ %495, %.preheader358 ]
+  %.2207 = phi i32 [ %495, %._crit_edge ], [ 1, %.preheader360 ], [ %.1206, %.loopexit357.loopexit ], [ %.4209, %.loopexit357.loopexit467 ], [ 1, %.preheader358 ]
+  %.4 = phi i32 [ %495, %._crit_edge ], [ 1, %.preheader360 ], [ %584, %.loopexit357.loopexit ], [ %585, %.loopexit357.loopexit467 ], [ 1, %.preheader358 ]
+  %587 = sext i32 %586 to i64
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %589 = load i64, ptr %588, align 8, !tbaa !215
+  %590 = add nsw i64 %589, %587
+  store i64 %590, ptr %588, align 8, !tbaa !215
   %.neg = sub i32 %.2207, %.4
-  %619 = add i32 %.neg, %614
-  store i32 %619, ptr %11, align 8, !tbaa !113
-  %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %622 = load i64, ptr %621, align 8, !tbaa !216
-  %623 = add nsw i64 %622, %620
-  store i64 %623, ptr %621, align 8, !tbaa !216
-  %624 = load i32, ptr %54, align 4, !tbaa !90
-  %.not223 = icmp ne i32 %624, 0
-  %625 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %626 = load i32, ptr %625, align 8
-  %.not224 = icmp sgt i32 %619, %626
+  %591 = add i32 %.neg, %586
+  store i32 %591, ptr %11, align 8, !tbaa !113
+  %592 = sext i32 %591 to i64
+  %593 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %594 = load i64, ptr %593, align 8, !tbaa !216
+  %595 = add nsw i64 %594, %592
+  store i64 %595, ptr %593, align 8, !tbaa !216
+  %596 = load i32, ptr %50, align 4, !tbaa !90
+  %.not223 = icmp ne i32 %596, 0
+  %597 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %598 = load i32, ptr %597, align 8
+  %.not224 = icmp sgt i32 %591, %598
   %or.cond339 = select i1 %.not223, i1 true, i1 %.not224
-  br i1 %or.cond339, label %628, label %627
+  br i1 %or.cond339, label %600, label %599
 
-627:                                              ; preds = %.loopexit357
+599:                                              ; preds = %.loopexit357
   tail call void @_ZN6Gluco26Solver32minimisationWithBinaryResolutionERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %.pre545 = load i32, ptr %11, align 8, !tbaa !113
-  br label %628
+  br label %600
 
-628:                                              ; preds = %627, %.loopexit357
-  %629 = phi i32 [ %.pre545, %627 ], [ %619, %.loopexit357 ]
-  %630 = icmp eq i32 %629, 1
-  br i1 %630, label %657, label %.preheader355
+600:                                              ; preds = %599, %.loopexit357
+  %601 = phi i32 [ %.pre545, %599 ], [ %591, %.loopexit357 ]
+  %602 = icmp eq i32 %601, 1
+  br i1 %602, label %629, label %.preheader355
 
-.preheader355:                                    ; preds = %628
-  %631 = icmp sgt i32 %629, 2
+.preheader355:                                    ; preds = %600
+  %603 = icmp sgt i32 %601, 2
   %.pre546 = load ptr, ptr %2, align 8, !tbaa !112
-  %.pre547 = load ptr, ptr %48, align 8, !tbaa !129
-  br i1 %631, label %.lr.ph434, label %._crit_edge435
+  %.pre547 = load ptr, ptr %44, align 8, !tbaa !129
+  br i1 %603, label %.lr.ph434, label %._crit_edge435
 
 .lr.ph434:                                        ; preds = %.preheader355
-  %wide.trip.count506 = zext nneg i32 %629 to i64
-  br label %641
+  %wide.trip.count506 = zext nneg i32 %601 to i64
+  br label %613
 
-._crit_edge435.loopexit:                          ; preds = %641
-  %632 = zext nneg i32 %spec.select to i64
+._crit_edge435.loopexit:                          ; preds = %613
+  %604 = zext nneg i32 %spec.select to i64
   br label %._crit_edge435
 
 ._crit_edge435:                                   ; preds = %._crit_edge435.loopexit, %.preheader355
-  %.0214.lcssa = phi i64 [ 1, %.preheader355 ], [ %632, %._crit_edge435.loopexit ]
-  %633 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre546, i64 %.0214.lcssa
-  %.sroa.020.0.copyload = load i32, ptr %633, align 4, !tbaa !55
-  %634 = getelementptr inbounds nuw i8, ptr %.pre546, i64 4
-  %635 = load i32, ptr %634, align 4, !tbaa !55
-  store i32 %635, ptr %633, align 4, !tbaa !55
-  store i32 %.sroa.020.0.copyload, ptr %634, align 4, !tbaa !55
-  %636 = ashr i32 %.sroa.020.0.copyload, 1
-  %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.pre547, i64 %637
-  %639 = getelementptr inbounds nuw i8, ptr %638, i64 4
-  %640 = load i32, ptr %639, align 4, !tbaa !181
-  br label %657
+  %.0214.lcssa = phi i64 [ 1, %.preheader355 ], [ %604, %._crit_edge435.loopexit ]
+  %605 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre546, i64 %.0214.lcssa
+  %.sroa.020.0.copyload = load i32, ptr %605, align 4, !tbaa !55
+  %606 = getelementptr inbounds nuw i8, ptr %.pre546, i64 4
+  %607 = load i32, ptr %606, align 4, !tbaa !55
+  store i32 %607, ptr %605, align 4, !tbaa !55
+  store i32 %.sroa.020.0.copyload, ptr %606, align 4, !tbaa !55
+  %608 = ashr i32 %.sroa.020.0.copyload, 1
+  %609 = sext i32 %608 to i64
+  %610 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.pre547, i64 %609
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 4
+  %612 = load i32, ptr %611, align 4, !tbaa !181
+  br label %629
 
-641:                                              ; preds = %.lr.ph434, %641
-  %indvars.iv503 = phi i64 [ 2, %.lr.ph434 ], [ %indvars.iv.next504, %641 ]
-  %.0214433 = phi i32 [ 1, %.lr.ph434 ], [ %spec.select, %641 ]
-  %642 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre546, i64 %indvars.iv503
-  %.sroa.023.0.copyload = load i32, ptr %642, align 4, !tbaa !55
-  %643 = ashr i32 %.sroa.023.0.copyload, 1
-  %644 = sext i32 %643 to i64
-  %645 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.pre547, i64 %644
-  %646 = getelementptr inbounds nuw i8, ptr %645, i64 4
-  %647 = load i32, ptr %646, align 4, !tbaa !181
-  %648 = zext nneg i32 %.0214433 to i64
-  %649 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre546, i64 %648
-  %.sroa.022.0.copyload = load i32, ptr %649, align 4, !tbaa !55
-  %650 = ashr i32 %.sroa.022.0.copyload, 1
-  %651 = sext i32 %650 to i64
-  %652 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.pre547, i64 %651
-  %653 = getelementptr inbounds nuw i8, ptr %652, i64 4
-  %654 = load i32, ptr %653, align 4, !tbaa !181
-  %655 = icmp sgt i32 %647, %654
-  %656 = trunc nuw nsw i64 %indvars.iv503 to i32
-  %spec.select = select i1 %655, i32 %656, i32 %.0214433
+613:                                              ; preds = %.lr.ph434, %613
+  %indvars.iv503 = phi i64 [ 2, %.lr.ph434 ], [ %indvars.iv.next504, %613 ]
+  %.0214433 = phi i32 [ 1, %.lr.ph434 ], [ %spec.select, %613 ]
+  %614 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre546, i64 %indvars.iv503
+  %.sroa.023.0.copyload = load i32, ptr %614, align 4, !tbaa !55
+  %615 = ashr i32 %.sroa.023.0.copyload, 1
+  %616 = sext i32 %615 to i64
+  %617 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.pre547, i64 %616
+  %618 = getelementptr inbounds nuw i8, ptr %617, i64 4
+  %619 = load i32, ptr %618, align 4, !tbaa !181
+  %620 = zext nneg i32 %.0214433 to i64
+  %621 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %.pre546, i64 %620
+  %.sroa.022.0.copyload = load i32, ptr %621, align 4, !tbaa !55
+  %622 = ashr i32 %.sroa.022.0.copyload, 1
+  %623 = sext i32 %622 to i64
+  %624 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.pre547, i64 %623
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 4
+  %626 = load i32, ptr %625, align 4, !tbaa !181
+  %627 = icmp sgt i32 %619, %626
+  %628 = trunc nuw nsw i64 %indvars.iv503 to i32
+  %spec.select = select i1 %627, i32 %628, i32 %.0214433
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %exitcond507.not = icmp eq i64 %indvars.iv.next504, %wide.trip.count506
-  br i1 %exitcond507.not, label %._crit_edge435.loopexit, label %641, !llvm.loop !217
+  br i1 %exitcond507.not, label %._crit_edge435.loopexit, label %613, !llvm.loop !217
 
-657:                                              ; preds = %628, %._crit_edge435
-  %storemerge = phi i32 [ %640, %._crit_edge435 ], [ 0, %628 ]
+629:                                              ; preds = %600, %._crit_edge435
+  %storemerge = phi i32 [ %612, %._crit_edge435 ], [ 0, %600 ]
   store i32 %storemerge, ptr %4, align 4, !tbaa !55
-  %658 = load i32, ptr %54, align 4, !tbaa !90
-  %.not225 = icmp eq i32 %658, 0
-  br i1 %.not225, label %680, label %659
+  %630 = load i32, ptr %50, align 4, !tbaa !90
+  %.not225 = icmp eq i32 %630, 0
+  br i1 %.not225, label %652, label %631
 
-659:                                              ; preds = %657
+631:                                              ; preds = %629
   store i32 0, ptr %6, align 4, !tbaa !55
-  %660 = load i32, ptr %11, align 8, !tbaa !113
-  %661 = icmp sgt i32 %660, 0
-  br i1 %661, label %.lr.ph439, label %.loopexit354
+  %632 = load i32, ptr %11, align 8, !tbaa !113
+  %633 = icmp sgt i32 %632, 0
+  br i1 %633, label %.lr.ph439, label %.loopexit354
 
-.lr.ph439:                                        ; preds = %659
-  %662 = load ptr, ptr %2, align 8, !tbaa !112
-  br label %663
+.lr.ph439:                                        ; preds = %631
+  %634 = load ptr, ptr %2, align 8, !tbaa !112
+  br label %635
 
-663:                                              ; preds = %.lr.ph439, %675
-  %664 = phi i32 [ %660, %.lr.ph439 ], [ %676, %675 ]
-  %665 = phi i32 [ 0, %.lr.ph439 ], [ %677, %675 ]
-  %indvars.iv508 = phi i64 [ 0, %.lr.ph439 ], [ %indvars.iv.next509, %675 ]
-  %666 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %662, i64 %indvars.iv508
-  %.sroa.014.0.copyload = load i32, ptr %666, align 4, !tbaa !55
-  %667 = ashr i32 %.sroa.014.0.copyload, 1
-  %668 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i260 = icmp ne i32 %668, 0
-  %669 = load i32, ptr %55, align 8
-  %670 = icmp sgt i32 %667, %669
-  %671 = select i1 %.not.i260, i1 %670, i1 false
-  br i1 %671, label %674, label %672
+635:                                              ; preds = %.lr.ph439, %647
+  %636 = phi i32 [ %632, %.lr.ph439 ], [ %648, %647 ]
+  %637 = phi i32 [ 0, %.lr.ph439 ], [ %649, %647 ]
+  %indvars.iv508 = phi i64 [ 0, %.lr.ph439 ], [ %indvars.iv.next509, %647 ]
+  %638 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %634, i64 %indvars.iv508
+  %.sroa.014.0.copyload = load i32, ptr %638, align 4, !tbaa !55
+  %639 = ashr i32 %.sroa.014.0.copyload, 1
+  %640 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i260 = icmp ne i32 %640, 0
+  %641 = load i32, ptr %51, align 8
+  %642 = icmp sgt i32 %639, %641
+  %643 = select i1 %.not.i260, i1 %642, i1 false
+  br i1 %643, label %646, label %644
 
-672:                                              ; preds = %663
-  %673 = add i32 %665, 1
-  store i32 %673, ptr %6, align 4, !tbaa !55
+644:                                              ; preds = %635
+  %645 = add i32 %637, 1
+  store i32 %645, ptr %6, align 4, !tbaa !55
   %.pre548 = load i32, ptr %11, align 8, !tbaa !113
-  br label %675
+  br label %647
 
-674:                                              ; preds = %663
+646:                                              ; preds = %635
   %.not226 = icmp eq i64 %indvars.iv508, 0
-  br i1 %.not226, label %675, label %.loopexit354
+  br i1 %.not226, label %647, label %.loopexit354
 
-675:                                              ; preds = %672, %674
-  %676 = phi i32 [ %.pre548, %672 ], [ %664, %674 ]
-  %677 = phi i32 [ %673, %672 ], [ %665, %674 ]
+647:                                              ; preds = %644, %646
+  %648 = phi i32 [ %.pre548, %644 ], [ %636, %646 ]
+  %649 = phi i32 [ %645, %644 ], [ %637, %646 ]
   %indvars.iv.next509 = add nuw nsw i64 %indvars.iv508, 1
-  %678 = sext i32 %676 to i64
-  %679 = icmp slt i64 %indvars.iv.next509, %678
-  br i1 %679, label %663, label %.loopexit354, !llvm.loop !218
+  %650 = sext i32 %648 to i64
+  %651 = icmp slt i64 %indvars.iv.next509, %650
+  br i1 %651, label %635, label %.loopexit354, !llvm.loop !218
 
-680:                                              ; preds = %657
-  %681 = load i32, ptr %11, align 8, !tbaa !113
-  store i32 %681, ptr %6, align 4, !tbaa !55
+652:                                              ; preds = %629
+  %653 = load i32, ptr %11, align 8, !tbaa !113
+  store i32 %653, ptr %6, align 4, !tbaa !55
   br label %.loopexit354
 
-.loopexit354:                                     ; preds = %675, %674, %680, %659
-  %682 = phi i32 [ %660, %659 ], [ %681, %680 ], [ %676, %675 ], [ %664, %674 ]
-  %683 = load i32, ptr %72, align 8, !tbaa !113
-  %684 = load i32, ptr %53, align 8, !tbaa !93
-  %685 = add i32 %684, 1
-  store i32 %685, ptr %53, align 8, !tbaa !93
-  %686 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i261 = icmp eq i32 %686, 0
-  br i1 %.not.i261, label %.preheader.i272, label %691
+.loopexit354:                                     ; preds = %647, %646, %652, %631
+  %654 = phi i32 [ %632, %631 ], [ %653, %652 ], [ %648, %647 ], [ %636, %646 ]
+  %655 = load i32, ptr %68, align 8, !tbaa !113
+  %656 = load i32, ptr %49, align 8, !tbaa !93
+  %657 = add i32 %656, 1
+  store i32 %657, ptr %49, align 8, !tbaa !93
+  %658 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i261 = icmp eq i32 %658, 0
+  br i1 %.not.i261, label %.preheader.i272, label %663
 
 .preheader.i272:                                  ; preds = %.loopexit354
-  %687 = icmp sgt i32 %682, 0
-  br i1 %687, label %.lr.ph45.i273, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit
+  %659 = icmp sgt i32 %654, 0
+  br i1 %659, label %.lr.ph45.i273, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit
 
 .lr.ph45.i273:                                    ; preds = %.preheader.i272
-  %688 = load ptr, ptr %2, align 8, !tbaa !112
-  %689 = load ptr, ptr %48, align 8, !tbaa !129
-  %690 = load ptr, ptr %56, align 8, !tbaa !98
-  br label %723
+  %660 = load ptr, ptr %2, align 8, !tbaa !112
+  %661 = load ptr, ptr %44, align 8, !tbaa !129
+  %662 = load ptr, ptr %52, align 8, !tbaa !98
+  br label %695
 
-691:                                              ; preds = %.loopexit354
-  %692 = sub nsw i32 %682, %683
-  %693 = icmp eq i32 %692, -1
-  %694 = load i32, ptr %11, align 8
-  %.0.i262 = select i1 %693, i32 %694, i32 %692
-  %695 = icmp sgt i32 %694, 0
+663:                                              ; preds = %.loopexit354
+  %664 = sub nsw i32 %654, %655
+  %665 = icmp eq i32 %664, -1
+  %666 = load i32, ptr %11, align 8
+  %.0.i262 = select i1 %665, i32 %666, i32 %664
+  %667 = icmp sgt i32 %666, 0
   %.not3538.i = icmp ne i32 %.0.i262, 0
-  %or.cond39.i263 = and i1 %695, %.not3538.i
+  %or.cond39.i263 = and i1 %667, %.not3538.i
   br i1 %or.cond39.i263, label %.lr.ph.i265, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit
 
-.lr.ph.i265:                                      ; preds = %691
-  %696 = load ptr, ptr %2, align 8, !tbaa !112
-  %697 = load ptr, ptr %48, align 8
-  %698 = load ptr, ptr %56, align 8
-  br label %699
+.lr.ph.i265:                                      ; preds = %663
+  %668 = load ptr, ptr %2, align 8, !tbaa !112
+  %669 = load ptr, ptr %44, align 8
+  %670 = load ptr, ptr %52, align 8
+  br label %671
 
-699:                                              ; preds = %719, %.lr.ph.i265
-  %700 = phi i32 [ %694, %.lr.ph.i265 ], [ %720, %719 ]
-  %indvars.iv.i266 = phi i64 [ 0, %.lr.ph.i265 ], [ %indvars.iv.next.i270, %719 ]
-  %.02642.i = phi i32 [ 0, %.lr.ph.i265 ], [ %.1.i269, %719 ]
-  %.02841.i = phi i32 [ 0, %.lr.ph.i265 ], [ %.129.i, %719 ]
-  %701 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %696, i64 %indvars.iv.i266
-  %.sroa.08.0.copyload.i = load i32, ptr %701, align 4, !tbaa !55
-  %702 = ashr i32 %.sroa.08.0.copyload.i, 1
-  %703 = load i32, ptr %54, align 4, !tbaa !90
-  %.not.i.i267 = icmp ne i32 %703, 0
-  %704 = load i32, ptr %55, align 8
-  %705 = icmp sgt i32 %702, %704
-  %706 = select i1 %.not.i.i267, i1 %705, i1 false
-  br i1 %706, label %719, label %707
+671:                                              ; preds = %691, %.lr.ph.i265
+  %672 = phi i32 [ %666, %.lr.ph.i265 ], [ %692, %691 ]
+  %indvars.iv.i266 = phi i64 [ 0, %.lr.ph.i265 ], [ %indvars.iv.next.i270, %691 ]
+  %.02642.i = phi i32 [ 0, %.lr.ph.i265 ], [ %.1.i269, %691 ]
+  %.02841.i = phi i32 [ 0, %.lr.ph.i265 ], [ %.129.i, %691 ]
+  %673 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %668, i64 %indvars.iv.i266
+  %.sroa.08.0.copyload.i = load i32, ptr %673, align 4, !tbaa !55
+  %674 = ashr i32 %.sroa.08.0.copyload.i, 1
+  %675 = load i32, ptr %50, align 4, !tbaa !90
+  %.not.i.i267 = icmp ne i32 %675, 0
+  %676 = load i32, ptr %51, align 8
+  %677 = icmp sgt i32 %674, %676
+  %678 = select i1 %.not.i.i267, i1 %677, i1 false
+  br i1 %678, label %691, label %679
 
-707:                                              ; preds = %699
-  %708 = add nuw i32 %.02841.i, 1
-  %709 = sext i32 %702 to i64
-  %710 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %697, i64 %709
-  %711 = getelementptr inbounds nuw i8, ptr %710, i64 4
-  %712 = load i32, ptr %711, align 4, !tbaa !181
-  %713 = sext i32 %712 to i64
-  %714 = getelementptr inbounds i32, ptr %698, i64 %713
-  %715 = load i32, ptr %714, align 4, !tbaa !55
-  %716 = load i32, ptr %53, align 8, !tbaa !93
-  %.not36.i = icmp eq i32 %715, %716
-  br i1 %.not36.i, label %719, label %717
+679:                                              ; preds = %671
+  %680 = add nuw i32 %.02841.i, 1
+  %681 = sext i32 %674 to i64
+  %682 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %669, i64 %681
+  %683 = getelementptr inbounds nuw i8, ptr %682, i64 4
+  %684 = load i32, ptr %683, align 4, !tbaa !181
+  %685 = sext i32 %684 to i64
+  %686 = getelementptr inbounds i32, ptr %670, i64 %685
+  %687 = load i32, ptr %686, align 4, !tbaa !55
+  %688 = load i32, ptr %49, align 8, !tbaa !93
+  %.not36.i = icmp eq i32 %687, %688
+  br i1 %.not36.i, label %691, label %689
 
-717:                                              ; preds = %707
-  store i32 %716, ptr %714, align 4, !tbaa !55
-  %718 = add nsw i32 %.02642.i, 1
+689:                                              ; preds = %679
+  store i32 %688, ptr %686, align 4, !tbaa !55
+  %690 = add nsw i32 %.02642.i, 1
   %.pre.i268 = load i32, ptr %11, align 8, !tbaa !113
-  br label %719
+  br label %691
 
-719:                                              ; preds = %717, %707, %699
-  %720 = phi i32 [ %700, %699 ], [ %.pre.i268, %717 ], [ %700, %707 ]
-  %.129.i = phi i32 [ %.02841.i, %699 ], [ %708, %717 ], [ %708, %707 ]
-  %.1.i269 = phi i32 [ %.02642.i, %699 ], [ %718, %717 ], [ %.02642.i, %707 ]
+691:                                              ; preds = %689, %679, %671
+  %692 = phi i32 [ %672, %671 ], [ %.pre.i268, %689 ], [ %672, %679 ]
+  %.129.i = phi i32 [ %.02841.i, %671 ], [ %680, %689 ], [ %680, %679 ]
+  %.1.i269 = phi i32 [ %.02642.i, %671 ], [ %690, %689 ], [ %.02642.i, %679 ]
   %indvars.iv.next.i270 = add nuw nsw i64 %indvars.iv.i266, 1
-  %721 = sext i32 %720 to i64
-  %722 = icmp slt i64 %indvars.iv.next.i270, %721
+  %693 = sext i32 %692 to i64
+  %694 = icmp slt i64 %indvars.iv.next.i270, %693
   %.not35.i = icmp ult i32 %.129.i, %.0.i262
-  %or.cond.i271 = select i1 %722, i1 %.not35.i, i1 false
-  br i1 %or.cond.i271, label %699, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit, !llvm.loop !182
+  %or.cond.i271 = select i1 %694, i1 %.not35.i, i1 false
+  br i1 %or.cond.i271, label %671, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit, !llvm.loop !182
 
-723:                                              ; preds = %737, %.lr.ph45.i273
-  %724 = phi i32 [ %682, %.lr.ph45.i273 ], [ %738, %737 ]
-  %indvars.iv49.i274 = phi i64 [ 0, %.lr.ph45.i273 ], [ %indvars.iv.next50.i278, %737 ]
-  %.444.i275 = phi i32 [ 0, %.lr.ph45.i273 ], [ %.5.i277, %737 ]
-  %725 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %688, i64 %indvars.iv49.i274
-  %.sroa.0.0.copyload.i = load i32, ptr %725, align 4, !tbaa !55
-  %726 = ashr i32 %.sroa.0.0.copyload.i, 1
-  %727 = sext i32 %726 to i64
-  %728 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %689, i64 %727
-  %729 = getelementptr inbounds nuw i8, ptr %728, i64 4
-  %730 = load i32, ptr %729, align 4, !tbaa !181
-  %731 = sext i32 %730 to i64
-  %732 = getelementptr inbounds i32, ptr %690, i64 %731
-  %733 = load i32, ptr %732, align 4, !tbaa !55
-  %734 = load i32, ptr %53, align 8, !tbaa !93
-  %.not34.i = icmp eq i32 %733, %734
-  br i1 %.not34.i, label %737, label %735
+695:                                              ; preds = %709, %.lr.ph45.i273
+  %696 = phi i32 [ %654, %.lr.ph45.i273 ], [ %710, %709 ]
+  %indvars.iv49.i274 = phi i64 [ 0, %.lr.ph45.i273 ], [ %indvars.iv.next50.i278, %709 ]
+  %.444.i275 = phi i32 [ 0, %.lr.ph45.i273 ], [ %.5.i277, %709 ]
+  %697 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %660, i64 %indvars.iv49.i274
+  %.sroa.0.0.copyload.i = load i32, ptr %697, align 4, !tbaa !55
+  %698 = ashr i32 %.sroa.0.0.copyload.i, 1
+  %699 = sext i32 %698 to i64
+  %700 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %661, i64 %699
+  %701 = getelementptr inbounds nuw i8, ptr %700, i64 4
+  %702 = load i32, ptr %701, align 4, !tbaa !181
+  %703 = sext i32 %702 to i64
+  %704 = getelementptr inbounds i32, ptr %662, i64 %703
+  %705 = load i32, ptr %704, align 4, !tbaa !55
+  %706 = load i32, ptr %49, align 8, !tbaa !93
+  %.not34.i = icmp eq i32 %705, %706
+  br i1 %.not34.i, label %709, label %707
 
-735:                                              ; preds = %723
-  store i32 %734, ptr %732, align 4, !tbaa !55
-  %736 = add nsw i32 %.444.i275, 1
+707:                                              ; preds = %695
+  store i32 %706, ptr %704, align 4, !tbaa !55
+  %708 = add nsw i32 %.444.i275, 1
   %.pre52.i276 = load i32, ptr %11, align 8, !tbaa !113
-  br label %737
+  br label %709
 
-737:                                              ; preds = %735, %723
-  %738 = phi i32 [ %.pre52.i276, %735 ], [ %724, %723 ]
-  %.5.i277 = phi i32 [ %736, %735 ], [ %.444.i275, %723 ]
+709:                                              ; preds = %707, %695
+  %710 = phi i32 [ %.pre52.i276, %707 ], [ %696, %695 ]
+  %.5.i277 = phi i32 [ %708, %707 ], [ %.444.i275, %695 ]
   %indvars.iv.next50.i278 = add nuw nsw i64 %indvars.iv49.i274, 1
-  %739 = sext i32 %738 to i64
-  %740 = icmp slt i64 %indvars.iv.next50.i278, %739
-  br i1 %740, label %723, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit, !llvm.loop !183
+  %711 = sext i32 %710 to i64
+  %712 = icmp slt i64 %indvars.iv.next50.i278, %711
+  br i1 %712, label %695, label %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit, !llvm.loop !183
 
-_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit: ; preds = %719, %737, %.preheader.i272, %691
-  %.3.i264 = phi i32 [ 0, %.preheader.i272 ], [ 0, %691 ], [ %.5.i277, %737 ], [ %.1.i269, %719 ]
+_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit: ; preds = %691, %709, %.preheader.i272, %663
+  %.3.i264 = phi i32 [ 0, %.preheader.i272 ], [ 0, %663 ], [ %.5.i277, %709 ], [ %.1.i269, %691 ]
   store i32 %.3.i264, ptr %5, align 4, !tbaa !55
-  %741 = load i32, ptr %70, align 8, !tbaa !113
-  %742 = icmp sgt i32 %741, 0
-  br i1 %742, label %.lr.ph442, label %811
+  %713 = load i32, ptr %66, align 8, !tbaa !113
+  %714 = icmp sgt i32 %713, 0
+  br i1 %714, label %.lr.ph442, label %783
 
 .lr.ph442:                                        ; preds = %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit
-  %743 = load ptr, ptr %69, align 8, !tbaa !112
-  %744 = load ptr, ptr %48, align 8, !tbaa !129
-  %745 = load ptr, ptr %47, align 8, !tbaa !87
-  %746 = load ptr, ptr %60, align 8
-  %747 = load ptr, ptr %65, align 8
-  %748 = load ptr, ptr %66, align 8
-  %749 = load ptr, ptr %63, align 8
-  br label %750
+  %715 = load ptr, ptr %65, align 8, !tbaa !112
+  %716 = load ptr, ptr %44, align 8, !tbaa !129
+  %717 = load ptr, ptr %43, align 8, !tbaa !87
+  %718 = load ptr, ptr %56, align 8
+  %719 = load ptr, ptr %61, align 8
+  %720 = load ptr, ptr %62, align 8
+  %721 = load ptr, ptr %59, align 8
+  br label %722
 
 ._crit_edge443:                                   ; preds = %_ZN6Gluco26Solver15varBumpActivityEi.exit299
-  store i32 0, ptr %70, align 8, !tbaa !113
-  br label %811
+  store i32 0, ptr %66, align 8, !tbaa !113
+  br label %783
 
-750:                                              ; preds = %.lr.ph442, %_ZN6Gluco26Solver15varBumpActivityEi.exit299
-  %751 = phi i32 [ %741, %.lr.ph442 ], [ %808, %_ZN6Gluco26Solver15varBumpActivityEi.exit299 ]
+722:                                              ; preds = %.lr.ph442, %_ZN6Gluco26Solver15varBumpActivityEi.exit299
+  %723 = phi i32 [ %713, %.lr.ph442 ], [ %780, %_ZN6Gluco26Solver15varBumpActivityEi.exit299 ]
   %indvars.iv511 = phi i64 [ 0, %.lr.ph442 ], [ %indvars.iv.next512, %_ZN6Gluco26Solver15varBumpActivityEi.exit299 ]
-  %752 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %743, i64 %indvars.iv511
-  %.sroa.09.0.copyload = load i32, ptr %752, align 4, !tbaa !55
-  %753 = ashr i32 %.sroa.09.0.copyload, 1
-  %754 = sext i32 %753 to i64
-  %755 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %744, i64 %754
-  %756 = load i32, ptr %755, align 4, !tbaa !177
-  %757 = zext i32 %756 to i64
-  %758 = getelementptr inbounds nuw i32, ptr %745, i64 %757
-  %759 = load i64, ptr %758, align 4
-  %760 = trunc i64 %759 to i32
-  %761 = lshr i32 %760, 5
-  %762 = and i32 %761, 67108863
-  %763 = load i32, ptr %5, align 4, !tbaa !55
-  %764 = icmp ult i32 %762, %763
-  br i1 %764, label %765, label %_ZN6Gluco26Solver15varBumpActivityEi.exit299
+  %724 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %715, i64 %indvars.iv511
+  %.sroa.09.0.copyload = load i32, ptr %724, align 4, !tbaa !55
+  %725 = ashr i32 %.sroa.09.0.copyload, 1
+  %726 = sext i32 %725 to i64
+  %727 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %716, i64 %726
+  %728 = load i32, ptr %727, align 4, !tbaa !177
+  %729 = zext i32 %728 to i64
+  %730 = getelementptr inbounds nuw i32, ptr %717, i64 %729
+  %731 = load i64, ptr %730, align 4
+  %732 = trunc i64 %731 to i32
+  %733 = lshr i32 %732, 5
+  %734 = and i32 %733, 67108863
+  %735 = load i32, ptr %5, align 4, !tbaa !55
+  %736 = icmp ult i32 %734, %735
+  br i1 %736, label %737, label %_ZN6Gluco26Solver15varBumpActivityEi.exit299
 
-765:                                              ; preds = %750
-  %766 = load double, ptr %59, align 8, !tbaa !81
-  %767 = getelementptr inbounds double, ptr %746, i64 %754
-  %768 = load double, ptr %767, align 8, !tbaa !52
-  %769 = fadd double %766, %768
-  store double %769, ptr %767, align 8, !tbaa !52
-  %770 = fcmp ogt double %769, 1.000000e+100
-  br i1 %770, label %771, label %779
+737:                                              ; preds = %722
+  %738 = load double, ptr %55, align 8, !tbaa !81
+  %739 = getelementptr inbounds double, ptr %718, i64 %726
+  %740 = load double, ptr %739, align 8, !tbaa !52
+  %741 = fadd double %738, %740
+  store double %741, ptr %739, align 8, !tbaa !52
+  %742 = fcmp ogt double %741, 1.000000e+100
+  br i1 %742, label %743, label %751
 
-771:                                              ; preds = %765
+743:                                              ; preds = %737
   store i8 1, ptr %10, align 8, !tbaa !198
-  %772 = load i32, ptr %61, align 8, !tbaa !130
-  %773 = icmp sgt i32 %772, 0
-  br i1 %773, label %.lr.ph.preheader.i.i293, label %._crit_edge.i.i292
+  %744 = load i32, ptr %57, align 8, !tbaa !130
+  %745 = icmp sgt i32 %744, 0
+  br i1 %745, label %.lr.ph.preheader.i.i293, label %._crit_edge.i.i292
 
-.lr.ph.preheader.i.i293:                          ; preds = %771
-  %wide.trip.count.i.i294 = zext nneg i32 %772 to i64
+.lr.ph.preheader.i.i293:                          ; preds = %743
+  %wide.trip.count.i.i294 = zext nneg i32 %744 to i64
   br label %.lr.ph.i.i295
 
-._crit_edge.i.i292:                               ; preds = %.lr.ph.i.i295, %771
-  %774 = load double, ptr %59, align 8, !tbaa !81
-  %775 = fmul double %774, 1.000000e-100
-  store double %775, ptr %59, align 8, !tbaa !81
-  br label %779
+._crit_edge.i.i292:                               ; preds = %.lr.ph.i.i295, %743
+  %746 = load double, ptr %55, align 8, !tbaa !81
+  %747 = fmul double %746, 1.000000e-100
+  store double %747, ptr %55, align 8, !tbaa !81
+  br label %751
 
 .lr.ph.i.i295:                                    ; preds = %.lr.ph.i.i295, %.lr.ph.preheader.i.i293
   %indvars.iv.i.i296 = phi i64 [ 0, %.lr.ph.preheader.i.i293 ], [ %indvars.iv.next.i.i297, %.lr.ph.i.i295 ]
-  %776 = getelementptr inbounds nuw double, ptr %746, i64 %indvars.iv.i.i296
-  %777 = load double, ptr %776, align 8, !tbaa !52
-  %778 = fmul double %777, 1.000000e-100
-  store double %778, ptr %776, align 8, !tbaa !52
+  %748 = getelementptr inbounds nuw double, ptr %718, i64 %indvars.iv.i.i296
+  %749 = load double, ptr %748, align 8, !tbaa !52
+  %750 = fmul double %749, 1.000000e-100
+  store double %750, ptr %748, align 8, !tbaa !52
   %indvars.iv.next.i.i297 = add nuw nsw i64 %indvars.iv.i.i296, 1
   %exitcond.not.i.i298 = icmp eq i64 %indvars.iv.next.i.i297, %wide.trip.count.i.i294
   br i1 %exitcond.not.i.i298, label %._crit_edge.i.i292, label %.lr.ph.i.i295, !llvm.loop !203
 
-779:                                              ; preds = %._crit_edge.i.i292, %765
-  %780 = load i32, ptr %62, align 8, !tbaa !104
-  %.not.i.i279 = icmp eq i32 %780, 0
-  %781 = load i32, ptr %64, align 8
-  %782 = icmp slt i32 %753, %781
-  %or.cond463 = select i1 %.not.i.i279, i1 %782, i1 false
+751:                                              ; preds = %._crit_edge.i.i292, %737
+  %752 = load i32, ptr %58, align 8, !tbaa !104
+  %.not.i.i279 = icmp eq i32 %752, 0
+  %753 = load i32, ptr %60, align 8
+  %754 = icmp slt i32 %725, %753
+  %or.cond463 = select i1 %.not.i.i279, i1 %754, i1 false
   br i1 %or.cond463, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280, label %_ZN6Gluco26Solver15varBumpActivityEi.exit299
 
-_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280: ; preds = %779
-  %783 = getelementptr inbounds i32, ptr %747, i64 %754
-  %784 = load i32, ptr %783, align 4, !tbaa !55
-  %785 = icmp sgt i32 %784, -1
-  br i1 %785, label %786, label %_ZN6Gluco26Solver15varBumpActivityEi.exit299
+_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280: ; preds = %751
+  %755 = getelementptr inbounds i32, ptr %719, i64 %726
+  %756 = load i32, ptr %755, align 4, !tbaa !55
+  %757 = icmp sgt i32 %756, -1
+  br i1 %757, label %758, label %_ZN6Gluco26Solver15varBumpActivityEi.exit299
 
-786:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280
-  %787 = zext nneg i32 %784 to i64
-  %788 = getelementptr inbounds nuw i32, ptr %748, i64 %787
-  %789 = load i32, ptr %788, align 4, !tbaa !55
-  %.not21.i.i.i.i281 = icmp eq i32 %784, 0
-  %.pre26.i.i.i.i282 = sext i32 %789 to i64
+758:                                              ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280
+  %759 = zext nneg i32 %756 to i64
+  %760 = getelementptr inbounds nuw i32, ptr %720, i64 %759
+  %761 = load i32, ptr %760, align 4, !tbaa !55
+  %.not21.i.i.i.i281 = icmp eq i32 %756, 0
+  %.pre26.i.i.i.i282 = sext i32 %761 to i64
   br i1 %.not21.i.i.i.i281, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288, label %.lr.ph.i.i.i.i283
 
-.lr.ph.i.i.i.i283:                                ; preds = %786
-  %790 = load ptr, ptr %749, align 8, !tbaa !144
-  %791 = getelementptr inbounds double, ptr %790, i64 %.pre26.i.i.i.i282
-  %792 = load double, ptr %791, align 8, !tbaa !52
-  br label %793
+.lr.ph.i.i.i.i283:                                ; preds = %758
+  %762 = load ptr, ptr %721, align 8, !tbaa !144
+  %763 = getelementptr inbounds double, ptr %762, i64 %.pre26.i.i.i.i282
+  %764 = load double, ptr %763, align 8, !tbaa !52
+  br label %765
 
-793:                                              ; preds = %803, %.lr.ph.i.i.i.i283
-  %.01522.i.i.i.i284 = phi i32 [ %784, %.lr.ph.i.i.i.i283 ], [ %.023.i.i.i.i286, %803 ]
+765:                                              ; preds = %775, %.lr.ph.i.i.i.i283
+  %.01522.i.i.i.i284 = phi i32 [ %756, %.lr.ph.i.i.i.i283 ], [ %.023.i.i.i.i286, %775 ]
   %.023.in.i.i.i.i285 = add nsw i32 %.01522.i.i.i.i284, -1
   %.023.i.i.i.i286 = ashr i32 %.023.in.i.i.i.i285, 1
-  %794 = sext i32 %.023.i.i.i.i286 to i64
-  %795 = getelementptr inbounds i32, ptr %748, i64 %794
-  %796 = load i32, ptr %795, align 4, !tbaa !55
-  %797 = sext i32 %796 to i64
-  %798 = getelementptr inbounds double, ptr %790, i64 %797
-  %799 = load double, ptr %798, align 8, !tbaa !52
-  %800 = fcmp ogt double %792, %799
-  %801 = sext i32 %.01522.i.i.i.i284 to i64
-  %802 = getelementptr inbounds i32, ptr %748, i64 %801
-  br i1 %800, label %803, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288
+  %766 = sext i32 %.023.i.i.i.i286 to i64
+  %767 = getelementptr inbounds i32, ptr %720, i64 %766
+  %768 = load i32, ptr %767, align 4, !tbaa !55
+  %769 = sext i32 %768 to i64
+  %770 = getelementptr inbounds double, ptr %762, i64 %769
+  %771 = load double, ptr %770, align 8, !tbaa !52
+  %772 = fcmp ogt double %764, %771
+  %773 = sext i32 %.01522.i.i.i.i284 to i64
+  %774 = getelementptr inbounds i32, ptr %720, i64 %773
+  br i1 %772, label %775, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288
 
-803:                                              ; preds = %793
-  store i32 %796, ptr %802, align 4, !tbaa !55
-  %804 = load i32, ptr %795, align 4, !tbaa !55
-  %805 = sext i32 %804 to i64
-  %806 = getelementptr inbounds i32, ptr %747, i64 %805
-  store i32 %.01522.i.i.i.i284, ptr %806, align 4, !tbaa !55
+775:                                              ; preds = %765
+  store i32 %768, ptr %774, align 4, !tbaa !55
+  %776 = load i32, ptr %767, align 4, !tbaa !55
+  %777 = sext i32 %776 to i64
+  %778 = getelementptr inbounds i32, ptr %719, i64 %777
+  store i32 %.01522.i.i.i.i284, ptr %778, align 4, !tbaa !55
   %.not.i.i.i.i291 = icmp ult i32 %.023.in.i.i.i.i285, 2
-  br i1 %.not.i.i.i.i291, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288, label %793, !llvm.loop !205
+  br i1 %.not.i.i.i.i291, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288, label %765, !llvm.loop !205
 
-_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288: ; preds = %803, %793, %786
-  %.01518.i.i.i.i289 = phi i32 [ 0, %786 ], [ %.023.i.i.i.i286, %803 ], [ %.01522.i.i.i.i284, %793 ]
-  %phi.call.i.i.i.i290 = phi ptr [ %748, %786 ], [ %748, %803 ], [ %802, %793 ]
-  store i32 %789, ptr %phi.call.i.i.i.i290, align 4, !tbaa !55
-  %807 = getelementptr inbounds i32, ptr %747, i64 %.pre26.i.i.i.i282
-  store i32 %.01518.i.i.i.i289, ptr %807, align 4, !tbaa !55
-  %.pre550 = load i32, ptr %70, align 8, !tbaa !113
+_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288: ; preds = %775, %765, %758
+  %.01518.i.i.i.i289 = phi i32 [ 0, %758 ], [ %.023.i.i.i.i286, %775 ], [ %.01522.i.i.i.i284, %765 ]
+  %phi.call.i.i.i.i290 = phi ptr [ %720, %758 ], [ %720, %775 ], [ %774, %765 ]
+  store i32 %761, ptr %phi.call.i.i.i.i290, align 4, !tbaa !55
+  %779 = getelementptr inbounds i32, ptr %719, i64 %.pre26.i.i.i.i282
+  store i32 %.01518.i.i.i.i289, ptr %779, align 4, !tbaa !55
+  %.pre550 = load i32, ptr %66, align 8, !tbaa !113
   br label %_ZN6Gluco26Solver15varBumpActivityEi.exit299
 
-_ZN6Gluco26Solver15varBumpActivityEi.exit299:     ; preds = %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280, %779, %750
-  %808 = phi i32 [ %.pre550, %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288 ], [ %751, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280 ], [ %751, %779 ], [ %751, %750 ]
+_ZN6Gluco26Solver15varBumpActivityEi.exit299:     ; preds = %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280, %751, %722
+  %780 = phi i32 [ %.pre550, %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE8decreaseEi.exit.i.i288 ], [ %723, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i280 ], [ %723, %751 ], [ %723, %722 ]
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
-  %809 = sext i32 %808 to i64
-  %810 = icmp slt i64 %indvars.iv.next512, %809
-  br i1 %810, label %750, label %._crit_edge443, !llvm.loop !219
+  %781 = sext i32 %780 to i64
+  %782 = icmp slt i64 %indvars.iv.next512, %781
+  br i1 %782, label %722, label %._crit_edge443, !llvm.loop !219
 
-811:                                              ; preds = %._crit_edge443, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit
-  %812 = load i32, ptr %62, align 8, !tbaa !104
-  %.not227 = icmp eq i32 %812, 0
-  br i1 %.not227, label %.preheader, label %815
+783:                                              ; preds = %._crit_edge443, %_ZN6Gluco26Solver10computeLBDERKNS_3vecINS_3LitEEEi.exit
+  %784 = load i32, ptr %58, align 8, !tbaa !104
+  %.not227 = icmp eq i32 %784, 0
+  br i1 %.not227, label %.preheader, label %787
 
-.preheader:                                       ; preds = %811
-  %813 = load i32, ptr %46, align 8, !tbaa !113
-  %814 = icmp sgt i32 %813, 0
-  br i1 %814, label %.lr.ph455, label %.loopexit
+.preheader:                                       ; preds = %783
+  %785 = load i32, ptr %42, align 8, !tbaa !113
+  %786 = icmp sgt i32 %785, 0
+  br i1 %786, label %.lr.ph455, label %.loopexit
 
-815:                                              ; preds = %811
-  %816 = load i8, ptr %10, align 8, !tbaa !198, !range !72, !noundef !73
-  %817 = trunc nuw i8 %816 to i1
-  %818 = load i32, ptr %46, align 8, !tbaa !113
-  %819 = icmp sgt i32 %818, 0
-  br i1 %817, label %.preheader349, label %.preheader350
+787:                                              ; preds = %783
+  %788 = load i8, ptr %10, align 8, !tbaa !198, !range !72, !noundef !73
+  %789 = trunc nuw i8 %788 to i1
+  %790 = load i32, ptr %42, align 8, !tbaa !113
+  %791 = icmp sgt i32 %790, 0
+  br i1 %789, label %.preheader349, label %.preheader350
 
-.preheader350:                                    ; preds = %815
-  br i1 %819, label %.lr.ph445, label %.loopexit
+.preheader350:                                    ; preds = %787
+  br i1 %791, label %.lr.ph445, label %.loopexit
 
-.preheader349:                                    ; preds = %815
-  br i1 %819, label %.lr.ph447, label %._crit_edge448
+.preheader349:                                    ; preds = %787
+  br i1 %791, label %.lr.ph447, label %._crit_edge448
 
 .lr.ph447:                                        ; preds = %.preheader349, %.lr.ph447
   %indvars.iv517 = phi i64 [ %indvars.iv.next518, %.lr.ph447 ], [ 0, %.preheader349 ]
-  %820 = load ptr, ptr %45, align 8, !tbaa !112
-  %821 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %820, i64 %indvars.iv517
-  %.sroa.06.0.copyload = load i32, ptr %821, align 4, !tbaa !55
-  %822 = ashr i32 %.sroa.06.0.copyload, 1
-  %823 = load ptr, ptr %58, align 8, !tbaa !126
-  %824 = sext i32 %822 to i64
-  %825 = getelementptr inbounds i8, ptr %823, i64 %824
-  store i8 0, ptr %825, align 1, !tbaa !109
+  %792 = load ptr, ptr %41, align 8, !tbaa !112
+  %793 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %792, i64 %indvars.iv517
+  %.sroa.06.0.copyload = load i32, ptr %793, align 4, !tbaa !55
+  %794 = ashr i32 %.sroa.06.0.copyload, 1
+  %795 = load ptr, ptr %54, align 8, !tbaa !126
+  %796 = sext i32 %794 to i64
+  %797 = getelementptr inbounds i8, ptr %795, i64 %796
+  store i8 0, ptr %797, align 1, !tbaa !109
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
-  %826 = load i32, ptr %46, align 8, !tbaa !113
-  %827 = sext i32 %826 to i64
-  %828 = icmp slt i64 %indvars.iv.next518, %827
-  br i1 %828, label %.lr.ph447, label %._crit_edge448, !llvm.loop !220
+  %798 = load i32, ptr %42, align 8, !tbaa !113
+  %799 = sext i32 %798 to i64
+  %800 = icmp slt i64 %indvars.iv.next518, %799
+  br i1 %800, label %.lr.ph447, label %._crit_edge448, !llvm.loop !220
 
 ._crit_edge448:                                   ; preds = %.lr.ph447, %.preheader349
-  store i32 0, ptr %46, align 8, !tbaa !113
-  %829 = getelementptr inbounds nuw i8, ptr %0, i64 1320
-  %830 = load i32, ptr %829, align 8, !tbaa !119
-  %831 = icmp sgt i32 %830, 0
-  br i1 %831, label %.lr.ph451, label %.loopexit
+  store i32 0, ptr %42, align 8, !tbaa !113
+  %801 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %802 = load i32, ptr %801, align 8, !tbaa !119
+  %803 = icmp sgt i32 %802, 0
+  br i1 %803, label %.lr.ph451, label %.loopexit
 
 .lr.ph451:                                        ; preds = %._crit_edge448
-  %832 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %833 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  br label %843
+  %804 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %805 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  br label %815
 
-.preheader346:                                    ; preds = %882
-  %.pre553 = load i32, ptr %46, align 8, !tbaa !113
-  %834 = icmp sgt i32 %.pre553, 0
-  %835 = getelementptr inbounds nuw i8, ptr %0, i64 1304
-  br i1 %834, label %.lr.ph453, label %.loopexit
+.preheader346:                                    ; preds = %850
+  %.pre553 = load i32, ptr %42, align 8, !tbaa !113
+  %806 = icmp sgt i32 %.pre553, 0
+  %807 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+  br i1 %806, label %.lr.ph453, label %.loopexit
 
 .lr.ph453:                                        ; preds = %.preheader346
-  %836 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  %837 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %838 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %839 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %840 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %841 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %842 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  br label %886
+  %808 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %809 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %810 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %811 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %813 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %814 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  br label %854
 
-843:                                              ; preds = %.lr.ph451, %882
-  %844 = phi i32 [ %830, %.lr.ph451 ], [ %883, %882 ]
-  %indvars.iv520 = phi i64 [ 0, %.lr.ph451 ], [ %indvars.iv.next521, %882 ]
-  %845 = load ptr, ptr %832, align 8, !tbaa !118
-  %846 = getelementptr inbounds nuw %"struct.Gluco2::Solver::JustKey", ptr %845, i64 %indvars.iv520
-  %847 = getelementptr inbounds nuw i8, ptr %846, i64 8
-  %848 = load i32, ptr %847, align 8, !tbaa !191
-  %849 = load ptr, ptr %833, align 8, !tbaa !123
-  %850 = sext i32 %848 to i64
-  %851 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %849, i64 %850
-  %852 = getelementptr inbounds nuw i8, ptr %851, i64 8
-  %853 = load i32, ptr %852, align 4
-  %.not228 = icmp sgt i32 %853, -1
-  br i1 %.not228, label %882, label %854
+815:                                              ; preds = %.lr.ph451, %850
+  %816 = phi i32 [ %802, %.lr.ph451 ], [ %851, %850 ]
+  %indvars.iv520 = phi i64 [ 0, %.lr.ph451 ], [ %indvars.iv.next521, %850 ]
+  %817 = load ptr, ptr %804, align 8, !tbaa !118
+  %818 = getelementptr inbounds nuw %"struct.Gluco2::Solver::JustKey", ptr %817, i64 %indvars.iv520
+  %819 = getelementptr inbounds nuw i8, ptr %818, i64 8
+  %820 = load i32, ptr %819, align 8, !tbaa !191
+  %821 = load ptr, ptr %805, align 8, !tbaa !123
+  %822 = sext i32 %820 to i64
+  %823 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %821, i64 %822
+  %824 = getelementptr inbounds nuw i8, ptr %823, i64 8
+  %825 = load i32, ptr %824, align 4
+  %.not228 = icmp sgt i32 %825, -1
+  br i1 %.not228, label %850, label %826
 
-854:                                              ; preds = %843
-  %855 = shl nsw i32 %848, 1
-  %856 = load i32, ptr %46, align 8, !tbaa !113
-  %857 = load i32, ptr %68, align 4, !tbaa !114
-  %858 = icmp eq i32 %856, %857
-  br i1 %858, label %859, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300
+826:                                              ; preds = %815
+  %827 = shl nsw i32 %820, 1
+  %828 = load i32, ptr %42, align 8, !tbaa !113
+  %829 = load i32, ptr %64, align 4, !tbaa !114
+  %830 = icmp eq i32 %828, %829
+  br i1 %830, label %831, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300: ; preds = %854
-  %.pre.i301 = load ptr, ptr %45, align 8, !tbaa !112
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300: ; preds = %826
+  %.pre.i301 = load ptr, ptr %41, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302
 
-859:                                              ; preds = %854
-  %860 = ashr i32 %856, 1
-  %861 = and i32 %860, -2
-  %862 = tail call i32 @llvm.smax.i32(i32 %861, i32 0)
-  %863 = add nuw nsw i32 %862, 2
-  %864 = sub nsw i32 2147483647, %856
-  %865 = icmp samesign ugt i32 %863, %864
-  br i1 %865, label %.loopexit348, label %866
+831:                                              ; preds = %826
+  %832 = ashr i32 %828, 1
+  %833 = and i32 %832, -2
+  %834 = tail call i32 @llvm.smax.i32(i32 %833, i32 0)
+  %835 = add nuw nsw i32 %834, 2
+  %836 = sub nsw i32 2147483647, %828
+  %837 = icmp samesign ugt i32 %835, %836
+  br i1 %837, label %.loopexit348, label %838
 
-866:                                              ; preds = %859
-  %867 = load ptr, ptr %45, align 8, !tbaa !112
-  %868 = add nsw i32 %863, %856
-  store i32 %868, ptr %68, align 4, !tbaa !114
-  %869 = sext i32 %868 to i64
-  %870 = shl nsw i64 %869, 2
-  %871 = tail call ptr @realloc(ptr noundef %867, i64 noundef %870) #35
-  store ptr %871, ptr %45, align 8, !tbaa !112
-  %872 = icmp eq ptr %871, null
-  br i1 %872, label %873, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge
+838:                                              ; preds = %831
+  %839 = load ptr, ptr %41, align 8, !tbaa !112
+  %840 = add nsw i32 %835, %828
+  store i32 %840, ptr %64, align 4, !tbaa !114
+  %841 = sext i32 %840 to i64
+  %842 = shl nsw i64 %841, 2
+  %843 = tail call ptr @realloc(ptr noundef %839, i64 noundef %842) #34
+  store ptr %843, ptr %41, align 8, !tbaa !112
+  %844 = icmp eq ptr %843, null
+  br i1 %844, label %.loopexit348, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge: ; preds = %866
-  %.pre551 = load i32, ptr %46, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge: ; preds = %838
+  %.pre551 = load i32, ptr %42, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302
 
-873:                                              ; preds = %866
-  %874 = tail call ptr @__errno_location() #31
-  %875 = load i32, ptr %874, align 4, !tbaa !55
-  %876 = icmp eq i32 %875, 12
-  tail call void @llvm.assume(i1 %876)
-  br label %.loopexit348
-
-.loopexit348:                                     ; preds = %859, %873
+.loopexit348:                                     ; preds = %831, %838
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302:      ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300
-  %877 = phi i32 [ %856, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300 ], [ %.pre551, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge ]
-  %878 = phi ptr [ %.pre.i301, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300 ], [ %871, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge ]
-  %879 = add nsw i32 %877, 1
-  store i32 %879, ptr %46, align 8, !tbaa !113
-  %880 = sext i32 %877 to i64
-  %881 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %878, i64 %880
-  store i32 %855, ptr %881, align 4, !tbaa !55
-  %.pre552 = load i32, ptr %829, align 8, !tbaa !119
-  br label %882
+  %845 = phi i32 [ %828, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300 ], [ %.pre551, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge ]
+  %846 = phi ptr [ %.pre.i301, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i300 ], [ %843, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302_crit_edge ]
+  %847 = add nsw i32 %845, 1
+  store i32 %847, ptr %42, align 8, !tbaa !113
+  %848 = sext i32 %845 to i64
+  %849 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %846, i64 %848
+  store i32 %827, ptr %849, align 4, !tbaa !55
+  %.pre552 = load i32, ptr %801, align 8, !tbaa !119
+  br label %850
 
-882:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302, %843
-  %883 = phi i32 [ %.pre552, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302 ], [ %844, %843 ]
+850:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302, %815
+  %851 = phi i32 [ %.pre552, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit302 ], [ %816, %815 ]
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
-  %884 = sext i32 %883 to i64
-  %885 = icmp slt i64 %indvars.iv.next521, %884
-  br i1 %885, label %843, label %.preheader346, !llvm.loop !221
+  %852 = sext i32 %851 to i64
+  %853 = icmp slt i64 %indvars.iv.next521, %852
+  br i1 %853, label %815, label %.preheader346, !llvm.loop !221
 
-886:                                              ; preds = %.lr.ph453, %922
-  %indvars.iv523 = phi i64 [ 0, %.lr.ph453 ], [ %indvars.iv.next524, %922 ]
-  %887 = load ptr, ptr %45, align 8, !tbaa !112
-  %888 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %887, i64 %indvars.iv523
-  %.sroa.04.0.copyload = load i32, ptr %888, align 4, !tbaa !55
-  %889 = ashr i32 %.sroa.04.0.copyload, 1
-  %890 = load ptr, ptr %836, align 8, !tbaa !123
-  %891 = sext i32 %889 to i64
-  %892 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %890, i64 %891
-  %893 = getelementptr inbounds nuw i8, ptr %892, i64 4
-  %.sroa.0.0.copyload.i.i303 = load i32, ptr %893, align 4, !tbaa !55
-  %894 = ashr i32 %.sroa.0.0.copyload.i.i303, 1
-  %895 = load ptr, ptr %60, align 8, !tbaa !144
-  %896 = sext i32 %894 to i64
-  %897 = getelementptr inbounds double, ptr %895, i64 %896
-  %898 = load double, ptr %897, align 8, !tbaa !52
-  %.sroa.0.0.copyload.i.i304 = load i32, ptr %892, align 4, !tbaa !55
-  %899 = ashr i32 %.sroa.0.0.copyload.i.i304, 1
-  %900 = sext i32 %899 to i64
-  %901 = getelementptr inbounds double, ptr %895, i64 %900
-  %902 = load double, ptr %901, align 8, !tbaa !52
-  %903 = fcmp ogt double %898, %902
-  br i1 %903, label %904, label %913
+854:                                              ; preds = %.lr.ph453, %890
+  %indvars.iv523 = phi i64 [ 0, %.lr.ph453 ], [ %indvars.iv.next524, %890 ]
+  %855 = load ptr, ptr %41, align 8, !tbaa !112
+  %856 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %855, i64 %indvars.iv523
+  %.sroa.04.0.copyload = load i32, ptr %856, align 4, !tbaa !55
+  %857 = ashr i32 %.sroa.04.0.copyload, 1
+  %858 = load ptr, ptr %808, align 8, !tbaa !123
+  %859 = sext i32 %857 to i64
+  %860 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %858, i64 %859
+  %861 = getelementptr inbounds nuw i8, ptr %860, i64 4
+  %.sroa.0.0.copyload.i.i303 = load i32, ptr %861, align 4, !tbaa !55
+  %862 = ashr i32 %.sroa.0.0.copyload.i.i303, 1
+  %863 = load ptr, ptr %56, align 8, !tbaa !144
+  %864 = sext i32 %862 to i64
+  %865 = getelementptr inbounds double, ptr %863, i64 %864
+  %866 = load double, ptr %865, align 8, !tbaa !52
+  %.sroa.0.0.copyload.i.i304 = load i32, ptr %860, align 4, !tbaa !55
+  %867 = ashr i32 %.sroa.0.0.copyload.i.i304, 1
+  %868 = sext i32 %867 to i64
+  %869 = getelementptr inbounds double, ptr %863, i64 %868
+  %870 = load double, ptr %869, align 8, !tbaa !52
+  %871 = fcmp ogt double %866, %870
+  br i1 %871, label %872, label %881
 
-904:                                              ; preds = %886
+872:                                              ; preds = %854
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %905 = load ptr, ptr %838, align 8, !tbaa !115
-  %906 = getelementptr inbounds i32, ptr %905, i64 %891
-  %907 = load i32, ptr %906, align 4, !tbaa !55
-  %908 = load ptr, ptr %837, align 8, !tbaa !118
-  %909 = sext i32 %907 to i64
-  %910 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %908, i64 %909
-  %911 = getelementptr inbounds nuw i8, ptr %910, i64 12
-  %912 = load i32, ptr %911, align 4, !tbaa !192
-  store double %898, ptr %8, align 8, !tbaa !189
-  store i32 %889, ptr %841, align 8, !tbaa !191
-  store i32 %912, ptr %842, align 4, !tbaa !192
-  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6updateERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %835, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %873 = load ptr, ptr %810, align 8, !tbaa !115
+  %874 = getelementptr inbounds i32, ptr %873, i64 %859
+  %875 = load i32, ptr %874, align 4, !tbaa !55
+  %876 = load ptr, ptr %809, align 8, !tbaa !118
+  %877 = sext i32 %875 to i64
+  %878 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %876, i64 %877
+  %879 = getelementptr inbounds nuw i8, ptr %878, i64 12
+  %880 = load i32, ptr %879, align 4, !tbaa !192
+  store double %866, ptr %8, align 8, !tbaa !189
+  store i32 %857, ptr %813, align 8, !tbaa !191
+  store i32 %880, ptr %814, align 4, !tbaa !192
+  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6updateERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %807, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %922
+  br label %890
 
-913:                                              ; preds = %886
+881:                                              ; preds = %854
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %914 = load ptr, ptr %838, align 8, !tbaa !115
-  %915 = getelementptr inbounds i32, ptr %914, i64 %891
-  %916 = load i32, ptr %915, align 4, !tbaa !55
-  %917 = load ptr, ptr %837, align 8, !tbaa !118
-  %918 = sext i32 %916 to i64
-  %919 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %917, i64 %918
-  %920 = getelementptr inbounds nuw i8, ptr %919, i64 12
-  %921 = load i32, ptr %920, align 4, !tbaa !192
-  store double %902, ptr %9, align 8, !tbaa !189
-  store i32 %889, ptr %839, align 8, !tbaa !191
-  store i32 %921, ptr %840, align 4, !tbaa !192
-  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6updateERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %835, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %882 = load ptr, ptr %810, align 8, !tbaa !115
+  %883 = getelementptr inbounds i32, ptr %882, i64 %859
+  %884 = load i32, ptr %883, align 4, !tbaa !55
+  %885 = load ptr, ptr %809, align 8, !tbaa !118
+  %886 = sext i32 %884 to i64
+  %887 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %885, i64 %886
+  %888 = getelementptr inbounds nuw i8, ptr %887, i64 12
+  %889 = load i32, ptr %888, align 4, !tbaa !192
+  store double %870, ptr %9, align 8, !tbaa !189
+  store i32 %857, ptr %811, align 8, !tbaa !191
+  store i32 %889, ptr %812, align 4, !tbaa !192
+  call void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6updateERKS3_(ptr noundef nonnull align 8 dereferenceable(40) %807, ptr noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %922
+  br label %890
 
-922:                                              ; preds = %913, %904
+890:                                              ; preds = %881, %872
   %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
-  %923 = load i32, ptr %46, align 8, !tbaa !113
-  %924 = sext i32 %923 to i64
-  %925 = icmp slt i64 %indvars.iv.next524, %924
-  br i1 %925, label %886, label %.loopexit, !llvm.loop !222
+  %891 = load i32, ptr %42, align 8, !tbaa !113
+  %892 = sext i32 %891 to i64
+  %893 = icmp slt i64 %indvars.iv.next524, %892
+  br i1 %893, label %854, label %.loopexit, !llvm.loop !222
 
 .lr.ph445:                                        ; preds = %.preheader350, %.lr.ph445
   %indvars.iv514 = phi i64 [ %indvars.iv.next515, %.lr.ph445 ], [ 0, %.preheader350 ]
-  %926 = load ptr, ptr %45, align 8, !tbaa !112
-  %927 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %926, i64 %indvars.iv514
-  %.sroa.03.0.copyload = load i32, ptr %927, align 4, !tbaa !55
-  %928 = ashr i32 %.sroa.03.0.copyload, 1
-  %929 = load ptr, ptr %58, align 8, !tbaa !126
-  %930 = sext i32 %928 to i64
-  %931 = getelementptr inbounds i8, ptr %929, i64 %930
-  store i8 0, ptr %931, align 1, !tbaa !109
-  %932 = load ptr, ptr %45, align 8, !tbaa !112
-  %933 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %932, i64 %indvars.iv514
-  %.sroa.02.0.copyload = load i32, ptr %933, align 4, !tbaa !55
-  %934 = ashr i32 %.sroa.02.0.copyload, 1
-  tail call void @_ZN6Gluco26Solver18updateJustActivityEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %934)
+  %894 = load ptr, ptr %41, align 8, !tbaa !112
+  %895 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %894, i64 %indvars.iv514
+  %.sroa.03.0.copyload = load i32, ptr %895, align 4, !tbaa !55
+  %896 = ashr i32 %.sroa.03.0.copyload, 1
+  %897 = load ptr, ptr %54, align 8, !tbaa !126
+  %898 = sext i32 %896 to i64
+  %899 = getelementptr inbounds i8, ptr %897, i64 %898
+  store i8 0, ptr %899, align 1, !tbaa !109
+  %900 = load ptr, ptr %41, align 8, !tbaa !112
+  %901 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %900, i64 %indvars.iv514
+  %.sroa.02.0.copyload = load i32, ptr %901, align 4, !tbaa !55
+  %902 = ashr i32 %.sroa.02.0.copyload, 1
+  tail call void @_ZN6Gluco26Solver18updateJustActivityEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %902)
   %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
-  %935 = load i32, ptr %46, align 8, !tbaa !113
-  %936 = sext i32 %935 to i64
-  %937 = icmp slt i64 %indvars.iv.next515, %936
-  br i1 %937, label %.lr.ph445, label %.loopexit, !llvm.loop !223
+  %903 = load i32, ptr %42, align 8, !tbaa !113
+  %904 = sext i32 %903 to i64
+  %905 = icmp slt i64 %indvars.iv.next515, %904
+  br i1 %905, label %.lr.ph445, label %.loopexit, !llvm.loop !223
 
 .lr.ph455:                                        ; preds = %.preheader, %.lr.ph455
   %indvars.iv526 = phi i64 [ %indvars.iv.next527, %.lr.ph455 ], [ 0, %.preheader ]
-  %938 = load ptr, ptr %45, align 8, !tbaa !112
-  %939 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %938, i64 %indvars.iv526
-  %.sroa.01.0.copyload = load i32, ptr %939, align 4, !tbaa !55
-  %940 = ashr i32 %.sroa.01.0.copyload, 1
-  %941 = load ptr, ptr %58, align 8, !tbaa !126
-  %942 = sext i32 %940 to i64
-  %943 = getelementptr inbounds i8, ptr %941, i64 %942
-  store i8 0, ptr %943, align 1, !tbaa !109
+  %906 = load ptr, ptr %41, align 8, !tbaa !112
+  %907 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %906, i64 %indvars.iv526
+  %.sroa.01.0.copyload = load i32, ptr %907, align 4, !tbaa !55
+  %908 = ashr i32 %.sroa.01.0.copyload, 1
+  %909 = load ptr, ptr %54, align 8, !tbaa !126
+  %910 = sext i32 %908 to i64
+  %911 = getelementptr inbounds i8, ptr %909, i64 %910
+  store i8 0, ptr %911, align 1, !tbaa !109
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
-  %944 = load i32, ptr %46, align 8, !tbaa !113
-  %945 = sext i32 %944 to i64
-  %946 = icmp slt i64 %indvars.iv.next527, %945
-  br i1 %946, label %.lr.ph455, label %.loopexit, !llvm.loop !224
+  %912 = load i32, ptr %42, align 8, !tbaa !113
+  %913 = sext i32 %912 to i64
+  %914 = icmp slt i64 %indvars.iv.next527, %913
+  br i1 %914, label %.lr.ph455, label %.loopexit, !llvm.loop !224
 
-.loopexit:                                        ; preds = %.lr.ph445, %922, %.lr.ph455, %._crit_edge448, %.preheader350, %.preheader346, %.preheader
-  %947 = load i32, ptr %72, align 8, !tbaa !113
-  %948 = icmp sgt i32 %947, 0
-  br i1 %948, label %.lr.ph458, label %._crit_edge459
+.loopexit:                                        ; preds = %.lr.ph445, %890, %.lr.ph455, %._crit_edge448, %.preheader350, %.preheader346, %.preheader
+  %915 = load i32, ptr %68, align 8, !tbaa !113
+  %916 = icmp sgt i32 %915, 0
+  br i1 %916, label %.lr.ph458, label %._crit_edge459
 
 .lr.ph458:                                        ; preds = %.loopexit, %.lr.ph458
   %indvars.iv529 = phi i64 [ %indvars.iv.next530, %.lr.ph458 ], [ 0, %.loopexit ]
-  %949 = load ptr, ptr %3, align 8, !tbaa !112
-  %950 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %949, i64 %indvars.iv529
-  %.sroa.0.0.copyload = load i32, ptr %950, align 4, !tbaa !55
-  %951 = ashr i32 %.sroa.0.0.copyload, 1
-  %952 = load ptr, ptr %58, align 8, !tbaa !126
-  %953 = sext i32 %951 to i64
-  %954 = getelementptr inbounds i8, ptr %952, i64 %953
-  store i8 0, ptr %954, align 1, !tbaa !109
+  %917 = load ptr, ptr %3, align 8, !tbaa !112
+  %918 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %917, i64 %indvars.iv529
+  %.sroa.0.0.copyload = load i32, ptr %918, align 4, !tbaa !55
+  %919 = ashr i32 %.sroa.0.0.copyload, 1
+  %920 = load ptr, ptr %54, align 8, !tbaa !126
+  %921 = sext i32 %919 to i64
+  %922 = getelementptr inbounds i8, ptr %920, i64 %921
+  store i8 0, ptr %922, align 1, !tbaa !109
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
-  %955 = load i32, ptr %72, align 8, !tbaa !113
-  %956 = sext i32 %955 to i64
-  %957 = icmp slt i64 %indvars.iv.next530, %956
-  br i1 %957, label %.lr.ph458, label %._crit_edge459, !llvm.loop !225
+  %923 = load i32, ptr %68, align 8, !tbaa !113
+  %924 = sext i32 %923 to i64
+  %925 = icmp slt i64 %indvars.iv.next530, %924
+  br i1 %925, label %.lr.ph458, label %._crit_edge459, !llvm.loop !225
 
 ._crit_edge459:                                   ; preds = %.lr.ph458, %.loopexit
   ret void
@@ -7608,7 +7405,7 @@ define noundef zeroext i1 @_ZN6Gluco26Solver12litRedundantENS_3LitEj(ptr noundef
 
 10:                                               ; preds = %3
   store i32 2, ptr %6, align 4, !tbaa !114
-  %11 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %9, i64 noundef 8) #35
+  %11 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %9, i64 noundef 8) #34
   store ptr %11, ptr %4, align 8, !tbaa !112
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
@@ -7618,291 +7415,273 @@ define noundef zeroext i1 @_ZN6Gluco26Solver12litRedundantENS_3LitEj(ptr noundef
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #31
-  %15 = load i32, ptr %14, align 4, !tbaa !55
-  %16 = icmp eq i32 %15, 12
-  tail call void @llvm.assume(i1 %16)
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %3, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
-  %17 = phi i32 [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ 0, %3 ]
-  %18 = phi ptr [ %11, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %9, %3 ]
-  %19 = add nsw i32 %17, 1
-  store i32 %19, ptr %5, align 8, !tbaa !113
-  %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %18, i64 %20
-  store i32 %1, ptr %21, align 4, !tbaa !55
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %24 = load i32, ptr %23, align 8, !tbaa !113
-  %25 = load i32, ptr %5, align 8, !tbaa !113
-  %26 = icmp slt i32 %25, 1
-  br i1 %26, label %.loopexit58, label %.lr.ph71
+  %14 = phi i32 [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ 0, %3 ]
+  %15 = phi ptr [ %11, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %9, %3 ]
+  %16 = add nsw i32 %14, 1
+  store i32 %16, ptr %5, align 8, !tbaa !113
+  %17 = sext i32 %14 to i64
+  %18 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %15, i64 %17
+  store i32 %1, ptr %18, align 4, !tbaa !55
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1072
+  %21 = load i32, ptr %20, align 8, !tbaa !113
+  %22 = load i32, ptr %5, align 8, !tbaa !113
+  %23 = icmp slt i32 %22, 1
+  br i1 %23, label %.loopexit58, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1076
-  br label %34
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1076
+  br label %31
 
-.critedge42.loopexit:                             ; preds = %162, %.critedge
-  %32 = load i32, ptr %5, align 8, !tbaa !113
-  %33 = icmp slt i32 %32, 1
-  br i1 %33, label %.loopexit58, label %34
+.critedge42.loopexit:                             ; preds = %151, %.critedge
+  %29 = load i32, ptr %5, align 8, !tbaa !113
+  %30 = icmp slt i32 %29, 1
+  br i1 %30, label %.loopexit58, label %31
 
-34:                                               ; preds = %.lr.ph71, %.critedge42.loopexit
-  %35 = phi i32 [ %25, %.lr.ph71 ], [ %32, %.critedge42.loopexit ]
-  %36 = load ptr, ptr %4, align 8, !tbaa !112
-  %37 = zext nneg i32 %35 to i64
-  %38 = getelementptr %"struct.Gluco2::Lit", ptr %36, i64 %37
-  %39 = getelementptr i8, ptr %38, i64 -4
-  %.sroa.019.0.copyload = load i32, ptr %39, align 4, !tbaa !55
-  %40 = ashr i32 %.sroa.019.0.copyload, 1
-  %41 = load ptr, ptr %28, align 8, !tbaa !129
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %41, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !177
-  %45 = icmp eq i32 %44, -1
-  br i1 %45, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, label %46
+31:                                               ; preds = %.lr.ph71, %.critedge42.loopexit
+  %32 = phi i32 [ %22, %.lr.ph71 ], [ %29, %.critedge42.loopexit ]
+  %33 = load ptr, ptr %4, align 8, !tbaa !112
+  %34 = zext nneg i32 %32 to i64
+  %35 = getelementptr %"struct.Gluco2::Lit", ptr %33, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 -4
+  %.sroa.019.0.copyload = load i32, ptr %36, align 4, !tbaa !55
+  %37 = ashr i32 %.sroa.019.0.copyload, 1
+  %38 = load ptr, ptr %25, align 8, !tbaa !129
+  %39 = sext i32 %37 to i64
+  %40 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %38, i64 %39
+  %41 = load i32, ptr %40, align 4, !tbaa !177
+  %42 = icmp eq i32 %41, -1
+  br i1 %42, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, label %43
 
-46:                                               ; preds = %34
-  %47 = icmp slt i32 %44, -1
-  br i1 %47, label %48, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
+43:                                               ; preds = %31
+  %44 = icmp slt i32 %41, -1
+  br i1 %44, label %45, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
 
-48:                                               ; preds = %46
-  %49 = and i32 %44, 2147483647
-  %50 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %49, i32 noundef %40)
+45:                                               ; preds = %43
+  %46 = and i32 %41, 2147483647
+  %47 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %46, i32 noundef %37)
   %.pre78 = load i32, ptr %5, align 8, !tbaa !113
   br label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
 
-_ZN6Gluco26Solver8castCRefENS_3LitE.exit:         ; preds = %34, %46, %48
-  %51 = phi i32 [ %.pre78, %48 ], [ %35, %34 ], [ %35, %46 ]
-  %.0.i = phi i32 [ %50, %48 ], [ -1, %34 ], [ %44, %46 ]
-  %52 = load ptr, ptr %27, align 8, !tbaa !87
-  %53 = zext i32 %.0.i to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
-  %55 = add nsw i32 %51, -1
-  store i32 %55, ptr %5, align 8, !tbaa !113
-  %56 = load i64, ptr %54, align 4
-  %.mask = and i64 %56, -4294967296
-  %57 = icmp eq i64 %.mask, 8589934592
-  br i1 %57, label %58, label %.critedge
+_ZN6Gluco26Solver8castCRefENS_3LitE.exit:         ; preds = %31, %43, %45
+  %48 = phi i32 [ %.pre78, %45 ], [ %32, %31 ], [ %32, %43 ]
+  %.0.i = phi i32 [ %47, %45 ], [ -1, %31 ], [ %41, %43 ]
+  %49 = load ptr, ptr %24, align 8, !tbaa !87
+  %50 = zext i32 %.0.i to i64
+  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %52 = add nsw i32 %48, -1
+  store i32 %52, ptr %5, align 8, !tbaa !113
+  %53 = load i64, ptr %51, align 4
+  %.mask = and i64 %53, -4294967296
+  %54 = icmp eq i64 %.mask, 8589934592
+  br i1 %54, label %55, label %.critedge
 
-58:                                               ; preds = %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
-  %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  %.sroa.018.0.copyload = load i32, ptr %59, align 4, !tbaa !55
-  %60 = ashr i32 %.sroa.018.0.copyload, 1
-  %61 = load ptr, ptr %29, align 8, !tbaa !132
-  %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %"class.Gluco2::lbool", ptr %61, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !150
-  %65 = trunc i32 %.sroa.018.0.copyload to i8
-  %66 = and i8 %65, 1
-  %67 = xor i8 %64, %66
-  %68 = icmp eq i8 %67, 1
-  br i1 %68, label %69, label %.critedge
+55:                                               ; preds = %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  %.sroa.018.0.copyload = load i32, ptr %56, align 4, !tbaa !55
+  %57 = ashr i32 %.sroa.018.0.copyload, 1
+  %58 = load ptr, ptr %26, align 8, !tbaa !132
+  %59 = sext i32 %57 to i64
+  %60 = getelementptr inbounds %"class.Gluco2::lbool", ptr %58, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !150
+  %62 = trunc i32 %.sroa.018.0.copyload to i8
+  %63 = and i8 %62, 1
+  %64 = xor i8 %61, %63
+  %65 = icmp eq i8 %64, 1
+  br i1 %65, label %66, label %.critedge
 
-69:                                               ; preds = %58
-  %70 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %71 = load i32, ptr %70, align 4, !tbaa !55
-  store i32 %71, ptr %59, align 4, !tbaa !55
-  store i32 %.sroa.018.0.copyload, ptr %70, align 4, !tbaa !55
+66:                                               ; preds = %55
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %68 = load i32, ptr %67, align 4, !tbaa !55
+  store i32 %68, ptr %56, align 4, !tbaa !55
+  store i32 %.sroa.018.0.copyload, ptr %67, align 4, !tbaa !55
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, %69, %58
-  %72 = lshr i64 %56, 32
-  %73 = trunc nuw i64 %72 to i32
-  %.not3869 = icmp sgt i32 %73, 1
+.critedge:                                        ; preds = %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, %66, %55
+  %69 = lshr i64 %53, 32
+  %70 = trunc nuw i64 %69 to i32
+  %.not3869 = icmp sgt i32 %70, 1
   br i1 %.not3869, label %.lr.ph, label %.critedge42.loopexit
 
 .lr.ph:                                           ; preds = %.critedge
-  %74 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  br label %75
+  %71 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  br label %72
 
-75:                                               ; preds = %.lr.ph, %162
-  %76 = phi i64 [ %56, %.lr.ph ], [ %163, %162 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %162 ]
-  %77 = getelementptr inbounds nuw %union.anon, ptr %74, i64 %indvars.iv
-  %78 = load i32, ptr %77, align 4, !tbaa !55
-  %79 = ashr i32 %78, 1
-  %80 = load ptr, ptr %30, align 8, !tbaa !126
-  %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds i8, ptr %80, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !109
-  %.not = icmp eq i8 %83, 0
-  br i1 %.not, label %84, label %162
+72:                                               ; preds = %.lr.ph, %151
+  %73 = phi i64 [ %53, %.lr.ph ], [ %152, %151 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %151 ]
+  %74 = getelementptr inbounds nuw %union.anon, ptr %71, i64 %indvars.iv
+  %75 = load i32, ptr %74, align 4, !tbaa !55
+  %76 = ashr i32 %75, 1
+  %77 = load ptr, ptr %27, align 8, !tbaa !126
+  %78 = sext i32 %76 to i64
+  %79 = getelementptr inbounds i8, ptr %77, i64 %78
+  %80 = load i8, ptr %79, align 1, !tbaa !109
+  %.not = icmp eq i8 %80, 0
+  br i1 %.not, label %81, label %151
 
-84:                                               ; preds = %75
-  %85 = load ptr, ptr %28, align 8, !tbaa !129
-  %86 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %85, i64 %81
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !181
-  %89 = icmp sgt i32 %88, 0
-  br i1 %89, label %90, label %162
+81:                                               ; preds = %72
+  %82 = load ptr, ptr %25, align 8, !tbaa !129
+  %83 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %82, i64 %78
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %85 = load i32, ptr %84, align 4, !tbaa !181
+  %86 = icmp sgt i32 %85, 0
+  br i1 %86, label %87, label %151
 
-90:                                               ; preds = %84
-  %91 = load i32, ptr %86, align 4, !tbaa !177
-  %.not36 = icmp eq i32 %91, -1
-  br i1 %.not36, label %149, label %92
+87:                                               ; preds = %81
+  %88 = load i32, ptr %83, align 4, !tbaa !177
+  %.not36 = icmp eq i32 %88, -1
+  br i1 %.not36, label %138, label %89
 
-92:                                               ; preds = %90
-  %93 = and i32 %88, 31
-  %94 = shl nuw i32 1, %93
-  %95 = and i32 %94, %2
-  %.not37 = icmp eq i32 %95, 0
-  br i1 %.not37, label %149, label %96
+89:                                               ; preds = %87
+  %90 = and i32 %85, 31
+  %91 = shl nuw i32 1, %90
+  %92 = and i32 %91, %2
+  %.not37 = icmp eq i32 %92, 0
+  br i1 %.not37, label %138, label %93
 
-96:                                               ; preds = %92
-  store i8 1, ptr %82, align 1, !tbaa !109
-  %97 = load i32, ptr %5, align 8, !tbaa !113
-  %98 = load i32, ptr %6, align 4, !tbaa !114
-  %99 = icmp eq i32 %97, %98
-  br i1 %99, label %100, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43
+93:                                               ; preds = %89
+  store i8 1, ptr %79, align 1, !tbaa !109
+  %94 = load i32, ptr %5, align 8, !tbaa !113
+  %95 = load i32, ptr %6, align 4, !tbaa !114
+  %96 = icmp eq i32 %94, %95
+  br i1 %96, label %97, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43: ; preds = %96
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43: ; preds = %93
   %.pre.i44 = load ptr, ptr %4, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45
 
-100:                                              ; preds = %96
-  %101 = ashr i32 %97, 1
-  %102 = and i32 %101, -2
-  %103 = tail call i32 @llvm.smax.i32(i32 %102, i32 0)
-  %104 = add nuw nsw i32 %103, 2
-  %105 = sub nsw i32 2147483647, %97
-  %106 = icmp samesign ugt i32 %104, %105
-  br i1 %106, label %.loopexit, label %107
+97:                                               ; preds = %93
+  %98 = ashr i32 %94, 1
+  %99 = and i32 %98, -2
+  %100 = tail call i32 @llvm.smax.i32(i32 %99, i32 0)
+  %101 = add nuw nsw i32 %100, 2
+  %102 = sub nsw i32 2147483647, %94
+  %103 = icmp samesign ugt i32 %101, %102
+  br i1 %103, label %.loopexit, label %104
 
-107:                                              ; preds = %100
-  %108 = load ptr, ptr %4, align 8, !tbaa !112
-  %109 = add nsw i32 %104, %97
-  store i32 %109, ptr %6, align 4, !tbaa !114
-  %110 = sext i32 %109 to i64
-  %111 = shl nsw i64 %110, 2
-  %112 = tail call ptr @realloc(ptr noundef %108, i64 noundef %111) #35
-  store ptr %112, ptr %4, align 8, !tbaa !112
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %114, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge
+104:                                              ; preds = %97
+  %105 = load ptr, ptr %4, align 8, !tbaa !112
+  %106 = add nsw i32 %101, %94
+  store i32 %106, ptr %6, align 4, !tbaa !114
+  %107 = sext i32 %106 to i64
+  %108 = shl nsw i64 %107, 2
+  %109 = tail call ptr @realloc(ptr noundef %105, i64 noundef %108) #34
+  store ptr %109, ptr %4, align 8, !tbaa !112
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %.loopexit, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge: ; preds = %107
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge: ; preds = %104
   %.pre79 = load i32, ptr %5, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45
 
-114:                                              ; preds = %107
-  %115 = tail call ptr @__errno_location() #31
-  %116 = load i32, ptr %115, align 4, !tbaa !55
-  %117 = icmp eq i32 %116, 12
-  tail call void @llvm.assume(i1 %117)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %100, %114
+.loopexit:                                        ; preds = %97, %104
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45:       ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43
-  %118 = phi i32 [ %97, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43 ], [ %.pre79, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge ]
-  %119 = phi ptr [ %.pre.i44, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43 ], [ %112, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge ]
-  %120 = add nsw i32 %118, 1
-  store i32 %120, ptr %5, align 8, !tbaa !113
-  %121 = sext i32 %118 to i64
-  %122 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %119, i64 %121
-  store i32 %78, ptr %122, align 4, !tbaa !55
-  %123 = load i32, ptr %23, align 8, !tbaa !113
-  %124 = load i32, ptr %31, align 4, !tbaa !114
-  %125 = icmp eq i32 %123, %124
-  br i1 %125, label %126, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46
+  %111 = phi i32 [ %94, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43 ], [ %.pre79, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge ]
+  %112 = phi ptr [ %.pre.i44, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i43 ], [ %109, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45_crit_edge ]
+  %113 = add nsw i32 %111, 1
+  store i32 %113, ptr %5, align 8, !tbaa !113
+  %114 = sext i32 %111 to i64
+  %115 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %112, i64 %114
+  store i32 %75, ptr %115, align 4, !tbaa !55
+  %116 = load i32, ptr %20, align 8, !tbaa !113
+  %117 = load i32, ptr %28, align 4, !tbaa !114
+  %118 = icmp eq i32 %116, %117
+  br i1 %118, label %119, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46
 
 ._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46: ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45
-  %.pre.i47 = load ptr, ptr %22, align 8, !tbaa !112
+  %.pre.i47 = load ptr, ptr %19, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48
 
-126:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45
-  %127 = ashr i32 %123, 1
-  %128 = and i32 %127, -2
-  %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 0)
-  %130 = add nuw nsw i32 %129, 2
-  %131 = sub nsw i32 2147483647, %123
-  %132 = icmp samesign ugt i32 %130, %131
-  br i1 %132, label %.loopexit57, label %133
+119:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit45
+  %120 = ashr i32 %116, 1
+  %121 = and i32 %120, -2
+  %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
+  %123 = add nuw nsw i32 %122, 2
+  %124 = sub nsw i32 2147483647, %116
+  %125 = icmp samesign ugt i32 %123, %124
+  br i1 %125, label %.loopexit57, label %126
 
-133:                                              ; preds = %126
-  %134 = load ptr, ptr %22, align 8, !tbaa !112
-  %135 = add nsw i32 %130, %123
-  store i32 %135, ptr %31, align 4, !tbaa !114
-  %136 = sext i32 %135 to i64
-  %137 = shl nsw i64 %136, 2
-  %138 = tail call ptr @realloc(ptr noundef %134, i64 noundef %137) #35
-  store ptr %138, ptr %22, align 8, !tbaa !112
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %140, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge
+126:                                              ; preds = %119
+  %127 = load ptr, ptr %19, align 8, !tbaa !112
+  %128 = add nsw i32 %123, %116
+  store i32 %128, ptr %28, align 4, !tbaa !114
+  %129 = sext i32 %128 to i64
+  %130 = shl nsw i64 %129, 2
+  %131 = tail call ptr @realloc(ptr noundef %127, i64 noundef %130) #34
+  store ptr %131, ptr %19, align 8, !tbaa !112
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %.loopexit57, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge: ; preds = %133
-  %.pre80 = load i32, ptr %23, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge: ; preds = %126
+  %.pre80 = load i32, ptr %20, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48
 
-140:                                              ; preds = %133
-  %141 = tail call ptr @__errno_location() #31
-  %142 = load i32, ptr %141, align 4, !tbaa !55
-  %143 = icmp eq i32 %142, 12
-  tail call void @llvm.assume(i1 %143)
-  br label %.loopexit57
-
-.loopexit57:                                      ; preds = %126, %140
+.loopexit57:                                      ; preds = %119, %126
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48:       ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46
-  %144 = phi i32 [ %123, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46 ], [ %.pre80, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge ]
-  %145 = phi ptr [ %.pre.i47, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46 ], [ %138, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge ]
-  %146 = add nsw i32 %144, 1
-  store i32 %146, ptr %23, align 8, !tbaa !113
-  %147 = sext i32 %144 to i64
-  %148 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %145, i64 %147
-  store i32 %78, ptr %148, align 4, !tbaa !55
-  %.pre81 = load i64, ptr %54, align 4
-  br label %162
+  %133 = phi i32 [ %116, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46 ], [ %.pre80, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge ]
+  %134 = phi ptr [ %.pre.i47, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i46 ], [ %131, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48_crit_edge ]
+  %135 = add nsw i32 %133, 1
+  store i32 %135, ptr %20, align 8, !tbaa !113
+  %136 = sext i32 %133 to i64
+  %137 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %134, i64 %136
+  store i32 %75, ptr %137, align 4, !tbaa !55
+  %.pre81 = load i64, ptr %51, align 4
+  br label %151
 
-149:                                              ; preds = %92, %90
-  %150 = load i32, ptr %23, align 8, !tbaa !113
-  %151 = icmp slt i32 %24, %150
-  br i1 %151, label %.lr.ph73.preheader, label %.critedge40
+138:                                              ; preds = %89, %87
+  %139 = load i32, ptr %20, align 8, !tbaa !113
+  %140 = icmp slt i32 %21, %139
+  br i1 %140, label %.lr.ph73.preheader, label %.critedge40
 
-.lr.ph73.preheader:                               ; preds = %149
-  %152 = sext i32 %24 to i64
+.lr.ph73.preheader:                               ; preds = %138
+  %141 = sext i32 %21 to i64
   br label %.lr.ph73
 
-.critedge40:                                      ; preds = %.lr.ph73, %149
-  store i32 %24, ptr %23, align 8, !tbaa !113
+.critedge40:                                      ; preds = %.lr.ph73, %138
+  store i32 %21, ptr %20, align 8, !tbaa !113
   br label %.loopexit58, !llvm.loop !226
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
-  %indvars.iv75 = phi i64 [ %152, %.lr.ph73.preheader ], [ %indvars.iv.next76, %.lr.ph73 ]
-  %153 = load ptr, ptr %22, align 8, !tbaa !112
-  %154 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %153, i64 %indvars.iv75
-  %.sroa.0.0.copyload = load i32, ptr %154, align 4, !tbaa !55
-  %155 = ashr i32 %.sroa.0.0.copyload, 1
-  %156 = load ptr, ptr %30, align 8, !tbaa !126
-  %157 = sext i32 %155 to i64
-  %158 = getelementptr inbounds i8, ptr %156, i64 %157
-  store i8 0, ptr %158, align 1, !tbaa !109
+  %indvars.iv75 = phi i64 [ %141, %.lr.ph73.preheader ], [ %indvars.iv.next76, %.lr.ph73 ]
+  %142 = load ptr, ptr %19, align 8, !tbaa !112
+  %143 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %142, i64 %indvars.iv75
+  %.sroa.0.0.copyload = load i32, ptr %143, align 4, !tbaa !55
+  %144 = ashr i32 %.sroa.0.0.copyload, 1
+  %145 = load ptr, ptr %27, align 8, !tbaa !126
+  %146 = sext i32 %144 to i64
+  %147 = getelementptr inbounds i8, ptr %145, i64 %146
+  store i8 0, ptr %147, align 1, !tbaa !109
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
-  %159 = load i32, ptr %23, align 8, !tbaa !113
-  %160 = sext i32 %159 to i64
-  %161 = icmp slt i64 %indvars.iv.next76, %160
-  br i1 %161, label %.lr.ph73, label %.critedge40, !llvm.loop !227
+  %148 = load i32, ptr %20, align 8, !tbaa !113
+  %149 = sext i32 %148 to i64
+  %150 = icmp slt i64 %indvars.iv.next76, %149
+  br i1 %150, label %.lr.ph73, label %.critedge40, !llvm.loop !227
 
-162:                                              ; preds = %75, %84, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48
-  %163 = phi i64 [ %76, %75 ], [ %76, %84 ], [ %.pre81, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48 ]
+151:                                              ; preds = %72, %81, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48
+  %152 = phi i64 [ %73, %72 ], [ %73, %81 ], [ %.pre81, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %164 = ashr i64 %163, 32
-  %.not38 = icmp slt i64 %indvars.iv.next, %164
-  br i1 %.not38, label %75, label %.critedge42.loopexit, !llvm.loop !228
+  %153 = ashr i64 %152, 32
+  %.not38 = icmp slt i64 %indvars.iv.next, %153
+  br i1 %.not38, label %72, label %.critedge42.loopexit, !llvm.loop !228
 
 .loopexit58:                                      ; preds = %.critedge42.loopexit, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit, %.critedge40
-  %165 = phi i1 [ false, %.critedge40 ], [ true, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ true, %.critedge42.loopexit ]
-  ret i1 %165
+  %154 = phi i1 [ false, %.critedge40 ], [ true, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ true, %.critedge42.loopexit ]
+  ret i1 %154
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8260,7 +8039,7 @@ define void @_ZN6Gluco26Solver12analyzeFinalENS_3LitERNS_3vecIS1_EE(ptr noundef 
 
 9:                                                ; preds = %3
   store i32 2, ptr %5, align 4, !tbaa !114
-  %10 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %8, i64 noundef 8) #35
+  %10 = tail call dereferenceable_or_null(8) ptr @realloc(ptr noundef %8, i64 noundef 8) #34
   store ptr %10, ptr %2, align 8, !tbaa !112
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
@@ -8270,203 +8049,192 @@ define void @_ZN6Gluco26Solver12analyzeFinalENS_3LitERNS_3vecIS1_EE(ptr noundef 
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
 12:                                               ; preds = %9
-  %13 = tail call ptr @__errno_location() #31
-  %14 = load i32, ptr %13, align 4, !tbaa !55
-  %15 = icmp eq i32 %14, 12
-  tail call void @llvm.assume(i1 %15)
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %3, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
-  %16 = phi i32 [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ 0, %3 ]
-  %17 = phi ptr [ %10, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %8, %3 ]
-  %18 = add nsw i32 %16, 1
-  store i32 %18, ptr %4, align 8, !tbaa !113
-  %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %17, i64 %19
-  store i32 %1, ptr %20, align 4, !tbaa !55
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %22 = load i32, ptr %21, align 8, !tbaa !116
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %121, label %24
+  %13 = phi i32 [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ 0, %3 ]
+  %14 = phi ptr [ %10, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %8, %3 ]
+  %15 = add nsw i32 %13, 1
+  store i32 %15, ptr %4, align 8, !tbaa !113
+  %16 = sext i32 %13 to i64
+  %17 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %14, i64 %16
+  store i32 %1, ptr %17, align 4, !tbaa !55
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %19 = load i32, ptr %18, align 8, !tbaa !116
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %114, label %21
 
-24:                                               ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %26 = ashr i32 %1, 1
-  %27 = load ptr, ptr %25, align 8, !tbaa !126
-  %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i8, ptr %27, i64 %28
-  store i8 1, ptr %29, align 1, !tbaa !109
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %32 = load i32, ptr %31, align 8, !tbaa !113
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %34 = load ptr, ptr %33, align 8, !tbaa !115
-  %35 = load i32, ptr %34, align 4, !tbaa !55
-  %.not.not36 = icmp sgt i32 %32, %35
+21:                                               ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %23 = ashr i32 %1, 1
+  %24 = load ptr, ptr %22, align 8, !tbaa !126
+  %25 = sext i32 %23 to i64
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  store i8 1, ptr %26, align 1, !tbaa !109
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %29 = load i32, ptr %28, align 8, !tbaa !113
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %31 = load ptr, ptr %30, align 8, !tbaa !115
+  %32 = load i32, ptr %31, align 4, !tbaa !55
+  %.not.not36 = icmp sgt i32 %29, %32
   br i1 %.not.not36, label %.lr.ph38, label %._crit_edge
 
-.lr.ph38:                                         ; preds = %24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %38 = sext i32 %32 to i64
-  br label %41
+.lr.ph38:                                         ; preds = %21
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %35 = sext i32 %29 to i64
+  br label %38
 
-._crit_edge:                                      ; preds = %118, %24
-  %39 = load ptr, ptr %25, align 8, !tbaa !126
-  %40 = getelementptr inbounds i8, ptr %39, i64 %28
-  store i8 0, ptr %40, align 1, !tbaa !109
-  br label %121
+._crit_edge:                                      ; preds = %111, %21
+  %36 = load ptr, ptr %22, align 8, !tbaa !126
+  %37 = getelementptr inbounds i8, ptr %36, i64 %25
+  store i8 0, ptr %37, align 1, !tbaa !109
+  br label %114
 
-41:                                               ; preds = %.lr.ph38, %118
-  %42 = phi i32 [ %35, %.lr.ph38 ], [ %119, %118 ]
-  %indvars.iv40 = phi i64 [ %38, %.lr.ph38 ], [ %indvars.iv.next41, %118 ]
+38:                                               ; preds = %.lr.ph38, %111
+  %39 = phi i32 [ %32, %.lr.ph38 ], [ %112, %111 ]
+  %indvars.iv40 = phi i64 [ %35, %.lr.ph38 ], [ %indvars.iv.next41, %111 ]
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %43 = load ptr, ptr %30, align 8, !tbaa !112
-  %44 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %43, i64 %indvars.iv.next41
-  %.sroa.011.0.copyload = load i32, ptr %44, align 4, !tbaa !55
-  %45 = ashr i32 %.sroa.011.0.copyload, 1
-  %46 = load ptr, ptr %25, align 8, !tbaa !126
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !109
-  %.not = icmp eq i8 %49, 0
-  br i1 %.not, label %118, label %50
+  %40 = load ptr, ptr %27, align 8, !tbaa !112
+  %41 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %40, i64 %indvars.iv.next41
+  %.sroa.011.0.copyload = load i32, ptr %41, align 4, !tbaa !55
+  %42 = ashr i32 %.sroa.011.0.copyload, 1
+  %43 = load ptr, ptr %22, align 8, !tbaa !126
+  %44 = sext i32 %42 to i64
+  %45 = getelementptr inbounds i8, ptr %43, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !109
+  %.not = icmp eq i8 %46, 0
+  br i1 %.not, label %111, label %47
 
-50:                                               ; preds = %41
-  %51 = load ptr, ptr %36, align 8, !tbaa !129
-  %52 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %51, i64 %47
-  %53 = load i32, ptr %52, align 4, !tbaa !177
-  %54 = icmp eq i32 %53, -1
-  br i1 %54, label %55, label %83
+47:                                               ; preds = %38
+  %48 = load ptr, ptr %33, align 8, !tbaa !129
+  %49 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %48, i64 %44
+  %50 = load i32, ptr %49, align 4, !tbaa !177
+  %51 = icmp eq i32 %50, -1
+  br i1 %51, label %52, label %76
 
-55:                                               ; preds = %50
-  %56 = xor i32 %.sroa.011.0.copyload, 1
-  %57 = load i32, ptr %4, align 8, !tbaa !113
-  %58 = load i32, ptr %5, align 4, !tbaa !114
-  %59 = icmp eq i32 %57, %58
-  br i1 %59, label %60, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27
+52:                                               ; preds = %47
+  %53 = xor i32 %.sroa.011.0.copyload, 1
+  %54 = load i32, ptr %4, align 8, !tbaa !113
+  %55 = load i32, ptr %5, align 4, !tbaa !114
+  %56 = icmp eq i32 %54, %55
+  br i1 %56, label %57, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27
 
-._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27: ; preds = %55
+._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27: ; preds = %52
   %.pre.i28 = load ptr, ptr %2, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29
 
-60:                                               ; preds = %55
-  %61 = ashr i32 %57, 1
-  %62 = and i32 %61, -2
-  %63 = tail call i32 @llvm.smax.i32(i32 %62, i32 0)
-  %64 = add nuw nsw i32 %63, 2
-  %65 = sub nsw i32 2147483647, %57
-  %66 = icmp samesign ugt i32 %64, %65
-  br i1 %66, label %.loopexit33, label %67
+57:                                               ; preds = %52
+  %58 = ashr i32 %54, 1
+  %59 = and i32 %58, -2
+  %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 0)
+  %61 = add nuw nsw i32 %60, 2
+  %62 = sub nsw i32 2147483647, %54
+  %63 = icmp samesign ugt i32 %61, %62
+  br i1 %63, label %.loopexit33, label %64
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %2, align 8, !tbaa !112
-  %69 = add nsw i32 %64, %57
-  store i32 %69, ptr %5, align 4, !tbaa !114
-  %70 = sext i32 %69 to i64
-  %71 = shl nsw i64 %70, 2
-  %72 = tail call ptr @realloc(ptr noundef %68, i64 noundef %71) #35
-  store ptr %72, ptr %2, align 8, !tbaa !112
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge
+64:                                               ; preds = %57
+  %65 = load ptr, ptr %2, align 8, !tbaa !112
+  %66 = add nsw i32 %61, %54
+  store i32 %66, ptr %5, align 4, !tbaa !114
+  %67 = sext i32 %66 to i64
+  %68 = shl nsw i64 %67, 2
+  %69 = tail call ptr @realloc(ptr noundef %65, i64 noundef %68) #34
+  store ptr %69, ptr %2, align 8, !tbaa !112
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.loopexit33, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge: ; preds = %67
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge: ; preds = %64
   %.pre44 = load i32, ptr %4, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29
 
-74:                                               ; preds = %67
-  %75 = tail call ptr @__errno_location() #31
-  %76 = load i32, ptr %75, align 4, !tbaa !55
-  %77 = icmp eq i32 %76, 12
-  tail call void @llvm.assume(i1 %77)
-  br label %.loopexit33
-
-.loopexit33:                                      ; preds = %60, %74
+.loopexit33:                                      ; preds = %57, %64
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29:       ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27
-  %78 = phi i32 [ %57, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27 ], [ %.pre44, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge ]
-  %79 = phi ptr [ %.pre.i28, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27 ], [ %72, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge ]
-  %80 = add nsw i32 %78, 1
-  store i32 %80, ptr %4, align 8, !tbaa !113
-  %81 = sext i32 %78 to i64
-  %82 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %79, i64 %81
-  store i32 %56, ptr %82, align 4, !tbaa !55
+  %71 = phi i32 [ %54, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27 ], [ %.pre44, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge ]
+  %72 = phi ptr [ %.pre.i28, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i27 ], [ %69, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29_crit_edge ]
+  %73 = add nsw i32 %71, 1
+  store i32 %73, ptr %4, align 8, !tbaa !113
+  %74 = sext i32 %71 to i64
+  %75 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %72, i64 %74
+  store i32 %53, ptr %75, align 4, !tbaa !55
   br label %.loopexit
 
-83:                                               ; preds = %50
-  %84 = icmp slt i32 %53, -1
-  br i1 %84, label %85, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
+76:                                               ; preds = %47
+  %77 = icmp slt i32 %50, -1
+  br i1 %77, label %78, label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
 
-85:                                               ; preds = %83
-  %86 = and i32 %53, 2147483647
-  %87 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %86, i32 noundef %45)
+78:                                               ; preds = %76
+  %79 = and i32 %50, 2147483647
+  %80 = tail call noundef i32 @_ZN6Gluco26Solver9interpretEii(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %79, i32 noundef %42)
   br label %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
 
-_ZN6Gluco26Solver8castCRefENS_3LitE.exit:         ; preds = %83, %85
-  %.0.i = phi i32 [ %87, %85 ], [ %53, %83 ]
-  %88 = load ptr, ptr %37, align 8, !tbaa !87
-  %89 = zext i32 %.0.i to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
-  %91 = load i64, ptr %90, align 4
-  %.mask = and i64 %91, -4294967296
-  %92 = icmp ne i64 %.mask, 8589934592
-  %93 = zext i1 %92 to i32
-  %94 = lshr i64 %91, 32
-  %95 = trunc nuw i64 %94 to i32
-  %96 = icmp slt i32 %93, %95
-  br i1 %96, label %.lr.ph, label %.loopexit
+_ZN6Gluco26Solver8castCRefENS_3LitE.exit:         ; preds = %76, %78
+  %.0.i = phi i32 [ %80, %78 ], [ %50, %76 ]
+  %81 = load ptr, ptr %34, align 8, !tbaa !87
+  %82 = zext i32 %.0.i to i64
+  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %84 = load i64, ptr %83, align 4
+  %.mask = and i64 %84, -4294967296
+  %85 = icmp ne i64 %.mask, 8589934592
+  %86 = zext i1 %85 to i32
+  %87 = lshr i64 %84, 32
+  %88 = trunc nuw i64 %87 to i32
+  %89 = icmp slt i32 %86, %88
+  br i1 %89, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN6Gluco26Solver8castCRefENS_3LitE.exit
-  %97 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %98 = zext i1 %92 to i64
-  br label %99
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 12
+  %91 = zext i1 %85 to i64
+  br label %92
 
-99:                                               ; preds = %.lr.ph, %112
-  %100 = phi i64 [ %91, %.lr.ph ], [ %113, %112 ]
-  %indvars.iv = phi i64 [ %98, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %101 = getelementptr inbounds nuw %union.anon, ptr %97, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %101, align 4, !tbaa !55
-  %102 = ashr i32 %.sroa.02.0.copyload, 1
-  %103 = load ptr, ptr %36, align 8, !tbaa !129
-  %104 = sext i32 %102 to i64
-  %105 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %103, i64 %104
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %107 = load i32, ptr %106, align 4, !tbaa !181
-  %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %109, label %112
+92:                                               ; preds = %.lr.ph, %105
+  %93 = phi i64 [ %84, %.lr.ph ], [ %106, %105 ]
+  %indvars.iv = phi i64 [ %91, %.lr.ph ], [ %indvars.iv.next, %105 ]
+  %94 = getelementptr inbounds nuw %union.anon, ptr %90, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %94, align 4, !tbaa !55
+  %95 = ashr i32 %.sroa.02.0.copyload, 1
+  %96 = load ptr, ptr %33, align 8, !tbaa !129
+  %97 = sext i32 %95 to i64
+  %98 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  %100 = load i32, ptr %99, align 4, !tbaa !181
+  %101 = icmp sgt i32 %100, 0
+  br i1 %101, label %102, label %105
 
-109:                                              ; preds = %99
-  %110 = load ptr, ptr %25, align 8, !tbaa !126
-  %111 = getelementptr inbounds i8, ptr %110, i64 %104
-  store i8 1, ptr %111, align 1, !tbaa !109
-  %.pre43 = load i64, ptr %90, align 4
-  br label %112
+102:                                              ; preds = %92
+  %103 = load ptr, ptr %22, align 8, !tbaa !126
+  %104 = getelementptr inbounds i8, ptr %103, i64 %97
+  store i8 1, ptr %104, align 1, !tbaa !109
+  %.pre43 = load i64, ptr %83, align 4
+  br label %105
 
-112:                                              ; preds = %99, %109
-  %113 = phi i64 [ %100, %99 ], [ %.pre43, %109 ]
+105:                                              ; preds = %92, %102
+  %106 = phi i64 [ %93, %92 ], [ %.pre43, %102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %114 = ashr i64 %113, 32
-  %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %99, label %.loopexit, !llvm.loop !234
+  %107 = ashr i64 %106, 32
+  %108 = icmp slt i64 %indvars.iv.next, %107
+  br i1 %108, label %92, label %.loopexit, !llvm.loop !234
 
-.loopexit:                                        ; preds = %112, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29
-  %116 = load ptr, ptr %25, align 8, !tbaa !126
-  %117 = getelementptr inbounds i8, ptr %116, i64 %47
-  store i8 0, ptr %117, align 1, !tbaa !109
-  %.pre45 = load ptr, ptr %33, align 8, !tbaa !115
+.loopexit:                                        ; preds = %105, %_ZN6Gluco26Solver8castCRefENS_3LitE.exit, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit29
+  %109 = load ptr, ptr %22, align 8, !tbaa !126
+  %110 = getelementptr inbounds i8, ptr %109, i64 %44
+  store i8 0, ptr %110, align 1, !tbaa !109
+  %.pre45 = load ptr, ptr %30, align 8, !tbaa !115
   %.pre46 = load i32, ptr %.pre45, align 4, !tbaa !55
-  br label %118
+  br label %111
 
-118:                                              ; preds = %.loopexit, %41
-  %119 = phi i32 [ %.pre46, %.loopexit ], [ %42, %41 ]
-  %120 = sext i32 %119 to i64
-  %.not.not = icmp sgt i64 %indvars.iv.next41, %120
-  br i1 %.not.not, label %41, label %._crit_edge, !llvm.loop !235
+111:                                              ; preds = %.loopexit, %38
+  %112 = phi i32 [ %.pre46, %.loopexit ], [ %39, %38 ]
+  %113 = sext i32 %112 to i64
+  %.not.not = icmp sgt i64 %indvars.iv.next41, %113
+  br i1 %.not.not, label %38, label %._crit_edge, !llvm.loop !235
 
-121:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit, %._crit_edge
+114:                                              ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit, %._crit_edge
   ret void
 }
 
@@ -8851,7 +8619,7 @@ _ZNK6Gluco26Solver6lockedERKNS_6ClauseE.exit:     ; preds = %74, %64
   %111 = load ptr, ptr %0, align 8, !tbaa !3
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
-  tail call void %113(ptr noundef nonnull align 8 dereferenceable(1416) %0) #33
+  tail call void %113(ptr noundef nonnull align 8 dereferenceable(1416) %0) #32
   br label %_ZN6Gluco26Solver12checkGarbageEv.exit
 
 _ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %._crit_edge, %110
@@ -8998,7 +8766,7 @@ define void @_ZN6Gluco26Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 d
 .preheader.i.i:                                   ; preds = %._crit_edge
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8, !tbaa !116
-  call void @free(ptr noundef nonnull %11) #33
+  call void @free(ptr noundef nonnull %11) #32
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %._crit_edge, %.preheader.i.i
@@ -9006,9 +8774,9 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %._crit_edge, %.preh
   ret void
 
 13:                                               ; preds = %.lr.ph, %.critedge
-  %14 = phi i32 [ %4, %.lr.ph ], [ %49, %.critedge ]
+  %14 = phi i32 [ %4, %.lr.ph ], [ %45, %.critedge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %15 = phi ptr [ null, %.lr.ph ], [ %50, %.critedge ]
+  %15 = phi ptr [ null, %.lr.ph ], [ %46, %.critedge ]
   %16 = load ptr, ptr %6, align 8, !tbaa !126
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !109
@@ -9043,40 +8811,33 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %._crit_edge, %.preh
   store i32 %35, ptr %9, align 4, !tbaa !117
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 2
-  %38 = tail call ptr @realloc(ptr noundef %15, i64 noundef %37) #35
+  %38 = tail call ptr @realloc(ptr noundef %15, i64 noundef %37) #34
   store ptr %38, ptr %2, align 8, !tbaa !115
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %_ZN6Gluco23vecIiE4pushERKi.exit
+  br i1 %39, label %.loopexit, label %_ZN6Gluco23vecIiE4pushERKi.exit
 
-40:                                               ; preds = %34
-  %41 = tail call ptr @__errno_location() #31
-  %42 = load i32, ptr %41, align 4, !tbaa !55
-  %43 = icmp eq i32 %42, 12
-  tail call void @llvm.assume(i1 %43)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %27, %40
+.loopexit:                                        ; preds = %27, %34
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %23, %34
-  %44 = phi ptr [ %38, %34 ], [ %15, %23 ]
-  %45 = add nsw i32 %24, 1
-  store i32 %45, ptr %8, align 8, !tbaa !116
-  %46 = sext i32 %24 to i64
-  %47 = getelementptr inbounds i32, ptr %44, i64 %46
-  %48 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %48, ptr %47, align 4, !tbaa !55
+  %40 = phi ptr [ %38, %34 ], [ %15, %23 ]
+  %41 = add nsw i32 %24, 1
+  store i32 %41, ptr %8, align 8, !tbaa !116
+  %42 = sext i32 %24 to i64
+  %43 = getelementptr inbounds i32, ptr %40, i64 %42
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %44, ptr %43, align 4, !tbaa !55
   %.pre = load i32, ptr %3, align 8, !tbaa !130
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %19, %_ZN6Gluco23vecIiE4pushERKi.exit
-  %49 = phi i32 [ %14, %13 ], [ %14, %19 ], [ %.pre, %_ZN6Gluco23vecIiE4pushERKi.exit ]
-  %50 = phi ptr [ %15, %13 ], [ %15, %19 ], [ %44, %_ZN6Gluco23vecIiE4pushERKi.exit ]
+  %45 = phi i32 [ %14, %13 ], [ %14, %19 ], [ %.pre, %_ZN6Gluco23vecIiE4pushERKi.exit ]
+  %46 = phi ptr [ %15, %13 ], [ %15, %19 ], [ %40, %_ZN6Gluco23vecIiE4pushERKi.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = sext i32 %49 to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %13, label %._crit_edge, !llvm.loop !242
+  %47 = sext i32 %45 to i64
+  %48 = icmp slt i64 %indvars.iv.next, %47
+  br i1 %48, label %13, label %._crit_edge, !llvm.loop !242
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9155,149 +8916,142 @@ _ZN6Gluco23vecIiE5clearEb.exit:                   ; preds = %._crit_edge, %.preh
   store i32 %42, ptr %21, align 4, !tbaa !117
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 2
-  %45 = tail call ptr @realloc(ptr noundef %23, i64 noundef %44) #35
+  %45 = tail call ptr @realloc(ptr noundef %23, i64 noundef %44) #34
   store ptr %45, ptr %3, align 8, !tbaa !115
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
+  br i1 %46, label %.loopexit, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
 
 ._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge:       ; preds = %41
   %.pre32 = load i32, ptr %4, align 8, !tbaa !116
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
-47:                                               ; preds = %41
-  %48 = tail call ptr @__errno_location() #31
-  %49 = load i32, ptr %48, align 4, !tbaa !55
-  %50 = icmp eq i32 %49, 12
-  tail call void @llvm.assume(i1 %50)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %34, %47
+.loopexit:                                        ; preds = %34, %41
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %22, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
-  %51 = phi i32 [ %.pre32, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ], [ %31, %22 ]
+  %47 = phi i32 [ %.pre32, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ], [ %31, %22 ]
   %.pre.i31 = phi ptr [ %45, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ], [ %23, %22 ]
-  %52 = load i32, ptr %25, align 4, !tbaa !55
-  %53 = add nsw i32 %51, 1
-  store i32 %53, ptr %4, align 8, !tbaa !116
-  %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds i32, ptr %.pre.i31, i64 %54
-  store i32 %52, ptr %55, align 4, !tbaa !55
+  %48 = load i32, ptr %25, align 4, !tbaa !55
+  %49 = add nsw i32 %47, 1
+  store i32 %49, ptr %4, align 8, !tbaa !116
+  %50 = sext i32 %47 to i64
+  %51 = getelementptr inbounds i32, ptr %.pre.i31, i64 %50
+  store i32 %48, ptr %51, align 4, !tbaa !55
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
-  %56 = load i32, ptr %17, align 8, !tbaa !116
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next25, %57
-  br i1 %58, label %22, label %._crit_edge18, !llvm.loop !244
+  %52 = load i32, ptr %17, align 8, !tbaa !116
+  %53 = sext i32 %52 to i64
+  %54 = icmp slt i64 %indvars.iv.next25, %53
+  br i1 %54, label %22, label %._crit_edge18, !llvm.loop !244
 
 ._crit_edge18:                                    ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
   %.pre33 = load i32, ptr %4, align 8, !tbaa !116
-  %59 = icmp sgt i32 %.pre33, 1
-  br i1 %59, label %.lr.ph21, label %._crit_edge22
+  %55 = icmp sgt i32 %.pre33, 1
+  br i1 %55, label %.lr.ph21, label %._crit_edge22
 
 .lr.ph21:                                         ; preds = %._crit_edge18
-  %60 = lshr i32 %.pre33, 1
+  %56 = lshr i32 %.pre33, 1
   %.phi.trans.insert30.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre31.i = load ptr, ptr %.phi.trans.insert30.i, align 8
-  %61 = zext nneg i32 %60 to i64
-  br label %62
+  %57 = zext nneg i32 %56 to i64
+  br label %58
 
-62:                                               ; preds = %.lr.ph21, %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit
-  %indvars.iv27 = phi i64 [ %61, %.lr.ph21 ], [ %indvars.iv.next28, %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit ]
+58:                                               ; preds = %.lr.ph21, %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit
+  %indvars.iv27 = phi i64 [ %57, %.lr.ph21 ], [ %indvars.iv.next28, %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit ]
   %indvars.iv.next28 = add nsw i64 %indvars.iv27, -1
-  %63 = getelementptr inbounds nuw i32, ptr %.pre.i31, i64 %indvars.iv.next28
-  %64 = load i32, ptr %63, align 4, !tbaa !55
-  %65 = shl nuw nsw i64 %indvars.iv.next28, 1
-  %66 = or disjoint i64 %65, 1
-  %67 = load i32, ptr %4, align 8, !tbaa !116
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %66, %68
-  %70 = sext i32 %64 to i64
-  %71 = trunc nsw i64 %indvars.iv.next28 to i32
-  br i1 %69, label %.lr.ph.i, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit
+  %59 = getelementptr inbounds nuw i32, ptr %.pre.i31, i64 %indvars.iv.next28
+  %60 = load i32, ptr %59, align 4, !tbaa !55
+  %61 = shl nuw nsw i64 %indvars.iv.next28, 1
+  %62 = or disjoint i64 %61, 1
+  %63 = load i32, ptr %4, align 8, !tbaa !116
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %62, %64
+  %66 = sext i32 %60 to i64
+  %67 = trunc nsw i64 %indvars.iv.next28 to i32
+  br i1 %65, label %.lr.ph.i, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit
 
-.lr.ph.i:                                         ; preds = %62
-  %72 = load ptr, ptr %0, align 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !144
-  %74 = getelementptr inbounds double, ptr %73, i64 %70
-  %75 = load double, ptr %74, align 8, !tbaa !52
-  %76 = load ptr, ptr %.phi.trans.insert30.i, align 8
-  %77 = trunc nsw i64 %66 to i32
-  %78 = trunc nsw i64 %65 to i32
-  br label %79
+.lr.ph.i:                                         ; preds = %58
+  %68 = load ptr, ptr %0, align 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !144
+  %70 = getelementptr inbounds double, ptr %69, i64 %66
+  %71 = load double, ptr %70, align 8, !tbaa !52
+  %72 = load ptr, ptr %.phi.trans.insert30.i, align 8
+  %73 = trunc nsw i64 %62 to i32
+  %74 = trunc nsw i64 %61 to i32
+  br label %75
 
-79:                                               ; preds = %105, %.lr.ph.i
-  %80 = phi i32 [ %67, %.lr.ph.i ], [ %111, %105 ]
-  %81 = phi i32 [ %77, %.lr.ph.i ], [ %110, %105 ]
-  %82 = phi i32 [ %78, %.lr.ph.i ], [ %109, %105 ]
-  %.01923.i = phi i32 [ %71, %.lr.ph.i ], [ %103, %105 ]
-  %83 = add nsw i32 %82, 2
-  %84 = icmp slt i32 %83, %80
-  br i1 %84, label %85, label %._crit_edge.i
+75:                                               ; preds = %101, %.lr.ph.i
+  %76 = phi i32 [ %63, %.lr.ph.i ], [ %107, %101 ]
+  %77 = phi i32 [ %73, %.lr.ph.i ], [ %106, %101 ]
+  %78 = phi i32 [ %74, %.lr.ph.i ], [ %105, %101 ]
+  %.01923.i = phi i32 [ %67, %.lr.ph.i ], [ %99, %101 ]
+  %79 = add nsw i32 %78, 2
+  %80 = icmp slt i32 %79, %76
+  br i1 %80, label %81, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %79
-  %.pre.phi.trans.insert.i = sext i32 %81 to i64
+._crit_edge.i:                                    ; preds = %75
+  %.pre.phi.trans.insert.i = sext i32 %77 to i64
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds i32, ptr %.pre.i31, i64 %.pre.phi.trans.insert.i
   %.pre26.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !55
   %.phi.trans.insert27.phi.trans.insert.i = sext i32 %.pre26.pre.i to i64
-  %.phi.trans.insert28.phi.trans.insert.i = getelementptr inbounds double, ptr %73, i64 %.phi.trans.insert27.phi.trans.insert.i
+  %.phi.trans.insert28.phi.trans.insert.i = getelementptr inbounds double, ptr %69, i64 %.phi.trans.insert27.phi.trans.insert.i
   %.pre29.pre.i = load double, ptr %.phi.trans.insert28.phi.trans.insert.i, align 8, !tbaa !52
-  br label %100
+  br label %96
 
-85:                                               ; preds = %79
-  %86 = sext i32 %83 to i64
-  %87 = getelementptr inbounds i32, ptr %.pre.i31, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !55
-  %89 = sext i32 %81 to i64
-  %90 = getelementptr inbounds i32, ptr %.pre.i31, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !55
-  %92 = sext i32 %88 to i64
-  %93 = getelementptr inbounds double, ptr %73, i64 %92
-  %94 = load double, ptr %93, align 8, !tbaa !52
-  %95 = sext i32 %91 to i64
-  %96 = getelementptr inbounds double, ptr %73, i64 %95
-  %97 = load double, ptr %96, align 8, !tbaa !52
-  %98 = fcmp ogt double %94, %97
-  br i1 %98, label %100, label %99
+81:                                               ; preds = %75
+  %82 = sext i32 %79 to i64
+  %83 = getelementptr inbounds i32, ptr %.pre.i31, i64 %82
+  %84 = load i32, ptr %83, align 4, !tbaa !55
+  %85 = sext i32 %77 to i64
+  %86 = getelementptr inbounds i32, ptr %.pre.i31, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !55
+  %88 = sext i32 %84 to i64
+  %89 = getelementptr inbounds double, ptr %69, i64 %88
+  %90 = load double, ptr %89, align 8, !tbaa !52
+  %91 = sext i32 %87 to i64
+  %92 = getelementptr inbounds double, ptr %69, i64 %91
+  %93 = load double, ptr %92, align 8, !tbaa !52
+  %94 = fcmp ogt double %90, %93
+  br i1 %94, label %96, label %95
 
-99:                                               ; preds = %85
-  br label %100
+95:                                               ; preds = %81
+  br label %96
 
-100:                                              ; preds = %99, %85, %._crit_edge.i
-  %.pre-phi34.i = phi i64 [ %92, %85 ], [ %.phi.trans.insert27.phi.trans.insert.i, %._crit_edge.i ], [ %95, %99 ]
-  %101 = phi double [ %94, %85 ], [ %.pre29.pre.i, %._crit_edge.i ], [ %97, %99 ]
-  %102 = phi i32 [ %88, %85 ], [ %.pre26.pre.i, %._crit_edge.i ], [ %91, %99 ]
-  %103 = phi i32 [ %83, %85 ], [ %81, %._crit_edge.i ], [ %81, %99 ]
-  %104 = fcmp ogt double %101, %75
-  br i1 %104, label %105, label %.thread.loopexit.i
+96:                                               ; preds = %95, %81, %._crit_edge.i
+  %.pre-phi34.i = phi i64 [ %88, %81 ], [ %.phi.trans.insert27.phi.trans.insert.i, %._crit_edge.i ], [ %91, %95 ]
+  %97 = phi double [ %90, %81 ], [ %.pre29.pre.i, %._crit_edge.i ], [ %93, %95 ]
+  %98 = phi i32 [ %84, %81 ], [ %.pre26.pre.i, %._crit_edge.i ], [ %87, %95 ]
+  %99 = phi i32 [ %79, %81 ], [ %77, %._crit_edge.i ], [ %77, %95 ]
+  %100 = fcmp ogt double %97, %71
+  br i1 %100, label %101, label %.thread.loopexit.i
 
-105:                                              ; preds = %100
-  %106 = sext i32 %.01923.i to i64
-  %107 = getelementptr inbounds i32, ptr %.pre.i31, i64 %106
-  store i32 %102, ptr %107, align 4, !tbaa !55
-  %108 = getelementptr inbounds i32, ptr %76, i64 %.pre-phi34.i
-  store i32 %.01923.i, ptr %108, align 4, !tbaa !55
-  %109 = shl nsw i32 %103, 1
-  %110 = or disjoint i32 %109, 1
-  %111 = load i32, ptr %4, align 8, !tbaa !116
-  %112 = icmp slt i32 %110, %111
-  br i1 %112, label %79, label %.thread.loopexit.i
+101:                                              ; preds = %96
+  %102 = sext i32 %.01923.i to i64
+  %103 = getelementptr inbounds i32, ptr %.pre.i31, i64 %102
+  store i32 %98, ptr %103, align 4, !tbaa !55
+  %104 = getelementptr inbounds i32, ptr %72, i64 %.pre-phi34.i
+  store i32 %.01923.i, ptr %104, align 4, !tbaa !55
+  %105 = shl nsw i32 %99, 1
+  %106 = or disjoint i32 %105, 1
+  %107 = load i32, ptr %4, align 8, !tbaa !116
+  %108 = icmp slt i32 %106, %107
+  br i1 %108, label %75, label %.thread.loopexit.i
 
-.thread.loopexit.i:                               ; preds = %105, %100
-  %.019.lcssa.ph.i = phi i32 [ %103, %105 ], [ %.01923.i, %100 ]
+.thread.loopexit.i:                               ; preds = %101, %96
+  %.019.lcssa.ph.i = phi i32 [ %99, %101 ], [ %.01923.i, %96 ]
   %.pre35.i = sext i32 %.019.lcssa.ph.i to i64
   br label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit
 
-_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit: ; preds = %62, %.thread.loopexit.i
-  %.pre-phi36.i = phi i64 [ %.pre35.i, %.thread.loopexit.i ], [ %indvars.iv.next28, %62 ]
-  %113 = phi ptr [ %76, %.thread.loopexit.i ], [ %.pre31.i, %62 ]
-  %.019.lcssa.i = phi i32 [ %.019.lcssa.ph.i, %.thread.loopexit.i ], [ %71, %62 ]
-  %114 = getelementptr inbounds i32, ptr %.pre.i31, i64 %.pre-phi36.i
-  store i32 %64, ptr %114, align 4, !tbaa !55
-  %115 = getelementptr inbounds i32, ptr %113, i64 %70
-  store i32 %.019.lcssa.i, ptr %115, align 4, !tbaa !55
-  %116 = icmp sgt i64 %indvars.iv27, 1
-  br i1 %116, label %62, label %._crit_edge22, !llvm.loop !245
+_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit: ; preds = %58, %.thread.loopexit.i
+  %.pre-phi36.i = phi i64 [ %.pre35.i, %.thread.loopexit.i ], [ %indvars.iv.next28, %58 ]
+  %109 = phi ptr [ %72, %.thread.loopexit.i ], [ %.pre31.i, %58 ]
+  %.019.lcssa.i = phi i32 [ %.019.lcssa.ph.i, %.thread.loopexit.i ], [ %67, %58 ]
+  %110 = getelementptr inbounds i32, ptr %.pre.i31, i64 %.pre-phi36.i
+  store i32 %60, ptr %110, align 4, !tbaa !55
+  %111 = getelementptr inbounds i32, ptr %109, i64 %66
+  store i32 %.019.lcssa.i, ptr %111, align 4, !tbaa !55
+  %112 = icmp sgt i64 %indvars.iv27, 1
+  br i1 %112, label %58, label %._crit_edge22, !llvm.loop !245
 
 ._crit_edge22:                                    ; preds = %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit, %_ZN6Gluco23vecIiE5clearEb.exit, %._crit_edge18
   ret void
@@ -9363,7 +9117,7 @@ define noundef zeroext i1 @_ZN6Gluco26Solver8simplifyEv(ptr noundef nonnull alig
   %37 = load ptr, ptr %0, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(1416) %0) #33
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(1416) %0) #32
   br label %_ZN6Gluco26Solver12checkGarbageEv.exit
 
 _ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %25, %36
@@ -9482,7 +9236,7 @@ define range(i8 0, 3) i8 @_ZN6Gluco26Solver6searchEi(ptr noundef nonnull align 8
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.outer
 
 _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.outer: ; preds = %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76, %2
-  %.ph = phi ptr [ %419, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76 ], [ null, %2 ]
+  %.ph = phi ptr [ %415, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76 ], [ null, %2 ]
   %.035.ph = phi i1 [ %.237, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76 ], [ false, %2 ]
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105
 
@@ -9507,7 +9261,7 @@ _ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105: ; preds = %_ZN6Gluco26Sol
 
 _ZNK6Gluco26Solver12withinBudgetEv.exit.thread:   ; preds = %86
   %89 = icmp eq i32 %78, -1
-  br i1 %89, label %428, label %.loopexit258
+  br i1 %89, label %424, label %.loopexit258
 
 90:                                               ; preds = %86
   %91 = load i64, ptr %16, align 8, !tbaa !171
@@ -9527,7 +9281,7 @@ _ZNK6Gluco26Solver12withinBudgetEv.exit:          ; preds = %_ZN6Gluco26Solver16
   br label %.critedge
 
 96:                                               ; preds = %_ZNK6Gluco26Solver12withinBudgetEv.exit
-  br i1 %94, label %428, label %._crit_edge171
+  br i1 %94, label %424, label %._crit_edge171
 
 ._crit_edge171:                                   ; preds = %96
   %.pre = load i64, ptr %14, align 8, !tbaa !251
@@ -9624,7 +9378,7 @@ _ZNK6Gluco26Solver12withinBudgetEv.exit:          ; preds = %_ZN6Gluco26Solver16
   %154 = load i32, ptr %.in.i, align 4, !tbaa !55
   %155 = trunc nuw nsw i64 %indvars.iv.i to i32
   %156 = uitofp nneg i32 %155 to double
-  %157 = call noundef double @pow(double noundef %142, double noundef %156) #33, !tbaa !55
+  %157 = call noundef double @pow(double noundef %142, double noundef %156) #32, !tbaa !55
   %158 = sub nsw i32 %154, %150
   %159 = sitofp i32 %158 to double
   %160 = call double @llvm.fmuladd.f64(double %157, double %159, double %.015.i)
@@ -9832,7 +9586,7 @@ _ZN6Gluco26bqueueIjE4pushEj.exit60:               ; preds = %241, %253
   %.not141 = icmp eq i32 %269, 0
   %270 = xor i32 %267, -1
   %271 = select i1 %.not141, i32 %268, i32 %270
-  %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.65, i32 noundef %271) #33
+  %272 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %265, ptr noundef nonnull @.str.65, i32 noundef %271) #32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %264, !llvm.loop !261
@@ -9985,531 +9739,510 @@ _ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %31
   store i32 %355, ptr %57, align 4, !tbaa !122
   %356 = sext i32 %355 to i64
   %357 = shl nsw i64 %356, 2
-  %358 = call ptr @realloc(ptr noundef %354, i64 noundef %357) #35
+  %358 = call ptr @realloc(ptr noundef %354, i64 noundef %357) #34
   store ptr %358, ptr %56, align 8, !tbaa !98
   %359 = icmp eq ptr %358, null
-  br i1 %359, label %360, label %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
+  br i1 %359, label %.loopexit143, label %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge
 
 ._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge:       ; preds = %353
   %.pre173 = load i32, ptr %29, align 8, !tbaa !121
   br label %_ZN6Gluco23vecIjE4pushERKj.exit
 
-360:                                              ; preds = %353
-  %361 = tail call ptr @__errno_location() #31
-  %362 = load i32, ptr %361, align 4, !tbaa !55
-  %363 = icmp eq i32 %362, 12
-  call void @llvm.assume(i1 %363)
-  br label %.loopexit143
-
-.loopexit143:                                     ; preds = %346, %360
+.loopexit143:                                     ; preds = %346, %353
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIjE4pushERKj.exit:                  ; preds = %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
-  %364 = phi i32 [ %343, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre173, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
-  %365 = phi ptr [ %.pre.i63, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %358, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
-  %366 = add nsw i32 %364, 1
-  store i32 %366, ptr %29, align 8, !tbaa !121
-  %367 = sext i32 %364 to i64
-  %368 = getelementptr inbounds i32, ptr %365, i64 %367
-  store i32 %302, ptr %368, align 4, !tbaa !55
+  %360 = phi i32 [ %343, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %.pre173, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
+  %361 = phi ptr [ %.pre.i63, %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i ], [ %358, %._ZN6Gluco23vecIjE4pushERKj.exit_crit_edge ]
+  %362 = add nsw i32 %360, 1
+  store i32 %362, ptr %29, align 8, !tbaa !121
+  %363 = sext i32 %360 to i64
+  %364 = getelementptr inbounds i32, ptr %361, i64 %363
+  store i32 %302, ptr %364, align 4, !tbaa !55
   call void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %302)
-  %369 = load ptr, ptr %54, align 8, !tbaa !87
-  %370 = getelementptr inbounds nuw i32, ptr %369, i64 %304
-  %371 = load double, ptr %58, align 8, !tbaa !80
-  %372 = getelementptr inbounds nuw i8, ptr %370, i64 12
-  %373 = load i64, ptr %370, align 4
-  %374 = lshr i64 %373, 32
-  %375 = getelementptr inbounds nuw %union.anon, ptr %372, i64 %374
-  %376 = load float, ptr %375, align 4, !tbaa !199
-  %377 = fpext float %376 to double
-  %378 = fadd double %371, %377
-  %379 = fptrunc double %378 to float
-  store float %379, ptr %375, align 4, !tbaa !199
-  %380 = fpext float %379 to double
-  %381 = fcmp ogt double %380, 1.000000e+20
-  br i1 %381, label %.preheader.i, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
+  %365 = load ptr, ptr %54, align 8, !tbaa !87
+  %366 = getelementptr inbounds nuw i32, ptr %365, i64 %304
+  %367 = load double, ptr %58, align 8, !tbaa !80
+  %368 = getelementptr inbounds nuw i8, ptr %366, i64 12
+  %369 = load i64, ptr %366, align 4
+  %370 = lshr i64 %369, 32
+  %371 = getelementptr inbounds nuw %union.anon, ptr %368, i64 %370
+  %372 = load float, ptr %371, align 4, !tbaa !199
+  %373 = fpext float %372 to double
+  %374 = fadd double %367, %373
+  %375 = fptrunc double %374 to float
+  store float %375, ptr %371, align 4, !tbaa !199
+  %376 = fpext float %375 to double
+  %377 = fcmp ogt double %376, 1.000000e+20
+  br i1 %377, label %.preheader.i, label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
 
 .preheader.i:                                     ; preds = %_ZN6Gluco23vecIjE4pushERKj.exit
-  %382 = load i32, ptr %29, align 8, !tbaa !121
-  %383 = icmp sgt i32 %382, 0
-  br i1 %383, label %.lr.ph.i65, label %._crit_edge.i64
+  %378 = load i32, ptr %29, align 8, !tbaa !121
+  %379 = icmp sgt i32 %378, 0
+  br i1 %379, label %.lr.ph.i65, label %._crit_edge.i64
 
 .lr.ph.i65:                                       ; preds = %.preheader.i
-  %384 = load ptr, ptr %56, align 8, !tbaa !98
-  %wide.trip.count.i = zext nneg i32 %382 to i64
-  br label %386
+  %380 = load ptr, ptr %56, align 8, !tbaa !98
+  %wide.trip.count.i = zext nneg i32 %378 to i64
+  br label %382
 
-._crit_edge.i64:                                  ; preds = %386, %.preheader.i
-  %385 = fmul double %371, 0x3BC79CA10C924223
-  store double %385, ptr %58, align 8, !tbaa !80
+._crit_edge.i64:                                  ; preds = %382, %.preheader.i
+  %381 = fmul double %367, 0x3BC79CA10C924223
+  store double %381, ptr %58, align 8, !tbaa !80
   br label %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
 
-386:                                              ; preds = %386, %.lr.ph.i65
-  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i67, %386 ]
-  %387 = getelementptr inbounds nuw i32, ptr %384, i64 %indvars.iv.i66
-  %388 = load i32, ptr %387, align 4, !tbaa !55
-  %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds nuw i32, ptr %369, i64 %389
-  %391 = getelementptr inbounds nuw i8, ptr %390, i64 12
-  %392 = load i64, ptr %390, align 4
-  %393 = lshr i64 %392, 32
-  %394 = getelementptr inbounds nuw %union.anon, ptr %391, i64 %393
-  %395 = load float, ptr %394, align 4, !tbaa !199
-  %396 = fmul float %395, 0x3BC79CA100000000
-  store float %396, ptr %394, align 4, !tbaa !199
+382:                                              ; preds = %382, %.lr.ph.i65
+  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i67, %382 ]
+  %383 = getelementptr inbounds nuw i32, ptr %380, i64 %indvars.iv.i66
+  %384 = load i32, ptr %383, align 4, !tbaa !55
+  %385 = zext i32 %384 to i64
+  %386 = getelementptr inbounds nuw i32, ptr %365, i64 %385
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 12
+  %388 = load i64, ptr %386, align 4
+  %389 = lshr i64 %388, 32
+  %390 = getelementptr inbounds nuw %union.anon, ptr %387, i64 %389
+  %391 = load float, ptr %390, align 4, !tbaa !199
+  %392 = fmul float %391, 0x3BC79CA100000000
+  store float %392, ptr %390, align 4, !tbaa !199
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i64, label %386, !llvm.loop !200
+  br i1 %exitcond.not.i, label %._crit_edge.i64, label %382, !llvm.loop !200
 
 _ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit: ; preds = %_ZN6Gluco23vecIjE4pushERKj.exit, %._crit_edge.i64
-  %397 = load ptr, ptr %4, align 8, !tbaa !112
-  %.sroa.018.0.copyload = load i32, ptr %397, align 4, !tbaa !55
-  %398 = load i32, ptr %59, align 8, !tbaa !104
-  %.not.i68 = icmp eq i32 %398, 0
+  %393 = load ptr, ptr %4, align 8, !tbaa !112
+  %.sroa.018.0.copyload = load i32, ptr %393, align 4, !tbaa !55
+  %394 = load i32, ptr %59, align 8, !tbaa !104
+  %.not.i68 = icmp eq i32 %394, 0
   %.pre.i69 = ashr i32 %.sroa.018.0.copyload, 1
-  br i1 %.not.i68, label %._crit_edge.i74, label %399
+  br i1 %.not.i68, label %._crit_edge.i74, label %395
 
 ._crit_edge.i74:                                  ; preds = %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
   %.pre10.i75 = sext i32 %.pre.i69 to i64
-  br label %406
+  br label %402
 
-399:                                              ; preds = %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
-  %400 = load i32, ptr %60, align 8, !tbaa !105
-  %401 = load ptr, ptr %61, align 8, !tbaa !98
-  %402 = sext i32 %.pre.i69 to i64
-  %403 = getelementptr inbounds i32, ptr %401, i64 %402
-  %404 = load i32, ptr %403, align 4, !tbaa !55
-  %405 = icmp eq i32 %400, %404
-  br i1 %405, label %406, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76
+395:                                              ; preds = %_ZN6Gluco26Solver15claBumpActivityERNS_6ClauseE.exit
+  %396 = load i32, ptr %60, align 8, !tbaa !105
+  %397 = load ptr, ptr %61, align 8, !tbaa !98
+  %398 = sext i32 %.pre.i69 to i64
+  %399 = getelementptr inbounds i32, ptr %397, i64 %398
+  %400 = load i32, ptr %399, align 4, !tbaa !55
+  %401 = icmp eq i32 %396, %400
+  br i1 %401, label %402, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76
 
-406:                                              ; preds = %399, %._crit_edge.i74
-  %.pre-phi11.i70 = phi i64 [ %.pre10.i75, %._crit_edge.i74 ], [ %402, %399 ]
-  %407 = trunc i32 %.sroa.018.0.copyload to i8
-  %408 = and i8 %407, 1
-  %409 = load ptr, ptr %62, align 8, !tbaa !132
-  %410 = getelementptr inbounds %"class.Gluco2::lbool", ptr %409, i64 %.pre-phi11.i70
-  store i8 %408, ptr %410, align 1, !tbaa !109
-  %411 = load i32, ptr %24, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i71 = zext i32 %411 to i64
+402:                                              ; preds = %395, %._crit_edge.i74
+  %.pre-phi11.i70 = phi i64 [ %.pre10.i75, %._crit_edge.i74 ], [ %398, %395 ]
+  %403 = trunc i32 %.sroa.018.0.copyload to i8
+  %404 = and i8 %403, 1
+  %405 = load ptr, ptr %62, align 8, !tbaa !132
+  %406 = getelementptr inbounds %"class.Gluco2::lbool", ptr %405, i64 %.pre-phi11.i70
+  store i8 %404, ptr %406, align 1, !tbaa !109
+  %407 = load i32, ptr %24, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i71 = zext i32 %407 to i64
   %.sroa.2.0.insert.shift.i.i72 = shl nuw i64 %.sroa.2.0.insert.ext.i.i71, 32
   %.sroa.0.0.insert.insert.i.i73 = or disjoint i64 %.sroa.2.0.insert.shift.i.i72, %304
-  %412 = load ptr, ptr %63, align 8, !tbaa !129
-  %413 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %412, i64 %.pre-phi11.i70
-  store i64 %.sroa.0.0.insert.insert.i.i73, ptr %413, align 4
-  %414 = load ptr, ptr %34, align 8, !tbaa !112
-  %415 = load i32, ptr %25, align 8, !tbaa !113
-  %416 = add nsw i32 %415, 1
-  store i32 %416, ptr %25, align 8, !tbaa !113
-  %417 = sext i32 %415 to i64
-  %418 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %414, i64 %417
-  store i32 %.sroa.018.0.copyload, ptr %418, align 4, !tbaa !55
+  %408 = load ptr, ptr %63, align 8, !tbaa !129
+  %409 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %408, i64 %.pre-phi11.i70
+  store i64 %.sroa.0.0.insert.insert.i.i73, ptr %409, align 4
+  %410 = load ptr, ptr %34, align 8, !tbaa !112
+  %411 = load i32, ptr %25, align 8, !tbaa !113
+  %412 = add nsw i32 %411, 1
+  store i32 %412, ptr %25, align 8, !tbaa !113
+  %413 = sext i32 %411 to i64
+  %414 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %410, i64 %413
+  store i32 %.sroa.018.0.copyload, ptr %414, align 4, !tbaa !55
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76
 
-_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76: ; preds = %406, %399, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit
-  %419 = phi ptr [ %397, %406 ], [ %397, %399 ], [ %276, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit ]
-  %420 = load double, ptr %18, align 8, !tbaa !64
+_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit76: ; preds = %402, %395, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit
+  %415 = phi ptr [ %393, %402 ], [ %393, %395 ], [ %276, %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit ]
+  %416 = load double, ptr %18, align 8, !tbaa !64
+  %417 = fdiv double 1.000000e+00, %416
+  %418 = load double, ptr %65, align 8, !tbaa !81
+  %419 = fmul double %418, %417
+  store double %419, ptr %65, align 8, !tbaa !81
+  %420 = load double, ptr %66, align 8, !tbaa !65
   %421 = fdiv double 1.000000e+00, %420
-  %422 = load double, ptr %65, align 8, !tbaa !81
+  %422 = load double, ptr %58, align 8, !tbaa !80
   %423 = fmul double %422, %421
-  store double %423, ptr %65, align 8, !tbaa !81
-  %424 = load double, ptr %66, align 8, !tbaa !65
-  %425 = fdiv double 1.000000e+00, %424
-  %426 = load double, ptr %58, align 8, !tbaa !80
-  %427 = fmul double %426, %425
-  store double %427, ptr %58, align 8, !tbaa !80
+  store double %423, ptr %58, align 8, !tbaa !80
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.outer, !llvm.loop !264
 
-428:                                              ; preds = %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread, %96
-  %429 = load i64, ptr %17, align 8, !tbaa !252
-  %.not = icmp eq i64 %429, 0
-  br i1 %.not, label %446, label %430
+424:                                              ; preds = %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread, %96
+  %425 = load i64, ptr %17, align 8, !tbaa !252
+  %.not = icmp eq i64 %425, 0
+  br i1 %.not, label %442, label %426
 
-430:                                              ; preds = %428
-  %431 = load i32, ptr %40, align 4, !tbaa !96
-  %432 = load i32, ptr %41, align 8, !tbaa !95
-  %.not142 = icmp eq i32 %431, %432
-  br i1 %.not142, label %433, label %446
+426:                                              ; preds = %424
+  %427 = load i32, ptr %40, align 4, !tbaa !96
+  %428 = load i32, ptr %41, align 8, !tbaa !95
+  %.not142 = icmp eq i32 %427, %428
+  br i1 %.not142, label %429, label %442
 
-433:                                              ; preds = %430
-  %434 = load i64, ptr %.phi.trans.insert.i56, align 8, !tbaa !258
-  %435 = sext i32 %431 to i64
-  %436 = udiv i64 %434, %435
-  %437 = trunc i64 %436 to i32
-  %438 = uitofp i32 %437 to double
-  %439 = load double, ptr %67, align 8, !tbaa !53
-  %440 = fmul double %439, %438
-  %441 = load float, ptr %51, align 8, !tbaa !100
-  %442 = sitofp i64 %429 to float
-  %443 = fdiv float %441, %442
-  %444 = fpext float %443 to double
-  %445 = fcmp ogt double %440, %444
-  br i1 %445, label %450, label %446
+429:                                              ; preds = %426
+  %430 = load i64, ptr %.phi.trans.insert.i56, align 8, !tbaa !258
+  %431 = sext i32 %427 to i64
+  %432 = udiv i64 %430, %431
+  %433 = trunc i64 %432 to i32
+  %434 = uitofp i32 %433 to double
+  %435 = load double, ptr %67, align 8, !tbaa !53
+  %436 = fmul double %435, %434
+  %437 = load float, ptr %51, align 8, !tbaa !100
+  %438 = sitofp i64 %425 to float
+  %439 = fdiv float %437, %438
+  %440 = fpext float %439 to double
+  %441 = fcmp ogt double %436, %440
+  br i1 %441, label %446, label %442
 
-446:                                              ; preds = %433, %430, %428
-  %447 = load ptr, ptr %68, align 8, !tbaa !265
-  %.not50 = icmp eq ptr %447, null
-  br i1 %.not50, label %483, label %448
+442:                                              ; preds = %429, %426, %424
+  %443 = load ptr, ptr %68, align 8, !tbaa !265
+  %.not50 = icmp eq ptr %443, null
+  br i1 %.not50, label %479, label %444
 
-448:                                              ; preds = %446
-  %449 = load i32, ptr %447, align 4, !tbaa !55
-  %.not51 = icmp eq i32 %449, 0
-  br i1 %.not51, label %483, label %450
+444:                                              ; preds = %442
+  %445 = load i32, ptr %443, align 4, !tbaa !55
+  %.not51 = icmp eq i32 %445, 0
+  br i1 %.not51, label %479, label %446
 
-450:                                              ; preds = %448, %433
+446:                                              ; preds = %444, %429
   store i32 0, ptr %40, align 4, !tbaa !96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %451 = load i32, ptr %32, align 8, !tbaa !130
-  %452 = sitofp i32 %451 to double
-  %453 = fdiv double 1.000000e+00, %452
-  %454 = load i32, ptr %24, align 8, !tbaa !116
-  %.not13.i77 = icmp slt i32 %454, 0
+  %447 = load i32, ptr %32, align 8, !tbaa !130
+  %448 = sitofp i32 %447 to double
+  %449 = fdiv double 1.000000e+00, %448
+  %450 = load i32, ptr %24, align 8, !tbaa !116
+  %.not13.i77 = icmp slt i32 %450, 0
   br i1 %.not13.i77, label %_ZNK6Gluco26Solver16progressEstimateEv.exit90, label %.lr.ph.i78
 
-.lr.ph.i78:                                       ; preds = %450
-  %455 = load ptr, ptr %23, align 8
-  br label %456
+.lr.ph.i78:                                       ; preds = %446
+  %451 = load ptr, ptr %23, align 8
+  br label %452
 
-._crit_edge.loopexit.i84:                         ; preds = %463
+._crit_edge.loopexit.i84:                         ; preds = %459
   %.pre.i85 = load i32, ptr %32, align 8, !tbaa !130
   %.pre17.i86 = sitofp i32 %.pre.i85 to double
   br label %_ZNK6Gluco26Solver16progressEstimateEv.exit90
 
-456:                                              ; preds = %463, %.lr.ph.i78
-  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.i78 ], [ %indvars.iv.next.i82, %463 ]
-  %457 = phi i32 [ %454, %.lr.ph.i78 ], [ %475, %463 ]
-  %.015.i80 = phi double [ 0.000000e+00, %.lr.ph.i78 ], [ %474, %463 ]
-  %458 = icmp eq i64 %indvars.iv.i79, 0
-  br i1 %458, label %463, label %459
+452:                                              ; preds = %459, %.lr.ph.i78
+  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.i78 ], [ %indvars.iv.next.i82, %459 ]
+  %453 = phi i32 [ %450, %.lr.ph.i78 ], [ %471, %459 ]
+  %.015.i80 = phi double [ 0.000000e+00, %.lr.ph.i78 ], [ %470, %459 ]
+  %454 = icmp eq i64 %indvars.iv.i79, 0
+  br i1 %454, label %459, label %455
 
-459:                                              ; preds = %456
-  %460 = getelementptr i32, ptr %455, i64 %indvars.iv.i79
-  %461 = getelementptr i8, ptr %460, i64 -4
-  %462 = load i32, ptr %461, align 4, !tbaa !55
-  br label %463
+455:                                              ; preds = %452
+  %456 = getelementptr i32, ptr %451, i64 %indvars.iv.i79
+  %457 = getelementptr i8, ptr %456, i64 -4
+  %458 = load i32, ptr %457, align 4, !tbaa !55
+  br label %459
 
-463:                                              ; preds = %459, %456
-  %464 = phi i32 [ %462, %459 ], [ 0, %456 ]
-  %465 = zext i32 %457 to i64
-  %466 = icmp eq i64 %indvars.iv.i79, %465
-  %467 = getelementptr inbounds nuw i32, ptr %455, i64 %indvars.iv.i79
-  %.in.i81 = select i1 %466, ptr %25, ptr %467
-  %468 = load i32, ptr %.in.i81, align 4, !tbaa !55
-  %469 = trunc nuw nsw i64 %indvars.iv.i79 to i32
-  %470 = uitofp nneg i32 %469 to double
-  %471 = call noundef double @pow(double noundef %453, double noundef %470) #33, !tbaa !55
-  %472 = sub nsw i32 %468, %464
-  %473 = sitofp i32 %472 to double
-  %474 = call double @llvm.fmuladd.f64(double %471, double %473, double %.015.i80)
+459:                                              ; preds = %455, %452
+  %460 = phi i32 [ %458, %455 ], [ 0, %452 ]
+  %461 = zext i32 %453 to i64
+  %462 = icmp eq i64 %indvars.iv.i79, %461
+  %463 = getelementptr inbounds nuw i32, ptr %451, i64 %indvars.iv.i79
+  %.in.i81 = select i1 %462, ptr %25, ptr %463
+  %464 = load i32, ptr %.in.i81, align 4, !tbaa !55
+  %465 = trunc nuw nsw i64 %indvars.iv.i79 to i32
+  %466 = uitofp nneg i32 %465 to double
+  %467 = call noundef double @pow(double noundef %449, double noundef %466) #32, !tbaa !55
+  %468 = sub nsw i32 %464, %460
+  %469 = sitofp i32 %468 to double
+  %470 = call double @llvm.fmuladd.f64(double %467, double %469, double %.015.i80)
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i79, 1
-  %475 = load i32, ptr %24, align 8, !tbaa !116
-  %476 = sext i32 %475 to i64
-  %.not.not.i83 = icmp slt i64 %indvars.iv.i79, %476
-  br i1 %.not.not.i83, label %456, label %._crit_edge.loopexit.i84, !llvm.loop !256
+  %471 = load i32, ptr %24, align 8, !tbaa !116
+  %472 = sext i32 %471 to i64
+  %.not.not.i83 = icmp slt i64 %indvars.iv.i79, %472
+  br i1 %.not.not.i83, label %452, label %._crit_edge.loopexit.i84, !llvm.loop !256
 
-_ZNK6Gluco26Solver16progressEstimateEv.exit90:    ; preds = %450, %._crit_edge.loopexit.i84
-  %477 = phi i32 [ %475, %._crit_edge.loopexit.i84 ], [ %454, %450 ]
-  %.pre-phi.i88 = phi double [ %.pre17.i86, %._crit_edge.loopexit.i84 ], [ %452, %450 ]
-  %.0.lcssa.i89 = phi double [ %474, %._crit_edge.loopexit.i84 ], [ 0.000000e+00, %450 ]
-  %478 = fdiv double %.0.lcssa.i89, %.pre-phi.i88
-  %479 = getelementptr inbounds nuw i8, ptr %0, i64 816
-  store double %478, ptr %479, align 8, !tbaa !266
-  %480 = getelementptr inbounds nuw i8, ptr %0, i64 1148
-  %481 = load i32, ptr %480, align 4, !tbaa !90
-  %.not53 = icmp eq i32 %481, 0
-  %482 = load i32, ptr %72, align 8
-  %spec.select = call i32 @llvm.smin.i32(i32 %477, i32 %482)
+_ZNK6Gluco26Solver16progressEstimateEv.exit90:    ; preds = %446, %._crit_edge.loopexit.i84
+  %473 = phi i32 [ %471, %._crit_edge.loopexit.i84 ], [ %450, %446 ]
+  %.pre-phi.i88 = phi double [ %.pre17.i86, %._crit_edge.loopexit.i84 ], [ %448, %446 ]
+  %.0.lcssa.i89 = phi double [ %470, %._crit_edge.loopexit.i84 ], [ 0.000000e+00, %446 ]
+  %474 = fdiv double %.0.lcssa.i89, %.pre-phi.i88
+  %475 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  store double %474, ptr %475, align 8, !tbaa !266
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 1148
+  %477 = load i32, ptr %476, align 4, !tbaa !90
+  %.not53 = icmp eq i32 %477, 0
+  %478 = load i32, ptr %72, align 8
+  %spec.select = call i32 @llvm.smin.i32(i32 %473, i32 %478)
   %.043 = select i1 %.not53, i32 0, i32 %spec.select
   call void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %.043)
   br label %.critedge
 
-483:                                              ; preds = %448, %446
-  %484 = load i32, ptr %24, align 8, !tbaa !116
-  %485 = icmp eq i32 %484, 0
-  br i1 %485, label %486, label %488
+479:                                              ; preds = %444, %442
+  %480 = load i32, ptr %24, align 8, !tbaa !116
+  %481 = icmp eq i32 %480, 0
+  br i1 %481, label %482, label %484
 
-486:                                              ; preds = %483
-  %487 = call noundef zeroext i1 @_ZN6Gluco26Solver8simplifyEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  br i1 %487, label %488, label %.critedge
+482:                                              ; preds = %479
+  %483 = call noundef zeroext i1 @_ZN6Gluco26Solver8simplifyEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
+  br i1 %483, label %484, label %.critedge
 
-488:                                              ; preds = %486, %483
-  %489 = load i64, ptr %14, align 8, !tbaa !251
-  %490 = load i64, ptr %69, align 8, !tbaa !78
-  %491 = load i32, ptr %70, align 8, !tbaa !101
-  %492 = sext i32 %491 to i64
-  %493 = mul nsw i64 %490, %492
-  %.not52 = icmp slt i64 %489, %493
-  br i1 %.not52, label %500, label %494
+484:                                              ; preds = %482, %479
+  %485 = load i64, ptr %14, align 8, !tbaa !251
+  %486 = load i64, ptr %69, align 8, !tbaa !78
+  %487 = load i32, ptr %70, align 8, !tbaa !101
+  %488 = sext i32 %487 to i64
+  %489 = mul nsw i64 %486, %488
+  %.not52 = icmp slt i64 %485, %489
+  br i1 %.not52, label %496, label %490
 
-494:                                              ; preds = %488
-  %495 = sdiv i64 %489, %492
-  %496 = add nsw i64 %495, 1
-  store i64 %496, ptr %69, align 8, !tbaa !78
+490:                                              ; preds = %484
+  %491 = sdiv i64 %485, %488
+  %492 = add nsw i64 %491, 1
+  store i64 %492, ptr %69, align 8, !tbaa !78
   call void @_ZN6Gluco26Solver8reduceDBEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  %497 = load i32, ptr %71, align 4, !tbaa !59
-  %498 = load i32, ptr %70, align 8, !tbaa !101
-  %499 = add nsw i32 %498, %497
-  store i32 %499, ptr %70, align 8, !tbaa !101
-  br label %500
+  %493 = load i32, ptr %71, align 4, !tbaa !59
+  %494 = load i32, ptr %70, align 8, !tbaa !101
+  %495 = add nsw i32 %494, %493
+  store i32 %495, ptr %70, align 8, !tbaa !101
+  br label %496
 
-500:                                              ; preds = %494, %488
-  %501 = load i32, ptr %24, align 8, !tbaa !116
-  %502 = load i32, ptr %72, align 8, !tbaa !113
-  %503 = icmp slt i32 %501, %502
-  br i1 %503, label %.lr.ph156, label %.thread127
+496:                                              ; preds = %490, %484
+  %497 = load i32, ptr %24, align 8, !tbaa !116
+  %498 = load i32, ptr %72, align 8, !tbaa !113
+  %499 = icmp slt i32 %497, %498
+  br i1 %499, label %.lr.ph156, label %.thread127
 
-.lr.ph156:                                        ; preds = %500, %543
-  %504 = phi i32 [ %548, %543 ], [ %501, %500 ]
-  %505 = load ptr, ptr %73, align 8, !tbaa !112
+.lr.ph156:                                        ; preds = %496, %535
+  %500 = phi i32 [ %540, %535 ], [ %497, %496 ]
+  %501 = load ptr, ptr %73, align 8, !tbaa !112
+  %502 = sext i32 %500 to i64
+  %503 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %501, i64 %502
+  %.sroa.014.0.copyload = load i32, ptr %503, align 4, !tbaa !55
+  %504 = ashr i32 %.sroa.014.0.copyload, 1
+  %505 = load ptr, ptr %62, align 8, !tbaa !132
   %506 = sext i32 %504 to i64
-  %507 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %505, i64 %506
-  %.sroa.014.0.copyload = load i32, ptr %507, align 4, !tbaa !55
-  %508 = ashr i32 %.sroa.014.0.copyload, 1
-  %509 = load ptr, ptr %62, align 8, !tbaa !132
-  %510 = sext i32 %508 to i64
-  %511 = getelementptr inbounds %"class.Gluco2::lbool", ptr %509, i64 %510
-  %512 = load i8, ptr %511, align 1, !tbaa !150
-  %513 = trunc i32 %.sroa.014.0.copyload to i8
-  %514 = and i8 %513, 1
-  %515 = icmp eq i8 %512, %514
-  br i1 %515, label %516, label %538
+  %507 = getelementptr inbounds %"class.Gluco2::lbool", ptr %505, i64 %506
+  %508 = load i8, ptr %507, align 1, !tbaa !150
+  %509 = trunc i32 %.sroa.014.0.copyload to i8
+  %510 = and i8 %509, 1
+  %511 = icmp eq i8 %508, %510
+  br i1 %511, label %512, label %530
 
-516:                                              ; preds = %.lr.ph156
-  %517 = load i32, ptr %25, align 8, !tbaa !113
-  %518 = load i32, ptr %74, align 4, !tbaa !117
-  %519 = icmp eq i32 %504, %518
-  br i1 %519, label %520, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i
+512:                                              ; preds = %.lr.ph156
+  %513 = load i32, ptr %25, align 8, !tbaa !113
+  %514 = load i32, ptr %74, align 4, !tbaa !117
+  %515 = icmp eq i32 %500, %514
+  br i1 %515, label %516, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i
 
-._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i: ; preds = %516
+._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i: ; preds = %512
   %.pre.i.i = load ptr, ptr %23, align 8, !tbaa !115
-  br label %543
+  br label %535
 
-520:                                              ; preds = %516
-  %521 = ashr i32 %504, 1
-  %522 = and i32 %521, -2
-  %523 = call i32 @llvm.smax.i32(i32 %522, i32 0)
-  %524 = add nuw nsw i32 %523, 2
-  %525 = sub nsw i32 2147483647, %504
-  %526 = icmp samesign ugt i32 %524, %525
-  br i1 %526, label %.loopexit, label %527
+516:                                              ; preds = %512
+  %517 = ashr i32 %500, 1
+  %518 = and i32 %517, -2
+  %519 = call i32 @llvm.smax.i32(i32 %518, i32 0)
+  %520 = add nuw nsw i32 %519, 2
+  %521 = sub nsw i32 2147483647, %500
+  %522 = icmp samesign ugt i32 %520, %521
+  br i1 %522, label %.loopexit, label %523
 
-527:                                              ; preds = %520
-  %528 = load ptr, ptr %23, align 8, !tbaa !115
-  %529 = add nsw i32 %524, %504
-  store i32 %529, ptr %74, align 4, !tbaa !117
-  %530 = sext i32 %529 to i64
-  %531 = shl nsw i64 %530, 2
-  %532 = call ptr @realloc(ptr noundef %528, i64 noundef %531) #35
-  store ptr %532, ptr %23, align 8, !tbaa !115
-  %533 = icmp eq ptr %532, null
-  br i1 %533, label %534, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i
+523:                                              ; preds = %516
+  %524 = load ptr, ptr %23, align 8, !tbaa !115
+  %525 = add nsw i32 %520, %500
+  store i32 %525, ptr %74, align 4, !tbaa !117
+  %526 = sext i32 %525 to i64
+  %527 = shl nsw i64 %526, 2
+  %528 = call ptr @realloc(ptr noundef %524, i64 noundef %527) #34
+  store ptr %528, ptr %23, align 8, !tbaa !115
+  %529 = icmp eq ptr %528, null
+  br i1 %529, label %.loopexit, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i
 
-._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i:     ; preds = %527
+._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i:     ; preds = %523
   %.pre.i91 = load i32, ptr %24, align 8, !tbaa !116
   %.pre174 = sext i32 %.pre.i91 to i64
-  br label %543
+  br label %535
 
-534:                                              ; preds = %527
-  %535 = tail call ptr @__errno_location() #31
-  %536 = load i32, ptr %535, align 4, !tbaa !55
-  %537 = icmp eq i32 %536, 12
-  call void @llvm.assume(i1 %537)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %520, %534
+.loopexit:                                        ; preds = %516, %523
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-538:                                              ; preds = %.lr.ph156
-  %539 = xor i8 %512, %514
-  %540 = icmp eq i8 %539, 1
-  br i1 %540, label %.thread, label %.thread127
+530:                                              ; preds = %.lr.ph156
+  %531 = xor i8 %508, %510
+  %532 = icmp eq i8 %531, 1
+  br i1 %532, label %.thread, label %.thread127
 
-.thread:                                          ; preds = %538
-  %541 = xor i32 %.sroa.014.0.copyload, 1
-  %542 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @_ZN6Gluco26Solver12analyzeFinalENS_3LitERNS_3vecIS1_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %541, ptr noundef nonnull align 8 dereferenceable(16) %542)
+.thread:                                          ; preds = %530
+  %533 = xor i32 %.sroa.014.0.copyload, 1
+  %534 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @_ZN6Gluco26Solver12analyzeFinalENS_3LitERNS_3vecIS1_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %533, ptr noundef nonnull align 8 dereferenceable(16) %534)
   br label %.critedge
 
-543:                                              ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i
-  %.pre-phi = phi i64 [ %.pre174, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i ], [ %506, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i ]
-  %544 = phi i32 [ %.pre.i91, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i ], [ %504, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i ]
-  %545 = phi ptr [ %532, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i ], [ %.pre.i.i, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i ]
-  %546 = add nsw i32 %544, 1
-  store i32 %546, ptr %24, align 8, !tbaa !116
-  %547 = getelementptr inbounds i32, ptr %545, i64 %.pre-phi
-  store i32 %517, ptr %547, align 4, !tbaa !55
-  %548 = load i32, ptr %24, align 8, !tbaa !116
-  %549 = load i32, ptr %72, align 8, !tbaa !113
-  %550 = icmp slt i32 %548, %549
-  br i1 %550, label %.lr.ph156, label %.thread127
+535:                                              ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i
+  %.pre-phi = phi i64 [ %.pre174, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i ], [ %502, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i ]
+  %536 = phi i32 [ %.pre.i91, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i ], [ %500, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i ]
+  %537 = phi ptr [ %528, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i ], [ %.pre.i.i, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i ]
+  %538 = add nsw i32 %536, 1
+  store i32 %538, ptr %24, align 8, !tbaa !116
+  %539 = getelementptr inbounds i32, ptr %537, i64 %.pre-phi
+  store i32 %513, ptr %539, align 4, !tbaa !55
+  %540 = load i32, ptr %24, align 8, !tbaa !116
+  %541 = load i32, ptr %72, align 8, !tbaa !113
+  %542 = icmp slt i32 %540, %541
+  br i1 %542, label %.lr.ph156, label %.thread127
 
-.thread127:                                       ; preds = %543, %500, %538
-  %.sroa.0112.1 = phi i32 [ %.sroa.014.0.copyload, %538 ], [ -2, %500 ], [ -2, %543 ]
-  %551 = load i32, ptr %59, align 8, !tbaa !104
-  %552 = icmp sgt i32 %551, 0
-  %553 = icmp eq i32 %.sroa.0112.1, -2
-  br i1 %552, label %554, label %576
+.thread127:                                       ; preds = %535, %496, %530
+  %.sroa.0112.1 = phi i32 [ %.sroa.014.0.copyload, %530 ], [ -2, %496 ], [ -2, %535 ]
+  %543 = load i32, ptr %59, align 8, !tbaa !104
+  %544 = icmp sgt i32 %543, 0
+  %545 = icmp eq i32 %.sroa.0112.1, -2
+  br i1 %544, label %546, label %568
 
-554:                                              ; preds = %.thread127
-  br i1 %553, label %555, label %.thread133
+546:                                              ; preds = %.thread127
+  br i1 %545, label %547, label %.thread133
 
-555:                                              ; preds = %554
+547:                                              ; preds = %546
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 -1, ptr %8, align 4, !tbaa !55
-  %556 = load i64, ptr %75, align 8, !tbaa !267
-  %557 = add nsw i64 %556, 1
-  store i64 %557, ptr %75, align 8, !tbaa !267
-  %558 = call i32 @_ZN6Gluco26Solver11pickJustLitERi(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %559 = icmp eq i32 %558, -2
-  br i1 %559, label %.thread131, label %560
+  %548 = load i64, ptr %75, align 8, !tbaa !267
+  %549 = add nsw i64 %548, 1
+  store i64 %549, ptr %75, align 8, !tbaa !267
+  %550 = call i32 @_ZN6Gluco26Solver11pickJustLitERi(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %551 = icmp eq i32 %550, -2
+  br i1 %551, label %.thread131, label %552
 
-.thread131:                                       ; preds = %555
+.thread131:                                       ; preds = %547
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge
 
-560:                                              ; preds = %555
-  %561 = load i32, ptr %24, align 8, !tbaa !116
-  %562 = load ptr, ptr %76, align 8, !tbaa !115
-  %563 = sext i32 %561 to i64
-  %564 = getelementptr i32, ptr %562, i64 %563
-  %565 = getelementptr i8, ptr %564, i64 4
-  %566 = load i32, ptr %565, align 4, !tbaa !55
-  %567 = load i32, ptr %8, align 4, !tbaa !55
-  %568 = load ptr, ptr %77, align 8, !tbaa !115
-  %569 = sext i32 %567 to i64
-  %570 = getelementptr inbounds i32, ptr %568, i64 %569
-  store i32 %566, ptr %570, align 4, !tbaa !55
-  %571 = load i32, ptr %8, align 4, !tbaa !55
-  %572 = load i32, ptr %24, align 8, !tbaa !116
-  %573 = sext i32 %572 to i64
-  %574 = getelementptr i32, ptr %562, i64 %573
-  %575 = getelementptr i8, ptr %574, i64 4
-  store i32 %571, ptr %575, align 4, !tbaa !55
+552:                                              ; preds = %547
+  %553 = load i32, ptr %24, align 8, !tbaa !116
+  %554 = load ptr, ptr %76, align 8, !tbaa !115
+  %555 = sext i32 %553 to i64
+  %556 = getelementptr i32, ptr %554, i64 %555
+  %557 = getelementptr i8, ptr %556, i64 4
+  %558 = load i32, ptr %557, align 4, !tbaa !55
+  %559 = load i32, ptr %8, align 4, !tbaa !55
+  %560 = load ptr, ptr %77, align 8, !tbaa !115
+  %561 = sext i32 %559 to i64
+  %562 = getelementptr inbounds i32, ptr %560, i64 %561
+  store i32 %558, ptr %562, align 4, !tbaa !55
+  %563 = load i32, ptr %8, align 4, !tbaa !55
+  %564 = load i32, ptr %24, align 8, !tbaa !116
+  %565 = sext i32 %564 to i64
+  %566 = getelementptr i32, ptr %554, i64 %565
+  %567 = getelementptr i8, ptr %566, i64 4
+  store i32 %563, ptr %567, align 4, !tbaa !55
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread133
 
-576:                                              ; preds = %.thread127
-  br i1 %553, label %577, label %.thread133
+568:                                              ; preds = %.thread127
+  br i1 %545, label %569, label %.thread133
 
-577:                                              ; preds = %576
-  %578 = load i64, ptr %75, align 8, !tbaa !267
-  %579 = add nsw i64 %578, 1
-  store i64 %579, ptr %75, align 8, !tbaa !267
-  %580 = call i32 @_ZN6Gluco26Solver13pickBranchLitEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  %581 = icmp eq i32 %580, -2
-  br i1 %581, label %.critedge, label %.thread133
+569:                                              ; preds = %568
+  %570 = load i64, ptr %75, align 8, !tbaa !267
+  %571 = add nsw i64 %570, 1
+  store i64 %571, ptr %75, align 8, !tbaa !267
+  %572 = call i32 @_ZN6Gluco26Solver13pickBranchLitEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
+  %573 = icmp eq i32 %572, -2
+  br i1 %573, label %.critedge, label %.thread133
 
-.thread133:                                       ; preds = %554, %560, %577, %576
-  %.sroa.0112.4 = phi i32 [ %580, %577 ], [ %.sroa.0112.1, %576 ], [ %.sroa.0112.1, %554 ], [ %558, %560 ]
-  %582 = load i32, ptr %25, align 8, !tbaa !113
-  %583 = load i32, ptr %24, align 8, !tbaa !116
-  %584 = load i32, ptr %74, align 4, !tbaa !117
-  %585 = icmp eq i32 %583, %584
-  br i1 %585, label %586, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92
+.thread133:                                       ; preds = %546, %552, %569, %568
+  %.sroa.0112.4 = phi i32 [ %572, %569 ], [ %.sroa.0112.1, %568 ], [ %.sroa.0112.1, %546 ], [ %550, %552 ]
+  %574 = load i32, ptr %25, align 8, !tbaa !113
+  %575 = load i32, ptr %24, align 8, !tbaa !116
+  %576 = load i32, ptr %74, align 4, !tbaa !117
+  %577 = icmp eq i32 %575, %576
+  br i1 %577, label %578, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92
 
 ._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92: ; preds = %.thread133
   %.pre.i.i93 = load ptr, ptr %23, align 8, !tbaa !115
   br label %_ZN6Gluco26Solver16newDecisionLevelEv.exit96
 
-586:                                              ; preds = %.thread133
-  %587 = ashr i32 %583, 1
-  %588 = and i32 %587, -2
-  %589 = call i32 @llvm.smax.i32(i32 %588, i32 0)
-  %590 = add nuw nsw i32 %589, 2
-  %591 = sub nsw i32 2147483647, %583
-  %592 = icmp samesign ugt i32 %590, %591
-  br i1 %592, label %.loopexit144, label %593
+578:                                              ; preds = %.thread133
+  %579 = ashr i32 %575, 1
+  %580 = and i32 %579, -2
+  %581 = call i32 @llvm.smax.i32(i32 %580, i32 0)
+  %582 = add nuw nsw i32 %581, 2
+  %583 = sub nsw i32 2147483647, %575
+  %584 = icmp samesign ugt i32 %582, %583
+  br i1 %584, label %.loopexit144, label %585
 
-593:                                              ; preds = %586
-  %594 = load ptr, ptr %23, align 8, !tbaa !115
-  %595 = add nsw i32 %590, %583
-  store i32 %595, ptr %74, align 4, !tbaa !117
-  %596 = sext i32 %595 to i64
-  %597 = shl nsw i64 %596, 2
-  %598 = call ptr @realloc(ptr noundef %594, i64 noundef %597) #35
-  store ptr %598, ptr %23, align 8, !tbaa !115
-  %599 = icmp eq ptr %598, null
-  br i1 %599, label %600, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94
+585:                                              ; preds = %578
+  %586 = load ptr, ptr %23, align 8, !tbaa !115
+  %587 = add nsw i32 %582, %575
+  store i32 %587, ptr %74, align 4, !tbaa !117
+  %588 = sext i32 %587 to i64
+  %589 = shl nsw i64 %588, 2
+  %590 = call ptr @realloc(ptr noundef %586, i64 noundef %589) #34
+  store ptr %590, ptr %23, align 8, !tbaa !115
+  %591 = icmp eq ptr %590, null
+  br i1 %591, label %.loopexit144, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94
 
-._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94:   ; preds = %593
+._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94:   ; preds = %585
   %.pre.i95 = load i32, ptr %24, align 8, !tbaa !116
   br label %_ZN6Gluco26Solver16newDecisionLevelEv.exit96
 
-600:                                              ; preds = %593
-  %601 = tail call ptr @__errno_location() #31
-  %602 = load i32, ptr %601, align 4, !tbaa !55
-  %603 = icmp eq i32 %602, 12
-  call void @llvm.assume(i1 %603)
-  br label %.loopexit144
-
-.loopexit144:                                     ; preds = %586, %600
+.loopexit144:                                     ; preds = %578, %585
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco26Solver16newDecisionLevelEv.exit96:     ; preds = %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94
-  %604 = phi i32 [ %583, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92 ], [ %.pre.i95, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94 ]
-  %605 = phi ptr [ %.pre.i.i93, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92 ], [ %598, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94 ]
-  %606 = add nsw i32 %604, 1
-  store i32 %606, ptr %24, align 8, !tbaa !116
-  %607 = sext i32 %604 to i64
-  %608 = getelementptr inbounds i32, ptr %605, i64 %607
-  store i32 %582, ptr %608, align 4, !tbaa !55
-  %609 = load i32, ptr %59, align 8, !tbaa !104
-  %.not.i97 = icmp eq i32 %609, 0
+  %592 = phi i32 [ %575, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92 ], [ %.pre.i95, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94 ]
+  %593 = phi ptr [ %.pre.i.i93, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i.i92 ], [ %590, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge.i94 ]
+  %594 = add nsw i32 %592, 1
+  store i32 %594, ptr %24, align 8, !tbaa !116
+  %595 = sext i32 %592 to i64
+  %596 = getelementptr inbounds i32, ptr %593, i64 %595
+  store i32 %574, ptr %596, align 4, !tbaa !55
+  %597 = load i32, ptr %59, align 8, !tbaa !104
+  %.not.i97 = icmp eq i32 %597, 0
   %.pre.i98 = ashr i32 %.sroa.0112.4, 1
-  br i1 %.not.i97, label %._crit_edge.i103, label %610
+  br i1 %.not.i97, label %._crit_edge.i103, label %598
 
 ._crit_edge.i103:                                 ; preds = %_ZN6Gluco26Solver16newDecisionLevelEv.exit96
   %.pre10.i104 = sext i32 %.pre.i98 to i64
-  br label %617
+  br label %605
 
-610:                                              ; preds = %_ZN6Gluco26Solver16newDecisionLevelEv.exit96
-  %611 = load i32, ptr %60, align 8, !tbaa !105
-  %612 = load ptr, ptr %61, align 8, !tbaa !98
-  %613 = sext i32 %.pre.i98 to i64
-  %614 = getelementptr inbounds i32, ptr %612, i64 %613
-  %615 = load i32, ptr %614, align 4, !tbaa !55
-  %616 = icmp eq i32 %611, %615
-  br i1 %616, label %617, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.backedge
+598:                                              ; preds = %_ZN6Gluco26Solver16newDecisionLevelEv.exit96
+  %599 = load i32, ptr %60, align 8, !tbaa !105
+  %600 = load ptr, ptr %61, align 8, !tbaa !98
+  %601 = sext i32 %.pre.i98 to i64
+  %602 = getelementptr inbounds i32, ptr %600, i64 %601
+  %603 = load i32, ptr %602, align 4, !tbaa !55
+  %604 = icmp eq i32 %599, %603
+  br i1 %604, label %605, label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.backedge
 
-_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.backedge: ; preds = %610, %617
+_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.backedge: ; preds = %598, %605
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105, !llvm.loop !264
 
-617:                                              ; preds = %610, %._crit_edge.i103
-  %.pre-phi11.i99 = phi i64 [ %.pre10.i104, %._crit_edge.i103 ], [ %613, %610 ]
-  %618 = trunc i32 %.sroa.0112.4 to i8
-  %619 = and i8 %618, 1
-  %620 = load ptr, ptr %62, align 8, !tbaa !132
-  %621 = getelementptr inbounds %"class.Gluco2::lbool", ptr %620, i64 %.pre-phi11.i99
-  store i8 %619, ptr %621, align 1, !tbaa !109
-  %622 = load i32, ptr %24, align 8, !tbaa !116
-  %.sroa.2.0.insert.ext.i.i100 = zext i32 %622 to i64
+605:                                              ; preds = %598, %._crit_edge.i103
+  %.pre-phi11.i99 = phi i64 [ %.pre10.i104, %._crit_edge.i103 ], [ %601, %598 ]
+  %606 = trunc i32 %.sroa.0112.4 to i8
+  %607 = and i8 %606, 1
+  %608 = load ptr, ptr %62, align 8, !tbaa !132
+  %609 = getelementptr inbounds %"class.Gluco2::lbool", ptr %608, i64 %.pre-phi11.i99
+  store i8 %607, ptr %609, align 1, !tbaa !109
+  %610 = load i32, ptr %24, align 8, !tbaa !116
+  %.sroa.2.0.insert.ext.i.i100 = zext i32 %610 to i64
   %.sroa.2.0.insert.shift.i.i101 = shl nuw i64 %.sroa.2.0.insert.ext.i.i100, 32
   %.sroa.0.0.insert.insert.i.i102 = or disjoint i64 %.sroa.2.0.insert.shift.i.i101, 4294967295
-  %623 = load ptr, ptr %63, align 8, !tbaa !129
-  %624 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %623, i64 %.pre-phi11.i99
-  store i64 %.sroa.0.0.insert.insert.i.i102, ptr %624, align 4
-  %625 = load ptr, ptr %34, align 8, !tbaa !112
-  %626 = load i32, ptr %25, align 8, !tbaa !113
-  %627 = add nsw i32 %626, 1
-  store i32 %627, ptr %25, align 8, !tbaa !113
-  %628 = sext i32 %626 to i64
-  %629 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %625, i64 %628
-  store i32 %.sroa.0112.4, ptr %629, align 4, !tbaa !55
+  %611 = load ptr, ptr %63, align 8, !tbaa !129
+  %612 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %611, i64 %.pre-phi11.i99
+  store i64 %.sroa.0.0.insert.insert.i.i102, ptr %612, align 4
+  %613 = load ptr, ptr %34, align 8, !tbaa !112
+  %614 = load i32, ptr %25, align 8, !tbaa !113
+  %615 = add nsw i32 %614, 1
+  store i32 %615, ptr %25, align 8, !tbaa !113
+  %616 = sext i32 %614 to i64
+  %617 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %613, i64 %616
+  store i32 %.sroa.0112.4, ptr %617, align 4, !tbaa !55
   br label %_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj.exit105.backedge
 
-.critedge:                                        ; preds = %577, %486, %166, %.thread131, %.thread, %_ZNK6Gluco26Solver16progressEstimateEv.exit90, %95
-  %.sroa.0122.8 = phi i8 [ 2, %_ZNK6Gluco26Solver16progressEstimateEv.exit90 ], [ 2, %95 ], [ 0, %.thread131 ], [ 1, %.thread ], [ 1, %486 ], [ 0, %577 ], [ 1, %166 ]
+.critedge:                                        ; preds = %569, %482, %166, %.thread131, %.thread, %_ZNK6Gluco26Solver16progressEstimateEv.exit90, %95
+  %.sroa.0122.8 = phi i8 [ 2, %_ZNK6Gluco26Solver16progressEstimateEv.exit90 ], [ 2, %95 ], [ 0, %.thread131 ], [ 1, %.thread ], [ 1, %482 ], [ 0, %569 ], [ 1, %166 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %630 = load ptr, ptr %5, align 8, !tbaa !112
-  %.not.i.i = icmp eq ptr %630, null
+  %618 = load ptr, ptr %5, align 8, !tbaa !112
+  %.not.i.i = icmp eq ptr %618, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge
   store i32 0, ptr %47, align 8, !tbaa !113
-  call void @free(ptr noundef nonnull %630) #33
+  call void @free(ptr noundef nonnull %618) #32
   store ptr null, ptr %5, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
 
@@ -10520,7 +10253,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %.critedge, %.prehea
 
 .preheader.i.i107:                                ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit
   store i32 0, ptr %46, align 8, !tbaa !113
-  call void @free(ptr noundef nonnull %.ph) #33
+  call void @free(ptr noundef nonnull %.ph) #32
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit108
 
 _ZN6Gluco23vecINS_3LitEED2Ev.exit108:             ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit, %.preheader.i.i107
@@ -10582,7 +10315,7 @@ define noundef double @_ZNK6Gluco26Solver16progressEstimateEv(ptr noundef nonnul
   %24 = load i32, ptr %.in, align 4, !tbaa !55
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = uitofp nneg i32 %25 to double
-  %27 = tail call noundef double @pow(double noundef %5, double noundef %26) #33, !tbaa !55
+  %27 = tail call noundef double @pow(double noundef %5, double noundef %26) #32, !tbaa !55
   %28 = sub nsw i32 %24, %20
   %29 = sitofp i32 %28 to double
   %30 = tail call double @llvm.fmuladd.f64(double %27, double %29, double %.015)
@@ -11067,7 +10800,7 @@ _ZN6Gluco26Solver13ResetJustDataEb.exit:          ; preds = %13, %1
 
 27:                                               ; preds = %_ZN6Gluco26Solver13ResetJustDataEb.exit
   %puts55 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.14)
-  tail call void @exit(i32 noundef -1) #36
+  tail call void @exit(i32 noundef -1) #35
   unreachable
 
 28:                                               ; preds = %_ZN6Gluco26Solver13ResetJustDataEb.exit
@@ -11076,11 +10809,11 @@ _ZN6Gluco26Solver13ResetJustDataEb.exit:          ; preds = %13, %1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %31 = load i8, ptr %30, align 4, !tbaa !79, !range !72, !noundef !73
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %391
+  br i1 %32, label %33, label %381
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %4) #33
+  %34 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %4) #32
   %35 = load i64, ptr %4, align 8, !tbaa !275
   %36 = sitofp i64 %35 to double
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11194,7 +10927,7 @@ _ZNK6Gluco26Solver12withinBudgetEv.exit:          ; preds = %.lr.ph160
 
 107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %108 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #33
+  %108 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #32
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %_ZL9Abc_Clockv.exit, label %110
 
@@ -11261,19 +10994,19 @@ _ZNK6Gluco26Solver12withinBudgetEv.exit.thread:   ; preds = %118, %103, %_ZNK6Gl
 
 139:                                              ; preds = %135, %126
   %140 = icmp eq i8 %.lcssa, 0
-  br i1 %140, label %141, label %327
+  br i1 %140, label %141, label %317
 
 141:                                              ; preds = %139
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %143 = load i32, ptr %142, align 8, !tbaa !104
   %.not51 = icmp eq i32 %143, 0
-  br i1 %.not51, label %273, label %144
+  br i1 %.not51, label %263, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %146 = load i32, ptr %145, align 8, !tbaa !111
   %.not52 = icmp eq i32 %146, 0
-  br i1 %.not52, label %200, label %147
+  br i1 %.not52, label %197, label %147
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 1296
@@ -11294,7 +11027,7 @@ _ZNK6Gluco26Solver12withinBudgetEv.exit.thread:   ; preds = %118, %103, %_ZNK6Gl
 
 159:                                              ; preds = %147
   store i32 2, ptr %155, align 4, !tbaa !114
-  %160 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %158, i64 noundef 8) #35
+  %160 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %158, i64 noundef 8) #34
   store ptr %160, ptr %151, align 8, !tbaa !112
   %161 = icmp eq ptr %160, null
   br i1 %161, label %162, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i
@@ -11304,446 +11037,431 @@ _ZNK6Gluco26Solver12withinBudgetEv.exit.thread:   ; preds = %118, %103, %_ZNK6Gl
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
 
 162:                                              ; preds = %159
-  %163 = tail call ptr @__errno_location() #31
-  %164 = load i32, ptr %163, align 4, !tbaa !55
-  %165 = icmp eq i32 %164, 12
-  call void @llvm.assume(i1 %165)
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i:       ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i, %147
-  %166 = phi i32 [ %.pre.i, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ], [ 0, %147 ]
-  %167 = phi ptr [ %160, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ], [ %158, %147 ]
-  %168 = add nsw i32 %166, 1
-  store i32 %168, ptr %152, align 8, !tbaa !113
-  %169 = sext i32 %166 to i64
-  %170 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %167, i64 %169
-  store i32 0, ptr %170, align 4, !tbaa !55
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %172 = load i32, ptr %171, align 8, !tbaa !113
-  %173 = icmp sgt i32 %172, 0
-  br i1 %173, label %.lr.ph.i, label %._crit_edge.i
+  %163 = phi i32 [ %.pre.i, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ], [ 0, %147 ]
+  %164 = phi ptr [ %160, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge.i ], [ %158, %147 ]
+  %165 = add nsw i32 %163, 1
+  store i32 %165, ptr %152, align 8, !tbaa !113
+  %166 = sext i32 %163 to i64
+  %167 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %164, i64 %166
+  store i32 0, ptr %167, align 4, !tbaa !55
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %169 = load i32, ptr %168, align 8, !tbaa !113
+  %170 = icmp sgt i32 %169, 0
+  br i1 %170, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  br label %175
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  br label %172
 
-175:                                              ; preds = %175, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %175 ]
-  %176 = load ptr, ptr %174, align 8, !tbaa !112
-  %177 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %176, i64 %indvars.iv.i
-  %.sroa.01.0.copyload.i = load i32, ptr %177, align 4, !tbaa !55
-  %178 = ashr i32 %.sroa.01.0.copyload.i, 1
-  call void @_ZN6Gluco26Solver12loadJust_recEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %178)
+172:                                              ; preds = %172, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %172 ]
+  %173 = load ptr, ptr %171, align 8, !tbaa !112
+  %174 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %173, i64 %indvars.iv.i
+  %.sroa.01.0.copyload.i = load i32, ptr %174, align 4, !tbaa !55
+  %175 = ashr i32 %.sroa.01.0.copyload.i, 1
+  call void @_ZN6Gluco26Solver12loadJust_recEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %175)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %179 = load i32, ptr %171, align 8, !tbaa !113
-  %180 = sext i32 %179 to i64
-  %181 = icmp slt i64 %indvars.iv.next.i, %180
-  br i1 %181, label %175, label %._crit_edge.loopexit.i, !llvm.loop !285
+  %176 = load i32, ptr %168, align 8, !tbaa !113
+  %177 = sext i32 %176 to i64
+  %178 = icmp slt i64 %indvars.iv.next.i, %177
+  br i1 %178, label %172, label %._crit_edge.loopexit.i, !llvm.loop !285
 
-._crit_edge.loopexit.i:                           ; preds = %175
+._crit_edge.loopexit.i:                           ; preds = %172
   %.pre16.i = load ptr, ptr %151, align 8, !tbaa !112
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i
-  %182 = phi ptr [ %.pre16.i, %._crit_edge.loopexit.i ], [ %167, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
-  %183 = load i32, ptr %152, align 8, !tbaa !113
-  %184 = add nsw i32 %183, -1
-  store i32 %184, ptr %182, align 4, !tbaa !55
-  %185 = load i32, ptr %148, align 8, !tbaa !105
-  %186 = add i32 %185, -1
-  store i32 %186, ptr %148, align 8, !tbaa !105
-  %187 = load i32, ptr %154, align 8, !tbaa !116
-  %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %.lr.ph10.i, label %_ZN6Gluco26Solver8loadJustEv.exit
+  %179 = phi ptr [ %.pre16.i, %._crit_edge.loopexit.i ], [ %164, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit.i ]
+  %180 = load i32, ptr %152, align 8, !tbaa !113
+  %181 = add nsw i32 %180, -1
+  store i32 %181, ptr %179, align 4, !tbaa !55
+  %182 = load i32, ptr %148, align 8, !tbaa !105
+  %183 = add i32 %182, -1
+  store i32 %183, ptr %148, align 8, !tbaa !105
+  %184 = load i32, ptr %154, align 8, !tbaa !116
+  %185 = icmp sgt i32 %184, 0
+  br i1 %185, label %.lr.ph10.i, label %_ZN6Gluco26Solver8loadJustEv.exit
 
 .lr.ph10.i:                                       ; preds = %._crit_edge.i
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %190 = load ptr, ptr %153, align 8, !tbaa !115
-  %191 = load ptr, ptr %189, align 8, !tbaa !98
-  br label %192
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %187 = load ptr, ptr %153, align 8, !tbaa !115
+  %188 = load ptr, ptr %186, align 8, !tbaa !98
+  br label %189
 
-192:                                              ; preds = %192, %.lr.ph10.i
-  %indvars.iv13.i = phi i64 [ 0, %.lr.ph10.i ], [ %indvars.iv.next14.i, %192 ]
-  %193 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv13.i
-  %194 = load i32, ptr %193, align 4, !tbaa !55
-  %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds i32, ptr %191, i64 %195
-  store i32 %186, ptr %196, align 4, !tbaa !55
+189:                                              ; preds = %189, %.lr.ph10.i
+  %indvars.iv13.i = phi i64 [ 0, %.lr.ph10.i ], [ %indvars.iv.next14.i, %189 ]
+  %190 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv13.i
+  %191 = load i32, ptr %190, align 4, !tbaa !55
+  %192 = sext i32 %191 to i64
+  %193 = getelementptr inbounds i32, ptr %188, i64 %192
+  store i32 %183, ptr %193, align 4, !tbaa !55
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
-  %197 = load i32, ptr %154, align 8, !tbaa !116
-  %198 = sext i32 %197 to i64
-  %199 = icmp slt i64 %indvars.iv.next14.i, %198
-  br i1 %199, label %192, label %_ZN6Gluco26Solver8loadJustEv.exit, !llvm.loop !286
+  %194 = load i32, ptr %154, align 8, !tbaa !116
+  %195 = sext i32 %194 to i64
+  %196 = icmp slt i64 %indvars.iv.next14.i, %195
+  br i1 %196, label %189, label %_ZN6Gluco26Solver8loadJustEv.exit, !llvm.loop !286
 
-200:                                              ; preds = %144
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1408
-  store i32 0, ptr %202, align 8, !tbaa !113
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1412
-  %204 = load i32, ptr %203, align 4, !tbaa !114
-  %205 = icmp eq i32 %204, 0
-  %206 = load ptr, ptr %201, align 8, !tbaa !112
-  br i1 %205, label %207, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
+197:                                              ; preds = %144
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 1408
+  store i32 0, ptr %199, align 8, !tbaa !113
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1412
+  %201 = load i32, ptr %200, align 4, !tbaa !114
+  %202 = icmp eq i32 %201, 0
+  %203 = load ptr, ptr %198, align 8, !tbaa !112
+  br i1 %202, label %204, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-207:                                              ; preds = %200
-  store i32 2, ptr %203, align 4, !tbaa !114
-  %208 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %206, i64 noundef 8) #35
-  store ptr %208, ptr %201, align 8, !tbaa !112
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %210, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
+204:                                              ; preds = %197
+  store i32 2, ptr %200, align 4, !tbaa !114
+  %205 = call dereferenceable_or_null(8) ptr @realloc(ptr noundef %203, i64 noundef 8) #34
+  store ptr %205, ptr %198, align 8, !tbaa !112
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %207, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %207
-  %.pre = load i32, ptr %202, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %204
+  %.pre = load i32, ptr %199, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-210:                                              ; preds = %207
-  %211 = tail call ptr @__errno_location() #31
-  %212 = load i32, ptr %211, align 4, !tbaa !55
-  %213 = icmp eq i32 %212, 12
-  call void @llvm.assume(i1 %213)
+207:                                              ; preds = %204
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %200, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
-  %214 = phi i32 [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ 0, %200 ]
-  %215 = phi ptr [ %208, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %206, %200 ]
-  %216 = add nsw i32 %214, 1
-  store i32 %216, ptr %202, align 8, !tbaa !113
-  %217 = sext i32 %214 to i64
-  %218 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %215, i64 %217
-  store i32 0, ptr %218, align 4, !tbaa !55
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %220 = load i32, ptr %219, align 8, !tbaa !113
-  %221 = icmp sgt i32 %220, 0
-  br i1 %221, label %.lr.ph, label %._crit_edge
+_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %197, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
+  %208 = phi i32 [ %.pre, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ 0, %197 ]
+  %209 = phi ptr [ %205, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ], [ %203, %197 ]
+  %210 = add nsw i32 %208, 1
+  store i32 %210, ptr %199, align 8, !tbaa !113
+  %211 = sext i32 %208 to i64
+  %212 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %209, i64 %211
+  store i32 0, ptr %212, align 4, !tbaa !55
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %214 = load i32, ptr %213, align 8, !tbaa !113
+  %215 = icmp sgt i32 %214, 0
+  br i1 %215, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 1240
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 1224
-  br label %226
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 1240
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  br label %220
 
-226:                                              ; preds = %.lr.ph, %268
-  %227 = phi i32 [ %220, %.lr.ph ], [ %269, %268 ]
-  %228 = phi ptr [ %215, %.lr.ph ], [ %.pre.i74135, %268 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %268 ]
-  %.032119 = phi i32 [ 0, %.lr.ph ], [ %.1, %268 ]
-  %229 = load ptr, ptr %222, align 8, !tbaa !112
-  %230 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %229, i64 %indvars.iv
-  %.sroa.016.0.copyload = load i32, ptr %230, align 4, !tbaa !55
-  %231 = ashr i32 %.sroa.016.0.copyload, 1
-  %232 = load i32, ptr %223, align 8, !tbaa !105
-  %233 = load ptr, ptr %224, align 8, !tbaa !98
-  %234 = sext i32 %231 to i64
-  %235 = getelementptr inbounds i32, ptr %233, i64 %234
-  %236 = load i32, ptr %235, align 4, !tbaa !55
-  %237 = icmp eq i32 %232, %236
-  br i1 %237, label %238, label %268
+220:                                              ; preds = %.lr.ph, %258
+  %221 = phi i32 [ %214, %.lr.ph ], [ %259, %258 ]
+  %222 = phi ptr [ %209, %.lr.ph ], [ %.pre.i74135, %258 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %258 ]
+  %.032119 = phi i32 [ 0, %.lr.ph ], [ %.1, %258 ]
+  %223 = load ptr, ptr %216, align 8, !tbaa !112
+  %224 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %223, i64 %indvars.iv
+  %.sroa.016.0.copyload = load i32, ptr %224, align 4, !tbaa !55
+  %225 = ashr i32 %.sroa.016.0.copyload, 1
+  %226 = load i32, ptr %217, align 8, !tbaa !105
+  %227 = load ptr, ptr %218, align 8, !tbaa !98
+  %228 = sext i32 %225 to i64
+  %229 = getelementptr inbounds i32, ptr %227, i64 %228
+  %230 = load i32, ptr %229, align 4, !tbaa !55
+  %231 = icmp eq i32 %226, %230
+  br i1 %231, label %232, label %258
 
-238:                                              ; preds = %226
-  %239 = load ptr, ptr %225, align 8, !tbaa !123
-  %240 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %239, i64 %234
-  %.sroa.01.0.copyload.i72 = load i32, ptr %240, align 4, !tbaa !55
+232:                                              ; preds = %220
+  %233 = load ptr, ptr %219, align 8, !tbaa !123
+  %234 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %233, i64 %228
+  %.sroa.01.0.copyload.i72 = load i32, ptr %234, align 4, !tbaa !55
   %.not.i = icmp eq i32 %.sroa.01.0.copyload.i72, -1
   br i1 %.not.i, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit
 
-_ZNK6Gluco26Solver10isTwoFaninEi.exit:            ; preds = %238
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
-  %.sroa.0.0.copyload.i = load i32, ptr %241, align 4, !tbaa !55
+_ZNK6Gluco26Solver10isTwoFaninEi.exit:            ; preds = %232
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
+  %.sroa.0.0.copyload.i = load i32, ptr %235, align 4, !tbaa !55
   %.not114 = icmp eq i32 %.sroa.0.0.copyload.i, -1
-  br i1 %.not114, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread, label %268
+  br i1 %.not114, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread, label %258
 
-_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread:     ; preds = %238, %_ZNK6Gluco26Solver10isTwoFaninEi.exit
-  %242 = load i32, ptr %202, align 8, !tbaa !113
-  %243 = load i32, ptr %203, align 4, !tbaa !114
-  %244 = icmp eq i32 %242, %243
-  br i1 %244, label %245, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75
+_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread:     ; preds = %232, %_ZNK6Gluco26Solver10isTwoFaninEi.exit
+  %236 = load i32, ptr %199, align 8, !tbaa !113
+  %237 = load i32, ptr %200, align 4, !tbaa !114
+  %238 = icmp eq i32 %236, %237
+  br i1 %238, label %239, label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75
 
-245:                                              ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread
-  %246 = ashr i32 %242, 1
-  %247 = and i32 %246, -2
-  %248 = call i32 @llvm.smax.i32(i32 %247, i32 0)
-  %249 = add nuw nsw i32 %248, 2
-  %250 = sub nsw i32 2147483647, %242
-  %251 = icmp samesign ugt i32 %249, %250
-  br i1 %251, label %.loopexit115, label %252
+239:                                              ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread
+  %240 = ashr i32 %236, 1
+  %241 = and i32 %240, -2
+  %242 = call i32 @llvm.smax.i32(i32 %241, i32 0)
+  %243 = add nuw nsw i32 %242, 2
+  %244 = sub nsw i32 2147483647, %236
+  %245 = icmp samesign ugt i32 %243, %244
+  br i1 %245, label %.loopexit115, label %246
 
-252:                                              ; preds = %245
-  %253 = add nsw i32 %249, %242
-  store i32 %253, ptr %203, align 4, !tbaa !114
-  %254 = sext i32 %253 to i64
-  %255 = shl nsw i64 %254, 2
-  %256 = call ptr @realloc(ptr noundef %228, i64 noundef %255) #35
-  store ptr %256, ptr %201, align 8, !tbaa !112
-  %257 = icmp eq ptr %256, null
-  br i1 %257, label %258, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge
+246:                                              ; preds = %239
+  %247 = add nsw i32 %243, %236
+  store i32 %247, ptr %200, align 4, !tbaa !114
+  %248 = sext i32 %247 to i64
+  %249 = shl nsw i64 %248, 2
+  %250 = call ptr @realloc(ptr noundef %222, i64 noundef %249) #34
+  store ptr %250, ptr %198, align 8, !tbaa !112
+  %251 = icmp eq ptr %250, null
+  br i1 %251, label %.loopexit115, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge: ; preds = %252
-  %.pre137 = load i32, ptr %202, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge: ; preds = %246
+  %.pre137 = load i32, ptr %199, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75
 
-258:                                              ; preds = %252
-  %259 = tail call ptr @__errno_location() #31
-  %260 = load i32, ptr %259, align 4, !tbaa !55
-  %261 = icmp eq i32 %260, 12
-  call void @llvm.assume(i1 %261)
-  br label %.loopexit115
-
-.loopexit115:                                     ; preds = %245, %258
+.loopexit115:                                     ; preds = %239, %246
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75:       ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge
-  %262 = phi i32 [ %.pre137, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge ], [ %242, %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread ]
-  %.pre.i74136 = phi ptr [ %256, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge ], [ %228, %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread ]
-  %263 = add nsw i32 %262, 1
-  store i32 %263, ptr %202, align 8, !tbaa !113
-  %264 = sext i32 %262 to i64
-  %265 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre.i74136, i64 %264
-  %266 = load i32, ptr %230, align 4, !tbaa !55
-  store i32 %266, ptr %265, align 4, !tbaa !55
-  %267 = add nsw i32 %.032119, 1
-  %.pre138 = load i32, ptr %219, align 8, !tbaa !113
-  br label %268
+  %252 = phi i32 [ %.pre137, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge ], [ %236, %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread ]
+  %.pre.i74136 = phi ptr [ %250, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75_crit_edge ], [ %222, %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread ]
+  %253 = add nsw i32 %252, 1
+  store i32 %253, ptr %199, align 8, !tbaa !113
+  %254 = sext i32 %252 to i64
+  %255 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.pre.i74136, i64 %254
+  %256 = load i32, ptr %224, align 4, !tbaa !55
+  store i32 %256, ptr %255, align 4, !tbaa !55
+  %257 = add nsw i32 %.032119, 1
+  %.pre138 = load i32, ptr %213, align 8, !tbaa !113
+  br label %258
 
-268:                                              ; preds = %226, %_ZNK6Gluco26Solver10isTwoFaninEi.exit, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75
-  %269 = phi i32 [ %227, %_ZNK6Gluco26Solver10isTwoFaninEi.exit ], [ %.pre138, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75 ], [ %227, %226 ]
-  %.pre.i74135 = phi ptr [ %228, %_ZNK6Gluco26Solver10isTwoFaninEi.exit ], [ %.pre.i74136, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75 ], [ %228, %226 ]
-  %.1 = phi i32 [ %.032119, %_ZNK6Gluco26Solver10isTwoFaninEi.exit ], [ %267, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75 ], [ %.032119, %226 ]
+258:                                              ; preds = %220, %_ZNK6Gluco26Solver10isTwoFaninEi.exit, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75
+  %259 = phi i32 [ %221, %_ZNK6Gluco26Solver10isTwoFaninEi.exit ], [ %.pre138, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75 ], [ %221, %220 ]
+  %.pre.i74135 = phi ptr [ %222, %_ZNK6Gluco26Solver10isTwoFaninEi.exit ], [ %.pre.i74136, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75 ], [ %222, %220 ]
+  %.1 = phi i32 [ %.032119, %_ZNK6Gluco26Solver10isTwoFaninEi.exit ], [ %257, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit75 ], [ %.032119, %220 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %270 = sext i32 %269 to i64
-  %271 = icmp slt i64 %indvars.iv.next, %270
-  br i1 %271, label %226, label %._crit_edge, !llvm.loop !287
+  %260 = sext i32 %259 to i64
+  %261 = icmp slt i64 %indvars.iv.next, %260
+  br i1 %261, label %220, label %._crit_edge, !llvm.loop !287
 
-._crit_edge:                                      ; preds = %268, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
-  %272 = phi ptr [ %215, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.pre.i74135, %268 ]
-  %.032.lcssa = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.1, %268 ]
-  store i32 %.032.lcssa, ptr %272, align 4, !tbaa !55
+._crit_edge:                                      ; preds = %258, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
+  %262 = phi ptr [ %209, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.pre.i74135, %258 ]
+  %.032.lcssa = phi i32 [ 0, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ], [ %.1, %258 ]
+  store i32 %.032.lcssa, ptr %262, align 4, !tbaa !55
   br label %_ZN6Gluco26Solver8loadJustEv.exit
 
-273:                                              ; preds = %141
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 0, ptr %275, align 8, !tbaa !133
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %277 = load i32, ptr %276, align 8, !tbaa !130
-  %.not.i76 = icmp sgt i32 %277, 0
-  br i1 %.not.i76, label %278, label %_ZN6Gluco23vecINS_5lboolEE6growToEi.exit
+263:                                              ; preds = %141
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 0, ptr %265, align 8, !tbaa !133
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %267 = load i32, ptr %266, align 8, !tbaa !130
+  %.not.i76 = icmp sgt i32 %267, 0
+  br i1 %.not.i76, label %268, label %_ZN6Gluco23vecINS_5lboolEE6growToEi.exit
 
-278:                                              ; preds = %273
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %280 = load i32, ptr %279, align 4, !tbaa !134
-  %.not.i.i = icmp slt i32 %280, %277
-  br i1 %.not.i.i, label %281, label %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
+268:                                              ; preds = %263
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %270 = load i32, ptr %269, align 4, !tbaa !134
+  %.not.i.i = icmp slt i32 %270, %267
+  br i1 %.not.i.i, label %271, label %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
 
-281:                                              ; preds = %278
-  %282 = add nuw i32 %277, 1
-  %283 = sub i32 %282, %280
-  %284 = and i32 %283, -2
-  %285 = ashr i32 %280, 1
-  %286 = and i32 %285, -2
-  %287 = add nsw i32 %286, 2
-  %288 = call noundef i32 @llvm.smax.i32(i32 %287, i32 %284)
-  %289 = sub nsw i32 2147483647, %280
-  %290 = icmp samesign ugt i32 %288, %289
-  br i1 %290, label %301, label %291
+271:                                              ; preds = %268
+  %272 = add nuw i32 %267, 1
+  %273 = sub i32 %272, %270
+  %274 = and i32 %273, -2
+  %275 = ashr i32 %270, 1
+  %276 = and i32 %275, -2
+  %277 = add nsw i32 %276, 2
+  %278 = call noundef i32 @llvm.smax.i32(i32 %277, i32 %274)
+  %279 = sub nsw i32 2147483647, %270
+  %280 = icmp samesign ugt i32 %278, %279
+  br i1 %280, label %291, label %281
 
-291:                                              ; preds = %281
-  %292 = load ptr, ptr %274, align 8, !tbaa !132
-  %293 = add nsw i32 %288, %280
-  store i32 %293, ptr %279, align 4, !tbaa !134
-  %294 = sext i32 %293 to i64
-  %295 = call ptr @realloc(ptr noundef %292, i64 noundef %294) #35
-  store ptr %295, ptr %274, align 8, !tbaa !132
-  %296 = icmp eq ptr %295, null
-  br i1 %296, label %297, label %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
+281:                                              ; preds = %271
+  %282 = load ptr, ptr %264, align 8, !tbaa !132
+  %283 = add nsw i32 %278, %270
+  store i32 %283, ptr %269, align 4, !tbaa !134
+  %284 = sext i32 %283 to i64
+  %285 = call ptr @realloc(ptr noundef %282, i64 noundef %284) #34
+  store ptr %285, ptr %264, align 8, !tbaa !132
+  %286 = icmp eq ptr %285, null
+  br i1 %286, label %287, label %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
 
-297:                                              ; preds = %291
-  %298 = tail call ptr @__errno_location() #31
-  %299 = load i32, ptr %298, align 4, !tbaa !55
-  %300 = icmp eq i32 %299, 12
-  br i1 %300, label %301, label %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
+287:                                              ; preds = %281
+  %288 = tail call ptr @__errno_location() #30
+  %289 = load i32, ptr %288, align 4, !tbaa !55
+  %290 = icmp eq i32 %289, 12
+  br i1 %290, label %291, label %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
 
-301:                                              ; preds = %297, %281
+291:                                              ; preds = %287, %271
   call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i:     ; preds = %297, %291, %278
-  %302 = load i32, ptr %275, align 8, !tbaa !133
-  %303 = icmp slt i32 %302, %277
-  br i1 %303, label %.lr.ph.i78, label %._crit_edge.i77
+_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i:     ; preds = %287, %281, %268
+  %292 = load i32, ptr %265, align 8, !tbaa !133
+  %293 = icmp slt i32 %292, %267
+  br i1 %293, label %.lr.ph.i78, label %._crit_edge.i77
 
 .lr.ph.i78:                                       ; preds = %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
-  %304 = load ptr, ptr %274, align 8, !tbaa !132
-  %305 = sext i32 %302 to i64
-  %scevgep.i = getelementptr i8, ptr %304, i64 %305
-  %306 = xor i32 %302, -1
-  %307 = add i32 %277, %306
-  %308 = zext i32 %307 to i64
-  %309 = add nuw nsw i64 %308, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %309, i1 false), !tbaa !150
+  %294 = load ptr, ptr %264, align 8, !tbaa !132
+  %295 = sext i32 %292 to i64
+  %scevgep.i = getelementptr i8, ptr %294, i64 %295
+  %296 = xor i32 %292, -1
+  %297 = add i32 %267, %296
+  %298 = zext i32 %297 to i64
+  %299 = add nuw nsw i64 %298, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 0, i64 %299, i1 false), !tbaa !150
   br label %._crit_edge.i77
 
 ._crit_edge.i77:                                  ; preds = %.lr.ph.i78, %_ZN6Gluco23vecINS_5lboolEE8capacityEi.exit.i
-  store i32 %277, ptr %275, align 8, !tbaa !133
+  store i32 %267, ptr %265, align 8, !tbaa !133
   br label %_ZN6Gluco23vecINS_5lboolEE6growToEi.exit
 
-_ZN6Gluco23vecINS_5lboolEE6growToEi.exit:         ; preds = %273, %._crit_edge.i77
-  %310 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %311 = load i32, ptr %310, align 8, !tbaa !113
-  %312 = icmp sgt i32 %311, 0
-  br i1 %312, label %.lr.ph122, label %_ZN6Gluco26Solver8loadJustEv.exit
+_ZN6Gluco23vecINS_5lboolEE6growToEi.exit:         ; preds = %263, %._crit_edge.i77
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %301 = load i32, ptr %300, align 8, !tbaa !113
+  %302 = icmp sgt i32 %301, 0
+  br i1 %302, label %.lr.ph122, label %_ZN6Gluco26Solver8loadJustEv.exit
 
 .lr.ph122:                                        ; preds = %_ZN6Gluco23vecINS_5lboolEE6growToEi.exit
-  %313 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %314 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  br label %315
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  br label %305
 
-315:                                              ; preds = %.lr.ph122, %315
-  %indvars.iv128 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next129, %315 ]
-  %316 = load ptr, ptr %313, align 8, !tbaa !112
-  %317 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %316, i64 %indvars.iv128
-  %.sroa.08.0.copyload = load i32, ptr %317, align 4, !tbaa !55
-  %318 = ashr i32 %.sroa.08.0.copyload, 1
-  %319 = load ptr, ptr %314, align 8, !tbaa !132
-  %320 = sext i32 %318 to i64
-  %321 = getelementptr inbounds %"class.Gluco2::lbool", ptr %319, i64 %320
-  %.sroa.0.0.copyload.i79 = load i8, ptr %321, align 1, !tbaa !109
-  %322 = load ptr, ptr %274, align 8, !tbaa !132
-  %323 = getelementptr inbounds %"class.Gluco2::lbool", ptr %322, i64 %320
-  store i8 %.sroa.0.0.copyload.i79, ptr %323, align 1, !tbaa !109
+305:                                              ; preds = %.lr.ph122, %305
+  %indvars.iv128 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next129, %305 ]
+  %306 = load ptr, ptr %303, align 8, !tbaa !112
+  %307 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %306, i64 %indvars.iv128
+  %.sroa.08.0.copyload = load i32, ptr %307, align 4, !tbaa !55
+  %308 = ashr i32 %.sroa.08.0.copyload, 1
+  %309 = load ptr, ptr %304, align 8, !tbaa !132
+  %310 = sext i32 %308 to i64
+  %311 = getelementptr inbounds %"class.Gluco2::lbool", ptr %309, i64 %310
+  %.sroa.0.0.copyload.i79 = load i8, ptr %311, align 1, !tbaa !109
+  %312 = load ptr, ptr %264, align 8, !tbaa !132
+  %313 = getelementptr inbounds %"class.Gluco2::lbool", ptr %312, i64 %310
+  store i8 %.sroa.0.0.copyload.i79, ptr %313, align 1, !tbaa !109
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
-  %324 = load i32, ptr %310, align 8, !tbaa !113
-  %325 = sext i32 %324 to i64
-  %326 = icmp slt i64 %indvars.iv.next129, %325
-  br i1 %326, label %315, label %_ZN6Gluco26Solver8loadJustEv.exit, !llvm.loop !288
+  %314 = load i32, ptr %300, align 8, !tbaa !113
+  %315 = sext i32 %314 to i64
+  %316 = icmp slt i64 %indvars.iv.next129, %315
+  br i1 %316, label %305, label %_ZN6Gluco26Solver8loadJustEv.exit, !llvm.loop !288
 
-327:                                              ; preds = %139
-  %328 = icmp eq i8 %.lcssa, 1
-  %329 = load i32, ptr %29, align 8
-  %330 = icmp eq i32 %329, 0
-  %or.cond109 = select i1 %328, i1 %330, i1 false
-  br i1 %or.cond109, label %331, label %_ZN6Gluco26Solver8loadJustEv.exit
+317:                                              ; preds = %139
+  %318 = icmp eq i8 %.lcssa, 1
+  %319 = load i32, ptr %29, align 8
+  %320 = icmp eq i32 %319, 0
+  %or.cond109 = select i1 %318, i1 %320, i1 false
+  br i1 %or.cond109, label %321, label %_ZN6Gluco26Solver8loadJustEv.exit
 
-331:                                              ; preds = %327
+321:                                              ; preds = %317
   store i8 0, ptr %30, align 4, !tbaa !79
   br label %_ZN6Gluco26Solver8loadJustEv.exit
 
-_ZN6Gluco26Solver8loadJustEv.exit:                ; preds = %192, %315, %_ZN6Gluco23vecINS_5lboolEE6growToEi.exit, %._crit_edge.i, %327, %331, %._crit_edge
+_ZN6Gluco26Solver8loadJustEv.exit:                ; preds = %189, %305, %_ZN6Gluco23vecINS_5lboolEE6growToEi.exit, %._crit_edge.i, %317, %321, %._crit_edge
   call void @_ZN6Gluco26Solver11cancelUntilEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef 0)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %332 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %2) #33
-  %333 = load i64, ptr %2, align 8, !tbaa !275
-  %334 = sitofp i64 %333 to double
-  %335 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %336 = load i64, ptr %335, align 8, !tbaa !278
-  %337 = sitofp i64 %336 to double
-  %338 = fdiv double %337, 1.000000e+06
-  %339 = fadd double %338, %334
+  %322 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %2) #32
+  %323 = load i64, ptr %2, align 8, !tbaa !275
+  %324 = sitofp i64 %323 to double
+  %325 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %326 = load i64, ptr %325, align 8, !tbaa !278
+  %327 = sitofp i64 %326 to double
+  %328 = fdiv double %327, 1.000000e+06
+  %329 = fadd double %328, %324
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %140, label %.thread102, label %340
+  br i1 %140, label %.thread102, label %330
 
-340:                                              ; preds = %_ZN6Gluco26Solver8loadJustEv.exit
-  %341 = icmp ne i8 %.lcssa, 1
-  br i1 %341, label %350, label %342
+330:                                              ; preds = %_ZN6Gluco26Solver8loadJustEv.exit
+  %331 = icmp ne i8 %.lcssa, 1
+  br i1 %331, label %340, label %332
 
-342:                                              ; preds = %340
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 1180
-  %344 = load i32, ptr %343, align 4, !tbaa !272
-  %345 = add nsw i32 %344, 1
-  store i32 %345, ptr %343, align 4, !tbaa !272
-  %346 = fsub double %339, %41
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  %348 = load double, ptr %347, align 8, !tbaa !273
-  %349 = fadd double %346, %348
-  store double %349, ptr %347, align 8, !tbaa !273
-  br label %350
+332:                                              ; preds = %330
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 1180
+  %334 = load i32, ptr %333, align 4, !tbaa !272
+  %335 = add nsw i32 %334, 1
+  store i32 %335, ptr %333, align 4, !tbaa !272
+  %336 = fsub double %329, %41
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  %338 = load double, ptr %337, align 8, !tbaa !273
+  %339 = fadd double %336, %338
+  store double %339, ptr %337, align 8, !tbaa !273
+  br label %340
 
-350:                                              ; preds = %342, %340
-  %351 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %352 = load ptr, ptr %351, align 8, !tbaa !47
-  %.not53 = icmp eq ptr %352, null
-  %353 = load i8, ptr %83, align 4, !range !72
-  %354 = trunc nuw i8 %353 to i1
-  %or.cond70 = select i1 %.not53, i1 true, i1 %354
-  br i1 %or.cond70, label %389, label %366
+340:                                              ; preds = %332, %330
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %342 = load ptr, ptr %341, align 8, !tbaa !47
+  %.not53 = icmp eq ptr %342, null
+  %343 = load i8, ptr %83, align 4, !range !72
+  %344 = trunc nuw i8 %343 to i1
+  %or.cond70 = select i1 %.not53, i1 true, i1 %344
+  br i1 %or.cond70, label %379, label %356
 
 .thread102:                                       ; preds = %_ZN6Gluco26Solver8loadJustEv.exit
-  %355 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %356 = load i32, ptr %355, align 8, !tbaa !270
-  %357 = add nsw i32 %356, 1
-  store i32 %357, ptr %355, align 8, !tbaa !270
-  %358 = fsub double %339, %41
-  %359 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %360 = load double, ptr %359, align 8, !tbaa !271
-  %361 = fadd double %358, %360
-  store double %361, ptr %359, align 8, !tbaa !271
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %363 = load ptr, ptr %362, align 8, !tbaa !47
-  %.not53103 = icmp eq ptr %363, null
-  %364 = load i8, ptr %83, align 4, !range !72
-  %365 = trunc nuw i8 %364 to i1
-  %or.cond70104 = select i1 %.not53103, i1 true, i1 %365
-  br i1 %or.cond70104, label %389, label %.thread106
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 1176
+  %346 = load i32, ptr %345, align 8, !tbaa !270
+  %347 = add nsw i32 %346, 1
+  store i32 %347, ptr %345, align 8, !tbaa !270
+  %348 = fsub double %329, %41
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %350 = load double, ptr %349, align 8, !tbaa !271
+  %351 = fadd double %348, %350
+  store double %351, ptr %349, align 8, !tbaa !271
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %353 = load ptr, ptr %352, align 8, !tbaa !47
+  %.not53103 = icmp eq ptr %353, null
+  %354 = load i8, ptr %83, align 4, !range !72
+  %355 = trunc nuw i8 %354 to i1
+  %or.cond70104 = select i1 %.not53103, i1 true, i1 %355
+  br i1 %or.cond70104, label %379, label %.thread106
 
-366:                                              ; preds = %350
-  %367 = sext i1 %341 to i32
+356:                                              ; preds = %340
+  %357 = sext i1 %331 to i32
   br label %.loopexit
 
 .thread106:                                       ; preds = %.thread102
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %369 = load i32, ptr %368, align 8, !tbaa !130
-  %370 = sext i32 %369 to i64
-  %371 = icmp slt i32 %369, 0
-  %372 = shl nsw i64 %370, 2
-  %373 = select i1 %371, i64 -1, i64 %372
-  %374 = call noalias noundef nonnull ptr @_Znam(i64 noundef %373) #37
-  %375 = icmp sgt i32 %369, 0
-  br i1 %375, label %.lr.ph124, label %.loopexit
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %359 = load i32, ptr %358, align 8, !tbaa !130
+  %360 = sext i32 %359 to i64
+  %361 = icmp slt i32 %359, 0
+  %362 = shl nsw i64 %360, 2
+  %363 = select i1 %361, i64 -1, i64 %362
+  %364 = call noalias noundef nonnull ptr @_Znam(i64 noundef %363) #36
+  %365 = icmp sgt i32 %359, 0
+  br i1 %365, label %.lr.ph124, label %.loopexit
 
 .lr.ph124:                                        ; preds = %.thread106
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %377 = load ptr, ptr %376, align 8, !tbaa !132
-  %wide.trip.count = zext nneg i32 %369 to i64
-  br label %378
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %367 = load ptr, ptr %366, align 8, !tbaa !132
+  %wide.trip.count = zext nneg i32 %359 to i64
+  br label %368
 
-378:                                              ; preds = %.lr.ph124, %378
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %378 ]
-  %379 = getelementptr inbounds nuw %"class.Gluco2::lbool", ptr %377, i64 %indvars.iv131
-  %380 = load i8, ptr %379, align 1, !tbaa !150
-  %381 = icmp eq i8 %380, 0
-  %382 = zext i1 %381 to i32
-  %383 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv131
-  store i32 %382, ptr %383, align 4, !tbaa !55
+368:                                              ; preds = %.lr.ph124, %368
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %368 ]
+  %369 = getelementptr inbounds nuw %"class.Gluco2::lbool", ptr %367, i64 %indvars.iv131
+  %370 = load i8, ptr %369, align 1, !tbaa !150
+  %371 = icmp eq i8 %370, 0
+  %372 = zext i1 %371 to i32
+  %373 = getelementptr inbounds nuw i32, ptr %364, i64 %indvars.iv131
+  store i32 %372, ptr %373, align 4, !tbaa !55
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %378, !llvm.loop !289
+  br i1 %exitcond.not, label %.loopexit, label %368, !llvm.loop !289
 
-.loopexit:                                        ; preds = %378, %.thread106, %366
-  %384 = phi i32 [ %367, %366 ], [ 1, %.thread106 ], [ 1, %378 ]
-  %385 = phi ptr [ %352, %366 ], [ %363, %.thread106 ], [ %363, %378 ]
-  %.031 = phi ptr [ null, %366 ], [ %374, %.thread106 ], [ %374, %378 ]
-  %386 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %387 = load ptr, ptr %386, align 8, !tbaa !290
-  %388 = call noundef i32 %385(ptr noundef %387, i32 noundef %384, ptr noundef %.031) #33
-  br label %391
+.loopexit:                                        ; preds = %368, %.thread106, %356
+  %374 = phi i32 [ %357, %356 ], [ 1, %.thread106 ], [ 1, %368 ]
+  %375 = phi ptr [ %342, %356 ], [ %353, %.thread106 ], [ %353, %368 ]
+  %.031 = phi ptr [ null, %356 ], [ %364, %.thread106 ], [ %364, %368 ]
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %377 = load ptr, ptr %376, align 8, !tbaa !290
+  %378 = call noundef i32 %375(ptr noundef %377, i32 noundef %374, ptr noundef %.031) #32
+  br label %381
 
-389:                                              ; preds = %.thread102, %350
-  %.not53105 = phi i1 [ %.not53103, %.thread102 ], [ %.not53, %350 ]
-  br i1 %.not53105, label %391, label %390
+379:                                              ; preds = %.thread102, %340
+  %.not53105 = phi i1 [ %.not53103, %.thread102 ], [ %.not53, %340 ]
+  br i1 %.not53105, label %381, label %380
 
-390:                                              ; preds = %389
+380:                                              ; preds = %379
   store i8 0, ptr %83, align 4, !tbaa !49
-  br label %391
+  br label %381
 
-391:                                              ; preds = %.loopexit, %390, %389, %28
-  %.sroa.090.0 = phi i8 [ 1, %28 ], [ %.lcssa, %389 ], [ %.lcssa, %390 ], [ %.lcssa, %.loopexit ]
-  %392 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %393 = load i32, ptr %392, align 8, !tbaa !105
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 1292
-  store i32 %393, ptr %394, align 4, !tbaa !106
+381:                                              ; preds = %.loopexit, %380, %379, %28
+  %.sroa.090.0 = phi i8 [ 1, %28 ], [ %.lcssa, %379 ], [ %.lcssa, %380 ], [ %.lcssa, %.loopexit ]
+  %382 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %383 = load i32, ptr %382, align 8, !tbaa !105
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 1292
+  store i32 %383, ptr %384, align 4, !tbaa !106
   ret i8 %.sroa.090.0
 }
 
@@ -11857,7 +11575,7 @@ define void @_ZN6Gluco26Solver8toDimacsEP8_IO_FILERNS_6ClauseERNS_3vecIiEERi(ptr
   %60 = select i1 %.not19, ptr @.str.100, ptr @.str.99
   %61 = tail call fastcc noundef i32 @_ZL6mapVariRN6Gluco23vecIiEERi(i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %62 = add nsw i32 %61, 1
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, ptr noundef nonnull %60, i32 noundef %62) #33
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.98, ptr noundef nonnull %60, i32 noundef %62) #32
   %.pre22 = load i64, ptr %2, align 4
   br label %64
 
@@ -11912,13 +11630,13 @@ define internal fastcc noundef i32 @_ZL6mapVariRN6Gluco23vecIiEERi(i32 noundef %
   store i32 %28, ptr %14, align 4, !tbaa !117
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 2
-  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #35
+  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #34
   store ptr %31, ptr %1, align 8, !tbaa !115
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %_ZN6Gluco23vecIiE8capacityEi.exit.i
 
 33:                                               ; preds = %26
-  %34 = tail call ptr @__errno_location() #31
+  %34 = tail call ptr @__errno_location() #30
   %35 = load i32, ptr %34, align 4, !tbaa !55
   %36 = icmp eq i32 %35, 12
   br i1 %36, label %37, label %_ZN6Gluco23vecIiE8capacityEi.exit.i
@@ -11970,8 +11688,8 @@ define void @_ZN6Gluco26Solver8toDimacsEPKcRKNS_3vecINS_3LitEEE(ptr noundef nonn
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @stderr, align 8, !tbaa !292
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.101, ptr noundef %1) #38
-  tail call void @exit(i32 noundef 1) #36
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.101, ptr noundef %1) #37
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 9:                                                ; preds = %3
@@ -12242,12 +11960,12 @@ _ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE.exit46.thread68: ; preds = %_ZNK6Gluc
   store i32 %144, ptr %46, align 4, !tbaa !117
   %145 = sext i32 %144 to i64
   %146 = shl nsw i64 %145, 2
-  %147 = tail call ptr @realloc(ptr noundef %113, i64 noundef %146) #35
+  %147 = tail call ptr @realloc(ptr noundef %113, i64 noundef %146) #34
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %._crit_edge.i.i
 
 149:                                              ; preds = %143
-  %150 = tail call ptr @__errno_location() #31
+  %150 = tail call ptr @__errno_location() #30
   %151 = load i32, ptr %150, align 4, !tbaa !55
   %152 = icmp eq i32 %151, 12
   br i1 %152, label %153, label %._crit_edge.i.i
@@ -12315,7 +12033,7 @@ _ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE.exit46.thread: ; preds = %94, %_ZNK6G
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %173 = load i32, ptr %172, align 8, !tbaa !113
   %174 = add nsw i32 %173, %.032.lcssa165
-  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.103, i32 noundef %170, i32 noundef %174) #33
+  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.103, i32 noundef %170, i32 noundef %174) #32
   %176 = load i32, ptr %172, align 8, !tbaa !113
   %177 = icmp sgt i32 %176, 0
   br i1 %177, label %.lr.ph95, label %.preheader
@@ -12387,12 +12105,12 @@ _ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE.exit46.thread: ; preds = %94, %_ZNK6G
   store i32 %211, ptr %179, align 4, !tbaa !117
   %212 = sext i32 %211 to i64
   %213 = shl nsw i64 %212, 2
-  %214 = tail call ptr @realloc(ptr noundef %184, i64 noundef %213) #35
+  %214 = tail call ptr @realloc(ptr noundef %184, i64 noundef %213) #34
   %215 = icmp eq ptr %214, null
   br i1 %215, label %216, label %._crit_edge.i.i56
 
 216:                                              ; preds = %210
-  %217 = tail call ptr @__errno_location() #31
+  %217 = tail call ptr @__errno_location() #30
   %218 = load i32, ptr %217, align 4, !tbaa !55
   %219 = icmp eq i32 %218, 12
   br i1 %219, label %220, label %._crit_edge.i.i56
@@ -12426,7 +12144,7 @@ _ZL6mapVariRN6Gluco23vecIiEERi.exit58:            ; preds = %._ZL6mapVariRN6Gluc
   %.pre-phi147 = phi i32 [ %.pre146, %._ZL6mapVariRN6Gluco23vecIiEERi.exit58_crit_edge ], [ %227, %_ZN6Gluco23vecIiE6growToEiRKi.exit.i57 ]
   %229 = phi i32 [ %185, %._ZL6mapVariRN6Gluco23vecIiEERi.exit58_crit_edge ], [ %227, %_ZN6Gluco23vecIiE6growToEiRKi.exit.i57 ]
   %230 = phi ptr [ %184, %._ZL6mapVariRN6Gluco23vecIiEERi.exit58_crit_edge ], [ %226, %_ZN6Gluco23vecIiE6growToEiRKi.exit.i57 ]
-  %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.104, ptr noundef nonnull %189, i32 noundef %.pre-phi147) #33
+  %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.104, ptr noundef nonnull %189, i32 noundef %.pre-phi147) #32
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %232 = load i32, ptr %172, align 8, !tbaa !113
   %233 = sext i32 %232 to i64
@@ -12466,7 +12184,7 @@ _ZL6mapVariRN6Gluco23vecIiEERi.exit58:            ; preds = %._ZL6mapVariRN6Gluc
   br i1 %.not.i.i, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %251
-  tail call void @free(ptr noundef nonnull %252) #33
+  tail call void @free(ptr noundef nonnull %252) #32
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %251, %.preheader.i.i
@@ -13154,7 +12872,7 @@ define void @_ZN6Gluco26Solver14garbageCollectEv(ptr noundef nonnull align 8 der
   br i1 %22, label %23, label %_ZN6Gluco2L8xreallocEPvm.exit.i.i.i
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @__errno_location() #31
+  %24 = tail call ptr @__errno_location() #30
   %25 = load i32, ptr %24, align 4, !tbaa !55
   %26 = icmp eq i32 %25, 12
   br i1 %26, label %27, label %_ZN6Gluco2L8xreallocEPvm.exit.i.i.i
@@ -13194,7 +12912,7 @@ _ZN6Gluco215ClauseAllocatorC2Ej.exit:             ; preds = %1, %_ZN6Gluco2L8xre
   br i1 %.not.i.i, label %_ZN6Gluco215RegionAllocatorIjED2Ev.exit, label %43
 
 43:                                               ; preds = %39
-  call void @free(ptr noundef nonnull %42) #33
+  call void @free(ptr noundef nonnull %42) #32
   br label %_ZN6Gluco215RegionAllocatorIjED2Ev.exit
 
 _ZN6Gluco215RegionAllocatorIjED2Ev.exit:          ; preds = %43, %39
@@ -13260,7 +12978,7 @@ define void @_ZN6Gluco26Solver5resetEv(ptr noundef nonnull align 8 dereferenceab
 .preheader.i.i.i11.i:                             ; preds = %.lr.ph.i9.i
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 0, ptr %26, align 8, !tbaa !141
-  tail call void @free(ptr noundef nonnull %25) #33
+  tail call void @free(ptr noundef nonnull %25) #32
   store ptr null, ptr %24, align 8, !tbaa !138
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 0, ptr %27, align 4, !tbaa !142
@@ -13297,7 +13015,7 @@ _ZN6Gluco28OccListsINS_3LitENS_3vecINS_6Solver7WatcherEEENS3_14WatcherDeletedEE5
 .preheader.i.i.i11.i4:                            ; preds = %.lr.ph.i9.i1
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 0, ptr %41, align 8, !tbaa !141
-  tail call void @free(ptr noundef nonnull %40) #33
+  tail call void @free(ptr noundef nonnull %40) #32
   store ptr null, ptr %39, align 8, !tbaa !138
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 0, ptr %42, align 4, !tbaa !142
@@ -13678,14 +13396,14 @@ define linkonce_odr void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull a
   br i1 %11, label %12, label %_ZN6Gluco26Option13getOptionListEv.exit, !prof !314
 
 12:                                               ; preds = %5
-  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6Gluco26Option13getOptionListEvE7options) #33
+  %13 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6Gluco26Option13getOptionListEvE7options) #32
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %_ZN6Gluco26Option13getOptionListEv.exit, label %14
 
 14:                                               ; preds = %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @_ZZN6Gluco26Option13getOptionListEvE7options, i8 0, i64 16, i1 false)
-  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6Gluco23vecIPNS_6OptionEED2Ev, ptr nonnull @_ZZN6Gluco26Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #33
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6Gluco26Option13getOptionListEvE7options) #33
+  %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN6Gluco23vecIPNS_6OptionEED2Ev, ptr nonnull @_ZZN6Gluco26Option13getOptionListEvE7options, ptr nonnull @__dso_handle) #32
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6Gluco26Option13getOptionListEvE7options) #32
   br label %_ZN6Gluco26Option13getOptionListEv.exit
 
 _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
@@ -13705,7 +13423,7 @@ _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
   %23 = add nuw nsw i32 %22, 2
   %24 = sub nsw i32 2147483647, %16
   %25 = icmp samesign ugt i32 %23, %24
-  br i1 %25, label %37, label %26
+  br i1 %25, label %33, label %26
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, align 8, !tbaa !319
@@ -13713,7 +13431,7 @@ _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
   store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 12), align 4, !tbaa !318
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #35
+  %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #34
   store ptr %31, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, align 8, !tbaa !319
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge
@@ -13722,31 +13440,24 @@ _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8, !tbaa !315
   br label %_ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit
 
-33:                                               ; preds = %26
-  %34 = tail call ptr @__errno_location() #31
-  %35 = load i32, ptr %34, align 4, !tbaa !55
-  %36 = icmp eq i32 %35, 12
-  tail call void @llvm.assume(i1 %36)
-  br label %37
-
-37:                                               ; preds = %33, %19
+33:                                               ; preds = %26, %19
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit:     ; preds = %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i
-  %38 = phi i32 [ %16, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
-  %39 = phi ptr [ %.pre.i, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %31, %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
-  %40 = add nsw i32 %38, 1
-  store i32 %40, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8, !tbaa !315
-  %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
-  store ptr %0, ptr %42, align 8, !tbaa !320
+  %34 = phi i32 [ %16, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
+  %35 = phi ptr [ %.pre.i, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %31, %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
+  %36 = add nsw i32 %34, 1
+  store i32 %36, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8, !tbaa !315
+  %37 = sext i32 %34 to i64
+  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  store ptr %0, ptr %38, align 8, !tbaa !320
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco210BoolOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #33
   ret void
 }
 
@@ -13784,7 +13495,7 @@ _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit13:            ; preds = %.lr.ph.i6, %._crit_
   %.114 = phi ptr [ %11, %._crit_edge.i12 ], [ %4, %.lr.ph.i6 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !309
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.114, ptr noundef nonnull dereferenceable(1) %13) #32
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.114, ptr noundef nonnull dereferenceable(1) %13) #31
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %.critedge
 
@@ -13804,9 +13515,9 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
   %3 = load ptr, ptr @stderr, align 8, !tbaa !292
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !309
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.111, ptr noundef %5, ptr noundef %5) #38
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.111, ptr noundef %5, ptr noundef %5) #37
   %7 = load ptr, ptr %4, align 8, !tbaa !309
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #32
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #31
   %.mask = and i64 %8, 9223372036854775807
   %.not = icmp eq i64 %.mask, 16
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -13819,7 +13530,7 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
   %12 = load i8, ptr %11, align 8, !tbaa !323, !range !72, !noundef !73
   %13 = trunc nuw i8 %12 to i1
   %14 = select i1 %13, ptr @.str.114, ptr @.str.115
-  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.113, ptr noundef nonnull %14) #38
+  %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.113, ptr noundef nonnull %14) #37
   br i1 %1, label %24, label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -13829,7 +13540,7 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
   %17 = add i32 %.05, 1
   %18 = zext i32 %17 to i64
   %19 = load ptr, ptr %4, align 8, !tbaa !309
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #32
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #31
   %21 = shl i64 %20, 1
   %22 = sub i64 32, %21
   %23 = icmp ugt i64 %22, %18
@@ -13839,7 +13550,7 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
   %25 = load ptr, ptr @stderr, align 8, !tbaa !292
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !311
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.116, ptr noundef %27) #38
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.116, ptr noundef %27) #37
   %29 = load ptr, ptr @stderr, align 8, !tbaa !292
   %fputc3 = tail call i32 @fputc(i32 10, ptr %29)
   br label %30
@@ -13850,7 +13561,7 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco26OptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @llvm.trap() #39
+  tail call void @llvm.trap() #38
   unreachable
 }
 
@@ -13868,7 +13579,7 @@ define linkonce_odr void @_ZN6Gluco23vecIPNS_6OptionEED2Ev(ptr noundef nonnull a
 .preheader.i:                                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8, !tbaa !315
-  tail call void @free(ptr noundef nonnull %2) #33
+  tail call void @free(ptr noundef nonnull %2) #32
   store ptr null, ptr %0, align 8, !tbaa !319
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4, !tbaa !318
@@ -13893,8 +13604,8 @@ declare ptr @__errno_location() local_unnamed_addr #18
 ; Function Attrs: cold inlinehint mustprogress nofree noreturn nounwind uwtable
 define internal fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv() unnamed_addr #19 {
   %1 = load ptr, ptr @stderr, align 8, !tbaa !292
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 14, i64 1, ptr %1) #40
-  tail call void @abort() #39
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.109, i64 14, i64 1, ptr %1) #39
+  tail call void @abort() #38
   unreachable
 }
 
@@ -13909,7 +13620,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco212DoubleOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 72) #33
   ret void
 }
 
@@ -13954,7 +13665,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #33
+  %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #32
   %20 = load ptr, ptr %2, align 8, !tbaa !102
   %21 = icmp ne ptr %20, null
   br i1 %21, label %22, label %50
@@ -13977,8 +13688,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
 32:                                               ; preds = %27
   %33 = load ptr, ptr @stderr, align 8, !tbaa !292
   %34 = load ptr, ptr %6, align 8, !tbaa !309
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.121, ptr noundef nonnull %18, ptr noundef %34) #38
-  tail call void @exit(i32 noundef 1) #36
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.121, ptr noundef nonnull %18, ptr noundef %34) #37
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 36:                                               ; preds = %27, %22
@@ -13997,8 +13708,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
 44:                                               ; preds = %39
   %45 = load ptr, ptr @stderr, align 8, !tbaa !292
   %46 = load ptr, ptr %6, align 8, !tbaa !309
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.122, ptr noundef nonnull %18, ptr noundef %46) #38
-  tail call void @exit(i32 noundef 1) #36
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.122, ptr noundef nonnull %18, ptr noundef %46) #37
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 48:                                               ; preds = %39, %36
@@ -14036,14 +13747,14 @@ define linkonce_odr void @_ZN6Gluco212DoubleOption4helpEb(ptr noundef nonnull al
   %19 = select i1 %18, i32 93, i32 41
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load double, ptr %20, align 8, !tbaa !332
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.123, ptr noundef %5, ptr noundef %7, i32 noundef %12, double noundef %13, double noundef %15, i32 noundef %19, double noundef %21) #38
+  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.123, ptr noundef %5, ptr noundef %7, i32 noundef %12, double noundef %13, double noundef %15, i32 noundef %19, double noundef %21) #37
   br i1 %1, label %23, label %29
 
 23:                                               ; preds = %2
   %24 = load ptr, ptr @stderr, align 8, !tbaa !292
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !311
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.116, ptr noundef %26) #38
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.116, ptr noundef %26) #37
   %28 = load ptr, ptr @stderr, align 8, !tbaa !292
   %fputc = tail call i32 @fputc(i32 10, ptr %28)
   br label %29
@@ -14057,7 +13768,7 @@ declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_u
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco29IntOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 56) #33
   ret void
 }
 
@@ -14102,7 +13813,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
 17:                                               ; preds = %.loopexit
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #33
+  %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #32
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %2, align 8, !tbaa !102
   %22 = icmp ne ptr %21, null
@@ -14117,8 +13828,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8, !tbaa !292
   %29 = load ptr, ptr %6, align 8, !tbaa !309
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.121, ptr noundef nonnull %18, ptr noundef %29) #38
-  tail call void @exit(i32 noundef 1) #36
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.121, ptr noundef nonnull %18, ptr noundef %29) #37
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 31:                                               ; preds = %23
@@ -14130,8 +13841,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
 35:                                               ; preds = %31
   %36 = load ptr, ptr @stderr, align 8, !tbaa !292
   %37 = load ptr, ptr %6, align 8, !tbaa !309
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.122, ptr noundef nonnull %18, ptr noundef %37) #38
-  tail call void @exit(i32 noundef 1) #36
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.122, ptr noundef nonnull %18, ptr noundef %37) #37
+  tail call void @exit(i32 noundef 1) #35
   unreachable
 
 39:                                               ; preds = %31
@@ -14155,7 +13866,7 @@ define linkonce_odr void @_ZN6Gluco29IntOption4helpEb(ptr noundef nonnull align 
   %5 = load ptr, ptr %4, align 8, !tbaa !309
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !313
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.125, ptr noundef %5, ptr noundef %7) #38
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.125, ptr noundef %5, ptr noundef %7) #37
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !336
   %11 = icmp eq i32 %10, -2147483648
@@ -14163,16 +13874,16 @@ define linkonce_odr void @_ZN6Gluco29IntOption4helpEb(ptr noundef nonnull align 
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 4, i64 1, ptr %12) #40
+  %14 = tail call i64 @fwrite(ptr nonnull @.str.126, i64 4, i64 1, ptr %12) #39
   br label %17
 
 15:                                               ; preds = %2
-  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.127, i32 noundef %10) #38
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.127, i32 noundef %10) #37
   br label %17
 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @stderr, align 8, !tbaa !292
-  %19 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 4, i64 1, ptr %18) #40
+  %19 = tail call i64 @fwrite(ptr nonnull @.str.128, i64 4, i64 1, ptr %18) #39
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !333
   %22 = icmp eq i32 %21, 2147483647
@@ -14180,25 +13891,25 @@ define linkonce_odr void @_ZN6Gluco29IntOption4helpEb(ptr noundef nonnull align 
   br i1 %22, label %24, label %26
 
 24:                                               ; preds = %17
-  %25 = tail call i64 @fwrite(ptr nonnull @.str.129, i64 4, i64 1, ptr %23) #40
+  %25 = tail call i64 @fwrite(ptr nonnull @.str.129, i64 4, i64 1, ptr %23) #39
   br label %28
 
 26:                                               ; preds = %17
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.127, i32 noundef %21) #38
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.127, i32 noundef %21) #37
   br label %28
 
 28:                                               ; preds = %26, %24
   %29 = load ptr, ptr @stderr, align 8, !tbaa !292
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !337
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.130, i32 noundef %31) #38
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.130, i32 noundef %31) #37
   br i1 %1, label %33, label %39
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr @stderr, align 8, !tbaa !292
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !311
-  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.116, ptr noundef %36) #38
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.116, ptr noundef %36) #37
   %38 = load ptr, ptr @stderr, align 8, !tbaa !292
   %fputc = tail call i32 @fputc(i32 10, ptr %38)
   br label %39
@@ -14212,7 +13923,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco212StringOptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #34
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 48) #33
   ret void
 }
 
@@ -14271,14 +13982,14 @@ define linkonce_odr void @_ZN6Gluco212StringOption4helpEb(ptr noundef nonnull al
   %5 = load ptr, ptr %4, align 8, !tbaa !309
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !313
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.135, ptr noundef %5, ptr noundef %7) #38
+  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.135, ptr noundef %5, ptr noundef %7) #37
   br i1 %1, label %9, label %15
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr @stderr, align 8, !tbaa !292
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !311
-  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.116, ptr noundef %12) #38
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.116, ptr noundef %12) #37
   %14 = load ptr, ptr @stderr, align 8, !tbaa !292
   %fputc = tail call i32 @fputc(i32 10, ptr %14)
   br label %15
@@ -14320,13 +14031,13 @@ define linkonce_odr void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr 
   store i32 %22, ptr %8, align 4, !tbaa !117
   %23 = sext i32 %22 to i64
   %24 = shl nsw i64 %23, 2
-  %25 = tail call ptr @realloc(ptr noundef %21, i64 noundef %24) #35
+  %25 = tail call ptr @realloc(ptr noundef %21, i64 noundef %24) #34
   store ptr %25, ptr %3, align 8, !tbaa !115
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %_ZN6Gluco23vecIiE8capacityEi.exit.i
 
 27:                                               ; preds = %20
-  %28 = tail call ptr @__errno_location() #31
+  %28 = tail call ptr @__errno_location() #30
   %29 = load i32, ptr %28, align 4, !tbaa !55
   %30 = icmp eq i32 %29, 12
   br i1 %30, label %31, label %_ZN6Gluco23vecIiE8capacityEi.exit.i
@@ -14379,7 +14090,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   %51 = add nuw nsw i32 %50, 2
   %52 = sub nsw i32 2147483647, %40
   %53 = icmp samesign ugt i32 %51, %52
-  br i1 %53, label %65, label %54
+  br i1 %53, label %61, label %54
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr %38, align 8, !tbaa !115
@@ -14387,7 +14098,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   store i32 %56, ptr %44, align 4, !tbaa !117
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 2
-  %59 = tail call ptr @realloc(ptr noundef %55, i64 noundef %58) #35
+  %59 = tail call ptr @realloc(ptr noundef %55, i64 noundef %58) #34
   store ptr %59, ptr %38, align 8, !tbaa !115
   %60 = icmp eq ptr %59, null
   br i1 %60, label %61, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
@@ -14397,72 +14108,65 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   %.pre13 = load ptr, ptr %3, align 8, !tbaa !115
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
-61:                                               ; preds = %54
-  %62 = tail call ptr @__errno_location() #31
-  %63 = load i32, ptr %62, align 4, !tbaa !55
-  %64 = icmp eq i32 %63, 12
-  tail call void @llvm.assume(i1 %64)
-  br label %65
-
-65:                                               ; preds = %61, %47
+61:                                               ; preds = %54, %47
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
-  %66 = phi ptr [ %41, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %67 = phi i32 [ %40, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %68 = phi ptr [ %.pre.i1, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %69 = add nsw i32 %67, 1
-  store i32 %69, ptr %39, align 8, !tbaa !116
-  %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds i32, ptr %68, i64 %70
-  store i32 %1, ptr %71, align 4, !tbaa !55
-  %72 = getelementptr inbounds i32, ptr %66, i64 %42
-  %73 = load i32, ptr %72, align 4, !tbaa !55
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %68, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !55
-  %.not21.i = icmp eq i32 %73, 0
-  %.pre26.i = sext i32 %76 to i64
+  %62 = phi ptr [ %41, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre13, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %63 = phi i32 [ %40, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %64 = phi ptr [ %.pre.i1, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %59, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %65 = add nsw i32 %63, 1
+  store i32 %65, ptr %39, align 8, !tbaa !116
+  %66 = sext i32 %63 to i64
+  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  store i32 %1, ptr %67, align 4, !tbaa !55
+  %68 = getelementptr inbounds i32, ptr %62, i64 %42
+  %69 = load i32, ptr %68, align 4, !tbaa !55
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds i32, ptr %64, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !55
+  %.not21.i = icmp eq i32 %69, 0
+  %.pre26.i = sext i32 %72 to i64
   br i1 %.not21.i, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
-  %77 = load ptr, ptr %0, align 8, !tbaa !204
-  %78 = load ptr, ptr %77, align 8, !tbaa !144
-  %79 = getelementptr inbounds double, ptr %78, i64 %.pre26.i
-  %80 = load double, ptr %79, align 8, !tbaa !52
-  br label %81
+  %73 = load ptr, ptr %0, align 8, !tbaa !204
+  %74 = load ptr, ptr %73, align 8, !tbaa !144
+  %75 = getelementptr inbounds double, ptr %74, i64 %.pre26.i
+  %76 = load double, ptr %75, align 8, !tbaa !52
+  br label %77
 
-81:                                               ; preds = %91, %.lr.ph.i3
-  %.01522.i = phi i32 [ %73, %.lr.ph.i3 ], [ %.023.i, %91 ]
+77:                                               ; preds = %87, %.lr.ph.i3
+  %.01522.i = phi i32 [ %69, %.lr.ph.i3 ], [ %.023.i, %87 ]
   %.023.in.i = add nsw i32 %.01522.i, -1
   %.023.i = ashr i32 %.023.in.i, 1
-  %82 = sext i32 %.023.i to i64
-  %83 = getelementptr inbounds i32, ptr %68, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !55
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds double, ptr %78, i64 %85
-  %87 = load double, ptr %86, align 8, !tbaa !52
-  %88 = fcmp ogt double %80, %87
-  %89 = sext i32 %.01522.i to i64
-  %90 = getelementptr inbounds i32, ptr %68, i64 %89
-  br i1 %88, label %91, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit
+  %78 = sext i32 %.023.i to i64
+  %79 = getelementptr inbounds i32, ptr %64, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !55
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds double, ptr %74, i64 %81
+  %83 = load double, ptr %82, align 8, !tbaa !52
+  %84 = fcmp ogt double %76, %83
+  %85 = sext i32 %.01522.i to i64
+  %86 = getelementptr inbounds i32, ptr %64, i64 %85
+  br i1 %84, label %87, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit
 
-91:                                               ; preds = %81
-  store i32 %84, ptr %90, align 4, !tbaa !55
-  %92 = load i32, ptr %83, align 4, !tbaa !55
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %66, i64 %93
-  store i32 %.01522.i, ptr %94, align 4, !tbaa !55
+87:                                               ; preds = %77
+  store i32 %80, ptr %86, align 4, !tbaa !55
+  %88 = load i32, ptr %79, align 4, !tbaa !55
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i32, ptr %62, i64 %89
+  store i32 %.01522.i, ptr %90, align 4, !tbaa !55
   %.not.i4 = icmp ult i32 %.023.in.i, 2
-  br i1 %.not.i4, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit, label %81, !llvm.loop !205
+  br i1 %.not.i4, label %_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit, label %77, !llvm.loop !205
 
-_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit: ; preds = %91, %81, %_ZN6Gluco23vecIiE4pushERKi.exit
-  %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.023.i, %91 ], [ %.01522.i, %81 ]
-  %phi.call.i = phi ptr [ %68, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %68, %91 ], [ %90, %81 ]
-  store i32 %76, ptr %phi.call.i, align 4, !tbaa !55
-  %95 = getelementptr inbounds i32, ptr %66, i64 %.pre26.i
-  store i32 %.01518.i, ptr %95, align 4, !tbaa !55
+_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit: ; preds = %87, %77, %_ZN6Gluco23vecIiE4pushERKi.exit
+  %.01518.i = phi i32 [ 0, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %.023.i, %87 ], [ %.01522.i, %77 ]
+  %phi.call.i = phi ptr [ %64, %_ZN6Gluco23vecIiE4pushERKi.exit ], [ %64, %87 ], [ %86, %77 ]
+  store i32 %72, ptr %phi.call.i, align 4, !tbaa !55
+  %91 = getelementptr inbounds i32, ptr %62, i64 %.pre26.i
+  store i32 %.01518.i, ptr %91, align 4, !tbaa !55
   ret void
 }
 
@@ -15525,10 +15229,10 @@ define linkonce_odr void @_ZN6Gluco26Solver12loadJust_recEi(ptr noundef nonnull 
   br label %16
 
 16:                                               ; preds = %.lr.ph, %tailrecurse
-  %17 = phi i32 [ %9, %.lr.ph ], [ %98, %tailrecurse ]
-  %18 = phi ptr [ %7, %.lr.ph ], [ %96, %tailrecurse ]
-  %19 = phi i64 [ %6, %.lr.ph ], [ %95, %tailrecurse ]
-  %.tr1626 = phi i32 [ %1, %.lr.ph ], [ %93, %tailrecurse ]
+  %17 = phi i32 [ %9, %.lr.ph ], [ %90, %tailrecurse ]
+  %18 = phi ptr [ %7, %.lr.ph ], [ %88, %tailrecurse ]
+  %19 = phi i64 [ %6, %.lr.ph ], [ %87, %tailrecurse ]
+  %.tr1626 = phi i32 [ %1, %.lr.ph ], [ %85, %tailrecurse ]
   %20 = load ptr, ptr %11, align 8, !tbaa !132
   %21 = getelementptr inbounds %"class.Gluco2::lbool", ptr %20, i64 %19
   %.sroa.0.0.copyload.i = load i8, ptr %21, align 1, !tbaa !109
@@ -15562,126 +15266,112 @@ define linkonce_odr void @_ZN6Gluco26Solver12loadJust_recEi(ptr noundef nonnull 
   store i32 %36, ptr %14, align 4, !tbaa !117
   %37 = sext i32 %36 to i64
   %38 = shl nsw i64 %37, 2
-  %39 = tail call ptr @realloc(ptr noundef %35, i64 noundef %38) #35
+  %39 = tail call ptr @realloc(ptr noundef %35, i64 noundef %38) #34
   store ptr %39, ptr %12, align 8, !tbaa !115
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
+  br i1 %40, label %.loopexit, label %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge
 
 ._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge:       ; preds = %34
   %.pre = load i32, ptr %13, align 8, !tbaa !116
   br label %_ZN6Gluco23vecIiE4pushERKi.exit
 
-41:                                               ; preds = %34
-  %42 = tail call ptr @__errno_location() #31
-  %43 = load i32, ptr %42, align 4, !tbaa !55
-  %44 = icmp eq i32 %43, 12
-  tail call void @llvm.assume(i1 %44)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %27, %41
+.loopexit:                                        ; preds = %27, %34
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
-  %45 = phi i32 [ %24, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %46 = phi ptr [ %.pre.i, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %39, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
-  %47 = add nsw i32 %45, 1
-  store i32 %47, ptr %13, align 8, !tbaa !116
-  %48 = sext i32 %45 to i64
-  %49 = getelementptr inbounds i32, ptr %46, i64 %48
-  store i32 %.tr1626, ptr %49, align 4, !tbaa !55
-  %50 = load ptr, ptr %15, align 8, !tbaa !123
-  %51 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %50, i64 %19
-  %.sroa.01.0.copyload.i = load i32, ptr %51, align 4, !tbaa !55
+  %41 = phi i32 [ %24, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %42 = phi ptr [ %.pre.i, %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i ], [ %39, %._ZN6Gluco23vecIiE4pushERKi.exit_crit_edge ]
+  %43 = add nsw i32 %41, 1
+  store i32 %43, ptr %13, align 8, !tbaa !116
+  %44 = sext i32 %41 to i64
+  %45 = getelementptr inbounds i32, ptr %42, i64 %44
+  store i32 %.tr1626, ptr %45, align 4, !tbaa !55
+  %46 = load ptr, ptr %15, align 8, !tbaa !123
+  %47 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %46, i64 %19
+  %.sroa.01.0.copyload.i = load i32, ptr %47, align 4, !tbaa !55
   %.not.i = icmp eq i32 %.sroa.01.0.copyload.i, -1
   br i1 %.not.i, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit
 
 _ZNK6Gluco26Solver10isTwoFaninEi.exit:            ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %.sroa.0.0.copyload.i1 = load i32, ptr %52, align 4, !tbaa !55
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %.sroa.0.0.copyload.i1 = load i32, ptr %48, align 4, !tbaa !55
   %.not15 = icmp eq i32 %.sroa.0.0.copyload.i1, -1
   br i1 %.not15, label %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread, label %tailrecurse
 
 _ZNK6Gluco26Solver10isTwoFaninEi.exit.thread:     ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit, %_ZNK6Gluco26Solver10isTwoFaninEi.exit
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1400
-  %54 = load ptr, ptr %11, align 8, !tbaa !132
-  %55 = getelementptr inbounds %"class.Gluco2::lbool", ptr %54, i64 %19
-  %.sroa.0.0.copyload.i2 = load i8, ptr %55, align 1, !tbaa !109
-  %56 = icmp eq i8 %.sroa.0.0.copyload.i2, 1
-  %57 = shl nsw i32 %.tr1626, 1
-  %58 = zext i1 %56 to i32
-  %59 = or disjoint i32 %57, %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1408
-  %61 = load i32, ptr %60, align 8, !tbaa !113
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1412
-  %63 = load i32, ptr %62, align 4, !tbaa !114
-  %64 = icmp eq i32 %61, %63
-  br i1 %64, label %65, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1400
+  %50 = load ptr, ptr %11, align 8, !tbaa !132
+  %51 = getelementptr inbounds %"class.Gluco2::lbool", ptr %50, i64 %19
+  %.sroa.0.0.copyload.i2 = load i8, ptr %51, align 1, !tbaa !109
+  %52 = icmp eq i8 %.sroa.0.0.copyload.i2, 1
+  %53 = shl nsw i32 %.tr1626, 1
+  %54 = zext i1 %52 to i32
+  %55 = or disjoint i32 %53, %54
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1408
+  %57 = load i32, ptr %56, align 8, !tbaa !113
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1412
+  %59 = load i32, ptr %58, align 4, !tbaa !114
+  %60 = icmp eq i32 %57, %59
+  br i1 %60, label %61, label %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i
 
 ._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i: ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread
-  %.pre.i3 = load ptr, ptr %53, align 8, !tbaa !112
+  %.pre.i3 = load ptr, ptr %49, align 8, !tbaa !112
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-65:                                               ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread
-  %66 = ashr i32 %61, 1
-  %67 = and i32 %66, -2
-  %68 = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
-  %69 = add nuw nsw i32 %68, 2
-  %70 = sub nsw i32 2147483647, %61
-  %71 = icmp samesign ugt i32 %69, %70
-  br i1 %71, label %83, label %72
+61:                                               ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit.thread
+  %62 = ashr i32 %57, 1
+  %63 = and i32 %62, -2
+  %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 0)
+  %65 = add nuw nsw i32 %64, 2
+  %66 = sub nsw i32 2147483647, %57
+  %67 = icmp samesign ugt i32 %65, %66
+  br i1 %67, label %75, label %68
 
-72:                                               ; preds = %65
-  %73 = load ptr, ptr %53, align 8, !tbaa !112
-  %74 = add nsw i32 %69, %61
-  store i32 %74, ptr %62, align 4, !tbaa !114
-  %75 = sext i32 %74 to i64
-  %76 = shl nsw i64 %75, 2
-  %77 = tail call ptr @realloc(ptr noundef %73, i64 noundef %76) #35
-  store ptr %77, ptr %53, align 8, !tbaa !112
-  %78 = icmp eq ptr %77, null
-  br i1 %78, label %79, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
+68:                                               ; preds = %61
+  %69 = load ptr, ptr %49, align 8, !tbaa !112
+  %70 = add nsw i32 %65, %57
+  store i32 %70, ptr %58, align 4, !tbaa !114
+  %71 = sext i32 %70 to i64
+  %72 = shl nsw i64 %71, 2
+  %73 = tail call ptr @realloc(ptr noundef %69, i64 noundef %72) #34
+  store ptr %73, ptr %49, align 8, !tbaa !112
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge
 
-._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %72
-  %.pre33 = load i32, ptr %60, align 8, !tbaa !113
+._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge: ; preds = %68
+  %.pre33 = load i32, ptr %56, align 8, !tbaa !113
   br label %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
 
-79:                                               ; preds = %72
-  %80 = tail call ptr @__errno_location() #31
-  %81 = load i32, ptr %80, align 4, !tbaa !55
-  %82 = icmp eq i32 %81, 12
-  tail call void @llvm.assume(i1 %82)
-  br label %83
-
-83:                                               ; preds = %79, %65
+75:                                               ; preds = %68, %61
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i
-  %84 = phi i32 [ %61, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre33, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %85 = phi ptr [ %.pre.i3, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %77, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
-  %86 = add nsw i32 %84, 1
-  store i32 %86, ptr %60, align 8, !tbaa !113
-  %87 = sext i32 %84 to i64
-  %88 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %85, i64 %87
-  store i32 %59, ptr %88, align 4, !tbaa !55
+  %76 = phi i32 [ %57, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %.pre33, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %77 = phi ptr [ %.pre.i3, %._ZN6Gluco23vecINS_3LitEE8capacityEi.exit_crit_edge.i ], [ %73, %._ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit_crit_edge ]
+  %78 = add nsw i32 %76, 1
+  store i32 %78, ptr %56, align 8, !tbaa !113
+  %79 = sext i32 %76 to i64
+  %80 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %77, i64 %79
+  store i32 %55, ptr %80, align 4, !tbaa !55
   br label %.critedge
 
 tailrecurse:                                      ; preds = %_ZNK6Gluco26Solver10isTwoFaninEi.exit
-  %89 = ashr i32 %.sroa.01.0.copyload.i, 1
-  tail call void @_ZN6Gluco26Solver12loadJust_recEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %89)
-  %90 = load ptr, ptr %15, align 8, !tbaa !123
-  %91 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %90, i64 %19
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %.sroa.0.0.copyload.i.i4 = load i32, ptr %92, align 4, !tbaa !55
-  %93 = ashr i32 %.sroa.0.0.copyload.i.i4, 1
-  %94 = load ptr, ptr %3, align 8, !tbaa !98
-  %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i32, ptr %94, i64 %95
-  %97 = load i32, ptr %96, align 4, !tbaa !55
-  %98 = load i32, ptr %4, align 8, !tbaa !105
-  %99 = icmp eq i32 %97, %98
-  br i1 %99, label %.critedge, label %16
+  %81 = ashr i32 %.sroa.01.0.copyload.i, 1
+  tail call void @_ZN6Gluco26Solver12loadJust_recEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %81)
+  %82 = load ptr, ptr %15, align 8, !tbaa !123
+  %83 = getelementptr inbounds %"struct.Gluco2::Solver::NodeData", ptr %82, i64 %19
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %.sroa.0.0.copyload.i.i4 = load i32, ptr %84, align 4, !tbaa !55
+  %85 = ashr i32 %.sroa.0.0.copyload.i.i4, 1
+  %86 = load ptr, ptr %3, align 8, !tbaa !98
+  %87 = sext i32 %85 to i64
+  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !55
+  %90 = load i32, ptr %4, align 8, !tbaa !105
+  %91 = icmp eq i32 %89, %90
+  br i1 %91, label %.critedge, label %16
 
 .critedge:                                        ; preds = %16, %tailrecurse, %2, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
   ret void
@@ -15721,12 +15411,12 @@ define linkonce_odr noundef i32 @_ZN6Gluco215RegionAllocatorIjE5allocEi(ptr noun
   %19 = load ptr, ptr %0, align 8, !tbaa !87
   %20 = zext i32 %8 to i64
   %21 = shl nuw nsw i64 %20, 2
-  %22 = tail call ptr @realloc(ptr noundef %19, i64 noundef range(i64 0, 17179869181) %21) #35
+  %22 = tail call ptr @realloc(ptr noundef %19, i64 noundef range(i64 0, 17179869181) %21) #34
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %_ZN6Gluco2L8xreallocEPvm.exit.i
 
 24:                                               ; preds = %18
-  %25 = tail call ptr @__errno_location() #31
+  %25 = tail call ptr @__errno_location() #30
   %26 = load i32, ptr %25, align 4, !tbaa !55
   %27 = icmp eq i32 %26, 12
   br i1 %27, label %28, label %_ZN6Gluco2L8xreallocEPvm.exit.i
@@ -15791,13 +15481,13 @@ define linkonce_odr void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKey
   store i32 %24, ptr %10, align 4, !tbaa !117
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
-  %27 = tail call ptr @realloc(ptr noundef %23, i64 noundef %26) #35
+  %27 = tail call ptr @realloc(ptr noundef %23, i64 noundef %26) #34
   store ptr %27, ptr %5, align 8, !tbaa !115
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %_ZN6Gluco23vecIiE8capacityEi.exit.i
 
 29:                                               ; preds = %22
-  %30 = tail call ptr @__errno_location() #31
+  %30 = tail call ptr @__errno_location() #30
   %31 = load i32, ptr %30, align 4, !tbaa !55
   %32 = icmp eq i32 %31, 12
   br i1 %32, label %33, label %_ZN6Gluco23vecIiE8capacityEi.exit.i
@@ -15850,7 +15540,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   %53 = add nuw nsw i32 %52, 2
   %54 = sub nsw i32 2147483647, %42
   %55 = icmp samesign ugt i32 %53, %54
-  br i1 %55, label %67, label %56
+  br i1 %55, label %63, label %56
 
 56:                                               ; preds = %49
   %57 = load ptr, ptr %40, align 8, !tbaa !118
@@ -15858,7 +15548,7 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   store i32 %58, ptr %46, align 4, !tbaa !120
   %59 = sext i32 %58 to i64
   %60 = shl nsw i64 %59, 4
-  %61 = tail call ptr @realloc(ptr noundef %57, i64 noundef %60) #35
+  %61 = tail call ptr @realloc(ptr noundef %57, i64 noundef %60) #34
   store ptr %61, ptr %40, align 8, !tbaa !118
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %._ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit_crit_edge
@@ -15867,111 +15557,104 @@ _ZN6Gluco23vecIiE6growToEiRKi.exit:               ; preds = %2, %._crit_edge.i
   %.pre = load i32, ptr %41, align 8, !tbaa !119
   br label %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit
 
-63:                                               ; preds = %56
-  %64 = tail call ptr @__errno_location() #31
-  %65 = load i32, ptr %64, align 4, !tbaa !55
-  %66 = icmp eq i32 %65, 12
-  tail call void @llvm.assume(i1 %66)
-  br label %67
-
-67:                                               ; preds = %63, %49
+63:                                               ; preds = %56, %49
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
 _ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit: ; preds = %._ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit_crit_edge, %._ZN6Gluco23vecINS_6Solver7JustKeyEE8capacityEi.exit_crit_edge.i
-  %68 = phi i32 [ %42, %._ZN6Gluco23vecINS_6Solver7JustKeyEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit_crit_edge ]
-  %69 = phi ptr [ %.pre.i5, %._ZN6Gluco23vecINS_6Solver7JustKeyEE8capacityEi.exit_crit_edge.i ], [ %61, %._ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit_crit_edge ]
-  %70 = add nsw i32 %68, 1
-  store i32 %70, ptr %41, align 8, !tbaa !119
-  %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %69, i64 %71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !229
-  %73 = load ptr, ptr %5, align 8, !tbaa !115
-  %74 = getelementptr inbounds i32, ptr %73, i64 %44
-  %75 = load i32, ptr %74, align 4, !tbaa !55
-  %76 = load ptr, ptr %40, align 8, !tbaa !118
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %76, i64 %77
-  %.sroa.0.0.copyload.i = load double, ptr %78, align 8, !tbaa !52
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %64 = phi i32 [ %42, %._ZN6Gluco23vecINS_6Solver7JustKeyEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit_crit_edge ]
+  %65 = phi ptr [ %.pre.i5, %._ZN6Gluco23vecINS_6Solver7JustKeyEE8capacityEi.exit_crit_edge.i ], [ %61, %._ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit_crit_edge ]
+  %66 = add nsw i32 %64, 1
+  store i32 %66, ptr %41, align 8, !tbaa !119
+  %67 = sext i32 %64 to i64
+  %68 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %65, i64 %67
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !229
+  %69 = load ptr, ptr %5, align 8, !tbaa !115
+  %70 = getelementptr inbounds i32, ptr %69, i64 %44
+  %71 = load i32, ptr %70, align 4, !tbaa !55
+  %72 = load ptr, ptr %40, align 8, !tbaa !118
+  %73 = sext i32 %71 to i64
+  %74 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %72, i64 %73
+  %.sroa.0.0.copyload.i = load double, ptr %74, align 8, !tbaa !52
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %74, i64 8
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !55
-  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %74, i64 12
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !55
-  %.not22.i = icmp eq i32 %75, 0
+  %.not22.i = icmp eq i32 %71, 0
   %.pre28.i = sext i32 %.sroa.5.0.copyload.i to i64
   br i1 %.not22.i, label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit, label %.lr.ph.i6
 
-.lr.ph.i6:                                        ; preds = %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %105
-  %79 = phi ptr [ %112, %105 ], [ %73, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
-  %80 = phi ptr [ %108, %105 ], [ %76, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
-  %.01223.i = phi i32 [ %.024.i, %105 ], [ %75, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
+.lr.ph.i6:                                        ; preds = %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %101
+  %75 = phi ptr [ %108, %101 ], [ %69, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
+  %76 = phi ptr [ %104, %101 ], [ %72, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
+  %.01223.i = phi i32 [ %.024.i, %101 ], [ %71, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ]
   %.024.in.i = add nsw i32 %.01223.i, -1
   %.024.i = ashr i32 %.024.in.i, 1
-  %81 = sext i32 %.024.i to i64
-  %82 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %80, i64 %81
-  %83 = load double, ptr %82, align 8, !tbaa !189
-  %84 = fcmp une double %.sroa.0.0.copyload.i, %83
-  br i1 %84, label %85, label %87
+  %77 = sext i32 %.024.i to i64
+  %78 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %76, i64 %77
+  %79 = load double, ptr %78, align 8, !tbaa !189
+  %80 = fcmp une double %.sroa.0.0.copyload.i, %79
+  br i1 %80, label %81, label %83
 
-85:                                               ; preds = %.lr.ph.i6
-  %86 = fcmp ogt double %.sroa.0.0.copyload.i, %83
-  br i1 %86, label %105, label %.split.i
+81:                                               ; preds = %.lr.ph.i6
+  %82 = fcmp ogt double %.sroa.0.0.copyload.i, %79
+  br i1 %82, label %101, label %.split.i
 
-87:                                               ; preds = %.lr.ph.i6
-  %88 = load ptr, ptr %0, align 8, !tbaa !230
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 728
-  %90 = load ptr, ptr %89, align 8, !tbaa !129
-  %91 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %90, i64 %.pre28.i
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !181
-  %94 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %95 = load i32, ptr %94, align 8, !tbaa !191
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %90, i64 %96
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !181
-  %.not.i.i7 = icmp eq i32 %93, %99
-  br i1 %.not.i.i7, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, label %100
+83:                                               ; preds = %.lr.ph.i6
+  %84 = load ptr, ptr %0, align 8, !tbaa !230
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 728
+  %86 = load ptr, ptr %85, align 8, !tbaa !129
+  %87 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %86, i64 %.pre28.i
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %89 = load i32, ptr %88, align 4, !tbaa !181
+  %90 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %91 = load i32, ptr %90, align 8, !tbaa !191
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %86, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !181
+  %.not.i.i7 = icmp eq i32 %89, %95
+  br i1 %.not.i.i7, label %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, label %96
 
-100:                                              ; preds = %87
-  %101 = icmp slt i32 %93, %99
-  br i1 %101, label %105, label %.split.i
+96:                                               ; preds = %83
+  %97 = icmp slt i32 %89, %95
+  br i1 %97, label %101, label %.split.i
 
-_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i: ; preds = %87
-  %102 = icmp sgt i32 %.sroa.5.0.copyload.i, %95
-  br i1 %102, label %105, label %.split.i
+_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i: ; preds = %83
+  %98 = icmp sgt i32 %.sroa.5.0.copyload.i, %91
+  br i1 %98, label %101, label %.split.i
 
-.split.i:                                         ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %100, %85
-  %103 = sext i32 %.01223.i to i64
-  %104 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %80, i64 %103
+.split.i:                                         ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %96, %81
+  %99 = sext i32 %.01223.i to i64
+  %100 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %76, i64 %99
   br label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit
 
-105:                                              ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %100, %85
-  %106 = sext i32 %.01223.i to i64
-  %107 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %80, i64 %106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !229
-  %108 = load ptr, ptr %40, align 8, !tbaa !118
-  %109 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %108, i64 %81
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load i32, ptr %110, align 8, !tbaa !191
-  %112 = load ptr, ptr %5, align 8, !tbaa !115
-  %113 = sext i32 %111 to i64
-  %114 = getelementptr inbounds i32, ptr %112, i64 %113
-  store i32 %.01223.i, ptr %114, align 4, !tbaa !55
+101:                                              ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit.i, %96, %81
+  %102 = sext i32 %.01223.i to i64
+  %103 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %76, i64 %102
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !229
+  %104 = load ptr, ptr %40, align 8, !tbaa !118
+  %105 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %104, i64 %77
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %107 = load i32, ptr %106, align 8, !tbaa !191
+  %108 = load ptr, ptr %5, align 8, !tbaa !115
+  %109 = sext i32 %107 to i64
+  %110 = getelementptr inbounds i32, ptr %108, i64 %109
+  store i32 %.01223.i, ptr %110, align 4, !tbaa !55
   %.not.i8 = icmp ult i32 %.024.in.i, 2
   br i1 %.not.i8, label %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit, label %.lr.ph.i6, !llvm.loop !231
 
-_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit: ; preds = %105, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %.split.i
-  %115 = phi ptr [ %79, %.split.i ], [ %73, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ], [ %112, %105 ]
-  %.01219.i = phi i32 [ %.01223.i, %.split.i ], [ 0, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ], [ %.024.i, %105 ]
-  %phi.call.i = phi ptr [ %104, %.split.i ], [ %76, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ], [ %108, %105 ]
+_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE11percolateUpEi.exit: ; preds = %101, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit, %.split.i
+  %111 = phi ptr [ %75, %.split.i ], [ %69, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ], [ %108, %101 ]
+  %.01219.i = phi i32 [ %.01223.i, %.split.i ], [ 0, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ], [ %.024.i, %101 ]
+  %phi.call.i = phi ptr [ %100, %.split.i ], [ %72, %_ZN6Gluco23vecINS_6Solver7JustKeyEE4pushERKS2_.exit ], [ %104, %101 ]
   store double %.sroa.0.0.copyload.i, ptr %phi.call.i, align 8, !tbaa !52
   %.sroa.5.0.phi.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %phi.call.i, i64 8
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0.phi.call.sroa_idx.i, align 8, !tbaa !55
   %.sroa.7.0.phi.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %phi.call.i, i64 12
   store i32 %.sroa.7.0.copyload.i, ptr %.sroa.7.0.phi.call.sroa_idx.i, align 4, !tbaa !55
-  %116 = getelementptr inbounds i32, ptr %115, i64 %.pre28.i
-  store i32 %.01219.i, ptr %116, align 4, !tbaa !55
+  %112 = getelementptr inbounds i32, ptr %111, i64 %.pre28.i
+  store i32 %.01219.i, ptr %112, align 4, !tbaa !55
   ret void
 }
 
@@ -16006,13 +15689,13 @@ define linkonce_odr void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8
   store i32 %20, ptr %6, align 4, !tbaa !122
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 2
-  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #35
+  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #34
   store ptr %23, ptr %0, align 8, !tbaa !98
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN6Gluco23vecIjE8capacityEi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #31
+  %26 = tail call ptr @__errno_location() #30
   %27 = load i32, ptr %26, align 4, !tbaa !55
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN6Gluco23vecIjE8capacityEi.exit
@@ -16081,13 +15764,13 @@ define linkonce_odr void @_ZN6Gluco23vecINS0_INS_6Solver7WatcherEEEE6growToEi(pt
   store i32 %20, ptr %6, align 4, !tbaa !137
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 4
-  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #35
+  %23 = tail call ptr @realloc(ptr noundef %19, i64 noundef %22) #34
   store ptr %23, ptr %0, align 8, !tbaa !135
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %_ZN6Gluco23vecINS0_INS_6Solver7WatcherEEEE8capacityEi.exit
 
 25:                                               ; preds = %18
-  %26 = tail call ptr @__errno_location() #31
+  %26 = tail call ptr @__errno_location() #30
   %27 = load i32, ptr %26, align 4, !tbaa !55
   %28 = icmp eq i32 %27, 12
   br i1 %28, label %29, label %_ZN6Gluco23vecINS0_INS_6Solver7WatcherEEEE8capacityEi.exit
@@ -16658,11 +16341,8 @@ declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unname
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #28
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #29
-
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #30
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #28
@@ -16696,18 +16376,17 @@ attributes #25 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #26 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #30 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #31 = { nounwind willreturn memory(none) }
-attributes #32 = { nounwind willreturn memory(read) }
-attributes #33 = { nounwind }
-attributes #34 = { builtin nounwind }
-attributes #35 = { nounwind allocsize(1) }
-attributes #36 = { cold noreturn nounwind }
-attributes #37 = { builtin nounwind allocsize(0) }
-attributes #38 = { cold nounwind }
-attributes #39 = { noreturn nounwind }
-attributes #40 = { cold }
+attributes #29 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #30 = { nounwind willreturn memory(none) }
+attributes #31 = { nounwind willreturn memory(read) }
+attributes #32 = { nounwind }
+attributes #33 = { builtin nounwind }
+attributes #34 = { nounwind allocsize(1) }
+attributes #35 = { cold noreturn nounwind }
+attributes #36 = { builtin nounwind allocsize(0) }
+attributes #37 = { cold nounwind }
+attributes #38 = { noreturn nounwind }
+attributes #39 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2}
 

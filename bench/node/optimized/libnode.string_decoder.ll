@@ -82,7 +82,6 @@ $_ZZN4node11SPrintFImplB5cxx11EPKcE4args = comdat any
 @.str.45 = private unnamed_addr constant [6 x i8] c"kSize\00", align 1
 @.str.46 = private unnamed_addr constant [7 x i8] c"decode\00", align 1
 @.str.47 = private unnamed_addr constant [6 x i8] c"flush\00", align 1
-@_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE = external local_unnamed_addr constant ptr, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_string_decoder.cc, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -1147,26 +1146,17 @@ declare noundef i64 @_ZN2v815ArrayBufferView12CopyContentsEPvm(ptr noundef nonnu
 define internal void @_ZN4node12_GLOBAL__N_123InitializeStringDecoderEN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPv(ptr %target.coerce, ptr readnone captures(none) %unused.coerce, ptr nonnull %context.coerce, ptr readnone captures(none) %priv) #3 {
 entry:
   %call5.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #16
-  %cmp.i.i = icmp ugt i32 %call5.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i)
   %0 = load i64, ptr %context.coerce, align 8
   %sub.i45.i.i = add i64 %0, 47
   %1 = inttoptr i64 %sub.i45.i.i to ptr
   %2 = load i64, ptr %1, align 8
-  %sub.i.i.i = add i64 %2, 327
-  %3 = inttoptr i64 %sub.i.i.i to ptr
+  %sub.i.i = add i64 %2, 271
+  %3 = inttoptr i64 %sub.i.i to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i = icmp eq ptr %6, %5
-  tail call void @llvm.assume(i1 %cmp12.not.i.i)
-  %sub.i.i = add i64 %2, 271
-  %7 = inttoptr i64 %sub.i.i to ptr
-  %8 = load i64, ptr %7, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %10 = load ptr, ptr %isolate_.i, align 8
-  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.30, i32 noundef 0, i32 noundef 26) #16
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %6 = load ptr, ptr %isolate_.i, align 8
+  %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.30, i32 noundef 0, i32 noundef 26) #16
   %cmp.i.i.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi27EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1175,7 +1165,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi27EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi27EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %entry, %if.then.i.i.i
-  %call26 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 0) #16
+  %call26 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 0) #16
   %call42 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i, ptr %call26) #16
   %tobool.i.i782 = trunc i16 %call42 to i1
   br i1 %tobool.i.i782, label %_ZNO2v85MaybeIbE8FromJustEv.exit788, label %if.then.i787
@@ -1185,7 +1175,7 @@ if.then.i787:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit788
 
 _ZNO2v85MaybeIbE8FromJustEv.exit788:              ; preds = %if.then.i787, %_ZN4node21FIXED_ONE_BYTE_STRINGILi27EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i38 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.31, i32 noundef 0, i32 noundef 24) #16
+  %call.i.i38 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.31, i32 noundef 0, i32 noundef 24) #16
   %cmp.i.i.i.i.i39 = icmp eq ptr %call.i.i38, null
   br i1 %cmp.i.i.i.i.i39, label %if.then.i.i.i40, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi25EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1194,7 +1184,7 @@ if.then.i.i.i40:                                  ; preds = %_ZNO2v85MaybeIbE8Fr
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi25EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi25EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit788, %if.then.i.i.i40
-  %call58 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 4) #16
+  %call58 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 4) #16
   %call74 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i38, ptr %call58) #16
   %tobool.i.i771 = trunc i16 %call74 to i1
   br i1 %tobool.i.i771, label %_ZNO2v85MaybeIbE8FromJustEv.exit777, label %if.then.i776
@@ -1204,7 +1194,7 @@ if.then.i776:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit777
 
 _ZNO2v85MaybeIbE8FromJustEv.exit777:              ; preds = %if.then.i776, %_ZN4node21FIXED_ONE_BYTE_STRINGILi25EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i41 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.32, i32 noundef 0, i32 noundef 13) #16
+  %call.i.i41 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.32, i32 noundef 0, i32 noundef 13) #16
   %cmp.i.i.i.i.i42 = icmp eq ptr %call.i.i41, null
   br i1 %cmp.i.i.i.i.i42, label %if.then.i.i.i43, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi14EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1213,7 +1203,7 @@ if.then.i.i.i43:                                  ; preds = %_ZNO2v85MaybeIbE8Fr
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi14EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi14EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit777, %if.then.i.i.i43
-  %call90 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 4) #16
+  %call90 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 4) #16
   %call106 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i41, ptr %call90) #16
   %tobool.i.i760 = trunc i16 %call106 to i1
   br i1 %tobool.i.i760, label %_ZNO2v85MaybeIbE8FromJustEv.exit766, label %if.then.i765
@@ -1223,7 +1213,7 @@ if.then.i765:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit766
 
 _ZNO2v85MaybeIbE8FromJustEv.exit766:              ; preds = %if.then.i765, %_ZN4node21FIXED_ONE_BYTE_STRINGILi14EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i44 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.33, i32 noundef 0, i32 noundef 14) #16
+  %call.i.i44 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.33, i32 noundef 0, i32 noundef 14) #16
   %cmp.i.i.i.i.i45 = icmp eq ptr %call.i.i44, null
   br i1 %cmp.i.i.i.i.i45, label %if.then.i.i.i46, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1232,7 +1222,7 @@ if.then.i.i.i46:                                  ; preds = %_ZNO2v85MaybeIbE8Fr
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit766, %if.then.i.i.i46
-  %call122 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 5) #16
+  %call122 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 5) #16
   %call138 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i44, ptr %call122) #16
   %tobool.i.i749 = trunc i16 %call138 to i1
   br i1 %tobool.i.i749, label %_ZNO2v85MaybeIbE8FromJustEv.exit755, label %if.then.i754
@@ -1242,7 +1232,7 @@ if.then.i754:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit755
 
 _ZNO2v85MaybeIbE8FromJustEv.exit755:              ; preds = %if.then.i754, %_ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i47 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 14) #16
+  %call.i.i47 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.34, i32 noundef 0, i32 noundef 14) #16
   %cmp.i.i.i.i.i48 = icmp eq ptr %call.i.i47, null
   br i1 %cmp.i.i.i.i.i48, label %if.then.i.i.i49, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit50
 
@@ -1251,7 +1241,7 @@ if.then.i.i.i49:                                  ; preds = %_ZNO2v85MaybeIbE8Fr
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit50
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit50: ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit755, %if.then.i.i.i49
-  %call154 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 6) #16
+  %call154 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 6) #16
   %call170 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i47, ptr %call154) #16
   %tobool.i.i738 = trunc i16 %call170 to i1
   br i1 %tobool.i.i738, label %_ZNO2v85MaybeIbE8FromJustEv.exit744, label %if.then.i743
@@ -1261,7 +1251,7 @@ if.then.i743:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit744
 
 _ZNO2v85MaybeIbE8FromJustEv.exit744:              ; preds = %if.then.i743, %_ZN4node21FIXED_ONE_BYTE_STRINGILi15EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit50
-  %call.i.i51 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 10) #16
+  %call.i.i51 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.35, i32 noundef 0, i32 noundef 10) #16
   %cmp.i.i.i.i.i52 = icmp eq ptr %call.i.i51, null
   br i1 %cmp.i.i.i.i.i52, label %if.then.i.i.i53, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi11EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1270,7 +1260,7 @@ if.then.i.i.i53:                                  ; preds = %_ZNO2v85MaybeIbE8Fr
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi11EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi11EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit: ; preds = %_ZNO2v85MaybeIbE8FromJustEv.exit744, %if.then.i.i.i53
-  %call186 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 7) #16
+  %call186 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 7) #16
   %call202 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i51, ptr %call186) #16
   %tobool.i.i727 = trunc i16 %call202 to i1
   br i1 %tobool.i.i727, label %_ZNO2v85MaybeIbE8FromJustEv.exit733, label %if.then.i732
@@ -1280,8 +1270,8 @@ if.then.i732:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit733
 
 _ZNO2v85MaybeIbE8FromJustEv.exit733:              ; preds = %if.then.i732, %_ZN4node21FIXED_ONE_BYTE_STRINGILi11EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call204 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 0) #16
-  %call.i.i54 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.36, i32 noundef 0, i32 noundef 5) #16
+  %call204 = tail call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 0) #16
+  %call.i.i54 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.36, i32 noundef 0, i32 noundef 5) #16
   %cmp.i.i.i.i.i55 = icmp eq ptr %call.i.i54, null
   br i1 %cmp.i.i.i.i.i55, label %if.then.i.i.i56, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi6EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1299,7 +1289,7 @@ if.then.i721:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit722
 
 _ZNO2v85MaybeIbE8FromJustEv.exit722:              ; preds = %if.then.i721, %_ZN4node21FIXED_ONE_BYTE_STRINGILi6EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i57 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 4) #16
+  %call.i.i57 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.37, i32 noundef 0, i32 noundef 4) #16
   %cmp.i.i.i.i.i58 = icmp eq ptr %call.i.i57, null
   br i1 %cmp.i.i.i.i.i58, label %if.then.i.i.i59, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1317,7 +1307,7 @@ if.then.i710:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit711
 
 _ZNO2v85MaybeIbE8FromJustEv.exit711:              ; preds = %if.then.i710, %_ZN4node21FIXED_ONE_BYTE_STRINGILi5EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i60 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.38, i32 noundef 0, i32 noundef 6) #16
+  %call.i.i60 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.38, i32 noundef 0, i32 noundef 6) #16
   %cmp.i.i.i.i.i61 = icmp eq ptr %call.i.i60, null
   br i1 %cmp.i.i.i.i.i61, label %if.then.i.i.i62, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi7EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1335,7 +1325,7 @@ if.then.i699:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit700
 
 _ZNO2v85MaybeIbE8FromJustEv.exit700:              ; preds = %if.then.i699, %_ZN4node21FIXED_ONE_BYTE_STRINGILi7EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i63 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.39, i32 noundef 0, i32 noundef 9) #16
+  %call.i.i63 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.39, i32 noundef 0, i32 noundef 9) #16
   %cmp.i.i.i.i.i64 = icmp eq ptr %call.i.i63, null
   br i1 %cmp.i.i.i.i.i64, label %if.then.i.i.i65, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1353,7 +1343,7 @@ if.then.i688:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit689
 
 _ZNO2v85MaybeIbE8FromJustEv.exit689:              ; preds = %if.then.i688, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i66 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 7) #16
+  %call.i.i66 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.40, i32 noundef 0, i32 noundef 7) #16
   %cmp.i.i.i.i.i67 = icmp eq ptr %call.i.i66, null
   br i1 %cmp.i.i.i.i.i67, label %if.then.i.i.i68, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1371,7 +1361,7 @@ if.then.i677:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit678
 
 _ZNO2v85MaybeIbE8FromJustEv.exit678:              ; preds = %if.then.i677, %_ZN4node21FIXED_ONE_BYTE_STRINGILi8EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i69 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.41, i32 noundef 0, i32 noundef 3) #16
+  %call.i.i69 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.41, i32 noundef 0, i32 noundef 3) #16
   %cmp.i.i.i.i.i70 = icmp eq ptr %call.i.i69, null
   br i1 %cmp.i.i.i.i.i70, label %if.then.i.i.i71, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
 
@@ -1389,7 +1379,7 @@ if.then.i666:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit667
 
 _ZNO2v85MaybeIbE8FromJustEv.exit667:              ; preds = %if.then.i666, %_ZN4node21FIXED_ONE_BYTE_STRINGILi4EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit
-  %call.i.i72 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.42, i32 noundef 0, i32 noundef 6) #16
+  %call.i.i72 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.42, i32 noundef 0, i32 noundef 6) #16
   %cmp.i.i.i.i.i73 = icmp eq ptr %call.i.i72, null
   br i1 %cmp.i.i.i.i.i73, label %if.then.i.i.i74, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi7EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit75
 
@@ -1407,7 +1397,7 @@ if.then.i655:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit656
 
 _ZNO2v85MaybeIbE8FromJustEv.exit656:              ; preds = %if.then.i655, %_ZN4node21FIXED_ONE_BYTE_STRINGILi7EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit75
-  %call.i.i76 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.43, i32 noundef 0, i32 noundef 6) #16
+  %call.i.i76 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.43, i32 noundef 0, i32 noundef 6) #16
   %cmp.i.i.i.i.i77 = icmp eq ptr %call.i.i76, null
   br i1 %cmp.i.i.i.i.i77, label %if.then.i.i.i78, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi7EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit79
 
@@ -1425,7 +1415,7 @@ if.then.i645:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNO2v85MaybeIbE8FromJustEv.exit
 
 _ZNO2v85MaybeIbE8FromJustEv.exit:                 ; preds = %if.then.i645, %_ZN4node21FIXED_ONE_BYTE_STRINGILi7EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit79
-  %call.i.i80 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.44, i32 noundef 0, i32 noundef 9) #16
+  %call.i.i80 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.44, i32 noundef 0, i32 noundef 9) #16
   %cmp.i.i.i.i.i81 = icmp eq ptr %call.i.i80, null
   br i1 %cmp.i.i.i.i.i81, label %if.then.i.i.i82, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit83
 
@@ -1443,7 +1433,7 @@ if.then.i519:                                     ; preds = %_ZN4node21FIXED_ONE
   br label %_ZNK2v85MaybeIbE5CheckEv.exit520
 
 _ZNK2v85MaybeIbE5CheckEv.exit520:                 ; preds = %if.then.i519, %_ZN4node21FIXED_ONE_BYTE_STRINGILi10EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit83
-  %call.i.i84 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %10, ptr noundef nonnull @.str.45, i32 noundef 0, i32 noundef 5) #16
+  %call.i.i84 = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %6, ptr noundef nonnull @.str.45, i32 noundef 0, i32 noundef 5) #16
   %cmp.i.i.i.i.i85 = icmp eq ptr %call.i.i84, null
   br i1 %cmp.i.i.i.i.i85, label %if.then.i.i.i86, label %_ZN4node21FIXED_ONE_BYTE_STRINGILi6EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit87
 
@@ -1452,7 +1442,7 @@ if.then.i.i.i86:                                  ; preds = %_ZNK2v85MaybeIbE5Ch
   br label %_ZN4node21FIXED_ONE_BYTE_STRINGILi6EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit87
 
 _ZN4node21FIXED_ONE_BYTE_STRINGILi6EEEN2v85LocalINS1_6StringEEEPNS1_7IsolateERAT__Kc.exit87: ; preds = %_ZNK2v85MaybeIbE5CheckEv.exit520, %if.then.i.i.i86
-  %call409 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %10, i32 noundef 7) #16
+  %call409 = tail call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef 7) #16
   %call425 = tail call i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1) %target.coerce, ptr nonnull %context.coerce, ptr %call.i.i84, ptr %call409) #16
   %tobool.i616 = trunc i16 %call425 to i1
   br i1 %tobool.i616, label %_ZNK2v85MaybeIbE5CheckEv.exit, label %if.then.i

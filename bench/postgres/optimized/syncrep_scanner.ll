@@ -2670,7 +2670,6 @@ define dso_local void @syncrep_scanner_init(ptr noundef readonly captures(none) 
   %9 = tail call ptr @__errno_location() #17
   store i32 %.sink, ptr %9, align 4
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #15
   tail call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 180, ptr noundef nonnull @__func__.syncrep_scanner_init) #15
   unreachable
@@ -2752,7 +2751,6 @@ declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal fastcc void @fprintf_to_ereport(ptr noundef %0) unnamed_addr #2 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %2)
   %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef %0) #15
   tail call void @errfinish(ptr noundef nonnull @.str.13, i32 noundef 37, ptr noundef nonnull @__func__.fprintf_to_ereport) #15
   unreachable

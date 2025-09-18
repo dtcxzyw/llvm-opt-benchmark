@@ -5686,73 +5686,66 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i: ; pred
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i
   %66 = phi i64 [ 0, %51 ], [ %.pre18, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i ]
   %67 = phi ptr [ %50, %51 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.011.014.i = load ptr, ptr %11, align 8, !tbaa !80
   %.not15.i = icmp eq ptr %.sroa.011.014.i, %12
   br i1 %.not15.i, label %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.26.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %72
+  br label %71
 
-72:                                               ; preds = %72, %.lr.ph.i9
-  %.sroa.011.016.i = phi ptr [ %.sroa.011.014.i, %.lr.ph.i9 ], [ %.sroa.011.0.i, %72 ]
-  %73 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 -56
+71:                                               ; preds = %71, %.lr.ph.i9
+  %.sroa.011.016.i = phi ptr [ %.sroa.011.014.i, %.lr.ph.i9 ], [ %.sroa.011.0.i, %71 ]
+  %72 = getelementptr inbounds i8, ptr %.sroa.011.016.i, i64 -56
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @.str.2, ptr %7, align 8
   store i64 6, ptr %.sroa.415.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %73, ptr %5, align 8, !tbaa !3
-  store ptr %73, ptr %69, align 8, !tbaa !12
-  %74 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %73) #14
-  %75 = extractvalue { ptr, i64 } %74, 0
-  %76 = extractvalue { ptr, i64 } %74, 1
-  %77 = load ptr, ptr %70, align 8, !tbaa !8
-  %78 = load i32, ptr %71, align 8, !tbaa !11
-  %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw %"class.llvm::DenseMap.5", ptr %77, i64 %79
-  %81 = getelementptr inbounds i8, ptr %80, i64 -24
-  %82 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariableStats14DebugVariablesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store ptr %72, ptr %5, align 8, !tbaa !3
+  store ptr %72, ptr %68, align 8, !tbaa !12
+  %73 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %72) #14
+  %74 = extractvalue { ptr, i64 } %73, 0
+  %75 = extractvalue { ptr, i64 } %73, 1
+  %76 = load ptr, ptr %69, align 8, !tbaa !8
+  %77 = load i32, ptr %70, align 8, !tbaa !11
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds nuw %"class.llvm::DenseMap.5", ptr %76, i64 %78
+  %80 = getelementptr inbounds i8, ptr %79, i64 -24
+  %81 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8FunctionENS_20DroppedVariableStats14DebugVariablesENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull align 8 dereferenceable(8) %5)
   store ptr %67, ptr %6, align 8, !tbaa !51
   store i64 %66, ptr %.sroa.26.0..sroa_idx.i.i, align 8, !tbaa !54
-  %83 = load ptr, ptr %69, align 8, !tbaa !12
-  call void @_ZN4llvm20DroppedVariableStats29calculateDroppedStatsAndPrintERNS0_14DebugVariablesENS_9StringRefES3_S3_S3_PKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(48) %82, ptr %75, i64 %76, ptr %1, i64 %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef %83)
+  %82 = load ptr, ptr %68, align 8, !tbaa !12
+  call void @_ZN4llvm20DroppedVariableStats29calculateDroppedStatsAndPrintERNS0_14DebugVariablesENS_9StringRefES3_S3_S3_PKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr %74, i64 %75, ptr %1, i64 %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7, ptr noundef %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.011.016.i, i64 8
-  %.sroa.011.0.i = load ptr, ptr %84, align 8, !tbaa !80
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.011.016.i, i64 8
+  %.sroa.011.0.i = load ptr, ptr %83, align 8, !tbaa !80
   %.not.i10 = icmp eq ptr %.sroa.011.0.i, %12
-  br i1 %.not.i10, label %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit, label %72
+  br i1 %.not.i10, label %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit, label %71
 
-_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit: ; preds = %72
+_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit: ; preds = %71
   %.pre19 = load ptr, ptr %10, align 8, !tbaa !218
   br label %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit
 
 _ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit: ; preds = %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
-  %85 = phi ptr [ %.pre19, %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit ], [ %67, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
-  %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %87 = icmp eq ptr %85, %86
-  br i1 %87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit
-  %88 = load i64, ptr %68, align 8, !tbaa !221
-  %89 = icmp ult i64 %88, 16
-  call void @llvm.assume(i1 %89)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %84 = phi ptr [ %.pre19, %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit.loopexit ], [ %67, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %86 = icmp eq ptr %84, %85
+  br i1 %86, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit
-  %90 = load i64, ptr %86, align 8, !tbaa !192
-  %91 = add i64 %90, 1
-  call void @_ZdlPvm(ptr noundef %85, i64 noundef %91) #15
+  %87 = load i64, ptr %85, align 8, !tbaa !192
+  %88 = add i64 %87, 1
+  call void @_ZdlPvm(ptr noundef %84, i64 noundef %88) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
@@ -5891,22 +5884,15 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %45, %_ZNSt7__cxx111
   %72 = load ptr, ptr %10, align 8, !tbaa !218
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %74 = icmp eq ptr %72, %73
-  br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
-  %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !221
-  %77 = icmp ult i64 %76, 16
-  call void @llvm.assume(i1 %77)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %74, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
-  %78 = load i64, ptr %73, align 8, !tbaa !192
-  %79 = add i64 %78, 1
-  call void @_ZdlPvm(ptr noundef %72, i64 noundef %79) #15
+  %75 = load i64, ptr %73, align 8, !tbaa !192
+  %76 = add i64 %75, 1
+  call void @_ZdlPvm(ptr noundef %72, i64 noundef %76) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

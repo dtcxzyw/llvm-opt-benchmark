@@ -127,7 +127,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %35 = shl i32 %2, 13
   %36 = sext i32 %35 to i64
   %37 = add i64 %34, %36
-  %38 = call ptr @ShmemInitStruct(ptr noundef %1, i64 noundef %37, ptr noundef nonnull %10) #15
+  %38 = call ptr @ShmemInitStruct(ptr noundef %1, i64 noundef %37, ptr noundef nonnull %10) #14
   %39 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %.loopexit, label %41
@@ -139,7 +139,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 %3, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 88
   store volatile i64 0, ptr %43, align 8
-  %44 = call i32 @pgstat_get_slru_index(ptr noundef %1) #15
+  %44 = call i32 @pgstat_get_slru_index(ptr noundef %1) #14
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 96
   store i32 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 104
@@ -211,7 +211,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %.09799 = phi ptr [ %81, %.lr.ph.preheader ], [ %93, %.lr.ph ]
   %83 = load ptr, ptr %65, align 8
   %84 = getelementptr inbounds nuw %union.LWLockPadded, ptr %83, i64 %indvars.iv
-  call void @LWLockInitialize(ptr noundef %84, i32 noundef %5) #15
+  call void @LWLockInitialize(ptr noundef %84, i32 noundef %5) #14
   %85 = load ptr, ptr %47, align 8
   %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv
   store ptr %.09799, ptr %86, align 8
@@ -233,7 +233,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %indvars.iv104 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next105, %.lr.ph102 ]
   %94 = load ptr, ptr %68, align 8
   %95 = getelementptr inbounds nuw %union.LWLockPadded, ptr %94, i64 %indvars.iv104
-  call void @LWLockInitialize(ptr noundef %95, i32 noundef %6) #15
+  call void @LWLockInitialize(ptr noundef %95, i32 noundef %6) #14
   %96 = load ptr, ptr %71, align 8
   %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv104
   store i32 0, ptr %97, align 4
@@ -252,7 +252,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %101, ptr %102, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %104 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #15
+  %104 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %103, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }
@@ -277,10 +277,10 @@ define dso_local noundef zeroext i1 @check_slru_buffers(ptr noundef %0, ptr noun
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #16
+  %7 = tail call ptr @__errno_location() #15
   %8 = load i32, ptr %7, align 4
-  tail call void @pre_format_elog_string(i32 noundef %8, ptr noundef null) #15
-  %9 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str, ptr noundef %0, i32 noundef 16) #15
+  tail call void @pre_format_elog_string(i32 noundef %8, ptr noundef null) #14
+  %9 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str, ptr noundef %0, i32 noundef 16) #14
   store ptr %9, ptr @GUC_check_errdetail_string, align 8
   br label %10
 
@@ -384,7 +384,7 @@ SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.e
   store volatile i64 %1, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %60 = load i32, ptr %59, align 8
-  tail call void @pgstat_count_slru_page_zeroed(i32 noundef %60) #15
+  tail call void @pgstat_count_slru_page_zeroed(i32 noundef %60) #14
   ret i32 %4
 }
 
@@ -493,7 +493,7 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %10, align 8
-  %66 = tail call zeroext i1 %65(i64 noundef %52, i64 noundef %.085146) #15
+  %66 = tail call zeroext i1 %65(i64 noundef %52, i64 noundef %.085146) #14
   br i1 %66, label %67, label %78
 
 67:                                               ; preds = %64, %60
@@ -510,7 +510,7 @@ define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) un
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %10, align 8
-  %75 = tail call zeroext i1 %74(i64 noundef %52, i64 noundef %.088145) #15
+  %75 = tail call zeroext i1 %74(i64 noundef %52, i64 noundef %.088145) #14
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73, %69
@@ -634,7 +634,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
 SlruRecentlyUsed.exit:                            ; preds = %31, %42
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %47 = load i32, ptr %46, align 8
-  tail call void @pgstat_count_slru_page_hit(i32 noundef %47) #15
+  tail call void @pgstat_count_slru_page_hit(i32 noundef %47) #14
   br label %164
 
 ._crit_edge:                                      ; preds = %158, %20, %4
@@ -654,8 +654,8 @@ SlruRecentlyUsed.exit:                            ; preds = %31, %42
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds %union.LWLockPadded, ptr %57, i64 %.lcssa
-  %59 = tail call zeroext i1 @LWLockAcquire(ptr noundef %58, i32 noundef 0) #15
-  tail call void @LWLockRelease(ptr noundef %12) #15
+  %59 = tail call zeroext i1 @LWLockAcquire(ptr noundef %58, i32 noundef 0) #14
+  tail call void @LWLockRelease(ptr noundef %12) #14
   %60 = load ptr, ptr %0, align 8
   %61 = sdiv i64 %1, 32
   %62 = srem i64 %1, 32
@@ -667,21 +667,21 @@ SlruRecentlyUsed.exit:                            ; preds = %31, %42
   br i1 %65, label %67, label %69
 
 67:                                               ; preds = %._crit_edge
-  %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %66, i64 noundef %61) #15
+  %68 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %66, i64 noundef %61) #14
   br label %SlruFileName.exit.i
 
 69:                                               ; preds = %._crit_edge
   %70 = trunc i64 %61 to i32
-  %71 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %66, i32 noundef %70) #15
+  %71 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %66, i32 noundef %70) #14
   br label %SlruFileName.exit.i
 
 SlruFileName.exit.i:                              ; preds = %69, %67
-  %72 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #15
+  %72 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #14
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %90
 
 74:                                               ; preds = %SlruFileName.exit.i
-  %75 = tail call ptr @__errno_location() #16
+  %75 = tail call ptr @__errno_location() #15
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 2
   %78 = load i8, ptr @InRecovery, align 1, !range !4
@@ -695,12 +695,12 @@ SlruFileName.exit.i:                              ; preds = %69, %67
   br label %SlruPhysicalReadPage.exit
 
 81:                                               ; preds = %74
-  %82 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %82 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 834, ptr noundef nonnull @__func__.SlruPhysicalReadPage) #15
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull %5) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 834, ptr noundef nonnull @__func__.SlruPhysicalReadPage) #14
   br label %85
 
 85:                                               ; preds = %83, %81
@@ -715,7 +715,7 @@ SlruFileName.exit.i:                              ; preds = %69, %67
   %91 = trunc nsw i64 %62 to i32
   %92 = shl nsw i32 %91, 13
   %93 = sext i32 %92 to i64
-  %94 = tail call ptr @__errno_location() #16
+  %94 = tail call ptr @__errno_location() #15
   store i32 0, ptr %94, align 4
   %95 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772207, ptr %95, align 4
@@ -723,7 +723,7 @@ SlruFileName.exit.i:                              ; preds = %69, %67
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds ptr, ptr %97, i64 %.lcssa
   %99 = load ptr, ptr %98, align 8
-  %100 = call i64 @pread(i32 noundef %72, ptr noundef %99, i64 noundef 8192, i64 noundef %93) #15
+  %100 = call i64 @pread(i32 noundef %72, ptr noundef %99, i64 noundef 8192, i64 noundef %93) #14
   %.not.i58 = icmp eq i64 %100, 8192
   %101 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %101, align 4
@@ -733,11 +733,11 @@ SlruFileName.exit.i:                              ; preds = %69, %67
   store i32 2, ptr @slru_errcause, align 4
   %103 = load i32, ptr %94, align 4
   store i32 %103, ptr @slru_errno, align 4
-  %104 = call i32 @CloseTransientFile(i32 noundef %72) #15
+  %104 = call i32 @CloseTransientFile(i32 noundef %72) #14
   br label %SlruPhysicalReadPage.exit
 
 105:                                              ; preds = %90
-  %106 = call i32 @CloseTransientFile(i32 noundef %72) #15
+  %106 = call i32 @CloseTransientFile(i32 noundef %72) #14
   %.not35.i = icmp eq i32 %106, 0
   br i1 %.not35.i, label %SlruPhysicalReadPage.exit, label %107
 
@@ -791,14 +791,14 @@ SimpleLruZeroLSNs.exit.sink.split:                ; preds = %112, %.lr.ph.prehea
   br label %SimpleLruZeroLSNs.exit
 
 SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruPhysicalReadPage.exit
-  %134 = call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #15
+  %134 = call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #14
   %135 = select i1 %.0.i, i32 2, i32 0
   %136 = load ptr, ptr %14, align 8
   %137 = getelementptr inbounds i32, ptr %136, i64 %.lcssa
   store i32 %135, ptr %137, align 4
   %138 = load ptr, ptr %56, align 8
   %139 = getelementptr inbounds %union.LWLockPadded, ptr %138, i64 %.lcssa
-  call void @LWLockRelease(ptr noundef %139) #15
+  call void @LWLockRelease(ptr noundef %139) #14
   br i1 %.0.i, label %141, label %140
 
 140:                                              ; preds = %SimpleLruZeroLSNs.exit
@@ -830,7 +830,7 @@ SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.e
 SlruRecentlyUsed.exit61:                          ; preds = %141, %152
   %156 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %157 = load i32, ptr %156, align 8
-  call void @pgstat_count_slru_page_read(i32 noundef %157) #15
+  call void @pgstat_count_slru_page_read(i32 noundef %157) #14
   br label %164
 
 158:                                              ; preds = %28
@@ -856,18 +856,18 @@ define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds %union.LWLockPadded, ptr %4, i64 %5
-  tail call void @LWLockRelease(ptr noundef %6) #15
+  tail call void @LWLockRelease(ptr noundef %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds %union.LWLockPadded, ptr %8, i64 %9
-  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 1) #15
+  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 1) #14
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds %union.LWLockPadded, ptr %12, i64 %9
-  tail call void @LWLockRelease(ptr noundef %13) #15
+  tail call void @LWLockRelease(ptr noundef %13) #14
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds %union.LWLockPadded, ptr %14, i64 %5
-  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #15
+  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #14
   %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i32, ptr %18, i64 %9
@@ -880,7 +880,7 @@ define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val
 21:                                               ; preds = %1, %1
   %22 = load ptr, ptr %7, align 8
   %23 = getelementptr inbounds %union.LWLockPadded, ptr %22, i64 %9
-  %24 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %23, i32 noundef 1) #15
+  %24 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %23, i32 noundef 1) #14
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %21
@@ -905,7 +905,7 @@ define internal fastcc void @SimpleLruWaitIO(ptr readonly captures(none) %.0.val
 35:                                               ; preds = %31, %30
   %36 = load ptr, ptr %7, align 8
   %37 = getelementptr inbounds %union.LWLockPadded, ptr %36, i64 %9
-  tail call void @LWLockRelease(ptr noundef %37) #15
+  tail call void @LWLockRelease(ptr noundef %37) #14
   br label %38
 
 38:                                               ; preds = %1, %21, %35
@@ -933,17 +933,17 @@ define internal fastcc void @SlruReportIOError(ptr noundef %0, i64 noundef %1, i
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %3
-  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %12, i64 noundef %5) #15
+  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %12, i64 noundef %5) #14
   br label %SlruFileName.exit
 
 15:                                               ; preds = %3
   %16 = trunc i64 %5 to i32
-  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %12, i32 noundef %16) #15
+  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %12, i32 noundef %16) #14
   br label %SlruFileName.exit
 
 SlruFileName.exit:                                ; preds = %13, %15
   %18 = load i32, ptr @slru_errno, align 4
-  %19 = tail call ptr @__errno_location() #16
+  %19 = tail call ptr @__errno_location() #15
   store i32 %18, ptr %19, align 4
   %20 = load i32, ptr @slru_errcause, align 4
   switch i32 %20, label %default.unreachable [
@@ -956,80 +956,75 @@ SlruFileName.exit:                                ; preds = %13, %15
   ]
 
 21:                                               ; preds = %SlruFileName.exit
-  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %22)
-  %23 = call i32 @errcode_for_file_access() #15
-  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %25 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1063, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %22 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %23 = call i32 @errcode_for_file_access() #14
+  %24 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %25 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1063, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 26:                                               ; preds = %SlruFileName.exit
-  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %27)
-  %28 = call i32 @errcode_for_file_access() #15
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %30 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1070, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %28 = call i32 @errcode_for_file_access() #14
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %30 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.10, ptr noundef nonnull %4, i32 noundef %8) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1070, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 31:                                               ; preds = %SlruFileName.exit
   %.not17 = icmp eq i32 %18, 0
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %32)
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   br i1 %.not17, label %37, label %33
 
 33:                                               ; preds = %31
-  %34 = call i32 @errcode_for_file_access() #15
-  %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %36 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1078, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %34 = call i32 @errcode_for_file_access() #14
+  %35 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %36 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.11, ptr noundef nonnull %4, i32 noundef %8) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1078, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 37:                                               ; preds = %31
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %39 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1082, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %39 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.12, ptr noundef nonnull %4, i32 noundef %8) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1082, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 40:                                               ; preds = %SlruFileName.exit
   %.not = icmp eq i32 %18, 0
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %41)
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   br i1 %.not, label %46, label %42
 
 42:                                               ; preds = %40
-  %43 = call i32 @errcode_for_file_access() #15
-  %44 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %45 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.13, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1090, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %43 = call i32 @errcode_for_file_access() #14
+  %44 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %45 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.13, ptr noundef nonnull %4, i32 noundef %8) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1090, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 46:                                               ; preds = %40
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %48 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.14, ptr noundef nonnull %4, i32 noundef %8) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1095, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %48 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.14, ptr noundef nonnull %4, i32 noundef %8) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1095, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 49:                                               ; preds = %SlruFileName.exit
-  %50 = call i32 @data_sync_elevel(i32 noundef 21) #15
-  %51 = call zeroext i1 @errstart(i32 noundef %50, ptr noundef null) #15
+  %50 = call i32 @data_sync_elevel(i32 noundef 21) #14
+  %51 = call zeroext i1 @errstart(i32 noundef %50, ptr noundef null) #14
   br i1 %51, label %52, label %61
 
 52:                                               ; preds = %49
-  %53 = call i32 @errcode_for_file_access() #15
-  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %55 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1102, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %53 = call i32 @errcode_for_file_access() #14
+  %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %55 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1102, ptr noundef nonnull @__func__.SlruReportIOError) #14
   br label %61
 
 56:                                               ; preds = %SlruFileName.exit
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 @errcode_for_file_access() #15
-  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #15
-  %60 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1109, ptr noundef nonnull @__func__.SlruReportIOError) #15
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %58 = call i32 @errcode_for_file_access() #14
+  %59 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %2) #14
+  %60 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef nonnull %4) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1109, ptr noundef nonnull @__func__.SlruReportIOError) #14
   unreachable
 
 default.unreachable:                              ; preds = %SlruFileName.exit
@@ -1055,7 +1050,7 @@ define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1,
   %10 = getelementptr inbounds i8, ptr %.val.val, i64 %9
   %11 = trunc nsw i64 %8 to i32
   %12 = shl nsw i32 %11, 4
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 1) #15
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 1) #14
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1105,7 +1100,7 @@ define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1,
 SlruRecentlyUsed.exit:                            ; preds = %27, %39
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %44 = load i32, ptr %43, align 8
-  tail call void @pgstat_count_slru_page_hit(i32 noundef %44) #15
+  tail call void @pgstat_count_slru_page_hit(i32 noundef %44) #14
   br label %48
 
 45:                                               ; preds = %19, %22
@@ -1115,8 +1110,8 @@ SlruRecentlyUsed.exit:                            ; preds = %27, %39
   br i1 %exitcond.not, label %.critedge, label %19, !llvm.loop !11
 
 .critedge:                                        ; preds = %45
-  tail call void @LWLockRelease(ptr noundef %10) #15
-  %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 0) #15
+  tail call void @LWLockRelease(ptr noundef %10) #14
+  %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef %10, i32 noundef 0) #14
   %47 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext true, i32 noundef %2)
   br label %48
 
@@ -1193,12 +1188,12 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds %union.LWLockPadded, ptr %41, i64 %9
-  %43 = tail call zeroext i1 @LWLockAcquire(ptr noundef %42, i32 noundef 0) #15
+  %43 = tail call zeroext i1 @LWLockAcquire(ptr noundef %42, i32 noundef 0) #14
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %12 to i64
   %47 = getelementptr inbounds %union.LWLockPadded, ptr %45, i64 %46
-  tail call void @LWLockRelease(ptr noundef %47) #15
+  tail call void @LWLockRelease(ptr noundef %47) #14
   %48 = load ptr, ptr %0, align 8
   %49 = sdiv i64 %11, 32
   %50 = srem i64 %11, 32
@@ -1208,7 +1203,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %55 = load i32, ptr %54, align 8
-  tail call void @pgstat_count_slru_page_written(i32 noundef %55) #15
+  tail call void @pgstat_count_slru_page_written(i32 noundef %55) #14
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
@@ -1246,7 +1241,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %72 = load volatile i32, ptr @CritSectionCount, align 4
   %73 = add i32 %72, 1
   store volatile i32 %73, ptr @CritSectionCount, align 4
-  tail call void @XLogFlush(i64 noundef %.060.lcssa.i) #15
+  tail call void @XLogFlush(i64 noundef %.060.lcssa.i) #14
   %74 = load volatile i32, ptr @CritSectionCount, align 4
   %75 = add i32 %74, -1
   store volatile i32 %75, ptr @CritSectionCount, align 4
@@ -1293,22 +1288,22 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   br i1 %92, label %94, label %96
 
 94:                                               ; preds = %.thread.i
-  %95 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %93, i64 noundef %49) #15
+  %95 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %93, i64 noundef %49) #14
   br label %SlruFileName.exit.i
 
 96:                                               ; preds = %.thread.i
   %97 = trunc i64 %49 to i32
-  %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %93, i32 noundef %97) #15
+  %98 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %93, i32 noundef %97) #14
   br label %SlruFileName.exit.i
 
 SlruFileName.exit.i:                              ; preds = %96, %94
-  %99 = call i32 @OpenTransientFile(ptr noundef nonnull %4, i32 noundef 66) #15
+  %99 = call i32 @OpenTransientFile(ptr noundef nonnull %4, i32 noundef 66) #14
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %SlruFileName.exit.i
   store i32 0, ptr @slru_errcause, align 4
-  %102 = tail call ptr @__errno_location() #16
+  %102 = tail call ptr @__errno_location() #15
   %103 = load i32, ptr %102, align 4
   store i32 %103, ptr @slru_errno, align 4
   br label %SlruPhysicalWritePage.exit
@@ -1339,7 +1334,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
 118:                                              ; preds = %108, %105, %104, %85
   %.064.i = phi i1 [ false, %108 ], [ true, %104 ], [ false, %85 ], [ true, %105 ]
   %.2.i = phi i32 [ %99, %108 ], [ %99, %104 ], [ %88, %85 ], [ %99, %105 ]
-  %119 = tail call ptr @__errno_location() #16
+  %119 = tail call ptr @__errno_location() #15
   store i32 0, ptr %119, align 4
   %120 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772209, ptr %120, align 4
@@ -1347,7 +1342,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds ptr, ptr %122, i64 %9
   %124 = load ptr, ptr %123, align 8
-  %125 = call i64 @pwrite(i32 noundef %.2.i, ptr noundef %124, i64 noundef 8192, i64 noundef %53) #15
+  %125 = call i64 @pwrite(i32 noundef %.2.i, ptr noundef %124, i64 noundef 8192, i64 noundef %53) #14
   %.not72.i = icmp eq i64 %125, 8192
   %126 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %126, align 4
@@ -1369,7 +1364,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br i1 %.064.i, label %133, label %SlruPhysicalWritePage.exit
 
 133:                                              ; preds = %131
-  %134 = call i32 @CloseTransientFile(i32 noundef %.2.i) #15
+  %134 = call i32 @CloseTransientFile(i32 noundef %.2.i) #14
   br label %SlruPhysicalWritePage.exit
 
 135:                                              ; preds = %118
@@ -1385,13 +1380,13 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   store i16 %139, ptr %5, align 8
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %49, ptr %140, align 8
-  %141 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext false) #15
+  %141 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext false) #14
   br i1 %141, label %148, label %142
 
 142:                                              ; preds = %138
   %143 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772208, ptr %143, align 4
-  %144 = call i32 @pg_fsync(i32 noundef %.2.i) #15
+  %144 = call i32 @pg_fsync(i32 noundef %.2.i) #14
   %.not74.i = icmp eq i32 %144, 0
   %145 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %145, align 4
@@ -1401,7 +1396,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   store i32 4, ptr @slru_errcause, align 4
   %146 = load i32, ptr %119, align 4
   store i32 %146, ptr @slru_errno, align 4
-  %147 = call i32 @CloseTransientFile(i32 noundef %.2.i) #15
+  %147 = call i32 @CloseTransientFile(i32 noundef %.2.i) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %SlruPhysicalWritePage.exit
 
@@ -1413,7 +1408,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br i1 %.064.i, label %150, label %.thread61
 
 150:                                              ; preds = %149
-  %151 = call i32 @CloseTransientFile(i32 noundef %.2.i) #15
+  %151 = call i32 @CloseTransientFile(i32 noundef %.2.i) #14
   %.not76.i = icmp eq i32 %151, 0
   br i1 %.not76.i, label %.thread61, label %152
 
@@ -1427,13 +1422,13 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %154 = load ptr, ptr %44, align 8
   %155 = getelementptr inbounds %union.LWLockPadded, ptr %154, i64 %46
-  %156 = call zeroext i1 @LWLockAcquire(ptr noundef %155, i32 noundef 0) #15
+  %156 = call zeroext i1 @LWLockAcquire(ptr noundef %155, i32 noundef 0) #14
   %157 = load ptr, ptr %13, align 8
   %158 = getelementptr inbounds i32, ptr %157, i64 %9
   store i32 2, ptr %158, align 4
   %159 = load ptr, ptr %40, align 8
   %160 = getelementptr inbounds %union.LWLockPadded, ptr %159, i64 %9
-  call void @LWLockRelease(ptr noundef %160) #15
+  call void @LWLockRelease(ptr noundef %160) #14
   br label %180
 
 SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.critedge.i, %152
@@ -1453,7 +1448,7 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.
   %indvars.iv = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next, %164 ]
   %165 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv
   %166 = load i32, ptr %165, align 4
-  %167 = call i32 @CloseTransientFile(i32 noundef %166) #15
+  %167 = call i32 @CloseTransientFile(i32 noundef %166) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %168 = load i32, ptr %2, align 8
   %169 = sext i32 %168 to i64
@@ -1463,7 +1458,7 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.
 .thread63:                                        ; preds = %164, %.preheader, %SlruPhysicalWritePage.exit
   %171 = load ptr, ptr %44, align 8
   %172 = getelementptr inbounds %union.LWLockPadded, ptr %171, i64 %46
-  %173 = call zeroext i1 @LWLockAcquire(ptr noundef %172, i32 noundef 0) #15
+  %173 = call zeroext i1 @LWLockAcquire(ptr noundef %172, i32 noundef 0) #14
   %174 = load ptr, ptr %28, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 %9
   store i8 1, ptr %175, align 1
@@ -1472,7 +1467,7 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %.
   store i32 2, ptr %177, align 4
   %178 = load ptr, ptr %40, align 8
   %179 = getelementptr inbounds %union.LWLockPadded, ptr %178, i64 %9
-  call void @LWLockRelease(ptr noundef %179) #15
+  call void @LWLockRelease(ptr noundef %179) #14
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %11, i32 noundef 0)
   br label %180
 
@@ -1503,7 +1498,7 @@ define dso_local zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef %0, i64 
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load i32, ptr %9, align 8
-  tail call void @pgstat_count_slru_page_exists(i32 noundef %10) #15
+  tail call void @pgstat_count_slru_page_exists(i32 noundef %10) #14
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %12 = load i8, ptr %11, align 2, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -1511,21 +1506,21 @@ define dso_local zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef %0, i64 
   br i1 %13, label %15, label %17
 
 15:                                               ; preds = %2
-  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i64 noundef %4) #15
+  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i64 noundef %4) #14
   br label %SlruFileName.exit
 
 17:                                               ; preds = %2
   %18 = trunc i64 %4 to i32
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %14, i32 noundef %18) #15
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %14, i32 noundef %18) #14
   br label %SlruFileName.exit
 
 SlruFileName.exit:                                ; preds = %15, %17
-  %20 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 0) #15
+  %20 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 0) #14
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %SlruFileName.exit
-  %23 = tail call ptr @__errno_location() #16
+  %23 = tail call ptr @__errno_location() #15
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 2
   br i1 %25, label %42, label %26
@@ -1537,26 +1532,26 @@ SlruFileName.exit:                                ; preds = %15, %17
   br label %27
 
 27:                                               ; preds = %26, %SlruFileName.exit
-  %28 = call i64 @lseek(i32 noundef %20, i64 noundef 0, i32 noundef 2) #15
+  %28 = call i64 @lseek(i32 noundef %20, i64 noundef 0, i32 noundef 2) #14
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
   store i32 1, ptr @slru_errcause, align 4
-  %31 = tail call ptr @__errno_location() #16
+  %31 = tail call ptr @__errno_location() #15
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr @slru_errno, align 4
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %1, i32 noundef 0)
   br label %33
 
 33:                                               ; preds = %30, %27
-  %34 = call i32 @CloseTransientFile(i32 noundef %20) #15
+  %34 = call i32 @CloseTransientFile(i32 noundef %20) #14
   %.not = icmp eq i32 %34, 0
   br i1 %.not, label %38, label %35
 
 35:                                               ; preds = %33
   store i32 5, ptr @slru_errcause, align 4
-  %36 = tail call ptr @__errno_location() #16
+  %36 = tail call ptr @__errno_location() #15
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr @slru_errno, align 4
   br label %42
@@ -1589,11 +1584,11 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8
-  tail call void @pgstat_count_slru_flush(i32 noundef %6) #15
+  tail call void @pgstat_count_slru_flush(i32 noundef %6) #14
   store i32 0, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 0) #15
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 0) #14
   %10 = load i32, ptr %4, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -1612,7 +1607,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %.033.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
   %15 = load ptr, ptr %7, align 8
   %16 = getelementptr inbounds nuw %union.LWLockPadded, ptr %15, i64 %.033.lcssa
-  call void @LWLockRelease(ptr noundef %16) #15
+  call void @LWLockRelease(ptr noundef %16) #14
   %17 = icmp sgt i32 %14, 0
   br i1 %17, label %.lr.ph44, label %.critedge
 
@@ -1640,11 +1635,11 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %24 = load ptr, ptr %7, align 8
   %25 = zext nneg i32 %.03338 to i64
   %26 = getelementptr inbounds nuw %union.LWLockPadded, ptr %24, i64 %25
-  call void @LWLockRelease(ptr noundef %26) #15
+  call void @LWLockRelease(ptr noundef %26) #14
   %27 = load ptr, ptr %7, align 8
   %28 = zext nneg i32 %22 to i64
   %29 = getelementptr inbounds nuw %union.LWLockPadded, ptr %27, i64 %28
-  %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0) #15
+  %30 = call zeroext i1 @LWLockAcquire(ptr noundef %29, i32 noundef 0) #14
   br label %31
 
 31:                                               ; preds = %23, %20
@@ -1673,7 +1668,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %45 ], [ %indvars.iv49.ph, %.outer ]
   %42 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv49
   %43 = load i32, ptr %42, align 4
-  %44 = call i32 @CloseTransientFile(i32 noundef %43) #15
+  %44 = call i32 @CloseTransientFile(i32 noundef %43) #14
   %.not36 = icmp eq i32 %44, 0
   br i1 %.not36, label %45, label %.thread
 
@@ -1684,7 +1679,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
 
 .thread:                                          ; preds = %41
   store i32 5, ptr @slru_errcause, align 4
-  %46 = tail call ptr @__errno_location() #16
+  %46 = tail call ptr @__errno_location() #15
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr @slru_errno, align 4
   %48 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv49
@@ -1707,7 +1702,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
 
 53:                                               ; preds = %.critedge
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @fsync_fname(ptr noundef nonnull %54, i1 noundef zeroext true) #15
+  call void @fsync_fname(ptr noundef nonnull %54, i1 noundef zeroext true) #14
   br label %55
 
 55:                                               ; preds = %53, %.critedge
@@ -1726,12 +1721,12 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8
-  tail call void @pgstat_count_slru_truncate(i32 noundef %6) #15
+  tail call void @pgstat_count_slru_truncate(i32 noundef %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %9 = load ptr, ptr %7, align 8
   %10 = load volatile i64, ptr %8, align 8
-  %11 = tail call zeroext i1 %9(i64 noundef %10, i64 noundef %1) #15
+  %11 = tail call zeroext i1 %9(i64 noundef %10, i64 noundef %1) #14
   br i1 %11, label %._crit_edge68, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %2
@@ -1742,18 +1737,18 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   br label %20
 
 ._crit_edge68:                                    ; preds = %63, %2
-  %16 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  %16 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
   br i1 %16, label %17, label %74
 
 17:                                               ; preds = %._crit_edge68
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.SimpleLruTruncate) #15
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.SimpleLruTruncate) #14
   br label %74
 
 20:                                               ; preds = %.lr.ph67, %63
   %21 = load ptr, ptr %12, align 8
-  %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #15
+  %22 = tail call zeroext i1 @LWLockAcquire(ptr noundef %21, i32 noundef 0) #14
   %23 = load i32, ptr %4, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -1770,11 +1765,11 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %28 = load ptr, ptr %12, align 8
   %29 = zext nneg i32 %.061 to i64
   %30 = getelementptr inbounds nuw %union.LWLockPadded, ptr %28, i64 %29
-  tail call void @LWLockRelease(ptr noundef %30) #15
+  tail call void @LWLockRelease(ptr noundef %30) #14
   %31 = load ptr, ptr %12, align 8
   %32 = zext nneg i32 %26 to i64
   %33 = getelementptr inbounds nuw %union.LWLockPadded, ptr %31, i64 %32
-  %34 = tail call zeroext i1 @LWLockAcquire(ptr noundef %33, i32 noundef 0) #15
+  %34 = tail call zeroext i1 @LWLockAcquire(ptr noundef %33, i32 noundef 0) #14
   br label %35
 
 35:                                               ; preds = %27, %.lr.ph
@@ -1790,7 +1785,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %42 = load ptr, ptr %14, align 8
   %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
-  %45 = tail call zeroext i1 %41(i64 noundef %44, i64 noundef %1) #15
+  %45 = tail call zeroext i1 %41(i64 noundef %44, i64 noundef %1) #14
   br i1 %45, label %46, label %59
 
 46:                                               ; preds = %40
@@ -1831,10 +1826,10 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %64 = load ptr, ptr %12, align 8
   %65 = zext nneg i32 %.2 to i64
   %66 = getelementptr inbounds nuw %union.LWLockPadded, ptr %64, i64 %65
-  tail call void @LWLockRelease(ptr noundef %66) #15
+  tail call void @LWLockRelease(ptr noundef %66) #14
   %67 = load ptr, ptr %7, align 8
   %68 = load volatile i64, ptr %8, align 8
-  %69 = tail call zeroext i1 %67(i64 noundef %68, i64 noundef %1) #15
+  %69 = tail call zeroext i1 %67(i64 noundef %68, i64 noundef %1) #14
   br i1 %69, label %._crit_edge68, label %20
 
 ._crit_edge.loopexit:                             ; preds = %59
@@ -1845,7 +1840,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %.0.lcssa = phi i64 [ %70, %._crit_edge.loopexit ], [ 0, %20 ]
   %71 = load ptr, ptr %12, align 8
   %72 = getelementptr inbounds nuw %union.LWLockPadded, ptr %71, i64 %.0.lcssa
-  tail call void @LWLockRelease(ptr noundef %72) #15
+  tail call void @LWLockRelease(ptr noundef %72) #14
   %73 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull %0, ptr noundef nonnull @SlruScanDirCbDeleteCutoff, ptr noundef nonnull %3)
   br label %74
 
@@ -1867,8 +1862,8 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = tail call ptr @AllocateDir(ptr noundef nonnull %4) #15
-  %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
+  %5 = tail call ptr @AllocateDir(ptr noundef nonnull %4) #14
+  %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #14
   %.not25.not = icmp eq ptr %6, null
   br i1 %.not25.not, label %.thread, label %.lr.ph
 
@@ -1879,7 +1874,7 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nound
 8:                                                ; preds = %.lr.ph, %26
   %9 = phi ptr [ %6, %.lr.ph ], [ %27, %26 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #17
   %.val = load i8, ptr %7, align 2, !range !4, !noundef !5
   %12 = trunc nuw i8 %.val to i1
   %13 = icmp eq i64 %11, 15
@@ -1889,33 +1884,33 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nound
   br i1 %.0.i, label %15, label %26
 
 15:                                               ; preds = %8
-  %16 = tail call i64 @strspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #18
+  %16 = tail call i64 @strspn(ptr noundef nonnull %10, ptr noundef nonnull @.str.3) #17
   %17 = icmp eq i64 %16, %11
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %15
-  %19 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #15
+  %19 = tail call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #14
   %20 = shl i64 %19, 5
-  %21 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
+  %21 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %10) #15
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1813, ptr noundef nonnull @__func__.SlruScanDirectory) #15
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %10) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1813, ptr noundef nonnull @__func__.SlruScanDirectory) #14
   br label %24
 
 24:                                               ; preds = %22, %18
-  %25 = tail call zeroext i1 %1(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %20, ptr noundef %2) #15
+  %25 = tail call zeroext i1 %1(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef %20, ptr noundef %2) #14
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %24, %8, %15
-  %27 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
+  %27 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #14
   %.not.not = icmp eq ptr %27, null
   br i1 %.not.not, label %.thread, label %8
 
 .thread:                                          ; preds = %26, %24, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ true, %24 ], [ false, %26 ]
-  %28 = tail call i32 @FreeDir(ptr noundef %5) #15
+  %28 = tail call i32 @FreeDir(ptr noundef %5) #14
   ret i1 %.not.lcssa
 }
 
@@ -1924,13 +1919,13 @@ define internal noundef zeroext i1 @SlruScanDirCbDeleteCutoff(ptr noundef %0, pt
   %5 = load i64, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call zeroext i1 %7(i64 noundef %2, i64 noundef %5) #15
+  %8 = tail call zeroext i1 %7(i64 noundef %2, i64 noundef %5) #14
   br i1 %8, label %SlruMayDeleteSegment.exit, label %SlruMayDeleteSegment.exit.thread
 
 SlruMayDeleteSegment.exit:                        ; preds = %4
   %9 = add i64 %2, 31
   %10 = load ptr, ptr %6, align 8
-  %11 = tail call zeroext i1 %10(i64 noundef %9, i64 noundef %5) #15
+  %11 = tail call zeroext i1 %10(i64 noundef %9, i64 noundef %5) #14
   br i1 %11, label %12, label %SlruMayDeleteSegment.exit.thread
 
 12:                                               ; preds = %SlruMayDeleteSegment.exit
@@ -1947,7 +1942,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #15
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #14
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1977,11 +1972,11 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %17 = load ptr, ptr %4, align 8
   %18 = zext nneg i32 %.144 to i64
   %19 = getelementptr inbounds nuw %union.LWLockPadded, ptr %17, i64 %18
-  tail call void @LWLockRelease(ptr noundef %19) #15
+  tail call void @LWLockRelease(ptr noundef %19) #14
   %20 = load ptr, ptr %4, align 8
   %21 = zext nneg i32 %15 to i64
   %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %20, i64 %21
-  %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef %22, i32 noundef 0) #15
+  %23 = tail call zeroext i1 @LWLockAcquire(ptr noundef %22, i32 noundef 0) #14
   br label %24
 
 24:                                               ; preds = %16, %.lr.ph
@@ -2025,17 +2020,17 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i32 %15 to i64
   %47 = getelementptr inbounds nuw %union.LWLockPadded, ptr %45, i64 %46
-  tail call void @LWLockRelease(ptr noundef %47) #15
+  tail call void @LWLockRelease(ptr noundef %47) #14
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw %union.LWLockPadded, ptr %49, i64 %indvars.iv
-  %51 = tail call zeroext i1 @LWLockAcquire(ptr noundef %50, i32 noundef 1) #15
+  %51 = tail call zeroext i1 @LWLockAcquire(ptr noundef %50, i32 noundef 1) #14
   %52 = load ptr, ptr %48, align 8
   %53 = getelementptr inbounds nuw %union.LWLockPadded, ptr %52, i64 %indvars.iv
-  tail call void @LWLockRelease(ptr noundef %53) #15
+  tail call void @LWLockRelease(ptr noundef %53) #14
   %54 = load ptr, ptr %44, align 8
   %55 = getelementptr inbounds nuw %union.LWLockPadded, ptr %54, i64 %46
-  %56 = tail call zeroext i1 @LWLockAcquire(ptr noundef %55, i32 noundef 0) #15
+  %56 = tail call zeroext i1 @LWLockAcquire(ptr noundef %55, i32 noundef 0) #14
   %57 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
@@ -2048,7 +2043,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
 61:                                               ; preds = %43, %43
   %62 = load ptr, ptr %48, align 8
   %63 = getelementptr inbounds nuw %union.LWLockPadded, ptr %62, i64 %indvars.iv
-  %64 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %63, i32 noundef 1) #15
+  %64 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef %63, i32 noundef 1) #14
   br i1 %64, label %65, label %SimpleLruWaitIO.exit
 
 65:                                               ; preds = %61
@@ -2073,7 +2068,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
 75:                                               ; preds = %71, %70
   %76 = load ptr, ptr %48, align 8
   %77 = getelementptr inbounds nuw %union.LWLockPadded, ptr %76, i64 %indvars.iv
-  tail call void @LWLockRelease(ptr noundef %77) #15
+  tail call void @LWLockRelease(ptr noundef %77) #14
   br label %SimpleLruWaitIO.exit
 
 SimpleLruWaitIO.exit:                             ; preds = %75, %61, %43, %42, %29, %24, %41
@@ -2094,7 +2089,7 @@ SimpleLruWaitIO.exit:                             ; preds = %75, %61, %43, %42, 
   tail call fastcc void @SlruInternalDeleteSegment(ptr noundef nonnull %0, i64 noundef %1)
   %82 = load ptr, ptr %4, align 8
   %83 = getelementptr inbounds nuw %union.LWLockPadded, ptr %82, i64 %.us-phi
-  tail call void @LWLockRelease(ptr noundef %83) #15
+  tail call void @LWLockRelease(ptr noundef %83) #14
   ret void
 }
 
@@ -2115,7 +2110,7 @@ define internal fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 nound
   store i16 %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %9, align 8
-  %10 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %4, i32 noundef 2, i1 noundef zeroext true) #15
+  %10 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %4, i32 noundef 2, i1 noundef zeroext true) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %11
 
@@ -2127,25 +2122,25 @@ define internal fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 nound
   br i1 %14, label %16, label %18
 
 16:                                               ; preds = %11
-  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, i64 noundef %1) #15
+  %17 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, i64 noundef %1) #14
   br label %SlruFileName.exit
 
 18:                                               ; preds = %11
   %19 = trunc i64 %1 to i32
-  %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %15, i32 noundef %19) #15
+  %20 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %15, i32 noundef %19) #14
   br label %SlruFileName.exit
 
 SlruFileName.exit:                                ; preds = %16, %18
-  %21 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #15
+  %21 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %SlruFileName.exit
-  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef nonnull %3) #15
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1518, ptr noundef nonnull @__func__.SlruInternalDeleteSegment) #15
+  %23 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef nonnull %3) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1518, ptr noundef nonnull @__func__.SlruInternalDeleteSegment) #14
   br label %24
 
 24:                                               ; preds = %22, %SlruFileName.exit
-  %25 = call i32 @unlink(ptr noundef nonnull %3) #15
+  %25 = call i32 @unlink(ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2155,13 +2150,13 @@ define dso_local zeroext i1 @SlruScanDirCbReportPresence(ptr noundef readonly ca
   %5 = load i64, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call zeroext i1 %7(i64 noundef %2, i64 noundef %5) #15
+  %8 = tail call zeroext i1 %7(i64 noundef %2, i64 noundef %5) #14
   br i1 %8, label %9, label %SlruMayDeleteSegment.exit
 
 9:                                                ; preds = %4
   %10 = add i64 %2, 31
   %11 = load ptr, ptr %6, align 8
-  %12 = tail call zeroext i1 %11(i64 noundef %10, i64 noundef %5) #15
+  %12 = tail call zeroext i1 %11(i64 noundef %10, i64 noundef %5) #14
   br label %SlruMayDeleteSegment.exit
 
 SlruMayDeleteSegment.exit:                        ; preds = %4, %9
@@ -2204,28 +2199,28 @@ define dso_local i32 @SlruSyncFileTag(ptr noundef %0, ptr noundef readonly captu
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %9, i64 noundef %5) #15
+  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef nonnull %9, i64 noundef %5) #14
   br label %SlruFileName.exit
 
 12:                                               ; preds = %3
   %13 = trunc i64 %5 to i32
-  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %9, i32 noundef %13) #15
+  %14 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef 1024, ptr noundef nonnull @.str.6, ptr noundef nonnull %9, i32 noundef %13) #14
   br label %SlruFileName.exit
 
 SlruFileName.exit:                                ; preds = %10, %12
-  %15 = tail call i32 @OpenTransientFile(ptr noundef %2, i32 noundef 2) #15
+  %15 = tail call i32 @OpenTransientFile(ptr noundef %2, i32 noundef 2) #14
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %24, label %17
 
 17:                                               ; preds = %SlruFileName.exit
   %18 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772206, ptr %18, align 4
-  %19 = tail call i32 @pg_fsync(i32 noundef %15) #15
+  %19 = tail call i32 @pg_fsync(i32 noundef %15) #14
   %20 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %20, align 4
-  %21 = tail call ptr @__errno_location() #16
+  %21 = tail call ptr @__errno_location() #15
   %22 = load i32, ptr %21, align 4
-  %23 = tail call i32 @CloseTransientFile(i32 noundef %15) #15
+  %23 = tail call i32 @CloseTransientFile(i32 noundef %15) #14
   store i32 %22, ptr %21, align 4
   br label %24
 
@@ -2267,17 +2262,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2292,12 +2284,11 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { cold nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

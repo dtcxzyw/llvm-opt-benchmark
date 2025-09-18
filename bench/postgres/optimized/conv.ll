@@ -26,7 +26,7 @@ define dso_local i32 @local2local(ptr noundef %0, ptr noundef writeonly captures
   br i1 %6, label %.loopexit, label %12
 
 12:                                               ; preds = %11
-  tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef nonnull %.040, i32 noundef %.02638) #6
+  tail call void @report_invalid_encoding(i32 noundef %3, ptr noundef nonnull %.040, i32 noundef %.02638) #5
   unreachable
 
 13:                                               ; preds = %.lr.ph
@@ -45,7 +45,7 @@ define dso_local i32 @local2local(ptr noundef %0, ptr noundef writeonly captures
   br i1 %6, label %.loopexit, label %20
 
 20:                                               ; preds = %19
-  tail call void @report_untranslatable_char(i32 noundef %3, i32 noundef %4, ptr noundef nonnull %.040, i32 noundef %.02638) #6
+  tail call void @report_untranslatable_char(i32 noundef %3, i32 noundef %4, ptr noundef nonnull %.040, i32 noundef %.02638) #5
   unreachable
 
 21:                                               ; preds = %14, %13
@@ -95,7 +95,7 @@ define dso_local i32 @latin2mic(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %5, label %.loopexit, label %13
 
 13:                                               ; preds = %12
-  tail call void @report_invalid_encoding(i32 noundef %4, ptr noundef nonnull %.027, i32 noundef %.01825) #6
+  tail call void @report_invalid_encoding(i32 noundef %4, ptr noundef nonnull %.027, i32 noundef %.01825) #5
   unreachable
 
 14:                                               ; preds = %9
@@ -145,7 +145,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %5, label %.thread, label %12
 
 12:                                               ; preds = %11
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03364, i32 noundef %.03862) #6
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03364, i32 noundef %.03862) #5
   unreachable
 
 13:                                               ; preds = %.lr.ph
@@ -153,7 +153,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %.not, label %25, label %14
 
 14:                                               ; preds = %13
-  %15 = tail call i32 @pg_mule_mblen(ptr noundef nonnull %.03364) #7
+  %15 = tail call i32 @pg_mule_mblen(ptr noundef nonnull %.03364) #6
   %16 = icmp slt i32 %.03862, %15
   br i1 %16, label %17, label %19
 
@@ -161,7 +161,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %5, label %.thread, label %18
 
 18:                                               ; preds = %17
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03364, i32 noundef %.03862) #6
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03364, i32 noundef %.03862) #5
   unreachable
 
 19:                                               ; preds = %14
@@ -180,7 +180,7 @@ define dso_local i32 @mic2latin(ptr noundef %0, ptr noundef writeonly captures(n
   br i1 %5, label %.thread, label %24
 
 24:                                               ; preds = %23
-  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef %4, ptr noundef nonnull %.03364, i32 noundef %.03862) #6
+  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef %4, ptr noundef nonnull %.03364, i32 noundef %.03862) #5
   unreachable
 
 25:                                               ; preds = %20, %13
@@ -228,7 +228,7 @@ define dso_local i32 @latin2mic_with_table(ptr noundef %0, ptr noundef writeonly
   br i1 %6, label %.loopexit, label %14
 
 14:                                               ; preds = %13
-  tail call void @report_invalid_encoding(i32 noundef %4, ptr noundef nonnull %.041, i32 noundef %.02739) #6
+  tail call void @report_invalid_encoding(i32 noundef %4, ptr noundef nonnull %.041, i32 noundef %.02739) #5
   unreachable
 
 15:                                               ; preds = %10
@@ -259,7 +259,7 @@ define dso_local i32 @latin2mic_with_table(ptr noundef %0, ptr noundef writeonly
   br i1 %6, label %.loopexit, label %27
 
 27:                                               ; preds = %26
-  tail call void @report_untranslatable_char(i32 noundef %4, i32 noundef 7, ptr noundef nonnull %.041, i32 noundef %.02739) #6
+  tail call void @report_untranslatable_char(i32 noundef %4, i32 noundef 7, ptr noundef nonnull %.041, i32 noundef %.02739) #5
   unreachable
 
 28:                                               ; preds = %23, %16
@@ -298,7 +298,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
   br i1 %6, label %.thread, label %13
 
 13:                                               ; preds = %12
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03566, i32 noundef %.04064) #6
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03566, i32 noundef %.04064) #5
   unreachable
 
 14:                                               ; preds = %.lr.ph
@@ -306,7 +306,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
   br i1 %.not, label %32, label %15
 
 15:                                               ; preds = %14
-  %16 = tail call i32 @pg_mule_mblen(ptr noundef nonnull %.03566) #7
+  %16 = tail call i32 @pg_mule_mblen(ptr noundef nonnull %.03566) #6
   %17 = icmp slt i32 %.04064, %16
   br i1 %17, label %18, label %20
 
@@ -314,7 +314,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
   br i1 %6, label %.thread, label %19
 
 19:                                               ; preds = %18
-  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03566, i32 noundef %.04064) #6
+  tail call void @report_invalid_encoding(i32 noundef 7, ptr noundef nonnull %.03566, i32 noundef %.04064) #5
   unreachable
 
 20:                                               ; preds = %15
@@ -341,7 +341,7 @@ define dso_local i32 @mic2latin_with_table(ptr noundef %0, ptr noundef writeonly
   br i1 %6, label %.thread, label %31
 
 31:                                               ; preds = %30
-  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef %4, ptr noundef nonnull %.03566, i32 noundef %.04064) #6
+  tail call void @report_untranslatable_char(i32 noundef 7, i32 noundef %4, ptr noundef nonnull %.03566, i32 noundef %.04064) #5
   unreachable
 
 32:                                               ; preds = %24, %14
@@ -384,11 +384,10 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %16
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %7) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 522, ptr noundef nonnull @__func__.UtfToLocal) #7
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %14 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %7) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 522, ptr noundef nonnull @__func__.UtfToLocal) #6
   unreachable
 
 16:                                               ; preds = %.lr.ph, %store_coded_char.exit.thread
@@ -400,12 +399,12 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %.0264) #7
+  %20 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %.0264) #6
   %21 = icmp slt i32 %.0122263, %20
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %.0264, i32 noundef %20) #7
+  %23 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %.0264, i32 noundef %20) #6
   br i1 %23, label %24, label %.loopexit
 
 24:                                               ; preds = %22
@@ -436,10 +435,9 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %40
 
 37:                                               ; preds = %24
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.UtfToLocal) #7
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %20) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.UtfToLocal) #6
   unreachable
 
 40:                                               ; preds = %24, %29, %32
@@ -468,7 +466,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
 
 54:                                               ; preds = %40
   %55 = sub nuw nsw i32 %.0122263, %20
-  %56 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %42) #7
+  %56 = tail call i32 @pg_utf_mblen_private(ptr noundef nonnull %42) #6
   %57 = icmp slt i32 %55, %56
   br i1 %57, label %58, label %62
 
@@ -479,14 +477,14 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %.loopexit
 
 62:                                               ; preds = %54
-  %63 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %42, i32 noundef %56) #7
+  %63 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %42, i32 noundef %56) #6
   br i1 %63, label %70, label %64
 
 64:                                               ; preds = %62
   br i1 %8, label %66, label %65
 
 65:                                               ; preds = %64
-  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %42, i32 noundef %55) #6
+  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %42, i32 noundef %55) #5
   unreachable
 
 66:                                               ; preds = %64
@@ -543,10 +541,9 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %106
 
 103:                                              ; preds = %72
-  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %104)
-  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %56) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.UtfToLocal) #7
+  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %56) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 627, ptr noundef nonnull @__func__.UtfToLocal) #6
   unreachable
 
 106:                                              ; preds = %78, %88, %73
@@ -705,7 +702,7 @@ store_coded_char.exit177:                         ; preds = %149, %store_coded_c
   br i1 %.not163, label %store_coded_char.exit186, label %173
 
 173:                                              ; preds = %store_coded_char.exit177
-  %174 = tail call i32 %6(i32 noundef %52) #7
+  %174 = tail call i32 %6(i32 noundef %52) #6
   %.not164 = icmp eq i32 %174, 0
   br i1 %.not164, label %store_coded_char.exit186, label %175
 
@@ -765,7 +762,7 @@ store_coded_char.exit186:                         ; preds = %173, %store_coded_c
   br i1 %8, label %.thread215, label %200
 
 200:                                              ; preds = %store_coded_char.exit186
-  tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef %7, ptr noundef nonnull %199, i32 noundef %.0122263) #6
+  tail call void @report_untranslatable_char(i32 noundef 6, i32 noundef %7, ptr noundef nonnull %199, i32 noundef %.0122263) #5
   unreachable
 
 store_coded_char.exit.thread:                     ; preds = %192, %194, %168, %170, %146, %144, %25
@@ -785,7 +782,7 @@ store_coded_char.exit.thread:                     ; preds = %192, %194, %168, %1
   br i1 %or.cond6, label %.thread215, label %204
 
 204:                                              ; preds = %.loopexit
-  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %.2.ph, i32 noundef %.2124.ph) #6
+  tail call void @report_invalid_encoding(i32 noundef 6, ptr noundef nonnull %.2.ph, i32 noundef %.2124.ph) #5
   unreachable
 
 .thread215:                                       ; preds = %store_coded_char.exit.thread, %.preheader, %66, %store_coded_char.exit186, %.loopexit
@@ -1162,11 +1159,10 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %16
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %7) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 733, ptr noundef nonnull @__func__.LocalToUtf) #7
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %14 = tail call i32 @errcode(i32 noundef 50856066) #6
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %7) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 733, ptr noundef nonnull @__func__.LocalToUtf) #6
   unreachable
 
 16:                                               ; preds = %.lr.ph, %store_coded_char.exit.thread
@@ -1188,7 +1184,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %store_coded_char.exit.thread
 
 23:                                               ; preds = %19
-  %24 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %7, ptr noundef nonnull %.0177, i32 noundef %.077176) #7
+  %24 = tail call i32 @pg_encoding_verifymbchar(i32 noundef %7, ptr noundef nonnull %.0177, i32 noundef %.077176) #6
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %170, label %26
 
@@ -1222,10 +1218,9 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr noundef wri
   br label %45
 
 42:                                               ; preds = %26
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 781, ptr noundef nonnull @__func__.LocalToUtf) #7
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 781, ptr noundef nonnull @__func__.LocalToUtf) #6
   unreachable
 
 45:                                               ; preds = %26, %27, %35, %30
@@ -1438,7 +1433,7 @@ store_coded_char.exit:                            ; preds = %91, %81, %45
   br i1 %.not104, label %store_coded_char.exit135, label %140
 
 140:                                              ; preds = %store_coded_char.exit
-  %141 = tail call i32 %6(i32 noundef %56) #7
+  %141 = tail call i32 %6(i32 noundef %56) #6
   %.not105 = icmp eq i32 %141, 0
   br i1 %.not105, label %store_coded_char.exit135, label %142
 
@@ -1498,7 +1493,7 @@ store_coded_char.exit135:                         ; preds = %140, %store_coded_c
   br i1 %8, label %.thread150, label %167
 
 167:                                              ; preds = %store_coded_char.exit135
-  tail call void @report_untranslatable_char(i32 noundef %7, i32 noundef 6, ptr noundef nonnull %166, i32 noundef %.077176) #6
+  tail call void @report_untranslatable_char(i32 noundef %7, i32 noundef 6, ptr noundef nonnull %166, i32 noundef %.077176) #5
   unreachable
 
 store_coded_char.exit.thread:                     ; preds = %159, %161, %137, %135, %78, %76, %20
@@ -1513,7 +1508,7 @@ store_coded_char.exit.thread:                     ; preds = %159, %161, %137, %1
   br i1 %8, label %.thread150, label %171
 
 171:                                              ; preds = %170
-  tail call void @report_invalid_encoding(i32 noundef %7, ptr noundef nonnull %.0177, i32 noundef %.077176) #6
+  tail call void @report_invalid_encoding(i32 noundef %7, ptr noundef nonnull %.0177, i32 noundef %.077176) #5
   unreachable
 
 .thread150:                                       ; preds = %store_coded_char.exit.thread, %.preheader, %store_coded_char.exit135, %170
@@ -1529,18 +1524,14 @@ store_coded_char.exit.thread:                     ; preds = %159, %161, %137, %1
 
 declare i32 @pg_encoding_verifymbchar(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { noreturn nounwind }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { noreturn nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

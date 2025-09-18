@@ -1203,38 +1203,31 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %11 = icmp eq i64 %.sroa.0.0.copyload25, 0
-  br i1 %11, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h3650c9074c83fb5eE.exit", label %14
+  br i1 %11, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h3650c9074c83fb5eE.exit", label %12
 
 "_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h3650c9074c83fb5eE.exit": ; preds = %10
   tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17h57cb638b734c6d95E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17hc6b51fa323ae0d99E)
-  %12 = load i64, ptr %0, align 8, !range !169, !noundef !11
-  %13 = icmp eq i64 %12, 1
-  tail call void @llvm.assume(i1 %13)
   br label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit21"
 
-14:                                               ; preds = %10
+12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload25, ptr %3, align 8
   %.sroa.5.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx28, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i64 64, i1 false)
   %cond.i = icmp eq i64 %.sroa.0.0.copyload25, 1
-  br i1 %cond.i, label %15, label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit"
+  br i1 %cond.i, label %13, label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit"
 
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN4core3ptr39drop_in_place$LT$gpui..arena..Arena$GT$17h24147f894b9fb01aE.llvm.11611006770570263672"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
-  %.pre = load i64, ptr %0, align 8, !range !169
-  %17 = icmp eq i64 %.pre, 1
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN4core3ptr39drop_in_place$LT$gpui..arena..Arena$GT$17h24147f894b9fb01aE.llvm.11611006770570263672"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14)
   br label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit"
 
 "_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit21": ; preds = %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17h3650c9074c83fb5eE.exit", %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret ptr %.sroa.2.0..sroa_idx
 
-"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit": ; preds = %15, %14
-  %18 = phi i1 [ %17, %15 ], [ true, %14 ]
+"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit": ; preds = %13, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 %18)
   br label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E.exit21"
 }
 
@@ -1245,8 +1238,8 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %1, align 8, !alias.scope !170, !noundef !11
-  store i64 0, ptr %1, align 8, !alias.scope !170
+  %6 = load i64, ptr %1, align 8, !alias.scope !169, !noundef !11
+  store i64 0, ptr %1, align 8, !alias.scope !169
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %15
 
@@ -1255,8 +1248,8 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   %9 = tail call noundef nonnull ptr @_ZN3std6thread7current17he9fd31ca1606f337E()
   store ptr %9, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load i64, ptr %10, align 8, !range !175, !noundef !11
-  %12 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !176
+  %11 = load i64, ptr %10, align 8, !range !174, !noundef !11
+  %12 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !175
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %14, label %_ZN4core3ops8function6FnOnce9call_once17h146fda449e6545bcE.exit
 
@@ -1281,7 +1274,7 @@ define internal void @_ZN3std3sys12thread_local6native4lazy7destroy17hc6b51fa323
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
   store i64 2, ptr %0, align 8
-  %3 = load i64, ptr %2, align 8, !range !169, !alias.scope !185, !noundef !11
+  %3 = load i64, ptr %2, align 8, !range !184, !alias.scope !185, !noundef !11
   %cond.i.i.i = icmp eq i64 %3, 1
   br i1 %cond.i.i.i, label %4, label %10
 
@@ -3779,7 +3772,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17h497b6d7f6c506cddE(ptr noun
   tail call void @llvm.experimental.noalias.scope.decl(metadata !743)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !746)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !749)
-  %2 = load i64, ptr %0, align 8, !range !169, !alias.scope !752, !noundef !11
+  %2 = load i64, ptr %0, align 8, !range !184, !alias.scope !752, !noundef !11
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr110drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..icon..Icon$GT$$GT$$GT$17h52e9f7f82d6e75b4E.exit", label %4
 
@@ -3834,7 +3827,7 @@ define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hc58215d29a0060f0E(ptr noun
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4gpui5arena5Arena5alloc4drop17hc8b3b6f781754ab4E(ptr noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = load i64, ptr %0, align 8, !range !169, !alias.scope !769, !noundef !11
+  %2 = load i64, ptr %0, align 8, !range !184, !alias.scope !769, !noundef !11
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %"_ZN4core3ptr119drop_in_place$LT$gpui..element..Drawable$LT$gpui..element..Component$LT$ui..components..label..label..Label$GT$$GT$$GT$17hb719069d5250b698E.exit", label %4
 
@@ -7022,7 +7015,7 @@ define internal fastcc void @_ZN5sqlez9statement9Statement7prepare17h3f80381ef7a
           to label %.noexc49 unwind label %.loopexit.split-lp.loopexit
 
 .noexc49:                                         ; preds = %90
-  %91 = load i64, ptr %15, align 8, !range !169, !noalias !1466, !noundef !11
+  %91 = load i64, ptr %15, align 8, !range !184, !noalias !1466, !noundef !11
   switch i64 %91, label %.noexc49.unreachabledefault [
     i64 1, label %92
     i64 2, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h32ef1cb4cec8aab2E.llvm.9474301970791340934.exit.i"
@@ -7057,7 +7050,7 @@ default.unreachable:                              ; preds = %.noexc50
           to label %.noexc50 unwind label %.loopexit
 
 .noexc50:                                         ; preds = %96
-  %97 = load i64, ptr %14, align 8, !range !169, !noalias !1473, !noundef !11
+  %97 = load i64, ptr %14, align 8, !range !184, !noalias !1473, !noundef !11
   switch i64 %97, label %default.unreachable [
     i64 1, label %99
     i64 2, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h2dc50c49f3e9b62dE.llvm.9474301970791340934.exit.i"
@@ -11573,18 +11566,15 @@ define hidden void @"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN78_$LT$once_cell..sync..Lazy$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hfc69f93f65eff8b9E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic ptr, ptr %0 acquire, align 8
   %.not.i = icmp eq ptr %2, inttoptr (i64 2 to ptr)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h373209790b36d94cE.exit", label %4
+  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h373209790b36d94cE.exit", label %3
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h46ae4fa3d37c8ceeE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
-  %5 = load i8, ptr %3, align 8, !range !339, !noundef !11
-  %6 = icmp ne i8 %5, 4
-  tail call void @llvm.assume(i1 %6)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h373209790b36d94cE.exit"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h373209790b36d94cE.exit": ; preds = %1, %4
-  ret ptr %3
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h373209790b36d94cE.exit": ; preds = %1, %3
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12014,18 +12004,15 @@ define hidden void @"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h373209790b36d94cE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %.not = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %5, label %4
 
-5:                                                ; preds = %2
+4:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h46ae4fa3d37c8ceeE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %6 = load i8, ptr %4, align 8, !range !339, !noundef !11
-  %7 = icmp ne i8 %6, 4
-  tail call void @llvm.assume(i1 %7)
-  br label %8
+  br label %5
 
-8:                                                ; preds = %2, %5
-  ret ptr %4
+5:                                                ; preds = %2, %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -13521,7 +13508,7 @@ define void @_ZN11auto_update11AutoUpdater3get17h8cc5ecb2835e451dE(ptr dead_on_u
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2611
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 936
   call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hc64e3e5ffc321adcE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 3787722378020290762, i64 noundef -8428196376687687230)
-  %9 = load i64, ptr %3, align 8, !range !169, !noalias !2611, !noundef !11
+  %9 = load i64, ptr %3, align 8, !range !184, !noalias !2611, !noundef !11
   %10 = icmp eq i64 %9, 2
   br i1 %10, label %12, label %11
 
@@ -16195,22 +16182,22 @@ attributes #46 = { "function-inline-cost-multiplier"="2" }
 !166 = distinct !{!166, !160, !"_ZN4core3ops8function6FnOnce9call_once17h54af804416629132E: argument 1"}
 !167 = !{!165, !166}
 !168 = !{!162, !159}
-!169 = !{i64 0, i64 3}
-!170 = !{!171, !173}
-!171 = distinct !{!171, !172, !"_ZN4core6option15Option$LT$T$GT$4take17hd5fd15321b3b8802E: argument 0"}
-!172 = distinct !{!172, !"_ZN4core6option15Option$LT$T$GT$4take17hd5fd15321b3b8802E"}
-!173 = distinct !{!173, !174, !"_ZN4core3ops8function6FnOnce9call_once17h4ed3c05cae99a81aE: argument 0"}
-!174 = distinct !{!174, !"_ZN4core3ops8function6FnOnce9call_once17h4ed3c05cae99a81aE"}
-!175 = !{i64 1, i64 0}
-!176 = !{!177, !179, !181, !183}
-!177 = distinct !{!177, !178, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9af38d9fde1cd84E.llvm.11611006770570263672: argument 0"}
-!178 = distinct !{!178, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9af38d9fde1cd84E.llvm.11611006770570263672"}
-!179 = distinct !{!179, !180, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hd37b9d624263ce57E.llvm.11611006770570263672: argument 0"}
-!180 = distinct !{!180, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hd37b9d624263ce57E.llvm.11611006770570263672"}
-!181 = distinct !{!181, !182, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17hdb68a6691eec20d9E.llvm.11611006770570263672: argument 0"}
-!182 = distinct !{!182, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17hdb68a6691eec20d9E.llvm.11611006770570263672"}
-!183 = distinct !{!183, !184, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h0c02326b022c22d9E: argument 0"}
-!184 = distinct !{!184, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h0c02326b022c22d9E"}
+!169 = !{!170, !172}
+!170 = distinct !{!170, !171, !"_ZN4core6option15Option$LT$T$GT$4take17hd5fd15321b3b8802E: argument 0"}
+!171 = distinct !{!171, !"_ZN4core6option15Option$LT$T$GT$4take17hd5fd15321b3b8802E"}
+!172 = distinct !{!172, !173, !"_ZN4core3ops8function6FnOnce9call_once17h4ed3c05cae99a81aE: argument 0"}
+!173 = distinct !{!173, !"_ZN4core3ops8function6FnOnce9call_once17h4ed3c05cae99a81aE"}
+!174 = !{i64 1, i64 0}
+!175 = !{!176, !178, !180, !182}
+!176 = distinct !{!176, !177, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9af38d9fde1cd84E.llvm.11611006770570263672: argument 0"}
+!177 = distinct !{!177, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb9af38d9fde1cd84E.llvm.11611006770570263672"}
+!178 = distinct !{!178, !179, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hd37b9d624263ce57E.llvm.11611006770570263672: argument 0"}
+!179 = distinct !{!179, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hd37b9d624263ce57E.llvm.11611006770570263672"}
+!180 = distinct !{!180, !181, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17hdb68a6691eec20d9E.llvm.11611006770570263672: argument 0"}
+!181 = distinct !{!181, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17hdb68a6691eec20d9E.llvm.11611006770570263672"}
+!182 = distinct !{!182, !183, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h0c02326b022c22d9E: argument 0"}
+!183 = distinct !{!183, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h0c02326b022c22d9E"}
+!184 = !{i64 0, i64 3}
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E: argument 0"}
 !187 = distinct !{!187, !"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17h606d4b622ab012a5E"}

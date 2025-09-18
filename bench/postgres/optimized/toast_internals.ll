@@ -70,19 +70,18 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   ]
 
 26:                                               ; preds = %22
-  %27 = tail call ptr @pglz_compress_datum(ptr noundef nonnull %3) #7
+  %27 = tail call ptr @pglz_compress_datum(ptr noundef nonnull %3) #6
   br label %34
 
 28:                                               ; preds = %22
-  %29 = tail call ptr @lz4_compress_datum(ptr noundef nonnull %3) #7
+  %29 = tail call ptr @lz4_compress_datum(ptr noundef nonnull %3) #6
   br label %34
 
 30:                                               ; preds = %22
   %31 = sext i8 %.022 to i32
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @__func__.toast_compress_datum) #7
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 75, ptr noundef nonnull @__func__.toast_compress_datum) #6
   unreachable
 
 34:                                               ; preds = %28, %26
@@ -106,7 +105,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br label %46
 
 45:                                               ; preds = %36
-  tail call void @pfree(ptr noundef nonnull %.021) #7
+  tail call void @pfree(ptr noundef nonnull %.021) #6
   br label %46
 
 46:                                               ; preds = %34, %45, %41
@@ -137,7 +136,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %10 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #7
+  %10 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %11 = inttoptr i64 %1 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -145,7 +144,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 108
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 3) #7
+  %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 3) #6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @toast_open_indexes(ptr noundef %16, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %9)
@@ -198,7 +197,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load i32, ptr %50, align 8
-  %52 = tail call i32 @GetNewOidWithIndex(ptr noundef nonnull %16, i32 noundef %51, i16 noundef signext 1) #7
+  %52 = tail call i32 @GetNewOidWithIndex(ptr noundef nonnull %16, i32 noundef %51, i16 noundef signext 1) #6
   br label %.loopexit
 
 53:                                               ; preds = %40
@@ -235,11 +234,11 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %62 = load ptr, ptr %60, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %64 = load i32, ptr %63, align 8
-  %65 = tail call i32 @GetNewOidWithIndex(ptr noundef nonnull %16, i32 noundef %64, i16 noundef signext 1) #7
+  %65 = tail call i32 @GetNewOidWithIndex(ptr noundef nonnull %16, i32 noundef %64, i16 noundef signext 1) #6
   %66 = load i32, ptr %41, align 8
-  %67 = tail call ptr @table_open(i32 noundef %66, i32 noundef 1) #7
+  %67 = tail call ptr @table_open(i32 noundef %66, i32 noundef 1) #6
   %68 = tail call fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %67, i32 noundef %65)
-  tail call void @table_close(ptr noundef %67, i32 noundef 1) #7
+  tail call void @table_close(ptr noundef %67, i32 noundef 1) #6
   br i1 %68, label %61, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %61, %56, %43
@@ -281,7 +280,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %.not75.us, label %.lr.ph.us, label %79, !prof !6
 
 79:                                               ; preds = %.lr.ph84.split.us
-  call void @ProcessInterrupts() #7
+  call void @ProcessInterrupts() #6
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %79, %.lr.ph84.split.us
@@ -293,8 +292,8 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   store i32 %83, ptr %8, align 4
   %84 = zext nneg i32 %80 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880.us, i64 %84, i1 false)
-  %85 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
-  call void @heap_insert(ptr noundef %16, ptr noundef %85, i32 noundef %10, i32 noundef %3, ptr noundef null) #7
+  %85 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  call void @heap_insert(ptr noundef %16, ptr noundef %85, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   br label %87
 
@@ -313,7 +312,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %96 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %97 = load i8, ptr %96, align 4, !range !7, !noundef !8
   %98 = zext nneg i8 %97 to i32
-  %99 = call zeroext i1 @index_insert(ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %86, ptr noundef %16, i32 noundef %98, i1 noundef zeroext false, ptr noundef null) #7
+  %99 = call zeroext i1 @index_insert(ptr noundef nonnull %89, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %86, ptr noundef %16, i32 noundef %98, i1 noundef zeroext false, ptr noundef null) #6
   br label %100
 
 100:                                              ; preds = %95, %87
@@ -323,7 +322,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
 
 ._crit_edge.us:                                   ; preds = %100
   %101 = add i32 %.06582.us, 1
-  call void @heap_freetuple(ptr noundef %85) #7
+  call void @heap_freetuple(ptr noundef %85) #6
   %102 = sub nsw i32 %.481.us, %80
   %103 = getelementptr inbounds nuw i8, ptr %.16880.us, i64 %84
   %104 = icmp sgt i32 %102, 0
@@ -338,7 +337,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   br i1 %.not75, label %107, label %106, !prof !6
 
 106:                                              ; preds = %.lr.ph84.split
-  call void @ProcessInterrupts() #7
+  call void @ProcessInterrupts() #6
   br label %107
 
 107:                                              ; preds = %106, %.lr.ph84.split
@@ -351,9 +350,9 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   store i32 %112, ptr %8, align 4
   %113 = zext nneg i32 %108 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880, i64 %113, i1 false)
-  %114 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
-  call void @heap_insert(ptr noundef %16, ptr noundef %114, i32 noundef %10, i32 noundef %3, ptr noundef null) #7
-  call void @heap_freetuple(ptr noundef %114) #7
+  %114 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
+  call void @heap_insert(ptr noundef %16, ptr noundef %114, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
+  call void @heap_freetuple(ptr noundef %114) #6
   %115 = sub nsw i32 %.481, %108
   %116 = getelementptr inbounds nuw i8, ptr %.16880, i64 %113
   %117 = icmp sgt i32 %115, 0
@@ -371,15 +370,15 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %119 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i
   %120 = load ptr, ptr %119, align 8
-  call void @index_close(ptr noundef %120, i32 noundef 0) #7
+  call void @index_close(ptr noundef %120, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_edge85
-  call void @pfree(ptr noundef %.pre) #7
-  call void @table_close(ptr noundef %16, i32 noundef 0) #7
-  %121 = call ptr @palloc(i64 noundef 18) #7
+  call void @pfree(ptr noundef %.pre) #6
+  call void @table_close(ptr noundef %16, i32 noundef 0) #6
+  %121 = call ptr @palloc(i64 noundef 18) #6
   store i8 1, ptr %121, align 1
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   store i8 18, ptr %122, align 1
@@ -406,7 +405,7 @@ declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 2147483647) i32 @toast_open_indexes(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @RelationGetIndexList(ptr noundef %0) #7
+  %5 = tail call ptr @RelationGetIndexList(ptr noundef %0) #6
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %.critedge.critedge, label %list_length.exit
 
@@ -416,7 +415,7 @@ list_length.exit:                                 ; preds = %4
   store i32 %7, ptr %3, align 4
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 3
-  %10 = tail call ptr @palloc(i64 noundef %9) #7
+  %10 = tail call ptr @palloc(i64 noundef %9) #6
   store ptr %10, ptr %2, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i32, ptr %6, align 4
@@ -428,7 +427,7 @@ list_length.exit:                                 ; preds = %4
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
-  %17 = tail call ptr @index_open(i32 noundef %16, i32 noundef %1) #7
+  %17 = tail call ptr @index_open(i32 noundef %16, i32 noundef %1) #6
   %18 = load ptr, ptr %2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
@@ -440,7 +439,7 @@ list_length.exit:                                 ; preds = %4
 
 .critedge.critedge:                               ; preds = %4
   store i32 0, ptr %3, align 4
-  %23 = tail call ptr @palloc(i64 noundef 0) #7
+  %23 = tail call ptr @palloc(i64 noundef 0) #6
   store ptr %23, ptr %2, align 8
   br label %.critedge
 
@@ -472,17 +471,16 @@ list_length.exit:                                 ; preds = %4
 
 36:                                               ; preds = %27
   %37 = trunc nuw nsw i64 %indvars.iv49 to i32
-  tail call void @list_free(ptr noundef %5) #7
+  tail call void @list_free(ptr noundef %5) #6
   ret i32 %37
 
 .critedge35:                                      ; preds = %35, %.critedge
-  tail call void @list_free(ptr noundef %5) #7
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %38)
+  tail call void @list_free(ptr noundef %5) #6
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = load i32, ptr %39, align 8
-  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %40) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 609, ptr noundef nonnull @__func__.toast_open_indexes) #7
+  %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %40) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 609, ptr noundef nonnull @__func__.toast_open_indexes) #6
   unreachable
 }
 
@@ -501,16 +499,16 @@ define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 n
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = call i32 @toast_open_indexes(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %4)
   %7 = zext i32 %1 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #7
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #6
   %8 = load ptr, ptr %5, align 8
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i32, ptr %12, align 8
-  %14 = call ptr @systable_beginscan(ptr noundef %0, i32 noundef %13, i1 noundef zeroext true, ptr noundef nonnull @SnapshotAnyData, i32 noundef 1, ptr noundef nonnull %3) #7
-  %15 = call ptr @systable_getnext(ptr noundef %14) #7
-  call void @systable_endscan(ptr noundef %14) #7
+  %14 = call ptr @systable_beginscan(ptr noundef %0, i32 noundef %13, i1 noundef zeroext true, ptr noundef nonnull @SnapshotAnyData, i32 noundef 1, ptr noundef nonnull %3) #6
+  %15 = call ptr @systable_getnext(ptr noundef %14) #6
+  call void @systable_endscan(ptr noundef %14) #6
   %16 = load i32, ptr %4, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.preheader.i, label %toast_close_indexes.exit
@@ -523,14 +521,14 @@ define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 n
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
-  call void @index_close(ptr noundef %19, i32 noundef 3) #7
+  call void @index_close(ptr noundef %19, i32 noundef 3) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %2
   %.not = icmp ne ptr %15, null
-  call void @pfree(ptr noundef nonnull %8) #7
+  call void @pfree(ptr noundef nonnull %8) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -560,13 +558,13 @@ define dso_local void @toast_close_indexes(ptr noundef %0, i32 noundef %1, i32 n
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
-  tail call void @index_close(ptr noundef %6, i32 noundef %2) #7
+  tail call void @index_close(ptr noundef %6, i32 noundef %2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  tail call void @pfree(ptr noundef %0) #7
+  tail call void @pfree(ptr noundef %0) #6
   ret void
 }
 
@@ -598,27 +596,26 @@ define dso_local void @toast_delete_datum(ptr noundef readnone captures(none) %0
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 14
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 1
-  %15 = tail call ptr @table_open(i32 noundef %.sroa.4.0.copyload, i32 noundef 3) #7
+  %15 = tail call ptr @table_open(i32 noundef %.sroa.4.0.copyload, i32 noundef 3) #6
   %16 = call i32 @toast_open_indexes(ptr noundef %15, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %17 = zext i32 %.sroa.3.0.copyload to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #7
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #6
   %18 = load ptr, ptr %4, align 8
   %19 = sext i32 %16 to i64
   %20 = getelementptr inbounds ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
-  %22 = call zeroext i1 @HaveRegisteredOrActiveSnapshot() #7
+  %22 = call zeroext i1 @HaveRegisteredOrActiveSnapshot() #6
   br i1 %22, label %get_toast_snapshot.exit, label %23
 
 23:                                               ; preds = %14
-  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %24)
-  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 653, ptr noundef nonnull @__func__.get_toast_snapshot) #7
+  %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %25 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 653, ptr noundef nonnull @__func__.get_toast_snapshot) #6
   unreachable
 
 get_toast_snapshot.exit:                          ; preds = %14
-  %26 = call ptr @systable_beginscan_ordered(ptr noundef %15, ptr noundef %21, ptr noundef nonnull @SnapshotToastData, i32 noundef 1, ptr noundef nonnull %5) #7
-  %27 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #7
+  %26 = call ptr @systable_beginscan_ordered(ptr noundef %15, ptr noundef %21, ptr noundef nonnull @SnapshotToastData, i32 noundef 1, ptr noundef nonnull %5) #6
+  %27 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #6
   %.not15 = icmp eq ptr %27, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -628,21 +625,21 @@ get_toast_snapshot.exit:                          ; preds = %14
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %28 = phi ptr [ %30, %.lr.ph.split.us ], [ %27, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  call void @heap_abort_speculative(ptr noundef %15, ptr noundef nonnull %29) #7
-  %30 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #7
+  call void @heap_abort_speculative(ptr noundef %15, ptr noundef nonnull %29) #6
+  %30 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #6
   %.not.us = icmp eq ptr %30, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %31 = phi ptr [ %33, %.lr.ph.split ], [ %27, %.lr.ph ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  call void @simple_heap_delete(ptr noundef %15, ptr noundef nonnull %32) #7
-  %33 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #7
+  call void @simple_heap_delete(ptr noundef %15, ptr noundef nonnull %32) #6
+  %33 = call ptr @systable_getnext_ordered(ptr noundef %26, i32 noundef 1) #6
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %get_toast_snapshot.exit
-  call void @systable_endscan_ordered(ptr noundef %26) #7
+  call void @systable_endscan_ordered(ptr noundef %26) #6
   %34 = load i32, ptr %6, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.preheader.i, label %toast_close_indexes.exit
@@ -655,14 +652,14 @@ get_toast_snapshot.exit:                          ; preds = %14
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
-  call void @index_close(ptr noundef %37, i32 noundef 0) #7
+  call void @index_close(ptr noundef %37, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_edge
-  call void @pfree(ptr noundef nonnull %18) #7
-  call void @table_close(ptr noundef %15, i32 noundef 0) #7
+  call void @pfree(ptr noundef nonnull %18) #6
+  call void @table_close(ptr noundef %15, i32 noundef 0) #6
   br label %38
 
 38:                                               ; preds = %3, %10, %toast_close_indexes.exit
@@ -678,14 +675,13 @@ declare ptr @systable_beginscan_ordered(ptr noundef, ptr noundef, ptr noundef, i
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef nonnull ptr @get_toast_snapshot() local_unnamed_addr #0 {
-  %1 = tail call zeroext i1 @HaveRegisteredOrActiveSnapshot() #7
+  %1 = tail call zeroext i1 @HaveRegisteredOrActiveSnapshot() #6
   br i1 %1, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 653, ptr noundef nonnull @__func__.get_toast_snapshot) #7
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 653, ptr noundef nonnull @__func__.get_toast_snapshot) #6
   unreachable
 
 5:                                                ; preds = %0
@@ -706,7 +702,7 @@ define dso_local i32 @toast_get_valid_index(i32 noundef %0, i32 noundef %1) loca
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @table_open(i32 noundef %0, i32 noundef %1) #7
+  %5 = tail call ptr @table_open(i32 noundef %0, i32 noundef %1) #6
   %6 = call i32 @toast_open_indexes(ptr noundef %5, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %7 = load ptr, ptr %4, align 8
   %8 = sext i32 %6 to i64
@@ -726,14 +722,14 @@ define dso_local i32 @toast_get_valid_index(i32 noundef %0, i32 noundef %1) loca
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
-  tail call void @index_close(ptr noundef %16, i32 noundef 0) #7
+  tail call void @index_close(ptr noundef %16, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %2
-  tail call void @pfree(ptr noundef nonnull %7) #7
-  tail call void @table_close(ptr noundef %5, i32 noundef 0) #7
+  tail call void @pfree(ptr noundef nonnull %7) #6
+  tail call void @table_close(ptr noundef %5, i32 noundef 0) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %12
@@ -761,21 +757,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

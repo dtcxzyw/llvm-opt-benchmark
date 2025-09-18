@@ -150,16 +150,15 @@ list_length.exit83:                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
-  %74 = call i32 @get_equality_op_for_ordering_op(i32 noundef %73, ptr noundef nonnull %3) #8
+  %74 = call i32 @get_equality_op_for_ordering_op(i32 noundef %73, ptr noundef nonnull %3) #7
   %.not71 = icmp eq i32 %74, 0
   br i1 %.not71, label %.split, label %78
 
 .split:                                           ; preds = %.lr.ph96
-  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %75)
+  %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %76 = load i32, ptr %72, align 8
-  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %76) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__func__.preprocess_minmax_aggregates) #8
+  %77 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %76) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 166, ptr noundef nonnull @__func__.preprocess_minmax_aggregates) #7
   unreachable
 
 78:                                               ; preds = %.lr.ph96
@@ -203,10 +202,10 @@ list_length.exit83:                               ; preds = %28
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = call i32 @exprType(ptr noundef %101) #8
+  %102 = call i32 @exprType(ptr noundef %101) #7
   %103 = load ptr, ptr %100, align 8
-  %104 = call i32 @exprCollation(ptr noundef %103) #8
-  %105 = call ptr @SS_make_initplan_output_param(ptr noundef %0, i32 noundef %102, i32 noundef -1, i32 noundef %104) #8
+  %104 = call i32 @exprCollation(ptr noundef %103) #7
+  %105 = call ptr @SS_make_initplan_output_param(ptr noundef %0, i32 noundef %102, i32 noundef -1, i32 noundef %104) #7
   %106 = getelementptr inbounds nuw i8, ptr %99, i64 48
   store ptr %105, ptr %106, align 8
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
@@ -216,15 +215,15 @@ list_length.exit83:                               ; preds = %28
   br i1 %109, label %.lr.ph101, label %.critedge78
 
 .critedge78:                                      ; preds = %.lr.ph101, %63, %.lr.ph98
-  %110 = call ptr @fetch_upper_rel(ptr noundef %0, i32 noundef 2, ptr noundef null) #8
+  %110 = call ptr @fetch_upper_rel(ptr noundef %0, i32 noundef 2, ptr noundef null) #7
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %112 = load ptr, ptr %111, align 8
-  %113 = call ptr @make_pathtarget_from_tlist(ptr noundef %112) #8
-  %114 = call ptr @set_pathtarget_cost_width(ptr noundef %0, ptr noundef %113) #8
+  %113 = call ptr @make_pathtarget_from_tlist(ptr noundef %112) #7
+  %114 = call ptr @set_pathtarget_cost_width(ptr noundef %0, ptr noundef %113) #7
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 184
   %116 = load ptr, ptr %115, align 8
-  %117 = call ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef %110, ptr noundef %114, ptr noundef %64, ptr noundef %116) #8
-  call void @add_path(ptr noundef %110, ptr noundef %117) #8
+  %117 = call ptr @create_minmaxagg_path(ptr noundef %0, ptr noundef %110, ptr noundef %114, ptr noundef %64, ptr noundef %116) #7
+  call void @add_path(ptr noundef %110, ptr noundef %117) #7
   br label %list_length.exit83.thread
 
 list_length.exit83.thread:                        ; preds = %28, %26, %list_length.exit83, %83, %60, %56, %52, %21, %9, %list_length.exit, %list_length.exit.thread, %1, %.critedge78
@@ -281,7 +280,7 @@ list_length.exit:                                 ; preds = %.lr.ph30
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = tail call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %25) #8
+  %26 = tail call ptr @SearchSysCache1(i32 noundef 0, i64 noundef %25) #7
   %.not.i44 = icmp eq ptr %26, null
   br i1 %.not.i44, label %.critedge42, label %fetch_agg_sort_op.exit
 
@@ -294,7 +293,7 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 44
   %33 = load i32, ptr %32, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %26) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %26) #7
   %.not40 = icmp eq i32 %33, 0
   br i1 %.not40, label %.critedge42, label %34
 
@@ -305,17 +304,17 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %37 = load ptr, ptr %.val, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call zeroext i1 @contain_mutable_functions(ptr noundef %39) #8
+  %40 = tail call zeroext i1 @contain_mutable_functions(ptr noundef %39) #7
   br i1 %40, label %.critedge42, label %41
 
 41:                                               ; preds = %34
   %42 = load ptr, ptr %38, align 8
-  %43 = tail call i32 @exprType(ptr noundef %42) #8
-  %44 = tail call zeroext i1 @type_is_rowtype(i32 noundef %43) #8
+  %43 = tail call i32 @exprType(ptr noundef %42) #7
+  %44 = tail call zeroext i1 @type_is_rowtype(i32 noundef %43) #7
   br i1 %44, label %.critedge42, label %.critedge
 
 .critedge:                                        ; preds = %41
-  %45 = tail call noundef ptr @palloc0(i64 noundef 56) #8
+  %45 = tail call noundef ptr @palloc0(i64 noundef 56) #7
   store i32 324, ptr %45, align 4
   %46 = load i32, ptr %23, align 4
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -328,7 +327,7 @@ fetch_agg_sort_op.exit:                           ; preds = %22
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   %52 = load ptr, ptr %0, align 8
-  %53 = tail call ptr @lappend(ptr noundef %52, ptr noundef nonnull %45) #8
+  %53 = tail call ptr @lappend(ptr noundef %52, ptr noundef nonnull %45) #7
   store ptr %53, ptr %0, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv29, 1
   %54 = load i32, ptr %2, align 4
@@ -354,7 +353,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = zext i1 %4 to i8
   %8 = zext i1 %5 to i8
-  %9 = tail call ptr @palloc(i64 noundef 704) #8
+  %9 = tail call ptr @palloc(i64 noundef 704) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(704) %9, ptr noundef nonnull align 8 dereferenceable(704) %0, i64 704, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
@@ -370,22 +369,22 @@ define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @copyObjectImpl(ptr noundef %18) #8
+  %19 = tail call ptr @copyObjectImpl(ptr noundef %18) #7
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %19, ptr %20, align 8
-  tail call void @IncrementVarSublevelsUp(ptr noundef %19, i32 noundef 1, i32 noundef 1) #8
+  tail call void @IncrementVarSublevelsUp(ptr noundef %19, i32 noundef 1, i32 noundef 1) #7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call ptr @copyObjectImpl(ptr noundef %22) #8
+  %23 = tail call ptr @copyObjectImpl(ptr noundef %22) #7
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 256
   store ptr %23, ptr %24, align 8
-  tail call void @IncrementVarSublevelsUp(ptr noundef %23, i32 noundef 1, i32 noundef 1) #8
+  tail call void @IncrementVarSublevelsUp(ptr noundef %23, i32 noundef 1, i32 noundef 1) #7
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call ptr @copyObjectImpl(ptr noundef %26) #8
-  %28 = tail call ptr @pstrdup(ptr noundef nonnull @.str.2) #8
-  %29 = tail call ptr @makeTargetEntry(ptr noundef %27, i16 noundef signext 1, ptr noundef %28, i1 noundef zeroext false) #8
-  %30 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %29) #8
+  %27 = tail call ptr @copyObjectImpl(ptr noundef %26) #7
+  %28 = tail call ptr @pstrdup(ptr noundef nonnull @.str.2) #7
+  %29 = tail call ptr @makeTargetEntry(ptr noundef %27, i16 noundef signext 1, ptr noundef %28, i1 noundef zeroext false) #7
+  %30 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %29) #7
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 528
@@ -400,12 +399,12 @@ define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i8 0, ptr %37, align 4
-  %38 = tail call noundef ptr @palloc0(i64 noundef 32) #8
+  %38 = tail call noundef ptr @palloc0(i64 noundef 32) #7
   store i32 52, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 1, ptr %39, align 8
   %40 = load ptr, ptr %25, align 8
-  %41 = tail call ptr @copyObjectImpl(ptr noundef %40) #8
+  %41 = tail call ptr @copyObjectImpl(ptr noundef %40) #7
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 20
@@ -416,24 +415,24 @@ define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = tail call zeroext i1 @list_member(ptr noundef %48, ptr noundef nonnull %38) #8
+  %49 = tail call zeroext i1 @list_member(ptr noundef %48, ptr noundef nonnull %38) #7
   br i1 %49, label %57, label %50
 
 50:                                               ; preds = %6
   %51 = load ptr, ptr %45, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr @lcons(ptr noundef nonnull %38, ptr noundef %53) #8
+  %54 = tail call ptr @lcons(ptr noundef nonnull %38, ptr noundef %53) #7
   %55 = load ptr, ptr %45, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %54, ptr %56, align 8
   br label %57
 
 57:                                               ; preds = %50, %6
-  %58 = tail call noundef ptr @palloc0(i64 noundef 20) #8
+  %58 = tail call noundef ptr @palloc0(i64 noundef 20) #7
   store i32 106, ptr %58, align 4
   %59 = load ptr, ptr %32, align 8
-  %60 = tail call i32 @assignSortGroupRef(ptr noundef %29, ptr noundef %59) #8
+  %60 = tail call i32 @assignSortGroupRef(ptr noundef %29, ptr noundef %59) #7
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i32 %60, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -446,21 +445,21 @@ define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr
   store i8 %8, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %58, i64 18
   store i8 0, ptr %66, align 2
-  %67 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %58) #8
+  %67 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %58) #7
   %68 = getelementptr inbounds nuw i8, ptr %19, i64 208
   store ptr %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %19, i64 216
   store ptr null, ptr %69, align 8
-  %70 = tail call ptr @makeConst(i32 noundef 20, i32 noundef -1, i32 noundef 0, i32 noundef 8, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext true) #8
+  %70 = tail call ptr @makeConst(i32 noundef 20, i32 noundef -1, i32 noundef 0, i32 noundef 8, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext true) #7
   %71 = getelementptr inbounds nuw i8, ptr %19, i64 224
   store ptr %70, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 576
   store double 1.000000e+00, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 584
   store double 1.000000e+00, ptr %73, align 8
-  %74 = tail call ptr @query_planner(ptr noundef nonnull %9, ptr noundef nonnull @minmax_qp_callback, ptr noundef null) #8
-  tail call void @SS_identify_outer_params(ptr noundef nonnull %9) #8
-  tail call void @SS_charge_for_initplans(ptr noundef nonnull %9, ptr noundef %74) #8
+  %74 = tail call ptr @query_planner(ptr noundef nonnull %9, ptr noundef nonnull @minmax_qp_callback, ptr noundef null) #7
+  tail call void @SS_identify_outer_params(ptr noundef nonnull %9) #7
+  tail call void @SS_charge_for_initplans(ptr noundef nonnull %9, ptr noundef %74) #7
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load double, ptr %75, align 8
   %77 = fcmp ogt double %76, 1.000000e+00
@@ -470,15 +469,15 @@ define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 312
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef %80, ptr noundef %82, ptr noundef null, double noundef %.080) #8
+  %83 = tail call ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef %80, ptr noundef %82, ptr noundef null, double noundef %.080) #7
   %.not = icmp ne ptr %83, null
   br i1 %.not, label %84, label %98
 
 84:                                               ; preds = %57
   %85 = load ptr, ptr %32, align 8
-  %86 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %85) #8
-  %87 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %9, ptr noundef %86) #8
-  %88 = tail call ptr @apply_projection_to_path(ptr noundef nonnull %9, ptr noundef nonnull %74, ptr noundef nonnull %83, ptr noundef %87) #8
+  %86 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %85) #7
+  %87 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %9, ptr noundef %86) #7
+  %88 = tail call ptr @apply_projection_to_path(ptr noundef nonnull %9, ptr noundef nonnull %74, ptr noundef nonnull %83, ptr noundef %87) #7
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load double, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 64
@@ -562,7 +561,7 @@ define internal void @minmax_qp_callback(ptr noundef initializes((320, 328), (33
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef %0, ptr noundef %8, ptr noundef %10) #8
+  %11 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef %0, ptr noundef %8, ptr noundef %10) #7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -589,11 +588,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -601,10 +597,9 @@ attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

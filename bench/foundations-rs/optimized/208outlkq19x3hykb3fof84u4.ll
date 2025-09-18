@@ -22227,7 +22227,7 @@ define hidden void @"_ZN98_$LT$futures_util..future..select..Select$LT$A$C$B$GT$
 24:                                               ; preds = %19
   resume { ptr, i32 } %20
 
-25:                                               ; preds = %30, %26, %16
+25:                                               ; preds = %29, %26, %16
   ret void
 
 26:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$$GT$17h987996f111b3aeb0E.exit"
@@ -22236,20 +22236,17 @@ define hidden void @"_ZN98_$LT$futures_util..future..select..Select$LT$A$C$B$GT$
 
 27:                                               ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$$GT$17h987996f111b3aeb0E.exit"
   %28 = load ptr, ptr %1, align 8, !align !402, !noundef !4
-  %29 = load ptr, ptr %8, align 8
   store ptr null, ptr %1, align 8
   %.not21 = icmp eq ptr %28, null
-  br i1 %.not21, label %32, label %30, !prof !5
+  br i1 %.not21, label %30, label %29, !prof !5
 
-30:                                               ; preds = %27
-  %31 = icmp ne ptr %29, null
-  tail call void @llvm.assume(i1 %31)
+29:                                               ; preds = %27
   store i64 2, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %.sroa.48.0..sroa_idx, align 8
   br label %25
 
-32:                                               ; preds = %27
+30:                                               ; preds = %27
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.16, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.233) #24
   unreachable
 }
@@ -22315,20 +22312,20 @@ define hidden void @"_ZN98_$LT$futures_util..future..select..Select$LT$A$C$B$GT$
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$17h9687142a30b50be6E"(ptr noalias noundef align 8 dereferenceable(40) %6) #26
           to label %27 unwind label %25
 
-24:                                               ; preds = %34, %21
+24:                                               ; preds = %32, %21
   unreachable
 
-25:                                               ; preds = %35, %22
+25:                                               ; preds = %33, %22
   %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #27
   unreachable
 
-27:                                               ; preds = %35, %22
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %23, %22 ]
+27:                                               ; preds = %33, %22
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn
 
-28:                                               ; preds = %32, %"_ZN4core3ptr158drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$$GT$17h987996f111b3aeb0E.exit26", %19
+28:                                               ; preds = %31, %"_ZN4core3ptr158drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$$GT$17h987996f111b3aeb0E.exit26", %19
   ret void
 
 "_ZN4core3ptr158drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$$GT$17h987996f111b3aeb0E.exit26": ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$$GT$17h987996f111b3aeb0E.exit"
@@ -22340,14 +22337,11 @@ define hidden void @"_ZN98_$LT$futures_util..future..select..Select$LT$A$C$B$GT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %30 = load ptr, ptr %1, align 8, !align !402, !noundef !4
-  %31 = load ptr, ptr %10, align 8
   store ptr null, ptr %1, align 8
   %.not23 = icmp eq ptr %30, null
-  br i1 %.not23, label %34, label %32, !prof !5
+  br i1 %.not23, label %32, label %31, !prof !5
 
-32:                                               ; preds = %29
-  %33 = icmp ne ptr %31, null
-  tail call void @llvm.assume(i1 %33)
+31:                                               ; preds = %29
   %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -22357,12 +22351,12 @@ define hidden void @"_ZN98_$LT$futures_util..future..select..Select$LT$A$C$B$GT$
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
-34:                                               ; preds = %29
+32:                                               ; preds = %29
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.e9ef04808737cbe8ef653d32af212bbe.16, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.233) #24
-          to label %24 unwind label %35
+          to label %24 unwind label %33
 
-35:                                               ; preds = %34
-  %36 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..net..tcp..stream..TcpStream$C$hyper..client..connect..http..ConnectError$GT$$GT$17h9687142a30b50be6E"(ptr noalias noundef align 8 dereferenceable(40) %4) #26
           to label %27 unwind label %25

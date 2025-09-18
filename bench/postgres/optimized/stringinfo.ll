@@ -13,8 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @makeStringInfo() local_unnamed_addr #0 {
-  %1 = tail call ptr @palloc(i64 noundef 24) #12
-  %2 = tail call ptr @palloc(i64 noundef 1024) #12
+  %1 = tail call ptr @palloc(i64 noundef 24) #11
+  %2 = tail call ptr @palloc(i64 noundef 1024) #11
   store ptr %2, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1024, ptr %3, align 4
@@ -28,9 +28,9 @@ define dso_local ptr @makeStringInfo() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @makeStringInfoExt(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 24) #12
+  %2 = tail call ptr @palloc(i64 noundef 24) #11
   %3 = sext i32 %0 to i64
-  %4 = tail call ptr @palloc(i64 noundef %3) #12
+  %4 = tail call ptr @palloc(i64 noundef %3) #11
   store ptr %4, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %0, ptr %5, align 4
@@ -44,7 +44,7 @@ define dso_local ptr @makeStringInfoExt(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @initStringInfo(ptr noundef writeonly captures(none) initializes((0, 20)) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc(i64 noundef 1024) #12
+  %2 = tail call ptr @palloc(i64 noundef 1024) #11
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1024, ptr %3, align 4
@@ -59,7 +59,7 @@ define dso_local void @initStringInfo(ptr noundef writeonly captures(none) initi
 ; Function Attrs: nounwind uwtable
 define dso_local void @initStringInfoExt(ptr noundef writeonly captures(none) initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = tail call ptr @palloc(i64 noundef %3) #12
+  %4 = tail call ptr @palloc(i64 noundef %3) #11
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %5, align 4
@@ -85,7 +85,7 @@ define dso_local void @resetStringInfo(ptr noundef captures(none) initializes((8
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendStringInfo(ptr noundef captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  %4 = tail call ptr @__errno_location() #13
+  %4 = tail call ptr @__errno_location() #12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -110,7 +110,7 @@ appendStringInfoVA.exit.thread8:                  ; preds = %8
   %15 = sext i32 %10 to i64
   %16 = getelementptr inbounds i8, ptr %14, i64 %15
   %17 = zext nneg i32 %11 to i64
-  %18 = call i64 @pvsnprintf(ptr noundef %16, i64 noundef %17, ptr noundef %1, ptr noundef nonnull %3) #12
+  %18 = call i64 @pvsnprintf(ptr noundef %16, i64 noundef %17, ptr noundef %1, ptr noundef nonnull %3) #11
   %19 = icmp ult i64 %18, %17
   %20 = load i32, ptr %7, align 8
   br i1 %19, label %appendStringInfoVA.exit.thread, label %appendStringInfoVA.exit
@@ -164,7 +164,7 @@ define dso_local i32 @appendStringInfoVA(ptr noundef captures(none) %0, ptr noun
   %12 = sext i32 %7 to i64
   %13 = getelementptr inbounds i8, ptr %11, i64 %12
   %14 = zext nneg i32 %8 to i64
-  %15 = tail call i64 @pvsnprintf(ptr noundef %13, i64 noundef %14, ptr noundef %1, ptr noundef %2) #12
+  %15 = tail call i64 @pvsnprintf(ptr noundef %13, i64 noundef %14, ptr noundef %1, ptr noundef %2) #11
   %16 = icmp ult i64 %15, %14
   %17 = load i32, ptr %6, align 8
   br i1 %16, label %18, label %21
@@ -197,10 +197,9 @@ define dso_local void @enlargeStringInfo(ptr noundef captures(none) %0, i32 noun
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.enlargeStringInfo) #12
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.enlargeStringInfo) #11
   unreachable
 
 7:                                                ; preds = %2
@@ -213,13 +212,12 @@ define dso_local void @enlargeStringInfo(ptr noundef captures(none) %0, i32 noun
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 261) #12
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i64 noundef 1073741823) #12
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %15 = tail call i32 @errcode(i32 noundef 261) #11
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i64 noundef 1073741823) #11
   %17 = load i32, ptr %9, align 8
-  %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3, i32 noundef %17, i32 noundef %1) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.enlargeStringInfo) #12
+  %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3, i32 noundef %17, i32 noundef %1) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 364, ptr noundef nonnull @__func__.enlargeStringInfo) #11
   unreachable
 
 19:                                               ; preds = %7
@@ -240,7 +238,7 @@ define dso_local void @enlargeStringInfo(ptr noundef captures(none) %0, i32 noun
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %.0, i32 1073741823)
   %26 = load ptr, ptr %0, align 8
   %27 = sext i32 %spec.store.select to i64
-  %28 = tail call ptr @repalloc(ptr noundef %26, i64 noundef %27) #12
+  %28 = tail call ptr @repalloc(ptr noundef %26, i64 noundef %27) #11
   store ptr %28, ptr %0, align 8
   store i32 %spec.store.select, ptr %22, align 4
   br label %29
@@ -253,7 +251,7 @@ declare i64 @pvsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendStringInfoString(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %4 = trunc i64 %3 to i32
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef %4)
   %5 = load ptr, ptr %0, align 8
@@ -395,8 +393,8 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @destroyStringInfo(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @pfree(ptr noundef %2) #12
-  tail call void @pfree(ptr noundef nonnull %0) #12
+  tail call void @pfree(ptr noundef %2) #11
+  tail call void @pfree(ptr noundef nonnull %0) #11
   ret void
 }
 
@@ -410,11 +408,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -426,12 +421,11 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { cold nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { cold nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

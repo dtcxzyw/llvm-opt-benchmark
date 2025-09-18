@@ -27426,7 +27426,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstance17
 _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds = %5
   %12 = shl nuw nsw i64 %11, 4
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #23
-          to label %.noexc.i.i unwind label %27, !noalias !201
+          to label %.noexc.i.i unwind label %25, !noalias !201
 
 .noexc.i.i:                                       ; preds = %_ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i
   store ptr %13, ptr %8, align 8, !noalias !201
@@ -27450,183 +27450,170 @@ _ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i: ; preds
   store ptr %.0.lcssa.i.i.i.i.i.i.i.i, ptr %18, align 8, !noalias !201
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !noalias !201
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %21 = load i8, ptr %20, align 2, !noalias !201
-  %22 = icmp eq i8 %21, 99
-  br i1 %22, label %_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeERNS0_10RefVariantEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %23
+  store ptr %7, ptr %6, align 8, !alias.scope !201
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %23 = load ptr, ptr %22, align 8
+  %.not.i.i = icmp eq ptr %21, %23
+  %24 = ptrtoint ptr %7 to i64
+  br i1 %.not.i.i, label %30, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread
 
-23:                                               ; preds = %.loopexit.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !noalias !201
-  %26 = icmp ne i64 %25, 0
-  tail call void @llvm.assume(i1 %26)
-  br label %_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeERNS0_10RefVariantEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-
-27:                                               ; preds = %_ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %_ZNSt12_Vector_baseIN8WasmEdge10RefVariantESaIS1_EEC2EmRKS2_.exit.i.i.i
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #20, !noalias !201
+  %27 = extractvalue { ptr, i32 } %26, 0
+  tail call void @__clang_call_terminate(ptr %27) #20, !noalias !201
   unreachable
 
-_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeERNS0_10RefVariantEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.loopexit.i.i, %23
-  store ptr %7, ptr %6, align 8, !alias.scope !201
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i = icmp eq ptr %31, %33
-  %34 = ptrtoint ptr %7 to i64
-  br i1 %.not.i.i, label %37, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread
-
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread: ; preds = %_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeERNS0_10RefVariantEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  store i64 %34, ptr %31, align 8
-  %35 = load ptr, ptr %30, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %36, ptr %30, align 8
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread: ; preds = %.loopexit.i.i
+  store i64 %24, ptr %21, align 8
+  %28 = load ptr, ptr %20, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %29, ptr %20, align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit
 
-37:                                               ; preds = %_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance13TableInstanceEJRKNS0_3AST9TableTypeERNS0_10RefVariantEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %38 = load ptr, ptr %1, align 8
-  %39 = ptrtoint ptr %31 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = icmp eq i64 %41, 9223372036854775800
-  br i1 %42, label %43, label %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
+30:                                               ; preds = %.loopexit.i.i
+  %31 = load ptr, ptr %1, align 8
+  %32 = ptrtoint ptr %21 to i64
+  %33 = ptrtoint ptr %31 to i64
+  %34 = sub i64 %32, %33
+  %35 = icmp eq i64 %34, 9223372036854775800
+  br i1 %35, label %36, label %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
 
-43:                                               ; preds = %37
+36:                                               ; preds = %30
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.40) #19
-          to label %.noexc10 unwind label %90
+          to label %.noexc10 unwind label %83
 
-.noexc10:                                         ; preds = %43
+.noexc10:                                         ; preds = %36
   unreachable
 
-_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i: ; preds = %37
-  %44 = ashr exact i64 %41, 3
-  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %44, i64 1)
-  %45 = add nsw i64 %.sroa.speculated.i.i, %44
-  %46 = icmp ult i64 %45, %44
-  %47 = tail call i64 @llvm.umin.i64(i64 %45, i64 1152921504606846975)
-  %48 = select i1 %46, i64 1152921504606846975, i64 %47
-  %.not.i.i8 = icmp ne i64 %48, 0
+_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i: ; preds = %30
+  %37 = ashr exact i64 %34, 3
+  %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
+  %38 = add nsw i64 %.sroa.speculated.i.i, %37
+  %39 = icmp ult i64 %38, %37
+  %40 = tail call i64 @llvm.umin.i64(i64 %38, i64 1152921504606846975)
+  %41 = select i1 %39, i64 1152921504606846975, i64 %40
+  %.not.i.i8 = icmp ne i64 %41, 0
   tail call void @llvm.assume(i1 %.not.i.i8)
-  %49 = shl nuw nsw i64 %48, 3
-  %50 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #23
-          to label %.noexc11 unwind label %90
+  %42 = shl nuw nsw i64 %41, 3
+  %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #23
+          to label %.noexc11 unwind label %83
 
 .noexc11:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i
-  %51 = getelementptr inbounds i8, ptr %50, i64 %41
-  store i64 %34, ptr %51, align 8
-  %.not10.i.i.i.i = icmp eq ptr %38, %31
+  %44 = getelementptr inbounds i8, ptr %43, i64 %34
+  store i64 %24, ptr %44, align 8
+  %.not10.i.i.i.i = icmp eq ptr %31, %21
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc11, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %50, %.noexc11 ]
-  %.0911.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %38, %.noexc11 ]
+  %.012.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i ], [ %43, %.noexc11 ]
+  %.0911.i.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i.i ], [ %31, %.noexc11 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  %52 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !208, !noalias !205
-  store i64 %52, ptr %.012.i.i.i.i, align 8, !alias.scope !205, !noalias !208
+  %45 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !208, !noalias !205
+  store i64 %45, ptr %.012.i.i.i.i, align 8, !alias.scope !205, !noalias !208
   store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !208, !noalias !205
-  %53 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %54 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
-  %.not.i.i.i.i9 = icmp eq ptr %53, %31
+  %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
+  %.not.i.i.i.i9 = icmp eq ptr %46, %21
   br i1 %.not.i.i.i.i9, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !210
 
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc11
-  %.0.lcssa.i.i.i.i = phi ptr [ %50, %.noexc11 ], [ %54, %.lr.ph.i.i.i.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
-  %.not.i23.i = icmp eq ptr %38, null
-  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit, label %56
+  %.0.lcssa.i.i.i.i = phi ptr [ %43, %.noexc11 ], [ %47, %.lr.ph.i.i.i.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
+  %.not.i23.i = icmp eq ptr %31, null
+  br i1 %.not.i23.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit, label %49
 
-56:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i
-  %57 = load ptr, ptr %32, align 8
-  %58 = ptrtoint ptr %57 to i64
-  %59 = sub i64 %58, %40
-  tail call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %59) #21
+49:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i
+  %50 = load ptr, ptr %22, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = sub i64 %51, %33
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %52) #21
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, %56
-  store ptr %50, ptr %1, align 8
-  store ptr %55, ptr %30, align 8
-  %60 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %50, i64 %48
-  store ptr %60, ptr %32, align 8
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, %49
+  store ptr %43, ptr %1, align 8
+  store ptr %48, ptr %20, align 8
+  %53 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %43, i64 %41
+  store ptr %53, ptr %22, align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread
-  %61 = phi ptr [ %35, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread ], [ %.0.lcssa.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit ]
+  %54 = phi ptr [ %28, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit.thread ], [ %.0.lcssa.i.i.i.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit ]
   store ptr null, ptr %6, align 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %.not.i.i7 = icmp eq ptr %64, %66
-  br i1 %.not.i.i7, label %70, label %67
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %.not.i.i7 = icmp eq ptr %57, %59
+  br i1 %.not.i.i7, label %63, label %60
 
-67:                                               ; preds = %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit
-  store ptr %62, ptr %64, align 8
-  %68 = load ptr, ptr %63, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %69, ptr %63, align 8
+60:                                               ; preds = %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit
+  store ptr %55, ptr %57, align 8
+  %61 = load ptr, ptr %56, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %62, ptr %56, align 8
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE9push_backEOS4_.exit
 
-70:                                               ; preds = %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit
-  %71 = load ptr, ptr %2, align 8
-  %72 = ptrtoint ptr %64 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = icmp eq i64 %74, 9223372036854775800
-  br i1 %75, label %76, label %_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+63:                                               ; preds = %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev.exit
+  %64 = load ptr, ptr %2, align 8
+  %65 = ptrtoint ptr %57 to i64
+  %66 = ptrtoint ptr %64 to i64
+  %67 = sub i64 %65, %66
+  %68 = icmp eq i64 %67, 9223372036854775800
+  br i1 %68, label %69, label %_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
-76:                                               ; preds = %70
+69:                                               ; preds = %63
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.40) #19
   unreachable
 
-_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %70
-  %77 = ashr exact i64 %74, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %77, i64 1)
-  %78 = add nsw i64 %.sroa.speculated.i.i.i.i, %77
-  %79 = icmp ult i64 %78, %77
-  %80 = tail call i64 @llvm.umin.i64(i64 %78, i64 1152921504606846975)
-  %81 = select i1 %79, i64 1152921504606846975, i64 %80
-  %.not.i.i.i.i = icmp ne i64 %81, 0
+_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %63
+  %70 = ashr exact i64 %67, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %70, i64 1)
+  %71 = add nsw i64 %.sroa.speculated.i.i.i.i, %70
+  %72 = icmp ult i64 %71, %70
+  %73 = tail call i64 @llvm.umin.i64(i64 %71, i64 1152921504606846975)
+  %74 = select i1 %72, i64 1152921504606846975, i64 %73
+  %.not.i.i.i.i = icmp ne i64 %74, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %82 = shl nuw nsw i64 %81, 3
-  %83 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %82) #23
-  %84 = getelementptr inbounds i8, ptr %83, i64 %74
-  store ptr %62, ptr %84, align 8
-  %85 = icmp sgt i64 %74, 0
-  br i1 %85, label %86, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
+  %75 = shl nuw nsw i64 %74, 3
+  %76 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #23
+  %77 = getelementptr inbounds i8, ptr %76, i64 %67
+  store ptr %55, ptr %77, align 8
+  %78 = icmp sgt i64 %67, 0
+  br i1 %78, label %79, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
 
-86:                                               ; preds = %_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %83, ptr align 8 %71, i64 %74, i1 false)
+79:                                               ; preds = %_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %76, ptr align 8 %64, i64 %67, i1 false)
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i: ; preds = %86, %_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %88
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i: ; preds = %79, %_ZNKSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %.not.i17.i.i.i = icmp eq ptr %64, null
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %81
 
-88:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %74) #21
+81:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef %67) #21
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
-  store ptr %83, ptr %2, align 8
-  store ptr %87, ptr %63, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %83, i64 %81
-  store ptr %89, ptr %65, align 8
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
+  store ptr %76, ptr %2, align 8
+  store ptr %80, ptr %56, align 8
+  %82 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
+  store ptr %82, ptr %58, align 8
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE9push_backEOS4_.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE9push_backEOS4_.exit: ; preds = %67, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE9push_backEOS4_.exit: ; preds = %60, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
   ret void
 
-90:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i, %43
-  %91 = landingpad { ptr, i32 }
+83:                                               ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit.i, %36
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
-  resume { ptr, i32 } %91
+  resume { ptr, i32 } %84
 }
 
 ; Function Attrs: noreturn

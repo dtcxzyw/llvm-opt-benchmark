@@ -49,7 +49,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call void @MemoryContextReset(ptr noundef nonnull %11) #6
+  tail call void @MemoryContextReset(ptr noundef nonnull %11) #5
   br label %20
 
 13:                                               ; preds = %10
@@ -58,15 +58,15 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  tail call void @CreateCacheMemoryContext() #6
+  tail call void @CreateCacheMemoryContext() #5
   %.pre.i = load ptr, ptr @CacheMemoryContext, align 8
   br label %17
 
 17:                                               ; preds = %16, %13
   %18 = phi ptr [ %14, %13 ], [ %.pre.i, %16 ]
-  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
+  %19 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %18, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #5
   store ptr %19, ptr @EventTriggerCacheContext, align 8
-  tail call void @CacheRegisterSyscacheCallback(i32 noundef 26, ptr noundef nonnull @InvalidateEventCacheCallback, i64 noundef 0) #6
+  tail call void @CacheRegisterSyscacheCallback(i32 noundef 26, ptr noundef nonnull @InvalidateEventCacheCallback, i64 noundef 0) #5
   br label %20
 
 20:                                               ; preds = %17, %12
@@ -80,14 +80,14 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   store i64 16, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %21, ptr %25, align 8
-  %26 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1064) #6
-  %27 = call ptr @relation_open(i32 noundef 3466, i32 noundef 1) #6
-  %28 = call ptr @index_open(i32 noundef 3467, i32 noundef 1) #6
-  %29 = call ptr @systable_beginscan_ordered(ptr noundef %27, ptr noundef %28, ptr noundef null, i32 noundef 0, ptr noundef null) #6
+  %26 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1064) #5
+  %27 = call ptr @relation_open(i32 noundef 3466, i32 noundef 1) #5
+  %28 = call ptr @index_open(i32 noundef 3467, i32 noundef 1) #5
+  %29 = call ptr @systable_beginscan_ordered(ptr noundef %27, ptr noundef %28, ptr noundef null, i32 noundef 0, ptr noundef null) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %30 = call ptr @systable_getnext_ordered(ptr noundef %29, i32 noundef 1) #6
+  %30 = call ptr @systable_getnext_ordered(ptr noundef %29, i32 noundef 1) #5
   %.not3338.i = icmp eq ptr %30, null
   br i1 %.not3338.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -110,34 +110,34 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 68
-  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(18) @.str.2) #7
+  %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(18) @.str.2) #6
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %58, label %46
 
 46:                                               ; preds = %42
-  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(16) @.str.3) #7
+  %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(16) @.str.3) #6
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %58, label %49
 
 49:                                               ; preds = %46
-  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(9) @.str.4) #7
+  %50 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(9) @.str.4) #6
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %58, label %52
 
 52:                                               ; preds = %49
-  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(14) @.str.5) #7
+  %53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(14) @.str.5) #6
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(6) @.str.6) #7
+  %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(6) @.str.6) #6
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %159
 
 58:                                               ; preds = %55, %52, %49, %46, %42
   %.sink.i = phi i32 [ 0, %42 ], [ 1, %46 ], [ 2, %49 ], [ 3, %52 ], [ 4, %55 ]
   store i32 %.sink.i, ptr %5, align 4
-  %59 = call ptr @palloc0(i64 noundef 16) #6
+  %59 = call ptr @palloc0(i64 noundef 16) #5
   %60 = getelementptr inbounds nuw i8, ptr %38, i64 136
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %59, align 8
@@ -153,7 +153,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %58
-  %71 = call i64 @getmissingattr(ptr noundef %64, i32 noundef 7, ptr noundef nonnull %6) #6
+  %71 = call i64 @getmissingattr(ptr noundef %64, i32 noundef 7, ptr noundef nonnull %6) #5
   br label %heap_getattr.exit.i
 
 72:                                               ; preds = %58
@@ -213,10 +213,9 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
 
 103:                                              ; preds = %89
   %104 = sext i16 %91 to i32
-  %105 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %105)
-  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %104) #6
-  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #6
+  %105 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %106 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef range(i32 -32768, 32768) %104) #5
+  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #5
   unreachable
 
 107:                                              ; preds = %79
@@ -224,7 +223,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br label %heap_getattr.exit.i
 
 109:                                              ; preds = %75
-  %110 = call i64 @nocachegetattr(ptr noundef nonnull %33, i32 noundef 7, ptr noundef nonnull %64) #6
+  %110 = call i64 @nocachegetattr(ptr noundef nonnull %33, i32 noundef 7, ptr noundef nonnull %64) #5
   br label %heap_getattr.exit.i
 
 111:                                              ; preds = %72
@@ -239,7 +238,7 @@ define dso_local ptr @EventCacheLookup(i32 noundef %0) local_unnamed_addr #0 {
   br label %heap_getattr.exit.i
 
 115:                                              ; preds = %111
-  %116 = call i64 @nocachegetattr(ptr noundef nonnull %33, i32 noundef 7, ptr noundef %64) #6
+  %116 = call i64 @nocachegetattr(ptr noundef nonnull %33, i32 noundef 7, ptr noundef %64) #5
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %115, %114, %109, %107, %101, %98, %95, %92, %70
@@ -250,7 +249,7 @@ heap_getattr.exit.i:                              ; preds = %115, %114, %109, %1
 
 119:                                              ; preds = %heap_getattr.exit.i
   %120 = inttoptr i64 %.0.i.i to ptr
-  %121 = call ptr @pg_detoast_datum(ptr noundef %120) #6
+  %121 = call ptr @pg_detoast_datum(ptr noundef %120) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
@@ -271,14 +270,13 @@ heap_getattr.exit.i:                              ; preds = %115, %114, %109, %1
   br i1 %.not13.i.i, label %133, label %130
 
 130:                                              ; preds = %127, %124, %119
-  %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %131)
-  %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #6
-  call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 231, ptr noundef nonnull @__func__.DecodeTextArrayToBitmapset) #6
+  %131 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %132 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #5
+  call void @errfinish(ptr noundef nonnull @.str.10, i32 noundef 231, ptr noundef nonnull @__func__.DecodeTextArrayToBitmapset) #5
   unreachable
 
 133:                                              ; preds = %127
-  call void @deconstruct_array_builtin(ptr noundef nonnull %121, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #6
+  call void @deconstruct_array_builtin(ptr noundef nonnull %121, i32 noundef 25, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3) #5
   %134 = load i32, ptr %3, align 4
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %.lr.ph.i.i, label %DecodeTextArrayToBitmapset.exit.i
@@ -290,10 +288,10 @@ heap_getattr.exit.i:                              ; preds = %115, %114, %109, %1
   %137 = getelementptr inbounds nuw i64, ptr %136, i64 %indvars.iv.i.i
   %138 = load i64, ptr %137, align 8
   %139 = inttoptr i64 %138 to ptr
-  %140 = call ptr @text_to_cstring(ptr noundef %139) #6
-  %141 = call i32 @GetCommandTagEnum(ptr noundef %140) #6
-  %142 = call ptr @bms_add_member(ptr noundef %.015.i.i, i32 noundef %141) #6
-  call void @pfree(ptr noundef %140) #6
+  %140 = call ptr @text_to_cstring(ptr noundef %139) #5
+  %141 = call i32 @GetCommandTagEnum(ptr noundef %140) #5
+  %142 = call ptr @bms_add_member(ptr noundef %.015.i.i, i32 noundef %141) #5
+  call void @pfree(ptr noundef %140) #5
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %143 = load i32, ptr %3, align 4
   %144 = sext i32 %143 to i64
@@ -303,7 +301,7 @@ heap_getattr.exit.i:                              ; preds = %115, %114, %109, %1
 DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %133
   %.0.lcssa.i.i = phi ptr [ null, %133 ], [ %142, %.lr.ph.i.i ]
   %146 = load ptr, ptr %2, align 8
-  call void @pfree(ptr noundef %146) #6
+  call void @pfree(ptr noundef %146) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %147 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -311,7 +309,7 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %133
   br label %148
 
 148:                                              ; preds = %DecodeTextArrayToBitmapset.exit.i, %heap_getattr.exit.i
-  %149 = call ptr @hash_search(ptr noundef %26, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %7) #6
+  %149 = call ptr @hash_search(ptr noundef %26, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %7) #5
   %150 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %152, label %156
@@ -319,12 +317,12 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %133
 152:                                              ; preds = %148
   %153 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %154 = load ptr, ptr %153, align 8
-  %155 = call ptr @lappend(ptr noundef %154, ptr noundef nonnull %59) #6
+  %155 = call ptr @lappend(ptr noundef %154, ptr noundef nonnull %59) #5
   store ptr %155, ptr %153, align 8
   br label %159
 
 156:                                              ; preds = %148
-  %157 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %59) #6
+  %157 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %59) #5
   %158 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store ptr %157, ptr %158, align 8
   br label %159
@@ -336,7 +334,7 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %160 = call ptr @systable_getnext_ordered(ptr noundef %29, i32 noundef 1) #6
+  %160 = call ptr @systable_getnext_ordered(ptr noundef %29, i32 noundef 1) #5
   %.not33.i = icmp eq ptr %160, null
   br i1 %.not33.i, label %._crit_edge.i, label %32
 
@@ -344,9 +342,9 @@ DecodeTextArrayToBitmapset.exit.i:                ; preds = %.lr.ph.i.i, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @systable_endscan_ordered(ptr noundef %29) #6
-  call void @index_close(ptr noundef %28, i32 noundef 1) #6
-  call void @relation_close(ptr noundef %27, i32 noundef 1) #6
+  call void @systable_endscan_ordered(ptr noundef %29) #5
+  call void @index_close(ptr noundef %28, i32 noundef 1) #5
+  call void @relation_close(ptr noundef %27, i32 noundef 1) #5
   store ptr %22, ptr @CurrentMemoryContext, align 8
   store ptr %26, ptr @EventTriggerCache, align 8
   %161 = load i32, ptr @EventTriggerCacheState, align 4
@@ -363,7 +361,7 @@ BuildEventTriggerCache.exit:                      ; preds = %._crit_edge.i, %163
 
 164:                                              ; preds = %._crit_edge, %BuildEventTriggerCache.exit
   %165 = phi ptr [ %.pre, %._crit_edge ], [ %26, %BuildEventTriggerCache.exit ]
-  %166 = call ptr @hash_search(ptr noundef %165, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null) #6
+  %166 = call ptr @hash_search(ptr noundef %165, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null) #5
   %.not2 = icmp eq ptr %166, null
   br i1 %.not2, label %170, label %167
 
@@ -395,7 +393,7 @@ define internal void @InvalidateEventCacheCallback(i64 %0, i32 %1, i32 %2) #0 {
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr @EventTriggerCacheContext, align 8
-  tail call void @MemoryContextReset(ptr noundef %7) #6
+  tail call void @MemoryContextReset(ptr noundef %7) #5
   store ptr null, ptr @EventTriggerCache, align 8
   br label %8
 
@@ -458,18 +456,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

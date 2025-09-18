@@ -1861,11 +1861,6 @@ common.resume:                                    ; preds = %.body, %10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h107005d86942ff03E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !noundef !9
-  %5 = load i64, ptr %1, align 8, !noundef !9
-  %.not = icmp eq i64 %4, %5
-  tail call void @llvm.assume(i1 %.not)
   store i64 2, ptr %0, align 8
   ret void
 }

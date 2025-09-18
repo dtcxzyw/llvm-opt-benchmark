@@ -696,17 +696,14 @@ default.unreachable:                              ; preds = %1
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 10:                                               ; preds = %1
-  %11 = getelementptr i8, ptr %.val, i64 -1
-  %12 = icmp ne ptr %11, null
-  tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr i8, ptr %.val, i64 15
-  %14 = load i8, ptr %13, align 8, !range !183, !noundef !4
+  %11 = getelementptr i8, ptr %.val, i64 15
+  %12 = load i8, ptr %11, align 8, !range !183, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 _ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %6, %7, %10
-  %.0.i = phi i8 [ %9, %7 ], [ %14, %10 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
-  %15 = icmp eq i8 %.0.i, 0
-  ret i1 %15
+  %.0.i = phi i8 [ %9, %7 ], [ %12, %10 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
+  %13 = icmp eq i8 %.0.i, 0
+  ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable

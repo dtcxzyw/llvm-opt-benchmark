@@ -92,41 +92,36 @@ define dso_local void @destroy_uploaded_files_hash() local_unnamed_addr #0 {
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !32
-  %10 = and i32 %9, 4
-  %.not = icmp eq i32 %10, 0
-  tail call void @llvm.assume(i1 %.not)
   %.not1213 = icmp eq i32 %5, 0
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %18
-  %.014 = phi ptr [ %19, %18 ], [ %3, %0 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.014, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !32
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %18, label %14, !prof !34
+.lr.ph:                                           ; preds = %0, %15
+  %.014 = phi ptr [ %16, %15 ], [ %3, %0 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.014, i64 8
+  %9 = load i8, ptr %8, align 8, !tbaa !32
+  %10 = icmp eq i8 %9, 0
+  br i1 %10, label %15, label %11, !prof !34
 
-14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %.014, align 8, !tbaa !32
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = tail call i32 @unlink(ptr noundef nonnull %16) #21
-  br label %18
+11:                                               ; preds = %.lr.ph
+  %12 = load ptr, ptr %.014, align 8, !tbaa !32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = tail call i32 @unlink(ptr noundef nonnull %13) #21
+  br label %15
 
-18:                                               ; preds = %.lr.ph, %14
-  %19 = getelementptr inbounds nuw i8, ptr %.014, i64 32
-  %.not12 = icmp eq ptr %19, %7
+15:                                               ; preds = %.lr.ph, %11
+  %16 = getelementptr inbounds nuw i8, ptr %.014, i64 32
+  %.not12 = icmp eq ptr %16, %7
   br i1 %.not12, label %._crit_edge.loopexit, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %18
+._crit_edge.loopexit:                             ; preds = %15
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 416), align 8, !tbaa !4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %0
-  %20 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %0 ]
-  tail call void @zend_hash_destroy(ptr noundef %20) #21
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 416), align 8, !tbaa !4
-  tail call void @_efree_56(ptr noundef %21) #21
+  %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %0 ]
+  tail call void @zend_hash_destroy(ptr noundef %17) #21
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 416), align 8, !tbaa !4
+  tail call void @_efree_56(ptr noundef %18) #21
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 416), align 8, !tbaa !4
   ret void
 }

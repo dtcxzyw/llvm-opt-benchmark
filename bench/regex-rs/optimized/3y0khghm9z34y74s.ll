@@ -794,19 +794,10 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE(ptr 
   store ptr %3, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %5, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %15
+  br label %10
 
-10:                                               ; preds = %2
-  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %8, 1
-  %11 = ptrtoint ptr %.fca.1.extract.i.i.i to i64
-  %12 = ptrtoint ptr %3 to i64
-  %13 = sub i64 %11, %12
-  %14 = icmp sgt i64 %13, -1
-  tail call void @llvm.assume(i1 %14)
-  br label %15
-
-15:                                               ; preds = %10, %9
-  %.sink = phi i64 [ -9223372036854775808, %9 ], [ -9223372036854775807, %10 ]
+10:                                               ; preds = %2, %9
+  %.sink = phi i64 [ -9223372036854775808, %9 ], [ -9223372036854775807, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -848,19 +839,10 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE(ptr 
   store ptr %15, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %16, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %26
+  br label %21
 
-21:                                               ; preds = %"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hf79ccc372ef39e71E.llvm.2056173962031726711.exit"
-  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %19, 1
-  %22 = ptrtoint ptr %.fca.1.extract.i.i.i to i64
-  %23 = ptrtoint ptr %15 to i64
-  %24 = sub i64 %22, %23
-  %25 = icmp sgt i64 %24, -1
-  tail call void @llvm.assume(i1 %25)
-  br label %26
-
-26:                                               ; preds = %21, %20
-  %.sink = phi i64 [ -9223372036854775808, %20 ], [ -9223372036854775807, %21 ]
+21:                                               ; preds = %"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hf79ccc372ef39e71E.llvm.2056173962031726711.exit", %20
+  %.sink = phi i64 [ -9223372036854775808, %20 ], [ -9223372036854775807, %"_ZN55_$LT$$RF$T$u20$as$u20$core..convert..AsRef$LT$U$GT$$GT$6as_ref17hf79ccc372ef39e71E.llvm.2056173962031726711.exit" ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -883,19 +865,10 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E(ptr 
   store ptr %4, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %16
+  br label %11
 
-11:                                               ; preds = %2
-  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %9, 1
-  %12 = ptrtoint ptr %.fca.1.extract.i.i.i to i64
-  %13 = ptrtoint ptr %4 to i64
-  %14 = sub i64 %12, %13
-  %15 = icmp sgt i64 %14, -1
-  tail call void @llvm.assume(i1 %15)
-  br label %16
-
-16:                                               ; preds = %11, %10
-  %.sink = phi i64 [ -9223372036854775808, %10 ], [ -9223372036854775807, %11 ]
+11:                                               ; preds = %2, %10
+  %.sink = phi i64 [ -9223372036854775808, %10 ], [ -9223372036854775807, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -935,19 +908,10 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E(ptr 
   store ptr %14, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %15, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %25
+  br label %20
 
-20:                                               ; preds = %"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h174928de5fd326a2E.exit"
-  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %18, 1
-  %21 = ptrtoint ptr %.fca.1.extract.i.i.i to i64
-  %22 = ptrtoint ptr %14 to i64
-  %23 = sub i64 %21, %22
-  %24 = icmp sgt i64 %23, -1
-  tail call void @llvm.assume(i1 %24)
-  br label %25
-
-25:                                               ; preds = %20, %19
-  %.sink = phi i64 [ -9223372036854775808, %19 ], [ -9223372036854775807, %20 ]
+20:                                               ; preds = %"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h174928de5fd326a2E.exit", %19
+  %.sink = phi i64 [ -9223372036854775808, %19 ], [ -9223372036854775807, %"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h174928de5fd326a2E.exit" ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -972,19 +936,10 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E(ptr 
   store ptr %5, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %7, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %17
+  br label %12
 
-12:                                               ; preds = %2
-  %.fca.1.extract.i.i.i = extractvalue { i64, ptr } %10, 1
-  %13 = ptrtoint ptr %.fca.1.extract.i.i.i to i64
-  %14 = ptrtoint ptr %5 to i64
-  %15 = sub i64 %13, %14
-  %16 = icmp sgt i64 %15, -1
-  tail call void @llvm.assume(i1 %16)
-  br label %17
-
-17:                                               ; preds = %12, %11
-  %.sink = phi i64 [ -9223372036854775808, %11 ], [ -9223372036854775807, %12 ]
+12:                                               ; preds = %2, %11
+  %.sink = phi i64 [ -9223372036854775808, %11 ], [ -9223372036854775807, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -1020,7 +975,7 @@ define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..strin
   %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly align 1 %5, ptr noundef nonnull readonly %8), !noalias !228
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %10, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %11, label %12
+  br i1 %switch8.i.not.i.i.i, label %11, label %_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit
 
 11:                                               ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1029,17 +984,8 @@ define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..strin
   store i64 %7, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !208, !noalias !211
   br label %_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit
 
-12:                                               ; preds = %2
-  %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %10, 1
-  %13 = ptrtoint ptr %.fca.1.extract.i.i.i.i to i64
-  %14 = ptrtoint ptr %5 to i64
-  %15 = sub i64 %13, %14
-  %16 = icmp sgt i64 %15, -1
-  tail call void @llvm.assume(i1 %16)
-  br label %_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit
-
-_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit: ; preds = %11, %12
-  %.sink.i = phi i64 [ -9223372036854775808, %11 ], [ -9223372036854775807, %12 ]
+_ZN5regex5regex6string12no_expansion17h92ddfbe5529f2794E.exit: ; preds = %2, %11
+  %.sink.i = phi i64 [ -9223372036854775808, %11 ], [ -9223372036854775807, %2 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !208, !noalias !211
   ret void
 }
@@ -1072,7 +1018,7 @@ define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..R
   %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly align 1 %4, ptr noundef nonnull readonly %7), !noalias !251
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %9, 0
   %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %10, label %11
+  br i1 %switch8.i.not.i.i.i, label %10, label %_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit
 
 10:                                               ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1081,17 +1027,8 @@ define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..R
   store i64 %6, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !236, !noalias !239
   br label %_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit
 
-11:                                               ; preds = %2
-  %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %9, 1
-  %12 = ptrtoint ptr %.fca.1.extract.i.i.i.i to i64
-  %13 = ptrtoint ptr %4 to i64
-  %14 = sub i64 %12, %13
-  %15 = icmp sgt i64 %14, -1
-  tail call void @llvm.assume(i1 %15)
-  br label %_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit
-
-_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit: ; preds = %10, %11
-  %.sink.i = phi i64 [ -9223372036854775808, %10 ], [ -9223372036854775807, %11 ]
+_ZN5regex5regex6string12no_expansion17hb50bbb6d5e7ee064E.exit: ; preds = %2, %10
+  %.sink.i = phi i64 [ -9223372036854775808, %10 ], [ -9223372036854775807, %2 ]
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !236, !noalias !239
   ret void
 }

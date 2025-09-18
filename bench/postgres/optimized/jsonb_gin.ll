@@ -36,11 +36,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -113,14 +113,14 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr n
 
 55:                                               ; preds = %48, %51, %40
   %56 = phi i32 [ %45, %40 ], [ %50, %48 ], [ %54, %51 ]
-  %57 = tail call i32 @varstr_cmp(ptr noundef nonnull %15, i32 noundef %37, ptr noundef nonnull %20, i32 noundef %56, i32 noundef 950) #8
+  %57 = tail call i32 @varstr_cmp(ptr noundef nonnull %15, i32 noundef %37, ptr noundef nonnull %20, i32 noundef %56, i32 noundef 950) #7
   %58 = load i64, ptr %2, align 8
   %59 = inttoptr i64 %58 to ptr
   %.not39 = icmp eq ptr %5, %59
   br i1 %.not39, label %61, label %60
 
 60:                                               ; preds = %55
-  tail call void @pfree(ptr noundef nonnull %5) #8
+  tail call void @pfree(ptr noundef nonnull %5) #7
   br label %61
 
 61:                                               ; preds = %55, %60
@@ -130,7 +130,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @gin_compare_jsonb(ptr n
   br i1 %.not40, label %65, label %64
 
 64:                                               ; preds = %61
-  tail call void @pfree(ptr noundef nonnull %9) #8
+  tail call void @pfree(ptr noundef nonnull %9) #7
   br label %65
 
 65:                                               ; preds = %64, %61
@@ -151,7 +151,7 @@ define dso_local i64 @gin_extract_jsonb(ptr noundef readonly captures(none) %0) 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #8
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
@@ -171,8 +171,8 @@ init_gin_entries.exit:                            ; preds = %1
   %16 = shl nuw nsw i32 %13, 1
   %17 = shl i32 %12, 4
   %18 = zext i32 %17 to i64
-  %19 = tail call ptr @palloc(i64 noundef %18) #8
-  %20 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %11) #8
+  %19 = tail call ptr @palloc(i64 noundef %18) #7
+  %20 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %11) #7
   store ptr %20, ptr %2, align 8
   br label %.outer
 
@@ -183,7 +183,7 @@ init_gin_entries.exit:                            ; preds = %1
   br label %21
 
 21:                                               ; preds = %.outer, %21
-  %22 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
+  %22 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #7
   switch i32 %22, label %21 [
     i32 0, label %58
     i32 1, label %23
@@ -204,11 +204,11 @@ init_gin_entries.exit:                            ; preds = %1
   %27 = shl i32 %.sroa.27.0.ph, 1
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 3
-  %30 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %29) #8
+  %30 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %29) #7
   br label %.sink.split
 
 31:                                               ; preds = %25
-  %32 = call ptr @palloc(i64 noundef 64) #8
+  %32 = call ptr @palloc(i64 noundef 64) #7
   br label %.sink.split
 
 33:                                               ; preds = %21
@@ -226,11 +226,11 @@ init_gin_entries.exit:                            ; preds = %1
   %39 = shl i32 %.sroa.27.0.ph, 1
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 3
-  %42 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %41) #8
+  %42 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %41) #7
   br label %.sink.split
 
 43:                                               ; preds = %37
-  %44 = call ptr @palloc(i64 noundef 64) #8
+  %44 = call ptr @palloc(i64 noundef 64) #7
   br label %.sink.split
 
 45:                                               ; preds = %21
@@ -246,11 +246,11 @@ init_gin_entries.exit:                            ; preds = %1
   %49 = shl i32 %.sroa.27.0.ph, 1
   %50 = sext i32 %49 to i64
   %51 = shl nsw i64 %50, 3
-  %52 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %51) #8
+  %52 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %51) #7
   br label %.sink.split
 
 53:                                               ; preds = %47
-  %54 = call ptr @palloc(i64 noundef 64) #8
+  %54 = call ptr @palloc(i64 noundef 64) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %48, %45, %43, %38, %33, %31, %26, %23
@@ -292,7 +292,7 @@ define internal fastcc noundef i64 @make_scalar_key(ptr noundef nonnull readonly
   ]
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @palloc(i64 noundef 5) #8
+  %7 = tail call ptr @palloc(i64 noundef 5) #7
   store i32 20, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 2, ptr %8, align 4
@@ -302,7 +302,7 @@ define internal fastcc noundef i64 @make_scalar_key(ptr noundef nonnull readonly
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i8, ptr %10, align 8, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
-  %13 = tail call ptr @palloc(i64 noundef 6) #8
+  %13 = tail call ptr @palloc(i64 noundef 6) #7
   store i32 24, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i8 3, ptr %14, align 4
@@ -314,16 +314,16 @@ define internal fastcc noundef i64 @make_scalar_key(ptr noundef nonnull readonly
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @numeric_normalize(ptr noundef %19) #8
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #9
+  %20 = tail call ptr @numeric_normalize(ptr noundef %19) #7
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #8
   %22 = trunc i64 %21 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = icmp sgt i32 %22, 125
   br i1 %23, label %24, label %make_text_key.exit
 
 24:                                               ; preds = %17
-  %25 = tail call i32 @hash_bytes(ptr noundef nonnull %20, i32 noundef range(i32 126, -2147483648) %22) #8
-  %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %25) #8
+  %25 = tail call i32 @hash_bytes(ptr noundef nonnull %20, i32 noundef range(i32 126, -2147483648) %22) #7
+  %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %25) #7
   br label %make_text_key.exit
 
 make_text_key.exit:                               ; preds = %17, %24
@@ -332,7 +332,7 @@ make_text_key.exit:                               ; preds = %17, %24
   %.0.i = phi i8 [ 20, %24 ], [ 4, %17 ]
   %27 = add nsw i32 %.014.i, 5
   %28 = sext i32 %27 to i64
-  %29 = call ptr @palloc(i64 noundef %28) #8
+  %29 = call ptr @palloc(i64 noundef %28) #7
   %30 = shl i32 %27, 2
   store i32 %30, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -341,7 +341,7 @@ make_text_key.exit:                               ; preds = %17, %24
   %33 = sext i32 %.014.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 1 %.013.i, i64 %33, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @pfree(ptr noundef nonnull %20) #8
+  call void @pfree(ptr noundef nonnull %20) #7
   br label %56
 
 34:                                               ; preds = %2
@@ -355,8 +355,8 @@ make_text_key.exit:                               ; preds = %17, %24
   br i1 %40, label %41, label %make_text_key.exit13
 
 41:                                               ; preds = %34
-  %42 = tail call i32 @hash_bytes(ptr noundef %38, i32 noundef range(i32 126, -2147483648) %39) #8
-  %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %42) #8
+  %42 = tail call i32 @hash_bytes(ptr noundef %38, i32 noundef range(i32 126, -2147483648) %39) #7
+  %43 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %42) #7
   %44 = or disjoint i8 %35, 16
   br label %make_text_key.exit13
 
@@ -366,7 +366,7 @@ make_text_key.exit13:                             ; preds = %34, %41
   %.0.i12 = phi i8 [ %44, %41 ], [ %35, %34 ]
   %45 = add nsw i32 %.014.i10, 5
   %46 = sext i32 %45 to i64
-  %47 = call ptr @palloc(i64 noundef %46) #8
+  %47 = call ptr @palloc(i64 noundef %46) #7
   %48 = shl i32 %45, 2
   store i32 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -378,11 +378,10 @@ make_text_key.exit13:                             ; preds = %34, %41
   br label %56
 
 52:                                               ; preds = %2
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %53)
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %54 = load i32, ptr %0, align 8
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %54) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1403, ptr noundef nonnull @__func__.make_scalar_key) #8
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %54) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1403, ptr noundef nonnull @__func__.make_scalar_key) #7
   unreachable
 
 56:                                               ; preds = %make_text_key.exit13, %make_text_key.exit, %9, %6
@@ -415,7 +414,7 @@ define dso_local i64 @gin_extract_jsonb_query(ptr noundef readonly captures(none
 
 17:                                               ; preds = %1
   %18 = load i64, ptr %7, align 8
-  %19 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @gin_extract_jsonb, i32 noundef 0, i64 noundef %18, i64 noundef %9) #8
+  %19 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @gin_extract_jsonb, i32 noundef 0, i64 noundef %18, i64 noundef %9) #7
   %20 = inttoptr i64 %19 to ptr
   %21 = load i32, ptr %10, align 4
   %22 = icmp eq i32 %21, 0
@@ -428,9 +427,9 @@ define dso_local i64 @gin_extract_jsonb_query(ptr noundef readonly captures(none
 24:                                               ; preds = %1
   %25 = load i64, ptr %7, align 8
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call ptr @pg_detoast_datum_packed(ptr noundef %26) #8
+  %27 = tail call ptr @pg_detoast_datum_packed(ptr noundef %26) #7
   store i32 1, ptr %10, align 4
-  %28 = tail call ptr @palloc(i64 noundef 8) #8
+  %28 = tail call ptr @palloc(i64 noundef 8) #7
   %29 = load i8, ptr %27, align 1
   %30 = zext i8 %29 to i32
   %31 = and i32 %30, 1
@@ -472,8 +471,8 @@ define dso_local i64 @gin_extract_jsonb_query(ptr noundef readonly captures(none
   br i1 %51, label %52, label %make_text_key.exit
 
 52:                                               ; preds = %49
-  %53 = tail call i32 @hash_bytes(ptr noundef nonnull %34, i32 noundef range(i32 126, -2147483648) %50) #8
-  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %53) #8
+  %53 = tail call i32 @hash_bytes(ptr noundef nonnull %34, i32 noundef range(i32 126, -2147483648) %50) #7
+  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %53) #7
   br label %make_text_key.exit
 
 make_text_key.exit:                               ; preds = %.thread, %49, %52
@@ -482,7 +481,7 @@ make_text_key.exit:                               ; preds = %.thread, %49, %52
   %.0.i = phi i8 [ 17, %52 ], [ 1, %49 ], [ 1, %.thread ]
   %55 = add nsw i32 %.014.i, 5
   %56 = zext nneg i32 %55 to i64
-  %57 = call ptr @palloc(i64 noundef %56) #8
+  %57 = call ptr @palloc(i64 noundef %56) #7
   %58 = shl nuw nsw i32 %55, 2
   store i32 %58, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
@@ -504,15 +503,15 @@ make_text_key.exit:                               ; preds = %.thread, %49, %52
 66:                                               ; preds = %63
   %67 = load i64, ptr %7, align 8
   %68 = inttoptr i64 %67 to ptr
-  %69 = tail call ptr @pg_detoast_datum(ptr noundef %68) #8
+  %69 = tail call ptr @pg_detoast_datum(ptr noundef %68) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @deconstruct_array_builtin(ptr noundef %69, i32 noundef 25, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
+  call void @deconstruct_array_builtin(ptr noundef %69, i32 noundef 25, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %70 = load i32, ptr %6, align 4
   %71 = sext i32 %70 to i64
   %72 = shl nsw i64 %71, 3
-  %73 = call ptr @palloc(i64 noundef %72) #8
+  %73 = call ptr @palloc(i64 noundef %72) #7
   %74 = load i32, ptr %6, align 4
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %.lr.ph, label %._crit_edge
@@ -575,8 +574,8 @@ make_text_key.exit:                               ; preds = %.thread, %49, %52
   br i1 %109, label %110, label %make_text_key.exit82
 
 110:                                              ; preds = %107
-  %111 = call i32 @hash_bytes(ptr noundef nonnull %90, i32 noundef range(i32 126, -2147483648) %108) #8
-  %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %111) #8
+  %111 = call i32 @hash_bytes(ptr noundef nonnull %90, i32 noundef range(i32 126, -2147483648) %108) #7
+  %112 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %111) #7
   br label %make_text_key.exit82
 
 make_text_key.exit82:                             ; preds = %.thread83, %107, %110
@@ -585,7 +584,7 @@ make_text_key.exit82:                             ; preds = %.thread83, %107, %1
   %.0.i81 = phi i8 [ 17, %110 ], [ 1, %107 ], [ 1, %.thread83 ]
   %113 = add nsw i32 %.014.i79, 5
   %114 = zext nneg i32 %113 to i64
-  %115 = call ptr @palloc(i64 noundef %114) #8
+  %115 = call ptr @palloc(i64 noundef %114) #7
   %116 = shl nuw nsw i32 %113, 2
   store i32 %116, ptr %115, align 4
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 4
@@ -635,7 +634,7 @@ make_text_key.exit82:                             ; preds = %.thread83, %107, %1
 133:                                              ; preds = %131
   %134 = load i64, ptr %7, align 8
   %135 = inttoptr i64 %134 to ptr
-  %136 = tail call ptr @pg_detoast_datum(ptr noundef %135) #8
+  %136 = tail call ptr @pg_detoast_datum(ptr noundef %135) #7
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %138 = load i64, ptr %137, align 8
   %139 = inttoptr i64 %138 to ptr
@@ -650,10 +649,9 @@ make_text_key.exit82:                             ; preds = %.thread83, %107, %1
 142:                                              ; preds = %131
   %143 = trunc i64 %12 to i32
   %144 = and i32 %143, 65535
-  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %145)
-  %146 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %144) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 921, ptr noundef nonnull @__func__.gin_extract_jsonb_query) #8
+  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %146 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %144) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 921, ptr noundef nonnull @__func__.gin_extract_jsonb_query) #7
   unreachable
 
 147:                                              ; preds = %133, %141, %make_text_key.exit, %130, %17, %23
@@ -690,7 +688,7 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
   store ptr %spec.select, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %spec.select17, ptr %13, align 8
-  call void @jspInit(ptr noundef nonnull %7, ptr noundef nonnull %0) #8
+  call void @jspInit(ptr noundef nonnull %7, ptr noundef nonnull %0) #7
   %14 = icmp eq i16 %1, 15
   br i1 %14, label %15, label %17
 
@@ -722,7 +720,7 @@ define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroex
 25:                                               ; preds = %22
   %26 = sext i32 %24 to i64
   %27 = shl nsw i64 %26, 3
-  %28 = call ptr @palloc0(i64 noundef %27) #8
+  %28 = call ptr @palloc0(i64 noundef %27) #7
   store ptr %28, ptr %4, align 8
   store ptr %20, ptr %28, align 8
   %29 = load ptr, ptr %8, align 8
@@ -837,10 +835,9 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb(ptr noundef readonly 
 40:                                               ; preds = %31
   %41 = trunc i64 %6 to i32
   %42 = and i32 %41, 65535
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %42) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1007, ptr noundef nonnull @__func__.gin_consistent_jsonb) #8
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %42) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1007, ptr noundef nonnull @__func__.gin_consistent_jsonb) #7
   unreachable
 
 .loopexit:                                        ; preds = %27, %.lr.ph, %19, %.lr.ph40, %25, %17, %23, %33, %35, %24
@@ -930,11 +927,10 @@ define internal fastcc signext i8 @execute_jsp_gin_node(ptr noundef readonly cap
   br label %.loopexit
 
 33:                                               ; preds = %2
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %34)
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %35 = load i32, ptr %0, align 8
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %35) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 842, ptr noundef nonnull @__func__.execute_jsp_gin_node) #8
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %35) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 842, ptr noundef nonnull @__func__.execute_jsp_gin_node) #7
   unreachable
 
 .loopexit:                                        ; preds = %21, %26, %12, %17, %.preheader34, %.preheader, %30
@@ -1027,10 +1023,9 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb(ptr noundef r
 35:                                               ; preds = %26
   %36 = trunc i64 %6 to i32
   %37 = and i32 %36, 65535
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %37) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1072, ptr noundef nonnull @__func__.gin_triconsistent_jsonb) #8
+  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %37) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1072, ptr noundef nonnull @__func__.gin_triconsistent_jsonb) #7
   unreachable
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %23, %.lr.ph44, %14, %.preheader, %28, %30
@@ -1046,7 +1041,7 @@ define dso_local i64 @gin_extract_jsonb_path(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #8
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -1067,11 +1062,11 @@ init_gin_entries.exit:                            ; preds = %1
   %17 = shl nuw nsw i32 %14, 1
   %18 = shl i32 %13, 4
   %19 = zext i32 %18 to i64
-  %20 = tail call ptr @palloc(i64 noundef %19) #8
+  %20 = tail call ptr @palloc(i64 noundef %19) #7
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %21, align 8
   store i32 0, ptr %4, align 8
-  %22 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %12) #8
+  %22 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %12) #7
   store ptr %22, ptr %2, align 8
   br label %.outer
 
@@ -1087,7 +1082,7 @@ init_gin_entries.exit:                            ; preds = %1
   br label %23
 
 23:                                               ; preds = %.outer50, %29
-  %24 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #8
+  %24 = call i32 @JsonbIteratorNext(ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext false) #7
   switch i32 %24, label %55 [
     i32 0, label %58
     i32 4, label %25
@@ -1100,7 +1095,7 @@ init_gin_entries.exit:                            ; preds = %1
   ]
 
 25:                                               ; preds = %23, %23
-  %26 = call ptr @palloc(i64 noundef 16) #8
+  %26 = call ptr @palloc(i64 noundef 16) #7
   %27 = load i32, ptr %.0.ph51, align 8
   store i32 %27, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1112,11 +1107,11 @@ init_gin_entries.exit:                            ; preds = %1
   br label %.outer50, !llvm.loop !15
 
 29:                                               ; preds = %23
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #8
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #7
   br label %23, !llvm.loop !15
 
 30:                                               ; preds = %23, %23
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #8
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef nonnull %.0.ph51) #7
   %31 = load i32, ptr %.0.ph51, align 8
   %32 = zext i32 %31 to i64
   %.not.i32 = icmp slt i32 %.sroa.8.0.ph, %.sroa.13.0.ph
@@ -1130,11 +1125,11 @@ init_gin_entries.exit:                            ; preds = %1
   %35 = shl i32 %.sroa.13.0.ph, 1
   %36 = sext i32 %35 to i64
   %37 = shl nsw i64 %36, 3
-  %38 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %37) #8
+  %38 = call ptr @repalloc(ptr noundef %.sroa.0.0.ph, i64 noundef %37) #7
   br label %add_gin_entry.exit
 
 39:                                               ; preds = %33
-  %40 = call ptr @palloc(i64 noundef 64) #8
+  %40 = call ptr @palloc(i64 noundef 64) #7
   br label %add_gin_entry.exit
 
 add_gin_entry.exit:                               ; preds = %30, %34, %39
@@ -1153,7 +1148,7 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
 47:                                               ; preds = %23, %23
   %48 = getelementptr inbounds nuw i8, ptr %.0.ph51, i64 8
   %49 = load ptr, ptr %48, align 8
-  call void @pfree(ptr noundef nonnull %.0.ph51) #8
+  call void @pfree(ptr noundef nonnull %.0.ph51) #7
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not31 = icmp eq ptr %51, null
@@ -1169,10 +1164,9 @@ add_gin_entry.exit:                               ; preds = %30, %34, %39
   br label %.outer50.backedge
 
 55:                                               ; preds = %23
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %56)
-  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #8
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1170, ptr noundef nonnull @__func__.gin_extract_jsonb_path) #8
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %57 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1170, ptr noundef nonnull @__func__.gin_extract_jsonb_path) #7
   unreachable
 
 58:                                               ; preds = %23
@@ -1207,7 +1201,7 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr noundef readonly captures
 
 13:                                               ; preds = %1
   %14 = load i64, ptr %2, align 8
-  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @gin_extract_jsonb_path, i32 noundef 0, i64 noundef %14, i64 noundef %4) #8
+  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @gin_extract_jsonb_path, i32 noundef 0, i64 noundef %14, i64 noundef %4) #7
   %16 = inttoptr i64 %15 to ptr
   %17 = load i32, ptr %5, align 4
   %18 = icmp eq i32 %17, 0
@@ -1221,7 +1215,7 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr noundef readonly captures
 21:                                               ; preds = %19
   %22 = load i64, ptr %2, align 8
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call ptr @pg_detoast_datum(ptr noundef %23) #8
+  %24 = tail call ptr @pg_detoast_datum(ptr noundef %23) #7
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = load i64, ptr %25, align 8
   %27 = inttoptr i64 %26 to ptr
@@ -1232,10 +1226,9 @@ define dso_local i64 @gin_extract_jsonb_query_path(ptr noundef readonly captures
 29:                                               ; preds = %19
   %30 = trunc i64 %7 to i32
   %31 = and i32 %30, 65535
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1212, ptr noundef nonnull @__func__.gin_extract_jsonb_query_path) #8
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1212, ptr noundef nonnull @__func__.gin_extract_jsonb_query_path) #7
   unreachable
 
 .sink.split:                                      ; preds = %21, %13
@@ -1310,10 +1303,9 @@ define dso_local range(i64 0, 2) i64 @gin_consistent_jsonb_path(ptr noundef read
 33:                                               ; preds = %24
   %34 = trunc i64 %6 to i32
   %35 = and i32 %34, 65535
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %35) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1266, ptr noundef nonnull @__func__.gin_consistent_jsonb_path) #8
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %35) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1266, ptr noundef nonnull @__func__.gin_consistent_jsonb_path) #7
   unreachable
 
 .loopexit:                                        ; preds = %20, %.lr.ph, %18, %28, %26
@@ -1378,10 +1370,9 @@ define dso_local range(i64 -128, 128) i64 @gin_triconsistent_jsonb_path(ptr noun
 29:                                               ; preds = %20
   %30 = trunc i64 %6 to i32
   %31 = and i32 %30, 65535
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__func__.gin_triconsistent_jsonb_path) #8
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %31) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1314, ptr noundef nonnull @__func__.gin_triconsistent_jsonb_path) #7
   unreachable
 
 .loopexit:                                        ; preds = %16, %.lr.ph, %.preheader, %24, %22
@@ -1413,10 +1404,10 @@ define internal noundef zeroext i1 @jsonb_path_ops__add_path_item(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 1, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = call ptr @jspGetString(ptr noundef nonnull %1, ptr noundef nonnull %7) #8
+  %8 = call ptr @jspGetString(ptr noundef nonnull %1, ptr noundef nonnull %7) #7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %8, ptr %9, align 8
-  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef %0) #8
+  call void @JsonbHashScalarValue(ptr noundef nonnull %3, ptr noundef %0) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %11
 
@@ -1439,14 +1430,14 @@ define internal ptr @jsonb_path_ops__extract_nodes(ptr readnone captures(none) %
   %7 = ptrtoint ptr %1 to i64
   %.sroa.0.0.extract.trunc = trunc i64 %7 to i32
   store i32 %.sroa.0.0.extract.trunc, ptr %5, align 4
-  call void @JsonbHashScalarValue(ptr noundef nonnull %2, ptr noundef nonnull %5) #8
+  call void @JsonbHashScalarValue(ptr noundef nonnull %2, ptr noundef nonnull %5) #7
   %8 = load i32, ptr %5, align 4
   %9 = zext i32 %8 to i64
-  %10 = call noundef ptr @palloc(i64 noundef 16) #8
+  %10 = call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %9, ptr %11, align 8
-  %12 = call ptr @lappend(ptr noundef %3, ptr noundef nonnull %10) #8
+  %12 = call ptr @lappend(ptr noundef %3, ptr noundef nonnull %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %13
 
@@ -1471,15 +1462,15 @@ define internal noundef zeroext i1 @jsonb_ops__add_path_item(ptr noundef capture
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %7 = call ptr @jspGetString(ptr noundef nonnull %1, ptr noundef nonnull %4) #8
+  %7 = call ptr @jspGetString(ptr noundef nonnull %1, ptr noundef nonnull %4) #7
   %8 = load i32, ptr %4, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = icmp sgt i32 %8, 125
   br i1 %9, label %10, label %make_text_key.exit
 
 10:                                               ; preds = %6
-  %11 = call i32 @hash_bytes(ptr noundef %7, i32 noundef range(i32 126, -2147483648) %8) #8
-  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %11) #8
+  %11 = call i32 @hash_bytes(ptr noundef %7, i32 noundef range(i32 126, -2147483648) %8) #7
+  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull @.str.5, i32 noundef %11) #7
   br label %make_text_key.exit
 
 make_text_key.exit:                               ; preds = %6, %10
@@ -1488,7 +1479,7 @@ make_text_key.exit:                               ; preds = %6, %10
   %.0.i = phi i8 [ 17, %10 ], [ 1, %6 ]
   %13 = add nsw i32 %.014.i, 5
   %14 = sext i32 %13 to i64
-  %15 = call ptr @palloc(i64 noundef %14) #8
+  %15 = call ptr @palloc(i64 noundef %14) #7
   %16 = shl i32 %13, 2
   store i32 %16, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -1503,7 +1494,7 @@ make_text_key.exit:                               ; preds = %6, %10
 
 21:                                               ; preds = %2, %2, %2, %2, %make_text_key.exit
   %.012 = phi i64 [ %20, %make_text_key.exit ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ]
-  %22 = call ptr @palloc(i64 noundef 24) #8
+  %22 = call ptr @palloc(i64 noundef 24) #7
   %23 = load i32, ptr %1, align 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 %23, ptr %24, align 8
@@ -1543,11 +1534,11 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  %11 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %10, ptr %12, align 8
-  %13 = tail call ptr @lappend(ptr noundef %.135, ptr noundef nonnull %11) #8
+  %13 = tail call ptr @lappend(ptr noundef %.135, ptr noundef nonnull %11) #7
   br label %14
 
 14:                                               ; preds = %.lr.ph, %8
@@ -1585,16 +1576,16 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
 
 .critedge:                                        ; preds = %23, %18
   %27 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext true)
-  %28 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  %28 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %27, ptr %29, align 8
   %30 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
-  %31 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  %31 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %30, ptr %32, align 8
-  %33 = tail call noundef ptr @palloc(i64 noundef 32) #8
+  %33 = tail call noundef ptr @palloc(i64 noundef 32) #7
   store i32 0, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 2, ptr %34, align 8
@@ -1607,7 +1598,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
 37:                                               ; preds = %26, %22, %23, %23
   %38 = phi i1 [ false, %26 ], [ false, %22 ], [ true, %23 ], [ true, %23 ]
   %39 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext %38)
-  %40 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  %40 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %39, ptr %41, align 8
@@ -1615,7 +1606,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
 
 42:                                               ; preds = %._crit_edge
   %43 = tail call fastcc i64 @make_scalar_key(ptr noundef nonnull readonly %2, i1 noundef zeroext false)
-  %44 = tail call noundef ptr @palloc(i64 noundef 16) #8
+  %44 = tail call noundef ptr @palloc(i64 noundef 16) #7
   store i32 2, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 %43, ptr %45, align 8
@@ -1623,7 +1614,7 @@ define internal ptr @jsonb_ops__extract_nodes(ptr noundef readonly captures(none
 
 46:                                               ; preds = %.critedge, %37, %42
   %.126 = phi ptr [ %44, %42 ], [ %33, %.critedge ], [ %40, %37 ]
-  %47 = tail call ptr @lappend(ptr noundef %.1.lcssa, ptr noundef nonnull %.126) #8
+  %47 = tail call ptr @lappend(ptr noundef %.1.lcssa, ptr noundef nonnull %.126) #7
   br label %48
 
 48:                                               ; preds = %46, %4
@@ -1654,14 +1645,14 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1
 
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @jspGetArg(ptr noundef nonnull %.016.i, ptr noundef nonnull %7) #8
+  call void @jspGetArg(ptr noundef nonnull %.016.i, ptr noundef nonnull %7) #7
   %11 = load ptr, ptr %5, align 8
   %12 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %11, ptr noundef %7, i1 noundef zeroext false)
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %10
-  %14 = call ptr @lappend(ptr noundef %.015.i, ptr noundef nonnull %12) #8
+  %14 = call ptr @lappend(ptr noundef %.015.i, ptr noundef nonnull %12) #7
   br label %15
 
 15:                                               ; preds = %13, %10
@@ -1671,19 +1662,19 @@ define internal fastcc ptr @extract_jsp_path_expr(ptr noundef nonnull %0, ptr %1
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr %0, align 8
-  %18 = call zeroext i1 %17(ptr noundef nonnull %5, ptr noundef nonnull %.016.i) #8
+  %18 = call zeroext i1 %17(ptr noundef nonnull %5, ptr noundef nonnull %.016.i) #7
   br i1 %18, label %19, label %extract_jsp_path_expr_nodes.exit
 
 19:                                               ; preds = %16, %15, %8
   %.1.i = phi ptr [ %.015.i, %16 ], [ %.015.i, %8 ], [ %.2.i, %15 ]
-  %20 = call zeroext i1 @jspGetNext(ptr noundef nonnull %.016.i, ptr noundef nonnull %6) #8
+  %20 = call zeroext i1 @jspGetNext(ptr noundef nonnull %.016.i, ptr noundef nonnull %6) #7
   br i1 %20, label %8, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = call ptr %23(ptr noundef nonnull %0, ptr %24, ptr noundef %3, ptr noundef %.1.i) #8
+  %25 = call ptr %23(ptr noundef nonnull %0, ptr %24, ptr noundef %3, ptr noundef %.1.i) #7
   br label %extract_jsp_path_expr_nodes.exit
 
 extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
@@ -1709,7 +1700,7 @@ extract_jsp_path_expr_nodes.exit:                 ; preds = %16, %21
   %34 = sext i32 %.val to i64
   %35 = shl nsw i64 %34, 3
   %36 = add nsw i64 %35, 16
-  %37 = call noundef ptr @palloc(i64 noundef %36) #8
+  %37 = call noundef ptr @palloc(i64 noundef %36) #7
   store i32 1, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %.val, ptr %38, align 8
@@ -1748,7 +1739,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %8 = alloca %struct.JsonPathItem, align 8
   %9 = alloca %struct.JsonPathItem, align 8
   %10 = alloca %struct.JsonbValue, align 8
-  tail call void @check_stack_depth() #8
+  tail call void @check_stack_depth() #7
   %11 = load i32, ptr %2, align 8
   %.0.sroa.gep53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.0.sroa.gep54 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1762,9 +1753,9 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 
 12:                                               ; preds = %4, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %5) #8
+  call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %5) #7
   %13 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %5, i1 noundef zeroext %3)
-  call void @jspGetRightArg(ptr noundef nonnull %2, ptr noundef nonnull %5) #8
+  call void @jspGetRightArg(ptr noundef nonnull %2, ptr noundef nonnull %5) #7
   %14 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %5, i1 noundef zeroext %3)
   %15 = icmp ne ptr %13, null
   %16 = icmp ne ptr %14, null
@@ -1782,7 +1773,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   %22 = icmp eq i32 %17, 4
   %23 = xor i1 %3, %22
   %24 = zext i1 %23 to i32
-  %25 = call noundef ptr @palloc(i64 noundef 32) #8
+  %25 = call noundef ptr @palloc(i64 noundef 32) #7
   store i32 %24, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 2, ptr %26, align 8
@@ -1799,7 +1790,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
 
 30:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %6) #8
+  call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %6) #7
   %31 = xor i1 %3, true
   %32 = call fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr noundef %6, i1 noundef zeroext %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1810,7 +1801,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   br i1 %3, label %36, label %34
 
 34:                                               ; preds = %33
-  call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %7) #8
+  call void @jspGetArg(ptr noundef nonnull %2, ptr noundef nonnull %7) #7
   %35 = call fastcc ptr @extract_jsp_path_expr(ptr noundef %0, ptr %1, ptr noundef %7, ptr noundef null)
   br label %36
 
@@ -1826,8 +1817,8 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef nonnull %0, ptr %1
   br i1 %3, label %64, label %38
 
 38:                                               ; preds = %37
-  call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %8) #8
-  call void @jspGetRightArg(ptr noundef nonnull %2, ptr noundef nonnull %9) #8
+  call void @jspGetLeftArg(ptr noundef nonnull %2, ptr noundef nonnull %8) #7
+  call void @jspGetRightArg(ptr noundef nonnull %2, ptr noundef nonnull %9) #7
   %39 = load i32, ptr %8, align 8
   %40 = icmp ult i32 %39, 4
   br i1 %40, label %44, label %41
@@ -1901,7 +1892,7 @@ default.unreachable68:                            ; preds = %44
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @emit_jsp_gin_entries(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
-  tail call void @check_stack_depth() #8
+  tail call void @check_stack_depth() #7
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %.loopexit [
     i32 2, label %4
@@ -1933,13 +1924,13 @@ define internal fastcc void @emit_jsp_gin_entries(ptr noundef captures(none) %0,
   %14 = load ptr, ptr %1, align 8
   %15 = sext i32 %13 to i64
   %16 = shl nsw i64 %15, 3
-  %17 = tail call ptr @repalloc(ptr noundef %14, i64 noundef %16) #8
+  %17 = tail call ptr @repalloc(ptr noundef %14, i64 noundef %16) #7
   store ptr %17, ptr %1, align 8
   br label %add_gin_entry.exit
 
 18:                                               ; preds = %11
   store i32 8, ptr %9, align 4
-  %19 = tail call ptr @palloc(i64 noundef 64) #8
+  %19 = tail call ptr @palloc(i64 noundef 64) #7
   store ptr %19, ptr %1, align 8
   br label %add_gin_entry.exit
 
@@ -2013,9 +2004,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2023,10 +2011,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

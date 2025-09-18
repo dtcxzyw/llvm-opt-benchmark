@@ -6476,12 +6476,6 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc7bounded7channel17hda52e15d47eab3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 %0, ptr %11, align 8
   %12 = call { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h77da3e2a0a0cd73aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %3)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  %15 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %16)
   ret { ptr, ptr } %12
 }
 

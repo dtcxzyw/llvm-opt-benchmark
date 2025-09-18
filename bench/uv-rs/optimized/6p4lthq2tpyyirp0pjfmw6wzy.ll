@@ -6574,9 +6574,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option1
 
 "_ZN4core3ptr144drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$uv_cli..Maybe$LT$uv_distribution_types..index..Index$GT$$GT$$GT$$GT$17h756296d0fefc5341E.exit": ; preds = %2, %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %8 = load ptr, ptr %0, align 8, !noundef !17
-  %9 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %9)
   ret ptr %0
 }
 

@@ -4241,18 +4241,18 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   %.sroa.08.0 = select i1 %8, i64 -1, i64 %9
   %10 = sub i64 %.sroa.08.0, %1
   %11 = icmp ugt i64 %2, %10
-  br i1 %11, label %12, label %46
+  br i1 %11, label %12, label %45
 
 12:                                               ; preds = %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1022)
   %.sink7.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sink7.i.sroa.gep41.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %8, label %47, label %13
+  br i1 %8, label %45, label %13
 
 13:                                               ; preds = %12
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
   %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %47, label %16, !prof !868
+  br i1 %15, label %45, label %16, !prof !868
 
 16:                                               ; preds = %13
   %17 = add nuw i64 %2, %1
@@ -4273,7 +4273,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   %28 = sub nuw i64 -9223372036854775808, %3
   %29 = icmp ugt i64 %26, %28
   %30 = select i1 %27, i1 true, i1 %29
-  br i1 %30, label %47, label %31
+  br i1 %30, label %45, label %31
 
 31:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1022
@@ -4307,7 +4307,7 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %42 = load i64, ptr %41, align 8, !noalias !1022
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1022
-  br label %47
+  br label %45
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17ha4e175237a8c3bc5E.llvm.13079985338326358297.exit": ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17h4f11054e3f7646f9E.llvm.13079985338326358297.exit.i"
   %43 = load ptr, ptr %38, align 8, !noalias !1022, !nonnull !4, !noundef !4
@@ -4315,21 +4315,14 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$11try_reserv
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %43, ptr %44, align 8, !alias.scope !1022
   store i64 %.sroa.0.0.sroa.speculated.i39.i, ptr %0, align 8, !alias.scope !1022
-  %.pre17 = sub i64 %.sroa.0.0.sroa.speculated.i39.i, %1
-  %45 = icmp ule i64 %2, %.pre17
-  br label %46
+  br label %45
 
-46:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17ha4e175237a8c3bc5E.llvm.13079985338326358297.exit", %5
-  %.pre-phi = phi i1 [ %45, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17ha4e175237a8c3bc5E.llvm.13079985338326358297.exit" ], [ true, %5 ]
-  tail call void @llvm.assume(i1 %.pre-phi)
-  br label %47
-
-47:                                               ; preds = %16, %13, %12, %39, %46
-  %.sroa.3.0 = phi i64 [ undef, %46 ], [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %42, %39 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %46 ], [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %40, %39 ]
-  %48 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %49 = insertvalue { i64, i64 } %48, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %49
+45:                                               ; preds = %5, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17ha4e175237a8c3bc5E.llvm.13079985338326358297.exit", %16, %13, %12, %39
+  %.sroa.3.0 = phi i64 [ undef, %16 ], [ undef, %13 ], [ undef, %12 ], [ %42, %39 ], [ undef, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17ha4e175237a8c3bc5E.llvm.13079985338326358297.exit" ], [ undef, %5 ]
+  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %13 ], [ 0, %12 ], [ %40, %39 ], [ -9223372036854775807, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14grow_amortized17ha4e175237a8c3bc5E.llvm.13079985338326358297.exit" ], [ -9223372036854775807, %5 ]
+  %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %47 = insertvalue { i64, i64 } %46, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %47
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4712,7 +4705,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capac
   %12 = sub nuw i64 -9223372036854775808, %1
   %13 = icmp ugt i64 %10, %12
   %14 = select i1 %11, i1 true, i1 %13
-  br i1 %14, label %27, label %_ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i
+  br i1 %14, label %25, label %_ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i
 
 _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i: ; preds = %4
   %15 = icmp eq i64 %10, 0
@@ -4726,20 +4719,16 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i: ; preds = %4
   %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1054
   %20 = tail call noalias noundef ptr @__rust_alloc(i64 noundef range(i64 1, 0) %10, i64 noundef range(i64 1, -9223372036854775807) %1) #31, !noalias !1054
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %27, label %22
+  br i1 %21, label %25, label %22
 
 22:                                               ; preds = %18, %16
   %.sroa.4.0.ph = phi i64 [ 0, %16 ], [ %0, %18 ]
   %.sroa.10.0.ph = phi ptr [ %17, %16 ], [ %20, %18 ]
-  %23 = icmp eq i64 %2, 0
-  %24 = icmp ule i64 %0, %.sroa.4.0.ph
-  %.sroa.03.0 = or i1 %23, %24
-  tail call void @llvm.assume(i1 %.sroa.03.0)
-  %25 = insertvalue { i64, ptr } poison, i64 %.sroa.4.0.ph, 0
-  %26 = insertvalue { i64, ptr } %25, ptr %.sroa.10.0.ph, 1
-  ret { i64, ptr } %26
+  %23 = insertvalue { i64, ptr } poison, i64 %.sroa.4.0.ph, 0
+  %24 = insertvalue { i64, ptr } %23, ptr %.sroa.10.0.ph, 1
+  ret { i64, ptr } %24
 
-27:                                               ; preds = %4, %18
+25:                                               ; preds = %4, %18
   %.sroa.4.0 = phi i64 [ 0, %4 ], [ %1, %18 ]
   %.sroa.10.0 = phi i64 [ undef, %4 ], [ %10, %18 ]
   tail call void @_ZN5alloc7raw_vec12handle_error17h5290ea7eaad4c986E(i64 noundef %.sroa.4.0, i64 %.sroa.10.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #33

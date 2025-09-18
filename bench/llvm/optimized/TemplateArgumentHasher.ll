@@ -2895,8 +2895,8 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %.lr.ph, %7
     i32 4, label %21
     i32 6, label %54
     i32 9, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
-    i32 5, label %88
-    i32 8, label %121
+    i32 5, label %86
+    i32 8, label %119
   ]
 
 12:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
@@ -3034,130 +3034,127 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %_ZNK5clang15Declar
   tail call void @llvm.assume(i1 %.not.i.i)
   %77 = and i64 %.tr2742, -8
   %78 = inttoptr i64 %77 to ptr
-  %79 = load i32, ptr %78, align 8, !tbaa !85
-  %80 = icmp eq i32 %79, 1
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !95
-  %83 = getelementptr i8, ptr %82, i64 16
-  %.val4 = load ptr, ptr %83, align 8, !tbaa !87
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %85 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
-  %86 = load i64, ptr %.val4, align 8, !tbaa !90
-  %87 = and i64 %86, 4294967295
-  tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %84, ptr nonnull %85, i64 %87) #8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %80 = load ptr, ptr %79, align 8, !tbaa !95
+  %81 = getelementptr i8, ptr %80, i64 16
+  %.val4 = load ptr, ptr %81, align 8, !tbaa !87
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.val4, i64 16
+  %84 = load i64, ptr %.val4, align 8, !tbaa !90
+  %85 = and i64 %84, 4294967295
+  tail call void @_ZN4llvm16FoldingSetNodeID9AddStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %82, ptr nonnull %83, i64 %85) #8
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
-88:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
+86:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
   %.off.i9 = add nsw i32 %6, -3
   %switch.i10 = icmp ult i32 %.off.i9, 3
   br i1 %switch.i10, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread
 
-_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12: ; preds = %88
-  %89 = and i64 %.tr2742, -8
-  %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load i64, ptr %91, align 8, !tbaa !22
-  %.not.i.i.i75 = icmp ult i64 %92, 16
-  br i1 %.not.i.i.i75, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, label %93
+_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12: ; preds = %86
+  %87 = and i64 %.tr2742, -8
+  %88 = inttoptr i64 %87 to ptr
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %90 = load i64, ptr %89, align 8, !tbaa !22
+  %.not.i.i.i75 = icmp ult i64 %90, 16
+  br i1 %.not.i.i.i75, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, label %91
 
-_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread: ; preds = %88, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12
+_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread: ; preds = %86, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12
   store i8 1, ptr %0, align 8, !tbaa !3
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
-93:                                               ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12
-  %94 = and i64 %92, 8
-  %.not.i.i76 = icmp eq i64 %94, 0
-  %95 = and i64 %92, -16
-  %96 = inttoptr i64 %95 to ptr
-  br i1 %.not.i.i76, label %97, label %99
+91:                                               ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12
+  %92 = and i64 %90, 8
+  %.not.i.i76 = icmp eq i64 %92, 0
+  %93 = and i64 %90, -16
+  %94 = inttoptr i64 %93 to ptr
+  br i1 %.not.i.i76, label %95, label %97
 
-97:                                               ; preds = %93
-  %98 = and i64 %92, 7
+95:                                               ; preds = %91
+  %96 = and i64 %90, 7
   br label %_ZNK5clang8QualType5splitEv.exit.i78
 
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %.sroa.0.0.copyload.i.i.i77 = load i64, ptr %100, align 8, !tbaa !23
-  %101 = and i64 %92, 7
-  %102 = or i64 %.sroa.0.0.copyload.i.i.i77, %101
-  %103 = load ptr, ptr %96, align 16, !tbaa !25
+97:                                               ; preds = %91
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  %.sroa.0.0.copyload.i.i.i77 = load i64, ptr %98, align 8, !tbaa !23
+  %99 = and i64 %90, 7
+  %100 = or i64 %.sroa.0.0.copyload.i.i.i77, %99
+  %101 = load ptr, ptr %94, align 16, !tbaa !25
   br label %_ZNK5clang8QualType5splitEv.exit.i78
 
-_ZNK5clang8QualType5splitEv.exit.i78:             ; preds = %99, %97
-  %.sroa.09.0.i.i79 = phi ptr [ %103, %99 ], [ %96, %97 ]
-  %.sroa.3.0.i.i80 = phi i64 [ %102, %99 ], [ %98, %97 ]
-  %104 = trunc i64 %.sroa.3.0.i.i80 to i32
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %107 = load i32, ptr %106, align 8, !tbaa !19
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %109 = load i32, ptr %108, align 4, !tbaa !18
-  %.not.i.i.not.i.i.i.i81 = icmp ult i32 %107, %109
-  br i1 %.not.i.i.not.i.i.i.i81, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83, label %110, !prof !21
+_ZNK5clang8QualType5splitEv.exit.i78:             ; preds = %97, %95
+  %.sroa.09.0.i.i79 = phi ptr [ %101, %97 ], [ %94, %95 ]
+  %.sroa.3.0.i.i80 = phi i64 [ %100, %97 ], [ %96, %95 ]
+  %102 = trunc i64 %.sroa.3.0.i.i80 to i32
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %105 = load i32, ptr %104, align 8, !tbaa !19
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %107 = load i32, ptr %106, align 4, !tbaa !18
+  %.not.i.i.not.i.i.i.i81 = icmp ult i32 %105, %107
+  br i1 %.not.i.i.not.i.i.i.i81, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83, label %108, !prof !21
 
-110:                                              ; preds = %_ZNK5clang8QualType5splitEv.exit.i78
-  %111 = zext i32 %107 to i64
-  %112 = add nuw nsw i64 %111, 1
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %105, ptr noundef nonnull %113, i64 noundef %112, i64 noundef 4) #8
-  %.pre.i.i.i.i82 = load i32, ptr %106, align 8, !tbaa !19
+108:                                              ; preds = %_ZNK5clang8QualType5splitEv.exit.i78
+  %109 = zext i32 %105 to i64
+  %110 = add nuw nsw i64 %109, 1
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %103, ptr noundef nonnull %111, i64 noundef %110, i64 noundef 4) #8
+  %.pre.i.i.i.i82 = load i32, ptr %104, align 8, !tbaa !19
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83: ; preds = %110, %_ZNK5clang8QualType5splitEv.exit.i78
-  %114 = phi i32 [ %107, %_ZNK5clang8QualType5splitEv.exit.i78 ], [ %.pre.i.i.i.i82, %110 ]
-  %115 = load ptr, ptr %105, align 8, !tbaa !17
-  %116 = zext i32 %114 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
-  store i32 %104, ptr %117, align 1
-  %118 = load i32, ptr %106, align 8, !tbaa !19
-  %119 = add i32 %118, 1
-  store i32 %119, ptr %106, align 8, !tbaa !19
+_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83: ; preds = %108, %_ZNK5clang8QualType5splitEv.exit.i78
+  %112 = phi i32 [ %105, %_ZNK5clang8QualType5splitEv.exit.i78 ], [ %.pre.i.i.i.i82, %108 ]
+  %113 = load ptr, ptr %103, align 8, !tbaa !17
+  %114 = zext i32 %112 to i64
+  %115 = getelementptr inbounds nuw i32, ptr %113, i64 %114
+  store i32 %102, ptr %115, align 1
+  %116 = load i32, ptr %104, align 8, !tbaa !19
+  %117 = add i32 %116, 1
+  store i32 %117, ptr %104, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %105, ptr %3, align 8, !tbaa !31
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %120, align 8, !tbaa !33
+  store ptr %103, ptr %3, align 8, !tbaa !31
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %0, ptr %118, align 8, !tbaa !33
   call fastcc void @_ZN5clang11TypeVisitorIN12_GLOBAL__N_117TypeVisitorHelperEvE5VisitEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %.sroa.09.0.i.i79)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
-121:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  %122 = and i64 %.tr2742, 7
-  %.not.i.i13 = icmp eq i64 %122, 7
+119:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
+  %120 = and i64 %.tr2742, 7
+  %.not.i.i13 = icmp eq i64 %120, 7
   br i1 %.not.i.i13, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.i15, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
-_ZNK5clang15DeclarationName11getNameKindEv.exit.i15: ; preds = %121
-  %123 = and i64 %.tr2742, -8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = load i32, ptr %124, align 8, !tbaa !85
-  %126 = icmp eq i32 %125, 0
-  br i1 %126, label %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
+_ZNK5clang15DeclarationName11getNameKindEv.exit.i15: ; preds = %119
+  %121 = and i64 %.tr2742, -8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = load i32, ptr %122, align 8, !tbaa !85
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
 _ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i15
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !98
-  %.not = icmp eq ptr %128, null
-  br i1 %.not, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit, label %129
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %126 = load ptr, ptr %125, align 8, !tbaa !98
+  %.not = icmp eq ptr %126, null
+  br i1 %.not, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit, label %127
 
-129:                                              ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 28
-  %131 = load i32, ptr %130, align 4
-  %132 = and i32 %131, 127
-  %133 = add nsw i32 %132, -79
-  %134 = icmp ult i32 %133, -63
-  br i1 %134, label %135, label %tailrecurse
+127:                                              ; preds = %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 28
+  %129 = load i32, ptr %128, align 4
+  %130 = and i32 %129, 127
+  %131 = add nsw i32 %130, -79
+  %132 = icmp ult i32 %131, -63
+  br i1 %132, label %133, label %tailrecurse
 
-135:                                              ; preds = %129
+133:                                              ; preds = %127
   store i8 1, ptr %0, align 8, !tbaa !3
   br label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit
 
-tailrecurse:                                      ; preds = %129
-  %136 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  %.sroa.0.0.copyload.i.i = load i64, ptr %136, align 8, !tbaa !23
+tailrecurse:                                      ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %.sroa.0.0.copyload.i.i = load i64, ptr %134, align 8, !tbaa !23
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   br i1 %.not.i, label %_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit, label %.lr.ph
 
-_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit, %tailrecurse, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i15, %121, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit.thread, %2, %135, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %20, %12
+_ZN12_GLOBAL__N_122TemplateArgumentHasher7AddDeclEPKN5clang4DeclE.exit: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit, %tailrecurse, %_ZNK5clang15DeclarationName28getCXXDeductionGuideTemplateEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i15, %119, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit12.thread, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit.thread, %2, %133, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit, %20, %12
   ret void
 }
 

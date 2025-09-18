@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecSetupPartitionTupleRouting(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @palloc0(i64 noundef 64) #9
+  %3 = tail call ptr @palloc0(i64 noundef 64) #8
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -61,7 +61,7 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @XactIsoLevel, align 4
   %14 = icmp slt i32 %13, 2
-  %15 = tail call ptr @CreatePartitionDirectory(ptr noundef %12, i1 noundef zeroext %14) #9
+  %15 = tail call ptr @CreatePartitionDirectory(ptr noundef %12, i1 noundef zeroext %14) #8
   store ptr %15, ptr %7, align 8
   br label %16
 
@@ -78,21 +78,21 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
   br i1 %.not, label %26, label %24
 
 24:                                               ; preds = %16
-  %25 = tail call ptr @table_open(i32 noundef %2, i32 noundef 3) #9
+  %25 = tail call ptr @table_open(i32 noundef %2, i32 noundef 3) #8
   %.pre = load ptr, ptr %7, align 8
   br label %26
 
 26:                                               ; preds = %16, %24
   %27 = phi ptr [ %.pre, %24 ], [ %17, %16 ]
   %.0 = phi ptr [ %25, %24 ], [ %21, %16 ]
-  %28 = tail call ptr @PartitionDirectoryLookup(ptr noundef %27, ptr noundef %.0) #9
+  %28 = tail call ptr @PartitionDirectoryLookup(ptr noundef %27, ptr noundef %.0) #8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 2
   %32 = add nsw i64 %31, 48
-  %33 = tail call ptr @palloc(i64 noundef %32) #9
+  %33 = tail call ptr @palloc(i64 noundef %32) #8
   store ptr %.0, ptr %33, align 8
-  %34 = tail call ptr @RelationGetPartitionKey(ptr noundef %.0) #9
+  %34 = tail call ptr @RelationGetPartitionKey(ptr noundef %.0) #8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -108,14 +108,14 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %43, ptr noundef %40, i1 noundef zeroext false) #9
+  %44 = tail call ptr @build_attrmap_by_name_if_req(ptr noundef %43, ptr noundef %40, i1 noundef zeroext false) #8
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store ptr %44, ptr %45, align 8
   %.not67 = icmp eq ptr %44, null
   br i1 %.not67, label %48, label %46
 
 46:                                               ; preds = %38
-  %47 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %40, ptr noundef nonnull @TTSOpsVirtual) #9
+  %47 = tail call ptr @MakeSingleTupleTableSlot(ptr noundef %40, ptr noundef nonnull @TTSOpsVirtual) #8
   br label %48
 
 48:                                               ; preds = %38, %46
@@ -152,12 +152,12 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
 
 67:                                               ; preds = %63
   store i32 4, ptr %61, align 4
-  %68 = tail call ptr @palloc(i64 noundef 32) #9
+  %68 = tail call ptr @palloc(i64 noundef 32) #8
   store ptr %68, ptr %65, align 8
   %69 = load i32, ptr %61, align 4
   %70 = sext i32 %69 to i64
   %71 = shl nsw i64 %70, 3
-  %72 = tail call ptr @palloc(i64 noundef %71) #9
+  %72 = tail call ptr @palloc(i64 noundef %71) #8
   br label %.sink.split
 
 73:                                               ; preds = %63
@@ -166,13 +166,13 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
   %75 = load ptr, ptr %65, align 8
   %76 = sext i32 %74 to i64
   %77 = shl nsw i64 %76, 3
-  %78 = tail call ptr @repalloc(ptr noundef %75, i64 noundef %77) #9
+  %78 = tail call ptr @repalloc(ptr noundef %75, i64 noundef %77) #8
   store ptr %78, ptr %65, align 8
   %79 = load ptr, ptr %66, align 8
   %80 = load i32, ptr %61, align 4
   %81 = sext i32 %80 to i64
   %82 = shl nsw i64 %81, 3
-  %83 = tail call ptr @repalloc(ptr noundef %79, i64 noundef %82) #9
+  %83 = tail call ptr @repalloc(ptr noundef %79, i64 noundef %82) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %73, %67
@@ -196,9 +196,9 @@ define internal fastcc noundef ptr @ExecInitPartitionDispatchInfo(ptr noundef ca
   br label %100
 
 92:                                               ; preds = %84
-  %93 = tail call noundef ptr @palloc0(i64 noundef 392) #9
+  %93 = tail call noundef ptr @palloc0(i64 noundef 392) #8
   store i32 387, ptr %93, align 4
-  tail call void @InitResultRelInfo(ptr noundef nonnull %93, ptr noundef %.0, i32 noundef 0, ptr noundef %5, i32 noundef 0) #9
+  tail call void @InitResultRelInfo(ptr noundef nonnull %93, ptr noundef %.0, i32 noundef 0, ptr noundef %5, i32 noundef 0) #8
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds ptr, ptr %95, i64 %87
@@ -239,7 +239,7 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noun
   br label %26
 
 20:                                               ; preds = %5
-  %21 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %4) #9
+  %21 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %4) #8
   %.pr = load ptr, ptr %16, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -247,7 +247,7 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not118, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %4) #9
+  %25 = tail call ptr @MakePerTupleExprContext(ptr noundef nonnull %4) #8
   br label %26
 
 26:                                               ; preds = %.thread, %20, %24
@@ -268,7 +268,7 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %26
-  %41 = tail call zeroext i1 @ExecPartitionCheck(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %4, i1 noundef zeroext true) #9
+  %41 = tail call zeroext i1 @ExecPartitionCheck(ptr noundef nonnull %1, ptr noundef %3, ptr noundef nonnull %4, i1 noundef zeroext true) #8
   br label %42
 
 42:                                               ; preds = %40, %26
@@ -291,7 +291,7 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not121, label %50, label %49, !prof !6
 
 49:                                               ; preds = %47
-  call void @ProcessInterrupts() #9
+  call void @ProcessInterrupts() #8
   br label %50
 
 50:                                               ; preds = %49, %47
@@ -313,7 +313,7 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %59, label %60, label %.thread.i
 
 60:                                               ; preds = %58
-  %61 = call ptr @ExecPrepareExprList(ptr noundef nonnull %57, ptr noundef %4) #9
+  %61 = call ptr @ExecPrepareExprList(ptr noundef nonnull %57, ptr noundef %4) #8
   store ptr %61, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge39.i
 
@@ -361,7 +361,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %._crit_
   br i1 %83, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %80
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0163, i32 noundef range(i32 -32767, 32768) %81) #9
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0163, i32 noundef range(i32 -32767, 32768) %81) #8
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %80
@@ -379,10 +379,9 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %91
-  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %94)
-  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1330, ptr noundef nonnull @__func__.FormPartitionKeyDatum) #9
+  %94 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %95 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1330, ptr noundef nonnull @__func__.FormPartitionKeyDatum) #8
   unreachable
 
 96:                                               ; preds = %91
@@ -392,7 +391,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   br i1 %.not33.i, label %99, label %101
 
 99:                                               ; preds = %96
-  %100 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %4) #9
+  %100 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %4) #8
   br label %101
 
 101:                                              ; preds = %99, %96
@@ -403,7 +402,7 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   store ptr %104, ptr @CurrentMemoryContext, align 8
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %107 = load ptr, ptr %106, align 8
-  %108 = call i64 %107(ptr noundef %97, ptr noundef %102, ptr noundef nonnull %11) #9
+  %108 = call i64 %107(ptr noundef %97, ptr noundef %102, ptr noundef nonnull %11) #8
   store ptr %105, ptr @CurrentMemoryContext, align 8
   %109 = load ptr, ptr %.phi.trans.insert.i, align 8
   %110 = getelementptr i8, ptr %109, i64 4
@@ -443,10 +442,9 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   br i1 %.not31.i, label %FormPartitionKeyDatum.exit, label %126
 
 126:                                              ; preds = %._crit_edge.i
-  %127 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %127)
-  %128 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1341, ptr noundef nonnull @__func__.FormPartitionKeyDatum) #9
+  %127 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %128 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1341, ptr noundef nonnull @__func__.FormPartitionKeyDatum) #8
   unreachable
 
 FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
@@ -471,7 +469,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %.0100.val, i64 48
   %140 = load ptr, ptr %139, align 8
-  %141 = call i64 @compute_partition_hash_value(i32 noundef %136, ptr noundef %138, ptr noundef %140, ptr noundef nonnull %12, ptr noundef nonnull %13) #9
+  %141 = call i64 @compute_partition_hash_value(i32 noundef %136, ptr noundef %138, ptr noundef %140, ptr noundef nonnull %12, ptr noundef nonnull %13) #8
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %133, i64 32
@@ -515,7 +513,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %171 = getelementptr inbounds nuw i8, ptr %.0100.val, i64 48
   %172 = load ptr, ptr %171, align 8
   %173 = load i32, ptr %172, align 4
-  %174 = call i64 @FunctionCall2Coll(ptr noundef %170, i32 noundef %173, i64 noundef %168, i64 noundef %.pre172) #9
+  %174 = call i64 @FunctionCall2Coll(ptr noundef %170, i32 noundef %173, i64 noundef %168, i64 noundef %.pre172) #8
   %175 = and i64 %174, 4294967295
   %.not.i132 = icmp eq i64 %175, 0
   br i1 %.not.i132, label %192, label %._crit_edge171
@@ -530,7 +528,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr inbounds nuw i8, ptr %.0100.val, i64 48
   %181 = load ptr, ptr %180, align 8
-  %182 = call i32 @partition_list_bsearch(ptr noundef %179, ptr noundef %181, ptr noundef %133, i64 noundef %177, ptr noundef nonnull %9) #9
+  %182 = call i32 @partition_list_bsearch(ptr noundef %179, ptr noundef %181, ptr noundef %133, i64 noundef %177, ptr noundef nonnull %9) #8
   %183 = icmp sgt i32 %182, -1
   %184 = load i8, ptr %9, align 1, !range !4
   %185 = trunc nuw i8 %184 to i1
@@ -604,7 +602,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %.0100.val, i64 48
   %223 = load ptr, ptr %222, align 8
-  %224 = call i32 @partition_rbound_datum_cmp(ptr noundef %221, ptr noundef %223, ptr noundef %215, ptr noundef %219, ptr noundef nonnull %12, i32 noundef %199) #9
+  %224 = call i32 @partition_rbound_datum_cmp(ptr noundef %221, ptr noundef %223, ptr noundef %215, ptr noundef %219, ptr noundef nonnull %12, i32 noundef %199) #8
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %226, label %232
 
@@ -639,7 +637,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %248 = load ptr, ptr %222, align 8
   %249 = load i16, ptr %198, align 4
   %250 = sext i16 %249 to i32
-  %251 = call i32 @partition_rbound_datum_cmp(ptr noundef %247, ptr noundef %248, ptr noundef %243, ptr noundef %246, ptr noundef nonnull %12, i32 noundef %250) #9
+  %251 = call i32 @partition_rbound_datum_cmp(ptr noundef %247, ptr noundef %248, ptr noundef %243, ptr noundef %246, ptr noundef nonnull %12, i32 noundef %250) #8
   %252 = icmp sgt i32 %251, 0
   br i1 %252, label %253, label %.thread8.i
 
@@ -656,7 +654,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %260 = load ptr, ptr %259, align 8
   %261 = load i16, ptr %198, align 4
   %262 = sext i16 %261 to i32
-  %263 = call i32 @partition_range_datum_bsearch(ptr noundef %258, ptr noundef %260, ptr noundef %133, i32 noundef %262, ptr noundef nonnull %12, ptr noundef nonnull %10) #9
+  %263 = call i32 @partition_range_datum_bsearch(ptr noundef %258, ptr noundef %260, ptr noundef %133, i32 noundef %262, ptr noundef nonnull %12, ptr noundef nonnull %10) #8
   %264 = getelementptr inbounds nuw i8, ptr %133, i64 40
   %265 = load ptr, ptr %264, align 8
   %266 = add i32 %263, 1
@@ -678,11 +676,10 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   br label %274
 
 270:                                              ; preds = %131
-  %271 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %271)
+  %271 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %272 = load i32, ptr %.0100.val, align 8
-  %273 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %272) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1564, ptr noundef nonnull @__func__.get_partition_for_tuple) #9
+  %273 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %272) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1564, ptr noundef nonnull @__func__.get_partition_for_tuple) #8
   unreachable
 
 274:                                              ; preds = %.loopexit.i, %.thread2.i
@@ -723,19 +720,19 @@ get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.
 
 289:                                              ; preds = %get_partition_for_tuple.exit, %FormPartitionKeyDatum.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %290 = call ptr @RelationGetPartitionKey(ptr noundef %51) #9
+  %290 = call ptr @RelationGetPartitionKey(ptr noundef %51) #8
   %291 = getelementptr i8, ptr %290, i64 4
   %.val.i133 = load i16, ptr %291, align 4
   %292 = sext i16 %.val.i133 to i32
   %293 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %294 = load i32, ptr %293, align 8
-  %295 = call i32 @check_enable_rls(i32 noundef %294, i32 noundef 0, i1 noundef zeroext true) #9
+  %295 = call i32 @check_enable_rls(i32 noundef %294, i32 noundef 0, i1 noundef zeroext true) #8
   %296 = icmp eq i32 %295, 2
   br i1 %296, label %ExecBuildSlotPartitionKeyDescription.exit, label %297
 
 297:                                              ; preds = %289
-  %298 = call i32 @GetUserId() #9
-  %299 = call i32 @pg_class_aclcheck(i32 noundef %294, i32 noundef %298, i64 noundef 2) #9
+  %298 = call i32 @GetUserId() #8
+  %299 = call i32 @pg_class_aclcheck(i32 noundef %294, i32 noundef %298, i64 noundef 2) #8
   %.not.i134 = icmp ne i32 %299, 0
   %300 = icmp sgt i16 %.val.i133, 0
   %or.cond.i135 = select i1 %.not.i134, i1 %300, i1 false
@@ -760,15 +757,15 @@ get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.
   br i1 %306, label %ExecBuildSlotPartitionKeyDescription.exit, label %.critedge.i142
 
 .critedge.i142:                                   ; preds = %303
-  %307 = call i32 @GetUserId() #9
-  %308 = call i32 @pg_attribute_aclcheck(i32 noundef %294, i16 noundef signext %305, i32 noundef %307, i64 noundef 2) #9
+  %307 = call i32 @GetUserId() #8
+  %308 = call i32 @pg_attribute_aclcheck(i32 noundef %294, i16 noundef signext %305, i32 noundef %307, i64 noundef 2) #8
   %.not44.i = icmp eq i32 %308, 0
   br i1 %.not44.i, label %302, label %ExecBuildSlotPartitionKeyDescription.exit
 
 .loopexit.i136:                                   ; preds = %302, %297
-  call void @initStringInfo(ptr noundef nonnull %6) #9
-  %309 = call ptr @pg_get_partkeydef_columns(i32 noundef %294, i1 noundef zeroext true) #9
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef %309) #9
+  call void @initStringInfo(ptr noundef nonnull %6) #8
+  %309 = call ptr @pg_get_partkeydef_columns(i32 noundef %294, i1 noundef zeroext true) #8
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.9, ptr noundef %309) #8
   br i1 %300, label %.lr.ph50.i, label %._crit_edge.i137
 
 .lr.ph50.i:                                       ; preds = %.loopexit.i136
@@ -789,11 +786,11 @@ get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.
   %.val46.i = load ptr, ptr %310, align 8
   %316 = getelementptr inbounds nuw i32, ptr %.val46.i, i64 %indvars.iv52.i
   %317 = load i32, ptr %316, align 4
-  call void @getTypeOutputInfo(i32 noundef %317, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  call void @getTypeOutputInfo(i32 noundef %317, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %318 = load i32, ptr %7, align 4
   %319 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv52.i
   %320 = load i64, ptr %319, align 8
-  %321 = call ptr @OidOutputFunctionCall(i32 noundef %318, i64 noundef %320) #9
+  %321 = call ptr @OidOutputFunctionCall(i32 noundef %318, i64 noundef %320) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %322
@@ -804,23 +801,23 @@ get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.
   br i1 %.not43.i, label %324, label %323
 
 323:                                              ; preds = %322
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #9
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #8
   br label %324
 
 324:                                              ; preds = %323, %322
-  %325 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i138) #11
+  %325 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i138) #10
   %326 = trunc i64 %325 to i32
   %327 = icmp slt i32 %326, 65
   br i1 %327, label %328, label %329
 
 328:                                              ; preds = %324
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.0.i138, i32 noundef %326) #9
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.0.i138, i32 noundef %326) #8
   br label %331
 
 329:                                              ; preds = %324
-  %330 = call i32 @pg_mbcliplen(ptr noundef nonnull %.0.i138, i32 noundef %326, i32 noundef 64) #9
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.0.i138, i32 noundef %330) #9
-  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.12) #9
+  %330 = call i32 @pg_mbcliplen(ptr noundef nonnull %.0.i138, i32 noundef %326, i32 noundef 64) #8
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.0.i138, i32 noundef %330) #8
+  call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.12) #8
   br label %331
 
 331:                                              ; preds = %329, %328
@@ -829,30 +826,29 @@ get_partition_for_tuple.exit:                     ; preds = %135, %153, %192, %.
   br i1 %exitcond56.not.i, label %._crit_edge.i137, label %311, !llvm.loop !11
 
 ._crit_edge.i137:                                 ; preds = %331, %.loopexit.i136
-  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 41) #9
+  call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 41) #8
   %332 = load ptr, ptr %6, align 8
   br label %ExecBuildSlotPartitionKeyDescription.exit
 
 ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %303, %.critedge.i142, %289, %._crit_edge.i137
   %.036.i = phi ptr [ %332, %._crit_edge.i137 ], [ null, %289 ], [ null, %.critedge.i142 ], [ null, %303 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %333 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %333)
-  %334 = call i32 @errcode(i32 noundef 67391682) #9
+  %333 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %334 = call i32 @errcode(i32 noundef 67391682) #8
   %335 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 4
-  %338 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %337) #9
+  %338 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %337) #8
   %.not126 = icmp eq ptr %.036.i, null
   br i1 %.not126, label %341, label %339
 
 339:                                              ; preds = %ExecBuildSlotPartitionKeyDescription.exit
-  %340 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, ptr noundef nonnull %.036.i) #9
+  %340 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, ptr noundef nonnull %.036.i) #8
   br label %341
 
 341:                                              ; preds = %ExecBuildSlotPartitionKeyDescription.exit, %339
-  %342 = call i32 @errtable(ptr noundef nonnull %51) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @__func__.ExecFindPartition) #9
+  %342 = call i32 @errtable(ptr noundef nonnull %51) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 335, ptr noundef nonnull @__func__.ExecFindPartition) #8
   unreachable
 
 get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_partition_for_tuple.exit
@@ -884,12 +880,12 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   %361 = load ptr, ptr %360, align 8
   %362 = getelementptr inbounds nuw i32, ptr %361, i64 %345
   %363 = load i32, ptr %362, align 4
-  %364 = call ptr @ExecLookupResultRelByOid(ptr noundef %0, i32 noundef %363, i1 noundef zeroext true, i1 noundef zeroext false) #9
+  %364 = call ptr @ExecLookupResultRelByOid(ptr noundef %0, i32 noundef %363, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %.not124 = icmp eq ptr %364, null
   br i1 %.not124, label %366, label %365
 
 365:                                              ; preds = %359
-  call void @CheckValidResultRel(ptr noundef nonnull %364, i32 noundef 3, ptr noundef null) #9
+  call void @CheckValidResultRel(ptr noundef nonnull %364, i32 noundef 3, ptr noundef null) #8
   call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef %.0100162, ptr noundef nonnull %364, i32 noundef %.0.i128147, i1 noundef zeroext true)
   br label %398
 
@@ -933,7 +929,7 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
 389:                                              ; preds = %386
   %390 = getelementptr inbounds nuw i8, ptr %.2102, i64 40
   %391 = load ptr, ptr %390, align 8
-  %392 = call ptr @execute_attr_map_slot(ptr noundef %391, ptr noundef %.0163, ptr noundef nonnull %388) #9
+  %392 = call ptr @execute_attr_map_slot(ptr noundef %391, ptr noundef %.0163, ptr noundef nonnull %388) #8
   %.not123 = icmp eq ptr %.0103161, null
   br i1 %.not123, label %398, label %393
 
@@ -942,7 +938,7 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   %395 = load ptr, ptr %394, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %397 = load ptr, ptr %396, align 8
-  call void %397(ptr noundef nonnull %.0103161) #9
+  call void %397(ptr noundef nonnull %.0103161) #8
   br label %398
 
 398:                                              ; preds = %389, %393, %354, %366, %365, %386
@@ -961,7 +957,7 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   br i1 %348, label %405, label %413
 
 405:                                              ; preds = %404
-  %406 = call ptr @ExecGetRootToChildMap(ptr noundef %.2107, ptr noundef %4) #9
+  %406 = call ptr @ExecGetRootToChildMap(ptr noundef %.2107, ptr noundef %4) #8
   %.not125 = icmp eq ptr %406, null
   br i1 %.not125, label %413, label %407
 
@@ -970,12 +966,12 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   %409 = load ptr, ptr %408, align 8
   %410 = getelementptr inbounds nuw i8, ptr %.2107, i64 368
   %411 = load ptr, ptr %410, align 8
-  %412 = call ptr @execute_attr_map_slot(ptr noundef %409, ptr noundef %3, ptr noundef %411) #9
+  %412 = call ptr @execute_attr_map_slot(ptr noundef %409, ptr noundef %3, ptr noundef %411) #8
   br label %413
 
 413:                                              ; preds = %407, %405, %404
   %.3 = phi ptr [ %.1, %404 ], [ %412, %407 ], [ %3, %405 ]
-  %414 = call zeroext i1 @ExecPartitionCheck(ptr noundef %.2107, ptr noundef %.3, ptr noundef %4, i1 noundef zeroext true) #9
+  %414 = call zeroext i1 @ExecPartitionCheck(ptr noundef %.2107, ptr noundef %.3, ptr noundef %4, i1 noundef zeroext true) #8
   br label %415
 
 415:                                              ; preds = %413, %398
@@ -992,7 +988,7 @@ get_partition_for_tuple.exit.thread:              ; preds = %283, %286, %get_par
   %418 = load ptr, ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
   %420 = load ptr, ptr %419, align 8
-  call void %420(ptr noundef nonnull %.1104) #9
+  call void %420(ptr noundef nonnull %.1104) #8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %42, %416, %._crit_edge
@@ -1033,7 +1029,7 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
-  %11 = tail call ptr @ExecGetRootToChildMap(ptr noundef %4, ptr noundef %1) #9
+  %11 = tail call ptr @ExecGetRootToChildMap(ptr noundef %4, ptr noundef %1) #8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %17, label %12
 
@@ -1041,7 +1037,7 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %16 = tail call ptr @table_slot_create(ptr noundef %14, ptr noundef nonnull %15) #9
+  %16 = tail call ptr @table_slot_create(ptr noundef %14, ptr noundef nonnull %15) #8
   br label %17
 
 17:                                               ; preds = %7, %12
@@ -1060,7 +1056,7 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
   br i1 %.not51, label %.thread61, label %24
 
 24:                                               ; preds = %21
-  tail call void %23(ptr noundef %0, ptr noundef nonnull %4) #9
+  tail call void %23(ptr noundef %0, ptr noundef nonnull %4) #8
   %.pr.pre = load ptr, ptr %19, align 8
   %.not52 = icmp eq ptr %.pr.pre, null
   br i1 %.not52, label %.thread, label %.thread61
@@ -1079,7 +1075,7 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
   br i1 %.not54, label %.thread, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call i32 %26(ptr noundef nonnull %4) #9
+  %31 = tail call i32 %26(ptr noundef nonnull %4) #8
   br label %.thread
 
 .thread:                                          ; preds = %24, %.thread61, %27, %17, %30
@@ -1104,11 +1100,11 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
 
 42:                                               ; preds = %39
   store i32 8, ptr %37, align 4
-  %43 = tail call ptr @palloc(i64 noundef 64) #9
+  %43 = tail call ptr @palloc(i64 noundef 64) #8
   store ptr %43, ptr %41, align 8
   %44 = load i32, ptr %37, align 4
   %45 = sext i32 %44 to i64
-  %46 = tail call ptr @palloc(i64 noundef %45) #9
+  %46 = tail call ptr @palloc(i64 noundef %45) #8
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %46, ptr %47, align 8
   br label %59
@@ -1119,13 +1115,13 @@ define internal fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %1,
   %50 = load ptr, ptr %41, align 8
   %51 = sext i32 %49 to i64
   %52 = shl nsw i64 %51, 3
-  %53 = tail call ptr @repalloc(ptr noundef %50, i64 noundef %52) #9
+  %53 = tail call ptr @repalloc(ptr noundef %50, i64 noundef %52) #8
   store ptr %53, ptr %41, align 8
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %37, align 4
   %57 = sext i32 %56 to i64
-  %58 = tail call ptr @repalloc(ptr noundef %55, i64 noundef %57) #9
+  %58 = tail call ptr @repalloc(ptr noundef %55, i64 noundef %57) #8
   store ptr %58, ptr %54, align 8
   br label %59
 
@@ -1171,13 +1167,13 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %24, ptr @CurrentMemoryContext, align 8
-  %26 = tail call ptr @table_open(i32 noundef %16, i32 noundef 3) #9
-  %27 = tail call noundef ptr @palloc0(i64 noundef 392) #9
+  %26 = tail call ptr @table_open(i32 noundef %16, i32 noundef 3) #8
+  %27 = tail call noundef ptr @palloc0(i64 noundef 392) #8
   store i32 387, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 228
   %29 = load i32, ptr %28, align 4
-  tail call void @InitResultRelInfo(ptr noundef %27, ptr noundef %26, i32 noundef 0, ptr noundef %4, i32 noundef %29) #9
-  tail call void @CheckValidResultRel(ptr noundef %27, i32 noundef 3, ptr noundef null) #9
+  tail call void @InitResultRelInfo(ptr noundef %27, ptr noundef %26, i32 noundef 0, ptr noundef %4, i32 noundef %29) #8
+  tail call void @CheckValidResultRel(ptr noundef %27, i32 noundef 3, ptr noundef null) #8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 112
@@ -1203,7 +1199,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
 
 44:                                               ; preds = %40, %39
   %45 = phi i1 [ false, %39 ], [ %43, %40 ]
-  tail call void @ExecOpenIndices(ptr noundef nonnull %27, i1 noundef zeroext %45) #9
+  tail call void @ExecOpenIndices(ptr noundef nonnull %27, i1 noundef zeroext %45) #8
   br label %46
 
 46:                                               ; preds = %44, %35, %6
@@ -1224,11 +1220,11 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call ptr @build_attrmap_by_name(ptr noundef %54, ptr noundef %56, i1 noundef zeroext false) #9
+  %57 = tail call ptr @build_attrmap_by_name(ptr noundef %54, ptr noundef %56, i1 noundef zeroext false) #8
   %58 = load ptr, ptr %30, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
   %60 = load i32, ptr %59, align 4
-  %61 = call ptr @map_variable_attnos(ptr noundef %52, i32 noundef %20, i32 noundef 0, ptr noundef %57, i32 noundef %60, ptr noundef nonnull %7) #9
+  %61 = call ptr @map_variable_attnos(ptr noundef %52, i32 noundef %20, i32 noundef 0, ptr noundef %57, i32 noundef %60, ptr noundef nonnull %7) #8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %.not235 = icmp eq ptr %61, null
   br i1 %.not235, label %._crit_edge, label %.lr.ph
@@ -1247,8 +1243,8 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
-  %71 = call ptr @ExecInitQual(ptr noundef %70, ptr noundef nonnull %0) #9
-  %72 = call ptr @lappend(ptr noundef %.0212286290, ptr noundef %71) #9
+  %71 = call ptr @ExecInitQual(ptr noundef %70, ptr noundef nonnull %0) #8
+  %72 = call ptr @lappend(ptr noundef %.0212286290, ptr noundef %71) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = load i32, ptr %62, align 4
   %74 = sext i32 %73 to i64
@@ -1291,7 +1287,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %93 = load ptr, ptr %92, align 8
-  %94 = call ptr @build_attrmap_by_name(ptr noundef %91, ptr noundef %93, i1 noundef zeroext false) #9
+  %94 = call ptr @build_attrmap_by_name(ptr noundef %91, ptr noundef %93, i1 noundef zeroext false) #8
   br label %95
 
 95:                                               ; preds = %88, %84
@@ -1300,7 +1296,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %97 = load ptr, ptr %30, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 72
   %99 = load i32, ptr %98, align 4
-  %100 = call ptr @map_variable_attnos(ptr noundef %96, i32 noundef %20, i32 noundef 0, ptr noundef %.2, i32 noundef %99, ptr noundef nonnull %7) #9
+  %100 = call ptr @map_variable_attnos(ptr noundef %96, i32 noundef %20, i32 noundef 0, ptr noundef %.2, i32 noundef %99, ptr noundef nonnull %7) #8
   %101 = getelementptr inbounds nuw i8, ptr %27, i64 256
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1309,7 +1305,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %107 = load ptr, ptr %106, align 8
-  %108 = call ptr @ExecBuildProjectionInfo(ptr noundef %100, ptr noundef %105, ptr noundef %103, ptr noundef nonnull %0, ptr noundef %107) #9
+  %108 = call ptr @ExecBuildProjectionInfo(ptr noundef %100, ptr noundef %105, ptr noundef %103, ptr noundef nonnull %0, ptr noundef %107) #8
   %109 = getelementptr inbounds nuw i8, ptr %27, i64 264
   store ptr %108, ptr %109, align 8
   br label %110
@@ -1335,7 +1331,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
 120:                                              ; preds = %113
   %121 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = call ptr @RelationGetIndexList(ptr noundef %122) #9
+  %123 = call ptr @RelationGetIndexList(ptr noundef %122) #8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %.not240 = icmp eq ptr %123, null
   br i1 %.not240, label %.critedge250, label %.lr.ph310
@@ -1352,7 +1348,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %128 = load ptr, ptr %125, align 8
   %129 = getelementptr inbounds nuw %union.ListCell, ptr %128, i64 %indvars.iv328367
   %130 = load i32, ptr %129, align 8
-  %131 = call ptr @get_partition_ancestors(i32 noundef %130) #9
+  %131 = call ptr @get_partition_ancestors(i32 noundef %130) #8
   %132 = load ptr, ptr %118, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %.not247 = icmp eq ptr %132, null
@@ -1370,12 +1366,12 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   %137 = load ptr, ptr %134, align 8
   %138 = getelementptr inbounds nuw %union.ListCell, ptr %137, i64 %indvars.iv325
   %139 = load i32, ptr %138, align 8
-  %140 = call zeroext i1 @list_member_oid(ptr noundef %131, i32 noundef %139) #9
+  %140 = call zeroext i1 @list_member_oid(ptr noundef %131, i32 noundef %139) #8
   br i1 %140, label %144, label %146
 
 .critedge252:                                     ; preds = %146, %.lr.ph297, %.lr.ph369
   %.2218.lcssa = phi ptr [ %.1217308368, %.lr.ph369 ], [ %.1217308368, %.lr.ph297 ], [ %.3219, %146 ]
-  call void @list_free(ptr noundef %131) #9
+  call void @list_free(ptr noundef %131) #8
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328367, 1
   %141 = load i32, ptr %124, align 4
   %142 = sext i32 %141 to i64
@@ -1383,7 +1379,7 @@ define internal fastcc noundef ptr @ExecInitPartitionInfo(ptr noundef %0, ptr no
   br i1 %143, label %.lr.ph369, label %.critedge250
 
 144:                                              ; preds = %.lr.ph305
-  %145 = call ptr @lappend_oid(ptr noundef %.2218295303, i32 noundef %130) #9
+  %145 = call ptr @lappend_oid(ptr noundef %.2218295303, i32 noundef %130) #8
   br label %146
 
 146:                                              ; preds = %.lr.ph305, %144
@@ -1421,10 +1417,9 @@ list_length.exit263:                              ; preds = %list_length.exit, %
   br i1 %.not242, label %list_length.exit263.thread, label %158
 
 158:                                              ; preds = %list_length.exit263
-  %159 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %159)
-  %160 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 725, ptr noundef nonnull @__func__.ExecInitPartitionInfo) #9
+  %159 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %160 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 725, ptr noundef nonnull @__func__.ExecInitPartitionInfo) #8
   unreachable
 
 list_length.exit263.thread:                       ; preds = %113, %list_length.exit263
@@ -1436,9 +1431,9 @@ list_length.exit263.thread:                       ; preds = %113, %list_length.e
   br i1 %163, label %164, label %261
 
 164:                                              ; preds = %list_length.exit263.thread
-  %165 = call noundef ptr @palloc0(i64 noundef 40) #9
+  %165 = call noundef ptr @palloc0(i64 noundef 40) #8
   store i32 385, ptr %165, align 4
-  %166 = call ptr @ExecGetRootToChildMap(ptr noundef nonnull %27, ptr noundef nonnull %1) #9
+  %166 = call ptr @ExecGetRootToChildMap(ptr noundef nonnull %27, ptr noundef nonnull %1) #8
   %167 = getelementptr inbounds nuw i8, ptr %27, i64 280
   store ptr %165, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1446,7 +1441,7 @@ list_length.exit263.thread:                       ; preds = %113, %list_length.e
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 200
-  %173 = call ptr @table_slot_create(ptr noundef %169, ptr noundef nonnull %172) #9
+  %173 = call ptr @table_slot_create(ptr noundef %169, ptr noundef nonnull %172) #8
   %174 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store ptr %173, ptr %174, align 8
   %175 = icmp eq ptr %166, null
@@ -1472,7 +1467,7 @@ list_length.exit263.thread:                       ; preds = %113, %list_length.e
 189:                                              ; preds = %164
   %190 = getelementptr inbounds nuw i8, ptr %9, i64 216
   %191 = load ptr, ptr %190, align 8
-  %192 = call ptr @copyObjectImpl(ptr noundef %191) #9
+  %192 = call ptr @copyObjectImpl(ptr noundef %191) #8
   %193 = icmp eq ptr %.1, null
   br i1 %193, label %194, label %199
 
@@ -1480,7 +1475,7 @@ list_length.exit263.thread:                       ; preds = %113, %list_length.e
   %195 = load ptr, ptr %114, align 8
   %196 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %197 = load ptr, ptr %196, align 8
-  %198 = call ptr @build_attrmap_by_name(ptr noundef %195, ptr noundef %197, i1 noundef zeroext false) #9
+  %198 = call ptr @build_attrmap_by_name(ptr noundef %195, ptr noundef %197, i1 noundef zeroext false) #8
   br label %199
 
 199:                                              ; preds = %194, %189
@@ -1488,14 +1483,14 @@ list_length.exit263.thread:                       ; preds = %113, %list_length.e
   %200 = load ptr, ptr %30, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 72
   %202 = load i32, ptr %201, align 4
-  %203 = call ptr @map_variable_attnos(ptr noundef %192, i32 noundef -1, i32 noundef 0, ptr noundef %.6, i32 noundef %202, ptr noundef nonnull %7) #9
+  %203 = call ptr @map_variable_attnos(ptr noundef %192, i32 noundef -1, i32 noundef 0, ptr noundef %.6, i32 noundef %202, ptr noundef nonnull %7) #8
   %204 = load ptr, ptr %30, align 8
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 72
   %206 = load i32, ptr %205, align 4
-  %207 = call ptr @map_variable_attnos(ptr noundef %203, i32 noundef %20, i32 noundef 0, ptr noundef %.6, i32 noundef %206, ptr noundef nonnull %7) #9
+  %207 = call ptr @map_variable_attnos(ptr noundef %203, i32 noundef %20, i32 noundef 0, ptr noundef %.6, i32 noundef %206, ptr noundef nonnull %7) #8
   %208 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %209 = load ptr, ptr %208, align 8
-  %210 = call ptr @ExecGetChildToRootMap(ptr noundef nonnull %27) #9
+  %210 = call ptr @ExecGetChildToRootMap(ptr noundef nonnull %27) #8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 8
   %.not.i.i = icmp eq ptr %209, null
@@ -1535,15 +1530,14 @@ list_length.exit263.thread:                       ; preds = %113, %list_length.e
   br i1 %232, label %.split.i.i, label %235
 
 .split.i.i:                                       ; preds = %226, %223, %.lr.ph29.i.i
-  %233 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %233)
-  %234 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %221) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1732, ptr noundef nonnull @__func__.adjust_partition_colnos_using_map) #9
+  %233 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %234 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %221) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1732, ptr noundef nonnull @__func__.adjust_partition_colnos_using_map) #8
   unreachable
 
 235:                                              ; preds = %226
   %236 = sext i16 %231 to i32
-  %237 = call ptr @lappend_int(ptr noundef %.02227.i.i, i32 noundef %236) #9
+  %237 = call ptr @lappend_int(ptr noundef %.02227.i.i, i32 noundef %236) #8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %238 = load i32, ptr %213, align 4
   %239 = sext i32 %238 to i64
@@ -1554,10 +1548,10 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %.0.lcssa.i.i = phi ptr [ null, %199 ], [ null, %.lr.ph.i.i ], [ %237, %235 ]
   %241 = load ptr, ptr %170, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 200
-  %243 = call ptr @table_slot_create(ptr noundef %26, ptr noundef nonnull %242) #9
+  %243 = call ptr @table_slot_create(ptr noundef %26, ptr noundef nonnull %242) #8
   %244 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store ptr %243, ptr %244, align 8
-  %245 = call ptr @ExecBuildUpdateProjection(ptr noundef %207, i1 noundef zeroext true, ptr noundef %.0.lcssa.i.i, ptr noundef %115, ptr noundef %117, ptr noundef %243, ptr noundef nonnull %0) #9
+  %245 = call ptr @ExecBuildUpdateProjection(ptr noundef %207, i1 noundef zeroext true, ptr noundef %.0.lcssa.i.i, ptr noundef %115, ptr noundef %117, ptr noundef %243, ptr noundef nonnull %0) #8
   %246 = getelementptr inbounds nuw i8, ptr %165, i64 24
   store ptr %245, ptr %246, align 8
   %247 = getelementptr inbounds nuw i8, ptr %9, i64 232
@@ -1566,16 +1560,16 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   br i1 %.not243, label %261, label %249
 
 249:                                              ; preds = %adjust_partition_colnos.exit
-  %250 = call ptr @copyObjectImpl(ptr noundef nonnull %248) #9
+  %250 = call ptr @copyObjectImpl(ptr noundef nonnull %248) #8
   %251 = load ptr, ptr %30, align 8
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 72
   %253 = load i32, ptr %252, align 4
-  %254 = call ptr @map_variable_attnos(ptr noundef %250, i32 noundef -1, i32 noundef 0, ptr noundef %.6, i32 noundef %253, ptr noundef nonnull %7) #9
+  %254 = call ptr @map_variable_attnos(ptr noundef %250, i32 noundef -1, i32 noundef 0, ptr noundef %.6, i32 noundef %253, ptr noundef nonnull %7) #8
   %255 = load ptr, ptr %30, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 72
   %257 = load i32, ptr %256, align 4
-  %258 = call ptr @map_variable_attnos(ptr noundef %254, i32 noundef %20, i32 noundef 0, ptr noundef %.6, i32 noundef %257, ptr noundef nonnull %7) #9
-  %259 = call ptr @ExecInitQual(ptr noundef %258, ptr noundef nonnull %0) #9
+  %258 = call ptr @map_variable_attnos(ptr noundef %254, i32 noundef %20, i32 noundef 0, ptr noundef %.6, i32 noundef %257, ptr noundef nonnull %7) #8
+  %259 = call ptr @ExecInitQual(ptr noundef %258, ptr noundef nonnull %0) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %249, %176
@@ -1592,7 +1586,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   store ptr %263, ptr @CurrentMemoryContext, align 8
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %265 = load ptr, ptr %264, align 8
-  %266 = call ptr @lappend(ptr noundef %265, ptr noundef nonnull %27) #9
+  %266 = call ptr @lappend(ptr noundef %265, ptr noundef nonnull %27) #8
   store ptr %266, ptr %264, align 8
   %267 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %268 = load i32, ptr %267, align 8
@@ -1615,7 +1609,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %280 = load ptr, ptr %279, align 8
   %281 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %282 = load ptr, ptr %281, align 8
-  %283 = call ptr @build_attrmap_by_name(ptr noundef %280, ptr noundef %282, i1 noundef zeroext false) #9
+  %283 = call ptr @build_attrmap_by_name(ptr noundef %280, ptr noundef %282, i1 noundef zeroext false) #8
   br label %284
 
 284:                                              ; preds = %278, %270
@@ -1626,7 +1620,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   br i1 %287, label %289, label %288, !prof !6
 
 288:                                              ; preds = %284
-  call void @ExecInitMergeTupleSlots(ptr noundef nonnull %0, ptr noundef nonnull %27) #9
+  call void @ExecInitMergeTupleSlots(ptr noundef nonnull %0, ptr noundef nonnull %27) #8
   br label %289
 
 289:                                              ; preds = %288, %284
@@ -1638,8 +1632,8 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %294 = load ptr, ptr %30, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 72
   %296 = load i32, ptr %295, align 4
-  %297 = call ptr @map_variable_attnos(ptr noundef %293, i32 noundef %20, i32 noundef 0, ptr noundef %.7, i32 noundef %296, ptr noundef nonnull %7) #9
-  %298 = call ptr @ExecInitQual(ptr noundef %297, ptr noundef nonnull %0) #9
+  %297 = call ptr @map_variable_attnos(ptr noundef %293, i32 noundef %20, i32 noundef 0, ptr noundef %.7, i32 noundef %296, ptr noundef nonnull %7) #8
+  %298 = call ptr @ExecInitQual(ptr noundef %297, ptr noundef nonnull %0) #8
   %299 = getelementptr inbounds nuw i8, ptr %27, i64 312
   store ptr %298, ptr %299, align 8
   %.not244 = icmp eq ptr %274, null
@@ -1663,8 +1657,8 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %309 = load ptr, ptr %301, align 8
   %310 = getelementptr inbounds nuw %union.ListCell, ptr %309, i64 %indvars.iv331370
   %311 = load ptr, ptr %310, align 8
-  %312 = call ptr @copyObjectImpl(ptr noundef %311) #9
-  %313 = call noundef ptr @palloc0(i64 noundef 32) #9
+  %312 = call ptr @copyObjectImpl(ptr noundef %311) #8
+  %313 = call noundef ptr @palloc0(i64 noundef 32) #8
   store i32 386, ptr %313, align 4
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store ptr %312, ptr %314, align 8
@@ -1673,7 +1667,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %317 = zext i32 %316 to i64
   %318 = getelementptr inbounds nuw ptr, ptr %302, i64 %317
   %319 = load ptr, ptr %318, align 8
-  %320 = call ptr @lappend(ptr noundef %319, ptr noundef nonnull %313) #9
+  %320 = call ptr @lappend(ptr noundef %319, ptr noundef nonnull %313) #8
   %321 = load i32, ptr %315, align 4
   %322 = zext i32 %321 to i64
   %323 = getelementptr inbounds nuw ptr, ptr %302, i64 %322
@@ -1691,7 +1685,7 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   %328 = load ptr, ptr %327, align 8
   %329 = load ptr, ptr %305, align 8
   %330 = load ptr, ptr %306, align 8
-  %331 = call ptr @ExecBuildProjectionInfo(ptr noundef %328, ptr noundef %276, ptr noundef %329, ptr noundef nonnull %0, ptr noundef %330) #9
+  %331 = call ptr @ExecBuildProjectionInfo(ptr noundef %328, ptr noundef %276, ptr noundef %329, ptr noundef nonnull %0, ptr noundef %330) #8
   br label %.sink.split358
 
 332:                                              ; preds = %.lr.ph371
@@ -1736,15 +1730,14 @@ adjust_partition_colnos.exit:                     ; preds = %235, %199, %.lr.ph.
   br i1 %352, label %.split.i, label %355
 
 .split.i:                                         ; preds = %346, %343, %.lr.ph29.i
-  %353 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %353)
-  %354 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %341) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1732, ptr noundef nonnull @__func__.adjust_partition_colnos_using_map) #9
+  %353 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %354 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef %341) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1732, ptr noundef nonnull @__func__.adjust_partition_colnos_using_map) #8
   unreachable
 
 355:                                              ; preds = %346
   %356 = sext i16 %351 to i32
-  %357 = call ptr @lappend_int(ptr noundef %.02227.i, i32 noundef %356) #9
+  %357 = call ptr @lappend_int(ptr noundef %.02227.i, i32 noundef %356) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %358 = load i32, ptr %334, align 4
   %359 = sext i32 %358 to i64
@@ -1764,14 +1757,13 @@ adjust_partition_colnos_using_map.exit:           ; preds = %355, %333, %.lr.ph.
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 64
   %366 = load ptr, ptr %365, align 8
   %367 = load ptr, ptr %305, align 8
-  %368 = call ptr @ExecBuildUpdateProjection(ptr noundef %363, i1 noundef zeroext true, ptr noundef %361, ptr noundef %366, ptr noundef %276, ptr noundef %367, ptr noundef null) #9
+  %368 = call ptr @ExecBuildUpdateProjection(ptr noundef %363, i1 noundef zeroext true, ptr noundef %361, ptr noundef %366, ptr noundef %276, ptr noundef %367, ptr noundef null) #8
   br label %.sink.split358
 
 369:                                              ; preds = %.lr.ph371
-  %370 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %370)
-  %371 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 961, ptr noundef nonnull @__func__.ExecInitPartitionInfo) #9
+  %370 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  %371 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 961, ptr noundef nonnull @__func__.ExecInitPartitionInfo) #8
   unreachable
 
 .sink.split358:                                   ; preds = %326, %._crit_edge334
@@ -1786,9 +1778,9 @@ adjust_partition_colnos_using_map.exit:           ; preds = %355, %333, %.lr.ph.
   %376 = load ptr, ptr %30, align 8
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 72
   %378 = load i32, ptr %377, align 4
-  %379 = call ptr @map_variable_attnos(ptr noundef %375, i32 noundef %20, i32 noundef 0, ptr noundef %.7, i32 noundef %378, ptr noundef nonnull %7) #9
+  %379 = call ptr @map_variable_attnos(ptr noundef %375, i32 noundef %20, i32 noundef 0, ptr noundef %.7, i32 noundef %378, ptr noundef nonnull %7) #8
   store ptr %379, ptr %374, align 8
-  %380 = call ptr @ExecInitQual(ptr noundef %379, ptr noundef nonnull %0) #9
+  %380 = call ptr @ExecInitQual(ptr noundef %379, ptr noundef nonnull %0) #8
   %381 = getelementptr inbounds nuw i8, ptr %313, i64 24
   store ptr %380, ptr %381, align 8
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331370, 1
@@ -1804,7 +1796,7 @@ adjust_partition_colnos_using_map.exit:           ; preds = %355, %333, %.lr.ph.
   store ptr %386, ptr @CurrentMemoryContext, align 8
   %387 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %388 = load ptr, ptr %387, align 8
-  %389 = tail call ptr @lappend(ptr noundef %388, ptr noundef nonnull %27) #9
+  %389 = tail call ptr @lappend(ptr noundef %388, ptr noundef nonnull %27) #8
   store ptr %389, ptr %387, align 8
   br label %.critedge256
 
@@ -1847,14 +1839,14 @@ define dso_local void @ExecCleanupTupleRouting(ptr noundef readonly captures(non
   %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  tail call void @table_close(ptr noundef %17, i32 noundef 0) #9
+  tail call void @table_close(ptr noundef %17, i32 noundef 0) #8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not25 = icmp eq ptr %19, null
   br i1 %.not25, label %21, label %20
 
 20:                                               ; preds = %13
-  tail call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %19) #9
+  tail call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %19) #8
   br label %21
 
 21:                                               ; preds = %20, %13
@@ -1882,7 +1874,7 @@ define dso_local void @ExecCleanupTupleRouting(ptr noundef readonly captures(non
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %11, align 8
-  tail call void %33(ptr noundef %35, ptr noundef nonnull %28) #9
+  tail call void %33(ptr noundef %35, ptr noundef nonnull %28) #8
   br label %36
 
 36:                                               ; preds = %34, %31, %25
@@ -1893,10 +1885,10 @@ define dso_local void @ExecCleanupTupleRouting(ptr noundef readonly captures(non
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %36
-  tail call void @ExecCloseIndices(ptr noundef nonnull %28) #9
+  tail call void @ExecCloseIndices(ptr noundef nonnull %28) #8
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %43 = load ptr, ptr %42, align 8
-  tail call void @table_close(ptr noundef %43, i32 noundef 0) #9
+  tail call void @table_close(ptr noundef %43, i32 noundef 0) #8
   br label %44
 
 44:                                               ; preds = %36, %41
@@ -1943,14 +1935,14 @@ define dso_local void @ExecDoInitialPruning(ptr noundef %0) local_unnamed_addr #
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %17 = call ptr @CreateExprContext(ptr noundef nonnull %0) #9
+  %17 = call ptr @CreateExprContext(ptr noundef nonnull %0) #8
   %18 = load ptr, ptr %7, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %.lr.ph60
   %21 = load ptr, ptr %8, align 8
-  %22 = call ptr @CreatePartitionDirectory(ptr noundef %21, i1 noundef zeroext false) #9
+  %22 = call ptr @CreatePartitionDirectory(ptr noundef %21, i1 noundef zeroext false) #8
   store ptr %22, ptr %7, align 8
   br label %23
 
@@ -1970,13 +1962,13 @@ list_length.exit.i:                               ; preds = %26, %23
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
   %32 = add nsw i64 %31, 40
-  %33 = call ptr @palloc(i64 noundef %32) #9
+  %33 = call ptr @palloc(i64 noundef %32) #8
   store ptr %17, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr null, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = call ptr @bms_copy(ptr noundef %36) #9
+  %37 = call ptr @bms_copy(ptr noundef %36) #8
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %37, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -1986,7 +1978,7 @@ list_length.exit.i:                               ; preds = %26, %23
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 36
   store i32 %29, ptr %41, align 4
   %42 = load ptr, ptr @CurrentMemoryContext, align 8
-  %43 = call ptr @AllocSetContextCreateInternal(ptr noundef %42, ptr noundef nonnull @.str.13, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
+  %43 = call ptr @AllocSetContextCreateInternal(ptr noundef %42, ptr noundef nonnull @.str.13, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr %43, ptr %44, align 8
   %45 = load ptr, ptr %24, align 8
@@ -2022,7 +2014,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   %60 = sext i32 %59 to i64
   %61 = mul nsw i64 %60, 224
   %62 = or disjoint i64 %61, 8
-  %63 = call ptr @palloc(i64 noundef %62) #9
+  %63 = call ptr @palloc(i64 noundef %62) #8
   %64 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv214.i29
   store ptr %63, ptr %64, align 8
   store i32 %59, ptr %63, align 8
@@ -2045,17 +2037,17 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   %73 = getelementptr inbounds nuw %struct.PartitionedRelPruningData, ptr %67, i64 %indvars.iv209.i27
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4
-  %76 = call ptr @ExecGetRangeTableRelation(ptr noundef nonnull %0, i32 noundef %75) #9
+  %76 = call ptr @ExecGetRangeTableRelation(ptr noundef nonnull %0, i32 noundef %75) #8
   store ptr %76, ptr %73, align 8
-  %77 = call ptr @RelationGetPartitionKey(ptr noundef %76) #9
+  %77 = call ptr @RelationGetPartitionKey(ptr noundef %76) #8
   %78 = load ptr, ptr %7, align 8
-  %79 = call ptr @PartitionDirectoryLookup(ptr noundef %78, ptr noundef %76) #9
+  %79 = call ptr @PartitionDirectoryLookup(ptr noundef %78, ptr noundef %76) #8
   %80 = load i32, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 %80, ptr %81, align 8
   %82 = sext i32 %80 to i64
   %83 = shl nsw i64 %82, 2
-  %84 = call ptr @palloc(i64 noundef %83) #9
+  %84 = call ptr @palloc(i64 noundef %83) #8
   %85 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %84, ptr %85, align 8
   %86 = load i32, ptr %79, align 8
@@ -2107,13 +2099,13 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
 
 113:                                              ; preds = %93, %._crit_edge.i
   %.pre-phi221.i = phi i64 [ %.pre220.i, %._crit_edge.i ], [ %99, %93 ]
-  %114 = call ptr @palloc(i64 noundef %.pre-phi221.i) #9
+  %114 = call ptr @palloc(i64 noundef %.pre-phi221.i) #8
   %115 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %114, ptr %115, align 8
   %116 = load i32, ptr %79, align 8
   %117 = sext i32 %116 to i64
   %118 = shl nsw i64 %117, 2
-  %119 = call ptr @palloc(i64 noundef %118) #9
+  %119 = call ptr @palloc(i64 noundef %118) #8
   %120 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %119, ptr %120, align 8
   %121 = load i32, ptr %79, align 8
@@ -2245,7 +2237,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
 .loopexit180.i:                                   ; preds = %183, %113, %101
   %187 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %188 = load ptr, ptr %187, align 8
-  %189 = call ptr @bms_copy(ptr noundef %188) #9
+  %189 = call ptr @bms_copy(ptr noundef %188) #8
   %190 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store ptr %189, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %72, i64 56
@@ -2295,7 +2287,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   %220 = mul nsw i64 %202, 48
   %221 = sext i16 %.fr83.i.i to i64
   %222 = mul nsw i64 %220, %221
-  %223 = call ptr @palloc0(i64 noundef %222) #9
+  %223 = call ptr @palloc0(i64 noundef %222) #8
   %224 = getelementptr inbounds nuw i8, ptr %73, i64 104
   store ptr %223, ptr %224, align 8
   %225 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2307,7 +2299,7 @@ list_length.exit172.i:                            ; preds = %56, %.lr.ph30
   store ptr %17, ptr %228, align 8
   %229 = shl nsw i64 %202, 3
   %230 = mul nsw i64 %229, %221
-  %231 = call ptr @palloc0(i64 noundef %230) #9
+  %231 = call ptr @palloc0(i64 noundef %230) #8
   %232 = getelementptr inbounds nuw i8, ptr %73, i64 136
   store ptr %231, ptr %232, align 8
   %233 = getelementptr inbounds nuw i8, ptr %192, i64 16
@@ -2361,7 +2353,7 @@ list_head.exit.us.us.i.i:                         ; preds = %243, %.lr.ph193.i
   %.05464.us.us.us.i.i = phi i32 [ 0, %.preheader.us.us.i.i ], [ %280, %279 ]
   %.05563.us.us.us.i.i = phi ptr [ %246, %.preheader.us.us.i.i ], [ %.1.us.us.us.i.i, %279 ]
   %255 = load ptr, ptr %252, align 8
-  %256 = call zeroext i1 @bms_is_member(i32 noundef %.05464.us.us.us.i.i, ptr noundef %255) #9
+  %256 = call zeroext i1 @bms_is_member(i32 noundef %.05464.us.us.us.i.i, ptr noundef %255) #8
   %257 = icmp eq ptr %.05563.us.us.us.i.i, null
   %or.cond.not.us.us.us.i.i = select i1 %256, i1 true, i1 %257
   br i1 %or.cond.not.us.us.us.i.i, label %279, label %258
@@ -2377,7 +2369,7 @@ list_head.exit.us.us.i.i:                         ; preds = %243, %.lr.ph193.i
   %264 = mul i32 %263, %207
   %265 = add i32 %264, %.05464.us.us.us.i.i
   %266 = load ptr, ptr %50, align 8
-  %267 = call ptr @ExecInitExprWithParams(ptr noundef nonnull %259, ptr noundef %266) #9
+  %267 = call ptr @ExecInitExprWithParams(ptr noundef nonnull %259, ptr noundef %266) #8
   %268 = load ptr, ptr %232, align 8
   %269 = sext i32 %265 to i64
   %270 = getelementptr inbounds ptr, ptr %268, i64 %269
@@ -2431,7 +2423,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
   %292 = load ptr, ptr %34, align 8
   %293 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %294 = load ptr, ptr %293, align 8
-  %295 = call ptr @bms_add_members(ptr noundef %292, ptr noundef %294) #9
+  %295 = call ptr @bms_add_members(ptr noundef %292, ptr noundef %294) #8
   store ptr %295, ptr %34, align 8
   %296 = load ptr, ptr %191, align 8
   %.not165.i = icmp eq ptr %296, null
@@ -2444,7 +2436,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
 
 .preheader178.i:                                  ; preds = %297
   %300 = load ptr, ptr %190, align 8
-  %301 = call i32 @bms_next_member(ptr noundef %300, i32 noundef -1) #9
+  %301 = call i32 @bms_next_member(ptr noundef %300, i32 noundef -1) #8
   %302 = icmp sgt i32 %301, -1
   br i1 %302, label %.lr.ph194.i, label %.loopexit179.i
 
@@ -2463,13 +2455,13 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
   br i1 %.not166.i, label %312, label %310
 
 310:                                              ; preds = %304
-  %311 = call ptr @bms_add_member(ptr noundef %.4, i32 noundef %309) #9
+  %311 = call ptr @bms_add_member(ptr noundef %.4, i32 noundef %309) #8
   br label %312
 
 312:                                              ; preds = %310, %304
   %.5 = phi ptr [ %.4, %304 ], [ %311, %310 ]
   %313 = load ptr, ptr %190, align 8
-  %314 = call i32 @bms_next_member(ptr noundef %313, i32 noundef %305) #9
+  %314 = call i32 @bms_next_member(ptr noundef %313, i32 noundef %305) #8
   %315 = icmp sgt i32 %314, -1
   br i1 %315, label %304, label %.loopexit179.i, !llvm.loop !19
 
@@ -2484,7 +2476,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
 CreatePartitionPruneState.exit:                   ; preds = %.critedge170.i, %.lr.ph201.i, %list_length.exit.i
   %.6 = phi ptr [ null, %list_length.exit.i ], [ null, %.lr.ph201.i ], [ %.2, %.critedge170.i ]
   %319 = load ptr, ptr %9, align 8
-  %320 = call ptr @lappend(ptr noundef %319, ptr noundef nonnull %33) #9
+  %320 = call ptr @lappend(ptr noundef %319, ptr noundef nonnull %33) #8
   store ptr %320, ptr %9, align 8
   %321 = load i8, ptr %39, align 8, !range !4, !noundef !5
   %322 = trunc nuw i8 %321 to i1
@@ -2506,10 +2498,10 @@ CreatePartitionPruneState.exit:                   ; preds = %.critedge170.i, %.l
   %327 = phi ptr [ %.pre, %323 ], [ %.6, %325 ]
   %.0 = phi ptr [ %324, %323 ], [ null, %325 ]
   %328 = load ptr, ptr %10, align 8
-  %329 = call ptr @bms_add_members(ptr noundef %328, ptr noundef %327) #9
+  %329 = call ptr @bms_add_members(ptr noundef %328, ptr noundef %327) #8
   store ptr %329, ptr %10, align 8
   %330 = load ptr, ptr %11, align 8
-  %331 = call ptr @lappend(ptr noundef %330, ptr noundef %.0) #9
+  %331 = call ptr @lappend(ptr noundef %330, ptr noundef %.0) #8
   store ptr %331, ptr %11, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv59, 1
@@ -2570,7 +2562,7 @@ define dso_local ptr @ExecFindMatchingSubPlans(ptr noundef readonly captures(non
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
-  tail call void @MemoryContextReset(ptr noundef %27) #9
+  tail call void @MemoryContextReset(ptr noundef %27) #8
   br label %28
 
 28:                                               ; preds = %23, %.lr.ph.split
@@ -2584,21 +2576,21 @@ define dso_local ptr @ExecFindMatchingSubPlans(ptr noundef readonly captures(non
   %32 = load ptr, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call ptr @bms_add_members(ptr noundef %32, ptr noundef %34) #9
+  %35 = tail call ptr @bms_add_members(ptr noundef %32, ptr noundef %34) #8
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %36 = tail call ptr @bms_copy(ptr noundef %35) #9
+  %36 = tail call ptr @bms_copy(ptr noundef %35) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %40, label %37
 
 37:                                               ; preds = %._crit_edge
   %38 = load ptr, ptr %2, align 8
-  %39 = tail call ptr @bms_copy(ptr noundef %38) #9
+  %39 = tail call ptr @bms_copy(ptr noundef %38) #8
   store ptr %39, ptr %2, align 8
   br label %40
 
 40:                                               ; preds = %37, %._crit_edge
   %41 = load ptr, ptr %5, align 8
-  tail call void @MemoryContextReset(ptr noundef %41) #9
+  tail call void @MemoryContextReset(ptr noundef %41) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %36
 }
@@ -2618,17 +2610,16 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call zeroext i1 @bms_equal(ptr noundef %3, ptr noundef %15) #9
+  %16 = tail call zeroext i1 @bms_equal(ptr noundef %3, ptr noundef %15) #8
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %5
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %18)
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %19 = load ptr, ptr %14, align 8
-  %20 = tail call ptr @bmsToString(ptr noundef %19) #9
-  %21 = tail call ptr @bmsToString(ptr noundef %3) #9
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %20, i32 noundef %2, ptr noundef %21) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1890, ptr noundef nonnull @__func__.ExecInitPartitionExecPruning) #9
+  %20 = tail call ptr @bmsToString(ptr noundef %19) #8
+  %21 = tail call ptr @bmsToString(ptr noundef %3) #8
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %20, i32 noundef %2, ptr noundef %21) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1890, ptr noundef nonnull @__func__.ExecInitPartitionExecPruning) #8
   unreachable
 
 23:                                               ; preds = %5
@@ -2654,7 +2645,7 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
 
 38:                                               ; preds = %23
   %39 = add i32 %1, -1
-  %40 = tail call ptr @bms_add_range(ptr noundef null, i32 noundef 0, i32 noundef %39) #9
+  %40 = tail call ptr @bms_add_range(ptr noundef null, i32 noundef 0, i32 noundef %39) #8
   br label %41
 
 41:                                               ; preds = %38, %32
@@ -2667,15 +2658,15 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %6, align 8
-  %47 = tail call i32 @bms_num_members(ptr noundef %storemerge) #9
+  %47 = tail call i32 @bms_num_members(ptr noundef %storemerge) #8
   %48 = icmp slt i32 %47, %1
   br i1 %48, label %49, label %.loopexit77.i
 
 49:                                               ; preds = %45
   %50 = sext i32 %1 to i64
   %51 = shl nsw i64 %50, 2
-  %52 = tail call ptr @palloc0(i64 noundef %51) #9
-  %53 = tail call i32 @bms_next_member(ptr noundef %storemerge, i32 noundef -1) #9
+  %52 = tail call ptr @palloc0(i64 noundef %51) #8
+  %53 = tail call i32 @bms_next_member(ptr noundef %storemerge, i32 noundef -1) #8
   %54 = icmp sgt i32 %53, -1
   br i1 %54, label %.lr.ph.i, label %.loopexit77.i
 
@@ -2686,7 +2677,7 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
   %57 = zext nneg i32 %55 to i64
   %58 = getelementptr inbounds nuw i32, ptr %52, i64 %57
   store i32 %.06778.i, ptr %58, align 4
-  %59 = tail call i32 @bms_next_member(ptr noundef %storemerge, i32 noundef %55) #9
+  %59 = tail call i32 @bms_next_member(ptr noundef %storemerge, i32 noundef %55) #8
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %.lr.ph.i, label %.loopexit77.i, !llvm.loop !21
 
@@ -2729,10 +2720,10 @@ define dso_local ptr @ExecInitPartitionExecPruning(ptr noundef %0, i32 noundef %
 
 80:                                               ; preds = %74
   %81 = load ptr, ptr %75, align 8
-  %82 = tail call ptr @RelationGetPartitionKey(ptr noundef %81) #9
+  %82 = tail call ptr @RelationGetPartitionKey(ptr noundef %81) #8
   %83 = load ptr, ptr %65, align 8
   %84 = load ptr, ptr %75, align 8
-  %85 = tail call ptr @PartitionDirectoryLookup(ptr noundef %83, ptr noundef %84) #9
+  %85 = tail call ptr @PartitionDirectoryLookup(ptr noundef %83, ptr noundef %84) #8
   %86 = getelementptr inbounds nuw i8, ptr %75, i64 144
   %87 = load ptr, ptr %78, align 8
   %88 = load ptr, ptr %28, align 8
@@ -2774,7 +2765,7 @@ list_length.exit.i.i:                             ; preds = %89, %80
   %111 = mul nsw i64 %93, 48
   %112 = sext i16 %.fr83.i.i to i64
   %113 = mul nsw i64 %111, %112
-  %114 = tail call ptr @palloc0(i64 noundef %113) #9
+  %114 = tail call ptr @palloc0(i64 noundef %113) #8
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 184
   store ptr %114, ptr %115, align 8
   %116 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -2786,7 +2777,7 @@ list_length.exit.i.i:                             ; preds = %89, %80
   store ptr %88, ptr %119, align 8
   %120 = shl nsw i64 %93, 3
   %121 = mul nsw i64 %120, %112
-  %122 = tail call ptr @palloc0(i64 noundef %121) #9
+  %122 = tail call ptr @palloc0(i64 noundef %121) #8
   %123 = getelementptr inbounds nuw i8, ptr %75, i64 216
   store ptr %122, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %87, i64 4
@@ -2839,7 +2830,7 @@ list_head.exit.us.i.i:                            ; preds = %135, %.lr.ph80.i
   %.05464.us69.i.i = phi i32 [ 0, %.preheader.us.i.i ], [ %170, %169 ]
   %.05563.us70.i.i = phi ptr [ %138, %.preheader.us.i.i ], [ %.1.us75.i.i, %169 ]
   %145 = load ptr, ptr %171, align 8
-  %146 = tail call zeroext i1 @bms_is_member(i32 noundef %.05464.us69.i.i, ptr noundef %145) #9
+  %146 = tail call zeroext i1 @bms_is_member(i32 noundef %.05464.us69.i.i, ptr noundef %145) #8
   %147 = icmp eq ptr %.05563.us70.i.i, null
   %or.cond.not.us71.i.i = select i1 %146, i1 true, i1 %147
   br i1 %or.cond.not.us71.i.i, label %169, label %148
@@ -2855,7 +2846,7 @@ list_head.exit.us.i.i:                            ; preds = %135, %.lr.ph80.i
   %154 = mul i32 %153, %98
   %155 = add i32 %154, %.05464.us69.i.i
   %156 = load ptr, ptr %118, align 8
-  %157 = tail call ptr @ExecInitExpr(ptr noundef nonnull %149, ptr noundef %156) #9
+  %157 = tail call ptr @ExecInitExpr(ptr noundef nonnull %149, ptr noundef %156) #8
   %158 = load ptr, ptr %123, align 8
   %159 = sext i32 %155 to i64
   %160 = getelementptr inbounds ptr, ptr %158, i64 %159
@@ -2892,7 +2883,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
 173:                                              ; preds = %InitPartitionPruneContext.exit.i
   %174 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %175 = load ptr, ptr %174, align 8
-  tail call void @bms_free(ptr noundef %175) #9
+  tail call void @bms_free(ptr noundef %175) #8
   store ptr null, ptr %174, align 8
   %176 = icmp sgt i32 %77, 0
   br i1 %176, label %.lr.ph84.i, label %.loopexit.i
@@ -2939,7 +2930,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
 .sink.split.i:                                    ; preds = %196, %184
   %202 = load ptr, ptr %174, align 8
   %203 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %204 = tail call ptr @bms_add_member(ptr noundef %202, i32 noundef %203) #9
+  %204 = tail call ptr @bms_add_member(ptr noundef %202, i32 noundef %203) #8
   store ptr %204, ptr %174, align 8
   br label %205
 
@@ -2970,7 +2961,7 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
 .preheader.i:                                     ; preds = %._crit_edge91.i
   %210 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %211 = load ptr, ptr %210, align 8
-  %212 = tail call i32 @bms_next_member(ptr noundef %211, i32 noundef -1) #9
+  %212 = tail call i32 @bms_next_member(ptr noundef %211, i32 noundef -1) #8
   %213 = icmp sgt i32 %212, -1
   br i1 %213, label %.lr.ph93.i, label %._crit_edge94.i
 
@@ -2981,18 +2972,18 @@ InitPartitionPruneContext.exit.i:                 ; preds = %..loopexit_crit_edg
   %216 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %215
   %217 = load i32, ptr %216, align 4
   %218 = add i32 %217, -1
-  %219 = tail call ptr @bms_add_member(ptr noundef %.06592.i, i32 noundef %218) #9
+  %219 = tail call ptr @bms_add_member(ptr noundef %.06592.i, i32 noundef %218) #8
   %220 = load ptr, ptr %210, align 8
-  %221 = tail call i32 @bms_next_member(ptr noundef %220, i32 noundef %214) #9
+  %221 = tail call i32 @bms_next_member(ptr noundef %220, i32 noundef %214) #8
   %222 = icmp sgt i32 %221, -1
   br i1 %222, label %.lr.ph93.i, label %._crit_edge94.i, !llvm.loop !25
 
 ._crit_edge94.i:                                  ; preds = %.lr.ph93.i, %.preheader.i
   %.065.lcssa.i = phi ptr [ null, %.preheader.i ], [ %219, %.lr.ph93.i ]
   %223 = load ptr, ptr %210, align 8
-  tail call void @bms_free(ptr noundef %223) #9
+  tail call void @bms_free(ptr noundef %223) #8
   store ptr %.065.lcssa.i, ptr %210, align 8
-  tail call void @pfree(ptr noundef %.0.i) #9
+  tail call void @pfree(ptr noundef %.0.i) #8
   br label %InitExecPartitionPruneContexts.exit
 
 InitExecPartitionPruneContexts.exit:              ; preds = %._crit_edge94.i, %._crit_edge91.i, %41
@@ -3009,7 +3000,7 @@ declare ptr @bms_add_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
-  tail call void @check_stack_depth() #9
+  tail call void @check_stack_depth() #8
   br i1 %2, label %6, label %.critedge
 
 6:                                                ; preds = %5
@@ -3020,7 +3011,7 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %11 = tail call ptr @get_matching_partitions(ptr noundef nonnull %10, ptr noundef nonnull %8) #9
+  %11 = tail call ptr @get_matching_partitions(ptr noundef nonnull %10, ptr noundef nonnull %8) #8
   br label %20
 
 .critedge:                                        ; preds = %5
@@ -3031,7 +3022,7 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 14:                                               ; preds = %.critedge
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %16 = tail call ptr @get_matching_partitions(ptr noundef nonnull %15, ptr noundef nonnull %13) #9
+  %16 = tail call ptr @get_matching_partitions(ptr noundef nonnull %15, ptr noundef nonnull %13) #8
   br label %20
 
 17:                                               ; preds = %6, %.critedge
@@ -3041,7 +3032,7 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 20:                                               ; preds = %14, %17, %9
   %.0 = phi ptr [ %11, %9 ], [ %19, %17 ], [ %16, %14 ]
-  %21 = tail call i32 @bms_next_member(ptr noundef %.0, i32 noundef -1) #9
+  %21 = tail call i32 @bms_next_member(ptr noundef %.0, i32 noundef -1) #8
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -3077,12 +3068,12 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 41:                                               ; preds = %.lr.ph.split.us
   %42 = load ptr, ptr %3, align 8
-  %43 = tail call ptr @bms_add_member(ptr noundef %42, i32 noundef %31) #9
+  %43 = tail call ptr @bms_add_member(ptr noundef %42, i32 noundef %31) #8
   store ptr %43, ptr %3, align 8
   br label %44
 
 44:                                               ; preds = %41, %38, %33
-  %45 = tail call i32 @bms_next_member(ptr noundef %.0, i32 noundef %27) #9
+  %45 = tail call i32 @bms_next_member(ptr noundef %.0, i32 noundef %27) #8
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !26
 
@@ -3097,13 +3088,13 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
 
 53:                                               ; preds = %.lr.ph.split
   %54 = load ptr, ptr %3, align 8
-  %55 = tail call ptr @bms_add_member(ptr noundef %54, i32 noundef %51) #9
+  %55 = tail call ptr @bms_add_member(ptr noundef %54, i32 noundef %51) #8
   store ptr %55, ptr %3, align 8
   %56 = load ptr, ptr %4, align 8
   %57 = load ptr, ptr %26, align 8
   %58 = getelementptr inbounds nuw i32, ptr %57, i64 %49
   %59 = load i32, ptr %58, align 4
-  %60 = tail call ptr @bms_add_member(ptr noundef %56, i32 noundef %59) #9
+  %60 = tail call ptr @bms_add_member(ptr noundef %56, i32 noundef %59) #8
   store ptr %60, ptr %4, align 8
   br label %69
 
@@ -3121,7 +3112,7 @@ define internal fastcc void @find_matching_subplans_recurse(ptr noundef %0, ptr 
   br label %69
 
 69:                                               ; preds = %66, %61, %53
-  %70 = tail call i32 @bms_next_member(ptr noundef %.0, i32 noundef %47) #9
+  %70 = tail call i32 @bms_next_member(ptr noundef %.0, i32 noundef %47) #8
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %.lr.ph.split, label %._crit_edge, !llvm.loop !26
 
@@ -3261,11 +3252,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3274,11 +3262,10 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
-attributes #10 = { cold nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nounwind }
+attributes #9 = { cold nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

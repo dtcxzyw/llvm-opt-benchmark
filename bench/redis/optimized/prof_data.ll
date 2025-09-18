@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_prof_data_init(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr @tdatas, align 8, !tbaa !4
-  %2 = tail call zeroext i1 @je_ckh_new(ptr noundef %0, ptr noundef nonnull @bt2gctx, i64 noundef 64, ptr noundef nonnull @je_prof_bt_hash, ptr noundef nonnull @je_prof_bt_keycomp) #13
+  %2 = tail call zeroext i1 @je_ckh_new(ptr noundef %0, ptr noundef nonnull @bt2gctx, i64 noundef 64, ptr noundef nonnull @je_prof_bt_hash, ptr noundef nonnull @je_prof_bt_keycomp) #12
   ret i1 %2
 }
 
@@ -102,17 +102,17 @@ define hidden i64 @je_prof_tdata_count() local_unnamed_addr #0 {
   br i1 %.not.i, label %tsdn_fetch.exit, label %8, !prof !17
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false) #13
+  %9 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %5, i1 noundef zeroext false) #12
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %8, %4, %0
   %.0.i = phi ptr [ null, %0 ], [ %9, %8 ], [ %5, %4 ]
-  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #13
+  %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #12
   %.not.i3 = icmp eq i32 %10, 0
   br i1 %.not.i3, label %12, label %11
 
 11:                                               ; preds = %tsdn_fetch.exit
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #13
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #12
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 104) monotonic, align 8
   br label %12
 
@@ -135,7 +135,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %16
   %19 = load ptr, ptr @tdatas, align 8, !tbaa !4
   %20 = call fastcc ptr @tdata_tree_iter_recurse(ptr noundef %19, ptr noundef nonnull @prof_tdata_count_iter, ptr noundef nonnull %1)
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 104) monotonic, align 8
-  %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #13
+  %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #12
   %22 = load i64, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret i64 %22
@@ -152,11 +152,7 @@ define internal noalias noundef ptr @prof_tdata_count_iter(ptr readnone captures
 ; Function Attrs: noreturn nounwind uwtable
 define hidden noundef i64 @je_prof_bt_count() local_unnamed_addr #4 {
   %1 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 832
-  %3 = load i8, ptr %2, align 8, !tbaa !16
-  %.not.i = icmp ne i8 %3, 0
-  tail call void @llvm.assume(i1 %.not.i)
-  %4 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #13
+  %2 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #12
   unreachable
 }
 
@@ -170,7 +166,7 @@ define hidden ptr @je_prof_thread_name_alloc(ptr noundef %0, ptr noundef readonl
   br i1 %5, label %iallocztm.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
+  %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #13
   %8 = add i64 %7, 1
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %iallocztm.exit.thread, label %10
@@ -216,7 +212,7 @@ sz_size2index.exit:                               ; preds = %20, %18, %12
   br i1 %36, label %37, label %arena_get.exit, !prof !26
 
 37:                                               ; preds = %sz_size2index.exit
-  %38 = tail call ptr @je_arena_init(ptr noundef null, i32 noundef 0, ptr noundef nonnull @je_arena_config_default) #13
+  %38 = tail call ptr @je_arena_init(ptr noundef null, i32 noundef 0, ptr noundef nonnull @je_arena_config_default) #12
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %sz_size2index.exit, %37
@@ -225,18 +221,18 @@ arena_get.exit:                                   ; preds = %sz_size2index.exit,
   br i1 %39, label %tsdn_witness_tsdp_get.exit.thread, label %tsdn_witness_tsdp_get.exit
 
 tsdn_witness_tsdp_get.exit:                       ; preds = %arena_get.exit
-  %40 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %0, ptr noundef %.0.i19, i64 noundef range(i64 2, 1) %8, i32 noundef range(i32 0, 256) %.0.i, i1 noundef zeroext false) #13
+  %40 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %0, ptr noundef %.0.i19, i64 noundef range(i64 2, 1) %8, i32 noundef range(i32 0, 256) %.0.i, i1 noundef zeroext false) #12
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %iallocztm.exit.thread, label %42, !prof !26
 
 tsdn_witness_tsdp_get.exit.thread:                ; preds = %arena_get.exit
-  %41 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i19, i64 noundef range(i64 2, 1) %8, i32 noundef range(i32 0, 256) %.0.i, i1 noundef zeroext false) #13
+  %41 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i19, i64 noundef range(i64 2, 1) %8, i32 noundef range(i32 0, 256) %.0.i, i1 noundef zeroext false) #12
   %.not.i29 = icmp eq ptr %41, null
   br i1 %.not.i29, label %iallocztm.exit.thread, label %.thread, !prof !26
 
 .thread:                                          ; preds = %tsdn_witness_tsdp_get.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #12
   br label %tsdn_rtree_ctx.exit
 
 42:                                               ; preds = %tsdn_witness_tsdp_get.exit
@@ -317,7 +313,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %.thread, %42
   br label %rtree_read.exit
 
 86:                                               ; preds = %70
-  %87 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i16, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #13, !noalias !30
+  %87 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i16, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #12, !noalias !30
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %52, %62, %74, %86
@@ -337,7 +333,7 @@ rtree_read.exit:                                  ; preds = %52, %62, %74, %86
   br i1 %39, label %96, label %97, !prof !26
 
 96:                                               ; preds = %rtree_read.exit
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #12
   br label %emap_alloc_ctx_lookup.exit
 
 97:                                               ; preds = %rtree_read.exit
@@ -412,7 +408,7 @@ emap_alloc_ctx_lookup.exit:                       ; preds = %96, %97
   br label %iallocztm.exit
 
 136:                                              ; preds = %120
-  %137 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %137 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #12
   br label %iallocztm.exit
 
 iallocztm.exit:                                   ; preds = %136, %124, %112, %102
@@ -456,11 +452,7 @@ define hidden void @je_prof_dump_impl(ptr noundef readnone captures(none) %0, pt
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @je_prof_cnt_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   %2 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 832
-  %4 = load i8, ptr %3, align 8, !tbaa !16
-  %.not.i = icmp ne i8 %4, 0
-  tail call void @llvm.assume(i1 %.not.i)
-  %5 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #13
+  %3 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #12
   unreachable
 }
 
@@ -473,12 +465,12 @@ define hidden noalias noundef nonnull ptr @je_prof_tdata_init_impl(ptr noundef r
 define hidden void @je_prof_tdata_detach(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %4) #13
+  %5 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %4) #12
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %3) #13
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %3) #12
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store atomic i8 1, ptr %7 monotonic, align 1
   br label %8
@@ -509,7 +501,7 @@ malloc_mutex_lock.exit:                           ; preds = %8, %14
 
 21:                                               ; preds = %malloc_mutex_lock.exit
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %23 = tail call i64 @je_ckh_count(ptr noundef nonnull %22) #13
+  %23 = tail call i64 @je_ckh_count(ptr noundef nonnull %22) #12
   %.not4.i.i = icmp eq i64 %23, 0
   br i1 %.not4.i.i, label %.critedge13, label %24
 
@@ -530,13 +522,13 @@ malloc_mutex_lock.exit:                           ; preds = %8, %14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   store atomic i8 0, ptr %31 monotonic, align 1
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #13
-  %34 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #13
+  %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #12
+  %34 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #12
   %.not.i.i15 = icmp eq i32 %34, 0
   br i1 %.not.i.i15, label %36, label %35
 
 35:                                               ; preds = %.critedge13
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #13
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #12
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 104) monotonic, align 8
   br label %36
 
@@ -569,18 +561,18 @@ prof_tdata_destroy.exit:                          ; preds = %36, %40
 
 46:                                               ; preds = %24, %.critedge, %prof_tdata_destroy.exit
   %.sink = phi ptr [ %28, %24 ], [ %45, %.critedge ], [ getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64), %prof_tdata_destroy.exit ]
-  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #13
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink) #12
   ret void
 }
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @je_prof_reset(ptr noundef %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_mtx, i64 64)) #13
+  %3 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_mtx, i64 64)) #12
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_mtx) #13
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_prof_dump_mtx) #12
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_prof_dump_mtx, i64 104) monotonic, align 8
   br label %5
 
@@ -600,10 +592,8 @@ define hidden void @je_prof_reset(ptr noundef %0, i64 noundef %1) local_unnamed_
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %5, %9
-  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #13
-  %.not.i13 = icmp ne i32 %12, 0
-  tail call void @llvm.assume(i1 %.not.i13)
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #13
+  %12 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #12
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #12
   unreachable
 }
 
@@ -1303,7 +1293,7 @@ tdata_tree_remove.exit:                           ; preds = %105, %111, %114, %1
   br i1 %433, label %434, label %435
 
 434:                                              ; preds = %432
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %7) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %7) #12
   br label %tsdn_rtree_ctx.exit17
 
 435:                                              ; preds = %432
@@ -1382,7 +1372,7 @@ tsdn_rtree_ctx.exit17:                            ; preds = %434, %435
   br label %rtree_read.exit
 
 478:                                              ; preds = %462
-  %479 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i16, i64 noundef %437, i1 noundef zeroext true, i1 noundef zeroext false) #13, !noalias !65
+  %479 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i16, i64 noundef %437, i1 noundef zeroext true, i1 noundef zeroext false) #12, !noalias !65
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %444, %454, %466, %478
@@ -1402,7 +1392,7 @@ rtree_read.exit:                                  ; preds = %444, %454, %466, %4
   br i1 %433, label %488, label %489, !prof !26
 
 488:                                              ; preds = %rtree_read.exit
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #12
   br label %emap_alloc_ctx_lookup.exit
 
 489:                                              ; preds = %rtree_read.exit
@@ -1477,7 +1467,7 @@ emap_alloc_ctx_lookup.exit:                       ; preds = %488, %489
   br label %rtree_metadata_read.exit
 
 528:                                              ; preds = %512
-  %529 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %437, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %529 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %437, i1 noundef zeroext true, i1 noundef zeroext false) #12
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %494, %504, %516, %528
@@ -1494,13 +1484,13 @@ rtree_metadata_read.exit:                         ; preds = %494, %504, %516, %5
 
 536:                                              ; preds = %rtree_metadata_read.exit, %tdata_tree_remove.exit
   %537 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @je_ckh_delete(ptr noundef %0, ptr noundef nonnull %537) #13
+  call void @je_ckh_delete(ptr noundef %0, ptr noundef nonnull %537) #12
   %538 = icmp eq ptr %0, null
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %538, label %539, label %540
 
 539:                                              ; preds = %536
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #12
   br label %tsdn_rtree_ctx.exit
 
 540:                                              ; preds = %536
@@ -1579,7 +1569,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %539, %540
   br label %rtree_read.exit36
 
 583:                                              ; preds = %567
-  %584 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i15, i64 noundef %542, i1 noundef zeroext true, i1 noundef zeroext false) #13, !noalias !74
+  %584 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i15, i64 noundef %542, i1 noundef zeroext true, i1 noundef zeroext false) #12, !noalias !74
   br label %rtree_read.exit36
 
 rtree_read.exit36:                                ; preds = %549, %559, %571, %583
@@ -1598,7 +1588,7 @@ rtree_read.exit36:                                ; preds = %549, %559, %571, %5
   br i1 %538, label %593, label %594, !prof !26
 
 593:                                              ; preds = %rtree_read.exit36
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #12
   br label %emap_alloc_ctx_lookup.exit22
 
 594:                                              ; preds = %rtree_read.exit36
@@ -1673,7 +1663,7 @@ emap_alloc_ctx_lookup.exit22:                     ; preds = %593, %594
   br label %rtree_metadata_read.exit50
 
 633:                                              ; preds = %617
-  %634 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i18, i64 noundef %542, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %634 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i18, i64 noundef %542, i1 noundef zeroext true, i1 noundef zeroext false) #12
   br label %rtree_metadata_read.exit50
 
 rtree_metadata_read.exit50:                       ; preds = %599, %609, %621, %633
@@ -1724,7 +1714,7 @@ prof_tctx_should_destroy.exit:                    ; preds = %11
   store ptr null, ptr %1, align 8, !tbaa !91
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %23 = tail call zeroext i1 @je_ckh_remove(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef null, ptr noundef null) #13
+  %23 = tail call zeroext i1 @je_ckh_remove(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef null, ptr noundef null) #12
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = load i8, ptr %24, align 8, !tbaa !52, !range !14, !noundef !15
   %26 = trunc nuw i8 %25 to i1
@@ -1738,22 +1728,22 @@ prof_tdata_should_destroy.exit.thread.i:          ; preds = %17
   br label %.sink.split.i
 
 prof_tdata_should_destroy.exit.i:                 ; preds = %17
-  %30 = tail call i64 @je_ckh_count(ptr noundef nonnull %21) #13
+  %30 = tail call i64 @je_ckh_count(ptr noundef nonnull %21) #12
   %.not4.i.i.i = icmp eq i64 %30, 0
   %31 = load ptr, ptr %20, align 8, !tbaa !45
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   store atomic i8 0, ptr %32 monotonic, align 1
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #13
+  %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %33) #12
   br i1 %.not4.i.i.i, label %35, label %46
 
 35:                                               ; preds = %prof_tdata_should_destroy.exit.i
-  %36 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #13
+  %36 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64)) #12
   %.not.i.i35.i = icmp eq i32 %36, 0
   br i1 %.not.i.i35.i, label %38, label %37
 
 37:                                               ; preds = %35
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #13
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull @je_tdatas_mtx) #12
   store atomic i8 1, ptr getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 104) monotonic, align 8
   br label %38
 
@@ -1779,18 +1769,18 @@ prof_tdata_destroy.exit.i:                        ; preds = %42, %38
 
 .sink.split.i:                                    ; preds = %prof_tdata_destroy.exit.i, %prof_tdata_should_destroy.exit.thread.i
   %.sink.i = phi ptr [ %29, %prof_tdata_should_destroy.exit.thread.i ], [ getelementptr inbounds nuw (i8, ptr @je_tdatas_mtx, i64 64), %prof_tdata_destroy.exit.i ]
-  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink.i) #13
+  %45 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %.sink.i) #12
   br label %46
 
 46:                                               ; preds = %.sink.split.i, %prof_tdata_should_destroy.exit.i
   %47 = load ptr, ptr %19, align 8, !tbaa !92
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %49 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %48) #13
+  %49 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %48) #12
   %.not.i.i = icmp eq i32 %49, 0
   br i1 %.not.i.i, label %52, label %50
 
 50:                                               ; preds = %46
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %47) #13
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %47) #12
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 104
   store atomic i8 1, ptr %51 monotonic, align 1
   br label %52
@@ -2529,7 +2519,7 @@ prof_gctx_should_destroy.exit.i:                  ; preds = %497
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 104
   store atomic i8 0, ptr %503 monotonic, align 1
   %504 = getelementptr inbounds nuw i8, ptr %502, i64 64
-  %505 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %504) #13
+  %505 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %504) #12
   unreachable
 
 .thread57.i:                                      ; preds = %prof_gctx_should_destroy.exit.i, %497, %tctx_tree_remove.exit.i
@@ -2537,7 +2527,7 @@ prof_gctx_should_destroy.exit.i:                  ; preds = %497
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 104
   store atomic i8 0, ptr %507 monotonic, align 1
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 64
-  %509 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %508) #13
+  %509 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %508) #12
   %510 = icmp eq ptr %0, null
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %510, label %516, label %517
@@ -2548,11 +2538,11 @@ prof_gctx_should_destroy.exit.i:                  ; preds = %497
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 104
   store atomic i8 0, ptr %513 monotonic, align 1
   %514 = getelementptr inbounds nuw i8, ptr %512, i64 64
-  %515 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %514) #13
+  %515 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %514) #12
   br label %prof_tctx_destroy.exit
 
 516:                                              ; preds = %.thread57.i
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #12
   br label %tsdn_rtree_ctx.exit.i
 
 517:                                              ; preds = %.thread57.i
@@ -2631,7 +2621,7 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %517, %516
   br label %rtree_read.exit.i
 
 560:                                              ; preds = %544
-  %561 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i33.i, i64 noundef %519, i1 noundef zeroext true, i1 noundef zeroext false) #13, !noalias !111
+  %561 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i33.i, i64 noundef %519, i1 noundef zeroext true, i1 noundef zeroext false) #12, !noalias !111
   br label %rtree_read.exit.i
 
 rtree_read.exit.i:                                ; preds = %560, %548, %536, %526
@@ -2651,7 +2641,7 @@ rtree_read.exit.i:                                ; preds = %560, %548, %536, %5
   br i1 %510, label %570, label %571, !prof !26
 
 570:                                              ; preds = %rtree_read.exit.i
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #12
   br label %emap_alloc_ctx_lookup.exit.i
 
 571:                                              ; preds = %rtree_read.exit.i
@@ -2726,7 +2716,7 @@ emap_alloc_ctx_lookup.exit.i:                     ; preds = %571, %570
   br label %rtree_metadata_read.exit.i
 
 610:                                              ; preds = %594
-  %611 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %519, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %611 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %519, i1 noundef zeroext true, i1 noundef zeroext false) #12
   br label %rtree_metadata_read.exit.i
 
 rtree_metadata_read.exit.i:                       ; preds = %610, %598, %586, %576
@@ -2747,7 +2737,7 @@ prof_tctx_should_destroy.exit.thread:             ; preds = %11, %8, %2, %prof_t
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 104
   store atomic i8 0, ptr %620 monotonic, align 1
   %621 = getelementptr inbounds nuw i8, ptr %619, i64 64
-  %622 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %621) #13
+  %622 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %621) #12
   br label %prof_tctx_destroy.exit
 
 prof_tctx_destroy.exit:                           ; preds = %rtree_metadata_read.exit.i, %511, %prof_tctx_should_destroy.exit.thread
@@ -2781,7 +2771,7 @@ define internal fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef 
   br i1 %4, label %5, label %6, !prof !26
 
 5:                                                ; preds = %2
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #12
   br label %emap_alloc_ctx_lookup.exit
 
 6:                                                ; preds = %2
@@ -2860,7 +2850,7 @@ emap_alloc_ctx_lookup.exit:                       ; preds = %5, %6
   br label %rtree_metadata_read.exit
 
 49:                                               ; preds = %33
-  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #13
+  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #12
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %49
@@ -2871,7 +2861,7 @@ rtree_metadata_read.exit:                         ; preds = %15, %25, %37, %49
   br i1 %52, label %53, label %54, !prof !17
 
 53:                                               ; preds = %rtree_metadata_read.exit
-  call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #13
+  call void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) #12
   br label %55
 
 54:                                               ; preds = %rtree_metadata_read.exit
@@ -2892,7 +2882,7 @@ define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr no
   br i1 %4, label %5, label %6, !prof !26
 
 5:                                                ; preds = %2
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #13
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #12
   br label %tsdn_rtree_ctx.exit
 
 6:                                                ; preds = %2
@@ -2971,7 +2961,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   br label %rtree_read.exit
 
 49:                                               ; preds = %33
-  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #13, !noalias !123
+  %50 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #12, !noalias !123
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %15, %25, %37, %49
@@ -2982,7 +2972,7 @@ rtree_read.exit:                                  ; preds = %15, %25, %37, %49
   %54 = and i64 %53, -128
   %55 = inttoptr i64 %54 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @je_large_dalloc(ptr noundef %0, ptr noundef %55) #13
+  call void @je_large_dalloc(ptr noundef %0, ptr noundef %55) #12
   ret void
 }
 
@@ -3007,7 +2997,7 @@ define internal fastcc ptr @tdata_tree_iter_recurse(ptr noundef %0, ptr noundef 
   br i1 %.not, label %8, label %._crit_edge
 
 8:                                                ; preds = %.lr.ph
-  %9 = tail call ptr %1(ptr noundef nonnull @tdatas, ptr noundef nonnull %.tr3, ptr noundef %2) #13, !callees !129
+  %9 = tail call ptr %1(ptr noundef nonnull @tdatas, ptr noundef nonnull %.tr3, ptr noundef %2) #12, !callees !129
   %.not19 = icmp eq ptr %9, null
   br i1 %.not19, label %tailrecurse, label %._crit_edge
 
@@ -3035,11 +3025,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #12
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3052,10 +3039,9 @@ attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

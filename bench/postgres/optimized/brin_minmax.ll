@@ -18,7 +18,7 @@ define dso_local noundef i64 @brin_minmax_opcinfo(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @palloc0(i64 noundef 280) #4
+  %5 = tail call ptr @palloc0(i64 noundef 280) #3
   store i16 2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 1, ptr %6, align 2
@@ -29,7 +29,7 @@ define dso_local noundef i64 @brin_minmax_opcinfo(ptr noundef readonly captures(
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #4
+  %13 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %13, ptr %15, align 8
@@ -76,7 +76,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %30 = load i16, ptr %29, align 4
   %31 = sext i16 %30 to i32
-  %32 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %28, i32 noundef %31) #4
+  %32 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %28, i32 noundef %31) #3
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %34 = load ptr, ptr %33, align 8
   store i64 %32, ptr %34, align 8
@@ -84,7 +84,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %36 = trunc nuw i8 %35 to i1
   %37 = load i16, ptr %29, align 4
   %38 = sext i16 %37 to i32
-  %39 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %36, i32 noundef %38) #4
+  %39 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %36, i32 noundef %38) #3
   %40 = load ptr, ptr %33, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %39, ptr %41, align 8
@@ -98,7 +98,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i64, ptr %47, align 8
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef %45, i32 noundef %11, i64 noundef %9, i64 noundef %48) #4
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef %45, i32 noundef %11, i64 noundef %9, i64 noundef %48) #3
   %50 = icmp ne i64 %49, 0
   br i1 %50, label %51, label %67
 
@@ -112,7 +112,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %56 = load ptr, ptr %46, align 8
   %57 = load i64, ptr %56, align 8
   %58 = inttoptr i64 %57 to ptr
-  tail call void @pfree(ptr noundef %58) #4
+  tail call void @pfree(ptr noundef %58) #3
   %.pre = load i8, ptr %52, align 2, !range !4
   %59 = trunc nuw i8 %.pre to i1
   br label %60
@@ -122,7 +122,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %62 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %63 = load i16, ptr %62, align 4
   %64 = sext i16 %63 to i32
-  %65 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %61, i32 noundef %64) #4
+  %65 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %61, i32 noundef %64) #3
   %66 = load ptr, ptr %46, align 8
   store i64 %65, ptr %66, align 8
   br label %67
@@ -133,7 +133,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %70 = load ptr, ptr %46, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8
-  %73 = tail call i64 @FunctionCall2Coll(ptr noundef %69, i32 noundef %11, i64 noundef %9, i64 noundef %72) #4
+  %73 = tail call i64 @FunctionCall2Coll(ptr noundef %69, i32 noundef %11, i64 noundef %9, i64 noundef %72) #3
   %.not = icmp eq i64 %73, 0
   br i1 %.not, label %92, label %74
 
@@ -148,7 +148,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i64, ptr %80, align 8
   %82 = inttoptr i64 %81 to ptr
-  tail call void @pfree(ptr noundef %82) #4
+  tail call void @pfree(ptr noundef %82) #3
   %.pre48 = load i8, ptr %75, align 2, !range !4
   %83 = trunc nuw i8 %.pre48 to i1
   br label %84
@@ -158,7 +158,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_add_value(ptr noundef readonly
   %86 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %87 = load i16, ptr %86, align 4
   %88 = sext i16 %87 to i32
-  %89 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %85, i32 noundef %88) #4
+  %89 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %85, i32 noundef %88) #3
   %90 = load ptr, ptr %46, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 %89, ptr %91, align 8
@@ -231,26 +231,25 @@ define internal fastcc noundef ptr @minmax_get_strategy_procinfo(ptr noundef rea
   %40 = zext i32 %39 to i64
   %41 = zext i32 %2 to i64
   %42 = sext i16 %3 to i64
-  %43 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %37, i64 noundef %40, i64 noundef %41, i64 noundef %42) #4
+  %43 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %37, i64 noundef %40, i64 noundef %41, i64 noundef %42) #3
   %.not35 = icmp eq ptr %43, null
   br i1 %.not35, label %44, label %49
 
 44:                                               ; preds = %23
   %45 = zext i16 %3 to i32
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %46)
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   %47 = load i32, ptr %38, align 4
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %45, i32 noundef %47, i32 noundef %2, i32 noundef %29) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.minmax_get_strategy_procinfo) #4
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %45, i32 noundef %47, i32 noundef %2, i32 noundef %29) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.minmax_get_strategy_procinfo) #3
   unreachable
 
 49:                                               ; preds = %23
-  %50 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %43, i16 noundef signext 7) #4
+  %50 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 4, ptr noundef nonnull %43, i16 noundef signext 7) #3
   %51 = trunc i64 %50 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %43) #4
-  %52 = tail call i32 @get_opcode(i32 noundef %51) #4
+  tail call void @ReleaseSysCache(ptr noundef nonnull %43) #3
+  %52 = tail call i32 @get_opcode(i32 noundef %51) #3
   %53 = load ptr, ptr %0, align 8
-  tail call void @fmgr_info_cxt(i32 noundef %52, ptr noundef %19, ptr noundef %53) #4
+  tail call void @fmgr_info_cxt(i32 noundef %52, ptr noundef %19, ptr noundef %53) #3
   br label %54
 
 54:                                               ; preds = %49, %16
@@ -295,7 +294,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i64, ptr %24, align 8
-  %26 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #4
+  %26 = tail call i64 @FunctionCall2Coll(ptr noundef %22, i32 noundef %12, i64 noundef %25, i64 noundef %18) #3
   br label %51
 
 27:                                               ; preds = %1
@@ -303,7 +302,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %30, align 8
-  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #4
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %28, i32 noundef %12, i64 noundef %31, i64 noundef %18) #3
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %51, label %33
 
@@ -312,7 +311,7 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %35 = load ptr, ptr %29, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8
-  %38 = tail call i64 @FunctionCall2Coll(ptr noundef %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #4
+  %38 = tail call i64 @FunctionCall2Coll(ptr noundef %34, i32 noundef %12, i64 noundef %37, i64 noundef %18) #3
   br label %51
 
 39:                                               ; preds = %1, %1
@@ -321,16 +320,15 @@ define dso_local i64 @brin_minmax_consistent(ptr noundef readonly captures(none)
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
-  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #4
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef %40, i32 noundef %12, i64 noundef %44, i64 noundef %18) #3
   br label %51
 
 46:                                               ; preds = %1
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
-  tail call void @llvm.assume(i1 %47)
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
   %48 = load i16, ptr %19, align 2
   %49 = zext i16 %48 to i32
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %49) #4
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.brin_minmax_consistent) #4
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %49) #3
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 195, ptr noundef nonnull @__func__.brin_minmax_consistent) #3
   unreachable
 
 51:                                               ; preds = %27, %39, %33, %21
@@ -377,7 +375,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %30, align 8
-  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %25, i32 noundef %12, i64 noundef %28, i64 noundef %31) #4
+  %32 = tail call i64 @FunctionCall2Coll(ptr noundef %25, i32 noundef %12, i64 noundef %28, i64 noundef %31) #3
   %.not = icmp eq i64 %32, 0
   br i1 %.not, label %51, label %33
 
@@ -391,7 +389,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %38 = load ptr, ptr %29, align 8
   %39 = load i64, ptr %38, align 8
   %40 = inttoptr i64 %39 to ptr
-  tail call void @pfree(ptr noundef %40) #4
+  tail call void @pfree(ptr noundef %40) #3
   %.pre = load i8, ptr %34, align 2, !range !4
   %41 = trunc nuw i8 %.pre to i1
   br label %42
@@ -403,7 +401,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %47 = load i16, ptr %46, align 4
   %48 = sext i16 %47 to i32
-  %49 = tail call i64 @datumCopy(i64 noundef %45, i1 noundef zeroext %43, i32 noundef %48) #4
+  %49 = tail call i64 @datumCopy(i64 noundef %45, i1 noundef zeroext %43, i32 noundef %48) #3
   %50 = load ptr, ptr %29, align 8
   store i64 %49, ptr %50, align 8
   br label %51
@@ -417,7 +415,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %57 = load ptr, ptr %29, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8
-  %60 = tail call i64 @FunctionCall2Coll(ptr noundef %53, i32 noundef %12, i64 noundef %56, i64 noundef %59) #4
+  %60 = tail call i64 @FunctionCall2Coll(ptr noundef %53, i32 noundef %12, i64 noundef %56, i64 noundef %59) #3
   %.not34 = icmp eq i64 %60, 0
   br i1 %.not34, label %82, label %61
 
@@ -432,7 +430,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = inttoptr i64 %68 to ptr
-  tail call void @pfree(ptr noundef %69) #4
+  tail call void @pfree(ptr noundef %69) #3
   %.pre35 = load i8, ptr %62, align 2, !range !4
   %70 = trunc nuw i8 %.pre35 to i1
   br label %71
@@ -445,7 +443,7 @@ define dso_local noundef i64 @brin_minmax_union(ptr noundef readonly captures(no
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %77 = load i16, ptr %76, align 4
   %78 = sext i16 %77 to i32
-  %79 = tail call i64 @datumCopy(i64 noundef %75, i1 noundef zeroext %72, i32 noundef %78) #4
+  %79 = tail call i64 @datumCopy(i64 noundef %75, i1 noundef zeroext %72, i32 noundef %78) #3
   %80 = load ptr, ptr %29, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 %79, ptr %81, align 8
@@ -465,15 +463,11 @@ declare void @fmgr_info_cxt(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 
 declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { nounwind }
-attributes #5 = { cold nounwind }
+attributes #3 = { nounwind }
+attributes #4 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

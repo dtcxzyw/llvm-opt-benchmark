@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @GenericXLogStart(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc_aligned(i64 noundef 69632, i64 noundef 4096, i32 noundef 0) #8
+  %2 = tail call ptr @palloc_aligned(i64 noundef 69632, i64 noundef 4096, i32 noundef 0) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 114
@@ -124,10 +124,9 @@ BufferGetPage.exit:                               ; preds = %15, %21
   br label %34
 
 31:                                               ; preds = %5
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %32)
-  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef 4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.GenericXLogRegisterBuffer) #8
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef 4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.GenericXLogRegisterBuffer) #7
   unreachable
 
 34:                                               ; preds = %BufferGetPage.exit, %29
@@ -154,7 +153,7 @@ define dso_local i64 @GenericXLogFinish(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %5, label %235
 
 5:                                                ; preds = %1
-  tail call void @XLogBeginInsert() #8
+  tail call void @XLogBeginInsert() #7
   %6 = load volatile i32, ptr @CritSectionCount, align 4
   %7 = add i32 %6, 1
   store volatile i32 %7, ptr @CritSectionCount, align 4
@@ -506,7 +505,7 @@ computeDelta.exit:                                ; preds = %167, %.critedge.i14
   %198 = sub nsw i64 8192, %194
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %195, ptr align 1 %197, i64 %198, i1 false)
   %199 = load i32, ptr %10, align 8
-  tail call void @MarkBufferDirty(i32 noundef %199) #8
+  tail call void @MarkBufferDirty(i32 noundef %199) #7
   %200 = load i32, ptr %29, align 4
   %201 = and i32 %200, 1
   %.not53 = icmp eq i32 %201, 0
@@ -515,15 +514,15 @@ computeDelta.exit:                                ; preds = %167, %.critedge.i14
   br i1 %.not53, label %205, label %204
 
 204:                                              ; preds = %computeDelta.exit
-  tail call void @XLogRegisterBuffer(i8 noundef zeroext %202, i32 noundef %203, i8 noundef zeroext 9) #8
+  tail call void @XLogRegisterBuffer(i8 noundef zeroext %202, i32 noundef %203, i8 noundef zeroext 9) #7
   br label %209
 
 205:                                              ; preds = %computeDelta.exit
-  tail call void @XLogRegisterBuffer(i8 noundef zeroext %202, i32 noundef %203, i8 noundef zeroext 8) #8
+  tail call void @XLogRegisterBuffer(i8 noundef zeroext %202, i32 noundef %203, i8 noundef zeroext 8) #7
   %206 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %207 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %208 = load i32, ptr %207, align 8
-  tail call void @XLogRegisterBufData(i8 noundef zeroext %202, ptr noundef nonnull %206, i32 noundef %208) #8
+  tail call void @XLogRegisterBufData(i8 noundef zeroext %202, ptr noundef nonnull %206, i32 noundef %208) #7
   br label %209
 
 209:                                              ; preds = %204, %205, %9
@@ -532,7 +531,7 @@ computeDelta.exit:                                ; preds = %167, %.critedge.i14
   br i1 %exitcond89.not, label %210, label %9, !llvm.loop !12
 
 210:                                              ; preds = %209
-  %211 = tail call i64 @XLogInsert(i8 noundef zeroext 20, i8 noundef zeroext 0) #8
+  %211 = tail call i64 @XLogInsert(i8 noundef zeroext 20, i8 noundef zeroext 0) #7
   %212 = lshr i64 %211, 32
   %213 = trunc nuw i64 %212 to i32
   %214 = trunc i64 %211 to i32
@@ -617,7 +616,7 @@ BufferGetPage.exit57:                             ; preds = %245, %251
   %258 = load ptr, ptr %257, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %.0.i.i56, ptr noundef nonnull align 1 dereferenceable(8192) %258, i64 8192, i1 false)
   %259 = load i32, ptr %240, align 8
-  tail call void @MarkBufferDirty(i32 noundef %259) #8
+  tail call void @MarkBufferDirty(i32 noundef %259) #7
   br label %260
 
 260:                                              ; preds = %239, %BufferGetPage.exit57
@@ -630,7 +629,7 @@ BufferGetPage.exit57:                             ; preds = %245, %251
   %261 = load volatile i32, ptr @CritSectionCount, align 4
   %262 = add i32 %261, -1
   store volatile i32 %262, ptr @CritSectionCount, align 4
-  tail call void @pfree(ptr noundef nonnull %0) #8
+  tail call void @pfree(ptr noundef nonnull %0) #7
   ret i64 %.0
 }
 
@@ -651,7 +650,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @GenericXLogAbort(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @pfree(ptr noundef %0) #8
+  tail call void @pfree(ptr noundef %0) #7
   ret void
 }
 
@@ -695,7 +694,7 @@ define dso_local void @generic_redo(ptr noundef %0) local_unnamed_addr #0 {
   br label %61
 
 23:                                               ; preds = %14
-  %24 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext %.033, ptr noundef nonnull %21) #8
+  %24 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext %.033, ptr noundef nonnull %21) #7
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %61
 
@@ -723,7 +722,7 @@ define dso_local void @generic_redo(ptr noundef %0) local_unnamed_addr #0 {
 
 BufferGetPage.exit:                               ; preds = %29, %35
   %.0.i.i = phi ptr [ %34, %29 ], [ %40, %35 ]
-  %41 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext %.033, ptr noundef nonnull %3) #8
+  %41 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext %.033, ptr noundef nonnull %3) #7
   %42 = load i64, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
   %.not.i = icmp eq i64 %42, 0
@@ -757,7 +756,7 @@ applyPageRedo.exit:                               ; preds = %.lr.ph.i, %BufferGe
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i32 %12, ptr %59, align 4
   %60 = load i32, ptr %21, align 4
-  call void @MarkBufferDirty(i32 noundef %60) #8
+  call void @MarkBufferDirty(i32 noundef %60) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %61
 
@@ -780,7 +779,7 @@ applyPageRedo.exit:                               ; preds = %.lr.ph.i, %BufferGe
   br i1 %.not31, label %72, label %71
 
 71:                                               ; preds = %.lr.ph36
-  call void @UnlockReleaseBuffer(i32 noundef %70) #8
+  call void @UnlockReleaseBuffer(i32 noundef %70) #7
   %.pre = load ptr, ptr %6, align 8
   br label %72
 
@@ -806,8 +805,8 @@ declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @generic_mask(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @mask_page_lsn_and_checksum(ptr noundef %0) #8
-  tail call void @mask_unused_space(ptr noundef %0) #8
+  tail call void @mask_page_lsn_and_checksum(ptr noundef %0) #7
+  tail call void @mask_unused_space(ptr noundef %0) #7
   ret void
 }
 
@@ -821,17 +820,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i16 @llvm.umin.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #7
+declare i16 @llvm.umax.i16(i16, i16) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -839,10 +835,9 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

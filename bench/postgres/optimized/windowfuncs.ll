@@ -13,8 +13,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef i64 @window_row_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
-  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %4) #6
+  %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
+  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %4) #5
   %5 = add i64 %4, 1
   ret i64 %5
 }
@@ -52,8 +52,8 @@ define dso_local i64 @window_row_number_support(ptr noundef readonly captures(no
 define dso_local i64 @window_rank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
-  %5 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
+  %5 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %9
@@ -64,14 +64,14 @@ define dso_local i64 @window_rank(ptr noundef readonly captures(none) %0) local_
 
 9:                                                ; preds = %1
   %10 = add i64 %4, -1
-  %11 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %10, i64 noundef %4) #6
+  %11 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %10, i64 noundef %4) #5
   %not..i = xor i1 %11, true
   br label %rank_up.exit
 
 rank_up.exit:                                     ; preds = %8, %9
   %.0.i = phi i1 [ false, %8 ], [ %not..i, %9 ]
-  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %4) #6
-  %12 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %4) #5
+  %12 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   br i1 %.0.i, label %13, label %rank_up.exit._crit_edge
 
 rank_up.exit._crit_edge:                          ; preds = %rank_up.exit
@@ -79,7 +79,7 @@ rank_up.exit._crit_edge:                          ; preds = %rank_up.exit
   br label %16
 
 13:                                               ; preds = %rank_up.exit
-  %14 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
+  %14 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
   %15 = add i64 %14, 1
   store i64 %15, ptr %12, align 8
   br label %16
@@ -120,8 +120,8 @@ define dso_local i64 @window_rank_support(ptr noundef readonly captures(none) %0
 define dso_local i64 @window_dense_rank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
-  %5 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
+  %5 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %9
@@ -132,14 +132,14 @@ define dso_local i64 @window_dense_rank(ptr noundef readonly captures(none) %0) 
 
 9:                                                ; preds = %1
   %10 = add i64 %4, -1
-  %11 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %10, i64 noundef %4) #6
+  %11 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %10, i64 noundef %4) #5
   %not..i = xor i1 %11, true
   br label %rank_up.exit
 
 rank_up.exit:                                     ; preds = %8, %9
   %.0.i = phi i1 [ false, %8 ], [ %not..i, %9 ]
-  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %4) #6
-  %12 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %4) #5
+  %12 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   %.pre = load i64, ptr %12, align 8
   br i1 %.0.i, label %13, label %15
 
@@ -182,9 +182,9 @@ define dso_local i64 @window_dense_rank_support(ptr noundef readonly captures(no
 define dso_local i64 @window_percent_rank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @WinGetPartitionRowCount(ptr noundef %3) #6
-  %5 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
-  %6 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  %4 = tail call i64 @WinGetPartitionRowCount(ptr noundef %3) #5
+  %5 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
+  %6 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
@@ -195,18 +195,18 @@ define dso_local i64 @window_percent_rank(ptr noundef readonly captures(none) %0
 
 10:                                               ; preds = %1
   %11 = add i64 %5, -1
-  %12 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %11, i64 noundef %5) #6
+  %12 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %11, i64 noundef %5) #5
   %not..i = xor i1 %12, true
   br label %rank_up.exit
 
 rank_up.exit:                                     ; preds = %9, %10
   %.0.i = phi i1 [ false, %9 ], [ %not..i, %10 ]
-  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %5) #6
-  %13 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %5) #5
+  %13 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   br i1 %.0.i, label %14, label %17
 
 14:                                               ; preds = %rank_up.exit
-  %15 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
+  %15 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
   %16 = add i64 %15, 1
   store i64 %16, ptr %13, align 8
   br label %17
@@ -261,9 +261,9 @@ define dso_local i64 @window_percent_rank_support(ptr noundef readonly captures(
 define dso_local i64 @window_cume_dist(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i64 @WinGetPartitionRowCount(ptr noundef %3) #6
-  %5 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
-  %6 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  %4 = tail call i64 @WinGetPartitionRowCount(ptr noundef %3) #5
+  %5 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
+  %6 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %10
@@ -274,14 +274,14 @@ define dso_local i64 @window_cume_dist(ptr noundef readonly captures(none) %0) l
 
 10:                                               ; preds = %1
   %11 = add i64 %5, -1
-  %12 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %11, i64 noundef %5) #6
+  %12 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %11, i64 noundef %5) #5
   %not..i = xor i1 %12, true
   br label %rank_up.exit
 
 rank_up.exit:                                     ; preds = %9, %10
   %.0.i = phi i1 [ false, %9 ], [ %not..i, %10 ]
-  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %5) #6
-  %13 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #6
+  tail call void @WinSetMarkPosition(ptr noundef %3, i64 noundef %5) #5
+  %13 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %3, i64 noundef 8) #5
   br i1 %.0.i, label %17, label %14
 
 14:                                               ; preds = %rank_up.exit
@@ -290,7 +290,7 @@ rank_up.exit:                                     ; preds = %9, %10
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %14, %rank_up.exit
-  %18 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
+  %18 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #5
   %19 = add i64 %18, 1
   store i64 %19, ptr %13, align 8
   %20 = icmp slt i64 %19, %4
@@ -299,7 +299,7 @@ rank_up.exit:                                     ; preds = %9, %10
 .lr.ph:                                           ; preds = %17, %23
   %.017 = phi i64 [ %25, %23 ], [ %19, %17 ]
   %21 = add i64 %.017, -1
-  %22 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %21, i64 noundef %.017) #6
+  %22 = tail call zeroext i1 @WinRowsArePeers(ptr noundef %3, i64 noundef %21, i64 noundef %.017) #5
   %.pre.pre = load i64, ptr %13, align 8
   br i1 %22, label %23, label %.loopexit
 
@@ -351,7 +351,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %4, i64 noundef 32) #6
+  %5 = tail call ptr @WinGetPartitionLocalMemory(ptr noundef %4, i64 noundef 32) #5
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %9, label %._crit_edge
@@ -366,8 +366,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = tail call i64 @WinGetPartitionRowCount(ptr noundef %4) #6
-  %11 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 0, ptr noundef nonnull %2) #6
+  %10 = tail call i64 @WinGetPartitionRowCount(ptr noundef %4) #5
+  %11 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 0, ptr noundef nonnull %2) #5
   %12 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %32, label %14
@@ -378,11 +378,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nounde
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %14
-  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %18)
-  %19 = call i32 @errcode(i32 noundef 67371138) #6
-  %20 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 443, ptr noundef nonnull @__func__.window_ntile) #6
+  %18 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %19 = call i32 @errcode(i32 noundef 67371138) #5
+  %20 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 443, ptr noundef nonnull @__func__.window_ntile) #5
   unreachable
 
 21:                                               ; preds = %14
@@ -504,7 +503,7 @@ define dso_local i64 @window_lag(ptr noundef captures(none) %0) local_unnamed_ad
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef -1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef -1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %leadlag_common.exit
@@ -529,7 +528,7 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
+  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #5
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
@@ -537,9 +536,9 @@ define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) loca
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
   %11 = load ptr, ptr %0, align 8
-  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
+  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #5
   %13 = sub i32 0, %10
-  %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %15 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.sink.split.i, label %leadlag_common.exit
@@ -564,7 +563,7 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
+  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #5
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
@@ -572,15 +571,15 @@ define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(no
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
   %11 = load ptr, ptr %0, align 8
-  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
+  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #5
   %13 = sub i32 0, %10
-  %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %14 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %13, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %15 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %9
-  %18 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 2, ptr noundef nonnull %2) #6
+  %18 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 2, ptr noundef nonnull %2) #5
   br label %19
 
 19:                                               ; preds = %17, %9
@@ -609,7 +608,7 @@ define dso_local i64 @window_lead(ptr noundef captures(none) %0) local_unnamed_a
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %6 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %leadlag_common.exit
@@ -634,7 +633,7 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
+  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #5
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
@@ -642,8 +641,8 @@ define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) loc
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
   %11 = load ptr, ptr %0, align 8
-  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
-  %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #5
+  %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %14 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.sink.split.i, label %leadlag_common.exit
@@ -668,7 +667,7 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #6
+  %6 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 1, ptr noundef nonnull %2) #5
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %.sink.split.i, label %9
@@ -676,14 +675,14 @@ define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(n
 9:                                                ; preds = %1
   %10 = trunc i64 %6 to i32
   %11 = load ptr, ptr %0, align 8
-  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #6
-  %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %12 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %11, i32 noundef 1) #5
+  %13 = call i64 @WinGetFuncArgInPartition(ptr noundef %5, i32 noundef 0, i32 noundef %10, i32 noundef 0, i1 noundef zeroext %12, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %14 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %9
-  %17 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 2, ptr noundef nonnull %2) #6
+  %17 = call i64 @WinGetFuncArgCurrent(ptr noundef %5, i32 noundef 2, ptr noundef nonnull %2) #5
   br label %18
 
 18:                                               ; preds = %16, %9
@@ -710,7 +709,7 @@ define dso_local i64 @window_first_value(ptr noundef captures(none) %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
+  %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #5
   %6 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -734,7 +733,7 @@ define dso_local i64 @window_last_value(ptr noundef captures(none) %0) local_unn
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #6
+  %5 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %2, ptr noundef null) #5
   %6 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -756,7 +755,7 @@ define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %5 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %2) #6
+  %5 = call i64 @WinGetFuncArgCurrent(ptr noundef %4, i32 noundef 1, ptr noundef nonnull %2) #5
   %6 = trunc i64 %5 to i32
   %7 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
@@ -764,21 +763,20 @@ define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unna
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr %0, align 8
-  %11 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %10, i32 noundef 1) #6
+  %11 = call zeroext i1 @get_fn_expr_arg_stable(ptr noundef %10, i32 noundef 1) #5
   %12 = icmp slt i32 %6, 1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %14)
-  %15 = call i32 @errcode(i32 noundef 100925570) #6
-  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__func__.window_nth_value) #6
+  %14 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %15 = call i32 @errcode(i32 noundef 100925570) #5
+  %16 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 707, ptr noundef nonnull @__func__.window_nth_value) #5
   unreachable
 
 17:                                               ; preds = %9
   %18 = add nsw i32 %6, -1
-  %19 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef %18, i32 noundef 1, i1 noundef zeroext %11, ptr noundef nonnull %2, ptr noundef null) #6
+  %19 = call i64 @WinGetFuncArgInFrame(ptr noundef %4, i32 noundef 0, i32 noundef %18, i32 noundef 1, i1 noundef zeroext %11, ptr noundef nonnull %2, ptr noundef null) #5
   %20 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %.sink.split, label %23
@@ -804,17 +802,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

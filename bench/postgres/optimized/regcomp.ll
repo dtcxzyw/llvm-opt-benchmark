@@ -522,7 +522,6 @@ define dso_local void @pg_set_regex_collation(i32 noundef %0) local_unnamed_addr
 
 2:                                                ; preds = %1
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 34209924) #20
   %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #20
   %6 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.1) #20
@@ -538,7 +537,6 @@ define dso_local void @pg_set_regex_collation(i32 noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %7
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #21
-  tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 1088) #20
   %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #20
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 265, ptr noundef nonnull @__func__.pg_set_regex_collation) #20

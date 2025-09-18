@@ -49005,12 +49005,6 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc7bounded7channel17h3a8364cab479d1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %0, ptr %11, align 8
   %12 = call { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h9c2c38c856d52e1cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  %15 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %16)
   ret { ptr, ptr } %12
 }
 
@@ -49040,12 +49034,6 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc7bounded7channel17h5889bc7d8b447a
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %0, ptr %11, align 8
   %12 = call { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h5bfecb6ca2fff59aE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
-  %13 = extractvalue { ptr, ptr } %12, 0
-  %14 = extractvalue { ptr, ptr } %12, 1
-  %15 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %16)
   ret { ptr, ptr } %12
 }
 
@@ -68269,20 +68257,13 @@ define hidden { i32, i32 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4f038bc0c798677E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #22 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !noundef !11
-  %4 = load i64, ptr %0, align 8, !noundef !11
-  %.not = icmp eq i64 %3, %4
-  tail call void @llvm.assume(i1 %.not)
   ret { ptr, i64 } { ptr null, i64 undef }
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef i32 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h38281d61fb66367aE.llvm.1929265744411185926"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, i64 noundef %1) unnamed_addr #23 {
-  %3 = icmp eq i64 %1, 0
-  tail call void @llvm.assume(i1 %3)
-  %4 = load i32, ptr %0, align 4, !noundef !11
-  ret i32 %4
+  %3 = load i32, ptr %0, align 4, !noundef !11
+  ret i32 %3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
@@ -68314,10 +68295,8 @@ define hidden noundef { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17hb34e20001e1bff48E.llvm.1929265744411185926"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) unnamed_addr #23 {
-  %3 = icmp eq i64 %1, 0
-  tail call void @llvm.assume(i1 %3)
-  %4 = load ptr, ptr %0, align 8, !nonnull !11, !align !21, !noundef !11
-  ret ptr %4
+  %3 = load ptr, ptr %0, align 8, !nonnull !11, !align !21, !noundef !11
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -80959,9 +80938,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17hc8d6811378af208dE.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -80988,10 +80964,6 @@ define void @"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u2
   br label %"_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb62e334a984d87adE.exit"
 
 "_ZN97_$LT$meilisearch..metrics..MEILISEARCH_HTTP_REQUESTS_TOTAL$u20$as$u20$core..ops..deref..Deref$GT$5deref17hb62e334a984d87adE.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81019,9 +80991,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN102_$LT$meilisearch..
 
 _ZN3std4sync4once4Once9call_once17hbac9971db078de68E.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81048,10 +81017,6 @@ define void @"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUE
   br label %"_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1795dc0b4ac39593E.exit"
 
 "_ZN102_$LT$meilisearch..metrics..MEILISEARCH_DEGRADED_SEARCH_REQUESTS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1795dc0b4ac39593E.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81079,9 +81044,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17hd7dc83b71d3fcd19E.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81108,10 +81070,6 @@ define void @"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u
   br label %"_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b3eaa41329dd31aE.exit"
 
 "_ZN91_$LT$meilisearch..metrics..MEILISEARCH_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17h2b3eaa41329dd31aE.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81139,9 +81097,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN96_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17he6ee672fb3b5e1b4E.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81168,10 +81123,6 @@ define void @"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20
   br label %"_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17heeca0f4a9356bb14E.exit"
 
 "_ZN96_$LT$meilisearch..metrics..MEILISEARCH_USED_DB_SIZE_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref17heeca0f4a9356bb14E.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81199,9 +81150,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17hd4e9b0ad9ad442f9E.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81228,10 +81176,6 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20
   br label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h77a59c93f4787114E.exit"
 
 "_ZN89_$LT$meilisearch..metrics..MEILISEARCH_INDEX_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h77a59c93f4787114E.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81259,9 +81203,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN94_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17hcbcc0c023041de6bE.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81288,10 +81229,6 @@ define void @"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$a
   br label %"_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h486e3dfd60c69e50E.exit"
 
 "_ZN94_$LT$meilisearch..metrics..MEILISEARCH_INDEX_DOCS_COUNT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h486e3dfd60c69e50E.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81319,9 +81256,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN104_$LT$meilisearch..
 
 _ZN3std4sync4once4Once9call_once17h3d43446b27221f09E.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81348,10 +81282,6 @@ define void @"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SE
   br label %"_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3cac091dfdcd560fE.exit"
 
 "_ZN104_$LT$meilisearch..metrics..MEILISEARCH_HTTP_RESPONSE_TIME_SECONDS$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3cac091dfdcd560fE.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81379,9 +81309,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN86_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17h9f7f7fc81dcaeacbE.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81408,10 +81335,6 @@ define void @"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$la
   br label %"_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref17hae6a9b7ed44a9382E.exit"
 
 "_ZN86_$LT$meilisearch..metrics..MEILISEARCH_NB_TASKS$u20$as$u20$core..ops..deref..Deref$GT$5deref17hae6a9b7ed44a9382E.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81439,9 +81362,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17hc680c71e2c0ecb78E.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81468,10 +81388,6 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20
   br label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref17h80f034314569f5acE.exit"
 
 "_ZN89_$LT$meilisearch..metrics..MEILISEARCH_LAST_UPDATE$u20$as$u20$core..ops..deref..Deref$GT$5deref17h80f034314569f5acE.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -81499,9 +81415,6 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN89_$LT$meilisearch..m
 
 _ZN3std4sync4once4Once9call_once17hd9632be2fa99eaebE.llvm.1929265744411185926.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %8
 }
@@ -81528,10 +81441,6 @@ define void @"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20
   br label %"_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9c66876fb01c60a5E.exit"
 
 "_ZN89_$LT$meilisearch..metrics..MEILISEARCH_IS_INDEXING$u20$as$u20$core..ops..deref..Deref$GT$5deref17h9c66876fb01c60a5E.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !11, !align !21, !noundef !11
-  %9 = load ptr, ptr %8, align 8, !noundef !11
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -68,57 +68,57 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 define hidden ptr @_ZN6hermes2vm21createDateConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 {
 entry:
   %datePrototype1 = getelementptr inbounds nuw i8, ptr %runtime, i64 256
-  %call.i = tail call ptr @_ZN6hermes2vm23defineSystemConstructorERNS0_7RuntimeENS0_8SymbolIDEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvS2_NS0_10NativeArgsEENS0_6HandleINS0_8JSObjectEEEjPFNS4_INS0_12PseudoHandleISE_EELS7_6EEES2_SF_S9_ENS0_8CellKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 272, ptr noundef nonnull @_ZN6hermes2vm19dateConstructor_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, ptr nonnull %datePrototype1, i32 noundef 7, ptr noundef nonnull @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_6JSDateEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv, i32 noundef 61) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 34, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm20datePrototypeGetTimeEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 282, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm20datePrototypeGetTimeEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 27, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 317, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 318, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 276, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 277, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 278, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 29, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 279, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 280, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_ZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 283, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 284, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 285, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 286, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 287, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 288, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 289, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 290, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 291, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 292, ptr noundef nonnull inttoptr (i64 9 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 293, ptr noundef nonnull inttoptr (i64 10 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 294, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 295, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 296, ptr noundef nonnull inttoptr (i64 13 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 297, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 298, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 299, ptr noundef nonnull inttoptr (i64 16 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 300, ptr noundef nonnull inttoptr (i64 17 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 301, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetTime_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 309, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm32datePrototypeSetMilliseconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 316, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm32datePrototypeSetMilliseconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 308, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetSeconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 315, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetSeconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 307, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetMinutes_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 314, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetMinutes_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 306, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetHours_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 4) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 313, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetHours_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 4) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 305, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetDate_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 312, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetDate_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 304, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetMonth_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 311, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetMonth_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 302, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm28datePrototypeSetFullYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 310, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm28datePrototypeSetFullYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 303, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 281, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm23datePrototypeToJSON_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  %call226 = tail call { i32, i64 } @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDES6_PvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEjNS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 268436006, i32 475, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm30datePrototypeSymbolToPrimitiveEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1, i32 316) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call.i, i32 274, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm13dateParse_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call.i, i32 273, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm11dateUTC_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 7) #14
-  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call.i, i32 275, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm7dateNowEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #14
+  %call.i = tail call ptr @_ZN6hermes2vm23defineSystemConstructorERNS0_7RuntimeENS0_8SymbolIDEPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEEPvS2_NS0_10NativeArgsEENS0_6HandleINS0_8JSObjectEEEjPFNS4_INS0_12PseudoHandleISE_EELS7_6EEES2_SF_S9_ENS0_8CellKindE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 272, ptr noundef nonnull @_ZN6hermes2vm19dateConstructor_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, ptr nonnull %datePrototype1, i32 noundef 7, ptr noundef nonnull @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_6JSDateEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv, i32 noundef 61) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 34, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm20datePrototypeGetTimeEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 282, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm20datePrototypeGetTimeEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 27, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 317, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 318, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 276, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 277, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 278, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeToStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 29, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 279, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 280, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_ZN6hermes2vm33datePrototypeToLocaleStringHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 283, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 284, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 285, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 286, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 287, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 288, ptr noundef nonnull inttoptr (i64 5 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 289, ptr noundef nonnull inttoptr (i64 6 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 290, ptr noundef nonnull inttoptr (i64 7 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 291, ptr noundef nonnull inttoptr (i64 8 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 292, ptr noundef nonnull inttoptr (i64 9 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 293, ptr noundef nonnull inttoptr (i64 10 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 294, ptr noundef nonnull inttoptr (i64 11 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 295, ptr noundef nonnull inttoptr (i64 12 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 296, ptr noundef nonnull inttoptr (i64 13 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 297, ptr noundef nonnull inttoptr (i64 14 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 298, ptr noundef nonnull inttoptr (i64 15 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 299, ptr noundef nonnull inttoptr (i64 16 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 300, ptr noundef nonnull inttoptr (i64 17 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeGetterHelperEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 301, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetTime_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 309, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm32datePrototypeSetMilliseconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 316, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm32datePrototypeSetMilliseconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 308, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetSeconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 315, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetSeconds_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 307, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetMinutes_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 314, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm27datePrototypeSetMinutes_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 306, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetHours_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 4) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 313, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetHours_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 4) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 305, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetDate_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 312, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetDate_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 304, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetMonth_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 311, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm25datePrototypeSetMonth_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 2) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 302, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm28datePrototypeSetFullYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 310, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull @_ZN6hermes2vm28datePrototypeSetFullYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 3) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 303, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm24datePrototypeSetYear_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 281, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm23datePrototypeToJSON_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  %call226 = tail call { i32, i64 } @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDES6_PvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEjNS0_19DefinePropertyFlagsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %datePrototype1, i32 268436006, i32 475, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm30datePrototypeSymbolToPrimitiveEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1, i32 316) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call.i, i32 274, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm13dateParse_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 1) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call.i, i32 273, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm11dateUTC_RJSEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 7) #13
+  tail call void @_ZN6hermes2vm12defineMethodERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS0_8SymbolIDEPvPFNS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEES7_S2_NS0_10NativeArgsEEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call.i, i32 275, ptr noundef null, ptr noundef nonnull @_ZN6hermes2vm7dateNowEPvRNS0_7RuntimeENS0_10NativeArgsE, i32 noundef 0) #13
   ret ptr %call.i
 }
 
@@ -144,7 +144,7 @@ if.then:                                          ; preds = %entry
   ]
 
 if.then4:                                         ; preds = %if.then
-  %call5 = tail call noundef i64 @_ZN6hermes2vm7curTimeEv() #14
+  %call5 = tail call noundef i64 @_ZN6hermes2vm7curTimeEv() #13
   %conv = sitofp i64 %call5 to double
   br label %if.end67
 
@@ -168,7 +168,7 @@ if.then12:                                        ; preds = %cond.true.i13
   br label %if.end67
 
 if.else14:                                        ; preds = %cond.true.i13, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
-  %call21 = tail call { i32, i64 } @_ZN6hermes2vm15toPrimitive_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_13PreferredTypeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i, i32 noundef 0) #14
+  %call21 = tail call { i32, i64 } @_ZN6hermes2vm15toPrimitive_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_13PreferredTypeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i, i32 noundef 0) #13
   %7 = extractvalue { i32, i64 } %call21, 0
   %8 = extractvalue { i32, i64 } %call21, 1
   %cmp.i18 = icmp eq i32 %7, 0
@@ -191,7 +191,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end
-  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %9, i64 %8) #14
+  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %9, i64 %8) #13
   %.pre = load i64, ptr %call7.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
 
@@ -203,15 +203,15 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %i
   br i1 %cmp.i19, label %if.then32, label %if.else43
 
 if.then32:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
-  %call40 = tail call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #14
+  %call40 = tail call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #13
   %13 = extractvalue { ptr, i64 } %call40, 0
   %14 = extractvalue { ptr, i64 } %call40, 1
-  %call41 = tail call noundef double @_ZN6hermes2vm9parseDateENS0_10StringViewE(ptr %13, i64 %14) #14
-  %call42 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call41) #14
+  %call41 = tail call noundef double @_ZN6hermes2vm9parseDateENS0_10StringViewE(ptr %13, i64 %14) #13
+  %call42 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call41) #13
   br label %if.end67
 
 if.else43:                                        ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
-  %call47 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #14
+  %call47 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #13
   %15 = extractvalue { i32, i64 } %call47, 0
   %cmp.i20 = icmp eq i32 %15, 0
   br i1 %cmp.i20, label %return, label %if.end50
@@ -219,7 +219,7 @@ if.else43:                                        ; preds = %_ZN6hermes2vm15Hand
 if.end50:                                         ; preds = %if.else43
   %16 = extractvalue { i32, i64 } %call47, 1
   %17 = bitcast i64 %16 to double
-  %call53 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %17) #14
+  %call53 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %17) #13
   br label %if.end67
 
 if.else56:                                        ; preds = %if.then
@@ -233,8 +233,8 @@ if.else56:                                        ; preds = %if.then
 
 if.end62:                                         ; preds = %if.else56
   %19 = extractvalue { i32, double } %call58, 1
-  %call64 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %19) #14
-  %call65 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call64) #14
+  %call64 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %19) #13
+  %call65 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call64) #13
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end62, %if.then32, %if.end50, %if.then12, %if.then4
@@ -256,11 +256,11 @@ if.end73:                                         ; preds = %entry
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 12
   store i32 32, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %call74 = call noundef i64 @_ZN6hermes2vm7curTimeEv() #14
+  %call74 = call noundef i64 @_ZN6hermes2vm7curTimeEv() #13
   %conv75 = sitofp i64 %call74 to double
-  %call76 = call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %conv75) #14
+  %call76 = call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %conv75) #13
   %sub = fsub double %call76, %conv75
-  call void @_ZN6hermes2vm14dateTimeStringEddRN4llvh15SmallVectorImplIcEE(double noundef %call76, double noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  call void @_ZN6hermes2vm14dateTimeStringEddRN4llvh15SmallVectorImplIcEE(double noundef %call76, double noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %str) #13
   %22 = load ptr, ptr %str, align 8
   %23 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %23 to i64
@@ -271,7 +271,7 @@ if.end73:                                         ; preds = %entry
   br i1 %cmp.i.i28, label %if.then.i, label %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit
 
 if.then.i:                                        ; preds = %if.end73
-  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.17) #15
+  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.17) #14
   unreachable
 
 _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit: ; preds = %if.end73
@@ -280,7 +280,7 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallR
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit
-  call void @free(ptr noundef %26) #14
+  call void @free(ptr noundef %26) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit, %if.else56, %if.else43, %if.else14, %if.end67
@@ -323,7 +323,7 @@ if.then:                                          ; preds = %cond.true.i, %entry
   store ptr @.str.2, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %3, align 8
-  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %cond.true.i
@@ -383,7 +383,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.3, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -392,7 +392,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   %cmp.i.not = icmp eq i32 %5, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
   %retval.sroa.0.0.i4 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call9 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i4) #14
+  %call9 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i4) #13
   %6 = extractvalue { i32, i64 } %call9, 0
   %cmp.i5 = icmp eq i32 %6, 0
   br i1 %cmp.i5, label %return, label %if.end12
@@ -400,7 +400,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
 if.end12:                                         ; preds = %if.end
   %7 = extractvalue { i32, i64 } %call9, 1
   %8 = bitcast i64 %7 to double
-  %call15 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %8) #14
+  %call15 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %8) #13
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655
   %9 = inttoptr i64 %and.i.i.i.i.i to ptr
@@ -461,7 +461,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.4, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -471,7 +471,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre18 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -483,7 +483,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i10 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i10) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i10) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i11 = icmp eq i32 %9, 0
   br i1 %cmp.i11, label %return, label %if.end18
@@ -491,21 +491,21 @@ if.end9:                                          ; preds = %if.then7, %if.end
 if.end18:                                         ; preds = %if.end9
   %10 = extractvalue { i32, i64 } %call15, 1
   %11 = bitcast i64 %10 to double
-  %call21 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #14
-  %call22 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #14
-  %call23 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #14
-  %call24 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #14
-  %call25 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %call22, double noundef %call23, double noundef %call24, double noundef %11) #14
-  %call26 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call21, double noundef %call25) #14
+  %call21 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #13
+  %call22 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #13
+  %call23 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #13
+  %call24 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #13
+  %call25 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %call22, double noundef %call23, double noundef %call24, double noundef %11) #13
+  %call26 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call21, double noundef %call25) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end18
-  %call28 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call26) #14
+  %call28 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call26) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end18, %cond.true
   %call26.sink = phi double [ %call28, %cond.true ], [ %call26, %if.end18 ]
-  %call30 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call26.sink) #14
+  %call30 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call26.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i12 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i13 = and i64 %agg.tmp.sroa.0.0.copyload.i.i12, 281474976710655
   %12 = inttoptr i64 %and.i.i.i.i.i13 to ptr
@@ -566,7 +566,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.5, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -576,7 +576,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre28 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -588,7 +588,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i11 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i11) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i11) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i12 = icmp eq i32 %9, 0
   br i1 %cmp.i12, label %return, label %if.end18
@@ -603,7 +603,7 @@ if.end18:                                         ; preds = %if.end9
 if.then22:                                        ; preds = %if.end18
   %13 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i16 = getelementptr inbounds i8, ptr %13, i64 -16
-  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i16) #14
+  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i16) #13
   %14 = extractvalue { i32, i64 } %call30, 0
   %cmp.i18 = icmp eq i32 %14, 0
   br i1 %cmp.i18, label %return, label %if.end34
@@ -614,25 +614,25 @@ if.end34:                                         ; preds = %if.then22
   br label %if.end38
 
 if.else:                                          ; preds = %if.end18
-  %call37 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #14
+  %call37 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #13
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.end34
   %milli.0 = phi double [ %16, %if.end34 ], [ %call37, %if.else ]
-  %call39 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #14
-  %call40 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #14
-  %call41 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #14
-  %call42 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %call40, double noundef %call41, double noundef %11, double noundef %milli.0) #14
-  %call43 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call39, double noundef %call42) #14
+  %call39 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #13
+  %call40 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #13
+  %call41 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #13
+  %call42 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %call40, double noundef %call41, double noundef %11, double noundef %milli.0) #13
+  %call43 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call39, double noundef %call42) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end38
-  %call45 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call43) #14
+  %call45 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call43) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end38, %cond.true
   %call43.sink = phi double [ %call45, %cond.true ], [ %call43, %if.end38 ]
-  %call47 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call43.sink) #14
+  %call47 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call43.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i20 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i21 = and i64 %agg.tmp.sroa.0.0.copyload.i.i20, 281474976710655
   %17 = inttoptr i64 %and.i.i.i.i.i21 to ptr
@@ -693,7 +693,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.6, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -703,7 +703,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre41 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -715,7 +715,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i12 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i12) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i12) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i13 = icmp eq i32 %9, 0
   br i1 %cmp.i13, label %return, label %if.end18
@@ -730,7 +730,7 @@ if.end18:                                         ; preds = %if.end9
 if.then22:                                        ; preds = %if.end18
   %13 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %13, i64 -16
-  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i17) #14
+  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i17) #13
   %14 = extractvalue { i32, i64 } %call30, 0
   %cmp.i19 = icmp eq i32 %14, 0
   br i1 %cmp.i19, label %return, label %if.end34
@@ -741,7 +741,7 @@ if.end34:                                         ; preds = %if.then22
   br label %if.end38
 
 if.else:                                          ; preds = %if.end18
-  %call37 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #14
+  %call37 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #13
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.end34
@@ -753,7 +753,7 @@ if.end38:                                         ; preds = %if.else, %if.end34
 if.then41:                                        ; preds = %if.end38
   %18 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %18, i64 -24
-  %call49 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i25) #14
+  %call49 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i25) #13
   %19 = extractvalue { i32, i64 } %call49, 0
   %cmp.i29 = icmp eq i32 %19, 0
   br i1 %cmp.i29, label %return, label %if.end53
@@ -764,24 +764,24 @@ if.end53:                                         ; preds = %if.then41
   br label %if.end58
 
 if.else56:                                        ; preds = %if.end38
-  %call57 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #14
+  %call57 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #13
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else56, %if.end53
   %milli.0 = phi double [ %21, %if.end53 ], [ %call57, %if.else56 ]
-  %call59 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #14
-  %call60 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #14
-  %call61 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %call60, double noundef %11, double noundef %s.0, double noundef %milli.0) #14
-  %call62 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call59, double noundef %call61) #14
+  %call59 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #13
+  %call60 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #13
+  %call61 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %call60, double noundef %11, double noundef %s.0, double noundef %milli.0) #13
+  %call62 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call59, double noundef %call61) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end58
-  %call64 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call62) #14
+  %call64 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call62) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end58, %cond.true
   %call62.sink = phi double [ %call64, %cond.true ], [ %call62, %if.end58 ]
-  %call66 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call62.sink) #14
+  %call66 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call62.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i31 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i32 = and i64 %agg.tmp.sroa.0.0.copyload.i.i31, 281474976710655
   %22 = inttoptr i64 %and.i.i.i.i.i32 to ptr
@@ -842,7 +842,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.7, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -852,7 +852,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre54 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -864,7 +864,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i13 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i13) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i13) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i14 = icmp eq i32 %9, 0
   br i1 %cmp.i14, label %return, label %if.end18
@@ -879,7 +879,7 @@ if.end18:                                         ; preds = %if.end9
 if.then22:                                        ; preds = %if.end18
   %13 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %13, i64 -16
-  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i18) #14
+  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i18) #13
   %14 = extractvalue { i32, i64 } %call30, 0
   %cmp.i20 = icmp eq i32 %14, 0
   br i1 %cmp.i20, label %return, label %if.end34
@@ -890,7 +890,7 @@ if.end34:                                         ; preds = %if.then22
   br label %if.end38
 
 if.else:                                          ; preds = %if.end18
-  %call37 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #14
+  %call37 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #13
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.end34
@@ -902,7 +902,7 @@ if.end38:                                         ; preds = %if.else, %if.end34
 if.then41:                                        ; preds = %if.end38
   %18 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i26 = getelementptr inbounds i8, ptr %18, i64 -24
-  %call49 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i26) #14
+  %call49 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i26) #13
   %19 = extractvalue { i32, i64 } %call49, 0
   %cmp.i30 = icmp eq i32 %19, 0
   br i1 %cmp.i30, label %return, label %if.end53
@@ -913,7 +913,7 @@ if.end53:                                         ; preds = %if.then41
   br label %if.end58
 
 if.else56:                                        ; preds = %if.end38
-  %call57 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #14
+  %call57 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #13
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else56, %if.end53
@@ -925,7 +925,7 @@ if.end58:                                         ; preds = %if.else56, %if.end5
 if.then61:                                        ; preds = %if.end58
   %23 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i36 = getelementptr inbounds i8, ptr %23, i64 -32
-  %call69 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i36) #14
+  %call69 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i36) #13
   %24 = extractvalue { i32, i64 } %call69, 0
   %cmp.i40 = icmp eq i32 %24, 0
   br i1 %cmp.i40, label %return, label %if.end73
@@ -936,23 +936,23 @@ if.end73:                                         ; preds = %if.then61
   br label %if.end78
 
 if.else76:                                        ; preds = %if.end58
-  %call77 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #14
+  %call77 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #13
   br label %if.end78
 
 if.end78:                                         ; preds = %if.else76, %if.end73
   %milli.0 = phi double [ %26, %if.end73 ], [ %call77, %if.else76 ]
-  %call79 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #14
-  %call80 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %11, double noundef %m.0, double noundef %s.0, double noundef %milli.0) #14
-  %call81 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call79, double noundef %call80) #14
+  %call79 = tail call noundef double @_ZN6hermes2vm3dayEd(double noundef %t.0) #13
+  %call80 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %11, double noundef %m.0, double noundef %s.0, double noundef %milli.0) #13
+  %call81 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call79, double noundef %call80) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end78
-  %call83 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call81) #14
+  %call83 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call81) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end78, %cond.true
   %call81.sink = phi double [ %call83, %cond.true ], [ %call81, %if.end78 ]
-  %call85 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call81.sink) #14
+  %call85 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call81.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i42 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i43 = and i64 %agg.tmp.sroa.0.0.copyload.i.i42, 281474976710655
   %27 = inttoptr i64 %and.i.i.i.i.i43 to ptr
@@ -1013,7 +1013,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.8, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -1023,7 +1023,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre17 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -1035,7 +1035,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i9 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i9) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i9) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i10 = icmp eq i32 %9, 0
   br i1 %cmp.i10, label %return, label %if.end18
@@ -1043,21 +1043,21 @@ if.end9:                                          ; preds = %if.then7, %if.end
 if.end18:                                         ; preds = %if.end9
   %10 = extractvalue { i32, i64 } %call15, 1
   %11 = bitcast i64 %10 to double
-  %call21 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #14
-  %call22 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.0) #14
+  %call21 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #13
+  %call22 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.0) #13
   %conv = uitofp i32 %call22 to double
-  %call23 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %call21, double noundef %conv, double noundef %11) #14
-  %call24 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.0) #14
-  %call25 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call23, double noundef %call24) #14
+  %call23 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %call21, double noundef %conv, double noundef %11) #13
+  %call24 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.0) #13
+  %call25 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call23, double noundef %call24) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end18
-  %call27 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call25) #14
+  %call27 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call25) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end18, %cond.true
   %call25.sink = phi double [ %call27, %cond.true ], [ %call25, %if.end18 ]
-  %call29 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call25.sink) #14
+  %call29 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call25.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i11 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i12 = and i64 %agg.tmp.sroa.0.0.copyload.i.i11, 281474976710655
   %12 = inttoptr i64 %and.i.i.i.i.i12 to ptr
@@ -1118,7 +1118,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.9, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -1128,7 +1128,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre27 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -1140,7 +1140,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i10 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i10) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i10) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i11 = icmp eq i32 %9, 0
   br i1 %cmp.i11, label %return, label %if.end18
@@ -1155,7 +1155,7 @@ if.end18:                                         ; preds = %if.end9
 if.then22:                                        ; preds = %if.end18
   %13 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %13, i64 -16
-  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i15) #14
+  %call30 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i15) #13
   %14 = extractvalue { i32, i64 } %call30, 0
   %cmp.i17 = icmp eq i32 %14, 0
   br i1 %cmp.i17, label %return, label %if.end34
@@ -1166,24 +1166,24 @@ if.end34:                                         ; preds = %if.then22
   br label %if.end38
 
 if.else:                                          ; preds = %if.end18
-  %call37 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.0) #14
+  %call37 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.0) #13
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.end34
   %dt.0 = phi double [ %16, %if.end34 ], [ %call37, %if.else ]
-  %call39 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #14
-  %call40 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %call39, double noundef %11, double noundef %dt.0) #14
-  %call41 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.0) #14
-  %call42 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call40, double noundef %call41) #14
+  %call39 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #13
+  %call40 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %call39, double noundef %11, double noundef %dt.0) #13
+  %call41 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.0) #13
+  %call42 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call40, double noundef %call41) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end38
-  %call44 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call42) #14
+  %call44 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call42) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end38, %cond.true
   %call42.sink = phi double [ %call44, %cond.true ], [ %call42, %if.end38 ]
-  %call46 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call42.sink) #14
+  %call46 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call42.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i19 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i20 = and i64 %agg.tmp.sroa.0.0.copyload.i.i19, 281474976710655
   %17 = inttoptr i64 %and.i.i.i.i.i20 to ptr
@@ -1244,7 +1244,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.10, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
@@ -1254,7 +1254,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   br i1 %tobool.not, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.end
-  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call8 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.pre41 = load ptr, ptr %args, align 8
   br label %if.end9
 
@@ -1268,7 +1268,7 @@ if.end9:                                          ; preds = %if.then7, %if.end
   %cmp.i.not = icmp eq i32 %8, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
   %retval.sroa.0.0.i12 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call18 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i12) #14
+  %call18 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i12) #13
   %9 = extractvalue { i32, i64 } %call18, 0
   %cmp.i13 = icmp eq i32 %9, 0
   br i1 %cmp.i13, label %return, label %if.end21
@@ -1283,7 +1283,7 @@ if.end21:                                         ; preds = %if.end9
 if.then25:                                        ; preds = %if.end21
   %13 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i17 = getelementptr inbounds i8, ptr %13, i64 -16
-  %call33 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i17) #14
+  %call33 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i17) #13
   %14 = extractvalue { i32, i64 } %call33, 0
   %cmp.i19 = icmp eq i32 %14, 0
   br i1 %cmp.i19, label %return, label %if.end37
@@ -1294,7 +1294,7 @@ if.end37:                                         ; preds = %if.then25
   br label %if.end41
 
 if.else:                                          ; preds = %if.end21
-  %call40 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.1) #14
+  %call40 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.1) #13
   %conv = uitofp i32 %call40 to double
   br label %if.end41
 
@@ -1307,7 +1307,7 @@ if.end41:                                         ; preds = %if.else, %if.end37
 if.then44:                                        ; preds = %if.end41
   %18 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i25 = getelementptr inbounds i8, ptr %18, i64 -24
-  %call52 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i25) #14
+  %call52 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i25) #13
   %19 = extractvalue { i32, i64 } %call52, 0
   %cmp.i29 = icmp eq i32 %19, 0
   br i1 %cmp.i29, label %return, label %if.end56
@@ -1318,23 +1318,23 @@ if.end56:                                         ; preds = %if.then44
   br label %if.end61
 
 if.else59:                                        ; preds = %if.end41
-  %call60 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.1) #14
+  %call60 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.1) #13
   br label %if.end61
 
 if.end61:                                         ; preds = %if.else59, %if.end56
   %dt.0 = phi double [ %21, %if.end56 ], [ %call60, %if.else59 ]
-  %call62 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %11, double noundef %m.0, double noundef %dt.0) #14
-  %call63 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.1) #14
-  %call64 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call62, double noundef %call63) #14
+  %call62 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %11, double noundef %m.0, double noundef %dt.0) #13
+  %call63 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.1) #13
+  %call64 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call62, double noundef %call63) #13
   br i1 %tobool.not, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end61
-  %call66 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call64) #14
+  %call66 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call64) #13
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end61, %cond.true
   %call64.sink = phi double [ %call66, %cond.true ], [ %call64, %if.end61 ]
-  %call68 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call64.sink) #14
+  %call68 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call64.sink) #13
   %agg.tmp.sroa.0.0.copyload.i.i31 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i32 = and i64 %agg.tmp.sroa.0.0.copyload.i.i31, 281474976710655
   %22 = inttoptr i64 %and.i.i.i.i.i32 to ptr
@@ -1394,14 +1394,14 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.11, ptr %ref.tmp, align 8
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %4, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_6JSDateEEENS0_6HandleIT_EEv.exit
   %5 = inttoptr i64 %and.i.i.pre-phi to ptr
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load double, ptr %primitiveValue_.i, align 8
-  %call6 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #14
+  %call6 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %6) #13
   %.inv = fcmp ord double %call6, 0.000000e+00
   %t.0 = select i1 %.inv, double %call6, double 0.000000e+00
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
@@ -1410,7 +1410,7 @@ if.end:                                           ; preds = %_ZNK6hermes2vm10Nat
   %8 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
   %retval.sroa.0.0.i12 = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i12) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i12) #13
   %9 = extractvalue { i32, i64 } %call15, 0
   %cmp.i13 = icmp eq i32 %9, 0
   br i1 %cmp.i13, label %return, label %if.end18
@@ -1436,14 +1436,14 @@ if.end29:                                         ; preds = %if.end18
   %or.cond = and i1 %cmp, %cmp30
   %add = fadd double %14, 1.900000e+03
   %cond = select i1 %or.cond, double %add, double %11
-  %call31 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.0) #14
+  %call31 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.0) #13
   %conv = uitofp i32 %call31 to double
-  %call32 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.0) #14
-  %call33 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %cond, double noundef %conv, double noundef %call32) #14
-  %call34 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.0) #14
-  %call35 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call33, double noundef %call34) #14
-  %call36 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call35) #14
-  %call37 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call36) #14
+  %call32 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.0) #13
+  %call33 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %cond, double noundef %conv, double noundef %call32) #13
+  %call34 = tail call noundef double @_ZN6hermes2vm13timeWithinDayEd(double noundef %t.0) #13
+  %call35 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call33, double noundef %call34) #13
+  %call36 = tail call noundef double @_ZN6hermes2vm7utcTimeEd(double noundef %call35) #13
+  %call37 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call36) #13
   %agg.tmp.sroa.0.0.copyload.i.i17 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i18 = and i64 %agg.tmp.sroa.0.0.copyload.i.i17, 281474976710655
   %15 = inttoptr i64 %and.i.i.i.i.i18 to ptr
@@ -1467,7 +1467,7 @@ define hidden { i32, i64 } @_ZN6hermes2vm23datePrototypeToJSON_RJSEPvRNS0_7Runti
 entry:
   %ref.tmp51 = alloca %"class.hermes::vm::TwineChar16", align 8
   %0 = load ptr, ptr %args, align 8, !noalias !37
-  %call4 = tail call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %0) #14
+  %call4 = tail call { i32, i64 } @_ZN6hermes2vm8toObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %0) #13
   %1 = extractvalue { i32, i64 } %call4, 0
   %cmp.i = icmp eq i32 %1, 0
   br i1 %cmp.i, label %return, label %if.end
@@ -1491,12 +1491,12 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end
-  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %3, i64 %or.i.i.i.i.i) #14
+  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %3, i64 %or.i.i.i.i.i) #13
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EENS0_11HermesValueE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %4, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %call15 = tail call { i32, i64 } @_ZN6hermes2vm15toPrimitive_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_13PreferredTypeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, i32 noundef 2) #14
+  %call15 = tail call { i32, i64 } @_ZN6hermes2vm15toPrimitive_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEENS0_13PreferredTypeE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, i32 noundef 2) #13
   %6 = extractvalue { i32, i64 } %call15, 0
   %7 = extractvalue { i32, i64 } %call15, 1
   %cmp.i7 = icmp eq i32 %6, 0
@@ -1513,7 +1513,7 @@ land.lhs.true:                                    ; preds = %if.end18
   br i1 %10, label %return, label %if.end28
 
 if.end28:                                         ; preds = %land.lhs.true, %if.end18
-  %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 276, ptr %retval.0.i.i.i.i.i.i, i32 0, ptr noundef null) #14
+  %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 276, ptr %retval.0.i.i.i.i.i.i, i32 0, ptr noundef null) #13
   %11 = extractvalue { i32, i64 } %call.i, 0
   %12 = extractvalue { i32, i64 } %call.i, 1
   %cmp.i8 = icmp eq i32 %11, 0
@@ -1535,7 +1535,7 @@ if.then.i.i.i.i.i.i17:                            ; preds = %if.end41
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
 if.end.i.i.i.i.i.i14:                             ; preds = %if.end41
-  %call7.i.i.i.i.i.i15 = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %13, i64 %12) #14
+  %call7.i.i.i.i.i.i15 = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %13, i64 %12) #13
   %retval.sroa.0.0.copyload.i.i19.pr = load i64, ptr %call7.i.i.i.i.i.i15, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
@@ -1571,11 +1571,11 @@ if.then50:                                        ; preds = %_ZN6hermes2vm6Handl
   store ptr @.str.12, ptr %ref.tmp51, align 8
   %19 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 8
   store i32 3, ptr %19, align 8
-  %call52 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp51) #14
+  %call52 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp51) #13
   br label %return
 
 if.end53:                                         ; preds = %_ZN6hermes2vm6HandleINS0_8CallableEE10dyn_vmcastERKNS0_10HandleBaseE.exit
-  %call61 = tail call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, i1 noundef zeroext false) #14
+  %call61 = tail call { i32, i64 } @_ZN6hermes2vm8Callable12executeCall0ENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEEb(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i, i1 noundef zeroext false) #13
   %20 = extractvalue { i32, i64 } %call61, 0
   %21 = extractvalue { i32, i64 } %call61, 1
   br label %return
@@ -1633,7 +1633,7 @@ if.then:                                          ; preds = %_ZNK6hermes2vm10Nat
   store ptr @.str.13, ptr %ref.tmp, align 8
   %7 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %7, align 8
-  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call3 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   %8 = insertvalue { i32, i64 } poison, i32 %call3, 0
   %9 = insertvalue { i32, i64 } %8, i64 undef, 1
   br label %return
@@ -1659,7 +1659,7 @@ if.then10:                                        ; preds = %if.end
   store ptr @.str.14, ptr %ref.tmp11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 8
   store i32 3, ptr %12, align 8
-  %call12 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11) #14
+  %call12 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11) #13
   %13 = insertvalue { i32, i64 } poison, i32 %call12, 0
   %14 = insertvalue { i32, i64 } %13, i64 undef, 1
   br label %return
@@ -1667,21 +1667,21 @@ if.then10:                                        ; preds = %if.end
 if.end13:                                         ; preds = %if.end
   %and.i.i18 = and i64 %11, 281474976710655
   %15 = inttoptr i64 %and.i.i18 to ptr
-  %call19 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 21, ptr noundef %15) #14
+  %call19 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 21, ptr noundef %15) #13
   br i1 %call19, label %if.end40, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end13
   %16 = load i64, ptr %retval.sroa.0.0.i8, align 8
   %and.i.i19 = and i64 %16, 281474976710655
   %17 = inttoptr i64 %and.i.i19 to ptr
-  %call26 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 22, ptr noundef %17) #14
+  %call26 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 22, ptr noundef %17) #13
   br i1 %call26, label %if.end40, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
   %18 = load i64, ptr %retval.sroa.0.0.i8, align 8
   %and.i.i20 = and i64 %18, 281474976710655
   %19 = inttoptr i64 %and.i.i20 to ptr
-  %call34 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 19, ptr noundef %19) #14
+  %call34 = tail call noundef zeroext i1 @_ZN6hermes2vm7Runtime24symbolEqualsToStringPrimENS0_8SymbolIDEPNS0_15StringPrimitiveE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 19, ptr noundef %19) #13
   br i1 %call34, label %if.end40, label %if.else36
 
 if.else36:                                        ; preds = %if.else
@@ -1694,14 +1694,14 @@ if.else36:                                        ; preds = %if.else
   store ptr @.str.15, ptr %ref.tmp37, align 8
   %20 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
   store i32 3, ptr %20, align 8
-  %call38 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp37) #14
+  %call38 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp37) #13
   %21 = insertvalue { i32, i64 } poison, i32 %call38, 0
   %22 = insertvalue { i32, i64 } %21, i64 undef, 1
   br label %return
 
 if.end40:                                         ; preds = %if.else, %if.end13, %lor.lhs.false
   %tryFirst.0 = phi i32 [ 1, %lor.lhs.false ], [ 1, %if.end13 ], [ 2, %if.else ]
-  %call44 = tail call { i32, i64 } @_ZN6hermes2vm19ordinaryToPrimitiveENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_13PreferredTypeE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %tryFirst.0) #14
+  %call44 = tail call { i32, i64 } @_ZN6hermes2vm19ordinaryToPrimitiveENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS0_13PreferredTypeE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %tryFirst.0) #13
   br label %return
 
 return:                                           ; preds = %if.end40, %if.else36, %if.then10, %if.then
@@ -1718,7 +1718,7 @@ entry:
   %2 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
   %retval.sroa.0.0.i = select i1 %cmp.i.not, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E, ptr %incdec.ptr.i.i.i
-  %call4 = tail call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i) #14
+  %call4 = tail call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i) #13
   %cmp.i.i.not = icmp eq ptr %call4, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i.not, label %return, label %if.end
 
@@ -1741,15 +1741,15 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
 if.end.i.i.i.i.i.i:                               ; preds = %if.end
-  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %4, i64 %or.i.i.i.i.i) #14
+  %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %4, i64 %or.i.i.i.i.i) #13
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
 _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit: ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.0.i.i.i.i.i.i = phi ptr [ %5, %if.then.i.i.i.i.i.i ], [ %call7.i.i.i.i.i.i, %if.end.i.i.i.i.i.i ]
-  %call17 = tail call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i) #14
+  %call17 = tail call { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i) #13
   %7 = extractvalue { ptr, i64 } %call17, 0
   %8 = extractvalue { ptr, i64 } %call17, 1
-  %call18 = tail call noundef double @_ZN6hermes2vm9parseDateENS0_10StringViewE(ptr %7, i64 %8) #14
+  %call18 = tail call noundef double @_ZN6hermes2vm9parseDateENS0_10StringViewE(ptr %7, i64 %8) #13
   %9 = fcmp uno double %call18, 0.000000e+00
   %10 = bitcast double %call18 to i64
   %retval.sroa.0.0.i4 = select i1 %9, i64 9221120237041090560, i64 %10
@@ -1777,7 +1777,7 @@ entry:
 if.then5:                                         ; preds = %entry
   %2 = load ptr, ptr %args, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %call12 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i) #14
+  %call12 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i) #13
   %3 = extractvalue { i32, i64 } %call12, 0
   %cmp.i4 = icmp eq i32 %3, 0
   br i1 %cmp.i4, label %return, label %if.end15
@@ -1785,9 +1785,9 @@ if.then5:                                         ; preds = %entry
 if.end15:                                         ; preds = %if.then5
   %4 = extractvalue { i32, i64 } %call12, 1
   %5 = bitcast i64 %4 to double
-  %call19 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %5, double noundef 0.000000e+00, double noundef 1.000000e+00) #14
-  %call20 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #14
-  %call21 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call19, double noundef %call20) #14
+  %call19 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %5, double noundef 0.000000e+00, double noundef 1.000000e+00) #13
+  %call20 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #13
+  %call21 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call19, double noundef %call20) #13
   br label %return.sink.split
 
 if.end26:                                         ; preds = %entry
@@ -1806,7 +1806,7 @@ if.end32:                                         ; preds = %if.end26
 
 return.sink.split:                                ; preds = %if.end15, %if.end32
   %.sink = phi double [ %8, %if.end32 ], [ %call21, %if.end15 ]
-  %call35 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %.sink) #14
+  %call35 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %.sink) #13
   %9 = fcmp uno double %call35, 0.000000e+00
   %10 = bitcast double %call35 to i64
   %retval.sroa.0.0.i11 = select i1 %9, i64 9221120237041090560, i64 %10
@@ -1823,7 +1823,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i32, i64 } @_ZN6hermes2vm7dateNowEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr readnone captures(none) %0, ptr nonnull readnone align 8 captures(none) %runtime, ptr readnone captures(none) %args) #0 {
 entry:
-  %call = tail call noundef i64 @_ZN6hermes2vm7curTimeEv() #14
+  %call = tail call noundef i64 @_ZN6hermes2vm7curTimeEv() #13
   %conv.i = sitofp i64 %call to double
   %1 = bitcast double %conv.i to i64
   %.fca.1.insert = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %1, 1
@@ -1879,7 +1879,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %8, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
   %retval.sroa.0.0.i = select i1 %cmp.i9, ptr %incdec.ptr.i.i.i, ptr @_ZN6hermes2vm15HandleRootOwner15undefinedValue_E
-  %call8 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i) #14
+  %call8 = tail call { i32, i64 } @_ZN6hermes2vm12toNumber_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.sroa.0.0.i) #13
   %9 = extractvalue { i32, i64 } %call8, 0
   %cmp.i10 = icmp eq i32 %9, 0
   br i1 %cmp.i10, label %cleanup, label %for.inc
@@ -1931,7 +1931,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %.sink = select i1 %or.cond1, double %add, double %15
   %18 = load double, ptr %2, align 8
   %19 = load double, ptr %3, align 16
-  %call26 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %.sink, double noundef %18, double noundef %19) #14
+  %call26 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %.sink, double noundef %18, double noundef %19) #13
   %arrayidx27 = getelementptr inbounds nuw i8, ptr %fields, i64 24
   %20 = load double, ptr %arrayidx27, align 8
   %arrayidx28 = getelementptr inbounds nuw i8, ptr %fields, i64 32
@@ -1940,8 +1940,8 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %22 = load double, ptr %arrayidx29, align 8
   %arrayidx30 = getelementptr inbounds nuw i8, ptr %fields, i64 48
   %23 = load double, ptr %arrayidx30, align 16
-  %call31 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %20, double noundef %21, double noundef %22, double noundef %23) #14
-  %call32 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call26, double noundef %call31) #14
+  %call31 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef %20, double noundef %21, double noundef %22, double noundef %23) #13
+  %call32 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call26, double noundef %call31) #13
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end
@@ -1971,23 +1971,23 @@ entry:
   br i1 %cmp.i.not, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call { i32, i64 } @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1) #14
+  %call3 = tail call { i32, i64 } @_ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %str.coerce0, i64 %str.coerce1) #13
   br label %return
 
 if.else:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %add.ptr.i.i = getelementptr inbounds i8, ptr %str.coerce0, i64 %str.coerce1
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14, !noalias !45
-  %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13, !noalias !45
+  %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i, align 8, !alias.scope !45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %str.coerce0, ptr noundef %add.ptr.i.i)
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #14
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %call5 = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIcE6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
+  %call5 = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIcE6createINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -2034,7 +2034,7 @@ if.then:                                          ; preds = %cond.true.i, %entry
   store ptr @.str, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %3, align 8
-  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %cond.true.i
@@ -2060,12 +2060,12 @@ if.then7:                                         ; preds = %if.then5
   store ptr @.str.1, ptr %ref.tmp8, align 8
   %8 = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store i32 3, ptr %8, align 8
-  %call9 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8) #14
+  %call9 = call noundef i32 @_ZN6hermes2vm7Runtime15raiseRangeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8) #13
   br label %return
 
 if.end10:                                         ; preds = %if.then5
   %identifierTable_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9264
-  %call.i.i22 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 319) #14
+  %call.i.i22 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 319) #13
   %9 = ptrtoint ptr %call.i.i22 to i64
   %or.i.i.i = or i64 %9, -844424930131968
   br label %return
@@ -2085,15 +2085,15 @@ if.end16:                                         ; preds = %if.end
   br i1 %tobool17, label %if.else, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %call19 = call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #14
+  %call19 = call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #13
   %12 = load ptr, ptr %arrayidx, align 16
   %sub = fsub double %call19, %4
-  call void %12(double noundef %call19, double noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  call void %12(double noundef %call19, double noundef %sub, ptr noundef nonnull align 8 dereferenceable(16) %str) #13
   br label %if.end21
 
 if.else:                                          ; preds = %if.end16
   %13 = load ptr, ptr %arrayidx, align 16
-  call void %13(double noundef %4, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  call void %13(double noundef %4, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(16) %str) #13
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then18
@@ -2107,7 +2107,7 @@ if.end21:                                         ; preds = %if.else, %if.then18
   br i1 %cmp.i.i23, label %if.then.i, label %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit
 
 if.then.i:                                        ; preds = %if.end21
-  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.17) #15
+  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.17) #14
   unreachable
 
 _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit: ; preds = %if.end21
@@ -2116,7 +2116,7 @@ _ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallR
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit
-  call void @free(ptr noundef %18) #14
+  call void @free(ptr noundef %18) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN6hermes2vm7Runtime23ignoreAllocationFailureINS0_11HermesValueEEET_NS0_10CallResultIS4_Xsr6detail23GetCallResultSpecializeIS4_EE5valueEEE.exit, %if.end10, %if.then7, %if.then
@@ -2170,7 +2170,7 @@ if.then:                                          ; preds = %cond.true.i, %entry
   store ptr @.str, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %3, align 8
-  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   %4 = insertvalue { i32, i64 } poison, i32 %call2, 0
   %5 = insertvalue { i32, i64 } %4, i64 undef, 1
   br label %return
@@ -2184,7 +2184,7 @@ if.end:                                           ; preds = %cond.true.i
 
 if.then5:                                         ; preds = %if.end
   %identifierTable_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9264
-  %call.i.i6 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 319) #14
+  %call.i.i6 = tail call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 319) #13
   %9 = ptrtoint ptr %call.i.i6 to i64
   %or.i.i.i = or i64 %9, -844424930131968
   %10 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %or.i.i.i, 1
@@ -2198,7 +2198,7 @@ if.end11:                                         ; preds = %if.end
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %str, i64 12
   store i32 128, ptr %Capacity2.i.i.i.i.i.i, align 4
   %11 = load ptr, ptr %arrayidx, align 8
-  call void %11(double noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %str) #14
+  call void %11(double noundef %6, ptr noundef nonnull align 8 dereferenceable(16) %str) #13
   %12 = load ptr, ptr %str, align 8
   %13 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %13 to i64
@@ -2207,7 +2207,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp.i.not.i, label %if.then.i, label %if.end.i.i.i.i
 
 if.then.i:                                        ; preds = %if.end11
-  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %12, i64 %conv.i.i) #14
+  %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive13createDynamicERNS0_7RuntimeEN4llvh8ArrayRefIDsEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %12, i64 %conv.i.i) #13
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
 if.end.i.i.i.i:                                   ; preds = %if.end11
@@ -2215,37 +2215,31 @@ if.end.i.i.i.i:                                   ; preds = %if.end11
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   %add.ptr.i.idx.i.i = shl nuw nsw i64 %conv.i.i, 1
   %mul.i.i.i.i.i.i.i = add nuw nsw i64 %add.ptr.i.idx.i.i, 2
-  %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #16
+  %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #15
   store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !54
   store i64 %conv.i.i, ptr %14, align 8, !alias.scope !54
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %12, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %conv.i.i, ptr %_M_string_length.i.i.i, align 8, !alias.scope !54
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2
-  %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #14
+  %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #13
   %15 = load ptr, ptr %ref.tmp.i, align 8
   %cmp.i.i.i3.i = icmp eq ptr %15, %14
-  br i1 %cmp.i.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i
-  %16 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %16, 8
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
+  br i1 %cmp.i.i.i3.i, label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
-  call void @_ZdlPv(ptr noundef %15) #17
+  call void @_ZdlPv(ptr noundef %15) #16
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
-_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i ]
+_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.end.i.i.i.i, %if.then.i, %if.then.i.i.i
+  %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i ], [ %call5.i, %if.then.i.i.i ], [ %call5.i, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %17 = load ptr, ptr %str, align 8
-  %cmp.i.i.i.i = icmp eq ptr %17, %add.ptr.i.i.i.i.i.i
+  %16 = load ptr, ptr %str, align 8
+  %cmp.i.i.i.i = icmp eq ptr %16, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %return, label %if.then.i.i.i7
 
 if.then.i.i.i7:                                   ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
-  call void @free(ptr noundef %17) #14
+  call void @free(ptr noundef %16) #13
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i7, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, %if.then5, %if.then
@@ -2288,7 +2282,7 @@ if.then:                                          ; preds = %cond.true.i, %entry
   store ptr @.str, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i32 3, ptr %3, align 8
-  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #14
+  %call2 = call noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp) #13
   br label %return
 
 if.end:                                           ; preds = %cond.true.i
@@ -2304,7 +2298,7 @@ if.end10:                                         ; preds = %if.end
   br i1 %tobool11, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %call13 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #14
+  %call13 = tail call noundef double @_ZN6hermes2vm9localTimeEd(double noundef %4) #13
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end10
@@ -2324,42 +2318,42 @@ if.end14:                                         ; preds = %if.then12, %if.end1
   ]
 
 sw.bb:                                            ; preds = %if.end14
-  %call16 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #14
+  %call16 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #13
   br label %sw.epilog
 
 sw.bb17:                                          ; preds = %if.end14
-  %call18 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #14
+  %call18 = tail call noundef double @_ZN6hermes2vm12yearFromTimeEd(double noundef %t.0) #13
   %sub = fadd double %call18, -1.900000e+03
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end14
-  %call20 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.0) #14
+  %call20 = tail call noundef i32 @_ZN6hermes2vm13monthFromTimeEd(double noundef %t.0) #13
   %conv = uitofp i32 %call20 to double
   br label %sw.epilog
 
 sw.bb21:                                          ; preds = %if.end14
-  %call22 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.0) #14
+  %call22 = tail call noundef double @_ZN6hermes2vm12dateFromTimeEd(double noundef %t.0) #13
   br label %sw.epilog
 
 sw.bb23:                                          ; preds = %if.end14
-  %call24 = tail call noundef i32 @_ZN6hermes2vm7weekDayEd(double noundef %t.0) #14
+  %call24 = tail call noundef i32 @_ZN6hermes2vm7weekDayEd(double noundef %t.0) #13
   %conv25 = sitofp i32 %call24 to double
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %if.end14
-  %call27 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #14
+  %call27 = tail call noundef double @_ZN6hermes2vm12hourFromTimeEd(double noundef %t.0) #13
   br label %sw.epilog
 
 sw.bb28:                                          ; preds = %if.end14
-  %call29 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #14
+  %call29 = tail call noundef double @_ZN6hermes2vm11minFromTimeEd(double noundef %t.0) #13
   br label %sw.epilog
 
 sw.bb30:                                          ; preds = %if.end14
-  %call31 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #14
+  %call31 = tail call noundef double @_ZN6hermes2vm11secFromTimeEd(double noundef %t.0) #13
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %if.end14
-  %call33 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #14
+  %call33 = tail call noundef double @_ZN6hermes2vm10msFromTimeEd(double noundef %t.0) #13
   br label %sw.epilog
 
 sw.bb34:                                          ; preds = %if.end14
@@ -2444,21 +2438,21 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2) #14
+  %call2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew, i64 noundef 0) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %call2) #13
   %0 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %0) #13
   br label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit
 
 if.else:                                          ; preds = %entry
-  %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #14
+  %call.i = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
   br label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit
 
 _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev.exit: ; preds = %if.then, %if.else
-  %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #14
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #14
+  %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #13
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %call4, ptr noundef %__beg, ptr noundef %__end) #13
   %1 = load i64, ptr %__dnew, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %1) #14
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %1) #13
   ret void
 }
 
@@ -2499,23 +2493,20 @@ declare ptr @_ZN6hermes2vm23defineSystemConstructorERNS0_7RuntimeENS0_8SymbolIDE
 
 declare ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_6JSDateEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv(ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr noundef) #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #11
+declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #11
+declare i32 @llvm.umin.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -2527,14 +2518,13 @@ attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind allocsize(0) }
-attributes #17 = { builtin nounwind }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { builtin nounwind allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

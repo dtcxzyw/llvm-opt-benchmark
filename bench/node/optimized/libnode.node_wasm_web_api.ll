@@ -377,59 +377,50 @@ do.end45:                                         ; preds = %if.end.i102
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #16
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %21 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %21, 47
   %22 = inttoptr i64 %sub.i49.i.i.i to ptr
   %23 = load i64, ptr %22, align 8
-  %sub.i.i.i.i = add i64 %23, 327
-  %24 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i16 = add i64 %23, 271
+  %24 = inttoptr i64 %sub.i.i.i16 to ptr
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %27, %26
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i16 = add i64 %23, 271
-  %28 = inttoptr i64 %sub.i.i.i16 to ptr
-  %29 = load i64, ptr %28, align 8
-  %30 = inttoptr i64 %29 to ptr
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %30, i64 88
-  %31 = load ptr, ptr %isolate_.i, align 8
-  %32 = load i32, ptr %length_.i, align 8
-  %cmp2.i = icmp slt i32 %32, 1
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %26, i64 88
+  %27 = load ptr, ptr %isolate_.i, align 8
+  %28 = load i32, ptr %length_.i, align 8
+  %cmp2.i = icmp slt i32 %28, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end45
-  %33 = load ptr, ptr %args, align 8
-  %arrayidx.i96 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %34 = load ptr, ptr %arrayidx.i96, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %add1.i = add i64 %35, 608
-  %36 = inttoptr i64 %add1.i to ptr
+  %29 = load ptr, ptr %args, align 8
+  %arrayidx.i96 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %30 = load ptr, ptr %arrayidx.i96, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %add1.i = add i64 %31, 608
+  %32 = inttoptr i64 %add1.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %do.end45
-  %37 = load ptr, ptr %values_.i78, align 8
+  %33 = load ptr, ptr %values_.i78, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i63.sroa.0.0 = phi ptr [ %36, %if.then.i ], [ %37, %if.end.i ]
-  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %url, ptr noundef %31, ptr %retval.i63.sroa.0.0) #16
-  %38 = load ptr, ptr %streaming_, align 8
+  %retval.i63.sroa.0.0 = phi ptr [ %32, %if.then.i ], [ %33, %if.end.i ]
+  call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %url, ptr noundef %27, ptr %retval.i63.sroa.0.0) #16
+  %34 = load ptr, ptr %streaming_, align 8
   %buf_.i = getelementptr inbounds nuw i8, ptr %url, i64 16
-  %39 = load ptr, ptr %buf_.i, align 8
-  %40 = load i64, ptr %url, align 8
-  call void @_ZN2v813WasmStreaming6SetUrlEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %39, i64 noundef %40) #16
-  %41 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i17 = icmp ne ptr %41, null
+  %35 = load ptr, ptr %buf_.i, align 8
+  %36 = load i64, ptr %url, align 8
+  call void @_ZN2v813WasmStreaming6SetUrlEPKcm(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef %35, i64 noundef %36) #16
+  %37 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i17 = icmp ne ptr %37, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %url, i64 24
-  %cmp.i.i.i18 = icmp ne ptr %41, %buf_st_.i.i.i
-  %42 = select i1 %cmp.i.i.i.i17, i1 %cmp.i.i.i18, i1 false
-  br i1 %42, label %if.then.i.i19, label %return
+  %cmp.i.i.i18 = icmp ne ptr %37, %buf_st_.i.i.i
+  %38 = select i1 %cmp.i.i.i.i17, i1 %cmp.i.i.i18, i1 false
+  br i1 %38, label %if.then.i.i19, label %return
 
 if.then.i.i19:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  call void @free(ptr noundef nonnull %41) #16
+  call void @free(ptr noundef nonnull %37) #16
   br label %return
 
 return:                                           ; preds = %if.then.i.i19, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
@@ -521,39 +512,30 @@ if.else68:                                        ; preds = %if.else
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #16
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %16 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %16, 47
   %17 = inttoptr i64 %sub.i49.i.i.i to ptr
   %18 = load i64, ptr %17, align 8
-  %sub.i.i.i.i = add i64 %18, 327
-  %19 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i16 = add i64 %18, 271
+  %19 = inttoptr i64 %sub.i.i.i16 to ptr
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %22, %21
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i16 = add i64 %18, 271
-  %23 = inttoptr i64 %sub.i.i.i16 to ptr
-  %24 = load i64, ptr %23, align 8
-  %25 = inttoptr i64 %24 to ptr
-  %isolate_.i.i = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %26 = load ptr, ptr %isolate_.i.i, align 8
-  %call.i.i = tail call ptr @_ZN4node20ERR_INVALID_ARG_TYPEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %26, ptr noundef nonnull @.str.22)
-  %call6.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %26, ptr %call.i.i) #16
+  %isolate_.i.i = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %22 = load ptr, ptr %isolate_.i.i, align 8
+  %call.i.i = tail call ptr @_ZN4node20ERR_INVALID_ARG_TYPEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %22, ptr noundef nonnull @.str.22)
+  %call6.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr %call.i.i) #16
   br label %return
 
 if.end71:                                         ; preds = %if.then59, %if.then39
   %bytes.0 = phi ptr [ %call50, %if.then39 ], [ %call65, %if.then59 ]
   %offset.0 = phi i64 [ %call52, %if.then39 ], [ 0, %if.then59 ]
   %size.0 = phi i64 [ %call54, %if.then39 ], [ %call67, %if.then59 ]
-  %27 = load ptr, ptr %streaming_, align 8
+  %23 = load ptr, ptr %streaming_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %bytes.0, i64 %offset.0
-  tail call void @_ZN2v813WasmStreaming15OnBytesReceivedEPKhm(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %add.ptr, i64 noundef %size.0) #16
+  tail call void @_ZN2v813WasmStreaming15OnBytesReceivedEPKhm(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef %add.ptr, i64 noundef %size.0) #16
   %wasm_size_ = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 48
-  %28 = load i64, ptr %wasm_size_, align 8
-  %add = add i64 %28, %size.0
+  %24 = load i64, ptr %wasm_size_, align 8
+  %add = add i64 %24, %size.0
   store i64 %add, ptr %wasm_size_, align 8
   br label %return
 

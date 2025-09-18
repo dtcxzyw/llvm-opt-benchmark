@@ -6999,7 +6999,7 @@ define { ptr, ptr } @"_ZN119_$LT$actix_web..app_service..AppRouting$u20$as$u20$a
   %3 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = invoke { ptr, i16 } @"_ZN12actix_router6router19Router$LT$T$C$U$GT$12recognize_fn17hb7b8708481cd12c1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %6 unwind label %27
+          to label %6 unwind label %25
 
 6:                                                ; preds = %2
   %7 = extractvalue { ptr, i16 } %5, 0
@@ -7033,25 +7033,19 @@ define { ptr, ptr } @"_ZN119_$LT$actix_web..app_service..AppRouting$u20$as$u20$a
 
 23:                                               ; preds = %15, %8
   %.pn = phi { ptr, ptr } [ %14, %8 ], [ %22, %15 ]
-  %.sroa.0.0 = extractvalue { ptr, ptr } %.pn, 0
-  %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %24 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %25)
   ret { ptr, ptr } %.pn
 
-26:                                               ; preds = %27
+24:                                               ; preds = %25
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-27:                                               ; preds = %2
+25:                                               ; preds = %2
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr55drop_in_place$LT$actix_web..service..ServiceRequest$GT$17ha25503416280416aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #28
-          to label %26 unwind label %28
+          to label %24 unwind label %26
 
-28:                                               ; preds = %27
-  %29 = landingpad { ptr, i32 }
+26:                                               ; preds = %25
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #29
   unreachable

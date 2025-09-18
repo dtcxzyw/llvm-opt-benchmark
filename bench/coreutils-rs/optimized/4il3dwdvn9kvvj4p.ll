@@ -135,16 +135,6 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h56f3611813ca5d0aE.llvm.861817539936770955"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #1 {
   %2 = tail call { ptr, ptr } @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C$F$C$C$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3c241214e9eacdaaE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
   %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
-
-5:                                                ; preds = %1
-  %6 = extractvalue { ptr, ptr } %2, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
-
-8:                                                ; preds = %1, %5
   ret ptr %3
 }
 
@@ -152,16 +142,6 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7f092475d3fcdb15E.llvm.861817539936770955"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = tail call { ptr, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31823dcae8c7e47aE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0)
   %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
-
-5:                                                ; preds = %1
-  %6 = extractvalue { ptr, ptr } %2, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
-
-8:                                                ; preds = %1, %5
   ret ptr %3
 }
 
@@ -169,16 +149,6 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha592943b93629281E.llvm.861817539936770955"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = tail call { ptr, ptr } @"_ZN106_$LT$itertools..merge_join..MergeBy$LT$I$C$J$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd11f2c246e0ae2a1E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0)
   %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
-
-5:                                                ; preds = %1
-  %6 = extractvalue { ptr, ptr } %2, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
-
-8:                                                ; preds = %1, %5
   ret ptr %3
 }
 
@@ -186,16 +156,6 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core.
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0e3affe21308ebeE.llvm.861817539936770955"(ptr noalias noundef align 8 dereferenceable(120) %0) unnamed_addr #1 {
   %2 = tail call { ptr, ptr } @"_ZN117_$LT$itertools..adaptors..coalesce..CoalesceBy$LT$I$C$F$C$C$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1947ce3ae1f1137cE"(ptr noalias noundef nonnull align 8 dereferenceable(120) %0)
   %3 = extractvalue { ptr, ptr } %2, 0
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %8, label %5
-
-5:                                                ; preds = %1
-  %6 = extractvalue { ptr, ptr } %2, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
-  br label %8
-
-8:                                                ; preds = %1, %5
   ret ptr %3
 }
 
@@ -9360,7 +9320,7 @@ define hidden void @_ZN7uu_sort12print_sorted17h13929e4b9fbdbbdcE(ptr noalias no
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$GT$17h46c416864f63bc06E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #30
-          to label %18 unwind label %16
+          to label %16 unwind label %14
 
 12:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9369,19 +9329,16 @@ define hidden void @_ZN7uu_sort12print_sorted17h13929e4b9fbdbbdcE(ptr noalias no
   ret void
 
 13:                                               ; preds = %.noexc
-  %14 = extractvalue { ptr, ptr } %7, 1
-  %15 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %15)
   invoke void @_ZN7uu_sort4Line5print17h2bf03cb928e91fcaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
           to label %6 unwind label %10
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-18:                                               ; preds = %10
+16:                                               ; preds = %10
   resume { ptr, i32 } %11
 }
 
@@ -9452,7 +9409,7 @@ define hidden void @_ZN7uu_sort12print_sorted17h31c36ca1c92ac68bE(ptr noalias no
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$GT$17h46c416864f63bc06E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #30
-          to label %18 unwind label %16
+          to label %16 unwind label %14
 
 12:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9461,19 +9418,16 @@ define hidden void @_ZN7uu_sort12print_sorted17h31c36ca1c92ac68bE(ptr noalias no
   ret void
 
 13:                                               ; preds = %.noexc
-  %14 = extractvalue { ptr, ptr } %7, 1
-  %15 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %15)
   invoke void @_ZN7uu_sort4Line5print17h2bf03cb928e91fcaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
           to label %6 unwind label %10
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-18:                                               ; preds = %10
+16:                                               ; preds = %10
   resume { ptr, i32 } %11
 }
 
@@ -9500,7 +9454,7 @@ define hidden void @_ZN7uu_sort12print_sorted17h739b2fd37d01ab1aE(ptr noalias no
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$GT$17h46c416864f63bc06E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #30
-          to label %18 unwind label %16
+          to label %16 unwind label %14
 
 12:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9509,19 +9463,16 @@ define hidden void @_ZN7uu_sort12print_sorted17h739b2fd37d01ab1aE(ptr noalias no
   ret void
 
 13:                                               ; preds = %.noexc
-  %14 = extractvalue { ptr, ptr } %7, 1
-  %15 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %15)
   invoke void @_ZN7uu_sort4Line5print17h2bf03cb928e91fcaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
           to label %6 unwind label %10
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-18:                                               ; preds = %10
+16:                                               ; preds = %10
   resume { ptr, i32 } %11
 }
 
@@ -9548,7 +9499,7 @@ define hidden void @_ZN7uu_sort12print_sorted17h7b9b69ac2e3affeeE(ptr noalias no
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr115drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Write$GT$$GT$$GT$17h46c416864f63bc06E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5) #30
-          to label %18 unwind label %16
+          to label %16 unwind label %14
 
 12:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9557,19 +9508,16 @@ define hidden void @_ZN7uu_sort12print_sorted17h7b9b69ac2e3affeeE(ptr noalias no
   ret void
 
 13:                                               ; preds = %.noexc
-  %14 = extractvalue { ptr, ptr } %7, 1
-  %15 = icmp ne ptr %14, null
-  call void @llvm.assume(i1 %15)
   invoke void @_ZN7uu_sort4Line5print17h2bf03cb928e91fcaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1)
           to label %6 unwind label %10
 
-16:                                               ; preds = %10
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %10
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #31
   unreachable
 
-18:                                               ; preds = %10
+16:                                               ; preds = %10
   resume { ptr, i32 } %11
 }
 

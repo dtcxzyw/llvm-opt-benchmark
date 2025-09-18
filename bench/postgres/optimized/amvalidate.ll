@@ -27,10 +27,9 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %6, %2
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 54, ptr noundef nonnull @__func__.identify_opfamily_groups) #8
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 54, ptr noundef nonnull @__func__.identify_opfamily_groups) #7
   unreachable
 
 13:                                               ; preds = %6
@@ -281,21 +280,21 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br i1 %.not, label %.outer87._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !6
 
 .split109.us.thread.thread:                       ; preds = %58, %62
-  %148 = tail call ptr @palloc(i64 noundef 24) #8
+  %148 = tail call ptr @palloc(i64 noundef 24) #7
   %.pre315348358 = load i32, ptr %48, align 4
   br label %154
 
 .split109.us.thread:                              ; preds = %57
-  %149 = tail call ptr @palloc(i64 noundef 24) #8
+  %149 = tail call ptr @palloc(i64 noundef 24) #7
   %.pre315348 = load i32, ptr %48, align 4
   br label %166
 
 .split109.us.thread341:                           ; preds = %121, %116, %.lr.ph.split.split.split
-  %150 = tail call ptr @palloc(i64 noundef 24) #8
+  %150 = tail call ptr @palloc(i64 noundef 24) #7
   br label %.split109.us._crit_edge
 
 .split109.us:                                     ; preds = %.lr.ph
-  %151 = tail call ptr @palloc(i64 noundef 24) #8
+  %151 = tail call ptr @palloc(i64 noundef 24) #7
   br i1 %.lcssa152.fr, label %153, label %.split109.us._crit_edge
 
 .split109.us._crit_edge:                          ; preds = %.split109.us.thread341, %.split109.us
@@ -358,7 +357,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   store i32 %.sink, ptr %172, align 4
   %173 = getelementptr inbounds nuw i8, ptr %.sink421, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, i8 0, i64 16, i1 false)
-  %174 = tail call ptr @lappend(ptr noundef %.077.ph244, ptr noundef nonnull %.sink421) #8
+  %174 = tail call ptr @lappend(ptr noundef %.077.ph244, ptr noundef nonnull %.sink421) #7
   %175 = icmp ne ptr %.174.ph88236, null
   %176 = icmp ne ptr %.us-phi112335, null
   br label %.lr.ph.lr.ph
@@ -384,15 +383,14 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext i32 %0 to i64
-  %8 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %7) #8
+  %8 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %7) #7
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %12
 
 9:                                                ; preds = %5
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef nonnull @__func__.check_amproc_signature) #8
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 163, ptr noundef nonnull @__func__.check_amproc_signature) #7
   unreachable
 
 12:                                               ; preds = %5
@@ -552,7 +550,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %82 = load i32, ptr %78, align 4
   %83 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4
-  %85 = call zeroext i1 @IsBinaryCoercible(i32 noundef %82, i32 noundef %84) #8
+  %85 = call zeroext i1 @IsBinaryCoercible(i32 noundef %82, i32 noundef %84) #7
   %spec.select36 = select i1 %85, i1 %.133, i1 false
   br label %86
 
@@ -565,7 +563,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
 ._crit_edge:                                      ; preds = %86, %47, %66, %31
   %.1.lcssa = phi i1 [ %.0, %31 ], [ %.2.us, %66 ], [ %.2.us.us, %47 ], [ %.2, %86 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
-  call void @ReleaseSysCache(ptr noundef nonnull %8) #8
+  call void @ReleaseSysCache(ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.1.lcssa
 }
@@ -591,15 +589,14 @@ define dso_local zeroext i1 @check_amoptsproc_signature(i32 noundef %0) local_un
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_amop_signature(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %0 to i64
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %5) #8
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 40, i64 noundef %5) #7
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @__func__.check_amop_signature) #8
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 214, ptr noundef nonnull @__func__.check_amop_signature) #7
   unreachable
 
 10:                                               ; preds = %4
@@ -637,14 +634,14 @@ define dso_local noundef zeroext i1 @check_amop_signature(i32 noundef %0, i32 no
 
 28:                                               ; preds = %27, %24
   %.0 = phi i1 [ false, %27 ], [ true, %24 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #8
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #7
   ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @opclass_for_family_datatype(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = zext i32 %0 to i64
-  %5 = tail call ptr @SearchSysCacheList(i32 noundef 13, i32 noundef 1, i64 noundef %4, i64 noundef 0, i64 noundef 0) #8
+  %5 = tail call ptr @SearchSysCacheList(i32 noundef 13, i32 noundef 1, i64 noundef %4, i64 noundef 0, i64 noundef 0) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -687,7 +684,7 @@ define dso_local i32 @opclass_for_family_datatype(i32 noundef %0, i32 noundef %1
 
 .loopexit:                                        ; preds = %27, %3, %25
   %.1 = phi i32 [ %26, %25 ], [ 0, %3 ], [ 0, %27 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %5) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %5) #7
   ret i32 %.1
 }
 
@@ -697,7 +694,7 @@ declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @opfamily_can_sort_type(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @SearchSysCacheList(i32 noundef 13, i32 noundef 1, i64 noundef 403, i64 noundef 0, i64 noundef 0) #8
+  %3 = tail call ptr @SearchSysCacheList(i32 noundef 13, i32 noundef 1, i64 noundef 403, i64 noundef 0, i64 noundef 0) #7
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -741,7 +738,7 @@ define dso_local zeroext i1 @opfamily_can_sort_type(i32 noundef %0, i32 noundef 
 
 opclass_for_family_datatype.exit:                 ; preds = %26, %2, %23
   %.1.i = phi i1 [ %25, %23 ], [ false, %2 ], [ false, %26 ]
-  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #8
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %3) #7
   ret i1 %.1.i
 }
 
@@ -751,21 +748,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { cold nounwind }
-attributes #8 = { nounwind }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { cold nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

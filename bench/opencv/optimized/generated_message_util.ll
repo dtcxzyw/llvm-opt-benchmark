@@ -132,7 +132,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN6google8protobuf8internal14DestroyMessageEPKv(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !3
   %3 = load ptr, ptr %2, align 8
-  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   ret void
 }
 
@@ -141,20 +141,13 @@ define hidden void @_ZN6google8protobuf8internal13DestroyStringEPKv(ptr noundef 
   %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
-  br i1 %4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !13
-  %7 = icmp ult i64 %6, 16
-  tail call void @llvm.assume(i1 %7)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %4, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
-  tail call void @_ZdlPv(ptr noundef %2) #15
+  tail call void @_ZdlPv(ptr noundef %2) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   ret void
 }
 
@@ -162,23 +155,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define hidden void @_ZN6google8protobuf8internal24InitProtobufDefaultsSlowEv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %7, !prof !14
+  br i1 %2, label %3, label %7, !prof !13
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #14
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 16), ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, align 8, !tbaa !15
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 8), align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 16), ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, align 8, !tbaa !14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 8), align 8, !tbaa !15
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 16), align 8, !tbaa !16
   invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E)
           to label %6 unwind label %8
 
 6:                                                ; preds = %5
   store atomic i8 1, ptr @_ZN6google8protobuf8internal28init_protobuf_defaults_stateE release, align 1
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #13
   br label %7
 
 7:                                                ; preds = %6, %3, %0
@@ -187,7 +180,7 @@ define hidden void @_ZN6google8protobuf8internal24InitProtobufDefaultsSlowEv() l
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #14
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #13
   resume { ptr, i32 } %9
 }
 
@@ -209,27 +202,11 @@ define hidden noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludin
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = icmp ult ptr %2, %3
   %or.cond = select i1 %.not, i1 %4, i1 false
-  br i1 %or.cond, label %14, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = icmp eq ptr %2, %6
-  br i1 %7, label %8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
-
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !13
-  %11 = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %11)
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds = %5, %8
-  %12 = load i64, ptr %6, align 8
-  %13 = select i1 %7, i64 15, i64 %12
-  br label %14
-
-14:                                               ; preds = %1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
-  %.0 = phi i64 [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = icmp eq ptr %2, %5
+  %7 = load i64, ptr %5, align 8
+  %8 = select i1 %6, i64 15, i64 %7
+  %.0 = select i1 %or.cond, i64 0, i64 %8
   ret i64 %.0
 }
 
@@ -280,7 +257,7 @@ define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_
   %22 = ashr exact i64 %sext, 32
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   store ptr %23, ptr %1, align 8, !tbaa !22
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -288,7 +265,7 @@ define hidden void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_
 24:                                               ; preds = %15, %2
   %25 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #14
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %25
@@ -2390,7 +2367,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %888 = and i64 %887, -2
   %889 = inttoptr i64 %888 to ptr
   %890 = getelementptr inbounds nuw i8, ptr %889, i64 8
-  %891 = load i64, ptr %890, align 8, !tbaa !13
+  %891 = load i64, ptr %890, align 8, !tbaa !15
   %892 = icmp eq i64 %891, 0
   br i1 %892, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %893
 
@@ -3395,7 +3372,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   %1357 = and i64 %1356, -2
   %1358 = inttoptr i64 %1357 to ptr
   %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 8
-  %1360 = load i64, ptr %1359, align 8, !tbaa !13
+  %1360 = load i64, ptr %1359, align 8, !tbaa !15
   %1361 = icmp eq i64 %1360, 0
   br i1 %1361, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1362
 
@@ -4577,7 +4554,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi21EE9SerializeINS0_2io17Code
 
 1903:                                             ; preds = %9
   %1904 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %1905 = load i64, ptr %1904, align 8, !tbaa !13
+  %1905 = load i64, ptr %1904, align 8, !tbaa !15
   %1906 = icmp eq i64 %1905, 0
   br i1 %1906, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1907
 
@@ -4833,13 +4810,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS0_2io17CodedOu
 
 2017:                                             ; preds = %2015, %2013
   %.pn.i = phi { ptr, i32 } [ %2016, %2015 ], [ %2014, %2013 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.i
 
 _ZN6google8protobuf8internal23SerializeNotImplementedEi.exit: ; preds = %2012
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8169,7 +8146,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   %1526 = and i64 %1525, -2
   %1527 = inttoptr i64 %1526 to ptr
   %1528 = getelementptr inbounds nuw i8, ptr %1527, i64 8
-  %1529 = load i64, ptr %1528, align 8, !tbaa !13
+  %1529 = load i64, ptr %1528, align 8, !tbaa !15
   %1530 = icmp eq i64 %1529, 0
   br i1 %1530, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1531
 
@@ -9033,7 +9010,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   %1957 = and i64 %1956, -2
   %1958 = inttoptr i64 %1957 to ptr
   %1959 = getelementptr inbounds nuw i8, ptr %1958, i64 8
-  %1960 = load i64, ptr %1959, align 8, !tbaa !13
+  %1960 = load i64, ptr %1959, align 8, !tbaa !15
   %1961 = icmp eq i64 %1960, 0
   br i1 %1961, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1962
 
@@ -11708,7 +11685,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi21EE9SerializeINS1_11ArrayOu
 
 3219:                                             ; preds = %18
   %3220 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %3221 = load i64, ptr %3220, align 8, !tbaa !13
+  %3221 = load i64, ptr %3220, align 8, !tbaa !15
   %3222 = icmp eq i64 %3221, 0
   br i1 %3222, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %3223
 
@@ -11930,7 +11907,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS1_11ArrayOutpu
   %3328 = ashr exact i64 %sext, 32
   %3329 = getelementptr inbounds i8, ptr %3327, i64 %3328
   store ptr %3329, ptr %8, align 8, !tbaa !22
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -11943,7 +11920,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi21EE9SerializeINS1_11ArrayOutpu
 3332:                                             ; preds = %3321, %3313
   %3333 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #14
+  call void @_ZN6google8protobuf2io17CodedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #13
   br label %3334
 
 common.resume:                                    ; preds = %3344, %3334
@@ -11985,13 +11962,13 @@ common.resume:                                    ; preds = %3344, %3334
 
 3344:                                             ; preds = %3342, %3340
   %.pn.i = phi { ptr, i32 } [ %3343, %3342 ], [ %3341, %3340 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
 _ZN6google8protobuf8internal23SerializeNotImplementedEi.exit: ; preds = %3339
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -12021,7 +11998,7 @@ define hidden void @_ZN6google8protobuf8internal23SerializeNotImplementedEi(i32 
 
 8:                                                ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
@@ -12038,7 +12015,7 @@ define hidden void @_ZN6google8protobuf8internal23SerializeNotImplementedEi(i32 
 
 13:                                               ; preds = %11, %9
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %10, %9 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
@@ -12069,7 +12046,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi9EEEbPKv
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = icmp eq i64 %7, 0
   ret i1 %8
 }
@@ -12081,7 +12058,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi12EEEbPK
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !13
+  %7 = load i64, ptr %6, align 8, !tbaa !15
   %8 = icmp eq i64 %7, 0
   ret i1 %8
 }
@@ -12103,7 +12080,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi11EEEbPK
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf8internal6IsNullILi21EEEbPKv(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !13
+  %3 = load i64, ptr %2, align 8, !tbaa !15
   %4 = icmp eq i64 %3, 0
   ret i1 %4
 }
@@ -14267,7 +14244,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
 
 18:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -14284,7 +14261,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
@@ -17277,7 +17254,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
 
 18:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -17294,7 +17271,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal17PackedFieldHelper
 
 23:                                               ; preds = %21, %19
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %20, %19 ]
-  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #14
+  call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }
@@ -18290,7 +18267,7 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINSt7__cxx1112bas
   %.0.i = phi ptr [ %13, %10 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %14 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, %17 ]
   %18 = load ptr, ptr %.0.i, align 8, !tbaa !6
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !13
+  %20 = load i64, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %22 = load ptr, ptr %21, align 8, !tbaa !17
   %23 = load ptr, ptr %4, align 8, !tbaa !40
@@ -18383,7 +18360,7 @@ _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.ex
   %26 = load ptr, ptr %6, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   ret void
 
 _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10: ; preds = %22, %18, %14, %10, %2
@@ -18392,7 +18369,7 @@ _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.ex
   %30 = load ptr, ptr %6, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   resume { ptr, i32 } %29
 }
 
@@ -18448,7 +18425,7 @@ declare noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream19EnsureSpaceFal
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !13
+  %4 = load i64, ptr %3, align 8, !tbaa !15
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !17
@@ -18506,7 +18483,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %.pre
   %.019.i.i.i = phi ptr [ %14, %13 ], [ %21, %15 ], [ %26, %.preheader.i ]
   store ptr %.019.i.i.i, ptr %6, align 8, !tbaa !17
   %28 = load ptr, ptr %0, align 8, !tbaa !6
-  %29 = load i64, ptr %3, align 8, !tbaa !13
+  %29 = load i64, ptr %3, align 8, !tbaa !15
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 57
   %32 = load i8, ptr %31, align 1, !tbaa !155, !range !25, !noundef !26
@@ -18823,7 +18800,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_obje
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #13
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -18834,29 +18811,29 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal19arena_delete_obje
 define internal void @_GLOBAL__I_000102() #11 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %__cxx_global_var_init.1.exit, !prof !14
+  br i1 %2, label %3, label %__cxx_global_var_init.1.exit, !prof !13
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #14
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #13
   %.not.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i, label %__cxx_global_var_init.1.exit, label %5
 
 5:                                                ; preds = %3
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 16), ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, align 8, !tbaa !15
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 8), align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 16), ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, align 8, !tbaa !14
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 8), align 8, !tbaa !15
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, i64 16), align 8, !tbaa !16
   invoke void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal13DestroyStringEPKv, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E)
           to label %6 unwind label %7
 
 6:                                                ; preds = %5
   store atomic i8 1, ptr @_ZN6google8protobuf8internal28init_protobuf_defaults_stateE release, align 1
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #14
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #13
   br label %__cxx_global_var_init.1.exit
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #14
+  tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN6google8protobuf8internal24InitProtobufDefaultsSlowEvE9is_inited) #13
   resume { ptr, i32 } %8
 
 __cxx_global_var_init.1.exit:                     ; preds = %0, %3, %6
@@ -18866,7 +18843,7 @@ __cxx_global_var_init.1.exit:                     ; preds = %0, %3, %6
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_generated_message_util.cc() #11 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   ret void
 }
 
@@ -18875,9 +18852,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -18892,9 +18866,8 @@ attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { builtin nounwind }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -18911,9 +18884,9 @@ attributes #15 = { builtin nounwind }
 !10 = !{!"any pointer", !11, i64 0}
 !11 = !{!"omnipotent char", !5, i64 0}
 !12 = !{!"long", !11, i64 0}
-!13 = !{!7, !12, i64 8}
-!14 = !{!"branch_weights", i32 1, i32 1048575}
-!15 = !{!8, !9, i64 0}
+!13 = !{!"branch_weights", i32 1, i32 1048575}
+!14 = !{!8, !9, i64 0}
+!15 = !{!7, !12, i64 8}
 !16 = !{!11, !11, i64 0}
 !17 = !{!18, !9, i64 64}
 !18 = !{!"_ZTSN6google8protobuf2io17CodedOutputStreamE", !19, i64 0, !9, i64 64, !12, i64 72}

@@ -1178,7 +1178,7 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %18 = getelementptr i8, ptr %17, i64 24
   %.val23.i.i = load i32, ptr %18, align 8, !alias.scope !171, !noalias !176, !noundef !5
   %19 = icmp eq i32 %.val23.i.i, %13
-  br i1 %19, label %27, label %20
+  br i1 %19, label %26, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = icmp ugt i32 %.val23.i.i, %13
@@ -1188,30 +1188,21 @@ define { ptr, i64 } @_ZN6parser9lexed_str8LexedStr5error17hbfd0fd7560cda079E(ptr
   %.022.i.i = select i1 %22, i64 %23, i64 %.01926.i.i
   %24 = sub i64 %.021.i.i, %.022.i.i
   %25 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %25, label %.lr.ph.i.i, label %.loopexit.loopexit
+  br i1 %25, label %.lr.ph.i.i, label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %20
-  %26 = icmp ule i64 %.022.i.i, %12
+26:                                               ; preds = %.lr.ph.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %28 = load ptr, ptr %27, align 8, !nonnull !5, !noundef !5
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %30 = load i64, ptr %29, align 8, !noundef !5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %8
-  %.019.lcssa.i.i = phi i1 [ true, %8 ], [ %26, %.loopexit.loopexit ]
-  tail call void @llvm.assume(i1 %.019.lcssa.i.i)
-  br label %32
-
-27:                                               ; preds = %.lr.ph.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %31 = load i64, ptr %30, align 8, !noundef !5
-  br label %32
-
-32:                                               ; preds = %27, %.loopexit
-  %.sroa.3.0 = phi i64 [ %31, %27 ], [ undef, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %29, %27 ], [ null, %.loopexit ]
-  %33 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %34 = insertvalue { ptr, i64 } %33, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %34
+.loopexit:                                        ; preds = %20, %8, %26
+  %.sroa.3.0 = phi i64 [ %30, %26 ], [ undef, %8 ], [ undef, %20 ]
+  %.sroa.0.0 = phi ptr [ %28, %26 ], [ null, %8 ], [ null, %20 ]
+  %31 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %32 = insertvalue { ptr, i64 } %31, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

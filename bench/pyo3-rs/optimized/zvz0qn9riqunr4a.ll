@@ -1099,7 +1099,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1ffcad1400618953E"(ptr nonnull align 8 %12) #14
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1ffcad1400618953E"(ptr nonnull align 8 %12) #13
           to label %111 unwind label %109
 
 66:                                               ; preds = %63
@@ -1212,7 +1212,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
 109:                                              ; preds = %.loopexit.split-lp
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
   unreachable
 
 111:                                              ; preds = %.loopexit.split-lp
@@ -1387,7 +1387,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1ffcad1400618953E"(ptr nonnull align 8 %12) #14
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1ffcad1400618953E"(ptr nonnull align 8 %12) #13
           to label %111 unwind label %109
 
 66:                                               ; preds = %63
@@ -1500,7 +1500,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
 109:                                              ; preds = %.loopexit.split-lp
   %110 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #15
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #14
   unreachable
 
 111:                                              ; preds = %.loopexit.split-lp
@@ -1562,37 +1562,34 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
 
 10:                                               ; preds = %4
   %11 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hb99187c6da10ec64E"(ptr nonnull align 8 %0, i64 1, ptr align 8 %3, i1 zeroext true)
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = icmp eq i64 %12, -9223372036854775807
-  tail call void @llvm.assume(i1 %13)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE.exit": ; preds = %4, %10
   store ptr %6, ptr %5, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %14, align 8
-  %15 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h563cc04a978a5dcbE(ptr nonnull align 8 %0, i64 %1, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.1ed068ccc16794e7be7ae5aa12424e0a.6)
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %18 = icmp eq i64 %16, 0
-  br i1 %18, label %19, label %23
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %12, align 8
+  %13 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h563cc04a978a5dcbE(ptr nonnull align 8 %0, i64 %1, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.1ed068ccc16794e7be7ae5aa12424e0a.6)
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = extractvalue { i64, i64 } %13, 1
+  %16 = icmp eq i64 %14, 0
+  br i1 %16, label %17, label %21
 
-19:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE.exit"
-  %20 = load ptr, ptr %0, align 8
-  %21 = sub nsw i64 0, %17
-  %22 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %20, i64 %21
-  br label %25
+17:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE.exit"
+  %18 = load ptr, ptr %0, align 8
+  %19 = sub nsw i64 0, %15
+  %20 = getelementptr inbounds { { i64, [2 x i64] }, {} }, ptr %18, i64 %19
+  br label %23
 
-23:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE.exit"
-  %24 = inttoptr i64 %17 to ptr
-  br label %25
+21:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8fdE.exit"
+  %22 = inttoptr i64 %15 to ptr
+  br label %23
 
-25:                                               ; preds = %19, %23
-  %.sroa.3.0 = phi ptr [ %22, %19 ], [ %24, %23 ]
-  %.sroa.0.0 = phi i64 [ 0, %19 ], [ 1, %23 ]
-  %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %27 = insertvalue { i64, ptr } %26, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %27
+23:                                               ; preds = %17, %21
+  %.sroa.3.0 = phi ptr [ %20, %17 ], [ %22, %21 ]
+  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %21 ]
+  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1607,37 +1604,34 @@ define { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_ins
 
 10:                                               ; preds = %4
   %11 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h6bba9cc7a47c5a62E"(ptr nonnull align 8 %0, i64 1, ptr align 8 %3, i1 zeroext true)
-  %12 = extractvalue { i64, i64 } %11, 0
-  %13 = icmp eq i64 %12, -9223372036854775807
-  tail call void @llvm.assume(i1 %13)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E.exit": ; preds = %4, %10
   store ptr %6, ptr %5, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %14, align 8
-  %15 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h563cc04a978a5dcbE(ptr nonnull align 8 %0, i64 %1, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.1ed068ccc16794e7be7ae5aa12424e0a.7)
-  %16 = extractvalue { i64, i64 } %15, 0
-  %17 = extractvalue { i64, i64 } %15, 1
-  %18 = icmp eq i64 %16, 0
-  br i1 %18, label %19, label %23
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %0, ptr %12, align 8
+  %13 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17h563cc04a978a5dcbE(ptr nonnull align 8 %0, i64 %1, ptr nonnull align 1 %5, ptr nonnull align 8 @anon.1ed068ccc16794e7be7ae5aa12424e0a.7)
+  %14 = extractvalue { i64, i64 } %13, 0
+  %15 = extractvalue { i64, i64 } %13, 1
+  %16 = icmp eq i64 %14, 0
+  br i1 %16, label %17, label %21
 
-19:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E.exit"
-  %20 = load ptr, ptr %0, align 8
-  %21 = sub nsw i64 0, %17
-  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %20, i64 %21
-  br label %25
+17:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E.exit"
+  %18 = load ptr, ptr %0, align 8
+  %19 = sub nsw i64 0, %15
+  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %18, i64 %19
+  br label %23
 
-23:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E.exit"
-  %24 = inttoptr i64 %17 to ptr
-  br label %25
+21:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb8E.exit"
+  %22 = inttoptr i64 %15 to ptr
+  br label %23
 
-25:                                               ; preds = %19, %23
-  %.sroa.3.0 = phi ptr [ %22, %19 ], [ %24, %23 ]
-  %.sroa.0.0 = phi i64 [ 0, %19 ], [ 1, %23 ]
-  %26 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %27 = insertvalue { i64, ptr } %26, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %27
+23:                                               ; preds = %17, %21
+  %.sroa.3.0 = phi ptr [ %20, %17 ], [ %22, %21 ]
+  %.sroa.0.0 = phi i64 [ 0, %17 ], [ 1, %21 ]
+  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1969,16 +1963,13 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h03cebf906d62a8f
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hb99187c6da10ec64E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i1 zeroext true)
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = icmp eq i64 %9, -9223372036854775807
-  tail call void @llvm.assume(i1 %10)
-  br label %11
+  br label %9
 
-11:                                               ; preds = %7, %3
+9:                                                ; preds = %7, %3
   ret void
 }
 
@@ -1987,16 +1978,13 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hee622899c55f6bb
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %11
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h6bba9cc7a47c5a62E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i1 zeroext true)
-  %9 = extractvalue { i64, i64 } %8, 0
-  %10 = icmp eq i64 %9, -9223372036854775807
-  tail call void @llvm.assume(i1 %10)
-  br label %11
+  br label %9
 
-11:                                               ; preds = %7, %3
+9:                                                ; preds = %7, %3
   ret void
 }
 
@@ -2117,17 +2105,14 @@ declare zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h0bcf59bc14b6a3adE"(ptr align 8, ptr align 8) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2140,11 +2125,10 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { cold }
-attributes #15 = { cold noreturn nounwind }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { cold }
+attributes #14 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

@@ -526,7 +526,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
@@ -556,7 +556,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
   %7 = landingpad { ptr, i32 }
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #13
+  tail call void @__clang_call_terminate(ptr %8) #12
   unreachable
 }
 
@@ -616,7 +616,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  call void @__clang_call_terminate(ptr %27) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -687,7 +687,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %31
@@ -754,7 +754,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -821,7 +821,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -888,7 +888,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1040,7 +1040,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_addEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #13
+  call void @__clang_call_terminate(ptr %79) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_addEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -1109,7 +1109,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
@@ -1173,7 +1173,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  call void @__clang_call_terminate(ptr %27) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -1244,7 +1244,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %31
@@ -1311,7 +1311,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1378,7 +1378,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1445,7 +1445,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -1597,7 +1597,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_subEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #13
+  call void @__clang_call_terminate(ptr %79) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_subEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -1667,7 +1667,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #13
+  call void @__clang_call_terminate(ptr %33) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %30
@@ -1731,7 +1731,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #13
+  call void @__clang_call_terminate(ptr %26) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %23
@@ -1798,7 +1798,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -1865,7 +1865,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -1932,7 +1932,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2000,7 +2000,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -2158,7 +2158,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_minEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #13
+  call void @__clang_call_terminate(ptr %79) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_minEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -2228,7 +2228,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #13
+  call void @__clang_call_terminate(ptr %33) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %30
@@ -2292,7 +2292,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #13
+  call void @__clang_call_terminate(ptr %26) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %23
@@ -2359,7 +2359,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2426,7 +2426,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2493,7 +2493,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %26
@@ -2561,7 +2561,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -2719,7 +2719,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_maxEdiEEvPKT0_mS6_mPS4_mii.ex
   %78 = landingpad { ptr, i32 }
           catch ptr null
   %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #13
+  call void @__clang_call_terminate(ptr %79) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_6op_maxEdiEEvPKT0_mS6_mPS4_mii.exit, %76
@@ -2786,7 +2786,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #13
+  call void @__clang_call_terminate(ptr %30) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %27
@@ -2855,7 +2855,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %29
@@ -2925,7 +2925,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #13
+  call void @__clang_call_terminate(ptr %33) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %30
@@ -2997,7 +2997,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit, %32
@@ -3065,7 +3065,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %28
@@ -3133,7 +3133,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit, %28
@@ -3291,7 +3291,7 @@ _ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_10op_absdiffEdiEEvPKT0_mS6_mPS4_m
   %84 = landingpad { ptr, i32 }
           catch ptr null
   %85 = extractvalue { ptr, i32 } %84, 0
-  call void @__clang_call_terminate(ptr %85) #13
+  call void @__clang_call_terminate(ptr %85) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15bin_loop_nosimdINS1_10op_absdiffEdiEEvPKT0_mS6_mPS4_mii.exit, %82
@@ -3355,7 +3355,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  call void @__clang_call_terminate(ptr %27) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -3419,7 +3419,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  call void @__clang_call_terminate(ptr %27) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -3483,7 +3483,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #13
+  call void @__clang_call_terminate(ptr %27) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %24
@@ -3543,7 +3543,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %23 = landingpad { ptr, i32 }
           catch ptr null
   %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #13
+  call void @__clang_call_terminate(ptr %24) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit, %21
@@ -3564,7 +3564,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
     i32 4, label %41
     i32 2, label %55
     i32 0, label %69
-    i32 5, label %93
+    i32 5, label %90
   ]
 
 13:                                               ; preds = %9
@@ -3766,10 +3766,10 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %113
+          to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
           to label %84 unwind label %85
 
 84:                                               ; preds = %.noexc
@@ -3781,92 +3781,85 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8uEPKhmS3_mPhmiii(ptr noundef re
   %87 = load ptr, ptr %10, align 8, !tbaa !108
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %89 = icmp eq ptr %87, %88
-  br i1 %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !113
-  %92 = icmp ult i64 %91, 16
-  call void @llvm.assume(i1 %92)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %85
-  call void @_ZdlPv(ptr noundef %87) #15
+  call void @_ZdlPv(ptr noundef %87) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-93:                                               ; preds = %9
+90:                                               ; preds = %9
   %.not22.i111.i = icmp ne i32 %7, 0
-  %94 = icmp sgt i32 %6, 0
-  %or.cond.i112.i = and i1 %94, %.not22.i111.i
+  %91 = icmp sgt i32 %6, 0
+  %or.cond.i112.i = and i1 %91, %.not22.i111.i
   br i1 %or.cond.i112.i, label %.preheader.us.preheader.i113.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit
 
-.preheader.us.preheader.i113.i:                   ; preds = %93
+.preheader.us.preheader.i113.i:                   ; preds = %90
   %wide.trip.count.i114.i = zext nneg i32 %6 to i64
   br label %.preheader.us.i115.i
 
 .preheader.us.i115.i:                             ; preds = %._crit_edge.us.i123.i, %.preheader.us.preheader.i113.i
-  %.in.i116.i = phi i32 [ %103, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
-  %.01825.us.i117.i = phi ptr [ %104, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
-  %.01924.us.i118.i = phi ptr [ %106, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
-  %.02023.us.i119.i = phi ptr [ %105, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
-  br label %95
+  %.in.i116.i = phi i32 [ %100, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
+  %.01825.us.i117.i = phi ptr [ %101, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
+  %.01924.us.i118.i = phi ptr [ %103, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
+  %.02023.us.i119.i = phi ptr [ %102, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
+  br label %92
 
-95:                                               ; preds = %95, %.preheader.us.i115.i
-  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %95 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
-  %97 = load i8, ptr %96, align 1, !tbaa !3
-  %98 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
-  %99 = load i8, ptr %98, align 1, !tbaa !3
-  %100 = icmp ne i8 %97, %99
-  %101 = sext i1 %100 to i8
-  %102 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
-  store i8 %101, ptr %102, align 1, !tbaa !3
+92:                                               ; preds = %92, %.preheader.us.i115.i
+  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %92 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
+  %94 = load i8, ptr %93, align 1, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
+  %96 = load i8, ptr %95, align 1, !tbaa !3
+  %97 = icmp ne i8 %94, %96
+  %98 = sext i1 %97 to i8
+  %99 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
+  store i8 %98, ptr %99, align 1, !tbaa !3
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i114.i
-  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %95, !llvm.loop !114
+  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %92, !llvm.loop !113
 
-._crit_edge.us.i123.i:                            ; preds = %95
-  %103 = add nsw i32 %.in.i116.i, -1
-  %104 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %1
-  %105 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %3
-  %106 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
-  %.not.us.i124.i = icmp eq i32 %103, 0
-  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !115
+._crit_edge.us.i123.i:                            ; preds = %92
+  %100 = add nsw i32 %.in.i116.i, -1
+  %101 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %1
+  %102 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %3
+  %103 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
+  %.not.us.i124.i = icmp eq i32 %100, 0
+  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !114
 
-_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %93, %69, %55, %41, %27, %13
-  %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %108 = load i32, ptr %107, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %108, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %109
+_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %90, %69, %55, %41, %27, %13
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %105 = load i32, ptr %104, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %105, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %106
 
-109:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit
+106:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %110
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %107
 
-110:                                              ; preds = %109
-  %111 = landingpad { ptr, i32 }
+107:                                              ; preds = %106
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #13
+  %109 = extractvalue { ptr, i32 } %108, 0
+  call void @__clang_call_terminate(ptr %109) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, %109
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii.exit, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-113:                                              ; preds = %83
-  %114 = landingpad { ptr, i32 }
+110:                                              ; preds = %83
+  %111 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %113
-  %eh.lpad-body = phi { ptr, i32 } [ %114, %113 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %110
+  %eh.lpad-body = phi { ptr, i32 } [ %111, %110 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -3884,7 +3877,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
     i32 4, label %41
     i32 2, label %55
     i32 0, label %69
-    i32 5, label %93
+    i32 5, label %90
   ]
 
 13:                                               ; preds = %9
@@ -3916,7 +3909,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   store i8 %21, ptr %22, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %15, !llvm.loop !116
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %15, !llvm.loop !115
 
 ._crit_edge.us.i.i:                               ; preds = %15
   %23 = add nsw i32 %.in.i.i, -1
@@ -3924,7 +3917,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %25 = getelementptr inbounds nuw i8, ptr %.02023.us.i.i, i64 %3
   %26 = getelementptr inbounds nuw i8, ptr %.01924.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %23, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !117
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !116
 
 27:                                               ; preds = %9
   %.not22.i53.i = icmp ne i32 %7, 0
@@ -3955,7 +3948,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   store i8 %35, ptr %36, align 1, !tbaa !3
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i56.i
-  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %29, !llvm.loop !116
+  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %29, !llvm.loop !115
 
 ._crit_edge.us.i65.i:                             ; preds = %29
   %37 = add nsw i32 %.in.i58.i, -1
@@ -3963,7 +3956,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %39 = getelementptr inbounds nuw i8, ptr %.02023.us.i61.i, i64 %1
   %40 = getelementptr inbounds nuw i8, ptr %.01924.us.i60.i, i64 %5
   %.not.us.i66.i = icmp eq i32 %37, 0
-  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !117
+  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !116
 
 41:                                               ; preds = %9
   %.not22.i68.i = icmp ne i32 %7, 0
@@ -3994,7 +3987,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   store i8 %49, ptr %50, align 1, !tbaa !3
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, %wide.trip.count.i71.i
-  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %43, !llvm.loop !118
+  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %43, !llvm.loop !117
 
 ._crit_edge.us.i80.i:                             ; preds = %43
   %51 = add nsw i32 %.in.i73.i, -1
@@ -4002,7 +3995,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %53 = getelementptr inbounds nuw i8, ptr %.02023.us.i76.i, i64 %3
   %54 = getelementptr inbounds nuw i8, ptr %.01924.us.i75.i, i64 %5
   %.not.us.i81.i = icmp eq i32 %51, 0
-  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !119
+  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !118
 
 55:                                               ; preds = %9
   %.not22.i82.i = icmp ne i32 %7, 0
@@ -4033,7 +4026,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   store i8 %63, ptr %64, align 1, !tbaa !3
   %indvars.iv.next.i92.i = add nuw nsw i64 %indvars.iv.i91.i, 1
   %exitcond.not.i93.i = icmp eq i64 %indvars.iv.next.i92.i, %wide.trip.count.i85.i
-  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %57, !llvm.loop !118
+  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %57, !llvm.loop !117
 
 ._crit_edge.us.i94.i:                             ; preds = %57
   %65 = add nsw i32 %.in.i87.i, -1
@@ -4041,7 +4034,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %67 = getelementptr inbounds nuw i8, ptr %.02023.us.i90.i, i64 %1
   %68 = getelementptr inbounds nuw i8, ptr %.01924.us.i89.i, i64 %5
   %.not.us.i95.i = icmp eq i32 %65, 0
-  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !119
+  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !118
 
 69:                                               ; preds = %9
   %.not22.i97.i = icmp ne i32 %7, 0
@@ -4072,7 +4065,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   store i8 %77, ptr %78, align 1, !tbaa !3
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, %wide.trip.count.i100.i
-  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %71, !llvm.loop !120
+  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %71, !llvm.loop !119
 
 ._crit_edge.us.i109.i:                            ; preds = %71
   %79 = add nsw i32 %.in.i102.i, -1
@@ -4080,16 +4073,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %81 = getelementptr inbounds nuw i8, ptr %.02023.us.i105.i, i64 %3
   %82 = getelementptr inbounds nuw i8, ptr %.01924.us.i104.i, i64 %5
   %.not.us.i110.i = icmp eq i32 %79, 0
-  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !121
+  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !120
 
 83:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %113
+          to label %.noexc unwind label %110
 
 .noexc:                                           ; preds = %83
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
           to label %84 unwind label %85
 
 84:                                               ; preds = %.noexc
@@ -4101,92 +4094,85 @@ define hidden void @_ZN2cv3hal12cpu_baseline5cmp8sEPKamS3_mPhmiii(ptr noundef re
   %87 = load ptr, ptr %10, align 8, !tbaa !108
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %89 = icmp eq ptr %87, %88
-  br i1 %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !113
-  %92 = icmp ult i64 %91, 16
-  call void @llvm.assume(i1 %92)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %89, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %85
-  call void @_ZdlPv(ptr noundef %87) #15
+  call void @_ZdlPv(ptr noundef %87) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-93:                                               ; preds = %9
+90:                                               ; preds = %9
   %.not22.i111.i = icmp ne i32 %7, 0
-  %94 = icmp sgt i32 %6, 0
-  %or.cond.i112.i = and i1 %94, %.not22.i111.i
+  %91 = icmp sgt i32 %6, 0
+  %or.cond.i112.i = and i1 %91, %.not22.i111.i
   br i1 %or.cond.i112.i, label %.preheader.us.preheader.i113.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit
 
-.preheader.us.preheader.i113.i:                   ; preds = %93
+.preheader.us.preheader.i113.i:                   ; preds = %90
   %wide.trip.count.i114.i = zext nneg i32 %6 to i64
   br label %.preheader.us.i115.i
 
 .preheader.us.i115.i:                             ; preds = %._crit_edge.us.i123.i, %.preheader.us.preheader.i113.i
-  %.in.i116.i = phi i32 [ %103, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
-  %.01825.us.i117.i = phi ptr [ %104, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
-  %.01924.us.i118.i = phi ptr [ %106, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
-  %.02023.us.i119.i = phi ptr [ %105, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
-  br label %95
+  %.in.i116.i = phi i32 [ %100, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
+  %.01825.us.i117.i = phi ptr [ %101, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
+  %.01924.us.i118.i = phi ptr [ %103, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
+  %.02023.us.i119.i = phi ptr [ %102, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
+  br label %92
 
-95:                                               ; preds = %95, %.preheader.us.i115.i
-  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %95 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
-  %97 = load i8, ptr %96, align 1, !tbaa !3
-  %98 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
-  %99 = load i8, ptr %98, align 1, !tbaa !3
-  %100 = icmp ne i8 %97, %99
-  %101 = sext i1 %100 to i8
-  %102 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
-  store i8 %101, ptr %102, align 1, !tbaa !3
+92:                                               ; preds = %92, %.preheader.us.i115.i
+  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %92 ]
+  %93 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
+  %94 = load i8, ptr %93, align 1, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
+  %96 = load i8, ptr %95, align 1, !tbaa !3
+  %97 = icmp ne i8 %94, %96
+  %98 = sext i1 %97 to i8
+  %99 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
+  store i8 %98, ptr %99, align 1, !tbaa !3
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i114.i
-  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %95, !llvm.loop !122
+  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %92, !llvm.loop !121
 
-._crit_edge.us.i123.i:                            ; preds = %95
-  %103 = add nsw i32 %.in.i116.i, -1
-  %104 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %1
-  %105 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %3
-  %106 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
-  %.not.us.i124.i = icmp eq i32 %103, 0
-  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !123
+._crit_edge.us.i123.i:                            ; preds = %92
+  %100 = add nsw i32 %.in.i116.i, -1
+  %101 = getelementptr inbounds nuw i8, ptr %.01825.us.i117.i, i64 %1
+  %102 = getelementptr inbounds nuw i8, ptr %.02023.us.i119.i, i64 %3
+  %103 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
+  %.not.us.i124.i = icmp eq i32 %100, 0
+  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !122
 
-_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %93, %69, %55, %41, %27, %13
-  %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %108 = load i32, ptr %107, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %108, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %109
+_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %90, %69, %55, %41, %27, %13
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %105 = load i32, ptr %104, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %105, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %106
 
-109:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit
+106:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %110
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %107
 
-110:                                              ; preds = %109
-  %111 = landingpad { ptr, i32 }
+107:                                              ; preds = %106
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %112 = extractvalue { ptr, i32 } %111, 0
-  call void @__clang_call_terminate(ptr %112) #13
+  %109 = extractvalue { ptr, i32 } %108, 0
+  call void @__clang_call_terminate(ptr %109) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, %109
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPhmiii.exit, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-113:                                              ; preds = %83
-  %114 = landingpad { ptr, i32 }
+110:                                              ; preds = %83
+  %111 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %113
-  %eh.lpad-body = phi { ptr, i32 } [ %114, %113 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %110
+  %eh.lpad-body = phi { ptr, i32 } [ %111, %110 ], [ %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4204,7 +4190,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
     i32 4, label %45
     i32 2, label %61
     i32 0, label %77
-    i32 5, label %103
+    i32 5, label %100
   ]
 
 13:                                               ; preds = %9
@@ -4238,7 +4224,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   store i8 %23, ptr %24, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !124
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !123
 
 ._crit_edge.us.i.i:                               ; preds = %17
   %25 = add nsw i32 %.in.i.i, -1
@@ -4246,7 +4232,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %27 = getelementptr inbounds nuw i16, ptr %.02023.us.i.i, i64 %15
   %28 = getelementptr inbounds nuw i8, ptr %.01924.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %25, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !125
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !124
 
 29:                                               ; preds = %9
   %30 = lshr i64 %3, 1
@@ -4279,7 +4265,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   store i8 %39, ptr %40, align 1, !tbaa !3
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i56.i
-  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !124
+  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !123
 
 ._crit_edge.us.i65.i:                             ; preds = %33
   %41 = add nsw i32 %.in.i58.i, -1
@@ -4287,7 +4273,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %43 = getelementptr inbounds nuw i16, ptr %.02023.us.i61.i, i64 %31
   %44 = getelementptr inbounds nuw i8, ptr %.01924.us.i60.i, i64 %5
   %.not.us.i66.i = icmp eq i32 %41, 0
-  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !125
+  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !124
 
 45:                                               ; preds = %9
   %46 = lshr i64 %1, 1
@@ -4320,7 +4306,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   store i8 %55, ptr %56, align 1, !tbaa !3
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, %wide.trip.count.i71.i
-  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !126
+  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !125
 
 ._crit_edge.us.i80.i:                             ; preds = %49
   %57 = add nsw i32 %.in.i73.i, -1
@@ -4328,7 +4314,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %59 = getelementptr inbounds nuw i16, ptr %.02023.us.i76.i, i64 %47
   %60 = getelementptr inbounds nuw i8, ptr %.01924.us.i75.i, i64 %5
   %.not.us.i81.i = icmp eq i32 %57, 0
-  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !127
+  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !126
 
 61:                                               ; preds = %9
   %62 = lshr i64 %3, 1
@@ -4361,7 +4347,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   store i8 %71, ptr %72, align 1, !tbaa !3
   %indvars.iv.next.i92.i = add nuw nsw i64 %indvars.iv.i91.i, 1
   %exitcond.not.i93.i = icmp eq i64 %indvars.iv.next.i92.i, %wide.trip.count.i85.i
-  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !126
+  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !125
 
 ._crit_edge.us.i94.i:                             ; preds = %65
   %73 = add nsw i32 %.in.i87.i, -1
@@ -4369,7 +4355,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %75 = getelementptr inbounds nuw i16, ptr %.02023.us.i90.i, i64 %63
   %76 = getelementptr inbounds nuw i8, ptr %.01924.us.i89.i, i64 %5
   %.not.us.i95.i = icmp eq i32 %73, 0
-  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !127
+  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !126
 
 77:                                               ; preds = %9
   %78 = lshr i64 %1, 1
@@ -4402,7 +4388,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   store i8 %87, ptr %88, align 1, !tbaa !3
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, %wide.trip.count.i100.i
-  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !128
+  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !127
 
 ._crit_edge.us.i109.i:                            ; preds = %81
   %89 = add nsw i32 %.in.i102.i, -1
@@ -4410,16 +4396,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %91 = getelementptr inbounds nuw i16, ptr %.02023.us.i105.i, i64 %79
   %92 = getelementptr inbounds nuw i8, ptr %.01924.us.i104.i, i64 %5
   %.not.us.i110.i = icmp eq i32 %89, 0
-  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !129
+  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !128
 
 93:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %125
+          to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -4431,94 +4417,87 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16uEPKtmS3_mPhmiii(ptr noundef r
   %97 = load ptr, ptr %10, align 8, !tbaa !108
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %99 = icmp eq ptr %97, %98
-  br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !113
-  %102 = icmp ult i64 %101, 16
-  call void @llvm.assume(i1 %102)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #15
+  call void @_ZdlPv(ptr noundef %97) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-103:                                              ; preds = %9
-  %104 = lshr i64 %1, 1
-  %105 = lshr i64 %3, 1
+100:                                              ; preds = %9
+  %101 = lshr i64 %1, 1
+  %102 = lshr i64 %3, 1
   %.not22.i111.i = icmp ne i32 %7, 0
-  %106 = icmp sgt i32 %6, 0
-  %or.cond.i112.i = and i1 %106, %.not22.i111.i
+  %103 = icmp sgt i32 %6, 0
+  %or.cond.i112.i = and i1 %103, %.not22.i111.i
   br i1 %or.cond.i112.i, label %.preheader.us.preheader.i113.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit
 
-.preheader.us.preheader.i113.i:                   ; preds = %103
+.preheader.us.preheader.i113.i:                   ; preds = %100
   %wide.trip.count.i114.i = zext nneg i32 %6 to i64
   br label %.preheader.us.i115.i
 
 .preheader.us.i115.i:                             ; preds = %._crit_edge.us.i123.i, %.preheader.us.preheader.i113.i
-  %.in.i116.i = phi i32 [ %115, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
-  %.01825.us.i117.i = phi ptr [ %116, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
-  %.01924.us.i118.i = phi ptr [ %118, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
-  %.02023.us.i119.i = phi ptr [ %117, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
-  br label %107
+  %.in.i116.i = phi i32 [ %112, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
+  %.01825.us.i117.i = phi ptr [ %113, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
+  %.01924.us.i118.i = phi ptr [ %115, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
+  %.02023.us.i119.i = phi ptr [ %114, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
+  br label %104
 
-107:                                              ; preds = %107, %.preheader.us.i115.i
-  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %107 ]
-  %108 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
-  %109 = load i16, ptr %108, align 2, !tbaa !16
-  %110 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
-  %111 = load i16, ptr %110, align 2, !tbaa !16
-  %112 = icmp ne i16 %109, %111
-  %113 = sext i1 %112 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
-  store i8 %113, ptr %114, align 1, !tbaa !3
+104:                                              ; preds = %104, %.preheader.us.i115.i
+  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %104 ]
+  %105 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
+  %106 = load i16, ptr %105, align 2, !tbaa !16
+  %107 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
+  %108 = load i16, ptr %107, align 2, !tbaa !16
+  %109 = icmp ne i16 %106, %108
+  %110 = sext i1 %109 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
+  store i8 %110, ptr %111, align 1, !tbaa !3
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i114.i
-  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %107, !llvm.loop !130
+  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %104, !llvm.loop !129
 
-._crit_edge.us.i123.i:                            ; preds = %107
-  %115 = add nsw i32 %.in.i116.i, -1
-  %116 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %104
-  %117 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %105
-  %118 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
-  %.not.us.i124.i = icmp eq i32 %115, 0
-  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !131
+._crit_edge.us.i123.i:                            ; preds = %104
+  %112 = add nsw i32 %.in.i116.i, -1
+  %113 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %101
+  %114 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %102
+  %115 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
+  %.not.us.i124.i = icmp eq i32 %112, 0
+  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !130
 
-_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %103, %77, %61, %45, %29, %13
-  %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %120 = load i32, ptr %119, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %120, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %121
+_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %100, %77, %61, %45, %29, %13
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %117, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %118
 
-121:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit
+118:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %122
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %119
 
-122:                                              ; preds = %121
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #13
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, %121
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPhmiii.exit, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-125:                                              ; preds = %93
-  %126 = landingpad { ptr, i32 }
+122:                                              ; preds = %93
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
-  %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
+  %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4536,7 +4515,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
     i32 4, label %45
     i32 2, label %61
     i32 0, label %77
-    i32 5, label %103
+    i32 5, label %100
   ]
 
 13:                                               ; preds = %9
@@ -4570,7 +4549,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   store i8 %23, ptr %24, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !132
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !131
 
 ._crit_edge.us.i.i:                               ; preds = %17
   %25 = add nsw i32 %.in.i.i, -1
@@ -4578,7 +4557,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %27 = getelementptr inbounds nuw i16, ptr %.02023.us.i.i, i64 %15
   %28 = getelementptr inbounds nuw i8, ptr %.01924.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %25, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !133
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !132
 
 29:                                               ; preds = %9
   %30 = lshr i64 %3, 1
@@ -4611,7 +4590,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   store i8 %39, ptr %40, align 1, !tbaa !3
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i56.i
-  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !132
+  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !131
 
 ._crit_edge.us.i65.i:                             ; preds = %33
   %41 = add nsw i32 %.in.i58.i, -1
@@ -4619,7 +4598,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %43 = getelementptr inbounds nuw i16, ptr %.02023.us.i61.i, i64 %31
   %44 = getelementptr inbounds nuw i8, ptr %.01924.us.i60.i, i64 %5
   %.not.us.i66.i = icmp eq i32 %41, 0
-  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !133
+  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !132
 
 45:                                               ; preds = %9
   %46 = lshr i64 %1, 1
@@ -4652,7 +4631,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   store i8 %55, ptr %56, align 1, !tbaa !3
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, %wide.trip.count.i71.i
-  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !134
+  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !133
 
 ._crit_edge.us.i80.i:                             ; preds = %49
   %57 = add nsw i32 %.in.i73.i, -1
@@ -4660,7 +4639,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %59 = getelementptr inbounds nuw i16, ptr %.02023.us.i76.i, i64 %47
   %60 = getelementptr inbounds nuw i8, ptr %.01924.us.i75.i, i64 %5
   %.not.us.i81.i = icmp eq i32 %57, 0
-  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !135
+  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !134
 
 61:                                               ; preds = %9
   %62 = lshr i64 %3, 1
@@ -4693,7 +4672,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   store i8 %71, ptr %72, align 1, !tbaa !3
   %indvars.iv.next.i92.i = add nuw nsw i64 %indvars.iv.i91.i, 1
   %exitcond.not.i93.i = icmp eq i64 %indvars.iv.next.i92.i, %wide.trip.count.i85.i
-  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !134
+  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !133
 
 ._crit_edge.us.i94.i:                             ; preds = %65
   %73 = add nsw i32 %.in.i87.i, -1
@@ -4701,7 +4680,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %75 = getelementptr inbounds nuw i16, ptr %.02023.us.i90.i, i64 %63
   %76 = getelementptr inbounds nuw i8, ptr %.01924.us.i89.i, i64 %5
   %.not.us.i95.i = icmp eq i32 %73, 0
-  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !135
+  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !134
 
 77:                                               ; preds = %9
   %78 = lshr i64 %1, 1
@@ -4734,7 +4713,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   store i8 %87, ptr %88, align 1, !tbaa !3
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, %wide.trip.count.i100.i
-  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !136
+  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !135
 
 ._crit_edge.us.i109.i:                            ; preds = %81
   %89 = add nsw i32 %.in.i102.i, -1
@@ -4742,16 +4721,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %91 = getelementptr inbounds nuw i16, ptr %.02023.us.i105.i, i64 %79
   %92 = getelementptr inbounds nuw i8, ptr %.01924.us.i104.i, i64 %5
   %.not.us.i110.i = icmp eq i32 %89, 0
-  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !137
+  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !136
 
 93:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %125
+          to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -4763,94 +4742,87 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp16sEPKsmS3_mPhmiii(ptr noundef r
   %97 = load ptr, ptr %10, align 8, !tbaa !108
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %99 = icmp eq ptr %97, %98
-  br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !113
-  %102 = icmp ult i64 %101, 16
-  call void @llvm.assume(i1 %102)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #15
+  call void @_ZdlPv(ptr noundef %97) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-103:                                              ; preds = %9
-  %104 = lshr i64 %1, 1
-  %105 = lshr i64 %3, 1
+100:                                              ; preds = %9
+  %101 = lshr i64 %1, 1
+  %102 = lshr i64 %3, 1
   %.not22.i111.i = icmp ne i32 %7, 0
-  %106 = icmp sgt i32 %6, 0
-  %or.cond.i112.i = and i1 %106, %.not22.i111.i
+  %103 = icmp sgt i32 %6, 0
+  %or.cond.i112.i = and i1 %103, %.not22.i111.i
   br i1 %or.cond.i112.i, label %.preheader.us.preheader.i113.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit
 
-.preheader.us.preheader.i113.i:                   ; preds = %103
+.preheader.us.preheader.i113.i:                   ; preds = %100
   %wide.trip.count.i114.i = zext nneg i32 %6 to i64
   br label %.preheader.us.i115.i
 
 .preheader.us.i115.i:                             ; preds = %._crit_edge.us.i123.i, %.preheader.us.preheader.i113.i
-  %.in.i116.i = phi i32 [ %115, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
-  %.01825.us.i117.i = phi ptr [ %116, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
-  %.01924.us.i118.i = phi ptr [ %118, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
-  %.02023.us.i119.i = phi ptr [ %117, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
-  br label %107
+  %.in.i116.i = phi i32 [ %112, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
+  %.01825.us.i117.i = phi ptr [ %113, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
+  %.01924.us.i118.i = phi ptr [ %115, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
+  %.02023.us.i119.i = phi ptr [ %114, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
+  br label %104
 
-107:                                              ; preds = %107, %.preheader.us.i115.i
-  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %107 ]
-  %108 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
-  %109 = load i16, ptr %108, align 2, !tbaa !16
-  %110 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
-  %111 = load i16, ptr %110, align 2, !tbaa !16
-  %112 = icmp ne i16 %109, %111
-  %113 = sext i1 %112 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
-  store i8 %113, ptr %114, align 1, !tbaa !3
+104:                                              ; preds = %104, %.preheader.us.i115.i
+  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %104 ]
+  %105 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
+  %106 = load i16, ptr %105, align 2, !tbaa !16
+  %107 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
+  %108 = load i16, ptr %107, align 2, !tbaa !16
+  %109 = icmp ne i16 %106, %108
+  %110 = sext i1 %109 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
+  store i8 %110, ptr %111, align 1, !tbaa !3
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i114.i
-  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %107, !llvm.loop !138
+  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %104, !llvm.loop !137
 
-._crit_edge.us.i123.i:                            ; preds = %107
-  %115 = add nsw i32 %.in.i116.i, -1
-  %116 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %104
-  %117 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %105
-  %118 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
-  %.not.us.i124.i = icmp eq i32 %115, 0
-  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !139
+._crit_edge.us.i123.i:                            ; preds = %104
+  %112 = add nsw i32 %.in.i116.i, -1
+  %113 = getelementptr inbounds nuw i16, ptr %.01825.us.i117.i, i64 %101
+  %114 = getelementptr inbounds nuw i16, ptr %.02023.us.i119.i, i64 %102
+  %115 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
+  %.not.us.i124.i = icmp eq i32 %112, 0
+  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !138
 
-_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %103, %77, %61, %45, %29, %13
-  %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %120 = load i32, ptr %119, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %120, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %121
+_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %100, %77, %61, %45, %29, %13
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %117, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %118
 
-121:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit
+118:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %122
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %119
 
-122:                                              ; preds = %121
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #13
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, %121
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPhmiii.exit, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-125:                                              ; preds = %93
-  %126 = landingpad { ptr, i32 }
+122:                                              ; preds = %93
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
-  %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
+  %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -4868,7 +4840,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
     i32 4, label %45
     i32 2, label %61
     i32 0, label %77
-    i32 5, label %103
+    i32 5, label %100
   ]
 
 13:                                               ; preds = %9
@@ -4902,7 +4874,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   store i8 %23, ptr %24, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !140
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !139
 
 ._crit_edge.us.i.i:                               ; preds = %17
   %25 = add nsw i32 %.in.i.i, -1
@@ -4910,7 +4882,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %27 = getelementptr inbounds nuw i32, ptr %.02023.us.i.i, i64 %15
   %28 = getelementptr inbounds nuw i8, ptr %.01924.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %25, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !141
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !140
 
 29:                                               ; preds = %9
   %30 = lshr i64 %3, 2
@@ -4943,7 +4915,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   store i8 %39, ptr %40, align 1, !tbaa !3
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i56.i
-  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !140
+  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !139
 
 ._crit_edge.us.i65.i:                             ; preds = %33
   %41 = add nsw i32 %.in.i58.i, -1
@@ -4951,7 +4923,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %43 = getelementptr inbounds nuw i32, ptr %.02023.us.i61.i, i64 %31
   %44 = getelementptr inbounds nuw i8, ptr %.01924.us.i60.i, i64 %5
   %.not.us.i66.i = icmp eq i32 %41, 0
-  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !141
+  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !140
 
 45:                                               ; preds = %9
   %46 = lshr i64 %1, 2
@@ -4984,7 +4956,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   store i8 %55, ptr %56, align 1, !tbaa !3
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, %wide.trip.count.i71.i
-  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !142
+  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !141
 
 ._crit_edge.us.i80.i:                             ; preds = %49
   %57 = add nsw i32 %.in.i73.i, -1
@@ -4992,7 +4964,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %59 = getelementptr inbounds nuw i32, ptr %.02023.us.i76.i, i64 %47
   %60 = getelementptr inbounds nuw i8, ptr %.01924.us.i75.i, i64 %5
   %.not.us.i81.i = icmp eq i32 %57, 0
-  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !143
+  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !142
 
 61:                                               ; preds = %9
   %62 = lshr i64 %3, 2
@@ -5025,7 +4997,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   store i8 %71, ptr %72, align 1, !tbaa !3
   %indvars.iv.next.i92.i = add nuw nsw i64 %indvars.iv.i91.i, 1
   %exitcond.not.i93.i = icmp eq i64 %indvars.iv.next.i92.i, %wide.trip.count.i85.i
-  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !142
+  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !141
 
 ._crit_edge.us.i94.i:                             ; preds = %65
   %73 = add nsw i32 %.in.i87.i, -1
@@ -5033,7 +5005,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %75 = getelementptr inbounds nuw i32, ptr %.02023.us.i90.i, i64 %63
   %76 = getelementptr inbounds nuw i8, ptr %.01924.us.i89.i, i64 %5
   %.not.us.i95.i = icmp eq i32 %73, 0
-  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !143
+  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !142
 
 77:                                               ; preds = %9
   %78 = lshr i64 %1, 2
@@ -5066,7 +5038,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   store i8 %87, ptr %88, align 1, !tbaa !3
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, %wide.trip.count.i100.i
-  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !144
+  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !143
 
 ._crit_edge.us.i109.i:                            ; preds = %81
   %89 = add nsw i32 %.in.i102.i, -1
@@ -5074,16 +5046,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %91 = getelementptr inbounds nuw i32, ptr %.02023.us.i105.i, i64 %79
   %92 = getelementptr inbounds nuw i8, ptr %.01924.us.i104.i, i64 %5
   %.not.us.i110.i = icmp eq i32 %89, 0
-  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !145
+  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !144
 
 93:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %125
+          to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -5095,94 +5067,87 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32sEPKimS3_mPhmiii(ptr noundef r
   %97 = load ptr, ptr %10, align 8, !tbaa !108
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %99 = icmp eq ptr %97, %98
-  br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !113
-  %102 = icmp ult i64 %101, 16
-  call void @llvm.assume(i1 %102)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #15
+  call void @_ZdlPv(ptr noundef %97) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-103:                                              ; preds = %9
-  %104 = lshr i64 %1, 2
-  %105 = lshr i64 %3, 2
+100:                                              ; preds = %9
+  %101 = lshr i64 %1, 2
+  %102 = lshr i64 %3, 2
   %.not22.i111.i = icmp ne i32 %7, 0
-  %106 = icmp sgt i32 %6, 0
-  %or.cond.i112.i = and i1 %106, %.not22.i111.i
+  %103 = icmp sgt i32 %6, 0
+  %or.cond.i112.i = and i1 %103, %.not22.i111.i
   br i1 %or.cond.i112.i, label %.preheader.us.preheader.i113.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit
 
-.preheader.us.preheader.i113.i:                   ; preds = %103
+.preheader.us.preheader.i113.i:                   ; preds = %100
   %wide.trip.count.i114.i = zext nneg i32 %6 to i64
   br label %.preheader.us.i115.i
 
 .preheader.us.i115.i:                             ; preds = %._crit_edge.us.i123.i, %.preheader.us.preheader.i113.i
-  %.in.i116.i = phi i32 [ %115, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
-  %.01825.us.i117.i = phi ptr [ %116, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
-  %.01924.us.i118.i = phi ptr [ %118, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
-  %.02023.us.i119.i = phi ptr [ %117, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
-  br label %107
+  %.in.i116.i = phi i32 [ %112, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
+  %.01825.us.i117.i = phi ptr [ %113, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
+  %.01924.us.i118.i = phi ptr [ %115, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
+  %.02023.us.i119.i = phi ptr [ %114, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
+  br label %104
 
-107:                                              ; preds = %107, %.preheader.us.i115.i
-  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %107 ]
-  %108 = getelementptr inbounds nuw i32, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
-  %109 = load i32, ptr %108, align 4, !tbaa !22
-  %110 = getelementptr inbounds nuw i32, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
-  %111 = load i32, ptr %110, align 4, !tbaa !22
-  %112 = icmp ne i32 %109, %111
-  %113 = sext i1 %112 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
-  store i8 %113, ptr %114, align 1, !tbaa !3
+104:                                              ; preds = %104, %.preheader.us.i115.i
+  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %104 ]
+  %105 = getelementptr inbounds nuw i32, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
+  %106 = load i32, ptr %105, align 4, !tbaa !22
+  %107 = getelementptr inbounds nuw i32, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
+  %108 = load i32, ptr %107, align 4, !tbaa !22
+  %109 = icmp ne i32 %106, %108
+  %110 = sext i1 %109 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
+  store i8 %110, ptr %111, align 1, !tbaa !3
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i114.i
-  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %107, !llvm.loop !146
+  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %104, !llvm.loop !145
 
-._crit_edge.us.i123.i:                            ; preds = %107
-  %115 = add nsw i32 %.in.i116.i, -1
-  %116 = getelementptr inbounds nuw i32, ptr %.01825.us.i117.i, i64 %104
-  %117 = getelementptr inbounds nuw i32, ptr %.02023.us.i119.i, i64 %105
-  %118 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
-  %.not.us.i124.i = icmp eq i32 %115, 0
-  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !147
+._crit_edge.us.i123.i:                            ; preds = %104
+  %112 = add nsw i32 %.in.i116.i, -1
+  %113 = getelementptr inbounds nuw i32, ptr %.01825.us.i117.i, i64 %101
+  %114 = getelementptr inbounds nuw i32, ptr %.02023.us.i119.i, i64 %102
+  %115 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
+  %.not.us.i124.i = icmp eq i32 %112, 0
+  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !146
 
-_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %103, %77, %61, %45, %29, %13
-  %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %120 = load i32, ptr %119, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %120, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %121
+_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %100, %77, %61, %45, %29, %13
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %117, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %118
 
-121:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit
+118:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %122
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %119
 
-122:                                              ; preds = %121
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #13
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, %121
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPhmiii.exit, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-125:                                              ; preds = %93
-  %126 = landingpad { ptr, i32 }
+122:                                              ; preds = %93
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
-  %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
+  %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5200,7 +5165,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
     i32 4, label %45
     i32 2, label %61
     i32 0, label %77
-    i32 5, label %103
+    i32 5, label %100
   ]
 
 13:                                               ; preds = %9
@@ -5234,7 +5199,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   store i8 %23, ptr %24, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !148
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !147
 
 ._crit_edge.us.i.i:                               ; preds = %17
   %25 = add nsw i32 %.in.i.i, -1
@@ -5242,7 +5207,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %27 = getelementptr inbounds nuw float, ptr %.02023.us.i.i, i64 %15
   %28 = getelementptr inbounds nuw i8, ptr %.01924.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %25, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !149
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i.i, !llvm.loop !148
 
 29:                                               ; preds = %9
   %30 = lshr i64 %3, 2
@@ -5275,7 +5240,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   store i8 %39, ptr %40, align 1, !tbaa !3
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i56.i
-  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !148
+  br i1 %exitcond.not.i64.i, label %._crit_edge.us.i65.i, label %33, !llvm.loop !147
 
 ._crit_edge.us.i65.i:                             ; preds = %33
   %41 = add nsw i32 %.in.i58.i, -1
@@ -5283,7 +5248,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %43 = getelementptr inbounds nuw float, ptr %.02023.us.i61.i, i64 %31
   %44 = getelementptr inbounds nuw i8, ptr %.01924.us.i60.i, i64 %5
   %.not.us.i66.i = icmp eq i32 %41, 0
-  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !149
+  br i1 %.not.us.i66.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i57.i, !llvm.loop !148
 
 45:                                               ; preds = %9
   %46 = lshr i64 %1, 2
@@ -5316,7 +5281,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   store i8 %55, ptr %56, align 1, !tbaa !3
   %indvars.iv.next.i78.i = add nuw nsw i64 %indvars.iv.i77.i, 1
   %exitcond.not.i79.i = icmp eq i64 %indvars.iv.next.i78.i, %wide.trip.count.i71.i
-  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !150
+  br i1 %exitcond.not.i79.i, label %._crit_edge.us.i80.i, label %49, !llvm.loop !149
 
 ._crit_edge.us.i80.i:                             ; preds = %49
   %57 = add nsw i32 %.in.i73.i, -1
@@ -5324,7 +5289,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %59 = getelementptr inbounds nuw float, ptr %.02023.us.i76.i, i64 %47
   %60 = getelementptr inbounds nuw i8, ptr %.01924.us.i75.i, i64 %5
   %.not.us.i81.i = icmp eq i32 %57, 0
-  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !151
+  br i1 %.not.us.i81.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i72.i, !llvm.loop !150
 
 61:                                               ; preds = %9
   %62 = lshr i64 %3, 2
@@ -5357,7 +5322,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   store i8 %71, ptr %72, align 1, !tbaa !3
   %indvars.iv.next.i92.i = add nuw nsw i64 %indvars.iv.i91.i, 1
   %exitcond.not.i93.i = icmp eq i64 %indvars.iv.next.i92.i, %wide.trip.count.i85.i
-  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !150
+  br i1 %exitcond.not.i93.i, label %._crit_edge.us.i94.i, label %65, !llvm.loop !149
 
 ._crit_edge.us.i94.i:                             ; preds = %65
   %73 = add nsw i32 %.in.i87.i, -1
@@ -5365,7 +5330,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %75 = getelementptr inbounds nuw float, ptr %.02023.us.i90.i, i64 %63
   %76 = getelementptr inbounds nuw i8, ptr %.01924.us.i89.i, i64 %5
   %.not.us.i95.i = icmp eq i32 %73, 0
-  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !151
+  br i1 %.not.us.i95.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i86.i, !llvm.loop !150
 
 77:                                               ; preds = %9
   %78 = lshr i64 %1, 2
@@ -5398,7 +5363,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   store i8 %87, ptr %88, align 1, !tbaa !3
   %indvars.iv.next.i107.i = add nuw nsw i64 %indvars.iv.i106.i, 1
   %exitcond.not.i108.i = icmp eq i64 %indvars.iv.next.i107.i, %wide.trip.count.i100.i
-  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !152
+  br i1 %exitcond.not.i108.i, label %._crit_edge.us.i109.i, label %81, !llvm.loop !151
 
 ._crit_edge.us.i109.i:                            ; preds = %81
   %89 = add nsw i32 %.in.i102.i, -1
@@ -5406,16 +5371,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %91 = getelementptr inbounds nuw float, ptr %.02023.us.i105.i, i64 %79
   %92 = getelementptr inbounds nuw i8, ptr %.01924.us.i104.i, i64 %5
   %.not.us.i110.i = icmp eq i32 %89, 0
-  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !153
+  br i1 %.not.us.i110.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i101.i, !llvm.loop !152
 
 93:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %125
+          to label %.noexc unwind label %122
 
 .noexc:                                           ; preds = %93
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL8cmp_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 765) #13
           to label %94 unwind label %95
 
 94:                                               ; preds = %.noexc
@@ -5427,94 +5392,87 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp32fEPKfmS3_mPhmiii(ptr noundef r
   %97 = load ptr, ptr %10, align 8, !tbaa !108
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %99 = icmp eq ptr %97, %98
-  br i1 %99, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !113
-  %102 = icmp ult i64 %101, 16
-  call void @llvm.assume(i1 %102)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %99, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %95
-  call void @_ZdlPv(ptr noundef %97) #15
+  call void @_ZdlPv(ptr noundef %97) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-103:                                              ; preds = %9
-  %104 = lshr i64 %1, 2
-  %105 = lshr i64 %3, 2
+100:                                              ; preds = %9
+  %101 = lshr i64 %1, 2
+  %102 = lshr i64 %3, 2
   %.not22.i111.i = icmp ne i32 %7, 0
-  %106 = icmp sgt i32 %6, 0
-  %or.cond.i112.i = and i1 %106, %.not22.i111.i
+  %103 = icmp sgt i32 %6, 0
+  %or.cond.i112.i = and i1 %103, %.not22.i111.i
   br i1 %or.cond.i112.i, label %.preheader.us.preheader.i113.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit
 
-.preheader.us.preheader.i113.i:                   ; preds = %103
+.preheader.us.preheader.i113.i:                   ; preds = %100
   %wide.trip.count.i114.i = zext nneg i32 %6 to i64
   br label %.preheader.us.i115.i
 
 .preheader.us.i115.i:                             ; preds = %._crit_edge.us.i123.i, %.preheader.us.preheader.i113.i
-  %.in.i116.i = phi i32 [ %115, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
-  %.01825.us.i117.i = phi ptr [ %116, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
-  %.01924.us.i118.i = phi ptr [ %118, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
-  %.02023.us.i119.i = phi ptr [ %117, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
-  br label %107
+  %.in.i116.i = phi i32 [ %112, %._crit_edge.us.i123.i ], [ %7, %.preheader.us.preheader.i113.i ]
+  %.01825.us.i117.i = phi ptr [ %113, %._crit_edge.us.i123.i ], [ %0, %.preheader.us.preheader.i113.i ]
+  %.01924.us.i118.i = phi ptr [ %115, %._crit_edge.us.i123.i ], [ %4, %.preheader.us.preheader.i113.i ]
+  %.02023.us.i119.i = phi ptr [ %114, %._crit_edge.us.i123.i ], [ %2, %.preheader.us.preheader.i113.i ]
+  br label %104
 
-107:                                              ; preds = %107, %.preheader.us.i115.i
-  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
-  %109 = load float, ptr %108, align 4, !tbaa !25
-  %110 = getelementptr inbounds nuw float, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
-  %111 = load float, ptr %110, align 4, !tbaa !25
-  %112 = fcmp une float %109, %111
-  %113 = sext i1 %112 to i8
-  %114 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
-  store i8 %113, ptr %114, align 1, !tbaa !3
+104:                                              ; preds = %104, %.preheader.us.i115.i
+  %indvars.iv.i120.i = phi i64 [ 0, %.preheader.us.i115.i ], [ %indvars.iv.next.i121.i, %104 ]
+  %105 = getelementptr inbounds nuw float, ptr %.01825.us.i117.i, i64 %indvars.iv.i120.i
+  %106 = load float, ptr %105, align 4, !tbaa !25
+  %107 = getelementptr inbounds nuw float, ptr %.02023.us.i119.i, i64 %indvars.iv.i120.i
+  %108 = load float, ptr %107, align 4, !tbaa !25
+  %109 = fcmp une float %106, %108
+  %110 = sext i1 %109 to i8
+  %111 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %indvars.iv.i120.i
+  store i8 %110, ptr %111, align 1, !tbaa !3
   %indvars.iv.next.i121.i = add nuw nsw i64 %indvars.iv.i120.i, 1
   %exitcond.not.i122.i = icmp eq i64 %indvars.iv.next.i121.i, %wide.trip.count.i114.i
-  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %107, !llvm.loop !154
+  br i1 %exitcond.not.i122.i, label %._crit_edge.us.i123.i, label %104, !llvm.loop !153
 
-._crit_edge.us.i123.i:                            ; preds = %107
-  %115 = add nsw i32 %.in.i116.i, -1
-  %116 = getelementptr inbounds nuw float, ptr %.01825.us.i117.i, i64 %104
-  %117 = getelementptr inbounds nuw float, ptr %.02023.us.i119.i, i64 %105
-  %118 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
-  %.not.us.i124.i = icmp eq i32 %115, 0
-  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !155
+._crit_edge.us.i123.i:                            ; preds = %104
+  %112 = add nsw i32 %.in.i116.i, -1
+  %113 = getelementptr inbounds nuw float, ptr %.01825.us.i117.i, i64 %101
+  %114 = getelementptr inbounds nuw float, ptr %.02023.us.i119.i, i64 %102
+  %115 = getelementptr inbounds nuw i8, ptr %.01924.us.i118.i, i64 %5
+  %.not.us.i124.i = icmp eq i32 %112, 0
+  br i1 %.not.us.i124.i, label %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, label %.preheader.us.i115.i, !llvm.loop !154
 
-_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %103, %77, %61, %45, %29, %13
-  %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %120 = load i32, ptr %119, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %120, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %121
+_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit: ; preds = %._crit_edge.us.i123.i, %._crit_edge.us.i109.i, %._crit_edge.us.i94.i, %._crit_edge.us.i80.i, %._crit_edge.us.i65.i, %._crit_edge.us.i.i, %100, %77, %61, %45, %29, %13
+  %116 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %117, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %118
 
-121:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit
+118:                                              ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %122
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %119
 
-122:                                              ; preds = %121
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %118
+  %120 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #13
+  %121 = extractvalue { ptr, i32 } %120, 0
+  call void @__clang_call_terminate(ptr %121) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, %121
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8cmp_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPhmiii.exit, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-125:                                              ; preds = %93
-  %126 = landingpad { ptr, i32 }
+122:                                              ; preds = %93
+  %123 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %125
-  %eh.lpad-body = phi { ptr, i32 } [ %126, %125 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %122
+  %eh.lpad-body = phi { ptr, i32 } [ %123, %122 ], [ %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5532,7 +5490,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
     i32 4, label %153
     i32 2, label %223
     i32 0, label %293
-    i32 5, label %373
+    i32 5, label %370
   ]
 
 13:                                               ; preds = %9
@@ -5581,7 +5539,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %30, ptr %31, align 1, !tbaa !3
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %24, !llvm.loop !156
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %24, !llvm.loop !155
 
 ._crit_edge.us.us.i.i:                            ; preds = %24
   %32 = getelementptr inbounds nuw double, ptr %.061.us.us.i.i, i64 %14
@@ -5589,7 +5547,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %34 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i.i, i64 %5
   %35 = add nsw i32 %23, -1
   %.not.us.us.i.i = icmp eq i32 %23, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i.i, !llvm.loop !157
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i.i, !llvm.loop !156
 
 .preheader53.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader53.preheader.i.i
   %36 = phi i32 [ %82, %._crit_edge.i.i ], [ %16, %.preheader53.preheader.i.i ]
@@ -5642,7 +5600,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %68, ptr %70, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not52.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %18
-  br i1 %.not52.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !158
+  br i1 %.not52.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !157
 
 .lr.ph57.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph57.i.i
   %indvars.iv68.i.i = phi i64 [ %indvars.iv.next69.i.i, %.lr.ph57.i.i ], [ %21, %..preheader_crit_edge.i.i ]
@@ -5656,7 +5614,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %76, ptr %77, align 1, !tbaa !3
   %indvars.iv.next69.i.i = add nuw nsw i64 %indvars.iv68.i.i, 1
   %78 = icmp samesign ult i64 %indvars.iv.next69.i.i, %19
-  br i1 %78, label %.lr.ph57.i.i, label %._crit_edge.i.i, !llvm.loop !156
+  br i1 %78, label %.lr.ph57.i.i, label %._crit_edge.i.i, !llvm.loop !155
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph57.i.i, %..preheader_crit_edge.i.i
   %79 = getelementptr inbounds nuw double, ptr %.061.i.i, i64 %14
@@ -5664,7 +5622,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %81 = getelementptr inbounds nuw i8, ptr %.05159.i.i, i64 %5
   %82 = add nsw i32 %36, -1
   %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i.i, !llvm.loop !157
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i.i, !llvm.loop !156
 
 83:                                               ; preds = %9
   %84 = lshr i64 %3, 3
@@ -5712,7 +5670,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %100, ptr %101, align 1, !tbaa !3
   %indvars.iv.next72.i80.i = add nuw nsw i64 %indvars.iv71.i79.i, 1
   %exitcond.not.i81.i = icmp eq i64 %indvars.iv.next72.i80.i, %wide.trip.count.i74.i
-  br i1 %exitcond.not.i81.i, label %._crit_edge.us.us.i82.i, label %94, !llvm.loop !156
+  br i1 %exitcond.not.i81.i, label %._crit_edge.us.us.i82.i, label %94, !llvm.loop !155
 
 ._crit_edge.us.us.i82.i:                          ; preds = %94
   %102 = getelementptr inbounds nuw double, ptr %.061.us.us.i76.i, i64 %84
@@ -5720,7 +5678,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %104 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i78.i, i64 %5
   %105 = add nsw i32 %93, -1
   %.not.us.us.i83.i = icmp eq i32 %93, 0
-  br i1 %.not.us.us.i83.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i75.i, !llvm.loop !157
+  br i1 %.not.us.us.i83.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i75.i, !llvm.loop !156
 
 .preheader53.i57.i:                               ; preds = %._crit_edge.i67.i, %.preheader53.preheader.i56.i
   %106 = phi i32 [ %152, %._crit_edge.i67.i ], [ %86, %.preheader53.preheader.i56.i ]
@@ -5773,7 +5731,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %138, ptr %140, align 1, !tbaa !3
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i62.i, 4
   %.not52.i64.i = icmp samesign ugt i64 %indvars.iv.next.i63.i, %88
-  br i1 %.not52.i64.i, label %..preheader_crit_edge.i66.i, label %109, !llvm.loop !158
+  br i1 %.not52.i64.i, label %..preheader_crit_edge.i66.i, label %109, !llvm.loop !157
 
 .lr.ph57.i69.i:                                   ; preds = %..preheader_crit_edge.i66.i, %.lr.ph57.i69.i
   %indvars.iv68.i70.i = phi i64 [ %indvars.iv.next69.i71.i, %.lr.ph57.i69.i ], [ %91, %..preheader_crit_edge.i66.i ]
@@ -5787,7 +5745,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %146, ptr %147, align 1, !tbaa !3
   %indvars.iv.next69.i71.i = add nuw nsw i64 %indvars.iv68.i70.i, 1
   %148 = icmp samesign ult i64 %indvars.iv.next69.i71.i, %89
-  br i1 %148, label %.lr.ph57.i69.i, label %._crit_edge.i67.i, !llvm.loop !156
+  br i1 %148, label %.lr.ph57.i69.i, label %._crit_edge.i67.i, !llvm.loop !155
 
 ._crit_edge.i67.i:                                ; preds = %.lr.ph57.i69.i, %..preheader_crit_edge.i66.i
   %149 = getelementptr inbounds nuw double, ptr %.061.i58.i, i64 %84
@@ -5795,7 +5753,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %151 = getelementptr inbounds nuw i8, ptr %.05159.i60.i, i64 %5
   %152 = add nsw i32 %106, -1
   %.not.i68.i = icmp eq i32 %106, 0
-  br i1 %.not.i68.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i57.i, !llvm.loop !157
+  br i1 %.not.i68.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i57.i, !llvm.loop !156
 
 153:                                              ; preds = %9
   %154 = lshr i64 %1, 3
@@ -5843,7 +5801,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %170, ptr %171, align 1, !tbaa !3
   %indvars.iv.next72.i112.i = add nuw nsw i64 %indvars.iv71.i111.i, 1
   %exitcond.not.i113.i = icmp eq i64 %indvars.iv.next72.i112.i, %wide.trip.count.i106.i
-  br i1 %exitcond.not.i113.i, label %._crit_edge.us.us.i114.i, label %164, !llvm.loop !159
+  br i1 %exitcond.not.i113.i, label %._crit_edge.us.us.i114.i, label %164, !llvm.loop !158
 
 ._crit_edge.us.us.i114.i:                         ; preds = %164
   %172 = getelementptr inbounds nuw double, ptr %.061.us.us.i108.i, i64 %154
@@ -5851,7 +5809,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %174 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i110.i, i64 %5
   %175 = add nsw i32 %163, -1
   %.not.us.us.i115.i = icmp eq i32 %163, 0
-  br i1 %.not.us.us.i115.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i107.i, !llvm.loop !160
+  br i1 %.not.us.us.i115.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i107.i, !llvm.loop !159
 
 .preheader53.i89.i:                               ; preds = %._crit_edge.i99.i, %.preheader53.preheader.i88.i
   %176 = phi i32 [ %222, %._crit_edge.i99.i ], [ %156, %.preheader53.preheader.i88.i ]
@@ -5904,7 +5862,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %208, ptr %210, align 1, !tbaa !3
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i94.i, 4
   %.not52.i96.i = icmp samesign ugt i64 %indvars.iv.next.i95.i, %158
-  br i1 %.not52.i96.i, label %..preheader_crit_edge.i98.i, label %179, !llvm.loop !161
+  br i1 %.not52.i96.i, label %..preheader_crit_edge.i98.i, label %179, !llvm.loop !160
 
 .lr.ph57.i101.i:                                  ; preds = %..preheader_crit_edge.i98.i, %.lr.ph57.i101.i
   %indvars.iv68.i102.i = phi i64 [ %indvars.iv.next69.i103.i, %.lr.ph57.i101.i ], [ %161, %..preheader_crit_edge.i98.i ]
@@ -5918,7 +5876,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %216, ptr %217, align 1, !tbaa !3
   %indvars.iv.next69.i103.i = add nuw nsw i64 %indvars.iv68.i102.i, 1
   %218 = icmp samesign ult i64 %indvars.iv.next69.i103.i, %159
-  br i1 %218, label %.lr.ph57.i101.i, label %._crit_edge.i99.i, !llvm.loop !159
+  br i1 %218, label %.lr.ph57.i101.i, label %._crit_edge.i99.i, !llvm.loop !158
 
 ._crit_edge.i99.i:                                ; preds = %.lr.ph57.i101.i, %..preheader_crit_edge.i98.i
   %219 = getelementptr inbounds nuw double, ptr %.061.i90.i, i64 %154
@@ -5926,7 +5884,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %221 = getelementptr inbounds nuw i8, ptr %.05159.i92.i, i64 %5
   %222 = add nsw i32 %176, -1
   %.not.i100.i = icmp eq i32 %176, 0
-  br i1 %.not.i100.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i89.i, !llvm.loop !160
+  br i1 %.not.i100.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i89.i, !llvm.loop !159
 
 223:                                              ; preds = %9
   %224 = lshr i64 %3, 3
@@ -5974,7 +5932,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %240, ptr %241, align 1, !tbaa !3
   %indvars.iv.next72.i143.i = add nuw nsw i64 %indvars.iv71.i142.i, 1
   %exitcond.not.i144.i = icmp eq i64 %indvars.iv.next72.i143.i, %wide.trip.count.i137.i
-  br i1 %exitcond.not.i144.i, label %._crit_edge.us.us.i145.i, label %234, !llvm.loop !159
+  br i1 %exitcond.not.i144.i, label %._crit_edge.us.us.i145.i, label %234, !llvm.loop !158
 
 ._crit_edge.us.us.i145.i:                         ; preds = %234
   %242 = getelementptr inbounds nuw double, ptr %.061.us.us.i139.i, i64 %224
@@ -5982,7 +5940,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %244 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i141.i, i64 %5
   %245 = add nsw i32 %233, -1
   %.not.us.us.i146.i = icmp eq i32 %233, 0
-  br i1 %.not.us.us.i146.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i138.i, !llvm.loop !160
+  br i1 %.not.us.us.i146.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i138.i, !llvm.loop !159
 
 .preheader53.i120.i:                              ; preds = %._crit_edge.i130.i, %.preheader53.preheader.i119.i
   %246 = phi i32 [ %292, %._crit_edge.i130.i ], [ %226, %.preheader53.preheader.i119.i ]
@@ -6035,7 +5993,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %278, ptr %280, align 1, !tbaa !3
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i125.i, 4
   %.not52.i127.i = icmp samesign ugt i64 %indvars.iv.next.i126.i, %228
-  br i1 %.not52.i127.i, label %..preheader_crit_edge.i129.i, label %249, !llvm.loop !161
+  br i1 %.not52.i127.i, label %..preheader_crit_edge.i129.i, label %249, !llvm.loop !160
 
 .lr.ph57.i132.i:                                  ; preds = %..preheader_crit_edge.i129.i, %.lr.ph57.i132.i
   %indvars.iv68.i133.i = phi i64 [ %indvars.iv.next69.i134.i, %.lr.ph57.i132.i ], [ %231, %..preheader_crit_edge.i129.i ]
@@ -6049,7 +6007,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %286, ptr %287, align 1, !tbaa !3
   %indvars.iv.next69.i134.i = add nuw nsw i64 %indvars.iv68.i133.i, 1
   %288 = icmp samesign ult i64 %indvars.iv.next69.i134.i, %229
-  br i1 %288, label %.lr.ph57.i132.i, label %._crit_edge.i130.i, !llvm.loop !159
+  br i1 %288, label %.lr.ph57.i132.i, label %._crit_edge.i130.i, !llvm.loop !158
 
 ._crit_edge.i130.i:                               ; preds = %.lr.ph57.i132.i, %..preheader_crit_edge.i129.i
   %289 = getelementptr inbounds nuw double, ptr %.061.i121.i, i64 %224
@@ -6057,7 +6015,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %291 = getelementptr inbounds nuw i8, ptr %.05159.i123.i, i64 %5
   %292 = add nsw i32 %246, -1
   %.not.i131.i = icmp eq i32 %246, 0
-  br i1 %.not.i131.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i120.i, !llvm.loop !160
+  br i1 %.not.i131.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i120.i, !llvm.loop !159
 
 293:                                              ; preds = %9
   %294 = lshr i64 %1, 3
@@ -6105,7 +6063,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %310, ptr %311, align 1, !tbaa !3
   %indvars.iv.next72.i175.i = add nuw nsw i64 %indvars.iv71.i174.i, 1
   %exitcond.not.i176.i = icmp eq i64 %indvars.iv.next72.i175.i, %wide.trip.count.i169.i
-  br i1 %exitcond.not.i176.i, label %._crit_edge.us.us.i177.i, label %304, !llvm.loop !162
+  br i1 %exitcond.not.i176.i, label %._crit_edge.us.us.i177.i, label %304, !llvm.loop !161
 
 ._crit_edge.us.us.i177.i:                         ; preds = %304
   %312 = getelementptr inbounds nuw double, ptr %.061.us.us.i171.i, i64 %294
@@ -6113,7 +6071,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %314 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i173.i, i64 %5
   %315 = add nsw i32 %303, -1
   %.not.us.us.i178.i = icmp eq i32 %303, 0
-  br i1 %.not.us.us.i178.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i170.i, !llvm.loop !163
+  br i1 %.not.us.us.i178.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i170.i, !llvm.loop !162
 
 .preheader53.i152.i:                              ; preds = %._crit_edge.i162.i, %.preheader53.preheader.i151.i
   %316 = phi i32 [ %362, %._crit_edge.i162.i ], [ %296, %.preheader53.preheader.i151.i ]
@@ -6166,7 +6124,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %348, ptr %350, align 1, !tbaa !3
   %indvars.iv.next.i158.i = add nuw nsw i64 %indvars.iv.i157.i, 4
   %.not52.i159.i = icmp samesign ugt i64 %indvars.iv.next.i158.i, %298
-  br i1 %.not52.i159.i, label %..preheader_crit_edge.i161.i, label %319, !llvm.loop !164
+  br i1 %.not52.i159.i, label %..preheader_crit_edge.i161.i, label %319, !llvm.loop !163
 
 .lr.ph57.i164.i:                                  ; preds = %..preheader_crit_edge.i161.i, %.lr.ph57.i164.i
   %indvars.iv68.i165.i = phi i64 [ %indvars.iv.next69.i166.i, %.lr.ph57.i164.i ], [ %301, %..preheader_crit_edge.i161.i ]
@@ -6180,7 +6138,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   store i8 %356, ptr %357, align 1, !tbaa !3
   %indvars.iv.next69.i166.i = add nuw nsw i64 %indvars.iv68.i165.i, 1
   %358 = icmp samesign ult i64 %indvars.iv.next69.i166.i, %299
-  br i1 %358, label %.lr.ph57.i164.i, label %._crit_edge.i162.i, !llvm.loop !162
+  br i1 %358, label %.lr.ph57.i164.i, label %._crit_edge.i162.i, !llvm.loop !161
 
 ._crit_edge.i162.i:                               ; preds = %.lr.ph57.i164.i, %..preheader_crit_edge.i161.i
   %359 = getelementptr inbounds nuw double, ptr %.061.i153.i, i64 %294
@@ -6188,16 +6146,16 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %361 = getelementptr inbounds nuw i8, ptr %.05159.i155.i, i64 %5
   %362 = add nsw i32 %316, -1
   %.not.i163.i = icmp eq i32 %316, 0
-  br i1 %.not.i163.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i152.i, !llvm.loop !163
+  br i1 %.not.i163.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i152.i, !llvm.loop !162
 
 363:                                              ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.223, ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %.noexc unwind label %449
+          to label %.noexc unwind label %446
 
 .noexc:                                           ; preds = %363
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 820) #14
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii, ptr noundef nonnull @.str.1, i32 noundef 820) #13
           to label %364 unwind label %365
 
 364:                                              ; preds = %.noexc
@@ -6209,184 +6167,177 @@ define hidden void @_ZN2cv3hal12cpu_baseline6cmp64fEPKdmS3_mPhmiii(ptr noundef r
   %367 = load ptr, ptr %10, align 8, !tbaa !108
   %368 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %369 = icmp eq ptr %367, %368
-  br i1 %369, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %365
-  %370 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %371 = load i64, ptr %370, align 8, !tbaa !113
-  %372 = icmp ult i64 %371, 16
-  call void @llvm.assume(i1 %372)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  br i1 %369, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %365
-  call void @_ZdlPv(ptr noundef %367) #15
+  call void @_ZdlPv(ptr noundef %367) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %365, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.body
 
-373:                                              ; preds = %9
-  %374 = lshr i64 %1, 3
-  %375 = lshr i64 %3, 3
-  %376 = add nsw i32 %7, -1
+370:                                              ; preds = %9
+  %371 = lshr i64 %1, 3
+  %372 = lshr i64 %3, 3
+  %373 = add nsw i32 %7, -1
   %.not58.i179.i = icmp eq i32 %7, 0
   br i1 %.not58.i179.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.lr.ph.i180.i
 
-.preheader53.lr.ph.i180.i:                        ; preds = %373
+.preheader53.lr.ph.i180.i:                        ; preds = %370
   %.not5254.i181.i = icmp slt i32 %6, 4
   br i1 %.not5254.i181.i, label %.preheader53.lr.ph.split.us.i198.i, label %.preheader53.preheader.i182.i
 
 .preheader53.preheader.i182.i:                    ; preds = %.preheader53.lr.ph.i180.i
-  %377 = add nsw i32 %6, -4
-  %378 = zext nneg i32 %377 to i64
-  %379 = zext nneg i32 %6 to i64
-  %380 = and i64 %378, 2147483644
-  %381 = add nuw nsw i64 %380, 4
+  %374 = add nsw i32 %6, -4
+  %375 = zext nneg i32 %374 to i64
+  %376 = zext nneg i32 %6 to i64
+  %377 = and i64 %375, 2147483644
+  %378 = add nuw nsw i64 %377, 4
   br label %.preheader53.i183.i
 
 .preheader53.lr.ph.split.us.i198.i:               ; preds = %.preheader53.lr.ph.i180.i
-  %382 = icmp sgt i32 %6, 0
-  br i1 %382, label %.preheader53.us.us.preheader.i199.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit
+  %379 = icmp sgt i32 %6, 0
+  br i1 %379, label %.preheader53.us.us.preheader.i199.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit
 
 .preheader53.us.us.preheader.i199.i:              ; preds = %.preheader53.lr.ph.split.us.i198.i
   %wide.trip.count.i200.i = zext nneg i32 %6 to i64
   br label %.preheader53.us.us.i201.i
 
 .preheader53.us.us.i201.i:                        ; preds = %._crit_edge.us.us.i208.i, %.preheader53.us.us.preheader.i199.i
-  %383 = phi i32 [ %395, %._crit_edge.us.us.i208.i ], [ %376, %.preheader53.us.us.preheader.i199.i ]
-  %.061.us.us.i202.i = phi ptr [ %392, %._crit_edge.us.us.i208.i ], [ %0, %.preheader53.us.us.preheader.i199.i ]
-  %.05060.us.us.i203.i = phi ptr [ %393, %._crit_edge.us.us.i208.i ], [ %2, %.preheader53.us.us.preheader.i199.i ]
-  %.05159.us.us.i204.i = phi ptr [ %394, %._crit_edge.us.us.i208.i ], [ %4, %.preheader53.us.us.preheader.i199.i ]
-  br label %384
+  %380 = phi i32 [ %392, %._crit_edge.us.us.i208.i ], [ %373, %.preheader53.us.us.preheader.i199.i ]
+  %.061.us.us.i202.i = phi ptr [ %389, %._crit_edge.us.us.i208.i ], [ %0, %.preheader53.us.us.preheader.i199.i ]
+  %.05060.us.us.i203.i = phi ptr [ %390, %._crit_edge.us.us.i208.i ], [ %2, %.preheader53.us.us.preheader.i199.i ]
+  %.05159.us.us.i204.i = phi ptr [ %391, %._crit_edge.us.us.i208.i ], [ %4, %.preheader53.us.us.preheader.i199.i ]
+  br label %381
 
-384:                                              ; preds = %384, %.preheader53.us.us.i201.i
-  %indvars.iv71.i205.i = phi i64 [ 0, %.preheader53.us.us.i201.i ], [ %indvars.iv.next72.i206.i, %384 ]
-  %385 = getelementptr inbounds nuw double, ptr %.061.us.us.i202.i, i64 %indvars.iv71.i205.i
-  %386 = load double, ptr %385, align 8, !tbaa !29
-  %387 = getelementptr inbounds nuw double, ptr %.05060.us.us.i203.i, i64 %indvars.iv71.i205.i
-  %388 = load double, ptr %387, align 8, !tbaa !29
-  %389 = fcmp une double %386, %388
-  %390 = sext i1 %389 to i8
-  %391 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i204.i, i64 %indvars.iv71.i205.i
-  store i8 %390, ptr %391, align 1, !tbaa !3
+381:                                              ; preds = %381, %.preheader53.us.us.i201.i
+  %indvars.iv71.i205.i = phi i64 [ 0, %.preheader53.us.us.i201.i ], [ %indvars.iv.next72.i206.i, %381 ]
+  %382 = getelementptr inbounds nuw double, ptr %.061.us.us.i202.i, i64 %indvars.iv71.i205.i
+  %383 = load double, ptr %382, align 8, !tbaa !29
+  %384 = getelementptr inbounds nuw double, ptr %.05060.us.us.i203.i, i64 %indvars.iv71.i205.i
+  %385 = load double, ptr %384, align 8, !tbaa !29
+  %386 = fcmp une double %383, %385
+  %387 = sext i1 %386 to i8
+  %388 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i204.i, i64 %indvars.iv71.i205.i
+  store i8 %387, ptr %388, align 1, !tbaa !3
   %indvars.iv.next72.i206.i = add nuw nsw i64 %indvars.iv71.i205.i, 1
   %exitcond.not.i207.i = icmp eq i64 %indvars.iv.next72.i206.i, %wide.trip.count.i200.i
-  br i1 %exitcond.not.i207.i, label %._crit_edge.us.us.i208.i, label %384, !llvm.loop !165
+  br i1 %exitcond.not.i207.i, label %._crit_edge.us.us.i208.i, label %381, !llvm.loop !164
 
-._crit_edge.us.us.i208.i:                         ; preds = %384
-  %392 = getelementptr inbounds nuw double, ptr %.061.us.us.i202.i, i64 %374
-  %393 = getelementptr inbounds nuw double, ptr %.05060.us.us.i203.i, i64 %375
-  %394 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i204.i, i64 %5
-  %395 = add nsw i32 %383, -1
-  %.not.us.us.i209.i = icmp eq i32 %383, 0
-  br i1 %.not.us.us.i209.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i201.i, !llvm.loop !166
+._crit_edge.us.us.i208.i:                         ; preds = %381
+  %389 = getelementptr inbounds nuw double, ptr %.061.us.us.i202.i, i64 %371
+  %390 = getelementptr inbounds nuw double, ptr %.05060.us.us.i203.i, i64 %372
+  %391 = getelementptr inbounds nuw i8, ptr %.05159.us.us.i204.i, i64 %5
+  %392 = add nsw i32 %380, -1
+  %.not.us.us.i209.i = icmp eq i32 %380, 0
+  br i1 %.not.us.us.i209.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.us.us.i201.i, !llvm.loop !165
 
 .preheader53.i183.i:                              ; preds = %._crit_edge.i193.i, %.preheader53.preheader.i182.i
-  %396 = phi i32 [ %442, %._crit_edge.i193.i ], [ %376, %.preheader53.preheader.i182.i ]
-  %.061.i184.i = phi ptr [ %439, %._crit_edge.i193.i ], [ %0, %.preheader53.preheader.i182.i ]
-  %.05060.i185.i = phi ptr [ %440, %._crit_edge.i193.i ], [ %2, %.preheader53.preheader.i182.i ]
-  %.05159.i186.i = phi ptr [ %441, %._crit_edge.i193.i ], [ %4, %.preheader53.preheader.i182.i ]
-  br label %399
+  %393 = phi i32 [ %439, %._crit_edge.i193.i ], [ %373, %.preheader53.preheader.i182.i ]
+  %.061.i184.i = phi ptr [ %436, %._crit_edge.i193.i ], [ %0, %.preheader53.preheader.i182.i ]
+  %.05060.i185.i = phi ptr [ %437, %._crit_edge.i193.i ], [ %2, %.preheader53.preheader.i182.i ]
+  %.05159.i186.i = phi ptr [ %438, %._crit_edge.i193.i ], [ %4, %.preheader53.preheader.i182.i ]
+  br label %396
 
-..preheader_crit_edge.i192.i:                     ; preds = %399
-  %397 = trunc nuw nsw i64 %indvars.iv.next.i189.i to i32
-  %398 = icmp sgt i32 %6, %397
-  br i1 %398, label %.lr.ph57.i195.i, label %._crit_edge.i193.i
+..preheader_crit_edge.i192.i:                     ; preds = %396
+  %394 = trunc nuw nsw i64 %indvars.iv.next.i189.i to i32
+  %395 = icmp sgt i32 %6, %394
+  br i1 %395, label %.lr.ph57.i195.i, label %._crit_edge.i193.i
 
-399:                                              ; preds = %399, %.preheader53.i183.i
-  %indvars.iv.i188.i = phi i64 [ 0, %.preheader53.i183.i ], [ %indvars.iv.next.i189.i, %399 ]
-  %400 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %indvars.iv.i188.i
-  %401 = load double, ptr %400, align 8, !tbaa !29
-  %402 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %indvars.iv.i188.i
-  %403 = load double, ptr %402, align 8, !tbaa !29
-  %404 = fcmp une double %401, %403
-  %405 = sext i1 %404 to i8
-  %406 = or disjoint i64 %indvars.iv.i188.i, 1
-  %407 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %406
-  %408 = load double, ptr %407, align 8, !tbaa !29
-  %409 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %406
-  %410 = load double, ptr %409, align 8, !tbaa !29
-  %411 = fcmp une double %408, %410
-  %412 = sext i1 %411 to i8
-  %413 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %indvars.iv.i188.i
-  store i8 %405, ptr %413, align 1, !tbaa !3
-  %414 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %406
-  store i8 %412, ptr %414, align 1, !tbaa !3
-  %415 = or disjoint i64 %indvars.iv.i188.i, 2
-  %416 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %415
-  %417 = load double, ptr %416, align 8, !tbaa !29
-  %418 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %415
-  %419 = load double, ptr %418, align 8, !tbaa !29
-  %420 = fcmp une double %417, %419
-  %421 = sext i1 %420 to i8
-  %422 = or disjoint i64 %indvars.iv.i188.i, 3
-  %423 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %422
-  %424 = load double, ptr %423, align 8, !tbaa !29
-  %425 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %422
-  %426 = load double, ptr %425, align 8, !tbaa !29
-  %427 = fcmp une double %424, %426
-  %428 = sext i1 %427 to i8
-  %429 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %415
-  store i8 %421, ptr %429, align 1, !tbaa !3
-  %430 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %422
-  store i8 %428, ptr %430, align 1, !tbaa !3
+396:                                              ; preds = %396, %.preheader53.i183.i
+  %indvars.iv.i188.i = phi i64 [ 0, %.preheader53.i183.i ], [ %indvars.iv.next.i189.i, %396 ]
+  %397 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %indvars.iv.i188.i
+  %398 = load double, ptr %397, align 8, !tbaa !29
+  %399 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %indvars.iv.i188.i
+  %400 = load double, ptr %399, align 8, !tbaa !29
+  %401 = fcmp une double %398, %400
+  %402 = sext i1 %401 to i8
+  %403 = or disjoint i64 %indvars.iv.i188.i, 1
+  %404 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %403
+  %405 = load double, ptr %404, align 8, !tbaa !29
+  %406 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %403
+  %407 = load double, ptr %406, align 8, !tbaa !29
+  %408 = fcmp une double %405, %407
+  %409 = sext i1 %408 to i8
+  %410 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %indvars.iv.i188.i
+  store i8 %402, ptr %410, align 1, !tbaa !3
+  %411 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %403
+  store i8 %409, ptr %411, align 1, !tbaa !3
+  %412 = or disjoint i64 %indvars.iv.i188.i, 2
+  %413 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %412
+  %414 = load double, ptr %413, align 8, !tbaa !29
+  %415 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %412
+  %416 = load double, ptr %415, align 8, !tbaa !29
+  %417 = fcmp une double %414, %416
+  %418 = sext i1 %417 to i8
+  %419 = or disjoint i64 %indvars.iv.i188.i, 3
+  %420 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %419
+  %421 = load double, ptr %420, align 8, !tbaa !29
+  %422 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %419
+  %423 = load double, ptr %422, align 8, !tbaa !29
+  %424 = fcmp une double %421, %423
+  %425 = sext i1 %424 to i8
+  %426 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %412
+  store i8 %418, ptr %426, align 1, !tbaa !3
+  %427 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %419
+  store i8 %425, ptr %427, align 1, !tbaa !3
   %indvars.iv.next.i189.i = add nuw nsw i64 %indvars.iv.i188.i, 4
-  %.not52.i190.i = icmp samesign ugt i64 %indvars.iv.next.i189.i, %378
-  br i1 %.not52.i190.i, label %..preheader_crit_edge.i192.i, label %399, !llvm.loop !167
+  %.not52.i190.i = icmp samesign ugt i64 %indvars.iv.next.i189.i, %375
+  br i1 %.not52.i190.i, label %..preheader_crit_edge.i192.i, label %396, !llvm.loop !166
 
 .lr.ph57.i195.i:                                  ; preds = %..preheader_crit_edge.i192.i, %.lr.ph57.i195.i
-  %indvars.iv68.i196.i = phi i64 [ %indvars.iv.next69.i197.i, %.lr.ph57.i195.i ], [ %381, %..preheader_crit_edge.i192.i ]
-  %431 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %indvars.iv68.i196.i
-  %432 = load double, ptr %431, align 8, !tbaa !29
-  %433 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %indvars.iv68.i196.i
-  %434 = load double, ptr %433, align 8, !tbaa !29
-  %435 = fcmp une double %432, %434
-  %436 = sext i1 %435 to i8
-  %437 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %indvars.iv68.i196.i
-  store i8 %436, ptr %437, align 1, !tbaa !3
+  %indvars.iv68.i196.i = phi i64 [ %indvars.iv.next69.i197.i, %.lr.ph57.i195.i ], [ %378, %..preheader_crit_edge.i192.i ]
+  %428 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %indvars.iv68.i196.i
+  %429 = load double, ptr %428, align 8, !tbaa !29
+  %430 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %indvars.iv68.i196.i
+  %431 = load double, ptr %430, align 8, !tbaa !29
+  %432 = fcmp une double %429, %431
+  %433 = sext i1 %432 to i8
+  %434 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %indvars.iv68.i196.i
+  store i8 %433, ptr %434, align 1, !tbaa !3
   %indvars.iv.next69.i197.i = add nuw nsw i64 %indvars.iv68.i196.i, 1
-  %438 = icmp samesign ult i64 %indvars.iv.next69.i197.i, %379
-  br i1 %438, label %.lr.ph57.i195.i, label %._crit_edge.i193.i, !llvm.loop !165
+  %435 = icmp samesign ult i64 %indvars.iv.next69.i197.i, %376
+  br i1 %435, label %.lr.ph57.i195.i, label %._crit_edge.i193.i, !llvm.loop !164
 
 ._crit_edge.i193.i:                               ; preds = %.lr.ph57.i195.i, %..preheader_crit_edge.i192.i
-  %439 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %374
-  %440 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %375
-  %441 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %5
-  %442 = add nsw i32 %396, -1
-  %.not.i194.i = icmp eq i32 %396, 0
-  br i1 %.not.i194.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i183.i, !llvm.loop !166
+  %436 = getelementptr inbounds nuw double, ptr %.061.i184.i, i64 %371
+  %437 = getelementptr inbounds nuw double, ptr %.05060.i185.i, i64 %372
+  %438 = getelementptr inbounds nuw i8, ptr %.05159.i186.i, i64 %5
+  %439 = add nsw i32 %393, -1
+  %.not.i194.i = icmp eq i32 %393, 0
+  br i1 %.not.i194.i, label %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, label %.preheader53.i183.i, !llvm.loop !165
 
-_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit: ; preds = %._crit_edge.i193.i, %._crit_edge.us.us.i208.i, %._crit_edge.i162.i, %._crit_edge.us.us.i177.i, %._crit_edge.i130.i, %._crit_edge.us.us.i145.i, %._crit_edge.i99.i, %._crit_edge.us.us.i114.i, %._crit_edge.i67.i, %._crit_edge.us.us.i82.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader53.lr.ph.split.us.i198.i, %373, %.preheader53.lr.ph.split.us.i167.i, %293, %.preheader53.lr.ph.split.us.i135.i, %223, %.preheader53.lr.ph.split.us.i104.i, %153, %.preheader53.lr.ph.split.us.i72.i, %83, %.preheader53.lr.ph.split.us.i.i, %13
-  %443 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %444 = load i32, ptr %443, align 8, !tbaa !9
-  %.not.i = icmp eq i32 %444, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %445
+_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit: ; preds = %._crit_edge.i193.i, %._crit_edge.us.us.i208.i, %._crit_edge.i162.i, %._crit_edge.us.us.i177.i, %._crit_edge.i130.i, %._crit_edge.us.us.i145.i, %._crit_edge.i99.i, %._crit_edge.us.us.i114.i, %._crit_edge.i67.i, %._crit_edge.us.us.i82.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader53.lr.ph.split.us.i198.i, %370, %.preheader53.lr.ph.split.us.i167.i, %293, %.preheader53.lr.ph.split.us.i135.i, %223, %.preheader53.lr.ph.split.us.i104.i, %153, %.preheader53.lr.ph.split.us.i72.i, %83, %.preheader53.lr.ph.split.us.i.i, %13
+  %440 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %441 = load i32, ptr %440, align 8, !tbaa !9
+  %.not.i = icmp eq i32 %441, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %442
 
-445:                                              ; preds = %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit
+442:                                              ; preds = %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %12)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %446
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %443
 
-446:                                              ; preds = %445
-  %447 = landingpad { ptr, i32 }
+443:                                              ; preds = %442
+  %444 = landingpad { ptr, i32 }
           catch ptr null
-  %448 = extractvalue { ptr, i32 } %447, 0
-  call void @__clang_call_terminate(ptr %448) #13
+  %445 = extractvalue { ptr, i32 } %444, 0
+  call void @__clang_call_terminate(ptr %445) #12
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, %445
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL15cmp_loop_nosimdEPKdmS3_mPhmiii.exit, %442
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 
-449:                                              ; preds = %363
-  %450 = landingpad { ptr, i32 }
+446:                                              ; preds = %363
+  %447 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %449
-  %eh.lpad-body = phi { ptr, i32 } [ %450, %449 ], [ %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #16
+.body:                                            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %446
+  %eh.lpad-body = phi { ptr, i32 } [ %447, %446 ], [ %366, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -6435,7 +6386,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef 
   store i8 %26, ptr %27, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !168
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !167
 
 ._crit_edge.us.i.i:                               ; preds = %17
   %28 = add nsw i32 %.in.i.i, -1
@@ -6443,7 +6394,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef 
   %30 = getelementptr inbounds nuw i8, ptr %.02124.us.i.i, i64 %3
   %31 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %28, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !169
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !168
 
 32:                                               ; preds = %9
   br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -6484,7 +6435,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef 
   store i8 %52, ptr %53, align 1, !tbaa !3
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %33, !llvm.loop !170
+  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %33, !llvm.loop !169
 
 ._crit_edge.us.i24.i:                             ; preds = %33
   %54 = add nsw i32 %.in.i20.i, -1
@@ -6492,7 +6443,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8uEPKhmS3_mPhmiiPKd(ptr noundef 
   %56 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i, i64 %3
   %57 = getelementptr inbounds nuw i8, ptr %.0214.us.i.i, i64 %5
   %.not.us.i25.i = icmp eq i32 %54, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !171
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !170
 
 _ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %32, %16
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6508,7 +6459,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #13
+  call void @__clang_call_terminate(ptr %63) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %60
@@ -6561,7 +6512,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef 
   store i8 %27, ptr %28, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !172
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %17, !llvm.loop !171
 
 ._crit_edge.us.i.i:                               ; preds = %17
   %29 = add nsw i32 %.in.i.i, -1
@@ -6569,7 +6520,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef 
   %31 = getelementptr inbounds nuw i8, ptr %.02124.us.i.i, i64 %3
   %32 = getelementptr inbounds nuw i8, ptr %.02025.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !173
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !172
 
 33:                                               ; preds = %9
   br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -6604,7 +6555,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef 
   store i8 %47, ptr %48, align 1, !tbaa !3
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %34, !llvm.loop !174
+  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %34, !llvm.loop !173
 
 ._crit_edge.us.i24.i:                             ; preds = %34
   %49 = add nsw i32 %.in.i20.i, -1
@@ -6612,7 +6563,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline5mul8sEPKamS3_mPamiiPKd(ptr noundef 
   %51 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i, i64 %3
   %52 = getelementptr inbounds nuw i8, ptr %.0214.us.i.i, i64 %5
   %.not.us.i25.i = icmp eq i32 %49, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !175
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !174
 
 _ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %33, %16
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6628,7 +6579,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %57 = landingpad { ptr, i32 }
           catch ptr null
   %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #13
+  call void @__clang_call_terminate(ptr %58) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %55
@@ -6683,7 +6634,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef
   store i16 %29, ptr %30, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %20, !llvm.loop !176
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %20, !llvm.loop !175
 
 ._crit_edge.us.i.i:                               ; preds = %20
   %31 = add nsw i32 %.in.i.i, -1
@@ -6691,7 +6642,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef
   %33 = getelementptr inbounds nuw i16, ptr %.02124.us.i.i, i64 %16
   %34 = getelementptr inbounds nuw i16, ptr %.02025.us.i.i, i64 %17
   %.not.us.i.i = icmp eq i32 %31, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !177
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !176
 
 35:                                               ; preds = %9
   br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -6726,7 +6677,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef
   store i16 %49, ptr %50, align 2, !tbaa !16
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %36, !llvm.loop !178
+  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %36, !llvm.loop !177
 
 ._crit_edge.us.i24.i:                             ; preds = %36
   %51 = add nsw i32 %.in.i20.i, -1
@@ -6734,7 +6685,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16uEPKtmS3_mPtmiiPKd(ptr noundef
   %53 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i, i64 %16
   %54 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i, i64 %17
   %.not.us.i25.i = icmp eq i32 %51, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !179
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !178
 
 _ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %35, %19
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6750,7 +6701,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  call void @__clang_call_terminate(ptr %60) #13
+  call void @__clang_call_terminate(ptr %60) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %57
@@ -6806,7 +6757,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef
   store i16 %30, ptr %31, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %20, !llvm.loop !180
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %20, !llvm.loop !179
 
 ._crit_edge.us.i.i:                               ; preds = %20
   %32 = add nsw i32 %.in.i.i, -1
@@ -6814,7 +6765,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef
   %34 = getelementptr inbounds nuw i16, ptr %.02124.us.i.i, i64 %16
   %35 = getelementptr inbounds nuw i16, ptr %.02025.us.i.i, i64 %17
   %.not.us.i.i = icmp eq i32 %32, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !181
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !180
 
 36:                                               ; preds = %9
   br i1 %or.cond.i16.i, label %.preheader.us.preheader.i17.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -6849,7 +6800,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef
   store i16 %50, ptr %51, align 2, !tbaa !16
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i21.i, 1
   %exitcond.not.i23.i = icmp eq i64 %indvars.iv.next.i22.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %37, !llvm.loop !182
+  br i1 %exitcond.not.i23.i, label %._crit_edge.us.i24.i, label %37, !llvm.loop !181
 
 ._crit_edge.us.i24.i:                             ; preds = %37
   %52 = add nsw i32 %.in.i20.i, -1
@@ -6857,7 +6808,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul16sEPKsmS3_mPsmiiPKd(ptr noundef
   %54 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i, i64 %16
   %55 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i, i64 %17
   %.not.us.i25.i = icmp eq i32 %52, 0
-  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !183
+  br i1 %.not.us.i25.i, label %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i19.i, !llvm.loop !182
 
 _ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.us.i24.i, %36, %19
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6873,7 +6824,7 @@ _ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %60 = landingpad { ptr, i32 }
           catch ptr null
   %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #13
+  call void @__clang_call_terminate(ptr %61) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8mul_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %58
@@ -6923,7 +6874,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %24, ptr %25, align 4, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %19, !llvm.loop !184
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %19, !llvm.loop !183
 
 ._crit_edge.us.i.i:                               ; preds = %19
   %26 = add nsw i32 %.in.i.i, -1
@@ -6931,7 +6882,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   %28 = getelementptr inbounds nuw float, ptr %.02124.us.i.i, i64 %15
   %29 = getelementptr inbounds nuw float, ptr %.02025.us.i.i, i64 %16
   %.not.us.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !185
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !184
 
 30:                                               ; preds = %9
   %31 = add nsw i32 %7, -1
@@ -6972,7 +6923,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %43, ptr %44, align 4, !tbaa !25
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i20.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i19.i
-  br i1 %exitcond.not.i20.i, label %._crit_edge.us.us.i.i, label %34, !llvm.loop !186
+  br i1 %exitcond.not.i20.i, label %._crit_edge.us.us.i.i, label %34, !llvm.loop !185
 
 ._crit_edge.us.us.i.i:                            ; preds = %34
   %45 = getelementptr inbounds nuw float, ptr %.067.us.us.i.i, i64 %14
@@ -6980,7 +6931,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   %47 = getelementptr inbounds nuw float, ptr %.05765.us.us.i.i, i64 %16
   %48 = add nsw i32 %33, -1
   %.not.us.us.i.i = icmp eq i32 %33, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !187
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !186
 
 .preheader59.lr.ph.split.i.i:                     ; preds = %.preheader59.lr.ph.i.i
   %49 = add nsw i32 %6, -4
@@ -7053,7 +7004,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %98, ptr %100, align 4, !tbaa !25
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i18.i, %50
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %57, !llvm.loop !188
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %57, !llvm.loop !187
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %53, %..preheader_crit_edge.i.i ]
@@ -7070,7 +7021,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %109, ptr %110, align 4, !tbaa !25
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %111 = icmp samesign ult i64 %indvars.iv.next75.i.i, %51
-  br i1 %111, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !186
+  br i1 %111, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !185
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
   %112 = getelementptr inbounds nuw float, ptr %.067.i.i, i64 %14
@@ -7078,7 +7029,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32fEPKfmS3_mPfmiiPKd(ptr noundef
   %114 = getelementptr inbounds nuw float, ptr %.05765.i.i, i64 %16
   %115 = add nsw i32 %54, -1
   %.not.i.i = icmp eq i32 %54, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !187
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !186
 
 _ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i.i, %30, %17
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7094,7 +7045,7 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
-  call void @__clang_call_terminate(ptr %121) #13
+  call void @__clang_call_terminate(ptr %121) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %118
@@ -7144,7 +7095,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   store i32 %24, ptr %25, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %19, !llvm.loop !189
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %19, !llvm.loop !188
 
 ._crit_edge.us.i.i:                               ; preds = %19
   %26 = add nsw i32 %.in.i.i, -1
@@ -7152,7 +7103,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   %28 = getelementptr inbounds nuw i32, ptr %.02124.us.i.i, i64 %15
   %29 = getelementptr inbounds nuw i32, ptr %.02025.us.i.i, i64 %16
   %.not.us.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !190
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !189
 
 30:                                               ; preds = %9
   %31 = add nsw i32 %7, -1
@@ -7194,7 +7145,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   store i32 %44, ptr %45, align 4, !tbaa !22
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i20.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i19.i
-  br i1 %exitcond.not.i20.i, label %._crit_edge.us.us.i.i, label %34, !llvm.loop !191
+  br i1 %exitcond.not.i20.i, label %._crit_edge.us.us.i.i, label %34, !llvm.loop !190
 
 ._crit_edge.us.us.i.i:                            ; preds = %34
   %46 = getelementptr inbounds nuw i32, ptr %.067.us.us.i.i, i64 %14
@@ -7202,7 +7153,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   %48 = getelementptr inbounds nuw i32, ptr %.05765.us.us.i.i, i64 %16
   %49 = add nsw i32 %33, -1
   %.not.us.us.i.i = icmp eq i32 %33, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !192
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !191
 
 .preheader59.lr.ph.split.i.i:                     ; preds = %.preheader59.lr.ph.i.i
   %50 = add nsw i32 %6, -4
@@ -7279,7 +7230,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   store i32 %103, ptr %105, align 4, !tbaa !22
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i17.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i18.i, %51
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %58, !llvm.loop !193
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %58, !llvm.loop !192
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %54, %..preheader_crit_edge.i.i ]
@@ -7297,7 +7248,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   store i32 %115, ptr %116, align 4, !tbaa !22
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %117 = icmp samesign ult i64 %indvars.iv.next75.i.i, %52
-  br i1 %117, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !191
+  br i1 %117, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !190
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
   %118 = getelementptr inbounds nuw i32, ptr %.067.i.i, i64 %14
@@ -7305,7 +7256,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul32sEPKimS3_mPimiiPKd(ptr noundef
   %120 = getelementptr inbounds nuw i32, ptr %.05765.i.i, i64 %16
   %121 = add nsw i32 %55, -1
   %.not.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !192
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !191
 
 _ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i.i, %30, %17
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7321,7 +7272,7 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8
   %126 = landingpad { ptr, i32 }
           catch ptr null
   %127 = extractvalue { ptr, i32 } %126, 0
-  call void @__clang_call_terminate(ptr %127) #13
+  call void @__clang_call_terminate(ptr %127) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %124
@@ -7384,7 +7335,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %30, ptr %31, align 8, !tbaa !29
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next73.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %25, !llvm.loop !194
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %25, !llvm.loop !193
 
 ._crit_edge.us.us.i.i:                            ; preds = %25
   %32 = getelementptr inbounds nuw double, ptr %.062.us.us.i.i, i64 %13
@@ -7392,7 +7343,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   %34 = getelementptr inbounds nuw double, ptr %.05260.us.us.i.i, i64 %15
   %35 = add nsw i32 %24, -1
   %.not.us.us.i.i = icmp eq i32 %24, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.us.us.i.i, !llvm.loop !195
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.us.us.i.i, !llvm.loop !194
 
 .preheader54.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader54.preheader.i.i
   %36 = phi i32 [ %77, %._crit_edge.i.i ], [ %16, %.preheader54.preheader.i.i ]
@@ -7441,7 +7392,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %64, ptr %66, align 8, !tbaa !29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not53.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %19
-  br i1 %.not53.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !196
+  br i1 %.not53.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !195
 
 .lr.ph58.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph58.i.i
   %indvars.iv69.i.i = phi i64 [ %indvars.iv.next70.i.i, %.lr.ph58.i.i ], [ %22, %..preheader_crit_edge.i.i ]
@@ -7454,7 +7405,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %71, ptr %72, align 8, !tbaa !29
   %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
   %73 = icmp samesign ult i64 %indvars.iv.next70.i.i, %20
-  br i1 %73, label %.lr.ph58.i.i, label %._crit_edge.i.i, !llvm.loop !194
+  br i1 %73, label %.lr.ph58.i.i, label %._crit_edge.i.i, !llvm.loop !193
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph58.i.i, %..preheader_crit_edge.i.i
   %74 = getelementptr inbounds nuw double, ptr %.062.i.i, i64 %13
@@ -7462,7 +7413,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   %76 = getelementptr inbounds nuw double, ptr %.05260.i.i, i64 %15
   %77 = add nsw i32 %36, -1
   %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.i.i, !llvm.loop !195
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.i.i, !llvm.loop !194
 
 78:                                               ; preds = %9
   br i1 %.not59.i.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.lr.ph.i.i
@@ -7507,7 +7458,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %93, ptr %94, align 8, !tbaa !29
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i24.i
-  br i1 %exitcond.not.i25.i, label %._crit_edge.us.us.i26.i, label %86, !llvm.loop !197
+  br i1 %exitcond.not.i25.i, label %._crit_edge.us.us.i26.i, label %86, !llvm.loop !196
 
 ._crit_edge.us.us.i26.i:                          ; preds = %86
   %95 = getelementptr inbounds nuw double, ptr %.067.us.us.i.i, i64 %13
@@ -7515,7 +7466,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   %97 = getelementptr inbounds nuw double, ptr %.05765.us.us.i.i, i64 %15
   %98 = add nsw i32 %85, -1
   %.not.us.us.i27.i = icmp eq i32 %85, 0
-  br i1 %.not.us.us.i27.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !198
+  br i1 %.not.us.us.i27.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !197
 
 .preheader59.i.i:                                 ; preds = %._crit_edge.i22.i, %.preheader59.preheader.i.i
   %99 = phi i32 [ %148, %._crit_edge.i22.i ], [ %16, %.preheader59.preheader.i.i ]
@@ -7570,7 +7521,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %133, ptr %135, align 8, !tbaa !29
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i18.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i19.i, %80
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i21.i, label %102, !llvm.loop !199
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i21.i, label %102, !llvm.loop !198
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i21.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %83, %..preheader_crit_edge.i21.i ]
@@ -7585,7 +7536,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %142, ptr %143, align 8, !tbaa !29
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %144 = icmp samesign ult i64 %indvars.iv.next75.i.i, %81
-  br i1 %144, label %.lr.ph63.i.i, label %._crit_edge.i22.i, !llvm.loop !197
+  br i1 %144, label %.lr.ph63.i.i, label %._crit_edge.i22.i, !llvm.loop !196
 
 ._crit_edge.i22.i:                                ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i21.i
   %145 = getelementptr inbounds nuw double, ptr %.067.i.i, i64 %13
@@ -7593,7 +7544,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6mul64fEPKdmS3_mPdmiiS3_(ptr noundef
   %147 = getelementptr inbounds nuw double, ptr %.05765.i.i, i64 %15
   %148 = add nsw i32 %99, -1
   %.not.i23.i = icmp eq i32 %99, 0
-  br i1 %.not.i23.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !198
+  br i1 %.not.i23.i, label %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !197
 
 _ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %._crit_edge.i22.i, %._crit_edge.us.us.i26.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i.i, %78, %.preheader54.lr.ph.split.us.i.i, %17
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7609,7 +7560,7 @@ _ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #13
+  call void @__clang_call_terminate(ptr %154) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10mul_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, %151
@@ -7673,7 +7624,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhP
   store i8 %34, ptr %35, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !200
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !199
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhPKf.exit.us.i.i
   %36 = add nsw i32 %.in.i.i, -1
@@ -7681,7 +7632,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhP
   %38 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i, i64 %3
   %39 = getelementptr inbounds nuw i8, ptr %.0214.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %36, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !201
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !200
 
 _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7697,7 +7648,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #13
+  call void @__clang_call_terminate(ptr %45) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %42
@@ -7755,7 +7706,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaP
   store i8 %28, ptr %29, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !202
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !201
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaPKf.exit.us.i.i
   %30 = add nsw i32 %.in.i.i, -1
@@ -7763,7 +7714,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaP
   %32 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i, i64 %3
   %33 = getelementptr inbounds nuw i8, ptr %.0214.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %30, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !203
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !202
 
 _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7779,7 +7730,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #13
+  call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
@@ -7840,7 +7791,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPK
   store i16 %31, ptr %32, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %16, !llvm.loop !204
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %16, !llvm.loop !203
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPKf.exit.us.i.i
   %33 = add nsw i32 %.in.i.i, -1
@@ -7848,7 +7799,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPK
   %35 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i, i64 %13
   %36 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i, i64 %14
   %.not.us.i.i = icmp eq i32 %33, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !205
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !204
 
 _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7864,7 +7815,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #13
+  call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
@@ -7925,7 +7876,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPK
   store i16 %31, ptr %32, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %16, !llvm.loop !206
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %16, !llvm.loop !205
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPKf.exit.us.i.i
   %33 = add nsw i32 %.in.i.i, -1
@@ -7933,7 +7884,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPK
   %35 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i, i64 %13
   %36 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i, i64 %14
   %.not.us.i.i = icmp eq i32 %33, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !207
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !206
 
 _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -7949,7 +7900,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #13
+  call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %39
@@ -8007,7 +7958,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPK
   store i32 %28, ptr %29, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %16, !llvm.loop !208
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %16, !llvm.loop !207
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPKf.exit.us.i.i
   %30 = add nsw i32 %.in.i.i, -1
@@ -8015,7 +7966,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPK
   %32 = getelementptr inbounds nuw i32, ptr %.0223.us.i.i, i64 %13
   %33 = getelementptr inbounds nuw i32, ptr %.0214.us.i.i, i64 %14
   %.not.us.i.i = icmp eq i32 %30, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !209
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !208
 
 _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %9
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8031,7 +7982,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #13
+  call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %36
@@ -8082,7 +8033,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %25, ptr %26, align 4, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %20, !llvm.loop !210
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %20, !llvm.loop !209
 
 ._crit_edge.us.i.i:                               ; preds = %20
   %27 = add nsw i32 %.in.i.i, -1
@@ -8090,7 +8041,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   %29 = getelementptr inbounds nuw float, ptr %.02124.us.i.i, i64 %16
   %30 = getelementptr inbounds nuw float, ptr %.02025.us.i.i, i64 %17
   %.not.us.i.i = icmp eq i32 %27, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !211
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !210
 
 31:                                               ; preds = %9
   %32 = add nsw i32 %7, -1
@@ -8136,7 +8087,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %46, ptr %47, align 4, !tbaa !25
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond.not.i19.i = icmp eq i64 %indvars.iv.next20.i.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i19.i, label %._crit_edge.us.us.i.i, label %40, !llvm.loop !212
+  br i1 %exitcond.not.i19.i, label %._crit_edge.us.us.i.i, label %40, !llvm.loop !211
 
 ._crit_edge.us.us.i.i:                            ; preds = %40
   %48 = getelementptr inbounds nuw float, ptr %.09.us.us.i.i, i64 %15
@@ -8144,7 +8095,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   %50 = getelementptr inbounds nuw float, ptr %.0577.us.us.i.i, i64 %17
   %51 = add nsw i32 %39, -1
   %.not.us.us.i.i = icmp eq i32 %39, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader1.us.us.i.i, !llvm.loop !213
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader1.us.us.i.i, !llvm.loop !212
 
 .preheader1.i.i:                                  ; preds = %._crit_edge.i.i, %.preheader1.preheader.i.i
   %52 = phi i32 [ %98, %._crit_edge.i.i ], [ %32, %.preheader1.preheader.i.i ]
@@ -8197,7 +8148,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %84, ptr %86, align 4, !tbaa !25
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i17.i, %34
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %55, !llvm.loop !214
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %55, !llvm.loop !213
 
 .lr.ph5.i.i:                                      ; preds = %..preheader_crit_edge.i.i, %.lr.ph5.i.i
   %indvars.iv16.i.i = phi i64 [ %indvars.iv.next17.i.i, %.lr.ph5.i.i ], [ %37, %..preheader_crit_edge.i.i ]
@@ -8211,7 +8162,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   store float %92, ptr %93, align 4, !tbaa !25
   %indvars.iv.next17.i.i = add nuw nsw i64 %indvars.iv16.i.i, 1
   %94 = icmp samesign ult i64 %indvars.iv.next17.i.i, %35
-  br i1 %94, label %.lr.ph5.i.i, label %._crit_edge.i.i, !llvm.loop !212
+  br i1 %94, label %.lr.ph5.i.i, label %._crit_edge.i.i, !llvm.loop !211
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph5.i.i, %..preheader_crit_edge.i.i
   %95 = getelementptr inbounds nuw float, ptr %.09.i.i, i64 %15
@@ -8219,7 +8170,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div32fEPKfmS3_mPfmiiPKd(ptr noundef
   %97 = getelementptr inbounds nuw float, ptr %.0577.i.i, i64 %17
   %98 = add nsw i32 %52, -1
   %.not.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader1.i.i, !llvm.loop !213
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader1.i.i, !llvm.loop !212
 
 _ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader1.lr.ph.split.us.i.i, %31, %18
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8235,7 +8186,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mP
   %103 = landingpad { ptr, i32 }
           catch ptr null
   %104 = extractvalue { ptr, i32 } %103, 0
-  call void @__clang_call_terminate(ptr %104) #13
+  call void @__clang_call_terminate(ptr %104) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %101
@@ -8298,7 +8249,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %30, ptr %31, align 8, !tbaa !29
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next73.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %25, !llvm.loop !215
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %25, !llvm.loop !214
 
 ._crit_edge.us.us.i.i:                            ; preds = %25
   %32 = getelementptr inbounds nuw double, ptr %.062.us.us.i.i, i64 %13
@@ -8306,7 +8257,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   %34 = getelementptr inbounds nuw double, ptr %.05260.us.us.i.i, i64 %15
   %35 = add nsw i32 %24, -1
   %.not.us.us.i.i = icmp eq i32 %24, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.us.us.i.i, !llvm.loop !216
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.us.us.i.i, !llvm.loop !215
 
 .preheader54.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader54.preheader.i.i
   %36 = phi i32 [ %77, %._crit_edge.i.i ], [ %16, %.preheader54.preheader.i.i ]
@@ -8355,7 +8306,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %64, ptr %66, align 8, !tbaa !29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not53.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %19
-  br i1 %.not53.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !217
+  br i1 %.not53.i.i, label %..preheader_crit_edge.i.i, label %39, !llvm.loop !216
 
 .lr.ph58.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph58.i.i
   %indvars.iv69.i.i = phi i64 [ %indvars.iv.next70.i.i, %.lr.ph58.i.i ], [ %22, %..preheader_crit_edge.i.i ]
@@ -8368,7 +8319,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %71, ptr %72, align 8, !tbaa !29
   %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
   %73 = icmp samesign ult i64 %indvars.iv.next70.i.i, %20
-  br i1 %73, label %.lr.ph58.i.i, label %._crit_edge.i.i, !llvm.loop !215
+  br i1 %73, label %.lr.ph58.i.i, label %._crit_edge.i.i, !llvm.loop !214
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph58.i.i, %..preheader_crit_edge.i.i
   %74 = getelementptr inbounds nuw double, ptr %.062.i.i, i64 %13
@@ -8376,7 +8327,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   %76 = getelementptr inbounds nuw double, ptr %.05260.i.i, i64 %15
   %77 = add nsw i32 %36, -1
   %.not.i.i = icmp eq i32 %36, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.i.i, !llvm.loop !216
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader54.i.i, !llvm.loop !215
 
 78:                                               ; preds = %9
   br i1 %.not59.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.lr.ph.i.i
@@ -8421,7 +8372,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %93, ptr %94, align 8, !tbaa !29
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i24.i
-  br i1 %exitcond.not.i25.i, label %._crit_edge.us.us.i26.i, label %86, !llvm.loop !218
+  br i1 %exitcond.not.i25.i, label %._crit_edge.us.us.i26.i, label %86, !llvm.loop !217
 
 ._crit_edge.us.us.i26.i:                          ; preds = %86
   %95 = getelementptr inbounds nuw double, ptr %.067.us.us.i.i, i64 %13
@@ -8429,7 +8380,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   %97 = getelementptr inbounds nuw double, ptr %.05765.us.us.i.i, i64 %15
   %98 = add nsw i32 %85, -1
   %.not.us.us.i27.i = icmp eq i32 %85, 0
-  br i1 %.not.us.us.i27.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !219
+  br i1 %.not.us.us.i27.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !218
 
 .preheader59.i.i:                                 ; preds = %._crit_edge.i22.i, %.preheader59.preheader.i.i
   %99 = phi i32 [ %148, %._crit_edge.i22.i ], [ %16, %.preheader59.preheader.i.i ]
@@ -8484,7 +8435,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %133, ptr %135, align 8, !tbaa !29
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i18.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i19.i, %80
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i21.i, label %102, !llvm.loop !220
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i21.i, label %102, !llvm.loop !219
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i21.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %83, %..preheader_crit_edge.i21.i ]
@@ -8499,7 +8450,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   store double %142, ptr %143, align 8, !tbaa !29
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %144 = icmp samesign ult i64 %indvars.iv.next75.i.i, %81
-  br i1 %144, label %.lr.ph63.i.i, label %._crit_edge.i22.i, !llvm.loop !218
+  br i1 %144, label %.lr.ph63.i.i, label %._crit_edge.i22.i, !llvm.loop !217
 
 ._crit_edge.i22.i:                                ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i21.i
   %145 = getelementptr inbounds nuw double, ptr %.067.i.i, i64 %13
@@ -8507,7 +8458,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline6div64fEPKdmS3_mPdmiiS3_(ptr noundef
   %147 = getelementptr inbounds nuw double, ptr %.05765.i.i, i64 %15
   %148 = add nsw i32 %99, -1
   %.not.i23.i = icmp eq i32 %99, 0
-  br i1 %.not.i23.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !219
+  br i1 %.not.i23.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !218
 
 _ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %._crit_edge.i22.i, %._crit_edge.us.us.i26.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i.i, %78, %.preheader54.lr.ph.split.us.i.i, %17
   %149 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8523,7 +8474,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %._c
   %153 = landingpad { ptr, i32 }
           catch ptr null
   %154 = extractvalue { ptr, i32 } %153, 0
-  call void @__clang_call_terminate(ptr %154) #13
+  call void @__clang_call_terminate(ptr %154) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL8div_loopIdiEEvPKT_mS5_mPS3_miiPKd.exit, %151
@@ -8587,7 +8538,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr
   store i8 %38, ptr %39, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %23, !llvm.loop !221
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %23, !llvm.loop !220
 
 ._crit_edge.us.i.i:                               ; preds = %23
   %40 = add nsw i32 %.in.i.i, -1
@@ -8595,7 +8546,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr
   %42 = getelementptr inbounds nuw i8, ptr %.02225.us.i.i, i64 %3
   %43 = getelementptr inbounds nuw i8, ptr %.02126.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %40, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !222
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !221
 
 44:                                               ; preds = %9
   br i1 %or.cond.i.i, label %.preheader.us.preheader.i21.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -8637,7 +8588,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr
   store i8 %65, ptr %66, align 1, !tbaa !3
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond.not.i30.i = icmp eq i64 %indvars.iv.next.i29.i, %wide.trip.count.i22.i
-  br i1 %exitcond.not.i30.i, label %._crit_edge.us.i31.i, label %45, !llvm.loop !223
+  br i1 %exitcond.not.i30.i, label %._crit_edge.us.i31.i, label %45, !llvm.loop !222
 
 ._crit_edge.us.i31.i:                             ; preds = %45
   %67 = add nsw i32 %.in.i24.i, -1
@@ -8645,7 +8596,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8uEPKhmS3_mPhmiiPKd(ptr
   %69 = getelementptr inbounds nuw i8, ptr %.02225.us.i27.i, i64 %3
   %70 = getelementptr inbounds nuw i8, ptr %.02126.us.i26.i, i64 %5
   %.not.us.i32.i = icmp eq i32 %67, 0
-  br i1 %.not.us.i32.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i23.i, !llvm.loop !224
+  br i1 %.not.us.i32.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i23.i, !llvm.loop !223
 
 _ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i31.i, %._crit_edge.us.i.i, %44, %22
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8661,7 +8612,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEE
   %75 = landingpad { ptr, i32 }
           catch ptr null
   %76 = extractvalue { ptr, i32 } %75, 0
-  call void @__clang_call_terminate(ptr %76) #13
+  call void @__clang_call_terminate(ptr %76) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %73
@@ -8722,7 +8673,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr
   store i8 %35, ptr %36, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %23, !llvm.loop !225
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %23, !llvm.loop !224
 
 ._crit_edge.us.i.i:                               ; preds = %23
   %37 = add nsw i32 %.in.i.i, -1
@@ -8730,7 +8681,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr
   %39 = getelementptr inbounds nuw i8, ptr %.02225.us.i.i, i64 %3
   %40 = getelementptr inbounds nuw i8, ptr %.02126.us.i.i, i64 %5
   %.not.us.i.i = icmp eq i32 %37, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !226
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !225
 
 41:                                               ; preds = %9
   br i1 %or.cond.i.i, label %.preheader.us.preheader.i21.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -8766,7 +8717,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr
   store i8 %56, ptr %57, align 1, !tbaa !3
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond.not.i30.i = icmp eq i64 %indvars.iv.next.i29.i, %wide.trip.count.i22.i
-  br i1 %exitcond.not.i30.i, label %._crit_edge.us.i31.i, label %42, !llvm.loop !227
+  br i1 %exitcond.not.i30.i, label %._crit_edge.us.i31.i, label %42, !llvm.loop !226
 
 ._crit_edge.us.i31.i:                             ; preds = %42
   %58 = add nsw i32 %.in.i24.i, -1
@@ -8774,7 +8725,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline13addWeighted8sEPKamS3_mPamiiPKd(ptr
   %60 = getelementptr inbounds nuw i8, ptr %.02225.us.i27.i, i64 %3
   %61 = getelementptr inbounds nuw i8, ptr %.02126.us.i26.i, i64 %5
   %.not.us.i32.i = icmp eq i32 %58, 0
-  br i1 %.not.us.i32.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i23.i, !llvm.loop !228
+  br i1 %.not.us.i32.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i23.i, !llvm.loop !227
 
 _ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i31.i, %._crit_edge.us.i.i, %41, %22
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8790,7 +8741,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEE
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #13
+  call void @__clang_call_terminate(ptr %67) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit, %64
@@ -8854,7 +8805,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(pt
   store i16 %38, ptr %39, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %26, !llvm.loop !229
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %26, !llvm.loop !228
 
 ._crit_edge.us.i.i:                               ; preds = %26
   %40 = add nsw i32 %.in.i.i, -1
@@ -8862,7 +8813,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(pt
   %42 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i, i64 %22
   %43 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i, i64 %23
   %.not.us.i.i = icmp eq i32 %40, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !230
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !229
 
 44:                                               ; preds = %9
   br i1 %or.cond.i.i, label %.preheader.lr.ph.split.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -8898,7 +8849,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(pt
   store i16 %59, ptr %60, align 2, !tbaa !16
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
   %exitcond.not.i26.i = icmp eq i64 %indvars.iv.next.i25.i, %wide.trip.count.i21.i
-  br i1 %exitcond.not.i26.i, label %._crit_edge.us.i27.i, label %45, !llvm.loop !231
+  br i1 %exitcond.not.i26.i, label %._crit_edge.us.i27.i, label %45, !llvm.loop !230
 
 ._crit_edge.us.i27.i:                             ; preds = %45
   %61 = add nsw i32 %.in.i23.i, -1
@@ -8906,7 +8857,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16uEPKtmS3_mPtmiiPKd(pt
   %63 = getelementptr inbounds nuw i16, ptr %.02225.us.i.i, i64 %22
   %64 = getelementptr inbounds nuw i16, ptr %.02126.us.i.i, i64 %23
   %.not.us.i28.i = icmp eq i32 %61, 0
-  br i1 %.not.us.i28.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i22.i, !llvm.loop !232
+  br i1 %.not.us.i28.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i22.i, !llvm.loop !231
 
 _ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i27.i, %._crit_edge.us.i.i, %44, %25
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -8922,7 +8873,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEv
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #13
+  call void @__clang_call_terminate(ptr %70) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %67
@@ -8986,7 +8937,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(pt
   store i16 %38, ptr %39, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %26, !llvm.loop !233
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %26, !llvm.loop !232
 
 ._crit_edge.us.i.i:                               ; preds = %26
   %40 = add nsw i32 %.in.i.i, -1
@@ -8994,7 +8945,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(pt
   %42 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i, i64 %22
   %43 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i, i64 %23
   %.not.us.i.i = icmp eq i32 %40, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !234
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !233
 
 44:                                               ; preds = %9
   br i1 %or.cond.i.i, label %.preheader.lr.ph.split.us.i.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit
@@ -9030,7 +8981,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(pt
   store i16 %59, ptr %60, align 2, !tbaa !16
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
   %exitcond.not.i26.i = icmp eq i64 %indvars.iv.next.i25.i, %wide.trip.count.i21.i
-  br i1 %exitcond.not.i26.i, label %._crit_edge.us.i27.i, label %45, !llvm.loop !235
+  br i1 %exitcond.not.i26.i, label %._crit_edge.us.i27.i, label %45, !llvm.loop !234
 
 ._crit_edge.us.i27.i:                             ; preds = %45
   %61 = add nsw i32 %.in.i23.i, -1
@@ -9038,7 +8989,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted16sEPKsmS3_mPsmiiPKd(pt
   %63 = getelementptr inbounds nuw i16, ptr %.02225.us.i.i, i64 %22
   %64 = getelementptr inbounds nuw i16, ptr %.02126.us.i.i, i64 %23
   %.not.us.i28.i = icmp eq i32 %61, 0
-  br i1 %.not.us.i28.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i22.i, !llvm.loop !236
+  br i1 %.not.us.i28.i, label %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader.us.i22.i, !llvm.loop !235
 
 _ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i27.i, %._crit_edge.us.i.i, %44, %25
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9054,7 +9005,7 @@ _ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEv
   %69 = landingpad { ptr, i32 }
           catch ptr null
   %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #13
+  call void @__clang_call_terminate(ptr %70) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL17add_weighted_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit, %67
@@ -9121,7 +9072,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   store i32 %35, ptr %36, align 4, !tbaa !22
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %26, !llvm.loop !237
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %26, !llvm.loop !236
 
 ._crit_edge.us.us.i.i:                            ; preds = %26
   %37 = getelementptr inbounds nuw i32, ptr %.067.us.us.i.i, i64 %19
@@ -9129,7 +9080,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %39 = getelementptr inbounds nuw i32, ptr %.05765.us.us.i.i, i64 %21
   %40 = add nsw i32 %25, -1
   %.not.us.us.i.i = icmp eq i32 %25, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !238
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !237
 
 .preheader59.lr.ph.split.i.i:                     ; preds = %.preheader59.lr.ph.i.i
   %41 = add nsw i32 %6, -4
@@ -9203,7 +9154,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   store i32 %91, ptr %93, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %43
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %50, !llvm.loop !239
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %50, !llvm.loop !238
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %46, %..preheader_crit_edge.i.i ]
@@ -9220,7 +9171,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   store i32 %102, ptr %103, align 4, !tbaa !22
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %104 = icmp samesign ult i64 %indvars.iv.next75.i.i, %44
-  br i1 %104, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !237
+  br i1 %104, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !236
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
   %105 = getelementptr inbounds nuw i32, ptr %.067.i.i, i64 %19
@@ -9228,7 +9179,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %107 = getelementptr inbounds nuw i32, ptr %.05765.i.i, i64 %21
   %108 = add nsw i32 %47, -1
   %.not.i.i = icmp eq i32 %47, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !238
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !237
 
 109:                                              ; preds = %14, %9
   %110 = lshr i64 %1, 2
@@ -9277,7 +9228,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   store i32 %130, ptr %131, align 4, !tbaa !22
   %indvars.iv.next78.i46.i = add nuw nsw i64 %indvars.iv77.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next78.i46.i, %wide.trip.count.i40.i
-  br i1 %exitcond.not.i47.i, label %._crit_edge.us.us.i48.i, label %119, !llvm.loop !240
+  br i1 %exitcond.not.i47.i, label %._crit_edge.us.us.i48.i, label %119, !llvm.loop !239
 
 ._crit_edge.us.us.i48.i:                          ; preds = %119
   %132 = getelementptr inbounds nuw i32, ptr %.067.us.us.i42.i, i64 %110
@@ -9285,7 +9236,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %134 = getelementptr inbounds nuw i32, ptr %.05765.us.us.i44.i, i64 %112
   %135 = add nsw i32 %118, -1
   %.not.us.us.i49.i = icmp eq i32 %118, 0
-  br i1 %.not.us.us.i49.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i41.i, !llvm.loop !241
+  br i1 %.not.us.us.i49.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i41.i, !llvm.loop !240
 
 .preheader59.lr.ph.split.i22.i:                   ; preds = %.preheader59.lr.ph.i20.i
   %136 = add nsw i32 %6, -4
@@ -9368,7 +9319,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   store i32 %195, ptr %197, align 4, !tbaa !22
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 4
   %.not58.i30.i = icmp samesign ugt i64 %indvars.iv.next.i29.i, %139
-  br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %146, !llvm.loop !242
+  br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %146, !llvm.loop !241
 
 .lr.ph63.i35.i:                                   ; preds = %..preheader_crit_edge.i32.i, %.lr.ph63.i35.i
   %indvars.iv74.i36.i = phi i64 [ %indvars.iv.next75.i37.i, %.lr.ph63.i35.i ], [ %142, %..preheader_crit_edge.i32.i ]
@@ -9387,7 +9338,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   store i32 %208, ptr %209, align 4, !tbaa !22
   %indvars.iv.next75.i37.i = add nuw nsw i64 %indvars.iv74.i36.i, 1
   %210 = icmp samesign ult i64 %indvars.iv.next75.i37.i, %140
-  br i1 %210, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !240
+  br i1 %210, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !239
 
 ._crit_edge.i33.i:                                ; preds = %.lr.ph63.i35.i, %..preheader_crit_edge.i32.i
   %211 = getelementptr inbounds nuw i32, ptr %.067.i24.i, i64 %110
@@ -9395,7 +9346,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32sEPKimS3_mPimiiPKd(pt
   %213 = getelementptr inbounds nuw i32, ptr %.05765.i26.i, i64 %112
   %214 = add nsw i32 %143, -1
   %.not.i34.i = icmp eq i32 %143, 0
-  br i1 %.not.i34.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i23.i, !llvm.loop !241
+  br i1 %.not.i34.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i23.i, !llvm.loop !240
 
 _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.i33.i, %._crit_edge.us.us.i48.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i38.i, %109, %.preheader59.lr.ph.split.us.i.i, %18
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9411,7 +9362,7 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEE
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  call void @__clang_call_terminate(ptr %220) #13
+  call void @__clang_call_terminate(ptr %220) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %217
@@ -9477,7 +9428,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   store float %34, ptr %35, align 4, !tbaa !25
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %26, !llvm.loop !243
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %26, !llvm.loop !242
 
 ._crit_edge.us.us.i.i:                            ; preds = %26
   %36 = getelementptr inbounds nuw float, ptr %.067.us.us.i.i, i64 %19
@@ -9485,7 +9436,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %38 = getelementptr inbounds nuw float, ptr %.05765.us.us.i.i, i64 %21
   %39 = add nsw i32 %25, -1
   %.not.us.us.i.i = icmp eq i32 %25, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !244
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !243
 
 .preheader59.lr.ph.split.i.i:                     ; preds = %.preheader59.lr.ph.i.i
   %40 = add nsw i32 %6, -4
@@ -9555,7 +9506,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   store float %86, ptr %88, align 4, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %42
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %49, !llvm.loop !245
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %49, !llvm.loop !244
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %45, %..preheader_crit_edge.i.i ]
@@ -9571,7 +9522,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   store float %96, ptr %97, align 4, !tbaa !25
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %98 = icmp samesign ult i64 %indvars.iv.next75.i.i, %43
-  br i1 %98, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !243
+  br i1 %98, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !242
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
   %99 = getelementptr inbounds nuw float, ptr %.067.i.i, i64 %19
@@ -9579,7 +9530,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %101 = getelementptr inbounds nuw float, ptr %.05765.i.i, i64 %21
   %102 = add nsw i32 %46, -1
   %.not.i.i = icmp eq i32 %46, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !244
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !243
 
 103:                                              ; preds = %14, %9
   %104 = lshr i64 %1, 2
@@ -9627,7 +9578,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   store float %123, ptr %124, align 4, !tbaa !25
   %indvars.iv.next78.i46.i = add nuw nsw i64 %indvars.iv77.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next78.i46.i, %wide.trip.count.i40.i
-  br i1 %exitcond.not.i47.i, label %._crit_edge.us.us.i48.i, label %113, !llvm.loop !246
+  br i1 %exitcond.not.i47.i, label %._crit_edge.us.us.i48.i, label %113, !llvm.loop !245
 
 ._crit_edge.us.us.i48.i:                          ; preds = %113
   %125 = getelementptr inbounds nuw float, ptr %.067.us.us.i42.i, i64 %104
@@ -9635,7 +9586,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %127 = getelementptr inbounds nuw float, ptr %.05765.us.us.i44.i, i64 %106
   %128 = add nsw i32 %112, -1
   %.not.us.us.i49.i = icmp eq i32 %112, 0
-  br i1 %.not.us.us.i49.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i41.i, !llvm.loop !247
+  br i1 %.not.us.us.i49.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.us.us.i41.i, !llvm.loop !246
 
 .preheader59.lr.ph.split.i22.i:                   ; preds = %.preheader59.lr.ph.i20.i
   %129 = add nsw i32 %6, -4
@@ -9714,7 +9665,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   store float %184, ptr %186, align 4, !tbaa !25
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 4
   %.not58.i30.i = icmp samesign ugt i64 %indvars.iv.next.i29.i, %132
-  br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %139, !llvm.loop !248
+  br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %139, !llvm.loop !247
 
 .lr.ph63.i35.i:                                   ; preds = %..preheader_crit_edge.i32.i, %.lr.ph63.i35.i
   %indvars.iv74.i36.i = phi i64 [ %indvars.iv.next75.i37.i, %.lr.ph63.i35.i ], [ %135, %..preheader_crit_edge.i32.i ]
@@ -9732,7 +9683,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   store float %196, ptr %197, align 4, !tbaa !25
   %indvars.iv.next75.i37.i = add nuw nsw i64 %indvars.iv74.i36.i, 1
   %198 = icmp samesign ult i64 %indvars.iv.next75.i37.i, %133
-  br i1 %198, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !246
+  br i1 %198, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !245
 
 ._crit_edge.i33.i:                                ; preds = %.lr.ph63.i35.i, %..preheader_crit_edge.i32.i
   %199 = getelementptr inbounds nuw float, ptr %.067.i24.i, i64 %104
@@ -9740,7 +9691,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted32fEPKfmS3_mPfmiiPKd(pt
   %201 = getelementptr inbounds nuw float, ptr %.05765.i26.i, i64 %106
   %202 = add nsw i32 %136, -1
   %.not.i34.i = icmp eq i32 %136, 0
-  br i1 %.not.i34.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i23.i, !llvm.loop !247
+  br i1 %.not.i34.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, label %.preheader59.i23.i, !llvm.loop !246
 
 _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit: ; preds = %._crit_edge.i33.i, %._crit_edge.us.us.i48.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i38.i, %103, %.preheader59.lr.ph.split.us.i.i, %18
   %203 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9756,7 +9707,7 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEE
   %207 = landingpad { ptr, i32 }
           catch ptr null
   %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #13
+  call void @__clang_call_terminate(ptr %208) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit, %205
@@ -9827,7 +9778,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   store double %36, ptr %37, align 8, !tbaa !29
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %30, !llvm.loop !249
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %30, !llvm.loop !248
 
 ._crit_edge.us.us.i.i:                            ; preds = %30
   %38 = getelementptr inbounds nuw double, ptr %.067.us.us.i.i, i64 %19
@@ -9835,7 +9786,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %40 = getelementptr inbounds nuw double, ptr %.05765.us.us.i.i, i64 %21
   %41 = add nsw i32 %29, -1
   %.not.us.us.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !250
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i.i, !llvm.loop !249
 
 .preheader59.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader59.preheader.i.i
   %42 = phi i32 [ %86, %._crit_edge.i.i ], [ %22, %.preheader59.preheader.i.i ]
@@ -9886,7 +9837,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   store double %72, ptr %74, align 8, !tbaa !29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not58.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %24
-  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %45, !llvm.loop !251
+  br i1 %.not58.i.i, label %..preheader_crit_edge.i.i, label %45, !llvm.loop !250
 
 .lr.ph63.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph63.i.i
   %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %.lr.ph63.i.i ], [ %27, %..preheader_crit_edge.i.i ]
@@ -9900,7 +9851,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   store double %80, ptr %81, align 8, !tbaa !29
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %82 = icmp samesign ult i64 %indvars.iv.next75.i.i, %25
-  br i1 %82, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !249
+  br i1 %82, label %.lr.ph63.i.i, label %._crit_edge.i.i, !llvm.loop !248
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph63.i.i, %..preheader_crit_edge.i.i
   %83 = getelementptr inbounds nuw double, ptr %.067.i.i, i64 %19
@@ -9908,7 +9859,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %85 = getelementptr inbounds nuw double, ptr %.05765.i.i, i64 %21
   %86 = add nsw i32 %42, -1
   %.not.i.i = icmp eq i32 %42, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !250
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i.i, !llvm.loop !249
 
 87:                                               ; preds = %14, %9
   %88 = lshr i64 %1, 3
@@ -9962,7 +9913,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   store double %110, ptr %111, align 8, !tbaa !29
   %indvars.iv.next78.i46.i = add nuw nsw i64 %indvars.iv77.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next78.i46.i, %wide.trip.count.i40.i
-  br i1 %exitcond.not.i47.i, label %._crit_edge.us.us.i48.i, label %100, !llvm.loop !252
+  br i1 %exitcond.not.i47.i, label %._crit_edge.us.us.i48.i, label %100, !llvm.loop !251
 
 ._crit_edge.us.us.i48.i:                          ; preds = %100
   %112 = getelementptr inbounds nuw double, ptr %.067.us.us.i42.i, i64 %88
@@ -9970,7 +9921,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %114 = getelementptr inbounds nuw double, ptr %.05765.us.us.i44.i, i64 %90
   %115 = add nsw i32 %99, -1
   %.not.us.us.i49.i = icmp eq i32 %99, 0
-  br i1 %.not.us.us.i49.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i41.i, !llvm.loop !253
+  br i1 %.not.us.us.i49.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.us.us.i41.i, !llvm.loop !252
 
 .preheader59.i23.i:                               ; preds = %._crit_edge.i33.i, %.preheader59.preheader.i22.i
   %116 = phi i32 [ %176, %._crit_edge.i33.i ], [ %91, %.preheader59.preheader.i22.i ]
@@ -10033,7 +9984,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   store double %158, ptr %160, align 8, !tbaa !29
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 4
   %.not58.i30.i = icmp samesign ugt i64 %indvars.iv.next.i29.i, %94
-  br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %119, !llvm.loop !254
+  br i1 %.not58.i30.i, label %..preheader_crit_edge.i32.i, label %119, !llvm.loop !253
 
 .lr.ph63.i35.i:                                   ; preds = %..preheader_crit_edge.i32.i, %.lr.ph63.i35.i
   %indvars.iv74.i36.i = phi i64 [ %indvars.iv.next75.i37.i, %.lr.ph63.i35.i ], [ %97, %..preheader_crit_edge.i32.i ]
@@ -10051,7 +10002,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   store double %170, ptr %171, align 8, !tbaa !29
   %indvars.iv.next75.i37.i = add nuw nsw i64 %indvars.iv74.i36.i, 1
   %172 = icmp samesign ult i64 %indvars.iv.next75.i37.i, %95
-  br i1 %172, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !252
+  br i1 %172, label %.lr.ph63.i35.i, label %._crit_edge.i33.i, !llvm.loop !251
 
 ._crit_edge.i33.i:                                ; preds = %.lr.ph63.i35.i, %..preheader_crit_edge.i32.i
   %173 = getelementptr inbounds nuw double, ptr %.067.i24.i, i64 %88
@@ -10059,7 +10010,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline14addWeighted64fEPKdmS3_mPdmiiS3_(pt
   %175 = getelementptr inbounds nuw double, ptr %.05765.i26.i, i64 %90
   %176 = add nsw i32 %116, -1
   %.not.i34.i = icmp eq i32 %116, 0
-  br i1 %.not.i34.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i23.i, !llvm.loop !253
+  br i1 %.not.i34.i, label %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, label %.preheader59.i23.i, !llvm.loop !252
 
 _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; preds = %._crit_edge.i33.i, %._crit_edge.us.us.i48.i, %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader59.lr.ph.split.us.i38.i, %87, %.preheader59.lr.ph.split.us.i.i, %18
   %177 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10075,7 +10026,7 @@ _ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit: ; 
   %181 = landingpad { ptr, i32 }
           catch ptr null
   %182 = extractvalue { ptr, i32 } %181, 0
-  call void @__clang_call_terminate(ptr %182) #13
+  call void @__clang_call_terminate(ptr %182) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL19add_weighted_loop_dIdiEEvPKT_mS5_mPS3_miiPKd.exit, %179
@@ -10131,14 +10082,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhPKf.exi
   store i8 %25, ptr %26, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %11, !llvm.loop !255
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %11, !llvm.loop !254
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhPKf.exit.us.i.i
   %27 = add nsw i32 %.in.i.i, -1
   %28 = getelementptr inbounds nuw i8, ptr %.0144.us.i.i, i64 %1
   %29 = getelementptr inbounds nuw i8, ptr %.0163.us.i.i, i64 %3
   %.not.us.i.i = icmp eq i32 %27, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !256
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !255
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10154,7 +10105,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit, %32
@@ -10207,14 +10158,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIafNS_12hal_baseline5v_regIaLi16EEEE1rEaPKf.exi
   store i8 %22, ptr %23, align 1, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %11, !llvm.loop !257
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %11, !llvm.loop !256
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIafNS_12hal_baseline5v_regIaLi16EEEE1rEaPKf.exit.us.i.i
   %24 = add nsw i32 %.in.i.i, -1
   %25 = getelementptr inbounds nuw i8, ptr %.0144.us.i.i, i64 %1
   %26 = getelementptr inbounds nuw i8, ptr %.0163.us.i.i, i64 %3
   %.not.us.i.i = icmp eq i32 %24, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !258
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !257
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10230,7 +10181,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit, %29
@@ -10285,14 +10236,14 @@ _ZN2cv3hal12cpu_baseline8op_recipItfNS_12hal_baseline5v_regItLi8EEEE1rEtPKf.exit
   store i16 %24, ptr %25, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !259
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !258
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline8op_recipItfNS_12hal_baseline5v_regItLi8EEEE1rEtPKf.exit.us.i.i
   %26 = add nsw i32 %.in.i.i, -1
   %27 = getelementptr inbounds nuw i16, ptr %.0144.us.i.i, i64 %10
   %28 = getelementptr inbounds nuw i16, ptr %.0163.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !260
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !259
 
 _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10308,7 +10259,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
@@ -10363,14 +10314,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIsfNS_12hal_baseline5v_regIsLi8EEEE1rEsPKf.exit
   store i16 %24, ptr %25, align 2, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !261
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !260
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIsfNS_12hal_baseline5v_regIsLi8EEEE1rEsPKf.exit.us.i.i
   %26 = add nsw i32 %.in.i.i, -1
   %27 = getelementptr inbounds nuw i16, ptr %.0144.us.i.i, i64 %10
   %28 = getelementptr inbounds nuw i16, ptr %.0163.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !262
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !261
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10386,7 +10337,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit, %31
@@ -10438,14 +10389,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIifNS_12hal_baseline5v_regIiLi4EEEE1rEiPKf.exit
   store i32 %21, ptr %22, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !263
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !262
 
 ._crit_edge.us.i.i:                               ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIifNS_12hal_baseline5v_regIiLi4EEEE1rEiPKf.exit.us.i.i
   %23 = add nsw i32 %.in.i.i, -1
   %24 = getelementptr inbounds nuw i32, ptr %.0144.us.i.i, i64 %10
   %25 = getelementptr inbounds nuw i32, ptr %.0163.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %23, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !264
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !263
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10461,7 +10412,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit, %28
@@ -10502,14 +10453,14 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip32fEPKfmPfmiiPKd(ptr noundef r
   store float %16, ptr %17, align 4, !tbaa !25
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !265
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.i.i, label %13, !llvm.loop !264
 
 ._crit_edge.us.i.i:                               ; preds = %13
   %18 = add nsw i32 %.in.i.i, -1
   %19 = getelementptr inbounds nuw float, ptr %.0144.us.i.i, i64 %10
   %20 = getelementptr inbounds nuw float, ptr %.0163.us.i.i, i64 %11
   %.not.us.i.i = icmp eq i32 %18, 0
-  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !266
+  br i1 %.not.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, label %.preheader.us.i.i, !llvm.loop !265
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit: ; preds = %._crit_edge.us.i.i, %7
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10525,7 +10476,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #13
+  call void @__clang_call_terminate(ptr %26) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit, %23
@@ -10580,14 +10531,14 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr noundef r
   store double %23, ptr %24, align 8, !tbaa !29
   %indvars.iv.next63.i.i = add nuw nsw i64 %indvars.iv62.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next63.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %19, !llvm.loop !267
+  br i1 %exitcond.not.i.i, label %._crit_edge.us.us.i.i, label %19, !llvm.loop !266
 
 ._crit_edge.us.us.i.i:                            ; preds = %19
   %25 = getelementptr inbounds nuw double, ptr %.052.us.us.i.i, i64 %9
   %26 = getelementptr inbounds nuw double, ptr %.04251.us.us.i.i, i64 %10
   %27 = add nsw i32 %18, -1
   %.not.us.us.i.i = icmp eq i32 %18, 0
-  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, label %.preheader45.us.us.i.i, !llvm.loop !268
+  br i1 %.not.us.us.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, label %.preheader45.us.us.i.i, !llvm.loop !267
 
 .preheader45.i.i:                                 ; preds = %._crit_edge.i.i, %.preheader45.preheader.i.i
   %28 = phi i32 [ %61, %._crit_edge.i.i ], [ %11, %.preheader45.preheader.i.i ]
@@ -10629,7 +10580,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr noundef r
   store double %50, ptr %52, align 8, !tbaa !29
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %.not44.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %13
-  br i1 %.not44.i.i, label %..preheader_crit_edge.i.i, label %31, !llvm.loop !269
+  br i1 %.not44.i.i, label %..preheader_crit_edge.i.i, label %31, !llvm.loop !268
 
 .lr.ph49.i.i:                                     ; preds = %..preheader_crit_edge.i.i, %.lr.ph49.i.i
   %indvars.iv59.i.i = phi i64 [ %indvars.iv.next60.i.i, %.lr.ph49.i.i ], [ %16, %..preheader_crit_edge.i.i ]
@@ -10641,14 +10592,14 @@ define hidden void @_ZN2cv3hal12cpu_baseline8recip64fEPKdmPdmiiS3_(ptr noundef r
   store double %56, ptr %57, align 8, !tbaa !29
   %indvars.iv.next60.i.i = add nuw nsw i64 %indvars.iv59.i.i, 1
   %58 = icmp samesign ult i64 %indvars.iv.next60.i.i, %14
-  br i1 %58, label %.lr.ph49.i.i, label %._crit_edge.i.i, !llvm.loop !267
+  br i1 %58, label %.lr.ph49.i.i, label %._crit_edge.i.i, !llvm.loop !266
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph49.i.i, %..preheader_crit_edge.i.i
   %59 = getelementptr inbounds nuw double, ptr %.052.i.i, i64 %9
   %60 = getelementptr inbounds nuw double, ptr %.04251.i.i, i64 %10
   %61 = add nsw i32 %28, -1
   %.not.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, label %.preheader45.i.i, !llvm.loop !268
+  br i1 %.not.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, label %.preheader45.i.i, !llvm.loop !267
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit: ; preds = %._crit_edge.i.i, %._crit_edge.us.us.i.i, %.preheader45.lr.ph.split.us.i.i, %7
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -10664,7 +10615,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit: ; preds = %._cr
   %66 = landingpad { ptr, i32 }
           catch ptr null
   %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #13
+  call void @__clang_call_terminate(ptr %67) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv3hal12cpu_baselineL10recip_loopIdiEEvPKT_mPS3_miiPKd.exit, %64
@@ -10739,7 +10690,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -10757,7 +10708,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -10767,7 +10718,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -10837,7 +10788,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -10855,7 +10806,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEaNS_12hal_baseline5v_regIaLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -10865,7 +10816,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -10939,7 +10890,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #13
+  call void @__clang_call_terminate(ptr %36) #12
   unreachable
 
 .critedge:                                        ; preds = %33, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -10957,7 +10908,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEtNS_12hal_baseline5v_regItLi8EEEE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #13
+  call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
@@ -10967,7 +10918,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
 43:                                               ; preds = %9
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %44
 }
@@ -11037,7 +10988,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11055,7 +11006,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEsNS_12hal_baseline5v_regIsLi8EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11065,7 +11016,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11135,7 +11086,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11153,7 +11104,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEiNS_12hal_baseline5v_regIiLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11163,7 +11114,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11233,7 +11184,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11251,7 +11202,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_addEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11261,7 +11212,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11288,7 +11239,7 @@ define void @_ZN2cv3hal6add64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -11298,7 +11249,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -11370,7 +11321,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11388,7 +11339,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEhNS_12hal_baseline5v_regIhLi16EEE
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -11398,7 +11349,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -11465,7 +11416,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11483,7 +11434,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEaNS_12hal_baseline5v_regIaLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -11493,7 +11444,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -11567,7 +11518,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %35 = landingpad { ptr, i32 }
           catch ptr null
   %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #13
+  call void @__clang_call_terminate(ptr %36) #12
   unreachable
 
 .critedge:                                        ; preds = %33, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11585,7 +11536,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEtNS_12hal_baseline5v_regItLi8EEEE
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #13
+  call void @__clang_call_terminate(ptr %42) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
@@ -11595,7 +11546,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %39
 43:                                               ; preds = %9
   %44 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %44
 }
@@ -11665,7 +11616,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11683,7 +11634,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEsNS_12hal_baseline5v_regIsLi8EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11693,7 +11644,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11763,7 +11714,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11781,7 +11732,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEiNS_12hal_baseline5v_regIiLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11791,7 +11742,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11861,7 +11812,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -11879,7 +11830,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_subEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -11889,7 +11840,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -11916,7 +11867,7 @@ define void @_ZN2cv3hal6sub64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -11926,7 +11877,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -11999,7 +11950,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12017,7 +11968,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEhNS_12hal_baseline5v_regIhLi16EEE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #13
+  call void @__clang_call_terminate(ptr %41) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -12027,7 +11978,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -12094,7 +12045,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #13
+  call void @__clang_call_terminate(ptr %28) #12
   unreachable
 
 .critedge:                                        ; preds = %25, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12112,7 +12063,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEaNS_12hal_baseline5v_regIaLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
@@ -12122,7 +12073,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
 35:                                               ; preds = %9
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %36
 }
@@ -12192,7 +12143,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12210,7 +12161,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEtNS_12hal_baseline5v_regItLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12220,7 +12171,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12290,7 +12241,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12308,7 +12259,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEsNS_12hal_baseline5v_regIsLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12318,7 +12269,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12388,7 +12339,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12406,7 +12357,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEiNS_12hal_baseline5v_regIiLi4EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12416,7 +12367,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12487,7 +12438,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12505,7 +12456,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_minEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -12515,7 +12466,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -12542,7 +12493,7 @@ define void @_ZN2cv3hal6min64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -12552,7 +12503,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -12625,7 +12576,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12643,7 +12594,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEhNS_12hal_baseline5v_regIhLi16EEE
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #13
+  call void @__clang_call_terminate(ptr %41) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -12653,7 +12604,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -12720,7 +12671,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #13
+  call void @__clang_call_terminate(ptr %28) #12
   unreachable
 
 .critedge:                                        ; preds = %25, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12738,7 +12689,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEaNS_12hal_baseline5v_regIaLi16EEE
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
@@ -12748,7 +12699,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %31
 35:                                               ; preds = %9
   %36 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %36
 }
@@ -12818,7 +12769,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12836,7 +12787,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEtNS_12hal_baseline5v_regItLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12846,7 +12797,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -12916,7 +12867,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -12934,7 +12885,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEsNS_12hal_baseline5v_regIsLi8EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -12944,7 +12895,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -13014,7 +12965,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #13
+  call void @__clang_call_terminate(ptr %31) #12
   unreachable
 
 .critedge:                                        ; preds = %28, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13032,7 +12983,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEiNS_12hal_baseline5v_regIiLi4EEEE
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
@@ -13042,7 +12993,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %34
 38:                                               ; preds = %9
   %39 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %39
 }
@@ -13113,7 +13064,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13131,7 +13082,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_maxEfNS_12hal_baseline5v_regIfLi4EEEE
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -13141,7 +13092,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -13168,7 +13119,7 @@ define void @_ZN2cv3hal6max64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -13178,7 +13129,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -13248,7 +13199,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 .critedge:                                        ; preds = %29, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13266,7 +13217,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEhNS_12hal_baseline5v_regIhLi
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
@@ -13276,7 +13227,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %35
 39:                                               ; preds = %9
   %40 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %40
 }
@@ -13348,7 +13299,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13366,7 +13317,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEaNS_12hal_baseline5v_regIaLi
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -13376,7 +13327,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -13449,7 +13400,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13467,7 +13418,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEtNS_12hal_baseline5v_regItLi
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #13
+  call void @__clang_call_terminate(ptr %41) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -13477,7 +13428,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -13552,7 +13503,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi8EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13570,7 +13521,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEsNS_12hal_baseline5v_regIsLi
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
@@ -13580,7 +13531,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
@@ -13651,7 +13602,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #13
+  call void @__clang_call_terminate(ptr %33) #12
   unreachable
 
 .critedge:                                        ; preds = %30, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13669,7 +13620,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEiNS_12hal_baseline5v_regIiLi
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #13
+  call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
@@ -13679,7 +13630,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
 40:                                               ; preds = %9
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %41
 }
@@ -13750,7 +13701,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %32 = landingpad { ptr, i32 }
           catch ptr null
   %33 = extractvalue { ptr, i32 } %32, 0
-  call void @__clang_call_terminate(ptr %33) #13
+  call void @__clang_call_terminate(ptr %33) #12
   unreachable
 
 .critedge:                                        ; preds = %30, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi4EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13768,7 +13719,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_10op_absdiffEfNS_12hal_baseline5v_regIfLi
   %38 = landingpad { ptr, i32 }
           catch ptr null
   %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #13
+  call void @__clang_call_terminate(ptr %39) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
@@ -13778,7 +13729,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %36
 40:                                               ; preds = %9
   %41 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %41
 }
@@ -13805,7 +13756,7 @@ define void @_ZN2cv3hal10absdiff64fEPKdmS2_mPdmiiPv(ptr noundef readonly capture
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -13815,7 +13766,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -13882,7 +13833,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13900,7 +13851,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_5op_orEhNS_12hal_baseline5v_regIhLi16EEEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -13910,7 +13861,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -13977,7 +13928,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -13995,7 +13946,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_xorEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -14005,7 +13956,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -14072,7 +14023,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -14090,7 +14041,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_andEhNS_12hal_baseline5v_regIhLi16EEE
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -14100,7 +14051,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -14163,7 +14114,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #13
+  call void @__clang_call_terminate(ptr %26) #12
   unreachable
 
 .critedge:                                        ; preds = %23, %_ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEEEEvPKT0_mS9_mPS7_mii.exit.i
@@ -14181,7 +14132,7 @@ _ZN2cv3hal12cpu_baselineL8bin_loopINS1_6op_notEhNS_12hal_baseline5v_regIhLi16EEE
   %31 = landingpad { ptr, i32 }
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #13
+  call void @__clang_call_terminate(ptr %32) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %29
@@ -14191,7 +14142,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %29
 33:                                               ; preds = %9
   %34 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %34
 }
@@ -14219,7 +14170,7 @@ define void @_ZN2cv3hal5cmp8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14229,7 +14180,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14257,7 +14208,7 @@ define void @_ZN2cv3hal5cmp8sEPKamS2_mPhmiiPv(ptr noundef readonly captures(none
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14267,7 +14218,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14295,7 +14246,7 @@ define void @_ZN2cv3hal6cmp16uEPKtmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14305,7 +14256,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14333,7 +14284,7 @@ define void @_ZN2cv3hal6cmp16sEPKsmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14343,7 +14294,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14371,7 +14322,7 @@ define void @_ZN2cv3hal6cmp32sEPKimS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14381,7 +14332,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14409,7 +14360,7 @@ define void @_ZN2cv3hal6cmp32fEPKfmS2_mPhmiiPv(ptr noundef readonly captures(non
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14419,7 +14370,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14447,7 +14398,7 @@ define void @_ZN2cv3hal6cmp64fEPKdmS2_mPhmiiPv(ptr noundef %0, i64 noundef %1, p
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #13
+  call void @__clang_call_terminate(ptr %17) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
@@ -14457,7 +14408,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %14
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %19
 }
@@ -14484,7 +14435,7 @@ define void @_ZN2cv3hal5mul8uEPKhmS2_mPhmiiPv(ptr noundef readonly captures(none
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14494,7 +14445,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14521,7 +14472,7 @@ define void @_ZN2cv3hal5mul8sEPKamS2_mPamiiPv(ptr noundef readonly captures(none
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14531,7 +14482,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14558,7 +14509,7 @@ define void @_ZN2cv3hal6mul16uEPKtmS2_mPtmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14568,7 +14519,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14595,7 +14546,7 @@ define void @_ZN2cv3hal6mul16sEPKsmS2_mPsmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14605,7 +14556,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14632,7 +14583,7 @@ define void @_ZN2cv3hal6mul32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14642,7 +14593,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14669,7 +14620,7 @@ define void @_ZN2cv3hal6mul32sEPKimS2_mPimiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14679,7 +14630,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14706,7 +14657,7 @@ define void @_ZN2cv3hal6mul64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -14716,7 +14667,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -14783,7 +14734,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhP
   store i8 %35, ptr %36, align 1, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !200
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !199
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhPKf.exit.us.i.i.i
   %37 = add nsw i32 %.in.i.i.i, -1
@@ -14791,7 +14742,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhhP
   %39 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i.i, i64 %3
   %40 = getelementptr inbounds nuw i8, ptr %.0214.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %37, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !201
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !200
 
 _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -14807,7 +14758,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #13
+  call void @__clang_call_terminate(ptr %46) #12
   unreachable
 
 .critedge:                                        ; preds = %43, %_ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -14825,7 +14776,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mS8_m
   %51 = landingpad { ptr, i32 }
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
-  call void @__clang_call_terminate(ptr %52) #13
+  call void @__clang_call_terminate(ptr %52) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %49
@@ -14835,7 +14786,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %49
 53:                                               ; preds = %9
   %54 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %54
 }
@@ -14896,7 +14847,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaP
   store i8 %29, ptr %30, align 1, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !202
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !201
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaPKf.exit.us.i.i.i
   %31 = add nsw i32 %.in.i.i.i, -1
@@ -14904,7 +14855,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIafNS_12hal_baseline5v_regIaLi16EEEE1rEaaP
   %33 = getelementptr inbounds nuw i8, ptr %.0223.us.i.i.i, i64 %3
   %34 = getelementptr inbounds nuw i8, ptr %.0214.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !203
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !202
 
 _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -14920,7 +14871,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 .critedge:                                        ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -14938,7 +14889,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mS8_m
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #13
+  call void @__clang_call_terminate(ptr %46) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
@@ -14948,7 +14899,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
 47:                                               ; preds = %9
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %48
 }
@@ -15012,7 +14963,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPK
   store i16 %32, ptr %33, align 2, !tbaa !16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %17, !llvm.loop !204
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %17, !llvm.loop !203
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPKf.exit.us.i.i.i
   %34 = add nsw i32 %.in.i.i.i, -1
@@ -15020,7 +14971,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleItfNS_12hal_baseline5v_regItLi8EEEE1rEttPK
   %36 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i.i, i64 %14
   %37 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i.i, i64 %15
   %.not.us.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !205
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !204
 
 _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15036,7 +14987,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
 .critedge:                                        ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -15054,7 +15005,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mS8_mP
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #13
+  call void @__clang_call_terminate(ptr %49) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
@@ -15064,7 +15015,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
 50:                                               ; preds = %9
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %51
 }
@@ -15128,7 +15079,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPK
   store i16 %32, ptr %33, align 2, !tbaa !16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %17, !llvm.loop !206
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %17, !llvm.loop !205
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPKf.exit.us.i.i.i
   %34 = add nsw i32 %.in.i.i.i, -1
@@ -15136,7 +15087,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIsfNS_12hal_baseline5v_regIsLi8EEEE1rEssPK
   %36 = getelementptr inbounds nuw i16, ptr %.0223.us.i.i.i, i64 %14
   %37 = getelementptr inbounds nuw i16, ptr %.0214.us.i.i.i, i64 %15
   %.not.us.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !207
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !206
 
 _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15152,7 +15103,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
 .critedge:                                        ; preds = %40, %_ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -15170,7 +15121,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mS8_mP
   %48 = landingpad { ptr, i32 }
           catch ptr null
   %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #13
+  call void @__clang_call_terminate(ptr %49) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
@@ -15180,7 +15131,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %46
 50:                                               ; preds = %9
   %51 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %51
 }
@@ -15241,7 +15192,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPK
   store i32 %29, ptr %30, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %17, !llvm.loop !208
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %17, !llvm.loop !207
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPKf.exit.us.i.i.i
   %31 = add nsw i32 %.in.i.i.i, -1
@@ -15249,7 +15200,7 @@ _ZN2cv3hal12cpu_baseline12op_div_scaleIifNS_12hal_baseline5v_regIiLi4EEEE1rEiiPK
   %33 = getelementptr inbounds nuw i32, ptr %.0223.us.i.i.i, i64 %14
   %34 = getelementptr inbounds nuw i32, ptr %.0214.us.i.i.i, i64 %15
   %.not.us.i.i.i = icmp eq i32 %31, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !209
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !208
 
 _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15265,7 +15216,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 .critedge:                                        ; preds = %37, %_ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mPS6_miiPKd.exit.i
@@ -15283,7 +15234,7 @@ _ZN2cv3hal12cpu_baselineL8div_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mS8_mP
   %45 = landingpad { ptr, i32 }
           catch ptr null
   %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #13
+  call void @__clang_call_terminate(ptr %46) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
@@ -15293,7 +15244,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %43
 47:                                               ; preds = %9
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %48
 }
@@ -15320,7 +15271,7 @@ define void @_ZN2cv3hal6div32fEPKfmS2_mPfmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15330,7 +15281,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15357,7 +15308,7 @@ define void @_ZN2cv3hal6div64fEPKdmS2_mPdmiiPv(ptr noundef readonly captures(non
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15367,7 +15318,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15394,7 +15345,7 @@ define void @_ZN2cv3hal13addWeighted8uEPKhmS2_mPhmiiPv(ptr noundef readonly capt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15404,7 +15355,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15431,7 +15382,7 @@ define void @_ZN2cv3hal13addWeighted8sEPKamS2_mPamiiPv(ptr noundef readonly capt
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15441,7 +15392,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15468,7 +15419,7 @@ define void @_ZN2cv3hal14addWeighted16uEPKtmS2_mPtmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15478,7 +15429,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15505,7 +15456,7 @@ define void @_ZN2cv3hal14addWeighted16sEPKsmS2_mPsmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15515,7 +15466,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15542,7 +15493,7 @@ define void @_ZN2cv3hal14addWeighted32sEPKimS2_mPimiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15552,7 +15503,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15579,7 +15530,7 @@ define void @_ZN2cv3hal14addWeighted32fEPKfmS2_mPfmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15589,7 +15540,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15616,7 +15567,7 @@ define void @_ZN2cv3hal14addWeighted64fEPKdmS2_mPdmiiPv(ptr noundef readonly cap
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -15626,7 +15577,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -15685,14 +15636,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhPKf.exi
   store i8 %28, ptr %29, align 1, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !255
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !254
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIhfNS_12hal_baseline5v_regIhLi16EEEE1rEhPKf.exit.us.i.i.i
   %30 = add nsw i32 %.in.i.i.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.0144.us.i.i.i, i64 %3
   %32 = getelementptr inbounds nuw i8, ptr %.0163.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !256
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !255
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15708,7 +15659,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  call void @__clang_call_terminate(ptr %38) #13
+  call void @__clang_call_terminate(ptr %38) #12
   unreachable
 
 .critedge:                                        ; preds = %35, %_ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -15726,7 +15677,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIhNS_12hal_baseline5v_regIhLi16EEEEEvPKT_mP
   %43 = landingpad { ptr, i32 }
           catch ptr null
   %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #13
+  call void @__clang_call_terminate(ptr %44) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %41
@@ -15736,7 +15687,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %41
 45:                                               ; preds = %9
   %46 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %46
 }
@@ -15792,14 +15743,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIafNS_12hal_baseline5v_regIaLi16EEEE1rEaPKf.exi
   store i8 %25, ptr %26, align 1, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !257
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %14, !llvm.loop !256
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIafNS_12hal_baseline5v_regIaLi16EEEE1rEaPKf.exit.us.i.i.i
   %27 = add nsw i32 %.in.i.i.i, -1
   %28 = getelementptr inbounds nuw i8, ptr %.0144.us.i.i.i, i64 %3
   %29 = getelementptr inbounds nuw i8, ptr %.0163.us.i.i.i, i64 %5
   %.not.us.i.i.i = icmp eq i32 %27, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !258
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !257
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15815,7 +15766,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 .critedge:                                        ; preds = %32, %_ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -15833,7 +15784,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIaNS_12hal_baseline5v_regIaLi16EEEEEvPKT_mP
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #13
+  call void @__clang_call_terminate(ptr %41) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
@@ -15843,7 +15794,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %38
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %43
 }
@@ -15901,14 +15852,14 @@ _ZN2cv3hal12cpu_baseline8op_recipItfNS_12hal_baseline5v_regItLi8EEEE1rEtPKf.exit
   store i16 %27, ptr %28, align 2, !tbaa !16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !259
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !258
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline8op_recipItfNS_12hal_baseline5v_regItLi8EEEE1rEtPKf.exit.us.i.i.i
   %29 = add nsw i32 %.in.i.i.i, -1
   %30 = getelementptr inbounds nuw i16, ptr %.0144.us.i.i.i, i64 %13
   %31 = getelementptr inbounds nuw i16, ptr %.0163.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !260
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !259
 
 _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -15924,7 +15875,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -15942,7 +15893,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopItNS_12hal_baseline5v_regItLi8EEEEEvPKT_mPS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
@@ -15952,7 +15903,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
@@ -16010,14 +15961,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIsfNS_12hal_baseline5v_regIsLi8EEEE1rEsPKf.exit
   store i16 %27, ptr %28, align 2, !tbaa !16
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !261
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !260
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIsfNS_12hal_baseline5v_regIsLi8EEEE1rEsPKf.exit.us.i.i.i
   %29 = add nsw i32 %.in.i.i.i, -1
   %30 = getelementptr inbounds nuw i16, ptr %.0144.us.i.i.i, i64 %13
   %31 = getelementptr inbounds nuw i16, ptr %.0163.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !262
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !261
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -16033,7 +15984,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #13
+  call void @__clang_call_terminate(ptr %37) #12
   unreachable
 
 .critedge:                                        ; preds = %34, %_ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -16051,7 +16002,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIsNS_12hal_baseline5v_regIsLi8EEEEEvPKT_mPS
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #13
+  call void @__clang_call_terminate(ptr %43) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
@@ -16061,7 +16012,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %40
 44:                                               ; preds = %9
   %45 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %45
 }
@@ -16116,14 +16067,14 @@ _ZN2cv3hal12cpu_baseline8op_recipIifNS_12hal_baseline5v_regIiLi4EEEE1rEiPKf.exit
   store i32 %24, ptr %25, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !263
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !262
 
 ._crit_edge.us.i.i.i:                             ; preds = %_ZN2cv3hal12cpu_baseline8op_recipIifNS_12hal_baseline5v_regIiLi4EEEE1rEiPKf.exit.us.i.i.i
   %26 = add nsw i32 %.in.i.i.i, -1
   %27 = getelementptr inbounds nuw i32, ptr %.0144.us.i.i.i, i64 %13
   %28 = getelementptr inbounds nuw i32, ptr %.0163.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %26, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !264
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !263
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -16139,7 +16090,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %33 = landingpad { ptr, i32 }
           catch ptr null
   %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #13
+  call void @__clang_call_terminate(ptr %34) #12
   unreachable
 
 .critedge:                                        ; preds = %31, %_ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -16157,7 +16108,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIiNS_12hal_baseline5v_regIiLi4EEEEEvPKT_mPS
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  call void @__clang_call_terminate(ptr %40) #13
+  call void @__clang_call_terminate(ptr %40) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
@@ -16167,7 +16118,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %37
 41:                                               ; preds = %9
   %42 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %42
 }
@@ -16211,14 +16162,14 @@ define void @_ZN2cv3hal8recip32fEPKfmS2_mPfmiiPv(ptr noundef readnone captures(n
   store float %19, ptr %20, align 4, !tbaa !25
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !265
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us.i.i.i, label %16, !llvm.loop !264
 
 ._crit_edge.us.i.i.i:                             ; preds = %16
   %21 = add nsw i32 %.in.i.i.i, -1
   %22 = getelementptr inbounds nuw float, ptr %.0144.us.i.i.i, i64 %13
   %23 = getelementptr inbounds nuw float, ptr %.0163.us.i.i.i, i64 %14
   %.not.us.i.i.i = icmp eq i32 %21, 0
-  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !266
+  br i1 %.not.us.i.i.i, label %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i, label %.preheader.us.i.i.i, !llvm.loop !265
 
 _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i: ; preds = %._crit_edge.us.i.i.i, %.noexc
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -16234,7 +16185,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %28 = landingpad { ptr, i32 }
           catch ptr null
   %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #13
+  call void @__clang_call_terminate(ptr %29) #12
   unreachable
 
 .critedge:                                        ; preds = %26, %_ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS6_miiPKd.exit.i
@@ -16252,7 +16203,7 @@ _ZN2cv3hal12cpu_baselineL10recip_loopIfNS_12hal_baseline5v_regIfLi4EEEEEvPKT_mPS
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #13
+  call void @__clang_call_terminate(ptr %35) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
@@ -16262,7 +16213,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %32
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   resume { ptr, i32 } %37
 }
@@ -16289,7 +16240,7 @@ define void @_ZN2cv3hal8recip64fEPKdmS2_mPdmiiPv(ptr noundef readnone captures(n
   %15 = landingpad { ptr, i32 }
           catch ptr null
   %16 = extractvalue { ptr, i32 } %15, 0
-  call void @__clang_call_terminate(ptr %16) #13
+  call void @__clang_call_terminate(ptr %16) #12
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
@@ -16299,7 +16250,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.critedge, %13
 17:                                               ; preds = %9
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #16
+  call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %18
 }
@@ -16308,8 +16259,8 @@ declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull al
 
 ; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
-  tail call void @_ZSt9terminatev() #13
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
+  tail call void @_ZSt9terminatev() #12
   unreachable
 }
 
@@ -16351,47 +16302,44 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i8 @llvm.sadd.sat.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.sadd.sat.i8(i8, i8) #12
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
+declare i16 @llvm.sadd.sat.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.sadd.sat.i16(i16, i16) #12
+declare i8 @llvm.ssub.sat.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ssub.sat.i8(i8, i8) #12
+declare i16 @llvm.ssub.sat.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.ssub.sat.i16(i16, i16) #12
+declare i8 @llvm.smin.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smin.i8(i8, i8) #12
+declare i16 @llvm.umin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #12
+declare i16 @llvm.smin.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #12
+declare i8 @llvm.smax.i8(i8, i8) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.smax.i8(i8, i8) #12
+declare i16 @llvm.umax.i16(i16, i16) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smax.i16(i16, i16) #12
+declare i16 @llvm.smax.i16(i16, i16) #11
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -16404,12 +16352,11 @@ attributes #7 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { noreturn }
-attributes #15 = { builtin nounwind }
-attributes #16 = { nounwind }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { noreturn nounwind }
+attributes #13 = { noreturn }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -16526,7 +16473,7 @@ attributes #16 = { nounwind }
 !110 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !111, i64 0}
 !111 = !{!"p1 omnipotent char", !12, i64 0}
 !112 = !{!"long", !4, i64 0}
-!113 = !{!109, !112, i64 8}
+!113 = distinct !{!113, !7}
 !114 = distinct !{!114, !7}
 !115 = distinct !{!115, !7}
 !116 = distinct !{!116, !7}
@@ -16682,4 +16629,3 @@ attributes #16 = { nounwind }
 !266 = distinct !{!266, !7}
 !267 = distinct !{!267, !7}
 !268 = distinct !{!268, !7}
-!269 = distinct !{!269, !7}

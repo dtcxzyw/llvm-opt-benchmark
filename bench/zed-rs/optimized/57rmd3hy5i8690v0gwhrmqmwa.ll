@@ -581,38 +581,31 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %11 = icmp eq i64 %.sroa.0.0.copyload25, 0
-  br i1 %11, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17ha56b0b2625119bb6E.exit", label %14
+  br i1 %11, label %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17ha56b0b2625119bb6E.exit", label %12
 
 "_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17ha56b0b2625119bb6E.exit": ; preds = %10
   tail call void @_ZN3std3sys12thread_local11destructors10linux_like8register17h57cb638b734c6d95E(ptr noundef nonnull align 8 %0, ptr noundef nonnull @_ZN3std3sys12thread_local6native4lazy7destroy17hc9f5486a01907aacE)
-  %12 = load i64, ptr %0, align 8, !range !68, !noundef !4
-  %13 = icmp eq i64 %12, 1
-  tail call void @llvm.assume(i1 %13)
   br label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit21"
 
-14:                                               ; preds = %10
+12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.sroa.0.0.copyload25, ptr %3, align 8
   %.sroa.5.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0..sroa_idx28, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5, i64 64, i1 false)
   %cond.i = icmp eq i64 %.sroa.0.0.copyload25, 1
-  br i1 %cond.i, label %15, label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit"
+  br i1 %cond.i, label %13, label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit"
 
-15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @"_ZN4core3ptr39drop_in_place$LT$gpui..arena..Arena$GT$17h2cc81d4ff9c3b904E.llvm.13361645166614471590"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
-  %.pre = load i64, ptr %0, align 8, !range !68
-  %17 = icmp eq i64 %.pre, 1
+13:                                               ; preds = %12
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @"_ZN4core3ptr39drop_in_place$LT$gpui..arena..Arena$GT$17h2cc81d4ff9c3b904E.llvm.13361645166614471590"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14)
   br label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit"
 
 "_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit21": ; preds = %"_ZN81_$LT$$LP$$RP$$u20$as$u20$std..sys..thread_local..native..lazy..DestroyedState$GT$13register_dtor17ha56b0b2625119bb6E.exit", %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret ptr %.sroa.2.0..sroa_idx
 
-"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit": ; preds = %15, %14
-  %18 = phi i1 [ %17, %15 ], [ true, %14 ]
+"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit": ; preds = %13, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.assume(i1 %18)
   br label %"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E.exit21"
 }
 
@@ -623,8 +616,8 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr %1, align 8, !alias.scope !69, !noundef !4
-  store i64 0, ptr %1, align 8, !alias.scope !69
+  %6 = load i64, ptr %1, align 8, !alias.scope !68, !noundef !4
+  store i64 0, ptr %1, align 8, !alias.scope !68
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %15
 
@@ -633,8 +626,8 @@ define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Stora
   %9 = tail call noundef nonnull ptr @_ZN3std6thread7current17he9fd31ca1606f337E()
   store ptr %9, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load i64, ptr %10, align 8, !range !74, !noundef !4
-  %12 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !75
+  %11 = load i64, ptr %10, align 8, !range !73, !noundef !4
+  %12 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !74
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %14, label %_ZN4core3ops8function6FnOnce9call_once17heb9cd79297f2d3bcE.exit
 
@@ -659,7 +652,7 @@ define internal void @_ZN3std3sys12thread_local6native4lazy7destroy17hc9f5486a01
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false)
   store i64 2, ptr %0, align 8
-  %3 = load i64, ptr %2, align 8, !range !68, !alias.scope !84, !noundef !4
+  %3 = load i64, ptr %2, align 8, !range !83, !alias.scope !84, !noundef !4
   %cond.i.i.i = icmp eq i64 %3, 1
   br i1 %cond.i.i.i, label %4, label %10
 
@@ -1432,9 +1425,9 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !180)
-  %20 = load i64, ptr %.sroa.0.0, align 8, !range !68, !alias.scope !182, !noalias !183, !noundef !4
+  %20 = load i64, ptr %.sroa.0.0, align 8, !range !83, !alias.scope !182, !noalias !183, !noundef !4
   %21 = icmp eq i64 %20, 2
-  %22 = load i64, ptr %.sroa.04.0, align 8, !range !68, !alias.scope !183, !noalias !182, !noundef !4
+  %22 = load i64, ptr %.sroa.04.0, align 8, !range !83, !alias.scope !183, !noalias !182, !noundef !4
   %23 = icmp eq i64 %22, 2
   br i1 %21, label %24, label %27
 
@@ -1442,7 +1435,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   br i1 %23, label %28, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread5"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread5": ; preds = %24
-  %25 = load i64, ptr %.sroa.08.0, align 8, !range !68, !alias.scope !184, !noalias !189, !noundef !4
+  %25 = load i64, ptr %.sroa.08.0, align 8, !range !83, !alias.scope !184, !noalias !189, !noundef !4
   %26 = icmp eq i64 %25, 2
   br i1 %26, label %65, label %.thread15
 
@@ -1502,7 +1495,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread": ; preds = %27, %35
   %.sroa.0.0.i.i.ph = phi i1 [ false, %27 ], [ %45, %35 ]
-  %59 = load i64, ptr %.sroa.08.0, align 8, !range !68, !alias.scope !205, !noalias !208, !noundef !4
+  %59 = load i64, ptr %.sroa.08.0, align 8, !range !83, !alias.scope !205, !noalias !208, !noundef !4
   %60 = icmp eq i64 %59, 2
   br i1 %60, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit23.thr_comm", label %74
 
@@ -1512,7 +1505,7 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
-  %61 = load i64, ptr %.sroa.08.0, align 8, !range !68, !alias.scope !219, !noalias !220, !noundef !4
+  %61 = load i64, ptr %.sroa.08.0, align 8, !range !83, !alias.scope !219, !noalias !220, !noundef !4
   %62 = icmp eq i64 %61, 2
   br i1 %21, label %63, label %64
 
@@ -6807,9 +6800,9 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h603528bd
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1696)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1698)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1701)
-  %5 = load i64, ptr %1, align 8, !range !68, !alias.scope !1703, !noalias !1704, !noundef !4
+  %5 = load i64, ptr %1, align 8, !range !83, !alias.scope !1703, !noalias !1704, !noundef !4
   %6 = icmp eq i64 %5, 2
-  %7 = load i64, ptr %4, align 8, !range !68, !alias.scope !1704, !noalias !1703, !noundef !4
+  %7 = load i64, ptr %4, align 8, !range !83, !alias.scope !1704, !noalias !1703, !noundef !4
   %8 = icmp eq i64 %7, 2
   br i1 %6, label %9, label %10
 
@@ -6902,7 +6895,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h603528bd
   %43 = getelementptr inbounds i8, ptr %.sroa.0.032.us, i64 -56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1717)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1720)
-  %44 = load i64, ptr %43, align 8, !range !68, !alias.scope !1723, !noalias !1724, !noundef !4
+  %44 = load i64, ptr %43, align 8, !range !83, !alias.scope !1723, !noalias !1724, !noundef !4
   %45 = icmp eq i64 %44, 2
   br i1 %45, label %46, label %.critedge.backedge.us
 
@@ -6943,7 +6936,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h603528bd
   %61 = getelementptr inbounds i8, ptr %.sroa.0.032, i64 -56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1717)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1720)
-  %62 = load i64, ptr %61, align 8, !range !68, !alias.scope !1723, !noalias !1724, !noundef !4
+  %62 = load i64, ptr %61, align 8, !range !83, !alias.scope !1723, !noalias !1724, !noundef !4
   %63 = icmp eq i64 %62, 2
   br i1 %63, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit23.thread", label %69
 
@@ -10622,9 +10615,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3065)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3067)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3070)
-  %4 = load i64, ptr %3, align 8, !range !68, !alias.scope !3072, !noalias !3073, !noundef !4
+  %4 = load i64, ptr %3, align 8, !range !83, !alias.scope !3072, !noalias !3073, !noundef !4
   %5 = icmp eq i64 %4, 2
-  %6 = load i64, ptr %0, align 8, !range !68, !alias.scope !3073, !noalias !3072, !noundef !4
+  %6 = load i64, ptr %0, align 8, !range !83, !alias.scope !3073, !noalias !3072, !noundef !4
   %7 = icmp eq i64 %6, 2
   br i1 %5, label %8, label %9
 
@@ -10693,9 +10686,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3089)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3091)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3094)
-  %43 = load i64, ptr %41, align 8, !range !68, !alias.scope !3096, !noalias !3097, !noundef !4
+  %43 = load i64, ptr %41, align 8, !range !83, !alias.scope !3096, !noalias !3097, !noundef !4
   %44 = icmp eq i64 %43, 2
-  %45 = load i64, ptr %42, align 8, !range !68, !alias.scope !3097, !noalias !3096, !noundef !4
+  %45 = load i64, ptr %42, align 8, !range !83, !alias.scope !3097, !noalias !3096, !noundef !4
   %46 = icmp eq i64 %45, 2
   br i1 %44, label %47, label %53
 
@@ -10801,9 +10794,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3118)
-  %105 = load i64, ptr %100, align 8, !range !68, !alias.scope !3120, !noalias !3121, !noundef !4
+  %105 = load i64, ptr %100, align 8, !range !83, !alias.scope !3120, !noalias !3121, !noundef !4
   %106 = icmp eq i64 %105, 2
-  %107 = load i64, ptr %101, align 8, !range !68, !alias.scope !3121, !noalias !3120, !noundef !4
+  %107 = load i64, ptr %101, align 8, !range !83, !alias.scope !3121, !noalias !3120, !noundef !4
   %108 = icmp eq i64 %107, 2
   br i1 %106, label %109, label %110
 
@@ -10870,9 +10863,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3137)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3142)
-  %142 = load i64, ptr %104, align 8, !range !68, !alias.scope !3144, !noalias !3145, !noundef !4
+  %142 = load i64, ptr %104, align 8, !range !83, !alias.scope !3144, !noalias !3145, !noundef !4
   %143 = icmp eq i64 %142, 2
-  %144 = load i64, ptr %102, align 8, !range !68, !alias.scope !3145, !noalias !3144, !noundef !4
+  %144 = load i64, ptr %102, align 8, !range !83, !alias.scope !3145, !noalias !3144, !noundef !4
   %145 = icmp eq i64 %144, 2
   br i1 %143, label %146, label %147
 
@@ -10977,9 +10970,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3163)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3166)
-  %184 = load i64, ptr %183, align 8, !range !68, !alias.scope !3168, !noalias !3169, !noundef !4
+  %184 = load i64, ptr %183, align 8, !range !83, !alias.scope !3168, !noalias !3169, !noundef !4
   %185 = icmp eq i64 %184, 2
-  %186 = load i64, ptr %.sroa.02.045, align 8, !range !68, !alias.scope !3169, !noalias !3168, !noundef !4
+  %186 = load i64, ptr %.sroa.02.045, align 8, !range !83, !alias.scope !3169, !noalias !3168, !noundef !4
   %187 = icmp eq i64 %186, 2
   br i1 %185, label %188, label %189
 
@@ -12435,9 +12428,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.experimental.noalias.scope.decl(metadata !3473)
   call void @llvm.experimental.noalias.scope.decl(metadata !3475)
   call void @llvm.experimental.noalias.scope.decl(metadata !3478)
-  %29 = load i64, ptr %.sroa.06.025.i.i, align 8, !range !68, !alias.scope !3480, !noalias !3481, !noundef !4
+  %29 = load i64, ptr %.sroa.06.025.i.i, align 8, !range !83, !alias.scope !3480, !noalias !3481, !noundef !4
   %30 = icmp eq i64 %29, 2
-  %31 = load i64, ptr %.sroa.0.026.i.i, align 8, !range !68, !alias.scope !3482, !noalias !3483, !noundef !4
+  %31 = load i64, ptr %.sroa.0.026.i.i, align 8, !range !83, !alias.scope !3482, !noalias !3483, !noundef !4
   %32 = icmp eq i64 %31, 2
   br i1 %30, label %33, label %34
 
@@ -12521,9 +12514,9 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.experimental.noalias.scope.decl(metadata !3505)
   call void @llvm.experimental.noalias.scope.decl(metadata !3507)
   call void @llvm.experimental.noalias.scope.decl(metadata !3510)
-  %72 = load i64, ptr %.sroa.015.021.i.i, align 8, !range !68, !alias.scope !3512, !noalias !3513, !noundef !4
+  %72 = load i64, ptr %.sroa.015.021.i.i, align 8, !range !83, !alias.scope !3512, !noalias !3513, !noundef !4
   %73 = icmp eq i64 %72, 2
-  %74 = load i64, ptr %.sroa.013.023.i.i, align 8, !range !68, !alias.scope !3514, !noalias !3515, !noundef !4
+  %74 = load i64, ptr %.sroa.013.023.i.i, align 8, !range !83, !alias.scope !3514, !noalias !3515, !noundef !4
   %75 = icmp eq i64 %74, 2
   br i1 %73, label %76, label %77
 
@@ -38442,9 +38435,9 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h4522fc8aab3ce59aE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8293)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8295)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8298)
-  %7 = load i64, ptr %6, align 8, !range !68, !alias.scope !8300, !noalias !8301, !noundef !4
+  %7 = load i64, ptr %6, align 8, !range !83, !alias.scope !8300, !noalias !8301, !noundef !4
   %8 = icmp eq i64 %7, 2
-  %9 = load i64, ptr %0, align 8, !range !68, !alias.scope !8301, !noalias !8300, !noundef !4
+  %9 = load i64, ptr %0, align 8, !range !83, !alias.scope !8301, !noalias !8300, !noundef !4
   %10 = icmp eq i64 %9, 2
   br i1 %8, label %11, label %12
 
@@ -38529,7 +38522,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h4522fc8aab3ce59aE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8317)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8319)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8322)
-  %49 = load i64, ptr %45, align 8, !range !68, !alias.scope !8324, !noalias !8325, !noundef !4
+  %49 = load i64, ptr %45, align 8, !range !83, !alias.scope !8324, !noalias !8325, !noundef !4
   %50 = icmp eq i64 %49, 2
   %51 = icmp eq i64 %44, 2
   br i1 %50, label %52, label %53
@@ -38612,7 +38605,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h4522fc8aab3ce59aE(ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8341)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8343)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8346)
-  %91 = load i64, ptr %87, align 8, !range !68, !alias.scope !8348, !noalias !8349, !noundef !4
+  %91 = load i64, ptr %87, align 8, !range !83, !alias.scope !8348, !noalias !8349, !noundef !4
   %92 = icmp eq i64 %91, 2
   %93 = icmp eq i64 %86, 2
   br i1 %92, label %94, label %95
@@ -41450,9 +41443,9 @@ define internal fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17he
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9102)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9104)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9107)
-  %15 = load i64, ptr %13, align 8, !range !68, !alias.scope !9109, !noalias !9110, !noundef !4
+  %15 = load i64, ptr %13, align 8, !range !83, !alias.scope !9109, !noalias !9110, !noundef !4
   %16 = icmp eq i64 %15, 2
-  %17 = load i64, ptr %14, align 8, !range !68, !alias.scope !9110, !noalias !9109, !noundef !4
+  %17 = load i64, ptr %14, align 8, !range !83, !alias.scope !9110, !noalias !9109, !noundef !4
   %18 = icmp eq i64 %17, 2
   br i1 %16, label %19, label %20
 
@@ -41527,9 +41520,9 @@ define internal fastcc void @_ZN4core5slice4sort8unstable8heapsort9sift_down17he
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9131)
-  %57 = load i64, ptr %55, align 8, !range !68, !alias.scope !9133, !noalias !9134, !noundef !4
+  %57 = load i64, ptr %55, align 8, !range !83, !alias.scope !9133, !noalias !9134, !noundef !4
   %58 = icmp eq i64 %57, 2
-  %59 = load i64, ptr %56, align 8, !range !68, !alias.scope !9134, !noalias !9133, !noundef !4
+  %59 = load i64, ptr %56, align 8, !range !83, !alias.scope !9134, !noalias !9133, !noundef !4
   %60 = icmp eq i64 %59, 2
   br i1 %58, label %61, label %62
 
@@ -42019,9 +42012,9 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9254)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9259)
-  %28 = load i64, ptr %.sroa.0.0119, align 8, !range !68, !alias.scope !9261, !noalias !9262, !noundef !4
+  %28 = load i64, ptr %.sroa.0.0119, align 8, !range !83, !alias.scope !9261, !noalias !9262, !noundef !4
   %29 = icmp eq i64 %28, 2
-  %30 = load i64, ptr %22, align 8, !range !68, !alias.scope !9263, !noalias !9264, !noundef !4
+  %30 = load i64, ptr %22, align 8, !range !83, !alias.scope !9263, !noalias !9264, !noundef !4
   %31 = icmp eq i64 %30, 2
   br i1 %29, label %32, label %35
 
@@ -42029,7 +42022,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   br i1 %31, label %36, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread5.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread5.i": ; preds = %32
-  %33 = load i64, ptr %23, align 8, !range !68, !alias.scope !9265, !noalias !9270, !noundef !4
+  %33 = load i64, ptr %23, align 8, !range !83, !alias.scope !9265, !noalias !9270, !noundef !4
   %34 = icmp eq i64 %33, 2
   br i1 %34, label %73, label %.thread15.i
 
@@ -42089,7 +42082,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread.i": ; preds = %43, %35
   %.sroa.0.0.i.i.ph.i = phi i1 [ false, %35 ], [ %53, %43 ]
-  %67 = load i64, ptr %23, align 8, !range !68, !alias.scope !9287, !noalias !9290, !noundef !4
+  %67 = load i64, ptr %23, align 8, !range !83, !alias.scope !9287, !noalias !9290, !noundef !4
   %68 = icmp eq i64 %67, 2
   br i1 %68, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit13.thr_comm.i", label %82
 
@@ -42099,7 +42092,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9295)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9297)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9299)
-  %69 = load i64, ptr %23, align 8, !range !68, !alias.scope !9301, !noalias !9302, !noundef !4
+  %69 = load i64, ptr %23, align 8, !range !83, !alias.scope !9301, !noalias !9302, !noundef !4
   %70 = icmp eq i64 %69, 2
   br i1 %29, label %71, label %72
 
@@ -42280,9 +42273,9 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9350)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9355)
-  %151 = load i64, ptr %.sroa.017.0116, align 8, !range !68, !alias.scope !9357, !noalias !9358, !noundef !4
+  %151 = load i64, ptr %.sroa.017.0116, align 8, !range !83, !alias.scope !9357, !noalias !9358, !noundef !4
   %152 = icmp eq i64 %151, 2
-  %153 = load i64, ptr %150, align 8, !range !68, !alias.scope !9358, !noalias !9357, !noundef !4
+  %153 = load i64, ptr %150, align 8, !range !83, !alias.scope !9358, !noalias !9357, !noundef !4
   %154 = icmp eq i64 %153, 2
   br i1 %152, label %155, label %156
 
@@ -42384,7 +42377,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %193 = getelementptr inbounds i8, ptr %191, i64 %.idx.i.i
   %.sroa.13.074.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 112
   %194 = icmp sgt i64 %192, 1
-  %.pre.pre.i.i = load i64, ptr %.sroa.0.0119, align 8, !range !68, !alias.scope !9384, !noalias !9389
+  %.pre.pre.i.i = load i64, ptr %.sroa.0.0119, align 8, !range !83, !alias.scope !9384, !noalias !9389
   br i1 %194, label %.lr.ph.i.i, label %.preheader.i.i
 
 .lr.ph.i.i:                                       ; preds = %189
@@ -42409,7 +42402,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %.sroa.039.075.us.i.i = phi ptr [ %.sroa.13.077.us.i.i, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit38.us.i.i" ], [ %191, %.lr.ph.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9395)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9398)
-  %204 = load i64, ptr %.sroa.13.077.us.i.i, align 8, !range !68, !alias.scope !9401, !noalias !9402, !noundef !4
+  %204 = load i64, ptr %.sroa.13.077.us.i.i, align 8, !range !83, !alias.scope !9401, !noalias !9402, !noundef !4
   %205 = icmp eq i64 %204, 2
   br i1 %205, label %206, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit38.us.i.i"
 
@@ -42473,7 +42466,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %.sroa.039.182.us.i.i = phi ptr [ %.sroa.13.183.us.i.i, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit.us.i.i" ], [ %.sroa.039.0.lcssa.i.i, %.lr.ph85.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9411)
-  %234 = load i64, ptr %.sroa.13.183.us.i.i, align 8, !range !68, !alias.scope !9414, !noalias !9415, !noundef !4
+  %234 = load i64, ptr %.sroa.13.183.us.i.i, align 8, !range !83, !alias.scope !9414, !noalias !9415, !noundef !4
   %235 = icmp eq i64 %234, 2
   br i1 %235, label %236, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit.us.i.i"
 
@@ -42514,7 +42507,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %.sroa.039.182.i.i = phi ptr [ %.sroa.13.183.i.i, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit.i.i" ], [ %.sroa.039.0.lcssa.i.i, %.lr.ph85.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9408)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9411)
-  %255 = load i64, ptr %.sroa.13.183.i.i, align 8, !range !68, !alias.scope !9414, !noalias !9415, !noundef !4
+  %255 = load i64, ptr %.sroa.13.183.i.i, align 8, !range !83, !alias.scope !9414, !noalias !9415, !noundef !4
   %256 = icmp eq i64 %255, 2
   br i1 %256, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit.i.i", label %257
 
@@ -42628,7 +42621,7 @@ _ZN4core5slice4sort8unstable8heapsort8heapsort17h82f759bdb3ba7065E.exit: ; preds
   %.sroa.039.075.i.i = phi ptr [ %.sroa.13.077.i.i, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit38.i.i" ], [ %191, %.lr.ph.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9395)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9398)
-  %312 = load i64, ptr %.sroa.13.077.i.i, align 8, !range !68, !alias.scope !9401, !noalias !9402, !noundef !4
+  %312 = load i64, ptr %.sroa.13.077.i.i, align 8, !range !83, !alias.scope !9401, !noalias !9402, !noundef !4
   %313 = icmp eq i64 %312, 2
   br i1 %313, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h2436c43dfa8cfeecE.exit38.i.i", label %314
 
@@ -42750,7 +42743,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   %352 = getelementptr inbounds i8, ptr %350, i64 %.idx.i.i42
   %.sroa.13.074.i.i43 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 112
   %353 = icmp sgt i64 %351, 1
-  %.pre.pre.i.i44 = load i64, ptr %.sroa.0.0119, align 8, !range !68, !alias.scope !9476, !noalias !9483
+  %.pre.pre.i.i44 = load i64, ptr %.sroa.0.0119, align 8, !range !83, !alias.scope !9476, !noalias !9483
   br i1 %353, label %.lr.ph.i.i68, label %.preheader.i.i45
 
 .lr.ph.i.i68:                                     ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17he83fc87630b16317E.exit.thread92"
@@ -42776,7 +42769,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9490)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9493)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9496)
-  %363 = load i64, ptr %.sroa.13.077.us.i.i75, align 8, !range !68, !alias.scope !9499, !noalias !9500, !noundef !4
+  %363 = load i64, ptr %.sroa.13.077.us.i.i75, align 8, !range !83, !alias.scope !9499, !noalias !9500, !noundef !4
   %364 = icmp eq i64 %363, 2
   br i1 %364, label %365, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h9261179ee00cabf7E.exit38.us.i.i"
 
@@ -42842,7 +42835,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9510)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9513)
-  %394 = load i64, ptr %.sroa.13.183.us.i.i66, align 8, !range !68, !alias.scope !9516, !noalias !9517, !noundef !4
+  %394 = load i64, ptr %.sroa.13.183.us.i.i66, align 8, !range !83, !alias.scope !9516, !noalias !9517, !noundef !4
   %395 = icmp eq i64 %394, 2
   br i1 %395, label %396, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h9261179ee00cabf7E.exit.us.i.i"
 
@@ -42885,7 +42878,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9507)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9510)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9513)
-  %416 = load i64, ptr %.sroa.13.183.i.i52, align 8, !range !68, !alias.scope !9516, !noalias !9517, !noundef !4
+  %416 = load i64, ptr %.sroa.13.183.i.i52, align 8, !range !83, !alias.scope !9516, !noalias !9517, !noundef !4
   %417 = icmp eq i64 %416, 2
   br i1 %417, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h9261179ee00cabf7E.exit.i.i", label %423
 
@@ -43002,7 +42995,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h2ae952cf6842b163E.exit: ; pre
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9490)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9493)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9496)
-  %474 = load i64, ptr %.sroa.13.077.i.i70, align 8, !range !68, !alias.scope !9499, !noalias !9500, !noundef !4
+  %474 = load i64, ptr %.sroa.13.077.i.i70, align 8, !range !83, !alias.scope !9499, !noalias !9500, !noundef !4
   %475 = icmp eq i64 %474, 2
   br i1 %475, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h9261179ee00cabf7E.exit38.i.i", label %481
 
@@ -56857,7 +56850,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h104ba5df1a291996E.exit: ; pre
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, i64 } @_ZN4core5slice5index5range17h07ce231faf53ddacE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %.val = load i64, ptr %0, align 8, !range !68, !noundef !4
+  %.val = load i64, ptr %0, align 8, !range !83, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val21 = load ptr, ptr %4, align 8
   switch i64 %.val, label %default.unreachable26 [
@@ -56885,7 +56878,7 @@ default.unreachable26:                            ; preds = %12, %3
 12:                                               ; preds = %3, %15, %5
   %.sroa.0.0 = phi i64 [ %7, %5 ], [ %16, %15 ], [ 0, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val22 = load i64, ptr %13, align 8, !range !68, !noundef !4
+  %.val22 = load i64, ptr %13, align 8, !range !83, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val23 = load ptr, ptr %14, align 8
   switch i64 %.val22, label %default.unreachable26 [
@@ -64656,10 +64649,6 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @"_ZN97_$LT$alloc
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %7)
   ret ptr %4
 }
 
@@ -64668,10 +64657,6 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN97_$LT$alloc.
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %7)
   ret ptr %4
 }
 
@@ -64680,10 +64665,6 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN97_$LT$alloc.
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %7)
   ret ptr %4
 }
 
@@ -64692,10 +64673,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN97_$LT$alloc.
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %7)
   ret ptr %4
 }
 
@@ -64704,10 +64681,6 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @"_ZN97_$LT$alloc.
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %7)
   ret ptr %4
 }
 
@@ -64716,10 +64689,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN97_$LT$alloc.
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = icmp ne i64 %6, 0
-  tail call void @llvm.assume(i1 %7)
   ret ptr %4
 }
 
@@ -66277,22 +66246,22 @@ attributes #49 = { noreturn nounwind }
 !65 = distinct !{!65, !59, !"_ZN4core3ops8function6FnOnce9call_once17h5eb43a9eb387ba55E: argument 1"}
 !66 = !{!64, !65}
 !67 = !{!61, !58}
-!68 = !{i64 0, i64 3}
-!69 = !{!70, !72}
-!70 = distinct !{!70, !71, !"_ZN4core6option15Option$LT$T$GT$4take17hf8717a98fd3e2cb1E: argument 0"}
-!71 = distinct !{!71, !"_ZN4core6option15Option$LT$T$GT$4take17hf8717a98fd3e2cb1E"}
-!72 = distinct !{!72, !73, !"_ZN4core3ops8function6FnOnce9call_once17hb0ec7afe878166fdE: argument 0"}
-!73 = distinct !{!73, !"_ZN4core3ops8function6FnOnce9call_once17hb0ec7afe878166fdE"}
-!74 = !{i64 1, i64 0}
-!75 = !{!76, !78, !80, !82}
-!76 = distinct !{!76, !77, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87be2b4c4841d58dE.llvm.13361645166614471590: argument 0"}
-!77 = distinct !{!77, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87be2b4c4841d58dE.llvm.13361645166614471590"}
-!78 = distinct !{!78, !79, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hc950f5c075f01714E.llvm.13361645166614471590: argument 0"}
-!79 = distinct !{!79, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hc950f5c075f01714E.llvm.13361645166614471590"}
-!80 = distinct !{!80, !81, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17h7b395033eaa9758fE.llvm.13361645166614471590: argument 0"}
-!81 = distinct !{!81, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17h7b395033eaa9758fE.llvm.13361645166614471590"}
-!82 = distinct !{!82, !83, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h096d4f233bb73398E: argument 0"}
-!83 = distinct !{!83, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h096d4f233bb73398E"}
+!68 = !{!69, !71}
+!69 = distinct !{!69, !70, !"_ZN4core6option15Option$LT$T$GT$4take17hf8717a98fd3e2cb1E: argument 0"}
+!70 = distinct !{!70, !"_ZN4core6option15Option$LT$T$GT$4take17hf8717a98fd3e2cb1E"}
+!71 = distinct !{!71, !72, !"_ZN4core3ops8function6FnOnce9call_once17hb0ec7afe878166fdE: argument 0"}
+!72 = distinct !{!72, !"_ZN4core3ops8function6FnOnce9call_once17hb0ec7afe878166fdE"}
+!73 = !{i64 1, i64 0}
+!74 = !{!75, !77, !79, !81}
+!75 = distinct !{!75, !76, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87be2b4c4841d58dE.llvm.13361645166614471590: argument 0"}
+!76 = distinct !{!76, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h87be2b4c4841d58dE.llvm.13361645166614471590"}
+!77 = distinct !{!77, !78, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hc950f5c075f01714E.llvm.13361645166614471590: argument 0"}
+!78 = distinct !{!78, !"_ZN4core3ptr63drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$17hc950f5c075f01714E.llvm.13361645166614471590"}
+!79 = distinct !{!79, !80, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17h7b395033eaa9758fE.llvm.13361645166614471590: argument 0"}
+!80 = distinct !{!80, !"_ZN4core3ptr85drop_in_place$LT$core..pin..Pin$LT$alloc..sync..Arc$LT$std..thread..Inner$GT$$GT$$GT$17h7b395033eaa9758fE.llvm.13361645166614471590"}
+!81 = distinct !{!81, !82, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h096d4f233bb73398E: argument 0"}
+!82 = distinct !{!82, !"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h096d4f233bb73398E"}
+!83 = !{i64 0, i64 3}
 !84 = !{!85}
 !85 = distinct !{!85, !86, !"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E: argument 0"}
 !86 = distinct !{!86, !"_ZN4core3ptr128drop_in_place$LT$std..sys..thread_local..native..lazy..State$LT$core..cell..RefCell$LT$gpui..arena..Arena$GT$$C$$LP$$RP$$GT$$GT$17he8368fa2ccdf46f9E"}

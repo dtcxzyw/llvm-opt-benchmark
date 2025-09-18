@@ -62,14 +62,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @XLogBeginInsert() local_unnamed_addr #0 {
-  %1 = tail call zeroext i1 @XLogInsertAllowed() #10
+  %1 = tail call zeroext i1 @XLogInsertAllowed() #9
   br i1 %1, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.XLogBeginInsert) #10
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %4 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 157, ptr noundef nonnull @__func__.XLogBeginInsert) #9
   unreachable
 
 5:                                                ; preds = %0
@@ -77,10 +76,9 @@ define dso_local void @XLogBeginInsert() local_unnamed_addr #0 {
   br i1 %.b1, label %6, label %9
 
 6:                                                ; preds = %5
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.XLogBeginInsert) #10
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 160, ptr noundef nonnull @__func__.XLogBeginInsert) #9
   unreachable
 
 9:                                                ; preds = %5
@@ -104,10 +102,9 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.XLogEnsureRecordSpace) #10
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.XLogEnsureRecordSpace) #9
   unreachable
 
 7:                                                ; preds = %2
@@ -121,7 +118,7 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   %11 = load ptr, ptr @registered_buffers, align 8
   %12 = zext nneg i32 %8 to i64
   %13 = mul nuw nsw i64 %12, 8304
-  %14 = tail call ptr @repalloc(ptr noundef %11, i64 noundef %13) #10
+  %14 = tail call ptr @repalloc(ptr noundef %11, i64 noundef %13) #9
   %15 = ptrtoint ptr %14 to i64
   store ptr %14, ptr @registered_buffers, align 8
   %16 = load i32, ptr @max_registered_buffers, align 4
@@ -178,7 +175,7 @@ define dso_local void @XLogEnsureRecordSpace(i32 noundef %0, i32 noundef %1) loc
   %46 = load ptr, ptr @rdatas, align 8
   %47 = zext nneg i32 %spec.store.select4 to i64
   %48 = mul nuw nsw i64 %47, 24
-  %49 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %48) #10
+  %49 = tail call ptr @repalloc(ptr noundef %46, i64 noundef %48) #9
   store ptr %49, ptr @rdatas, align 8
   store i32 %spec.store.select4, ptr @max_rdatas, align 4
   br label %50
@@ -234,10 +231,9 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
   br i1 %.not15, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.XLogRegisterBuffer) #10
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.XLogRegisterBuffer) #9
   unreachable
 
 11:                                               ; preds = %6
@@ -252,7 +248,7 @@ define dso_local void @XLogRegisterBuffer(i8 noundef zeroext %0, i32 noundef %1,
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  tail call void @BufferGetTag(i32 noundef %1, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #10
+  tail call void @BufferGetTag(i32 noundef %1, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #9
   %20 = icmp slt i32 %1, 0
   br i1 %20, label %21, label %27
 
@@ -307,10 +303,9 @@ define dso_local void @XLogRegisterBlock(i8 noundef zeroext %0, ptr noundef read
   br i1 %.not17, label %16, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #9
   unreachable
 
 16:                                               ; preds = %11
@@ -347,13 +342,12 @@ define dso_local void @XLogRegisterData(ptr noundef %0, i32 noundef %1) local_un
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
   %8 = load i32, ptr @num_rdatas, align 4
   %9 = load i32, ptr @max_rdatas, align 4
-  %10 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.6, i32 noundef %8, i32 noundef %9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.XLogRegisterData) #10
+  %10 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.6, i32 noundef %8, i32 noundef %9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.XLogRegisterData) #9
   unreachable
 
 11:                                               ; preds = %2
@@ -388,11 +382,10 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %11 = zext i8 %0 to i32
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %11) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 416, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %11) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 416, ptr noundef nonnull @__func__.XLogRegisterBufData) #9
   unreachable
 
 13:                                               ; preds = %3
@@ -402,13 +395,12 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   br i1 %.not, label %22, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
   %19 = load i32, ptr @num_rdatas, align 4
   %20 = load i32, ptr @max_rdatas, align 4
-  %21 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.6, i32 noundef %19, i32 noundef %20) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 428, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
+  %21 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.6, i32 noundef %19, i32 noundef %20) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 428, ptr noundef nonnull @__func__.XLogRegisterBufData) #9
   unreachable
 
 22:                                               ; preds = %13
@@ -420,13 +412,12 @@ define dso_local void @XLogRegisterBufData(i8 noundef zeroext %0, ptr noundef %1
   br i1 %or.cond.not, label %33, label %27
 
 27:                                               ; preds = %22
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
   %30 = zext i8 %0 to i32
   %31 = load i32, ptr %23, align 8
-  %32 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.8, i32 noundef 65535, i32 noundef %30, i32 noundef %31, i32 noundef %2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.XLogRegisterBufData) #10
+  %32 = tail call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.8, i32 noundef 65535, i32 noundef %30, i32 noundef %31, i32 noundef %2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.XLogRegisterBufData) #9
   unreachable
 
 33:                                               ; preds = %22
@@ -466,10 +457,9 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   br i1 %.b12, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.XLogInsert) #10
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 480, ptr noundef nonnull @__func__.XLogInsert) #9
   unreachable
 
 9:                                                ; preds = %2
@@ -479,10 +469,9 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %10) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.XLogInsert) #10
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %10) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 489, ptr noundef nonnull @__func__.XLogInsert) #9
   unreachable
 
 15:                                               ; preds = %9
@@ -518,7 +507,7 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
 27:                                               ; preds = %.preheader, %XLogRecordAssemble.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @GetFullPageWriteInfo(ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  call void @GetFullPageWriteInfo(ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %28 = load i64, ptr %4, align 8
   %29 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %30 = trunc nuw i8 %29 to i1
@@ -681,21 +670,19 @@ define dso_local range(i64 1, 0) i64 @XLogInsert(i8 noundef zeroext %0, i8 nound
   ]
 
 105:                                              ; preds = %104
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %106)
-  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #10
+  %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %107 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #9
   unreachable
 
 108:                                              ; preds = %104
-  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %109)
-  %110 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 995, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #10
+  %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %110 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 995, ptr noundef nonnull @__func__.XLogCompressBackupBlock) #9
   unreachable
 
 111:                                              ; preds = %104
-  %112 = call i32 @pglz_compress(ptr noundef %.0.i.i, i32 noundef %94, ptr noundef nonnull %92, ptr noundef %20) #10
+  %112 = call i32 @pglz_compress(ptr noundef %.0.i.i, i32 noundef %94, ptr noundef nonnull %92, ptr noundef %20) #9
   %113 = icmp sgt i32 %112, -1
   %114 = add nuw i32 %112, %.020.i.i
   %115 = icmp slt i32 %114, %94
@@ -737,17 +724,15 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   br label %134
 
 128:                                              ; preds = %124
-  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %129)
-  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 739, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 739, ptr noundef nonnull @__func__.XLogRecordAssemble) #9
   unreachable
 
 131:                                              ; preds = %124
-  %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %132)
-  %133 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 747, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %133 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 747, ptr noundef nonnull @__func__.XLogRecordAssemble) #9
   unreachable
 
 134:                                              ; preds = %126, %124
@@ -942,11 +927,11 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
 
 216:                                              ; preds = %212, %._crit_edge.i
   %.4173.i = phi ptr [ %215, %212 ], [ %.0169.lcssa.i, %._crit_edge.i ]
-  %217 = call zeroext i1 @IsSubxactTopXidLogPending() #10
+  %217 = call zeroext i1 @IsSubxactTopXidLogPending() #9
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %216
-  %219 = call i32 @GetTopTransactionIdIfAny() #10
+  %219 = call i32 @GetTopTransactionIdIfAny() #9
   %220 = getelementptr inbounds nuw i8, ptr %.4173.i, i64 1
   store i8 -4, ptr %.4173.i, align 1
   store i32 %219, ptr %220, align 1
@@ -968,12 +953,11 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   br i1 %227, label %228, label %233
 
 228:                                              ; preds = %226
-  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %229)
-  %230 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #10
+  %229 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %230 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #9
   %231 = load i64, ptr @mainrdata_len, align 8
-  %232 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.14, i64 noundef %231, i32 noundef -1) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  %232 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.14, i64 noundef %231, i32 noundef -1) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 874, ptr noundef nonnull @__func__.XLogRecordAssemble) #9
   unreachable
 
 233:                                              ; preds = %226
@@ -1018,7 +1002,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %255 = load ptr, ptr @pg_comp_crc32c, align 8
   %256 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %257 = add nsw i64 %253, -24
-  %258 = call i32 %255(i32 noundef -1, ptr noundef nonnull %256, i64 noundef %257) #10
+  %258 = call i32 %255(i32 noundef -1, ptr noundef nonnull %256, i64 noundef %257) #9
   %.0155226.i = load ptr, ptr @hdr_rdt, align 8
   %.not185227.i = icmp eq ptr %.0155226.i, null
   br i1 %.not185227.i, label %._crit_edge232.i, label %.lr.ph231.i
@@ -1032,7 +1016,7 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   %262 = getelementptr inbounds nuw i8, ptr %.0155229.i, i64 16
   %263 = load i32, ptr %262, align 8
   %264 = zext i32 %263 to i64
-  %265 = call i32 %259(i32 noundef %.0158228.i, ptr noundef %261, i64 noundef %264) #10
+  %265 = call i32 %259(i32 noundef %.0158228.i, ptr noundef %261, i64 noundef %264) #9
   %.0155.i = load ptr, ptr %.0155229.i, align 8
   %.not185.i = icmp eq ptr %.0155.i, null
   br i1 %.not185.i, label %._crit_edge232.i, label %.lr.ph231.i, !llvm.loop !9
@@ -1043,17 +1027,16 @@ XLogCompressBackupBlock.exit.i:                   ; preds = %111, %104
   br i1 %266, label %267, label %XLogRecordAssemble.exit
 
 267:                                              ; preds = %._crit_edge232.i
-  %268 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %268)
-  %269 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #10
+  %268 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %269 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #9
   %270 = zext i8 %0 to i32
   %271 = zext i8 %spec.select.i to i32
-  %272 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.16, i64 noundef %254, i32 noundef 1069547520, i32 noundef %270, i32 noundef %271) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 919, ptr noundef nonnull @__func__.XLogRecordAssemble) #10
+  %272 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.16, i64 noundef %254, i32 noundef 1069547520, i32 noundef %270, i32 noundef %271) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 919, ptr noundef nonnull @__func__.XLogRecordAssemble) #9
   unreachable
 
 XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
-  %273 = call i32 @GetCurrentTransactionIdIfAny() #10
+  %273 = call i32 @GetCurrentTransactionIdIfAny() #9
   %274 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %273, ptr %274, align 4
   %275 = trunc nuw nsw i64 %254 to i32
@@ -1067,7 +1050,7 @@ XLogRecordAssemble.exit:                          ; preds = %._crit_edge232.i
   %279 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store i32 %.0158.lcssa.i, ptr %279, align 4
   %280 = load i8, ptr @curinsert_flags, align 1
-  %281 = call i64 @XLogInsertRecord(ptr noundef nonnull @hdr_rdt, i64 noundef %.028, i8 noundef zeroext %280, i32 noundef %.027, i1 noundef zeroext %217) #10
+  %281 = call i64 @XLogInsertRecord(ptr noundef nonnull @hdr_rdt, i64 noundef %.028, i8 noundef zeroext %280, i32 noundef %.027, i1 noundef zeroext %217) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %282 = icmp eq i64 %281, 0
@@ -1112,7 +1095,7 @@ define dso_local noundef zeroext i1 @XLogCheckBufferNeedsBackup(i32 noundef %0) 
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @GetFullPageWriteInfo(ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  call void @GetFullPageWriteInfo(ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %5, label %11
 
@@ -1161,8 +1144,8 @@ define dso_local i64 @XLogSaveBufferForHint(i32 noundef %0, i1 noundef zeroext %
   %4 = alloca %struct.RelFileLocator, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = tail call i64 @GetRedoRecPtr() #10
-  %8 = tail call i64 @BufferGetLSNAtomic(i32 noundef %0) #10
+  %7 = tail call i64 @GetRedoRecPtr() #9
+  %8 = tail call i64 @BufferGetLSNAtomic(i32 noundef %0) #9
   %.not = icmp ugt i64 %8, %7
   br i1 %.not, label %51, label %9
 
@@ -1216,7 +1199,7 @@ BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit
 31:                                               ; preds = %30, %BufferGetPage.exit
   tail call void @XLogBeginInsert()
   %spec.select = select i1 %1, i8 8, i8 0
-  call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %32 = load i32, ptr %5, align 4
   %33 = load i32, ptr %6, align 4
   %34 = load i32, ptr @max_registered_block_id, align 4
@@ -1233,10 +1216,9 @@ BufferGetPage.exit:                               ; preds = %BufferGetBlock.exit
   br i1 %.not17.i, label %XLogRegisterBlock.exit, label %38
 
 38:                                               ; preds = %36
-  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %39)
-  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %40 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #9
   unreachable
 
 XLogRegisterBlock.exit:                           ; preds = %36
@@ -1291,10 +1273,9 @@ define dso_local range(i64 1, 0) i64 @log_newpage(ptr noundef readonly captures(
   br i1 %.not17.i, label %XLogRegisterBlock.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #9
   unreachable
 
 XLogRegisterBlock.exit:                           ; preds = %8
@@ -1343,7 +1324,7 @@ define dso_local void @log_newpages(ptr noundef readonly captures(none) %0, i32 
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @registered_buffers, align 8
-  %10 = tail call ptr @repalloc(ptr noundef %9, i64 noundef 265728) #10
+  %10 = tail call ptr @repalloc(ptr noundef %9, i64 noundef 265728) #9
   %11 = ptrtoint ptr %10 to i64
   store ptr %10, ptr @registered_buffers, align 8
   %12 = load i32, ptr @max_registered_buffers, align 4
@@ -1396,7 +1377,7 @@ define dso_local void @log_newpages(ptr noundef readonly captures(none) %0, i32 
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr @rdatas, align 8
-  %40 = tail call ptr @repalloc(ptr noundef %39, i64 noundef 480) #10
+  %40 = tail call ptr @repalloc(ptr noundef %39, i64 noundef 480) #9
   store ptr %40, ptr @rdatas, align 8
   store i32 20, ptr @max_rdatas, align 4
   br label %XLogEnsureRecordSpace.exit
@@ -1448,10 +1429,9 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   br i1 %exitcond.not, label %60, label %XLogRegisterBlock.exit
 
 60:                                               ; preds = %58
-  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %61)
-  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #10
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %62 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.XLogRegisterBlock) #9
   unreachable
 
 XLogRegisterBlock.exit:                           ; preds = %58
@@ -1547,7 +1527,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  call void @BufferGetTag(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %19 = load i32, ptr %4, align 4
   %20 = load i32, ptr %5, align 4
   %21 = call i64 @log_newpage(ptr noundef nonnull %3, i32 noundef %19, i32 noundef %20, ptr noundef %.0.i.i, i1 noundef zeroext %1)
@@ -1567,7 +1547,7 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @registered_buffers, align 8
-  %10 = tail call ptr @repalloc(ptr noundef %9, i64 noundef 265728) #10
+  %10 = tail call ptr @repalloc(ptr noundef %9, i64 noundef 265728) #9
   %11 = ptrtoint ptr %10 to i64
   store ptr %10, ptr @registered_buffers, align 8
   %12 = load i32, ptr @max_registered_buffers, align 4
@@ -1620,7 +1600,7 @@ define dso_local void @log_newpage_range(ptr noundef %0, i32 noundef %1, i32 nou
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr @rdatas, align 8
-  %40 = tail call ptr @repalloc(ptr noundef %39, i64 noundef 480) #10
+  %40 = tail call ptr @repalloc(ptr noundef %39, i64 noundef 480) #9
   store ptr %40, ptr @rdatas, align 8
   store i32 20, ptr @max_rdatas, align 4
   br label %XLogEnsureRecordSpace.exit
@@ -1637,7 +1617,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   br i1 %.not, label %44, label %43, !prof !14
 
 43:                                               ; preds = %.lr.ph55
-  tail call void @ProcessInterrupts() #10
+  tail call void @ProcessInterrupts() #9
   br label %44
 
 44:                                               ; preds = %43, %.lr.ph55
@@ -1647,8 +1627,8 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
 .lr.ph:                                           ; preds = %44, %67
   %.03344 = phi i32 [ %.134, %67 ], [ 0, %44 ]
   %.13643 = phi i32 [ %68, %67 ], [ %.03554, %44 ]
-  %46 = tail call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %.13643, i32 noundef 0, ptr noundef null) #10
-  tail call void @LockBuffer(i32 noundef %46, i32 noundef 2) #10
+  %46 = tail call i32 @ReadBufferExtended(ptr noundef %0, i32 noundef %1, i32 noundef %.13643, i32 noundef 0, ptr noundef null) #9
+  tail call void @LockBuffer(i32 noundef %46, i32 noundef 2) #9
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %54
 
@@ -1683,7 +1663,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   br label %67
 
 66:                                               ; preds = %BufferGetPage.exit
-  tail call void @UnlockReleaseBuffer(i32 noundef %46) #10
+  tail call void @UnlockReleaseBuffer(i32 noundef %46) #9
   br label %67
 
 67:                                               ; preds = %66, %62
@@ -1722,7 +1702,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph48.preheader ], [ %indvars.iv.next, %XLogRegisterBuffer.exit ]
   %78 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
-  tail call void @MarkBufferDirty(i32 noundef %79) #10
+  tail call void @MarkBufferDirty(i32 noundef %79) #9
   %80 = trunc nuw nsw i64 %indvars.iv to i32
   %81 = and i32 %80, 255
   %82 = load i32, ptr @max_registered_block_id, align 4
@@ -1735,10 +1715,9 @@ BufferGetPage.exit:                               ; preds = %48, %54
   br i1 %.not15.i, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.XLogRegisterBuffer) #10
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 267, ptr noundef nonnull @__func__.XLogRegisterBuffer) #9
   unreachable
 
 88:                                               ; preds = %83
@@ -1753,7 +1732,7 @@ BufferGetPage.exit:                               ; preds = %48, %54
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 20
-  tail call void @BufferGetTag(i32 noundef %79, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef nonnull %96) #10
+  tail call void @BufferGetTag(i32 noundef %79, ptr noundef nonnull %94, ptr noundef nonnull %95, ptr noundef nonnull %96) #9
   %97 = icmp slt i32 %79, 0
   br i1 %97, label %98, label %104
 
@@ -1825,7 +1804,7 @@ BufferGetPage.exit40:                             ; preds = %123, %129
   store i32 %117, ptr %.0.i.i39, align 4
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.i39, i64 4
   store i32 %118, ptr %135, align 4
-  tail call void @UnlockReleaseBuffer(i32 noundef %121) #10
+  tail call void @UnlockReleaseBuffer(i32 noundef %121) #9
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
   br i1 %exitcond61.not, label %._crit_edge53, label %119, !llvm.loop !17
@@ -1860,7 +1839,7 @@ define dso_local void @InitXLogInsert() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @TopMemoryContext, align 8
-  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.11, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #10
+  %5 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %4, ptr noundef nonnull @.str.11, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
   store ptr %5, ptr @xloginsert_cxt, align 8
   br label %6
 
@@ -1871,7 +1850,7 @@ define dso_local void @InitXLogInsert() local_unnamed_addr #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @MemoryContextAllocZero(ptr noundef %7, i64 noundef 41520) #10
+  %11 = tail call ptr @MemoryContextAllocZero(ptr noundef %7, i64 noundef 41520) #9
   store ptr %11, ptr @registered_buffers, align 8
   store i32 5, ptr @max_registered_buffers, align 4
   br label %12
@@ -1883,7 +1862,7 @@ define dso_local void @InitXLogInsert() local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @xloginsert_cxt, align 8
-  %17 = tail call ptr @MemoryContextAlloc(ptr noundef %16, i64 noundef 480) #10
+  %17 = tail call ptr @MemoryContextAlloc(ptr noundef %16, i64 noundef 480) #9
   store ptr %17, ptr @rdatas, align 8
   store i32 20, ptr @max_rdatas, align 4
   br label %18
@@ -1895,7 +1874,7 @@ define dso_local void @InitXLogInsert() local_unnamed_addr #0 {
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr @xloginsert_cxt, align 8
-  %23 = tail call ptr @MemoryContextAllocZero(ptr noundef %22, i64 noundef 928) #10
+  %23 = tail call ptr @MemoryContextAllocZero(ptr noundef %22, i64 noundef 928) #9
   store ptr %23, ptr @hdr_scratch, align 8
   br label %24
 
@@ -1923,17 +1902,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1943,10 +1919,9 @@ attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, argmem: wri
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1377,7 +1377,6 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.copyload, i64 8
-  %.sroa.23.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %10
 
@@ -1414,45 +1413,35 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h73e4d2663e72d938E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %22, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %19), !noalias !513
   %26 = load i64, ptr %4, align 8, !range !104, !noalias !511, !noundef !3
   %trunc.i.i.i.i.i = trunc nuw i64 %26 to i1
-  br i1 %trunc.i.i.i.i.i, label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i.i.i", label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i.i.i"
-
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i.i.i": ; preds = %24
-  %.sroa.23.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !noalias !511
-  %27 = icmp ult i64 %.sroa.23.0.copyload.i.i.i.i.i, 11
-  call void @llvm.assume(i1 %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !511
-  br label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i"
+  br i1 %trunc.i.i.i.i.i, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i.i", label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i"
 
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i.i.i": ; preds = %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !511
-  br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i.i"
-
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i.i.i", %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17hc8c668421646bf35E.exit.i.i.i.i"
+"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i": ; preds = %24, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17hc8c668421646bf35E.exit.i.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !514
   store i32 %12, ptr %3, align 4, !noalias !515
-  %28 = mul i64 %13, -1065810590584100411
-  %29 = call noundef i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 26)
-  %30 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hb4b8357b7f24f341E.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %29, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull readonly align 1 %9), !noalias !505
-  %31 = extractvalue { i64, ptr } %30, 0
-  %32 = extractvalue { i64, ptr } %30, 1
-  %switch.i.i.i.i.i.i.i = icmp eq i64 %31, 0
-  br i1 %switch.i.i.i.i.i.i.i, label %33, label %35
+  %27 = mul i64 %13, -1065810590584100411
+  %28 = call noundef i64 @llvm.fshl.i64(i64 %27, i64 %27, i64 26)
+  %29 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hb4b8357b7f24f341E.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %28, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull readonly align 1 %9), !noalias !505
+  %30 = extractvalue { i64, ptr } %29, 0
+  %31 = extractvalue { i64, ptr } %29, 1
+  %switch.i.i.i.i.i.i.i = icmp eq i64 %30, 0
+  br i1 %switch.i.i.i.i.i.i.i, label %32, label %34
 
-33:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i"
-  %34 = icmp ne ptr %32, null
-  call void @llvm.assume(i1 %34)
+32:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i"
+  %33 = icmp ne ptr %31, null
+  call void @llvm.assume(i1 %33)
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i.i"
 
-35:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i"
-  %36 = ptrtoint ptr %32 to i64
-  %37 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hf23cbdbaa0a094bcE.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %29, i64 noundef %36, i32 noundef %12), !noalias !505
+34:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i.i"
+  %35 = ptrtoint ptr %31 to i64
+  %36 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hf23cbdbaa0a094bcE.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %28, i64 noundef %35, i32 noundef %12), !noalias !505
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i.i": ; preds = %35, %33
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i.i": ; preds = %34, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !514
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i.i"
 
-"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i.i": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i.i", %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i.i.i", %21
+"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i.i": ; preds = %24, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i.i", %21
   %exitcond.not.i.i = icmp eq i64 %11, %.sroa.6.0.copyload
   br i1 %exitcond.not.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha709bd89cde30f8bE.llvm.11984584770032924863.exit", label %10
 
@@ -10615,7 +10604,6 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sroa.23.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %17
 
@@ -10652,45 +10640,35 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h73e4d2663e72d938E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %29, i64 noundef %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %26), !noalias !3554
   %33 = load i64, ptr %4, align 8, !range !104, !noalias !3553, !noundef !3
   %trunc.i.i.i.i = trunc nuw i64 %33 to i1
-  br i1 %trunc.i.i.i.i, label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i.i", label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i.i"
-
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i.i": ; preds = %31
-  %.sroa.23.0.copyload.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !noalias !3553
-  %34 = icmp ult i64 %.sroa.23.0.copyload.i.i.i.i, 11
-  call void @llvm.assume(i1 %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3553
-  br label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i"
+  br i1 %trunc.i.i.i.i, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i", label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i"
 
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i.i": ; preds = %31
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3553
-  br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i"
-
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i.i", %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17hc8c668421646bf35E.exit.i.i.i"
+"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i": ; preds = %31, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17hc8c668421646bf35E.exit.i.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3547
   store i32 %19, ptr %3, align 4, !noalias !3555
-  %35 = mul i64 %20, -1065810590584100411
-  %36 = call noundef i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 26)
-  %37 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hb4b8357b7f24f341E.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %36, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull readonly align 1 %16), !noalias !3547
-  %38 = extractvalue { i64, ptr } %37, 0
-  %39 = extractvalue { i64, ptr } %37, 1
-  %switch.i.i.i.i.i.i = icmp eq i64 %38, 0
-  br i1 %switch.i.i.i.i.i.i, label %40, label %42
+  %34 = mul i64 %20, -1065810590584100411
+  %35 = call noundef i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 26)
+  %36 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hb4b8357b7f24f341E.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %35, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull readonly align 1 %16), !noalias !3547
+  %37 = extractvalue { i64, ptr } %36, 0
+  %38 = extractvalue { i64, ptr } %36, 1
+  %switch.i.i.i.i.i.i = icmp eq i64 %37, 0
+  br i1 %switch.i.i.i.i.i.i, label %39, label %41
 
-40:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i"
-  %41 = icmp ne ptr %39, null
-  call void @llvm.assume(i1 %41)
+39:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i"
+  %40 = icmp ne ptr %38, null
+  call void @llvm.assume(i1 %40)
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i"
 
-42:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i"
-  %43 = ptrtoint ptr %39 to i64
-  %44 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hf23cbdbaa0a094bcE.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %36, i64 noundef %43, i32 noundef %19), !noalias !3547
+41:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i.i"
+  %42 = ptrtoint ptr %38 to i64
+  %43 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hf23cbdbaa0a094bcE.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %35, i64 noundef %42, i32 noundef %19), !noalias !3547
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i": ; preds = %42, %40
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i": ; preds = %41, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3547
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i"
 
-"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i": ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i", %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i.i", %28
+"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit.i": ; preds = %31, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i.i", %28
   %exitcond.not.i = icmp eq i64 %18, %8
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hea38d2e6306ab706E.llvm.11984584770032924863.exit, label %17
 
@@ -29688,7 +29666,6 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hea38d2e6306ab7
   %9 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %10 = icmp ne ptr %.val3.i, null
   %11 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 8
-  %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.val5.i = load ptr, ptr %12, align 8, !nonnull !3, !align !125
   %13 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 32
@@ -29729,45 +29706,35 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hea38d2e6306ab7
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h73e4d2663e72d938E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull %26, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %23), !noalias !10908
   %30 = load i64, ptr %5, align 8, !range !104, !noalias !10907, !noundef !3
   %trunc.i.i.i = trunc nuw i64 %30 to i1
-  br i1 %trunc.i.i.i, label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i", label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i"
-
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i": ; preds = %28
-  %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !10907
-  %31 = icmp ult i64 %.sroa.23.0.copyload.i.i.i, 11
-  call void @llvm.assume(i1 %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !10907
-  br label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i"
+  br i1 %trunc.i.i.i, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit", label %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i"
 
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i": ; preds = %28
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !10907
-  br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit"
-
-"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i": ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread10.i", %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17hc8c668421646bf35E.exit.i.i"
+"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i": ; preds = %28, %"_ZN143_$LT$petgraph..graph_impl..Graph$LT$N$C$E$C$Ty$C$Ix$GT$$u20$as$u20$core..ops..index..Index$LT$petgraph..graph_impl..NodeIndex$LT$Ix$GT$$GT$$GT$5index17hc8c668421646bf35E.exit.i.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !10893
   store i32 %16, ptr %4, align 4, !noalias !10909
-  %32 = mul i64 %17, -1065810590584100411
-  %33 = call noundef i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 26)
-  %34 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hb4b8357b7f24f341E.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val5.i, i64 noundef %33, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 1 %13), !noalias !10893
-  %35 = extractvalue { i64, ptr } %34, 0
-  %36 = extractvalue { i64, ptr } %34, 1
-  %switch.i.i.i.i.i = icmp eq i64 %35, 0
-  br i1 %switch.i.i.i.i.i, label %37, label %39
+  %31 = mul i64 %17, -1065810590584100411
+  %32 = call noundef i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 26)
+  %33 = call { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hb4b8357b7f24f341E.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val5.i, i64 noundef %32, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noalias noundef nonnull readonly align 1 %13), !noalias !10893
+  %34 = extractvalue { i64, ptr } %33, 0
+  %35 = extractvalue { i64, ptr } %33, 1
+  %switch.i.i.i.i.i = icmp eq i64 %34, 0
+  br i1 %switch.i.i.i.i.i, label %36, label %38
 
-37:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i"
-  %38 = icmp ne ptr %36, null
-  call void @llvm.assume(i1 %38)
+36:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i"
+  %37 = icmp ne ptr %35, null
+  call void @llvm.assume(i1 %37)
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i"
 
-39:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i"
-  %40 = ptrtoint ptr %36 to i64
-  %41 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hf23cbdbaa0a094bcE.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val5.i, i64 noundef %33, i64 noundef %40, i32 noundef %16), !noalias !10893
+38:                                               ; preds = %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.thread.i"
+  %39 = ptrtoint ptr %35 to i64
+  %40 = call noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hf23cbdbaa0a094bcE.llvm.908770108122041493"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.val5.i, i64 noundef %32, i64 noundef %39, i32 noundef %16), !noalias !10893
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i"
 
-"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i": ; preds = %39, %37
+"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i": ; preds = %38, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10893
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit"
 
-"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit": ; preds = %25, %"_ZN11uv_resolver4lock4tree11TreeDisplay3new28_$u7b$$u7b$closure$u7d$$u7d$17h73a8db6e795eca72E.exit.i", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i"
+"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd1ce5b3ac454f461E.exit": ; preds = %28, %25, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h75201a1a8cb480b3E.exit.i"
   %exitcond.not = icmp eq i64 %15, %1
   br i1 %exitcond.not, label %._crit_edge, label %14
 

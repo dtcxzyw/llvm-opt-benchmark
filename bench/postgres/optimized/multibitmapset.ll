@@ -17,10 +17,9 @@ define dso_local ptr @mbms_add_member(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %or.cond.not, label %.preheader, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 50, ptr noundef nonnull @__func__.mbms_add_member) #5
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 50, ptr noundef nonnull @__func__.mbms_add_member) #4
   unreachable
 
 .preheader:                                       ; preds = %3, %12
@@ -39,7 +38,7 @@ list_length.exit:                                 ; preds = %.preheader, %8
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %list_length.exit
-  %13 = tail call ptr @lappend(ptr noundef %.0, ptr noundef null) #5
+  %13 = tail call ptr @lappend(ptr noundef %.0, ptr noundef null) #4
   br label %.preheader, !llvm.loop !4
 
 14:                                               ; preds = %list_length.exit
@@ -48,7 +47,7 @@ list_length.exit:                                 ; preds = %.preheader, %8
   %16 = sext i32 %1 to i64
   %17 = getelementptr inbounds %union.ListCell, ptr %.0.val, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @bms_add_member(ptr noundef %18, i32 noundef %2) #5
+  %19 = tail call ptr @bms_add_member(ptr noundef %18, i32 noundef %2) #4
   store ptr %19, ptr %17, align 8
   ret ptr %.0
 }
@@ -82,7 +81,7 @@ list_length.exit.us:                              ; preds = %.split.us.preheader
   br i1 %6, label %.split.us, label %.thread
 
 .split.us:                                        ; preds = %list_length.exit.us
-  %7 = tail call ptr @lappend(ptr noundef nonnull %.0.us49, ptr noundef null) #5
+  %7 = tail call ptr @lappend(ptr noundef nonnull %.0.us49, ptr noundef null) #4
   %.not.i.us = icmp eq ptr %7, null
   br i1 %.not.i.us, label %.thread, label %list_length.exit.us, !llvm.loop !6
 
@@ -110,7 +109,7 @@ list_length.exit.thread:                          ; preds = %.split
   br label %.preheader.split30.split
 
 17:                                               ; preds = %list_length.exit.thread, %list_length.exit
-  %18 = tail call ptr @lappend(ptr noundef %.0, ptr noundef null) #5
+  %18 = tail call ptr @lappend(ptr noundef %.0, ptr noundef null) #4
   br label %.split, !llvm.loop !6
 
 .preheader.split30.split:                         ; preds = %.preheader.thread.thread, %35
@@ -147,7 +146,7 @@ list_length.exit.thread:                          ; preds = %.split
   %36 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
   %37 = load ptr, ptr %26, align 8
   %38 = load ptr, ptr %36, align 8
-  %39 = tail call ptr @bms_add_members(ptr noundef %37, ptr noundef %38) #5
+  %39 = tail call ptr @bms_add_members(ptr noundef %37, ptr noundef %38) #4
   store ptr %39, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.preheader.split30.split, !llvm.loop !7
@@ -161,13 +160,13 @@ define dso_local ptr @mbms_int_members(ptr noundef %0, ptr noundef readonly capt
   br i1 %.not.i, label %list_length.exit.split.us, label %list_length.exit.split
 
 list_length.exit.split.us:                        ; preds = %2
-  %3 = tail call ptr @list_truncate(ptr noundef %0, i32 noundef 0) #5
+  %3 = tail call ptr @list_truncate(ptr noundef %0, i32 noundef 0) #4
   br label %.thread
 
 list_length.exit.split:                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = tail call ptr @list_truncate(ptr noundef %0, i32 noundef %5) #5
+  %6 = tail call ptr @list_truncate(ptr noundef %0, i32 noundef %5) #4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -209,7 +208,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit.sp
   %29 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %29, align 8
-  %32 = tail call ptr @bms_int_members(ptr noundef %30, ptr noundef %31) #5
+  %32 = tail call ptr @bms_int_members(ptr noundef %30, ptr noundef %31) #4
   store ptr %32, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %list_length.exit.split.split, !llvm.loop !8
@@ -226,10 +225,9 @@ define dso_local zeroext i1 @mbms_is_member(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond.not, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #4
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @__func__.mbms_is_member) #5
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #3
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 132, ptr noundef nonnull @__func__.mbms_is_member) #4
   unreachable
 
 8:                                                ; preds = %3
@@ -252,7 +250,7 @@ list_length.exit:                                 ; preds = %8, %9
   %15 = zext nneg i32 %0 to i64
   %16 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call zeroext i1 @bms_is_member(i32 noundef %1, ptr noundef %17) #5
+  %18 = tail call zeroext i1 @bms_is_member(i32 noundef %1, ptr noundef %17) #4
   br label %19
 
 19:                                               ; preds = %list_length.exit, %13
@@ -308,12 +306,12 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef readonly captures(address_is
   %24 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
   %25 = load ptr, ptr %14, align 8
   %26 = load ptr, ptr %24, align 8
-  %27 = tail call zeroext i1 @bms_overlap(ptr noundef %25, ptr noundef %26) #5
+  %27 = tail call zeroext i1 @bms_overlap(ptr noundef %25, ptr noundef %26) #4
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %23
   %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %30 = tail call ptr @bms_add_member(ptr noundef %.0, i32 noundef %29) #5
+  %30 = tail call ptr @bms_add_member(ptr noundef %.0, i32 noundef %29) #4
   br label %31
 
 31:                                               ; preds = %28, %23
@@ -324,15 +322,11 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef readonly captures(address_is
 
 declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #3
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #4 = { cold nounwind }
-attributes #5 = { nounwind }
+attributes #3 = { cold nounwind }
+attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -50,48 +50,48 @@ define dso_local void @InitDeadLockChecking() local_unnamed_addr #0 {
   %3 = load i32, ptr @MaxBackends, align 4
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
-  %6 = tail call ptr @palloc(i64 noundef %5) #11
+  %6 = tail call ptr @palloc(i64 noundef %5) #10
   store ptr %6, ptr @visitedProcs, align 8
   %7 = load i32, ptr @MaxBackends, align 4
   %8 = sext i32 %7 to i64
   %9 = mul nsw i64 %8, 24
-  %10 = tail call ptr @palloc(i64 noundef %9) #11
+  %10 = tail call ptr @palloc(i64 noundef %9) #10
   store ptr %10, ptr @deadlockDetails, align 8
   %11 = load ptr, ptr @visitedProcs, align 8
   store ptr %11, ptr @topoProcs, align 8
   %12 = load i32, ptr @MaxBackends, align 4
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 2
-  %15 = tail call ptr @palloc(i64 noundef %14) #11
+  %15 = tail call ptr @palloc(i64 noundef %14) #10
   store ptr %15, ptr @beforeConstraints, align 8
   %16 = load i32, ptr @MaxBackends, align 4
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
-  %19 = tail call ptr @palloc(i64 noundef %18) #11
+  %19 = tail call ptr @palloc(i64 noundef %18) #10
   store ptr %19, ptr @afterConstraints, align 8
   %20 = load i32, ptr @MaxBackends, align 4
   %21 = sdiv i32 %20, 2
   %22 = sext i32 %21 to i64
   %23 = mul nsw i64 %22, 24
-  %24 = tail call ptr @palloc(i64 noundef %23) #11
+  %24 = tail call ptr @palloc(i64 noundef %23) #10
   store ptr %24, ptr @waitOrders, align 8
   %25 = load i32, ptr @MaxBackends, align 4
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 3
-  %28 = tail call ptr @palloc(i64 noundef %27) #11
+  %28 = tail call ptr @palloc(i64 noundef %27) #10
   store ptr %28, ptr @waitOrderProcs, align 8
   %29 = load i32, ptr @MaxBackends, align 4
   store i32 %29, ptr @maxCurConstraints, align 4
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 5
-  %32 = tail call ptr @palloc(i64 noundef %31) #11
+  %32 = tail call ptr @palloc(i64 noundef %31) #10
   store ptr %32, ptr @curConstraints, align 8
   %33 = load i32, ptr @MaxBackends, align 4
   %34 = shl i32 %33, 2
   store i32 %34, ptr @maxPossibleConstraints, align 4
   %35 = sext i32 %34 to i64
   %36 = shl nsw i64 %35, 5
-  %37 = tail call ptr @palloc(i64 noundef %36) #11
+  %37 = tail call ptr @palloc(i64 noundef %36) #10
   store ptr %37, ptr @possibleConstraints, align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
   ret void
@@ -125,10 +125,9 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 240, ptr noundef nonnull @__func__.DeadLockCheck) #11
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 240, ptr noundef nonnull @__func__.DeadLockCheck) #10
   unreachable
 
 12:                                               ; preds = %6
@@ -162,8 +161,8 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %dclist_push_tail.exit, %.lr.ph22
-  %25 = tail call ptr @GetLocksMethodTable(ptr noundef nonnull %16) #11
-  tail call void @ProcLockWakeup(ptr noundef %25, ptr noundef nonnull %16) #11
+  %25 = tail call ptr @GetLocksMethodTable(ptr noundef nonnull %16) #10
+  tail call void @ProcLockWakeup(ptr noundef %25, ptr noundef nonnull %16) #10
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %26 = load i32, ptr @nWaitOrders, align 4
   %27 = sext i32 %26 to i64
@@ -285,10 +284,9 @@ define internal fastcc noundef zeroext i1 @DeadLockCheckRecurse(ptr noundef %0) 
   br label %35
 
 32:                                               ; preds = %30
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @__func__.DeadLockCheckRecurse) #11
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 345, ptr noundef nonnull @__func__.DeadLockCheckRecurse) #10
   unreachable
 
 35:                                               ; preds = %._crit_edge33, %.lr.ph.split
@@ -350,9 +348,9 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @initStringInfo(ptr noundef nonnull %1) #11
-  call void @initStringInfo(ptr noundef nonnull %2) #11
-  call void @initStringInfo(ptr noundef nonnull %3) #11
+  call void @initStringInfo(ptr noundef nonnull %1) #10
+  call void @initStringInfo(ptr noundef nonnull %2) #10
+  call void @initStringInfo(ptr noundef nonnull %3) #10
   %4 = load i32, ptr @nDeadlockDetails, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -369,13 +367,13 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %.015.in = select i1 %11, ptr %12, ptr %13
   %.015 = load i32, ptr %.015.in, align 4
-  call void @resetStringInfo(ptr noundef nonnull %3) #11
-  call void @DescribeLockTag(ptr noundef nonnull %3, ptr noundef %8) #11
+  call void @resetStringInfo(ptr noundef nonnull %3) #10
+  call void @DescribeLockTag(ptr noundef nonnull %3, ptr noundef %8) #10
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %.lr.ph
-  call void @appendStringInfoChar(ptr noundef nonnull %1, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %1, i8 noundef signext 10) #10
   br label %15
 
 15:                                               ; preds = %14, %.lr.ph
@@ -386,9 +384,9 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   %20 = zext i8 %19 to i16
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load i32, ptr %21, align 4
-  %23 = call ptr @GetLockmodeName(i16 noundef zeroext %20, i32 noundef %22) #11
+  %23 = call ptr @GetLockmodeName(i16 noundef zeroext %20, i32 noundef %22) #10
   %24 = load ptr, ptr %3, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i32 noundef %17, ptr noundef %23, ptr noundef %24, i32 noundef %.015) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i32 noundef %17, ptr noundef %23, ptr noundef %24, i32 noundef %.015) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr @nDeadlockDetails, align 4
   %26 = sext i32 %25 to i64
@@ -399,7 +397,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
-  call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %28, i32 noundef %30) #11
+  call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %28, i32 noundef %30) #10
   %31 = load i32, ptr @nDeadlockDetails, align 4
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph20, label %._crit_edge21
@@ -408,11 +406,11 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.lr.ph20 ], [ 0, %._crit_edge ]
   %33 = load ptr, ptr @deadlockDetails, align 8
   %34 = getelementptr inbounds nuw %struct.DEADLOCK_INFO, ptr %33, i64 %indvars.iv23
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #10
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = call ptr @pgstat_get_backend_current_activity(i32 noundef %36, i1 noundef zeroext false) #11
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, i32 noundef %36, ptr noundef %37) #11
+  %37 = call ptr @pgstat_get_backend_current_activity(i32 noundef %36, i1 noundef zeroext false) #10
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, i32 noundef %36, ptr noundef %37) #10
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %38 = load i32, ptr @nDeadlockDetails, align 4
   %39 = sext i32 %38 to i64
@@ -420,17 +418,16 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   br i1 %40, label %.lr.ph20, label %._crit_edge21, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %._crit_edge
-  call void @pgstat_report_deadlock() #11
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 @errcode(i32 noundef 16908292) #11
-  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #11
+  call void @pgstat_report_deadlock() #10
+  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %42 = call i32 @errcode(i32 noundef 16908292) #10
+  %43 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
   %44 = load ptr, ptr %1, align 8
-  %45 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.5, ptr noundef %44) #11
+  %45 = call i32 (ptr, ...) @errdetail_internal(ptr noundef nonnull @.str.5, ptr noundef %44) #10
   %46 = load ptr, ptr %2, align 8
-  %47 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.5, ptr noundef %46) #11
-  %48 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.6) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1135, ptr noundef nonnull @__func__.DeadLockReport) #11
+  %47 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.5, ptr noundef %46) #10
+  %48 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.6) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1135, ptr noundef nonnull @__func__.DeadLockReport) #10
   unreachable
 }
 
@@ -1062,7 +1059,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   br i1 %10, label %.thread181, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call ptr @GetLocksMethodTable(ptr noundef nonnull %7) #11
+  %12 = tail call ptr @GetLocksMethodTable(ptr noundef nonnull %7) #10
   %13 = load i32, ptr %12, align 8
   %.fr = freeze i32 %13
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1361,11 +1358,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #10
+declare i64 @llvm.umax.i64(i64, i64) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1376,10 +1370,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

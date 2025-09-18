@@ -88,29 +88,26 @@ default.unreachable:                              ; preds = %1
 switch.lookup:                                    ; preds = %1
   %5 = lshr i64 %3, 32
   %switch.idx.cast = trunc i64 %5 to i8
-  br label %18
+  br label %16
 
 6:                                                ; preds = %1
   %7 = lshr i64 %3, 32
   %8 = trunc nuw i64 %7 to i32
   %9 = tail call noundef i8 @_ZN3std3sys4unix17decode_error_kind17h28e4204a937a2bafE.llvm.5181935572193958862(i32 noundef %8), !range !5
-  br label %18
+  br label %16
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i8, ptr %11, align 8, !range !5, !noundef !4
-  br label %18
+  br label %16
 
 13:                                               ; preds = %1
-  %14 = getelementptr i8, ptr %2, i64 -1
-  %15 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr i8, ptr %2, i64 15
-  %17 = load i8, ptr %16, align 8, !range !5, !noundef !4
-  br label %18
+  %14 = getelementptr i8, ptr %2, i64 15
+  %15 = load i8, ptr %14, align 8, !range !5, !noundef !4
+  br label %16
 
-18:                                               ; preds = %switch.lookup, %13, %10, %6
-  %.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %17, %13 ], [ %switch.idx.cast, %switch.lookup ]
+16:                                               ; preds = %switch.lookup, %13, %10, %6
+  %.0 = phi i8 [ %9, %6 ], [ %12, %10 ], [ %15, %13 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -981,7 +978,7 @@ define { i64, ptr } @_ZN10rayon_core20ThreadPoolBuildError3new17he79a74e1ae8f580
 define hidden noundef zeroext i1 @_ZN10rayon_core20ThreadPoolBuildError14is_unsupported17h22c53c7a1076cf24E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !20, !noundef !4
   %3 = icmp eq i64 %2, 2
-  br i1 %3, label %4, label %23
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1016,20 +1013,17 @@ switch.lookup:                                    ; preds = %4
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit
 
 17:                                               ; preds = %4
-  %18 = getelementptr i8, ptr %6, i64 -1
-  %19 = icmp ne ptr %18, null
-  tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr i8, ptr %6, i64 15
-  %21 = load i8, ptr %20, align 8, !range !5, !noalias !37, !noundef !4
+  %18 = getelementptr i8, ptr %6, i64 15
+  %19 = load i8, ptr %18, align 8, !range !5, !noalias !37, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit
 
 _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit: ; preds = %switch.lookup, %10, %14, %17
-  %.0.i = phi i8 [ %13, %10 ], [ %16, %14 ], [ %21, %17 ], [ %switch.idx.cast, %switch.lookup ]
-  %22 = icmp eq i8 %.0.i, 36
-  br label %23
+  %.0.i = phi i8 [ %13, %10 ], [ %16, %14 ], [ %19, %17 ], [ %switch.idx.cast, %switch.lookup ]
+  %20 = icmp eq i8 %.0.i, 36
+  br label %21
 
-23:                                               ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ %22, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit ]
+21:                                               ; preds = %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ %20, %_ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.5181935572193958862.exit ]
   ret i1 %.0
 }
 

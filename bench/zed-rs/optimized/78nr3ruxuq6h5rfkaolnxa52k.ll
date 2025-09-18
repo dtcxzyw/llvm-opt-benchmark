@@ -13464,7 +13464,7 @@ define hidden noundef align 1 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$L
   %3 = alloca [32 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !noundef !4
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %10, label %6
+  br i1 %5, label %12, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13473,26 +13473,16 @@ define hidden noundef align 1 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$L
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17ha611a51d245d55c1E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull %4, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
   %9 = load i64, ptr %3, align 8, !range !159, !noundef !4
   %trunc = trunc nuw i64 %9 to i1
-  br i1 %trunc, label %15, label %11
-
-10:                                               ; preds = %2, %15
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %15 ], [ null, %2 ]
-  ret ptr %.sroa.0.0
-
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.0.0.copyload = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
-  %13 = icmp ult i64 %.sroa.23.0.copyload, 11
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 188
-  br label %15
-
-15:                                               ; preds = %6, %11
-  %.sroa.0.1 = phi ptr [ %14, %11 ], [ null, %6 ]
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !nonnull !4
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 188
+  %.sroa.0.1 = select i1 %trunc, ptr null, ptr %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %10
+  br label %12
+
+12:                                               ; preds = %2, %6
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %6 ], [ null, %2 ]
+  ret ptr %.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

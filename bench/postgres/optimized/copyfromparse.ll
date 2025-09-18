@@ -77,8 +77,8 @@ list_length.exit:                                 ; preds = %1, %5
   %8 = phi i32 [ %7, %5 ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %10 = load i8, ptr %9, align 4, !range !4, !noundef !5
-  call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 71) #16
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #16
+  call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 71) #15
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %11 = load ptr, ptr %2, align 8, !alias.scope !6
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -89,7 +89,7 @@ list_length.exit:                                 ; preds = %1, %5
   %16 = add i32 %13, 1
   store i32 %16, ptr %12, align 8, !alias.scope !6
   %17 = trunc i32 %8 to i16
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %18 = call i16 @llvm.bswap.i16(i16 %17)
   %19 = load ptr, ptr %2, align 8, !alias.scope !9
@@ -109,7 +109,7 @@ list_length.exit:                                 ; preds = %1, %5
 
 27:                                               ; preds = %.lr.ph, %27
   %.09 = phi i32 [ 0, %.lr.ph ], [ %33, %27 ]
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 2) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %28 = load ptr, ptr %2, align 8, !alias.scope !12
   %29 = load i32, ptr %12, align 8, !alias.scope !12
@@ -123,15 +123,15 @@ list_length.exit:                                 ; preds = %1, %5
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %27, %list_length.exit
-  call void @pq_endmessage(ptr noundef nonnull %2) #16
+  call void @pq_endmessage(ptr noundef nonnull %2) #15
   store i32 1, ptr %0, align 8
-  %34 = call ptr @makeStringInfo() #16
+  %34 = call ptr @makeStringInfo() #15
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %34, ptr %35, align 8
   %36 = load ptr, ptr @PqCommMethods, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 %38() #16
+  %39 = call i32 %38() #15
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -158,11 +158,10 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   br i1 %.not6, label %11, label %7
 
 7:                                                ; preds = %6, %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %9 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 191, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #15
   unreachable
 
 11:                                               ; preds = %6
@@ -175,11 +174,10 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   br i1 %.not.i, label %19, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #16
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %17 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 196, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #15
   unreachable
 
 19:                                               ; preds = %11
@@ -188,11 +186,10 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   br i1 %.not7, label %25, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #16
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %23 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 200, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #15
   unreachable
 
 25:                                               ; preds = %19
@@ -200,11 +197,10 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   br i1 %.not8, label %30, label %26
 
 26:                                               ; preds = %25
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 205, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #16
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %28 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 205, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #15
   unreachable
 
 30:                                               ; preds = %25
@@ -220,11 +216,10 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   br i1 %or.cond.not, label %.preheader, label %35
 
 35:                                               ; preds = %30
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #16
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %37 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %38 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 211, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #15
   unreachable
 
 .preheader:                                       ; preds = %30, %40
@@ -239,11 +234,10 @@ define dso_local void @ReceiveCopyBinaryHeader(ptr noundef captures(none) %0) lo
   br i1 %.not, label %.preheader, label %43, !llvm.loop !17
 
 43:                                               ; preds = %40
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #16
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %45 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.ReceiveCopyBinaryHeader) #15
   unreachable
 
 47:                                               ; preds = %.preheader
@@ -315,7 +309,7 @@ define internal fastcc i32 @CopyReadBinaryData(ptr noundef captures(none) %0, pt
   %39 = load i64, ptr %13, align 8
   %40 = add i64 %39, %37
   store i64 %40, ptr %13, align 8
-  tail call void @pgstat_progress_update_param(i32 noundef 0, i64 noundef %40) #16
+  tail call void @pgstat_progress_update_param(i32 noundef 0, i64 noundef %40) #15
   %41 = icmp eq i32 %35, 0
   br i1 %41, label %CopyLoadRawBuf.exit.thread, label %CopyLoadRawBuf.exit
 
@@ -432,9 +426,8 @@ list_length.exit.thread:                          ; preds = %26
   br i1 %35, label %.lr.ph76, label %.critedge
 
 36:                                               ; preds = %list_length.exit.thread, %list_length.exit
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 67240066) #16
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %38 = tail call i32 @errcode(i32 noundef 67240066) #15
   %39 = load ptr, ptr %27, align 8
   %.not.i57 = icmp eq ptr %39, null
   br i1 %.not.i57, label %list_length.exit58, label %40
@@ -446,8 +439,8 @@ list_length.exit.thread:                          ; preds = %26
 
 list_length.exit58:                               ; preds = %36, %40
   %43 = phi i32 [ %42, %40 ], [ 0, %36 ]
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %.046, i32 noundef %43) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 777, ptr noundef nonnull @__func__.NextCopyFromRawFields) #16
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %.046, i32 noundef %43) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 777, ptr noundef nonnull @__func__.NextCopyFromRawFields) #15
   unreachable
 
 45:                                               ; preds = %71
@@ -478,29 +471,27 @@ list_length.exit58:                               ; preds = %36, %40
 
 .split:                                           ; preds = %.lr.ph76
   %64 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %65)
-  %66 = tail call i32 @errcode(i32 noundef 67240066) #16
+  %65 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %66 = tail call i32 @errcode(i32 noundef 67240066) #15
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %64, ptr noundef %68, ptr noundef nonnull %69) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.NextCopyFromRawFields) #16
+  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %64, ptr noundef %68, ptr noundef nonnull %69) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.NextCopyFromRawFields) #15
   unreachable
 
 71:                                               ; preds = %.lr.ph76
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %73 = tail call i32 @namestrcmp(ptr noundef nonnull %72, ptr noundef nonnull %62) #16
+  %73 = tail call i32 @namestrcmp(ptr noundef nonnull %72, ptr noundef nonnull %62) #15
   %.not56 = icmp eq i32 %73, 0
   br i1 %.not56, label %45, label %.split70
 
 .split70:                                         ; preds = %71
   %74 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %75)
-  %76 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %74, ptr noundef nonnull %62, ptr noundef nonnull %72) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 800, ptr noundef nonnull @__func__.NextCopyFromRawFields) #16
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %76 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %74, ptr noundef nonnull %62, ptr noundef nonnull %72) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 800, ptr noundef nonnull @__func__.NextCopyFromRawFields) #15
   unreachable
 
 .critedge:                                        ; preds = %45, %list_length.exit, %.lr.ph, %10
@@ -553,7 +544,7 @@ list_length.exit58:                               ; preds = %36, %40
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @CopyReadLine(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  tail call void @resetStringInfo(ptr noundef nonnull %2) #16
+  tail call void @resetStringInfo(ptr noundef nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 86
@@ -620,7 +611,7 @@ define internal fastcc noundef zeroext i1 @CopyReadLine(ptr noundef %0) unnamed_
   %43 = sext i32 %38 to i64
   %44 = getelementptr inbounds i8, ptr %.pre293.i, i64 %43
   %45 = sub i32 %.0162.i, %38
-  tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %44, i32 noundef %45) #16
+  tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %44, i32 noundef %45) #15
   store i32 %.0162.i, ptr %20, align 8
   %.pre.i = load i32, ptr %22, align 4
   %.pre292.i = load ptr, ptr %18, align 8
@@ -668,7 +659,7 @@ CopyLoadRawBuf.exit.i.i:                          ; preds = %CopyLoadRawBuf.exit
   %67 = load ptr, ptr %24, align 8
   %68 = sext i32 %57 to i64
   %69 = getelementptr inbounds i8, ptr %67, i64 %68
-  %70 = tail call i32 @pg_encoding_verifymbstr(i32 noundef %66, ptr noundef %69, i32 noundef %59) #16
+  %70 = tail call i32 @pg_encoding_verifymbstr(i32 noundef %66, ptr noundef %69, i32 noundef %59) #15
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %79
 
@@ -679,7 +670,7 @@ CopyLoadRawBuf.exit.i.i:                          ; preds = %CopyLoadRawBuf.exit
 
 75:                                               ; preds = %72
   %76 = load i32, ptr %28, align 4
-  %77 = tail call i32 @pg_encoding_max_length(i32 noundef %76) #16
+  %77 = tail call i32 @pg_encoding_max_length(i32 noundef %76) #15
   %.not.i.i.i = icmp slt i32 %59, %77
   br i1 %.not.i.i.i, label %CopyConvertBuf.exit.i.i, label %78
 
@@ -746,8 +737,8 @@ CopyLoadRawBuf.exit.i.i:                          ; preds = %CopyLoadRawBuf.exit
   %114 = sub i32 65537, %111
   %115 = load i32, ptr %32, align 4
   %116 = load i32, ptr %28, align 4
-  %117 = tail call i32 @GetDatabaseEncoding() #16
-  %118 = tail call i32 @pg_do_encoding_conversion_buf(i32 noundef %115, i32 noundef %116, i32 noundef %117, ptr noundef %107, i32 noundef %109, ptr noundef %113, i32 noundef %114, i1 noundef zeroext true) #16
+  %117 = tail call i32 @GetDatabaseEncoding() #15
+  %118 = tail call i32 @pg_do_encoding_conversion_buf(i32 noundef %115, i32 noundef %116, i32 noundef %117, ptr noundef %107, i32 noundef %109, ptr noundef %113, i32 noundef %114, i1 noundef zeroext true) #15
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %125
 
@@ -766,7 +757,7 @@ CopyLoadRawBuf.exit.i.i:                          ; preds = %CopyLoadRawBuf.exit
   %126 = load i32, ptr %25, align 8
   %127 = add i32 %126, %118
   store i32 %127, ptr %25, align 8
-  %128 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #18
+  %128 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #17
   %129 = load i32, ptr %22, align 4
   %130 = trunc i64 %128 to i32
   %131 = add i32 %129, %130
@@ -801,7 +792,7 @@ CopyConvertBuf.exit.i.CopyLoadInputBuf.exit_crit_edge.i: ; preds = %CopyConvertB
   %146 = sext i32 %132 to i64
   %147 = getelementptr inbounds i8, ptr %145, i64 %146
   %148 = sub i32 %142, %132
-  tail call void @report_invalid_encoding(i32 noundef %144, ptr noundef %147, i32 noundef %148) #19
+  tail call void @report_invalid_encoding(i32 noundef %144, ptr noundef %147, i32 noundef %148) #18
   unreachable
 
 149:                                              ; preds = %139
@@ -816,12 +807,11 @@ CopyConvertBuf.exit.i.CopyLoadInputBuf.exit_crit_edge.i: ; preds = %CopyConvertB
   %158 = sub i32 65537, %132
   %159 = load i32, ptr %32, align 4
   %160 = load i32, ptr %28, align 4
-  %161 = tail call i32 @GetDatabaseEncoding() #16
-  %162 = tail call i32 @pg_do_encoding_conversion_buf(i32 noundef %159, i32 noundef %160, i32 noundef %161, ptr noundef %153, i32 noundef %154, ptr noundef %157, i32 noundef %158, i1 noundef zeroext false) #16
-  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %163)
-  %164 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.CopyConversionError) #16
+  %161 = tail call i32 @GetDatabaseEncoding() #15
+  %162 = tail call i32 @pg_do_encoding_conversion_buf(i32 noundef %159, i32 noundef %160, i32 noundef %161, ptr noundef %153, i32 noundef %154, ptr noundef %157, i32 noundef %158, i1 noundef zeroext false) #15
+  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %164 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__.CopyConversionError) #15
   unreachable
 
 165:                                              ; preds = %136
@@ -882,7 +872,7 @@ CopyConvertBuf.exit.i.CopyLoadInputBuf.exit_crit_edge.i: ; preds = %CopyConvertB
   %196 = load i64, ptr %33, align 8
   %197 = add i64 %196, %195
   store i64 %197, ptr %33, align 8
-  tail call void @pgstat_progress_update_param(i32 noundef 0, i64 noundef %197) #16
+  tail call void @pgstat_progress_update_param(i32 noundef 0, i64 noundef %197) #15
   %198 = icmp eq i32 %190, 0
   br i1 %198, label %199, label %CopyLoadRawBuf.exit.i.i.backedge
 
@@ -996,33 +986,31 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %248, label %249, label %.thread212.sink.split.i
 
 249:                                              ; preds = %247
-  %250 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %250)
-  %251 = tail call i32 @errcode(i32 noundef 67240066) #16
+  %250 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %251 = tail call i32 @errcode(i32 noundef 67240066) #15
   %252 = load i8, ptr %4, align 2, !range !4, !noundef !5
   %253 = trunc nuw i8 %252 to i1
   %.str.21..str.20.i = select i1 %253, ptr @.str.21, ptr @.str.20
-  %254 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.21..str.20.i) #16
+  %254 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.21..str.20.i) #15
   %255 = load i8, ptr %4, align 2, !range !4, !noundef !5
   %256 = trunc nuw i8 %255 to i1
   %.str.23.sink.i = select i1 %256, ptr @.str.23, ptr @.str.22
-  %257 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.23.sink.i) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %257 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.23.sink.i) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1330, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 258:                                              ; preds = %235
-  %259 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %259)
-  %260 = tail call i32 @errcode(i32 noundef 67240066) #16
+  %259 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %260 = tail call i32 @errcode(i32 noundef 67240066) #15
   %261 = load i8, ptr %4, align 2, !range !4, !noundef !5
   %262 = trunc nuw i8 %261 to i1
   %.str.21..str.20349.i = select i1 %262, ptr @.str.21, ptr @.str.20
-  %263 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.21..str.20349.i) #16
+  %263 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.21..str.20349.i) #15
   %264 = load i8, ptr %4, align 2, !range !4, !noundef !5
   %265 = trunc nuw i8 %264 to i1
   %.str.23.sink346.i = select i1 %265, ptr @.str.23, ptr @.str.22
-  %266 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.23.sink346.i) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1347, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %266 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.23.sink346.i) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1347, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 267:                                              ; preds = %232
@@ -1037,18 +1025,17 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %switch202.i, label %272, label %.thread212.sink.split.i
 
 272:                                              ; preds = %269
-  %273 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %273)
-  %274 = tail call i32 @errcode(i32 noundef 67240066) #16
+  %273 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %274 = tail call i32 @errcode(i32 noundef 67240066) #15
   %275 = load i8, ptr %4, align 2, !range !4, !noundef !5
   %276 = trunc nuw i8 %275 to i1
   %.str.25..str.24.i = select i1 %276, ptr @.str.25, ptr @.str.24
-  %277 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.25..str.24.i) #16
+  %277 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.25..str.24.i) #15
   %278 = load i8, ptr %4, align 2, !range !4, !noundef !5
   %279 = trunc nuw i8 %278 to i1
   %.str.27.sink.i = select i1 %279, ptr @.str.27, ptr @.str.26
-  %280 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.27.sink.i) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1363, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %280 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.27.sink.i) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1363, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 281:                                              ; preds = %232
@@ -1091,11 +1078,10 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %302, label %303, label %307
 
 303:                                              ; preds = %298
-  %304 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %304)
-  %305 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %306 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1401, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %304 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %305 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %306 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1401, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 307:                                              ; preds = %298
@@ -1104,11 +1090,10 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %.not196.i, label %313, label %309
 
 309:                                              ; preds = %307
-  %310 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %310)
-  %311 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %312 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1405, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %310 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %311 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %312 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1405, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 313:                                              ; preds = %307, %293
@@ -1136,11 +1121,10 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   ]
 
 320:                                              ; preds = %315
-  %321 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %321)
-  %322 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %323 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1416, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %321 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %322 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %323 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1416, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 324:                                              ; preds = %315, %315
@@ -1155,11 +1139,10 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %or.cond201.i, label %329, label %333
 
 329:                                              ; preds = %324
-  %330 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %330)
-  %331 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %332 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1423, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %330 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %331 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %332 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1423, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 333:                                              ; preds = %324
@@ -1171,11 +1154,10 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   br i1 %or.cond347.i, label %338, label %CopyReadLineText.exit.thread.sink.split
 
 338:                                              ; preds = %333
-  %339 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %339)
-  %340 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %341 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.CopyReadLineText) #16
+  %339 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %340 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %341 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1432, ptr noundef nonnull @__func__.CopyReadLineText) #15
   unreachable
 
 .thread212.sink.split.i:                          ; preds = %269, %247, %245
@@ -1198,7 +1180,7 @@ CopyLoadInputBuf.exit._crit_edge.i:               ; preds = %CopyLoadInputBuf.ex
   %345 = sext i32 %205 to i64
   %346 = getelementptr inbounds i8, ptr %344, i64 %345
   %347 = sub i32 %.2224.i, %205
-  tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %346, i32 noundef %347) #16
+  tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %346, i32 noundef %347) #15
   store i32 %.2224.i, ptr %20, align 8
   br label %CopyReadLineText.exit
 
@@ -1207,7 +1189,7 @@ CopyReadLineText.exit.thread.critedge:            ; preds = %.thread212.i.thread
   %349 = sext i32 %205 to i64
   %350 = getelementptr inbounds i8, ptr %348, i64 %349
   %351 = sub i32 %206, %205
-  tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %350, i32 noundef %351) #16
+  tail call void @appendBinaryStringInfo(ptr noundef nonnull %2, ptr noundef %350, i32 noundef %351) #15
   br label %CopyReadLineText.exit.thread.sink.split
 
 CopyReadLineText.exit.thread.sink.split:          ; preds = %333, %CopyReadLineText.exit.thread.critedge
@@ -1303,16 +1285,15 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   br i1 %.not129, label %159, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1769, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #16
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %19 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1769, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #15
   unreachable
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  tail call void @resetStringInfo(ptr noundef nonnull %22) #16
+  tail call void @resetStringInfo(ptr noundef nonnull %22) #15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1322,7 +1303,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %21
-  tail call void @enlargeStringInfo(ptr noundef nonnull %22, i32 noundef %27) #16
+  tail call void @enlargeStringInfo(ptr noundef nonnull %22, i32 noundef %27) #15
   %.pre = load i32, ptr %26, align 8
   br label %29
 
@@ -1356,7 +1337,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   store i32 %45, ptr %11, align 8
   %46 = sext i32 %45 to i64
   %47 = shl nsw i64 %46, 3
-  %48 = tail call ptr @repalloc(ptr noundef %.pre207, i64 noundef %47) #16
+  %48 = tail call ptr @repalloc(ptr noundef %.pre207, i64 noundef %47) #15
   store ptr %48, ptr %35, align 8
   br label %49
 
@@ -1414,11 +1395,10 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   br i1 %.not124, label %59, label %._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.backedge
-  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %67)
-  %68 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1853, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #16
+  %67 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %68 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %69 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1853, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #15
   unreachable
 
 .lr.ph182:                                        ; preds = %.preheader, %.backedge
@@ -1483,7 +1463,7 @@ define internal fastcc i32 @CopyReadAttributesCSV(ptr noundef %0) unnamed_addr #
   %94 = load ptr, ptr %37, align 8
   %sext = shl i64 %89, 32
   %95 = ashr exact i64 %sext, 32
-  %96 = tail call i32 @strncmp(ptr noundef %.096, ptr noundef %94, i64 noundef %95) #18
+  %96 = tail call i32 @strncmp(ptr noundef %.096, ptr noundef %94, i64 noundef %95) #17
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %102
 
@@ -1528,7 +1508,7 @@ list_length.exit:                                 ; preds = %102, %107
 117:                                              ; preds = %114
   %sext127 = shl i64 %104, 32
   %118 = ashr exact i64 %sext127, 32
-  %119 = tail call i32 @strncmp(ptr noundef %.096, ptr noundef nonnull %113, i64 noundef %118) #18
+  %119 = tail call i32 @strncmp(ptr noundef %.096, ptr noundef nonnull %113, i64 noundef %118) #17
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %149
 
@@ -1562,13 +1542,12 @@ list_length.exit:                                 ; preds = %102, %107
   %141 = shl nsw i64 %140, 4
   %142 = getelementptr i8, ptr %138, i64 %141
   %143 = getelementptr %struct.FormData_pg_attribute, ptr %142, i64 %127
-  %144 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %144)
-  %145 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %146 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #16
+  %144 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %145 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %146 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #15
   %147 = getelementptr i8, ptr %143, i64 28
-  %148 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, ptr noundef nonnull %147) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1922, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #16
+  %148 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, ptr noundef nonnull %147) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1922, ptr noundef nonnull @__func__.CopyReadAttributesCSV) #15
   unreachable
 
 149:                                              ; preds = %117, %114, %112, %list_length.exit
@@ -1615,16 +1594,15 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
   br i1 %.not168, label %216, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1513, ptr noundef nonnull @__func__.CopyReadAttributesText) #16
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %13 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1513, ptr noundef nonnull @__func__.CopyReadAttributesText) #15
   unreachable
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  tail call void @resetStringInfo(ptr noundef nonnull %16) #16
+  tail call void @resetStringInfo(ptr noundef nonnull %16) #15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 444
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -1634,7 +1612,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
   br i1 %.not, label %23, label %22
 
 22:                                               ; preds = %15
-  tail call void @enlargeStringInfo(ptr noundef nonnull %16, i32 noundef %21) #16
+  tail call void @enlargeStringInfo(ptr noundef nonnull %16, i32 noundef %21) #15
   %.pre = load i32, ptr %20, align 8
   br label %23
 
@@ -1668,7 +1646,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
   store i32 %40, ptr %5, align 8
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 3
-  %43 = tail call ptr @repalloc(ptr noundef %.pre211, i64 noundef %42) #16
+  %43 = tail call ptr @repalloc(ptr noundef %.pre211, i64 noundef %42) #15
   store ptr %43, ptr %29, align 8
   br label %44
 
@@ -1771,7 +1749,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
 
 86:                                               ; preds = %84
   %87 = load i8, ptr %55, align 1
-  %88 = tail call ptr @__ctype_b_loc() #20
+  %88 = tail call ptr @__ctype_b_loc() #19
   %89 = load ptr, ptr %88, align 8
   %90 = zext i8 %87 to i64
   %91 = getelementptr inbounds nuw i16, ptr %89, i64 %90
@@ -1791,7 +1769,7 @@ define internal fastcc i32 @CopyReadAttributesText(ptr noundef %0) unnamed_addr 
   br label %GetDecimalFromHex.exit
 
 99:                                               ; preds = %94
-  %100 = tail call ptr @__ctype_tolower_loc() #20
+  %100 = tail call ptr @__ctype_tolower_loc() #19
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds nuw i32, ptr %101, i64 %90
   %103 = load i32, ptr %102, align 4
@@ -1826,7 +1804,7 @@ GetDecimalFromHex.exit:                           ; preds = %96, %99
   br label %GetDecimalFromHex.exit173
 
 120:                                              ; preds = %113
-  %121 = tail call ptr @__ctype_tolower_loc() #20
+  %121 = tail call ptr @__ctype_tolower_loc() #19
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i32, ptr %122, i64 %109
   %124 = load i32, ptr %123, align 4
@@ -1895,7 +1873,7 @@ GetDecimalFromHex.exit173:                        ; preds = %117, %120
   %146 = load ptr, ptr %31, align 8
   %sext = shl i64 %141, 32
   %147 = ashr exact i64 %sext, 32
-  %148 = tail call i32 @strncmp(ptr noundef %.0121, ptr noundef %146, i64 noundef %147) #18
+  %148 = tail call i32 @strncmp(ptr noundef %.0121, ptr noundef %146, i64 noundef %147) #17
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %153
 
@@ -1933,7 +1911,7 @@ list_length.exit:                                 ; preds = %153, %155
 165:                                              ; preds = %162
   %sext166 = shl i64 %141, 32
   %166 = ashr exact i64 %sext166, 32
-  %167 = tail call i32 @strncmp(ptr noundef %.0121, ptr noundef nonnull %161, i64 noundef %166) #18
+  %167 = tail call i32 @strncmp(ptr noundef %.0121, ptr noundef nonnull %161, i64 noundef %166) #17
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %196
 
@@ -1966,13 +1944,12 @@ list_length.exit:                                 ; preds = %153, %155
   %188 = shl nsw i64 %187, 4
   %189 = getelementptr i8, ptr %185, i64 %188
   %190 = getelementptr %struct.FormData_pg_attribute, ptr %189, i64 %175
-  %191 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %191)
-  %192 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %193 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #16
+  %191 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %192 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %193 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #15
   %194 = getelementptr i8, ptr %190, i64 28
-  %195 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, ptr noundef nonnull %194) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1707, ptr noundef nonnull @__func__.CopyReadAttributesText) #16
+  %195 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, ptr noundef nonnull %194) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1707, ptr noundef nonnull @__func__.CopyReadAttributesText) #15
   unreachable
 
 196:                                              ; preds = %165, %162, %160, %list_length.exit
@@ -1986,7 +1963,7 @@ list_length.exit:                                 ; preds = %153, %155
   %202 = ptrtoint ptr %200 to i64
   %203 = sub i64 %201, %202
   %204 = trunc i64 %203 to i32
-  %205 = tail call zeroext i1 @pg_verifymbstr(ptr noundef %200, i32 noundef %204, i1 noundef zeroext false) #16
+  %205 = tail call zeroext i1 @pg_verifymbstr(ptr noundef %200, i32 noundef %204, i1 noundef zeroext false) #15
   br label %206
 
 206:                                              ; preds = %178, %197, %196, %150
@@ -2136,11 +2113,10 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %or.cond217, label %73, label %77
 
 73:                                               ; preds = %69
-  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %74)
-  %75 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 883, ptr noundef nonnull @__func__.NextCopyFrom) #16
+  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %75 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 883, ptr noundef nonnull @__func__.NextCopyFrom) #15
   unreachable
 
 77:                                               ; preds = %69
@@ -2183,12 +2159,11 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %exitcond.not, label %103, label %108
 
 103:                                              ; preds = %.lr.ph
-  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %104)
-  %105 = tail call i32 @errcode(i32 noundef 67240066) #16
+  %104 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %105 = tail call i32 @errcode(i32 noundef 67240066) #15
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  %107 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %106) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 898, ptr noundef nonnull @__func__.NextCopyFrom) #16
+  %107 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %106) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 898, ptr noundef nonnull @__func__.NextCopyFrom) #15
   unreachable
 
 108:                                              ; preds = %.lr.ph
@@ -2234,7 +2209,7 @@ list_length.exit:                                 ; preds = %4, %28
 
 132:                                              ; preds = %127
   %133 = load ptr, ptr %84, align 8
-  %134 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(1) %133) #18
+  %134 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %110, ptr noundef nonnull dereferenceable(1) %133) #17
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %.thread, label %.sink.split
 
@@ -2279,7 +2254,7 @@ list_length.exit:                                 ; preds = %4, %28
   %151 = getelementptr inbounds i8, ptr %3, i64 %101
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %153 = load ptr, ptr %152, align 8
-  %154 = tail call i64 %153(ptr noundef %150, ptr noundef %1, ptr noundef %151) #16
+  %154 = tail call i64 %153(ptr noundef %150, ptr noundef %1, ptr noundef %151) #15
   store i64 %154, ptr %147, align 8
   br label %190
 
@@ -2290,7 +2265,7 @@ list_length.exit:                                 ; preds = %4, %28
   %159 = getelementptr inbounds nuw i8, ptr %102, i64 76
   %160 = load i32, ptr %159, align 4
   %161 = load ptr, ptr %88, align 8
-  %162 = tail call zeroext i1 @InputFunctionCallSafe(ptr noundef %156, ptr noundef %.0189229, i32 noundef %158, i32 noundef %160, ptr noundef %161, ptr noundef %147) #16
+  %162 = tail call zeroext i1 @InputFunctionCallSafe(ptr noundef %156, ptr noundef %.0189229, i32 noundef %158, i32 noundef %160, ptr noundef %161, ptr noundef %147) #15
   br i1 %162, label %190, label %163
 
 163:                                              ; preds = %155
@@ -2311,32 +2286,32 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %.not211, label %182, label %173
 
 173:                                              ; preds = %170
-  %174 = tail call ptr @CopyLimitPrintoutLength(ptr noundef nonnull %172) #16
-  %175 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #16
+  %174 = tail call ptr @CopyLimitPrintoutLength(ptr noundef nonnull %172) #15
+  %175 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #15
   br i1 %175, label %176, label %181
 
 176:                                              ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %178 = load i64, ptr %177, align 8
   %179 = load ptr, ptr %85, align 8
-  %180 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i64 noundef %178, ptr noundef %179, ptr noundef %174) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.NextCopyFrom) #16
+  %180 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i64 noundef %178, ptr noundef %179, ptr noundef %174) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 984, ptr noundef nonnull @__func__.NextCopyFrom) #15
   br label %181
 
 181:                                              ; preds = %176, %173
-  tail call void @pfree(ptr noundef %174) #16
+  tail call void @pfree(ptr noundef %174) #15
   br label %189
 
 182:                                              ; preds = %170
-  %183 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #16
+  %183 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #15
   br i1 %183, label %184, label %189
 
 184:                                              ; preds = %182
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %186 = load i64, ptr %185, align 8
   %187 = load ptr, ptr %85, align 8
-  %188 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, i64 noundef %186, ptr noundef %187) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 991, ptr noundef nonnull @__func__.NextCopyFrom) #16
+  %188 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, i64 noundef %186, ptr noundef %187) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 991, ptr noundef nonnull @__func__.NextCopyFrom) #15
   br label %189
 
 189:                                              ; preds = %182, %184, %181
@@ -2387,11 +2362,10 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %206, label %207, label %211
 
 207:                                              ; preds = %204
-  %208 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %208)
-  %209 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %210 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1035, ptr noundef nonnull @__func__.NextCopyFrom) #16
+  %208 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %209 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %210 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1035, ptr noundef nonnull @__func__.NextCopyFrom) #15
   unreachable
 
 211:                                              ; preds = %204
@@ -2404,11 +2378,10 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %.not213, label %218, label %214
 
 214:                                              ; preds = %212
-  %215 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %215)
-  %216 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %217 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, i32 noundef %213, i32 noundef %sext212) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1043, ptr noundef nonnull @__func__.NextCopyFrom) #16
+  %215 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %216 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %217 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, i32 noundef %213, i32 noundef %sext212) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1043, ptr noundef nonnull @__func__.NextCopyFrom) #15
   unreachable
 
 218:                                              ; preds = %212
@@ -2457,11 +2430,10 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %.not.i.i, label %253, label %249
 
 249:                                              ; preds = %.lr.ph287
-  %250 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %250)
-  %251 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %252 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1955, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #16
+  %250 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %251 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %252 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1955, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #15
   unreachable
 
 253:                                              ; preds = %.lr.ph287
@@ -2470,7 +2442,7 @@ list_length.exit:                                 ; preds = %4, %28
 
 255:                                              ; preds = %253
   store i8 1, ptr %245, align 1
-  %256 = tail call i64 @ReceiveFunctionCall(ptr noundef %240, ptr noundef null, i32 noundef %242, i32 noundef %244) #16
+  %256 = tail call i64 @ReceiveFunctionCall(ptr noundef %240, ptr noundef null, i32 noundef %242, i32 noundef %244) #15
   br label %CopyReadBinaryAttribute.exit
 
 257:                                              ; preds = %253
@@ -2478,27 +2450,25 @@ list_length.exit:                                 ; preds = %4, %28
   br i1 %258, label %259, label %263
 
 259:                                              ; preds = %257
-  %260 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %260)
-  %261 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %262 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1964, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #16
+  %260 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %261 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %262 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1964, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #15
   unreachable
 
 263:                                              ; preds = %257
-  tail call void @resetStringInfo(ptr noundef nonnull %223) #16
-  tail call void @enlargeStringInfo(ptr noundef nonnull %223, i32 noundef %248) #16
+  tail call void @resetStringInfo(ptr noundef nonnull %223) #15
+  tail call void @enlargeStringInfo(ptr noundef nonnull %223, i32 noundef %248) #15
   %264 = load ptr, ptr %223, align 8
   %265 = tail call fastcc i32 @CopyReadBinaryData(ptr noundef nonnull %0, ptr noundef %264, i32 noundef %248)
   %.not.i225 = icmp eq i32 %265, %248
   br i1 %.not.i225, label %270, label %266
 
 266:                                              ; preds = %263
-  %267 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %267)
-  %268 = tail call i32 @errcode(i32 noundef 67240066) #16
-  %269 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1974, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #16
+  %267 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %268 = tail call i32 @errcode(i32 noundef 67240066) #15
+  %269 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1974, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #15
   unreachable
 
 270:                                              ; preds = %263
@@ -2507,18 +2477,17 @@ list_length.exit:                                 ; preds = %4, %28
   %272 = zext nneg i32 %248 to i64
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 %272
   store i8 0, ptr %273, align 1
-  %274 = tail call i64 @ReceiveFunctionCall(ptr noundef %240, ptr noundef nonnull %223, i32 noundef %242, i32 noundef %244) #16
+  %274 = tail call i64 @ReceiveFunctionCall(ptr noundef %240, ptr noundef nonnull %223, i32 noundef %242, i32 noundef %244) #15
   %275 = load i32, ptr %225, align 8
   %276 = load i32, ptr %224, align 8
   %.not21.i = icmp eq i32 %275, %276
   br i1 %.not21.i, label %281, label %277
 
 277:                                              ; preds = %270
-  %278 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %278)
-  %279 = tail call i32 @errcode(i32 noundef 50462850) #16
-  %280 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1987, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #16
+  %278 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %279 = tail call i32 @errcode(i32 noundef 50462850) #15
+  %280 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1987, ptr noundef nonnull @__func__.CopyReadBinaryAttribute) #15
   unreachable
 
 281:                                              ; preds = %270
@@ -2554,7 +2523,7 @@ CopyReadBinaryAttribute.exit:                     ; preds = %255, %281
   %292 = getelementptr inbounds i8, ptr %3, i64 %289
   %293 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %294 = load ptr, ptr %293, align 8
-  %295 = tail call i64 %294(ptr noundef %291, ptr noundef %1, ptr noundef %292) #16
+  %295 = tail call i64 %294(ptr noundef %291, ptr noundef %1, ptr noundef %292) #15
   %296 = load i32, ptr %287, align 4
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i64, ptr %2, i64 %297
@@ -2617,16 +2586,15 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %9, ptr noundef %11)
   %13 = load ptr, ptr %10, align 8
-  %14 = tail call i32 @ferror(ptr noundef %13) #16
+  %14 = tail call i32 @ferror(ptr noundef %13) #15
   %.not62 = icmp eq i32 %14, 0
   br i1 %.not62, label %19, label %15
 
 15:                                               ; preds = %8
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode_for_file_access() #16
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.CopyGetData) #16
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %17 = tail call i32 @errcode_for_file_access() #15
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.CopyGetData) #15
   unreachable
 
 19:                                               ; preds = %8
@@ -2672,8 +2640,8 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   %36 = load volatile i32, ptr @QueryCancelHoldoffCount, align 4
   %37 = add i32 %36, 1
   store volatile i32 %37, ptr @QueryCancelHoldoffCount, align 4
-  tail call void @pq_startmsgread() #16
-  %38 = tail call i32 @pq_getbyte() #16
+  tail call void @pq_startmsgread() #15
+  %38 = tail call i32 @pq_getbyte() #15
   switch i32 %38, label %44 [
     i32 -1, label %39
     i32 100, label %48
@@ -2684,37 +2652,34 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   ]
 
 39:                                               ; preds = %.preheader
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 100663808) #16
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.CopyGetData) #16
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %41 = tail call i32 @errcode(i32 noundef 100663808) #15
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 269, ptr noundef nonnull @__func__.CopyGetData) #15
   unreachable
 
 43:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader
   br label %48
 
 44:                                               ; preds = %.preheader
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 @errcode(i32 noundef 16908800) #16
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %38) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.CopyGetData) #16
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %46 = tail call i32 @errcode(i32 noundef 16908800) #15
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %38) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.CopyGetData) #15
   unreachable
 
 48:                                               ; preds = %.preheader, %43
   %.044 = phi i32 [ 10000, %43 ], [ 1073741822, %.preheader ]
   %49 = load ptr, ptr %6, align 8
-  %50 = tail call i32 @pq_getmessage(ptr noundef %49, i32 noundef %.044) #16
+  %50 = tail call i32 @pq_getmessage(ptr noundef %49, i32 noundef %.044) #15
   %.not61 = icmp eq i32 %50, 0
   br i1 %.not61, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 100663808) #16
-  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 294, ptr noundef nonnull @__func__.CopyGetData) #16
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %53 = tail call i32 @errcode(i32 noundef 100663808) #15
+  %54 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 294, ptr noundef nonnull @__func__.CopyGetData) #15
   unreachable
 
 55:                                               ; preds = %48
@@ -2733,13 +2698,12 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   br label %.critedge
 
 58:                                               ; preds = %55
-  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %59)
-  %60 = tail call i32 @errcode(i32 noundef 67371461) #16
+  %59 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %60 = tail call i32 @errcode(i32 noundef 67371461) #15
   %61 = load ptr, ptr %6, align 8
-  %62 = tail call ptr @pq_getmsgstring(ptr noundef %61) #16
-  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %62) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.CopyGetData) #16
+  %62 = tail call ptr @pq_getmsgstring(ptr noundef %61) #15
+  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %62) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @__func__.CopyGetData) #15
   unreachable
 
 .loopexit125:                                     ; preds = %.loopexit, %.preheader65
@@ -2748,7 +2712,7 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
   %.lcssa78 = phi i32 [ %30, %.preheader65 ], [ %35, %.loopexit ]
   %64 = sub i32 %.lcssa78, %.lcssa84
   %spec.select = tail call i32 @llvm.smin.i32(i32 %64, i32 %.05115)
-  tail call void @pq_copymsgbytes(ptr noundef nonnull %.lcssa90, ptr noundef %.05314, i32 noundef %spec.select) #16
+  tail call void @pq_copymsgbytes(ptr noundef nonnull %.lcssa90, ptr noundef %.05314, i32 noundef %spec.select) #15
   %65 = sext i32 %spec.select to i64
   %66 = getelementptr inbounds i8, ptr %.05314, i64 %65
   %67 = sub i32 %.05115, %spec.select
@@ -2761,7 +2725,7 @@ define internal fastcc i32 @CopyGetData(ptr noundef captures(none) %0, ptr nound
 71:                                               ; preds = %3
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 %73(ptr noundef %1, i32 noundef 1, i32 noundef %2) #16
+  %74 = tail call i32 %73(ptr noundef %1, i32 noundef 1, i32 noundef %2) #15
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.loopexit125, %.preheader66, %.thread119, %3, %71, %22, %19
@@ -2834,23 +2798,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #15
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2864,15 +2825,14 @@ attributes #8 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-
 attributes #9 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { nounwind willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

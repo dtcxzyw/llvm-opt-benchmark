@@ -38,11 +38,11 @@ define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) loca
   %15 = inttoptr i64 %14 to ptr
   %16 = load i64, ptr %4, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
+  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #9
   store i8 0, ptr %15, align 1
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #10
+  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #9
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -64,13 +64,13 @@ define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) loca
 
 32:                                               ; preds = %31, %31
   %33 = inttoptr i64 %6 to ptr
-  %34 = tail call ptr @pg_detoast_datum(ptr noundef %33) #10
+  %34 = tail call ptr @pg_detoast_datum(ptr noundef %33) #9
   %35 = tail call fastcc zeroext i1 @range_gist_consistent_leaf_range(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %34)
   br label %63
 
 36:                                               ; preds = %31
   %37 = inttoptr i64 %6 to ptr
-  %38 = tail call ptr @pg_detoast_datum(ptr noundef %37) #10
+  %38 = tail call ptr @pg_detoast_datum(ptr noundef %37) #9
   %39 = tail call fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %38)
   br label %63
 
@@ -81,14 +81,13 @@ define dso_local range(i64 0, 2) i64 @range_gist_consistent(ptr noundef %0) loca
 41:                                               ; preds = %40
   %42 = trunc i64 %8 to i32
   %43 = and i32 %42, 65535
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %43) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1138, ptr noundef nonnull @__func__.range_gist_consistent_leaf_element) #10
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %43) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1138, ptr noundef nonnull @__func__.range_gist_consistent_leaf_element) #9
   unreachable
 
 range_gist_consistent_leaf_element.exit:          ; preds = %40
-  %46 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #10
+  %46 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #9
   br label %63
 
 47:                                               ; preds = %1
@@ -100,13 +99,13 @@ range_gist_consistent_leaf_element.exit:          ; preds = %40
 
 48:                                               ; preds = %47, %47
   %49 = inttoptr i64 %6 to ptr
-  %50 = tail call ptr @pg_detoast_datum(ptr noundef %49) #10
+  %50 = tail call ptr @pg_detoast_datum(ptr noundef %49) #9
   %51 = tail call fastcc zeroext i1 @range_gist_consistent_int_range(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %50)
   br label %63
 
 52:                                               ; preds = %47
   %53 = inttoptr i64 %6 to ptr
-  %54 = tail call ptr @pg_detoast_datum(ptr noundef %53) #10
+  %54 = tail call ptr @pg_detoast_datum(ptr noundef %53) #9
   %55 = tail call fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %54)
   br label %63
 
@@ -117,14 +116,13 @@ range_gist_consistent_leaf_element.exit:          ; preds = %40
 57:                                               ; preds = %56
   %58 = trunc i64 %8 to i32
   %59 = and i32 %58, 65535
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %59) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1049, ptr noundef nonnull @__func__.range_gist_consistent_int_element) #10
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %59) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1049, ptr noundef nonnull @__func__.range_gist_consistent_int_element) #9
   unreachable
 
 range_gist_consistent_int_element.exit:           ; preds = %56
-  %62 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #10
+  %62 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #9
   br label %63
 
 63:                                               ; preds = %48, %range_gist_consistent_int_element.exit, %52, %32, %range_gist_consistent_leaf_element.exit, %36
@@ -150,47 +148,46 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_range(ptr noundef 
   ]
 
 5:                                                ; preds = %4
-  %6 = tail call zeroext i1 @range_before_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %6 = tail call zeroext i1 @range_before_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @range_overleft_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %8 = tail call zeroext i1 @range_overleft_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 9:                                                ; preds = %4
-  %10 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %10 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 11:                                               ; preds = %4
-  %12 = tail call zeroext i1 @range_overright_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %12 = tail call zeroext i1 @range_overright_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 13:                                               ; preds = %4
-  %14 = tail call zeroext i1 @range_after_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %14 = tail call zeroext i1 @range_after_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 15:                                               ; preds = %4
-  %16 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %16 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 17:                                               ; preds = %4
-  %18 = tail call zeroext i1 @range_contains_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %18 = tail call zeroext i1 @range_contains_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 19:                                               ; preds = %4
-  %20 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %20 = tail call zeroext i1 @range_contained_by_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 21:                                               ; preds = %4
-  %22 = tail call zeroext i1 @range_eq_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %22 = tail call zeroext i1 @range_eq_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %27
 
 23:                                               ; preds = %4
   %24 = zext i16 %1 to i32
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1084, ptr noundef nonnull @__func__.range_gist_consistent_leaf_range) #10
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %24) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1084, ptr noundef nonnull @__func__.range_gist_consistent_leaf_range) #9
   unreachable
 
 27:                                               ; preds = %21, %19, %17, %15, %13, %11, %9, %7, %5
@@ -219,35 +216,35 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   ]
 
 11:                                               ; preds = %4
-  %12 = tail call zeroext i1 @range_before_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %12 = tail call zeroext i1 @range_before_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 13:                                               ; preds = %4
-  %14 = tail call zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %14 = tail call zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 15:                                               ; preds = %4
-  %16 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %16 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 17:                                               ; preds = %4
-  %18 = tail call zeroext i1 @range_overright_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %18 = tail call zeroext i1 @range_overright_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 19:                                               ; preds = %4
-  %20 = tail call zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %20 = tail call zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 21:                                               ; preds = %4
-  %22 = tail call zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %22 = tail call zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 23:                                               ; preds = %4
-  %24 = tail call zeroext i1 @range_contains_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %24 = tail call zeroext i1 @range_contains_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %53
 
 25:                                               ; preds = %4
-  %26 = tail call zeroext i1 @multirange_contains_range_internal(ptr noundef %0, ptr noundef %3, ptr noundef %2) #10
+  %26 = tail call zeroext i1 @multirange_contains_range_internal(ptr noundef %0, ptr noundef %3, ptr noundef %2) #9
   br label %53
 
 27:                                               ; preds = %4
@@ -257,7 +254,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %28 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %28 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %29 = and i8 %28, 1
   %.not.i = icmp eq i8 %29, 0
   br i1 %.not.i, label %30, label %34
@@ -269,7 +266,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   br i1 %33, label %34, label %41
 
 34:                                               ; preds = %30, %27
-  %35 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %35 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %36 = and i8 %35, 1
   %.not14.i = icmp eq i8 %36, 0
   br i1 %.not14.i, label %multirange_union_range_equal.exit, label %37
@@ -281,17 +278,17 @@ define internal fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr nou
   br label %multirange_union_range_equal.exit
 
 41:                                               ; preds = %30
-  call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %10) #10
-  call void @multirange_get_bounds(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %9) #10
+  call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %10) #9
+  call void @multirange_get_bounds(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %9) #9
   %42 = load i32, ptr %31, align 4
   %43 = add i32 %42, -1
-  call void @multirange_get_bounds(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %43, ptr noundef nonnull %9, ptr noundef nonnull %8) #10
-  %44 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
+  call void @multirange_get_bounds(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %43, ptr noundef nonnull %9, ptr noundef nonnull %8) #9
+  %44 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %7) #9
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %multirange_union_range_equal.exit
 
 46:                                               ; preds = %41
-  %47 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
+  %47 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8) #9
   %48 = icmp eq i32 %47, 0
   br label %multirange_union_range_equal.exit
 
@@ -307,10 +304,9 @@ multirange_union_range_equal.exit:                ; preds = %34, %37, %41, %46
 
 49:                                               ; preds = %4
   %50 = zext i16 %1 to i32
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %50) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1119, ptr noundef nonnull @__func__.range_gist_consistent_leaf_multirange) #10
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %50) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1119, ptr noundef nonnull @__func__.range_gist_consistent_leaf_multirange) #9
   unreachable
 
 53:                                               ; preds = %multirange_union_range_equal.exit, %25, %23, %21, %19, %17, %15, %13, %11
@@ -333,133 +329,132 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_range(ptr noundef %
   ]
 
 5:                                                ; preds = %4
-  %6 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %6 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %7 = and i8 %6, 1
   %.not54 = icmp eq i8 %7, 0
   br i1 %.not54, label %8, label %73
 
 8:                                                ; preds = %5
-  %9 = tail call signext i8 @range_get_flags(ptr noundef %3) #10
+  %9 = tail call signext i8 @range_get_flags(ptr noundef %3) #9
   %10 = and i8 %9, 1
   %.not55 = icmp eq i8 %10, 0
   br i1 %.not55, label %11, label %73
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @range_overright_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %12 = tail call zeroext i1 @range_overright_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   %13 = xor i1 %12, true
   br label %73
 
 14:                                               ; preds = %4
-  %15 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %15 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %16 = and i8 %15, 1
   %.not52 = icmp eq i8 %16, 0
   br i1 %.not52, label %17, label %73
 
 17:                                               ; preds = %14
-  %18 = tail call signext i8 @range_get_flags(ptr noundef %3) #10
+  %18 = tail call signext i8 @range_get_flags(ptr noundef %3) #9
   %19 = and i8 %18, 1
   %.not53 = icmp eq i8 %19, 0
   br i1 %.not53, label %20, label %73
 
 20:                                               ; preds = %17
-  %21 = tail call zeroext i1 @range_after_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %21 = tail call zeroext i1 @range_after_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   %22 = xor i1 %21, true
   br label %73
 
 23:                                               ; preds = %4
-  %24 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %24 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %73
 
 25:                                               ; preds = %4
-  %26 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %26 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %27 = and i8 %26, 1
   %.not50 = icmp eq i8 %27, 0
   br i1 %.not50, label %28, label %73
 
 28:                                               ; preds = %25
-  %29 = tail call signext i8 @range_get_flags(ptr noundef %3) #10
+  %29 = tail call signext i8 @range_get_flags(ptr noundef %3) #9
   %30 = and i8 %29, 1
   %.not51 = icmp eq i8 %30, 0
   br i1 %.not51, label %31, label %73
 
 31:                                               ; preds = %28
-  %32 = tail call zeroext i1 @range_before_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %32 = tail call zeroext i1 @range_before_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   %33 = xor i1 %32, true
   br label %73
 
 34:                                               ; preds = %4
-  %35 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %35 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %36 = and i8 %35, 1
   %.not48 = icmp eq i8 %36, 0
   br i1 %.not48, label %37, label %73
 
 37:                                               ; preds = %34
-  %38 = tail call signext i8 @range_get_flags(ptr noundef %3) #10
+  %38 = tail call signext i8 @range_get_flags(ptr noundef %3) #9
   %39 = and i8 %38, 1
   %.not49 = icmp eq i8 %39, 0
   br i1 %.not49, label %40, label %73
 
 40:                                               ; preds = %37
-  %41 = tail call zeroext i1 @range_overleft_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %41 = tail call zeroext i1 @range_overleft_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   %42 = xor i1 %41, true
   br label %73
 
 43:                                               ; preds = %4
-  %44 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %44 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %45 = and i8 %44, 1
   %.not46 = icmp eq i8 %45, 0
   br i1 %.not46, label %46, label %73
 
 46:                                               ; preds = %43
-  %47 = tail call signext i8 @range_get_flags(ptr noundef %3) #10
+  %47 = tail call signext i8 @range_get_flags(ptr noundef %3) #9
   %48 = and i8 %47, 1
   %.not47 = icmp eq i8 %48, 0
   br i1 %.not47, label %49, label %73
 
 49:                                               ; preds = %46
-  %50 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %50 = tail call zeroext i1 @range_adjacent_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br i1 %50, label %73, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %52 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %73
 
 53:                                               ; preds = %4
-  %54 = tail call zeroext i1 @range_contains_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %54 = tail call zeroext i1 @range_contains_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %73
 
 55:                                               ; preds = %4
-  %56 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %56 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %57 = and i8 %56, -127
   %.not45 = icmp eq i8 %57, 0
   br i1 %.not45, label %58, label %73
 
 58:                                               ; preds = %55
-  %59 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %59 = tail call zeroext i1 @range_overlaps_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %73
 
 60:                                               ; preds = %4
-  %61 = tail call signext i8 @range_get_flags(ptr noundef %3) #10
+  %61 = tail call signext i8 @range_get_flags(ptr noundef %3) #9
   %62 = and i8 %61, 1
   %.not = icmp eq i8 %62, 0
   br i1 %.not, label %67, label %63
 
 63:                                               ; preds = %60
-  %64 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %64 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %65 = and i8 %64, -127
   %66 = icmp ne i8 %65, 0
   br label %73
 
 67:                                               ; preds = %60
-  %68 = tail call zeroext i1 @range_contains_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %68 = tail call zeroext i1 @range_contains_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %73
 
 69:                                               ; preds = %4
   %70 = zext i16 %1 to i32
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %70) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 968, ptr noundef nonnull @__func__.range_gist_consistent_int_range) #10
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %70) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 968, ptr noundef nonnull @__func__.range_gist_consistent_int_range) #9
   unreachable
 
 73:                                               ; preds = %55, %49, %43, %46, %34, %37, %25, %28, %14, %17, %5, %8, %67, %63, %58, %53, %51, %40, %31, %23, %20, %11
@@ -482,7 +477,7 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   ]
 
 5:                                                ; preds = %4
-  %6 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %6 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %7 = and i8 %6, 1
   %.not49 = icmp eq i8 %7, 0
   br i1 %.not49, label %8, label %79
@@ -494,12 +489,12 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %11, label %79, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call zeroext i1 @range_overright_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %13 = tail call zeroext i1 @range_overright_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   %14 = xor i1 %13, true
   br label %79
 
 15:                                               ; preds = %4
-  %16 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %16 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %17 = and i8 %16, 1
   %.not48 = icmp eq i8 %17, 0
   br i1 %.not48, label %18, label %79
@@ -511,16 +506,16 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %21, label %79, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %23 = tail call zeroext i1 @range_after_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   %24 = xor i1 %23, true
   br label %79
 
 25:                                               ; preds = %4
-  %26 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %26 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %79
 
 27:                                               ; preds = %4
-  %28 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %28 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %29 = and i8 %28, 1
   %.not47 = icmp eq i8 %29, 0
   br i1 %.not47, label %30, label %79
@@ -532,12 +527,12 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %33, label %79, label %34
 
 34:                                               ; preds = %30
-  %35 = tail call zeroext i1 @range_before_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %35 = tail call zeroext i1 @range_before_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   %36 = xor i1 %35, true
   br label %79
 
 37:                                               ; preds = %4
-  %38 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %38 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %39 = and i8 %38, 1
   %.not46 = icmp eq i8 %39, 0
   br i1 %.not46, label %40, label %79
@@ -549,12 +544,12 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %43, label %79, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %45 = tail call zeroext i1 @range_overleft_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   %46 = xor i1 %45, true
   br label %79
 
 47:                                               ; preds = %4
-  %48 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %48 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %49 = and i8 %48, 1
   %.not45 = icmp eq i8 %49, 0
   br i1 %.not45, label %50, label %79
@@ -566,25 +561,25 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %53, label %79, label %54
 
 54:                                               ; preds = %50
-  %55 = tail call zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %55 = tail call zeroext i1 @range_adjacent_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   br i1 %55, label %79, label %56
 
 56:                                               ; preds = %54
-  %57 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %57 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   br label %79
 
 58:                                               ; preds = %4
-  %59 = tail call zeroext i1 @range_contains_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %59 = tail call zeroext i1 @range_contains_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %79
 
 60:                                               ; preds = %4
-  %61 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %61 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %62 = and i8 %61, -127
   %.not = icmp eq i8 %62, 0
   br i1 %.not, label %63, label %79
 
 63:                                               ; preds = %60
-  %64 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #10
+  %64 = tail call zeroext i1 @range_overlaps_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef %3) #9
   br label %79
 
 65:                                               ; preds = %4
@@ -594,21 +589,20 @@ define internal fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noun
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %65
-  %70 = tail call signext i8 @range_get_flags(ptr noundef %2) #10
+  %70 = tail call signext i8 @range_get_flags(ptr noundef %2) #9
   %71 = and i8 %70, -127
   %72 = icmp ne i8 %71, 0
   br label %79
 
 73:                                               ; preds = %65
-  %74 = tail call zeroext i1 @range_contains_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #10
+  %74 = tail call zeroext i1 @range_contains_multirange_internal(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3) #9
   br label %79
 
 75:                                               ; preds = %4
   %76 = zext i16 %1 to i32
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %76) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1030, ptr noundef nonnull @__func__.range_gist_consistent_int_multirange) #10
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %76) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1030, ptr noundef nonnull @__func__.range_gist_consistent_int_multirange) #9
   unreachable
 
 79:                                               ; preds = %60, %54, %47, %50, %37, %40, %27, %30, %15, %18, %5, %8, %73, %69, %63, %58, %56, %44, %34, %25, %22, %12
@@ -629,14 +623,14 @@ define dso_local i64 @multirange_gist_compress(ptr noundef %0) local_unnamed_add
 8:                                                ; preds = %1
   %9 = load i64, ptr %4, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #10
-  %12 = tail call ptr @palloc(i64 noundef 32) #10
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #9
+  %12 = tail call ptr @palloc(i64 noundef 32) #9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %14) #10
+  %15 = tail call ptr @multirange_get_typcache(ptr noundef nonnull %0, i32 noundef %14) #9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 440
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @multirange_get_union_range(ptr noundef %17, ptr noundef %11) #10
+  %18 = tail call ptr @multirange_get_union_range(ptr noundef %17, ptr noundef %11) #9
   %19 = ptrtoint ptr %18 to i64
   store i64 %19, ptr %12, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -685,11 +679,11 @@ define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0)
   %15 = inttoptr i64 %14 to ptr
   %16 = load i64, ptr %4, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
+  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #9
   store i8 1, ptr %15, align 1
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #10
+  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #9
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -711,13 +705,13 @@ define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0)
 
 32:                                               ; preds = %31, %31
   %33 = inttoptr i64 %6 to ptr
-  %34 = tail call ptr @pg_detoast_datum(ptr noundef %33) #10
+  %34 = tail call ptr @pg_detoast_datum(ptr noundef %33) #9
   %35 = tail call fastcc zeroext i1 @range_gist_consistent_leaf_multirange(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %34)
   br label %63
 
 36:                                               ; preds = %31
   %37 = inttoptr i64 %6 to ptr
-  %38 = tail call ptr @pg_detoast_datum(ptr noundef %37) #10
+  %38 = tail call ptr @pg_detoast_datum(ptr noundef %37) #9
   %39 = tail call fastcc zeroext i1 @range_gist_consistent_leaf_range(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %38)
   br label %63
 
@@ -728,14 +722,13 @@ define dso_local range(i64 0, 2) i64 @multirange_gist_consistent(ptr noundef %0)
 41:                                               ; preds = %40
   %42 = trunc i64 %8 to i32
   %43 = and i32 %42, 65535
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %43) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1138, ptr noundef nonnull @__func__.range_gist_consistent_leaf_element) #10
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %45 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %43) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1138, ptr noundef nonnull @__func__.range_gist_consistent_leaf_element) #9
   unreachable
 
 range_gist_consistent_leaf_element.exit:          ; preds = %40
-  %46 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #10
+  %46 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #9
   br label %63
 
 47:                                               ; preds = %1
@@ -747,13 +740,13 @@ range_gist_consistent_leaf_element.exit:          ; preds = %40
 
 48:                                               ; preds = %47, %47
   %49 = inttoptr i64 %6 to ptr
-  %50 = tail call ptr @pg_detoast_datum(ptr noundef %49) #10
+  %50 = tail call ptr @pg_detoast_datum(ptr noundef %49) #9
   %51 = tail call fastcc zeroext i1 @range_gist_consistent_int_multirange(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %50)
   br label %63
 
 52:                                               ; preds = %47
   %53 = inttoptr i64 %6 to ptr
-  %54 = tail call ptr @pg_detoast_datum(ptr noundef %53) #10
+  %54 = tail call ptr @pg_detoast_datum(ptr noundef %53) #9
   %55 = tail call fastcc zeroext i1 @range_gist_consistent_int_range(ptr noundef %21, i16 noundef zeroext %9, ptr noundef nonnull %18, ptr noundef %54)
   br label %63
 
@@ -764,14 +757,13 @@ range_gist_consistent_leaf_element.exit:          ; preds = %40
 57:                                               ; preds = %56
   %58 = trunc i64 %8 to i32
   %59 = and i32 %58, 65535
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %59) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1049, ptr noundef nonnull @__func__.range_gist_consistent_int_element) #10
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %61 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %59) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1049, ptr noundef nonnull @__func__.range_gist_consistent_int_element) #9
   unreachable
 
 range_gist_consistent_int_element.exit:           ; preds = %56
-  %62 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #10
+  %62 = tail call zeroext i1 @range_contains_elem_internal(ptr noundef %21, ptr noundef nonnull %18, i64 noundef %6) #9
   br label %63
 
 63:                                               ; preds = %48, %range_gist_consistent_int_element.exit, %52, %32, %range_gist_consistent_leaf_element.exit, %36
@@ -788,10 +780,10 @@ define dso_local i64 @range_gist_union(ptr noundef %0) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #10
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #9
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %10) #10
+  %11 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %10) #9
   %12 = load i32, ptr %4, align 8
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %.lr.ph, label %._crit_edge
@@ -802,7 +794,7 @@ define dso_local i64 @range_gist_union(ptr noundef %0) local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %5, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %16 = inttoptr i64 %15 to ptr
-  %17 = tail call ptr @pg_detoast_datum(ptr noundef %16) #10
+  %17 = tail call ptr @pg_detoast_datum(ptr noundef %16) #9
   %18 = tail call fastcc ptr @range_super_union(ptr noundef %11, ptr noundef %.01213, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %4, align 8
@@ -830,10 +822,10 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @range_deserialize(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
-  call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9) #10
-  %10 = call signext i8 @range_get_flags(ptr noundef %1) #10
-  %11 = call signext i8 @range_get_flags(ptr noundef %2) #10
+  call void @range_deserialize(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8) #9
+  call void @range_deserialize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9) #9
+  %10 = call signext i8 @range_get_flags(ptr noundef %1) #9
+  %11 = call signext i8 @range_get_flags(ptr noundef %2) #9
   %12 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %16
@@ -854,10 +846,10 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not45, label %.sink.split.sink.split, label %33
 
 21:                                               ; preds = %16
-  %22 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %22 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %23 = icmp slt i32 %22, 1
   %. = select i1 %23, ptr %4, ptr %5
-  %24 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %24 = call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
   %25 = icmp sgt i32 %24, -1
   %.0 = select i1 %25, ptr %6, ptr %7
   %or.cond = and i1 %23, %25
@@ -880,7 +872,7 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
   br i1 %or.cond48, label %33, label %.thread
 
 .thread:                                          ; preds = %26, %28, %27
-  %29 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %., ptr noundef nonnull %.0, i1 noundef zeroext false, ptr noundef null) #10
+  %29 = call ptr @make_range(ptr noundef %0, ptr noundef nonnull %., ptr noundef nonnull %.0, i1 noundef zeroext false, ptr noundef null) #9
   %.not43 = icmp sgt i8 %10, -1
   %.not44 = icmp sgt i8 %11, -1
   %or.cond49 = select i1 %.not43, i1 %.not44, i1 false
@@ -889,13 +881,13 @@ define internal fastcc ptr @range_super_union(ptr noundef %0, ptr noundef %1, pt
 .sink.split.sink.split:                           ; preds = %19, %14
   %.sink54 = phi ptr [ %2, %14 ], [ %1, %19 ]
   %30 = ptrtoint ptr %.sink54 to i64
-  %31 = call i64 @datumCopy(i64 noundef %30, i1 noundef zeroext false, i32 noundef -1) #10
+  %31 = call i64 @datumCopy(i64 noundef %30, i1 noundef zeroext false, i32 noundef -1) #9
   %32 = inttoptr i64 %31 to ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread
   %.sink = phi ptr [ %29, %.thread ], [ %32, %.sink.split.sink.split ]
-  call void @range_set_contain_empty(ptr noundef %.sink) #10
+  call void @range_set_contain_empty(ptr noundef %.sink) #9
   br label %33
 
 33:                                               ; preds = %.sink.split, %.thread, %28, %26, %19, %14
@@ -928,10 +920,10 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %16 = inttoptr i64 %15 to ptr
   %17 = load i64, ptr %10, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @pg_detoast_datum(ptr noundef %18) #10
+  %19 = tail call ptr @pg_detoast_datum(ptr noundef %18) #9
   %20 = load i64, ptr %13, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = tail call ptr @pg_detoast_datum(ptr noundef %21) #10
+  %22 = tail call ptr @pg_detoast_datum(ptr noundef %21) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -946,19 +938,18 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not82, label %30, label %27
 
 27:                                               ; preds = %1
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @__func__.range_gist_penalty) #10
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %29 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 379, ptr noundef nonnull @__func__.range_gist_penalty) #9
   unreachable
 
 30:                                               ; preds = %1
-  %31 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %24) #10
+  %31 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %24) #9
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 400
   %33 = load i32, ptr %32, align 8
   %.not83 = icmp eq i32 %33, 0
-  call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %6) #10
-  call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #10
+  call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %6) #9
+  call void @range_deserialize(ptr noundef %31, ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #9
   %34 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %50
@@ -969,7 +960,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %38, label %.sink.split, label %39
 
 39:                                               ; preds = %36
-  %40 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #10
+  %40 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #9
   %41 = and i8 %40, -127
   %.not85 = icmp eq i8 %41, 0
   br i1 %.not85, label %42, label %.sink.split
@@ -1011,7 +1002,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %.95 = select i1 %or.cond14, float 2.000000e+00, float 4.000000e+00
   %.sink = select i1 %or.cond11, float 0.000000e+00, float %.95
   store float %.sink, ptr %16, align 4
-  %64 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #10
+  %64 = call signext i8 @range_get_flags(ptr noundef nonnull %19) #9
   %65 = and i8 %64, -127
   %.not84 = icmp eq i8 %65, 0
   br i1 %.not84, label %149, label %66
@@ -1041,7 +1032,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %79, label %.sink.split, label %80
 
 80:                                               ; preds = %76
-  %81 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
+  %81 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   %82 = icmp slt i32 %81, 1
   %brmerge97 = select i1 %82, i1 true, i1 %.not83
   %.mux98 = select i1 %82, float 0.000000e+00, float 1.000000e+00
@@ -1053,7 +1044,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %86 = getelementptr inbounds nuw i8, ptr %31, i64 392
   %87 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %88 = load i32, ptr %87, align 4
-  %89 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %88, i64 noundef %84, i64 noundef %85) #10
+  %89 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %88, i64 noundef %84, i64 noundef %85) #9
   %90 = bitcast i64 %89 to double
   %.inv.i = fcmp oge double %90, 0.000000e+00
   %..i = select i1 %.inv.i, double %90, double 0.000000e+00
@@ -1078,7 +1069,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %100, label %.sink.split, label %101
 
 101:                                              ; preds = %97
-  %102 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
+  %102 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   %103 = icmp sgt i32 %102, -1
   %brmerge100 = select i1 %103, i1 true, i1 %.not83
   %.mux101 = select i1 %103, float 0.000000e+00, float 1.000000e+00
@@ -1090,7 +1081,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %107 = getelementptr inbounds nuw i8, ptr %31, i64 392
   %108 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %109 = load i32, ptr %108, align 4
-  %110 = call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %105, i64 noundef %106) #10
+  %110 = call i64 @FunctionCall2Coll(ptr noundef nonnull %107, i32 noundef %109, i64 noundef %105, i64 noundef %106) #9
   %111 = bitcast i64 %110 to double
   %.inv.i87 = fcmp oge double %111, 0.000000e+00
   %..i88 = select i1 %.inv.i87, double %111, double 0.000000e+00
@@ -1109,7 +1100,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond27, label %.sink.split, label %120
 
 120:                                              ; preds = %113
-  %121 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #10
+  %121 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %3, ptr noundef nonnull %2) #9
   %122 = icmp sgt i32 %121, -1
   %brmerge = select i1 %122, i1 true, i1 %.not83
   %.mux = select i1 %122, double 0.000000e+00, double 1.000000e+00
@@ -1121,7 +1112,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %126 = getelementptr inbounds nuw i8, ptr %31, i64 392
   %127 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %128 = load i32, ptr %127, align 4
-  %129 = call i64 @FunctionCall2Coll(ptr noundef nonnull %126, i32 noundef %128, i64 noundef %124, i64 noundef %125) #10
+  %129 = call i64 @FunctionCall2Coll(ptr noundef nonnull %126, i32 noundef %128, i64 noundef %124, i64 noundef %125) #9
   %130 = bitcast i64 %129 to double
   %.inv.i89 = fcmp oge double %130, 0.000000e+00
   %..i90 = select i1 %.inv.i89, double %130, double 0.000000e+00
@@ -1130,7 +1121,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
 
 132:                                              ; preds = %120, %123
   %.0 = phi double [ %131, %123 ], [ %.mux, %120 ]
-  %133 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
+  %133 = call i32 @range_cmp_bounds(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #9
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %147
 
@@ -1143,7 +1134,7 @@ define dso_local i64 @range_gist_penalty(ptr noundef %0) local_unnamed_addr #0 {
   %139 = getelementptr inbounds nuw i8, ptr %31, i64 392
   %140 = getelementptr inbounds nuw i8, ptr %31, i64 292
   %141 = load i32, ptr %140, align 4
-  %142 = call i64 @FunctionCall2Coll(ptr noundef nonnull %139, i32 noundef %141, i64 noundef %137, i64 noundef %138) #10
+  %142 = call i64 @FunctionCall2Coll(ptr noundef nonnull %139, i32 noundef %141, i64 noundef %137, i64 noundef %138) #9
   %143 = bitcast i64 %142 to double
   %.inv.i91 = fcmp oge double %143, 0.000000e+00
   %..i92 = select i1 %.inv.i91, double %143, double 0.000000e+00
@@ -1206,19 +1197,19 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #10
+  %18 = tail call ptr @pg_detoast_datum(ptr noundef %17) #9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #10
+  %21 = tail call ptr @range_get_typcache(ptr noundef %0, i32 noundef %20) #9
   %22 = load i32, ptr %10, align 8
   %23 = add i32 %22, 65535
   %24 = and i32 %23, 65535
   %25 = shl nuw nsw i32 %24, 1
   %26 = add nuw nsw i32 %25, 2
   %27 = zext nneg i32 %26 to i64
-  %28 = tail call ptr @palloc(i64 noundef %27) #10
+  %28 = tail call ptr @palloc(i64 noundef %27) #9
   store ptr %28, ptr %13, align 8
-  %29 = tail call ptr @palloc(i64 noundef %27) #10
+  %29 = tail call ptr @palloc(i64 noundef %27) #9
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %29, ptr %30, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %6, i8 0, i64 36, i1 false)
@@ -1236,8 +1227,8 @@ define dso_local i64 @range_gist_picksplit(ptr noundef %0) local_unnamed_addr #0
   %34 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = tail call ptr @pg_detoast_datum(ptr noundef %36) #10
-  %38 = tail call signext i8 @range_get_flags(ptr noundef %37) #10
+  %37 = tail call ptr @pg_detoast_datum(ptr noundef %36) #9
+  %38 = tail call signext i8 @range_get_flags(ptr noundef %37) #9
   %39 = and i8 %38, 1
   %.not.i = icmp eq i8 %39, 0
   br i1 %.not.i, label %40, label %get_gist_range_class.exit
@@ -1307,8 +1298,8 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %65 = add nsw i32 %64, -1
   %66 = zext nneg i32 %64 to i64
   %67 = shl nuw nsw i64 %66, 5
-  %68 = tail call ptr @palloc(i64 noundef %67) #10
-  %69 = tail call ptr @palloc(i64 noundef %67) #10
+  %68 = tail call ptr @palloc(i64 noundef %67) #9
+  %69 = tail call ptr @palloc(i64 noundef %67) #9
   %70 = and i32 %62, 65535
   %.not243.i = icmp eq i32 %70, 1
   br i1 %.not243.i, label %._crit_edge287.thread.critedge.i, label %.lr.ph.i
@@ -1323,12 +1314,12 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %74 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = inttoptr i64 %75 to ptr
-  %77 = call ptr @pg_detoast_datum(ptr noundef %76) #10
+  %77 = call ptr @pg_detoast_datum(ptr noundef %76) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %78 = getelementptr %struct.NonEmptyRange, ptr %68, i64 %73
   %79 = getelementptr i8, ptr %78, i64 -32
   %80 = getelementptr i8, ptr %78, i64 -16
-  call void @range_deserialize(ptr noundef nonnull %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #10
+  call void @range_deserialize(ptr noundef nonnull %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %81 = add i16 %.0244.i, 1
   %.not.i77 = icmp ugt i16 %81, %71
@@ -1336,8 +1327,8 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 
 ._crit_edge.i:                                    ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %68, i64 %67, i1 false)
-  call void @qsort_arg(ptr noundef %68, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_lower, ptr noundef nonnull %21) #10
-  call void @qsort_arg(ptr noundef %69, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_upper, ptr noundef nonnull %21) #10
+  call void @qsort_arg(ptr noundef %68, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_lower, ptr noundef nonnull %21) #9
+  call void @qsort_arg(ptr noundef %69, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_upper, ptr noundef nonnull %21) #9
   %82 = add nuw nsw i32 %64, 1
   %83 = lshr i32 %82, 1
   %84 = lshr i32 %64, 1
@@ -1365,13 +1356,13 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %indvars.iv.i = phi i64 [ %88, %.lr.ph248.i ], [ %indvars.iv.next.i, %93 ]
   %.1183246.i = phi ptr [ %.0182276.i, %.lr.ph248.i ], [ %spec.select.i, %93 ]
   %90 = getelementptr inbounds %struct.NonEmptyRange, ptr %68, i64 %indvars.iv.i
-  %91 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %.0186275.i, ptr noundef %90) #10
+  %91 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %.0186275.i, ptr noundef %90) #9
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %95 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %94, ptr noundef %.1183246.i) #10
+  %95 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %94, ptr noundef %.1183246.i) #9
   %96 = icmp sgt i32 %95, 0
   %spec.select.i = select i1 %96, ptr %94, ptr %.1183246.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -1394,7 +1385,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %indvars.iv351.i = phi i64 [ %103, %.lr.ph263.preheader.i ], [ %indvars.iv.next352.i, %108 ]
   %104 = getelementptr inbounds %struct.NonEmptyRange, ptr %69, i64 %indvars.iv351.i
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %105, ptr noundef %.1183246.i) #10
+  %106 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %105, ptr noundef %.1183246.i) #9
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %108, label %.critedge2.loopexit.split.loop.exit401.i
 
@@ -1427,7 +1418,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %118 = load i64, ptr %.1183246.i, align 8
   %119 = load i64, ptr %101, align 8
   %120 = load i32, ptr %87, align 4
-  %121 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %120, i64 noundef %118, i64 noundef %119) #10
+  %121 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %120, i64 noundef %118, i64 noundef %119) #9
   %122 = bitcast i64 %121 to double
   %.inv.i.i.i = fcmp oge double %122, 0.000000e+00
   %..i.i.i = select i1 %.inv.i.i.i, double %122, double 0.000000e+00
@@ -1499,12 +1490,12 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %130
   %.2188284.i = phi ptr [ %.1187310.i, %.lr.ph286.i ], [ %spec.select204.i, %146 ]
   %142 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %69, i64 %indvars.iv354.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  %144 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %.3185311.i, ptr noundef nonnull %143) #10
+  %144 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %.3185311.i, ptr noundef nonnull %143) #9
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %.critedge4.i
 
 146:                                              ; preds = %141
-  %147 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %142, ptr noundef %.2188284.i) #10
+  %147 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %142, ptr noundef %.2188284.i) #9
   %148 = icmp slt i32 %147, 0
   %spec.select204.i = select i1 %148, ptr %142, ptr %.2188284.i
   %indvars.iv.next355.i = add nsw i64 %indvars.iv354.i, -1
@@ -1527,7 +1518,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %130
 .lr.ph298.i:                                      ; preds = %160, %.lr.ph298.preheader.i
   %indvars.iv357.i = phi i64 [ %156, %.lr.ph298.preheader.i ], [ %indvars.iv.next358.i, %160 ]
   %157 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %68, i64 %indvars.iv357.i
-  %158 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %157, ptr noundef %.2188284.i) #10
+  %158 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %157, ptr noundef %.2188284.i) #9
   %159 = icmp sgt i32 %158, -1
   br i1 %159, label %160, label %.critedge6.loopexit.split.loop.exit403.i
 
@@ -1562,7 +1553,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %130
   %173 = load i64, ptr %154, align 8
   %174 = load i64, ptr %.2188284.i, align 8
   %175 = load i32, ptr %87, align 4
-  %176 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %175, i64 noundef %173, i64 noundef %174) #10
+  %176 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %175, i64 noundef %173, i64 noundef %174) #9
   %177 = bitcast i64 %176 to double
   %.inv.i.i209.i = fcmp oge double %177, 0.000000e+00
   %..i.i210.i = select i1 %.inv.i.i209.i, double %177, double 0.000000e+00
@@ -1611,8 +1602,8 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 ._crit_edge287.thread.critedge.i:                 ; preds = %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %68, i64 %67, i1 false)
-  tail call void @qsort_arg(ptr noundef %68, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_lower, ptr noundef nonnull %21) #10
-  tail call void @qsort_arg(ptr noundef %69, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_upper, ptr noundef nonnull %21) #10
+  tail call void @qsort_arg(ptr noundef %68, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_lower, ptr noundef nonnull %21) #9
+  tail call void @qsort_arg(ptr noundef %69, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_upper, ptr noundef nonnull %21) #9
   br label %._crit_edge287.thread.i
 
 ._crit_edge287.thread.i:                          ; preds = %._crit_edge287.thread.critedge.i, %._crit_edge287.i
@@ -1621,16 +1612,16 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 191:                                              ; preds = %._crit_edge287.i
   %192 = shl nuw nsw i64 %66, 1
-  %193 = call ptr @palloc(i64 noundef %192) #10
+  %193 = call ptr @palloc(i64 noundef %192) #9
   store ptr %193, ptr %13, align 8
-  %194 = call ptr @palloc(i64 noundef %192) #10
+  %194 = call ptr @palloc(i64 noundef %192) #9
   store ptr %194, ptr %30, align 8
   %195 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 0, ptr %196, align 8
   %197 = shl nuw nsw i64 %66, 4
-  %198 = call ptr @palloc(i64 noundef %197) #10
+  %198 = call ptr @palloc(i64 noundef %197) #9
   br label %199
 
 199:                                              ; preds = %251, %191
@@ -1646,14 +1637,14 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %202 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %201
   %203 = load i64, ptr %202, align 8
   %204 = inttoptr i64 %203 to ptr
-  %205 = call ptr @pg_detoast_datum(ptr noundef %204) #10
-  call void @range_deserialize(ptr noundef nonnull %21, ptr noundef %205, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  %206 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %.sroa.19223.1.lcssa.i) #10
+  %205 = call ptr @pg_detoast_datum(ptr noundef %204) #9
+  call void @range_deserialize(ptr noundef nonnull %21, ptr noundef %205, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
+  %206 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %.sroa.19223.1.lcssa.i) #9
   %207 = icmp slt i32 %206, 1
   br i1 %207, label %208, label %240
 
 208:                                              ; preds = %199
-  %209 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef %.sroa.23.1.lcssa.i) #10
+  %209 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef %.sroa.23.1.lcssa.i) #9
   %210 = icmp sgt i32 %209, -1
   br i1 %210, label %211, label %229
 
@@ -1667,14 +1658,14 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %215 = load i64, ptr %3, align 8
   %216 = load i64, ptr %.sroa.23.1.lcssa.i, align 8
   %217 = load i32, ptr %87, align 4
-  %218 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %217, i64 noundef %215, i64 noundef %216) #10
+  %218 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %217, i64 noundef %215, i64 noundef %216) #9
   %219 = bitcast i64 %218 to double
   %.inv.i.i = fcmp oge double %219, 0.000000e+00
   %..i213.i = select i1 %.inv.i.i, double %219, double 0.000000e+00
   %220 = load i64, ptr %.sroa.19223.1.lcssa.i, align 8
   %221 = load i64, ptr %4, align 8
   %222 = load i32, ptr %87, align 4
-  %223 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %222, i64 noundef %220, i64 noundef %221) #10
+  %223 = call i64 @FunctionCall2Coll(ptr noundef nonnull %86, i32 noundef %222, i64 noundef %220, i64 noundef %221) #9
   %224 = bitcast i64 %223 to double
   %.inv.i214.i = fcmp oge double %224, 0.000000e+00
   %..i215.i = select i1 %.inv.i214.i, double %224, double 0.000000e+00
@@ -1748,7 +1739,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
 
 255:                                              ; preds = %._crit_edge323.i
   %256 = zext nneg i32 %.1181.i to i64
-  call void @pg_qsort(ptr noundef %198, i64 noundef %256, i64 noundef 16, ptr noundef nonnull @common_entry_cmp) #10
+  call void @pg_qsort(ptr noundef %198, i64 noundef %256, i64 noundef 16, ptr noundef nonnull @common_entry_cmp) #9
   br label %257
 
 257:                                              ; preds = %286, %255
@@ -1763,7 +1754,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %263 = getelementptr inbounds %struct.GISTENTRY, ptr %14, i64 %262
   %264 = load i64, ptr %263, align 8
   %265 = inttoptr i64 %264 to ptr
-  %266 = call ptr @pg_detoast_datum(ptr noundef %265) #10
+  %266 = call ptr @pg_detoast_datum(ptr noundef %265) #9
   %267 = icmp sgt i32 %.sroa.35.1.lcssa.i, %258
   br i1 %267, label %268, label %277
 
@@ -1935,8 +1926,8 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %350 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %14, i64 %349
   %351 = load i64, ptr %350, align 8
   %352 = inttoptr i64 %351 to ptr
-  %353 = tail call ptr @pg_detoast_datum(ptr noundef %352) #10
-  %354 = tail call signext i8 @range_get_flags(ptr noundef %353) #10
+  %353 = tail call ptr @pg_detoast_datum(ptr noundef %352) #9
+  %354 = tail call signext i8 @range_get_flags(ptr noundef %353) #9
   %355 = and i8 %354, 1
   %.not.i.i79 = icmp eq i8 %355, 0
   br i1 %.not.i.i79, label %356, label %get_gist_range_class.exit.i
@@ -2038,7 +2029,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %9 = add i16 %8, -1
   %10 = zext i16 %9 to i64
   %11 = mul nuw nsw i64 %10, 24
-  %12 = tail call ptr @palloc(i64 noundef %11) #10
+  %12 = tail call ptr @palloc(i64 noundef %11) #9
   %.not61 = icmp eq i16 %9, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 
@@ -2053,14 +2044,14 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %16 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = call ptr @pg_detoast_datum(ptr noundef %18) #10
+  %19 = call ptr @pg_detoast_datum(ptr noundef %18) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %15
   %21 = getelementptr i8, ptr %20, i64 -24
   store i32 %14, ptr %21, align 8
   %22 = getelementptr i8, ptr %20, i64 -16
-  call void @range_deserialize(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %5, ptr noundef %22, ptr noundef nonnull %6) #10
+  call void @range_deserialize(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %5, ptr noundef %22, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %23 = add i16 %.05662.us, 1
@@ -2074,14 +2065,14 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %26 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %13, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = inttoptr i64 %27 to ptr
-  %29 = call ptr @pg_detoast_datum(ptr noundef %28) #10
+  %29 = call ptr @pg_detoast_datum(ptr noundef %28) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %25
   %31 = getelementptr i8, ptr %30, i64 -24
   store i32 %24, ptr %31, align 8
   %32 = getelementptr i8, ptr %30, i64 -16
-  call void @range_deserialize(ptr noundef %0, ptr noundef %29, ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  call void @range_deserialize(ptr noundef %0, ptr noundef %29, ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = add i16 %.05662, 1
@@ -2089,7 +2080,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   br i1 %.not, label %.lr.ph67, label %.lr.ph.split, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %4
-  tail call void @qsort_arg(ptr noundef %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
+  tail call void @qsort_arg(ptr noundef %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #9
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -2097,7 +2088,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   br label %._crit_edge68
 
 .lr.ph67:                                         ; preds = %.lr.ph.split, %.lr.ph.split.us
-  call void @qsort_arg(ptr noundef nonnull %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
+  call void @qsort_arg(ptr noundef nonnull %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #9
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -2118,7 +2109,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %46 = getelementptr inbounds %struct.GISTENTRY, ptr %39, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = inttoptr i64 %47 to ptr
-  %49 = call ptr @pg_detoast_datum(ptr noundef %48) #10
+  %49 = call ptr @pg_detoast_datum(ptr noundef %48) #9
   %50 = icmp samesign ult i64 %indvars.iv, %41
   br i1 %50, label %51, label %60
 
@@ -2216,7 +2207,7 @@ define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nound
   %18 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %12, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
-  %21 = tail call ptr @pg_detoast_datum(ptr noundef %20) #10
+  %21 = tail call ptr @pg_detoast_datum(ptr noundef %20) #9
   %.not43 = icmp ult i32 %11, %16
   br i1 %.not43, label %31, label %22
 
@@ -2292,23 +2283,23 @@ define dso_local i64 @range_gist_same(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #10
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
-  %12 = tail call signext i8 @range_get_flags(ptr noundef %5) #10
-  %13 = tail call signext i8 @range_get_flags(ptr noundef %9) #10
+  %12 = tail call signext i8 @range_get_flags(ptr noundef %5) #9
+  %13 = tail call signext i8 @range_get_flags(ptr noundef %9) #9
   %.not = icmp eq i8 %12, %13
   br i1 %.not, label %14, label %20
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %16) #10
-  %18 = tail call zeroext i1 @range_eq_internal(ptr noundef %17, ptr noundef %5, ptr noundef %9) #10
+  %17 = tail call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %16) #9
+  %18 = tail call zeroext i1 @range_eq_internal(ptr noundef %17, ptr noundef %5, ptr noundef %9) #9
   %19 = zext i1 %18 to i8
   br label %20
 
@@ -2371,7 +2362,7 @@ declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr 
 define internal i32 @single_bound_cmp(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %6 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   ret i32 %6
 }
 
@@ -2380,7 +2371,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @interval_cmp_lower(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef %0, ptr noundef %1) #10
+  %4 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef %0, ptr noundef %1) #9
   ret i32 %4
 }
 
@@ -2388,7 +2379,7 @@ define internal i32 @interval_cmp_lower(ptr noundef %0, ptr noundef %1, ptr noun
 define internal i32 @interval_cmp_upper(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %6 = tail call i32 @range_cmp_bounds(ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   ret i32 %6
 }
 
@@ -2415,14 +2406,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2432,10 +2420,9 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

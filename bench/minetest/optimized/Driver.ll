@@ -112,11 +112,11 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %minor)
   call void @llvm.lifetime.start.p0(ptr nonnull %profile)
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %0(i32 noundef 33307, ptr noundef nonnull %major) #13
+  call void %0(i32 noundef 33307, ptr noundef nonnull %major) #12
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %1(i32 noundef 33308, ptr noundef nonnull %minor) #13
+  call void %1(i32 noundef 33308, ptr noundef nonnull %minor) #12
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %2(i32 noundef 37158, ptr noundef nonnull %profile) #13
+  call void %2(i32 noundef 37158, ptr noundef nonnull %profile) #12
   %3 = load i32, ptr %profile, align 4, !tbaa !14
   %and = and i32 %3, 2
   %tobool.not = icmp eq i32 %and, 0
@@ -128,7 +128,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %if.end12, label %cleanup
 
 if.end12:                                         ; preds = %if.end
-  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str, i32 noundef 3) #13
+  call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str, i32 noundef 3) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end12, %if.end, %entry
@@ -162,7 +162,7 @@ entry:
   %ref.tmp115 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp122 = alloca %"class.std::__cxx11::basic_string", align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 1176
-  tail call void @_ZN3irr5video24COpenGL3ExtensionHandler17initExtensionsNewEv(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr) #13
+  tail call void @_ZN3irr5video24COpenGL3ExtensionHandler17initExtensionsNewEv(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr) #12
   %TextureFormats = getelementptr inbounds nuw i8, ptr %this, i64 1608
   store i32 32855, ptr %TextureFormats, align 8, !tbaa !14
   %ref.tmp.sroa.4.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 1612
@@ -299,7 +299,7 @@ entry:
   store i32 34042, ptr %ref.tmp107.sroa.5.0.arrayidx113.sroa_idx, align 8, !tbaa !14
   %ref.tmp107.sroa.6178.0.arrayidx113.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 2008
   store ptr null, ptr %ref.tmp107.sroa.6178.0.arrayidx113.sroa_idx, align 8, !tbaa !16
-  %call = tail call noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase16isVersionAtLeastEii(ptr noundef nonnull align 8 dereferenceable(2920) %this, i32 noundef 4, i32 noundef 6) #13
+  %call = tail call noundef zeroext i1 @_ZNK3irr5video18COpenGL3DriverBase16isVersionAtLeastEii(ptr noundef nonnull align 8 dereferenceable(2920) %this, i32 noundef 4, i32 noundef 6) #12
   br i1 %call, label %cleanup.done138.thread224, label %lor.lhs.false
 
 cleanup.done138.thread224:                        ; preds = %entry
@@ -313,7 +313,7 @@ lor.lhs.false:                                    ; preds = %entry
   store ptr %0, ptr %ref.tmp115, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i)
   store i64 33, ptr %__dnew.i.i, align 8, !tbaa !25
-  %call2.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0) #13
+  %call2.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i, i64 noundef 0) #12
   store ptr %call2.i.i, ptr %ref.tmp115, align 8, !tbaa !26
   %1 = load i64, ptr %__dnew.i.i, align 8, !tbaa !25
   store i64 %1, ptr %0, align 8, !tbaa !28
@@ -323,7 +323,7 @@ lor.lhs.false:                                    ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call2.i.i, i64 %1
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i)
-  %call120 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #13
+  %call120 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115) #12
   br i1 %call120, label %cleanup.done138, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
@@ -332,7 +332,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   store ptr %2, ptr %ref.tmp122, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i195)
   store i64 33, ptr %__dnew.i.i195, align 8, !tbaa !25
-  %call2.i.i204 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i195, i64 noundef 0) #13
+  %call2.i.i204 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i.i195, i64 noundef 0) #12
   store ptr %call2.i.i204, ptr %ref.tmp122, align 8, !tbaa !26
   %3 = load i64, ptr %__dnew.i.i195, align 8, !tbaa !25
   store i64 %3, ptr %2, align 8, !tbaa !28
@@ -342,25 +342,19 @@ lor.rhs:                                          ; preds = %lor.lhs.false
   %arrayidx.i.i.i200 = getelementptr inbounds i8, ptr %call2.i.i204, i64 %3
   store i8 0, ptr %arrayidx.i.i.i200, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i195)
-  %call128 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #13
+  %call128 = call noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122) #12
   %4 = zext i1 %call128 to i8
   %AnisotropicFilterSupported = getelementptr inbounds nuw i8, ptr %this, i64 1260
   store i8 %4, ptr %AnisotropicFilterSupported, align 4, !tbaa !17
   %5 = load ptr, ptr %ref.tmp122, align 8, !tbaa !26
   %cmp.i.i.i = icmp eq ptr %5, %2
-  br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i206
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lor.rhs
-  %6 = load i64, ptr %_M_string_length.i.i.i.i199, align 8, !tbaa !29
-  %cmp3.i.i.i = icmp ult i64 %6, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i)
-  br label %cleanup.done138.thread
+  br i1 %cmp.i.i.i, label %cleanup.done138.thread, label %if.then.i.i206
 
 if.then.i.i206:                                   ; preds = %lor.rhs
-  call void @_ZdlPv(ptr noundef %5) #14
+  call void @_ZdlPv(ptr noundef %5) #13
   br label %cleanup.done138.thread
 
-cleanup.done138.thread:                           ; preds = %if.then.i.i206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+cleanup.done138.thread:                           ; preds = %lor.rhs, %if.then.i.i206
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp122)
   br label %cleanup.action140
 
@@ -371,21 +365,15 @@ cleanup.done138:                                  ; preds = %lor.lhs.false
 
 cleanup.action140:                                ; preds = %cleanup.done138, %cleanup.done138.thread
   %AnisotropicFilterSupported220222 = phi ptr [ %AnisotropicFilterSupported, %cleanup.done138.thread ], [ %AnisotropicFilterSupported219, %cleanup.done138 ]
-  %7 = load ptr, ptr %ref.tmp115, align 8, !tbaa !26
-  %cmp.i.i.i207 = icmp eq ptr %7, %0
-  br i1 %cmp.i.i.i207, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i209, label %if.then.i.i208
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i209: ; preds = %cleanup.action140
-  %8 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
-  %cmp3.i.i.i211 = icmp ult i64 %8, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i211)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212
+  %6 = load ptr, ptr %ref.tmp115, align 8, !tbaa !26
+  %cmp.i.i.i207 = icmp eq ptr %6, %0
+  br i1 %cmp.i.i.i207, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212, label %if.then.i.i208
 
 if.then.i.i208:                                   ; preds = %cleanup.action140
-  call void @_ZdlPv(ptr noundef %7) #14
+  call void @_ZdlPv(ptr noundef %6) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %if.then.i.i208, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i209
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %cleanup.action140, %if.then.i.i208
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp115)
   br label %cleanup.done150
 
@@ -397,36 +385,36 @@ cleanup.done150:                                  ; preds = %_ZNSt7__cxx1112basi
   store i8 1, ptr %BlendOperation, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %val.i)
   store i32 0, ptr %val.i, align 4, !tbaa !14
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %9(i32 noundef 36063, ptr noundef nonnull %val.i) #13
-  %10 = load i32, ptr %val.i, align 4, !tbaa !14
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
+  call void %7(i32 noundef 36063, ptr noundef nonnull %val.i) #12
+  %8 = load i32, ptr %val.i, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %val.i)
-  %conv = trunc i32 %10 to i8
+  %conv = trunc i32 %8 to i8
   %ColorAttachment = getelementptr inbounds nuw i8, ptr %this, i64 1193
   store i8 %conv, ptr %ColorAttachment, align 1, !tbaa !32
   %MaxTextureUnits = getelementptr inbounds nuw i8, ptr %this, i64 1195
   store i8 4, ptr %MaxTextureUnits, align 1, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %val.i213)
   store i32 0, ptr %val.i213, align 4, !tbaa !14
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %11(i32 noundef 34852, ptr noundef nonnull %val.i213) #13
-  %12 = load i32, ptr %val.i213, align 4, !tbaa !14
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
+  call void %9(i32 noundef 34852, ptr noundef nonnull %val.i213) #12
+  %10 = load i32, ptr %val.i213, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %val.i213)
-  %conv159 = trunc i32 %12 to i8
+  %conv159 = trunc i32 %10 to i8
   %MultipleRenderTarget = getelementptr inbounds nuw i8, ptr %this, i64 1194
   store i8 %conv159, ptr %MultipleRenderTarget, align 2, !tbaa !34
-  %13 = load i8, ptr %AnisotropicFilterSupported220223, align 4, !tbaa !17, !range !35, !noundef !36
-  %tobool.not = icmp eq i8 %13, 0
+  %11 = load i8, ptr %AnisotropicFilterSupported220223, align 4, !tbaa !17, !range !35, !noundef !36
+  %tobool.not = icmp eq i8 %11, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %cleanup.done150
   call void @llvm.lifetime.start.p0(ptr nonnull %val.i214)
   store i32 0, ptr %val.i214, align 4, !tbaa !14
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %14(i32 noundef 34047, ptr noundef nonnull %val.i214) #13
-  %15 = load i32, ptr %val.i214, align 4, !tbaa !14
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
+  call void %12(i32 noundef 34047, ptr noundef nonnull %val.i214) #12
+  %13 = load i32, ptr %val.i214, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %val.i214)
-  %conv165 = trunc i32 %15 to i8
+  %conv165 = trunc i32 %13 to i8
   %MaxAnisotropy = getelementptr inbounds nuw i8, ptr %this, i64 1202
   store i8 %conv165, ptr %MaxAnisotropy, align 2, !tbaa !37
   br label %if.end
@@ -434,26 +422,26 @@ if.then:                                          ; preds = %cleanup.done150
 if.end:                                           ; preds = %if.then, %cleanup.done150
   call void @llvm.lifetime.start.p0(ptr nonnull %val.i215)
   store i32 0, ptr %val.i215, align 4, !tbaa !14
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %16(i32 noundef 33001, ptr noundef nonnull %val.i215) #13
-  %17 = load i32, ptr %val.i215, align 4, !tbaa !14
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
+  call void %14(i32 noundef 33001, ptr noundef nonnull %val.i215) #12
+  %15 = load i32, ptr %val.i215, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %val.i215)
   %MaxIndices = getelementptr inbounds nuw i8, ptr %this, i64 1204
-  store i32 %17, ptr %MaxIndices, align 4, !tbaa !38
+  store i32 %15, ptr %MaxIndices, align 4, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %val.i216)
   store i32 0, ptr %val.i216, align 4, !tbaa !14
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
-  call void %18(i32 noundef 3379, ptr noundef nonnull %val.i216) #13
-  %19 = load i32, ptr %val.i216, align 4, !tbaa !14
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 360), align 8, !tbaa !3
+  call void %16(i32 noundef 3379, ptr noundef nonnull %val.i216) #12
+  %17 = load i32, ptr %val.i216, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %val.i216)
   %MaxTextureSize = getelementptr inbounds nuw i8, ptr %this, i64 1208
-  store i32 %19, ptr %MaxTextureSize, align 8, !tbaa !39
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 352), align 8, !tbaa !40
+  store i32 %17, ptr %MaxTextureSize, align 8, !tbaa !39
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 352), align 8, !tbaa !40
   %MaxTextureLODBias = getelementptr inbounds nuw i8, ptr %this, i64 1212
-  call void %20(i32 noundef 34045, ptr noundef nonnull %MaxTextureLODBias) #13
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 352), align 8, !tbaa !40
+  call void %18(i32 noundef 34045, ptr noundef nonnull %MaxTextureLODBias) #12
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 352), align 8, !tbaa !40
   %DimAliasedLine = getelementptr inbounds nuw i8, ptr %this, i64 1216
-  call void %21(i32 noundef 33902, ptr noundef nonnull %DimAliasedLine) #13
+  call void %19(i32 noundef 33902, ptr noundef nonnull %DimAliasedLine) #12
   %DimAliasedPoint = getelementptr inbounds nuw i8, ptr %this, i64 1224
   store <2 x float> splat (float 1.000000e+00), ptr %DimAliasedPoint, align 8, !tbaa !41
   ret void
@@ -473,15 +461,15 @@ declare noundef zeroext i1 @_ZNK3irr5video24COpenGL3ExtensionHandler14queryExten
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN3irr5video19createOpenGL3DriverERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) local_unnamed_addr #1 {
 entry:
-  tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 1) #13
-  %call = tail call noalias noundef nonnull dereferenceable(2944) ptr @_Znwm(i64 noundef 2944) #15
+  tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 1) #12
+  %call = tail call noalias noundef nonnull dereferenceable(2944) ptr @_Znwm(i64 noundef 2944) #14
   %0 = getelementptr inbounds nuw i8, ptr %call, i64 2920
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !42
   %DebugName.i.i = getelementptr inbounds nuw i8, ptr %call, i64 2928
   store ptr null, ptr %DebugName.i.i, align 8, !tbaa !44
   %ReferenceCounter.i.i = getelementptr inbounds nuw i8, ptr %call, i64 2936
   store i32 1, ptr %ReferenceCounter.i.i, align 8, !tbaa !46
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseC2ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8), ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) #13
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseC2ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8), ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) #12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 24), ptr %call, align 8, !tbaa !42
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3irr5video14COpenGL3DriverE, i64 1336), ptr %0, align 8, !tbaa !42
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -494,7 +482,7 @@ entry:
   %Stencilbuffer = getelementptr inbounds nuw i8, ptr %params, i64 29
   %1 = load i8, ptr %Stencilbuffer, align 1, !tbaa !47, !range !35, !noundef !36
   %tobool = icmp ne i8 %1, 0
-  %call1 = tail call noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17genericDriverInitERKNS_4core11dimension2dIjEEb(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull align 4 dereferenceable(8) %WindowSize, i1 noundef zeroext %tobool) #13
+  %call1 = tail call noundef zeroext i1 @_ZN3irr5video18COpenGL3DriverBase17genericDriverInitERKNS_4core11dimension2dIjEEb(ptr noundef nonnull align 8 dereferenceable(2920) %call, ptr noundef nonnull align 4 dereferenceable(8) %WindowSize, i1 noundef zeroext %tobool) #12
   ret ptr %call
 }
 
@@ -760,7 +748,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %VendorName) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %VendorName) #12
   br label %_ZN3irr4core6stringIcEC2ERKS2_.exit
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %if.end.i.i, %entry
@@ -924,7 +912,7 @@ entry:
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %0, align 8, !tbaa !28
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 29, i8 noundef signext 0) #13
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 29, i8 noundef signext 0) #12
   %1 = load ptr, ptr %agg.result, align 8, !tbaa !26
   store i8 78, ptr %1, align 1, !tbaa !28
   %2 = load ptr, ptr %agg.result, align 8, !tbaa !26
@@ -1065,43 +1053,43 @@ declare void @_ZTv0_n24_N3irr5video11CNullDriverD0Ev(ptr noundef) unnamed_addr #
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video12IVideoDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #16
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video12IVideoDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #16
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZTv0_n24_N3irr5video12IVideoDriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #16
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZTv0_n24_N3irr5video12IVideoDriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #16
+  tail call void @llvm.trap() #15
   unreachable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video14COpenGL3DriverD1Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video14COpenGL3DriverD0Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %this, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
 
@@ -1109,7 +1097,7 @@ entry:
 define linkonce_odr void @_ZThn8_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
   ret void
 }
 
@@ -1117,8 +1105,8 @@ entry:
 define linkonce_odr void @_ZThn8_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -1138,7 +1126,7 @@ declare void @_ZThn8_N3irr5video11CNullDriver20deleteShaderMaterialEi(ptr nounde
 define linkonce_odr void @_ZThn1168_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
   ret void
 }
 
@@ -1146,8 +1134,8 @@ entry:
 define linkonce_odr void @_ZThn1168_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -1185,7 +1173,7 @@ declare noundef ptr @_ZThn1168_N3irr5video18COpenGL3DriverBase14getVideoDriverEv
 define linkonce_odr void @_ZThn1176_N3irr5video14COpenGL3DriverD1Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1176
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
   ret void
 }
 
@@ -1193,8 +1181,8 @@ entry:
 define linkonce_odr void @_ZThn1176_N3irr5video14COpenGL3DriverD0Ev(ptr noundef %this) unnamed_addr #8 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1176
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -1205,7 +1193,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
   ret void
 }
 
@@ -1216,8 +1204,8 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #13
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #14
+  tail call void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN3irr5video14COpenGL3DriverE, i64 8)) #12
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
   ret void
 }
 
@@ -1232,7 +1220,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr17IReferenceCountedD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #13
   ret void
 }
 
@@ -1251,14 +1239,11 @@ declare void @_ZN3irr5video18COpenGL3DriverBaseD2Ev(ptr noundef nonnull align 8 
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1271,12 +1256,11 @@ attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wid
 attributes #8 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { builtin nounwind }
-attributes #15 = { builtin nounwind allocsize(0) }
-attributes #16 = { noreturn nounwind }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { builtin nounwind allocsize(0) }
+attributes #15 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

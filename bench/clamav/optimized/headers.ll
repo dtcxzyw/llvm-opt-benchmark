@@ -43,7 +43,7 @@ define void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable
   %18 = add i64 %17, %16
   %..i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %18)
   %19 = load ptr, ptr %3, align 8, !tbaa !12
-  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %..i.i) #9
+  %20 = tail call ptr @realloc(ptr noundef %19, i64 noundef %..i.i) #8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZN5ArrayIhE3AddEm.exit.i
 
@@ -94,7 +94,7 @@ define noundef nonnull align 8 dereferenceable(17184) ptr @_ZN10FileHeaderaSERS_
   br i1 %.not.i, label %_ZN5ArrayIhE5ResetEv.exit, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #10
+  tail call void @free(ptr noundef nonnull %4) #9
   store ptr null, ptr %3, align 8, !tbaa !12
   br label %_ZN5ArrayIhE5ResetEv.exit
 
@@ -118,7 +118,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ArrayIh
   br i1 %.not.i, label %_ZN5ArrayIhE5ResetEv.exit, label %4
 
 4:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %3) #10
+  tail call void @free(ptr noundef nonnull %3) #9
   store ptr null, ptr %0, align 8, !tbaa !12
   br label %_ZN5ArrayIhE5ResetEv.exit
 
@@ -156,7 +156,7 @@ _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %2, %4
   %19 = add i64 %17, 32
   %20 = add i64 %19, %18
   %..i.i = tail call i64 @llvm.umax.i64(i64 %16, i64 %20)
-  %21 = tail call ptr @realloc(ptr noundef %15, i64 noundef %..i.i) #9
+  %21 = tail call ptr @realloc(ptr noundef %15, i64 noundef %..i.i) #8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %_ZN5ArrayIhE5AllocEm.exit
 
@@ -182,26 +182,15 @@ _ZN5ArrayIhE5AllocEm.exit.thread:                 ; preds = %_ZN5ArrayIhE5ResetE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite) uwtable
 define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 captures(address) dereferenceable(112) initializes((0, 72)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
+_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread39.i.i:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
-  %3 = load ptr, ptr %2, align 8, !tbaa !32
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = icmp eq ptr %3, %4
-  br i1 %5, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i, label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i: ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load i64, ptr %6, align 8, !tbaa !36
-  %8 = icmp ult i64 %7, 4
-  tail call void @llvm.assume(i1 %8)
-  br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i.i
-
-_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_S_copyEPwPKwm.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i, %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 0, ptr %9, align 8, !tbaa !36
-  store i32 0, ptr %3, align 4, !tbaa !37
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 0, ptr %10, align 8, !tbaa !39
+  %2 = load ptr, ptr %1, align 8, !tbaa !32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 0, ptr %3, align 8, !tbaa !36
+  store i32 0, ptr %2, align 4, !tbaa !37
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 0, ptr %4, align 8, !tbaa !39
   ret void
 }
 
@@ -220,11 +209,8 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -233,10 +219,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind allocsize(1) }
-attributes #10 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind allocsize(1) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

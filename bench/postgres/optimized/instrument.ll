@@ -26,7 +26,7 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
   %4 = zext i1 %2 to i8
   %5 = sext i32 %0 to i64
   %6 = mul nsw i64 %5, 416
-  %7 = tail call ptr @palloc0(i64 noundef %6) #13
+  %7 = tail call ptr @palloc0(i64 noundef %6) #12
   %8 = and i32 %1, 11
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.loopexit, label %9
@@ -100,7 +100,7 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #13
+  %10 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #12
   %11 = load i64, ptr %2, align 8
   %12 = mul i64 %11, 1000000000
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -111,10 +111,9 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
   br label %19
 
 16:                                               ; preds = %5
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.InstrStartNode) #13
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 72, ptr noundef nonnull @__func__.InstrStartNode) #12
   unreachable
 
 19:                                               ; preds = %9, %1
@@ -171,15 +170,14 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.InstrStopNode) #13
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.InstrStopNode) #12
   unreachable
 
 16:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #13
+  %17 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #12
   %18 = load i64, ptr %3, align 8
   %19 = mul i64 %18, 1000000000
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -486,10 +484,9 @@ define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.InstrEndLoop) #13
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #12
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.InstrEndLoop) #12
   unreachable
 
 12:                                               ; preds = %5
@@ -903,9 +900,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -918,9 +912,8 @@ attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nounwind }
-attributes #14 = { cold nounwind }
+attributes #12 = { nounwind }
+attributes #13 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

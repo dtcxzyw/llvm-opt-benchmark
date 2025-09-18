@@ -49,33 +49,31 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %15 = tail call zeroext i1 @IsAbortedTransactionBlockState() #11
+  %15 = tail call zeroext i1 @IsAbortedTransactionBlockState() #10
   br i1 %15, label %16, label %.preheader.preheader.i
 
 16:                                               ; preds = %1
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 @errcode(i32 noundef 33685826) #11
-  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.HandleFunctionRequest) #11
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %18 = tail call i32 @errcode(i32 noundef 33685826) #10
+  %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.HandleFunctionRequest) #10
   unreachable
 
 .preheader.preheader.i:                           ; preds = %1
-  %20 = tail call ptr @GetTransactionSnapshot() #11
-  tail call void @PushActiveSnapshot(ptr noundef %20) #11
-  %21 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #11
+  %20 = tail call ptr @GetTransactionSnapshot() #10
+  tail call void @PushActiveSnapshot(ptr noundef %20) #10
+  %21 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #10
   %22 = zext i32 %21 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(528) %13, i8 0, i64 528, i1 false)
-  %23 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %22) #11
+  %23 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %22) #10
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %24, label %28
 
 24:                                               ; preds = %.preheader.preheader.i
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 @errcode(i32 noundef 52461700) #11
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i32 noundef %21) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.fetch_fp_info) #11
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %26 = tail call i32 @errcode(i32 noundef 52461700) #10
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, i32 noundef %21) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 141, ptr noundef nonnull @__func__.fetch_fp_info) #10
   unreachable
 
 28:                                               ; preds = %.preheader.preheader.i
@@ -97,12 +95,11 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %36, %28
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 1088) #11
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %42 = tail call i32 @errcode(i32 noundef 1088) #10
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %43) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.fetch_fp_info) #11
+  %44 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %43) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.fetch_fp_info) #10
   unreachable
 
 45:                                               ; preds = %36
@@ -112,11 +109,10 @@ define dso_local void @HandleFunctionRequest(ptr noundef %0) local_unnamed_addr 
   br i1 %48, label %49, label %fetch_fp_info.exit
 
 49:                                               ; preds = %45
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %50)
+  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %51, i32 noundef 100) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.fetch_fp_info) #11
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %51, i32 noundef 100) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 154, ptr noundef nonnull @__func__.fetch_fp_info) #10
   unreachable
 
 fetch_fp_info.exit:                               ; preds = %45
@@ -136,35 +132,35 @@ fetch_fp_info.exit:                               ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 4 %60, i64 %63, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 464
   %65 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %66 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %65, i64 noundef 64) #11
-  call void @ReleaseSysCache(ptr noundef nonnull %23) #11
+  %66 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %65, i64 noundef 64) #10
+  call void @ReleaseSysCache(ptr noundef nonnull %23) #10
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @fmgr_info(i32 noundef %21, ptr noundef nonnull %67) #11
+  call void @fmgr_info(i32 noundef %21, ptr noundef nonnull %67) #10
   store i32 %21, ptr %13, align 8
   %68 = load i32, ptr @log_statement, align 4
   %69 = icmp eq i32 %68, 3
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %fetch_fp_info.exit
-  %71 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %71 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %64, i32 noundef %21) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__func__.HandleFunctionRequest) #11
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %64, i32 noundef %21) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 234, ptr noundef nonnull @__func__.HandleFunctionRequest) #10
   br label %74
 
 74:                                               ; preds = %70, %72, %fetch_fp_info.exit
   %75 = load i32, ptr %55, align 8
-  %76 = call i32 @GetUserId() #11
-  %77 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %75, i32 noundef %76, i64 noundef 256) #11
+  %76 = call i32 @GetUserId() #10
+  %77 = call i32 @object_aclcheck(i32 noundef 2615, i32 noundef %75, i32 noundef %76, i64 noundef 256) #10
   %.not = icmp eq i32 %77, 0
   br i1 %.not, label %81, label %78
 
 78:                                               ; preds = %74
   %79 = load i32, ptr %55, align 8
-  %80 = call ptr @get_namespace_name(i32 noundef %79) #11
-  call void @aclcheck_error(i32 noundef %77, i32 noundef 36, ptr noundef %80) #11
+  %80 = call ptr @get_namespace_name(i32 noundef %79) #10
+  call void @aclcheck_error(i32 noundef %77, i32 noundef 36, ptr noundef %80) #10
   br label %81
 
 81:                                               ; preds = %78, %74
@@ -174,18 +170,18 @@ fetch_fp_info.exit:                               ; preds = %45
 
 83:                                               ; preds = %81
   %84 = load i32, ptr %55, align 8
-  %85 = call zeroext i1 @RunNamespaceSearchHook(i32 noundef %84, i1 noundef zeroext true) #11
+  %85 = call zeroext i1 @RunNamespaceSearchHook(i32 noundef %84, i1 noundef zeroext true) #10
   br label %86
 
 86:                                               ; preds = %81, %83
-  %87 = call i32 @GetUserId() #11
-  %88 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %21, i32 noundef %87, i64 noundef 128) #11
+  %87 = call i32 @GetUserId() #10
+  %88 = call i32 @object_aclcheck(i32 noundef 1255, i32 noundef %21, i32 noundef %87, i64 noundef 128) #10
   %.not48 = icmp eq i32 %88, 0
   br i1 %.not48, label %91, label %89
 
 89:                                               ; preds = %86
-  %90 = call ptr @get_func_name(i32 noundef %21) #11
-  call void @aclcheck_error(i32 noundef %88, i32 noundef 19, ptr noundef %90) #11
+  %90 = call ptr @get_func_name(i32 noundef %21) #10
+  call void @aclcheck_error(i32 noundef %88, i32 noundef 19, ptr noundef %90) #10
   br label %91
 
 91:                                               ; preds = %86, %89
@@ -194,7 +190,7 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %.not49, label %94, label %93
 
 93:                                               ; preds = %91
-  call void @RunFunctionExecuteHook(i32 noundef %21) #11
+  call void @RunFunctionExecuteHook(i32 noundef %21) #10
   br label %94
 
 94:                                               ; preds = %91, %93
@@ -204,20 +200,20 @@ fetch_fp_info.exit:                               ; preds = %45
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %95, i8 0, i64 21, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %98 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #11
+  %98 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #10
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %.loopexit.i53
 
 100:                                              ; preds = %94
   %101 = shl nuw i32 %98, 1
   %102 = zext i32 %101 to i64
-  %103 = call ptr @palloc(i64 noundef %102) #11
+  %103 = call ptr @palloc(i64 noundef %102) #10
   %wide.trip.count.i = zext nneg i32 %98 to i64
   br label %104
 
 104:                                              ; preds = %104, %100
   %indvars.iv.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i, %104 ]
-  %105 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #11
+  %105 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #10
   %106 = trunc i32 %105 to i16
   %107 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv.i
   store i16 %106, ptr %107, align 2
@@ -227,7 +223,7 @@ fetch_fp_info.exit:                               ; preds = %45
 
 .loopexit.i53:                                    ; preds = %104, %94
   %.066.i = phi ptr [ null, %94 ], [ %103, %104 ]
-  %108 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #11
+  %108 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #10
   %109 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %110 = load i16, ptr %109, align 4
   %111 = sext i16 %110 to i32
@@ -237,13 +233,12 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %or.cond.i, label %114, label %120
 
 114:                                              ; preds = %.loopexit.i53
-  %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %115)
-  %116 = call i32 @errcode(i32 noundef 16908800) #11
+  %115 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %116 = call i32 @errcode(i32 noundef 16908800) #10
   %117 = load i16, ptr %109, align 4
   %118 = sext i16 %117 to i32
-  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %108, i32 noundef %118) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.parse_fcall_arguments) #11
+  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef %108, i32 noundef %118) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 353, ptr noundef nonnull @__func__.parse_fcall_arguments) #10
   unreachable
 
 120:                                              ; preds = %.loopexit.i53
@@ -255,15 +250,14 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %or.cond78.i, label %127, label %123
 
 123:                                              ; preds = %120
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 @errcode(i32 noundef 16908800) #11
-  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %98, i32 noundef %108) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.parse_fcall_arguments) #11
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %125 = call i32 @errcode(i32 noundef 16908800) #10
+  %126 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %98, i32 noundef %108) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 361, ptr noundef nonnull @__func__.parse_fcall_arguments) #10
   unreachable
 
 127:                                              ; preds = %120
-  call void @initStringInfo(ptr noundef nonnull %7) #11
+  call void @initStringInfo(ptr noundef nonnull %7) #10
   %128 = icmp sgt i32 %108, 0
   br i1 %128, label %.lr.ph.i, label %parse_fcall_arguments.exit
 
@@ -276,7 +270,7 @@ fetch_fp_info.exit:                               ; preds = %45
 
 132:                                              ; preds = %186, %.lr.ph.i
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next99.i, %186 ]
-  %133 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #11
+  %133 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #10
   %134 = icmp eq i32 %133, -1
   %135 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i64 %indvars.iv98.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
@@ -292,17 +286,16 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %138
-  %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %141)
-  %142 = call i32 @errcode(i32 noundef 16908800) #11
-  %143 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %133) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @__func__.parse_fcall_arguments) #11
+  %141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %142 = call i32 @errcode(i32 noundef 16908800) #10
+  %143 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i32 noundef %133) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 385, ptr noundef nonnull @__func__.parse_fcall_arguments) #10
   unreachable
 
 144:                                              ; preds = %138
-  call void @resetStringInfo(ptr noundef nonnull %7) #11
-  %145 = call ptr @pq_getmsgbytes(ptr noundef %0, i32 noundef %133) #11
-  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %145, i32 noundef %133) #11
+  call void @resetStringInfo(ptr noundef nonnull %7) #10
+  %145 = call ptr @pq_getmsgbytes(ptr noundef %0, i32 noundef %133) #10
+  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %145, i32 noundef %133) #10
   br label %146
 
 146:                                              ; preds = %144, %137
@@ -328,19 +321,19 @@ fetch_fp_info.exit:                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %151 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv98.i
   %152 = load i32, ptr %151, align 4
-  call void @getTypeInputInfo(i32 noundef %152, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
+  call void @getTypeInputInfo(i32 noundef %152, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   br i1 %134, label %156, label %153
 
 153:                                              ; preds = %.thread.i
   %154 = load ptr, ptr %7, align 8
-  %155 = call ptr @pg_client_to_server(ptr noundef %154, i32 noundef %133) #11
+  %155 = call ptr @pg_client_to_server(ptr noundef %154, i32 noundef %133) #10
   br label %156
 
 156:                                              ; preds = %153, %.thread.i
   %.063.i = phi ptr [ %155, %153 ], [ null, %.thread.i ]
   %157 = load i32, ptr %8, align 4
   %158 = load i32, ptr %9, align 4
-  %159 = call i64 @OidInputFunctionCall(i32 noundef %157, ptr noundef %.063.i, i32 noundef %158, i32 noundef -1) #11
+  %159 = call i64 @OidInputFunctionCall(i32 noundef %157, ptr noundef %.063.i, i32 noundef %158, i32 noundef -1) #10
   %160 = getelementptr inbounds nuw %struct.NullableDatum, ptr %129, i64 %indvars.iv98.i
   store i64 %159, ptr %160, align 8
   %.not75.i = icmp eq ptr %.063.i, null
@@ -350,7 +343,7 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %or.cond79.i, label %163, label %162
 
 162:                                              ; preds = %156
-  call void @pfree(ptr noundef nonnull %.063.i) #11
+  call void @pfree(ptr noundef nonnull %.063.i) #10
   br label %163
 
 163:                                              ; preds = %162, %156
@@ -363,11 +356,11 @@ fetch_fp_info.exit:                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %165 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv98.i
   %166 = load i32, ptr %165, align 4
-  call void @getTypeBinaryInputInfo(i32 noundef %166, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
+  call void @getTypeBinaryInputInfo(i32 noundef %166, ptr noundef nonnull %10, ptr noundef nonnull %11) #10
   %..i = select i1 %134, ptr null, ptr %7
   %167 = load i32, ptr %10, align 4
   %168 = load i32, ptr %11, align 4
-  %169 = call i64 @OidReceiveFunctionCall(i32 noundef %167, ptr noundef %..i, i32 noundef %168, i32 noundef -1) #11
+  %169 = call i64 @OidReceiveFunctionCall(i32 noundef %167, ptr noundef %..i, i32 noundef %168, i32 noundef -1) #10
   %170 = getelementptr inbounds nuw %struct.NullableDatum, ptr %129, i64 %indvars.iv98.i
   store i64 %169, ptr %170, align 8
   br i1 %134, label %180, label %171
@@ -380,12 +373,11 @@ fetch_fp_info.exit:                               ; preds = %45
 
 174:                                              ; preds = %171
   %175 = trunc nuw nsw i64 %indvars.iv98.i to i32
-  %176 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %176)
-  %177 = call i32 @errcode(i32 noundef 50462850) #11
+  %176 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %177 = call i32 @errcode(i32 noundef 50462850) #10
   %178 = add nuw nsw i32 %175, 1
-  %179 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %178) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 448, ptr noundef nonnull @__func__.parse_fcall_arguments) #11
+  %179 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %178) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 448, ptr noundef nonnull @__func__.parse_fcall_arguments) #10
   unreachable
 
 180:                                              ; preds = %171, %164
@@ -395,11 +387,10 @@ fetch_fp_info.exit:                               ; preds = %45
 
 181:                                              ; preds = %150
   %182 = sext i16 %.064.i to i32
-  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %183)
-  %184 = call i32 @errcode(i32 noundef 50856066) #11
-  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %182) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 453, ptr noundef nonnull @__func__.parse_fcall_arguments) #11
+  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %184 = call i32 @errcode(i32 noundef 50856066) #10
+  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %182) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 453, ptr noundef nonnull @__func__.parse_fcall_arguments) #10
   unreachable
 
 186:                                              ; preds = %180, %163
@@ -408,10 +399,10 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %exitcond102.not.i, label %parse_fcall_arguments.exit, label %132, !llvm.loop !8
 
 parse_fcall_arguments.exit:                       ; preds = %186, %127
-  %187 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #11
+  %187 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #10
   %188 = trunc i32 %187 to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @pq_getmsgend(ptr noundef %0) #11
+  call void @pq_getmsgend(ptr noundef %0) #10
   %189 = getelementptr inbounds nuw i8, ptr %13, i64 22
   %190 = load i8, ptr %189, align 2, !range !4, !noundef !5
   %191 = trunc nuw i8 %190 to i1
@@ -440,7 +431,7 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 
 .critedge:                                        ; preds = %193, %parse_fcall_arguments.exit
   %198 = load ptr, ptr %67, align 8
-  %199 = call i64 %198(ptr noundef nonnull %12) #11
+  %199 = call i64 %198(ptr noundef nonnull %12) #10
   br label %201
 
 200:                                              ; preds = %.lr.ph
@@ -454,7 +445,7 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   br i1 %.not50, label %204, label %203, !prof !10
 
 203:                                              ; preds = %201
-  call void @ProcessInterrupts() #11
+  call void @ProcessInterrupts() #10
   br label %204
 
 204:                                              ; preds = %203, %201
@@ -462,11 +453,11 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   %206 = trunc nuw i8 %205 to i1
   %207 = load i32, ptr %58, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 86) #11
+  call void @pq_beginmessage(ptr noundef nonnull %2, i8 noundef signext 86) #10
   br i1 %206, label %208, label %215
 
 208:                                              ; preds = %204
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %209 = load ptr, ptr %2, align 8, !alias.scope !11
   %210 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -487,13 +478,13 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 216:                                              ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @getTypeOutputInfo(i32 noundef %207, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  call void @getTypeOutputInfo(i32 noundef %207, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %217 = load i32, ptr %3, align 4
-  %218 = call ptr @OidOutputFunctionCall(i32 noundef %217, i64 noundef %.044) #11
-  %219 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %218) #13
+  %218 = call ptr @OidOutputFunctionCall(i32 noundef %217, i64 noundef %.044) #10
+  %219 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %218) #12
   %220 = trunc i64 %219 to i32
-  call void @pq_sendcountedtext(ptr noundef nonnull %2, ptr noundef nonnull %218, i32 noundef %220) #11
-  call void @pfree(ptr noundef nonnull %218) #11
+  call void @pq_sendcountedtext(ptr noundef nonnull %2, ptr noundef nonnull %218, i32 noundef %220) #10
+  call void @pfree(ptr noundef nonnull %218) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %SendFunctionResult.exit
@@ -501,13 +492,13 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 221:                                              ; preds = %215
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @getTypeBinaryOutputInfo(i32 noundef %207, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  call void @getTypeBinaryOutputInfo(i32 noundef %207, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %222 = load i32, ptr %5, align 4
-  %223 = call ptr @OidSendFunctionCall(i32 noundef %222, i64 noundef %.044) #11
+  %223 = call ptr @OidSendFunctionCall(i32 noundef %222, i64 noundef %.044) #10
   %224 = load i32, ptr %223, align 4
   %225 = lshr i32 %224, 2
   %226 = add nsw i32 %225, -4
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %227 = call i32 @llvm.bswap.i32(i32 range(i32 -4, 1073741820) %226)
   %228 = load ptr, ptr %2, align 8, !alias.scope !14
@@ -522,8 +513,8 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
   %235 = load i32, ptr %223, align 4
   %236 = lshr i32 %235, 2
   %237 = add nsw i32 %236, -4
-  call void @pq_sendbytes(ptr noundef nonnull %2, ptr noundef nonnull %234, i32 noundef %237) #11
-  call void @pfree(ptr noundef nonnull %223) #11
+  call void @pq_sendbytes(ptr noundef nonnull %2, ptr noundef nonnull %234, i32 noundef %237) #10
+  call void @pfree(ptr noundef nonnull %223) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %SendFunctionResult.exit
@@ -531,42 +522,41 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 238:                                              ; preds = %215
   %sext = shl i32 %187, 16
   %239 = ashr exact i32 %sext, 16
-  %240 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %240)
-  %241 = call i32 @errcode(i32 noundef 50856066) #11
-  %242 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %239) #11
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 106, ptr noundef nonnull @__func__.SendFunctionResult) #11
+  %240 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %241 = call i32 @errcode(i32 noundef 50856066) #10
+  %242 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, i32 noundef %239) #10
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 106, ptr noundef nonnull @__func__.SendFunctionResult) #10
   unreachable
 
 SendFunctionResult.exit:                          ; preds = %208, %216, %221
-  call void @pq_endmessage(ptr noundef nonnull %2) #11
+  call void @pq_endmessage(ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @PopActiveSnapshot() #11
-  %243 = call i32 @check_log_duration(ptr noundef nonnull %14, i1 noundef zeroext %69) #11
+  call void @PopActiveSnapshot() #10
+  %243 = call i32 @check_log_duration(ptr noundef nonnull %14, i1 noundef zeroext %69) #10
   switch i32 %243, label %252 [
     i32 1, label %244
     i32 2, label %248
   ]
 
 244:                                              ; preds = %SendFunctionResult.exit
-  %245 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %245 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %245, label %246, label %252
 
 246:                                              ; preds = %244
-  %247 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %14) #11
+  %247 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %14) #10
   br label %.sink.split
 
 248:                                              ; preds = %SendFunctionResult.exit
-  %249 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #11
+  %249 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %249, label %250, label %252
 
 250:                                              ; preds = %248
-  %251 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %14, ptr noundef nonnull %64, i32 noundef %21) #11
+  %251 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %14, ptr noundef nonnull %64, i32 noundef %21) #10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %246, %250
   %.sink = phi i32 [ 317, %250 ], [ 312, %246 ]
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.HandleFunctionRequest) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.HandleFunctionRequest) #10
   br label %252
 
 252:                                              ; preds = %.sink.split, %248, %244, %SendFunctionResult.exit
@@ -686,11 +676,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -701,11 +688,10 @@ attributes #5 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

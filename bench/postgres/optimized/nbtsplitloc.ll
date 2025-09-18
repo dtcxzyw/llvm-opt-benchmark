@@ -383,7 +383,6 @@ _bt_recsplitloc.exit198:                          ; preds = %174, %BTreeTupleIsP
 
 183:                                              ; preds = %_bt_recsplitloc.exit198
   %184 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %184)
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4

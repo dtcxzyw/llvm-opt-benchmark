@@ -32,26 +32,26 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @ResetUnloggedRelations(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1050 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  %3 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #8
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %1
   %5 = and i32 %0, 1
   %6 = lshr i32 %0, 1
   %.lobit = and i32 %6, 1
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %5, i32 noundef %.lobit) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.ResetUnloggedRelations) #9
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %5, i32 noundef %.lobit) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 58, ptr noundef nonnull @__func__.ResetUnloggedRelations) #8
   br label %8
 
 8:                                                ; preds = %1, %4
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %9, ptr noundef nonnull @__func__.ResetUnloggedRelations, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
+  %10 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %9, ptr noundef nonnull @__func__.ResetUnloggedRelations, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  tail call void @begin_startup_progress_phase() #9
+  tail call void @begin_startup_progress_phase() #8
   tail call fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef nonnull @.str.2, i32 noundef %0)
-  %12 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.3) #9
-  %13 = tail call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
+  %12 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.3) #8
+  %13 = tail call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #8
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %._crit_edge, label %sub_0
 
@@ -81,19 +81,19 @@ sub_113:                                          ; preds = %.tail
   br i1 %24, label %.backedge, label %.tail11.thread
 
 .backedge:                                        ; preds = %.tail, %.tail11, %.tail11.thread
-  %25 = call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #9
+  %25 = call ptr @ReadDir(ptr noundef %12, ptr noundef nonnull @.str.3) #8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !4
 
 .tail11.thread:                                   ; preds = %sub_0, %sub_113, %.tail11
-  %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1050, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #9
+  %26 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1050, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef nonnull %15, ptr noundef nonnull @.str.7) #8
   call fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef nonnull %2, i32 noundef %0)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %8
-  %27 = call i32 @FreeDir(ptr noundef %12) #9
+  %27 = call i32 @FreeDir(ptr noundef %12) #8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  call void @MemoryContextDelete(ptr noundef %10) #9
+  call void @MemoryContextDelete(ptr noundef %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -134,28 +134,28 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   %21 = alloca i64, align 8
   %22 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %23 = tail call ptr @AllocateDir(ptr noundef %0) #9
+  %23 = tail call ptr @AllocateDir(ptr noundef %0) #8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %2
-  %26 = tail call ptr @__errno_location() #10
+  %26 = tail call ptr @__errno_location() #9
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 2
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %25
-  %30 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %30 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
   br i1 %30, label %31, label %300
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @errcode_for_file_access() #9
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %0) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @__func__.ResetUnloggedRelationsInTablespaceDir) #9
+  %32 = tail call i32 @errcode_for_file_access() #8
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef %0) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 127, ptr noundef nonnull @__func__.ResetUnloggedRelationsInTablespaceDir) #8
   br label %300
 
 34:                                               ; preds = %25, %2
-  %35 = tail call ptr @ReadDir(ptr noundef %23, ptr noundef %0) #9
+  %35 = tail call ptr @ReadDir(ptr noundef %23, ptr noundef %0) #8
   %.not106 = icmp eq ptr %35, null
   br i1 %.not106, label %._crit_edge, label %.lr.ph
 
@@ -172,31 +172,31 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 41:                                               ; preds = %.lr.ph, %.backedge
   %42 = phi ptr [ %35, %.lr.ph ], [ %298, %.backedge ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 19
-  %44 = call i64 @strspn(ptr noundef nonnull %43, ptr noundef nonnull @.str.9) #11
-  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
+  %44 = call i64 @strspn(ptr noundef nonnull %43, ptr noundef nonnull @.str.9) #10
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #10
   %.not12 = icmp eq i64 %44, %45
   br i1 %.not12, label %46, label %.backedge
 
 46:                                               ; preds = %41
-  %47 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef %0, ptr noundef nonnull %43) #9
+  %47 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef %0, ptr noundef nonnull %43) #8
   br i1 %.not13, label %57, label %48
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %49 = call zeroext i1 @has_startup_progress_timeout_expired(ptr noundef nonnull %19, ptr noundef nonnull %20) #9
+  %49 = call zeroext i1 @has_startup_progress_timeout_expired(ptr noundef nonnull %19, ptr noundef nonnull %20) #8
   br i1 %49, label %50, label %.thread
 
 50:                                               ; preds = %48
-  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %51 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
   br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %50
   %53 = load i64, ptr %19, align 8
   %54 = load i32, ptr %20, align 4
   %55 = sdiv i32 %54, 10000
-  %56 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i64 noundef %53, i32 noundef %55, ptr noundef nonnull %18) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.ResetUnloggedRelationsInTablespaceDir) #9
+  %56 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i64 noundef %53, i32 noundef %55, ptr noundef nonnull %18) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 146, ptr noundef nonnull @__func__.ResetUnloggedRelationsInTablespaceDir) #8
   br label %.thread
 
 57:                                               ; preds = %46
@@ -209,19 +209,19 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 58:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %59 = call zeroext i1 @has_startup_progress_timeout_expired(ptr noundef nonnull %21, ptr noundef nonnull %22) #9
+  %59 = call zeroext i1 @has_startup_progress_timeout_expired(ptr noundef nonnull %21, ptr noundef nonnull %22) #8
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %58
-  %61 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #9
+  %61 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %60
   %63 = load i64, ptr %21, align 8
   %64 = load i32, ptr %22, align 4
   %65 = sdiv i32 %64, 10000
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i64 noundef %63, i32 noundef %65, ptr noundef nonnull %18) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.ResetUnloggedRelationsInTablespaceDir) #9
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i64 noundef %63, i32 noundef %65, ptr noundef nonnull %18) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 149, ptr noundef nonnull @__func__.ResetUnloggedRelationsInTablespaceDir) #8
   br label %67
 
 67:                                               ; preds = %58, %62, %60
@@ -242,9 +242,9 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   store i64 4, ptr %39, align 8
   %69 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %69, ptr %40, align 8
-  %70 = call ptr @hash_create(ptr noundef nonnull @.str.13, i64 noundef 32, ptr noundef nonnull %12, i32 noundef 1064) #9
-  %71 = call ptr @AllocateDir(ptr noundef nonnull %18) #9
-  %72 = call ptr @ReadDir(ptr noundef %71, ptr noundef nonnull %18) #9
+  %70 = call ptr @hash_create(ptr noundef nonnull @.str.13, i64 noundef 32, ptr noundef nonnull %12, i32 noundef 1064) #8
+  %71 = call ptr @AllocateDir(ptr noundef nonnull %18) #8
+  %72 = call ptr @ReadDir(ptr noundef %71, ptr noundef nonnull %18) #8
   %.not4263.i = icmp eq ptr %72, null
   br i1 %.not4263.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -261,9 +261,9 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
   br i1 %or.cond.i54, label %parse_filename_for_nontemp_relation.exit69.thread, label %77
 
 77:                                               ; preds = %.lr.ph.i
-  %78 = tail call ptr @__errno_location() #10
+  %78 = tail call ptr @__errno_location() #9
   store i32 0, ptr %78, align 4
-  %79 = call i64 @strtoul(ptr noundef nonnull %74, ptr noundef nonnull %4, i32 noundef 10) #9
+  %79 = call i64 @strtoul(ptr noundef nonnull %74, ptr noundef nonnull %4, i32 noundef 10) #8
   %80 = load i32, ptr %78, align 4
   %.not.i55 = icmp eq i32 %80, 0
   br i1 %.not.i55, label %81, label %parse_filename_for_nontemp_relation.exit69.thread
@@ -287,7 +287,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  %91 = call i32 @forkname_chars(ptr noundef nonnull %90, ptr noundef nonnull %3) #9
+  %91 = call i32 @forkname_chars(ptr noundef nonnull %90, ptr noundef nonnull %3) #8
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %._crit_edge.i67, label %parse_filename_for_nontemp_relation.exit69.thread
 
@@ -313,7 +313,7 @@ define internal fastcc void @ResetUnloggedRelationsInTablespaceDir(ptr noundef %
 
 102:                                              ; preds = %98
   store i32 0, ptr %78, align 4
-  %103 = call i64 @strtoul(ptr noundef nonnull %99, ptr noundef nonnull %4, i32 noundef 10) #9
+  %103 = call i64 @strtoul(ptr noundef nonnull %99, ptr noundef nonnull %4, i32 noundef 10) #8
   %104 = load i32, ptr %78, align 4
   %.not48.i64 = icmp eq i32 %104, 0
   br i1 %.not48.i64, label %105, label %parse_filename_for_nontemp_relation.exit69.thread
@@ -350,29 +350,29 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
   br i1 %.not51.i, label %115, label %117, !llvm.loop !6
 
 115:                                              ; preds = %parse_filename_for_nontemp_relation.exit69
-  %116 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null) #9
+  %116 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %13, i32 noundef 1, ptr noundef null) #8
   br label %117
 
 117:                                              ; preds = %parse_filename_for_nontemp_relation.exit69.thread, %115, %parse_filename_for_nontemp_relation.exit69
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %118 = call ptr @ReadDir(ptr noundef %71, ptr noundef nonnull %18) #9
+  %118 = call ptr @ReadDir(ptr noundef %71, ptr noundef nonnull %18) #8
   %.not42.i = icmp eq ptr %118, null
   br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %117, %68
-  %119 = call i32 @FreeDir(ptr noundef %71) #9
-  %120 = call i64 @hash_get_num_entries(ptr noundef %70) #9
+  %119 = call i32 @FreeDir(ptr noundef %71) #8
+  %120 = call i64 @hash_get_num_entries(ptr noundef %70) #8
   %.not45.i = icmp eq i64 %120, 0
   br i1 %.not45.i, label %.thread.i, label %121
 
 .thread.i:                                        ; preds = %._crit_edge.i
-  call void @hash_destroy(ptr noundef %70) #9
+  call void @hash_destroy(ptr noundef %70) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %ResetUnloggedRelationsInDbspaceDir.exit
 
 121:                                              ; preds = %._crit_edge.i
-  %122 = call ptr @AllocateDir(ptr noundef nonnull %18) #9
-  %123 = call ptr @ReadDir(ptr noundef %122, ptr noundef nonnull %18) #9
+  %122 = call ptr @AllocateDir(ptr noundef nonnull %18) #8
+  %123 = call ptr @ReadDir(ptr noundef %122, ptr noundef nonnull %18) #8
   %.not4364.i = icmp eq ptr %123, null
   br i1 %.not4364.i, label %._crit_edge67.i, label %.lr.ph66.i
 
@@ -389,9 +389,9 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
   br i1 %or.cond.i38, label %parse_filename_for_nontemp_relation.exit53.thread, label %128
 
 128:                                              ; preds = %.lr.ph66.i
-  %129 = tail call ptr @__errno_location() #10
+  %129 = tail call ptr @__errno_location() #9
   store i32 0, ptr %129, align 4
-  %130 = call i64 @strtoul(ptr noundef nonnull %125, ptr noundef nonnull %6, i32 noundef 10) #9
+  %130 = call i64 @strtoul(ptr noundef nonnull %125, ptr noundef nonnull %6, i32 noundef 10) #8
   %131 = load i32, ptr %129, align 4
   %.not.i39 = icmp eq i32 %131, 0
   br i1 %.not.i39, label %132, label %parse_filename_for_nontemp_relation.exit53.thread
@@ -415,7 +415,7 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
 
 140:                                              ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 1
-  %142 = call i32 @forkname_chars(ptr noundef nonnull %141, ptr noundef nonnull %5) #9
+  %142 = call i32 @forkname_chars(ptr noundef nonnull %141, ptr noundef nonnull %5) #8
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %._crit_edge.i51, label %parse_filename_for_nontemp_relation.exit53.thread
 
@@ -441,7 +441,7 @@ parse_filename_for_nontemp_relation.exit69:       ; preds = %111
 
 153:                                              ; preds = %149
   store i32 0, ptr %129, align 4
-  %154 = call i64 @strtoul(ptr noundef nonnull %150, ptr noundef nonnull %6, i32 noundef 10) #9
+  %154 = call i64 @strtoul(ptr noundef nonnull %150, ptr noundef nonnull %6, i32 noundef 10) #8
   %155 = load i32, ptr %129, align 4
   %.not48.i48 = icmp eq i32 %155, 0
   br i1 %.not48.i48, label %156, label %parse_filename_for_nontemp_relation.exit53.thread
@@ -478,48 +478,47 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
   br i1 %.not105, label %180, label %166, !llvm.loop !7
 
 166:                                              ; preds = %parse_filename_for_nontemp_relation.exit53
-  %167 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null) #9
+  %167 = call ptr @hash_search(ptr noundef %70, ptr noundef nonnull %14, i32 noundef 0, ptr noundef null) #8
   %.not44.i = icmp eq ptr %167, null
   br i1 %.not44.i, label %180, label %168
 
 168:                                              ; preds = %166
-  %169 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %125) #9
-  %170 = call i32 @unlink(ptr noundef nonnull %11) #9
+  %169 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %125) #8
+  %170 = call i32 @unlink(ptr noundef nonnull %11) #8
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %172, label %176
 
 172:                                              ; preds = %168
-  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %173)
-  %174 = call i32 @errcode_for_file_access() #9
-  %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %11) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 262, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #9
+  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %174 = call i32 @errcode_for_file_access() #8
+  %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %11) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 262, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #8
   unreachable
 
 176:                                              ; preds = %168
-  %177 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #9
+  %177 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #8
   br i1 %177, label %178, label %180
 
 178:                                              ; preds = %176
-  %179 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef nonnull %11) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #9
+  %179 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef nonnull %11) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #8
   br label %180
 
 180:                                              ; preds = %parse_filename_for_nontemp_relation.exit53.thread, %178, %176, %166, %parse_filename_for_nontemp_relation.exit53
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %181 = call ptr @ReadDir(ptr noundef %122, ptr noundef nonnull %18) #9
+  %181 = call ptr @ReadDir(ptr noundef %122, ptr noundef nonnull %18) #8
   %.not43.i = icmp eq ptr %181, null
   br i1 %.not43.i, label %._crit_edge67.i, label %.lr.ph66.i
 
 ._crit_edge67.i:                                  ; preds = %180, %121
-  %182 = call i32 @FreeDir(ptr noundef %122) #9
-  call void @hash_destroy(ptr noundef %70) #9
+  %182 = call i32 @FreeDir(ptr noundef %122) #8
+  call void @hash_destroy(ptr noundef %70) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %.not13, label %ResetUnloggedRelationsInDbspaceDir.exit, label %.thread92
 
 .thread92:                                        ; preds = %.thread, %._crit_edge67.i
-  %183 = call ptr @AllocateDir(ptr noundef nonnull %18) #9
-  %184 = call ptr @ReadDir(ptr noundef %183, ptr noundef nonnull %18) #9
+  %183 = call ptr @AllocateDir(ptr noundef nonnull %18) #8
+  %184 = call ptr @ReadDir(ptr noundef %183, ptr noundef nonnull %18) #8
   %.not4768.i = icmp eq ptr %184, null
   br i1 %.not4768.i, label %._crit_edge71.i, label %.lr.ph70.i
 
@@ -536,9 +535,9 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
   br i1 %or.cond.i22, label %parse_filename_for_nontemp_relation.exit37.thread, label %189
 
 189:                                              ; preds = %.lr.ph70.i
-  %190 = tail call ptr @__errno_location() #10
+  %190 = tail call ptr @__errno_location() #9
   store i32 0, ptr %190, align 4
-  %191 = call i64 @strtoul(ptr noundef nonnull %186, ptr noundef nonnull %8, i32 noundef 10) #9
+  %191 = call i64 @strtoul(ptr noundef nonnull %186, ptr noundef nonnull %8, i32 noundef 10) #8
   %192 = load i32, ptr %190, align 4
   %.not.i23 = icmp eq i32 %192, 0
   br i1 %.not.i23, label %193, label %parse_filename_for_nontemp_relation.exit37.thread
@@ -562,7 +561,7 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
 
 201:                                              ; preds = %198
   %202 = getelementptr inbounds nuw i8, ptr %194, i64 1
-  %203 = call i32 @forkname_chars(ptr noundef nonnull %202, ptr noundef nonnull %7) #9
+  %203 = call i32 @forkname_chars(ptr noundef nonnull %202, ptr noundef nonnull %7) #8
   %204 = icmp sgt i32 %203, 0
   br i1 %204, label %._crit_edge.i35, label %parse_filename_for_nontemp_relation.exit37.thread
 
@@ -588,7 +587,7 @@ parse_filename_for_nontemp_relation.exit53:       ; preds = %162
 
 214:                                              ; preds = %210
   store i32 0, ptr %190, align 4
-  %215 = call i64 @strtoul(ptr noundef nonnull %211, ptr noundef nonnull %8, i32 noundef 10) #9
+  %215 = call i64 @strtoul(ptr noundef nonnull %211, ptr noundef nonnull %8, i32 noundef 10) #8
   %216 = load i32, ptr %190, align 4
   %.not48.i32 = icmp eq i32 %216, 0
   br i1 %.not48.i32, label %217, label %parse_filename_for_nontemp_relation.exit37.thread
@@ -626,42 +625,42 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
   br i1 %.not50.i, label %228, label %240, !llvm.loop !8
 
 228:                                              ; preds = %parse_filename_for_nontemp_relation.exit37
-  %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %186) #9
+  %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 2048, ptr noundef nonnull @.str.10, ptr noundef nonnull %18, ptr noundef nonnull %186) #8
   %230 = icmp eq i32 %.036.i29, 0
   br i1 %230, label %231, label %233
 
 231:                                              ; preds = %228
-  %232 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef nonnull %18, i32 noundef %226) #9
+  %232 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef nonnull %18, i32 noundef %226) #8
   br label %235
 
 233:                                              ; preds = %228
-  %234 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %226, i32 noundef %.036.i29) #9
+  %234 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %16, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %226, i32 noundef %.036.i29) #8
   br label %235
 
 235:                                              ; preds = %233, %231
-  %236 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #9
+  %236 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #8
   br i1 %236, label %237, label %239
 
 237:                                              ; preds = %235
-  %238 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef nonnull %15, ptr noundef nonnull %16) #9
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #9
+  %238 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef nonnull %15, ptr noundef nonnull %16) #8
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 314, ptr noundef nonnull @__func__.ResetUnloggedRelationsInDbspaceDir) #8
   br label %239
 
 239:                                              ; preds = %237, %235
-  call void @copy_file(ptr noundef nonnull %15, ptr noundef nonnull %16) #9
+  call void @copy_file(ptr noundef nonnull %15, ptr noundef nonnull %16) #8
   br label %240
 
 240:                                              ; preds = %parse_filename_for_nontemp_relation.exit37.thread, %239, %parse_filename_for_nontemp_relation.exit37
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %241 = call ptr @ReadDir(ptr noundef %183, ptr noundef nonnull %18) #9
+  %241 = call ptr @ReadDir(ptr noundef %183, ptr noundef nonnull %18) #8
   %.not47.i = icmp eq ptr %241, null
   br i1 %.not47.i, label %._crit_edge71.i, label %.lr.ph70.i
 
 ._crit_edge71.i:                                  ; preds = %240, %.thread92
-  %242 = call i32 @FreeDir(ptr noundef %183) #9
-  %243 = call ptr @AllocateDir(ptr noundef nonnull %18) #9
-  %244 = call ptr @ReadDir(ptr noundef %243, ptr noundef nonnull %18) #9
+  %242 = call i32 @FreeDir(ptr noundef %183) #8
+  %243 = call ptr @AllocateDir(ptr noundef nonnull %18) #8
+  %244 = call ptr @ReadDir(ptr noundef %243, ptr noundef nonnull %18) #8
   %.not4872.i = icmp eq ptr %244, null
   br i1 %.not4872.i, label %._crit_edge75.i, label %.lr.ph74.i
 
@@ -677,9 +676,9 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
   br i1 %or.cond.i15, label %parse_filename_for_nontemp_relation.exit.thread, label %249
 
 249:                                              ; preds = %.lr.ph74.i
-  %250 = tail call ptr @__errno_location() #10
+  %250 = tail call ptr @__errno_location() #9
   store i32 0, ptr %250, align 4
-  %251 = call i64 @strtoul(ptr noundef nonnull %246, ptr noundef nonnull %10, i32 noundef 10) #9
+  %251 = call i64 @strtoul(ptr noundef nonnull %246, ptr noundef nonnull %10, i32 noundef 10) #8
   %252 = load i32, ptr %250, align 4
   %.not.i16 = icmp eq i32 %252, 0
   br i1 %.not.i16, label %253, label %parse_filename_for_nontemp_relation.exit.thread
@@ -703,7 +702,7 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
 
 261:                                              ; preds = %258
   %262 = getelementptr inbounds nuw i8, ptr %254, i64 1
-  %263 = call i32 @forkname_chars(ptr noundef nonnull %262, ptr noundef nonnull %9) #9
+  %263 = call i32 @forkname_chars(ptr noundef nonnull %262, ptr noundef nonnull %9) #8
   %264 = icmp sgt i32 %263, 0
   br i1 %264, label %._crit_edge.i21, label %parse_filename_for_nontemp_relation.exit.thread
 
@@ -729,7 +728,7 @@ parse_filename_for_nontemp_relation.exit37:       ; preds = %224
 
 274:                                              ; preds = %270
   store i32 0, ptr %250, align 4
-  %275 = call i64 @strtoul(ptr noundef nonnull %271, ptr noundef nonnull %10, i32 noundef 10) #9
+  %275 = call i64 @strtoul(ptr noundef nonnull %271, ptr noundef nonnull %10, i32 noundef 10) #8
   %276 = load i32, ptr %250, align 4
   %.not48.i20 = icmp eq i32 %276, 0
   br i1 %.not48.i20, label %277, label %parse_filename_for_nontemp_relation.exit.thread
@@ -771,26 +770,26 @@ parse_filename_for_nontemp_relation.exit:         ; preds = %284
   br i1 %289, label %290, label %292
 
 290:                                              ; preds = %288
-  %291 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef nonnull %18, i32 noundef %286) #9
+  %291 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1024, ptr noundef nonnull @.str.16, ptr noundef nonnull %18, i32 noundef %286) #8
   br label %294
 
 292:                                              ; preds = %288
-  %293 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %286, i32 noundef %.036.i) #9
+  %293 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %17, i64 noundef 1024, ptr noundef nonnull @.str.17, ptr noundef nonnull %18, i32 noundef %286, i32 noundef %.036.i) #8
   br label %294
 
 294:                                              ; preds = %292, %290
-  call void @fsync_fname(ptr noundef nonnull %17, i1 noundef zeroext false) #9
+  call void @fsync_fname(ptr noundef nonnull %17, i1 noundef zeroext false) #8
   br label %295
 
 295:                                              ; preds = %parse_filename_for_nontemp_relation.exit.thread, %294, %parse_filename_for_nontemp_relation.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %296 = call ptr @ReadDir(ptr noundef %243, ptr noundef nonnull %18) #9
+  %296 = call ptr @ReadDir(ptr noundef %243, ptr noundef nonnull %18) #8
   %.not48.i = icmp eq ptr %296, null
   br i1 %.not48.i, label %._crit_edge75.i, label %.lr.ph74.i
 
 ._crit_edge75.i:                                  ; preds = %295, %._crit_edge71.i
-  %297 = call i32 @FreeDir(ptr noundef %243) #9
-  call void @fsync_fname(ptr noundef nonnull %18, i1 noundef zeroext true) #9
+  %297 = call i32 @FreeDir(ptr noundef %243) #8
+  call void @fsync_fname(ptr noundef nonnull %18, i1 noundef zeroext true) #8
   br label %ResetUnloggedRelationsInDbspaceDir.exit
 
 ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread138, %.thread.i, %._crit_edge67.i, %._crit_edge75.i
@@ -798,12 +797,12 @@ ResetUnloggedRelationsInDbspaceDir.exit:          ; preds = %.thread138, %.threa
   br label %.backedge
 
 .backedge:                                        ; preds = %ResetUnloggedRelationsInDbspaceDir.exit, %41
-  %298 = call ptr @ReadDir(ptr noundef %23, ptr noundef %0) #9
+  %298 = call ptr @ReadDir(ptr noundef %23, ptr noundef %0) #8
   %.not = icmp eq ptr %298, null
   br i1 %.not, label %._crit_edge, label %41, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.backedge, %34
-  %299 = call i32 @FreeDir(ptr noundef %23) #9
+  %299 = call i32 @FreeDir(ptr noundef %23) #8
   br label %300
 
 300:                                              ; preds = %29, %31, %._crit_edge
@@ -836,9 +835,9 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
   br i1 %or.cond, label %49, label %9
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @__errno_location() #10
+  %10 = tail call ptr @__errno_location() #9
   store i32 0, ptr %10, align 4
-  %11 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 10) #9
+  %11 = call i64 @strtoul(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 10) #8
   %12 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %49
@@ -862,7 +861,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %23 = call i32 @forkname_chars(ptr noundef nonnull %22, ptr noundef nonnull %5) #9
+  %23 = call i32 @forkname_chars(ptr noundef nonnull %22, ptr noundef nonnull %5) #8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %._crit_edge, label %49
 
@@ -888,7 +887,7 @@ define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr nou
 
 34:                                               ; preds = %30
   store i32 0, ptr %10, align 4
-  %35 = call i64 @strtoul(ptr noundef nonnull %31, ptr noundef nonnull %6, i32 noundef 10) #9
+  %35 = call i64 @strtoul(ptr noundef nonnull %31, ptr noundef nonnull %6, i32 noundef 10) #8
   %36 = load i32, ptr %10, align 4
   %.not48 = icmp eq i32 %36, 0
   br i1 %.not48, label %37, label %49
@@ -968,9 +967,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -979,11 +975,10 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn "no-trappin
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { cold nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

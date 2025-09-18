@@ -26,14 +26,14 @@ define dso_local i64 @pg_partition_tree(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %13 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #6
+  %13 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #5
   %14 = and i64 %6, 4294967295
-  %15 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %14, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  %15 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %14, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   br i1 %15, label %16, label %check_rel_can_be_partition.exit.thread79
 
 16:                                               ; preds = %12
-  %17 = tail call signext i8 @get_rel_relkind(i32 noundef %7) #6
-  %18 = tail call zeroext i1 @get_rel_relispartition(i32 noundef %7) #6
+  %17 = tail call signext i8 @get_rel_relkind(i32 noundef %7) #5
+  %18 = tail call zeroext i1 @get_rel_relispartition(i32 noundef %7) #5
   %19 = freeze i1 %18
   br i1 %19, label %check_rel_can_be_partition.exit.thread, label %check_rel_can_be_partition.exit
 
@@ -48,16 +48,15 @@ check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_pa
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
-  %23 = tail call ptr @find_all_inheritors(i32 noundef %7, i32 noundef 1, ptr noundef null) #6
-  %24 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #6
+  %23 = tail call ptr @find_all_inheritors(i32 noundef %7, i32 noundef 1, ptr noundef null) #5
+  %24 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %2) #5
   %.not = icmp eq i32 %24, 1
   br i1 %.not, label %.thread, label %25
 
 25:                                               ; preds = %check_rel_can_be_partition.exit.thread
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %26)
-  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull @__func__.pg_partition_tree) #6
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %27 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 91, ptr noundef nonnull @__func__.pg_partition_tree) #5
   unreachable
 
 .thread:                                          ; preds = %check_rel_can_be_partition.exit.thread
@@ -71,7 +70,7 @@ check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_pa
   br label %35
 
 check_rel_can_be_partition.exit.thread79:         ; preds = %check_rel_can_be_partition.exit, %12
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %13) #6
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %13) #5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -82,7 +81,7 @@ check_rel_can_be_partition.exit.thread79:         ; preds = %check_rel_can_be_pa
   br label %93
 
 35:                                               ; preds = %.thread, %1
-  %36 = call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #6
+  %36 = call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #5
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
@@ -107,8 +106,8 @@ list_length.exit:                                 ; preds = %35
   %46 = ashr exact i64 %sext, 29
   %47 = getelementptr inbounds i8, ptr %.val74, i64 %46
   %48 = load i32, ptr %47, align 8
-  %49 = call signext i8 @get_rel_relkind(i32 noundef %48) #6
-  %50 = call ptr @get_partition_ancestors(i32 noundef %48) #6
+  %49 = call signext i8 @get_rel_relkind(i32 noundef %48) #5
+  %50 = call ptr @get_partition_ancestors(i32 noundef %48) #5
   %51 = zext i32 %48 to i64
   store i64 %51, ptr %3, align 16
   %.not67 = icmp eq ptr %50, null
@@ -186,10 +185,10 @@ list_length.exit:                                 ; preds = %35
   store i64 %.063, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %80 = load ptr, ptr %79, align 8
-  %81 = call ptr @heap_form_tuple(ptr noundef %80, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %81 = call ptr @heap_form_tuple(ptr noundef %80, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %82 = getelementptr i8, ptr %81, i64 16
   %.val75 = load ptr, ptr %82, align 8
-  %83 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val75) #6
+  %83 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val75) #5
   %84 = load i64, ptr %36, align 8
   %85 = add i64 %84, 1
   store i64 %85, ptr %36, align 8
@@ -202,7 +201,7 @@ list_length.exit:                                 ; preds = %35
   br label %93
 
 .critedge86:                                      ; preds = %35, %list_length.exit
-  call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %36) #6
+  call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %36) #5
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
@@ -248,12 +247,12 @@ define dso_local range(i64 0, 4294967296) i64 @pg_partition_root(ptr noundef cap
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i64 %3, 4294967295
-  %6 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  %6 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   br i1 %6, label %7, label %check_rel_can_be_partition.exit.thread12
 
 7:                                                ; preds = %1
-  %8 = tail call signext i8 @get_rel_relkind(i32 noundef %4) #6
-  %9 = tail call zeroext i1 @get_rel_relispartition(i32 noundef %4) #6
+  %8 = tail call signext i8 @get_rel_relkind(i32 noundef %4) #5
+  %9 = tail call zeroext i1 @get_rel_relispartition(i32 noundef %4) #5
   %10 = freeze i1 %9
   br i1 %10, label %check_rel_can_be_partition.exit.thread, label %check_rel_can_be_partition.exit
 
@@ -269,7 +268,7 @@ check_rel_can_be_partition.exit.thread12:         ; preds = %check_rel_can_be_pa
   br label %22
 
 check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_partition.exit, %check_rel_can_be_partition.exit, %7
-  %12 = tail call ptr @get_partition_ancestors(i32 noundef %4) #6
+  %12 = tail call ptr @get_partition_ancestors(i32 noundef %4) #5
   %13 = icmp eq ptr %12, null
   br i1 %13, label %22, label %14
 
@@ -282,7 +281,7 @@ check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_pa
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %union.ListCell, ptr %.val10, i64 %18
   %20 = load i32, ptr %19, align 8
-  tail call void @list_free(ptr noundef nonnull %12) #6
+  tail call void @list_free(ptr noundef nonnull %12) #5
   %21 = zext i32 %20 to i64
   br label %22
 
@@ -305,14 +304,14 @@ define dso_local range(i64 0, 4294967296) i64 @pg_partition_ancestors(ptr nounde
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %1
-  %10 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #6
+  %10 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #5
   %11 = and i64 %3, 4294967295
-  %12 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %11, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  %12 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %11, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   br i1 %12, label %13, label %check_rel_can_be_partition.exit.thread42
 
 13:                                               ; preds = %9
-  %14 = tail call signext i8 @get_rel_relkind(i32 noundef %4) #6
-  %15 = tail call zeroext i1 @get_rel_relispartition(i32 noundef %4) #6
+  %14 = tail call signext i8 @get_rel_relkind(i32 noundef %4) #5
+  %15 = tail call zeroext i1 @get_rel_relispartition(i32 noundef %4) #5
   %16 = freeze i1 %15
   br i1 %16, label %.thread, label %check_rel_can_be_partition.exit
 
@@ -327,15 +326,15 @@ check_rel_can_be_partition.exit:                  ; preds = %13
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %18, ptr @CurrentMemoryContext, align 8
-  %20 = tail call ptr @get_partition_ancestors(i32 noundef %4) #6
-  %21 = tail call ptr @lcons_oid(i32 noundef %4, ptr noundef %20) #6
+  %20 = tail call ptr @get_partition_ancestors(i32 noundef %4) #5
+  %21 = tail call ptr @lcons_oid(i32 noundef %4, ptr noundef %20) #5
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %21, ptr %22, align 8
   store ptr %19, ptr @CurrentMemoryContext, align 8
   br label %27
 
 check_rel_can_be_partition.exit.thread42:         ; preds = %check_rel_can_be_partition.exit, %9
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %10) #6
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %10) #5
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -345,7 +344,7 @@ check_rel_can_be_partition.exit.thread42:         ; preds = %check_rel_can_be_pa
   br label %50
 
 27:                                               ; preds = %.thread, %1
-  %28 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #6
+  %28 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #5
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %28, align 8
@@ -376,7 +375,7 @@ list_length.exit:                                 ; preds = %27
   br label %50
 
 .critedge:                                        ; preds = %27, %list_length.exit
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %28) #6
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %28) #5
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -404,17 +403,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

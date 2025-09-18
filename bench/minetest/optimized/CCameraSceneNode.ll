@@ -3403,20 +3403,13 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt7__cxx1110_Lis
   %7 = load ptr, ptr %Name.i.i.i, align 8, !tbaa !97
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %9, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN3irr5scene16CCameraSceneNodeD2Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr5scene16CCameraSceneNodeD2Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %7) #25
   br label %_ZN3irr5scene16CCameraSceneNodeD2Ev.exit
 
-_ZN3irr5scene16CCameraSceneNodeD2Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i
+_ZN3irr5scene16CCameraSceneNodeD2Ev.exit:         ; preds = %if.then.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i
   ret void
 }
 
@@ -3500,20 +3493,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7__cxx1110_Lis
   %7 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !97
   %8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %7, %8
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %9, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %7) #25
   br label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit
 
-_ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
+_ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
   ret void
 }
@@ -3605,20 +3591,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7__cxx1110_Lis
   %8 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !97
   %9 = getelementptr inbounds i8, ptr %this, i64 -200
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -208
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %8) #25
   br label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit
 
-_ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
+_ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
   ret void
 }
 
@@ -3703,20 +3682,13 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt7__cxx1110_Lis
   %8 = load ptr, ptr %Name.i.i.i.i.i, align 8, !tbaa !97
   %9 = getelementptr inbounds i8, ptr %this, i64 -200
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %8, %9
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -208
-  %10 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %10, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN3irr5scene16CCameraSceneNodeD0Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr5scene16CCameraSceneNodeD0Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %8) #25
   br label %_ZN3irr5scene16CCameraSceneNodeD0Ev.exit
 
-_ZN3irr5scene16CCameraSceneNodeD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i
+_ZN3irr5scene16CCameraSceneNodeD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
 }
@@ -3805,20 +3777,13 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt7__cxx1110_Lis
   %11 = load ptr, ptr %Name.i.i.i.i, align 8, !tbaa !97
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %if.then.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %11) #25
   br label %_ZN3irr5scene16CCameraSceneNodeD1Ev.exit
 
-_ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
+_ZN3irr5scene16CCameraSceneNodeD1Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i
   ret void
 }
 
@@ -3906,20 +3871,13 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZNSt7__cxx1110_Lis
   %11 = load ptr, ptr %Name.i.i.i.i.i, align 8, !tbaa !97
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
-  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i.i.i.i)
-  br label %_ZN3irr5scene16CCameraSceneNodeD0Ev.exit
+  br i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN3irr5scene16CCameraSceneNodeD0Ev.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %if.then.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef %11) #25
   br label %_ZN3irr5scene16CCameraSceneNodeD0Ev.exit
 
-_ZN3irr5scene16CCameraSceneNodeD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i
+_ZN3irr5scene16CCameraSceneNodeD0Ev.exit:         ; preds = %if.then.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt7__cxx1110_List_baseIPN3irr5scene10ISceneNodeESaIS4_EED2Ev.exit.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %3) #25
   ret void
 }
@@ -4162,7 +4120,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit28
-  store float %ref.tmp3.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp3.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit28
@@ -4172,7 +4130,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %_ZNK3
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.end9.i.i
 
 if.then6.i.i:                                     ; preds = %if.end.i.i
-  store float %ref.tmp3.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp3.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %if.then6.i.i, %if.end.i.i
@@ -4190,7 +4148,7 @@ if.end15.i.i:                                     ; preds = %if.then12.i.i, %if.
   br i1 %cmp17.i.i, label %if.then18.i.i, label %if.end21.i.i
 
 if.then18.i.i:                                    ; preds = %if.end15.i.i
-  store float %ref.tmp3.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp3.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i
 
 if.end21.i.i:                                     ; preds = %if.then18.i.i, %if.end15.i.i
@@ -4200,7 +4158,7 @@ if.end21.i.i:                                     ; preds = %if.then18.i.i, %if.
   br i1 %cmp24.i.i, label %if.then25.i.i, label %if.end28.i.i
 
 if.then25.i.i:                                    ; preds = %if.end21.i.i
-  store float %ref.tmp3.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp3.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i
 
 if.end28.i.i:                                     ; preds = %if.then25.i.i, %if.end21.i.i
@@ -4323,7 +4281,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i57, label %if.then.i.i77, label %if.end.i.i58
 
 if.then.i.i77:                                    ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit55
-  store float %ref.tmp7.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp7.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %if.then.i.i77, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit55
@@ -4332,7 +4290,7 @@ if.end.i.i58:                                     ; preds = %if.then.i.i77, %_ZN
   br i1 %cmp5.i.i60, label %if.then6.i.i76, label %if.end9.i.i61
 
 if.then6.i.i76:                                   ; preds = %if.end.i.i58
-  store float %ref.tmp7.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp7.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i61
 
 if.end9.i.i61:                                    ; preds = %if.then6.i.i76, %if.end.i.i58
@@ -4350,7 +4308,7 @@ if.end15.i.i64:                                   ; preds = %if.then12.i.i75, %i
   br i1 %cmp17.i.i65, label %if.then18.i.i74, label %if.end21.i.i66
 
 if.then18.i.i74:                                  ; preds = %if.end15.i.i64
-  store float %ref.tmp7.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp7.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i66
 
 if.end21.i.i66:                                   ; preds = %if.then18.i.i74, %if.end15.i.i64
@@ -4359,7 +4317,7 @@ if.end21.i.i66:                                   ; preds = %if.then18.i.i74, %i
   br i1 %cmp24.i.i68, label %if.then25.i.i73, label %if.end28.i.i69
 
 if.then25.i.i73:                                  ; preds = %if.end21.i.i66
-  store float %ref.tmp7.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp7.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i69
 
 if.end28.i.i69:                                   ; preds = %if.then25.i.i73, %if.end21.i.i66
@@ -4457,7 +4415,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i93, label %if.then.i.i113, label %if.end.i.i94
 
 if.then.i.i113:                                   ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit82
-  store float %ref.tmp11.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp11.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i94
 
 if.end.i.i94:                                     ; preds = %if.then.i.i113, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit82
@@ -4466,7 +4424,7 @@ if.end.i.i94:                                     ; preds = %if.then.i.i113, %_Z
   br i1 %cmp5.i.i96, label %if.then6.i.i112, label %if.end9.i.i97
 
 if.then6.i.i112:                                  ; preds = %if.end.i.i94
-  store float %ref.tmp11.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp11.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i97
 
 if.end9.i.i97:                                    ; preds = %if.then6.i.i112, %if.end.i.i94
@@ -4484,7 +4442,7 @@ if.end15.i.i100:                                  ; preds = %if.then12.i.i111, %
   br i1 %cmp17.i.i101, label %if.then18.i.i110, label %if.end21.i.i102
 
 if.then18.i.i110:                                 ; preds = %if.end15.i.i100
-  store float %ref.tmp11.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp11.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i102
 
 if.end21.i.i102:                                  ; preds = %if.then18.i.i110, %if.end15.i.i100
@@ -4493,7 +4451,7 @@ if.end21.i.i102:                                  ; preds = %if.then18.i.i110, %
   br i1 %cmp24.i.i104, label %if.then25.i.i109, label %if.end28.i.i105
 
 if.then25.i.i109:                                 ; preds = %if.end21.i.i102
-  store float %ref.tmp11.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp11.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i105
 
 if.end28.i.i105:                                  ; preds = %if.then25.i.i109, %if.end21.i.i102
@@ -4617,7 +4575,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i128, label %if.then.i.i148, label %if.end.i.i129
 
 if.then.i.i148:                                   ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit109
-  store float %ref.tmp15.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp15.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i129
 
 if.end.i.i129:                                    ; preds = %if.then.i.i148, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit109
@@ -4626,7 +4584,7 @@ if.end.i.i129:                                    ; preds = %if.then.i.i148, %_Z
   br i1 %cmp5.i.i131, label %if.then6.i.i147, label %if.end9.i.i132
 
 if.then6.i.i147:                                  ; preds = %if.end.i.i129
-  store float %ref.tmp15.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp15.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i132
 
 if.end9.i.i132:                                   ; preds = %if.then6.i.i147, %if.end.i.i129
@@ -4644,7 +4602,7 @@ if.end15.i.i135:                                  ; preds = %if.then12.i.i146, %
   br i1 %cmp17.i.i136, label %if.then18.i.i145, label %if.end21.i.i137
 
 if.then18.i.i145:                                 ; preds = %if.end15.i.i135
-  store float %ref.tmp15.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp15.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i137
 
 if.end21.i.i137:                                  ; preds = %if.then18.i.i145, %if.end15.i.i135
@@ -4653,7 +4611,7 @@ if.end21.i.i137:                                  ; preds = %if.then18.i.i145, %
   br i1 %cmp24.i.i139, label %if.then25.i.i144, label %if.end28.i.i140
 
 if.then25.i.i144:                                 ; preds = %if.end21.i.i137
-  store float %ref.tmp15.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp15.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i140
 
 if.end28.i.i140:                                  ; preds = %if.then25.i.i144, %if.end21.i.i137
@@ -4771,7 +4729,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i164, label %if.then.i.i184, label %if.end.i.i165
 
 if.then.i.i184:                                   ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit136
-  store float %ref.tmp19.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp19.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i165
 
 if.end.i.i165:                                    ; preds = %if.then.i.i184, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit136
@@ -4780,7 +4738,7 @@ if.end.i.i165:                                    ; preds = %if.then.i.i184, %_Z
   br i1 %cmp5.i.i167, label %if.then6.i.i183, label %if.end9.i.i168
 
 if.then6.i.i183:                                  ; preds = %if.end.i.i165
-  store float %ref.tmp19.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp19.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i168
 
 if.end9.i.i168:                                   ; preds = %if.then6.i.i183, %if.end.i.i165
@@ -4798,7 +4756,7 @@ if.end15.i.i171:                                  ; preds = %if.then12.i.i182, %
   br i1 %cmp17.i.i172, label %if.then18.i.i181, label %if.end21.i.i173
 
 if.then18.i.i181:                                 ; preds = %if.end15.i.i171
-  store float %ref.tmp19.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp19.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i173
 
 if.end21.i.i173:                                  ; preds = %if.then18.i.i181, %if.end15.i.i171
@@ -4807,7 +4765,7 @@ if.end21.i.i173:                                  ; preds = %if.then18.i.i181, %
   br i1 %cmp24.i.i175, label %if.then25.i.i180, label %if.end28.i.i176
 
 if.then25.i.i180:                                 ; preds = %if.end21.i.i173
-  store float %ref.tmp19.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp19.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i176
 
 if.end28.i.i176:                                  ; preds = %if.then25.i.i180, %if.end21.i.i173
@@ -4919,7 +4877,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i200, label %if.then.i.i220, label %if.end.i.i201
 
 if.then.i.i220:                                   ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit163
-  store float %ref.tmp23.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp23.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i201
 
 if.end.i.i201:                                    ; preds = %if.then.i.i220, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit163
@@ -4928,7 +4886,7 @@ if.end.i.i201:                                    ; preds = %if.then.i.i220, %_Z
   br i1 %cmp5.i.i203, label %if.then6.i.i219, label %if.end9.i.i204
 
 if.then6.i.i219:                                  ; preds = %if.end.i.i201
-  store float %ref.tmp23.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp23.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i204
 
 if.end9.i.i204:                                   ; preds = %if.then6.i.i219, %if.end.i.i201
@@ -4946,7 +4904,7 @@ if.end15.i.i207:                                  ; preds = %if.then12.i.i218, %
   br i1 %cmp17.i.i208, label %if.then18.i.i217, label %if.end21.i.i209
 
 if.then18.i.i217:                                 ; preds = %if.end15.i.i207
-  store float %ref.tmp23.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp23.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i209
 
 if.end21.i.i209:                                  ; preds = %if.then18.i.i217, %if.end15.i.i207
@@ -4955,7 +4913,7 @@ if.end21.i.i209:                                  ; preds = %if.then18.i.i217, %
   br i1 %cmp24.i.i211, label %if.then25.i.i216, label %if.end28.i.i212
 
 if.then25.i.i216:                                 ; preds = %if.end21.i.i209
-  store float %ref.tmp23.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp23.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i212
 
 if.end28.i.i212:                                  ; preds = %if.then25.i.i216, %if.end21.i.i209
@@ -5065,7 +5023,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   br i1 %cmp.i.i236, label %if.then.i.i256, label %if.end.i.i237
 
 if.then.i.i256:                                   ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit190
-  store float %ref.tmp27.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !101
+  store float %ref.tmp27.sroa.0.0.vec.extract, ptr %MaxEdge.i199, align 4, !tbaa !100
   br label %if.end.i.i237
 
 if.end.i.i237:                                    ; preds = %if.then.i.i256, %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit190
@@ -5073,7 +5031,7 @@ if.end.i.i237:                                    ; preds = %if.then.i.i256, %_Z
   br i1 %cmp5.i.i239, label %if.then6.i.i255, label %if.end9.i.i240
 
 if.then6.i.i255:                                  ; preds = %if.end.i.i237
-  store float %ref.tmp27.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !102
+  store float %ref.tmp27.sroa.0.4.vec.extract, ptr %Y.i.i41, align 4, !tbaa !101
   br label %if.end9.i.i240
 
 if.end9.i.i240:                                   ; preds = %if.then6.i.i255, %if.end.i.i237
@@ -5089,7 +5047,7 @@ if.end15.i.i243:                                  ; preds = %if.then12.i.i254, %
   br i1 %cmp17.i.i244, label %if.then18.i.i253, label %if.end21.i.i245
 
 if.then18.i.i253:                                 ; preds = %if.end15.i.i243
-  store float %ref.tmp27.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !103
+  store float %ref.tmp27.sroa.0.0.vec.extract, ptr %boundingBox, align 4, !tbaa !102
   br label %if.end21.i.i245
 
 if.end21.i.i245:                                  ; preds = %if.then18.i.i253, %if.end15.i.i243
@@ -5097,7 +5055,7 @@ if.end21.i.i245:                                  ; preds = %if.then18.i.i253, %
   br i1 %cmp24.i.i247, label %if.then25.i.i252, label %if.end28.i.i248
 
 if.then25.i.i252:                                 ; preds = %if.end21.i.i245
-  store float %ref.tmp27.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !104
+  store float %ref.tmp27.sroa.0.4.vec.extract, ptr %Y23.i.i, align 4, !tbaa !103
   br label %if.end28.i.i248
 
 if.end28.i.i248:                                  ; preds = %if.then25.i.i252, %if.end21.i.i245
@@ -6199,7 +6157,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
   %longest.1.7 = select i1 %cmp105.7, float %648, float %longest.1.6
   %call111 = tail call float @sqrtf(float noundef %longest.1.7) #22
   %BoundingRadius = getelementptr inbounds nuw i8, ptr %this, i64 260
-  store float %call111, ptr %BoundingRadius, align 4, !tbaa !105
+  store float %call111, ptr %BoundingRadius, align 4, !tbaa !104
   ret void
 }
 
@@ -6231,10 +6189,10 @@ if.else:                                          ; preds = %entry
 
 if.then8:                                         ; preds = %if.else
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %2, ptr %this, align 8, !tbaa !106
+  store ptr %2, ptr %this, align 8, !tbaa !105
   %3 = load ptr, ptr %__other, align 8, !tbaa !97
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %__other, i64 8
-  %4 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !100
+  %4 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %__dnew.i.i.i.i)
   store i64 %4, ptr %__dnew.i.i.i.i, align 8, !tbaa !107
   %cmp.i.i.i.i = icmp ugt i64 %4, 15
@@ -6266,7 +6224,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i
 _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit: ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %if.end.i.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i.i, align 8, !tbaa !107
   %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %8, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !100
+  store i64 %8, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !106
   %9 = load ptr, ptr %this, align 8, !tbaa !97
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !70
@@ -6282,20 +6240,13 @@ if.then.i:                                        ; preds = %if.else10
   %10 = load ptr, ptr %this, align 8, !tbaa !97
   %11 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %cmp.i.i.i.i.i = icmp eq ptr %10, %11
-  br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i16
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %if.then.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %12 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !100
-  %cmp3.i.i.i.i.i = icmp ult i64 %12, 16
-  tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
-  br label %if.end11
+  br i1 %cmp.i.i.i.i.i, label %if.end11, label %if.then.i.i.i.i16
 
 if.then.i.i.i.i16:                                ; preds = %if.then.i
   tail call void @_ZdlPv(ptr noundef %10) #25
   br label %if.end11
 
-if.end11:                                         ; preds = %if.then.i.i.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %if.else10, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit, %if.then
+if.end11:                                         ; preds = %if.then.i, %if.then.i.i.i.i16, %if.else10, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12_M_constructIJRKS5_EEEvDpOT_.exit, %if.then
   ret void
 }
 
@@ -6509,12 +6460,12 @@ attributes #25 = { builtin nounwind }
 !97 = !{!98, !15, i64 0}
 !98 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !99, i64 0, !19, i64 8, !8, i64 16}
 !99 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !15, i64 0}
-!100 = !{!98, !19, i64 8}
-!101 = !{!48, !11, i64 12}
-!102 = !{!48, !11, i64 16}
-!103 = !{!48, !11, i64 0}
-!104 = !{!48, !11, i64 4}
-!105 = !{!49, !11, i64 260}
-!106 = !{!99, !15, i64 0}
+!100 = !{!48, !11, i64 12}
+!101 = !{!48, !11, i64 16}
+!102 = !{!48, !11, i64 0}
+!103 = !{!48, !11, i64 4}
+!104 = !{!49, !11, i64 260}
+!105 = !{!99, !15, i64 0}
+!106 = !{!98, !19, i64 8}
 !107 = !{!19, !19, i64 0}
 !108 = distinct !{!108, !75}

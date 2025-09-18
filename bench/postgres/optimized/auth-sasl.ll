@@ -24,16 +24,16 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4
-  call void @initStringInfo(ptr noundef nonnull %5) #5
+  call void @initStringInfo(ptr noundef nonnull %5) #4
   %9 = load ptr, ptr %0, align 8
-  call void %9(ptr noundef %1, ptr noundef nonnull %5) #5
-  call void @appendStringInfoChar(ptr noundef nonnull %5, i8 noundef signext 0) #5
+  call void %9(ptr noundef %1, ptr noundef nonnull %5) #4
+  call void @appendStringInfoChar(ptr noundef nonnull %5, i8 noundef signext 0) #4
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 8
-  call void @sendAuthRequest(ptr noundef %1, i32 noundef 10, ptr noundef %10, i32 noundef %12) #5
+  call void @sendAuthRequest(ptr noundef %1, i32 noundef 10, ptr noundef %10, i32 noundef %12) #4
   %13 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %13) #5
+  call void @pfree(ptr noundef %13) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -43,51 +43,50 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
 18:                                               ; preds = %64, %4
   %.026 = phi ptr [ null, %4 ], [ %.127, %64 ]
   %.025 = phi i1 [ true, %4 ], [ false, %64 ]
-  call void @pq_startmsgread() #5
-  %19 = call i32 @pq_getbyte() #5
+  call void @pq_startmsgread() #4
+  %19 = call i32 @pq_getbyte() #4
   switch i32 %19, label %20 [
     i32 112, label %24
     i32 -1, label %.loopexit
   ]
 
 20:                                               ; preds = %18
-  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %21)
-  %22 = call i32 @errcode(i32 noundef 16908800) #5
-  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %19) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.CheckSASLAuth) #5
+  %21 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %22 = call i32 @errcode(i32 noundef 16908800) #4
+  %23 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i32 noundef %19) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.CheckSASLAuth) #4
   unreachable
 
 24:                                               ; preds = %18
-  call void @initStringInfo(ptr noundef nonnull %6) #5
+  call void @initStringInfo(ptr noundef nonnull %6) #4
   %25 = load i32, ptr %14, align 8
-  %26 = call i32 @pq_getmessage(ptr noundef nonnull %6, i32 noundef %25) #5
+  %26 = call i32 @pq_getmessage(ptr noundef nonnull %6, i32 noundef %25) #4
   %.not35 = icmp eq i32 %26, 0
   br i1 %.not35, label %29, label %27
 
 27:                                               ; preds = %24
   %28 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %28) #5
+  call void @pfree(ptr noundef %28) #4
   br label %.loopexit
 
 29:                                               ; preds = %24
-  %30 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #5
+  %30 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #4
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
   %32 = load i32, ptr %15, align 8
-  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %32) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.CheckSASLAuth) #5
+  %33 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %32) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 105, ptr noundef nonnull @__func__.CheckSASLAuth) #4
   br label %34
 
 34:                                               ; preds = %31, %29
   br i1 %.025, label %35, label %41
 
 35:                                               ; preds = %34
-  %36 = call ptr @pq_getmsgrawstring(ptr noundef nonnull %6) #5
+  %36 = call ptr @pq_getmsgrawstring(ptr noundef nonnull %6) #4
   %37 = load ptr, ptr %16, align 8
-  %38 = call ptr %37(ptr noundef %1, ptr noundef %36, ptr noundef %2) #5
-  %39 = call i32 @pq_getmsgint(ptr noundef nonnull %6, i32 noundef 4) #5
+  %38 = call ptr %37(ptr noundef %1, ptr noundef %36, ptr noundef %2) #4
+  %39 = call i32 @pq_getmsgint(ptr noundef nonnull %6, i32 noundef 4) #4
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %44, label %.sink.split
 
@@ -98,18 +97,18 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
 .sink.split:                                      ; preds = %35, %41
   %.sink = phi i32 [ %42, %41 ], [ %39, %35 ]
   %.127.ph = phi ptr [ %.026, %41 ], [ %38, %35 ]
-  %43 = call ptr @pq_getmsgbytes(ptr noundef nonnull %6, i32 noundef %.sink) #5
+  %43 = call ptr @pq_getmsgbytes(ptr noundef nonnull %6, i32 noundef %.sink) #4
   br label %44
 
 44:                                               ; preds = %.sink.split, %35
   %.130 = phi ptr [ null, %35 ], [ %43, %.sink.split ]
   %.028 = phi i32 [ -1, %35 ], [ %.sink, %.sink.split ]
   %.127 = phi ptr [ %38, %35 ], [ %.127.ph, %.sink.split ]
-  call void @pq_getmsgend(ptr noundef nonnull %6) #5
+  call void @pq_getmsgend(ptr noundef nonnull %6) #4
   %45 = load ptr, ptr %17, align 8
-  %46 = call i32 %45(ptr noundef %.127, ptr noundef %.130, i32 noundef %.028, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #5
+  %46 = call i32 %45(ptr noundef %.127, ptr noundef %.130, i32 noundef %.028, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3) #4
   %47 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %47) #5
+  call void @pfree(ptr noundef %47) #4
   %48 = load ptr, ptr %7, align 8
   %.not36 = icmp eq ptr %48, null
   br i1 %.not36, label %64, label %49
@@ -119,20 +118,19 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49
-  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %52)
-  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.CheckSASLAuth) #5
+  %52 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %53 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 171, ptr noundef nonnull @__func__.CheckSASLAuth) #4
   unreachable
 
 54:                                               ; preds = %49
-  %55 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #5
+  %55 = call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #4
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %8, align 4
-  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %57) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.CheckSASLAuth) #5
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %57) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.CheckSASLAuth) #4
   br label %59
 
 59:                                               ; preds = %56, %54
@@ -140,9 +138,9 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
   %61 = load ptr, ptr %7, align 8
   %62 = load i32, ptr %8, align 4
   %. = select i1 %60, i32 12, i32 11
-  call void @sendAuthRequest(ptr noundef %1, i32 noundef %., ptr noundef %61, i32 noundef %62) #5
+  call void @sendAuthRequest(ptr noundef %1, i32 noundef %., ptr noundef %61, i32 noundef %62) #4
   %63 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %63) #5
+  call void @pfree(ptr noundef %63) #4
   br label %64
 
 64:                                               ; preds = %44, %59
@@ -204,16 +202,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

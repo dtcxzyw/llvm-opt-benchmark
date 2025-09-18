@@ -148,7 +148,7 @@ define void @_ZN4base4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(5
 
 13:                                               ; preds = %.noexc, %10
   store i32 -1, ptr %0, align 8, !tbaa !24
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %14
 
@@ -162,7 +162,7 @@ define void @_ZN4base4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(5
 
 17:                                               ; preds = %15, %8
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %9, %8 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
@@ -196,14 +196,14 @@ define noundef i64 @_ZN4base4File4SeekENS0_6WhenceEl(ptr noundef nonnull align 8
 8:                                                ; preds = %7, %3
   %9 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %7, %6
   %11 = load i32, ptr %0, align 8, !tbaa !27
-  %12 = call i64 @lseek(i32 noundef %11, i64 noundef %2, i32 noundef %1) #14
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  %12 = call i64 @lseek(i32 noundef %11, i64 noundef %2, i32 noundef %1) #13
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %12
 }
@@ -258,7 +258,7 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %23
-  %26 = tail call ptr @__errno_location() #15
+  %26 = tail call ptr @__errno_location() #14
   %27 = load i32, ptr %26, align 4, !tbaa !27
   %28 = icmp eq i32 %27, 4
   br i1 %28, label %20, label %.critedge.thread, !llvm.loop !28
@@ -283,13 +283,13 @@ define noundef i32 @_ZN4base4File4ReadElPci(ptr noundef nonnull align 8 derefere
   %.1 = phi i32 [ %.024, %25 ], [ %.024, %.critedge ], [ %34, %33 ]
   %.not = icmp eq i32 %.1, 0
   %37 = select i1 %.not, i32 %36, i32 %.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %39
 
 38:                                               ; preds = %31, %12
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %13, %12 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
@@ -350,7 +350,7 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @__errno_location() #15
+  %24 = tail call ptr @__errno_location() #14
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = icmp eq i32 %25, 4
   br i1 %26, label %18, label %.critedge.thread, !llvm.loop !31
@@ -375,13 +375,13 @@ define noundef i32 @_ZN4base4File16ReadAtCurrentPosEPci(ptr noundef nonnull alig
   %.1 = phi i32 [ %.022, %23 ], [ %.022, %.critedge ], [ %32, %31 ]
   %.not = icmp eq i32 %.1, 0
   %35 = select i1 %.not, i32 %34, i32 %.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 36:                                               ; preds = %29, %11
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %12, %11 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
@@ -427,14 +427,14 @@ define noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull ali
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @__errno_location() #15
+  %17 = tail call ptr @__errno_location() #14
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %._crit_edge, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %14, %16
   %20 = trunc i64 %13 to i32
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %20
 
@@ -445,7 +445,7 @@ define noundef i32 @_ZN4base4File16ReadNoBestEffortElPci(ptr noundef nonnull ali
 
 23:                                               ; preds = %21, %10
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %11, %10 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
@@ -488,14 +488,14 @@ define noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef 
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @__errno_location() #15
+  %18 = tail call ptr @__errno_location() #14
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 4
   br i1 %20, label %._crit_edge, label %.critedge, !llvm.loop !34
 
 .critedge:                                        ; preds = %15, %17
   %21 = trunc i64 %14 to i32
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
@@ -506,7 +506,7 @@ define noundef i32 @_ZN4base4File28ReadAtCurrentPosNoBestEffortEPci(ptr noundef 
 
 24:                                               ; preds = %22, %11
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %12, %11 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
@@ -573,7 +573,7 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %29
-  %32 = tail call ptr @__errno_location() #15
+  %32 = tail call ptr @__errno_location() #14
   %33 = load i32, ptr %32, align 4, !tbaa !27
   %34 = icmp eq i32 %33, 4
   br i1 %34, label %26, label %.critedge.thread, !llvm.loop !35
@@ -598,13 +598,13 @@ define noundef i32 @_ZN4base4File5WriteElPKci(ptr noundef nonnull align 8 derefe
   %.1 = phi i32 [ %.026, %31 ], [ %.026, %.critedge ], [ %40, %39 ]
   %.not = icmp eq i32 %.1, 0
   %43 = select i1 %.not, i32 %42, i32 %.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %45
 
 44:                                               ; preds = %37, %18
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %19, %18 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
@@ -659,7 +659,7 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
   br i1 %22, label %23, label %.critedge
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @__errno_location() #15
+  %24 = tail call ptr @__errno_location() #14
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = icmp eq i32 %25, 4
   br i1 %26, label %18, label %.critedge.thread, !llvm.loop !37
@@ -684,13 +684,13 @@ define noundef i32 @_ZN4base4File17WriteAtCurrentPosEPKci(ptr noundef nonnull al
   %.1 = phi i32 [ %.022, %23 ], [ %.022, %.critedge ], [ %32, %31 ]
   %.not = icmp eq i32 %.1, 0
   %35 = select i1 %.not, i32 %34, i32 %.1
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %37
 
 36:                                               ; preds = %29, %11
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %12, %11 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
@@ -743,14 +743,14 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @__errno_location() #15
+  %18 = tail call ptr @__errno_location() #14
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 4
   br i1 %20, label %._crit_edge, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %15, %17
   %21 = trunc i64 %14 to i32
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %25
 
@@ -761,7 +761,7 @@ define noundef i32 @_ZN4base4File29WriteAtCurrentPosNoBestEffortEPKci(ptr nounde
 
 24:                                               ; preds = %22, %11
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %12, %11 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
@@ -789,20 +789,20 @@ define noundef i64 @_ZN4base4File9GetLengthEv(ptr noundef nonnull align 8 derefe
 7:                                                ; preds = %6, %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %8
 
 9:                                                ; preds = %6, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = load i32, ptr %0, align 8, !tbaa !27
-  %11 = call noundef i32 @fstat64(i32 noundef %10, ptr noundef nonnull %3) #14
+  %11 = call noundef i32 @fstat64(i32 noundef %10, ptr noundef nonnull %3) #13
   %.not = icmp eq i32 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load i64, ptr %12, align 8
   %.0 = select i1 %.not, i64 %13, i64 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.0
 }
@@ -825,7 +825,7 @@ define noundef zeroext i1 @_ZN4base4File9SetLengthEl(ptr noundef nonnull align 8
 7:                                                ; preds = %6, %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %8
 
@@ -834,19 +834,19 @@ define noundef zeroext i1 @_ZN4base4File9SetLengthEl(ptr noundef nonnull align 8
   br label %11
 
 11:                                               ; preds = %14, %9
-  %12 = call i32 @ftruncate(i32 noundef %10, i64 noundef %1) #14
+  %12 = call i32 @ftruncate(i32 noundef %10, i64 noundef %1) #13
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %_ZN4base12_GLOBAL__N_113CallFtruncateEil.exit
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @__errno_location() #15
+  %15 = tail call ptr @__errno_location() #14
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = icmp eq i32 %16, 4
   br i1 %17, label %11, label %_ZN4base12_GLOBAL__N_113CallFtruncateEil.exit, !llvm.loop !40
 
 _ZN4base12_GLOBAL__N_113CallFtruncateEil.exit:    ; preds = %11, %14
   %.not = icmp eq i32 %12, 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not
 }
@@ -900,10 +900,10 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
   %26 = mul nsw i64 %21, 1000
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %26, ptr %27, align 8, !tbaa !42
-  %28 = call noundef i32 @futimens(i32 noundef %22, ptr noundef nonnull %4) #14
+  %28 = call noundef i32 @futimens(i32 noundef %22, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i32 %28, 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.not
 
@@ -919,7 +919,7 @@ define noundef zeroext i1 @_ZN4base4File8SetTimesENS_4TimeES1_(ptr noundef nonnu
 
 33:                                               ; preds = %29, %31, %11
   %.pn.pn = phi { ptr, i32 } [ %12, %11 ], [ %32, %31 ], [ %30, %29 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn.pn
 }
@@ -950,7 +950,7 @@ define noundef zeroext i1 @_ZN4base4File7GetInfoEPNS0_4InfoE(ptr noundef nonnull
 10:                                               ; preds = %7, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = load i32, ptr %0, align 8, !tbaa !27
-  %12 = call noundef i32 @fstat64(i32 noundef %11, ptr noundef nonnull %4) #14
+  %12 = call noundef i32 @fstat64(i32 noundef %11, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %15, label %51
 
@@ -1024,13 +1024,13 @@ _ZN4base4File4Info8FromStatERK6stat64.exit:       ; preds = %.noexc10
 
 51:                                               ; preds = %_ZN4base4File4Info8FromStatERK6stat64.exit, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.not
 
 52:                                               ; preds = %13, %8
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %9, %8 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 }
@@ -1063,7 +1063,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
 
 7:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %lpad.phi
 
@@ -1086,7 +1086,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
   br i1 %14, label %15, label %.loopexit3
 
 15:                                               ; preds = %.noexc
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #14
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = icmp eq i32 %17, 4
   br i1 %18, label %12, label %.critedge.i, !llvm.loop !47
@@ -1098,7 +1098,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File4LockEv(ptr noundef nonnull a
 .loopexit3:                                       ; preds = %.noexc, %.critedge.i
   %.0.i = phi i32 [ %19, %.critedge.i ], [ 0, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -1131,7 +1131,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
 
 7:                                                ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %lpad.phi
 
@@ -1154,7 +1154,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
   br i1 %14, label %15, label %.loopexit3
 
 15:                                               ; preds = %.noexc
-  %16 = tail call ptr @__errno_location() #15
+  %16 = tail call ptr @__errno_location() #14
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %18 = icmp eq i32 %17, 4
   br i1 %18, label %12, label %.critedge.i, !llvm.loop !47
@@ -1166,7 +1166,7 @@ define noundef range(i32 -16, 1) i32 @_ZN4base4File6UnlockEv(ptr noundef nonnull
 .loopexit3:                                       ; preds = %.noexc, %.critedge.i
   %.0.i = phi i32 [ %19, %.critedge.i ], [ 0, %.noexc ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0.i
 }
@@ -1202,12 +1202,12 @@ define void @_ZNK4base4File9DuplicateEv(ptr dead_on_unwind noalias writable sret
 
 12:                                               ; preds = %8, %9
   %13 = load i32, ptr %1, align 8, !tbaa !27
-  %14 = call i32 @dup(i32 noundef %13) #14
+  %14 = call i32 @dup(i32 noundef %13) #13
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @__errno_location() #15
+  %17 = tail call ptr @__errno_location() #14
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %19 = invoke noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %18)
           to label %20 unwind label %21
@@ -1237,13 +1237,13 @@ define void @_ZNK4base4File9DuplicateEv(ptr dead_on_unwind noalias writable sret
   br label %30
 
 30:                                               ; preds = %24, %28, %20
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %32
 
 31:                                               ; preds = %21, %10
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %11, %10 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
@@ -1285,59 +1285,47 @@ define noundef range(i32 -16, 0) i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 no
   store i8 0, ptr %10, align 1, !tbaa !62
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %11 = invoke noundef ptr @_ZN4base15SparseHistogram10FactoryGetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 1)
-          to label %12 unwind label %20
+          to label %12 unwind label %18
 
 12:                                               ; preds = %.noexc.i
   %13 = load ptr, ptr %3, align 8, !tbaa !61
   %14 = icmp eq ptr %13, %5
-  br i1 %14, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %12
-  %15 = load i64, ptr %8, align 8, !tbaa !63
-  %16 = icmp ult i64 %15, 16
-  call void @llvm.assume(i1 %16)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %14, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %12
-  call void @_ZdlPv(ptr noundef %13) #16
+  call void @_ZdlPv(ptr noundef %13) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = load ptr, ptr %11, align 8, !tbaa !64
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(44) %11, i32 noundef %0)
-  br label %27
+  %15 = load ptr, ptr %11, align 8, !tbaa !64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %17 = load ptr, ptr %16, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(44) %11, i32 noundef %0)
+  br label %23
 
-20:                                               ; preds = %.noexc.i
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %.noexc.i
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %3, align 8, !tbaa !61
-  %23 = icmp eq ptr %22, %5
-  br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
+  %20 = load ptr, ptr %3, align 8, !tbaa !61
+  %21 = icmp eq ptr %20, %5
+  br i1 %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9: ; preds = %20
-  %24 = load i64, ptr %8, align 8, !tbaa !63
-  %25 = icmp ult i64 %24, 16
-  call void @llvm.assume(i1 %25)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %18
+  call void @_ZdlPv(ptr noundef %20) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8: ; preds = %20
-  call void @_ZdlPv(ptr noundef %22) #16
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i9
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %19
 
 switch.lookup:                                    ; preds = %1
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 %26
+  %22 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4base4File18OSErrorToFileErrorEi, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %27
+  br label %23
 
-27:                                               ; preds = %switch.lookup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+23:                                               ; preds = %switch.lookup, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.06 = phi i32 [ -1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %switch.load, %switch.lookup ]
   ret i32 %.06
 }
@@ -1368,7 +1356,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %or.cond57, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = tail call ptr @__errno_location() #15
+  %12 = tail call ptr @__errno_location() #14
   store i32 95, ptr %12, align 4, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 -1, ptr %13, align 4, !tbaa !67
@@ -1402,7 +1390,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %24
-  %29 = tail call ptr @__errno_location() #15
+  %29 = tail call ptr @__errno_location() #14
   %30 = load i32, ptr %29, align 4, !tbaa !27
   %31 = icmp eq i32 %30, 4
   br i1 %31, label %24, label %.critedge, !llvm.loop !68
@@ -1439,7 +1427,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %45, label %46, label %.critedge2
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @__errno_location() #15
+  %47 = tail call ptr @__errno_location() #14
   %48 = load i32, ptr %47, align 4, !tbaa !27
   %49 = icmp eq i32 %48, 4
   br i1 %49, label %42, label %.thread, !llvm.loop !69
@@ -1456,7 +1444,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %33, label %.thread, label %56
 
 .thread:                                          ; preds = %46, %.critedge2, %51
-  %52 = tail call ptr @__errno_location() #15
+  %52 = tail call ptr @__errno_location() #14
   %53 = load i32, ptr %52, align 4, !tbaa !27
   %54 = tail call noundef i32 @_ZN4base4File18OSErrorToFileErrorEi(i32 noundef %53)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1480,7 +1468,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %1, align 8, !tbaa !61
-  %63 = tail call i32 @unlink(ptr noundef %62) #14
+  %63 = tail call i32 @unlink(ptr noundef %62) #13
   br label %64
 
 64:                                               ; preds = %61, %59
@@ -1500,7 +1488,7 @@ define void @_ZN4base4File12DoInitializeERKNS_8FilePathEj(ptr noundef nonnull al
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
-  tail call void @abort() #17
+  tail call void @abort() #16
   unreachable
 
 74:                                               ; preds = %71
@@ -1554,14 +1542,14 @@ define noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 der
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #14
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %8, label %.critedge, !llvm.loop !70
 
 .critedge:                                        ; preds = %11, %13
   %.not = icmp eq i32 %10, 0
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not
 
@@ -1572,7 +1560,7 @@ define noundef zeroext i1 @_ZN4base4File5FlushEv(ptr noundef nonnull align 8 der
 
 19:                                               ; preds = %17, %6
   %.pn = phi { ptr, i32 } [ %18, %17 ], [ %7, %6 ]
-  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #14
+  call void @_ZN4base11FileTracing11ScopedTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }
@@ -1590,7 +1578,7 @@ define void @_ZN4base4File15SetPlatformFileEi(ptr noundef nonnull align 8 captur
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  tail call void @abort() #17
+  tail call void @abort() #16
   unreachable
 
 7:                                                ; preds = %4
@@ -1631,11 +1619,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1649,12 +1634,11 @@ attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

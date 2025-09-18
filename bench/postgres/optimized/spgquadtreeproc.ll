@@ -74,70 +74,69 @@ define dso_local noundef i64 @spg_quad_choose(ptr noundef readonly captures(none
 define internal fastcc signext range(i16 1, 5) i16 @getQuadrant(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   %4 = ptrtoint ptr %0 to i64
-  %5 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %5 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_horiz, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %7 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_horiz, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not24 = icmp eq i64 %7, 0
   br i1 %.not24, label %12, label %8
 
 8:                                                ; preds = %6, %2
-  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %9 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not25 = icmp eq i64 %9, 0
   br i1 %.not25, label %10, label %31
 
 10:                                               ; preds = %8
-  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_vert, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_vert, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not26 = icmp eq i64 %11, 0
   br i1 %.not26, label %12, label %31
 
 12:                                               ; preds = %10, %6
-  %13 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %13 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not27 = icmp eq i64 %13, 0
   br i1 %.not27, label %18, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %15 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not28 = icmp eq i64 %15, 0
   br i1 %.not28, label %16, label %31
 
 16:                                               ; preds = %14
-  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_vert, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %17 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_vert, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not29 = icmp eq i64 %17, 0
   br i1 %.not29, label %18, label %31
 
 18:                                               ; preds = %16, %12
-  %19 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %19 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not30 = icmp eq i64 %19, 0
   br i1 %.not30, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_horiz, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %21 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_horiz, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not31 = icmp eq i64 %21, 0
   br i1 %.not31, label %24, label %22
 
 22:                                               ; preds = %20, %18
-  %23 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %23 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not32 = icmp eq i64 %23, 0
   br i1 %.not32, label %24, label %31
 
 24:                                               ; preds = %22, %20
-  %25 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %25 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not33 = icmp eq i64 %25, 0
   br i1 %.not33, label %28, label %26
 
 26:                                               ; preds = %24
-  %27 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %3, i64 noundef %4) #7
+  %27 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %3, i64 noundef %4) #6
   %.not34 = icmp eq i64 %27, 0
   br i1 %.not34, label %28, label %31
 
 28:                                               ; preds = %26, %24
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.getQuadrant) #7
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %30 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 77, ptr noundef nonnull @__func__.getQuadrant) #6
   unreachable
 
 31:                                               ; preds = %26, %22, %14, %16, %8, %10
@@ -153,7 +152,7 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc0(i64 noundef 16) #7
+  %8 = tail call ptr @palloc0(i64 noundef 16) #6
   %9 = load i32, ptr %4, align 8
   %10 = icmp sgt i32 %9, 0
   %.pre48 = load double, ptr %8, align 8
@@ -218,13 +217,13 @@ define dso_local noundef i64 @spg_quad_picksplit(ptr noundef readonly captures(n
   %44 = load i32, ptr %4, align 8
   %45 = sext i32 %44 to i64
   %46 = shl nsw i64 %45, 2
-  %47 = tail call ptr @palloc(i64 noundef %46) #7
+  %47 = tail call ptr @palloc(i64 noundef %46) #6
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %47, ptr %48, align 8
   %49 = load i32, ptr %4, align 8
   %50 = sext i32 %49 to i64
   %51 = shl nsw i64 %50, 3
-  %52 = tail call ptr @palloc(i64 noundef %51) #7
+  %52 = tail call ptr @palloc(i64 noundef %51) #6
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %52, ptr %53, align 8
   %54 = load i32, ptr %4, align 8
@@ -288,13 +287,13 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 3
-  %21 = tail call ptr @palloc(i64 noundef %20) #7
+  %21 = tail call ptr @palloc(i64 noundef %20) #6
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %21, ptr %22, align 8
   %23 = load i32, ptr %17, align 8
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
-  %26 = tail call ptr @palloc(i64 noundef %25) #7
+  %26 = tail call ptr @palloc(i64 noundef %25) #6
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -340,7 +339,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   store i32 %48, ptr %9, align 8
   %49 = sext i32 %48 to i64
   %50 = shl nsw i64 %49, 2
-  %51 = tail call ptr @palloc(i64 noundef %50) #7
+  %51 = tail call ptr @palloc(i64 noundef %50) #6
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %51, ptr %52, align 8
   %53 = load i32, ptr %47, align 8
@@ -368,7 +367,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %66 = load ptr, ptr %55, align 8
   %67 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %66, ptr @CurrentMemoryContext, align 8
-  %68 = call ptr @box_copy(ptr noundef %.0110) #7
+  %68 = call ptr @box_copy(ptr noundef %.0110) #6
   store ptr %67, ptr @CurrentMemoryContext, align 8
   %69 = load ptr, ptr %56, align 8
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv146
@@ -376,7 +375,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   %71 = ptrtoint ptr %68 to i64
   %72 = load ptr, ptr %57, align 8
   %73 = load i32, ptr %13, align 4
-  %74 = call ptr @spg_key_orderbys_distances(i64 noundef %71, i1 noundef zeroext false, ptr noundef %72, i32 noundef %73) #7
+  %74 = call ptr @spg_key_orderbys_distances(i64 noundef %71, i1 noundef zeroext false, ptr noundef %72, i32 noundef %73) #6
   %75 = load ptr, ptr %58, align 8
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv146
   store ptr %74, ptr %76, align 8
@@ -411,12 +410,12 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   ]
 
 89:                                               ; preds = %81
-  %90 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %11, i64 noundef %85) #7
+  %90 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %11, i64 noundef %85) #6
   %.not128 = icmp eq i64 %90, 0
   br i1 %.not128, label %.thread, label %select.unfold
 
 91:                                               ; preds = %81
-  %92 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %11, i64 noundef %85) #7
+  %92 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %11, i64 noundef %85) #6
   %.not127 = icmp eq i64 %92, 0
   br i1 %.not127, label %.thread, label %select.unfold
 
@@ -427,17 +426,17 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   br label %select.unfold
 
 97:                                               ; preds = %81, %81
-  %98 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %11, i64 noundef %85) #7
+  %98 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %11, i64 noundef %85) #6
   %.not126 = icmp eq i64 %98, 0
   br i1 %.not126, label %.thread, label %select.unfold
 
 99:                                               ; preds = %81, %81
-  %100 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %11, i64 noundef %85) #7
+  %100 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %11, i64 noundef %85) #6
   %.not125 = icmp eq i64 %100, 0
   br i1 %.not125, label %.thread, label %select.unfold
 
 101:                                              ; preds = %81
-  %102 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %85, i64 noundef %11) #7
+  %102 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %85, i64 noundef %11) #6
   %.not124 = icmp eq i64 %102, 0
   br i1 %.not124, label %103, label %.thread
 
@@ -470,15 +469,14 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr noundef readonly cap
   br label %select.unfold
 
 123:                                              ; preds = %81
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %124)
+  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %125 = load ptr, ptr %6, align 8
   %126 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %125, i64 %indvars.iv
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 6
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %128 to i32
-  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %129) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.spg_quad_inner_consistent) #7
+  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %129) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 363, ptr noundef nonnull @__func__.spg_quad_inner_consistent) #6
   unreachable
 
 select.unfold:                                    ; preds = %99, %97, %91, %89, %103, %93
@@ -497,7 +495,7 @@ select.unfold:                                    ; preds = %99, %97, %91, %89, 
 
 select.unfold._crit_edge:                         ; preds = %.thread, %select.unfold, %.preheader
   %.1 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.2123, %.thread ]
-  %135 = call ptr @palloc(i64 noundef 16) #7
+  %135 = call ptr @palloc(i64 noundef 16) #6
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %135, ptr %136, align 8
   br label %137
@@ -512,7 +510,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   br i1 %exitcond.not, label %140, label %137, !llvm.loop !11
 
 140:                                              ; preds = %137
-  %141 = call ptr @palloc(i64 noundef 16) #7
+  %141 = call ptr @palloc(i64 noundef 16) #6
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %141, ptr %142, align 8
   store i32 0, ptr %9, align 8
@@ -548,7 +546,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   %163 = load ptr, ptr %143, align 8
   %164 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %163, ptr @CurrentMemoryContext, align 8
-  %165 = call ptr @palloc(i64 noundef 32) #7
+  %165 = call ptr @palloc(i64 noundef 32) #6
   switch i32 %.3134, label %getQuadrantArea.exit [
     i32 1, label %166
     i32 2, label %168
@@ -606,7 +604,7 @@ getQuadrantArea.exit:                             ; preds = %162, %166, %168, %1
   %190 = ptrtoint ptr %165 to i64
   %191 = load ptr, ptr %149, align 8
   %192 = load i32, ptr %13, align 4
-  %193 = call ptr @spg_key_orderbys_distances(i64 noundef %190, i1 noundef zeroext false, ptr noundef %191, i32 noundef %192) #7
+  %193 = call ptr @spg_key_orderbys_distances(i64 noundef %190, i1 noundef zeroext false, ptr noundef %191, i32 noundef %192) #6
   %194 = load ptr, ptr %150, align 8
   %195 = load i32, ptr %9, align 8
   %196 = sext i32 %195 to i64
@@ -696,44 +694,43 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   ]
 
 21:                                               ; preds = %.lr.ph
-  %22 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %9, i64 noundef %18) #7
+  %22 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_left, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
   %.not45 = icmp eq i64 %22, 0
   br i1 %.not45, label %.thread, label %41
 
 23:                                               ; preds = %.lr.ph
-  %24 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %9, i64 noundef %18) #7
+  %24 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_right, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
   %.not44 = icmp eq i64 %24, 0
   br i1 %.not44, label %.thread, label %41
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_eq, i32 noundef 0, i64 noundef %9, i64 noundef %18) #7
+  %26 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_eq, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
   %.not43 = icmp eq i64 %26, 0
   br i1 %.not43, label %.thread, label %41
 
 27:                                               ; preds = %.lr.ph, %.lr.ph
-  %28 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %9, i64 noundef %18) #7
+  %28 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_below, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
   %.not42 = icmp eq i64 %28, 0
   br i1 %.not42, label %.thread, label %41
 
 29:                                               ; preds = %.lr.ph, %.lr.ph
-  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %9, i64 noundef %18) #7
+  %30 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @point_above, i32 noundef 0, i64 noundef %9, i64 noundef %18) #6
   %.not41 = icmp eq i64 %30, 0
   br i1 %.not41, label %.thread, label %41
 
 31:                                               ; preds = %.lr.ph
-  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %32)
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %33 = load ptr, ptr %4, align 8
   %34 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 6
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %37) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 457, ptr noundef nonnull @__func__.spg_quad_leaf_consistent) #7
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %37) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 457, ptr noundef nonnull @__func__.spg_quad_leaf_consistent) #6
   unreachable
 
 39:                                               ; preds = %.lr.ph
-  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %18, i64 noundef %9) #7
+  %40 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @box_contain_pt, i32 noundef 0, i64 noundef %18, i64 noundef %9) #6
   %.not = icmp eq i64 %40, 0
   br i1 %.not, label %.thread, label %41
 
@@ -754,7 +751,7 @@ define dso_local range(i64 0, 2) i64 @spg_quad_leaf_consistent(ptr noundef reado
   %48 = load i64, ptr %8, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @spg_key_orderbys_distances(i64 noundef %48, i1 noundef zeroext true, ptr noundef %50, i32 noundef %45) #7
+  %51 = tail call ptr @spg_key_orderbys_distances(i64 noundef %48, i1 noundef zeroext true, ptr noundef %50, i32 noundef %45) #6
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %51, ptr %52, align 8
   br label %.thread
@@ -776,18 +773,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

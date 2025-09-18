@@ -502,38 +502,32 @@ if.end.i.i.i.i:                                   ; preds = %if.end91
   %call5.i = call { i32, i64 } @_ZN6hermes2vm23ExternalStringPrimitiveIDsE6createINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEENS0_10CallResultINS0_11HermesValueELNS0_6detail20CallResultSpecializeE2EEERNS0_7RuntimeEOT_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #17
   %31 = load ptr, ptr %ref.tmp.i, align 8
   %cmp.i.i.i3.i = icmp eq ptr %31, %30
-  br i1 %cmp.i.i.i3.i, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
-
-_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end.i.i.i.i
-  %32 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i.i = icmp ult i64 %32, 8
-  call void @llvm.assume(i1 %cmp3.i.i.i.i)
-  br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
+  br i1 %cmp.i.i.i3.i, label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i.i.i
   call void @_ZdlPv(ptr noundef %31) #16
   br label %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
-_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.then.i52, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i, %if.then.i.i.i
-  %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i52 ], [ %call5.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i.i ], [ %call5.i, %if.then.i.i.i ]
+_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ; preds = %if.end.i.i.i.i, %if.then.i52, %if.then.i.i.i
+  %call3.pn.i = phi { i32, i64 } [ %call3.i, %if.then.i52 ], [ %call5.i, %if.then.i.i.i ], [ %call5.i, %if.end.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  %33 = extractvalue { i32, i64 } %call3.pn.i, 0
-  %cmp.i53 = icmp eq i32 %33, 0
+  %32 = extractvalue { i32, i64 } %call3.pn.i, 0
+  %cmp.i53 = icmp eq i32 %32, 0
   br i1 %cmp.i53, label %if.then95, label %if.else102
 
 if.then95:                                        ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
   %identifierTable_.i.i54 = getelementptr inbounds nuw i8, ptr %runtime, i64 9264
   %call.i.i55 = call noundef ptr @_ZN6hermes2vm15IdentifierTable13getStringPrimERNS0_7RuntimeENS0_8SymbolIDE(ptr noundef nonnull align 8 dereferenceable(84) %identifierTable_.i.i54, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 141) #17
-  %34 = ptrtoint ptr %call.i.i55 to i64
-  %or.i.i.i56 = or i64 %34, -844424930131968
+  %33 = ptrtoint ptr %call.i.i55 to i64
+  %or.i.i.i56 = or i64 %33, -844424930131968
   store i64 %or.i.i.i56, ptr %retval.0.i.i.i.i.i.i, align 8
   %thrownValue_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 704
   store i64 -1970324836974592, ptr %thrownValue_.i, align 8
   br label %if.end108
 
 if.else102:                                       ; preds = %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
-  %35 = extractvalue { i32, i64 } %call3.pn.i, 1
-  store i64 %35, ptr %retval.0.i.i.i.i.i.i, align 8
+  %34 = extractvalue { i32, i64 } %call3.pn.i, 1
+  store i64 %34, ptr %retval.0.i.i.i.i.i.i, align 8
   br label %if.end108
 
 if.end108:                                        ; preds = %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit", %if.then95, %if.else102
@@ -553,20 +547,20 @@ if.end129:                                        ; preds = %if.end108
 cleanup134:                                       ; preds = %if.end108, %if.else, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64", %if.end129
   %retval.sroa.0.1 = phi i32 [ 1, %if.end129 ], [ 0, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ 0, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ 0, %if.else ], [ 0, %if.end108 ]
   %retval.sroa.9.1 = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %if.end129 ], [ undef, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ undef, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ undef, %if.else ], [ undef, %if.end108 ]
-  %36 = load ptr, ptr %stack, align 8
-  %cmp.i.i.i.i = icmp eq ptr %36, %add.ptr.i.i.i.i.i.i23
+  %35 = load ptr, ptr %stack, align 8
+  %cmp.i.i.i.i = icmp eq ptr %35, %add.ptr.i.i.i.i.i.i23
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, label %if.then.i.i.i65
 
 if.then.i.i.i65:                                  ; preds = %cleanup134
-  call void @free(ptr noundef %36) #17
+  call void @free(ptr noundef %35) #17
   br label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit
 
 _ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit:    ; preds = %cleanup134, %if.then.i.i.i65
   br i1 %cmp.i22, label %if.then.i68, label %cleanup136
 
 if.then.i68:                                      ; preds = %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit
-  %37 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %add.i = add i32 %37, 3
+  %36 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %add.i = add i32 %36, 3
   store i32 %add.i, ptr %nativeCallFrameDepth_.i, align 8
   br label %cleanup136
 

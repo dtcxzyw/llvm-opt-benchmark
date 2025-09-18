@@ -2514,12 +2514,12 @@ _ZN8WasmEdge7Runtime12StackManagerC2Ev.exit:      ; preds = %_ZNSt12_Vector_base
   store i8 0, ptr %0, align 8
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %152, ptr %153, align 8
-  br label %253
+  br label %250
 
 154:                                              ; preds = %_ZN8WasmEdge7Runtime12StackManagerC2Ev.exit
   %155 = landingpad { ptr, i32 }
           cleanup
-  br label %277
+  br label %274
 
 156:                                              ; preds = %147
   %157 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -2604,7 +2604,7 @@ _ZNSt12_Vector_baseISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_
 191:                                              ; preds = %_ZNSt12_Vector_baseISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit.i, %165
   %192 = landingpad { ptr, i32 }
           cleanup
-  br label %277
+  br label %274
 
 193:                                              ; preds = %186
   %194 = lshr i64 %.sroa.0.0.copyload.i, 16
@@ -2743,86 +2743,82 @@ _ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
   %.0.lcssa.i.i.i.i.i172 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %170, %236 ]
   %.sroa.097.0171 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %167, %236 ]
   %.sroa.11.0170 = phi ptr [ null, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EE17_S_check_init_lenEmRKSI_.exit.i ], [ %171, %236 ]
-  %247 = load ptr, ptr %136, align 8
-  %248 = load ptr, ptr %17, align 8
-  %249 = icmp eq ptr %247, %248
-  call void @llvm.assume(i1 %249)
   store i8 1, ptr %0, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.097.0171, ptr %250, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.lcssa.i.i.i.i.i172, ptr %251, align 8
-  %252 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.11.0170, ptr %252, align 8
-  br label %253
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.097.0171, ptr %247, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.lcssa.i.i.i.i.i172, ptr %248, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.11.0170, ptr %249, align 8
+  br label %250
 
-253:                                              ; preds = %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EED2Ev.exit79, %150
-  %254 = load ptr, ptr %145, align 8
-  %255 = load ptr, ptr %143, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %254, %255
+250:                                              ; preds = %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EED2Ev.exit79, %150
+  %251 = load ptr, ptr %145, align 8
+  %252 = load ptr, ptr %143, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %251, %252
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i80
 
-.lr.ph.i.i.i.i.i80:                               ; preds = %253, %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %264, %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i ], [ %254, %253 ]
-  %256 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
-  %257 = load ptr, ptr %256, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %257, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i, label %258
+.lr.ph.i.i.i.i.i80:                               ; preds = %250, %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %261, %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i ], [ %251, %250 ]
+  %253 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
+  %254 = load ptr, ptr %253, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %254, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i, label %255
 
-258:                                              ; preds = %.lr.ph.i.i.i.i.i80
-  %259 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
-  %260 = load ptr, ptr %259, align 8
-  %261 = ptrtoint ptr %260 to i64
-  %262 = ptrtoint ptr %257 to i64
-  %263 = sub i64 %261, %262
-  call void @_ZdlPvm(ptr noundef nonnull %257, i64 noundef %263) #24
+255:                                              ; preds = %.lr.ph.i.i.i.i.i80
+  %256 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
+  %257 = load ptr, ptr %256, align 8
+  %258 = ptrtoint ptr %257 to i64
+  %259 = ptrtoint ptr %254 to i64
+  %260 = sub i64 %258, %259
+  call void @_ZdlPvm(ptr noundef nonnull %254, i64 noundef %260) #24
   br label %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i: ; preds = %258, %.lr.ph.i.i.i.i.i80
-  %264 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
-  %.not.i.i.i.i.i81 = icmp eq ptr %264, %255
+_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i: ; preds = %255, %.lr.ph.i.i.i.i.i80
+  %261 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 56
+  %.not.i.i.i.i.i81 = icmp eq ptr %261, %252
   br i1 %.not.i.i.i.i.i81, label %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i80, !llvm.loop !33
 
 _ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN8WasmEdge7Runtime12StackManager5FrameEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %145, align 8
   br label %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i
 
-_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, %253
-  %265 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i ], [ %254, %253 ]
-  %.not.i.i.i.i82 = icmp eq ptr %265, null
-  br i1 %.not.i.i.i.i82, label %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i, label %266
+_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i, %250
+  %262 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i.i ], [ %251, %250 ]
+  %.not.i.i.i.i82 = icmp eq ptr %262, null
+  br i1 %.not.i.i.i.i82, label %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i, label %263
 
-266:                                              ; preds = %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i
-  %267 = load ptr, ptr %144, align 8
-  %268 = ptrtoint ptr %267 to i64
-  %269 = ptrtoint ptr %265 to i64
-  %270 = sub i64 %268, %269
-  call void @_ZdlPvm(ptr noundef nonnull %265, i64 noundef %270) #24
+263:                                              ; preds = %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i
+  %264 = load ptr, ptr %144, align 8
+  %265 = ptrtoint ptr %264 to i64
+  %266 = ptrtoint ptr %262 to i64
+  %267 = sub i64 %265, %266
+  call void @_ZdlPvm(ptr noundef nonnull %262, i64 noundef %267) #24
   br label %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i
 
-_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i: ; preds = %266, %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i
-  %271 = load ptr, ptr %17, align 8
-  %.not.i.i.i1.i83 = icmp eq ptr %271, null
-  br i1 %.not.i.i.i1.i83, label %_ZN8WasmEdge7Runtime12StackManagerD2Ev.exit, label %272
+_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i: ; preds = %263, %_ZSt8_DestroyIPN8WasmEdge7Runtime12StackManager5FrameES3_EvT_S5_RSaIT0_E.exit.i.i
+  %268 = load ptr, ptr %17, align 8
+  %.not.i.i.i1.i83 = icmp eq ptr %268, null
+  br i1 %.not.i.i.i1.i83, label %_ZN8WasmEdge7Runtime12StackManagerD2Ev.exit, label %269
 
-272:                                              ; preds = %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i
-  %273 = load ptr, ptr %137, align 8
-  %274 = ptrtoint ptr %273 to i64
-  %275 = ptrtoint ptr %271 to i64
-  %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %271, i64 noundef %276) #24
+269:                                              ; preds = %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i
+  %270 = load ptr, ptr %137, align 8
+  %271 = ptrtoint ptr %270 to i64
+  %272 = ptrtoint ptr %268 to i64
+  %273 = sub i64 %271, %272
+  call void @_ZdlPvm(ptr noundef nonnull %268, i64 noundef %273) #24
   br label %_ZN8WasmEdge7Runtime12StackManagerD2Ev.exit
 
-277:                                              ; preds = %191, %154
+274:                                              ; preds = %191, %154
   %.pn58 = phi { ptr, i32 } [ %192, %191 ], [ %155, %154 ]
   call void @_ZN8WasmEdge7Runtime12StackManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %17) #20
   br label %.body
 
-_ZN8WasmEdge7Runtime12StackManagerD2Ev.exit:      ; preds = %272, %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i, %127, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit, %21
+_ZN8WasmEdge7Runtime12StackManagerD2Ev.exit:      ; preds = %269, %_ZNSt6vectorIN8WasmEdge7Runtime12StackManager5FrameESaIS3_EED2Ev.exit.i, %127, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit, %21
   ret void
 
-.body:                                            ; preds = %109, %112, %277
-  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %277 ], [ %110, %109 ], [ %110, %112 ]
+.body:                                            ; preds = %109, %112, %274
+  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %274 ], [ %110, %109 ], [ %110, %112 ]
   resume { ptr, i32 } %.pn58.pn
 }
 

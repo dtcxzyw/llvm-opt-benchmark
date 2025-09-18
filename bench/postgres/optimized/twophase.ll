@@ -141,14 +141,14 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @TwoPhaseShmemSize() local_unnamed_addr #0 {
   %1 = load i32, ptr @max_prepared_xacts, align 4
   %2 = sext i32 %1 to i64
-  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 8) #14
-  %4 = tail call i64 @add_size(i64 noundef 16, i64 noundef %3) #14
+  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 8) #13
+  %4 = tail call i64 @add_size(i64 noundef 16, i64 noundef %3) #13
   %5 = add i64 %4, 7
   %6 = and i64 %5, -8
   %7 = load i32, ptr @max_prepared_xacts, align 4
   %8 = sext i32 %7 to i64
-  %9 = tail call i64 @mul_size(i64 noundef %8, i64 noundef 256) #14
-  %10 = tail call i64 @add_size(i64 noundef %6, i64 noundef %9) #14
+  %9 = tail call i64 @mul_size(i64 noundef %8, i64 noundef 256) #13
+  %10 = tail call i64 @add_size(i64 noundef %6, i64 noundef %9) #13
   ret i64 %10
 }
 
@@ -162,15 +162,15 @@ define dso_local void @TwoPhaseShmemInit() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @max_prepared_xacts, align 4
   %3 = sext i32 %2 to i64
-  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 8) #14
-  %5 = tail call i64 @add_size(i64 noundef 16, i64 noundef %4) #14
+  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 8) #13
+  %5 = tail call i64 @add_size(i64 noundef 16, i64 noundef %4) #13
   %6 = add i64 %5, 7
   %7 = and i64 %6, -8
   %8 = load i32, ptr @max_prepared_xacts, align 4
   %9 = sext i32 %8 to i64
-  %10 = tail call i64 @mul_size(i64 noundef %9, i64 noundef 256) #14
-  %11 = tail call i64 @add_size(i64 noundef %7, i64 noundef %10) #14
-  %12 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %11, ptr noundef nonnull %1) #14
+  %10 = tail call i64 @mul_size(i64 noundef %9, i64 noundef 256) #13
+  %11 = tail call i64 @add_size(i64 noundef %7, i64 noundef %10) #13
+  %12 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %11, ptr noundef nonnull %1) #13
   store ptr %12, ptr @TwoPhaseState, align 8
   %13 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -228,7 +228,7 @@ define dso_local void @AtAbort_Twophase() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2304
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #14
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #13
   %7 = load ptr, ptr @MyLockedGxact, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %9 = load i8, ptr %8, align 4, !range !4, !noundef !5
@@ -260,10 +260,9 @@ define dso_local void @AtAbort_Twophase() local_unnamed_addr #0 {
   br i1 %21, label %RemoveGXact.exit, label %17
 
 ._crit_edge.i:                                    ; preds = %17, %11
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %7) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #14
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %7) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #13
   unreachable
 
 RemoveGXact.exit:                                 ; preds = %18
@@ -287,7 +286,7 @@ RemoveGXact.exit:                                 ; preds = %18
 32:                                               ; preds = %30, %RemoveGXact.exit
   %33 = load ptr, ptr @MainLWLockArray, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %34) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %34) #13
   store ptr null, ptr @MyLockedGxact, align 8
   br label %35
 
@@ -303,29 +302,28 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 define dso_local void @PostPrepare_Twophase() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2304
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #14
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #13
   %4 = load ptr, ptr @MyLockedGxact, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 -1, ptr %5, align 8
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %7) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %7) #13
   store ptr null, ptr @MyLockedGxact, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %7 = icmp ugt i64 %6, 199
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 50856066) #14
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 369, ptr noundef nonnull @__func__.MarkAsPreparing) #14
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %10 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 369, ptr noundef nonnull @__func__.MarkAsPreparing) #13
   unreachable
 
 12:                                               ; preds = %5
@@ -334,12 +332,11 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %12
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode(i32 noundef 325) #14
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
-  %19 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 376, ptr noundef nonnull @__func__.MarkAsPreparing) #14
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %17 = tail call i32 @errcode(i32 noundef 325) #13
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #13
+  %19 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.4) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 376, ptr noundef nonnull @__func__.MarkAsPreparing) #13
   unreachable
 
 20:                                               ; preds = %12
@@ -347,14 +344,14 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   br i1 %.b18, label %22, label %21
 
 21:                                               ; preds = %20
-  tail call void @before_shmem_exit(ptr noundef nonnull @AtProcExit_Twophase, i64 noundef 0) #14
+  tail call void @before_shmem_exit(ptr noundef nonnull @AtProcExit_Twophase, i64 noundef 0) #13
   store i1 true, ptr @twophaseExitRegistered, align 1
   br label %22
 
 22:                                               ; preds = %21, %20
   %23 = load ptr, ptr @MainLWLockArray, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2304
-  %25 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 0) #14
+  %25 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %24, i32 noundef 0) #13
   %26 = load ptr, ptr @TwoPhaseState, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
@@ -376,16 +373,15 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 55
-  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %1) #16
+  %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %1) #15
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %31
 
 38:                                               ; preds = %32
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 @errcode(i32 noundef 290948) #14
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 396, ptr noundef nonnull @__func__.MarkAsPreparing) #14
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %40 = tail call i32 @errcode(i32 noundef 290948) #13
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %1) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 396, ptr noundef nonnull @__func__.MarkAsPreparing) #13
   unreachable
 
 ._crit_edge:                                      ; preds = %31, %22
@@ -394,13 +390,12 @@ define dso_local nonnull ptr @MarkAsPreparing(i32 noundef %0, ptr noundef %1, i6
   br i1 %43, label %44, label %.loopexit.i
 
 44:                                               ; preds = %._crit_edge
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %45)
-  %46 = tail call i32 @errcode(i32 noundef 8389) #14
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #14
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %46 = tail call i32 @errcode(i32 noundef 8389) #13
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #13
   %48 = load i32, ptr @max_prepared_xacts, align 4
-  %49 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7, i32 noundef %48) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 406, ptr noundef nonnull @__func__.MarkAsPreparing) #14
+  %49 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7, i32 noundef %48) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 406, ptr noundef nonnull @__func__.MarkAsPreparing) #13
   unreachable
 
 .loopexit.i:                                      ; preds = %._crit_edge
@@ -489,7 +484,7 @@ MarkAsPreparingGuts.exit:                         ; preds = %79
   %90 = getelementptr inbounds nuw i8, ptr %42, i64 54
   store i8 0, ptr %90, align 2
   %91 = getelementptr inbounds nuw i8, ptr %42, i64 55
-  %92 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull readonly dereferenceable(1) %1) #14
+  %92 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull readonly dereferenceable(1) %1) #13
   store ptr %42, ptr @MyLockedGxact, align 8
   %93 = getelementptr inbounds nuw i8, ptr %42, i64 53
   store i8 0, ptr %93, align 1
@@ -502,7 +497,7 @@ MarkAsPreparingGuts.exit:                         ; preds = %79
   store ptr %42, ptr %98, align 8
   %99 = load ptr, ptr @MainLWLockArray, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %100) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %100) #13
   ret ptr %42
 }
 
@@ -544,26 +539,26 @@ define dso_local i64 @pg_prepared_xact(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %7, label %8, label %43
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #14
+  %9 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #13
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
-  %13 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 5) #14
-  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 1, ptr noundef nonnull @.str.8, i32 noundef 28, i32 noundef -1, i32 noundef 0) #14
-  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 2, ptr noundef nonnull @.str.9, i32 noundef 25, i32 noundef -1, i32 noundef 0) #14
-  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 3, ptr noundef nonnull @.str.10, i32 noundef 1184, i32 noundef -1, i32 noundef 0) #14
-  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 4, ptr noundef nonnull @.str.11, i32 noundef 26, i32 noundef -1, i32 noundef 0) #14
-  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 5, ptr noundef nonnull @.str.12, i32 noundef 26, i32 noundef -1, i32 noundef 0) #14
-  %14 = tail call ptr @BlessTupleDesc(ptr noundef %13) #14
+  %13 = tail call ptr @CreateTemplateTupleDesc(i32 noundef 5) #13
+  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 1, ptr noundef nonnull @.str.8, i32 noundef 28, i32 noundef -1, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 2, ptr noundef nonnull @.str.9, i32 noundef 25, i32 noundef -1, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 3, ptr noundef nonnull @.str.10, i32 noundef 1184, i32 noundef -1, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 4, ptr noundef nonnull @.str.11, i32 noundef 26, i32 noundef -1, i32 noundef 0) #13
+  tail call void @TupleDescInitEntry(ptr noundef %13, i16 noundef signext 5, ptr noundef nonnull @.str.12, i32 noundef 26, i32 noundef -1, i32 noundef 0) #13
+  %14 = tail call ptr @BlessTupleDesc(ptr noundef %13) #13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %14, ptr %15, align 8
-  %16 = tail call ptr @palloc(i64 noundef 16) #14
+  %16 = tail call ptr @palloc(i64 noundef 16) #13
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2304
-  %20 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 1) #14
+  %20 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 1) #13
   %21 = load ptr, ptr @TwoPhaseState, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
@@ -573,14 +568,14 @@ define dso_local i64 @pg_prepared_xact(ptr noundef %0) local_unnamed_addr #0 {
 25:                                               ; preds = %8
   %26 = load ptr, ptr @MainLWLockArray, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %27) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %27) #13
   store ptr null, ptr %16, align 8
   br label %GetPreparedTransactionList.exit
 
 28:                                               ; preds = %8
   %29 = sext i32 %23 to i64
   %30 = shl nsw i64 %29, 8
-  %31 = tail call ptr @palloc(i64 noundef %30) #14
+  %31 = tail call ptr @palloc(i64 noundef %30) #13
   store ptr %31, ptr %16, align 8
   %32 = icmp sgt i32 %23, 0
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i
@@ -604,7 +599,7 @@ define dso_local i64 @pg_prepared_xact(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge.i:                                    ; preds = %35, %28
   %39 = load ptr, ptr @MainLWLockArray, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %40) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %40) #13
   br label %GetPreparedTransactionList.exit
 
 GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
@@ -616,7 +611,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   br label %43
 
 43:                                               ; preds = %GetPreparedTransactionList.exit, %1
-  %44 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #14
+  %44 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #13
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
@@ -657,7 +652,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   %66 = zext i32 %65 to i64
   store i64 %66, ptr %2, align 16
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 55
-  %68 = tail call ptr @cstring_to_text(ptr noundef nonnull %67) #14
+  %68 = tail call ptr @cstring_to_text(ptr noundef nonnull %67) #13
   %69 = ptrtoint ptr %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %69, ptr %70, align 8
@@ -677,10 +672,10 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   store i64 %80, ptr %81, align 16
   %82 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %83 = load ptr, ptr %82, align 8
-  %84 = call ptr @heap_form_tuple(ptr noundef %83, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
+  %84 = call ptr @heap_form_tuple(ptr noundef %83, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   %85 = getelementptr i8, ptr %84, i64 16
   %.val = load ptr, ptr %85, align 8
-  %86 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #14
+  %86 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #13
   %87 = load i64, ptr %44, align 8
   %88 = add i64 %87, 1
   store i64 %88, ptr %44, align 8
@@ -699,7 +694,7 @@ GetPreparedTransactionList.exit:                  ; preds = %25, %._crit_edge.i
   br i1 %93, label %.lr.ph61, label %.critedge
 
 .critedge:                                        ; preds = %92, %.lr.ph, %43
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %44) #14
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef %44) #13
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
@@ -741,7 +736,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2304
-  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #14
+  %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #13
   %6 = load ptr, ptr @TwoPhaseState, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
@@ -804,7 +799,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
   %.01320 = phi i32 [ %.01321, %35 ], [ 0, %2 ], [ %.2.ph, %36 ]
   %37 = load ptr, ptr @MainLWLockArray, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %38) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %38) #13
   ret i32 %.01320
 }
 
@@ -832,7 +827,7 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2304
-  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %10, i32 noundef 1) #14
+  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %10, i32 noundef 1) #13
   br label %12
 
 12:                                               ; preds = %8, %7
@@ -868,7 +863,7 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
 25:                                               ; preds = %._crit_edge
   %26 = load ptr, ptr @MainLWLockArray, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %27) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %27) #13
   br label %28
 
 28:                                               ; preds = %25, %._crit_edge
@@ -876,10 +871,9 @@ define internal fastcc ptr @TwoPhaseGetGXact(i32 noundef %0, i1 noundef zeroext 
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 835, ptr noundef nonnull @__func__.TwoPhaseGetGXact) #14
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 835, ptr noundef nonnull @__func__.TwoPhaseGetGXact) #13
   unreachable
 
 33:                                               ; preds = %28
@@ -930,14 +924,14 @@ define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) loca
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %17 = tail call ptr @palloc0(i64 noundef 24) #14
+  %17 = tail call ptr @palloc0(i64 noundef 24) #13
   store ptr %17, ptr @records.0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr null, ptr %19, align 8
   store i32 512, ptr @records.3, align 4
-  %20 = tail call ptr @palloc(i64 noundef 512) #14
+  %20 = tail call ptr @palloc(i64 noundef 512) #13
   %21 = load ptr, ptr @records.0, align 8
   store ptr %20, ptr %21, align 8
   store ptr %21, ptr @records.1, align 8
@@ -960,27 +954,27 @@ define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) loca
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %31, ptr %32, align 8
-  %33 = call i32 @xactGetCommittedChildren(ptr noundef nonnull %3) #14
+  %33 = call i32 @xactGetCommittedChildren(ptr noundef nonnull %3) #13
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %33, ptr %34, align 4
-  %35 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %4) #14
+  %35 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext true, ptr noundef nonnull %4) #13
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %35, ptr %36, align 8
-  %37 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef nonnull %5) #14
+  %37 = call i32 @smgrGetPendingDeletes(i1 noundef zeroext false, ptr noundef nonnull %5) #13
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %37, ptr %38, align 4
-  %39 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %7) #14
+  %39 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext true, ptr noundef nonnull %7) #13
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 %39, ptr %40, align 8
-  %41 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef nonnull %6) #14
+  %41 = call i32 @pgstat_get_transactional_drops(i1 noundef zeroext false, ptr noundef nonnull %6) #13
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %41, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %44 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %8, ptr noundef nonnull %43) #14
+  %44 = call i32 @xactGetCommittedInvalidationMessages(ptr noundef nonnull %8, ptr noundef nonnull %43) #13
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #16
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #15
   %48 = trunc i64 %47 to i16
   %49 = add i16 %48, 1
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 54
@@ -997,7 +991,7 @@ define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) loca
   br label %save_state_data.exit
 
 54:                                               ; preds = %1
-  %55 = call ptr @palloc0(i64 noundef 24) #14
+  %55 = call ptr @palloc0(i64 noundef 24) #13
   %56 = load ptr, ptr @records.1, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %55, ptr %57, align 8
@@ -1010,7 +1004,7 @@ define dso_local void @StartPrepare(ptr noundef readonly captures(none) %0) loca
   %61 = add i32 %60, 1
   store i32 %61, ptr @records.2, align 8
   store i32 512, ptr @records.3, align 4
-  %62 = call ptr @palloc(i64 noundef 512) #14
+  %62 = call ptr @palloc(i64 noundef 512) #13
   %63 = load ptr, ptr @records.1, align 8
   store ptr %62, ptr %63, align 8
   %.pre9.i = load i32, ptr @records.3, align 4
@@ -1045,7 +1039,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %54
   br label %save_state_data.exit17
 
 80:                                               ; preds = %save_state_data.exit
-  %81 = call ptr @palloc0(i64 noundef 24) #14
+  %81 = call ptr @palloc0(i64 noundef 24) #13
   %82 = load ptr, ptr @records.1, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store ptr %81, ptr %83, align 8
@@ -1060,7 +1054,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %54
   %88 = call i32 @llvm.umax.i32(i32 %78, i32 512)
   store i32 %88, ptr @records.3, align 4
   %89 = zext nneg i32 %88 to i64
-  %90 = call ptr @palloc(i64 noundef %89) #14
+  %90 = call ptr @palloc(i64 noundef %89) #13
   %91 = load ptr, ptr @records.1, align 8
   store ptr %90, ptr %91, align 8
   %.pre9.i16 = load i32, ptr @records.3, align 4
@@ -1104,7 +1098,7 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %8
   br label %save_state_data.exit22
 
 112:                                              ; preds = %106
-  %113 = call ptr @palloc0(i64 noundef 24) #14
+  %113 = call ptr @palloc0(i64 noundef 24) #13
   %114 = load ptr, ptr @records.1, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %113, ptr %115, align 8
@@ -1119,7 +1113,7 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %8
   %120 = call i32 @llvm.umax.i32(i32 %110, i32 512)
   store i32 %120, ptr @records.3, align 4
   %121 = zext i32 %120 to i64
-  %122 = call ptr @palloc(i64 noundef %121) #14
+  %122 = call ptr @palloc(i64 noundef %121) #13
   %123 = load ptr, ptr @records.1, align 8
   store ptr %122, ptr %123, align 8
   %.pre9.i21 = load i32, ptr @records.3, align 4
@@ -1196,7 +1190,7 @@ GXactLoadSubxactData.exit:                        ; preds = %147, %145, %save_st
   br label %save_state_data.exit27
 
 163:                                              ; preds = %157
-  %164 = call ptr @palloc0(i64 noundef 24) #14
+  %164 = call ptr @palloc0(i64 noundef 24) #13
   %165 = load ptr, ptr @records.1, align 8
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   store ptr %164, ptr %166, align 8
@@ -1211,7 +1205,7 @@ GXactLoadSubxactData.exit:                        ; preds = %147, %145, %save_st
   %171 = call i32 @llvm.umax.i32(i32 %161, i32 512)
   store i32 %171, ptr @records.3, align 4
   %172 = zext i32 %171 to i64
-  %173 = call ptr @palloc(i64 noundef %172) #14
+  %173 = call ptr @palloc(i64 noundef %172) #13
   %174 = load ptr, ptr @records.1, align 8
   store ptr %173, ptr %174, align 8
   %.pre9.i26 = load i32, ptr @records.3, align 4
@@ -1237,7 +1231,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   %187 = add i32 %175, %161
   store i32 %187, ptr @records.4, align 8
   %188 = load ptr, ptr %4, align 8
-  call void @pfree(ptr noundef %188) #14
+  call void @pfree(ptr noundef %188) #13
   br label %189
 
 189:                                              ; preds = %save_state_data.exit27, %GXactLoadSubxactData.exit
@@ -1260,7 +1254,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   br label %save_state_data.exit32
 
 199:                                              ; preds = %192
-  %200 = call ptr @palloc0(i64 noundef 24) #14
+  %200 = call ptr @palloc0(i64 noundef 24) #13
   %201 = load ptr, ptr @records.1, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   store ptr %200, ptr %202, align 8
@@ -1275,7 +1269,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
   %207 = call i32 @llvm.umax.i32(i32 %196, i32 512)
   store i32 %207, ptr @records.3, align 4
   %208 = zext i32 %207 to i64
-  %209 = call ptr @palloc(i64 noundef %208) #14
+  %209 = call ptr @palloc(i64 noundef %208) #13
   %210 = load ptr, ptr @records.1, align 8
   store ptr %209, ptr %210, align 8
   %.pre9.i31 = load i32, ptr @records.3, align 4
@@ -1300,7 +1294,7 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   %223 = add i32 %222, %196
   store i32 %223, ptr @records.4, align 8
   %224 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %224) #14
+  call void @pfree(ptr noundef %224) #13
   br label %225
 
 225:                                              ; preds = %save_state_data.exit32, %189
@@ -1321,7 +1315,7 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   br label %save_state_data.exit37
 
 233:                                              ; preds = %228
-  %234 = call ptr @palloc0(i64 noundef 24) #14
+  %234 = call ptr @palloc0(i64 noundef 24) #13
   %235 = load ptr, ptr @records.1, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   store ptr %234, ptr %236, align 8
@@ -1336,7 +1330,7 @@ save_state_data.exit32:                           ; preds = %._crit_edge.i28, %1
   %241 = call i32 @llvm.umax.i32(i32 %230, i32 512)
   store i32 %241, ptr @records.3, align 4
   %242 = zext i32 %241 to i64
-  %243 = call ptr @palloc(i64 noundef %242) #14
+  %243 = call ptr @palloc(i64 noundef %242) #13
   %244 = load ptr, ptr @records.1, align 8
   store ptr %243, ptr %244, align 8
   %.pre9.i36 = load i32, ptr @records.3, align 4
@@ -1361,7 +1355,7 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   %257 = add i32 %256, %230
   store i32 %257, ptr @records.4, align 8
   %258 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %258) #14
+  call void @pfree(ptr noundef %258) #13
   br label %259
 
 259:                                              ; preds = %save_state_data.exit37, %225
@@ -1382,7 +1376,7 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   br label %save_state_data.exit42
 
 267:                                              ; preds = %262
-  %268 = call ptr @palloc0(i64 noundef 24) #14
+  %268 = call ptr @palloc0(i64 noundef 24) #13
   %269 = load ptr, ptr @records.1, align 8
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
   store ptr %268, ptr %270, align 8
@@ -1397,7 +1391,7 @@ save_state_data.exit37:                           ; preds = %._crit_edge.i33, %2
   %275 = call i32 @llvm.umax.i32(i32 %264, i32 512)
   store i32 %275, ptr @records.3, align 4
   %276 = zext i32 %275 to i64
-  %277 = call ptr @palloc(i64 noundef %276) #14
+  %277 = call ptr @palloc(i64 noundef %276) #13
   %278 = load ptr, ptr @records.1, align 8
   store ptr %277, ptr %278, align 8
   %.pre9.i41 = load i32, ptr @records.3, align 4
@@ -1422,7 +1416,7 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
   %291 = add i32 %290, %264
   store i32 %291, ptr @records.4, align 8
   %292 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %292) #14
+  call void @pfree(ptr noundef %292) #13
   br label %293
 
 293:                                              ; preds = %save_state_data.exit42, %259
@@ -1443,7 +1437,7 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
   br label %save_state_data.exit47
 
 301:                                              ; preds = %296
-  %302 = call ptr @palloc0(i64 noundef 24) #14
+  %302 = call ptr @palloc0(i64 noundef 24) #13
   %303 = load ptr, ptr @records.1, align 8
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
   store ptr %302, ptr %304, align 8
@@ -1458,7 +1452,7 @@ save_state_data.exit42:                           ; preds = %._crit_edge.i38, %2
   %309 = call i32 @llvm.umax.i32(i32 %298, i32 512)
   store i32 %309, ptr @records.3, align 4
   %310 = zext i32 %309 to i64
-  %311 = call ptr @palloc(i64 noundef %310) #14
+  %311 = call ptr @palloc(i64 noundef %310) #13
   %312 = load ptr, ptr @records.1, align 8
   store ptr %311, ptr %312, align 8
   %.pre9.i46 = load i32, ptr @records.3, align 4
@@ -1483,7 +1477,7 @@ save_state_data.exit47:                           ; preds = %._crit_edge.i43, %3
   %325 = add i32 %324, %298
   store i32 %325, ptr @records.4, align 8
   %326 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %326) #14
+  call void @pfree(ptr noundef %326) #13
   br label %327
 
 327:                                              ; preds = %save_state_data.exit47, %293
@@ -1521,7 +1515,7 @@ define dso_local void @EndPrepare(ptr noundef %0) local_unnamed_addr #0 {
   br label %RegisterTwoPhaseRecord.exit
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @palloc0(i64 noundef 24) #14
+  %5 = tail call ptr @palloc0(i64 noundef 24) #13
   %6 = load ptr, ptr @records.1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %5, ptr %7, align 8
@@ -1534,7 +1528,7 @@ define dso_local void @EndPrepare(ptr noundef %0) local_unnamed_addr #0 {
   %11 = add i32 %10, 1
   store i32 %11, ptr @records.2, align 8
   store i32 512, ptr @records.3, align 4
-  %12 = tail call ptr @palloc(i64 noundef 512) #14
+  %12 = tail call ptr @palloc(i64 noundef 512) #13
   %13 = load ptr, ptr @records.1, align 8
   store ptr %12, ptr %13, align 8
   %.pre9.i.i = load i32, ptr @records.3, align 4
@@ -1585,16 +1579,15 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 261) #14
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1174, ptr noundef nonnull @__func__.EndPrepare) #14
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %41 = tail call i32 @errcode(i32 noundef 261) #13
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1174, ptr noundef nonnull @__func__.EndPrepare) #13
   unreachable
 
 43:                                               ; preds = %37
   %44 = load i32, ptr @records.2, align 8
-  tail call void @XLogEnsureRecordSpace(i32 noundef 0, i32 noundef %44) #14
+  tail call void @XLogEnsureRecordSpace(i32 noundef 0, i32 noundef %44) #13
   %45 = load volatile i32, ptr @CritSectionCount, align 4
   %46 = add i32 %45, 1
   store volatile i32 %46, ptr @CritSectionCount, align 4
@@ -1603,7 +1596,7 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
   %49 = load i32, ptr %48, align 8
   %50 = or i32 %49, 1
   store i32 %50, ptr %48, align 8
-  tail call void @XLogBeginInsert() #14
+  tail call void @XLogBeginInsert() #13
   %.016 = load ptr, ptr @records.0, align 8
   %.not17 = icmp eq ptr %.016, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
@@ -1613,46 +1606,46 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
   %51 = load ptr, ptr %.018, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %53 = load i32, ptr %52, align 8
-  tail call void @XLogRegisterData(ptr noundef %51, i32 noundef %53) #14
+  tail call void @XLogRegisterData(ptr noundef %51, i32 noundef %53) #13
   %54 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %.0 = load ptr, ptr %54, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %43
-  tail call void @XLogSetRecordFlags(i8 noundef zeroext 1) #14
-  %55 = tail call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 16) #14
+  tail call void @XLogSetRecordFlags(i8 noundef zeroext 1) #13
+  %55 = tail call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 16) #13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %55, ptr %56, align 8
   br i1 %31, label %57, label %59
 
 57:                                               ; preds = %._crit_edge
   %58 = load i64, ptr @replorigin_session_origin_lsn, align 8
-  tail call void @replorigin_session_advance(i64 noundef %58, i64 noundef %55) #14
+  tail call void @replorigin_session_advance(i64 noundef %58, i64 noundef %55) #13
   %.pre = load i64, ptr %56, align 8
   br label %59
 
 59:                                               ; preds = %57, %._crit_edge
   %60 = phi i64 [ %.pre, %57 ], [ %55, %._crit_edge ]
-  tail call void @XLogFlush(i64 noundef %60) #14
+  tail call void @XLogFlush(i64 noundef %60) #13
   %61 = load i64, ptr @ProcLastRecPtr, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %61, ptr %62, align 8
   %63 = load ptr, ptr @MainLWLockArray, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2304
-  %65 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef 0) #14
+  %65 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %64, i32 noundef 0) #13
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 1, ptr %66, align 4
   %67 = load ptr, ptr @MainLWLockArray, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %68) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %68) #13
   %69 = load ptr, ptr @ProcGlobal, align 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds %struct.PGPROC, ptr %70, i64 %73
-  tail call void @ProcArrayAdd(ptr noundef %74) #14
+  tail call void @ProcArrayAdd(ptr noundef %74) #13
   %75 = load ptr, ptr @MyProc, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 144
   %77 = load i32, ptr %76, align 8
@@ -1663,7 +1656,7 @@ RegisterTwoPhaseRecord.exit:                      ; preds = %._crit_edge.i.i, %4
   %80 = add i32 %79, -1
   store volatile i32 %80, ptr @CritSectionCount, align 4
   %81 = load i64, ptr %56, align 8
-  tail call void @SyncRepWaitForLSN(i64 noundef %81, i1 noundef zeroext false) #14
+  tail call void @SyncRepWaitForLSN(i64 noundef %81, i1 noundef zeroext false) #13
   store ptr null, ptr @records.0, align 8
   store ptr null, ptr @records.1, align 8
   store i32 0, ptr @records.2, align 8
@@ -1682,7 +1675,7 @@ define dso_local void @RegisterTwoPhaseRecord(i8 noundef zeroext %0, i16 noundef
   br label %save_state_data.exit
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @palloc0(i64 noundef 24) #14
+  %8 = tail call ptr @palloc0(i64 noundef 24) #13
   %9 = load ptr, ptr @records.1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %8, ptr %10, align 8
@@ -1695,7 +1688,7 @@ define dso_local void @RegisterTwoPhaseRecord(i8 noundef zeroext %0, i16 noundef
   %14 = add i32 %13, 1
   store i32 %14, ptr @records.2, align 8
   store i32 512, ptr @records.3, align 4
-  %15 = tail call ptr @palloc(i64 noundef 512) #14
+  %15 = tail call ptr @palloc(i64 noundef 512) #13
   %16 = load ptr, ptr @records.1, align 8
   store ptr %15, ptr %16, align 8
   %.pre9.i = load i32, ptr @records.3, align 4
@@ -1736,7 +1729,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %7
   br label %save_state_data.exit9
 
 32:                                               ; preds = %28
-  %33 = tail call ptr @palloc0(i64 noundef 24) #14
+  %33 = tail call ptr @palloc0(i64 noundef 24) #13
   %34 = load ptr, ptr @records.1, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %33, ptr %35, align 8
@@ -1751,7 +1744,7 @@ save_state_data.exit:                             ; preds = %._crit_edge.i, %7
   %40 = tail call i32 @llvm.umax.i32(i32 %30, i32 512)
   store i32 %40, ptr @records.3, align 4
   %41 = zext i32 %40 to i64
-  %42 = tail call ptr @palloc(i64 noundef %41) #14
+  %42 = tail call ptr @palloc(i64 noundef %41) #13
   %43 = load ptr, ptr @records.1, align 8
   store ptr %42, ptr %43, align 8
   %.pre9.i8 = load i32, ptr @records.3, align 4
@@ -1815,7 +1808,7 @@ define dso_local zeroext i1 @StandbyTransactionIdIsPrepared(i32 noundef %0) loca
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %0
-  tail call void @pfree(ptr noundef nonnull %5) #14
+  tail call void @pfree(ptr noundef nonnull %5) #13
   br label %11
 
 11:                                               ; preds = %4, %1, %7
@@ -1829,7 +1822,7 @@ define internal fastcc ptr @ReadTwoPhaseFile(i32 noundef %0, i1 noundef zeroext 
   %4 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call i64 @ReadNextFullTransactionId() #14
+  %5 = tail call i64 @ReadNextFullTransactionId() #13
   %6 = icmp ugt i32 %0, 2
   br i1 %6, label %9, label %7
 
@@ -1860,8 +1853,8 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   %20 = lshr i64 %.sroa.07.0.i.i.i, 32
   %21 = trunc nuw i64 %20 to i32
   %22 = trunc i64 %.sroa.07.0.i.i.i to i32
-  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %21, i32 noundef %22) #14
-  %24 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 0) #14
+  %23 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %21, i32 noundef %22) #13
+  %24 = call i32 @OpenTransientFile(ptr noundef nonnull %3, i32 noundef 0) #13
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %35
 
@@ -1869,30 +1862,28 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   br i1 %1, label %27, label %31
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @__errno_location() #17
+  %28 = tail call ptr @__errno_location() #16
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 2
   br i1 %30, label %104, label %31
 
 31:                                               ; preds = %27, %26
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 @errcode_for_file_access() #14
-  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1309, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %33 = call i32 @errcode_for_file_access() #13
+  %34 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1309, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 35:                                               ; preds = %TwoPhaseFilePath.exit
-  %36 = call i32 @fstat(i32 noundef %24, ptr noundef nonnull %4) #14
+  %36 = call i32 @fstat(i32 noundef %24, ptr noundef nonnull %4) #13
   %.not = icmp eq i32 %36, 0
   br i1 %.not, label %41, label %37
 
 37:                                               ; preds = %35
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode_for_file_access() #14
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1321, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %39 = call i32 @errcode_for_file_access() #13
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1321, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 41:                                               ; preds = %35
@@ -1903,11 +1894,10 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   br i1 %or.cond, label %45, label %49
 
 45:                                               ; preds = %41
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %46)
-  %47 = call i32 @errcode(i32 noundef 16779816) #14
-  %48 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %43, ptr noundef nonnull %3, i64 noundef %43) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1332, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %47 = call i32 @errcode(i32 noundef 16779816) #13
+  %48 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef %43, ptr noundef nonnull %3, i64 noundef %43) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1332, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 49:                                               ; preds = %41
@@ -1919,18 +1909,17 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   br i1 %.not30, label %58, label %54
 
 54:                                               ; preds = %49
-  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %55)
-  %56 = call i32 @errcode(i32 noundef 16779816) #14
-  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1339, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %55 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %56 = call i32 @errcode(i32 noundef 16779816) #13
+  %57 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.32, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1339, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 58:                                               ; preds = %49
-  %59 = call ptr @palloc(i64 noundef %43) #14
+  %59 = call ptr @palloc(i64 noundef %43) #13
   %60 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772218, ptr %60, align 4
-  %61 = call i64 @read(i32 noundef %24, ptr noundef %59, i64 noundef %43) #14
+  %61 = call i64 @read(i32 noundef %24, ptr noundef %59, i64 noundef %43) #13
   %62 = trunc i64 %61 to i32
   %sext = shl i64 %61, 32
   %63 = ashr exact i64 %sext, 32
@@ -1939,34 +1928,32 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
 
 64:                                               ; preds = %58
   %65 = icmp slt i32 %62, 0
-  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %66)
+  %66 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   br i1 %65, label %67, label %70
 
 67:                                               ; preds = %64
-  %68 = call i32 @errcode_for_file_access() #14
-  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1353, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %68 = call i32 @errcode_for_file_access() #13
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1353, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 70:                                               ; preds = %64
-  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %3, i32 noundef %62, i64 noundef %43) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1357, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %3, i32 noundef %62, i64 noundef %43) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1357, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 72:                                               ; preds = %58
   %73 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %73, align 4
-  %74 = call i32 @CloseTransientFile(i32 noundef %24) #14
+  %74 = call i32 @CloseTransientFile(i32 noundef %24) #13
   %.not32 = icmp eq i32 %74, 0
   br i1 %.not32, label %79, label %75
 
 75:                                               ; preds = %72
-  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %76)
-  %77 = call i32 @errcode_for_file_access() #14
-  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1365, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %76 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %77 = call i32 @errcode_for_file_access() #13
+  %78 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1365, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 79:                                               ; preds = %72
@@ -1975,11 +1962,10 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   br i1 %.not33, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %82)
-  %83 = call i32 @errcode(i32 noundef 16779816) #14
-  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1372, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %83 = call i32 @errcode(i32 noundef 16779816) #13
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1372, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 85:                                               ; preds = %79
@@ -1990,16 +1976,15 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   br i1 %.not34, label %93, label %89
 
 89:                                               ; preds = %85
-  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %90)
-  %91 = call i32 @errcode(i32 noundef 16779816) #14
-  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1378, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %90 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %91 = call i32 @errcode(i32 noundef 16779816) #13
+  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.37, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1378, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 93:                                               ; preds = %85
   %94 = load ptr, ptr @pg_comp_crc32c, align 8
-  %95 = call i32 %94(i32 noundef -1, ptr noundef nonnull %59, i64 noundef %51) #14
+  %95 = call i32 %94(i32 noundef -1, ptr noundef nonnull %59, i64 noundef %51) #13
   %96 = getelementptr inbounds nuw i8, ptr %59, i64 %51
   %97 = load i32, ptr %96, align 4
   %98 = xor i32 %97, %95
@@ -2007,11 +1992,10 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
   br i1 %99, label %104, label %100
 
 100:                                              ; preds = %93
-  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %101)
-  %102 = call i32 @errcode(i32 noundef 16779816) #14
-  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1390, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #14
+  %101 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %102 = call i32 @errcode(i32 noundef 16779816) #13
+  %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1390, ptr noundef nonnull @__func__.ReadTwoPhaseFile) #13
   unreachable
 
 104:                                              ; preds = %93, %27
@@ -2025,19 +2009,19 @@ TwoPhaseFilePath.exit:                            ; preds = %7, %16
 define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call i32 @GetUserId() #14
+  %4 = tail call i32 @GetUserId() #13
   %.b21.i = load i1, ptr @twophaseExitRegistered, align 1
   br i1 %.b21.i, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @before_shmem_exit(ptr noundef nonnull @AtProcExit_Twophase, i64 noundef 0) #14
+  tail call void @before_shmem_exit(ptr noundef nonnull @AtProcExit_Twophase, i64 noundef 0) #13
   store i1 true, ptr @twophaseExitRegistered, align 1
   br label %6
 
 6:                                                ; preds = %5, %2
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2304
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #14
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #13
   %10 = load ptr, ptr @TwoPhaseState, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
@@ -2060,7 +2044,7 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 55
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %0) #16
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %0) #15
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %57
 
@@ -2078,11 +2062,10 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   br i1 %.not22.i, label %38, label %34
 
 34:                                               ; preds = %24
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 325) #14
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 581, ptr noundef nonnull @__func__.LockGXact) #14
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %36 = tail call i32 @errcode(i32 noundef 325) #13
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.39, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 581, ptr noundef nonnull @__func__.LockGXact) #13
   unreachable
 
 38:                                               ; preds = %24
@@ -2092,16 +2075,15 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   br i1 %.not23.i, label %48, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call zeroext i1 @superuser_arg(i32 noundef %4) #14
+  %42 = tail call zeroext i1 @superuser_arg(i32 noundef %4) #13
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %44)
-  %45 = tail call i32 @errcode(i32 noundef 16797828) #14
-  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #14
-  %47 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.41) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 587, ptr noundef nonnull @__func__.LockGXact) #14
+  %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %45 = tail call i32 @errcode(i32 noundef 16797828) #13
+  %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.40) #13
+  %47 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.41) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 587, ptr noundef nonnull @__func__.LockGXact) #13
   unreachable
 
 48:                                               ; preds = %41, %38
@@ -2112,12 +2094,11 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
   br i1 %.not24.i, label %LockGXact.exit, label %52
 
 52:                                               ; preds = %48
-  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %53)
-  %54 = tail call i32 @errcode(i32 noundef 1088) #14
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #14
-  %56 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 599, ptr noundef nonnull @__func__.LockGXact) #14
+  %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %54 = tail call i32 @errcode(i32 noundef 1088) #13
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.42) #13
+  %56 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.43) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 599, ptr noundef nonnull @__func__.LockGXact) #13
   unreachable
 
 57:                                               ; preds = %21, %15
@@ -2128,12 +2109,11 @@ define dso_local void @FinishPreparedTransaction(ptr noundef %0, i1 noundef zero
 ._crit_edge.i:                                    ; preds = %57, %6
   %58 = load ptr, ptr @MainLWLockArray, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %59) #14
-  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 615, ptr noundef nonnull @__func__.LockGXact) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %59) #13
+  %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %61 = tail call i32 @errcode(i32 noundef 67137668) #13
+  %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 615, ptr noundef nonnull @__func__.LockGXact) #13
   unreachable
 
 LockGXact.exit:                                   ; preds = %48
@@ -2142,7 +2122,7 @@ LockGXact.exit:                                   ; preds = %48
   store ptr %17, ptr @MyLockedGxact, align 8
   %64 = load ptr, ptr @MainLWLockArray, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %65) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %65) #13
   %66 = load ptr, ptr @ProcGlobal, align 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %28, align 8
@@ -2212,7 +2192,7 @@ LockGXact.exit:                                   ; preds = %48
   %123 = sext i32 %122 to i64
   %124 = shl nsw i64 %123, 4
   %125 = getelementptr inbounds nuw i8, ptr %120, i64 %124
-  %126 = tail call i32 @TransactionIdLatest(i32 noundef %72, i32 noundef %91, ptr noundef nonnull %89) #14
+  %126 = tail call i32 @TransactionIdLatest(i32 noundef %72, i32 noundef %91, ptr noundef nonnull %89) #13
   %127 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %128 = add i32 %127, 1
   store volatile i32 %128, ptr @InterruptHoldoffCount, align 4
@@ -2226,7 +2206,7 @@ LockGXact.exit:                                   ; preds = %48
   %134 = getelementptr inbounds nuw i8, ptr %82, i64 52
   %135 = load i8, ptr %134, align 4, !range !4, !noundef !5
   %136 = trunc nuw i8 %135 to i1
-  %137 = tail call i64 @GetCurrentTimestamp() #14
+  %137 = tail call i64 @GetCurrentTimestamp() #13
   %138 = load i16, ptr @replorigin_session_origin, align 2
   %139 = add i16 %138, 1
   %140 = icmp ult i16 %139, 2
@@ -2240,13 +2220,13 @@ LockGXact.exit:                                   ; preds = %48
   store i32 %146, ptr %144, align 8
   %147 = load i32, ptr @MyXactFlags, align 4
   %148 = or i32 %147, 2
-  %149 = tail call i64 @XactLogCommitRecord(i64 noundef %137, i32 noundef %129, ptr noundef nonnull %89, i32 noundef %131, ptr noundef nonnull %96, i32 noundef %132, ptr noundef nonnull %110, i32 noundef %133, ptr noundef nonnull %120, i1 noundef zeroext %136, i32 noundef %148, i32 noundef %72, ptr noundef nonnull %0) #14
+  %149 = tail call i64 @XactLogCommitRecord(i64 noundef %137, i32 noundef %129, ptr noundef nonnull %89, i32 noundef %131, ptr noundef nonnull %96, i32 noundef %132, ptr noundef nonnull %110, i32 noundef %133, ptr noundef nonnull %120, i1 noundef zeroext %136, i32 noundef %148, i32 noundef %72, ptr noundef nonnull %0) #13
   br i1 %140, label %.thread.i, label %150
 
 150:                                              ; preds = %130
   %151 = load i64, ptr @replorigin_session_origin_lsn, align 8
   %152 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @replorigin_session_advance(i64 noundef %151, i64 noundef %152) #14
+  tail call void @replorigin_session_advance(i64 noundef %151, i64 noundef %152) #13
   %153 = load i64, ptr @replorigin_session_origin_timestamp, align 8
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %.thread.i, label %RecordTransactionCommitPrepared.exit
@@ -2258,9 +2238,9 @@ LockGXact.exit:                                   ; preds = %48
 RecordTransactionCommitPrepared.exit:             ; preds = %150, %.thread.i
   %155 = phi i64 [ %153, %150 ], [ %137, %.thread.i ]
   %156 = load i16, ptr @replorigin_session_origin, align 2
-  tail call void @TransactionTreeSetCommitTsData(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89, i64 noundef %155, i16 noundef zeroext %156) #14
-  tail call void @XLogFlush(i64 noundef %149) #14
-  tail call void @TransactionIdCommitTree(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89) #14
+  tail call void @TransactionTreeSetCommitTsData(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89, i64 noundef %155, i16 noundef zeroext %156) #13
+  tail call void @XLogFlush(i64 noundef %149) #13
+  tail call void @TransactionIdCommitTree(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89) #13
   %157 = load ptr, ptr @MyProc, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 144
   %159 = load i32, ptr %158, align 8
@@ -2269,21 +2249,20 @@ RecordTransactionCommitPrepared.exit:             ; preds = %150, %.thread.i
   %161 = load volatile i32, ptr @CritSectionCount, align 4
   %162 = add i32 %161, -1
   store volatile i32 %162, ptr @CritSectionCount, align 4
-  tail call void @SyncRepWaitForLSN(i64 noundef %149, i1 noundef zeroext true) #14
+  tail call void @SyncRepWaitForLSN(i64 noundef %149, i1 noundef zeroext true) #13
   br label %185
 
 163:                                              ; preds = %81
   %164 = load i32, ptr %104, align 4
   %165 = load i32, ptr %116, align 4
   %166 = load i16, ptr @replorigin_session_origin, align 2
-  %167 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %72) #14
+  %167 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %72) #13
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %163
-  %169 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %169)
-  %170 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %72) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2419, ptr noundef nonnull @__func__.RecordTransactionAbortPrepared) #14
+  %169 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #14
+  %170 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.60, i32 noundef %72) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2419, ptr noundef nonnull @__func__.RecordTransactionAbortPrepared) #13
   unreachable
 
 171:                                              ; preds = %163
@@ -2292,63 +2271,63 @@ RecordTransactionCommitPrepared.exit:             ; preds = %150, %.thread.i
   %174 = load volatile i32, ptr @CritSectionCount, align 4
   %175 = add i32 %174, 1
   store volatile i32 %175, ptr @CritSectionCount, align 4
-  %176 = tail call i64 @GetCurrentTimestamp() #14
+  %176 = tail call i64 @GetCurrentTimestamp() #13
   %177 = load i32, ptr @MyXactFlags, align 4
   %178 = or i32 %177, 2
-  %179 = tail call i64 @XactLogAbortRecord(i64 noundef %176, i32 noundef %129, ptr noundef nonnull %89, i32 noundef %164, ptr noundef nonnull %103, i32 noundef %165, ptr noundef nonnull %115, i32 noundef %178, i32 noundef %72, ptr noundef nonnull %0) #14
+  %179 = tail call i64 @XactLogAbortRecord(i64 noundef %176, i32 noundef %129, ptr noundef nonnull %89, i32 noundef %164, ptr noundef nonnull %103, i32 noundef %165, ptr noundef nonnull %115, i32 noundef %178, i32 noundef %72, ptr noundef nonnull %0) #13
   br i1 %173, label %180, label %RecordTransactionAbortPrepared.exit
 
 180:                                              ; preds = %171
   %181 = load i64, ptr @replorigin_session_origin_lsn, align 8
   %182 = load i64, ptr @XactLastRecEnd, align 8
-  tail call void @replorigin_session_advance(i64 noundef %181, i64 noundef %182) #14
+  tail call void @replorigin_session_advance(i64 noundef %181, i64 noundef %182) #13
   br label %RecordTransactionAbortPrepared.exit
 
 RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
-  tail call void @XLogFlush(i64 noundef %179) #14
-  tail call void @TransactionIdAbortTree(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89) #14
+  tail call void @XLogFlush(i64 noundef %179) #13
+  tail call void @TransactionIdAbortTree(i32 noundef %72, i32 noundef %129, ptr noundef nonnull %89) #13
   %183 = load volatile i32, ptr @CritSectionCount, align 4
   %184 = add i32 %183, -1
   store volatile i32 %184, ptr @CritSectionCount, align 4
-  tail call void @SyncRepWaitForLSN(i64 noundef %179, i1 noundef zeroext false) #14
+  tail call void @SyncRepWaitForLSN(i64 noundef %179, i1 noundef zeroext false) #13
   br label %185
 
 185:                                              ; preds = %RecordTransactionAbortPrepared.exit, %RecordTransactionCommitPrepared.exit
   %.81 = phi ptr [ %103, %RecordTransactionAbortPrepared.exit ], [ %96, %RecordTransactionCommitPrepared.exit ]
   %. = phi ptr [ %104, %RecordTransactionAbortPrepared.exit ], [ %97, %RecordTransactionCommitPrepared.exit ]
-  tail call void @ProcArrayRemove(ptr noundef %70, i32 noundef %126) #14
+  tail call void @ProcArrayRemove(ptr noundef %70, i32 noundef %126) #13
   store i8 0, ptr %25, align 4
   %.080 = load i32, ptr %., align 4
-  tail call void @DropRelationFiles(ptr noundef nonnull %.81, i32 noundef %.080, i1 noundef zeroext false) #14
+  tail call void @DropRelationFiles(ptr noundef nonnull %.81, i32 noundef %.080, i1 noundef zeroext false) #13
   br i1 %1, label %186, label %222
 
 186:                                              ; preds = %185
   %187 = load i32, ptr %111, align 8
-  tail call void @pgstat_execute_transactional_drops(i32 noundef %187, ptr noundef nonnull %110, i1 noundef zeroext false) #14
+  tail call void @pgstat_execute_transactional_drops(i32 noundef %187, ptr noundef nonnull %110, i1 noundef zeroext false) #13
   %188 = getelementptr inbounds nuw i8, ptr %82, i64 52
   %189 = load i8, ptr %188, align 4, !range !4, !noundef !5
   %190 = trunc nuw i8 %189 to i1
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %186
-  tail call void @RelationCacheInitFilePreInvalidate() #14
+  tail call void @RelationCacheInitFilePreInvalidate() #13
   br label %192
 
 192:                                              ; preds = %191, %186
   %193 = load i32, ptr %121, align 8
-  tail call void @SendSharedInvalidMessages(ptr noundef nonnull %120, i32 noundef %193) #14
+  tail call void @SendSharedInvalidMessages(ptr noundef nonnull %120, i32 noundef %193) #13
   %194 = load i8, ptr %188, align 4, !range !4, !noundef !5
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %196, label %197
 
 196:                                              ; preds = %192
-  tail call void @RelationCacheInitFilePostInvalidate() #14
+  tail call void @RelationCacheInitFilePostInvalidate() #13
   br label %197
 
 197:                                              ; preds = %196, %192
   %198 = load ptr, ptr @MainLWLockArray, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 2304
-  %200 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %199, i32 noundef 0) #14
+  %200 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %199, i32 noundef 0) #13
   %201 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %202 = load i8, ptr %201, align 4
   %203 = icmp eq i8 %202, 0
@@ -2368,7 +2347,7 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
   %210 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 6
   %211 = load i16, ptr %210, align 2
   %212 = load i32, ptr %.01318.i, align 4
-  tail call void %208(i32 noundef %72, i16 noundef zeroext %211, ptr noundef nonnull %205, i32 noundef %212) #14
+  tail call void %208(i32 noundef %72, i16 noundef zeroext %211, ptr noundef nonnull %205, i32 noundef %212) #13
   br label %213
 
 213:                                              ; preds = %209, %.lr.ph.i82
@@ -2384,10 +2363,10 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
 
 222:                                              ; preds = %185
   %223 = load i32, ptr %116, align 4
-  tail call void @pgstat_execute_transactional_drops(i32 noundef %223, ptr noundef nonnull %115, i1 noundef zeroext false) #14
+  tail call void @pgstat_execute_transactional_drops(i32 noundef %223, ptr noundef nonnull %115, i1 noundef zeroext false) #13
   %224 = load ptr, ptr @MainLWLockArray, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 2304
-  %226 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %225, i32 noundef 0) #14
+  %226 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %225, i32 noundef 0) #13
   %227 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %228 = load i8, ptr %227, align 4
   %229 = icmp eq i8 %228, 0
@@ -2407,7 +2386,7 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
   %236 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 6
   %237 = load i16, ptr %236, align 2
   %238 = load i32, ptr %.01318.i86, align 4
-  tail call void %234(i32 noundef %72, i16 noundef zeroext %237, ptr noundef nonnull %231, i32 noundef %238) #14
+  tail call void %234(i32 noundef %72, i16 noundef zeroext %237, ptr noundef nonnull %231, i32 noundef %238) #13
   br label %239
 
 239:                                              ; preds = %235, %.lr.ph.i85
@@ -2422,7 +2401,7 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
   br i1 %247, label %ProcessRecords.exit, label %.lr.ph.i85
 
 ProcessRecords.exit:                              ; preds = %239, %213, %222, %197
-  tail call void @PredicateLockTwoPhaseFinish(i32 noundef %72, i1 noundef zeroext %1) #14
+  tail call void @PredicateLockTwoPhaseFinish(i32 noundef %72, i1 noundef zeroext %1) #13
   %248 = load i8, ptr %73, align 1, !range !4, !noundef !5
   %249 = trunc nuw i8 %248 to i1
   %250 = load ptr, ptr @TwoPhaseState, align 8
@@ -2449,10 +2428,9 @@ ProcessRecords.exit:                              ; preds = %239, %213, %222, %1
   br i1 %259, label %RemoveGXact.exit, label %255
 
 ._crit_edge.i90:                                  ; preds = %255, %ProcessRecords.exit
-  %260 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %260)
-  %261 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %17) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #14
+  %260 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %261 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %17) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #13
   unreachable
 
 RemoveGXact.exit:                                 ; preds = %256
@@ -2468,8 +2446,8 @@ RemoveGXact.exit:                                 ; preds = %256
   store ptr %17, ptr %250, align 8
   %268 = load ptr, ptr @MainLWLockArray, align 8
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %269) #14
-  tail call void @AtEOXact_PgStat(i1 noundef zeroext %1, i1 noundef zeroext false) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %269) #13
+  tail call void @AtEOXact_PgStat(i1 noundef zeroext %1, i1 noundef zeroext false) #13
   br i1 %249, label %270, label %271
 
 270:                                              ; preds = %RemoveGXact.exit
@@ -2481,7 +2459,7 @@ RemoveGXact.exit:                                 ; preds = %256
   %272 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %273 = add i32 %272, -1
   store volatile i32 %273, ptr @InterruptHoldoffCount, align 4
-  tail call void @pfree(ptr noundef %82) #14
+  tail call void @pfree(ptr noundef %82) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2499,31 +2477,29 @@ define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef no
   store ptr @wal_segment_open, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @wal_segment_close, ptr %8, align 8
-  %9 = call ptr @XLogReaderAllocate(i32 noundef %6, ptr noundef null, ptr noundef nonnull %5, ptr noundef null) #14
+  %9 = call ptr @XLogReaderAllocate(i32 noundef %6, ptr noundef null, ptr noundef nonnull %5, ptr noundef null) #13
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %15
 
 10:                                               ; preds = %3
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %11)
-  %12 = call i32 @errcode(i32 noundef 8389) #14
-  %13 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45) #14
-  %14 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.46) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1419, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #14
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = call i32 @errcode(i32 noundef 8389) #13
+  %13 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45) #13
+  %14 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.46) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1419, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #13
   unreachable
 
 15:                                               ; preds = %3
-  call void @XLogBeginRead(ptr noundef nonnull %9, i64 noundef %0) #14
-  %16 = call ptr @XLogReadRecord(ptr noundef nonnull %9, ptr noundef nonnull %4) #14
+  call void @XLogBeginRead(ptr noundef nonnull %9, i64 noundef %0) #13
+  %16 = call ptr @XLogReadRecord(ptr noundef nonnull %9, ptr noundef nonnull %4) #13
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %4, align 8
   %.not25 = icmp eq ptr %19, null
-  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %20)
-  %21 = call i32 @errcode_for_file_access() #14
+  %20 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %21 = call i32 @errcode_for_file_access() #13
   %22 = lshr i64 %0, 32
   %23 = trunc nuw i64 %22 to i32
   %24 = trunc i64 %0 to i32
@@ -2531,13 +2507,13 @@ define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef no
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %4, align 8
-  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, i32 noundef %23, i32 noundef %24, ptr noundef %26) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1430, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #14
+  %27 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, i32 noundef %23, i32 noundef %24, ptr noundef %26) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1430, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #13
   unreachable
 
 28:                                               ; preds = %18
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, i32 noundef %23, i32 noundef %24) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #14
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48, i32 noundef %23, i32 noundef %24) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1435, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #13
   unreachable
 
 30:                                               ; preds = %15
@@ -2556,14 +2532,13 @@ define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef no
   br i1 %.not23, label %46, label %39
 
 39:                                               ; preds = %35, %30
-  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %40)
-  %41 = call i32 @errcode_for_file_access() #14
+  %40 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %41 = call i32 @errcode_for_file_access() #13
   %42 = lshr i64 %0, 32
   %43 = trunc nuw i64 %42 to i32
   %44 = trunc i64 %0 to i32
-  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, i32 noundef %43, i32 noundef %44) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1443, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #14
+  %45 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.49, i32 noundef %43, i32 noundef %44) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1443, ptr noundef nonnull @__func__.XlogReadTwoPhaseData) #13
   unreachable
 
 46:                                               ; preds = %35
@@ -2582,7 +2557,7 @@ define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef no
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
-  %55 = call ptr @palloc(i64 noundef %54) #14
+  %55 = call ptr @palloc(i64 noundef %54) #13
   store ptr %55, ptr %1, align 8
   %56 = load ptr, ptr %31, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
@@ -2591,7 +2566,7 @@ define internal fastcc void @XlogReadTwoPhaseData(i64 noundef %0, ptr noundef no
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %58, i64 %61, i1 false)
-  call void @XLogReaderFree(ptr noundef nonnull %9) #14
+  call void @XLogReaderFree(ptr noundef nonnull %9) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2618,7 +2593,7 @@ declare void @AtEOXact_PgStat(i1 noundef zeroext, i1 noundef zeroext) local_unna
 define internal fastcc void @RemoveTwoPhaseFile(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call i64 @ReadNextFullTransactionId() #14
+  %4 = tail call i64 @ReadNextFullTransactionId() #13
   %5 = icmp ugt i32 %0, 2
   br i1 %5, label %8, label %6
 
@@ -2649,26 +2624,26 @@ TwoPhaseFilePath.exit:                            ; preds = %6, %15
   %19 = lshr i64 %.sroa.07.0.i.i.i, 32
   %20 = trunc nuw i64 %19 to i32
   %21 = trunc i64 %.sroa.07.0.i.i.i to i32
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %20, i32 noundef %21) #14
-  %23 = call i32 @unlink(ptr noundef nonnull %3) #14
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %20, i32 noundef %21) #13
+  %23 = call i32 @unlink(ptr noundef nonnull %3) #13
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %33, label %24
 
 24:                                               ; preds = %TwoPhaseFilePath.exit
-  %25 = tail call ptr @__errno_location() #17
+  %25 = tail call ptr @__errno_location() #16
   %26 = load i32, ptr %25, align 4
   %27 = icmp ne i32 %26, 2
   %or.cond = or i1 %1, %27
   br i1 %or.cond, label %28, label %33
 
 28:                                               ; preds = %24
-  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %29 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %28
-  %31 = call i32 @errcode_for_file_access() #14
-  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %3) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1716, ptr noundef nonnull @__func__.RemoveTwoPhaseFile) #14
+  %31 = call i32 @errcode_for_file_access() #13
+  %32 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef nonnull %3) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1716, ptr noundef nonnull @__func__.RemoveTwoPhaseFile) #13
   br label %33
 
 33:                                               ; preds = %24, %30, %28, %TwoPhaseFilePath.exit
@@ -2689,7 +2664,7 @@ define dso_local void @CheckPointTwoPhase(i64 noundef %0) local_unnamed_addr #0 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2304
-  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %10, i32 noundef 1) #14
+  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %10, i32 noundef 1) #13
   %12 = load ptr, ptr @TwoPhaseState, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
@@ -2740,10 +2715,10 @@ define dso_local void @CheckPointTwoPhase(i64 noundef %0) local_unnamed_addr #0 
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %41 = load ptr, ptr @pg_comp_crc32c, align 8
   %42 = sext i32 %40 to i64
-  %43 = call i32 %41(i32 noundef -1, ptr noundef %39, i64 noundef %42) #14
+  %43 = call i32 %41(i32 noundef -1, ptr noundef %39, i64 noundef %42) #13
   %44 = xor i32 %43, -1
   store i32 %44, ptr %3, align 4
-  %45 = call i64 @ReadNextFullTransactionId() #14
+  %45 = call i64 @ReadNextFullTransactionId() #13
   %46 = icmp ugt i32 %38, 2
   br i1 %46, label %49, label %47
 
@@ -2774,25 +2749,24 @@ TwoPhaseFilePath.exit.i:                          ; preds = %56, %47
   %60 = lshr i64 %.sroa.07.0.i.i.i.i, 32
   %61 = trunc nuw i64 %60 to i32
   %62 = trunc i64 %.sroa.07.0.i.i.i.i to i32
-  %63 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %61, i32 noundef %62) #14
-  %64 = call i32 @OpenTransientFile(ptr noundef nonnull %2, i32 noundef 577) #14
+  %63 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %61, i32 noundef %62) #13
+  %64 = call i32 @OpenTransientFile(ptr noundef nonnull %2, i32 noundef 577) #13
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %TwoPhaseFilePath.exit.i
-  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %67)
-  %68 = call i32 @errcode_for_file_access() #14
-  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef nonnull %2) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1744, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #14
+  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %68 = call i32 @errcode_for_file_access() #13
+  %69 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1744, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #13
   unreachable
 
 70:                                               ; preds = %TwoPhaseFilePath.exit.i
-  %71 = tail call ptr @__errno_location() #17
+  %71 = tail call ptr @__errno_location() #16
   store i32 0, ptr %71, align 4
   %72 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772220, ptr %72, align 4
-  %73 = call i64 @write(i32 noundef %64, ptr noundef %39, i64 noundef %42) #14
+  %73 = call i64 @write(i32 noundef %64, ptr noundef %39, i64 noundef %42) #13
   %.not.i = icmp eq i64 %73, %42
   br i1 %.not.i, label %82, label %74
 
@@ -2806,15 +2780,14 @@ TwoPhaseFilePath.exit.i:                          ; preds = %56, %47
   br label %78
 
 78:                                               ; preds = %77, %74
-  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %79)
-  %80 = call i32 @errcode_for_file_access() #14
-  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1756, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #14
+  %79 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %80 = call i32 @errcode_for_file_access() #13
+  %81 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1756, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #13
   unreachable
 
 82:                                               ; preds = %70
-  %83 = call i64 @write(i32 noundef %64, ptr noundef nonnull %3, i64 noundef 4) #14
+  %83 = call i64 @write(i32 noundef %64, ptr noundef nonnull %3, i64 noundef 4) #13
   %.not10.i = icmp eq i64 %83, 4
   br i1 %.not10.i, label %92, label %84
 
@@ -2828,11 +2801,10 @@ TwoPhaseFilePath.exit.i:                          ; preds = %56, %47
   br label %88
 
 88:                                               ; preds = %87, %84
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %89)
-  %90 = call i32 @errcode_for_file_access() #14
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1765, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #14
+  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %90 = call i32 @errcode_for_file_access() #13
+  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1765, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #13
   unreachable
 
 92:                                               ; preds = %82
@@ -2840,31 +2812,29 @@ TwoPhaseFilePath.exit.i:                          ; preds = %56, %47
   store volatile i32 0, ptr %93, align 4
   %94 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772219, ptr %94, align 4
-  %95 = call i32 @pg_fsync(i32 noundef %64) #14
+  %95 = call i32 @pg_fsync(i32 noundef %64) #13
   %.not11.i = icmp eq i32 %95, 0
   br i1 %.not11.i, label %100, label %96
 
 96:                                               ; preds = %92
-  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %97)
-  %98 = call i32 @errcode_for_file_access() #14
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef nonnull %2) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1777, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #14
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %98 = call i32 @errcode_for_file_access() #13
+  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.53, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1777, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #13
   unreachable
 
 100:                                              ; preds = %92
   %101 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %101, align 4
-  %102 = call i32 @CloseTransientFile(i32 noundef %64) #14
+  %102 = call i32 @CloseTransientFile(i32 noundef %64) #13
   %.not12.i = icmp eq i32 %102, 0
   br i1 %.not12.i, label %RecreateTwoPhaseFile.exit, label %103
 
 103:                                              ; preds = %100
-  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %104)
-  %105 = call i32 @errcode_for_file_access() #14
-  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %2) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1783, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #14
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %105 = call i32 @errcode_for_file_access() #13
+  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %2) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1783, ptr noundef nonnull @__func__.RecreateTwoPhaseFile) #13
   unreachable
 
 RecreateTwoPhaseFile.exit:                        ; preds = %100
@@ -2872,7 +2842,7 @@ RecreateTwoPhaseFile.exit:                        ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 1, ptr %28, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  call void @pfree(ptr noundef %39) #14
+  call void @pfree(ptr noundef %39) #13
   %107 = add i32 %.01726, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2893,8 +2863,8 @@ RecreateTwoPhaseFile.exit:                        ; preds = %100
   %.017.lcssa = phi i32 [ 0, %8 ], [ %.1, %108 ]
   %114 = load ptr, ptr @MainLWLockArray, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 2304
-  call void @LWLockRelease(ptr noundef nonnull %115) #14
-  call void @fsync_fname(ptr noundef nonnull @.str.14, i1 noundef zeroext true) #14
+  call void @LWLockRelease(ptr noundef nonnull %115) #13
+  call void @fsync_fname(ptr noundef nonnull @.str.14, i1 noundef zeroext true) #13
   %116 = load i8, ptr @log_checkpoints, align 1, !range !4, !noundef !5
   %117 = trunc nuw i8 %116 to i1
   %118 = icmp sgt i32 %.017.lcssa, 0
@@ -2902,13 +2872,13 @@ RecreateTwoPhaseFile.exit:                        ; preds = %100
   br i1 %or.cond, label %119, label %124
 
 119:                                              ; preds = %._crit_edge
-  %120 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %120 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %119
   %122 = zext nneg i32 %.017.lcssa to i64
-  %123 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %122, i32 noundef %.017.lcssa) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1876, ptr noundef nonnull @__func__.CheckPointTwoPhase) #14
+  %123 = call i32 (ptr, ptr, i64, ...) @errmsg_plural(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i64 noundef %122, i32 noundef %.017.lcssa) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1876, ptr noundef nonnull @__func__.CheckPointTwoPhase) #13
   br label %124
 
 124:                                              ; preds = %._crit_edge, %121, %119, %1
@@ -2923,26 +2893,26 @@ declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unn
 define dso_local void @restoreTwoPhaseData() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2304
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #14
-  %4 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.14) #14
-  %5 = tail call ptr @ReadDir(ptr noundef %4, ptr noundef nonnull @.str.14) #14
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #13
+  %4 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.14) #13
+  %5 = tail call ptr @ReadDir(ptr noundef %4, ptr noundef nonnull @.str.14) #13
   %.not13 = icmp eq ptr %5, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %6 = phi ptr [ %18, %.backedge ], [ %5, %0 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 19
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #15
   %9 = icmp eq i64 %8, 16
   br i1 %9, label %10, label %.backedge
 
 10:                                               ; preds = %.lr.ph
-  %11 = tail call i64 @strspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.17) #16
+  %11 = tail call i64 @strspn(ptr noundef nonnull %7, ptr noundef nonnull @.str.17) #15
   %12 = icmp eq i64 %11, 16
   br i1 %12, label %13, label %.backedge
 
 13:                                               ; preds = %10
-  %14 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #14
+  %14 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %7, ptr noundef null, i32 noundef 16) #13
   %15 = trunc i64 %14 to i32
   %16 = tail call fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %15, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %17 = icmp eq ptr %16, null
@@ -2953,15 +2923,15 @@ define dso_local void @restoreTwoPhaseData() local_unnamed_addr #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %.lr.ph, %10, %.thread, %13
-  %18 = tail call ptr @ReadDir(ptr noundef %4, ptr noundef nonnull @.str.14) #14
+  %18 = tail call ptr @ReadDir(ptr noundef %4, ptr noundef nonnull @.str.14) #13
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.backedge, %0
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %20) #14
-  %21 = tail call i32 @FreeDir(ptr noundef %4) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %20) #13
+  %21 = tail call i32 @FreeDir(ptr noundef %4) #13
   ret void
 }
 
@@ -2986,23 +2956,23 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   %.sroa.0.0.copyload = load i64, ptr %8, align 8
   %9 = trunc i64 %.sroa.0.0.copyload to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %0) #14
+  %10 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %0) #13
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call zeroext i1 @TransactionIdDidAbort(i32 noundef %0) #14
+  %12 = tail call zeroext i1 @TransactionIdDidAbort(i32 noundef %0) #13
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %11, %5
-  %14 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %14 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
   br i1 %2, label %15, label %19
 
 15:                                               ; preds = %13
   br i1 %14, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2200, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #14
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2200, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #13
   br label %18
 
 18:                                               ; preds = %16, %15
@@ -3013,8 +2983,8 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %14, label %20, label %22
 
 20:                                               ; preds = %19
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2207, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #14
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.55, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2207, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #13
   br label %22
 
 22:                                               ; preds = %20, %19
@@ -3022,19 +2992,19 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br label %.loopexit
 
 23:                                               ; preds = %11
-  %24 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %9) #14
+  %24 = tail call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %0, i32 noundef %9) #13
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %26 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
   br i1 %2, label %27, label %31
 
 27:                                               ; preds = %25
   br i1 %26, label %28, label %30
 
 28:                                               ; preds = %27
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2220, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #14
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2220, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #13
   br label %30
 
 30:                                               ; preds = %28, %27
@@ -3045,8 +3015,8 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %26, label %32, label %34
 
 32:                                               ; preds = %31
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2227, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #14
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.57, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2227, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #13
   br label %34
 
 34:                                               ; preds = %32, %31
@@ -3072,19 +3042,17 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   br i1 %44, label %52, label %.thread36
 
 45:                                               ; preds = %36
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %46)
-  %47 = tail call i32 @errcode(i32 noundef 16779816) #14
-  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2252, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #14
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %47 = tail call i32 @errcode(i32 noundef 16779816) #13
+  %48 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.58, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2252, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #13
   unreachable
 
 .thread36:                                        ; preds = %.thread
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %49)
-  %50 = tail call i32 @errcode(i32 noundef 16779816) #14
-  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2257, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #14
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %50 = tail call i32 @errcode(i32 noundef 16779816) #13
+  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2257, ptr noundef nonnull @__func__.ProcessTwoPhaseBuffer) #13
   unreachable
 
 52:                                               ; preds = %.thread, %36
@@ -3111,8 +3079,8 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
   %64 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv46
   %65 = load i32, ptr %64, align 4
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %65) #14
-  tail call void @SubTransSetParent(i32 noundef %65, i32 noundef %0) #14
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %65) #13
+  tail call void @SubTransSetParent(i32 noundef %65, i32 noundef %0) #13
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %66 = load i32, ptr %61, align 4
   %67 = sext i32 %66 to i64
@@ -3123,7 +3091,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph.split.us.split ], [ 0, %.lr.ph.split.us ]
   %69 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv43
   %70 = load i32, ptr %69, align 4
-  tail call void @SubTransSetParent(i32 noundef %70, i32 noundef %0) #14
+  tail call void @SubTransSetParent(i32 noundef %70, i32 noundef %0) #13
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %71 = load i32, ptr %61, align 4
   %72 = sext i32 %71 to i64
@@ -3137,7 +3105,7 @@ define internal fastcc ptr @ProcessTwoPhaseBuffer(i32 noundef %0, i64 noundef %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %74 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
   %75 = load i32, ptr %74, align 4
-  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %75) #14
+  tail call void @AdvanceNextFullTransactionIdPastXid(i32 noundef %75) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %76 = load i32, ptr %61, align 4
   %77 = sext i32 %76 to i64
@@ -3161,7 +3129,7 @@ define dso_local void @PrepareRedoAdd(ptr noundef readonly captures(none) %0, i6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = tail call i64 @ReadNextFullTransactionId() #14
+  %11 = tail call i64 @ReadNextFullTransactionId() #13
   %12 = icmp ugt i32 %10, 2
   br i1 %12, label %15, label %13
 
@@ -3192,8 +3160,8 @@ TwoPhaseFilePath.exit:                            ; preds = %13, %22
   %26 = lshr i64 %.sroa.07.0.i.i.i, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = trunc i64 %.sroa.07.0.i.i.i to i32
-  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %27, i32 noundef %28) #14
-  %30 = call i32 @access(ptr noundef nonnull %5, i32 noundef 0) #14
+  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.61, i32 noundef %27, i32 noundef %28) #13
+  %30 = call i32 @access(ptr noundef nonnull %5, i32 noundef 0) #13
   %.not34 = icmp eq i32 %30, 0
   br i1 %.not34, label %31, label %43
 
@@ -3201,31 +3169,30 @@ TwoPhaseFilePath.exit:                            ; preds = %13, %22
   %32 = load i8, ptr @reachedConsistency, align 1, !range !4, !noundef !5
   %33 = trunc nuw i8 %32 to i1
   %34 = select i1 %33, i32 21, i32 19
-  %35 = call zeroext i1 @errstart(i32 noundef %34, ptr noundef null) #14
+  %35 = call zeroext i1 @errstart(i32 noundef %34, ptr noundef null) #13
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %31
   %37 = load i32, ptr %9, align 8
-  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %37) #14
+  %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %37) #13
   %39 = lshr i64 %1, 32
   %40 = trunc nuw i64 %39 to i32
   %41 = trunc i64 %1 to i32
-  %42 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.20, i32 noundef %40, i32 noundef %41) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2516, ptr noundef nonnull @__func__.PrepareRedoAdd) #14
+  %42 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.20, i32 noundef %40, i32 noundef %41) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2516, ptr noundef nonnull @__func__.PrepareRedoAdd) #13
   br label %.thread
 
 43:                                               ; preds = %TwoPhaseFilePath.exit
-  %44 = tail call ptr @__errno_location() #17
+  %44 = tail call ptr @__errno_location() #16
   %45 = load i32, ptr %44, align 4
   %.not = icmp eq i32 %45, 2
   br i1 %.not, label %50, label %46
 
 46:                                               ; preds = %43
-  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %47)
-  %48 = call i32 @errcode_for_file_access() #14
-  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %5) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2523, ptr noundef nonnull @__func__.PrepareRedoAdd) #14
+  %47 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %48 = call i32 @errcode_for_file_access() #13
+  %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %5) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2523, ptr noundef nonnull @__func__.PrepareRedoAdd) #13
   unreachable
 
 .thread:                                          ; preds = %31, %36
@@ -3243,13 +3210,12 @@ TwoPhaseFilePath.exit:                            ; preds = %13, %22
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %56)
-  %57 = call i32 @errcode(i32 noundef 8389) #14
-  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #14
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %57 = call i32 @errcode(i32 noundef 8389) #13
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #13
   %59 = load i32, ptr @max_prepared_xacts, align 4
-  %60 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7, i32 noundef %59) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2532, ptr noundef nonnull @__func__.PrepareRedoAdd) #14
+  %60 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7, i32 noundef %59) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2532, ptr noundef nonnull @__func__.PrepareRedoAdd) #13
   unreachable
 
 61:                                               ; preds = %51
@@ -3281,7 +3247,7 @@ TwoPhaseFilePath.exit:                            ; preds = %13, %22
   %78 = getelementptr inbounds nuw i8, ptr %53, i64 54
   store i8 1, ptr %78, align 2
   %79 = getelementptr inbounds nuw i8, ptr %53, i64 55
-  %80 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %6) #14
+  %80 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %79, ptr noundef nonnull dereferenceable(1) %6) #13
   %81 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %83 = load i32, ptr %82, align 8
@@ -3296,17 +3262,17 @@ TwoPhaseFilePath.exit:                            ; preds = %13, %22
 87:                                               ; preds = %61
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load i64, ptr %88, align 8
-  call void @replorigin_advance(i16 noundef zeroext %3, i64 noundef %89, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #14
+  call void @replorigin_advance(i16 noundef zeroext %3, i64 noundef %89, i64 noundef %2, i1 noundef zeroext false, i1 noundef zeroext false) #13
   br label %90
 
 90:                                               ; preds = %87, %61
-  %91 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
+  %91 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #13
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %90
   %93 = load i32, ptr %70, align 8
-  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %93) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2558, ptr noundef nonnull @__func__.PrepareRedoAdd) #14
+  %94 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %93) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2558, ptr noundef nonnull @__func__.PrepareRedoAdd) #13
   br label %95
 
 95:                                               ; preds = %.thread, %90, %92
@@ -3323,7 +3289,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %5 = trunc i64 %.sroa.0.0.copyload to i32
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2304
-  %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #14
+  %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #13
   %9 = load ptr, ptr @TwoPhaseState, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8
@@ -3353,9 +3319,9 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %.lr.ph.split.us
-  %27 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %18, i32 noundef %.047.us) #14
+  %27 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %18, i32 noundef %.047.us) #13
   %spec.select.us = select i1 %27, i32 %18, i32 %.047.us
-  tail call void @pfree(ptr noundef nonnull %24) #14
+  tail call void @pfree(ptr noundef nonnull %24) #13
   br label %28
 
 28:                                               ; preds = %26, %.lr.ph.split.us
@@ -3390,7 +3356,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   br i1 %46, label %63, label %47
 
 47:                                               ; preds = %.lr.ph.split
-  %48 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %39, i32 noundef %.047) #14
+  %48 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %39, i32 noundef %.047) #13
   %spec.select = select i1 %48, i32 %39, i32 %.047
   %49 = icmp eq i32 %.03245, %.03643
   br i1 %49, label %50, label %59
@@ -3400,14 +3366,14 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = tail call ptr @palloc(i64 noundef 40) #14
+  %53 = tail call ptr @palloc(i64 noundef 40) #13
   br label %59
 
 54:                                               ; preds = %50
   %55 = shl i32 %.03245, 1
   %56 = sext i32 %55 to i64
   %57 = shl nsw i64 %56, 2
-  %58 = tail call ptr @repalloc(ptr noundef %.02946, i64 noundef %57) #14
+  %58 = tail call ptr @repalloc(ptr noundef %.02946, i64 noundef %57) #13
   br label %59
 
 59:                                               ; preds = %52, %54, %47
@@ -3417,7 +3383,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %61 = sext i32 %.03245 to i64
   %62 = getelementptr inbounds i32, ptr %.3, i64 %61
   store i32 %39, ptr %62, align 4
-  tail call void @pfree(ptr noundef nonnull %45) #14
+  tail call void @pfree(ptr noundef nonnull %45) #13
   br label %63
 
 63:                                               ; preds = %.lr.ph.split, %59
@@ -3439,7 +3405,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly captures
   %.0.lcssa = phi i32 [ %5, %2 ], [ %.1.us, %28 ], [ %.1, %63 ]
   %69 = load ptr, ptr @MainLWLockArray, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %70) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %70) #13
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %72, label %71
 
@@ -3460,7 +3426,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 define dso_local void @StandbyRecoverPreparedTransactions() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2304
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #14
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #13
   %4 = load ptr, ptr @TwoPhaseState, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3485,7 +3451,7 @@ define dso_local void @StandbyRecoverPreparedTransactions() local_unnamed_addr #
   br i1 %.not, label %21, label %20
 
 20:                                               ; preds = %.lr.ph
-  tail call void @pfree(ptr noundef nonnull %19) #14
+  tail call void @pfree(ptr noundef nonnull %19) #13
   br label %21
 
 21:                                               ; preds = %20, %.lr.ph
@@ -3500,7 +3466,7 @@ define dso_local void @StandbyRecoverPreparedTransactions() local_unnamed_addr #
 ._crit_edge:                                      ; preds = %21, %0
   %27 = load ptr, ptr @MainLWLockArray, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %28) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %28) #13
   ret void
 }
 
@@ -3508,7 +3474,7 @@ define dso_local void @StandbyRecoverPreparedTransactions() local_unnamed_addr #
 define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2304
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #14
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #13
   %4 = load ptr, ptr @TwoPhaseState, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -3533,12 +3499,12 @@ define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
   br i1 %20, label %171, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %22 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %22, label %23, label %.loopexit.i
 
 23:                                               ; preds = %21
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %13) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2106, ptr noundef nonnull @__func__.RecoverPreparedTransactions) #14
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %13) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2106, ptr noundef nonnull @__func__.RecoverPreparedTransactions) #13
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %23, %21
@@ -3673,7 +3639,7 @@ MarkAsPreparingGuts.exit:                         ; preds = %102
   %112 = getelementptr inbounds nuw i8, ptr %11, i64 54
   store i8 0, ptr %112, align 2
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 55
-  %114 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %25) #14
+  %114 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %113, ptr noundef nonnull readonly dereferenceable(1) %25) #13
   store ptr %11, ptr @MyLockedGxact, align 8
   store i8 0, ptr %112, align 2
   %115 = load i32, ptr %32, align 4
@@ -3714,10 +3680,10 @@ GXactLoadSubxactData.exit:                        ; preds = %122, %124
   store i8 1, ptr %111, align 4
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds %struct.PGPROC, ptr %131, i64 %.pre-phi
-  tail call void @ProcArrayAdd(ptr noundef %132) #14
+  tail call void @ProcArrayAdd(ptr noundef %132) #13
   %133 = load ptr, ptr @MainLWLockArray, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %134) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %134) #13
   %135 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %136 = load i8, ptr %135, align 4
   %137 = icmp eq i8 %136, 0
@@ -3737,7 +3703,7 @@ GXactLoadSubxactData.exit:                        ; preds = %122, %124
   %144 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 6
   %145 = load i16, ptr %144, align 2
   %146 = load i32, ptr %.01318.i, align 4
-  tail call void %142(i32 noundef %13, i16 noundef zeroext %145, ptr noundef nonnull %139, i32 noundef %146) #14
+  tail call void %142(i32 noundef %13, i16 noundef zeroext %145, ptr noundef nonnull %139, i32 noundef %146) #13
   br label %147
 
 147:                                              ; preds = %143, %.lr.ph.i
@@ -3758,24 +3724,24 @@ ProcessRecords.exit:                              ; preds = %147, %GXactLoadSubx
 
 158:                                              ; preds = %ProcessRecords.exit
   %159 = load i32, ptr %32, align 4
-  tail call void @StandbyReleaseLockTree(i32 noundef %13, i32 noundef %159, ptr noundef nonnull %31) #14
+  tail call void @StandbyReleaseLockTree(i32 noundef %13, i32 noundef %159, ptr noundef nonnull %31) #13
   br label %160
 
 160:                                              ; preds = %158, %ProcessRecords.exit
   %161 = load ptr, ptr @MainLWLockArray, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 2304
-  %163 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %162, i32 noundef 0) #14
+  %163 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %162, i32 noundef 0) #13
   %164 = load ptr, ptr @MyLockedGxact, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 48
   store i32 -1, ptr %165, align 8
   %166 = load ptr, ptr @MainLWLockArray, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %167) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %167) #13
   store ptr null, ptr @MyLockedGxact, align 8
-  tail call void @pfree(ptr noundef nonnull %19) #14
+  tail call void @pfree(ptr noundef nonnull %19) #13
   %168 = load ptr, ptr @MainLWLockArray, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 2304
-  %170 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %169, i32 noundef 0) #14
+  %170 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %169, i32 noundef 0) #13
   br label %171
 
 171:                                              ; preds = %.lr.ph, %160
@@ -3790,7 +3756,7 @@ ProcessRecords.exit:                              ; preds = %147, %GXactLoadSubx
 ._crit_edge:                                      ; preds = %171, %0
   %177 = load ptr, ptr @MainLWLockArray, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %178) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %178) #13
   ret void
 }
 
@@ -3841,12 +3807,12 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
   br i1 %14, label %15, label %8
 
 15:                                               ; preds = %9
-  %16 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #14
+  %16 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #13
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2601, ptr noundef nonnull @__func__.PrepareRedoRemove) #14
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23, i32 noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2601, ptr noundef nonnull @__func__.PrepareRedoRemove) #13
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -3884,10 +3850,9 @@ define dso_local void @PrepareRedoRemove(i32 noundef %0, i1 noundef zeroext %1) 
   br i1 %34, label %RemoveGXact.exit, label %30
 
 ._crit_edge.i:                                    ; preds = %30, %24
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %11) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #14
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, ptr noundef %11) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 650, ptr noundef nonnull @__func__.RemoveGXact) #13
   unreachable
 
 RemoveGXact.exit:                                 ; preds = %31
@@ -3912,7 +3877,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2304
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #14
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #13
   %8 = load ptr, ptr @TwoPhaseState, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
@@ -3932,7 +3897,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
 
 19:                                               ; preds = %.lr.ph
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 55
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %0) #16
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %0) #15
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %45
 
@@ -3970,13 +3935,13 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %34, %39
-  tail call void @pfree(ptr noundef nonnull %35) #14
+  tail call void @pfree(ptr noundef nonnull %35) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre32 = load ptr, ptr @TwoPhaseState, align 8
   br label %45
 
 44:                                               ; preds = %39
-  tail call void @pfree(ptr noundef nonnull %35) #14
+  tail call void @pfree(ptr noundef nonnull %35) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
@@ -3993,7 +3958,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   %51 = phi i1 [ true, %44 ], [ false, %3 ], [ false, %45 ]
   %52 = load ptr, ptr @MainLWLockArray, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 2304
-  tail call void @LWLockRelease(ptr noundef nonnull %53) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %53) #13
   ret i1 %51
 }
 
@@ -4003,16 +3968,15 @@ define dso_local void @TwoPhaseTransactionGid(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %4
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 16908800) #14
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2689, ptr noundef nonnull @__func__.TwoPhaseTransactionGid) #14
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %7 = tail call i32 @errcode(i32 noundef 16908800) #13
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2689, ptr noundef nonnull @__func__.TwoPhaseTransactionGid) #13
   unreachable
 
 9:                                                ; preds = %4
   %10 = sext i32 %3 to i64
-  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef %10, ptr noundef nonnull @.str.25, i32 noundef %0, i32 noundef %1) #14
+  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %2, i64 noundef %10, ptr noundef nonnull @.str.25, i32 noundef %0, i32 noundef %1) #13
   ret void
 }
 
@@ -4025,7 +3989,7 @@ define dso_local noundef zeroext i1 @LookupGXactBySubid(i32 noundef %0) local_un
   %4 = alloca [200 x i8], align 16
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2304
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #14
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 1) #13
   %8 = load ptr, ptr @TwoPhaseState, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
@@ -4048,7 +4012,7 @@ define dso_local noundef zeroext i1 @LookupGXactBySubid(i32 noundef %0) local_un
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %20, ptr noundef nonnull @.str.25, ptr noundef nonnull %2, ptr noundef nonnull %3) #14
+  %21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %20, ptr noundef nonnull @.str.25, ptr noundef nonnull %2, ptr noundef nonnull %3) #13
   %.not.i = icmp eq i32 %21, 2
   %22 = load i32, ptr %2, align 4
   %.not6.i = icmp eq i32 %0, %22
@@ -4067,16 +4031,15 @@ IsTwoPhaseTransactionGidForSubid.exit.thread:     ; preds = %19
   br i1 %.not.i.i, label %25, label %IsTwoPhaseTransactionGidForSubid.exit
 
 25:                                               ; preds = %23
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %26)
-  %27 = call i32 @errcode(i32 noundef 16908800) #14
-  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2689, ptr noundef nonnull @__func__.TwoPhaseTransactionGid) #14
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %27 = call i32 @errcode(i32 noundef 16908800) #13
+  %28 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 2689, ptr noundef nonnull @__func__.TwoPhaseTransactionGid) #13
   unreachable
 
 IsTwoPhaseTransactionGidForSubid.exit:            ; preds = %23
-  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 200, ptr noundef nonnull @.str.25, i32 noundef %0, i32 noundef %24) #14
-  %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %4) #16
+  %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 200, ptr noundef nonnull @.str.25, i32 noundef %0, i32 noundef %24) #13
+  %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %4) #15
   %31 = icmp eq i32 %30, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4096,7 +4059,7 @@ IsTwoPhaseTransactionGidForSubid.exit._crit_edge: ; preds = %32, %IsTwoPhaseTran
   %.lcssa = phi i1 [ false, %1 ], [ true, %IsTwoPhaseTransactionGidForSubid.exit ], [ false, %32 ]
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2304
-  call void @LWLockRelease(ptr noundef nonnull %39) #14
+  call void @LWLockRelease(ptr noundef nonnull %39) #13
   ret i1 %.lcssa
 }
 
@@ -4171,11 +4134,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #13
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4189,12 +4149,11 @@ attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "n
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

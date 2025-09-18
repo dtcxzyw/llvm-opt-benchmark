@@ -3607,9 +3607,6 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header110_$LT$impl$u20$core..convert..
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN8triomphe6header119_$LT$impl$u20$core..convert..From$LT$alloc..vec..Vec$LT$T$GT$$GT$$u20$for$u20$triomphe..arc..Arc$LT$$u5b$T$u5d$$GT$$GT$4from17hc8a22abee8464543E"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = tail call { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$$GT$19from_header_and_vec17h430012e058e26f8bE.llvm.7315907467015768964"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0)
-  %3 = extractvalue { ptr, i64 } %2, 0
-  %4 = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %4)
   ret { ptr, i64 } %2
 }
 

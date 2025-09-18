@@ -92,23 +92,23 @@ define dso_local i64 @ProcGlobalShmemSize() local_unnamed_addr #0 {
   %2 = sext i32 %1 to i64
   %3 = load i32, ptr @max_prepared_xacts, align 4
   %4 = sext i32 %3 to i64
-  %5 = tail call i64 @add_size(i64 noundef 6, i64 noundef %4) #14
-  %6 = tail call i64 @add_size(i64 noundef %2, i64 noundef %5) #14
-  %7 = tail call i64 @add_size(i64 noundef 0, i64 noundef 128) #14
-  %8 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 832) #14
-  %9 = tail call i64 @add_size(i64 noundef %7, i64 noundef %8) #14
-  %10 = tail call i64 @add_size(i64 noundef %9, i64 noundef 1) #14
-  %11 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 4) #14
-  %12 = tail call i64 @add_size(i64 noundef %10, i64 noundef %11) #14
-  %13 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 2) #14
-  %14 = tail call i64 @add_size(i64 noundef %12, i64 noundef %13) #14
-  %15 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 1) #14
-  %16 = tail call i64 @add_size(i64 noundef %14, i64 noundef %15) #14
+  %5 = tail call i64 @add_size(i64 noundef 6, i64 noundef %4) #13
+  %6 = tail call i64 @add_size(i64 noundef %2, i64 noundef %5) #13
+  %7 = tail call i64 @add_size(i64 noundef 0, i64 noundef 128) #13
+  %8 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 832) #13
+  %9 = tail call i64 @add_size(i64 noundef %7, i64 noundef %8) #13
+  %10 = tail call i64 @add_size(i64 noundef %9, i64 noundef 1) #13
+  %11 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 4) #13
+  %12 = tail call i64 @add_size(i64 noundef %10, i64 noundef %11) #13
+  %13 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 2) #13
+  %14 = tail call i64 @add_size(i64 noundef %12, i64 noundef %13) #13
+  %15 = tail call i64 @mul_size(i64 noundef %6, i64 noundef 1) #13
+  %16 = tail call i64 @add_size(i64 noundef %14, i64 noundef %15) #13
   %17 = load i32, ptr @FastPathLockGroupsPerBackend, align 4
   %18 = sext i32 %17 to i64
   %19 = mul nsw i64 %18, 72
-  %20 = tail call i64 @mul_size(i64 noundef %6, i64 noundef %19) #14
-  %21 = tail call i64 @add_size(i64 noundef %16, i64 noundef %20) #14
+  %20 = tail call i64 @mul_size(i64 noundef %6, i64 noundef %19) #13
+  %21 = tail call i64 @add_size(i64 noundef %16, i64 noundef %20) #13
   ret i64 %21
 }
 
@@ -131,7 +131,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %3 = add i32 %2, 6
   %4 = load i32, ptr @max_prepared_xacts, align 4
   %5 = add i32 %3, %4
-  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 128, ptr noundef nonnull %1) #14
+  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef 128, ptr noundef nonnull %1) #13
   store ptr %6, ptr @ProcGlobal, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i32 100, ptr %7, align 8
@@ -163,7 +163,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   store volatile i32 -1, ptr %20, align 4
   %21 = zext i32 %5 to i64
   %22 = mul nuw nsw i64 %21, 832
-  %23 = call ptr @ShmemAlloc(i64 noundef %22) #14
+  %23 = call ptr @ShmemAlloc(i64 noundef %22) #13
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 7
   %26 = icmp eq i64 %25, 0
@@ -199,7 +199,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store i32 %37, ptr %39, align 8
   %40 = shl nuw nsw i64 %21, 2
-  %41 = call ptr @ShmemAlloc(i64 noundef %40) #14
+  %41 = call ptr @ShmemAlloc(i64 noundef %40) #13
   %42 = load ptr, ptr @ProcGlobal, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %41, ptr %43, align 8
@@ -236,7 +236,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
 
 .loopexit163:                                     ; preds = %.loopexit163.sink.split, %51
   %58 = shl nuw nsw i64 %21, 1
-  %59 = call ptr @ShmemAlloc(i64 noundef %58) #14
+  %59 = call ptr @ShmemAlloc(i64 noundef %58) #13
   %60 = load ptr, ptr @ProcGlobal, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %59, ptr %61, align 8
@@ -272,7 +272,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   br label %.loopexit162
 
 .loopexit162:                                     ; preds = %.loopexit162.sink.split, %69
-  %76 = call ptr @ShmemAlloc(i64 noundef %21) #14
+  %76 = call ptr @ShmemAlloc(i64 noundef %21) #13
   %77 = load ptr, ptr @ProcGlobal, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   store ptr %76, ptr %78, align 8
@@ -314,7 +314,7 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   %96 = shl nsw i64 %94, 6
   %97 = mul nuw nsw i64 %21, 72
   %98 = mul i64 %97, %94
-  %99 = call ptr @ShmemAlloc(i64 noundef %98) #14
+  %99 = call ptr @ShmemAlloc(i64 noundef %98) #13
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, 7
   %102 = icmp eq i64 %101, 0
@@ -362,13 +362,13 @@ define dso_local void @InitProcGlobal() local_unnamed_addr #0 {
   br i1 %119, label %120, label %125
 
 120:                                              ; preds = %.lr.ph177
-  %121 = call ptr @PGSemaphoreCreate() #14
+  %121 = call ptr @PGSemaphoreCreate() #13
   %122 = getelementptr inbounds nuw i8, ptr %112, i64 24
   store ptr %121, ptr %122, align 8
   %123 = getelementptr inbounds nuw i8, ptr %112, i64 36
-  call void @InitSharedLatch(ptr noundef nonnull %123) #14
+  call void @InitSharedLatch(ptr noundef nonnull %123) #13
   %124 = getelementptr inbounds nuw i8, ptr %112, i64 752
-  call void @LWLockInitialize(ptr noundef nonnull %124, i32 noundef 64) #14
+  call void @LWLockInitialize(ptr noundef nonnull %124, i32 noundef 64) #13
   br label %125
 
 125:                                              ; preds = %120, %.lr.ph177
@@ -532,9 +532,9 @@ dlist_push_tail.exit160:                          ; preds = %170, %176
   %199 = sext i32 %198 to i64
   %200 = getelementptr inbounds %struct.PGPROC, ptr %23, i64 %199
   store ptr %200, ptr @PreparedXactProcs, align 8
-  %201 = call ptr @ShmemAlloc(i64 noundef 1) #14
+  %201 = call ptr @ShmemAlloc(i64 noundef 1) #13
   store ptr %201, ptr @ProcStructLock, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %202 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %202, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -561,10 +561,9 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %0
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 350, ptr noundef nonnull @__func__.InitProcess) #14
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #14
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 350, ptr noundef nonnull @__func__.InitProcess) #13
   unreachable
 
 6:                                                ; preds = %0
@@ -573,10 +572,9 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 353, ptr noundef nonnull @__func__.InitProcess) #14
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 353, ptr noundef nonnull @__func__.InitProcess) #13
   unreachable
 
 11:                                               ; preds = %6
@@ -585,7 +583,7 @@ define dso_local void @InitProcess() local_unnamed_addr #0 {
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call void @RegisterPostmasterChildActive() #14
+  tail call void @RegisterPostmasterChildActive() #13
   br label %15
 
 15:                                               ; preds = %14, %11
@@ -605,20 +603,20 @@ switch.lookup:                                    ; preds = %15
   %20 = load ptr, ptr @ProcGlobal, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.sink8
   %22 = load ptr, ptr @ProcStructLock, align 8
-  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 1, ptr elementtype(i8) %22) #14, !srcloc !10
+  %23 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %22, i8 1, ptr elementtype(i8) %22) #13, !srcloc !10
   %.not6 = icmp eq i8 %23, 0
   br i1 %.not6, label %27, label %24
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr @ProcStructLock, align 8
-  %26 = tail call i32 @s_lock(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 383, ptr noundef nonnull @__func__.InitProcess) #14
+  %26 = tail call i32 @s_lock(ptr noundef %25, ptr noundef nonnull @.str.2, i32 noundef 383, ptr noundef nonnull @__func__.InitProcess) #13
   br label %27
 
 27:                                               ; preds = %19, %24
   %28 = load ptr, ptr @ProcGlobal, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load i32, ptr %29, align 8
-  tail call void @set_spins_per_delay(i32 noundef %30) #14
+  tail call void @set_spins_per_delay(i32 noundef %30) #13
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
@@ -635,7 +633,7 @@ switch.lookup:                                    ; preds = %15
   %40 = load ptr, ptr %32, align 8
   store ptr %40, ptr %37, align 8
   store ptr %32, ptr @MyProc, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %41 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %41, align 1
   %42 = load ptr, ptr @MyProc, align 8
@@ -706,40 +704,39 @@ switch.lookup:                                    ; preds = %15
   %80 = getelementptr inbounds nuw i8, ptr %42, i64 744
   store i64 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %42, i64 36
-  tail call void @OwnLatch(ptr noundef nonnull %81) #14
-  tail call void @SwitchToSharedLatch() #14
+  tail call void @OwnLatch(ptr noundef nonnull %81) #13
+  tail call void @SwitchToSharedLatch() #13
   %82 = load ptr, ptr @MyProc, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 712
-  tail call void @pgstat_set_wait_event_storage(ptr noundef nonnull %83) #14
+  tail call void @pgstat_set_wait_event_storage(ptr noundef nonnull %83) #13
   %84 = load ptr, ptr @MyProc, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load ptr, ptr %85, align 8
-  tail call void @PGSemaphoreReset(ptr noundef %86) #14
-  tail call void @on_shmem_exit(ptr noundef nonnull @ProcKill, i64 noundef 0) #14
-  tail call void @InitLWLockAccess() #14
-  tail call void @InitDeadLockChecking() #14
+  tail call void @PGSemaphoreReset(ptr noundef %86) #13
+  tail call void @on_shmem_exit(ptr noundef nonnull @ProcKill, i64 noundef 0) #13
+  tail call void @InitLWLockAccess() #13
+  tail call void @InitDeadLockChecking() #13
   ret void
 
 87:                                               ; preds = %27
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
   %88 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %88, align 1
   %89 = load i32, ptr @MyBackendType, align 4
   %90 = icmp eq i32 %89, 6
-  %91 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %91)
-  %92 = tail call i32 @errcode(i32 noundef 12485) #14
+  %91 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %92 = tail call i32 @errcode(i32 noundef 12485) #13
   br i1 %90, label %93, label %96
 
 93:                                               ; preds = %87
   %94 = load i32, ptr @max_wal_senders, align 4
-  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %94) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 405, ptr noundef nonnull @__func__.InitProcess) #14
+  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, i32 noundef %94) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 405, ptr noundef nonnull @__func__.InitProcess) #13
   unreachable
 
 96:                                               ; preds = %87
-  %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @__func__.InitProcess) #14
+  %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @__func__.InitProcess) #13
   unreachable
 }
 
@@ -777,21 +774,20 @@ define internal void @ProcKill(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @MyProc, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %5 = load i32, ptr %4, align 4
-  %6 = tail call i32 @getpid() #14
+  %6 = tail call i32 @getpid() #13
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 877, ptr noundef nonnull @__func__.ProcKill) #14
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 877, ptr noundef nonnull @__func__.ProcKill) #13
   unreachable
 
 10:                                               ; preds = %2
-  tail call void @SyncRepCleanupAtProcExit() #14
-  tail call void @LWLockReleaseAll() #14
-  %11 = tail call zeroext i1 @ConditionVariableCancelSleep() #14
+  tail call void @SyncRepCleanupAtProcExit() #13
+  tail call void @LWLockReleaseAll() #13
+  %11 = tail call zeroext i1 @ConditionVariableCancelSleep() #13
   %12 = load ptr, ptr @MyProc, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 792
   %14 = load ptr, ptr %13, align 8
@@ -809,7 +805,7 @@ define internal void @ProcKill(i32 %0, i64 %1) #0 {
   %23 = srem i64 %22, 16
   %24 = getelementptr %union.LWLockPadded, ptr %16, i64 %23
   %25 = getelementptr i8, ptr %24, i64 23168
-  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #14
+  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef %25, i32 noundef 0) #13
   %27 = load ptr, ptr @MyProc, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 816
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 824
@@ -838,13 +834,13 @@ define internal void @ProcKill(i32 %0, i64 %1) #0 {
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @ProcStructLock, align 8
-  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %45, i8 1, ptr elementtype(i8) %45) #14, !srcloc !10
+  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %45, i8 1, ptr elementtype(i8) %45) #13, !srcloc !10
   %.not23 = icmp eq i8 %46, 0
   br i1 %.not23, label %50, label %47
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr @ProcStructLock, align 8
-  %49 = tail call i32 @s_lock(ptr noundef %48, ptr noundef nonnull @.str.2, i32 noundef 924, ptr noundef nonnull @__func__.ProcKill) #14
+  %49 = tail call i32 @s_lock(ptr noundef %48, ptr noundef nonnull @.str.2, i32 noundef 924, ptr noundef nonnull @__func__.ProcKill) #13
   br label %50
 
 50:                                               ; preds = %42, %47
@@ -864,7 +860,7 @@ dlist_push_head.exit:                             ; preds = %50, %54
   store ptr %44, ptr %14, align 8
   store ptr %14, ptr %55, align 8
   store ptr %14, ptr %51, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   %57 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %57, align 1
   br label %62
@@ -880,17 +876,17 @@ dlist_push_head.exit:                             ; preds = %50, %54
   br label %62
 
 62:                                               ; preds = %58, %60, %39, %dlist_push_head.exit
-  tail call void @LWLockRelease(ptr noundef %25) #14
+  tail call void @LWLockRelease(ptr noundef %25) #13
   br label %63
 
 63:                                               ; preds = %62, %10
-  tail call void @SwitchBackToLocalLatch() #14
-  tail call void @pgstat_reset_wait_event_storage() #14
+  tail call void @SwitchBackToLocalLatch() #13
+  tail call void @pgstat_reset_wait_event_storage() #13
   %64 = load ptr, ptr @MyProc, align 8
   store ptr null, ptr @MyProc, align 8
   store i32 -1, ptr @MyProcNumber, align 4
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 36
-  tail call void @DisownLatch(ptr noundef nonnull %65) #14
+  tail call void @DisownLatch(ptr noundef nonnull %65) #13
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 60
   store i32 0, ptr %66, align 4
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 68
@@ -900,13 +896,13 @@ dlist_push_head.exit:                             ; preds = %50, %54
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr @ProcStructLock, align 8
-  %72 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71, i8 1, ptr elementtype(i8) %71) #14, !srcloc !10
+  %72 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %71, i8 1, ptr elementtype(i8) %71) #13, !srcloc !10
   %.not24 = icmp eq i8 %72, 0
   br i1 %.not24, label %76, label %73
 
 73:                                               ; preds = %63
   %74 = load ptr, ptr @ProcStructLock, align 8
-  %75 = tail call i32 @s_lock(ptr noundef %74, ptr noundef nonnull @.str.2, i32 noundef 957, ptr noundef nonnull @__func__.ProcKill) #14
+  %75 = tail call i32 @s_lock(ptr noundef %74, ptr noundef nonnull @.str.2, i32 noundef 957, ptr noundef nonnull @__func__.ProcKill) #13
   br label %76
 
 76:                                               ; preds = %63, %73
@@ -940,11 +936,11 @@ dlist_push_tail.exit:                             ; preds = %80, %84
   %89 = load ptr, ptr @ProcGlobal, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 120
   %91 = load i32, ptr %90, align 8
-  %92 = tail call i32 @update_spins_per_delay(i32 noundef %91) #14
+  %92 = tail call i32 @update_spins_per_delay(i32 noundef %91) #13
   %93 = load ptr, ptr @ProcGlobal, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 120
   store i32 %92, ptr %94, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
   %95 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %95, align 1
   %96 = load i32, ptr @AutovacuumLauncherPid, align 4
@@ -952,7 +948,7 @@ dlist_push_tail.exit:                             ; preds = %80, %84
   br i1 %.not25, label %99, label %97
 
 97:                                               ; preds = %88
-  %98 = tail call i32 @kill(i32 noundef %96, i32 noundef 12) #14
+  %98 = tail call i32 @kill(i32 noundef %96, i32 noundef 12) #13
   br label %99
 
 99:                                               ; preds = %97, %88
@@ -966,8 +962,8 @@ declare void @InitDeadLockChecking() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @InitProcessPhase2() local_unnamed_addr #0 {
   %1 = load ptr, ptr @MyProc, align 8
-  tail call void @ProcArrayAdd(ptr noundef %1) #14
-  tail call void @on_shmem_exit(ptr noundef nonnull @RemoveProcFromArray, i64 noundef 0) #14
+  tail call void @ProcArrayAdd(ptr noundef %1) #13
+  tail call void @on_shmem_exit(ptr noundef nonnull @RemoveProcFromArray, i64 noundef 0) #13
   ret void
 }
 
@@ -976,7 +972,7 @@ declare void @ProcArrayAdd(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @RemoveProcFromArray(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @MyProc, align 8
-  tail call void @ProcArrayRemove(ptr noundef %3, i32 noundef 0) #14
+  tail call void @ProcArrayRemove(ptr noundef %3, i32 noundef 0) #13
   ret void
 }
 
@@ -990,10 +986,9 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %0
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 576, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #14
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #14
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 576, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #13
   unreachable
 
 8:                                                ; preds = %0
@@ -1002,10 +997,9 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 579, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #14
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 579, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #13
   unreachable
 
 13:                                               ; preds = %8
@@ -1014,25 +1008,25 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %13
-  tail call void @RegisterPostmasterChildActive() #14
+  tail call void @RegisterPostmasterChildActive() #13
   br label %17
 
 17:                                               ; preds = %16, %13
   %18 = load ptr, ptr @ProcStructLock, align 8
-  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18, i8 1, ptr elementtype(i8) %18) #14, !srcloc !10
+  %19 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %18, i8 1, ptr elementtype(i8) %18) #13, !srcloc !10
   %.not9 = icmp eq i8 %19, 0
   br i1 %.not9, label %23, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @ProcStructLock, align 8
-  %22 = tail call i32 @s_lock(ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 591, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #14
+  %22 = tail call i32 @s_lock(ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 591, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #13
   br label %23
 
 23:                                               ; preds = %17, %20
   %24 = load ptr, ptr @ProcGlobal, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load i32, ptr %25, align 8
-  tail call void @set_spins_per_delay(i32 noundef %26) #14
+  tail call void @set_spins_per_delay(i32 noundef %26) #13
   %27 = load ptr, ptr @AuxiliaryProcs, align 8
   br label %28
 
@@ -1050,20 +1044,19 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %34, label %28, !llvm.loop !15
 
 34:                                               ; preds = %33
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   %35 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %35, align 1
-  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %36)
-  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 607, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #14
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 607, ptr noundef nonnull @__func__.InitAuxiliaryProcess) #13
   unreachable
 
 38:                                               ; preds = %28
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 60
   %40 = load i32, ptr @MyProcPid, align 4
   store volatile i32 %40, ptr %39, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !17
   %41 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %41, align 1
   store ptr %29, ptr @MyProc, align 8
@@ -1103,18 +1096,18 @@ define dso_local void @InitAuxiliaryProcess() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 36
-  tail call void @OwnLatch(ptr noundef nonnull %62) #14
-  tail call void @SwitchToSharedLatch() #14
+  tail call void @OwnLatch(ptr noundef nonnull %62) #13
+  tail call void @SwitchToSharedLatch() #13
   %63 = load ptr, ptr @MyProc, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 712
-  tail call void @pgstat_set_wait_event_storage(ptr noundef nonnull %64) #14
+  tail call void @pgstat_set_wait_event_storage(ptr noundef nonnull %64) #13
   %65 = load ptr, ptr @MyProc, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
-  tail call void @PGSemaphoreReset(ptr noundef %67) #14
+  tail call void @PGSemaphoreReset(ptr noundef %67) #13
   %68 = and i64 %indvars.iv, 4294967295
-  tail call void @on_shmem_exit(ptr noundef nonnull @AuxiliaryProcKill, i64 noundef %68) #14
-  tail call void @InitLWLockAccess() #14
+  tail call void @on_shmem_exit(ptr noundef nonnull @AuxiliaryProcKill, i64 noundef %68) #13
+  tail call void @InitLWLockAccess() #13
   ret void
 }
 
@@ -1123,35 +1116,34 @@ define internal void @AuxiliaryProcKill(i32 %0, i64 %1) #0 {
   %3 = load ptr, ptr @MyProc, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %5 = load i32, ptr %4, align 4
-  %6 = tail call i32 @getpid() #14
+  %6 = tail call i32 @getpid() #13
   %.not = icmp eq i32 %5, %6
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 999, ptr noundef nonnull @__func__.AuxiliaryProcKill) #14
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 999, ptr noundef nonnull @__func__.AuxiliaryProcKill) #13
   unreachable
 
 10:                                               ; preds = %2
-  tail call void @LWLockReleaseAll() #14
-  %11 = tail call zeroext i1 @ConditionVariableCancelSleep() #14
-  tail call void @SwitchBackToLocalLatch() #14
-  tail call void @pgstat_reset_wait_event_storage() #14
+  tail call void @LWLockReleaseAll() #13
+  %11 = tail call zeroext i1 @ConditionVariableCancelSleep() #13
+  tail call void @SwitchBackToLocalLatch() #13
+  tail call void @pgstat_reset_wait_event_storage() #13
   %12 = load ptr, ptr @MyProc, align 8
   store ptr null, ptr @MyProc, align 8
   store i32 -1, ptr @MyProcNumber, align 4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  tail call void @DisownLatch(ptr noundef nonnull %13) #14
+  tail call void @DisownLatch(ptr noundef nonnull %13) #13
   %14 = load ptr, ptr @ProcStructLock, align 8
-  %15 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i8 1, ptr elementtype(i8) %14) #14, !srcloc !10
+  %15 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %14, i8 1, ptr elementtype(i8) %14) #13, !srcloc !10
   %.not5 = icmp eq i8 %15, 0
   br i1 %.not5, label %19, label %16
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr @ProcStructLock, align 8
-  %18 = tail call i32 @s_lock(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef 1020, ptr noundef nonnull @__func__.AuxiliaryProcKill) #14
+  %18 = tail call i32 @s_lock(ptr noundef %17, ptr noundef nonnull @.str.2, i32 noundef 1020, ptr noundef nonnull @__func__.AuxiliaryProcKill) #13
   br label %19
 
 19:                                               ; preds = %10, %16
@@ -1164,11 +1156,11 @@ define internal void @AuxiliaryProcKill(i32 %0, i64 %1) #0 {
   %23 = load ptr, ptr @ProcGlobal, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %25 = load i32, ptr %24, align 8
-  %26 = tail call i32 @update_spins_per_delay(i32 noundef %25) #14
+  %26 = tail call i32 @update_spins_per_delay(i32 noundef %25) #13
   %27 = load ptr, ptr @ProcGlobal, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store i32 %26, ptr %28, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
   %29 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %29, align 1
   ret void
@@ -1193,13 +1185,13 @@ define dso_local i32 @GetStartupBufferPinWaitBufId() local_unnamed_addr #6 {
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ProcStructLock, align 8
-  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #14, !srcloc !10
+  %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #13, !srcloc !10
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @ProcStructLock, align 8
-  %7 = tail call i32 @s_lock(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 740, ptr noundef nonnull @__func__.HaveNFreeProcs) #14
+  %7 = tail call i32 @s_lock(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 740, ptr noundef nonnull @__func__.HaveNFreeProcs) #13
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1228,7 +1220,7 @@ define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr noundef captures
   br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16, %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !20
   %19 = load ptr, ptr @ProcStructLock, align 8
   store i8 0, ptr %19, align 1
   %20 = load i32, ptr %1, align 4
@@ -1243,8 +1235,8 @@ define dso_local void @LockErrorCleanup() local_unnamed_addr #0 {
   %2 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %3 = add i32 %2, 1
   store volatile i32 %3, ptr @InterruptHoldoffCount, align 4
-  tail call void @AbortStrongLockAcquire() #14
-  %4 = tail call ptr @GetAwaitedLock() #14
+  tail call void @AbortStrongLockAcquire() #13
+  %4 = tail call ptr @GetAwaitedLock() #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %29, label %6
 
@@ -1256,7 +1248,7 @@ define dso_local void @LockErrorCleanup() local_unnamed_addr #0 {
   store i32 2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i8 1, ptr %9, align 4
-  call void @disable_timeouts(ptr noundef nonnull %1, i32 noundef 2) #14
+  call void @disable_timeouts(ptr noundef nonnull %1, i32 noundef 2) #13
   %10 = load ptr, ptr @MainLWLockArray, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %12 = load i32, ptr %11, align 4
@@ -1264,7 +1256,7 @@ define dso_local void @LockErrorCleanup() local_unnamed_addr #0 {
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw %union.LWLockPadded, ptr %10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 23168
-  %17 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef 0) #14
+  %17 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef 0) #13
   %18 = load ptr, ptr @MyProc, align 8
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8
@@ -1273,7 +1265,7 @@ define dso_local void @LockErrorCleanup() local_unnamed_addr #0 {
 
 21:                                               ; preds = %6
   %22 = load i32, ptr %11, align 4
-  call void @RemoveFromWaitQueue(ptr noundef nonnull %18, i32 noundef %22) #14
+  call void @RemoveFromWaitQueue(ptr noundef nonnull %18, i32 noundef %22) #13
   br label %28
 
 23:                                               ; preds = %6
@@ -1283,11 +1275,11 @@ define dso_local void @LockErrorCleanup() local_unnamed_addr #0 {
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  call void @GrantAwaitedLock() #14
+  call void @GrantAwaitedLock() #13
   br label %28
 
 28:                                               ; preds = %23, %27, %21
-  call void @LWLockRelease(ptr noundef nonnull %16) #14
+  call void @LWLockRelease(ptr noundef nonnull %16) #13
   br label %29
 
 29:                                               ; preds = %0, %28
@@ -1321,8 +1313,8 @@ define dso_local void @ProcReleaseLocks(i1 noundef zeroext %0) local_unnamed_add
 3:                                                ; preds = %1
   tail call void @LockErrorCleanup()
   %4 = xor i1 %0, true
-  tail call void @LockReleaseAll(i16 noundef zeroext 1, i1 noundef zeroext %4) #14
-  tail call void @LockReleaseAll(i16 noundef zeroext 2, i1 noundef zeroext false) #14
+  tail call void @LockReleaseAll(i16 noundef zeroext 1, i1 noundef zeroext %4) #13
+  tail call void @LockReleaseAll(i16 noundef zeroext 2, i1 noundef zeroext false) #13
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -1487,7 +1479,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   br i1 %.not96, label %68, label %.thread115.thread
 
 .thread115.thread:                                ; preds = %.split.us
-  tail call void @RememberSimpleDeadLock(ptr noundef %11, i32 noundef %5, ptr noundef %7, ptr noundef nonnull %.us-phi133) #14
+  tail call void @RememberSimpleDeadLock(ptr noundef %11, i32 noundef %5, ptr noundef %7, ptr noundef nonnull %.us-phi133) #13
   br label %110
 
 68:                                               ; preds = %.split.us
@@ -1496,7 +1488,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   br i1 %70, label %71, label %.thread115
 
 71:                                               ; preds = %68
-  %72 = tail call zeroext i1 @LockCheckConflicts(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %7, ptr noundef %9) #14
+  %72 = tail call zeroext i1 @LockCheckConflicts(ptr noundef nonnull %1, i32 noundef %5, ptr noundef %7, ptr noundef %9) #13
   br i1 %72, label %.thread115, label %79
 
 73:                                               ; preds = %54
@@ -1512,7 +1504,7 @@ define dso_local range(i32 0, 3) i32 @JoinWaitQueue(ptr noundef readonly capture
   br i1 %.not94, label %.thread115, label %.lr.ph131.split, !llvm.loop !23
 
 79:                                               ; preds = %71
-  tail call void @GrantLock(ptr noundef %7, ptr noundef %9, i32 noundef %5) #14
+  tail call void @GrantLock(ptr noundef %7, ptr noundef %9, i32 noundef %5) #13
   br label %110
 
 .thread115:                                       ; preds = %76, %46, %34, %68, %71, %31, %.loopexit
@@ -1616,7 +1608,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw %union.LWLockPadded, ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 23168
-  %24 = tail call zeroext i1 @RecoveryInProgress() #14
+  %24 = tail call zeroext i1 @RecoveryInProgress() #13
   %.not = xor i1 %24, true
   %25 = load i8, ptr @InRecovery, align 1, !range !8
   %26 = trunc nuw i8 %25 to i1
@@ -1624,7 +1616,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   br i1 %or.cond, label %28, label %27
 
 27:                                               ; preds = %1
-  tail call void @CheckRecoveryConflictDeadlock() #14
+  tail call void @CheckRecoveryConflictDeadlock() #13
   br label %28
 
 28:                                               ; preds = %27, %1
@@ -1653,19 +1645,19 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %32, ptr %40, align 16
-  call void @enable_timeouts(ptr noundef nonnull %2, i32 noundef 2) #14
+  call void @enable_timeouts(ptr noundef nonnull %2, i32 noundef 2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %43
 
 41:                                               ; preds = %31
   %42 = load i32, ptr @DeadlockTimeout, align 4
-  tail call void @enable_timeout_after(i32 noundef 1, i32 noundef %42) #14
+  tail call void @enable_timeout_after(i32 noundef 1, i32 noundef %42) #13
   br label %43
 
 43:                                               ; preds = %41, %34
   %44 = load ptr, ptr @MyProc, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 136
-  %46 = call i64 @get_timeout_start_time(i32 noundef 1) #14
+  %46 = call i64 @get_timeout_start_time(i32 noundef 1) #13
   store volatile i64 %46, ptr %45, align 8
   br label %52
 
@@ -1675,7 +1667,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %47
-  %51 = tail call i64 @GetCurrentTimestamp() #14
+  %51 = tail call i64 @GetCurrentTimestamp() #13
   br label %52
 
 52:                                               ; preds = %47, %50, %43
@@ -1702,22 +1694,22 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %66 = select i1 %54, i1 %65, i1 false
   %67 = load i64, ptr %0, align 8
   %68 = load i64, ptr %55, align 8
-  call void @ResolveRecoveryConflictWithLock(i64 %67, i64 %68, i1 noundef zeroext %66) #14
+  call void @ResolveRecoveryConflictWithLock(i64 %67, i64 %68, i1 noundef zeroext %66) #13
   br i1 %66, label %69, label %114
 
 69:                                               ; preds = %63
-  %70 = call i64 @GetCurrentTimestamp() #14
+  %70 = call i64 @GetCurrentTimestamp() #13
   %71 = load i32, ptr @DeadlockTimeout, align 4
-  %72 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0, i64 noundef %70, i32 noundef %71) #14
+  %72 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %.0, i64 noundef %70, i32 noundef %71) #13
   br i1 %72, label %73, label %114
 
 73:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %74 = call ptr @GetLockConflicts(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %3) #14
+  %74 = call ptr @GetLockConflicts(ptr noundef nonnull %0, i32 noundef 8, ptr noundef nonnull %3) #13
   %75 = load i32, ptr %3, align 4
   %76 = icmp sgt i32 %75, 0
   %77 = select i1 %76, ptr %74, ptr null
-  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0, i64 noundef %70, ptr noundef %77, i1 noundef zeroext true) #14
+  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0, i64 noundef %70, ptr noundef %77, i1 noundef zeroext true) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %114
 
@@ -1726,9 +1718,9 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %80 = load i8, ptr %53, align 2
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %81, 50331648
-  %83 = call i32 @WaitLatch(ptr noundef %79, i32 noundef 33, i64 noundef 0, i32 noundef %82) #14
+  %83 = call i32 @WaitLatch(ptr noundef %79, i32 noundef 33, i64 noundef 0, i32 noundef %82) #13
   %84 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %84) #14
+  call void @ResetLatch(ptr noundef %84) #13
   %85 = load volatile i32, ptr @got_deadlock_timeout, align 4
   %.not88 = icmp eq i32 %85, 0
   br i1 %.not88, label %111, label %.preheader
@@ -1738,7 +1730,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %86 = load ptr, ptr @MainLWLockArray, align 8
   %87 = getelementptr inbounds nuw %union.LWLockPadded, ptr %86, i64 %indvars.iv.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 23168
-  %89 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %88, i32 noundef 0) #14
+  %89 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %88, i32 noundef 0) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %90, label %.preheader, !llvm.loop !24
@@ -1756,7 +1748,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   br i1 %97, label %.preheader114, label %98
 
 98:                                               ; preds = %94
-  %99 = call i32 @DeadLockCheck(ptr noundef nonnull %91) #14
+  %99 = call i32 @DeadLockCheck(ptr noundef nonnull %91) #13
   store i32 %99, ptr @deadlock_state, align 4
   %100 = icmp eq i32 %99, 3
   br i1 %100, label %101, label %.preheader114
@@ -1765,8 +1757,8 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %102 = load ptr, ptr @MyProc, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 112
   %104 = load ptr, ptr %103, align 8
-  %105 = call i32 @LockTagHashCode(ptr noundef %104) #14
-  call void @RemoveFromWaitQueue(ptr noundef %102, i32 noundef %105) #14
+  %105 = call i32 @LockTagHashCode(ptr noundef %104) #13
+  call void @RemoveFromWaitQueue(ptr noundef %102, i32 noundef %105) #13
   br label %.preheader114
 
 .preheader114:                                    ; preds = %101, %98, %94, %90
@@ -1778,7 +1770,7 @@ define dso_local range(i32 2, 1) i32 @ProcSleep(ptr noundef %0) local_unnamed_ad
   %107 = load ptr, ptr @MainLWLockArray, align 8
   %108 = getelementptr %union.LWLockPadded, ptr %107, i64 %indvars.iv9.i
   %109 = getelementptr i8, ptr %108, i64 23040
-  call void @LWLockRelease(ptr noundef nonnull %109) #14
+  call void @LWLockRelease(ptr noundef nonnull %109) #13
   %110 = icmp samesign ugt i64 %indvars.iv9.i, 1
   br i1 %110, label %106, label %CheckDeadLock.exit, !llvm.loop !25
 
@@ -1792,7 +1784,7 @@ CheckDeadLock.exit:                               ; preds = %106
   br i1 %.not89, label %114, label %113, !prof !26
 
 113:                                              ; preds = %111
-  call void @ProcessInterrupts() #14
+  call void @ProcessInterrupts() #13
   br label %114
 
 114:                                              ; preds = %63, %73, %69, %111, %113
@@ -1806,11 +1798,11 @@ CheckDeadLock.exit:                               ; preds = %106
   br i1 %or.cond3, label %120, label %165
 
 120:                                              ; preds = %114
-  %121 = call ptr @GetBlockingAutoVacuumPgproc() #14
+  %121 = call ptr @GetBlockingAutoVacuumPgproc() #13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %122 = load ptr, ptr @MainLWLockArray, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 512
-  %124 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %123, i32 noundef 0) #14
+  %124 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %123, i32 noundef 0) #13
   %125 = load ptr, ptr @ProcGlobal, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
@@ -1823,7 +1815,7 @@ CheckDeadLock.exit:                               ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   %134 = load ptr, ptr @MainLWLockArray, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 512
-  call void @LWLockRelease(ptr noundef nonnull %135) #14
+  call void @LWLockRelease(ptr noundef nonnull %135) #13
   %136 = and i8 %132, 9
   %or.cond96 = icmp eq i8 %136, 1
   br i1 %or.cond96, label %137, label %164
@@ -1831,57 +1823,57 @@ CheckDeadLock.exit:                               ; preds = %106
 137:                                              ; preds = %120
   %138 = getelementptr inbounds nuw i8, ptr %121, i64 60
   %139 = load i32, ptr %138, align 4
-  %140 = call zeroext i1 @message_level_is_interesting(i32 noundef 14) #14
+  %140 = call zeroext i1 @message_level_is_interesting(i32 noundef 14) #13
   br i1 %140, label %141, label %154
 
 141:                                              ; preds = %137
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @initStringInfo(ptr noundef nonnull %5) #14
-  call void @initStringInfo(ptr noundef nonnull %6) #14
-  call void @DescribeLockTag(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
+  call void @initStringInfo(ptr noundef nonnull %5) #13
+  call void @initStringInfo(ptr noundef nonnull %6) #13
+  call void @DescribeLockTag(ptr noundef nonnull %5, ptr noundef nonnull %4) #13
   %142 = load i32, ptr @MyProcPid, align 4
   %143 = zext i8 %133 to i16
-  %144 = call ptr @GetLockmodeName(i16 noundef zeroext %143, i32 noundef %14) #14
+  %144 = call ptr @GetLockmodeName(i16 noundef zeroext %143, i32 noundef %14) #13
   %145 = load ptr, ptr %5, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %142, ptr noundef %144, ptr noundef %145) #14
-  %146 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %142, ptr noundef %144, ptr noundef %145) #13
+  %146 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %141
-  %148 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %139) #14
+  %148 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %139) #13
   %149 = load ptr, ptr %6, align 8
-  %150 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.9, ptr noundef %149) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1474, ptr noundef nonnull @__func__.ProcSleep) #14
+  %150 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.9, ptr noundef %149) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1474, ptr noundef nonnull @__func__.ProcSleep) #13
   br label %151
 
 151:                                              ; preds = %147, %141
   %152 = load ptr, ptr %5, align 8
-  call void @pfree(ptr noundef %152) #14
+  call void @pfree(ptr noundef %152) #13
   %153 = load ptr, ptr %6, align 8
-  call void @pfree(ptr noundef %153) #14
+  call void @pfree(ptr noundef %153) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %154
 
 154:                                              ; preds = %151, %137
-  %155 = call i32 @kill(i32 noundef %139, i32 noundef 2) #14
+  %155 = call i32 @kill(i32 noundef %139, i32 noundef 2) #13
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %164
 
 157:                                              ; preds = %154
-  %158 = tail call ptr @__errno_location() #16
+  %158 = tail call ptr @__errno_location() #15
   %159 = load i32, ptr %158, align 4
   %.not92 = icmp eq i32 %159, 3
   br i1 %.not92, label %164, label %160
 
 160:                                              ; preds = %157
-  %161 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
+  %161 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %160
-  %163 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %139) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1496, ptr noundef nonnull @__func__.ProcSleep) #14
+  %163 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, i32 noundef %139) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1496, ptr noundef nonnull @__func__.ProcSleep) #13
   br label %164
 
 164:                                              ; preds = %154, %160, %162, %157, %120
@@ -1904,16 +1896,16 @@ CheckDeadLock.exit:                               ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @initStringInfo(ptr noundef nonnull %7) #14
-  call void @initStringInfo(ptr noundef nonnull %8) #14
-  call void @initStringInfo(ptr noundef nonnull %9) #14
-  call void @DescribeLockTag(ptr noundef nonnull %7, ptr noundef nonnull %0) #14
+  call void @initStringInfo(ptr noundef nonnull %7) #13
+  call void @initStringInfo(ptr noundef nonnull %8) #13
+  call void @initStringInfo(ptr noundef nonnull %9) #13
+  call void @DescribeLockTag(ptr noundef nonnull %7, ptr noundef nonnull %0) #13
   %171 = load i8, ptr %57, align 1
   %172 = zext i8 %171 to i16
-  %173 = call ptr @GetLockmodeName(i16 noundef zeroext %172, i32 noundef %14) #14
-  %174 = call i64 @get_timeout_start_time(i32 noundef 1) #14
-  %175 = call i64 @GetCurrentTimestamp() #14
-  call void @TimestampDifference(i64 noundef %174, i64 noundef %175, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
+  %173 = call ptr @GetLockmodeName(i16 noundef zeroext %172, i32 noundef %14) #13
+  %174 = call i64 @get_timeout_start_time(i32 noundef 1) #13
+  %175 = call i64 @GetCurrentTimestamp() #13
+  call void @TimestampDifference(i64 noundef %174, i64 noundef %175, ptr noundef nonnull %10, ptr noundef nonnull %11) #13
   %176 = load i64, ptr %10, align 8
   %177 = mul i64 %176, 1000
   %178 = load i32, ptr %11, align 4
@@ -1922,7 +1914,7 @@ CheckDeadLock.exit:                               ; preds = %106
   %181 = add i64 %177, %180
   %182 = srem i32 %178, 1000
   store i32 %182, ptr %11, align 4
-  %183 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 1) #14
+  %183 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %23, i32 noundef 1) #13
   %184 = load ptr, ptr %59, align 8
   %.not93 = icmp eq ptr %184, null
   %.not9497106 = icmp eq ptr %184, %58
@@ -1948,16 +1940,16 @@ CheckDeadLock.exit:                               ; preds = %106
   br i1 %.07999, label %194, label %195
 
 194:                                              ; preds = %193
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.11, i32 noundef %192) #14
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.11, i32 noundef %192) #13
   br label %198
 
 195:                                              ; preds = %193
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.12, i32 noundef %192) #14
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %8, ptr noundef nonnull @.str.12, i32 noundef %192) #13
   br label %198
 
 196:                                              ; preds = %.lr.ph
   %.str.11..str.12 = select i1 %.08198, ptr @.str.11, ptr @.str.12
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull %.str.11..str.12, i32 noundef %192) #14
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %9, ptr noundef nonnull %.str.11..str.12, i32 noundef %192) #13
   %197 = add i32 %.077100, 1
   br label %198
 
@@ -1976,7 +1968,7 @@ CheckDeadLock.exit:                               ; preds = %106
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %170
   %.077.lcssa = phi i64 [ 0, %170 ], [ %201, %._crit_edge.loopexit ]
-  call void @LWLockRelease(ptr noundef nonnull %23) #14
+  call void @LWLockRelease(ptr noundef nonnull %23) #13
   %202 = load i32, ptr @deadlock_state, align 4
   switch i32 %202, label %214 [
     i32 2, label %203
@@ -1984,11 +1976,11 @@ CheckDeadLock.exit:                               ; preds = %106
   ]
 
 203:                                              ; preds = %._crit_edge
-  %204 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %204 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %204, label %.sink.split, label %214
 
 205:                                              ; preds = %._crit_edge
-  %206 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %206 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %206, label %.sink.split, label %214
 
 .sink.split:                                      ; preds = %205, %203
@@ -1997,11 +1989,11 @@ CheckDeadLock.exit:                               ; preds = %106
   %207 = load i32, ptr @MyProcPid, align 4
   %208 = load ptr, ptr %7, align 8
   %209 = load i32, ptr %11, align 4
-  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.16.sink, i32 noundef %207, ptr noundef %173, ptr noundef %208, i64 noundef %181, i32 noundef %209) #14
+  %210 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.16.sink, i32 noundef %207, ptr noundef %173, ptr noundef %208, i64 noundef %181, i32 noundef %209) #13
   %211 = load ptr, ptr %9, align 8
   %212 = load ptr, ptr %8, align 8
-  %213 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %211, ptr noundef %212) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.ProcSleep) #14
+  %213 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %211, ptr noundef %212) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.ProcSleep) #13
   br label %214
 
 214:                                              ; preds = %.sink.split, %._crit_edge, %205, %203
@@ -2011,28 +2003,28 @@ CheckDeadLock.exit:                               ; preds = %106
   ]
 
 215:                                              ; preds = %214
-  %216 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %216 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %216, label %217, label %244
 
 217:                                              ; preds = %215
   %218 = load i32, ptr @MyProcPid, align 4
   %219 = load ptr, ptr %7, align 8
   %220 = load i32, ptr %11, align 4
-  %221 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %218, ptr noundef %173, ptr noundef %219, i64 noundef %181, i32 noundef %220) #14
+  %221 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, i32 noundef %218, ptr noundef %173, ptr noundef %219, i64 noundef %181, i32 noundef %220) #13
   %222 = load ptr, ptr %9, align 8
   %223 = load ptr, ptr %8, align 8
-  %224 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %222, ptr noundef %223) #14
+  %224 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %222, ptr noundef %223) #13
   br label %.sink.split112
 
 225:                                              ; preds = %214
-  %226 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %226 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %226, label %227, label %244
 
 227:                                              ; preds = %225
   %228 = load i32, ptr @MyProcPid, align 4
   %229 = load ptr, ptr %7, align 8
   %230 = load i32, ptr %11, align 4
-  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %228, ptr noundef %173, ptr noundef %229, i64 noundef %181, i32 noundef %230) #14
+  %231 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %228, ptr noundef %173, ptr noundef %229, i64 noundef %181, i32 noundef %230) #13
   br label %.sink.split112
 
 232:                                              ; preds = %214
@@ -2041,32 +2033,32 @@ CheckDeadLock.exit:                               ; preds = %106
   br i1 %.not95, label %244, label %234
 
 234:                                              ; preds = %232
-  %235 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %235 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %235, label %236, label %244
 
 236:                                              ; preds = %234
   %237 = load i32, ptr @MyProcPid, align 4
   %238 = load ptr, ptr %7, align 8
   %239 = load i32, ptr %11, align 4
-  %240 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %237, ptr noundef %173, ptr noundef %238, i64 noundef %181, i32 noundef %239) #14
+  %240 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, i32 noundef %237, ptr noundef %173, ptr noundef %238, i64 noundef %181, i32 noundef %239) #13
   %241 = load ptr, ptr %9, align 8
   %242 = load ptr, ptr %8, align 8
-  %243 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %241, ptr noundef %242) #14
+  %243 = call i32 (ptr, ptr, i64, ...) @errdetail_log_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %.077.lcssa, ptr noundef %241, ptr noundef %242) #13
   br label %.sink.split112
 
 .sink.split112:                                   ; preds = %217, %236, %227
   %.sink113 = phi i32 [ 1620, %227 ], [ 1640, %236 ], [ 1616, %217 ]
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink113, ptr noundef nonnull @__func__.ProcSleep) #14
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink113, ptr noundef nonnull @__func__.ProcSleep) #13
   br label %244
 
 244:                                              ; preds = %.sink.split112, %225, %234, %232, %215
   store i32 1, ptr @deadlock_state, align 4
   %245 = load ptr, ptr %7, align 8
-  call void @pfree(ptr noundef %245) #14
+  call void @pfree(ptr noundef %245) #13
   %246 = load ptr, ptr %9, align 8
-  call void @pfree(ptr noundef %246) #14
+  call void @pfree(ptr noundef %246) #13
   %247 = load ptr, ptr %8, align 8
-  call void @pfree(ptr noundef %247) #14
+  call void @pfree(ptr noundef %247) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -2097,12 +2089,12 @@ CheckDeadLock.exit:                               ; preds = %106
   store i32 2, ptr %258, align 8
   %259 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 1, ptr %259, align 4
-  call void @disable_timeouts(ptr noundef nonnull %12, i32 noundef 2) #14
+  call void @disable_timeouts(ptr noundef nonnull %12, i32 noundef 2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %261
 
 260:                                              ; preds = %253
-  call void @disable_timeout(i32 noundef 1, i1 noundef zeroext false) #14
+  call void @disable_timeout(i32 noundef 1, i1 noundef zeroext false) #13
   br label %261
 
 261:                                              ; preds = %256, %260, %250
@@ -2113,8 +2105,8 @@ CheckDeadLock.exit:                               ; preds = %106
   br i1 %or.cond7, label %265, label %267
 
 265:                                              ; preds = %261
-  %266 = call i64 @GetCurrentTimestamp() #14
-  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0, i64 noundef %266, ptr noundef null, i1 noundef zeroext false) #14
+  %266 = call i64 @GetCurrentTimestamp() #13
+  call void @LogRecoveryConflict(i32 noundef 9, i64 noundef %.0, i64 noundef %266, ptr noundef null, i1 noundef zeroext false) #13
   br label %267
 
 267:                                              ; preds = %265, %261
@@ -2205,7 +2197,7 @@ define dso_local void @ProcWakeup(ptr noundef %0, i32 noundef %1) local_unnamed_
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   store volatile i64 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %17) #14
+  tail call void @SetLatch(ptr noundef nonnull %17) #13
   br label %18
 
 18:                                               ; preds = %2, %5
@@ -2252,12 +2244,12 @@ define dso_local void @ProcLockWakeup(ptr noundef %0, ptr noundef %1) local_unna
 19:                                               ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 120
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call zeroext i1 @LockCheckConflicts(ptr noundef nonnull %0, i32 noundef %12, ptr noundef %1, ptr noundef %21) #14
+  %22 = tail call zeroext i1 @LockCheckConflicts(ptr noundef nonnull %0, i32 noundef %12, ptr noundef %1, ptr noundef %21) #13
   br i1 %22, label %39, label %23
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %20, align 8
-  tail call void @GrantLock(ptr noundef %1, ptr noundef %24, i32 noundef %12) #14
+  tail call void @GrantLock(ptr noundef %1, ptr noundef %24, i32 noundef %12) #13
   %.val.i = load ptr, ptr %.sroa.8.0.in29, align 8
   %25 = icmp eq ptr %.val.i, null
   br i1 %25, label %ProcWakeup.exit, label %26
@@ -2282,7 +2274,7 @@ define dso_local void @ProcLockWakeup(ptr noundef %0, ptr noundef %1) local_unna
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 136
   store volatile i64 0, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %38) #14
+  tail call void @SetLatch(ptr noundef nonnull %38) #13
   br label %ProcWakeup.exit
 
 39:                                               ; preds = %19, %10
@@ -2301,11 +2293,11 @@ ProcWakeup.exit:                                  ; preds = %26, %23, %39
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CheckDeadLockAlert() local_unnamed_addr #0 {
-  %1 = tail call ptr @__errno_location() #16
+  %1 = tail call ptr @__errno_location() #15
   %2 = load i32, ptr %1, align 4
   store volatile i32 1, ptr @got_deadlock_timeout, align 4
   %3 = load ptr, ptr @MyLatch, align 8
-  tail call void @SetLatch(ptr noundef %3) #14
+  tail call void @SetLatch(ptr noundef %3) #13
   store i32 %2, ptr %1, align 4
   ret void
 }
@@ -2313,15 +2305,15 @@ define dso_local void @CheckDeadLockAlert() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcWaitForSignal(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MyLatch, align 8
-  %3 = tail call i32 @WaitLatch(ptr noundef %2, i32 noundef 33, i64 noundef 0, i32 noundef %0) #14
+  %3 = tail call i32 @WaitLatch(ptr noundef %2, i32 noundef 33, i64 noundef 0, i32 noundef %0) #13
   %4 = load ptr, ptr @MyLatch, align 8
-  tail call void @ResetLatch(ptr noundef %4) #14
+  tail call void @ResetLatch(ptr noundef %4) #13
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %7, label %6, !prof !26
 
 6:                                                ; preds = %1
-  tail call void @ProcessInterrupts() #14
+  tail call void @ProcessInterrupts() #13
   br label %7
 
 7:                                                ; preds = %1, %6
@@ -2341,10 +2333,9 @@ define dso_local void @ProcSendSignal(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3, %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1911, ptr noundef nonnull @__func__.ProcSendSignal) #14
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1911, ptr noundef nonnull @__func__.ProcSendSignal) #13
   unreachable
 
 10:                                               ; preds = %3
@@ -2352,7 +2343,7 @@ define dso_local void @ProcSendSignal(i32 noundef %0) local_unnamed_addr #0 {
   %12 = zext nneg i32 %0 to i64
   %13 = getelementptr inbounds nuw %struct.PGPROC, ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  tail call void @SetLatch(ptr noundef nonnull %14) #14
+  tail call void @SetLatch(ptr noundef nonnull %14) #13
   ret void
 }
 
@@ -2375,7 +2366,7 @@ define dso_local void @BecomeLockGroupLeader() local_unnamed_addr #0 {
   %13 = srem i64 %12, 16
   %14 = getelementptr %union.LWLockPadded, ptr %6, i64 %13
   %15 = getelementptr i8, ptr %14, i64 23168
-  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #14
+  %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #13
   %17 = load ptr, ptr @MyProc, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 792
   store ptr %17, ptr %18, align 8
@@ -2397,7 +2388,7 @@ dlist_push_head.exit:                             ; preds = %5, %24
   store ptr %19, ptr %20, align 8
   store ptr %20, ptr %25, align 8
   store ptr %20, ptr %21, align 8
-  tail call void @LWLockRelease(ptr noundef %15) #14
+  tail call void @LWLockRelease(ptr noundef %15) #13
   br label %27
 
 27:                                               ; preds = %0, %dlist_push_head.exit
@@ -2416,7 +2407,7 @@ define dso_local noundef zeroext i1 @BecomeLockGroupMember(ptr noundef %0, i32 n
   %10 = srem i64 %9, 16
   %11 = getelementptr %union.LWLockPadded, ptr %3, i64 %10
   %12 = getelementptr i8, ptr %11, i64 23168
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #14
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 0) #13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %1
@@ -2456,7 +2447,7 @@ dlist_push_tail.exit:                             ; preds = %21, %29
 
 33:                                               ; preds = %dlist_push_tail.exit, %17, %2
   %.0 = phi i1 [ true, %dlist_push_tail.exit ], [ false, %17 ], [ false, %2 ]
-  tail call void @LWLockRelease(ptr noundef %12) #14
+  tail call void @LWLockRelease(ptr noundef %12) #13
   ret i1 %.0
 }
 
@@ -2489,11 +2480,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #13
+declare i64 @llvm.umax.i64(i64, i64) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2507,11 +2495,10 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

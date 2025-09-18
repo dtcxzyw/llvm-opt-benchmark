@@ -58,7 +58,7 @@ declare noundef ptr @_ZN3zmq15errno_to_stringEi(i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @zmq_errno() local_unnamed_addr #3 {
-  %1 = tail call ptr @__errno_location() #20
+  %1 = tail call ptr @__errno_location() #19
   %2 = load i32, ptr %1, align 4, !tbaa !3
   ret i32 %2
 }
@@ -72,7 +72,7 @@ define noundef ptr @zmq_ctx_new() local_unnamed_addr #1 personality ptr @__gxx_p
   br i1 %1, label %2, label %.thread
 
 2:                                                ; preds = %0
-  %3 = tail call noalias noundef dereferenceable_or_null(648) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 648, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %3 = tail call noalias noundef dereferenceable_or_null(648) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 648, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread, label %5
 
@@ -85,14 +85,14 @@ define noundef ptr @zmq_ctx_new() local_unnamed_addr #1 personality ptr @__gxx_p
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %6
-  tail call void @_ZN3zmq5ctx_tD1Ev(ptr noundef nonnull align 8 dereferenceable(648) %3) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZN3zmq5ctx_tD1Ev(ptr noundef nonnull align 8 dereferenceable(648) %3) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   br label %.thread
 
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   resume { ptr, i32 } %10
 
 .thread:                                          ; preds = %2, %8, %6, %0
@@ -130,13 +130,13 @@ define noundef i32 @zmq_ctx_term(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 14, ptr %5, align 4, !tbaa !3
   br label %14
 
 6:                                                ; preds = %2
   %7 = tail call noundef i32 @_ZN3zmq5ctx_t9terminateEv(ptr noundef nonnull align 8 dereferenceable(648) %0)
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = icmp eq i32 %7, 0
   %11 = icmp ne i32 %9, 4
@@ -172,7 +172,7 @@ define noundef i32 @zmq_ctx_shutdown(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 14, ptr %5, align 4, !tbaa !3
   br label %8
 
@@ -199,7 +199,7 @@ define noundef i32 @zmq_ctx_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5, %3
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 14, ptr %8, align 4, !tbaa !3
   br label %zmq_ctx_set_ext.exit
 
@@ -222,7 +222,7 @@ define noundef i32 @zmq_ctx_set_ext(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5, %4
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 14, ptr %8, align 4, !tbaa !3
   br label %11
 
@@ -247,7 +247,7 @@ define noundef i32 @zmq_ctx_get(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %9
 
@@ -272,7 +272,7 @@ define noundef i32 @zmq_ctx_get_ext(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5, %4
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 14, ptr %8, align 4, !tbaa !3
   br label %11
 
@@ -305,7 +305,7 @@ define noundef ptr @zmq_init(i32 noundef %0) local_unnamed_addr #1 {
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %6, %4
-  %9 = tail call ptr @__errno_location() #20
+  %9 = tail call ptr @__errno_location() #19
   store i32 14, ptr %9, align 4, !tbaa !3
   br label %zmq_ctx_set.exit
 
@@ -318,7 +318,7 @@ zmq_ctx_set.exit:                                 ; preds = %8, %10
   br label %14
 
 12:                                               ; preds = %1
-  %13 = tail call ptr @__errno_location() #20
+  %13 = tail call ptr @__errno_location() #19
   store i32 22, ptr %13, align 4, !tbaa !3
   br label %14
 
@@ -337,13 +337,13 @@ define noundef i32 @zmq_term(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 14, ptr %5, align 4, !tbaa !3
   br label %zmq_ctx_term.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef i32 @_ZN3zmq5ctx_t9terminateEv(ptr noundef nonnull align 8 dereferenceable(648) %0)
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = icmp eq i32 %7, 0
   %11 = icmp ne i32 %9, 4
@@ -373,13 +373,13 @@ define noundef i32 @zmq_ctx_destroy(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 14, ptr %5, align 4, !tbaa !3
   br label %zmq_ctx_term.exit
 
 6:                                                ; preds = %2
   %7 = tail call noundef i32 @_ZN3zmq5ctx_t9terminateEv(ptr noundef nonnull align 8 dereferenceable(648) %0)
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = icmp eq i32 %7, 0
   %11 = icmp ne i32 %9, 4
@@ -409,7 +409,7 @@ define noundef ptr @zmq_socket(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %9
 
@@ -434,7 +434,7 @@ define range(i32 -1, 1) i32 @zmq_close(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %1, %2
-  %4 = tail call ptr @__errno_location() #20
+  %4 = tail call ptr @__errno_location() #19
   store i32 88, ptr %4, align 4, !tbaa !3
   br label %6
 
@@ -459,7 +459,7 @@ define noundef i32 @zmq_setsockopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %6, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %5
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 88, ptr %7, align 4, !tbaa !3
   br label %9
 
@@ -484,7 +484,7 @@ define noundef i32 @zmq_getsockopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %6, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %5
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 88, ptr %7, align 4, !tbaa !3
   br label %9
 
@@ -509,7 +509,7 @@ define noundef i32 @zmq_socket_monitor_versioned(ptr noundef %0, ptr noundef %1,
   br i1 %7, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %5, %6
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %10
 
@@ -535,7 +535,7 @@ define noundef i32 @zmq_socket_monitor(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %6, label %_ZL16as_socket_base_tPv.exit.i, label %_ZL16as_socket_base_tPv.exit.thread.i
 
 _ZL16as_socket_base_tPv.exit.thread.i:            ; preds = %5, %3
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 88, ptr %7, align 4, !tbaa !3
   br label %zmq_socket_monitor_versioned.exit
 
@@ -558,7 +558,7 @@ define noundef i32 @zmq_join(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %4, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %2, %3
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 88, ptr %5, align 4, !tbaa !3
   br label %7
 
@@ -583,7 +583,7 @@ define noundef i32 @zmq_leave(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %4, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %2, %3
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 88, ptr %5, align 4, !tbaa !3
   br label %7
 
@@ -608,7 +608,7 @@ define noundef i32 @zmq_bind(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   br i1 %4, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %2, %3
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 88, ptr %5, align 4, !tbaa !3
   br label %7
 
@@ -633,7 +633,7 @@ define noundef i32 @zmq_connect(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %4, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %2, %3
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 88, ptr %5, align 4, !tbaa !3
   br label %7
 
@@ -660,7 +660,7 @@ define noundef i32 @zmq_connect_peer(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %18
 
@@ -678,7 +678,7 @@ define noundef i32 @zmq_connect_peer(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %.not8, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call ptr @__errno_location() #20
+  %14 = tail call ptr @__errno_location() #19
   store i32 95, ptr %14, align 4, !tbaa !3
   br label %17
 
@@ -711,7 +711,7 @@ define noundef i32 @zmq_unbind(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %4, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %2, %3
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 88, ptr %5, align 4, !tbaa !3
   br label %7
 
@@ -736,7 +736,7 @@ define noundef i32 @zmq_disconnect(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %4, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %2, %3
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 88, ptr %5, align 4, !tbaa !3
   br label %7
 
@@ -759,7 +759,7 @@ define range(i32 -1, -2147483648) i32 @zmq_sendmsg(ptr noundef %0, ptr noundef %
   br i1 %5, label %_ZL16as_socket_base_tPv.exit.i, label %_ZL16as_socket_base_tPv.exit.thread.i
 
 _ZL16as_socket_base_tPv.exit.thread.i:            ; preds = %4, %3
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 88, ptr %6, align 4, !tbaa !3
   br label %zmq_msg_send.exit
 
@@ -787,7 +787,7 @@ define range(i32 -1, -2147483648) i32 @zmq_msg_send(ptr noundef %0, ptr noundef 
   br i1 %5, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %3, %4
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 88, ptr %6, align 4, !tbaa !3
   br label %11
 
@@ -816,7 +816,7 @@ define range(i32 -1, -2147483648) i32 @zmq_send(ptr noundef %0, ptr noundef %1, 
   br i1 %7, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %6
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %30
 
@@ -835,7 +835,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %16, label %17, label %29, !prof !10
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @__errno_location() #20
+  %18 = tail call ptr @__errno_location() #19
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not15 = icmp eq i32 %20, 0
@@ -843,9 +843,9 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %18, align 4, !tbaa !3
-  %23 = call ptr @strerror(i32 noundef %22) #22
+  %23 = call ptr @strerror(i32 noundef %22) #21
   %24 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef 391) #24
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str, ptr noundef %23, ptr noundef nonnull @.str.1, i32 noundef 391) #23
   %26 = load ptr, ptr @stderr, align 8, !tbaa !11
   %27 = call i32 @fflush(ptr noundef %26)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %23)
@@ -899,7 +899,7 @@ define range(i32 -1, -2147483648) i32 @zmq_send_const(ptr noundef %0, ptr nounde
   br i1 %7, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %6
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %29
 
@@ -918,7 +918,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %15, label %16, label %28, !prof !10
 
 16:                                               ; preds = %10
-  %17 = tail call ptr @__errno_location() #20
+  %17 = tail call ptr @__errno_location() #19
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not16 = icmp eq i32 %19, 0
@@ -926,9 +926,9 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %17, align 4, !tbaa !3
-  %22 = call ptr @strerror(i32 noundef %21) #22
+  %22 = call ptr @strerror(i32 noundef %21) #21
   %23 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str, ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 415) #24
+  %24 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str, ptr noundef %22, ptr noundef nonnull @.str.1, i32 noundef 415) #23
   %25 = load ptr, ptr @stderr, align 8, !tbaa !11
   %26 = call i32 @fflush(ptr noundef %25)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %22)
@@ -965,7 +965,7 @@ define range(i32 -1, -2147483648) i32 @zmq_sendiov(ptr noundef %0, ptr noundef r
   br i1 %7, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %6
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %45
 
@@ -976,7 +976,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %10, label %11, label %13, !prof !10
 
 11:                                               ; preds = %_ZL16as_socket_base_tPv.exit
-  %12 = tail call ptr @__errno_location() #20
+  %12 = tail call ptr @__errno_location() #19
   store i32 22, ptr %12, align 4, !tbaa !3
   br label %45
 
@@ -1009,7 +1009,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %28, label %29, label %41, !prof !10
 
 29:                                               ; preds = %20
-  %30 = tail call ptr @__errno_location() #20
+  %30 = tail call ptr @__errno_location() #19
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not34 = icmp eq i32 %32, 0
@@ -1017,9 +1017,9 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
 
 33:                                               ; preds = %29
   %34 = load i32, ptr %30, align 4, !tbaa !3
-  %35 = call ptr @strerror(i32 noundef %34) #22
+  %35 = call ptr @strerror(i32 noundef %34) #21
   %36 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 458) #24
+  %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str, ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 458) #23
   %38 = load ptr, ptr @stderr, align 8, !tbaa !11
   %39 = call i32 @fflush(ptr noundef %38)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %35)
@@ -1074,7 +1074,7 @@ define range(i32 -1, -2147483648) i32 @zmq_recvmsg(ptr noundef %0, ptr noundef %
   br i1 %5, label %_ZL16as_socket_base_tPv.exit.i, label %_ZL16as_socket_base_tPv.exit.thread.i
 
 _ZL16as_socket_base_tPv.exit.thread.i:            ; preds = %4, %3
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 88, ptr %6, align 4, !tbaa !3
   br label %zmq_msg_recv.exit
 
@@ -1104,7 +1104,7 @@ define range(i32 -1, -2147483648) i32 @zmq_msg_recv(ptr noundef %0, ptr noundef 
   br i1 %5, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %3, %4
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 88, ptr %6, align 4, !tbaa !3
   br label %_ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit
 
@@ -1135,7 +1135,7 @@ define range(i32 -1, -2147483648) i32 @zmq_recv(ptr noundef %0, ptr noundef writ
   br i1 %7, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %6
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %49
 
@@ -1146,11 +1146,11 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %.not26, label %18, label %10, !prof !9
 
 10:                                               ; preds = %_ZL16as_socket_base_tPv.exit
-  %11 = tail call ptr @__errno_location() #20
+  %11 = tail call ptr @__errno_location() #19
   %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = call ptr @strerror(i32 noundef %12) #22
+  %13 = call ptr @strerror(i32 noundef %12) #21
   %14 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 494) #24
+  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 494) #23
   %16 = load ptr, ptr @stderr, align 8, !tbaa !11
   %17 = call i32 @fflush(ptr noundef %16)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %13)
@@ -1170,7 +1170,7 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit: ; preds = %18
   br i1 %.not27, label %38, label %36
 
 _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %18
-  %25 = tail call ptr @__errno_location() #20
+  %25 = tail call ptr @__errno_location() #19
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not29 = icmp eq i32 %27, 0
@@ -1178,9 +1178,9 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %18
 
 28:                                               ; preds = %_ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread
   %29 = load i32, ptr %25, align 4, !tbaa !3
-  %30 = call ptr @strerror(i32 noundef %29) #22
+  %30 = call ptr @strerror(i32 noundef %29) #21
   %31 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 500) #24
+  %32 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str, ptr noundef %30, ptr noundef nonnull @.str.1, i32 noundef 500) #23
   %33 = load ptr, ptr @stderr, align 8, !tbaa !11
   %34 = call i32 @fflush(ptr noundef %33)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %30)
@@ -1201,11 +1201,11 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %18
   br i1 %.not28, label %48, label %40, !prof !9
 
 40:                                               ; preds = %38
-  %41 = tail call ptr @__errno_location() #20
+  %41 = tail call ptr @__errno_location() #19
   %42 = load i32, ptr %41, align 4, !tbaa !3
-  %43 = call ptr @strerror(i32 noundef %42) #22
+  %43 = call ptr @strerror(i32 noundef %42) #21
   %44 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str, ptr noundef %43, ptr noundef nonnull @.str.1, i32 noundef 514) #24
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str, ptr noundef %43, ptr noundef nonnull @.str.1, i32 noundef 514) #23
   %46 = load ptr, ptr @stderr, align 8, !tbaa !11
   %47 = call i32 @fflush(ptr noundef %46)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %43)
@@ -1238,7 +1238,7 @@ define range(i32 -2147483647, -2147483648) i32 @zmq_recviov(ptr noundef %0, ptr 
   br i1 %7, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %4, %6
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 88, ptr %8, align 4, !tbaa !3
   br label %.thread68
 
@@ -1254,7 +1254,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %spec.select, label %.critedge, label %13, !prof !10
 
 .critedge:                                        ; preds = %_ZL16as_socket_base_tPv.exit, %9
-  %12 = tail call ptr @__errno_location() #20
+  %12 = tail call ptr @__errno_location() #19
   store i32 22, ptr %12, align 4, !tbaa !3
   br label %.thread68
 
@@ -1270,11 +1270,11 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %6
   br i1 %.not55, label %24, label %16, !prof !9
 
 16:                                               ; preds = %14
-  %17 = tail call ptr @__errno_location() #20
+  %17 = tail call ptr @__errno_location() #19
   %18 = load i32, ptr %17, align 4, !tbaa !3
-  %19 = call ptr @strerror(i32 noundef %18) #22
+  %19 = call ptr @strerror(i32 noundef %18) #21
   %20 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 554) #24
+  %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 554) #23
   %22 = load ptr, ptr @stderr, align 8, !tbaa !11
   %23 = call i32 @fflush(ptr noundef %22)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
@@ -1291,13 +1291,13 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit: ; preds = %24
   %29 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.05079
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %28, ptr %30, align 8, !tbaa !14
-  %31 = call noalias ptr @malloc(i64 noundef %28) #25
+  %31 = call noalias ptr @malloc(i64 noundef %28) #24
   store ptr %31, ptr %29, align 8, !tbaa !16
   %.not56 = icmp eq ptr %31, null
   br i1 %.not56, label %62, label %42, !prof !10
 
 _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %24
-  %32 = tail call ptr @__errno_location() #20
+  %32 = tail call ptr @__errno_location() #19
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %.not58 = icmp eq i32 %34, 0
@@ -1305,9 +1305,9 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %24
 
 35:                                               ; preds = %_ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread
   %36 = load i32, ptr %32, align 4, !tbaa !3
-  %37 = call ptr @strerror(i32 noundef %36) #22
+  %37 = call ptr @strerror(i32 noundef %36) #21
   %38 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef %37, ptr noundef nonnull @.str.1, i32 noundef 560) #24
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str, ptr noundef %37, ptr noundef nonnull @.str.1, i32 noundef 560) #23
   %40 = load ptr, ptr @stderr, align 8, !tbaa !11
   %41 = call i32 @fflush(ptr noundef %40)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %37)
@@ -1328,11 +1328,11 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %24
   br i1 %.not57, label %55, label %47, !prof !9
 
 47:                                               ; preds = %42
-  %48 = tail call ptr @__errno_location() #20
+  %48 = tail call ptr @__errno_location() #19
   %49 = load i32, ptr %48, align 4, !tbaa !3
-  %50 = call ptr @strerror(i32 noundef %49) #22
+  %50 = call ptr @strerror(i32 noundef %49) #21
   %51 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str, ptr noundef %50, ptr noundef nonnull @.str.1, i32 noundef 578) #24
+  %52 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %51, ptr noundef nonnull @.str, ptr noundef %50, ptr noundef nonnull @.str.1, i32 noundef 578) #23
   %53 = load ptr, ptr @stderr, align 8, !tbaa !11
   %54 = call i32 @fflush(ptr noundef %53)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %50)
@@ -1350,7 +1350,7 @@ _ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit.thread: ; preds = %24
   br i1 %61, label %14, label %.thread68.loopexit, !llvm.loop !19
 
 62:                                               ; preds = %_ZL9s_recvmsgPN3zmq13socket_base_tEP9zmq_msg_ti.exit
-  %63 = tail call ptr @__errno_location() #20
+  %63 = tail call ptr @__errno_location() #19
   store i32 12, ptr %63, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread68
@@ -1433,7 +1433,7 @@ define i32 @zmq_msg_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br i1 %9, label %20, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #22
+  %11 = tail call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #21
   %12 = trunc i64 %11 to i32
   br label %20
 
@@ -1448,7 +1448,7 @@ define i32 @zmq_msg_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   br label %20
 
 18:                                               ; preds = %2
-  %19 = tail call ptr @__errno_location() #20
+  %19 = tail call ptr @__errno_location() #19
   store i32 22, ptr %19, align 4, !tbaa !3
   br label %20
 
@@ -1473,11 +1473,11 @@ define noundef ptr @zmq_msg_gets(ptr noundef nonnull %0, ptr noundef readonly ca
   br i1 %8, label %.noexc, label %9
 
 .noexc:                                           ; preds = %6
-  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.10) #26
+  call void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.10) #25
   unreachable
 
 9:                                                ; preds = %6
-  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %10, ptr %3, align 8, !tbaa !7
   %11 = icmp ugt i64 %10, 15
@@ -1515,56 +1515,44 @@ define noundef ptr @zmq_msg_gets(ptr noundef nonnull %0, ptr noundef readonly ca
   store i8 0, ptr %22, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %23 = invoke noundef ptr @_ZNK3zmq10metadata_t3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %24 unwind label %29
+          to label %24 unwind label %27
 
 24:                                               ; preds = %18
   %25 = load ptr, ptr %4, align 8, !tbaa !23
   %26 = icmp eq ptr %25, %7
   br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %24
-  %27 = load i64, ptr %20, align 8, !tbaa !26
-  %28 = icmp ult i64 %27, 16
-  call void @llvm.assume(i1 %28)
-  br label %35
-
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %24
-  call void @_ZdlPv(ptr noundef %25) #23
-  br label %35
+  call void @_ZdlPv(ptr noundef %25) #22
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
-29:                                               ; preds = %18
-  %30 = landingpad { ptr, i32 }
+27:                                               ; preds = %18
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %4, align 8, !tbaa !23
-  %32 = icmp eq ptr %31, %7
-  br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
+  %29 = load ptr, ptr %4, align 8, !tbaa !23
+  %30 = icmp eq ptr %29, %7
+  br i1 %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16: ; preds = %29
-  %33 = load i64, ptr %20, align 8, !tbaa !26
-  %34 = icmp ult i64 %33, 16
-  call void @llvm.assume(i1 %34)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %27
+  call void @_ZdlPv(ptr noundef %29) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %29
-  call void @_ZdlPv(ptr noundef %31) #23
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %30
+  resume { ptr, i32 } %28
 
-35:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not13 = icmp eq ptr %23, null
-  br i1 %.not13, label %.thread, label %37
+  br i1 %.not13, label %.thread, label %32
 
-.thread:                                          ; preds = %2, %35
-  %36 = tail call ptr @__errno_location() #20
-  store i32 22, ptr %36, align 4, !tbaa !3
-  br label %37
+.thread:                                          ; preds = %2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  %31 = tail call ptr @__errno_location() #19
+  store i32 22, ptr %31, align 4, !tbaa !3
+  br label %32
 
-37:                                               ; preds = %35, %.thread
-  %.010 = phi ptr [ null, %.thread ], [ %23, %35 ]
+32:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %.thread
+  %.010 = phi ptr [ null, %.thread ], [ %23, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ]
   ret ptr %.010
 }
 
@@ -1572,7 +1560,7 @@ declare noundef zeroext i1 @_ZNK3zmq5msg_t7is_cmsgEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
 define noundef i32 @zmq_msg_set(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
-  %4 = tail call ptr @__errno_location() #20
+  %4 = tail call ptr @__errno_location() #19
   store i32 22, ptr %4, align 4, !tbaa !3
   ret i32 -1
 }
@@ -1640,7 +1628,7 @@ define i32 @zmq_poll(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef 
   br i1 %14, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %13
-  %15 = tail call ptr @__errno_location() #20
+  %15 = tail call ptr @__errno_location() #19
   store i32 88, ptr %15, align 4, !tbaa !3
   br label %286
 
@@ -1654,13 +1642,13 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %13
   %18 = icmp slt i32 %1, 0
   %19 = shl nuw nsw i64 %10, 5
   %20 = select i1 %18, i64 -1, i64 %19
-  %21 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %21 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %20, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %30, !prof !10
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 735) #24
+  %25 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 735) #23
   %26 = load ptr, ptr @stderr, align 8, !tbaa !11
   %27 = call i32 @fflush(ptr noundef %26)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
@@ -1797,7 +1785,7 @@ _ZL12check_eventss.exit.i153.i:                   ; preds = %_ZL30check_poller_r
 zmq_poller_modify.exit.sink.split.i:              ; preds = %_ZL30check_poller_registration_argsPvS_.exit.i152.i, %.noexc156.i, %.noexc155.i, %_ZL30check_poller_registration_argsPvS_.exit.i.i, %.noexc145.i, %.noexc.i
   %.sink.i = phi i32 [ 14, %.noexc.i ], [ 88, %.noexc145.i ], [ 22, %_ZL30check_poller_registration_argsPvS_.exit.i.i ], [ 14, %.noexc155.i ], [ 88, %.noexc156.i ], [ 22, %_ZL30check_poller_registration_argsPvS_.exit.i152.i ]
   %.2117.lcssa315.ph.i = phi i8 [ %.3118.i191198, %.noexc.i ], [ %.3118.i191198, %.noexc145.i ], [ %.3118.i191198, %_ZL30check_poller_registration_argsPvS_.exit.i.i ], [ %.2117.lcssa316.i, %.noexc155.i ], [ %.2117.lcssa316.i, %.noexc156.i ], [ %.2117.lcssa316.i, %_ZL30check_poller_registration_argsPvS_.exit.i152.i ]
-  %55 = tail call ptr @__errno_location() #20
+  %55 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %55, align 4, !tbaa !3
   br label %zmq_poller_modify.exit.i
 
@@ -1810,7 +1798,7 @@ zmq_poller_modify.exit.i:                         ; preds = %zmq_poller_modify.e
   br i1 %brmerge.i, label %84, label %57
 
 57:                                               ; preds = %zmq_poller_modify.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %21) #23
+  call void @_ZdaPv(ptr noundef nonnull %21) #22
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 ._crit_edge213.i:                                 ; preds = %66
@@ -1895,7 +1883,7 @@ _ZL12check_eventss.exit.i170.i:                   ; preds = %_ZL33check_poller_f
 zmq_poller_modify_fd.exit.sink.split.i:           ; preds = %_ZL33check_poller_fd_registration_argsPvi.exit.i169.i, %_ZL12check_pollerPv.exit.i.i168.i, %.noexc172.i, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i, %_ZL12check_pollerPv.exit.i.i160.i, %.noexc163.i
   %.sink332.i = phi i32 [ 14, %.noexc163.i ], [ 9, %_ZL12check_pollerPv.exit.i.i160.i ], [ 22, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i ], [ 14, %.noexc172.i ], [ 9, %_ZL12check_pollerPv.exit.i.i168.i ], [ 22, %_ZL33check_poller_fd_registration_argsPvi.exit.i169.i ]
   %.6.lcssa321.ph.i = phi i8 [ %.7.i205212, %.noexc163.i ], [ %.7.i205212, %_ZL12check_pollerPv.exit.i.i160.i ], [ %.7.i205212, %_ZL33check_poller_fd_registration_argsPvi.exit.i.i ], [ %.6.lcssa322.i, %.noexc172.i ], [ %.6.lcssa322.i, %_ZL12check_pollerPv.exit.i.i168.i ], [ %.6.lcssa322.i, %_ZL33check_poller_fd_registration_argsPvi.exit.i169.i ]
-  %81 = tail call ptr @__errno_location() #20
+  %81 = tail call ptr @__errno_location() #19
   store i32 %.sink332.i, ptr %81, align 4, !tbaa !3
   br label %zmq_poller_modify_fd.exit.i
 
@@ -1908,7 +1896,7 @@ zmq_poller_modify_fd.exit.i:                      ; preds = %zmq_poller_modify_f
   br i1 %brmerge142.i, label %84, label %83
 
 83:                                               ; preds = %zmq_poller_modify_fd.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %21) #23
+  call void @_ZdaPv(ptr noundef nonnull %21) #22
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 84:                                               ; preds = %zmq_poller_modify_fd.exit.i, %zmq_poller_modify.exit.i
@@ -1929,7 +1917,7 @@ _ZL12check_pollerPv.exit.i.i:                     ; preds = %.noexc176.i
   br i1 %22, label %.thread191.i, label %87
 
 .thread191.i:                                     ; preds = %_ZL12check_pollerPv.exit.i.i
-  %86 = tail call ptr @__errno_location() #20
+  %86 = tail call ptr @__errno_location() #19
   store i32 14, ptr %86, align 4, !tbaa !3
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
@@ -1937,7 +1925,7 @@ _ZL12check_pollerPv.exit.i.i:                     ; preds = %.noexc176.i
   br i1 %18, label %.thread192.i, label %89
 
 .thread192.i:                                     ; preds = %87
-  %88 = tail call ptr @__errno_location() #20
+  %88 = tail call ptr @__errno_location() #19
   store i32 22, ptr %88, align 4, !tbaa !3
   br label %.thread187.i
 
@@ -2023,14 +2011,14 @@ zmq_poller_wait_all.exit.i:                       ; preds = %89
   br i1 %exitcond296.not.i, label %.loopexit.us.i, label %.lr.ph226.split.us.us.i, !llvm.loop !40
 
 118:                                              ; preds = %.noexc176.i
-  %119 = tail call ptr @__errno_location() #20
+  %119 = tail call ptr @__errno_location() #19
   store i32 14, ptr %119, align 4, !tbaa !3
   br i1 %22, label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit, label %.thread187.i
 
 .thread187.i:                                     ; preds = %118, %zmq_poller_wait_all.exit.i, %.thread192.i
   %.0.i175186189.i = phi i32 [ -1, %118 ], [ -1, %.thread192.i ], [ %90, %zmq_poller_wait_all.exit.i ]
-  call void @_ZdaPv(ptr noundef nonnull %21) #23
-  %.pre.i = tail call ptr @__errno_location() #20
+  call void @_ZdaPv(ptr noundef nonnull %21) #22
+  %.pre.i = tail call ptr @__errno_location() #19
   %.pre317 = load i32, ptr %.pre.i, align 4, !tbaa !3
   %120 = icmp eq i32 %.pre317, 11
   %121 = select i1 %120, i32 0, i32 %.0.i175186189.i
@@ -2090,7 +2078,7 @@ zmq_poller_wait_all.exit.i:                       ; preds = %89
   br i1 %exitcond287.not.i, label %._crit_edge242.i, label %.preheader.i, !llvm.loop !36
 
 ._crit_edge242.i:                                 ; preds = %.loopexit.i, %.loopexit.us.i
-  call void @_ZdaPv(ptr noundef nonnull %21) #23
+  call void @_ZdaPv(ptr noundef nonnull %21) #22
   br label %_ZL15zmq_poller_pollP14zmq_pollitem_til.exit
 
 common.resume:                                    ; preds = %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit183, %143
@@ -2099,13 +2087,13 @@ common.resume:                                    ; preds = %_ZN3zmq13fast_vecto
 
 143:                                              ; preds = %122, %49, %28
   %.pn.pn.i = phi { ptr, i32 } [ %29, %28 ], [ %123, %122 ], [ %50, %49 ]
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
 _ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %84, %.thread191.i, %118, %.thread187.i, %57, %83, %._crit_edge242.i
   %.3.i = phi i32 [ %90, %._crit_edge242.i ], [ %.1124.i, %83 ], [ %.0123.i, %57 ], [ -1, %.thread191.i ], [ %121, %.thread187.i ], [ -1, %118 ], [ %.2.i, %84 ]
-  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #22
+  call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %286
 
@@ -2119,7 +2107,7 @@ _ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %84, %.thread191.i, 
   br i1 %145, label %146, label %153, !prof !43
 
 146:                                              ; preds = %._crit_edge
-  %147 = tail call ptr @__errno_location() #20
+  %147 = tail call ptr @__errno_location() #19
   store i32 22, ptr %147, align 4, !tbaa !3
   br label %286
 
@@ -2143,7 +2131,7 @@ _ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %84, %.thread191.i, 
 
 156:                                              ; preds = %153
   %157 = shl nuw nsw i64 %154, 3
-  %158 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %157, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %158 = call noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %157, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %159 = icmp eq ptr %158, null
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr %158, ptr %160, align 8, !tbaa !44
@@ -2151,7 +2139,7 @@ _ZL15zmq_poller_pollP14zmq_pollitem_til.exit:     ; preds = %84, %.thread191.i, 
 
 161:                                              ; preds = %156
   %162 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.11, i32 noundef 30) #24
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %162, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.11, i32 noundef 30) #23
   %164 = load ptr, ptr @stderr, align 8, !tbaa !11
   %165 = call i32 @fflush(ptr noundef %164)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
@@ -2190,7 +2178,7 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EEC2Em.exit:    ; preds = %156, %161, %166
   br i1 %177, label %_ZL16as_socket_base_tPv.exit.i, label %zmq_getsockopt.exit.thread
 
 zmq_getsockopt.exit.thread:                       ; preds = %.noexc
-  %178 = tail call ptr @__errno_location() #20
+  %178 = tail call ptr @__errno_location() #19
   store i32 88, ptr %178, align 4, !tbaa !3
   br label %.thread229
 
@@ -2263,7 +2251,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %210, label %211, label %217
 
 211:                                              ; preds = %209
-  %212 = tail call ptr @__errno_location() #20
+  %212 = tail call ptr @__errno_location() #19
   %213 = load i32, ptr %212, align 4, !tbaa !3
   %214 = icmp eq i32 %213, 4
   br i1 %214, label %.thread246, label %.thread231
@@ -2293,15 +2281,15 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %218, label %..thread231_crit_edge, label %.preheader391, !prof !51
 
 ..thread231_crit_edge:                            ; preds = %217
-  %.pre321 = tail call ptr @__errno_location() #20
+  %.pre321 = tail call ptr @__errno_location() #19
   br label %.thread231
 
 .thread231:                                       ; preds = %..thread231_crit_edge, %211
   %.pre-phi = phi ptr [ %.pre321, %..thread231_crit_edge ], [ %212, %211 ]
   %219 = load i32, ptr %.pre-phi, align 4, !tbaa !3
-  %220 = call ptr @strerror(i32 noundef %219) #22
+  %220 = call ptr @strerror(i32 noundef %219) #21
   %221 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str, ptr noundef %220, ptr noundef nonnull @.str.1, i32 noundef 966) #24
+  %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %221, ptr noundef nonnull @.str, ptr noundef %220, ptr noundef nonnull @.str.1, i32 noundef 966) #23
   %223 = load ptr, ptr @stderr, align 8, !tbaa !11
   %224 = call i32 @fflush(ptr noundef %223)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %220)
@@ -2336,7 +2324,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
   br i1 %232, label %_ZL16as_socket_base_tPv.exit.i176, label %zmq_getsockopt.exit179.thread
 
 zmq_getsockopt.exit179.thread:                    ; preds = %.noexc177
-  %233 = tail call ptr @__errno_location() #20
+  %233 = tail call ptr @__errno_location() #19
   store i32 88, ptr %233, align 4, !tbaa !3
   br label %.loopexit
 
@@ -2485,7 +2473,7 @@ select.unfold.outer:                              ; preds = %select.unfold.outer
   br i1 %or.cond.i, label %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit, label %282
 
 282:                                              ; preds = %.thread246
-  call void @_ZdaPv(ptr noundef nonnull %280) #23
+  call void @_ZdaPv(ptr noundef nonnull %280) #22
   br label %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit
 
 _ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit:    ; preds = %.thread246, %282
@@ -2502,7 +2490,7 @@ _ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit:    ; preds = %.thread246, %282
   br i1 %or.cond.i182, label %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit183, label %285
 
 285:                                              ; preds = %.loopexit.split-lp
-  call void @_ZdaPv(ptr noundef nonnull %283) #23
+  call void @_ZdaPv(ptr noundef nonnull %283) #22
   br label %_ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit183
 
 _ZN3zmq13fast_vector_tI6pollfdLm16EED2Ev.exit183: ; preds = %.loopexit.split-lp, %285
@@ -2533,7 +2521,7 @@ define noundef i32 @_Z21zmq_poll_check_items_P14zmq_pollitem_til(ptr noundef rea
   br i1 %4, label %5, label %7, !prof !10
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 22, ptr %6, align 4, !tbaa !3
   br label %18
 
@@ -2556,7 +2544,7 @@ define noundef i32 @_Z21zmq_poll_check_items_P14zmq_pollitem_til(ptr noundef rea
   br i1 %.not, label %16, label %18
 
 16:                                               ; preds = %15
-  %17 = tail call ptr @__errno_location() #20
+  %17 = tail call ptr @__errno_location() #19
   store i32 14, ptr %17, align 4, !tbaa !3
   br label %18
 
@@ -2574,7 +2562,7 @@ define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr dead_on_unwi
 
 .thread60:                                        ; preds = %4
   %8 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1190) #24
+  %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 1190) #23
   %10 = load ptr, ptr @stderr, align 8, !tbaa !11
   %11 = tail call i32 @fflush(ptr noundef %10)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
@@ -2613,7 +2601,7 @@ define void @_Z26zmq_poll_build_select_fds_P14zmq_pollitem_tiRi(ptr dead_on_unwi
   br i1 %24, label %zmq_getsockopt.exit, label %zmq_getsockopt.exit.thread
 
 zmq_getsockopt.exit.thread:                       ; preds = %23
-  %25 = tail call ptr @__errno_location() #20
+  %25 = tail call ptr @__errno_location() #19
   store i32 88, ptr %25, align 4, !tbaa !3
   br label %.loopexit
 
@@ -2818,7 +2806,7 @@ define noundef range(i32 -1, 1) i32 @_Z29zmq_poll_select_check_events_P14zmq_pol
   br i1 %16, label %zmq_getsockopt.exit, label %zmq_getsockopt.exit.thread
 
 zmq_getsockopt.exit.thread:                       ; preds = %15
-  %17 = tail call ptr @__errno_location() #20
+  %17 = tail call ptr @__errno_location() #19
   store i32 88, ptr %17, align 4, !tbaa !3
   br label %.critedge
 
@@ -3018,7 +3006,7 @@ _Z21zmq_poll_check_items_P14zmq_pollitem_til.exit.thread38: ; preds = %15
 
 _Z21zmq_poll_check_items_P14zmq_pollitem_til.exit.thread.sink.split: ; preds = %15, %4
   %.sink = phi i32 [ 22, %4 ], [ 14, %15 ]
-  %16 = tail call ptr @__errno_location() #20
+  %16 = tail call ptr @__errno_location() #19
   store i32 %.sink, ptr %16, align 4, !tbaa !3
   br label %_Z21zmq_poll_check_items_P14zmq_pollitem_til.exit.thread
 
@@ -3115,7 +3103,7 @@ _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit: ; preds = %42, %43
   br i1 %.not, label %.split73.us, label %59, !prof !10
 
 .split73.us:                                      ; preds = %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit, %_Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit.us.us82
-  %51 = tail call ptr @__errno_location() #20
+  %51 = tail call ptr @__errno_location() #19
   %52 = load i32, ptr %51, align 4, !tbaa !3
   switch i32 %52, label %53 [
     i32 9, label %.thread59
@@ -3123,9 +3111,9 @@ _Z28zmq_poll_select_set_timeout_lbmmR8timespec.exit: ; preds = %42, %43
   ]
 
 53:                                               ; preds = %.split73.us
-  %54 = call ptr @strerror(i32 noundef %52) #22
+  %54 = call ptr @strerror(i32 noundef %52) #21
   %55 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str, ptr noundef %54, ptr noundef nonnull @.str.1, i32 noundef 1403) #24
+  %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str, ptr noundef %54, ptr noundef nonnull @.str.1, i32 noundef 1403) #23
   %57 = load ptr, ptr @stderr, align 8, !tbaa !11
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %54)
@@ -3181,7 +3169,7 @@ declare i32 @pselect(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @zmq_poller_new() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef dereferenceable_or_null(56) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %1 = tail call noalias noundef dereferenceable_or_null(56) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
 
@@ -3190,14 +3178,14 @@ define noundef ptr @zmq_poller_new() local_unnamed_addr #1 personality ptr @__gx
           to label %8 unwind label %6
 
 4:                                                ; preds = %0
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 12, ptr %5, align 4, !tbaa !3
   br label %8
 
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   resume { ptr, i32 } %7
 
 8:                                                ; preds = %3, %4
@@ -3221,13 +3209,13 @@ define range(i32 -1, 1) i32 @zmq_poller_destroy(ptr noundef captures(address_is_
   br i1 %5, label %6, label %.thread
 
 6:                                                ; preds = %4
-  tail call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #23
+  tail call void @_ZN3zmq15socket_poller_tD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #22
   store ptr null, ptr %0, align 8, !tbaa !71
   br label %8
 
 .thread:                                          ; preds = %2, %4, %1
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 14, ptr %7, align 4, !tbaa !3
   br label %8
 
@@ -3251,7 +3239,7 @@ define i32 @zmq_poller_size(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %_ZL12check_pollerPv.exit, label %_ZL12check_pollerPv.exit.thread
 
 _ZL12check_pollerPv.exit.thread:                  ; preds = %1, %2
-  %4 = tail call ptr @__errno_location() #20
+  %4 = tail call ptr @__errno_location() #19
   store i32 14, ptr %4, align 4, !tbaa !3
   br label %14
 
@@ -3291,7 +3279,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %5
 
 _ZL30check_poller_registration_argsPvS_.exit.thread: ; preds = %4, %5, %_ZL12check_pollerPv.exit.i, %7
   %.sink.i = phi i32 [ 14, %4 ], [ 14, %5 ], [ 88, %7 ], [ 88, %_ZL12check_pollerPv.exit.i ]
-  %9 = tail call ptr @__errno_location() #20
+  %9 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %9, align 4, !tbaa !3
   br label %13
 
@@ -3300,7 +3288,7 @@ _ZL30check_poller_registration_argsPvS_.exit:     ; preds = %7
   br i1 %10, label %_ZL12check_eventss.exit.thread, label %_ZL12check_eventss.exit
 
 _ZL12check_eventss.exit.thread:                   ; preds = %_ZL30check_poller_registration_argsPvS_.exit
-  %11 = tail call ptr @__errno_location() #20
+  %11 = tail call ptr @__errno_location() #19
   store i32 22, ptr %11, align 4, !tbaa !3
   br label %13
 
@@ -3330,7 +3318,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %5
 
 _ZL33check_poller_fd_registration_argsPvi.exit.thread: ; preds = %4, %5, %_ZL12check_pollerPv.exit.i
   %.sink.i = phi i32 [ 14, %4 ], [ 14, %5 ], [ 9, %_ZL12check_pollerPv.exit.i ]
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %8, align 4, !tbaa !3
   br label %12
 
@@ -3339,7 +3327,7 @@ _ZL33check_poller_fd_registration_argsPvi.exit:   ; preds = %_ZL12check_pollerPv
   br i1 %9, label %_ZL12check_eventss.exit.thread, label %_ZL12check_eventss.exit
 
 _ZL12check_eventss.exit.thread:                   ; preds = %_ZL33check_poller_fd_registration_argsPvi.exit
-  %10 = tail call ptr @__errno_location() #20
+  %10 = tail call ptr @__errno_location() #19
   store i32 22, ptr %10, align 4, !tbaa !3
   br label %12
 
@@ -3373,7 +3361,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %4
 
 _ZL30check_poller_registration_argsPvS_.exit.thread: ; preds = %3, %4, %_ZL12check_pollerPv.exit.i, %6
   %.sink.i = phi i32 [ 14, %3 ], [ 14, %4 ], [ 88, %6 ], [ 88, %_ZL12check_pollerPv.exit.i ]
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %8, align 4, !tbaa !3
   br label %12
 
@@ -3382,7 +3370,7 @@ _ZL30check_poller_registration_argsPvS_.exit:     ; preds = %6
   br i1 %9, label %_ZL12check_eventss.exit.thread, label %_ZL12check_eventss.exit
 
 _ZL12check_eventss.exit.thread:                   ; preds = %_ZL30check_poller_registration_argsPvS_.exit
-  %10 = tail call ptr @__errno_location() #20
+  %10 = tail call ptr @__errno_location() #19
   store i32 22, ptr %10, align 4, !tbaa !3
   br label %12
 
@@ -3412,7 +3400,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %4
 
 _ZL33check_poller_fd_registration_argsPvi.exit.thread: ; preds = %3, %4, %_ZL12check_pollerPv.exit.i
   %.sink.i = phi i32 [ 14, %3 ], [ 14, %4 ], [ 9, %_ZL12check_pollerPv.exit.i ]
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %7, align 4, !tbaa !3
   br label %11
 
@@ -3421,7 +3409,7 @@ _ZL33check_poller_fd_registration_argsPvi.exit:   ; preds = %_ZL12check_pollerPv
   br i1 %8, label %_ZL12check_eventss.exit.thread, label %_ZL12check_eventss.exit
 
 _ZL12check_eventss.exit.thread:                   ; preds = %_ZL33check_poller_fd_registration_argsPvi.exit
-  %9 = tail call ptr @__errno_location() #20
+  %9 = tail call ptr @__errno_location() #19
   store i32 22, ptr %9, align 4, !tbaa !3
   br label %11
 
@@ -3455,7 +3443,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %3
 
 _ZL30check_poller_registration_argsPvS_.exit.thread: ; preds = %2, %3, %_ZL12check_pollerPv.exit.i, %5
   %.sink.i = phi i32 [ 14, %2 ], [ 14, %3 ], [ 88, %5 ], [ 88, %_ZL12check_pollerPv.exit.i ]
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %7, align 4, !tbaa !3
   br label %9
 
@@ -3485,7 +3473,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %3
 
 _ZL33check_poller_fd_registration_argsPvi.exit.thread: ; preds = %2, %3, %_ZL12check_pollerPv.exit.i
   %.sink.i = phi i32 [ 14, %2 ], [ 14, %3 ], [ 9, %_ZL12check_pollerPv.exit.i ]
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 %.sink.i, ptr %6, align 4, !tbaa !3
   br label %8
 
@@ -3510,7 +3498,7 @@ define noundef range(i32 -2147483648, 1) i32 @zmq_poller_wait(ptr noundef %0, pt
   br i1 %5, label %_ZL12check_pollerPv.exit.i, label %_ZL12check_pollerPv.exit.thread.i
 
 _ZL12check_pollerPv.exit.thread.i:                ; preds = %4, %3
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %zmq_poller_wait_all.exit
 
@@ -3519,7 +3507,7 @@ _ZL12check_pollerPv.exit.i:                       ; preds = %4
   br i1 %.not.i, label %zmq_poller_wait_all.exit.thread, label %8
 
 zmq_poller_wait_all.exit.thread:                  ; preds = %_ZL12check_pollerPv.exit.i
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 14, ptr %7, align 4, !tbaa !3
   br label %16
 
@@ -3560,7 +3548,7 @@ define noundef i32 @zmq_poller_wait_all(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %6, label %_ZL12check_pollerPv.exit, label %_ZL12check_pollerPv.exit.thread
 
 _ZL12check_pollerPv.exit.thread:                  ; preds = %4, %5
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 14, ptr %7, align 4, !tbaa !3
   br label %16
 
@@ -3569,7 +3557,7 @@ _ZL12check_pollerPv.exit:                         ; preds = %5
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %_ZL12check_pollerPv.exit
-  %9 = tail call ptr @__errno_location() #20
+  %9 = tail call ptr @__errno_location() #19
   store i32 14, ptr %9, align 4, !tbaa !3
   br label %16
 
@@ -3578,7 +3566,7 @@ _ZL12check_pollerPv.exit:                         ; preds = %5
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__errno_location() #20
+  %13 = tail call ptr @__errno_location() #19
   store i32 22, ptr %13, align 4, !tbaa !3
   br label %16
 
@@ -3603,7 +3591,7 @@ define noundef i32 @zmq_poller_fd(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %9
 
@@ -3628,7 +3616,7 @@ define noundef i32 @zmq_socket_get_peer_state(ptr noundef %0, ptr noundef %1, i6
   br i1 %5, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %3, %4
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 88, ptr %6, align 4, !tbaa !3
   br label %11
 
@@ -3646,7 +3634,7 @@ _ZL16as_socket_base_tPv.exit:                     ; preds = %4
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @zmq_timers_new() local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noalias noundef dereferenceable_or_null(120) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 120, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #21
+  %1 = tail call noalias noundef dereferenceable_or_null(120) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 120, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #20
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
 
@@ -3656,7 +3644,7 @@ define noundef ptr @zmq_timers_new() local_unnamed_addr #1 personality ptr @__gx
 
 4:                                                ; preds = %0
   %5 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1643) #24
+  %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1643) #23
   %7 = load ptr, ptr @stderr, align 8, !tbaa !11
   %8 = tail call i32 @fflush(ptr noundef %7)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
@@ -3665,7 +3653,7 @@ define noundef ptr @zmq_timers_new() local_unnamed_addr #1 personality ptr @__gx
 9:                                                ; preds = %3
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   resume { ptr, i32 } %10
 
 11:                                               ; preds = %3, %4
@@ -3685,13 +3673,13 @@ define range(i32 -1, 1) i32 @zmq_timers_destroy(ptr noundef captures(none) %0) l
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %1
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %8
 
 7:                                                ; preds = %3
-  tail call void @_ZN3zmq8timers_tD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #22
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #23
+  tail call void @_ZN3zmq8timers_tD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #22
   store ptr null, ptr %0, align 8, !tbaa !71
   br label %8
 
@@ -3715,7 +3703,7 @@ define noundef i32 @zmq_timers_add(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %5, %4
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 14, ptr %8, align 4, !tbaa !3
   br label %11
 
@@ -3740,7 +3728,7 @@ define noundef i32 @zmq_timers_cancel(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %9
 
@@ -3765,7 +3753,7 @@ define noundef i32 @zmq_timers_set_interval(ptr noundef %0, i32 noundef %1, i64 
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %4, %3
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 14, ptr %7, align 4, !tbaa !3
   br label %10
 
@@ -3790,7 +3778,7 @@ define noundef i32 @zmq_timers_reset(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2
-  %6 = tail call ptr @__errno_location() #20
+  %6 = tail call ptr @__errno_location() #19
   store i32 14, ptr %6, align 4, !tbaa !3
   br label %9
 
@@ -3815,7 +3803,7 @@ define noundef i64 @zmq_timers_timeout(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 14, ptr %5, align 4, !tbaa !3
   br label %8
 
@@ -3840,7 +3828,7 @@ define noundef i32 @zmq_timers_execute(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2, %1
-  %5 = tail call ptr @__errno_location() #20
+  %5 = tail call ptr @__errno_location() #19
   store i32 14, ptr %5, align 4, !tbaa !3
   br label %8
 
@@ -3863,7 +3851,7 @@ define noundef i32 @zmq_proxy(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %or.cond, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #20
+  %7 = tail call ptr @__errno_location() #19
   store i32 14, ptr %7, align 4, !tbaa !3
   br label %10
 
@@ -3886,7 +3874,7 @@ define noundef i32 @zmq_proxy_steerable(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond, label %9, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @__errno_location() #20
+  %8 = tail call ptr @__errno_location() #19
   store i32 14, ptr %8, align 4, !tbaa !3
   br label %11
 
@@ -3909,17 +3897,17 @@ define noundef i32 @zmq_device(i32 noundef %0, ptr noundef %1, ptr noundef %2) l
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @zmq_has(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @_ZN3zmq13protocol_nameL3ipcE) #27
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @_ZN3zmq13protocol_nameL3ipcE) #26
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @_ZN3zmq13protocol_nameL4tipcE) #27
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @_ZN3zmq13protocol_nameL4tipcE) #26
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %18, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.7) #27
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.7) #26
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %18, label %sub_0
 
@@ -3941,7 +3929,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %15, label %18, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.9) #27
+  %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.9) #26
   %17 = icmp eq i32 %16, 0
   %. = zext i1 %17 to i32
   br label %18
@@ -3964,7 +3952,7 @@ define noundef i32 @zmq_socket_monitor_pipes_stats(ptr noundef %0) local_unnamed
   br i1 %3, label %_ZL16as_socket_base_tPv.exit, label %_ZL16as_socket_base_tPv.exit.thread
 
 _ZL16as_socket_base_tPv.exit.thread:              ; preds = %1, %2
-  %4 = tail call ptr @__errno_location() #20
+  %4 = tail call ptr @__errno_location() #19
   store i32 88, ptr %4, align 4, !tbaa !3
   br label %6
 
@@ -4006,20 +3994,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #16
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #16
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #18
+declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -4038,17 +4023,16 @@ attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #20 = { nounwind willreturn memory(none) }
-attributes #21 = { builtin nounwind allocsize(0) }
-attributes #22 = { nounwind }
-attributes #23 = { builtin nounwind }
-attributes #24 = { cold nounwind }
-attributes #25 = { nounwind allocsize(0) }
-attributes #26 = { noreturn }
-attributes #27 = { nounwind willreturn memory(read) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { builtin nounwind allocsize(0) }
+attributes #21 = { nounwind }
+attributes #22 = { builtin nounwind }
+attributes #23 = { cold nounwind }
+attributes #24 = { nounwind allocsize(0) }
+attributes #25 = { noreturn }
+attributes #26 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

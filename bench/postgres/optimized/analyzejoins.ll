@@ -56,7 +56,7 @@ define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly 
 21:                                               ; preds = %.lr.ph109
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = call zeroext i1 @bms_get_singleton_member(ptr noundef %23, ptr noundef nonnull %3) #7
+  %24 = call zeroext i1 @bms_get_singleton_member(ptr noundef %23, ptr noundef nonnull %3) #6
   br i1 %24, label %25, label %join_is_removable.exit.thread
 
 25:                                               ; preds = %21
@@ -68,7 +68,7 @@ define dso_local ptr @remove_useless_joins(ptr noundef %0, ptr noundef readonly 
   br i1 %30, label %join_is_removable.exit.thread, label %31
 
 31:                                               ; preds = %25
-  %32 = call ptr @find_base_rel(ptr noundef nonnull %0, i32 noundef %26) #7
+  %32 = call ptr @find_base_rel(ptr noundef nonnull %0, i32 noundef %26) #6
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %.not.i.i = icmp eq i32 %34, 0
@@ -183,11 +183,11 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %91 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %22, align 8
-  %94 = call ptr @bms_union(ptr noundef %92, ptr noundef %93) #7
-  %95 = call ptr @bms_copy(ptr noundef %94) #7
+  %94 = call ptr @bms_union(ptr noundef %92, ptr noundef %93) #6
+  %95 = call ptr @bms_copy(ptr noundef %94) #6
   %96 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %97 = load i32, ptr %96, align 4
-  %98 = call ptr @bms_add_member(ptr noundef %95, i32 noundef %97) #7
+  %98 = call ptr @bms_add_member(ptr noundef %95, i32 noundef %97) #6
   %99 = getelementptr inbounds nuw i8, ptr %32, i64 126
   %100 = load i16, ptr %99, align 2
   %101 = sext i16 %100 to i32
@@ -213,7 +213,7 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %112 = load ptr, ptr %107, align 8
   %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i
   %114 = load ptr, ptr %113, align 8
-  %115 = call zeroext i1 @bms_is_subset(ptr noundef %114, ptr noundef %94) #7
+  %115 = call zeroext i1 @bms_is_subset(ptr noundef %114, ptr noundef %94) #6
   br i1 %115, label %109, label %join_is_removable.exit.thread
 
 ._crit_edge.i:                                    ; preds = %109, %.loopexit.i
@@ -237,32 +237,32 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %119, align 8
-  %128 = call zeroext i1 @bms_overlap(ptr noundef %126, ptr noundef %127) #7
+  %128 = call zeroext i1 @bms_overlap(ptr noundef %126, ptr noundef %127) #6
   br i1 %128, label %join_is_removable.exit.thread, label %129
 
 129:                                              ; preds = %.lr.ph89.i
   %130 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %131 = load ptr, ptr %130, align 8
   %132 = load ptr, ptr %119, align 8
-  %133 = call zeroext i1 @bms_overlap(ptr noundef %131, ptr noundef %132) #7
+  %133 = call zeroext i1 @bms_overlap(ptr noundef %131, ptr noundef %132) #6
   br i1 %133, label %134, label %154
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %136 = load ptr, ptr %135, align 8
-  %137 = call zeroext i1 @bms_is_subset(ptr noundef %136, ptr noundef %94) #7
+  %137 = call zeroext i1 @bms_is_subset(ptr noundef %136, ptr noundef %94) #6
   br i1 %137, label %154, label %138
 
 138:                                              ; preds = %134
   %139 = load i32, ptr %96, align 4
   %140 = load ptr, ptr %130, align 8
-  %141 = call zeroext i1 @bms_is_member(i32 noundef %139, ptr noundef %140) #7
+  %141 = call zeroext i1 @bms_is_member(i32 noundef %139, ptr noundef %140) #6
   br i1 %141, label %142, label %join_is_removable.exit.thread
 
 142:                                              ; preds = %138
   %143 = load ptr, ptr %91, align 8
   %144 = load ptr, ptr %130, align 8
-  %145 = call zeroext i1 @bms_overlap(ptr noundef %143, ptr noundef %144) #7
+  %145 = call zeroext i1 @bms_overlap(ptr noundef %143, ptr noundef %144) #6
   br i1 %145, label %146, label %join_is_removable.exit.thread
 
 146:                                              ; preds = %142
@@ -270,9 +270,9 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8
-  %151 = call ptr @pull_varnos(ptr noundef nonnull %0, ptr noundef %150) #7
+  %151 = call ptr @pull_varnos(ptr noundef nonnull %0, ptr noundef %150) #6
   %152 = load ptr, ptr %119, align 8
-  %153 = call zeroext i1 @bms_overlap(ptr noundef %151, ptr noundef %152) #7
+  %153 = call zeroext i1 @bms_overlap(ptr noundef %151, ptr noundef %152) #6
   br i1 %153, label %join_is_removable.exit.thread, label %154
 
 154:                                              ; preds = %146, %134, %129
@@ -316,7 +316,7 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 48
   %177 = load ptr, ptr %176, align 8
-  %178 = call zeroext i1 @bms_is_subset(ptr noundef %177, ptr noundef %98) #7
+  %178 = call zeroext i1 @bms_is_subset(ptr noundef %177, ptr noundef %98) #6
   br i1 %178, label %179, label %clause_sides_match_join.exit.thread
 
 179:                                              ; preds = %175
@@ -336,31 +336,31 @@ query_supports_distinctness.exit.i.i:             ; preds = %60
   %189 = load ptr, ptr %162, align 8
   %190 = getelementptr inbounds nuw i8, ptr %167, i64 72
   %191 = load ptr, ptr %190, align 8
-  %192 = call zeroext i1 @bms_is_subset(ptr noundef %191, ptr noundef %188) #7
+  %192 = call zeroext i1 @bms_is_subset(ptr noundef %191, ptr noundef %188) #6
   br i1 %192, label %193, label %197
 
 193:                                              ; preds = %187
   %194 = getelementptr inbounds nuw i8, ptr %167, i64 80
   %195 = load ptr, ptr %194, align 8
-  %196 = call zeroext i1 @bms_is_subset(ptr noundef %195, ptr noundef %189) #7
+  %196 = call zeroext i1 @bms_is_subset(ptr noundef %195, ptr noundef %189) #6
   br i1 %196, label %204, label %197
 
 197:                                              ; preds = %193, %187
   %198 = load ptr, ptr %190, align 8
-  %199 = call zeroext i1 @bms_is_subset(ptr noundef %198, ptr noundef %189) #7
+  %199 = call zeroext i1 @bms_is_subset(ptr noundef %198, ptr noundef %189) #6
   br i1 %199, label %200, label %clause_sides_match_join.exit.thread
 
 200:                                              ; preds = %197
   %201 = getelementptr inbounds nuw i8, ptr %167, i64 80
   %202 = load ptr, ptr %201, align 8
-  %203 = call zeroext i1 @bms_is_subset(ptr noundef %202, ptr noundef %188) #7
+  %203 = call zeroext i1 @bms_is_subset(ptr noundef %202, ptr noundef %188) #6
   br i1 %203, label %204, label %clause_sides_match_join.exit.thread
 
 204:                                              ; preds = %200, %193
   %.sink.i = phi i8 [ 1, %193 ], [ 0, %200 ]
   %205 = getelementptr inbounds nuw i8, ptr %167, i64 192
   store i8 %.sink.i, ptr %205, align 8
-  %206 = call ptr @lappend(ptr noundef %.0629097.i, ptr noundef nonnull %167) #7
+  %206 = call ptr @lappend(ptr noundef %.0629097.i, ptr noundef nonnull %167) #6
   br label %clause_sides_match_join.exit.thread
 
 clause_sides_match_join.exit.thread:              ; preds = %200, %197, %204, %183, %179, %175, %171, %.lr.ph98.i
@@ -384,25 +384,25 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
 211:                                              ; preds = %join_is_removable.exit
   %212 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv106
   %213 = load ptr, ptr %22, align 8
-  %214 = call i32 @bms_singleton_member(ptr noundef %213) #7
-  %215 = call ptr @find_base_rel(ptr noundef nonnull %0, i32 noundef %214) #7
+  %214 = call i32 @bms_singleton_member(ptr noundef %213) #6
+  %215 = call ptr @find_base_rel(ptr noundef nonnull %0, i32 noundef %214) #6
   %216 = load i32, ptr %96, align 4
   %217 = load ptr, ptr %91, align 8
   %218 = load ptr, ptr %22, align 8
-  %219 = call ptr @bms_union(ptr noundef %217, ptr noundef %218) #7
-  %220 = call ptr @bms_add_member(ptr noundef %219, i32 noundef %216) #7
+  %219 = call ptr @bms_union(ptr noundef %217, ptr noundef %218) #6
+  %220 = call ptr @bms_add_member(ptr noundef %219, i32 noundef %216) #6
   %221 = getelementptr i8, ptr %215, i64 112
   %.val.i = load i32, ptr %221, align 8
   call fastcc void @remove_rel_from_query(ptr noundef nonnull %0, i32 %.val.i, i32 noundef -1, ptr noundef readonly %18, ptr noundef %220)
   %222 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %223 = load ptr, ptr %222, align 8
-  %224 = call ptr @bms_union(ptr noundef %220, ptr noundef %223) #7
+  %224 = call ptr @bms_union(ptr noundef %220, ptr noundef %223) #6
   %225 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %226 = load ptr, ptr %225, align 8
-  %227 = call ptr @bms_add_members(ptr noundef %224, ptr noundef %226) #7
+  %227 = call ptr @bms_add_members(ptr noundef %224, ptr noundef %226) #6
   %228 = getelementptr inbounds nuw i8, ptr %215, i64 328
   %229 = load ptr, ptr %228, align 8
-  %230 = call ptr @list_copy(ptr noundef %229) #7
+  %230 = call ptr @list_copy(ptr noundef %229) #6
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %.not.i26 = icmp eq ptr %230, null
   br i1 %.not.i26, label %remove_leftjoinrel_from_query.exit, label %.lr.ph.i27
@@ -420,7 +420,7 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 48
   %239 = load ptr, ptr %238, align 8
-  call void @remove_join_clause_from_rels(ptr noundef nonnull %0, ptr noundef %237, ptr noundef %239) #7
+  call void @remove_join_clause_from_rels(ptr noundef nonnull %0, ptr noundef %237, ptr noundef %239) #6
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %241 = load i8, ptr %240, align 8, !range !4, !noundef !5
   %242 = trunc nuw i8 %241 to i1
@@ -428,12 +428,12 @@ join_is_removable.exit:                           ; preds = %clause_sides_match_
 
 243:                                              ; preds = %.lr.ph44.i
   %244 = load ptr, ptr %238, align 8
-  %245 = call zeroext i1 @bms_is_subset(ptr noundef %244, ptr noundef %227) #7
+  %245 = call zeroext i1 @bms_is_subset(ptr noundef %244, ptr noundef %227) #6
   br i1 %245, label %247, label %246
 
 246:                                              ; preds = %243, %.lr.ph44.i
   call fastcc void @remove_rel_from_restrictinfo(ptr noundef nonnull %237, i32 noundef %214, i32 noundef %216)
-  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef nonnull %237) #7
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef nonnull %237) #6
   br label %247
 
 247:                                              ; preds = %246, %243
@@ -448,11 +448,11 @@ remove_leftjoinrel_from_query.exit:               ; preds = %247, %211, %.lr.ph.
   %252 = sext i32 %214 to i64
   %253 = getelementptr inbounds ptr, ptr %251, i64 %252
   store ptr null, ptr %253, align 8
-  call void @pfree(ptr noundef %215) #7
-  call void @rebuild_placeholder_attr_needed(ptr noundef nonnull %0) #7
-  call void @rebuild_joinclause_attr_needed(ptr noundef nonnull %0) #7
-  call void @rebuild_eclass_attr_needed(ptr noundef nonnull %0) #7
-  call void @rebuild_lateral_attr_needed(ptr noundef nonnull %0) #7
+  call void @pfree(ptr noundef %215) #6
+  call void @rebuild_placeholder_attr_needed(ptr noundef nonnull %0) #6
+  call void @rebuild_joinclause_attr_needed(ptr noundef nonnull %0) #6
+  call void @rebuild_eclass_attr_needed(ptr noundef nonnull %0) #6
+  call void @rebuild_lateral_attr_needed(ptr noundef nonnull %0) #6
   store i32 0, ptr %4, align 4
   %254 = call fastcc ptr @remove_rel_from_joinlist(ptr noundef %.057, i32 noundef %214, ptr noundef %4)
   %255 = load i32, ptr %4, align 4
@@ -460,10 +460,9 @@ remove_leftjoinrel_from_query.exit:               ; preds = %247, %211, %.lr.ph.
   br i1 %.not25, label %.critedge, label %256
 
 256:                                              ; preds = %remove_leftjoinrel_from_query.exit
-  %257 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %257)
-  %258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %214) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.remove_useless_joins) #7
+  %257 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %214) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 119, ptr noundef nonnull @__func__.remove_useless_joins) #6
   unreachable
 
 .thread:                                          ; preds = %join_is_removable.exit, %join_is_removable.exit.thread
@@ -476,7 +475,7 @@ remove_leftjoinrel_from_query.exit:               ; preds = %247, %211, %.lr.ph.
 
 .critedge:                                        ; preds = %remove_leftjoinrel_from_query.exit
   %262 = load ptr, ptr %5, align 8
-  %263 = call ptr @list_delete_cell(ptr noundef %262, ptr noundef nonnull %212) #7
+  %263 = call ptr @list_delete_cell(ptr noundef %262, ptr noundef nonnull %212) #6
   store ptr %263, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq ptr %263, null
@@ -530,7 +529,7 @@ define internal fastcc ptr @remove_rel_from_joinlist(ptr noundef readonly captur
   br label %28
 
 19:                                               ; preds = %12
-  %20 = tail call ptr @lappend(ptr noundef %.02934, ptr noundef nonnull %10) #7
+  %20 = tail call ptr @lappend(ptr noundef %.02934, ptr noundef nonnull %10) #6
   br label %28
 
 21:                                               ; preds = %.lr.ph36
@@ -539,15 +538,14 @@ define internal fastcc ptr @remove_rel_from_joinlist(ptr noundef readonly captur
   br i1 %.not26, label %28, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call ptr @lappend(ptr noundef %.02934, ptr noundef nonnull %22) #7
+  %24 = tail call ptr @lappend(ptr noundef %.02934, ptr noundef nonnull %22) #6
   br label %28
 
 .split:                                           ; preds = %.lr.ph36
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %25)
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %26 = load i32, ptr %10, align 4
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %26) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 772, ptr noundef nonnull @__func__.remove_rel_from_joinlist) #7
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %26) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 772, ptr noundef nonnull @__func__.remove_rel_from_joinlist) #6
   unreachable
 
 28:                                               ; preds = %21, %23, %16, %19
@@ -606,12 +604,12 @@ define dso_local void @reduce_unique_semijoins(ptr noundef %0) local_unnamed_add
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = call zeroext i1 @bms_get_singleton_member(ptr noundef %20, ptr noundef nonnull %2) #7
+  %21 = call zeroext i1 @bms_get_singleton_member(ptr noundef %20, ptr noundef nonnull %2) #6
   br i1 %21, label %22, label %rel_supports_distinctness.exit
 
 22:                                               ; preds = %18
   %23 = load i32, ptr %2, align 4
-  %24 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %23) #7
+  %24 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %23) #6
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %.not.i = icmp eq i32 %26, 0
@@ -726,12 +724,12 @@ query_supports_distinctness.exit.i:               ; preds = %52
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %19, align 8
-  %86 = call ptr @bms_union(ptr noundef %84, ptr noundef %85) #7
+  %86 = call ptr @bms_union(ptr noundef %84, ptr noundef %85) #6
   %87 = load ptr, ptr %83, align 8
-  %88 = call ptr @generate_join_implied_equalities(ptr noundef %0, ptr noundef %86, ptr noundef %87, ptr noundef %24, ptr noundef null) #7
+  %88 = call ptr @generate_join_implied_equalities(ptr noundef %0, ptr noundef %86, ptr noundef %87, ptr noundef %24, ptr noundef null) #6
   %89 = getelementptr inbounds nuw i8, ptr %24, i64 328
   %90 = load ptr, ptr %89, align 8
-  %91 = call ptr @list_concat(ptr noundef %88, ptr noundef %90) #7
+  %91 = call ptr @list_concat(ptr noundef %88, ptr noundef %90) #6
   %92 = load ptr, ptr %83, align 8
   %93 = call noundef zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr noundef %86, ptr noundef %92, ptr noundef %24, i32 noundef 4, ptr noundef readonly %91, i1 noundef zeroext true, ptr noundef null)
   br i1 %93, label %94, label %rel_supports_distinctness.exit
@@ -739,7 +737,7 @@ query_supports_distinctness.exit.i:               ; preds = %52
 94:                                               ; preds = %.loopexit
   %95 = load ptr, ptr %3, align 8
   %96 = add i32 %.sroa.7.031, -1
-  %97 = call ptr @list_delete_nth_cell(ptr noundef %95, i32 noundef %.sroa.7.031) #7
+  %97 = call ptr @list_delete_nth_cell(ptr noundef %95, i32 noundef %.sroa.7.031) #6
   store ptr %97, ptr %3, align 8
   br label %rel_supports_distinctness.exit
 
@@ -847,7 +845,7 @@ define dso_local noundef zeroext i1 @query_is_distinct_for(ptr noundef readonly 
   %14 = load ptr, ptr %8, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = tail call ptr @get_sortgroupclause_tle(ptr noundef %15, ptr noundef %16) #7
+  %17 = tail call ptr @get_sortgroupclause_tle(ptr noundef %15, ptr noundef %16) #6
   br label %distinct_col_search.exit.thread.thread
 
 18:                                               ; preds = %.critedge
@@ -863,7 +861,7 @@ define dso_local noundef zeroext i1 @query_is_distinct_for(ptr noundef readonly 
   %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %9, align 8
-  %25 = tail call ptr @get_sortgroupclause_tle(ptr noundef %23, ptr noundef %24) #7
+  %25 = tail call ptr @get_sortgroupclause_tle(ptr noundef %23, ptr noundef %24) #6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = sext i16 %27 to i32
@@ -915,7 +913,7 @@ distinct_col_search.exit:                         ; preds = %43
 .critedge:                                        ; preds = %distinct_col_search.exit
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %51 = load i32, ptr %50, align 4
-  %52 = tail call zeroext i1 @equality_ops_are_compatible(i32 noundef %49, i32 noundef %51) #7
+  %52 = tail call zeroext i1 @equality_ops_are_compatible(i32 noundef %49, i32 noundef %51) #6
   br i1 %52, label %18, label %distinct_col_search.exit.thread.thread
 
 distinct_col_search.exit.thread.thread:           ; preds = %.critedge, %distinct_col_search.exit, %39, %37, %.lr.ph.split.us, %3
@@ -958,7 +956,7 @@ distinct_col_search.exit.thread.thread:           ; preds = %.critedge, %distinc
   %70 = load ptr, ptr %64, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %65, align 8
-  %73 = tail call ptr @get_sortgroupclause_tle(ptr noundef %71, ptr noundef %72) #7
+  %73 = tail call ptr @get_sortgroupclause_tle(ptr noundef %71, ptr noundef %72) #6
   br label %distinct_col_search.exit125.thread.thread
 
 74:                                               ; preds = %.critedge109
@@ -974,7 +972,7 @@ distinct_col_search.exit.thread.thread:           ; preds = %.critedge, %distinc
   %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv237
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %65, align 8
-  %81 = tail call ptr @get_sortgroupclause_tle(ptr noundef %79, ptr noundef %80) #7
+  %81 = tail call ptr @get_sortgroupclause_tle(ptr noundef %79, ptr noundef %80) #6
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i16, ptr %82, align 8
   %84 = sext i16 %83 to i32
@@ -1026,7 +1024,7 @@ distinct_col_search.exit125:                      ; preds = %99
 .critedge109:                                     ; preds = %distinct_col_search.exit125
   %106 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %107 = load i32, ptr %106, align 4
-  %108 = tail call zeroext i1 @equality_ops_are_compatible(i32 noundef %105, i32 noundef %107) #7
+  %108 = tail call zeroext i1 @equality_ops_are_compatible(i32 noundef %105, i32 noundef %107) #6
   br i1 %108, label %74, label %distinct_col_search.exit125.thread.thread
 
 109:                                              ; preds = %56
@@ -1204,7 +1202,7 @@ distinct_col_search.exit139:                      ; preds = %188
 195:                                              ; preds = %distinct_col_search.exit139
   %196 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %197 = load i32, ptr %196, align 4
-  %198 = tail call zeroext i1 @equality_ops_are_compatible(i32 noundef %194, i32 noundef %197) #7
+  %198 = tail call zeroext i1 @equality_ops_are_compatible(i32 noundef %194, i32 noundef %197) #6
   br i1 %198, label %.select.unfold_crit_edge, label %.thread144
 
 .select.unfold_crit_edge:                         ; preds = %195
@@ -1373,7 +1371,7 @@ query_supports_distinctness.exit.i:               ; preds = %41
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call zeroext i1 @bms_equal(ptr noundef %83, ptr noundef %2) #7
+  %84 = tail call zeroext i1 @bms_equal(ptr noundef %83, ptr noundef %2) #6
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %.critedge.us
@@ -1406,7 +1404,7 @@ query_supports_distinctness.exit.i:               ; preds = %41
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call zeroext i1 @bms_is_subset(ptr noundef %101, ptr noundef %2) #7
+  %102 = tail call zeroext i1 @bms_is_subset(ptr noundef %101, ptr noundef %2) #6
   br i1 %102, label %rel_supports_distinctness.exit, label %93
 
 .split.us:                                        ; preds = %85
@@ -1440,7 +1438,7 @@ query_supports_distinctness.exit.i:               ; preds = %41
   %115 = load ptr, ptr %108, align 8
   %116 = getelementptr inbounds nuw %union.ListCell, ptr %115, i64 %indvars.iv115
   %117 = load ptr, ptr %116, align 8
-  %118 = tail call zeroext i1 @bms_is_subset(ptr noundef %2, ptr noundef %117) #7
+  %118 = tail call zeroext i1 @bms_is_subset(ptr noundef %2, ptr noundef %117) #6
   br i1 %118, label %rel_supports_distinctness.exit, label %111
 
 ._crit_edge:                                      ; preds = %111, %.lr.ph102, %.critedge76
@@ -1479,31 +1477,31 @@ query_supports_distinctness.exit.i:               ; preds = %41
   %136 = load ptr, ptr %124, align 8
   %137 = getelementptr inbounds nuw i8, ptr %127, i64 72
   %138 = load ptr, ptr %137, align 8
-  %139 = tail call zeroext i1 @bms_is_subset(ptr noundef %138, ptr noundef %2) #7
+  %139 = tail call zeroext i1 @bms_is_subset(ptr noundef %138, ptr noundef %2) #6
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %135
   %141 = getelementptr inbounds nuw i8, ptr %127, i64 80
   %142 = load ptr, ptr %141, align 8
-  %143 = tail call zeroext i1 @bms_is_subset(ptr noundef %142, ptr noundef %136) #7
+  %143 = tail call zeroext i1 @bms_is_subset(ptr noundef %142, ptr noundef %136) #6
   br i1 %143, label %151, label %144
 
 144:                                              ; preds = %140, %135
   %145 = load ptr, ptr %137, align 8
-  %146 = tail call zeroext i1 @bms_is_subset(ptr noundef %145, ptr noundef %136) #7
+  %146 = tail call zeroext i1 @bms_is_subset(ptr noundef %145, ptr noundef %136) #6
   br i1 %146, label %147, label %clause_sides_match_join.exit.thread.us.i
 
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %127, i64 80
   %149 = load ptr, ptr %148, align 8
-  %150 = tail call zeroext i1 @bms_is_subset(ptr noundef %149, ptr noundef %2) #7
+  %150 = tail call zeroext i1 @bms_is_subset(ptr noundef %149, ptr noundef %2) #6
   br i1 %150, label %151, label %clause_sides_match_join.exit.thread.us.i
 
 151:                                              ; preds = %147, %140
   %.sink.i.us.i = phi i8 [ 1, %140 ], [ 0, %147 ]
   %152 = getelementptr inbounds nuw i8, ptr %127, i64 192
   store i8 %.sink.i.us.i, ptr %152, align 8
-  %153 = tail call ptr @lappend(ptr noundef %.026.us.i, ptr noundef nonnull %127) #7
+  %153 = tail call ptr @lappend(ptr noundef %.026.us.i, ptr noundef nonnull %127) #6
   br label %clause_sides_match_join.exit.thread.us.i
 
 clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %131, %.lr.ph.split.us.i
@@ -1528,7 +1526,7 @@ clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %1
 162:                                              ; preds = %.lr.ph.split.i
   %163 = getelementptr inbounds nuw i8, ptr %158, i64 48
   %164 = load ptr, ptr %163, align 8
-  %165 = tail call zeroext i1 @bms_is_subset(ptr noundef %164, ptr noundef %1) #7
+  %165 = tail call zeroext i1 @bms_is_subset(ptr noundef %164, ptr noundef %1) #6
   br i1 %165, label %166, label %clause_sides_match_join.exit.thread.i
 
 166:                                              ; preds = %162
@@ -1547,31 +1545,31 @@ clause_sides_match_join.exit.thread.us.i:         ; preds = %151, %147, %144, %1
   %175 = load ptr, ptr %124, align 8
   %176 = getelementptr inbounds nuw i8, ptr %158, i64 72
   %177 = load ptr, ptr %176, align 8
-  %178 = tail call zeroext i1 @bms_is_subset(ptr noundef %177, ptr noundef %2) #7
+  %178 = tail call zeroext i1 @bms_is_subset(ptr noundef %177, ptr noundef %2) #6
   br i1 %178, label %179, label %183
 
 179:                                              ; preds = %174
   %180 = getelementptr inbounds nuw i8, ptr %158, i64 80
   %181 = load ptr, ptr %180, align 8
-  %182 = tail call zeroext i1 @bms_is_subset(ptr noundef %181, ptr noundef %175) #7
+  %182 = tail call zeroext i1 @bms_is_subset(ptr noundef %181, ptr noundef %175) #6
   br i1 %182, label %190, label %183
 
 183:                                              ; preds = %179, %174
   %184 = load ptr, ptr %176, align 8
-  %185 = tail call zeroext i1 @bms_is_subset(ptr noundef %184, ptr noundef %175) #7
+  %185 = tail call zeroext i1 @bms_is_subset(ptr noundef %184, ptr noundef %175) #6
   br i1 %185, label %186, label %clause_sides_match_join.exit.thread.i
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %158, i64 80
   %188 = load ptr, ptr %187, align 8
-  %189 = tail call zeroext i1 @bms_is_subset(ptr noundef %188, ptr noundef %2) #7
+  %189 = tail call zeroext i1 @bms_is_subset(ptr noundef %188, ptr noundef %2) #6
   br i1 %189, label %190, label %clause_sides_match_join.exit.thread.i
 
 190:                                              ; preds = %186, %179
   %.sink.i.i = phi i8 [ 1, %179 ], [ 0, %186 ]
   %191 = getelementptr inbounds nuw i8, ptr %158, i64 192
   store i8 %.sink.i.i, ptr %191, align 8
-  %192 = tail call ptr @lappend(ptr noundef %.026.i, ptr noundef nonnull %158) #7
+  %192 = tail call ptr @lappend(ptr noundef %.026.i, ptr noundef nonnull %158) #6
   br label %clause_sides_match_join.exit.thread.i
 
 clause_sides_match_join.exit.thread.i:            ; preds = %190, %186, %183, %170, %166, %162, %.lr.ph.split.i
@@ -1592,9 +1590,9 @@ is_innerrel_unique_for.exit:                      ; preds = %clause_sides_match_
   %198 = load ptr, ptr %197, align 8
   %199 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %198, ptr @CurrentMemoryContext, align 8
-  %200 = call noundef ptr @palloc0(i64 noundef 32) #7
+  %200 = call noundef ptr @palloc0(i64 noundef 32) #6
   store i32 328, ptr %200, align 4
-  %201 = call ptr @bms_copy(ptr noundef %2) #7
+  %201 = call ptr @bms_copy(ptr noundef %2) #6
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
   store ptr %201, ptr %202, align 8
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 16
@@ -1603,7 +1601,7 @@ is_innerrel_unique_for.exit:                      ; preds = %clause_sides_match_
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 24
   store ptr %204, ptr %205, align 8
   %206 = load ptr, ptr %73, align 8
-  %207 = call ptr @lappend(ptr noundef %206, ptr noundef nonnull %200) #7
+  %207 = call ptr @lappend(ptr noundef %206, ptr noundef nonnull %200) #6
   store ptr %207, ptr %73, align 8
   store ptr %199, ptr @CurrentMemoryContext, align 8
   br i1 %10, label %208, label %rel_supports_distinctness.exit
@@ -1628,8 +1626,8 @@ is_innerrel_unique_for.exit:                      ; preds = %clause_sides_match_
   %217 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %216, ptr @CurrentMemoryContext, align 8
   %218 = load ptr, ptr %105, align 8
-  %219 = call ptr @bms_copy(ptr noundef %2) #7
-  %220 = call ptr @lappend(ptr noundef %218, ptr noundef %219) #7
+  %219 = call ptr @bms_copy(ptr noundef %2) #6
+  %220 = call ptr @lappend(ptr noundef %218, ptr noundef %219) #6
   store ptr %220, ptr %105, align 8
   store ptr %217, ptr @CurrentMemoryContext, align 8
   br label %rel_supports_distinctness.exit
@@ -1677,7 +1675,7 @@ list_length.exit:                                 ; preds = %2
   br i1 %.not, label %.loopexit, label %.preheader, !prof !13
 
 .preheader:                                       ; preds = %15
-  %17 = tail call i32 @bms_next_member(ptr noundef nonnull %16, i32 noundef -1) #7
+  %17 = tail call i32 @bms_next_member(ptr noundef nonnull %16, i32 noundef -1) #6
   %18 = icmp sgt i32 %17, -1
   br i1 %18, label %.lr.ph, label %.loopexit
 
@@ -1692,15 +1690,14 @@ list_length.exit:                                 ; preds = %2
   br i1 %.not20, label %25, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %19) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2329, ptr noundef nonnull @__func__.remove_useless_self_joins) #7
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %24 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %19) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2329, ptr noundef nonnull @__func__.remove_useless_self_joins) #6
   unreachable
 
 25:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %26 = tail call i32 @bms_next_member(ptr noundef nonnull %16, i32 noundef %19) #7
+  %26 = tail call i32 @bms_next_member(ptr noundef nonnull %16, i32 noundef %19) #6
   %27 = icmp sgt i32 %26, -1
   br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
@@ -1740,7 +1737,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
 .critedge99:                                      ; preds = %49, %.lr.ph, %3
   %.078.lcssa = phi ptr [ null, %3 ], [ null, %.lr.ph ], [ %.280, %49 ]
   %.075.lcssa = phi ptr [ %2, %3 ], [ %2, %.lr.ph ], [ %.176, %49 ]
-  %15 = tail call i32 @bms_num_members(ptr noundef %.078.lcssa) #7
+  %15 = tail call i32 @bms_num_members(ptr noundef %.078.lcssa) #6
   %16 = icmp slt i32 %15, 2
   br i1 %16, label %.loopexit, label %53
 
@@ -1782,7 +1779,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   br i1 %.not97, label %49, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call ptr @bms_add_member(ptr noundef %.078136147, i32 noundef %19) #7
+  %43 = tail call ptr @bms_add_member(ptr noundef %.078136147, i32 noundef %19) #6
   br label %49
 
 44:                                               ; preds = %.lr.ph149
@@ -1790,11 +1787,10 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   br label %49
 
 .split:                                           ; preds = %.lr.ph149
-  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %46)
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %47 = load i32, ptr %13, align 4
-  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %47) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2169, ptr noundef nonnull @__func__.remove_self_joins_recurse) #7
+  %48 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %47) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2169, ptr noundef nonnull @__func__.remove_self_joins_recurse) #6
   unreachable
 
 49:                                               ; preds = %17, %27, %31, %35, %39, %42, %44
@@ -1809,8 +1805,8 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
 53:                                               ; preds = %.critedge99
   %54 = zext nneg i32 %15 to i64
   %55 = shl nuw nsw i64 %54, 3
-  %56 = tail call ptr @palloc(i64 noundef %55) #7
-  %57 = tail call i32 @bms_next_member(ptr noundef %.078.lcssa, i32 noundef -1) #7
+  %56 = tail call ptr @palloc(i64 noundef %55) #6
+  %57 = tail call i32 @bms_next_member(ptr noundef %.078.lcssa, i32 noundef -1) #6
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %.lr.ph152, label %._crit_edge
 
@@ -1833,12 +1829,12 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store i32 %69, ptr %70, align 4
   %71 = add i32 %.087151, 1
-  %72 = tail call i32 @bms_next_member(ptr noundef %.078.lcssa, i32 noundef %61) #7
+  %72 = tail call i32 @bms_next_member(ptr noundef %.078.lcssa, i32 noundef %61) #6
   %73 = icmp sgt i32 %72, -1
   br i1 %73, label %60, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %60, %53
-  tail call void @pg_qsort(ptr noundef %56, i64 noundef %54, i64 noundef 8, ptr noundef nonnull @self_join_candidates_cmp) #7
+  tail call void @pg_qsort(ptr noundef %56, i64 noundef %54, i64 noundef 8, ptr noundef nonnull @self_join_candidates_cmp) #6
   %74 = add nuw i32 %15, 1
   %75 = icmp sgt i32 %74, 1
   br i1 %75, label %.lr.ph171, label %.loopexit
@@ -1891,7 +1887,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %.074154 = phi ptr [ %103, %.lr.ph155 ], [ null, %.preheader ]
   %101 = getelementptr inbounds %struct.SelfJoinCandidate, ptr %56, i64 %indvars.iv191
   %102 = load i32, ptr %101, align 4
-  %103 = call ptr @bms_add_member(ptr noundef %.074154, i32 noundef %102) #7
+  %103 = call ptr @bms_add_member(ptr noundef %.074154, i32 noundef %102) #6
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, 1
   %104 = and i64 %indvars.iv.next192, 4294967295
   %exitcond.not = icmp eq i64 %104, %indvars.iv194
@@ -1904,13 +1900,13 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
 ._crit_edge156:                                   ; preds = %._crit_edge156.loopexit, %.preheader
   %.285.lcssa = phi i32 [ %.184167, %.preheader ], [ %lftr.wideiv, %._crit_edge156.loopexit ]
   %.074.lcssa = phi ptr [ null, %.preheader ], [ %103, %._crit_edge156.loopexit ]
-  %105 = call ptr @bms_del_members(ptr noundef %.381168, ptr noundef %.074.lcssa) #7
+  %105 = call ptr @bms_del_members(ptr noundef %.381168, ptr noundef %.074.lcssa) #6
   br label %106
 
 106:                                              ; preds = %696, %._crit_edge156
   %.3 = phi ptr [ %.2169, %._crit_edge156 ], [ %693, %696 ]
   %.1 = phi ptr [ %.074.lcssa, %._crit_edge156 ], [ %694, %696 ]
-  %107 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef -1) #7
+  %107 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef -1) #6
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph217.i, label %remove_self_joins_one_group.exit
 
@@ -1921,7 +1917,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %111 = zext nneg i32 %109 to i64
   %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
   %113 = load ptr, ptr %112, align 8
-  %114 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %109) #7
+  %114 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %109) #6
   %115 = icmp sgt i32 %114, 0
   br i1 %115, label %.lr.ph214.i, label %.loopexit134.i
 
@@ -1964,18 +1960,18 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = load ptr, ptr %137, align 8
-  %139 = call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %138) #7
+  %139 = call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %138) #6
   %140 = load ptr, ptr %137, align 8
-  %141 = call zeroext i1 @bms_is_member(i32 noundef %109, ptr noundef %140) #7
+  %141 = call zeroext i1 @bms_is_member(i32 noundef %109, ptr noundef %140) #6
   %142 = xor i1 %139, %141
   br i1 %142, label %match_unique_clauses.exit.i, label %143
 
 143:                                              ; preds = %.lr.ph163.i
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %145 = load ptr, ptr %144, align 8
-  %146 = call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %145) #7
+  %146 = call zeroext i1 @bms_is_member(i32 noundef %120, ptr noundef %145) #6
   %147 = load ptr, ptr %144, align 8
-  %148 = call zeroext i1 @bms_is_member(i32 noundef %109, ptr noundef %147) #7
+  %148 = call zeroext i1 @bms_is_member(i32 noundef %109, ptr noundef %147) #6
   %149 = xor i1 %146, %148
   br i1 %149, label %match_unique_clauses.exit.i, label %130
 
@@ -2034,10 +2030,10 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
 .critedge110.thread.i:                            ; preds = %169, %.critedge110.i, %.lr.ph168.i, %.critedge219.i
   %.192264.i = phi ptr [ %.293.i, %169 ], [ %.293.i, %.critedge110.i ], [ null, %.critedge219.i ], [ null, %.lr.ph168.i ]
   %.195263.i = phi ptr [ %.296.i, %169 ], [ %.296.i, %.critedge110.i ], [ null, %.critedge219.i ], [ null, %.lr.ph168.i ]
-  %174 = call ptr @bms_add_member(ptr noundef null, i32 noundef %109) #7
-  %175 = call ptr @bms_add_member(ptr noundef %174, i32 noundef %120) #7
+  %174 = call ptr @bms_add_member(ptr noundef null, i32 noundef %109) #6
+  %175 = call ptr @bms_add_member(ptr noundef %174, i32 noundef %120) #6
   %176 = load ptr, ptr %116, align 8
-  %177 = call ptr @generate_join_implied_equalities(ptr noundef nonnull %0, ptr noundef %175, ptr noundef %176, ptr noundef %124, ptr noundef null) #7
+  %177 = call ptr @generate_join_implied_equalities(ptr noundef nonnull %0, ptr noundef %175, ptr noundef %176, ptr noundef %124, ptr noundef null) #6
   %178 = icmp eq ptr %177, null
   br i1 %178, label %match_unique_clauses.exit.i, label %179, !llvm.loop !17
 
@@ -2064,26 +2060,26 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
 190:                                              ; preds = %.lr.ph.i.i
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 40
   %192 = load ptr, ptr %191, align 8
-  %193 = call i32 @bms_num_members(ptr noundef %192) #7
+  %193 = call i32 @bms_num_members(ptr noundef %192) #6
   %.not51.i.i = icmp eq i32 %193, 2
   br i1 %.not51.i.i, label %194, label %202
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds nuw i8, ptr %187, i64 72
   %196 = load ptr, ptr %195, align 8
-  %197 = call i32 @bms_membership(ptr noundef %196) #7
+  %197 = call i32 @bms_membership(ptr noundef %196) #6
   %.not52.i.i = icmp eq i32 %197, 1
   br i1 %.not52.i.i, label %198, label %202
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds nuw i8, ptr %187, i64 80
   %200 = load ptr, ptr %199, align 8
-  %201 = call i32 @bms_membership(ptr noundef %200) #7
+  %201 = call i32 @bms_membership(ptr noundef %200) #6
   %.not53.i.i = icmp eq i32 %201, 1
   br i1 %.not53.i.i, label %204, label %202
 
 202:                                              ; preds = %198, %194, %190, %.lr.ph.i.i
-  %203 = call ptr @lappend(ptr noundef %.1413.i.i, ptr noundef nonnull %187) #7
+  %203 = call ptr @lappend(ptr noundef %.1413.i.i, ptr noundef nonnull %187) #6
   br label %243
 
 204:                                              ; preds = %198
@@ -2106,7 +2102,7 @@ list_length.exit.i.i:                             ; preds = %209
   br i1 %.not54.i.i, label %get_rightop.exit.i.i, label %list_length.exit.thread.i.i
 
 list_length.exit.thread.i.i:                      ; preds = %list_length.exit.i.i, %209, %204
-  %214 = call ptr @lappend(ptr noundef %.1413.i.i, ptr noundef nonnull %187) #7
+  %214 = call ptr @lappend(ptr noundef %.1413.i.i, ptr noundef nonnull %187) #6
   br label %243
 
 get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.i
@@ -2115,7 +2111,7 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
   %216 = load ptr, ptr %.val.i.i.i, align 8
   %217 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
   %218 = load ptr, ptr %217, align 8
-  %219 = call ptr @copyObjectImpl(ptr noundef %218) #7
+  %219 = call ptr @copyObjectImpl(ptr noundef %218) #6
   %.not55.i.i = icmp eq ptr %216, null
   br i1 %.not55.i.i, label %226, label %220
 
@@ -2147,19 +2143,19 @@ get_rightop.exit.i.i:                             ; preds = %list_length.exit.i.
 233:                                              ; preds = %230, %227, %226
   %.0.i.i = phi ptr [ %232, %230 ], [ %219, %227 ], [ null, %226 ]
   %234 = load ptr, ptr %199, align 8
-  %235 = call i32 @bms_singleton_member(ptr noundef %234) #7
+  %235 = call i32 @bms_singleton_member(ptr noundef %234) #6
   %236 = load ptr, ptr %195, align 8
-  %237 = call i32 @bms_singleton_member(ptr noundef %236) #7
-  call void @ChangeVarNodes(ptr noundef %.0.i.i, i32 noundef %235, i32 noundef %237, i32 noundef 0) #7
-  %238 = call zeroext i1 @equal(ptr noundef %.038.i.i, ptr noundef %.0.i.i) #7
+  %237 = call i32 @bms_singleton_member(ptr noundef %236) #6
+  call void @ChangeVarNodes(ptr noundef %.0.i.i, i32 noundef %235, i32 noundef %237, i32 noundef 0) #6
+  %238 = call zeroext i1 @equal(ptr noundef %.038.i.i, ptr noundef %.0.i.i) #6
   br i1 %238, label %239, label %241
 
 239:                                              ; preds = %233
-  %240 = call ptr @lappend(ptr noundef %.14.i.i, ptr noundef nonnull %187) #7
+  %240 = call ptr @lappend(ptr noundef %.14.i.i, ptr noundef nonnull %187) #6
   br label %243
 
 241:                                              ; preds = %233
-  %242 = call ptr @lappend(ptr noundef %.1413.i.i, ptr noundef nonnull %187) #7
+  %242 = call ptr @lappend(ptr noundef %.1413.i.i, ptr noundef nonnull %187) #6
   br label %243
 
 243:                                              ; preds = %241, %239, %list_length.exit.thread.i.i, %202
@@ -2176,7 +2172,7 @@ split_selfjoin_quals.exit.i:                      ; preds = %243, %179
   %.us-phi10.i.i = phi ptr [ null, %179 ], [ %.2.i.i, %243 ]
   %247 = getelementptr inbounds nuw i8, ptr %124, i64 296
   %248 = load ptr, ptr %247, align 8
-  %249 = call ptr @list_concat(ptr noundef %.us-phi10.i.i, ptr noundef %248) #7
+  %249 = call ptr @list_concat(ptr noundef %.us-phi10.i.i, ptr noundef %248) #6
   %250 = load ptr, ptr %116, align 8
   %.not.i.i = icmp eq ptr %.us-phi.i.i, null
   br i1 %.not.i.i, label %list_length.exit.i, label %251
@@ -2212,9 +2208,9 @@ list_length.exit.i:                               ; preds = %251, %split_selfjoi
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   %268 = load ptr, ptr %267, align 8
-  %269 = call ptr @copyObjectImpl(ptr noundef %268) #7
+  %269 = call ptr @copyObjectImpl(ptr noundef %268) #6
   %270 = load i32, ptr %117, align 8
-  call void @ChangeVarNodes(ptr noundef %269, i32 noundef %259, i32 noundef %270, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %269, i32 noundef %259, i32 noundef %270, i32 noundef 0) #6
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 72
   %272 = load ptr, ptr %271, align 8
   %273 = icmp eq ptr %272, null
@@ -2340,11 +2336,11 @@ list_length.exit.i91.i.i:                         ; preds = %323
 get_leftop.exit89.i.i:                            ; preds = %330, %list_length.exit.i91.i.i, %list_length.exit.i78.i._crit_edge.i, %323, %315
   %333 = phi ptr [ %.ph1.ph.i.i, %list_length.exit.i78.i._crit_edge.i ], [ %326, %list_length.exit.i91.i.i ], [ %326, %330 ], [ null, %315 ], [ null, %323 ]
   %334 = phi ptr [ %324, %list_length.exit.i78.i._crit_edge.i ], [ null, %list_length.exit.i91.i.i ], [ %332, %330 ], [ null, %315 ], [ null, %323 ]
-  %335 = call zeroext i1 @equal(ptr noundef %293, ptr noundef %333) #7
+  %335 = call zeroext i1 @equal(ptr noundef %293, ptr noundef %333) #6
   br i1 %335, label %336, label %338
 
 336:                                              ; preds = %get_leftop.exit89.i.i
-  %337 = call zeroext i1 @equal(ptr noundef %294, ptr noundef %334) #7
+  %337 = call zeroext i1 @equal(ptr noundef %294, ptr noundef %334) #6
   br i1 %337, label %.critedge3.i.i, label %338
 
 338:                                              ; preds = %336, %get_leftop.exit89.i.i, %301
@@ -2365,7 +2361,7 @@ get_leftop.exit89.i.i:                            ; preds = %330, %list_length.e
   %345 = getelementptr inbounds nuw i8, ptr %124, i64 296
   %346 = getelementptr inbounds nuw i8, ptr %113, i64 328
   %347 = load ptr, ptr %346, align 8
-  %348 = call ptr @list_copy(ptr noundef %347) #7
+  %348 = call ptr @list_copy(ptr noundef %347) #6
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 4
   %.not150.i.i = icmp eq ptr %348, null
   %350 = getelementptr inbounds nuw i8, ptr %348, i64 16
@@ -2380,7 +2376,7 @@ get_leftop.exit89.i.i:                            ; preds = %330, %list_length.e
   %.us-phi173.i.i = phi ptr [ null, %.loopexit.i ], [ null, %.lr.ph.split.i.i ], [ %.2132.i.i, %370 ]
   %.us-phi174.i.i = phi ptr [ null, %.loopexit.i ], [ null, %.lr.ph.split.i.i ], [ %.2.i120.i, %370 ]
   %353 = load ptr, ptr %118, align 8
-  %354 = call ptr @list_concat(ptr noundef %353, ptr noundef nonnull %177) #7
+  %354 = call ptr @list_concat(ptr noundef %353, ptr noundef nonnull %177) #6
   store ptr %354, ptr %118, align 8
   %355 = icmp eq ptr %354, null
   br i1 %355, label %.split198.us.i.i, label %.lr.ph.i118.i
@@ -2394,21 +2390,21 @@ get_leftop.exit89.i.i:                            ; preds = %330, %list_length.e
   %358 = load ptr, ptr %357, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 48
   %360 = load ptr, ptr %359, align 8
-  call void @remove_join_clause_from_rels(ptr noundef nonnull %0, ptr noundef %358, ptr noundef %360) #7
+  call void @remove_join_clause_from_rels(ptr noundef nonnull %0, ptr noundef %358, ptr noundef %360) #6
   %361 = load i32, ptr %117, align 8
   %362 = load i32, ptr %180, align 8
-  call void @ChangeVarNodes(ptr noundef %358, i32 noundef %361, i32 noundef %362, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %358, i32 noundef %361, i32 noundef %362, i32 noundef 0) #6
   %363 = load ptr, ptr %359, align 8
-  %364 = call i32 @bms_membership(ptr noundef %363) #7
+  %364 = call i32 @bms_membership(ptr noundef %363) #6
   %365 = icmp eq i32 %364, 2
   br i1 %365, label %366, label %368
 
 366:                                              ; preds = %.lr.ph167.i.i
-  %367 = call ptr @lappend(ptr noundef %.1129156164.i.i, ptr noundef nonnull %358) #7
+  %367 = call ptr @lappend(ptr noundef %.1129156164.i.i, ptr noundef nonnull %358) #6
   br label %370
 
 368:                                              ; preds = %.lr.ph167.i.i
-  %369 = call ptr @lappend(ptr noundef %.1131155165.i.i, ptr noundef nonnull %358) #7
+  %369 = call ptr @lappend(ptr noundef %.1131155165.i.i, ptr noundef nonnull %358) #6
   br label %370
 
 370:                                              ; preds = %368, %366
@@ -2460,7 +2456,7 @@ get_leftop.exit89.i.i:                            ; preds = %330, %list_length.e
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 40
   %394 = load ptr, ptr %393, align 8
   %395 = load ptr, ptr %381, align 8
-  %396 = call zeroext i1 @bms_equal(ptr noundef %394, ptr noundef %395) #7
+  %396 = call zeroext i1 @bms_equal(ptr noundef %394, ptr noundef %395) #6
   br i1 %396, label %397, label %410
 
 397:                                              ; preds = %.lr.ph53.i111
@@ -2483,7 +2479,7 @@ get_leftop.exit89.i.i:                            ; preds = %330, %list_length.e
   %407 = getelementptr inbounds nuw i8, ptr %392, i64 96
   %408 = load i32, ptr %407, align 8
   store i32 %408, ptr %383, align 8
-  %409 = call zeroext i1 @equal(ptr noundef nonnull %380, ptr noundef nonnull %392) #7
+  %409 = call zeroext i1 @equal(ptr noundef nonnull %380, ptr noundef nonnull %392) #6
   store i32 %406, ptr %383, align 8
   br i1 %409, label %.critedge2.i109, label %410
 
@@ -2495,7 +2491,7 @@ get_leftop.exit89.i.i:                            ; preds = %330, %list_length.e
   br i1 %413, label %.lr.ph53.i111, label %.critedge.i108
 
 .critedge.i108:                                   ; preds = %410, %.lr.ph.i107, %.lr.ph162
-  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %380) #7
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %380) #6
   br label %.critedge2.i109
 
 .critedge2.i109:                                  ; preds = %405, %401, %397, %.critedge.i108
@@ -2544,7 +2540,7 @@ add_non_redundant_clauses.exit115:                ; preds = %.critedge2.i109, %.
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 40
   %438 = load ptr, ptr %437, align 8
   %439 = load ptr, ptr %425, align 8
-  %440 = call zeroext i1 @bms_equal(ptr noundef %438, ptr noundef %439) #7
+  %440 = call zeroext i1 @bms_equal(ptr noundef %438, ptr noundef %439) #6
   br i1 %440, label %441, label %454
 
 441:                                              ; preds = %.lr.ph53.i
@@ -2567,7 +2563,7 @@ add_non_redundant_clauses.exit115:                ; preds = %.critedge2.i109, %.
   %451 = getelementptr inbounds nuw i8, ptr %436, i64 96
   %452 = load i32, ptr %451, align 8
   store i32 %452, ptr %427, align 8
-  %453 = call zeroext i1 @equal(ptr noundef nonnull %424, ptr noundef nonnull %436) #7
+  %453 = call zeroext i1 @equal(ptr noundef nonnull %424, ptr noundef nonnull %436) #6
   store i32 %450, ptr %427, align 8
   br i1 %453, label %.critedge2.i, label %454
 
@@ -2579,7 +2575,7 @@ add_non_redundant_clauses.exit115:                ; preds = %.critedge2.i109, %.
   br i1 %457, label %.lr.ph53.i, label %.critedge.i101
 
 .critedge.i101:                                   ; preds = %454, %.lr.ph.i100, %.lr.ph164
-  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %424) #7
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %424) #6
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %449, %445, %441, %.critedge.i101
@@ -2590,11 +2586,11 @@ add_non_redundant_clauses.exit115:                ; preds = %.critedge2.i109, %.
   br i1 %460, label %.lr.ph164, label %add_non_redundant_clauses.exit, !llvm.loop !20
 
 add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.preheader.i.preheader, %add_non_redundant_clauses.exit115
-  call void @list_free(ptr noundef %.us-phi199.i.i) #7
-  call void @list_free(ptr noundef %.us-phi200.i.i) #7
+  call void @list_free(ptr noundef %.us-phi199.i.i) #6
+  call void @list_free(ptr noundef %.us-phi200.i.i) #6
   %461 = getelementptr inbounds nuw i8, ptr %113, i64 216
   %462 = load ptr, ptr %461, align 8
-  %463 = call i32 @bms_next_member(ptr noundef %462, i32 noundef -1) #7
+  %463 = call i32 @bms_next_member(ptr noundef %462, i32 noundef -1) #6
   %464 = icmp sgt i32 %463, -1
   br i1 %464, label %.lr.ph209.i.i, label %._crit_edge.i.i
 
@@ -2618,19 +2614,19 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   %472 = load ptr, ptr %471, align 8
   %473 = load i32, ptr %117, align 8
   %474 = load i32, ptr %180, align 8
-  call void @ChangeVarNodes(ptr noundef %472, i32 noundef %473, i32 noundef %474, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %472, i32 noundef %473, i32 noundef %474, i32 noundef 0) #6
   %475 = getelementptr inbounds nuw i8, ptr %472, i64 48
   %476 = load ptr, ptr %475, align 8
-  %477 = call i32 @bms_membership(ptr noundef %476) #7
+  %477 = call i32 @bms_membership(ptr noundef %476) #6
   %478 = icmp eq i32 %477, 2
   br i1 %478, label %479, label %481
 
 479:                                              ; preds = %.lr.ph191.i.i
-  %480 = call ptr @lappend(ptr noundef %.4177188.i.i, ptr noundef nonnull %472) #7
+  %480 = call ptr @lappend(ptr noundef %.4177188.i.i, ptr noundef nonnull %472) #6
   br label %483
 
 481:                                              ; preds = %.lr.ph191.i.i
-  %482 = call ptr @lappend(ptr noundef %.4134176189.i.i, ptr noundef nonnull %472) #7
+  %482 = call ptr @lappend(ptr noundef %.4134176189.i.i, ptr noundef nonnull %472) #6
   br label %483
 
 483:                                              ; preds = %481, %479
@@ -2664,11 +2660,11 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
 .split128.us.i.i.i:                               ; preds = %.lr.ph.i.i.i, %.split128.us.loopexit.i.loopexit.i.i, %487
   %499 = phi ptr [ null, %487 ], [ %497, %.lr.ph.i.i.i ], [ %.pre.i.pre.i.i, %.split128.us.loopexit.i.loopexit.i.i ]
   %.us-phi129.i.i.i = phi ptr [ null, %487 ], [ null, %.lr.ph.i.i.i ], [ %.2.i.i.i, %.split128.us.loopexit.i.loopexit.i.i ]
-  call void @list_free(ptr noundef %499) #7
+  call void @list_free(ptr noundef %499) #6
   store ptr %.us-phi129.i.i.i, ptr %496, align 8
   %500 = getelementptr inbounds nuw i8, ptr %493, i64 40
   %501 = load ptr, ptr %500, align 8
-  call void @list_free(ptr noundef %501) #7
+  call void @list_free(ptr noundef %501) #6
   store ptr null, ptr %500, align 8
   %502 = getelementptr inbounds nuw i8, ptr %493, i64 32
   %503 = load ptr, ptr %502, align 8
@@ -2690,24 +2686,24 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   %511 = load ptr, ptr %510, align 8
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %513 = load ptr, ptr %512, align 8
-  %514 = call zeroext i1 @bms_is_member(i32 noundef %494, ptr noundef %513) #7
+  %514 = call zeroext i1 @bms_is_member(i32 noundef %494, ptr noundef %513) #6
   br i1 %514, label %515, label %.critedge159.sink.split.i.i.i
 
 515:                                              ; preds = %.lr.ph203.i.i
   %516 = load ptr, ptr %512, align 8
-  %517 = call ptr @adjust_relid_set(ptr noundef %516, i32 noundef %494, i32 noundef %495) #7
+  %517 = call ptr @adjust_relid_set(ptr noundef %516, i32 noundef %494, i32 noundef %495) #6
   store ptr %517, ptr %512, align 8
   %518 = getelementptr inbounds nuw i8, ptr %511, i64 32
   %519 = load ptr, ptr %518, align 8
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %521 = load ptr, ptr %520, align 8
-  %522 = call ptr @adjust_relid_set(ptr noundef %521, i32 noundef %494, i32 noundef %495) #7
+  %522 = call ptr @adjust_relid_set(ptr noundef %521, i32 noundef %494, i32 noundef %495) #6
   %523 = load ptr, ptr %518, align 8
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   store ptr %522, ptr %524, align 8
   %525 = getelementptr inbounds nuw i8, ptr %511, i64 8
   %526 = load ptr, ptr %525, align 8
-  call void @ChangeVarNodes(ptr noundef %526, i32 noundef %494, i32 noundef %495, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %526, i32 noundef %494, i32 noundef %495, i32 noundef 0) #6
   %527 = getelementptr inbounds nuw i8, ptr %.1122.i202.i.i, i64 4
   %.not106.i.i.i = icmp eq ptr %.1122.i202.i.i, null
   %528 = getelementptr inbounds nuw i8, ptr %.1122.i202.i.i, i64 16
@@ -2726,14 +2722,14 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   %534 = load ptr, ptr %512, align 8
   %535 = getelementptr inbounds nuw i8, ptr %533, i64 16
   %536 = load ptr, ptr %535, align 8
-  %537 = call zeroext i1 @equal(ptr noundef %534, ptr noundef %536) #7
+  %537 = call zeroext i1 @equal(ptr noundef %534, ptr noundef %536) #6
   br i1 %537, label %538, label %543
 
 538:                                              ; preds = %.lr.ph116.i.i.i
   %539 = load ptr, ptr %525, align 8
   %540 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %541 = load ptr, ptr %540, align 8
-  %542 = call zeroext i1 @equal(ptr noundef %539, ptr noundef %541) #7
+  %542 = call zeroext i1 @equal(ptr noundef %539, ptr noundef %541) #6
   br i1 %542, label %.critedge159.i.i.i, label %543
 
 543:                                              ; preds = %538, %.lr.ph116.i.i.i
@@ -2744,7 +2740,7 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   br i1 %546, label %.lr.ph116.i.i.i, label %.critedge159.sink.split.i.i.i
 
 .critedge159.sink.split.i.i.i:                    ; preds = %543, %.lr.ph.split.i.i.i, %515, %.lr.ph203.i.i
-  %547 = call ptr @lappend(ptr noundef %.1122.i202.i.i, ptr noundef nonnull %511) #7
+  %547 = call ptr @lappend(ptr noundef %.1122.i202.i.i, ptr noundef nonnull %511) #6
   br label %.critedge159.i.i.i
 
 .critedge159.i.i.i:                               ; preds = %538, %.critedge159.sink.split.i.i.i
@@ -2774,11 +2770,11 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   %557 = load ptr, ptr %556, align 8
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 48
   %559 = load ptr, ptr %558, align 8
-  %560 = call zeroext i1 @bms_is_member(i32 noundef %494, ptr noundef %559) #7
+  %560 = call zeroext i1 @bms_is_member(i32 noundef %494, ptr noundef %559) #6
   br i1 %560, label %561, label %.critedge160.sink.split.i.i.i
 
 561:                                              ; preds = %.lr.ph207.i.i
-  call void @ChangeVarNodes(ptr noundef nonnull %557, i32 noundef %494, i32 noundef %495, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef nonnull %557, i32 noundef %494, i32 noundef %495, i32 noundef 0) #6
   %562 = getelementptr inbounds nuw i8, ptr %.187149.i206.i.i, i64 4
   %.not103.i.i.i = icmp eq ptr %.187149.i206.i.i, null
   %563 = getelementptr inbounds nuw i8, ptr %.187149.i206.i.i, i64 16
@@ -2799,14 +2795,14 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   %571 = load ptr, ptr %564, align 8
   %572 = getelementptr inbounds nuw i8, ptr %570, i64 40
   %573 = load ptr, ptr %572, align 8
-  %574 = call zeroext i1 @equal(ptr noundef %571, ptr noundef %573) #7
+  %574 = call zeroext i1 @equal(ptr noundef %571, ptr noundef %573) #6
   br i1 %574, label %575, label %580
 
 575:                                              ; preds = %.lr.ph141.i.i.i
   %576 = load ptr, ptr %565, align 8
   %577 = getelementptr inbounds nuw i8, ptr %570, i64 8
   %578 = load ptr, ptr %577, align 8
-  %579 = call zeroext i1 @equal(ptr noundef %576, ptr noundef %578) #7
+  %579 = call zeroext i1 @equal(ptr noundef %576, ptr noundef %578) #6
   br i1 %579, label %.critedge160.i.i.i, label %580
 
 580:                                              ; preds = %575, %.lr.ph141.i.i.i
@@ -2817,7 +2813,7 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
   br i1 %583, label %.lr.ph141.i.i.i, label %.critedge160.sink.split.i.i.i
 
 .critedge160.sink.split.i.i.i:                    ; preds = %580, %.lr.ph131.split.i.i.i, %561, %.lr.ph207.i.i
-  %584 = call ptr @lappend(ptr noundef %.187149.i206.i.i, ptr noundef nonnull %557) #7
+  %584 = call ptr @lappend(ptr noundef %.187149.i206.i.i, ptr noundef nonnull %557) #6
   br label %.critedge160.i.i.i
 
 .critedge160.i.i.i:                               ; preds = %575, %.critedge160.sink.split.i.i.i
@@ -2831,17 +2827,17 @@ add_non_redundant_clauses.exit:                   ; preds = %.critedge2.i, %.pre
 update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.split157.us.loopexit.i.loopexit.i.i, %.split128.us.i.i.i
   %588 = phi ptr [ null, %.split128.us.i.i.i ], [ %503, %.lr.ph150.i.i.i ], [ %.pre171.i.pre.i.i, %.split157.us.loopexit.i.loopexit.i.i ]
   %.us-phi158.i.i.i = phi ptr [ null, %.split128.us.i.i.i ], [ null, %.lr.ph150.i.i.i ], [ %.288.i.i.i, %.split157.us.loopexit.i.loopexit.i.i ]
-  call void @list_free(ptr noundef %588) #7
+  call void @list_free(ptr noundef %588) #6
   store ptr %.us-phi158.i.i.i, ptr %502, align 8
   %589 = getelementptr inbounds nuw i8, ptr %493, i64 48
   %590 = load ptr, ptr %589, align 8
-  %591 = call ptr @adjust_relid_set(ptr noundef %590, i32 noundef %494, i32 noundef %495) #7
+  %591 = call ptr @adjust_relid_set(ptr noundef %590, i32 noundef %494, i32 noundef %495) #6
   store ptr %591, ptr %589, align 8
   %592 = load ptr, ptr %465, align 8
-  %593 = call ptr @bms_add_member(ptr noundef %592, i32 noundef %488) #7
+  %593 = call ptr @bms_add_member(ptr noundef %592, i32 noundef %488) #6
   store ptr %593, ptr %465, align 8
   %594 = load ptr, ptr %461, align 8
-  %595 = call i32 @bms_next_member(ptr noundef %594, i32 noundef %488) #7
+  %595 = call i32 @bms_next_member(ptr noundef %594, i32 noundef %488) #6
   %596 = icmp sgt i32 %595, -1
   br i1 %596, label %487, label %._crit_edge.i.i, !llvm.loop !21
 
@@ -2868,11 +2864,11 @@ update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.
   %608 = load ptr, ptr %607, align 8
   %609 = load i32, ptr %117, align 8
   %610 = load i32, ptr %180, align 8
-  call void @ChangeVarNodes(ptr noundef %608, i32 noundef %609, i32 noundef %610, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %608, i32 noundef %609, i32 noundef %610, i32 noundef 0) #6
   %611 = load ptr, ptr %603, align 8
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 8
   %613 = load ptr, ptr %612, align 8
-  %614 = call zeroext i1 @list_member(ptr noundef %613, ptr noundef %608) #7
+  %614 = call zeroext i1 @list_member(ptr noundef %613, ptr noundef %608) #6
   br i1 %614, label %629, label %622
 
 .critedge152.i.i:                                 ; preds = %629, %.lr.ph212.i.i, %._crit_edge.i.i
@@ -2893,7 +2889,7 @@ update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.
   %623 = load ptr, ptr %603, align 8
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 8
   %625 = load ptr, ptr %624, align 8
-  %626 = call ptr @lappend(ptr noundef %625, ptr noundef %608) #7
+  %626 = call ptr @lappend(ptr noundef %625, ptr noundef %608) #6
   %627 = load ptr, ptr %603, align 8
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   store ptr %626, ptr %628, align 8
@@ -2917,7 +2913,7 @@ update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.
   %640 = load ptr, ptr %639, align 8
   %641 = load i32, ptr %117, align 8
   %642 = load i32, ptr %180, align 8
-  %643 = call ptr @adjust_relid_set(ptr noundef %640, i32 noundef %641, i32 noundef %642) #7
+  %643 = call ptr @adjust_relid_set(ptr noundef %640, i32 noundef %641, i32 noundef %642) #6
   %644 = load ptr, ptr %620, align 8
   %645 = getelementptr inbounds ptr, ptr %644, i64 %638
   store ptr %643, ptr %645, align 8
@@ -2927,7 +2923,7 @@ update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.
   %649 = load ptr, ptr %620, align 8
   %650 = getelementptr inbounds ptr, ptr %649, i64 %638
   %651 = load ptr, ptr %650, align 8
-  %652 = call ptr @bms_add_members(ptr noundef %648, ptr noundef %651) #7
+  %652 = call ptr @bms_add_members(ptr noundef %648, ptr noundef %651) #6
   %653 = load ptr, ptr %621, align 8
   %654 = getelementptr inbounds ptr, ptr %653, i64 %638
   store ptr %652, ptr %654, align 8
@@ -2947,7 +2943,7 @@ update_eclasses.exit.i.i:                         ; preds = %.lr.ph150.i.i.i, %.
 
 659:                                              ; preds = %658
   %660 = load ptr, ptr %78, align 8
-  %661 = call ptr @list_delete_ptr(ptr noundef %660, ptr noundef nonnull %.192264.i) #7
+  %661 = call ptr @list_delete_ptr(ptr noundef %660, ptr noundef nonnull %.192264.i) #6
   store ptr %661, ptr %78, align 8
   br label %match_unique_clauses.exit.thread127.i
 
@@ -2963,37 +2959,37 @@ match_unique_clauses.exit.thread127.i:            ; preds = %662, %659, %._crit_
   %666 = load ptr, ptr %80, align 8
   %667 = load i32, ptr %117, align 8
   %668 = load i32, ptr %180, align 8
-  call void @ChangeVarNodesExtended(ptr noundef %666, i32 noundef %667, i32 noundef %668, i32 noundef 0, i1 noundef zeroext false) #7
+  call void @ChangeVarNodesExtended(ptr noundef %666, i32 noundef %667, i32 noundef %668, i32 noundef 0, i1 noundef zeroext false) #6
   %669 = load i32, ptr %180, align 8
   %.val.i.i = load i32, ptr %117, align 8
   call fastcc void @remove_rel_from_query(ptr noundef nonnull %0, i32 %.val.i.i, i32 noundef %669, ptr noundef null, ptr noundef null)
   %670 = load ptr, ptr %81, align 8
   %671 = load i32, ptr %117, align 8
   %672 = load i32, ptr %180, align 8
-  call void @ChangeVarNodes(ptr noundef %670, i32 noundef %671, i32 noundef %672, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %670, i32 noundef %671, i32 noundef %672, i32 noundef 0) #6
   %673 = load ptr, ptr %82, align 8
   %674 = load i32, ptr %117, align 8
   %675 = load i32, ptr %180, align 8
-  call void @ChangeVarNodes(ptr noundef %673, i32 noundef %674, i32 noundef %675, i32 noundef 0) #7
+  call void @ChangeVarNodes(ptr noundef %673, i32 noundef %674, i32 noundef %675, i32 noundef 0) #6
   %676 = load ptr, ptr %83, align 8
   %677 = load i32, ptr %117, align 8
   %678 = load i32, ptr %180, align 8
-  %679 = call ptr @adjust_relid_set(ptr noundef %676, i32 noundef %677, i32 noundef %678) #7
+  %679 = call ptr @adjust_relid_set(ptr noundef %676, i32 noundef %677, i32 noundef %678) #6
   %680 = load ptr, ptr %84, align 8
   %681 = load i32, ptr %117, align 8
   %682 = load i32, ptr %180, align 8
-  %683 = call ptr @adjust_relid_set(ptr noundef %680, i32 noundef %681, i32 noundef %682) #7
+  %683 = call ptr @adjust_relid_set(ptr noundef %680, i32 noundef %681, i32 noundef %682) #6
   %684 = load ptr, ptr %76, align 8
   %685 = load i32, ptr %117, align 8
   %686 = zext i32 %685 to i64
   %687 = getelementptr inbounds nuw ptr, ptr %684, i64 %686
   store ptr null, ptr %687, align 8
-  call void @pfree(ptr noundef nonnull %113) #7
-  call void @rebuild_placeholder_attr_needed(ptr noundef nonnull %0) #7
-  call void @rebuild_joinclause_attr_needed(ptr noundef nonnull %0) #7
-  call void @rebuild_eclass_attr_needed(ptr noundef nonnull %0) #7
-  call void @rebuild_lateral_attr_needed(ptr noundef nonnull %0) #7
-  %688 = call ptr @bms_add_member(ptr noundef %.0215.i, i32 noundef %109) #7
+  call void @pfree(ptr noundef nonnull %113) #6
+  call void @rebuild_placeholder_attr_needed(ptr noundef nonnull %0) #6
+  call void @rebuild_joinclause_attr_needed(ptr noundef nonnull %0) #6
+  call void @rebuild_eclass_attr_needed(ptr noundef nonnull %0) #6
+  call void @rebuild_lateral_attr_needed(ptr noundef nonnull %0) #6
+  %688 = call ptr @bms_add_member(ptr noundef %.0215.i, i32 noundef %109) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit134.i
 
@@ -3005,37 +3001,37 @@ match_unique_clauses.exit.thread127.i:            ; preds = %662, %659, %._crit_
 
 match_unique_clauses.exit.i:                      ; preds = %143, %.lr.ph163.i, %get_leftop.exit71.i.i, %.match_unique_clauses.exit.loopexit_crit_edge.i, %.lr.ph.i114.match_unique_clauses.exit.loopexit_crit_edge.i, %list_length.exit.i, %.critedge110.thread.i, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %689 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %120) #7
+  %689 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %120) #6
   %690 = icmp sgt i32 %689, 0
   br i1 %690, label %119, label %.loopexit134.i
 
 .loopexit134.i:                                   ; preds = %match_unique_clauses.exit.i, %match_unique_clauses.exit.thread127.i, %.lr.ph217.i
   %.2.i = phi ptr [ %688, %match_unique_clauses.exit.thread127.i ], [ %.0215.i, %.lr.ph217.i ], [ %.0215.i, %match_unique_clauses.exit.i ]
-  %691 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %109) #7
+  %691 = call i32 @bms_next_member(ptr noundef %.1, i32 noundef %109) #6
   %692 = icmp sgt i32 %691, 0
   br i1 %692, label %.lr.ph217.i, label %remove_self_joins_one_group.exit, !llvm.loop !23
 
 remove_self_joins_one_group.exit:                 ; preds = %.loopexit134.i, %106
   %.0.lcssa.i = phi ptr [ null, %106 ], [ %.2.i, %.loopexit134.i ]
-  %693 = call ptr @bms_add_members(ptr noundef %.3, ptr noundef %.0.lcssa.i) #7
-  %694 = call ptr @bms_del_members(ptr noundef %.1, ptr noundef %.0.lcssa.i) #7
+  %693 = call ptr @bms_add_members(ptr noundef %.3, ptr noundef %.0.lcssa.i) #6
+  %694 = call ptr @bms_del_members(ptr noundef %.1, ptr noundef %.0.lcssa.i) #6
   %695 = icmp eq ptr %.0.lcssa.i, null
   br i1 %695, label %.critedge, label %696
 
 696:                                              ; preds = %remove_self_joins_one_group.exit
-  %697 = call i32 @bms_membership(ptr noundef %694) #7
+  %697 = call i32 @bms_membership(ptr noundef %694) #6
   %698 = icmp eq i32 %697, 2
   br i1 %698, label %106, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %remove_self_joins_one_group.exit, %696
-  call void @bms_free(ptr noundef %.0.lcssa.i) #7
-  call void @bms_free(ptr noundef %694) #7
+  call void @bms_free(ptr noundef %.0.lcssa.i) #6
+  call void @bms_free(ptr noundef %694) #6
   br label %703
 
 699:                                              ; preds = %95
   %700 = getelementptr inbounds %struct.SelfJoinCandidate, ptr %56, i64 %99
   %701 = load i32, ptr %700, align 4
-  %702 = call ptr @bms_del_member(ptr noundef %.381168, i32 noundef %701) #7
+  %702 = call ptr @bms_del_member(ptr noundef %.381168, i32 noundef %701) #6
   br label %703
 
 703:                                              ; preds = %87, %699, %.critedge
@@ -3077,7 +3073,7 @@ define internal fastcc noundef zeroext i1 @rel_is_distinct_for(ptr noundef %0, p
   ]
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @relation_has_unique_index_ext(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef %3) #7
+  %11 = tail call zeroext i1 @relation_has_unique_index_ext(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef %3) #6
   br i1 %11, label %72, label %71
 
 12:                                               ; preds = %7
@@ -3191,8 +3187,8 @@ thread-pre-split:                                 ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %.162, i64 8
   %64 = load i16, ptr %63, align 8
   %65 = sext i16 %64 to i32
-  %66 = tail call ptr @lappend_int(ptr noundef %.0386575, i32 noundef %65) #7
-  %67 = tail call ptr @lappend_oid(ptr noundef %.0416476, i32 noundef %32) #7
+  %66 = tail call ptr @lappend_int(ptr noundef %.0386575, i32 noundef %65) #6
+  %67 = tail call ptr @lappend_oid(ptr noundef %.0416476, i32 noundef %32) #6
   br label %.thread
 
 .thread:                                          ; preds = %45, %38, %list_length.exit.i, %get_rightop.exit, %51, %.thread59, %56, %59, %62
@@ -3232,17 +3228,17 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %9 = phi i32 [ %7, %5 ], [ -1, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @adjust_relid_set(ptr noundef %11, i32 noundef %.112.val, i32 noundef %1) #7
+  %12 = tail call ptr @adjust_relid_set(ptr noundef %11, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %12, ptr %10, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @adjust_relid_set(ptr noundef %14, i32 noundef %9, i32 noundef %1) #7
+  %15 = tail call ptr @adjust_relid_set(ptr noundef %14, i32 noundef %9, i32 noundef %1) #6
   store ptr %15, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @adjust_relid_set(ptr noundef %17, i32 noundef %.112.val, i32 noundef %1) #7
+  %18 = tail call ptr @adjust_relid_set(ptr noundef %17, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %18, ptr %16, align 8
-  %19 = tail call ptr @adjust_relid_set(ptr noundef %18, i32 noundef %9, i32 noundef %1) #7
+  %19 = tail call ptr @adjust_relid_set(ptr noundef %18, i32 noundef %9, i32 noundef %1) #6
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %21 = load ptr, ptr %20, align 8
@@ -3263,31 +3259,31 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = tail call ptr @bms_copy(ptr noundef %30) #7
+  %31 = tail call ptr @bms_copy(ptr noundef %30) #6
   store ptr %31, ptr %29, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr @bms_copy(ptr noundef %33) #7
+  %34 = tail call ptr @bms_copy(ptr noundef %33) #6
   store ptr %34, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call ptr @bms_copy(ptr noundef %36) #7
+  %37 = tail call ptr @bms_copy(ptr noundef %36) #6
   store ptr %37, ptr %35, align 8
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call ptr @bms_copy(ptr noundef %39) #7
+  %40 = tail call ptr @bms_copy(ptr noundef %39) #6
   store ptr %40, ptr %38, align 8
   %41 = load ptr, ptr %29, align 8
-  %42 = tail call ptr @adjust_relid_set(ptr noundef %41, i32 noundef %.112.val, i32 noundef %1) #7
+  %42 = tail call ptr @adjust_relid_set(ptr noundef %41, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %42, ptr %29, align 8
   %43 = load ptr, ptr %32, align 8
-  %44 = tail call ptr @adjust_relid_set(ptr noundef %43, i32 noundef %.112.val, i32 noundef %1) #7
+  %44 = tail call ptr @adjust_relid_set(ptr noundef %43, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %44, ptr %32, align 8
   %45 = load ptr, ptr %35, align 8
-  %46 = tail call ptr @adjust_relid_set(ptr noundef %45, i32 noundef %.112.val, i32 noundef %1) #7
+  %46 = tail call ptr @adjust_relid_set(ptr noundef %45, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %46, ptr %35, align 8
   %47 = load ptr, ptr %38, align 8
-  %48 = tail call ptr @adjust_relid_set(ptr noundef %47, i32 noundef %.112.val, i32 noundef %1) #7
+  %48 = tail call ptr @adjust_relid_set(ptr noundef %47, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %48, ptr %38, align 8
   br i1 %.not, label %73, label %52
 
@@ -3303,39 +3299,39 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 
 52:                                               ; preds = %.lr.ph46
   %53 = load ptr, ptr %29, align 8
-  %54 = tail call ptr @bms_del_member(ptr noundef %53, i32 noundef %9) #7
+  %54 = tail call ptr @bms_del_member(ptr noundef %53, i32 noundef %9) #6
   store ptr %54, ptr %29, align 8
   %55 = load ptr, ptr %32, align 8
-  %56 = tail call ptr @bms_del_member(ptr noundef %55, i32 noundef %9) #7
+  %56 = tail call ptr @bms_del_member(ptr noundef %55, i32 noundef %9) #6
   store ptr %56, ptr %32, align 8
   %57 = load ptr, ptr %35, align 8
-  %58 = tail call ptr @bms_del_member(ptr noundef %57, i32 noundef %9) #7
+  %58 = tail call ptr @bms_del_member(ptr noundef %57, i32 noundef %9) #6
   store ptr %58, ptr %35, align 8
   %59 = load ptr, ptr %38, align 8
-  %60 = tail call ptr @bms_del_member(ptr noundef %59, i32 noundef %9) #7
+  %60 = tail call ptr @bms_del_member(ptr noundef %59, i32 noundef %9) #6
   store ptr %60, ptr %38, align 8
   %61 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr @bms_del_member(ptr noundef %62, i32 noundef %9) #7
+  %63 = tail call ptr @bms_del_member(ptr noundef %62, i32 noundef %9) #6
   store ptr %63, ptr %61, align 8
   %64 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call ptr @bms_del_member(ptr noundef %65, i32 noundef %9) #7
+  %66 = tail call ptr @bms_del_member(ptr noundef %65, i32 noundef %9) #6
   store ptr %66, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call ptr @bms_del_member(ptr noundef %68, i32 noundef %9) #7
+  %69 = tail call ptr @bms_del_member(ptr noundef %68, i32 noundef %9) #6
   store ptr %69, ptr %67, align 8
   %70 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr @bms_del_member(ptr noundef %71, i32 noundef %9) #7
+  %72 = tail call ptr @bms_del_member(ptr noundef %71, i32 noundef %9) #6
   store ptr %72, ptr %70, align 8
   br label %76
 
 73:                                               ; preds = %.lr.ph46
   %74 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %75 = load ptr, ptr %74, align 8
-  tail call void @ChangeVarNodes(ptr noundef %75, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #7
+  tail call void @ChangeVarNodes(ptr noundef %75, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #6
   br label %76
 
 76:                                               ; preds = %73, %52
@@ -3361,7 +3357,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call zeroext i1 @bms_is_subset(ptr noundef %91, ptr noundef %3) #7
+  %92 = tail call zeroext i1 @bms_is_subset(ptr noundef %91, ptr noundef %3) #6
   br i1 %92, label %99, label %115
 
 .critedge178:                                     ; preds = %80, %139, %.critedge
@@ -3381,7 +3377,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 99:                                               ; preds = %84
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %101) #7
+  %102 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %101) #6
   br i1 %102, label %103, label %115
 
 103:                                              ; preds = %99
@@ -3389,12 +3385,12 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %100, align 8
-  %106 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %105) #7
+  %106 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %105) #6
   br i1 %106, label %115, label %107
 
 107:                                              ; preds = %104, %103
   %108 = load ptr, ptr %49, align 8
-  %109 = tail call ptr @list_delete_nth_cell(ptr noundef %108, i32 noundef %.sroa.7.07) #7
+  %109 = tail call ptr @list_delete_nth_cell(ptr noundef %108, i32 noundef %.sroa.7.07) #6
   store ptr %109, ptr %49, align 8
   %110 = load ptr, ptr %51, align 8
   %111 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -3409,16 +3405,16 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call ptr @adjust_relid_set(ptr noundef %119, i32 noundef %.112.val, i32 noundef %1) #7
+  %120 = tail call ptr @adjust_relid_set(ptr noundef %119, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %120, ptr %118, align 8
-  %121 = tail call ptr @adjust_relid_set(ptr noundef %120, i32 noundef %9, i32 noundef %1) #7
+  %121 = tail call ptr @adjust_relid_set(ptr noundef %120, i32 noundef %9, i32 noundef %1) #6
   store ptr %121, ptr %118, align 8
   %122 = load ptr, ptr %90, align 8
-  %123 = tail call zeroext i1 @bms_is_member(i32 noundef 0, ptr noundef %122) #7
+  %123 = tail call zeroext i1 @bms_is_member(i32 noundef 0, ptr noundef %122) #6
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %115
-  %125 = tail call ptr @bms_make_singleton(i32 noundef 0) #7
+  %125 = tail call ptr @bms_make_singleton(i32 noundef 0) #6
   br label %126
 
 126:                                              ; preds = %115, %124
@@ -3426,20 +3422,20 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   store ptr %storemerge, ptr %90, align 8
   %127 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %128 = load ptr, ptr %127, align 8
-  %129 = tail call ptr @adjust_relid_set(ptr noundef %128, i32 noundef %.112.val, i32 noundef %1) #7
+  %129 = tail call ptr @adjust_relid_set(ptr noundef %128, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %129, ptr %127, align 8
   %130 = load ptr, ptr %118, align 8
-  %131 = tail call ptr @bms_difference(ptr noundef %129, ptr noundef %130) #7
+  %131 = tail call ptr @bms_difference(ptr noundef %129, ptr noundef %130) #6
   store ptr %131, ptr %127, align 8
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %133 = load ptr, ptr %132, align 8
-  %134 = tail call ptr @adjust_relid_set(ptr noundef %133, i32 noundef %.112.val, i32 noundef %1) #7
+  %134 = tail call ptr @adjust_relid_set(ptr noundef %133, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %134, ptr %132, align 8
-  %135 = tail call ptr @adjust_relid_set(ptr noundef %134, i32 noundef %9, i32 noundef %1) #7
+  %135 = tail call ptr @adjust_relid_set(ptr noundef %134, i32 noundef %9, i32 noundef %1) #6
   store ptr %135, ptr %132, align 8
   %136 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %137 = load ptr, ptr %136, align 8
-  tail call void @ChangeVarNodes(ptr noundef %137, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #7
+  tail call void @ChangeVarNodes(ptr noundef %137, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #6
   %138 = add nsw i32 %.sroa.7.07, 1
   br label %139
 
@@ -3456,7 +3452,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %144 = load ptr, ptr %143, align 8
-  %145 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %144) #7
+  %145 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %144) #6
   %or.cond = or i1 %.not, %145
   br i1 %or.cond, label %154, label %151
 
@@ -3473,14 +3469,14 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 
 151:                                              ; preds = %.lr.ph48
   %152 = load ptr, ptr %143, align 8
-  %153 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %152) #7
+  %153 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %152) #6
   br i1 %153, label %154, label %228
 
 154:                                              ; preds = %151, %.lr.ph48
   %155 = load ptr, ptr %143, align 8
-  %156 = tail call ptr @adjust_relid_set(ptr noundef %155, i32 noundef %.112.val, i32 noundef %1) #7
+  %156 = tail call ptr @adjust_relid_set(ptr noundef %155, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %156, ptr %143, align 8
-  %157 = tail call ptr @adjust_relid_set(ptr noundef %156, i32 noundef %9, i32 noundef %1) #7
+  %157 = tail call ptr @adjust_relid_set(ptr noundef %156, i32 noundef %9, i32 noundef %1) #6
   store ptr %157, ptr %143, align 8
   %158 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %159 = load ptr, ptr %158, align 8
@@ -3506,14 +3502,14 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %170 = load ptr, ptr %169, align 8
-  %171 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %170) #7
+  %171 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %170) #6
   br i1 %171, label %172, label %181
 
 172:                                              ; preds = %163
   %173 = load ptr, ptr %169, align 8
-  %174 = tail call ptr @adjust_relid_set(ptr noundef %173, i32 noundef %.112.val, i32 noundef %1) #7
+  %174 = tail call ptr @adjust_relid_set(ptr noundef %173, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %174, ptr %169, align 8
-  %175 = tail call ptr @adjust_relid_set(ptr noundef %174, i32 noundef -1, i32 noundef %1) #7
+  %175 = tail call ptr @adjust_relid_set(ptr noundef %174, i32 noundef -1, i32 noundef %1) #6
   store ptr %175, ptr %169, align 8
   %176 = icmp eq ptr %175, null
   br i1 %176, label %177, label %181
@@ -3521,7 +3517,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 177:                                              ; preds = %172
   %178 = load ptr, ptr %158, align 8
   %179 = add i32 %.sroa.7.056.us.i, -1
-  %180 = tail call ptr @list_delete_nth_cell(ptr noundef %178, i32 noundef %.sroa.7.056.us.i) #7
+  %180 = tail call ptr @list_delete_nth_cell(ptr noundef %178, i32 noundef %.sroa.7.056.us.i) #6
   store ptr %180, ptr %158, align 8
   br label %181
 
@@ -3548,7 +3544,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %193 = load ptr, ptr %192, align 8
-  %194 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %193) #7
+  %194 = tail call zeroext i1 @bms_is_member(i32 noundef %.112.val, ptr noundef %193) #6
   br i1 %194, label %210, label %207
 
 .critedge.i:                                      ; preds = %219, %.lr.ph.split.i, %181, %.lr.ph.split.us.i, %154
@@ -3572,7 +3568,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
   %201 = load ptr, ptr %198, align 8
   %202 = getelementptr inbounds nuw %union.ListCell, ptr %201, i64 %indvars.iv69.i
   %203 = load ptr, ptr %202, align 8
-  tail call void @ChangeVarNodes(ptr noundef %203, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #7
+  tail call void @ChangeVarNodes(ptr noundef %203, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #6
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %204 = load i32, ptr %197, align 4
   %205 = sext i32 %204 to i64
@@ -3584,14 +3580,14 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 
 207:                                              ; preds = %186
   %208 = load ptr, ptr %192, align 8
-  %209 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %208) #7
+  %209 = tail call zeroext i1 @bms_is_member(i32 noundef %9, ptr noundef %208) #6
   br i1 %209, label %210, label %219
 
 210:                                              ; preds = %207, %186
   %211 = load ptr, ptr %192, align 8
-  %212 = tail call ptr @adjust_relid_set(ptr noundef %211, i32 noundef %.112.val, i32 noundef %1) #7
+  %212 = tail call ptr @adjust_relid_set(ptr noundef %211, i32 noundef %.112.val, i32 noundef %1) #6
   store ptr %212, ptr %192, align 8
-  %213 = tail call ptr @adjust_relid_set(ptr noundef %212, i32 noundef %9, i32 noundef %1) #7
+  %213 = tail call ptr @adjust_relid_set(ptr noundef %212, i32 noundef %9, i32 noundef %1) #6
   store ptr %213, ptr %192, align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %215, label %219
@@ -3599,7 +3595,7 @@ define internal fastcc void @remove_rel_from_query(ptr noundef captures(none) %0
 215:                                              ; preds = %210
   %216 = load ptr, ptr %158, align 8
   %217 = add i32 %.sroa.7.056.i, -1
-  %218 = tail call ptr @list_delete_nth_cell(ptr noundef %216, i32 noundef %.sroa.7.056.i) #7
+  %218 = tail call ptr @list_delete_nth_cell(ptr noundef %216, i32 noundef %.sroa.7.056.i) #6
   store ptr %218, ptr %158, align 8
   br label %219
 
@@ -3663,11 +3659,11 @@ remove_rel_from_eclass.exit:                      ; preds = %.lr.ph63.i, %.lr.ph
   %249 = load ptr, ptr %246, align 8
   %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %indvars.iv24
   %251 = load ptr, ptr %250, align 8
-  %252 = tail call zeroext i1 @bms_is_member(i32 noundef 0, ptr noundef %251) #7
+  %252 = tail call zeroext i1 @bms_is_member(i32 noundef 0, ptr noundef %251) #6
   br i1 %252, label %253, label %255
 
 253:                                              ; preds = %248
-  %254 = tail call ptr @bms_make_singleton(i32 noundef 0) #7
+  %254 = tail call ptr @bms_make_singleton(i32 noundef 0) #6
   br label %255
 
 255:                                              ; preds = %248, %253
@@ -3685,7 +3681,7 @@ remove_rel_from_eclass.exit:                      ; preds = %.lr.ph63.i, %.lr.ph
 259:                                              ; preds = %._crit_edge
   %260 = getelementptr inbounds nuw i8, ptr %235, i64 160
   %261 = load ptr, ptr %260, align 8
-  tail call void @ChangeVarNodes(ptr noundef %261, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #7
+  tail call void @ChangeVarNodes(ptr noundef %261, i32 noundef %.112.val, i32 noundef %1, i32 noundef 0) #6
   br label %262
 
 262:                                              ; preds = %._crit_edge, %259, %232
@@ -3709,21 +3705,21 @@ declare void @remove_join_clause_from_rels(ptr noundef, ptr noundef, ptr noundef
 define internal fastcc void @remove_rel_from_restrictinfo(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @bms_copy(ptr noundef %5) #7
+  %6 = tail call ptr @bms_copy(ptr noundef %5) #6
   store ptr %6, ptr %4, align 8
-  %7 = tail call ptr @bms_del_member(ptr noundef %6, i32 noundef %1) #7
+  %7 = tail call ptr @bms_del_member(ptr noundef %6, i32 noundef %1) #6
   store ptr %7, ptr %4, align 8
-  %8 = tail call ptr @bms_del_member(ptr noundef %7, i32 noundef %2) #7
+  %8 = tail call ptr @bms_del_member(ptr noundef %7, i32 noundef %2) #6
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @bms_copy(ptr noundef %10) #7
+  %11 = tail call ptr @bms_copy(ptr noundef %10) #6
   store ptr %11, ptr %9, align 8
-  %12 = tail call ptr @bms_del_member(ptr noundef %11, i32 noundef %1) #7
+  %12 = tail call ptr @bms_del_member(ptr noundef %11, i32 noundef %1) #6
   store ptr %12, ptr %9, align 8
-  %13 = tail call ptr @bms_del_member(ptr noundef %12, i32 noundef %2) #7
+  %13 = tail call ptr @bms_del_member(ptr noundef %12, i32 noundef %2) #6
   store ptr %13, ptr %9, align 8
-  %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %0) #7
+  %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %0) #6
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %3
@@ -3866,24 +3862,20 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #6
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

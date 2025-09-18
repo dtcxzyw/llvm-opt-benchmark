@@ -20,23 +20,23 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
-  %5 = tail call ptr @palloc(i64 noundef 9712) #7
+  %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
+  %5 = tail call ptr @palloc(i64 noundef 9712) #6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 9664
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 9672
   store i32 0, ptr %7, align 8
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
-  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
+  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
   store ptr %9, ptr %5, align 8
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
-  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
+  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %10, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 9696
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8
-  tail call void @initGinState(ptr noundef nonnull %13, ptr noundef %15) #7
+  tail call void @initGinState(ptr noundef nonnull %13, ptr noundef %15) #6
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %5, ptr %16, align 8
   ret ptr %4
@@ -78,7 +78,7 @@ define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unna
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %8
-  tail call void @ReleaseBuffer(i32 noundef %13) #7
+  tail call void @ReleaseBuffer(i32 noundef %13) #6
   br label %15
 
 15:                                               ; preds = %14, %8
@@ -88,7 +88,7 @@ define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unna
   br i1 %.not22, label %19, label %18
 
 18:                                               ; preds = %15
-  tail call void @pfree(ptr noundef nonnull %17) #7
+  tail call void @pfree(ptr noundef nonnull %17) #6
   br label %19
 
 19:                                               ; preds = %18, %15
@@ -98,7 +98,7 @@ define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unna
   br i1 %.not23, label %23, label %22
 
 22:                                               ; preds = %19
-  tail call void @tbm_end_private_iterate(ptr noundef nonnull %21) #7
+  tail call void @tbm_end_private_iterate(ptr noundef nonnull %21) #6
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -108,7 +108,7 @@ define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unna
   br i1 %.not24, label %27, label %26
 
 26:                                               ; preds = %23
-  tail call void @tbm_free(ptr noundef nonnull %25) #7
+  tail call void @tbm_free(ptr noundef nonnull %25) #6
   br label %27
 
 27:                                               ; preds = %26, %23
@@ -121,7 +121,7 @@ define dso_local void @ginFreeScanKeys(ptr noundef captures(none) %0) local_unna
 ._crit_edge:                                      ; preds = %27, %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 9696
   %32 = load ptr, ptr %31, align 8
-  tail call void @MemoryContextReset(ptr noundef %32) #7
+  tail call void @MemoryContextReset(ptr noundef %32) #6
   store ptr null, ptr %2, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 9672
   store i32 0, ptr %33, align 8
@@ -169,7 +169,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %19 = zext nneg i32 %17 to i64
   %20 = mul nuw nsw i64 %19, 152
   %21 = select i1 %18, i64 %20, i64 152
-  %22 = tail call ptr @palloc(i64 noundef %21) #7
+  %22 = tail call ptr @palloc(i64 noundef %21) #6
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 9664
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 9672
@@ -178,7 +178,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   store i32 0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 9692
   store i32 32, ptr %26, align 4
-  %27 = tail call ptr @palloc(i64 noundef 256) #7
+  %27 = tail call ptr @palloc(i64 noundef 256) #6
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 9680
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 9704
@@ -229,7 +229,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i64
-  %56 = call i64 @FunctionCall7Coll(ptr noundef nonnull %48, i32 noundef %50, i64 noundef %52, i64 noundef %34, i64 noundef %55, i64 noundef %35, i64 noundef %36, i64 noundef %37, i64 noundef %38) #7
+  %56 = call i64 @FunctionCall7Coll(ptr noundef nonnull %48, i32 noundef %50, i64 noundef %52, i64 noundef %34, i64 noundef %55, i64 noundef %35, i64 noundef %36, i64 noundef %37, i64 noundef %38) #6
   %57 = inttoptr i64 %56 to ptr
   %58 = load i32, ptr %7, align 4
   %or.cond = icmp ugt i32 %58, 2
@@ -259,7 +259,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
 67:                                               ; preds = %60, %66
   %68 = phi i32 [ %63, %60 ], [ 0, %66 ]
   %69 = zext nneg i32 %68 to i64
-  %70 = call ptr @palloc0(i64 noundef %69) #7
+  %70 = call ptr @palloc0(i64 noundef %69) #6
   %71 = load ptr, ptr %6, align 8
   %.not72 = icmp ne ptr %71, null
   %72 = load i32, ptr %3, align 4
@@ -403,10 +403,10 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   store i32 0, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 0, ptr %140, align 4
-  %141 = call ptr @palloc(i64 noundef 8) #7
+  %141 = call ptr @palloc(i64 noundef 8) #6
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %141, ptr %142, align 8
-  %143 = call ptr @palloc0(i64 noundef 1) #7
+  %143 = call ptr @palloc0(i64 noundef 1) #6
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 48
   store ptr %143, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %138, i64 96
@@ -427,7 +427,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %153 = getelementptr inbounds nuw i8, ptr %138, i64 32
   store ptr null, ptr %153, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %149, i8 0, i64 9, i1 false)
-  call void @ginInitConsistentFunction(ptr noundef nonnull %139, ptr noundef nonnull %138) #7
+  call void @ginInitConsistentFunction(ptr noundef nonnull %139, ptr noundef nonnull %138) #6
   %154 = load i32, ptr %138, align 8
   %155 = add i32 %154, 1
   store i32 %155, ptr %138, align 8
@@ -452,23 +452,22 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %168 = load ptr, ptr %167, align 8
-  call void @ginGetStats(ptr noundef %168, ptr noundef nonnull %8) #7
+  call void @ginGetStats(ptr noundef %168, ptr noundef nonnull %8) #6
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %170 = load i32, ptr %169, align 8
   %171 = icmp slt i32 %170, 1
   br i1 %171, label %172, label %181
 
 172:                                              ; preds = %166
-  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %173)
-  %174 = call i32 @errcode(i32 noundef 1088) #7
-  %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #7
+  %173 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %174 = call i32 @errcode(i32 noundef 1088) #6
+  %175 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #6
   %176 = load ptr, ptr %167, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  %180 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3, ptr noundef nonnull %179) #7
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 433, ptr noundef nonnull @__func__.ginNewScanKey) #7
+  %180 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3, ptr noundef nonnull %179) #6
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 433, ptr noundef nonnull @__func__.ginNewScanKey) #6
   unreachable
 
 181:                                              ; preds = %166
@@ -491,7 +490,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   br i1 %190, label %191, label %197
 
 191:                                              ; preds = %187
-  call void @pgstat_assoc_relation(ptr noundef nonnull %184) #7
+  call void @pgstat_assoc_relation(ptr noundef nonnull %184) #6
   %.pre102 = load ptr, ptr %183, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre102, i64 480
   %.pre103 = load ptr, ptr %.phi.trans.insert, align 8
@@ -534,10 +533,10 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %20 = add i32 %5, 1
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 3
-  %23 = tail call ptr @palloc(i64 noundef %22) #7
+  %23 = tail call ptr @palloc(i64 noundef %22) #6
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %23, ptr %24, align 8
-  %25 = tail call ptr @palloc0(i64 noundef %21) #7
+  %25 = tail call ptr @palloc0(i64 noundef %21) #6
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 96
@@ -568,7 +567,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr null, ptr %41, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %37, i8 0, i64 9, i1 false)
-  tail call void @ginInitConsistentFunction(ptr noundef nonnull %18, ptr noundef nonnull %17) #7
+  tail call void @ginInitConsistentFunction(ptr noundef nonnull %18, ptr noundef nonnull %17) #6
   %.not73 = icmp eq i32 %5, 0
   br i1 %.not73, label %._crit_edge, label %.lr.ph
 
@@ -748,11 +747,11 @@ define dso_local void @ginendscan(ptr noundef readonly captures(none) %0) local_
   %3 = load ptr, ptr %2, align 8
   tail call void @ginFreeScanKeys(ptr noundef %3)
   %4 = load ptr, ptr %3, align 8
-  tail call void @MemoryContextDelete(ptr noundef %4) #7
+  tail call void @MemoryContextDelete(ptr noundef %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 9696
   %6 = load ptr, ptr %5, align 8
-  tail call void @MemoryContextDelete(ptr noundef %6) #7
-  tail call void @pfree(ptr noundef nonnull %3) #7
+  tail call void @MemoryContextDelete(ptr noundef %6) #6
+  tail call void @pfree(ptr noundef nonnull %3) #6
   ret void
 }
 
@@ -816,7 +815,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %40 = load i64, ptr %19, align 8
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %42 = load i8, ptr %41, align 8
-  %43 = tail call i32 @ginCompareEntries(ptr noundef nonnull %10, i16 noundef zeroext %1, i64 noundef %40, i8 noundef signext %42, i64 noundef %4, i8 noundef signext %5) #7
+  %43 = tail call i32 @ginCompareEntries(ptr noundef nonnull %10, i16 noundef zeroext %1, i64 noundef %40, i8 noundef signext %42, i64 noundef %4, i8 noundef signext %5) #6
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.loopexit64, label %._crit_edge
 
@@ -832,7 +831,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   br i1 %48, label %15, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %45, %.preheader, %8
-  %49 = tail call ptr @palloc(i64 noundef 224) #7
+  %49 = tail call ptr @palloc(i64 noundef 224) #6
   store i64 %4, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i8 %5, ptr %50, align 8
@@ -869,7 +868,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %65 = load ptr, ptr %64, align 8
   %66 = zext i32 %63 to i64
   %67 = shl nuw nsw i64 %66, 3
-  %68 = tail call ptr @repalloc(ptr noundef %65, i64 noundef %67) #7
+  %68 = tail call ptr @repalloc(ptr noundef %65, i64 noundef %67) #6
   store ptr %68, ptr %64, align 8
   %.pre70 = load i32, ptr %58, align 8
   br label %69
@@ -899,18 +898,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

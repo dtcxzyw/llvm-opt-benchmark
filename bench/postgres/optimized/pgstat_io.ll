@@ -469,7 +469,7 @@ define dso_local void @pgstat_count_io_op(i32 noundef %0, i32 noundef %1, i32 no
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %4
   store i64 %19, ptr %17, align 8
-  tail call void @pgstat_count_backend_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #11
+  tail call void @pgstat_count_backend_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) #10
   store i1 true, ptr @have_iostats, align 1
   ret void
 }
@@ -483,7 +483,7 @@ define dso_local i64 @pgstat_prepare_io_time(i1 noundef zeroext %0) local_unname
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #11
+  %4 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
   %5 = load i64, ptr %2, align 8
   %6 = mul i64 %5, 1000000000
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -515,7 +515,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
 
 10:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
+  %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #10
   %12 = load i64, ptr %7, align 8
   %13 = mul i64 %12, 1000000000
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -589,7 +589,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %49 = load i64, ptr %48, align 8
   %50 = add i64 %49, %17
   store i64 %50, ptr %48, align 8
-  call void @pgstat_count_backend_io_op_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %17) #11
+  call void @pgstat_count_backend_io_op_time(i32 noundef %0, i32 noundef %1, i32 noundef %2, i64 %17) #10
   br label %51
 
 51:                                               ; preds = %._crit_edge, %42
@@ -609,7 +609,7 @@ define dso_local void @pgstat_count_io_op_time(i32 noundef %0, i32 noundef %1, i
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %5
   store i64 %62, ptr %60, align 8
-  call void @pgstat_count_backend_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %4, i64 noundef %5) #11
+  call void @pgstat_count_backend_io_op(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %4, i64 noundef %5) #10
   store i1 true, ptr @have_iostats, align 1
   ret void
 }
@@ -618,7 +618,7 @@ declare void @pgstat_count_backend_io_op_time(i32 noundef, i32 noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @pgstat_fetch_stat_io() local_unnamed_addr #2 {
-  tail call void @pgstat_snapshot_fixed(i32 noundef 10) #11
+  tail call void @pgstat_snapshot_fixed(i32 noundef 10) #10
   ret ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 312)
 }
 
@@ -652,11 +652,11 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
   br i1 %0, label %12, label %10
 
 10:                                               ; preds = %2
-  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #11
+  %11 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #10
   br label %14
 
 12:                                               ; preds = %2
-  %13 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %7, i32 noundef 0) #11
+  %13 = tail call zeroext i1 @LWLockConditionalAcquire(ptr noundef nonnull %7, i32 noundef 0) #10
   br i1 %13, label %14, label %48
 
 14:                                               ; preds = %12, %10
@@ -675,7 +675,7 @@ define dso_local noundef zeroext i1 @pgstat_io_flush_cb(i1 noundef zeroext %0) l
   br label %.preheader
 
 23:                                               ; preds = %30
-  tail call void @LWLockRelease(ptr noundef nonnull %7) #11
+  tail call void @LWLockRelease(ptr noundef nonnull %7) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2880) @PendingIOStats, i8 0, i64 2880, i1 false)
   store i1 false, ptr @have_iostats, align 1
   br label %48
@@ -745,10 +745,9 @@ define dso_local noundef nonnull ptr @pgstat_get_io_context_name(i32 noundef %0)
   br i1 %2, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 263, ptr noundef nonnull @__func__.pgstat_get_io_context_name) #11
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 263, ptr noundef nonnull @__func__.pgstat_get_io_context_name) #10
   unreachable
 
 switch.lookup:                                    ; preds = %1
@@ -771,10 +770,9 @@ define dso_local noundef nonnull ptr @pgstat_get_io_object_name(i32 noundef %0) 
   br i1 %2, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 280, ptr noundef nonnull @__func__.pgstat_get_io_object_name) #11
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 280, ptr noundef nonnull @__func__.pgstat_get_io_object_name) #10
   unreachable
 
 switch.lookup:                                    ; preds = %1
@@ -794,7 +792,7 @@ define dso_local void @pgstat_io_init_shmem_cb(ptr noundef %0) local_unnamed_add
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %4 = getelementptr inbounds nuw %struct.LWLock, ptr %0, i64 %indvars.iv
-  tail call void @LWLockInitialize(ptr noundef %4, i32 noundef 79) #11
+  tail call void @LWLockInitialize(ptr noundef %4, i32 noundef 79) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !13
@@ -816,7 +814,7 @@ define dso_local void @pgstat_io_reset_all_cb(i64 noundef %0) local_unnamed_addr
   %6 = getelementptr inbounds nuw %struct.LWLock, ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 896
   %8 = getelementptr inbounds nuw %struct.PgStat_BktypeIO, ptr %7, i64 %indvars.iv
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #11
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #10
   %10 = icmp eq i64 %indvars.iv, 0
   br i1 %10, label %11, label %14
 
@@ -828,7 +826,7 @@ define dso_local void @pgstat_io_reset_all_cb(i64 noundef %0) local_unnamed_addr
 
 14:                                               ; preds = %11, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2880) %8, i8 0, i64 2880, i1 false)
-  tail call void @LWLockRelease(ptr noundef nonnull %6) #11
+  tail call void @LWLockRelease(ptr noundef nonnull %6) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !14
@@ -849,7 +847,7 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 896
   %7 = getelementptr inbounds nuw %struct.PgStat_BktypeIO, ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw %struct.PgStat_BktypeIO, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 320), i64 %indvars.iv
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #11
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #10
   %10 = icmp eq i64 %indvars.iv, 0
   br i1 %10, label %11, label %15
 
@@ -862,7 +860,7 @@ define dso_local void @pgstat_io_snapshot_cb() local_unnamed_addr #2 {
 
 15:                                               ; preds = %11, %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2880) %8, ptr noundef nonnull align 8 dereferenceable(2880) %7, i64 2880, i1 false)
-  tail call void @LWLockRelease(ptr noundef nonnull %5) #11
+  tail call void @LWLockRelease(ptr noundef nonnull %5) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
   br i1 %exitcond.not, label %1, label %2, !llvm.loop !15
@@ -963,9 +961,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -976,9 +971,8 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

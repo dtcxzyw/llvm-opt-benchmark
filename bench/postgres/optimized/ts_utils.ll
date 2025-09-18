@@ -21,23 +21,22 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @get_tsearch_config_filename(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str) #7
-  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %4 = tail call i64 @strspn(ptr noundef %0, ptr noundef nonnull @.str) #6
+  %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %.not = icmp eq i64 %4, %5
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode(i32 noundef 50856066) #9
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 53, ptr noundef nonnull @__func__.get_tsearch_config_filename) #9
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %8 = tail call i32 @errcode(i32 noundef 50856066) #8
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 53, ptr noundef nonnull @__func__.get_tsearch_config_filename) #8
   unreachable
 
 10:                                               ; preds = %2
-  call void @get_share_path(ptr noundef nonnull @my_exec_path, ptr noundef nonnull %3) #9
-  %11 = call ptr @palloc(i64 noundef 1024) #9
-  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %11, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef %1) #9
+  call void @get_share_path(ptr noundef nonnull @my_exec_path, ptr noundef nonnull %3) #8
+  %11 = call ptr @palloc(i64 noundef 1024) #8
+  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %11, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef %1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %11
 }
@@ -78,11 +77,11 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
 7:                                                ; preds = %5
   %8 = tail call ptr @get_tsearch_config_filename(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %9 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %4, ptr noundef %8) #9
+  %9 = call zeroext i1 @tsearch_readline_begin(ptr noundef nonnull %4, ptr noundef %8) #8
   br i1 %9, label %.preheader59, label %11
 
 .preheader59:                                     ; preds = %7
-  %10 = call ptr @tsearch_readline(ptr noundef nonnull %4) #9
+  %10 = call ptr @tsearch_readline(ptr noundef nonnull %4) #8
   %.not5064 = icmp eq ptr %10, null
   br i1 %.not5064, label %._crit_edge, label %.preheader.lr.ph
 
@@ -91,11 +90,10 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br label %.preheader
 
 11:                                               ; preds = %7
-  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %12)
-  %13 = call i32 @errcode(i32 noundef 22) #9
-  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %8) #9
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 85, ptr noundef nonnull @__func__.readstoplist) #9
+  %12 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %13 = call i32 @errcode(i32 noundef 22) #8
+  %14 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %8) #8
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 85, ptr noundef nonnull @__func__.readstoplist) #8
   unreachable
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %63
@@ -107,7 +105,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br i1 %.not5260, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %17 = tail call ptr @__ctype_b_loc() #10
+  %17 = tail call ptr @__ctype_b_loc() #9
   br label %18
 
 18:                                               ; preds = %.lr.ph, %25
@@ -122,7 +120,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br i1 %.not53, label %25, label %.critedge
 
 25:                                               ; preds = %18
-  %26 = call i32 @pg_mblen(ptr noundef nonnull %.061) #9
+  %26 = call i32 @pg_mblen(ptr noundef nonnull %.061) #8
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %.061, i64 %27
   %29 = load i8, ptr %28, align 1
@@ -137,7 +135,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %.critedge
-  call void @pfree(ptr noundef nonnull %15) #9
+  call void @pfree(ptr noundef nonnull %15) #8
   br label %63, !llvm.loop !6
 
 33:                                               ; preds = %.critedge
@@ -150,14 +148,14 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
-  %38 = call ptr @palloc(i64 noundef 512) #9
+  %38 = call ptr @palloc(i64 noundef 512) #8
   br label %44
 
 39:                                               ; preds = %35
   %40 = shl i32 %.04166, 1
   %41 = sext i32 %40 to i64
   %42 = shl nsw i64 %41, 3
-  %43 = call ptr @repalloc(ptr noundef %.14365, i64 noundef %42) #9
+  %43 = call ptr @repalloc(ptr noundef %.14365, i64 noundef %42) #8
   br label %44
 
 44:                                               ; preds = %37, %39, %33
@@ -166,8 +164,8 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br i1 %.not55, label %56, label %45
 
 45:                                               ; preds = %44
-  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #7
-  %47 = call ptr %2(ptr noundef nonnull %15, i64 noundef %46, i32 noundef 100) #9
+  %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #6
+  %47 = call ptr %2(ptr noundef nonnull %15, i64 noundef %46, i32 noundef 100) #8
   %48 = load i32, ptr %1, align 8
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %.3, i64 %49
@@ -180,7 +178,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
   br i1 %.not56, label %60, label %55
 
 55:                                               ; preds = %45
-  call void @pfree(ptr noundef nonnull %15) #9
+  call void @pfree(ptr noundef nonnull %15) #8
   br label %60
 
 56:                                               ; preds = %44
@@ -199,7 +197,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
 63:                                               ; preds = %60, %32
   %.244 = phi ptr [ %.14365, %32 ], [ %.3, %60 ]
   %.1 = phi i32 [ %.04166, %32 ], [ %.2, %60 ]
-  %64 = call ptr @tsearch_readline(ptr noundef nonnull %4) #9
+  %64 = call ptr @tsearch_readline(ptr noundef nonnull %4) #8
   %.not50 = icmp eq ptr %64, null
   br i1 %.not50, label %._crit_edge, label %.preheader
 
@@ -210,8 +208,8 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
 
 ._crit_edge:                                      ; preds = %63, %.preheader59
   %.143.lcssa = phi ptr [ null, %.preheader59 ], [ %.244, %63 ]
-  call void @tsearch_readline_end(ptr noundef nonnull %4) #9
-  call void @pfree(ptr noundef %8) #9
+  call void @tsearch_readline_end(ptr noundef nonnull %4) #8
+  call void @pfree(ptr noundef %8) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.143.lcssa, ptr %66, align 8
@@ -225,7 +223,7 @@ define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) i
 
 70:                                               ; preds = %67
   %71 = zext nneg i32 %68 to i64
-  call void @pg_qsort(ptr noundef nonnull %.143.lcssa, i64 noundef %71, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #9
+  call void @pg_qsort(ptr noundef nonnull %.143.lcssa, i64 noundef %71, i64 noundef 8, ptr noundef nonnull @pg_qsort_strcmp) #8
   br label %72
 
 72:                                               ; preds = %.thread, %70, %67, %._crit_edge
@@ -276,7 +274,7 @@ define dso_local noundef zeroext i1 @searchstoplist(ptr noundef readonly capture
   %12 = lshr i64 %11, 1
   %13 = shl i64 %12, 3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 %13
-  %15 = call i32 @pg_qsort_strcmp(ptr noundef nonnull %3, ptr noundef nonnull %14) #9
+  %15 = call i32 @pg_qsort_strcmp(ptr noundef nonnull %3, ptr noundef nonnull %14) #8
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %20, label %17
 
@@ -305,20 +303,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind willreturn memory(read) }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #6 = { nounwind willreturn memory(read) }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

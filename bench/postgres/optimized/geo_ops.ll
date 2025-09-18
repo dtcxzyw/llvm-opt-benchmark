@@ -54,7 +54,7 @@ define dso_local noundef i64 @box_in(ptr noundef captures(none) %0) local_unname
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext false, i32 noundef 2, ptr noundef %8, ptr noundef %2, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %5, ptr noundef %7)
   br i1 %9, label %12, label %10
@@ -116,7 +116,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 noundef zeroext %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
-  %11 = tail call ptr @__ctype_b_loc() #17
+  %11 = tail call ptr @__ctype_b_loc() #16
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -166,7 +166,7 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br i1 %35, label %.sink.split, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %storemerge, i32 noundef 40) #18
+  %37 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %storemerge, i32 noundef 40) #17
   %38 = icmp eq ptr %37, %storemerge
   br i1 %38, label %.sink.split, label %39
 
@@ -252,13 +252,13 @@ define internal fastcc noundef zeroext i1 @path_decode(ptr noundef %0, i1 nounde
   br i1 %.not39, label %.loopexit44, label %.loopexit43
 
 .loopexit43:                                      ; preds = %56, %.lr.ph.split, %69, %23
-  %71 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #16
+  %71 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
   br i1 %71, label %72, label %.loopexit44
 
 72:                                               ; preds = %.loopexit43
-  %73 = call i32 @errcode(i32 noundef 33685634) #16
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #16
-  call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 336, ptr noundef nonnull @__func__.path_decode) #16
+  %73 = call i32 @errcode(i32 noundef 33685634) #15
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %6, ptr noundef %7) #15
+  call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 336, ptr noundef nonnull @__func__.path_decode) #15
   br label %.loopexit44
 
 .loopexit44:                                      ; preds = %42, %.loopexit43, %72, %68, %69
@@ -280,7 +280,7 @@ define dso_local i64 @box_out(ptr noundef readonly captures(none) %0) local_unna
 define internal fastcc ptr @path_encode(i32 noundef range(i32 0, 3) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @initStringInfo(ptr noundef nonnull %4) #16
+  call void @initStringInfo(ptr noundef nonnull %4) #15
   switch i32 %0, label %6 [
     i32 2, label %.sink.split
     i32 1, label %5
@@ -291,7 +291,7 @@ define internal fastcc ptr @path_encode(i32 noundef range(i32 0, 3) %0, i32 noun
 
 .sink.split:                                      ; preds = %3, %5
   %.sink = phi i8 [ 91, %5 ], [ 40, %3 ]
-  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext %.sink) #16
+  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext %.sink) #15
   br label %6
 
 6:                                                ; preds = %.sink.split, %3
@@ -305,20 +305,20 @@ define internal fastcc ptr @path_encode(i32 noundef range(i32 0, 3) %0, i32 noun
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %.lr.ph
-  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 44) #16
+  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 44) #15
   br label %9
 
 9:                                                ; preds = %8, %.lr.ph
-  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 40) #16
+  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 40) #15
   %10 = load double, ptr %.089, align 8
   %11 = getelementptr inbounds nuw i8, ptr %.089, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = call ptr @float8out_internal(double noundef %10) #16
-  %14 = call ptr @float8out_internal(double noundef %12) #16
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, ptr noundef %13, ptr noundef %14) #16
-  call void @pfree(ptr noundef %13) #16
-  call void @pfree(ptr noundef %14) #16
-  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 41) #16
+  %13 = call ptr @float8out_internal(double noundef %10) #15
+  %14 = call ptr @float8out_internal(double noundef %12) #15
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %4, ptr noundef nonnull @.str.19, ptr noundef %13, ptr noundef %14) #15
+  call void @pfree(ptr noundef %13) #15
+  call void @pfree(ptr noundef %14) #15
+  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 41) #15
   %15 = getelementptr inbounds nuw i8, ptr %.089, i64 16
   %16 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %16, %1
@@ -335,7 +335,7 @@ define internal fastcc ptr @path_encode(i32 noundef range(i32 0, 3) %0, i32 noun
 
 .sink.split12:                                    ; preds = %._crit_edge, %17
   %.sink13 = phi i8 [ 93, %17 ], [ 41, %._crit_edge ]
-  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext %.sink13) #16
+  call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext %.sink13) #15
   br label %18
 
 18:                                               ; preds = %.sink.split12, %._crit_edge
@@ -349,16 +349,16 @@ define dso_local i64 @box_recv(ptr noundef readonly captures(none) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 32) #16
-  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %5 = tail call ptr @palloc(i64 noundef 32) #15
+  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   store double %6, ptr %5, align 8
-  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %7, ptr %8, align 8
-  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %9, ptr %10, align 8
-  %11 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %11 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %11, ptr %12, align 8
   %13 = load double, ptr %5, align 8
@@ -407,19 +407,19 @@ define dso_local i64 @box_send(ptr noundef readonly captures(none) %0) local_unn
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %6 = load double, ptr %5, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #15
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load double, ptr %9, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load double, ptr %11, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %12) #16
-  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %12) #15
+  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -914,7 +914,7 @@ define internal fastcc double @box_ar(ptr noundef readonly captures(none) %0) un
   br i1 %or.cond.i.i, label %box_wd.exit, label %11
 
 11:                                               ; preds = %6
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 box_wd.exit:                                      ; preds = %1, %6
@@ -936,7 +936,7 @@ box_wd.exit:                                      ; preds = %1, %6
   br i1 %or.cond.i.i5, label %box_ht.exit, label %22
 
 22:                                               ; preds = %17
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 box_ht.exit:                                      ; preds = %box_wd.exit, %17
@@ -950,7 +950,7 @@ box_ht.exit:                                      ; preds = %box_wd.exit, %17
   br i1 %or.cond11.i, label %28, label %27
 
 27:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 28:                                               ; preds = %26, %box_ht.exit
@@ -964,7 +964,7 @@ box_ht.exit:                                      ; preds = %box_wd.exit, %17
   br i1 %or.cond.i, label %33, label %float8_mul.exit
 
 33:                                               ; preds = %30
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %28, %30
@@ -1070,7 +1070,7 @@ define dso_local i64 @box_width(ptr noundef readonly captures(none) %0) local_un
   br i1 %or.cond.i.i, label %box_wd.exit, label %14
 
 14:                                               ; preds = %9
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 box_wd.exit:                                      ; preds = %1, %9
@@ -1101,7 +1101,7 @@ define dso_local i64 @box_height(ptr noundef readonly captures(none) %0) local_u
   br i1 %or.cond.i.i, label %box_ht.exit, label %15
 
 15:                                               ; preds = %10
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 box_ht.exit:                                      ; preds = %1, %10
@@ -1139,7 +1139,7 @@ define dso_local i64 @box_distance(ptr noundef readonly captures(none) %0) local
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %15
@@ -1173,7 +1173,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %42
 
 42:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 43:                                               ; preds = %float8_mi.exit.thread.i
@@ -1197,7 +1197,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %52, label %53, label %54, !prof !12
 
 53:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 54:                                               ; preds = %47
@@ -1205,7 +1205,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %55, label %56, label %point_dt.exit, !prof !12
 
 56:                                               ; preds = %54
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %35, %43, %44, %54
@@ -1235,7 +1235,7 @@ define internal fastcc void @box_cn(ptr noundef writeonly captures(none) %0, ptr
   br i1 %or.cond.i, label %float8_pl.exit, label %14
 
 14:                                               ; preds = %9
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %9
@@ -1249,7 +1249,7 @@ float8_pl.exit.thread:                            ; preds = %2
   br i1 %18, label %19, label %20, !prof !12
 
 19:                                               ; preds = %float8_pl.exit.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 20:                                               ; preds = %float8_pl.exit, %float8_pl.exit.thread
@@ -1262,7 +1262,7 @@ float8_pl.exit.thread:                            ; preds = %2
   br i1 %24, label %float8_div.exit, label %25
 
 25:                                               ; preds = %23
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %20, %23
@@ -1285,7 +1285,7 @@ float8_div.exit:                                  ; preds = %20, %23
   br i1 %or.cond.i7, label %float8_pl.exit8, label %38
 
 38:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit8:                                  ; preds = %33
@@ -1299,7 +1299,7 @@ float8_pl.exit8.thread:                           ; preds = %float8_div.exit
   br i1 %42, label %43, label %44, !prof !12
 
 43:                                               ; preds = %float8_pl.exit8.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 44:                                               ; preds = %float8_pl.exit8, %float8_pl.exit8.thread
@@ -1312,7 +1312,7 @@ float8_pl.exit8.thread:                           ; preds = %float8_div.exit
   br i1 %48, label %float8_div.exit10, label %49
 
 49:                                               ; preds = %47
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit10:                                ; preds = %44, %47
@@ -1326,7 +1326,7 @@ define dso_local noundef i64 @box_center(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #16
+  %5 = tail call ptr @palloc(i64 noundef 16) #15
   tail call fastcc void @box_cn(ptr noundef %5, ptr noundef %4)
   %6 = ptrtoint ptr %5 to i64
   ret i64 %6
@@ -1379,7 +1379,7 @@ box_ov.exit.thread:                               ; preds = %1, %13, %19, %box_o
   br label %71
 
 33:                                               ; preds = %box_ov.exit
-  %34 = tail call ptr @palloc(i64 noundef 32) #16
+  %34 = tail call ptr @palloc(i64 noundef 32) #15
   %35 = load double, ptr %4, align 8
   %36 = load double, ptr %7, align 8
   %37 = fcmp uno double %35, 0.000000e+00
@@ -1464,7 +1464,7 @@ define dso_local noundef i64 @box_diagonal(ptr noundef readonly captures(none) %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 32) #16
+  %5 = tail call ptr @palloc(i64 noundef 32) #15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load double, ptr %4, align 8
   store double %7, ptr %5, align 8
@@ -1493,10 +1493,10 @@ define dso_local i64 @line_in(ptr noundef captures(none) %0) local_unnamed_addr 
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @palloc(i64 noundef 24) #16
+  %10 = tail call ptr @palloc(i64 noundef 24) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = tail call ptr @__ctype_b_loc() #17
+  %11 = tail call ptr @__ctype_b_loc() #16
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -1518,7 +1518,7 @@ define dso_local i64 @line_in(ptr noundef captures(none) %0) local_unnamed_addr 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %19, ptr %2, align 8
-  %23 = call double @float8in_internal(ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #16
+  %23 = call double @float8in_internal(ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
   store double %23, ptr %10, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %single_decode.exit.thread.i, label %24
@@ -1544,7 +1544,7 @@ single_decode.exit.thread.i:                      ; preds = %single_decode.exit.
 
 33:                                               ; preds = %single_decode.exit.thread.i
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %35 = call double @float8in_internal(ptr noundef nonnull %31, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #16
+  %35 = call double @float8in_internal(ptr noundef nonnull %31, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
   store double %35, ptr %34, align 8
   br i1 %.not.i.i, label %single_decode.exit19.thread.i, label %36
 
@@ -1569,7 +1569,7 @@ single_decode.exit19.thread.i:                    ; preds = %single_decode.exit1
 
 45:                                               ; preds = %single_decode.exit19.thread.i
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %47 = call double @float8in_internal(ptr noundef nonnull %43, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #16
+  %47 = call double @float8in_internal(ptr noundef nonnull %43, ptr noundef nonnull %2, ptr noundef nonnull @.str.3, ptr noundef %7, ptr noundef %9) #15
   store double %47, ptr %46, align 8
   br i1 %.not.i.i, label %single_decode.exit21.thread.i, label %48
 
@@ -1620,13 +1620,13 @@ single_decode.exit21.thread.i:                    ; preds = %single_decode.exit2
   br i1 %.not17.i, label %77, label %70
 
 70:                                               ; preds = %._crit_edge.i, %single_decode.exit21.thread.i, %single_decode.exit19.thread.i, %single_decode.exit.thread.i
-  %71 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #16
+  %71 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %70
-  %73 = call i32 @errcode(i32 noundef 33685634) #16
-  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef %7) #16
-  call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 975, ptr noundef nonnull @__func__.line_decode) #16
+  %73 = call i32 @errcode(i32 noundef 33685634) #15
+  %74 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef %7) #15
+  call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 975, ptr noundef nonnull @__func__.line_decode) #15
   br label %75
 
 75:                                               ; preds = %single_decode.exit.i, %single_decode.exit19.i, %single_decode.exit21.i, %72, %70
@@ -1649,13 +1649,13 @@ single_decode.exit21.thread.i:                    ; preds = %single_decode.exit2
   br i1 %84, label %line_construct.exit, label %85
 
 85:                                               ; preds = %81
-  %86 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #16
+  %86 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
   br i1 %86, label %87, label %211
 
 87:                                               ; preds = %85
-  %88 = call i32 @errcode(i32 noundef 33685634) #16
-  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #16
-  call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 998, ptr noundef nonnull @__func__.line_in) #16
+  %88 = call i32 @errcode(i32 noundef 33685634) #15
+  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #15
+  call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 998, ptr noundef nonnull @__func__.line_in) #15
   br label %211
 
 90:                                               ; preds = %20
@@ -1727,13 +1727,13 @@ point_eq_point.exit:                              ; preds = %118
   br i1 %128, label %129, label %point_eq_point.exit.thread
 
 129:                                              ; preds = %110, %point_eq_point.exit
-  %130 = tail call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #16
+  %130 = tail call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #15
   br i1 %130, label %131, label %211
 
 131:                                              ; preds = %129
-  %132 = tail call i32 @errcode(i32 noundef 33685634) #16
-  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #16
-  tail call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.line_in) #16
+  %132 = tail call i32 @errcode(i32 noundef 33685634) #15
+  %133 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
+  tail call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.line_in) #15
   br label %211
 
 point_eq_point.exit.thread:                       ; preds = %118, %.critedge.i, %110, %point_eq_point.exit
@@ -1770,7 +1770,7 @@ point_eq_point.exit.thread:                       ; preds = %118, %.critedge.i, 
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %157
 
 157:                                              ; preds = %152
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %152, %150
@@ -1786,7 +1786,7 @@ float8_mi.exit.i.i:                               ; preds = %152, %150
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %164
 
 164:                                              ; preds = %159
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %159, %float8_mi.exit.i.i
@@ -1799,7 +1799,7 @@ float8_mi.exit10.i.i:                             ; preds = %159, %float8_mi.exi
   br i1 %151, label %170, label %169
 
 169:                                              ; preds = %168
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 170:                                              ; preds = %168, %float8_mi.exit10.i.i
@@ -1810,7 +1810,7 @@ float8_mi.exit10.i.i:                             ; preds = %159, %float8_mi.exi
   br i1 %158, label %lseg_sl.exit, label %173
 
 173:                                              ; preds = %172
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %170, %172
@@ -1861,7 +1861,7 @@ lseg_sl.exit.thread:                              ; preds = %point_eq_point.exit
   br i1 %193, label %195, label %194
 
 194:                                              ; preds = %191
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 195:                                              ; preds = %191, %187
@@ -1873,7 +1873,7 @@ lseg_sl.exit.thread:                              ; preds = %point_eq_point.exit
   br i1 %198, label %199, label %float8_mul.exit.i
 
 199:                                              ; preds = %197
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %197, %195
@@ -1889,7 +1889,7 @@ float8_mul.exit.i:                                ; preds = %197, %195
   br i1 %or.cond.i19.i, label %float8_mi.exit.i, label %206
 
 206:                                              ; preds = %203
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %203, %float8_mul.exit.i
@@ -1933,14 +1933,14 @@ define dso_local i64 @line_out(ptr noundef readonly captures(none) %0) local_unn
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = load double, ptr %4, align 8
-  %6 = tail call ptr @float8out_internal(double noundef %5) #16
+  %6 = tail call ptr @float8out_internal(double noundef %5) #15
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = tail call ptr @float8out_internal(double noundef %8) #16
+  %9 = tail call ptr @float8out_internal(double noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load double, ptr %10, align 8
-  %12 = tail call ptr @float8out_internal(double noundef %11) #16
-  %13 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, i32 noundef 123, ptr noundef %6, i32 noundef 44, ptr noundef %9, i32 noundef 44, ptr noundef %12, i32 noundef 125) #16
+  %12 = tail call ptr @float8out_internal(double noundef %11) #15
+  %13 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.5, i32 noundef 123, ptr noundef %6, i32 noundef 44, ptr noundef %9, i32 noundef 44, ptr noundef %12, i32 noundef 125) #15
   %14 = ptrtoint ptr %13 to i64
   ret i64 %14
 }
@@ -1954,13 +1954,13 @@ define dso_local i64 @line_recv(ptr noundef readonly captures(none) %0) local_un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 24) #16
-  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %5 = tail call ptr @palloc(i64 noundef 24) #15
+  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   store double %6, ptr %5, align 8
-  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %7, ptr %8, align 8
-  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %9, ptr %10, align 8
   %11 = load double, ptr %5, align 8
@@ -1975,11 +1975,10 @@ define dso_local i64 @line_recv(ptr noundef readonly captures(none) %0) local_un
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 50462850) #16
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1052, ptr noundef nonnull @__func__.line_recv) #16
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %20 = tail call i32 @errcode(i32 noundef 50462850) #15
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1052, ptr noundef nonnull @__func__.line_recv) #15
   unreachable
 
 22:                                               ; preds = %14, %1
@@ -1999,16 +1998,16 @@ define dso_local i64 @line_send(ptr noundef readonly captures(none) %0) local_un
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %6 = load double, ptr %5, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #15
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load double, ptr %9, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #16
-  %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #15
+  %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %12 = ptrtoint ptr %11 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %12
@@ -2022,7 +2021,7 @@ define dso_local i64 @line_construct_pp(ptr noundef readonly captures(none) %0) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 24) #16
+  %8 = tail call ptr @palloc(i64 noundef 24) #15
   %9 = load double, ptr %4, align 8
   %10 = fcmp uno double %9, 0.000000e+00
   br i1 %10, label %..critedge_crit_edge.i, label %11
@@ -2081,11 +2080,10 @@ point_eq_point.exit:                              ; preds = %31
   br i1 %41, label %42, label %point_eq_point.exit.thread
 
 42:                                               ; preds = %23, %point_eq_point.exit
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1124, ptr noundef nonnull @__func__.line_construct_pp) #16
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %44 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1124, ptr noundef nonnull @__func__.line_construct_pp) #15
   unreachable
 
 point_eq_point.exit.thread:                       ; preds = %31, %.critedge.i, %23, %point_eq_point.exit
@@ -2122,7 +2120,7 @@ point_eq_point.exit.thread:                       ; preds = %31, %.critedge.i, %
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %69
 
 69:                                               ; preds = %64
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %64, %62
@@ -2138,7 +2136,7 @@ float8_mi.exit.i:                                 ; preds = %64, %62
   br i1 %or.cond.i9.i, label %float8_mi.exit10.i, label %76
 
 76:                                               ; preds = %71
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i:                               ; preds = %71, %float8_mi.exit.i
@@ -2151,7 +2149,7 @@ float8_mi.exit10.i:                               ; preds = %71, %float8_mi.exit
   br i1 %63, label %82, label %81
 
 81:                                               ; preds = %80
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 82:                                               ; preds = %80, %float8_mi.exit10.i
@@ -2162,7 +2160,7 @@ float8_mi.exit10.i:                               ; preds = %71, %float8_mi.exit
   br i1 %70, label %point_sl.exit, label %85
 
 85:                                               ; preds = %84
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_sl.exit:                                    ; preds = %82, %84
@@ -2217,7 +2215,7 @@ point_sl.exit.thread:                             ; preds = %point_eq_point.exit
   br i1 %109, label %111, label %110
 
 110:                                              ; preds = %107
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 111:                                              ; preds = %107, %101
@@ -2229,7 +2227,7 @@ point_sl.exit.thread:                             ; preds = %point_eq_point.exit
   br i1 %114, label %115, label %float8_mul.exit.i
 
 115:                                              ; preds = %113
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %113, %111
@@ -2245,7 +2243,7 @@ float8_mul.exit.i:                                ; preds = %113, %111
   br i1 %or.cond.i19.i, label %float8_mi.exit.i10, label %122
 
 122:                                              ; preds = %119
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i10:                               ; preds = %119, %float8_mul.exit.i
@@ -2300,7 +2298,7 @@ define internal fastcc noundef zeroext i1 @line_interpt_line(ptr noundef writeon
   br i1 %18, label %20, label %19
 
 19:                                               ; preds = %16
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 20:                                               ; preds = %16, %8
@@ -2314,7 +2312,7 @@ define internal fastcc noundef zeroext i1 @line_interpt_line(ptr noundef writeon
   br i1 %or.cond.i, label %float8_div.exit, label %25
 
 25:                                               ; preds = %22
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %20, %22
@@ -2330,7 +2328,7 @@ float8_div.exit:                                  ; preds = %20, %22
   br i1 %or.cond11.i, label %33, label %32
 
 32:                                               ; preds = %29
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 33:                                               ; preds = %29, %float8_div.exit
@@ -2344,7 +2342,7 @@ float8_div.exit:                                  ; preds = %20, %22
   br i1 %or.cond.i45, label %38, label %float8_mul.exit
 
 38:                                               ; preds = %35
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %33, %35
@@ -2371,7 +2369,7 @@ float8_mul.exit:                                  ; preds = %33, %35
   br i1 %or.cond11.i47, label %55, label %54
 
 54:                                               ; preds = %50
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 55:                                               ; preds = %50, %44
@@ -2383,7 +2381,7 @@ float8_mul.exit:                                  ; preds = %33, %35
   br i1 %58, label %59, label %float8_mul.exit48
 
 59:                                               ; preds = %57
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit48:                                ; preds = %55, %57
@@ -2403,7 +2401,7 @@ float8_mul.exit48:                                ; preds = %55, %57
   br i1 %or.cond11.i50, label %71, label %70
 
 70:                                               ; preds = %65
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 71:                                               ; preds = %65, %float8_mul.exit48
@@ -2417,7 +2415,7 @@ float8_mul.exit48:                                ; preds = %55, %57
   br i1 %or.cond.i49, label %76, label %float8_mul.exit51
 
 76:                                               ; preds = %73
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit51:                                ; preds = %71, %73
@@ -2431,7 +2429,7 @@ float8_mul.exit51:                                ; preds = %71, %73
   br i1 %or.cond.i52, label %float8_mi.exit, label %81
 
 81:                                               ; preds = %80
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit51, %80
@@ -2449,7 +2447,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit51, 
   br i1 %or.cond11.i54, label %91, label %90
 
 90:                                               ; preds = %85
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 91:                                               ; preds = %85, %float8_mi.exit
@@ -2463,7 +2461,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit51, 
   br i1 %or.cond.i53, label %96, label %float8_mul.exit55
 
 96:                                               ; preds = %93
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit55:                                ; preds = %91, %93
@@ -2480,7 +2478,7 @@ float8_mul.exit55:                                ; preds = %91, %93
   br i1 %or.cond11.i57, label %105, label %104
 
 104:                                              ; preds = %100
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 105:                                              ; preds = %100, %float8_mul.exit55
@@ -2492,7 +2490,7 @@ float8_mul.exit55:                                ; preds = %91, %93
   br i1 %108, label %109, label %float8_mul.exit58
 
 109:                                              ; preds = %107
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit58:                                ; preds = %105, %107
@@ -2506,7 +2504,7 @@ float8_mul.exit58:                                ; preds = %105, %107
   br i1 %or.cond.i59, label %float8_mi.exit60, label %114
 
 114:                                              ; preds = %113
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit60:                                 ; preds = %float8_mul.exit58, %113
@@ -2518,7 +2516,7 @@ float8_mi.exit60:                                 ; preds = %float8_mul.exit58, 
   br i1 %117, label %119, label %118
 
 118:                                              ; preds = %116
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 119:                                              ; preds = %116, %float8_mi.exit60
@@ -2531,7 +2529,7 @@ float8_mi.exit60:                                 ; preds = %float8_mul.exit58, 
   br i1 %79, label %125, label %124
 
 124:                                              ; preds = %123
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 125:                                              ; preds = %123, %119
@@ -2544,7 +2542,7 @@ float8_mi.exit60:                                 ; preds = %float8_mul.exit58, 
   br i1 %or.cond.i61, label %float8_div.exit62, label %129
 
 129:                                              ; preds = %127
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit62:                                ; preds = %125, %127
@@ -2560,7 +2558,7 @@ float8_div.exit62:                                ; preds = %125, %127
   br i1 %or.cond11.i64, label %137, label %136
 
 136:                                              ; preds = %133
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 137:                                              ; preds = %133, %float8_div.exit62
@@ -2574,7 +2572,7 @@ float8_div.exit62:                                ; preds = %125, %127
   br i1 %or.cond.i63, label %142, label %float8_mul.exit65
 
 142:                                              ; preds = %139
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit65:                                ; preds = %137, %139
@@ -2590,7 +2588,7 @@ float8_mul.exit65:                                ; preds = %137, %139
   br i1 %or.cond.i66, label %float8_pl.exit, label %149
 
 149:                                              ; preds = %146
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %146
@@ -2606,7 +2604,7 @@ float8_pl.exit.thread:                            ; preds = %float8_mul.exit65
   br i1 %155, label %156, label %157, !prof !12
 
 156:                                              ; preds = %float8_pl.exit.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 157:                                              ; preds = %float8_pl.exit, %float8_pl.exit.thread
@@ -2621,7 +2619,7 @@ float8_pl.exit.thread:                            ; preds = %float8_mul.exit65
   br i1 %or.cond.i67, label %float8_div.exit68, label %163
 
 163:                                              ; preds = %160
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 164:                                              ; preds = %3
@@ -2640,7 +2638,7 @@ float8_pl.exit.thread:                            ; preds = %float8_mul.exit65
   br i1 %174, label %175, label %176, !prof !12
 
 175:                                              ; preds = %169
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 176:                                              ; preds = %169
@@ -2654,7 +2652,7 @@ float8_pl.exit.thread:                            ; preds = %float8_mul.exit65
   br i1 %or.cond.i69, label %float8_div.exit70, label %181
 
 181:                                              ; preds = %178
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit70:                                ; preds = %176, %178
@@ -2669,7 +2667,7 @@ float8_div.exit70:                                ; preds = %176, %178
   br i1 %187, label %189, label %188
 
 188:                                              ; preds = %185
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 189:                                              ; preds = %185, %float8_div.exit70
@@ -2683,7 +2681,7 @@ float8_div.exit70:                                ; preds = %176, %178
   br i1 %or.cond.i71, label %194, label %float8_mul.exit73
 
 194:                                              ; preds = %191
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit73:                                ; preds = %189, %191
@@ -2710,7 +2708,7 @@ float8_mul.exit73:                                ; preds = %189, %191
   br i1 %or.cond11.i75, label %211, label %210
 
 210:                                              ; preds = %206
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 211:                                              ; preds = %206, %200
@@ -2722,7 +2720,7 @@ float8_mul.exit73:                                ; preds = %189, %191
   br i1 %214, label %215, label %float8_mul.exit76
 
 215:                                              ; preds = %213
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit76:                                ; preds = %211, %213
@@ -2739,7 +2737,7 @@ float8_mul.exit76:                                ; preds = %211, %213
   br i1 %223, label %225, label %224
 
 224:                                              ; preds = %221
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 225:                                              ; preds = %221, %float8_mul.exit76
@@ -2753,7 +2751,7 @@ float8_mul.exit76:                                ; preds = %211, %213
   br i1 %or.cond.i77, label %230, label %float8_mul.exit79
 
 230:                                              ; preds = %227
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit79:                                ; preds = %225, %227
@@ -2767,7 +2765,7 @@ float8_mul.exit79:                                ; preds = %225, %227
   br i1 %or.cond.i80, label %float8_mi.exit81, label %235
 
 235:                                              ; preds = %234
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit81:                                 ; preds = %float8_mul.exit79, %234
@@ -2782,7 +2780,7 @@ float8_mi.exit81:                                 ; preds = %float8_mul.exit79, 
   br i1 %241, label %243, label %242
 
 242:                                              ; preds = %239
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 243:                                              ; preds = %239, %float8_mi.exit81
@@ -2796,7 +2794,7 @@ float8_mi.exit81:                                 ; preds = %float8_mul.exit79, 
   br i1 %or.cond.i82, label %248, label %float8_mul.exit84
 
 248:                                              ; preds = %245
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit84:                                ; preds = %243, %245
@@ -2813,7 +2811,7 @@ float8_mul.exit84:                                ; preds = %243, %245
   br i1 %or.cond11.i86, label %257, label %256
 
 256:                                              ; preds = %252
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 257:                                              ; preds = %252, %float8_mul.exit84
@@ -2825,7 +2823,7 @@ float8_mul.exit84:                                ; preds = %243, %245
   br i1 %260, label %261, label %float8_mul.exit87
 
 261:                                              ; preds = %259
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit87:                                ; preds = %257, %259
@@ -2839,7 +2837,7 @@ float8_mul.exit87:                                ; preds = %257, %259
   br i1 %or.cond.i88, label %float8_mi.exit89, label %266
 
 266:                                              ; preds = %265
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit89:                                 ; preds = %float8_mul.exit87, %265
@@ -2851,7 +2849,7 @@ float8_mi.exit89:                                 ; preds = %float8_mul.exit87, 
   br i1 %269, label %271, label %270
 
 270:                                              ; preds = %268
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 271:                                              ; preds = %268, %float8_mi.exit89
@@ -2864,7 +2862,7 @@ float8_mi.exit89:                                 ; preds = %float8_mul.exit87, 
   br i1 %233, label %277, label %276
 
 276:                                              ; preds = %275
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 277:                                              ; preds = %275, %271
@@ -2877,7 +2875,7 @@ float8_mi.exit89:                                 ; preds = %float8_mul.exit87, 
   br i1 %or.cond.i90, label %float8_div.exit91, label %281
 
 281:                                              ; preds = %279
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit91:                                ; preds = %277, %279
@@ -2893,7 +2891,7 @@ float8_div.exit91:                                ; preds = %277, %279
   br i1 %or.cond11.i93, label %289, label %288
 
 288:                                              ; preds = %285
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 289:                                              ; preds = %285, %float8_div.exit91
@@ -2907,7 +2905,7 @@ float8_div.exit91:                                ; preds = %277, %279
   br i1 %or.cond.i92, label %294, label %float8_mul.exit94
 
 294:                                              ; preds = %291
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit94:                                ; preds = %289, %291
@@ -2923,7 +2921,7 @@ float8_mul.exit94:                                ; preds = %289, %291
   br i1 %or.cond.i95, label %float8_pl.exit96, label %301
 
 301:                                              ; preds = %298
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit96:                                 ; preds = %298
@@ -2939,7 +2937,7 @@ float8_pl.exit96.thread:                          ; preds = %float8_mul.exit94
   br i1 %307, label %308, label %309, !prof !12
 
 308:                                              ; preds = %float8_pl.exit96.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 309:                                              ; preds = %float8_pl.exit96, %float8_pl.exit96.thread
@@ -2954,7 +2952,7 @@ float8_pl.exit96.thread:                          ; preds = %float8_mul.exit94
   br i1 %or.cond.i97, label %float8_div.exit68, label %315
 
 315:                                              ; preds = %312
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit68:                                ; preds = %312, %309, %160, %157
@@ -3049,7 +3047,7 @@ define dso_local range(i64 0, 2) i64 @line_perp(ptr noundef readonly captures(no
   br i1 %or.cond11.i, label %40, label %39
 
 39:                                               ; preds = %36
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 40:                                               ; preds = %36, %32
@@ -3057,7 +3055,7 @@ define dso_local range(i64 0, 2) i64 @line_perp(ptr noundef readonly captures(no
   br i1 %41, label %42, label %float8_mul.exit, !prof !12
 
 42:                                               ; preds = %40
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %40
@@ -3073,7 +3071,7 @@ float8_mul.exit:                                  ; preds = %40
   br i1 %or.cond11.i15, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 50:                                               ; preds = %46, %float8_mul.exit
@@ -3081,7 +3079,7 @@ float8_mul.exit:                                  ; preds = %40
   br i1 %51, label %52, label %float8_mul.exit16, !prof !12
 
 52:                                               ; preds = %50
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit16:                                ; preds = %50
@@ -3094,7 +3092,7 @@ float8_mul.exit16:                                ; preds = %50
   br i1 %35, label %58, label %57
 
 57:                                               ; preds = %56
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 58:                                               ; preds = %56, %float8_mul.exit16
@@ -3105,7 +3103,7 @@ float8_mul.exit16:                                ; preds = %50
   br i1 %45, label %float8_div.exit, label %61
 
 61:                                               ; preds = %60
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %58, %60
@@ -3234,7 +3232,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   br i1 %57, label %59, label %58
 
 58:                                               ; preds = %55
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 59:                                               ; preds = %55, %51
@@ -3248,7 +3246,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   br i1 %or.cond.i, label %float8_div.exit, label %64
 
 64:                                               ; preds = %61
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 65:                                               ; preds = %48
@@ -3268,7 +3266,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   br i1 %74, label %76, label %75
 
 75:                                               ; preds = %72
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 76:                                               ; preds = %72, %68
@@ -3282,7 +3280,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   br i1 %or.cond.i35, label %float8_div.exit, label %81
 
 81:                                               ; preds = %78
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 82:                                               ; preds = %65
@@ -3302,7 +3300,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   br i1 %91, label %93, label %92
 
 92:                                               ; preds = %89
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 93:                                               ; preds = %89, %85
@@ -3316,7 +3314,7 @@ define dso_local range(i64 0, 2) i64 @line_eq(ptr noundef readonly captures(none
   br i1 %or.cond.i37, label %float8_div.exit, label %98
 
 98:                                               ; preds = %95
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %95, %93, %78, %76, %61, %59, %82
@@ -3334,7 +3332,7 @@ float8_div.exit:                                  ; preds = %95, %93, %78, %76, 
   br i1 %or.cond11.i, label %107, label %106
 
 106:                                              ; preds = %102
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 107:                                              ; preds = %102, %float8_div.exit
@@ -3348,7 +3346,7 @@ float8_div.exit:                                  ; preds = %95, %93, %78, %76, 
   br i1 %or.cond.i39, label %112, label %float8_mul.exit
 
 112:                                              ; preds = %109
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %107, %109
@@ -3374,7 +3372,7 @@ float8_mul.exit:                                  ; preds = %107, %109
   br i1 %or.cond11.i41, label %128, label %127
 
 127:                                              ; preds = %122
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 128:                                              ; preds = %122, %118
@@ -3388,7 +3386,7 @@ float8_mul.exit:                                  ; preds = %107, %109
   br i1 %or.cond.i40, label %133, label %float8_mul.exit42
 
 133:                                              ; preds = %130
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit42:                                ; preds = %128, %130
@@ -3414,7 +3412,7 @@ float8_mul.exit42:                                ; preds = %128, %130
   br i1 %or.cond11.i44, label %149, label %148
 
 148:                                              ; preds = %143
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 149:                                              ; preds = %143, %139
@@ -3428,7 +3426,7 @@ float8_mul.exit42:                                ; preds = %128, %130
   br i1 %or.cond.i43, label %154, label %float8_mul.exit45
 
 154:                                              ; preds = %151
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit45:                                ; preds = %149, %151
@@ -3483,7 +3481,7 @@ define dso_local i64 @line_distance(ptr noundef readonly captures(none) %0) loca
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %23
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %23, %19
@@ -3495,7 +3493,7 @@ define dso_local i64 @line_distance(ptr noundef readonly captures(none) %0) loca
   br i1 %29, label %float8_div.exit, label %30
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 31:                                               ; preds = %14, %9
@@ -3527,7 +3525,7 @@ define dso_local i64 @line_distance(ptr noundef readonly captures(none) %0) loca
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 50:                                               ; preds = %47, %43
@@ -3539,7 +3537,7 @@ define dso_local i64 @line_distance(ptr noundef readonly captures(none) %0) loca
   br i1 %53, label %float8_div.exit, label %54
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %52, %50, %28, %26, %31, %37
@@ -3562,7 +3560,7 @@ float8_div.exit:                                  ; preds = %52, %50, %28, %26, 
   br i1 %or.cond11.i, label %68, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 68:                                               ; preds = %62, %float8_div.exit
@@ -3576,7 +3574,7 @@ float8_div.exit:                                  ; preds = %52, %50, %28, %26, 
   br i1 %or.cond.i27, label %73, label %float8_mul.exit
 
 73:                                               ; preds = %70
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %68, %70
@@ -3592,7 +3590,7 @@ float8_mul.exit:                                  ; preds = %68, %70
   br i1 %or.cond.i28, label %float8_mi.exit, label %80
 
 80:                                               ; preds = %77
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit, %77
@@ -3625,7 +3623,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit, %7
   br i1 %95, label %96, label %97, !prof !12
 
 96:                                               ; preds = %90
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 97:                                               ; preds = %90
@@ -3633,7 +3631,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit, %7
   br i1 %98, label %99, label %pg_hypot.exit, !prof !12
 
 99:                                               ; preds = %97
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 pg_hypot.exit:                                    ; preds = %87, %97
@@ -3646,7 +3644,7 @@ pg_hypot.exit:                                    ; preds = %87, %97
   br i1 %102, label %pg_hypot.exit.thread, label %103
 
 103:                                              ; preds = %101
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 pg_hypot.exit.thread:                             ; preds = %86, %float8_mi.exit, %101, %pg_hypot.exit
@@ -3660,7 +3658,7 @@ pg_hypot.exit.thread:                             ; preds = %86, %float8_mi.exit
   br i1 %76, label %109, label %108
 
 108:                                              ; preds = %107
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 109:                                              ; preds = %107, %pg_hypot.exit.thread
@@ -3675,7 +3673,7 @@ pg_hypot.exit.thread:                             ; preds = %86, %float8_mi.exit
   br i1 %or.cond.i30, label %float8_div.exit31, label %115
 
 115:                                              ; preds = %111
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit31:                                ; preds = %109, %111
@@ -3717,7 +3715,7 @@ define dso_local double @pg_hypot(double noundef %0, double noundef %1) local_un
   br i1 %16, label %17, label %18, !prof !12
 
 17:                                               ; preds = %11
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 18:                                               ; preds = %11
@@ -3725,7 +3723,7 @@ define dso_local double @pg_hypot(double noundef %0, double noundef %1) local_un
   br i1 %19, label %20, label %21, !prof !12
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 21:                                               ; preds = %7, %2, %18, %8
@@ -3741,7 +3739,7 @@ define dso_local noundef i64 @line_interpt(ptr noundef captures(none) %0) local_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = tail call fastcc zeroext i1 @line_interpt_line(ptr noundef %8, ptr noundef %4, ptr noundef %7)
   br i1 %9, label %12, label %10
 
@@ -3764,7 +3762,7 @@ define dso_local i64 @path_area(ptr noundef captures(none) %0) local_unnamed_add
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -3812,7 +3810,7 @@ define dso_local i64 @path_area(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %or.cond11.i, label %33, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 33:                                               ; preds = %27, %15
@@ -3826,7 +3824,7 @@ define dso_local i64 @path_area(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %or.cond.i, label %38, label %float8_mul.exit
 
 38:                                               ; preds = %35
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %33, %35
@@ -3842,7 +3840,7 @@ float8_mul.exit:                                  ; preds = %33, %35
   br i1 %or.cond.i22, label %float8_pl.exit, label %45
 
 45:                                               ; preds = %42
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mul.exit, %42
@@ -3863,7 +3861,7 @@ float8_pl.exit:                                   ; preds = %float8_mul.exit, %4
   br i1 %or.cond11.i24, label %58, label %57
 
 57:                                               ; preds = %52
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 58:                                               ; preds = %52, %float8_pl.exit
@@ -3877,7 +3875,7 @@ float8_pl.exit:                                   ; preds = %float8_mul.exit, %4
   br i1 %or.cond.i23, label %63, label %float8_mul.exit25
 
 63:                                               ; preds = %60
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit25:                                ; preds = %58, %60
@@ -3891,7 +3889,7 @@ float8_mul.exit25:                                ; preds = %58, %60
   br i1 %or.cond.i26, label %float8_mi.exit, label %68
 
 68:                                               ; preds = %67
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit25, %67
@@ -3911,7 +3909,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit25, 
   br i1 %74, label %76, label %75
 
 75:                                               ; preds = %73
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 76:                                               ; preds = %73, %._crit_edge
@@ -3923,7 +3921,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit25, 
   br i1 %79, label %float8_div.exit, label %80
 
 80:                                               ; preds = %78
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %76, %78
@@ -3946,7 +3944,7 @@ define dso_local noundef i64 @path_in(ptr noundef captures(none) %0) local_unnam
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %9 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %6, i32 noundef 44) #18
+  %9 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %6, i32 noundef 44) #17
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %pair_count.exit.thread, label %.lr.ph.i
 
@@ -3955,7 +3953,7 @@ define dso_local noundef i64 @path_in(ptr noundef captures(none) %0) local_unnam
   %.09.i = phi i32 [ %11, %.lr.ph.i ], [ 0, %1 ]
   %11 = add i32 %.09.i, 1
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 44) #18
+  %13 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 44) #17
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %pair_count.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -3969,18 +3967,18 @@ pair_count.exit:                                  ; preds = %.lr.ph.i
   br i1 %18, label %pair_count.exit.thread, label %.preheader51
 
 .preheader51:                                     ; preds = %pair_count.exit
-  %19 = tail call ptr @__ctype_b_loc() #17
+  %19 = tail call ptr @__ctype_b_loc() #16
   %20 = load ptr, ptr %19, align 8
   br label %25
 
 pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
-  %21 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #16
+  %21 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
   br i1 %21, label %22, label %87
 
 22:                                               ; preds = %pair_count.exit.thread
-  %23 = tail call i32 @errcode(i32 noundef 33685634) #16
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #16
-  tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1418, ptr noundef nonnull @__func__.path_in) #16
+  %23 = tail call i32 @errcode(i32 noundef 33685634) #15
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #15
+  tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1418, ptr noundef nonnull @__func__.path_in) #15
   br label %87
 
 25:                                               ; preds = %25, %.preheader51
@@ -4000,7 +3998,7 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %32
-  %35 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %storemerge, i32 noundef 40) #18
+  %35 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %storemerge, i32 noundef 40) #17
   %36 = icmp eq ptr %35, %storemerge
   br i1 %36, label %37, label %38
 
@@ -4019,19 +4017,19 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br i1 %or.cond, label %43, label %48
 
 43:                                               ; preds = %38
-  %44 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #16
+  %44 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
   br i1 %44, label %45, label %87
 
 45:                                               ; preds = %43
-  %46 = tail call i32 @errcode(i32 noundef 261) #16
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #16
-  tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1438, ptr noundef nonnull @__func__.path_in) #16
+  %46 = tail call i32 @errcode(i32 noundef 261) #15
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
+  tail call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1438, ptr noundef nonnull @__func__.path_in) #15
   br label %87
 
 48:                                               ; preds = %38
   %49 = add i32 %41, 16
   %50 = sext i32 %49 to i64
-  %51 = tail call ptr @palloc(i64 noundef %50) #16
+  %51 = tail call ptr @palloc(i64 noundef %50) #15
   %52 = shl i32 %49, 2
   store i32 %52, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
@@ -4059,13 +4057,13 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br label %67
 
 62:                                               ; preds = %60
-  %63 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #16
+  %63 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
   br i1 %63, label %64, label %87
 
 64:                                               ; preds = %62
-  %65 = call i32 @errcode(i32 noundef 33685634) #16
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #16
-  call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1455, ptr noundef nonnull @__func__.path_in) #16
+  %65 = call i32 @errcode(i32 noundef 33685634) #15
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #15
+  call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1455, ptr noundef nonnull @__func__.path_in) #15
   br label %87
 
 67:                                               ; preds = %67, %.preheader
@@ -4085,13 +4083,13 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br i1 %.not48, label %80, label %75
 
 75:                                               ; preds = %.loopexit
-  %76 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #16
+  %76 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #15
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %75
-  %78 = call i32 @errcode(i32 noundef 33685634) #16
-  %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #16
-  call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1463, ptr noundef nonnull @__func__.path_in) #16
+  %78 = call i32 @errcode(i32 noundef 33685634) #15
+  %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #15
+  call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 1463, ptr noundef nonnull @__func__.path_in) #15
   br label %87
 
 80:                                               ; preds = %.loopexit
@@ -4120,7 +4118,7 @@ define dso_local i64 @path_out(ptr noundef readonly captures(none) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -4138,25 +4136,24 @@ define dso_local noundef i64 @path_recv(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgbyte(ptr noundef %4) #16
-  %6 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #16
+  %5 = tail call i32 @pq_getmsgbyte(ptr noundef %4) #15
+  %6 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #15
   %7 = add i32 %6, -134217726
   %or.cond = icmp ult i32 %7, -134217725
   br i1 %or.cond, label %8, label %.lr.ph
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 50462850) #16
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1502, ptr noundef nonnull @__func__.path_recv) #16
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %10 = tail call i32 @errcode(i32 noundef 50462850) #15
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1502, ptr noundef nonnull @__func__.path_recv) #15
   unreachable
 
 .lr.ph:                                           ; preds = %1
   %12 = shl nuw nsw i32 %6, 4
   %narrow = add nuw nsw i32 %12, 16
   %13 = zext nneg i32 %narrow to i64
-  %14 = tail call ptr @palloc(i64 noundef %13) #16
+  %14 = tail call ptr @palloc(i64 noundef %13) #15
   %15 = shl i32 %narrow, 2
   store i32 %15, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -4173,10 +4170,10 @@ define dso_local noundef i64 @path_recv(ptr noundef readonly captures(none) %0) 
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %22 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %23 = getelementptr inbounds nuw %struct.Point, ptr %20, i64 %indvars.iv
   store double %22, ptr %23, align 8
-  %24 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %24 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store double %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4198,14 +4195,14 @@ define dso_local i64 @path_send(ptr noundef readonly captures(none) %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %.not = icmp ne i32 %8, 0
   %9 = zext i1 %.not to i8
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 1) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %10 = load ptr, ptr %2, align 8, !alias.scope !21
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4217,7 +4214,7 @@ define dso_local i64 @path_send(ptr noundef readonly captures(none) %0) local_un
   store i32 %15, ptr %11, align 8, !alias.scope !21
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %17 = load i32, ptr %16, align 4
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %18 = call i32 @llvm.bswap.i32(i32 %17)
   %19 = load ptr, ptr %2, align 8, !alias.scope !24
@@ -4239,10 +4236,10 @@ define dso_local i64 @path_send(ptr noundef readonly captures(none) %0) local_un
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = getelementptr inbounds nuw %struct.Point, ptr %26, i64 %indvars.iv
   %29 = load double, ptr %28, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %29) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %29) #15
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load double, ptr %30, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %31) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %31) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %16, align 4
   %33 = sext i32 %32 to i64
@@ -4250,7 +4247,7 @@ define dso_local i64 @path_send(ptr noundef readonly captures(none) %0) local_un
   br i1 %34, label %27, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %27, %1
-  %35 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  %35 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %36 = ptrtoint ptr %35 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %36
@@ -4261,11 +4258,11 @@ define dso_local range(i64 0, 2) i64 @path_n_lt(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -4280,11 +4277,11 @@ define dso_local range(i64 0, 2) i64 @path_n_gt(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -4299,11 +4296,11 @@ define dso_local range(i64 0, 2) i64 @path_n_eq(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -4318,11 +4315,11 @@ define dso_local range(i64 0, 2) i64 @path_n_le(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -4337,11 +4334,11 @@ define dso_local range(i64 0, 2) i64 @path_n_ge(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -4356,7 +4353,7 @@ define dso_local range(i64 0, 2) i64 @path_isclosed(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp ne i32 %7, 0
@@ -4369,7 +4366,7 @@ define dso_local range(i64 0, 2) i64 @path_isopen(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -4382,7 +4379,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @path_npoints(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -4394,7 +4391,7 @@ define dso_local i64 @path_close(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4406,7 +4403,7 @@ define dso_local i64 @path_open(ptr noundef readonly captures(none) %0) local_un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -4420,11 +4417,11 @@ define dso_local range(i64 0, 2) i64 @path_inter(ptr noundef readonly captures(n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #16
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #16
+  %11 = tail call ptr @pg_detoast_datum(ptr noundef %10) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4769,7 +4766,7 @@ define internal fastcc noundef zeroext i1 @lseg_interpt_lseg(ptr noundef writeon
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %31
 
 31:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %26, %24
@@ -4785,7 +4782,7 @@ float8_mi.exit.i.i:                               ; preds = %26, %24
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %38
 
 38:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %33, %float8_mi.exit.i.i
@@ -4798,7 +4795,7 @@ float8_mi.exit10.i.i:                             ; preds = %33, %float8_mi.exit
   br i1 %25, label %44, label %43
 
 43:                                               ; preds = %42
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 44:                                               ; preds = %42, %float8_mi.exit10.i.i
@@ -4809,7 +4806,7 @@ float8_mi.exit10.i.i:                             ; preds = %33, %float8_mi.exit
   br i1 %32, label %lseg_sl.exit, label %47
 
 47:                                               ; preds = %46
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %44, %46
@@ -4860,7 +4857,7 @@ lseg_sl.exit.thread:                              ; preds = %3
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %65
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 69:                                               ; preds = %65, %61
@@ -4872,7 +4869,7 @@ lseg_sl.exit.thread:                              ; preds = %3
   br i1 %72, label %73, label %float8_mul.exit.i
 
 73:                                               ; preds = %71
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %71, %69
@@ -4888,7 +4885,7 @@ float8_mul.exit.i:                                ; preds = %71, %69
   br i1 %or.cond.i19.i, label %float8_mi.exit.i, label %80
 
 80:                                               ; preds = %77
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %77, %float8_mul.exit.i
@@ -4932,11 +4929,11 @@ define dso_local i64 @path_distance(ptr noundef captures(none) %0) local_unnamed
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #16
+  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -5218,7 +5215,7 @@ define dso_local i64 @path_length(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
@@ -5266,7 +5263,7 @@ define dso_local i64 @path_length(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %28
 
 28:                                               ; preds = %23
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %23
@@ -5300,7 +5297,7 @@ float8_mi.exit.thread.i:                          ; preds = %14
   br i1 %or.cond.i4.i, label %point_dt.exit, label %50
 
 50:                                               ; preds = %43
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 51:                                               ; preds = %float8_mi.exit.thread.i
@@ -5324,7 +5321,7 @@ float8_mi.exit.thread.i:                          ; preds = %14
   br i1 %60, label %61, label %62, !prof !12
 
 61:                                               ; preds = %55
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 62:                                               ; preds = %55
@@ -5332,7 +5329,7 @@ float8_mi.exit.thread.i:                          ; preds = %14
   br i1 %63, label %64, label %point_dt.exit, !prof !12
 
 64:                                               ; preds = %62
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %43, %51, %52, %62
@@ -5351,7 +5348,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_pl.exit, label %73
 
 73:                                               ; preds = %68
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %68, %point_dt.exit, %12
@@ -5374,7 +5371,7 @@ define dso_local noundef i64 @point_in(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #16
+  %5 = tail call ptr @palloc(i64 noundef 16) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -5386,7 +5383,7 @@ define dso_local noundef i64 @point_in(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @pair_decode(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
-  %9 = tail call ptr @__ctype_b_loc() #17
+  %9 = tail call ptr @__ctype_b_loc() #16
   %.pre = load ptr, ptr %9, align 8
   br label %10
 
@@ -5412,7 +5409,7 @@ define internal fastcc noundef zeroext i1 @pair_decode(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %19, %17
   %21 = phi ptr [ %16, %19 ], [ %storemerge, %17 ]
-  %22 = call double @float8in_internal(ptr noundef nonnull %21, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %22 = call double @float8in_internal(ptr noundef nonnull %21, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #15
   store double %22, ptr %1, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %single_decode.exit.thread, label %23
@@ -5437,7 +5434,7 @@ single_decode.exit.thread:                        ; preds = %20, %23, %single_de
   br i1 %.not17, label %32, label %61
 
 32:                                               ; preds = %single_decode.exit.thread
-  %33 = call double @float8in_internal(ptr noundef nonnull %30, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #16
+  %33 = call double @float8in_internal(ptr noundef nonnull %30, ptr noundef nonnull %8, ptr noundef %4, ptr noundef %5, ptr noundef %6) #15
   store double %33, ptr %2, align 8
   br i1 %.not.i, label %single_decode.exit23.thread, label %34
 
@@ -5500,13 +5497,13 @@ single_decode.exit23.thread:                      ; preds = %32, %34, %single_de
   br i1 %.not21, label %66, label %61
 
 61:                                               ; preds = %59, %40, %single_decode.exit.thread
-  %62 = call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #16
+  %62 = call zeroext i1 @errsave_start(ptr noundef %6, ptr noundef null) #15
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %61
-  %64 = call i32 @errcode(i32 noundef 33685634) #16
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %4, ptr noundef %5) #16
-  call void @errsave_finish(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 251, ptr noundef nonnull @__func__.pair_decode) #16
+  %64 = call i32 @errcode(i32 noundef 33685634) #15
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %4, ptr noundef %5) #15
+  call void @errsave_finish(ptr noundef %6, ptr noundef nonnull @.str.2, i32 noundef 251, ptr noundef nonnull @__func__.pair_decode) #15
   br label %66
 
 66:                                               ; preds = %61, %63, %58, %59, %single_decode.exit23, %single_decode.exit
@@ -5529,10 +5526,10 @@ define dso_local i64 @point_recv(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #16
-  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %5 = tail call ptr @palloc(i64 noundef 16) #15
+  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   store double %6, ptr %5, align 8
-  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %7, ptr %8, align 8
   %9 = ptrtoint ptr %5 to i64
@@ -5546,13 +5543,13 @@ define dso_local i64 @point_send(ptr noundef readonly captures(none) %0) local_u
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %6 = load double, ptr %5, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #16
-  %9 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #15
+  %9 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %10 = ptrtoint ptr %9 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %10
@@ -5833,7 +5830,7 @@ define dso_local i64 @point_distance(ptr noundef readonly captures(none) %0) loc
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -5867,7 +5864,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -5891,7 +5888,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -5899,7 +5896,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -5950,7 +5947,7 @@ define dso_local i64 @point_slope(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %27, %25
@@ -5966,7 +5963,7 @@ float8_mi.exit.i:                                 ; preds = %27, %25
   br i1 %or.cond.i9.i, label %float8_mi.exit10.i, label %39
 
 39:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i:                               ; preds = %34, %float8_mi.exit.i
@@ -5979,7 +5976,7 @@ float8_mi.exit10.i:                               ; preds = %34, %float8_mi.exit
   br i1 %26, label %45, label %44
 
 44:                                               ; preds = %43
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 45:                                               ; preds = %43, %float8_mi.exit10.i
@@ -5990,7 +5987,7 @@ float8_mi.exit10.i:                               ; preds = %34, %float8_mi.exit
   br i1 %33, label %point_sl.exit, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_sl.exit:                                    ; preds = %1, %15, %45, %47
@@ -6007,7 +6004,7 @@ define dso_local noundef i64 @lseg_in(ptr noundef captures(none) %0) local_unnam
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = call fastcc zeroext i1 @path_decode(ptr noundef %5, i1 noundef zeroext true, i32 noundef 2, ptr noundef %8, ptr noundef %2, ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef %5, ptr noundef %7)
   br i1 %9, label %12, label %10
@@ -6042,16 +6039,16 @@ define dso_local i64 @lseg_recv(ptr noundef readonly captures(none) %0) local_un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 32) #16
-  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %5 = tail call ptr @palloc(i64 noundef 32) #15
+  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   store double %6, ptr %5, align 8
-  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %7, ptr %8, align 8
-  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %9, ptr %10, align 8
-  %11 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %11 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store double %11, ptr %12, align 8
   %13 = ptrtoint ptr %5 to i64
@@ -6065,19 +6062,19 @@ define dso_local i64 @lseg_send(ptr noundef readonly captures(none) %0) local_un
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %6 = load double, ptr %5, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #15
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load double, ptr %9, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load double, ptr %11, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %12) #16
-  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %12) #15
+  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %14 = ptrtoint ptr %13 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %14
@@ -6091,7 +6088,7 @@ define dso_local noundef i64 @lseg_construct(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   %9 = load double, ptr %4, align 8
   store double %9, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6131,7 +6128,7 @@ define dso_local i64 @lseg_length(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %16
 
 16:                                               ; preds = %11
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %11
@@ -6165,7 +6162,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %38
 
 38:                                               ; preds = %31
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %float8_mi.exit.thread.i
@@ -6189,7 +6186,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %48, label %49, label %50, !prof !12
 
 49:                                               ; preds = %43
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 50:                                               ; preds = %43
@@ -6197,7 +6194,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %51, label %52, label %point_dt.exit, !prof !12
 
 52:                                               ; preds = %50
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %31, %39, %40, %50
@@ -6262,7 +6259,7 @@ define dso_local range(i64 0, 2) i64 @lseg_parallel(ptr noundef readonly capture
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %28, %26
@@ -6278,7 +6275,7 @@ float8_mi.exit.i.i:                               ; preds = %28, %26
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %40
 
 40:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit.i.i
@@ -6291,7 +6288,7 @@ float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit
   br i1 %27, label %46, label %45
 
 45:                                               ; preds = %44
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 46:                                               ; preds = %44, %float8_mi.exit10.i.i
@@ -6302,7 +6299,7 @@ float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit
   br i1 %34, label %lseg_sl.exit, label %49
 
 49:                                               ; preds = %48
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
@@ -6342,7 +6339,7 @@ lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
   br i1 %or.cond.i.i.i8, label %float8_mi.exit.i.i4, label %75
 
 75:                                               ; preds = %70
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i4:                              ; preds = %70, %68
@@ -6358,7 +6355,7 @@ float8_mi.exit.i.i4:                              ; preds = %70, %68
   br i1 %or.cond.i9.i.i7, label %float8_mi.exit10.i.i5, label %82
 
 82:                                               ; preds = %77
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i5:                            ; preds = %77, %float8_mi.exit.i.i4
@@ -6371,7 +6368,7 @@ float8_mi.exit10.i.i5:                            ; preds = %77, %float8_mi.exit
   br i1 %69, label %88, label %87
 
 87:                                               ; preds = %86
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 88:                                               ; preds = %86, %float8_mi.exit10.i.i5
@@ -6382,7 +6379,7 @@ float8_mi.exit10.i.i5:                            ; preds = %77, %float8_mi.exit
   br i1 %76, label %lseg_sl.exit9, label %91
 
 91:                                               ; preds = %90
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit9:                                    ; preds = %lseg_sl.exit, %58, %88, %90
@@ -6438,7 +6435,7 @@ define dso_local range(i64 0, 2) i64 @lseg_perp(ptr noundef readonly captures(no
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %27, %25
@@ -6454,7 +6451,7 @@ float8_mi.exit.i.i:                               ; preds = %27, %25
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %39
 
 39:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %34, %float8_mi.exit.i.i
@@ -6467,7 +6464,7 @@ float8_mi.exit10.i.i:                             ; preds = %34, %float8_mi.exit
   br i1 %26, label %45, label %44
 
 44:                                               ; preds = %43
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 45:                                               ; preds = %43, %float8_mi.exit10.i.i
@@ -6478,7 +6475,7 @@ float8_mi.exit10.i.i:                             ; preds = %34, %float8_mi.exit
   br i1 %33, label %lseg_sl.exit, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %1, %15, %45, %47
@@ -6822,7 +6819,7 @@ define dso_local range(i64 0, 2) i64 @lseg_lt(ptr noundef readonly captures(none
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14
@@ -6856,7 +6853,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %41
 
 41:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 42:                                               ; preds = %float8_mi.exit.thread.i
@@ -6880,7 +6877,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %51, label %52, label %53, !prof !12
 
 52:                                               ; preds = %46
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 53:                                               ; preds = %46
@@ -6888,7 +6885,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %54, label %55, label %point_dt.exit, !prof !12
 
 55:                                               ; preds = %53
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
@@ -6910,7 +6907,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i13, label %float8_mi.exit.i14, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i14:                               ; preds = %62
@@ -6944,7 +6941,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %or.cond.i4.i12, label %point_dt.exit15, label %89
 
 89:                                               ; preds = %82
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 90:                                               ; preds = %float8_mi.exit.thread.i6
@@ -6968,7 +6965,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %99, label %100, label %101, !prof !12
 
 100:                                              ; preds = %94
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 101:                                              ; preds = %94
@@ -6976,7 +6973,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %102, label %103, label %point_dt.exit15, !prof !12
 
 103:                                              ; preds = %101
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
@@ -7012,7 +7009,7 @@ define dso_local range(i64 0, 2) i64 @lseg_le(ptr noundef readonly captures(none
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14
@@ -7046,7 +7043,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %41
 
 41:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 42:                                               ; preds = %float8_mi.exit.thread.i
@@ -7070,7 +7067,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %51, label %52, label %53, !prof !12
 
 52:                                               ; preds = %46
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 53:                                               ; preds = %46
@@ -7078,7 +7075,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %54, label %55, label %point_dt.exit, !prof !12
 
 55:                                               ; preds = %53
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
@@ -7100,7 +7097,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i13, label %float8_mi.exit.i14, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i14:                               ; preds = %62
@@ -7134,7 +7131,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %or.cond.i4.i12, label %point_dt.exit15, label %89
 
 89:                                               ; preds = %82
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 90:                                               ; preds = %float8_mi.exit.thread.i6
@@ -7158,7 +7155,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %99, label %100, label %101, !prof !12
 
 100:                                              ; preds = %94
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 101:                                              ; preds = %94
@@ -7166,7 +7163,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %102, label %103, label %point_dt.exit15, !prof !12
 
 103:                                              ; preds = %101
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
@@ -7202,7 +7199,7 @@ define dso_local range(i64 0, 2) i64 @lseg_gt(ptr noundef readonly captures(none
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14
@@ -7236,7 +7233,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %41
 
 41:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 42:                                               ; preds = %float8_mi.exit.thread.i
@@ -7260,7 +7257,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %51, label %52, label %53, !prof !12
 
 52:                                               ; preds = %46
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 53:                                               ; preds = %46
@@ -7268,7 +7265,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %54, label %55, label %point_dt.exit, !prof !12
 
 55:                                               ; preds = %53
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
@@ -7290,7 +7287,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i13, label %float8_mi.exit.i14, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i14:                               ; preds = %62
@@ -7324,7 +7321,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %or.cond.i4.i12, label %point_dt.exit15, label %89
 
 89:                                               ; preds = %82
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 90:                                               ; preds = %float8_mi.exit.thread.i6
@@ -7348,7 +7345,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %99, label %100, label %101, !prof !12
 
 100:                                              ; preds = %94
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 101:                                              ; preds = %94
@@ -7356,7 +7353,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %102, label %103, label %point_dt.exit15, !prof !12
 
 103:                                              ; preds = %101
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
@@ -7392,7 +7389,7 @@ define dso_local range(i64 0, 2) i64 @lseg_ge(ptr noundef readonly captures(none
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14
@@ -7426,7 +7423,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %41
 
 41:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 42:                                               ; preds = %float8_mi.exit.thread.i
@@ -7450,7 +7447,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %51, label %52, label %53, !prof !12
 
 52:                                               ; preds = %46
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 53:                                               ; preds = %46
@@ -7458,7 +7455,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %54, label %55, label %point_dt.exit, !prof !12
 
 55:                                               ; preds = %53
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %34, %42, %43, %53
@@ -7480,7 +7477,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i13, label %float8_mi.exit.i14, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i14:                               ; preds = %62
@@ -7514,7 +7511,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %or.cond.i4.i12, label %point_dt.exit15, label %89
 
 89:                                               ; preds = %82
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 90:                                               ; preds = %float8_mi.exit.thread.i6
@@ -7538,7 +7535,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %99, label %100, label %101, !prof !12
 
 100:                                              ; preds = %94
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 101:                                              ; preds = %94
@@ -7546,7 +7543,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %102, label %103, label %point_dt.exit15, !prof !12
 
 103:                                              ; preds = %101
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %82, %90, %91, %101
@@ -7575,7 +7572,7 @@ define dso_local i64 @lseg_center(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #16
+  %5 = tail call ptr @palloc(i64 noundef 16) #15
   %6 = load double, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load double, ptr %7, align 8
@@ -7593,7 +7590,7 @@ define dso_local i64 @lseg_center(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i, label %float8_pl.exit, label %17
 
 17:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %12
@@ -7607,7 +7604,7 @@ float8_pl.exit.thread:                            ; preds = %1
   br i1 %21, label %22, label %23, !prof !12
 
 22:                                               ; preds = %float8_pl.exit.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 23:                                               ; preds = %float8_pl.exit, %float8_pl.exit.thread
@@ -7620,7 +7617,7 @@ float8_pl.exit.thread:                            ; preds = %1
   br i1 %27, label %float8_div.exit, label %28
 
 28:                                               ; preds = %26
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %23, %26
@@ -7643,7 +7640,7 @@ float8_div.exit:                                  ; preds = %23, %26
   br i1 %or.cond.i9, label %float8_pl.exit10, label %41
 
 41:                                               ; preds = %36
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit10:                                 ; preds = %36
@@ -7657,7 +7654,7 @@ float8_pl.exit10.thread:                          ; preds = %float8_div.exit
   br i1 %45, label %46, label %47, !prof !12
 
 46:                                               ; preds = %float8_pl.exit10.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 47:                                               ; preds = %float8_pl.exit10, %float8_pl.exit10.thread
@@ -7670,7 +7667,7 @@ float8_pl.exit10.thread:                          ; preds = %float8_div.exit
   br i1 %51, label %float8_div.exit12, label %52
 
 52:                                               ; preds = %50
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit12:                                ; preds = %47, %50
@@ -7688,7 +7685,7 @@ define dso_local noundef i64 @lseg_interpt(ptr noundef captures(none) %0) local_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = tail call fastcc zeroext i1 @lseg_interpt_lseg(ptr noundef %8, ptr noundef %4, ptr noundef %7)
   br i1 %9, label %12, label %10
 
@@ -7748,7 +7745,7 @@ define internal fastcc double @line_closept_point(ptr noundef writeonly captures
   br i1 %19, label %21, label %20
 
 20:                                               ; preds = %18
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 21:                                               ; preds = %18, %14
@@ -7760,7 +7757,7 @@ define internal fastcc double @line_closept_point(ptr noundef writeonly captures
   br i1 %24, label %line_invsl.exit, label %25
 
 25:                                               ; preds = %23
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 line_invsl.exit:                                  ; preds = %21, %23
@@ -7818,7 +7815,7 @@ line_invsl.exit.thread:                           ; preds = %3
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %50
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 54:                                               ; preds = %50, %44
@@ -7830,7 +7827,7 @@ line_invsl.exit.thread:                           ; preds = %3
   br i1 %57, label %58, label %float8_mul.exit.i
 
 58:                                               ; preds = %56
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %56, %54
@@ -7846,7 +7843,7 @@ float8_mul.exit.i:                                ; preds = %56, %54
   br i1 %or.cond.i19.i, label %float8_mi.exit.i, label %65
 
 65:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %62, %float8_mul.exit.i
@@ -7895,7 +7892,7 @@ line_construct.exit:                              ; preds = %32, %39, %float8_mi
   br i1 %or.cond.i.i, label %float8_mi.exit.i12, label %85
 
 85:                                               ; preds = %80
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i12:                               ; preds = %80
@@ -7929,7 +7926,7 @@ float8_mi.exit.thread.i:                          ; preds = %74
   br i1 %or.cond.i4.i, label %point_dt.exit, label %107
 
 107:                                              ; preds = %100
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 108:                                              ; preds = %float8_mi.exit.thread.i
@@ -7953,7 +7950,7 @@ float8_mi.exit.thread.i:                          ; preds = %74
   br i1 %117, label %118, label %119, !prof !12
 
 118:                                              ; preds = %112
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 119:                                              ; preds = %112
@@ -7961,7 +7958,7 @@ float8_mi.exit.thread.i:                          ; preds = %74
   br i1 %120, label %121, label %point_dt.exit, !prof !12
 
 121:                                              ; preds = %119
-  call void @float_underflow_error() #19
+  call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %119, %109, %108, %100, %float8_mi.exit.i12, %70, %71
@@ -8047,7 +8044,7 @@ define internal fastcc double @lseg_closept_point(ptr noundef writeonly captures
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 30:                                               ; preds = %26, %20
@@ -8059,7 +8056,7 @@ define internal fastcc double @lseg_closept_point(ptr noundef writeonly captures
   br i1 %33, label %34, label %float8_mul.exit.i
 
 34:                                               ; preds = %32
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %32, %30
@@ -8075,7 +8072,7 @@ float8_mul.exit.i:                                ; preds = %32, %30
   br i1 %or.cond.i19.i, label %float8_mi.exit.i, label %41
 
 41:                                               ; preds = %38
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %38, %float8_mul.exit.i
@@ -8125,7 +8122,7 @@ lseg_closept_line.exit:                           ; preds = %line_construct.exit
   br i1 %or.cond.i.i, label %float8_mi.exit.i7, label %62
 
 62:                                               ; preds = %57
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i7:                                ; preds = %57
@@ -8159,7 +8156,7 @@ float8_mi.exit.thread.i:                          ; preds = %51
   br i1 %or.cond.i4.i, label %point_dt.exit, label %84
 
 84:                                               ; preds = %77
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 85:                                               ; preds = %float8_mi.exit.thread.i
@@ -8183,7 +8180,7 @@ float8_mi.exit.thread.i:                          ; preds = %51
   br i1 %94, label %95, label %96, !prof !12
 
 95:                                               ; preds = %89
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 96:                                               ; preds = %89
@@ -8191,7 +8188,7 @@ float8_mi.exit.thread.i:                          ; preds = %51
   br i1 %97, label %98, label %point_dt.exit, !prof !12
 
 98:                                               ; preds = %96
-  call void @float_underflow_error() #19
+  call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i7, %77, %85, %86, %96
@@ -8223,7 +8220,7 @@ define dso_local i64 @dist_ppath(ptr noundef readonly captures(none) %0) local_u
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
@@ -8309,7 +8306,7 @@ define dso_local i64 @dist_pathp(ptr noundef readonly captures(none) %0) local_u
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
@@ -8745,7 +8742,7 @@ define dso_local i64 @dist_cpoly(ptr noundef readonly captures(none) %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = tail call fastcc double @dist_ppoly_internal(ptr noundef readonly %4, ptr noundef readonly %8)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load double, ptr %10, align 8
@@ -8763,7 +8760,7 @@ define dso_local i64 @dist_cpoly(ptr noundef readonly captures(none) %0) local_u
   br i1 %or.cond.i.i, label %dist_cpoly_internal.exit, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 dist_cpoly_internal.exit:                         ; preds = %1, %15
@@ -8778,7 +8775,7 @@ define dso_local i64 @dist_polyc(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -8799,7 +8796,7 @@ define dso_local i64 @dist_polyc(ptr noundef readonly captures(none) %0) local_u
   br i1 %or.cond.i.i, label %dist_cpoly_internal.exit, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 dist_cpoly_internal.exit:                         ; preds = %1, %15
@@ -8817,7 +8814,7 @@ define dso_local i64 @dist_ppoly(ptr noundef readonly captures(none) %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = tail call fastcc double @dist_ppoly_internal(ptr noundef %4, ptr noundef %8)
   %10 = bitcast double %9 to i64
   ret i64 %10
@@ -8908,7 +8905,7 @@ define dso_local i64 @dist_polyp(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -8925,7 +8922,7 @@ define dso_local noundef i64 @close_pl(ptr noundef captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = tail call fastcc double @line_closept_point(ptr noundef %8, ptr noundef %7, ptr noundef %4)
   %10 = fcmp uno double %9, 0.000000e+00
   br i1 %10, label %11, label %13
@@ -8952,7 +8949,7 @@ define dso_local noundef i64 @close_ps(ptr noundef captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = tail call fastcc double @lseg_closept_point(ptr noundef %8, ptr noundef %7, ptr noundef %4)
   %10 = fcmp uno double %9, 0.000000e+00
   br i1 %10, label %11, label %13
@@ -9014,7 +9011,7 @@ define dso_local noundef i64 @close_lseg(ptr noundef captures(none) %0) local_un
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %28, %26
@@ -9030,7 +9027,7 @@ float8_mi.exit.i.i:                               ; preds = %28, %26
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %40
 
 40:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit.i.i
@@ -9043,7 +9040,7 @@ float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit
   br i1 %27, label %46, label %45
 
 45:                                               ; preds = %44
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 46:                                               ; preds = %44, %float8_mi.exit10.i.i
@@ -9054,7 +9051,7 @@ float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit
   br i1 %34, label %lseg_sl.exit, label %49
 
 49:                                               ; preds = %48
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
@@ -9094,7 +9091,7 @@ lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
   br i1 %or.cond.i.i.i14, label %float8_mi.exit.i.i10, label %75
 
 75:                                               ; preds = %70
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i10:                             ; preds = %70, %68
@@ -9110,7 +9107,7 @@ float8_mi.exit.i.i10:                             ; preds = %70, %68
   br i1 %or.cond.i9.i.i13, label %float8_mi.exit10.i.i11, label %82
 
 82:                                               ; preds = %77
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i11:                           ; preds = %77, %float8_mi.exit.i.i10
@@ -9123,7 +9120,7 @@ float8_mi.exit10.i.i11:                           ; preds = %77, %float8_mi.exit
   br i1 %69, label %88, label %87
 
 87:                                               ; preds = %86
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 88:                                               ; preds = %86, %float8_mi.exit10.i.i11
@@ -9134,7 +9131,7 @@ float8_mi.exit10.i.i11:                           ; preds = %77, %float8_mi.exit
   br i1 %76, label %lseg_sl.exit15, label %91
 
 91:                                               ; preds = %90
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit15:                                   ; preds = %lseg_sl.exit, %58, %88, %90
@@ -9148,7 +9145,7 @@ lseg_sl.exit15:                                   ; preds = %lseg_sl.exit, %58, 
   br label %103
 
 95:                                               ; preds = %lseg_sl.exit15
-  %96 = tail call ptr @palloc(i64 noundef 16) #16
+  %96 = tail call ptr @palloc(i64 noundef 16) #15
   %97 = tail call fastcc double @lseg_closept_lseg(ptr noundef %96, ptr noundef nonnull %7, ptr noundef nonnull %4)
   %98 = fcmp uno double %97, 0.000000e+00
   br i1 %98, label %99, label %101
@@ -9175,7 +9172,7 @@ define dso_local noundef i64 @close_pb(ptr noundef captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = tail call fastcc double @box_closept_point(ptr noundef %8, ptr noundef %7, ptr noundef %4)
   %10 = fcmp uno double %9, 0.000000e+00
   br i1 %10, label %11, label %13
@@ -9237,7 +9234,7 @@ define dso_local noundef i64 @close_ls(ptr noundef captures(none) %0) local_unna
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %28, %26
@@ -9253,7 +9250,7 @@ float8_mi.exit.i.i:                               ; preds = %28, %26
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %40
 
 40:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit.i.i
@@ -9266,7 +9263,7 @@ float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit
   br i1 %27, label %46, label %45
 
 45:                                               ; preds = %44
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 46:                                               ; preds = %44, %float8_mi.exit10.i.i
@@ -9277,7 +9274,7 @@ float8_mi.exit10.i.i:                             ; preds = %35, %float8_mi.exit
   br i1 %34, label %lseg_sl.exit, label %49
 
 49:                                               ; preds = %48
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
@@ -9306,7 +9303,7 @@ lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %63
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 66:                                               ; preds = %63, %58
@@ -9318,7 +9315,7 @@ lseg_sl.exit:                                     ; preds = %1, %16, %46, %48
   br i1 %69, label %line_sl.exit, label %70
 
 70:                                               ; preds = %68
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 line_sl.exit:                                     ; preds = %lseg_sl.exit, %53, %66, %68
@@ -9332,7 +9329,7 @@ line_sl.exit:                                     ; preds = %lseg_sl.exit, %53, 
   br label %85
 
 74:                                               ; preds = %line_sl.exit
-  %75 = tail call ptr @palloc(i64 noundef 16) #16
+  %75 = tail call ptr @palloc(i64 noundef 16) #15
   %76 = tail call fastcc zeroext i1 @lseg_interpt_line(ptr noundef %75, ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %4)
   br i1 %76, label %lseg_closept_line.exit.thread, label %77
 
@@ -9375,7 +9372,7 @@ define dso_local noundef i64 @close_sb(ptr noundef captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = tail call fastcc double @box_closept_lseg(ptr noundef %8, ptr noundef %7, ptr noundef %4)
   %10 = fcmp uno double %9, 0.000000e+00
   br i1 %10, label %11, label %13
@@ -9425,7 +9422,7 @@ define internal fastcc zeroext i1 @line_contain_point(ptr noundef readonly captu
   br i1 %or.cond11.i, label %14, label %13
 
 13:                                               ; preds = %8
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 14:                                               ; preds = %8, %2
@@ -9439,7 +9436,7 @@ define internal fastcc zeroext i1 @line_contain_point(ptr noundef readonly captu
   br i1 %or.cond.i, label %19, label %float8_mul.exit
 
 19:                                               ; preds = %16
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %14, %16
@@ -9461,7 +9458,7 @@ float8_mul.exit:                                  ; preds = %14, %16
   br i1 %or.cond11.i6, label %33, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 33:                                               ; preds = %27, %float8_mul.exit
@@ -9475,7 +9472,7 @@ float8_mul.exit:                                  ; preds = %14, %16
   br i1 %or.cond.i5, label %38, label %float8_mul.exit7
 
 38:                                               ; preds = %35
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit7:                                 ; preds = %33, %35
@@ -9489,7 +9486,7 @@ float8_mul.exit7:                                 ; preds = %33, %35
   br i1 %or.cond.i8, label %float8_pl.exit, label %43
 
 43:                                               ; preds = %42
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mul.exit7, %42
@@ -9507,7 +9504,7 @@ float8_pl.exit:                                   ; preds = %float8_mul.exit7, %
   br i1 %or.cond.i9, label %float8_pl.exit10, label %52
 
 52:                                               ; preds = %49
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit10:                                 ; preds = %float8_pl.exit, %49
@@ -9546,7 +9543,7 @@ define internal fastcc zeroext i1 @lseg_contain_point(ptr noundef readonly captu
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %13
 
 13:                                               ; preds = %8
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %8
@@ -9580,7 +9577,7 @@ float8_mi.exit.thread.i:                          ; preds = %2
   br i1 %or.cond.i4.i, label %point_dt.exit, label %35
 
 35:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 36:                                               ; preds = %float8_mi.exit.thread.i
@@ -9604,7 +9601,7 @@ float8_mi.exit.thread.i:                          ; preds = %2
   br i1 %45, label %46, label %47, !prof !12
 
 46:                                               ; preds = %40
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 47:                                               ; preds = %40
@@ -9612,7 +9609,7 @@ float8_mi.exit.thread.i:                          ; preds = %2
   br i1 %48, label %49, label %point_dt.exit, !prof !12
 
 49:                                               ; preds = %47
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %28, %36, %37, %47
@@ -9635,7 +9632,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i13, label %float8_mi.exit.i14, label %62
 
 62:                                               ; preds = %57
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i14:                               ; preds = %57
@@ -9664,7 +9661,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %or.cond.i4.i12, label %point_dt.exit15, label %79
 
 79:                                               ; preds = %73
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 80:                                               ; preds = %float8_mi.exit.thread.i6
@@ -9688,7 +9685,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %89, label %90, label %91, !prof !12
 
 90:                                               ; preds = %84
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 91:                                               ; preds = %84
@@ -9696,7 +9693,7 @@ float8_mi.exit.thread.i6:                         ; preds = %point_dt.exit
   br i1 %92, label %93, label %point_dt.exit15, !prof !12
 
 93:                                               ; preds = %91
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit15:                                  ; preds = %float8_mi.exit.i14, %73, %80, %81, %91
@@ -9716,7 +9713,7 @@ point_dt.exit15:                                  ; preds = %float8_mi.exit.i14,
   br i1 %or.cond.i.i23, label %float8_mi.exit.i24, label %103
 
 103:                                              ; preds = %98
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i24:                               ; preds = %98
@@ -9740,7 +9737,7 @@ float8_mi.exit.thread.i16:                        ; preds = %point_dt.exit15
   br i1 %or.cond.i4.i22, label %point_dt.exit25, label %115
 
 115:                                              ; preds = %110
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 116:                                              ; preds = %float8_mi.exit.thread.i16
@@ -9764,7 +9761,7 @@ float8_mi.exit.thread.i16:                        ; preds = %point_dt.exit15
   br i1 %125, label %126, label %127, !prof !12
 
 126:                                              ; preds = %120
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 127:                                              ; preds = %120
@@ -9772,7 +9769,7 @@ float8_mi.exit.thread.i16:                        ; preds = %point_dt.exit15
   br i1 %128, label %129, label %point_dt.exit25, !prof !12
 
 129:                                              ; preds = %127
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit25:                                  ; preds = %float8_mi.exit.i24, %110, %116, %117, %127
@@ -9872,7 +9869,7 @@ define dso_local range(i64 0, 2) i64 @on_ppath(ptr noundef readonly captures(non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 0
@@ -9899,7 +9896,7 @@ define dso_local range(i64 0, 2) i64 @on_ppath(ptr noundef readonly captures(non
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %26
 
 26:                                               ; preds = %21
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %21
@@ -9933,7 +9930,7 @@ float8_mi.exit.thread.i:                          ; preds = %13
   br i1 %or.cond.i4.i, label %point_dt.exit, label %48
 
 48:                                               ; preds = %41
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %float8_mi.exit.thread.i
@@ -9957,7 +9954,7 @@ float8_mi.exit.thread.i:                          ; preds = %13
   br i1 %58, label %59, label %60, !prof !12
 
 59:                                               ; preds = %53
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 60:                                               ; preds = %53
@@ -9965,7 +9962,7 @@ float8_mi.exit.thread.i:                          ; preds = %13
   br i1 %61, label %62, label %point_dt.exit, !prof !12
 
 62:                                               ; preds = %60
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %41, %49, %50, %60
@@ -10001,7 +9998,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i31, label %float8_mi.exit.i32, label %78
 
 78:                                               ; preds = %75
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i32:                               ; preds = %75
@@ -10028,7 +10025,7 @@ float8_mi.exit.thread.i24:                        ; preds = %69
   br i1 %or.cond.i4.i30, label %point_dt.exit33, label %93
 
 93:                                               ; preds = %89
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 94:                                               ; preds = %float8_mi.exit.thread.i24
@@ -10052,7 +10049,7 @@ float8_mi.exit.thread.i24:                        ; preds = %69
   br i1 %103, label %104, label %105, !prof !12
 
 104:                                              ; preds = %98
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 105:                                              ; preds = %98
@@ -10060,7 +10057,7 @@ float8_mi.exit.thread.i24:                        ; preds = %69
   br i1 %106, label %107, label %point_dt.exit33, !prof !12
 
 107:                                              ; preds = %105
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit33:                                  ; preds = %float8_mi.exit.i32, %89, %94, %95, %105
@@ -10080,7 +10077,7 @@ point_dt.exit33:                                  ; preds = %float8_mi.exit.i32,
   br i1 %or.cond.i, label %float8_pl.exit, label %117
 
 117:                                              ; preds = %112
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %point_dt.exit33, %112
@@ -10100,7 +10097,7 @@ float8_pl.exit:                                   ; preds = %point_dt.exit33, %1
   br i1 %or.cond.i.i41, label %float8_mi.exit.i42, label %128
 
 128:                                              ; preds = %123
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i42:                               ; preds = %123
@@ -10129,7 +10126,7 @@ float8_mi.exit.thread.i34:                        ; preds = %float8_pl.exit
   br i1 %or.cond.i4.i40, label %point_dt.exit43, label %145
 
 145:                                              ; preds = %139
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 146:                                              ; preds = %float8_mi.exit.thread.i34
@@ -10153,7 +10150,7 @@ float8_mi.exit.thread.i34:                        ; preds = %float8_pl.exit
   br i1 %155, label %156, label %157, !prof !12
 
 156:                                              ; preds = %150
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 157:                                              ; preds = %150
@@ -10161,7 +10158,7 @@ float8_mi.exit.thread.i34:                        ; preds = %float8_pl.exit
   br i1 %158, label %159, label %point_dt.exit43, !prof !12
 
 159:                                              ; preds = %157
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit43:                                  ; preds = %float8_mi.exit.i42, %139, %146, %147, %157
@@ -10203,7 +10200,7 @@ define internal fastcc range(i32 0, 3) i32 @point_inside(ptr noundef readonly ca
   br i1 %or.cond.i, label %float8_mi.exit, label %14
 
 14:                                               ; preds = %9
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %3, %9
@@ -10225,7 +10222,7 @@ float8_mi.exit:                                   ; preds = %3, %9
   br i1 %or.cond.i36, label %float8_mi.exit37, label %27
 
 27:                                               ; preds = %22
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit37:                                 ; preds = %float8_mi.exit, %22
@@ -10258,7 +10255,7 @@ float8_mi.exit37:                                 ; preds = %float8_mi.exit, %22
   br i1 %or.cond.i38, label %float8_mi.exit39, label %40
 
 40:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit39:                                 ; preds = %.lr.ph, %35
@@ -10279,7 +10276,7 @@ float8_mi.exit39:                                 ; preds = %.lr.ph, %35
   br i1 %or.cond.i40, label %float8_mi.exit41, label %52
 
 52:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit41:                                 ; preds = %float8_mi.exit39, %47
@@ -10445,7 +10442,7 @@ define internal fastcc noundef zeroext i1 @lseg_interpt_line(ptr noundef writeon
   br i1 %or.cond.i.i.i, label %float8_mi.exit.i.i, label %31
 
 31:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i.i:                               ; preds = %26, %24
@@ -10461,7 +10458,7 @@ float8_mi.exit.i.i:                               ; preds = %26, %24
   br i1 %or.cond.i9.i.i, label %float8_mi.exit10.i.i, label %38
 
 38:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10.i.i:                             ; preds = %33, %float8_mi.exit.i.i
@@ -10474,7 +10471,7 @@ float8_mi.exit10.i.i:                             ; preds = %33, %float8_mi.exit
   br i1 %25, label %44, label %43
 
 43:                                               ; preds = %42
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 44:                                               ; preds = %42, %float8_mi.exit10.i.i
@@ -10485,7 +10482,7 @@ float8_mi.exit10.i.i:                             ; preds = %33, %float8_mi.exit
   br i1 %32, label %lseg_sl.exit, label %47
 
 47:                                               ; preds = %46
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 lseg_sl.exit:                                     ; preds = %44, %46
@@ -10536,7 +10533,7 @@ lseg_sl.exit.thread:                              ; preds = %3
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %65
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 69:                                               ; preds = %65, %61
@@ -10548,7 +10545,7 @@ lseg_sl.exit.thread:                              ; preds = %3
   br i1 %72, label %73, label %float8_mul.exit.i
 
 73:                                               ; preds = %71
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %71, %69
@@ -10564,7 +10561,7 @@ float8_mul.exit.i:                                ; preds = %71, %69
   br i1 %or.cond.i19.i, label %float8_mi.exit.i, label %80
 
 80:                                               ; preds = %77
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %77, %float8_mul.exit.i
@@ -10984,7 +10981,7 @@ define dso_local noundef i64 @poly_in(ptr noundef captures(none) %0) local_unnam
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %8 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %5, i32 noundef 44) #18
+  %8 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %5, i32 noundef 44) #17
   %.not8.i = icmp eq ptr %8, null
   br i1 %.not8.i, label %pair_count.exit.thread, label %.lr.ph.i
 
@@ -10993,7 +10990,7 @@ define dso_local noundef i64 @poly_in(ptr noundef captures(none) %0) local_unnam
   %.09.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %1 ]
   %10 = add i32 %.09.i, 1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #18
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 44) #17
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %pair_count.exit, label %.lr.ph.i, !llvm.loop !17
 
@@ -11007,13 +11004,13 @@ pair_count.exit:                                  ; preds = %.lr.ph.i
   br i1 %17, label %pair_count.exit.thread, label %22
 
 pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
-  %18 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #16
+  %18 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
   br i1 %18, label %19, label %71
 
 19:                                               ; preds = %pair_count.exit.thread
-  %20 = tail call i32 @errcode(i32 noundef 33685634) #16
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.12, ptr noundef nonnull %5) #16
-  tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 3429, ptr noundef nonnull @__func__.poly_in) #16
+  %20 = tail call i32 @errcode(i32 noundef 33685634) #15
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.12, ptr noundef nonnull %5) #15
+  tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 3429, ptr noundef nonnull @__func__.poly_in) #15
   br label %71
 
 22:                                               ; preds = %pair_count.exit
@@ -11025,19 +11022,19 @@ pair_count.exit.thread:                           ; preds = %1, %pair_count.exit
   br i1 %or.cond, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #16
+  %26 = tail call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
   br i1 %26, label %27, label %71
 
 27:                                               ; preds = %25
-  %28 = tail call i32 @errcode(i32 noundef 261) #16
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #16
-  tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 3438, ptr noundef nonnull @__func__.poly_in) #16
+  %28 = tail call i32 @errcode(i32 noundef 261) #15
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
+  tail call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 3438, ptr noundef nonnull @__func__.poly_in) #15
   br label %71
 
 30:                                               ; preds = %22
   %31 = add nsw i32 %23, 40
   %32 = sext i32 %31 to i64
-  %33 = tail call ptr @palloc0(i64 noundef %32) #16
+  %33 = tail call ptr @palloc0(i64 noundef %32) #15
   %34 = shl i32 %31, 2
   store i32 %34, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -11144,7 +11141,7 @@ define dso_local i64 @poly_out(ptr noundef readonly captures(none) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -11158,24 +11155,23 @@ define dso_local noundef i64 @poly_recv(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #16
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #15
   %6 = add i32 %5, -134217725
   %or.cond = icmp ult i32 %6, -134217724
   br i1 %or.cond, label %7, label %.lr.ph
 
 7:                                                ; preds = %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 50462850) #16
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.poly_recv) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %9 = tail call i32 @errcode(i32 noundef 50462850) #15
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3487, ptr noundef nonnull @__func__.poly_recv) #15
   unreachable
 
 .lr.ph:                                           ; preds = %1
   %11 = shl nuw nsw i32 %5, 4
   %narrow = add nuw nsw i32 %11, 40
   %12 = zext nneg i32 %narrow to i64
-  %13 = tail call ptr @palloc0(i64 noundef %12) #16
+  %13 = tail call ptr @palloc0(i64 noundef %12) #15
   %14 = shl i32 %narrow, 2
   store i32 %14, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -11186,10 +11182,10 @@ define dso_local noundef i64 @poly_recv(ptr noundef readonly captures(none) %0) 
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %18 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %19 = getelementptr inbounds nuw %struct.Point, ptr %16, i64 %indvars.iv
   store double %18, ptr %19, align 8
-  %20 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %20 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11284,12 +11280,12 @@ define dso_local i64 @poly_send(ptr noundef readonly captures(none) %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #16
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   %9 = call i32 @llvm.bswap.i32(i32 %8)
   %10 = load ptr, ptr %2, align 8, !alias.scope !43
@@ -11312,10 +11308,10 @@ define dso_local i64 @poly_send(ptr noundef readonly captures(none) %0) local_un
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = getelementptr inbounds nuw %struct.Point, ptr %18, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %21) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %21) #15
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load double, ptr %22, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %23) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %23) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %7, align 4
   %25 = sext i32 %24 to i64
@@ -11323,7 +11319,7 @@ define dso_local i64 @poly_send(ptr noundef readonly captures(none) %0) local_un
   br i1 %26, label %19, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %19, %1
-  %27 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  %27 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %28 = ptrtoint ptr %27 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %28
@@ -11334,11 +11330,11 @@ define dso_local range(i64 0, 2) i64 @poly_left(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -11349,7 +11345,7 @@ define dso_local range(i64 0, 2) i64 @poly_left(ptr noundef readonly captures(no
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11359,7 +11355,7 @@ define dso_local range(i64 0, 2) i64 @poly_left(ptr noundef readonly captures(no
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11375,11 +11371,11 @@ define dso_local range(i64 0, 2) i64 @poly_overleft(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -11390,7 +11386,7 @@ define dso_local range(i64 0, 2) i64 @poly_overleft(ptr noundef readonly capture
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11400,7 +11396,7 @@ define dso_local range(i64 0, 2) i64 @poly_overleft(ptr noundef readonly capture
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11414,11 +11410,11 @@ define dso_local range(i64 0, 2) i64 @poly_right(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -11429,7 +11425,7 @@ define dso_local range(i64 0, 2) i64 @poly_right(ptr noundef readonly captures(n
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11439,7 +11435,7 @@ define dso_local range(i64 0, 2) i64 @poly_right(ptr noundef readonly captures(n
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11453,11 +11449,11 @@ define dso_local range(i64 0, 2) i64 @poly_overright(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -11468,7 +11464,7 @@ define dso_local range(i64 0, 2) i64 @poly_overright(ptr noundef readonly captur
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11478,7 +11474,7 @@ define dso_local range(i64 0, 2) i64 @poly_overright(ptr noundef readonly captur
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11492,11 +11488,11 @@ define dso_local range(i64 0, 2) i64 @poly_below(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -11507,7 +11503,7 @@ define dso_local range(i64 0, 2) i64 @poly_below(ptr noundef readonly captures(n
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11517,7 +11513,7 @@ define dso_local range(i64 0, 2) i64 @poly_below(ptr noundef readonly captures(n
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11531,11 +11527,11 @@ define dso_local range(i64 0, 2) i64 @poly_overbelow(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -11546,7 +11542,7 @@ define dso_local range(i64 0, 2) i64 @poly_overbelow(ptr noundef readonly captur
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11556,7 +11552,7 @@ define dso_local range(i64 0, 2) i64 @poly_overbelow(ptr noundef readonly captur
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11570,11 +11566,11 @@ define dso_local range(i64 0, 2) i64 @poly_above(ptr noundef readonly captures(n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -11585,7 +11581,7 @@ define dso_local range(i64 0, 2) i64 @poly_above(ptr noundef readonly captures(n
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11595,7 +11591,7 @@ define dso_local range(i64 0, 2) i64 @poly_above(ptr noundef readonly captures(n
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11609,11 +11605,11 @@ define dso_local range(i64 0, 2) i64 @poly_overabove(ptr noundef readonly captur
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %11 = load double, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -11624,7 +11620,7 @@ define dso_local range(i64 0, 2) i64 @poly_overabove(ptr noundef readonly captur
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %1
-  tail call void @pfree(ptr noundef nonnull %5) #16
+  tail call void @pfree(ptr noundef nonnull %5) #15
   br label %17
 
 17:                                               ; preds = %1, %16
@@ -11634,7 +11630,7 @@ define dso_local range(i64 0, 2) i64 @poly_overabove(ptr noundef readonly captur
   br i1 %.not11, label %21, label %20
 
 20:                                               ; preds = %17
-  tail call void @pfree(ptr noundef nonnull %9) #16
+  tail call void @pfree(ptr noundef nonnull %9) #15
   br label %21
 
 21:                                               ; preds = %20, %17
@@ -11648,11 +11644,11 @@ define dso_local range(i64 0, 2) i64 @poly_same(ptr noundef readonly captures(no
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %.fr = freeze i32 %11
@@ -11960,7 +11956,7 @@ plist_same.exit:                                  ; preds = %point_eq_point.exit
   br i1 %.not16, label %166, label %165
 
 165:                                              ; preds = %plist_same.exit
-  tail call void @pfree(ptr noundef %5) #16
+  tail call void @pfree(ptr noundef %5) #15
   br label %166
 
 166:                                              ; preds = %plist_same.exit, %165
@@ -11970,7 +11966,7 @@ plist_same.exit:                                  ; preds = %point_eq_point.exit
   br i1 %.not17, label %170, label %169
 
 169:                                              ; preds = %166
-  tail call void @pfree(ptr noundef %9) #16
+  tail call void @pfree(ptr noundef %9) #15
   br label %170
 
 170:                                              ; preds = %169, %166
@@ -11982,11 +11978,11 @@ define dso_local range(i64 0, 2) i64 @poly_overlap(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = tail call fastcc zeroext i1 @poly_overlap_internal(ptr noundef %5, ptr noundef %9)
   %11 = load i64, ptr %2, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -11994,7 +11990,7 @@ define dso_local range(i64 0, 2) i64 @poly_overlap(ptr noundef readonly captures
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %5) #16
+  tail call void @pfree(ptr noundef %5) #15
   br label %14
 
 14:                                               ; preds = %1, %13
@@ -12004,7 +12000,7 @@ define dso_local range(i64 0, 2) i64 @poly_overlap(ptr noundef readonly captures
   br i1 %.not11, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call void @pfree(ptr noundef %9) #16
+  tail call void @pfree(ptr noundef %9) #15
   br label %18
 
 18:                                               ; preds = %17, %14
@@ -12157,11 +12153,11 @@ define dso_local range(i64 0, 2) i64 @poly_contain(ptr noundef readonly captures
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #16
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -12237,7 +12233,7 @@ poly_contain_poly.exit:                           ; preds = %46, %49, %1, %17, %
   br i1 %.not, label %56, label %55
 
 55:                                               ; preds = %poly_contain_poly.exit
-  tail call void @pfree(ptr noundef %6) #16
+  tail call void @pfree(ptr noundef %6) #15
   br label %56
 
 56:                                               ; preds = %poly_contain_poly.exit, %55
@@ -12247,7 +12243,7 @@ poly_contain_poly.exit:                           ; preds = %46, %49, %1, %17, %
   br i1 %.not11, label %60, label %59
 
 59:                                               ; preds = %56
-  tail call void @pfree(ptr noundef nonnull %10) #16
+  tail call void @pfree(ptr noundef nonnull %10) #15
   br label %60
 
 60:                                               ; preds = %59, %56
@@ -12260,11 +12256,11 @@ define dso_local range(i64 0, 2) i64 @poly_contained(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #16
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12340,7 +12336,7 @@ poly_contain_poly.exit:                           ; preds = %46, %49, %1, %17, %
   br i1 %.not, label %56, label %55
 
 55:                                               ; preds = %poly_contain_poly.exit
-  tail call void @pfree(ptr noundef nonnull %6) #16
+  tail call void @pfree(ptr noundef nonnull %6) #15
   br label %56
 
 56:                                               ; preds = %poly_contain_poly.exit, %55
@@ -12350,7 +12346,7 @@ poly_contain_poly.exit:                           ; preds = %46, %49, %1, %17, %
   br i1 %.not11, label %60, label %59
 
 59:                                               ; preds = %56
-  tail call void @pfree(ptr noundef %10) #16
+  tail call void @pfree(ptr noundef %10) #15
   br label %60
 
 60:                                               ; preds = %59, %56
@@ -12362,7 +12358,7 @@ define dso_local range(i64 0, 2) i64 @poly_contain_pt(ptr noundef readonly captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -12383,7 +12379,7 @@ define dso_local range(i64 0, 2) i64 @pt_contained_poly(ptr noundef readonly cap
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -12401,11 +12397,11 @@ define dso_local i64 @poly_distance(ptr noundef captures(none) %0) local_unnamed
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #16
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #15
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #16
+  %12 = tail call ptr @pg_detoast_datum(ptr noundef %11) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = tail call fastcc zeroext i1 @poly_overlap_internal(ptr noundef %8, ptr noundef %12)
@@ -12600,7 +12596,7 @@ define dso_local noundef i64 @construct_point(ptr noundef readonly captures(none
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
-  %6 = tail call ptr @palloc(i64 noundef 16) #16
+  %6 = tail call ptr @palloc(i64 noundef 16) #15
   store double %3, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %5, ptr %7, align 8
@@ -12616,7 +12612,7 @@ define dso_local i64 @point_add(ptr noundef readonly captures(none) %0) local_un
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fadd double %9, %10
@@ -12633,7 +12629,7 @@ define dso_local i64 @point_add(ptr noundef readonly captures(none) %0) local_un
   br i1 %or.cond.i.i, label %float8_pl.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit.i:                                 ; preds = %14, %1
@@ -12655,7 +12651,7 @@ float8_pl.exit.i:                                 ; preds = %14, %1
   br i1 %or.cond.i5.i, label %point_add_point.exit, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_add_point.exit:                             ; preds = %float8_pl.exit.i, %27
@@ -12674,7 +12670,7 @@ define dso_local i64 @point_sub(ptr noundef readonly captures(none) %0) local_un
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fsub double %9, %10
@@ -12691,7 +12687,7 @@ define dso_local i64 @point_sub(ptr noundef readonly captures(none) %0) local_un
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14, %1
@@ -12713,7 +12709,7 @@ float8_mi.exit.i:                                 ; preds = %14, %1
   br i1 %or.cond.i5.i, label %point_sub_point.exit, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_sub_point.exit:                             ; preds = %float8_mi.exit.i, %27
@@ -12732,7 +12728,7 @@ define dso_local noundef i64 @point_mul(ptr noundef readonly captures(none) %0) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   tail call fastcc void @point_mul_point(ptr noundef %8, ptr noundef %4, ptr noundef %7)
   %9 = ptrtoint ptr %8 to i64
   ret i64 %9
@@ -12756,7 +12752,7 @@ define internal fastcc void @point_mul_point(ptr noundef writeonly captures(none
   br i1 %or.cond11.i, label %15, label %14
 
 14:                                               ; preds = %9
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 15:                                               ; preds = %9, %3
@@ -12770,7 +12766,7 @@ define internal fastcc void @point_mul_point(ptr noundef writeonly captures(none
   br i1 %or.cond.i, label %20, label %float8_mul.exit
 
 20:                                               ; preds = %17
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %15, %17
@@ -12792,7 +12788,7 @@ float8_mul.exit:                                  ; preds = %15, %17
   br i1 %or.cond11.i10, label %34, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 34:                                               ; preds = %28, %float8_mul.exit
@@ -12806,7 +12802,7 @@ float8_mul.exit:                                  ; preds = %15, %17
   br i1 %or.cond.i9, label %39, label %float8_mul.exit11
 
 39:                                               ; preds = %36
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit11:                                ; preds = %34, %36
@@ -12820,7 +12816,7 @@ float8_mul.exit11:                                ; preds = %34, %36
   br i1 %or.cond.i12, label %float8_mi.exit, label %44
 
 44:                                               ; preds = %43
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit11, %43
@@ -12838,7 +12834,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit11, 
   br i1 %or.cond11.i14, label %54, label %53
 
 53:                                               ; preds = %48
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 54:                                               ; preds = %48, %float8_mi.exit
@@ -12852,7 +12848,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit11, 
   br i1 %or.cond.i13, label %59, label %float8_mul.exit15
 
 59:                                               ; preds = %56
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit15:                                ; preds = %54, %56
@@ -12870,7 +12866,7 @@ float8_mul.exit15:                                ; preds = %54, %56
   br i1 %or.cond11.i17, label %69, label %68
 
 68:                                               ; preds = %63
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 69:                                               ; preds = %63, %float8_mul.exit15
@@ -12884,7 +12880,7 @@ float8_mul.exit15:                                ; preds = %54, %56
   br i1 %or.cond.i16, label %74, label %float8_mul.exit18
 
 74:                                               ; preds = %71
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit18:                                ; preds = %69, %71
@@ -12898,7 +12894,7 @@ float8_mul.exit18:                                ; preds = %69, %71
   br i1 %or.cond.i19, label %float8_pl.exit, label %79
 
 79:                                               ; preds = %78
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mul.exit18, %78
@@ -12916,7 +12912,7 @@ define dso_local noundef i64 @point_div(ptr noundef readonly captures(none) %0) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 16) #16
+  %8 = tail call ptr @palloc(i64 noundef 16) #15
   tail call fastcc void @point_div_point(ptr noundef %8, ptr noundef %4, ptr noundef %7)
   %9 = ptrtoint ptr %8 to i64
   ret i64 %9
@@ -12936,7 +12932,7 @@ define internal fastcc void @point_div_point(ptr noundef writeonly captures(none
   br i1 %10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 12:                                               ; preds = %8, %3
@@ -12948,7 +12944,7 @@ define internal fastcc void @point_div_point(ptr noundef writeonly captures(none
   br i1 %15, label %16, label %float8_mul.exit
 
 16:                                               ; preds = %14
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %12, %14
@@ -12965,7 +12961,7 @@ float8_mul.exit:                                  ; preds = %12, %14
   br i1 %24, label %26, label %25
 
 25:                                               ; preds = %22
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %22, %float8_mul.exit
@@ -12977,7 +12973,7 @@ float8_mul.exit:                                  ; preds = %12, %14
   br i1 %29, label %30, label %float8_mul.exit17
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit17:                                ; preds = %26, %28
@@ -12991,7 +12987,7 @@ float8_mul.exit17:                                ; preds = %26, %28
   br i1 %or.cond.i18, label %float8_pl.exit, label %35
 
 35:                                               ; preds = %34
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mul.exit17, %34
@@ -13010,7 +13006,7 @@ float8_pl.exit:                                   ; preds = %float8_mul.exit17, 
   br i1 %or.cond11.i20, label %46, label %45
 
 45:                                               ; preds = %40
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 46:                                               ; preds = %40, %float8_pl.exit
@@ -13024,7 +13020,7 @@ float8_pl.exit:                                   ; preds = %float8_mul.exit17, 
   br i1 %or.cond.i19, label %51, label %float8_mul.exit21
 
 51:                                               ; preds = %48
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit21:                                ; preds = %46, %48
@@ -13044,7 +13040,7 @@ float8_mul.exit21:                                ; preds = %46, %48
   br i1 %or.cond11.i23, label %63, label %62
 
 62:                                               ; preds = %57
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 63:                                               ; preds = %57, %float8_mul.exit21
@@ -13058,7 +13054,7 @@ float8_mul.exit21:                                ; preds = %46, %48
   br i1 %or.cond.i22, label %68, label %float8_mul.exit24
 
 68:                                               ; preds = %65
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit24:                                ; preds = %63, %65
@@ -13072,7 +13068,7 @@ float8_mul.exit24:                                ; preds = %63, %65
   br i1 %or.cond.i25, label %float8_pl.exit26, label %73
 
 73:                                               ; preds = %72
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit26:                                 ; preds = %float8_mul.exit24, %72
@@ -13084,7 +13080,7 @@ float8_pl.exit26:                                 ; preds = %float8_mul.exit24, 
   br i1 %76, label %78, label %77
 
 77:                                               ; preds = %75
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 78:                                               ; preds = %75, %float8_pl.exit26
@@ -13097,7 +13093,7 @@ float8_pl.exit26:                                 ; preds = %float8_mul.exit24, 
   br i1 %71, label %84, label %83
 
 83:                                               ; preds = %82
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 84:                                               ; preds = %82, %78
@@ -13110,7 +13106,7 @@ float8_pl.exit26:                                 ; preds = %float8_mul.exit24, 
   br i1 %or.cond.i27, label %float8_div.exit, label %88
 
 88:                                               ; preds = %86
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %84, %86
@@ -13128,7 +13124,7 @@ float8_div.exit:                                  ; preds = %84, %86
   br i1 %or.cond11.i29, label %98, label %97
 
 97:                                               ; preds = %92
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 98:                                               ; preds = %92, %float8_div.exit
@@ -13142,7 +13138,7 @@ float8_div.exit:                                  ; preds = %84, %86
   br i1 %or.cond.i28, label %103, label %float8_mul.exit30
 
 103:                                              ; preds = %100
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit30:                                ; preds = %98, %100
@@ -13160,7 +13156,7 @@ float8_mul.exit30:                                ; preds = %98, %100
   br i1 %or.cond11.i32, label %113, label %112
 
 112:                                              ; preds = %107
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 113:                                              ; preds = %107, %float8_mul.exit30
@@ -13174,7 +13170,7 @@ float8_mul.exit30:                                ; preds = %98, %100
   br i1 %or.cond.i31, label %118, label %float8_mul.exit33
 
 118:                                              ; preds = %115
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit33:                                ; preds = %113, %115
@@ -13188,7 +13184,7 @@ float8_mul.exit33:                                ; preds = %113, %115
   br i1 %or.cond.i34, label %float8_mi.exit, label %123
 
 123:                                              ; preds = %122
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit33, %122
@@ -13199,7 +13195,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit33, 
   br i1 %125, label %127, label %126
 
 126:                                              ; preds = %124
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 127:                                              ; preds = %124, %float8_mi.exit
@@ -13212,7 +13208,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit33, 
   br i1 %121, label %133, label %132
 
 132:                                              ; preds = %131
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 133:                                              ; preds = %131, %127
@@ -13225,7 +13221,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit33, 
   br i1 %or.cond.i35, label %float8_div.exit36, label %137
 
 137:                                              ; preds = %135
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit36:                                ; preds = %133, %135
@@ -13243,7 +13239,7 @@ define dso_local i64 @points_box(ptr noundef readonly captures(none) %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   %9 = load double, ptr %7, align 8
   %10 = fcmp uno double %9, 0.000000e+00
   br i1 %10, label %float8_gt.exit.thread.i, label %float8_gt.exit.i
@@ -13301,7 +13297,7 @@ define dso_local i64 @box_add(ptr noundef readonly captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fadd double %9, %10
@@ -13318,7 +13314,7 @@ define dso_local i64 @box_add(ptr noundef readonly captures(none) %0) local_unna
   br i1 %or.cond.i.i, label %float8_pl.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit.i:                                 ; preds = %14, %1
@@ -13340,7 +13336,7 @@ float8_pl.exit.i:                                 ; preds = %14, %1
   br i1 %or.cond.i5.i, label %point_add_point.exit, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_add_point.exit:                             ; preds = %float8_pl.exit.i, %27
@@ -13364,7 +13360,7 @@ point_add_point.exit:                             ; preds = %float8_pl.exit.i, %
   br i1 %or.cond.i.i11, label %float8_pl.exit.i9, label %45
 
 45:                                               ; preds = %40
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit.i9:                                ; preds = %40, %point_add_point.exit
@@ -13385,7 +13381,7 @@ float8_pl.exit.i9:                                ; preds = %40, %point_add_poin
   br i1 %or.cond.i5.i10, label %point_add_point.exit12, label %57
 
 57:                                               ; preds = %52
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_add_point.exit12:                           ; preds = %float8_pl.exit.i9, %52
@@ -13405,7 +13401,7 @@ define dso_local i64 @box_sub(ptr noundef readonly captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fsub double %9, %10
@@ -13422,7 +13418,7 @@ define dso_local i64 @box_sub(ptr noundef readonly captures(none) %0) local_unna
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14, %1
@@ -13444,7 +13440,7 @@ float8_mi.exit.i:                                 ; preds = %14, %1
   br i1 %or.cond.i5.i, label %point_sub_point.exit, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_sub_point.exit:                             ; preds = %float8_mi.exit.i, %27
@@ -13468,7 +13464,7 @@ point_sub_point.exit:                             ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i.i11, label %float8_mi.exit.i9, label %45
 
 45:                                               ; preds = %40
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i9:                                ; preds = %40, %point_sub_point.exit
@@ -13489,7 +13485,7 @@ float8_mi.exit.i9:                                ; preds = %40, %point_sub_poin
   br i1 %or.cond.i5.i10, label %point_sub_point.exit12, label %57
 
 57:                                               ; preds = %52
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_sub_point.exit12:                           ; preds = %float8_mi.exit.i9, %52
@@ -13513,7 +13509,7 @@ define dso_local i64 @box_mul(ptr noundef readonly captures(none) %0) local_unna
   %9 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %10 = tail call ptr @palloc(i64 noundef 32) #16
+  %10 = tail call ptr @palloc(i64 noundef 32) #15
   call fastcc void @point_mul_point(ptr noundef nonnull %2, ptr noundef %6, ptr noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call fastcc void @point_mul_point(ptr noundef nonnull %3, ptr noundef nonnull %11, ptr noundef %9)
@@ -13578,7 +13574,7 @@ define dso_local i64 @box_div(ptr noundef readonly captures(none) %0) local_unna
   %9 = inttoptr i64 %8 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %10 = tail call ptr @palloc(i64 noundef 32) #16
+  %10 = tail call ptr @palloc(i64 noundef 32) #15
   call fastcc void @point_div_point(ptr noundef nonnull %2, ptr noundef %6, ptr noundef %9)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call fastcc void @point_div_point(ptr noundef nonnull %3, ptr noundef nonnull %11, ptr noundef %9)
@@ -13636,7 +13632,7 @@ define dso_local noundef i64 @point_box(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 32) #16
+  %5 = tail call ptr @palloc(i64 noundef 32) #15
   %6 = load double, ptr %4, align 8
   store double %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -13659,7 +13655,7 @@ define dso_local i64 @boxes_bound_box(ptr noundef readonly captures(none) %0) lo
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 32) #16
+  %8 = tail call ptr @palloc(i64 noundef 32) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fcmp uno double %10, 0.000000e+00
@@ -13746,11 +13742,11 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #16
+  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %11, 0
@@ -13783,17 +13779,16 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
   br i1 %or.cond, label %27, label %31
 
 27:                                               ; preds = %17
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 @errcode(i32 noundef 261) #16
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4368, ptr noundef nonnull @__func__.path_add) #16
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %29 = tail call i32 @errcode(i32 noundef 261) #15
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4368, ptr noundef nonnull @__func__.path_add) #15
   unreachable
 
 31:                                               ; preds = %17
   %32 = add i32 %24, 16
   %33 = sext i32 %32 to i64
-  %34 = tail call ptr @palloc(i64 noundef %33) #16
+  %34 = tail call ptr @palloc(i64 noundef %33) #15
   %35 = shl i32 %32, 2
   store i32 %35, ptr %34, align 4
   %36 = load i32, ptr %18, align 4
@@ -13879,7 +13874,7 @@ define dso_local i64 @path_add_pt(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -13913,7 +13908,7 @@ define dso_local i64 @path_add_pt(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i.i, label %float8_pl.exit.i, label %26
 
 26:                                               ; preds = %21
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit.i:                                 ; preds = %21, %14
@@ -13934,7 +13929,7 @@ float8_pl.exit.i:                                 ; preds = %21, %14
   br i1 %or.cond.i5.i, label %point_add_point.exit, label %38
 
 38:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_add_point.exit:                             ; preds = %float8_pl.exit.i, %33
@@ -13954,7 +13949,7 @@ define dso_local i64 @path_sub_pt(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -13988,7 +13983,7 @@ define dso_local i64 @path_sub_pt(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %26
 
 26:                                               ; preds = %21
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %21, %14
@@ -14009,7 +14004,7 @@ float8_mi.exit.i:                                 ; preds = %21, %14
   br i1 %or.cond.i5.i, label %point_sub_point.exit, label %38
 
 38:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_sub_point.exit:                             ; preds = %float8_mi.exit.i, %33
@@ -14029,7 +14024,7 @@ define dso_local i64 @path_mul_pt(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -14062,7 +14057,7 @@ define dso_local i64 @path_div_pt(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum_copy(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
@@ -14095,18 +14090,17 @@ define dso_local noundef i64 @path_poly(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %12
 
 8:                                                ; preds = %1
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4463, ptr noundef nonnull @__func__.path_poly) #16
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %10 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4463, ptr noundef nonnull @__func__.path_poly) #15
   unreachable
 
 12:                                               ; preds = %1
@@ -14115,7 +14109,7 @@ define dso_local noundef i64 @path_poly(ptr noundef readonly captures(none) %0) 
   %15 = shl i32 %14, 4
   %16 = add i32 %15, 40
   %17 = sext i32 %16 to i64
-  %18 = tail call ptr @palloc(i64 noundef %17) #16
+  %18 = tail call ptr @palloc(i64 noundef %17) #15
   %19 = shl i32 %16, 2
   store i32 %19, ptr %18, align 4
   %20 = load i32, ptr %13, align 4
@@ -14238,7 +14232,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @poly_npoints(ptr nounde
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -14251,9 +14245,9 @@ define dso_local i64 @poly_center(ptr noundef readonly captures(none) %0) local_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #16
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %7 = tail call ptr @palloc(i64 noundef 16) #16
+  %7 = tail call ptr @palloc(i64 noundef 16) #15
   call fastcc void @poly_to_circle(ptr noundef nonnull %2, ptr noundef %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %8 = ptrtoint ptr %7 to i64
@@ -14295,7 +14289,7 @@ define internal fastcc void @poly_to_circle(ptr noundef writeonly captures(none)
   br i1 %or.cond.i.i, label %float8_pl.exit.i, label %22
 
 22:                                               ; preds = %17
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit.i:                                 ; preds = %17, %9
@@ -14315,7 +14309,7 @@ float8_pl.exit.i:                                 ; preds = %17, %9
   br i1 %or.cond.i5.i, label %point_add_point.exit, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_add_point.exit:                             ; preds = %float8_pl.exit.i, %28
@@ -14340,7 +14334,7 @@ point_add_point.exit:                             ; preds = %float8_pl.exit.i, %
   br i1 %40, label %41, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %39
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 41:                                               ; preds = %._crit_edge.thread, %39, %._crit_edge
@@ -14359,7 +14353,7 @@ point_add_point.exit:                             ; preds = %float8_pl.exit.i, %
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %48
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %48, %41
@@ -14371,7 +14365,7 @@ point_add_point.exit:                             ; preds = %float8_pl.exit.i, %
   br i1 %55, label %float8_div.exit, label %56
 
 56:                                               ; preds = %54
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %52, %54
@@ -14386,7 +14380,7 @@ float8_div.exit:                                  ; preds = %52, %54
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %60
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 63:                                               ; preds = %60, %float8_div.exit
@@ -14401,7 +14395,7 @@ float8_div.exit:                                  ; preds = %52, %54
   br i1 %69, label %71, label %70
 
 70:                                               ; preds = %67
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 71:                                               ; preds = %67, %63
@@ -14413,7 +14407,7 @@ float8_div.exit:                                  ; preds = %52, %54
   br i1 %74, label %float8_div.exit28, label %75
 
 75:                                               ; preds = %73
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit28:                                ; preds = %71, %73
@@ -14443,7 +14437,7 @@ float8_div.exit28:                                ; preds = %71, %73
   br i1 %or.cond.i.i29, label %float8_mi.exit.i, label %89
 
 89:                                               ; preds = %86
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %86
@@ -14470,7 +14464,7 @@ float8_mi.exit.thread.i:                          ; preds = %79
   br i1 %or.cond.i4.i, label %point_dt.exit, label %104
 
 104:                                              ; preds = %100
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 105:                                              ; preds = %float8_mi.exit.thread.i
@@ -14494,7 +14488,7 @@ float8_mi.exit.thread.i:                          ; preds = %79
   br i1 %114, label %115, label %116, !prof !12
 
 115:                                              ; preds = %109
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 116:                                              ; preds = %109
@@ -14502,7 +14496,7 @@ float8_mi.exit.thread.i:                          ; preds = %79
   br i1 %117, label %118, label %point_dt.exit, !prof !12
 
 118:                                              ; preds = %116
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %100, %105, %106, %116
@@ -14521,7 +14515,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_pl.exit, label %127
 
 127:                                              ; preds = %122
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %point_dt.exit, %122
@@ -14545,7 +14539,7 @@ float8_pl.exit:                                   ; preds = %point_dt.exit, %122
   br i1 %134, label %135, label %.thread60
 
 .thread60:                                        ; preds = %._crit_edge46.thread, %133
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 135:                                              ; preds = %._crit_edge46.thread, %133, %._crit_edge46
@@ -14563,7 +14557,7 @@ float8_pl.exit:                                   ; preds = %point_dt.exit, %122
   br i1 %143, label %145, label %144
 
 144:                                              ; preds = %141
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 145:                                              ; preds = %141, %135
@@ -14575,7 +14569,7 @@ float8_pl.exit:                                   ; preds = %point_dt.exit, %122
   br i1 %148, label %float8_div.exit31, label %149
 
 149:                                              ; preds = %147
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit31:                                ; preds = %145, %147
@@ -14591,8 +14585,8 @@ define dso_local noundef i64 @poly_box(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
-  %6 = tail call ptr @palloc(i64 noundef 32) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
+  %6 = tail call ptr @palloc(i64 noundef 32) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %8 = ptrtoint ptr %6 to i64
@@ -14604,7 +14598,7 @@ define dso_local noundef i64 @box_poly(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 104) #16
+  %5 = tail call ptr @palloc(i64 noundef 104) #15
   store i32 416, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %6, align 4
@@ -14688,13 +14682,13 @@ define dso_local noundef i64 @poly_path(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = shl i32 %7, 4
   %9 = add i32 %8, 16
   %10 = sext i32 %9 to i64
-  %11 = tail call ptr @palloc(i64 noundef %10) #16
+  %11 = tail call ptr @palloc(i64 noundef %10) #15
   %12 = shl i32 %9, 2
   store i32 %12, ptr %11, align 4
   %13 = load i32, ptr %6, align 4
@@ -14742,9 +14736,9 @@ define dso_local i64 @circle_in(ptr noundef captures(none) %0) local_unnamed_add
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @palloc(i64 noundef 24) #16
+  %8 = tail call ptr @palloc(i64 noundef 24) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %9 = tail call ptr @__ctype_b_loc() #17
+  %9 = tail call ptr @__ctype_b_loc() #16
   %.pre = load ptr, ptr %9, align 8
   br label %10
 
@@ -14812,7 +14806,7 @@ define dso_local i64 @circle_in(ptr noundef captures(none) %0) local_unnamed_add
 37:                                               ; preds = %35, %31
   %38 = phi ptr [ %36, %35 ], [ %32, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %40 = call double @float8in_internal(ptr noundef nonnull %38, ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef %5, ptr noundef %7) #16
+  %40 = call double @float8in_internal(ptr noundef nonnull %38, ptr noundef nonnull %2, ptr noundef nonnull @.str.15, ptr noundef %5, ptr noundef %7) #15
   store double %40, ptr %39, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %single_decode.exit.thread, label %41
@@ -14865,23 +14859,23 @@ single_decode.exit.thread:                        ; preds = %37, %41, %single_de
   br i1 %.not43.us, label %._crit_edge, label %51, !llvm.loop !68
 
 57:                                               ; preds = %single_decode.exit.thread
-  %58 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #16
+  %58 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
   br i1 %58, label %59, label %74
 
 59:                                               ; preds = %57
-  %60 = call i32 @errcode(i32 noundef 33685634) #16
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #16
-  call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4651, ptr noundef nonnull @__func__.circle_in) #16
+  %60 = call i32 @errcode(i32 noundef 33685634) #15
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+  call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4651, ptr noundef nonnull @__func__.circle_in) #15
   br label %74
 
 .split.us:                                        ; preds = %.lr.ph.split.us
-  %62 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #16
+  %62 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
   br i1 %62, label %63, label %74
 
 63:                                               ; preds = %.split.us
-  %64 = call i32 @errcode(i32 noundef 33685634) #16
-  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #16
-  call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4666, ptr noundef nonnull @__func__.circle_in) #16
+  %64 = call i32 @errcode(i32 noundef 33685634) #15
+  %65 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+  call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4666, ptr noundef nonnull @__func__.circle_in) #15
   br label %74
 
 ._crit_edge:                                      ; preds = %51, %.preheader
@@ -14890,13 +14884,13 @@ single_decode.exit.thread:                        ; preds = %37, %41, %single_de
   br i1 %.not41, label %72, label %67
 
 67:                                               ; preds = %._crit_edge
-  %68 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #16
+  %68 = call zeroext i1 @errsave_start(ptr noundef %7, ptr noundef null) #15
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %67
-  %70 = call i32 @errcode(i32 noundef 33685634) #16
-  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #16
-  call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4673, ptr noundef nonnull @__func__.circle_in) #16
+  %70 = call i32 @errcode(i32 noundef 33685634) #15
+  %71 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, ptr noundef %5) #15
+  call void @errsave_finish(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 4673, ptr noundef nonnull @__func__.circle_in) #15
   br label %74
 
 72:                                               ; preds = %._crit_edge
@@ -14916,25 +14910,25 @@ define dso_local i64 @circle_out(ptr noundef readonly captures(none) %0) local_u
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %2) #16
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 60) #16
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 40) #16
+  call void @initStringInfo(ptr noundef nonnull %2) #15
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 60) #15
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 40) #15
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = call ptr @float8out_internal(double noundef %6) #16
-  %10 = call ptr @float8out_internal(double noundef %8) #16
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef %9, ptr noundef %10) #16
-  call void @pfree(ptr noundef %9) #16
-  call void @pfree(ptr noundef %10) #16
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 41) #16
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #16
+  %9 = call ptr @float8out_internal(double noundef %6) #15
+  %10 = call ptr @float8out_internal(double noundef %8) #15
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.19, ptr noundef %9, ptr noundef %10) #15
+  call void @pfree(ptr noundef %9) #15
+  call void @pfree(ptr noundef %10) #15
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 41) #15
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #15
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load double, ptr %11, align 8
-  %13 = call ptr @float8out_internal(double noundef %12) #16
-  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %13) #16
-  call void @pfree(ptr noundef %13) #16
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 62) #16
+  %13 = call ptr @float8out_internal(double noundef %12) #15
+  call void @appendStringInfoString(ptr noundef nonnull %2, ptr noundef %13) #15
+  call void @pfree(ptr noundef %13) #15
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 62) #15
   %14 = load ptr, ptr %2, align 8
   %15 = ptrtoint ptr %14 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -14950,24 +14944,23 @@ define dso_local i64 @circle_recv(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 24) #16
-  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %5 = tail call ptr @palloc(i64 noundef 24) #15
+  %6 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   store double %6, ptr %5, align 8
-  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %7 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %7, ptr %8, align 8
-  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #16
+  %9 = tail call double @pq_getmsgfloat8(ptr noundef %4) #15
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store double %9, ptr %10, align 8
   %11 = fcmp olt double %9, 0.000000e+00
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %1
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 50462850) #16
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4718, ptr noundef nonnull @__func__.circle_recv) #16
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %14 = tail call i32 @errcode(i32 noundef 50462850) #15
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 4718, ptr noundef nonnull @__func__.circle_recv) #15
   unreachable
 
 16:                                               ; preds = %1
@@ -14982,16 +14975,16 @@ define dso_local i64 @circle_send(ptr noundef readonly captures(none) %0) local_
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #16
+  call void @pq_begintypsend(ptr noundef nonnull %2) #15
   %6 = load double, ptr %5, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %6) #15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load double, ptr %7, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %8) #15
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load double, ptr %9, align 8
-  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #16
-  %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #16
+  call void @pq_sendfloat8(ptr noundef nonnull %2, double noundef %10) #15
+  %11 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #15
   %12 = ptrtoint ptr %11 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %12
@@ -15110,7 +15103,7 @@ define dso_local range(i64 0, 2) i64 @circle_overlap(ptr noundef readonly captur
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -15144,7 +15137,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -15168,7 +15161,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -15176,7 +15169,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -15199,7 +15192,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_pl.exit, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %point_dt.exit, %62
@@ -15234,7 +15227,7 @@ define dso_local range(i64 0, 2) i64 @circle_overleft(ptr noundef readonly captu
   br i1 %or.cond.i, label %float8_pl.exit, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %1, %14
@@ -15255,7 +15248,7 @@ float8_pl.exit:                                   ; preds = %1, %14
   br i1 %or.cond.i6, label %float8_pl.exit7, label %31
 
 31:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit7:                                  ; preds = %float8_pl.exit, %26
@@ -15290,7 +15283,7 @@ define dso_local range(i64 0, 2) i64 @circle_left(ptr noundef readonly captures(
   br i1 %or.cond.i, label %float8_pl.exit, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %1, %14
@@ -15311,7 +15304,7 @@ float8_pl.exit:                                   ; preds = %1, %14
   br i1 %or.cond.i6, label %float8_mi.exit, label %31
 
 31:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %26
@@ -15346,7 +15339,7 @@ define dso_local range(i64 0, 2) i64 @circle_right(ptr noundef readonly captures
   br i1 %or.cond.i, label %float8_mi.exit, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %1, %14
@@ -15367,7 +15360,7 @@ float8_mi.exit:                                   ; preds = %1, %14
   br i1 %or.cond.i6, label %float8_pl.exit, label %31
 
 31:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mi.exit, %26
@@ -15402,7 +15395,7 @@ define dso_local range(i64 0, 2) i64 @circle_overright(ptr noundef readonly capt
   br i1 %or.cond.i, label %float8_mi.exit, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %1, %14
@@ -15423,7 +15416,7 @@ float8_mi.exit:                                   ; preds = %1, %14
   br i1 %or.cond.i6, label %float8_mi.exit7, label %31
 
 31:                                               ; preds = %26
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit7:                                  ; preds = %float8_mi.exit, %26
@@ -15457,7 +15450,7 @@ define dso_local range(i64 0, 2) i64 @circle_contained(ptr noundef readonly capt
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -15491,7 +15484,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -15515,7 +15508,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -15523,7 +15516,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -15546,7 +15539,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_mi.exit, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %62
@@ -15580,7 +15573,7 @@ define dso_local range(i64 0, 2) i64 @circle_contain(ptr noundef readonly captur
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -15614,7 +15607,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -15638,7 +15631,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -15646,7 +15639,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -15669,7 +15662,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_mi.exit, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %62
@@ -15705,7 +15698,7 @@ define dso_local range(i64 0, 2) i64 @circle_below(ptr noundef readonly captures
   br i1 %or.cond.i, label %float8_pl.exit, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %1, %15
@@ -15727,7 +15720,7 @@ float8_pl.exit:                                   ; preds = %1, %15
   br i1 %or.cond.i6, label %float8_mi.exit, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %28
@@ -15763,7 +15756,7 @@ define dso_local range(i64 0, 2) i64 @circle_above(ptr noundef readonly captures
   br i1 %or.cond.i, label %float8_mi.exit, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %1, %15
@@ -15785,7 +15778,7 @@ float8_mi.exit:                                   ; preds = %1, %15
   br i1 %or.cond.i6, label %float8_pl.exit, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mi.exit, %28
@@ -15821,7 +15814,7 @@ define dso_local range(i64 0, 2) i64 @circle_overbelow(ptr noundef readonly capt
   br i1 %or.cond.i, label %float8_pl.exit, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %1, %15
@@ -15843,7 +15836,7 @@ float8_pl.exit:                                   ; preds = %1, %15
   br i1 %or.cond.i6, label %float8_pl.exit7, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit7:                                  ; preds = %float8_pl.exit, %28
@@ -15879,7 +15872,7 @@ define dso_local range(i64 0, 2) i64 @circle_overabove(ptr noundef readonly capt
   br i1 %or.cond.i, label %float8_mi.exit, label %20
 
 20:                                               ; preds = %15
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %1, %15
@@ -15901,7 +15894,7 @@ float8_mi.exit:                                   ; preds = %1, %15
   br i1 %or.cond.i6, label %float8_mi.exit7, label %33
 
 33:                                               ; preds = %28
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit7:                                  ; preds = %float8_mi.exit, %28
@@ -15932,7 +15925,7 @@ define dso_local range(i64 0, 2) i64 @circle_eq(ptr noundef readonly captures(no
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 16:                                               ; preds = %12, %1
@@ -15944,7 +15937,7 @@ define dso_local range(i64 0, 2) i64 @circle_eq(ptr noundef readonly captures(no
   br i1 %19, label %20, label %float8_mul.exit.i
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %18, %16
@@ -15957,7 +15950,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %11, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %24, %float8_mul.exit.i
@@ -15969,7 +15962,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %29, label %30, label %circle_ar.exit
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %26, %28
@@ -15986,7 +15979,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %35, %circle_ar.exit
@@ -15998,7 +15991,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %42, label %43, label %float8_mul.exit.i5
 
 43:                                               ; preds = %41
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i5:                               ; preds = %41, %39
@@ -16011,7 +16004,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %34, label %49, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %47, %float8_mul.exit.i5
@@ -16023,7 +16016,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %52, label %53, label %circle_ar.exit6
 
 53:                                               ; preds = %51
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit6:                                  ; preds = %49, %51
@@ -16057,7 +16050,7 @@ define dso_local range(i64 0, 2) i64 @circle_ne(ptr noundef readonly captures(no
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 16:                                               ; preds = %12, %1
@@ -16069,7 +16062,7 @@ define dso_local range(i64 0, 2) i64 @circle_ne(ptr noundef readonly captures(no
   br i1 %19, label %20, label %float8_mul.exit.i
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %18, %16
@@ -16082,7 +16075,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %11, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %24, %float8_mul.exit.i
@@ -16094,7 +16087,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %29, label %30, label %circle_ar.exit
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %26, %28
@@ -16111,7 +16104,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %35, %circle_ar.exit
@@ -16123,7 +16116,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %42, label %43, label %float8_mul.exit.i5
 
 43:                                               ; preds = %41
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i5:                               ; preds = %41, %39
@@ -16136,7 +16129,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %34, label %49, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %47, %float8_mul.exit.i5
@@ -16148,7 +16141,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %52, label %53, label %circle_ar.exit6
 
 53:                                               ; preds = %51
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit6:                                  ; preds = %49, %51
@@ -16182,7 +16175,7 @@ define dso_local range(i64 0, 2) i64 @circle_lt(ptr noundef readonly captures(no
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 16:                                               ; preds = %12, %1
@@ -16194,7 +16187,7 @@ define dso_local range(i64 0, 2) i64 @circle_lt(ptr noundef readonly captures(no
   br i1 %19, label %20, label %float8_mul.exit.i
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %18, %16
@@ -16207,7 +16200,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %11, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %24, %float8_mul.exit.i
@@ -16219,7 +16212,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %29, label %30, label %circle_ar.exit
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %26, %28
@@ -16236,7 +16229,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %35, %circle_ar.exit
@@ -16248,7 +16241,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %42, label %43, label %float8_mul.exit.i5
 
 43:                                               ; preds = %41
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i5:                               ; preds = %41, %39
@@ -16261,7 +16254,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %34, label %49, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %47, %float8_mul.exit.i5
@@ -16273,7 +16266,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %52, label %53, label %circle_ar.exit6
 
 53:                                               ; preds = %51
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit6:                                  ; preds = %49, %51
@@ -16304,7 +16297,7 @@ define dso_local range(i64 0, 2) i64 @circle_gt(ptr noundef readonly captures(no
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 16:                                               ; preds = %12, %1
@@ -16316,7 +16309,7 @@ define dso_local range(i64 0, 2) i64 @circle_gt(ptr noundef readonly captures(no
   br i1 %19, label %20, label %float8_mul.exit.i
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %18, %16
@@ -16329,7 +16322,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %11, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %24, %float8_mul.exit.i
@@ -16341,7 +16334,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %29, label %30, label %circle_ar.exit
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %26, %28
@@ -16358,7 +16351,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %35, %circle_ar.exit
@@ -16370,7 +16363,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %42, label %43, label %float8_mul.exit.i5
 
 43:                                               ; preds = %41
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i5:                               ; preds = %41, %39
@@ -16383,7 +16376,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %34, label %49, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %47, %float8_mul.exit.i5
@@ -16395,7 +16388,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %52, label %53, label %circle_ar.exit6
 
 53:                                               ; preds = %51
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit6:                                  ; preds = %49, %51
@@ -16426,7 +16419,7 @@ define dso_local range(i64 0, 2) i64 @circle_le(ptr noundef readonly captures(no
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 16:                                               ; preds = %12, %1
@@ -16438,7 +16431,7 @@ define dso_local range(i64 0, 2) i64 @circle_le(ptr noundef readonly captures(no
   br i1 %19, label %20, label %float8_mul.exit.i
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %18, %16
@@ -16451,7 +16444,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %11, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %24, %float8_mul.exit.i
@@ -16463,7 +16456,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %29, label %30, label %circle_ar.exit
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %26, %28
@@ -16480,7 +16473,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %35, %circle_ar.exit
@@ -16492,7 +16485,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %42, label %43, label %float8_mul.exit.i5
 
 43:                                               ; preds = %41
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i5:                               ; preds = %41, %39
@@ -16505,7 +16498,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %34, label %49, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %47, %float8_mul.exit.i5
@@ -16517,7 +16510,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %52, label %53, label %circle_ar.exit6
 
 53:                                               ; preds = %51
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit6:                                  ; preds = %49, %51
@@ -16548,7 +16541,7 @@ define dso_local range(i64 0, 2) i64 @circle_ge(ptr noundef readonly captures(no
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 16:                                               ; preds = %12, %1
@@ -16560,7 +16553,7 @@ define dso_local range(i64 0, 2) i64 @circle_ge(ptr noundef readonly captures(no
   br i1 %19, label %20, label %float8_mul.exit.i
 
 20:                                               ; preds = %18
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %18, %16
@@ -16573,7 +16566,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %11, label %26, label %25
 
 25:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 26:                                               ; preds = %24, %float8_mul.exit.i
@@ -16585,7 +16578,7 @@ float8_mul.exit.i:                                ; preds = %18, %16
   br i1 %29, label %30, label %circle_ar.exit
 
 30:                                               ; preds = %28
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %26, %28
@@ -16602,7 +16595,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %35, %circle_ar.exit
@@ -16614,7 +16607,7 @@ circle_ar.exit:                                   ; preds = %26, %28
   br i1 %42, label %43, label %float8_mul.exit.i5
 
 43:                                               ; preds = %41
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i5:                               ; preds = %41, %39
@@ -16627,7 +16620,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %34, label %49, label %48
 
 48:                                               ; preds = %47
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 49:                                               ; preds = %47, %float8_mul.exit.i5
@@ -16639,7 +16632,7 @@ float8_mul.exit.i5:                               ; preds = %41, %39
   br i1 %52, label %53, label %circle_ar.exit6
 
 53:                                               ; preds = %51
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit6:                                  ; preds = %49, %51
@@ -16657,7 +16650,7 @@ define dso_local i64 @circle_add_pt(ptr noundef readonly captures(none) %0) loca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 24) #16
+  %8 = tail call ptr @palloc(i64 noundef 24) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fadd double %9, %10
@@ -16674,7 +16667,7 @@ define dso_local i64 @circle_add_pt(ptr noundef readonly captures(none) %0) loca
   br i1 %or.cond.i.i, label %float8_pl.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit.i:                                 ; preds = %14, %1
@@ -16696,7 +16689,7 @@ float8_pl.exit.i:                                 ; preds = %14, %1
   br i1 %or.cond.i5.i, label %point_add_point.exit, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_add_point.exit:                             ; preds = %float8_pl.exit.i, %27
@@ -16719,7 +16712,7 @@ define dso_local i64 @circle_sub_pt(ptr noundef readonly captures(none) %0) loca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 24) #16
+  %8 = tail call ptr @palloc(i64 noundef 24) #15
   %9 = load double, ptr %4, align 8
   %10 = load double, ptr %7, align 8
   %11 = fsub double %9, %10
@@ -16736,7 +16729,7 @@ define dso_local i64 @circle_sub_pt(ptr noundef readonly captures(none) %0) loca
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %19
 
 19:                                               ; preds = %14
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %14, %1
@@ -16758,7 +16751,7 @@ float8_mi.exit.i:                                 ; preds = %14, %1
   br i1 %or.cond.i5.i, label %point_sub_point.exit, label %32
 
 32:                                               ; preds = %27
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 point_sub_point.exit:                             ; preds = %float8_mi.exit.i, %27
@@ -16781,7 +16774,7 @@ define dso_local noundef i64 @circle_mul_pt(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 24) #16
+  %8 = tail call ptr @palloc(i64 noundef 24) #15
   tail call fastcc void @point_mul_point(ptr noundef %8, ptr noundef %4, ptr noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load double, ptr %9, align 8
@@ -16816,7 +16809,7 @@ define dso_local noundef i64 @circle_mul_pt(ptr noundef readonly captures(none) 
   br i1 %27, label %28, label %29, !prof !12
 
 28:                                               ; preds = %22
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 29:                                               ; preds = %22
@@ -16824,7 +16817,7 @@ define dso_local noundef i64 @circle_mul_pt(ptr noundef readonly captures(none) 
   br i1 %30, label %31, label %pg_hypot.exit, !prof !12
 
 31:                                               ; preds = %29
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 pg_hypot.exit:                                    ; preds = %1, %18, %19, %29
@@ -16843,7 +16836,7 @@ pg_hypot.exit:                                    ; preds = %1, %18, %19, %29
   br i1 %or.cond11.i, label %41, label %40
 
 40:                                               ; preds = %35
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %35, %pg_hypot.exit
@@ -16857,7 +16850,7 @@ pg_hypot.exit:                                    ; preds = %1, %18, %19, %29
   br i1 %or.cond.i10, label %46, label %float8_mul.exit
 
 46:                                               ; preds = %43
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %41, %43
@@ -16875,7 +16868,7 @@ define dso_local noundef i64 @circle_div_pt(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call ptr @palloc(i64 noundef 24) #16
+  %8 = tail call ptr @palloc(i64 noundef 24) #15
   tail call fastcc void @point_div_point(ptr noundef %8, ptr noundef %4, ptr noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load double, ptr %9, align 8
@@ -16910,7 +16903,7 @@ define dso_local noundef i64 @circle_div_pt(ptr noundef readonly captures(none) 
   br i1 %27, label %28, label %29, !prof !12
 
 28:                                               ; preds = %22
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 29:                                               ; preds = %22
@@ -16918,7 +16911,7 @@ define dso_local noundef i64 @circle_div_pt(ptr noundef readonly captures(none) 
   br i1 %30, label %31, label %pg_hypot.exit, !prof !12
 
 31:                                               ; preds = %29
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 pg_hypot.exit:                                    ; preds = %19, %29
@@ -16931,7 +16924,7 @@ pg_hypot.exit:                                    ; preds = %19, %29
   br i1 %34, label %pg_hypot.exit.thread, label %35
 
 35:                                               ; preds = %33
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 pg_hypot.exit.thread:                             ; preds = %18, %1, %33, %pg_hypot.exit
@@ -16947,7 +16940,7 @@ pg_hypot.exit.thread:                             ; preds = %18, %1, %33, %pg_hy
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 43:                                               ; preds = %39, %pg_hypot.exit.thread
@@ -16962,7 +16955,7 @@ pg_hypot.exit.thread:                             ; preds = %18, %1, %33, %pg_hy
   br i1 %or.cond.i10, label %float8_div.exit, label %49
 
 49:                                               ; preds = %45
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %43, %45
@@ -16990,7 +16983,7 @@ define dso_local i64 @circle_area(ptr noundef readonly captures(none) %0) local_
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 13:                                               ; preds = %9, %1
@@ -17002,7 +16995,7 @@ define dso_local i64 @circle_area(ptr noundef readonly captures(none) %0) local_
   br i1 %16, label %17, label %float8_mul.exit.i
 
 17:                                               ; preds = %15
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit.i:                                ; preds = %15, %13
@@ -17015,7 +17008,7 @@ float8_mul.exit.i:                                ; preds = %15, %13
   br i1 %8, label %23, label %22
 
 22:                                               ; preds = %21
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 23:                                               ; preds = %21, %float8_mul.exit.i
@@ -17027,7 +17020,7 @@ float8_mul.exit.i:                                ; preds = %15, %13
   br i1 %26, label %27, label %circle_ar.exit
 
 27:                                               ; preds = %25
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 circle_ar.exit:                                   ; preds = %23, %25
@@ -17053,7 +17046,7 @@ define dso_local i64 @circle_diameter(ptr noundef readonly captures(none) %0) lo
   br i1 %12, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 14:                                               ; preds = %10, %1
@@ -17065,7 +17058,7 @@ define dso_local i64 @circle_diameter(ptr noundef readonly captures(none) %0) lo
   br i1 %17, label %18, label %float8_mul.exit
 
 18:                                               ; preds = %16
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %14, %16
@@ -17107,7 +17100,7 @@ define dso_local i64 @circle_distance(ptr noundef readonly captures(none) %0) lo
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -17141,7 +17134,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -17165,7 +17158,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -17173,7 +17166,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -17196,7 +17189,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_pl.exit, label %67
 
 67:                                               ; preds = %62
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %point_dt.exit, %62
@@ -17212,7 +17205,7 @@ float8_pl.exit:                                   ; preds = %point_dt.exit, %62
   br i1 %or.cond.i9, label %float8_mi.exit, label %74
 
 74:                                               ; preds = %71
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %71
@@ -17246,7 +17239,7 @@ define dso_local range(i64 0, 2) i64 @circle_contain_pt(ptr noundef readonly cap
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -17280,7 +17273,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -17304,7 +17297,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -17312,7 +17305,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -17348,7 +17341,7 @@ define dso_local range(i64 0, 2) i64 @pt_contained_circle(ptr noundef readonly c
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -17382,7 +17375,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -17406,7 +17399,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -17414,7 +17407,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -17450,7 +17443,7 @@ define dso_local i64 @dist_pc(ptr noundef readonly captures(none) %0) local_unna
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -17484,7 +17477,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -17508,7 +17501,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -17516,7 +17509,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -17537,7 +17530,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_mi.exit, label %65
 
 65:                                               ; preds = %60
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %60
@@ -17571,7 +17564,7 @@ define dso_local i64 @dist_cpoint(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %18
 
 18:                                               ; preds = %13
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %13
@@ -17605,7 +17598,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %or.cond.i4.i, label %point_dt.exit, label %40
 
 40:                                               ; preds = %33
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 41:                                               ; preds = %float8_mi.exit.thread.i
@@ -17629,7 +17622,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %50, label %51, label %52, !prof !12
 
 51:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 52:                                               ; preds = %45
@@ -17637,7 +17630,7 @@ float8_mi.exit.thread.i:                          ; preds = %1
   br i1 %53, label %54, label %point_dt.exit, !prof !12
 
 54:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %33, %41, %42, %52
@@ -17658,7 +17651,7 @@ point_dt.exit:                                    ; preds = %float8_mi.exit.i, %
   br i1 %or.cond.i, label %float8_mi.exit, label %65
 
 65:                                               ; preds = %60
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %point_dt.exit, %60
@@ -17673,7 +17666,7 @@ define dso_local noundef i64 @circle_center(ptr noundef readonly captures(none) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 16) #16
+  %5 = tail call ptr @palloc(i64 noundef 16) #15
   %6 = load double, ptr %4, align 8
   store double %6, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17691,7 +17684,7 @@ define dso_local noundef i64 @cr_circle(ptr noundef readonly captures(none) %0) 
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load double, ptr %5, align 8
-  %7 = tail call ptr @palloc(i64 noundef 24) #16
+  %7 = tail call ptr @palloc(i64 noundef 24) #15
   %8 = load double, ptr %4, align 8
   store double %8, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17709,7 +17702,7 @@ define dso_local i64 @circle_box(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 32) #16
+  %5 = tail call ptr @palloc(i64 noundef 32) #15
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load double, ptr %6, align 8
   %8 = fdiv double %7, 0x3FF6A09E667F3BCD
@@ -17723,7 +17716,7 @@ define dso_local i64 @circle_box(ptr noundef readonly captures(none) %0) local_u
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 15:                                               ; preds = %11, %1
@@ -17735,7 +17728,7 @@ define dso_local i64 @circle_box(ptr noundef readonly captures(none) %0) local_u
   br i1 %18, label %float8_div.exit, label %19
 
 19:                                               ; preds = %17
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %15, %17
@@ -17752,7 +17745,7 @@ float8_div.exit:                                  ; preds = %15, %17
   br i1 %or.cond.i, label %float8_pl.exit, label %27
 
 27:                                               ; preds = %24
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_div.exit, %24
@@ -17770,7 +17763,7 @@ float8_pl.exit:                                   ; preds = %float8_div.exit, %2
   br i1 %or.cond.i15, label %float8_mi.exit, label %35
 
 35:                                               ; preds = %32
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_pl.exit, %32
@@ -17790,7 +17783,7 @@ float8_mi.exit:                                   ; preds = %float8_pl.exit, %32
   br i1 %or.cond.i16, label %float8_pl.exit17, label %45
 
 45:                                               ; preds = %42
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit17:                                 ; preds = %float8_mi.exit, %42
@@ -17809,7 +17802,7 @@ float8_pl.exit17:                                 ; preds = %float8_mi.exit, %42
   br i1 %or.cond.i18, label %float8_mi.exit19, label %54
 
 54:                                               ; preds = %51
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit19:                                 ; preds = %float8_pl.exit17, %51
@@ -17824,7 +17817,7 @@ define dso_local i64 @box_circle(ptr noundef readonly captures(none) %0) local_u
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @palloc(i64 noundef 24) #16
+  %5 = tail call ptr @palloc(i64 noundef 24) #15
   %6 = load double, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load double, ptr %7, align 8
@@ -17842,7 +17835,7 @@ define dso_local i64 @box_circle(ptr noundef readonly captures(none) %0) local_u
   br i1 %or.cond.i, label %float8_pl.exit, label %17
 
 17:                                               ; preds = %12
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %12
@@ -17858,7 +17851,7 @@ float8_pl.exit.thread:                            ; preds = %1
   br i1 %23, label %24, label %25, !prof !12
 
 24:                                               ; preds = %float8_pl.exit.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 25:                                               ; preds = %float8_pl.exit, %float8_pl.exit.thread
@@ -17872,7 +17865,7 @@ float8_pl.exit.thread:                            ; preds = %1
   br i1 %30, label %float8_div.exit, label %31
 
 31:                                               ; preds = %29
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %25, %29
@@ -17895,7 +17888,7 @@ float8_div.exit:                                  ; preds = %25, %29
   br i1 %or.cond.i12, label %float8_pl.exit13, label %44
 
 44:                                               ; preds = %39
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit13:                                 ; preds = %39
@@ -17909,7 +17902,7 @@ float8_pl.exit13.thread:                          ; preds = %float8_div.exit
   br i1 %48, label %49, label %50, !prof !12
 
 49:                                               ; preds = %float8_pl.exit13.thread
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 50:                                               ; preds = %float8_pl.exit13, %float8_pl.exit13.thread
@@ -17922,7 +17915,7 @@ float8_pl.exit13.thread:                          ; preds = %float8_div.exit
   br i1 %54, label %float8_div.exit15, label %55
 
 55:                                               ; preds = %53
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit15:                                ; preds = %50, %53
@@ -17941,7 +17934,7 @@ float8_div.exit15:                                ; preds = %50, %53
   br i1 %or.cond.i.i, label %float8_mi.exit.i, label %64
 
 64:                                               ; preds = %61
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit.i:                                 ; preds = %61
@@ -17968,7 +17961,7 @@ float8_mi.exit.thread.i:                          ; preds = %float8_div.exit15
   br i1 %or.cond.i4.i, label %point_dt.exit, label %79
 
 79:                                               ; preds = %73
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 80:                                               ; preds = %float8_mi.exit.thread.i
@@ -17992,7 +17985,7 @@ float8_mi.exit.thread.i:                          ; preds = %float8_div.exit15
   br i1 %89, label %90, label %91, !prof !12
 
 90:                                               ; preds = %84
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 91:                                               ; preds = %84
@@ -18000,7 +17993,7 @@ float8_mi.exit.thread.i:                          ; preds = %float8_div.exit15
   br i1 %92, label %93, label %point_dt.exit, !prof !12
 
 93:                                               ; preds = %91
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 point_dt.exit:                                    ; preds = %float8_mi.exit.i, %73, %80, %81, %91
@@ -18026,11 +18019,10 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 1088) #16
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5239, ptr noundef nonnull @__func__.circle_poly) #16
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %14 = tail call i32 @errcode(i32 noundef 1088) #15
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5239, ptr noundef nonnull @__func__.circle_poly) #15
   unreachable
 
 16:                                               ; preds = %1
@@ -18038,11 +18030,10 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5244, ptr noundef nonnull @__func__.circle_poly) #16
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %20 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5244, ptr noundef nonnull @__func__.circle_poly) #15
   unreachable
 
 22:                                               ; preds = %16
@@ -18054,17 +18045,16 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br i1 %or.cond, label %29, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 261) #16
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5253, ptr noundef nonnull @__func__.circle_poly) #16
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  %27 = tail call i32 @errcode(i32 noundef 261) #15
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 5253, ptr noundef nonnull @__func__.circle_poly) #15
   unreachable
 
 29:                                               ; preds = %22
   %30 = add nsw i32 %23, 40
   %31 = sext i32 %30 to i64
-  %32 = tail call ptr @palloc0(i64 noundef %31) #16
+  %32 = tail call ptr @palloc0(i64 noundef %31) #15
   %33 = shl i32 %30, 2
   store i32 %33, ptr %32, align 4
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -18075,7 +18065,7 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br i1 %37, label %38, label %39, !prof !12
 
 38:                                               ; preds = %29
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 39:                                               ; preds = %29
@@ -18089,7 +18079,7 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br label %44
 
 43:                                               ; preds = %39
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 44:                                               ; preds = %.lr.ph, %float8_pl.exit
@@ -18101,7 +18091,7 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br i1 %48, label %49, label %50, !prof !12
 
 49:                                               ; preds = %44
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 50:                                               ; preds = %44
@@ -18113,13 +18103,13 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   br i1 %.not43, label %float8_mul.exit, label %53
 
 53:                                               ; preds = %52
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %50, %52
   %54 = load double, ptr %7, align 8
   %55 = load double, ptr %8, align 8
-  %56 = tail call double @cos(double noundef %47) #16
+  %56 = tail call double @cos(double noundef %47) #15
   %57 = fmul double %55, %56
   %58 = tail call double @llvm.fabs.f64(double %57)
   %59 = fcmp oeq double %58, 0x7FF0000000000000
@@ -18134,7 +18124,7 @@ float8_mul.exit:                                  ; preds = %50, %52
   br i1 %or.cond11.i, label %66, label %65
 
 65:                                               ; preds = %60
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 66:                                               ; preds = %60, %float8_mul.exit
@@ -18148,7 +18138,7 @@ float8_mul.exit:                                  ; preds = %50, %52
   br i1 %or.cond.i35, label %71, label %float8_mul.exit36
 
 71:                                               ; preds = %68
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit36:                                ; preds = %66, %68
@@ -18164,7 +18154,7 @@ float8_mul.exit36:                                ; preds = %66, %68
   br i1 %or.cond.i37, label %float8_mi.exit, label %78
 
 78:                                               ; preds = %75
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %float8_mul.exit36, %75
@@ -18172,7 +18162,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit36, 
   store double %72, ptr %79, align 8
   %80 = load double, ptr %42, align 8
   %81 = load double, ptr %8, align 8
-  %82 = tail call double @sin(double noundef %47) #16
+  %82 = tail call double @sin(double noundef %47) #15
   %83 = fmul double %81, %82
   %84 = tail call double @llvm.fabs.f64(double %83)
   %85 = fcmp oeq double %84, 0x7FF0000000000000
@@ -18187,7 +18177,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit36, 
   br i1 %or.cond11.i39, label %92, label %91
 
 91:                                               ; preds = %86
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 92:                                               ; preds = %86, %float8_mi.exit
@@ -18201,7 +18191,7 @@ float8_mi.exit:                                   ; preds = %float8_mul.exit36, 
   br i1 %or.cond.i38, label %97, label %float8_mul.exit40
 
 97:                                               ; preds = %94
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit40:                                ; preds = %92, %94
@@ -18217,7 +18207,7 @@ float8_mul.exit40:                                ; preds = %92, %94
   br i1 %or.cond.i41, label %float8_pl.exit, label %104
 
 104:                                              ; preds = %101
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %float8_mul.exit40, %101
@@ -18320,8 +18310,8 @@ define dso_local noundef i64 @poly_circle(ptr noundef readonly captures(none) %0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #16
-  %6 = tail call ptr @palloc(i64 noundef 24) #16
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #15
+  %6 = tail call ptr @palloc(i64 noundef 24) #15
   tail call fastcc void @poly_to_circle(ptr noundef %6, ptr noundef %5)
   %7 = ptrtoint ptr %6 to i64
   ret i64 %7
@@ -18387,7 +18377,7 @@ define internal fastcc double @point_invsl(ptr noundef readonly captures(none) %
   br i1 %or.cond.i, label %float8_mi.exit, label %27
 
 27:                                               ; preds = %22
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %20, %22
@@ -18405,7 +18395,7 @@ float8_mi.exit:                                   ; preds = %20, %22
   br i1 %or.cond.i9, label %float8_mi.exit10, label %36
 
 36:                                               ; preds = %31
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit10:                                 ; preds = %float8_mi.exit, %31
@@ -18417,7 +18407,7 @@ float8_mi.exit10:                                 ; preds = %float8_mi.exit, %31
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %38
-  tail call void @float_zero_divide_error() #19
+  tail call void @float_zero_divide_error() #18
   unreachable
 
 41:                                               ; preds = %38, %float8_mi.exit10
@@ -18430,7 +18420,7 @@ float8_mi.exit10:                                 ; preds = %float8_mi.exit, %31
   br i1 %21, label %47, label %46
 
 46:                                               ; preds = %45
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 47:                                               ; preds = %45, %41
@@ -18441,7 +18431,7 @@ float8_mi.exit10:                                 ; preds = %float8_mi.exit, %31
   br i1 %30, label %float8_div.exit, label %50
 
 50:                                               ; preds = %49
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %49, %47, %10, %2
@@ -18457,7 +18447,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   %8 = alloca %struct.Point, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  tail call void @check_stack_depth() #16
+  tail call void @check_stack_depth() #15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -18488,7 +18478,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   br i1 %.not38, label %24, label %23, !prof !70
 
 23:                                               ; preds = %21
-  call void @ProcessInterrupts() #16
+  call void @ProcessInterrupts() #15
   br label %24
 
 24:                                               ; preds = %23, %21
@@ -18572,7 +18562,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   br i1 %or.cond.i, label %float8_pl.exit, label %61
 
 61:                                               ; preds = %56
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit:                                   ; preds = %56
@@ -18586,7 +18576,7 @@ float8_pl.exit.thread:                            ; preds = %50
   br i1 %65, label %66, label %67, !prof !12
 
 66:                                               ; preds = %float8_pl.exit.thread
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 67:                                               ; preds = %float8_pl.exit, %float8_pl.exit.thread
@@ -18599,7 +18589,7 @@ float8_pl.exit.thread:                            ; preds = %50
   br i1 %71, label %float8_div.exit, label %72
 
 72:                                               ; preds = %70
-  call void @float_underflow_error() #19
+  call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit:                                  ; preds = %67, %70
@@ -18622,7 +18612,7 @@ float8_div.exit:                                  ; preds = %67, %70
   br i1 %or.cond.i40, label %float8_pl.exit41, label %85
 
 85:                                               ; preds = %80
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 float8_pl.exit41:                                 ; preds = %80
@@ -18636,7 +18626,7 @@ float8_pl.exit41.thread:                          ; preds = %float8_div.exit
   br i1 %89, label %90, label %91, !prof !12
 
 90:                                               ; preds = %float8_pl.exit41.thread
-  call void @float_overflow_error() #19
+  call void @float_overflow_error() #18
   unreachable
 
 91:                                               ; preds = %float8_pl.exit41, %float8_pl.exit41.thread
@@ -18649,7 +18639,7 @@ float8_pl.exit41.thread:                          ; preds = %float8_div.exit
   br i1 %95, label %float8_div.exit43, label %96
 
 96:                                               ; preds = %94
-  call void @float_underflow_error() #19
+  call void @float_underflow_error() #18
   unreachable
 
 float8_div.exit43:                                ; preds = %91, %94
@@ -18942,7 +18932,7 @@ define internal fastcc range(i32 -2, -2147483648) i32 @lseg_crossing(double noun
   br i1 %or.cond.i, label %float8_mi.exit, label %59
 
 59:                                               ; preds = %54
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit:                                   ; preds = %50, %54
@@ -18957,7 +18947,7 @@ float8_mi.exit:                                   ; preds = %50, %54
   br i1 %or.cond11.i, label %66, label %65
 
 65:                                               ; preds = %63
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 66:                                               ; preds = %63, %float8_mi.exit
@@ -18969,7 +18959,7 @@ float8_mi.exit:                                   ; preds = %50, %54
   br i1 %69, label %70, label %float8_mul.exit
 
 70:                                               ; preds = %68
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit:                                  ; preds = %66, %68
@@ -18985,7 +18975,7 @@ float8_mul.exit:                                  ; preds = %66, %68
   br i1 %or.cond.i36, label %float8_mi.exit37, label %77
 
 77:                                               ; preds = %74
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit37:                                 ; preds = %float8_mul.exit, %74
@@ -19001,7 +18991,7 @@ float8_mi.exit37:                                 ; preds = %float8_mul.exit, %7
   br i1 %or.cond11.i39, label %85, label %84
 
 84:                                               ; preds = %81
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 85:                                               ; preds = %81, %float8_mi.exit37
@@ -19015,7 +19005,7 @@ float8_mi.exit37:                                 ; preds = %float8_mul.exit, %7
   br i1 %or.cond.i38, label %90, label %float8_mul.exit40
 
 90:                                               ; preds = %87
-  tail call void @float_underflow_error() #19
+  tail call void @float_underflow_error() #18
   unreachable
 
 float8_mul.exit40:                                ; preds = %85, %87
@@ -19029,7 +19019,7 @@ float8_mul.exit40:                                ; preds = %85, %87
   br i1 %or.cond.i41, label %float8_mi.exit42, label %95
 
 95:                                               ; preds = %94
-  tail call void @float_overflow_error() #19
+  tail call void @float_overflow_error() #18
   unreachable
 
 float8_mi.exit42:                                 ; preds = %float8_mul.exit40, %94
@@ -19063,20 +19053,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #13
+declare double @llvm.sqrt.f64(double) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #14
+declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -19090,15 +19077,14 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { noreturn nounwind }
-attributes #20 = { cold nounwind }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

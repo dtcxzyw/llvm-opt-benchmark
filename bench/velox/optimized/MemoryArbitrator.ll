@@ -2207,8 +2207,6 @@ entry:
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(168) %pool)
-  %cmp = icmp ne i32 %call, 0
-  tail call void @llvm.assume(i1 %cmp)
   %1 = ptrtoint ptr %error to i64
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 24

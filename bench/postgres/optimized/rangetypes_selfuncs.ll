@@ -46,7 +46,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %25 = call zeroext i1 @get_restriction_variable(ptr noundef %15, ptr noundef %21, i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+  %25 = call zeroext i1 @get_restriction_variable(ptr noundef %15, ptr noundef %21, i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %1
@@ -69,7 +69,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %37 = load ptr, ptr %36, align 8
-  call void %37(ptr noundef nonnull %34) #10
+  call void %37(ptr noundef nonnull %34) #9
   br label %38
 
 38:                                               ; preds = %35, %32
@@ -92,7 +92,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull %46) #10
+  call void %49(ptr noundef nonnull %46) #9
   br label %default_range_selectivity.exit
 
 50:                                               ; preds = %40
@@ -101,7 +101,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %50
-  %54 = call i32 @get_commutator(i32 noundef %18) #10
+  %54 = call i32 @get_commutator(i32 noundef %18) #9
   %.not37 = icmp eq i32 %54, 0
   br i1 %.not37, label %55, label %61
 
@@ -114,7 +114,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %60 = load ptr, ptr %59, align 8
-  call void %60(ptr noundef nonnull %57) #10
+  call void %60(ptr noundef nonnull %57) #9
   br label %default_range_selectivity.exit
 
 61:                                               ; preds = %53, %50
@@ -127,7 +127,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %64 = load i32, ptr %63, align 8
-  %65 = call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %64) #10
+  %65 = call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %64) #9
   %66 = load ptr, ptr %9, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
@@ -156,7 +156,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 10
   store i8 0, ptr %81, align 2
-  %82 = call ptr @range_serialize(ptr noundef nonnull %65, ptr noundef nonnull %11, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef null) #10
+  %82 = call ptr @range_serialize(ptr noundef nonnull %65, ptr noundef nonnull %11, ptr noundef nonnull %12, i1 noundef zeroext false, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %97
@@ -171,12 +171,12 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %89, label %90, label %.thread
 
 90:                                               ; preds = %83
-  %91 = call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %86) #10
+  %91 = call ptr @range_get_typcache(ptr noundef nonnull %0, i32 noundef %86) #9
   %92 = load ptr, ptr %9, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load i64, ptr %93, align 8
   %95 = inttoptr i64 %94 to ptr
-  %96 = call ptr @pg_detoast_datum(ptr noundef %95) #10
+  %96 = call ptr @pg_detoast_datum(ptr noundef %95) #9
   br label %97
 
 97:                                               ; preds = %90, %73
@@ -201,7 +201,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   %106 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load float, ptr %107, align 4
-  %109 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %7, ptr noundef nonnull %100, i32 noundef 6, i32 noundef 0, i32 noundef 2) #10
+  %109 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %7, ptr noundef nonnull %100, i32 noundef 6, i32 noundef 0, i32 noundef 2) #9
   br i1 %109, label %110, label %121
 
 110:                                              ; preds = %101
@@ -211,17 +211,16 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not31.i, label %116, label %113
 
 113:                                              ; preds = %110
-  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %114)
-  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.calc_rangesel) #10
+  %114 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %115 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.calc_rangesel) #9
   unreachable
 
 116:                                              ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %118 = load ptr, ptr %117, align 8
   %119 = load float, ptr %118, align 4
-  call void @free_attstatsslot(ptr noundef nonnull %7) #10
+  call void @free_attstatsslot(ptr noundef nonnull %7) #9
   %120 = fpext float %119 to double
   br label %121
 
@@ -234,7 +233,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 123:                                              ; preds = %121, %98
   %.1.i = phi double [ %.026.i, %121 ], [ 0.000000e+00, %98 ]
   %.025.i = phi double [ %122, %121 ], [ 0.000000e+00, %98 ]
-  %124 = call signext i8 @range_get_flags(ptr noundef nonnull %.0) #10
+  %124 = call signext i8 @range_get_flags(ptr noundef nonnull %.0) #9
   %125 = and i8 %124, 1
   %.not32.i = icmp eq i8 %125, 0
   br i1 %.not32.i, label %134, label %126
@@ -265,10 +264,9 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %246
 
 131:                                              ; preds = %126
-  %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %132)
-  %133 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %.029) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.calc_rangesel) #10
+  %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %133 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %.029) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 320, ptr noundef nonnull @__func__.calc_rangesel) #9
   unreachable
 
 134:                                              ; preds = %123
@@ -279,7 +277,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %135 = getelementptr inbounds nuw i8, ptr %.026, i64 304
   %136 = load i32, ptr %135, align 8
-  %137 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %136) #10
+  %137 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %136) #9
   br i1 %137, label %138, label %.sink.split.i
 
 138:                                              ; preds = %134
@@ -289,7 +287,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %143, label %141
 
 141:                                              ; preds = %138
-  %142 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %140) #10
+  %142 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %140) #9
   br i1 %142, label %143, label %.sink.split.i
 
 143:                                              ; preds = %141, %138
@@ -298,7 +296,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not78.i.i, label %.sink.split.i, label %145
 
 145:                                              ; preds = %143
-  %146 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %144, i32 noundef 7, i32 noundef 0, i32 noundef 1) #10
+  %146 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %144, i32 noundef 7, i32 noundef 0, i32 noundef 1) #9
   br i1 %146, label %147, label %.sink.split.i
 
 147:                                              ; preds = %145
@@ -310,8 +308,8 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 151:                                              ; preds = %147
   %152 = zext nneg i32 %149 to i64
   %153 = shl nuw nsw i64 %152, 4
-  %154 = call ptr @palloc(i64 noundef %153) #10
-  %155 = call ptr @palloc(i64 noundef %153) #10
+  %154 = call ptr @palloc(i64 noundef %153) #9
+  %155 = call ptr @palloc(i64 noundef %153) #9
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %158
 
@@ -326,19 +324,18 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   %160 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.i.i
   %161 = load i64, ptr %160, align 8
   %162 = inttoptr i64 %161 to ptr
-  %163 = call ptr @pg_detoast_datum(ptr noundef %162) #10
+  %163 = call ptr @pg_detoast_datum(ptr noundef %162) #9
   %164 = getelementptr inbounds nuw %struct.RangeBound, ptr %154, i64 %indvars.iv.i.i
   %165 = getelementptr inbounds nuw %struct.RangeBound, ptr %155, i64 %indvars.iv.i.i
-  call void @range_deserialize(ptr noundef %.026, ptr noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef nonnull %6) #10
+  call void @range_deserialize(ptr noundef %.026, ptr noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef nonnull %6) #9
   %166 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %168, label %157
 
 168:                                              ; preds = %158
-  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %169)
-  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 423, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
+  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 423, ptr noundef nonnull @__func__.calc_hist_selectivity) #9
   unreachable
 
 171:                                              ; preds = %157
@@ -353,7 +350,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not79.i.i, label %calc_hist_selectivity.exit.thread35.i, label %174
 
 174:                                              ; preds = %172
-  %175 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %173, i32 noundef 6, i32 noundef 0, i32 noundef 1) #10
+  %175 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef nonnull %173, i32 noundef 6, i32 noundef 0, i32 noundef 1) #9
   br i1 %175, label %176, label %calc_hist_selectivity.exit.thread35.i
 
 176:                                              ; preds = %174
@@ -367,7 +364,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %181
 
 181:                                              ; preds = %180, %176
-  call void @range_deserialize(ptr noundef %.026, ptr noundef nonnull %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  call void @range_deserialize(ptr noundef %.026, ptr noundef nonnull %.0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   switch i32 %.029, label %233 [
     i32 3884, label %182
     i32 3885, label %184
@@ -465,20 +462,19 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br label %calc_hist_selectivity.exit.i
 
 233:                                              ; preds = %181
-  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %234)
-  %235 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.029) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 579, ptr noundef nonnull @__func__.calc_hist_selectivity) #10
+  %234 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %235 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %.029) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 579, ptr noundef nonnull @__func__.calc_hist_selectivity) #9
   unreachable
 
 calc_hist_selectivity.exit.thread35.i:            ; preds = %174, %172, %147
-  call void @free_attstatsslot(ptr noundef nonnull %2) #10
+  call void @free_attstatsslot(ptr noundef nonnull %2) #9
   br label %.sink.split.i
 
 calc_hist_selectivity.exit.i:                     ; preds = %227, %224, %218, %208, %202, %200, %197, %194, %192, %189, %186, %184, %182, %176
   %.073.ph.ph.i.i = phi double [ -1.000000e+00, %176 ], [ %183, %182 ], [ %185, %184 ], [ %188, %186 ], [ %191, %189 ], [ %193, %192 ], [ %196, %194 ], [ %199, %197 ], [ %201, %200 ], [ %207, %202 ], [ %213, %208 ], [ %219, %218 ], [ %226, %224 ], [ %232, %227 ]
-  call void @free_attstatsslot(ptr noundef nonnull %3) #10
-  call void @free_attstatsslot(ptr noundef nonnull %2) #10
+  call void @free_attstatsslot(ptr noundef nonnull %3) #9
+  call void @free_attstatsslot(ptr noundef nonnull %2) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -555,7 +551,7 @@ calc_rangesel.exit:                               ; preds = %.thread, %switch.lo
 257:                                              ; preds = %calc_rangesel.exit
   %258 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %259 = load ptr, ptr %258, align 8
-  call void %259(ptr noundef nonnull %256) #10
+  call void %259(ptr noundef nonnull %256) #9
   br label %260
 
 260:                                              ; preds = %257, %calc_rangesel.exit
@@ -632,7 +628,7 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %10 = sdiv i32 %9, 2
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.RangeBound, ptr %2, i64 %11
-  %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1) #10
+  %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1) #9
   %14 = icmp slt i32 %13, 0
   %15 = icmp eq i32 %13, 0
   %or.cond.i = and i1 %4, %15
@@ -684,7 +680,7 @@ rbound_bsearch.exit:                              ; preds = %7
   %44 = load i32, ptr %43, align 4
   %45 = load i64, ptr %27, align 8
   %46 = load i64, ptr %26, align 8
-  %47 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %44, i64 noundef %45, i64 noundef %46) #10
+  %47 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %44, i64 noundef %45, i64 noundef %46) #9
   %48 = bitcast i64 %47 to double
   %or.cond.i20 = fcmp ule double %48, 0.000000e+00
   br i1 %or.cond.i20, label %get_position.exit, label %49
@@ -693,7 +689,7 @@ rbound_bsearch.exit:                              ; preds = %7
   %50 = load i32, ptr %43, align 4
   %51 = load i64, ptr %1, align 8
   %52 = load i64, ptr %26, align 8
-  %53 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %50, i64 noundef %51, i64 noundef %52) #10
+  %53 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %28, i32 noundef %50, i64 noundef %51, i64 noundef %52) #9
   %54 = bitcast i64 %53 to double
   %55 = fdiv double %54, %48
   %56 = fcmp uno double %55, 0.000000e+00
@@ -756,7 +752,7 @@ define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, pt
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.RangeBound, ptr %3, i64 %13
-  %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %1) #10
+  %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %1) #9
   %or.cond18.i = icmp slt i32 %15, 1
   %16 = add nsw i32 %12, -1
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
@@ -801,7 +797,7 @@ rbound_bsearch.exit:                              ; preds = %9
   %41 = load i32, ptr %40, align 4
   %42 = load i64, ptr %24, align 8
   %43 = load i64, ptr %23, align 8
-  %44 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %41, i64 noundef %42, i64 noundef %43) #10
+  %44 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %41, i64 noundef %42, i64 noundef %43) #9
   %45 = bitcast i64 %44 to double
   %or.cond.i = fcmp ule double %45, 0.000000e+00
   br i1 %or.cond.i, label %get_position.exit, label %46
@@ -810,7 +806,7 @@ rbound_bsearch.exit:                              ; preds = %9
   %47 = load i32, ptr %40, align 4
   %48 = load i64, ptr %1, align 8
   %49 = load i64, ptr %23, align 8
-  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %47, i64 noundef %48, i64 noundef %49) #10
+  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %47, i64 noundef %48, i64 noundef %49) #9
   %51 = bitcast i64 %50 to double
   %52 = fdiv double %51, %45
   %53 = fcmp uno double %52, 0.000000e+00
@@ -871,7 +867,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   %85 = load i32, ptr %84, align 4
   %86 = load i64, ptr %2, align 8
   %87 = load i64, ptr %1, align 8
-  %88 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %85, i64 noundef %86, i64 noundef %87) #10
+  %88 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %85, i64 noundef %86, i64 noundef %87) #9
   %89 = bitcast i64 %88 to double
   %or.cond.i44 = fcmp ult double %89, 0.000000e+00
   %..i = select i1 %or.cond.i44, double 1.000000e+00, double %89
@@ -928,7 +924,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   %116 = load i32, ptr %102, align 4
   %117 = load i64, ptr %2, align 8
   %118 = load i64, ptr %107, align 8
-  %119 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %116, i64 noundef %117, i64 noundef %118) #10
+  %119 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %25, i32 noundef %116, i64 noundef %117, i64 noundef %118) #9
   %120 = bitcast i64 %119 to double
   %or.cond.i49 = fcmp ult double %120, 0.000000e+00
   %..i50 = select i1 %or.cond.i49, double 1.000000e+00, double %120
@@ -984,7 +980,7 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   %16 = sdiv i32 %15, 2
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct.RangeBound, ptr %3, i64 %17
-  %19 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2) #10
+  %19 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2) #9
   %20 = icmp slt i32 %19, 0
   %21 = add nsw i32 %16, -1
   %.116.i = select i1 %20, i32 %.01519.i, i32 %21
@@ -1029,7 +1025,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %46 = load i32, ptr %45, align 4
   %47 = load i64, ptr %29, align 8
   %48 = load i64, ptr %28, align 8
-  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %46, i64 noundef %47, i64 noundef %48) #10
+  %49 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %46, i64 noundef %47, i64 noundef %48) #9
   %50 = bitcast i64 %49 to double
   %or.cond.i = fcmp ule double %50, 0.000000e+00
   br i1 %or.cond.i, label %.lr.ph, label %51
@@ -1038,7 +1034,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %52 = load i32, ptr %45, align 4
   %53 = load i64, ptr %2, align 8
   %54 = load i64, ptr %28, align 8
-  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %52, i64 noundef %53, i64 noundef %54) #10
+  %55 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %52, i64 noundef %53, i64 noundef %54) #9
   %56 = bitcast i64 %55 to double
   %57 = fdiv double %56, %50
   %58 = fcmp uno double %57, 0.000000e+00
@@ -1092,7 +1088,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %.05882 = phi double [ %.1.i64, %.lr.ph ], [ 1.000000e+00, %get_distance.exit80 ]
   %.06081 = phi double [ 0.000000e+00, %.lr.ph ], [ %.054, %get_distance.exit80 ]
   %85 = getelementptr inbounds nuw %struct.RangeBound, ptr %3, i64 %indvars.iv
-  %86 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %85, ptr noundef nonnull %1) #10
+  %86 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %85, ptr noundef nonnull %1) #9
   %87 = icmp sgt i32 %86, -1
   br i1 %87, label %156, label %88
 
@@ -1114,7 +1110,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %96 = load i32, ptr %79, align 4
   %97 = load i64, ptr %2, align 8
   %98 = load i64, ptr %1, align 8
-  %99 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %96, i64 noundef %97, i64 noundef %98) #10
+  %99 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %96, i64 noundef %97, i64 noundef %98) #9
   %100 = bitcast i64 %99 to double
   %or.cond.i67 = fcmp ult double %100, 0.000000e+00
   %..i = select i1 %or.cond.i67, double 1.000000e+00, double %100
@@ -1161,7 +1157,7 @@ get_distance.exit:                                ; preds = %91, %95, %101, %104
   %123 = load i32, ptr %79, align 4
   %124 = load i64, ptr %110, align 8
   %125 = load i64, ptr %85, align 8
-  %126 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %123, i64 noundef %124, i64 noundef %125) #10
+  %126 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %123, i64 noundef %124, i64 noundef %125) #9
   %127 = bitcast i64 %126 to double
   %or.cond.i71 = fcmp ule double %127, 0.000000e+00
   br i1 %or.cond.i71, label %get_position.exit73, label %128
@@ -1170,7 +1166,7 @@ get_distance.exit:                                ; preds = %91, %95, %101, %104
   %129 = load i32, ptr %79, align 4
   %130 = load i64, ptr %1, align 8
   %131 = load i64, ptr %85, align 8
-  %132 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %129, i64 noundef %130, i64 noundef %131) #10
+  %132 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %129, i64 noundef %130, i64 noundef %131) #9
   %133 = bitcast i64 %132 to double
   %134 = fdiv double %133, %127
   %135 = fcmp uno double %134, 0.000000e+00
@@ -1232,7 +1228,7 @@ get_position.exit73:                              ; preds = %121, %122, %128, %1
   %165 = load i32, ptr %79, align 4
   %166 = load i64, ptr %2, align 8
   %167 = load i64, ptr %85, align 8
-  %168 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %165, i64 noundef %166, i64 noundef %167) #10
+  %168 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %30, i32 noundef %165, i64 noundef %166, i64 noundef %167) #9
   %169 = bitcast i64 %168 to double
   %or.cond.i77 = fcmp ult double %169, 0.000000e+00
   %..i78 = select i1 %or.cond.i77, double 1.000000e+00, double %169
@@ -1518,17 +1514,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1538,10 +1531,9 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

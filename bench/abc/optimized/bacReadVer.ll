@@ -3423,180 +3423,177 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %10 = call ptr @Psr_ManReadVerilog(ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %145, label %11
+  br i1 %.not, label %144, label %11
 
 11:                                               ; preds = %Abc_Clock.exit
   %12 = getelementptr i8, ptr %10, i64 4
   %.val = load i32, ptr %12, align 4, !tbaa !40
   %13 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val)
-  %.val.i.i.i = load i32, ptr %12, align 4, !tbaa !40
-  %14 = icmp sgt i32 %.val.i.i.i, 0
-  call void @llvm.assume(i1 %14)
-  %15 = getelementptr i8, ptr %10, i64 8
-  %.val4.i.i.i = load ptr, ptr %15, align 8, !tbaa !43
-  %16 = load ptr, ptr %.val4.i.i.i, align 8, !tbaa !51
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !50
-  %19 = call i32 @Abc_NamObjNumMax(ptr noundef %18) #20
-  %20 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %19)
+  %14 = getelementptr i8, ptr %10, i64 8
+  %.val4.i.i.i = load ptr, ptr %14, align 8, !tbaa !43
+  %15 = load ptr, ptr %.val4.i.i.i, align 8, !tbaa !51
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
+  %18 = call i32 @Abc_NamObjNumMax(ptr noundef %17) #20
+  %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %18)
   %.val12.i = load i32, ptr %10, align 8, !tbaa !42
-  %21 = sext i32 %.val12.i to i64
-  %22 = uitofp i64 %21 to double
-  %23 = call double @llvm.fmuladd.f64(double %22, double 8.000000e+00, double 1.600000e+01)
-  %24 = fptosi double %23 to i32
+  %20 = sext i32 %.val12.i to i64
+  %21 = uitofp i64 %20 to double
+  %22 = call double @llvm.fmuladd.f64(double %21, double 8.000000e+00, double 1.600000e+01)
+  %23 = fptosi double %22 to i32
   %.val.i = load i32, ptr %12, align 4, !tbaa !40
-  %25 = icmp sgt i32 %.val.i, 0
-  br i1 %25, label %.lr.ph.i, label %Psr_ManMemory.exit
+  %24 = icmp sgt i32 %.val.i, 0
+  br i1 %24, label %.lr.ph.i, label %Psr_ManMemory.exit
 
 .lr.ph.i:                                         ; preds = %11
-  %.val11.i = load ptr, ptr %15, align 8, !tbaa !43
+  %.val11.i = load ptr, ptr %14, align 8, !tbaa !43
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
-  br label %26
+  br label %25
 
-26:                                               ; preds = %26, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %.014.i = phi i32 [ %24, %.lr.ph.i ], [ %124, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %.val11.i, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8, !tbaa !51
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !10
-  %31 = sext i32 %30 to i64
-  %32 = uitofp i64 %31 to double
-  %33 = call double @llvm.fmuladd.f64(double %32, double 4.000000e+00, double 1.600000e+01)
-  %34 = fadd double %33, 2.240000e+02
-  %35 = fptosi double %34 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !10
-  %38 = sext i32 %37 to i64
-  %39 = uitofp i64 %38 to double
-  %40 = call double @llvm.fmuladd.f64(double %39, double 4.000000e+00, double 1.600000e+01)
-  %41 = sitofp i32 %35 to double
-  %42 = fadd double %40, %41
-  %43 = fptosi double %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %45 = load i32, ptr %44, align 8, !tbaa !10
-  %46 = sext i32 %45 to i64
-  %47 = uitofp i64 %46 to double
-  %48 = call double @llvm.fmuladd.f64(double %47, double 4.000000e+00, double 1.600000e+01)
-  %49 = sitofp i32 %43 to double
-  %50 = fadd double %48, %49
-  %51 = fptosi double %50 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %53 = load i32, ptr %52, align 8, !tbaa !10
-  %54 = sext i32 %53 to i64
-  %55 = uitofp i64 %54 to double
-  %56 = call double @llvm.fmuladd.f64(double %55, double 4.000000e+00, double 1.600000e+01)
-  %57 = sitofp i32 %51 to double
-  %58 = fadd double %56, %57
-  %59 = fptosi double %58 to i32
-  %60 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  %61 = load i32, ptr %60, align 8, !tbaa !10
-  %62 = sext i32 %61 to i64
-  %63 = uitofp i64 %62 to double
-  %64 = call double @llvm.fmuladd.f64(double %63, double 4.000000e+00, double 1.600000e+01)
-  %65 = sitofp i32 %59 to double
-  %66 = fadd double %64, %65
-  %67 = fptosi double %66 to i32
-  %68 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  %69 = load i32, ptr %68, align 8, !tbaa !10
-  %70 = sext i32 %69 to i64
-  %71 = uitofp i64 %70 to double
-  %72 = call double @llvm.fmuladd.f64(double %71, double 4.000000e+00, double 1.600000e+01)
-  %73 = sitofp i32 %67 to double
-  %74 = fadd double %72, %73
-  %75 = fptosi double %74 to i32
-  %76 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  %77 = load i32, ptr %76, align 8, !tbaa !10
-  %78 = sext i32 %77 to i64
-  %79 = uitofp i64 %78 to double
-  %80 = call double @llvm.fmuladd.f64(double %79, double 4.000000e+00, double 1.600000e+01)
-  %81 = sitofp i32 %75 to double
-  %82 = fadd double %80, %81
-  %83 = fptosi double %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %85 = load i32, ptr %84, align 8, !tbaa !10
-  %86 = sext i32 %85 to i64
-  %87 = uitofp i64 %86 to double
-  %88 = call double @llvm.fmuladd.f64(double %87, double 4.000000e+00, double 1.600000e+01)
-  %89 = sitofp i32 %83 to double
-  %90 = fadd double %88, %89
-  %91 = fptosi double %90 to i32
-  %92 = getelementptr inbounds nuw i8, ptr %28, i64 144
-  %93 = load i32, ptr %92, align 8, !tbaa !10
-  %94 = sext i32 %93 to i64
-  %95 = uitofp i64 %94 to double
-  %96 = call double @llvm.fmuladd.f64(double %95, double 4.000000e+00, double 1.600000e+01)
-  %97 = sitofp i32 %91 to double
-  %98 = fadd double %96, %97
-  %99 = fptosi double %98 to i32
-  %100 = getelementptr inbounds nuw i8, ptr %28, i64 160
-  %101 = load i32, ptr %100, align 8, !tbaa !10
-  %102 = sext i32 %101 to i64
-  %103 = uitofp i64 %102 to double
-  %104 = call double @llvm.fmuladd.f64(double %103, double 4.000000e+00, double 1.600000e+01)
-  %105 = sitofp i32 %99 to double
-  %106 = fadd double %104, %105
-  %107 = fptosi double %106 to i32
-  %108 = getelementptr inbounds nuw i8, ptr %28, i64 192
-  %109 = load i32, ptr %108, align 8, !tbaa !10
-  %110 = sext i32 %109 to i64
-  %111 = uitofp i64 %110 to double
-  %112 = call double @llvm.fmuladd.f64(double %111, double 4.000000e+00, double 1.600000e+01)
-  %113 = sitofp i32 %107 to double
-  %114 = fadd double %112, %113
-  %115 = fptosi double %114 to i32
-  %116 = getelementptr inbounds nuw i8, ptr %28, i64 176
-  %117 = load i32, ptr %116, align 8, !tbaa !10
-  %118 = sext i32 %117 to i64
-  %119 = uitofp i64 %118 to double
-  %120 = call double @llvm.fmuladd.f64(double %119, double 4.000000e+00, double 1.600000e+01)
-  %121 = sitofp i32 %115 to double
-  %122 = fadd double %120, %121
-  %123 = fptosi double %122 to i32
-  %124 = add nsw i32 %.014.i, %123
+25:                                               ; preds = %25, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
+  %.014.i = phi i32 [ %23, %.lr.ph.i ], [ %123, %25 ]
+  %26 = getelementptr inbounds nuw ptr, ptr %.val11.i, i64 %indvars.iv.i
+  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i32, ptr %28, align 8, !tbaa !10
+  %30 = sext i32 %29 to i64
+  %31 = uitofp i64 %30 to double
+  %32 = call double @llvm.fmuladd.f64(double %31, double 4.000000e+00, double 1.600000e+01)
+  %33 = fadd double %32, 2.240000e+02
+  %34 = fptosi double %33 to i32
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %36 = load i32, ptr %35, align 8, !tbaa !10
+  %37 = sext i32 %36 to i64
+  %38 = uitofp i64 %37 to double
+  %39 = call double @llvm.fmuladd.f64(double %38, double 4.000000e+00, double 1.600000e+01)
+  %40 = sitofp i32 %34 to double
+  %41 = fadd double %39, %40
+  %42 = fptosi double %41 to i32
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %44 = load i32, ptr %43, align 8, !tbaa !10
+  %45 = sext i32 %44 to i64
+  %46 = uitofp i64 %45 to double
+  %47 = call double @llvm.fmuladd.f64(double %46, double 4.000000e+00, double 1.600000e+01)
+  %48 = sitofp i32 %42 to double
+  %49 = fadd double %47, %48
+  %50 = fptosi double %49 to i32
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %52 = load i32, ptr %51, align 8, !tbaa !10
+  %53 = sext i32 %52 to i64
+  %54 = uitofp i64 %53 to double
+  %55 = call double @llvm.fmuladd.f64(double %54, double 4.000000e+00, double 1.600000e+01)
+  %56 = sitofp i32 %50 to double
+  %57 = fadd double %55, %56
+  %58 = fptosi double %57 to i32
+  %59 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %60 = load i32, ptr %59, align 8, !tbaa !10
+  %61 = sext i32 %60 to i64
+  %62 = uitofp i64 %61 to double
+  %63 = call double @llvm.fmuladd.f64(double %62, double 4.000000e+00, double 1.600000e+01)
+  %64 = sitofp i32 %58 to double
+  %65 = fadd double %63, %64
+  %66 = fptosi double %65 to i32
+  %67 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %68 = load i32, ptr %67, align 8, !tbaa !10
+  %69 = sext i32 %68 to i64
+  %70 = uitofp i64 %69 to double
+  %71 = call double @llvm.fmuladd.f64(double %70, double 4.000000e+00, double 1.600000e+01)
+  %72 = sitofp i32 %66 to double
+  %73 = fadd double %71, %72
+  %74 = fptosi double %73 to i32
+  %75 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %76 = load i32, ptr %75, align 8, !tbaa !10
+  %77 = sext i32 %76 to i64
+  %78 = uitofp i64 %77 to double
+  %79 = call double @llvm.fmuladd.f64(double %78, double 4.000000e+00, double 1.600000e+01)
+  %80 = sitofp i32 %74 to double
+  %81 = fadd double %79, %80
+  %82 = fptosi double %81 to i32
+  %83 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %84 = load i32, ptr %83, align 8, !tbaa !10
+  %85 = sext i32 %84 to i64
+  %86 = uitofp i64 %85 to double
+  %87 = call double @llvm.fmuladd.f64(double %86, double 4.000000e+00, double 1.600000e+01)
+  %88 = sitofp i32 %82 to double
+  %89 = fadd double %87, %88
+  %90 = fptosi double %89 to i32
+  %91 = getelementptr inbounds nuw i8, ptr %27, i64 144
+  %92 = load i32, ptr %91, align 8, !tbaa !10
+  %93 = sext i32 %92 to i64
+  %94 = uitofp i64 %93 to double
+  %95 = call double @llvm.fmuladd.f64(double %94, double 4.000000e+00, double 1.600000e+01)
+  %96 = sitofp i32 %90 to double
+  %97 = fadd double %95, %96
+  %98 = fptosi double %97 to i32
+  %99 = getelementptr inbounds nuw i8, ptr %27, i64 160
+  %100 = load i32, ptr %99, align 8, !tbaa !10
+  %101 = sext i32 %100 to i64
+  %102 = uitofp i64 %101 to double
+  %103 = call double @llvm.fmuladd.f64(double %102, double 4.000000e+00, double 1.600000e+01)
+  %104 = sitofp i32 %98 to double
+  %105 = fadd double %103, %104
+  %106 = fptosi double %105 to i32
+  %107 = getelementptr inbounds nuw i8, ptr %27, i64 192
+  %108 = load i32, ptr %107, align 8, !tbaa !10
+  %109 = sext i32 %108 to i64
+  %110 = uitofp i64 %109 to double
+  %111 = call double @llvm.fmuladd.f64(double %110, double 4.000000e+00, double 1.600000e+01)
+  %112 = sitofp i32 %106 to double
+  %113 = fadd double %111, %112
+  %114 = fptosi double %113 to i32
+  %115 = getelementptr inbounds nuw i8, ptr %27, i64 176
+  %116 = load i32, ptr %115, align 8, !tbaa !10
+  %117 = sext i32 %116 to i64
+  %118 = uitofp i64 %117 to double
+  %119 = call double @llvm.fmuladd.f64(double %118, double 4.000000e+00, double 1.600000e+01)
+  %120 = sitofp i32 %114 to double
+  %121 = fadd double %119, %120
+  %122 = fptosi double %121 to i32
+  %123 = add nsw i32 %.014.i, %122
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Psr_ManMemory.exit, label %26, !llvm.loop !63
+  br i1 %exitcond.not.i, label %Psr_ManMemory.exit, label %25, !llvm.loop !63
 
-Psr_ManMemory.exit:                               ; preds = %26, %11
-  %.0.lcssa.i = phi i32 [ %24, %11 ], [ %124, %26 ]
-  call void @llvm.assume(i1 %25)
-  %.val4.i.i.i.i = load ptr, ptr %15, align 8, !tbaa !43
-  %125 = load ptr, ptr %.val4.i.i.i.i, align 8, !tbaa !51
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !50
-  %128 = call i32 @Abc_NamMemUsed(ptr noundef %127) #20
-  %129 = add nsw i32 %128, %.0.lcssa.i
-  %130 = sitofp i32 %129 to double
-  %131 = fmul double %130, 0x3EB0000000000000
-  %132 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %131)
+Psr_ManMemory.exit:                               ; preds = %25, %11
+  %.0.lcssa.i = phi i32 [ %23, %11 ], [ %123, %25 ]
+  call void @llvm.assume(i1 %24)
+  %.val4.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !43
+  %124 = load ptr, ptr %.val4.i.i.i.i, align 8, !tbaa !51
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !50
+  %127 = call i32 @Abc_NamMemUsed(ptr noundef %126) #20
+  %128 = add nsw i32 %127, %.0.lcssa.i
+  %129 = sitofp i32 %128 to double
+  %130 = fmul double %129, 0x3EB0000000000000
+  %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, double noundef %130)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %133 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
-  %134 = icmp slt i32 %133, 0
-  br i1 %134, label %Abc_Clock.exit7, label %135
+  %132 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
+  %133 = icmp slt i32 %132, 0
+  br i1 %133, label %Abc_Clock.exit7, label %134
 
-135:                                              ; preds = %Psr_ManMemory.exit
-  %136 = load i64, ptr %2, align 8, !tbaa !59
-  %137 = mul nsw i64 %136, 1000000
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %139 = load i64, ptr %138, align 8, !tbaa !62
-  %140 = sdiv i64 %139, 1000
-  %141 = add nsw i64 %140, %137
+134:                                              ; preds = %Psr_ManMemory.exit
+  %135 = load i64, ptr %2, align 8, !tbaa !59
+  %136 = mul nsw i64 %135, 1000000
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %138 = load i64, ptr %137, align 8, !tbaa !62
+  %139 = sdiv i64 %138, 1000
+  %140 = add nsw i64 %139, %136
   br label %Abc_Clock.exit7
 
-Abc_Clock.exit7:                                  ; preds = %Psr_ManMemory.exit, %135
-  %.0.i6 = phi i64 [ %141, %135 ], [ -1, %Psr_ManMemory.exit ]
+Abc_Clock.exit7:                                  ; preds = %Psr_ManMemory.exit, %134
+  %.0.i6 = phi i64 [ %140, %134 ], [ -1, %Psr_ManMemory.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %142 = add i64 %.0.i6, %.0.i.neg
+  %141 = add i64 %.0.i6, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.11)
-  %143 = sitofp i64 %142 to double
-  %144 = fdiv double %143, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.163, double noundef %144)
+  %142 = sitofp i64 %141 to double
+  %143 = fdiv double %142, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.163, double noundef %143)
   call void @Psr_ManWriteVerilog(ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #20
   call fastcc void @Psr_ManVecFree(ptr noundef %10)
-  br label %145
+  br label %144
 
-145:                                              ; preds = %Abc_Clock.exit, %Abc_Clock.exit7
+144:                                              ; preds = %Abc_Clock.exit, %Abc_Clock.exit7
   ret void
 }
 

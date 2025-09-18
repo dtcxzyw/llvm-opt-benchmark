@@ -21,11 +21,11 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #6
+  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
-  %6 = tail call ptr @GetWalSummaries(i32 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  %6 = tail call ptr @GetWalSummaries(i32 noundef 0, i64 noundef 0, i64 noundef 0) #5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -55,7 +55,7 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   ret i64 0
 
 19:                                               ; preds = %.lr.ph20
-  call void @ProcessInterrupts() #6
+  call void @ProcessInterrupts() #5
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph20
@@ -69,9 +69,9 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %10, align 16
   %27 = load ptr, ptr %11, align 8
-  %28 = call ptr @heap_form_tuple(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %28 = call ptr @heap_form_tuple(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %29 = load ptr, ptr %12, align 8
-  call void @tuplestore_puttuple(ptr noundef %29, ptr noundef %28) #6
+  call void @tuplestore_puttuple(ptr noundef %29, ptr noundef %28) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %7, align 4
   %31 = sext i32 %30 to i64
@@ -109,7 +109,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #6
+  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, i8 0, i64 6, i1 false)
@@ -120,11 +120,10 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   br i1 %or.cond, label %15, label %19
 
 15:                                               ; preds = %1
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 @errcode(i32 noundef 50856066) #6
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %13) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__func__.pg_wal_summary_contents) #6
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %17 = tail call i32 @errcode(i32 noundef 50856066) #5
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, i64 noundef %13) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 95, ptr noundef nonnull @__func__.pg_wal_summary_contents) #5
   unreachable
 
 19:                                               ; preds = %1
@@ -140,11 +139,11 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   store i64 %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %27, align 8
-  %28 = call i32 @OpenWalSummaryFile(ptr noundef nonnull %4, i1 noundef zeroext false) #6
+  %28 = call i32 @OpenWalSummaryFile(ptr noundef nonnull %4, i1 noundef zeroext false) #5
   store i32 %28, ptr %5, align 8
-  %29 = call ptr @FilePathName(i32 noundef %28) #6
-  %30 = call ptr @CreateBlockRefTableReader(ptr noundef nonnull @ReadWalSummary, ptr noundef nonnull %5, ptr noundef %29, ptr noundef nonnull @ReportWalSummaryError, ptr noundef null) #6
-  %31 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
+  %29 = call ptr @FilePathName(i32 noundef %28) #5
+  %30 = call ptr @CreateBlockRefTableReader(ptr noundef nonnull @ReadWalSummary, ptr noundef nonnull %5, ptr noundef %29, ptr noundef nonnull @ReportWalSummaryError, ptr noundef null) #5
+  %31 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
@@ -166,7 +165,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   br i1 %.not, label %44, label %43, !prof !4
 
 43:                                               ; preds = %41
-  call void @ProcessInterrupts() #6
+  call void @ProcessInterrupts() #5
   br label %44
 
 44:                                               ; preds = %43, %41
@@ -193,9 +192,9 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   store i64 %56, ptr %37, align 16
   store i64 1, ptr %38, align 8
   %57 = load ptr, ptr %39, align 8
-  %58 = call ptr @heap_form_tuple(ptr noundef %57, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %58 = call ptr @heap_form_tuple(ptr noundef %57, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %59 = load ptr, ptr %40, align 8
-  call void @tuplestore_puttuple(ptr noundef %59, ptr noundef %58) #6
+  call void @tuplestore_puttuple(ptr noundef %59, ptr noundef %58) #5
   br label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %55, %44
@@ -210,11 +209,11 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   br i1 %.not27, label %62, label %61, !prof !4
 
 61:                                               ; preds = %.loopexit
-  call void @ProcessInterrupts() #6
+  call void @ProcessInterrupts() #5
   br label %62
 
 62:                                               ; preds = %61, %.loopexit
-  %63 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %30, ptr noundef nonnull %9, i32 noundef 256) #6
+  %63 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %30, ptr noundef nonnull %9, i32 noundef 256) #5
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %73, label %65
 
@@ -230,22 +229,22 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   %69 = zext i32 %68 to i64
   store i64 %69, ptr %37, align 16
   %70 = load ptr, ptr %39, align 8
-  %71 = call ptr @heap_form_tuple(ptr noundef %70, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %71 = call ptr @heap_form_tuple(ptr noundef %70, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %72 = load ptr, ptr %40, align 8
-  call void @tuplestore_puttuple(ptr noundef %72, ptr noundef %71) #6
+  call void @tuplestore_puttuple(ptr noundef %72, ptr noundef %71) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.loopexit, label %66, !llvm.loop !5
 
 73:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %74 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
+  %74 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   br i1 %74, label %41, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %73, %19
-  call void @DestroyBlockRefTableReader(ptr noundef %30) #6
+  call void @DestroyBlockRefTableReader(ptr noundef %30) #5
   %75 = load i32, ptr %5, align 8
-  call void @FileClose(i32 noundef %75) #6
+  call void @FileClose(i32 noundef %75) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -299,16 +298,15 @@ define dso_local i64 @pg_get_wal_summarizer_state(ptr noundef %0) local_unnamed_
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @GetWalSummarizerState(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
-  %9 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8) #6
+  call void @GetWalSummarizerState(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
+  %9 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8) #5
   %.not = icmp eq i32 %9, 1
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %1
-  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %11)
-  %12 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__func__.pg_get_wal_summarizer_state) #6
+  %11 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__func__.pg_get_wal_summarizer_state) #5
   unreachable
 
 13:                                               ; preds = %1
@@ -339,10 +337,10 @@ define dso_local i64 @pg_get_wal_summarizer_state(ptr noundef %0) local_unnamed_
 
 27:                                               ; preds = %24, %22
   %28 = load ptr, ptr %8, align 8
-  %29 = call ptr @heap_form_tuple(ptr noundef %28, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %29 = call ptr @heap_form_tuple(ptr noundef %28, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
   %30 = getelementptr i8, ptr %29, i64 16
   %.val = load ptr, ptr %30, align 8
-  %31 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #6
+  %31 = call i64 @HeapTupleHeaderGetDatum(ptr noundef %.val) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -367,17 +365,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

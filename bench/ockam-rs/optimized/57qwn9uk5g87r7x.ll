@@ -6597,9 +6597,6 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.575
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h86af369b80fc2bf2E.llvm.5757598564771583165.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit"
-  %27 = extractvalue { ptr, ptr } %16, 1
-  %28 = icmp ne ptr %27, null
-  tail call void @llvm.assume(i1 %28)
   ret { ptr, ptr } %16
 }
 

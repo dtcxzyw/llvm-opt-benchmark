@@ -2746,7 +2746,6 @@ ExecEvalCoerceViaIOSafe.exit:                     ; preds = %797, %804, %820, %8
 939:                                              ; preds = %929
   %940 = getelementptr inbounds nuw i8, ptr %.0905, i64 28
   %941 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %941)
   %942 = load i32, ptr %940, align 4
   %943 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %942) #18
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3209, ptr noundef nonnull @__func__.ExecEvalNextValueExpr) #18
@@ -4292,7 +4291,6 @@ define internal fastcc void @CheckVarSlotCompatibility(ptr noundef readonly capt
 
 10:                                               ; preds = %5
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %11)
   %12 = load i32, ptr %7, align 8
   %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %1, i32 noundef %12) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2323, ptr noundef nonnull @__func__.CheckVarSlotCompatibility) #18
@@ -4311,7 +4309,6 @@ define internal fastcc void @CheckVarSlotCompatibility(ptr noundef readonly capt
 
 23:                                               ; preds = %14
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2329, ptr noundef nonnull @__func__.CheckVarSlotCompatibility) #18
   unreachable
@@ -4324,7 +4321,6 @@ define internal fastcc void @CheckVarSlotCompatibility(ptr noundef readonly capt
 
 30:                                               ; preds = %26
   %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %31)
   %32 = tail call i32 @errcode(i32 noundef 50360452) #18
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %34 = load i32, ptr %33, align 4
@@ -4341,7 +4337,6 @@ define internal fastcc void @CheckVarSlotCompatibility(ptr noundef readonly capt
 
 40:                                               ; preds = %37
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 67141764) #18
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %44 = load i32, ptr %43, align 4
@@ -4534,7 +4529,6 @@ define dso_local void @ExecEvalParamExtern(ptr readnone captures(none) %0, ptr n
 
 28:                                               ; preds = %25
   %29 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %29)
   %30 = call i32 @errcode(i32 noundef 67141764) #18
   %31 = load i32, ptr %23, align 4
   %32 = call ptr @format_type_be(i32 noundef %31) #18
@@ -4550,7 +4544,6 @@ define dso_local void @ExecEvalParamExtern(ptr readnone captures(none) %0, ptr n
 
 .critedge:                                        ; preds = %3, %.critedge32, %11
   %36 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %36)
   %37 = call i32 @errcode(i32 noundef 67137668) #18
   %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, i32 noundef %8) #18
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3024, ptr noundef nonnull @__func__.ExecEvalParamExtern) #18
@@ -4838,7 +4831,6 @@ declare i64 @current_schema(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local void @ExecEvalCurrentOfExpr(ptr readnone captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #8 {
   %3 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @errcode(i32 noundef 1088) #18
   %5 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3185, ptr noundef nonnull @__func__.ExecEvalCurrentOfExpr) #18
@@ -4870,7 +4862,6 @@ define dso_local void @ExecEvalNextValueExpr(ptr noundef readnone captures(none)
 
 12:                                               ; preds = %2
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %13)
   %14 = load i32, ptr %6, align 4
   %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %14) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3209, ptr noundef nonnull @__func__.ExecEvalNextValueExpr) #18
@@ -5112,7 +5103,6 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %53)
   %54 = tail call i32 @errcode(i32 noundef 67141764) #18
   %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #18
   %56 = load i32, ptr %52, align 4
@@ -5138,7 +5128,6 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 
 67:                                               ; preds = %65
   %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %68)
   %69 = tail call i32 @errcode(i32 noundef 261) #18
   %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %66, i32 noundef 6) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3421, ptr noundef nonnull @__func__.ExecEvalArrayExpr) #18
@@ -5178,7 +5167,6 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 
 88:                                               ; preds = %86, %82, %81
   %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %89)
   %90 = tail call i32 @errcode(i32 noundef 352845954) #18
   %91 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3441, ptr noundef nonnull @__func__.ExecEvalArrayExpr) #18
@@ -5252,7 +5240,6 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 
 132:                                              ; preds = %126
   %133 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %133)
   %134 = tail call i32 @errcode(i32 noundef 261) #18
   %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, i32 noundef 1073741823) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3453, ptr noundef nonnull @__func__.ExecEvalArrayExpr) #18
@@ -5293,7 +5280,6 @@ define dso_local void @ExecEvalArrayExpr(ptr readnone captures(none) %0, ptr nou
 
 148:                                              ; preds = %145
   %149 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %149)
   %150 = tail call i32 @errcode(i32 noundef 352845954) #18
   %151 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3476, ptr noundef nonnull @__func__.ExecEvalArrayExpr) #18
@@ -5780,7 +5766,6 @@ expanded_record_get_tupdesc.exit:                 ; preds = %23, %27
 
 31:                                               ; preds = %expanded_record_get_tupdesc.exit
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %32)
   %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %29) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3682, ptr noundef nonnull @__func__.ExecEvalFieldSelect) #18
   unreachable
@@ -5792,7 +5777,6 @@ expanded_record_get_tupdesc.exit:                 ; preds = %23, %27
 
 37:                                               ; preds = %34
   %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %38)
   %39 = load i32, ptr %.0.i, align 8
   %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %29, i32 noundef %39) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3685, ptr noundef nonnull @__func__.ExecEvalFieldSelect) #18
@@ -5826,7 +5810,6 @@ expanded_record_get_tupdesc.exit:                 ; preds = %23, %27
 
 59:                                               ; preds = %54
   %60 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %60)
   %61 = tail call i32 @errcode(i32 noundef 67141764) #18
   %62 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %29) #18
   %63 = load i32, ptr %57, align 4
@@ -5887,7 +5870,6 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
 
 96:                                               ; preds = %88
   %97 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %97)
   %98 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %94) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3728, ptr noundef nonnull @__func__.ExecEvalFieldSelect) #18
   unreachable
@@ -5899,7 +5881,6 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
 
 102:                                              ; preds = %99
   %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %103)
   %104 = load i32, ptr %93, align 8
   %105 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, i32 noundef %94, i32 noundef %104) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3731, ptr noundef nonnull @__func__.ExecEvalFieldSelect) #18
@@ -5933,7 +5914,6 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
 
 124:                                              ; preds = %119
   %125 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %125)
   %126 = tail call i32 @errcode(i32 noundef 67141764) #18
   %127 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %94) #18
   %128 = load i32, ptr %122, align 4
@@ -6021,7 +6001,6 @@ expanded_record_get_field.exit:                   ; preds = %76, %85
 176:                                              ; preds = %164
   %177 = sext i16 %163 to i32
   %178 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %178)
   %179 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %177) #18
   tail call void @errfinish(ptr noundef nonnull @.str.46, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
@@ -6099,7 +6078,6 @@ define internal fastcc ptr @get_cached_rowtype(i32 noundef %0, i32 noundef %1, p
 
 19:                                               ; preds = %.critedge
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 @errcode(i32 noundef 151027844) #18
   %22 = tail call ptr @format_type_be(i32 noundef %0) #18
   %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.44, ptr noundef %22) #18
@@ -6226,7 +6204,6 @@ define dso_local void @ExecEvalFieldStoreDeForm(ptr readnone captures(none) %0, 
 
 38:                                               ; preds = %15
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %39)
   %40 = load ptr, ptr %27, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load i32, ptr %41, align 8
@@ -6524,7 +6501,6 @@ define dso_local void @ExecEvalScalarArrayOp(ptr readnone captures(none) %0, ptr
 
 94:                                               ; preds = %82
   %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %95)
   %96 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %69) #18
   tail call void @errfinish(ptr noundef nonnull @.str.46, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
@@ -6783,7 +6759,6 @@ define dso_local void @ExecEvalHashedScalarArrayOp(ptr readnone captures(none) %
 
 74:                                               ; preds = %27
   %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %75)
   %76 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #18
   call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 327, ptr noundef nonnull @__func__.saophash_compute_size) #18
   unreachable
@@ -6804,7 +6779,6 @@ saophash_compute_size.exit.i:                     ; preds = %27
 
 86:                                               ; preds = %saophash_compute_size.exit.i
   %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %87)
   %88 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #18
   call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 327, ptr noundef nonnull @__func__.saophash_compute_size) #18
   unreachable
@@ -6915,7 +6889,6 @@ saophash_create.exit:                             ; preds = %saophash_compute_si
 135:                                              ; preds = %123
   %136 = sext i16 %122 to i32
   %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %137)
   %138 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef range(i32 -32768, 32768) %136) #18
   call void @errfinish(ptr noundef nonnull @.str.46, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #18
   unreachable
@@ -7042,7 +7015,6 @@ fetch_att.exit.thread:                            ; preds = %133, %130, %127, %1
 
 205:                                              ; preds = %202
   %206 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %206)
   %207 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.49) #18
   call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 630, ptr noundef nonnull @__func__.saophash_insert_hash_internal) #18
   unreachable
@@ -7776,7 +7748,6 @@ list_length.exit:                                 ; preds = %12, %33
 
 216:                                              ; preds = %2
   %217 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %217)
   %218 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4567, ptr noundef nonnull @__func__.ExecEvalXmlExpr) #18
   unreachable
@@ -7922,7 +7893,6 @@ define dso_local void @ExecEvalJsonConstructor(ptr readnone captures(none) %0, p
 
 80:                                               ; preds = %3
   %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %81)
   %82 = load i32, ptr %14, align 4
   %83 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19, i32 noundef %82) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4644, ptr noundef nonnull @__func__.ExecEvalJsonConstructor) #18
@@ -8250,7 +8220,6 @@ define dso_local i32 @ExecEvalJsonExprPath(ptr readnone captures(none) %0, ptr n
 
 112:                                              ; preds = %30
   %113 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %113)
   %114 = load i32, ptr %32, align 4
   %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, i32 noundef %114) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4853, ptr noundef nonnull @__func__.ExecEvalJsonExprPath) #18
@@ -8353,7 +8322,6 @@ define dso_local i32 @ExecEvalJsonExprPath(ptr readnone captures(none) %0, ptr n
   %171 = load ptr, ptr %170, align 8
   %.not108 = icmp eq ptr %171, null
   %172 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  call void @llvm.assume(i1 %172)
   %173 = call i32 @errcode(i32 noundef 84672642) #18
   br i1 %.not108, label %177, label %174
 
@@ -8511,7 +8479,6 @@ define internal fastcc ptr @ExecGetJsonValueItemString(ptr noundef nonnull %0, p
 
 54:                                               ; preds = %30
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %55)
   %56 = load i32, ptr %32, align 8
   %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %56) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5004, ptr noundef nonnull @__func__.ExecGetJsonValueItemString) #18
@@ -8526,7 +8493,6 @@ define internal fastcc ptr @ExecGetJsonValueItemString(ptr noundef nonnull %0, p
 
 63:                                               ; preds = %2
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %64)
   %65 = load i32, ptr %0, align 8
   %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %65) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5015, ptr noundef nonnull @__func__.ExecGetJsonValueItemString) #18
@@ -8658,7 +8624,6 @@ define dso_local void @ExecEvalJsonCoercionFinish(ptr readnone captures(none) %0
 
 15:                                               ; preds = %12
   %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %16)
   %17 = tail call i32 @errcode(i32 noundef 67141764) #18
   %18 = load ptr, ptr %4, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
@@ -8683,7 +8648,6 @@ define dso_local void @ExecEvalJsonCoercionFinish(ptr readnone captures(none) %0
 
 32:                                               ; preds = %29
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 67141764) #18
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
@@ -8789,7 +8753,6 @@ define dso_local void @ExecEvalMergeSupportFunc(ptr noundef readonly captures(no
 
 8:                                                ; preds = %3
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %9)
   %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5199, ptr noundef nonnull @__func__.ExecEvalMergeSupportFunc) #18
   unreachable
@@ -8814,14 +8777,12 @@ define dso_local void @ExecEvalMergeSupportFunc(ptr noundef readonly captures(no
 
 18:                                               ; preds = %11
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %19)
   %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5217, ptr noundef nonnull @__func__.ExecEvalMergeSupportFunc) #18
   unreachable
 
 21:                                               ; preds = %11
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %22)
   %23 = load ptr, ptr %12, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
@@ -8944,7 +8905,6 @@ define dso_local void @ExecEvalWholeRowVar(ptr noundef readonly captures(none) %
 
 42:                                               ; preds = %35
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %43)
   %44 = tail call i32 @errcode(i32 noundef 67141764) #18
   %45 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #18
   %46 = load i32, ptr %38, align 8
@@ -8998,7 +8958,6 @@ define dso_local void @ExecEvalWholeRowVar(ptr noundef readonly captures(none) %
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 68
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %82)
   %83 = tail call i32 @errcode(i32 noundef 67141764) #18
   %84 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #18
   %85 = load i32, ptr %80, align 4
@@ -9169,7 +9128,6 @@ slot_getallattrs.exit..loopexit_crit_edge:        ; preds = %slot_getallattrs.ex
 178:                                              ; preds = %173, %168
   %179 = trunc nuw nsw i64 %indvars.iv128 to i32
   %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %180)
   %181 = tail call i32 @errcode(i32 noundef 67141764) #18
   %182 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35) #18
   %183 = add nuw nsw i32 %179, 1
@@ -9306,7 +9264,6 @@ slot_getsysattr.exit:                             ; preds = %24, %28, %31
 
 42:                                               ; preds = %slot_getsysattr.exit
   %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %43)
   %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5528, ptr noundef nonnull @__func__.ExecEvalSysVar) #18
   unreachable
@@ -9761,7 +9718,6 @@ define internal fastcc void @saophash_grow(ptr noundef captures(none) %0, i64 no
 
 14:                                               ; preds = %2
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #18
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 327, ptr noundef nonnull @__func__.saophash_compute_size) #18
   unreachable
@@ -9783,7 +9739,6 @@ saophash_compute_size.exit:                       ; preds = %2
 
 26:                                               ; preds = %saophash_compute_size.exit
   %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %27)
   %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.47) #18
   tail call void @errfinish(ptr noundef nonnull @.str.48, i32 noundef 327, ptr noundef nonnull @__func__.saophash_compute_size) #18
   unreachable

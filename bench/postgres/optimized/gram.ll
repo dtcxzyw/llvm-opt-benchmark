@@ -382,7 +382,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %spec.store.select = call i64 @llvm.smin.i64(i64 %20, i64 10000)
   %21 = mul i64 %spec.store.select, 14
   %22 = add i64 %21, 14
-  %23 = call ptr @palloc(i64 noundef %22) #11
+  %23 = call ptr @palloc(i64 noundef %22) #10
   %.not10077.not = icmp eq ptr %23, null
   br i1 %.not10077.not, label %15620, label %24
 
@@ -405,7 +405,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   br i1 %.not10078, label %37, label %36
 
 36:                                               ; preds = %24
-  call void @pfree(ptr noundef %.09981) #11
+  call void @pfree(ptr noundef %.09981) #10
   br label %37
 
 37:                                               ; preds = %24, %36
@@ -441,7 +441,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = call i32 @base_yylex(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %0) #11
+  %53 = call i32 @base_yylex(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %0) #10
   br label %54
 
 54:                                               ; preds = %52, %50
@@ -2841,7 +2841,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 
 113:                                              ; preds = %._crit_edge
   %114 = load ptr, ptr %.210001, align 8
-  %115 = call ptr @list_make1_impl(i32 noundef 1, ptr %114) #11
+  %115 = call ptr @list_make1_impl(i32 noundef 1, ptr %114) #10
   %116 = load ptr, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 128
   store ptr %115, ptr %117, align 8
@@ -2850,7 +2850,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
 118:                                              ; preds = %._crit_edge
   %119 = load ptr, ptr %.210001, align 8
   %120 = load i32, ptr %.210013, align 4
-  %121 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %121 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %119, ptr %122, align 8
@@ -2858,7 +2858,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   store i32 %120, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 20
   store i32 0, ptr %124, align 4
-  %125 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %121) #11
+  %125 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %121) #10
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 128
   store ptr %125, ptr %127, align 8
@@ -2869,7 +2869,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i32 1, ptr %130, align 8
   %131 = load i32, ptr %.210013, align 4
-  %132 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %132 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %129, ptr %133, align 8
@@ -2877,7 +2877,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   store i32 %131, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 20
   store i32 0, ptr %135, align 4
-  %136 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %132) #11
+  %136 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %132) #10
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 128
   store ptr %136, ptr %138, align 8
@@ -2888,7 +2888,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store i32 2, ptr %141, align 8
   %142 = load i32, ptr %.210013, align 4
-  %143 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %143 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store ptr %140, ptr %144, align 8
@@ -2896,7 +2896,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   store i32 %142, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 20
   store i32 0, ptr %146, align 4
-  %147 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %143) #11
+  %147 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %143) #10
   %148 = load ptr, ptr %0, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 128
   store ptr %147, ptr %149, align 8
@@ -2907,7 +2907,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i32 3, ptr %152, align 8
   %153 = load i32, ptr %.210013, align 4
-  %154 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %154 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %154, align 4
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   store ptr %151, ptr %155, align 8
@@ -2915,7 +2915,7 @@ define dso_local range(i32 0, 2) i32 @base_yyparse(ptr noundef %0) local_unnamed
   store i32 %153, ptr %156, align 8
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 20
   store i32 0, ptr %157, align 4
-  %158 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %154) #11
+  %158 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %154) #10
   %159 = load ptr, ptr %0, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 128
   store ptr %158, ptr %160, align 8
@@ -2958,7 +2958,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 
 182:                                              ; preds = %updateRawStmtEnd.exit
   %183 = load i32, ptr %.210013, align 4
-  %184 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %184 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   store ptr %180, ptr %185, align 8
@@ -2966,7 +2966,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store i32 %183, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 20
   store i32 0, ptr %187, align 4
-  %188 = call ptr @lappend(ptr noundef %181, ptr noundef nonnull %184) #11
+  %188 = call ptr @lappend(ptr noundef %181, ptr noundef nonnull %184) #10
   br label %.critedge10155
 
 189:                                              ; preds = %._crit_edge
@@ -2976,7 +2976,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 
 191:                                              ; preds = %189
   %192 = load i32, ptr %.210013, align 4
-  %193 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %193 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 136, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr %190, ptr %194, align 8
@@ -2984,7 +2984,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store i32 %192, ptr %195, align 8
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 20
   store i32 0, ptr %196, align 4
-  %197 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %193) #11
+  %197 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %193) #10
   br label %.critedge10155
 
 198:                                              ; preds = %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge, %._crit_edge
@@ -3031,7 +3031,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 218:                                              ; preds = %._crit_edge
-  %219 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %219 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 212, ptr %219, align 4
   %220 = load ptr, ptr %.210001, align 8
   %221 = getelementptr inbounds nuw i8, ptr %219, i64 8
@@ -3039,7 +3039,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 222:                                              ; preds = %._crit_edge
-  %223 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %223 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 184, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
   store i32 0, ptr %224, align 4
@@ -3056,232 +3056,230 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %231 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %232 = load ptr, ptr %231, align 8
   %233 = load ptr, ptr %.210001, align 8
-  %234 = call ptr @lappend(ptr noundef %232, ptr noundef %233) #11
+  %234 = call ptr @lappend(ptr noundef %232, ptr noundef %233) #10
   br label %.critedge10155
 
 235:                                              ; preds = %._crit_edge
   %236 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %237 = load ptr, ptr %236, align 8
   %238 = load ptr, ptr %.210001, align 8
-  %239 = call ptr @lappend(ptr noundef %237, ptr noundef %238) #11
+  %239 = call ptr @lappend(ptr noundef %237, ptr noundef %238) #10
   br label %.critedge10155
 
 240:                                              ; preds = %._crit_edge
   %241 = load ptr, ptr %.210001, align 8
-  %242 = call ptr @makeString(ptr noundef %241) #11
+  %242 = call ptr @makeString(ptr noundef %241) #10
   %243 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %244 = load i32, ptr %243, align 4
-  %245 = call ptr @makeDefElem(ptr noundef nonnull @.str, ptr noundef %242, i32 noundef %244) #11
+  %245 = call ptr @makeDefElem(ptr noundef nonnull @.str, ptr noundef %242, i32 noundef %244) #10
   br label %.critedge10155
 
 246:                                              ; preds = %._crit_edge
   %247 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %248 = load i32, ptr %247, align 4
-  %249 = call ptr @makeDefElem(ptr noundef nonnull @.str, ptr noundef null, i32 noundef %248) #11
+  %249 = call ptr @makeDefElem(ptr noundef nonnull @.str, ptr noundef null, i32 noundef %248) #10
   br label %.critedge10155
 
 250:                                              ; preds = %._crit_edge
   %251 = load ptr, ptr %.210001, align 8
-  %252 = call ptr @makeString(ptr noundef %251) #11
+  %252 = call ptr @makeString(ptr noundef %251) #10
   %253 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %254 = load i32, ptr %253, align 4
-  %255 = call ptr @makeDefElem(ptr noundef nonnull @.str, ptr noundef %252, i32 noundef %254) #11
+  %255 = call ptr @makeDefElem(ptr noundef nonnull @.str, ptr noundef %252, i32 noundef %254) #10
   br label %.critedge10155
 
 256:                                              ; preds = %._crit_edge
-  %257 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %257)
-  %258 = call i32 @errcode(i32 noundef 1088) #11
-  %259 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #11
-  %260 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.2) #11
+  %257 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %258 = call i32 @errcode(i32 noundef 1088) #10
+  %259 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1) #10
+  %260 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.2) #10
   %261 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %262 = load i32, ptr %261, align 4
-  %263 = call i32 @scanner_errposition(i32 noundef %262, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1225, ptr noundef nonnull @__func__.base_yyparse) #11
+  %263 = call i32 @scanner_errposition(i32 noundef %262, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1225, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 264:                                              ; preds = %._crit_edge
-  %265 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %265 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %266 = load i32, ptr %.210013, align 4
-  %267 = call ptr @makeDefElem(ptr noundef nonnull @.str.4, ptr noundef %265, i32 noundef %266) #11
+  %267 = call ptr @makeDefElem(ptr noundef nonnull @.str.4, ptr noundef %265, i32 noundef %266) #10
   br label %.critedge10155
 
 268:                                              ; preds = %._crit_edge
   %269 = load i32, ptr %.210001, align 8
-  %270 = call ptr @makeInteger(i32 noundef %269) #11
+  %270 = call ptr @makeInteger(i32 noundef %269) #10
   %271 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %272 = load i32, ptr %271, align 4
-  %273 = call ptr @makeDefElem(ptr noundef nonnull @.str.5, ptr noundef %270, i32 noundef %272) #11
+  %273 = call ptr @makeDefElem(ptr noundef nonnull @.str.5, ptr noundef %270, i32 noundef %272) #10
   br label %.critedge10155
 
 274:                                              ; preds = %._crit_edge
   %275 = load ptr, ptr %.210001, align 8
-  %276 = call ptr @makeString(ptr noundef %275) #11
+  %276 = call ptr @makeString(ptr noundef %275) #10
   %277 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %278 = load i32, ptr %277, align 4
-  %279 = call ptr @makeDefElem(ptr noundef nonnull @.str.6, ptr noundef %276, i32 noundef %278) #11
+  %279 = call ptr @makeDefElem(ptr noundef nonnull @.str.6, ptr noundef %276, i32 noundef %278) #10
   br label %.critedge10155
 
 280:                                              ; preds = %._crit_edge
   %281 = load ptr, ptr %.210001, align 8
   %282 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %283 = load i32, ptr %282, align 4
-  %284 = call ptr @makeDefElem(ptr noundef nonnull @.str.7, ptr noundef %281, i32 noundef %283) #11
+  %284 = call ptr @makeDefElem(ptr noundef nonnull @.str.7, ptr noundef %281, i32 noundef %283) #10
   br label %.critedge10155
 
 285:                                              ; preds = %._crit_edge
   %286 = load ptr, ptr %.210001, align 8
-  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(10) @.str.8) #13
+  %287 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(10) @.str.8) #12
   %288 = icmp eq i32 %287, 0
   br i1 %288, label %289, label %293
 
 289:                                              ; preds = %285
-  %290 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %290 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %291 = load i32, ptr %.210013, align 4
-  %292 = call ptr @makeDefElem(ptr noundef nonnull @.str.8, ptr noundef %290, i32 noundef %291) #11
+  %292 = call ptr @makeDefElem(ptr noundef nonnull @.str.8, ptr noundef %290, i32 noundef %291) #10
   br label %.critedge10155
 
 293:                                              ; preds = %285
-  %294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(12) @.str.9) #13
+  %294 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(12) @.str.9) #12
   %295 = icmp eq i32 %294, 0
   br i1 %295, label %296, label %300
 
 296:                                              ; preds = %293
-  %297 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %297 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %298 = load i32, ptr %.210013, align 4
-  %299 = call ptr @makeDefElem(ptr noundef nonnull @.str.8, ptr noundef %297, i32 noundef %298) #11
+  %299 = call ptr @makeDefElem(ptr noundef nonnull @.str.8, ptr noundef %297, i32 noundef %298) #10
   br label %.critedge10155
 
 300:                                              ; preds = %293
-  %301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(11) @.str.10) #13
+  %301 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(11) @.str.10) #12
   %302 = icmp eq i32 %301, 0
   br i1 %302, label %303, label %307
 
 303:                                              ; preds = %300
-  %304 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %304 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %305 = load i32, ptr %.210013, align 4
-  %306 = call ptr @makeDefElem(ptr noundef nonnull @.str.10, ptr noundef %304, i32 noundef %305) #11
+  %306 = call ptr @makeDefElem(ptr noundef nonnull @.str.10, ptr noundef %304, i32 noundef %305) #10
   br label %.critedge10155
 
 307:                                              ; preds = %300
-  %308 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(13) @.str.11) #13
+  %308 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(13) @.str.11) #12
   %309 = icmp eq i32 %308, 0
   br i1 %309, label %310, label %314
 
 310:                                              ; preds = %307
-  %311 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %311 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %312 = load i32, ptr %.210013, align 4
-  %313 = call ptr @makeDefElem(ptr noundef nonnull @.str.10, ptr noundef %311, i32 noundef %312) #11
+  %313 = call ptr @makeDefElem(ptr noundef nonnull @.str.10, ptr noundef %311, i32 noundef %312) #10
   br label %.critedge10155
 
 314:                                              ; preds = %307
-  %315 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(12) @.str.12) #13
+  %315 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(12) @.str.12) #12
   %316 = icmp eq i32 %315, 0
   br i1 %316, label %317, label %321
 
 317:                                              ; preds = %314
-  %318 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %318 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %319 = load i32, ptr %.210013, align 4
-  %320 = call ptr @makeDefElem(ptr noundef nonnull @.str.13, ptr noundef %318, i32 noundef %319) #11
+  %320 = call ptr @makeDefElem(ptr noundef nonnull @.str.13, ptr noundef %318, i32 noundef %319) #10
   br label %.critedge10155
 
 321:                                              ; preds = %314
-  %322 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(14) @.str.14) #13
+  %322 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(14) @.str.14) #12
   %323 = icmp eq i32 %322, 0
   br i1 %323, label %324, label %328
 
 324:                                              ; preds = %321
-  %325 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %325 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %326 = load i32, ptr %.210013, align 4
-  %327 = call ptr @makeDefElem(ptr noundef nonnull @.str.13, ptr noundef %325, i32 noundef %326) #11
+  %327 = call ptr @makeDefElem(ptr noundef nonnull @.str.13, ptr noundef %325, i32 noundef %326) #10
   br label %.critedge10155
 
 328:                                              ; preds = %321
-  %329 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(9) @.str.15) #13
+  %329 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(9) @.str.15) #12
   %330 = icmp eq i32 %329, 0
   br i1 %330, label %331, label %335
 
 331:                                              ; preds = %328
-  %332 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %332 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %333 = load i32, ptr %.210013, align 4
-  %334 = call ptr @makeDefElem(ptr noundef nonnull @.str.15, ptr noundef %332, i32 noundef %333) #11
+  %334 = call ptr @makeDefElem(ptr noundef nonnull @.str.15, ptr noundef %332, i32 noundef %333) #10
   br label %.critedge10155
 
 335:                                              ; preds = %328
-  %336 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(11) @.str.16) #13
+  %336 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(11) @.str.16) #12
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %338, label %342
 
 338:                                              ; preds = %335
-  %339 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %339 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %340 = load i32, ptr %.210013, align 4
-  %341 = call ptr @makeDefElem(ptr noundef nonnull @.str.15, ptr noundef %339, i32 noundef %340) #11
+  %341 = call ptr @makeDefElem(ptr noundef nonnull @.str.15, ptr noundef %339, i32 noundef %340) #10
   br label %.critedge10155
 
 342:                                              ; preds = %335
-  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(6) @.str.17) #13
+  %343 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(6) @.str.17) #12
   %344 = icmp eq i32 %343, 0
   br i1 %344, label %345, label %349
 
 345:                                              ; preds = %342
-  %346 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %346 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %347 = load i32, ptr %.210013, align 4
-  %348 = call ptr @makeDefElem(ptr noundef nonnull @.str.18, ptr noundef %346, i32 noundef %347) #11
+  %348 = call ptr @makeDefElem(ptr noundef nonnull @.str.18, ptr noundef %346, i32 noundef %347) #10
   br label %.critedge10155
 
 349:                                              ; preds = %342
-  %350 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(8) @.str.19) #13
+  %350 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(8) @.str.19) #12
   %351 = icmp eq i32 %350, 0
   br i1 %351, label %352, label %356
 
 352:                                              ; preds = %349
-  %353 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %353 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %354 = load i32, ptr %.210013, align 4
-  %355 = call ptr @makeDefElem(ptr noundef nonnull @.str.18, ptr noundef %353, i32 noundef %354) #11
+  %355 = call ptr @makeDefElem(ptr noundef nonnull @.str.18, ptr noundef %353, i32 noundef %354) #10
   br label %.critedge10155
 
 356:                                              ; preds = %349
-  %357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(10) @.str.20) #13
+  %357 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(10) @.str.20) #12
   %358 = icmp eq i32 %357, 0
   br i1 %358, label %359, label %363
 
 359:                                              ; preds = %356
-  %360 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %360 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %361 = load i32, ptr %.210013, align 4
-  %362 = call ptr @makeDefElem(ptr noundef nonnull @.str.20, ptr noundef %360, i32 noundef %361) #11
+  %362 = call ptr @makeDefElem(ptr noundef nonnull @.str.20, ptr noundef %360, i32 noundef %361) #10
   br label %.critedge10155
 
 363:                                              ; preds = %356
-  %364 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(12) @.str.21) #13
+  %364 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(12) @.str.21) #12
   %365 = icmp eq i32 %364, 0
   br i1 %365, label %366, label %370
 
 366:                                              ; preds = %363
-  %367 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %367 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %368 = load i32, ptr %.210013, align 4
-  %369 = call ptr @makeDefElem(ptr noundef nonnull @.str.20, ptr noundef %367, i32 noundef %368) #11
+  %369 = call ptr @makeDefElem(ptr noundef nonnull @.str.20, ptr noundef %367, i32 noundef %368) #10
   br label %.critedge10155
 
 370:                                              ; preds = %363
-  %371 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(10) @.str.22) #13
+  %371 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %286, ptr noundef nonnull dereferenceable(10) @.str.22) #12
   %372 = icmp eq i32 %371, 0
   br i1 %372, label %373, label %377
 
 373:                                              ; preds = %370
-  %374 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %374 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %375 = load i32, ptr %.210013, align 4
-  %376 = call ptr @makeDefElem(ptr noundef nonnull @.str.4, ptr noundef %374, i32 noundef %375) #11
+  %376 = call ptr @makeDefElem(ptr noundef nonnull @.str.4, ptr noundef %374, i32 noundef %375) #10
   br label %.critedge10155
 
 377:                                              ; preds = %370
-  %378 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %378)
-  %379 = call i32 @errcode(i32 noundef 16801924) #11
+  %378 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %379 = call i32 @errcode(i32 noundef 16801924) #10
   %380 = load ptr, ptr %.210001, align 8
-  %381 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %380) #11
+  %381 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %380) #10
   %382 = load i32, ptr %.210013, align 4
-  %383 = call i32 @scanner_errposition(i32 noundef %382, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1287, ptr noundef nonnull @__func__.base_yyparse) #11
+  %383 = call i32 @scanner_errposition(i32 noundef %382, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1287, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 384:                                              ; preds = %._crit_edge
@@ -3290,42 +3288,42 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 
 386:                                              ; preds = %._crit_edge
   %387 = load i32, ptr %.210001, align 8
-  %388 = call ptr @makeInteger(i32 noundef %387) #11
+  %388 = call ptr @makeInteger(i32 noundef %387) #10
   %389 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %390 = load i32, ptr %389, align 4
-  %391 = call ptr @makeDefElem(ptr noundef nonnull @.str.24, ptr noundef %388, i32 noundef %390) #11
+  %391 = call ptr @makeDefElem(ptr noundef nonnull @.str.24, ptr noundef %388, i32 noundef %390) #10
   br label %.critedge10155
 
 392:                                              ; preds = %._crit_edge
   %393 = load ptr, ptr %.210001, align 8
   %394 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %395 = load i32, ptr %394, align 4
-  %396 = call ptr @makeDefElem(ptr noundef nonnull @.str.25, ptr noundef %393, i32 noundef %395) #11
+  %396 = call ptr @makeDefElem(ptr noundef nonnull @.str.25, ptr noundef %393, i32 noundef %395) #10
   br label %.critedge10155
 
 397:                                              ; preds = %._crit_edge
   %398 = load ptr, ptr %.210001, align 8
   %399 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %400 = load i32, ptr %399, align 4
-  %401 = call ptr @makeDefElem(ptr noundef nonnull @.str.7, ptr noundef %398, i32 noundef %400) #11
+  %401 = call ptr @makeDefElem(ptr noundef nonnull @.str.7, ptr noundef %398, i32 noundef %400) #10
   br label %.critedge10155
 
 402:                                              ; preds = %._crit_edge
   %403 = load ptr, ptr %.210001, align 8
   %404 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %405 = load i32, ptr %404, align 4
-  %406 = call ptr @makeDefElem(ptr noundef nonnull @.str.26, ptr noundef %403, i32 noundef %405) #11
+  %406 = call ptr @makeDefElem(ptr noundef nonnull @.str.26, ptr noundef %403, i32 noundef %405) #10
   br label %.critedge10155
 
 407:                                              ; preds = %._crit_edge
   %408 = load ptr, ptr %.210001, align 8
   %409 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %410 = load i32, ptr %409, align 4
-  %411 = call ptr @makeDefElem(ptr noundef nonnull @.str.26, ptr noundef %408, i32 noundef %410) #11
+  %411 = call ptr @makeDefElem(ptr noundef nonnull @.str.26, ptr noundef %408, i32 noundef %410) #10
   br label %.critedge10155
 
 412:                                              ; preds = %._crit_edge
-  %413 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %413 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 184, ptr %413, align 4
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 4
   store i32 1, ptr %414, align 4
@@ -3339,7 +3337,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 420:                                              ; preds = %._crit_edge
-  %421 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %421 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 185, ptr %421, align 4
   %422 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %423 = load ptr, ptr %422, align 8
@@ -3353,7 +3351,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 428:                                              ; preds = %._crit_edge
-  %429 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %429 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 185, ptr %429, align 4
   %430 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %431 = load ptr, ptr %430, align 8
@@ -3371,7 +3369,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 438:                                              ; preds = %._crit_edge
-  %439 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %439 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 186, ptr %439, align 4
   %440 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %441 = load ptr, ptr %440, align 8
@@ -3387,7 +3385,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 448:                                              ; preds = %._crit_edge
-  %449 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %449 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 186, ptr %449, align 4
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
   store ptr null, ptr %450, align 8
@@ -3401,7 +3399,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 456:                                              ; preds = %._crit_edge
-  %457 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %457 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 186, ptr %457, align 4
   %458 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %459 = load ptr, ptr %458, align 8
@@ -3417,7 +3415,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 466:                                              ; preds = %._crit_edge
-  %467 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %467 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 186, ptr %467, align 4
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   store ptr null, ptr %468, align 8
@@ -3431,7 +3429,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 474:                                              ; preds = %._crit_edge
-  %475 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %475 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %475, align 4
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 16
   store i8 0, ptr %476, align 8
@@ -3441,7 +3439,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 479:                                              ; preds = %._crit_edge
-  %480 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %480 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %480, align 4
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
   store i8 1, ptr %481, align 8
@@ -3451,7 +3449,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 484:                                              ; preds = %._crit_edge
-  %485 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %485 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %485, align 4
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 16
   store i8 0, ptr %486, align 8
@@ -3461,7 +3459,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 489:                                              ; preds = %._crit_edge
-  %490 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %490 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %490, align 4
   %491 = load ptr, ptr %.210001, align 8
   %492 = getelementptr inbounds nuw i8, ptr %490, i64 8
@@ -3471,7 +3469,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 494:                                              ; preds = %._crit_edge
-  %495 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %495 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %495, align 4
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 16
   store i8 0, ptr %496, align 8
@@ -3481,7 +3479,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 499:                                              ; preds = %._crit_edge
-  %500 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %500 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 187, ptr %500, align 4
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 16
   store i8 1, ptr %501, align 8
@@ -3491,7 +3489,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 504:                                              ; preds = %._crit_edge
-  %505 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %505 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 184, ptr %505, align 4
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 4
   store i32 2, ptr %506, align 4
@@ -3505,7 +3503,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 512:                                              ; preds = %._crit_edge
-  %513 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %513 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 185, ptr %513, align 4
   %514 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %515 = load ptr, ptr %514, align 8
@@ -3517,8 +3515,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store i32 %518, ptr %519, align 8
   %520 = load ptr, ptr %.210001, align 8
   %521 = load i32, ptr %.210013, align 4
-  %522 = call ptr @makeDefElem(ptr noundef nonnull @.str.7, ptr noundef %520, i32 noundef %521) #11
-  %523 = call ptr @list_make1_impl(i32 noundef 1, ptr %522) #11
+  %522 = call ptr @makeDefElem(ptr noundef nonnull @.str.7, ptr noundef %520, i32 noundef %521) #10
+  %523 = call ptr @list_make1_impl(i32 noundef 1, ptr %522) #10
   %524 = getelementptr inbounds nuw i8, ptr %513, i64 16
   store ptr %523, ptr %524, align 8
   br label %.critedge10155
@@ -3537,7 +3535,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 531:                                              ; preds = %._crit_edge
-  %532 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %532 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 145, ptr %532, align 4
   %533 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %534 = load ptr, ptr %533, align 8
@@ -3555,7 +3553,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 542:                                              ; preds = %._crit_edge
-  %543 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %543 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 145, ptr %543, align 4
   %544 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %545 = load ptr, ptr %544, align 8
@@ -3571,7 +3569,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 551:                                              ; preds = %._crit_edge
-  %552 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %552 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 145, ptr %552, align 4
   %553 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %554 = load ptr, ptr %553, align 8
@@ -3586,13 +3584,12 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br i1 %.not10139, label %566, label %560
 
 560:                                              ; preds = %551
-  %561 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %561)
-  %562 = call i32 @errcode(i32 noundef 1088) #11
-  %563 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #11
+  %561 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %562 = call i32 @errcode(i32 noundef 1088) #10
+  %563 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #10
   %564 = load i32, ptr %.210013, align 4
-  %565 = call i32 @scanner_errposition(i32 noundef %564, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1552, ptr noundef nonnull @__func__.base_yyparse) #11
+  %565 = call i32 @scanner_errposition(i32 noundef %564, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1552, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 566:                                              ; preds = %551
@@ -3603,7 +3600,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 569:                                              ; preds = %._crit_edge
-  %570 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %570 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 145, ptr %570, align 4
   %571 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %572 = load ptr, ptr %571, align 8
@@ -3616,13 +3613,12 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br i1 %.not10138, label %582, label %576
 
 576:                                              ; preds = %569
-  %577 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %577)
-  %578 = call i32 @errcode(i32 noundef 1088) #11
-  %579 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #11
+  %577 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %578 = call i32 @errcode(i32 noundef 1088) #10
+  %579 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27) #10
   %580 = load i32, ptr %.210013, align 4
-  %581 = call i32 @scanner_errposition(i32 noundef %580, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1568, ptr noundef nonnull @__func__.base_yyparse) #11
+  %581 = call i32 @scanner_errposition(i32 noundef %580, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1568, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 582:                                              ; preds = %569
@@ -3636,7 +3632,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %586 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %587 = load ptr, ptr %586, align 8
   %588 = load ptr, ptr %.210001, align 8
-  %589 = call ptr @lappend(ptr noundef %587, ptr noundef %588) #11
+  %589 = call ptr @lappend(ptr noundef %587, ptr noundef %588) #10
   br label %.critedge10155
 
 590:                                              ; preds = %._crit_edge
@@ -3658,7 +3654,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 599:                                              ; preds = %._crit_edge
-  %600 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %600 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %600, align 4
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 4
   store i32 3, ptr %601, align 4
@@ -3674,7 +3670,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 607:                                              ; preds = %._crit_edge
-  %608 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %608 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %608, align 4
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 4
   store i32 3, ptr %609, align 4
@@ -3690,7 +3686,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 615:                                              ; preds = %._crit_edge
-  %616 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %616 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %616, align 4
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 4
   store i32 0, ptr %617, align 4
@@ -3707,7 +3703,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 625:                                              ; preds = %._crit_edge
-  %626 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %626 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %626, align 4
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 4
   store i32 0, ptr %627, align 4
@@ -3724,7 +3720,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 635:                                              ; preds = %._crit_edge
-  %636 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %636 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %636, align 4
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 4
   store i32 1, ptr %637, align 4
@@ -3737,7 +3733,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 642:                                              ; preds = %._crit_edge
-  %643 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %643 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %643, align 4
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 4
   store i32 1, ptr %644, align 4
@@ -3754,7 +3750,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 651:                                              ; preds = %._crit_edge
-  %652 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %652 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %652, align 4
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 4
   store i32 2, ptr %653, align 4
@@ -3767,7 +3763,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 658:                                              ; preds = %._crit_edge
-  %659 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %659 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %659, align 4
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 4
   store i32 0, ptr %660, align 4
@@ -3782,7 +3778,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br i1 %.not10137, label %668, label %665
 
 665:                                              ; preds = %658
-  %666 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %664) #11
+  %666 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %664) #10
   %667 = getelementptr inbounds nuw i8, ptr %659, i64 16
   store ptr %666, ptr %667, align 8
   br label %.critedge10155
@@ -3792,17 +3788,16 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 669:                                              ; preds = %._crit_edge
-  %670 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %670)
-  %671 = call i32 @errcode(i32 noundef 1088) #11
-  %672 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #11
+  %670 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %671 = call i32 @errcode(i32 noundef 1088) #10
+  %672 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31) #10
   %673 = load i32, ptr %.210013, align 4
-  %674 = call i32 @scanner_errposition(i32 noundef %673, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1729, ptr noundef nonnull @__func__.base_yyparse) #11
+  %674 = call i32 @scanner_errposition(i32 noundef %673, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1729, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 675:                                              ; preds = %._crit_edge
-  %676 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %676 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %676, align 4
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 4
   store i32 0, ptr %677, align 4
@@ -3810,8 +3805,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store ptr @.str.32, ptr %678, align 8
   %679 = load ptr, ptr %.210001, align 8
   %680 = load i32, ptr %.210013, align 4
-  %681 = call ptr @makeStringConst(ptr noundef %679, i32 noundef %680) #11
-  %682 = call ptr @list_make1_impl(i32 noundef 1, ptr %681) #11
+  %681 = call ptr @makeStringConst(ptr noundef %679, i32 noundef %680) #10
+  %682 = call ptr @list_make1_impl(i32 noundef 1, ptr %681) #10
   %683 = getelementptr inbounds nuw i8, ptr %676, i64 16
   store ptr %682, ptr %683, align 8
   %684 = load i32, ptr %.210013, align 4
@@ -3820,7 +3815,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 686:                                              ; preds = %._crit_edge
-  %687 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %687 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %687, align 4
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 4
   store i32 0, ptr %688, align 4
@@ -3834,8 +3829,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br i1 %.not10136, label %697, label %693
 
 693:                                              ; preds = %686
-  %694 = call ptr @makeStringConst(ptr noundef nonnull %692, i32 noundef %690) #11
-  %695 = call ptr @list_make1_impl(i32 noundef 1, ptr %694) #11
+  %694 = call ptr @makeStringConst(ptr noundef nonnull %692, i32 noundef %690) #10
+  %695 = call ptr @list_make1_impl(i32 noundef 1, ptr %694) #10
   %696 = getelementptr inbounds nuw i8, ptr %687, i64 16
   store ptr %695, ptr %696, align 8
   br label %.critedge10155
@@ -3845,7 +3840,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 698:                                              ; preds = %._crit_edge
-  %699 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %699 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %699, align 4
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 4
   store i32 0, ptr %700, align 4
@@ -3853,8 +3848,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store ptr @.str.34, ptr %701, align 8
   %702 = load ptr, ptr %.210001, align 8
   %703 = load i32, ptr %.210013, align 4
-  %704 = call ptr @makeStringConst(ptr noundef %702, i32 noundef %703) #11
-  %705 = call ptr @list_make1_impl(i32 noundef 1, ptr %704) #11
+  %704 = call ptr @makeStringConst(ptr noundef %702, i32 noundef %703) #10
+  %705 = call ptr @list_make1_impl(i32 noundef 1, ptr %704) #10
   %706 = getelementptr inbounds nuw i8, ptr %699, i64 16
   store ptr %705, ptr %706, align 8
   %707 = load i32, ptr %.210013, align 4
@@ -3863,7 +3858,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 709:                                              ; preds = %._crit_edge
-  %710 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %710 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %710, align 4
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 4
   store i32 0, ptr %711, align 4
@@ -3871,8 +3866,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store ptr @.str.35, ptr %712, align 8
   %713 = load ptr, ptr %.210001, align 8
   %714 = load i32, ptr %.210013, align 4
-  %715 = call ptr @makeStringConst(ptr noundef %713, i32 noundef %714) #11
-  %716 = call ptr @list_make1_impl(i32 noundef 1, ptr %715) #11
+  %715 = call ptr @makeStringConst(ptr noundef %713, i32 noundef %714) #10
+  %716 = call ptr @list_make1_impl(i32 noundef 1, ptr %715) #10
   %717 = getelementptr inbounds nuw i8, ptr %710, i64 16
   store ptr %716, ptr %717, align 8
   %718 = load i32, ptr %.210013, align 4
@@ -3881,7 +3876,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 720:                                              ; preds = %._crit_edge
-  %721 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %721 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %721, align 4
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 4
   store i32 1, ptr %722, align 4
@@ -3892,7 +3887,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 725:                                              ; preds = %._crit_edge
-  %726 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %726 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %726, align 4
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 4
   store i32 0, ptr %727, align 4
@@ -3902,8 +3897,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %730 = icmp eq i32 %729, 0
   %731 = select i1 %730, ptr @.str.37, ptr @.str.38
   %732 = load i32, ptr %.210013, align 4
-  %733 = call ptr @makeStringConst(ptr noundef nonnull %731, i32 noundef %732) #11
-  %734 = call ptr @list_make1_impl(i32 noundef 1, ptr %733) #11
+  %733 = call ptr @makeStringConst(ptr noundef nonnull %731, i32 noundef %732) #10
+  %734 = call ptr @list_make1_impl(i32 noundef 1, ptr %733) #10
   %735 = getelementptr inbounds nuw i8, ptr %726, i64 16
   store ptr %734, ptr %735, align 8
   %736 = getelementptr inbounds nuw i8, ptr %726, i64 24
@@ -3913,7 +3908,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 738:                                              ; preds = %._crit_edge
-  %739 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %739 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %739, align 4
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 4
   store i32 3, ptr %740, align 4
@@ -3921,8 +3916,8 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store ptr @.str.39, ptr %741, align 8
   %742 = load ptr, ptr %.210001, align 8
   %743 = load i32, ptr %.210013, align 4
-  %744 = call ptr @makeStringConst(ptr noundef %742, i32 noundef %743) #11
-  %745 = call ptr @list_make1_impl(i32 noundef 1, ptr %744) #11
+  %744 = call ptr @makeStringConst(ptr noundef %742, i32 noundef %743) #10
+  %745 = call ptr @list_make1_impl(i32 noundef 1, ptr %744) #10
   %746 = getelementptr inbounds nuw i8, ptr %739, i64 16
   store ptr %745, ptr %746, align 8
   %747 = load i32, ptr %.210013, align 4
@@ -3938,25 +3933,25 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %752 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %753 = load ptr, ptr %752, align 8
   %754 = load ptr, ptr %.210001, align 8
-  %755 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %753, ptr noundef %754) #11
+  %755 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %753, ptr noundef %754) #10
   br label %.critedge10155
 
 756:                                              ; preds = %._crit_edge
   %757 = load ptr, ptr %.210001, align 8
-  %758 = call ptr @list_make1_impl(i32 noundef 1, ptr %757) #11
+  %758 = call ptr @list_make1_impl(i32 noundef 1, ptr %757) #10
   br label %.critedge10155
 
 759:                                              ; preds = %._crit_edge
   %760 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %761 = load ptr, ptr %760, align 8
   %762 = load ptr, ptr %.210001, align 8
-  %763 = call ptr @lappend(ptr noundef %761, ptr noundef %762) #11
+  %763 = call ptr @lappend(ptr noundef %761, ptr noundef %762) #10
   br label %.critedge10155
 
 764:                                              ; preds = %._crit_edge
   %765 = load ptr, ptr %.210001, align 8
   %766 = load i32, ptr %.210013, align 4
-  %767 = call ptr @makeStringConst(ptr noundef %765, i32 noundef %766) #11
+  %767 = call ptr @makeStringConst(ptr noundef %765, i32 noundef %766) #10
   br label %.critedge10155
 
 768:                                              ; preds = %._crit_edge
@@ -3993,13 +3988,13 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 781:                                              ; preds = %._crit_edge
   %782 = load ptr, ptr %.210001, align 8
   %783 = load i32, ptr %.210013, align 4
-  %784 = call ptr @makeStringConst(ptr noundef %782, i32 noundef %783) #11
+  %784 = call ptr @makeStringConst(ptr noundef %782, i32 noundef %783) #10
   br label %.critedge10155
 
 785:                                              ; preds = %._crit_edge
   %786 = load ptr, ptr %.210001, align 8
   %787 = load i32, ptr %.210013, align 4
-  %788 = call ptr @makeStringConst(ptr noundef %786, i32 noundef %787) #11
+  %788 = call ptr @makeStringConst(ptr noundef %786, i32 noundef %787) #10
   br label %.critedge10155
 
 789:                                              ; preds = %._crit_edge
@@ -4020,13 +4015,12 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br i1 %.not10135, label %805, label %799
 
 799:                                              ; preds = %793
-  %800 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %800)
-  %801 = call i32 @errcode(i32 noundef 16801924) #11
-  %802 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48) #11
+  %800 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %801 = call i32 @errcode(i32 noundef 16801924) #10
+  %802 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48) #10
   %803 = load i32, ptr %.210013, align 4
-  %804 = call i32 @scanner_errposition(i32 noundef %803, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1870, ptr noundef nonnull @__func__.base_yyparse) #11
+  %804 = call i32 @scanner_errposition(i32 noundef %803, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1870, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 805:                                              ; preds = %793, %789
@@ -4042,7 +4036,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 812:                                              ; preds = %._crit_edge
   %813 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %814 = load ptr, ptr %813, align 8
-  %815 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %815 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %815, align 4
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
   store i32 464, ptr %816, align 8
@@ -4054,7 +4048,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %820 = load i32, ptr %819, align 8
   %821 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %822 = load i32, ptr %821, align 4
-  %823 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %823 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %823, align 4
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 8
   store i32 464, ptr %824, align 8
@@ -4062,7 +4056,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   store i32 %820, ptr %825, align 4
   %826 = getelementptr inbounds nuw i8, ptr %823, i64 28
   store i32 %822, ptr %826, align 4
-  %827 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %815, ptr nonnull %823) #11
+  %827 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %815, ptr nonnull %823) #10
   %828 = getelementptr inbounds nuw i8, ptr %814, i64 24
   store ptr %827, ptr %828, align 8
   %829 = load ptr, ptr %.210001, align 8
@@ -4097,7 +4091,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 846:                                              ; preds = %._crit_edge
-  %847 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %847 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %847, align 4
   %848 = getelementptr inbounds nuw i8, ptr %847, i64 4
   store i32 4, ptr %848, align 4
@@ -4108,7 +4102,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 851:                                              ; preds = %._crit_edge
-  %852 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %852 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %852, align 4
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 4
   store i32 4, ptr %853, align 4
@@ -4119,7 +4113,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 856:                                              ; preds = %._crit_edge
-  %857 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %857 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %857, align 4
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 4
   store i32 4, ptr %858, align 4
@@ -4130,7 +4124,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 861:                                              ; preds = %._crit_edge
-  %862 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %862 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %862, align 4
   %863 = getelementptr inbounds nuw i8, ptr %862, i64 4
   store i32 4, ptr %863, align 4
@@ -4142,7 +4136,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 867:                                              ; preds = %._crit_edge
-  %868 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %868 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 157, ptr %868, align 4
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 4
   store i32 5, ptr %869, align 4
@@ -4167,7 +4161,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 879:                                              ; preds = %._crit_edge
-  %880 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %880 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 158, ptr %880, align 4
   %881 = load ptr, ptr %.210001, align 8
   %882 = getelementptr inbounds nuw i8, ptr %880, i64 8
@@ -4175,35 +4169,35 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 883:                                              ; preds = %._crit_edge
-  %884 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %884 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 158, ptr %884, align 4
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 8
   store ptr @.str.30, ptr %885, align 8
   br label %.critedge10155
 
 886:                                              ; preds = %._crit_edge
-  %887 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %887 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 158, ptr %887, align 4
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 8
   store ptr @.str.49, ptr %888, align 8
   br label %.critedge10155
 
 889:                                              ; preds = %._crit_edge
-  %890 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %890 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 158, ptr %890, align 4
   %891 = getelementptr inbounds nuw i8, ptr %890, i64 8
   store ptr @.str.35, ptr %891, align 8
   br label %.critedge10155
 
 892:                                              ; preds = %._crit_edge
-  %893 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %893 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 158, ptr %893, align 4
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 8
   store ptr @.str.50, ptr %894, align 8
   br label %.critedge10155
 
 895:                                              ; preds = %._crit_edge
-  %896 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %896 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 246, ptr %896, align 4
   %897 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %898 = load ptr, ptr %897, align 8
@@ -4232,47 +4226,47 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 910:                                              ; preds = %._crit_edge
-  %911 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %911 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 243, ptr %911, align 4
   br label %.critedge10155
 
 912:                                              ; preds = %._crit_edge
-  %913 = call noundef ptr @palloc0(i64 noundef 8) #11
+  %913 = call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 244, ptr %913, align 4
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 4
   store i32 0, ptr %914, align 4
   br label %.critedge10155
 
 915:                                              ; preds = %._crit_edge
-  %916 = call noundef ptr @palloc0(i64 noundef 8) #11
+  %916 = call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 244, ptr %916, align 4
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 4
   store i32 3, ptr %917, align 4
   br label %.critedge10155
 
 918:                                              ; preds = %._crit_edge
-  %919 = call noundef ptr @palloc0(i64 noundef 8) #11
+  %919 = call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 244, ptr %919, align 4
   %920 = getelementptr inbounds nuw i8, ptr %919, i64 4
   store i32 3, ptr %920, align 4
   br label %.critedge10155
 
 921:                                              ; preds = %._crit_edge
-  %922 = call noundef ptr @palloc0(i64 noundef 8) #11
+  %922 = call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 244, ptr %922, align 4
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 4
   store i32 1, ptr %923, align 4
   br label %.critedge10155
 
 924:                                              ; preds = %._crit_edge
-  %925 = call noundef ptr @palloc0(i64 noundef 8) #11
+  %925 = call noundef ptr @palloc0(i64 noundef 8) #10
   store i32 244, ptr %925, align 4
   %926 = getelementptr inbounds nuw i8, ptr %925, i64 4
   store i32 2, ptr %926, align 4
   br label %.critedge10155
 
 927:                                              ; preds = %._crit_edge
-  %928 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %928 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %928, align 4
   %929 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %930 = load ptr, ptr %929, align 8
@@ -4288,7 +4282,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 936:                                              ; preds = %._crit_edge
-  %937 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %937 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %937, align 4
   %938 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %939 = load ptr, ptr %938, align 8
@@ -4304,14 +4298,14 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 945:                                              ; preds = %._crit_edge
-  %946 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %946 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %946, align 4
   %947 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %948 = load ptr, ptr %947, align 8
   %949 = getelementptr inbounds nuw i8, ptr %946, i64 8
   store ptr %948, ptr %949, align 8
   %950 = load ptr, ptr %.210001, align 8
-  %951 = call ptr @list_make1_impl(i32 noundef 1, ptr %950) #11
+  %951 = call ptr @list_make1_impl(i32 noundef 1, ptr %950) #10
   %952 = getelementptr inbounds nuw i8, ptr %946, i64 16
   store ptr %951, ptr %952, align 8
   %953 = getelementptr inbounds nuw i8, ptr %946, i64 24
@@ -4321,14 +4315,14 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 955:                                              ; preds = %._crit_edge
-  %956 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %956 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %956, align 4
   %957 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %958 = load ptr, ptr %957, align 8
   %959 = getelementptr inbounds nuw i8, ptr %956, i64 8
   store ptr %958, ptr %959, align 8
   %960 = load ptr, ptr %.210001, align 8
-  %961 = call ptr @list_make1_impl(i32 noundef 1, ptr %960) #11
+  %961 = call ptr @list_make1_impl(i32 noundef 1, ptr %960) #10
   %962 = getelementptr inbounds nuw i8, ptr %956, i64 16
   store ptr %961, ptr %962, align 8
   %963 = getelementptr inbounds nuw i8, ptr %956, i64 24
@@ -4338,7 +4332,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 965:                                              ; preds = %._crit_edge
-  %966 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %966 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %966, align 4
   %967 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %968 = load ptr, ptr %967, align 8
@@ -4358,7 +4352,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 977:                                              ; preds = %._crit_edge
-  %978 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %978 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %978, align 4
   %979 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %980 = load ptr, ptr %979, align 8
@@ -4380,7 +4374,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 991:                                              ; preds = %._crit_edge
-  %992 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %992 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %992, align 4
   %993 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %994 = load ptr, ptr %993, align 8
@@ -4396,7 +4390,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1000:                                             ; preds = %._crit_edge
-  %1001 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1001 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1001, align 4
   %1002 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1003 = load ptr, ptr %1002, align 8
@@ -4412,14 +4406,14 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1009:                                             ; preds = %._crit_edge
-  %1010 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1010 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1010, align 4
   %1011 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1012 = load ptr, ptr %1011, align 8
   %1013 = getelementptr inbounds nuw i8, ptr %1010, i64 8
   store ptr %1012, ptr %1013, align 8
   %1014 = load ptr, ptr %.210001, align 8
-  %1015 = call ptr @list_make1_impl(i32 noundef 1, ptr %1014) #11
+  %1015 = call ptr @list_make1_impl(i32 noundef 1, ptr %1014) #10
   %1016 = getelementptr inbounds nuw i8, ptr %1010, i64 16
   store ptr %1015, ptr %1016, align 8
   %1017 = getelementptr inbounds nuw i8, ptr %1010, i64 24
@@ -4429,7 +4423,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1019:                                             ; preds = %._crit_edge
-  %1020 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1020 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %1020, align 4
   %1021 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %1022 = load ptr, ptr %1021, align 8
@@ -4449,7 +4443,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1031:                                             ; preds = %._crit_edge
-  %1032 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1032 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %1032, align 4
   %1033 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %1034 = load ptr, ptr %1033, align 8
@@ -4471,7 +4465,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1045:                                             ; preds = %._crit_edge
-  %1046 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1046 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1046, align 4
   %1047 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1048 = load ptr, ptr %1047, align 8
@@ -4487,7 +4481,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1054:                                             ; preds = %._crit_edge
-  %1055 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1055 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1055, align 4
   %1056 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1057 = load ptr, ptr %1056, align 8
@@ -4503,7 +4497,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1063:                                             ; preds = %._crit_edge
-  %1064 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1064 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1064, align 4
   %1065 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1066 = load ptr, ptr %1065, align 8
@@ -4519,7 +4513,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1072:                                             ; preds = %._crit_edge
-  %1073 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1073 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1073, align 4
   %1074 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1075 = load ptr, ptr %1074, align 8
@@ -4535,7 +4529,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1081:                                             ; preds = %._crit_edge
-  %1082 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1082 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1082, align 4
   %1083 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1084 = load ptr, ptr %1083, align 8
@@ -4551,7 +4545,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1090:                                             ; preds = %._crit_edge
-  %1091 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1091 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1091, align 4
   %1092 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1093 = load ptr, ptr %1092, align 8
@@ -4567,7 +4561,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1099:                                             ; preds = %._crit_edge
-  %1100 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1100 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %1100, align 4
   %1101 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %1102 = load ptr, ptr %1101, align 8
@@ -4587,7 +4581,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1111:                                             ; preds = %._crit_edge
-  %1112 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1112 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 164, ptr %1112, align 4
   %1113 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %1114 = load ptr, ptr %1113, align 8
@@ -4609,7 +4603,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1125:                                             ; preds = %._crit_edge
-  %1126 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1126 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1126, align 4
   %1127 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1128 = load ptr, ptr %1127, align 8
@@ -4625,7 +4619,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1134:                                             ; preds = %._crit_edge
-  %1135 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1135 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1135, align 4
   %1136 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1137 = load ptr, ptr %1136, align 8
@@ -4642,20 +4636,20 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 
 1143:                                             ; preds = %._crit_edge
   %1144 = load ptr, ptr %.210001, align 8
-  %1145 = call ptr @list_make1_impl(i32 noundef 1, ptr %1144) #11
+  %1145 = call ptr @list_make1_impl(i32 noundef 1, ptr %1144) #10
   br label %.critedge10155
 
 1146:                                             ; preds = %._crit_edge
   %1147 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %1148 = load ptr, ptr %1147, align 8
   %1149 = load ptr, ptr %.210001, align 8
-  %1150 = call ptr @lappend(ptr noundef %1148, ptr noundef %1149) #11
+  %1150 = call ptr @lappend(ptr noundef %1148, ptr noundef %1149) #10
   br label %.critedge10155
 
 1151:                                             ; preds = %._crit_edge
-  %1152 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1152 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1152, align 4
-  %1153 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1153 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 100, ptr %1153, align 4
   %1154 = getelementptr inbounds nuw i8, ptr %1152, i64 4
   store i32 59, ptr %1154, align 4
@@ -4673,9 +4667,9 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1162:                                             ; preds = %._crit_edge
-  %1163 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1163 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1163, align 4
-  %1164 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1164 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 100, ptr %1164, align 4
   %1165 = getelementptr inbounds nuw i8, ptr %1163, i64 4
   store i32 60, ptr %1165, align 4
@@ -4693,9 +4687,9 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1173:                                             ; preds = %._crit_edge
-  %1174 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1174 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1174, align 4
-  %1175 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1175 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 100, ptr %1175, align 4
   %1176 = getelementptr inbounds nuw i8, ptr %1174, i64 4
   store i32 61, ptr %1176, align 4
@@ -4712,9 +4706,9 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1183:                                             ; preds = %._crit_edge
-  %1184 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1184 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1184, align 4
-  %1185 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1185 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 100, ptr %1185, align 4
   %1186 = getelementptr inbounds nuw i8, ptr %1184, i64 4
   store i32 59, ptr %1186, align 4
@@ -4730,7 +4724,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1192:                                             ; preds = %._crit_edge
-  %1193 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1193 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1193, align 4
   %1194 = getelementptr inbounds nuw i8, ptr %1193, i64 4
   store i32 0, ptr %1194, align 4
@@ -4742,7 +4736,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1198:                                             ; preds = %._crit_edge
-  %1199 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1199 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1199, align 4
   %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 4
   store i32 0, ptr %1200, align 4
@@ -4754,7 +4748,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1204:                                             ; preds = %._crit_edge
-  %1205 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1205 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1205, align 4
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 4
   store i32 0, ptr %1206, align 4
@@ -4766,7 +4760,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1210:                                             ; preds = %._crit_edge
-  %1211 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1211 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1211, align 4
   %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 4
   store i32 0, ptr %1212, align 4
@@ -4778,7 +4772,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1216:                                             ; preds = %._crit_edge
-  %1217 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1217 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1217, align 4
   %1218 = getelementptr inbounds nuw i8, ptr %1217, i64 4
   store i32 2, ptr %1218, align 4
@@ -4792,7 +4786,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1224:                                             ; preds = %._crit_edge
-  %1225 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1225 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1225, align 4
   %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 4
   store i32 4, ptr %1226, align 4
@@ -4803,7 +4797,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1230:                                             ; preds = %._crit_edge
-  %1231 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1231 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1231, align 4
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 4
   store i32 5, ptr %1232, align 4
@@ -4814,7 +4808,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1236:                                             ; preds = %._crit_edge
-  %1237 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1237 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1237, align 4
   %1238 = getelementptr inbounds nuw i8, ptr %1237, i64 4
   store i32 6, ptr %1238, align 4
@@ -4829,7 +4823,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1245:                                             ; preds = %._crit_edge
-  %1246 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1246 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1246, align 4
   %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 4
   store i32 7, ptr %1247, align 4
@@ -4840,7 +4834,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1251:                                             ; preds = %._crit_edge
-  %1252 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1252 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1252, align 4
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 4
   store i32 7, ptr %1253, align 4
@@ -4853,7 +4847,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1258:                                             ; preds = %._crit_edge
-  %1259 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1259 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1259, align 4
   %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 4
   store i32 8, ptr %1260, align 4
@@ -4867,7 +4861,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1266:                                             ; preds = %._crit_edge
-  %1267 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1267 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1267, align 4
   %1268 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %1269 = load i32, ptr %1268, align 8
@@ -4876,14 +4870,13 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br i1 %or.cond, label %1271, label %1278
 
 1271:                                             ; preds = %1266
-  %1272 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1272)
-  %1273 = call i32 @errcode(i32 noundef 50856066) #11
-  %1274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, i32 noundef 32767) #11
+  %1272 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1273 = call i32 @errcode(i32 noundef 50856066) #10
+  %1274 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, i32 noundef 32767) #10
   %1275 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %1276 = load i32, ptr %1275, align 4
-  %1277 = call i32 @scanner_errposition(i32 noundef %1276, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2502, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1277 = call i32 @scanner_errposition(i32 noundef %1276, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2502, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1278:                                             ; preds = %1266
@@ -4899,7 +4892,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1285:                                             ; preds = %._crit_edge
-  %1286 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1286 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1286, align 4
   %1287 = getelementptr inbounds nuw i8, ptr %1286, i64 4
   store i32 9, ptr %1287, align 4
@@ -4913,7 +4906,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1293:                                             ; preds = %._crit_edge
-  %1294 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1294 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1294, align 4
   %1295 = getelementptr inbounds nuw i8, ptr %1294, i64 4
   store i32 10, ptr %1295, align 4
@@ -4927,7 +4920,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1301:                                             ; preds = %._crit_edge
-  %1302 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1302 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1302, align 4
   %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 4
   store i32 11, ptr %1303, align 4
@@ -4936,13 +4929,13 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %1306 = getelementptr inbounds nuw i8, ptr %1302, i64 8
   store ptr %1305, ptr %1306, align 8
   %1307 = load ptr, ptr %.210001, align 8
-  %1308 = call ptr @makeString(ptr noundef %1307) #11
+  %1308 = call ptr @makeString(ptr noundef %1307) #10
   %1309 = getelementptr inbounds nuw i8, ptr %1302, i64 32
   store ptr %1308, ptr %1309, align 8
   br label %.critedge10155
 
 1310:                                             ; preds = %._crit_edge
-  %1311 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1311 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1311, align 4
   %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 4
   store i32 12, ptr %1312, align 4
@@ -4951,15 +4944,15 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %1315 = getelementptr inbounds nuw i8, ptr %1311, i64 8
   store ptr %1314, ptr %1315, align 8
   %1316 = load ptr, ptr %.210001, align 8
-  %1317 = call ptr @makeString(ptr noundef %1316) #11
+  %1317 = call ptr @makeString(ptr noundef %1316) #10
   %1318 = getelementptr inbounds nuw i8, ptr %1311, i64 32
   store ptr %1317, ptr %1318, align 8
   br label %.critedge10155
 
 1319:                                             ; preds = %._crit_edge
-  %1320 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1320 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1320, align 4
-  %1321 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %1321 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %1321, align 4
   %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 4
   store i32 3, ptr %1322, align 4
@@ -4986,7 +4979,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1337:                                             ; preds = %._crit_edge
-  %1338 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1338 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1338, align 4
   %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 4
   store i32 63, ptr %1339, align 4
@@ -5000,7 +4993,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1345:                                             ; preds = %._crit_edge
-  %1346 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1346 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1346, align 4
   %1347 = getelementptr inbounds nuw i8, ptr %1346, i64 4
   store i32 64, ptr %1347, align 4
@@ -5013,7 +5006,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1352:                                             ; preds = %._crit_edge
-  %1353 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1353 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1353, align 4
   %1354 = getelementptr inbounds nuw i8, ptr %1353, i64 4
   store i32 64, ptr %1354, align 4
@@ -5026,7 +5019,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1359:                                             ; preds = %._crit_edge
-  %1360 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1360 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1360, align 4
   %1361 = getelementptr inbounds nuw i8, ptr %1360, i64 4
   store i32 13, ptr %1361, align 4
@@ -5042,7 +5035,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1368:                                             ; preds = %._crit_edge
-  %1369 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1369 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1369, align 4
   %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 4
   store i32 13, ptr %1370, align 4
@@ -5058,9 +5051,9 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1377:                                             ; preds = %._crit_edge
-  %1378 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1378 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1378, align 4
-  %1379 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %1379 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %1379, align 4
   %1380 = getelementptr inbounds nuw i8, ptr %1378, i64 4
   store i32 24, ptr %1380, align 4
@@ -5088,7 +5081,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1396:                                             ; preds = %._crit_edge
-  %1397 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1397 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1397, align 4
   %1398 = getelementptr inbounds nuw i8, ptr %1397, i64 4
   store i32 25, ptr %1398, align 4
@@ -5102,7 +5095,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1404:                                             ; preds = %._crit_edge
-  %1405 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1405 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1405, align 4
   %1406 = getelementptr inbounds nuw i8, ptr %1405, i64 4
   store i32 16, ptr %1406, align 4
@@ -5112,9 +5105,9 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1409:                                             ; preds = %._crit_edge
-  %1410 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1410 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1410, align 4
-  %1411 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %1411 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %1411, align 4
   %1412 = getelementptr inbounds nuw i8, ptr %1410, i64 4
   store i32 19, ptr %1412, align 4
@@ -5134,7 +5127,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1422:                                             ; preds = %._crit_edge
-  %1423 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1423 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1423, align 4
   %1424 = getelementptr inbounds nuw i8, ptr %1423, i64 4
   store i32 20, ptr %1424, align 4
@@ -5144,7 +5137,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1427:                                             ; preds = %._crit_edge
-  %1428 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1428 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1428, align 4
   %1429 = getelementptr inbounds nuw i8, ptr %1428, i64 4
   store i32 22, ptr %1429, align 4
@@ -5160,7 +5153,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1436:                                             ; preds = %._crit_edge
-  %1437 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1437 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1437, align 4
   %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 4
   store i32 22, ptr %1438, align 4
@@ -5176,14 +5169,14 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1445:                                             ; preds = %._crit_edge
-  %1446 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1446 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1446, align 4
   %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 4
   store i32 31, ptr %1447, align 4
   br label %.critedge10155
 
 1448:                                             ; preds = %._crit_edge
-  %1449 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1449 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1449, align 4
   %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 4
   store i32 27, ptr %1450, align 4
@@ -5193,7 +5186,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1453:                                             ; preds = %._crit_edge
-  %1454 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1454 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1454, align 4
   %1455 = getelementptr inbounds nuw i8, ptr %1454, i64 4
   store i32 28, ptr %1455, align 4
@@ -5202,21 +5195,21 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1457:                                             ; preds = %._crit_edge
-  %1458 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1458 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1458, align 4
   %1459 = getelementptr inbounds nuw i8, ptr %1458, i64 4
   store i32 29, ptr %1459, align 4
   br label %.critedge10155
 
 1460:                                             ; preds = %._crit_edge
-  %1461 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1461 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1461, align 4
   %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 4
   store i32 30, ptr %1462, align 4
   br label %.critedge10155
 
 1463:                                             ; preds = %._crit_edge
-  %1464 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1464 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1464, align 4
   %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 4
   store i32 37, ptr %1465, align 4
@@ -5226,7 +5219,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1468:                                             ; preds = %._crit_edge
-  %1469 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1469 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1469, align 4
   %1470 = getelementptr inbounds nuw i8, ptr %1469, i64 4
   store i32 38, ptr %1470, align 4
@@ -5236,7 +5229,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1473:                                             ; preds = %._crit_edge
-  %1474 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1474 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1474, align 4
   %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 4
   store i32 39, ptr %1475, align 4
@@ -5246,21 +5239,21 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1478:                                             ; preds = %._crit_edge
-  %1479 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1479 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1479, align 4
   %1480 = getelementptr inbounds nuw i8, ptr %1479, i64 4
   store i32 41, ptr %1480, align 4
   br label %.critedge10155
 
 1481:                                             ; preds = %._crit_edge
-  %1482 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1482 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1482, align 4
   %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 4
   store i32 43, ptr %1483, align 4
   br label %.critedge10155
 
 1484:                                             ; preds = %._crit_edge
-  %1485 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1485 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1485, align 4
   %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 4
   store i32 40, ptr %1486, align 4
@@ -5270,21 +5263,21 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1489:                                             ; preds = %._crit_edge
-  %1490 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1490 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1490, align 4
   %1491 = getelementptr inbounds nuw i8, ptr %1490, i64 4
   store i32 42, ptr %1491, align 4
   br label %.critedge10155
 
 1492:                                             ; preds = %._crit_edge
-  %1493 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1493 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1493, align 4
   %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 4
   store i32 44, ptr %1494, align 4
   br label %.critedge10155
 
 1495:                                             ; preds = %._crit_edge
-  %1496 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1496 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1496, align 4
   %1497 = getelementptr inbounds nuw i8, ptr %1496, i64 4
   store i32 45, ptr %1497, align 4
@@ -5294,7 +5287,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1500:                                             ; preds = %._crit_edge
-  %1501 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1501 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1501, align 4
   %1502 = getelementptr inbounds nuw i8, ptr %1501, i64 4
   store i32 46, ptr %1502, align 4
@@ -5304,7 +5297,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1505:                                             ; preds = %._crit_edge
-  %1506 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1506 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1506, align 4
   %1507 = getelementptr inbounds nuw i8, ptr %1506, i64 4
   store i32 47, ptr %1507, align 4
@@ -5314,7 +5307,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1510:                                             ; preds = %._crit_edge
-  %1511 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1511 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1511, align 4
   %1512 = getelementptr inbounds nuw i8, ptr %1511, i64 4
   store i32 48, ptr %1512, align 4
@@ -5324,7 +5317,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1515:                                             ; preds = %._crit_edge
-  %1516 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1516 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1516, align 4
   %1517 = getelementptr inbounds nuw i8, ptr %1516, i64 4
   store i32 49, ptr %1517, align 4
@@ -5334,7 +5327,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1520:                                             ; preds = %._crit_edge
-  %1521 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1521 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1521, align 4
   %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 4
   store i32 50, ptr %1522, align 4
@@ -5344,10 +5337,10 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1525:                                             ; preds = %._crit_edge
-  %1526 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1526 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1526, align 4
   %1527 = load ptr, ptr %.210001, align 8
-  %1528 = call ptr @makeTypeNameFromNameList(ptr noundef %1527) #11
+  %1528 = call ptr @makeTypeNameFromNameList(ptr noundef %1527) #10
   %1529 = load i32, ptr %.210013, align 4
   %1530 = getelementptr inbounds nuw i8, ptr %1528, i64 48
   store i32 %1529, ptr %1530, align 8
@@ -5358,14 +5351,14 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1533:                                             ; preds = %._crit_edge
-  %1534 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1534 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1534, align 4
   %1535 = getelementptr inbounds nuw i8, ptr %1534, i64 4
   store i32 52, ptr %1535, align 4
   br label %.critedge10155
 
 1536:                                             ; preds = %._crit_edge
-  %1537 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1537 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1537, align 4
   %1538 = getelementptr inbounds nuw i8, ptr %1537, i64 4
   store i32 26, ptr %1538, align 4
@@ -5375,7 +5368,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1541:                                             ; preds = %._crit_edge
-  %1542 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1542 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1542, align 4
   %1543 = getelementptr inbounds nuw i8, ptr %1542, i64 4
   store i32 32, ptr %1543, align 4
@@ -5385,7 +5378,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1546:                                             ; preds = %._crit_edge
-  %1547 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1547 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1547, align 4
   %1548 = getelementptr inbounds nuw i8, ptr %1547, i64 4
   store i32 33, ptr %1548, align 4
@@ -5395,7 +5388,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1551:                                             ; preds = %._crit_edge
-  %1552 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1552 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1552, align 4
   %1553 = getelementptr inbounds nuw i8, ptr %1552, i64 4
   store i32 34, ptr %1553, align 4
@@ -5405,7 +5398,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1556:                                             ; preds = %._crit_edge
-  %1557 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1557 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1557, align 4
   %1558 = getelementptr inbounds nuw i8, ptr %1557, i64 4
   store i32 35, ptr %1558, align 4
@@ -5415,7 +5408,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1561:                                             ; preds = %._crit_edge
-  %1562 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1562 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1562, align 4
   %1563 = getelementptr inbounds nuw i8, ptr %1562, i64 4
   store i32 53, ptr %1563, align 4
@@ -5425,35 +5418,35 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1566:                                             ; preds = %._crit_edge
-  %1567 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1567 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1567, align 4
   %1568 = getelementptr inbounds nuw i8, ptr %1567, i64 4
   store i32 54, ptr %1568, align 4
   br label %.critedge10155
 
 1569:                                             ; preds = %._crit_edge
-  %1570 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1570 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1570, align 4
   %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 4
   store i32 55, ptr %1571, align 4
   br label %.critedge10155
 
 1572:                                             ; preds = %._crit_edge
-  %1573 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1573 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1573, align 4
   %1574 = getelementptr inbounds nuw i8, ptr %1573, i64 4
   store i32 56, ptr %1574, align 4
   br label %.critedge10155
 
 1575:                                             ; preds = %._crit_edge
-  %1576 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1576 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1576, align 4
   %1577 = getelementptr inbounds nuw i8, ptr %1576, i64 4
   store i32 57, ptr %1577, align 4
   br label %.critedge10155
 
 1578:                                             ; preds = %._crit_edge
-  %1579 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1579 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1579, align 4
   %1580 = getelementptr inbounds nuw i8, ptr %1579, i64 4
   store i32 58, ptr %1580, align 4
@@ -5467,7 +5460,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1585:                                             ; preds = %._crit_edge
-  %1586 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1586 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 74, ptr %1586, align 4
   %1587 = getelementptr inbounds nuw i8, ptr %1586, i64 8
   store ptr null, ptr %1587, align 8
@@ -5485,7 +5478,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1595:                                             ; preds = %._crit_edge
-  %1596 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %1596 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 147, ptr %1596, align 4
   %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 4
   store i8 110, ptr %1597, align 4
@@ -5494,7 +5487,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1599:                                             ; preds = %._crit_edge
-  %1600 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %1600 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 147, ptr %1600, align 4
   %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 4
   store i8 102, ptr %1601, align 4
@@ -5503,7 +5496,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1603:                                             ; preds = %._crit_edge
-  %1604 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %1604 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 147, ptr %1604, align 4
   %1605 = getelementptr inbounds nuw i8, ptr %1604, i64 4
   store i8 100, ptr %1605, align 4
@@ -5512,7 +5505,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   br label %.critedge10155
 
 1607:                                             ; preds = %._crit_edge
-  %1608 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %1608 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 147, ptr %1608, align 4
   %1609 = getelementptr inbounds nuw i8, ptr %1608, i64 4
   store i8 105, ptr %1609, align 4
@@ -5532,14 +5525,14 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
 
 1617:                                             ; preds = %._crit_edge
   %1618 = load ptr, ptr %.210001, align 8
-  %1619 = call ptr @list_make1_impl(i32 noundef 1, ptr %1618) #11
+  %1619 = call ptr @list_make1_impl(i32 noundef 1, ptr %1618) #10
   br label %.critedge10155
 
 1620:                                             ; preds = %._crit_edge
   %1621 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %1622 = load ptr, ptr %1621, align 8
   %1623 = load ptr, ptr %.210001, align 8
-  %1624 = call ptr @lappend(ptr noundef %1622, ptr noundef %1623) #11
+  %1624 = call ptr @lappend(ptr noundef %1622, ptr noundef %1623) #10
   br label %.critedge10155
 
 1625:                                             ; preds = %._crit_edge
@@ -5548,13 +5541,13 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %1628 = load ptr, ptr %.210001, align 8
   %1629 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %1630 = load i32, ptr %1629, align 4
-  %1631 = call ptr @makeDefElem(ptr noundef %1627, ptr noundef %1628, i32 noundef %1630) #11
+  %1631 = call ptr @makeDefElem(ptr noundef %1627, ptr noundef %1628, i32 noundef %1630) #10
   br label %.critedge10155
 
 1632:                                             ; preds = %._crit_edge
   %1633 = load ptr, ptr %.210001, align 8
   %1634 = load i32, ptr %.210013, align 4
-  %1635 = call ptr @makeDefElem(ptr noundef %1633, ptr noundef null, i32 noundef %1634) #11
+  %1635 = call ptr @makeDefElem(ptr noundef %1633, ptr noundef null, i32 noundef %1634) #10
   br label %.critedge10155
 
 1636:                                             ; preds = %._crit_edge
@@ -5565,7 +5558,7 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %1641 = load ptr, ptr %.210001, align 8
   %1642 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %1643 = load i32, ptr %1642, align 4
-  %1644 = call ptr @makeDefElemExtended(ptr noundef %1638, ptr noundef %1640, ptr noundef %1641, i32 noundef 0, i32 noundef %1643) #11
+  %1644 = call ptr @makeDefElemExtended(ptr noundef %1638, ptr noundef %1640, ptr noundef %1641, i32 noundef 0, i32 noundef %1643) #10
   br label %.critedge10155
 
 1645:                                             ; preds = %._crit_edge
@@ -5574,31 +5567,31 @@ updateRawStmtEnd.exit:                            ; preds = %174, %164, %161
   %1648 = load ptr, ptr %.210001, align 8
   %1649 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %1650 = load i32, ptr %1649, align 4
-  %1651 = call ptr @makeDefElemExtended(ptr noundef %1647, ptr noundef %1648, ptr noundef null, i32 noundef 0, i32 noundef %1650) #11
+  %1651 = call ptr @makeDefElemExtended(ptr noundef %1647, ptr noundef %1648, ptr noundef null, i32 noundef 0, i32 noundef %1650) #10
   br label %.critedge10155
 
 1652:                                             ; preds = %._crit_edge
   %1653 = load ptr, ptr %.210001, align 8
-  %1654 = call ptr @list_make1_impl(i32 noundef 1, ptr %1653) #11
+  %1654 = call ptr @list_make1_impl(i32 noundef 1, ptr %1653) #10
   br label %.critedge10155
 
 1655:                                             ; preds = %._crit_edge
   %1656 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1657 = load ptr, ptr %1656, align 8
   %1658 = load ptr, ptr %.210001, align 8
-  %1659 = call ptr @lappend(ptr noundef %1657, ptr noundef %1658) #11
+  %1659 = call ptr @lappend(ptr noundef %1657, ptr noundef %1658) #10
   br label %.critedge10155
 
 1660:                                             ; preds = %._crit_edge
   %1661 = load i32, ptr %.210013, align 4
-  %1662 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef %1661) #11
+  %1662 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef %1661) #10
   br label %.critedge10155
 
 1663:                                             ; preds = %._crit_edge
   %1664 = load ptr, ptr %.210001, align 8
   %1665 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %1666 = load i32, ptr %1665, align 4
-  %1667 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef %1664, i32 noundef %1666) #11
+  %1667 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef %1664, i32 noundef %1666) #10
   br label %.critedge10155
 
 sub_0:                                            ; preds = %._crit_edge
@@ -5622,39 +5615,38 @@ sub_1:                                            ; preds = %sub_0
   br i1 %1676, label %1682, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %1677 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1670, ptr noundef nonnull dereferenceable(8) @.str.53) #13
+  %1677 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1670, ptr noundef nonnull dereferenceable(8) @.str.53) #12
   %1678 = icmp eq i32 %1677, 0
   br i1 %1678, label %1682, label %1679
 
 1679:                                             ; preds = %.tail.thread
-  %1680 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1670, ptr noundef nonnull dereferenceable(9) @.str.55) #13
+  %1680 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1670, ptr noundef nonnull dereferenceable(9) @.str.55) #12
   %1681 = icmp eq i32 %1680, 0
   br i1 %1681, label %1682, label %.critedge10155
 
 1682:                                             ; preds = %1679, %.tail.thread, %.tail
-  %1683 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1683)
-  %1684 = call i32 @errcode(i32 noundef 16801924) #11
+  %1683 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1684 = call i32 @errcode(i32 noundef 16801924) #10
   %1685 = load ptr, ptr %.210001, align 8
   %1686 = getelementptr inbounds nuw i8, ptr %1685, i64 16
   %1687 = load ptr, ptr %1686, align 8
-  %1688 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef %1687) #11
+  %1688 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.56, ptr noundef %1687) #10
   %1689 = load i32, ptr %.210013, align 4
-  %1690 = call i32 @scanner_errposition(i32 noundef %1689, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3098, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1690 = call i32 @scanner_errposition(i32 noundef %1689, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3098, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1691:                                             ; preds = %._crit_edge
   %1692 = load i32, ptr %.210001, align 8
-  %1693 = call ptr @makeInteger(i32 noundef %1692) #11
+  %1693 = call ptr @makeInteger(i32 noundef %1692) #10
   %1694 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %1695 = load i32, ptr %1694, align 4
-  %1696 = call ptr @makeDefElem(ptr noundef nonnull @.str.57, ptr noundef %1693, i32 noundef %1695) #11
+  %1696 = call ptr @makeDefElem(ptr noundef nonnull @.str.57, ptr noundef %1693, i32 noundef %1695) #10
   br label %.critedge10155
 
 1697:                                             ; preds = %._crit_edge
   %1698 = load i32, ptr %.210001, align 8
-  %1699 = call ptr @makeInteger(i32 noundef %1698) #11
+  %1699 = call ptr @makeInteger(i32 noundef %1698) #10
   br label %.critedge10155
 
 1700:                                             ; preds = %._crit_edge
@@ -5662,7 +5654,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1702:                                             ; preds = %._crit_edge
-  %1703 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1703 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 98, ptr %1703, align 4
   %1704 = getelementptr inbounds nuw i8, ptr %1703, i64 4
   store i8 104, ptr %1704, align 4
@@ -5689,7 +5681,7 @@ sub_1:                                            ; preds = %sub_0
   %1715 = load ptr, ptr %1714, align 8
   %1716 = getelementptr inbounds nuw i8, ptr %1715, i64 16
   %1717 = load ptr, ptr %1716, align 8
-  %1718 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1717, ptr noundef nonnull dereferenceable(8) @.str.58) #13
+  %1718 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1717, ptr noundef nonnull dereferenceable(8) @.str.58) #12
   %1719 = icmp eq i32 %1718, 0
   br i1 %1719, label %1721, label %1731
 
@@ -5704,23 +5696,22 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10133, label %1729, label %.split10540
 
 .split10540:                                      ; preds = %1721
-  %1723 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1723)
-  %1724 = call i32 @errcode(i32 noundef 290948) #11
-  %1725 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59) #11
+  %1723 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1724 = call i32 @errcode(i32 noundef 290948) #10
+  %1725 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.59) #10
   %1726 = getelementptr inbounds nuw i8, ptr %1715, i64 36
   %1727 = load i32, ptr %1726, align 4
-  %1728 = call i32 @scanner_errposition(i32 noundef %1727, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3137, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1728 = call i32 @scanner_errposition(i32 noundef %1727, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3137, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1729:                                             ; preds = %1721
-  %1730 = call i32 @defGetInt32(ptr noundef nonnull %1715) #11
+  %1730 = call i32 @defGetInt32(ptr noundef nonnull %1715) #10
   store i32 %1730, ptr %1706, align 8
   br label %1752
 
 1731:                                             ; preds = %.lr.ph10543
-  %1732 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1717, ptr noundef nonnull dereferenceable(10) @.str.60) #13
+  %1732 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1717, ptr noundef nonnull dereferenceable(10) @.str.60) #12
   %1733 = icmp eq i32 %1732, 0
   br i1 %1733, label %1734, label %.split10533
 
@@ -5730,32 +5721,30 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10132, label %1742, label %.split10537
 
 .split10537:                                      ; preds = %1734
-  %1736 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1736)
-  %1737 = call i32 @errcode(i32 noundef 290948) #11
-  %1738 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #11
+  %1736 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1737 = call i32 @errcode(i32 noundef 290948) #10
+  %1738 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.61) #10
   %1739 = getelementptr inbounds nuw i8, ptr %1715, i64 36
   %1740 = load i32, ptr %1739, align 4
-  %1741 = call i32 @scanner_errposition(i32 noundef %1740, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3146, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1741 = call i32 @scanner_errposition(i32 noundef %1740, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3146, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1742:                                             ; preds = %1734
-  %1743 = call i32 @defGetInt32(ptr noundef nonnull %1715) #11
+  %1743 = call i32 @defGetInt32(ptr noundef nonnull %1715) #10
   store i32 %1743, ptr %1705, align 4
   br label %1752
 
 .split10533:                                      ; preds = %1731
   %1744 = getelementptr inbounds nuw i8, ptr %1715, i64 16
-  %1745 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1745)
-  %1746 = call i32 @errcode(i32 noundef 16801924) #11
+  %1745 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1746 = call i32 @errcode(i32 noundef 16801924) #10
   %1747 = load ptr, ptr %1744, align 8
-  %1748 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62, ptr noundef %1747) #11
+  %1748 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.62, ptr noundef %1747) #10
   %1749 = getelementptr inbounds nuw i8, ptr %1715, i64 36
   %1750 = load i32, ptr %1749, align 4
-  %1751 = call i32 @scanner_errposition(i32 noundef %1750, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3154, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1751 = call i32 @scanner_errposition(i32 noundef %1750, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3154, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1752:                                             ; preds = %1742, %1729
@@ -5766,14 +5755,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %1755, label %.lr.ph10543, label %.critedge
 
 .critedge.thread:                                 ; preds = %1702, %.lr.ph10530, %.critedge
-  %1756 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1756)
-  %1757 = call i32 @errcode(i32 noundef 16801924) #11
-  %1758 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63) #11
+  %1756 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1757 = call i32 @errcode(i32 noundef 16801924) #10
+  %1758 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.63) #10
   %1759 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %1760 = load i32, ptr %1759, align 4
-  %1761 = call i32 @scanner_errposition(i32 noundef %1760, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3161, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1761 = call i32 @scanner_errposition(i32 noundef %1760, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3161, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1762:                                             ; preds = %.critedge
@@ -5782,14 +5770,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %1764, label %1765, label %1772
 
 1765:                                             ; preds = %1762
-  %1766 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1766)
-  %1767 = call i32 @errcode(i32 noundef 16801924) #11
-  %1768 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64) #11
+  %1766 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1767 = call i32 @errcode(i32 noundef 16801924) #10
+  %1768 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.64) #10
   %1769 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %1770 = load i32, ptr %1769, align 4
-  %1771 = call i32 @scanner_errposition(i32 noundef %1770, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3166, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1771 = call i32 @scanner_errposition(i32 noundef %1770, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3166, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1772:                                             ; preds = %1762
@@ -5800,7 +5787,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1776:                                             ; preds = %._crit_edge
-  %1777 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1777 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 98, ptr %1777, align 4
   %1778 = getelementptr inbounds nuw i8, ptr %1777, i64 4
   store i8 108, ptr %1778, align 4
@@ -5817,7 +5804,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1786:                                             ; preds = %._crit_edge
-  %1787 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1787 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 98, ptr %1787, align 4
   %1788 = getelementptr inbounds nuw i8, ptr %1787, i64 4
   store i8 114, ptr %1788, align 4
@@ -5838,7 +5825,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1799:                                             ; preds = %._crit_edge
-  %1800 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1800 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 98, ptr %1800, align 4
   %1801 = getelementptr inbounds nuw i8, ptr %1800, i64 5
   store i8 1, ptr %1801, align 1
@@ -5851,26 +5838,26 @@ sub_1:                                            ; preds = %sub_0
   %1805 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1806 = load ptr, ptr %1805, align 8
   %1807 = load i32, ptr %.210001, align 8
-  %1808 = call ptr @makeInteger(i32 noundef %1807) #11
+  %1808 = call ptr @makeInteger(i32 noundef %1807) #10
   %1809 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %1810 = load i32, ptr %1809, align 4
-  %1811 = call ptr @makeDefElem(ptr noundef %1806, ptr noundef %1808, i32 noundef %1810) #11
+  %1811 = call ptr @makeDefElem(ptr noundef %1806, ptr noundef %1808, i32 noundef %1810) #10
   br label %.critedge10155
 
 1812:                                             ; preds = %._crit_edge
   %1813 = load ptr, ptr %.210001, align 8
-  %1814 = call ptr @list_make1_impl(i32 noundef 1, ptr %1813) #11
+  %1814 = call ptr @list_make1_impl(i32 noundef 1, ptr %1813) #10
   br label %.critedge10155
 
 1815:                                             ; preds = %._crit_edge
   %1816 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %1817 = load ptr, ptr %1816, align 8
   %1818 = load ptr, ptr %.210001, align 8
-  %1819 = call ptr @lappend(ptr noundef %1817, ptr noundef %1818) #11
+  %1819 = call ptr @lappend(ptr noundef %1817, ptr noundef %1818) #10
   br label %.critedge10155
 
 1820:                                             ; preds = %._crit_edge
-  %1821 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %1821 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 146, ptr %1821, align 4
   %1822 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1823 = load ptr, ptr %1822, align 8
@@ -5888,18 +5875,18 @@ sub_1:                                            ; preds = %sub_0
 
 1831:                                             ; preds = %._crit_edge
   %1832 = load ptr, ptr %.210001, align 8
-  %1833 = call ptr @list_make1_impl(i32 noundef 1, ptr %1832) #11
+  %1833 = call ptr @list_make1_impl(i32 noundef 1, ptr %1832) #10
   br label %.critedge10155
 
 1834:                                             ; preds = %._crit_edge
   %1835 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %1836 = load ptr, ptr %1835, align 8
   %1837 = load ptr, ptr %.210001, align 8
-  %1838 = call ptr @lappend(ptr noundef %1836, ptr noundef %1837) #11
+  %1838 = call ptr @lappend(ptr noundef %1836, ptr noundef %1837) #10
   br label %.critedge10155
 
 1839:                                             ; preds = %._crit_edge
-  %1840 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1840 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1840, align 4
   %1841 = getelementptr inbounds nuw i8, ptr %1840, i64 4
   store i32 0, ptr %1841, align 4
@@ -5913,7 +5900,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1847:                                             ; preds = %._crit_edge
-  %1848 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1848 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1848, align 4
   %1849 = getelementptr inbounds nuw i8, ptr %1848, i64 4
   store i32 13, ptr %1849, align 4
@@ -5929,7 +5916,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1856:                                             ; preds = %._crit_edge
-  %1857 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1857 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1857, align 4
   %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 4
   store i32 13, ptr %1858, align 4
@@ -5945,9 +5932,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1865:                                             ; preds = %._crit_edge
-  %1866 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %1866 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 148, ptr %1866, align 4
-  %1867 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %1867 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %1867, align 4
   %1868 = getelementptr inbounds nuw i8, ptr %1866, i64 4
   store i32 24, ptr %1868, align 4
@@ -5977,7 +5964,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1885:                                             ; preds = %._crit_edge
-  %1886 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %1886 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 201, ptr %1886, align 4
   %1887 = load ptr, ptr %.210001, align 8
   %1888 = getelementptr inbounds nuw i8, ptr %1886, i64 8
@@ -5985,14 +5972,14 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 1889:                                             ; preds = %._crit_edge
-  %1890 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %1890 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 201, ptr %1890, align 4
   %1891 = getelementptr inbounds nuw i8, ptr %1890, i64 8
   store ptr null, ptr %1891, align 8
   br label %.critedge10155
 
 1892:                                             ; preds = %._crit_edge
-  %1893 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %1893 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 156, ptr %1893, align 4
   %1894 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %1895 = load ptr, ptr %1894, align 8
@@ -6025,14 +6012,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond10274, label %1914, label %1921
 
 1914:                                             ; preds = %1892
-  %1915 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1915)
-  %1916 = call i32 @errcode(i32 noundef 16801924) #11
-  %1917 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #11
+  %1915 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1916 = call i32 @errcode(i32 noundef 16801924) #10
+  %1917 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #10
   %1918 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %1919 = load i32, ptr %1918, align 4
-  %1920 = call i32 @scanner_errposition(i32 noundef %1919, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3375, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1920 = call i32 @scanner_errposition(i32 noundef %1919, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3375, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1921:                                             ; preds = %1892
@@ -6042,13 +6028,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond10275, label %1929, label %1923
 
 1923:                                             ; preds = %1921
-  %1924 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1924)
-  %1925 = call i32 @errcode(i32 noundef 16801924) #11
-  %1926 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66) #11
+  %1924 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1925 = call i32 @errcode(i32 noundef 16801924) #10
+  %1926 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.66) #10
   %1927 = load i32, ptr %.210013, align 4
-  %1928 = call i32 @scanner_errposition(i32 noundef %1927, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3381, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1928 = call i32 @scanner_errposition(i32 noundef %1927, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3381, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1929:                                             ; preds = %1921
@@ -6060,7 +6045,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10127, label %1935, label %1933
 
 1933:                                             ; preds = %1929
-  %1934 = call ptr @lappend(ptr noundef null, ptr noundef nonnull %1932) #11
+  %1934 = call ptr @lappend(ptr noundef null, ptr noundef nonnull %1932) #10
   store ptr %1934, ptr %1930, align 8
   br label %1935
 
@@ -6072,7 +6057,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10128, label %1941, label %1939
 
 1939:                                             ; preds = %1935
-  %1940 = call ptr @lappend(ptr noundef %1936, ptr noundef nonnull %1938) #11
+  %1940 = call ptr @lappend(ptr noundef %1936, ptr noundef nonnull %1938) #10
   store ptr %1940, ptr %1930, align 8
   br label %1941
 
@@ -6084,12 +6069,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10129, label %.critedge10155, label %1945
 
 1945:                                             ; preds = %1941
-  %1946 = call ptr @list_concat(ptr noundef %1942, ptr noundef nonnull %1944) #11
+  %1946 = call ptr @list_concat(ptr noundef %1942, ptr noundef nonnull %1944) #10
   store ptr %1946, ptr %1930, align 8
   br label %.critedge10155
 
 1947:                                             ; preds = %._crit_edge
-  %1948 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %1948 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 156, ptr %1948, align 4
   %1949 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %1950 = load ptr, ptr %1949, align 8
@@ -6122,14 +6107,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond10276, label %1968, label %.critedge10155
 
 1968:                                             ; preds = %1947
-  %1969 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %1969)
-  %1970 = call i32 @errcode(i32 noundef 16801924) #11
-  %1971 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #11
+  %1969 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %1970 = call i32 @errcode(i32 noundef 16801924) #10
+  %1971 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.65) #10
   %1972 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %1973 = load i32, ptr %1972, align 4
-  %1974 = call i32 @scanner_errposition(i32 noundef %1973, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3410, ptr noundef nonnull @__func__.base_yyparse) #11
+  %1974 = call i32 @scanner_errposition(i32 noundef %1973, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3410, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 1975:                                             ; preds = %._crit_edge
@@ -6175,142 +6159,142 @@ sub_1:                                            ; preds = %sub_0
   %1995 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %1996 = load ptr, ptr %1995, align 8
   %1997 = load ptr, ptr %.210001, align 8
-  %1998 = call ptr @lappend(ptr noundef %1996, ptr noundef %1997) #11
+  %1998 = call ptr @lappend(ptr noundef %1996, ptr noundef %1997) #10
   br label %.critedge10155
 
 1999:                                             ; preds = %._crit_edge
-  %2000 = call ptr @makeString(ptr noundef nonnull @.str.68) #11
+  %2000 = call ptr @makeString(ptr noundef nonnull @.str.68) #10
   %2001 = load i32, ptr %.210013, align 4
-  %2002 = call ptr @makeDefElem(ptr noundef nonnull @.str.67, ptr noundef %2000, i32 noundef %2001) #11
+  %2002 = call ptr @makeDefElem(ptr noundef nonnull @.str.67, ptr noundef %2000, i32 noundef %2001) #10
   br label %.critedge10155
 
 2003:                                             ; preds = %._crit_edge
-  %2004 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %2004 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %2005 = load i32, ptr %.210013, align 4
-  %2006 = call ptr @makeDefElem(ptr noundef nonnull @.str.69, ptr noundef %2004, i32 noundef %2005) #11
+  %2006 = call ptr @makeDefElem(ptr noundef nonnull @.str.69, ptr noundef %2004, i32 noundef %2005) #10
   br label %.critedge10155
 
 2007:                                             ; preds = %._crit_edge
   %2008 = load ptr, ptr %.210001, align 8
-  %2009 = call ptr @makeString(ptr noundef %2008) #11
+  %2009 = call ptr @makeString(ptr noundef %2008) #10
   %2010 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2011 = load i32, ptr %2010, align 4
-  %2012 = call ptr @makeDefElem(ptr noundef nonnull @.str.70, ptr noundef %2009, i32 noundef %2011) #11
+  %2012 = call ptr @makeDefElem(ptr noundef nonnull @.str.70, ptr noundef %2009, i32 noundef %2011) #10
   br label %.critedge10155
 
 2013:                                             ; preds = %._crit_edge
   %2014 = load ptr, ptr %.210001, align 8
-  %2015 = call ptr @makeString(ptr noundef %2014) #11
+  %2015 = call ptr @makeString(ptr noundef %2014) #10
   %2016 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2017 = load i32, ptr %2016, align 4
-  %2018 = call ptr @makeDefElem(ptr noundef nonnull @.str.71, ptr noundef %2015, i32 noundef %2017) #11
+  %2018 = call ptr @makeDefElem(ptr noundef nonnull @.str.71, ptr noundef %2015, i32 noundef %2017) #10
   br label %.critedge10155
 
 2019:                                             ; preds = %._crit_edge
-  %2020 = call ptr @makeString(ptr noundef nonnull @.str.72) #11
+  %2020 = call ptr @makeString(ptr noundef nonnull @.str.72) #10
   %2021 = load i32, ptr %.210013, align 4
-  %2022 = call ptr @makeDefElem(ptr noundef nonnull @.str.67, ptr noundef %2020, i32 noundef %2021) #11
+  %2022 = call ptr @makeDefElem(ptr noundef nonnull @.str.67, ptr noundef %2020, i32 noundef %2021) #10
   br label %.critedge10155
 
 2023:                                             ; preds = %._crit_edge
-  %2024 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %2024 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %2025 = load i32, ptr %.210013, align 4
-  %2026 = call ptr @makeDefElem(ptr noundef nonnull @.str.73, ptr noundef %2024, i32 noundef %2025) #11
+  %2026 = call ptr @makeDefElem(ptr noundef nonnull @.str.73, ptr noundef %2024, i32 noundef %2025) #10
   br label %.critedge10155
 
 2027:                                             ; preds = %._crit_edge
   %2028 = load ptr, ptr %.210001, align 8
-  %2029 = call ptr @makeString(ptr noundef %2028) #11
+  %2029 = call ptr @makeString(ptr noundef %2028) #10
   %2030 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2031 = load i32, ptr %2030, align 4
-  %2032 = call ptr @makeDefElem(ptr noundef nonnull @.str.74, ptr noundef %2029, i32 noundef %2031) #11
+  %2032 = call ptr @makeDefElem(ptr noundef nonnull @.str.74, ptr noundef %2029, i32 noundef %2031) #10
   br label %.critedge10155
 
 2033:                                             ; preds = %._crit_edge
   %2034 = load ptr, ptr %.210001, align 8
-  %2035 = call ptr @makeString(ptr noundef %2034) #11
+  %2035 = call ptr @makeString(ptr noundef %2034) #10
   %2036 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2037 = load i32, ptr %2036, align 4
-  %2038 = call ptr @makeDefElem(ptr noundef nonnull @.str.75, ptr noundef %2035, i32 noundef %2037) #11
+  %2038 = call ptr @makeDefElem(ptr noundef nonnull @.str.75, ptr noundef %2035, i32 noundef %2037) #10
   br label %.critedge10155
 
 2039:                                             ; preds = %._crit_edge
   %2040 = load ptr, ptr %.210001, align 8
   %2041 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2042 = load i32, ptr %2041, align 4
-  %2043 = call ptr @makeDefElem(ptr noundef nonnull @.str.76, ptr noundef %2040, i32 noundef %2042) #11
+  %2043 = call ptr @makeDefElem(ptr noundef nonnull @.str.76, ptr noundef %2040, i32 noundef %2042) #10
   br label %.critedge10155
 
 2044:                                             ; preds = %._crit_edge
-  %2045 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %2045 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %2045, align 4
   %2046 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2047 = load i32, ptr %2046, align 4
-  %2048 = call ptr @makeDefElem(ptr noundef nonnull @.str.76, ptr noundef nonnull %2045, i32 noundef %2047) #11
+  %2048 = call ptr @makeDefElem(ptr noundef nonnull @.str.76, ptr noundef nonnull %2045, i32 noundef %2047) #10
   br label %.critedge10155
 
 2049:                                             ; preds = %._crit_edge
   %2050 = load ptr, ptr %.210001, align 8
   %2051 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %2052 = load i32, ptr %2051, align 4
-  %2053 = call ptr @makeDefElem(ptr noundef nonnull @.str.77, ptr noundef %2050, i32 noundef %2052) #11
+  %2053 = call ptr @makeDefElem(ptr noundef nonnull @.str.77, ptr noundef %2050, i32 noundef %2052) #10
   br label %.critedge10155
 
 2054:                                             ; preds = %._crit_edge
-  %2055 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %2055 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %2055, align 4
   %2056 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %2057 = load i32, ptr %2056, align 4
-  %2058 = call ptr @makeDefElem(ptr noundef nonnull @.str.77, ptr noundef nonnull %2055, i32 noundef %2057) #11
+  %2058 = call ptr @makeDefElem(ptr noundef nonnull @.str.77, ptr noundef nonnull %2055, i32 noundef %2057) #10
   br label %.critedge10155
 
 2059:                                             ; preds = %._crit_edge
   %2060 = load ptr, ptr %.210001, align 8
   %2061 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2062 = load i32, ptr %2061, align 4
-  %2063 = call ptr @makeDefElem(ptr noundef nonnull @.str.78, ptr noundef %2060, i32 noundef %2062) #11
+  %2063 = call ptr @makeDefElem(ptr noundef nonnull @.str.78, ptr noundef %2060, i32 noundef %2062) #10
   br label %.critedge10155
 
 2064:                                             ; preds = %._crit_edge
-  %2065 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %2065 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %2065, align 4
   %2066 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %2067 = load i32, ptr %2066, align 4
-  %2068 = call ptr @makeDefElem(ptr noundef nonnull @.str.78, ptr noundef nonnull %2065, i32 noundef %2067) #11
+  %2068 = call ptr @makeDefElem(ptr noundef nonnull @.str.78, ptr noundef nonnull %2065, i32 noundef %2067) #10
   br label %.critedge10155
 
 2069:                                             ; preds = %._crit_edge
   %2070 = load ptr, ptr %.210001, align 8
-  %2071 = call ptr @makeString(ptr noundef %2070) #11
+  %2071 = call ptr @makeString(ptr noundef %2070) #10
   %2072 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %2073 = load i32, ptr %2072, align 4
-  %2074 = call ptr @makeDefElem(ptr noundef nonnull @.str.79, ptr noundef %2071, i32 noundef %2073) #11
+  %2074 = call ptr @makeDefElem(ptr noundef nonnull @.str.79, ptr noundef %2071, i32 noundef %2073) #10
   br label %.critedge10155
 
 2075:                                             ; preds = %._crit_edge
-  %2076 = call ptr @makeString(ptr noundef nonnull @.str.68) #11
+  %2076 = call ptr @makeString(ptr noundef nonnull @.str.68) #10
   %2077 = load i32, ptr %.210013, align 4
-  %2078 = call ptr @makeDefElem(ptr noundef nonnull @.str.67, ptr noundef %2076, i32 noundef %2077) #11
+  %2078 = call ptr @makeDefElem(ptr noundef nonnull @.str.67, ptr noundef %2076, i32 noundef %2077) #10
   br label %.critedge10155
 
 2079:                                             ; preds = %._crit_edge
   %2080 = load ptr, ptr %.210001, align 8
-  %2081 = call ptr @makeString(ptr noundef %2080) #11
+  %2081 = call ptr @makeString(ptr noundef %2080) #10
   %2082 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %2083 = load i32, ptr %2082, align 4
-  %2084 = call ptr @makeDefElem(ptr noundef nonnull @.str.70, ptr noundef %2081, i32 noundef %2083) #11
+  %2084 = call ptr @makeDefElem(ptr noundef nonnull @.str.70, ptr noundef %2081, i32 noundef %2083) #10
   br label %.critedge10155
 
 2085:                                             ; preds = %._crit_edge
   %2086 = load ptr, ptr %.210001, align 8
-  %2087 = call ptr @list_make1_impl(i32 noundef 1, ptr %2086) #11
+  %2087 = call ptr @list_make1_impl(i32 noundef 1, ptr %2086) #10
   br label %.critedge10155
 
 2088:                                             ; preds = %._crit_edge
   %2089 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %2090 = load ptr, ptr %2089, align 8
   %2091 = load ptr, ptr %.210001, align 8
-  %2092 = call ptr @lappend(ptr noundef %2090, ptr noundef %2091) #11
+  %2092 = call ptr @lappend(ptr noundef %2090, ptr noundef %2091) #10
   br label %.critedge10155
 
 2093:                                             ; preds = %._crit_edge
@@ -6319,12 +6303,12 @@ sub_1:                                            ; preds = %sub_0
   %2096 = load ptr, ptr %.210001, align 8
   %2097 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %2098 = load i32, ptr %2097, align 4
-  %2099 = call ptr @makeDefElem(ptr noundef %2095, ptr noundef %2096, i32 noundef %2098) #11
+  %2099 = call ptr @makeDefElem(ptr noundef %2095, ptr noundef %2096, i32 noundef %2098) #10
   br label %.critedge10155
 
 2100:                                             ; preds = %._crit_edge
   %2101 = load ptr, ptr %.210001, align 8
-  %2102 = call ptr @makeString(ptr noundef %2101) #11
+  %2102 = call ptr @makeString(ptr noundef %2101) #10
   br label %.critedge10155
 
 2103:                                             ; preds = %._crit_edge
@@ -6332,12 +6316,12 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2105:                                             ; preds = %._crit_edge
-  %2106 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %2106 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %2106, align 4
   br label %.critedge10155
 
 2107:                                             ; preds = %._crit_edge
-  %2108 = call ptr @makeString(ptr noundef nonnull @.str.80) #11
+  %2108 = call ptr @makeString(ptr noundef nonnull @.str.80) #10
   br label %.critedge10155
 
 2109:                                             ; preds = %._crit_edge
@@ -6347,23 +6331,23 @@ sub_1:                                            ; preds = %sub_0
 
 2112:                                             ; preds = %._crit_edge
   %2113 = load ptr, ptr %.210001, align 8
-  %2114 = call ptr @list_make1_impl(i32 noundef 1, ptr %2113) #11
+  %2114 = call ptr @list_make1_impl(i32 noundef 1, ptr %2113) #10
   br label %.critedge10155
 
 2115:                                             ; preds = %._crit_edge
   %2116 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %2117 = load ptr, ptr %2116, align 8
   %2118 = load ptr, ptr %.210001, align 8
-  %2119 = call ptr @lappend(ptr noundef %2117, ptr noundef %2118) #11
+  %2119 = call ptr @lappend(ptr noundef %2117, ptr noundef %2118) #10
   br label %.critedge10155
 
 2120:                                             ; preds = %._crit_edge
   %2121 = load ptr, ptr %.210001, align 8
-  %2122 = call ptr @makeString(ptr noundef %2121) #11
+  %2122 = call ptr @makeString(ptr noundef %2121) #10
   br label %.critedge10155
 
 2123:                                             ; preds = %._crit_edge
-  %2124 = call noundef ptr @palloc0(i64 noundef 112) #11
+  %2124 = call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2124, align 4
   %2125 = getelementptr inbounds i8, ptr %.210001, i64 -88
   %2126 = load i32, ptr %2125, align 8
@@ -6409,7 +6393,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2155:                                             ; preds = %._crit_edge
-  %2156 = call noundef ptr @palloc0(i64 noundef 112) #11
+  %2156 = call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2156, align 4
   %2157 = getelementptr inbounds i8, ptr %.210001, i64 -112
   %2158 = load i32, ptr %2157, align 8
@@ -6455,7 +6439,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2187:                                             ; preds = %._crit_edge
-  %2188 = call noundef ptr @palloc0(i64 noundef 112) #11
+  %2188 = call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2188, align 4
   %2189 = getelementptr inbounds i8, ptr %.210001, i64 -80
   %2190 = load i32, ptr %2189, align 8
@@ -6479,7 +6463,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %2202, ptr %2203, align 8
   %2204 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %2205 = load ptr, ptr %2204, align 8
-  %2206 = call ptr @makeTypeNameFromNameList(ptr noundef %2205) #11
+  %2206 = call ptr @makeTypeNameFromNameList(ptr noundef %2205) #10
   %2207 = getelementptr inbounds nuw i8, ptr %2188, i64 48
   store ptr %2206, ptr %2207, align 8
   %2208 = getelementptr inbounds i8, ptr %.210013, i64 -24
@@ -6508,7 +6492,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2224:                                             ; preds = %._crit_edge
-  %2225 = call noundef ptr @palloc0(i64 noundef 112) #11
+  %2225 = call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2225, align 4
   %2226 = getelementptr inbounds i8, ptr %.210001, i64 -104
   %2227 = load i32, ptr %2226, align 8
@@ -6532,7 +6516,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %2239, ptr %2240, align 8
   %2241 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %2242 = load ptr, ptr %2241, align 8
-  %2243 = call ptr @makeTypeNameFromNameList(ptr noundef %2242) #11
+  %2243 = call ptr @makeTypeNameFromNameList(ptr noundef %2242) #10
   %2244 = getelementptr inbounds nuw i8, ptr %2225, i64 48
   store ptr %2243, ptr %2244, align 8
   %2245 = getelementptr inbounds i8, ptr %.210013, i64 -24
@@ -6561,7 +6545,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2261:                                             ; preds = %._crit_edge
-  %2262 = call noundef ptr @palloc0(i64 noundef 112) #11
+  %2262 = call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2262, align 4
   %2263 = getelementptr inbounds i8, ptr %.210001, i64 -96
   %2264 = load i32, ptr %2263, align 8
@@ -6579,7 +6563,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %2272, ptr %2273, align 8
   %2274 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %2275 = load ptr, ptr %2274, align 8
-  %2276 = call ptr @list_make1_impl(i32 noundef 1, ptr %2275) #11
+  %2276 = call ptr @list_make1_impl(i32 noundef 1, ptr %2275) #10
   %2277 = getelementptr inbounds nuw i8, ptr %2262, i64 24
   store ptr %2276, ptr %2277, align 8
   %2278 = getelementptr inbounds i8, ptr %.210001, i64 -40
@@ -6612,7 +6596,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2297:                                             ; preds = %._crit_edge
-  %2298 = call noundef ptr @palloc0(i64 noundef 112) #11
+  %2298 = call noundef ptr @palloc0(i64 noundef 112) #10
   store i32 159, ptr %2298, align 4
   %2299 = getelementptr inbounds i8, ptr %.210001, i64 -120
   %2300 = load i32, ptr %2299, align 8
@@ -6630,7 +6614,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %2308, ptr %2309, align 8
   %2310 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %2311 = load ptr, ptr %2310, align 8
-  %2312 = call ptr @list_make1_impl(i32 noundef 1, ptr %2311) #11
+  %2312 = call ptr @list_make1_impl(i32 noundef 1, ptr %2311) #10
   %2313 = getelementptr inbounds nuw i8, ptr %2298, i64 24
   store ptr %2312, ptr %2313, align 8
   %2314 = getelementptr inbounds i8, ptr %.210001, i64 -40
@@ -6691,15 +6675,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2345:                                             ; preds = %._crit_edge
-  %2346 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %2346 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
   br i1 %2346, label %2347, label %2352
 
 2347:                                             ; preds = %2345
-  %2348 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #11
+  %2348 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #10
   %2349 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %2350 = load i32, ptr %2349, align 4
-  %2351 = call i32 @scanner_errposition(i32 noundef %2350, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3730, ptr noundef nonnull @__func__.base_yyparse) #11
+  %2351 = call i32 @scanner_errposition(i32 noundef %2350, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3730, ptr noundef nonnull @__func__.base_yyparse) #10
   br label %2352
 
 2352:                                             ; preds = %2347, %2345
@@ -6710,15 +6694,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2355:                                             ; preds = %._crit_edge
-  %2356 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %2356 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
   br i1 %2356, label %2357, label %2362
 
 2357:                                             ; preds = %2355
-  %2358 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #11
+  %2358 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #10
   %2359 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %2360 = load i32, ptr %2359, align 4
-  %2361 = call i32 @scanner_errposition(i32 noundef %2360, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3737, ptr noundef nonnull @__func__.base_yyparse) #11
+  %2361 = call i32 @scanner_errposition(i32 noundef %2360, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3737, ptr noundef nonnull @__func__.base_yyparse) #10
   br label %2362
 
 2362:                                             ; preds = %2357, %2355
@@ -6753,26 +6737,26 @@ sub_1:                                            ; preds = %sub_0
 
 2376:                                             ; preds = %._crit_edge
   %2377 = load ptr, ptr %.210001, align 8
-  %2378 = call ptr @list_make1_impl(i32 noundef 1, ptr %2377) #11
+  %2378 = call ptr @list_make1_impl(i32 noundef 1, ptr %2377) #10
   br label %.critedge10155
 
 2379:                                             ; preds = %._crit_edge
   %2380 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %2381 = load ptr, ptr %2380, align 8
   %2382 = load ptr, ptr %.210001, align 8
-  %2383 = call ptr @lappend(ptr noundef %2381, ptr noundef %2382) #11
+  %2383 = call ptr @lappend(ptr noundef %2381, ptr noundef %2382) #10
   br label %.critedge10155
 
 2384:                                             ; preds = %._crit_edge
   %2385 = load ptr, ptr %.210001, align 8
-  %2386 = call ptr @list_make1_impl(i32 noundef 1, ptr %2385) #11
+  %2386 = call ptr @list_make1_impl(i32 noundef 1, ptr %2385) #10
   br label %.critedge10155
 
 2387:                                             ; preds = %._crit_edge
   %2388 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %2389 = load ptr, ptr %2388, align 8
   %2390 = load ptr, ptr %.210001, align 8
-  %2391 = call ptr @lappend(ptr noundef %2389, ptr noundef %2390) #11
+  %2391 = call ptr @lappend(ptr noundef %2389, ptr noundef %2390) #10
   br label %.critedge10155
 
 2392:                                             ; preds = %._crit_edge
@@ -6796,7 +6780,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2402:                                             ; preds = %._crit_edge
-  %2403 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %2403 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %2403, align 4
   %2404 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %2405 = load ptr, ptr %2404, align 8
@@ -6843,7 +6827,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2432:                                             ; preds = %._crit_edge
-  %2433 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %2433 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %2433, align 4
   %2434 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %2435 = load ptr, ptr %2434, align 8
@@ -6876,7 +6860,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2451:                                             ; preds = %._crit_edge
-  %2452 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %2452 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %2452, align 4
   %2453 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %2454 = load ptr, ptr %2453, align 8
@@ -6913,7 +6897,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2472:                                             ; preds = %._crit_edge
-  %2473 = call ptr @pstrdup(ptr noundef nonnull @.str.80) #11
+  %2473 = call ptr @pstrdup(ptr noundef nonnull @.str.80) #10
   br label %.critedge10155
 
 2474:                                             ; preds = %._crit_edge
@@ -6925,7 +6909,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2478:                                             ; preds = %._crit_edge
-  %2479 = call ptr @pstrdup(ptr noundef nonnull @.str.80) #11
+  %2479 = call ptr @pstrdup(ptr noundef nonnull @.str.80) #10
   br label %.critedge10155
 
 2480:                                             ; preds = %._crit_edge
@@ -6936,7 +6920,7 @@ sub_1:                                            ; preds = %sub_0
   %2483 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %2484 = load ptr, ptr %2483, align 8
   %2485 = load ptr, ptr %.210001, align 8
-  %2486 = call ptr @lappend(ptr noundef %2484, ptr noundef %2485) #11
+  %2486 = call ptr @lappend(ptr noundef %2484, ptr noundef %2485) #10
   br label %.critedge10155
 
 2487:                                             ; preds = %._crit_edge
@@ -6960,7 +6944,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2499:                                             ; preds = %._crit_edge
-  %2500 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %2500 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 74, ptr %2500, align 4
   %2501 = getelementptr inbounds nuw i8, ptr %2500, i64 8
   store ptr null, ptr %2501, align 8
@@ -6974,7 +6958,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2507:                                             ; preds = %._crit_edge
-  %2508 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2508 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2508, align 4
   %2509 = getelementptr inbounds nuw i8, ptr %2508, i64 4
   store i32 1, ptr %2509, align 4
@@ -6994,7 +6978,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2518:                                             ; preds = %._crit_edge
-  %2519 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2519 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2519, align 4
   %2520 = getelementptr inbounds nuw i8, ptr %2519, i64 4
   store i32 0, ptr %2520, align 4
@@ -7004,7 +6988,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2523:                                             ; preds = %._crit_edge
-  %2524 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2524 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2524, align 4
   %2525 = getelementptr inbounds nuw i8, ptr %2524, i64 4
   store i32 7, ptr %2525, align 4
@@ -7031,7 +7015,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2540:                                             ; preds = %._crit_edge
-  %2541 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2541 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2541, align 4
   %2542 = getelementptr inbounds nuw i8, ptr %2541, i64 4
   store i32 6, ptr %2542, align 4
@@ -7053,7 +7037,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2553:                                             ; preds = %._crit_edge
-  %2554 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2554 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2554, align 4
   %2555 = getelementptr inbounds nuw i8, ptr %2554, i64 4
   store i32 5, ptr %2555, align 4
@@ -7079,7 +7063,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2568:                                             ; preds = %._crit_edge
-  %2569 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2569 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2569, align 4
   %2570 = getelementptr inbounds nuw i8, ptr %2569, i64 4
   store i32 2, ptr %2570, align 4
@@ -7095,7 +7079,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2577:                                             ; preds = %._crit_edge
-  %2578 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2578 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2578, align 4
   %2579 = getelementptr inbounds nuw i8, ptr %2578, i64 4
   store i32 3, ptr %2579, align 4
@@ -7114,7 +7098,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2589:                                             ; preds = %._crit_edge
-  %2590 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2590 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2590, align 4
   %2591 = getelementptr inbounds nuw i8, ptr %2590, i64 4
   store i32 4, ptr %2591, align 4
@@ -7142,18 +7126,17 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10125, label %.critedge10155, label %2607
 
 2607:                                             ; preds = %2589
-  %2608 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %2608)
-  %2609 = call i32 @errcode(i32 noundef 16801924) #11
-  %2610 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.82) #11
+  %2608 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %2609 = call i32 @errcode(i32 noundef 16801924) #10
+  %2610 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.82) #10
   %2611 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %2612 = load i32, ptr %2611, align 4
-  %2613 = call i32 @scanner_errposition(i32 noundef %2612, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4019, ptr noundef nonnull @__func__.base_yyparse) #11
+  %2613 = call i32 @scanner_errposition(i32 noundef %2612, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4019, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 2614:                                             ; preds = %._crit_edge
-  %2615 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2615 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2615, align 4
   %2616 = getelementptr inbounds nuw i8, ptr %2615, i64 4
   store i32 9, ptr %2616, align 4
@@ -7258,7 +7241,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2673:                                             ; preds = %._crit_edge
-  %2674 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2674 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2674, align 4
   %2675 = getelementptr inbounds nuw i8, ptr %2674, i64 4
   store i32 10, ptr %2675, align 4
@@ -7268,7 +7251,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2678:                                             ; preds = %._crit_edge
-  %2679 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2679 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2679, align 4
   %2680 = getelementptr inbounds nuw i8, ptr %2679, i64 4
   store i32 11, ptr %2680, align 4
@@ -7279,7 +7262,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2684:                                             ; preds = %._crit_edge
-  %2685 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2685 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2685, align 4
   %2686 = getelementptr inbounds nuw i8, ptr %2685, i64 4
   store i32 12, ptr %2686, align 4
@@ -7290,7 +7273,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2690:                                             ; preds = %._crit_edge
-  %2691 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2691 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2691, align 4
   %2692 = getelementptr inbounds nuw i8, ptr %2691, i64 4
   store i32 13, ptr %2692, align 4
@@ -7301,7 +7284,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2696:                                             ; preds = %._crit_edge
-  %2697 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2697 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2697, align 4
   %2698 = getelementptr inbounds nuw i8, ptr %2697, i64 4
   store i32 14, ptr %2698, align 4
@@ -7311,7 +7294,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2701:                                             ; preds = %._crit_edge
-  %2702 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2702 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2702, align 4
   %2703 = getelementptr inbounds nuw i8, ptr %2702, i64 4
   store i32 15, ptr %2703, align 4
@@ -7322,7 +7305,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2707:                                             ; preds = %._crit_edge
-  %2708 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %2708 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 91, ptr %2708, align 4
   %2709 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %2710 = load ptr, ptr %2709, align 8
@@ -7453,7 +7436,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2773:                                             ; preds = %._crit_edge
-  %2774 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2774 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2774, align 4
   %2775 = getelementptr inbounds nuw i8, ptr %2774, i64 4
   store i32 5, ptr %2775, align 4
@@ -7480,7 +7463,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2791:                                             ; preds = %._crit_edge
-  %2792 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2792 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2792, align 4
   %2793 = getelementptr inbounds nuw i8, ptr %2792, i64 4
   store i32 1, ptr %2793, align 4
@@ -7490,8 +7473,8 @@ sub_1:                                            ; preds = %sub_0
   store i32 %2795, ptr %2796, align 4
   %2797 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %2798 = load ptr, ptr %2797, align 8
-  %2799 = call ptr @makeString(ptr noundef %2798) #11
-  %2800 = call ptr @list_make1_impl(i32 noundef 1, ptr %2799) #11
+  %2799 = call ptr @makeString(ptr noundef %2798) #10
+  %2800 = call ptr @list_make1_impl(i32 noundef 1, ptr %2799) #10
   %2801 = getelementptr inbounds nuw i8, ptr %2792, i64 48
   store ptr %2800, ptr %2801, align 8
   %2802 = load i32, ptr %.210001, align 8
@@ -7503,7 +7486,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2806:                                             ; preds = %._crit_edge
-  %2807 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2807 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2807, align 4
   %2808 = getelementptr inbounds nuw i8, ptr %2807, i64 4
   store i32 7, ptr %2808, align 4
@@ -7546,7 +7529,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2836:                                             ; preds = %._crit_edge
-  %2837 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2837 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2837, align 4
   %2838 = getelementptr inbounds nuw i8, ptr %2837, i64 4
   store i32 7, ptr %2838, align 4
@@ -7574,7 +7557,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2853:                                             ; preds = %._crit_edge
-  %2854 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2854 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2854, align 4
   %2855 = getelementptr inbounds nuw i8, ptr %2854, i64 4
   store i32 6, ptr %2855, align 4
@@ -7612,7 +7595,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2879:                                             ; preds = %._crit_edge
-  %2880 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2880 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2880, align 4
   %2881 = getelementptr inbounds nuw i8, ptr %2880, i64 4
   store i32 6, ptr %2881, align 4
@@ -7640,7 +7623,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2896:                                             ; preds = %._crit_edge
-  %2897 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2897 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2897, align 4
   %2898 = getelementptr inbounds nuw i8, ptr %2897, i64 4
   store i32 8, ptr %2898, align 4
@@ -7682,7 +7665,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2925:                                             ; preds = %._crit_edge
-  %2926 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2926 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2926, align 4
   %2927 = getelementptr inbounds nuw i8, ptr %2926, i64 4
   store i32 9, ptr %2927, align 4
@@ -7704,7 +7687,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10123, label %2942, label %2939
 
 2939:                                             ; preds = %2925
-  %2940 = call ptr @lappend(ptr noundef %2935, ptr noundef nonnull %2938) #11
+  %2940 = call ptr @lappend(ptr noundef %2935, ptr noundef nonnull %2938) #10
   store ptr %2940, ptr %2936, align 8
   %2941 = getelementptr inbounds nuw i8, ptr %2926, i64 152
   store i8 1, ptr %2941, align 8
@@ -7727,7 +7710,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10124, label %2955, label %2952
 
 2952:                                             ; preds = %2942
-  %2953 = call ptr @lappend(ptr noundef %2946, ptr noundef nonnull %2951) #11
+  %2953 = call ptr @lappend(ptr noundef %2946, ptr noundef nonnull %2951) #10
   store ptr %2953, ptr %2947, align 8
   %2954 = getelementptr inbounds nuw i8, ptr %2926, i64 153
   store i8 1, ptr %2954, align 1
@@ -7787,7 +7770,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 2994:                                             ; preds = %._crit_edge
-  %2995 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %2995 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %2995, align 4
   %2996 = getelementptr inbounds nuw i8, ptr %2995, i64 4
   store i32 5, ptr %2996, align 4
@@ -7815,7 +7798,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3012:                                             ; preds = %._crit_edge
-  %3013 = call noundef ptr @palloc0(i64 noundef 184) #11
+  %3013 = call noundef ptr @palloc0(i64 noundef 184) #10
   store i32 160, ptr %3013, align 4
   %3014 = getelementptr inbounds nuw i8, ptr %3013, i64 4
   store i32 1, ptr %3014, align 4
@@ -7823,8 +7806,8 @@ sub_1:                                            ; preds = %sub_0
   %3016 = load i32, ptr %3015, align 4
   %3017 = getelementptr inbounds nuw i8, ptr %3013, i64 180
   store i32 %3016, ptr %3017, align 4
-  %3018 = call ptr @makeString(ptr noundef nonnull @.str.89) #11
-  %3019 = call ptr @list_make1_impl(i32 noundef 1, ptr %3018) #11
+  %3018 = call ptr @makeString(ptr noundef nonnull @.str.89) #10
+  %3019 = call ptr @list_make1_impl(i32 noundef 1, ptr %3018) #10
   %3020 = getelementptr inbounds nuw i8, ptr %3013, i64 48
   store ptr %3019, ptr %3020, align 8
   %3021 = load i32, ptr %.210001, align 8
@@ -7867,14 +7850,14 @@ sub_1:                                            ; preds = %sub_0
 
 3039:                                             ; preds = %._crit_edge
   %3040 = load ptr, ptr %.210001, align 8
-  %3041 = call ptr @list_make1_impl(i32 noundef 1, ptr %3040) #11
+  %3041 = call ptr @list_make1_impl(i32 noundef 1, ptr %3040) #10
   br label %.critedge10155
 
 3042:                                             ; preds = %._crit_edge
   %3043 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3044 = load ptr, ptr %3043, align 8
   %3045 = load ptr, ptr %.210001, align 8
-  %3046 = call ptr @lappend(ptr noundef %3044, ptr noundef %3045) #11
+  %3046 = call ptr @lappend(ptr noundef %3044, ptr noundef %3045) #10
   br label %.critedge10155
 
 3047:                                             ; preds = %._crit_edge
@@ -7886,16 +7869,16 @@ sub_1:                                            ; preds = %sub_0
   %3051 = load ptr, ptr %3050, align 8
   %3052 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3053 = load ptr, ptr %3052, align 8
-  %3054 = call ptr @list_make2_impl(i32 noundef 1, ptr %3051, ptr %3053) #11
+  %3054 = call ptr @list_make2_impl(i32 noundef 1, ptr %3051, ptr %3053) #10
   br label %.critedge10155
 
 3055:                                             ; preds = %._crit_edge
-  %3056 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr null) #11
+  %3056 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr null) #10
   br label %.critedge10155
 
 3057:                                             ; preds = %._crit_edge
   %3058 = load ptr, ptr %.210001, align 8
-  %3059 = call ptr @makeString(ptr noundef %3058) #11
+  %3059 = call ptr @makeString(ptr noundef %3058) #10
   br label %.critedge10155
 
 3060:                                             ; preds = %._crit_edge
@@ -7911,14 +7894,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3066:                                             ; preds = %._crit_edge
-  %3067 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %3067)
-  %3068 = call i32 @errcode(i32 noundef 1088) #11
-  %3069 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.90) #11
+  %3067 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %3068 = call i32 @errcode(i32 noundef 1088) #10
+  %3069 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.90) #10
   %3070 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3071 = load i32, ptr %3070, align 4
-  %3072 = call i32 @scanner_errposition(i32 noundef %3071, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4429, ptr noundef nonnull @__func__.base_yyparse) #11
+  %3072 = call i32 @scanner_errposition(i32 noundef %3071, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4429, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 3073:                                             ; preds = %._crit_edge
@@ -7937,21 +7919,21 @@ sub_1:                                            ; preds = %sub_0
 
 3079:                                             ; preds = %._crit_edge
   %3080 = load ptr, ptr %.210001, align 8
-  %3081 = call ptr @list_make1_impl(i32 noundef 1, ptr %3080) #11
+  %3081 = call ptr @list_make1_impl(i32 noundef 1, ptr %3080) #10
   br label %.critedge10155
 
 3082:                                             ; preds = %._crit_edge
   %3083 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3084 = load ptr, ptr %3083, align 8
   %3085 = load ptr, ptr %.210001, align 8
-  %3086 = call ptr @lappend(ptr noundef %3084, ptr noundef %3085) #11
+  %3086 = call ptr @lappend(ptr noundef %3084, ptr noundef %3085) #10
   br label %.critedge10155
 
 3087:                                             ; preds = %._crit_edge
   %3088 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3089 = load ptr, ptr %3088, align 8
   %3090 = load ptr, ptr %.210001, align 8
-  %3091 = call ptr @list_make2_impl(i32 noundef 1, ptr %3089, ptr %3090) #11
+  %3091 = call ptr @list_make2_impl(i32 noundef 1, ptr %3089, ptr %3090) #10
   br label %.critedge10155
 
 3092:                                             ; preds = %._crit_edge
@@ -7959,7 +7941,7 @@ sub_1:                                            ; preds = %sub_0
   %3094 = load ptr, ptr %3093, align 8
   %3095 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3096 = load ptr, ptr %3095, align 8
-  %3097 = call ptr @list_make2_impl(i32 noundef 1, ptr %3094, ptr %3096) #11
+  %3097 = call ptr @list_make2_impl(i32 noundef 1, ptr %3094, ptr %3096) #10
   br label %.critedge10155
 
 3098:                                             ; preds = %._crit_edge
@@ -7968,10 +7950,10 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3101:                                             ; preds = %._crit_edge
-  %3102 = call ptr @palloc(i64 noundef 16) #11
+  %3102 = call ptr @palloc(i64 noundef 16) #10
   %3103 = load ptr, ptr %.210001, align 8
   store ptr %3103, ptr %3102, align 8
-  %3104 = call ptr @palloc(i64 noundef 16) #11
+  %3104 = call ptr @palloc(i64 noundef 16) #10
   %3105 = getelementptr inbounds nuw i8, ptr %3102, i64 8
   store ptr %3104, ptr %3105, align 8
   store i8 97, ptr %3104, align 8
@@ -7981,8 +7963,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3108:                                             ; preds = %._crit_edge
-  %3109 = call ptr @palloc(i64 noundef 16) #11
-  %3110 = call ptr @palloc(i64 noundef 16) #11
+  %3109 = call ptr @palloc(i64 noundef 16) #10
+  %3110 = call ptr @palloc(i64 noundef 16) #10
   store ptr %3110, ptr %3109, align 8
   store i8 97, ptr %3110, align 8
   %3111 = load ptr, ptr %3109, align 8
@@ -7994,7 +7976,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3115:                                             ; preds = %._crit_edge
-  %3116 = call ptr @palloc(i64 noundef 16) #11
+  %3116 = call ptr @palloc(i64 noundef 16) #10
   %3117 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3118 = load ptr, ptr %3117, align 8
   store ptr %3118, ptr %3116, align 8
@@ -8004,7 +7986,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3121:                                             ; preds = %._crit_edge
-  %3122 = call ptr @palloc(i64 noundef 16) #11
+  %3122 = call ptr @palloc(i64 noundef 16) #10
   %3123 = load ptr, ptr %.210001, align 8
   store ptr %3123, ptr %3122, align 8
   %3124 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -8014,14 +7996,14 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3127:                                             ; preds = %._crit_edge
-  %3128 = call ptr @palloc(i64 noundef 16) #11
-  %3129 = call ptr @palloc(i64 noundef 16) #11
+  %3128 = call ptr @palloc(i64 noundef 16) #10
+  %3129 = call ptr @palloc(i64 noundef 16) #10
   store ptr %3129, ptr %3128, align 8
   store i8 97, ptr %3129, align 8
   %3130 = load ptr, ptr %3128, align 8
   %3131 = getelementptr inbounds nuw i8, ptr %3130, i64 8
   store ptr null, ptr %3131, align 8
-  %3132 = call ptr @palloc(i64 noundef 16) #11
+  %3132 = call ptr @palloc(i64 noundef 16) #10
   %3133 = getelementptr inbounds nuw i8, ptr %3128, i64 8
   store ptr %3132, ptr %3133, align 8
   store i8 97, ptr %3132, align 8
@@ -8038,18 +8020,17 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10122, label %.critedge10155, label %3140
 
 3140:                                             ; preds = %3136
-  %3141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %3141)
-  %3142 = call i32 @errcode(i32 noundef 1088) #11
+  %3141 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %3142 = call i32 @errcode(i32 noundef 1088) #10
   %3143 = load ptr, ptr %.210001, align 8
   %3144 = load i8, ptr %3143, align 8
   %3145 = icmp eq i8 %3144, 110
   %3146 = select i1 %3145, ptr @.str.92, ptr @.str.93
-  %3147 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.91, ptr noundef nonnull %3146) #11
+  %3147 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.91, ptr noundef nonnull %3146) #10
   %3148 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %3149 = load i32, ptr %3148, align 4
-  %3150 = call i32 @scanner_errposition(i32 noundef %3149, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4522, ptr noundef nonnull @__func__.base_yyparse) #11
+  %3150 = call i32 @scanner_errposition(i32 noundef %3149, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 4522, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 3151:                                             ; preds = %._crit_edge
@@ -8057,28 +8038,28 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3153:                                             ; preds = %._crit_edge
-  %3154 = call ptr @palloc(i64 noundef 16) #11
+  %3154 = call ptr @palloc(i64 noundef 16) #10
   store i8 97, ptr %3154, align 8
   %3155 = getelementptr inbounds nuw i8, ptr %3154, i64 8
   store ptr null, ptr %3155, align 8
   br label %.critedge10155
 
 3156:                                             ; preds = %._crit_edge
-  %3157 = call ptr @palloc(i64 noundef 16) #11
+  %3157 = call ptr @palloc(i64 noundef 16) #10
   store i8 114, ptr %3157, align 8
   %3158 = getelementptr inbounds nuw i8, ptr %3157, i64 8
   store ptr null, ptr %3158, align 8
   br label %.critedge10155
 
 3159:                                             ; preds = %._crit_edge
-  %3160 = call ptr @palloc(i64 noundef 16) #11
+  %3160 = call ptr @palloc(i64 noundef 16) #10
   store i8 99, ptr %3160, align 8
   %3161 = getelementptr inbounds nuw i8, ptr %3160, i64 8
   store ptr null, ptr %3161, align 8
   br label %.critedge10155
 
 3162:                                             ; preds = %._crit_edge
-  %3163 = call ptr @palloc(i64 noundef 16) #11
+  %3163 = call ptr @palloc(i64 noundef 16) #10
   store i8 110, ptr %3163, align 8
   %3164 = load ptr, ptr %.210001, align 8
   %3165 = getelementptr inbounds nuw i8, ptr %3163, i64 8
@@ -8086,7 +8067,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3166:                                             ; preds = %._crit_edge
-  %3167 = call ptr @palloc(i64 noundef 16) #11
+  %3167 = call ptr @palloc(i64 noundef 16) #10
   store i8 100, ptr %3167, align 8
   %3168 = load ptr, ptr %.210001, align 8
   %3169 = getelementptr inbounds nuw i8, ptr %3167, i64 8
@@ -8103,7 +8084,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3175:                                             ; preds = %._crit_edge
-  %3176 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3176 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 97, ptr %3176, align 4
   %3177 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3178 = load ptr, ptr %3177, align 8
@@ -8124,18 +8105,18 @@ sub_1:                                            ; preds = %sub_0
 
 3189:                                             ; preds = %._crit_edge
   %3190 = load ptr, ptr %.210001, align 8
-  %3191 = call ptr @list_make1_impl(i32 noundef 1, ptr %3190) #11
+  %3191 = call ptr @list_make1_impl(i32 noundef 1, ptr %3190) #10
   br label %.critedge10155
 
 3192:                                             ; preds = %._crit_edge
   %3193 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3194 = load ptr, ptr %3193, align 8
   %3195 = load ptr, ptr %.210001, align 8
-  %3196 = call ptr @lappend(ptr noundef %3194, ptr noundef %3195) #11
+  %3196 = call ptr @lappend(ptr noundef %3194, ptr noundef %3195) #10
   br label %.critedge10155
 
 3197:                                             ; preds = %._crit_edge
-  %3198 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %3198 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 96, ptr %3198, align 4
   %3199 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3200 = load ptr, ptr %3199, align 8
@@ -8157,7 +8138,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3211:                                             ; preds = %._crit_edge
-  %3212 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %3212 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 96, ptr %3212, align 4
   %3213 = getelementptr inbounds nuw i8, ptr %3212, i64 8
   store ptr null, ptr %3213, align 8
@@ -8179,7 +8160,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3225:                                             ; preds = %._crit_edge
-  %3226 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %3226 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 96, ptr %3226, align 4
   %3227 = getelementptr inbounds nuw i8, ptr %3226, i64 8
   store ptr null, ptr %3227, align 8
@@ -8248,7 +8229,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3261:                                             ; preds = %._crit_edge
-  %3262 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %3262 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 204, ptr %3262, align 4
   %3263 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %3264 = load ptr, ptr %3263, align 8
@@ -8272,7 +8253,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3276:                                             ; preds = %._crit_edge
-  %3277 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %3277 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 204, ptr %3277, align 4
   %3278 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %3279 = load ptr, ptr %3278, align 8
@@ -8297,18 +8278,18 @@ sub_1:                                            ; preds = %sub_0
 
 3291:                                             ; preds = %._crit_edge
   %3292 = load ptr, ptr %.210001, align 8
-  %3293 = call ptr @list_make1_impl(i32 noundef 1, ptr %3292) #11
+  %3293 = call ptr @list_make1_impl(i32 noundef 1, ptr %3292) #10
   br label %.critedge10155
 
 3294:                                             ; preds = %._crit_edge
   %3295 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3296 = load ptr, ptr %3295, align 8
   %3297 = load ptr, ptr %.210001, align 8
-  %3298 = call ptr @lappend(ptr noundef %3296, ptr noundef %3297) #11
+  %3298 = call ptr @lappend(ptr noundef %3296, ptr noundef %3297) #10
   br label %.critedge10155
 
 3299:                                             ; preds = %._crit_edge
-  %3300 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3300 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 205, ptr %3300, align 4
   %3301 = load ptr, ptr %.210001, align 8
   %3302 = getelementptr inbounds nuw i8, ptr %3300, i64 8
@@ -8318,7 +8299,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3304:                                             ; preds = %._crit_edge
-  %3305 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3305 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 205, ptr %3305, align 4
   %3306 = getelementptr inbounds nuw i8, ptr %3305, i64 8
   store ptr null, ptr %3306, align 8
@@ -8328,7 +8309,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3309:                                             ; preds = %._crit_edge
-  %3310 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3310 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 205, ptr %3310, align 4
   %3311 = getelementptr inbounds nuw i8, ptr %3310, i64 8
   store ptr null, ptr %3311, align 8
@@ -8339,7 +8320,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3315:                                             ; preds = %._crit_edge
-  %3316 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3316 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 206, ptr %3316, align 4
   %3317 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3318 = load ptr, ptr %3317, align 8
@@ -8353,7 +8334,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3323:                                             ; preds = %._crit_edge
-  %3324 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3324 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 206, ptr %3324, align 4
   %3325 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3326 = load ptr, ptr %3325, align 8
@@ -8367,7 +8348,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3331:                                             ; preds = %._crit_edge
-  %3332 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3332 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %3332, align 4
   %3333 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3334 = load ptr, ptr %3333, align 8
@@ -8399,7 +8380,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3353:                                             ; preds = %._crit_edge
-  %3354 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3354 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %3354, align 4
   %3355 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3356 = load ptr, ptr %3355, align 8
@@ -8431,7 +8412,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3375:                                             ; preds = %._crit_edge
-  %3376 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %3376 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 5, ptr %3376, align 4
   %3377 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %3378 = load ptr, ptr %3377, align 8
@@ -8483,7 +8464,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3405:                                             ; preds = %._crit_edge
-  %3406 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3406 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %3406, align 4
   %3407 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3408 = load ptr, ptr %3407, align 8
@@ -8515,7 +8496,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3427:                                             ; preds = %._crit_edge
-  %3428 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3428 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %3428, align 4
   %3429 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3430 = load ptr, ptr %3429, align 8
@@ -8547,7 +8528,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3449:                                             ; preds = %._crit_edge
-  %3450 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %3450 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 5, ptr %3450, align 4
   %3451 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %3452 = load ptr, ptr %3451, align 8
@@ -8591,7 +8572,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3474:                                             ; preds = %._crit_edge
-  %3475 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %3475 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 242, ptr %3475, align 4
   %3476 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3477 = load i8, ptr %3476, align 8, !range !6, !noundef !7
@@ -8608,7 +8589,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3485:                                             ; preds = %._crit_edge
-  %3486 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3486 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 188, ptr %3486, align 4
   %3487 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3488 = load i32, ptr %3487, align 8
@@ -8630,7 +8611,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3499:                                             ; preds = %._crit_edge
-  %3500 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3500 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 188, ptr %3500, align 4
   %3501 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %3502 = load i32, ptr %3501, align 8
@@ -8652,7 +8633,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3513:                                             ; preds = %._crit_edge
-  %3514 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3514 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 189, ptr %3514, align 4
   %3515 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3516 = load ptr, ptr %3515, align 8
@@ -8666,7 +8647,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3521:                                             ; preds = %._crit_edge
-  %3522 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3522 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 189, ptr %3522, align 4
   %3523 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3524 = load ptr, ptr %3523, align 8
@@ -8690,154 +8671,154 @@ sub_1:                                            ; preds = %sub_0
 
 3534:                                             ; preds = %._crit_edge
   %3535 = load ptr, ptr %.210001, align 8
-  %3536 = call ptr @list_make1_impl(i32 noundef 1, ptr %3535) #11
+  %3536 = call ptr @list_make1_impl(i32 noundef 1, ptr %3535) #10
   br label %.critedge10155
 
 3537:                                             ; preds = %._crit_edge
   %3538 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3539 = load ptr, ptr %3538, align 8
   %3540 = load ptr, ptr %.210001, align 8
-  %3541 = call ptr @lappend(ptr noundef %3539, ptr noundef %3540) #11
+  %3541 = call ptr @lappend(ptr noundef %3539, ptr noundef %3540) #10
   br label %.critedge10155
 
 3542:                                             ; preds = %._crit_edge
   %3543 = load ptr, ptr %.210001, align 8
   %3544 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3545 = load i32, ptr %3544, align 4
-  %3546 = call ptr @makeDefElem(ptr noundef nonnull @.str.54, ptr noundef %3543, i32 noundef %3545) #11
+  %3546 = call ptr @makeDefElem(ptr noundef nonnull @.str.54, ptr noundef %3543, i32 noundef %3545) #10
   br label %.critedge10155
 
 3547:                                             ; preds = %._crit_edge
   %3548 = load ptr, ptr %.210001, align 8
   %3549 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3550 = load i32, ptr %3549, align 4
-  %3551 = call ptr @makeDefElem(ptr noundef nonnull @.str.94, ptr noundef %3548, i32 noundef %3550) #11
+  %3551 = call ptr @makeDefElem(ptr noundef nonnull @.str.94, ptr noundef %3548, i32 noundef %3550) #10
   br label %.critedge10155
 
 3552:                                             ; preds = %._crit_edge
-  %3553 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %3553 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %3554 = load i32, ptr %.210013, align 4
-  %3555 = call ptr @makeDefElem(ptr noundef nonnull @.str.95, ptr noundef %3553, i32 noundef %3554) #11
+  %3555 = call ptr @makeDefElem(ptr noundef nonnull @.str.95, ptr noundef %3553, i32 noundef %3554) #10
   br label %.critedge10155
 
 3556:                                             ; preds = %._crit_edge
-  %3557 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %3557 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %3558 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3559 = load i32, ptr %3558, align 4
-  %3560 = call ptr @makeDefElem(ptr noundef nonnull @.str.95, ptr noundef %3557, i32 noundef %3559) #11
+  %3560 = call ptr @makeDefElem(ptr noundef nonnull @.str.95, ptr noundef %3557, i32 noundef %3559) #10
   br label %.critedge10155
 
 3561:                                             ; preds = %._crit_edge
   %3562 = load ptr, ptr %.210001, align 8
   %3563 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %3564 = load i32, ptr %3563, align 4
-  %3565 = call ptr @makeDefElem(ptr noundef nonnull @.str.96, ptr noundef %3562, i32 noundef %3564) #11
+  %3565 = call ptr @makeDefElem(ptr noundef nonnull @.str.96, ptr noundef %3562, i32 noundef %3564) #10
   br label %.critedge10155
 
 3566:                                             ; preds = %._crit_edge
   %3567 = load i32, ptr %.210013, align 4
-  %3568 = call ptr @makeDefElem(ptr noundef nonnull @.str.97, ptr noundef null, i32 noundef %3567) #11
+  %3568 = call ptr @makeDefElem(ptr noundef nonnull @.str.97, ptr noundef null, i32 noundef %3567) #10
   br label %.critedge10155
 
 3569:                                             ; preds = %._crit_edge
   %3570 = load ptr, ptr %.210001, align 8
   %3571 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3572 = load i32, ptr %3571, align 4
-  %3573 = call ptr @makeDefElem(ptr noundef nonnull @.str.98, ptr noundef %3570, i32 noundef %3572) #11
+  %3573 = call ptr @makeDefElem(ptr noundef nonnull @.str.98, ptr noundef %3570, i32 noundef %3572) #10
   br label %.critedge10155
 
 3574:                                             ; preds = %._crit_edge
   %3575 = load ptr, ptr %.210001, align 8
   %3576 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3577 = load i32, ptr %3576, align 4
-  %3578 = call ptr @makeDefElem(ptr noundef nonnull @.str.99, ptr noundef %3575, i32 noundef %3577) #11
+  %3578 = call ptr @makeDefElem(ptr noundef nonnull @.str.99, ptr noundef %3575, i32 noundef %3577) #10
   br label %.critedge10155
 
 3579:                                             ; preds = %._crit_edge
   %3580 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3581 = load i32, ptr %3580, align 4
-  %3582 = call ptr @makeDefElem(ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef %3581) #11
+  %3582 = call ptr @makeDefElem(ptr noundef nonnull @.str.98, ptr noundef null, i32 noundef %3581) #10
   br label %.critedge10155
 
 3583:                                             ; preds = %._crit_edge
   %3584 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3585 = load i32, ptr %3584, align 4
-  %3586 = call ptr @makeDefElem(ptr noundef nonnull @.str.99, ptr noundef null, i32 noundef %3585) #11
+  %3586 = call ptr @makeDefElem(ptr noundef nonnull @.str.99, ptr noundef null, i32 noundef %3585) #10
   br label %.critedge10155
 
 3587:                                             ; preds = %._crit_edge
   %3588 = load ptr, ptr %.210001, align 8
   %3589 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %3590 = load i32, ptr %3589, align 4
-  %3591 = call ptr @makeDefElem(ptr noundef nonnull @.str.55, ptr noundef %3588, i32 noundef %3590) #11
+  %3591 = call ptr @makeDefElem(ptr noundef nonnull @.str.55, ptr noundef %3588, i32 noundef %3590) #10
   br label %.critedge10155
 
 3592:                                             ; preds = %._crit_edge
   %3593 = load ptr, ptr %.210001, align 8
   %3594 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %3595 = load i32, ptr %3594, align 4
-  %3596 = call ptr @makeDefElem(ptr noundef nonnull @.str.100, ptr noundef %3593, i32 noundef %3595) #11
+  %3596 = call ptr @makeDefElem(ptr noundef nonnull @.str.100, ptr noundef %3593, i32 noundef %3595) #10
   br label %.critedge10155
 
 3597:                                             ; preds = %._crit_edge
   %3598 = load ptr, ptr %.210001, align 8
   %3599 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %3600 = load i32, ptr %3599, align 4
-  %3601 = call ptr @makeDefElem(ptr noundef nonnull @.str.101, ptr noundef %3598, i32 noundef %3600) #11
+  %3601 = call ptr @makeDefElem(ptr noundef nonnull @.str.101, ptr noundef %3598, i32 noundef %3600) #10
   br label %.critedge10155
 
 3602:                                             ; preds = %._crit_edge
   %3603 = load i32, ptr %.210013, align 4
-  %3604 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef %3603) #11
+  %3604 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef null, i32 noundef %3603) #10
   br label %.critedge10155
 
 3605:                                             ; preds = %._crit_edge
   %3606 = load ptr, ptr %.210001, align 8
   %3607 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %3608 = load i32, ptr %3607, align 4
-  %3609 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef %3606, i32 noundef %3608) #11
+  %3609 = call ptr @makeDefElem(ptr noundef nonnull @.str.53, ptr noundef %3606, i32 noundef %3608) #10
   br label %.critedge10155
 
 3610:                                             ; preds = %._crit_edge
   %3611 = load i32, ptr %.210013, align 4
-  %3612 = call ptr @makeDefElem(ptr noundef nonnull @.str.102, ptr noundef null, i32 noundef %3611) #11
+  %3612 = call ptr @makeDefElem(ptr noundef nonnull @.str.102, ptr noundef null, i32 noundef %3611) #10
   br label %.critedge10155
 
 3613:                                             ; preds = %._crit_edge
   %3614 = load ptr, ptr %.210001, align 8
-  %3615 = call ptr @makeFloat(ptr noundef %3614) #11
+  %3615 = call ptr @makeFloat(ptr noundef %3614) #10
   br label %.critedge10155
 
 3616:                                             ; preds = %._crit_edge
   %3617 = load ptr, ptr %.210001, align 8
-  %3618 = call ptr @makeFloat(ptr noundef %3617) #11
+  %3618 = call ptr @makeFloat(ptr noundef %3617) #10
   br label %.critedge10155
 
 3619:                                             ; preds = %._crit_edge
   %3620 = load ptr, ptr %.210001, align 8
-  %3621 = call ptr @makeFloat(ptr noundef %3620) #11
+  %3621 = call ptr @makeFloat(ptr noundef %3620) #10
   call fastcc void @doNegateFloat(ptr noundef %3621)
   br label %.critedge10155
 
 3622:                                             ; preds = %._crit_edge
   %3623 = load i32, ptr %.210001, align 8
-  %3624 = call ptr @makeInteger(i32 noundef %3623) #11
+  %3624 = call ptr @makeInteger(i32 noundef %3623) #10
   br label %.critedge10155
 
 3625:                                             ; preds = %._crit_edge
   %3626 = load ptr, ptr %.210001, align 8
-  %3627 = call ptr @list_make1_impl(i32 noundef 1, ptr %3626) #11
+  %3627 = call ptr @list_make1_impl(i32 noundef 1, ptr %3626) #10
   br label %.critedge10155
 
 3628:                                             ; preds = %._crit_edge
   %3629 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3630 = load ptr, ptr %3629, align 8
   %3631 = load ptr, ptr %.210001, align 8
-  %3632 = call ptr @lappend(ptr noundef %3630, ptr noundef %3631) #11
+  %3632 = call ptr @lappend(ptr noundef %3630, ptr noundef %3631) #10
   br label %.critedge10155
 
 3633:                                             ; preds = %._crit_edge
-  %3634 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3634 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 165, ptr %3634, align 4
   %3635 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %3636 = load i8, ptr %3635, align 8, !range !6, !noundef !7
@@ -8851,7 +8832,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3641:                                             ; preds = %._crit_edge
-  %3642 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %3642 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 183, ptr %3642, align 4
   %3643 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %3644 = load i8, ptr %3643, align 8, !range !6, !noundef !7
@@ -8893,16 +8874,16 @@ sub_1:                                            ; preds = %sub_0
 
 3666:                                             ; preds = %._crit_edge
   %3667 = load ptr, ptr %.210001, align 8
-  %3668 = call ptr @makeString(ptr noundef %3667) #11
-  %3669 = call ptr @list_make1_impl(i32 noundef 1, ptr %3668) #11
+  %3668 = call ptr @makeString(ptr noundef %3667) #10
+  %3669 = call ptr @list_make1_impl(i32 noundef 1, ptr %3668) #10
   br label %.critedge10155
 
 3670:                                             ; preds = %._crit_edge
   %3671 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3672 = load ptr, ptr %3671, align 8
-  %3673 = call ptr @makeString(ptr noundef %3672) #11
+  %3673 = call ptr @makeString(ptr noundef %3672) #10
   %3674 = load ptr, ptr %.210001, align 8
-  %3675 = call ptr @lcons(ptr noundef %3673, ptr noundef %3674) #11
+  %3675 = call ptr @lcons(ptr noundef %3673, ptr noundef %3674) #10
   br label %.critedge10155
 
 3676:                                             ; preds = %._crit_edge
@@ -8918,7 +8899,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3682:                                             ; preds = %._crit_edge
-  %3683 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %3683 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 161, ptr %3683, align 4
   %3684 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %3685 = load ptr, ptr %3684, align 8
@@ -8942,7 +8923,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3697:                                             ; preds = %._crit_edge
-  %3698 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3698 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 162, ptr %3698, align 4
   %3699 = load ptr, ptr %.210001, align 8
   %3700 = getelementptr inbounds nuw i8, ptr %3698, i64 8
@@ -8952,7 +8933,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3702:                                             ; preds = %._crit_edge
-  %3703 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3703 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 162, ptr %3703, align 4
   %3704 = load ptr, ptr %.210001, align 8
   %3705 = getelementptr inbounds nuw i8, ptr %3703, i64 8
@@ -8962,7 +8943,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3707:                                             ; preds = %._crit_edge
-  %3708 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3708 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 165, ptr %3708, align 4
   %3709 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3710 = load ptr, ptr %3709, align 8
@@ -8976,7 +8957,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3715:                                             ; preds = %._crit_edge
-  %3716 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3716 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 165, ptr %3716, align 4
   %3717 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3718 = load ptr, ptr %3717, align 8
@@ -8993,44 +8974,43 @@ sub_1:                                            ; preds = %sub_0
   %3724 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3725 = load ptr, ptr %3724, align 8
   %3726 = load ptr, ptr %.210001, align 8
-  %3727 = call ptr @lappend(ptr noundef %3725, ptr noundef %3726) #11
+  %3727 = call ptr @lappend(ptr noundef %3725, ptr noundef %3726) #10
   br label %.critedge10155
 
 3728:                                             ; preds = %._crit_edge
   %3729 = load ptr, ptr %.210001, align 8
-  %3730 = call ptr @makeString(ptr noundef %3729) #11
+  %3730 = call ptr @makeString(ptr noundef %3729) #10
   %3731 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3732 = load i32, ptr %3731, align 4
-  %3733 = call ptr @makeDefElem(ptr noundef nonnull @.str.103, ptr noundef %3730, i32 noundef %3732) #11
+  %3733 = call ptr @makeDefElem(ptr noundef nonnull @.str.103, ptr noundef %3730, i32 noundef %3732) #10
   br label %.critedge10155
 
 3734:                                             ; preds = %._crit_edge
   %3735 = load ptr, ptr %.210001, align 8
-  %3736 = call ptr @makeString(ptr noundef %3735) #11
+  %3736 = call ptr @makeString(ptr noundef %3735) #10
   %3737 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3738 = load i32, ptr %3737, align 4
-  %3739 = call ptr @makeDefElem(ptr noundef nonnull @.str.104, ptr noundef %3736, i32 noundef %3738) #11
+  %3739 = call ptr @makeDefElem(ptr noundef nonnull @.str.104, ptr noundef %3736, i32 noundef %3738) #10
   br label %.critedge10155
 
 3740:                                             ; preds = %._crit_edge
-  %3741 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %3741)
-  %3742 = call i32 @errcode(i32 noundef 1088) #11
-  %3743 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105) #11
+  %3741 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %3742 = call i32 @errcode(i32 noundef 1088) #10
+  %3743 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.105) #10
   %3744 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3745 = load i32, ptr %3744, align 4
-  %3746 = call i32 @scanner_errposition(i32 noundef %3745, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5240, ptr noundef nonnull @__func__.base_yyparse) #11
+  %3746 = call i32 @scanner_errposition(i32 noundef %3745, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5240, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 3747:                                             ; preds = %._crit_edge
-  %3748 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %3748 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %3749 = load i32, ptr %.210013, align 4
-  %3750 = call ptr @makeDefElem(ptr noundef nonnull @.str.106, ptr noundef %3748, i32 noundef %3749) #11
+  %3750 = call ptr @makeDefElem(ptr noundef nonnull @.str.106, ptr noundef %3748, i32 noundef %3749) #10
   br label %.critedge10155
 
 3751:                                             ; preds = %._crit_edge
-  %3752 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %3752 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 166, ptr %3752, align 4
   %3753 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3754 = load ptr, ptr %3753, align 8
@@ -9045,19 +9025,19 @@ sub_1:                                            ; preds = %sub_0
   %3759 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3760 = load ptr, ptr %3759, align 8
   %3761 = load ptr, ptr %.210001, align 8
-  %3762 = call ptr @lappend(ptr noundef %3760, ptr noundef %3761) #11
+  %3762 = call ptr @lappend(ptr noundef %3760, ptr noundef %3761) #10
   br label %.critedge10155
 
 3763:                                             ; preds = %._crit_edge
   %3764 = load ptr, ptr %.210001, align 8
-  %3765 = call ptr @makeString(ptr noundef %3764) #11
+  %3765 = call ptr @makeString(ptr noundef %3764) #10
   %3766 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3767 = load i32, ptr %3766, align 4
-  %3768 = call ptr @makeDefElem(ptr noundef nonnull @.str.104, ptr noundef %3765, i32 noundef %3767) #11
+  %3768 = call ptr @makeDefElem(ptr noundef nonnull @.str.104, ptr noundef %3765, i32 noundef %3767) #10
   br label %.critedge10155
 
 3769:                                             ; preds = %._crit_edge
-  %3770 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3770 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3770, align 4
   %3771 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3772 = load ptr, ptr %3771, align 8
@@ -9072,13 +9052,13 @@ sub_1:                                            ; preds = %sub_0
   %3779 = getelementptr inbounds nuw i8, ptr %3770, i64 20
   store i32 %3778, ptr %3779, align 4
   %3780 = load ptr, ptr %.210001, align 8
-  %3781 = call ptr @makeString(ptr noundef %3780) #11
+  %3781 = call ptr @makeString(ptr noundef %3780) #10
   %3782 = getelementptr inbounds nuw i8, ptr %3770, i64 24
   store ptr %3781, ptr %3782, align 8
   br label %.critedge10155
 
 3783:                                             ; preds = %._crit_edge
-  %3784 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3784 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3784, align 4
   %3785 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3786 = load ptr, ptr %3785, align 8
@@ -9098,7 +9078,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3796:                                             ; preds = %._crit_edge
-  %3797 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3797 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3797, align 4
   %3798 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3799 = load ptr, ptr %3798, align 8
@@ -9116,7 +9096,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3807:                                             ; preds = %._crit_edge
-  %3808 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3808 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3808, align 4
   %3809 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %3810 = load ptr, ptr %3809, align 8
@@ -9132,13 +9112,13 @@ sub_1:                                            ; preds = %sub_0
   %3817 = load ptr, ptr %3816, align 8
   %3818 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3819 = load ptr, ptr %3818, align 8
-  %3820 = call ptr @list_make2_impl(i32 noundef 1, ptr %3817, ptr %3819) #11
+  %3820 = call ptr @list_make2_impl(i32 noundef 1, ptr %3817, ptr %3819) #10
   %3821 = getelementptr inbounds nuw i8, ptr %3808, i64 24
   store ptr %3820, ptr %3821, align 8
   br label %.critedge10155
 
 3822:                                             ; preds = %._crit_edge
-  %3823 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3823 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3823, align 4
   %3824 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3825 = load ptr, ptr %3824, align 8
@@ -9156,7 +9136,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3833:                                             ; preds = %._crit_edge
-  %3834 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3834 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3834, align 4
   %3835 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3836 = load ptr, ptr %3835, align 8
@@ -9174,7 +9154,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3844:                                             ; preds = %._crit_edge
-  %3845 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3845 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3845, align 4
   %3846 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3847 = load ptr, ptr %3846, align 8
@@ -9192,7 +9172,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3855:                                             ; preds = %._crit_edge
-  %3856 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3856 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3856, align 4
   %3857 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %3858 = load ptr, ptr %3857, align 8
@@ -9205,16 +9185,16 @@ sub_1:                                            ; preds = %sub_0
   %3863 = getelementptr inbounds nuw i8, ptr %3856, i64 20
   store i32 24, ptr %3863, align 4
   %3864 = load ptr, ptr %.210001, align 8
-  %3865 = call ptr @makeString(ptr noundef %3864) #11
+  %3865 = call ptr @makeString(ptr noundef %3864) #10
   %3866 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3867 = load ptr, ptr %3866, align 8
-  %3868 = call ptr @lcons(ptr noundef %3865, ptr noundef %3867) #11
+  %3868 = call ptr @lcons(ptr noundef %3865, ptr noundef %3867) #10
   %3869 = getelementptr inbounds nuw i8, ptr %3856, i64 24
   store ptr %3868, ptr %3869, align 8
   br label %.critedge10155
 
 3870:                                             ; preds = %._crit_edge
-  %3871 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3871 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3871, align 4
   %3872 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %3873 = load ptr, ptr %3872, align 8
@@ -9227,16 +9207,16 @@ sub_1:                                            ; preds = %sub_0
   %3878 = getelementptr inbounds nuw i8, ptr %3871, i64 20
   store i32 26, ptr %3878, align 4
   %3879 = load ptr, ptr %.210001, align 8
-  %3880 = call ptr @makeString(ptr noundef %3879) #11
+  %3880 = call ptr @makeString(ptr noundef %3879) #10
   %3881 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3882 = load ptr, ptr %3881, align 8
-  %3883 = call ptr @lcons(ptr noundef %3880, ptr noundef %3882) #11
+  %3883 = call ptr @lcons(ptr noundef %3880, ptr noundef %3882) #10
   %3884 = getelementptr inbounds nuw i8, ptr %3871, i64 24
   store ptr %3883, ptr %3884, align 8
   br label %.critedge10155
 
 3885:                                             ; preds = %._crit_edge
-  %3886 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3886 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3886, align 4
   %3887 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3888 = load ptr, ptr %3887, align 8
@@ -9254,7 +9234,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3896:                                             ; preds = %._crit_edge
-  %3897 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3897 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3897, align 4
   %3898 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3899 = load ptr, ptr %3898, align 8
@@ -9272,7 +9252,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3907:                                             ; preds = %._crit_edge
-  %3908 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3908 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3908, align 4
   %3909 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %3910 = load ptr, ptr %3909, align 8
@@ -9287,14 +9267,14 @@ sub_1:                                            ; preds = %sub_0
   %3916 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3917 = load ptr, ptr %3916, align 8
   %3918 = load ptr, ptr %.210001, align 8
-  %3919 = call ptr @makeString(ptr noundef %3918) #11
-  %3920 = call ptr @list_make2_impl(i32 noundef 1, ptr %3917, ptr %3919) #11
+  %3919 = call ptr @makeString(ptr noundef %3918) #10
+  %3920 = call ptr @list_make2_impl(i32 noundef 1, ptr %3917, ptr %3919) #10
   %3921 = getelementptr inbounds nuw i8, ptr %3908, i64 24
   store ptr %3920, ptr %3921, align 8
   br label %.critedge10155
 
 3922:                                             ; preds = %._crit_edge
-  %3923 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3923 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 167, ptr %3923, align 4
   %3924 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %3925 = load ptr, ptr %3924, align 8
@@ -9312,7 +9292,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3933:                                             ; preds = %._crit_edge
-  %3934 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3934 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 168, ptr %3934, align 4
   %3935 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3936 = load ptr, ptr %3935, align 8
@@ -9331,38 +9311,38 @@ sub_1:                                            ; preds = %sub_0
   %3944 = load ptr, ptr %.210001, align 8
   %3945 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3946 = load i32, ptr %3945, align 4
-  %3947 = call ptr @makeDefElem(ptr noundef nonnull @.str.107, ptr noundef %3944, i32 noundef %3946) #11
+  %3947 = call ptr @makeDefElem(ptr noundef nonnull @.str.107, ptr noundef %3944, i32 noundef %3946) #10
   br label %.critedge10155
 
 3948:                                             ; preds = %._crit_edge
   %3949 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3950 = load i32, ptr %3949, align 4
-  %3951 = call ptr @makeDefElem(ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef %3950) #11
+  %3951 = call ptr @makeDefElem(ptr noundef nonnull @.str.107, ptr noundef null, i32 noundef %3950) #10
   br label %.critedge10155
 
 3952:                                             ; preds = %._crit_edge
   %3953 = load ptr, ptr %.210001, align 8
   %3954 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3955 = load i32, ptr %3954, align 4
-  %3956 = call ptr @makeDefElem(ptr noundef nonnull @.str.108, ptr noundef %3953, i32 noundef %3955) #11
+  %3956 = call ptr @makeDefElem(ptr noundef nonnull @.str.108, ptr noundef %3953, i32 noundef %3955) #10
   br label %.critedge10155
 
 3957:                                             ; preds = %._crit_edge
   %3958 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %3959 = load i32, ptr %3958, align 4
-  %3960 = call ptr @makeDefElem(ptr noundef nonnull @.str.108, ptr noundef null, i32 noundef %3959) #11
+  %3960 = call ptr @makeDefElem(ptr noundef nonnull @.str.108, ptr noundef null, i32 noundef %3959) #10
   br label %.critedge10155
 
 3961:                                             ; preds = %._crit_edge
   %3962 = load ptr, ptr %.210001, align 8
-  %3963 = call ptr @list_make1_impl(i32 noundef 1, ptr %3962) #11
+  %3963 = call ptr @list_make1_impl(i32 noundef 1, ptr %3962) #10
   br label %.critedge10155
 
 3964:                                             ; preds = %._crit_edge
   %3965 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3966 = load ptr, ptr %3965, align 8
   %3967 = load ptr, ptr %.210001, align 8
-  %3968 = call ptr @lappend(ptr noundef %3966, ptr noundef %3967) #11
+  %3968 = call ptr @lappend(ptr noundef %3966, ptr noundef %3967) #10
   br label %.critedge10155
 
 3969:                                             ; preds = %._crit_edge
@@ -9370,7 +9350,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3971:                                             ; preds = %._crit_edge
-  %3972 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3972 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 169, ptr %3972, align 4
   %3973 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3974 = load ptr, ptr %3973, align 8
@@ -9386,7 +9366,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 3981:                                             ; preds = %._crit_edge
-  %3982 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %3982 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 169, ptr %3982, align 4
   %3983 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %3984 = load ptr, ptr %3983, align 8
@@ -9406,14 +9386,14 @@ sub_1:                                            ; preds = %sub_0
 
 3992:                                             ; preds = %._crit_edge
   %3993 = load ptr, ptr %.210001, align 8
-  %3994 = call ptr @list_make1_impl(i32 noundef 1, ptr %3993) #11
+  %3994 = call ptr @list_make1_impl(i32 noundef 1, ptr %3993) #10
   br label %.critedge10155
 
 3995:                                             ; preds = %._crit_edge
   %3996 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %3997 = load ptr, ptr %3996, align 8
   %3998 = load ptr, ptr %.210001, align 8
-  %3999 = call ptr @lappend(ptr noundef %3997, ptr noundef %3998) #11
+  %3999 = call ptr @lappend(ptr noundef %3997, ptr noundef %3998) #10
   br label %.critedge10155
 
 4000:                                             ; preds = %._crit_edge
@@ -9423,14 +9403,14 @@ sub_1:                                            ; preds = %sub_0
 
 4003:                                             ; preds = %._crit_edge
   %4004 = load ptr, ptr %.210001, align 8
-  %4005 = call ptr @list_make1_impl(i32 noundef 1, ptr %4004) #11
+  %4005 = call ptr @list_make1_impl(i32 noundef 1, ptr %4004) #10
   br label %.critedge10155
 
 4006:                                             ; preds = %._crit_edge
   %4007 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4008 = load ptr, ptr %4007, align 8
   %4009 = load ptr, ptr %.210001, align 8
-  %4010 = call ptr @lappend(ptr noundef %4008, ptr noundef %4009) #11
+  %4010 = call ptr @lappend(ptr noundef %4008, ptr noundef %4009) #10
   br label %.critedge10155
 
 4011:                                             ; preds = %._crit_edge
@@ -9452,7 +9432,7 @@ sub_1:                                            ; preds = %sub_0
 4019:                                             ; preds = %._crit_edge
   %4020 = load ptr, ptr %.210001, align 8
   %4021 = load i32, ptr %.210013, align 4
-  %4022 = call ptr @makeDefElemExtended(ptr noundef null, ptr noundef %4020, ptr noundef null, i32 noundef 3, i32 noundef %4021) #11
+  %4022 = call ptr @makeDefElemExtended(ptr noundef null, ptr noundef %4020, ptr noundef null, i32 noundef 3, i32 noundef %4021) #10
   br label %.critedge10155
 
 4023:                                             ; preds = %._crit_edge
@@ -9461,7 +9441,7 @@ sub_1:                                            ; preds = %sub_0
   %4026 = load ptr, ptr %.210001, align 8
   %4027 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %4028 = load i32, ptr %4027, align 4
-  %4029 = call ptr @makeDefElem(ptr noundef %4025, ptr noundef %4026, i32 noundef %4028) #11
+  %4029 = call ptr @makeDefElem(ptr noundef %4025, ptr noundef %4026, i32 noundef %4028) #10
   br label %.critedge10155
 
 4030:                                             ; preds = %._crit_edge
@@ -9470,11 +9450,11 @@ sub_1:                                            ; preds = %sub_0
 
 4032:                                             ; preds = %._crit_edge
   %4033 = load ptr, ptr %.210001, align 8
-  %4034 = call ptr @makeString(ptr noundef %4033) #11
+  %4034 = call ptr @makeString(ptr noundef %4033) #10
   br label %.critedge10155
 
 4035:                                             ; preds = %._crit_edge
-  %4036 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %4036 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 170, ptr %4036, align 4
   %4037 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %4038 = load ptr, ptr %4037, align 8
@@ -9500,7 +9480,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4052:                                             ; preds = %._crit_edge
-  %4053 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %4053 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 170, ptr %4053, align 4
   %4054 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %4055 = load ptr, ptr %4054, align 8
@@ -9538,7 +9518,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4075:                                             ; preds = %._crit_edge
-  %4076 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4076 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 171, ptr %4076, align 4
   %4077 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4078 = load ptr, ptr %4077, align 8
@@ -9556,7 +9536,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4086:                                             ; preds = %._crit_edge
-  %4087 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4087 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 171, ptr %4087, align 4
   %4088 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %4089 = load ptr, ptr %4088, align 8
@@ -9570,7 +9550,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4094:                                             ; preds = %._crit_edge
-  %4095 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4095 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 171, ptr %4095, align 4
   %4096 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %4097 = load ptr, ptr %4096, align 8
@@ -9582,7 +9562,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4101:                                             ; preds = %._crit_edge
-  %4102 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %4102 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 172, ptr %4102, align 4
   %4103 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %4104 = load ptr, ptr %4103, align 8
@@ -9619,7 +9599,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4124:                                             ; preds = %._crit_edge
-  %4125 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %4125 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 172, ptr %4125, align 4
   %4126 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %4127 = load ptr, ptr %4126, align 8
@@ -9656,7 +9636,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4147:                                             ; preds = %._crit_edge
-  %4148 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %4148 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 172, ptr %4148, align 4
   %4149 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %4150 = load ptr, ptr %4149, align 8
@@ -9667,7 +9647,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %4152, ptr %4153, align 8
   %4154 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %4155 = load ptr, ptr %4154, align 8
-  %4156 = call ptr @list_make1_impl(i32 noundef 1, ptr %4155) #11
+  %4156 = call ptr @list_make1_impl(i32 noundef 1, ptr %4155) #10
   %4157 = getelementptr inbounds nuw i8, ptr %4148, i64 24
   store ptr %4156, ptr %4157, align 8
   %4158 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -9698,7 +9678,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4174:                                             ; preds = %._crit_edge
-  %4175 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %4175 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 172, ptr %4175, align 4
   %4176 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %4177 = load ptr, ptr %4176, align 8
@@ -9709,7 +9689,7 @@ sub_1:                                            ; preds = %sub_0
   store ptr %4179, ptr %4180, align 8
   %4181 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %4182 = load ptr, ptr %4181, align 8
-  %4183 = call ptr @list_make1_impl(i32 noundef 1, ptr %4182) #11
+  %4183 = call ptr @list_make1_impl(i32 noundef 1, ptr %4182) #10
   %4184 = getelementptr inbounds nuw i8, ptr %4175, i64 24
   store ptr %4183, ptr %4184, align 8
   %4185 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -9740,7 +9720,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4201:                                             ; preds = %._crit_edge
-  %4202 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %4202 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 176, ptr %4202, align 4
   %4203 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %4204 = load ptr, ptr %4203, align 8
@@ -9784,7 +9764,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4228:                                             ; preds = %._crit_edge
-  %4229 = call ptr @palloc(i64 noundef 16) #11
+  %4229 = call ptr @palloc(i64 noundef 16) #10
   %4230 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %4231 = load i32, ptr %4230, align 8
   store i32 %4231, ptr %4229, align 8
@@ -9795,14 +9775,14 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4235:                                             ; preds = %._crit_edge
-  %4236 = call ptr @palloc(i64 noundef 16) #11
+  %4236 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %4236, align 8
   %4237 = getelementptr inbounds nuw i8, ptr %4236, i64 8
   store ptr null, ptr %4237, align 8
   br label %.critedge10155
 
 4238:                                             ; preds = %._crit_edge
-  %4239 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4239 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 173, ptr %4239, align 4
   %4240 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %4241 = load ptr, ptr %4240, align 8
@@ -9820,7 +9800,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4249:                                             ; preds = %._crit_edge
-  %4250 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4250 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 173, ptr %4250, align 4
   %4251 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %4252 = load ptr, ptr %4251, align 8
@@ -9843,7 +9823,7 @@ sub_1:                                            ; preds = %sub_0
 
 4262:                                             ; preds = %._crit_edge
   %4263 = load i32, ptr %.210013, align 4
-  %4264 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4264 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %4264, align 4
   %4265 = getelementptr inbounds nuw i8, ptr %4264, i64 4
   store i32 2, ptr %4265, align 4
@@ -9852,7 +9832,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4267:                                             ; preds = %._crit_edge
-  %4268 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %4268 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 175, ptr %4268, align 4
   %4269 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4270 = load ptr, ptr %4269, align 8
@@ -9866,7 +9846,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4275:                                             ; preds = %._crit_edge
-  %4276 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %4276 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 175, ptr %4276, align 4
   %4277 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4278 = load ptr, ptr %4277, align 8
@@ -9880,7 +9860,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4283:                                             ; preds = %._crit_edge
-  %4284 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %4284 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 174, ptr %4284, align 4
   %4285 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %4286 = load ptr, ptr %4285, align 8
@@ -9896,7 +9876,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4293:                                             ; preds = %._crit_edge
-  %4294 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %4294 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 177, ptr %4294, align 4
   %4295 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %4296 = load ptr, ptr %4295, align 8
@@ -9928,7 +9908,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4315:                                             ; preds = %._crit_edge
-  %4316 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4316 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 178, ptr %4316, align 4
   %4317 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %4318 = load ptr, ptr %4317, align 8
@@ -9966,13 +9946,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4339:                                             ; preds = %._crit_edge
-  %4340 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4340 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %4340, align 4
   %4341 = getelementptr inbounds nuw i8, ptr %4340, i64 4
   store i32 4, ptr %4341, align 4
   %4342 = getelementptr inbounds nuw i8, ptr %4340, i64 16
   store i32 -1, ptr %4342, align 8
-  %4343 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %4340) #11
+  %4343 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %4340) #10
   br label %.critedge10155
 
 4344:                                             ; preds = %._crit_edge
@@ -9981,7 +9961,7 @@ sub_1:                                            ; preds = %sub_0
 
 4346:                                             ; preds = %._crit_edge
   %4347 = load ptr, ptr %.210001, align 8
-  %4348 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4347, ptr noundef nonnull dereferenceable(11) @.str.109) #13
+  %4348 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4347, ptr noundef nonnull dereferenceable(11) @.str.109) #12
   %4349 = icmp eq i32 %4348, 0
   br i1 %4349, label %4350, label %4353
 
@@ -9993,7 +9973,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4353:                                             ; preds = %4346
-  %4354 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4347, ptr noundef nonnull dereferenceable(12) @.str.110) #13
+  %4354 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4347, ptr noundef nonnull dereferenceable(12) @.str.110) #12
   %4355 = icmp eq i32 %4354, 0
   br i1 %4355, label %4356, label %4359
 
@@ -10004,15 +9984,14 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4359:                                             ; preds = %4353
-  %4360 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %4360)
-  %4361 = call i32 @errcode(i32 noundef 16801924) #11
+  %4360 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %4361 = call i32 @errcode(i32 noundef 16801924) #10
   %4362 = load ptr, ptr %.210001, align 8
-  %4363 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.111, ptr noundef %4362) #11
-  %4364 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.112) #11
+  %4363 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.111, ptr noundef %4362) #10
+  %4364 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.112) #10
   %4365 = load i32, ptr %.210013, align 4
-  %4366 = call i32 @scanner_errposition(i32 noundef %4365, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5939, ptr noundef nonnull @__func__.base_yyparse) #11
+  %4366 = call i32 @scanner_errposition(i32 noundef %4365, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 5939, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 4367:                                             ; preds = %._crit_edge
@@ -10042,7 +10021,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4377:                                             ; preds = %._crit_edge
-  %4378 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %4378 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 179, ptr %4378, align 4
   %4379 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %4380 = load ptr, ptr %4379, align 8
@@ -10072,7 +10051,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4393:                                             ; preds = %._crit_edge
-  %4394 = call noundef ptr @palloc0(i64 noundef 88) #11
+  %4394 = call noundef ptr @palloc0(i64 noundef 88) #10
   store i32 180, ptr %4394, align 4
   %4395 = getelementptr inbounds i8, ptr %.210001, i64 -120
   %4396 = load i8, ptr %4395, align 8, !range !6, !noundef !7
@@ -10139,7 +10118,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4440:                                             ; preds = %._crit_edge
-  %4441 = call noundef ptr @palloc0(i64 noundef 88) #11
+  %4441 = call noundef ptr @palloc0(i64 noundef 88) #10
   store i32 180, ptr %4441, align 4
   %4442 = getelementptr inbounds i8, ptr %.210001, i64 -152
   %4443 = load i8, ptr %4442, align 8, !range !6, !noundef !7
@@ -10149,14 +10128,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %4444, label %4446, label %4453
 
 4446:                                             ; preds = %4440
-  %4447 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %4447)
-  %4448 = call i32 @errcode(i32 noundef 1088) #11
-  %4449 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117) #11
+  %4447 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %4448 = call i32 @errcode(i32 noundef 1088) #10
+  %4449 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117) #10
   %4450 = getelementptr inbounds i8, ptr %.210013, i64 -80
   %4451 = load i32, ptr %4450, align 4
-  %4452 = call i32 @scanner_errposition(i32 noundef %4451, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6024, ptr noundef nonnull @__func__.base_yyparse) #11
+  %4452 = call i32 @scanner_errposition(i32 noundef %4451, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6024, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 4453:                                             ; preds = %4440
@@ -10261,7 +10239,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10121, label %4520, label %4519
 
 4519:                                             ; preds = %4506
-  call void @scanner_yyerror(ptr noundef nonnull @.str.119, ptr noundef %0) #14
+  call void @scanner_yyerror(ptr noundef nonnull @.str.119, ptr noundef %0) #13
   unreachable
 
 4520:                                             ; preds = %4506
@@ -10270,35 +10248,35 @@ sub_1:                                            ; preds = %sub_0
   %4523 = load ptr, ptr %4522, align 8
   %4524 = load ptr, ptr %4521, align 8
   %4525 = or i32 %4517, %4512
-  %4526 = call ptr @makeInteger(i32 noundef %4525) #11
-  %4527 = call ptr @list_concat(ptr noundef %4523, ptr noundef %4524) #11
-  %4528 = call ptr @list_make2_impl(i32 noundef 1, ptr %4526, ptr %4527) #11
+  %4526 = call ptr @makeInteger(i32 noundef %4525) #10
+  %4527 = call ptr @list_concat(ptr noundef %4523, ptr noundef %4524) #10
+  %4528 = call ptr @list_make2_impl(i32 noundef 1, ptr %4526, ptr %4527) #10
   br label %.critedge10155
 
 4529:                                             ; preds = %._crit_edge
-  %4530 = call ptr @makeInteger(i32 noundef 4) #11
-  %4531 = call ptr @list_make2_impl(i32 noundef 1, ptr %4530, ptr null) #11
+  %4530 = call ptr @makeInteger(i32 noundef 4) #10
+  %4531 = call ptr @list_make2_impl(i32 noundef 1, ptr %4530, ptr null) #10
   br label %.critedge10155
 
 4532:                                             ; preds = %._crit_edge
-  %4533 = call ptr @makeInteger(i32 noundef 8) #11
-  %4534 = call ptr @list_make2_impl(i32 noundef 1, ptr %4533, ptr null) #11
+  %4533 = call ptr @makeInteger(i32 noundef 8) #10
+  %4534 = call ptr @list_make2_impl(i32 noundef 1, ptr %4533, ptr null) #10
   br label %.critedge10155
 
 4535:                                             ; preds = %._crit_edge
-  %4536 = call ptr @makeInteger(i32 noundef 16) #11
-  %4537 = call ptr @list_make2_impl(i32 noundef 1, ptr %4536, ptr null) #11
+  %4536 = call ptr @makeInteger(i32 noundef 16) #10
+  %4537 = call ptr @list_make2_impl(i32 noundef 1, ptr %4536, ptr null) #10
   br label %.critedge10155
 
 4538:                                             ; preds = %._crit_edge
-  %4539 = call ptr @makeInteger(i32 noundef 16) #11
+  %4539 = call ptr @makeInteger(i32 noundef 16) #10
   %4540 = load ptr, ptr %.210001, align 8
-  %4541 = call ptr @list_make2_impl(i32 noundef 1, ptr %4539, ptr %4540) #11
+  %4541 = call ptr @list_make2_impl(i32 noundef 1, ptr %4539, ptr %4540) #10
   br label %.critedge10155
 
 4542:                                             ; preds = %._crit_edge
-  %4543 = call ptr @makeInteger(i32 noundef 32) #11
-  %4544 = call ptr @list_make2_impl(i32 noundef 1, ptr %4543, ptr null) #11
+  %4543 = call ptr @makeInteger(i32 noundef 32) #10
+  %4544 = call ptr @list_make2_impl(i32 noundef 1, ptr %4543, ptr null) #10
   br label %.critedge10155
 
 4545:                                             ; preds = %._crit_edge
@@ -10307,18 +10285,18 @@ sub_1:                                            ; preds = %sub_0
 
 4547:                                             ; preds = %._crit_edge
   %4548 = load ptr, ptr %.210001, align 8
-  %4549 = call ptr @list_make1_impl(i32 noundef 1, ptr %4548) #11
+  %4549 = call ptr @list_make1_impl(i32 noundef 1, ptr %4548) #10
   br label %.critedge10155
 
 4550:                                             ; preds = %._crit_edge
   %4551 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %4552 = load ptr, ptr %4551, align 8
   %4553 = load ptr, ptr %.210001, align 8
-  %4554 = call ptr @lappend(ptr noundef %4552, ptr noundef %4553) #11
+  %4554 = call ptr @lappend(ptr noundef %4552, ptr noundef %4553) #10
   br label %.critedge10155
 
 4555:                                             ; preds = %._crit_edge
-  %4556 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4556 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 119, ptr %4556, align 4
   %4557 = load ptr, ptr %.210001, align 8
   %4558 = getelementptr inbounds nuw i8, ptr %4556, i64 8
@@ -10398,35 +10376,35 @@ sub_1:                                            ; preds = %sub_0
 
 4595:                                             ; preds = %._crit_edge
   %4596 = load ptr, ptr %.210001, align 8
-  %4597 = call ptr @list_make1_impl(i32 noundef 1, ptr %4596) #11
+  %4597 = call ptr @list_make1_impl(i32 noundef 1, ptr %4596) #10
   br label %.critedge10155
 
 4598:                                             ; preds = %._crit_edge
   %4599 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4600 = load ptr, ptr %4599, align 8
   %4601 = load ptr, ptr %.210001, align 8
-  %4602 = call ptr @lappend(ptr noundef %4600, ptr noundef %4601) #11
+  %4602 = call ptr @lappend(ptr noundef %4600, ptr noundef %4601) #10
   br label %.critedge10155
 
 4603:                                             ; preds = %._crit_edge
   %4604 = load i32, ptr %.210001, align 8
-  %4605 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.120, i32 noundef %4604) #11
-  %4606 = call ptr @makeString(ptr noundef %4605) #11
+  %4605 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.120, i32 noundef %4604) #10
+  %4606 = call ptr @makeString(ptr noundef %4605) #10
   br label %.critedge10155
 
 4607:                                             ; preds = %._crit_edge
   %4608 = load ptr, ptr %.210001, align 8
-  %4609 = call ptr @makeString(ptr noundef %4608) #11
+  %4609 = call ptr @makeString(ptr noundef %4608) #10
   br label %.critedge10155
 
 4610:                                             ; preds = %._crit_edge
   %4611 = load ptr, ptr %.210001, align 8
-  %4612 = call ptr @makeString(ptr noundef %4611) #11
+  %4612 = call ptr @makeString(ptr noundef %4611) #10
   br label %.critedge10155
 
 4613:                                             ; preds = %._crit_edge
   %4614 = load ptr, ptr %.210001, align 8
-  %4615 = call ptr @makeString(ptr noundef %4614) #11
+  %4615 = call ptr @makeString(ptr noundef %4614) #10
   br label %.critedge10155
 
 4616:                                             ; preds = %._crit_edge
@@ -10449,13 +10427,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %4627, label %4628, label %4634
 
 4628:                                             ; preds = %4621
-  %4629 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %4629)
-  %4630 = call i32 @errcode(i32 noundef 16801924) #11
-  %4631 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.121) #11
+  %4629 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %4630 = call i32 @errcode(i32 noundef 16801924) #10
+  %4631 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.121) #10
   %4632 = load i32, ptr %.210013, align 4
-  %4633 = call i32 @scanner_errposition(i32 noundef %4632, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6204, ptr noundef nonnull @__func__.base_yyparse) #11
+  %4633 = call i32 @scanner_errposition(i32 noundef %4632, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6204, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 4634:                                             ; preds = %4621
@@ -10470,13 +10447,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %or.cond10151, label %4641, label %4647
 
 4641:                                             ; preds = %4634
-  %4642 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %4642)
-  %4643 = call i32 @errcode(i32 noundef 16801924) #11
-  %4644 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122) #11
+  %4642 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %4643 = call i32 @errcode(i32 noundef 16801924) #10
+  %4644 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122) #10
   %4645 = load i32, ptr %.210013, align 4
-  %4646 = call i32 @scanner_errposition(i32 noundef %4645, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6212, ptr noundef nonnull @__func__.base_yyparse) #11
+  %4646 = call i32 @scanner_errposition(i32 noundef %4645, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6212, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 4647:                                             ; preds = %4634
@@ -10544,7 +10520,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4674:                                             ; preds = %._crit_edge
-  %4675 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4675 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 181, ptr %4675, align 4
   %4676 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %4677 = load ptr, ptr %4676, align 8
@@ -10563,7 +10539,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4686:                                             ; preds = %._crit_edge
-  %4687 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %4687 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 181, ptr %4687, align 4
   %4688 = getelementptr inbounds i8, ptr %.210001, i64 -72
   %4689 = load ptr, ptr %4688, align 8
@@ -10585,14 +10561,14 @@ sub_1:                                            ; preds = %sub_0
 
 4700:                                             ; preds = %._crit_edge
   %4701 = load ptr, ptr %.210001, align 8
-  %4702 = call ptr @list_make1_impl(i32 noundef 1, ptr %4701) #11
+  %4702 = call ptr @list_make1_impl(i32 noundef 1, ptr %4701) #10
   br label %.critedge10155
 
 4703:                                             ; preds = %._crit_edge
   %4704 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4705 = load ptr, ptr %4704, align 8
   %4706 = load ptr, ptr %.210001, align 8
-  %4707 = call ptr @lappend(ptr noundef %4705, ptr noundef %4706) #11
+  %4707 = call ptr @lappend(ptr noundef %4705, ptr noundef %4706) #10
   br label %.critedge10155
 
 4708:                                             ; preds = %._crit_edge
@@ -10602,25 +10578,25 @@ sub_1:                                            ; preds = %sub_0
   %4712 = load ptr, ptr %4711, align 8
   %4713 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %4714 = load i32, ptr %4713, align 4
-  %4715 = call ptr @makeDefElem(ptr noundef %4710, ptr noundef %4712, i32 noundef %4714) #11
+  %4715 = call ptr @makeDefElem(ptr noundef %4710, ptr noundef %4712, i32 noundef %4714) #10
   br label %.critedge10155
 
 4716:                                             ; preds = %._crit_edge
   %4717 = load ptr, ptr %.210001, align 8
-  %4718 = call ptr @makeString(ptr noundef %4717) #11
-  %4719 = call ptr @list_make1_impl(i32 noundef 1, ptr %4718) #11
+  %4718 = call ptr @makeString(ptr noundef %4717) #10
+  %4719 = call ptr @list_make1_impl(i32 noundef 1, ptr %4718) #10
   br label %.critedge10155
 
 4720:                                             ; preds = %._crit_edge
   %4721 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4722 = load ptr, ptr %4721, align 8
   %4723 = load ptr, ptr %.210001, align 8
-  %4724 = call ptr @makeString(ptr noundef %4723) #11
-  %4725 = call ptr @lappend(ptr noundef %4722, ptr noundef %4724) #11
+  %4724 = call ptr @makeString(ptr noundef %4723) #10
+  %4725 = call ptr @lappend(ptr noundef %4722, ptr noundef %4724) #10
   br label %.critedge10155
 
 4726:                                             ; preds = %._crit_edge
-  %4727 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4727 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 182, ptr %4727, align 4
   %4728 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %4729 = load ptr, ptr %4728, align 8
@@ -10660,18 +10636,17 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4745:                                             ; preds = %._crit_edge
-  %4746 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %4746)
-  %4747 = call i32 @errcode(i32 noundef 1088) #11
-  %4748 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123) #11
+  %4746 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %4747 = call i32 @errcode(i32 noundef 1088) #10
+  %4748 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123) #10
   %4749 = getelementptr inbounds i8, ptr %.210013, i64 -28
   %4750 = load i32, ptr %4749, align 4
-  %4751 = call i32 @scanner_errposition(i32 noundef %4750, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6313, ptr noundef nonnull @__func__.base_yyparse) #11
+  %4751 = call i32 @scanner_errposition(i32 noundef %4750, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6313, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 4752:                                             ; preds = %._crit_edge
-  %4753 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4753 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4753, align 4
   %4754 = getelementptr inbounds nuw i8, ptr %4753, i64 4
   store i32 1, ptr %4754, align 4
@@ -10695,7 +10670,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4767:                                             ; preds = %._crit_edge
-  %4768 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4768 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4768, align 4
   %4769 = getelementptr inbounds nuw i8, ptr %4768, i64 4
   store i32 1, ptr %4769, align 4
@@ -10717,7 +10692,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4780:                                             ; preds = %._crit_edge
-  %4781 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4781 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4781, align 4
   %4782 = getelementptr inbounds nuw i8, ptr %4781, i64 4
   store i32 25, ptr %4782, align 4
@@ -10735,7 +10710,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4790:                                             ; preds = %._crit_edge
-  %4791 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4791 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4791, align 4
   %4792 = getelementptr inbounds nuw i8, ptr %4791, i64 4
   store i32 49, ptr %4792, align 4
@@ -10753,7 +10728,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4800:                                             ; preds = %._crit_edge
-  %4801 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4801 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4801, align 4
   %4802 = getelementptr inbounds nuw i8, ptr %4801, i64 4
   store i32 49, ptr %4802, align 4
@@ -10767,7 +10742,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4807:                                             ; preds = %._crit_edge
-  %4808 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4808 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 225, ptr %4808, align 4
   %4809 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %4810 = load ptr, ptr %4809, align 8
@@ -10783,7 +10758,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4818:                                             ; preds = %._crit_edge
-  %4819 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4819 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 226, ptr %4819, align 4
   %4820 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %4821 = load ptr, ptr %4820, align 8
@@ -10796,7 +10771,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4826:                                             ; preds = %._crit_edge
-  %4827 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %4827 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 227, ptr %4827, align 4
   %4828 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %4829 = load ptr, ptr %4828, align 8
@@ -10808,7 +10783,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4833:                                             ; preds = %._crit_edge
-  %4834 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4834 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4834, align 4
   %4835 = getelementptr inbounds nuw i8, ptr %4834, i64 4
   store i32 47, ptr %4835, align 4
@@ -10824,7 +10799,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4842:                                             ; preds = %._crit_edge
-  %4843 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4843 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4843, align 4
   %4844 = getelementptr inbounds nuw i8, ptr %4843, i64 4
   store i32 46, ptr %4844, align 4
@@ -10840,7 +10815,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4851:                                             ; preds = %._crit_edge
-  %4852 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4852 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4852, align 4
   %4853 = getelementptr inbounds nuw i8, ptr %4852, i64 4
   store i32 48, ptr %4853, align 4
@@ -10856,7 +10831,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4860:                                             ; preds = %._crit_edge
-  %4861 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4861 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4861, align 4
   %4862 = getelementptr inbounds nuw i8, ptr %4861, i64 4
   store i32 45, ptr %4862, align 4
@@ -10872,7 +10847,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4869:                                             ; preds = %._crit_edge
-  %4870 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4870 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4870, align 4
   %4871 = getelementptr inbounds nuw i8, ptr %4870, i64 4
   store i32 7, ptr %4871, align 4
@@ -10888,7 +10863,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4878:                                             ; preds = %._crit_edge
-  %4879 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4879 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4879, align 4
   %4880 = getelementptr inbounds nuw i8, ptr %4879, i64 4
   store i32 7, ptr %4880, align 4
@@ -10906,7 +10881,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4888:                                             ; preds = %._crit_edge
-  %4889 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4889 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4889, align 4
   %4890 = getelementptr inbounds nuw i8, ptr %4889, i64 4
   store i32 7, ptr %4890, align 4
@@ -10918,14 +10893,14 @@ sub_1:                                            ; preds = %sub_0
   store ptr %4893, ptr %4894, align 8
   %4895 = load ptr, ptr %.210001, align 8
   %4896 = load i32, ptr %.210013, align 4
-  %4897 = call ptr @makeDefElem(ptr noundef nonnull @.str.124, ptr noundef %4895, i32 noundef %4896) #11
-  %4898 = call ptr @list_make1_impl(i32 noundef 1, ptr %4897) #11
+  %4897 = call ptr @makeDefElem(ptr noundef nonnull @.str.124, ptr noundef %4895, i32 noundef %4896) #10
+  %4898 = call ptr @list_make1_impl(i32 noundef 1, ptr %4897) #10
   %4899 = getelementptr inbounds nuw i8, ptr %4889, i64 32
   store ptr %4898, ptr %4899, align 8
   br label %.critedge10155
 
 4900:                                             ; preds = %._crit_edge
-  %4901 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4901 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 190, ptr %4901, align 4
   %4902 = getelementptr inbounds nuw i8, ptr %4901, i64 4
   store i32 7, ptr %4902, align 4
@@ -10937,8 +10912,8 @@ sub_1:                                            ; preds = %sub_0
   store ptr %4905, ptr %4906, align 8
   %4907 = load ptr, ptr %.210001, align 8
   %4908 = load i32, ptr %.210013, align 4
-  %4909 = call ptr @makeDefElem(ptr noundef nonnull @.str.124, ptr noundef %4907, i32 noundef %4908) #11
-  %4910 = call ptr @list_make1_impl(i32 noundef 1, ptr %4909) #11
+  %4909 = call ptr @makeDefElem(ptr noundef nonnull @.str.124, ptr noundef %4907, i32 noundef %4908) #10
+  %4910 = call ptr @list_make1_impl(i32 noundef 1, ptr %4909) #10
   %4911 = getelementptr inbounds nuw i8, ptr %4901, i64 32
   store ptr %4910, ptr %4911, align 8
   %4912 = getelementptr inbounds nuw i8, ptr %4901, i64 40
@@ -10952,14 +10927,14 @@ sub_1:                                            ; preds = %sub_0
 
 4916:                                             ; preds = %._crit_edge
   %4917 = load ptr, ptr %.210001, align 8
-  %4918 = call ptr @list_make1_impl(i32 noundef 1, ptr %4917) #11
+  %4918 = call ptr @list_make1_impl(i32 noundef 1, ptr %4917) #10
   br label %.critedge10155
 
 4919:                                             ; preds = %._crit_edge
   %4920 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4921 = load ptr, ptr %4920, align 8
   %4922 = load ptr, ptr %.210001, align 8
-  %4923 = call ptr @lappend(ptr noundef %4921, ptr noundef %4922) #11
+  %4923 = call ptr @lappend(ptr noundef %4921, ptr noundef %4922) #10
   br label %.critedge10155
 
 4924:                                             ; preds = %._crit_edge
@@ -10968,13 +10943,13 @@ sub_1:                                            ; preds = %sub_0
   %4927 = load ptr, ptr %.210001, align 8
   %4928 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %4929 = load i32, ptr %4928, align 4
-  %4930 = call ptr @makeDefElem(ptr noundef %4926, ptr noundef %4927, i32 noundef %4929) #11
+  %4930 = call ptr @makeDefElem(ptr noundef %4926, ptr noundef %4927, i32 noundef %4929) #10
   br label %.critedge10155
 
 4931:                                             ; preds = %._crit_edge
   %4932 = load ptr, ptr %.210001, align 8
   %4933 = load i32, ptr %.210013, align 4
-  %4934 = call ptr @makeDefElem(ptr noundef %4932, ptr noundef null, i32 noundef %4933) #11
+  %4934 = call ptr @makeDefElem(ptr noundef %4932, ptr noundef null, i32 noundef %4933) #10
   br label %.critedge10155
 
 4935:                                             ; preds = %._crit_edge
@@ -10983,8 +10958,8 @@ sub_1:                                            ; preds = %sub_0
 
 4937:                                             ; preds = %._crit_edge
   %4938 = load ptr, ptr %.210001, align 8
-  %4939 = call ptr @pstrdup(ptr noundef %4938) #11
-  %4940 = call ptr @makeString(ptr noundef %4939) #11
+  %4939 = call ptr @pstrdup(ptr noundef %4938) #10
+  %4940 = call ptr @makeString(ptr noundef %4939) #10
   br label %.critedge10155
 
 4941:                                             ; preds = %._crit_edge
@@ -10997,13 +10972,13 @@ sub_1:                                            ; preds = %sub_0
 
 4945:                                             ; preds = %._crit_edge
   %4946 = load ptr, ptr %.210001, align 8
-  %4947 = call ptr @makeString(ptr noundef %4946) #11
+  %4947 = call ptr @makeString(ptr noundef %4946) #10
   br label %.critedge10155
 
 4948:                                             ; preds = %._crit_edge
   %4949 = load ptr, ptr %.210001, align 8
-  %4950 = call ptr @pstrdup(ptr noundef %4949) #11
-  %4951 = call ptr @makeString(ptr noundef %4950) #11
+  %4950 = call ptr @pstrdup(ptr noundef %4949) #10
+  %4951 = call ptr @makeString(ptr noundef %4950) #10
   br label %.critedge10155
 
 4952:                                             ; preds = %._crit_edge
@@ -11013,14 +10988,14 @@ sub_1:                                            ; preds = %sub_0
 
 4955:                                             ; preds = %._crit_edge
   %4956 = load ptr, ptr %.210001, align 8
-  %4957 = call ptr @list_make1_impl(i32 noundef 1, ptr %4956) #11
+  %4957 = call ptr @list_make1_impl(i32 noundef 1, ptr %4956) #10
   br label %.critedge10155
 
 4958:                                             ; preds = %._crit_edge
   %4959 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4960 = load ptr, ptr %4959, align 8
   %4961 = load ptr, ptr %.210001, align 8
-  %4962 = call ptr @lappend(ptr noundef %4960, ptr noundef %4961) #11
+  %4962 = call ptr @lappend(ptr noundef %4960, ptr noundef %4961) #10
   br label %.critedge10155
 
 4963:                                             ; preds = %._crit_edge
@@ -11029,7 +11004,7 @@ sub_1:                                            ; preds = %sub_0
   %4966 = load ptr, ptr %.210001, align 8
   %4967 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %4968 = load i32, ptr %4967, align 4
-  %4969 = call ptr @makeDefElem(ptr noundef %4965, ptr noundef %4966, i32 noundef %4968) #11
+  %4969 = call ptr @makeDefElem(ptr noundef %4965, ptr noundef %4966, i32 noundef %4968) #10
   br label %.critedge10155
 
 4970:                                             ; preds = %._crit_edge
@@ -11038,20 +11013,20 @@ sub_1:                                            ; preds = %sub_0
 
 4972:                                             ; preds = %._crit_edge
   %4973 = load ptr, ptr %.210001, align 8
-  %4974 = call ptr @makeString(ptr noundef %4973) #11
-  %4975 = call ptr @list_make1_impl(i32 noundef 1, ptr %4974) #11
+  %4974 = call ptr @makeString(ptr noundef %4973) #10
+  %4975 = call ptr @list_make1_impl(i32 noundef 1, ptr %4974) #10
   br label %.critedge10155
 
 4976:                                             ; preds = %._crit_edge
   %4977 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %4978 = load ptr, ptr %4977, align 8
   %4979 = load ptr, ptr %.210001, align 8
-  %4980 = call ptr @makeString(ptr noundef %4979) #11
-  %4981 = call ptr @lappend(ptr noundef %4978, ptr noundef %4980) #11
+  %4980 = call ptr @makeString(ptr noundef %4979) #10
+  %4981 = call ptr @lappend(ptr noundef %4978, ptr noundef %4980) #10
   br label %.critedge10155
 
 4982:                                             ; preds = %._crit_edge
-  %4983 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4983 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 228, ptr %4983, align 4
   %4984 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %4985 = load ptr, ptr %4984, align 8
@@ -11073,7 +11048,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 4995:                                             ; preds = %._crit_edge
-  %4996 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %4996 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 228, ptr %4996, align 4
   %4997 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %4998 = load ptr, ptr %4997, align 8
@@ -11097,7 +11072,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5010:                                             ; preds = %._crit_edge
-  %5011 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5011 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 228, ptr %5011, align 4
   %5012 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %5013 = load ptr, ptr %5012, align 8
@@ -11121,7 +11096,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5025:                                             ; preds = %._crit_edge
-  %5026 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5026 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 228, ptr %5026, align 4
   %5027 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5028 = load ptr, ptr %5027, align 8
@@ -11143,14 +11118,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5038:                                             ; preds = %._crit_edge
-  %5039 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %5039)
-  %5040 = call i32 @errcode(i32 noundef 1088) #11
-  %5041 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125) #11
+  %5039 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %5040 = call i32 @errcode(i32 noundef 1088) #10
+  %5041 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.125) #10
   %5042 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %5043 = load i32, ptr %5042, align 4
-  %5044 = call i32 @scanner_errposition(i32 noundef %5043, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6631, ptr noundef nonnull @__func__.base_yyparse) #11
+  %5044 = call i32 @scanner_errposition(i32 noundef %5043, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 6631, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 5045:                                             ; preds = %._crit_edge
@@ -11167,7 +11141,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5051:                                             ; preds = %._crit_edge
-  %5052 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %5052 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 192, ptr %5052, align 4
   %5053 = getelementptr inbounds i8, ptr %.210001, i64 -72
   %5054 = load ptr, ptr %5053, align 8
@@ -11196,20 +11170,20 @@ sub_1:                                            ; preds = %sub_0
 
 5070:                                             ; preds = %._crit_edge
   %5071 = load ptr, ptr %.210001, align 8
-  %5072 = call ptr @list_make1_impl(i32 noundef 1, ptr %5071) #11
+  %5072 = call ptr @list_make1_impl(i32 noundef 1, ptr %5071) #10
   br label %.critedge10155
 
 5073:                                             ; preds = %._crit_edge
   %5074 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5075 = load ptr, ptr %5074, align 8
   %5076 = load ptr, ptr %.210001, align 8
-  %5077 = call ptr @lappend(ptr noundef %5075, ptr noundef %5076) #11
+  %5077 = call ptr @lappend(ptr noundef %5075, ptr noundef %5076) #10
   br label %.critedge10155
 
 5078:                                             ; preds = %._crit_edge
-  %5079 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5079 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5079, align 4
-  %5080 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %5080 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %5080, align 4
   %5081 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5082 = load ptr, ptr %5081, align 8
@@ -11231,7 +11205,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5092:                                             ; preds = %._crit_edge
-  %5093 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5093 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5093, align 4
   %5094 = getelementptr inbounds nuw i8, ptr %5093, i64 4
   store i32 1, ptr %5094, align 4
@@ -11249,7 +11223,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5103:                                             ; preds = %._crit_edge
-  %5104 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5104 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5104, align 4
   %5105 = getelementptr inbounds nuw i8, ptr %5104, i64 4
   store i32 2, ptr %5105, align 4
@@ -11263,7 +11237,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5111:                                             ; preds = %._crit_edge
-  %5112 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5112 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5112, align 4
   %5113 = getelementptr inbounds nuw i8, ptr %5112, i64 4
   store i32 2, ptr %5113, align 4
@@ -11281,7 +11255,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5122:                                             ; preds = %._crit_edge
-  %5123 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5123 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5123, align 4
   %5124 = getelementptr inbounds nuw i8, ptr %5123, i64 4
   store i32 3, ptr %5124, align 4
@@ -11312,7 +11286,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5137:                                             ; preds = %._crit_edge
-  %5138 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5138 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 194, ptr %5138, align 4
   %5139 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5140 = load ptr, ptr %5139, align 8
@@ -11324,7 +11298,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5144:                                             ; preds = %._crit_edge
-  %5145 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %5145 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 195, ptr %5145, align 4
   %5146 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5147 = load ptr, ptr %5146, align 8
@@ -11342,7 +11316,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5155:                                             ; preds = %._crit_edge
-  %5156 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %5156 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 195, ptr %5156, align 4
   %5157 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5158 = load ptr, ptr %5157, align 8
@@ -11361,18 +11335,18 @@ sub_1:                                            ; preds = %sub_0
 
 5166:                                             ; preds = %._crit_edge
   %5167 = load ptr, ptr %.210001, align 8
-  %5168 = call ptr @list_make1_impl(i32 noundef 1, ptr %5167) #11
+  %5168 = call ptr @list_make1_impl(i32 noundef 1, ptr %5167) #10
   br label %.critedge10155
 
 5169:                                             ; preds = %._crit_edge
   %5170 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5171 = load ptr, ptr %5170, align 8
   %5172 = load ptr, ptr %.210001, align 8
-  %5173 = call ptr @lappend(ptr noundef %5171, ptr noundef %5172) #11
+  %5173 = call ptr @lappend(ptr noundef %5171, ptr noundef %5172) #10
   br label %.critedge10155
 
 5174:                                             ; preds = %._crit_edge
-  %5175 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5175 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5175, align 4
   %5176 = getelementptr inbounds nuw i8, ptr %5175, i64 4
   store i32 1, ptr %5176, align 4
@@ -11387,7 +11361,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5183:                                             ; preds = %._crit_edge
-  %5184 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %5184 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 193, ptr %5184, align 4
   %5185 = getelementptr inbounds nuw i8, ptr %5184, i64 4
   store i32 2, ptr %5185, align 4
@@ -11402,15 +11376,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5192:                                             ; preds = %._crit_edge
-  %5193 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5193 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5193, align 4
   %5194 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5195 = load ptr, ptr %5194, align 8
-  %5196 = call ptr @makeString(ptr noundef %5195) #11
+  %5196 = call ptr @makeString(ptr noundef %5195) #10
   %5197 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5198 = load ptr, ptr %5197, align 8
-  %5199 = call ptr @lcons(ptr noundef %5196, ptr noundef %5198) #11
-  %5200 = call ptr @list_make1_impl(i32 noundef 1, ptr %5199) #11
+  %5199 = call ptr @lcons(ptr noundef %5196, ptr noundef %5198) #10
+  %5200 = call ptr @list_make1_impl(i32 noundef 1, ptr %5199) #10
   %5201 = getelementptr inbounds nuw i8, ptr %5193, i64 8
   store ptr %5200, ptr %5201, align 8
   %5202 = getelementptr inbounds nuw i8, ptr %5193, i64 16
@@ -11425,15 +11399,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5207:                                             ; preds = %._crit_edge
-  %5208 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5208 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5208, align 4
   %5209 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5210 = load ptr, ptr %5209, align 8
-  %5211 = call ptr @makeString(ptr noundef %5210) #11
+  %5211 = call ptr @makeString(ptr noundef %5210) #10
   %5212 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5213 = load ptr, ptr %5212, align 8
-  %5214 = call ptr @lcons(ptr noundef %5211, ptr noundef %5213) #11
-  %5215 = call ptr @list_make1_impl(i32 noundef 1, ptr %5214) #11
+  %5214 = call ptr @lcons(ptr noundef %5211, ptr noundef %5213) #10
+  %5215 = call ptr @list_make1_impl(i32 noundef 1, ptr %5214) #10
   %5216 = getelementptr inbounds nuw i8, ptr %5208, i64 8
   store ptr %5215, ptr %5216, align 8
   %5217 = getelementptr inbounds nuw i8, ptr %5208, i64 16
@@ -11448,15 +11422,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5222:                                             ; preds = %._crit_edge
-  %5223 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5223 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5223, align 4
   %5224 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5225 = load ptr, ptr %5224, align 8
-  %5226 = call ptr @makeString(ptr noundef %5225) #11
+  %5226 = call ptr @makeString(ptr noundef %5225) #10
   %5227 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5228 = load ptr, ptr %5227, align 8
-  %5229 = call ptr @lcons(ptr noundef %5226, ptr noundef %5228) #11
-  %5230 = call ptr @list_make1_impl(i32 noundef 1, ptr %5229) #11
+  %5229 = call ptr @lcons(ptr noundef %5226, ptr noundef %5228) #10
+  %5230 = call ptr @list_make1_impl(i32 noundef 1, ptr %5229) #10
   %5231 = getelementptr inbounds nuw i8, ptr %5223, i64 8
   store ptr %5230, ptr %5231, align 8
   %5232 = getelementptr inbounds nuw i8, ptr %5223, i64 16
@@ -11471,15 +11445,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5237:                                             ; preds = %._crit_edge
-  %5238 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5238 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5238, align 4
   %5239 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5240 = load ptr, ptr %5239, align 8
-  %5241 = call ptr @makeString(ptr noundef %5240) #11
+  %5241 = call ptr @makeString(ptr noundef %5240) #10
   %5242 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5243 = load ptr, ptr %5242, align 8
-  %5244 = call ptr @lcons(ptr noundef %5241, ptr noundef %5243) #11
-  %5245 = call ptr @list_make1_impl(i32 noundef 1, ptr %5244) #11
+  %5244 = call ptr @lcons(ptr noundef %5241, ptr noundef %5243) #10
+  %5245 = call ptr @list_make1_impl(i32 noundef 1, ptr %5244) #10
   %5246 = getelementptr inbounds nuw i8, ptr %5238, i64 8
   store ptr %5245, ptr %5246, align 8
   %5247 = getelementptr inbounds nuw i8, ptr %5238, i64 16
@@ -11494,7 +11468,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5252:                                             ; preds = %._crit_edge
-  %5253 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5253 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 254, ptr %5253, align 4
   %5254 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5255 = load ptr, ptr %5254, align 8
@@ -11506,7 +11480,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5259:                                             ; preds = %._crit_edge
-  %5260 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5260 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 255, ptr %5260, align 4
   %5261 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5262 = load ptr, ptr %5261, align 8
@@ -11518,7 +11492,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5266:                                             ; preds = %._crit_edge
-  %5267 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5267 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5267, align 4
   %5268 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5269 = load i32, ptr %5268, align 8
@@ -11538,7 +11512,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5278:                                             ; preds = %._crit_edge
-  %5279 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5279 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5279, align 4
   %5280 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5281 = load i32, ptr %5280, align 8
@@ -11558,7 +11532,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5290:                                             ; preds = %._crit_edge
-  %5291 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5291 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5291, align 4
   %5292 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5293 = load i32, ptr %5292, align 8
@@ -11578,7 +11552,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5302:                                             ; preds = %._crit_edge
-  %5303 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5303 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5303, align 4
   %5304 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5305 = load i32, ptr %5304, align 8
@@ -11598,7 +11572,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5314:                                             ; preds = %._crit_edge
-  %5315 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5315 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5315, align 4
   %5316 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5317 = load i32, ptr %5316, align 8
@@ -11608,9 +11582,9 @@ sub_1:                                            ; preds = %sub_0
   %5320 = load ptr, ptr %5319, align 8
   %5321 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5322 = load ptr, ptr %5321, align 8
-  %5323 = call ptr @makeString(ptr noundef %5322) #11
-  %5324 = call ptr @lappend(ptr noundef %5320, ptr noundef %5323) #11
-  %5325 = call ptr @list_make1_impl(i32 noundef 1, ptr %5324) #11
+  %5323 = call ptr @makeString(ptr noundef %5322) #10
+  %5324 = call ptr @lappend(ptr noundef %5320, ptr noundef %5323) #10
+  %5325 = call ptr @list_make1_impl(i32 noundef 1, ptr %5324) #10
   %5326 = getelementptr inbounds nuw i8, ptr %5315, i64 8
   store ptr %5325, ptr %5326, align 8
   %5327 = load i32, ptr %.210001, align 8
@@ -11623,7 +11597,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5331:                                             ; preds = %._crit_edge
-  %5332 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5332 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5332, align 4
   %5333 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %5334 = load i32, ptr %5333, align 8
@@ -11633,9 +11607,9 @@ sub_1:                                            ; preds = %sub_0
   %5337 = load ptr, ptr %5336, align 8
   %5338 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5339 = load ptr, ptr %5338, align 8
-  %5340 = call ptr @makeString(ptr noundef %5339) #11
-  %5341 = call ptr @lappend(ptr noundef %5337, ptr noundef %5340) #11
-  %5342 = call ptr @list_make1_impl(i32 noundef 1, ptr %5341) #11
+  %5340 = call ptr @makeString(ptr noundef %5339) #10
+  %5341 = call ptr @lappend(ptr noundef %5337, ptr noundef %5340) #10
+  %5342 = call ptr @list_make1_impl(i32 noundef 1, ptr %5341) #10
   %5343 = getelementptr inbounds nuw i8, ptr %5332, i64 8
   store ptr %5342, ptr %5343, align 8
   %5344 = load i32, ptr %.210001, align 8
@@ -11648,7 +11622,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5348:                                             ; preds = %._crit_edge
-  %5349 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5349 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5349, align 4
   %5350 = getelementptr inbounds nuw i8, ptr %5349, i64 16
   store i32 49, ptr %5350, align 8
@@ -11666,7 +11640,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5358:                                             ; preds = %._crit_edge
-  %5359 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5359 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5359, align 4
   %5360 = getelementptr inbounds nuw i8, ptr %5359, i64 16
   store i32 49, ptr %5360, align 8
@@ -11684,7 +11658,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5368:                                             ; preds = %._crit_edge
-  %5369 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5369 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5369, align 4
   %5370 = getelementptr inbounds nuw i8, ptr %5369, i64 16
   store i32 12, ptr %5370, align 8
@@ -11702,7 +11676,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5378:                                             ; preds = %._crit_edge
-  %5379 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5379 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5379, align 4
   %5380 = getelementptr inbounds nuw i8, ptr %5379, i64 16
   store i32 12, ptr %5380, align 8
@@ -11720,7 +11694,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5388:                                             ; preds = %._crit_edge
-  %5389 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5389 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5389, align 4
   %5390 = getelementptr inbounds nuw i8, ptr %5389, i64 16
   store i32 20, ptr %5390, align 8
@@ -11738,7 +11712,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5398:                                             ; preds = %._crit_edge
-  %5399 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5399 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %5399, align 4
   %5400 = getelementptr inbounds nuw i8, ptr %5399, i64 16
   store i32 20, ptr %5400, align 8
@@ -11961,58 +11935,58 @@ sub_1:                                            ; preds = %sub_0
 
 5496:                                             ; preds = %._crit_edge
   %5497 = load ptr, ptr %.210001, align 8
-  %5498 = call ptr @list_make1_impl(i32 noundef 1, ptr %5497) #11
+  %5498 = call ptr @list_make1_impl(i32 noundef 1, ptr %5497) #10
   br label %.critedge10155
 
 5499:                                             ; preds = %._crit_edge
   %5500 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5501 = load ptr, ptr %5500, align 8
   %5502 = load ptr, ptr %.210001, align 8
-  %5503 = call ptr @lappend(ptr noundef %5501, ptr noundef %5502) #11
+  %5503 = call ptr @lappend(ptr noundef %5501, ptr noundef %5502) #10
   br label %.critedge10155
 
 5504:                                             ; preds = %._crit_edge
   %5505 = load ptr, ptr %.210001, align 8
-  %5506 = call ptr @makeString(ptr noundef %5505) #11
-  %5507 = call ptr @list_make1_impl(i32 noundef 1, ptr %5506) #11
+  %5506 = call ptr @makeString(ptr noundef %5505) #10
+  %5507 = call ptr @list_make1_impl(i32 noundef 1, ptr %5506) #10
   br label %.critedge10155
 
 5508:                                             ; preds = %._crit_edge
   %5509 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %5510 = load ptr, ptr %5509, align 8
-  %5511 = call ptr @makeString(ptr noundef %5510) #11
+  %5511 = call ptr @makeString(ptr noundef %5510) #10
   %5512 = load ptr, ptr %.210001, align 8
-  %5513 = call ptr @lcons(ptr noundef %5511, ptr noundef %5512) #11
+  %5513 = call ptr @lcons(ptr noundef %5511, ptr noundef %5512) #10
   br label %.critedge10155
 
 5514:                                             ; preds = %._crit_edge
   %5515 = load ptr, ptr %.210001, align 8
-  %5516 = call ptr @makeString(ptr noundef %5515) #11
-  %5517 = call ptr @list_make1_impl(i32 noundef 1, ptr %5516) #11
+  %5516 = call ptr @makeString(ptr noundef %5515) #10
+  %5517 = call ptr @list_make1_impl(i32 noundef 1, ptr %5516) #10
   br label %.critedge10155
 
 5518:                                             ; preds = %._crit_edge
   %5519 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5520 = load ptr, ptr %5519, align 8
   %5521 = load ptr, ptr %.210001, align 8
-  %5522 = call ptr @makeString(ptr noundef %5521) #11
-  %5523 = call ptr @lappend(ptr noundef %5520, ptr noundef %5522) #11
+  %5522 = call ptr @makeString(ptr noundef %5521) #10
+  %5523 = call ptr @lappend(ptr noundef %5520, ptr noundef %5522) #10
   br label %.critedge10155
 
 5524:                                             ; preds = %._crit_edge
   %5525 = load ptr, ptr %.210001, align 8
-  %5526 = call ptr @list_make1_impl(i32 noundef 1, ptr %5525) #11
+  %5526 = call ptr @list_make1_impl(i32 noundef 1, ptr %5525) #10
   br label %.critedge10155
 
 5527:                                             ; preds = %._crit_edge
   %5528 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5529 = load ptr, ptr %5528, align 8
   %5530 = load ptr, ptr %.210001, align 8
-  %5531 = call ptr @lappend(ptr noundef %5529, ptr noundef %5530) #11
+  %5531 = call ptr @lappend(ptr noundef %5529, ptr noundef %5530) #10
   br label %.critedge10155
 
 5532:                                             ; preds = %._crit_edge
-  %5533 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5533 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 197, ptr %5533, align 4
   %5534 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5535 = load ptr, ptr %5534, align 8
@@ -12047,7 +12021,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5551:                                             ; preds = %._crit_edge
-  %5552 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5552 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5552, align 4
   %5553 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5554 = load i32, ptr %5553, align 8
@@ -12063,7 +12037,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5561:                                             ; preds = %._crit_edge
-  %5562 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5562 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5562, align 4
   %5563 = getelementptr inbounds nuw i8, ptr %5562, i64 4
   store i32 6, ptr %5563, align 4
@@ -12077,7 +12051,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5569:                                             ; preds = %._crit_edge
-  %5570 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5570 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5570, align 4
   %5571 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5572 = load i32, ptr %5571, align 8
@@ -12085,7 +12059,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 %5572, ptr %5573, align 4
   %5574 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5575 = load ptr, ptr %5574, align 8
-  %5576 = call ptr @makeString(ptr noundef %5575) #11
+  %5576 = call ptr @makeString(ptr noundef %5575) #10
   %5577 = getelementptr inbounds nuw i8, ptr %5570, i64 8
   store ptr %5576, ptr %5577, align 8
   %5578 = load ptr, ptr %.210001, align 8
@@ -12094,7 +12068,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5580:                                             ; preds = %._crit_edge
-  %5581 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5581 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5581, align 4
   %5582 = getelementptr inbounds nuw i8, ptr %5581, i64 4
   store i32 49, ptr %5582, align 4
@@ -12108,7 +12082,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5588:                                             ; preds = %._crit_edge
-  %5589 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5589 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5589, align 4
   %5590 = getelementptr inbounds nuw i8, ptr %5589, i64 4
   store i32 12, ptr %5590, align 4
@@ -12122,7 +12096,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5596:                                             ; preds = %._crit_edge
-  %5597 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5597 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5597, align 4
   %5598 = getelementptr inbounds nuw i8, ptr %5597, i64 4
   store i32 1, ptr %5598, align 4
@@ -12136,7 +12110,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5604:                                             ; preds = %._crit_edge
-  %5605 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5605 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5605, align 4
   %5606 = getelementptr inbounds nuw i8, ptr %5605, i64 4
   store i32 19, ptr %5606, align 4
@@ -12150,7 +12124,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5612:                                             ; preds = %._crit_edge
-  %5613 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5613 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5613, align 4
   %5614 = getelementptr inbounds nuw i8, ptr %5613, i64 4
   store i32 25, ptr %5614, align 4
@@ -12164,7 +12138,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5620:                                             ; preds = %._crit_edge
-  %5621 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5621 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5621, align 4
   %5622 = getelementptr inbounds nuw i8, ptr %5621, i64 4
   store i32 40, ptr %5622, align 4
@@ -12172,8 +12146,8 @@ sub_1:                                            ; preds = %sub_0
   %5624 = load ptr, ptr %5623, align 8
   %5625 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5626 = load ptr, ptr %5625, align 8
-  %5627 = call ptr @makeString(ptr noundef %5626) #11
-  %5628 = call ptr @lappend(ptr noundef %5624, ptr noundef %5627) #11
+  %5627 = call ptr @makeString(ptr noundef %5626) #10
+  %5628 = call ptr @lappend(ptr noundef %5624, ptr noundef %5627) #10
   %5629 = getelementptr inbounds nuw i8, ptr %5621, i64 8
   store ptr %5628, ptr %5629, align 8
   %5630 = load ptr, ptr %.210001, align 8
@@ -12182,17 +12156,17 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5632:                                             ; preds = %._crit_edge
-  %5633 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5633 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5633, align 4
   %5634 = getelementptr inbounds nuw i8, ptr %5633, i64 4
   store i32 13, ptr %5634, align 4
   %5635 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5636 = load ptr, ptr %5635, align 8
-  %5637 = call ptr @makeTypeNameFromNameList(ptr noundef %5636) #11
+  %5637 = call ptr @makeTypeNameFromNameList(ptr noundef %5636) #10
   %5638 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5639 = load ptr, ptr %5638, align 8
-  %5640 = call ptr @makeString(ptr noundef %5639) #11
-  %5641 = call ptr @list_make2_impl(i32 noundef 1, ptr %5637, ptr %5640) #11
+  %5640 = call ptr @makeString(ptr noundef %5639) #10
+  %5641 = call ptr @list_make2_impl(i32 noundef 1, ptr %5637, ptr %5640) #10
   %5642 = getelementptr inbounds nuw i8, ptr %5633, i64 8
   store ptr %5641, ptr %5642, align 8
   %5643 = load ptr, ptr %.210001, align 8
@@ -12201,7 +12175,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5645:                                             ; preds = %._crit_edge
-  %5646 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5646 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5646, align 4
   %5647 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5648 = load i32, ptr %5647, align 8
@@ -12211,8 +12185,8 @@ sub_1:                                            ; preds = %sub_0
   %5651 = load ptr, ptr %5650, align 8
   %5652 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5653 = load ptr, ptr %5652, align 8
-  %5654 = call ptr @makeString(ptr noundef %5653) #11
-  %5655 = call ptr @lappend(ptr noundef %5651, ptr noundef %5654) #11
+  %5654 = call ptr @makeString(ptr noundef %5653) #10
+  %5655 = call ptr @lappend(ptr noundef %5651, ptr noundef %5654) #10
   %5656 = getelementptr inbounds nuw i8, ptr %5646, i64 8
   store ptr %5655, ptr %5656, align 8
   %5657 = load ptr, ptr %.210001, align 8
@@ -12221,7 +12195,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5659:                                             ; preds = %._crit_edge
-  %5660 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5660 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5660, align 4
   %5661 = getelementptr inbounds nuw i8, ptr %5660, i64 4
   store i32 29, ptr %5661, align 4
@@ -12235,7 +12209,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5667:                                             ; preds = %._crit_edge
-  %5668 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5668 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5668, align 4
   %5669 = getelementptr inbounds nuw i8, ptr %5668, i64 4
   store i32 34, ptr %5669, align 4
@@ -12249,7 +12223,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5675:                                             ; preds = %._crit_edge
-  %5676 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5676 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5676, align 4
   %5677 = getelementptr inbounds nuw i8, ptr %5676, i64 4
   store i32 43, ptr %5677, align 4
@@ -12257,8 +12231,8 @@ sub_1:                                            ; preds = %sub_0
   %5679 = load ptr, ptr %5678, align 8
   %5680 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5681 = load ptr, ptr %5680, align 8
-  %5682 = call ptr @makeString(ptr noundef %5681) #11
-  %5683 = call ptr @list_make2_impl(i32 noundef 1, ptr %5679, ptr %5682) #11
+  %5682 = call ptr @makeString(ptr noundef %5681) #10
+  %5683 = call ptr @list_make2_impl(i32 noundef 1, ptr %5679, ptr %5682) #10
   %5684 = getelementptr inbounds nuw i8, ptr %5676, i64 8
   store ptr %5683, ptr %5684, align 8
   %5685 = load ptr, ptr %.210001, align 8
@@ -12267,16 +12241,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5687:                                             ; preds = %._crit_edge
-  %5688 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5688 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5688, align 4
   %5689 = getelementptr inbounds nuw i8, ptr %5688, i64 4
   store i32 24, ptr %5689, align 4
   %5690 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5691 = load ptr, ptr %5690, align 8
-  %5692 = call ptr @makeString(ptr noundef %5691) #11
+  %5692 = call ptr @makeString(ptr noundef %5691) #10
   %5693 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5694 = load ptr, ptr %5693, align 8
-  %5695 = call ptr @lcons(ptr noundef %5692, ptr noundef %5694) #11
+  %5695 = call ptr @lcons(ptr noundef %5692, ptr noundef %5694) #10
   %5696 = getelementptr inbounds nuw i8, ptr %5688, i64 8
   store ptr %5695, ptr %5696, align 8
   %5697 = load ptr, ptr %.210001, align 8
@@ -12285,16 +12259,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5699:                                             ; preds = %._crit_edge
-  %5700 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5700 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5700, align 4
   %5701 = getelementptr inbounds nuw i8, ptr %5700, i64 4
   store i32 26, ptr %5701, align 4
   %5702 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5703 = load ptr, ptr %5702, align 8
-  %5704 = call ptr @makeString(ptr noundef %5703) #11
+  %5704 = call ptr @makeString(ptr noundef %5703) #10
   %5705 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %5706 = load ptr, ptr %5705, align 8
-  %5707 = call ptr @lcons(ptr noundef %5704, ptr noundef %5706) #11
+  %5707 = call ptr @lcons(ptr noundef %5704, ptr noundef %5706) #10
   %5708 = getelementptr inbounds nuw i8, ptr %5700, i64 8
   store ptr %5707, ptr %5708, align 8
   %5709 = load ptr, ptr %.210001, align 8
@@ -12303,7 +12277,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5711:                                             ; preds = %._crit_edge
-  %5712 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5712 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5712, align 4
   %5713 = getelementptr inbounds nuw i8, ptr %5712, i64 4
   store i32 22, ptr %5713, align 4
@@ -12317,7 +12291,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5719:                                             ; preds = %._crit_edge
-  %5720 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %5720 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 198, ptr %5720, align 4
   %5721 = getelementptr inbounds nuw i8, ptr %5720, i64 4
   store i32 5, ptr %5721, align 4
@@ -12325,7 +12299,7 @@ sub_1:                                            ; preds = %sub_0
   %5723 = load ptr, ptr %5722, align 8
   %5724 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %5725 = load ptr, ptr %5724, align 8
-  %5726 = call ptr @list_make2_impl(i32 noundef 1, ptr %5723, ptr %5725) #11
+  %5726 = call ptr @list_make2_impl(i32 noundef 1, ptr %5723, ptr %5725) #10
   %5727 = getelementptr inbounds nuw i8, ptr %5720, i64 8
   store ptr %5726, ptr %5727, align 8
   %5728 = load ptr, ptr %.210001, align 8
@@ -12338,7 +12312,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5732:                                             ; preds = %._crit_edge
-  %5733 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5733 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5733, align 4
   %5734 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5735 = load ptr, ptr %5734, align 8
@@ -12358,7 +12332,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5745:                                             ; preds = %._crit_edge
-  %5746 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5746 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5746, align 4
   %5747 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5748 = load ptr, ptr %5747, align 8
@@ -12376,7 +12350,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5756:                                             ; preds = %._crit_edge
-  %5757 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5757 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5757, align 4
   %5758 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5759 = load ptr, ptr %5758, align 8
@@ -12388,7 +12362,7 @@ sub_1:                                            ; preds = %sub_0
   store i32 %5762, ptr %5763, align 4
   %5764 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %5765 = load ptr, ptr %5764, align 8
-  %5766 = call ptr @makeString(ptr noundef %5765) #11
+  %5766 = call ptr @makeString(ptr noundef %5765) #10
   %5767 = getelementptr inbounds nuw i8, ptr %5757, i64 8
   store ptr %5766, ptr %5767, align 8
   %5768 = load ptr, ptr %.210001, align 8
@@ -12397,7 +12371,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5770:                                             ; preds = %._crit_edge
-  %5771 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5771 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5771, align 4
   %5772 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5773 = load ptr, ptr %5772, align 8
@@ -12415,7 +12389,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5781:                                             ; preds = %._crit_edge
-  %5782 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5782 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5782, align 4
   %5783 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5784 = load ptr, ptr %5783, align 8
@@ -12433,7 +12407,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5792:                                             ; preds = %._crit_edge
-  %5793 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5793 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5793, align 4
   %5794 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5795 = load ptr, ptr %5794, align 8
@@ -12451,7 +12425,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5803:                                             ; preds = %._crit_edge
-  %5804 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5804 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5804, align 4
   %5805 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5806 = load ptr, ptr %5805, align 8
@@ -12469,7 +12443,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5814:                                             ; preds = %._crit_edge
-  %5815 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5815 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5815, align 4
   %5816 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %5817 = load ptr, ptr %5816, align 8
@@ -12487,7 +12461,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5825:                                             ; preds = %._crit_edge
-  %5826 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5826 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5826, align 4
   %5827 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5828 = load ptr, ptr %5827, align 8
@@ -12505,7 +12479,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5836:                                             ; preds = %._crit_edge
-  %5837 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5837 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 199, ptr %5837, align 4
   %5838 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %5839 = load ptr, ptr %5838, align 8
@@ -12543,7 +12517,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5857:                                             ; preds = %._crit_edge
-  %5858 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5858 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5858, align 4
   %5859 = load ptr, ptr %.210001, align 8
   %5860 = getelementptr inbounds nuw i8, ptr %5858, i64 16
@@ -12555,7 +12529,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5863:                                             ; preds = %._crit_edge
-  %5864 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5864 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5864, align 4
   %5865 = load ptr, ptr %.210001, align 8
   %5866 = getelementptr inbounds nuw i8, ptr %5864, i64 16
@@ -12567,7 +12541,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5869:                                             ; preds = %._crit_edge
-  %5870 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5870 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5870, align 4
   %5871 = load ptr, ptr %.210001, align 8
   %5872 = getelementptr inbounds nuw i8, ptr %5870, i64 16
@@ -12579,7 +12553,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5875:                                             ; preds = %._crit_edge
-  %5876 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5876 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5876, align 4
   %5877 = load ptr, ptr %.210001, align 8
   %5878 = getelementptr inbounds nuw i8, ptr %5876, i64 16
@@ -12591,7 +12565,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5881:                                             ; preds = %._crit_edge
-  %5882 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5882 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5882, align 4
   %5883 = load ptr, ptr %.210001, align 8
   %5884 = getelementptr inbounds nuw i8, ptr %5882, i64 16
@@ -12603,7 +12577,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5887:                                             ; preds = %._crit_edge
-  %5888 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5888 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5888, align 4
   %5889 = load ptr, ptr %.210001, align 8
   %5890 = getelementptr inbounds nuw i8, ptr %5888, i64 16
@@ -12615,7 +12589,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5893:                                             ; preds = %._crit_edge
-  %5894 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5894 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5894, align 4
   %5895 = load ptr, ptr %.210001, align 8
   %5896 = getelementptr inbounds nuw i8, ptr %5894, i64 16
@@ -12630,7 +12604,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5902:                                             ; preds = %._crit_edge
-  %5903 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5903 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5903, align 4
   %5904 = load ptr, ptr %.210001, align 8
   %5905 = getelementptr inbounds nuw i8, ptr %5903, i64 16
@@ -12645,7 +12619,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5911:                                             ; preds = %._crit_edge
-  %5912 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5912 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5912, align 4
   %5913 = load ptr, ptr %.210001, align 8
   %5914 = getelementptr inbounds nuw i8, ptr %5912, i64 16
@@ -12660,7 +12634,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5920:                                             ; preds = %._crit_edge
-  %5921 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5921 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5921, align 4
   %5922 = load ptr, ptr %.210001, align 8
   %5923 = getelementptr inbounds nuw i8, ptr %5921, i64 16
@@ -12672,7 +12646,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5926:                                             ; preds = %._crit_edge
-  %5927 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5927 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5927, align 4
   %5928 = load ptr, ptr %.210001, align 8
   %5929 = getelementptr inbounds nuw i8, ptr %5927, i64 16
@@ -12684,7 +12658,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5932:                                             ; preds = %._crit_edge
-  %5933 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5933 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5933, align 4
   %5934 = load ptr, ptr %.210001, align 8
   %5935 = getelementptr inbounds nuw i8, ptr %5933, i64 16
@@ -12699,7 +12673,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5941:                                             ; preds = %._crit_edge
-  %5942 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5942 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5942, align 4
   %5943 = load ptr, ptr %.210001, align 8
   %5944 = getelementptr inbounds nuw i8, ptr %5942, i64 16
@@ -12711,7 +12685,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5947:                                             ; preds = %._crit_edge
-  %5948 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5948 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5948, align 4
   %5949 = load ptr, ptr %.210001, align 8
   %5950 = getelementptr inbounds nuw i8, ptr %5948, i64 16
@@ -12723,7 +12697,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5953:                                             ; preds = %._crit_edge
-  %5954 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5954 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5954, align 4
   %5955 = load ptr, ptr %.210001, align 8
   %5956 = getelementptr inbounds nuw i8, ptr %5954, i64 16
@@ -12738,7 +12712,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5962:                                             ; preds = %._crit_edge
-  %5963 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %5963 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 202, ptr %5963, align 4
   %5964 = load ptr, ptr %.210001, align 8
   %5965 = getelementptr inbounds nuw i8, ptr %5963, i64 16
@@ -12750,7 +12724,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5968:                                             ; preds = %._crit_edge
-  %5969 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %5969 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %5969, align 4
   %5970 = getelementptr inbounds nuw i8, ptr %5969, i64 4
   store i8 1, ptr %5970, align 4
@@ -12787,7 +12761,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 5994:                                             ; preds = %._crit_edge
-  %5995 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %5995 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %5995, align 4
   %5996 = getelementptr inbounds nuw i8, ptr %5995, i64 4
   store i8 0, ptr %5996, align 4
@@ -12826,7 +12800,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6021:                                             ; preds = %._crit_edge
-  %6022 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %6022 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %6022, align 4
   %6023 = getelementptr inbounds nuw i8, ptr %6022, i64 4
   store i8 0, ptr %6023, align 4
@@ -12869,7 +12843,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6050:                                             ; preds = %._crit_edge
-  %6051 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6051 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6051, align 4
   %6052 = getelementptr inbounds nuw i8, ptr %6051, i64 8
   store ptr null, ptr %6052, align 8
@@ -12877,11 +12851,11 @@ sub_1:                                            ; preds = %sub_0
   %6054 = load ptr, ptr %6053, align 8
   %6055 = getelementptr inbounds nuw i8, ptr %6051, i64 16
   store ptr %6054, ptr %6055, align 8
-  %6056 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6051) #11
+  %6056 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6051) #10
   br label %.critedge10155
 
 6057:                                             ; preds = %._crit_edge
-  %6058 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6058 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6058, align 4
   %6059 = getelementptr inbounds nuw i8, ptr %6058, i64 8
   store ptr null, ptr %6059, align 8
@@ -12889,27 +12863,27 @@ sub_1:                                            ; preds = %sub_0
   %6061 = load ptr, ptr %6060, align 8
   %6062 = getelementptr inbounds nuw i8, ptr %6058, i64 16
   store ptr %6061, ptr %6062, align 8
-  %6063 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6058) #11
+  %6063 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6058) #10
   br label %.critedge10155
 
 6064:                                             ; preds = %._crit_edge
   %6065 = load ptr, ptr %.210001, align 8
-  %6066 = call ptr @list_make1_impl(i32 noundef 1, ptr %6065) #11
+  %6066 = call ptr @list_make1_impl(i32 noundef 1, ptr %6065) #10
   br label %.critedge10155
 
 6067:                                             ; preds = %._crit_edge
   %6068 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6069 = load ptr, ptr %6068, align 8
   %6070 = load ptr, ptr %.210001, align 8
-  %6071 = call ptr @lappend(ptr noundef %6069, ptr noundef %6070) #11
+  %6071 = call ptr @lappend(ptr noundef %6069, ptr noundef %6070) #10
   br label %.critedge10155
 
 6072:                                             ; preds = %._crit_edge
-  %6073 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6073 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6073, align 4
   %6074 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6075 = load ptr, ptr %6074, align 8
-  %6076 = call ptr @pstrdup(ptr noundef %6075) #11
+  %6076 = call ptr @pstrdup(ptr noundef %6075) #10
   %6077 = getelementptr inbounds nuw i8, ptr %6073, i64 8
   store ptr %6076, ptr %6077, align 8
   %6078 = load ptr, ptr %.210001, align 8
@@ -12918,11 +12892,11 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6080:                                             ; preds = %._crit_edge
-  %6081 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6081 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6081, align 4
   %6082 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6083 = load ptr, ptr %6082, align 8
-  %6084 = call ptr @pstrdup(ptr noundef %6083) #11
+  %6084 = call ptr @pstrdup(ptr noundef %6083) #10
   %6085 = getelementptr inbounds nuw i8, ptr %6081, i64 8
   store ptr %6084, ptr %6085, align 8
   %6086 = load ptr, ptr %.210001, align 8
@@ -12931,11 +12905,11 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6088:                                             ; preds = %._crit_edge
-  %6089 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6089 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6089, align 4
   %6090 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6091 = load ptr, ptr %6090, align 8
-  %6092 = call ptr @pstrdup(ptr noundef %6091) #11
+  %6092 = call ptr @pstrdup(ptr noundef %6091) #10
   %6093 = getelementptr inbounds nuw i8, ptr %6089, i64 8
   store ptr %6092, ptr %6093, align 8
   %6094 = load ptr, ptr %.210001, align 8
@@ -12944,9 +12918,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6096:                                             ; preds = %._crit_edge
-  %6097 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6097 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6097, align 4
-  %6098 = call ptr @pstrdup(ptr noundef nonnull @.str.126) #11
+  %6098 = call ptr @pstrdup(ptr noundef nonnull @.str.126) #10
   %6099 = getelementptr inbounds nuw i8, ptr %6097, i64 8
   store ptr %6098, ptr %6099, align 8
   %6100 = getelementptr inbounds nuw i8, ptr %6097, i64 16
@@ -12954,7 +12928,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6101:                                             ; preds = %._crit_edge
-  %6102 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6102 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 153, ptr %6102, align 4
   %6103 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6104 = load ptr, ptr %6103, align 8
@@ -12967,16 +12941,16 @@ sub_1:                                            ; preds = %sub_0
 
 6108:                                             ; preds = %._crit_edge
   %6109 = load ptr, ptr %.210001, align 8
-  %6110 = call ptr @makeString(ptr noundef %6109) #11
-  %6111 = call ptr @list_make1_impl(i32 noundef 1, ptr %6110) #11
+  %6110 = call ptr @makeString(ptr noundef %6109) #10
+  %6111 = call ptr @list_make1_impl(i32 noundef 1, ptr %6110) #10
   br label %.critedge10155
 
 6112:                                             ; preds = %._crit_edge
   %6113 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6114 = load ptr, ptr %6113, align 8
   %6115 = load ptr, ptr %.210001, align 8
-  %6116 = call ptr @makeString(ptr noundef %6115) #11
-  %6117 = call ptr @lappend(ptr noundef %6114, ptr noundef %6116) #11
+  %6116 = call ptr @makeString(ptr noundef %6115) #10
+  %6117 = call ptr @lappend(ptr noundef %6114, ptr noundef %6116) #10
   br label %.critedge10155
 
 6118:                                             ; preds = %._crit_edge
@@ -12987,11 +12961,11 @@ sub_1:                                            ; preds = %sub_0
   %6121 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6122 = load ptr, ptr %6121, align 8
   %6123 = load ptr, ptr %.210001, align 8
-  %6124 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %6122, ptr noundef %6123) #11
+  %6124 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %6122, ptr noundef %6123) #10
   br label %.critedge10155
 
 6125:                                             ; preds = %._crit_edge
-  %6126 = call ptr @palloc(i64 noundef 16) #11
+  %6126 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6126, align 8
   %6127 = getelementptr inbounds nuw i8, ptr %6126, i64 4
   store i32 41, ptr %6127, align 4
@@ -13001,7 +12975,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6130:                                             ; preds = %._crit_edge
-  %6131 = call ptr @palloc(i64 noundef 16) #11
+  %6131 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6131, align 8
   %6132 = getelementptr inbounds nuw i8, ptr %6131, i64 4
   store i32 41, ptr %6132, align 4
@@ -13011,7 +12985,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6135:                                             ; preds = %._crit_edge
-  %6136 = call ptr @palloc(i64 noundef 16) #11
+  %6136 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6136, align 8
   %6137 = getelementptr inbounds nuw i8, ptr %6136, i64 4
   store i32 37, ptr %6137, align 4
@@ -13021,7 +12995,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6140:                                             ; preds = %._crit_edge
-  %6141 = call ptr @palloc(i64 noundef 16) #11
+  %6141 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6141, align 8
   %6142 = getelementptr inbounds nuw i8, ptr %6141, i64 4
   store i32 16, ptr %6142, align 4
@@ -13031,7 +13005,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6145:                                             ; preds = %._crit_edge
-  %6146 = call ptr @palloc(i64 noundef 16) #11
+  %6146 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6146, align 8
   %6147 = getelementptr inbounds nuw i8, ptr %6146, i64 4
   store i32 17, ptr %6147, align 4
@@ -13041,7 +13015,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6150:                                             ; preds = %._crit_edge
-  %6151 = call ptr @palloc(i64 noundef 16) #11
+  %6151 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6151, align 8
   %6152 = getelementptr inbounds nuw i8, ptr %6151, i64 4
   store i32 19, ptr %6152, align 4
@@ -13051,7 +13025,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6155:                                             ; preds = %._crit_edge
-  %6156 = call ptr @palloc(i64 noundef 16) #11
+  %6156 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6156, align 8
   %6157 = getelementptr inbounds nuw i8, ptr %6156, i64 4
   store i32 29, ptr %6157, align 4
@@ -13061,7 +13035,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6160:                                             ; preds = %._crit_edge
-  %6161 = call ptr @palloc(i64 noundef 16) #11
+  %6161 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6161, align 8
   %6162 = getelementptr inbounds nuw i8, ptr %6161, i64 4
   store i32 34, ptr %6162, align 4
@@ -13071,7 +13045,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6165:                                             ; preds = %._crit_edge
-  %6166 = call ptr @palloc(i64 noundef 16) #11
+  %6166 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6166, align 8
   %6167 = getelementptr inbounds nuw i8, ptr %6166, i64 4
   store i32 9, ptr %6167, align 4
@@ -13081,7 +13055,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6170:                                             ; preds = %._crit_edge
-  %6171 = call ptr @palloc(i64 noundef 16) #11
+  %6171 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6171, align 8
   %6172 = getelementptr inbounds nuw i8, ptr %6171, i64 4
   store i32 12, ptr %6172, align 4
@@ -13091,7 +13065,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6175:                                             ; preds = %._crit_edge
-  %6176 = call ptr @palloc(i64 noundef 16) #11
+  %6176 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6176, align 8
   %6177 = getelementptr inbounds nuw i8, ptr %6176, i64 4
   store i32 21, ptr %6177, align 4
@@ -13101,7 +13075,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6180:                                             ; preds = %._crit_edge
-  %6181 = call ptr @palloc(i64 noundef 16) #11
+  %6181 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6181, align 8
   %6182 = getelementptr inbounds nuw i8, ptr %6181, i64 4
   store i32 22, ptr %6182, align 4
@@ -13111,7 +13085,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6185:                                             ; preds = %._crit_edge
-  %6186 = call ptr @palloc(i64 noundef 16) #11
+  %6186 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6186, align 8
   %6187 = getelementptr inbounds nuw i8, ptr %6186, i64 4
   store i32 27, ptr %6187, align 4
@@ -13121,7 +13095,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6190:                                             ; preds = %._crit_edge
-  %6191 = call ptr @palloc(i64 noundef 16) #11
+  %6191 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6191, align 8
   %6192 = getelementptr inbounds nuw i8, ptr %6191, i64 4
   store i32 36, ptr %6192, align 4
@@ -13131,7 +13105,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6195:                                             ; preds = %._crit_edge
-  %6196 = call ptr @palloc(i64 noundef 16) #11
+  %6196 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6196, align 8
   %6197 = getelementptr inbounds nuw i8, ptr %6196, i64 4
   store i32 42, ptr %6197, align 4
@@ -13141,7 +13115,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6200:                                             ; preds = %._crit_edge
-  %6201 = call ptr @palloc(i64 noundef 16) #11
+  %6201 = call ptr @palloc(i64 noundef 16) #10
   store i32 0, ptr %6201, align 8
   %6202 = getelementptr inbounds nuw i8, ptr %6201, i64 4
   store i32 49, ptr %6202, align 4
@@ -13151,7 +13125,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6205:                                             ; preds = %._crit_edge
-  %6206 = call ptr @palloc(i64 noundef 16) #11
+  %6206 = call ptr @palloc(i64 noundef 16) #10
   store i32 1, ptr %6206, align 8
   %6207 = getelementptr inbounds nuw i8, ptr %6206, i64 4
   store i32 41, ptr %6207, align 4
@@ -13161,7 +13135,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6210:                                             ; preds = %._crit_edge
-  %6211 = call ptr @palloc(i64 noundef 16) #11
+  %6211 = call ptr @palloc(i64 noundef 16) #10
   store i32 1, ptr %6211, align 8
   %6212 = getelementptr inbounds nuw i8, ptr %6211, i64 4
   store i32 37, ptr %6212, align 4
@@ -13171,7 +13145,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6215:                                             ; preds = %._crit_edge
-  %6216 = call ptr @palloc(i64 noundef 16) #11
+  %6216 = call ptr @palloc(i64 noundef 16) #10
   store i32 1, ptr %6216, align 8
   %6217 = getelementptr inbounds nuw i8, ptr %6216, i64 4
   store i32 19, ptr %6217, align 4
@@ -13181,7 +13155,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6220:                                             ; preds = %._crit_edge
-  %6221 = call ptr @palloc(i64 noundef 16) #11
+  %6221 = call ptr @palloc(i64 noundef 16) #10
   store i32 1, ptr %6221, align 8
   %6222 = getelementptr inbounds nuw i8, ptr %6221, i64 4
   store i32 29, ptr %6222, align 4
@@ -13191,7 +13165,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6225:                                             ; preds = %._crit_edge
-  %6226 = call ptr @palloc(i64 noundef 16) #11
+  %6226 = call ptr @palloc(i64 noundef 16) #10
   store i32 1, ptr %6226, align 8
   %6227 = getelementptr inbounds nuw i8, ptr %6226, i64 4
   store i32 34, ptr %6227, align 4
@@ -13202,14 +13176,14 @@ sub_1:                                            ; preds = %sub_0
 
 6230:                                             ; preds = %._crit_edge
   %6231 = load ptr, ptr %.210001, align 8
-  %6232 = call ptr @list_make1_impl(i32 noundef 1, ptr %6231) #11
+  %6232 = call ptr @list_make1_impl(i32 noundef 1, ptr %6231) #10
   br label %.critedge10155
 
 6233:                                             ; preds = %._crit_edge
   %6234 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6235 = load ptr, ptr %6234, align 8
   %6236 = load ptr, ptr %.210001, align 8
-  %6237 = call ptr @lappend(ptr noundef %6235, ptr noundef %6236) #11
+  %6237 = call ptr @lappend(ptr noundef %6235, ptr noundef %6236) #10
   br label %.critedge10155
 
 6238:                                             ; preds = %._crit_edge
@@ -13234,7 +13208,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6248:                                             ; preds = %._crit_edge
-  %6249 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %6249 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 154, ptr %6249, align 4
   %6250 = getelementptr inbounds nuw i8, ptr %6249, i64 24
   store i8 1, ptr %6250, align 8
@@ -13254,7 +13228,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6260:                                             ; preds = %._crit_edge
-  %6261 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %6261 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 154, ptr %6261, align 4
   %6262 = getelementptr inbounds nuw i8, ptr %6261, i64 24
   store i8 1, ptr %6262, align 8
@@ -13276,7 +13250,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6274:                                             ; preds = %._crit_edge
-  %6275 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %6275 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 154, ptr %6275, align 4
   %6276 = getelementptr inbounds nuw i8, ptr %6275, i64 24
   store i8 0, ptr %6276, align 8
@@ -13300,18 +13274,18 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6289:                                             ; preds = %._crit_edge
-  %6290 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %6290 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 154, ptr %6290, align 4
   %6291 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %6292 = load ptr, ptr %6291, align 8
-  %6293 = call ptr @pstrdup(ptr noundef %6292) #11
-  %6294 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %6293 = call ptr @pstrdup(ptr noundef %6292) #10
+  %6294 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %6295 = getelementptr inbounds i8, ptr %.210013, i64 -28
   %6296 = load i32, ptr %6295, align 4
-  %6297 = call ptr @makeDefElem(ptr noundef %6293, ptr noundef %6294, i32 noundef %6296) #11
+  %6297 = call ptr @makeDefElem(ptr noundef %6293, ptr noundef %6294, i32 noundef %6296) #10
   %6298 = getelementptr inbounds nuw i8, ptr %6290, i64 24
   store i8 0, ptr %6298, align 8
-  %6299 = call ptr @list_make1_impl(i32 noundef 1, ptr %6297) #11
+  %6299 = call ptr @list_make1_impl(i32 noundef 1, ptr %6297) #10
   %6300 = getelementptr inbounds nuw i8, ptr %6290, i64 32
   store ptr %6299, ptr %6300, align 8
   %6301 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -13335,34 +13309,34 @@ sub_1:                                            ; preds = %sub_0
   %6313 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6314 = load ptr, ptr %6313, align 8
   %6315 = load ptr, ptr %.210001, align 8
-  %6316 = call ptr @lappend(ptr noundef %6314, ptr noundef %6315) #11
+  %6316 = call ptr @lappend(ptr noundef %6314, ptr noundef %6315) #10
   br label %.critedge10155
 
 6317:                                             ; preds = %._crit_edge
   %6318 = load ptr, ptr %.210001, align 8
-  %6319 = call ptr @list_make1_impl(i32 noundef 1, ptr %6318) #11
+  %6319 = call ptr @list_make1_impl(i32 noundef 1, ptr %6318) #10
   br label %.critedge10155
 
 6320:                                             ; preds = %._crit_edge
   %6321 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6322 = load ptr, ptr %6321, align 8
-  %6323 = call ptr @pstrdup(ptr noundef %6322) #11
+  %6323 = call ptr @pstrdup(ptr noundef %6322) #10
   %6324 = load ptr, ptr %.210001, align 8
   %6325 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %6326 = load i32, ptr %6325, align 4
-  %6327 = call ptr @makeDefElem(ptr noundef %6323, ptr noundef %6324, i32 noundef %6326) #11
+  %6327 = call ptr @makeDefElem(ptr noundef %6323, ptr noundef %6324, i32 noundef %6326) #10
   br label %.critedge10155
 
 6328:                                             ; preds = %._crit_edge
-  %6329 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6329 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   br label %.critedge10155
 
 6330:                                             ; preds = %._crit_edge
-  %6331 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6331 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   br label %.critedge10155
 
 6332:                                             ; preds = %._crit_edge
-  %6333 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %6333 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   br label %.critedge10155
 
 6334:                                             ; preds = %._crit_edge
@@ -13370,7 +13344,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6336:                                             ; preds = %._crit_edge
-  %6337 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %6337 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 155, ptr %6337, align 4
   %6338 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6339 = load ptr, ptr %6338, align 8
@@ -13385,32 +13359,32 @@ sub_1:                                            ; preds = %sub_0
   %6344 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6345 = load ptr, ptr %6344, align 8
   %6346 = load ptr, ptr %.210001, align 8
-  %6347 = call ptr @lappend(ptr noundef %6345, ptr noundef %6346) #11
+  %6347 = call ptr @lappend(ptr noundef %6345, ptr noundef %6346) #10
   br label %.critedge10155
 
 6348:                                             ; preds = %._crit_edge
   %6349 = load ptr, ptr %.210001, align 8
   %6350 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %6351 = load i32, ptr %6350, align 4
-  %6352 = call ptr @makeDefElem(ptr noundef nonnull @.str.127, ptr noundef %6349, i32 noundef %6351) #11
+  %6352 = call ptr @makeDefElem(ptr noundef nonnull @.str.127, ptr noundef %6349, i32 noundef %6351) #10
   br label %.critedge10155
 
 6353:                                             ; preds = %._crit_edge
   %6354 = load ptr, ptr %.210001, align 8
   %6355 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %6356 = load i32, ptr %6355, align 4
-  %6357 = call ptr @makeDefElem(ptr noundef nonnull @.str.128, ptr noundef %6354, i32 noundef %6356) #11
+  %6357 = call ptr @makeDefElem(ptr noundef nonnull @.str.128, ptr noundef %6354, i32 noundef %6356) #10
   br label %.critedge10155
 
 6358:                                             ; preds = %._crit_edge
   %6359 = load ptr, ptr %.210001, align 8
   %6360 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %6361 = load i32, ptr %6360, align 4
-  %6362 = call ptr @makeDefElem(ptr noundef nonnull @.str.128, ptr noundef %6359, i32 noundef %6361) #11
+  %6362 = call ptr @makeDefElem(ptr noundef nonnull @.str.128, ptr noundef %6359, i32 noundef %6361) #10
   br label %.critedge10155
 
 6363:                                             ; preds = %._crit_edge
-  %6364 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %6364 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %6364, align 4
   %6365 = getelementptr inbounds nuw i8, ptr %6364, i64 4
   store i8 1, ptr %6365, align 4
@@ -13436,7 +13410,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6379:                                             ; preds = %._crit_edge
-  %6380 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %6380 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %6380, align 4
   %6381 = getelementptr inbounds nuw i8, ptr %6380, i64 4
   store i8 0, ptr %6381, align 4
@@ -13464,7 +13438,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6396:                                             ; preds = %._crit_edge
-  %6397 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %6397 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 151, ptr %6397, align 4
   %6398 = getelementptr inbounds nuw i8, ptr %6397, i64 4
   store i8 0, ptr %6398, align 4
@@ -13534,7 +13508,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6431:                                             ; preds = %._crit_edge
-  %6432 = call noundef ptr @palloc0(i64 noundef 120) #11
+  %6432 = call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 203, ptr %6432, align 4
   %6433 = getelementptr inbounds i8, ptr %.210001, i64 -112
   %6434 = load i8, ptr %6433, align 8, !range !6, !noundef !7
@@ -13599,7 +13573,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6474:                                             ; preds = %._crit_edge
-  %6475 = call noundef ptr @palloc0(i64 noundef 120) #11
+  %6475 = call noundef ptr @palloc0(i64 noundef 120) #10
   store i32 203, ptr %6475, align 4
   %6476 = getelementptr inbounds i8, ptr %.210001, i64 -136
   %6477 = load i8, ptr %6476, align 8, !range !6, !noundef !7
@@ -13685,18 +13659,18 @@ sub_1:                                            ; preds = %sub_0
 
 6526:                                             ; preds = %._crit_edge
   %6527 = load ptr, ptr %.210001, align 8
-  %6528 = call ptr @list_make1_impl(i32 noundef 1, ptr %6527) #11
+  %6528 = call ptr @list_make1_impl(i32 noundef 1, ptr %6527) #10
   br label %.critedge10155
 
 6529:                                             ; preds = %._crit_edge
   %6530 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6531 = load ptr, ptr %6530, align 8
   %6532 = load ptr, ptr %.210001, align 8
-  %6533 = call ptr @lappend(ptr noundef %6531, ptr noundef %6532) #11
+  %6533 = call ptr @lappend(ptr noundef %6531, ptr noundef %6532) #10
   br label %.critedge10155
 
 6534:                                             ; preds = %._crit_edge
-  %6535 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %6535 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 92, ptr %6535, align 4
   %6536 = getelementptr inbounds nuw i8, ptr %6535, i64 8
   %6537 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -13720,7 +13694,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6549:                                             ; preds = %._crit_edge
-  %6550 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %6550 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 92, ptr %6550, align 4
   %6551 = getelementptr inbounds nuw i8, ptr %6550, i64 8
   %6552 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -13776,14 +13750,14 @@ sub_1:                                            ; preds = %sub_0
 
 6584:                                             ; preds = %._crit_edge
   %6585 = load ptr, ptr %.210001, align 8
-  %6586 = call ptr @list_make1_impl(i32 noundef 1, ptr %6585) #11
+  %6586 = call ptr @list_make1_impl(i32 noundef 1, ptr %6585) #10
   br label %.critedge10155
 
 6587:                                             ; preds = %._crit_edge
   %6588 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6589 = load ptr, ptr %6588, align 8
   %6590 = load ptr, ptr %.210001, align 8
-  %6591 = call ptr @lappend(ptr noundef %6589, ptr noundef %6590) #11
+  %6591 = call ptr @lappend(ptr noundef %6589, ptr noundef %6590) #10
   br label %.critedge10155
 
 6592:                                             ; preds = %._crit_edge
@@ -13831,7 +13805,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6612:                                             ; preds = %._crit_edge
-  %6613 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6613 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 207, ptr %6613, align 4
   %6614 = getelementptr inbounds nuw i8, ptr %6613, i64 4
   store i8 0, ptr %6614, align 4
@@ -13861,7 +13835,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6632:                                             ; preds = %._crit_edge
-  %6633 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6633 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 207, ptr %6633, align 4
   %6634 = getelementptr inbounds nuw i8, ptr %6633, i64 4
   store i8 0, ptr %6634, align 4
@@ -13898,7 +13872,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6658:                                             ; preds = %._crit_edge
-  %6659 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6659 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 207, ptr %6659, align 4
   %6660 = getelementptr inbounds nuw i8, ptr %6659, i64 4
   store i8 0, ptr %6660, align 4
@@ -13926,7 +13900,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6676:                                             ; preds = %._crit_edge
-  %6677 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6677 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 207, ptr %6677, align 4
   %6678 = getelementptr inbounds nuw i8, ptr %6677, i64 4
   store i8 1, ptr %6678, align 4
@@ -13973,30 +13947,30 @@ sub_1:                                            ; preds = %sub_0
 
 6703:                                             ; preds = %._crit_edge
   %6704 = load ptr, ptr %.210001, align 8
-  %6705 = call ptr @list_make1_impl(i32 noundef 1, ptr %6704) #11
+  %6705 = call ptr @list_make1_impl(i32 noundef 1, ptr %6704) #10
   br label %.critedge10155
 
 6706:                                             ; preds = %._crit_edge
   %6707 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6708 = load ptr, ptr %6707, align 8
   %6709 = load ptr, ptr %.210001, align 8
-  %6710 = call ptr @lappend(ptr noundef %6708, ptr noundef %6709) #11
+  %6710 = call ptr @lappend(ptr noundef %6708, ptr noundef %6709) #10
   br label %.critedge10155
 
 6711:                                             ; preds = %._crit_edge
   %6712 = load ptr, ptr %.210001, align 8
-  %6713 = call ptr @list_make1_impl(i32 noundef 1, ptr %6712) #11
+  %6713 = call ptr @list_make1_impl(i32 noundef 1, ptr %6712) #10
   br label %.critedge10155
 
 6714:                                             ; preds = %._crit_edge
   %6715 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6716 = load ptr, ptr %6715, align 8
   %6717 = load ptr, ptr %.210001, align 8
-  %6718 = call ptr @lappend(ptr noundef %6716, ptr noundef %6717) #11
+  %6718 = call ptr @lappend(ptr noundef %6716, ptr noundef %6717) #10
   br label %.critedge10155
 
 6719:                                             ; preds = %._crit_edge
-  %6720 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %6720 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %6720, align 4
   %6721 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6722 = load ptr, ptr %6721, align 8
@@ -14012,12 +13986,12 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6729:                                             ; preds = %._crit_edge
-  %6730 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %6730 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %6730, align 4
   %6731 = load ptr, ptr %.210001, align 8
-  %6732 = call ptr @pstrdup(ptr noundef %6731) #11
-  %6733 = call ptr @makeString(ptr noundef %6732) #11
-  %6734 = call ptr @list_make1_impl(i32 noundef 1, ptr %6733) #11
+  %6732 = call ptr @pstrdup(ptr noundef %6731) #10
+  %6733 = call ptr @makeString(ptr noundef %6732) #10
+  %6734 = call ptr @list_make1_impl(i32 noundef 1, ptr %6733) #10
   %6735 = getelementptr inbounds nuw i8, ptr %6730, i64 8
   store ptr %6734, ptr %6735, align 8
   %6736 = getelementptr inbounds nuw i8, ptr %6730, i64 32
@@ -14025,11 +13999,11 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6737:                                             ; preds = %._crit_edge
-  %6738 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %6738 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %6738, align 4
   %6739 = load ptr, ptr %.210001, align 8
-  %6740 = call ptr @makeString(ptr noundef %6739) #11
-  %6741 = call ptr @list_make1_impl(i32 noundef 1, ptr %6740) #11
+  %6740 = call ptr @makeString(ptr noundef %6739) #10
+  %6741 = call ptr @list_make1_impl(i32 noundef 1, ptr %6740) #10
   %6742 = getelementptr inbounds nuw i8, ptr %6738, i64 8
   store ptr %6741, ptr %6742, align 8
   %6743 = getelementptr inbounds nuw i8, ptr %6738, i64 32
@@ -14037,13 +14011,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6744:                                             ; preds = %._crit_edge
-  %6745 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %6745 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %6745, align 4
   %6746 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6747 = load ptr, ptr %6746, align 8
-  %6748 = call ptr @makeString(ptr noundef %6747) #11
+  %6748 = call ptr @makeString(ptr noundef %6747) #10
   %6749 = load ptr, ptr %.210001, align 8
-  %6750 = call ptr @lcons(ptr noundef %6748, ptr noundef %6749) #11
+  %6750 = call ptr @lcons(ptr noundef %6748, ptr noundef %6749) #10
   %6751 = call fastcc ptr @check_func_name(ptr noundef %6750, ptr noundef %0)
   %6752 = getelementptr inbounds nuw i8, ptr %6745, i64 8
   store ptr %6750, ptr %6752, align 8
@@ -14058,18 +14032,18 @@ sub_1:                                            ; preds = %sub_0
 
 6757:                                             ; preds = %._crit_edge
   %6758 = load ptr, ptr %.210001, align 8
-  %6759 = call ptr @list_make1_impl(i32 noundef 1, ptr %6758) #11
+  %6759 = call ptr @list_make1_impl(i32 noundef 1, ptr %6758) #10
   br label %.critedge10155
 
 6760:                                             ; preds = %._crit_edge
   %6761 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6762 = load ptr, ptr %6761, align 8
   %6763 = load ptr, ptr %.210001, align 8
-  %6764 = call ptr @lappend(ptr noundef %6762, ptr noundef %6763) #11
+  %6764 = call ptr @lappend(ptr noundef %6762, ptr noundef %6763) #10
   br label %.critedge10155
 
 6765:                                             ; preds = %._crit_edge
-  %6766 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6766 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %6766, align 4
   %6767 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6768 = load ptr, ptr %6767, align 8
@@ -14091,7 +14065,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6779:                                             ; preds = %._crit_edge
-  %6780 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6780 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %6780, align 4
   %6781 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6782 = load ptr, ptr %6781, align 8
@@ -14113,7 +14087,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6793:                                             ; preds = %._crit_edge
-  %6794 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6794 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %6794, align 4
   %6795 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6796 = load ptr, ptr %6795, align 8
@@ -14133,7 +14107,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6805:                                             ; preds = %._crit_edge
-  %6806 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6806 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %6806, align 4
   %6807 = getelementptr inbounds nuw i8, ptr %6806, i64 8
   store ptr null, ptr %6807, align 8
@@ -14153,7 +14127,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 6817:                                             ; preds = %._crit_edge
-  %6818 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %6818 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %6818, align 4
   %6819 = getelementptr inbounds nuw i8, ptr %6818, i64 8
   store ptr null, ptr %6819, align 8
@@ -14215,11 +14189,11 @@ sub_1:                                            ; preds = %sub_0
 6845:                                             ; preds = %._crit_edge
   %6846 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %6847 = load ptr, ptr %6846, align 8
-  %6848 = call ptr @makeString(ptr noundef %6847) #11
+  %6848 = call ptr @makeString(ptr noundef %6847) #10
   %6849 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6850 = load ptr, ptr %6849, align 8
-  %6851 = call ptr @lcons(ptr noundef %6848, ptr noundef %6850) #11
-  %6852 = call ptr @makeTypeNameFromNameList(ptr noundef %6851) #11
+  %6851 = call ptr @lcons(ptr noundef %6848, ptr noundef %6850) #10
+  %6852 = call ptr @makeTypeNameFromNameList(ptr noundef %6851) #10
   %6853 = getelementptr inbounds nuw i8, ptr %6852, i64 21
   store i8 1, ptr %6853, align 1
   %6854 = getelementptr inbounds i8, ptr %.210013, i64 -12
@@ -14231,11 +14205,11 @@ sub_1:                                            ; preds = %sub_0
 6857:                                             ; preds = %._crit_edge
   %6858 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %6859 = load ptr, ptr %6858, align 8
-  %6860 = call ptr @makeString(ptr noundef %6859) #11
+  %6860 = call ptr @makeString(ptr noundef %6859) #10
   %6861 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6862 = load ptr, ptr %6861, align 8
-  %6863 = call ptr @lcons(ptr noundef %6860, ptr noundef %6862) #11
-  %6864 = call ptr @makeTypeNameFromNameList(ptr noundef %6863) #11
+  %6863 = call ptr @lcons(ptr noundef %6860, ptr noundef %6862) #10
+  %6864 = call ptr @makeTypeNameFromNameList(ptr noundef %6863) #10
   %6865 = getelementptr inbounds nuw i8, ptr %6864, i64 21
   store i8 1, ptr %6865, align 1
   %6866 = getelementptr inbounds nuw i8, ptr %6864, i64 20
@@ -14277,32 +14251,31 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 6886:                                             ; preds = %6882
-  %6887 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %6887)
-  %6888 = call i32 @errcode(i32 noundef 1088) #11
-  %6889 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130) #11
+  %6887 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %6888 = call i32 @errcode(i32 noundef 1088) #10
+  %6889 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.130) #10
   %6890 = load i32, ptr %.210013, align 4
-  %6891 = call i32 @scanner_errposition(i32 noundef %6890, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 8610, ptr noundef nonnull @__func__.base_yyparse) #11
+  %6891 = call i32 @scanner_errposition(i32 noundef %6890, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 8610, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 6892:                                             ; preds = %._crit_edge
-  %6893 = call ptr @makeInteger(i32 noundef -1) #11
-  %6894 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %6893) #11
+  %6893 = call ptr @makeInteger(i32 noundef -1) #10
+  %6894 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %6893) #10
   br label %.critedge10155
 
 6895:                                             ; preds = %._crit_edge
   %6896 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6897 = load ptr, ptr %6896, align 8
-  %6898 = call ptr @makeInteger(i32 noundef -1) #11
-  %6899 = call ptr @list_make2_impl(i32 noundef 1, ptr %6897, ptr %6898) #11
+  %6898 = call ptr @makeInteger(i32 noundef -1) #10
+  %6899 = call ptr @list_make2_impl(i32 noundef 1, ptr %6897, ptr %6898) #10
   br label %.critedge10155
 
 6900:                                             ; preds = %._crit_edge
   %6901 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6902 = load ptr, ptr %6901, align 8
-  %6903 = call ptr @makeInteger(i32 noundef 0) #11
-  %6904 = call ptr @list_make2_impl(i32 noundef 1, ptr %6902, ptr %6903) #11
+  %6903 = call ptr @makeInteger(i32 noundef 0) #10
+  %6904 = call ptr @list_make2_impl(i32 noundef 1, ptr %6902, ptr %6903) #10
   br label %.critedge10155
 
 6905:                                             ; preds = %._crit_edge
@@ -14315,18 +14288,18 @@ sub_1:                                            ; preds = %sub_0
 
 6911:                                             ; preds = %._crit_edge
   %6912 = load ptr, ptr %.210001, align 8
-  %6913 = call ptr @list_make1_impl(i32 noundef 1, ptr %6912) #11
+  %6913 = call ptr @list_make1_impl(i32 noundef 1, ptr %6912) #10
   br label %.critedge10155
 
 6914:                                             ; preds = %._crit_edge
   %6915 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6916 = load ptr, ptr %6915, align 8
   %6917 = load ptr, ptr %.210001, align 8
-  %6918 = call ptr @lappend(ptr noundef %6916, ptr noundef %6917) #11
+  %6918 = call ptr @lappend(ptr noundef %6916, ptr noundef %6917) #10
   br label %.critedge10155
 
 6919:                                             ; preds = %._crit_edge
-  %6920 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %6920 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %6920, align 4
   %6921 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6922 = load ptr, ptr %6921, align 8
@@ -14349,168 +14322,168 @@ sub_1:                                            ; preds = %sub_0
 
 6932:                                             ; preds = %._crit_edge
   %6933 = load ptr, ptr %.210001, align 8
-  %6934 = call ptr @list_make1_impl(i32 noundef 1, ptr %6933) #11
+  %6934 = call ptr @list_make1_impl(i32 noundef 1, ptr %6933) #10
   br label %.critedge10155
 
 6935:                                             ; preds = %._crit_edge
   %6936 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %6937 = load ptr, ptr %6936, align 8
   %6938 = load ptr, ptr %.210001, align 8
-  %6939 = call ptr @lappend(ptr noundef %6937, ptr noundef %6938) #11
+  %6939 = call ptr @lappend(ptr noundef %6937, ptr noundef %6938) #10
   br label %.critedge10155
 
 6940:                                             ; preds = %._crit_edge
   %6941 = load ptr, ptr %.210001, align 8
-  %6942 = call ptr @list_make1_impl(i32 noundef 1, ptr %6941) #11
+  %6942 = call ptr @list_make1_impl(i32 noundef 1, ptr %6941) #10
   br label %.critedge10155
 
 6943:                                             ; preds = %._crit_edge
   %6944 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %6945 = load ptr, ptr %6944, align 8
   %6946 = load ptr, ptr %.210001, align 8
-  %6947 = call ptr @lappend(ptr noundef %6945, ptr noundef %6946) #11
+  %6947 = call ptr @lappend(ptr noundef %6945, ptr noundef %6946) #10
   br label %.critedge10155
 
 6948:                                             ; preds = %._crit_edge
-  %6949 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %6949 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %6950 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %6951 = load i32, ptr %6950, align 4
-  %6952 = call ptr @makeDefElem(ptr noundef nonnull @.str.131, ptr noundef %6949, i32 noundef %6951) #11
+  %6952 = call ptr @makeDefElem(ptr noundef nonnull @.str.131, ptr noundef %6949, i32 noundef %6951) #10
   br label %.critedge10155
 
 6953:                                             ; preds = %._crit_edge
-  %6954 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6954 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %6955 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %6956 = load i32, ptr %6955, align 4
-  %6957 = call ptr @makeDefElem(ptr noundef nonnull @.str.131, ptr noundef %6954, i32 noundef %6956) #11
+  %6957 = call ptr @makeDefElem(ptr noundef nonnull @.str.131, ptr noundef %6954, i32 noundef %6956) #10
   br label %.critedge10155
 
 6958:                                             ; preds = %._crit_edge
-  %6959 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6959 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %6960 = load i32, ptr %.210013, align 4
-  %6961 = call ptr @makeDefElem(ptr noundef nonnull @.str.131, ptr noundef %6959, i32 noundef %6960) #11
+  %6961 = call ptr @makeDefElem(ptr noundef nonnull @.str.131, ptr noundef %6959, i32 noundef %6960) #10
   br label %.critedge10155
 
 6962:                                             ; preds = %._crit_edge
-  %6963 = call ptr @makeString(ptr noundef nonnull @.str.133) #11
+  %6963 = call ptr @makeString(ptr noundef nonnull @.str.133) #10
   %6964 = load i32, ptr %.210013, align 4
-  %6965 = call ptr @makeDefElem(ptr noundef nonnull @.str.132, ptr noundef %6963, i32 noundef %6964) #11
+  %6965 = call ptr @makeDefElem(ptr noundef nonnull @.str.132, ptr noundef %6963, i32 noundef %6964) #10
   br label %.critedge10155
 
 6966:                                             ; preds = %._crit_edge
-  %6967 = call ptr @makeString(ptr noundef nonnull @.str.134) #11
+  %6967 = call ptr @makeString(ptr noundef nonnull @.str.134) #10
   %6968 = load i32, ptr %.210013, align 4
-  %6969 = call ptr @makeDefElem(ptr noundef nonnull @.str.132, ptr noundef %6967, i32 noundef %6968) #11
+  %6969 = call ptr @makeDefElem(ptr noundef nonnull @.str.132, ptr noundef %6967, i32 noundef %6968) #10
   br label %.critedge10155
 
 6970:                                             ; preds = %._crit_edge
-  %6971 = call ptr @makeString(ptr noundef nonnull @.str.135) #11
+  %6971 = call ptr @makeString(ptr noundef nonnull @.str.135) #10
   %6972 = load i32, ptr %.210013, align 4
-  %6973 = call ptr @makeDefElem(ptr noundef nonnull @.str.132, ptr noundef %6971, i32 noundef %6972) #11
+  %6973 = call ptr @makeDefElem(ptr noundef nonnull @.str.132, ptr noundef %6971, i32 noundef %6972) #10
   br label %.critedge10155
 
 6974:                                             ; preds = %._crit_edge
-  %6975 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6975 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %6976 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %6977 = load i32, ptr %6976, align 4
-  %6978 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6975, i32 noundef %6977) #11
+  %6978 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6975, i32 noundef %6977) #10
   br label %.critedge10155
 
 6979:                                             ; preds = %._crit_edge
-  %6980 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %6980 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %6981 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %6982 = load i32, ptr %6981, align 4
-  %6983 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6980, i32 noundef %6982) #11
+  %6983 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6980, i32 noundef %6982) #10
   br label %.critedge10155
 
 6984:                                             ; preds = %._crit_edge
-  %6985 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6985 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %6986 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %6987 = load i32, ptr %6986, align 4
-  %6988 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6985, i32 noundef %6987) #11
+  %6988 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6985, i32 noundef %6987) #10
   br label %.critedge10155
 
 6989:                                             ; preds = %._crit_edge
-  %6990 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %6990 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %6991 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %6992 = load i32, ptr %6991, align 4
-  %6993 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6990, i32 noundef %6992) #11
+  %6993 = call ptr @makeDefElem(ptr noundef nonnull @.str.136, ptr noundef %6990, i32 noundef %6992) #10
   br label %.critedge10155
 
 6994:                                             ; preds = %._crit_edge
-  %6995 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %6995 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %6996 = load i32, ptr %.210013, align 4
-  %6997 = call ptr @makeDefElem(ptr noundef nonnull @.str.137, ptr noundef %6995, i32 noundef %6996) #11
+  %6997 = call ptr @makeDefElem(ptr noundef nonnull @.str.137, ptr noundef %6995, i32 noundef %6996) #10
   br label %.critedge10155
 
 6998:                                             ; preds = %._crit_edge
-  %6999 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %6999 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %7000 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7001 = load i32, ptr %7000, align 4
-  %7002 = call ptr @makeDefElem(ptr noundef nonnull @.str.137, ptr noundef %6999, i32 noundef %7001) #11
+  %7002 = call ptr @makeDefElem(ptr noundef nonnull @.str.137, ptr noundef %6999, i32 noundef %7001) #10
   br label %.critedge10155
 
 7003:                                             ; preds = %._crit_edge
   %7004 = load ptr, ptr %.210001, align 8
   %7005 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7006 = load i32, ptr %7005, align 4
-  %7007 = call ptr @makeDefElem(ptr noundef nonnull @.str.138, ptr noundef %7004, i32 noundef %7006) #11
+  %7007 = call ptr @makeDefElem(ptr noundef nonnull @.str.138, ptr noundef %7004, i32 noundef %7006) #10
   br label %.critedge10155
 
 7008:                                             ; preds = %._crit_edge
   %7009 = load ptr, ptr %.210001, align 8
   %7010 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7011 = load i32, ptr %7010, align 4
-  %7012 = call ptr @makeDefElem(ptr noundef nonnull @.str.139, ptr noundef %7009, i32 noundef %7011) #11
+  %7012 = call ptr @makeDefElem(ptr noundef nonnull @.str.139, ptr noundef %7009, i32 noundef %7011) #10
   br label %.critedge10155
 
 7013:                                             ; preds = %._crit_edge
   %7014 = load ptr, ptr %.210001, align 8
   %7015 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7016 = load i32, ptr %7015, align 4
-  %7017 = call ptr @makeDefElem(ptr noundef nonnull @.str.140, ptr noundef %7014, i32 noundef %7016) #11
+  %7017 = call ptr @makeDefElem(ptr noundef nonnull @.str.140, ptr noundef %7014, i32 noundef %7016) #10
   br label %.critedge10155
 
 7018:                                             ; preds = %._crit_edge
   %7019 = load ptr, ptr %.210001, align 8
   %7020 = load i32, ptr %.210013, align 4
-  %7021 = call ptr @makeDefElem(ptr noundef nonnull @.str.141, ptr noundef %7019, i32 noundef %7020) #11
+  %7021 = call ptr @makeDefElem(ptr noundef nonnull @.str.141, ptr noundef %7019, i32 noundef %7020) #10
   br label %.critedge10155
 
 7022:                                             ; preds = %._crit_edge
   %7023 = load ptr, ptr %.210001, align 8
-  %7024 = call ptr @makeString(ptr noundef %7023) #11
+  %7024 = call ptr @makeString(ptr noundef %7023) #10
   %7025 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7026 = load i32, ptr %7025, align 4
-  %7027 = call ptr @makeDefElem(ptr noundef nonnull @.str.142, ptr noundef %7024, i32 noundef %7026) #11
+  %7027 = call ptr @makeDefElem(ptr noundef nonnull @.str.142, ptr noundef %7024, i32 noundef %7026) #10
   br label %.critedge10155
 
 7028:                                             ; preds = %._crit_edge
   %7029 = load ptr, ptr %.210001, align 8
   %7030 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7031 = load i32, ptr %7030, align 4
-  %7032 = call ptr @makeDefElem(ptr noundef nonnull @.str.54, ptr noundef %7029, i32 noundef %7031) #11
+  %7032 = call ptr @makeDefElem(ptr noundef nonnull @.str.54, ptr noundef %7029, i32 noundef %7031) #10
   br label %.critedge10155
 
 7033:                                             ; preds = %._crit_edge
   %7034 = load ptr, ptr %.210001, align 8
-  %7035 = call ptr @makeString(ptr noundef %7034) #11
+  %7035 = call ptr @makeString(ptr noundef %7034) #10
   %7036 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7037 = load i32, ptr %7036, align 4
-  %7038 = call ptr @makeDefElem(ptr noundef nonnull @.str.143, ptr noundef %7035, i32 noundef %7037) #11
+  %7038 = call ptr @makeDefElem(ptr noundef nonnull @.str.143, ptr noundef %7035, i32 noundef %7037) #10
   br label %.critedge10155
 
 7039:                                             ; preds = %._crit_edge
   %7040 = load ptr, ptr %.210001, align 8
   %7041 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7042 = load i32, ptr %7041, align 4
-  %7043 = call ptr @makeDefElem(ptr noundef nonnull @.str.144, ptr noundef %7040, i32 noundef %7042) #11
+  %7043 = call ptr @makeDefElem(ptr noundef nonnull @.str.144, ptr noundef %7040, i32 noundef %7042) #10
   br label %.critedge10155
 
 7044:                                             ; preds = %._crit_edge
-  %7045 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %7045 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %7046 = load i32, ptr %.210013, align 4
-  %7047 = call ptr @makeDefElem(ptr noundef nonnull @.str.145, ptr noundef %7045, i32 noundef %7046) #11
+  %7047 = call ptr @makeDefElem(ptr noundef nonnull @.str.145, ptr noundef %7045, i32 noundef %7046) #10
   br label %.critedge10155
 
 7048:                                             ; preds = %._crit_edge
@@ -14519,21 +14492,21 @@ sub_1:                                            ; preds = %sub_0
 
 7050:                                             ; preds = %._crit_edge
   %7051 = load ptr, ptr %.210001, align 8
-  %7052 = call ptr @makeString(ptr noundef %7051) #11
-  %7053 = call ptr @list_make1_impl(i32 noundef 1, ptr %7052) #11
+  %7052 = call ptr @makeString(ptr noundef %7051) #10
+  %7053 = call ptr @list_make1_impl(i32 noundef 1, ptr %7052) #10
   br label %.critedge10155
 
 7054:                                             ; preds = %._crit_edge
   %7055 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7056 = load ptr, ptr %7055, align 8
-  %7057 = call ptr @makeString(ptr noundef %7056) #11
+  %7057 = call ptr @makeString(ptr noundef %7056) #10
   %7058 = load ptr, ptr %.210001, align 8
-  %7059 = call ptr @makeString(ptr noundef %7058) #11
-  %7060 = call ptr @list_make2_impl(i32 noundef 1, ptr %7057, ptr %7059) #11
+  %7059 = call ptr @makeString(ptr noundef %7058) #10
+  %7060 = call ptr @list_make2_impl(i32 noundef 1, ptr %7057, ptr %7059) #10
   br label %.critedge10155
 
 7061:                                             ; preds = %._crit_edge
-  %7062 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %7062 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 143, ptr %7062, align 4
   %7063 = load ptr, ptr %.210001, align 8
   %7064 = getelementptr inbounds nuw i8, ptr %7062, i64 8
@@ -14547,7 +14520,7 @@ sub_1:                                            ; preds = %sub_0
 7067:                                             ; preds = %._crit_edge
   %7068 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7069 = load ptr, ptr %7068, align 8
-  %7070 = call ptr @list_make1_impl(i32 noundef 1, ptr %7069) #11
+  %7070 = call ptr @list_make1_impl(i32 noundef 1, ptr %7069) #10
   br label %.critedge10155
 
 7071:                                             ; preds = %._crit_edge
@@ -14559,19 +14532,19 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10120, label %.critedge10155, label %7076
 
 7076:                                             ; preds = %7071
-  %7077 = call ptr @lappend(ptr noundef %7075, ptr noundef nonnull %7073) #11
+  %7077 = call ptr @lappend(ptr noundef %7075, ptr noundef nonnull %7073) #10
   br label %.critedge10155
 
 7078:                                             ; preds = %._crit_edge
   %7079 = load ptr, ptr %.210001, align 8
-  %7080 = call ptr @list_make1_impl(i32 noundef 1, ptr %7079) #11
+  %7080 = call ptr @list_make1_impl(i32 noundef 1, ptr %7079) #10
   br label %.critedge10155
 
 7081:                                             ; preds = %._crit_edge
   %7082 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %7083 = load ptr, ptr %7082, align 8
   %7084 = load ptr, ptr %.210001, align 8
-  %7085 = call ptr @lappend(ptr noundef %7083, ptr noundef %7084) #11
+  %7085 = call ptr @lappend(ptr noundef %7083, ptr noundef %7084) #10
   br label %.critedge10155
 
 7086:                                             ; preds = %._crit_edge
@@ -14579,7 +14552,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7088:                                             ; preds = %._crit_edge
-  %7089 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %7089 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 208, ptr %7089, align 4
   %7090 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7091 = load ptr, ptr %7090, align 8
@@ -14600,18 +14573,18 @@ sub_1:                                            ; preds = %sub_0
 
 7100:                                             ; preds = %._crit_edge
   %7101 = load ptr, ptr %.210001, align 8
-  %7102 = call ptr @list_make1_impl(i32 noundef 1, ptr %7101) #11
+  %7102 = call ptr @list_make1_impl(i32 noundef 1, ptr %7101) #10
   br label %.critedge10155
 
 7103:                                             ; preds = %._crit_edge
   %7104 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7105 = load ptr, ptr %7104, align 8
   %7106 = load ptr, ptr %.210001, align 8
-  %7107 = call ptr @lappend(ptr noundef %7105, ptr noundef %7106) #11
+  %7107 = call ptr @lappend(ptr noundef %7105, ptr noundef %7106) #10
   br label %.critedge10155
 
 7108:                                             ; preds = %._crit_edge
-  %7109 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %7109 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 209, ptr %7109, align 4
   %7110 = getelementptr inbounds nuw i8, ptr %7109, i64 4
   store i32 19, ptr %7110, align 4
@@ -14626,7 +14599,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7117:                                             ; preds = %._crit_edge
-  %7118 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %7118 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 209, ptr %7118, align 4
   %7119 = getelementptr inbounds nuw i8, ptr %7118, i64 4
   store i32 29, ptr %7119, align 4
@@ -14641,7 +14614,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7126:                                             ; preds = %._crit_edge
-  %7127 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %7127 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 209, ptr %7127, align 4
   %7128 = getelementptr inbounds nuw i8, ptr %7127, i64 4
   store i32 34, ptr %7128, align 4
@@ -14657,18 +14630,18 @@ sub_1:                                            ; preds = %sub_0
 
 7135:                                             ; preds = %._crit_edge
   %7136 = load ptr, ptr %.210001, align 8
-  %7137 = call ptr @list_make1_impl(i32 noundef 1, ptr %7136) #11
+  %7137 = call ptr @list_make1_impl(i32 noundef 1, ptr %7136) #10
   br label %.critedge10155
 
 7138:                                             ; preds = %._crit_edge
   %7139 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7140 = load ptr, ptr %7139, align 8
   %7141 = load ptr, ptr %.210001, align 8
-  %7142 = call ptr @lappend(ptr noundef %7140, ptr noundef %7141) #11
+  %7142 = call ptr @lappend(ptr noundef %7140, ptr noundef %7141) #10
   br label %.critedge10155
 
 7143:                                             ; preds = %._crit_edge
-  %7144 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7144 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7144, align 4
   %7145 = getelementptr inbounds nuw i8, ptr %7144, i64 16
   store i32 19, ptr %7145, align 8
@@ -14686,7 +14659,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7153:                                             ; preds = %._crit_edge
-  %7154 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7154 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7154, align 4
   %7155 = getelementptr inbounds nuw i8, ptr %7154, i64 16
   store i32 19, ptr %7155, align 8
@@ -14704,7 +14677,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7163:                                             ; preds = %._crit_edge
-  %7164 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7164 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7164, align 4
   %7165 = getelementptr inbounds nuw i8, ptr %7164, i64 16
   store i32 29, ptr %7165, align 8
@@ -14722,7 +14695,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7173:                                             ; preds = %._crit_edge
-  %7174 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7174 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7174, align 4
   %7175 = getelementptr inbounds nuw i8, ptr %7174, i64 16
   store i32 29, ptr %7175, align 8
@@ -14740,7 +14713,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7183:                                             ; preds = %._crit_edge
-  %7184 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7184 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7184, align 4
   %7185 = getelementptr inbounds nuw i8, ptr %7184, i64 16
   store i32 34, ptr %7185, align 8
@@ -14758,7 +14731,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7193:                                             ; preds = %._crit_edge
-  %7194 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7194 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7194, align 4
   %7195 = getelementptr inbounds nuw i8, ptr %7194, i64 16
   store i32 34, ptr %7195, align 8
@@ -14776,7 +14749,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7203:                                             ; preds = %._crit_edge
-  %7204 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7204 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7204, align 4
   %7205 = getelementptr inbounds nuw i8, ptr %7204, i64 16
   store i32 1, ptr %7205, align 8
@@ -14794,7 +14767,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7213:                                             ; preds = %._crit_edge
-  %7214 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7214 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7214, align 4
   %7215 = getelementptr inbounds nuw i8, ptr %7214, i64 16
   store i32 1, ptr %7215, align 8
@@ -14812,7 +14785,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7223:                                             ; preds = %._crit_edge
-  %7224 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7224 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7224, align 4
   %7225 = getelementptr inbounds nuw i8, ptr %7224, i64 16
   store i32 25, ptr %7225, align 8
@@ -14830,7 +14803,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7233:                                             ; preds = %._crit_edge
-  %7234 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7234 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7234, align 4
   %7235 = getelementptr inbounds nuw i8, ptr %7234, i64 16
   store i32 25, ptr %7235, align 8
@@ -14848,14 +14821,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7243:                                             ; preds = %._crit_edge
-  %7244 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %7244)
-  %7245 = call i32 @errcode(i32 noundef 16801924) #11
-  %7246 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.146) #11
-  %7247 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.147) #11
+  %7244 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %7245 = call i32 @errcode(i32 noundef 16801924) #10
+  %7246 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.146) #10
+  %7247 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.147) #10
   %7248 = load i32, ptr %.210013, align 4
-  %7249 = call i32 @scanner_errposition(i32 noundef %7248, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 9075, ptr noundef nonnull @__func__.base_yyparse) #11
+  %7249 = call i32 @scanner_errposition(i32 noundef %7248, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 9075, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 7250:                                             ; preds = %._crit_edge
@@ -14863,49 +14835,49 @@ sub_1:                                            ; preds = %sub_0
   %7252 = load ptr, ptr %7251, align 8
   %7253 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7254 = load ptr, ptr %7253, align 8
-  %7255 = call ptr @list_make2_impl(i32 noundef 1, ptr %7252, ptr %7254) #11
+  %7255 = call ptr @list_make2_impl(i32 noundef 1, ptr %7252, ptr %7254) #10
   br label %.critedge10155
 
 7256:                                             ; preds = %._crit_edge
   %7257 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7258 = load ptr, ptr %7257, align 8
-  %7259 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %7258) #11
+  %7259 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %7258) #10
   br label %.critedge10155
 
 7260:                                             ; preds = %._crit_edge
   %7261 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7262 = load ptr, ptr %7261, align 8
-  %7263 = call ptr @list_make2_impl(i32 noundef 1, ptr %7262, ptr null) #11
+  %7263 = call ptr @list_make2_impl(i32 noundef 1, ptr %7262, ptr null) #10
   br label %.critedge10155
 
 7264:                                             ; preds = %._crit_edge
   %7265 = load ptr, ptr %.210001, align 8
-  %7266 = call ptr @makeString(ptr noundef %7265) #11
-  %7267 = call ptr @list_make1_impl(i32 noundef 1, ptr %7266) #11
+  %7266 = call ptr @makeString(ptr noundef %7265) #10
+  %7267 = call ptr @list_make1_impl(i32 noundef 1, ptr %7266) #10
   br label %.critedge10155
 
 7268:                                             ; preds = %._crit_edge
   %7269 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7270 = load ptr, ptr %7269, align 8
-  %7271 = call ptr @makeString(ptr noundef %7270) #11
+  %7271 = call ptr @makeString(ptr noundef %7270) #10
   %7272 = load ptr, ptr %.210001, align 8
-  %7273 = call ptr @lcons(ptr noundef %7271, ptr noundef %7272) #11
+  %7273 = call ptr @lcons(ptr noundef %7271, ptr noundef %7272) #10
   br label %.critedge10155
 
 7274:                                             ; preds = %._crit_edge
   %7275 = load ptr, ptr %.210001, align 8
-  %7276 = call ptr @list_make1_impl(i32 noundef 1, ptr %7275) #11
+  %7276 = call ptr @list_make1_impl(i32 noundef 1, ptr %7275) #10
   br label %.critedge10155
 
 7277:                                             ; preds = %._crit_edge
   %7278 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7279 = load ptr, ptr %7278, align 8
   %7280 = load ptr, ptr %.210001, align 8
-  %7281 = call ptr @lappend(ptr noundef %7279, ptr noundef %7280) #11
+  %7281 = call ptr @lappend(ptr noundef %7279, ptr noundef %7280) #10
   br label %.critedge10155
 
 7282:                                             ; preds = %._crit_edge
-  %7283 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %7283 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 152, ptr %7283, align 4
   %7284 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7285 = load ptr, ptr %7284, align 8
@@ -14917,7 +14889,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7289:                                             ; preds = %._crit_edge
-  %7290 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %7290 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 210, ptr %7290, align 4
   %7291 = load ptr, ptr %.210001, align 8
   %7292 = getelementptr inbounds nuw i8, ptr %7290, i64 8
@@ -14926,33 +14898,33 @@ sub_1:                                            ; preds = %sub_0
 
 7293:                                             ; preds = %._crit_edge
   %7294 = load ptr, ptr %.210001, align 8
-  %7295 = call ptr @list_make1_impl(i32 noundef 1, ptr %7294) #11
+  %7295 = call ptr @list_make1_impl(i32 noundef 1, ptr %7294) #10
   br label %.critedge10155
 
 7296:                                             ; preds = %._crit_edge
   %7297 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7298 = load ptr, ptr %7297, align 8
   %7299 = load ptr, ptr %.210001, align 8
-  %7300 = call ptr @lappend(ptr noundef %7298, ptr noundef %7299) #11
+  %7300 = call ptr @lappend(ptr noundef %7298, ptr noundef %7299) #10
   br label %.critedge10155
 
 7301:                                             ; preds = %._crit_edge
   %7302 = load ptr, ptr %.210001, align 8
-  %7303 = call ptr @makeString(ptr noundef %7302) #11
+  %7303 = call ptr @makeString(ptr noundef %7302) #10
   %7304 = load i32, ptr %.210013, align 4
-  %7305 = call ptr @makeDefElem(ptr noundef nonnull @.str.54, ptr noundef %7303, i32 noundef %7304) #11
+  %7305 = call ptr @makeDefElem(ptr noundef nonnull @.str.54, ptr noundef %7303, i32 noundef %7304) #10
   br label %.critedge10155
 
 7306:                                             ; preds = %._crit_edge
   %7307 = load ptr, ptr %.210001, align 8
-  %7308 = call ptr @makeString(ptr noundef %7307) #11
+  %7308 = call ptr @makeString(ptr noundef %7307) #10
   %7309 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7310 = load i32, ptr %7309, align 4
-  %7311 = call ptr @makeDefElem(ptr noundef nonnull @.str.143, ptr noundef %7308, i32 noundef %7310) #11
+  %7311 = call ptr @makeDefElem(ptr noundef nonnull @.str.143, ptr noundef %7308, i32 noundef %7310) #10
   br label %.critedge10155
 
 7312:                                             ; preds = %._crit_edge
-  %7313 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %7313 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 249, ptr %7313, align 4
   %7314 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %7315 = load ptr, ptr %7314, align 8
@@ -14974,7 +14946,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7326:                                             ; preds = %._crit_edge
-  %7327 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %7327 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 249, ptr %7327, align 4
   %7328 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %7329 = load ptr, ptr %7328, align 8
@@ -14994,7 +14966,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7338:                                             ; preds = %._crit_edge
-  %7339 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %7339 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 249, ptr %7339, align 4
   %7340 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %7341 = load ptr, ptr %7340, align 8
@@ -15034,7 +15006,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7359:                                             ; preds = %._crit_edge
-  %7360 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7360 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7360, align 4
   %7361 = getelementptr inbounds nuw i8, ptr %7360, i64 16
   store i32 5, ptr %7361, align 8
@@ -15042,8 +15014,8 @@ sub_1:                                            ; preds = %sub_0
   %7363 = load ptr, ptr %7362, align 8
   %7364 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7365 = load ptr, ptr %7364, align 8
-  %7366 = call ptr @list_make2_impl(i32 noundef 1, ptr %7363, ptr %7365) #11
-  %7367 = call ptr @list_make1_impl(i32 noundef 1, ptr %7366) #11
+  %7366 = call ptr @list_make2_impl(i32 noundef 1, ptr %7363, ptr %7365) #10
+  %7367 = call ptr @list_make1_impl(i32 noundef 1, ptr %7366) #10
   %7368 = getelementptr inbounds nuw i8, ptr %7360, i64 8
   store ptr %7367, ptr %7368, align 8
   %7369 = load i32, ptr %.210001, align 8
@@ -15071,7 +15043,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7381:                                             ; preds = %._crit_edge
-  %7382 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %7382 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 250, ptr %7382, align 4
   %7383 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %7384 = load i8, ptr %7383, align 8, !range !6, !noundef !7
@@ -15105,28 +15077,28 @@ sub_1:                                            ; preds = %sub_0
   %7403 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %7404 = load ptr, ptr %7403, align 8
   %7405 = load ptr, ptr %.210001, align 8
-  %7406 = call ptr @list_make2_impl(i32 noundef 1, ptr %7404, ptr %7405) #11
+  %7406 = call ptr @list_make2_impl(i32 noundef 1, ptr %7404, ptr %7405) #10
   br label %.critedge10155
 
 7407:                                             ; preds = %._crit_edge
   %7408 = load ptr, ptr %.210001, align 8
   %7409 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %7410 = load ptr, ptr %7409, align 8
-  %7411 = call ptr @list_make2_impl(i32 noundef 1, ptr %7408, ptr %7410) #11
+  %7411 = call ptr @list_make2_impl(i32 noundef 1, ptr %7408, ptr %7410) #10
   br label %.critedge10155
 
 7412:                                             ; preds = %._crit_edge
   %7413 = load ptr, ptr %.210001, align 8
-  %7414 = call ptr @list_make2_impl(i32 noundef 1, ptr %7413, ptr null) #11
+  %7414 = call ptr @list_make2_impl(i32 noundef 1, ptr %7413, ptr null) #10
   br label %.critedge10155
 
 7415:                                             ; preds = %._crit_edge
   %7416 = load ptr, ptr %.210001, align 8
-  %7417 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %7416) #11
+  %7417 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %7416) #10
   br label %.critedge10155
 
 7418:                                             ; preds = %._crit_edge
-  %7419 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7419 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 196, ptr %7419, align 4
   %7420 = getelementptr inbounds nuw i8, ptr %7419, i64 16
   store i32 43, ptr %7420, align 8
@@ -15134,9 +15106,9 @@ sub_1:                                            ; preds = %sub_0
   %7422 = load ptr, ptr %7421, align 8
   %7423 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %7424 = load ptr, ptr %7423, align 8
-  %7425 = call ptr @makeString(ptr noundef %7424) #11
-  %7426 = call ptr @list_make2_impl(i32 noundef 1, ptr %7422, ptr %7425) #11
-  %7427 = call ptr @list_make1_impl(i32 noundef 1, ptr %7426) #11
+  %7425 = call ptr @makeString(ptr noundef %7424) #10
+  %7426 = call ptr @list_make2_impl(i32 noundef 1, ptr %7422, ptr %7425) #10
+  %7427 = call ptr @list_make1_impl(i32 noundef 1, ptr %7426) #10
   %7428 = getelementptr inbounds nuw i8, ptr %7419, i64 8
   store ptr %7427, ptr %7428, align 8
   %7429 = load i32, ptr %.210001, align 8
@@ -15149,7 +15121,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7434:                                             ; preds = %._crit_edge
-  %7435 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7435 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 247, ptr %7435, align 4
   %7436 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7437 = load i32, ptr %7436, align 8
@@ -15172,13 +15144,13 @@ sub_1:                                            ; preds = %sub_0
 7448:                                             ; preds = %7434
   %7449 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7450 = load i32, ptr %7449, align 4
-  %7451 = call ptr @makeDefElem(ptr noundef nonnull @.str.148, ptr noundef null, i32 noundef %7450) #11
-  %7452 = call ptr @lappend(ptr noundef %7443, ptr noundef %7451) #11
+  %7451 = call ptr @makeDefElem(ptr noundef nonnull @.str.148, ptr noundef null, i32 noundef %7450) #10
+  %7452 = call ptr @lappend(ptr noundef %7443, ptr noundef %7451) #10
   store ptr %7452, ptr %7444, align 8
   br label %.critedge10155
 
 7453:                                             ; preds = %._crit_edge
-  %7454 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7454 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 247, ptr %7454, align 4
   %7455 = getelementptr inbounds nuw i8, ptr %7454, i64 4
   store i32 2, ptr %7455, align 4
@@ -15199,13 +15171,13 @@ sub_1:                                            ; preds = %sub_0
 7465:                                             ; preds = %7453
   %7466 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7467 = load i32, ptr %7466, align 4
-  %7468 = call ptr @makeDefElem(ptr noundef nonnull @.str.148, ptr noundef null, i32 noundef %7467) #11
-  %7469 = call ptr @lappend(ptr noundef %7460, ptr noundef %7468) #11
+  %7468 = call ptr @makeDefElem(ptr noundef nonnull @.str.148, ptr noundef null, i32 noundef %7467) #10
+  %7469 = call ptr @lappend(ptr noundef %7460, ptr noundef %7468) #10
   store ptr %7469, ptr %7461, align 8
   br label %.critedge10155
 
 7470:                                             ; preds = %._crit_edge
-  %7471 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7471 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 247, ptr %7471, align 4
   %7472 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7473 = load i32, ptr %7472, align 8
@@ -15228,8 +15200,8 @@ sub_1:                                            ; preds = %sub_0
 7484:                                             ; preds = %7470
   %7485 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %7486 = load i32, ptr %7485, align 4
-  %7487 = call ptr @makeDefElem(ptr noundef nonnull @.str.148, ptr noundef null, i32 noundef %7486) #11
-  %7488 = call ptr @lappend(ptr noundef %7479, ptr noundef %7487) #11
+  %7487 = call ptr @makeDefElem(ptr noundef nonnull @.str.148, ptr noundef null, i32 noundef %7486) #10
+  %7488 = call ptr @lappend(ptr noundef %7479, ptr noundef %7487) #10
   store ptr %7488, ptr %7480, align 8
   br label %.critedge10155
 
@@ -15266,7 +15238,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7504:                                             ; preds = %._crit_edge
-  %7505 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7505 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 163, ptr %7505, align 4
   %7506 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7507 = load ptr, ptr %7506, align 8
@@ -15280,7 +15252,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7512:                                             ; preds = %._crit_edge
-  %7513 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %7513 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 163, ptr %7513, align 4
   %7514 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %7515 = load ptr, ptr %7514, align 8
@@ -15294,7 +15266,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7520:                                             ; preds = %._crit_edge
-  %7521 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7521 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7521, align 4
   %7522 = getelementptr inbounds nuw i8, ptr %7521, i64 4
   store i32 1, ptr %7522, align 4
@@ -15310,7 +15282,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7529:                                             ; preds = %._crit_edge
-  %7530 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7530 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7530, align 4
   %7531 = getelementptr inbounds nuw i8, ptr %7530, i64 4
   store i32 7, ptr %7531, align 4
@@ -15326,7 +15298,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7538:                                             ; preds = %._crit_edge
-  %7539 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7539 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7539, align 4
   %7540 = getelementptr inbounds nuw i8, ptr %7539, i64 4
   store i32 8, ptr %7540, align 4
@@ -15342,7 +15314,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7547:                                             ; preds = %._crit_edge
-  %7548 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7548 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7548, align 4
   %7549 = getelementptr inbounds nuw i8, ptr %7548, i64 4
   store i32 9, ptr %7549, align 4
@@ -15358,7 +15330,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7556:                                             ; preds = %._crit_edge
-  %7557 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7557 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7557, align 4
   %7558 = getelementptr inbounds nuw i8, ptr %7557, i64 4
   store i32 12, ptr %7558, align 4
@@ -15374,7 +15346,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7565:                                             ; preds = %._crit_edge
-  %7566 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7566 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7566, align 4
   %7567 = getelementptr inbounds nuw i8, ptr %7566, i64 4
   store i32 13, ptr %7567, align 4
@@ -15392,13 +15364,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7576:                                             ; preds = %._crit_edge
-  %7577 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7577 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7577, align 4
   %7578 = getelementptr inbounds nuw i8, ptr %7577, i64 4
   store i32 16, ptr %7578, align 4
   %7579 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7580 = load ptr, ptr %7579, align 8
-  %7581 = call ptr @makeString(ptr noundef %7580) #11
+  %7581 = call ptr @makeString(ptr noundef %7580) #10
   %7582 = getelementptr inbounds nuw i8, ptr %7577, i64 24
   store ptr %7581, ptr %7582, align 8
   %7583 = load ptr, ptr %.210001, align 8
@@ -15409,7 +15381,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7586:                                             ; preds = %._crit_edge
-  %7587 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7587 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7587, align 4
   %7588 = getelementptr inbounds nuw i8, ptr %7587, i64 4
   store i32 19, ptr %7588, align 4
@@ -15425,7 +15397,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7595:                                             ; preds = %._crit_edge
-  %7596 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7596 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7596, align 4
   %7597 = getelementptr inbounds nuw i8, ptr %7596, i64 4
   store i32 33, ptr %7597, align 4
@@ -15441,13 +15413,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7604:                                             ; preds = %._crit_edge
-  %7605 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7605 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7605, align 4
   %7606 = getelementptr inbounds nuw i8, ptr %7605, i64 4
   store i32 21, ptr %7606, align 4
   %7607 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7608 = load ptr, ptr %7607, align 8
-  %7609 = call ptr @makeString(ptr noundef %7608) #11
+  %7609 = call ptr @makeString(ptr noundef %7608) #10
   %7610 = getelementptr inbounds nuw i8, ptr %7605, i64 24
   store ptr %7609, ptr %7610, align 8
   %7611 = load ptr, ptr %.210001, align 8
@@ -15458,16 +15430,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7614:                                             ; preds = %._crit_edge
-  %7615 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7615 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7615, align 4
   %7616 = getelementptr inbounds nuw i8, ptr %7615, i64 4
   store i32 24, ptr %7616, align 4
   %7617 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7618 = load ptr, ptr %7617, align 8
-  %7619 = call ptr @makeString(ptr noundef %7618) #11
+  %7619 = call ptr @makeString(ptr noundef %7618) #10
   %7620 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %7621 = load ptr, ptr %7620, align 8
-  %7622 = call ptr @lcons(ptr noundef %7619, ptr noundef %7621) #11
+  %7622 = call ptr @lcons(ptr noundef %7619, ptr noundef %7621) #10
   %7623 = getelementptr inbounds nuw i8, ptr %7615, i64 24
   store ptr %7622, ptr %7623, align 8
   %7624 = load ptr, ptr %.210001, align 8
@@ -15478,16 +15450,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7627:                                             ; preds = %._crit_edge
-  %7628 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7628 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7628, align 4
   %7629 = getelementptr inbounds nuw i8, ptr %7628, i64 4
   store i32 26, ptr %7629, align 4
   %7630 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7631 = load ptr, ptr %7630, align 8
-  %7632 = call ptr @makeString(ptr noundef %7631) #11
+  %7632 = call ptr @makeString(ptr noundef %7631) #10
   %7633 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %7634 = load ptr, ptr %7633, align 8
-  %7635 = call ptr @lcons(ptr noundef %7632, ptr noundef %7634) #11
+  %7635 = call ptr @lcons(ptr noundef %7632, ptr noundef %7634) #10
   %7636 = getelementptr inbounds nuw i8, ptr %7628, i64 24
   store ptr %7635, ptr %7636, align 8
   %7637 = load ptr, ptr %.210001, align 8
@@ -15498,7 +15470,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7640:                                             ; preds = %._crit_edge
-  %7641 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7641 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7641, align 4
   %7642 = getelementptr inbounds nuw i8, ptr %7641, i64 4
   store i32 28, ptr %7642, align 4
@@ -15518,7 +15490,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7652:                                             ; preds = %._crit_edge
-  %7653 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7653 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7653, align 4
   %7654 = getelementptr inbounds nuw i8, ptr %7653, i64 4
   store i32 28, ptr %7654, align 4
@@ -15538,7 +15510,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7664:                                             ; preds = %._crit_edge
-  %7665 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7665 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7665, align 4
   %7666 = getelementptr inbounds nuw i8, ptr %7665, i64 4
   store i32 29, ptr %7666, align 4
@@ -15554,13 +15526,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7673:                                             ; preds = %._crit_edge
-  %7674 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7674 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7674, align 4
   %7675 = getelementptr inbounds nuw i8, ptr %7674, i64 4
   store i32 30, ptr %7675, align 4
   %7676 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7677 = load ptr, ptr %7676, align 8
-  %7678 = call ptr @makeString(ptr noundef %7677) #11
+  %7678 = call ptr @makeString(ptr noundef %7677) #10
   %7679 = getelementptr inbounds nuw i8, ptr %7674, i64 24
   store ptr %7678, ptr %7679, align 8
   %7680 = load ptr, ptr %.210001, align 8
@@ -15571,7 +15543,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7683:                                             ; preds = %._crit_edge
-  %7684 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7684 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7684, align 4
   %7685 = getelementptr inbounds nuw i8, ptr %7684, i64 4
   store i32 34, ptr %7685, align 4
@@ -15587,7 +15559,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7692:                                             ; preds = %._crit_edge
-  %7693 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7693 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7693, align 4
   %7694 = getelementptr inbounds nuw i8, ptr %7693, i64 4
   store i32 36, ptr %7694, align 4
@@ -15603,13 +15575,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7701:                                             ; preds = %._crit_edge
-  %7702 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7702 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7702, align 4
   %7703 = getelementptr inbounds nuw i8, ptr %7702, i64 4
   store i32 17, ptr %7703, align 4
   %7704 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7705 = load ptr, ptr %7704, align 8
-  %7706 = call ptr @makeString(ptr noundef %7705) #11
+  %7706 = call ptr @makeString(ptr noundef %7705) #10
   %7707 = getelementptr inbounds nuw i8, ptr %7702, i64 24
   store ptr %7706, ptr %7707, align 8
   %7708 = load ptr, ptr %.210001, align 8
@@ -15620,13 +15592,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7711:                                             ; preds = %._crit_edge
-  %7712 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7712 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7712, align 4
   %7713 = getelementptr inbounds nuw i8, ptr %7712, i64 4
   store i32 38, ptr %7713, align 4
   %7714 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7715 = load ptr, ptr %7714, align 8
-  %7716 = call ptr @makeString(ptr noundef %7715) #11
+  %7716 = call ptr @makeString(ptr noundef %7715) #10
   %7717 = getelementptr inbounds nuw i8, ptr %7712, i64 24
   store ptr %7716, ptr %7717, align 8
   %7718 = load ptr, ptr %.210001, align 8
@@ -15637,7 +15609,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7721:                                             ; preds = %._crit_edge
-  %7722 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7722 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7722, align 4
   %7723 = getelementptr inbounds nuw i8, ptr %7722, i64 4
   store i32 41, ptr %7723, align 4
@@ -15655,7 +15627,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7731:                                             ; preds = %._crit_edge
-  %7732 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7732 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7732, align 4
   %7733 = getelementptr inbounds nuw i8, ptr %7732, i64 4
   store i32 41, ptr %7733, align 4
@@ -15673,7 +15645,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7741:                                             ; preds = %._crit_edge
-  %7742 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7742 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7742, align 4
   %7743 = getelementptr inbounds nuw i8, ptr %7742, i64 4
   store i32 37, ptr %7743, align 4
@@ -15691,7 +15663,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7751:                                             ; preds = %._crit_edge
-  %7752 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7752 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7752, align 4
   %7753 = getelementptr inbounds nuw i8, ptr %7752, i64 4
   store i32 37, ptr %7753, align 4
@@ -15709,7 +15681,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7761:                                             ; preds = %._crit_edge
-  %7762 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7762 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7762, align 4
   %7763 = getelementptr inbounds nuw i8, ptr %7762, i64 4
   store i32 51, ptr %7763, align 4
@@ -15727,7 +15699,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7771:                                             ; preds = %._crit_edge
-  %7772 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7772 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7772, align 4
   %7773 = getelementptr inbounds nuw i8, ptr %7772, i64 4
   store i32 51, ptr %7773, align 4
@@ -15745,7 +15717,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7781:                                             ; preds = %._crit_edge
-  %7782 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7782 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7782, align 4
   %7783 = getelementptr inbounds nuw i8, ptr %7782, i64 4
   store i32 23, ptr %7783, align 4
@@ -15763,7 +15735,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7791:                                             ; preds = %._crit_edge
-  %7792 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7792 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7792, align 4
   %7793 = getelementptr inbounds nuw i8, ptr %7792, i64 4
   store i32 23, ptr %7793, align 4
@@ -15781,7 +15753,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7801:                                             ; preds = %._crit_edge
-  %7802 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7802 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7802, align 4
   %7803 = getelementptr inbounds nuw i8, ptr %7802, i64 4
   store i32 20, ptr %7803, align 4
@@ -15799,7 +15771,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7811:                                             ; preds = %._crit_edge
-  %7812 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7812 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7812, align 4
   %7813 = getelementptr inbounds nuw i8, ptr %7812, i64 4
   store i32 20, ptr %7813, align 4
@@ -15817,7 +15789,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7821:                                             ; preds = %._crit_edge
-  %7822 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7822 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7822, align 4
   %7823 = getelementptr inbounds nuw i8, ptr %7822, i64 4
   store i32 18, ptr %7823, align 4
@@ -15835,7 +15807,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7831:                                             ; preds = %._crit_edge
-  %7832 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7832 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7832, align 4
   %7833 = getelementptr inbounds nuw i8, ptr %7832, i64 4
   store i32 18, ptr %7833, align 4
@@ -15853,7 +15825,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7841:                                             ; preds = %._crit_edge
-  %7842 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7842 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7842, align 4
   %7843 = getelementptr inbounds nuw i8, ptr %7842, i64 4
   store i32 6, ptr %7843, align 4
@@ -15875,7 +15847,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7854:                                             ; preds = %._crit_edge
-  %7855 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7855 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7855, align 4
   %7856 = getelementptr inbounds nuw i8, ptr %7855, i64 4
   store i32 6, ptr %7856, align 4
@@ -15897,7 +15869,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7867:                                             ; preds = %._crit_edge
-  %7868 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7868 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7868, align 4
   %7869 = getelementptr inbounds nuw i8, ptr %7868, i64 4
   store i32 6, ptr %7869, align 4
@@ -15919,7 +15891,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7880:                                             ; preds = %._crit_edge
-  %7881 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7881 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7881, align 4
   %7882 = getelementptr inbounds nuw i8, ptr %7881, i64 4
   store i32 6, ptr %7882, align 4
@@ -15941,7 +15913,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7893:                                             ; preds = %._crit_edge
-  %7894 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7894 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7894, align 4
   %7895 = getelementptr inbounds nuw i8, ptr %7894, i64 4
   store i32 6, ptr %7895, align 4
@@ -15963,7 +15935,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7906:                                             ; preds = %._crit_edge
-  %7907 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7907 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7907, align 4
   %7908 = getelementptr inbounds nuw i8, ptr %7907, i64 4
   store i32 6, ptr %7908, align 4
@@ -15985,7 +15957,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7919:                                             ; preds = %._crit_edge
-  %7920 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7920 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7920, align 4
   %7921 = getelementptr inbounds nuw i8, ptr %7920, i64 4
   store i32 40, ptr %7921, align 4
@@ -16005,7 +15977,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7931:                                             ; preds = %._crit_edge
-  %7932 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7932 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7932, align 4
   %7933 = getelementptr inbounds nuw i8, ptr %7932, i64 4
   store i32 40, ptr %7933, align 4
@@ -16025,7 +15997,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7943:                                             ; preds = %._crit_edge
-  %7944 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7944 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7944, align 4
   %7945 = getelementptr inbounds nuw i8, ptr %7944, i64 4
   store i32 6, ptr %7945, align 4
@@ -16047,7 +16019,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7956:                                             ; preds = %._crit_edge
-  %7957 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7957 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7957, align 4
   %7958 = getelementptr inbounds nuw i8, ptr %7957, i64 4
   store i32 6, ptr %7958, align 4
@@ -16069,7 +16041,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7969:                                             ; preds = %._crit_edge
-  %7970 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7970 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7970, align 4
   %7971 = getelementptr inbounds nuw i8, ptr %7970, i64 4
   store i32 35, ptr %7971, align 4
@@ -16089,7 +16061,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7981:                                             ; preds = %._crit_edge
-  %7982 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7982 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7982, align 4
   %7983 = getelementptr inbounds nuw i8, ptr %7982, i64 4
   store i32 44, ptr %7983, align 4
@@ -16109,13 +16081,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 7993:                                             ; preds = %._crit_edge
-  %7994 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %7994 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %7994, align 4
   %7995 = getelementptr inbounds nuw i8, ptr %7994, i64 4
   store i32 14, ptr %7995, align 4
   %7996 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %7997 = load ptr, ptr %7996, align 8
-  %7998 = call ptr @makeString(ptr noundef %7997) #11
+  %7998 = call ptr @makeString(ptr noundef %7997) #10
   %7999 = getelementptr inbounds nuw i8, ptr %7994, i64 24
   store ptr %7998, ptr %7999, align 8
   %8000 = load ptr, ptr %.210001, align 8
@@ -16124,7 +16096,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8002:                                             ; preds = %._crit_edge
-  %8003 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8003 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8003, align 4
   %8004 = getelementptr inbounds nuw i8, ptr %8003, i64 4
   store i32 33, ptr %8004, align 4
@@ -16140,7 +16112,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8011:                                             ; preds = %._crit_edge
-  %8012 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8012 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8012, align 4
   %8013 = getelementptr inbounds nuw i8, ptr %8012, i64 4
   store i32 33, ptr %8013, align 4
@@ -16156,7 +16128,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8020:                                             ; preds = %._crit_edge
-  %8021 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8021 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8021, align 4
   %8022 = getelementptr inbounds nuw i8, ptr %8021, i64 4
   store i32 42, ptr %8022, align 4
@@ -16172,7 +16144,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8029:                                             ; preds = %._crit_edge
-  %8030 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8030 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8030, align 4
   %8031 = getelementptr inbounds nuw i8, ptr %8030, i64 4
   store i32 39, ptr %8031, align 4
@@ -16188,7 +16160,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8038:                                             ; preds = %._crit_edge
-  %8039 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8039 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8039, align 4
   %8040 = getelementptr inbounds nuw i8, ptr %8039, i64 4
   store i32 47, ptr %8040, align 4
@@ -16204,7 +16176,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8047:                                             ; preds = %._crit_edge
-  %8048 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8048 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8048, align 4
   %8049 = getelementptr inbounds nuw i8, ptr %8048, i64 4
   store i32 46, ptr %8049, align 4
@@ -16220,7 +16192,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8056:                                             ; preds = %._crit_edge
-  %8057 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8057 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8057, align 4
   %8058 = getelementptr inbounds nuw i8, ptr %8057, i64 4
   store i32 48, ptr %8058, align 4
@@ -16236,7 +16208,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8065:                                             ; preds = %._crit_edge
-  %8066 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8066 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8066, align 4
   %8067 = getelementptr inbounds nuw i8, ptr %8066, i64 4
   store i32 45, ptr %8067, align 4
@@ -16252,7 +16224,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8074:                                             ; preds = %._crit_edge
-  %8075 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8075 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8075, align 4
   %8076 = getelementptr inbounds nuw i8, ptr %8075, i64 4
   store i32 49, ptr %8076, align 4
@@ -16268,7 +16240,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8083:                                             ; preds = %._crit_edge
-  %8084 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8084 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 214, ptr %8084, align 4
   %8085 = getelementptr inbounds nuw i8, ptr %8084, i64 4
   store i32 4, ptr %8085, align 4
@@ -16310,7 +16282,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8108:                                             ; preds = %._crit_edge
-  %8109 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8109 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %8109, align 4
   %8110 = getelementptr inbounds nuw i8, ptr %8109, i64 4
   store i32 19, ptr %8110, align 4
@@ -16319,7 +16291,7 @@ sub_1:                                            ; preds = %sub_0
   %8113 = getelementptr inbounds nuw i8, ptr %8109, i64 16
   store ptr %8112, ptr %8113, align 8
   %8114 = load ptr, ptr %.210001, align 8
-  %8115 = call ptr @makeString(ptr noundef %8114) #11
+  %8115 = call ptr @makeString(ptr noundef %8114) #10
   %8116 = getelementptr inbounds nuw i8, ptr %8109, i64 24
   store ptr %8115, ptr %8116, align 8
   %8117 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -16329,7 +16301,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8120:                                             ; preds = %._crit_edge
-  %8121 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8121 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %8121, align 4
   %8122 = getelementptr inbounds nuw i8, ptr %8121, i64 4
   store i32 29, ptr %8122, align 4
@@ -16338,7 +16310,7 @@ sub_1:                                            ; preds = %sub_0
   %8125 = getelementptr inbounds nuw i8, ptr %8121, i64 16
   store ptr %8124, ptr %8125, align 8
   %8126 = load ptr, ptr %.210001, align 8
-  %8127 = call ptr @makeString(ptr noundef %8126) #11
+  %8127 = call ptr @makeString(ptr noundef %8126) #10
   %8128 = getelementptr inbounds nuw i8, ptr %8121, i64 24
   store ptr %8127, ptr %8128, align 8
   %8129 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -16348,7 +16320,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8132:                                             ; preds = %._crit_edge
-  %8133 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8133 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %8133, align 4
   %8134 = getelementptr inbounds nuw i8, ptr %8133, i64 4
   store i32 34, ptr %8134, align 4
@@ -16357,7 +16329,7 @@ sub_1:                                            ; preds = %sub_0
   %8137 = getelementptr inbounds nuw i8, ptr %8133, i64 16
   store ptr %8136, ptr %8137, align 8
   %8138 = load ptr, ptr %.210001, align 8
-  %8139 = call ptr @makeString(ptr noundef %8138) #11
+  %8139 = call ptr @makeString(ptr noundef %8138) #10
   %8140 = getelementptr inbounds nuw i8, ptr %8133, i64 24
   store ptr %8139, ptr %8140, align 8
   %8141 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -16367,7 +16339,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8144:                                             ; preds = %._crit_edge
-  %8145 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8145 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %8145, align 4
   %8146 = getelementptr inbounds nuw i8, ptr %8145, i64 4
   store i32 44, ptr %8146, align 4
@@ -16377,12 +16349,12 @@ sub_1:                                            ; preds = %sub_0
   store ptr %8148, ptr %8149, align 8
   %8150 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %8151 = load ptr, ptr %8150, align 8
-  %8152 = call ptr @makeString(ptr noundef %8151) #11
-  %8153 = call ptr @list_make1_impl(i32 noundef 1, ptr %8152) #11
+  %8152 = call ptr @makeString(ptr noundef %8151) #10
+  %8153 = call ptr @list_make1_impl(i32 noundef 1, ptr %8152) #10
   %8154 = getelementptr inbounds nuw i8, ptr %8145, i64 16
   store ptr %8153, ptr %8154, align 8
   %8155 = load ptr, ptr %.210001, align 8
-  %8156 = call ptr @makeString(ptr noundef %8155) #11
+  %8156 = call ptr @makeString(ptr noundef %8155) #10
   %8157 = getelementptr inbounds nuw i8, ptr %8145, i64 24
   store ptr %8156, ptr %8157, align 8
   %8158 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -16392,7 +16364,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8161:                                             ; preds = %._crit_edge
-  %8162 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8162 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %8162, align 4
   %8163 = getelementptr inbounds nuw i8, ptr %8162, i64 4
   store i32 23, ptr %8163, align 4
@@ -16401,7 +16373,7 @@ sub_1:                                            ; preds = %sub_0
   %8166 = getelementptr inbounds nuw i8, ptr %8162, i64 8
   store ptr %8165, ptr %8166, align 8
   %8167 = load ptr, ptr %.210001, align 8
-  %8168 = call ptr @makeString(ptr noundef %8167) #11
+  %8168 = call ptr @makeString(ptr noundef %8167) #10
   %8169 = getelementptr inbounds nuw i8, ptr %8162, i64 24
   store ptr %8168, ptr %8169, align 8
   %8170 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -16411,7 +16383,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8173:                                             ; preds = %._crit_edge
-  %8174 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8174 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 215, ptr %8174, align 4
   %8175 = getelementptr inbounds nuw i8, ptr %8174, i64 4
   store i32 20, ptr %8175, align 4
@@ -16420,7 +16392,7 @@ sub_1:                                            ; preds = %sub_0
   %8178 = getelementptr inbounds nuw i8, ptr %8174, i64 8
   store ptr %8177, ptr %8178, align 8
   %8179 = load ptr, ptr %.210001, align 8
-  %8180 = call ptr @makeString(ptr noundef %8179) #11
+  %8180 = call ptr @makeString(ptr noundef %8179) #10
   %8181 = getelementptr inbounds nuw i8, ptr %8174, i64 24
   store ptr %8180, ptr %8181, align 8
   %8182 = getelementptr inbounds i8, ptr %.210001, i64 -32
@@ -16443,7 +16415,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8191:                                             ; preds = %._crit_edge
-  %8192 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8192 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8192, align 4
   %8193 = getelementptr inbounds nuw i8, ptr %8192, i64 4
   store i32 1, ptr %8193, align 4
@@ -16459,7 +16431,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8200:                                             ; preds = %._crit_edge
-  %8201 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8201 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8201, align 4
   %8202 = getelementptr inbounds nuw i8, ptr %8201, i64 4
   store i32 7, ptr %8202, align 4
@@ -16475,7 +16447,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8209:                                             ; preds = %._crit_edge
-  %8210 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8210 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8210, align 4
   %8211 = getelementptr inbounds nuw i8, ptr %8210, i64 4
   store i32 8, ptr %8211, align 4
@@ -16491,7 +16463,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8218:                                             ; preds = %._crit_edge
-  %8219 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8219 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8219, align 4
   %8220 = getelementptr inbounds nuw i8, ptr %8219, i64 4
   store i32 12, ptr %8220, align 4
@@ -16507,13 +16479,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8227:                                             ; preds = %._crit_edge
-  %8228 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8228 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8228, align 4
   %8229 = getelementptr inbounds nuw i8, ptr %8228, i64 4
   store i32 15, ptr %8229, align 4
   %8230 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8231 = load ptr, ptr %8230, align 8
-  %8232 = call ptr @makeString(ptr noundef %8231) #11
+  %8232 = call ptr @makeString(ptr noundef %8231) #10
   %8233 = getelementptr inbounds nuw i8, ptr %8228, i64 16
   store ptr %8232, ptr %8233, align 8
   %8234 = load ptr, ptr %.210001, align 8
@@ -16524,7 +16496,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8237:                                             ; preds = %._crit_edge
-  %8238 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8238 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8238, align 4
   %8239 = getelementptr inbounds nuw i8, ptr %8238, i64 4
   store i32 19, ptr %8239, align 4
@@ -16540,7 +16512,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8246:                                             ; preds = %._crit_edge
-  %8247 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8247 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8247, align 4
   %8248 = getelementptr inbounds nuw i8, ptr %8247, i64 4
   store i32 25, ptr %8248, align 4
@@ -16556,16 +16528,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8255:                                             ; preds = %._crit_edge
-  %8256 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8256 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8256, align 4
   %8257 = getelementptr inbounds nuw i8, ptr %8256, i64 4
   store i32 24, ptr %8257, align 4
   %8258 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8259 = load ptr, ptr %8258, align 8
-  %8260 = call ptr @makeString(ptr noundef %8259) #11
+  %8260 = call ptr @makeString(ptr noundef %8259) #10
   %8261 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %8262 = load ptr, ptr %8261, align 8
-  %8263 = call ptr @lcons(ptr noundef %8260, ptr noundef %8262) #11
+  %8263 = call ptr @lcons(ptr noundef %8260, ptr noundef %8262) #10
   %8264 = getelementptr inbounds nuw i8, ptr %8256, i64 16
   store ptr %8263, ptr %8264, align 8
   %8265 = load ptr, ptr %.210001, align 8
@@ -16576,16 +16548,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8268:                                             ; preds = %._crit_edge
-  %8269 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8269 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8269, align 4
   %8270 = getelementptr inbounds nuw i8, ptr %8269, i64 4
   store i32 26, ptr %8270, align 4
   %8271 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8272 = load ptr, ptr %8271, align 8
-  %8273 = call ptr @makeString(ptr noundef %8272) #11
+  %8273 = call ptr @makeString(ptr noundef %8272) #10
   %8274 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %8275 = load ptr, ptr %8274, align 8
-  %8276 = call ptr @lcons(ptr noundef %8273, ptr noundef %8275) #11
+  %8276 = call ptr @lcons(ptr noundef %8273, ptr noundef %8275) #10
   %8277 = getelementptr inbounds nuw i8, ptr %8269, i64 16
   store ptr %8276, ptr %8277, align 8
   %8278 = load ptr, ptr %.210001, align 8
@@ -16596,7 +16568,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8281:                                             ; preds = %._crit_edge
-  %8282 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8282 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8282, align 4
   %8283 = getelementptr inbounds nuw i8, ptr %8282, i64 4
   store i32 29, ptr %8283, align 4
@@ -16612,7 +16584,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8290:                                             ; preds = %._crit_edge
-  %8291 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8291 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8291, align 4
   %8292 = getelementptr inbounds nuw i8, ptr %8291, i64 4
   store i32 34, ptr %8292, align 4
@@ -16628,7 +16600,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8299:                                             ; preds = %._crit_edge
-  %8300 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8300 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8300, align 4
   %8301 = getelementptr inbounds nuw i8, ptr %8300, i64 4
   store i32 41, ptr %8301, align 4
@@ -16644,7 +16616,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8308:                                             ; preds = %._crit_edge
-  %8309 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8309 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8309, align 4
   %8310 = getelementptr inbounds nuw i8, ptr %8309, i64 4
   store i32 41, ptr %8310, align 4
@@ -16660,7 +16632,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8317:                                             ; preds = %._crit_edge
-  %8318 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8318 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8318, align 4
   %8319 = getelementptr inbounds nuw i8, ptr %8318, i64 4
   store i32 39, ptr %8319, align 4
@@ -16676,7 +16648,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8326:                                             ; preds = %._crit_edge
-  %8327 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8327 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8327, align 4
   %8328 = getelementptr inbounds nuw i8, ptr %8327, i64 4
   store i32 47, ptr %8328, align 4
@@ -16692,7 +16664,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8335:                                             ; preds = %._crit_edge
-  %8336 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8336 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8336, align 4
   %8337 = getelementptr inbounds nuw i8, ptr %8336, i64 4
   store i32 46, ptr %8337, align 4
@@ -16708,7 +16680,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8344:                                             ; preds = %._crit_edge
-  %8345 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8345 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8345, align 4
   %8346 = getelementptr inbounds nuw i8, ptr %8345, i64 4
   store i32 48, ptr %8346, align 4
@@ -16724,7 +16696,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8353:                                             ; preds = %._crit_edge
-  %8354 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8354 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8354, align 4
   %8355 = getelementptr inbounds nuw i8, ptr %8354, i64 4
   store i32 45, ptr %8355, align 4
@@ -16740,7 +16712,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8362:                                             ; preds = %._crit_edge
-  %8363 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8363 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8363, align 4
   %8364 = getelementptr inbounds nuw i8, ptr %8363, i64 4
   store i32 37, ptr %8364, align 4
@@ -16756,7 +16728,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8371:                                             ; preds = %._crit_edge
-  %8372 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8372 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8372, align 4
   %8373 = getelementptr inbounds nuw i8, ptr %8372, i64 4
   store i32 37, ptr %8373, align 4
@@ -16772,7 +16744,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8380:                                             ; preds = %._crit_edge
-  %8381 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8381 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8381, align 4
   %8382 = getelementptr inbounds nuw i8, ptr %8381, i64 4
   store i32 51, ptr %8382, align 4
@@ -16788,7 +16760,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8389:                                             ; preds = %._crit_edge
-  %8390 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8390 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8390, align 4
   %8391 = getelementptr inbounds nuw i8, ptr %8390, i64 4
   store i32 51, ptr %8391, align 4
@@ -16804,7 +16776,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8398:                                             ; preds = %._crit_edge
-  %8399 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8399 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8399, align 4
   %8400 = getelementptr inbounds nuw i8, ptr %8399, i64 4
   store i32 23, ptr %8400, align 4
@@ -16820,7 +16792,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8407:                                             ; preds = %._crit_edge
-  %8408 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8408 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8408, align 4
   %8409 = getelementptr inbounds nuw i8, ptr %8408, i64 4
   store i32 23, ptr %8409, align 4
@@ -16836,7 +16808,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8416:                                             ; preds = %._crit_edge
-  %8417 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8417 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8417, align 4
   %8418 = getelementptr inbounds nuw i8, ptr %8417, i64 4
   store i32 18, ptr %8418, align 4
@@ -16852,7 +16824,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8425:                                             ; preds = %._crit_edge
-  %8426 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8426 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8426, align 4
   %8427 = getelementptr inbounds nuw i8, ptr %8426, i64 4
   store i32 18, ptr %8427, align 4
@@ -16868,7 +16840,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8434:                                             ; preds = %._crit_edge
-  %8435 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8435 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 216, ptr %8435, align 4
   %8436 = getelementptr inbounds nuw i8, ptr %8435, i64 4
   store i32 49, ptr %8436, align 4
@@ -16884,7 +16856,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8443:                                             ; preds = %._crit_edge
-  %8444 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %8444 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 218, ptr %8444, align 4
   %8445 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %8446 = load ptr, ptr %8445, align 8
@@ -16898,14 +16870,14 @@ sub_1:                                            ; preds = %sub_0
 
 8451:                                             ; preds = %._crit_edge
   %8452 = load ptr, ptr %.210001, align 8
-  %8453 = call ptr @list_make1_impl(i32 noundef 1, ptr %8452) #11
+  %8453 = call ptr @list_make1_impl(i32 noundef 1, ptr %8452) #10
   br label %.critedge10155
 
 8454:                                             ; preds = %._crit_edge
   %8455 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %8456 = load ptr, ptr %8455, align 8
   %8457 = load ptr, ptr %.210001, align 8
-  %8458 = call ptr @lappend(ptr noundef %8456, ptr noundef %8457) #11
+  %8458 = call ptr @lappend(ptr noundef %8456, ptr noundef %8457) #10
   br label %.critedge10155
 
 8459:                                             ; preds = %._crit_edge
@@ -16913,7 +16885,7 @@ sub_1:                                            ; preds = %sub_0
   %8461 = load ptr, ptr %8460, align 8
   %8462 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %8463 = load i32, ptr %8462, align 4
-  %8464 = call ptr @makeDefElem(ptr noundef %8461, ptr noundef null, i32 noundef %8463) #11
+  %8464 = call ptr @makeDefElem(ptr noundef %8461, ptr noundef null, i32 noundef %8463) #10
   br label %.critedge10155
 
 8465:                                             ; preds = %._crit_edge
@@ -16922,13 +16894,13 @@ sub_1:                                            ; preds = %sub_0
   %8468 = load ptr, ptr %.210001, align 8
   %8469 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %8470 = load i32, ptr %8469, align 4
-  %8471 = call ptr @makeDefElem(ptr noundef %8467, ptr noundef %8468, i32 noundef %8470) #11
+  %8471 = call ptr @makeDefElem(ptr noundef %8467, ptr noundef %8468, i32 noundef %8470) #10
   br label %.critedge10155
 
 8472:                                             ; preds = %._crit_edge
   %8473 = load ptr, ptr %.210001, align 8
   %8474 = load i32, ptr %.210013, align 4
-  %8475 = call ptr @makeDefElem(ptr noundef %8473, ptr noundef null, i32 noundef %8474) #11
+  %8475 = call ptr @makeDefElem(ptr noundef %8473, ptr noundef null, i32 noundef %8474) #10
   br label %.critedge10155
 
 8476:                                             ; preds = %._crit_edge
@@ -16937,8 +16909,8 @@ sub_1:                                            ; preds = %sub_0
 
 8478:                                             ; preds = %._crit_edge
   %8479 = load ptr, ptr %.210001, align 8
-  %8480 = call ptr @pstrdup(ptr noundef %8479) #11
-  %8481 = call ptr @makeString(ptr noundef %8480) #11
+  %8480 = call ptr @pstrdup(ptr noundef %8479) #10
+  %8481 = call ptr @makeString(ptr noundef %8480) #10
   br label %.critedge10155
 
 8482:                                             ; preds = %._crit_edge
@@ -16951,11 +16923,11 @@ sub_1:                                            ; preds = %sub_0
 
 8486:                                             ; preds = %._crit_edge
   %8487 = load ptr, ptr %.210001, align 8
-  %8488 = call ptr @makeString(ptr noundef %8487) #11
+  %8488 = call ptr @makeString(ptr noundef %8487) #10
   br label %.critedge10155
 
 8489:                                             ; preds = %._crit_edge
-  %8490 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %8490 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 219, ptr %8490, align 4
   %8491 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %8492 = load ptr, ptr %8491, align 8
@@ -16968,7 +16940,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8497:                                             ; preds = %._crit_edge
-  %8498 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8498 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8498, align 4
   %8499 = getelementptr inbounds nuw i8, ptr %8498, i64 4
   store i32 1, ptr %8499, align 4
@@ -16982,7 +16954,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8505:                                             ; preds = %._crit_edge
-  %8506 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8506 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8506, align 4
   %8507 = getelementptr inbounds nuw i8, ptr %8506, i64 4
   store i32 7, ptr %8507, align 4
@@ -16996,7 +16968,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8513:                                             ; preds = %._crit_edge
-  %8514 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8514 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8514, align 4
   %8515 = getelementptr inbounds nuw i8, ptr %8514, i64 4
   store i32 8, ptr %8515, align 4
@@ -17010,13 +16982,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8521:                                             ; preds = %._crit_edge
-  %8522 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8522 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8522, align 4
   %8523 = getelementptr inbounds nuw i8, ptr %8522, i64 4
   store i32 9, ptr %8523, align 4
   %8524 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8525 = load ptr, ptr %8524, align 8
-  %8526 = call ptr @makeString(ptr noundef %8525) #11
+  %8526 = call ptr @makeString(ptr noundef %8525) #10
   %8527 = getelementptr inbounds nuw i8, ptr %8522, i64 16
   store ptr %8526, ptr %8527, align 8
   %8528 = load ptr, ptr %.210001, align 8
@@ -17025,7 +16997,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8530:                                             ; preds = %._crit_edge
-  %8531 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8531 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8531, align 4
   %8532 = getelementptr inbounds nuw i8, ptr %8531, i64 4
   store i32 12, ptr %8532, align 4
@@ -17039,7 +17011,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8538:                                             ; preds = %._crit_edge
-  %8539 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8539 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8539, align 4
   %8540 = getelementptr inbounds nuw i8, ptr %8539, i64 4
   store i32 19, ptr %8540, align 4
@@ -17053,13 +17025,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8546:                                             ; preds = %._crit_edge
-  %8547 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8547 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8547, align 4
   %8548 = getelementptr inbounds nuw i8, ptr %8547, i64 4
   store i32 21, ptr %8548, align 4
   %8549 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8550 = load ptr, ptr %8549, align 8
-  %8551 = call ptr @makeString(ptr noundef %8550) #11
+  %8551 = call ptr @makeString(ptr noundef %8550) #10
   %8552 = getelementptr inbounds nuw i8, ptr %8547, i64 16
   store ptr %8551, ptr %8552, align 8
   %8553 = load ptr, ptr %.210001, align 8
@@ -17068,7 +17040,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8555:                                             ; preds = %._crit_edge
-  %8556 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8556 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8556, align 4
   %8557 = getelementptr inbounds nuw i8, ptr %8556, i64 4
   store i32 22, ptr %8557, align 4
@@ -17082,7 +17054,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8563:                                             ; preds = %._crit_edge
-  %8564 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8564 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8564, align 4
   %8565 = getelementptr inbounds nuw i8, ptr %8564, i64 4
   store i32 25, ptr %8565, align 4
@@ -17096,16 +17068,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8571:                                             ; preds = %._crit_edge
-  %8572 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8572 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8572, align 4
   %8573 = getelementptr inbounds nuw i8, ptr %8572, i64 4
   store i32 24, ptr %8573, align 4
   %8574 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8575 = load ptr, ptr %8574, align 8
-  %8576 = call ptr @makeString(ptr noundef %8575) #11
+  %8576 = call ptr @makeString(ptr noundef %8575) #10
   %8577 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %8578 = load ptr, ptr %8577, align 8
-  %8579 = call ptr @lcons(ptr noundef %8576, ptr noundef %8578) #11
+  %8579 = call ptr @lcons(ptr noundef %8576, ptr noundef %8578) #10
   %8580 = getelementptr inbounds nuw i8, ptr %8572, i64 16
   store ptr %8579, ptr %8580, align 8
   %8581 = load ptr, ptr %.210001, align 8
@@ -17114,16 +17086,16 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8583:                                             ; preds = %._crit_edge
-  %8584 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8584 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8584, align 4
   %8585 = getelementptr inbounds nuw i8, ptr %8584, i64 4
   store i32 26, ptr %8585, align 4
   %8586 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8587 = load ptr, ptr %8586, align 8
-  %8588 = call ptr @makeString(ptr noundef %8587) #11
+  %8588 = call ptr @makeString(ptr noundef %8587) #10
   %8589 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %8590 = load ptr, ptr %8589, align 8
-  %8591 = call ptr @lcons(ptr noundef %8588, ptr noundef %8590) #11
+  %8591 = call ptr @lcons(ptr noundef %8588, ptr noundef %8590) #10
   %8592 = getelementptr inbounds nuw i8, ptr %8584, i64 16
   store ptr %8591, ptr %8592, align 8
   %8593 = load ptr, ptr %.210001, align 8
@@ -17132,7 +17104,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8595:                                             ; preds = %._crit_edge
-  %8596 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8596 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8596, align 4
   %8597 = getelementptr inbounds nuw i8, ptr %8596, i64 4
   store i32 29, ptr %8597, align 4
@@ -17146,7 +17118,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8603:                                             ; preds = %._crit_edge
-  %8604 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8604 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8604, align 4
   %8605 = getelementptr inbounds nuw i8, ptr %8604, i64 4
   store i32 34, ptr %8605, align 4
@@ -17160,13 +17132,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8611:                                             ; preds = %._crit_edge
-  %8612 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8612 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8612, align 4
   %8613 = getelementptr inbounds nuw i8, ptr %8612, i64 4
   store i32 36, ptr %8613, align 4
   %8614 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8615 = load ptr, ptr %8614, align 8
-  %8616 = call ptr @makeString(ptr noundef %8615) #11
+  %8616 = call ptr @makeString(ptr noundef %8615) #10
   %8617 = getelementptr inbounds nuw i8, ptr %8612, i64 16
   store ptr %8616, ptr %8617, align 8
   %8618 = load ptr, ptr %.210001, align 8
@@ -17175,7 +17147,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8620:                                             ; preds = %._crit_edge
-  %8621 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8621 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8621, align 4
   %8622 = getelementptr inbounds nuw i8, ptr %8621, i64 4
   store i32 49, ptr %8622, align 4
@@ -17189,13 +17161,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8628:                                             ; preds = %._crit_edge
-  %8629 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8629 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8629, align 4
   %8630 = getelementptr inbounds nuw i8, ptr %8629, i64 4
   store i32 42, ptr %8630, align 4
   %8631 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8632 = load ptr, ptr %8631, align 8
-  %8633 = call ptr @makeString(ptr noundef %8632) #11
+  %8633 = call ptr @makeString(ptr noundef %8632) #10
   %8634 = getelementptr inbounds nuw i8, ptr %8629, i64 16
   store ptr %8633, ptr %8634, align 8
   %8635 = load ptr, ptr %.210001, align 8
@@ -17204,7 +17176,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8637:                                             ; preds = %._crit_edge
-  %8638 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8638 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8638, align 4
   %8639 = getelementptr inbounds nuw i8, ptr %8638, i64 4
   store i32 39, ptr %8639, align 4
@@ -17218,7 +17190,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8645:                                             ; preds = %._crit_edge
-  %8646 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8646 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8646, align 4
   %8647 = getelementptr inbounds nuw i8, ptr %8646, i64 4
   store i32 46, ptr %8647, align 4
@@ -17232,7 +17204,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8653:                                             ; preds = %._crit_edge
-  %8654 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8654 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8654, align 4
   %8655 = getelementptr inbounds nuw i8, ptr %8654, i64 4
   store i32 45, ptr %8655, align 4
@@ -17246,13 +17218,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8661:                                             ; preds = %._crit_edge
-  %8662 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8662 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8662, align 4
   %8663 = getelementptr inbounds nuw i8, ptr %8662, i64 4
   store i32 16, ptr %8663, align 4
   %8664 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8665 = load ptr, ptr %8664, align 8
-  %8666 = call ptr @makeString(ptr noundef %8665) #11
+  %8666 = call ptr @makeString(ptr noundef %8665) #10
   %8667 = getelementptr inbounds nuw i8, ptr %8662, i64 16
   store ptr %8666, ptr %8667, align 8
   %8668 = load ptr, ptr %.210001, align 8
@@ -17261,13 +17233,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8670:                                             ; preds = %._crit_edge
-  %8671 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8671 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8671, align 4
   %8672 = getelementptr inbounds nuw i8, ptr %8671, i64 4
   store i32 17, ptr %8672, align 4
   %8673 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8674 = load ptr, ptr %8673, align 8
-  %8675 = call ptr @makeString(ptr noundef %8674) #11
+  %8675 = call ptr @makeString(ptr noundef %8674) #10
   %8676 = getelementptr inbounds nuw i8, ptr %8671, i64 16
   store ptr %8675, ptr %8676, align 8
   %8677 = load ptr, ptr %.210001, align 8
@@ -17276,13 +17248,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8679:                                             ; preds = %._crit_edge
-  %8680 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8680 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8680, align 4
   %8681 = getelementptr inbounds nuw i8, ptr %8680, i64 4
   store i32 14, ptr %8681, align 4
   %8682 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8683 = load ptr, ptr %8682, align 8
-  %8684 = call ptr @makeString(ptr noundef %8683) #11
+  %8684 = call ptr @makeString(ptr noundef %8683) #10
   %8685 = getelementptr inbounds nuw i8, ptr %8680, i64 16
   store ptr %8684, ptr %8685, align 8
   %8686 = load ptr, ptr %.210001, align 8
@@ -17291,13 +17263,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8688:                                             ; preds = %._crit_edge
-  %8689 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8689 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8689, align 4
   %8690 = getelementptr inbounds nuw i8, ptr %8689, i64 4
   store i32 30, ptr %8690, align 4
   %8691 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8692 = load ptr, ptr %8691, align 8
-  %8693 = call ptr @makeString(ptr noundef %8692) #11
+  %8693 = call ptr @makeString(ptr noundef %8692) #10
   %8694 = getelementptr inbounds nuw i8, ptr %8689, i64 16
   store ptr %8693, ptr %8694, align 8
   %8695 = load ptr, ptr %.210001, align 8
@@ -17306,13 +17278,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8697:                                             ; preds = %._crit_edge
-  %8698 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8698 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 217, ptr %8698, align 4
   %8699 = getelementptr inbounds nuw i8, ptr %8698, i64 4
   store i32 38, ptr %8699, align 4
   %8700 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8701 = load ptr, ptr %8700, align 8
-  %8702 = call ptr @makeString(ptr noundef %8701) #11
+  %8702 = call ptr @makeString(ptr noundef %8701) #10
   %8703 = getelementptr inbounds nuw i8, ptr %8698, i64 16
   store ptr %8702, ptr %8703, align 8
   %8704 = load ptr, ptr %.210001, align 8
@@ -17321,7 +17293,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8706:                                             ; preds = %._crit_edge
-  %8707 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8707 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 260, ptr %8707, align 4
   %8708 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %8709 = load ptr, ptr %8708, align 8
@@ -17333,7 +17305,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8713:                                             ; preds = %._crit_edge
-  %8714 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8714 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 260, ptr %8714, align 4
   %8715 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %8716 = load ptr, ptr %8715, align 8
@@ -17347,7 +17319,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8721:                                             ; preds = %._crit_edge
-  %8722 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8722 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 260, ptr %8722, align 4
   %8723 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %8724 = load ptr, ptr %8723, align 8
@@ -17364,11 +17336,11 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8731:                                             ; preds = %._crit_edge
-  %8732 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8732 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8732, align 4
   %8733 = getelementptr inbounds nuw i8, ptr %8732, i64 4
   store i32 0, ptr %8733, align 4
-  %8734 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8734 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 258, ptr %8734, align 4
   %8735 = getelementptr inbounds nuw i8, ptr %8732, i64 16
   store ptr %8734, ptr %8735, align 8
@@ -17388,7 +17360,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8746:                                             ; preds = %._crit_edge
-  %8747 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8747 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8747, align 4
   %8748 = getelementptr inbounds nuw i8, ptr %8747, i64 4
   store i32 1, ptr %8748, align 4
@@ -17401,7 +17373,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8753:                                             ; preds = %._crit_edge
-  %8754 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8754 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8754, align 4
   %8755 = getelementptr inbounds nuw i8, ptr %8754, i64 4
   store i32 2, ptr %8755, align 4
@@ -17411,7 +17383,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8758:                                             ; preds = %._crit_edge
-  %8759 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8759 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8759, align 4
   %8760 = getelementptr inbounds nuw i8, ptr %8759, i64 4
   store i32 3, ptr %8760, align 4
@@ -17426,7 +17398,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10119, label %8781, label %8765
 
 8765:                                             ; preds = %8763, %8758
-  %8766 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8766 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 258, ptr %8766, align 4
   %8767 = getelementptr inbounds nuw i8, ptr %8759, i64 16
   store ptr %8766, ptr %8767, align 8
@@ -17434,7 +17406,7 @@ sub_1:                                            ; preds = %sub_0
   %8769 = load ptr, ptr %8768, align 8
   %8770 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %8771 = load i32, ptr %8770, align 4
-  %8772 = call ptr @makeRangeVar(ptr noundef null, ptr noundef %8769, i32 noundef %8771) #11
+  %8772 = call ptr @makeRangeVar(ptr noundef null, ptr noundef %8769, i32 noundef %8771) #10
   %8773 = load ptr, ptr %8767, align 8
   %8774 = getelementptr inbounds nuw i8, ptr %8773, i64 8
   store ptr %8772, ptr %8774, align 8
@@ -17463,11 +17435,11 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8789:                                             ; preds = %._crit_edge
-  %8790 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8790 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8790, align 4
   %8791 = getelementptr inbounds nuw i8, ptr %8790, i64 4
   store i32 3, ptr %8791, align 4
-  %8792 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8792 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 258, ptr %8792, align 4
   %8793 = getelementptr inbounds nuw i8, ptr %8790, i64 16
   store ptr %8792, ptr %8793, align 8
@@ -17496,11 +17468,11 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8812:                                             ; preds = %._crit_edge
-  %8813 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8813 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8813, align 4
   %8814 = getelementptr inbounds nuw i8, ptr %8813, i64 4
   store i32 3, ptr %8814, align 4
-  %8815 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8815 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 258, ptr %8815, align 4
   %8816 = getelementptr inbounds nuw i8, ptr %8813, i64 16
   store ptr %8815, ptr %8816, align 8
@@ -17520,7 +17492,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8827:                                             ; preds = %._crit_edge
-  %8828 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %8828 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %8828, align 4
   %8829 = getelementptr inbounds nuw i8, ptr %8828, i64 4
   store i32 3, ptr %8829, align 4
@@ -17531,18 +17503,18 @@ sub_1:                                            ; preds = %sub_0
 
 8832:                                             ; preds = %._crit_edge
   %8833 = load ptr, ptr %.210001, align 8
-  %8834 = call ptr @list_make1_impl(i32 noundef 1, ptr %8833) #11
+  %8834 = call ptr @list_make1_impl(i32 noundef 1, ptr %8833) #10
   br label %.critedge10155
 
 8835:                                             ; preds = %._crit_edge
   %8836 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %8837 = load ptr, ptr %8836, align 8
   %8838 = load ptr, ptr %.210001, align 8
-  %8839 = call ptr @lappend(ptr noundef %8837, ptr noundef %8838) #11
+  %8839 = call ptr @lappend(ptr noundef %8837, ptr noundef %8838) #10
   br label %.critedge10155
 
 8840:                                             ; preds = %._crit_edge
-  %8841 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8841 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 261, ptr %8841, align 4
   %8842 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %8843 = load ptr, ptr %8842, align 8
@@ -17554,7 +17526,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8847:                                             ; preds = %._crit_edge
-  %8848 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8848 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 261, ptr %8848, align 4
   %8849 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %8850 = load ptr, ptr %8849, align 8
@@ -17569,7 +17541,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8855:                                             ; preds = %._crit_edge
-  %8856 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8856 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 261, ptr %8856, align 4
   %8857 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %8858 = load ptr, ptr %8857, align 8
@@ -17584,7 +17556,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8863:                                             ; preds = %._crit_edge
-  %8864 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8864 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 261, ptr %8864, align 4
   %8865 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %8866 = load ptr, ptr %8865, align 8
@@ -17599,7 +17571,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8871:                                             ; preds = %._crit_edge
-  %8872 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8872 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 262, ptr %8872, align 4
   %8873 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %8874 = load ptr, ptr %8873, align 8
@@ -17619,7 +17591,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8884:                                             ; preds = %._crit_edge
-  %8885 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8885 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8885, align 4
   %8886 = getelementptr inbounds nuw i8, ptr %8885, i64 4
   store i32 0, ptr %8886, align 4
@@ -17633,7 +17605,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8892:                                             ; preds = %._crit_edge
-  %8893 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8893 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8893, align 4
   %8894 = getelementptr inbounds nuw i8, ptr %8893, i64 4
   store i32 1, ptr %8894, align 4
@@ -17647,7 +17619,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8900:                                             ; preds = %._crit_edge
-  %8901 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8901 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8901, align 4
   %8902 = getelementptr inbounds nuw i8, ptr %8901, i64 4
   store i32 5, ptr %8902, align 4
@@ -17661,7 +17633,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8908:                                             ; preds = %._crit_edge
-  %8909 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8909 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8909, align 4
   %8910 = getelementptr inbounds nuw i8, ptr %8909, i64 4
   store i32 3, ptr %8910, align 4
@@ -17679,7 +17651,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8919:                                             ; preds = %._crit_edge
-  %8920 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8920 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8920, align 4
   %8921 = getelementptr inbounds nuw i8, ptr %8920, i64 4
   store i32 4, ptr %8921, align 4
@@ -17697,7 +17669,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8930:                                             ; preds = %._crit_edge
-  %8931 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8931 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8931, align 4
   %8932 = getelementptr inbounds nuw i8, ptr %8931, i64 4
   store i32 2, ptr %8932, align 4
@@ -17715,7 +17687,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8941:                                             ; preds = %._crit_edge
-  %8942 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8942 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8942, align 4
   %8943 = getelementptr inbounds nuw i8, ptr %8942, i64 4
   store i32 6, ptr %8943, align 4
@@ -17723,17 +17695,17 @@ sub_1:                                            ; preds = %sub_0
   %8945 = load ptr, ptr %8944, align 8
   %8946 = getelementptr inbounds nuw i8, ptr %8942, i64 8
   store ptr %8945, ptr %8946, align 8
-  %8947 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %8947 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %8948 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %8949 = load i32, ptr %8948, align 4
-  %8950 = call ptr @makeDefElem(ptr noundef nonnull @.str.149, ptr noundef %8947, i32 noundef %8949) #11
-  %8951 = call ptr @list_make1_impl(i32 noundef 1, ptr %8950) #11
+  %8950 = call ptr @makeDefElem(ptr noundef nonnull @.str.149, ptr noundef %8947, i32 noundef %8949) #10
+  %8951 = call ptr @list_make1_impl(i32 noundef 1, ptr %8950) #10
   %8952 = getelementptr inbounds nuw i8, ptr %8942, i64 32
   store ptr %8951, ptr %8952, align 8
   br label %.critedge10155
 
 8953:                                             ; preds = %._crit_edge
-  %8954 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8954 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8954, align 4
   %8955 = getelementptr inbounds nuw i8, ptr %8954, i64 4
   store i32 6, ptr %8955, align 4
@@ -17741,17 +17713,17 @@ sub_1:                                            ; preds = %sub_0
   %8957 = load ptr, ptr %8956, align 8
   %8958 = getelementptr inbounds nuw i8, ptr %8954, i64 8
   store ptr %8957, ptr %8958, align 8
-  %8959 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %8959 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %8960 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %8961 = load i32, ptr %8960, align 4
-  %8962 = call ptr @makeDefElem(ptr noundef nonnull @.str.149, ptr noundef %8959, i32 noundef %8961) #11
-  %8963 = call ptr @list_make1_impl(i32 noundef 1, ptr %8962) #11
+  %8962 = call ptr @makeDefElem(ptr noundef nonnull @.str.149, ptr noundef %8959, i32 noundef %8961) #10
+  %8963 = call ptr @list_make1_impl(i32 noundef 1, ptr %8962) #10
   %8964 = getelementptr inbounds nuw i8, ptr %8954, i64 32
   store ptr %8963, ptr %8964, align 8
   br label %.critedge10155
 
 8965:                                             ; preds = %._crit_edge
-  %8966 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %8966 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 263, ptr %8966, align 4
   %8967 = getelementptr inbounds nuw i8, ptr %8966, i64 4
   store i32 7, ptr %8967, align 4
@@ -17765,7 +17737,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8973:                                             ; preds = %._crit_edge
-  %8974 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %8974 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 264, ptr %8974, align 4
   %8975 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %8976 = load ptr, ptr %8975, align 8
@@ -17779,7 +17751,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8981:                                             ; preds = %._crit_edge
-  %8982 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %8982 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 264, ptr %8982, align 4
   %8983 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %8984 = load ptr, ptr %8983, align 8
@@ -17793,7 +17765,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 8989:                                             ; preds = %._crit_edge
-  %8990 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %8990 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 220, ptr %8990, align 4
   %8991 = getelementptr inbounds i8, ptr %.210001, i64 -88
   %8992 = load i8, ptr %8991, align 8, !range !6, !noundef !7
@@ -17826,7 +17798,7 @@ sub_1:                                            ; preds = %sub_0
 
 9011:                                             ; preds = %._crit_edge
   %9012 = load ptr, ptr %.210001, align 8
-  %9013 = call ptr @list_make1_impl(i32 noundef 1, ptr %9012) #11
+  %9013 = call ptr @list_make1_impl(i32 noundef 1, ptr %9012) #10
   br label %.critedge10155
 
 9014:                                             ; preds = %._crit_edge
@@ -17842,7 +17814,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10117, label %.critedge10155, label %9021
 
 9021:                                             ; preds = %9017
-  %9022 = call ptr @lappend(ptr noundef %9020, ptr noundef nonnull %9018) #11
+  %9022 = call ptr @lappend(ptr noundef %9020, ptr noundef nonnull %9018) #10
   br label %.critedge10155
 
 9023:                                             ; preds = %._crit_edge
@@ -17851,7 +17823,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10116, label %.critedge10155, label %9025
 
 9025:                                             ; preds = %9023
-  %9026 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %9024) #11
+  %9026 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %9024) #10
   br label %.critedge10155
 
 9027:                                             ; preds = %._crit_edge
@@ -17906,7 +17878,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9050:                                             ; preds = %._crit_edge
-  %9051 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9051 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 221, ptr %9051, align 4
   %9052 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9053 = load ptr, ptr %9052, align 8
@@ -17922,7 +17894,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9059:                                             ; preds = %._crit_edge
-  %9060 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9060 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 222, ptr %9060, align 4
   %9061 = load ptr, ptr %.210001, align 8
   %9062 = getelementptr inbounds nuw i8, ptr %9060, i64 8
@@ -17930,7 +17902,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9063:                                             ; preds = %._crit_edge
-  %9064 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9064 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 223, ptr %9064, align 4
   %9065 = load ptr, ptr %.210001, align 8
   %9066 = getelementptr inbounds nuw i8, ptr %9064, i64 8
@@ -17938,14 +17910,14 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9067:                                             ; preds = %._crit_edge
-  %9068 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9068 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 223, ptr %9068, align 4
   %9069 = getelementptr inbounds nuw i8, ptr %9068, i64 8
   store ptr null, ptr %9069, align 8
   br label %.critedge10155
 
 9070:                                             ; preds = %._crit_edge
-  %9071 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9071 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9071, align 4
   %9072 = getelementptr inbounds nuw i8, ptr %9071, i64 4
   store i32 3, ptr %9072, align 4
@@ -17959,7 +17931,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9077:                                             ; preds = %._crit_edge
-  %9078 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9078 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9078, align 4
   %9079 = getelementptr inbounds nuw i8, ptr %9078, i64 4
   store i32 1, ptr %9079, align 4
@@ -17971,7 +17943,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9083:                                             ; preds = %._crit_edge
-  %9084 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9084 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9084, align 4
   %9085 = getelementptr inbounds nuw i8, ptr %9084, i64 4
   store i32 2, ptr %9085, align 4
@@ -17985,7 +17957,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9090:                                             ; preds = %._crit_edge
-  %9091 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9091 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9091, align 4
   %9092 = getelementptr inbounds nuw i8, ptr %9091, i64 4
   store i32 3, ptr %9092, align 4
@@ -17999,7 +17971,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9097:                                             ; preds = %._crit_edge
-  %9098 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9098 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9098, align 4
   %9099 = getelementptr inbounds nuw i8, ptr %9098, i64 4
   store i32 4, ptr %9099, align 4
@@ -18012,7 +17984,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9104:                                             ; preds = %._crit_edge
-  %9105 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9105 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9105, align 4
   %9106 = getelementptr inbounds nuw i8, ptr %9105, i64 4
   store i32 5, ptr %9106, align 4
@@ -18025,7 +17997,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9111:                                             ; preds = %._crit_edge
-  %9112 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9112 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9112, align 4
   %9113 = getelementptr inbounds nuw i8, ptr %9112, i64 4
   store i32 5, ptr %9113, align 4
@@ -18038,7 +18010,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9118:                                             ; preds = %._crit_edge
-  %9119 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9119 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9119, align 4
   %9120 = getelementptr inbounds nuw i8, ptr %9119, i64 4
   store i32 6, ptr %9120, align 4
@@ -18051,7 +18023,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9125:                                             ; preds = %._crit_edge
-  %9126 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9126 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9126, align 4
   %9127 = getelementptr inbounds nuw i8, ptr %9126, i64 4
   store i32 6, ptr %9127, align 4
@@ -18064,7 +18036,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9132:                                             ; preds = %._crit_edge
-  %9133 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9133 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9133, align 4
   %9134 = getelementptr inbounds nuw i8, ptr %9133, i64 4
   store i32 7, ptr %9134, align 4
@@ -18077,7 +18049,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9139:                                             ; preds = %._crit_edge
-  %9140 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9140 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9140, align 4
   %9141 = getelementptr inbounds nuw i8, ptr %9140, i64 4
   store i32 8, ptr %9141, align 4
@@ -18090,7 +18062,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9146:                                             ; preds = %._crit_edge
-  %9147 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9147 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9147, align 4
   %9148 = getelementptr inbounds nuw i8, ptr %9147, i64 4
   store i32 9, ptr %9148, align 4
@@ -18103,7 +18075,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9153:                                             ; preds = %._crit_edge
-  %9154 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9154 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9154, align 4
   %9155 = getelementptr inbounds nuw i8, ptr %9154, i64 4
   store i32 0, ptr %9155, align 4
@@ -18115,7 +18087,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9159:                                             ; preds = %._crit_edge
-  %9160 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9160 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 224, ptr %9160, align 4
   %9161 = getelementptr inbounds nuw i8, ptr %9160, i64 4
   store i32 2, ptr %9161, align 4
@@ -18131,16 +18103,16 @@ sub_1:                                            ; preds = %sub_0
 9166:                                             ; preds = %._crit_edge
   %9167 = load ptr, ptr %.210001, align 8
   %9168 = load i32, ptr %.210013, align 4
-  %9169 = call ptr @makeStringConst(ptr noundef %9167, i32 noundef %9168) #11
+  %9169 = call ptr @makeStringConst(ptr noundef %9167, i32 noundef %9168) #10
   %9170 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9171 = load i32, ptr %9170, align 4
-  %9172 = call ptr @makeDefElem(ptr noundef nonnull @.str.49, ptr noundef %9169, i32 noundef %9171) #11
+  %9172 = call ptr @makeDefElem(ptr noundef nonnull @.str.49, ptr noundef %9169, i32 noundef %9171) #10
   br label %.critedge10155
 
 9173:                                             ; preds = %._crit_edge
   %9174 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9175 = load i32, ptr %9174, align 4
-  %9176 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9176 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %9176, align 4
   %9177 = getelementptr inbounds nuw i8, ptr %9176, i64 8
   store i32 464, ptr %9177, align 8
@@ -18149,13 +18121,13 @@ sub_1:                                            ; preds = %sub_0
   %9179 = getelementptr inbounds nuw i8, ptr %9176, i64 28
   store i32 %9175, ptr %9179, align 4
   %9180 = load i32, ptr %9174, align 4
-  %9181 = call ptr @makeDefElem(ptr noundef nonnull @.str.150, ptr noundef nonnull %9176, i32 noundef %9180) #11
+  %9181 = call ptr @makeDefElem(ptr noundef nonnull @.str.150, ptr noundef nonnull %9176, i32 noundef %9180) #10
   br label %.critedge10155
 
 9182:                                             ; preds = %._crit_edge
   %9183 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9184 = load i32, ptr %9183, align 4
-  %9185 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9185 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %9185, align 4
   %9186 = getelementptr inbounds nuw i8, ptr %9185, i64 8
   store i32 464, ptr %9186, align 8
@@ -18164,12 +18136,12 @@ sub_1:                                            ; preds = %sub_0
   %9188 = getelementptr inbounds nuw i8, ptr %9185, i64 28
   store i32 %9184, ptr %9188, align 4
   %9189 = load i32, ptr %9183, align 4
-  %9190 = call ptr @makeDefElem(ptr noundef nonnull @.str.150, ptr noundef nonnull %9185, i32 noundef %9189) #11
+  %9190 = call ptr @makeDefElem(ptr noundef nonnull @.str.150, ptr noundef nonnull %9185, i32 noundef %9189) #10
   br label %.critedge10155
 
 9191:                                             ; preds = %._crit_edge
   %9192 = load i32, ptr %.210013, align 4
-  %9193 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9193 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %9193, align 4
   %9194 = getelementptr inbounds nuw i8, ptr %9193, i64 8
   store i32 464, ptr %9194, align 8
@@ -18178,13 +18150,13 @@ sub_1:                                            ; preds = %sub_0
   %9196 = getelementptr inbounds nuw i8, ptr %9193, i64 28
   store i32 %9192, ptr %9196, align 4
   %9197 = load i32, ptr %.210013, align 4
-  %9198 = call ptr @makeDefElem(ptr noundef nonnull @.str.151, ptr noundef nonnull %9193, i32 noundef %9197) #11
+  %9198 = call ptr @makeDefElem(ptr noundef nonnull @.str.151, ptr noundef nonnull %9193, i32 noundef %9197) #10
   br label %.critedge10155
 
 9199:                                             ; preds = %._crit_edge
   %9200 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9201 = load i32, ptr %9200, align 4
-  %9202 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9202 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %9202, align 4
   %9203 = getelementptr inbounds nuw i8, ptr %9202, i64 8
   store i32 464, ptr %9203, align 8
@@ -18193,26 +18165,26 @@ sub_1:                                            ; preds = %sub_0
   %9205 = getelementptr inbounds nuw i8, ptr %9202, i64 28
   store i32 %9201, ptr %9205, align 4
   %9206 = load i32, ptr %9200, align 4
-  %9207 = call ptr @makeDefElem(ptr noundef nonnull @.str.151, ptr noundef nonnull %9202, i32 noundef %9206) #11
+  %9207 = call ptr @makeDefElem(ptr noundef nonnull @.str.151, ptr noundef nonnull %9202, i32 noundef %9206) #10
   br label %.critedge10155
 
 9208:                                             ; preds = %._crit_edge
   %9209 = load ptr, ptr %.210001, align 8
-  %9210 = call ptr @list_make1_impl(i32 noundef 1, ptr %9209) #11
+  %9210 = call ptr @list_make1_impl(i32 noundef 1, ptr %9209) #10
   br label %.critedge10155
 
 9211:                                             ; preds = %._crit_edge
   %9212 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9213 = load ptr, ptr %9212, align 8
   %9214 = load ptr, ptr %.210001, align 8
-  %9215 = call ptr @lappend(ptr noundef %9213, ptr noundef %9214) #11
+  %9215 = call ptr @lappend(ptr noundef %9213, ptr noundef %9214) #10
   br label %.critedge10155
 
 9216:                                             ; preds = %._crit_edge
   %9217 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9218 = load ptr, ptr %9217, align 8
   %9219 = load ptr, ptr %.210001, align 8
-  %9220 = call ptr @lappend(ptr noundef %9218, ptr noundef %9219) #11
+  %9220 = call ptr @lappend(ptr noundef %9218, ptr noundef %9219) #10
   br label %.critedge10155
 
 9221:                                             ; preds = %._crit_edge
@@ -18235,7 +18207,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9230:                                             ; preds = %._crit_edge
-  %9231 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %9231 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 229, ptr %9231, align 4
   %9232 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %9233 = load ptr, ptr %9232, align 8
@@ -18266,7 +18238,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9251:                                             ; preds = %._crit_edge
-  %9252 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %9252 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 229, ptr %9252, align 4
   %9253 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %9254 = load ptr, ptr %9253, align 8
@@ -18297,7 +18269,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9272:                                             ; preds = %._crit_edge
-  %9273 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %9273 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 229, ptr %9273, align 4
   %9274 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %9275 = load ptr, ptr %9274, align 8
@@ -18333,17 +18305,16 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10115, label %.critedge10155, label %9297
 
 9297:                                             ; preds = %9272
-  %9298 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %9298)
-  %9299 = call i32 @errcode(i32 noundef 1088) #11
-  %9300 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.152) #11
+  %9298 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %9299 = call i32 @errcode(i32 noundef 1088) #10
+  %9300 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.152) #10
   %9301 = load i32, ptr %.210013, align 4
-  %9302 = call i32 @scanner_errposition(i32 noundef %9301, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 11303, ptr noundef nonnull @__func__.base_yyparse) #11
+  %9302 = call i32 @scanner_errposition(i32 noundef %9301, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 11303, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 9303:                                             ; preds = %._crit_edge
-  %9304 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %9304 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 229, ptr %9304, align 4
   %9305 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %9306 = load ptr, ptr %9305, align 8
@@ -18379,13 +18350,12 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not10114, label %.critedge10155, label %9328
 
 9328:                                             ; preds = %9303
-  %9329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %9329)
-  %9330 = call i32 @errcode(i32 noundef 1088) #11
-  %9331 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.152) #11
+  %9329 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %9330 = call i32 @errcode(i32 noundef 1088) #10
+  %9331 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.152) #10
   %9332 = load i32, ptr %.210013, align 4
-  %9333 = call i32 @scanner_errposition(i32 noundef %9332, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 11322, ptr noundef nonnull @__func__.base_yyparse) #11
+  %9333 = call i32 @scanner_errposition(i32 noundef %9332, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 11322, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 9334:                                             ; preds = %._crit_edge
@@ -18416,7 +18386,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9346:                                             ; preds = %._crit_edge
-  %9347 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9347 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 230, ptr %9347, align 4
   %9348 = load ptr, ptr %.210001, align 8
   %9349 = getelementptr inbounds nuw i8, ptr %9347, i64 8
@@ -18424,7 +18394,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9350:                                             ; preds = %._crit_edge
-  %9351 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9351 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 231, ptr %9351, align 4
   %9352 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9353 = load ptr, ptr %9352, align 8
@@ -18441,14 +18411,14 @@ sub_1:                                            ; preds = %sub_0
 
 9359:                                             ; preds = %._crit_edge
   %9360 = load ptr, ptr %.210001, align 8
-  %9361 = call ptr @list_make1_impl(i32 noundef 1, ptr %9360) #11
+  %9361 = call ptr @list_make1_impl(i32 noundef 1, ptr %9360) #10
   br label %.critedge10155
 
 9362:                                             ; preds = %._crit_edge
   %9363 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9364 = load ptr, ptr %9363, align 8
   %9365 = load ptr, ptr %.210001, align 8
-  %9366 = call ptr @lappend(ptr noundef %9364, ptr noundef %9365) #11
+  %9366 = call ptr @lappend(ptr noundef %9364, ptr noundef %9365) #10
   br label %.critedge10155
 
 9367:                                             ; preds = %._crit_edge
@@ -18457,17 +18427,17 @@ sub_1:                                            ; preds = %sub_0
   %9370 = load ptr, ptr %.210001, align 8
   %9371 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9372 = load i32, ptr %9371, align 4
-  %9373 = call ptr @makeDefElem(ptr noundef %9369, ptr noundef %9370, i32 noundef %9372) #11
+  %9373 = call ptr @makeDefElem(ptr noundef %9369, ptr noundef %9370, i32 noundef %9372) #10
   br label %.critedge10155
 
 9374:                                             ; preds = %._crit_edge
   %9375 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9376 = load ptr, ptr %9375, align 8
   %9377 = load ptr, ptr %.210001, align 8
-  %9378 = call ptr @makeString(ptr noundef %9377) #11
+  %9378 = call ptr @makeString(ptr noundef %9377) #10
   %9379 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9380 = load i32, ptr %9379, align 4
-  %9381 = call ptr @makeDefElem(ptr noundef %9376, ptr noundef %9378, i32 noundef %9380) #11
+  %9381 = call ptr @makeDefElem(ptr noundef %9376, ptr noundef %9378, i32 noundef %9380) #10
   br label %.critedge10155
 
 9382:                                             ; preds = %._crit_edge
@@ -18475,7 +18445,7 @@ sub_1:                                            ; preds = %sub_0
   %9384 = load ptr, ptr %9383, align 8
   %9385 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9386 = load i32, ptr %9385, align 4
-  %9387 = call ptr @makeDefElem(ptr noundef %9384, ptr noundef null, i32 noundef %9386) #11
+  %9387 = call ptr @makeDefElem(ptr noundef %9384, ptr noundef null, i32 noundef %9386) #10
   br label %.critedge10155
 
 9388:                                             ; preds = %._crit_edge
@@ -18483,36 +18453,36 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9390:                                             ; preds = %._crit_edge
-  %9391 = call ptr @pstrdup(ptr noundef nonnull @.str.153) #11
+  %9391 = call ptr @pstrdup(ptr noundef nonnull @.str.153) #10
   br label %.critedge10155
 
 9392:                                             ; preds = %._crit_edge
   %9393 = load ptr, ptr %.210001, align 8
-  %9394 = call ptr @pstrdup(ptr noundef %9393) #11
+  %9394 = call ptr @pstrdup(ptr noundef %9393) #10
   br label %.critedge10155
 
 9395:                                             ; preds = %._crit_edge
   %9396 = load ptr, ptr %.210001, align 8
-  %9397 = call ptr @pstrdup(ptr noundef %9396) #11
+  %9397 = call ptr @pstrdup(ptr noundef %9396) #10
   br label %.critedge10155
 
 9398:                                             ; preds = %._crit_edge
   %9399 = load ptr, ptr %.210001, align 8
-  %9400 = call ptr @pstrdup(ptr noundef %9399) #11
+  %9400 = call ptr @pstrdup(ptr noundef %9399) #10
   br label %.critedge10155
 
 9401:                                             ; preds = %._crit_edge
   %9402 = load ptr, ptr %.210001, align 8
-  %9403 = call ptr @pstrdup(ptr noundef %9402) #11
+  %9403 = call ptr @pstrdup(ptr noundef %9402) #10
   br label %.critedge10155
 
 9404:                                             ; preds = %._crit_edge
   %9405 = load ptr, ptr %.210001, align 8
-  %9406 = call ptr @pstrdup(ptr noundef %9405) #11
+  %9406 = call ptr @pstrdup(ptr noundef %9405) #10
   br label %.critedge10155
 
 9407:                                             ; preds = %._crit_edge
-  %9408 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9408 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 232, ptr %9408, align 4
   %9409 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9410 = load ptr, ptr %9409, align 8
@@ -18524,7 +18494,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9414:                                             ; preds = %._crit_edge
-  %9415 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9415 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 232, ptr %9415, align 4
   %9416 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9417 = load ptr, ptr %9416, align 8
@@ -18536,23 +18506,23 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9421:                                             ; preds = %._crit_edge
-  %9422 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9422 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 232, ptr %9422, align 4
   %9423 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %9424 = load ptr, ptr %9423, align 8
   %9425 = getelementptr inbounds nuw i8, ptr %9422, i64 8
   store ptr %9424, ptr %9425, align 8
   %9426 = load ptr, ptr %.210001, align 8
-  %9427 = call ptr @makeString(ptr noundef %9426) #11
+  %9427 = call ptr @makeString(ptr noundef %9426) #10
   %9428 = load i32, ptr %.210013, align 4
-  %9429 = call ptr @makeDefElem(ptr noundef nonnull @.str.154, ptr noundef %9427, i32 noundef %9428) #11
-  %9430 = call ptr @list_make1_impl(i32 noundef 1, ptr %9429) #11
+  %9429 = call ptr @makeDefElem(ptr noundef nonnull @.str.154, ptr noundef %9427, i32 noundef %9428) #10
+  %9430 = call ptr @list_make1_impl(i32 noundef 1, ptr %9429) #10
   %9431 = getelementptr inbounds nuw i8, ptr %9422, i64 16
   store ptr %9430, ptr %9431, align 8
   br label %.critedge10155
 
 9432:                                             ; preds = %._crit_edge
-  %9433 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9433 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 233, ptr %9433, align 4
   %9434 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %9435 = load ptr, ptr %9434, align 8
@@ -18561,7 +18531,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9437:                                             ; preds = %._crit_edge
-  %9438 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9438 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 234, ptr %9438, align 4
   %9439 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9440 = load ptr, ptr %9439, align 8
@@ -18573,7 +18543,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9444:                                             ; preds = %._crit_edge
-  %9445 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9445 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 235, ptr %9445, align 4
   %9446 = load ptr, ptr %.210001, align 8
   %9447 = getelementptr inbounds nuw i8, ptr %9445, i64 8
@@ -18585,7 +18555,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9450:                                             ; preds = %._crit_edge
-  %9451 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9451 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 235, ptr %9451, align 4
   %9452 = load ptr, ptr %.210001, align 8
   %9453 = getelementptr inbounds nuw i8, ptr %9451, i64 8
@@ -18597,7 +18567,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9456:                                             ; preds = %._crit_edge
-  %9457 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9457 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 235, ptr %9457, align 4
   %9458 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %9459 = load ptr, ptr %9458, align 8
@@ -18612,7 +18582,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9465:                                             ; preds = %._crit_edge
-  %9466 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9466 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 235, ptr %9466, align 4
   %9467 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %9468 = load ptr, ptr %9467, align 8
@@ -18628,23 +18598,23 @@ sub_1:                                            ; preds = %sub_0
 
 9474:                                             ; preds = %._crit_edge
   %9475 = load ptr, ptr %.210001, align 8
-  %9476 = call ptr @list_make1_impl(i32 noundef 1, ptr %9475) #11
+  %9476 = call ptr @list_make1_impl(i32 noundef 1, ptr %9475) #10
   br label %.critedge10155
 
 9477:                                             ; preds = %._crit_edge
   %9478 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9479 = load ptr, ptr %9478, align 8
   %9480 = load ptr, ptr %.210001, align 8
-  %9481 = call ptr @lappend(ptr noundef %9479, ptr noundef %9480) #11
+  %9481 = call ptr @lappend(ptr noundef %9479, ptr noundef %9480) #10
   br label %.critedge10155
 
 9482:                                             ; preds = %._crit_edge
   %9483 = load i32, ptr %.210013, align 4
-  %9484 = call ptr @makeDefElem(ptr noundef nonnull @.str.155, ptr noundef null, i32 noundef %9483) #11
+  %9484 = call ptr @makeDefElem(ptr noundef nonnull @.str.155, ptr noundef null, i32 noundef %9483) #10
   br label %.critedge10155
 
 9485:                                             ; preds = %._crit_edge
-  %9486 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9486 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 149, ptr %9486, align 4
   %9487 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9488 = load ptr, ptr %9487, align 8
@@ -18653,7 +18623,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9490:                                             ; preds = %._crit_edge
-  %9491 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9491 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 236, ptr %9491, align 4
   %9492 = load ptr, ptr %.210001, align 8
   %9493 = getelementptr inbounds nuw i8, ptr %9491, i64 8
@@ -18661,7 +18631,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9494:                                             ; preds = %._crit_edge
-  %9495 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %9495 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 236, ptr %9495, align 4
   %9496 = load ptr, ptr %.210001, align 8
   %9497 = getelementptr inbounds nuw i8, ptr %9495, i64 8
@@ -18669,7 +18639,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9498:                                             ; preds = %._crit_edge
-  %9499 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9499 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 191, ptr %9499, align 4
   %9500 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %9501 = load ptr, ptr %9500, align 8
@@ -18686,7 +18656,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9509:                                             ; preds = %._crit_edge
-  %9510 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9510 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9510, align 4
   %9511 = getelementptr inbounds nuw i8, ptr %9510, i64 4
   store i8 84, ptr %9511, align 4
@@ -18700,7 +18670,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9517:                                             ; preds = %._crit_edge
-  %9518 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9518 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9518, align 4
   %9519 = getelementptr inbounds nuw i8, ptr %9518, i64 4
   store i8 78, ptr %9519, align 4
@@ -18711,7 +18681,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9523:                                             ; preds = %._crit_edge
-  %9524 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9524 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9524, align 4
   %9525 = getelementptr inbounds nuw i8, ptr %9524, i64 4
   store i8 79, ptr %9525, align 4
@@ -18722,7 +18692,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9529:                                             ; preds = %._crit_edge
-  %9530 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9530 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9530, align 4
   %9531 = getelementptr inbounds nuw i8, ptr %9530, i64 4
   store i8 67, ptr %9531, align 4
@@ -18736,7 +18706,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9537:                                             ; preds = %._crit_edge
-  %9538 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9538 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9538, align 4
   %9539 = getelementptr inbounds nuw i8, ptr %9538, i64 4
   store i8 88, ptr %9539, align 4
@@ -18756,7 +18726,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9549:                                             ; preds = %._crit_edge
-  %9550 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9550 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9550, align 4
   %9551 = getelementptr inbounds nuw i8, ptr %9550, i64 4
   store i8 88, ptr %9551, align 4
@@ -18776,7 +18746,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9561:                                             ; preds = %._crit_edge
-  %9562 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9562 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 150, ptr %9562, align 4
   %9563 = getelementptr inbounds nuw i8, ptr %9562, i64 4
   store i8 86, ptr %9563, align 4
@@ -18790,7 +18760,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9569:                                             ; preds = %._crit_edge
-  %9570 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9570 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 256, ptr %9570, align 4
   %9571 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9572 = load ptr, ptr %9571, align 8
@@ -18802,7 +18772,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9576:                                             ; preds = %._crit_edge
-  %9577 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9577 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %9577, align 4
   %9578 = getelementptr inbounds nuw i8, ptr %9577, i64 4
   store i32 0, ptr %9578, align 4
@@ -18824,7 +18794,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9589:                                             ; preds = %._crit_edge
-  %9590 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9590 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %9590, align 4
   %9591 = getelementptr inbounds nuw i8, ptr %9590, i64 4
   store i32 1, ptr %9591, align 4
@@ -18846,7 +18816,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9602:                                             ; preds = %._crit_edge
-  %9603 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9603 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %9603, align 4
   %9604 = getelementptr inbounds nuw i8, ptr %9603, i64 4
   store i32 2, ptr %9604, align 4
@@ -18859,7 +18829,7 @@ sub_1:                                            ; preds = %sub_0
   %9609 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9610 = load ptr, ptr %9609, align 8
   %9611 = load ptr, ptr %.210001, align 8
-  %9612 = call ptr @list_make2_impl(i32 noundef 1, ptr %9610, ptr %9611) #11
+  %9612 = call ptr @list_make2_impl(i32 noundef 1, ptr %9610, ptr %9611) #10
   %9613 = getelementptr inbounds nuw i8, ptr %9603, i64 24
   store ptr %9612, ptr %9613, align 8
   %9614 = getelementptr inbounds nuw i8, ptr %9603, i64 32
@@ -18869,7 +18839,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9616:                                             ; preds = %._crit_edge
-  %9617 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9617 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %9617, align 4
   %9618 = getelementptr inbounds nuw i8, ptr %9617, i64 4
   store i32 3, ptr %9618, align 4
@@ -18884,7 +18854,7 @@ sub_1:                                            ; preds = %sub_0
   %9625 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9626 = load ptr, ptr %9625, align 8
   %9627 = load ptr, ptr %.210001, align 8
-  %9628 = call ptr @list_make2_impl(i32 noundef 1, ptr %9626, ptr %9627) #11
+  %9628 = call ptr @list_make2_impl(i32 noundef 1, ptr %9626, ptr %9627) #10
   %9629 = getelementptr inbounds nuw i8, ptr %9617, i64 24
   store ptr %9628, ptr %9629, align 8
   %9630 = getelementptr inbounds nuw i8, ptr %9617, i64 32
@@ -18894,7 +18864,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9632:                                             ; preds = %._crit_edge
-  %9633 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9633 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %9633, align 4
   %9634 = getelementptr inbounds nuw i8, ptr %9633, i64 4
   store i32 4, ptr %9634, align 4
@@ -18910,7 +18880,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9641:                                             ; preds = %._crit_edge
-  %9642 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %9642 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 257, ptr %9642, align 4
   %9643 = getelementptr inbounds nuw i8, ptr %9642, i64 4
   store i32 4, ptr %9643, align 4
@@ -18926,7 +18896,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9650:                                             ; preds = %._crit_edge
-  %9651 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %9651 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 248, ptr %9651, align 4
   %9652 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %9653 = load ptr, ptr %9652, align 8
@@ -18950,7 +18920,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9666:                                             ; preds = %._crit_edge
-  %9667 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9667 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 237, ptr %9667, align 4
   %9668 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9669 = load ptr, ptr %9668, align 8
@@ -18966,7 +18936,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9676:                                             ; preds = %._crit_edge
-  %9677 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9677 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 237, ptr %9677, align 4
   %9678 = getelementptr inbounds nuw i8, ptr %9677, i64 8
   %9679 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -18977,7 +18947,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9682:                                             ; preds = %._crit_edge
-  %9683 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9683 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 237, ptr %9683, align 4
   %9684 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9685 = load ptr, ptr %9684, align 8
@@ -18996,13 +18966,13 @@ sub_1:                                            ; preds = %sub_0
 9693:                                             ; preds = %9682
   %9694 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9695 = load i32, ptr %9694, align 4
-  %9696 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9695) #11
-  %9697 = call ptr @lappend(ptr noundef null, ptr noundef %9696) #11
+  %9696 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9695) #10
+  %9697 = call ptr @lappend(ptr noundef null, ptr noundef %9696) #10
   store ptr %9697, ptr %9689, align 8
   br label %.critedge10155
 
 9698:                                             ; preds = %._crit_edge
-  %9699 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9699 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 237, ptr %9699, align 4
   %9700 = getelementptr inbounds nuw i8, ptr %9699, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9700, i8 0, i64 24, i1 false)
@@ -19013,13 +18983,13 @@ sub_1:                                            ; preds = %sub_0
 9703:                                             ; preds = %9698
   %9704 = getelementptr inbounds nuw i8, ptr %9699, i64 24
   %9705 = load i32, ptr %.210013, align 4
-  %9706 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9705) #11
-  %9707 = call ptr @lappend(ptr noundef null, ptr noundef %9706) #11
+  %9706 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9705) #10
+  %9707 = call ptr @lappend(ptr noundef null, ptr noundef %9706) #10
   store ptr %9707, ptr %9704, align 8
   br label %.critedge10155
 
 9708:                                             ; preds = %._crit_edge
-  %9709 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9709 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 237, ptr %9709, align 4
   %9710 = load ptr, ptr %.210001, align 8
   %9711 = getelementptr inbounds nuw i8, ptr %9709, i64 8
@@ -19038,8 +19008,8 @@ sub_1:                                            ; preds = %sub_0
 9719:                                             ; preds = %9708
   %9720 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %9721 = load i32, ptr %9720, align 4
-  %9722 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9721) #11
-  %9723 = call ptr @lappend(ptr noundef null, ptr noundef %9722) #11
+  %9722 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9721) #10
+  %9723 = call ptr @lappend(ptr noundef null, ptr noundef %9722) #10
   store ptr %9723, ptr %9715, align 8
   br label %.critedge10155
 
@@ -19048,7 +19018,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9726:                                             ; preds = %._crit_edge
-  %9727 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9727 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 238, ptr %9727, align 4
   %9728 = getelementptr inbounds nuw i8, ptr %9727, i64 8
   store ptr null, ptr %9728, align 8
@@ -19060,8 +19030,8 @@ sub_1:                                            ; preds = %sub_0
 9732:                                             ; preds = %9726
   %9733 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %9734 = load i32, ptr %9733, align 4
-  %9735 = call ptr @makeDefElem(ptr noundef nonnull @.str.157, ptr noundef null, i32 noundef %9734) #11
-  %9736 = call ptr @lappend(ptr noundef null, ptr noundef %9735) #11
+  %9735 = call ptr @makeDefElem(ptr noundef nonnull @.str.157, ptr noundef null, i32 noundef %9734) #10
+  %9736 = call ptr @lappend(ptr noundef null, ptr noundef %9735) #10
   store ptr %9736, ptr %9728, align 8
   br label %9737
 
@@ -19075,8 +19045,8 @@ sub_1:                                            ; preds = %sub_0
 9742:                                             ; preds = %9737
   %9743 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %9744 = load i32, ptr %9743, align 4
-  %9745 = call ptr @makeDefElem(ptr noundef nonnull @.str.69, ptr noundef null, i32 noundef %9744) #11
-  %9746 = call ptr @lappend(ptr noundef %9738, ptr noundef %9745) #11
+  %9745 = call ptr @makeDefElem(ptr noundef nonnull @.str.69, ptr noundef null, i32 noundef %9744) #10
+  %9746 = call ptr @lappend(ptr noundef %9738, ptr noundef %9745) #10
   store ptr %9746, ptr %9728, align 8
   br label %9747
 
@@ -19090,8 +19060,8 @@ sub_1:                                            ; preds = %sub_0
 9752:                                             ; preds = %9747
   %9753 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9754 = load i32, ptr %9753, align 4
-  %9755 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9754) #11
-  %9756 = call ptr @lappend(ptr noundef %9748, ptr noundef %9755) #11
+  %9755 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9754) #10
+  %9756 = call ptr @lappend(ptr noundef %9748, ptr noundef %9755) #10
   store ptr %9756, ptr %9728, align 8
   br label %9757
 
@@ -19105,8 +19075,8 @@ sub_1:                                            ; preds = %sub_0
 9762:                                             ; preds = %9757
   %9763 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9764 = load i32, ptr %9763, align 4
-  %9765 = call ptr @makeDefElem(ptr noundef nonnull @.str.158, ptr noundef null, i32 noundef %9764) #11
-  %9766 = call ptr @lappend(ptr noundef %9758, ptr noundef %9765) #11
+  %9765 = call ptr @makeDefElem(ptr noundef nonnull @.str.158, ptr noundef null, i32 noundef %9764) #10
+  %9766 = call ptr @lappend(ptr noundef %9758, ptr noundef %9765) #10
   store ptr %9766, ptr %9728, align 8
   br label %9767
 
@@ -19119,7 +19089,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9771:                                             ; preds = %._crit_edge
-  %9772 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9772 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 238, ptr %9772, align 4
   %9773 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9774 = load ptr, ptr %9773, align 8
@@ -19133,7 +19103,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9779:                                             ; preds = %._crit_edge
-  %9780 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9780 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 238, ptr %9780, align 4
   %9781 = getelementptr inbounds nuw i8, ptr %9780, i64 8
   store ptr null, ptr %9781, align 8
@@ -19145,8 +19115,8 @@ sub_1:                                            ; preds = %sub_0
 9785:                                             ; preds = %9779
   %9786 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9787 = load i32, ptr %9786, align 4
-  %9788 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9787) #11
-  %9789 = call ptr @lappend(ptr noundef null, ptr noundef %9788) #11
+  %9788 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9787) #10
+  %9789 = call ptr @lappend(ptr noundef null, ptr noundef %9788) #10
   store ptr %9789, ptr %9781, align 8
   br label %9790
 
@@ -19159,7 +19129,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9794:                                             ; preds = %._crit_edge
-  %9795 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9795 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 238, ptr %9795, align 4
   %9796 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9797 = load ptr, ptr %9796, align 8
@@ -19174,14 +19144,14 @@ sub_1:                                            ; preds = %sub_0
 
 9802:                                             ; preds = %._crit_edge
   %9803 = load ptr, ptr %.210001, align 8
-  %9804 = call ptr @list_make1_impl(i32 noundef 1, ptr %9803) #11
+  %9804 = call ptr @list_make1_impl(i32 noundef 1, ptr %9803) #10
   br label %.critedge10155
 
 9805:                                             ; preds = %._crit_edge
   %9806 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9807 = load ptr, ptr %9806, align 8
   %9808 = load ptr, ptr %.210001, align 8
-  %9809 = call ptr @lappend(ptr noundef %9807, ptr noundef %9808) #11
+  %9809 = call ptr @lappend(ptr noundef %9807, ptr noundef %9808) #10
   br label %.critedge10155
 
 9810:                                             ; preds = %._crit_edge
@@ -19190,7 +19160,7 @@ sub_1:                                            ; preds = %sub_0
   %9813 = load ptr, ptr %.210001, align 8
   %9814 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9815 = load i32, ptr %9814, align 4
-  %9816 = call ptr @makeDefElem(ptr noundef %9812, ptr noundef %9813, i32 noundef %9815) #11
+  %9816 = call ptr @makeDefElem(ptr noundef %9812, ptr noundef %9813, i32 noundef %9815) #10
   br label %.critedge10155
 
 9817:                                             ; preds = %._crit_edge
@@ -19205,7 +19175,7 @@ sub_1:                                            ; preds = %sub_0
 
 9821:                                             ; preds = %._crit_edge
   %9822 = load ptr, ptr %.210001, align 8
-  %9823 = call ptr @makeString(ptr noundef %9822) #11
+  %9823 = call ptr @makeString(ptr noundef %9822) #10
   br label %.critedge10155
 
 9824:                                             ; preds = %._crit_edge
@@ -19273,19 +19243,19 @@ sub_1:                                            ; preds = %sub_0
   %9854 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9855 = load ptr, ptr %9854, align 8
   %9856 = load ptr, ptr %.210001, align 8
-  %9857 = call ptr @makeVacuumRelation(ptr noundef %9855, i32 noundef 0, ptr noundef %9856) #11
+  %9857 = call ptr @makeVacuumRelation(ptr noundef %9855, i32 noundef 0, ptr noundef %9856) #10
   br label %.critedge10155
 
 9858:                                             ; preds = %._crit_edge
   %9859 = load ptr, ptr %.210001, align 8
-  %9860 = call ptr @list_make1_impl(i32 noundef 1, ptr %9859) #11
+  %9860 = call ptr @list_make1_impl(i32 noundef 1, ptr %9859) #10
   br label %.critedge10155
 
 9861:                                             ; preds = %._crit_edge
   %9862 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9863 = load ptr, ptr %9862, align 8
   %9864 = load ptr, ptr %.210001, align 8
-  %9865 = call ptr @lappend(ptr noundef %9863, ptr noundef %9864) #11
+  %9865 = call ptr @lappend(ptr noundef %9863, ptr noundef %9864) #10
   br label %.critedge10155
 
 9866:                                             ; preds = %._crit_edge
@@ -19293,7 +19263,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9868:                                             ; preds = %._crit_edge
-  %9869 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9869 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 240, ptr %9869, align 4
   %9870 = load ptr, ptr %.210001, align 8
   %9871 = getelementptr inbounds nuw i8, ptr %9869, i64 8
@@ -19303,15 +19273,15 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9873:                                             ; preds = %._crit_edge
-  %9874 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9874 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 240, ptr %9874, align 4
   %9875 = load ptr, ptr %.210001, align 8
   %9876 = getelementptr inbounds nuw i8, ptr %9874, i64 8
   store ptr %9875, ptr %9876, align 8
   %9877 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %9878 = load i32, ptr %9877, align 4
-  %9879 = call ptr @makeDefElem(ptr noundef nonnull @.str.158, ptr noundef null, i32 noundef %9878) #11
-  %9880 = call ptr @list_make1_impl(i32 noundef 1, ptr %9879) #11
+  %9879 = call ptr @makeDefElem(ptr noundef nonnull @.str.158, ptr noundef null, i32 noundef %9878) #10
+  %9880 = call ptr @list_make1_impl(i32 noundef 1, ptr %9879) #10
   %9881 = getelementptr inbounds nuw i8, ptr %9874, i64 16
   store ptr %9880, ptr %9881, align 8
   %9882 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -19322,27 +19292,27 @@ sub_1:                                            ; preds = %sub_0
 9885:                                             ; preds = %9873
   %9886 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9887 = load i32, ptr %9886, align 4
-  %9888 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9887) #11
-  %9889 = call ptr @lappend(ptr noundef %9880, ptr noundef %9888) #11
+  %9888 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9887) #10
+  %9889 = call ptr @lappend(ptr noundef %9880, ptr noundef %9888) #10
   store ptr %9889, ptr %9881, align 8
   br label %.critedge10155
 
 9890:                                             ; preds = %._crit_edge
-  %9891 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9891 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 240, ptr %9891, align 4
   %9892 = load ptr, ptr %.210001, align 8
   %9893 = getelementptr inbounds nuw i8, ptr %9891, i64 8
   store ptr %9892, ptr %9893, align 8
   %9894 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %9895 = load i32, ptr %9894, align 4
-  %9896 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9895) #11
-  %9897 = call ptr @list_make1_impl(i32 noundef 1, ptr %9896) #11
+  %9896 = call ptr @makeDefElem(ptr noundef nonnull @.str.156, ptr noundef null, i32 noundef %9895) #10
+  %9897 = call ptr @list_make1_impl(i32 noundef 1, ptr %9896) #10
   %9898 = getelementptr inbounds nuw i8, ptr %9891, i64 16
   store ptr %9897, ptr %9898, align 8
   br label %.critedge10155
 
 9899:                                             ; preds = %._crit_edge
-  %9900 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9900 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 240, ptr %9900, align 4
   %9901 = load ptr, ptr %.210001, align 8
   %9902 = getelementptr inbounds nuw i8, ptr %9900, i64 8
@@ -19354,7 +19324,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9906:                                             ; preds = %._crit_edge
-  %9907 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9907 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 251, ptr %9907, align 4
   %9908 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %9909 = load ptr, ptr %9908, align 8
@@ -19375,7 +19345,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9919:                                             ; preds = %._crit_edge
-  %9920 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9920 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 252, ptr %9920, align 4
   %9921 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %9922 = load ptr, ptr %9921, align 8
@@ -19387,9 +19357,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9926:                                             ; preds = %._crit_edge
-  %9927 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9927 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %9927, align 4
-  %9928 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9928 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 252, ptr %9928, align 4
   %9929 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9930 = load ptr, ptr %9929, align 8
@@ -19427,9 +19397,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9953:                                             ; preds = %._crit_edge
-  %9954 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %9954 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 241, ptr %9954, align 4
-  %9955 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9955 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 252, ptr %9955, align 4
   %9956 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %9957 = load ptr, ptr %9956, align 8
@@ -19472,7 +19442,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9983:                                             ; preds = %._crit_edge
-  %9984 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9984 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 253, ptr %9984, align 4
   %9985 = load ptr, ptr %.210001, align 8
   %9986 = getelementptr inbounds nuw i8, ptr %9984, i64 8
@@ -19485,7 +19455,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9990:                                             ; preds = %._crit_edge
-  %9991 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9991 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 253, ptr %9991, align 4
   %9992 = load ptr, ptr %.210001, align 8
   %9993 = getelementptr inbounds nuw i8, ptr %9991, i64 8
@@ -19498,7 +19468,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 9997:                                             ; preds = %._crit_edge
-  %9998 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %9998 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 253, ptr %9998, align 4
   %9999 = getelementptr inbounds nuw i8, ptr %9998, i64 8
   store ptr null, ptr %9999, align 8
@@ -19509,7 +19479,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10002:                                            ; preds = %._crit_edge
-  %10003 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10003 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 253, ptr %10003, align 4
   %10004 = getelementptr inbounds nuw i8, ptr %10003, i64 8
   store ptr null, ptr %10004, align 8
@@ -19552,7 +19522,7 @@ sub_1:                                            ; preds = %sub_0
 
 10029:                                            ; preds = %._crit_edge
   %10030 = load ptr, ptr %.210001, align 8
-  %10031 = call ptr @makeAlias(ptr noundef %10030, ptr noundef null) #11
+  %10031 = call ptr @makeAlias(ptr noundef %10030, ptr noundef null) #10
   %10032 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10033 = load ptr, ptr %10032, align 8
   %10034 = getelementptr inbounds nuw i8, ptr %10033, i64 40
@@ -19561,7 +19531,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10036:                                            ; preds = %._crit_edge
-  %10037 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10037 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 137, ptr %10037, align 4
   %10038 = getelementptr inbounds nuw i8, ptr %10037, i64 16
   store ptr null, ptr %10038, align 8
@@ -19571,7 +19541,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10041:                                            ; preds = %._crit_edge
-  %10042 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10042 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 137, ptr %10042, align 4
   %10043 = getelementptr inbounds nuw i8, ptr %10042, i64 16
   store ptr null, ptr %10043, align 8
@@ -19585,7 +19555,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10049:                                            ; preds = %._crit_edge
-  %10050 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10050 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 137, ptr %10050, align 4
   %10051 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10052 = load ptr, ptr %10051, align 8
@@ -19597,7 +19567,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10056:                                            ; preds = %._crit_edge
-  %10057 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10057 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 137, ptr %10057, align 4
   %10058 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %10059 = load ptr, ptr %10058, align 8
@@ -19613,7 +19583,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10066:                                            ; preds = %._crit_edge
-  %10067 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10067 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 137, ptr %10067, align 4
   %10068 = getelementptr inbounds nuw i8, ptr %10067, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10068, i8 0, i64 16, i1 false)
@@ -19635,18 +19605,18 @@ sub_1:                                            ; preds = %sub_0
 
 10075:                                            ; preds = %._crit_edge
   %10076 = load ptr, ptr %.210001, align 8
-  %10077 = call ptr @list_make1_impl(i32 noundef 1, ptr %10076) #11
+  %10077 = call ptr @list_make1_impl(i32 noundef 1, ptr %10076) #10
   br label %.critedge10155
 
 10078:                                            ; preds = %._crit_edge
   %10079 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10080 = load ptr, ptr %10079, align 8
   %10081 = load ptr, ptr %.210001, align 8
-  %10082 = call ptr @lappend(ptr noundef %10080, ptr noundef %10081) #11
+  %10082 = call ptr @lappend(ptr noundef %10080, ptr noundef %10081) #10
   br label %.critedge10155
 
 10083:                                            ; preds = %._crit_edge
-  %10084 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10084 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %10084, align 4
   %10085 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %10086 = load ptr, ptr %10085, align 8
@@ -19665,7 +19635,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10095:                                            ; preds = %._crit_edge
-  %10096 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10096 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 112, ptr %10096, align 4
   %10097 = getelementptr inbounds nuw i8, ptr %10096, i64 4
   store i32 2, ptr %10097, align 4
@@ -19687,7 +19657,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10109:                                            ; preds = %._crit_edge
-  %10110 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10110 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 112, ptr %10110, align 4
   %10111 = getelementptr inbounds nuw i8, ptr %10110, i64 4
   store i32 1, ptr %10111, align 4
@@ -19704,7 +19674,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10119:                                            ; preds = %._crit_edge
-  %10120 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10120 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 111, ptr %10120, align 4
   %10121 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10122 = load ptr, ptr %10121, align 8
@@ -19722,7 +19692,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10130:                                            ; preds = %._crit_edge
-  %10131 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10131 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 111, ptr %10131, align 4
   %10132 = getelementptr inbounds nuw i8, ptr %10131, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10132, i8 0, i64 16, i1 false)
@@ -19736,7 +19706,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10138:                                            ; preds = %._crit_edge
-  %10139 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10139 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 118, ptr %10139, align 4
   %10140 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %10141 = load ptr, ptr %10140, align 8
@@ -19754,18 +19724,18 @@ sub_1:                                            ; preds = %sub_0
 
 10148:                                            ; preds = %._crit_edge
   %10149 = load ptr, ptr %.210001, align 8
-  %10150 = call ptr @list_make1_impl(i32 noundef 1, ptr %10149) #11
+  %10150 = call ptr @list_make1_impl(i32 noundef 1, ptr %10149) #10
   br label %.critedge10155
 
 10151:                                            ; preds = %._crit_edge
   %10152 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10153 = load ptr, ptr %10152, align 8
   %10154 = load ptr, ptr %.210001, align 8
-  %10155 = call ptr @lappend(ptr noundef %10153, ptr noundef %10154) #11
+  %10155 = call ptr @lappend(ptr noundef %10153, ptr noundef %10154) #10
   br label %.critedge10155
 
 10156:                                            ; preds = %._crit_edge
-  %10157 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10157 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 117, ptr %10157, align 4
   %10158 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10159 = load i32, ptr %10158, align 8
@@ -19794,7 +19764,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10172:                                            ; preds = %._crit_edge
-  %10173 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %10173 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 138, ptr %10173, align 4
   %10174 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %10175 = load ptr, ptr %10174, align 8
@@ -19824,7 +19794,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10191:                                            ; preds = %._crit_edge
-  %10192 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10192 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 245, ptr %10192, align 4
   %10193 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10194 = load ptr, ptr %10193, align 8
@@ -19946,7 +19916,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.critedge10155
 
 10248:                                            ; preds = %._crit_edge
-  %10249 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %10249 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 139, ptr %10249, align 4
   %10250 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %10251 = load ptr, ptr %10250, align 8
@@ -19983,7 +19953,7 @@ sub_1:                                            ; preds = %sub_0
   %10271 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10272 = load ptr, ptr %10271, align 8
   %10273 = load ptr, ptr %.210001, align 8
-  %10274 = call ptr @list_concat(ptr noundef %10272, ptr noundef %10273) #11
+  %10274 = call ptr @list_concat(ptr noundef %10272, ptr noundef %10273) #10
   br label %.critedge10155
 
 10275:                                            ; preds = %._crit_edge
@@ -19993,7 +19963,7 @@ sub_1:                                            ; preds = %sub_0
   %10279 = getelementptr inbounds nuw i8, ptr %10278, i64 24
   store ptr %10276, ptr %10279, align 8
   %10280 = load ptr, ptr %10277, align 8
-  %10281 = call ptr @list_make1_impl(i32 noundef 1, ptr %10280) #11
+  %10281 = call ptr @list_make1_impl(i32 noundef 1, ptr %10280) #10
   br label %.critedge10155
 
 10282:                                            ; preds = %._crit_edge
@@ -20015,7 +19985,7 @@ list_length.exit:                                 ; preds = %10282
   %10289 = load ptr, ptr %10287, align 8
   %10290 = getelementptr inbounds nuw %union.ListCell, ptr %10289, i64 %indvars.iv10763
   %10291 = load ptr, ptr %10290, align 8
-  %10292 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10292 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 82, ptr %10292, align 4
   %10293 = load ptr, ptr %.210001, align 8
   %10294 = getelementptr inbounds nuw i8, ptr %10292, i64 8
@@ -20038,7 +20008,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10302:                                            ; preds = %._crit_edge
-  %10303 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10303 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %10303, align 4
   %10304 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %10305 = load ptr, ptr %10304, align 8
@@ -20058,18 +20028,18 @@ list_length.exit:                                 ; preds = %10282
 
 10314:                                            ; preds = %._crit_edge
   %10315 = load ptr, ptr %.210001, align 8
-  %10316 = call ptr @list_make1_impl(i32 noundef 1, ptr %10315) #11
+  %10316 = call ptr @list_make1_impl(i32 noundef 1, ptr %10315) #10
   br label %.critedge10155
 
 10317:                                            ; preds = %._crit_edge
   %10318 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10319 = load ptr, ptr %10318, align 8
   %10320 = load ptr, ptr %.210001, align 8
-  %10321 = call ptr @lappend(ptr noundef %10319, ptr noundef %10320) #11
+  %10321 = call ptr @lappend(ptr noundef %10319, ptr noundef %10320) #10
   br label %.critedge10155
 
 10322:                                            ; preds = %._crit_edge
-  %10323 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %10323 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 140, ptr %10323, align 4
   %10324 = getelementptr inbounds i8, ptr %.210001, i64 -72
   %10325 = load ptr, ptr %10324, align 8
@@ -20100,14 +20070,14 @@ list_length.exit:                                 ; preds = %10282
 
 10342:                                            ; preds = %._crit_edge
   %10343 = load ptr, ptr %.210001, align 8
-  %10344 = call ptr @list_make1_impl(i32 noundef 1, ptr %10343) #11
+  %10344 = call ptr @list_make1_impl(i32 noundef 1, ptr %10343) #10
   br label %.critedge10155
 
 10345:                                            ; preds = %._crit_edge
   %10346 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %10347 = load ptr, ptr %10346, align 8
   %10348 = load ptr, ptr %.210001, align 8
-  %10349 = call ptr @lappend(ptr noundef %10347, ptr noundef %10348) #11
+  %10349 = call ptr @lappend(ptr noundef %10347, ptr noundef %10348) #10
   br label %.critedge10155
 
 10350:                                            ; preds = %._crit_edge
@@ -20153,7 +20123,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10380:                                            ; preds = %._crit_edge
-  %10381 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10381 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10381, align 4
   %10382 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %10383 = load i32, ptr %10382, align 8
@@ -20168,7 +20138,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10389:                                            ; preds = %._crit_edge
-  %10390 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10390 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10390, align 4
   %10391 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %10392 = load i32, ptr %10391, align 8
@@ -20214,7 +20184,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10412:                                            ; preds = %._crit_edge
-  %10413 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10413 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10413, align 4
   %10414 = getelementptr inbounds nuw i8, ptr %10413, i64 8
   store i32 2, ptr %10414, align 8
@@ -20228,7 +20198,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10419:                                            ; preds = %._crit_edge
-  %10420 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10420 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10420, align 4
   %10421 = getelementptr inbounds nuw i8, ptr %10420, i64 8
   store i32 4, ptr %10421, align 8
@@ -20239,7 +20209,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10424:                                            ; preds = %._crit_edge
-  %10425 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10425 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10425, align 4
   %10426 = getelementptr inbounds nuw i8, ptr %10425, i64 8
   store i32 3, ptr %10426, align 8
@@ -20253,7 +20223,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10431:                                            ; preds = %._crit_edge
-  %10432 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10432 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10432, align 4
   %10433 = getelementptr inbounds nuw i8, ptr %10432, i64 8
   store i32 3, ptr %10433, align 8
@@ -20269,7 +20239,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10440:                                            ; preds = %._crit_edge
-  %10441 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10441 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10441, align 4
   %10442 = getelementptr inbounds nuw i8, ptr %10441, i64 8
   store i32 3, ptr %10442, align 8
@@ -20285,7 +20255,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10449:                                            ; preds = %._crit_edge
-  %10450 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10450 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10450, align 4
   %10451 = getelementptr inbounds nuw i8, ptr %10450, i64 8
   store i32 3, ptr %10451, align 8
@@ -20303,7 +20273,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10460:                                            ; preds = %._crit_edge
-  %10461 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10461 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 116, ptr %10461, align 4
   %10462 = getelementptr inbounds nuw i8, ptr %10461, i64 8
   store i32 3, ptr %10462, align 8
@@ -20319,7 +20289,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10468:                                            ; preds = %._crit_edge
-  %10469 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %10469 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 200, ptr %10469, align 4
   %10470 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %10471 = load ptr, ptr %10470, align 8
@@ -20530,7 +20500,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10601:                                            ; preds = %._crit_edge
-  %10602 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %10602 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %10602, align 4
   %10603 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %10604 = load ptr, ptr %10603, align 8
@@ -20572,7 +20542,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10631:                                            ; preds = %._crit_edge
-  %10632 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %10632 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %10632, align 4
   %10633 = getelementptr inbounds i8, ptr %.210001, i64 -56
   %10634 = load ptr, ptr %10633, align 8
@@ -20622,15 +20592,15 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10666:                                            ; preds = %._crit_edge
-  %10667 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10667 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 69, ptr %10667, align 4
-  %10668 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10668 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %10668, align 4
-  %10669 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %10669 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %10669, align 4
-  %10670 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %10670 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %10670, align 4
-  %10671 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %10670) #11
+  %10671 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %10670) #10
   %10672 = getelementptr inbounds nuw i8, ptr %10667, i64 8
   store ptr %10671, ptr %10672, align 8
   %10673 = getelementptr inbounds nuw i8, ptr %10667, i64 16
@@ -20641,11 +20611,11 @@ list_length.exit:                                 ; preds = %10282
   store ptr %10667, ptr %10675, align 8
   %10676 = getelementptr inbounds nuw i8, ptr %10668, i64 32
   store i32 -1, ptr %10676, align 8
-  %10677 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %10668) #11
+  %10677 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %10668) #10
   %10678 = getelementptr inbounds nuw i8, ptr %10669, i64 24
   store ptr %10677, ptr %10678, align 8
   %10679 = load ptr, ptr %.210001, align 8
-  %10680 = call ptr @list_make1_impl(i32 noundef 1, ptr %10679) #11
+  %10680 = call ptr @list_make1_impl(i32 noundef 1, ptr %10679) #10
   %10681 = getelementptr inbounds nuw i8, ptr %10669, i64 32
   store ptr %10680, ptr %10681, align 8
   %10682 = getelementptr inbounds i8, ptr %.210013, i64 -4
@@ -20664,7 +20634,7 @@ list_length.exit:                                 ; preds = %10282
   %10692 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %10693 = load i32, ptr %10692, align 4
   %10694 = zext i1 %10688 to i8
-  %10695 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %10695 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %10695, align 4
   %10696 = getelementptr inbounds nuw i8, ptr %10695, i64 136
   store i32 1, ptr %10696, align 8
@@ -20688,7 +20658,7 @@ list_length.exit:                                 ; preds = %10282
   %10708 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %10709 = load i32, ptr %10708, align 4
   %10710 = zext i1 %10704 to i8
-  %10711 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %10711 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %10711, align 4
   %10712 = getelementptr inbounds nuw i8, ptr %10711, i64 136
   store i32 2, ptr %10712, align 8
@@ -20712,7 +20682,7 @@ list_length.exit:                                 ; preds = %10282
   %10724 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %10725 = load i32, ptr %10724, align 4
   %10726 = zext i1 %10720 to i8
-  %10727 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %10727 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %10727, align 4
   %10728 = getelementptr inbounds nuw i8, ptr %10727, i64 136
   store i32 3, ptr %10728, align 8
@@ -20727,7 +20697,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10733:                                            ; preds = %._crit_edge
-  %10734 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10734 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 110, ptr %10734, align 4
   %10735 = load ptr, ptr %.210001, align 8
   %10736 = getelementptr inbounds nuw i8, ptr %10734, i64 8
@@ -20741,7 +20711,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10741:                                            ; preds = %._crit_edge
-  %10742 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10742 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 110, ptr %10742, align 4
   %10743 = load ptr, ptr %.210001, align 8
   %10744 = getelementptr inbounds nuw i8, ptr %10742, i64 8
@@ -20755,7 +20725,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10749:                                            ; preds = %._crit_edge
-  %10750 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %10750 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 110, ptr %10750, align 4
   %10751 = load ptr, ptr %.210001, align 8
   %10752 = getelementptr inbounds nuw i8, ptr %10750, i64 8
@@ -20770,18 +20740,18 @@ list_length.exit:                                 ; preds = %10282
 
 10757:                                            ; preds = %._crit_edge
   %10758 = load ptr, ptr %.210001, align 8
-  %10759 = call ptr @list_make1_impl(i32 noundef 1, ptr %10758) #11
+  %10759 = call ptr @list_make1_impl(i32 noundef 1, ptr %10758) #10
   br label %.critedge10155
 
 10760:                                            ; preds = %._crit_edge
   %10761 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10762 = load ptr, ptr %10761, align 8
   %10763 = load ptr, ptr %.210001, align 8
-  %10764 = call ptr @lappend(ptr noundef %10762, ptr noundef %10763) #11
+  %10764 = call ptr @lappend(ptr noundef %10762, ptr noundef %10763) #10
   br label %.critedge10155
 
 10765:                                            ; preds = %._crit_edge
-  %10766 = call noundef ptr @palloc0(i64 noundef 104) #11
+  %10766 = call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 115, ptr %10766, align 4
   %10767 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %10768 = load ptr, ptr %10767, align 8
@@ -20833,7 +20803,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10796:                                            ; preds = %._crit_edge
-  %10797 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10797 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 113, ptr %10797, align 4
   %10798 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10799 = load ptr, ptr %10798, align 8
@@ -20851,7 +20821,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10807:                                            ; preds = %._crit_edge
-  %10808 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10808 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 113, ptr %10808, align 4
   %10809 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10810 = load ptr, ptr %10809, align 8
@@ -20869,7 +20839,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10818:                                            ; preds = %._crit_edge
-  %10819 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10819 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 114, ptr %10819, align 4
   %10820 = getelementptr inbounds i8, ptr %.210001, i64 -64
   %10821 = load ptr, ptr %10820, align 8
@@ -20897,7 +20867,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10837:                                            ; preds = %._crit_edge
-  %10838 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10838 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 114, ptr %10838, align 4
   %10839 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %10840 = load ptr, ptr %10839, align 8
@@ -20907,7 +20877,7 @@ list_length.exit:                                 ; preds = %10282
   %10843 = load ptr, ptr %10842, align 8
   %10844 = getelementptr inbounds nuw i8, ptr %10838, i64 16
   store ptr %10843, ptr %10844, align 8
-  %10845 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %10845 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %10845, align 4
   %10846 = getelementptr inbounds nuw i8, ptr %10845, i64 8
   store i32 466, ptr %10846, align 8
@@ -20917,7 +20887,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 -1, ptr %10848, align 4
   %10849 = getelementptr inbounds nuw i8, ptr %10838, i64 24
   store ptr %10845, ptr %10849, align 8
-  %10850 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %10850 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %10850, align 4
   %10851 = getelementptr inbounds nuw i8, ptr %10850, i64 8
   store i32 466, ptr %10851, align 8
@@ -20941,7 +20911,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10862:                                            ; preds = %._crit_edge
-  %10863 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %10863 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 5, ptr %10863, align 4
   %10864 = load ptr, ptr %.210001, align 8
   %10865 = getelementptr inbounds nuw i8, ptr %10863, i64 8
@@ -20981,15 +20951,15 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10882:                                            ; preds = %._crit_edge
-  %10883 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %10883 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
   br i1 %10883, label %10884, label %10889
 
 10884:                                            ; preds = %10882
-  %10885 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #11
+  %10885 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #10
   %10886 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %10887 = load i32, ptr %10886, align 4
-  %10888 = call i32 @scanner_errposition(i32 noundef %10887, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 13162, ptr noundef nonnull @__func__.base_yyparse) #11
+  %10888 = call i32 @scanner_errposition(i32 noundef %10887, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 13162, ptr noundef nonnull @__func__.base_yyparse) #10
   br label %10889
 
 10889:                                            ; preds = %10884, %10882
@@ -20999,15 +20969,15 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10892:                                            ; preds = %._crit_edge
-  %10893 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
+  %10893 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
   br i1 %10893, label %10894, label %10899
 
 10894:                                            ; preds = %10892
-  %10895 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #11
+  %10895 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.81) #10
   %10896 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %10897 = load i32, ptr %10896, align 4
-  %10898 = call i32 @scanner_errposition(i32 noundef %10897, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 13170, ptr noundef nonnull @__func__.base_yyparse) #11
+  %10898 = call i32 @scanner_errposition(i32 noundef %10897, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 13170, ptr noundef nonnull @__func__.base_yyparse) #10
   br label %10899
 
 10899:                                            ; preds = %10894, %10892
@@ -21055,7 +21025,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10920:                                            ; preds = %._crit_edge
-  %10921 = call ptr @list_make1_impl(i32 noundef 1, ptr null) #11
+  %10921 = call ptr @list_make1_impl(i32 noundef 1, ptr null) #10
   br label %.critedge10155
 
 10922:                                            ; preds = %._crit_edge
@@ -21077,18 +21047,18 @@ list_length.exit:                                 ; preds = %10282
 
 10931:                                            ; preds = %._crit_edge
   %10932 = load ptr, ptr %.210001, align 8
-  %10933 = call ptr @list_make1_impl(i32 noundef 1, ptr %10932) #11
+  %10933 = call ptr @list_make1_impl(i32 noundef 1, ptr %10932) #10
   br label %.critedge10155
 
 10934:                                            ; preds = %._crit_edge
   %10935 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10936 = load ptr, ptr %10935, align 8
   %10937 = load ptr, ptr %.210001, align 8
-  %10938 = call ptr @lappend(ptr noundef %10936, ptr noundef %10937) #11
+  %10938 = call ptr @lappend(ptr noundef %10936, ptr noundef %10937) #10
   br label %.critedge10155
 
 10939:                                            ; preds = %._crit_edge
-  %10940 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10940 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 83, ptr %10940, align 4
   %10941 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %10942 = load ptr, ptr %10941, align 8
@@ -21110,7 +21080,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10953:                                            ; preds = %._crit_edge
-  %10954 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %10954 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 83, ptr %10954, align 4
   %10955 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %10956 = load ptr, ptr %10955, align 8
@@ -21155,7 +21125,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10980:                                            ; preds = %._crit_edge
-  %10981 = call ptr @palloc(i64 noundef 32) #11
+  %10981 = call ptr @palloc(i64 noundef 32) #10
   %10982 = load ptr, ptr %.210001, align 8
   store ptr %10982, ptr %10981, align 8
   %10983 = getelementptr inbounds nuw i8, ptr %10981, i64 8
@@ -21176,7 +21146,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 10991:                                            ; preds = %._crit_edge
-  %10992 = call ptr @palloc(i64 noundef 32) #11
+  %10992 = call ptr @palloc(i64 noundef 32) #10
   store ptr null, ptr %10992, align 8
   %10993 = load ptr, ptr %.210001, align 8
   %10994 = getelementptr inbounds nuw i8, ptr %10992, i64 8
@@ -21194,19 +21164,18 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11001:                                            ; preds = %._crit_edge
-  %11002 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %11002)
-  %11003 = call i32 @errcode(i32 noundef 16801924) #11
-  %11004 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.159) #11
-  %11005 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.160) #11
+  %11002 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %11003 = call i32 @errcode(i32 noundef 16801924) #10
+  %11004 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.159) #10
+  %11005 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.160) #10
   %11006 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %11007 = load i32, ptr %11006, align 4
-  %11008 = call i32 @scanner_errposition(i32 noundef %11007, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 13310, ptr noundef nonnull @__func__.base_yyparse) #11
+  %11008 = call i32 @scanner_errposition(i32 noundef %11007, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 13310, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 11009:                                            ; preds = %._crit_edge
-  %11010 = call ptr @palloc(i64 noundef 32) #11
+  %11010 = call ptr @palloc(i64 noundef 32) #10
   store ptr null, ptr %11010, align 8
   %11011 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11012 = load ptr, ptr %11011, align 8
@@ -21225,7 +21194,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11020:                                            ; preds = %._crit_edge
-  %11021 = call ptr @palloc(i64 noundef 32) #11
+  %11021 = call ptr @palloc(i64 noundef 32) #10
   store ptr null, ptr %11021, align 8
   %11022 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %11023 = load ptr, ptr %11022, align 8
@@ -21246,9 +21215,9 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11033:                                            ; preds = %._crit_edge
-  %11034 = call ptr @palloc(i64 noundef 32) #11
+  %11034 = call ptr @palloc(i64 noundef 32) #10
   store ptr null, ptr %11034, align 8
-  %11035 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11035 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %11035, align 4
   %11036 = getelementptr inbounds nuw i8, ptr %11035, i64 8
   store i32 464, ptr %11036, align 8
@@ -21271,9 +21240,9 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11046:                                            ; preds = %._crit_edge
-  %11047 = call ptr @palloc(i64 noundef 32) #11
+  %11047 = call ptr @palloc(i64 noundef 32) #10
   store ptr null, ptr %11047, align 8
-  %11048 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11048 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %11048, align 4
   %11049 = getelementptr inbounds nuw i8, ptr %11048, i64 8
   store i32 464, ptr %11049, align 8
@@ -21312,7 +21281,7 @@ list_length.exit:                                 ; preds = %10282
 
 11068:                                            ; preds = %._crit_edge
   %11069 = load i32, ptr %.210013, align 4
-  %11070 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11070 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %11070, align 4
   %11071 = getelementptr inbounds nuw i8, ptr %11070, i64 24
   store i8 1, ptr %11071, align 8
@@ -21332,7 +21301,7 @@ list_length.exit:                                 ; preds = %10282
   %11078 = load ptr, ptr %.210001, align 8
   %11079 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %11080 = load i32, ptr %11079, align 4
-  %11081 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef %11078, i32 noundef %11080) #11
+  %11081 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef %11078, i32 noundef %11080) #10
   br label %.critedge10155
 
 11082:                                            ; preds = %._crit_edge
@@ -21345,7 +21314,7 @@ list_length.exit:                                 ; preds = %10282
 11087:                                            ; preds = %._crit_edge
   %11088 = load i32, ptr %.210001, align 8
   %11089 = load i32, ptr %.210013, align 4
-  %11090 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11090 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %11090, align 4
   %11091 = getelementptr inbounds nuw i8, ptr %11090, i64 8
   store i32 464, ptr %11091, align 8
@@ -21358,7 +21327,7 @@ list_length.exit:                                 ; preds = %10282
 11094:                                            ; preds = %._crit_edge
   %11095 = load ptr, ptr %.210001, align 8
   %11096 = load i32, ptr %.210013, align 4
-  %11097 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11097 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %11097, align 4
   %11098 = getelementptr inbounds nuw i8, ptr %11097, i64 8
   store i32 465, ptr %11098, align 8
@@ -21393,7 +21362,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11113:                                            ; preds = %._crit_edge
-  %11114 = call ptr @palloc(i64 noundef 16) #11
+  %11114 = call ptr @palloc(i64 noundef 16) #10
   %11115 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11116 = load i32, ptr %11115, align 8
   %11117 = icmp eq i32 %11116, 2
@@ -21405,7 +21374,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11121:                                            ; preds = %._crit_edge
-  %11122 = call ptr @palloc(i64 noundef 16) #11
+  %11122 = call ptr @palloc(i64 noundef 16) #10
   store i8 0, ptr %11122, align 8
   %11123 = getelementptr inbounds nuw i8, ptr %11122, i64 8
   store ptr null, ptr %11123, align 8
@@ -21413,14 +21382,14 @@ list_length.exit:                                 ; preds = %10282
 
 11124:                                            ; preds = %._crit_edge
   %11125 = load ptr, ptr %.210001, align 8
-  %11126 = call ptr @list_make1_impl(i32 noundef 1, ptr %11125) #11
+  %11126 = call ptr @list_make1_impl(i32 noundef 1, ptr %11125) #10
   br label %.critedge10155
 
 11127:                                            ; preds = %._crit_edge
   %11128 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11129 = load ptr, ptr %11128, align 8
   %11130 = load ptr, ptr %.210001, align 8
-  %11131 = call ptr @lappend(ptr noundef %11129, ptr noundef %11130) #11
+  %11131 = call ptr @lappend(ptr noundef %11129, ptr noundef %11130) #10
   br label %.critedge10155
 
 11132:                                            ; preds = %._crit_edge
@@ -21446,7 +21415,7 @@ list_length.exit:                                 ; preds = %10282
 11142:                                            ; preds = %._crit_edge
   %11143 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %11144 = load i32, ptr %11143, align 4
-  %11145 = call ptr @makeGroupingSet(i32 noundef 0, ptr noundef null, i32 noundef %11144) #11
+  %11145 = call ptr @makeGroupingSet(i32 noundef 0, ptr noundef null, i32 noundef %11144) #10
   br label %.critedge10155
 
 11146:                                            ; preds = %._crit_edge
@@ -21454,7 +21423,7 @@ list_length.exit:                                 ; preds = %10282
   %11148 = load ptr, ptr %11147, align 8
   %11149 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %11150 = load i32, ptr %11149, align 4
-  %11151 = call ptr @makeGroupingSet(i32 noundef 2, ptr noundef %11148, i32 noundef %11150) #11
+  %11151 = call ptr @makeGroupingSet(i32 noundef 2, ptr noundef %11148, i32 noundef %11150) #10
   br label %.critedge10155
 
 11152:                                            ; preds = %._crit_edge
@@ -21462,7 +21431,7 @@ list_length.exit:                                 ; preds = %10282
   %11154 = load ptr, ptr %11153, align 8
   %11155 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %11156 = load i32, ptr %11155, align 4
-  %11157 = call ptr @makeGroupingSet(i32 noundef 3, ptr noundef %11154, i32 noundef %11156) #11
+  %11157 = call ptr @makeGroupingSet(i32 noundef 3, ptr noundef %11154, i32 noundef %11156) #10
   br label %.critedge10155
 
 11158:                                            ; preds = %._crit_edge
@@ -21470,7 +21439,7 @@ list_length.exit:                                 ; preds = %10282
   %11160 = load ptr, ptr %11159, align 8
   %11161 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %11162 = load i32, ptr %11161, align 4
-  %11163 = call ptr @makeGroupingSet(i32 noundef 4, ptr noundef %11160, i32 noundef %11162) #11
+  %11163 = call ptr @makeGroupingSet(i32 noundef 4, ptr noundef %11160, i32 noundef %11162) #10
   br label %.critedge10155
 
 11164:                                            ; preds = %._crit_edge
@@ -21487,18 +21456,18 @@ list_length.exit:                                 ; preds = %10282
 
 11170:                                            ; preds = %._crit_edge
   %11171 = load ptr, ptr %.210001, align 8
-  %11172 = call ptr @list_make1_impl(i32 noundef 1, ptr %11171) #11
+  %11172 = call ptr @list_make1_impl(i32 noundef 1, ptr %11171) #10
   br label %.critedge10155
 
 11173:                                            ; preds = %._crit_edge
   %11174 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11175 = load ptr, ptr %11174, align 8
   %11176 = load ptr, ptr %.210001, align 8
-  %11177 = call ptr @lappend(ptr noundef %11175, ptr noundef %11176) #11
+  %11177 = call ptr @lappend(ptr noundef %11175, ptr noundef %11176) #10
   br label %.critedge10155
 
 11178:                                            ; preds = %._crit_edge
-  %11179 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11179 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 94, ptr %11179, align 4
   %11180 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11181 = load ptr, ptr %11180, align 8
@@ -21546,7 +21515,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11202:                                            ; preds = %._crit_edge
-  %11203 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %11203 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %11203, align 4
   %11204 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %11205 = load i32, ptr %11204, align 4
@@ -21554,7 +21523,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 %11205, ptr %11206, align 8
   %11207 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11208 = load ptr, ptr %11207, align 8
-  %11209 = call ptr @list_make1_impl(i32 noundef 1, ptr %11208) #11
+  %11209 = call ptr @list_make1_impl(i32 noundef 1, ptr %11208) #10
   %11210 = getelementptr inbounds nuw i8, ptr %11203, i64 80
   store ptr %11209, ptr %11210, align 8
   br label %.critedge10155
@@ -21566,7 +21535,7 @@ list_length.exit:                                 ; preds = %10282
   %11215 = load ptr, ptr %11214, align 8
   %11216 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11217 = load ptr, ptr %11216, align 8
-  %11218 = call ptr @lappend(ptr noundef %11215, ptr noundef %11217) #11
+  %11218 = call ptr @lappend(ptr noundef %11215, ptr noundef %11217) #10
   store ptr %11218, ptr %11214, align 8
   br label %.critedge10155
 
@@ -21576,14 +21545,14 @@ list_length.exit:                                 ; preds = %10282
 
 11221:                                            ; preds = %._crit_edge
   %11222 = load ptr, ptr %.210001, align 8
-  %11223 = call ptr @list_make1_impl(i32 noundef 1, ptr %11222) #11
+  %11223 = call ptr @list_make1_impl(i32 noundef 1, ptr %11222) #10
   br label %.critedge10155
 
 11224:                                            ; preds = %._crit_edge
   %11225 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11226 = load ptr, ptr %11225, align 8
   %11227 = load ptr, ptr %.210001, align 8
-  %11228 = call ptr @lappend(ptr noundef %11226, ptr noundef %11227) #11
+  %11228 = call ptr @lappend(ptr noundef %11226, ptr noundef %11227) #10
   br label %.critedge10155
 
 11229:                                            ; preds = %._crit_edge
@@ -21665,7 +21634,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11280:                                            ; preds = %._crit_edge
-  %11281 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11281 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 85, ptr %11281, align 4
   %11282 = getelementptr inbounds nuw i8, ptr %11281, i64 4
   store i8 0, ptr %11282, align 4
@@ -21679,7 +21648,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11288:                                            ; preds = %._crit_edge
-  %11289 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11289 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 85, ptr %11289, align 4
   %11290 = getelementptr inbounds nuw i8, ptr %11289, i64 4
   store i8 1, ptr %11290, align 4
@@ -21729,7 +21698,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11318:                                            ; preds = %._crit_edge
-  %11319 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %11319 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 64, ptr %11319, align 4
   %11320 = getelementptr inbounds nuw i8, ptr %11319, i64 4
   store i32 0, ptr %11320, align 4
@@ -21747,7 +21716,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11328:                                            ; preds = %._crit_edge
-  %11329 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %11329 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 64, ptr %11329, align 4
   %11330 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %11331 = load i32, ptr %11330, align 8
@@ -21793,7 +21762,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11355:                                            ; preds = %._crit_edge
-  %11356 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %11356 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 64, ptr %11356, align 4
   %11357 = getelementptr inbounds nuw i8, ptr %11356, i64 4
   store i32 0, ptr %11357, align 4
@@ -21837,7 +21806,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11380:                                            ; preds = %._crit_edge
-  %11381 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %11381 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 64, ptr %11381, align 4
   %11382 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11383 = load i32, ptr %11382, align 8
@@ -21857,7 +21826,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11392:                                            ; preds = %._crit_edge
-  %11393 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %11393 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 64, ptr %11393, align 4
   %11394 = getelementptr inbounds nuw i8, ptr %11393, i64 4
   store i32 0, ptr %11394, align 4
@@ -21875,7 +21844,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11402:                                            ; preds = %._crit_edge
-  %11403 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11403 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11403, align 4
   %11404 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %11405 = load ptr, ptr %11404, align 8
@@ -21888,7 +21857,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11410:                                            ; preds = %._crit_edge
-  %11411 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11411 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11411, align 4
   %11412 = load ptr, ptr %.210001, align 8
   %11413 = getelementptr inbounds nuw i8, ptr %11411, i64 8
@@ -21896,7 +21865,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11414:                                            ; preds = %._crit_edge
-  %11415 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11415 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11415, align 4
   %11416 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %11417 = load ptr, ptr %11416, align 8
@@ -21909,7 +21878,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11422:                                            ; preds = %._crit_edge
-  %11423 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11423 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11423, align 4
   %11424 = load ptr, ptr %.210001, align 8
   %11425 = getelementptr inbounds nuw i8, ptr %11423, i64 8
@@ -21921,7 +21890,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11428:                                            ; preds = %._crit_edge
-  %11429 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11429 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11429, align 4
   %11430 = load ptr, ptr %.210001, align 8
   %11431 = getelementptr inbounds nuw i8, ptr %11429, i64 8
@@ -21930,17 +21899,17 @@ list_length.exit:                                 ; preds = %10282
 
 11432:                                            ; preds = %._crit_edge
   %11433 = load ptr, ptr %.210001, align 8
-  %11434 = call ptr @list_make2_impl(i32 noundef 1, ptr %11433, ptr null) #11
+  %11434 = call ptr @list_make2_impl(i32 noundef 1, ptr %11433, ptr null) #10
   br label %.critedge10155
 
 11435:                                            ; preds = %._crit_edge
   %11436 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11437 = load ptr, ptr %11436, align 8
-  %11438 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %11437) #11
+  %11438 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %11437) #10
   br label %.critedge10155
 
 11439:                                            ; preds = %._crit_edge
-  %11440 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11440 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11440, align 4
   %11441 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %11442 = load ptr, ptr %11441, align 8
@@ -21948,11 +21917,11 @@ list_length.exit:                                 ; preds = %10282
   store ptr %11442, ptr %11443, align 8
   %11444 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11445 = load ptr, ptr %11444, align 8
-  %11446 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %11440, ptr %11445) #11
+  %11446 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %11440, ptr %11445) #10
   br label %.critedge10155
 
 11447:                                            ; preds = %._crit_edge
-  %11448 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11448 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11448, align 4
   %11449 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %11450 = load ptr, ptr %11449, align 8
@@ -21960,11 +21929,11 @@ list_length.exit:                                 ; preds = %10282
   store ptr %11450, ptr %11451, align 8
   %11452 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11453 = load ptr, ptr %11452, align 8
-  %11454 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %11448, ptr %11453) #11
+  %11454 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %11448, ptr %11453) #10
   br label %.critedge10155
 
 11455:                                            ; preds = %._crit_edge
-  %11456 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr null) #11
+  %11456 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr null) #10
   br label %.critedge10155
 
 11457:                                            ; preds = %._crit_edge
@@ -21998,7 +21967,7 @@ list_length.exit:                                 ; preds = %10282
   %11470 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11471 = load ptr, ptr %11470, align 8
   %11472 = load ptr, ptr %.210001, align 8
-  %11473 = call ptr @list_make2_impl(i32 noundef 1, ptr %11471, ptr %11472) #11
+  %11473 = call ptr @list_make2_impl(i32 noundef 1, ptr %11471, ptr %11472) #10
   br label %.critedge10155
 
 11474:                                            ; preds = %._crit_edge
@@ -22045,14 +22014,14 @@ list_length.exit:                                 ; preds = %10282
 
 11496:                                            ; preds = %._crit_edge
   %11497 = load ptr, ptr %.210001, align 8
-  %11498 = call ptr @list_make1_impl(i32 noundef 1, ptr %11497) #11
+  %11498 = call ptr @list_make1_impl(i32 noundef 1, ptr %11497) #10
   br label %.critedge10155
 
 11499:                                            ; preds = %._crit_edge
   %11500 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11501 = load ptr, ptr %11500, align 8
   %11502 = load ptr, ptr %.210001, align 8
-  %11503 = call ptr @lappend(ptr noundef %11501, ptr noundef %11502) #11
+  %11503 = call ptr @lappend(ptr noundef %11501, ptr noundef %11502) #10
   br label %.critedge10155
 
 11504:                                            ; preds = %._crit_edge
@@ -22060,7 +22029,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11506:                                            ; preds = %._crit_edge
-  %11507 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11507 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11507, align 4
   %11508 = load ptr, ptr %.210001, align 8
   %11509 = getelementptr inbounds nuw i8, ptr %11507, i64 8
@@ -22073,7 +22042,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11514:                                            ; preds = %._crit_edge
-  %11515 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11515 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 2, ptr %11515, align 4
   %11516 = load ptr, ptr %.210001, align 8
   %11517 = getelementptr inbounds nuw i8, ptr %11515, i64 8
@@ -22086,7 +22055,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11522:                                            ; preds = %._crit_edge
-  %11523 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %11523 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 89, ptr %11523, align 4
   %11524 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %11525 = load ptr, ptr %11524, align 8
@@ -22111,7 +22080,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11538:                                            ; preds = %._crit_edge
-  %11539 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11539 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 86, ptr %11539, align 4
   %11540 = getelementptr inbounds nuw i8, ptr %11539, i64 4
   store i8 0, ptr %11540, align 4
@@ -22122,14 +22091,14 @@ list_length.exit:                                 ; preds = %10282
   store i8 0, ptr %11543, align 2
   %11544 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11545 = load ptr, ptr %11544, align 8
-  %11546 = call ptr @list_make2_impl(i32 noundef 1, ptr %11545, ptr null) #11
-  %11547 = call ptr @list_make1_impl(i32 noundef 1, ptr %11546) #11
+  %11546 = call ptr @list_make2_impl(i32 noundef 1, ptr %11545, ptr null) #10
+  %11547 = call ptr @list_make1_impl(i32 noundef 1, ptr %11546) #10
   %11548 = getelementptr inbounds nuw i8, ptr %11539, i64 8
   store ptr %11547, ptr %11548, align 8
   br label %.critedge10155
 
 11549:                                            ; preds = %._crit_edge
-  %11550 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %11550 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 86, ptr %11550, align 4
   %11551 = getelementptr inbounds nuw i8, ptr %11550, i64 4
   store i8 0, ptr %11551, align 4
@@ -22148,19 +22117,19 @@ list_length.exit:                                 ; preds = %10282
   %11559 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11560 = load ptr, ptr %11559, align 8
   %11561 = load ptr, ptr %.210001, align 8
-  %11562 = call ptr @list_make2_impl(i32 noundef 1, ptr %11560, ptr %11561) #11
+  %11562 = call ptr @list_make2_impl(i32 noundef 1, ptr %11560, ptr %11561) #10
   br label %.critedge10155
 
 11563:                                            ; preds = %._crit_edge
   %11564 = load ptr, ptr %.210001, align 8
-  %11565 = call ptr @list_make1_impl(i32 noundef 1, ptr %11564) #11
+  %11565 = call ptr @list_make1_impl(i32 noundef 1, ptr %11564) #10
   br label %.critedge10155
 
 11566:                                            ; preds = %._crit_edge
   %11567 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11568 = load ptr, ptr %11567, align 8
   %11569 = load ptr, ptr %.210001, align 8
-  %11570 = call ptr @lappend(ptr noundef %11568, ptr noundef %11569) #11
+  %11570 = call ptr @lappend(ptr noundef %11568, ptr noundef %11569) #10
   br label %.critedge10155
 
 11571:                                            ; preds = %._crit_edge
@@ -22190,7 +22159,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11584:                                            ; preds = %._crit_edge
-  %11585 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %11585 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 58, ptr %11585, align 4
   %11586 = load ptr, ptr %.210001, align 8
   %11587 = getelementptr inbounds nuw i8, ptr %11585, i64 8
@@ -22205,18 +22174,18 @@ list_length.exit:                                 ; preds = %10282
 
 11591:                                            ; preds = %._crit_edge
   %11592 = load ptr, ptr %.210001, align 8
-  %11593 = call ptr @list_make1_impl(i32 noundef 1, ptr %11592) #11
+  %11593 = call ptr @list_make1_impl(i32 noundef 1, ptr %11592) #10
   br label %.critedge10155
 
 11594:                                            ; preds = %._crit_edge
   %11595 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11596 = load ptr, ptr %11595, align 8
   %11597 = load ptr, ptr %.210001, align 8
-  %11598 = call ptr @lappend(ptr noundef %11596, ptr noundef %11597) #11
+  %11598 = call ptr @lappend(ptr noundef %11596, ptr noundef %11597) #10
   br label %.critedge10155
 
 11599:                                            ; preds = %._crit_edge
-  %11600 = call noundef ptr @palloc0(i64 noundef 128) #11
+  %11600 = call noundef ptr @palloc0(i64 noundef 128) #10
   store i32 90, ptr %11600, align 4
   %11601 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11602 = load ptr, ptr %11601, align 8
@@ -22252,7 +22221,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11620:                                            ; preds = %._crit_edge
-  %11621 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %11621 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 87, ptr %11621, align 4
   %11622 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %11623 = load ptr, ptr %11622, align 8
@@ -22275,7 +22244,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11635:                                            ; preds = %._crit_edge
-  %11636 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %11636 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 87, ptr %11636, align 4
   %11637 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %11638 = load ptr, ptr %11637, align 8
@@ -22301,18 +22270,18 @@ list_length.exit:                                 ; preds = %10282
 
 11652:                                            ; preds = %._crit_edge
   %11653 = load ptr, ptr %.210001, align 8
-  %11654 = call ptr @list_make1_impl(i32 noundef 1, ptr %11653) #11
+  %11654 = call ptr @list_make1_impl(i32 noundef 1, ptr %11653) #10
   br label %.critedge10155
 
 11655:                                            ; preds = %._crit_edge
   %11656 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11657 = load ptr, ptr %11656, align 8
   %11658 = load ptr, ptr %.210001, align 8
-  %11659 = call ptr @lappend(ptr noundef %11657, ptr noundef %11658) #11
+  %11659 = call ptr @lappend(ptr noundef %11657, ptr noundef %11658) #10
   br label %.critedge10155
 
 11660:                                            ; preds = %._crit_edge
-  %11661 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %11661 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 88, ptr %11661, align 4
   %11662 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11663 = load ptr, ptr %11662, align 8
@@ -22334,7 +22303,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11673:                                            ; preds = %._crit_edge
-  %11674 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %11674 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 88, ptr %11674, align 4
   %11675 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11676 = load ptr, ptr %11675, align 8
@@ -22376,7 +22345,7 @@ list_length.exit:                                 ; preds = %10282
   %11697 = load ptr, ptr %11696, align 8
   %11698 = getelementptr inbounds nuw i8, ptr %11697, i64 16
   %11699 = load ptr, ptr %11698, align 8
-  %11700 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11699, ptr noundef nonnull dereferenceable(8) @.str.80) #13
+  %11700 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11699, ptr noundef nonnull dereferenceable(8) @.str.80) #12
   %11701 = icmp eq i32 %11700, 0
   br i1 %11701, label %11702, label %11712
 
@@ -22385,14 +22354,13 @@ list_length.exit:                                 ; preds = %10282
   br i1 %.not10109, label %11709, label %.split10515
 
 .split10515:                                      ; preds = %11702
-  %11703 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %11703)
-  %11704 = call i32 @errcode(i32 noundef 16801924) #11
-  %11705 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.162) #11
+  %11703 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %11704 = call i32 @errcode(i32 noundef 16801924) #10
+  %11705 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.162) #10
   %11706 = getelementptr inbounds nuw i8, ptr %11697, i64 36
   %11707 = load i32, ptr %11706, align 4
-  %11708 = call i32 @scanner_errposition(i32 noundef %11707, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14198, ptr noundef nonnull @__func__.base_yyparse) #11
+  %11708 = call i32 @scanner_errposition(i32 noundef %11707, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14198, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 11709:                                            ; preds = %11702
@@ -22402,7 +22370,7 @@ list_length.exit:                                 ; preds = %10282
   br label %11750
 
 11712:                                            ; preds = %.lr.ph10519
-  %11713 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11699, ptr noundef nonnull dereferenceable(5) @.str.163) #13
+  %11713 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11699, ptr noundef nonnull dereferenceable(5) @.str.163) #12
   %11714 = icmp eq i32 %11713, 0
   br i1 %11714, label %11715, label %11725
 
@@ -22411,14 +22379,13 @@ list_length.exit:                                 ; preds = %10282
   br i1 %.not10108, label %11722, label %.split10512
 
 .split10512:                                      ; preds = %11715
-  %11716 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %11716)
-  %11717 = call i32 @errcode(i32 noundef 16801924) #11
-  %11718 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.164) #11
+  %11716 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %11717 = call i32 @errcode(i32 noundef 16801924) #10
+  %11718 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.164) #10
   %11719 = getelementptr inbounds nuw i8, ptr %11697, i64 36
   %11720 = load i32, ptr %11719, align 4
-  %11721 = call i32 @scanner_errposition(i32 noundef %11720, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14207, ptr noundef nonnull @__func__.base_yyparse) #11
+  %11721 = call i32 @scanner_errposition(i32 noundef %11720, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14207, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 11722:                                            ; preds = %11715
@@ -22428,7 +22395,7 @@ list_length.exit:                                 ; preds = %10282
   br label %11750
 
 11725:                                            ; preds = %11712
-  %11726 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11699, ptr noundef nonnull dereferenceable(12) @.str.165) #13
+  %11726 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11699, ptr noundef nonnull dereferenceable(12) @.str.165) #12
   %11727 = icmp eq i32 %11726, 0
   br i1 %11727, label %11728, label %.split10504
 
@@ -22437,15 +22404,14 @@ list_length.exit:                                 ; preds = %10282
 
 .split10508:                                      ; preds = %11728
   %11729 = getelementptr inbounds nuw i8, ptr %11674, i64 8
-  %11730 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %11730)
-  %11731 = call i32 @errcode(i32 noundef 16801924) #11
+  %11730 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %11731 = call i32 @errcode(i32 noundef 16801924) #10
   %11732 = load ptr, ptr %11729, align 8
-  %11733 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.166, ptr noundef %11732) #11
+  %11733 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.166, ptr noundef %11732) #10
   %11734 = getelementptr inbounds nuw i8, ptr %11697, i64 36
   %11735 = load i32, ptr %11734, align 4
-  %11736 = call i32 @scanner_errposition(i32 noundef %11735, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14216, ptr noundef nonnull @__func__.base_yyparse) #11
+  %11736 = call i32 @scanner_errposition(i32 noundef %11735, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14216, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 11737:                                            ; preds = %11728
@@ -22458,15 +22424,14 @@ list_length.exit:                                 ; preds = %10282
 
 .split10504:                                      ; preds = %11725
   %11742 = getelementptr inbounds nuw i8, ptr %11697, i64 16
-  %11743 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %11743)
-  %11744 = call i32 @errcode(i32 noundef 16801924) #11
+  %11743 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %11744 = call i32 @errcode(i32 noundef 16801924) #10
   %11745 = load ptr, ptr %11742, align 8
-  %11746 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.167, ptr noundef %11745) #11
+  %11746 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.167, ptr noundef %11745) #10
   %11747 = getelementptr inbounds nuw i8, ptr %11697, i64 36
   %11748 = load i32, ptr %11747, align 4
-  %11749 = call i32 @scanner_errposition(i32 noundef %11748, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14226, ptr noundef nonnull @__func__.base_yyparse) #11
+  %11749 = call i32 @scanner_errposition(i32 noundef %11748, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14226, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 11750:                                            ; preds = %11722, %11737, %11709
@@ -22480,7 +22445,7 @@ list_length.exit:                                 ; preds = %10282
   br i1 %11755, label %.lr.ph10519, label %.critedge10155
 
 11756:                                            ; preds = %._crit_edge
-  %11757 = call noundef ptr @palloc0(i64 noundef 56) #11
+  %11757 = call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 88, ptr %11757, align 4
   %11758 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11759 = load ptr, ptr %11758, align 8
@@ -22496,14 +22461,14 @@ list_length.exit:                                 ; preds = %10282
 
 11765:                                            ; preds = %._crit_edge
   %11766 = load ptr, ptr %.210001, align 8
-  %11767 = call ptr @list_make1_impl(i32 noundef 1, ptr %11766) #11
+  %11767 = call ptr @list_make1_impl(i32 noundef 1, ptr %11766) #10
   br label %.critedge10155
 
 11768:                                            ; preds = %._crit_edge
   %11769 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %11770 = load ptr, ptr %11769, align 8
   %11771 = load ptr, ptr %.210001, align 8
-  %11772 = call ptr @lappend(ptr noundef %11770, ptr noundef %11771) #11
+  %11772 = call ptr @lappend(ptr noundef %11770, ptr noundef %11771) #10
   br label %.critedge10155
 
 11773:                                            ; preds = %._crit_edge
@@ -22512,50 +22477,50 @@ list_length.exit:                                 ; preds = %10282
   %11776 = load ptr, ptr %.210001, align 8
   %11777 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %11778 = load i32, ptr %11777, align 4
-  %11779 = call ptr @makeDefElem(ptr noundef %11775, ptr noundef %11776, i32 noundef %11778) #11
+  %11779 = call ptr @makeDefElem(ptr noundef %11775, ptr noundef %11776, i32 noundef %11778) #10
   br label %.critedge10155
 
 11780:                                            ; preds = %._crit_edge
   %11781 = load ptr, ptr %.210001, align 8
   %11782 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %11783 = load i32, ptr %11782, align 4
-  %11784 = call ptr @makeDefElem(ptr noundef nonnull @.str.80, ptr noundef %11781, i32 noundef %11783) #11
+  %11784 = call ptr @makeDefElem(ptr noundef nonnull @.str.80, ptr noundef %11781, i32 noundef %11783) #10
   br label %.critedge10155
 
 11785:                                            ; preds = %._crit_edge
-  %11786 = call ptr @makeBoolean(i1 noundef zeroext true) #11
+  %11786 = call ptr @makeBoolean(i1 noundef zeroext true) #10
   %11787 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %11788 = load i32, ptr %11787, align 4
-  %11789 = call ptr @makeDefElem(ptr noundef nonnull @.str.165, ptr noundef %11786, i32 noundef %11788) #11
+  %11789 = call ptr @makeDefElem(ptr noundef nonnull @.str.165, ptr noundef %11786, i32 noundef %11788) #10
   br label %.critedge10155
 
 11790:                                            ; preds = %._crit_edge
-  %11791 = call ptr @makeBoolean(i1 noundef zeroext false) #11
+  %11791 = call ptr @makeBoolean(i1 noundef zeroext false) #10
   %11792 = load i32, ptr %.210013, align 4
-  %11793 = call ptr @makeDefElem(ptr noundef nonnull @.str.165, ptr noundef %11791, i32 noundef %11792) #11
+  %11793 = call ptr @makeDefElem(ptr noundef nonnull @.str.165, ptr noundef %11791, i32 noundef %11792) #10
   br label %.critedge10155
 
 11794:                                            ; preds = %._crit_edge
   %11795 = load ptr, ptr %.210001, align 8
   %11796 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %11797 = load i32, ptr %11796, align 4
-  %11798 = call ptr @makeDefElem(ptr noundef nonnull @.str.163, ptr noundef %11795, i32 noundef %11797) #11
+  %11798 = call ptr @makeDefElem(ptr noundef nonnull @.str.163, ptr noundef %11795, i32 noundef %11797) #10
   br label %.critedge10155
 
 11799:                                            ; preds = %._crit_edge
   %11800 = load ptr, ptr %.210001, align 8
-  %11801 = call ptr @list_make1_impl(i32 noundef 1, ptr %11800) #11
+  %11801 = call ptr @list_make1_impl(i32 noundef 1, ptr %11800) #10
   br label %.critedge10155
 
 11802:                                            ; preds = %._crit_edge
   %11803 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11804 = load ptr, ptr %11803, align 8
   %11805 = load ptr, ptr %.210001, align 8
-  %11806 = call ptr @lappend(ptr noundef %11804, ptr noundef %11805) #11
+  %11806 = call ptr @lappend(ptr noundef %11804, ptr noundef %11805) #10
   br label %.critedge10155
 
 11807:                                            ; preds = %._crit_edge
-  %11808 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %11808 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %11808, align 4
   %11809 = load ptr, ptr %.210001, align 8
   %11810 = getelementptr inbounds nuw i8, ptr %11808, i64 8
@@ -22573,7 +22538,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11818:                                            ; preds = %._crit_edge
-  %11819 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %11819 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %11819, align 4
   %11820 = getelementptr inbounds nuw i8, ptr %11819, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11820, i8 0, i64 16, i1 false)
@@ -22587,7 +22552,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11826:                                            ; preds = %._crit_edge
-  %11827 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %11827 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 124, ptr %11827, align 4
   %11828 = getelementptr inbounds i8, ptr %.210001, i64 -80
   %11829 = load ptr, ptr %11828, align 8
@@ -22606,14 +22571,13 @@ list_length.exit:                                 ; preds = %10282
   br i1 %.not10105, label %11845, label %11838
 
 11838:                                            ; preds = %11835, %11826
-  %11839 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %11839)
-  %11840 = call i32 @errcode(i32 noundef 1088) #11
-  %11841 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.168) #11
+  %11839 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %11840 = call i32 @errcode(i32 noundef 1088) #10
+  %11841 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.168) #10
   %11842 = getelementptr inbounds i8, ptr %.210013, i64 -32
   %11843 = load i32, ptr %11842, align 4
-  %11844 = call i32 @scanner_errposition(i32 noundef %11843, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14307, ptr noundef nonnull @__func__.base_yyparse) #11
+  %11844 = call i32 @scanner_errposition(i32 noundef %11843, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14307, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 11845:                                            ; preds = %11835
@@ -22625,7 +22589,7 @@ list_length.exit:                                 ; preds = %10282
   %11851 = load i32, ptr %11850, align 4
   %11852 = getelementptr inbounds i8, ptr %.210013, i64 -28
   %11853 = load i32, ptr %11852, align 4
-  %11854 = call ptr @makeJsonTablePathSpec(ptr noundef %11847, ptr noundef %11849, i32 noundef %11851, i32 noundef %11853) #11
+  %11854 = call ptr @makeJsonTablePathSpec(ptr noundef %11847, ptr noundef %11849, i32 noundef %11851, i32 noundef %11853) #10
   %11855 = getelementptr inbounds nuw i8, ptr %11827, i64 16
   store ptr %11854, ptr %11855, align 8
   %11856 = getelementptr inbounds i8, ptr %.210001, i64 -48
@@ -22652,18 +22616,18 @@ list_length.exit:                                 ; preds = %10282
 
 11870:                                            ; preds = %._crit_edge
   %11871 = load ptr, ptr %.210001, align 8
-  %11872 = call ptr @list_make1_impl(i32 noundef 1, ptr %11871) #11
+  %11872 = call ptr @list_make1_impl(i32 noundef 1, ptr %11871) #10
   br label %.critedge10155
 
 11873:                                            ; preds = %._crit_edge
   %11874 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %11875 = load ptr, ptr %11874, align 8
   %11876 = load ptr, ptr %.210001, align 8
-  %11877 = call ptr @lappend(ptr noundef %11875, ptr noundef %11876) #11
+  %11877 = call ptr @lappend(ptr noundef %11875, ptr noundef %11876) #10
   br label %.critedge10155
 
 11878:                                            ; preds = %._crit_edge
-  %11879 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %11879 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %11879, align 4
   %11880 = getelementptr inbounds nuw i8, ptr %11879, i64 4
   store i32 0, ptr %11880, align 4
@@ -22678,7 +22642,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11887:                                            ; preds = %._crit_edge
-  %11888 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %11888 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %11888, align 4
   %11889 = getelementptr inbounds nuw i8, ptr %11888, i64 4
   store i32 1, ptr %11889, align 4
@@ -22690,7 +22654,7 @@ list_length.exit:                                 ; preds = %10282
   %11894 = load ptr, ptr %11893, align 8
   %11895 = getelementptr inbounds nuw i8, ptr %11888, i64 16
   store ptr %11894, ptr %11895, align 8
-  %11896 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #11
+  %11896 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #10
   %11897 = getelementptr inbounds nuw i8, ptr %11888, i64 32
   store ptr %11896, ptr %11897, align 8
   %11898 = getelementptr inbounds i8, ptr %.210001, i64 -24
@@ -22725,7 +22689,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11919:                                            ; preds = %._crit_edge
-  %11920 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %11920 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %11920, align 4
   %11921 = getelementptr inbounds nuw i8, ptr %11920, i64 4
   store i32 3, ptr %11921, align 4
@@ -22773,7 +22737,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11952:                                            ; preds = %._crit_edge
-  %11953 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %11953 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %11953, align 4
   %11954 = getelementptr inbounds nuw i8, ptr %11953, i64 4
   store i32 2, ptr %11954, align 4
@@ -22785,7 +22749,7 @@ list_length.exit:                                 ; preds = %10282
   %11959 = load ptr, ptr %11958, align 8
   %11960 = getelementptr inbounds nuw i8, ptr %11953, i64 16
   store ptr %11959, ptr %11960, align 8
-  %11961 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #11
+  %11961 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #10
   %11962 = getelementptr inbounds nuw i8, ptr %11953, i64 32
   store ptr %11961, ptr %11962, align 8
   %11963 = getelementptr inbounds nuw i8, ptr %11953, i64 40
@@ -22808,7 +22772,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11974:                                            ; preds = %._crit_edge
-  %11975 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %11975 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %11975, align 4
   %11976 = getelementptr inbounds nuw i8, ptr %11975, i64 4
   store i32 4, ptr %11976, align 4
@@ -22816,7 +22780,7 @@ list_length.exit:                                 ; preds = %10282
   %11978 = load ptr, ptr %11977, align 8
   %11979 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %11980 = load i32, ptr %11979, align 4
-  %11981 = call ptr @makeJsonTablePathSpec(ptr noundef %11978, ptr noundef null, i32 noundef %11980, i32 noundef -1) #11
+  %11981 = call ptr @makeJsonTablePathSpec(ptr noundef %11978, ptr noundef null, i32 noundef %11980, i32 noundef -1) #10
   %11982 = getelementptr inbounds nuw i8, ptr %11975, i64 24
   store ptr %11981, ptr %11982, align 8
   %11983 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -22830,7 +22794,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 11989:                                            ; preds = %._crit_edge
-  %11990 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %11990 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 125, ptr %11990, align 4
   %11991 = getelementptr inbounds nuw i8, ptr %11990, i64 4
   store i32 4, ptr %11991, align 4
@@ -22842,7 +22806,7 @@ list_length.exit:                                 ; preds = %10282
   %11997 = load i32, ptr %11996, align 4
   %11998 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %11999 = load i32, ptr %11998, align 4
-  %12000 = call ptr @makeJsonTablePathSpec(ptr noundef %11993, ptr noundef %11995, i32 noundef %11997, i32 noundef %11999) #11
+  %12000 = call ptr @makeJsonTablePathSpec(ptr noundef %11993, ptr noundef %11995, i32 noundef %11997, i32 noundef %11999) #10
   %12001 = getelementptr inbounds nuw i8, ptr %11990, i64 24
   store ptr %12000, ptr %12001, align 8
   %12002 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -22858,7 +22822,7 @@ list_length.exit:                                 ; preds = %10282
 12008:                                            ; preds = %._crit_edge
   %12009 = load ptr, ptr %.210001, align 8
   %12010 = load i32, ptr %.210013, align 4
-  %12011 = call ptr @makeJsonTablePathSpec(ptr noundef %12009, ptr noundef null, i32 noundef %12010, i32 noundef -1) #11
+  %12011 = call ptr @makeJsonTablePathSpec(ptr noundef %12009, ptr noundef null, i32 noundef %12010, i32 noundef -1) #10
   br label %.critedge10155
 
 12012:                                            ; preds = %._crit_edge
@@ -22884,8 +22848,8 @@ list_length.exit:                                 ; preds = %10282
   %12025 = load ptr, ptr %12024, align 8
   %12026 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12027 = load i32, ptr %12026, align 8
-  %12028 = call ptr @makeInteger(i32 noundef %12027) #11
-  %12029 = call ptr @list_make1_impl(i32 noundef 1, ptr %12028) #11
+  %12028 = call ptr @makeInteger(i32 noundef %12027) #10
+  %12029 = call ptr @list_make1_impl(i32 noundef 1, ptr %12028) #10
   %12030 = getelementptr inbounds nuw i8, ptr %12025, i64 40
   store ptr %12029, ptr %12030, align 8
   br label %.critedge10155
@@ -22895,8 +22859,8 @@ list_length.exit:                                 ; preds = %10282
   %12033 = load ptr, ptr %12032, align 8
   %12034 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12035 = load i32, ptr %12034, align 8
-  %12036 = call ptr @makeInteger(i32 noundef %12035) #11
-  %12037 = call ptr @list_make1_impl(i32 noundef 1, ptr %12036) #11
+  %12036 = call ptr @makeInteger(i32 noundef %12035) #10
+  %12037 = call ptr @list_make1_impl(i32 noundef 1, ptr %12036) #10
   %12038 = getelementptr inbounds nuw i8, ptr %12033, i64 40
   store ptr %12037, ptr %12038, align 8
   %12039 = getelementptr inbounds nuw i8, ptr %12033, i64 20
@@ -22906,8 +22870,8 @@ list_length.exit:                                 ; preds = %10282
 12040:                                            ; preds = %._crit_edge
   %12041 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12042 = load ptr, ptr %12041, align 8
-  %12043 = call ptr @makeInteger(i32 noundef -1) #11
-  %12044 = call ptr @list_make1_impl(i32 noundef 1, ptr %12043) #11
+  %12043 = call ptr @makeInteger(i32 noundef -1) #10
+  %12044 = call ptr @list_make1_impl(i32 noundef 1, ptr %12043) #10
   %12045 = getelementptr inbounds nuw i8, ptr %12042, i64 40
   store ptr %12044, ptr %12045, align 8
   br label %.critedge10155
@@ -22915,8 +22879,8 @@ list_length.exit:                                 ; preds = %10282
 12046:                                            ; preds = %._crit_edge
   %12047 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12048 = load ptr, ptr %12047, align 8
-  %12049 = call ptr @makeInteger(i32 noundef -1) #11
-  %12050 = call ptr @list_make1_impl(i32 noundef 1, ptr %12049) #11
+  %12049 = call ptr @makeInteger(i32 noundef -1) #10
+  %12050 = call ptr @list_make1_impl(i32 noundef 1, ptr %12049) #10
   %12051 = getelementptr inbounds nuw i8, ptr %12048, i64 40
   store ptr %12050, ptr %12051, align 8
   %12052 = getelementptr inbounds nuw i8, ptr %12048, i64 20
@@ -22926,8 +22890,8 @@ list_length.exit:                                 ; preds = %10282
 12053:                                            ; preds = %._crit_edge
   %12054 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12055 = load ptr, ptr %12054, align 8
-  %12056 = call ptr @makeInteger(i32 noundef -1) #11
-  %12057 = call ptr @lappend(ptr noundef %12055, ptr noundef %12056) #11
+  %12056 = call ptr @makeInteger(i32 noundef -1) #10
+  %12057 = call ptr @lappend(ptr noundef %12055, ptr noundef %12056) #10
   br label %.critedge10155
 
 12058:                                            ; preds = %._crit_edge
@@ -22935,8 +22899,8 @@ list_length.exit:                                 ; preds = %10282
   %12060 = load ptr, ptr %12059, align 8
   %12061 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12062 = load i32, ptr %12061, align 8
-  %12063 = call ptr @makeInteger(i32 noundef %12062) #11
-  %12064 = call ptr @lappend(ptr noundef %12060, ptr noundef %12063) #11
+  %12063 = call ptr @makeInteger(i32 noundef %12062) #10
+  %12064 = call ptr @lappend(ptr noundef %12060, ptr noundef %12063) #10
   br label %.critedge10155
 
 12065:                                            ; preds = %._crit_edge
@@ -22970,7 +22934,7 @@ list_length.exit:                                 ; preds = %10282
 12080:                                            ; preds = %._crit_edge
   %12081 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %12082 = load ptr, ptr %12081, align 8
-  %12083 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12083 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12083, align 4
   %12084 = getelementptr inbounds nuw i8, ptr %12083, i64 8
   store i32 464, ptr %12084, align 8
@@ -22982,7 +22946,7 @@ list_length.exit:                                 ; preds = %10282
   %12088 = load i32, ptr %12087, align 8
   %12089 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12090 = load i32, ptr %12089, align 4
-  %12091 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12091 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12091, align 4
   %12092 = getelementptr inbounds nuw i8, ptr %12091, i64 8
   store i32 464, ptr %12092, align 8
@@ -22990,7 +22954,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 %12088, ptr %12093, align 4
   %12094 = getelementptr inbounds nuw i8, ptr %12091, i64 28
   store i32 %12090, ptr %12094, align 4
-  %12095 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %12083, ptr nonnull %12091) #11
+  %12095 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %12083, ptr nonnull %12091) #10
   %12096 = getelementptr inbounds nuw i8, ptr %12082, i64 24
   store ptr %12095, ptr %12096, align 8
   br label %.critedge10155
@@ -23022,7 +22986,7 @@ list_length.exit:                                 ; preds = %10282
 12109:                                            ; preds = %._crit_edge
   %12110 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12111 = load ptr, ptr %12110, align 8
-  %12112 = call ptr @makeTypeName(ptr noundef %12111) #11
+  %12112 = call ptr @makeTypeName(ptr noundef %12111) #10
   %12113 = load ptr, ptr %.210001, align 8
   %12114 = getelementptr inbounds nuw i8, ptr %12112, i64 24
   store ptr %12113, ptr %12114, align 8
@@ -23035,11 +22999,11 @@ list_length.exit:                                 ; preds = %10282
 12118:                                            ; preds = %._crit_edge
   %12119 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12120 = load ptr, ptr %12119, align 8
-  %12121 = call ptr @makeString(ptr noundef %12120) #11
+  %12121 = call ptr @makeString(ptr noundef %12120) #10
   %12122 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12123 = load ptr, ptr %12122, align 8
-  %12124 = call ptr @lcons(ptr noundef %12121, ptr noundef %12123) #11
-  %12125 = call ptr @makeTypeNameFromNameList(ptr noundef %12124) #11
+  %12124 = call ptr @lcons(ptr noundef %12121, ptr noundef %12123) #10
+  %12125 = call ptr @makeTypeNameFromNameList(ptr noundef %12124) #10
   %12126 = load ptr, ptr %.210001, align 8
   %12127 = getelementptr inbounds nuw i8, ptr %12125, i64 24
   store ptr %12126, ptr %12127, align 8
@@ -23152,14 +23116,13 @@ list_length.exit:                                 ; preds = %10282
   br i1 %12192, label %12193, label %12200
 
 12193:                                            ; preds = %12189
-  %12194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %12194)
-  %12195 = call i32 @errcode(i32 noundef 50856066) #11
-  %12196 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.176) #11
+  %12194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %12195 = call i32 @errcode(i32 noundef 50856066) #10
+  %12196 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.176) #10
   %12197 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12198 = load i32, ptr %12197, align 4
-  %12199 = call i32 @scanner_errposition(i32 noundef %12198, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14629, ptr noundef nonnull @__func__.base_yyparse) #11
+  %12199 = call i32 @scanner_errposition(i32 noundef %12198, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14629, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 12200:                                            ; preds = %12189
@@ -23179,14 +23142,13 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 12208:                                            ; preds = %12204
-  %12209 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %12209)
-  %12210 = call i32 @errcode(i32 noundef 50856066) #11
-  %12211 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.177) #11
+  %12209 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %12210 = call i32 @errcode(i32 noundef 50856066) #10
+  %12211 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.177) #10
   %12212 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12213 = load i32, ptr %12212, align 4
-  %12214 = call i32 @scanner_errposition(i32 noundef %12213, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14638, ptr noundef nonnull @__func__.base_yyparse) #11
+  %12214 = call i32 @scanner_errposition(i32 noundef %12213, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 14638, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 12215:                                            ; preds = %._crit_edge
@@ -23238,7 +23200,7 @@ list_length.exit:                                 ; preds = %10282
 
 12243:                                            ; preds = %12238
   %12244 = call ptr @SystemTypeName(ptr noundef nonnull @.str.179)
-  %12245 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12245 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12245, align 4
   %12246 = getelementptr inbounds nuw i8, ptr %12245, i64 8
   store i32 464, ptr %12246, align 8
@@ -23246,7 +23208,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 1, ptr %12247, align 4
   %12248 = getelementptr inbounds nuw i8, ptr %12245, i64 28
   store i32 -1, ptr %12248, align 4
-  %12249 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12245) #11
+  %12249 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12245) #10
   %12250 = getelementptr inbounds nuw i8, ptr %12244, i64 24
   store ptr %12249, ptr %12250, align 8
   br label %12251
@@ -23285,7 +23247,7 @@ list_length.exit:                                 ; preds = %10282
   %12269 = load i32, ptr %12268, align 8
   %12270 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12271 = load i32, ptr %12270, align 4
-  %12272 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12272 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12272, align 4
   %12273 = getelementptr inbounds nuw i8, ptr %12272, i64 8
   store i32 464, ptr %12273, align 8
@@ -23293,7 +23255,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 %12269, ptr %12274, align 4
   %12275 = getelementptr inbounds nuw i8, ptr %12272, i64 28
   store i32 %12271, ptr %12275, align 4
-  %12276 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12272) #11
+  %12276 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12272) #10
   %12277 = getelementptr inbounds nuw i8, ptr %12267, i64 24
   store ptr %12276, ptr %12277, align 8
   %12278 = getelementptr inbounds i8, ptr %.210013, i64 -12
@@ -23306,12 +23268,12 @@ list_length.exit:                                 ; preds = %10282
   %12282 = load ptr, ptr %.210001, align 8
   %12283 = call ptr @SystemTypeName(ptr noundef %12282)
   %12284 = load ptr, ptr %.210001, align 8
-  %12285 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12284, ptr noundef nonnull dereferenceable(7) @.str.180) #13
+  %12285 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12284, ptr noundef nonnull dereferenceable(7) @.str.180) #12
   %12286 = icmp eq i32 %12285, 0
   br i1 %12286, label %12287, label %12294
 
 12287:                                            ; preds = %12281
-  %12288 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12288 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12288, align 4
   %12289 = getelementptr inbounds nuw i8, ptr %12288, i64 8
   store i32 464, ptr %12289, align 8
@@ -23319,7 +23281,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 1, ptr %12290, align 4
   %12291 = getelementptr inbounds nuw i8, ptr %12288, i64 28
   store i32 -1, ptr %12291, align 4
-  %12292 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12288) #11
+  %12292 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12288) #10
   %12293 = getelementptr inbounds nuw i8, ptr %12283, i64 24
   store ptr %12292, ptr %12293, align 8
   br label %12294
@@ -23385,7 +23347,7 @@ list_length.exit:                                 ; preds = %10282
   %12329 = load i32, ptr %12328, align 8
   %12330 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12331 = load i32, ptr %12330, align 4
-  %12332 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12332 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12332, align 4
   %12333 = getelementptr inbounds nuw i8, ptr %12332, i64 8
   store i32 464, ptr %12333, align 8
@@ -23393,7 +23355,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 %12329, ptr %12334, align 4
   %12335 = getelementptr inbounds nuw i8, ptr %12332, i64 28
   store i32 %12331, ptr %12335, align 4
-  %12336 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12332) #11
+  %12336 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12332) #10
   %12337 = getelementptr inbounds nuw i8, ptr %12327, i64 24
   store ptr %12336, ptr %12337, align 8
   %12338 = getelementptr inbounds i8, ptr %.210013, i64 -16
@@ -23422,7 +23384,7 @@ list_length.exit:                                 ; preds = %10282
   %12353 = load i32, ptr %12352, align 8
   %12354 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12355 = load i32, ptr %12354, align 4
-  %12356 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12356 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12356, align 4
   %12357 = getelementptr inbounds nuw i8, ptr %12356, i64 8
   store i32 464, ptr %12357, align 8
@@ -23430,7 +23392,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 %12353, ptr %12358, align 4
   %12359 = getelementptr inbounds nuw i8, ptr %12356, i64 28
   store i32 %12355, ptr %12359, align 4
-  %12360 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12356) #11
+  %12360 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12356) #10
   %12361 = getelementptr inbounds nuw i8, ptr %12351, i64 24
   store ptr %12360, ptr %12361, align 8
   %12362 = getelementptr inbounds i8, ptr %.210013, i64 -16
@@ -23478,7 +23440,7 @@ list_length.exit:                                 ; preds = %10282
 
 12385:                                            ; preds = %._crit_edge
   %12386 = load i32, ptr %.210013, align 4
-  %12387 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12387 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12387, align 4
   %12388 = getelementptr inbounds nuw i8, ptr %12387, i64 8
   store i32 464, ptr %12388, align 8
@@ -23486,12 +23448,12 @@ list_length.exit:                                 ; preds = %10282
   store i32 4, ptr %12389, align 4
   %12390 = getelementptr inbounds nuw i8, ptr %12387, i64 28
   store i32 %12386, ptr %12390, align 4
-  %12391 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12387) #11
+  %12391 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12387) #10
   br label %.critedge10155
 
 12392:                                            ; preds = %._crit_edge
   %12393 = load i32, ptr %.210013, align 4
-  %12394 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12394 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12394, align 4
   %12395 = getelementptr inbounds nuw i8, ptr %12394, i64 8
   store i32 464, ptr %12395, align 8
@@ -23499,12 +23461,12 @@ list_length.exit:                                 ; preds = %10282
   store i32 2, ptr %12396, align 4
   %12397 = getelementptr inbounds nuw i8, ptr %12394, i64 28
   store i32 %12393, ptr %12397, align 4
-  %12398 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12394) #11
+  %12398 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12394) #10
   br label %.critedge10155
 
 12399:                                            ; preds = %._crit_edge
   %12400 = load i32, ptr %.210013, align 4
-  %12401 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12401 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12401, align 4
   %12402 = getelementptr inbounds nuw i8, ptr %12401, i64 8
   store i32 464, ptr %12402, align 8
@@ -23512,12 +23474,12 @@ list_length.exit:                                 ; preds = %10282
   store i32 8, ptr %12403, align 4
   %12404 = getelementptr inbounds nuw i8, ptr %12401, i64 28
   store i32 %12400, ptr %12404, align 4
-  %12405 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12401) #11
+  %12405 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12401) #10
   br label %.critedge10155
 
 12406:                                            ; preds = %._crit_edge
   %12407 = load i32, ptr %.210013, align 4
-  %12408 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12408 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12408, align 4
   %12409 = getelementptr inbounds nuw i8, ptr %12408, i64 8
   store i32 464, ptr %12409, align 8
@@ -23525,12 +23487,12 @@ list_length.exit:                                 ; preds = %10282
   store i32 1024, ptr %12410, align 4
   %12411 = getelementptr inbounds nuw i8, ptr %12408, i64 28
   store i32 %12407, ptr %12411, align 4
-  %12412 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12408) #11
+  %12412 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12408) #10
   br label %.critedge10155
 
 12413:                                            ; preds = %._crit_edge
   %12414 = load i32, ptr %.210013, align 4
-  %12415 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12415 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12415, align 4
   %12416 = getelementptr inbounds nuw i8, ptr %12415, i64 8
   store i32 464, ptr %12416, align 8
@@ -23538,7 +23500,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 2048, ptr %12417, align 4
   %12418 = getelementptr inbounds nuw i8, ptr %12415, i64 28
   store i32 %12414, ptr %12418, align 4
-  %12419 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12415) #11
+  %12419 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12415) #10
   br label %.critedge10155
 
 12420:                                            ; preds = %._crit_edge
@@ -23548,7 +23510,7 @@ list_length.exit:                                 ; preds = %10282
 12422:                                            ; preds = %._crit_edge
   %12423 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12424 = load i32, ptr %12423, align 4
-  %12425 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12425 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12425, align 4
   %12426 = getelementptr inbounds nuw i8, ptr %12425, i64 8
   store i32 464, ptr %12426, align 8
@@ -23556,13 +23518,13 @@ list_length.exit:                                 ; preds = %10282
   store i32 6, ptr %12427, align 4
   %12428 = getelementptr inbounds nuw i8, ptr %12425, i64 28
   store i32 %12424, ptr %12428, align 4
-  %12429 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12425) #11
+  %12429 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12425) #10
   br label %.critedge10155
 
 12430:                                            ; preds = %._crit_edge
   %12431 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12432 = load i32, ptr %12431, align 4
-  %12433 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12433 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12433, align 4
   %12434 = getelementptr inbounds nuw i8, ptr %12433, i64 8
   store i32 464, ptr %12434, align 8
@@ -23570,13 +23532,13 @@ list_length.exit:                                 ; preds = %10282
   store i32 1032, ptr %12435, align 4
   %12436 = getelementptr inbounds nuw i8, ptr %12433, i64 28
   store i32 %12432, ptr %12436, align 4
-  %12437 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12433) #11
+  %12437 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12433) #10
   br label %.critedge10155
 
 12438:                                            ; preds = %._crit_edge
   %12439 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12440 = load i32, ptr %12439, align 4
-  %12441 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12441 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12441, align 4
   %12442 = getelementptr inbounds nuw i8, ptr %12441, i64 8
   store i32 464, ptr %12442, align 8
@@ -23584,14 +23546,14 @@ list_length.exit:                                 ; preds = %10282
   store i32 3080, ptr %12443, align 4
   %12444 = getelementptr inbounds nuw i8, ptr %12441, i64 28
   store i32 %12440, ptr %12444, align 4
-  %12445 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12441) #11
+  %12445 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12441) #10
   br label %.critedge10155
 
 12446:                                            ; preds = %._crit_edge
   %12447 = load ptr, ptr %.210001, align 8
   %12448 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12449 = load i32, ptr %12448, align 4
-  %12450 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12450 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12450, align 4
   %12451 = getelementptr inbounds nuw i8, ptr %12450, i64 8
   store i32 464, ptr %12451, align 8
@@ -23607,7 +23569,7 @@ list_length.exit:                                 ; preds = %10282
 12455:                                            ; preds = %._crit_edge
   %12456 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12457 = load i32, ptr %12456, align 4
-  %12458 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12458 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12458, align 4
   %12459 = getelementptr inbounds nuw i8, ptr %12458, i64 8
   store i32 464, ptr %12459, align 8
@@ -23615,14 +23577,14 @@ list_length.exit:                                 ; preds = %10282
   store i32 3072, ptr %12460, align 4
   %12461 = getelementptr inbounds nuw i8, ptr %12458, i64 28
   store i32 %12457, ptr %12461, align 4
-  %12462 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12458) #11
+  %12462 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12458) #10
   br label %.critedge10155
 
 12463:                                            ; preds = %._crit_edge
   %12464 = load ptr, ptr %.210001, align 8
   %12465 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12466 = load i32, ptr %12465, align 4
-  %12467 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12467 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12467, align 4
   %12468 = getelementptr inbounds nuw i8, ptr %12467, i64 8
   store i32 464, ptr %12468, align 8
@@ -23639,7 +23601,7 @@ list_length.exit:                                 ; preds = %10282
   %12473 = load ptr, ptr %.210001, align 8
   %12474 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12475 = load i32, ptr %12474, align 4
-  %12476 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12476 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12476, align 4
   %12477 = getelementptr inbounds nuw i8, ptr %12476, i64 8
   store i32 464, ptr %12477, align 8
@@ -23654,7 +23616,7 @@ list_length.exit:                                 ; preds = %10282
 
 12481:                                            ; preds = %._crit_edge
   %12482 = load i32, ptr %.210013, align 4
-  %12483 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12483 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12483, align 4
   %12484 = getelementptr inbounds nuw i8, ptr %12483, i64 8
   store i32 464, ptr %12484, align 8
@@ -23662,13 +23624,13 @@ list_length.exit:                                 ; preds = %10282
   store i32 4096, ptr %12485, align 4
   %12486 = getelementptr inbounds nuw i8, ptr %12483, i64 28
   store i32 %12482, ptr %12486, align 4
-  %12487 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12483) #11
+  %12487 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12483) #10
   br label %.critedge10155
 
 12488:                                            ; preds = %._crit_edge
   %12489 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %12490 = load i32, ptr %12489, align 4
-  %12491 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12491 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12491, align 4
   %12492 = getelementptr inbounds nuw i8, ptr %12491, i64 8
   store i32 464, ptr %12492, align 8
@@ -23680,7 +23642,7 @@ list_length.exit:                                 ; preds = %10282
   %12496 = load i32, ptr %12495, align 8
   %12497 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12498 = load i32, ptr %12497, align 4
-  %12499 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12499 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %12499, align 4
   %12500 = getelementptr inbounds nuw i8, ptr %12499, i64 8
   store i32 464, ptr %12500, align 8
@@ -23688,7 +23650,7 @@ list_length.exit:                                 ; preds = %10282
   store i32 %12496, ptr %12501, align 4
   %12502 = getelementptr inbounds nuw i8, ptr %12499, i64 28
   store i32 %12498, ptr %12502, align 4
-  %12503 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %12491, ptr nonnull %12499) #11
+  %12503 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %12491, ptr nonnull %12499) #10
   br label %.critedge10155
 
 12504:                                            ; preds = %._crit_edge
@@ -23708,7 +23670,7 @@ list_length.exit:                                 ; preds = %10282
   %12513 = load ptr, ptr %.210001, align 8
   %12514 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12515 = load i32, ptr %12514, align 4
-  %12516 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12516 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 73, ptr %12516, align 4
   %12517 = getelementptr inbounds nuw i8, ptr %12516, i64 8
   store ptr %12512, ptr %12517, align 8
@@ -23719,7 +23681,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 12520:                                            ; preds = %._crit_edge
-  %12521 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12521 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 74, ptr %12521, align 4
   %12522 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12523 = load ptr, ptr %12522, align 8
@@ -23739,25 +23701,25 @@ list_length.exit:                                 ; preds = %10282
   %12532 = load ptr, ptr %.210001, align 8
   %12533 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %12534 = load ptr, ptr %12533, align 8
-  %12535 = call ptr @list_make2_impl(i32 noundef 1, ptr %12532, ptr %12534) #11
+  %12535 = call ptr @list_make2_impl(i32 noundef 1, ptr %12532, ptr %12534) #10
   %12536 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %12537 = load i32, ptr %12536, align 4
-  %12538 = call ptr @makeFuncCall(ptr noundef %12531, ptr noundef %12535, i32 noundef 3, i32 noundef %12537) #11
+  %12538 = call ptr @makeFuncCall(ptr noundef %12531, ptr noundef %12535, i32 noundef 3, i32 noundef %12537) #10
   br label %.critedge10155
 
 12539:                                            ; preds = %._crit_edge
   %12540 = call ptr @SystemFuncName(ptr noundef nonnull @.str.30)
   %12541 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12542 = load ptr, ptr %12541, align 8
-  %12543 = call ptr @list_make1_impl(i32 noundef 1, ptr %12542) #11
-  %12544 = call ptr @makeFuncCall(ptr noundef %12540, ptr noundef %12543, i32 noundef 3, i32 noundef -1) #11
+  %12543 = call ptr @list_make1_impl(i32 noundef 1, ptr %12542) #10
+  %12544 = call ptr @makeFuncCall(ptr noundef %12540, ptr noundef %12543, i32 noundef 3, i32 noundef -1) #10
   br label %.critedge10155
 
 12545:                                            ; preds = %._crit_edge
   %12546 = load ptr, ptr %.210001, align 8
   %12547 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12548 = load i32, ptr %12547, align 4
-  %12549 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef %12546, i32 noundef %12548) #11
+  %12549 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef %12546, i32 noundef %12548) #10
   br label %.critedge10155
 
 12550:                                            ; preds = %._crit_edge
@@ -23773,7 +23735,7 @@ list_length.exit:                                 ; preds = %10282
   %12558 = load ptr, ptr %.210001, align 8
   %12559 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12560 = load i32, ptr %12559, align 4
-  %12561 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef %12557, ptr noundef %12558, i32 noundef %12560) #11
+  %12561 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef %12557, ptr noundef %12558, i32 noundef %12560) #10
   br label %.critedge10155
 
 12562:                                            ; preds = %._crit_edge
@@ -23782,7 +23744,7 @@ list_length.exit:                                 ; preds = %10282
   %12565 = load ptr, ptr %.210001, align 8
   %12566 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12567 = load i32, ptr %12566, align 4
-  %12568 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %12564, ptr noundef %12565, i32 noundef %12567) #11
+  %12568 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %12564, ptr noundef %12565, i32 noundef %12567) #10
   br label %.critedge10155
 
 12569:                                            ; preds = %._crit_edge
@@ -23791,7 +23753,7 @@ list_length.exit:                                 ; preds = %10282
   %12572 = load ptr, ptr %.210001, align 8
   %12573 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12574 = load i32, ptr %12573, align 4
-  %12575 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.189, ptr noundef %12571, ptr noundef %12572, i32 noundef %12574) #11
+  %12575 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.189, ptr noundef %12571, ptr noundef %12572, i32 noundef %12574) #10
   br label %.critedge10155
 
 12576:                                            ; preds = %._crit_edge
@@ -23800,7 +23762,7 @@ list_length.exit:                                 ; preds = %10282
   %12579 = load ptr, ptr %.210001, align 8
   %12580 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12581 = load i32, ptr %12580, align 4
-  %12582 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.190, ptr noundef %12578, ptr noundef %12579, i32 noundef %12581) #11
+  %12582 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.190, ptr noundef %12578, ptr noundef %12579, i32 noundef %12581) #10
   br label %.critedge10155
 
 12583:                                            ; preds = %._crit_edge
@@ -23809,7 +23771,7 @@ list_length.exit:                                 ; preds = %10282
   %12586 = load ptr, ptr %.210001, align 8
   %12587 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12588 = load i32, ptr %12587, align 4
-  %12589 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.191, ptr noundef %12585, ptr noundef %12586, i32 noundef %12588) #11
+  %12589 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.191, ptr noundef %12585, ptr noundef %12586, i32 noundef %12588) #10
   br label %.critedge10155
 
 12590:                                            ; preds = %._crit_edge
@@ -23818,7 +23780,7 @@ list_length.exit:                                 ; preds = %10282
   %12593 = load ptr, ptr %.210001, align 8
   %12594 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12595 = load i32, ptr %12594, align 4
-  %12596 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.192, ptr noundef %12592, ptr noundef %12593, i32 noundef %12595) #11
+  %12596 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.192, ptr noundef %12592, ptr noundef %12593, i32 noundef %12595) #10
   br label %.critedge10155
 
 12597:                                            ; preds = %._crit_edge
@@ -23827,7 +23789,7 @@ list_length.exit:                                 ; preds = %10282
   %12600 = load ptr, ptr %.210001, align 8
   %12601 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12602 = load i32, ptr %12601, align 4
-  %12603 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.193, ptr noundef %12599, ptr noundef %12600, i32 noundef %12602) #11
+  %12603 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.193, ptr noundef %12599, ptr noundef %12600, i32 noundef %12602) #10
   br label %.critedge10155
 
 12604:                                            ; preds = %._crit_edge
@@ -23836,7 +23798,7 @@ list_length.exit:                                 ; preds = %10282
   %12607 = load ptr, ptr %.210001, align 8
   %12608 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12609 = load i32, ptr %12608, align 4
-  %12610 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.194, ptr noundef %12606, ptr noundef %12607, i32 noundef %12609) #11
+  %12610 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.194, ptr noundef %12606, ptr noundef %12607, i32 noundef %12609) #10
   br label %.critedge10155
 
 12611:                                            ; preds = %._crit_edge
@@ -23845,7 +23807,7 @@ list_length.exit:                                 ; preds = %10282
   %12614 = load ptr, ptr %.210001, align 8
   %12615 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12616 = load i32, ptr %12615, align 4
-  %12617 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.195, ptr noundef %12613, ptr noundef %12614, i32 noundef %12616) #11
+  %12617 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.195, ptr noundef %12613, ptr noundef %12614, i32 noundef %12616) #10
   br label %.critedge10155
 
 12618:                                            ; preds = %._crit_edge
@@ -23854,7 +23816,7 @@ list_length.exit:                                 ; preds = %10282
   %12621 = load ptr, ptr %.210001, align 8
   %12622 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12623 = load i32, ptr %12622, align 4
-  %12624 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.196, ptr noundef %12620, ptr noundef %12621, i32 noundef %12623) #11
+  %12624 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.196, ptr noundef %12620, ptr noundef %12621, i32 noundef %12623) #10
   br label %.critedge10155
 
 12625:                                            ; preds = %._crit_edge
@@ -23863,7 +23825,7 @@ list_length.exit:                                 ; preds = %10282
   %12628 = load ptr, ptr %.210001, align 8
   %12629 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12630 = load i32, ptr %12629, align 4
-  %12631 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.197, ptr noundef %12627, ptr noundef %12628, i32 noundef %12630) #11
+  %12631 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.197, ptr noundef %12627, ptr noundef %12628, i32 noundef %12630) #10
   br label %.critedge10155
 
 12632:                                            ; preds = %._crit_edge
@@ -23872,7 +23834,7 @@ list_length.exit:                                 ; preds = %10282
   %12635 = load ptr, ptr %.210001, align 8
   %12636 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12637 = load i32, ptr %12636, align 4
-  %12638 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.198, ptr noundef %12634, ptr noundef %12635, i32 noundef %12637) #11
+  %12638 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.198, ptr noundef %12634, ptr noundef %12635, i32 noundef %12637) #10
   br label %.critedge10155
 
 12639:                                            ; preds = %._crit_edge
@@ -23883,7 +23845,7 @@ list_length.exit:                                 ; preds = %10282
   %12644 = load ptr, ptr %.210001, align 8
   %12645 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12646 = load i32, ptr %12645, align 4
-  %12647 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %12641, ptr noundef %12643, ptr noundef %12644, i32 noundef %12646) #11
+  %12647 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %12641, ptr noundef %12643, ptr noundef %12644, i32 noundef %12646) #10
   br label %.critedge10155
 
 12648:                                            ; preds = %._crit_edge
@@ -23892,7 +23854,7 @@ list_length.exit:                                 ; preds = %10282
   %12651 = load ptr, ptr %.210001, align 8
   %12652 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12653 = load i32, ptr %12652, align 4
-  %12654 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %12650, ptr noundef null, ptr noundef %12651, i32 noundef %12653) #11
+  %12654 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %12650, ptr noundef null, ptr noundef %12651, i32 noundef %12653) #10
   br label %.critedge10155
 
 12655:                                            ; preds = %._crit_edge
@@ -23933,7 +23895,7 @@ list_length.exit:                                 ; preds = %10282
   %12682 = load ptr, ptr %.210001, align 8
   %12683 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12684 = load i32, ptr %12683, align 4
-  %12685 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.199, ptr noundef %12681, ptr noundef %12682, i32 noundef %12684) #11
+  %12685 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.199, ptr noundef %12681, ptr noundef %12682, i32 noundef %12684) #10
   br label %.critedge10155
 
 12686:                                            ; preds = %._crit_edge
@@ -23941,14 +23903,14 @@ list_length.exit:                                 ; preds = %10282
   %12688 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12689 = load ptr, ptr %12688, align 8
   %12690 = load ptr, ptr %.210001, align 8
-  %12691 = call ptr @list_make2_impl(i32 noundef 1, ptr %12689, ptr %12690) #11
+  %12691 = call ptr @list_make2_impl(i32 noundef 1, ptr %12689, ptr %12690) #10
   %12692 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %12693 = load i32, ptr %12692, align 4
-  %12694 = call ptr @makeFuncCall(ptr noundef %12687, ptr noundef %12691, i32 noundef 0, i32 noundef %12693) #11
+  %12694 = call ptr @makeFuncCall(ptr noundef %12687, ptr noundef %12691, i32 noundef 0, i32 noundef %12693) #10
   %12695 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %12696 = load ptr, ptr %12695, align 8
   %12697 = load i32, ptr %12692, align 4
-  %12698 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.199, ptr noundef %12696, ptr noundef %12694, i32 noundef %12697) #11
+  %12698 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.199, ptr noundef %12696, ptr noundef %12694, i32 noundef %12697) #10
   br label %.critedge10155
 
 12699:                                            ; preds = %._crit_edge
@@ -23957,7 +23919,7 @@ list_length.exit:                                 ; preds = %10282
   %12702 = load ptr, ptr %.210001, align 8
   %12703 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12704 = load i32, ptr %12703, align 4
-  %12705 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.201, ptr noundef %12701, ptr noundef %12702, i32 noundef %12704) #11
+  %12705 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.201, ptr noundef %12701, ptr noundef %12702, i32 noundef %12704) #10
   br label %.critedge10155
 
 12706:                                            ; preds = %._crit_edge
@@ -23965,14 +23927,14 @@ list_length.exit:                                 ; preds = %10282
   %12708 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12709 = load ptr, ptr %12708, align 8
   %12710 = load ptr, ptr %.210001, align 8
-  %12711 = call ptr @list_make2_impl(i32 noundef 1, ptr %12709, ptr %12710) #11
+  %12711 = call ptr @list_make2_impl(i32 noundef 1, ptr %12709, ptr %12710) #10
   %12712 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %12713 = load i32, ptr %12712, align 4
-  %12714 = call ptr @makeFuncCall(ptr noundef %12707, ptr noundef %12711, i32 noundef 0, i32 noundef %12713) #11
+  %12714 = call ptr @makeFuncCall(ptr noundef %12707, ptr noundef %12711, i32 noundef 0, i32 noundef %12713) #10
   %12715 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %12716 = load ptr, ptr %12715, align 8
   %12717 = load i32, ptr %12712, align 4
-  %12718 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.201, ptr noundef %12716, ptr noundef %12714, i32 noundef %12717) #11
+  %12718 = call ptr @makeSimpleA_Expr(i32 noundef 7, ptr noundef nonnull @.str.201, ptr noundef %12716, ptr noundef %12714, i32 noundef %12717) #10
   br label %.critedge10155
 
 12719:                                            ; preds = %._crit_edge
@@ -23981,7 +23943,7 @@ list_length.exit:                                 ; preds = %10282
   %12722 = load ptr, ptr %.210001, align 8
   %12723 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12724 = load i32, ptr %12723, align 4
-  %12725 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.202, ptr noundef %12721, ptr noundef %12722, i32 noundef %12724) #11
+  %12725 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.202, ptr noundef %12721, ptr noundef %12722, i32 noundef %12724) #10
   br label %.critedge10155
 
 12726:                                            ; preds = %._crit_edge
@@ -23989,14 +23951,14 @@ list_length.exit:                                 ; preds = %10282
   %12728 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12729 = load ptr, ptr %12728, align 8
   %12730 = load ptr, ptr %.210001, align 8
-  %12731 = call ptr @list_make2_impl(i32 noundef 1, ptr %12729, ptr %12730) #11
+  %12731 = call ptr @list_make2_impl(i32 noundef 1, ptr %12729, ptr %12730) #10
   %12732 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %12733 = load i32, ptr %12732, align 4
-  %12734 = call ptr @makeFuncCall(ptr noundef %12727, ptr noundef %12731, i32 noundef 0, i32 noundef %12733) #11
+  %12734 = call ptr @makeFuncCall(ptr noundef %12727, ptr noundef %12731, i32 noundef 0, i32 noundef %12733) #10
   %12735 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %12736 = load ptr, ptr %12735, align 8
   %12737 = load i32, ptr %12732, align 4
-  %12738 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.202, ptr noundef %12736, ptr noundef %12734, i32 noundef %12737) #11
+  %12738 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.202, ptr noundef %12736, ptr noundef %12734, i32 noundef %12737) #10
   br label %.critedge10155
 
 12739:                                            ; preds = %._crit_edge
@@ -24005,7 +23967,7 @@ list_length.exit:                                 ; preds = %10282
   %12742 = load ptr, ptr %.210001, align 8
   %12743 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12744 = load i32, ptr %12743, align 4
-  %12745 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.203, ptr noundef %12741, ptr noundef %12742, i32 noundef %12744) #11
+  %12745 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.203, ptr noundef %12741, ptr noundef %12742, i32 noundef %12744) #10
   br label %.critedge10155
 
 12746:                                            ; preds = %._crit_edge
@@ -24013,27 +23975,27 @@ list_length.exit:                                 ; preds = %10282
   %12748 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12749 = load ptr, ptr %12748, align 8
   %12750 = load ptr, ptr %.210001, align 8
-  %12751 = call ptr @list_make2_impl(i32 noundef 1, ptr %12749, ptr %12750) #11
+  %12751 = call ptr @list_make2_impl(i32 noundef 1, ptr %12749, ptr %12750) #10
   %12752 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %12753 = load i32, ptr %12752, align 4
-  %12754 = call ptr @makeFuncCall(ptr noundef %12747, ptr noundef %12751, i32 noundef 0, i32 noundef %12753) #11
+  %12754 = call ptr @makeFuncCall(ptr noundef %12747, ptr noundef %12751, i32 noundef 0, i32 noundef %12753) #10
   %12755 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %12756 = load ptr, ptr %12755, align 8
   %12757 = load i32, ptr %12752, align 4
-  %12758 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.203, ptr noundef %12756, ptr noundef %12754, i32 noundef %12757) #11
+  %12758 = call ptr @makeSimpleA_Expr(i32 noundef 8, ptr noundef nonnull @.str.203, ptr noundef %12756, ptr noundef %12754, i32 noundef %12757) #10
   br label %.critedge10155
 
 12759:                                            ; preds = %._crit_edge
   %12760 = call ptr @SystemFuncName(ptr noundef nonnull @.str.204)
   %12761 = load ptr, ptr %.210001, align 8
-  %12762 = call ptr @list_make1_impl(i32 noundef 1, ptr %12761) #11
+  %12762 = call ptr @list_make1_impl(i32 noundef 1, ptr %12761) #10
   %12763 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12764 = load i32, ptr %12763, align 4
-  %12765 = call ptr @makeFuncCall(ptr noundef %12760, ptr noundef %12762, i32 noundef 0, i32 noundef %12764) #11
+  %12765 = call ptr @makeFuncCall(ptr noundef %12760, ptr noundef %12762, i32 noundef 0, i32 noundef %12764) #10
   %12766 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %12767 = load ptr, ptr %12766, align 8
   %12768 = load i32, ptr %12763, align 4
-  %12769 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.205, ptr noundef %12767, ptr noundef %12765, i32 noundef %12768) #11
+  %12769 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.205, ptr noundef %12767, ptr noundef %12765, i32 noundef %12768) #10
   br label %.critedge10155
 
 12770:                                            ; preds = %._crit_edge
@@ -24041,27 +24003,27 @@ list_length.exit:                                 ; preds = %10282
   %12772 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12773 = load ptr, ptr %12772, align 8
   %12774 = load ptr, ptr %.210001, align 8
-  %12775 = call ptr @list_make2_impl(i32 noundef 1, ptr %12773, ptr %12774) #11
+  %12775 = call ptr @list_make2_impl(i32 noundef 1, ptr %12773, ptr %12774) #10
   %12776 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %12777 = load i32, ptr %12776, align 4
-  %12778 = call ptr @makeFuncCall(ptr noundef %12771, ptr noundef %12775, i32 noundef 0, i32 noundef %12777) #11
+  %12778 = call ptr @makeFuncCall(ptr noundef %12771, ptr noundef %12775, i32 noundef 0, i32 noundef %12777) #10
   %12779 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %12780 = load ptr, ptr %12779, align 8
   %12781 = load i32, ptr %12776, align 4
-  %12782 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.205, ptr noundef %12780, ptr noundef %12778, i32 noundef %12781) #11
+  %12782 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.205, ptr noundef %12780, ptr noundef %12778, i32 noundef %12781) #10
   br label %.critedge10155
 
 12783:                                            ; preds = %._crit_edge
   %12784 = call ptr @SystemFuncName(ptr noundef nonnull @.str.204)
   %12785 = load ptr, ptr %.210001, align 8
-  %12786 = call ptr @list_make1_impl(i32 noundef 1, ptr %12785) #11
+  %12786 = call ptr @list_make1_impl(i32 noundef 1, ptr %12785) #10
   %12787 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %12788 = load i32, ptr %12787, align 4
-  %12789 = call ptr @makeFuncCall(ptr noundef %12784, ptr noundef %12786, i32 noundef 0, i32 noundef %12788) #11
+  %12789 = call ptr @makeFuncCall(ptr noundef %12784, ptr noundef %12786, i32 noundef 0, i32 noundef %12788) #10
   %12790 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %12791 = load ptr, ptr %12790, align 8
   %12792 = load i32, ptr %12787, align 4
-  %12793 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.206, ptr noundef %12791, ptr noundef %12789, i32 noundef %12792) #11
+  %12793 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.206, ptr noundef %12791, ptr noundef %12789, i32 noundef %12792) #10
   br label %.critedge10155
 
 12794:                                            ; preds = %._crit_edge
@@ -24069,18 +24031,18 @@ list_length.exit:                                 ; preds = %10282
   %12796 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12797 = load ptr, ptr %12796, align 8
   %12798 = load ptr, ptr %.210001, align 8
-  %12799 = call ptr @list_make2_impl(i32 noundef 1, ptr %12797, ptr %12798) #11
+  %12799 = call ptr @list_make2_impl(i32 noundef 1, ptr %12797, ptr %12798) #10
   %12800 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %12801 = load i32, ptr %12800, align 4
-  %12802 = call ptr @makeFuncCall(ptr noundef %12795, ptr noundef %12799, i32 noundef 0, i32 noundef %12801) #11
+  %12802 = call ptr @makeFuncCall(ptr noundef %12795, ptr noundef %12799, i32 noundef 0, i32 noundef %12801) #10
   %12803 = getelementptr inbounds i8, ptr %.210001, i64 -48
   %12804 = load ptr, ptr %12803, align 8
   %12805 = load i32, ptr %12800, align 4
-  %12806 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.206, ptr noundef %12804, ptr noundef %12802, i32 noundef %12805) #11
+  %12806 = call ptr @makeSimpleA_Expr(i32 noundef 9, ptr noundef nonnull @.str.206, ptr noundef %12804, ptr noundef %12802, i32 noundef %12805) #10
   br label %.critedge10155
 
 12807:                                            ; preds = %._crit_edge
-  %12808 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12808 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 52, ptr %12808, align 4
   %12809 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12810 = load ptr, ptr %12809, align 8
@@ -24095,7 +24057,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 12816:                                            ; preds = %._crit_edge
-  %12817 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12817 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 52, ptr %12817, align 4
   %12818 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12819 = load ptr, ptr %12818, align 8
@@ -24109,7 +24071,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 12824:                                            ; preds = %._crit_edge
-  %12825 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12825 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 52, ptr %12825, align 4
   %12826 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %12827 = load ptr, ptr %12826, align 8
@@ -24124,7 +24086,7 @@ list_length.exit:                                 ; preds = %10282
   br label %.critedge10155
 
 12833:                                            ; preds = %._crit_edge
-  %12834 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %12834 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 52, ptr %12834, align 4
   %12835 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %12836 = load ptr, ptr %12835, align 8
@@ -24150,14 +24112,13 @@ list_length.exit10199:                            ; preds = %12841
   br i1 %.not10103, label %12852, label %list_length.exit10199.thread
 
 list_length.exit10199.thread:                     ; preds = %12841, %list_length.exit10199
-  %12846 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %12846)
-  %12847 = call i32 @errcode(i32 noundef 16801924) #11
-  %12848 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.207) #11
+  %12846 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %12847 = call i32 @errcode(i32 noundef 16801924) #10
+  %12848 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.207) #10
   %12849 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %12850 = load i32, ptr %12849, align 4
-  %12851 = call i32 @scanner_errposition(i32 noundef %12850, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15155, ptr noundef nonnull @__func__.base_yyparse) #11
+  %12851 = call i32 @scanner_errposition(i32 noundef %12850, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15155, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 12852:                                            ; preds = %list_length.exit10199
@@ -24172,27 +24133,26 @@ list_length.exit10201:                            ; preds = %12852
   br i1 %.not10104, label %12861, label %list_length.exit10201.thread
 
 list_length.exit10201.thread:                     ; preds = %12852, %list_length.exit10201
-  %12856 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %12856)
-  %12857 = call i32 @errcode(i32 noundef 16801924) #11
-  %12858 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.208) #11
+  %12856 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %12857 = call i32 @errcode(i32 noundef 16801924) #10
+  %12858 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.208) #10
   %12859 = load i32, ptr %.210013, align 4
-  %12860 = call i32 @scanner_errposition(i32 noundef %12859, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15160, ptr noundef nonnull @__func__.base_yyparse) #11
+  %12860 = call i32 @scanner_errposition(i32 noundef %12859, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15160, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 12861:                                            ; preds = %list_length.exit10201
   %12862 = call ptr @SystemFuncName(ptr noundef nonnull @.str.209)
   %12863 = load ptr, ptr %12842, align 8
   %12864 = load ptr, ptr %.210001, align 8
-  %12865 = call ptr @list_concat(ptr noundef %12863, ptr noundef %12864) #11
+  %12865 = call ptr @list_concat(ptr noundef %12863, ptr noundef %12864) #10
   %12866 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12867 = load i32, ptr %12866, align 4
-  %12868 = call ptr @makeFuncCall(ptr noundef %12862, ptr noundef %12865, i32 noundef 3, i32 noundef %12867) #11
+  %12868 = call ptr @makeFuncCall(ptr noundef %12862, ptr noundef %12865, i32 noundef 3, i32 noundef %12867) #10
   br label %.critedge10155
 
 12869:                                            ; preds = %._crit_edge
-  %12870 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %12870 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %12870, align 4
   %12871 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12872 = load ptr, ptr %12871, align 8
@@ -24207,7 +24167,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 12878:                                            ; preds = %._crit_edge
-  %12879 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %12879 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %12879, align 4
   %12880 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %12881 = load ptr, ptr %12880, align 8
@@ -24222,7 +24182,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 12887:                                            ; preds = %._crit_edge
-  %12888 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %12888 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %12888, align 4
   %12889 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12890 = load ptr, ptr %12889, align 8
@@ -24237,7 +24197,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 12896:                                            ; preds = %._crit_edge
-  %12897 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %12897 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %12897, align 4
   %12898 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %12899 = load ptr, ptr %12898, align 8
@@ -24252,7 +24212,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 12905:                                            ; preds = %._crit_edge
-  %12906 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %12906 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %12906, align 4
   %12907 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12908 = load ptr, ptr %12907, align 8
@@ -24267,7 +24227,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 12914:                                            ; preds = %._crit_edge
-  %12915 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %12915 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 53, ptr %12915, align 4
   %12916 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %12917 = load ptr, ptr %12916, align 8
@@ -24287,7 +24247,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12926 = load ptr, ptr %.210001, align 8
   %12927 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %12928 = load i32, ptr %12927, align 4
-  %12929 = call ptr @makeSimpleA_Expr(i32 noundef 3, ptr noundef nonnull @.str.195, ptr noundef %12925, ptr noundef %12926, i32 noundef %12928) #11
+  %12929 = call ptr @makeSimpleA_Expr(i32 noundef 3, ptr noundef nonnull @.str.195, ptr noundef %12925, ptr noundef %12926, i32 noundef %12928) #10
   br label %.critedge10155
 
 12930:                                            ; preds = %._crit_edge
@@ -24296,7 +24256,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12933 = load ptr, ptr %.210001, align 8
   %12934 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %12935 = load i32, ptr %12934, align 4
-  %12936 = call ptr @makeSimpleA_Expr(i32 noundef 4, ptr noundef nonnull @.str.195, ptr noundef %12932, ptr noundef %12933, i32 noundef %12935) #11
+  %12936 = call ptr @makeSimpleA_Expr(i32 noundef 4, ptr noundef nonnull @.str.195, ptr noundef %12932, ptr noundef %12933, i32 noundef %12935) #10
   br label %.critedge10155
 
 12937:                                            ; preds = %._crit_edge
@@ -24305,10 +24265,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12940 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12941 = load ptr, ptr %12940, align 8
   %12942 = load ptr, ptr %.210001, align 8
-  %12943 = call ptr @list_make2_impl(i32 noundef 1, ptr %12941, ptr %12942) #11
+  %12943 = call ptr @list_make2_impl(i32 noundef 1, ptr %12941, ptr %12942) #10
   %12944 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %12945 = load i32, ptr %12944, align 4
-  %12946 = call ptr @makeSimpleA_Expr(i32 noundef 10, ptr noundef nonnull @.str.210, ptr noundef %12939, ptr noundef %12943, i32 noundef %12945) #11
+  %12946 = call ptr @makeSimpleA_Expr(i32 noundef 10, ptr noundef nonnull @.str.210, ptr noundef %12939, ptr noundef %12943, i32 noundef %12945) #10
   br label %.critedge10155
 
 12947:                                            ; preds = %._crit_edge
@@ -24317,10 +24277,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12950 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12951 = load ptr, ptr %12950, align 8
   %12952 = load ptr, ptr %.210001, align 8
-  %12953 = call ptr @list_make2_impl(i32 noundef 1, ptr %12951, ptr %12952) #11
+  %12953 = call ptr @list_make2_impl(i32 noundef 1, ptr %12951, ptr %12952) #10
   %12954 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %12955 = load i32, ptr %12954, align 4
-  %12956 = call ptr @makeSimpleA_Expr(i32 noundef 11, ptr noundef nonnull @.str.211, ptr noundef %12949, ptr noundef %12953, i32 noundef %12955) #11
+  %12956 = call ptr @makeSimpleA_Expr(i32 noundef 11, ptr noundef nonnull @.str.211, ptr noundef %12949, ptr noundef %12953, i32 noundef %12955) #10
   br label %.critedge10155
 
 12957:                                            ; preds = %._crit_edge
@@ -24329,10 +24289,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12960 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12961 = load ptr, ptr %12960, align 8
   %12962 = load ptr, ptr %.210001, align 8
-  %12963 = call ptr @list_make2_impl(i32 noundef 1, ptr %12961, ptr %12962) #11
+  %12963 = call ptr @list_make2_impl(i32 noundef 1, ptr %12961, ptr %12962) #10
   %12964 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %12965 = load i32, ptr %12964, align 4
-  %12966 = call ptr @makeSimpleA_Expr(i32 noundef 12, ptr noundef nonnull @.str.212, ptr noundef %12959, ptr noundef %12963, i32 noundef %12965) #11
+  %12966 = call ptr @makeSimpleA_Expr(i32 noundef 12, ptr noundef nonnull @.str.212, ptr noundef %12959, ptr noundef %12963, i32 noundef %12965) #10
   br label %.critedge10155
 
 12967:                                            ; preds = %._crit_edge
@@ -24341,10 +24301,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12970 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %12971 = load ptr, ptr %12970, align 8
   %12972 = load ptr, ptr %.210001, align 8
-  %12973 = call ptr @list_make2_impl(i32 noundef 1, ptr %12971, ptr %12972) #11
+  %12973 = call ptr @list_make2_impl(i32 noundef 1, ptr %12971, ptr %12972) #10
   %12974 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %12975 = load i32, ptr %12974, align 4
-  %12976 = call ptr @makeSimpleA_Expr(i32 noundef 13, ptr noundef nonnull @.str.213, ptr noundef %12969, ptr noundef %12973, i32 noundef %12975) #11
+  %12976 = call ptr @makeSimpleA_Expr(i32 noundef 13, ptr noundef nonnull @.str.213, ptr noundef %12969, ptr noundef %12973, i32 noundef %12975) #10
   br label %.critedge10155
 
 12977:                                            ; preds = %._crit_edge
@@ -24375,7 +24335,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %12993 = load ptr, ptr %12992, align 8
   %12994 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %12995 = load i32, ptr %12994, align 4
-  %12996 = call ptr @makeSimpleA_Expr(i32 noundef 6, ptr noundef nonnull @.str.195, ptr noundef %12993, ptr noundef nonnull %12978, i32 noundef %12995) #11
+  %12996 = call ptr @makeSimpleA_Expr(i32 noundef 6, ptr noundef nonnull @.str.195, ptr noundef %12993, ptr noundef nonnull %12978, i32 noundef %12995) #10
   br label %.critedge10155
 
 12997:                                            ; preds = %._crit_edge
@@ -24407,11 +24367,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13014 = load ptr, ptr %13013, align 8
   %13015 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13016 = load i32, ptr %13015, align 4
-  %13017 = call ptr @makeSimpleA_Expr(i32 noundef 6, ptr noundef nonnull @.str.198, ptr noundef %13014, ptr noundef nonnull %12998, i32 noundef %13016) #11
+  %13017 = call ptr @makeSimpleA_Expr(i32 noundef 6, ptr noundef nonnull @.str.198, ptr noundef %13014, ptr noundef nonnull %12998, i32 noundef %13016) #10
   br label %.critedge10155
 
 13018:                                            ; preds = %._crit_edge
-  %13019 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %13019 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %13019, align 4
   %13020 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13021 = load i32, ptr %13020, align 8
@@ -24451,31 +24411,30 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %13038, label %13047, label %13049
 
 13047:                                            ; preds = %13035
-  %13048 = call ptr @makeA_Expr(i32 noundef 1, ptr noundef %13040, ptr noundef %13042, ptr noundef %13044, i32 noundef %13046) #11
+  %13048 = call ptr @makeA_Expr(i32 noundef 1, ptr noundef %13040, ptr noundef %13042, ptr noundef %13044, i32 noundef %13046) #10
   br label %.critedge10155
 
 13049:                                            ; preds = %13035
-  %13050 = call ptr @makeA_Expr(i32 noundef 2, ptr noundef %13040, ptr noundef %13042, ptr noundef %13044, i32 noundef %13046) #11
+  %13050 = call ptr @makeA_Expr(i32 noundef 2, ptr noundef %13040, ptr noundef %13042, ptr noundef %13044, i32 noundef %13046) #10
   br label %.critedge10155
 
 13051:                                            ; preds = %._crit_edge
-  %13052 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %13052)
-  %13053 = call i32 @errcode(i32 noundef 1088) #11
-  %13054 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.214) #11
+  %13052 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %13053 = call i32 @errcode(i32 noundef 1088) #10
+  %13054 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.214) #10
   %13055 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13056 = load i32, ptr %13055, align 4
-  %13057 = call i32 @scanner_errposition(i32 noundef %13056, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15337, ptr noundef nonnull @__func__.base_yyparse) #11
+  %13057 = call i32 @scanner_errposition(i32 noundef %13056, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15337, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 13058:                                            ; preds = %._crit_edge
   %13059 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13060 = load ptr, ptr %13059, align 8
-  %13061 = call ptr @list_make1_impl(i32 noundef 1, ptr %13060) #11
+  %13061 = call ptr @list_make1_impl(i32 noundef 1, ptr %13060) #10
   %13062 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13063 = load i32, ptr %13062, align 4
-  %13064 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13064 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13064, align 4
   %13065 = getelementptr inbounds nuw i8, ptr %13064, i64 4
   store i32 7, ptr %13065, align 4
@@ -24492,10 +24451,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 13070:                                            ; preds = %._crit_edge
   %13071 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %13072 = load ptr, ptr %13071, align 8
-  %13073 = call ptr @list_make1_impl(i32 noundef 1, ptr %13072) #11
+  %13073 = call ptr @list_make1_impl(i32 noundef 1, ptr %13072) #10
   %13074 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13075 = load i32, ptr %13074, align 4
-  %13076 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13076 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13076, align 4
   %13077 = getelementptr inbounds nuw i8, ptr %13076, i64 4
   store i32 7, ptr %13077, align 4
@@ -24515,10 +24474,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13085 = call ptr @SystemFuncName(ptr noundef nonnull @.str.215)
   %13086 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13087 = load ptr, ptr %13086, align 8
-  %13088 = call ptr @list_make1_impl(i32 noundef 1, ptr %13087) #11
+  %13088 = call ptr @list_make1_impl(i32 noundef 1, ptr %13087) #10
   %13089 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13090 = load i32, ptr %13089, align 4
-  %13091 = call ptr @makeFuncCall(ptr noundef %13085, ptr noundef %13088, i32 noundef 3, i32 noundef %13090) #11
+  %13091 = call ptr @makeFuncCall(ptr noundef %13085, ptr noundef %13088, i32 noundef 3, i32 noundef %13090) #10
   br label %.critedge10155
 
 13092:                                            ; preds = %._crit_edge
@@ -24529,21 +24488,21 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13097 = load ptr, ptr %13096, align 8
   %13098 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13099 = load i32, ptr %13098, align 4
-  %13100 = call ptr @makeStringConst(ptr noundef %13097, i32 noundef %13099) #11
-  %13101 = call ptr @list_make2_impl(i32 noundef 1, ptr %13095, ptr %13100) #11
+  %13100 = call ptr @makeStringConst(ptr noundef %13097, i32 noundef %13099) #10
+  %13101 = call ptr @list_make2_impl(i32 noundef 1, ptr %13095, ptr %13100) #10
   %13102 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13103 = load i32, ptr %13102, align 4
-  %13104 = call ptr @makeFuncCall(ptr noundef %13093, ptr noundef %13101, i32 noundef 3, i32 noundef %13103) #11
+  %13104 = call ptr @makeFuncCall(ptr noundef %13093, ptr noundef %13101, i32 noundef 3, i32 noundef %13103) #10
   br label %.critedge10155
 
 13105:                                            ; preds = %._crit_edge
   %13106 = call ptr @SystemFuncName(ptr noundef nonnull @.str.215)
   %13107 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %13108 = load ptr, ptr %13107, align 8
-  %13109 = call ptr @list_make1_impl(i32 noundef 1, ptr %13108) #11
+  %13109 = call ptr @list_make1_impl(i32 noundef 1, ptr %13108) #10
   %13110 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13111 = load i32, ptr %13110, align 4
-  %13112 = call ptr @makeFuncCall(ptr noundef %13106, ptr noundef %13109, i32 noundef 3, i32 noundef %13111) #11
+  %13112 = call ptr @makeFuncCall(ptr noundef %13106, ptr noundef %13109, i32 noundef 3, i32 noundef %13111) #10
   %13113 = load i32, ptr %13110, align 4
   %13114 = call fastcc ptr @makeNotExpr(ptr noundef %13112, i32 noundef %13113)
   br label %.critedge10155
@@ -24556,17 +24515,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13120 = load ptr, ptr %13119, align 8
   %13121 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13122 = load i32, ptr %13121, align 4
-  %13123 = call ptr @makeStringConst(ptr noundef %13120, i32 noundef %13122) #11
-  %13124 = call ptr @list_make2_impl(i32 noundef 1, ptr %13118, ptr %13123) #11
+  %13123 = call ptr @makeStringConst(ptr noundef %13120, i32 noundef %13122) #10
+  %13124 = call ptr @list_make2_impl(i32 noundef 1, ptr %13118, ptr %13123) #10
   %13125 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13126 = load i32, ptr %13125, align 4
-  %13127 = call ptr @makeFuncCall(ptr noundef %13116, ptr noundef %13124, i32 noundef 3, i32 noundef %13126) #11
+  %13127 = call ptr @makeFuncCall(ptr noundef %13116, ptr noundef %13124, i32 noundef 3, i32 noundef %13126) #10
   %13128 = load i32, ptr %13125, align 4
   %13129 = call fastcc ptr @makeNotExpr(ptr noundef %13127, i32 noundef %13128)
   br label %.critedge10155
 
 13130:                                            ; preds = %._crit_edge
-  %13131 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #11
+  %13131 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #10
   %13132 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %13133 = load ptr, ptr %13132, align 8
   %13134 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -24575,11 +24534,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13137 = trunc nuw i8 %13136 to i1
   %13138 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13139 = load i32, ptr %13138, align 4
-  %13140 = call ptr @makeJsonIsPredicate(ptr noundef %13133, ptr noundef %13131, i32 noundef %13135, i1 noundef zeroext %13137, i32 noundef %13139) #11
+  %13140 = call ptr @makeJsonIsPredicate(ptr noundef %13133, ptr noundef %13131, i32 noundef %13135, i1 noundef zeroext %13137, i32 noundef %13139) #10
   br label %.critedge10155
 
 13141:                                            ; preds = %._crit_edge
-  %13142 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #11
+  %13142 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #10
   %13143 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %13144 = load ptr, ptr %13143, align 8
   %13145 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -24588,13 +24547,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13148 = trunc nuw i8 %13147 to i1
   %13149 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13150 = load i32, ptr %13149, align 4
-  %13151 = call ptr @makeJsonIsPredicate(ptr noundef %13144, ptr noundef %13142, i32 noundef %13146, i1 noundef zeroext %13148, i32 noundef %13150) #11
+  %13151 = call ptr @makeJsonIsPredicate(ptr noundef %13144, ptr noundef %13142, i32 noundef %13146, i1 noundef zeroext %13148, i32 noundef %13150) #10
   %13152 = load i32, ptr %13149, align 4
   %13153 = call fastcc ptr @makeNotExpr(ptr noundef %13151, i32 noundef %13152)
   br label %.critedge10155
 
 13154:                                            ; preds = %._crit_edge
-  %13155 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13155 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 57, ptr %13155, align 4
   %13156 = load i32, ptr %.210013, align 4
   %13157 = getelementptr inbounds nuw i8, ptr %13155, i64 16
@@ -24611,7 +24570,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13163 = load ptr, ptr %.210001, align 8
   %13164 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13165 = load i32, ptr %13164, align 4
-  %13166 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %13166 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 73, ptr %13166, align 4
   %13167 = getelementptr inbounds nuw i8, ptr %13166, i64 8
   store ptr %13162, ptr %13167, align 8
@@ -24625,7 +24584,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13171 = load ptr, ptr %.210001, align 8
   %13172 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13173 = load i32, ptr %13172, align 4
-  %13174 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef %13171, i32 noundef %13173) #11
+  %13174 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef %13171, i32 noundef %13173) #10
   br label %.critedge10155
 
 13175:                                            ; preds = %._crit_edge
@@ -24641,7 +24600,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13183 = load ptr, ptr %.210001, align 8
   %13184 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13185 = load i32, ptr %13184, align 4
-  %13186 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef %13182, ptr noundef %13183, i32 noundef %13185) #11
+  %13186 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.161, ptr noundef %13182, ptr noundef %13183, i32 noundef %13185) #10
   br label %.critedge10155
 
 13187:                                            ; preds = %._crit_edge
@@ -24650,7 +24609,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13190 = load ptr, ptr %.210001, align 8
   %13191 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13192 = load i32, ptr %13191, align 4
-  %13193 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %13189, ptr noundef %13190, i32 noundef %13192) #11
+  %13193 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef %13189, ptr noundef %13190, i32 noundef %13192) #10
   br label %.critedge10155
 
 13194:                                            ; preds = %._crit_edge
@@ -24659,7 +24618,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13197 = load ptr, ptr %.210001, align 8
   %13198 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13199 = load i32, ptr %13198, align 4
-  %13200 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.189, ptr noundef %13196, ptr noundef %13197, i32 noundef %13199) #11
+  %13200 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.189, ptr noundef %13196, ptr noundef %13197, i32 noundef %13199) #10
   br label %.critedge10155
 
 13201:                                            ; preds = %._crit_edge
@@ -24668,7 +24627,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13204 = load ptr, ptr %.210001, align 8
   %13205 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13206 = load i32, ptr %13205, align 4
-  %13207 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.190, ptr noundef %13203, ptr noundef %13204, i32 noundef %13206) #11
+  %13207 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.190, ptr noundef %13203, ptr noundef %13204, i32 noundef %13206) #10
   br label %.critedge10155
 
 13208:                                            ; preds = %._crit_edge
@@ -24677,7 +24636,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13211 = load ptr, ptr %.210001, align 8
   %13212 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13213 = load i32, ptr %13212, align 4
-  %13214 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.191, ptr noundef %13210, ptr noundef %13211, i32 noundef %13213) #11
+  %13214 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.191, ptr noundef %13210, ptr noundef %13211, i32 noundef %13213) #10
   br label %.critedge10155
 
 13215:                                            ; preds = %._crit_edge
@@ -24686,7 +24645,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13218 = load ptr, ptr %.210001, align 8
   %13219 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13220 = load i32, ptr %13219, align 4
-  %13221 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.192, ptr noundef %13217, ptr noundef %13218, i32 noundef %13220) #11
+  %13221 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.192, ptr noundef %13217, ptr noundef %13218, i32 noundef %13220) #10
   br label %.critedge10155
 
 13222:                                            ; preds = %._crit_edge
@@ -24695,7 +24654,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13225 = load ptr, ptr %.210001, align 8
   %13226 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13227 = load i32, ptr %13226, align 4
-  %13228 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.193, ptr noundef %13224, ptr noundef %13225, i32 noundef %13227) #11
+  %13228 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.193, ptr noundef %13224, ptr noundef %13225, i32 noundef %13227) #10
   br label %.critedge10155
 
 13229:                                            ; preds = %._crit_edge
@@ -24704,7 +24663,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13232 = load ptr, ptr %.210001, align 8
   %13233 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13234 = load i32, ptr %13233, align 4
-  %13235 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.194, ptr noundef %13231, ptr noundef %13232, i32 noundef %13234) #11
+  %13235 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.194, ptr noundef %13231, ptr noundef %13232, i32 noundef %13234) #10
   br label %.critedge10155
 
 13236:                                            ; preds = %._crit_edge
@@ -24713,7 +24672,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13239 = load ptr, ptr %.210001, align 8
   %13240 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13241 = load i32, ptr %13240, align 4
-  %13242 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.195, ptr noundef %13238, ptr noundef %13239, i32 noundef %13241) #11
+  %13242 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.195, ptr noundef %13238, ptr noundef %13239, i32 noundef %13241) #10
   br label %.critedge10155
 
 13243:                                            ; preds = %._crit_edge
@@ -24722,7 +24681,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13246 = load ptr, ptr %.210001, align 8
   %13247 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13248 = load i32, ptr %13247, align 4
-  %13249 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.196, ptr noundef %13245, ptr noundef %13246, i32 noundef %13248) #11
+  %13249 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.196, ptr noundef %13245, ptr noundef %13246, i32 noundef %13248) #10
   br label %.critedge10155
 
 13250:                                            ; preds = %._crit_edge
@@ -24731,7 +24690,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13253 = load ptr, ptr %.210001, align 8
   %13254 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13255 = load i32, ptr %13254, align 4
-  %13256 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.197, ptr noundef %13252, ptr noundef %13253, i32 noundef %13255) #11
+  %13256 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.197, ptr noundef %13252, ptr noundef %13253, i32 noundef %13255) #10
   br label %.critedge10155
 
 13257:                                            ; preds = %._crit_edge
@@ -24740,7 +24699,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13260 = load ptr, ptr %.210001, align 8
   %13261 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13262 = load i32, ptr %13261, align 4
-  %13263 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.198, ptr noundef %13259, ptr noundef %13260, i32 noundef %13262) #11
+  %13263 = call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.198, ptr noundef %13259, ptr noundef %13260, i32 noundef %13262) #10
   br label %.critedge10155
 
 13264:                                            ; preds = %._crit_edge
@@ -24751,7 +24710,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13269 = load ptr, ptr %.210001, align 8
   %13270 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13271 = load i32, ptr %13270, align 4
-  %13272 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %13266, ptr noundef %13268, ptr noundef %13269, i32 noundef %13271) #11
+  %13272 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %13266, ptr noundef %13268, ptr noundef %13269, i32 noundef %13271) #10
   br label %.critedge10155
 
 13273:                                            ; preds = %._crit_edge
@@ -24760,7 +24719,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13276 = load ptr, ptr %.210001, align 8
   %13277 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13278 = load i32, ptr %13277, align 4
-  %13279 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %13275, ptr noundef null, ptr noundef %13276, i32 noundef %13278) #11
+  %13279 = call ptr @makeA_Expr(i32 noundef 0, ptr noundef %13275, ptr noundef null, ptr noundef %13276, i32 noundef %13278) #10
   br label %.critedge10155
 
 13280:                                            ; preds = %._crit_edge
@@ -24769,7 +24728,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13283 = load ptr, ptr %.210001, align 8
   %13284 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13285 = load i32, ptr %13284, align 4
-  %13286 = call ptr @makeSimpleA_Expr(i32 noundef 3, ptr noundef nonnull @.str.195, ptr noundef %13282, ptr noundef %13283, i32 noundef %13285) #11
+  %13286 = call ptr @makeSimpleA_Expr(i32 noundef 3, ptr noundef nonnull @.str.195, ptr noundef %13282, ptr noundef %13283, i32 noundef %13285) #10
   br label %.critedge10155
 
 13287:                                            ; preds = %._crit_edge
@@ -24778,16 +24737,16 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13290 = load ptr, ptr %.210001, align 8
   %13291 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13292 = load i32, ptr %13291, align 4
-  %13293 = call ptr @makeSimpleA_Expr(i32 noundef 4, ptr noundef nonnull @.str.195, ptr noundef %13289, ptr noundef %13290, i32 noundef %13292) #11
+  %13293 = call ptr @makeSimpleA_Expr(i32 noundef 4, ptr noundef nonnull @.str.195, ptr noundef %13289, ptr noundef %13290, i32 noundef %13292) #10
   br label %.critedge10155
 
 13294:                                            ; preds = %._crit_edge
   %13295 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13296 = load ptr, ptr %13295, align 8
-  %13297 = call ptr @list_make1_impl(i32 noundef 1, ptr %13296) #11
+  %13297 = call ptr @list_make1_impl(i32 noundef 1, ptr %13296) #10
   %13298 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13299 = load i32, ptr %13298, align 4
-  %13300 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13300 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13300, align 4
   %13301 = getelementptr inbounds nuw i8, ptr %13300, i64 4
   store i32 7, ptr %13301, align 4
@@ -24804,10 +24763,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 13306:                                            ; preds = %._crit_edge
   %13307 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %13308 = load ptr, ptr %13307, align 8
-  %13309 = call ptr @list_make1_impl(i32 noundef 1, ptr %13308) #11
+  %13309 = call ptr @list_make1_impl(i32 noundef 1, ptr %13308) #10
   %13310 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13311 = load i32, ptr %13310, align 4
-  %13312 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13312 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13312, align 4
   %13313 = getelementptr inbounds nuw i8, ptr %13312, i64 4
   store i32 7, ptr %13313, align 4
@@ -24832,7 +24791,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13324:                                            ; preds = %._crit_edge
-  %13325 = call noundef ptr @palloc0(i64 noundef 12) #11
+  %13325 = call noundef ptr @palloc0(i64 noundef 12) #10
   store i32 70, ptr %13325, align 4
   %13326 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13327 = load i32, ptr %13326, align 8
@@ -24847,7 +24806,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10102, label %.critedge10155, label %13333
 
 13333:                                            ; preds = %13324
-  %13334 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %13334 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 79, ptr %13334, align 4
   %13335 = getelementptr inbounds nuw i8, ptr %13334, i64 8
   store ptr %13325, ptr %13335, align 8
@@ -24863,7 +24822,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10101, label %13349, label %13341
 
 13341:                                            ; preds = %13339
-  %13342 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %13342 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 79, ptr %13342, align 4
   %13343 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13344 = load ptr, ptr %13343, align 8
@@ -24889,7 +24848,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13356:                                            ; preds = %._crit_edge
-  %13357 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %13357 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %13357, align 4
   %13358 = getelementptr inbounds nuw i8, ptr %13357, i64 4
   store i32 4, ptr %13358, align 4
@@ -24906,9 +24865,9 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13365:                                            ; preds = %._crit_edge
-  %13366 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %13366 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %13366, align 4
-  %13367 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %13367 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 79, ptr %13367, align 4
   %13368 = getelementptr inbounds nuw i8, ptr %13366, i64 4
   store i32 4, ptr %13368, align 4
@@ -24933,7 +24892,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13381:                                            ; preds = %._crit_edge
-  %13382 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %13382 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %13382, align 4
   %13383 = getelementptr inbounds nuw i8, ptr %13382, i64 4
   store i32 0, ptr %13383, align 4
@@ -24951,7 +24910,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13391:                                            ; preds = %._crit_edge
-  %13392 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %13392 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %13392, align 4
   %13393 = getelementptr inbounds nuw i8, ptr %13392, i64 4
   store i32 6, ptr %13393, align 4
@@ -24977,7 +24936,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13406:                                            ; preds = %._crit_edge
-  %13407 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %13407 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 36, ptr %13407, align 4
   %13408 = load ptr, ptr %.210001, align 8
   %13409 = getelementptr inbounds nuw i8, ptr %13407, i64 8
@@ -24990,7 +24949,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13413:                                            ; preds = %._crit_edge
-  %13414 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %13414 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 36, ptr %13414, align 4
   %13415 = load ptr, ptr %.210001, align 8
   %13416 = getelementptr inbounds nuw i8, ptr %13414, i64 8
@@ -25007,7 +24966,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13422:                                            ; preds = %._crit_edge
-  %13423 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %13423 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 10, ptr %13423, align 4
   %13424 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13425 = load ptr, ptr %13424, align 8
@@ -25024,7 +24983,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13432 = load ptr, ptr %13431, align 8
   %13433 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13434 = load i32, ptr %13433, align 4
-  %13435 = call ptr @makeFuncCall(ptr noundef %13432, ptr noundef null, i32 noundef 0, i32 noundef %13434) #11
+  %13435 = call ptr @makeFuncCall(ptr noundef %13432, ptr noundef null, i32 noundef 0, i32 noundef %13434) #10
   br label %.critedge10155
 
 13436:                                            ; preds = %._crit_edge
@@ -25034,7 +24993,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13440 = load ptr, ptr %13439, align 8
   %13441 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13442 = load i32, ptr %13441, align 4
-  %13443 = call ptr @makeFuncCall(ptr noundef %13438, ptr noundef %13440, i32 noundef 0, i32 noundef %13442) #11
+  %13443 = call ptr @makeFuncCall(ptr noundef %13438, ptr noundef %13440, i32 noundef 0, i32 noundef %13442) #10
   %13444 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13445 = load ptr, ptr %13444, align 8
   %13446 = getelementptr inbounds nuw i8, ptr %13443, i64 24
@@ -25046,10 +25005,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13449 = load ptr, ptr %13448, align 8
   %13450 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13451 = load ptr, ptr %13450, align 8
-  %13452 = call ptr @list_make1_impl(i32 noundef 1, ptr %13451) #11
+  %13452 = call ptr @list_make1_impl(i32 noundef 1, ptr %13451) #10
   %13453 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13454 = load i32, ptr %13453, align 4
-  %13455 = call ptr @makeFuncCall(ptr noundef %13449, ptr noundef %13452, i32 noundef 0, i32 noundef %13454) #11
+  %13455 = call ptr @makeFuncCall(ptr noundef %13449, ptr noundef %13452, i32 noundef 0, i32 noundef %13454) #10
   %13456 = getelementptr inbounds nuw i8, ptr %13455, i64 51
   store i8 1, ptr %13456, align 1
   %13457 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -25065,10 +25024,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13464 = load ptr, ptr %13463, align 8
   %13465 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %13466 = load ptr, ptr %13465, align 8
-  %13467 = call ptr @lappend(ptr noundef %13464, ptr noundef %13466) #11
+  %13467 = call ptr @lappend(ptr noundef %13464, ptr noundef %13466) #10
   %13468 = getelementptr inbounds i8, ptr %.210013, i64 -28
   %13469 = load i32, ptr %13468, align 4
-  %13470 = call ptr @makeFuncCall(ptr noundef %13462, ptr noundef %13467, i32 noundef 0, i32 noundef %13469) #11
+  %13470 = call ptr @makeFuncCall(ptr noundef %13462, ptr noundef %13467, i32 noundef 0, i32 noundef %13469) #10
   %13471 = getelementptr inbounds nuw i8, ptr %13470, i64 51
   store i8 1, ptr %13471, align 1
   %13472 = getelementptr inbounds i8, ptr %.210001, i64 -8
@@ -25084,7 +25043,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13479 = load ptr, ptr %13478, align 8
   %13480 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13481 = load i32, ptr %13480, align 4
-  %13482 = call ptr @makeFuncCall(ptr noundef %13477, ptr noundef %13479, i32 noundef 0, i32 noundef %13481) #11
+  %13482 = call ptr @makeFuncCall(ptr noundef %13477, ptr noundef %13479, i32 noundef 0, i32 noundef %13481) #10
   %13483 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13484 = load ptr, ptr %13483, align 8
   %13485 = getelementptr inbounds nuw i8, ptr %13482, i64 24
@@ -25098,7 +25057,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13490 = load ptr, ptr %13489, align 8
   %13491 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13492 = load i32, ptr %13491, align 4
-  %13493 = call ptr @makeFuncCall(ptr noundef %13488, ptr noundef %13490, i32 noundef 0, i32 noundef %13492) #11
+  %13493 = call ptr @makeFuncCall(ptr noundef %13488, ptr noundef %13490, i32 noundef 0, i32 noundef %13492) #10
   %13494 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13495 = load ptr, ptr %13494, align 8
   %13496 = getelementptr inbounds nuw i8, ptr %13493, i64 24
@@ -25112,7 +25071,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13500 = load ptr, ptr %13499, align 8
   %13501 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13502 = load i32, ptr %13501, align 4
-  %13503 = call ptr @makeFuncCall(ptr noundef %13500, ptr noundef null, i32 noundef 0, i32 noundef %13502) #11
+  %13503 = call ptr @makeFuncCall(ptr noundef %13500, ptr noundef null, i32 noundef 0, i32 noundef %13502) #10
   %13504 = getelementptr inbounds nuw i8, ptr %13503, i64 49
   store i8 1, ptr %13504, align 1
   br label %.critedge10155
@@ -25132,14 +25091,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10100, label %13520, label %13513
 
 13513:                                            ; preds = %13510
-  %13514 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %13514)
-  %13515 = call i32 @errcode(i32 noundef 16801924) #11
-  %13516 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.216) #11
+  %13514 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %13515 = call i32 @errcode(i32 noundef 16801924) #10
+  %13516 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.216) #10
   %13517 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13518 = load i32, ptr %13517, align 4
-  %13519 = call i32 @scanner_errposition(i32 noundef %13518, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15751, ptr noundef nonnull @__func__.base_yyparse) #11
+  %13519 = call i32 @scanner_errposition(i32 noundef %13518, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15751, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 13520:                                            ; preds = %13510
@@ -25149,14 +25107,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %13523, label %13524, label %13531
 
 13524:                                            ; preds = %13520
-  %13525 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %13525)
-  %13526 = call i32 @errcode(i32 noundef 16801924) #11
-  %13527 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.217) #11
+  %13525 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %13526 = call i32 @errcode(i32 noundef 16801924) #10
+  %13527 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.217) #10
   %13528 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13529 = load i32, ptr %13528, align 4
-  %13530 = call i32 @scanner_errposition(i32 noundef %13529, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15756, ptr noundef nonnull @__func__.base_yyparse) #11
+  %13530 = call i32 @scanner_errposition(i32 noundef %13529, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15756, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 13531:                                            ; preds = %13520
@@ -25166,14 +25123,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %13534, label %13535, label %13542
 
 13535:                                            ; preds = %13531
-  %13536 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %13536)
-  %13537 = call i32 @errcode(i32 noundef 16801924) #11
-  %13538 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.218) #11
+  %13536 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %13537 = call i32 @errcode(i32 noundef 16801924) #10
+  %13538 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.218) #10
   %13539 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %13540 = load i32, ptr %13539, align 4
-  %13541 = call i32 @scanner_errposition(i32 noundef %13540, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15761, ptr noundef nonnull @__func__.base_yyparse) #11
+  %13541 = call i32 @scanner_errposition(i32 noundef %13540, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 15761, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 13542:                                            ; preds = %13531
@@ -25227,15 +25183,15 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13569 = call ptr @SystemFuncName(ptr noundef nonnull @.str.219)
   %13570 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13571 = load ptr, ptr %13570, align 8
-  %13572 = call ptr @list_make1_impl(i32 noundef 1, ptr %13571) #11
+  %13572 = call ptr @list_make1_impl(i32 noundef 1, ptr %13571) #10
   %13573 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13574 = load i32, ptr %13573, align 4
-  %13575 = call ptr @makeFuncCall(ptr noundef %13569, ptr noundef %13572, i32 noundef 3, i32 noundef %13574) #11
+  %13575 = call ptr @makeFuncCall(ptr noundef %13569, ptr noundef %13572, i32 noundef 3, i32 noundef %13574) #10
   br label %.critedge10155
 
 13576:                                            ; preds = %._crit_edge
   %13577 = load i32, ptr %.210013, align 4
-  %13578 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13578 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13578, align 4
   %13579 = getelementptr inbounds nuw i8, ptr %13578, i64 4
   store i32 0, ptr %13579, align 4
@@ -25247,7 +25203,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13582:                                            ; preds = %._crit_edge
   %13583 = load i32, ptr %.210013, align 4
-  %13584 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13584 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13584, align 4
   %13585 = getelementptr inbounds nuw i8, ptr %13584, i64 4
   store i32 1, ptr %13585, align 4
@@ -25262,7 +25218,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13590 = load i32, ptr %13589, align 8
   %13591 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13592 = load i32, ptr %13591, align 4
-  %13593 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13593 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13593, align 4
   %13594 = getelementptr inbounds nuw i8, ptr %13593, i64 4
   store i32 2, ptr %13594, align 4
@@ -25274,7 +25230,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13597:                                            ; preds = %._crit_edge
   %13598 = load i32, ptr %.210013, align 4
-  %13599 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13599 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13599, align 4
   %13600 = getelementptr inbounds nuw i8, ptr %13599, i64 4
   store i32 3, ptr %13600, align 4
@@ -25289,7 +25245,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13605 = load i32, ptr %13604, align 8
   %13606 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13607 = load i32, ptr %13606, align 4
-  %13608 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13608 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13608, align 4
   %13609 = getelementptr inbounds nuw i8, ptr %13608, i64 4
   store i32 4, ptr %13609, align 4
@@ -25301,7 +25257,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13612:                                            ; preds = %._crit_edge
   %13613 = load i32, ptr %.210013, align 4
-  %13614 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13614 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13614, align 4
   %13615 = getelementptr inbounds nuw i8, ptr %13614, i64 4
   store i32 5, ptr %13615, align 4
@@ -25316,7 +25272,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13620 = load i32, ptr %13619, align 8
   %13621 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13622 = load i32, ptr %13621, align 4
-  %13623 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13623 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13623, align 4
   %13624 = getelementptr inbounds nuw i8, ptr %13623, i64 4
   store i32 6, ptr %13624, align 4
@@ -25328,7 +25284,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13627:                                            ; preds = %._crit_edge
   %13628 = load i32, ptr %.210013, align 4
-  %13629 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13629 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13629, align 4
   %13630 = getelementptr inbounds nuw i8, ptr %13629, i64 4
   store i32 7, ptr %13630, align 4
@@ -25343,7 +25299,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13635 = load i32, ptr %13634, align 8
   %13636 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13637 = load i32, ptr %13636, align 4
-  %13638 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13638 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13638, align 4
   %13639 = getelementptr inbounds nuw i8, ptr %13638, i64 4
   store i32 8, ptr %13639, align 4
@@ -25355,7 +25311,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13642:                                            ; preds = %._crit_edge
   %13643 = load i32, ptr %.210013, align 4
-  %13644 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13644 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13644, align 4
   %13645 = getelementptr inbounds nuw i8, ptr %13644, i64 4
   store i32 9, ptr %13645, align 4
@@ -25367,7 +25323,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13648:                                            ; preds = %._crit_edge
   %13649 = load i32, ptr %.210013, align 4
-  %13650 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13650 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13650, align 4
   %13651 = getelementptr inbounds nuw i8, ptr %13650, i64 4
   store i32 10, ptr %13651, align 4
@@ -25379,7 +25335,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13654:                                            ; preds = %._crit_edge
   %13655 = load i32, ptr %.210013, align 4
-  %13656 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13656 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13656, align 4
   %13657 = getelementptr inbounds nuw i8, ptr %13656, i64 4
   store i32 12, ptr %13657, align 4
@@ -25392,12 +25348,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 13660:                                            ; preds = %._crit_edge
   %13661 = call ptr @SystemFuncName(ptr noundef nonnull @.str.220)
   %13662 = load i32, ptr %.210013, align 4
-  %13663 = call ptr @makeFuncCall(ptr noundef %13661, ptr noundef null, i32 noundef 3, i32 noundef %13662) #11
+  %13663 = call ptr @makeFuncCall(ptr noundef %13661, ptr noundef null, i32 noundef 3, i32 noundef %13662) #10
   br label %.critedge10155
 
 13664:                                            ; preds = %._crit_edge
   %13665 = load i32, ptr %.210013, align 4
-  %13666 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13666 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13666, align 4
   %13667 = getelementptr inbounds nuw i8, ptr %13666, i64 4
   store i32 11, ptr %13667, align 4
@@ -25409,7 +25365,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13670:                                            ; preds = %._crit_edge
   %13671 = load i32, ptr %.210013, align 4
-  %13672 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13672 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13672, align 4
   %13673 = getelementptr inbounds nuw i8, ptr %13672, i64 4
   store i32 13, ptr %13673, align 4
@@ -25421,7 +25377,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 13676:                                            ; preds = %._crit_edge
   %13677 = load i32, ptr %.210013, align 4
-  %13678 = call noundef ptr @palloc0(i64 noundef 20) #11
+  %13678 = call noundef ptr @palloc0(i64 noundef 20) #10
   store i32 40, ptr %13678, align 4
   %13679 = getelementptr inbounds nuw i8, ptr %13678, i64 4
   store i32 14, ptr %13679, align 4
@@ -25438,7 +25394,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13686 = load ptr, ptr %13685, align 8
   %13687 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13688 = load i32, ptr %13687, align 4
-  %13689 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %13689 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 73, ptr %13689, align 4
   %13690 = getelementptr inbounds nuw i8, ptr %13689, i64 8
   store ptr %13684, ptr %13690, align 8
@@ -25454,17 +25410,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13696 = load ptr, ptr %13695, align 8
   %13697 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13698 = load i32, ptr %13697, align 4
-  %13699 = call ptr @makeFuncCall(ptr noundef %13694, ptr noundef %13696, i32 noundef 3, i32 noundef %13698) #11
+  %13699 = call ptr @makeFuncCall(ptr noundef %13694, ptr noundef %13696, i32 noundef 3, i32 noundef %13698) #10
   br label %.critedge10155
 
 13700:                                            ; preds = %._crit_edge
   %13701 = call ptr @SystemFuncName(ptr noundef nonnull @.str.222)
   %13702 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13703 = load ptr, ptr %13702, align 8
-  %13704 = call ptr @list_make1_impl(i32 noundef 1, ptr %13703) #11
+  %13704 = call ptr @list_make1_impl(i32 noundef 1, ptr %13703) #10
   %13705 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13706 = load i32, ptr %13705, align 4
-  %13707 = call ptr @makeFuncCall(ptr noundef %13701, ptr noundef %13704, i32 noundef 3, i32 noundef %13706) #11
+  %13707 = call ptr @makeFuncCall(ptr noundef %13701, ptr noundef %13704, i32 noundef 3, i32 noundef %13706) #10
   br label %.critedge10155
 
 13708:                                            ; preds = %._crit_edge
@@ -25475,11 +25431,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13713 = load ptr, ptr %13712, align 8
   %13714 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %13715 = load i32, ptr %13714, align 4
-  %13716 = call ptr @makeStringConst(ptr noundef %13713, i32 noundef %13715) #11
-  %13717 = call ptr @list_make2_impl(i32 noundef 1, ptr %13711, ptr %13716) #11
+  %13716 = call ptr @makeStringConst(ptr noundef %13713, i32 noundef %13715) #10
+  %13717 = call ptr @list_make2_impl(i32 noundef 1, ptr %13711, ptr %13716) #10
   %13718 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13719 = load i32, ptr %13718, align 4
-  %13720 = call ptr @makeFuncCall(ptr noundef %13709, ptr noundef %13717, i32 noundef 3, i32 noundef %13719) #11
+  %13720 = call ptr @makeFuncCall(ptr noundef %13709, ptr noundef %13717, i32 noundef 3, i32 noundef %13719) #10
   br label %.critedge10155
 
 13721:                                            ; preds = %._crit_edge
@@ -25488,17 +25444,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13724 = load ptr, ptr %13723, align 8
   %13725 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13726 = load i32, ptr %13725, align 4
-  %13727 = call ptr @makeFuncCall(ptr noundef %13722, ptr noundef %13724, i32 noundef 3, i32 noundef %13726) #11
+  %13727 = call ptr @makeFuncCall(ptr noundef %13722, ptr noundef %13724, i32 noundef 3, i32 noundef %13726) #10
   br label %.critedge10155
 
 13728:                                            ; preds = %._crit_edge
-  %13729 = call ptr @makeString(ptr noundef nonnull @.str.223) #11
-  %13730 = call ptr @list_make1_impl(i32 noundef 1, ptr %13729) #11
+  %13729 = call ptr @makeString(ptr noundef nonnull @.str.223) #10
+  %13730 = call ptr @list_make1_impl(i32 noundef 1, ptr %13729) #10
   %13731 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13732 = load ptr, ptr %13731, align 8
   %13733 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13734 = load i32, ptr %13733, align 4
-  %13735 = call ptr @makeFuncCall(ptr noundef %13730, ptr noundef %13732, i32 noundef 0, i32 noundef %13734) #11
+  %13735 = call ptr @makeFuncCall(ptr noundef %13730, ptr noundef %13732, i32 noundef 0, i32 noundef %13734) #10
   br label %.critedge10155
 
 13736:                                            ; preds = %._crit_edge
@@ -25507,7 +25463,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13739 = load ptr, ptr %13738, align 8
   %13740 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13741 = load i32, ptr %13740, align 4
-  %13742 = call ptr @makeFuncCall(ptr noundef %13737, ptr noundef %13739, i32 noundef 3, i32 noundef %13741) #11
+  %13742 = call ptr @makeFuncCall(ptr noundef %13737, ptr noundef %13739, i32 noundef 3, i32 noundef %13741) #10
   br label %.critedge10155
 
 13743:                                            ; preds = %._crit_edge
@@ -25516,17 +25472,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13746 = load ptr, ptr %13745, align 8
   %13747 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13748 = load i32, ptr %13747, align 4
-  %13749 = call ptr @makeFuncCall(ptr noundef %13744, ptr noundef %13746, i32 noundef 3, i32 noundef %13748) #11
+  %13749 = call ptr @makeFuncCall(ptr noundef %13744, ptr noundef %13746, i32 noundef 3, i32 noundef %13748) #10
   br label %.critedge10155
 
 13750:                                            ; preds = %._crit_edge
-  %13751 = call ptr @makeString(ptr noundef nonnull @.str.225) #11
-  %13752 = call ptr @list_make1_impl(i32 noundef 1, ptr %13751) #11
+  %13751 = call ptr @makeString(ptr noundef nonnull @.str.225) #10
+  %13752 = call ptr @list_make1_impl(i32 noundef 1, ptr %13751) #10
   %13753 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13754 = load ptr, ptr %13753, align 8
   %13755 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13756 = load i32, ptr %13755, align 4
-  %13757 = call ptr @makeFuncCall(ptr noundef %13752, ptr noundef %13754, i32 noundef 0, i32 noundef %13756) #11
+  %13757 = call ptr @makeFuncCall(ptr noundef %13752, ptr noundef %13754, i32 noundef 0, i32 noundef %13756) #10
   br label %.critedge10155
 
 13758:                                            ; preds = %._crit_edge
@@ -25547,10 +25503,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13771 = call ptr @SystemFuncName(ptr noundef %13770)
   %13772 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %13773 = load ptr, ptr %13772, align 8
-  %13774 = call ptr @list_make1_impl(i32 noundef 1, ptr %13773) #11
+  %13774 = call ptr @list_make1_impl(i32 noundef 1, ptr %13773) #10
   %13775 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13776 = load i32, ptr %13775, align 4
-  %13777 = call ptr @makeFuncCall(ptr noundef %13771, ptr noundef %13774, i32 noundef 0, i32 noundef %13776) #11
+  %13777 = call ptr @makeFuncCall(ptr noundef %13771, ptr noundef %13774, i32 noundef 0, i32 noundef %13776) #10
   br label %.critedge10155
 
 13778:                                            ; preds = %._crit_edge
@@ -25559,7 +25515,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13781 = load ptr, ptr %13780, align 8
   %13782 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13783 = load i32, ptr %13782, align 4
-  %13784 = call ptr @makeFuncCall(ptr noundef %13779, ptr noundef %13781, i32 noundef 3, i32 noundef %13783) #11
+  %13784 = call ptr @makeFuncCall(ptr noundef %13779, ptr noundef %13781, i32 noundef 3, i32 noundef %13783) #10
   br label %.critedge10155
 
 13785:                                            ; preds = %._crit_edge
@@ -25568,7 +25524,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13788 = load ptr, ptr %13787, align 8
   %13789 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13790 = load i32, ptr %13789, align 4
-  %13791 = call ptr @makeFuncCall(ptr noundef %13786, ptr noundef %13788, i32 noundef 3, i32 noundef %13790) #11
+  %13791 = call ptr @makeFuncCall(ptr noundef %13786, ptr noundef %13788, i32 noundef 3, i32 noundef %13790) #10
   br label %.critedge10155
 
 13792:                                            ; preds = %._crit_edge
@@ -25577,7 +25533,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13795 = load ptr, ptr %13794, align 8
   %13796 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13797 = load i32, ptr %13796, align 4
-  %13798 = call ptr @makeFuncCall(ptr noundef %13793, ptr noundef %13795, i32 noundef 3, i32 noundef %13797) #11
+  %13798 = call ptr @makeFuncCall(ptr noundef %13793, ptr noundef %13795, i32 noundef 3, i32 noundef %13797) #10
   br label %.critedge10155
 
 13799:                                            ; preds = %._crit_edge
@@ -25586,7 +25542,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13802 = load ptr, ptr %13801, align 8
   %13803 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13804 = load i32, ptr %13803, align 4
-  %13805 = call ptr @makeFuncCall(ptr noundef %13800, ptr noundef %13802, i32 noundef 3, i32 noundef %13804) #11
+  %13805 = call ptr @makeFuncCall(ptr noundef %13800, ptr noundef %13802, i32 noundef 3, i32 noundef %13804) #10
   br label %.critedge10155
 
 13806:                                            ; preds = %._crit_edge
@@ -25596,11 +25552,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13810 = load ptr, ptr %13809, align 8
   %13811 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13812 = load i32, ptr %13811, align 4
-  %13813 = call ptr @makeSimpleA_Expr(i32 noundef 5, ptr noundef nonnull @.str.195, ptr noundef %13808, ptr noundef %13810, i32 noundef %13812) #11
+  %13813 = call ptr @makeSimpleA_Expr(i32 noundef 5, ptr noundef nonnull @.str.195, ptr noundef %13808, ptr noundef %13810, i32 noundef %13812) #10
   br label %.critedge10155
 
 13814:                                            ; preds = %._crit_edge
-  %13815 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %13815 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 38, ptr %13815, align 4
   %13816 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13817 = load ptr, ptr %13816, align 8
@@ -25613,7 +25569,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13822:                                            ; preds = %._crit_edge
-  %13823 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %13823 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 39, ptr %13823, align 4
   %13824 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13825 = load ptr, ptr %13824, align 8
@@ -25628,7 +25584,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13831:                                            ; preds = %._crit_edge
-  %13832 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %13832 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 39, ptr %13832, align 4
   %13833 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13834 = load ptr, ptr %13833, align 8
@@ -25647,7 +25603,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13842 = load ptr, ptr %13841, align 8
   %13843 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13844 = load i32, ptr %13843, align 4
-  %13845 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13845 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13845, align 4
   %13846 = getelementptr inbounds nuw i8, ptr %13845, i64 4
   %13847 = getelementptr inbounds nuw i8, ptr %13845, i64 32
@@ -25664,7 +25620,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13852 = load ptr, ptr %13851, align 8
   %13853 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13854 = load i32, ptr %13853, align 4
-  %13855 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13855 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13855, align 4
   %13856 = getelementptr inbounds nuw i8, ptr %13855, i64 4
   store i32 1, ptr %13856, align 4
@@ -25685,7 +25641,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13865 = load ptr, ptr %13864, align 8
   %13866 = getelementptr inbounds i8, ptr %.210013, i64 -24
   %13867 = load i32, ptr %13866, align 4
-  %13868 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13868 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13868, align 4
   %13869 = getelementptr inbounds nuw i8, ptr %13868, i64 4
   store i32 1, ptr %13869, align 4
@@ -25708,7 +25664,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13879 = load ptr, ptr %13878, align 8
   %13880 = getelementptr inbounds i8, ptr %.210013, i64 -24
   %13881 = load i32, ptr %13880, align 4
-  %13882 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13882 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13882, align 4
   %13883 = getelementptr inbounds nuw i8, ptr %13882, i64 4
   store i32 1, ptr %13883, align 4
@@ -25733,7 +25689,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13895 = load ptr, ptr %13894, align 8
   %13896 = getelementptr inbounds i8, ptr %.210013, i64 -32
   %13897 = load i32, ptr %13896, align 4
-  %13898 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13898 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13898, align 4
   %13899 = getelementptr inbounds nuw i8, ptr %13898, i64 4
   store i32 1, ptr %13899, align 4
@@ -25757,10 +25713,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13909 = load ptr, ptr %13908, align 8
   %13910 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13911 = load ptr, ptr %13910, align 8
-  %13912 = call ptr @list_make2_impl(i32 noundef 1, ptr %13909, ptr %13911) #11
+  %13912 = call ptr @list_make2_impl(i32 noundef 1, ptr %13909, ptr %13911) #10
   %13913 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13914 = load i32, ptr %13913, align 4
-  %13915 = call ptr @makeFuncCall(ptr noundef %13907, ptr noundef %13912, i32 noundef 3, i32 noundef %13914) #11
+  %13915 = call ptr @makeFuncCall(ptr noundef %13907, ptr noundef %13912, i32 noundef 3, i32 noundef %13914) #10
   br label %.critedge10155
 
 13916:                                            ; preds = %._crit_edge
@@ -25768,7 +25724,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13918 = load ptr, ptr %13917, align 8
   %13919 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %13920 = load i32, ptr %13919, align 4
-  %13921 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13921 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13921, align 4
   %13922 = getelementptr inbounds nuw i8, ptr %13921, i64 4
   store i32 2, ptr %13922, align 4
@@ -25789,7 +25745,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13930 = load ptr, ptr %13929, align 8
   %13931 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13932 = load i8, ptr %13931, align 8, !range !6, !noundef !7
-  %13933 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %13933 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %13933, align 4
   %13934 = getelementptr inbounds nuw i8, ptr %13933, i64 8
   store i32 466, ptr %13934, align 8
@@ -25797,10 +25753,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   store i8 %13932, ptr %13935, align 4
   %13936 = getelementptr inbounds nuw i8, ptr %13933, i64 28
   store i32 -1, ptr %13936, align 4
-  %13937 = call ptr @list_make2_impl(i32 noundef 1, ptr %13930, ptr nonnull %13933) #11
+  %13937 = call ptr @list_make2_impl(i32 noundef 1, ptr %13930, ptr nonnull %13933) #10
   %13938 = getelementptr inbounds i8, ptr %.210013, i64 -20
   %13939 = load i32, ptr %13938, align 4
-  %13940 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13940 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13940, align 4
   %13941 = getelementptr inbounds nuw i8, ptr %13940, i64 4
   store i32 3, ptr %13941, align 4
@@ -25823,7 +25779,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13951 = load ptr, ptr %13950, align 8
   %13952 = getelementptr inbounds i8, ptr %.210013, i64 -16
   %13953 = load i32, ptr %13952, align 4
-  %13954 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13954 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13954, align 4
   %13955 = getelementptr inbounds nuw i8, ptr %13954, i64 4
   store i32 4, ptr %13955, align 4
@@ -25842,10 +25798,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13962 = load ptr, ptr %13961, align 8
   %13963 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13964 = load ptr, ptr %13963, align 8
-  %13965 = call ptr @list_make1_impl(i32 noundef 1, ptr %13964) #11
+  %13965 = call ptr @list_make1_impl(i32 noundef 1, ptr %13964) #10
   %13966 = getelementptr inbounds i8, ptr %.210013, i64 -24
   %13967 = load i32, ptr %13966, align 4
-  %13968 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13968 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13968, align 4
   %13969 = getelementptr inbounds nuw i8, ptr %13968, i64 4
   store i32 4, ptr %13969, align 4
@@ -25868,10 +25824,10 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %13979 = load ptr, ptr %13978, align 8
   %13980 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %13981 = load ptr, ptr %13980, align 8
-  %13982 = call ptr @list_make3_impl(i32 noundef 1, ptr %13977, ptr %13979, ptr %13981) #11
+  %13982 = call ptr @list_make3_impl(i32 noundef 1, ptr %13977, ptr %13979, ptr %13981) #10
   %13983 = getelementptr inbounds i8, ptr %.210013, i64 -24
   %13984 = load i32, ptr %13983, align 4
-  %13985 = call noundef ptr @palloc0(i64 noundef 64) #11
+  %13985 = call noundef ptr @palloc0(i64 noundef 64) #10
   store i32 41, ptr %13985, align 4
   %13986 = getelementptr inbounds nuw i8, ptr %13985, i64 4
   store i32 5, ptr %13986, align 4
@@ -25886,7 +25842,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 13991:                                            ; preds = %._crit_edge
-  %13992 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %13992 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 95, ptr %13992, align 4
   %13993 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %13994 = load i32, ptr %13993, align 8
@@ -25916,11 +25872,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14011 = load ptr, ptr %14010, align 8
   %14012 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %14013 = load i32, ptr %14012, align 4
-  %14014 = call ptr @makeFuncCall(ptr noundef %14009, ptr noundef %14011, i32 noundef 0, i32 noundef %14013) #11
+  %14014 = call ptr @makeFuncCall(ptr noundef %14009, ptr noundef %14011, i32 noundef 0, i32 noundef %14013) #10
   br label %.critedge10155
 
 14015:                                            ; preds = %._crit_edge
-  %14016 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14016 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 130, ptr %14016, align 4
   %14017 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %14018 = load ptr, ptr %14017, align 8
@@ -25945,7 +25901,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14032:                                            ; preds = %._crit_edge
-  %14033 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14033 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 130, ptr %14033, align 4
   %14034 = getelementptr inbounds nuw i8, ptr %14033, i64 8
   store ptr null, ptr %14034, align 8
@@ -25964,7 +25920,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14043:                                            ; preds = %._crit_edge
-  %14044 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14044 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 131, ptr %14044, align 4
   %14045 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %14046 = load ptr, ptr %14045, align 8
@@ -25985,7 +25941,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14057:                                            ; preds = %._crit_edge
-  %14058 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %14058 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 132, ptr %14058, align 4
   %14059 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %14060 = load ptr, ptr %14059, align 8
@@ -26008,7 +25964,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14072:                                            ; preds = %._crit_edge
-  %14073 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14073 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 131, ptr %14073, align 4
   %14074 = getelementptr inbounds nuw i8, ptr %14073, i64 8
   store ptr null, ptr %14074, align 8
@@ -26025,7 +25981,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14082:                                            ; preds = %._crit_edge
-  %14083 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14083 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 127, ptr %14083, align 4
   %14084 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14085 = load ptr, ptr %14084, align 8
@@ -26044,7 +26000,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14094:                                            ; preds = %._crit_edge
-  %14095 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14095 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 128, ptr %14095, align 4
   %14096 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14097 = load ptr, ptr %14096, align 8
@@ -26059,7 +26015,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14103:                                            ; preds = %._crit_edge
-  %14104 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14104 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 129, ptr %14104, align 4
   %14105 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14106 = load ptr, ptr %14105, align 8
@@ -26076,7 +26032,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14114:                                            ; preds = %._crit_edge
-  %14115 = call noundef ptr @palloc0(i64 noundef 16) #11
+  %14115 = call noundef ptr @palloc0(i64 noundef 16) #10
   store i32 13, ptr %14115, align 4
   %14116 = getelementptr inbounds nuw i8, ptr %14115, i64 4
   store i32 25, ptr %14116, align 4
@@ -26087,7 +26043,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14120:                                            ; preds = %._crit_edge
-  %14121 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %14121 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 122, ptr %14121, align 4
   %14122 = getelementptr inbounds nuw i8, ptr %14121, i64 4
   store i32 1, ptr %14122, align 4
@@ -26136,7 +26092,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14154:                                            ; preds = %._crit_edge
-  %14155 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %14155 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 122, ptr %14155, align 4
   %14156 = getelementptr inbounds nuw i8, ptr %14155, i64 4
   store i32 0, ptr %14156, align 4
@@ -26165,7 +26121,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14173:                                            ; preds = %._crit_edge
-  %14174 = call noundef ptr @palloc0(i64 noundef 80) #11
+  %14174 = call noundef ptr @palloc0(i64 noundef 80) #10
   store i32 122, ptr %14174, align 4
   %14175 = getelementptr inbounds nuw i8, ptr %14174, i64 4
   store i32 2, ptr %14175, align 4
@@ -26210,7 +26166,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14203:                                            ; preds = %._crit_edge
-  %14204 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14204 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %14204, align 4
   %14205 = getelementptr inbounds nuw i8, ptr %14204, i64 24
   store i8 1, ptr %14205, align 8
@@ -26219,7 +26175,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14207:                                            ; preds = %._crit_edge
-  %14208 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14208 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %14208, align 4
   %14209 = getelementptr inbounds nuw i8, ptr %14208, i64 8
   store i32 464, ptr %14209, align 8
@@ -26230,7 +26186,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14212:                                            ; preds = %._crit_edge
-  %14213 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14213 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %14213, align 4
   %14214 = getelementptr inbounds nuw i8, ptr %14213, i64 8
   store i32 464, ptr %14214, align 8
@@ -26241,7 +26197,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14217:                                            ; preds = %._crit_edge
-  %14218 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14218 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %14218, align 4
   %14219 = getelementptr inbounds nuw i8, ptr %14218, i64 8
   store i32 464, ptr %14219, align 8
@@ -26252,7 +26208,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14222:                                            ; preds = %._crit_edge
-  %14223 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14223 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %14223, align 4
   %14224 = getelementptr inbounds nuw i8, ptr %14223, i64 8
   store i32 464, ptr %14224, align 8
@@ -26269,18 +26225,18 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14230:                                            ; preds = %._crit_edge
   %14231 = load ptr, ptr %.210001, align 8
-  %14232 = call ptr @list_make1_impl(i32 noundef 1, ptr %14231) #11
+  %14232 = call ptr @list_make1_impl(i32 noundef 1, ptr %14231) #10
   br label %.critedge10155
 
 14233:                                            ; preds = %._crit_edge
   %14234 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14235 = load ptr, ptr %14234, align 8
   %14236 = load ptr, ptr %.210001, align 8
-  %14237 = call ptr @lappend(ptr noundef %14235, ptr noundef %14236) #11
+  %14237 = call ptr @lappend(ptr noundef %14235, ptr noundef %14236) #10
   br label %.critedge10155
 
 14238:                                            ; preds = %._crit_edge
-  %14239 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %14239 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %14239, align 4
   %14240 = load ptr, ptr %.210001, align 8
   %14241 = getelementptr inbounds nuw i8, ptr %14239, i64 8
@@ -26298,7 +26254,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14249:                                            ; preds = %._crit_edge
-  %14250 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %14250 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %14250, align 4
   %14251 = getelementptr inbounds nuw i8, ptr %14250, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14251, i8 0, i64 16, i1 false)
@@ -26395,14 +26351,14 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14298:                                            ; preds = %._crit_edge
   %14299 = load ptr, ptr %.210001, align 8
-  %14300 = call ptr @list_make1_impl(i32 noundef 1, ptr %14299) #11
+  %14300 = call ptr @list_make1_impl(i32 noundef 1, ptr %14299) #10
   br label %.critedge10155
 
 14301:                                            ; preds = %._crit_edge
   %14302 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14303 = load ptr, ptr %14302, align 8
   %14304 = load ptr, ptr %.210001, align 8
-  %14305 = call ptr @lappend(ptr noundef %14303, ptr noundef %14304) #11
+  %14305 = call ptr @lappend(ptr noundef %14303, ptr noundef %14304) #10
   br label %.critedge10155
 
 14306:                                            ; preds = %._crit_edge
@@ -26418,7 +26374,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14313:                                            ; preds = %._crit_edge
-  %14314 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14314 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14314, align 4
   %14315 = load ptr, ptr %.210001, align 8
   %14316 = getelementptr inbounds nuw i8, ptr %14314, i64 8
@@ -26435,7 +26391,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14322:                                            ; preds = %._crit_edge
-  %14323 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14323 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14323, align 4
   %14324 = getelementptr inbounds nuw i8, ptr %14323, i64 8
   store ptr null, ptr %14324, align 8
@@ -26518,7 +26474,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14378:                                            ; preds = %._crit_edge
-  %14379 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14379 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14379, align 4
   %14380 = getelementptr inbounds nuw i8, ptr %14379, i64 40
   store i32 1058, ptr %14380, align 8
@@ -26535,13 +26491,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10097, label %14393, label %14387
 
 14387:                                            ; preds = %14382
-  %14388 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14388)
-  %14389 = call i32 @errcode(i32 noundef 655492) #11
-  %14390 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.231) #11
+  %14388 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14389 = call i32 @errcode(i32 noundef 655492) #10
+  %14390 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.231) #10
   %14391 = load i32, ptr %.210013, align 4
-  %14392 = call i32 @scanner_errposition(i32 noundef %14391, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16488, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14392 = call i32 @scanner_errposition(i32 noundef %14391, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16488, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14393:                                            ; preds = %14382
@@ -26550,13 +26505,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10098, label %14401, label %14395
 
 14395:                                            ; preds = %14393
-  %14396 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14396)
-  %14397 = call i32 @errcode(i32 noundef 655492) #11
-  %14398 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.232) #11
+  %14396 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14397 = call i32 @errcode(i32 noundef 655492) #10
+  %14398 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.232) #10
   %14399 = load i32, ptr %.210013, align 4
-  %14400 = call i32 @scanner_errposition(i32 noundef %14399, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16493, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14400 = call i32 @scanner_errposition(i32 noundef %14399, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16493, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14401:                                            ; preds = %14393
@@ -26580,14 +26534,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10091, label %14422, label %14415
 
 14415:                                            ; preds = %14403
-  %14416 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14416)
-  %14417 = call i32 @errcode(i32 noundef 655492) #11
-  %14418 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.231) #11
+  %14416 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14417 = call i32 @errcode(i32 noundef 655492) #10
+  %14418 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.231) #10
   %14419 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %14420 = load i32, ptr %14419, align 4
-  %14421 = call i32 @scanner_errposition(i32 noundef %14420, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16512, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14421 = call i32 @scanner_errposition(i32 noundef %14420, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16512, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14422:                                            ; preds = %14403
@@ -26596,13 +26549,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10092, label %14430, label %14424
 
 14424:                                            ; preds = %14422
-  %14425 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14425)
-  %14426 = call i32 @errcode(i32 noundef 655492) #11
-  %14427 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.233) #11
+  %14425 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14426 = call i32 @errcode(i32 noundef 655492) #10
+  %14427 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.233) #10
   %14428 = load i32, ptr %.210013, align 4
-  %14429 = call i32 @scanner_errposition(i32 noundef %14428, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16517, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14429 = call i32 @scanner_errposition(i32 noundef %14428, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16517, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14430:                                            ; preds = %14422
@@ -26611,13 +26563,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %or.cond10156.not, label %14432, label %14438
 
 14432:                                            ; preds = %14430
-  %14433 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14433)
-  %14434 = call i32 @errcode(i32 noundef 655492) #11
-  %14435 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.234) #11
+  %14433 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14434 = call i32 @errcode(i32 noundef 655492) #10
+  %14435 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.234) #10
   %14436 = load i32, ptr %.210013, align 4
-  %14437 = call i32 @scanner_errposition(i32 noundef %14436, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16523, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14437 = call i32 @scanner_errposition(i32 noundef %14436, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16523, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14438:                                            ; preds = %14430
@@ -26629,13 +26580,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %or.cond10157, label %14447, label %14441
 
 14441:                                            ; preds = %14438
-  %14442 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14442)
-  %14443 = call i32 @errcode(i32 noundef 655492) #11
-  %14444 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.235) #11
+  %14442 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14443 = call i32 @errcode(i32 noundef 655492) #10
+  %14444 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.235) #10
   %14445 = load i32, ptr %.210013, align 4
-  %14446 = call i32 @scanner_errposition(i32 noundef %14445, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16530, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14446 = call i32 @scanner_errposition(i32 noundef %14445, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 16530, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14447:                                            ; preds = %14438
@@ -26647,7 +26597,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14451:                                            ; preds = %._crit_edge
-  %14452 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14452 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14452, align 4
   %14453 = getelementptr inbounds nuw i8, ptr %14452, i64 40
   store i32 32, ptr %14453, align 8
@@ -26656,7 +26606,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14455:                                            ; preds = %._crit_edge
-  %14456 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14456 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14456, align 4
   %14457 = getelementptr inbounds nuw i8, ptr %14456, i64 40
   store i32 128, ptr %14457, align 8
@@ -26665,7 +26615,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14459:                                            ; preds = %._crit_edge
-  %14460 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14460 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14460, align 4
   %14461 = getelementptr inbounds nuw i8, ptr %14460, i64 40
   store i32 512, ptr %14461, align 8
@@ -26674,7 +26624,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14463:                                            ; preds = %._crit_edge
-  %14464 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14464 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14464, align 4
   %14465 = getelementptr inbounds nuw i8, ptr %14464, i64 40
   store i32 2048, ptr %14465, align 8
@@ -26687,7 +26637,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14470:                                            ; preds = %._crit_edge
-  %14471 = call noundef ptr @palloc0(i64 noundef 72) #11
+  %14471 = call noundef ptr @palloc0(i64 noundef 72) #10
   store i32 84, ptr %14471, align 4
   %14472 = getelementptr inbounds nuw i8, ptr %14471, i64 40
   store i32 8192, ptr %14472, align 8
@@ -26742,7 +26692,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14497 = load ptr, ptr %14496, align 8
   %14498 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14499 = load ptr, ptr %14498, align 8
-  %14500 = call ptr @lappend(ptr noundef %14497, ptr noundef %14499) #11
+  %14500 = call ptr @lappend(ptr noundef %14497, ptr noundef %14499) #10
   br label %.critedge10155
 
 14501:                                            ; preds = %._crit_edge
@@ -26755,7 +26705,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14506 = load ptr, ptr %14505, align 8
   %14507 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14508 = load ptr, ptr %14507, align 8
-  %14509 = call ptr @lappend(ptr noundef %14506, ptr noundef %14508) #11
+  %14509 = call ptr @lappend(ptr noundef %14506, ptr noundef %14508) #10
   br label %.critedge10155
 
 14510:                                            ; preds = %._crit_edge
@@ -26825,8 +26775,8 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14535:                                            ; preds = %._crit_edge
   %14536 = load ptr, ptr %.210001, align 8
-  %14537 = call ptr @makeString(ptr noundef %14536) #11
-  %14538 = call ptr @list_make1_impl(i32 noundef 1, ptr %14537) #11
+  %14537 = call ptr @makeString(ptr noundef %14536) #10
+  %14538 = call ptr @list_make1_impl(i32 noundef 1, ptr %14537) #10
   br label %.critedge10155
 
 14539:                                            ; preds = %._crit_edge
@@ -26836,8 +26786,8 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14542:                                            ; preds = %._crit_edge
   %14543 = load ptr, ptr %.210001, align 8
-  %14544 = call ptr @makeString(ptr noundef %14543) #11
-  %14545 = call ptr @list_make1_impl(i32 noundef 1, ptr %14544) #11
+  %14544 = call ptr @makeString(ptr noundef %14543) #10
+  %14545 = call ptr @list_make1_impl(i32 noundef 1, ptr %14544) #10
   br label %.critedge10155
 
 14546:                                            ; preds = %._crit_edge
@@ -26847,8 +26797,8 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14549:                                            ; preds = %._crit_edge
   %14550 = load ptr, ptr %.210001, align 8
-  %14551 = call ptr @makeString(ptr noundef %14550) #11
-  %14552 = call ptr @list_make1_impl(i32 noundef 1, ptr %14551) #11
+  %14551 = call ptr @makeString(ptr noundef %14550) #10
+  %14552 = call ptr @list_make1_impl(i32 noundef 1, ptr %14551) #10
   br label %.critedge10155
 
 14553:                                            ; preds = %._crit_edge
@@ -26857,47 +26807,47 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14556:                                            ; preds = %._crit_edge
-  %14557 = call ptr @makeString(ptr noundef nonnull @.str.199) #11
-  %14558 = call ptr @list_make1_impl(i32 noundef 1, ptr %14557) #11
+  %14557 = call ptr @makeString(ptr noundef nonnull @.str.199) #10
+  %14558 = call ptr @list_make1_impl(i32 noundef 1, ptr %14557) #10
   br label %.critedge10155
 
 14559:                                            ; preds = %._crit_edge
-  %14560 = call ptr @makeString(ptr noundef nonnull @.str.201) #11
-  %14561 = call ptr @list_make1_impl(i32 noundef 1, ptr %14560) #11
+  %14560 = call ptr @makeString(ptr noundef nonnull @.str.201) #10
+  %14561 = call ptr @list_make1_impl(i32 noundef 1, ptr %14560) #10
   br label %.critedge10155
 
 14562:                                            ; preds = %._crit_edge
-  %14563 = call ptr @makeString(ptr noundef nonnull @.str.202) #11
-  %14564 = call ptr @list_make1_impl(i32 noundef 1, ptr %14563) #11
+  %14563 = call ptr @makeString(ptr noundef nonnull @.str.202) #10
+  %14564 = call ptr @list_make1_impl(i32 noundef 1, ptr %14563) #10
   br label %.critedge10155
 
 14565:                                            ; preds = %._crit_edge
-  %14566 = call ptr @makeString(ptr noundef nonnull @.str.203) #11
-  %14567 = call ptr @list_make1_impl(i32 noundef 1, ptr %14566) #11
+  %14566 = call ptr @makeString(ptr noundef nonnull @.str.203) #10
+  %14567 = call ptr @list_make1_impl(i32 noundef 1, ptr %14566) #10
   br label %.critedge10155
 
 14568:                                            ; preds = %._crit_edge
   %14569 = load ptr, ptr %.210001, align 8
-  %14570 = call ptr @list_make1_impl(i32 noundef 1, ptr %14569) #11
+  %14570 = call ptr @list_make1_impl(i32 noundef 1, ptr %14569) #10
   br label %.critedge10155
 
 14571:                                            ; preds = %._crit_edge
   %14572 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14573 = load ptr, ptr %14572, align 8
   %14574 = load ptr, ptr %.210001, align 8
-  %14575 = call ptr @lappend(ptr noundef %14573, ptr noundef %14574) #11
+  %14575 = call ptr @lappend(ptr noundef %14573, ptr noundef %14574) #10
   br label %.critedge10155
 
 14576:                                            ; preds = %._crit_edge
   %14577 = load ptr, ptr %.210001, align 8
-  %14578 = call ptr @list_make1_impl(i32 noundef 1, ptr %14577) #11
+  %14578 = call ptr @list_make1_impl(i32 noundef 1, ptr %14577) #10
   br label %.critedge10155
 
 14579:                                            ; preds = %._crit_edge
   %14580 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14581 = load ptr, ptr %14580, align 8
   %14582 = load ptr, ptr %.210001, align 8
-  %14583 = call ptr @lappend(ptr noundef %14581, ptr noundef %14582) #11
+  %14583 = call ptr @lappend(ptr noundef %14581, ptr noundef %14582) #10
   br label %.critedge10155
 
 14584:                                            ; preds = %._crit_edge
@@ -26905,7 +26855,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14586:                                            ; preds = %._crit_edge
-  %14587 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14587 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 16, ptr %14587, align 4
   %14588 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14589 = load ptr, ptr %14588, align 8
@@ -26923,7 +26873,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14597:                                            ; preds = %._crit_edge
-  %14598 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14598 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 16, ptr %14598, align 4
   %14599 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14600 = load ptr, ptr %14599, align 8
@@ -26946,14 +26896,14 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14610:                                            ; preds = %._crit_edge
   %14611 = load ptr, ptr %.210001, align 8
-  %14612 = call ptr @list_make1_impl(i32 noundef 1, ptr %14611) #11
+  %14612 = call ptr @list_make1_impl(i32 noundef 1, ptr %14611) #10
   br label %.critedge10155
 
 14613:                                            ; preds = %._crit_edge
   %14614 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14615 = load ptr, ptr %14614, align 8
   %14616 = load ptr, ptr %.210001, align 8
-  %14617 = call ptr @lappend(ptr noundef %14615, ptr noundef %14616) #11
+  %14617 = call ptr @lappend(ptr noundef %14615, ptr noundef %14616) #10
   br label %.critedge10155
 
 14618:                                            ; preds = %._crit_edge
@@ -26961,7 +26911,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14620 = load ptr, ptr %14619, align 8
   %14621 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %14622 = load i32, ptr %14621, align 4
-  %14623 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14623 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 80, ptr %14623, align 4
   %14624 = getelementptr inbounds nuw i8, ptr %14623, i64 8
   store ptr %14620, ptr %14624, align 8
@@ -26974,7 +26924,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14628 = load ptr, ptr %14627, align 8
   %14629 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %14630 = load i32, ptr %14629, align 4
-  %14631 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14631 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 80, ptr %14631, align 4
   %14632 = getelementptr inbounds nuw i8, ptr %14631, i64 8
   store ptr %14628, ptr %14632, align 8
@@ -26985,7 +26935,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 14634:                                            ; preds = %._crit_edge
   %14635 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %14636 = load i32, ptr %14635, align 4
-  %14637 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14637 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 80, ptr %14637, align 4
   %14638 = getelementptr inbounds nuw i8, ptr %14637, i64 8
   store ptr null, ptr %14638, align 8
@@ -26995,14 +26945,14 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14640:                                            ; preds = %._crit_edge
   %14641 = load ptr, ptr %.210001, align 8
-  %14642 = call ptr @list_make1_impl(i32 noundef 1, ptr %14641) #11
+  %14642 = call ptr @list_make1_impl(i32 noundef 1, ptr %14641) #10
   br label %.critedge10155
 
 14643:                                            ; preds = %._crit_edge
   %14644 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14645 = load ptr, ptr %14644, align 8
   %14646 = load ptr, ptr %.210001, align 8
-  %14647 = call ptr @lappend(ptr noundef %14645, ptr noundef %14646) #11
+  %14647 = call ptr @lappend(ptr noundef %14645, ptr noundef %14646) #10
   br label %.critedge10155
 
 14648:                                            ; preds = %._crit_edge
@@ -27010,9 +26960,9 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14650 = load ptr, ptr %14649, align 8
   %14651 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %14652 = load i32, ptr %14651, align 4
-  %14653 = call ptr @makeStringConst(ptr noundef %14650, i32 noundef %14652) #11
+  %14653 = call ptr @makeStringConst(ptr noundef %14650, i32 noundef %14652) #10
   %14654 = load ptr, ptr %.210001, align 8
-  %14655 = call ptr @list_make2_impl(i32 noundef 1, ptr %14653, ptr %14654) #11
+  %14655 = call ptr @list_make2_impl(i32 noundef 1, ptr %14653, ptr %14654) #10
   br label %.critedge10155
 
 14656:                                            ; preds = %._crit_edge
@@ -27061,7 +27011,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14675 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14676 = load ptr, ptr %14675, align 8
   %14677 = load ptr, ptr %.210001, align 8
-  %14678 = call ptr @list_make4_impl(i32 noundef 1, ptr %14672, ptr %14674, ptr %14676, ptr %14677) #11
+  %14678 = call ptr @list_make4_impl(i32 noundef 1, ptr %14672, ptr %14674, ptr %14676, ptr %14677) #10
   br label %.critedge10155
 
 14679:                                            ; preds = %._crit_edge
@@ -27070,14 +27020,14 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14682 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14683 = load ptr, ptr %14682, align 8
   %14684 = load ptr, ptr %.210001, align 8
-  %14685 = call ptr @list_make3_impl(i32 noundef 1, ptr %14681, ptr %14683, ptr %14684) #11
+  %14685 = call ptr @list_make3_impl(i32 noundef 1, ptr %14681, ptr %14683, ptr %14684) #10
   br label %.critedge10155
 
 14686:                                            ; preds = %._crit_edge
   %14687 = load ptr, ptr %.210001, align 8
   %14688 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14689 = load ptr, ptr %14688, align 8
-  %14690 = call ptr @list_make2_impl(i32 noundef 1, ptr %14687, ptr %14689) #11
+  %14690 = call ptr @list_make2_impl(i32 noundef 1, ptr %14687, ptr %14689) #10
   br label %.critedge10155
 
 14691:                                            ; preds = %._crit_edge
@@ -27086,7 +27036,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14694 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14695 = load ptr, ptr %14694, align 8
   %14696 = load ptr, ptr %.210001, align 8
-  %14697 = call ptr @list_make3_impl(i32 noundef 1, ptr %14693, ptr %14695, ptr %14696) #11
+  %14697 = call ptr @list_make3_impl(i32 noundef 1, ptr %14693, ptr %14695, ptr %14696) #10
   br label %.critedge10155
 
 14698:                                            ; preds = %._crit_edge
@@ -27095,20 +27045,20 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14701 = load ptr, ptr %.210001, align 8
   %14702 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14703 = load ptr, ptr %14702, align 8
-  %14704 = call ptr @list_make3_impl(i32 noundef 1, ptr %14700, ptr %14701, ptr %14703) #11
+  %14704 = call ptr @list_make3_impl(i32 noundef 1, ptr %14700, ptr %14701, ptr %14703) #10
   br label %.critedge10155
 
 14705:                                            ; preds = %._crit_edge
   %14706 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14707 = load ptr, ptr %14706, align 8
   %14708 = load ptr, ptr %.210001, align 8
-  %14709 = call ptr @list_make2_impl(i32 noundef 1, ptr %14707, ptr %14708) #11
+  %14709 = call ptr @list_make2_impl(i32 noundef 1, ptr %14707, ptr %14708) #10
   br label %.critedge10155
 
 14710:                                            ; preds = %._crit_edge
   %14711 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14712 = load ptr, ptr %14711, align 8
-  %14713 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14713 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %14713, align 4
   %14714 = getelementptr inbounds nuw i8, ptr %14713, i64 8
   store i32 464, ptr %14714, align 8
@@ -27118,7 +27068,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   store i32 -1, ptr %14716, align 4
   %14717 = load ptr, ptr %.210001, align 8
   %14718 = call ptr @SystemTypeName(ptr noundef nonnull @.str.169)
-  %14719 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14719 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 73, ptr %14719, align 4
   %14720 = getelementptr inbounds nuw i8, ptr %14719, i64 8
   store ptr %14717, ptr %14720, align 8
@@ -27126,7 +27076,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   store ptr %14718, ptr %14721, align 8
   %14722 = getelementptr inbounds nuw i8, ptr %14719, i64 24
   store i32 -1, ptr %14722, align 8
-  %14723 = call ptr @list_make3_impl(i32 noundef 1, ptr %14712, ptr nonnull %14713, ptr nonnull %14719) #11
+  %14723 = call ptr @list_make3_impl(i32 noundef 1, ptr %14712, ptr nonnull %14713, ptr nonnull %14719) #10
   br label %.critedge10155
 
 14724:                                            ; preds = %._crit_edge
@@ -27135,14 +27085,14 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14727 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14728 = load ptr, ptr %14727, align 8
   %14729 = load ptr, ptr %.210001, align 8
-  %14730 = call ptr @list_make3_impl(i32 noundef 1, ptr %14726, ptr %14728, ptr %14729) #11
+  %14730 = call ptr @list_make3_impl(i32 noundef 1, ptr %14726, ptr %14728, ptr %14729) #10
   br label %.critedge10155
 
 14731:                                            ; preds = %._crit_edge
   %14732 = load ptr, ptr %.210001, align 8
   %14733 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14734 = load ptr, ptr %14733, align 8
-  %14735 = call ptr @lappend(ptr noundef %14732, ptr noundef %14734) #11
+  %14735 = call ptr @lappend(ptr noundef %14732, ptr noundef %14734) #10
   br label %.critedge10155
 
 14736:                                            ; preds = %._crit_edge
@@ -27154,7 +27104,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14740:                                            ; preds = %._crit_edge
-  %14741 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %14741 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 22, ptr %14741, align 4
   %14742 = load ptr, ptr %.210001, align 8
   %14743 = getelementptr inbounds nuw i8, ptr %14741, i64 32
@@ -27167,7 +27117,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14747:                                            ; preds = %._crit_edge
-  %14748 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %14748 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 32, ptr %14748, align 4
   %14749 = getelementptr inbounds nuw i8, ptr %14748, i64 4
   store i32 0, ptr %14749, align 4
@@ -27191,18 +27141,18 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14762:                                            ; preds = %._crit_edge
   %14763 = load ptr, ptr %.210001, align 8
-  %14764 = call ptr @list_make1_impl(i32 noundef 1, ptr %14763) #11
+  %14764 = call ptr @list_make1_impl(i32 noundef 1, ptr %14763) #10
   br label %.critedge10155
 
 14765:                                            ; preds = %._crit_edge
   %14766 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14767 = load ptr, ptr %14766, align 8
   %14768 = load ptr, ptr %.210001, align 8
-  %14769 = call ptr @lappend(ptr noundef %14767, ptr noundef %14768) #11
+  %14769 = call ptr @lappend(ptr noundef %14767, ptr noundef %14768) #10
   br label %.critedge10155
 
 14770:                                            ; preds = %._crit_edge
-  %14771 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %14771 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 33, ptr %14771, align 4
   %14772 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14773 = load ptr, ptr %14772, align 8
@@ -27242,16 +27192,16 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14795:                                            ; preds = %._crit_edge
   %14796 = load ptr, ptr %.210001, align 8
-  %14797 = call ptr @makeString(ptr noundef %14796) #11
+  %14797 = call ptr @makeString(ptr noundef %14796) #10
   br label %.critedge10155
 
 14798:                                            ; preds = %._crit_edge
-  %14799 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %14799 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %14799, align 4
   br label %.critedge10155
 
 14800:                                            ; preds = %._crit_edge
-  %14801 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14801 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 78, ptr %14801, align 4
   %14802 = getelementptr inbounds nuw i8, ptr %14801, i64 4
   store i8 0, ptr %14802, align 4
@@ -27264,7 +27214,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14807:                                            ; preds = %._crit_edge
-  %14808 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14808 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 78, ptr %14808, align 4
   %14809 = getelementptr inbounds nuw i8, ptr %14808, i64 4
   store i8 1, ptr %14809, align 4
@@ -27284,21 +27234,21 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14818:                                            ; preds = %._crit_edge
   %14819 = load ptr, ptr %.210001, align 8
-  %14820 = call ptr @list_make1_impl(i32 noundef 1, ptr %14819) #11
+  %14820 = call ptr @list_make1_impl(i32 noundef 1, ptr %14819) #10
   br label %.critedge10155
 
 14821:                                            ; preds = %._crit_edge
   %14822 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14823 = load ptr, ptr %14822, align 8
   %14824 = load ptr, ptr %.210001, align 8
-  %14825 = call ptr @lappend(ptr noundef %14823, ptr noundef %14824) #11
+  %14825 = call ptr @lappend(ptr noundef %14823, ptr noundef %14824) #10
   br label %.critedge10155
 
 14826:                                            ; preds = %._crit_edge
   %14827 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14828 = load ptr, ptr %14827, align 8
   %14829 = load ptr, ptr %.210001, align 8
-  %14830 = call ptr @lappend(ptr noundef %14828, ptr noundef %14829) #11
+  %14830 = call ptr @lappend(ptr noundef %14828, ptr noundef %14829) #10
   br label %.critedge10155
 
 14831:                                            ; preds = %._crit_edge
@@ -27307,18 +27257,18 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 14833:                                            ; preds = %._crit_edge
   %14834 = load ptr, ptr %.210001, align 8
-  %14835 = call ptr @list_make1_impl(i32 noundef 1, ptr %14834) #11
+  %14835 = call ptr @list_make1_impl(i32 noundef 1, ptr %14834) #10
   br label %.critedge10155
 
 14836:                                            ; preds = %._crit_edge
   %14837 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14838 = load ptr, ptr %14837, align 8
   %14839 = load ptr, ptr %.210001, align 8
-  %14840 = call ptr @lappend(ptr noundef %14838, ptr noundef %14839) #11
+  %14840 = call ptr @lappend(ptr noundef %14838, ptr noundef %14839) #10
   br label %.critedge10155
 
 14841:                                            ; preds = %._crit_edge
-  %14842 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14842 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 121, ptr %14842, align 4
   %14843 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14844 = load ptr, ptr %14843, align 8
@@ -27395,13 +27345,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14876 = load ptr, ptr %.210001, align 8
   %14877 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %14878 = load i32, ptr %14877, align 4
-  %14879 = call ptr @makeJsonBehavior(i32 noundef 8, ptr noundef %14876, i32 noundef %14878) #11
+  %14879 = call ptr @makeJsonBehavior(i32 noundef 8, ptr noundef %14876, i32 noundef %14878) #10
   br label %.critedge10155
 
 14880:                                            ; preds = %._crit_edge
   %14881 = load i32, ptr %.210001, align 8
   %14882 = load i32, ptr %.210013, align 4
-  %14883 = call ptr @makeJsonBehavior(i32 noundef %14881, ptr noundef null, i32 noundef %14882) #11
+  %14883 = call ptr @makeJsonBehavior(i32 noundef %14881, ptr noundef null, i32 noundef %14882) #10
   br label %.critedge10155
 
 14884:                                            ; preds = %._crit_edge
@@ -27462,13 +27412,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 14908:                                            ; preds = %._crit_edge
   %14909 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14910 = load ptr, ptr %14909, align 8
-  %14911 = call ptr @list_make2_impl(i32 noundef 1, ptr %14910, ptr null) #11
+  %14911 = call ptr @list_make2_impl(i32 noundef 1, ptr %14910, ptr null) #10
   br label %.critedge10155
 
 14912:                                            ; preds = %._crit_edge
   %14913 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14914 = load ptr, ptr %14913, align 8
-  %14915 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %14914) #11
+  %14915 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr %14914) #10
   br label %.critedge10155
 
 14916:                                            ; preds = %._crit_edge
@@ -27476,11 +27426,11 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14918 = load ptr, ptr %14917, align 8
   %14919 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %14920 = load ptr, ptr %14919, align 8
-  %14921 = call ptr @list_make2_impl(i32 noundef 1, ptr %14918, ptr %14920) #11
+  %14921 = call ptr @list_make2_impl(i32 noundef 1, ptr %14918, ptr %14920) #10
   br label %.critedge10155
 
 14922:                                            ; preds = %._crit_edge
-  %14923 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr null) #11
+  %14923 = call ptr @list_make2_impl(i32 noundef 1, ptr null, ptr null) #10
   br label %.critedge10155
 
 14924:                                            ; preds = %._crit_edge
@@ -27492,49 +27442,48 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %14928 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14929 = load ptr, ptr %14928, align 8
   %14930 = load ptr, ptr %.210001, align 8
-  %14931 = call ptr @makeJsonValueExpr(ptr noundef %14929, ptr noundef null, ptr noundef %14930) #11
+  %14931 = call ptr @makeJsonValueExpr(ptr noundef %14929, ptr noundef null, ptr noundef %14930) #10
   br label %.critedge10155
 
 14932:                                            ; preds = %._crit_edge
   %14933 = load ptr, ptr %.210001, align 8
-  %14934 = call i32 @pg_strcasecmp(ptr noundef %14933, ptr noundef nonnull @.str.246) #11
+  %14934 = call i32 @pg_strcasecmp(ptr noundef %14933, ptr noundef nonnull @.str.246) #10
   %.not10088 = icmp eq i32 %14934, 0
   br i1 %.not10088, label %14948, label %14935
 
 14935:                                            ; preds = %14932
   %14936 = load ptr, ptr %.210001, align 8
-  %14937 = call i32 @pg_strcasecmp(ptr noundef %14936, ptr noundef nonnull @.str.247) #11
+  %14937 = call i32 @pg_strcasecmp(ptr noundef %14936, ptr noundef nonnull @.str.247) #10
   %.not10089 = icmp eq i32 %14937, 0
   br i1 %.not10089, label %14948, label %14938
 
 14938:                                            ; preds = %14935
   %14939 = load ptr, ptr %.210001, align 8
-  %14940 = call i32 @pg_strcasecmp(ptr noundef %14939, ptr noundef nonnull @.str.248) #11
+  %14940 = call i32 @pg_strcasecmp(ptr noundef %14939, ptr noundef nonnull @.str.248) #10
   %.not10090 = icmp eq i32 %14940, 0
   br i1 %.not10090, label %14948, label %14941
 
 14941:                                            ; preds = %14938
-  %14942 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %14942)
-  %14943 = call i32 @errcode(i32 noundef 50856066) #11
+  %14942 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14943 = call i32 @errcode(i32 noundef 50856066) #10
   %14944 = load ptr, ptr %.210001, align 8
-  %14945 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.249, ptr noundef %14944) #11
+  %14945 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.249, ptr noundef %14944) #10
   %14946 = load i32, ptr %.210013, align 4
-  %14947 = call i32 @scanner_errposition(i32 noundef %14946, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17079, ptr noundef nonnull @__func__.base_yyparse) #11
+  %14947 = call i32 @scanner_errposition(i32 noundef %14946, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17079, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 14948:                                            ; preds = %14938, %14935, %14932
   %.010032 = phi i32 [ 1, %14932 ], [ 2, %14935 ], [ 3, %14938 ]
   %14949 = getelementptr inbounds i8, ptr %.210013, i64 -12
   %14950 = load i32, ptr %14949, align 4
-  %14951 = call ptr @makeJsonFormat(i32 noundef 1, i32 noundef %.010032, i32 noundef %14950) #11
+  %14951 = call ptr @makeJsonFormat(i32 noundef 1, i32 noundef %.010032, i32 noundef %14950) #10
   br label %.critedge10155
 
 14952:                                            ; preds = %._crit_edge
   %14953 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %14954 = load i32, ptr %14953, align 4
-  %14955 = call ptr @makeJsonFormat(i32 noundef 1, i32 noundef 0, i32 noundef %14954) #11
+  %14955 = call ptr @makeJsonFormat(i32 noundef 1, i32 noundef 0, i32 noundef %14954) #10
   br label %.critedge10155
 
 14956:                                            ; preds = %._crit_edge
@@ -27542,7 +27491,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14958:                                            ; preds = %._crit_edge
-  %14959 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #11
+  %14959 = call ptr @makeJsonFormat(i32 noundef 0, i32 noundef 0, i32 noundef -1) #10
   br label %.critedge10155
 
 14960:                                            ; preds = %._crit_edge
@@ -27580,13 +27529,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 14975:                                            ; preds = %._crit_edge
-  %14976 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14976 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 120, ptr %14976, align 4
   %14977 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %14978 = load ptr, ptr %14977, align 8
   %14979 = getelementptr inbounds nuw i8, ptr %14976, i64 8
   store ptr %14978, ptr %14979, align 8
-  %14980 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %14980 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 43, ptr %14980, align 4
   %14981 = getelementptr inbounds nuw i8, ptr %14976, i64 16
   store ptr %14980, ptr %14981, align 8
@@ -27662,28 +27611,28 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15014:                                            ; preds = %._crit_edge
   %15015 = load ptr, ptr %.210001, align 8
-  %15016 = call ptr @list_make1_impl(i32 noundef 1, ptr %15015) #11
+  %15016 = call ptr @list_make1_impl(i32 noundef 1, ptr %15015) #10
   br label %.critedge10155
 
 15017:                                            ; preds = %._crit_edge
   %15018 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15019 = load ptr, ptr %15018, align 8
   %15020 = load ptr, ptr %.210001, align 8
-  %15021 = call ptr @lappend(ptr noundef %15019, ptr noundef %15020) #11
+  %15021 = call ptr @lappend(ptr noundef %15019, ptr noundef %15020) #10
   br label %.critedge10155
 
 15022:                                            ; preds = %._crit_edge
   %15023 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15024 = load ptr, ptr %15023, align 8
   %15025 = load ptr, ptr %.210001, align 8
-  %15026 = call ptr @makeJsonKeyValue(ptr noundef %15024, ptr noundef %15025) #11
+  %15026 = call ptr @makeJsonKeyValue(ptr noundef %15024, ptr noundef %15025) #10
   br label %.critedge10155
 
 15027:                                            ; preds = %._crit_edge
   %15028 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15029 = load ptr, ptr %15028, align 8
   %15030 = load ptr, ptr %.210001, align 8
-  %15031 = call ptr @makeJsonKeyValue(ptr noundef %15029, ptr noundef %15030) #11
+  %15031 = call ptr @makeJsonKeyValue(ptr noundef %15029, ptr noundef %15030) #10
   br label %.critedge10155
 
 15032:                                            ; preds = %._crit_edge
@@ -27727,18 +27676,18 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15050:                                            ; preds = %._crit_edge
   %15051 = load ptr, ptr %.210001, align 8
-  %15052 = call ptr @list_make1_impl(i32 noundef 1, ptr %15051) #11
+  %15052 = call ptr @list_make1_impl(i32 noundef 1, ptr %15051) #10
   br label %.critedge10155
 
 15053:                                            ; preds = %._crit_edge
   %15054 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15055 = load ptr, ptr %15054, align 8
   %15056 = load ptr, ptr %.210001, align 8
-  %15057 = call ptr @lappend(ptr noundef %15055, ptr noundef %15056) #11
+  %15057 = call ptr @lappend(ptr noundef %15055, ptr noundef %15056) #10
   br label %.critedge10155
 
 15058:                                            ; preds = %._crit_edge
-  %15059 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15059 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 134, ptr %15059, align 4
   %15060 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %15061 = load ptr, ptr %15060, align 8
@@ -27752,7 +27701,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %15067 = load i8, ptr %15066, align 8, !range !6, !noundef !7
   %15068 = getelementptr inbounds nuw i8, ptr %15059, i64 25
   store i8 %15067, ptr %15068, align 1
-  %15069 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %15069 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 133, ptr %15069, align 4
   %15070 = getelementptr inbounds nuw i8, ptr %15059, i64 8
   store ptr %15069, ptr %15070, align 8
@@ -27771,7 +27720,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15080:                                            ; preds = %._crit_edge
-  %15081 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15081 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 135, ptr %15081, align 4
   %15082 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %15083 = load ptr, ptr %15082, align 8
@@ -27781,7 +27730,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %15086 = load i8, ptr %15085, align 8, !range !6, !noundef !7
   %15087 = getelementptr inbounds nuw i8, ptr %15081, i64 24
   store i8 %15086, ptr %15087, align 8
-  %15088 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %15088 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 133, ptr %15088, align 4
   %15089 = getelementptr inbounds nuw i8, ptr %15081, i64 8
   store ptr %15088, ptr %15089, align 8
@@ -27811,18 +27760,18 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15105:                                            ; preds = %._crit_edge
   %15106 = load ptr, ptr %.210001, align 8
-  %15107 = call ptr @list_make1_impl(i32 noundef 1, ptr %15106) #11
+  %15107 = call ptr @list_make1_impl(i32 noundef 1, ptr %15106) #10
   br label %.critedge10155
 
 15108:                                            ; preds = %._crit_edge
   %15109 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15110 = load ptr, ptr %15109, align 8
   %15111 = load ptr, ptr %.210001, align 8
-  %15112 = call ptr @lappend(ptr noundef %15110, ptr noundef %15111) #11
+  %15112 = call ptr @lappend(ptr noundef %15110, ptr noundef %15111) #10
   br label %.critedge10155
 
 15113:                                            ; preds = %._crit_edge
-  %15114 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %15114 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %15114, align 4
   %15115 = load ptr, ptr %.210001, align 8
   %15116 = getelementptr inbounds nuw i8, ptr %15114, i64 8
@@ -27840,7 +27789,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15124:                                            ; preds = %._crit_edge
-  %15125 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %15125 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %15125, align 4
   %15126 = load ptr, ptr %.210001, align 8
   %15127 = getelementptr inbounds nuw i8, ptr %15125, i64 8
@@ -27858,7 +27807,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15135:                                            ; preds = %._crit_edge
-  %15136 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %15136 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %15136, align 4
   %15137 = getelementptr inbounds nuw i8, ptr %15136, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15137, i8 0, i64 16, i1 false)
@@ -27871,17 +27820,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15142:                                            ; preds = %._crit_edge
-  %15143 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %15143 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 69, ptr %15143, align 4
-  %15144 = call noundef ptr @palloc0(i64 noundef 4) #11
+  %15144 = call noundef ptr @palloc0(i64 noundef 4) #10
   store i32 77, ptr %15144, align 4
-  %15145 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %15144) #11
+  %15145 = call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %15144) #10
   %15146 = getelementptr inbounds nuw i8, ptr %15143, i64 8
   store ptr %15145, ptr %15146, align 8
   %15147 = load i32, ptr %.210013, align 4
   %15148 = getelementptr inbounds nuw i8, ptr %15143, i64 16
   store i32 %15147, ptr %15148, align 8
-  %15149 = call noundef ptr @palloc0(i64 noundef 40) #11
+  %15149 = call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %15149, align 4
   %15150 = getelementptr inbounds nuw i8, ptr %15149, i64 8
   %15151 = getelementptr inbounds nuw i8, ptr %15149, i64 24
@@ -27894,20 +27843,20 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15154:                                            ; preds = %._crit_edge
   %15155 = load ptr, ptr %.210001, align 8
-  %15156 = call ptr @list_make1_impl(i32 noundef 1, ptr %15155) #11
+  %15156 = call ptr @list_make1_impl(i32 noundef 1, ptr %15155) #10
   br label %.critedge10155
 
 15157:                                            ; preds = %._crit_edge
   %15158 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15159 = load ptr, ptr %15158, align 8
   %15160 = load ptr, ptr %.210001, align 8
-  %15161 = call ptr @lappend(ptr noundef %15159, ptr noundef %15160) #11
+  %15161 = call ptr @lappend(ptr noundef %15159, ptr noundef %15160) #10
   br label %.critedge10155
 
 15162:                                            ; preds = %._crit_edge
   %15163 = load ptr, ptr %.210001, align 8
   %15164 = load i32, ptr %.210013, align 4
-  %15165 = call ptr @makeRangeVar(ptr noundef null, ptr noundef %15163, i32 noundef %15164) #11
+  %15165 = call ptr @makeRangeVar(ptr noundef null, ptr noundef %15163, i32 noundef %15164) #10
   br label %.critedge10155
 
 15166:                                            ; preds = %._crit_edge
@@ -27921,16 +27870,16 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15173:                                            ; preds = %._crit_edge
   %15174 = load ptr, ptr %.210001, align 8
-  %15175 = call ptr @makeString(ptr noundef %15174) #11
-  %15176 = call ptr @list_make1_impl(i32 noundef 1, ptr %15175) #11
+  %15175 = call ptr @makeString(ptr noundef %15174) #10
+  %15176 = call ptr @list_make1_impl(i32 noundef 1, ptr %15175) #10
   br label %.critedge10155
 
 15177:                                            ; preds = %._crit_edge
   %15178 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15179 = load ptr, ptr %15178, align 8
   %15180 = load ptr, ptr %.210001, align 8
-  %15181 = call ptr @makeString(ptr noundef %15180) #11
-  %15182 = call ptr @lappend(ptr noundef %15179, ptr noundef %15181) #11
+  %15181 = call ptr @makeString(ptr noundef %15180) #10
+  %15182 = call ptr @lappend(ptr noundef %15179, ptr noundef %15181) #10
   br label %.critedge10155
 
 15183:                                            ; preds = %._crit_edge
@@ -27947,23 +27896,23 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15189:                                            ; preds = %._crit_edge
   %15190 = load ptr, ptr %.210001, align 8
-  %15191 = call ptr @makeString(ptr noundef %15190) #11
-  %15192 = call ptr @list_make1_impl(i32 noundef 1, ptr %15191) #11
+  %15191 = call ptr @makeString(ptr noundef %15190) #10
+  %15192 = call ptr @list_make1_impl(i32 noundef 1, ptr %15191) #10
   br label %.critedge10155
 
 15193:                                            ; preds = %._crit_edge
   %15194 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %15195 = load ptr, ptr %15194, align 8
-  %15196 = call ptr @makeString(ptr noundef %15195) #11
+  %15196 = call ptr @makeString(ptr noundef %15195) #10
   %15197 = load ptr, ptr %.210001, align 8
-  %15198 = call ptr @lcons(ptr noundef %15196, ptr noundef %15197) #11
+  %15198 = call ptr @lcons(ptr noundef %15196, ptr noundef %15197) #10
   %15199 = call fastcc ptr @check_func_name(ptr noundef %15198, ptr noundef %0)
   br label %.critedge10155
 
 15200:                                            ; preds = %._crit_edge
   %15201 = load i32, ptr %.210001, align 8
   %15202 = load i32, ptr %.210013, align 4
-  %15203 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15203 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15203, align 4
   %15204 = getelementptr inbounds nuw i8, ptr %15203, i64 8
   store i32 464, ptr %15204, align 8
@@ -27976,7 +27925,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 15207:                                            ; preds = %._crit_edge
   %15208 = load ptr, ptr %.210001, align 8
   %15209 = load i32, ptr %.210013, align 4
-  %15210 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15210 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15210, align 4
   %15211 = getelementptr inbounds nuw i8, ptr %15210, i64 8
   store i32 465, ptr %15211, align 8
@@ -27989,13 +27938,13 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 15214:                                            ; preds = %._crit_edge
   %15215 = load ptr, ptr %.210001, align 8
   %15216 = load i32, ptr %.210013, align 4
-  %15217 = call ptr @makeStringConst(ptr noundef %15215, i32 noundef %15216) #11
+  %15217 = call ptr @makeStringConst(ptr noundef %15215, i32 noundef %15216) #10
   br label %.critedge10155
 
 15218:                                            ; preds = %._crit_edge
   %15219 = load ptr, ptr %.210001, align 8
   %15220 = load i32, ptr %.210013, align 4
-  %15221 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15221 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15221, align 4
   %15222 = getelementptr inbounds nuw i8, ptr %15221, i64 8
   store i32 468, ptr %15222, align 8
@@ -28008,7 +27957,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 15225:                                            ; preds = %._crit_edge
   %15226 = load ptr, ptr %.210001, align 8
   %15227 = load i32, ptr %.210013, align 4
-  %15228 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15228 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15228, align 4
   %15229 = getelementptr inbounds nuw i8, ptr %15228, i64 8
   store i32 468, ptr %15229, align 8
@@ -28021,7 +27970,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 15232:                                            ; preds = %._crit_edge
   %15233 = getelementptr inbounds i8, ptr %.210001, i64 -8
   %15234 = load ptr, ptr %15233, align 8
-  %15235 = call ptr @makeTypeNameFromNameList(ptr noundef %15234) #11
+  %15235 = call ptr @makeTypeNameFromNameList(ptr noundef %15234) #10
   %15236 = getelementptr inbounds i8, ptr %.210013, i64 -4
   %15237 = load i32, ptr %15236, align 4
   %15238 = getelementptr inbounds nuw i8, ptr %15235, i64 48
@@ -28034,7 +27983,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 15242:                                            ; preds = %._crit_edge
   %15243 = getelementptr inbounds i8, ptr %.210001, i64 -40
   %15244 = load ptr, ptr %15243, align 8
-  %15245 = call ptr @makeTypeNameFromNameList(ptr noundef %15244) #11
+  %15245 = call ptr @makeTypeNameFromNameList(ptr noundef %15244) #10
   %15246 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %15247 = load ptr, ptr %15246, align 8
   %.not10085 = icmp eq ptr %15247, null
@@ -28072,25 +28021,23 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10087, label %15274, label %15267
 
 .split:                                           ; preds = %15254
-  %15261 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15261)
-  %15262 = call i32 @errcode(i32 noundef 16801924) #11
-  %15263 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.250) #11
+  %15261 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15262 = call i32 @errcode(i32 noundef 16801924) #10
+  %15263 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.250) #10
   %15264 = getelementptr inbounds nuw i8, ptr %15256, i64 28
   %15265 = load i32, ptr %15264, align 4
-  %15266 = call i32 @scanner_errposition(i32 noundef %15265, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17404, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15266 = call i32 @scanner_errposition(i32 noundef %15265, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17404, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15267:                                            ; preds = %.critedge10159
-  %15268 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15268)
-  %15269 = call i32 @errcode(i32 noundef 16801924) #11
-  %15270 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.251) #11
+  %15268 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15269 = call i32 @errcode(i32 noundef 16801924) #10
+  %15270 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.251) #10
   %15271 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %15272 = load i32, ptr %15271, align 4
-  %15273 = call i32 @scanner_errposition(i32 noundef %15272, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17410, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15273 = call i32 @scanner_errposition(i32 noundef %15272, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17410, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15274:                                            ; preds = %.critedge10159
@@ -28129,7 +28076,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 15298:                                            ; preds = %._crit_edge
   %15299 = getelementptr inbounds i8, ptr %.210001, i64 -32
   %15300 = load ptr, ptr %15299, align 8
-  %15301 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15301 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15301, align 4
   %15302 = getelementptr inbounds nuw i8, ptr %15301, i64 8
   store i32 464, ptr %15302, align 8
@@ -28141,7 +28088,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   %15306 = load i32, ptr %15305, align 8
   %15307 = getelementptr inbounds i8, ptr %.210013, i64 -8
   %15308 = load i32, ptr %15307, align 4
-  %15309 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15309 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15309, align 4
   %15310 = getelementptr inbounds nuw i8, ptr %15309, i64 8
   store i32 464, ptr %15310, align 8
@@ -28149,7 +28096,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   store i32 %15306, ptr %15311, align 4
   %15312 = getelementptr inbounds nuw i8, ptr %15309, i64 28
   store i32 %15308, ptr %15312, align 4
-  %15313 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %15301, ptr nonnull %15309) #11
+  %15313 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %15301, ptr nonnull %15309) #10
   %15314 = getelementptr inbounds nuw i8, ptr %15300, i64 24
   store ptr %15313, ptr %15314, align 8
   %15315 = load ptr, ptr %.210001, align 8
@@ -28159,7 +28106,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15318:                                            ; preds = %._crit_edge
   %15319 = load i32, ptr %.210013, align 4
-  %15320 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15320 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15320, align 4
   %15321 = getelementptr inbounds nuw i8, ptr %15320, i64 8
   store i32 466, ptr %15321, align 8
@@ -28171,7 +28118,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15324:                                            ; preds = %._crit_edge
   %15325 = load i32, ptr %.210013, align 4
-  %15326 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15326 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15326, align 4
   %15327 = getelementptr inbounds nuw i8, ptr %15326, i64 8
   store i32 466, ptr %15327, align 8
@@ -28183,7 +28130,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15330:                                            ; preds = %._crit_edge
   %15331 = load i32, ptr %.210013, align 4
-  %15332 = call noundef ptr @palloc0(i64 noundef 32) #11
+  %15332 = call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %15332, align 4
   %15333 = getelementptr inbounds nuw i8, ptr %15332, i64 24
   store i8 1, ptr %15333, align 8
@@ -28250,54 +28197,50 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15361:                                            ; preds = %15354
-  %15362 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15362)
-  %15363 = call i32 @errcode(i32 noundef 151818372) #11
-  %15364 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.253) #11
+  %15362 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15363 = call i32 @errcode(i32 noundef 151818372) #10
+  %15364 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.253) #10
   %15365 = load i32, ptr %.210013, align 4
-  %15366 = call i32 @scanner_errposition(i32 noundef %15365, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17472, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15366 = call i32 @scanner_errposition(i32 noundef %15365, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17472, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15367:                                            ; preds = %15354
-  %15368 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15368)
-  %15369 = call i32 @errcode(i32 noundef 151818372) #11
-  %15370 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.255) #11
+  %15368 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15369 = call i32 @errcode(i32 noundef 151818372) #10
+  %15370 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.255) #10
   %15371 = load i32, ptr %.210013, align 4
-  %15372 = call i32 @scanner_errposition(i32 noundef %15371, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17479, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15372 = call i32 @scanner_errposition(i32 noundef %15371, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17479, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15373:                                            ; preds = %15354
-  %15374 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15374)
-  %15375 = call i32 @errcode(i32 noundef 151818372) #11
-  %15376 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.256) #11
+  %15374 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15375 = call i32 @errcode(i32 noundef 151818372) #10
+  %15376 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.256) #10
   %15377 = load i32, ptr %.210013, align 4
-  %15378 = call i32 @scanner_errposition(i32 noundef %15377, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17486, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15378 = call i32 @scanner_errposition(i32 noundef %15377, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17486, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15379:                                            ; preds = %15354
-  %15380 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15380)
-  %15381 = call i32 @errcode(i32 noundef 151818372) #11
-  %15382 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.257) #11
+  %15380 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15381 = call i32 @errcode(i32 noundef 151818372) #10
+  %15382 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.257) #10
   %15383 = load i32, ptr %.210013, align 4
-  %15384 = call i32 @scanner_errposition(i32 noundef %15383, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17493, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15384 = call i32 @scanner_errposition(i32 noundef %15383, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17493, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15385:                                            ; preds = %._crit_edge
   %15386 = load ptr, ptr %.210001, align 8
-  %15387 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15386, ptr noundef nonnull dereferenceable(7) @.str.253) #13
+  %15387 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15386, ptr noundef nonnull dereferenceable(7) @.str.253) #12
   %15388 = icmp eq i32 %15387, 0
   br i1 %15388, label %15389, label %15394
 
 15389:                                            ; preds = %15385
   %15390 = load i32, ptr %.210013, align 4
-  %15391 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %15391 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %15391, align 4
   %15392 = getelementptr inbounds nuw i8, ptr %15391, i64 4
   %15393 = getelementptr inbounds nuw i8, ptr %15391, i64 16
@@ -28306,37 +28249,36 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15394:                                            ; preds = %15385
-  %15395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15386, ptr noundef nonnull dereferenceable(5) @.str.258) #13
+  %15395 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15386, ptr noundef nonnull dereferenceable(5) @.str.258) #12
   %15396 = icmp eq i32 %15395, 0
   br i1 %15396, label %15397, label %15403
 
 15397:                                            ; preds = %15394
-  %15398 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15398)
-  %15399 = call i32 @errcode(i32 noundef 151818372) #11
-  %15400 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.258) #11
+  %15398 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15399 = call i32 @errcode(i32 noundef 151818372) #10
+  %15400 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.258) #10
   %15401 = load i32, ptr %.210013, align 4
-  %15402 = call i32 @scanner_errposition(i32 noundef %15401, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17518, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15402 = call i32 @scanner_errposition(i32 noundef %15401, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17518, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 15403:                                            ; preds = %15394
   %15404 = load i32, ptr %.210013, align 4
-  %15405 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %15405 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %15405, align 4
   %15406 = getelementptr inbounds nuw i8, ptr %15405, i64 4
   store i32 0, ptr %15406, align 4
   %15407 = getelementptr inbounds nuw i8, ptr %15405, i64 16
   store i32 %15404, ptr %15407, align 8
   %15408 = load ptr, ptr %.210001, align 8
-  %15409 = call ptr @pstrdup(ptr noundef %15408) #11
+  %15409 = call ptr @pstrdup(ptr noundef %15408) #10
   %15410 = getelementptr inbounds nuw i8, ptr %15405, i64 8
   store ptr %15409, ptr %15410, align 8
   br label %.critedge10155
 
 15411:                                            ; preds = %._crit_edge
   %15412 = load i32, ptr %.210013, align 4
-  %15413 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %15413 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %15413, align 4
   %15414 = getelementptr inbounds nuw i8, ptr %15413, i64 4
   store i32 1, ptr %15414, align 4
@@ -28346,7 +28288,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15416:                                            ; preds = %._crit_edge
   %15417 = load i32, ptr %.210013, align 4
-  %15418 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %15418 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %15418, align 4
   %15419 = getelementptr inbounds nuw i8, ptr %15418, i64 4
   store i32 2, ptr %15419, align 4
@@ -28356,7 +28298,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15421:                                            ; preds = %._crit_edge
   %15422 = load i32, ptr %.210013, align 4
-  %15423 = call noundef ptr @palloc0(i64 noundef 24) #11
+  %15423 = call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 75, ptr %15423, align 4
   %15424 = getelementptr inbounds nuw i8, ptr %15423, i64 4
   store i32 3, ptr %15424, align 4
@@ -28366,18 +28308,18 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15426:                                            ; preds = %._crit_edge
   %15427 = load ptr, ptr %.210001, align 8
-  %15428 = call ptr @list_make1_impl(i32 noundef 1, ptr %15427) #11
+  %15428 = call ptr @list_make1_impl(i32 noundef 1, ptr %15427) #10
   br label %.critedge10155
 
 15429:                                            ; preds = %._crit_edge
   %15430 = getelementptr inbounds i8, ptr %.210001, i64 -16
   %15431 = load ptr, ptr %15430, align 8
   %15432 = load ptr, ptr %.210001, align 8
-  %15433 = call ptr @lappend(ptr noundef %15431, ptr noundef %15432) #11
+  %15433 = call ptr @lappend(ptr noundef %15431, ptr noundef %15432) #10
   br label %.critedge10155
 
 15434:                                            ; preds = %._crit_edge
-  %15435 = call noundef ptr @palloc0(i64 noundef 168) #11
+  %15435 = call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %15435, align 4
   %15436 = getelementptr inbounds i8, ptr %.210001, i64 -72
   %15437 = load ptr, ptr %15436, align 8
@@ -28440,15 +28382,14 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %or.cond11036, label %15477, label %._crit_edge10773
 
 15477:                                            ; preds = %15467
-  %15478 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %15478)
-  %15479 = call i32 @errcode(i32 noundef 16801924) #11
-  %15480 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.259) #11
+  %15478 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15479 = call i32 @errcode(i32 noundef 16801924) #10
+  %15480 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.259) #10
   %15481 = load ptr, ptr %15465, align 8
   %15482 = getelementptr inbounds nuw i8, ptr %15481, i64 28
   %15483 = load i32, ptr %15482, align 4
-  %15484 = call i32 @scanner_errposition(i32 noundef %15483, ptr noundef %0) #11
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17582, ptr noundef nonnull @__func__.base_yyparse) #11
+  %15484 = call i32 @scanner_errposition(i32 noundef %15483, ptr noundef %0) #10
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 17582, ptr noundef nonnull @__func__.base_yyparse) #10
   unreachable
 
 ._crit_edge10773:                                 ; preds = %15467
@@ -28463,7 +28404,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.critedge10155
 
 15489:                                            ; preds = %._crit_edge
-  %15490 = call noundef ptr @palloc0(i64 noundef 48) #11
+  %15490 = call noundef ptr @palloc0(i64 noundef 48) #10
   store i32 144, ptr %15490, align 4
   %15491 = getelementptr inbounds i8, ptr %.210001, i64 -24
   %15492 = load ptr, ptr %15491, align 8
@@ -28489,7 +28430,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15505:                                            ; preds = %._crit_edge
   %15506 = load i32, ptr %.210001, align 8
-  %15507 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.260, i32 noundef %15506) #11
+  %15507 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.260, i32 noundef %15506) #10
   br label %.critedge10155
 
 15508:                                            ; preds = %._crit_edge
@@ -28498,12 +28439,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15510:                                            ; preds = %._crit_edge
   %15511 = load ptr, ptr %.210001, align 8
-  %15512 = call ptr @pstrdup(ptr noundef %15511) #11
+  %15512 = call ptr @pstrdup(ptr noundef %15511) #10
   br label %.critedge10155
 
 15513:                                            ; preds = %._crit_edge
   %15514 = load ptr, ptr %.210001, align 8
-  %15515 = call ptr @pstrdup(ptr noundef %15514) #11
+  %15515 = call ptr @pstrdup(ptr noundef %15514) #10
   br label %.critedge10155
 
 15516:                                            ; preds = %._crit_edge
@@ -28512,12 +28453,12 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15518:                                            ; preds = %._crit_edge
   %15519 = load ptr, ptr %.210001, align 8
-  %15520 = call ptr @pstrdup(ptr noundef %15519) #11
+  %15520 = call ptr @pstrdup(ptr noundef %15519) #10
   br label %.critedge10155
 
 15521:                                            ; preds = %._crit_edge
   %15522 = load ptr, ptr %.210001, align 8
-  %15523 = call ptr @pstrdup(ptr noundef %15522) #11
+  %15523 = call ptr @pstrdup(ptr noundef %15522) #10
   br label %.critedge10155
 
 15524:                                            ; preds = %._crit_edge
@@ -28526,17 +28467,17 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15526:                                            ; preds = %._crit_edge
   %15527 = load ptr, ptr %.210001, align 8
-  %15528 = call ptr @pstrdup(ptr noundef %15527) #11
+  %15528 = call ptr @pstrdup(ptr noundef %15527) #10
   br label %.critedge10155
 
 15529:                                            ; preds = %._crit_edge
   %15530 = load ptr, ptr %.210001, align 8
-  %15531 = call ptr @pstrdup(ptr noundef %15530) #11
+  %15531 = call ptr @pstrdup(ptr noundef %15530) #10
   br label %.critedge10155
 
 15532:                                            ; preds = %._crit_edge
   %15533 = load ptr, ptr %.210001, align 8
-  %15534 = call ptr @pstrdup(ptr noundef %15533) #11
+  %15534 = call ptr @pstrdup(ptr noundef %15533) #10
   br label %.critedge10155
 
 15535:                                            ; preds = %._crit_edge
@@ -28545,22 +28486,22 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15537:                                            ; preds = %._crit_edge
   %15538 = load ptr, ptr %.210001, align 8
-  %15539 = call ptr @pstrdup(ptr noundef %15538) #11
+  %15539 = call ptr @pstrdup(ptr noundef %15538) #10
   br label %.critedge10155
 
 15540:                                            ; preds = %._crit_edge
   %15541 = load ptr, ptr %.210001, align 8
-  %15542 = call ptr @pstrdup(ptr noundef %15541) #11
+  %15542 = call ptr @pstrdup(ptr noundef %15541) #10
   br label %.critedge10155
 
 15543:                                            ; preds = %._crit_edge
   %15544 = load ptr, ptr %.210001, align 8
-  %15545 = call ptr @pstrdup(ptr noundef %15544) #11
+  %15545 = call ptr @pstrdup(ptr noundef %15544) #10
   br label %.critedge10155
 
 15546:                                            ; preds = %._crit_edge
   %15547 = load ptr, ptr %.210001, align 8
-  %15548 = call ptr @pstrdup(ptr noundef %15547) #11
+  %15548 = call ptr @pstrdup(ptr noundef %15547) #10
   br label %.critedge10155
 
 15549:                                            ; preds = %._crit_edge
@@ -28569,7 +28510,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
 
 15551:                                            ; preds = %._crit_edge
   %15552 = load ptr, ptr %.210001, align 8
-  %15553 = call ptr @pstrdup(ptr noundef %15552) #11
+  %15553 = call ptr @pstrdup(ptr noundef %15552) #10
   br label %.critedge10155
 
 .critedge10155:                                   ; preds = %11750, %9017, %7071, %updateRawStmtEnd.exit, %list_length.exit, %.critedge10153.loopexit, %10282, %11673, %.lr.ph10501, %6882, %6882, %6882, %15389, %15403, %15354, %15358, %13333, %13324, %11369, %11378, %11344, %11353, %9873, %9885, %9708, %9719, %9698, %9703, %9682, %9693, %9303, %9272, %9023, %7470, %7484, %7453, %7465, %7434, %7448, %3136, %2589, %1947, %1941, %1945, %1679, %693, %697, %665, %668, %189, %._crit_edge, %13341, %13349, %13047, %13049, %13001, %13012, %12981, %12991, %12206, %12202, %9025, %9021, %7076, %4350, %4356, %289, %303, %317, %331, %345, %359, %373, %366, %352, %338, %324, %310, %296, %191, %182, %15551, %15549, %15546, %15543, %15540, %15537, %15535, %15532, %15529, %15526, %15524, %15521, %15518, %15516, %15513, %15510, %15508, %15505, %15503, %15489, %15486, %15429, %15426, %15421, %15416, %15411, %15349, %15345, %15341, %15339, %15335, %15330, %15324, %15318, %15298, %15288, %15282, %15274, %15232, %15225, %15218, %15214, %15207, %15200, %15193, %15189, %15187, %15185, %15183, %15177, %15173, %15166, %15162, %15157, %15154, %15142, %15135, %15124, %15113, %15108, %15105, %15103, %15101, %15080, %15058, %15053, %15050, %15047, %15044, %15041, %15038, %15035, %15032, %15027, %15022, %15017, %15014, %15011, %15008, %15005, %15002, %14999, %14996, %14993, %14990, %14987, %14984, %14975, %14972, %14969, %14966, %14963, %14960, %14958, %14956, %14952, %14948, %14927, %14924, %14922, %14916, %14912, %14908, %14905, %14902, %14899, %14896, %14893, %14890, %14887, %14884, %14880, %14875, %14872, %14869, %14866, %14863, %14860, %14857, %14854, %14851, %14848, %14841, %14836, %14833, %14831, %14826, %14821, %14818, %14816, %14807, %14800, %14798, %14795, %14788, %14784, %14782, %14780, %14770, %14765, %14762, %14747, %14744, %14740, %14738, %14736, %14731, %14724, %14710, %14705, %14698, %14691, %14686, %14679, %14670, %14669, %14668, %14667, %14666, %14664, %14663, %14662, %14661, %14660, %14659, %14658, %14656, %14648, %14643, %14640, %14634, %14626, %14618, %14613, %14610, %14608, %14597, %14586, %14584, %14579, %14576, %14571, %14568, %14565, %14562, %14559, %14556, %14553, %14549, %14546, %14542, %14539, %14535, %14534, %14533, %14532, %14531, %14530, %14529, %14528, %14527, %14526, %14525, %14524, %14523, %14521, %14519, %14516, %14513, %14510, %14504, %14501, %14495, %14492, %14489, %14486, %14483, %14480, %14477, %14470, %14463, %14459, %14455, %14451, %14447, %14401, %14378, %14370, %14362, %14354, %14352, %14350, %14322, %14313, %14311, %14306, %14301, %14298, %14296, %14293, %14290, %14287, %14285, %14282, %14280, %14277, %14274, %14271, %14268, %14265, %14262, %14259, %14256, %14249, %14238, %14233, %14230, %14227, %14222, %14217, %14212, %14207, %14203, %14201, %14173, %14154, %14120, %14114, %14103, %14094, %14082, %14072, %14057, %14043, %14032, %14015, %14008, %13991, %13975, %13960, %13949, %13928, %13916, %13906, %13889, %13875, %13861, %13850, %13840, %13831, %13822, %13814, %13806, %13799, %13792, %13785, %13778, %13758, %13750, %13743, %13736, %13728, %13721, %13708, %13700, %13693, %13682, %13676, %13670, %13664, %13660, %13654, %13648, %13642, %13633, %13627, %13618, %13612, %13603, %13597, %13588, %13582, %13576, %13568, %13566, %13564, %13562, %13560, %13550, %13544, %13498, %13486, %13475, %13460, %13447, %13436, %13430, %13422, %13413, %13406, %13401, %13391, %13381, %13365, %13356, %13354, %13352, %13322, %13320, %13306, %13294, %13287, %13280, %13273, %13264, %13257, %13250, %13243, %13236, %13229, %13222, %13215, %13208, %13201, %13194, %13187, %13180, %13175, %13170, %13160, %13158, %13154, %13141, %13130, %13115, %13105, %13092, %13084, %13070, %13058, %13018, %12967, %12957, %12947, %12937, %12930, %12923, %12914, %12905, %12896, %12887, %12878, %12869, %12861, %12833, %12824, %12816, %12807, %12794, %12783, %12770, %12759, %12746, %12739, %12726, %12719, %12706, %12699, %12686, %12679, %12674, %12669, %12662, %12655, %12648, %12639, %12632, %12625, %12618, %12611, %12604, %12597, %12590, %12583, %12576, %12569, %12562, %12555, %12550, %12545, %12539, %12530, %12520, %12510, %12508, %12504, %12488, %12481, %12472, %12463, %12455, %12446, %12438, %12430, %12422, %12420, %12413, %12406, %12399, %12392, %12385, %12382, %12379, %12376, %12372, %12365, %12348, %12341, %12324, %12321, %12318, %12314, %12310, %12306, %12305, %12301, %12297, %12294, %12264, %12261, %12259, %12257, %12255, %12251, %12226, %12223, %12221, %12219, %12217, %12215, %12185, %12178, %12171, %12164, %12159, %12154, %12150, %12146, %12142, %12138, %12134, %12131, %12118, %12109, %12107, %12105, %12103, %12101, %12099, %12097, %12080, %12075, %12073, %12071, %12069, %12067, %12065, %12058, %12053, %12046, %12040, %12031, %12023, %12017, %12012, %12008, %11989, %11974, %11952, %11919, %11887, %11878, %11873, %11870, %11868, %11845, %11818, %11807, %11802, %11799, %11794, %11790, %11785, %11780, %11773, %11768, %11765, %11756, %11660, %11655, %11652, %11635, %11620, %11599, %11594, %11591, %11589, %11584, %11582, %11580, %11577, %11574, %11571, %11566, %11563, %11558, %11549, %11538, %11535, %11522, %11514, %11506, %11504, %11499, %11496, %11491, %11487, %11482, %11480, %11476, %11474, %11469, %11466, %11463, %11460, %11457, %11455, %11447, %11439, %11435, %11432, %11428, %11426, %11422, %11414, %11410, %11402, %11392, %11380, %11318, %11315, %11309, %11304, %11298, %11296, %11288, %11280, %11274, %11269, %11256, %11244, %11235, %11229, %11224, %11221, %11219, %11211, %11202, %11200, %11197, %11194, %11191, %11188, %11178, %11173, %11170, %11168, %11166, %11164, %11158, %11152, %11146, %11142, %11140, %11138, %11136, %11134, %11132, %11127, %11124, %11121, %11113, %11110, %11107, %11104, %11101, %11094, %11087, %11082, %11077, %11075, %11073, %11068, %11066, %11063, %11061, %11046, %11033, %11020, %11009, %10991, %10989, %10980, %10978, %10971, %10965, %10953, %10939, %10934, %10931, %10929, %10927, %10925, %10922, %10920, %10917, %10914, %10911, %10908, %10905, %10902, %10899, %10889, %10879, %10876, %10873, %10870, %10862, %10860, %10837, %10818, %10807, %10796, %10793, %10790, %10787, %10765, %10760, %10757, %10749, %10741, %10733, %10717, %10701, %10685, %10666, %10664, %10631, %10601, %10599, %10597, %10586, %10575, %10568, %10563, %10554, %10545, %10540, %10538, %10535, %10526, %10523, %10520, %10517, %10511, %10505, %10499, %10493, %10487, %10484, %10482, %10468, %10465, %10460, %10449, %10440, %10431, %10424, %10419, %10412, %10410, %10407, %10404, %10401, %10398, %10389, %10380, %10370, %10360, %10350, %10345, %10342, %10322, %10317, %10314, %10302, %10275, %10270, %10268, %10248, %10245, %10242, %10239, %10236, %10233, %10230, %10227, %10224, %10221, %10218, %10215, %10212, %10209, %10206, %10201, %10191, %10189, %10172, %10169, %10166, %10156, %10151, %10148, %10145, %10138, %10130, %10119, %10109, %10095, %10083, %10078, %10075, %10072, %10069, %10066, %10056, %10049, %10041, %10036, %10029, %10027, %10007, %10002, %9997, %9990, %9983, %9980, %9953, %9926, %9919, %9916, %9906, %9899, %9890, %9868, %9866, %9861, %9858, %9853, %9850, %9847, %9844, %9841, %9838, %9835, %9832, %9829, %9826, %9824, %9821, %9820, %9819, %9817, %9810, %9805, %9802, %9794, %9790, %9771, %9767, %9724, %9676, %9666, %9650, %9641, %9632, %9616, %9602, %9589, %9576, %9569, %9561, %9549, %9537, %9529, %9523, %9517, %9509, %9498, %9494, %9490, %9485, %9482, %9477, %9474, %9465, %9456, %9450, %9444, %9437, %9432, %9421, %9414, %9407, %9404, %9401, %9398, %9395, %9392, %9390, %9388, %9382, %9374, %9367, %9362, %9359, %9357, %9350, %9346, %9343, %9340, %9337, %9334, %9251, %9230, %9227, %9224, %9221, %9216, %9211, %9208, %9199, %9191, %9182, %9173, %9166, %9159, %9153, %9146, %9139, %9132, %9125, %9118, %9111, %9104, %9097, %9090, %9083, %9077, %9070, %9067, %9063, %9059, %9057, %9050, %9047, %9044, %9041, %9038, %9035, %9032, %9029, %9027, %9014, %9011, %8989, %8981, %8973, %8965, %8953, %8941, %8930, %8919, %8908, %8900, %8892, %8884, %8871, %8863, %8855, %8847, %8840, %8835, %8832, %8827, %8812, %8789, %8785, %8753, %8746, %8731, %8721, %8713, %8706, %8697, %8688, %8679, %8670, %8661, %8653, %8645, %8637, %8628, %8620, %8611, %8603, %8595, %8583, %8571, %8563, %8555, %8546, %8538, %8530, %8521, %8513, %8505, %8497, %8489, %8486, %8484, %8482, %8478, %8476, %8472, %8465, %8459, %8454, %8451, %8443, %8434, %8425, %8416, %8407, %8398, %8389, %8380, %8371, %8362, %8353, %8344, %8335, %8326, %8317, %8308, %8299, %8290, %8281, %8268, %8255, %8246, %8237, %8227, %8218, %8209, %8200, %8191, %8188, %8185, %8173, %8161, %8144, %8132, %8120, %8108, %8105, %8102, %8083, %8074, %8065, %8056, %8047, %8038, %8029, %8020, %8011, %8002, %7993, %7981, %7969, %7956, %7943, %7931, %7919, %7906, %7893, %7880, %7867, %7854, %7841, %7831, %7821, %7811, %7801, %7791, %7781, %7771, %7761, %7751, %7741, %7731, %7721, %7711, %7701, %7692, %7683, %7673, %7664, %7652, %7640, %7627, %7614, %7604, %7595, %7586, %7576, %7565, %7556, %7547, %7538, %7529, %7520, %7512, %7504, %7501, %7498, %7495, %7492, %7489, %7418, %7415, %7412, %7407, %7402, %7381, %7378, %7375, %7359, %7356, %7353, %7350, %7338, %7326, %7312, %7306, %7301, %7296, %7293, %7289, %7282, %7277, %7274, %7268, %7264, %7260, %7256, %7250, %7233, %7223, %7213, %7203, %7193, %7183, %7173, %7163, %7153, %7143, %7138, %7135, %7126, %7117, %7108, %7103, %7100, %7088, %7086, %7081, %7078, %7067, %7065, %7061, %7054, %7050, %7048, %7044, %7039, %7033, %7028, %7022, %7018, %7013, %7008, %7003, %6998, %6994, %6989, %6984, %6979, %6974, %6970, %6966, %6962, %6958, %6953, %6948, %6943, %6940, %6935, %6932, %6919, %6914, %6911, %6905, %6900, %6895, %6892, %6877, %6872, %6870, %6857, %6845, %6843, %6841, %6838, %6835, %6832, %6829, %6826, %6817, %6805, %6793, %6779, %6765, %6760, %6757, %6754, %6744, %6737, %6729, %6719, %6714, %6711, %6706, %6703, %6700, %6697, %6694, %6676, %6658, %6632, %6612, %6609, %6606, %6603, %6600, %6597, %6594, %6592, %6587, %6584, %6581, %6576, %6571, %6566, %6549, %6534, %6529, %6526, %6525, %6523, %6520, %6517, %6474, %6431, %6428, %6425, %6422, %6419, %6416, %6413, %6396, %6379, %6363, %6358, %6353, %6348, %6343, %6336, %6334, %6332, %6330, %6328, %6320, %6317, %6312, %6289, %6274, %6260, %6248, %6245, %6242, %6240, %6238, %6233, %6230, %6225, %6220, %6215, %6210, %6205, %6200, %6195, %6190, %6185, %6180, %6175, %6170, %6165, %6160, %6155, %6150, %6145, %6140, %6135, %6130, %6125, %6120, %6118, %6112, %6108, %6101, %6096, %6088, %6080, %6072, %6067, %6064, %6057, %6050, %6048, %6021, %5994, %5968, %5962, %5953, %5947, %5941, %5932, %5926, %5920, %5911, %5902, %5893, %5887, %5881, %5875, %5869, %5863, %5857, %5854, %5851, %5849, %5847, %5836, %5825, %5814, %5803, %5792, %5781, %5770, %5756, %5745, %5732, %5730, %5719, %5711, %5699, %5687, %5675, %5667, %5659, %5645, %5632, %5620, %5612, %5604, %5596, %5588, %5580, %5569, %5561, %5551, %5548, %5545, %5542, %5532, %5527, %5524, %5518, %5514, %5508, %5504, %5499, %5496, %5493, %5490, %5487, %5484, %5481, %5478, %5475, %5472, %5469, %5466, %5463, %5460, %5457, %5454, %5451, %5447, %5444, %5441, %5438, %5435, %5432, %5429, %5426, %5423, %5420, %5417, %5414, %5411, %5408, %5398, %5388, %5378, %5368, %5358, %5348, %5331, %5314, %5302, %5290, %5278, %5266, %5259, %5252, %5237, %5222, %5207, %5192, %5183, %5174, %5169, %5166, %5155, %5144, %5137, %5135, %5133, %5130, %5127, %5122, %5111, %5103, %5092, %5078, %5073, %5070, %5051, %5048, %5045, %5025, %5010, %4995, %4982, %4976, %4972, %4970, %4963, %4958, %4955, %4952, %4948, %4945, %4943, %4941, %4937, %4935, %4931, %4924, %4919, %4916, %4913, %4900, %4888, %4878, %4869, %4860, %4851, %4842, %4833, %4826, %4818, %4807, %4800, %4790, %4780, %4767, %4752, %4742, %4739, %4736, %4733, %4726, %4720, %4716, %4708, %4703, %4700, %4686, %4674, %4671, %4668, %4665, %4662, %4659, %4656, %4653, %4650, %4647, %4618, %4616, %4613, %4610, %4607, %4603, %4598, %4595, %4592, %4589, %4586, %4583, %4579, %4577, %4574, %4571, %4568, %4565, %4555, %4550, %4547, %4545, %4542, %4538, %4535, %4532, %4529, %4520, %4504, %4501, %4498, %4495, %4453, %4393, %4390, %4387, %4377, %4376, %4375, %4374, %4373, %4372, %4370, %4367, %4344, %4339, %4337, %4334, %4331, %4315, %4293, %4283, %4275, %4267, %4262, %4260, %4249, %4238, %4235, %4228, %4225, %4222, %4201, %4174, %4147, %4124, %4101, %4094, %4086, %4075, %4073, %4071, %4069, %4052, %4035, %4032, %4030, %4023, %4019, %4016, %4013, %4011, %4006, %4003, %4000, %3995, %3992, %3989, %3981, %3971, %3969, %3964, %3961, %3957, %3952, %3948, %3943, %3933, %3922, %3907, %3896, %3885, %3870, %3855, %3844, %3833, %3822, %3807, %3796, %3783, %3769, %3763, %3758, %3751, %3747, %3734, %3728, %3723, %3715, %3707, %3702, %3697, %3695, %3682, %3680, %3678, %3676, %3670, %3666, %3663, %3660, %3641, %3633, %3628, %3625, %3622, %3619, %3616, %3613, %3610, %3605, %3602, %3597, %3592, %3587, %3583, %3579, %3574, %3569, %3566, %3561, %3556, %3552, %3547, %3542, %3537, %3534, %3531, %3529, %3521, %3513, %3499, %3485, %3474, %3471, %3468, %3449, %3427, %3405, %3402, %3399, %3396, %3375, %3353, %3331, %3323, %3315, %3309, %3304, %3299, %3294, %3291, %3276, %3261, %3259, %3257, %3255, %3252, %3249, %3246, %3243, %3241, %3239, %3225, %3211, %3197, %3192, %3189, %3175, %3173, %3170, %3166, %3162, %3159, %3156, %3153, %3151, %3127, %3121, %3115, %3108, %3101, %3098, %3092, %3087, %3082, %3079, %3076, %3073, %3063, %3060, %3057, %3055, %3049, %3047, %3042, %3039, %3036, %3033, %3030, %3027, %3024, %3012, %2994, %2992, %2984, %2955, %2896, %2879, %2853, %2836, %2806, %2791, %2773, %2771, %2763, %2760, %2757, %2754, %2751, %2748, %2745, %2742, %2739, %2736, %2733, %2730, %2722, %2715, %2707, %2701, %2696, %2690, %2684, %2678, %2673, %2670, %2667, %2664, %2661, %2658, %2655, %2652, %2649, %2614, %2577, %2568, %2553, %2540, %2523, %2518, %2507, %2499, %2497, %2495, %2487, %2482, %2480, %2478, %2476, %2474, %2472, %2470, %2451, %2432, %2402, %2400, %2398, %2396, %2394, %2392, %2387, %2384, %2379, %2376, %2373, %2371, %2368, %2365, %2362, %2352, %2342, %2339, %2336, %2333, %2297, %2261, %2224, %2187, %2155, %2123, %2120, %2115, %2112, %2109, %2107, %2105, %2103, %2100, %2093, %2088, %2085, %2079, %2075, %2069, %2064, %2059, %2054, %2049, %2044, %2039, %2033, %2027, %2023, %2019, %2013, %2007, %2003, %1999, %1994, %1991, %1989, %1987, %1984, %1981, %1978, %1975, %1889, %1885, %1865, %1856, %1847, %1839, %1834, %1831, %1820, %1815, %1812, %1804, %1799, %1786, %1776, %1772, %1700, %1697, %1691, %1663, %1660, %1655, %1652, %1645, %1636, %1632, %1625, %1620, %1617, %1615, %1612, %1607, %1603, %1599, %1595, %1593, %1585, %1583, %1578, %1575, %1572, %1569, %1566, %1561, %1556, %1551, %1546, %1541, %1536, %1533, %1525, %1520, %1515, %1510, %1505, %1500, %1495, %1492, %1489, %1484, %1481, %1478, %1473, %1468, %1463, %1460, %1457, %1453, %1448, %1445, %1436, %1427, %1422, %1409, %1404, %1396, %1377, %1368, %1359, %1352, %1345, %1337, %1319, %1310, %1301, %1293, %1285, %1278, %1258, %1251, %1245, %1236, %1230, %1224, %1216, %1210, %1204, %1198, %1192, %1183, %1173, %1162, %1151, %1146, %1143, %1134, %1125, %1111, %1099, %1090, %1081, %1072, %1063, %1054, %1045, %1031, %1019, %1009, %1000, %991, %977, %965, %955, %945, %936, %927, %924, %921, %918, %915, %912, %910, %907, %904, %902, %895, %892, %889, %886, %883, %879, %877, %875, %873, %871, %867, %861, %856, %851, %846, %844, %842, %840, %838, %836, %832, %812, %805, %785, %781, %779, %778, %777, %776, %775, %774, %773, %772, %768, %764, %759, %756, %751, %749, %738, %725, %720, %709, %698, %675, %651, %649, %642, %635, %625, %615, %607, %599, %596, %593, %590, %585, %582, %566, %542, %531, %528, %525, %512, %504, %499, %494, %489, %484, %479, %474, %466, %456, %448, %438, %436, %428, %420, %412, %407, %402, %397, %392, %386, %384, %280, %274, %268, %264, %250, %246, %240, %235, %230, %222, %218, %215, %212, %209, %206, %203, %201, %199, %198, %150, %139, %128, %118, %113, %109
@@ -28620,7 +28561,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10144, label %15580, label %15581
 
 15580:                                            ; preds = %.thread10231
-  call void @scanner_yyerror(ptr noundef nonnull @.str.261, ptr noundef %0) #14
+  call void @scanner_yyerror(ptr noundef nonnull @.str.261, ptr noundef %0) #13
   unreachable
 
 15581:                                            ; preds = %.thread10231
@@ -28706,7 +28647,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br label %.loopexit
 
 15620:                                            ; preds = %12, %19
-  call void @scanner_yyerror(ptr noundef nonnull @.str.264, ptr noundef %0) #14
+  call void @scanner_yyerror(ptr noundef nonnull @.str.264, ptr noundef %0) #13
   unreachable
 
 .thread10255:                                     ; preds = %.thread10220, %37, %15586, %15603
@@ -28716,7 +28657,7 @@ list_length.exit10201.thread:                     ; preds = %12852, %list_length
   br i1 %.not10147, label %15622, label %15621
 
 15621:                                            ; preds = %.thread10255
-  call void @pfree(ptr noundef %.5998610253) #11
+  call void @pfree(ptr noundef %.5998610253) #10
   br label %15622
 
 15622:                                            ; preds = %.thread10255, %15621
@@ -28782,7 +28723,7 @@ define internal fastcc noundef ptr @makeAConst(ptr noundef readonly captures(non
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr @palloc0(i64 noundef 32) #11
+  %7 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 465, ptr %8, align 8
@@ -28793,7 +28734,7 @@ define internal fastcc noundef ptr @makeAConst(ptr noundef readonly captures(non
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef ptr @palloc0(i64 noundef 32) #11
+  %13 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 72, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 464, ptr %14, align 8
@@ -28814,8 +28755,8 @@ define internal fastcc noundef ptr @makeAConst(ptr noundef readonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeStringConstCast(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call ptr @makeStringConst(ptr noundef %0, i32 noundef %1) #11
-  %5 = tail call noundef ptr @palloc0(i64 noundef 32) #11
+  %4 = tail call ptr @makeStringConst(ptr noundef %0, i32 noundef %1) #10
+  %5 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 73, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
@@ -28874,12 +28815,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   br label %26
 
 21:                                               ; preds = %19
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 1088) #11
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.284, ptr noundef %2) #11
-  %25 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19509, ptr noundef nonnull @__func__.processCASbits) #11
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %23 = tail call i32 @errcode(i32 noundef 1088) #10
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.284, ptr noundef %2) #10
+  %25 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19509, ptr noundef nonnull @__func__.processCASbits) #10
   unreachable
 
 26:                                               ; preds = %20, %17
@@ -28895,12 +28835,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   br label %35
 
 30:                                               ; preds = %28
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 1088) #11
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.284, ptr noundef %2) #11
-  %34 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19522, ptr noundef nonnull @__func__.processCASbits) #11
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %32 = tail call i32 @errcode(i32 noundef 1088) #10
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.284, ptr noundef %2) #10
+  %34 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19522, ptr noundef nonnull @__func__.processCASbits) #10
   unreachable
 
 35:                                               ; preds = %29, %26
@@ -28916,12 +28855,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   br label %44
 
 39:                                               ; preds = %37
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 1088) #11
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.285, ptr noundef %2) #11
-  %43 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19535, ptr noundef nonnull @__func__.processCASbits) #11
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %41 = tail call i32 @errcode(i32 noundef 1088) #10
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.285, ptr noundef %2) #10
+  %43 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19535, ptr noundef nonnull @__func__.processCASbits) #10
   unreachable
 
 44:                                               ; preds = %38, %35
@@ -28938,12 +28876,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   br label %53
 
 48:                                               ; preds = %46
-  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %49)
-  %50 = tail call i32 @errcode(i32 noundef 1088) #11
-  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.286, ptr noundef %2) #11
-  %52 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19548, ptr noundef nonnull @__func__.processCASbits) #11
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %50 = tail call i32 @errcode(i32 noundef 1088) #10
+  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.286, ptr noundef %2) #10
+  %52 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19548, ptr noundef nonnull @__func__.processCASbits) #10
   unreachable
 
 53:                                               ; preds = %47, %44
@@ -28959,12 +28896,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %.not54, label %63, label %62
 
 57:                                               ; preds = %55
-  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %58)
-  %59 = tail call i32 @errcode(i32 noundef 1088) #11
-  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.287, ptr noundef %2) #11
-  %61 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19561, ptr noundef nonnull @__func__.processCASbits) #11
+  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %59 = tail call i32 @errcode(i32 noundef 1088) #10
+  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.287, ptr noundef %2) #10
+  %61 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19561, ptr noundef nonnull @__func__.processCASbits) #10
   unreachable
 
 62:                                               ; preds = %56
@@ -28984,12 +28920,11 @@ define internal fastcc void @processCASbits(i32 noundef %0, i32 noundef %1, ptr 
   br label %72
 
 67:                                               ; preds = %65
-  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %68)
-  %69 = tail call i32 @errcode(i32 noundef 1088) #11
-  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.288, ptr noundef %2) #11
-  %71 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19583, ptr noundef nonnull @__func__.processCASbits) #11
+  %68 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %69 = tail call i32 @errcode(i32 noundef 1088) #10
+  %70 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.288, ptr noundef %2) #10
+  %71 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %8) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19583, ptr noundef nonnull @__func__.processCASbits) #10
   unreachable
 
 72:                                               ; preds = %66, %63
@@ -29004,7 +28939,7 @@ declare i32 @defGetInt32(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeRangeVarFromAnyName(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 56) #11
+  %4 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 3, ptr %4, align 4
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
@@ -29059,13 +28994,12 @@ list_length.exit:                                 ; preds = %3
   br label %35
 
 list_length.exit.thread:                          ; preds = %3, %list_length.exit
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %32 = tail call ptr @NameListToString(ptr noundef %0) #11
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.282, ptr noundef %32) #11
-  %34 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19395, ptr noundef nonnull @__func__.makeRangeVarFromAnyName) #11
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %31 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %32 = tail call ptr @NameListToString(ptr noundef %0) #10
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.282, ptr noundef %32) #10
+  %34 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19395, ptr noundef nonnull @__func__.makeRangeVarFromAnyName) #10
   unreachable
 
 35:                                               ; preds = %18, %10, %7
@@ -29136,11 +29070,10 @@ define internal fastcc void @updatePreparableStmtEnd(ptr noundef captures(none) 
   br label %33
 
 29:                                               ; preds = %2
-  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %30)
+  %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %31 = load i32, ptr %0, align 4
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.269, i32 noundef %31) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 18757, ptr noundef nonnull @__func__.updatePreparableStmtEnd) #11
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.269, i32 noundef %31) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 18757, ptr noundef nonnull @__func__.updatePreparableStmtEnd) #10
   unreachable
 
 33:                                               ; preds = %9, %19, %24, %14, %4
@@ -29189,27 +29122,25 @@ define internal fastcc void @SplitColQualList(ptr noundef %0, ptr noundef writeo
   br i1 %.not23, label %26, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.283) #11
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %21 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.283) #10
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 @scanner_errposition(i32 noundef %24, ptr noundef %3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19468, ptr noundef nonnull @__func__.SplitColQualList) #11
+  %25 = tail call i32 @scanner_errposition(i32 noundef %24, ptr noundef %3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19468, ptr noundef nonnull @__func__.SplitColQualList) #10
   unreachable
 
 26:                                               ; preds = %17
   store ptr %13, ptr %2, align 8
-  %27 = tail call ptr @list_delete_nth_cell(ptr noundef %.030, i32 noundef %.sroa.7.028) #11
+  %27 = tail call ptr @list_delete_nth_cell(ptr noundef %.030, i32 noundef %.sroa.7.028) #10
   br label %32
 
 28:                                               ; preds = %8
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %29)
+  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %30 = load i32, ptr %13, align 4
-  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.269, i32 noundef %30) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19472, ptr noundef nonnull @__func__.SplitColQualList) #11
+  %31 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.269, i32 noundef %30) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19472, ptr noundef nonnull @__func__.SplitColQualList) #10
   unreachable
 
 32:                                               ; preds = %26, %15
@@ -29224,27 +29155,26 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 104, 115) i32 @parsePartitionStrategy(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.289) #11
+  %4 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.289) #10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %17, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.290) #11
+  %7 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.290) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.291) #11
+  %10 = tail call i32 @pg_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.291) #10
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 @errcode(i32 noundef 50856066) #11
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.292, ptr noundef %0) #11
-  %16 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19604, ptr noundef nonnull @__func__.parsePartitionStrategy) #11
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %14 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.292, ptr noundef %0) #10
+  %16 = tail call i32 @scanner_errposition(i32 noundef %1, ptr noundef %2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19604, ptr noundef nonnull @__func__.parsePartitionStrategy) #10
   unreachable
 
 17:                                               ; preds = %9, %6, %3
@@ -29271,7 +29201,7 @@ define internal fastcc void @doNegateFloat(ptr noundef captures(none) %0) unname
   br label %12
 
 10:                                               ; preds = %1
-  %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.select) #11
+  %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.select) #10
   br label %12
 
 12:                                               ; preds = %10, %8
@@ -29315,18 +29245,17 @@ define internal fastcc ptr @mergeTableFuncParameters(ptr noundef %0, ptr noundef
   ]
 
 .critedge:                                        ; preds = %21, %.lr.ph, %3
-  %14 = tail call ptr @list_concat(ptr noundef %0, ptr noundef %1) #11
+  %14 = tail call ptr @list_concat(ptr noundef %0, ptr noundef %1) #10
   ret ptr %14
 
 .split:                                           ; preds = %9
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.280) #11
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %16 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.280) #10
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %19 = load i32, ptr %18, align 8
-  %20 = tail call i32 @scanner_errposition(i32 noundef %19, ptr noundef %2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19334, ptr noundef nonnull @__func__.mergeTableFuncParameters) #11
+  %20 = tail call i32 @scanner_errposition(i32 noundef %19, ptr noundef %2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19334, ptr noundef nonnull @__func__.mergeTableFuncParameters) #10
   unreachable
 
 21:                                               ; preds = %9, %9, %9
@@ -29352,14 +29281,14 @@ list_length.exit:                                 ; preds = %1
   %7 = load ptr, ptr %.val, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @copyObjectImpl(ptr noundef %9) #11
+  %10 = tail call ptr @copyObjectImpl(ptr noundef %9) #10
   br label %15
 
 list_length.exit.thread:                          ; preds = %1, %list_length.exit
-  %11 = tail call ptr @makeString(ptr noundef nonnull @.str.267) #11
-  %12 = tail call ptr @makeString(ptr noundef nonnull @.str.281) #11
-  %13 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %11, ptr %12) #11
-  %14 = tail call ptr @makeTypeNameFromNameList(ptr noundef %13) #11
+  %11 = tail call ptr @makeString(ptr noundef nonnull @.str.267) #10
+  %12 = tail call ptr @makeString(ptr noundef nonnull @.str.281) #10
+  %13 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %11, ptr %12) #10
+  %14 = tail call ptr @makeTypeNameFromNameList(ptr noundef %13) #10
   br label %15
 
 15:                                               ; preds = %list_length.exit.thread, %5
@@ -29402,7 +29331,7 @@ define internal fastcc ptr @extractArgTypes(ptr noundef readonly captures(addres
 12:                                               ; preds = %.lr.ph24
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef %14) #11
+  %15 = tail call ptr @lappend(ptr noundef %.01822, ptr noundef %14) #10
   %.pre = load i32, ptr %2, align 4
   br label %16
 
@@ -29449,7 +29378,7 @@ define internal fastcc noundef ptr @check_func_name(ptr noundef readonly returne
   ret ptr %0
 
 .split:                                           ; preds = %9
-  tail call void @scanner_yyerror(ptr noundef nonnull @.str.261, ptr noundef %1) #14
+  tail call void @scanner_yyerror(ptr noundef nonnull @.str.261, ptr noundef %1) #13
   unreachable
 }
 
@@ -29488,7 +29417,7 @@ list_length.exit:                                 ; preds = %3
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24) #11
+  %25 = tail call zeroext i1 @equal(ptr noundef %22, ptr noundef %24) #10
   br i1 %25, label %.list_length.exit18_crit_edge, label %26
 
 .list_length.exit18_crit_edge:                    ; preds = %20
@@ -29496,22 +29425,21 @@ list_length.exit:                                 ; preds = %3
   br label %list_length.exit18
 
 26:                                               ; preds = %20, %17, %list_length.exit
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 1088) #11
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.271) #11
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %28 = tail call i32 @errcode(i32 noundef 1088) #10
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.271) #10
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i32 @scanner_errposition(i32 noundef %31, ptr noundef %2) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19043, ptr noundef nonnull @__func__.makeOrderedSetArgs) #11
+  %32 = tail call i32 @scanner_errposition(i32 noundef %31, ptr noundef %2) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19043, ptr noundef nonnull @__func__.makeOrderedSetArgs) #10
   unreachable
 
 list_length.exit18:                               ; preds = %.list_length.exit18_crit_edge, %3
   %33 = phi i32 [ %.val, %3 ], [ %.pre, %.list_length.exit18_crit_edge ]
   %.0 = phi ptr [ %1, %3 ], [ null, %.list_length.exit18_crit_edge ]
-  %34 = tail call ptr @makeInteger(i32 noundef %33) #11
-  %35 = tail call ptr @list_concat(ptr noundef nonnull %0, ptr noundef %.0) #11
-  %36 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %35, ptr %34) #11
+  %34 = tail call ptr @makeInteger(i32 noundef %33) #10
+  %35 = tail call ptr @list_concat(ptr noundef nonnull %0, ptr noundef %.0) #10
+  %36 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %35, ptr %34) #10
   ret ptr %36
 }
 
@@ -29544,7 +29472,7 @@ define internal fastcc ptr @extractAggrArgTypes(ptr readonly captures(address_is
 11:                                               ; preds = %.lr.ph24.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @lappend(ptr noundef %.01822.i, ptr noundef %13) #11
+  %14 = tail call ptr @lappend(ptr noundef %.01822.i, ptr noundef %13) #10
   %.pre.i = load i32, ptr %1, align 4
   br label %15
 
@@ -29582,15 +29510,14 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   br i1 %.not4966, label %.lr.ph, label %.critedge
 
 11:                                               ; preds = %3
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.293) #11
-  %15 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.294) #11
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %13 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.293) #10
+  %15 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.294) #10
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load i32, ptr %16, align 8
-  %18 = tail call i32 @scanner_errposition(i32 noundef %17, ptr noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19629, ptr noundef nonnull @__func__.preprocess_pubobj_list) #11
+  %18 = tail call i32 @scanner_errposition(i32 noundef %17, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19629, ptr noundef nonnull @__func__.preprocess_pubobj_list) #10
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
@@ -29629,23 +29556,22 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   br i1 %.not57, label %34, label %.thread
 
 34:                                               ; preds = %31
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.295) #11
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %36 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.295) #10
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %39 = load i32, ptr %38, align 8
-  %40 = tail call i32 @scanner_errposition(i32 noundef %39, ptr noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19645, ptr noundef nonnull @__func__.preprocess_pubobj_list) #11
+  %40 = tail call i32 @scanner_errposition(i32 noundef %39, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19645, ptr noundef nonnull @__func__.preprocess_pubobj_list) #10
   unreachable
 
 41:                                               ; preds = %28
-  %42 = tail call noundef ptr @palloc0(i64 noundef 32) #11
+  %42 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 258, ptr %42, align 4
   %43 = load ptr, ptr %29, align 8
   %44 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %45 = load i32, ptr %44, align 8
-  %46 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %43, i32 noundef %45) #11
+  %46 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %43, i32 noundef %45) #10
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %46, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -29667,14 +29593,13 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   br i1 %.not51, label %62, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.296) #11
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %57 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.296) #10
   %59 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %60 = load i32, ptr %59, align 8
-  %61 = tail call i32 @scanner_errposition(i32 noundef %60, ptr noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19666, ptr noundef nonnull @__func__.preprocess_pubobj_list) #11
+  %61 = tail call i32 @scanner_errposition(i32 noundef %60, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19666, ptr noundef nonnull @__func__.preprocess_pubobj_list) #10
   unreachable
 
 62:                                               ; preds = %52
@@ -29684,14 +29609,13 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   br i1 %.not53, label %.thread60, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %66)
-  %67 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.297) #11
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %67 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %68 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.297) #10
   %69 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %70 = load i32, ptr %69, align 8
-  %71 = tail call i32 @scanner_errposition(i32 noundef %70, ptr noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19673, ptr noundef nonnull @__func__.preprocess_pubobj_list) #11
+  %71 = tail call i32 @scanner_errposition(i32 noundef %70, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19673, ptr noundef nonnull @__func__.preprocess_pubobj_list) #10
   unreachable
 
 .thread59:                                        ; preds = %49
@@ -29715,14 +29639,13 @@ define internal fastcc void @preprocess_pubobj_list(ptr noundef readonly capture
   br label %.thread
 
 .thread62:                                        ; preds = %.thread60
-  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %78)
-  %79 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.298) #11
+  %78 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %79 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %80 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.298) #10
   %81 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %82 = load i32, ptr %81, align 8
-  %83 = tail call i32 @scanner_errposition(i32 noundef %82, ptr noundef %1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19687, ptr noundef nonnull @__func__.preprocess_pubobj_list) #11
+  %83 = tail call i32 @scanner_errposition(i32 noundef %82, ptr noundef %1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19687, ptr noundef nonnull @__func__.preprocess_pubobj_list) #10
   unreachable
 
 .thread:                                          ; preds = %31, %26, %77, %76, %41
@@ -29745,7 +29668,7 @@ define internal fastcc ptr @makeRangeVarFromQualifiedName(ptr noundef %0, ptr no
   br i1 %.not.i, label %check_qualified_name.exit.thread, label %.lr.ph.i
 
 check_qualified_name.exit.thread:                 ; preds = %4
-  %5 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef null, i32 noundef %2) #11
+  %5 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef null, i32 noundef %2) #10
   br label %list_length.exit.thread
 
 .lr.ph.i:                                         ; preds = %4
@@ -29774,11 +29697,11 @@ check_qualified_name.exit.thread:                 ; preds = %4
   br i1 %16, label %11, label %.split.i
 
 .split.i:                                         ; preds = %12
-  tail call void @scanner_yyerror(ptr noundef nonnull @.str.261, ptr noundef %3) #14
+  tail call void @scanner_yyerror(ptr noundef nonnull @.str.261, ptr noundef %3) #13
   unreachable
 
 list_length.exit:                                 ; preds = %11, %.lr.ph.i
-  %17 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef null, i32 noundef %2) #11
+  %17 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef null, i32 noundef %2) #10
   %18 = load i32, ptr %6, align 4
   switch i32 %18, label %list_length.exit.thread [
     i32 1, label %19
@@ -29809,15 +29732,14 @@ list_length.exit:                                 ; preds = %11, %.lr.ph.i
   br label %38
 
 list_length.exit.thread:                          ; preds = %check_qualified_name.exit.thread, %list_length.exit
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %33 = tail call ptr @makeString(ptr noundef %0) #11
-  %34 = tail call ptr @lcons(ptr noundef %33, ptr noundef %1) #11
-  %35 = tail call ptr @NameListToString(ptr noundef %34) #11
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.282, ptr noundef %35) #11
-  %37 = tail call i32 @scanner_errposition(i32 noundef %2, ptr noundef %3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19435, ptr noundef nonnull @__func__.makeRangeVarFromQualifiedName) #11
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %32 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %33 = tail call ptr @makeString(ptr noundef %0) #10
+  %34 = tail call ptr @lcons(ptr noundef %33, ptr noundef %1) #10
+  %35 = tail call ptr @NameListToString(ptr noundef %34) #10
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.282, ptr noundef %35) #10
+  %37 = tail call i32 @scanner_errposition(i32 noundef %2, ptr noundef %3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19435, ptr noundef nonnull @__func__.makeRangeVarFromQualifiedName) #10
   unreachable
 
 38:                                               ; preds = %23, %19
@@ -29832,11 +29754,11 @@ list_length.exit.thread:                          ; preds = %check_qualified_nam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeRecursiveViewSelect(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call noundef ptr @palloc0(i64 noundef 168) #11
+  %4 = tail call noundef ptr @palloc0(i64 noundef 168) #10
   store i32 141, ptr %4, align 4
-  %5 = tail call noundef ptr @palloc0(i64 noundef 24) #11
+  %5 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 110, ptr %5, align 4
-  %6 = tail call noundef ptr @palloc0(i64 noundef 104) #11
+  %6 = tail call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 115, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -29850,7 +29772,7 @@ define internal fastcc noundef ptr @makeRecursiveViewSelect(ptr noundef %0, ptr 
   store i32 -1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i8 1, ptr %12, align 8
-  %13 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6) #11
+  %13 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %6) #10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -29870,26 +29792,26 @@ define internal fastcc noundef ptr @makeRecursiveViewSelect(ptr noundef %0, ptr 
   %.03741 = phi ptr [ %34, %.lr.ph43 ], [ null, %.lr.ph ]
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv
-  %22 = tail call noundef ptr @palloc0(i64 noundef 40) #11
+  %22 = tail call noundef ptr @palloc0(i64 noundef 40) #10
   store i32 81, ptr %22, align 4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = load ptr, ptr %21, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef ptr @palloc0(i64 noundef 24) #11
+  %27 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 69, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i32 -1, ptr %28, align 8
-  %29 = tail call ptr @makeString(ptr noundef %26) #11
-  %30 = tail call ptr @lcons(ptr noundef %29, ptr noundef null) #11
+  %29 = tail call ptr @makeString(ptr noundef %26) #10
+  %30 = tail call ptr @lcons(ptr noundef %29, ptr noundef null) #10
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %30, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr %27, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 -1, ptr %33, align 8
-  %34 = tail call ptr @lappend(ptr noundef %.03741, ptr noundef nonnull %22) #11
+  %34 = tail call ptr @lappend(ptr noundef %.03741, ptr noundef nonnull %22) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %16, align 4
   %36 = sext i32 %35 to i64
@@ -29902,8 +29824,8 @@ define internal fastcc noundef ptr @makeRecursiveViewSelect(ptr noundef %0, ptr 
   store ptr %5, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.0.lcssa, ptr %39, align 8
-  %40 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %0, i32 noundef -1) #11
-  %41 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %40) #11
+  %40 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %0, i32 noundef -1) #10
+  %41 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %40) #10
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %41, ptr %42, align 8
   ret ptr %4
@@ -29948,7 +29870,7 @@ define internal fastcc noundef ptr @check_indirection(ptr noundef readonly retur
   ret ptr %0
 
 .split:                                           ; preds = %9
-  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %1) #14
+  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %1) #13
   unreachable
 
 14:                                               ; preds = %9
@@ -29969,13 +29891,12 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   br i1 %.not55, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.272) #11
-  %14 = tail call i32 @exprLocation(ptr noundef nonnull %1) #11
-  %15 = tail call i32 @scanner_errposition(i32 noundef %14, ptr noundef %5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19080, ptr noundef nonnull @__func__.insertSelectOptions) #11
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %12 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.272) #10
+  %14 = tail call i32 @exprLocation(ptr noundef nonnull %1) #10
+  %15 = tail call i32 @scanner_errposition(i32 noundef %14, ptr noundef %5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19080, ptr noundef nonnull @__func__.insertSelectOptions) #10
   unreachable
 
 16:                                               ; preds = %7
@@ -29985,7 +29906,7 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
 17:                                               ; preds = %16, %6
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr @list_concat(ptr noundef %19, ptr noundef %2) #11
+  %20 = tail call ptr @list_concat(ptr noundef %19, ptr noundef %2) #10
   store ptr %20, ptr %18, align 8
   %.not56 = icmp eq ptr %3, null
   br i1 %.not56, label %.critedge67, label %21
@@ -30002,14 +29923,13 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   br i1 %.not58, label %33, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.273) #11
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %28 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.273) #10
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %31 = load i32, ptr %30, align 4
-  %32 = tail call i32 @scanner_errposition(i32 noundef %31, ptr noundef %5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19091, ptr noundef nonnull @__func__.insertSelectOptions) #11
+  %32 = tail call i32 @scanner_errposition(i32 noundef %31, ptr noundef %5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19091, ptr noundef nonnull @__func__.insertSelectOptions) #10
   unreachable
 
 33:                                               ; preds = %23
@@ -30029,14 +29949,13 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   br i1 %.not60, label %47, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.274) #11
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %42 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.274) #10
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %45 = load i32, ptr %44, align 8
-  %46 = tail call i32 @scanner_errposition(i32 noundef %45, ptr noundef %5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19100, ptr noundef nonnull @__func__.insertSelectOptions) #11
+  %46 = tail call i32 @scanner_errposition(i32 noundef %45, ptr noundef %5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19100, ptr noundef nonnull @__func__.insertSelectOptions) #10
   unreachable
 
 47:                                               ; preds = %37
@@ -30056,14 +29975,13 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   br i1 %53, label %54, label %.critedge69
 
 54:                                               ; preds = %52
-  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.259) #11
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %56 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %57 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.259) #10
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %59 = load i32, ptr %58, align 4
-  %60 = tail call i32 @scanner_errposition(i32 noundef %59, ptr noundef %5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19111, ptr noundef nonnull @__func__.insertSelectOptions) #11
+  %60 = tail call i32 @scanner_errposition(i32 noundef %59, ptr noundef %5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19111, ptr noundef nonnull @__func__.insertSelectOptions) #10
   unreachable
 
 61:                                               ; preds = %.critedge
@@ -30099,14 +30017,13 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   br i1 %73, label %74, label %67
 
 74:                                               ; preds = %68
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %75)
-  %76 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277) #11
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %76 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277) #10
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %79 = load i32, ptr %78, align 4
-  %80 = tail call i32 @scanner_errposition(i32 noundef %79, ptr noundef %5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19125, ptr noundef nonnull @__func__.insertSelectOptions) #11
+  %80 = tail call i32 @scanner_errposition(i32 noundef %79, ptr noundef %5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19125, ptr noundef nonnull @__func__.insertSelectOptions) #10
   unreachable
 
 .critedge69:                                      ; preds = %67, %52, %.preheader, %61
@@ -30126,13 +30043,12 @@ define internal fastcc void @insertSelectOptions(ptr noundef captures(none) %0, 
   br i1 %.not66, label %92, label %86
 
 86:                                               ; preds = %83
-  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %87)
-  %88 = tail call i32 @errcode(i32 noundef 16801924) #11
-  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.278) #11
-  %90 = tail call i32 @exprLocation(ptr noundef nonnull %4) #11
-  %91 = tail call i32 @scanner_errposition(i32 noundef %90, ptr noundef %5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19136, ptr noundef nonnull @__func__.insertSelectOptions) #11
+  %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %88 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.278) #10
+  %90 = tail call i32 @exprLocation(ptr noundef nonnull %4) #10
+  %91 = tail call i32 @scanner_errposition(i32 noundef %90, ptr noundef %5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 19136, ptr noundef nonnull @__func__.insertSelectOptions) #10
   unreachable
 
 92:                                               ; preds = %83
@@ -30188,7 +30104,7 @@ define internal fastcc ptr @doNegate(ptr noundef %0, i32 noundef %1) unnamed_add
   br label %doNegateFloat.exit
 
 22:                                               ; preds = %13
-  %23 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.select.i) #11
+  %23 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.279, ptr noundef nonnull %spec.select.i) #10
   br label %doNegateFloat.exit
 
 doNegateFloat.exit:                               ; preds = %20, %22
@@ -30197,7 +30113,7 @@ doNegateFloat.exit:                               ; preds = %20, %22
   br label %.thread
 
 24:                                               ; preds = %5, %2
-  %25 = tail call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef null, ptr noundef nonnull %0, i32 noundef %1) #11
+  %25 = tail call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.188, ptr noundef null, ptr noundef nonnull %0, i32 noundef %1) #10
   br label %.thread
 
 .thread:                                          ; preds = %doNegateFloat.exit, %9, %24
@@ -30215,10 +30131,10 @@ declare ptr @makeTypeName(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SystemTypeName(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @makeString(ptr noundef nonnull @.str.267) #11
-  %3 = tail call ptr @makeString(ptr noundef %0) #11
-  %4 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %2, ptr %3) #11
-  %5 = tail call ptr @makeTypeNameFromNameList(ptr noundef %4) #11
+  %2 = tail call ptr @makeString(ptr noundef nonnull @.str.267) #10
+  %3 = tail call ptr @makeString(ptr noundef %0) #10
+  %4 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %2, ptr %3) #10
+  %5 = tail call ptr @makeTypeNameFromNameList(ptr noundef %4) #10
   ret ptr %5
 }
 
@@ -30226,9 +30142,9 @@ declare ptr @makeFuncCall(ptr noundef, ptr noundef, i32 noundef, i32 noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @SystemFuncName(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @makeString(ptr noundef nonnull @.str.267) #11
-  %3 = tail call ptr @makeString(ptr noundef %0) #11
-  %4 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %2, ptr %3) #11
+  %2 = tail call ptr @makeString(ptr noundef nonnull @.str.267) #10
+  %3 = tail call ptr @makeString(ptr noundef %0) #10
+  %4 = tail call ptr @list_make2_impl(i32 noundef 1, ptr %2, ptr %3) #10
   ret ptr %4
 }
 
@@ -30249,13 +30165,13 @@ define internal fastcc ptr @makeAndExpr(ptr noundef %0, ptr noundef %1, i32 noun
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @lappend(ptr noundef %12, ptr noundef %1) #11
+  %13 = tail call ptr @lappend(ptr noundef %12, ptr noundef %1) #10
   store ptr %13, ptr %11, align 8
   br label %16
 
 .thread:                                          ; preds = %6, %3
-  %14 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr %1) #11
-  %15 = tail call ptr @makeBoolExpr(i32 noundef 0, ptr noundef %14, i32 noundef %2) #11
+  %14 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr %1) #10
+  %15 = tail call ptr @makeBoolExpr(i32 noundef 0, ptr noundef %14, i32 noundef %2) #10
   br label %16
 
 16:                                               ; preds = %10, %.thread
@@ -30278,13 +30194,13 @@ define internal fastcc ptr @makeOrExpr(ptr noundef %0, ptr noundef %1, i32 nound
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr @lappend(ptr noundef %12, ptr noundef %1) #11
+  %13 = tail call ptr @lappend(ptr noundef %12, ptr noundef %1) #10
   store ptr %13, ptr %11, align 8
   br label %16
 
 .thread:                                          ; preds = %6, %3
-  %14 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr %1) #11
-  %15 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef %14, i32 noundef %2) #11
+  %14 = tail call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %0, ptr %1) #10
+  %15 = tail call ptr @makeBoolExpr(i32 noundef 1, ptr noundef %14, i32 noundef %2) #10
   br label %16
 
 16:                                               ; preds = %10, %.thread
@@ -30294,8 +30210,8 @@ define internal fastcc ptr @makeOrExpr(ptr noundef %0, ptr noundef %1, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @makeNotExpr(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #11
-  %4 = tail call ptr @makeBoolExpr(i32 noundef 2, ptr noundef %3, i32 noundef %1) #11
+  %3 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #10
+  %4 = tail call ptr @makeBoolExpr(i32 noundef 2, ptr noundef %3, i32 noundef %1) #10
   ret ptr %4
 }
 
@@ -30307,7 +30223,7 @@ declare ptr @list_make4_impl(i32 noundef, ptr, ptr, ptr, ptr) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call noundef ptr @palloc0(i64 noundef 24) #11
+  %5 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 69, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %6, align 8
@@ -30341,14 +30257,14 @@ define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1
 
 .split:                                           ; preds = %13
   %indvars84.le = trunc i64 %indvars.iv to i32
-  %17 = tail call noundef ptr @palloc0(i64 noundef 24) #11
+  %17 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 79, ptr %17, align 4
   %18 = icmp eq i32 %indvars84.le, 0
   br i1 %18, label %.lr.ph.i, label %33
 
 .lr.ph.i:                                         ; preds = %.split
-  %19 = tail call ptr @makeString(ptr noundef %0) #11
-  %20 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %19) #11
+  %19 = tail call ptr @makeString(ptr noundef %0) #10
+  %20 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %19) #10
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr %7, align 4
@@ -30375,7 +30291,7 @@ define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1
   br i1 %or.cond.i, label %.split.i, label %31
 
 .split.i:                                         ; preds = %26
-  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #14
+  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #13
   unreachable
 
 31:                                               ; preds = %26
@@ -30389,7 +30305,7 @@ check_indirection.exit:                           ; preds = %31, %.lr.ph.i
   br label %57
 
 33:                                               ; preds = %.split
-  %34 = tail call ptr @list_copy_tail(ptr noundef nonnull %1, i32 noundef %indvars84.le) #11
+  %34 = tail call ptr @list_copy_tail(ptr noundef nonnull %1, i32 noundef %indvars84.le) #10
   %.not.i47 = icmp eq ptr %34, null
   br i1 %.not.i47, label %check_indirection.exit60, label %.lr.ph.i48
 
@@ -30420,7 +30336,7 @@ check_indirection.exit:                           ; preds = %31, %.lr.ph.i
   br i1 %or.cond.i56, label %.split.i59, label %46
 
 .split.i59:                                       ; preds = %41
-  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #14
+  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #13
   unreachable
 
 46:                                               ; preds = %41
@@ -30431,9 +30347,9 @@ check_indirection.exit:                           ; preds = %31, %.lr.ph.i
 check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i48
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %34, ptr %47, align 8
-  %48 = tail call ptr @list_truncate(ptr noundef nonnull %1, i32 noundef %indvars84.le) #11
-  %49 = tail call ptr @makeString(ptr noundef %0) #11
-  %50 = tail call ptr @lcons(ptr noundef %49, ptr noundef %48) #11
+  %48 = tail call ptr @list_truncate(ptr noundef nonnull %1, i32 noundef %indvars84.le) #10
+  %49 = tail call ptr @makeString(ptr noundef %0) #10
+  %50 = tail call ptr @lcons(ptr noundef %49, ptr noundef %48) #10
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %50, ptr %51, align 8
   br label %57
@@ -30444,7 +30360,7 @@ check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i4
   br i1 %.not69, label %.split76, label %54
 
 .split76:                                         ; preds = %52
-  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #14
+  tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #13
   unreachable
 
 54:                                               ; preds = %13, %52
@@ -30453,8 +30369,8 @@ check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i4
   br i1 %exitcond.not, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %54, %.lr.ph, %4
-  %55 = tail call ptr @makeString(ptr noundef %0) #11
-  %56 = tail call ptr @lcons(ptr noundef %55, ptr noundef %1) #11
+  %55 = tail call ptr @makeString(ptr noundef %0) #10
+  %56 = tail call ptr @lcons(ptr noundef %55, ptr noundef %1) #10
   br label %57
 
 57:                                               ; preds = %check_indirection.exit60, %check_indirection.exit, %._crit_edge
@@ -30508,17 +30424,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #9
+declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #9
+declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -30528,13 +30441,12 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { noreturn nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

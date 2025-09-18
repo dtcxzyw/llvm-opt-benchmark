@@ -1190,7 +1190,6 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %_ZNK5clang4Type16is
 _ZNK5clang4Type13isIntegerTypeEv.exit.thread:     ; preds = %_ZNK5clang4Type16isFixedPointTypeEv.exit95.thread, %72, %80, %_ZNK5clang4Type13isIntegerTypeEv.exit
   %89 = load ptr, ptr %48, align 16, !tbaa !6
   %90 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %89) #21
-  tail call void @llvm.assume(i1 %90)
   br label %91
 
 91:                                               ; preds = %_ZNK5clang4Type16isFixedPointTypeEv.exit95.thread, %80, %_ZNK5clang4Type13isIntegerTypeEv.exit.thread, %_ZNK5clang4Type13isIntegerTypeEv.exit, %_ZNK5clang4Type16isFixedPointTypeEv.exit95
@@ -1258,7 +1257,6 @@ _ZNK5clang4Type13isIntegerTypeEv.exit116:         ; preds = %107
 _ZNK5clang4Type13isIntegerTypeEv.exit116.thread:  ; preds = %107, %108, %116, %_ZNK5clang4Type13isIntegerTypeEv.exit116
   %125 = load ptr, ptr %33, align 16, !tbaa !6
   %126 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %125) #21
-  tail call void @llvm.assume(i1 %126)
   br label %127
 
 127:                                              ; preds = %107, %116, %_ZNK5clang4Type13isIntegerTypeEv.exit116.thread, %_ZNK5clang4Type13isIntegerTypeEv.exit116
@@ -17695,36 +17693,30 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_117ScalarExprEmitter29VisitS
   %21 = load ptr, ptr %3, align 8, !tbaa !1332
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = icmp eq ptr %21, %22
-  br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %2
-  %24 = load i64, ptr %16, align 8, !tbaa !1333
-  %25 = icmp ult i64 %24, 16
-  call void @llvm.assume(i1 %25)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %23, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %2
-  %26 = load i64, ptr %22, align 8, !tbaa !3
-  %27 = add i64 %26, 1
-  call void @_ZdlPvm(ptr noundef %21, i64 noundef %27) #24
+  %24 = load i64, ptr %22, align 8, !tbaa !3
+  %25 = add i64 %24, 1
+  call void @_ZdlPvm(ptr noundef %21, i64 noundef %25) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %28, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %26, align 8, !tbaa !3
   %.val = load ptr, ptr %0, align 8, !tbaa !638
-  %29 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %.val, i64 %.sroa.0.0.copyload.i) #21
-  %30 = load ptr, ptr %13, align 8, !tbaa !639
+  %27 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6496) %.val, i64 %.sroa.0.0.copyload.i) #21
+  %28 = load ptr, ptr %13, align 8, !tbaa !639
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %32, align 1, !tbaa !22
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %30, align 1, !tbaa !22
   store ptr @.str.39, ptr %5, align 8, !tbaa !3
-  store i8 3, ptr %31, align 8, !tbaa !25
-  %33 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %30, ptr noundef %20, ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  store i8 3, ptr %29, align 8, !tbaa !25
+  %31 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef %20, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(34) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %33
+  ret ptr %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -4080,7 +4080,6 @@ _ZNK12_GLOBAL__N_115VirtRegRewriter37liveOutUndefPhiLanesForUndefSubregDefERKN4l
   %1184 = and i64 %.0.copyload.i.i.i.i.i.i.i.i172.i, -8
   %1185 = inttoptr i64 %1184 to ptr
   %1186 = call noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo24getCoveringSubRegIndexesEPKNS_19TargetRegisterClassENS_11LaneBitmaskERNS_15SmallVectorImplIjEE(ptr noundef nonnull align 8 dereferenceable(308) %1179, ptr noundef %1185, i64 %1177, ptr noundef nonnull align 8 dereferenceable(16) %11) #19
-  call void @llvm.assume(i1 %1186)
   %1187 = load ptr, ptr %11, align 8, !tbaa !173
   %1188 = load i32, ptr %510, align 8, !tbaa !167
   %1189 = zext i32 %1188 to i64

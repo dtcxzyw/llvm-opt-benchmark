@@ -550,33 +550,30 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot
 
 11:                                               ; preds = %5
   %12 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17ha5bcace9c44abd32E"(ptr nonnull align 8 %1, i64 1, ptr align 8 %4, i1 zeroext true)
-  %.fca.0.extract.i = extractvalue { i64, i64 } %12, 0
-  %13 = icmp eq i64 %.fca.0.extract.i, -9223372036854775807
-  tail call void @llvm.assume(i1 %13)
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit": ; preds = %5, %11
   store ptr %7, ptr %6, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %14, align 8
-  %15 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17hfd4e15a99f78deadE(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.2bfd2d9cb420607cd47cd314438671de.1)
-  %.fca.0.extract = extractvalue { i64, i64 } %15, 0
-  %.fca.1.extract = extractvalue { i64, i64 } %15, 1
-  %16 = icmp eq i64 %.fca.0.extract, 0
-  br i1 %16, label %17, label %22
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %1, ptr %13, align 8
+  %14 = call { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17hfd4e15a99f78deadE(ptr nonnull align 8 %1, i64 %2, ptr nonnull align 1 %6, ptr nonnull align 8 @anon.2bfd2d9cb420607cd47cd314438671de.1)
+  %.fca.0.extract = extractvalue { i64, i64 } %14, 0
+  %.fca.1.extract = extractvalue { i64, i64 } %14, 1
+  %15 = icmp eq i64 %.fca.0.extract, 0
+  br i1 %15, label %16, label %21
 
-17:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit"
-  %18 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %19 = sub nsw i64 0, %.fca.1.extract
-  %20 = getelementptr inbounds { ptr, { { i64, [28 x i64] }, { { i64, ptr }, i64 } } }, ptr %18, i64 %19
-  %21 = ptrtoint ptr %20 to i64
-  br label %22
+16:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit"
+  %17 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
+  %18 = sub nsw i64 0, %.fca.1.extract
+  %19 = getelementptr inbounds { ptr, { { i64, [28 x i64] }, { { i64, ptr }, i64 } } }, ptr %17, i64 %18
+  %20 = ptrtoint ptr %19 to i64
+  br label %21
 
-22:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit", %17
-  %.fca.1.extract.sink = phi i64 [ %21, %17 ], [ %.fca.1.extract, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit" ]
-  %storemerge = phi i64 [ 0, %17 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit" ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.fca.1.extract.sink, ptr %23, align 8
+21:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit", %16
+  %.fca.1.extract.sink = phi i64 [ %20, %16 ], [ %.fca.1.extract, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit" ]
+  %storemerge = phi i64 [ 0, %16 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242bbE.exit" ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.fca.1.extract.sink, ptr %22, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -750,16 +747,13 @@ define void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hedcc477944b242b
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %7, label %10
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17ha5bcace9c44abd32E"(ptr nonnull align 8 %0, i64 %1, ptr align 8 %2, i1 zeroext true)
-  %.fca.0.extract = extractvalue { i64, i64 } %8, 0
-  %9 = icmp eq i64 %.fca.0.extract, -9223372036854775807
-  tail call void @llvm.assume(i1 %9)
-  br label %10
+  br label %9
 
-10:                                               ; preds = %7, %3
+9:                                                ; preds = %7, %3
   ret void
 }
 

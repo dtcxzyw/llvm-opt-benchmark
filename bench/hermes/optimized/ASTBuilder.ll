@@ -17479,63 +17479,52 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %5 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i, align 8
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %value_.i.i.i, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8
   %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i, align 8
   %cmp.i.i.i = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i, %name.coerce1
   tail call void @llvm.assume(i1 %cmp.i.i.i)
-  %cmp.i.i.i.i = icmp eq i64 %name.coerce1, 0
-  br i1 %cmp.i.i.i.i, label %if.then.i, label %if.end.i.i.i.i
-
-if.end.i.i.i.i:                                   ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %agg.tmp4.sroa.0.0.copyload.i.i, ptr %name.coerce0, i64 %name.coerce1)
-  %7 = icmp eq i32 %bcmp.i.i, 0
-  tail call void @llvm.assume(i1 %7)
-  br label %if.then.i
-
-if.then.i:                                        ; preds = %if.end.i.i.i.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %add.ptr.i.i1.i = getelementptr inbounds nuw i8, ptr %jsObj, i64 16
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i1.i, i64 %sub.ptr.sub.i.i
-  %8 = load ptr, ptr %arrayidx.i, align 8
-  %9 = load i32, ptr %8, align 4
-  %cmp.i.i.i.i.i.i.i.not = icmp eq i32 %9, 1
+  %7 = load ptr, ptr %arrayidx.i, align 8
+  %8 = load i32, ptr %7, align 4
+  %cmp.i.i.i.i.i.i.i.not = icmp eq i32 %8, 1
   br i1 %cmp.i.i.i.i.i.i.i.not, label %if.end, label %return
 
-if.end:                                           ; preds = %if.then.i
-  %add.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %size_.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %size_.i, align 8
-  %add.ptr.i.idx = shl nsw i64 %10, 3
+if.end:                                           ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
+  %add.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %size_.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load i64, ptr %size_.i, align 8
+  %add.ptr.i.idx = shl nsw i64 %9, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i5, i64 %add.ptr.i.idx
-  %cmp.not8 = icmp eq i64 %10, 0
+  %cmp.not8 = icmp eq i64 %9, 0
   br i1 %cmp.not8, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %if.end8
   %__begin2.09 = phi ptr [ %incdec.ptr, %if.end8 ], [ %add.ptr.i.i.i5, %if.end ]
-  %11 = load ptr, ptr %__begin2.09, align 8
-  %call5 = tail call fastcc { i64, i8 } @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder5buildEPKNS_6parser9JSONValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %11)
-  %12 = extractvalue { i64, i8 } %call5, 1
-  %tobool.i = trunc i8 %12 to i1
+  %10 = load ptr, ptr %__begin2.09, align 8
+  %call5 = tail call fastcc { i64, i8 } @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder5buildEPKNS_6parser9JSONValueE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %10)
+  %11 = extractvalue { i64, i8 } %call5, 1
+  %tobool.i = trunc i8 %11 to i1
   br i1 %tobool.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %for.body
-  %13 = extractvalue { i64, i8 } %call5, 0
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load ptr, ptr %result, align 8
-  %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %12 = extractvalue { i64, i8 } %call5, 0
+  %13 = inttoptr i64 %12 to ptr
+  %14 = load ptr, ptr %result, align 8
+  %Next2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %result, ptr %Next2.i.i.i.i.i, align 8
-  store ptr %15, ptr %14, align 8
-  %Next2.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %14, ptr %Next2.i7.i.i.i.i, align 8
-  store ptr %14, ptr %result, align 8
+  store ptr %14, ptr %13, align 8
+  %Next2.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %13, ptr %Next2.i7.i.i.i.i, align 8
+  store ptr %13, ptr %result, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.09, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
-return:                                           ; preds = %for.body, %if.end8, %if.end, %if.then.i
-  %retval.0 = phi i1 [ false, %if.then.i ], [ true, %if.end ], [ %tobool.i, %if.end8 ], [ %tobool.i, %for.body ]
+return:                                           ; preds = %for.body, %if.end8, %if.end, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i
+  %retval.0 = phi i1 [ false, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i ], [ true, %if.end ], [ %tobool.i, %if.end8 ], [ %tobool.i, %for.body ]
   ret i1 %retval.0
 }
 

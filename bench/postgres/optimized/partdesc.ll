@@ -44,7 +44,7 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   br i1 %or.cond, label %15, label %.critedge17
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @ActiveSnapshotSet() #6
+  %16 = tail call zeroext i1 @ActiveSnapshotSet() #5
   br i1 %16, label %.critedge, label %..critedge17_crit_edge, !prof !6
 
 ..critedge17_crit_edge:                           ; preds = %15
@@ -61,14 +61,14 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   br i1 %.not15, label %.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call zeroext i1 @ActiveSnapshotSet() #6
+  %21 = tail call zeroext i1 @ActiveSnapshotSet() #5
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %20
-  %23 = tail call ptr @GetActiveSnapshot() #6
+  %23 = tail call ptr @GetActiveSnapshot() #5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i32, ptr %24, align 8
-  %26 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %25, ptr noundef %23) #6
+  %26 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %25, ptr noundef %23) #5
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %22
@@ -78,13 +78,13 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
 .thread:                                          ; preds = %22, %20, %17, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = tail call ptr @RelationGetPartitionKey(ptr noundef nonnull %0) #6
+  %29 = tail call ptr @RelationGetPartitionKey(ptr noundef nonnull %0) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %3, align 1
   store i32 0, ptr %4, align 4
   %31 = load i32, ptr %30, align 8
-  %32 = call ptr @find_inheritance_children_extended(i32 noundef %31, i1 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %32 = call ptr @find_inheritance_children_extended(i32 noundef %31, i1 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not.i.i68 = icmp eq ptr %32, null
   br i1 %.not.i.i68, label %list_length.exit.thread._crit_edge.thread.i, label %list_length.exit.i.preheader
 
@@ -107,10 +107,10 @@ list_length.exit.i:                               ; preds = %.critedge.i
   %41 = phi ptr [ %162, %list_length.exit.i ], [ %32, %list_length.exit.i.preheader ]
   %42 = zext nneg i32 %39 to i64
   %43 = shl nuw nsw i64 %42, 2
-  %44 = call ptr @palloc(i64 noundef %43) #6
-  %45 = call ptr @palloc(i64 noundef %42) #6
+  %44 = call ptr @palloc(i64 noundef %43) #5
+  %45 = call ptr @palloc(i64 noundef %42) #5
   %46 = shl nuw nsw i64 %42, 3
-  %47 = call ptr @palloc(i64 noundef %46) #6
+  %47 = call ptr @palloc(i64 noundef %46) #5
   %.pre118 = load i32, ptr %40, align 4
   %48 = icmp sgt i32 %.pre118, 0
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -122,37 +122,37 @@ list_length.exit.i:                               ; preds = %.critedge.i
   %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv.i58
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %54 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %53) #6
+  %54 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %53) #5
   %.not142.i = icmp eq ptr %54, null
   br i1 %.not142.i, label %.thread.i, label %55
 
 55:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %56 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %54, i16 noundef signext 33, ptr noundef nonnull %6) #6
+  %56 = call i64 @SysCacheGetAttr(i32 noundef 57, ptr noundef nonnull %54, i16 noundef signext 33, ptr noundef nonnull %6) #5
   %57 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %.thread151.i, label %59
 
 .thread151.i:                                     ; preds = %55
-  call void @ReleaseSysCache(ptr noundef nonnull %54) #6
+  call void @ReleaseSysCache(ptr noundef nonnull %54) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread.i
 
 59:                                               ; preds = %55
   %60 = inttoptr i64 %56 to ptr
-  %61 = call ptr @text_to_cstring(ptr noundef %60) #6
-  %62 = call ptr @stringToNode(ptr noundef %61) #6
-  call void @ReleaseSysCache(ptr noundef nonnull %54) #6
+  %61 = call ptr @text_to_cstring(ptr noundef %60) #5
+  %62 = call ptr @stringToNode(ptr noundef %61) #5
+  call void @ReleaseSysCache(ptr noundef nonnull %54) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.thread.i, label %.thread156.i
 
 .thread.i:                                        ; preds = %59, %.thread151.i, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %64 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #6
-  call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %53) #6
-  %65 = call ptr @systable_beginscan(ptr noundef %64, i32 noundef 2662, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #6
-  %66 = call ptr @systable_getnext(ptr noundef %65) #6
+  %64 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #5
+  call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %53) #5
+  %65 = call ptr @systable_beginscan(ptr noundef %64, i32 noundef 2662, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #5
+  %66 = call ptr @systable_getnext(ptr noundef %65) #5
   %.not143.i = icmp eq ptr %66, null
   br i1 %.not143.i, label %130, label %67
 
@@ -169,7 +169,7 @@ list_length.exit.i:                               ; preds = %.critedge.i
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %67
-  %77 = call i64 @getmissingattr(ptr noundef %69, i32 noundef 33, ptr noundef nonnull %8) #6
+  %77 = call i64 @getmissingattr(ptr noundef %69, i32 noundef 33, ptr noundef nonnull %8) #5
   br label %heap_getattr.exit.i
 
 78:                                               ; preds = %67
@@ -229,10 +229,9 @@ list_length.exit.i:                               ; preds = %.critedge.i
 
 109:                                              ; preds = %95
   %110 = sext i16 %97 to i32
-  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %111)
-  %112 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %110) #6
-  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #6
+  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %112 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %110) #5
+  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #5
   unreachable
 
 113:                                              ; preds = %85
@@ -240,7 +239,7 @@ list_length.exit.i:                               ; preds = %.critedge.i
   br label %heap_getattr.exit.i
 
 115:                                              ; preds = %81
-  %116 = call i64 @nocachegetattr(ptr noundef nonnull %66, i32 noundef 33, ptr noundef nonnull %69) #6
+  %116 = call i64 @nocachegetattr(ptr noundef nonnull %66, i32 noundef 33, ptr noundef nonnull %69) #5
   br label %heap_getattr.exit.i
 
 117:                                              ; preds = %78
@@ -255,7 +254,7 @@ list_length.exit.i:                               ; preds = %.critedge.i
   br label %heap_getattr.exit.i
 
 121:                                              ; preds = %117
-  %122 = call i64 @nocachegetattr(ptr noundef nonnull %66, i32 noundef 33, ptr noundef %69) #6
+  %122 = call i64 @nocachegetattr(ptr noundef nonnull %66, i32 noundef 33, ptr noundef %69) #5
   br label %heap_getattr.exit.i
 
 heap_getattr.exit.i:                              ; preds = %121, %120, %115, %113, %107, %104, %101, %98, %76
@@ -266,8 +265,8 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
 
 125:                                              ; preds = %heap_getattr.exit.i
   %126 = inttoptr i64 %.0.i.i to ptr
-  %127 = call ptr @text_to_cstring(ptr noundef %126) #6
-  %128 = call ptr @stringToNode(ptr noundef %127) #6
+  %127 = call ptr @text_to_cstring(ptr noundef %126) #5
+  %128 = call ptr @stringToNode(ptr noundef %127) #5
   br label %129
 
 129:                                              ; preds = %125, %heap_getattr.exit.i
@@ -277,8 +276,8 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
 
 130:                                              ; preds = %129, %.thread.i
   %.3126.i = phi ptr [ %.4127.i, %129 ], [ null, %.thread.i ]
-  call void @systable_endscan(ptr noundef %65) #6
-  call void @table_close(ptr noundef %64, i32 noundef 1) #6
+  call void @systable_endscan(ptr noundef %65) #5
+  call void @table_close(ptr noundef %64, i32 noundef 1) #5
   %131 = icmp ne ptr %.3126.i, null
   %or.cond.i = or i1 %.0120.i69220, %131
   br i1 %or.cond.i, label %132, label %.critedge.i
@@ -289,10 +288,9 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   br i1 %.not144.i, label %133, label %.thread156.i
 
 133:                                              ; preds = %132
-  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %134)
-  %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %52) #6
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 280, ptr noundef nonnull @__func__.RelationBuildPartitionDesc) #6
+  %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %135 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1, i32 noundef %52) #5
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 280, ptr noundef nonnull @__func__.RelationBuildPartitionDesc) #5
   unreachable
 
 .thread156.i:                                     ; preds = %132, %59
@@ -302,10 +300,9 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   br i1 %137, label %141, label %138
 
 138:                                              ; preds = %.thread156.i
-  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %139)
-  %140 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %52) #6
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 282, ptr noundef nonnull @__func__.RelationBuildPartitionDesc) #6
+  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %140 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %52) #5
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 282, ptr noundef nonnull @__func__.RelationBuildPartitionDesc) #5
   unreachable
 
 141:                                              ; preds = %.thread156.i
@@ -316,21 +313,20 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
 
 145:                                              ; preds = %141
   %146 = load i32, ptr %30, align 8
-  %147 = call i32 @get_default_partition_oid(i32 noundef %146) #6
+  %147 = call i32 @get_default_partition_oid(i32 noundef %146) #5
   %.not145.i = icmp eq i32 %147, %52
   br i1 %.not145.i, label %151, label %148
 
 148:                                              ; preds = %145
-  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %149)
-  %150 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %52, i32 noundef %147) #6
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.RelationBuildPartitionDesc) #6
+  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %150 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %52, i32 noundef %147) #5
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.RelationBuildPartitionDesc) #5
   unreachable
 
 151:                                              ; preds = %145, %141
   %152 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i58
   store i32 %52, ptr %152, align 4
-  %153 = call signext i8 @get_rel_relkind(i32 noundef %52) #6
+  %153 = call signext i8 @get_rel_relkind(i32 noundef %52) #5
   %154 = icmp ne i8 %153, 112
   %155 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i58
   %156 = zext i1 %154 to i8
@@ -344,17 +340,17 @@ heap_getattr.exit.i:                              ; preds = %121, %120, %115, %1
   br i1 %160, label %.lr.ph, label %list_length.exit.thread._crit_edge.i.thread
 
 .critedge.i:                                      ; preds = %130
-  call void @AcceptInvalidationMessages() #6
+  call void @AcceptInvalidationMessages() #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i8 0, ptr %3, align 1
   store i32 0, ptr %4, align 4
   %161 = load i32, ptr %30, align 8
-  %162 = call ptr @find_inheritance_children_extended(i32 noundef %161, i1 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
+  %162 = call ptr @find_inheritance_children_extended(i32 noundef %161, i1 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %.not.i.i = icmp eq ptr %162, null
   br i1 %.not.i.i, label %list_length.exit.thread._crit_edge.thread.i, label %list_length.exit.i
 
 list_length.exit.thread._crit_edge.i.thread:      ; preds = %.lr.ph.i, %151
-  %163 = call ptr @partition_bounds_create(ptr noundef %47, i32 noundef %39, ptr noundef %29, ptr noundef nonnull %5) #6
+  %163 = call ptr @partition_bounds_create(ptr noundef %47, i32 noundef %39, ptr noundef %29, ptr noundef nonnull %5) #5
   br label %list_length.exit.thread._crit_edge.thread.i
 
 list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_length.exit.i, %list_length.exit.i.preheader, %.thread, %list_length.exit.thread._crit_edge.i.thread
@@ -364,13 +360,13 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   %.1114283289.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %.critedge.i ]
   %.0.i = phi ptr [ %163, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ null, %list_length.exit.i ], [ null, %.critedge.i ]
   %166 = load ptr, ptr @CurTransactionContext, align 8
-  %167 = call ptr @AllocSetContextCreateInternal(ptr noundef %166, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
+  %167 = call ptr @AllocSetContextCreateInternal(ptr noundef %166, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #5
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 4
-  %171 = call ptr @MemoryContextStrdup(ptr noundef %167, ptr noundef nonnull %170) #6
-  call void @MemoryContextSetIdentifier(ptr noundef %167, ptr noundef %171) #6
-  %172 = call ptr @MemoryContextAllocZero(ptr noundef %167, i64 noundef 48) #6
+  %171 = call ptr @MemoryContextStrdup(ptr noundef %167, ptr noundef nonnull %170) #5
+  call void @MemoryContextSetIdentifier(ptr noundef %167, ptr noundef %171) #5
+  %172 = call ptr @MemoryContextAllocZero(ptr noundef %167, i64 noundef 48) #5
   store i32 %165, ptr %172, align 8
   %173 = load i8, ptr %3, align 1, !range !4, !noundef !5
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 4
@@ -380,7 +376,7 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
 175:                                              ; preds = %list_length.exit.thread._crit_edge.thread.i
   %176 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %167, ptr @CurrentMemoryContext, align 8
-  %177 = call ptr @partition_bounds_copy(ptr noundef %.0.i, ptr noundef %29) #6
+  %177 = call ptr @partition_bounds_copy(ptr noundef %.0.i, ptr noundef %29) #5
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 24
   store ptr %177, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 32
@@ -391,10 +387,10 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   store i32 0, ptr %181, align 8
   %182 = zext i32 %165 to i64
   %183 = shl nuw nsw i64 %182, 2
-  %184 = call ptr @palloc(i64 noundef %183) #6
+  %184 = call ptr @palloc(i64 noundef %183) #5
   %185 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store ptr %184, ptr %185, align 8
-  %186 = call ptr @palloc(i64 noundef %182) #6
+  %186 = call ptr @palloc(i64 noundef %182) #5
   %187 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr %186, ptr %187, align 8
   %188 = icmp sgt i32 %165, 0
@@ -432,14 +428,14 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   br i1 %or.cond4.i, label %204, label %.critedge149.i
 
 204:                                              ; preds = %201
-  %205 = call zeroext i1 @ActiveSnapshotSet() #6
+  %205 = call zeroext i1 @ActiveSnapshotSet() #5
   br i1 %205, label %206, label %.critedge149.i
 
 206:                                              ; preds = %204
   %207 = load i32, ptr %4, align 4
   %.not.i = icmp eq i32 %207, 0
   %208 = load ptr, ptr @CacheMemoryContext, align 8
-  call void @MemoryContextSetParent(ptr noundef %167, ptr noundef %208) #6
+  call void @MemoryContextSetParent(ptr noundef %167, ptr noundef %208) #5
   br i1 %.not.i, label %218, label %209
 
 209:                                              ; preds = %206
@@ -449,7 +445,7 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   br i1 %.not147.i, label %213, label %212
 
 212:                                              ; preds = %209
-  call void @MemoryContextSetParent(ptr noundef nonnull %211, ptr noundef %167) #6
+  call void @MemoryContextSetParent(ptr noundef nonnull %211, ptr noundef %167) #5
   br label %213
 
 213:                                              ; preds = %212, %209
@@ -463,7 +459,7 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
 
 .critedge149.i:                                   ; preds = %204, %201
   %217 = load ptr, ptr @CacheMemoryContext, align 8
-  call void @MemoryContextSetParent(ptr noundef %167, ptr noundef %217) #6
+  call void @MemoryContextSetParent(ptr noundef %167, ptr noundef %217) #5
   br label %218
 
 218:                                              ; preds = %.critedge149.i, %206
@@ -473,7 +469,7 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   br i1 %.not146.i, label %222, label %221
 
 221:                                              ; preds = %218
-  call void @MemoryContextSetParent(ptr noundef nonnull %220, ptr noundef %167) #6
+  call void @MemoryContextSetParent(ptr noundef nonnull %220, ptr noundef %167) #5
   br label %222
 
 222:                                              ; preds = %221, %218
@@ -505,7 +501,7 @@ define dso_local noundef ptr @CreatePartitionDirectory(ptr noundef %0, i1 nounde
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %0, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %6 = tail call ptr @palloc(i64 noundef 24) #6
+  %6 = tail call ptr @palloc(i64 noundef 24) #5
   store ptr %0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 4, ptr %7, align 8
@@ -513,7 +509,7 @@ define dso_local noundef ptr @CreatePartitionDirectory(ptr noundef %0, i1 nounde
   store i64 24, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %0, ptr %9, align 8
-  %10 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 1064) #6
+  %10 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 1064) #5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -538,7 +534,7 @@ define dso_local ptr @PartitionDirectoryLookup(ptr noundef readonly captures(non
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #6
+  %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #5
   %10 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %._crit_edge, label %12
@@ -549,7 +545,7 @@ define dso_local ptr @PartitionDirectoryLookup(ptr noundef readonly captures(non
   br label %19
 
 12:                                               ; preds = %2
-  call void @RelationIncrementReferenceCount(ptr noundef nonnull %1) #6
+  call void @RelationIncrementReferenceCount(ptr noundef nonnull %1) #5
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -577,8 +573,8 @@ define dso_local void @DestroyPartitionDirectory(ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %4) #6
-  %5 = call ptr @hash_seq_search(ptr noundef nonnull %2) #6
+  call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %4) #5
+  %5 = call ptr @hash_seq_search(ptr noundef nonnull %2) #5
   %.not2 = icmp eq ptr %5, null
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
@@ -586,8 +582,8 @@ define dso_local void @DestroyPartitionDirectory(ptr noundef readonly captures(n
   %6 = phi ptr [ %9, %.lr.ph ], [ %5, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @RelationDecrementReferenceCount(ptr noundef %8) #6
-  %9 = call ptr @hash_seq_search(ptr noundef nonnull %2) #6
+  call void @RelationDecrementReferenceCount(ptr noundef %8) #5
+  %9 = call ptr @hash_seq_search(ptr noundef nonnull %2) #5
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -695,17 +691,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

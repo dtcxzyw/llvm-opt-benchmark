@@ -29,7 +29,7 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
   br i1 %.not, label %25, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call ptr @lookup_type_cache(i32 noundef %0, i32 noundef 4352) #8
+  %5 = tail call ptr @lookup_type_cache(i32 noundef %0, i32 noundef 4352) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 13
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 100
@@ -38,7 +38,7 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %11 = load i32, ptr %10, align 8
-  %12 = tail call ptr @lookup_type_cache(i32 noundef %11, i32 noundef 256) #8
+  %12 = tail call ptr @lookup_type_cache(i32 noundef %11, i32 noundef 256) #7
   br label %13
 
 13:                                               ; preds = %9, %4
@@ -50,12 +50,11 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 151027844) #8
-  %20 = tail call ptr @format_type_be(i32 noundef %0) #8
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %20) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__func__.make_expanded_record_from_typeid) #8
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %19 = tail call i32 @errcode(i32 noundef 151027844) #7
+  %20 = tail call ptr @format_type_be(i32 noundef %0) #7
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %20) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 100, ptr noundef nonnull @__func__.make_expanded_record_from_typeid) #7
   unreachable
 
 22:                                               ; preds = %13
@@ -64,22 +63,22 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
   br label %28
 
 25:                                               ; preds = %3
-  %26 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef 2249, i32 noundef %1) #8
-  %27 = tail call i64 @assign_record_type_identifier(i32 noundef 2249, i32 noundef %1) #8
+  %26 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef 2249, i32 noundef %1) #7
+  %27 = tail call i64 @assign_record_type_identifier(i32 noundef 2249, i32 noundef %1) #7
   br label %28
 
 28:                                               ; preds = %22, %25
   %.054 = phi i64 [ %24, %22 ], [ %27, %25 ]
   %.053 = phi ptr [ %15, %22 ], [ %26, %25 ]
   %.1 = phi i32 [ %.0, %22 ], [ 0, %25 ]
-  %29 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
+  %29 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %30 = load i32, ptr %.053, align 8
   %31 = sext i32 %30 to i64
   %32 = mul nsw i64 %31, 9
   %33 = add nsw i64 %32, 208
-  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef %33) #8
+  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %29, i64 noundef %33) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %34, i8 0, i64 208, i1 false)
-  tail call void @EOH_init_header(ptr noundef nonnull %34, ptr noundef nonnull @ER_methods, ptr noundef %29) #8
+  tail call void @EOH_init_header(ptr noundef nonnull %34, ptr noundef nonnull @ER_methods, ptr noundef %29) #7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   store i32 1384727874, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 208
@@ -120,7 +119,7 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
   store ptr %34, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %61 = load ptr, ptr %60, align 8
-  tail call void @MemoryContextRegisterResetCallback(ptr noundef %61, ptr noundef nonnull %58) #8
+  tail call void @MemoryContextRegisterResetCallback(ptr noundef %61, ptr noundef nonnull %58) #7
   %62 = getelementptr inbounds nuw i8, ptr %34, i64 72
   store ptr %.053, ptr %62, align 8
   %63 = load i32, ptr %54, align 4
@@ -131,7 +130,7 @@ define dso_local noundef ptr @make_expanded_record_from_typeid(i32 noundef %0, i
   br i1 %or.cond, label %66, label %69
 
 66:                                               ; preds = %57
-  tail call void @DecrTupleDescRefCount(ptr noundef nonnull %.053) #8
+  tail call void @DecrTupleDescRefCount(ptr noundef nonnull %.053) #7
   br label %69
 
 67:                                               ; preds = %28
@@ -190,7 +189,7 @@ define internal void @ER_mc_callback(ptr noundef captures(none) %0) #0 {
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %8
-  tail call void @FreeTupleDesc(ptr noundef nonnull %3) #8
+  tail call void @FreeTupleDesc(ptr noundef nonnull %3) #7
   br label %12
 
 12:                                               ; preds = %4, %11, %8, %1
@@ -209,20 +208,19 @@ define dso_local noundef ptr @make_expanded_record_from_tupdesc(ptr noundef %0, 
   br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 256) #8
+  %6 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 256) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 151027844) #8
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %12 = tail call i32 @errcode(i32 noundef 151027844) #7
   %13 = load i32, ptr %3, align 4
-  %14 = tail call ptr @format_type_be(i32 noundef %13) #8
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %14) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @__func__.make_expanded_record_from_tupdesc) #8
+  %14 = tail call ptr @format_type_be(i32 noundef %13) #7
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %14) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 232, ptr noundef nonnull @__func__.make_expanded_record_from_tupdesc) #7
   unreachable
 
 16:                                               ; preds = %5
@@ -233,20 +231,20 @@ define dso_local noundef ptr @make_expanded_record_from_tupdesc(ptr noundef %0, 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = tail call i64 @assign_record_type_identifier(i32 noundef 2249, i32 noundef %21) #8
+  %22 = tail call i64 @assign_record_type_identifier(i32 noundef 2249, i32 noundef %21) #7
   br label %23
 
 23:                                               ; preds = %16, %19
   %.044 = phi i64 [ %18, %16 ], [ %22, %19 ]
   %.0 = phi ptr [ %8, %16 ], [ %0, %19 ]
-  %24 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
+  %24 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %25 = load i32, ptr %.0, align 8
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, 9
   %28 = add nsw i64 %27, 208
-  %29 = tail call ptr @MemoryContextAlloc(ptr noundef %24, i64 noundef %28) #8
+  %29 = tail call ptr @MemoryContextAlloc(ptr noundef %24, i64 noundef %28) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %29, i8 0, i64 208, i1 false)
-  tail call void @EOH_init_header(ptr noundef nonnull %29, ptr noundef nonnull @ER_methods, ptr noundef %24) #8
+  tail call void @EOH_init_header(ptr noundef nonnull %29, ptr noundef nonnull @ER_methods, ptr noundef %24) #7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store i32 1384727874, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 208
@@ -285,7 +283,7 @@ define dso_local noundef ptr @make_expanded_record_from_tupdesc(ptr noundef %0, 
   store ptr %29, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %55 = load ptr, ptr %54, align 8
-  tail call void @MemoryContextRegisterResetCallback(ptr noundef %55, ptr noundef nonnull %52) #8
+  tail call void @MemoryContextRegisterResetCallback(ptr noundef %55, ptr noundef nonnull %52) #7
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %.0, ptr %56, align 8
   %57 = load i32, ptr %48, align 4
@@ -296,7 +294,7 @@ define dso_local noundef ptr @make_expanded_record_from_tupdesc(ptr noundef %0, 
 59:                                               ; preds = %23
   %60 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %24, ptr @CurrentMemoryContext, align 8
-  %61 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %.0) #8
+  %61 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %.0) #7
   %62 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store ptr %61, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %29, i64 52
@@ -325,14 +323,14 @@ define dso_local noundef ptr @make_expanded_record_from_exprecord(ptr noundef %0
 
 expanded_record_get_tupdesc.exit:                 ; preds = %2, %5
   %.0.i = phi ptr [ %6, %5 ], [ %4, %2 ]
-  %7 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
+  %7 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %8 = load i32, ptr %.0.i, align 8
   %9 = sext i32 %8 to i64
   %10 = mul nsw i64 %9, 9
   %11 = add nsw i64 %10, 208
-  %12 = tail call ptr @MemoryContextAlloc(ptr noundef %7, i64 noundef %11) #8
+  %12 = tail call ptr @MemoryContextAlloc(ptr noundef %7, i64 noundef %11) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %12, i8 0, i64 208, i1 false)
-  tail call void @EOH_init_header(ptr noundef nonnull %12, ptr noundef nonnull @ER_methods, ptr noundef %7) #8
+  tail call void @EOH_init_header(ptr noundef nonnull %12, ptr noundef nonnull @ER_methods, ptr noundef %7) #7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 1384727874, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 208
@@ -380,7 +378,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %2, %5
   store ptr %12, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %46 = load ptr, ptr %45, align 8
-  tail call void @MemoryContextRegisterResetCallback(ptr noundef %46, ptr noundef nonnull %43) #8
+  tail call void @MemoryContextRegisterResetCallback(ptr noundef %46, ptr noundef nonnull %43) #7
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %.0.i, ptr %47, align 8
   %48 = load i32, ptr %39, align 4
@@ -397,7 +395,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %2, %5
 53:                                               ; preds = %50
   %54 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %55 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %.0.i) #8
+  %55 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %.0.i) #7
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %55, ptr %56, align 8
   %57 = load i32, ptr %38, align 4
@@ -450,12 +448,12 @@ define dso_local void @expanded_record_set_tuple(ptr noundef %0, ptr noundef %1,
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  %22 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #7
   store ptr %22, ptr %16, align 8
   br label %get_short_term_cxt.exit
 
 23:                                               ; preds = %15
-  tail call void @MemoryContextReset(ptr noundef nonnull %17) #8
+  tail call void @MemoryContextReset(ptr noundef nonnull %17) #7
   %.pre.i = load ptr, ptr %16, align 8
   br label %get_short_term_cxt.exit
 
@@ -465,7 +463,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
   store ptr %24, ptr @CurrentMemoryContext, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @toast_flatten_tuple(ptr noundef nonnull %1, ptr noundef %27) #8
+  %28 = tail call ptr @toast_flatten_tuple(ptr noundef nonnull %1, ptr noundef %27) #7
   store ptr %25, ptr @CurrentMemoryContext, align 8
   br label %29
 
@@ -483,7 +481,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %35, ptr @CurrentMemoryContext, align 8
-  %37 = tail call ptr @heap_copytuple(ptr noundef nonnull %.0) #8
+  %37 = tail call ptr @heap_copytuple(ptr noundef nonnull %.0) #7
   %38 = or disjoint i32 %31, 2
   store ptr %36, ptr @CurrentMemoryContext, align 8
   br i1 %.062.shrunk, label %39, label %42
@@ -491,7 +489,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %41 = load ptr, ptr %40, align 8
-  tail call void @MemoryContextReset(ptr noundef %41) #8
+  tail call void @MemoryContextReset(ptr noundef %41) #7
   br label %42
 
 42:                                               ; preds = %29, %33, %39
@@ -581,7 +579,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
   br i1 %or.cond71, label %91, label %90
 
 90:                                               ; preds = %84
-  tail call void @pfree(ptr noundef %88) #8
+  tail call void @pfree(ptr noundef %88) #7
   %.pre = load i32, ptr %64, align 8
   br label %91
 
@@ -598,7 +596,7 @@ get_short_term_cxt.exit:                          ; preds = %19, %23
   br i1 %.not69, label %97, label %96
 
 96:                                               ; preds = %.loopexit
-  tail call void @heap_freetuple(ptr noundef %44) #8
+  tail call void @heap_freetuple(ptr noundef %44) #7
   br label %97
 
 97:                                               ; preds = %96, %.loopexit
@@ -619,12 +617,12 @@ define internal fastcc void @check_domain_for_new_tuple(ptr noundef %0, ptr noun
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %10, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  %11 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %10, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #7
   store ptr %11, ptr %5, align 8
   br label %get_short_term_cxt.exit
 
 12:                                               ; preds = %4
-  tail call void @MemoryContextReset(ptr noundef nonnull %6) #8
+  tail call void @MemoryContextReset(ptr noundef nonnull %6) #7
   %.pre.i = load ptr, ptr %5, align 8
   br label %get_short_term_cxt.exit
 
@@ -637,7 +635,7 @@ get_short_term_cxt.exit:                          ; preds = %8, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
-  tail call void @domain_check(i64 noundef 0, i1 noundef zeroext true, i32 noundef %16, ptr noundef nonnull %17, ptr noundef %19) #8
+  tail call void @domain_check(i64 noundef 0, i1 noundef zeroext true, i32 noundef %16, ptr noundef nonnull %17, ptr noundef %19) #7
   br label %49
 
 20:                                               ; preds = %2
@@ -683,7 +681,7 @@ get_short_term_cxt.exit:                          ; preds = %8, %12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
-  tail call void @domain_check(i64 noundef %43, i1 noundef zeroext false, i32 noundef %45, ptr noundef nonnull %46, ptr noundef %48) #8
+  tail call void @domain_check(i64 noundef %43, i1 noundef zeroext false, i32 noundef %45, ptr noundef nonnull %46, ptr noundef %48) #7
   br label %49
 
 49:                                               ; preds = %38, %get_short_term_cxt.exit
@@ -691,7 +689,7 @@ get_short_term_cxt.exit:                          ; preds = %8, %12
   %.sink.in = phi ptr [ %39, %38 ], [ %5, %get_short_term_cxt.exit ]
   store ptr %storemerge, ptr @CurrentMemoryContext, align 8
   %.sink = load ptr, ptr %.sink.in, align 8
-  tail call void @MemoryContextReset(ptr noundef %.sink) #8
+  tail call void @MemoryContextReset(ptr noundef %.sink) #7
   ret void
 }
 
@@ -709,13 +707,13 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @make_expanded_record_from_datum(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HeapTupleData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
-  %5 = tail call ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 208) #8
-  tail call void @EOH_init_header(ptr noundef %5, ptr noundef nonnull @ER_methods, ptr noundef %4) #8
+  %4 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %1, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
+  %5 = tail call ptr @MemoryContextAllocZero(ptr noundef %4, i64 noundef 208) #7
+  tail call void @EOH_init_header(ptr noundef %5, ptr noundef nonnull @ER_methods, ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 1384727874, ptr %6, align 8
   %7 = inttoptr i64 %0 to ptr
-  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #8
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #7
   %.val = load i32, ptr %8, align 4
   %9 = lshr i32 %.val, 2
   store i32 %9, ptr %3, align 8
@@ -731,7 +729,7 @@ define dso_local i64 @make_expanded_record_from_datum(i64 noundef %0, ptr nounde
   store ptr %8, ptr %14, align 8
   %15 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %16 = call ptr @heap_copytuple(ptr noundef nonnull %3) #8
+  %16 = call ptr @heap_copytuple(ptr noundef nonnull %3) #7
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
@@ -782,7 +780,7 @@ define dso_local ptr @expanded_record_fetch_tupdesc(ptr noundef %0) local_unname
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load i32, ptr %7, align 8
-  %9 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %6, i32 noundef %8) #8
+  %9 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %6, i32 noundef %8) #7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, -1
@@ -800,7 +798,7 @@ define dso_local ptr @expanded_record_fetch_tupdesc(ptr noundef %0) local_unname
   store ptr %0, ptr %14, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
-  tail call void @MemoryContextRegisterResetCallback(ptr noundef %20, ptr noundef nonnull %18) #8
+  tail call void @MemoryContextRegisterResetCallback(ptr noundef %20, ptr noundef nonnull %18) #7
   br label %21
 
 21:                                               ; preds = %17, %13
@@ -812,7 +810,7 @@ define dso_local ptr @expanded_record_fetch_tupdesc(ptr noundef %0) local_unname
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  tail call void @DecrTupleDescRefCount(ptr noundef nonnull %9) #8
+  tail call void @DecrTupleDescRefCount(ptr noundef nonnull %9) #7
   br label %27
 
 26:                                               ; preds = %4
@@ -824,7 +822,7 @@ define dso_local ptr @expanded_record_fetch_tupdesc(ptr noundef %0) local_unname
   %29 = load i32, ptr %28, align 4
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i64 @assign_record_type_identifier(i32 noundef %29, i32 noundef %31) #8
+  %32 = tail call i64 @assign_record_type_identifier(i32 noundef %29, i32 noundef %31) #7
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %32, ptr %33, align 8
   br label %34
@@ -859,7 +857,7 @@ define dso_local ptr @expanded_record_get_tuple(ptr noundef readonly captures(no
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call ptr @heap_form_tuple(ptr noundef %12, ptr noundef %14, ptr noundef %16) #8
+  %17 = tail call ptr @heap_form_tuple(ptr noundef %12, ptr noundef %14, ptr noundef %16) #7
   br label %18
 
 18:                                               ; preds = %8, %10, %5
@@ -884,18 +882,18 @@ define dso_local ptr @DatumGetExpandedRecord(i64 noundef %0) local_unnamed_addr 
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %11 = tail call ptr @DatumGetEOHP(i64 noundef %0) #7
   br label %46
 
 12:                                               ; preds = %6, %1
   %13 = load ptr, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %14 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %13, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #8
-  %15 = tail call ptr @MemoryContextAllocZero(ptr noundef %14, i64 noundef 208) #8
-  tail call void @EOH_init_header(ptr noundef %15, ptr noundef nonnull @ER_methods, ptr noundef %14) #8
+  %14 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %13, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
+  %15 = tail call ptr @MemoryContextAllocZero(ptr noundef %14, i64 noundef 208) #7
+  tail call void @EOH_init_header(ptr noundef %15, ptr noundef nonnull @ER_methods, ptr noundef %14) #7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 1384727874, ptr %16, align 8
-  %17 = tail call ptr @pg_detoast_datum(ptr noundef nonnull %3) #8
+  %17 = tail call ptr @pg_detoast_datum(ptr noundef nonnull %3) #7
   %.val.i = load i32, ptr %17, align 4
   %18 = lshr i32 %.val.i, 2
   store i32 %18, ptr %2, align 8
@@ -911,7 +909,7 @@ define dso_local ptr @DatumGetExpandedRecord(i64 noundef %0) local_unnamed_addr 
   store ptr %17, ptr %23, align 8
   %24 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
-  %25 = call ptr @heap_copytuple(ptr noundef nonnull %2) #8
+  %25 = call ptr @heap_copytuple(ptr noundef nonnull %2) #7
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %27 = load i32, ptr %26, align 4
   %28 = or i32 %27, 2
@@ -943,7 +941,7 @@ define dso_local ptr @DatumGetExpandedRecord(i64 noundef %0) local_unnamed_addr 
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %44 = ptrtoint ptr %43 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %45 = call ptr @DatumGetEOHP(i64 noundef %44) #8
+  %45 = call ptr @DatumGetEOHP(i64 noundef %44) #7
   br label %46
 
 46:                                               ; preds = %12, %10
@@ -990,7 +988,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %5, %8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %10 to i64
   %21 = mul nsw i64 %20, 9
-  %22 = tail call ptr @MemoryContextAlloc(ptr noundef %19, i64 noundef %21) #8
+  %22 = tail call ptr @MemoryContextAlloc(ptr noundef %19, i64 noundef %21) #7
   %23 = shl nsw i64 %20, 3
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
   store ptr %22, ptr %11, align 8
@@ -1016,7 +1014,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %5, %8
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %35 = load ptr, ptr %34, align 8
-  tail call void @heap_deform_tuple(ptr noundef %35, ptr noundef nonnull %.0.i, ptr noundef %.0, ptr noundef %.028) #8
+  tail call void @heap_deform_tuple(ptr noundef %35, ptr noundef nonnull %.0.i, ptr noundef %.0, ptr noundef %.028) #7
   br label %39
 
 36:                                               ; preds = %30
@@ -1064,7 +1062,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %3, %6
   %14 = getelementptr i8, ptr %13, i64 24
   %15 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %17 = tail call i32 @namestrcmp(ptr noundef nonnull %16, ptr noundef %1) #8
+  %17 = tail call i32 @namestrcmp(ptr noundef nonnull %16, ptr noundef %1) #7
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %23
 
@@ -1082,7 +1080,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %3, %6
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %23, %expanded_record_get_tupdesc.exit
-  %27 = tail call ptr @SystemAttributeByName(ptr noundef %1) #8
+  %27 = tail call ptr @SystemAttributeByName(ptr noundef %1) #7
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %40, label %.sink.split
 
@@ -1167,7 +1165,7 @@ define dso_local i64 @expanded_record_fetch_field(ptr noundef %0, i32 noundef %1
   br label %34
 
 32:                                               ; preds = %27
-  %33 = tail call i64 @heap_getsysattr(ptr noundef nonnull %29, i32 noundef %1, ptr noundef null, ptr noundef %2) #8
+  %33 = tail call i64 @heap_getsysattr(ptr noundef nonnull %29, i32 noundef %1, ptr noundef null, ptr noundef %2) #7
   br label %34
 
 34:                                               ; preds = %32, %31, %16, %15, %10
@@ -1215,10 +1213,9 @@ define dso_local void @expanded_record_set_field_internal(ptr noundef %0, i32 no
   br i1 %24, label %.critedge, label %27, !prof !4
 
 .critedge:                                        ; preds = %17, %21
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1143, ptr noundef nonnull @__func__.expanded_record_set_field_internal) #8
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1143, ptr noundef nonnull @__func__.expanded_record_set_field_internal) #7
   unreachable
 
 27:                                               ; preds = %21
@@ -1258,12 +1255,12 @@ define dso_local void @expanded_record_set_field_internal(ptr noundef %0, i32 no
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %51, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  %52 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %51, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #7
   store ptr %52, ptr %46, align 8
   br label %get_short_term_cxt.exit
 
 53:                                               ; preds = %45
-  tail call void @MemoryContextReset(ptr noundef nonnull %47) #8
+  tail call void @MemoryContextReset(ptr noundef nonnull %47) #7
   %.pre.i = load ptr, ptr %46, align 8
   br label %get_short_term_cxt.exit
 
@@ -1271,7 +1268,7 @@ get_short_term_cxt.exit:                          ; preds = %49, %53
   %54 = phi ptr [ %.pre.i, %53 ], [ %52, %49 ]
   %55 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %54, ptr @CurrentMemoryContext, align 8
-  %56 = tail call ptr @detoast_external_attr(ptr noundef nonnull %42) #8
+  %56 = tail call ptr @detoast_external_attr(ptr noundef nonnull %42) #7
   %57 = ptrtoint ptr %56 to i64
   store ptr %55, ptr @CurrentMemoryContext, align 8
   br label %58
@@ -1286,14 +1283,14 @@ get_short_term_cxt.exit:                          ; preds = %49, %53
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %63 = load i16, ptr %62, align 4
   %64 = sext i16 %63 to i32
-  %65 = tail call i64 @datumCopy(i64 noundef %.1, i1 noundef zeroext false, i32 noundef %64) #8
+  %65 = tail call i64 @datumCopy(i64 noundef %.1, i1 noundef zeroext false, i32 noundef %64) #7
   store ptr %61, ptr @CurrentMemoryContext, align 8
   br i1 %.056.shrunk, label %66, label %69
 
 66:                                               ; preds = %58
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %68 = load ptr, ptr %67, align 8
-  tail call void @MemoryContextReset(ptr noundef %68) #8
+  tail call void @MemoryContextReset(ptr noundef %68) #7
   br label %69
 
 69:                                               ; preds = %66, %58
@@ -1372,7 +1369,7 @@ get_short_term_cxt.exit:                          ; preds = %49, %53
   br i1 %.not60, label %112, label %111
 
 111:                                              ; preds = %108, %104
-  tail call void @pfree(ptr noundef nonnull %100) #8
+  tail call void @pfree(ptr noundef nonnull %100) #7
   br label %112
 
 112:                                              ; preds = %.thread, %108, %111, %101, %97
@@ -1448,10 +1445,9 @@ define internal fastcc void @check_domain_for_new_field(ptr noundef %0, i32 noun
   br i1 %51, label %.critedge, label %54, !prof !4
 
 .critedge:                                        ; preds = %43, %48
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %1) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1530, ptr noundef nonnull @__func__.check_domain_for_new_field) #8
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %53 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %1) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1530, ptr noundef nonnull @__func__.check_domain_for_new_field) #7
   unreachable
 
 54:                                               ; preds = %48
@@ -1507,10 +1503,10 @@ define internal fastcc void @check_domain_for_new_field(ptr noundef %0, i32 noun
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load ptr, ptr %91, align 8
-  tail call void @domain_check(i64 noundef %87, i1 noundef zeroext false, i32 noundef %89, ptr noundef nonnull %90, ptr noundef %92) #8
+  tail call void @domain_check(i64 noundef %87, i1 noundef zeroext false, i32 noundef %89, ptr noundef nonnull %90, ptr noundef %92) #7
   store ptr %85, ptr @CurrentMemoryContext, align 8
   %93 = load ptr, ptr %83, align 8
-  tail call void @MemoryContextReset(ptr noundef %93) #8
+  tail call void @MemoryContextReset(ptr noundef %93) #7
   ret void
 }
 
@@ -1597,11 +1593,11 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 
 51:                                               ; preds = %47, %43
   %52 = sext i16 %45 to i32
-  %53 = tail call i64 @datumCopy(i64 noundef %35, i1 noundef zeroext false, i32 noundef %52) #8
+  %53 = tail call i64 @datumCopy(i64 noundef %35, i1 noundef zeroext false, i32 noundef %52) #7
   br label %57
 
 54:                                               ; preds = %47
-  %55 = tail call ptr @detoast_external_attr(ptr noundef nonnull %48) #8
+  %55 = tail call ptr @detoast_external_attr(ptr noundef nonnull %48) #7
   %56 = ptrtoint ptr %55 to i64
   br label %57
 
@@ -1633,7 +1629,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   br i1 %.not54.us, label %73, label %72
 
 72:                                               ; preds = %70, %64
-  tail call void @pfree(ptr noundef %67) #8
+  tail call void @pfree(ptr noundef %67) #7
   br label %73
 
 73:                                               ; preds = %72, %70, %60, %33
@@ -1688,7 +1684,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %99
-  %104 = tail call i64 @datumCopy(i64 noundef %87, i1 noundef zeroext false, i32 noundef -1) #8
+  %104 = tail call i64 @datumCopy(i64 noundef %87, i1 noundef zeroext false, i32 noundef -1) #7
   %105 = inttoptr i64 %104 to ptr
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 1
@@ -1699,7 +1695,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 
 109:                                              ; preds = %99, %95
   %110 = sext i16 %97 to i32
-  %111 = tail call i64 @datumCopy(i64 noundef %87, i1 noundef zeroext false, i32 noundef %110) #8
+  %111 = tail call i64 @datumCopy(i64 noundef %87, i1 noundef zeroext false, i32 noundef %110) #7
   %.pre61 = load i32, ptr %5, align 4
   br label %112
 
@@ -1731,7 +1727,7 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
   br i1 %.not54, label %128, label %127
 
 127:                                              ; preds = %125, %119
-  tail call void @pfree(ptr noundef %122) #8
+  tail call void @pfree(ptr noundef %122) #7
   br label %128
 
 128:                                              ; preds = %125, %127, %115, %85
@@ -1764,12 +1760,12 @@ define dso_local void @expanded_record_set_fields(ptr noundef %0, ptr noundef re
 
 141:                                              ; preds = %137
   %142 = load ptr, ptr %15, align 8
-  %143 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %142, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  %143 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %142, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #7
   store ptr %143, ptr %138, align 8
   br label %get_short_term_cxt.exit
 
 144:                                              ; preds = %137
-  tail call void @MemoryContextReset(ptr noundef nonnull %139) #8
+  tail call void @MemoryContextReset(ptr noundef nonnull %139) #7
   %.pre.i = load ptr, ptr %138, align 8
   br label %get_short_term_cxt.exit
 
@@ -1782,7 +1778,7 @@ get_short_term_cxt.exit:                          ; preds = %141, %144
   %149 = load i32, ptr %148, align 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %151 = load ptr, ptr %15, align 8
-  tail call void @domain_check(i64 noundef %147, i1 noundef zeroext false, i32 noundef %149, ptr noundef nonnull %150, ptr noundef %151) #8
+  tail call void @domain_check(i64 noundef %147, i1 noundef zeroext false, i32 noundef %149, ptr noundef nonnull %150, ptr noundef %151) #7
   br label %152
 
 152:                                              ; preds = %get_short_term_cxt.exit, %._crit_edge
@@ -1817,7 +1813,7 @@ define internal i64 @ER_get_flat_size(ptr noundef %0) #0 {
 
 expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
   %.0.i = phi ptr [ %13, %12 ], [ %11, %9 ]
-  tail call void @assign_record_type_typmod(ptr noundef %.0.i) #8
+  tail call void @assign_record_type_typmod(ptr noundef %.0.i) #7
   %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %6, align 8
@@ -1967,7 +1963,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %9, %12
   %88 = trunc nsw i64 %.057 to i32
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %90 = load ptr, ptr %89, align 8
-  %91 = tail call i64 @heap_compute_data_size(ptr noundef %34, ptr noundef %90, ptr noundef %75) #8
+  %91 = tail call i64 @heap_compute_data_size(ptr noundef %34, ptr noundef %90, ptr noundef %75) #7
   %92 = add i64 %91, %.057
   store i64 %92, ptr %26, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -2067,7 +2063,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %20, %23
   %58 = trunc nuw i8 %57 to i1
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %60 = select i1 %58, ptr %59, ptr null
-  tail call void @heap_fill_tuple(ptr noundef nonnull %.0.i, ptr noundef %47, ptr noundef %49, ptr noundef nonnull %52, i64 noundef %54, ptr noundef nonnull %55, ptr noundef %60) #8
+  tail call void @heap_fill_tuple(ptr noundef nonnull %.0.i, ptr noundef %47, ptr noundef %49, ptr noundef nonnull %52, i64 noundef %54, ptr noundef nonnull %55, ptr noundef %60) #7
   br label %61
 
 61:                                               ; preds = %expanded_record_get_tupdesc.exit, %7
@@ -2106,12 +2102,12 @@ expanded_record_get_tupdesc.exit:                 ; preds = %1, %4
 9:                                                ; preds = %expanded_record_get_tupdesc.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %11, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #8
+  %12 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %11, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #7
   store ptr %12, ptr %6, align 8
   br label %get_short_term_cxt.exit
 
 13:                                               ; preds = %expanded_record_get_tupdesc.exit
-  tail call void @MemoryContextReset(ptr noundef nonnull %7) #8
+  tail call void @MemoryContextReset(ptr noundef nonnull %7) #7
   br label %get_short_term_cxt.exit
 
 get_short_term_cxt.exit:                          ; preds = %9, %13
@@ -2133,10 +2129,10 @@ get_short_term_cxt.exit:                          ; preds = %9, %13
   %23 = sext i32 %.pre to i64
   %24 = mul nsw i64 %23, 9
   %25 = add nsw i64 %24, 208
-  %26 = tail call ptr @MemoryContextAlloc(ptr noundef %22, i64 noundef %25) #8
+  %26 = tail call ptr @MemoryContextAlloc(ptr noundef %22, i64 noundef %25) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %26, i8 0, i64 208, i1 false)
   %27 = load ptr, ptr %6, align 8
-  tail call void @EOH_init_header(ptr noundef nonnull %26, ptr noundef nonnull @ER_methods, ptr noundef %27) #8
+  tail call void @EOH_init_header(ptr noundef nonnull %26, ptr noundef nonnull @ER_methods, ptr noundef %27) #7
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store i32 1384727874, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 208
@@ -2197,9 +2193,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2207,9 +2200,8 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

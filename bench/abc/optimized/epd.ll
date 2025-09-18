@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @EpdAlloc() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
+  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   ret ptr %1
 }
 
@@ -51,7 +51,7 @@ define void @EpdFree(ptr noundef captures(address_is_null) %0) local_unnamed_add
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %0) #20
+  tail call void @free(ptr noundef nonnull %0) #19
   br label %3
 
 3:                                                ; preds = %1, %2
@@ -72,7 +72,7 @@ define void @EpdGetString(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 7:                                                ; preds = %2
   store i32 5136718, ptr %1, align 1
-  br label %51
+  br label %49
 
 8:                                                ; preds = %2
   %9 = tail call double @llvm.fabs.f64(double %5)
@@ -85,95 +85,89 @@ define void @EpdGetString(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 11:                                               ; preds = %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) @.str.1, i64 5, i1 false)
-  br label %51
+  br label %49
 
 12:                                               ; preds = %10
   store i32 6712905, ptr %1, align 1
-  br label %51
+  br label %49
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %14 = and i64 %6, 9221120237041090559
-  %or.cond7.i.i.i = icmp ne i64 %14, 9218868437227405312
-  %15 = and i64 %6, -9221120237041090560
-  %or.cond9.not.i.i.i = icmp eq i64 %15, 2251799813685248
-  %or.cond.not.i.i.not.i = or i1 %or.cond7.i.i.i, %or.cond9.not.i.i.i
-  tail call void @llvm.assume(i1 %or.cond.not.i.i.not.i)
-  %16 = fcmp une double %5, 0.000000e+00
-  br i1 %16, label %17, label %EpdGetValueAndDecimalExponent.exit
+  %14 = fcmp une double %5, 0.000000e+00
+  br i1 %14, label %15, label %EpdGetValueAndDecimalExponent.exit
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !6
-  call void @EpdPow2Decimal(i32 noundef %20, ptr noundef nonnull %4)
-  %21 = load i64, ptr %4, align 8
-  %or.cond10.i.i20.not.i.i = icmp eq i64 %21, -2251799813685248
-  %22 = bitcast i64 %21 to double
-  br i1 %or.cond10.i.i20.not.i.i, label %EpdGetValueAndDecimalExponent.exit, label %23
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !6
+  call void @EpdPow2Decimal(i32 noundef %18, ptr noundef nonnull %4)
+  %19 = load i64, ptr %4, align 8
+  %or.cond10.i.i20.not.i.i = icmp eq i64 %19, -2251799813685248
+  %20 = bitcast i64 %19 to double
+  br i1 %or.cond10.i.i20.not.i.i, label %EpdGetValueAndDecimalExponent.exit, label %21
 
-23:                                               ; preds = %17
-  %24 = tail call double @llvm.fabs.f64(double %22)
-  %or.cond6.i.i23.i.i = fcmp une double %24, 0x7FF0000000000000
-  br i1 %or.cond6.i.i23.i.i, label %30, label %25
+21:                                               ; preds = %15
+  %22 = tail call double @llvm.fabs.f64(double %20)
+  %or.cond6.i.i23.i.i = fcmp une double %22, 0x7FF0000000000000
+  br i1 %or.cond6.i.i23.i.i, label %28, label %23
 
-25:                                               ; preds = %23
-  %26 = xor i64 %21, %6
-  %27 = and i64 %26, -9223372036854775808
-  %28 = or disjoint i64 %27, 9218868437227405312
-  %29 = bitcast i64 %28 to double
+23:                                               ; preds = %21
+  %24 = xor i64 %19, %6
+  %25 = and i64 %24, -9223372036854775808
+  %26 = or disjoint i64 %25, 9218868437227405312
+  %27 = bitcast i64 %26 to double
   br label %EpdGetValueAndDecimalExponent.exit
 
-30:                                               ; preds = %23
-  %31 = fmul double %5, %22
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !6
-  store double %31, ptr %3, align 8, !tbaa !3
-  store i32 %33, ptr %18, align 8, !tbaa !6
+28:                                               ; preds = %21
+  %29 = fmul double %5, %20
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %31 = load i32, ptr %30, align 8, !tbaa !6
+  store double %29, ptr %3, align 8, !tbaa !3
+  store i32 %31, ptr %16, align 8, !tbaa !6
   call void @EpdNormalizeDecimal(ptr noundef nonnull %3)
   %.pre.i = load double, ptr %3, align 8, !tbaa !3
-  %.pre9.i = load i32, ptr %18, align 8, !tbaa !6
+  %.pre9.i = load i32, ptr %16, align 8, !tbaa !6
   br label %EpdGetValueAndDecimalExponent.exit
 
-EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
-  %.017 = phi double [ 0.000000e+00, %13 ], [ %29, %25 ], [ %.pre.i, %30 ], [ 0xFFF8000000000000, %17 ]
-  %.0 = phi i32 [ 0, %13 ], [ 0, %25 ], [ %.pre9.i, %30 ], [ 0, %17 ]
+EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %15, %23, %28
+  %.017 = phi double [ 0.000000e+00, %13 ], [ %27, %23 ], [ %.pre.i, %28 ], [ 0xFFF8000000000000, %15 ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %23 ], [ %.pre9.i, %28 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %34 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %.017) #20
+  %32 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %.017) #19
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 101)
-  %35 = icmp sgt i32 %.0, -1
-  br i1 %35, label %36, label %43
+  %33 = icmp sgt i32 %.0, -1
+  br i1 %33, label %34, label %41
 
-36:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
-  %37 = icmp samesign ult i32 %.0, 10
-  %38 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  br i1 %37, label %39, label %41
+34:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
+  %35 = icmp samesign ult i32 %.0, 10
+  %36 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
+  br i1 %35, label %37, label %39
 
-39:                                               ; preds = %36
-  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0) #20
-  br label %51
+37:                                               ; preds = %34
+  %38 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0) #19
+  br label %49
 
-41:                                               ; preds = %36
-  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0) #20
-  br label %51
+39:                                               ; preds = %34
+  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0) #19
+  br label %49
 
-43:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
-  %44 = sub nsw i32 0, %.0
-  %45 = icmp samesign ugt i32 %.0, -10
-  %46 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
-  br i1 %45, label %47, label %49
+41:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
+  %42 = sub nsw i32 0, %.0
+  %43 = icmp samesign ugt i32 %.0, -10
+  %44 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
+  br i1 %43, label %45, label %47
 
-47:                                               ; preds = %43
-  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %44) #20
-  br label %51
+45:                                               ; preds = %41
+  %46 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %42) #19
+  br label %49
 
-49:                                               ; preds = %43
-  %50 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %44) #20
-  br label %51
+47:                                               ; preds = %41
+  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %42) #19
+  br label %49
 
-51:                                               ; preds = %41, %39, %49, %47, %11, %12, %7
+49:                                               ; preds = %39, %37, %47, %45, %11, %12, %7
   ret void
 }
 
@@ -578,14 +572,14 @@ define void @EpdNormalizeDecimal(ptr noundef captures(none) %0) local_unnamed_ad
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %4) #20
+  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %4) #19
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 69)
-  %12 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #20
+  %12 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #19
   %13 = load i32, ptr %3, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = sitofp i32 %13 to double
-  %15 = call double @pow(double noundef 1.000000e+01, double noundef %14) #20, !tbaa !11
+  %15 = call double @pow(double noundef 1.000000e+01, double noundef %14) #19, !tbaa !11
   %16 = load double, ptr %0, align 8, !tbaa !3
   %17 = fdiv double %16, %15
   store double %17, ptr %0, align 8, !tbaa !3
@@ -1901,14 +1895,14 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
 15:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %ldexp) #20
+  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %ldexp) #19
   %strchr.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 69)
-  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #20
+  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #19
   %18 = load i32, ptr %6, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %19 = sitofp i32 %18 to double
-  %20 = call double @pow(double noundef 1.000000e+01, double noundef %19) #20, !tbaa !11
+  %20 = call double @pow(double noundef 1.000000e+01, double noundef %19) #19, !tbaa !11
   %21 = load double, ptr %1, align 8, !tbaa !3
   %22 = fdiv double %21, %20
   store double %22, ptr %1, align 8, !tbaa !3
@@ -1977,14 +1971,14 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
 53:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %42) #20
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %42) #19
   %strchr.i.i13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 69)
-  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #20
+  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #19
   %56 = load i32, ptr %4, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = sitofp i32 %56 to double
-  %58 = call double @pow(double noundef 1.000000e+01, double noundef %57) #20, !tbaa !11
+  %58 = call double @pow(double noundef 1.000000e+01, double noundef %57) #19, !tbaa !11
   %59 = load double, ptr %1, align 8, !tbaa !3
   %60 = fdiv double %59, %58
   store double %60, ptr %1, align 8, !tbaa !3
@@ -2029,9 +2023,9 @@ define i32 @EpdGetExponentDecimal(double noundef %0) local_unnamed_addr #5 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %0) #20
+  %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %0) #19
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 69)
-  %5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #20
+  %5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #19
   %6 = load i32, ptr %3, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -2079,9 +2073,6 @@ declare double @ldexp(double, i32) local_unnamed_addr #16
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #17
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #18
-
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2100,9 +2091,8 @@ attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nounwind willreturn memory(errnomem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #19 = { nounwind allocsize(0) }
-attributes #20 = { nounwind }
+attributes #18 = { nounwind allocsize(0) }
+attributes #19 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

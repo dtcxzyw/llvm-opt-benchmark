@@ -418,21 +418,18 @@ define linkonce_odr hidden void @_ZN4llvm12consumeErrorENS_5ErrorE(ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %5, ptr %3, align 8, !tbaa !15
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %6 = load ptr, ptr %2, align 8, !tbaa !15
-  %.not.i.i = icmp eq ptr %6, null
-  call void @llvm.assume(i1 %.not.i.i)
-  %7 = load ptr, ptr %3, align 8, !tbaa !15
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZN4llvm5ErrorD2Ev.exit, label %9
+  %6 = load ptr, ptr %3, align 8, !tbaa !15
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %_ZN4llvm5ErrorD2Ev.exit, label %8
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %7, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %6, align 8, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %11 = load ptr, ptr %10, align 8
+  call void %11(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %9, %1
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %8, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

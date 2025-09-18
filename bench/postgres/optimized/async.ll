@@ -89,11 +89,11 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @AsyncShmemSize() local_unnamed_addr #0 {
   %1 = load i32, ptr @MaxBackends, align 4
   %2 = sext i32 %1 to i64
-  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 32) #16
-  %4 = tail call i64 @add_size(i64 noundef %3, i64 noundef 56) #16
+  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 32) #15
+  %4 = tail call i64 @add_size(i64 noundef %3, i64 noundef 56) #15
   %5 = load i32, ptr @notify_buffers, align 4
-  %6 = tail call i64 @SimpleLruShmemSize(i32 noundef %5, i32 noundef 0) #16
-  %7 = tail call i64 @add_size(i64 noundef %4, i64 noundef %6) #16
+  %6 = tail call i64 @SimpleLruShmemSize(i32 noundef %5, i32 noundef 0) #15
+  %7 = tail call i64 @add_size(i64 noundef %4, i64 noundef %6) #15
   ret i64 %7
 }
 
@@ -109,9 +109,9 @@ define dso_local void @AsyncShmemInit() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @MaxBackends, align 4
   %3 = sext i32 %2 to i64
-  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 32) #16
-  %5 = tail call i64 @add_size(i64 noundef %4, i64 noundef 56) #16
-  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #16
+  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 32) #15
+  %5 = tail call i64 @add_size(i64 noundef %4, i64 noundef 56) #15
+  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #15
   store ptr %6, ptr @asyncQueueControl, align 8
   %7 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
@@ -161,13 +161,13 @@ define dso_local void @AsyncShmemInit() local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %19, %9, %0
   store ptr @asyncQueuePagePrecedes, ptr getelementptr inbounds nuw (i8, ptr @NotifyCtlData, i64 16), align 8
   %29 = load i32, ptr @notify_buffers, align 4
-  call void @SimpleLruInit(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @.str.1, i32 noundef %29, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 58, i32 noundef 87, i32 noundef 5, i1 noundef zeroext true) #16
+  call void @SimpleLruInit(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @.str.1, i32 noundef %29, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef 58, i32 noundef 87, i32 noundef 5, i1 noundef zeroext true) #15
   %30 = load i8, ptr %1, align 1, !range !4, !noundef !5
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %.loopexit
-  %33 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #16
+  %33 = call zeroext i1 @SlruScanDirectory(ptr noundef nonnull @NotifyCtlData, ptr noundef nonnull @SlruScanDirCbDeleteAll, ptr noundef null) #15
   br label %34
 
 34:                                               ; preds = %32, %.loopexit
@@ -200,8 +200,8 @@ define dso_local noundef i64 @pg_notify(ptr noundef readonly captures(none) %0) 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #16
-  %10 = tail call ptr @text_to_cstring(ptr noundef %9) #16
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #15
+  %10 = tail call ptr @text_to_cstring(ptr noundef %9) #15
   br label %11
 
 11:                                               ; preds = %1, %5
@@ -215,13 +215,13 @@ define dso_local noundef i64 @pg_notify(ptr noundef readonly captures(none) %0) 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = tail call ptr @pg_detoast_datum_packed(ptr noundef %18) #16
-  %20 = tail call ptr @text_to_cstring(ptr noundef %19) #16
+  %19 = tail call ptr @pg_detoast_datum_packed(ptr noundef %18) #15
+  %20 = tail call ptr @text_to_cstring(ptr noundef %19) #15
   br label %21
 
 21:                                               ; preds = %11, %15
   %.0 = phi ptr [ %20, %15 ], [ @.str.3, %11 ]
-  tail call void @PreventCommandDuringRecovery(ptr noundef nonnull @.str.4) #16
+  tail call void @PreventCommandDuringRecovery(ptr noundef nonnull @.str.4) #15
   tail call void @Async_Notify(ptr noundef %.06, ptr noundef %.0)
   ret i64 0
 }
@@ -235,16 +235,15 @@ declare void @PreventCommandDuringRecovery(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = tail call i32 @GetCurrentTransactionNestLevel() #16
+  %4 = tail call i32 @GetCurrentTransactionNestLevel() #15
   %5 = load i32, ptr @ParallelWorkerNumber, align 4
   %6 = icmp sgt i32 %5, -1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 600, ptr noundef nonnull @__func__.Async_Notify) #16
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 600, ptr noundef nonnull @__func__.Async_Notify) #15
   unreachable
 
 10:                                               ; preds = %2
@@ -253,12 +252,12 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %14 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %0) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 603, ptr noundef nonnull @__func__.Async_Notify) #16
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef %0) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 603, ptr noundef nonnull @__func__.Async_Notify) #15
   br label %17
 
 17:                                               ; preds = %13, %15, %10
@@ -266,7 +265,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
+  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   br label %20
 
 20:                                               ; preds = %17, %18
@@ -275,7 +274,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not38, label %24, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   br label %24
 
 24:                                               ; preds = %20, %22
@@ -284,11 +283,10 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 612, ptr noundef nonnull @__func__.Async_Notify) #16
+  %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %29 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 612, ptr noundef nonnull @__func__.Async_Notify) #15
   unreachable
 
 31:                                               ; preds = %24
@@ -296,11 +294,10 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %31
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 618, ptr noundef nonnull @__func__.Async_Notify) #16
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %35 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 618, ptr noundef nonnull @__func__.Async_Notify) #15
   unreachable
 
 37:                                               ; preds = %31
@@ -308,11 +305,10 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 50856066) #16
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 623, ptr noundef nonnull @__func__.Async_Notify) #16
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %41 = tail call i32 @errcode(i32 noundef 50856066) #15
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 623, ptr noundef nonnull @__func__.Async_Notify) #15
   unreachable
 
 43:                                               ; preds = %37
@@ -321,20 +317,20 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   store ptr %44, ptr @CurrentMemoryContext, align 8
   %46 = add nuw nsw i64 %21, 6
   %47 = add nuw nsw i64 %46, %25
-  %48 = tail call ptr @palloc(i64 noundef %47) #16
+  %48 = tail call ptr @palloc(i64 noundef %47) #15
   %49 = trunc nuw nsw i64 %21 to i16
   store i16 %49, ptr %48, align 2
   %50 = trunc nuw nsw i64 %25 to i16
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 %50, ptr %51, align 2
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %0) #16
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %0) #15
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %21
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1
   br i1 %.not38, label %58, label %56
 
 56:                                               ; preds = %43
-  %57 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %1) #16
+  %57 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %1) #15
   br label %59
 
 58:                                               ; preds = %43
@@ -353,9 +349,9 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
 
 65:                                               ; preds = %62, %59
   %66 = load ptr, ptr @TopTransactionContext, align 8
-  %67 = tail call ptr @MemoryContextAlloc(ptr noundef %66, i64 noundef 32) #16
+  %67 = tail call ptr @MemoryContextAlloc(ptr noundef %66, i64 noundef 32) #15
   store i32 %4, ptr %67, align 8
-  %68 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %48) #16
+  %68 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %48) #15
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -375,7 +371,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not.i, label %78, label %76
 
 76:                                               ; preds = %73
-  %77 = call ptr @hash_search(ptr noundef nonnull %75, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #16
+  %77 = call ptr @hash_search(ptr noundef nonnull %75, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #15
   %.not22.i = icmp eq ptr %77, null
   br i1 %.not22.i, label %.loopexit40, label %.loopexit
 
@@ -426,7 +422,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
 
 .loopexit:                                        ; preds = %97, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @pfree(ptr noundef nonnull %48) #16
+  call void @pfree(ptr noundef nonnull %48) #15
   br label %100
 
 .loopexit40:                                      ; preds = %.critedge.i, %.lr.ph.i, %78, %76
@@ -507,7 +503,7 @@ list_length.exit:                                 ; preds = %1
   %22 = load ptr, ptr @CurTransactionContext, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %22, ptr %23, align 8
-  %24 = call ptr @hash_create(ptr noundef nonnull @.str.31, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 1224) #16
+  %24 = call ptr @hash_create(ptr noundef nonnull @.str.31, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 1224) #15
   %25 = load ptr, ptr @pendingNotifies, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %24, ptr %26, align 8
@@ -534,7 +530,7 @@ list_length.exit:                                 ; preds = %1
   %36 = load ptr, ptr @pendingNotifies, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #16
+  %39 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -556,7 +552,7 @@ list_length.exit:                                 ; preds = %1
 
 list_length.exit.thread:                          ; preds = %1, %.critedge, %13, %list_length.exit
   %43 = phi ptr [ null, %1 ], [ %.pre13, %.critedge ], [ %9, %13 ], [ %9, %list_length.exit ]
-  %44 = call ptr @lappend(ptr noundef %43, ptr noundef %0) #16
+  %44 = call ptr @lappend(ptr noundef %43, ptr noundef %0) #15
   %45 = load ptr, ptr @pendingNotifies, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr %44, ptr %46, align 8
@@ -567,7 +563,7 @@ list_length.exit.thread:                          ; preds = %1, %.critedge, %13,
 
 49:                                               ; preds = %list_length.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %50 = call ptr @hash_search(ptr noundef nonnull %48, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %6) #16
+  %50 = call ptr @hash_search(ptr noundef nonnull %48, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51
 
@@ -582,13 +578,13 @@ define dso_local void @Async_Listen(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @MyProcPid, align 4
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0, i32 noundef %7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 741, ptr noundef nonnull @__func__.Async_Listen) #16
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0, i32 noundef %7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 741, ptr noundef nonnull @__func__.Async_Listen) #15
   br label %9
 
 9:                                                ; preds = %6, %4, %1
@@ -598,16 +594,16 @@ define dso_local void @Async_Listen(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @queue_listen(i32 noundef range(i32 0, 3) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = tail call i32 @GetCurrentTransactionNestLevel() #16
+  %3 = tail call i32 @GetCurrentTransactionNestLevel() #15
   %4 = load ptr, ptr @CurTransactionContext, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %7 = add i64 %6, 5
-  %8 = tail call ptr @palloc(i64 noundef %7) #16
+  %8 = tail call ptr @palloc(i64 noundef %7) #15
   store i32 %0, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #16
+  %10 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #15
   %11 = load ptr, ptr @pendingActions, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -619,9 +615,9 @@ define internal fastcc void @queue_listen(i32 noundef range(i32 0, 3) %0, ptr no
 
 16:                                               ; preds = %13, %2
   %17 = load ptr, ptr @TopTransactionContext, align 8
-  %18 = tail call ptr @MemoryContextAlloc(ptr noundef %17, i64 noundef 24) #16
+  %18 = tail call ptr @MemoryContextAlloc(ptr noundef %17, i64 noundef 24) #15
   store i32 %3, ptr %18, align 8
-  %19 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %8) #16
+  %19 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %8) #15
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr %20, align 8
   %21 = load ptr, ptr @pendingActions, align 8
@@ -633,7 +629,7 @@ define internal fastcc void @queue_listen(i32 noundef range(i32 0, 3) %0, ptr no
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @lappend(ptr noundef %25, ptr noundef nonnull %8) #16
+  %26 = tail call ptr @lappend(ptr noundef %25, ptr noundef nonnull %8) #15
   %27 = load ptr, ptr @pendingActions, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %26, ptr %28, align 8
@@ -651,13 +647,13 @@ define dso_local void @Async_Unlisten(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %5 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @MyProcPid, align 4
-  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %7) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 755, ptr noundef nonnull @__func__.Async_Unlisten) #16
+  %8 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %7) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 755, ptr noundef nonnull @__func__.Async_Unlisten) #15
   br label %9
 
 9:                                                ; preds = %6, %4, %1
@@ -682,13 +678,13 @@ define dso_local void @Async_UnlistenAll() local_unnamed_addr #0 {
   br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
-  %4 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %4 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %3
   %6 = load i32, ptr @MyProcPid, align 4
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %6) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 773, ptr noundef nonnull @__func__.Async_UnlistenAll) #16
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i32 noundef %6) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 773, ptr noundef nonnull @__func__.Async_UnlistenAll) #15
   br label %8
 
 8:                                                ; preds = %5, %3, %0
@@ -715,11 +711,11 @@ define dso_local i64 @pg_listening_channels(ptr noundef %0) local_unnamed_addr #
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #16
+  %7 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #15
   br label %8
 
 8:                                                ; preds = %6, %1
-  %9 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #16
+  %9 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #15
   %10 = load i64, ptr %9, align 8
   %11 = load ptr, ptr @listenChannels, align 8
   %.not.i = icmp eq ptr %11, null
@@ -745,12 +741,12 @@ list_length.exit:                                 ; preds = %8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i32 1, ptr %24, align 8
-  %25 = tail call ptr @cstring_to_text(ptr noundef %20) #16
+  %25 = tail call ptr @cstring_to_text(ptr noundef %20) #15
   %26 = ptrtoint ptr %25 to i64
   br label %31
 
 .critedge:                                        ; preds = %8, %list_length.exit
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %9) #16
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %9) #15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -782,11 +778,10 @@ define dso_local void @AtPrepare_Notify() local_unnamed_addr #0 {
   br i1 %or.cond, label %5, label %9
 
 5:                                                ; preds = %0
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 1088) #16
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 842, ptr noundef nonnull @__func__.AtPrepare_Notify) #16
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %7 = tail call i32 @errcode(i32 noundef 1088) #15
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 842, ptr noundef nonnull @__func__.AtPrepare_Notify) #15
   unreachable
 
 9:                                                ; preds = %0
@@ -811,12 +806,12 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
-  %10 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %10 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 869, ptr noundef nonnull @.str.15) #16
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 869, ptr noundef nonnull @.str.15) #15
   br label %13
 
 13:                                               ; preds = %9, %11, %6
@@ -856,13 +851,13 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %27
-  %31 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %31 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %30
   %33 = load i32, ptr @MyProcPid, align 4
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, i32 noundef %33) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1055, ptr noundef nonnull @__func__.Exec_ListenPreCommit) #16
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, i32 noundef %33) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1055, ptr noundef nonnull @__func__.Exec_ListenPreCommit) #15
   br label %35
 
 35:                                               ; preds = %32, %30, %27
@@ -870,14 +865,14 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   br i1 %.b37.i, label %37, label %36
 
 36:                                               ; preds = %35
-  tail call void @before_shmem_exit(ptr noundef nonnull @Async_UnlistenOnExit, i64 noundef 0) #16
+  tail call void @before_shmem_exit(ptr noundef nonnull @Async_UnlistenOnExit, i64 noundef 0) #15
   store i1 true, ptr @unlistenExitRegistered, align 1
   br label %37
 
 37:                                               ; preds = %36, %35
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 3456
-  %40 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %39, i32 noundef 0) #16
+  %40 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %39, i32 noundef 0) #15
   %41 = load ptr, ptr @asyncQueueControl, align 8
   %.sroa.031.0.copyload.i = load i64, ptr %41, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -1011,7 +1006,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
 99:                                               ; preds = %92, %80
   %100 = load ptr, ptr @MainLWLockArray, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %101) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %101) #15
   store i1 true, ptr @amRegisteredListener, align 1
   %102 = icmp eq i64 %.sroa.0.0.lcssa.i, %.sroa.031.0.copyload.i
   %103 = icmp eq i32 %.sroa.9.0.lcssa.i, %.sroa.4.0.copyload.i
@@ -1035,8 +1030,8 @@ Exec_ListenPreCommit.exit:                        ; preds = %104, %99, %26, %.lr
   br i1 %.not14, label %.loopexit, label %109
 
 109:                                              ; preds = %.critedge
-  %110 = tail call i32 @GetCurrentTransactionId() #16
-  tail call void @LockSharedObject(i32 noundef 1262, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 8) #16
+  %110 = tail call i32 @GetCurrentTransactionId() #15
+  tail call void @LockSharedObject(i32 noundef 1262, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 8) #15
   %111 = load ptr, ptr @pendingNotifies, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
@@ -1063,7 +1058,7 @@ list_head.exit:                                   ; preds = %109
   %.039 = phi ptr [ %115, %.lr.ph40 ], [ %.1.i29, %asyncQueueAddEntries.exit ]
   %117 = load ptr, ptr @MainLWLockArray, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 3456
-  %119 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %118, i32 noundef 0) #16
+  %119 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %118, i32 noundef 0) #15
   %120 = load ptr, ptr @asyncQueueControl, align 8
   %121 = load i64, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -1081,11 +1076,11 @@ asyncQueueUsage.exit.i:                           ; preds = %116
   br i1 %130, label %asyncQueueFillWarning.exit, label %131
 
 131:                                              ; preds = %asyncQueueUsage.exit.i
-  %132 = tail call i64 @GetCurrentTimestamp() #16
+  %132 = tail call i64 @GetCurrentTimestamp() #15
   %133 = load ptr, ptr @asyncQueueControl, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %135 = load i64, ptr %134, align 8
-  %136 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %135, i64 noundef %132, i32 noundef 5000) #16
+  %136 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %135, i64 noundef %132, i32 noundef 5000) #15
   %.pre48 = load ptr, ptr @asyncQueueControl, align 8
   br i1 %136, label %137, label %asyncQueueFillWarning.exit
 
@@ -1104,7 +1099,7 @@ asyncQueueUsage.exit.i:                           ; preds = %116
 
 ._crit_edge.i22:                                  ; preds = %157, %137
   %.029.lcssa.i = phi i32 [ -1, %137 ], [ %.1.i, %157 ]
-  %140 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
+  %140 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #15
   br i1 %140, label %159, label %165
 
 141:                                              ; preds = %157, %.lr.ph.i18
@@ -1159,17 +1154,17 @@ asyncQueueUsage.exit.i:                           ; preds = %116
 
 159:                                              ; preds = %._crit_edge.i22
   %160 = fmul double %129, 1.000000e+02
-  %161 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, double noundef %160) #16
+  %161 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, double noundef %160) #15
   %.not34.i = icmp eq i32 %.029.lcssa.i, -1
   br i1 %.not34.i, label %.critedge.i, label %162
 
 162:                                              ; preds = %159
-  %163 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.24, i32 noundef %.029.lcssa.i) #16
-  %164 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #16
+  %163 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.24, i32 noundef %.029.lcssa.i) #15
+  %164 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.25) #15
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %162, %159
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1559, ptr noundef nonnull @__func__.asyncQueueFillWarning) #16
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1559, ptr noundef nonnull @__func__.asyncQueueFillWarning) #15
   br label %165
 
 165:                                              ; preds = %.critedge.i, %._crit_edge.i22
@@ -1190,11 +1185,10 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   br i1 %.not32, label %179, label %175
 
 175:                                              ; preds = %asyncQueueFillWarning.exit
-  %176 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
-  tail call void @llvm.assume(i1 %176)
-  %177 = tail call i32 @errcode(i32 noundef 261) #16
-  %178 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 946, ptr noundef nonnull @.str.15) #16
+  %176 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  %177 = tail call i32 @errcode(i32 noundef 261) #15
+  %178 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 946, ptr noundef nonnull @.str.15) #15
   unreachable
 
 179:                                              ; preds = %asyncQueueFillWarning.exit
@@ -1215,18 +1209,18 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   %185 = load ptr, ptr %184, align 8
   %186 = shl nsw i64 %182, 7
   %187 = getelementptr inbounds i8, ptr %185, i64 %186
-  %188 = tail call zeroext i1 @LWLockAcquire(ptr noundef %187, i32 noundef 0) #16
+  %188 = tail call zeroext i1 @LWLockAcquire(ptr noundef %187, i32 noundef 0) #15
   %189 = icmp eq i64 %169, 0
   %190 = icmp eq i32 %.sroa.11.0.copyload.i25, 0
   %or.cond.i26 = select i1 %189, i1 %190, i1 false
   br i1 %or.cond.i26, label %191, label %193
 
 191:                                              ; preds = %179
-  %192 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @NotifyCtlData, i64 noundef 0) #16
+  %192 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @NotifyCtlData, i64 noundef 0) #15
   br label %195
 
 193:                                              ; preds = %179
-  %194 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @NotifyCtlData, i64 noundef %169, i1 noundef zeroext true, i32 noundef 0) #16
+  %194 = tail call i32 @SimpleLruReadPage(ptr noundef nonnull @NotifyCtlData, i64 noundef %169, i1 noundef zeroext true, i32 noundef 0) #15
   br label %195
 
 195:                                              ; preds = %193, %191
@@ -1259,7 +1253,7 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   store i32 %212, ptr %1, align 4
   %213 = load i32, ptr @MyDatabaseId, align 4
   store i32 %213, ptr %.4..4..4..4..4..sroa_idx, align 4
-  %214 = tail call i32 @GetCurrentTransactionId() #16
+  %214 = tail call i32 @GetCurrentTransactionId() #15
   store i32 %214, ptr %.8..8..8..8..8..sroa_idx, align 4
   %215 = load i32, ptr @MyProcPid, align 4
   store i32 %215, ptr %.12..12..12..12..12..sroa_idx, align 4
@@ -1331,13 +1325,13 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   br i1 %.not31.i, label %258, label %256
 
 256:                                              ; preds = %247
-  tail call void @LWLockRelease(ptr noundef %187) #16
-  %257 = tail call zeroext i1 @LWLockAcquire(ptr noundef %255, i32 noundef 0) #16
+  tail call void @LWLockRelease(ptr noundef %187) #15
+  %257 = tail call zeroext i1 @LWLockAcquire(ptr noundef %255, i32 noundef 0) #15
   br label %258
 
 258:                                              ; preds = %256, %247
   %.226.i = phi ptr [ %255, %256 ], [ %187, %247 ]
-  %259 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @NotifyCtlData, i64 noundef %spec.select.i.i) #16
+  %259 = tail call i32 @SimpleLruZeroPage(ptr noundef nonnull @NotifyCtlData, i64 noundef %spec.select.i.i) #15
   %260 = and i64 %spec.select.i.i, 3
   %261 = icmp eq i64 %260, 0
   br i1 %261, label %262, label %asyncQueueAddEntries.exit
@@ -1356,13 +1350,13 @@ asyncQueueAddEntries.exit:                        ; preds = %201, %258, %262
   store i32 %.sroa.11.i.0..sroa.11.i.0..sroa.11.i.0..sroa.11.0..sroa.11.0..sroa.11.0.copyload40.i, ptr %.sroa.11.0..sroa_idx39.i, align 8
   %.sroa.15.0..sroa_idx43.i = getelementptr inbounds nuw i8, ptr %263, i64 12
   store i32 %.sroa.15.0.copyload.i, ptr %.sroa.15.0..sroa_idx43.i, align 4
-  tail call void @LWLockRelease(ptr noundef %.125.i) #16
+  tail call void @LWLockRelease(ptr noundef %.125.i) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %264 = load ptr, ptr @MainLWLockArray, align 8
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %265) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %265) #15
   %.not15 = icmp eq ptr %.1.i29, null
   br i1 %.not15, label %.loopexit, label %116, !llvm.loop !10
 
@@ -1393,12 +1387,12 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %9 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 980, ptr noundef nonnull @.str.17) #16
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.17) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 980, ptr noundef nonnull @.str.17) #15
   br label %12
 
 12:                                               ; preds = %8, %10, %5
@@ -1458,7 +1452,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph27.i.i ], [ %indvars.iv.next.i.i, %33 ]
   %35 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %26) #18
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %26) #17
   %.not15.i.i = icmp eq i32 %37, 0
   br i1 %.not15.i.i, label %Exec_ListenCommit.exit, label %33
 
@@ -1466,8 +1460,8 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %38 = load ptr, ptr @TopMemoryContext, align 8
   %39 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %38, ptr @CurrentMemoryContext, align 8
-  %40 = tail call ptr @pstrdup(ptr noundef nonnull %26) #16
-  %41 = tail call ptr @lappend(ptr noundef %27, ptr noundef %40) #16
+  %40 = tail call ptr @pstrdup(ptr noundef nonnull %26) #15
+  %41 = tail call ptr @lappend(ptr noundef %27, ptr noundef %40) #15
   store ptr %41, ptr @listenChannels, align 8
   store ptr %39, ptr @CurrentMemoryContext, align 8
   br label %Exec_ListenCommit.exit
@@ -1479,13 +1473,13 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %42
-  %47 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %47 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
   %49 = load i32, ptr @MyProcPid, align 4
-  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, ptr noundef nonnull %43, i32 noundef %49) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1168, ptr noundef nonnull @__func__.Exec_UnlistenCommit) #16
+  %50 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, ptr noundef nonnull %43, i32 noundef %49) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1168, ptr noundef nonnull @__func__.Exec_UnlistenCommit) #15
   br label %51
 
 51:                                               ; preds = %48, %46, %42
@@ -1509,15 +1503,15 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %64 ]
   %59 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %43) #18
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %43) #17
   %.not12.i = icmp eq i32 %61, 0
   br i1 %.not12.i, label %.thread.i, label %64
 
 .thread.i:                                        ; preds = %58
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %63 = tail call ptr @list_delete_nth_cell(ptr noundef nonnull %52, i32 noundef %62) #16
+  %63 = tail call ptr @list_delete_nth_cell(ptr noundef nonnull %52, i32 noundef %62) #15
   store ptr %63, ptr @listenChannels, align 8
-  tail call void @pfree(ptr noundef nonnull %60) #16
+  tail call void @pfree(ptr noundef nonnull %60) #15
   br label %Exec_ListenCommit.exit
 
 64:                                               ; preds = %58
@@ -1531,18 +1525,18 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
   br i1 %67, label %68, label %Exec_UnlistenAllCommit.exit
 
 68:                                               ; preds = %65
-  %69 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %69 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %69, label %70, label %Exec_UnlistenAllCommit.exit
 
 70:                                               ; preds = %68
   %71 = load i32, ptr @MyProcPid, align 4
-  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %71) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1197, ptr noundef nonnull @__func__.Exec_UnlistenAllCommit) #16
+  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %71) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1197, ptr noundef nonnull @__func__.Exec_UnlistenAllCommit) #15
   br label %Exec_UnlistenAllCommit.exit
 
 Exec_UnlistenAllCommit.exit:                      ; preds = %65, %68, %70
   %73 = load ptr, ptr @listenChannels, align 8
-  tail call void @list_free_deep(ptr noundef %73) #16
+  tail call void @list_free_deep(ptr noundef %73) #15
   store ptr null, ptr @listenChannels, align 8
   br label %Exec_ListenCommit.exit
 
@@ -1563,7 +1557,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
 79:                                               ; preds = %.critedge
   %80 = load ptr, ptr @MainLWLockArray, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 3456
-  %82 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %81, i32 noundef 0) #16
+  %82 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %81, i32 noundef 0) #15
   %83 = load ptr, ptr @asyncQueueControl, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %85 = load i32, ptr @MyProcNumber, align 4
@@ -1620,7 +1614,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
   store i32 -1, ptr %116, align 8
   %117 = load ptr, ptr @MainLWLockArray, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %118) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %118) #15
   store i1 false, ptr @amRegisteredListener, align 1
   br label %asyncQueueUnregister.exit
 
@@ -1633,14 +1627,14 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
   %121 = load i32, ptr @MaxBackends, align 4
   %122 = sext i32 %121 to i64
   %123 = shl nsw i64 %122, 2
-  %124 = tail call ptr @palloc(i64 noundef %123) #16
+  %124 = tail call ptr @palloc(i64 noundef %123) #15
   %125 = load i32, ptr @MaxBackends, align 4
   %126 = sext i32 %125 to i64
   %127 = shl nsw i64 %126, 2
-  %128 = tail call ptr @palloc(i64 noundef %127) #16
+  %128 = tail call ptr @palloc(i64 noundef %127) #15
   %129 = load ptr, ptr @MainLWLockArray, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 3456
-  %131 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %130, i32 noundef 0) #16
+  %131 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %130, i32 noundef 0) #15
   %132 = load ptr, ptr @asyncQueueControl, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
   %.02527.i = load i32, ptr %133, align 8
@@ -1650,7 +1644,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 ._crit_edge.thread.i:                             ; preds = %120
   %134 = load ptr, ptr @MainLWLockArray, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %135) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %135) #15
   br label %SignalBackends.exit
 
 .lr.ph.i21:                                       ; preds = %120
@@ -1662,7 +1656,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 ._crit_edge.i:                                    ; preds = %164
   %138 = load ptr, ptr @MainLWLockArray, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %139) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %139) #15
   %140 = icmp sgt i32 %.1.i, 0
   br i1 %140, label %.lr.ph33.preheader.i, label %SignalBackends.exit
 
@@ -1735,17 +1729,17 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 173:                                              ; preds = %.lr.ph33.i
   %174 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i25
   %175 = load i32, ptr %174, align 4
-  %176 = tail call i32 @SendProcSignal(i32 noundef %169, i32 noundef 1, i32 noundef %175) #16
+  %176 = tail call i32 @SendProcSignal(i32 noundef %169, i32 noundef 1, i32 noundef %175) #15
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %178, label %182
 
 178:                                              ; preds = %173
-  %179 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #16
+  %179 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #15
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %178
-  %181 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %169) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1655, ptr noundef nonnull @__func__.SignalBackends) #16
+  %181 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26, i32 noundef %169) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1655, ptr noundef nonnull @__func__.SignalBackends) #15
   br label %182
 
 182:                                              ; preds = %180, %178, %173, %172
@@ -1754,8 +1748,8 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
   br i1 %exitcond.not.i27, label %SignalBackends.exit, label %.lr.ph33.i, !llvm.loop !13
 
 SignalBackends.exit:                              ; preds = %182, %._crit_edge.thread.i, %._crit_edge.i
-  tail call void @pfree(ptr noundef %124) #16
-  tail call void @pfree(ptr noundef %128) #16
+  tail call void @pfree(ptr noundef %124) #15
+  tail call void @pfree(ptr noundef %128) #15
   br label %183
 
 183:                                              ; preds = %SignalBackends.exit, %asyncQueueUnregister.exit
@@ -1780,10 +1774,10 @@ SignalBackends.exit:                              ; preds = %182, %._crit_edge.t
 define internal fastcc void @asyncQueueAdvanceTail() unnamed_addr #0 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 6016
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #16
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #15
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3456
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #16
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #15
   %7 = load ptr, ptr @asyncQueueControl, align 8
   %.sroa.0.0.copyload = load i64, ptr %7, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1809,7 +1803,7 @@ define internal fastcc void @asyncQueueAdvanceTail() unnamed_addr #0 {
   %11 = load i64, ptr %10, align 8
   %12 = load ptr, ptr @MainLWLockArray, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %13) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %13) #15
   %14 = srem i64 %.sroa.0.0.lcssa, 32
   %15 = sub i64 %.sroa.0.0.lcssa, %14
   %16 = icmp slt i64 %11, %15
@@ -1853,22 +1847,22 @@ define internal fastcc void @asyncQueueAdvanceTail() unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 29:                                               ; preds = %._crit_edge
-  tail call void @SimpleLruTruncate(ptr noundef nonnull @NotifyCtlData, i64 noundef %.sroa.0.0.lcssa) #16
+  tail call void @SimpleLruTruncate(ptr noundef nonnull @NotifyCtlData, i64 noundef %.sroa.0.0.lcssa) #15
   %30 = load ptr, ptr @MainLWLockArray, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 3456
-  %32 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %31, i32 noundef 0) #16
+  %32 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %31, i32 noundef 0) #15
   %33 = load ptr, ptr @asyncQueueControl, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i64 %.sroa.0.0.lcssa, ptr %34, align 8
   %35 = load ptr, ptr @MainLWLockArray, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %36) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %36) #15
   br label %37
 
 37:                                               ; preds = %29, %._crit_edge
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 6016
-  tail call void @LWLockRelease(ptr noundef nonnull %39) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %39) #15
   ret void
 }
 
@@ -1877,7 +1871,7 @@ define dso_local i64 @pg_notification_queue_usage(ptr noundef readnone captures(
   tail call fastcc void @asyncQueueAdvanceTail()
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3456
-  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 1) #16
+  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 1) #15
   %5 = load ptr, ptr @asyncQueueControl, align 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1898,7 +1892,7 @@ asyncQueueUsage.exit:                             ; preds = %1, %10
   %.0.i = phi i64 [ %16, %10 ], [ 0, %1 ]
   %17 = load ptr, ptr @MainLWLockArray, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %18) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %18) #15
   ret i64 %.0.i
 }
 
@@ -1913,7 +1907,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3456
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #16
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #15
   %7 = load ptr, ptr @asyncQueueControl, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i32, ptr @MyProcNumber, align 4
@@ -1970,7 +1964,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
   store i32 -1, ptr %40, align 8
   %41 = load ptr, ptr @MainLWLockArray, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %42) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %42) #15
   store i1 false, ptr @amRegisteredListener, align 1
   br label %asyncQueueUnregister.exit
 
@@ -1983,7 +1977,7 @@ asyncQueueUnregister.exit:                        ; preds = %0, %.loopexit.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  %2 = tail call i32 @GetCurrentTransactionNestLevel() #16
+  %2 = tail call i32 @GetCurrentTransactionNestLevel() #15
   %3 = load ptr, ptr @pendingActions, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %4
@@ -2016,11 +2010,11 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @list_concat(ptr noundef %18, ptr noundef %20) #16
+  %21 = tail call ptr @list_concat(ptr noundef %18, ptr noundef %20) #15
   %22 = load ptr, ptr @pendingActions, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
-  tail call void @pfree(ptr noundef nonnull %3) #16
+  tail call void @pfree(ptr noundef nonnull %3) #15
   br label %24
 
 24:                                               ; preds = %14, %16, %4, %0
@@ -2082,7 +2076,7 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
   br i1 %.not.i, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = call ptr @hash_search(ptr noundef nonnull %52, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #16
+  %54 = call ptr @hash_search(ptr noundef nonnull %52, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null) #15
   %.not22.i = icmp eq ptr %54, null
   br i1 %.not22.i, label %.thread26.i, label %AsyncExistsPendingNotify.exit.thread
 
@@ -2142,7 +2136,7 @@ AsyncExistsPendingNotify.exit.thread:             ; preds = %78, %53
   br label %83
 
 .critedge:                                        ; preds = %83, %.lr.ph, %38
-  call void @pfree(ptr noundef nonnull %25) #16
+  call void @pfree(ptr noundef nonnull %25) #15
   br label %87
 
 .thread26.i:                                      ; preds = %.critedge.i, %53, %55, %.lr.ph.i, %.lr.ph42
@@ -2165,7 +2159,7 @@ declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtSubAbort_Notify() local_unnamed_addr #0 {
-  %1 = tail call i32 @GetCurrentTransactionNestLevel() #16
+  %1 = tail call i32 @GetCurrentTransactionNestLevel() #15
   %2 = load ptr, ptr @pendingActions, align 8
   %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %.critedge, label %.lr.ph
@@ -2180,7 +2174,7 @@ define dso_local void @AtSubAbort_Notify() local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr @pendingActions, align 8
-  tail call void @pfree(ptr noundef nonnull %3) #16
+  tail call void @pfree(ptr noundef nonnull %3) #15
   %8 = load ptr, ptr @pendingActions, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
@@ -2200,7 +2194,7 @@ define dso_local void @AtSubAbort_Notify() local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr @pendingNotifies, align 8
-  tail call void @pfree(ptr noundef nonnull %10) #16
+  tail call void @pfree(ptr noundef nonnull %10) #15
   %15 = load ptr, ptr @pendingNotifies, align 8
   %.not7 = icmp eq ptr %15, null
   br i1 %.not7, label %.critedge2, label %.lr.ph12, !llvm.loop !16
@@ -2213,7 +2207,7 @@ define dso_local void @AtSubAbort_Notify() local_unnamed_addr #0 {
 define dso_local void @HandleNotifyInterrupt() local_unnamed_addr #0 {
   store volatile i32 1, ptr @notifyInterruptPending, align 4
   %1 = load ptr, ptr @MyLatch, align 8
-  tail call void @SetLatch(ptr noundef %1) #16
+  tail call void @SetLatch(ptr noundef %1) #15
   ret void
 }
 
@@ -2221,7 +2215,7 @@ declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ProcessNotifyInterrupt(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #16
+  %2 = tail call zeroext i1 @IsTransactionOrTransactionBlock() #15
   br i1 %2, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
@@ -2256,41 +2250,41 @@ ProcessIncomingNotify.exit.us:                    ; preds = %.lr.ph, %ProcessInc
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %13 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2193, ptr noundef nonnull @.str.27) #16
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2193, ptr noundef nonnull @.str.27) #15
   br label %16
 
 16:                                               ; preds = %14, %12, %9
-  tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.28, i64 noundef 16) #16
-  tail call void @StartTransactionCommand() #16
+  tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.28, i64 noundef 16) #15
+  tail call void @StartTransactionCommand() #15
   tail call fastcc void @asyncQueueReadAllNotifications()
-  tail call void @CommitTransactionCommand() #16
+  tail call void @CommitTransactionCommand() #15
   br i1 %0, label %17, label %22
 
 17:                                               ; preds = %16
   %18 = load ptr, ptr @PqCommMethods, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %20() #16
+  %21 = tail call i32 %20() #15
   br label %22
 
 22:                                               ; preds = %17, %16
-  tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.29, i64 noundef 4) #16
+  tail call void @set_ps_display_with_len(ptr noundef nonnull @.str.29, i64 noundef 4) #15
   %23 = load i8, ptr @Trace_notify, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %ProcessIncomingNotify.exit
 
 25:                                               ; preds = %22
-  %26 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %26 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %26, label %27, label %ProcessIncomingNotify.exit
 
 27:                                               ; preds = %25
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2217, ptr noundef nonnull @.str.27) #16
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2217, ptr noundef nonnull @.str.27) #15
   br label %ProcessIncomingNotify.exit
 
 ProcessIncomingNotify.exit:                       ; preds = %.lr.ph.split, %22, %25, %27
@@ -2313,8 +2307,8 @@ define dso_local void @NotifyMyFrontEnd(ptr noundef %0, ptr noundef %1, i32 noun
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @pq_beginmessage(ptr noundef nonnull %4, i8 noundef signext 65) #16
-  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 4) #16
+  call void @pq_beginmessage(ptr noundef nonnull %4, i8 noundef signext 65) #15
+  call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 4) #15
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %8 = call i32 @llvm.bswap.i32(i32 %2)
   %9 = load ptr, ptr %4, align 8, !alias.scope !20
@@ -2325,19 +2319,19 @@ define dso_local void @NotifyMyFrontEnd(ptr noundef %0, ptr noundef %1, i32 noun
   store i32 %8, ptr %13, align 1, !noalias !20
   %14 = add i32 %11, 4
   store i32 %14, ptr %10, align 8, !alias.scope !20
-  call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %0) #16
-  call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %1) #16
-  call void @pq_endmessage(ptr noundef nonnull %4) #16
+  call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %0) #15
+  call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %1) #15
+  call void @pq_endmessage(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %19
 
 15:                                               ; preds = %3
-  %16 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #16
+  %16 = tail call zeroext i1 @errstart(i32 noundef 17, ptr noundef null) #15
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef %0, ptr noundef %1) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2243, ptr noundef nonnull @__func__.NotifyMyFrontEnd) #16
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18, ptr noundef %0, ptr noundef %1) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2243, ptr noundef nonnull @__func__.NotifyMyFrontEnd) #15
   br label %19
 
 19:                                               ; preds = %17, %15, %7
@@ -2352,7 +2346,7 @@ declare void @pq_endmessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @check_notify_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.19, ptr noundef %0) #16
+  %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str.19, ptr noundef %0) #15
   ret i1 %4
 }
 
@@ -2369,18 +2363,18 @@ define internal void @Async_UnlistenOnExit(i32 %0, i64 %1) #0 {
   br i1 %4, label %5, label %Exec_UnlistenAllCommit.exit
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #16
+  %6 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
   br i1 %6, label %7, label %Exec_UnlistenAllCommit.exit
 
 7:                                                ; preds = %5
   %8 = load i32, ptr @MyProcPid, align 4
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %8) #16
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1197, ptr noundef nonnull @__func__.Exec_UnlistenAllCommit) #16
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, i32 noundef %8) #15
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1197, ptr noundef nonnull @__func__.Exec_UnlistenAllCommit) #15
   br label %Exec_UnlistenAllCommit.exit
 
 Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
   %10 = load ptr, ptr @listenChannels, align 8
-  tail call void @list_free_deep(ptr noundef %10) #16
+  tail call void @list_free_deep(ptr noundef %10) #15
   store ptr null, ptr @listenChannels, align 8
   %.b8.i = load i1, ptr @amRegisteredListener, align 1
   br i1 %.b8.i, label %11, label %asyncQueueUnregister.exit
@@ -2388,7 +2382,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
 11:                                               ; preds = %Exec_UnlistenAllCommit.exit
   %12 = load ptr, ptr @MainLWLockArray, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 3456
-  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #16
+  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 0) #15
   %15 = load ptr, ptr @asyncQueueControl, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i32, ptr @MyProcNumber, align 4
@@ -2445,7 +2439,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
   store i32 -1, ptr %48, align 8
   %49 = load ptr, ptr @MainLWLockArray, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 3456
-  tail call void @LWLockRelease(ptr noundef nonnull %50) #16
+  tail call void @LWLockRelease(ptr noundef nonnull %50) #15
   store i1 false, ptr @amRegisteredListener, align 1
   br label %asyncQueueUnregister.exit
 
@@ -2472,7 +2466,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %3 = load ptr, ptr @MainLWLockArray, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3456
-  %5 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #16
+  %5 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 1) #15
   %6 = load ptr, ptr @asyncQueueControl, align 8
   %7 = load i32, ptr @MyProcNumber, align 4
   %8 = sext i32 %7 to i64
@@ -2491,7 +2485,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3456
-  call void @LWLockRelease(ptr noundef nonnull %12) #16
+  call void @LWLockRelease(ptr noundef nonnull %12) #15
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load volatile i64, ptr %.sroa.0, align 8
   %13 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %.sroa.0.0.copyload
   br i1 %13, label %14, label %16
@@ -2502,12 +2496,12 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   br i1 %15, label %105, label %16
 
 16:                                               ; preds = %14, %0
-  %17 = call ptr @GetLatestSnapshot() #16
-  %18 = call ptr @RegisterSnapshot(ptr noundef %17) #16
+  %17 = call ptr @GetLatestSnapshot() #15
+  %18 = call ptr @RegisterSnapshot(ptr noundef %17) #15
   %19 = load ptr, ptr @PG_exception_stack, align 8
   %20 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %21 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #19
+  %21 = call i32 @__sigsetjmp(ptr noundef nonnull %2, i32 noundef 0) #18
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %.loopexit
 
@@ -2518,7 +2512,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
 .backedge:                                        ; preds = %.backedge.backedge, %22
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22 = load volatile i64, ptr %.sroa.0, align 8
   %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.29 = load volatile i32, ptr %.sroa.11, align 8
-  %23 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @NotifyCtlData, i64 noundef %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22, i32 noundef 0) #16
+  %23 = call i32 @SimpleLruReadPage_ReadOnly(ptr noundef nonnull @NotifyCtlData, i64 noundef %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22, i32 noundef 0) #15
   %24 = icmp eq i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.22, %.sroa.0.0.copyload
   br i1 %24, label %25, label %27
 
@@ -2551,7 +2545,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %44 = load ptr, ptr %43, align 8
   %45 = shl nsw i64 %42, 7
   %46 = getelementptr inbounds i8, ptr %44, i64 %45
-  call void @LWLockRelease(ptr noundef %46) #16
+  call void @LWLockRelease(ptr noundef %46) #15
   br label %47
 
 47:                                               ; preds = %IsListeningOn.exit.thread.i, %29
@@ -2593,7 +2587,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
 63:                                               ; preds = %50
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %65 = load i32, ptr %64, align 4
-  %66 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %65, ptr noundef %18) #16
+  %66 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %65, ptr noundef %18) #15
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %63
@@ -2607,7 +2601,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
 
 68:                                               ; preds = %63
   %69 = load i32, ptr %64, align 4
-  %70 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %69) #16
+  %70 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %69) #15
   br i1 %70, label %71, label %IsListeningOn.exit.thread.i
 
 71:                                               ; preds = %68
@@ -2637,12 +2631,12 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph27.i.i ], [ %indvars.iv.next.i.i, %79 ]
   %81 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv.i.i
   %82 = load ptr, ptr %81, align 8
-  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %72) #18
+  %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %72) #17
   %.not15.i.i = icmp eq i32 %83, 0
   br i1 %.not15.i.i, label %IsListeningOn.exit.i, label %79
 
 IsListeningOn.exit.i:                             ; preds = %80
-  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #18
+  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %72) #17
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1
   %87 = getelementptr inbounds nuw i8, ptr %52, i64 12
@@ -2687,7 +2681,7 @@ asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i
   store ptr %20, ptr @error_context_stack, align 8
   %93 = load ptr, ptr @MainLWLockArray, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 3456
-  %95 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %94, i32 noundef 1) #16
+  %95 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %94, i32 noundef 1) #15
   %96 = load ptr, ptr @asyncQueueControl, align 8
   %97 = load i32, ptr @MyProcNumber, align 4
   %98 = sext i32 %97 to i64
@@ -2703,18 +2697,18 @@ asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i
   store volatile i32 %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.0.copyload33, ptr %.sroa.18.0..sroa_idx32, align 4
   %101 = load ptr, ptr @MainLWLockArray, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 3456
-  call void @LWLockRelease(ptr noundef nonnull %102) #16
+  call void @LWLockRelease(ptr noundef nonnull %102) #15
   br i1 %.not, label %104, label %103
 
 103:                                              ; preds = %.loopexit
-  call void @pg_re_throw() #20
+  call void @pg_re_throw() #19
   unreachable
 
 104:                                              ; preds = %.loopexit
   store ptr %19, ptr @PG_exception_stack, align 8
   store ptr %20, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  call void @UnregisterSnapshot(ptr noundef %18) #16
+  call void @UnregisterSnapshot(ptr noundef %18) #15
   br label %105
 
 105:                                              ; preds = %14, %104
@@ -2792,7 +2786,7 @@ define internal i32 @notification_hash(ptr noundef readonly captures(none) %0, i
   %9 = zext i16 %8 to i32
   %10 = add nuw nsw i32 %6, 1
   %11 = add nuw nsw i32 %10, %9
-  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef range(i32 1, 131072) %11) #16
+  %12 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef range(i32 1, 131072) %11) #15
   ret i32 %12
 }
 
@@ -2842,20 +2836,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #11
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #15
+declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2869,15 +2860,14 @@ attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { cold nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
-attributes #19 = { nounwind returns_twice }
-attributes #20 = { noreturn nounwind }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { cold nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind returns_twice }
+attributes #19 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4020,8 +4020,6 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %_ZNKSt8_Rb_treeINSt
   unreachable
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit.i.i.i: ; preds = %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i = icmp sgt i32 %call.i.i.i.i.i.i.i, -1
-  tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i)
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i.i.i, i64 64
   %8 = load i64, ptr %second.i.i.i, align 8
   %9 = load ptr, ptr %_M_finish.i.i, align 8

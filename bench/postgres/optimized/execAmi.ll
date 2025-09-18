@@ -21,7 +21,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @InstrEndLoop(ptr noundef nonnull %3) #6
+  tail call void @InstrEndLoop(ptr noundef nonnull %3) #5
   br label %5
 
 5:                                                ; preds = %4, %1
@@ -72,7 +72,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %.lr.ph108
   %31 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %19, ptr noundef %31) #6
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %19, ptr noundef %31) #5
   br label %32
 
 32:                                               ; preds = %30, %.lr.ph108
@@ -82,7 +82,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not102, label %36, label %35
 
 35:                                               ; preds = %32
-  tail call void @ExecReScanSetParamPlan(ptr noundef nonnull %17, ptr noundef %0) #6
+  tail call void @ExecReScanSetParamPlan(ptr noundef nonnull %17, ptr noundef %0) #5
   br label %36
 
 36:                                               ; preds = %35, %32
@@ -115,7 +115,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
 
 52:                                               ; preds = %.lr.ph113
   %53 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %45, ptr noundef %53) #6
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %45, ptr noundef %53) #5
   %.pre = load i32, ptr %26, align 4
   br label %54
 
@@ -128,7 +128,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
 
 58:                                               ; preds = %.critedge104
   %59 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %51, ptr noundef %59) #6
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %51, ptr noundef %59) #5
   br label %60
 
 60:                                               ; preds = %58, %.critedge104
@@ -139,7 +139,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %6, align 8
-  tail call void @UpdateChangedParamSet(ptr noundef nonnull %62, ptr noundef %64) #6
+  tail call void @UpdateChangedParamSet(ptr noundef nonnull %62, ptr noundef %64) #5
   br label %65
 
 65:                                               ; preds = %60, %63, %5
@@ -149,7 +149,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not98, label %69, label %68
 
 68:                                               ; preds = %65
-  tail call void @ReScanExprContext(ptr noundef nonnull %67) #6
+  tail call void @ReScanExprContext(ptr noundef nonnull %67) #5
   br label %69
 
 69:                                               ; preds = %68, %65
@@ -200,179 +200,178 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 71:                                               ; preds = %69
-  tail call void @ExecReScanResult(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanResult(ptr noundef nonnull %0) #5
   br label %117
 
 72:                                               ; preds = %69
-  tail call void @ExecReScanProjectSet(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanProjectSet(ptr noundef nonnull %0) #5
   br label %117
 
 73:                                               ; preds = %69
-  tail call void @ExecReScanModifyTable(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanModifyTable(ptr noundef nonnull %0) #5
   br label %117
 
 74:                                               ; preds = %69
-  tail call void @ExecReScanAppend(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanAppend(ptr noundef nonnull %0) #5
   br label %117
 
 75:                                               ; preds = %69
-  tail call void @ExecReScanMergeAppend(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanMergeAppend(ptr noundef nonnull %0) #5
   br label %117
 
 76:                                               ; preds = %69
-  tail call void @ExecReScanRecursiveUnion(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanRecursiveUnion(ptr noundef nonnull %0) #5
   br label %117
 
 77:                                               ; preds = %69
-  tail call void @ExecReScanBitmapAnd(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanBitmapAnd(ptr noundef nonnull %0) #5
   br label %117
 
 78:                                               ; preds = %69
-  tail call void @ExecReScanBitmapOr(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanBitmapOr(ptr noundef nonnull %0) #5
   br label %117
 
 79:                                               ; preds = %69
-  tail call void @ExecReScanSeqScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanSeqScan(ptr noundef nonnull %0) #5
   br label %117
 
 80:                                               ; preds = %69
-  tail call void @ExecReScanSampleScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanSampleScan(ptr noundef nonnull %0) #5
   br label %117
 
 81:                                               ; preds = %69
-  tail call void @ExecReScanGather(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanGather(ptr noundef nonnull %0) #5
   br label %117
 
 82:                                               ; preds = %69
-  tail call void @ExecReScanGatherMerge(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanGatherMerge(ptr noundef nonnull %0) #5
   br label %117
 
 83:                                               ; preds = %69
-  tail call void @ExecReScanIndexScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanIndexScan(ptr noundef nonnull %0) #5
   br label %117
 
 84:                                               ; preds = %69
-  tail call void @ExecReScanIndexOnlyScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanIndexOnlyScan(ptr noundef nonnull %0) #5
   br label %117
 
 85:                                               ; preds = %69
-  tail call void @ExecReScanBitmapIndexScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanBitmapIndexScan(ptr noundef nonnull %0) #5
   br label %117
 
 86:                                               ; preds = %69
-  tail call void @ExecReScanBitmapHeapScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanBitmapHeapScan(ptr noundef nonnull %0) #5
   br label %117
 
 87:                                               ; preds = %69
-  tail call void @ExecReScanTidScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanTidScan(ptr noundef nonnull %0) #5
   br label %117
 
 88:                                               ; preds = %69
-  tail call void @ExecReScanTidRangeScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanTidRangeScan(ptr noundef nonnull %0) #5
   br label %117
 
 89:                                               ; preds = %69
-  tail call void @ExecReScanSubqueryScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanSubqueryScan(ptr noundef nonnull %0) #5
   br label %117
 
 90:                                               ; preds = %69
-  tail call void @ExecReScanFunctionScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanFunctionScan(ptr noundef nonnull %0) #5
   br label %117
 
 91:                                               ; preds = %69
-  tail call void @ExecReScanTableFuncScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanTableFuncScan(ptr noundef nonnull %0) #5
   br label %117
 
 92:                                               ; preds = %69
-  tail call void @ExecReScanValuesScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanValuesScan(ptr noundef nonnull %0) #5
   br label %117
 
 93:                                               ; preds = %69
-  tail call void @ExecReScanCteScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanCteScan(ptr noundef nonnull %0) #5
   br label %117
 
 94:                                               ; preds = %69
-  tail call void @ExecReScanNamedTuplestoreScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanNamedTuplestoreScan(ptr noundef nonnull %0) #5
   br label %117
 
 95:                                               ; preds = %69
-  tail call void @ExecReScanWorkTableScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanWorkTableScan(ptr noundef nonnull %0) #5
   br label %117
 
 96:                                               ; preds = %69
-  tail call void @ExecReScanForeignScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanForeignScan(ptr noundef nonnull %0) #5
   br label %117
 
 97:                                               ; preds = %69
-  tail call void @ExecReScanCustomScan(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanCustomScan(ptr noundef nonnull %0) #5
   br label %117
 
 98:                                               ; preds = %69
-  tail call void @ExecReScanNestLoop(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanNestLoop(ptr noundef nonnull %0) #5
   br label %117
 
 99:                                               ; preds = %69
-  tail call void @ExecReScanMergeJoin(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanMergeJoin(ptr noundef nonnull %0) #5
   br label %117
 
 100:                                              ; preds = %69
-  tail call void @ExecReScanHashJoin(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanHashJoin(ptr noundef nonnull %0) #5
   br label %117
 
 101:                                              ; preds = %69
-  tail call void @ExecReScanMaterial(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanMaterial(ptr noundef nonnull %0) #5
   br label %117
 
 102:                                              ; preds = %69
-  tail call void @ExecReScanMemoize(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanMemoize(ptr noundef nonnull %0) #5
   br label %117
 
 103:                                              ; preds = %69
-  tail call void @ExecReScanSort(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanSort(ptr noundef nonnull %0) #5
   br label %117
 
 104:                                              ; preds = %69
-  tail call void @ExecReScanIncrementalSort(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanIncrementalSort(ptr noundef nonnull %0) #5
   br label %117
 
 105:                                              ; preds = %69
-  tail call void @ExecReScanGroup(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanGroup(ptr noundef nonnull %0) #5
   br label %117
 
 106:                                              ; preds = %69
-  tail call void @ExecReScanAgg(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanAgg(ptr noundef nonnull %0) #5
   br label %117
 
 107:                                              ; preds = %69
-  tail call void @ExecReScanWindowAgg(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanWindowAgg(ptr noundef nonnull %0) #5
   br label %117
 
 108:                                              ; preds = %69
-  tail call void @ExecReScanUnique(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanUnique(ptr noundef nonnull %0) #5
   br label %117
 
 109:                                              ; preds = %69
-  tail call void @ExecReScanHash(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanHash(ptr noundef nonnull %0) #5
   br label %117
 
 110:                                              ; preds = %69
-  tail call void @ExecReScanSetOp(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanSetOp(ptr noundef nonnull %0) #5
   br label %117
 
 111:                                              ; preds = %69
-  tail call void @ExecReScanLockRows(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanLockRows(ptr noundef nonnull %0) #5
   br label %117
 
 112:                                              ; preds = %69
-  tail call void @ExecReScanLimit(ptr noundef nonnull %0) #6
+  tail call void @ExecReScanLimit(ptr noundef nonnull %0) #5
   br label %117
 
 113:                                              ; preds = %69
-  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %114)
+  %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   %115 = load i32, ptr %0, align 4
-  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %115) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.ExecReScan) #6
+  %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %115) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 301, ptr noundef nonnull @__func__.ExecReScan) #5
   unreachable
 
 117:                                              ; preds = %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71
@@ -381,7 +380,7 @@ define dso_local void @ExecReScan(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not99, label %120, label %119
 
 119:                                              ; preds = %117
-  tail call void @bms_free(ptr noundef nonnull %118) #6
+  tail call void @bms_free(ptr noundef nonnull %118) #5
   store ptr null, ptr %6, align 8
   br label %120
 
@@ -505,37 +504,37 @@ define dso_local void @ExecMarkPos(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 3:                                                ; preds = %1
-  tail call void @ExecIndexMarkPos(ptr noundef nonnull %0) #6
+  tail call void @ExecIndexMarkPos(ptr noundef nonnull %0) #5
   br label %14
 
 4:                                                ; preds = %1
-  tail call void @ExecIndexOnlyMarkPos(ptr noundef nonnull %0) #6
+  tail call void @ExecIndexOnlyMarkPos(ptr noundef nonnull %0) #5
   br label %14
 
 5:                                                ; preds = %1
-  tail call void @ExecCustomMarkPos(ptr noundef nonnull %0) #6
+  tail call void @ExecCustomMarkPos(ptr noundef nonnull %0) #5
   br label %14
 
 6:                                                ; preds = %1
-  tail call void @ExecMaterialMarkPos(ptr noundef nonnull %0) #6
+  tail call void @ExecMaterialMarkPos(ptr noundef nonnull %0) #5
   br label %14
 
 7:                                                ; preds = %1
-  tail call void @ExecSortMarkPos(ptr noundef nonnull %0) #6
+  tail call void @ExecSortMarkPos(ptr noundef nonnull %0) #5
   br label %14
 
 8:                                                ; preds = %1
-  tail call void @ExecResultMarkPos(ptr noundef nonnull %0) #6
+  tail call void @ExecResultMarkPos(ptr noundef nonnull %0) #5
   br label %14
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #6
+  %10 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #5
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %9
   %12 = load i32, ptr %0, align 4
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %12) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 356, ptr noundef nonnull @__func__.ExecMarkPos) #6
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %12) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 356, ptr noundef nonnull @__func__.ExecMarkPos) #5
   br label %14
 
 14:                                               ; preds = %11, %9, %8, %7, %6, %5, %4, %3
@@ -567,35 +566,34 @@ define dso_local void @ExecRestrPos(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 3:                                                ; preds = %1
-  tail call void @ExecIndexRestrPos(ptr noundef nonnull %0) #6
+  tail call void @ExecIndexRestrPos(ptr noundef nonnull %0) #5
   br label %13
 
 4:                                                ; preds = %1
-  tail call void @ExecIndexOnlyRestrPos(ptr noundef nonnull %0) #6
+  tail call void @ExecIndexOnlyRestrPos(ptr noundef nonnull %0) #5
   br label %13
 
 5:                                                ; preds = %1
-  tail call void @ExecCustomRestrPos(ptr noundef nonnull %0) #6
+  tail call void @ExecCustomRestrPos(ptr noundef nonnull %0) #5
   br label %13
 
 6:                                                ; preds = %1
-  tail call void @ExecMaterialRestrPos(ptr noundef nonnull %0) #6
+  tail call void @ExecMaterialRestrPos(ptr noundef nonnull %0) #5
   br label %13
 
 7:                                                ; preds = %1
-  tail call void @ExecSortRestrPos(ptr noundef nonnull %0) #6
+  tail call void @ExecSortRestrPos(ptr noundef nonnull %0) #5
   br label %13
 
 8:                                                ; preds = %1
-  tail call void @ExecResultRestrPos(ptr noundef nonnull %0) #6
+  tail call void @ExecResultRestrPos(ptr noundef nonnull %0) #5
   br label %13
 
 9:                                                ; preds = %1
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %10)
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   %11 = load i32, ptr %0, align 4
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %11) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.ExecRestrPos) #6
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %11) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 404, ptr noundef nonnull @__func__.ExecRestrPos) #5
   unreachable
 
 13:                                               ; preds = %8, %7, %6, %5, %4, %3
@@ -821,15 +819,14 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %0) unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #6
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__func__.IndexSupportsBackwardScan) #6
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__func__.IndexSupportsBackwardScan) #5
   unreachable
 
 7:                                                ; preds = %1
@@ -841,12 +838,12 @@ define internal fastcc zeroext i1 @IndexSupportsBackwardScan(i32 noundef %0) unn
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 84
   %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %14, i1 noundef zeroext false) #6
+  %15 = tail call ptr @GetIndexAmRoutineByAmId(i32 noundef %14, i1 noundef zeroext false) #5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i8, ptr %16, align 4, !range !4, !noundef !5
   %18 = trunc nuw i8 %17 to i1
-  tail call void @pfree(ptr noundef %15) #6
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #6
+  tail call void @pfree(ptr noundef %15) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #5
   ret i1 %18
 }
 
@@ -869,17 +866,13 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

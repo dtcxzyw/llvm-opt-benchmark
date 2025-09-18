@@ -3253,23 +3253,20 @@ define { ptr, i64 } @_ZN3syn6buffer11TokenBuffer4new217h48194ea9d898e805E(ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %25 = call { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16into_boxed_slice17h4ffd67c2dc2ec69eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
-  %26 = extractvalue { ptr, i64 } %25, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
   ret { ptr, i64 } %25
 
-28:                                               ; preds = %.body.thread
+26:                                               ; preds = %.body.thread
   resume { ptr, i32 } %eh.lpad-body5
 
 .body.thread:                                     ; preds = %16, %.body.thread6
   %eh.lpad-body5 = phi { ptr, i32 } [ %8, %.body.thread6 ], [ %17, %16 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..buffer..Entry$GT$$GT$17h51fb385fa5a4f628E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #36
-          to label %28 unwind label %29
+          to label %26 unwind label %27
 
-29:                                               ; preds = %.body.thread
-  %30 = landingpad { ptr, i32 }
+27:                                               ; preds = %.body.thread
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable

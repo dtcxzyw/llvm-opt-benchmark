@@ -437,7 +437,6 @@ define internal fastcc ptr @get_qual_for_range(ptr noundef %0, ptr noundef reado
 
 23:                                               ; preds = %.lr.ph
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, i32 noundef %20) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4317, ptr noundef nonnull @__func__.get_qual_for_range) #12
   unreachable
@@ -453,7 +452,6 @@ define internal fastcc ptr @get_qual_for_range(ptr noundef %0, ptr noundef reado
 
 33:                                               ; preds = %26
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.26) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4324, ptr noundef nonnull @__func__.get_qual_for_range) #12
   unreachable
@@ -660,7 +658,6 @@ list_head.exit.split:                             ; preds = %list_head.exit, %14
 
 142:                                              ; preds = %137
   %143 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %143)
   %144 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4448, ptr noundef nonnull @__func__.get_qual_for_range) #12
   unreachable
@@ -863,7 +860,6 @@ for_both_cell_setup.exit.split:                   ; preds = %for_both_cell_setup
 
 249:                                              ; preds = %246
   %250 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %250)
   %251 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4652, ptr noundef nonnull @__func__.get_range_key_properties) #12
   unreachable
@@ -1230,7 +1226,6 @@ define dso_local noundef ptr @partition_bounds_create(ptr noundef readonly captu
 
 23:                                               ; preds = %.lr.ph.i
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %24)
   %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 372, ptr noundef nonnull @__func__.create_hash_bounds) #12
   unreachable
@@ -1431,7 +1426,6 @@ get_non_null_list_datum_count.exit.i:             ; preds = %.critedge.i.i
 
 114:                                              ; preds = %.lr.ph169.i
   %115 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %115)
   %116 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 493, ptr noundef nonnull @__func__.create_list_bounds) #12
   unreachable
@@ -1487,7 +1481,6 @@ get_non_null_list_datum_count.exit.i:             ; preds = %.critedge.i.i
 
 .split.i:                                         ; preds = %143
   %144 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %144)
   %145 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 523, ptr noundef nonnull @__func__.create_list_bounds) #12
   unreachable
@@ -1731,7 +1724,6 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.lo
 
 258:                                              ; preds = %.lr.ph.i36
   %259 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %259)
   %260 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.18) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 713, ptr noundef nonnull @__func__.create_range_bounds) #12
   unreachable
@@ -4291,7 +4283,6 @@ merge_matching_partitions.exit.i38:               ; preds = %776, %774, %773, %7
 
 783:                                              ; preds = %merge_matching_partitions.exit.i38
   %784 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %784)
   %785 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, i32 noundef %5) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2766, ptr noundef nonnull @__func__.get_merged_range_bounds) #12
   unreachable
@@ -5387,7 +5378,6 @@ define dso_local void @check_new_partition_bound(ptr noundef %0, ptr noundef %1,
 
 17:                                               ; preds = %14
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %18)
   %19 = tail call i32 @errcode(i32 noundef 117833860) #12
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -5495,7 +5485,6 @@ partition_hash_bsearch.exit:                      ; preds = %45, %.thread.i
 
 78:                                               ; preds = %73
   %79 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %79)
   %80 = tail call i32 @errcode(i32 noundef 117833860) #12
   %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #12
   %82 = load i32, ptr %37, align 8
@@ -5519,7 +5508,6 @@ partition_hash_bsearch.exit:                      ; preds = %45, %.thread.i
 
 95:                                               ; preds = %88
   %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %96)
   %97 = tail call i32 @errcode(i32 noundef 117833860) #12
   %98 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #12
   %99 = load i32, ptr %37, align 8
@@ -5549,7 +5537,6 @@ partition_hash_bsearch.exit:                      ; preds = %45, %.thread.i
 
 116:                                              ; preds = %109
   %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %117)
   %118 = tail call i32 @errcode(i32 noundef 117833860) #12
   %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #12
   %120 = load i32, ptr %37, align 8
@@ -5814,7 +5801,6 @@ partition_rbound_cmp.exit:                        ; preds = %.loopexit54.i, %._c
   %260 = getelementptr i8, ptr %259, i64 -8
   %261 = load ptr, ptr %260, align 8
   %262 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %262)
   %263 = tail call i32 @errcode(i32 noundef 117833860) #12
   %264 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #12
   %265 = load ptr, ptr %207, align 8
@@ -6049,7 +6035,6 @@ partition_range_bsearch.exit:                     ; preds = %._crit_edge.i.us.i,
   %.0222 = phi i32 [ %379, %366 ], [ %345, %391 ], [ %200, %.split.us ], [ %138, %139 ], [ %202, %201 ]
   %.0141221 = phi i32 [ %374, %366 ], [ %394, %391 ], [ %165, %.split.us ], [ %141, %139 ], [ %165, %201 ]
   %395 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %395)
   %396 = tail call i32 @errcode(i32 noundef 117833860) #12
   %397 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %398 = load ptr, ptr %397, align 8
@@ -6256,7 +6241,6 @@ define internal fastcc noundef ptr @make_one_partition_rbound(ptr noundef readon
 
 .split:                                           ; preds = %31
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %37)
   %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3456, ptr noundef nonnull @__func__.make_one_partition_rbound) #12
   unreachable
@@ -6560,7 +6544,6 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %99
 
 ._crit_edge:                                      ; preds = %99, %135
   %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %114)
   %115 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21) #12
   tail call void @errfinish(ptr noundef nonnull @.str.22, i32 noundef 1075, ptr noundef nonnull @__func__.table_scan_getnextslot) #12
   unreachable
@@ -6581,7 +6564,6 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
 
 124:                                              ; preds = %122
   %125 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %125)
   %126 = tail call i32 @errcode(i32 noundef 67391682) #12
   %127 = load ptr, ptr %24, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
@@ -6915,7 +6897,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 
 27:                                               ; preds = %18
   %28 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %28)
   %29 = tail call i32 @errcode(i32 noundef 50856066) #12
   %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4802, ptr noundef nonnull @__func__.satisfies_hash_partition) #12
@@ -6927,7 +6908,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 
 33:                                               ; preds = %31
   %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %34)
   %35 = tail call i32 @errcode(i32 noundef 50856066) #12
   %36 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4806, ptr noundef nonnull @__func__.satisfies_hash_partition) #12
@@ -6939,7 +6919,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 
 38:                                               ; preds = %37
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %39)
   %40 = tail call i32 @errcode(i32 noundef 50856066) #12
   %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4810, ptr noundef nonnull @__func__.satisfies_hash_partition) #12
@@ -6970,7 +6949,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 
 55:                                               ; preds = %53, %49
   %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %56)
   %57 = tail call i32 @errcode(i32 noundef 50856066) #12
   %58 = tail call ptr @get_rel_name(i32 noundef %21) #12
   %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %58) #12
@@ -6995,7 +6973,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 
 71:                                               ; preds = %63
   %72 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %72)
   %73 = tail call i32 @errcode(i32 noundef 50856066) #12
   %74 = load i16, ptr %68, align 4
   %75 = sext i16 %74 to i32
@@ -7058,7 +7035,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 112:                                              ; preds = %110
   %113 = trunc nuw nsw i64 %indvars.iv to i32
   %114 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %114)
   %115 = tail call i32 @errcode(i32 noundef 50856066) #12
   %116 = add nuw nsw i32 %113, 1
   %117 = load ptr, ptr %99, align 8
@@ -7139,7 +7115,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 169:                                              ; preds = %166
   %170 = trunc nuw nsw i64 %indvars.iv173 to i32
   %171 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %171)
   %172 = tail call i32 @errcode(i32 noundef 50856066) #12
   %173 = add nuw nsw i32 %170, 1
   %174 = load ptr, ptr %163, align 8
@@ -7258,7 +7233,6 @@ define dso_local range(i64 0, 2) i64 @satisfies_hash_partition(ptr noundef reado
 
 237:                                              ; preds = %217
   %238 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %238)
   %239 = call i32 @errcode(i32 noundef 50856066) #12
   %240 = load i32, ptr %232, align 4
   %241 = load i32, ptr %2, align 4
@@ -7945,7 +7919,6 @@ define internal fastcc ptr @make_partition_op_expr(ptr noundef readonly captures
 
 16:                                               ; preds = %5
   %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %17)
   %18 = zext nneg i16 %2 to i32
   %19 = load ptr, ptr %11, align 8
   %20 = getelementptr inbounds i32, ptr %19, i64 %8
@@ -8228,7 +8201,6 @@ list_head.exit:                                   ; preds = %1, %4
 
 32:                                               ; preds = %30
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4700, ptr noundef nonnull @__func__.get_range_nulltest) #12
   unreachable
@@ -8307,7 +8279,6 @@ define internal fastcc void @get_range_key_properties(ptr noundef readonly captu
 
 31:                                               ; preds = %28
   %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %32)
   %33 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 4652, ptr noundef nonnull @__func__.get_range_key_properties) #12
   unreachable

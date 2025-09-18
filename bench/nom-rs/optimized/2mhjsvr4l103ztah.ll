@@ -102,109 +102,65 @@ define noundef i8 @_ZN3nom6traits14lowercase_byte17h7446ac21088c1ca0E(i8 noundef
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %3, i64 %5
-  %7 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !6
-  %8 = inttoptr i64 %7 to ptr
-  %9 = tail call { i64, ptr } %8(i8 noundef %1, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %6), !noalias !6
-  %10 = extractvalue { i64, ptr } %9, 0
-  %switch8.i.not = icmp ne i64 %10, 0
-  br i1 %switch8.i.not, label %11, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit
-
-11:                                               ; preds = %2
-  %12 = extractvalue { i64, ptr } %9, 1
-  %13 = ptrtoint ptr %12 to i64
-  %14 = ptrtoint ptr %3 to i64
-  %15 = sub i64 %13, %14
-  %16 = icmp sgt i64 %15, -1
-  tail call void @llvm.assume(i1 %16)
-  br label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit
-
-_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit: ; preds = %2, %11
+_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h230935fb34d16781E.exit:
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %2, i64 %4
+  %6 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !6
+  %7 = inttoptr i64 %6 to ptr
+  %8 = tail call { i64, ptr } %7(i8 noundef %1, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %5), !noalias !6
+  %9 = extractvalue { i64, ptr } %8, 0
+  %switch8.i.not = icmp ne i64 %9, 0
   ret i1 %switch8.i.not
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN60_$LT$$RF$str$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17h77acba8015aff041E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i8, ptr %3, i64 %5
-  %7 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !9
-  %8 = inttoptr i64 %7 to ptr
-  %9 = tail call { i64, ptr } %8(i8 noundef %1, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %6), !noalias !9
-  %10 = extractvalue { i64, ptr } %9, 0
-  %switch8.i.not.i = icmp ne i64 %10, 0
-  br i1 %switch8.i.not.i, label %11, label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit"
-
-11:                                               ; preds = %2
-  %12 = extractvalue { i64, ptr } %9, 1
-  %13 = ptrtoint ptr %12 to i64
-  %14 = ptrtoint ptr %3 to i64
-  %15 = sub i64 %13, %14
-  %16 = icmp sgt i64 %15, -1
-  tail call void @llvm.assume(i1 %16)
-  br label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit"
-
-"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit": ; preds = %2, %11
+"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit":
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !noundef !4
+  %5 = getelementptr inbounds i8, ptr %2, i64 %4
+  %6 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !9
+  %7 = inttoptr i64 %6 to ptr
+  %8 = tail call { i64, ptr } %7(i8 noundef %1, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %5), !noalias !9
+  %9 = extractvalue { i64, ptr } %8, 0
+  %switch8.i.not.i = icmp ne i64 %9, 0
   ret i1 %switch8.i.not.i
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h289e5e6120b3d234E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = load i8, ptr %1, align 1, !noundef !4
+"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit":
+  %2 = load i8, ptr %1, align 1, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %4 = load ptr, ptr %0, align 8, !alias.scope !14, !nonnull !4, !align !5, !noundef !4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !alias.scope !14, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %4, i64 %6
-  %8 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !17
-  %9 = inttoptr i64 %8 to ptr
-  %10 = tail call { i64, ptr } %9(i8 noundef %3, ptr noundef nonnull readonly align 1 %4, ptr noundef nonnull readonly %7), !noalias !17
-  %11 = extractvalue { i64, ptr } %10, 0
-  %switch8.i.not.i = icmp ne i64 %11, 0
-  br i1 %switch8.i.not.i, label %12, label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit"
-
-12:                                               ; preds = %2
-  %13 = extractvalue { i64, ptr } %10, 1
-  %14 = ptrtoint ptr %13 to i64
-  %15 = ptrtoint ptr %4 to i64
-  %16 = sub i64 %14, %15
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  br label %"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit"
-
-"_ZN69_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$u8$GT$$GT$10find_token17haf1ac350e345e66fE.exit": ; preds = %2, %12
+  %3 = load ptr, ptr %0, align 8, !alias.scope !14, !nonnull !4, !align !5, !noundef !4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i64, ptr %4, align 8, !alias.scope !14, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %3, i64 %5
+  %7 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !17
+  %8 = inttoptr i64 %7 to ptr
+  %9 = tail call { i64, ptr } %8(i8 noundef %2, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %6), !noalias !17
+  %10 = extractvalue { i64, ptr } %9, 0
+  %switch8.i.not.i = icmp ne i64 %10, 0
   ret i1 %switch8.i.not.i
 }
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN64_$LT$$RF$str$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h0b9458b986af51f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !noundef !4
+"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h289e5e6120b3d234E.exit":
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i64, ptr %3, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %6 = load i8, ptr %1, align 1, !alias.scope !20, !noalias !23, !noundef !4
-  %7 = getelementptr inbounds i8, ptr %3, i64 %5
-  %8 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !25
-  %9 = inttoptr i64 %8 to ptr
-  %10 = tail call { i64, ptr } %9(i8 noundef %6, ptr noundef nonnull readonly align 1 %3, ptr noundef nonnull readonly %7), !noalias !25
-  %11 = extractvalue { i64, ptr } %10, 0
-  %switch8.i.not.i.i = icmp ne i64 %11, 0
-  br i1 %switch8.i.not.i.i, label %12, label %"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h289e5e6120b3d234E.exit"
-
-12:                                               ; preds = %2
-  %13 = extractvalue { i64, ptr } %10, 1
-  %14 = ptrtoint ptr %13 to i64
-  %15 = ptrtoint ptr %3 to i64
-  %16 = sub i64 %14, %15
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  br label %"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h289e5e6120b3d234E.exit"
-
-"_ZN73_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$nom..traits..FindToken$LT$$RF$u8$GT$$GT$10find_token17h289e5e6120b3d234E.exit": ; preds = %2, %12
+  %5 = load i8, ptr %1, align 1, !alias.scope !20, !noalias !23, !noundef !4
+  %6 = getelementptr inbounds i8, ptr %2, i64 %4
+  %7 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17hfc5a5d675e0a48edE monotonic, align 8, !noalias !25
+  %8 = inttoptr i64 %7 to ptr
+  %9 = tail call { i64, ptr } %8(i8 noundef %5, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %6), !noalias !25
+  %10 = extractvalue { i64, ptr } %9, 0
+  %switch8.i.not.i.i = icmp ne i64 %10, 0
   ret i1 %switch8.i.not.i.i
 }
 

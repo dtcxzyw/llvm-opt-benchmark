@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @_bt_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) initializes((0, 4)) %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef %1, i32 noundef %4) #7
+  %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef %1, i32 noundef %4) #6
   store i32 %6, ptr %3, align 4
   %.not77 = icmp eq i32 %6, 0
   br i1 %.not77, label %97, label %.preheader
@@ -171,9 +171,9 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   %78 = shl nuw i32 %77, 16
   %79 = zext i16 %.val62 to i32
   %80 = or disjoint i32 %78, %79
-  %81 = tail call ptr @palloc(i64 noundef 16) #7
+  %81 = tail call ptr @palloc(i64 noundef 16) #6
   %82 = load i32, ptr %3, align 4
-  %83 = tail call i32 @BufferGetBlockNumber(i32 noundef %82) #7
+  %83 = tail call i32 @BufferGetBlockNumber(i32 noundef %82) #6
   store i32 %83, ptr %81, align 8
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i16 %.0.i, ptr %84, align 4
@@ -185,7 +185,7 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   %or.cond = and i1 %7, %88
   %spec.select = select i1 %or.cond, i32 2, i32 %.058
   %89 = load i32, ptr %3, align 4
-  %90 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %89, i32 noundef %80, i32 noundef %spec.select) #7
+  %90 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %89, i32 noundef %80, i32 noundef %spec.select) #6
   store i32 %90, ptr %3, align 4
   br label %10
 
@@ -195,9 +195,9 @@ BufferGetPage.exit.i:                             ; preds = %BufferGetPage.exit.
   br i1 %or.cond3, label %93, label %97
 
 93:                                               ; preds = %91
-  tail call void @_bt_unlockbuf(ptr noundef %0, i32 noundef %12) #7
+  tail call void @_bt_unlockbuf(ptr noundef %0, i32 noundef %12) #6
   %94 = load i32, ptr %3, align 4
-  tail call void @_bt_lockbuf(ptr noundef %0, i32 noundef %94, i32 noundef 2) #7
+  tail call void @_bt_lockbuf(ptr noundef %0, i32 noundef %94, i32 noundef 2) #6
   %95 = load i32, ptr %3, align 4
   %96 = tail call fastcc i32 @_bt_moveright(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %95, i1 noundef zeroext true, ptr noundef %.057, i32 noundef 2)
   store i32 %96, ptr %3, align 4
@@ -259,12 +259,12 @@ BufferGetPage.exit.us:                            ; preds = %19, %13
   br i1 %.not.us, label %46, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @BufferGetBlockNumber(i32 noundef %.0.us) #7
+  %37 = tail call i32 @BufferGetBlockNumber(i32 noundef %.0.us) #6
   br i1 %11, label %38, label %39
 
 38:                                               ; preds = %36
-  tail call void @_bt_unlockbuf(ptr noundef %0, i32 noundef %.0.us) #7
-  tail call void @_bt_lockbuf(ptr noundef %0, i32 noundef %.0.us, i32 noundef 2) #7
+  tail call void @_bt_unlockbuf(ptr noundef %0, i32 noundef %.0.us) #6
+  tail call void @_bt_lockbuf(ptr noundef %0, i32 noundef %.0.us, i32 noundef 2) #6
   br label %39
 
 39:                                               ; preds = %38, %36
@@ -274,15 +274,15 @@ BufferGetPage.exit.us:                            ; preds = %19, %13
   br i1 %.not37.us, label %43, label %42
 
 42:                                               ; preds = %39
-  tail call void @_bt_finish_split(ptr noundef %0, ptr noundef %1, i32 noundef %.0.us, ptr noundef %5) #7
+  tail call void @_bt_finish_split(ptr noundef %0, ptr noundef %1, i32 noundef %.0.us, ptr noundef %5) #6
   br label %44
 
 43:                                               ; preds = %39
-  tail call void @_bt_relbuf(ptr noundef %0, i32 noundef %.0.us) #7
+  tail call void @_bt_relbuf(ptr noundef %0, i32 noundef %.0.us) #6
   br label %44
 
 44:                                               ; preds = %43, %42
-  %45 = tail call i32 @_bt_getbuf(ptr noundef %0, i32 noundef %37, i32 noundef %6) #7
+  %45 = tail call i32 @_bt_getbuf(ptr noundef %0, i32 noundef %37, i32 noundef %6) #6
   br label %.split.us.backedge
 
 46:                                               ; preds = %32
@@ -301,7 +301,7 @@ BufferGetPage.exit.us:                            ; preds = %19, %13
 
 50:                                               ; preds = %._crit_edge, %46
   %51 = phi i32 [ %.pre44, %._crit_edge ], [ %30, %46 ]
-  %52 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.0.us, i32 noundef %51, i32 noundef %6) #7
+  %52 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.0.us, i32 noundef %51, i32 noundef %6) #6
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %50, %44
@@ -358,7 +358,7 @@ BufferGetPage.exit:                               ; preds = %54, %60
 
 .backedge:                                        ; preds = %..backedge_crit_edge, %73
   %79 = phi i32 [ %.pre, %..backedge_crit_edge ], [ %71, %73 ]
-  %80 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.0, i32 noundef %79, i32 noundef %6) #7
+  %80 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.0, i32 noundef %79, i32 noundef %6) #6
   br label %.split
 
 .split40.us:                                      ; preds = %BufferGetPage.exit, %77, %BufferGetPage.exit.us, %48
@@ -371,13 +371,12 @@ BufferGetPage.exit:                               ; preds = %54, %60
   br i1 %.not38, label %90, label %84
 
 84:                                               ; preds = %.split40.us
-  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %85)
+  %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %88) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__._bt_moveright) #7
+  %89 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %88) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__._bt_moveright) #6
   unreachable
 
 90:                                               ; preds = %.split40.us
@@ -498,9 +497,8 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br i1 %.not62, label %80, label %61
 
 61:                                               ; preds = %59
-  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %62)
-  %63 = tail call i32 @errcode(i32 noundef 33557032) #7
+  %62 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %63 = tail call i32 @errcode(i32 noundef 33557032) #6
   %64 = load ptr, ptr %48, align 8
   %.val64 = load i16, ptr %64, align 2
   %65 = getelementptr i8, ptr %64, i64 2
@@ -515,12 +513,12 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %72 = zext i16 %.172 to i32
   %73 = zext i16 %.05770 to i32
   %74 = load i32, ptr %5, align 8
-  %75 = tail call i32 @BufferGetBlockNumber(i32 noundef %74) #7
+  %75 = tail call i32 @BufferGetBlockNumber(i32 noundef %74) #6
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %69, i32 noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef %75, ptr noundef nonnull %78) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__._bt_binsrch_insert) #7
+  %79 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %69, i32 noundef %71, i32 noundef %72, i32 noundef %73, i32 noundef %75, ptr noundef nonnull %78) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 570, ptr noundef nonnull @__func__._bt_binsrch_insert) #6
   unreachable
 
 80:                                               ; preds = %59
@@ -672,10 +670,9 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
 
 79:                                               ; preds = %65
   %80 = sext i16 %67 to i32
-  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %81)
-  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %80) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #7
+  %81 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %82 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef range(i32 -32768, 32768) %80) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 70, ptr noundef nonnull @__func__.fetch_att) #6
   unreachable
 
 83:                                               ; preds = %59
@@ -683,7 +680,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   br label %index_getattr.exit
 
 85:                                               ; preds = %53
-  %86 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef nonnull %6) #7
+  %86 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef nonnull %6) #6
   br label %index_getattr.exit
 
 87:                                               ; preds = %48
@@ -700,7 +697,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %21, %BTreeTupleIsPi
   br i1 %.not.i19.i, label %index_getattr.exit.thread, label %97
 
 97:                                               ; preds = %87
-  %98 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef %6) #7
+  %98 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %27, i32 noundef range(i32 -32768, 32768) %51, ptr noundef %6) #6
   br label %index_getattr.exit
 
 index_getattr.exit:                               ; preds = %68, %71, %74, %77, %83, %85, %97
@@ -734,7 +731,7 @@ index_getattr.exit.thread:                        ; preds = %87
   %110 = load i32, ptr %109, align 4
   %111 = getelementptr inbounds nuw i8, ptr %.063117, i64 64
   %112 = load i64, ptr %111, align 8
-  %113 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %108, i32 noundef %110, i64 noundef %.1.i, i64 noundef %112) #7
+  %113 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %108, i32 noundef %110, i64 noundef %.1.i, i64 noundef %112) #6
   %114 = trunc i64 %113 to i32
   %115 = load i32, ptr %.063117, align 8
   %116 = and i32 %115, 16777216
@@ -837,7 +834,7 @@ BTreeTupleGetHeapTID.exit.thread:                 ; preds = %130
   br label %.thread104
 
 160:                                              ; preds = %BTreeTupleGetHeapTID.exit
-  %161 = tail call i32 @ItemPointerCompare(ptr noundef nonnull %144, ptr noundef nonnull %.0.i81) #7
+  %161 = tail call i32 @ItemPointerCompare(ptr noundef nonnull %144, ptr noundef nonnull %.0.i81) #6
   %162 = icmp slt i32 %161, 1
   br i1 %162, label %.thread104, label %163
 
@@ -868,7 +865,7 @@ BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleIsPosting
   %177 = zext nneg i16 %176 to i64
   %178 = getelementptr %struct.ItemPointerData, ptr %175, i64 %177
   %179 = getelementptr i8, ptr %178, i64 -6
-  %180 = tail call i32 @ItemPointerCompare(ptr noundef %169, ptr noundef %179) #7
+  %180 = tail call i32 @ItemPointerCompare(ptr noundef %169, ptr noundef %179) #6
   %181 = icmp sgt i32 %180, 0
   %.78 = zext i1 %181 to i32
   br label %.thread104
@@ -941,7 +938,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   %34 = sext i32 %27 to i64
   %35 = getelementptr inbounds %struct.ItemPointerData, ptr %33, i64 %34
-  %36 = tail call i32 @ItemPointerCompare(ptr noundef %28, ptr noundef nonnull %35) #7
+  %36 = tail call i32 @ItemPointerCompare(ptr noundef %28, ptr noundef nonnull %35) #6
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %40
 
@@ -985,13 +982,13 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  tail call void @_bt_preprocess_keys(ptr noundef %0) #7
+  tail call void @_bt_preprocess_keys(ptr noundef %0) #6
   %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %2
-  tail call void @_bt_parallel_done(ptr noundef nonnull %0) #7
+  tail call void @_bt_parallel_done(ptr noundef nonnull %0) #6
   br label %_bt_returnitem.exit
 
 15:                                               ; preds = %2
@@ -1001,7 +998,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = call zeroext i1 @_bt_parallel_seize(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext true) #7
+  %19 = call zeroext i1 @_bt_parallel_seize(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext true) #6
   br i1 %19, label %20, label %_bt_returnitem.exit
 
 20:                                               ; preds = %18, %15
@@ -1017,7 +1014,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %23
-  call void @_bt_start_array_keys(ptr noundef nonnull %0, i32 noundef %1) #7
+  call void @_bt_start_array_keys(ptr noundef nonnull %0, i32 noundef %1) #6
   br label %28
 
 28:                                               ; preds = %27, %23, %20
@@ -1065,7 +1062,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %51
-  call void @pgstat_assoc_relation(ptr noundef nonnull %9) #7
+  call void @pgstat_assoc_relation(ptr noundef nonnull %9) #6
   %.pre = load ptr, ptr %49, align 8
   br label %56
 
@@ -1132,7 +1129,7 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
   %85 = getelementptr inbounds %struct.ScanKeyData, ptr %5, i64 %84
   %86 = and i32 %79, 50331648
   %87 = or disjoint i32 %86, 129
-  call void @ScanKeyEntryInitialize(ptr noundef nonnull %85, i32 noundef %87, i16 noundef signext %.0157, i16 noundef zeroext %83, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef 0) #7
+  call void @ScanKeyEntryInitialize(ptr noundef nonnull %85, i32 noundef %87, i16 noundef signext %.0157, i16 noundef zeroext %83, i32 noundef 0, i32 noundef 0, i32 noundef 0, i64 noundef 0) #6
   br label %89
 
 88:                                               ; preds = %75
@@ -1245,8 +1242,8 @@ define dso_local noundef zeroext i1 @_bt_first(ptr noundef %0, i32 noundef %1) l
 129:                                              ; preds = %.thread207
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %131 = load ptr, ptr %130, align 8
-  call void @PredicateLockRelation(ptr noundef %124, ptr noundef %131) #7
-  call void @_bt_parallel_done(ptr noundef nonnull %0) #7
+  call void @PredicateLockRelation(ptr noundef %124, ptr noundef %131) #6
+  call void @_bt_parallel_done(ptr noundef nonnull %0) #6
   br label %_bt_returnitem.exit
 
 132:                                              ; preds = %.thread207
@@ -1290,10 +1287,9 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   br i1 %126, label %160, label %157
 
 157:                                              ; preds = %156
-  %158 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %158)
-  %159 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %1) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2581, ptr noundef nonnull @__func__._bt_endpoint) #7
+  %158 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %159 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %1) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2581, ptr noundef nonnull @__func__._bt_endpoint) #6
   unreachable
 
 160:                                              ; preds = %156
@@ -1393,7 +1389,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 
 .loopexit.thread:                                 ; preds = %212
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %213) #7
+  call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %213) #6
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %214, align 2
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1404,7 +1400,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 
 .loopexit.thread284:                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %217) #7
+  call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %217) #6
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %218, align 2
   %219 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1427,7 +1423,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 229:                                              ; preds = %221
   %230 = getelementptr inbounds nuw i8, ptr %185, i64 4
   %231 = load i16, ptr %230, align 4
-  %232 = call ptr @index_getprocinfo(ptr noundef nonnull %9, i16 noundef signext %231, i16 noundef zeroext 1) #7
+  %232 = call ptr @index_getprocinfo(ptr noundef nonnull %9, i16 noundef signext %231, i16 noundef zeroext 1) #6
   %233 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %119, i64 %indvars.iv
   %234 = load i32, ptr %185, align 8
   %235 = load i16, ptr %230, align 4
@@ -1436,20 +1432,19 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %238 = load i32, ptr %237, align 4
   %239 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %240 = load i64, ptr %239, align 8
-  call void @ScanKeyEntryInitializeWithInfo(ptr noundef nonnull %233, i32 noundef %234, i16 noundef signext %235, i16 noundef zeroext 0, i32 noundef %236, i32 noundef %238, ptr noundef %232, i64 noundef %240) #7
+  call void @ScanKeyEntryInitializeWithInfo(ptr noundef nonnull %233, i32 noundef %234, i16 noundef signext %235, i16 noundef zeroext 0, i32 noundef %236, i32 noundef %238, ptr noundef %232, i64 noundef %240) #6
   br label %.thread216
 
 241:                                              ; preds = %221
   %242 = load ptr, ptr %122, align 8
   %243 = getelementptr inbounds nuw i32, ptr %242, i64 %indvars.iv
   %244 = load i32, ptr %243, align 4
-  %245 = call i32 @get_opfamily_proc(i32 noundef %244, i32 noundef %226, i32 noundef %223, i16 noundef signext 1) #7
+  %245 = call i32 @get_opfamily_proc(i32 noundef %244, i32 noundef %226, i32 noundef %223, i16 noundef signext 1) #6
   %.not186 = icmp eq i32 %245, 0
   br i1 %.not186, label %246, label %259
 
 246:                                              ; preds = %241
-  %247 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %247)
+  %247 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %248 = load ptr, ptr %121, align 8
   %249 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4
@@ -1460,8 +1455,8 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %255 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
-  %258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %250, i32 noundef %251, i32 noundef %254, ptr noundef nonnull %257) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1281, ptr noundef nonnull @__func__._bt_first) #7
+  %258 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 1, i32 noundef %250, i32 noundef %251, i32 noundef %254, ptr noundef nonnull %257) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1281, ptr noundef nonnull @__func__._bt_first) #6
   unreachable
 
 259:                                              ; preds = %241
@@ -1474,7 +1469,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
   %266 = load i32, ptr %265, align 4
   %267 = getelementptr inbounds nuw i8, ptr %185, i64 64
   %268 = load i64, ptr %267, align 8
-  call void @ScanKeyEntryInitialize(ptr noundef nonnull %260, i32 noundef %261, i16 noundef signext %263, i16 noundef zeroext 0, i32 noundef %264, i32 noundef %266, i32 noundef %245, i64 noundef %268) #7
+  call void @ScanKeyEntryInitialize(ptr noundef nonnull %260, i32 noundef %261, i16 noundef signext %263, i16 noundef zeroext 0, i32 noundef %264, i32 noundef %266, i32 noundef %245, i64 noundef %268) #6
   br label %.thread216
 
 .thread216:                                       ; preds = %188, %259, %229
@@ -1485,7 +1480,7 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 .loopexit:                                        ; preds = %.thread216, %207, %.preheader238, %212
   %.5 = phi i32 [ %.6, %212 ], [ %.0146, %.preheader238 ], [ %198, %207 ], [ %.0146, %.thread216 ]
   %269 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %269) #7
+  call void @_bt_metaversion(ptr noundef %9, ptr noundef nonnull %3, ptr noundef nonnull %269) #6
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 0, ptr %270, align 2
   %271 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1545,16 +1540,15 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 
 290:                                              ; preds = %.loopexit
   %291 = zext i16 %.0161 to i32
-  %292 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %292)
-  %293 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %291) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1363, ptr noundef nonnull @__func__._bt_first) #7
+  %292 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %293 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %291) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1363, ptr noundef nonnull @__func__._bt_first) #6
   unreachable
 
 294:                                              ; preds = %282, %283, %287, %284, %276, %273
   %295 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %296 = call ptr @_bt_search(ptr noundef %9, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %295, i32 noundef 1)
-  call void @_bt_freestack(ptr noundef %296) #7
+  call void @_bt_freestack(ptr noundef %296) #6
   %297 = load i32, ptr %295, align 8
   %.not236 = icmp eq i32 %297, 0
   br i1 %.not236, label %298, label %305
@@ -1567,15 +1561,15 @@ BufferGetPage.exit.i:                             ; preds = %140, %134
 301:                                              ; preds = %298
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %303 = load ptr, ptr %302, align 8
-  call void @PredicateLockRelation(ptr noundef %9, ptr noundef %303) #7
+  call void @PredicateLockRelation(ptr noundef %9, ptr noundef %303) #6
   %304 = call ptr @_bt_search(ptr noundef %9, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %295, i32 noundef 1)
-  call void @_bt_freestack(ptr noundef %304) #7
+  call void @_bt_freestack(ptr noundef %304) #6
   %.pr = load i32, ptr %295, align 8
   %.not237 = icmp eq i32 %.pr, 0
   br i1 %.not237, label %.thread235, label %305
 
 .thread235:                                       ; preds = %298, %301
-  call void @_bt_parallel_done(ptr noundef %0) #7
+  call void @_bt_parallel_done(ptr noundef %0) #6
   br label %_bt_returnitem.exit
 
 305:                                              ; preds = %301, %294
@@ -1763,7 +1757,7 @@ define internal fastcc noundef zeroext i1 @_bt_readnextpage(ptr noundef %0, i32 
   store i32 0, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 92
   store i32 -1, ptr %33, align 4
-  call void @_bt_parallel_done(ptr noundef %0) #7
+  call void @_bt_parallel_done(ptr noundef %0) #6
   br label %_bt_drop_lock_and_maybe_pin.exit
 
 34:                                               ; preds = %29, %26
@@ -1775,7 +1769,7 @@ define internal fastcc noundef zeroext i1 @_bt_readnextpage(ptr noundef %0, i32 
   br i1 %.not, label %41, label %37
 
 37:                                               ; preds = %35
-  %38 = call zeroext i1 @_bt_parallel_seize(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #7
+  %38 = call zeroext i1 @_bt_parallel_seize(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #6
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %37
@@ -1793,12 +1787,12 @@ define internal fastcc noundef zeroext i1 @_bt_readnextpage(ptr noundef %0, i32 
   br i1 %.not54, label %45, label %44, !prof !9
 
 44:                                               ; preds = %42
-  call void @ProcessInterrupts() #7
+  call void @ProcessInterrupts() #6
   br label %45
 
 45:                                               ; preds = %44, %42
   %46 = load i32, ptr %6, align 4
-  %47 = call i32 @_bt_getbuf(ptr noundef %9, i32 noundef %46, i32 noundef 1) #7
+  %47 = call i32 @_bt_getbuf(ptr noundef %9, i32 noundef %46, i32 noundef 1) #6
   store i32 %47, ptr %22, align 8
   br label %177
 
@@ -1815,12 +1809,12 @@ define internal fastcc noundef zeroext i1 @_bt_readnextpage(ptr noundef %0, i32 
   br i1 %.not.i, label %54, label %53, !prof !9
 
 53:                                               ; preds = %51
-  call void @ProcessInterrupts() #7
+  call void @ProcessInterrupts() #6
   br label %54
 
 54:                                               ; preds = %53, %51
   %55 = load i32, ptr %6, align 4
-  %56 = call i32 @_bt_getbuf(ptr noundef %9, i32 noundef %55, i32 noundef 1) #7
+  %56 = call i32 @_bt_getbuf(ptr noundef %9, i32 noundef %55, i32 noundef 1) #6
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %64
 
@@ -1870,7 +1864,7 @@ BufferGetPage.exit.i:                             ; preds = %64, %58
 
 84:                                               ; preds = %82
   store i32 %80, ptr %6, align 4
-  %85 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.055.i73, i32 noundef %80, i32 noundef 1) #7
+  %85 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.055.i73, i32 noundef %80, i32 noundef 1) #6
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %93
 
@@ -1907,7 +1901,7 @@ BufferGetPage.exit74.i:                           ; preds = %93, %87
   br i1 %or.cond.i, label %_bt_lock_and_validate_left.exit, label %.critedge.i, !prof !16
 
 109:                                              ; preds = %82, %.critedge.i
-  %110 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.055.i73, i32 noundef %.060.i, i32 noundef 1) #7
+  %110 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.055.i73, i32 noundef %.060.i, i32 noundef 1) #6
   %111 = icmp slt i32 %110, 0
   br i1 %111, label %112, label %118
 
@@ -1948,17 +1942,16 @@ BufferGetPage.exit76.i:                           ; preds = %118, %112
   br i1 %133, label %134, label %140
 
 134:                                              ; preds = %.preheader.i
-  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %135)
+  %135 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
-  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %138) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2400, ptr noundef nonnull @__func__._bt_lock_and_validate_left) #7
+  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %138) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2400, ptr noundef nonnull @__func__._bt_lock_and_validate_left) #6
   unreachable
 
 140:                                              ; preds = %.preheader.i
-  %141 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.156.i, i32 noundef %132, i32 noundef 1) #7
+  %141 = call i32 @_bt_relandgetbuf(ptr noundef %9, i32 noundef %.156.i, i32 noundef %132, i32 noundef 1) #6
   %142 = icmp slt i32 %141, 0
   br i1 %142, label %143, label %149
 
@@ -1996,13 +1989,12 @@ BufferGetPage.exit78.i:                           ; preds = %149, %143
   br i1 %164, label %165, label %171
 
 165:                                              ; preds = %162
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %166)
+  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
-  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %.060.i, ptr noundef nonnull %169) #7
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2418, ptr noundef nonnull @__func__._bt_lock_and_validate_left) #7
+  %170 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %.060.i, ptr noundef nonnull %169) #6
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2418, ptr noundef nonnull @__func__._bt_lock_and_validate_left) #6
   unreachable
 
 thread-pre-split.i:                               ; preds = %BufferGetPage.exit78.i
@@ -2018,11 +2010,11 @@ thread-pre-split.i:                               ; preds = %BufferGetPage.exit7
 
 174:                                              ; preds = %171
   store i32 %172, ptr %6, align 4
-  call void @_bt_relbuf(ptr noundef %9, i32 noundef %.257.i) #7
+  call void @_bt_relbuf(ptr noundef %9, i32 noundef %.257.i) #6
   br label %51
 
 _bt_lock_and_validate_left.exit.thread:           ; preds = %171
-  call void @_bt_relbuf(ptr noundef %9, i32 noundef %.257.i) #7
+  call void @_bt_relbuf(ptr noundef %9, i32 noundef %.257.i) #6
   br label %.loopexit
 
 _bt_lock_and_validate_left.exit:                  ; preds = %BufferGetPage.exit.i, %BufferGetPage.exit74.i
@@ -2035,7 +2027,7 @@ _bt_lock_and_validate_left.exit:                  ; preds = %BufferGetPage.exit.
   store i32 0, ptr %22, align 8
   %176 = getelementptr inbounds nuw i8, ptr %11, i64 92
   store i32 -1, ptr %176, align 4
-  call void @_bt_parallel_done(ptr noundef %0) #7
+  call void @_bt_parallel_done(ptr noundef %0) #6
   br label %_bt_drop_lock_and_maybe_pin.exit
 
 177:                                              ; preds = %_bt_lock_and_validate_left.exit, %45
@@ -2115,12 +2107,12 @@ BufferGetPage.exit:                               ; preds = %180, %186
   br i1 %.not56, label %222, label %221
 
 221:                                              ; preds = %219
-  call void @_bt_parallel_release(ptr noundef nonnull %0, i32 noundef %storemerge, i32 noundef %196) #7
+  call void @_bt_parallel_release(ptr noundef nonnull %0, i32 noundef %storemerge, i32 noundef %196) #6
   br label %222
 
 222:                                              ; preds = %217, %207, %221, %219
   %223 = load i32, ptr %22, align 8
-  call void @_bt_relbuf(ptr noundef %9, i32 noundef %223) #7
+  call void @_bt_relbuf(ptr noundef %9, i32 noundef %223) #6
   %224 = load i32, ptr %6, align 4
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %._crit_edge, label %25
@@ -2128,7 +2120,7 @@ BufferGetPage.exit:                               ; preds = %180, %186
 226:                                              ; preds = %201, %209
   %227 = load ptr, ptr %8, align 8
   %228 = load i32, ptr %22, align 8
-  call void @_bt_unlockbuf(ptr noundef %227, i32 noundef %228) #7
+  call void @_bt_unlockbuf(ptr noundef %227, i32 noundef %228) #6
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %230 = load ptr, ptr %229, align 8
   %231 = load i32, ptr %230, align 8
@@ -2171,7 +2163,7 @@ BufferGetPage.exit:                               ; preds = %180, %186
 
 254:                                              ; preds = %250
   %255 = load i32, ptr %22, align 8
-  call void @ReleaseBuffer(i32 noundef %255) #7
+  call void @ReleaseBuffer(i32 noundef %255) #6
   store i32 0, ptr %22, align 8
   br label %_bt_drop_lock_and_maybe_pin.exit
 
@@ -2244,7 +2236,7 @@ define internal fastcc noundef zeroext i1 @_bt_readfirstpage(ptr noundef %0, i16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %22, align 8
-  tail call void @_bt_unlockbuf(ptr noundef %24, i32 noundef %25) #7
+  tail call void @_bt_unlockbuf(ptr noundef %24, i32 noundef %25) #6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
@@ -2287,7 +2279,7 @@ define internal fastcc noundef zeroext i1 @_bt_readfirstpage(ptr noundef %0, i16
 
 51:                                               ; preds = %47
   %52 = load i32, ptr %22, align 8
-  tail call void @ReleaseBuffer(i32 noundef %52) #7
+  tail call void @ReleaseBuffer(i32 noundef %52) #6
   store i32 0, ptr %22, align 8
   br label %_bt_drop_lock_and_maybe_pin.exit
 
@@ -2296,7 +2288,7 @@ define internal fastcc noundef zeroext i1 @_bt_readfirstpage(ptr noundef %0, i16
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %57 = load i32, ptr %56, align 8
-  tail call void @_bt_unlockbuf(ptr noundef %55, i32 noundef %57) #7
+  tail call void @_bt_unlockbuf(ptr noundef %55, i32 noundef %57) #6
   %58 = tail call fastcc zeroext i1 @_bt_steppage(ptr noundef nonnull %0, i32 noundef %2)
   br label %_bt_drop_lock_and_maybe_pin.exit
 
@@ -2375,7 +2367,7 @@ define internal fastcc noundef zeroext i1 @_bt_steppage(ptr noundef %0, i32 noun
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void @_bt_killitems(ptr noundef nonnull %0) #7
+  tail call void @_bt_killitems(ptr noundef nonnull %0) #6
   br label %9
 
 9:                                                ; preds = %8, %2
@@ -2391,7 +2383,7 @@ define internal fastcc noundef zeroext i1 @_bt_steppage(ptr noundef %0, i32 noun
   br i1 %.not35, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @IncrBufferRefCount(i32 noundef %15) #7
+  tail call void @IncrBufferRefCount(i32 noundef %15) #6
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -2449,7 +2441,7 @@ define internal fastcc noundef zeroext i1 @_bt_steppage(ptr noundef %0, i32 noun
   br i1 %.not36, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void @ReleaseBuffer(i32 noundef %48) #7
+  tail call void @ReleaseBuffer(i32 noundef %48) #6
   store i32 0, ptr %47, align 8
   br label %50
 
@@ -2481,11 +2473,11 @@ define dso_local i32 @_bt_get_endpoint(ptr noundef %0, i32 noundef %1, i1 nounde
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef null, i32 noundef 1) #7
+  %6 = tail call i32 @_bt_getroot(ptr noundef %0, ptr noundef null, i32 noundef 1) #6
   br label %9
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @_bt_gettrueroot(ptr noundef %0) #7
+  %8 = tail call i32 @_bt_gettrueroot(ptr noundef %0) #6
   br label %9
 
 9:                                                ; preds = %7, %5
@@ -2547,7 +2539,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %45 = shl nuw i32 %44, 16
   %46 = zext i16 %.val55.us to i32
   %47 = or disjoint i32 %45, %46
-  %48 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.2.us.us, i32 noundef %47, i32 noundef 1) #7
+  %48 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.2.us.us, i32 noundef %47, i32 noundef 1) #6
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %56, label %50
 
@@ -2596,7 +2588,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   br i1 %.not53.us.us, label %.split68.us, label %.critedge.us.us.thread
 
 .critedge.us.us.thread:                           ; preds = %71, %.critedge.us.us
-  %72 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.2.us.us, i32 noundef %70, i32 noundef 1) #7
+  %72 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.2.us.us, i32 noundef %70, i32 noundef 1) #6
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %80, label %74
 
@@ -2650,17 +2642,16 @@ BufferGetPage.exit:                               ; preds = %12, %18
   br i1 %97, label %.split68.us, label %103
 
 .split68.us:                                      ; preds = %.critedge, %.critedge.us.us
-  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %98)
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %101) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2490, ptr noundef nonnull @__func__._bt_get_endpoint) #7
+  %102 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef nonnull %101) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2490, ptr noundef nonnull @__func__._bt_get_endpoint) #6
   unreachable
 
 103:                                              ; preds = %.critedge
-  %104 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.273, i32 noundef %96, i32 noundef 1) #7
+  %104 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.273, i32 noundef %96, i32 noundef 1) #6
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %106, label %112
 
@@ -2697,14 +2688,13 @@ BufferGetPage.exit57:                             ; preds = %106, %112
   br i1 %126, label %.split78.us, label %133
 
 .split78.us:                                      ; preds = %125, %28
-  %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %127)
-  %128 = tail call i32 @errcode(i32 noundef 33557032) #7
+  %127 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %128 = tail call i32 @errcode(i32 noundef 33557032) #6
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
-  %132 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull %131) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2503, ptr noundef nonnull @__func__._bt_get_endpoint) #7
+  %132 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %1, ptr noundef nonnull %131) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2503, ptr noundef nonnull @__func__._bt_get_endpoint) #6
   unreachable
 
 133:                                              ; preds = %125
@@ -2725,7 +2715,7 @@ BufferGetPage.exit57:                             ; preds = %106, %112
   %145 = shl nuw i32 %144, 16
   %146 = zext i16 %.val55 to i32
   %147 = or disjoint i32 %145, %146
-  %148 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.2.lcssa, i32 noundef %147, i32 noundef 1) #7
+  %148 = tail call i32 @_bt_relandgetbuf(ptr noundef %0, i32 noundef %.2.lcssa, i32 noundef %147, i32 noundef 1) #6
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %150, label %156
 
@@ -2809,7 +2799,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %26 = load i16, ptr %25, align 4
   %27 = zext i16 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %27
-  %29 = tail call i32 @BufferGetBlockNumber(i32 noundef %11) #7
+  %29 = tail call i32 @BufferGetBlockNumber(i32 noundef %11) #6
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 92
   store i32 %29, ptr %30, align 4
   %31 = load i32, ptr %28, align 4
@@ -2827,12 +2817,12 @@ BufferGetPage.exit:                               ; preds = %13, %19
 .sink.split:                                      ; preds = %BufferGetPage.exit
   %38 = icmp eq i32 %1, 1
   %. = select i1 %38, i32 %34, i32 %31
-  tail call void @_bt_parallel_release(ptr noundef nonnull %0, i32 noundef %., i32 noundef %29) #7
+  tail call void @_bt_parallel_release(ptr noundef nonnull %0, i32 noundef %., i32 noundef %29) #6
   br label %39
 
 39:                                               ; preds = %.sink.split, %BufferGetPage.exit
   %40 = load i32, ptr %10, align 8
-  %41 = tail call i64 @BufferGetLSNAtomic(i32 noundef %40) #7
+  %41 = tail call i64 @BufferGetLSNAtomic(i32 noundef %40) #6
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 104
   store i64 %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 112
@@ -2842,7 +2832,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %45 = load i32, ptr %30, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
-  tail call void @PredicateLockPage(ptr noundef %7, i32 noundef %45, ptr noundef %47) #7
+  tail call void @PredicateLockPage(ptr noundef %7, i32 noundef %45, ptr noundef %47) #6
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2903,7 +2893,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %85 = and i32 %.val217, 32767
   %86 = zext nneg i32 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %86
-  %88 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %87, i32 noundef %52) #7
+  %88 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %87, i32 noundef %52) #6
   %89 = load i8, ptr %70, align 4, !range !5, !noundef !6
   store i8 %89, ptr %71, align 1
   store i8 1, ptr %70, align 4
@@ -2934,7 +2924,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   br i1 %103, label %104, label %108, !prof !4
 
 104:                                              ; preds = %96
-  %105 = call zeroext i1 @_bt_oppodir_checkkeys(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %100) #7
+  %105 = call zeroext i1 @_bt_oppodir_checkkeys(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %100) #6
   br i1 %105, label %108, label %.critedge
 
 .critedge:                                        ; preds = %104
@@ -2984,7 +2974,7 @@ BufferGetPage.exit:                               ; preds = %13, %19
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %124
   store i16 %.0184316, ptr %68, align 8
-  %126 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %125, i32 noundef %52) #7
+  %126 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %125, i32 noundef %52) #6
   br i1 %55, label %127, label %132
 
 127:                                              ; preds = %122
@@ -3192,7 +3182,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %215, %BTreeTupleIsP
 233:                                              ; preds = %226, %BTreeTupleIsPivot.exit.thread
   %234 = phi i32 [ %228, %226 ], [ %232, %BTreeTupleIsPivot.exit.thread ]
   store i8 0, ptr %71, align 1
-  %235 = call zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef nonnull %219, i32 noundef %234) #7
+  %235 = call zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef nonnull %219, i32 noundef %234) #6
   %.pre = load i8, ptr %70, align 4, !range !5
   %236 = trunc nuw i8 %.pre to i1
   br i1 %236, label %.thread, label %.thread277
@@ -3271,7 +3261,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %215, %BTreeTupleIsP
   %268 = zext nneg i32 %267 to i64
   %269 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %268
   store i16 %.2312, ptr %68, align 8
-  %270 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %269, i32 noundef %52) #7
+  %270 = call zeroext i1 @_bt_checkkeys(ptr noundef nonnull %0, ptr noundef nonnull %5, i1 noundef zeroext %55, ptr noundef %269, i32 noundef %52) #6
   br i1 %55, label %271, label %276
 
 271:                                              ; preds = %266
@@ -3484,27 +3474,23 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.umin.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #6
+declare i16 @llvm.umax.i16(i16, i16) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

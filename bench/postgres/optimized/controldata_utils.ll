@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @get_controlfile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %0) #10
+  %4 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %0) #9
   %5 = call ptr @get_controlfile_by_exact_path(ptr noundef nonnull %3, ptr noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %5
@@ -34,21 +34,20 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_controlfile_by_exact_path(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @palloc(i64 noundef 296) #10
-  %4 = tail call i32 @OpenTransientFile(ptr noundef %0, i32 noundef 0) #10
+  %3 = tail call ptr @palloc(i64 noundef 296) #9
+  %4 = tail call i32 @OpenTransientFile(ptr noundef %0, i32 noundef 0) #9
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %7)
-  %8 = tail call i32 @errcode_for_file_access() #10
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %0) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #10
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %8 = tail call i32 @errcode_for_file_access() #9
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %0) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 94, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #9
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call i64 @read(i32 noundef %4, ptr noundef %3, i64 noundef 296) #10
+  %11 = tail call i64 @read(i32 noundef %4, ptr noundef %3, i64 noundef 296) #9
   %12 = trunc i64 %11 to i32
   %sext.mask = and i64 %11, 4294967295
   %.not = icmp eq i64 %sext.mask, 296
@@ -56,38 +55,36 @@ define dso_local ptr @get_controlfile_by_exact_path(ptr noundef %0, ptr noundef 
 
 13:                                               ; preds = %10
   %14 = icmp slt i32 %12, 0
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %15)
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   br i1 %14, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @errcode_for_file_access() #10
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %0) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 108, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #10
+  %17 = tail call i32 @errcode_for_file_access() #9
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %0) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 108, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #9
   unreachable
 
 19:                                               ; preds = %13
-  %20 = tail call i32 @errcode(i32 noundef 16779816) #10
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %0, i32 noundef %12, i64 noundef 296) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #10
+  %20 = tail call i32 @errcode(i32 noundef 16779816) #9
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %0, i32 noundef %12, i64 noundef 296) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #9
   unreachable
 
 22:                                               ; preds = %10
-  %23 = tail call i32 @CloseTransientFile(i32 noundef %4) #10
+  %23 = tail call i32 @CloseTransientFile(i32 noundef %4) #9
   %.not20 = icmp eq i32 %23, 0
   br i1 %.not20, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %25)
-  %26 = tail call i32 @errcode_for_file_access() #10
-  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #10
+  %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %26 = tail call i32 @errcode_for_file_access() #9
+  %27 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %0) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 129, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #9
   unreachable
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr @pg_comp_crc32c, align 8
-  %30 = tail call i32 %29(i32 noundef -1, ptr noundef %3, i64 noundef 288) #10
+  %30 = tail call i32 %29(i32 noundef -1, ptr noundef %3, i64 noundef 288) #9
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %32 = load i32, ptr %31, align 8
   %33 = xor i32 %32, %30
@@ -103,10 +100,9 @@ define dso_local ptr @get_controlfile_by_exact_path(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %43, label %40
 
 40:                                               ; preds = %28
-  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %41)
-  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 168, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #10
+  %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %42 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 168, ptr noundef nonnull @__func__.get_controlfile_by_exact_path) #9
   unreachable
 
 43:                                               ; preds = %28
@@ -141,37 +137,36 @@ define dso_local void @update_controlfile(ptr noundef %0, ptr noundef initialize
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call i64 @time(ptr noundef null) #10
+  %6 = tail call i64 @time(ptr noundef null) #9
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %6, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i32 -1, ptr %8, align 8
   %9 = load ptr, ptr @pg_comp_crc32c, align 8
-  %10 = tail call i32 %9(i32 noundef -1, ptr noundef %1, i64 noundef 288) #10
+  %10 = tail call i32 %9(i32 noundef -1, ptr noundef %1, i64 noundef 288) #9
   %11 = xor i32 %10, -1
   store i32 %11, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 296
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7896) %12, i8 0, i64 7896, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(296) %4, ptr noundef nonnull align 8 dereferenceable(296) %1, i64 296, i1 false)
-  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef nonnull @.str.8) #10
-  %14 = call i32 @BasicOpenFile(ptr noundef nonnull %5, i32 noundef 2) #10
+  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef nonnull @.str.8) #9
+  %14 = call i32 @BasicOpenFile(ptr noundef nonnull %5, i32 noundef 2) #9
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %3
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  call void @llvm.assume(i1 %17)
-  %18 = call i32 @errcode_for_file_access() #10
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 226, ptr noundef nonnull @__func__.update_controlfile) #10
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
+  %18 = call i32 @errcode_for_file_access() #9
+  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull %5) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 226, ptr noundef nonnull @__func__.update_controlfile) #9
   unreachable
 
 20:                                               ; preds = %3
-  %21 = tail call ptr @__errno_location() #12
+  %21 = tail call ptr @__errno_location() #11
   store i32 0, ptr %21, align 4
   %22 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772170, ptr %22, align 4
-  %23 = call i64 @write(i32 noundef %14, ptr noundef nonnull %4, i64 noundef 8192) #10
+  %23 = call i64 @write(i32 noundef %14, ptr noundef nonnull %4, i64 noundef 8192) #9
   %.not = icmp eq i64 %23, 8192
   br i1 %.not, label %32, label %24
 
@@ -185,11 +180,10 @@ define dso_local void @update_controlfile(ptr noundef %0, ptr noundef initialize
   br label %28
 
 28:                                               ; preds = %27, %24
-  %29 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  call void @llvm.assume(i1 %29)
-  %30 = call i32 @errcode_for_file_access() #10
-  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 247, ptr noundef nonnull @__func__.update_controlfile) #10
+  %29 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
+  %30 = call i32 @errcode_for_file_access() #9
+  %31 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 247, ptr noundef nonnull @__func__.update_controlfile) #9
   unreachable
 
 32:                                               ; preds = %20
@@ -200,16 +194,15 @@ define dso_local void @update_controlfile(ptr noundef %0, ptr noundef initialize
 34:                                               ; preds = %32
   %35 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772168, ptr %35, align 4
-  %36 = call i32 @pg_fsync(i32 noundef %14) #10
+  %36 = call i32 @pg_fsync(i32 noundef %14) #9
   %.not11 = icmp eq i32 %36, 0
   br i1 %.not11, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode_for_file_access() #10
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.update_controlfile) #10
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
+  %39 = call i32 @errcode_for_file_access() #9
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 264, ptr noundef nonnull @__func__.update_controlfile) #9
   unreachable
 
 41:                                               ; preds = %34
@@ -218,16 +211,15 @@ define dso_local void @update_controlfile(ptr noundef %0, ptr noundef initialize
   br label %43
 
 43:                                               ; preds = %41, %32
-  %44 = call i32 @close(i32 noundef %14) #10
+  %44 = call i32 @close(i32 noundef %14) #9
   %.not12 = icmp eq i32 %44, 0
   br i1 %.not12, label %49, label %45
 
 45:                                               ; preds = %43
-  %46 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #11
-  call void @llvm.assume(i1 %46)
-  %47 = call i32 @errcode_for_file_access() #10
-  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %5) #10
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.update_controlfile) #10
+  %46 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #10
+  %47 = call i32 @errcode_for_file_access() #9
+  %48 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %5) #9
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 278, ptr noundef nonnull @__func__.update_controlfile) #9
   unreachable
 
 49:                                               ; preds = %43
@@ -263,9 +255,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -275,10 +264,9 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

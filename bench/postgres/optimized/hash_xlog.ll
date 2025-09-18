@@ -92,13 +92,13 @@ define dso_local void @hash_redo(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0) #5
+  %55 = tail call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0) #4
   %56 = load double, ptr %54, align 8
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %60 = load i16, ptr %59, align 4
-  tail call void @_hash_init_metabuffer(i32 noundef %55, double noundef %56, i32 noundef %58, i16 noundef zeroext %60, i1 noundef zeroext true) #5
+  tail call void @_hash_init_metabuffer(i32 noundef %55, double noundef %56, i32 noundef %58, i16 noundef zeroext %60, i1 noundef zeroext true) #4
   %61 = icmp slt i32 %55, 0
   br i1 %61, label %62, label %68
 
@@ -126,18 +126,18 @@ BufferGetPage.exit.i:                             ; preds = %68, %62
   %76 = trunc i64 %52 to i32
   %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 4
   store i32 %76, ptr %77, align 4
-  tail call void @MarkBufferDirty(i32 noundef %55) #5
-  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef null, ptr noundef nonnull %42, ptr noundef null) #5
+  tail call void @MarkBufferDirty(i32 noundef %55) #4
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef null, ptr noundef nonnull %42, ptr noundef null) #4
   %78 = load i32, ptr %42, align 4
   %79 = icmp eq i32 %78, 3
   br i1 %79, label %80, label %hash_xlog_init_meta_page.exit
 
 80:                                               ; preds = %BufferGetPage.exit.i
-  call void @FlushOneBuffer(i32 noundef %55) #5
+  call void @FlushOneBuffer(i32 noundef %55) #4
   br label %hash_xlog_init_meta_page.exit
 
 hash_xlog_init_meta_page.exit:                    ; preds = %BufferGetPage.exit.i, %80
-  call void @UnlockReleaseBuffer(i32 noundef %55) #5
+  call void @UnlockReleaseBuffer(i32 noundef %55) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %1180
 
@@ -148,9 +148,9 @@ hash_xlog_init_meta_page.exit:                    ; preds = %BufferGetPage.exit.
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %84 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0) #5
+  %86 = tail call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0) #4
   %87 = load i16, ptr %85, align 2
-  tail call void @_hash_initbitmapbuffer(i32 noundef %86, i16 noundef zeroext %87, i1 noundef zeroext true) #5
+  tail call void @_hash_initbitmapbuffer(i32 noundef %86, i16 noundef zeroext %87, i1 noundef zeroext true) #4
   %88 = icmp slt i32 %86, 0
   br i1 %88, label %89, label %95
 
@@ -178,19 +178,19 @@ BufferGetPage.exit.i15:                           ; preds = %95, %89
   %103 = trunc i64 %83 to i32
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i16, i64 4
   store i32 %103, ptr %104, align 4
-  tail call void @MarkBufferDirty(i32 noundef %86) #5
-  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef null, ptr noundef nonnull %41, ptr noundef null) #5
+  tail call void @MarkBufferDirty(i32 noundef %86) #4
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef null, ptr noundef nonnull %41, ptr noundef null) #4
   %105 = load i32, ptr %41, align 4
   %106 = icmp eq i32 %105, 3
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %BufferGetPage.exit.i15
-  call void @FlushOneBuffer(i32 noundef %86) #5
+  call void @FlushOneBuffer(i32 noundef %86) #4
   br label %108
 
 108:                                              ; preds = %107, %BufferGetPage.exit.i15
-  call void @UnlockReleaseBuffer(i32 noundef %86) #5
-  %109 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %40) #5
+  call void @UnlockReleaseBuffer(i32 noundef %86) #4
+  %109 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %40) #4
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %141
 
@@ -232,15 +232,15 @@ BufferGetPage.exit21.i:                           ; preds = %120, %114
   %135 = getelementptr inbounds nuw i8, ptr %.0.i.i20.i, i64 4
   store i32 %103, ptr %135, align 4
   %136 = load i32, ptr %40, align 4
-  call void @MarkBufferDirty(i32 noundef %136) #5
-  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef null, ptr noundef nonnull %41, ptr noundef null) #5
+  call void @MarkBufferDirty(i32 noundef %136) #4
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef null, ptr noundef nonnull %41, ptr noundef null) #4
   %137 = load i32, ptr %41, align 4
   %138 = icmp eq i32 %137, 3
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %BufferGetPage.exit21.i
   %140 = load i32, ptr %40, align 4
-  call void @FlushOneBuffer(i32 noundef %140) #5
+  call void @FlushOneBuffer(i32 noundef %140) #4
   br label %141
 
 141:                                              ; preds = %139, %BufferGetPage.exit21.i, %108
@@ -249,7 +249,7 @@ BufferGetPage.exit21.i:                           ; preds = %120, %114
   br i1 %.not.i, label %hash_xlog_init_bitmap_page.exit, label %143
 
 143:                                              ; preds = %141
-  call void @UnlockReleaseBuffer(i32 noundef %142) #5
+  call void @UnlockReleaseBuffer(i32 noundef %142) #4
   br label %hash_xlog_init_bitmap_page.exit
 
 hash_xlog_init_bitmap_page.exit:                  ; preds = %141, %143
@@ -263,13 +263,13 @@ hash_xlog_init_bitmap_page.exit:                  ; preds = %141, %143
   %147 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %148 = load ptr, ptr %147, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %149 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %38) #5
+  %149 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %38) #4
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %151, label %180
 
 151:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %152 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %39) #5
+  %152 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %39) #4
   %153 = load i32, ptr %38, align 4
   %154 = icmp slt i32 %153, 0
   br i1 %154, label %155, label %161
@@ -294,15 +294,14 @@ BufferGetPage.exit.i18:                           ; preds = %161, %155
   %.0.i.i.i19 = phi ptr [ %160, %155 ], [ %166, %161 ]
   %167 = load i64, ptr %39, align 8
   %168 = load i16, ptr %148, align 2
-  %169 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i19, ptr noundef %152, i64 noundef %167, i16 noundef zeroext %168, i32 noundef 0) #5
+  %169 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i19, ptr noundef %152, i64 noundef %167, i16 noundef zeroext %168, i32 noundef 0) #4
   %170 = icmp eq i16 %169, 0
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %BufferGetPage.exit.i18
-  %172 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #6
-  call void @llvm.assume(i1 %172)
-  %173 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.hash_xlog_insert) #5
+  %172 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #5
+  %173 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 142, ptr noundef nonnull @__func__.hash_xlog_insert) #4
   unreachable
 
 174:                                              ; preds = %BufferGetPage.exit.i18
@@ -313,7 +312,7 @@ BufferGetPage.exit.i18:                           ; preds = %161, %155
   %178 = getelementptr inbounds nuw i8, ptr %.0.i.i.i19, i64 4
   store i32 %177, ptr %178, align 4
   %179 = load i32, ptr %38, align 4
-  call void @MarkBufferDirty(i32 noundef %179) #5
+  call void @MarkBufferDirty(i32 noundef %179) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %180
 
@@ -323,11 +322,11 @@ BufferGetPage.exit.i18:                           ; preds = %161, %155
   br i1 %.not.i17, label %183, label %182
 
 182:                                              ; preds = %180
-  call void @UnlockReleaseBuffer(i32 noundef %181) #5
+  call void @UnlockReleaseBuffer(i32 noundef %181) #4
   br label %183
 
 183:                                              ; preds = %182, %180
-  %184 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %38) #5
+  %184 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %38) #4
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %209
 
@@ -365,7 +364,7 @@ BufferGetPage.exit14.i:                           ; preds = %195, %189
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i13.i, i64 4
   store i32 %206, ptr %207, align 4
   %208 = load i32, ptr %38, align 4
-  call void @MarkBufferDirty(i32 noundef %208) #5
+  call void @MarkBufferDirty(i32 noundef %208) #4
   br label %209
 
 209:                                              ; preds = %BufferGetPage.exit14.i, %183
@@ -374,7 +373,7 @@ BufferGetPage.exit14.i:                           ; preds = %195, %189
   br i1 %.not15.i, label %hash_xlog_insert.exit, label %211
 
 211:                                              ; preds = %209
-  call void @UnlockReleaseBuffer(i32 noundef %210) #5
+  call void @UnlockReleaseBuffer(i32 noundef %210) #4
   br label %hash_xlog_insert.exit
 
 hash_xlog_insert.exit:                            ; preds = %209, %211
@@ -391,12 +390,12 @@ hash_xlog_insert.exit:                            ; preds = %209, %211
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %35) #5
-  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %34) #5
-  %217 = call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0) #5
-  %218 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %36) #5
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %35) #4
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %34) #4
+  %217 = call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0) #4
+  %218 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %36) #4
   %219 = load i32, ptr %218, align 4
-  call void @_hash_initbuf(i32 noundef %217, i32 noundef -1, i32 noundef %219, i32 noundef 1, i1 noundef zeroext true) #5
+  call void @_hash_initbuf(i32 noundef %217, i32 noundef -1, i32 noundef %219, i32 noundef 1, i1 noundef zeroext true) #4
   %220 = icmp slt i32 %217, 0
   br i1 %220, label %221, label %227
 
@@ -430,8 +429,8 @@ BufferGetPage.exit.i20:                           ; preds = %227, %221
   %240 = trunc i64 %214 to i32
   %241 = getelementptr inbounds nuw i8, ptr %.0.i.i.i21, i64 4
   store i32 %240, ptr %241, align 4
-  call void @MarkBufferDirty(i32 noundef %217) #5
-  %242 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %32) #5
+  call void @MarkBufferDirty(i32 noundef %217) #4
+  %242 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %32) #4
   %243 = icmp eq i32 %242, 0
   br i1 %243, label %244, label %267
 
@@ -469,7 +468,7 @@ BufferGetPage.exit65.i:                           ; preds = %253, %247
   %265 = getelementptr inbounds nuw i8, ptr %.0.i.i64.i, i64 4
   store i32 %240, ptr %265, align 4
   %266 = load i32, ptr %32, align 4
-  call void @MarkBufferDirty(i32 noundef %266) #5
+  call void @MarkBufferDirty(i32 noundef %266) #4
   br label %267
 
 267:                                              ; preds = %BufferGetPage.exit65.i, %BufferGetPage.exit.i20
@@ -478,11 +477,11 @@ BufferGetPage.exit65.i:                           ; preds = %253, %247
   br i1 %.not.i22, label %270, label %269
 
 269:                                              ; preds = %267
-  call void @UnlockReleaseBuffer(i32 noundef %268) #5
+  call void @UnlockReleaseBuffer(i32 noundef %268) #4
   br label %270
 
 270:                                              ; preds = %269, %267
-  call void @UnlockReleaseBuffer(i32 noundef %217) #5
+  call void @UnlockReleaseBuffer(i32 noundef %217) #4
   %271 = load ptr, ptr %43, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 84
   %273 = load i32, ptr %272, align 4
@@ -497,7 +496,7 @@ BufferGetPage.exit65.i:                           ; preds = %253, %247
 
 279:                                              ; preds = %275
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %280 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %37) #5
+  %280 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %37) #4
   %281 = icmp eq i32 %280, 0
   br i1 %281, label %282, label %309
 
@@ -525,7 +524,7 @@ BufferGetPage.exit65.i:                           ; preds = %253, %247
 BufferGetPage.exit67.i:                           ; preds = %291, %285
   %.0.i.i66.i = phi ptr [ %290, %285 ], [ %296, %291 ]
   %297 = getelementptr inbounds nuw i8, ptr %.0.i.i66.i, i64 24
-  %298 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %36) #5
+  %298 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %36) #4
   %299 = load i32, ptr %298, align 4
   %300 = and i32 %299, 31
   %301 = shl nuw i32 1, %300
@@ -539,7 +538,7 @@ BufferGetPage.exit67.i:                           ; preds = %291, %285
   %307 = getelementptr inbounds nuw i8, ptr %.0.i.i66.i, i64 4
   store i32 %240, ptr %307, align 4
   %308 = load i32, ptr %37, align 4
-  call void @MarkBufferDirty(i32 noundef %308) #5
+  call void @MarkBufferDirty(i32 noundef %308) #4
   br label %309
 
 309:                                              ; preds = %BufferGetPage.exit67.i, %279
@@ -548,7 +547,7 @@ BufferGetPage.exit67.i:                           ; preds = %291, %285
   br i1 %.not72.i, label %312, label %311
 
 311:                                              ; preds = %309
-  call void @UnlockReleaseBuffer(i32 noundef %310) #5
+  call void @UnlockReleaseBuffer(i32 noundef %310) #4
   br label %312
 
 312:                                              ; preds = %311, %309
@@ -571,11 +570,11 @@ BufferGetPage.exit67.i:                           ; preds = %291, %285
   br i1 %320, label %321, label %.thread.i
 
 321:                                              ; preds = %317
-  %322 = call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 3) #5
+  %322 = call i32 @XLogInitBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 3) #4
   %323 = load i16, ptr %216, align 2
-  call void @_hash_initbitmapbuffer(i32 noundef %322, i16 noundef zeroext %323, i1 noundef zeroext true) #5
-  %324 = call i32 @BufferGetBlockNumber(i32 noundef %322) #5
-  call void @MarkBufferDirty(i32 noundef %322) #5
+  call void @_hash_initbitmapbuffer(i32 noundef %322, i16 noundef zeroext %323, i1 noundef zeroext true) #4
+  %324 = call i32 @BufferGetBlockNumber(i32 noundef %322) #4
+  call void @MarkBufferDirty(i32 noundef %322) #4
   %325 = icmp slt i32 %322, 0
   br i1 %325, label %326, label %332
 
@@ -600,18 +599,18 @@ BufferGetPage.exit69.i:                           ; preds = %332, %326
   store i32 %239, ptr %.0.i.i68.i, align 4
   %338 = getelementptr inbounds nuw i8, ptr %.0.i.i68.i, i64 4
   store i32 %240, ptr %338, align 4
-  call void @UnlockReleaseBuffer(i32 noundef %322) #5
+  call void @UnlockReleaseBuffer(i32 noundef %322) #4
   br label %.thread.i
 
 .thread.i:                                        ; preds = %BufferGetPage.exit69.i, %317, %313, %270
   %.063.i = phi i1 [ true, %BufferGetPage.exit69.i ], [ false, %317 ], [ false, %313 ], [ false, %270 ]
   %.0.i = phi i32 [ %324, %BufferGetPage.exit69.i ], [ -1, %317 ], [ -1, %313 ], [ -1, %270 ]
-  %339 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %33) #5
+  %339 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %33) #4
   %340 = icmp eq i32 %339, 0
   br i1 %340, label %341, label %382
 
 341:                                              ; preds = %.thread.i
-  %342 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %36) #5
+  %342 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %36) #4
   %343 = load i32, ptr %33, align 4
   %344 = icmp slt i32 %343, 0
   br i1 %344, label %345, label %351
@@ -672,7 +671,7 @@ BufferGetPage.exit71.i:                           ; preds = %351, %345
   %380 = getelementptr inbounds nuw i8, ptr %.0.i.i70.i, i64 4
   store i32 %240, ptr %380, align 4
   %381 = load i32, ptr %33, align 4
-  call void @MarkBufferDirty(i32 noundef %381) #5
+  call void @MarkBufferDirty(i32 noundef %381) #4
   br label %382
 
 382:                                              ; preds = %379, %.thread.i
@@ -681,7 +680,7 @@ BufferGetPage.exit71.i:                           ; preds = %351, %345
   br i1 %.not73.i, label %hash_xlog_add_ovfl_page.exit, label %384
 
 384:                                              ; preds = %382
-  call void @UnlockReleaseBuffer(i32 noundef %383) #5
+  call void @UnlockReleaseBuffer(i32 noundef %383) #4
   br label %hash_xlog_add_ovfl_page.exit
 
 hash_xlog_add_ovfl_page.exit:                     ; preds = %382, %384
@@ -701,7 +700,7 @@ hash_xlog_add_ovfl_page.exit:                     ; preds = %382, %384
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %390 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %28) #5
+  %390 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %28) #4
   %391 = and i32 %390, -3
   %or.cond.i = icmp eq i32 %391, 0
   br i1 %or.cond.i, label %392, label %420
@@ -746,19 +745,19 @@ BufferGetPage.exit.i26:                           ; preds = %401, %395
   %418 = getelementptr inbounds nuw i8, ptr %.0.i.i.i27, i64 4
   store i32 %417, ptr %418, align 4
   %419 = load i32, ptr %28, align 4
-  call void @MarkBufferDirty(i32 noundef %419) #5
+  call void @MarkBufferDirty(i32 noundef %419) #4
   br label %420
 
 420:                                              ; preds = %BufferGetPage.exit.i26, %385
-  %421 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %29) #5
+  %421 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull %29) #4
   %422 = load i32, ptr %29, align 4
   %423 = load i32, ptr %389, align 4
   %424 = getelementptr inbounds nuw i8, ptr %389, i64 6
   %425 = load i16, ptr %424, align 2
   %426 = zext i16 %425 to i32
-  call void @_hash_initbuf(i32 noundef %422, i32 noundef %423, i32 noundef %423, i32 noundef %426, i1 noundef zeroext true) #5
+  call void @_hash_initbuf(i32 noundef %422, i32 noundef %423, i32 noundef %423, i32 noundef %426, i1 noundef zeroext true) #4
   %427 = load i32, ptr %29, align 4
-  call void @MarkBufferDirty(i32 noundef %427) #5
+  call void @MarkBufferDirty(i32 noundef %427) #4
   %428 = load i32, ptr %29, align 4
   %429 = icmp slt i32 %428, 0
   br i1 %429, label %430, label %436
@@ -792,7 +791,7 @@ BufferGetPage.exit44.i:                           ; preds = %436, %430
   br i1 %.not49.i, label %448, label %447
 
 447:                                              ; preds = %BufferGetPage.exit44.i
-  call void @UnlockReleaseBuffer(i32 noundef %446) #5
+  call void @UnlockReleaseBuffer(i32 noundef %446) #4
   br label %448
 
 448:                                              ; preds = %447, %BufferGetPage.exit44.i
@@ -801,11 +800,11 @@ BufferGetPage.exit44.i:                           ; preds = %436, %430
   br i1 %.not50.i, label %451, label %450
 
 450:                                              ; preds = %448
-  call void @UnlockReleaseBuffer(i32 noundef %449) #5
+  call void @UnlockReleaseBuffer(i32 noundef %449) #4
   br label %451
 
 451:                                              ; preds = %450, %448
-  %452 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %30) #5
+  %452 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %30) #4
   %453 = icmp eq i32 %452, 0
   br i1 %453, label %454, label %508
 
@@ -835,7 +834,7 @@ BufferGetPage.exit46.i:                           ; preds = %463, %457
   %469 = load i32, ptr %389, align 4
   %470 = getelementptr inbounds nuw i8, ptr %.0.i.i45.i, i64 48
   store i32 %469, ptr %470, align 8
-  %471 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %31) #5
+  %471 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %31) #4
   %472 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %473 = load i8, ptr %472, align 4
   %474 = and i8 %473, 1
@@ -875,7 +874,7 @@ BufferGetPage.exit46.i:                           ; preds = %463, %457
 
 491:                                              ; preds = %484, %481
   %492 = load i32, ptr %30, align 4
-  call void @MarkBufferDirty(i32 noundef %492) #5
+  call void @MarkBufferDirty(i32 noundef %492) #4
   %493 = load i32, ptr %30, align 4
   %494 = icmp slt i32 %493, 0
   br i1 %494, label %495, label %501
@@ -909,7 +908,7 @@ BufferGetPage.exit48.i:                           ; preds = %501, %495
   br i1 %.not51.i, label %hash_xlog_split_allocate_page.exit, label %510
 
 510:                                              ; preds = %508
-  call void @UnlockReleaseBuffer(i32 noundef %509) #5
+  call void @UnlockReleaseBuffer(i32 noundef %509) #4
   br label %hash_xlog_split_allocate_page.exit
 
 hash_xlog_split_allocate_page.exit:               ; preds = %508, %510
@@ -921,20 +920,19 @@ hash_xlog_split_allocate_page.exit:               ; preds = %508, %510
 
 511:                                              ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %512 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %27) #5
+  %512 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %27) #4
   %.not.i28 = icmp eq i32 %512, 2
   br i1 %.not.i28, label %hash_xlog_split_page.exit, label %513
 
 513:                                              ; preds = %511
-  %514 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %514)
-  %515 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.hash_xlog_split_page) #5
+  %514 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %515 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.hash_xlog_split_page) #4
   unreachable
 
 hash_xlog_split_page.exit:                        ; preds = %511
   %516 = load i32, ptr %27, align 4
-  call void @UnlockReleaseBuffer(i32 noundef %516) #5
+  call void @UnlockReleaseBuffer(i32 noundef %516) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %1180
 
@@ -945,7 +943,7 @@ hash_xlog_split_page.exit:                        ; preds = %511
   %521 = load ptr, ptr %520, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %522 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %25) #5
+  %522 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %25) #4
   %523 = and i32 %522, -3
   %or.cond.i29 = icmp eq i32 %523, 0
   br i1 %or.cond.i29, label %524, label %550
@@ -987,7 +985,7 @@ BufferGetPage.exit.i31:                           ; preds = %533, %527
   %548 = getelementptr inbounds nuw i8, ptr %.0.i.i.i32, i64 4
   store i32 %547, ptr %548, align 4
   %549 = load i32, ptr %25, align 4
-  call void @MarkBufferDirty(i32 noundef %549) #5
+  call void @MarkBufferDirty(i32 noundef %549) #4
   br label %550
 
 550:                                              ; preds = %BufferGetPage.exit.i31, %517
@@ -996,11 +994,11 @@ BufferGetPage.exit.i31:                           ; preds = %533, %527
   br i1 %.not.i30, label %553, label %552
 
 552:                                              ; preds = %550
-  call void @UnlockReleaseBuffer(i32 noundef %551) #5
+  call void @UnlockReleaseBuffer(i32 noundef %551) #4
   br label %553
 
 553:                                              ; preds = %552, %550
-  %554 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %26) #5
+  %554 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %26) #4
   %555 = and i32 %554, -3
   %or.cond3.i = icmp eq i32 %555, 0
   br i1 %or.cond3.i, label %556, label %583
@@ -1043,7 +1041,7 @@ BufferGetPage.exit25.i:                           ; preds = %565, %559
   %581 = getelementptr inbounds nuw i8, ptr %.0.i.i24.i, i64 4
   store i32 %580, ptr %581, align 4
   %582 = load i32, ptr %26, align 4
-  call void @MarkBufferDirty(i32 noundef %582) #5
+  call void @MarkBufferDirty(i32 noundef %582) #4
   br label %583
 
 583:                                              ; preds = %BufferGetPage.exit25.i, %553
@@ -1052,7 +1050,7 @@ BufferGetPage.exit25.i:                           ; preds = %565, %559
   br i1 %.not26.i, label %hash_xlog_split_complete.exit, label %585
 
 585:                                              ; preds = %583
-  call void @UnlockReleaseBuffer(i32 noundef %584) #5
+  call void @UnlockReleaseBuffer(i32 noundef %584) #4
   br label %hash_xlog_split_complete.exit
 
 hash_xlog_split_complete.exit:                    ; preds = %583, %585
@@ -1077,12 +1075,12 @@ hash_xlog_split_complete.exit:                    ; preds = %583, %585
   br i1 %593, label %594, label %596
 
 594:                                              ; preds = %586
-  %595 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %21) #5
+  %595 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %21) #4
   br label %599
 
 596:                                              ; preds = %586
-  %597 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %20) #5
-  %598 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %21) #5
+  %597 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %20) #4
+  %598 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %21) #4
   br label %599
 
 599:                                              ; preds = %596, %594
@@ -1092,7 +1090,7 @@ hash_xlog_split_complete.exit:                    ; preds = %583, %585
 
 601:                                              ; preds = %599
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %602 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %23) #5
+  %602 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %23) #4
   %603 = load i32, ptr %21, align 4
   %604 = icmp slt i32 %603, 0
   br i1 %604, label %605, label %611
@@ -1143,16 +1141,15 @@ BufferGetPage.exit.i37:                           ; preds = %611, %605
   %629 = zext i16 %.04150.i to i64
   %630 = getelementptr inbounds nuw i16, ptr %602, i64 %629
   %631 = load i16, ptr %630, align 2
-  %632 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i38, ptr noundef %.04051.i, i64 noundef %628, i16 noundef zeroext %631, i32 noundef 0) #5
+  %632 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i38, ptr noundef %.04051.i, i64 noundef %628, i16 noundef zeroext %631, i32 noundef 0) #4
   %633 = icmp eq i16 %632, 0
   br i1 %633, label %634, label %638
 
 634:                                              ; preds = %.lr.ph.i
-  %635 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %635)
+  %635 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %636 = zext nneg i16 %627 to i32
-  %637 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %636) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__func__.hash_xlog_move_page_contents) #5
+  %637 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %636) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 563, ptr noundef nonnull @__func__.hash_xlog_move_page_contents) #4
   unreachable
 
 638:                                              ; preds = %.lr.ph.i
@@ -1172,18 +1169,18 @@ BufferGetPage.exit.i37:                           ; preds = %611, %605
   %648 = getelementptr inbounds nuw i8, ptr %.0.i.i.i38, i64 4
   store i32 %647, ptr %648, align 4
   %649 = load i32, ptr %21, align 4
-  call void @MarkBufferDirty(i32 noundef %649) #5
+  call void @MarkBufferDirty(i32 noundef %649) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %650
 
 650:                                              ; preds = %.loopexit.i, %599
-  %651 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %22) #5
+  %651 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %22) #4
   %652 = icmp eq i32 %651, 0
   br i1 %652, label %653, label %681
 
 653:                                              ; preds = %650
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %654 = call ptr @XLogRecGetBlockData(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %24) #5
+  %654 = call ptr @XLogRecGetBlockData(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %24) #4
   %655 = load i32, ptr %22, align 4
   %656 = icmp slt i32 %655, 0
   br i1 %656, label %657, label %663
@@ -1217,7 +1214,7 @@ BufferGetPage.exit46.i35:                         ; preds = %663, %657
 
 673:                                              ; preds = %670
   %674 = trunc i64 %671 to i32
-  call void @PageIndexMultiDelete(ptr noundef %.0.i.i45.i36, ptr noundef %654, i32 noundef %674) #5
+  call void @PageIndexMultiDelete(ptr noundef %.0.i.i45.i36, ptr noundef %654, i32 noundef %674) #4
   br label %675
 
 675:                                              ; preds = %673, %670, %BufferGetPage.exit46.i35
@@ -1228,7 +1225,7 @@ BufferGetPage.exit46.i35:                         ; preds = %663, %657
   %679 = getelementptr inbounds nuw i8, ptr %.0.i.i45.i36, i64 4
   store i32 %678, ptr %679, align 4
   %680 = load i32, ptr %22, align 4
-  call void @MarkBufferDirty(i32 noundef %680) #5
+  call void @MarkBufferDirty(i32 noundef %680) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %681
 
@@ -1238,7 +1235,7 @@ BufferGetPage.exit46.i35:                         ; preds = %663, %657
   br i1 %.not47.i, label %684, label %683
 
 683:                                              ; preds = %681
-  call void @UnlockReleaseBuffer(i32 noundef %682) #5
+  call void @UnlockReleaseBuffer(i32 noundef %682) #4
   br label %684
 
 684:                                              ; preds = %683, %681
@@ -1247,7 +1244,7 @@ BufferGetPage.exit46.i35:                         ; preds = %663, %657
   br i1 %.not48.i, label %687, label %686
 
 686:                                              ; preds = %684
-  call void @UnlockReleaseBuffer(i32 noundef %685) #5
+  call void @UnlockReleaseBuffer(i32 noundef %685) #4
   br label %687
 
 687:                                              ; preds = %686, %684
@@ -1256,7 +1253,7 @@ BufferGetPage.exit46.i35:                         ; preds = %663, %657
   br i1 %.not49.i34, label %hash_xlog_move_page_contents.exit, label %689
 
 689:                                              ; preds = %687
-  call void @UnlockReleaseBuffer(i32 noundef %688) #5
+  call void @UnlockReleaseBuffer(i32 noundef %688) #4
   br label %hash_xlog_move_page_contents.exit
 
 hash_xlog_move_page_contents.exit:                ; preds = %687, %689
@@ -1284,11 +1281,11 @@ hash_xlog_move_page_contents.exit:                ; preds = %687, %689
   br i1 %697, label %698, label %700
 
 698:                                              ; preds = %690
-  %699 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %11) #5
+  %699 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %11) #4
   br label %710
 
 700:                                              ; preds = %690
-  %701 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %10) #5
+  %701 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %10) #4
   %702 = getelementptr inbounds nuw i8, ptr %694, i64 8
   %703 = load i16, ptr %702, align 4
   %.not.i40 = icmp eq i16 %703, 0
@@ -1301,7 +1298,7 @@ hash_xlog_move_page_contents.exit:                ; preds = %687, %689
   br i1 %707, label %708, label %.thread.i42
 
 708:                                              ; preds = %704, %700
-  %709 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %11) #5
+  %709 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %11) #4
   br label %710
 
 710:                                              ; preds = %708, %698
@@ -1311,7 +1308,7 @@ hash_xlog_move_page_contents.exit:                ; preds = %687, %689
 
 712:                                              ; preds = %710
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %713 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %15) #5
+  %713 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %15) #4
   %714 = load i32, ptr %11, align 4
   %715 = icmp slt i32 %714, 0
   br i1 %715, label %716, label %722
@@ -1363,16 +1360,15 @@ BufferGetPage.exit.i43:                           ; preds = %722, %716
   %741 = zext i16 %.088111.i to i64
   %742 = getelementptr inbounds nuw i16, ptr %713, i64 %741
   %743 = load i16, ptr %742, align 2
-  %744 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i44, ptr noundef %.087112.i, i64 noundef %740, i16 noundef zeroext %743, i32 noundef 0) #5
+  %744 = call zeroext i16 @PageAddItemExtended(ptr noundef %.0.i.i.i44, ptr noundef %.087112.i, i64 noundef %740, i16 noundef zeroext %743, i32 noundef 0) #4
   %745 = icmp eq i16 %744, 0
   br i1 %745, label %746, label %750
 
 746:                                              ; preds = %.lr.ph.i46
-  %747 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %747)
+  %747 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %748 = zext nneg i16 %739 to i32
-  %749 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %748) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 695, ptr noundef nonnull @__func__.hash_xlog_squeeze_page) #5
+  %749 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %748) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 695, ptr noundef nonnull @__func__.hash_xlog_squeeze_page) #4
   unreachable
 
 750:                                              ; preds = %.lr.ph.i46
@@ -1415,7 +1411,7 @@ BufferGetPage.exit.i43:                           ; preds = %722, %716
   %774 = getelementptr inbounds nuw i8, ptr %.0.i.i.i44, i64 4
   store i32 %773, ptr %774, align 4
   %775 = load i32, ptr %11, align 4
-  call void @MarkBufferDirty(i32 noundef %775) #5
+  call void @MarkBufferDirty(i32 noundef %775) #4
   br label %.thread103.i
 
 .thread103.i:                                     ; preds = %770, %.thread102.i
@@ -1423,7 +1419,7 @@ BufferGetPage.exit.i43:                           ; preds = %722, %716
   br label %.thread.i42
 
 .thread.i42:                                      ; preds = %.thread103.i, %710, %704
-  %776 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %12) #5
+  %776 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %12) #4
   %777 = icmp eq i32 %776, 0
   br i1 %777, label %778, label %806
 
@@ -1450,7 +1446,7 @@ BufferGetPage.exit.i43:                           ; preds = %722, %716
 
 BufferGetPage.exit92.i:                           ; preds = %787, %781
   %.0.i.i91.i = phi ptr [ %786, %781 ], [ %792, %787 ]
-  call void @_hash_pageinit(ptr noundef %.0.i.i91.i, i64 noundef 8192) #5
+  call void @_hash_pageinit(ptr noundef %.0.i.i91.i, i64 noundef 8192) #4
   %793 = getelementptr inbounds nuw i8, ptr %.0.i.i91.i, i64 16
   %794 = load i16, ptr %793, align 4
   %795 = zext i16 %794 to i64
@@ -1471,7 +1467,7 @@ BufferGetPage.exit92.i:                           ; preds = %787, %781
   %804 = getelementptr inbounds nuw i8, ptr %.0.i.i91.i, i64 4
   store i32 %803, ptr %804, align 4
   %805 = load i32, ptr %12, align 4
-  call void @MarkBufferDirty(i32 noundef %805) #5
+  call void @MarkBufferDirty(i32 noundef %805) #4
   br label %806
 
 806:                                              ; preds = %BufferGetPage.exit92.i, %.thread.i42
@@ -1480,7 +1476,7 @@ BufferGetPage.exit92.i:                           ; preds = %787, %781
   br i1 %.not104.i, label %809, label %808
 
 808:                                              ; preds = %806
-  call void @UnlockReleaseBuffer(i32 noundef %807) #5
+  call void @UnlockReleaseBuffer(i32 noundef %807) #4
   br label %809
 
 809:                                              ; preds = %808, %806
@@ -1490,7 +1486,7 @@ BufferGetPage.exit92.i:                           ; preds = %787, %781
   br i1 %812, label %843, label %813
 
 813:                                              ; preds = %809
-  %814 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 3, ptr noundef nonnull %13) #5
+  %814 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 3, ptr noundef nonnull %13) #4
   %815 = icmp eq i32 %814, 0
   br i1 %815, label %816, label %843
 
@@ -1532,7 +1528,7 @@ BufferGetPage.exit94.i:                           ; preds = %825, %819
   %841 = getelementptr inbounds nuw i8, ptr %.0.i.i93.i, i64 4
   store i32 %840, ptr %841, align 4
   %842 = load i32, ptr %13, align 4
-  call void @MarkBufferDirty(i32 noundef %842) #5
+  call void @MarkBufferDirty(i32 noundef %842) #4
   br label %843
 
 843:                                              ; preds = %BufferGetPage.exit94.i, %813, %809
@@ -1541,7 +1537,7 @@ BufferGetPage.exit94.i:                           ; preds = %825, %819
   br i1 %.not105.i, label %846, label %845
 
 845:                                              ; preds = %843
-  call void @UnlockReleaseBuffer(i32 noundef %844) #5
+  call void @UnlockReleaseBuffer(i32 noundef %844) #4
   br label %846
 
 846:                                              ; preds = %845, %843
@@ -1559,7 +1555,7 @@ BufferGetPage.exit94.i:                           ; preds = %825, %819
 
 855:                                              ; preds = %851
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %856 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %16) #5
+  %856 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 4, ptr noundef nonnull %16) #4
   %857 = icmp eq i32 %856, 0
   br i1 %857, label %858, label %883
 
@@ -1599,7 +1595,7 @@ BufferGetPage.exit96.i:                           ; preds = %867, %861
   %881 = getelementptr inbounds nuw i8, ptr %.0.i.i95.i, i64 4
   store i32 %880, ptr %881, align 4
   %882 = load i32, ptr %16, align 4
-  call void @MarkBufferDirty(i32 noundef %882) #5
+  call void @MarkBufferDirty(i32 noundef %882) #4
   br label %883
 
 883:                                              ; preds = %BufferGetPage.exit96.i, %855
@@ -1608,7 +1604,7 @@ BufferGetPage.exit96.i:                           ; preds = %867, %861
   br i1 %.not106.i, label %886, label %885
 
 885:                                              ; preds = %883
-  call void @UnlockReleaseBuffer(i32 noundef %884) #5
+  call void @UnlockReleaseBuffer(i32 noundef %884) #4
   br label %886
 
 886:                                              ; preds = %885, %883
@@ -1621,7 +1617,7 @@ BufferGetPage.exit96.i:                           ; preds = %867, %861
   br i1 %.not107.i, label %890, label %889
 
 889:                                              ; preds = %887
-  call void @UnlockReleaseBuffer(i32 noundef %888) #5
+  call void @UnlockReleaseBuffer(i32 noundef %888) #4
   br label %890
 
 890:                                              ; preds = %889, %887
@@ -1630,11 +1626,11 @@ BufferGetPage.exit96.i:                           ; preds = %867, %861
   br i1 %.not108.i, label %893, label %892
 
 892:                                              ; preds = %890
-  call void @UnlockReleaseBuffer(i32 noundef %891) #5
+  call void @UnlockReleaseBuffer(i32 noundef %891) #4
   br label %893
 
 893:                                              ; preds = %892, %890
-  %894 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 5, ptr noundef nonnull %14) #5
+  %894 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 5, ptr noundef nonnull %14) #4
   %895 = icmp eq i32 %894, 0
   br i1 %895, label %896, label %927
 
@@ -1663,7 +1659,7 @@ BufferGetPage.exit98.i:                           ; preds = %905, %899
   %.0.i.i97.i = phi ptr [ %904, %899 ], [ %910, %905 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %911 = getelementptr inbounds nuw i8, ptr %.0.i.i97.i, i64 24
-  %912 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 5, ptr noundef nonnull %17) #5
+  %912 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 5, ptr noundef nonnull %17) #4
   %913 = load i32, ptr %912, align 4
   %914 = and i32 %913, 31
   %915 = shl nuw i32 1, %914
@@ -1681,7 +1677,7 @@ BufferGetPage.exit98.i:                           ; preds = %905, %899
   %925 = getelementptr inbounds nuw i8, ptr %.0.i.i97.i, i64 4
   store i32 %924, ptr %925, align 4
   %926 = load i32, ptr %14, align 4
-  call void @MarkBufferDirty(i32 noundef %926) #5
+  call void @MarkBufferDirty(i32 noundef %926) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %927
 
@@ -1691,7 +1687,7 @@ BufferGetPage.exit98.i:                           ; preds = %905, %899
   br i1 %.not109.i, label %930, label %929
 
 929:                                              ; preds = %927
-  call void @UnlockReleaseBuffer(i32 noundef %928) #5
+  call void @UnlockReleaseBuffer(i32 noundef %928) #4
   br label %930
 
 930:                                              ; preds = %929, %927
@@ -1709,13 +1705,13 @@ BufferGetPage.exit98.i:                           ; preds = %905, %899
 
 939:                                              ; preds = %935
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %940 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 6, ptr noundef nonnull %18) #5
+  %940 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 6, ptr noundef nonnull %18) #4
   %941 = icmp eq i32 %940, 0
   br i1 %941, label %942, label %965
 
 942:                                              ; preds = %939
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %943 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 6, ptr noundef nonnull %19) #5
+  %943 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 6, ptr noundef nonnull %19) #4
   %944 = load i32, ptr %18, align 4
   %945 = icmp slt i32 %944, 0
   br i1 %945, label %946, label %952
@@ -1748,7 +1744,7 @@ BufferGetPage.exit100.i:                          ; preds = %952, %946
   %963 = getelementptr inbounds nuw i8, ptr %.0.i.i99.i, i64 4
   store i32 %962, ptr %963, align 4
   %964 = load i32, ptr %18, align 4
-  call void @MarkBufferDirty(i32 noundef %964) #5
+  call void @MarkBufferDirty(i32 noundef %964) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %965
 
@@ -1758,7 +1754,7 @@ BufferGetPage.exit100.i:                          ; preds = %952, %946
   br i1 %.not110.i, label %968, label %967
 
 967:                                              ; preds = %965
-  call void @UnlockReleaseBuffer(i32 noundef %966) #5
+  call void @UnlockReleaseBuffer(i32 noundef %966) #4
   br label %968
 
 968:                                              ; preds = %967, %965
@@ -1787,12 +1783,12 @@ hash_xlog_squeeze_page.exit:                      ; preds = %930, %935, %968
   br i1 %976, label %977, label %979
 
 977:                                              ; preds = %969
-  %978 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %8) #5
+  %978 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %8) #4
   br label %982
 
 979:                                              ; preds = %969
-  %980 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %7) #5
-  %981 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %8) #5
+  %980 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %7) #4
+  %981 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %8) #4
   br label %982
 
 982:                                              ; preds = %979, %977
@@ -1802,7 +1798,7 @@ hash_xlog_squeeze_page.exit:                      ; preds = %930, %935, %968
 
 984:                                              ; preds = %982
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %985 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %9) #5
+  %985 = call ptr @XLogRecGetBlockData(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %9) #4
   %986 = load i32, ptr %8, align 4
   %987 = icmp slt i32 %986, 0
   br i1 %987, label %988, label %994
@@ -1836,7 +1832,7 @@ BufferGetPage.exit.i49:                           ; preds = %994, %988
 
 1004:                                             ; preds = %1001
   %1005 = trunc i64 %1002 to i32
-  call void @PageIndexMultiDelete(ptr noundef %.0.i.i.i50, ptr noundef %985, i32 noundef %1005) #5
+  call void @PageIndexMultiDelete(ptr noundef %.0.i.i.i50, ptr noundef %985, i32 noundef %1005) #4
   br label %1006
 
 1006:                                             ; preds = %1004, %1001, %BufferGetPage.exit.i49
@@ -1863,7 +1859,7 @@ BufferGetPage.exit.i49:                           ; preds = %994, %988
   %1021 = getelementptr inbounds nuw i8, ptr %.0.i.i.i50, i64 4
   store i32 %1020, ptr %1021, align 4
   %1022 = load i32, ptr %8, align 4
-  call void @MarkBufferDirty(i32 noundef %1022) #5
+  call void @MarkBufferDirty(i32 noundef %1022) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %1023
 
@@ -1873,7 +1869,7 @@ BufferGetPage.exit.i49:                           ; preds = %994, %988
   br i1 %.not24.i, label %1026, label %1025
 
 1025:                                             ; preds = %1023
-  call void @UnlockReleaseBuffer(i32 noundef %1024) #5
+  call void @UnlockReleaseBuffer(i32 noundef %1024) #4
   br label %1026
 
 1026:                                             ; preds = %1025, %1023
@@ -1882,7 +1878,7 @@ BufferGetPage.exit.i49:                           ; preds = %994, %988
   br i1 %.not25.i, label %hash_xlog_delete.exit, label %1028
 
 1028:                                             ; preds = %1026
-  call void @UnlockReleaseBuffer(i32 noundef %1027) #5
+  call void @UnlockReleaseBuffer(i32 noundef %1027) #4
   br label %hash_xlog_delete.exit
 
 hash_xlog_delete.exit:                            ; preds = %1026, %1028
@@ -1894,7 +1890,7 @@ hash_xlog_delete.exit:                            ; preds = %1026, %1028
   %1030 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1031 = load i64, ptr %1030, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1032 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %6) #5
+  %1032 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %6) #4
   %1033 = icmp eq i32 %1032, 0
   br i1 %1033, label %1034, label %1061
 
@@ -1936,7 +1932,7 @@ BufferGetPage.exit.i53:                           ; preds = %1043, %1037
   %1059 = getelementptr inbounds nuw i8, ptr %.0.i.i.i54, i64 4
   store i32 %1058, ptr %1059, align 4
   %1060 = load i32, ptr %6, align 4
-  call void @MarkBufferDirty(i32 noundef %1060) #5
+  call void @MarkBufferDirty(i32 noundef %1060) #4
   br label %1061
 
 1061:                                             ; preds = %BufferGetPage.exit.i53, %1029
@@ -1945,7 +1941,7 @@ BufferGetPage.exit.i53:                           ; preds = %1043, %1037
   br i1 %.not.i52, label %hash_xlog_split_cleanup.exit, label %1063
 
 1063:                                             ; preds = %1061
-  call void @UnlockReleaseBuffer(i32 noundef %1062) #5
+  call void @UnlockReleaseBuffer(i32 noundef %1062) #4
   br label %hash_xlog_split_cleanup.exit
 
 hash_xlog_split_cleanup.exit:                     ; preds = %1061, %1063
@@ -1958,7 +1954,7 @@ hash_xlog_split_cleanup.exit:                     ; preds = %1061, %1063
   %1067 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %1068 = load ptr, ptr %1067, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1069 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %5) #5
+  %1069 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %5) #4
   %1070 = icmp eq i32 %1069, 0
   br i1 %1070, label %1071, label %1093
 
@@ -1995,7 +1991,7 @@ BufferGetPage.exit.i56:                           ; preds = %1080, %1074
   %1091 = getelementptr inbounds nuw i8, ptr %.0.i.i.i57, i64 4
   store i32 %1090, ptr %1091, align 4
   %1092 = load i32, ptr %5, align 4
-  call void @MarkBufferDirty(i32 noundef %1092) #5
+  call void @MarkBufferDirty(i32 noundef %1092) #4
   br label %1093
 
 1093:                                             ; preds = %BufferGetPage.exit.i56, %1064
@@ -2004,7 +2000,7 @@ BufferGetPage.exit.i56:                           ; preds = %1080, %1074
   br i1 %.not.i55, label %hash_xlog_update_meta_page.exit, label %1095
 
 1095:                                             ; preds = %1093
-  call void @UnlockReleaseBuffer(i32 noundef %1094) #5
+  call void @UnlockReleaseBuffer(i32 noundef %1094) #4
   br label %hash_xlog_update_meta_page.exit
 
 hash_xlog_update_meta_page.exit:                  ; preds = %1093, %1095
@@ -2025,7 +2021,7 @@ hash_xlog_update_meta_page.exit:                  ; preds = %1093, %1095
 
 1104:                                             ; preds = %1096
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #5
+  call void @XLogRecGetBlockTag(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #4
   %1105 = load i32, ptr %1100, align 4
   %1106 = getelementptr inbounds nuw i8, ptr %1100, i64 6
   %1107 = load i8, ptr %1106, align 2, !range !4, !noundef !5
@@ -2033,12 +2029,12 @@ hash_xlog_update_meta_page.exit:                  ; preds = %1093, %1095
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call void @ResolveRecoveryConflictWithSnapshot(i32 noundef %1105, i1 noundef zeroext %1108, i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i) #5
+  call void @ResolveRecoveryConflictWithSnapshot(i32 noundef %1105, i1 noundef zeroext %1108, i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %1109
 
 1109:                                             ; preds = %1104, %1096
-  %1110 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2) #5
+  %1110 = call i32 @XLogReadBufferForRedoExtended(ptr noundef nonnull %0, i8 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull %2) #4
   %1111 = icmp eq i32 %1110, 0
   br i1 %1111, label %1112, label %1142
 
@@ -2068,7 +2064,7 @@ BufferGetPage.exit.i60:                           ; preds = %1121, %1115
   %1127 = getelementptr inbounds nuw i8, ptr %1100, i64 4
   %1128 = load i16, ptr %1127, align 4
   %1129 = zext i16 %1128 to i32
-  call void @PageIndexMultiDelete(ptr noundef %.0.i.i.i61, ptr noundef nonnull %1101, i32 noundef %1129) #5
+  call void @PageIndexMultiDelete(ptr noundef %.0.i.i.i61, ptr noundef nonnull %1101, i32 noundef %1129) #4
   %1130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 16
   %1131 = load i16, ptr %1130, align 4
   %1132 = zext i16 %1131 to i64
@@ -2084,7 +2080,7 @@ BufferGetPage.exit.i60:                           ; preds = %1121, %1115
   %1140 = getelementptr inbounds nuw i8, ptr %.0.i.i.i61, i64 4
   store i32 %1139, ptr %1140, align 4
   %1141 = load i32, ptr %2, align 4
-  call void @MarkBufferDirty(i32 noundef %1141) #5
+  call void @MarkBufferDirty(i32 noundef %1141) #4
   br label %1142
 
 1142:                                             ; preds = %BufferGetPage.exit.i60, %1109
@@ -2093,11 +2089,11 @@ BufferGetPage.exit.i60:                           ; preds = %1121, %1115
   br i1 %.not.i58, label %1145, label %1144
 
 1144:                                             ; preds = %1142
-  call void @UnlockReleaseBuffer(i32 noundef %1143) #5
+  call void @UnlockReleaseBuffer(i32 noundef %1143) #4
   br label %1145
 
 1145:                                             ; preds = %1144, %1142
-  %1146 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %3) #5
+  %1146 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 1, ptr noundef nonnull %3) #4
   %1147 = icmp eq i32 %1146, 0
   br i1 %1147, label %1148, label %1174
 
@@ -2138,7 +2134,7 @@ BufferGetPage.exit23.i:                           ; preds = %1157, %1151
   %1172 = getelementptr inbounds nuw i8, ptr %.0.i.i22.i, i64 4
   store i32 %1171, ptr %1172, align 4
   %1173 = load i32, ptr %3, align 4
-  call void @MarkBufferDirty(i32 noundef %1173) #5
+  call void @MarkBufferDirty(i32 noundef %1173) #4
   br label %1174
 
 1174:                                             ; preds = %BufferGetPage.exit23.i, %1145
@@ -2147,7 +2143,7 @@ BufferGetPage.exit23.i:                           ; preds = %1157, %1151
   br i1 %.not24.i59, label %hash_xlog_vacuum_one_page.exit, label %1176
 
 1176:                                             ; preds = %1174
-  call void @UnlockReleaseBuffer(i32 noundef %1175) #5
+  call void @UnlockReleaseBuffer(i32 noundef %1175) #4
   br label %hash_xlog_vacuum_one_page.exit
 
 hash_xlog_vacuum_one_page.exit:                   ; preds = %1174, %1176
@@ -2156,10 +2152,9 @@ hash_xlog_vacuum_one_page.exit:                   ; preds = %1174, %1176
   br label %1180
 
 1177:                                             ; preds = %1
-  %1178 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %1178)
-  %1179 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %48) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1113, ptr noundef nonnull @__func__.hash_redo) #5
+  %1178 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #5
+  %1179 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %48) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1113, ptr noundef nonnull @__func__.hash_redo) #4
   unreachable
 
 1180:                                             ; preds = %hash_xlog_vacuum_one_page.exit, %hash_xlog_update_meta_page.exit, %hash_xlog_split_cleanup.exit, %hash_xlog_delete.exit, %hash_xlog_squeeze_page.exit, %hash_xlog_move_page_contents.exit, %hash_xlog_split_complete.exit, %hash_xlog_split_page.exit, %hash_xlog_split_allocate_page.exit, %hash_xlog_add_ovfl_page.exit, %hash_xlog_insert.exit, %hash_xlog_init_bitmap_page.exit, %hash_xlog_init_meta_page.exit
@@ -2175,9 +2170,9 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @hash_mask(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  tail call void @mask_page_lsn_and_checksum(ptr noundef %0) #5
-  tail call void @mask_page_hint_bits(ptr noundef %0) #5
-  tail call void @mask_unused_space(ptr noundef %0) #5
+  tail call void @mask_page_lsn_and_checksum(ptr noundef %0) #4
+  tail call void @mask_page_hint_bits(ptr noundef %0) #4
+  tail call void @mask_unused_space(ptr noundef %0) #4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
@@ -2189,7 +2184,7 @@ define dso_local void @hash_mask(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %2
-  tail call void @mask_page_content(ptr noundef nonnull %0) #5
+  tail call void @mask_page_content(ptr noundef nonnull %0) #4
   br label %14
 
 12:                                               ; preds = %2
@@ -2197,7 +2192,7 @@ define dso_local void @hash_mask(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br i1 %or.cond, label %13, label %14
 
 13:                                               ; preds = %12
-  tail call void @mask_lp_flags(ptr noundef nonnull %0) #5
+  tail call void @mask_lp_flags(ptr noundef nonnull %0) #4
   br label %14
 
 14:                                               ; preds = %13, %12, %11
@@ -2255,16 +2250,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -36,15 +36,14 @@ define dso_local ptr @find_inheritance_children_extended(i32 noundef %0, i1 noun
   %6 = alloca [1 x %struct.ScanKeyData], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = zext i32 %0 to i64
-  %8 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %7) #5
+  %8 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %7) #4
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %9, label %has_subclass.exit
 
 9:                                                ; preds = %5
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.has_subclass) #5
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.has_subclass) #4
   unreachable
 
 has_subclass.exit:                                ; preds = %5
@@ -57,15 +56,15 @@ has_subclass.exit:                                ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 122
   %18 = load i8, ptr %17, align 2, !range !4, !noundef !5
   %19 = trunc nuw i8 %18 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %8) #4
   br i1 %19, label %20, label %200
 
 20:                                               ; preds = %has_subclass.exit
-  %21 = tail call ptr @palloc(i64 noundef 128) #5
-  %22 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #5
-  call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #5
-  %23 = call ptr @systable_beginscan(ptr noundef %22, i32 noundef 2187, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6) #5
-  %24 = call ptr @systable_getnext(ptr noundef %23) #5
+  %21 = tail call ptr @palloc(i64 noundef 128) #4
+  %22 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #4
+  call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #4
+  %23 = call ptr @systable_beginscan(ptr noundef %22, i32 noundef 2187, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %6) #4
+  %24 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not7284 = icmp eq ptr %24, null
   br i1 %.not7284, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
@@ -91,7 +90,7 @@ has_subclass.exit:                                ; preds = %5
   %27 = shl i32 %.055.ph89.us.us.us, 1
   %28 = sext i32 %27 to i64
   %29 = shl nsw i64 %28, 2
-  %30 = call ptr @repalloc(ptr noundef %.057.ph85.us.us.us, i64 noundef %29) #5
+  %30 = call ptr @repalloc(ptr noundef %.057.ph85.us.us.us, i64 noundef %29) #4
   br label %.outer.us.us.us
 
 .outer.us.us.us:                                  ; preds = %.thread.split.us.split.us.split.us.us.us.us, %26
@@ -101,7 +100,7 @@ has_subclass.exit:                                ; preds = %5
   %32 = sext i32 %.054.ph90.us.us.us to i64
   %33 = getelementptr inbounds i32, ptr %.158.us.us.us, i64 %32
   store i32 %61, ptr %33, align 4
-  %34 = call ptr @systable_getnext(ptr noundef %23) #5
+  %34 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not72.us.us.us = icmp eq ptr %34, null
   br i1 %.not72.us.us.us, label %.outer._crit_edge, label %.lr.ph.us.us.us, !llvm.loop !6
 
@@ -119,7 +118,7 @@ has_subclass.exit:                                ; preds = %5
   br i1 %44, label %45, label %.thread.split.us.split.us.split.us.us.us.us
 
 45:                                               ; preds = %35
-  %46 = call zeroext i1 @ActiveSnapshotSet() #5
+  %46 = call zeroext i1 @ActiveSnapshotSet() #4
   %.val68.us.us.us.pre192 = load ptr, ptr %37, align 8
   br i1 %46, label %47, label %.thread.split.us.split.us.split.us.us.us.us
 
@@ -136,8 +135,8 @@ has_subclass.exit:                                ; preds = %5
 
 HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us:    ; preds = %51, %47
   %52 = phi i32 [ %.val2.i.us.us.us.us.us.us, %51 ], [ 2, %47 ]
-  %53 = call ptr @GetActiveSnapshot() #5
-  %54 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %52, ptr noundef %53) #5
+  %53 = call ptr @GetActiveSnapshot() #4
+  %54 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %52, ptr noundef %53) #4
   br i1 %54, label %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us.us.us.us_crit_edge, label %55
 
 HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us.us.us.us_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us
@@ -145,7 +144,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us
   br label %.thread.split.us.split.us.split.us.us.us.us
 
 55:                                               ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us
-  %56 = call ptr @systable_getnext(ptr noundef %23) #5
+  %56 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not.us.us.us.us.us.us = icmp eq ptr %56, null
   br i1 %.not.us.us.us.us.us.us, label %.outer._crit_edge, label %35
 
@@ -170,7 +169,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us
   %64 = shl i32 %.055.ph89.us.us, 1
   %65 = sext i32 %64 to i64
   %66 = shl nsw i64 %65, 2
-  %67 = call ptr @repalloc(ptr noundef %.057.ph85.us.us, i64 noundef %66) #5
+  %67 = call ptr @repalloc(ptr noundef %.057.ph85.us.us, i64 noundef %66) #4
   br label %.outer.us.us
 
 .outer.us.us:                                     ; preds = %.thread.split.us.split.us.split.us109.us, %63
@@ -180,7 +179,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us
   %69 = sext i32 %.054.ph90.us.us to i64
   %70 = getelementptr inbounds i32, ptr %.158.us.us, i64 %69
   store i32 %98, ptr %70, align 4
-  %71 = call ptr @systable_getnext(ptr noundef %23) #5
+  %71 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not72.us.us = icmp eq ptr %71, null
   br i1 %.not72.us.us, label %.outer._crit_edge, label %.lr.ph.us.us, !llvm.loop !6
 
@@ -199,7 +198,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us
 
 82:                                               ; preds = %72
   store i8 1, ptr %3, align 1
-  %83 = call zeroext i1 @ActiveSnapshotSet() #5
+  %83 = call zeroext i1 @ActiveSnapshotSet() #4
   %.val68.us.us.pre189 = load ptr, ptr %74, align 8
   br i1 %83, label %84, label %.thread.split.us.split.us.split.us109.us
 
@@ -216,8 +215,8 @@ HeapTupleHeaderGetXmin.exit.us.us.us.us.us.us..thread.split.us.split.us.split.us
 
 HeapTupleHeaderGetXmin.exit.us.us.us107.us:       ; preds = %88, %84
   %89 = phi i32 [ %.val2.i.us.us.us106.us, %88 ], [ 2, %84 ]
-  %90 = call ptr @GetActiveSnapshot() #5
-  %91 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %89, ptr noundef %90) #5
+  %90 = call ptr @GetActiveSnapshot() #4
+  %91 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %89, ptr noundef %90) #4
   br i1 %91, label %HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109.us_crit_edge, label %92
 
 HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109.us_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us107.us
@@ -225,7 +224,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109
   br label %.thread.split.us.split.us.split.us109.us
 
 92:                                               ; preds = %HeapTupleHeaderGetXmin.exit.us.us.us107.us
-  %93 = call ptr @systable_getnext(ptr noundef %23) #5
+  %93 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not.us.us.us108.us = icmp eq ptr %93, null
   br i1 %.not.us.us.us108.us, label %.outer._crit_edge, label %72
 
@@ -250,7 +249,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109
   %101 = shl i32 %.055.ph89.us, 1
   %102 = sext i32 %101 to i64
   %103 = shl nsw i64 %102, 2
-  %104 = call ptr @repalloc(ptr noundef %.057.ph85.us, i64 noundef %103) #5
+  %104 = call ptr @repalloc(ptr noundef %.057.ph85.us, i64 noundef %103) #4
   br label %.outer.us
 
 .outer.us:                                        ; preds = %.thread.split.us.split.us101, %100
@@ -260,7 +259,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109
   %106 = sext i32 %.054.ph90.us to i64
   %107 = getelementptr inbounds i32, ptr %.158.us, i64 %106
   store i32 %147, ptr %107, align 4
-  %108 = call ptr @systable_getnext(ptr noundef %23) #5
+  %108 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not72.us = icmp eq ptr %108, null
   br i1 %.not72.us, label %.outer._crit_edge, label %.lr.ph.us, !llvm.loop !6
 
@@ -285,7 +284,7 @@ HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109
   br label %121
 
 121:                                              ; preds = %120, %119
-  %122 = call zeroext i1 @ActiveSnapshotSet() #5
+  %122 = call zeroext i1 @ActiveSnapshotSet() #4
   %.val68.us.pre186 = load ptr, ptr %111, align 8
   br i1 %122, label %123, label %.thread.split.us.split.us101
 
@@ -302,8 +301,8 @@ HeapTupleHeaderGetXmin.exit.us.us.us107.us..thread.split.us.split.us.split.us109
 
 HeapTupleHeaderGetXmin.exit.us.us99:              ; preds = %127, %123
   %128 = phi i32 [ %.val2.i.us.us98, %127 ], [ 2, %123 ]
-  %129 = call ptr @GetActiveSnapshot() #5
-  %130 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %128, ptr noundef %129) #5
+  %129 = call ptr @GetActiveSnapshot() #4
+  %130 = call zeroext i1 @XidInMVCCSnapshot(i32 noundef %128, ptr noundef %129) #4
   br i1 %130, label %HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge, label %131
 
 HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; preds = %HeapTupleHeaderGetXmin.exit.us.us99
@@ -316,17 +315,17 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   br i1 %.not66.us.us, label %.sink.split, label %133, !llvm.loop !6
 
 133:                                              ; preds = %131
-  %134 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #5
+  %134 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #4
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133
-  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.find_inheritance_children_extended) #5
+  %136 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %0) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 167, ptr noundef nonnull @__func__.find_inheritance_children_extended) #4
   br label %137
 
 137:                                              ; preds = %135, %133
   %138 = load i32, ptr %4, align 4
-  %139 = call zeroext i1 @TransactionIdFollows(i32 noundef %128, i32 noundef %138) #5
+  %139 = call zeroext i1 @TransactionIdFollows(i32 noundef %128, i32 noundef %138) #4
   br i1 %139, label %140, label %141, !llvm.loop !6
 
 140:                                              ; preds = %137
@@ -337,7 +336,7 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   br label %141
 
 141:                                              ; preds = %.sink.split, %137
-  %142 = call ptr @systable_getnext(ptr noundef %23) #5
+  %142 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not.us.us100 = icmp eq ptr %142, null
   br i1 %.not.us.us100, label %.outer._crit_edge, label %109
 
@@ -373,7 +372,7 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   %156 = shl i32 %.055.ph89.us126, 1
   %157 = sext i32 %156 to i64
   %158 = shl nsw i64 %157, 2
-  %159 = call ptr @repalloc(ptr noundef %.057.ph85.us127, i64 noundef %158) #5
+  %159 = call ptr @repalloc(ptr noundef %.057.ph85.us127, i64 noundef %158) #4
   br label %.outer.us130
 
 .outer.us130:                                     ; preds = %155, %.lr.ph.us124
@@ -383,7 +382,7 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   %161 = sext i32 %.054.ph90.us125 to i64
   %162 = getelementptr inbounds i32, ptr %.158.us131, i64 %161
   store i32 %154, ptr %162, align 4
-  %163 = call ptr @systable_getnext(ptr noundef %23) #5
+  %163 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not72.us133 = icmp eq ptr %163, null
   br i1 %.not72.us133, label %.outer._crit_edge, label %.lr.ph.us124, !llvm.loop !6
 
@@ -423,7 +422,7 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   %177 = shl i32 %.055.ph89, 1
   %178 = sext i32 %177 to i64
   %179 = shl nsw i64 %178, 2
-  %180 = call ptr @repalloc(ptr noundef %.057.ph85, i64 noundef %179) #5
+  %180 = call ptr @repalloc(ptr noundef %.057.ph85, i64 noundef %179) #4
   br label %.outer
 
 .outer:                                           ; preds = %176, %.thread.split
@@ -433,21 +432,21 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   %182 = sext i32 %.054.ph90 to i64
   %183 = getelementptr inbounds i32, ptr %.158, i64 %182
   store i32 %175, ptr %183, align 4
-  %184 = call ptr @systable_getnext(ptr noundef %23) #5
+  %184 = call ptr @systable_getnext(ptr noundef %23) #4
   %.not72 = icmp eq ptr %184, null
   br i1 %.not72, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer.us130, %.outer.us, %141, %.outer.us.us, %92, %.outer.us.us.us, %55, %20
   %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.057.ph85.us.us.us, %55 ], [ %.158.us.us.us, %.outer.us.us.us ], [ %.057.ph85.us.us, %92 ], [ %.158.us.us, %.outer.us.us ], [ %.057.ph85.us, %141 ], [ %.158.us, %.outer.us ], [ %.158.us131, %.outer.us130 ], [ %.158, %.outer ]
   %.054.ph.lcssa = phi i32 [ 0, %20 ], [ %.054.ph90.us.us.us, %55 ], [ %31, %.outer.us.us.us ], [ %.054.ph90.us.us, %92 ], [ %68, %.outer.us.us ], [ %.054.ph90.us, %141 ], [ %105, %.outer.us ], [ %160, %.outer.us130 ], [ %181, %.outer ]
-  call void @systable_endscan(ptr noundef %23) #5
-  call void @table_close(ptr noundef %22, i32 noundef 1) #5
+  call void @systable_endscan(ptr noundef %23) #4
+  call void @table_close(ptr noundef %22, i32 noundef 1) #4
   %185 = icmp sgt i32 %.054.ph.lcssa, 1
   br i1 %185, label %.thread, label %187
 
 .thread:                                          ; preds = %.outer._crit_edge
   %186 = zext nneg i32 %.054.ph.lcssa to i64
-  call void @pg_qsort(ptr noundef %.057.ph.lcssa, i64 noundef %186, i64 noundef 4, ptr noundef nonnull @oid_cmp) #5
+  call void @pg_qsort(ptr noundef %.057.ph.lcssa, i64 noundef %186, i64 noundef 4, ptr noundef nonnull @oid_cmp) #4
   br label %.lr.ph150
 
 187:                                              ; preds = %.outer._crit_edge
@@ -464,7 +463,7 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   %.051148.us = phi ptr [ %191, %.lr.ph150.split.us ], [ null, %.lr.ph150 ]
   %189 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv180
   %190 = load i32, ptr %189, align 4
-  %191 = call ptr @lappend_oid(ptr noundef %.051148.us, i32 noundef %190) #5
+  %191 = call ptr @lappend_oid(ptr noundef %.051148.us, i32 noundef %190) #4
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
   br i1 %exitcond184.not, label %._crit_edge151, label %.lr.ph150.split.us, !llvm.loop !8
@@ -474,17 +473,17 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
   %.051148 = phi ptr [ %.1, %199 ], [ null, %.lr.ph150 ]
   %192 = getelementptr inbounds nuw i32, ptr %.057.ph.lcssa, i64 %indvars.iv
   %193 = load i32, ptr %192, align 4
-  call void @LockRelationOid(i32 noundef %193, i32 noundef %2) #5
+  call void @LockRelationOid(i32 noundef %193, i32 noundef %2) #4
   %194 = zext i32 %193 to i64
-  %195 = call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %194, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
+  %195 = call zeroext i1 @SearchSysCacheExists(i32 noundef 57, i64 noundef %194, i64 noundef 0, i64 noundef 0, i64 noundef 0) #4
   br i1 %195, label %197, label %196
 
 196:                                              ; preds = %.lr.ph150.split
-  call void @UnlockRelationOid(i32 noundef %193, i32 noundef %2) #5
+  call void @UnlockRelationOid(i32 noundef %193, i32 noundef %2) #4
   br label %199
 
 197:                                              ; preds = %.lr.ph150.split
-  %198 = call ptr @lappend_oid(ptr noundef %.051148, i32 noundef %193) #5
+  %198 = call ptr @lappend_oid(ptr noundef %.051148, i32 noundef %193) #4
   br label %199
 
 199:                                              ; preds = %197, %196
@@ -495,7 +494,7 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
 
 ._crit_edge151:                                   ; preds = %199, %.lr.ph150.split.us, %187
   %.051.lcssa = phi ptr [ null, %187 ], [ %191, %.lr.ph150.split.us ], [ %.1, %199 ]
-  call void @pfree(ptr noundef %.057.ph.lcssa) #5
+  call void @pfree(ptr noundef %.057.ph.lcssa) #4
   br label %200
 
 200:                                              ; preds = %has_subclass.exit, %._crit_edge151
@@ -507,15 +506,14 @@ HeapTupleHeaderGetXmin.exit.us.us99..thread.split.us.split.us101_crit_edge: ; pr
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @has_subclass(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #5
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.has_subclass) #5
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.has_subclass) #4
   unreachable
 
 7:                                                ; preds = %1
@@ -528,7 +526,7 @@ define dso_local zeroext i1 @has_subclass(i32 noundef %0) local_unnamed_addr #0 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 122
   %14 = load i8, ptr %13, align 2, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   ret i1 %15
 }
 
@@ -592,11 +590,11 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %9, ptr %10, align 8
-  %11 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1064) #5
+  %11 = call ptr @hash_create(ptr noundef nonnull @.str.2, i64 noundef 32, ptr noundef nonnull %4, i32 noundef 1064) #4
   %.sroa.017.0.insert.ext = zext i32 %0 to i64
   %12 = inttoptr i64 %.sroa.017.0.insert.ext to ptr
-  %13 = call ptr @list_make1_impl(i32 noundef 471, ptr %12) #5
-  %14 = call ptr @list_make1_impl(i32 noundef 470, ptr null) #5
+  %13 = call ptr @list_make1_impl(i32 noundef 471, ptr %12) #4
+  %14 = call ptr @list_make1_impl(i32 noundef 470, ptr null) #4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge, label %.lr.ph65
@@ -641,7 +639,7 @@ define dso_local ptr @find_all_inheritors(i32 noundef %0, i32 noundef %1, ptr no
   %29 = load i32, ptr %28, align 8
   store i32 %29, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %30 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #5
+  %30 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #4
   %31 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %36, label %44
@@ -681,8 +679,8 @@ list_length.exit:                                 ; preds = %44, %45
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %48, ptr %49, align 4
   %50 = load i32, ptr %5, align 4
-  %51 = call ptr @lappend_oid(ptr noundef %.14957, i32 noundef %50) #5
-  %52 = call ptr @lappend_int(ptr noundef %.1344858, i32 noundef 1) #5
+  %51 = call ptr @lappend_oid(ptr noundef %.14957, i32 noundef %50) #4
+  %52 = call ptr @lappend_int(ptr noundef %.1344858, i32 noundef 1) #4
   br label %53
 
 53:                                               ; preds = %list_length.exit, %36
@@ -701,11 +699,11 @@ list_length.exit:                                 ; preds = %44, %45
   br label %59
 
 58:                                               ; preds = %.critedge
-  call void @list_free(ptr noundef %.033.lcssa) #5
+  call void @list_free(ptr noundef %.033.lcssa) #4
   br label %59
 
 59:                                               ; preds = %58, %57
-  call void @hash_destroy(ptr noundef %11) #5
+  call void @hash_destroy(ptr noundef %11) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0.lcssa
 }
@@ -730,14 +728,14 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @has_superclass(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #5
+  %3 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #4
   %4 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #5
-  %5 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #5
-  %6 = call ptr @systable_getnext(ptr noundef %5) #5
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #4
+  %5 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #4
+  %6 = call ptr @systable_getnext(ptr noundef %5) #4
   %7 = icmp ne ptr %6, null
-  call void @systable_endscan(ptr noundef %5) #5
-  call void @table_close(ptr noundef %3, i32 noundef 1) #5
+  call void @systable_endscan(ptr noundef %5) #4
+  call void @table_close(ptr noundef %3, i32 noundef 1) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %7
 }
@@ -745,26 +743,25 @@ define dso_local zeroext i1 @has_superclass(i32 noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @typeInheritsFrom(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ScanKeyData, align 8
-  %4 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %0) #5
+  %4 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %0) #4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %56, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @typeidTypeRelid(i32 noundef %1) #5
+  %7 = tail call i32 @typeidTypeRelid(i32 noundef %1) #4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %56, label %9
 
 9:                                                ; preds = %6
   %10 = zext i32 %7 to i64
-  %11 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %10) #5
+  %11 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %10) #4
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %has_subclass.exit
 
 12:                                               ; preds = %9
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %13)
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %7) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.has_subclass) #5
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %7) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.has_subclass) #4
   unreachable
 
 has_subclass.exit:                                ; preds = %9
@@ -777,14 +774,14 @@ has_subclass.exit:                                ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 122
   %21 = load i8, ptr %20, align 2, !range !4, !noundef !5
   %22 = trunc nuw i8 %21 to i1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %11) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %11) #4
   br i1 %22, label %23, label %56
 
 23:                                               ; preds = %has_subclass.exit
   %.sroa.012.0.insert.ext = zext i32 %4 to i64
   %24 = inttoptr i64 %.sroa.012.0.insert.ext to ptr
-  %25 = tail call ptr @list_make1_impl(i32 noundef 471, ptr nonnull %24) #5
-  %26 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #5
+  %25 = tail call ptr @list_make1_impl(i32 noundef 471, ptr nonnull %24) #4
+  %26 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 1) #4
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.critedge, label %.lr.ph77
 
@@ -803,15 +800,15 @@ has_subclass.exit:                                ; preds = %9
   %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %34 = call zeroext i1 @list_member_oid(ptr noundef %.0357689, i32 noundef %33) #5
+  %34 = call zeroext i1 @list_member_oid(ptr noundef %.0357689, i32 noundef %33) #4
   br i1 %34, label %52, label %35
 
 35:                                               ; preds = %.lr.ph92
-  %36 = call ptr @lappend_oid(ptr noundef %.0357689, i32 noundef %33) #5
+  %36 = call ptr @lappend_oid(ptr noundef %.0357689, i32 noundef %33) #4
   %37 = zext i32 %33 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %37) #5
-  %38 = call ptr @systable_beginscan(ptr noundef %26, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #5
-  %39 = call ptr @systable_getnext(ptr noundef %38) #5
+  call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %37) #4
+  %38 = call ptr @systable_beginscan(ptr noundef %26, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #4
+  %39 = call ptr @systable_getnext(ptr noundef %38) #4
   %.not5372 = icmp eq ptr %39, null
   br i1 %.not5372, label %.thread, label %.lr.ph
 
@@ -830,19 +827,19 @@ has_subclass.exit:                                ; preds = %9
   br i1 %48, label %.thread.thread, label %49
 
 .thread.thread:                                   ; preds = %.lr.ph
-  call void @systable_endscan(ptr noundef %38) #5
+  call void @systable_endscan(ptr noundef %38) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
 49:                                               ; preds = %.lr.ph
-  %50 = call ptr @lappend_oid(ptr noundef %.34173, i32 noundef %47) #5
-  %51 = call ptr @systable_getnext(ptr noundef %38) #5
+  %50 = call ptr @lappend_oid(ptr noundef %.34173, i32 noundef %47) #4
+  %51 = call ptr @systable_getnext(ptr noundef %38) #4
   %.not53 = icmp eq ptr %51, null
   br i1 %.not53, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %49, %35
   %.341.lcssa = phi ptr [ %.0387590, %35 ], [ %50, %49 ]
-  call void @systable_endscan(ptr noundef %38) #5
+  call void @systable_endscan(ptr noundef %38) #4
   br label %52
 
 52:                                               ; preds = %.thread, %.lr.ph92
@@ -859,9 +856,9 @@ has_subclass.exit:                                ; preds = %9
   %.139 = phi ptr [ %.34173, %.thread.thread ], [ null, %23 ], [ %25, %.lr.ph77 ], [ %.240.ph, %52 ]
   %.136 = phi ptr [ %36, %.thread.thread ], [ null, %23 ], [ null, %.lr.ph77 ], [ %.237.ph, %52 ]
   %.1 = phi i1 [ true, %.thread.thread ], [ false, %23 ], [ false, %.lr.ph77 ], [ false, %52 ]
-  call void @table_close(ptr noundef %26, i32 noundef 1) #5
-  call void @list_free(ptr noundef %.136) #5
-  call void @list_free(ptr noundef %.139) #5
+  call void @table_close(ptr noundef %26, i32 noundef 1) #4
+  call void @list_free(ptr noundef %.136) #4
+  call void @list_free(ptr noundef %.139) #4
   br label %56
 
 56:                                               ; preds = %has_subclass.exit, %6, %2, %.critedge
@@ -881,7 +878,7 @@ define dso_local void @StoreSingleInheritance(i32 noundef %0, i32 noundef %1, i3
   %5 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 3) #5
+  %6 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 3) #4
   %7 = zext i32 %0 to i64
   store i64 %7, ptr %4, align 16
   %8 = zext i32 %1 to i64
@@ -895,10 +892,10 @@ define dso_local void @StoreSingleInheritance(i32 noundef %0, i32 noundef %1, i3
   store i32 0, ptr %5, align 4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %14 = load ptr, ptr %13, align 8
-  %15 = call ptr @heap_form_tuple(ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5) #5
-  call void @CatalogTupleInsert(ptr noundef %6, ptr noundef %15) #5
-  call void @heap_freetuple(ptr noundef %15) #5
-  call void @table_close(ptr noundef %6, i32 noundef 3) #5
+  %15 = call ptr @heap_form_tuple(ptr noundef %14, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
+  call void @CatalogTupleInsert(ptr noundef %6, ptr noundef %15) #4
+  call void @heap_freetuple(ptr noundef %15) #4
+  call void @table_close(ptr noundef %6, i32 noundef 3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
@@ -914,11 +911,11 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.ScanKeyData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %6 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 3) #5
+  %6 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 3) #4
   %7 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #5
-  %8 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #5
-  %9 = call ptr @systable_getnext(ptr noundef %8) #5
+  call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %7) #4
+  %8 = call ptr @systable_beginscan(ptr noundef %6, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %5) #4
+  %9 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not2633 = icmp eq ptr %9, null
   br i1 %.not2633, label %._crit_edge, label %.lr.ph
 
@@ -944,8 +941,8 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 
 19:                                               ; preds = %.lr.ph.split.us.split.us
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %20) #5
-  %21 = call ptr @systable_getnext(ptr noundef %8) #5
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %20) #4
+  %21 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not26.us.us = icmp eq ptr %21, null
   br i1 %.not26.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !9
 
@@ -964,8 +961,8 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 
 31:                                               ; preds = %.lr.ph.split.us.split.split
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %32) #5
-  %33 = call ptr @systable_getnext(ptr noundef %8) #5
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %32) #4
+  %33 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not26.us = icmp eq ptr %33, null
   br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us.split.split, !llvm.loop !9
 
@@ -994,12 +991,12 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %48) #5
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %48) #4
   br label %49
 
 49:                                               ; preds = %47, %.lr.ph.split.split.us
   %.1.us42 = phi i1 [ true, %47 ], [ %.034.us37, %.lr.ph.split.split.us ]
-  %50 = call ptr @systable_getnext(ptr noundef %8) #5
+  %50 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not26.us43 = icmp eq ptr %50, null
   br i1 %.not26.us43, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
 
@@ -1024,43 +1021,41 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   br i1 %63, label %.split.us, label %70
 
 .split.us:                                        ; preds = %60, %.lr.ph.split.us.split.split
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %64)
-  %65 = call i32 @errcode(i32 noundef 325) #5
+  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %65 = call i32 @errcode(i32 noundef 325) #4
   %.not28 = icmp eq ptr %3, null
   %66 = select i1 %.not28, ptr @.str.5, ptr %3
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %66) #5
-  %68 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #5
-  %69 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 595, ptr noundef nonnull @__func__.DeleteInheritsTuple) #5
+  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %66) #4
+  %68 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6) #4
+  %69 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.7) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 595, ptr noundef nonnull @__func__.DeleteInheritsTuple) #4
   unreachable
 
 70:                                               ; preds = %60
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %71) #5
+  call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %71) #4
   br label %77
 
 .split36.us:                                      ; preds = %43, %.lr.ph.split.us.split.us
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 @errcode(i32 noundef 325) #5
+  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %73 = call i32 @errcode(i32 noundef 325) #4
   %.not29 = icmp eq ptr %3, null
   %74 = select i1 %.not29, ptr @.str.5, ptr %3
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %74) #5
-  %76 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 601, ptr noundef nonnull @__func__.DeleteInheritsTuple) #5
+  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %74) #4
+  %76 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 601, ptr noundef nonnull @__func__.DeleteInheritsTuple) #4
   unreachable
 
 77:                                               ; preds = %70, %.lr.ph.split.split.split
   %.1 = phi i1 [ true, %70 ], [ %.034, %.lr.ph.split.split.split ]
-  %78 = call ptr @systable_getnext(ptr noundef %8) #5
+  %78 = call ptr @systable_getnext(ptr noundef %8) #4
   %.not26 = icmp eq ptr %78, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %77, %49, %31, %19, %4
   %.0.lcssa = phi i1 [ false, %4 ], [ true, %19 ], [ true, %31 ], [ %.1.us42, %49 ], [ %.1, %77 ]
-  call void @systable_endscan(ptr noundef %8) #5
-  call void @table_close(ptr noundef %6, i32 noundef 3) #5
+  call void @systable_endscan(ptr noundef %8) #4
+  call void @table_close(ptr noundef %6, i32 noundef 3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0.lcssa
 }
@@ -1079,11 +1074,11 @@ declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local zeroext i1 @PartitionHasPendingDetach(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ScanKeyData, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %3 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 3) #5
+  %3 = tail call ptr @table_open(i32 noundef 2611, i32 noundef 3) #4
   %4 = zext i32 %0 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #5
-  %5 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #5
-  %6 = call ptr @systable_getnext(ptr noundef %5) #5
+  call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #4
+  %5 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %2) #4
+  %6 = call ptr @systable_getnext(ptr noundef %5) #4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %16, label %7
 
@@ -1097,16 +1092,15 @@ define dso_local zeroext i1 @PartitionHasPendingDetach(i32 noundef %0) local_unn
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i8, ptr %13, align 4, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
-  call void @systable_endscan(ptr noundef %5) #5
-  call void @table_close(ptr noundef %3, i32 noundef 3) #5
+  call void @systable_endscan(ptr noundef %5) #4
+  call void @table_close(ptr noundef %3, i32 noundef 3) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %15
 
 16:                                               ; preds = %1
-  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %17)
-  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 654, ptr noundef nonnull @__func__.PartitionHasPendingDetach) #5
+  %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %18 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10, i32 noundef %0) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 654, ptr noundef nonnull @__func__.PartitionHasPendingDetach) #4
   unreachable
 }
 
@@ -1116,16 +1110,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

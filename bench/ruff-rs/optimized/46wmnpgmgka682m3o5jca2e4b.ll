@@ -15879,13 +15879,13 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h4a7b1cfd288eb695E(p
     i32 21, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
     i32 22, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
     i32 23, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
-    i32 24, label %130
-    i32 25, label %133
-    i32 26, label %138
+    i32 24, label %126
+    i32 25, label %129
+    i32 26, label %134
     i32 27, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
-    i32 28, label %141
-    i32 29, label %148
-    i32 30, label %155
+    i32 28, label %137
+    i32 29, label %144
+    i32 30, label %151
     i32 31, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
   ]
 
@@ -15931,7 +15931,7 @@ default.unreachable175:                           ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !align !66, !noundef !4
   %.not65 = icmp eq ptr %27, null
-  br i1 %.not65, label %160, label %159
+  br i1 %.not65, label %156, label %155
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16035,7 +16035,7 @@ default.unreachable175:                           ; preds = %2
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8, !align !66, !noundef !4
   %.not57 = icmp eq ptr %82, null
-  br i1 %.not57, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %222
+  br i1 %.not57, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %218
 
 83:                                               ; preds = %2
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16110,255 +16110,249 @@ default.unreachable175:                           ; preds = %2
 _ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit.loopexit162: ; preds = %2
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = tail call { ptr, ptr } @"_ZN108_$LT$$RF$ruff_python_ast..nodes..StringLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h726654c408fee571E"(ptr noundef nonnull align 8 %122)
-  %124 = extractvalue { ptr, ptr } %123, 1
-  %125 = icmp ne ptr %124, null
-  tail call void @llvm.assume(i1 %125)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
 _ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit.loopexit163: ; preds = %2
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %127 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %126)
-  %128 = extractvalue { ptr, ptr } %127, 1
-  %129 = icmp ne ptr %128, null
-  tail call void @llvm.assume(i1 %129)
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %125 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %124)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
-_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit: ; preds = %.lr.ph, %.lr.ph105, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, %.lr.ph7.i.i, %.lr.ph109, %.lr.ph138, %165, %.lr.ph147, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit.loopexit163, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit.loopexit162, %148, %141, %114, %86, %42, %35, %4, %2, %._crit_edge.i.i, %243, %246, %80, %222, %._crit_edge, %._crit_edge121, %._crit_edge128, %._crit_edge135, %160, %138, %133, %130, %83, %77, %28, %21, %16, %11, %2, %2, %2, %2, %2
+_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit: ; preds = %.lr.ph, %.lr.ph105, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, %.lr.ph7.i.i, %.lr.ph109, %.lr.ph138, %161, %.lr.ph147, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit.loopexit163, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit.loopexit162, %144, %137, %114, %86, %42, %35, %4, %2, %._crit_edge.i.i, %239, %242, %80, %218, %._crit_edge, %._crit_edge121, %._crit_edge128, %._crit_edge135, %156, %134, %129, %126, %83, %77, %28, %21, %16, %11, %2, %2, %2, %2, %2
   ret void
 
-130:                                              ; preds = %2
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %132 = load ptr, ptr %131, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %132)
+126:                                              ; preds = %2
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %128 = load ptr, ptr %127, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %128)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
-133:                                              ; preds = %2
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %135 = load ptr, ptr %134, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %135)
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %137 = load ptr, ptr %136, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %137)
+129:                                              ; preds = %2
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %131 = load ptr, ptr %130, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %131)
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %133 = load ptr, ptr %132, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %133)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
-138:                                              ; preds = %2
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %140)
+134:                                              ; preds = %2
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %136 = load ptr, ptr %135, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %136)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
-141:                                              ; preds = %2
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %143 = load ptr, ptr %142, align 8, !nonnull !4, !noundef !4
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %145 = load i64, ptr %144, align 8, !noundef !4
-  %.idx148 = shl nuw nsw i64 %145, 6
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx148
-  %147 = icmp eq i64 %145, 0
-  br i1 %147, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph105
+137:                                              ; preds = %2
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %139 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %141 = load i64, ptr %140, align 8, !noundef !4
+  %.idx148 = shl nuw nsw i64 %141, 6
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 %.idx148
+  %143 = icmp eq i64 %141, 0
+  br i1 %143, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph105
 
-148:                                              ; preds = %2
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %150 = load ptr, ptr %149, align 8, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load i64, ptr %151, align 8, !noundef !4
-  %.idx = shl nuw nsw i64 %152, 6
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx
-  %154 = icmp eq i64 %152, 0
-  br i1 %154, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph
+144:                                              ; preds = %2
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %146 = load ptr, ptr %145, align 8, !nonnull !4, !noundef !4
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %148 = load i64, ptr %147, align 8, !noundef !4
+  %.idx = shl nuw nsw i64 %148, 6
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx
+  %150 = icmp eq i64 %148, 0
+  br i1 %150, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph
 
-155:                                              ; preds = %2
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %157 = load ptr, ptr %156, align 8, !align !66, !noundef !4
-  %.not = icmp eq ptr %157, null
-  br i1 %.not, label %239, label %238
+151:                                              ; preds = %2
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %153 = load ptr, ptr %152, align 8, !align !66, !noundef !4
+  %.not = icmp eq ptr %153, null
+  br i1 %.not, label %235, label %234
 
 .lr.ph147:                                        ; preds = %4, %.lr.ph147
   %.sroa.029.0145 = phi ptr [ %.sroa.029.1, %.lr.ph147 ], [ %6, %4 ]
   %.sroa.029.1 = getelementptr inbounds nuw i8, ptr %.sroa.029.0145, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.029.0145)
-  %158 = icmp eq ptr %.sroa.029.1, %9
-  br i1 %158, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph147
+  %154 = icmp eq ptr %.sroa.029.1, %9
+  br i1 %154, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph147
 
-159:                                              ; preds = %24
+155:                                              ; preds = %24
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor16visit_parameters17hdbe77b3dea53f303E(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %27)
-  br label %160
+  br label %156
 
-160:                                              ; preds = %159, %24
-  %161 = load ptr, ptr %25, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %161)
+156:                                              ; preds = %155, %24
+  %157 = load ptr, ptr %25, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %157)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
-.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %165
-  %.sroa.030.1142 = phi ptr [ %.sroa.030.1, %165 ], [ %.sroa.030.1140, %.lr.ph144.preheader ]
-  %.sroa.030.0141 = phi ptr [ %.sroa.030.1142, %165 ], [ %37, %.lr.ph144.preheader ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.030.0141, i64 64
-  %163 = load i32, ptr %162, align 8, !range !73, !noundef !4
-  %.not64 = icmp eq i32 %163, 32
-  br i1 %.not64, label %165, label %164
+.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %161
+  %.sroa.030.1142 = phi ptr [ %.sroa.030.1, %161 ], [ %.sroa.030.1140, %.lr.ph144.preheader ]
+  %.sroa.030.0141 = phi ptr [ %.sroa.030.1142, %161 ], [ %37, %.lr.ph144.preheader ]
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.030.0141, i64 64
+  %159 = load i32, ptr %158, align 8, !range !73, !noundef !4
+  %.not64 = icmp eq i32 %159, 32
+  br i1 %.not64, label %161, label %160
 
-164:                                              ; preds = %.lr.ph144
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %162)
-  br label %165
+160:                                              ; preds = %.lr.ph144
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %158)
+  br label %161
 
-165:                                              ; preds = %164, %.lr.ph144
+161:                                              ; preds = %160, %.lr.ph144
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.030.0141)
-  %166 = icmp eq ptr %.sroa.030.1142, %40
-  %.sroa.030.1.idx = select i1 %166, i64 0, i64 128
+  %162 = icmp eq ptr %.sroa.030.1142, %40
+  %.sroa.030.1.idx = select i1 %162, i64 0, i64 128
   %.sroa.030.1 = getelementptr inbounds nuw i8, ptr %.sroa.030.1142, i64 %.sroa.030.1.idx
-  br i1 %166, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph144
+  br i1 %162, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph144
 
 .lr.ph138:                                        ; preds = %42, %.lr.ph138
   %.sroa.031.0136 = phi ptr [ %.sroa.031.1, %.lr.ph138 ], [ %44, %42 ]
   %.sroa.031.1 = getelementptr inbounds nuw i8, ptr %.sroa.031.0136, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.031.0136)
-  %167 = icmp eq ptr %.sroa.031.1, %47
-  br i1 %167, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph138
+  %163 = icmp eq ptr %.sroa.031.1, %47
+  br i1 %163, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph138
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit
   %.sroa.032.1132 = phi ptr [ %.sroa.032.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit ], [ %.sroa.032.1130, %.lr.ph134.preheader ]
   %.sroa.032.0131 = phi ptr [ %.sroa.032.1132, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit ], [ %51, %.lr.ph134.preheader ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %168)
-  %169 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %169)
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 8
-  %171 = load ptr, ptr %170, align 8, !noalias !125, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 16
-  %173 = load i64, ptr %172, align 8, !noalias !125, !noundef !4
-  %.idx.i.i67 = shl nuw nsw i64 %173, 6
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i.i67
-  %175 = icmp eq i64 %173, 0
-  br i1 %175, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit, label %.lr.ph.i.i68
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %164)
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %165)
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 8
+  %167 = load ptr, ptr %166, align 8, !noalias !125, !nonnull !4, !noundef !4
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 16
+  %169 = load i64, ptr %168, align 8, !noalias !125, !noundef !4
+  %.idx.i.i67 = shl nuw nsw i64 %169, 6
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 %.idx.i.i67
+  %171 = icmp eq i64 %169, 0
+  br i1 %171, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit, label %.lr.ph.i.i68
 
 .lr.ph.i.i68:                                     ; preds = %.lr.ph134, %.lr.ph.i.i68
-  %.sroa.01.02.i.i = phi ptr [ %176, %.lr.ph.i.i68 ], [ %171, %.lr.ph134 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i, i64 64
+  %.sroa.01.02.i.i = phi ptr [ %172, %.lr.ph.i.i68 ], [ %167, %.lr.ph134 ]
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i)
-  %177 = icmp eq ptr %176, %174
-  br i1 %177, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit, label %.lr.ph.i.i68
+  %173 = icmp eq ptr %172, %170
+  br i1 %173, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit, label %.lr.ph.i.i68
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit: ; preds = %.lr.ph.i.i68, %.lr.ph134
-  %178 = icmp eq ptr %.sroa.032.1132, %54
-  %.sroa.032.1.idx = select i1 %178, i64 0, i64 168
+  %174 = icmp eq ptr %.sroa.032.1132, %54
+  %.sroa.032.1.idx = select i1 %174, i64 0, i64 168
   %.sroa.032.1 = getelementptr inbounds nuw i8, ptr %.sroa.032.1132, i64 %.sroa.032.1.idx
-  br i1 %178, label %._crit_edge135, label %.lr.ph134
+  br i1 %174, label %._crit_edge135, label %.lr.ph134
 
 ._crit_edge135:                                   ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit, %49
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %180 = load ptr, ptr %179, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %180)
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %176 = load ptr, ptr %175, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %176)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72
   %.sroa.033.1125 = phi ptr [ %.sroa.033.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72 ], [ %.sroa.033.1123, %.lr.ph127.preheader ]
   %.sroa.033.0124 = phi ptr [ %.sroa.033.1125, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72 ], [ %58, %.lr.ph127.preheader ]
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %181)
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %182)
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 8
-  %184 = load ptr, ptr %183, align 8, !noalias !130, !nonnull !4, !noundef !4
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 16
-  %186 = load i64, ptr %185, align 8, !noalias !130, !noundef !4
-  %.idx.i.i69 = shl nuw nsw i64 %186, 6
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx.i.i69
-  %188 = icmp eq i64 %186, 0
-  br i1 %188, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72, label %.lr.ph.i.i70
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %177)
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %178)
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 8
+  %180 = load ptr, ptr %179, align 8, !noalias !130, !nonnull !4, !noundef !4
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 16
+  %182 = load i64, ptr %181, align 8, !noalias !130, !noundef !4
+  %.idx.i.i69 = shl nuw nsw i64 %182, 6
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i.i69
+  %184 = icmp eq i64 %182, 0
+  br i1 %184, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72, label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %.lr.ph127, %.lr.ph.i.i70
-  %.sroa.01.02.i.i71 = phi ptr [ %189, %.lr.ph.i.i70 ], [ %184, %.lr.ph127 ]
-  %189 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i71, i64 64
+  %.sroa.01.02.i.i71 = phi ptr [ %185, %.lr.ph.i.i70 ], [ %180, %.lr.ph127 ]
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i71, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i71)
-  %190 = icmp eq ptr %189, %187
-  br i1 %190, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72, label %.lr.ph.i.i70
+  %186 = icmp eq ptr %185, %183
+  br i1 %186, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72, label %.lr.ph.i.i70
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72: ; preds = %.lr.ph.i.i70, %.lr.ph127
-  %191 = icmp eq ptr %.sroa.033.1125, %61
-  %.sroa.033.1.idx = select i1 %191, i64 0, i64 168
+  %187 = icmp eq ptr %.sroa.033.1125, %61
+  %.sroa.033.1.idx = select i1 %187, i64 0, i64 168
   %.sroa.033.1 = getelementptr inbounds nuw i8, ptr %.sroa.033.1125, i64 %.sroa.033.1.idx
-  br i1 %191, label %._crit_edge128, label %.lr.ph127
+  br i1 %187, label %._crit_edge128, label %.lr.ph127
 
 ._crit_edge128:                                   ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit72, %56
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %193 = load ptr, ptr %192, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %193)
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %189 = load ptr, ptr %188, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %189)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76
   %.sroa.034.1118 = phi ptr [ %.sroa.034.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76 ], [ %.sroa.034.1116, %.lr.ph120.preheader ]
   %.sroa.034.0117 = phi ptr [ %.sroa.034.1118, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76 ], [ %65, %.lr.ph120.preheader ]
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %194)
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %195)
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 8
-  %197 = load ptr, ptr %196, align 8, !noalias !135, !nonnull !4, !noundef !4
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 16
-  %199 = load i64, ptr %198, align 8, !noalias !135, !noundef !4
-  %.idx.i.i73 = shl nuw nsw i64 %199, 6
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx.i.i73
-  %201 = icmp eq i64 %199, 0
-  br i1 %201, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76, label %.lr.ph.i.i74
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %190)
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %191)
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 8
+  %193 = load ptr, ptr %192, align 8, !noalias !135, !nonnull !4, !noundef !4
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 16
+  %195 = load i64, ptr %194, align 8, !noalias !135, !noundef !4
+  %.idx.i.i73 = shl nuw nsw i64 %195, 6
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 %.idx.i.i73
+  %197 = icmp eq i64 %195, 0
+  br i1 %197, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76, label %.lr.ph.i.i74
 
 .lr.ph.i.i74:                                     ; preds = %.lr.ph120, %.lr.ph.i.i74
-  %.sroa.01.02.i.i75 = phi ptr [ %202, %.lr.ph.i.i74 ], [ %197, %.lr.ph120 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i75, i64 64
+  %.sroa.01.02.i.i75 = phi ptr [ %198, %.lr.ph.i.i74 ], [ %193, %.lr.ph120 ]
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i75, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i75)
-  %203 = icmp eq ptr %202, %200
-  br i1 %203, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76, label %.lr.ph.i.i74
+  %199 = icmp eq ptr %198, %196
+  br i1 %199, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76, label %.lr.ph.i.i74
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76: ; preds = %.lr.ph.i.i74, %.lr.ph120
-  %204 = icmp eq ptr %.sroa.034.1118, %68
-  %.sroa.034.1.idx = select i1 %204, i64 0, i64 168
+  %200 = icmp eq ptr %.sroa.034.1118, %68
+  %.sroa.034.1.idx = select i1 %200, i64 0, i64 168
   %.sroa.034.1 = getelementptr inbounds nuw i8, ptr %.sroa.034.1118, i64 %.sroa.034.1.idx
-  br i1 %204, label %._crit_edge121, label %.lr.ph120
+  br i1 %200, label %._crit_edge121, label %.lr.ph120
 
 ._crit_edge121:                                   ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit76, %63
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %206 = load ptr, ptr %205, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %206)
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %208 = load ptr, ptr %207, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %208)
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %202 = load ptr, ptr %201, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %202)
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %204 = load ptr, ptr %203, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %204)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80
   %.sroa.035.1113 = phi ptr [ %.sroa.035.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80 ], [ %.sroa.035.1111, %.lr.ph114.preheader ]
   %.sroa.035.0112 = phi ptr [ %.sroa.035.1113, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80 ], [ %72, %.lr.ph114.preheader ]
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %209)
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %210)
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 8
-  %212 = load ptr, ptr %211, align 8, !noalias !140, !nonnull !4, !noundef !4
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 16
-  %214 = load i64, ptr %213, align 8, !noalias !140, !noundef !4
-  %.idx.i.i77 = shl nuw nsw i64 %214, 6
-  %215 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i77
-  %216 = icmp eq i64 %214, 0
-  br i1 %216, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80, label %.lr.ph.i.i78
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %205)
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %206)
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 8
+  %208 = load ptr, ptr %207, align 8, !noalias !140, !nonnull !4, !noundef !4
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 16
+  %210 = load i64, ptr %209, align 8, !noalias !140, !noundef !4
+  %.idx.i.i77 = shl nuw nsw i64 %210, 6
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx.i.i77
+  %212 = icmp eq i64 %210, 0
+  br i1 %212, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80, label %.lr.ph.i.i78
 
 .lr.ph.i.i78:                                     ; preds = %.lr.ph114, %.lr.ph.i.i78
-  %.sroa.01.02.i.i79 = phi ptr [ %217, %.lr.ph.i.i78 ], [ %212, %.lr.ph114 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i79, i64 64
+  %.sroa.01.02.i.i79 = phi ptr [ %213, %.lr.ph.i.i78 ], [ %208, %.lr.ph114 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i79, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i79)
-  %218 = icmp eq ptr %217, %215
-  br i1 %218, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80, label %.lr.ph.i.i78
+  %214 = icmp eq ptr %213, %211
+  br i1 %214, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80, label %.lr.ph.i.i78
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80: ; preds = %.lr.ph.i.i78, %.lr.ph114
-  %219 = icmp eq ptr %.sroa.035.1113, %75
-  %.sroa.035.1.idx = select i1 %219, i64 0, i64 168
+  %215 = icmp eq ptr %.sroa.035.1113, %75
+  %.sroa.035.1.idx = select i1 %215, i64 0, i64 168
   %.sroa.035.1 = getelementptr inbounds nuw i8, ptr %.sroa.035.1113, i64 %.sroa.035.1.idx
-  br i1 %219, label %._crit_edge, label %.lr.ph114
+  br i1 %215, label %._crit_edge, label %.lr.ph114
 
 ._crit_edge:                                      ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.exit80, %70
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %221 = load ptr, ptr %220, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %221)
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %217 = load ptr, ptr %216, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %217)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
-222:                                              ; preds = %80
+218:                                              ; preds = %80
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %82)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 
@@ -16366,74 +16360,74 @@ _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17heff376ccb306804eE.ex
   %.sroa.037.0108 = phi ptr [ %.sroa.037.1, %.lr.ph109 ], [ %90, %86 ]
   %.sroa.037.1 = getelementptr inbounds nuw i8, ptr %.sroa.037.0108, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.037.0108)
-  %223 = icmp eq ptr %.sroa.037.1, %93
-  br i1 %223, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph109
+  %219 = icmp eq ptr %.sroa.037.1, %93
+  br i1 %219, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph109
 
 .lr.ph107:                                        ; preds = %114, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit
-  %.sroa.038.0106 = phi ptr [ %224, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit ], [ %117, %114 ]
-  %224 = getelementptr inbounds nuw i8, ptr %.sroa.038.0106, i64 40
-  %225 = load i64, ptr %.sroa.038.0106, align 8, !range !6, !noundef !4
-  %.not54 = icmp eq i64 %225, -9223372036854775808
-  br i1 %.not54, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, label %226
+  %.sroa.038.0106 = phi ptr [ %220, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit ], [ %117, %114 ]
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.038.0106, i64 40
+  %221 = load i64, ptr %.sroa.038.0106, align 8, !range !6, !noundef !4
+  %.not54 = icmp eq i64 %221, -9223372036854775808
+  br i1 %.not54, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, label %222
 
-226:                                              ; preds = %.lr.ph107
-  %227 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.038.0106), !noalias !145
-  %228 = extractvalue { ptr, ptr } %227, 0
-  %229 = extractvalue { ptr, ptr } %227, 1
-  %230 = icmp ne ptr %229, null
-  tail call void @llvm.assume(i1 %230)
-  %231 = icmp ne ptr %228, null
-  tail call void @llvm.assume(i1 %231)
-  %232 = icmp eq ptr %228, %229
-  br i1 %232, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, label %.lr.ph.i.i81
+222:                                              ; preds = %.lr.ph107
+  %223 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.038.0106), !noalias !145
+  %224 = extractvalue { ptr, ptr } %223, 0
+  %225 = extractvalue { ptr, ptr } %223, 1
+  %226 = icmp ne ptr %225, null
+  tail call void @llvm.assume(i1 %226)
+  %227 = icmp ne ptr %224, null
+  tail call void @llvm.assume(i1 %227)
+  %228 = icmp eq ptr %224, %225
+  br i1 %228, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, label %.lr.ph.i.i81
 
-.lr.ph.i.i81:                                     ; preds = %226, %.lr.ph.i.i81
-  %.sroa.01.02.i.i82 = phi ptr [ %233, %.lr.ph.i.i81 ], [ %228, %226 ]
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i82, i64 80
+.lr.ph.i.i81:                                     ; preds = %222, %.lr.ph.i.i81
+  %.sroa.01.02.i.i82 = phi ptr [ %229, %.lr.ph.i.i81 ], [ %224, %222 ]
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i82, i64 80
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor22visit_f_string_element17hdc17c2460c49463bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %.sroa.01.02.i.i82)
-  %234 = icmp eq ptr %233, %229
-  br i1 %234, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, label %.lr.ph.i.i81
+  %230 = icmp eq ptr %229, %225
+  br i1 %230, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit, label %.lr.ph.i.i81
 
-_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit: ; preds = %.lr.ph.i.i81, %.lr.ph107, %226
-  %235 = icmp eq ptr %224, %118
-  br i1 %235, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph107
+_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17h944e1d61e0c19a99E.exit: ; preds = %.lr.ph.i.i81, %.lr.ph107, %222
+  %231 = icmp eq ptr %220, %118
+  br i1 %231, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph107
 
-.lr.ph105:                                        ; preds = %141, %.lr.ph105
-  %.sroa.041.0104 = phi ptr [ %.sroa.041.1, %.lr.ph105 ], [ %143, %141 ]
+.lr.ph105:                                        ; preds = %137, %.lr.ph105
+  %.sroa.041.0104 = phi ptr [ %.sroa.041.1, %.lr.ph105 ], [ %139, %137 ]
   %.sroa.041.1 = getelementptr inbounds nuw i8, ptr %.sroa.041.0104, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.041.0104)
-  %236 = icmp eq ptr %.sroa.041.1, %146
-  br i1 %236, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph105
+  %232 = icmp eq ptr %.sroa.041.1, %142
+  br i1 %232, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph105
 
-.lr.ph:                                           ; preds = %148, %.lr.ph
-  %.sroa.042.0103 = phi ptr [ %.sroa.042.1, %.lr.ph ], [ %150, %148 ]
+.lr.ph:                                           ; preds = %144, %.lr.ph
+  %.sroa.042.0103 = phi ptr [ %.sroa.042.1, %.lr.ph ], [ %146, %144 ]
   %.sroa.042.1 = getelementptr inbounds nuw i8, ptr %.sroa.042.0103, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %.sroa.042.0103)
-  %237 = icmp eq ptr %.sroa.042.1, %153
-  br i1 %237, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph
+  %233 = icmp eq ptr %.sroa.042.1, %149
+  br i1 %233, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %.lr.ph
 
-238:                                              ; preds = %155
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %157)
+234:                                              ; preds = %151
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %153)
+  br label %235
+
+235:                                              ; preds = %234, %151
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %237 = load ptr, ptr %236, align 8, !align !66, !noundef !4
+  %.not47 = icmp eq ptr %237, null
+  br i1 %.not47, label %239, label %238
+
+238:                                              ; preds = %235
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %237)
   br label %239
 
-239:                                              ; preds = %238, %155
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
+239:                                              ; preds = %238, %235
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %241 = load ptr, ptr %240, align 8, !align !66, !noundef !4
-  %.not47 = icmp eq ptr %241, null
-  br i1 %.not47, label %243, label %242
+  %.not48 = icmp eq ptr %241, null
+  br i1 %.not48, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %242
 
 242:                                              ; preds = %239
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %241)
-  br label %243
-
-243:                                              ; preds = %242, %239
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %245 = load ptr, ptr %244, align 8, !align !66, !noundef !4
-  %.not48 = icmp eq ptr %245, null
-  br i1 %.not48, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit, label %246
-
-246:                                              ; preds = %243
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_variable_overrides_iterator..NameFinder$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h493c5d9055b7b0b8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %245)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h8635b114ea7dc65fE.exit
 }
 
@@ -16465,13 +16459,13 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h5d0195d71abc494cE(p
     i32 21, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
     i32 22, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
     i32 23, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
-    i32 24, label %130
-    i32 25, label %133
-    i32 26, label %138
+    i32 24, label %126
+    i32 25, label %129
+    i32 26, label %134
     i32 27, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
-    i32 28, label %141
-    i32 29, label %148
-    i32 30, label %155
+    i32 28, label %137
+    i32 29, label %144
+    i32 30, label %151
     i32 31, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
   ]
 
@@ -16517,7 +16511,7 @@ default.unreachable175:                           ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !align !66, !noundef !4
   %.not65 = icmp eq ptr %27, null
-  br i1 %.not65, label %160, label %159
+  br i1 %.not65, label %156, label %155
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16621,7 +16615,7 @@ default.unreachable175:                           ; preds = %2
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8, !align !66, !noundef !4
   %.not57 = icmp eq ptr %82, null
-  br i1 %.not57, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %222
+  br i1 %.not57, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %218
 
 83:                                               ; preds = %2
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -16696,255 +16690,249 @@ default.unreachable175:                           ; preds = %2
 _ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit.loopexit162: ; preds = %2
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = tail call { ptr, ptr } @"_ZN108_$LT$$RF$ruff_python_ast..nodes..StringLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h726654c408fee571E"(ptr noundef nonnull align 8 %122)
-  %124 = extractvalue { ptr, ptr } %123, 1
-  %125 = icmp ne ptr %124, null
-  tail call void @llvm.assume(i1 %125)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
 _ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit.loopexit163: ; preds = %2
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %127 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %126)
-  %128 = extractvalue { ptr, ptr } %127, 1
-  %129 = icmp ne ptr %128, null
-  tail call void @llvm.assume(i1 %129)
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %125 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %124)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
-_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit: ; preds = %.lr.ph, %.lr.ph105, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, %.lr.ph7.i.i, %.lr.ph109, %.lr.ph138, %165, %.lr.ph147, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit.loopexit163, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit.loopexit162, %148, %141, %114, %86, %42, %35, %4, %2, %._crit_edge.i.i, %243, %246, %80, %222, %._crit_edge, %._crit_edge121, %._crit_edge128, %._crit_edge135, %160, %138, %133, %130, %83, %77, %28, %21, %16, %11, %2, %2, %2, %2, %2
+_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit: ; preds = %.lr.ph, %.lr.ph105, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, %.lr.ph7.i.i, %.lr.ph109, %.lr.ph138, %161, %.lr.ph147, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit.loopexit163, %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit.loopexit162, %144, %137, %114, %86, %42, %35, %4, %2, %._crit_edge.i.i, %239, %242, %80, %218, %._crit_edge, %._crit_edge121, %._crit_edge128, %._crit_edge135, %156, %134, %129, %126, %83, %77, %28, %21, %16, %11, %2, %2, %2, %2, %2
   ret void
 
-130:                                              ; preds = %2
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %132 = load ptr, ptr %131, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %132)
+126:                                              ; preds = %2
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %128 = load ptr, ptr %127, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %128)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
-133:                                              ; preds = %2
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %135 = load ptr, ptr %134, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %135)
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %137 = load ptr, ptr %136, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %137)
+129:                                              ; preds = %2
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %131 = load ptr, ptr %130, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %131)
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %133 = load ptr, ptr %132, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %133)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
-138:                                              ; preds = %2
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %140)
+134:                                              ; preds = %2
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %136 = load ptr, ptr %135, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %136)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
-141:                                              ; preds = %2
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %143 = load ptr, ptr %142, align 8, !nonnull !4, !noundef !4
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %145 = load i64, ptr %144, align 8, !noundef !4
-  %.idx148 = shl nuw nsw i64 %145, 6
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx148
-  %147 = icmp eq i64 %145, 0
-  br i1 %147, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph105
+137:                                              ; preds = %2
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %139 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %141 = load i64, ptr %140, align 8, !noundef !4
+  %.idx148 = shl nuw nsw i64 %141, 6
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 %.idx148
+  %143 = icmp eq i64 %141, 0
+  br i1 %143, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph105
 
-148:                                              ; preds = %2
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %150 = load ptr, ptr %149, align 8, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load i64, ptr %151, align 8, !noundef !4
-  %.idx = shl nuw nsw i64 %152, 6
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx
-  %154 = icmp eq i64 %152, 0
-  br i1 %154, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph
+144:                                              ; preds = %2
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %146 = load ptr, ptr %145, align 8, !nonnull !4, !noundef !4
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %148 = load i64, ptr %147, align 8, !noundef !4
+  %.idx = shl nuw nsw i64 %148, 6
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx
+  %150 = icmp eq i64 %148, 0
+  br i1 %150, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph
 
-155:                                              ; preds = %2
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %157 = load ptr, ptr %156, align 8, !align !66, !noundef !4
-  %.not = icmp eq ptr %157, null
-  br i1 %.not, label %239, label %238
+151:                                              ; preds = %2
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %153 = load ptr, ptr %152, align 8, !align !66, !noundef !4
+  %.not = icmp eq ptr %153, null
+  br i1 %.not, label %235, label %234
 
 .lr.ph147:                                        ; preds = %4, %.lr.ph147
   %.sroa.029.0145 = phi ptr [ %.sroa.029.1, %.lr.ph147 ], [ %6, %4 ]
   %.sroa.029.1 = getelementptr inbounds nuw i8, ptr %.sroa.029.0145, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.029.0145)
-  %158 = icmp eq ptr %.sroa.029.1, %9
-  br i1 %158, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph147
+  %154 = icmp eq ptr %.sroa.029.1, %9
+  br i1 %154, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph147
 
-159:                                              ; preds = %24
+155:                                              ; preds = %24
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor16visit_parameters17h77e8a1c7fd8aed40E(ptr noalias noundef align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable(96) %27)
-  br label %160
+  br label %156
 
-160:                                              ; preds = %159, %24
-  %161 = load ptr, ptr %25, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %161)
+156:                                              ; preds = %155, %24
+  %157 = load ptr, ptr %25, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %157)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
-.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %165
-  %.sroa.030.1142 = phi ptr [ %.sroa.030.1, %165 ], [ %.sroa.030.1140, %.lr.ph144.preheader ]
-  %.sroa.030.0141 = phi ptr [ %.sroa.030.1142, %165 ], [ %37, %.lr.ph144.preheader ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.030.0141, i64 64
-  %163 = load i32, ptr %162, align 8, !range !73, !noundef !4
-  %.not64 = icmp eq i32 %163, 32
-  br i1 %.not64, label %165, label %164
+.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %161
+  %.sroa.030.1142 = phi ptr [ %.sroa.030.1, %161 ], [ %.sroa.030.1140, %.lr.ph144.preheader ]
+  %.sroa.030.0141 = phi ptr [ %.sroa.030.1142, %161 ], [ %37, %.lr.ph144.preheader ]
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.030.0141, i64 64
+  %159 = load i32, ptr %158, align 8, !range !73, !noundef !4
+  %.not64 = icmp eq i32 %159, 32
+  br i1 %.not64, label %161, label %160
 
-164:                                              ; preds = %.lr.ph144
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %162)
-  br label %165
+160:                                              ; preds = %.lr.ph144
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %158)
+  br label %161
 
-165:                                              ; preds = %164, %.lr.ph144
+161:                                              ; preds = %160, %.lr.ph144
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.030.0141)
-  %166 = icmp eq ptr %.sroa.030.1142, %40
-  %.sroa.030.1.idx = select i1 %166, i64 0, i64 128
+  %162 = icmp eq ptr %.sroa.030.1142, %40
+  %.sroa.030.1.idx = select i1 %162, i64 0, i64 128
   %.sroa.030.1 = getelementptr inbounds nuw i8, ptr %.sroa.030.1142, i64 %.sroa.030.1.idx
-  br i1 %166, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph144
+  br i1 %162, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph144
 
 .lr.ph138:                                        ; preds = %42, %.lr.ph138
   %.sroa.031.0136 = phi ptr [ %.sroa.031.1, %.lr.ph138 ], [ %44, %42 ]
   %.sroa.031.1 = getelementptr inbounds nuw i8, ptr %.sroa.031.0136, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.031.0136)
-  %167 = icmp eq ptr %.sroa.031.1, %47
-  br i1 %167, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph138
+  %163 = icmp eq ptr %.sroa.031.1, %47
+  br i1 %163, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph138
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit
   %.sroa.032.1132 = phi ptr [ %.sroa.032.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit ], [ %.sroa.032.1130, %.lr.ph134.preheader ]
   %.sroa.032.0131 = phi ptr [ %.sroa.032.1132, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit ], [ %51, %.lr.ph134.preheader ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %168)
-  %169 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %169)
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 8
-  %171 = load ptr, ptr %170, align 8, !noalias !160, !nonnull !4, !noundef !4
-  %172 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 16
-  %173 = load i64, ptr %172, align 8, !noalias !160, !noundef !4
-  %.idx.i.i67 = shl nuw nsw i64 %173, 6
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 %.idx.i.i67
-  %175 = icmp eq i64 %173, 0
-  br i1 %175, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit, label %.lr.ph.i.i68
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %164)
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %165)
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 8
+  %167 = load ptr, ptr %166, align 8, !noalias !160, !nonnull !4, !noundef !4
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.032.0131, i64 16
+  %169 = load i64, ptr %168, align 8, !noalias !160, !noundef !4
+  %.idx.i.i67 = shl nuw nsw i64 %169, 6
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 %.idx.i.i67
+  %171 = icmp eq i64 %169, 0
+  br i1 %171, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit, label %.lr.ph.i.i68
 
 .lr.ph.i.i68:                                     ; preds = %.lr.ph134, %.lr.ph.i.i68
-  %.sroa.01.02.i.i = phi ptr [ %176, %.lr.ph.i.i68 ], [ %171, %.lr.ph134 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i, i64 64
+  %.sroa.01.02.i.i = phi ptr [ %172, %.lr.ph.i.i68 ], [ %167, %.lr.ph134 ]
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i)
-  %177 = icmp eq ptr %176, %174
-  br i1 %177, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit, label %.lr.ph.i.i68
+  %173 = icmp eq ptr %172, %170
+  br i1 %173, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit, label %.lr.ph.i.i68
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit: ; preds = %.lr.ph.i.i68, %.lr.ph134
-  %178 = icmp eq ptr %.sroa.032.1132, %54
-  %.sroa.032.1.idx = select i1 %178, i64 0, i64 168
+  %174 = icmp eq ptr %.sroa.032.1132, %54
+  %.sroa.032.1.idx = select i1 %174, i64 0, i64 168
   %.sroa.032.1 = getelementptr inbounds nuw i8, ptr %.sroa.032.1132, i64 %.sroa.032.1.idx
-  br i1 %178, label %._crit_edge135, label %.lr.ph134
+  br i1 %174, label %._crit_edge135, label %.lr.ph134
 
 ._crit_edge135:                                   ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit, %49
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %180 = load ptr, ptr %179, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %180)
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %176 = load ptr, ptr %175, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %176)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72
   %.sroa.033.1125 = phi ptr [ %.sroa.033.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72 ], [ %.sroa.033.1123, %.lr.ph127.preheader ]
   %.sroa.033.0124 = phi ptr [ %.sroa.033.1125, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72 ], [ %58, %.lr.ph127.preheader ]
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %181)
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %182)
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 8
-  %184 = load ptr, ptr %183, align 8, !noalias !165, !nonnull !4, !noundef !4
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 16
-  %186 = load i64, ptr %185, align 8, !noalias !165, !noundef !4
-  %.idx.i.i69 = shl nuw nsw i64 %186, 6
-  %187 = getelementptr inbounds nuw i8, ptr %184, i64 %.idx.i.i69
-  %188 = icmp eq i64 %186, 0
-  br i1 %188, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72, label %.lr.ph.i.i70
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %177)
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %178)
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 8
+  %180 = load ptr, ptr %179, align 8, !noalias !165, !nonnull !4, !noundef !4
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.033.0124, i64 16
+  %182 = load i64, ptr %181, align 8, !noalias !165, !noundef !4
+  %.idx.i.i69 = shl nuw nsw i64 %182, 6
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i.i69
+  %184 = icmp eq i64 %182, 0
+  br i1 %184, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72, label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %.lr.ph127, %.lr.ph.i.i70
-  %.sroa.01.02.i.i71 = phi ptr [ %189, %.lr.ph.i.i70 ], [ %184, %.lr.ph127 ]
-  %189 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i71, i64 64
+  %.sroa.01.02.i.i71 = phi ptr [ %185, %.lr.ph.i.i70 ], [ %180, %.lr.ph127 ]
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i71, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i71)
-  %190 = icmp eq ptr %189, %187
-  br i1 %190, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72, label %.lr.ph.i.i70
+  %186 = icmp eq ptr %185, %183
+  br i1 %186, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72, label %.lr.ph.i.i70
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72: ; preds = %.lr.ph.i.i70, %.lr.ph127
-  %191 = icmp eq ptr %.sroa.033.1125, %61
-  %.sroa.033.1.idx = select i1 %191, i64 0, i64 168
+  %187 = icmp eq ptr %.sroa.033.1125, %61
+  %.sroa.033.1.idx = select i1 %187, i64 0, i64 168
   %.sroa.033.1 = getelementptr inbounds nuw i8, ptr %.sroa.033.1125, i64 %.sroa.033.1.idx
-  br i1 %191, label %._crit_edge128, label %.lr.ph127
+  br i1 %187, label %._crit_edge128, label %.lr.ph127
 
 ._crit_edge128:                                   ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit72, %56
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %193 = load ptr, ptr %192, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %193)
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %189 = load ptr, ptr %188, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %189)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76
   %.sroa.034.1118 = phi ptr [ %.sroa.034.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76 ], [ %.sroa.034.1116, %.lr.ph120.preheader ]
   %.sroa.034.0117 = phi ptr [ %.sroa.034.1118, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76 ], [ %65, %.lr.ph120.preheader ]
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %194)
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %195)
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 8
-  %197 = load ptr, ptr %196, align 8, !noalias !170, !nonnull !4, !noundef !4
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 16
-  %199 = load i64, ptr %198, align 8, !noalias !170, !noundef !4
-  %.idx.i.i73 = shl nuw nsw i64 %199, 6
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx.i.i73
-  %201 = icmp eq i64 %199, 0
-  br i1 %201, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76, label %.lr.ph.i.i74
+  %190 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %190)
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %191)
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 8
+  %193 = load ptr, ptr %192, align 8, !noalias !170, !nonnull !4, !noundef !4
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.034.0117, i64 16
+  %195 = load i64, ptr %194, align 8, !noalias !170, !noundef !4
+  %.idx.i.i73 = shl nuw nsw i64 %195, 6
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 %.idx.i.i73
+  %197 = icmp eq i64 %195, 0
+  br i1 %197, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76, label %.lr.ph.i.i74
 
 .lr.ph.i.i74:                                     ; preds = %.lr.ph120, %.lr.ph.i.i74
-  %.sroa.01.02.i.i75 = phi ptr [ %202, %.lr.ph.i.i74 ], [ %197, %.lr.ph120 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i75, i64 64
+  %.sroa.01.02.i.i75 = phi ptr [ %198, %.lr.ph.i.i74 ], [ %193, %.lr.ph120 ]
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i75, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i75)
-  %203 = icmp eq ptr %202, %200
-  br i1 %203, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76, label %.lr.ph.i.i74
+  %199 = icmp eq ptr %198, %196
+  br i1 %199, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76, label %.lr.ph.i.i74
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76: ; preds = %.lr.ph.i.i74, %.lr.ph120
-  %204 = icmp eq ptr %.sroa.034.1118, %68
-  %.sroa.034.1.idx = select i1 %204, i64 0, i64 168
+  %200 = icmp eq ptr %.sroa.034.1118, %68
+  %.sroa.034.1.idx = select i1 %200, i64 0, i64 168
   %.sroa.034.1 = getelementptr inbounds nuw i8, ptr %.sroa.034.1118, i64 %.sroa.034.1.idx
-  br i1 %204, label %._crit_edge121, label %.lr.ph120
+  br i1 %200, label %._crit_edge121, label %.lr.ph120
 
 ._crit_edge121:                                   ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit76, %63
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %206 = load ptr, ptr %205, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %206)
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %208 = load ptr, ptr %207, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %208)
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %202 = load ptr, ptr %201, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %202)
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %204 = load ptr, ptr %203, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %204)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80
   %.sroa.035.1113 = phi ptr [ %.sroa.035.1, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80 ], [ %.sroa.035.1111, %.lr.ph114.preheader ]
   %.sroa.035.0112 = phi ptr [ %.sroa.035.1113, %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80 ], [ %72, %.lr.ph114.preheader ]
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 88
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %209)
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 24
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %210)
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 8
-  %212 = load ptr, ptr %211, align 8, !noalias !175, !nonnull !4, !noundef !4
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 16
-  %214 = load i64, ptr %213, align 8, !noalias !175, !noundef !4
-  %.idx.i.i77 = shl nuw nsw i64 %214, 6
-  %215 = getelementptr inbounds nuw i8, ptr %212, i64 %.idx.i.i77
-  %216 = icmp eq i64 %214, 0
-  br i1 %216, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80, label %.lr.ph.i.i78
+  %205 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 88
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %205)
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 24
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %206)
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 8
+  %208 = load ptr, ptr %207, align 8, !noalias !175, !nonnull !4, !noundef !4
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.035.0112, i64 16
+  %210 = load i64, ptr %209, align 8, !noalias !175, !noundef !4
+  %.idx.i.i77 = shl nuw nsw i64 %210, 6
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx.i.i77
+  %212 = icmp eq i64 %210, 0
+  br i1 %212, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80, label %.lr.ph.i.i78
 
 .lr.ph.i.i78:                                     ; preds = %.lr.ph114, %.lr.ph.i.i78
-  %.sroa.01.02.i.i79 = phi ptr [ %217, %.lr.ph.i.i78 ], [ %212, %.lr.ph114 ]
-  %217 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i79, i64 64
+  %.sroa.01.02.i.i79 = phi ptr [ %213, %.lr.ph.i.i78 ], [ %208, %.lr.ph114 ]
+  %213 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i79, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.01.02.i.i79)
-  %218 = icmp eq ptr %217, %215
-  br i1 %218, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80, label %.lr.ph.i.i78
+  %214 = icmp eq ptr %213, %211
+  br i1 %214, label %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80, label %.lr.ph.i.i78
 
 _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80: ; preds = %.lr.ph.i.i78, %.lr.ph114
-  %219 = icmp eq ptr %.sroa.035.1113, %75
-  %.sroa.035.1.idx = select i1 %219, i64 0, i64 168
+  %215 = icmp eq ptr %.sroa.035.1113, %75
+  %.sroa.035.1.idx = select i1 %215, i64 0, i64 168
   %.sroa.035.1 = getelementptr inbounds nuw i8, ptr %.sroa.035.1113, i64 %.sroa.035.1.idx
-  br i1 %219, label %._crit_edge, label %.lr.ph114
+  br i1 %215, label %._crit_edge, label %.lr.ph114
 
 ._crit_edge:                                      ; preds = %_ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.exit80, %70
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %221 = load ptr, ptr %220, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %221)
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %217 = load ptr, ptr %216, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %217)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
-222:                                              ; preds = %80
+218:                                              ; preds = %80
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %82)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 
@@ -16952,74 +16940,74 @@ _ZN15ruff_python_ast7visitor7Visitor19visit_comprehension17hb45f979c77225ed7E.ex
   %.sroa.037.0108 = phi ptr [ %.sroa.037.1, %.lr.ph109 ], [ %90, %86 ]
   %.sroa.037.1 = getelementptr inbounds nuw i8, ptr %.sroa.037.0108, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.037.0108)
-  %223 = icmp eq ptr %.sroa.037.1, %93
-  br i1 %223, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph109
+  %219 = icmp eq ptr %.sroa.037.1, %93
+  br i1 %219, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph109
 
 .lr.ph107:                                        ; preds = %114, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit
-  %.sroa.038.0106 = phi ptr [ %224, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit ], [ %117, %114 ]
-  %224 = getelementptr inbounds nuw i8, ptr %.sroa.038.0106, i64 40
-  %225 = load i64, ptr %.sroa.038.0106, align 8, !range !6, !noundef !4
-  %.not54 = icmp eq i64 %225, -9223372036854775808
-  br i1 %.not54, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, label %226
+  %.sroa.038.0106 = phi ptr [ %220, %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit ], [ %117, %114 ]
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.038.0106, i64 40
+  %221 = load i64, ptr %.sroa.038.0106, align 8, !range !6, !noundef !4
+  %.not54 = icmp eq i64 %221, -9223372036854775808
+  br i1 %.not54, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, label %222
 
-226:                                              ; preds = %.lr.ph107
-  %227 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.038.0106), !noalias !180
-  %228 = extractvalue { ptr, ptr } %227, 0
-  %229 = extractvalue { ptr, ptr } %227, 1
-  %230 = icmp ne ptr %229, null
-  tail call void @llvm.assume(i1 %230)
-  %231 = icmp ne ptr %228, null
-  tail call void @llvm.assume(i1 %231)
-  %232 = icmp eq ptr %228, %229
-  br i1 %232, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, label %.lr.ph.i.i81
+222:                                              ; preds = %.lr.ph107
+  %223 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.038.0106), !noalias !180
+  %224 = extractvalue { ptr, ptr } %223, 0
+  %225 = extractvalue { ptr, ptr } %223, 1
+  %226 = icmp ne ptr %225, null
+  tail call void @llvm.assume(i1 %226)
+  %227 = icmp ne ptr %224, null
+  tail call void @llvm.assume(i1 %227)
+  %228 = icmp eq ptr %224, %225
+  br i1 %228, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, label %.lr.ph.i.i81
 
-.lr.ph.i.i81:                                     ; preds = %226, %.lr.ph.i.i81
-  %.sroa.01.02.i.i82 = phi ptr [ %233, %.lr.ph.i.i81 ], [ %228, %226 ]
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i82, i64 80
+.lr.ph.i.i81:                                     ; preds = %222, %.lr.ph.i.i81
+  %.sroa.01.02.i.i82 = phi ptr [ %229, %.lr.ph.i.i81 ], [ %224, %222 ]
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.01.02.i.i82, i64 80
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor22visit_f_string_element17h9c50838f35ee93fdE(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %.sroa.01.02.i.i82)
-  %234 = icmp eq ptr %233, %229
-  br i1 %234, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, label %.lr.ph.i.i81
+  %230 = icmp eq ptr %229, %225
+  br i1 %230, label %_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit, label %.lr.ph.i.i81
 
-_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit: ; preds = %.lr.ph.i.i81, %.lr.ph107, %226
-  %235 = icmp eq ptr %224, %118
-  br i1 %235, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph107
+_ZN15ruff_python_ast7visitor7Visitor14visit_f_string17hcd8e2db55792cce9E.exit: ; preds = %.lr.ph.i.i81, %.lr.ph107, %222
+  %231 = icmp eq ptr %220, %118
+  br i1 %231, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph107
 
-.lr.ph105:                                        ; preds = %141, %.lr.ph105
-  %.sroa.041.0104 = phi ptr [ %.sroa.041.1, %.lr.ph105 ], [ %143, %141 ]
+.lr.ph105:                                        ; preds = %137, %.lr.ph105
+  %.sroa.041.0104 = phi ptr [ %.sroa.041.1, %.lr.ph105 ], [ %139, %137 ]
   %.sroa.041.1 = getelementptr inbounds nuw i8, ptr %.sroa.041.0104, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.041.0104)
-  %236 = icmp eq ptr %.sroa.041.1, %146
-  br i1 %236, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph105
+  %232 = icmp eq ptr %.sroa.041.1, %142
+  br i1 %232, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph105
 
-.lr.ph:                                           ; preds = %148, %.lr.ph
-  %.sroa.042.0103 = phi ptr [ %.sroa.042.1, %.lr.ph ], [ %150, %148 ]
+.lr.ph:                                           ; preds = %144, %.lr.ph
+  %.sroa.042.0103 = phi ptr [ %.sroa.042.1, %.lr.ph ], [ %146, %144 ]
   %.sroa.042.1 = getelementptr inbounds nuw i8, ptr %.sroa.042.0103, i64 64
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %.sroa.042.0103)
-  %237 = icmp eq ptr %.sroa.042.1, %153
-  br i1 %237, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph
+  %233 = icmp eq ptr %.sroa.042.1, %149
+  br i1 %233, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %.lr.ph
 
-238:                                              ; preds = %155
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %157)
+234:                                              ; preds = %151
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %153)
+  br label %235
+
+235:                                              ; preds = %234, %151
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %237 = load ptr, ptr %236, align 8, !align !66, !noundef !4
+  %.not47 = icmp eq ptr %237, null
+  br i1 %.not47, label %239, label %238
+
+238:                                              ; preds = %235
+  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %237)
   br label %239
 
-239:                                              ; preds = %238, %155
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
+239:                                              ; preds = %238, %235
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %241 = load ptr, ptr %240, align 8, !align !66, !noundef !4
-  %.not47 = icmp eq ptr %241, null
-  br i1 %.not47, label %243, label %242
+  %.not48 = icmp eq ptr %241, null
+  br i1 %.not48, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %242
 
 242:                                              ; preds = %239
   tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %241)
-  br label %243
-
-243:                                              ; preds = %242, %239
-  %244 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %245 = load ptr, ptr %244, align 8, !align !66, !noundef !4
-  %.not48 = icmp eq ptr %245, null
-  br i1 %.not48, label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit, label %246
-
-246:                                              ; preds = %243
-  tail call void @"_ZN141_$LT$ruff_linter..rules..flake8_bugbear..rules..loop_iterator_mutation..LoopMutationsVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h214b3fcf8baa0459E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 %245)
   br label %_ZN15ruff_python_ast7visitor7Visitor15visit_arguments17h51abf8864a8b929eE.exit
 }
 
@@ -20093,13 +20081,13 @@ define internal fastcc void @_ZN15ruff_python_ast7visitor9walk_expr17h822c6a16de
     i32 21, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
     i32 22, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
     i32 23, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
-    i32 24, label %130
-    i32 25, label %133
-    i32 26, label %138
+    i32 24, label %126
+    i32 25, label %129
+    i32 26, label %134
     i32 27, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
-    i32 28, label %141
-    i32 29, label %148
-    i32 30, label %155
+    i32 28, label %137
+    i32 29, label %144
+    i32 30, label %151
     i32 31, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
   ]
 
@@ -20145,7 +20133,7 @@ default.unreachable199:                           ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !align !66, !noundef !4
   %.not65 = icmp eq ptr %27, null
-  br i1 %.not65, label %160, label %159
+  br i1 %.not65, label %156, label %155
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20249,7 +20237,7 @@ default.unreachable199:                           ; preds = %2
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8, !align !66, !noundef !4
   %.not57 = icmp eq ptr %82, null
-  br i1 %.not57, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %222
+  br i1 %.not57, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %218
 
 83:                                               ; preds = %2
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20327,255 +20315,249 @@ default.unreachable199:                           ; preds = %2
 _ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit.loopexit183: ; preds = %2
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %123 = tail call { ptr, ptr } @"_ZN108_$LT$$RF$ruff_python_ast..nodes..StringLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h726654c408fee571E"(ptr noundef nonnull align 8 %122)
-  %124 = extractvalue { ptr, ptr } %123, 1
-  %125 = icmp ne ptr %124, null
-  tail call void @llvm.assume(i1 %125)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
 _ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit.loopexit184: ; preds = %2
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %127 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %126)
-  %128 = extractvalue { ptr, ptr } %127, 1
-  %129 = icmp ne ptr %128, null
-  tail call void @llvm.assume(i1 %129)
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %125 = tail call { ptr, ptr } @"_ZN107_$LT$$RF$ruff_python_ast..nodes..BytesLiteralValue$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h44e5081cdda2bf93E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %124)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
-_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit: ; preds = %.lr.ph, %.lr.ph97, %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, %.lr.ph111, %.lr.ph114, %.lr.ph153, %165, %.lr.ph162, %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit.loopexit184, %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit.loopexit183, %148, %141, %114, %._crit_edge, %86, %42, %35, %4, %2, %258, %261, %80, %222, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72._crit_edge, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70._crit_edge, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68._crit_edge, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit._crit_edge, %160, %138, %133, %130, %83, %77, %28, %21, %16, %11, %2, %2, %2, %2, %2
+_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit: ; preds = %.lr.ph, %.lr.ph97, %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, %.lr.ph111, %.lr.ph114, %.lr.ph153, %161, %.lr.ph162, %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit.loopexit184, %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit.loopexit183, %144, %137, %114, %._crit_edge, %86, %42, %35, %4, %2, %254, %257, %80, %218, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72._crit_edge, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70._crit_edge, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68._crit_edge, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit._crit_edge, %156, %134, %129, %126, %83, %77, %28, %21, %16, %11, %2, %2, %2, %2, %2
   ret void
 
-130:                                              ; preds = %2
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %132 = load ptr, ptr %131, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %132)
+126:                                              ; preds = %2
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %128 = load ptr, ptr %127, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %128)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
-133:                                              ; preds = %2
-  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %135 = load ptr, ptr %134, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %135)
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %137 = load ptr, ptr %136, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %137)
+129:                                              ; preds = %2
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %131 = load ptr, ptr %130, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %131)
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %133 = load ptr, ptr %132, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %133)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
-138:                                              ; preds = %2
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %140 = load ptr, ptr %139, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %140)
+134:                                              ; preds = %2
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %136 = load ptr, ptr %135, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %136)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
-141:                                              ; preds = %2
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %143 = load ptr, ptr %142, align 8, !nonnull !4, !noundef !4
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %145 = load i64, ptr %144, align 8, !noundef !4
-  %.idx163 = shl nuw nsw i64 %145, 6
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 %.idx163
-  %147 = icmp eq i64 %145, 0
-  br i1 %147, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph97
+137:                                              ; preds = %2
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %139 = load ptr, ptr %138, align 8, !nonnull !4, !noundef !4
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %141 = load i64, ptr %140, align 8, !noundef !4
+  %.idx163 = shl nuw nsw i64 %141, 6
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 %.idx163
+  %143 = icmp eq i64 %141, 0
+  br i1 %143, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph97
 
-148:                                              ; preds = %2
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %150 = load ptr, ptr %149, align 8, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %152 = load i64, ptr %151, align 8, !noundef !4
-  %.idx = shl nuw nsw i64 %152, 6
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 %.idx
-  %154 = icmp eq i64 %152, 0
-  br i1 %154, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph
+144:                                              ; preds = %2
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %146 = load ptr, ptr %145, align 8, !nonnull !4, !noundef !4
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %148 = load i64, ptr %147, align 8, !noundef !4
+  %.idx = shl nuw nsw i64 %148, 6
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx
+  %150 = icmp eq i64 %148, 0
+  br i1 %150, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph
 
-155:                                              ; preds = %2
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %157 = load ptr, ptr %156, align 8, !align !66, !noundef !4
-  %.not = icmp eq ptr %157, null
-  br i1 %.not, label %254, label %253
+151:                                              ; preds = %2
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %153 = load ptr, ptr %152, align 8, !align !66, !noundef !4
+  %.not = icmp eq ptr %153, null
+  br i1 %.not, label %250, label %249
 
 .lr.ph162:                                        ; preds = %4, %.lr.ph162
   %.sroa.029.0160 = phi ptr [ %.sroa.029.1, %.lr.ph162 ], [ %6, %4 ]
   %.sroa.029.1 = getelementptr inbounds nuw i8, ptr %.sroa.029.0160, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.029.0160)
-  %158 = icmp eq ptr %.sroa.029.1, %9
-  br i1 %158, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph162
+  %154 = icmp eq ptr %.sroa.029.1, %9
+  br i1 %154, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph162
 
-159:                                              ; preds = %24
+155:                                              ; preds = %24
   tail call fastcc void @_ZN15ruff_python_ast7visitor15walk_parameters17h2a4175d7f0f62269E(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %27)
-  br label %160
+  br label %156
 
-160:                                              ; preds = %159, %24
-  %161 = load ptr, ptr %25, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %161)
+156:                                              ; preds = %155, %24
+  %157 = load ptr, ptr %25, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %157)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
-.lr.ph159:                                        ; preds = %.lr.ph159.preheader, %165
-  %.sroa.030.1157 = phi ptr [ %.sroa.030.1, %165 ], [ %.sroa.030.1155, %.lr.ph159.preheader ]
-  %.sroa.030.0156 = phi ptr [ %.sroa.030.1157, %165 ], [ %37, %.lr.ph159.preheader ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.030.0156, i64 64
-  %163 = load i32, ptr %162, align 8, !range !73, !noundef !4
-  %.not64 = icmp eq i32 %163, 32
-  br i1 %.not64, label %165, label %164
+.lr.ph159:                                        ; preds = %.lr.ph159.preheader, %161
+  %.sroa.030.1157 = phi ptr [ %.sroa.030.1, %161 ], [ %.sroa.030.1155, %.lr.ph159.preheader ]
+  %.sroa.030.0156 = phi ptr [ %.sroa.030.1157, %161 ], [ %37, %.lr.ph159.preheader ]
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.030.0156, i64 64
+  %159 = load i32, ptr %158, align 8, !range !73, !noundef !4
+  %.not64 = icmp eq i32 %159, 32
+  br i1 %.not64, label %161, label %160
 
-164:                                              ; preds = %.lr.ph159
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %162)
-  br label %165
+160:                                              ; preds = %.lr.ph159
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %158)
+  br label %161
 
-165:                                              ; preds = %164, %.lr.ph159
+161:                                              ; preds = %160, %.lr.ph159
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.030.0156)
-  %166 = icmp eq ptr %.sroa.030.1157, %40
-  %.sroa.030.1.idx = select i1 %166, i64 0, i64 128
+  %162 = icmp eq ptr %.sroa.030.1157, %40
+  %.sroa.030.1.idx = select i1 %162, i64 0, i64 128
   %.sroa.030.1 = getelementptr inbounds nuw i8, ptr %.sroa.030.1157, i64 %.sroa.030.1.idx
-  br i1 %166, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph159
+  br i1 %162, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph159
 
 .lr.ph153:                                        ; preds = %42, %.lr.ph153
   %.sroa.031.0151 = phi ptr [ %.sroa.031.1, %.lr.ph153 ], [ %44, %42 ]
   %.sroa.031.1 = getelementptr inbounds nuw i8, ptr %.sroa.031.0151, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.031.0151)
-  %167 = icmp eq ptr %.sroa.031.1, %47
-  br i1 %167, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph153
+  %163 = icmp eq ptr %.sroa.031.1, %47
+  br i1 %163, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph153
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit: ; preds = %.lr.ph144, %.lr.ph150
-  %168 = icmp eq ptr %.sroa.032.1148, %54
-  %.sroa.032.1.idx = select i1 %168, i64 0, i64 168
+  %164 = icmp eq ptr %.sroa.032.1148, %54
+  %.sroa.032.1.idx = select i1 %164, i64 0, i64 168
   %.sroa.032.1 = getelementptr inbounds nuw i8, ptr %.sroa.032.1148, i64 %.sroa.032.1.idx
-  br i1 %168, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit._crit_edge, label %.lr.ph150
+  br i1 %164, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit._crit_edge, label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit
   %.sroa.032.1148 = phi ptr [ %.sroa.032.1, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit ], [ %.sroa.032.1146, %.lr.ph150.preheader ]
   %.sroa.032.0147 = phi ptr [ %.sroa.032.1148, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit ], [ %51, %.lr.ph150.preheader ]
-  %169 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 88
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %169)
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 24
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %170)
-  %171 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 8
-  %172 = load ptr, ptr %171, align 8, !noalias !190, !nonnull !4, !noundef !4
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 16
-  %174 = load i64, ptr %173, align 8, !noalias !190, !noundef !4
-  %.idx174 = shl nuw nsw i64 %174, 6
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx174
-  %176 = icmp eq i64 %174, 0
-  br i1 %176, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit, label %.lr.ph144
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 88
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %165)
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 24
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %166)
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 8
+  %168 = load ptr, ptr %167, align 8, !noalias !190, !nonnull !4, !noundef !4
+  %169 = getelementptr inbounds nuw i8, ptr %.sroa.032.0147, i64 16
+  %170 = load i64, ptr %169, align 8, !noalias !190, !noundef !4
+  %.idx174 = shl nuw nsw i64 %170, 6
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 %.idx174
+  %172 = icmp eq i64 %170, 0
+  br i1 %172, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %.lr.ph150, %.lr.ph144
-  %.sroa.01.0.i142 = phi ptr [ %177, %.lr.ph144 ], [ %172, %.lr.ph150 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i142, i64 64
+  %.sroa.01.0.i142 = phi ptr [ %173, %.lr.ph144 ], [ %168, %.lr.ph150 ]
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i142, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.01.0.i142)
-  %178 = icmp eq ptr %177, %175
-  br i1 %178, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit, label %.lr.ph144
+  %174 = icmp eq ptr %173, %171
+  br i1 %174, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit, label %.lr.ph144
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit._crit_edge: ; preds = %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit.loopexit, %49
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %180 = load ptr, ptr %179, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %180)
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %176 = load ptr, ptr %175, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %176)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit: ; preds = %.lr.ph135, %.lr.ph141
-  %181 = icmp eq ptr %.sroa.033.1139, %61
-  %.sroa.033.1.idx = select i1 %181, i64 0, i64 168
+  %177 = icmp eq ptr %.sroa.033.1139, %61
+  %.sroa.033.1.idx = select i1 %177, i64 0, i64 168
   %.sroa.033.1 = getelementptr inbounds nuw i8, ptr %.sroa.033.1139, i64 %.sroa.033.1.idx
-  br i1 %181, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68._crit_edge, label %.lr.ph141
+  br i1 %177, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68._crit_edge, label %.lr.ph141
 
 .lr.ph141:                                        ; preds = %.lr.ph141.preheader, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit
   %.sroa.033.1139 = phi ptr [ %.sroa.033.1, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit ], [ %.sroa.033.1137, %.lr.ph141.preheader ]
   %.sroa.033.0138 = phi ptr [ %.sroa.033.1139, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit ], [ %58, %.lr.ph141.preheader ]
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 88
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %182)
-  %183 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 24
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %183)
-  %184 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 8
-  %185 = load ptr, ptr %184, align 8, !noalias !193, !nonnull !4, !noundef !4
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 16
-  %187 = load i64, ptr %186, align 8, !noalias !193, !noundef !4
-  %.idx172 = shl nuw nsw i64 %187, 6
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx172
-  %189 = icmp eq i64 %187, 0
-  br i1 %189, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit, label %.lr.ph135
+  %178 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 88
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %178)
+  %179 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 24
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %179)
+  %180 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 8
+  %181 = load ptr, ptr %180, align 8, !noalias !193, !nonnull !4, !noundef !4
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.033.0138, i64 16
+  %183 = load i64, ptr %182, align 8, !noalias !193, !noundef !4
+  %.idx172 = shl nuw nsw i64 %183, 6
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx172
+  %185 = icmp eq i64 %183, 0
+  br i1 %185, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit, label %.lr.ph135
 
 .lr.ph135:                                        ; preds = %.lr.ph141, %.lr.ph135
-  %.sroa.01.0.i67133 = phi ptr [ %190, %.lr.ph135 ], [ %185, %.lr.ph141 ]
-  %190 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i67133, i64 64
+  %.sroa.01.0.i67133 = phi ptr [ %186, %.lr.ph135 ], [ %181, %.lr.ph141 ]
+  %186 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i67133, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.01.0.i67133)
-  %191 = icmp eq ptr %190, %188
-  br i1 %191, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit, label %.lr.ph135
+  %187 = icmp eq ptr %186, %184
+  br i1 %187, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit, label %.lr.ph135
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68._crit_edge: ; preds = %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit68.loopexit, %56
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %193 = load ptr, ptr %192, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %193)
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %189 = load ptr, ptr %188, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %189)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit: ; preds = %.lr.ph126, %.lr.ph132
-  %194 = icmp eq ptr %.sroa.034.1130, %68
-  %.sroa.034.1.idx = select i1 %194, i64 0, i64 168
+  %190 = icmp eq ptr %.sroa.034.1130, %68
+  %.sroa.034.1.idx = select i1 %190, i64 0, i64 168
   %.sroa.034.1 = getelementptr inbounds nuw i8, ptr %.sroa.034.1130, i64 %.sroa.034.1.idx
-  br i1 %194, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70._crit_edge, label %.lr.ph132
+  br i1 %190, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70._crit_edge, label %.lr.ph132
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit
   %.sroa.034.1130 = phi ptr [ %.sroa.034.1, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit ], [ %.sroa.034.1128, %.lr.ph132.preheader ]
   %.sroa.034.0129 = phi ptr [ %.sroa.034.1130, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit ], [ %65, %.lr.ph132.preheader ]
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 88
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %195)
-  %196 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 24
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %196)
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 8
-  %198 = load ptr, ptr %197, align 8, !noalias !196, !nonnull !4, !noundef !4
-  %199 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 16
-  %200 = load i64, ptr %199, align 8, !noalias !196, !noundef !4
-  %.idx170 = shl nuw nsw i64 %200, 6
-  %201 = getelementptr inbounds nuw i8, ptr %198, i64 %.idx170
-  %202 = icmp eq i64 %200, 0
-  br i1 %202, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit, label %.lr.ph126
+  %191 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 88
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %191)
+  %192 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 24
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %192)
+  %193 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 8
+  %194 = load ptr, ptr %193, align 8, !noalias !196, !nonnull !4, !noundef !4
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.034.0129, i64 16
+  %196 = load i64, ptr %195, align 8, !noalias !196, !noundef !4
+  %.idx170 = shl nuw nsw i64 %196, 6
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx170
+  %198 = icmp eq i64 %196, 0
+  br i1 %198, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.lr.ph132, %.lr.ph126
-  %.sroa.01.0.i69124 = phi ptr [ %203, %.lr.ph126 ], [ %198, %.lr.ph132 ]
-  %203 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i69124, i64 64
+  %.sroa.01.0.i69124 = phi ptr [ %199, %.lr.ph126 ], [ %194, %.lr.ph132 ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i69124, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.01.0.i69124)
-  %204 = icmp eq ptr %203, %201
-  br i1 %204, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit, label %.lr.ph126
+  %200 = icmp eq ptr %199, %197
+  br i1 %200, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit, label %.lr.ph126
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70._crit_edge: ; preds = %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit70.loopexit, %63
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %206 = load ptr, ptr %205, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %206)
-  %207 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %208 = load ptr, ptr %207, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %208)
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %202 = load ptr, ptr %201, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %202)
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %204 = load ptr, ptr %203, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %204)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit: ; preds = %.lr.ph117, %.lr.ph123
-  %209 = icmp eq ptr %.sroa.035.1121, %75
-  %.sroa.035.1.idx = select i1 %209, i64 0, i64 168
+  %205 = icmp eq ptr %.sroa.035.1121, %75
+  %.sroa.035.1.idx = select i1 %205, i64 0, i64 168
   %.sroa.035.1 = getelementptr inbounds nuw i8, ptr %.sroa.035.1121, i64 %.sroa.035.1.idx
-  br i1 %209, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72._crit_edge, label %.lr.ph123
+  br i1 %205, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72._crit_edge, label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit
   %.sroa.035.1121 = phi ptr [ %.sroa.035.1, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit ], [ %.sroa.035.1119, %.lr.ph123.preheader ]
   %.sroa.035.0120 = phi ptr [ %.sroa.035.1121, %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit ], [ %72, %.lr.ph123.preheader ]
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 88
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %210)
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 24
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %211)
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 8
-  %213 = load ptr, ptr %212, align 8, !noalias !199, !nonnull !4, !noundef !4
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 16
-  %215 = load i64, ptr %214, align 8, !noalias !199, !noundef !4
-  %.idx168 = shl nuw nsw i64 %215, 6
-  %216 = getelementptr inbounds nuw i8, ptr %213, i64 %.idx168
-  %217 = icmp eq i64 %215, 0
-  br i1 %217, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit, label %.lr.ph117
+  %206 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 88
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %206)
+  %207 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 24
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %207)
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 8
+  %209 = load ptr, ptr %208, align 8, !noalias !199, !nonnull !4, !noundef !4
+  %210 = getelementptr inbounds nuw i8, ptr %.sroa.035.0120, i64 16
+  %211 = load i64, ptr %210, align 8, !noalias !199, !noundef !4
+  %.idx168 = shl nuw nsw i64 %211, 6
+  %212 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx168
+  %213 = icmp eq i64 %211, 0
+  br i1 %213, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit, label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %.lr.ph123, %.lr.ph117
-  %.sroa.01.0.i71115 = phi ptr [ %218, %.lr.ph117 ], [ %213, %.lr.ph123 ]
-  %218 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i71115, i64 64
+  %.sroa.01.0.i71115 = phi ptr [ %214, %.lr.ph117 ], [ %209, %.lr.ph123 ]
+  %214 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i71115, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.01.0.i71115)
-  %219 = icmp eq ptr %218, %216
-  br i1 %219, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit, label %.lr.ph117
+  %215 = icmp eq ptr %214, %212
+  br i1 %215, label %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit, label %.lr.ph117
 
 _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72._crit_edge: ; preds = %_ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72.loopexit, %70
-  %220 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %221 = load ptr, ptr %220, align 8, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %221)
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %217 = load ptr, ptr %216, align 8, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %217)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
-222:                                              ; preds = %80
+218:                                              ; preds = %80
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %82)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 
@@ -20583,108 +20565,108 @@ _ZN15ruff_python_ast7visitor18walk_comprehension17h0fb6bcb81ead217bE.exit72._cri
   %.sroa.037.0112 = phi ptr [ %.sroa.037.1, %.lr.ph114 ], [ %90, %86 ]
   %.sroa.037.1 = getelementptr inbounds nuw i8, ptr %.sroa.037.0112, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.037.0112)
-  %223 = icmp eq ptr %.sroa.037.1, %93
-  br i1 %223, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph114
+  %219 = icmp eq ptr %.sroa.037.1, %93
+  br i1 %219, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph114
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit
   %.sroa.038.1105 = phi ptr [ %.sroa.038.1, %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit ], [ %.sroa.038.1103, %.lr.ph106.preheader ]
   %.sroa.038.0104 = phi ptr [ %.sroa.038.1105, %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit ], [ %117, %.lr.ph106.preheader ]
-  %224 = load i64, ptr %.sroa.038.0104, align 8, !range !6, !noundef !4
-  %.not54 = icmp eq i64 %224, -9223372036854775808
-  br i1 %.not54, label %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, label %225
+  %220 = load i64, ptr %.sroa.038.0104, align 8, !range !6, !noundef !4
+  %.not54 = icmp eq i64 %220, -9223372036854775808
+  br i1 %.not54, label %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, label %221
 
-225:                                              ; preds = %.lr.ph106
-  %226 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.038.0104), !noalias !202
-  %227 = extractvalue { ptr, ptr } %226, 0
-  %228 = extractvalue { ptr, ptr } %226, 1
-  %229 = icmp ne ptr %228, null
-  tail call void @llvm.assume(i1 %229)
-  %230 = icmp ne ptr %227, null
-  tail call void @llvm.assume(i1 %230)
-  %231 = icmp eq ptr %227, %228
-  br i1 %231, label %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, label %.lr.ph101
+221:                                              ; preds = %.lr.ph106
+  %222 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.sroa.038.0104), !noalias !202
+  %223 = extractvalue { ptr, ptr } %222, 0
+  %224 = extractvalue { ptr, ptr } %222, 1
+  %225 = icmp ne ptr %224, null
+  tail call void @llvm.assume(i1 %225)
+  %226 = icmp ne ptr %223, null
+  tail call void @llvm.assume(i1 %226)
+  %227 = icmp eq ptr %223, %224
+  br i1 %227, label %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, label %.lr.ph101
 
-.lr.ph101:                                        ; preds = %225, %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit
-  %.sroa.01.0.i73100 = phi ptr [ %232, %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit ], [ %227, %225 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i73100, i64 80
+.lr.ph101:                                        ; preds = %221, %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit
+  %.sroa.01.0.i73100 = phi ptr [ %228, %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit ], [ %223, %221 ]
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i73100, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
-  %233 = load i64, ptr %.sroa.01.0.i73100, align 8, !range !3, !alias.scope !205, !noalias !208, !noundef !4
-  %234 = icmp eq i64 %233, -9223372036854775807
-  br i1 %234, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %235
+  %229 = load i64, ptr %.sroa.01.0.i73100, align 8, !range !3, !alias.scope !205, !noalias !208, !noundef !4
+  %230 = icmp eq i64 %229, -9223372036854775807
+  br i1 %230, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %231
 
-235:                                              ; preds = %.lr.ph101
-  %236 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i73100, i64 48
-  %237 = load ptr, ptr %236, align 8, !alias.scope !205, !noalias !208, !nonnull !4, !align !66, !noundef !4
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %237), !noalias !205
-  %238 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i73100, i64 64
-  %239 = load ptr, ptr %238, align 8, !alias.scope !205, !noalias !208, !align !66, !noundef !4
-  %.not.i = icmp eq ptr %239, null
-  br i1 %.not.i, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %240
+231:                                              ; preds = %.lr.ph101
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i73100, i64 48
+  %233 = load ptr, ptr %232, align 8, !alias.scope !205, !noalias !208, !nonnull !4, !align !66, !noundef !4
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %233), !noalias !205
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i73100, i64 64
+  %235 = load ptr, ptr %234, align 8, !alias.scope !205, !noalias !208, !align !66, !noundef !4
+  %.not.i = icmp eq ptr %235, null
+  br i1 %.not.i, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %236
 
-240:                                              ; preds = %235
-  %241 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %239), !noalias !205
-  %242 = extractvalue { ptr, ptr } %241, 0
-  %243 = extractvalue { ptr, ptr } %241, 1
-  %244 = icmp ne ptr %243, null
-  tail call void @llvm.assume(i1 %244)
-  %245 = icmp ne ptr %242, null
-  tail call void @llvm.assume(i1 %245)
-  %246 = icmp eq ptr %242, %243
-  br i1 %246, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %.lr.ph99
+236:                                              ; preds = %231
+  %237 = tail call { ptr, ptr } @"_ZN105_$LT$$RF$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hdc04952ad5f486d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %235), !noalias !205
+  %238 = extractvalue { ptr, ptr } %237, 0
+  %239 = extractvalue { ptr, ptr } %237, 1
+  %240 = icmp ne ptr %239, null
+  tail call void @llvm.assume(i1 %240)
+  %241 = icmp ne ptr %238, null
+  tail call void @llvm.assume(i1 %241)
+  %242 = icmp eq ptr %238, %239
+  br i1 %242, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %.lr.ph99
 
-.lr.ph99:                                         ; preds = %240, %.lr.ph99
-  %.sroa.01.0.i7498 = phi ptr [ %247, %.lr.ph99 ], [ %242, %240 ]
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i7498, i64 80
+.lr.ph99:                                         ; preds = %236, %.lr.ph99
+  %.sroa.01.0.i7498 = phi ptr [ %243, %.lr.ph99 ], [ %238, %236 ]
+  %243 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i7498, i64 80
   tail call fastcc void @_ZN15ruff_python_ast7visitor7Visitor22visit_f_string_element17h8560388f59cee1afE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %.sroa.01.0.i7498), !noalias !205
-  %248 = icmp eq ptr %247, %243
-  br i1 %248, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %.lr.ph99
+  %244 = icmp eq ptr %243, %239
+  br i1 %244, label %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, label %.lr.ph99
 
-_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit: ; preds = %.lr.ph99, %240, %.lr.ph101, %235
-  %249 = icmp eq ptr %232, %228
-  br i1 %249, label %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, label %.lr.ph101
+_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit: ; preds = %.lr.ph99, %236, %.lr.ph101, %231
+  %245 = icmp eq ptr %228, %224
+  br i1 %245, label %_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit, label %.lr.ph101
 
-_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit: ; preds = %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, %225, %.lr.ph106
-  %250 = icmp eq ptr %.sroa.038.1105, %118
-  %.sroa.038.1.idx = select i1 %250, i64 0, i64 40
+_ZN15ruff_python_ast7visitor13walk_f_string17h7e5a76af373017deE.exit: ; preds = %_ZN15ruff_python_ast7visitor21walk_f_string_element17h90d5836033e2e455E.exit, %221, %.lr.ph106
+  %246 = icmp eq ptr %.sroa.038.1105, %118
+  %.sroa.038.1.idx = select i1 %246, i64 0, i64 40
   %.sroa.038.1 = getelementptr inbounds nuw i8, ptr %.sroa.038.1105, i64 %.sroa.038.1.idx
-  br i1 %250, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph106
+  br i1 %246, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph106
 
-.lr.ph97:                                         ; preds = %141, %.lr.ph97
-  %.sroa.041.096 = phi ptr [ %.sroa.041.1, %.lr.ph97 ], [ %143, %141 ]
+.lr.ph97:                                         ; preds = %137, %.lr.ph97
+  %.sroa.041.096 = phi ptr [ %.sroa.041.1, %.lr.ph97 ], [ %139, %137 ]
   %.sroa.041.1 = getelementptr inbounds nuw i8, ptr %.sroa.041.096, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.041.096)
-  %251 = icmp eq ptr %.sroa.041.1, %146
-  br i1 %251, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph97
+  %247 = icmp eq ptr %.sroa.041.1, %142
+  br i1 %247, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph97
 
-.lr.ph:                                           ; preds = %148, %.lr.ph
-  %.sroa.042.095 = phi ptr [ %.sroa.042.1, %.lr.ph ], [ %150, %148 ]
+.lr.ph:                                           ; preds = %144, %.lr.ph
+  %.sroa.042.095 = phi ptr [ %.sroa.042.1, %.lr.ph ], [ %146, %144 ]
   %.sroa.042.1 = getelementptr inbounds nuw i8, ptr %.sroa.042.095, i64 64
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %.sroa.042.095)
-  %252 = icmp eq ptr %.sroa.042.1, %153
-  br i1 %252, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph
+  %248 = icmp eq ptr %.sroa.042.1, %149
+  br i1 %248, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %.lr.ph
 
-253:                                              ; preds = %155
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %157)
+249:                                              ; preds = %151
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %153)
+  br label %250
+
+250:                                              ; preds = %249, %151
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %252 = load ptr, ptr %251, align 8, !align !66, !noundef !4
+  %.not47 = icmp eq ptr %252, null
+  br i1 %.not47, label %254, label %253
+
+253:                                              ; preds = %250
+  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %252)
   br label %254
 
-254:                                              ; preds = %253, %155
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 24
+254:                                              ; preds = %253, %250
+  %255 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %256 = load ptr, ptr %255, align 8, !align !66, !noundef !4
-  %.not47 = icmp eq ptr %256, null
-  br i1 %.not47, label %258, label %257
+  %.not48 = icmp eq ptr %256, null
+  br i1 %.not48, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %257
 
 257:                                              ; preds = %254
   tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %256)
-  br label %258
-
-258:                                              ; preds = %257, %254
-  %259 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %260 = load ptr, ptr %259, align 8, !align !66, !noundef !4
-  %.not48 = icmp eq ptr %260, null
-  br i1 %.not48, label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit, label %261
-
-261:                                              ; preds = %258
-  tail call void @"_ZN139_$LT$ruff_linter..rules..flake8_comprehensions..rules..unnecessary_map..LateBindingVisitor$u20$as$u20$ruff_python_ast..visitor..Visitor$GT$10visit_expr17h6310b0d6dccdb0e6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %260)
   br label %_ZN15ruff_python_ast7visitor14walk_arguments17h4f8306038a48be61E.exit
 }
 
@@ -72376,15 +72358,15 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11in
   invoke void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h3b559ab991796bccE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b08dd5f4f09c4be6245191ddd275a566.334) #27
           to label %25 unwind label %23
 
-23:                                               ; preds = %108, %106, %86, %85, %69, %68, %65, %63, %45, %31, %30, %26, %22
+23:                                               ; preds = %106, %104, %84, %83, %67, %66, %63, %61, %45, %31, %30, %26, %22
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %114, %92, %75, %37, %23
-  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %38, %37 ], [ %76, %75 ], [ %93, %92 ], [ %115, %114 ]
+.body:                                            ; preds = %112, %90, %73, %37, %23
+  %eh.lpad-body = phi { ptr, i32 } [ %24, %23 ], [ %38, %37 ], [ %74, %73 ], [ %91, %90 ], [ %113, %112 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$$GT$17ha1c9d5e2029be9eeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #25
-          to label %124 unwind label %122
+          to label %122 unwind label %120
 
 25:                                               ; preds = %22
   unreachable
@@ -72396,7 +72378,7 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11in
 
 28:                                               ; preds = %19, %41
   %.not22 = icmp eq ptr %2, null
-  br i1 %.not22, label %59, label %45
+  br i1 %.not22, label %57, label %45
 
 29:                                               ; preds = %26
   br i1 %27, label %31, label %30
@@ -72447,194 +72429,191 @@ define hidden void @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11in
 47:                                               ; preds = %45
   %48 = extractvalue { ptr, i64 } %46, 1
   %.not23 = icmp eq i64 %48, 0
-  br i1 %.not23, label %59, label %49
+  br i1 %.not23, label %57, label %49
 
 49:                                               ; preds = %47
   %50 = extractvalue { ptr, i64 } %46, 0
   %51 = getelementptr { { i32, i32 }, i8, [3 x i8] }, ptr %50, i64 %48
-  %52 = getelementptr i8, ptr %51, i64 -12
-  %53 = icmp ne ptr %52, null
-  call void @llvm.assume(i1 %53)
-  %54 = getelementptr i8, ptr %51, i64 -4
-  %55 = load i8, ptr %54, align 4, !range !3518, !noundef !4
-  %56 = icmp eq i8 %55, 21
-  %57 = zext i1 %56 to i8
-  %58 = trunc nuw i64 %5 to i1
-  %. = select i1 %58, i64 %6, i64 0
+  %52 = getelementptr i8, ptr %51, i64 -4
+  %53 = load i8, ptr %52, align 4, !range !3518, !noundef !4
+  %54 = icmp eq i8 %53, 21
+  %55 = zext i1 %54 to i8
+  %56 = trunc nuw i64 %5 to i1
+  %. = select i1 %56, i64 %6, i64 0
   %.not24 = icmp ule i64 %4, %.
-  %or.cond28.not = select i1 %56, i1 %.not24, i1 false
-  br i1 %or.cond28.not, label %63, label %59
+  %or.cond28.not = select i1 %54, i1 %.not24, i1 false
+  br i1 %or.cond28.not, label %61, label %57
 
-59:                                               ; preds = %28, %47, %49
-  %.sroa.013.0 = phi i8 [ %57, %49 ], [ 0, %47 ], [ 0, %28 ]
-  %60 = trunc nuw i8 %.sroa.013.0 to i1
-  %.not = xor i1 %60, true
-  %61 = trunc nuw i64 %5 to i1
-  %or.cond = select i1 %.not, i1 %61, i1 false
-  %62 = icmp ugt i64 %4, %6
-  %or.cond25 = select i1 %or.cond, i1 %62, i1 false
-  br i1 %or.cond25, label %65, label %82
+57:                                               ; preds = %28, %47, %49
+  %.sroa.013.0 = phi i8 [ %55, %49 ], [ 0, %47 ], [ 0, %28 ]
+  %58 = trunc nuw i8 %.sroa.013.0 to i1
+  %.not = xor i1 %58, true
+  %59 = trunc nuw i64 %5 to i1
+  %or.cond = select i1 %.not, i1 %59, i1 false
+  %60 = icmp ugt i64 %4, %6
+  %or.cond25 = select i1 %or.cond, i1 %60, i1 false
+  br i1 %or.cond25, label %63, label %80
 
-63:                                               ; preds = %49
+61:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %64 = invoke noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine15is_comment_only17h7100ce92999f6e66E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %84 unwind label %23
+  %62 = invoke noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine15is_comment_only17h7100ce92999f6e66E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %82 unwind label %23
 
-65:                                               ; preds = %59
+63:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %66 = invoke noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine15is_comment_only17h7100ce92999f6e66E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %67 unwind label %23
+  %64 = invoke noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine15is_comment_only17h7100ce92999f6e66E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %65 unwind label %23
+
+65:                                               ; preds = %63
+  br i1 %64, label %67, label %66
+
+66:                                               ; preds = %65
+  invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h1dc00abe98aeced0E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %12, i32 noundef %8, i32 noundef %9)
+          to label %68 unwind label %23
 
 67:                                               ; preds = %65
-  br i1 %66, label %69, label %68
-
-68:                                               ; preds = %67
-  invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h1dc00abe98aeced0E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %12, i32 noundef %8, i32 noundef %9)
-          to label %70 unwind label %23
-
-69:                                               ; preds = %67
   invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17hf8b1e31e1e94854cE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %12, i32 noundef %8, i32 noundef %9)
-          to label %70 unwind label %23
+          to label %68 unwind label %23
 
-70:                                               ; preds = %69, %68
-  %71 = load i64, ptr %17, align 8, !alias.scope !3554, !noalias !3557, !noundef !4
-  %72 = load i64, ptr %15, align 8, !range !3060, !alias.scope !3554, !noalias !3557, !noundef !4
-  %73 = icmp eq i64 %71, %72
-  br i1 %73, label %74, label %.thread
+68:                                               ; preds = %67, %66
+  %69 = load i64, ptr %17, align 8, !alias.scope !3554, !noalias !3557, !noundef !4
+  %70 = load i64, ptr %15, align 8, !range !3060, !alias.scope !3554, !noalias !3557, !noundef !4
+  %71 = icmp eq i64 %69, %70
+  br i1 %71, label %72, label %.thread
 
-74:                                               ; preds = %70
+72:                                               ; preds = %68
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h1ad9e1a11bbd47bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b08dd5f4f09c4be6245191ddd275a566.337)
-          to label %.thread unwind label %75, !noalias !3560
+          to label %.thread unwind label %73, !noalias !3560
 
-75:                                               ; preds = %74
-  %76 = landingpad { ptr, i32 }
+73:                                               ; preds = %72
+  %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %12) #25
-          to label %.body unwind label %77
+          to label %.body unwind label %75
 
-77:                                               ; preds = %75
-  %78 = landingpad { ptr, i32 }
+75:                                               ; preds = %73
+  %76 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-.thread:                                          ; preds = %70, %74
-  %79 = load ptr, ptr %16, align 8, !alias.scope !3554, !noalias !3557, !nonnull !4, !noundef !4
-  %80 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { ptr, i64 }, { i32, i32 } }, ptr %79, i64 %71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %80, ptr noundef nonnull align 8 dereferenceable(120) %12, i64 120, i1 false)
-  %81 = add i64 %71, 1
-  store i64 %81, ptr %17, align 8, !alias.scope !3554, !noalias !3557
+.thread:                                          ; preds = %68, %72
+  %77 = load ptr, ptr %16, align 8, !alias.scope !3554, !noalias !3557, !nonnull !4, !noundef !4
+  %78 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { ptr, i64 }, { i32, i32 } }, ptr %77, i64 %69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %78, ptr noundef nonnull align 8 dereferenceable(120) %12, i64 120, i1 false)
+  %79 = add i64 %69, 1
+  store i64 %79, ptr %17, align 8, !alias.scope !3554, !noalias !3557
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %100
+  br label %98
 
-82:                                               ; preds = %59, %96
-  %.sroa.013.1 = phi i8 [ %57, %96 ], [ %.sroa.013.0, %59 ]
-  %83 = trunc nuw i8 %.sroa.013.1 to i1
-  br i1 %83, label %101, label %100
+80:                                               ; preds = %57, %94
+  %.sroa.013.1 = phi i8 [ %55, %94 ], [ %.sroa.013.0, %57 ]
+  %81 = trunc nuw i8 %.sroa.013.1 to i1
+  br i1 %81, label %99, label %98
 
-84:                                               ; preds = %63
-  br i1 %64, label %86, label %85
+82:                                               ; preds = %61
+  br i1 %62, label %84, label %83
 
-85:                                               ; preds = %84
+83:                                               ; preds = %82
   invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17hf246952bc27dab3eE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %13, i32 noundef %8, i32 noundef %9)
-          to label %87 unwind label %23
+          to label %85 unwind label %23
 
-86:                                               ; preds = %84
+84:                                               ; preds = %82
   invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h7d0b838ae690eb30E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %13, i32 noundef %8, i32 noundef %9)
-          to label %87 unwind label %23
+          to label %85 unwind label %23
 
-87:                                               ; preds = %86, %85
-  %88 = load i64, ptr %17, align 8, !alias.scope !3561, !noalias !3564, !noundef !4
-  %89 = load i64, ptr %15, align 8, !range !3060, !alias.scope !3561, !noalias !3564, !noundef !4
-  %90 = icmp eq i64 %88, %89
-  br i1 %90, label %91, label %96
+85:                                               ; preds = %84, %83
+  %86 = load i64, ptr %17, align 8, !alias.scope !3561, !noalias !3564, !noundef !4
+  %87 = load i64, ptr %15, align 8, !range !3060, !alias.scope !3561, !noalias !3564, !noundef !4
+  %88 = icmp eq i64 %86, %87
+  br i1 %88, label %89, label %94
 
-91:                                               ; preds = %87
+89:                                               ; preds = %85
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h1ad9e1a11bbd47bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b08dd5f4f09c4be6245191ddd275a566.338)
-          to label %96 unwind label %92, !noalias !3567
+          to label %94 unwind label %90, !noalias !3567
 
-92:                                               ; preds = %91
-  %93 = landingpad { ptr, i32 }
+90:                                               ; preds = %89
+  %91 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %13) #25
-          to label %.body unwind label %94
+          to label %.body unwind label %92
 
-94:                                               ; preds = %92
-  %95 = landingpad { ptr, i32 }
+92:                                               ; preds = %90
+  %93 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-96:                                               ; preds = %91, %87
-  %97 = load ptr, ptr %16, align 8, !alias.scope !3561, !noalias !3564, !nonnull !4, !noundef !4
-  %98 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { ptr, i64 }, { i32, i32 } }, ptr %97, i64 %88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %98, ptr noundef nonnull align 8 dereferenceable(120) %13, i64 120, i1 false)
-  %99 = add i64 %88, 1
-  store i64 %99, ptr %17, align 8, !alias.scope !3561, !noalias !3564
+94:                                               ; preds = %89, %85
+  %95 = load ptr, ptr %16, align 8, !alias.scope !3561, !noalias !3564, !nonnull !4, !noundef !4
+  %96 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { ptr, i64 }, { i32, i32 } }, ptr %95, i64 %86
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %96, ptr noundef nonnull align 8 dereferenceable(120) %13, i64 120, i1 false)
+  %97 = add i64 %86, 1
+  store i64 %97, ptr %17, align 8, !alias.scope !3561, !noalias !3564
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %82
+  br label %80
 
-100:                                              ; preds = %.thread, %101, %118, %82
+98:                                               ; preds = %.thread, %99, %116, %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
-101:                                              ; preds = %82
-  %102 = icmp eq i32 %3, 9
-  %.26 = select i1 %102, i64 8, i64 4
-  %103 = trunc nuw i64 %5 to i1
-  %.sroa.018.0 = select i1 %103, i64 %6, i64 0
-  %104 = add i64 %.sroa.018.0, %.26
-  %105 = icmp ugt i64 %4, %104
-  br i1 %105, label %106, label %100
+99:                                               ; preds = %80
+  %100 = icmp eq i32 %3, 9
+  %.26 = select i1 %100, i64 8, i64 4
+  %101 = trunc nuw i64 %5 to i1
+  %.sroa.018.0 = select i1 %101, i64 %6, i64 0
+  %102 = add i64 %.sroa.018.0, %.26
+  %103 = icmp ugt i64 %4, %102
+  br i1 %103, label %104, label %98
 
-106:                                              ; preds = %101
+104:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %107 = invoke noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine15is_comment_only17h7100ce92999f6e66E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
-          to label %108 unwind label %23
+  %105 = invoke noundef zeroext i1 @_ZN11ruff_linter5rules11pycodestyle5rules13logical_lines11LogicalLine15is_comment_only17h7100ce92999f6e66E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
+          to label %106 unwind label %23
 
-108:                                              ; preds = %106
-  invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17hb9e398e88fc69c3eE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %11, i1 noundef zeroext %107, i32 noundef %8, i32 noundef %9)
-          to label %109 unwind label %23
+106:                                              ; preds = %104
+  invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17hb9e398e88fc69c3eE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %11, i1 noundef zeroext %105, i32 noundef %8, i32 noundef %9)
+          to label %107 unwind label %23
 
-109:                                              ; preds = %108
-  %110 = load i64, ptr %17, align 8, !alias.scope !3568, !noalias !3571, !noundef !4
-  %111 = load i64, ptr %15, align 8, !range !3060, !alias.scope !3568, !noalias !3571, !noundef !4
-  %112 = icmp eq i64 %110, %111
-  br i1 %112, label %113, label %118
+107:                                              ; preds = %106
+  %108 = load i64, ptr %17, align 8, !alias.scope !3568, !noalias !3571, !noundef !4
+  %109 = load i64, ptr %15, align 8, !range !3060, !alias.scope !3568, !noalias !3571, !noundef !4
+  %110 = icmp eq i64 %108, %109
+  br i1 %110, label %111, label %116
 
-113:                                              ; preds = %109
+111:                                              ; preds = %107
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h1ad9e1a11bbd47bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b08dd5f4f09c4be6245191ddd275a566.339)
-          to label %118 unwind label %114, !noalias !3574
+          to label %116 unwind label %112, !noalias !3574
 
-114:                                              ; preds = %113
-  %115 = landingpad { ptr, i32 }
+112:                                              ; preds = %111
+  %113 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %11) #25
-          to label %.body unwind label %116
+          to label %.body unwind label %114
 
-116:                                              ; preds = %114
-  %117 = landingpad { ptr, i32 }
+114:                                              ; preds = %112
+  %115 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-118:                                              ; preds = %113, %109
-  %119 = load ptr, ptr %16, align 8, !alias.scope !3568, !noalias !3571, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { ptr, i64 }, { i32, i32 } }, ptr %119, i64 %110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %120, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
-  %121 = add i64 %110, 1
-  store i64 %121, ptr %17, align 8, !alias.scope !3568, !noalias !3571
+116:                                              ; preds = %111, %107
+  %117 = load ptr, ptr %16, align 8, !alias.scope !3568, !noalias !3571, !nonnull !4, !noundef !4
+  %118 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i32, [1 x i32] }, { ptr, i64 }, { i32, i32 } }, ptr %117, i64 %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %118, ptr noundef nonnull align 8 dereferenceable(120) %11, i64 120, i1 false)
+  %119 = add i64 %108, 1
+  store i64 %119, ptr %17, align 8, !alias.scope !3568, !noalias !3571
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %100
+  br label %98
+
+120:                                              ; preds = %.body
+  %121 = landingpad { ptr, i32 }
+          filter [0 x ptr] zeroinitializer
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
+  unreachable
 
 122:                                              ; preds = %.body
-  %123 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
-  unreachable
-
-124:                                              ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

@@ -36,7 +36,7 @@ define dso_local range(i32 0, 4) i32 @forkname_to_number(ptr noundef readonly ca
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
   %3 = getelementptr inbounds nuw ptr, ptr @forkNames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #6
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #5
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
 
@@ -50,12 +50,11 @@ define dso_local range(i32 0, 4) i32 @forkname_to_number(ptr noundef readonly ca
   br i1 %exitcond.not, label %10, label %2, !llvm.loop !4
 
 10:                                               ; preds = %9
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 50856066) #8
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
-  %14 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 63, ptr noundef nonnull @__func__.forkname_to_number) #8
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+  %14 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 63, ptr noundef nonnull @__func__.forkname_to_number) #7
   unreachable
 }
 
@@ -81,10 +80,10 @@ define dso_local i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %13 ]
   %4 = getelementptr inbounds nuw ptr, ptr @forkNames, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #5
   %sext = shl i64 %6, 32
   %7 = ashr exact i64 %sext, 32
-  %8 = tail call i32 @strncmp(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %7) #6
+  %8 = tail call i32 @strncmp(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %7) #5
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %9, label %13
 
@@ -131,15 +130,15 @@ define dso_local ptr @GetDatabasePath(i32 noundef %0, i32 noundef %1) local_unna
   ]
 
 3:                                                ; preds = %2
-  %4 = tail call ptr @pstrdup(ptr noundef nonnull @.str.7) #8
+  %4 = tail call ptr @pstrdup(ptr noundef nonnull @.str.7) #7
   br label %9
 
 5:                                                ; preds = %2
-  %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, i32 noundef %0) #8
+  %6 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.8, i32 noundef %0) #7
   br label %9
 
 7:                                                ; preds = %2
-  %8 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0) #8
+  %8 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0) #7
   br label %9
 
 9:                                                ; preds = %7, %5, %3
@@ -166,11 +165,11 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
   %8 = sext i32 %4 to i64
   %9 = getelementptr inbounds ptr, ptr @forkNames, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, i32 noundef %2, ptr noundef %10) #8
+  %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, i32 noundef %2, ptr noundef %10) #7
   br label %50
 
 12:                                               ; preds = %6
-  %13 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.13, i32 noundef %2) #8
+  %13 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.13, i32 noundef %2) #7
   br label %50
 
 14:                                               ; preds = %5
@@ -185,11 +184,11 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
   %18 = sext i32 %4 to i64
   %19 = getelementptr inbounds ptr, ptr @forkNames, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.14, i32 noundef %0, i32 noundef %2, ptr noundef %20) #8
+  %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.14, i32 noundef %0, i32 noundef %2, ptr noundef %20) #7
   br label %50
 
 22:                                               ; preds = %16
-  %23 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, i32 noundef %0, i32 noundef %2) #8
+  %23 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.15, i32 noundef %0, i32 noundef %2) #7
   br label %50
 
 24:                                               ; preds = %14
@@ -199,11 +198,11 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
   %26 = sext i32 %4 to i64
   %27 = getelementptr inbounds ptr, ptr @forkNames, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, i32 noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef %28) #8
+  %29 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, i32 noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef %28) #7
   br label %50
 
 30:                                               ; preds = %24
-  %31 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %3, i32 noundef %2) #8
+  %31 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.17, i32 noundef %0, i32 noundef %3, i32 noundef %2) #7
   br label %50
 
 32:                                               ; preds = %5
@@ -218,11 +217,11 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
   %36 = sext i32 %4 to i64
   %37 = getelementptr inbounds ptr, ptr @forkNames, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %2, ptr noundef %38) #8
+  %39 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %2, ptr noundef %38) #7
   br label %50
 
 40:                                               ; preds = %34
-  %41 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %2) #8
+  %41 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %2) #7
   br label %50
 
 42:                                               ; preds = %32
@@ -232,11 +231,11 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
   %44 = sext i32 %4 to i64
   %45 = getelementptr inbounds ptr, ptr @forkNames, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef %46) #8
+  %47 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef %46) #7
   br label %50
 
 48:                                               ; preds = %42
-  %49 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %3, i32 noundef %2) #8
+  %49 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %3, i32 noundef %2) #7
   br label %50
 
 50:                                               ; preds = %25, %30, %17, %22, %43, %48, %35, %40, %7, %12
@@ -244,18 +243,14 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
   ret ptr %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind willreturn memory(read) }
-attributes #7 = { cold nounwind }
-attributes #8 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
+attributes #6 = { cold nounwind }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

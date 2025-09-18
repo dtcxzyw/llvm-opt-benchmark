@@ -121,7 +121,7 @@ define dso_local noundef ptr @pg_strtok(ptr noundef writeonly captures(none) %0)
 define dso_local ptr @debackslash(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add i32 %1, 1
   %4 = sext i32 %3 to i64
-  %5 = tail call ptr @palloc(i64 noundef %4) #10
+  %5 = tail call ptr @palloc(i64 noundef %4) #9
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -195,7 +195,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %20, label %21, label %.thread.i
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @__ctype_b_loc() #11
+  %22 = tail call ptr @__ctype_b_loc() #10
   %23 = load ptr, ptr %22, align 8
   %24 = load i8, ptr %.029.i, align 1
   %25 = zext i8 %24 to i64
@@ -223,9 +223,9 @@ thread-pre-split:                                 ; preds = %10
 
 38:                                               ; preds = %31, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %39 = tail call ptr @__errno_location() #11
+  %39 = tail call ptr @__errno_location() #10
   store i32 0, ptr %39, align 4
-  %40 = call i32 @strtoint(ptr noundef nonnull %.029.i, ptr noundef nonnull %3, i32 noundef 10) #10
+  %40 = call i32 @strtoint(ptr noundef nonnull %.029.i, ptr noundef nonnull %3, i32 noundef 10) #9
   %41 = load ptr, ptr %3, align 8
   %42 = sext i32 %14 to i64
   %43 = getelementptr inbounds i8, ptr %.063, i64 %42
@@ -251,12 +251,12 @@ thread-pre-split:                                 ; preds = %10
   ]
 
 48:                                               ; preds = %47
-  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #12
+  %49 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(5) @.str.10, i64 noundef 4) #11
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %200, label %54
 
 51:                                               ; preds = %47
-  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #12
+  %52 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.063, ptr noundef nonnull dereferenceable(6) @.str.11, i64 noundef 5) #11
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %200, label %54
 
@@ -281,7 +281,7 @@ thread-pre-split:                                 ; preds = %10
   ]
 
 64:                                               ; preds = %.thread.i
-  %65 = tail call ptr @parseNodeString() #10
+  %65 = tail call ptr @parseNodeString() #9
   %66 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %67 = icmp eq ptr %66, null
   br i1 %67, label %70, label %68
@@ -292,10 +292,9 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not86, label %.loopexit, label %70
 
 70:                                               ; preds = %68, %64
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.nodeRead) #10
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %72 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 73:                                               ; preds = %.thread.i
@@ -304,10 +303,9 @@ thread-pre-split:                                 ; preds = %10
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %73
-  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %77)
-  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.nodeRead) #10
+  %77 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %78 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 357, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 79:                                               ; preds = %73
@@ -334,10 +332,9 @@ thread-pre-split:                                 ; preds = %10
   br i1 %85, label %._crit_edge179, label %.lr.ph178
 
 ._crit_edge179:                                   ; preds = %100, %.preheader
-  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %86)
-  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 368, ptr noundef nonnull @__func__.nodeRead) #10
+  %86 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %87 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 368, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 .lr.ph178:                                        ; preds = %.preheader, %100
@@ -352,7 +349,7 @@ thread-pre-split:                                 ; preds = %10
   br label %.loopexit
 
 91:                                               ; preds = %.lr.ph178
-  %92 = call i64 @strtol(ptr noundef nonnull %88, ptr noundef nonnull %5, i32 noundef 10) #10
+  %92 = call i64 @strtol(ptr noundef nonnull %88, ptr noundef nonnull %5, i32 noundef 10) #9
   %93 = load ptr, ptr %5, align 8
   %94 = load i32, ptr %4, align 4
   %95 = sext i32 %94 to i64
@@ -361,15 +358,14 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not85, label %100, label %97
 
 97:                                               ; preds = %91
-  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %98)
-  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %94, ptr noundef nonnull %88) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.nodeRead) #10
+  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %94, ptr noundef nonnull %88) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 100:                                              ; preds = %91
   %101 = trunc i64 %92 to i32
-  %102 = tail call ptr @lappend_int(ptr noundef %.070177, i32 noundef %101) #10
+  %102 = tail call ptr @lappend_int(ptr noundef %.070177, i32 noundef %101) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %103 = call ptr @pg_strtok(ptr noundef nonnull %4)
@@ -383,10 +379,9 @@ thread-pre-split:                                 ; preds = %10
   br i1 %106, label %._crit_edge176, label %.lr.ph175
 
 ._crit_edge176:                                   ; preds = %121, %.preheader140
-  %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %107)
-  %108 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 389, ptr noundef nonnull @__func__.nodeRead) #10
+  %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %108 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 389, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 .lr.ph175:                                        ; preds = %.preheader140, %121
@@ -401,7 +396,7 @@ thread-pre-split:                                 ; preds = %10
   br label %.loopexit
 
 112:                                              ; preds = %.lr.ph175
-  %113 = call i64 @strtoul(ptr noundef nonnull %109, ptr noundef nonnull %6, i32 noundef 10) #10
+  %113 = call i64 @strtoul(ptr noundef nonnull %109, ptr noundef nonnull %6, i32 noundef 10) #9
   %114 = load ptr, ptr %6, align 8
   %115 = load i32, ptr %4, align 4
   %116 = sext i32 %115 to i64
@@ -410,15 +405,14 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not84, label %121, label %118
 
 118:                                              ; preds = %112
-  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %119)
-  %120 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %115, ptr noundef nonnull %109) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__func__.nodeRead) #10
+  %119 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %120 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %115, ptr noundef nonnull %109) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 395, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 121:                                              ; preds = %112
   %122 = trunc i64 %113 to i32
-  %123 = tail call ptr @lappend_oid(ptr noundef %.272174, i32 noundef %122) #10
+  %123 = tail call ptr @lappend_oid(ptr noundef %.272174, i32 noundef %122) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %124 = call ptr @pg_strtok(ptr noundef nonnull %4)
@@ -432,10 +426,9 @@ thread-pre-split:                                 ; preds = %10
   br i1 %127, label %._crit_edge173, label %.lr.ph172
 
 ._crit_edge173:                                   ; preds = %142, %.preheader141
-  %128 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %128)
-  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__func__.nodeRead) #10
+  %128 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %129 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 .lr.ph172:                                        ; preds = %.preheader141, %142
@@ -450,7 +443,7 @@ thread-pre-split:                                 ; preds = %10
   br label %.loopexit
 
 133:                                              ; preds = %.lr.ph172
-  %134 = call i64 @strtoul(ptr noundef nonnull %130, ptr noundef nonnull %7, i32 noundef 10) #10
+  %134 = call i64 @strtoul(ptr noundef nonnull %130, ptr noundef nonnull %7, i32 noundef 10) #9
   %135 = load ptr, ptr %7, align 8
   %136 = load i32, ptr %4, align 4
   %137 = sext i32 %136 to i64
@@ -459,15 +452,14 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not83, label %142, label %139
 
 139:                                              ; preds = %133
-  %140 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %140)
-  %141 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %136, ptr noundef nonnull %130) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 416, ptr noundef nonnull @__func__.nodeRead) #10
+  %140 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %141 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %136, ptr noundef nonnull %130) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 416, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 142:                                              ; preds = %133
   %143 = trunc i64 %134 to i32
-  %144 = tail call ptr @lappend_xid(ptr noundef %.4171, i32 noundef %143) #10
+  %144 = tail call ptr @lappend_xid(ptr noundef %.4171, i32 noundef %143) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %145 = call ptr @pg_strtok(ptr noundef nonnull %4)
@@ -481,10 +473,9 @@ thread-pre-split:                                 ; preds = %10
   br i1 %148, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %165, %.preheader142
-  %149 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %149)
-  %150 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.nodeRead) #10
+  %149 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %150 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 433, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader142, %165
@@ -504,7 +495,7 @@ thread-pre-split:                                 ; preds = %10
   br label %.loopexit
 
 157:                                              ; preds = %154, %.lr.ph
-  %158 = call i64 @strtol(ptr noundef nonnull %151, ptr noundef nonnull %8, i32 noundef 10) #10
+  %158 = call i64 @strtol(ptr noundef nonnull %151, ptr noundef nonnull %8, i32 noundef 10) #9
   %159 = load ptr, ptr %8, align 8
   %160 = sext i32 %152 to i64
   %161 = getelementptr inbounds i8, ptr %151, i64 %160
@@ -512,15 +503,14 @@ thread-pre-split:                                 ; preds = %10
   br i1 %.not, label %165, label %162
 
 162:                                              ; preds = %157
-  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %163)
-  %164 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %152, ptr noundef nonnull %151) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__func__.nodeRead) #10
+  %163 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %164 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %152, ptr noundef nonnull %151) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 439, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 165:                                              ; preds = %157
   %166 = trunc i64 %158 to i32
-  %167 = tail call ptr @bms_add_member(ptr noundef %.064170, i32 noundef %166) #10
+  %167 = tail call ptr @bms_add_member(ptr noundef %.064170, i32 noundef %166) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %168 = call ptr @pg_strtok(ptr noundef nonnull %4)
@@ -537,23 +527,21 @@ thread-pre-split:                                 ; preds = %10
 173:                                              ; preds = %170
   %174 = load i32, ptr %4, align 4
   %175 = tail call ptr @nodeRead(ptr noundef nonnull %.1, i32 noundef %174)
-  %176 = tail call ptr @lappend(ptr noundef %.6, ptr noundef %175) #10
+  %176 = tail call ptr @lappend(ptr noundef %.6, ptr noundef %175) #9
   %177 = call ptr @pg_strtok(ptr noundef nonnull %4)
   %178 = icmp eq ptr %177, null
   br i1 %178, label %179, label %170
 
 179:                                              ; preds = %173
-  %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %180)
-  %181 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.nodeRead) #10
+  %180 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %181 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 455, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 182:                                              ; preds = %.thread.i
-  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %183)
-  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 462, ptr noundef nonnull @__func__.nodeRead) #10
+  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 462, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 185:                                              ; preds = %63
@@ -561,17 +549,16 @@ thread-pre-split:                                 ; preds = %10
   br i1 %186, label %.loopexit, label %.thread229
 
 .thread229:                                       ; preds = %57, %185
-  %187 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %187)
-  %188 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %14, ptr noundef nonnull %.063) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__func__.nodeRead) #10
+  %187 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %188 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %14, ptr noundef nonnull %.063) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__func__.nodeRead) #9
   unreachable
 
 189:                                              ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %190 = call i64 @strtol(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #10
+  %190 = call i64 @strtol(ptr noundef nonnull captures(none) %.063, ptr noundef null, i32 noundef 10) #9
   %191 = trunc i64 %190 to i32
-  %192 = call ptr @makeInteger(i32 noundef %191) #10
+  %192 = call ptr @makeInteger(i32 noundef %191) #9
   br label %.loopexit
 
 select.unfold118:                                 ; preds = %44, %38
@@ -579,23 +566,23 @@ select.unfold118:                                 ; preds = %44, %38
   %193 = load i32, ptr %4, align 4
   %194 = add i32 %193, 1
   %195 = sext i32 %194 to i64
-  %196 = call ptr @palloc(i64 noundef %195) #10
+  %196 = call ptr @palloc(i64 noundef %195) #9
   %197 = sext i32 %193 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %196, ptr nonnull align 1 %.063, i64 %197, i1 false)
   %198 = getelementptr inbounds i8, ptr %196, i64 %197
   store i8 0, ptr %198, align 1
-  %199 = call ptr @makeFloat(ptr noundef %196) #10
+  %199 = call ptr @makeFloat(ptr noundef %196) #9
   br label %.loopexit
 
 200:                                              ; preds = %51, %48
   %201 = icmp eq i8 %15, 116
-  %202 = tail call ptr @makeBoolean(i1 noundef zeroext %201) #10
+  %202 = tail call ptr @makeBoolean(i1 noundef zeroext %201) #9
   br label %.loopexit
 
 203:                                              ; preds = %57
   %204 = add nsw i32 %14, -1
   %205 = zext nneg i32 %204 to i64
-  %206 = tail call ptr @palloc(i64 noundef %205) #10
+  %206 = tail call ptr @palloc(i64 noundef %205) #9
   %207 = icmp samesign ugt i32 %14, 2
   br i1 %207, label %.lr.ph.i.preheader, label %debackslash.exit
 
@@ -626,13 +613,13 @@ select.unfold118:                                 ; preds = %44, %38
 debackslash.exit:                                 ; preds = %.lr.ph.i, %203
   %.0.lcssa.i = phi ptr [ %206, %203 ], [ %214, %.lr.ph.i ]
   store i8 0, ptr %.0.lcssa.i, align 1
-  %217 = tail call ptr @makeString(ptr noundef %206) #10
+  %217 = tail call ptr @makeString(ptr noundef %206) #9
   br label %.loopexit
 
 218:                                              ; preds = %63, %63
   %219 = add i32 %14, 1
   %220 = sext i32 %219 to i64
-  %221 = tail call ptr @palloc(i64 noundef %220) #10
+  %221 = tail call ptr @palloc(i64 noundef %220) #9
   %222 = icmp sgt i32 %14, 0
   br i1 %222, label %.lr.ph.i96, label %debackslash.exit104
 
@@ -659,7 +646,7 @@ debackslash.exit:                                 ; preds = %.lr.ph.i, %203
 debackslash.exit104:                              ; preds = %.lr.ph.i96, %218
   %.0.lcssa.i95 = phi ptr [ %221, %218 ], [ %229, %.lr.ph.i96 ]
   store i8 0, ptr %.0.lcssa.i95, align 1
-  %232 = tail call ptr @makeBitString(ptr noundef %221) #10
+  %232 = tail call ptr @makeBitString(ptr noundef %221) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %170, %.thread136, %.thread131, %.thread126, %.thread, %189, %select.unfold118, %200, %debackslash.exit, %debackslash.exit104, %68, %185, %10
@@ -722,9 +709,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -734,11 +718,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { cold nounwind }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ResourceOwnerCreate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @TopMemoryContext, align 8
-  %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef 688) #10
+  %4 = tail call ptr @MemoryContextAllocZero(ptr noundef %3, i64 noundef 688) #9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %5, align 8
   %.not = icmp eq ptr %0, null
@@ -59,10 +59,9 @@ define dso_local void @ResourceOwnerEnlarge(ptr noundef captures(none) %0) local
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 449, ptr noundef nonnull @__func__.ResourceOwnerEnlarge) #10
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 449, ptr noundef nonnull @__func__.ResourceOwnerEnlarge) #9
   unreachable
 
 8:                                                ; preds = %1
@@ -92,7 +91,7 @@ define dso_local void @ResourceOwnerEnlarge(ptr noundef captures(none) %0) local
   %26 = load ptr, ptr @TopMemoryContext, align 8
   %27 = zext i32 %25 to i64
   %28 = shl nuw nsw i64 %27, 4
-  %29 = tail call ptr @MemoryContextAllocZero(ptr noundef %26, i64 noundef %28) #10
+  %29 = tail call ptr @MemoryContextAllocZero(ptr noundef %26, i64 noundef %28) #9
   store ptr %29, ptr %20, align 8
   store i32 %25, ptr %22, align 8
   %30 = add i32 %25, -32
@@ -168,7 +167,7 @@ ResourceOwnerAddToHash.exit:                      ; preds = %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %67, %.preheader
-  tail call void @pfree(ptr noundef nonnull %21) #10
+  tail call void @pfree(ptr noundef nonnull %21) #9
   br label %68
 
 68:                                               ; preds = %19, %._crit_edge, %12
@@ -260,10 +259,9 @@ define dso_local void @ResourceOwnerRemember(ptr noundef captures(none) %0, i64 
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.ResourceOwnerRemember) #10
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 532, ptr noundef nonnull @__func__.ResourceOwnerRemember) #9
   unreachable
 
 10:                                               ; preds = %3
@@ -286,11 +284,10 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %8)
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %9 = load ptr, ptr %2, align 8
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %9) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__func__.ResourceOwnerForget) #10
+  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %9) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 562, ptr noundef nonnull @__func__.ResourceOwnerForget) #9
   unreachable
 
 11:                                               ; preds = %3
@@ -397,14 +394,13 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
   br label %76
 
 .thread51:                                        ; preds = %61, %32, %._crit_edge
-  %70 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %70)
+  %70 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %71 = load ptr, ptr %2, align 8
   %72 = inttoptr i64 %1 to ptr
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef %71, ptr noundef %72, ptr noundef %74) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__func__.ResourceOwnerForget) #10
+  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, ptr noundef %71, ptr noundef %72, ptr noundef %74) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__func__.ResourceOwnerForget) #9
   unreachable
 
 76:                                               ; preds = %64, %26
@@ -550,7 +546,7 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
   %.032.i = phi ptr [ %23, %22 ], [ %49, %._crit_edge.i ]
   %.031.i = phi i32 [ %26, %22 ], [ %.2.lcssa.i, %._crit_edge.i ]
   %59 = zext i32 %.031.i to i64
-  tail call void @pg_qsort(ptr noundef %.032.i, i64 noundef %59, i64 noundef 16, ptr noundef nonnull @resource_priority_cmp) #10
+  tail call void @pg_qsort(ptr noundef %.032.i, i64 noundef %59, i64 noundef 16, ptr noundef nonnull @resource_priority_cmp) #9
   store i8 1, ptr %12, align 1
   br label %60
 
@@ -576,8 +572,8 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
   br i1 %66, label %67, label %76
 
 67:                                               ; preds = %64
-  tail call void @ProcReleaseLocks(i1 noundef zeroext %2) #10
-  tail call void @ReleasePredicateLocks(i1 noundef zeroext %2, i1 noundef zeroext false) #10
+  tail call void @ProcReleaseLocks(i1 noundef zeroext %2) #9
+  tail call void @ReleasePredicateLocks(i1 noundef zeroext %2, i1 noundef zeroext false) #9
   br label %76
 
 68:                                               ; preds = %63
@@ -591,11 +587,11 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
   br i1 %2, label %73, label %74
 
 73:                                               ; preds = %68
-  tail call void @LockReassignCurrentOwner(ptr noundef %.042, i32 noundef %.0) #10
+  tail call void @LockReassignCurrentOwner(ptr noundef %.042, i32 noundef %.0) #9
   br label %76
 
 74:                                               ; preds = %68
-  tail call void @LockReleaseCurrentOwner(ptr noundef %.042, i32 noundef %.0) #10
+  tail call void @LockReleaseCurrentOwner(ptr noundef %.042, i32 noundef %.0) #9
   br label %76
 
 75:                                               ; preds = %60
@@ -614,7 +610,7 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.04452, i64 16
   %82 = load ptr, ptr %81, align 8
-  tail call void %80(i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %82) #10
+  tail call void %80(i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %82) #9
   %.not47 = icmp eq ptr %78, null
   br i1 %.not47, label %._crit_edge55, label %.lr.ph54, !llvm.loop !14
 
@@ -631,11 +627,10 @@ define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) 
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %7)
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %8 = load ptr, ptr %1, align 8
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %8) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 805, ptr noundef nonnull @__func__.ResourceOwnerReleaseAllOfKind) #10
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, ptr noundef %8) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 805, ptr noundef nonnull @__func__.ResourceOwnerReleaseAllOfKind) #9
   unreachable
 
 10:                                               ; preds = %2
@@ -683,7 +678,7 @@ define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) 
   store i8 %33, ptr %11, align 1
   %34 = add i32 %.038, -1
   %35 = load ptr, ptr %14, align 8
-  tail call void %35(i64 noundef %28) #10
+  tail call void %35(i64 noundef %28) #9
   %.pre = load i8, ptr %11, align 1
   br label %36
 
@@ -721,7 +716,7 @@ define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) 
   %55 = add i32 %54, -1
   store i32 %55, ptr %18, align 4
   %56 = load ptr, ptr %19, align 8
-  tail call void %56(i64 noundef %50) #10
+  tail call void %56(i64 noundef %50) #9
   %.pre42 = load i32, ptr %15, align 8
   br label %57
 
@@ -791,11 +786,11 @@ ResourceOwnerNewParent.exit:                      ; preds = %.preheader.i, %._cr
   br i1 %.not7, label %26, label %25
 
 25:                                               ; preds = %ResourceOwnerNewParent.exit
-  tail call void @pfree(ptr noundef nonnull %24) #10
+  tail call void @pfree(ptr noundef nonnull %24) #9
   br label %26
 
 26:                                               ; preds = %25, %ResourceOwnerNewParent.exit
-  tail call void @pfree(ptr noundef nonnull %0) #10
+  tail call void @pfree(ptr noundef nonnull %0) #9
   ret void
 }
 
@@ -867,7 +862,7 @@ define dso_local ptr @ResourceOwnerGetParent(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define dso_local void @RegisterResourceReleaseCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @TopMemoryContext, align 8
-  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #10
+  %4 = tail call ptr @MemoryContextAlloc(ptr noundef %3, i64 noundef 24) #9
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -905,7 +900,7 @@ define dso_local void @UnregisterResourceReleaseCallback(ptr noundef readnone ca
   %11 = load ptr, ptr %.01219, align 8
   %ResourceRelease_callbacks..018.lcssa = select i1 %.not13, ptr @ResourceRelease_callbacks, ptr %.018
   store ptr %11, ptr %ResourceRelease_callbacks..018.lcssa, align 8
-  tail call void @pfree(ptr noundef nonnull %.01219) #10
+  tail call void @pfree(ptr noundef nonnull %.01219) #9
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph, %6
@@ -920,12 +915,12 @@ define dso_local void @UnregisterResourceReleaseCallback(ptr noundef readnone ca
 ; Function Attrs: nounwind uwtable
 define dso_local void @CreateAuxProcessResourceOwner() local_unnamed_addr #0 {
   %1 = load ptr, ptr @TopMemoryContext, align 8
-  %2 = tail call ptr @MemoryContextAllocZero(ptr noundef %1, i64 noundef 688) #10
+  %2 = tail call ptr @MemoryContextAllocZero(ptr noundef %1, i64 noundef 688) #9
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @.str.5, ptr %3, align 8
   store ptr %2, ptr @AuxProcessResourceOwner, align 8
   store ptr %2, ptr @CurrentResourceOwner, align 8
-  tail call void @on_shmem_exit(ptr noundef nonnull @ReleaseAuxProcessResourcesCallback, i64 noundef 0) #10
+  tail call void @on_shmem_exit(ptr noundef nonnull @ReleaseAuxProcessResourcesCallback, i64 noundef 0) #9
   ret void
 }
 
@@ -1026,12 +1021,11 @@ define dso_local void @ResourceOwnerForgetLock(ptr noundef captures(none) %0, pt
   br label %26
 
 21:                                               ; preds = %9
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %22)
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %24) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1083, ptr noundef nonnull @__func__.ResourceOwnerForgetLock) #10
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %24) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1083, ptr noundef nonnull @__func__.ResourceOwnerForgetLock) #9
   unreachable
 
 26:                                               ; preds = %2, %15
@@ -1084,30 +1078,30 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   br i1 %.not33.us, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = tail call ptr %25(i64 noundef %17) #10
+  %27 = tail call ptr %25(i64 noundef %17) #9
   br label %32
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %19, align 8
   %30 = inttoptr i64 %17 to ptr
-  %31 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef %29, ptr noundef %30) #10
+  %31 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.7, ptr noundef %29, ptr noundef %30) #9
   br label %32
 
 32:                                               ; preds = %28, %26
   %33 = phi ptr [ %27, %26 ], [ %31, %28 ]
-  %34 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #10
+  %34 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #9
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %33) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.ResourceOwnerReleaseAll) #10
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, ptr noundef %33) #9
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__func__.ResourceOwnerReleaseAll) #9
   br label %37
 
 37:                                               ; preds = %35, %32
-  tail call void @pfree(ptr noundef %33) #10
+  tail call void @pfree(ptr noundef %33) #9
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(i64 noundef %17) #10
+  tail call void %39(i64 noundef %17) #9
   %40 = and i64 %indvars.iv.next46, 4294967295
   %.not.us = icmp eq i64 %40, 0
   br i1 %.not.us, label %.thread, label %.lr.ph.split.us
@@ -1128,7 +1122,7 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   %49 = load i64, ptr %42, align 8
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %51 = load ptr, ptr %50, align 8
-  tail call void %51(i64 noundef %49) #10
+  tail call void %51(i64 noundef %49) #9
   %52 = and i64 %indvars.iv.next, 4294967295
   %.not = icmp eq i64 %52, 0
   br i1 %.not, label %.thread, label %.lr.ph.split
@@ -1204,14 +1198,11 @@ define internal range(i32 -1, 2) i32 @resource_priority_cmp(ptr noundef readonly
 
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1221,10 +1212,9 @@ attributes #4 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

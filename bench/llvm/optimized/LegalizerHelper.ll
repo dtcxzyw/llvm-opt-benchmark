@@ -23816,7 +23816,6 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit55: ; preds = %_ZNK4llv
   %84 = load ptr, ptr %0, align 8, !tbaa !139
   %85 = load ptr, ptr %27, align 8, !tbaa !161
   %86 = call noundef zeroext i1 @_ZN4llvm12extractPartsENS_8RegisterENS_3LLTES1_RS1_RNS_15SmallVectorImplIS0_EES5_RNS_16MachineIRBuilderERNS_19MachineRegisterInfoE(i32 %83, i64 %.sroa.04.0.i54, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(88) %84, ptr noundef nonnull align 8 dereferenceable(504) %85) #19
-  call void @llvm.assume(i1 %86)
   %87 = load i32, ptr %65, align 8, !tbaa !190
   %.not5275 = icmp eq i32 %87, 0
   br i1 %.not5275, label %._crit_edge, label %.lr.ph
@@ -24145,7 +24144,6 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %4, %25, %3
   %62 = load ptr, ptr %0, align 8, !tbaa !139
   %63 = load ptr, ptr %22, align 8, !tbaa !161
   %64 = call noundef zeroext i1 @_ZN4llvm12extractPartsENS_8RegisterENS_3LLTES1_RS1_RNS_15SmallVectorImplIS0_EES5_RNS_16MachineIRBuilderERNS_19MachineRegisterInfoE(i32 %61, i64 %.sroa.04.0.i, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(504) %63) #19
-  call void @llvm.assume(i1 %64)
   %65 = load i32, ptr %49, align 8, !tbaa !190
   %.not78 = icmp eq i32 %65, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph

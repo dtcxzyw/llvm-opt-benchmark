@@ -118,11 +118,11 @@ define dso_local ptr @coerce_to_target_type(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not35, label %34, label %23
 
 23:                                               ; preds = %.critedge.thread
-  %24 = tail call zeroext i1 @type_is_collatable(i32 noundef %3) #5
+  %24 = tail call zeroext i1 @type_is_collatable(i32 noundef %3) #4
   br i1 %24, label %25, label %34
 
 25:                                               ; preds = %23
-  %26 = tail call noundef ptr @palloc0(i64 noundef 24) #5
+  %26 = tail call noundef ptr @palloc0(i64 noundef 24) #4
   store i32 31, ptr %26, align 4
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %22, ptr %27, align 8
@@ -193,7 +193,7 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %10) #5
+  %21 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %10) #4
   %.not67 = icmp eq i32 %21, 0
   br i1 %.not67, label %22, label %45
 
@@ -204,40 +204,39 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
   ]
 
 23:                                               ; preds = %22
-  %24 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %8) #5
+  %24 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %8) #4
   %.not68 = icmp eq i32 %24, 0
   br i1 %.not68, label %is_complex_array.exit.thread, label %45
 
 25:                                               ; preds = %22
-  %26 = tail call i32 @get_element_type(i32 noundef %8) #5
+  %26 = tail call i32 @get_element_type(i32 noundef %8) #4
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %is_complex_array.exit.thread, label %is_complex_array.exit
 
 is_complex_array.exit:                            ; preds = %25
-  %27 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %26) #5
+  %27 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %26) #4
   %.not71 = icmp eq i32 %27, 0
   br i1 %.not71, label %is_complex_array.exit.thread, label %45
 
 is_complex_array.exit.thread:                     ; preds = %25, %23, %22, %is_complex_array.exit
-  %28 = tail call zeroext i1 @typeInheritsFrom(i32 noundef %8, i32 noundef %10) #5
+  %28 = tail call zeroext i1 @typeInheritsFrom(i32 noundef %8, i32 noundef %10) #4
   br i1 %28, label %45, label %29
 
 29:                                               ; preds = %is_complex_array.exit.thread
-  %30 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %8) #5
+  %30 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %8) #4
   %.not.i69 = icmp eq i32 %30, 0
   br i1 %.not.i69, label %.critedge, label %31
 
 31:                                               ; preds = %29
   %32 = zext i32 %30 to i64
-  %33 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %32) #5
+  %33 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %32) #4
   %.not11.i = icmp eq ptr %33, null
   br i1 %.not11.i, label %34, label %typeIsOfTypedTable.exit
 
 34:                                               ; preds = %31
-  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %35)
-  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %30) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3392, ptr noundef nonnull @__func__.typeIsOfTypedTable) #5
+  %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %30) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3392, ptr noundef nonnull @__func__.typeIsOfTypedTable) #4
   unreachable
 
 typeIsOfTypedTable.exit:                          ; preds = %31
@@ -250,7 +249,7 @@ typeIsOfTypedTable.exit:                          ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 76
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, %10
-  tail call void @ReleaseSysCache(ptr noundef nonnull %33) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %33) #4
   br i1 %44, label %45, label %.critedge
 
 .critedge:                                        ; preds = %29, %typeIsOfTypedTable.exit
@@ -319,12 +318,12 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond25, label %25, label %30
 
 25:                                               ; preds = %16
-  %26 = tail call i32 @getBaseType(i32 noundef %2) #5
+  %26 = tail call i32 @getBaseType(i32 noundef %2) #4
   %.not227 = icmp eq i32 %26, %2
   br i1 %.not227, label %151, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @makeRelabelType(ptr noundef nonnull %1, i32 noundef %26, i32 noundef -1, i32 noundef 0, i32 noundef %6) #5
+  %28 = tail call ptr @makeRelabelType(ptr noundef nonnull %1, i32 noundef %26, i32 noundef -1, i32 noundef 0, i32 noundef %6) #4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i32 %7, ptr %29, align 8
   br label %151
@@ -337,28 +336,28 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %or.cond241, label %33, label %78
 
 33:                                               ; preds = %30
-  %34 = tail call noundef ptr @palloc0(i64 noundef 40) #5
+  %34 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 7, ptr %34, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 %4, ptr %10, align 4
-  %35 = call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef nonnull %10) #5
+  %35 = call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef nonnull %10) #4
   %36 = icmp eq i32 %35, 1186
   %37 = load i32, ptr %10, align 4
   %.0205 = select i1 %36, i32 %37, i32 -1
-  %38 = call ptr @typeidType(i32 noundef %35) #5
+  %38 = call ptr @typeidType(i32 noundef %35) #4
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %35, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i32 %.0205, ptr %40, align 8
-  %41 = call i32 @typeTypeCollation(ptr noundef %38) #5
+  %41 = call i32 @typeTypeCollation(ptr noundef %38) #4
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 %41, ptr %42, align 4
-  %43 = call signext i16 @typeLen(ptr noundef %38) #5
+  %43 = call signext i16 @typeLen(ptr noundef %38) #4
   %44 = sext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %44, ptr %45, align 8
-  %46 = call zeroext i1 @typeByVal(ptr noundef %38) #5
+  %46 = call zeroext i1 @typeByVal(ptr noundef %38) #4
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 33
   %48 = zext i1 %46 to i8
   store i8 %48, ptr %47, align 1
@@ -370,7 +369,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 36
   store i32 %53, ptr %54, align 4
-  call void @setup_parser_errposition_callback(ptr noundef nonnull %11, ptr noundef %0, i32 noundef %53) #5
+  call void @setup_parser_errposition_callback(ptr noundef nonnull %11, ptr noundef %0, i32 noundef %53) #4
   %55 = load i8, ptr %49, align 8, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %61, label %57
@@ -383,7 +382,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 61:                                               ; preds = %33, %57
   %.sink = phi ptr [ %60, %57 ], [ null, %33 ]
-  %62 = call i64 @stringTypeDatum(ptr noundef %38, ptr noundef %.sink, i32 noundef %.0205) #5
+  %62 = call i64 @stringTypeDatum(ptr noundef %38, ptr noundef %.sink, i32 noundef %.0205) #4
   %63 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i64 %62, ptr %63, align 8
   %64 = load i8, ptr %49, align 8, !range !7, !noundef !8
@@ -397,13 +396,13 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 69:                                               ; preds = %66
   %70 = inttoptr i64 %62 to ptr
-  %71 = call ptr @pg_detoast_datum(ptr noundef %70) #5
+  %71 = call ptr @pg_detoast_datum(ptr noundef %70) #4
   %72 = ptrtoint ptr %71 to i64
   store i64 %72, ptr %63, align 8
   br label %73
 
 73:                                               ; preds = %69, %66, %61
-  call void @cancel_parser_errposition_callback(ptr noundef nonnull %11) #5
+  call void @cancel_parser_errposition_callback(ptr noundef nonnull %11) #4
   %.not226 = icmp eq i32 %35, %3
   br i1 %.not226, label %77, label %74
 
@@ -414,7 +413,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 77:                                               ; preds = %74, %73
   %.0203 = phi ptr [ %76, %74 ], [ %34, %73 ]
-  call void @ReleaseSysCache(ptr noundef %38) #5
+  call void @ReleaseSysCache(ptr noundef %38) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %151
@@ -432,7 +431,7 @@ define dso_local ptr @coerce_type(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not, label %thread-pre-split.thread, label %84
 
 84:                                               ; preds = %81
-  %85 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %4, i32 noundef %7) #5
+  %85 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %3, i32 noundef %4, i32 noundef %7) #4
   %.not219 = icmp eq ptr %85, null
   br i1 %.not219, label %.thread-pre-split_crit_edge, label %151
 
@@ -449,11 +448,11 @@ thread-pre-split:                                 ; preds = %.thread-pre-split_c
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call ptr @coerce_type(ptr noundef %0, ptr noundef %90, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
-  %92 = tail call zeroext i1 @type_is_collatable(i32 noundef %3) #5
+  %92 = tail call zeroext i1 @type_is_collatable(i32 noundef %3) #4
   br i1 %92, label %93, label %151
 
 93:                                               ; preds = %88
-  %94 = tail call noundef ptr @palloc0(i64 noundef 24) #5
+  %94 = tail call noundef ptr @palloc0(i64 noundef 24) #4
   store i32 31, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store ptr %91, ptr %95, align 8
@@ -475,7 +474,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
 103:                                              ; preds = %thread-pre-split.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 %4, ptr %12, align 4
-  %104 = call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef nonnull %12) #5
+  %104 = call i32 @getBaseTypeAndTypmod(i32 noundef %3, ptr noundef nonnull %12) #4
   %.not224 = icmp eq i32 %102, 2
   br i1 %.not224, label %112, label %105
 
@@ -498,7 +497,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %112
-  %117 = call ptr @makeRelabelType(ptr noundef %114, i32 noundef %3, i32 noundef -1, i32 noundef 0, i32 noundef %6) #5
+  %117 = call ptr @makeRelabelType(ptr noundef %114, i32 noundef %3, i32 noundef -1, i32 noundef 0, i32 noundef %6) #4
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store i32 %7, ptr %118, align 8
   br label %119
@@ -513,7 +512,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %120
-  %123 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %3) #5
+  %123 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %3) #4
   %.not221 = icmp eq i32 %123, 0
   br i1 %.not221, label %126, label %124
 
@@ -528,7 +527,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   ]
 
 127:                                              ; preds = %126
-  %128 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %2) #5
+  %128 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %2) #4
   %.not222 = icmp eq i32 %128, 0
   br i1 %.not222, label %131, label %151
 
@@ -537,7 +536,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   br i1 %130, label %151, label %131
 
 131:                                              ; preds = %127, %126, %129
-  %132 = tail call zeroext i1 @typeInheritsFrom(i32 noundef %2, i32 noundef %3) #5
+  %132 = tail call zeroext i1 @typeInheritsFrom(i32 noundef %2, i32 noundef %3) #4
   br i1 %132, label %135, label %133
 
 133:                                              ; preds = %131
@@ -545,14 +544,14 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   br i1 %134, label %135, label %146
 
 135:                                              ; preds = %133, %131
-  %136 = tail call i32 @getBaseType(i32 noundef %2) #5
-  %137 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %136 = tail call i32 @getBaseType(i32 noundef %2) #4
+  %137 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 30, ptr %137, align 4
   %.not223 = icmp eq i32 %136, %2
   br i1 %.not223, label %141, label %138
 
 138:                                              ; preds = %135
-  %139 = tail call ptr @makeRelabelType(ptr noundef nonnull %1, i32 noundef %136, i32 noundef -1, i32 noundef 0, i32 noundef 2) #5
+  %139 = tail call ptr @makeRelabelType(ptr noundef nonnull %1, i32 noundef %136, i32 noundef -1, i32 noundef 0, i32 noundef 2) #4
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   store i32 %7, ptr %140, align 8
   br label %141
@@ -570,12 +569,11 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
   br label %151
 
 146:                                              ; preds = %133
-  %147 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %147)
-  %148 = tail call ptr @format_type_be(i32 noundef %2) #5
-  %149 = tail call ptr @format_type_be(i32 noundef %3) #5
-  %150 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %148, ptr noundef %149) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 544, ptr noundef nonnull @__func__.coerce_type) #5
+  %147 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %148 = tail call ptr @format_type_be(i32 noundef %2) #4
+  %149 = tail call ptr @format_type_be(i32 noundef %3) #4
+  %150 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %148, ptr noundef %149) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 544, ptr noundef nonnull @__func__.coerce_type) #4
   unreachable
 
 151:                                              ; preds = %129, %127, %88, %93, %84, %27, %25, %15, %15, %15, %15, %15, %8, %141, %124, %119, %77
@@ -586,7 +584,7 @@ thread-pre-split.thread:                          ; preds = %81, %thread-pre-spl
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @coerce_type_typmod(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
-  %8 = tail call i32 @exprTypmod(ptr noundef %0) #5
+  %8 = tail call i32 @exprTypmod(ptr noundef %0) #4
   %9 = icmp eq i32 %2, %8
   br i1 %9, label %41, label %10
 
@@ -602,7 +600,7 @@ define internal fastcc ptr @coerce_type_typmod(ptr noundef %0, i32 noundef %1, i
   br i1 %13, label %find_typmod_coercion_function.exit.thread, label %14
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @typeidType(i32 noundef %1) #5
+  %15 = tail call ptr @typeidType(i32 noundef %1) #4
   %16 = getelementptr i8, ptr %15, i64 16
   %.val22.i = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 22
@@ -625,9 +623,9 @@ define internal fastcc ptr @coerce_type_typmod(ptr noundef %0, i32 noundef %1, i
 27:                                               ; preds = %23, %14
   %.015.i = phi i32 [ 1, %14 ], [ %spec.select.i, %23 ]
   %.0.i = phi i32 [ %1, %14 ], [ %spec.select20.i, %23 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %15) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %15) #4
   %28 = zext i32 %.0.i to i64
-  %29 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %28, i64 noundef %28) #5
+  %29 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %28, i64 noundef %28) #4
   %.not18.i = icmp eq ptr %29, null
   br i1 %.not18.i, label %find_typmod_coercion_function.exit.thread, label %find_typmod_coercion_function.exit
 
@@ -641,7 +639,7 @@ find_typmod_coercion_function.exit:               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4
   %.fr = freeze i32 %36
-  tail call void @ReleaseSysCache(ptr noundef nonnull %29) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %29) #4
   %.not19.i = icmp eq i32 %.fr, 0
   br i1 %.not19.i, label %find_typmod_coercion_function.exit.thread, label %37
 
@@ -650,8 +648,8 @@ find_typmod_coercion_function.exit:               ; preds = %27
   br label %41
 
 find_typmod_coercion_function.exit.thread:        ; preds = %find_typmod_coercion_function.exit, %27, %12
-  %39 = tail call i32 @exprCollation(ptr noundef %0) #5
-  %40 = tail call ptr @applyRelabelType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %39, i32 noundef %4, i32 noundef %5, i1 noundef zeroext false) #5
+  %39 = tail call i32 @exprCollation(ptr noundef %0) #4
+  %40 = tail call ptr @applyRelabelType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %39, i32 noundef %4, i32 noundef %5, i1 noundef zeroext false) #4
   br label %41
 
 41:                                               ; preds = %37, %find_typmod_coercion_function.exit.thread, %7
@@ -696,7 +694,7 @@ define dso_local noundef ptr @coerce_to_domain(ptr noundef %0, i32 noundef %1, i
   br label %12
 
 12:                                               ; preds = %11, %10
-  %13 = tail call i32 @exprTypmod(ptr noundef %0) #5
+  %13 = tail call i32 @exprTypmod(ptr noundef %0) #4
   %14 = icmp eq i32 %2, %13
   br i1 %14, label %coerce_type_typmod.exit, label %15
 
@@ -705,7 +703,7 @@ define dso_local noundef ptr @coerce_to_domain(ptr noundef %0, i32 noundef %1, i
   br i1 %16, label %find_typmod_coercion_function.exit.thread, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @typeidType(i32 noundef %1) #5
+  %18 = tail call ptr @typeidType(i32 noundef %1) #4
   %19 = getelementptr i8, ptr %18, i64 16
   %.val22.i = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 22
@@ -728,9 +726,9 @@ define dso_local noundef ptr @coerce_to_domain(ptr noundef %0, i32 noundef %1, i
 30:                                               ; preds = %26, %17
   %.015.i = phi i32 [ 1, %17 ], [ %spec.select.i, %26 ]
   %.0.i23 = phi i32 [ %1, %17 ], [ %spec.select20.i, %26 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %18) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %18) #4
   %31 = zext i32 %.0.i23 to i64
-  %32 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %31, i64 noundef %31) #5
+  %32 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %31, i64 noundef %31) #4
   %.not18.i = icmp eq ptr %32, null
   br i1 %.not18.i, label %find_typmod_coercion_function.exit.thread, label %find_typmod_coercion_function.exit
 
@@ -744,7 +742,7 @@ find_typmod_coercion_function.exit:               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load i32, ptr %38, align 4
   %.fr = freeze i32 %39
-  tail call void @ReleaseSysCache(ptr noundef nonnull %32) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %32) #4
   %.not19.i = icmp eq i32 %.fr, 0
   br i1 %.not19.i, label %find_typmod_coercion_function.exit.thread, label %40
 
@@ -753,13 +751,13 @@ find_typmod_coercion_function.exit:               ; preds = %30
   br label %coerce_type_typmod.exit
 
 find_typmod_coercion_function.exit.thread:        ; preds = %find_typmod_coercion_function.exit, %30, %15
-  %42 = tail call i32 @exprCollation(ptr noundef %0) #5
-  %43 = tail call ptr @applyRelabelType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %42, i32 noundef 2, i32 noundef %6, i1 noundef zeroext false) #5
+  %42 = tail call i32 @exprCollation(ptr noundef %0) #4
+  %43 = tail call ptr @applyRelabelType(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %42, i32 noundef 2, i32 noundef %6, i1 noundef zeroext false) #4
   br label %coerce_type_typmod.exit
 
 coerce_type_typmod.exit:                          ; preds = %12, %40, %find_typmod_coercion_function.exit.thread
   %.022.i = phi ptr [ %0, %12 ], [ %41, %40 ], [ %43, %find_typmod_coercion_function.exit.thread ]
-  %44 = tail call noundef ptr @palloc0(i64 noundef 40) #5
+  %44 = tail call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 55, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %.022.i, ptr %45, align 8
@@ -792,7 +790,7 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call i32 @getBaseType(i32 noundef %1) #5
+  %11 = tail call i32 @getBaseType(i32 noundef %1) #4
   br label %12
 
 12:                                               ; preds = %10, %4
@@ -801,7 +799,7 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   br i1 %.not50, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @getBaseType(i32 noundef %0) #5
+  %14 = tail call i32 @getBaseType(i32 noundef %0) #4
   br label %15
 
 15:                                               ; preds = %13, %12
@@ -812,7 +810,7 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
 17:                                               ; preds = %15
   %18 = zext i32 %.040 to i64
   %19 = zext i32 %.039 to i64
-  %20 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %18, i64 noundef %19) #5
+  %20 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %18, i64 noundef %19) #4
   %.not51 = icmp eq ptr %20, null
   br i1 %.not51, label %48, label %21
 
@@ -835,12 +833,11 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   br label %35
 
 30:                                               ; preds = %21
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %31)
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %32 = load i8, ptr %27, align 4
   %33 = sext i8 %32 to i32
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %33) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3196, ptr noundef nonnull @__func__.find_coercion_pathway) #5
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.40, i32 noundef %33) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3196, ptr noundef nonnull @__func__.find_coercion_pathway) #4
   unreachable
 
 35:                                               ; preds = %21, %29
@@ -867,17 +864,16 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   br label %47
 
 42:                                               ; preds = %.thread
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %43)
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %44 = load i8, ptr %36, align 1
   %45 = sext i8 %44 to i32
-  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %45) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3218, ptr noundef nonnull @__func__.find_coercion_pathway) #5
+  %46 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.41, i32 noundef %45) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3218, ptr noundef nonnull @__func__.find_coercion_pathway) #4
   unreachable
 
 47:                                               ; preds = %.thread, %38, %41, %35
   %.042 = phi i32 [ 1, %38 ], [ 2, %41 ], [ 0, %35 ], [ 4, %.thread ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %20) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %20) #4
   br label %.thread62
 
 48:                                               ; preds = %17
@@ -886,12 +882,12 @@ define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 
   br i1 %or.cond.not, label %select.unfold, label %50
 
 50:                                               ; preds = %48
-  %51 = tail call i32 @get_element_type(i32 noundef %.039) #5
+  %51 = tail call i32 @get_element_type(i32 noundef %.039) #4
   %.not52 = icmp eq i32 %51, 0
   br i1 %.not52, label %select.unfold, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @get_element_type(i32 noundef %.040) #5
+  %53 = tail call i32 @get_element_type(i32 noundef %.040) #4
   %.not53 = icmp eq i32 %53, 0
   br i1 %.not53, label %select.unfold, label %54
 
@@ -909,7 +905,7 @@ select.unfold:                                    ; preds = %54, %48, %52, %50
 56:                                               ; preds = %select.unfold
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @get_type_category_preferred(i32 noundef %.039, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
+  call void @get_type_category_preferred(i32 noundef %.039, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   %57 = load i8, ptr %7, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -923,7 +919,7 @@ select.unfold:                                    ; preds = %54, %48, %52, %50
 61:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @get_type_category_preferred(i32 noundef %.040, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  call void @get_type_category_preferred(i32 noundef %.040, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %62 = load i8, ptr %5, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -952,15 +948,14 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
 
 10:                                               ; preds = %8
   %11 = zext i32 %2 to i64
-  %12 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %11) #5
+  %12 = tail call ptr @SearchSysCache1(i32 noundef 47, i64 noundef %11) #4
   %.not70 = icmp eq ptr %12, null
   br i1 %.not70, label %13, label %16
 
 13:                                               ; preds = %10
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i32 noundef %2) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 853, ptr noundef nonnull @__func__.build_coercion_expression) #5
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, i32 noundef %2) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 853, ptr noundef nonnull @__func__.build_coercion_expression) #4
   unreachable
 
 16:                                               ; preds = %10
@@ -973,7 +968,7 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %23 = load i16, ptr %22, align 4
   %24 = sext i16 %23 to i32
-  tail call void @ReleaseSysCache(ptr noundef nonnull %12) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %12) #4
   br label %25
 
 25:                                               ; preds = %16, %8
@@ -985,42 +980,42 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   ]
 
 26:                                               ; preds = %25
-  %27 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #5
+  %27 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %0) #4
   %28 = icmp sgt i32 %.064, 1
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %26
   %30 = sext i32 %4 to i64
-  %31 = tail call ptr @makeConst(i32 noundef 23, i32 noundef -1, i32 noundef 0, i32 noundef 4, i64 noundef %30, i1 noundef zeroext false, i1 noundef zeroext true) #5
-  %32 = tail call ptr @lappend(ptr noundef %27, ptr noundef %31) #5
+  %31 = tail call ptr @makeConst(i32 noundef 23, i32 noundef -1, i32 noundef 0, i32 noundef 4, i64 noundef %30, i1 noundef zeroext false, i1 noundef zeroext true) #4
+  %32 = tail call ptr @lappend(ptr noundef %27, ptr noundef %31) #4
   %33 = icmp eq i32 %.064, 3
   br i1 %33, label %34, label %.thread
 
 34:                                               ; preds = %29
   %35 = icmp eq i32 %5, 3
   %36 = zext i1 %35 to i64
-  %37 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef %36, i1 noundef zeroext false, i1 noundef zeroext true) #5
-  %38 = tail call ptr @lappend(ptr noundef %32, ptr noundef %37) #5
+  %37 = tail call ptr @makeConst(i32 noundef 16, i32 noundef -1, i32 noundef 0, i32 noundef 1, i64 noundef %36, i1 noundef zeroext false, i1 noundef zeroext true) #4
+  %38 = tail call ptr @lappend(ptr noundef %32, ptr noundef %37) #4
   br label %.thread
 
 .thread:                                          ; preds = %26, %34, %29
   %.1 = phi ptr [ %38, %34 ], [ %32, %29 ], [ %27, %26 ]
-  %39 = tail call ptr @makeFuncExpr(i32 noundef %2, i32 noundef %3, ptr noundef %.1, i32 noundef 0, i32 noundef 0, i32 noundef %6) #5
+  %39 = tail call ptr @makeFuncExpr(i32 noundef %2, i32 noundef %3, ptr noundef %.1, i32 noundef 0, i32 noundef 0, i32 noundef %6) #4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 %7, ptr %40, align 8
   br label %76
 
 41:                                               ; preds = %25
-  %42 = tail call noundef ptr @palloc0(i64 noundef 48) #5
+  %42 = tail call noundef ptr @palloc0(i64 noundef 48) #4
   store i32 29, ptr %42, align 4
-  %43 = tail call noundef ptr @palloc0(i64 noundef 16) #5
+  %43 = tail call noundef ptr @palloc0(i64 noundef 16) #4
   store i32 34, ptr %43, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %44 = tail call i32 @exprTypmod(ptr noundef %0) #5
+  %44 = tail call i32 @exprTypmod(ptr noundef %0) #4
   store i32 %44, ptr %9, align 4
-  %45 = tail call i32 @exprType(ptr noundef %0) #5
-  %46 = call i32 @getBaseTypeAndTypmod(i32 noundef %45, ptr noundef nonnull %9) #5
-  %47 = call i32 @get_element_type(i32 noundef %46) #5
+  %45 = tail call i32 @exprType(ptr noundef %0) #4
+  %46 = call i32 @getBaseTypeAndTypmod(i32 noundef %45, ptr noundef nonnull %9) #4
+  %47 = call i32 @get_element_type(i32 noundef %46) #4
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %47, ptr %48, align 4
   %49 = load i32, ptr %9, align 4
@@ -1028,17 +1023,16 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   store i32 %49, ptr %50, align 4
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 0, ptr %51, align 4
-  %52 = call i32 @get_element_type(i32 noundef %3) #5
+  %52 = call i32 @get_element_type(i32 noundef %3) #4
   %53 = load i32, ptr %48, align 4
   %54 = call ptr @coerce_to_target_type(ptr noundef null, ptr noundef nonnull %43, i32 noundef %53, i32 noundef %52, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %41
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 961, ptr noundef nonnull @__func__.build_coercion_expression) #5
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 961, ptr noundef nonnull @__func__.build_coercion_expression) #4
   unreachable
 
 59:                                               ; preds = %41
@@ -1048,7 +1042,7 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   store ptr %54, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i32 %3, ptr %62, align 8
-  %63 = call i32 @exprTypmod(ptr noundef nonnull %54) #5
+  %63 = call i32 @exprTypmod(ptr noundef nonnull %54) #4
   %64 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 %63, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %42, i64 36
@@ -1059,7 +1053,7 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   br label %76
 
 67:                                               ; preds = %25
-  %68 = tail call noundef ptr @palloc0(i64 noundef 32) #5
+  %68 = tail call noundef ptr @palloc0(i64 noundef 32) #4
   store i32 28, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %0, ptr %69, align 8
@@ -1072,10 +1066,9 @@ define internal fastcc ptr @build_coercion_expression(ptr noundef %0, i32 nounde
   br label %76
 
 73:                                               ; preds = %25
-  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %74)
-  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %1) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 996, ptr noundef nonnull @__func__.build_coercion_expression) #5
+  %74 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.45, i32 noundef %1) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 996, ptr noundef nonnull @__func__.build_coercion_expression) #4
   unreachable
 
 76:                                               ; preds = %67, %59, %.thread
@@ -1114,26 +1107,25 @@ define internal fastcc noundef ptr @coerce_record_to_complex(ptr noundef %0, ptr
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %22 = load i32, ptr %21, align 8
-  %23 = tail call ptr @GetNSItemByRangeTablePosn(ptr noundef %0, i32 noundef %18, i32 noundef %20) #5
-  %24 = tail call ptr @expandNSItemVars(ptr noundef %0, ptr noundef %23, i32 noundef %20, i32 noundef %22, ptr noundef null) #5
+  %23 = tail call ptr @GetNSItemByRangeTablePosn(ptr noundef %0, i32 noundef %18, i32 noundef %20) #4
+  %24 = tail call ptr @expandNSItemVars(ptr noundef %0, ptr noundef %23, i32 noundef %20, i32 noundef %22, ptr noundef null) #4
   br label %32
 
 25:                                               ; preds = %6, %12
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 @errcode(i32 noundef 101744772) #5
-  %28 = tail call ptr @format_type_be(i32 noundef 2249) #5
-  %29 = tail call ptr @format_type_be(i32 noundef %2) #5
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %28, ptr noundef %29) #5
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %27 = tail call i32 @errcode(i32 noundef 101744772) #4
+  %28 = tail call ptr @format_type_be(i32 noundef 2249) #4
+  %29 = tail call ptr @format_type_be(i32 noundef %2) #4
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %28, ptr noundef %29) #4
   %31 = tail call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1)
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1051, ptr noundef nonnull @__func__.coerce_record_to_complex) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1051, ptr noundef nonnull @__func__.coerce_record_to_complex) #4
   unreachable
 
 32:                                               ; preds = %16, %9
   %.082 = phi ptr [ %11, %9 ], [ %24, %16 ]
-  %33 = call i32 @getBaseTypeAndTypmod(i32 noundef %2, ptr noundef nonnull %7) #5
+  %33 = call i32 @getBaseTypeAndTypmod(i32 noundef %2, ptr noundef nonnull %7) #4
   %34 = load i32, ptr %7, align 4
-  %35 = call ptr @lookup_rowtype_tupdesc(i32 noundef %33, i32 noundef %34) #5
+  %35 = call ptr @lookup_rowtype_tupdesc(i32 noundef %33, i32 noundef %34) #4
   %.not.i = icmp eq ptr %.082, null
   br i1 %.not.i, label %list_head.exit, label %36
 
@@ -1170,8 +1162,8 @@ list_head.exit:                                   ; preds = %32, %36
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %44
-  %55 = call ptr @makeNullConst(i32 noundef 23, i32 noundef -1, i32 noundef 0) #5
-  %56 = call ptr @lappend(ptr noundef %.083108, ptr noundef %55) #5
+  %55 = call ptr @makeNullConst(i32 noundef 23, i32 noundef -1, i32 noundef 0) #4
+  %56 = call ptr @lappend(ptr noundef %.083108, ptr noundef %55) #4
   br label %95
 
 57:                                               ; preds = %44
@@ -1179,20 +1171,19 @@ list_head.exit:                                   ; preds = %32, %36
   br i1 %58, label %59, label %67
 
 59:                                               ; preds = %57
-  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %60)
-  %61 = call i32 @errcode(i32 noundef 101744772) #5
-  %62 = call ptr @format_type_be(i32 noundef 2249) #5
-  %63 = call ptr @format_type_be(i32 noundef %2) #5
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %62, ptr noundef %63) #5
-  %65 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.47) #5
+  %60 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %61 = call i32 @errcode(i32 noundef 101744772) #4
+  %62 = call ptr @format_type_be(i32 noundef 2249) #4
+  %63 = call ptr @format_type_be(i32 noundef %2) #4
+  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %62, ptr noundef %63) #4
+  %65 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.47) #4
   %66 = call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1)
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1090, ptr noundef nonnull @__func__.coerce_record_to_complex) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1090, ptr noundef nonnull @__func__.coerce_record_to_complex) #4
   unreachable
 
 67:                                               ; preds = %57
   %68 = load ptr, ptr %.087105, align 8
-  %69 = call i32 @exprType(ptr noundef %68) #5
+  %69 = call i32 @exprType(ptr noundef %68) #4
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 68
   %71 = load i32, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 76
@@ -1203,22 +1194,21 @@ list_head.exit:                                   ; preds = %32, %36
 
 76:                                               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %50, i64 68
-  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %78)
-  %79 = call i32 @errcode(i32 noundef 101744772) #5
-  %80 = call ptr @format_type_be(i32 noundef 2249) #5
-  %81 = call ptr @format_type_be(i32 noundef %2) #5
-  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %80, ptr noundef %81) #5
-  %83 = call ptr @format_type_be(i32 noundef %69) #5
+  %78 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %79 = call i32 @errcode(i32 noundef 101744772) #4
+  %80 = call ptr @format_type_be(i32 noundef 2249) #4
+  %81 = call ptr @format_type_be(i32 noundef %2) #4
+  %82 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %80, ptr noundef %81) #4
+  %83 = call ptr @format_type_be(i32 noundef %69) #4
   %84 = load i32, ptr %77, align 4
-  %85 = call ptr @format_type_be(i32 noundef %84) #5
-  %86 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.48, ptr noundef %83, ptr noundef %85, i32 noundef %.085106) #5
+  %85 = call ptr @format_type_be(i32 noundef %84) #4
+  %86 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.48, ptr noundef %83, ptr noundef %85, i32 noundef %.085106) #4
   %87 = call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %5, ptr noundef %68)
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @__func__.coerce_record_to_complex) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @__func__.coerce_record_to_complex) #4
   unreachable
 
 88:                                               ; preds = %67
-  %89 = call ptr @lappend(ptr noundef %.083108, ptr noundef nonnull %74) #5
+  %89 = call ptr @lappend(ptr noundef %.083108, ptr noundef nonnull %74) #4
   %90 = add i32 %.085106, 1
   %.082.val = load i32, ptr %42, align 4
   %.082.val95 = load ptr, ptr %43, align 8
@@ -1246,15 +1236,14 @@ list_head.exit:                                   ; preds = %32, %36
   br i1 %.not, label %107, label %99
 
 99:                                               ; preds = %._crit_edge
-  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %100)
-  %101 = call i32 @errcode(i32 noundef 101744772) #5
-  %102 = call ptr @format_type_be(i32 noundef 2249) #5
-  %103 = call ptr @format_type_be(i32 noundef %2) #5
-  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %102, ptr noundef %103) #5
-  %105 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.49) #5
+  %100 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %101 = call i32 @errcode(i32 noundef 101744772) #4
+  %102 = call ptr @format_type_be(i32 noundef 2249) #4
+  %103 = call ptr @format_type_be(i32 noundef %2) #4
+  %104 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %102, ptr noundef %103) #4
+  %105 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.49) #4
   %106 = call i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %5, ptr noundef nonnull %1)
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1123, ptr noundef nonnull @__func__.coerce_record_to_complex) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1123, ptr noundef nonnull @__func__.coerce_record_to_complex) #4
   unreachable
 
 107:                                              ; preds = %._crit_edge
@@ -1264,11 +1253,11 @@ list_head.exit:                                   ; preds = %32, %36
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %107
-  call void @DecrTupleDescRefCount(ptr noundef nonnull %35) #5
+  call void @DecrTupleDescRefCount(ptr noundef nonnull %35) #4
   br label %112
 
 112:                                              ; preds = %111, %107
-  %113 = call noundef ptr @palloc0(i64 noundef 40) #5
+  %113 = call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 36, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %.083.lcssa, ptr %114, align 8
@@ -1287,7 +1276,7 @@ coerce_to_domain.exit:                            ; preds = %112
   store i32 2, ptr %116, align 4
   %119 = load i32, ptr %7, align 4
   %120 = call fastcc ptr @coerce_type_typmod(ptr noundef nonnull %113, i32 noundef %33, i32 noundef %119, i32 noundef %3, i32 noundef 2, i32 noundef %5, i1 noundef zeroext false)
-  %121 = call noundef ptr @palloc0(i64 noundef 40) #5
+  %121 = call noundef ptr @palloc0(i64 noundef 40) #4
   store i32 55, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %120, ptr %122, align 8
@@ -1309,12 +1298,12 @@ coerce_to_domain.exit:                            ; preds = %112
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @is_complex_array(i32 noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 @get_element_type(i32 noundef %0) #5
+  %2 = tail call i32 @get_element_type(i32 noundef %0) #4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %2) #5
+  %4 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %2) #4
   %5 = icmp ne i32 %4, 0
   br label %6
 
@@ -1327,21 +1316,20 @@ declare zeroext i1 @typeInheritsFrom(i32 noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @typeIsOfTypedTable(i32 noundef %0, i32 noundef range(i32 2277, 2276) %1) unnamed_addr #0 {
-  %3 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %0) #5
+  %3 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %0) #4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %19, label %4
 
 4:                                                ; preds = %2
   %5 = zext i32 %3 to i64
-  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #5
+  %6 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %5) #4
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %7, label %10
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %3) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3392, ptr noundef nonnull @__func__.typeIsOfTypedTable) #5
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %9 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %3) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3392, ptr noundef nonnull @__func__.typeIsOfTypedTable) #4
   unreachable
 
 10:                                               ; preds = %4
@@ -1354,7 +1342,7 @@ define internal fastcc zeroext i1 @typeIsOfTypedTable(i32 noundef %0, i32 nounde
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 76
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %1
-  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %6) #4
   br label %19
 
 19:                                               ; preds = %10, %2
@@ -1438,7 +1426,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %15, label %.thread288, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @getBaseType(i32 noundef %9) #5
+  %17 = tail call i32 @getBaseType(i32 noundef %9) #4
   %.not232 = icmp eq i32 %.0143366, 0
   %.not233 = icmp eq i32 %17, %.0143366
   %or.cond258 = select i1 %.not232, i1 true, i1 %.not233
@@ -1449,7 +1437,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %19, label %.thread288, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @getBaseType(i32 noundef %9) #5
+  %21 = tail call i32 @getBaseType(i32 noundef %9) #4
   %.not230 = icmp eq i32 %.0147365, 0
   %.not231 = icmp eq i32 %21, %.0147365
   %or.cond259 = select i1 %.not230, i1 true, i1 %.not231
@@ -1460,7 +1448,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %23, label %.thread288, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @getBaseType(i32 noundef %9) #5
+  %25 = tail call i32 @getBaseType(i32 noundef %9) #4
   %.not228 = icmp eq i32 %.0154364, 0
   %.not229 = icmp eq i32 %25, %.0154364
   %or.cond260 = select i1 %.not228, i1 true, i1 %.not229
@@ -1479,8 +1467,8 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %30, label %.thread288, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call i32 @getBaseType(i32 noundef %9) #5
-  %33 = tail call i32 @get_element_type(i32 noundef %32) #5
+  %32 = tail call i32 @getBaseType(i32 noundef %9) #4
+  %33 = tail call i32 @get_element_type(i32 noundef %32) #4
   %.not227 = icmp eq i32 %33, 0
   br i1 %.not227, label %.critedge, label %.thread288.sink.split
 
@@ -1489,7 +1477,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %35, label %.thread288, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call i32 @getBaseType(i32 noundef %9) #5
+  %37 = tail call i32 @getBaseType(i32 noundef %9) #4
   %.not224 = icmp eq i32 %.0199355, 0
   br i1 %.not224, label %39, label %38
 
@@ -1498,7 +1486,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.not226, label %.thread288, label %.critedge
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @get_range_subtype(i32 noundef %37) #5
+  %40 = tail call i32 @get_range_subtype(i32 noundef %37) #4
   %.not225 = icmp eq i32 %40, 0
   br i1 %.not225, label %.critedge, label %.thread288.sink.split
 
@@ -1507,7 +1495,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %42, label %.thread288, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i32 @getBaseType(i32 noundef %9) #5
+  %44 = tail call i32 @getBaseType(i32 noundef %9) #4
   %.not = icmp eq i32 %.0190357, 0
   br i1 %.not, label %46, label %45
 
@@ -1516,7 +1504,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.not223, label %.thread288, label %.critedge
 
 46:                                               ; preds = %43
-  %47 = tail call i32 @get_multirange_range(i32 noundef %44) #5
+  %47 = tail call i32 @get_multirange_range(i32 noundef %44) #4
   %.not222 = icmp eq i32 %47, 0
   br i1 %.not222, label %.critedge, label %.thread288
 
@@ -1556,7 +1544,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   ]
 
 52:                                               ; preds = %._crit_edge
-  %53 = tail call i32 @get_element_type(i32 noundef %.2145312) #5
+  %53 = tail call i32 @get_element_type(i32 noundef %.2145312) #4
   %.not237 = icmp eq i32 %53, 0
   br i1 %.not237, label %.critedge, label %54
 
@@ -1574,7 +1562,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.not240, label %62, label %56
 
 56:                                               ; preds = %.thread324
-  %57 = tail call i32 @get_multirange_range(i32 noundef %.2156310) #5
+  %57 = tail call i32 @get_multirange_range(i32 noundef %.2156310) #4
   %.not241 = icmp eq i32 %57, 0
   br i1 %.not241, label %.critedge, label %58
 
@@ -1583,7 +1571,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.not242, label %59, label %61
 
 59:                                               ; preds = %58
-  %60 = tail call i32 @get_range_subtype(i32 noundef %57) #5
+  %60 = tail call i32 @get_range_subtype(i32 noundef %57) #4
   %.not243 = icmp eq i32 %60, 0
   br i1 %.not243, label %.critedge, label %.thread335
 
@@ -1597,7 +1585,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
 
 .thread335:                                       ; preds = %59, %61, %62
   %.4151338 = phi i32 [ %.2149311, %62 ], [ %57, %59 ], [ %.2149311, %61 ]
-  %63 = tail call i32 @get_range_subtype(i32 noundef %.4151338) #5
+  %63 = tail call i32 @get_range_subtype(i32 noundef %.4151338) #4
   %.not246 = icmp eq i32 %63, 0
   br i1 %.not246, label %.critedge, label %64
 
@@ -1614,7 +1602,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.3184306, label %67, label %69
 
 67:                                               ; preds = %66
-  %68 = tail call i32 @get_base_element_type(i32 noundef %.7142) #5
+  %68 = tail call i32 @get_base_element_type(i32 noundef %.7142) #4
   %.not249 = icmp eq i32 %68, 0
   br i1 %.not249, label %69, label %.critedge
 
@@ -1622,7 +1610,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.3179307, label %70, label %72
 
 70:                                               ; preds = %69
-  %71 = tail call zeroext i1 @type_is_enum(i32 noundef %.7142) #5
+  %71 = tail call zeroext i1 @type_is_enum(i32 noundef %.7142) #4
   br i1 %71, label %72, label %.critedge
 
 72:                                               ; preds = %70, %69
@@ -1637,7 +1625,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   br i1 %.not253, label %81, label %.critedge
 
 75:                                               ; preds = %73
-  %76 = tail call i32 @get_range_subtype(i32 noundef %.2188305) #5
+  %76 = tail call i32 @get_range_subtype(i32 noundef %.2188305) #4
   %.not252 = icmp eq i32 %76, 0
   br i1 %.not252, label %.critedge, label %77
 
@@ -1685,7 +1673,7 @@ verify_common_type_from_oids.exit:                ; preds = %87
   br i1 %.2173308, label %91, label %93
 
 91:                                               ; preds = %90
-  %92 = tail call i32 @get_base_element_type(i32 noundef %84) #5
+  %92 = tail call i32 @get_base_element_type(i32 noundef %84) #4
   %.not255 = icmp eq i32 %92, 0
   br i1 %.not255, label %93, label %.critedge
 
@@ -1750,11 +1738,10 @@ define internal fastcc void @hide_coercion_node(ptr noundef captures(none) %0) u
   br label %21
 
 17:                                               ; preds = %1
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %18)
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
   %19 = load i32, ptr %0, align 4
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %19) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 826, ptr noundef nonnull @__func__.hide_coercion_node) #5
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, i32 noundef %19) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 826, ptr noundef nonnull @__func__.hide_coercion_node) #4
   unreachable
 
 21:                                               ; preds = %5, %9, %13, %15, %11, %7, %3
@@ -1763,7 +1750,7 @@ define internal fastcc void @hide_coercion_node(ptr noundef captures(none) %0) u
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @coerce_to_boolean(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @exprType(ptr noundef %1) #5
+  %4 = tail call i32 @exprType(ptr noundef %1) #4
   %.not = icmp eq i32 %4, 16
   br i1 %.not, label %15, label %5
 
@@ -1773,29 +1760,27 @@ define dso_local noundef ptr @coerce_to_boolean(ptr noundef %0, ptr noundef %1, 
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %5
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %11 = tail call ptr @format_type_be(i32 noundef %4) #5
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %11) #5
-  %13 = tail call i32 @exprLocation(ptr noundef %1) #5
-  %14 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %13) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1180, ptr noundef nonnull @__func__.coerce_to_boolean) #5
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %10 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %11 = tail call ptr @format_type_be(i32 noundef %4) #4
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef nonnull @.str.3, ptr noundef %11) #4
+  %13 = tail call i32 @exprLocation(ptr noundef %1) #4
+  %14 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %13) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1180, ptr noundef nonnull @__func__.coerce_to_boolean) #4
   unreachable
 
 15:                                               ; preds = %5, %3
   %.0 = phi ptr [ %1, %3 ], [ %6, %5 ]
-  %16 = tail call zeroext i1 @expression_returns_set(ptr noundef %.0) #5
+  %16 = tail call zeroext i1 @expression_returns_set(ptr noundef %.0) #4
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %15
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %2) #5
-  %21 = tail call i32 @exprLocation(ptr noundef %.0) #5
-  %22 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %21) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1190, ptr noundef nonnull @__func__.coerce_to_boolean) #5
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %19 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %20 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %2) #4
+  %21 = tail call i32 @exprLocation(ptr noundef %.0) #4
+  %22 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %21) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1190, ptr noundef nonnull @__func__.coerce_to_boolean) #4
   unreachable
 
 23:                                               ; preds = %15
@@ -1816,7 +1801,7 @@ declare zeroext i1 @expression_returns_set(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @coerce_to_specific_type_typmod(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = tail call i32 @exprType(ptr noundef %1) #5
+  %6 = tail call i32 @exprType(ptr noundef %1) #4
   %.not = icmp eq i32 %6, %2
   br i1 %.not, label %18, label %7
 
@@ -1826,30 +1811,28 @@ define dso_local noundef ptr @coerce_to_specific_type_typmod(ptr noundef %0, ptr
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %13 = tail call ptr @format_type_be(i32 noundef %2) #5
-  %14 = tail call ptr @format_type_be(i32 noundef %6) #5
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %13, ptr noundef %14) #5
-  %16 = tail call i32 @exprLocation(ptr noundef %1) #5
-  %17 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %16) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1229, ptr noundef nonnull @__func__.coerce_to_specific_type_typmod) #5
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %12 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %13 = tail call ptr @format_type_be(i32 noundef %2) #4
+  %14 = tail call ptr @format_type_be(i32 noundef %6) #4
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %13, ptr noundef %14) #4
+  %16 = tail call i32 @exprLocation(ptr noundef %1) #4
+  %17 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %16) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1229, ptr noundef nonnull @__func__.coerce_to_specific_type_typmod) #4
   unreachable
 
 18:                                               ; preds = %7, %5
   %.0 = phi ptr [ %1, %5 ], [ %8, %7 ]
-  %19 = tail call zeroext i1 @expression_returns_set(ptr noundef %.0) #5
+  %19 = tail call zeroext i1 @expression_returns_set(ptr noundef %.0) #4
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %4) #5
-  %24 = tail call i32 @exprLocation(ptr noundef %.0) #5
-  %25 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %24) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1239, ptr noundef nonnull @__func__.coerce_to_specific_type_typmod) #5
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %22 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %4) #4
+  %24 = tail call i32 @exprLocation(ptr noundef %.0) #4
+  %25 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %24) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1239, ptr noundef nonnull @__func__.coerce_to_specific_type_typmod) #4
   unreachable
 
 26:                                               ; preds = %18
@@ -1867,9 +1850,9 @@ define dso_local ptr @coerce_null_to_domain(i32 noundef %0, i32 noundef %1, i32 
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %1, ptr %6, align 4
-  %7 = call i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef nonnull %6) #5
+  %7 = call i32 @getBaseTypeAndTypmod(i32 noundef %0, ptr noundef nonnull %6) #4
   %8 = load i32, ptr %6, align 4
-  %9 = call ptr @makeConst(i32 noundef %7, i32 noundef %8, i32 noundef %2, i32 noundef %3, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext %4) #5
+  %9 = call ptr @makeConst(i32 noundef %7, i32 noundef %8, i32 noundef %2, i32 noundef %3, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext %4) #4
   %.not = icmp eq i32 %0, %7
   br i1 %.not, label %13, label %10
 
@@ -1892,12 +1875,12 @@ define dso_local i32 @parser_coercion_errposition(ptr noundef %0, i32 noundef %1
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @exprLocation(ptr noundef %2) #5
+  %6 = tail call i32 @exprLocation(ptr noundef %2) #4
   br label %7
 
 7:                                                ; preds = %3, %5
   %.sink = phi i32 [ %6, %5 ], [ %1, %3 ]
-  %8 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %.sink) #5
+  %8 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %.sink) #4
   ret i32 %8
 }
 
@@ -1921,7 +1904,7 @@ list_second_cell.exit:
   %14 = icmp slt i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %spec.select = select i1 %14, ptr null, ptr %15
-  %16 = tail call i32 @exprType(ptr noundef %11) #5
+  %16 = tail call i32 @exprType(ptr noundef %11) #4
   %.not = icmp eq i32 %16, 705
   br i1 %.not, label %.loopexit, label %17
 
@@ -1956,7 +1939,7 @@ for_each_cell_setup.exit:                         ; preds = %17
   %29 = load ptr, ptr %10, align 8
   %30 = getelementptr inbounds %union.ListCell, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 @exprType(ptr noundef %31) #5
+  %32 = tail call i32 @exprType(ptr noundef %31) #4
   %.not64 = icmp eq i32 %32, %16
   br i1 %.not64, label %25, label %.loopexit.loopexit
 
@@ -1974,9 +1957,9 @@ for_each_cell_setup.exit:                         ; preds = %17
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %list_second_cell.exit
   %.049 = phi ptr [ %spec.select, %list_second_cell.exit ], [ %34, %.loopexit.loopexit ]
-  %35 = tail call i32 @getBaseType(i32 noundef %16) #5
+  %35 = tail call i32 @getBaseType(i32 noundef %16) #4
   store i32 %35, ptr %4, align 4
-  call void @get_type_category_preferred(i32 noundef %35, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  call void @get_type_category_preferred(i32 noundef %35, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %.not.i73 = icmp eq ptr %.049, null
   br i1 %.not.i73, label %._crit_edge110, label %for_each_cell_setup.exit78
 
@@ -2004,8 +1987,8 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   %45 = getelementptr inbounds %union.ListCell, ptr %44, i64 %indvars.iv124
   %46 = load ptr, ptr %45, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %47 = call i32 @exprType(ptr noundef %46) #5
-  %48 = call i32 @getBaseType(i32 noundef %47) #5
+  %47 = call i32 @exprType(ptr noundef %46) #4
+  %48 = call i32 @getBaseType(i32 noundef %47) #4
   store i32 %48, ptr %7, align 4
   %.not67 = icmp eq i32 %48, 705
   %.not68 = icmp eq i32 %48, %43
@@ -2015,7 +1998,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
 49:                                               ; preds = %.lr.ph109
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @get_type_category_preferred(i32 noundef %48, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
+  call void @get_type_category_preferred(i32 noundef %48, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
   %50 = icmp eq i32 %43, 705
   br i1 %50, label %.thread92.sink.split, label %51
 
@@ -2030,15 +2013,14 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   br i1 %55, label %77, label %56
 
 56:                                               ; preds = %54
-  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %57)
-  %58 = call i32 @errcode(i32 noundef 67141764) #5
-  %59 = call ptr @format_type_be(i32 noundef %43) #5
-  %60 = call ptr @format_type_be(i32 noundef %48) #5
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef %59, ptr noundef %60) #5
-  %62 = call i32 @exprLocation(ptr noundef %46) #5
-  %63 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %62) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1422, ptr noundef nonnull @__func__.select_common_type) #5
+  %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %58 = call i32 @errcode(i32 noundef 67141764) #4
+  %59 = call ptr @format_type_be(i32 noundef %43) #4
+  %60 = call ptr @format_type_be(i32 noundef %48) #4
+  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %2, ptr noundef %59, ptr noundef %60) #4
+  %62 = call i32 @exprLocation(ptr noundef %46) #4
+  %63 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %62) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1422, ptr noundef nonnull @__func__.select_common_type) #4
   unreachable
 
 64:                                               ; preds = %51
@@ -2113,7 +2095,7 @@ define dso_local ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %1, i32 
   %6 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = tail call i32 @exprType(ptr noundef %1) #5
+  %7 = tail call i32 @exprType(ptr noundef %1) #4
   store i32 %7, ptr %6, align 4
   %8 = icmp eq i32 %7, %2
   br i1 %8, label %21, label %9
@@ -2127,15 +2109,14 @@ define dso_local ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %1, i32 
   br label %21
 
 13:                                               ; preds = %9
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 101744772) #5
-  %16 = tail call ptr @format_type_be(i32 noundef %7) #5
-  %17 = tail call ptr @format_type_be(i32 noundef %2) #5
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %16, ptr noundef %17) #5
-  %19 = tail call i32 @exprLocation(ptr noundef %1) #5
-  %20 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %19) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1590, ptr noundef nonnull @__func__.coerce_to_common_type) #5
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %15 = tail call i32 @errcode(i32 noundef 101744772) #4
+  %16 = tail call ptr @format_type_be(i32 noundef %7) #4
+  %17 = tail call ptr @format_type_be(i32 noundef %2) #4
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %16, ptr noundef %17) #4
+  %19 = tail call i32 @exprLocation(ptr noundef %1) #4
+  %20 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %19) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1590, ptr noundef nonnull @__func__.coerce_to_common_type) #4
   unreachable
 
 21:                                               ; preds = %4, %11
@@ -2172,7 +2153,7 @@ define dso_local noundef zeroext i1 @verify_common_type(i32 noundef %0, ptr noun
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = tail call i32 @exprType(ptr noundef %15) #5
+  %16 = tail call i32 @exprType(ptr noundef %15) #4
   store i32 %16, ptr %4, align 4
   %17 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2202,12 +2183,12 @@ define dso_local i32 @select_common_typmod(ptr noundef readnone captures(none) %
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @exprType(ptr noundef %10) #5
+  %11 = tail call i32 @exprType(ptr noundef %10) #4
   %.not28 = icmp eq i32 %11, %2
   br i1 %.not28, label %12, label %.thread45
 
 12:                                               ; preds = %.lr.ph63
-  %13 = tail call i32 @exprTypmod(ptr noundef %10) #5
+  %13 = tail call i32 @exprTypmod(ptr noundef %10) #4
   br i1 %.0194961, label %.thread34, label %14
 
 14:                                               ; preds = %12
@@ -2285,9 +2266,9 @@ define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32
 
 17:                                               ; preds = %._crit_edge, %3
   %.017 = phi i32 [ %.118.lcssa, %._crit_edge ], [ 1, %3 ]
-  %18 = tail call i32 @getBaseType(i32 noundef %10) #5
+  %18 = tail call i32 @getBaseType(i32 noundef %10) #4
   store i32 %18, ptr %4, align 4
-  call void @get_type_category_preferred(i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
+  call void @get_type_category_preferred(i32 noundef %18, ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   %19 = icmp samesign ult i32 %.017, %0
   br i1 %19, label %.lr.ph34.preheader, label %._crit_edge35
 
@@ -2302,7 +2283,7 @@ define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv37
   %23 = load i32, ptr %22, align 4
-  %24 = call i32 @getBaseType(i32 noundef %23) #5
+  %24 = call i32 @getBaseType(i32 noundef %23) #4
   store i32 %24, ptr %7, align 4
   %.not24 = icmp eq i32 %24, 705
   %.not25 = icmp eq i32 %24, %21
@@ -2312,7 +2293,7 @@ define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32
 25:                                               ; preds = %.lr.ph34
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @get_type_category_preferred(i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
+  call void @get_type_category_preferred(i32 noundef %24, ptr noundef nonnull %8, ptr noundef nonnull %9) #4
   %26 = icmp eq i32 %21, 705
   br i1 %26, label %.sink.split, label %27
 
@@ -2326,13 +2307,12 @@ define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32
   br i1 %2, label %.critedge, label %31
 
 31:                                               ; preds = %30
-  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  call void @llvm.assume(i1 %32)
-  %33 = call i32 @errcode(i32 noundef 67141764) #5
-  %34 = call ptr @format_type_be(i32 noundef %21) #5
-  %35 = call ptr @format_type_be(i32 noundef %24) #5
-  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef %34, ptr noundef %35) #5
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1536, ptr noundef nonnull @__func__.select_common_type_from_oids) #5
+  %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %33 = call i32 @errcode(i32 noundef 67141764) #4
+  %34 = call ptr @format_type_be(i32 noundef %21) #4
+  %35 = call ptr @format_type_be(i32 noundef %24) #4
+  %36 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.50, ptr noundef %34, ptr noundef %35) #4
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1536, ptr noundef nonnull @__func__.select_common_type_from_oids) #4
   unreachable
 
 37:                                               ; preds = %27
@@ -2508,14 +2488,13 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond516, label %139, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
-  %36 = tail call ptr @format_type_be(i32 noundef %.0347769) #5
-  %37 = tail call ptr @format_type_be(i32 noundef %23) #5
-  %38 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %36, ptr noundef %37) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2192, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %34 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #4
+  %36 = tail call ptr @format_type_be(i32 noundef %.0347769) #4
+  %37 = tail call ptr @format_type_be(i32 noundef %23) #4
+  %38 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %36, ptr noundef %37) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2192, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 39:                                               ; preds = %.lr.ph
@@ -2529,21 +2508,20 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond517, label %139, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call i32 @getBaseType(i32 noundef %23) #5
+  %45 = tail call i32 @getBaseType(i32 noundef %23) #4
   %.not512 = icmp eq i32 %.0350768, 0
   %.not513 = icmp eq i32 %45, %.0350768
   %or.cond518 = select i1 %.not512, i1 true, i1 %.not513
   br i1 %or.cond518, label %139, label %46
 
 46:                                               ; preds = %44
-  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %47)
-  %48 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10) #5
-  %50 = tail call ptr @format_type_be(i32 noundef %.0350768) #5
-  %51 = tail call ptr @format_type_be(i32 noundef %45) #5
-  %52 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %50, ptr noundef %51) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2212, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %47 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %48 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %49 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10) #4
+  %50 = tail call ptr @format_type_be(i32 noundef %.0350768) #4
+  %51 = tail call ptr @format_type_be(i32 noundef %45) #4
+  %52 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %50, ptr noundef %51) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2212, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 53:                                               ; preds = %.lr.ph
@@ -2557,21 +2535,20 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond519, label %139, label %58
 
 58:                                               ; preds = %56
-  %59 = tail call i32 @getBaseType(i32 noundef %23) #5
+  %59 = tail call i32 @getBaseType(i32 noundef %23) #4
   %.not510 = icmp eq i32 %.0360767, 0
   %.not511 = icmp eq i32 %59, %.0360767
   %or.cond520 = select i1 %.not510, i1 true, i1 %.not511
   br i1 %or.cond520, label %139, label %60
 
 60:                                               ; preds = %58
-  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %61)
-  %62 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11) #5
-  %64 = tail call ptr @format_type_be(i32 noundef %.0360767) #5
-  %65 = tail call ptr @format_type_be(i32 noundef %59) #5
-  %66 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %64, ptr noundef %65) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2232, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %61 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %62 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %63 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11) #4
+  %64 = tail call ptr @format_type_be(i32 noundef %.0360767) #4
+  %65 = tail call ptr @format_type_be(i32 noundef %59) #4
+  %66 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %64, ptr noundef %65) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2232, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 67:                                               ; preds = %.lr.ph
@@ -2585,21 +2562,20 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond521, label %139, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call i32 @getBaseType(i32 noundef %23) #5
+  %73 = tail call i32 @getBaseType(i32 noundef %23) #4
   %.not508 = icmp eq i32 %.0367766, 0
   %.not509 = icmp eq i32 %73, %.0367766
   %or.cond522 = select i1 %.not508, i1 true, i1 %.not509
   br i1 %or.cond522, label %139, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %75)
-  %76 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12) #5
-  %78 = tail call ptr @format_type_be(i32 noundef %.0367766) #5
-  %79 = tail call ptr @format_type_be(i32 noundef %73) #5
-  %80 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %78, ptr noundef %79) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2253, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %75 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %76 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %77 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12) #4
+  %78 = tail call ptr @format_type_be(i32 noundef %.0367766) #4
+  %79 = tail call ptr @format_type_be(i32 noundef %73) #4
+  %80 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %78, ptr noundef %79) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2253, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 81:                                               ; preds = %.lr.ph
@@ -2621,18 +2597,17 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond528, label %139, label %88
 
 88:                                               ; preds = %85
-  %89 = tail call i32 @getBaseType(i32 noundef %23) #5
-  %90 = tail call i32 @get_element_type(i32 noundef %89) #5
+  %89 = tail call i32 @getBaseType(i32 noundef %23) #4
+  %90 = tail call i32 @get_element_type(i32 noundef %89) #4
   %.not507 = icmp eq i32 %90, 0
   br i1 %.not507, label %91, label %.sink.split
 
 91:                                               ; preds = %88
-  %92 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %92)
-  %93 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %94 = tail call ptr @format_type_be(i32 noundef %89) #5
-  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %94) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2286, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %92 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %93 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %94 = tail call ptr @format_type_be(i32 noundef %89) #4
+  %95 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %94) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2286, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 96:                                               ; preds = %.lr.ph
@@ -2643,7 +2618,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond529, label %139, label %99
 
 99:                                               ; preds = %96
-  %100 = tail call i32 @getBaseType(i32 noundef %23) #5
+  %100 = tail call i32 @getBaseType(i32 noundef %23) #4
   %.not504 = icmp eq i32 %.0421752, 0
   br i1 %.not504, label %109, label %101
 
@@ -2652,28 +2627,26 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not506, label %139, label %102
 
 102:                                              ; preds = %101
-  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %103)
-  %104 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15) #5
-  %106 = tail call ptr @format_type_be(i32 noundef %.0421752) #5
-  %107 = tail call ptr @format_type_be(i32 noundef %100) #5
-  %108 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %106, ptr noundef %107) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2308, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %104 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %105 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.15) #4
+  %106 = tail call ptr @format_type_be(i32 noundef %.0421752) #4
+  %107 = tail call ptr @format_type_be(i32 noundef %100) #4
+  %108 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %106, ptr noundef %107) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2308, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 109:                                              ; preds = %99
-  %110 = tail call i32 @get_range_subtype(i32 noundef %100) #5
+  %110 = tail call i32 @get_range_subtype(i32 noundef %100) #4
   %.not505 = icmp eq i32 %110, 0
   br i1 %.not505, label %111, label %.sink.split
 
 111:                                              ; preds = %109
-  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %112)
-  %113 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %114 = tail call ptr @format_type_be(i32 noundef %100) #5
-  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, ptr noundef %114) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2319, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %112 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %113 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %114 = tail call ptr @format_type_be(i32 noundef %100) #4
+  %115 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, ptr noundef %114) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2319, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 116:                                              ; preds = %.lr.ph
@@ -2684,7 +2657,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond530, label %139, label %119
 
 119:                                              ; preds = %116
-  %120 = tail call i32 @getBaseType(i32 noundef %23) #5
+  %120 = tail call i32 @getBaseType(i32 noundef %23) #4
   %.not501 = icmp eq i32 %.0411754, 0
   br i1 %.not501, label %129, label %121
 
@@ -2693,28 +2666,26 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not503, label %139, label %122
 
 122:                                              ; preds = %121
-  %123 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %123)
-  %124 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %125 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #5
-  %126 = tail call ptr @format_type_be(i32 noundef %.0411754) #5
-  %127 = tail call ptr @format_type_be(i32 noundef %120) #5
-  %128 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %126, ptr noundef %127) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2342, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %123 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %124 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %125 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.17) #4
+  %126 = tail call ptr @format_type_be(i32 noundef %.0411754) #4
+  %127 = tail call ptr @format_type_be(i32 noundef %120) #4
+  %128 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %126, ptr noundef %127) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2342, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 129:                                              ; preds = %119
-  %130 = tail call i32 @get_multirange_range(i32 noundef %120) #5
+  %130 = tail call i32 @get_multirange_range(i32 noundef %120) #4
   %.not502 = icmp eq i32 %130, 0
   br i1 %.not502, label %131, label %139
 
 131:                                              ; preds = %129
-  %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %132)
-  %133 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %134 = tail call ptr @format_type_be(i32 noundef %120) #5
-  %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, ptr noundef %134) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2353, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %132 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %133 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %134 = tail call ptr @format_type_be(i32 noundef %120) #4
+  %135 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, ptr noundef %134) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2353, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 .sink.split:                                      ; preds = %109, %88, %82
@@ -2777,25 +2748,23 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   ]
 
 144:                                              ; preds = %143, %143, %143, %143, %143, %142
-  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %145)
-  %146 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %147 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2388, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %145 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %146 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %147 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2388, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 148:                                              ; preds = %141
-  %149 = tail call i32 @get_element_type(i32 noundef %.0350.lcssa) #5
+  %149 = tail call i32 @get_element_type(i32 noundef %.0350.lcssa) #4
   %.not463 = icmp eq i32 %149, 0
   br i1 %.not463, label %150, label %155
 
 150:                                              ; preds = %148
-  %151 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %151)
-  %152 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %153 = tail call ptr @format_type_be(i32 noundef %.0350.lcssa) #5
-  %154 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, ptr noundef %153) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2398, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %151 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %152 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %153 = tail call ptr @format_type_be(i32 noundef %.0350.lcssa) #4
+  %154 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10, ptr noundef %153) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2398, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 155:                                              ; preds = %143, %148
@@ -2808,14 +2777,13 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not467, label %164, label %157
 
 157:                                              ; preds = %156
-  %158 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %158)
-  %159 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8) #5
-  %161 = tail call ptr @format_type_be(i32 noundef %.0350.lcssa) #5
-  %162 = tail call ptr @format_type_be(i32 noundef %.0347.lcssa) #5
-  %163 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %161, ptr noundef %162) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2418, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %158 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %159 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %160 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8) #4
+  %161 = tail call ptr @format_type_be(i32 noundef %.0350.lcssa) #4
+  %162 = tail call ptr @format_type_be(i32 noundef %.0347.lcssa) #4
+  %163 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %161, ptr noundef %162) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2418, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 164:                                              ; preds = %156, %155, %141
@@ -2824,17 +2792,16 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not468, label %181, label %165
 
 165:                                              ; preds = %164
-  %166 = tail call i32 @get_multirange_range(i32 noundef %.0367.lcssa) #5
+  %166 = tail call i32 @get_multirange_range(i32 noundef %.0367.lcssa) #4
   %.not469 = icmp eq i32 %166, 0
   br i1 %.not469, label %167, label %172
 
 167:                                              ; preds = %165
-  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %168)
-  %169 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %170 = tail call ptr @format_type_be(i32 noundef %.0367.lcssa) #5
-  %171 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12, ptr noundef %170) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2433, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %169 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %170 = tail call ptr @format_type_be(i32 noundef %.0367.lcssa) #4
+  %171 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.12, ptr noundef %170) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2433, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 172:                                              ; preds = %165
@@ -2846,14 +2813,13 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not471, label %.thread, label %174
 
 174:                                              ; preds = %173
-  %175 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %175)
-  %176 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %177 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #5
-  %178 = tail call ptr @format_type_be(i32 noundef %.0367.lcssa) #5
-  %179 = tail call ptr @format_type_be(i32 noundef %.0360.lcssa) #5
-  %180 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %178, ptr noundef %179) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2449, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %175 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %176 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %177 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11) #4
+  %178 = tail call ptr @format_type_be(i32 noundef %.0367.lcssa) #4
+  %179 = tail call ptr @format_type_be(i32 noundef %.0360.lcssa) #4
+  %180 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %178, ptr noundef %179) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2449, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 181:                                              ; preds = %164
@@ -2862,7 +2828,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond19, label %183, label %185
 
 183:                                              ; preds = %181
-  %184 = tail call i32 @get_range_multirange(i32 noundef %.0360.lcssa) #5
+  %184 = tail call i32 @get_range_multirange(i32 noundef %.0360.lcssa) #4
   br label %.thread
 
 185:                                              ; preds = %181
@@ -2872,17 +2838,16 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
 .thread:                                          ; preds = %172, %173, %183, %185
   %.5365536 = phi i32 [ %.0360.lcssa, %185 ], [ %166, %172 ], [ %.0360.lcssa, %173 ], [ %.0360.lcssa, %183 ]
   %.4371534 = phi i32 [ 0, %185 ], [ %.0367.lcssa, %172 ], [ %.0367.lcssa, %173 ], [ %184, %183 ]
-  %186 = tail call i32 @get_range_subtype(i32 noundef %.5365536) #5
+  %186 = tail call i32 @get_range_subtype(i32 noundef %.5365536) #4
   %.not473 = icmp eq i32 %186, 0
   br i1 %.not473, label %187, label %192
 
 187:                                              ; preds = %.thread
-  %188 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %188)
-  %189 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %190 = tail call ptr @format_type_be(i32 noundef %.5365536) #5
-  %191 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.11, ptr noundef %190) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2469, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %188 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %189 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %190 = tail call ptr @format_type_be(i32 noundef %.5365536) #4
+  %191 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.11, ptr noundef %190) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2469, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 192:                                              ; preds = %.thread
@@ -2894,14 +2859,13 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not475, label %.thread539, label %194
 
 194:                                              ; preds = %193
-  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %195)
-  %196 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8) #5
-  %198 = tail call ptr @format_type_be(i32 noundef %.5365536) #5
-  %199 = tail call ptr @format_type_be(i32 noundef %.4) #5
-  %200 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %198, ptr noundef %199) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2488, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %195 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %196 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %197 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8) #4
+  %198 = tail call ptr @format_type_be(i32 noundef %.5365536) #4
+  %199 = tail call ptr @format_type_be(i32 noundef %.4) #4
+  %200 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %198, ptr noundef %199) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2488, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 201:                                              ; preds = %185
@@ -2912,11 +2876,10 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %4, label %.thread554, label %203
 
 203:                                              ; preds = %202
-  %204 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %204)
-  %205 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %206 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2510, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %204 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %205 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %206 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2510, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 .thread539:                                       ; preds = %192, %193, %201
@@ -2928,17 +2891,16 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond21, label %208, label %215
 
 208:                                              ; preds = %.thread539
-  %209 = tail call i32 @get_base_element_type(i32 noundef %.8) #5
+  %209 = tail call i32 @get_base_element_type(i32 noundef %.8) #4
   %.not477 = icmp eq i32 %209, 0
   br i1 %.not477, label %215, label %210
 
 210:                                              ; preds = %208
-  %211 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %211)
-  %212 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %213 = tail call ptr @format_type_be(i32 noundef %.8) #5
-  %214 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %213) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2524, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %211 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %212 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %213 = tail call ptr @format_type_be(i32 noundef %.8) #4
+  %214 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %213) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2524, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 215:                                              ; preds = %208, %.thread539
@@ -2946,16 +2908,15 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond23, label %216, label %.thread554
 
 216:                                              ; preds = %215
-  %217 = tail call zeroext i1 @type_is_enum(i32 noundef %.8) #5
+  %217 = tail call zeroext i1 @type_is_enum(i32 noundef %.8) #4
   br i1 %217, label %.thread554, label %218
 
 218:                                              ; preds = %216
-  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %219)
-  %220 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %221 = tail call ptr @format_type_be(i32 noundef %.8) #5
-  %222 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %221) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2534, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %219 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %220 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %221 = tail call ptr @format_type_be(i32 noundef %.8) #4
+  %222 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %221) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2534, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 .thread554:                                       ; preds = %202, %215, %216, %140
@@ -2978,28 +2939,26 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %.not481, label %248, label %226
 
 226:                                              ; preds = %225
-  %227 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %227)
-  %228 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %229 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15) #5
-  %230 = tail call ptr @format_type_be(i32 noundef %.0411.lcssa) #5
-  %231 = tail call ptr @format_type_be(i32 noundef %.0421.lcssa) #5
-  %232 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %230, ptr noundef %231) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2555, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %227 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %228 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %229 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15) #4
+  %230 = tail call ptr @format_type_be(i32 noundef %.0411.lcssa) #4
+  %231 = tail call ptr @format_type_be(i32 noundef %.0421.lcssa) #4
+  %232 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %230, ptr noundef %231) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2555, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 233:                                              ; preds = %224
-  %234 = tail call i32 @get_range_subtype(i32 noundef %.0408.lcssa) #5
+  %234 = tail call i32 @get_range_subtype(i32 noundef %.0408.lcssa) #4
   %.not480 = icmp eq i32 %234, 0
   br i1 %.not480, label %235, label %240
 
 235:                                              ; preds = %233
-  %236 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %236)
-  %237 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %238 = tail call ptr @format_type_be(i32 noundef %.0411.lcssa) #5
-  %239 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, ptr noundef %238) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2566, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %236 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %237 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %238 = tail call ptr @format_type_be(i32 noundef %.0411.lcssa) #4
+  %239 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.17, ptr noundef %238) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2566, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 240:                                              ; preds = %233
@@ -3015,7 +2974,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   br i1 %or.cond25, label %246, label %248
 
 246:                                              ; preds = %244
-  %247 = tail call i32 @get_range_multirange(i32 noundef %.0421.lcssa) #5
+  %247 = tail call i32 @get_range_multirange(i32 noundef %.0421.lcssa) #4
   br label %248
 
 248:                                              ; preds = %244, %246, %240, %225
@@ -3048,28 +3007,26 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %254, label %259, label %255
 
 255:                                              ; preds = %verify_common_type_from_oids.exit
-  %256 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %256)
-  %257 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %258 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2594, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %256 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %257 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %258 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2594, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 259:                                              ; preds = %verify_common_type_from_oids.exit
   br i1 %.0390.lcssa, label %260, label %267
 
 260:                                              ; preds = %259
-  %261 = tail call i32 @get_array_type(i32 noundef %251) #5
+  %261 = tail call i32 @get_array_type(i32 noundef %251) #4
   %.not482 = icmp eq i32 %261, 0
   br i1 %.not482, label %262, label %267
 
 262:                                              ; preds = %260
-  %263 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %263)
-  %264 = tail call i32 @errcode(i32 noundef 67137668) #5
-  %265 = tail call ptr @format_type_be(i32 noundef %251) #5
-  %266 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %265) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2603, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %263 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %264 = tail call i32 @errcode(i32 noundef 67137668) #4
+  %265 = tail call ptr @format_type_be(i32 noundef %251) #4
+  %266 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %265) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2603, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 267:                                              ; preds = %260, %259
@@ -3082,11 +3039,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not483, label %270, label %274
 
 270:                                              ; preds = %269
-  %271 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %271)
-  %272 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %273 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2613, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %271 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %272 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %273 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2613, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 274:                                              ; preds = %269
@@ -3094,13 +3050,12 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not484, label %281, label %275
 
 275:                                              ; preds = %274
-  %276 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %276)
-  %277 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %278 = tail call ptr @format_type_be(i32 noundef %.4425) #5
-  %279 = tail call ptr @format_type_be(i32 noundef %251) #5
-  %280 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %278, ptr noundef %279) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2624, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %276 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %277 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %278 = tail call ptr @format_type_be(i32 noundef %.4425) #4
+  %279 = tail call ptr @format_type_be(i32 noundef %251) #4
+  %280 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.28, ptr noundef %278, ptr noundef %279) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2624, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 281:                                              ; preds = %274, %267
@@ -3111,11 +3066,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not485, label %283, label %287
 
 283:                                              ; preds = %282
-  %284 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %284)
-  %285 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %286 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2634, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %284 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %285 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %286 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2634, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 287:                                              ; preds = %282
@@ -3123,30 +3077,28 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not486, label %294, label %288
 
 288:                                              ; preds = %287
-  %289 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %289)
-  %290 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %291 = tail call ptr @format_type_be(i32 noundef %.4415) #5
-  %292 = tail call ptr @format_type_be(i32 noundef %251) #5
-  %293 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %291, ptr noundef %292) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2645, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %289 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %290 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %291 = tail call ptr @format_type_be(i32 noundef %.4415) #4
+  %292 = tail call ptr @format_type_be(i32 noundef %251) #4
+  %293 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %291, ptr noundef %292) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2645, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 294:                                              ; preds = %287, %281
   br i1 %.0393.lcssa, label %295, label %314
 
 295:                                              ; preds = %294
-  %296 = tail call i32 @get_base_element_type(i32 noundef %251) #5
+  %296 = tail call i32 @get_base_element_type(i32 noundef %251) #4
   %.not487 = icmp eq i32 %296, 0
   br i1 %.not487, label %314, label %297
 
 297:                                              ; preds = %295
-  %298 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %298)
-  %299 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %300 = tail call ptr @format_type_be(i32 noundef %251) #5
-  %301 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %300) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2658, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %298 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %299 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %300 = tail call ptr @format_type_be(i32 noundef %251) #4
+  %301 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.30, ptr noundef %300) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2658, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 302:                                              ; preds = %248
@@ -3157,22 +3109,20 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %304, label %305, label %309
 
 305:                                              ; preds = %303
-  %306 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %306)
-  %307 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %308 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2684, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %306 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %307 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %308 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2684, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 309:                                              ; preds = %303
   br i1 %.0383.lcssa, label %310, label %314
 
 310:                                              ; preds = %309
-  %311 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %311)
-  %312 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %313 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2689, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %311 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %312 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %313 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2689, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 314:                                              ; preds = %302, %309, %294, %295
@@ -3256,39 +3206,36 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not499, label %329, label %.sink.split989
 
 329:                                              ; preds = %328
-  %330 = tail call i32 @get_array_type(i32 noundef %.3) #5
+  %330 = tail call i32 @get_array_type(i32 noundef %.3) #4
   %.not500 = icmp eq i32 %330, 0
   br i1 %.not500, label %331, label %.sink.split989
 
 331:                                              ; preds = %329
-  %332 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %332)
-  %333 = tail call i32 @errcode(i32 noundef 67137668) #5
-  %334 = tail call ptr @format_type_be(i32 noundef %.3) #5
-  %335 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %334) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2741, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %332 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %333 = tail call i32 @errcode(i32 noundef 67137668) #4
+  %334 = tail call ptr @format_type_be(i32 noundef %.3) #4
+  %335 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %334) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2741, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 336:                                              ; preds = %326
   br i1 %.not498, label %337, label %.sink.split989
 
 337:                                              ; preds = %336
-  %338 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %338)
-  %339 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %340 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2753, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %338 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %339 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %340 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2753, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 341:                                              ; preds = %326
   br i1 %.not497, label %342, label %.sink.split989
 
 342:                                              ; preds = %341
-  %343 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %343)
-  %344 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %345 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2765, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %343 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %344 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %345 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2765, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 .sink.split989:                                   ; preds = %341, %336, %328, %329, %326, %326, %326
@@ -3322,17 +3269,16 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not494, label %348, label %390
 
 348:                                              ; preds = %347
-  %349 = tail call i32 @get_array_type(i32 noundef %.3) #5
+  %349 = tail call i32 @get_array_type(i32 noundef %.3) #4
   %.not495 = icmp eq i32 %349, 0
   br i1 %.not495, label %350, label %390
 
 350:                                              ; preds = %348
-  %351 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %351)
-  %352 = tail call i32 @errcode(i32 noundef 67137668) #5
-  %353 = tail call ptr @format_type_be(i32 noundef %.3) #5
-  %354 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %353) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2788, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %351 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %352 = tail call i32 @errcode(i32 noundef 67137668) #4
+  %353 = tail call ptr @format_type_be(i32 noundef %.3) #4
+  %354 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.26, ptr noundef %353) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2788, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 355:                                              ; preds = %.loopexit
@@ -3340,11 +3286,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not493, label %356, label %390
 
 356:                                              ; preds = %355
-  %357 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %357)
-  %358 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %359 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2801, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %357 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %358 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %359 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2801, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 360:                                              ; preds = %.loopexit
@@ -3355,11 +3300,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not492, label %362, label %390
 
 362:                                              ; preds = %361
-  %363 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %363)
-  %364 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %365 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.22) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2813, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %363 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %364 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %365 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.22) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2813, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 366:                                              ; preds = %360
@@ -3373,11 +3317,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not491, label %368, label %390
 
 368:                                              ; preds = %367
-  %369 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %369)
-  %370 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %371 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2825, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %369 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %370 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %371 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2825, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 372:                                              ; preds = %366
@@ -3388,11 +3331,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not490, label %374, label %390
 
 374:                                              ; preds = %373
-  %375 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %375)
-  %376 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %377 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2836, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %375 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %376 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %377 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2836, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 378:                                              ; preds = %372
@@ -3403,11 +3345,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not489, label %380, label %390
 
 380:                                              ; preds = %379
-  %381 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %381)
-  %382 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %383 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2847, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %381 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %382 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %383 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2847, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 384:                                              ; preds = %378
@@ -3418,11 +3359,10 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %.not488, label %386, label %390
 
 386:                                              ; preds = %385
-  %387 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %387)
-  %388 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %389 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2858, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #5
+  %387 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %388 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %389 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.34) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2858, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
 390:                                              ; preds = %384, %385, %379, %373, %367, %361, %355, %.loopexit, %.loopexit, %.loopexit, %347, %348, %._crit_edge
@@ -3552,8 +3492,8 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 
 .thread108.sink.split:                            ; preds = %18, %13, %8, %24, %.preheader, %14, %9, %4
   %.str.38.sink = phi ptr [ @.str.35, %4 ], [ @.str.36, %9 ], [ @.str.37, %14 ], [ @.str.38, %.preheader ], [ @.str.38, %24 ], [ @.str.35, %8 ], [ @.str.36, %13 ], [ @.str.37, %18 ]
-  %25 = tail call ptr @format_type_be(i32 noundef %0) #5
-  %26 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.38.sink, ptr noundef %25) #5
+  %25 = tail call ptr @format_type_be(i32 noundef %0) #4
+  %26 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull %.str.38.sink, ptr noundef %25) #4
   br label %.thread108
 
 .thread108:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph145, %.lr.ph145, %.lr.ph149, %.lr.ph149, %.lr.ph152, %.lr.ph152, %.lr.ph152, %.lr.ph152, %.lr.ph152, %.thread108.sink.split, %19
@@ -3589,7 +3529,7 @@ define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr noundef
   br i1 %9, label %.loopexit, label %6
 
 ._crit_edge:                                      ; preds = %6, %.preheader
-  %10 = tail call ptr @pstrdup(ptr noundef nonnull @.str.39) #5
+  %10 = tail call ptr @pstrdup(ptr noundef nonnull @.str.39) #4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %._crit_edge
@@ -3605,7 +3545,7 @@ define dso_local signext i8 @TypeCategory(i32 noundef %0) local_unnamed_addr #0 
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @get_type_category_preferred(i32 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
+  call void @get_type_category_preferred(i32 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #4
   %4 = load i8, ptr %2, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3618,7 +3558,7 @@ define dso_local zeroext i1 @IsPreferredType(i8 noundef signext %0, i32 noundef 
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @get_type_category_preferred(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
+  call void @get_type_category_preferred(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #4
   %5 = load i8, ptr %3, align 1
   %6 = icmp eq i8 %0, %5
   %7 = icmp eq i8 %0, 0
@@ -3664,7 +3604,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call i32 @getBaseType(i32 noundef %0) #5
+  %8 = tail call i32 @getBaseType(i32 noundef %0) #4
   br label %9
 
 9:                                                ; preds = %7, %6
@@ -3684,7 +3624,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   ]
 
 12:                                               ; preds = %11, %11
-  %13 = tail call i32 @get_element_type(i32 noundef %.050) #5
+  %13 = tail call i32 @get_element_type(i32 noundef %.050) #4
   %.not55 = icmp eq i32 %13, 0
   br i1 %.not55, label %14, label %50
 
@@ -3696,7 +3636,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   ]
 
 15:                                               ; preds = %11, %11, %14
-  %16 = tail call i32 @get_element_type(i32 noundef %.050) #5
+  %16 = tail call i32 @get_element_type(i32 noundef %.050) #4
   %.not56 = icmp eq i32 %16, 0
   br i1 %.not56, label %50, label %17
 
@@ -3707,11 +3647,11 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   ]
 
 18:                                               ; preds = %11, %14, %17
-  %19 = tail call zeroext i1 @type_is_enum(i32 noundef %.050) #5
+  %19 = tail call zeroext i1 @type_is_enum(i32 noundef %.050) #4
   br i1 %19, label %50, label %.split
 
 20:                                               ; preds = %17, %14, %11, %11
-  %21 = tail call zeroext i1 @type_is_range(i32 noundef %.050) #5
+  %21 = tail call zeroext i1 @type_is_range(i32 noundef %.050) #4
   br i1 %21, label %50, label %22
 
 22:                                               ; preds = %11, %14, %17, %20
@@ -3720,7 +3660,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   br i1 %or.cond11, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = tail call zeroext i1 @type_is_multirange(i32 noundef %.050) #5
+  %25 = tail call zeroext i1 @type_is_multirange(i32 noundef %.050) #4
   br i1 %25, label %50, label %26
 
 26:                                               ; preds = %24, %22
@@ -3730,7 +3670,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
   ]
 
 27:                                               ; preds = %26
-  %28 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %.050) #5
+  %28 = tail call i32 @typeOrDomainTypeRelid(i32 noundef %.050) #4
   %.not57 = icmp eq i32 %28, 0
   br i1 %.not57, label %.split, label %50
 
@@ -3745,7 +3685,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
 .split51:                                         ; preds = %30, %.split
   %phi.call = phi i64 [ %29, %.split ], [ 2287, %30 ]
   %32 = zext i32 %.050 to i64
-  %33 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %32, i64 noundef %phi.call) #5
+  %33 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %32, i64 noundef %phi.call) #4
   %.not58 = icmp eq ptr %33, null
   br i1 %.not58, label %50, label %34
 
@@ -3774,7 +3714,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i
 
 .thread61:                                        ; preds = %34, %47, %43
   %49 = phi i1 [ true, %47 ], [ false, %43 ], [ false, %34 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %33) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %33) #4
   br label %50
 
 50:                                               ; preds = %.split51, %30, %27, %24, %20, %18, %15, %12, %9, %5, %5, %5, %3, %.thread61
@@ -3791,7 +3731,7 @@ declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr noundef captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
-  %3 = tail call ptr @typeidType(i32 noundef %0) #5
+  %3 = tail call ptr @typeidType(i32 noundef %0) #4
   %4 = getelementptr i8, ptr %3, i64 16
   %.val22 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %.val22, i64 22
@@ -3814,9 +3754,9 @@ define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef 
 15:                                               ; preds = %11, %2
   %.015 = phi i32 [ 1, %2 ], [ %spec.select, %11 ]
   %.0 = phi i32 [ %0, %2 ], [ %spec.select20, %11 ]
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   %16 = zext i32 %.0 to i64
-  %17 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %16, i64 noundef %16) #5
+  %17 = tail call ptr @SearchSysCache2(i32 noundef 12, i64 noundef %16, i64 noundef %16) #4
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %26, label %18
 
@@ -3830,7 +3770,7 @@ define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef 
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %1, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %17) #5
+  tail call void @ReleaseSysCache(ptr noundef nonnull %17) #4
   br label %26
 
 26:                                               ; preds = %18, %15
@@ -3870,16 +3810,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -488,7 +488,7 @@ define internal fastcc void @base_unmap(ptr noundef %0, ptr noundef readonly cap
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %4
   %9 = tail call zeroext i1 @je_extent_dalloc_mmap(ptr noundef %2, i64 noundef %3) #9
@@ -504,336 +504,334 @@ define internal fastcc void @base_unmap(ptr noundef %0, ptr noundef readonly cap
 
 14:                                               ; preds = %12
   %15 = tail call zeroext i1 @je_pages_purge_lazy(ptr noundef %2, i64 noundef %3) #9
-  %16 = xor i1 %15, true
-  tail call void @llvm.assume(i1 %16)
   br label %ehooks_purge_lazy.exit
 
-17:                                               ; preds = %4
-  %18 = load atomic i64, ptr %5 acquire, align 8
-  %.0.i.i.i = inttoptr i64 %18 to ptr
-  %19 = icmp eq i64 %18, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
-  br i1 %19, label %20, label %22
+16:                                               ; preds = %4
+  %17 = load atomic i64, ptr %5 acquire, align 8
+  %.0.i.i.i = inttoptr i64 %17 to ptr
+  %18 = icmp eq i64 %17, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
+  br i1 %18, label %19, label %21
 
-20:                                               ; preds = %17
-  %21 = tail call zeroext i1 @je_ehooks_default_dalloc_impl(ptr noundef %2, i64 noundef %3) #9
-  br i1 %21, label %ehooks_dalloc.exit.thread, label %ehooks_purge_lazy.exit
+19:                                               ; preds = %16
+  %20 = tail call zeroext i1 @je_ehooks_default_dalloc_impl(ptr noundef %2, i64 noundef %3) #9
+  br i1 %20, label %ehooks_dalloc.exit.thread, label %ehooks_purge_lazy.exit
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !56
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %ehooks_dalloc.exit.thread, label %26
+21:                                               ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !56
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %ehooks_dalloc.exit.thread, label %25
 
-26:                                               ; preds = %22
-  %27 = icmp eq ptr %0, null
-  br i1 %27, label %28, label %tsd_fetch_impl.exit.i.i
+25:                                               ; preds = %21
+  %26 = icmp eq ptr %0, null
+  br i1 %26, label %27, label %tsd_fetch_impl.exit.i.i
 
-28:                                               ; preds = %26
-  %29 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 832
-  %31 = load i8, ptr %30, align 8, !tbaa !16
-  %.not.i.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %32, !prof !39
+27:                                               ; preds = %25
+  %28 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
+  %30 = load i8, ptr %29, align 8, !tbaa !16
+  %.not.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %31, !prof !39
 
-32:                                               ; preds = %28
-  %33 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %29, i1 noundef zeroext false) #9
+31:                                               ; preds = %27
+  %32 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %28, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i.i
 
-tsd_fetch_impl.exit.i.i:                          ; preds = %32, %28, %26
-  %34 = phi ptr [ %33, %32 ], [ %29, %28 ], [ %0, %26 ]
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 832
-  %36 = load i8, ptr %35, align 8, !tbaa !16
-  %37 = icmp eq i8 %36, 0
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !16
-  %40 = add i8 %39, 1
-  store i8 %40, ptr %38, align 1, !tbaa !16
-  br i1 %37, label %41, label %ehooks_pre_reentrancy.exit.i
+tsd_fetch_impl.exit.i.i:                          ; preds = %31, %27, %25
+  %33 = phi ptr [ %32, %31 ], [ %28, %27 ], [ %0, %25 ]
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 832
+  %35 = load i8, ptr %34, align 8, !tbaa !16
+  %36 = icmp eq i8 %35, 0
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  %38 = load i8, ptr %37, align 1, !tbaa !16
+  %39 = add i8 %38, 1
+  store i8 %39, ptr %37, align 1, !tbaa !16
+  br i1 %36, label %40, label %ehooks_pre_reentrancy.exit.i
 
-41:                                               ; preds = %tsd_fetch_impl.exit.i.i
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %34) #9
+40:                                               ; preds = %tsd_fetch_impl.exit.i.i
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %33) #9
   br label %ehooks_pre_reentrancy.exit.i
 
-ehooks_pre_reentrancy.exit.i:                     ; preds = %41, %tsd_fetch_impl.exit.i.i
-  %42 = load ptr, ptr %23, align 8, !tbaa !56
+ehooks_pre_reentrancy.exit.i:                     ; preds = %40, %tsd_fetch_impl.exit.i.i
+  %41 = load ptr, ptr %22, align 8, !tbaa !56
   %.val.i = load i32, ptr %1, align 8, !tbaa !38
-  %43 = tail call zeroext i1 %42(ptr noundef nonnull %.0.i.i.i, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i32 noundef %.val.i) #9
-  br i1 %27, label %44, label %tsd_fetch_impl.exit.i15.i
+  %42 = tail call zeroext i1 %41(ptr noundef nonnull %.0.i.i.i, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i32 noundef %.val.i) #9
+  br i1 %26, label %43, label %tsd_fetch_impl.exit.i15.i
 
-44:                                               ; preds = %ehooks_pre_reentrancy.exit.i
-  %45 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 832
-  %47 = load i8, ptr %46, align 8, !tbaa !16
-  %.not.i.i16.i = icmp eq i8 %47, 0
-  br i1 %.not.i.i16.i, label %tsd_fetch_impl.exit.i15.i, label %48, !prof !39
+43:                                               ; preds = %ehooks_pre_reentrancy.exit.i
+  %44 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 832
+  %46 = load i8, ptr %45, align 8, !tbaa !16
+  %.not.i.i16.i = icmp eq i8 %46, 0
+  br i1 %.not.i.i16.i, label %tsd_fetch_impl.exit.i15.i, label %47, !prof !39
 
-48:                                               ; preds = %44
-  %49 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %45, i1 noundef zeroext false) #9
+47:                                               ; preds = %43
+  %48 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %44, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i15.i
 
-tsd_fetch_impl.exit.i15.i:                        ; preds = %48, %44, %ehooks_pre_reentrancy.exit.i
-  %50 = phi ptr [ %49, %48 ], [ %45, %44 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !16
-  %53 = add i8 %52, -1
-  store i8 %53, ptr %51, align 1, !tbaa !16
-  %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %ehooks_dalloc.exit
+tsd_fetch_impl.exit.i15.i:                        ; preds = %47, %43, %ehooks_pre_reentrancy.exit.i
+  %49 = phi ptr [ %48, %47 ], [ %44, %43 ], [ %0, %ehooks_pre_reentrancy.exit.i ]
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %51 = load i8, ptr %50, align 1, !tbaa !16
+  %52 = add i8 %51, -1
+  store i8 %52, ptr %50, align 1, !tbaa !16
+  %53 = icmp eq i8 %52, 0
+  br i1 %53, label %54, label %ehooks_dalloc.exit
 
-55:                                               ; preds = %tsd_fetch_impl.exit.i15.i
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %50) #9
-  br i1 %43, label %ehooks_dalloc.exit.thread, label %ehooks_purge_lazy.exit
+54:                                               ; preds = %tsd_fetch_impl.exit.i15.i
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %49) #9
+  br i1 %42, label %ehooks_dalloc.exit.thread, label %ehooks_purge_lazy.exit
 
 ehooks_dalloc.exit:                               ; preds = %tsd_fetch_impl.exit.i15.i
-  br i1 %43, label %ehooks_dalloc.exit.thread, label %ehooks_purge_lazy.exit
+  br i1 %42, label %ehooks_dalloc.exit.thread, label %ehooks_purge_lazy.exit
 
-ehooks_dalloc.exit.thread:                        ; preds = %22, %55, %20, %ehooks_dalloc.exit
-  %56 = load atomic i64, ptr %5 acquire, align 8
-  %.0.i.i.i29 = inttoptr i64 %56 to ptr
-  %57 = icmp eq i64 %56, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
-  br i1 %57, label %58, label %60
+ehooks_dalloc.exit.thread:                        ; preds = %21, %54, %19, %ehooks_dalloc.exit
+  %55 = load atomic i64, ptr %5 acquire, align 8
+  %.0.i.i.i29 = inttoptr i64 %55 to ptr
+  %56 = icmp eq i64 %55, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
+  br i1 %56, label %57, label %59
 
-58:                                               ; preds = %ehooks_dalloc.exit.thread
-  %59 = tail call zeroext i1 @je_ehooks_default_decommit_impl(ptr noundef %2, i64 noundef 0, i64 noundef %3) #9
-  br i1 %59, label %ehooks_decommit.exit.thread, label %ehooks_purge_lazy.exit
+57:                                               ; preds = %ehooks_dalloc.exit.thread
+  %58 = tail call zeroext i1 @je_ehooks_default_decommit_impl(ptr noundef %2, i64 noundef 0, i64 noundef %3) #9
+  br i1 %58, label %ehooks_decommit.exit.thread, label %ehooks_purge_lazy.exit
 
-60:                                               ; preds = %ehooks_dalloc.exit.thread
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %ehooks_decommit.exit.thread, label %64
+59:                                               ; preds = %ehooks_dalloc.exit.thread
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i29, i64 32
+  %61 = load ptr, ptr %60, align 8, !tbaa !57
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %ehooks_decommit.exit.thread, label %63
 
-64:                                               ; preds = %60
-  %65 = icmp eq ptr %0, null
-  br i1 %65, label %66, label %tsd_fetch_impl.exit.i.i30
+63:                                               ; preds = %59
+  %64 = icmp eq ptr %0, null
+  br i1 %64, label %65, label %tsd_fetch_impl.exit.i.i30
 
-66:                                               ; preds = %64
-  %67 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 832
-  %69 = load i8, ptr %68, align 8, !tbaa !16
-  %.not.i.i.i34 = icmp eq i8 %69, 0
-  br i1 %.not.i.i.i34, label %tsd_fetch_impl.exit.i.i30, label %70, !prof !39
+65:                                               ; preds = %63
+  %66 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 832
+  %68 = load i8, ptr %67, align 8, !tbaa !16
+  %.not.i.i.i34 = icmp eq i8 %68, 0
+  br i1 %.not.i.i.i34, label %tsd_fetch_impl.exit.i.i30, label %69, !prof !39
 
-70:                                               ; preds = %66
-  %71 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %67, i1 noundef zeroext false) #9
+69:                                               ; preds = %65
+  %70 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %66, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i.i30
 
-tsd_fetch_impl.exit.i.i30:                        ; preds = %70, %66, %64
-  %72 = phi ptr [ %71, %70 ], [ %67, %66 ], [ %0, %64 ]
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 832
-  %74 = load i8, ptr %73, align 8, !tbaa !16
-  %75 = icmp eq i8 %74, 0
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  %77 = load i8, ptr %76, align 1, !tbaa !16
-  %78 = add i8 %77, 1
-  store i8 %78, ptr %76, align 1, !tbaa !16
-  br i1 %75, label %79, label %ehooks_pre_reentrancy.exit.i31
+tsd_fetch_impl.exit.i.i30:                        ; preds = %69, %65, %63
+  %71 = phi ptr [ %70, %69 ], [ %66, %65 ], [ %0, %63 ]
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 832
+  %73 = load i8, ptr %72, align 8, !tbaa !16
+  %74 = icmp eq i8 %73, 0
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %76 = load i8, ptr %75, align 1, !tbaa !16
+  %77 = add i8 %76, 1
+  store i8 %77, ptr %75, align 1, !tbaa !16
+  br i1 %74, label %78, label %ehooks_pre_reentrancy.exit.i31
 
-79:                                               ; preds = %tsd_fetch_impl.exit.i.i30
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %72) #9
+78:                                               ; preds = %tsd_fetch_impl.exit.i.i30
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %71) #9
   br label %ehooks_pre_reentrancy.exit.i31
 
-ehooks_pre_reentrancy.exit.i31:                   ; preds = %79, %tsd_fetch_impl.exit.i.i30
-  %80 = load ptr, ptr %61, align 8, !tbaa !57
+ehooks_pre_reentrancy.exit.i31:                   ; preds = %78, %tsd_fetch_impl.exit.i.i30
+  %79 = load ptr, ptr %60, align 8, !tbaa !57
   %.val.i32 = load i32, ptr %1, align 8, !tbaa !38
-  %81 = tail call zeroext i1 %80(ptr noundef nonnull %.0.i.i.i29, ptr noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %3, i32 noundef %.val.i32) #9
-  br i1 %65, label %82, label %tsd_fetch_impl.exit.i17.i
+  %80 = tail call zeroext i1 %79(ptr noundef nonnull %.0.i.i.i29, ptr noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %3, i32 noundef %.val.i32) #9
+  br i1 %64, label %81, label %tsd_fetch_impl.exit.i17.i
 
-82:                                               ; preds = %ehooks_pre_reentrancy.exit.i31
-  %83 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 832
-  %85 = load i8, ptr %84, align 8, !tbaa !16
-  %.not.i.i18.i = icmp eq i8 %85, 0
-  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %86, !prof !39
+81:                                               ; preds = %ehooks_pre_reentrancy.exit.i31
+  %82 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 832
+  %84 = load i8, ptr %83, align 8, !tbaa !16
+  %.not.i.i18.i = icmp eq i8 %84, 0
+  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %85, !prof !39
 
-86:                                               ; preds = %82
-  %87 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %83, i1 noundef zeroext false) #9
+85:                                               ; preds = %81
+  %86 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %82, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i17.i
 
-tsd_fetch_impl.exit.i17.i:                        ; preds = %86, %82, %ehooks_pre_reentrancy.exit.i31
-  %88 = phi ptr [ %87, %86 ], [ %83, %82 ], [ %0, %ehooks_pre_reentrancy.exit.i31 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
-  %90 = load i8, ptr %89, align 1, !tbaa !16
-  %91 = add i8 %90, -1
-  store i8 %91, ptr %89, align 1, !tbaa !16
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %ehooks_decommit.exit
+tsd_fetch_impl.exit.i17.i:                        ; preds = %85, %81, %ehooks_pre_reentrancy.exit.i31
+  %87 = phi ptr [ %86, %85 ], [ %82, %81 ], [ %0, %ehooks_pre_reentrancy.exit.i31 ]
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %89 = load i8, ptr %88, align 1, !tbaa !16
+  %90 = add i8 %89, -1
+  store i8 %90, ptr %88, align 1, !tbaa !16
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %92, label %ehooks_decommit.exit
 
-93:                                               ; preds = %tsd_fetch_impl.exit.i17.i
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %88) #9
-  br i1 %81, label %ehooks_decommit.exit.thread, label %ehooks_purge_lazy.exit
+92:                                               ; preds = %tsd_fetch_impl.exit.i17.i
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %87) #9
+  br i1 %80, label %ehooks_decommit.exit.thread, label %ehooks_purge_lazy.exit
 
 ehooks_decommit.exit:                             ; preds = %tsd_fetch_impl.exit.i17.i
-  br i1 %81, label %ehooks_decommit.exit.thread, label %ehooks_purge_lazy.exit
+  br i1 %80, label %ehooks_decommit.exit.thread, label %ehooks_purge_lazy.exit
 
-ehooks_decommit.exit.thread:                      ; preds = %60, %93, %58, %ehooks_decommit.exit
-  %94 = load atomic i64, ptr %5 acquire, align 8
-  %.0.i.i.i35 = inttoptr i64 %94 to ptr
-  %95 = icmp eq i64 %94, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
-  br i1 %95, label %96, label %98
+ehooks_decommit.exit.thread:                      ; preds = %59, %92, %57, %ehooks_decommit.exit
+  %93 = load atomic i64, ptr %5 acquire, align 8
+  %.0.i.i.i35 = inttoptr i64 %93 to ptr
+  %94 = icmp eq i64 %93, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
+  br i1 %94, label %95, label %97
 
-96:                                               ; preds = %ehooks_decommit.exit.thread
-  %97 = tail call zeroext i1 @je_ehooks_default_purge_forced_impl(ptr noundef %2, i64 noundef 0, i64 noundef %3) #9
-  br i1 %97, label %ehooks_purge_forced.exit.thread, label %ehooks_purge_lazy.exit
+95:                                               ; preds = %ehooks_decommit.exit.thread
+  %96 = tail call zeroext i1 @je_ehooks_default_purge_forced_impl(ptr noundef %2, i64 noundef 0, i64 noundef %3) #9
+  br i1 %96, label %ehooks_purge_forced.exit.thread, label %ehooks_purge_lazy.exit
 
-98:                                               ; preds = %ehooks_decommit.exit.thread
-  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i.i35, i64 48
-  %100 = load ptr, ptr %99, align 8, !tbaa !58
-  %101 = icmp eq ptr %100, null
-  br i1 %101, label %ehooks_purge_forced.exit.thread, label %102
+97:                                               ; preds = %ehooks_decommit.exit.thread
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i.i.i35, i64 48
+  %99 = load ptr, ptr %98, align 8, !tbaa !58
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %ehooks_purge_forced.exit.thread, label %101
 
-102:                                              ; preds = %98
-  %103 = icmp eq ptr %0, null
-  br i1 %103, label %104, label %tsd_fetch_impl.exit.i.i36
+101:                                              ; preds = %97
+  %102 = icmp eq ptr %0, null
+  br i1 %102, label %103, label %tsd_fetch_impl.exit.i.i36
 
-104:                                              ; preds = %102
-  %105 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 832
-  %107 = load i8, ptr %106, align 8, !tbaa !16
-  %.not.i.i.i42 = icmp eq i8 %107, 0
-  br i1 %.not.i.i.i42, label %tsd_fetch_impl.exit.i.i36, label %108, !prof !39
+103:                                              ; preds = %101
+  %104 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 832
+  %106 = load i8, ptr %105, align 8, !tbaa !16
+  %.not.i.i.i42 = icmp eq i8 %106, 0
+  br i1 %.not.i.i.i42, label %tsd_fetch_impl.exit.i.i36, label %107, !prof !39
 
-108:                                              ; preds = %104
-  %109 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %105, i1 noundef zeroext false) #9
+107:                                              ; preds = %103
+  %108 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %104, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i.i36
 
-tsd_fetch_impl.exit.i.i36:                        ; preds = %108, %104, %102
-  %110 = phi ptr [ %109, %108 ], [ %105, %104 ], [ %0, %102 ]
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 832
-  %112 = load i8, ptr %111, align 8, !tbaa !16
-  %113 = icmp eq i8 %112, 0
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  %115 = load i8, ptr %114, align 1, !tbaa !16
-  %116 = add i8 %115, 1
-  store i8 %116, ptr %114, align 1, !tbaa !16
-  br i1 %113, label %117, label %ehooks_pre_reentrancy.exit.i37
+tsd_fetch_impl.exit.i.i36:                        ; preds = %107, %103, %101
+  %109 = phi ptr [ %108, %107 ], [ %104, %103 ], [ %0, %101 ]
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 832
+  %111 = load i8, ptr %110, align 8, !tbaa !16
+  %112 = icmp eq i8 %111, 0
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  %114 = load i8, ptr %113, align 1, !tbaa !16
+  %115 = add i8 %114, 1
+  store i8 %115, ptr %113, align 1, !tbaa !16
+  br i1 %112, label %116, label %ehooks_pre_reentrancy.exit.i37
 
-117:                                              ; preds = %tsd_fetch_impl.exit.i.i36
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %110) #9
+116:                                              ; preds = %tsd_fetch_impl.exit.i.i36
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %109) #9
   br label %ehooks_pre_reentrancy.exit.i37
 
-ehooks_pre_reentrancy.exit.i37:                   ; preds = %117, %tsd_fetch_impl.exit.i.i36
-  %118 = load ptr, ptr %99, align 8, !tbaa !58
+ehooks_pre_reentrancy.exit.i37:                   ; preds = %116, %tsd_fetch_impl.exit.i.i36
+  %117 = load ptr, ptr %98, align 8, !tbaa !58
   %.val.i38 = load i32, ptr %1, align 8, !tbaa !38
-  %119 = tail call zeroext i1 %118(ptr noundef nonnull %.0.i.i.i35, ptr noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %3, i32 noundef %.val.i38) #9
-  br i1 %103, label %120, label %tsd_fetch_impl.exit.i17.i39
+  %118 = tail call zeroext i1 %117(ptr noundef nonnull %.0.i.i.i35, ptr noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %3, i32 noundef %.val.i38) #9
+  br i1 %102, label %119, label %tsd_fetch_impl.exit.i17.i39
 
-120:                                              ; preds = %ehooks_pre_reentrancy.exit.i37
-  %121 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 832
-  %123 = load i8, ptr %122, align 8, !tbaa !16
-  %.not.i.i18.i41 = icmp eq i8 %123, 0
-  br i1 %.not.i.i18.i41, label %tsd_fetch_impl.exit.i17.i39, label %124, !prof !39
+119:                                              ; preds = %ehooks_pre_reentrancy.exit.i37
+  %120 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 832
+  %122 = load i8, ptr %121, align 8, !tbaa !16
+  %.not.i.i18.i41 = icmp eq i8 %122, 0
+  br i1 %.not.i.i18.i41, label %tsd_fetch_impl.exit.i17.i39, label %123, !prof !39
 
-124:                                              ; preds = %120
-  %125 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %121, i1 noundef zeroext false) #9
+123:                                              ; preds = %119
+  %124 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %120, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i17.i39
 
-tsd_fetch_impl.exit.i17.i39:                      ; preds = %124, %120, %ehooks_pre_reentrancy.exit.i37
-  %126 = phi ptr [ %125, %124 ], [ %121, %120 ], [ %0, %ehooks_pre_reentrancy.exit.i37 ]
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
-  %128 = load i8, ptr %127, align 1, !tbaa !16
-  %129 = add i8 %128, -1
-  store i8 %129, ptr %127, align 1, !tbaa !16
-  %130 = icmp eq i8 %129, 0
-  br i1 %130, label %131, label %ehooks_purge_forced.exit
+tsd_fetch_impl.exit.i17.i39:                      ; preds = %123, %119, %ehooks_pre_reentrancy.exit.i37
+  %125 = phi ptr [ %124, %123 ], [ %120, %119 ], [ %0, %ehooks_pre_reentrancy.exit.i37 ]
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %127 = load i8, ptr %126, align 1, !tbaa !16
+  %128 = add i8 %127, -1
+  store i8 %128, ptr %126, align 1, !tbaa !16
+  %129 = icmp eq i8 %128, 0
+  br i1 %129, label %130, label %ehooks_purge_forced.exit
 
-131:                                              ; preds = %tsd_fetch_impl.exit.i17.i39
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %126) #9
-  br i1 %119, label %ehooks_purge_forced.exit.thread, label %ehooks_purge_lazy.exit
+130:                                              ; preds = %tsd_fetch_impl.exit.i17.i39
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %125) #9
+  br i1 %118, label %ehooks_purge_forced.exit.thread, label %ehooks_purge_lazy.exit
 
 ehooks_purge_forced.exit:                         ; preds = %tsd_fetch_impl.exit.i17.i39
-  br i1 %119, label %ehooks_purge_forced.exit.thread, label %ehooks_purge_lazy.exit
+  br i1 %118, label %ehooks_purge_forced.exit.thread, label %ehooks_purge_lazy.exit
 
-ehooks_purge_forced.exit.thread:                  ; preds = %98, %131, %96, %ehooks_purge_forced.exit
-  %132 = load atomic i64, ptr %5 acquire, align 8
-  %.0.i.i.i43 = inttoptr i64 %132 to ptr
-  %133 = icmp eq i64 %132, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
-  br i1 %133, label %134, label %136
+ehooks_purge_forced.exit.thread:                  ; preds = %97, %130, %95, %ehooks_purge_forced.exit
+  %131 = load atomic i64, ptr %5 acquire, align 8
+  %.0.i.i.i43 = inttoptr i64 %131 to ptr
+  %132 = icmp eq i64 %131, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
+  br i1 %132, label %133, label %135
 
-134:                                              ; preds = %ehooks_purge_forced.exit.thread
-  %135 = tail call zeroext i1 @je_ehooks_default_purge_lazy_impl(ptr noundef %2, i64 noundef 0, i64 noundef %3) #9
+133:                                              ; preds = %ehooks_purge_forced.exit.thread
+  %134 = tail call zeroext i1 @je_ehooks_default_purge_lazy_impl(ptr noundef %2, i64 noundef 0, i64 noundef %3) #9
   br label %ehooks_purge_lazy.exit
 
-136:                                              ; preds = %ehooks_purge_forced.exit.thread
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i.i43, i64 40
-  %138 = load ptr, ptr %137, align 8, !tbaa !59
-  %139 = icmp eq ptr %138, null
-  br i1 %139, label %ehooks_purge_lazy.exit, label %140
+135:                                              ; preds = %ehooks_purge_forced.exit.thread
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i43, i64 40
+  %137 = load ptr, ptr %136, align 8, !tbaa !59
+  %138 = icmp eq ptr %137, null
+  br i1 %138, label %ehooks_purge_lazy.exit, label %139
 
-140:                                              ; preds = %136
-  %141 = icmp eq ptr %0, null
-  br i1 %141, label %142, label %tsd_fetch_impl.exit.i.i44
+139:                                              ; preds = %135
+  %140 = icmp eq ptr %0, null
+  br i1 %140, label %141, label %tsd_fetch_impl.exit.i.i44
 
-142:                                              ; preds = %140
-  %143 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 832
-  %145 = load i8, ptr %144, align 8, !tbaa !16
-  %.not.i.i.i50 = icmp eq i8 %145, 0
-  br i1 %.not.i.i.i50, label %tsd_fetch_impl.exit.i.i44, label %146, !prof !39
+141:                                              ; preds = %139
+  %142 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 832
+  %144 = load i8, ptr %143, align 8, !tbaa !16
+  %.not.i.i.i50 = icmp eq i8 %144, 0
+  br i1 %.not.i.i.i50, label %tsd_fetch_impl.exit.i.i44, label %145, !prof !39
 
-146:                                              ; preds = %142
-  %147 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %143, i1 noundef zeroext false) #9
+145:                                              ; preds = %141
+  %146 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %142, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i.i44
 
-tsd_fetch_impl.exit.i.i44:                        ; preds = %146, %142, %140
-  %148 = phi ptr [ %147, %146 ], [ %143, %142 ], [ %0, %140 ]
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 832
-  %150 = load i8, ptr %149, align 8, !tbaa !16
-  %151 = icmp eq i8 %150, 0
-  %152 = getelementptr inbounds nuw i8, ptr %148, i64 1
-  %153 = load i8, ptr %152, align 1, !tbaa !16
-  %154 = add i8 %153, 1
-  store i8 %154, ptr %152, align 1, !tbaa !16
-  br i1 %151, label %155, label %ehooks_pre_reentrancy.exit.i45
+tsd_fetch_impl.exit.i.i44:                        ; preds = %145, %141, %139
+  %147 = phi ptr [ %146, %145 ], [ %142, %141 ], [ %0, %139 ]
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 832
+  %149 = load i8, ptr %148, align 8, !tbaa !16
+  %150 = icmp eq i8 %149, 0
+  %151 = getelementptr inbounds nuw i8, ptr %147, i64 1
+  %152 = load i8, ptr %151, align 1, !tbaa !16
+  %153 = add i8 %152, 1
+  store i8 %153, ptr %151, align 1, !tbaa !16
+  br i1 %150, label %154, label %ehooks_pre_reentrancy.exit.i45
 
-155:                                              ; preds = %tsd_fetch_impl.exit.i.i44
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %148) #9
+154:                                              ; preds = %tsd_fetch_impl.exit.i.i44
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %147) #9
   br label %ehooks_pre_reentrancy.exit.i45
 
-ehooks_pre_reentrancy.exit.i45:                   ; preds = %155, %tsd_fetch_impl.exit.i.i44
-  %156 = load ptr, ptr %137, align 8, !tbaa !59
+ehooks_pre_reentrancy.exit.i45:                   ; preds = %154, %tsd_fetch_impl.exit.i.i44
+  %155 = load ptr, ptr %136, align 8, !tbaa !59
   %.val.i46 = load i32, ptr %1, align 8, !tbaa !38
-  %157 = tail call zeroext i1 %156(ptr noundef nonnull %.0.i.i.i43, ptr noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %3, i32 noundef %.val.i46) #9
-  br i1 %141, label %158, label %tsd_fetch_impl.exit.i17.i47
+  %156 = tail call zeroext i1 %155(ptr noundef nonnull %.0.i.i.i43, ptr noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %3, i32 noundef %.val.i46) #9
+  br i1 %140, label %157, label %tsd_fetch_impl.exit.i17.i47
 
-158:                                              ; preds = %ehooks_pre_reentrancy.exit.i45
-  %159 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 832
-  %161 = load i8, ptr %160, align 8, !tbaa !16
-  %.not.i.i18.i49 = icmp eq i8 %161, 0
-  br i1 %.not.i.i18.i49, label %tsd_fetch_impl.exit.i17.i47, label %162, !prof !39
+157:                                              ; preds = %ehooks_pre_reentrancy.exit.i45
+  %158 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 832
+  %160 = load i8, ptr %159, align 8, !tbaa !16
+  %.not.i.i18.i49 = icmp eq i8 %160, 0
+  br i1 %.not.i.i18.i49, label %tsd_fetch_impl.exit.i17.i47, label %161, !prof !39
 
-162:                                              ; preds = %158
-  %163 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %159, i1 noundef zeroext false) #9
+161:                                              ; preds = %157
+  %162 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %158, i1 noundef zeroext false) #9
   br label %tsd_fetch_impl.exit.i17.i47
 
-tsd_fetch_impl.exit.i17.i47:                      ; preds = %162, %158, %ehooks_pre_reentrancy.exit.i45
-  %164 = phi ptr [ %163, %162 ], [ %159, %158 ], [ %0, %ehooks_pre_reentrancy.exit.i45 ]
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 1
-  %166 = load i8, ptr %165, align 1, !tbaa !16
-  %167 = add i8 %166, -1
-  store i8 %167, ptr %165, align 1, !tbaa !16
-  %168 = icmp eq i8 %167, 0
-  br i1 %168, label %169, label %ehooks_purge_lazy.exit
+tsd_fetch_impl.exit.i17.i47:                      ; preds = %161, %157, %ehooks_pre_reentrancy.exit.i45
+  %163 = phi ptr [ %162, %161 ], [ %158, %157 ], [ %0, %ehooks_pre_reentrancy.exit.i45 ]
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1
+  %165 = load i8, ptr %164, align 1, !tbaa !16
+  %166 = add i8 %165, -1
+  store i8 %166, ptr %164, align 1, !tbaa !16
+  %167 = icmp eq i8 %166, 0
+  br i1 %167, label %168, label %ehooks_purge_lazy.exit
 
-169:                                              ; preds = %tsd_fetch_impl.exit.i17.i47
-  tail call void @je_tsd_slow_update(ptr noundef nonnull %164) #9
+168:                                              ; preds = %tsd_fetch_impl.exit.i17.i47
+  tail call void @je_tsd_slow_update(ptr noundef nonnull %163) #9
   br label %ehooks_purge_lazy.exit
 
-ehooks_purge_lazy.exit:                           ; preds = %169, %tsd_fetch_impl.exit.i17.i47, %136, %134, %131, %96, %93, %58, %55, %20, %ehooks_purge_forced.exit, %ehooks_decommit.exit, %ehooks_dalloc.exit, %14, %12, %10, %8
-  %170 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !9
-  %171 = icmp ne i32 %170, 0
-  %172 = load i32, ptr @je_init_system_thp_mode, align 4
-  %173 = icmp eq i32 %172, 0
-  %174 = select i1 %171, i1 %173, i1 false
-  br i1 %174, label %175, label %177
+ehooks_purge_lazy.exit:                           ; preds = %168, %tsd_fetch_impl.exit.i17.i47, %135, %133, %130, %95, %92, %57, %54, %19, %ehooks_purge_forced.exit, %ehooks_decommit.exit, %ehooks_dalloc.exit, %14, %12, %10, %8
+  %169 = load i32, ptr @je_opt_metadata_thp, align 4, !tbaa !9
+  %170 = icmp ne i32 %169, 0
+  %171 = load i32, ptr @je_init_system_thp_mode, align 4
+  %172 = icmp eq i32 %171, 0
+  %173 = select i1 %170, i1 %172, i1 false
+  br i1 %173, label %174, label %176
 
-175:                                              ; preds = %ehooks_purge_lazy.exit
-  %176 = tail call zeroext i1 @je_pages_nohuge(ptr noundef %2, i64 noundef %3) #9
-  br label %177
+174:                                              ; preds = %ehooks_purge_lazy.exit
+  %175 = tail call zeroext i1 @je_pages_nohuge(ptr noundef %2, i64 noundef %3) #9
+  br label %176
 
-177:                                              ; preds = %175, %ehooks_purge_lazy.exit
+176:                                              ; preds = %174, %ehooks_purge_lazy.exit
   ret void
 }
 

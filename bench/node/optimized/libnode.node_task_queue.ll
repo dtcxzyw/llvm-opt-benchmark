@@ -818,46 +818,37 @@ entry:
   %cmp.i.i.i.i = icmp ne ptr %call1.i, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
   %call5.i.i.i = tail call noundef i32 @_ZN2v87Context29GetNumberOfEmbedderDataFieldsEv(ptr noundef nonnull align 1 dereferenceable(1) %call1.i) #14
-  %cmp.i.i.i = icmp ugt i32 %call5.i.i.i, 39
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %2 = load i64, ptr %call1.i, align 8
   %sub.i49.i.i.i = add i64 %2, 47
   %3 = inttoptr i64 %sub.i49.i.i.i to ptr
   %4 = load i64, ptr %3, align 8
-  %sub.i.i.i.i = add i64 %4, 327
-  %5 = inttoptr i64 %sub.i.i.i.i to ptr
+  %sub.i.i.i = add i64 %4, 271
+  %5 = inttoptr i64 %sub.i.i.i to ptr
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = load ptr, ptr @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE, align 8
-  %cmp12.not.i.i.i = icmp eq ptr %8, %7
-  tail call void @llvm.assume(i1 %cmp12.not.i.i.i)
-  %sub.i.i.i = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i to ptr
-  %10 = load i64, ptr %9, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %isolate_.i = getelementptr inbounds nuw i8, ptr %11, i64 88
-  %12 = load ptr, ptr %isolate_.i, align 8
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %8 = load ptr, ptr %isolate_.i, align 8
   %length_.i71 = getelementptr inbounds nuw i8, ptr %args, i64 16
-  %13 = load i32, ptr %length_.i71, align 8
-  %cmp2.i72 = icmp slt i32 %13, 1
+  %9 = load i32, ptr %length_.i71, align 8
+  %cmp2.i72 = icmp slt i32 %9, 1
   br i1 %cmp2.i72, label %if.then.i78, label %if.end.i73
 
 if.then.i78:                                      ; preds = %entry
-  %14 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %15 = load ptr, ptr %arrayidx.i, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %add1.i.i83 = add i64 %16, 608
-  %17 = inttoptr i64 %add1.i.i83 to ptr
+  %10 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %add1.i.i83 = add i64 %12, 608
+  %13 = inttoptr i64 %add1.i.i83 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit88
 
 if.end.i73:                                       ; preds = %entry
   %values_.i74 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %18 = load ptr, ptr %values_.i74, align 8
+  %14 = load ptr, ptr %values_.i74, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit88
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit88: ; preds = %if.end.i73, %if.then.i78
-  %retval.i64.sroa.0.0 = phi ptr [ %17, %if.then.i78 ], [ %18, %if.end.i73 ]
+  %retval.i64.sroa.0.0 = phi ptr [ %13, %if.then.i78 ], [ %14, %if.end.i73 ]
   %call6 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i64.sroa.0.0) #14
   br i1 %call6, label %do.end10, label %do.body9
 
@@ -867,32 +858,32 @@ do.body9:                                         ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 do.end10:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit88
-  %call12 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %12) #14
+  %call12 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   %call17 = tail call noundef ptr @_ZN2v87Context17GetMicrotaskQueueEv(ptr noundef nonnull align 1 dereferenceable(1) %call12) #14
-  %19 = load i32, ptr %length_.i71, align 8
-  %cmp2.i = icmp slt i32 %19, 1
+  %15 = load i32, ptr %length_.i71, align 8
+  %cmp2.i = icmp slt i32 %15, 1
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %do.end10
-  %20 = load ptr, ptr %args, align 8
-  %arrayidx.i98 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %21 = load ptr, ptr %arrayidx.i98, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %add1.i.i = add i64 %22, 608
-  %23 = inttoptr i64 %add1.i.i to ptr
+  %16 = load ptr, ptr %args, align 8
+  %arrayidx.i98 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %17 = load ptr, ptr %arrayidx.i98, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %add1.i.i = add i64 %18, 608
+  %19 = inttoptr i64 %add1.i.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %do.end10
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %24 = load ptr, ptr %values_.i, align 8
+  %20 = load ptr, ptr %values_.i, align 8
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %23, %if.then.i ], [ %24, %if.end.i ]
+  %retval.i.sroa.0.0 = phi ptr [ %19, %if.then.i ], [ %20, %if.end.i ]
   %vtable = load ptr, ptr %call17, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %25 = load ptr, ptr %vfn, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull %12, ptr %retval.i.sroa.0.0) #14
+  %21 = load ptr, ptr %vfn, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %call17, ptr noundef nonnull %8, ptr %retval.i.sroa.0.0) #14
   ret void
 }
 

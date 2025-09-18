@@ -51689,7 +51689,7 @@ define { ptr, i32 } @"_ZN157_$LT$ruff_server..server..api..notifications..did_ch
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZN11ruff_server7session7Session12key_from_url17hfb097f85dc4aca5eE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(288) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %14)
-          to label %22 unwind label %54
+          to label %22 unwind label %52
 
 20:                                               ; preds = %48
   %21 = landingpad { ptr, i32 }
@@ -51702,7 +51702,7 @@ define { ptr, i32 } @"_ZN157_$LT$ruff_server..server..api..notifications..did_ch
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %23 = invoke noundef ptr @_ZN11ruff_server7session7Session24update_notebook_document17h1fab777ea132608aE(ptr noalias noundef nonnull align 8 dereferenceable(288) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(128) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9, i32 noundef %18)
-          to label %24 unwind label %52
+          to label %24 unwind label %50
 
 .thread44:                                        ; preds = %40, %43, %34, %29, %28
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -51713,7 +51713,7 @@ define { ptr, i32 } @"_ZN157_$LT$ruff_server..server..api..notifications..did_ch
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %25 = invoke { ptr, i32 } @"_ZN98_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$ruff_server..server..api..LSPResult$LT$T$GT$$GT$17with_failure_code17h86f1409d9dceec87E"(ptr noundef %23, i32 noundef -32603)
-          to label %26 unwind label %52
+          to label %26 unwind label %50
 
 26:                                               ; preds = %24
   %27 = extractvalue { ptr, i32 } %25, 1
@@ -51791,54 +51791,51 @@ define { ptr, i32 } @"_ZN157_$LT$ruff_server..server..api..notifications..did_ch
   call void @"_ZN4core3ptr58drop_in_place$LT$ruff_server..server..client..Notifier$GT$17h9e9b5776aa4d082eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
   ret { ptr, i32 } %.merged
 
-46:                                               ; preds = %62, %58, %52, %.critedge, %36
+46:                                               ; preds = %60, %56, %50, %.critedge, %36
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #16
   unreachable
 
 48:                                               ; preds = %26
-  %49 = extractvalue { ptr, i32 } %25, 0
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
-  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h487b953e250ebab6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %51)
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h487b953e250ebab6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %49)
           to label %"_ZN4core3ptr51drop_in_place$LT$ruff_server..edit..DocumentKey$GT$17h801e639a0bb08817E.exit" unwind label %20
 
-52:                                               ; preds = %24, %22
+50:                                               ; preds = %24, %22
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h487b953e250ebab6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %53)
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h487b953e250ebab6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %51)
           to label %.critedge unwind label %46
 
-54:                                               ; preds = %4
-  %55 = landingpad { ptr, i32 }
+52:                                               ; preds = %4
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %56 = load i64, ptr %12, align 8, !range !505, !alias.scope !1682, !noundef !3
-  %57 = icmp eq i64 %56, 0
-  br i1 %57, label %.noexc, label %58
+  %54 = load i64, ptr %12, align 8, !range !505, !alias.scope !1682, !noundef !3
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %.noexc, label %56
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h29288e8ad792791fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %59)
+56:                                               ; preds = %52
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  invoke void @"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h29288e8ad792791fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57)
           to label %.noexc unwind label %46
 
-.critedge:                                        ; preds = %52, %36, %.thread44, %.noexc, %62, %20
-  %.pn2935 = phi { ptr, i32 } [ %21, %20 ], [ %55, %62 ], [ %55, %.noexc ], [ %lpad.thr_comm, %.thread44 ], [ %37, %36 ], [ %lpad.thr_comm.split-lp, %52 ]
+.critedge:                                        ; preds = %50, %36, %.thread44, %.noexc, %60, %20
+  %.pn2935 = phi { ptr, i32 } [ %21, %20 ], [ %53, %60 ], [ %53, %.noexc ], [ %lpad.thr_comm, %.thread44 ], [ %37, %36 ], [ %lpad.thr_comm.split-lp, %50 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$ruff_server..server..client..Notifier$GT$17h9e9b5776aa4d082eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15) #15
-          to label %63 unwind label %46
+          to label %61 unwind label %46
 
-.noexc:                                           ; preds = %58, %54
-  %60 = load i64, ptr %13, align 8, !range !24, !alias.scope !1685, !noundef !3
-  %61 = icmp eq i64 %60, -9223372036854775807
-  br i1 %61, label %.critedge, label %62
+.noexc:                                           ; preds = %56, %52
+  %58 = load i64, ptr %13, align 8, !range !24, !alias.scope !1685, !noundef !3
+  %59 = icmp eq i64 %58, -9223372036854775807
+  br i1 %59, label %.critedge, label %60
 
-62:                                               ; preds = %.noexc
+60:                                               ; preds = %.noexc
   invoke void @"_ZN4core3ptr89drop_in_place$LT$lsp_types..notebook..notification_params..NotebookDocumentCellChange$GT$17ha8a92f976db7972dE"(ptr noalias noundef nonnull align 8 dereferenceable(128) %13)
           to label %.critedge unwind label %46
 
-63:                                               ; preds = %.critedge
+61:                                               ; preds = %.critedge
   resume { ptr, i32 } %.pn2935
 }
 

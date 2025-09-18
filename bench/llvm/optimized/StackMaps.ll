@@ -1101,9 +1101,6 @@ define dso_local void @_ZN4llvm9StackMapsC2ERNS_10AsmPrinterE(ptr noundef nonnul
   store i32 0, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 0, ptr %10, align 4, !tbaa !27
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15StackMapVersion, i64 120), align 8, !tbaa !34
-  %.not = icmp eq i32 %11, 3
-  tail call void @llvm.assume(i1 %.not)
   ret void
 }
 

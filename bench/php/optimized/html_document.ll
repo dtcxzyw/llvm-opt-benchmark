@@ -217,68 +217,56 @@ define hidden void @zim_Dom_HTMLDocument_createEmpty(ptr noundef readonly captur
   %6 = load i32, ptr %5, align 4, !tbaa !4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %9, label %12
+  br i1 %8, label %35, label %9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %11 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %11)
-  br label %42
+  %10 = load i64, ptr %4, align 8, !tbaa !13
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %lxb_encoding_data_by_name.exit.thread, label %12
 
-12:                                               ; preds = %2
-  %13 = load i64, ptr %4, align 8, !tbaa !13
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %lxb_encoding_data_by_name.exit.thread, label %15
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %3, align 8, !tbaa !10
+  %14 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef %13, i64 noundef %10) #10
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %lxb_encoding_data_by_name.exit.thread, label %lxb_encoding_data_by_name.exit
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %3, align 8, !tbaa !10
-  %17 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef %16, i64 noundef %13) #10
+lxb_encoding_data_by_name.exit:                   ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %lxb_encoding_data_by_name.exit.thread, label %lxb_encoding_data_by_name.exit
+  br i1 %18, label %lxb_encoding_data_by_name.exit.thread, label %19
 
-lxb_encoding_data_by_name.exit:                   ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !46
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %lxb_encoding_data_by_name.exit.thread, label %24
-
-lxb_encoding_data_by_name.exit.thread:            ; preds = %15, %12, %lxb_encoding_data_by_name.exit
+lxb_encoding_data_by_name.exit.thread:            ; preds = %12, %9, %lxb_encoding_data_by_name.exit
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.2) #10
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %23 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %23)
-  br label %42
+  br label %35
 
-24:                                               ; preds = %lxb_encoding_data_by_name.exit
-  %25 = call ptr @php_dom_create_html_doc() #10
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %39, label %27, !prof !48
+19:                                               ; preds = %lxb_encoding_data_by_name.exit
+  %20 = call ptr @php_dom_create_html_doc() #10
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %34, label %22, !prof !17
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr %3, align 8, !tbaa !10
-  %29 = call ptr @xmlStrdup(ptr noundef %28) #10
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 112
-  store ptr %29, ptr %30, align 8, !tbaa !49
-  %31 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !56
-  %32 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %31, ptr noundef nonnull %25, ptr noundef null) #10
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !57
-  call void @dom_set_xml_class(ptr noundef %34) #10
-  %35 = call ptr @php_dom_private_data_create() #10
-  %36 = call ptr @php_dom_libxml_private_data_header(ptr noundef %35) #10
-  %37 = load ptr, ptr %33, align 8, !tbaa !57
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store ptr %36, ptr %38, align 8, !tbaa !62
-  br label %42
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %3, align 8, !tbaa !10
+  %24 = call ptr @xmlStrdup(ptr noundef %23) #10
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 112
+  store ptr %24, ptr %25, align 8, !tbaa !18
+  %26 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !25
+  %27 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %26, ptr noundef nonnull %20, ptr noundef null) #10
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  call void @dom_set_xml_class(ptr noundef %29) #10
+  %30 = call ptr @php_dom_private_data_create() #10
+  %31 = call ptr @php_dom_libxml_private_data_header(ptr noundef %30) #10
+  %32 = load ptr, ptr %28, align 8, !tbaa !27
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store ptr %31, ptr %33, align 8, !tbaa !33
+  br label %35
 
-39:                                               ; preds = %24
+34:                                               ; preds = %19
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %41 = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %41)
-  br label %42
+  br label %35
 
-42:                                               ; preds = %lxb_encoding_data_by_name.exit.thread, %39, %27, %9
+35:                                               ; preds = %2, %lxb_encoding_data_by_name.exit.thread, %34, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -332,385 +320,361 @@ define hidden void @zim_Dom_HTMLDocument_createFromString(ptr noundef readonly c
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %18, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
   %20 = icmp eq i32 %19, -1
-  br i1 %20, label %21, label %24
+  br i1 %20, label %178, label %21
 
 21:                                               ; preds = %2
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %23 = icmp ne ptr %22, null
-  call void @llvm.assume(i1 %23)
-  br label %192
+  %22 = load i64, ptr %9, align 8, !tbaa !13
+  %23 = and i64 %22, -2147557409
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %25, label %24
 
-24:                                               ; preds = %2
-  %25 = load i64, ptr %9, align 8, !tbaa !13
-  %26 = and i64 %25, -2147557409
-  %.not.i = icmp eq i64 %26, 0
-  br i1 %.not.i, label %30, label %27
-
-27:                                               ; preds = %24
+24:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.23) #10
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %29 = icmp ne ptr %28, null
-  call void @llvm.assume(i1 %29)
-  br label %192
+  br label %178
 
-30:                                               ; preds = %24
+25:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr @.str.4, ptr %10, align 8, !tbaa !68
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i64 0, ptr %31, align 8, !tbaa !72
-  %32 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %33 = lshr i64 %25, 13
-  %34 = trunc i64 %33 to i8
-  %35 = and i8 %34, 1
-  store i8 %35, ptr %32, align 8, !tbaa !73
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 1, ptr %36, align 8, !tbaa !74
-  %37 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i64 1, ptr %37, align 8, !tbaa !75
-  %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 0, ptr %38, align 8, !tbaa !76
+  store ptr @.str.4, ptr %10, align 8, !tbaa !39
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i64 0, ptr %26, align 8, !tbaa !44
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %28 = lshr i64 %22, 13
+  %29 = trunc i64 %28 to i8
+  %30 = and i8 %29, 1
+  store i8 %30, ptr %27, align 8, !tbaa !45
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i64 1, ptr %31, align 8, !tbaa !46
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i64 1, ptr %32, align 8, !tbaa !47
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 0, ptr %33, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @lexbor_libxml2_bridge_parse_context_init(ptr noundef nonnull %11) #10
-  %39 = load i64, ptr %9, align 8, !tbaa !13
-  %40 = and i64 %39, 32
-  %.not.i51 = icmp eq i64 %40, 0
-  br i1 %.not.i51, label %41, label %dom_should_register_error_handlers.exit.thread57
+  %34 = load i64, ptr %9, align 8, !tbaa !13
+  %35 = and i64 %34, 32
+  %.not.i51 = icmp eq i64 %35, 0
+  br i1 %.not.i51, label %36, label %dom_should_register_error_handlers.exit.thread57
 
-41:                                               ; preds = %30
-  %42 = call zeroext i1 @php_libxml_uses_internal_errors() #10
-  br i1 %42, label %dom_should_register_error_handlers.exit.thread, label %dom_should_register_error_handlers.exit
+36:                                               ; preds = %25
+  %37 = call zeroext i1 @php_libxml_uses_internal_errors() #10
+  br i1 %37, label %dom_should_register_error_handlers.exit.thread, label %dom_should_register_error_handlers.exit
 
-dom_should_register_error_handlers.exit:          ; preds = %41
-  %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8, !tbaa !77
-  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 720), align 8, !tbaa !78
-  %45 = or i32 %44, %43
-  %46 = and i32 %45, 2
-  %.not71 = icmp eq i32 %46, 0
+dom_should_register_error_handlers.exit:          ; preds = %36
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8, !tbaa !49
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 720), align 8, !tbaa !77
+  %40 = or i32 %39, %38
+  %41 = and i32 %40, 2
+  %.not71 = icmp eq i32 %41, 0
   br i1 %.not71, label %dom_should_register_error_handlers.exit.thread57, label %dom_should_register_error_handlers.exit.thread
 
-dom_should_register_error_handlers.exit.thread:   ; preds = %41, %dom_should_register_error_handlers.exit
+dom_should_register_error_handlers.exit.thread:   ; preds = %36, %dom_should_register_error_handlers.exit
   call void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef nonnull %11, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tokenizer_error_reporter, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tree_error_reporter) #10
   br label %dom_should_register_error_handlers.exit.thread57
 
-dom_should_register_error_handlers.exit.thread57: ; preds = %30, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
-  %47 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %10, ptr %47, align 8, !tbaa !79
+dom_should_register_error_handlers.exit.thread57: ; preds = %25, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
+  %42 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %10, ptr %42, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %12, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %48 = load ptr, ptr %5, align 8, !tbaa !10
-  store ptr %48, ptr %14, align 8, !tbaa !10
+  %43 = load ptr, ptr %5, align 8, !tbaa !10
+  store ptr %43, ptr %14, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %49 = getelementptr inbounds nuw i8, ptr %15, i64 144
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %49, align 8, !tbaa !82
-  %50 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %50, align 8, !tbaa !87
-  store i8 1, ptr %15, align 8, !tbaa !88
-  %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %15, i64 160
-  %53 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %52, ptr %54, align 8, !tbaa !89
-  %55 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store i64 4096, ptr %55, align 8, !tbaa !90
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %51, align 8, !tbaa !91
-  %56 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr @.str.112, ptr %56, align 8, !tbaa !92
-  %57 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i64 3, ptr %57, align 8, !tbaa !93
-  %58 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %59 = getelementptr inbounds nuw i8, ptr %15, i64 4256
-  %60 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 56, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  store ptr %59, ptr %61, align 8, !tbaa !94
-  %62 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  store i64 4096, ptr %62, align 8, !tbaa !95
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %58, align 8, !tbaa !96
-  %63 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store ptr %4, ptr %63, align 8, !tbaa !97
-  %64 = getelementptr inbounds nuw i8, ptr %15, i64 104
-  store i64 1, ptr %64, align 8, !tbaa !98
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 144
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %44, align 8, !tbaa !81
+  %45 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %45, align 8, !tbaa !86
+  store i8 1, ptr %15, align 8, !tbaa !87
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 160
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store ptr %47, ptr %49, align 8, !tbaa !88
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store i64 4096, ptr %50, align 8, !tbaa !89
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %46, align 8, !tbaa !90
+  %51 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr @.str.112, ptr %51, align 8, !tbaa !91
+  %52 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  store i64 3, ptr %52, align 8, !tbaa !92
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 4256
+  %55 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 0, i64 56, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  store ptr %54, ptr %56, align 8, !tbaa !93
+  %57 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  store i64 4096, ptr %57, align 8, !tbaa !94
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %53, align 8, !tbaa !95
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 96
+  store ptr %4, ptr %58, align 8, !tbaa !96
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 104
+  store i64 1, ptr %59, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = load ptr, ptr %6, align 8, !tbaa !10
-  %.not = icmp eq ptr %65, null
-  br i1 %.not, label %82, label %66
+  %60 = load ptr, ptr %6, align 8, !tbaa !10
+  %.not = icmp eq ptr %60, null
+  br i1 %.not, label %75, label %61
 
-66:                                               ; preds = %dom_should_register_error_handlers.exit.thread57
-  %67 = load i64, ptr %8, align 8, !tbaa !13
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread, label %69
+61:                                               ; preds = %dom_should_register_error_handlers.exit.thread57
+  %62 = load i64, ptr %8, align 8, !tbaa !13
+  %63 = icmp eq i64 %62, 0
+  br i1 %63, label %.thread, label %64
 
-69:                                               ; preds = %66
-  %70 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %65, i64 noundef %67) #10
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %.thread, label %lxb_encoding_data_by_name.exit
+64:                                               ; preds = %61
+  %65 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %60, i64 noundef %62) #10
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %.thread, label %lxb_encoding_data_by_name.exit
 
-lxb_encoding_data_by_name.exit:                   ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !46
-  %.not42.not = icmp eq ptr %73, null
-  br i1 %.not42.not, label %.thread, label %76
+lxb_encoding_data_by_name.exit:                   ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %68 = load ptr, ptr %67, align 8, !tbaa !15
+  %.not42.not = icmp eq ptr %68, null
+  br i1 %.not42.not, label %.thread, label %69
 
-.thread:                                          ; preds = %lxb_encoding_data_by_name.exit, %66, %69
+.thread:                                          ; preds = %lxb_encoding_data_by_name.exit, %61, %64
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.2) #10
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %75 = icmp ne ptr %74, null
-  call void @llvm.assume(i1 %75)
-  br label %191
+  br label %177
 
-76:                                               ; preds = %lxb_encoding_data_by_name.exit
-  store ptr %73, ptr %50, align 8, !tbaa !87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 56, i1 false)
-  store ptr %59, ptr %61, align 8, !tbaa !94
-  store i64 4096, ptr %62, align 8, !tbaa !95
-  store ptr %73, ptr %58, align 8, !tbaa !96
-  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %63, align 8, !tbaa !97
-  store i64 1, ptr %64, align 8, !tbaa !98
-  %77 = load ptr, ptr %49, align 8, !tbaa !82
-  %78 = icmp eq ptr %73, %77
-  %79 = zext i1 %78 to i8
-  store i8 %79, ptr %15, align 8, !tbaa !88
-  %spec.select.i = select i1 %78, ptr null, ptr %59
-  %spec.select18.i = select i1 %78, ptr %48, ptr null
-  %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %spec.select.i, ptr %80, align 8, !tbaa !99
-  %81 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %spec.select18.i, ptr %81, align 8, !tbaa !100
-  br label %83
+69:                                               ; preds = %lxb_encoding_data_by_name.exit
+  store ptr %68, ptr %45, align 8, !tbaa !86
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %55, i8 0, i64 56, i1 false)
+  store ptr %54, ptr %56, align 8, !tbaa !93
+  store i64 4096, ptr %57, align 8, !tbaa !94
+  store ptr %68, ptr %53, align 8, !tbaa !95
+  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %58, align 8, !tbaa !96
+  store i64 1, ptr %59, align 8, !tbaa !97
+  %70 = load ptr, ptr %44, align 8, !tbaa !81
+  %71 = icmp eq ptr %68, %70
+  %72 = zext i1 %71 to i8
+  store i8 %72, ptr %15, align 8, !tbaa !87
+  %spec.select.i = select i1 %71, ptr null, ptr %54
+  %spec.select18.i = select i1 %71, ptr %43, ptr null
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %spec.select.i, ptr %73, align 8, !tbaa !98
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %spec.select18.i, ptr %74, align 8, !tbaa !99
+  br label %76
 
-82:                                               ; preds = %dom_should_register_error_handlers.exit.thread57
+75:                                               ; preds = %dom_should_register_error_handlers.exit.thread57
   call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef %14, ptr noundef %7, ptr noundef %15, ptr noundef %10)
-  br label %83
+  br label %76
 
-83:                                               ; preds = %76, %82
-  %84 = call ptr @lxb_html_document_create() #10
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %dom_parse_decode_encode_finish.exit, label %86, !prof !48
+76:                                               ; preds = %69, %75
+  %77 = call ptr @lxb_html_document_create() #10
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %dom_parse_decode_encode_finish.exit, label %79, !prof !17
 
-86:                                               ; preds = %83
-  %87 = call i32 @lxb_html_document_parse_chunk_begin(ptr noundef nonnull %84) #10
-  %.not43 = icmp eq i32 %87, 0
-  br i1 %.not43, label %88, label %dom_parse_decode_encode_finish.exit, !prof !101
+79:                                               ; preds = %76
+  %80 = call i32 @lxb_html_document_parse_chunk_begin(ptr noundef nonnull %77) #10
+  %.not43 = icmp eq i32 %80, 0
+  br i1 %.not43, label %81, label %dom_parse_decode_encode_finish.exit, !prof !100
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 232
-  %90 = load ptr, ptr %89, align 8, !tbaa !102
-  %91 = load i64, ptr %7, align 8, !tbaa !13
-  %.not4472 = icmp eq i64 %91, 0
+81:                                               ; preds = %79
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 232
+  %83 = load ptr, ptr %82, align 8, !tbaa !101
+  %84 = load i64, ptr %7, align 8, !tbaa !13
+  %.not4472 = icmp eq i64 %84, 0
   br i1 %.not4472, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  br label %93
+.lr.ph:                                           ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  br label %86
 
-93:                                               ; preds = %.lr.ph, %103
-  %94 = phi i64 [ %91, %.lr.ph ], [ %104, %103 ]
-  %spec.store.select = call i64 @llvm.umin.i64(i64 %94, i64 4096)
-  %95 = sub i64 %94, %spec.store.select
-  store i64 %95, ptr %7, align 8, !tbaa !13
-  %96 = load ptr, ptr %14, align 8, !tbaa !10
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %spec.store.select
-  %98 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %11, ptr noundef %84, ptr noundef %90, ptr noundef %14, ptr noundef nonnull %97, ptr noundef %15, ptr noundef %12, ptr noundef %13)
-  br i1 %98, label %99, label %dom_parse_decode_encode_finish.exit
+86:                                               ; preds = %.lr.ph, %96
+  %87 = phi i64 [ %84, %.lr.ph ], [ %97, %96 ]
+  %spec.store.select = call i64 @llvm.umin.i64(i64 %87, i64 4096)
+  %88 = sub i64 %87, %spec.store.select
+  store i64 %88, ptr %7, align 8, !tbaa !13
+  %89 = load ptr, ptr %14, align 8, !tbaa !10
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %spec.store.select
+  %91 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %11, ptr noundef %77, ptr noundef %83, ptr noundef %14, ptr noundef nonnull %90, ptr noundef %15, ptr noundef %12, ptr noundef %13)
+  br i1 %91, label %92, label %dom_parse_decode_encode_finish.exit
 
-99:                                               ; preds = %93
-  %100 = load ptr, ptr %92, align 8, !tbaa !100
-  %.not49 = icmp eq ptr %100, null
-  br i1 %.not49, label %103, label %101
+92:                                               ; preds = %86
+  %93 = load ptr, ptr %85, align 8, !tbaa !99
+  %.not49 = icmp eq ptr %93, null
+  br i1 %.not49, label %96, label %94
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %100, i64 %spec.store.select
-  store ptr %102, ptr %92, align 8, !tbaa !100
-  br label %103
+94:                                               ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 %spec.store.select
+  store ptr %95, ptr %85, align 8, !tbaa !99
+  br label %96
 
-103:                                              ; preds = %99, %101
-  %104 = load i64, ptr %7, align 8, !tbaa !13
-  %.not44 = icmp eq i64 %104, 0
-  br i1 %.not44, label %._crit_edge, label %93
+96:                                               ; preds = %92, %94
+  %97 = load i64, ptr %7, align 8, !tbaa !13
+  %.not44 = icmp eq i64 %97, 0
+  br i1 %.not44, label %._crit_edge, label %86
 
-._crit_edge:                                      ; preds = %103, %88
-  %105 = getelementptr inbounds nuw i8, ptr %15, i64 124
-  %106 = load i32, ptr %105, align 4, !tbaa !119
-  %.not.i.i = icmp eq i32 %106, 0
-  br i1 %.not.i.i, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %107
+._crit_edge:                                      ; preds = %96, %81
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 124
+  %99 = load i32, ptr %98, align 4, !tbaa !118
+  %.not.i.i = icmp eq i32 %99, 0
+  br i1 %.not.i.i, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %100
 
-107:                                              ; preds = %._crit_edge
-  %108 = load ptr, ptr %58, align 8, !tbaa !96
-  %109 = load i32, ptr %108, align 8, !tbaa !120
-  %110 = icmp eq i32 %109, 8
-  %111 = getelementptr inbounds nuw i8, ptr %15, i64 132
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp eq i32 %112, 0
-  %or.cond = select i1 %110, i1 %113, i1 false
+100:                                              ; preds = %._crit_edge
+  %101 = load ptr, ptr %53, align 8, !tbaa !95
+  %102 = load i32, ptr %101, align 8, !tbaa !119
+  %103 = icmp eq i32 %102, 8
+  %104 = getelementptr inbounds nuw i8, ptr %15, i64 132
+  %105 = load i32, ptr %104, align 4
+  %106 = icmp eq i32 %105, 0
+  %or.cond = select i1 %103, i1 %106, i1 false
   br i1 %or.cond, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %lxb_encoding_decode_buf_add_to.exit.i.i
 
-lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %107
-  %114 = load ptr, ptr %63, align 8, !tbaa !97, !nonnull !122, !noundef !122
-  %115 = load i64, ptr %64, align 8, !tbaa !98
-  %116 = load i64, ptr %60, align 8, !tbaa !123
-  %117 = add i64 %116, %115
-  %118 = load i64, ptr %62, align 8, !tbaa !95
-  %119 = icmp ule i64 %117, %118
-  call void @llvm.assume(i1 %119)
-  %120 = load ptr, ptr %61, align 8, !tbaa !94
-  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %116
-  %122 = shl i64 %115, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %121, ptr nonnull readonly align 4 %114, i64 %122, i1 false)
-  %123 = load i64, ptr %60, align 8, !tbaa !123
-  %124 = add i64 %123, %115
-  store i64 %124, ptr %60, align 8, !tbaa !123
+lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %100
+  %107 = load ptr, ptr %58, align 8, !tbaa !96, !nonnull !121, !noundef !121
+  %108 = load i64, ptr %59, align 8, !tbaa !97
+  %109 = load i64, ptr %55, align 8, !tbaa !122
+  %110 = load ptr, ptr %56, align 8, !tbaa !93
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %109
+  %112 = shl i64 %108, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %111, ptr nonnull readonly align 4 %107, i64 %112, i1 false)
+  %113 = load i64, ptr %55, align 8, !tbaa !122
+  %114 = add i64 %113, %108
+  store i64 %114, ptr %55, align 8, !tbaa !122
   br label %lxb_encoding_decode_finish.exit.i
 
-lxb_encoding_decode_finish.exit.ithread-pre-split: ; preds = %107, %._crit_edge
-  %.val.i.pr = load i64, ptr %60, align 8, !tbaa !123
+lxb_encoding_decode_finish.exit.ithread-pre-split: ; preds = %100, %._crit_edge
+  %.val.i.pr = load i64, ptr %55, align 8, !tbaa !122
   br label %lxb_encoding_decode_finish.exit.i
 
 lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode_finish.exit.ithread-pre-split, %lxb_encoding_decode_buf_add_to.exit.i.i
-  %.val.i = phi i64 [ %.val.i.pr, %lxb_encoding_decode_finish.exit.ithread-pre-split ], [ %124, %lxb_encoding_decode_buf_add_to.exit.i.i ]
+  %.val.i = phi i64 [ %.val.i.pr, %lxb_encoding_decode_finish.exit.ithread-pre-split ], [ %114, %lxb_encoding_decode_buf_add_to.exit.i.i ]
   %.not.i53 = icmp eq i64 %.val.i, 0
-  br i1 %.not.i53, label %132, label %125
+  br i1 %.not.i53, label %121, label %115
 
-125:                                              ; preds = %lxb_encoding_decode_finish.exit.i
+115:                                              ; preds = %lxb_encoding_decode_finish.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %59, ptr %3, align 8, !tbaa !124
-  %126 = getelementptr inbounds nuw i32, ptr %59, i64 %.val.i
-  %127 = load ptr, ptr %49, align 8, !tbaa !82
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %129 = load ptr, ptr %128, align 8, !tbaa !125
-  %130 = call i32 %129(ptr noundef nonnull %51, ptr noundef nonnull %3, ptr noundef nonnull %126) #10
-  %131 = icmp eq i32 %130, 0
-  call void @llvm.assume(i1 %131)
+  store ptr %54, ptr %3, align 8, !tbaa !123
+  %116 = getelementptr inbounds nuw i32, ptr %54, i64 %.val.i
+  %117 = load ptr, ptr %44, align 8, !tbaa !81
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %119 = load ptr, ptr %118, align 8, !tbaa !124
+  %120 = call i32 %119(ptr noundef nonnull %46, ptr noundef nonnull %3, ptr noundef nonnull %116) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %132
+  br label %121
 
-132:                                              ; preds = %125, %lxb_encoding_decode_finish.exit.i
-  %133 = load ptr, ptr %51, align 8, !tbaa !91
-  %134 = load i32, ptr %133, align 8, !tbaa !120
-  %135 = icmp eq i32 %134, 8
-  br i1 %135, label %136, label %lxb_encoding_encode_finish.exit.i
+121:                                              ; preds = %115, %lxb_encoding_decode_finish.exit.i
+  %122 = load ptr, ptr %46, align 8, !tbaa !90
+  %123 = load i32, ptr %122, align 8, !tbaa !119
+  %124 = icmp eq i32 %123, 8
+  br i1 %124, label %125, label %lxb_encoding_encode_finish.exit.i
 
-136:                                              ; preds = %132
-  %137 = call i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef nonnull %51) #10
-  %138 = icmp eq i32 %137, 0
+125:                                              ; preds = %121
+  %126 = call i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef nonnull %46) #10
   br label %lxb_encoding_encode_finish.exit.i
 
-lxb_encoding_encode_finish.exit.i:                ; preds = %136, %132
-  %.0.i26.i = phi i1 [ %138, %136 ], [ true, %132 ]
-  call void @llvm.assume(i1 %.0.i26.i)
-  %.val24.i = load i64, ptr %53, align 8, !tbaa !126
+lxb_encoding_encode_finish.exit.i:                ; preds = %125, %121
+  %.val24.i = load i64, ptr %48, align 8, !tbaa !125
   %.not22.i = icmp eq i64 %.val24.i, 0
-  br i1 %.not22.i, label %141, label %139
+  br i1 %.not22.i, label %129, label %127
 
-139:                                              ; preds = %lxb_encoding_encode_finish.exit.i
-  %.val23.i = load i64, ptr %60, align 8, !tbaa !123
-  %140 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %11, ptr noundef nonnull %84, ptr noundef %90, i64 noundef %.val24.i, ptr noundef nonnull %52, i64 noundef %.val23.i, ptr noundef nonnull %12, ptr noundef nonnull %13)
-  br i1 %140, label %141, label %dom_parse_decode_encode_finish.exit
+127:                                              ; preds = %lxb_encoding_encode_finish.exit.i
+  %.val23.i = load i64, ptr %55, align 8, !tbaa !122
+  %128 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %11, ptr noundef nonnull %77, ptr noundef %83, i64 noundef %.val24.i, ptr noundef nonnull %47, i64 noundef %.val23.i, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  br i1 %128, label %129, label %dom_parse_decode_encode_finish.exit
 
-141:                                              ; preds = %lxb_encoding_encode_finish.exit.i, %139
-  %142 = call i32 @lxb_html_document_parse_chunk_end(ptr noundef nonnull %84) #10
-  %.not45 = icmp eq i32 %142, 0
-  br i1 %.not45, label %143, label %dom_parse_decode_encode_finish.exit
+129:                                              ; preds = %lxb_encoding_encode_finish.exit.i, %127
+  %130 = call i32 @lxb_html_document_parse_chunk_end(ptr noundef nonnull %77) #10
+  %.not45 = icmp eq i32 %130, 0
+  br i1 %.not45, label %131, label %dom_parse_decode_encode_finish.exit
 
-143:                                              ; preds = %141
-  %144 = call ptr @php_dom_private_data_create() #10
-  %145 = load i64, ptr %9, align 8, !tbaa !13
-  %146 = and i64 %145, 65536
-  %147 = icmp ne i64 %146, 0
-  %148 = and i64 %145, 2147483648
-  %.not46 = icmp eq i64 %148, 0
-  %149 = call i32 @lexbor_libxml2_bridge_convert_document(ptr noundef nonnull %84, ptr noundef nonnull %16, i1 noundef zeroext %147, i1 noundef zeroext %.not46, ptr noundef %144) #10
-  %150 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !127
-  %152 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %151, ptr noundef nonnull %152) #10
-  %.not47 = icmp eq i32 %149, 0
-  br i1 %.not47, label %160, label %153, !prof !101
+131:                                              ; preds = %129
+  %132 = call ptr @php_dom_private_data_create() #10
+  %133 = load i64, ptr %9, align 8, !tbaa !13
+  %134 = and i64 %133, 65536
+  %135 = icmp ne i64 %134, 0
+  %136 = and i64 %133, 2147483648
+  %.not46 = icmp eq i64 %136, 0
+  %137 = call i32 @lexbor_libxml2_bridge_convert_document(ptr noundef nonnull %77, ptr noundef nonnull %16, i1 noundef zeroext %135, i1 noundef zeroext %.not46, ptr noundef %132) #10
+  %138 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %139 = load ptr, ptr %138, align 8, !tbaa !126
+  %140 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %139, ptr noundef nonnull %140) #10
+  %.not47 = icmp eq i32 %137, 0
+  br i1 %.not47, label %148, label %141, !prof !100
 
-153:                                              ; preds = %143
-  call void @php_dom_private_data_destroy(ptr noundef %144) #10
-  %154 = icmp ult i32 %149, 5
-  br i1 %154, label %switch.lookup, label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
+141:                                              ; preds = %131
+  call void @php_dom_private_data_destroy(ptr noundef %132) #10
+  %142 = icmp ult i32 %137, 5
+  br i1 %142, label %switch.lookup, label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-switch.lookup:                                    ; preds = %153
-  %155 = zext nneg i32 %149 to i64
-  %156 = getelementptr ptr, ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 %155
-  %switch.gep = getelementptr i8, ptr %156, i64 -8
+switch.lookup:                                    ; preds = %141
+  %143 = zext nneg i32 %137 to i64
+  %144 = getelementptr ptr, ptr @switch.table.zim_Dom_HTMLDocument_createFromString, i64 %143
+  %switch.gep = getelementptr i8, ptr %144, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %153, %switch.lookup
-  %.0.i55 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.74, %153 ]
-  %157 = load ptr, ptr %10, align 8, !tbaa !68
-  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i55, ptr noundef %157) #10
-  %158 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %84) #10
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %159, align 8, !tbaa !4
-  br label %191
+dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %141, %switch.lookup
+  %.0.i55 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.74, %141 ]
+  %145 = load ptr, ptr %10, align 8, !tbaa !39
+  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i55, ptr noundef %145) #10
+  %146 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %77) #10
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %147, align 8, !tbaa !4
+  br label %177
 
-160:                                              ; preds = %143
-  %161 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %84) #10
-  %162 = load ptr, ptr %16, align 8, !tbaa !131
-  %163 = load i64, ptr %9, align 8, !tbaa !13
-  call fastcc void @dom_post_process_html5_loading(ptr noundef %162, i64 noundef %163, ptr noundef %152)
-  %164 = load ptr, ptr %50, align 8, !tbaa !87
-  %.not48 = icmp eq ptr %164, null
-  br i1 %.not48, label %168, label %165
+148:                                              ; preds = %131
+  %149 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %77) #10
+  %150 = load ptr, ptr %16, align 8, !tbaa !130
+  %151 = load i64, ptr %9, align 8, !tbaa !13
+  call fastcc void @dom_post_process_html5_loading(ptr noundef %150, i64 noundef %151, ptr noundef %140)
+  %152 = load ptr, ptr %45, align 8, !tbaa !86
+  %.not48 = icmp eq ptr %152, null
+  br i1 %.not48, label %156, label %153
 
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 40
-  %167 = load ptr, ptr %166, align 8, !tbaa !132
-  br label %168
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 40
+  %155 = load ptr, ptr %154, align 8, !tbaa !131
+  br label %156
 
-168:                                              ; preds = %160, %165
-  %.str.sink = phi ptr [ %167, %165 ], [ @.str, %160 ]
-  %169 = call ptr @xmlStrdup(ptr noundef %.str.sink) #10
-  %170 = load ptr, ptr %16, align 8, !tbaa !131
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 112
-  store ptr %169, ptr %171, align 8, !tbaa !49
-  %172 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !56
-  %173 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %172, ptr noundef nonnull %170, ptr noundef null) #10
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !57
-  call void @dom_set_xml_class(ptr noundef %175) #10
-  %176 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %177 = load i32, ptr %176, align 4, !tbaa !133
-  %178 = load ptr, ptr %174, align 8, !tbaa !57
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 44
-  %180 = trunc i32 %177 to i16
-  %181 = load i16, ptr %179, align 4
-  %182 = shl i16 %180, 8
-  %183 = and i16 %181, 255
-  %184 = or disjoint i16 %183, %182
-  store i16 %184, ptr %179, align 4
-  %185 = call ptr @php_dom_libxml_private_data_header(ptr noundef %144) #10
-  %186 = load ptr, ptr %174, align 8, !tbaa !57
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  store ptr %185, ptr %187, align 8, !tbaa !62
-  br label %191
+156:                                              ; preds = %148, %153
+  %.str.sink = phi ptr [ %155, %153 ], [ @.str, %148 ]
+  %157 = call ptr @xmlStrdup(ptr noundef %.str.sink) #10
+  %158 = load ptr, ptr %16, align 8, !tbaa !130
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 112
+  store ptr %157, ptr %159, align 8, !tbaa !18
+  %160 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !25
+  %161 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %160, ptr noundef nonnull %158, ptr noundef null) #10
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !27
+  call void @dom_set_xml_class(ptr noundef %163) #10
+  %164 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %165 = load i32, ptr %164, align 4, !tbaa !132
+  %166 = load ptr, ptr %162, align 8, !tbaa !27
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 44
+  %168 = trunc i32 %165 to i16
+  %169 = load i16, ptr %167, align 4
+  %170 = shl i16 %168, 8
+  %171 = and i16 %169, 255
+  %172 = or disjoint i16 %171, %170
+  store i16 %172, ptr %167, align 4
+  %173 = call ptr @php_dom_libxml_private_data_header(ptr noundef %132) #10
+  %174 = load ptr, ptr %162, align 8, !tbaa !27
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
+  store ptr %173, ptr %175, align 8, !tbaa !33
+  br label %177
 
-dom_parse_decode_encode_finish.exit:              ; preds = %93, %139, %141, %86, %83
-  %188 = call ptr @lxb_html_document_destroy(ptr noundef %84) #10
+dom_parse_decode_encode_finish.exit:              ; preds = %86, %127, %129, %79, %76
+  %176 = call ptr @lxb_html_document_destroy(ptr noundef %77) #10
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
-  %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %190 = icmp ne ptr %189, null
-  call void @llvm.assume(i1 %190)
-  br label %191
+  br label %177
 
-191:                                              ; preds = %.thread, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %168, %dom_parse_decode_encode_finish.exit
+177:                                              ; preds = %.thread, %dom_lexbor_libxml2_bridge_status_code_to_string.exit, %156, %dom_parse_decode_encode_finish.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %192
+  br label %178
 
-192:                                              ; preds = %191, %27, %21
+178:                                              ; preds = %2, %177, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -727,18 +691,18 @@ declare void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef, ptr n
 define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i64, ptr %5, align 8, !tbaa !72
+  %6 = load i64, ptr %5, align 8, !tbaa !44
   %7 = sub i64 %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !134
+  %9 = load i64, ptr %8, align 8, !tbaa !133
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %7, i64 %9)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load i64, ptr %10, align 8, !tbaa !75
-  %12 = load i64, ptr %4, align 8, !tbaa !74
+  %11 = load i64, ptr %10, align 8, !tbaa !47
+  %12 = load i64, ptr %4, align 8, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i64, ptr %13, align 8, !tbaa !76
+  %14 = load i64, ptr %13, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !99
+  %16 = load ptr, ptr %15, align 8, !tbaa !98
   %.not.i = icmp eq ptr %16, null
   %17 = icmp ult i64 %14, %spec.select.i
   br i1 %.not.i, label %.preheader.i, label %.preheader46.i
@@ -751,7 +715,7 @@ define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr nou
 
 .lr.ph56.i:                                       ; preds = %.preheader.i
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !100
+  %19 = load ptr, ptr %18, align 8, !tbaa !99
   br label %26
 
 .lr.ph.i:                                         ; preds = %.preheader46.i, %.lr.ph.i
@@ -759,7 +723,7 @@ define internal void @dom_lexbor_libxml2_bridge_tokenizer_error_reporter(ptr nou
   %.03249.i = phi i64 [ %.133.i, %.lr.ph.i ], [ %12, %.preheader46.i ]
   %.03648.i = phi i64 [ %.137.i, %.lr.ph.i ], [ %11, %.preheader46.i ]
   %20 = getelementptr inbounds nuw i32, ptr %16, i64 %.03150.i
-  %21 = load i32, ptr %20, align 4, !tbaa !135
+  %21 = load i32, ptr %20, align 4, !tbaa !134
   %22 = icmp eq i32 %21, 10
   %23 = add i64 %.03648.i, 1
   %.137.i = select i1 %22, i64 1, i64 %23
@@ -790,12 +754,12 @@ dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %26, %.pr
   %.238.i = phi i64 [ %11, %.preheader.i ], [ %11, %.preheader46.i ], [ %.440.i, %26 ], [ %.137.i, %.lr.ph.i ]
   %.234.i = phi i64 [ %12, %.preheader.i ], [ %12, %.preheader46.i ], [ %.4.i, %26 ], [ %.133.i, %.lr.ph.i ]
   %.1.i = phi i64 [ %14, %.preheader.i ], [ %14, %.preheader46.i ], [ %spec.select.i, %26 ], [ %spec.select.i, %.lr.ph.i ]
-  store i64 %.238.i, ptr %10, align 8, !tbaa !75
-  store i64 %.234.i, ptr %4, align 8, !tbaa !74
-  store i64 %.1.i, ptr %13, align 8, !tbaa !76
-  %32 = load ptr, ptr %0, align 8, !tbaa !68
+  store i64 %.238.i, ptr %10, align 8, !tbaa !47
+  store i64 %.234.i, ptr %4, align 8, !tbaa !46
+  store i64 %.1.i, ptr %13, align 8, !tbaa !48
+  %32 = load ptr, ptr %0, align 8, !tbaa !39
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !136
+  %34 = load i32, ptr %33, align 8, !tbaa !135
   %35 = icmp ult i32 %34, 49
   br i1 %35, label %switch.lookup, label %dom_lexbor_tokenizer_error_code_to_string.exit
 
@@ -820,21 +784,21 @@ define internal void @dom_lexbor_libxml2_bridge_tree_error_reporter(ptr noundef 
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load i8, ptr %8, align 8, !tbaa !73, !range !138, !noundef !122
+  %9 = load i8, ptr %8, align 8, !tbaa !45, !range !137, !noundef !121
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = load i32, ptr %1, align 8, !tbaa !139
+  %12 = load i32, ptr %1, align 8, !tbaa !138
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %11, %7, %5
   %15 = icmp ult i64 %4, 2
-  %16 = load ptr, ptr %0, align 8, !tbaa !68
+  %16 = load ptr, ptr %0, align 8, !tbaa !39
   %17 = trunc i64 %2 to i32
   %18 = trunc i64 %3 to i32
-  %19 = load i32, ptr %1, align 8, !tbaa !139
+  %19 = load i32, ptr %1, align 8, !tbaa !138
   %20 = icmp ult i32 %19, 36
   br i1 %15, label %21, label %23
 
@@ -941,16 +905,16 @@ define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef no
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.val.i = load ptr, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %.val21.i = load i64, ptr %37, align 8, !tbaa !141
+  %.val21.i = load i64, ptr %37, align 8, !tbaa !140
   %38 = icmp eq i64 %.val21.i, 0
   %39 = icmp eq ptr %.val.i, null
   %40 = select i1 %38, i1 true, i1 %39
   br i1 %40, label %49, label %41
 
 41:                                               ; preds = %35
-  %42 = load ptr, ptr %.val.i, align 8, !tbaa !143
+  %42 = load ptr, ptr %.val.i, align 8, !tbaa !142
   %43 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !145
+  %44 = load ptr, ptr %43, align 8, !tbaa !144
   %45 = ptrtoint ptr %44 to i64
   %46 = ptrtoint ptr %42 to i64
   %47 = sub i64 %45, %46
@@ -983,31 +947,31 @@ dom_setup_parser_encoding_manually.exit:          ; preds = %16, %23, %27, %51
   %55 = sub i64 %52, %.sroa.7.0.i
   store i64 %55, ptr %1, align 8, !tbaa !13
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  store ptr %.sroa.0.0.i, ptr %56, align 8, !tbaa !87
+  store ptr %.sroa.0.0.i, ptr %56, align 8, !tbaa !86
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4256
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, i8 0, i64 56, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %57, ptr %60, align 8, !tbaa !94
+  store ptr %57, ptr %60, align 8, !tbaa !93
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i64 4096, ptr %61, align 8, !tbaa !95
-  store ptr %.sroa.0.0.i, ptr %58, align 8, !tbaa !96
+  store i64 4096, ptr %61, align 8, !tbaa !94
+  store ptr %.sroa.0.0.i, ptr %58, align 8, !tbaa !95
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %62, align 8, !tbaa !97
+  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %62, align 8, !tbaa !96
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 1, ptr %63, align 8, !tbaa !98
+  store i64 1, ptr %63, align 8, !tbaa !97
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %65 = load ptr, ptr %64, align 8, !tbaa !82
+  %65 = load ptr, ptr %64, align 8, !tbaa !81
   %66 = icmp eq ptr %.sroa.0.0.i, %65
   %67 = zext i1 %66 to i8
-  store i8 %67, ptr %2, align 8, !tbaa !88
+  store i8 %67, ptr %2, align 8, !tbaa !87
   %spec.select.i = select i1 %66, ptr null, ptr %57
   %spec.select18.i = select i1 %66, ptr %6, ptr null
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %spec.select.i, ptr %68, align 8, !tbaa !99
+  store ptr %spec.select.i, ptr %68, align 8, !tbaa !98
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %spec.select18.i, ptr %69, align 8, !tbaa !100
+  store ptr %spec.select18.i, ptr %69, align 8, !tbaa !99
   ret void
 }
 
@@ -1022,7 +986,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %11 = alloca ptr, align 8
   %12 = alloca [4 x i8], align 1
   %13 = alloca ptr, align 8
-  %14 = load i8, ptr %5, align 8, !tbaa !88, !range !138, !noundef !122
+  %14 = load i8, ptr %5, align 8, !tbaa !87, !range !137, !noundef !121
   %15 = trunc nuw i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   br i1 %15, label %17, label %87
@@ -1033,7 +997,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %19 = load ptr, ptr %3, align 8, !tbaa !10
   store ptr %19, ptr %11, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 124
-  %21 = load i32, ptr %20, align 4, !tbaa !146
+  %21 = load i32, ptr %20, align 4, !tbaa !145
   %22 = icmp eq i32 %21, 14
   br i1 %22, label %23, label %._crit_edge92.i
 
@@ -1060,7 +1024,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
 
 31:                                               ; preds = %29, %._crit_edge.i
   %32 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %30, %29 ]
-  store i32 0, ptr %20, align 4, !tbaa !146
+  store i32 0, ptr %20, align 4, !tbaa !145
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %12 to i64
   %35 = sub i64 %33, %34
@@ -1145,7 +1109,7 @@ dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph77
   %62 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef nonnull %16, ptr noundef nonnull %11, ptr noundef %4) #10
   %63 = icmp ugt i32 %62, 1114111
   %.pre96.i = load ptr, ptr %11, align 8, !tbaa !10
-  br i1 %63, label %64, label %select.unfold.i, !prof !48
+  br i1 %63, label %64, label %select.unfold.i, !prof !17
 
 64:                                               ; preds = %dom_seek_utf8_non_ascii.exit.thread.i
   %65 = ptrtoint ptr %61 to i64
@@ -1169,7 +1133,7 @@ dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph77
   %74 = icmp eq ptr %73, %4
   call void @llvm.assume(i1 %74)
   store ptr %73, ptr %3, align 8, !tbaa !10
-  store i32 14, ptr %20, align 4, !tbaa !146
+  store i32 14, ptr %20, align 4, !tbaa !145
   br label %dom_decode_encode_fast_path.exit
 
 75:                                               ; preds = %71
@@ -1228,55 +1192,55 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
   br label %98
 
 98:                                               ; preds = %150, %87
-  %99 = load ptr, ptr %89, align 8, !tbaa !87
+  %99 = load ptr, ptr %89, align 8, !tbaa !86
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !147
+  %101 = load ptr, ptr %100, align 8, !tbaa !146
   %102 = call i32 %101(ptr noundef nonnull %16, ptr noundef nonnull %9, ptr noundef %4) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %90, ptr %10, align 8, !tbaa !124
-  %.val.i = load i64, ptr %91, align 8, !tbaa !123
+  store ptr %90, ptr %10, align 8, !tbaa !123
+  %.val.i = load i64, ptr %91, align 8, !tbaa !122
   %103 = getelementptr inbounds nuw i32, ptr %90, i64 %.val.i
   br label %104
 
 104:                                              ; preds = %144, %98
-  %105 = load ptr, ptr %92, align 8, !tbaa !82
+  %105 = load ptr, ptr %92, align 8, !tbaa !81
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !125
+  %107 = load ptr, ptr %106, align 8, !tbaa !124
   %108 = call i32 %107(ptr noundef nonnull %93, ptr noundef nonnull %10, ptr noundef nonnull %103) #10
   %109 = icmp ne i32 %108, 1
   call void @llvm.assume(i1 %109)
-  %.val28.i = load i64, ptr %94, align 8, !tbaa !126
-  %110 = load ptr, ptr %96, align 8, !tbaa !79
+  %.val28.i = load i64, ptr %94, align 8, !tbaa !125
+  %110 = load ptr, ptr %96, align 8, !tbaa !78
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store i64 %.val.i, ptr %111, align 8, !tbaa !134
+  store i64 %.val.i, ptr %111, align 8, !tbaa !133
   %112 = call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef nonnull %95, i64 noundef %.val28.i) #10
   %.not.i.i18 = icmp eq i32 %112, 0
-  br i1 %.not.i.i18, label %113, label %152, !prof !101
+  br i1 %.not.i.i18, label %113, label %152, !prof !100
 
 113:                                              ; preds = %104
-  %114 = load ptr, ptr %0, align 8, !tbaa !148
+  %114 = load ptr, ptr %0, align 8, !tbaa !147
   %.not22.i.i = icmp eq ptr %114, null
   br i1 %.not22.i.i, label %115, label %117
 
 115:                                              ; preds = %113
-  %116 = load ptr, ptr %97, align 8, !tbaa !149
+  %116 = load ptr, ptr %97, align 8, !tbaa !148
   %.not23.i.i = icmp eq ptr %116, null
   br i1 %.not23.i.i, label %144, label %117
 
 117:                                              ; preds = %115, %113
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %119 = load i64, ptr %118, align 8, !tbaa !72
+  %119 = load i64, ptr %118, align 8, !tbaa !44
   call void @lexbor_libxml2_bridge_report_errors(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %95, i64 noundef %119, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %120 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %121 = load i64, ptr %111, align 8, !tbaa !134
+  %121 = load i64, ptr %111, align 8, !tbaa !133
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %.val.i, i64 %121)
   %122 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %123 = load i64, ptr %122, align 8, !tbaa !75
-  %124 = load i64, ptr %120, align 8, !tbaa !74
+  %123 = load i64, ptr %122, align 8, !tbaa !47
+  %124 = load i64, ptr %120, align 8, !tbaa !46
   %125 = getelementptr inbounds nuw i8, ptr %110, i64 56
-  %126 = load i64, ptr %125, align 8, !tbaa !76
+  %126 = load i64, ptr %125, align 8, !tbaa !48
   %127 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !99
+  %128 = load ptr, ptr %127, align 8, !tbaa !98
   %.not.i.i.i = icmp eq ptr %128, null
   %129 = icmp ult i64 %126, %spec.select.i.i.i
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader46.i.i.i
@@ -1289,7 +1253,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
 
 .lr.ph56.i.i.i:                                   ; preds = %.preheader.i.i.i
   %130 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !100
+  %131 = load ptr, ptr %130, align 8, !tbaa !99
   br label %138
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader46.i.i.i, %.lr.ph.i.i.i
@@ -1297,7 +1261,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
   %.03249.i.i.i = phi i64 [ %.133.i.i.i, %.lr.ph.i.i.i ], [ %124, %.preheader46.i.i.i ]
   %.03648.i.i.i = phi i64 [ %.137.i.i.i, %.lr.ph.i.i.i ], [ %123, %.preheader46.i.i.i ]
   %132 = getelementptr inbounds nuw i32, ptr %128, i64 %.03150.i.i.i
-  %133 = load i32, ptr %132, align 4, !tbaa !135
+  %133 = load i32, ptr %132, align 4, !tbaa !134
   %134 = icmp eq i32 %133, 10
   %135 = add i64 %.03648.i.i.i, 1
   %.137.i.i.i = select i1 %134, i64 1, i64 %135
@@ -1327,23 +1291,23 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
 dom_find_line_and_column_using_cache.exit.i.i:    ; preds = %.lr.ph.i.i.i, %138, %.preheader.i.i.i, %.preheader46.i.i.i
   %.238.i.i.i = phi i64 [ %123, %.preheader.i.i.i ], [ %123, %.preheader46.i.i.i ], [ %.440.i.i.i, %138 ], [ %.137.i.i.i, %.lr.ph.i.i.i ]
   %.234.i.i.i = phi i64 [ %124, %.preheader.i.i.i ], [ %124, %.preheader46.i.i.i ], [ %.4.i.i.i, %138 ], [ %.133.i.i.i, %.lr.ph.i.i.i ]
-  store i64 %.238.i.i.i, ptr %122, align 8, !tbaa !75
-  store i64 %.234.i.i.i, ptr %120, align 8, !tbaa !74
+  store i64 %.238.i.i.i, ptr %122, align 8, !tbaa !47
+  store i64 %.234.i.i.i, ptr %120, align 8, !tbaa !46
   br label %144
 
 144:                                              ; preds = %dom_find_line_and_column_using_cache.exit.i.i, %115
   %145 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %146 = load i64, ptr %145, align 8, !tbaa !72
+  %146 = load i64, ptr %145, align 8, !tbaa !44
   %147 = add i64 %146, %.val.i
-  store i64 %147, ptr %145, align 8, !tbaa !72
+  store i64 %147, ptr %145, align 8, !tbaa !44
   %148 = getelementptr inbounds nuw i8, ptr %110, i64 56
-  store i64 0, ptr %148, align 8, !tbaa !150
-  store i64 0, ptr %94, align 8, !tbaa !126
+  store i64 0, ptr %148, align 8, !tbaa !149
+  store i64 0, ptr %94, align 8, !tbaa !125
   %149 = icmp eq i32 %108, 15
   br i1 %149, label %104, label %150
 
 150:                                              ; preds = %144
-  store i64 0, ptr %91, align 8, !tbaa !123
+  store i64 0, ptr %91, align 8, !tbaa !122
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %151 = icmp eq i32 %102, 15
   br i1 %151, label %98, label %dom_decode_encode_slow_path.exit
@@ -1383,67 +1347,67 @@ define internal fastcc void @dom_post_process_html5_loading(ptr noundef %0, i64 
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.09.i = load ptr, ptr %6, align 8, !tbaa !151
+  %.09.i = load ptr, ptr %6, align 8, !tbaa !150
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %dom_search_child.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %15
   %.011.i = phi ptr [ %.0.i, %15 ], [ %.09.i, %5 ]
   %7 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !152
+  %8 = load i32, ptr %7, align 8, !tbaa !151
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !156
+  %12 = load ptr, ptr %11, align 8, !tbaa !155
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(5) @.str.118) #11
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %dom_search_child.exit, label %15
 
 15:                                               ; preds = %10, %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.011.i, i64 48
-  %.0.i = load ptr, ptr %16, align 8, !tbaa !151
+  %.0.i = load ptr, ptr %16, align 8, !tbaa !150
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %dom_search_child.exit, label %.lr.ph.i
 
 dom_search_child.exit:                            ; preds = %10, %15, %5
   %.0.lcssa.i = phi ptr [ null, %5 ], [ %.011.i, %10 ], [ null, %15 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !157, !range !138, !noundef !122
+  %18 = load i8, ptr %17, align 1, !tbaa !156, !range !137, !noundef !121
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %dom_place_remove_element_and_hoist_children.exit, label %20
 
 20:                                               ; preds = %dom_search_child.exit
   %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 24
-  %.09.i.i = load ptr, ptr %21, align 8, !tbaa !151
+  %.09.i.i = load ptr, ptr %21, align 8, !tbaa !150
   %.not10.i.i = icmp eq ptr %.09.i.i, null
   br i1 %.not10.i.i, label %dom_place_remove_element_and_hoist_children.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %20, %30
   %.011.i.i = phi ptr [ %.0.i.i, %30 ], [ %.09.i.i, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !152
+  %23 = load i32, ptr %22, align 8, !tbaa !151
   %24 = icmp eq i32 %23, 1
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !156
+  %27 = load ptr, ptr %26, align 8, !tbaa !155
   %28 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(5) @.str.119) #11
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %dom_search_child.exit.i, label %30
 
 30:                                               ; preds = %25, %.lr.ph.i.i
   %31 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 48
-  %.0.i.i = load ptr, ptr %31, align 8, !tbaa !151
+  %.0.i.i = load ptr, ptr %31, align 8, !tbaa !150
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %dom_place_remove_element_and_hoist_children.exit, label %.lr.ph.i.i
 
 dom_search_child.exit.i:                          ; preds = %25
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.011.i.i) #10
   %32 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 24
-  %.016.i = load ptr, ptr %32, align 8, !tbaa !158
+  %.016.i = load ptr, ptr %32, align 8, !tbaa !157
   %.not1217.i = icmp eq ptr %.016.i, null
   br i1 %.not1217.i, label %._crit_edge.i, label %.lr.ph.i7
 
@@ -1451,7 +1415,7 @@ dom_search_child.exit.i:                          ; preds = %25
   %.018.i = phi ptr [ %.0.i8, %.lr.ph.i7 ], [ %.016.i, %dom_search_child.exit.i ]
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.018.i) #10
   %33 = tail call ptr @xmlAddChild(ptr noundef %.0.lcssa.i, ptr noundef nonnull %.018.i) #10
-  %.0.i8 = load ptr, ptr %32, align 8, !tbaa !158
+  %.0.i8 = load ptr, ptr %32, align 8, !tbaa !157
   %.not12.i = icmp eq ptr %.0.i8, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i7
 
@@ -1461,40 +1425,40 @@ dom_search_child.exit.i:                          ; preds = %25
 
 dom_place_remove_element_and_hoist_children.exit: ; preds = %30, %._crit_edge.i, %20, %dom_search_child.exit
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %35 = load i8, ptr %34, align 2, !tbaa !159, !range !138, !noundef !122
+  %35 = load i8, ptr %34, align 2, !tbaa !158, !range !137, !noundef !121
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %dom_place_remove_element_and_hoist_children.exit23, label %37
 
 37:                                               ; preds = %dom_place_remove_element_and_hoist_children.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 24
-  %.09.i.i9 = load ptr, ptr %38, align 8, !tbaa !151
+  %.09.i.i9 = load ptr, ptr %38, align 8, !tbaa !150
   %.not10.i.i10 = icmp eq ptr %.09.i.i9, null
   br i1 %.not10.i.i10, label %dom_place_remove_element_and_hoist_children.exit23, label %.lr.ph.i.i11
 
 .lr.ph.i.i11:                                     ; preds = %37, %47
   %.011.i.i12 = phi ptr [ %.0.i.i13, %47 ], [ %.09.i.i9, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %.011.i.i12, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !152
+  %40 = load i32, ptr %39, align 8, !tbaa !151
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %.lr.ph.i.i11
   %43 = getelementptr inbounds nuw i8, ptr %.011.i.i12, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !156
+  %44 = load ptr, ptr %43, align 8, !tbaa !155
   %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull readonly dereferenceable(5) @.str.120) #11
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %dom_search_child.exit.i15, label %47
 
 47:                                               ; preds = %42, %.lr.ph.i.i11
   %48 = getelementptr inbounds nuw i8, ptr %.011.i.i12, i64 48
-  %.0.i.i13 = load ptr, ptr %48, align 8, !tbaa !151
+  %.0.i.i13 = load ptr, ptr %48, align 8, !tbaa !150
   %.not.i.i14 = icmp eq ptr %.0.i.i13, null
   br i1 %.not.i.i14, label %dom_place_remove_element_and_hoist_children.exit23, label %.lr.ph.i.i11
 
 dom_search_child.exit.i15:                        ; preds = %42
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.011.i.i12) #10
   %49 = getelementptr inbounds nuw i8, ptr %.011.i.i12, i64 24
-  %.016.i16 = load ptr, ptr %49, align 8, !tbaa !158
+  %.016.i16 = load ptr, ptr %49, align 8, !tbaa !157
   %.not1217.i17 = icmp eq ptr %.016.i16, null
   br i1 %.not1217.i17, label %._crit_edge.i22, label %.lr.ph.i18
 
@@ -1502,7 +1466,7 @@ dom_search_child.exit.i15:                        ; preds = %42
   %.018.i19 = phi ptr [ %.0.i20, %.lr.ph.i18 ], [ %.016.i16, %dom_search_child.exit.i15 ]
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.018.i19) #10
   %50 = tail call ptr @xmlAddChild(ptr noundef %.0.lcssa.i, ptr noundef nonnull %.018.i19) #10
-  %.0.i20 = load ptr, ptr %49, align 8, !tbaa !158
+  %.0.i20 = load ptr, ptr %49, align 8, !tbaa !157
   %.not12.i21 = icmp eq ptr %.0.i20, null
   br i1 %.not12.i21, label %._crit_edge.i22, label %.lr.ph.i18
 
@@ -1511,39 +1475,39 @@ dom_search_child.exit.i15:                        ; preds = %42
   br label %dom_place_remove_element_and_hoist_children.exit23
 
 dom_place_remove_element_and_hoist_children.exit23: ; preds = %47, %._crit_edge.i22, %37, %dom_place_remove_element_and_hoist_children.exit
-  %51 = load i8, ptr %2, align 4, !tbaa !160, !range !138, !noundef !122
+  %51 = load i8, ptr %2, align 4, !tbaa !159, !range !137, !noundef !121
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %dom_place_remove_element_and_hoist_children.exit38, label %53
 
 53:                                               ; preds = %dom_place_remove_element_and_hoist_children.exit23
-  %.09.i.i24 = load ptr, ptr %6, align 8, !tbaa !151
+  %.09.i.i24 = load ptr, ptr %6, align 8, !tbaa !150
   %.not10.i.i25 = icmp eq ptr %.09.i.i24, null
   br i1 %.not10.i.i25, label %dom_place_remove_element_and_hoist_children.exit38, label %.lr.ph.i.i26
 
 .lr.ph.i.i26:                                     ; preds = %53, %62
   %.011.i.i27 = phi ptr [ %.0.i.i28, %62 ], [ %.09.i.i24, %53 ]
   %54 = getelementptr inbounds nuw i8, ptr %.011.i.i27, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !152
+  %55 = load i32, ptr %54, align 8, !tbaa !151
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %.lr.ph.i.i26
   %58 = getelementptr inbounds nuw i8, ptr %.011.i.i27, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !156
+  %59 = load ptr, ptr %58, align 8, !tbaa !155
   %60 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull readonly dereferenceable(5) @.str.118) #11
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %dom_search_child.exit.i30, label %62
 
 62:                                               ; preds = %57, %.lr.ph.i.i26
   %63 = getelementptr inbounds nuw i8, ptr %.011.i.i27, i64 48
-  %.0.i.i28 = load ptr, ptr %63, align 8, !tbaa !151
+  %.0.i.i28 = load ptr, ptr %63, align 8, !tbaa !150
   %.not.i.i29 = icmp eq ptr %.0.i.i28, null
   br i1 %.not.i.i29, label %dom_place_remove_element_and_hoist_children.exit38, label %.lr.ph.i.i26
 
 dom_search_child.exit.i30:                        ; preds = %57
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.011.i.i27) #10
   %64 = getelementptr inbounds nuw i8, ptr %.011.i.i27, i64 24
-  %.016.i31 = load ptr, ptr %64, align 8, !tbaa !158
+  %.016.i31 = load ptr, ptr %64, align 8, !tbaa !157
   %.not1217.i32 = icmp eq ptr %.016.i31, null
   br i1 %.not1217.i32, label %._crit_edge.i37, label %.lr.ph.i33
 
@@ -1551,7 +1515,7 @@ dom_search_child.exit.i30:                        ; preds = %57
   %.018.i34 = phi ptr [ %.0.i35, %.lr.ph.i33 ], [ %.016.i31, %dom_search_child.exit.i30 ]
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.018.i34) #10
   %65 = tail call ptr @xmlAddChild(ptr noundef %0, ptr noundef nonnull %.018.i34) #10
-  %.0.i35 = load ptr, ptr %64, align 8, !tbaa !158
+  %.0.i35 = load ptr, ptr %64, align 8, !tbaa !157
   %.not12.i36 = icmp eq ptr %.0.i35, null
   br i1 %.not12.i36, label %._crit_edge.i37, label %.lr.ph.i33
 
@@ -1593,598 +1557,567 @@ define hidden void @zim_Dom_HTMLDocument_createFromFile(ptr noundef readonly cap
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %21, ptr noundef nonnull @.str.6, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %8) #10
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %24, label %27
+  br i1 %23, label %265, label %24
 
 24:                                               ; preds = %2
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %26 = icmp ne ptr %25, null
-  call void @llvm.assume(i1 %26)
-  br label %282
+  %25 = load ptr, ptr %5, align 8, !tbaa !10
+  %26 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) @.str.7) #11
+  %.not = icmp eq ptr %26, null
+  br i1 %.not, label %28, label %27
 
-27:                                               ; preds = %2
-  %28 = load ptr, ptr %5, align 8, !tbaa !10
-  %29 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.7) #11
-  %.not = icmp eq ptr %29, null
-  br i1 %.not, label %33, label %30
-
-30:                                               ; preds = %27
+27:                                               ; preds = %24
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.8) #10
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %282
+  br label %265
 
-33:                                               ; preds = %27
-  %34 = load i64, ptr %9, align 8, !tbaa !13
-  %35 = and i64 %34, -2147557409
-  %.not.i101 = icmp eq i64 %35, 0
-  br i1 %.not.i101, label %39, label %36
+28:                                               ; preds = %24
+  %29 = load i64, ptr %9, align 8, !tbaa !13
+  %30 = and i64 %29, -2147557409
+  %.not.i101 = icmp eq i64 %30, 0
+  br i1 %.not.i101, label %32, label %31
 
-36:                                               ; preds = %33
+31:                                               ; preds = %28
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.23) #10
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %282
+  br label %265
 
-39:                                               ; preds = %33
+32:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %28, ptr %10, align 8, !tbaa !68
-  %40 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i64 0, ptr %40, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %42 = lshr i64 %34, 13
-  %43 = trunc i64 %42 to i8
-  %44 = and i8 %43, 1
-  store i8 %44, ptr %41, align 8, !tbaa !73
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store i64 1, ptr %45, align 8, !tbaa !74
-  %46 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store i64 1, ptr %46, align 8, !tbaa !75
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 0, ptr %47, align 8, !tbaa !76
+  store ptr %25, ptr %10, align 8, !tbaa !39
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i64 0, ptr %33, align 8, !tbaa !44
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %35 = lshr i64 %29, 13
+  %36 = trunc i64 %35 to i8
+  %37 = and i8 %36, 1
+  store i8 %37, ptr %34, align 8, !tbaa !45
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store i64 1, ptr %38, align 8, !tbaa !46
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store i64 1, ptr %39, align 8, !tbaa !47
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store i64 0, ptr %40, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @lexbor_libxml2_bridge_parse_context_init(ptr noundef nonnull %11) #10
-  %48 = load i64, ptr %9, align 8, !tbaa !13
-  %49 = and i64 %48, 32
-  %.not.i102 = icmp eq i64 %49, 0
-  br i1 %.not.i102, label %50, label %dom_should_register_error_handlers.exit.thread117
+  %41 = load i64, ptr %9, align 8, !tbaa !13
+  %42 = and i64 %41, 32
+  %.not.i102 = icmp eq i64 %42, 0
+  br i1 %.not.i102, label %43, label %dom_should_register_error_handlers.exit.thread117
 
-50:                                               ; preds = %39
-  %51 = call zeroext i1 @php_libxml_uses_internal_errors() #10
-  br i1 %51, label %dom_should_register_error_handlers.exit.thread, label %dom_should_register_error_handlers.exit
+43:                                               ; preds = %32
+  %44 = call zeroext i1 @php_libxml_uses_internal_errors() #10
+  br i1 %44, label %dom_should_register_error_handlers.exit.thread, label %dom_should_register_error_handlers.exit
 
-dom_should_register_error_handlers.exit:          ; preds = %50
-  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8, !tbaa !77
-  %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 720), align 8, !tbaa !78
-  %54 = or i32 %53, %52
-  %55 = and i32 %54, 2
-  %.not139 = icmp eq i32 %55, 0
+dom_should_register_error_handlers.exit:          ; preds = %43
+  %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 424), align 8, !tbaa !49
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 720), align 8, !tbaa !77
+  %47 = or i32 %46, %45
+  %48 = and i32 %47, 2
+  %.not139 = icmp eq i32 %48, 0
   br i1 %.not139, label %dom_should_register_error_handlers.exit.thread117, label %dom_should_register_error_handlers.exit.thread
 
-dom_should_register_error_handlers.exit.thread:   ; preds = %50, %dom_should_register_error_handlers.exit
+dom_should_register_error_handlers.exit.thread:   ; preds = %43, %dom_should_register_error_handlers.exit
   call void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef nonnull %11, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tokenizer_error_reporter, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tree_error_reporter) #10
   br label %dom_should_register_error_handlers.exit.thread117
 
-dom_should_register_error_handlers.exit.thread117: ; preds = %39, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
-  %56 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %10, ptr %56, align 8, !tbaa !79
+dom_should_register_error_handlers.exit.thread117: ; preds = %32, %dom_should_register_error_handlers.exit.thread, %dom_should_register_error_handlers.exit
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %10, ptr %49, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %57, align 8, !tbaa !82
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 152
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %58, align 8, !tbaa !87
-  store i8 1, ptr %13, align 8, !tbaa !88
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %13, i64 160
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, i8 0, i64 32, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %60, ptr %62, align 8, !tbaa !89
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 4096, ptr %63, align 8, !tbaa !90
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %59, align 8, !tbaa !91
-  %64 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr @.str.112, ptr %64, align 8, !tbaa !92
-  %65 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store i64 3, ptr %65, align 8, !tbaa !93
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 4256
-  %68 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store ptr %67, ptr %69, align 8, !tbaa !94
-  %70 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store i64 4096, ptr %70, align 8, !tbaa !95
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %66, align 8, !tbaa !96
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store ptr %4, ptr %71, align 8, !tbaa !97
-  %72 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store i64 1, ptr %72, align 8, !tbaa !98
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 144
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %50, align 8, !tbaa !81
+  %51 = getelementptr inbounds nuw i8, ptr %13, i64 152
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %51, align 8, !tbaa !86
+  store i8 1, ptr %13, align 8, !tbaa !87
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 160
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %53, ptr %55, align 8, !tbaa !88
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 4096, ptr %56, align 8, !tbaa !89
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %52, align 8, !tbaa !90
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  store ptr @.str.112, ptr %57, align 8, !tbaa !91
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store i64 3, ptr %58, align 8, !tbaa !92
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 4256
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 56, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store ptr %60, ptr %62, align 8, !tbaa !93
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  store i64 4096, ptr %63, align 8, !tbaa !94
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %59, align 8, !tbaa !95
+  %64 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  store ptr %4, ptr %64, align 8, !tbaa !96
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  store i64 1, ptr %65, align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %73 = load ptr, ptr %6, align 8, !tbaa !10
-  %.not79 = icmp eq ptr %73, null
-  br i1 %.not79, label %90, label %74
+  %66 = load ptr, ptr %6, align 8, !tbaa !10
+  %.not79 = icmp eq ptr %66, null
+  br i1 %.not79, label %81, label %67
 
-74:                                               ; preds = %dom_should_register_error_handlers.exit.thread117
-  %75 = load i64, ptr %8, align 8, !tbaa !13
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %.thread, label %77
+67:                                               ; preds = %dom_should_register_error_handlers.exit.thread117
+  %68 = load i64, ptr %8, align 8, !tbaa !13
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %.thread, label %70
 
-77:                                               ; preds = %74
-  %78 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %73, i64 noundef %75) #10
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %.thread, label %lxb_encoding_data_by_name.exit
+70:                                               ; preds = %67
+  %71 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %66, i64 noundef %68) #10
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %.thread, label %lxb_encoding_data_by_name.exit
 
-lxb_encoding_data_by_name.exit:                   ; preds = %77
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !46
-  %.not80.not = icmp eq ptr %81, null
-  br i1 %.not80.not, label %.thread, label %84
+lxb_encoding_data_by_name.exit:                   ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !15
+  %.not80.not = icmp eq ptr %74, null
+  br i1 %.not80.not, label %.thread, label %75
 
-.thread:                                          ; preds = %lxb_encoding_data_by_name.exit, %74, %77
+.thread:                                          ; preds = %lxb_encoding_data_by_name.exit, %67, %70
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.2) #10
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %83 = icmp ne ptr %82, null
-  call void @llvm.assume(i1 %83)
-  br label %281
+  br label %264
 
-84:                                               ; preds = %lxb_encoding_data_by_name.exit
-  store ptr %81, ptr %58, align 8, !tbaa !87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
-  store ptr %67, ptr %69, align 8, !tbaa !94
-  store i64 4096, ptr %70, align 8, !tbaa !95
-  store ptr %81, ptr %66, align 8, !tbaa !96
-  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %71, align 8, !tbaa !97
-  store i64 1, ptr %72, align 8, !tbaa !98
-  %85 = load ptr, ptr %57, align 8, !tbaa !82
-  %86 = icmp eq ptr %81, %85
-  %87 = zext i1 %86 to i8
-  store i8 %87, ptr %13, align 8, !tbaa !88
-  %spec.select.i = select i1 %86, ptr null, ptr %67
-  %spec.select18.i = select i1 %86, ptr %12, ptr null
-  %88 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %spec.select.i, ptr %88, align 8, !tbaa !99
-  %89 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %spec.select18.i, ptr %89, align 8, !tbaa !100
-  br label %90
+75:                                               ; preds = %lxb_encoding_data_by_name.exit
+  store ptr %74, ptr %51, align 8, !tbaa !86
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 56, i1 false)
+  store ptr %60, ptr %62, align 8, !tbaa !93
+  store i64 4096, ptr %63, align 8, !tbaa !94
+  store ptr %74, ptr %59, align 8, !tbaa !95
+  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %64, align 8, !tbaa !96
+  store i64 1, ptr %65, align 8, !tbaa !97
+  %76 = load ptr, ptr %50, align 8, !tbaa !81
+  %77 = icmp eq ptr %74, %76
+  %78 = zext i1 %77 to i8
+  store i8 %78, ptr %13, align 8, !tbaa !87
+  %spec.select.i = select i1 %77, ptr null, ptr %60
+  %spec.select18.i = select i1 %77, ptr %12, ptr null
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %spec.select.i, ptr %79, align 8, !tbaa !98
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %spec.select18.i, ptr %80, align 8, !tbaa !99
+  br label %81
 
-90:                                               ; preds = %84, %dom_should_register_error_handlers.exit.thread117
+81:                                               ; preds = %75, %dom_should_register_error_handlers.exit.thread117
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  store ptr null, ptr %14, align 8, !tbaa !161
-  %91 = load ptr, ptr %5, align 8, !tbaa !10
-  %92 = call ptr @php_libxml_get_stream_context() #10
-  %93 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %91, ptr noundef nonnull @.str.9, i32 noundef 8, ptr noundef nonnull %14, ptr noundef %92) #10
-  %.not81 = icmp eq ptr %93, null
-  br i1 %.not81, label %94, label %102
+  store ptr null, ptr %14, align 8, !tbaa !160
+  %82 = load ptr, ptr %5, align 8, !tbaa !10
+  %83 = call ptr @php_libxml_get_stream_context() #10
+  %84 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %82, ptr noundef nonnull @.str.9, i32 noundef 8, ptr noundef nonnull %14, ptr noundef %83) #10
+  %.not81 = icmp eq ptr %84, null
+  br i1 %.not81, label %85, label %90
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %.not82 = icmp eq ptr %95, null
-  br i1 %.not82, label %96, label %100
+85:                                               ; preds = %81
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !161
+  %.not82 = icmp eq ptr %86, null
+  br i1 %.not82, label %87, label %zend_string_release_ex.exit100
 
-96:                                               ; preds = %94
-  %97 = load ptr, ptr %5, align 8, !tbaa !10
-  %98 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %97) #10
-  %.pre141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %99 = icmp ne ptr %.pre141, null
-  br label %100
-
-100:                                              ; preds = %94, %96
-  %101 = phi i1 [ true, %94 ], [ %99, %96 ]
-  call void @llvm.assume(i1 %101)
+87:                                               ; preds = %85
+  %88 = load ptr, ptr %5, align 8, !tbaa !10
+  %89 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.10, ptr noundef %88) #10
   br label %zend_string_release_ex.exit100
 
-102:                                              ; preds = %90
-  br i1 %.not79, label %103, label %zend_string_release_ex.exit
+90:                                               ; preds = %81
+  br i1 %.not79, label %91, label %zend_string_release_ex.exit
 
-103:                                              ; preds = %102
-  %104 = call ptr @php_libxml_sniff_charset_from_stream(ptr noundef nonnull %93) #10
-  %.not83 = icmp eq ptr %104, null
-  br i1 %.not83, label %zend_string_release_ex.exit, label %105
+91:                                               ; preds = %90
+  %92 = call ptr @php_libxml_sniff_charset_from_stream(ptr noundef nonnull %84) #10
+  %.not83 = icmp eq ptr %92, null
+  br i1 %.not83, label %zend_string_release_ex.exit, label %93
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %107 = load i64, ptr %106, align 8, !tbaa !162
-  %108 = icmp eq i64 %107, 0
-  br i1 %108, label %lxb_encoding_data_by_name.exit105.thread, label %109
+93:                                               ; preds = %91
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %95 = load i64, ptr %94, align 8, !tbaa !162
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %lxb_encoding_data_by_name.exit105.thread, label %97
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %111 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %110, i64 noundef %107) #10
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %lxb_encoding_data_by_name.exit105.thread, label %lxb_encoding_data_by_name.exit105
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %99 = call ptr @lexbor_shs_entry_get_lower_static(ptr noundef nonnull @lxb_encoding_res_shs_entities, ptr noundef nonnull %98, i64 noundef %95) #10
+  %100 = icmp eq ptr %99, null
+  br i1 %100, label %lxb_encoding_data_by_name.exit105.thread, label %lxb_encoding_data_by_name.exit105
 
-lxb_encoding_data_by_name.exit105:                ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !46
-  %.not84 = icmp eq ptr %114, null
+lxb_encoding_data_by_name.exit105:                ; preds = %97
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !15
+  %.not84 = icmp eq ptr %102, null
   br i1 %.not84, label %lxb_encoding_data_by_name.exit105.thread, label %dom_setup_parser_encoding_manually.exit112
 
 dom_setup_parser_encoding_manually.exit112:       ; preds = %lxb_encoding_data_by_name.exit105
-  store ptr %114, ptr %58, align 8, !tbaa !87
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
-  store ptr %67, ptr %69, align 8, !tbaa !94
-  store i64 4096, ptr %70, align 8, !tbaa !95
-  store ptr %114, ptr %66, align 8, !tbaa !96
-  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %71, align 8, !tbaa !97
-  store i64 1, ptr %72, align 8, !tbaa !98
-  %115 = load ptr, ptr %57, align 8, !tbaa !82
-  %116 = icmp eq ptr %114, %115
-  %117 = zext i1 %116 to i8
-  store i8 %117, ptr %13, align 8, !tbaa !88
-  %spec.select.i107 = select i1 %116, ptr null, ptr %67
-  %spec.select18.i108 = select i1 %116, ptr %12, ptr null
-  %118 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %spec.select.i107, ptr %118, align 8, !tbaa !99
-  %119 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %spec.select18.i108, ptr %119, align 8, !tbaa !100
+  store ptr %102, ptr %51, align 8, !tbaa !86
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 56, i1 false)
+  store ptr %60, ptr %62, align 8, !tbaa !93
+  store i64 4096, ptr %63, align 8, !tbaa !94
+  store ptr %102, ptr %59, align 8, !tbaa !95
+  store ptr @dom_setup_parser_encoding_manually.replacement_codepoint, ptr %64, align 8, !tbaa !96
+  store i64 1, ptr %65, align 8, !tbaa !97
+  %103 = load ptr, ptr %50, align 8, !tbaa !81
+  %104 = icmp eq ptr %102, %103
+  %105 = zext i1 %104 to i8
+  store i8 %105, ptr %13, align 8, !tbaa !87
+  %spec.select.i107 = select i1 %104, ptr null, ptr %60
+  %spec.select18.i108 = select i1 %104, ptr %12, ptr null
+  %106 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %spec.select.i107, ptr %106, align 8, !tbaa !98
+  %107 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %spec.select18.i108, ptr %107, align 8, !tbaa !99
   br label %lxb_encoding_data_by_name.exit105.thread
 
-lxb_encoding_data_by_name.exit105.thread:         ; preds = %109, %105, %dom_setup_parser_encoding_manually.exit112, %lxb_encoding_data_by_name.exit105
-  %.467 = phi i1 [ false, %dom_setup_parser_encoding_manually.exit112 ], [ true, %lxb_encoding_data_by_name.exit105 ], [ true, %105 ], [ true, %109 ]
-  %120 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %121 = load i32, ptr %120, align 4, !tbaa !4
-  %122 = and i32 %121, 64
-  %.not.i = icmp eq i32 %122, 0
-  br i1 %.not.i, label %123, label %zend_string_release_ex.exit
+lxb_encoding_data_by_name.exit105.thread:         ; preds = %97, %93, %dom_setup_parser_encoding_manually.exit112, %lxb_encoding_data_by_name.exit105
+  %.467 = phi i1 [ false, %dom_setup_parser_encoding_manually.exit112 ], [ true, %lxb_encoding_data_by_name.exit105 ], [ true, %93 ], [ true, %97 ]
+  %108 = getelementptr inbounds nuw i8, ptr %92, i64 4
+  %109 = load i32, ptr %108, align 4, !tbaa !4
+  %110 = and i32 %109, 64
+  %.not.i = icmp eq i32 %110, 0
+  br i1 %.not.i, label %111, label %zend_string_release_ex.exit
 
-123:                                              ; preds = %lxb_encoding_data_by_name.exit105.thread
-  %124 = load i32, ptr %104, align 4, !tbaa !7
-  %125 = icmp ne i32 %124, 0
-  call void @llvm.assume(i1 %125)
-  %126 = add i32 %124, -1
-  store i32 %126, ptr %104, align 4, !tbaa !7
-  %127 = icmp eq i32 %126, 0
-  br i1 %127, label %128, label %zend_string_release_ex.exit
+111:                                              ; preds = %lxb_encoding_data_by_name.exit105.thread
+  %112 = load i32, ptr %92, align 4, !tbaa !7
+  %113 = icmp ne i32 %112, 0
+  call void @llvm.assume(i1 %113)
+  %114 = add i32 %112, -1
+  store i32 %114, ptr %92, align 4, !tbaa !7
+  %115 = icmp eq i32 %114, 0
+  br i1 %115, label %116, label %zend_string_release_ex.exit
 
-128:                                              ; preds = %123
-  call void @_efree(ptr noundef nonnull %104) #10
+116:                                              ; preds = %111
+  call void @_efree(ptr noundef nonnull %92) #10
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %128, %123, %lxb_encoding_data_by_name.exit105.thread, %103, %102
-  %.265 = phi i1 [ false, %102 ], [ true, %103 ], [ %.467, %lxb_encoding_data_by_name.exit105.thread ], [ %.467, %123 ], [ %.467, %128 ]
-  %129 = call ptr @lxb_html_document_create() #10
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %dom_parse_decode_encode_finish.exit, label %131, !prof !48
+zend_string_release_ex.exit:                      ; preds = %116, %111, %lxb_encoding_data_by_name.exit105.thread, %91, %90
+  %.265 = phi i1 [ false, %90 ], [ true, %91 ], [ %.467, %lxb_encoding_data_by_name.exit105.thread ], [ %.467, %111 ], [ %.467, %116 ]
+  %117 = call ptr @lxb_html_document_create() #10
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %dom_parse_decode_encode_finish.exit, label %119, !prof !17
 
-131:                                              ; preds = %zend_string_release_ex.exit
-  %132 = call i32 @lxb_html_document_parse_chunk_begin(ptr noundef nonnull %129) #10
-  %.not85 = icmp eq i32 %132, 0
-  br i1 %.not85, label %133, label %dom_parse_decode_encode_finish.exit, !prof !101
+119:                                              ; preds = %zend_string_release_ex.exit
+  %120 = call i32 @lxb_html_document_parse_chunk_begin(ptr noundef nonnull %117) #10
+  %.not85 = icmp eq i32 %120, 0
+  br i1 %.not85, label %121, label %dom_parse_decode_encode_finish.exit, !prof !100
 
-133:                                              ; preds = %131
+121:                                              ; preds = %119
   store i64 0, ptr %15, align 8, !tbaa !13
   store i64 0, ptr %16, align 8, !tbaa !13
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 232
-  %135 = load ptr, ptr %134, align 8, !tbaa !102
-  br label %136
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 232
+  %123 = load ptr, ptr %122, align 8, !tbaa !101
+  br label %124
 
-136:                                              ; preds = %141, %133
-  %.5 = phi i1 [ %.265, %133 ], [ false, %141 ]
-  %137 = call i64 @_php_stream_read(ptr noundef nonnull %93, ptr noundef nonnull %12, i64 noundef 4096) #10
-  store i64 %137, ptr %17, align 8, !tbaa !13
-  %138 = icmp sgt i64 %137, 0
-  br i1 %138, label %139, label %146
+124:                                              ; preds = %129, %121
+  %.5 = phi i1 [ %.265, %121 ], [ false, %129 ]
+  %125 = call i64 @_php_stream_read(ptr noundef nonnull %84, ptr noundef nonnull %12, i64 noundef 4096) #10
+  store i64 %125, ptr %17, align 8, !tbaa !13
+  %126 = icmp sgt i64 %125, 0
+  br i1 %126, label %127, label %134
 
-139:                                              ; preds = %136
+127:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %12, ptr %18, align 8, !tbaa !10
-  br i1 %.5, label %140, label %141
+  br i1 %.5, label %128, label %129
 
-140:                                              ; preds = %139
+128:                                              ; preds = %127
   call fastcc void @dom_setup_parser_encoding_implicitly(ptr noundef %18, ptr noundef %17, ptr noundef %13, ptr noundef %10)
   %.pre = load ptr, ptr %18, align 8, !tbaa !10
   %.pre140 = load i64, ptr %17, align 8, !tbaa !13
-  br label %141
+  br label %129
 
-141:                                              ; preds = %140, %139
-  %142 = phi i64 [ %.pre140, %140 ], [ %137, %139 ]
-  %143 = phi ptr [ %.pre, %140 ], [ %12, %139 ]
-  %144 = getelementptr inbounds i8, ptr %143, i64 %142
-  %145 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %11, ptr noundef %129, ptr noundef %135, ptr noundef %18, ptr noundef %144, ptr noundef %13, ptr noundef %15, ptr noundef %16)
+129:                                              ; preds = %128, %127
+  %130 = phi i64 [ %.pre140, %128 ], [ %125, %127 ]
+  %131 = phi ptr [ %.pre, %128 ], [ %12, %127 ]
+  %132 = getelementptr inbounds i8, ptr %131, i64 %130
+  %133 = call fastcc zeroext i1 @dom_parse_decode_encode_step(ptr noundef %11, ptr noundef %117, ptr noundef %123, ptr noundef %18, ptr noundef %132, ptr noundef %13, ptr noundef %15, ptr noundef %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br i1 %145, label %136, label %dom_parse_decode_encode_finish.exit
+  br i1 %133, label %124, label %dom_parse_decode_encode_finish.exit
 
-146:                                              ; preds = %136
-  %147 = getelementptr inbounds nuw i8, ptr %13, i64 124
-  %148 = load i32, ptr %147, align 4, !tbaa !119
-  %.not.i.i = icmp eq i32 %148, 0
-  br i1 %.not.i.i, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %149
+134:                                              ; preds = %124
+  %135 = getelementptr inbounds nuw i8, ptr %13, i64 124
+  %136 = load i32, ptr %135, align 4, !tbaa !118
+  %.not.i.i = icmp eq i32 %136, 0
+  br i1 %.not.i.i, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %137
 
-149:                                              ; preds = %146
-  %150 = load ptr, ptr %66, align 8, !tbaa !96
-  %151 = load i32, ptr %150, align 8, !tbaa !120
-  %152 = icmp eq i32 %151, 8
-  %153 = getelementptr inbounds nuw i8, ptr %13, i64 132
-  %154 = load i32, ptr %153, align 4
-  %155 = icmp eq i32 %154, 0
-  %or.cond138 = select i1 %152, i1 %155, i1 false
+137:                                              ; preds = %134
+  %138 = load ptr, ptr %59, align 8, !tbaa !95
+  %139 = load i32, ptr %138, align 8, !tbaa !119
+  %140 = icmp eq i32 %139, 8
+  %141 = getelementptr inbounds nuw i8, ptr %13, i64 132
+  %142 = load i32, ptr %141, align 4
+  %143 = icmp eq i32 %142, 0
+  %or.cond138 = select i1 %140, i1 %143, i1 false
   br i1 %or.cond138, label %lxb_encoding_decode_finish.exit.ithread-pre-split, label %lxb_encoding_decode_buf_add_to.exit.i.i
 
-lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %149
-  %156 = load ptr, ptr %71, align 8, !tbaa !97, !nonnull !122, !noundef !122
-  %157 = load i64, ptr %72, align 8, !tbaa !98
-  %158 = load i64, ptr %68, align 8, !tbaa !123
-  %159 = add i64 %158, %157
-  %160 = load i64, ptr %70, align 8, !tbaa !95
-  %161 = icmp ule i64 %159, %160
-  call void @llvm.assume(i1 %161)
-  %162 = load ptr, ptr %69, align 8, !tbaa !94
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %158
-  %164 = shl i64 %157, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %163, ptr nonnull readonly align 4 %156, i64 %164, i1 false)
-  %165 = load i64, ptr %68, align 8, !tbaa !123
-  %166 = add i64 %165, %157
-  store i64 %166, ptr %68, align 8, !tbaa !123
+lxb_encoding_decode_buf_add_to.exit.i.i:          ; preds = %137
+  %144 = load ptr, ptr %64, align 8, !tbaa !96, !nonnull !121, !noundef !121
+  %145 = load i64, ptr %65, align 8, !tbaa !97
+  %146 = load i64, ptr %61, align 8, !tbaa !122
+  %147 = load ptr, ptr %62, align 8, !tbaa !93
+  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %146
+  %149 = shl i64 %145, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %148, ptr nonnull readonly align 4 %144, i64 %149, i1 false)
+  %150 = load i64, ptr %61, align 8, !tbaa !122
+  %151 = add i64 %150, %145
+  store i64 %151, ptr %61, align 8, !tbaa !122
   br label %lxb_encoding_decode_finish.exit.i
 
-lxb_encoding_decode_finish.exit.ithread-pre-split: ; preds = %149, %146
-  %.val.i.pr = load i64, ptr %68, align 8, !tbaa !123
+lxb_encoding_decode_finish.exit.ithread-pre-split: ; preds = %137, %134
+  %.val.i.pr = load i64, ptr %61, align 8, !tbaa !122
   br label %lxb_encoding_decode_finish.exit.i
 
 lxb_encoding_decode_finish.exit.i:                ; preds = %lxb_encoding_decode_finish.exit.ithread-pre-split, %lxb_encoding_decode_buf_add_to.exit.i.i
-  %.val.i = phi i64 [ %.val.i.pr, %lxb_encoding_decode_finish.exit.ithread-pre-split ], [ %166, %lxb_encoding_decode_buf_add_to.exit.i.i ]
+  %.val.i = phi i64 [ %.val.i.pr, %lxb_encoding_decode_finish.exit.ithread-pre-split ], [ %151, %lxb_encoding_decode_buf_add_to.exit.i.i ]
   %.not.i113 = icmp eq i64 %.val.i, 0
-  br i1 %.not.i113, label %174, label %167
+  br i1 %.not.i113, label %158, label %152
 
-167:                                              ; preds = %lxb_encoding_decode_finish.exit.i
+152:                                              ; preds = %lxb_encoding_decode_finish.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %67, ptr %3, align 8, !tbaa !124
-  %168 = getelementptr inbounds nuw i32, ptr %67, i64 %.val.i
-  %169 = load ptr, ptr %57, align 8, !tbaa !82
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !125
-  %172 = call i32 %171(ptr noundef nonnull %59, ptr noundef nonnull %3, ptr noundef nonnull %168) #10
-  %173 = icmp eq i32 %172, 0
-  call void @llvm.assume(i1 %173)
+  store ptr %60, ptr %3, align 8, !tbaa !123
+  %153 = getelementptr inbounds nuw i32, ptr %60, i64 %.val.i
+  %154 = load ptr, ptr %50, align 8, !tbaa !81
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !124
+  %157 = call i32 %156(ptr noundef nonnull %52, ptr noundef nonnull %3, ptr noundef nonnull %153) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %174
+  br label %158
 
-174:                                              ; preds = %167, %lxb_encoding_decode_finish.exit.i
-  %175 = load ptr, ptr %59, align 8, !tbaa !91
-  %176 = load i32, ptr %175, align 8, !tbaa !120
-  %177 = icmp eq i32 %176, 8
-  br i1 %177, label %178, label %lxb_encoding_encode_finish.exit.i
+158:                                              ; preds = %152, %lxb_encoding_decode_finish.exit.i
+  %159 = load ptr, ptr %52, align 8, !tbaa !90
+  %160 = load i32, ptr %159, align 8, !tbaa !119
+  %161 = icmp eq i32 %160, 8
+  br i1 %161, label %162, label %lxb_encoding_encode_finish.exit.i
 
-178:                                              ; preds = %174
-  %179 = call i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef nonnull %59) #10
-  %180 = icmp eq i32 %179, 0
+162:                                              ; preds = %158
+  %163 = call i32 @lxb_encoding_encode_iso_2022_jp_eof(ptr noundef nonnull %52) #10
   br label %lxb_encoding_encode_finish.exit.i
 
-lxb_encoding_encode_finish.exit.i:                ; preds = %178, %174
-  %.0.i26.i = phi i1 [ %180, %178 ], [ true, %174 ]
-  call void @llvm.assume(i1 %.0.i26.i)
-  %.val24.i = load i64, ptr %61, align 8, !tbaa !126
+lxb_encoding_encode_finish.exit.i:                ; preds = %162, %158
+  %.val24.i = load i64, ptr %54, align 8, !tbaa !125
   %.not22.i = icmp eq i64 %.val24.i, 0
-  br i1 %.not22.i, label %183, label %181
+  br i1 %.not22.i, label %166, label %164
 
-181:                                              ; preds = %lxb_encoding_encode_finish.exit.i
-  %.val23.i = load i64, ptr %68, align 8, !tbaa !123
-  %182 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %11, ptr noundef nonnull %129, ptr noundef %135, i64 noundef %.val24.i, ptr noundef nonnull %60, i64 noundef %.val23.i, ptr noundef nonnull %15, ptr noundef nonnull %16)
-  br i1 %182, label %183, label %dom_parse_decode_encode_finish.exit
+164:                                              ; preds = %lxb_encoding_encode_finish.exit.i
+  %.val23.i = load i64, ptr %61, align 8, !tbaa !122
+  %165 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %11, ptr noundef nonnull %117, ptr noundef %123, i64 noundef %.val24.i, ptr noundef nonnull %53, i64 noundef %.val23.i, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  br i1 %165, label %166, label %dom_parse_decode_encode_finish.exit
 
-183:                                              ; preds = %lxb_encoding_encode_finish.exit.i, %181
-  %184 = call i32 @lxb_html_document_parse_chunk_end(ptr noundef nonnull %129) #10
-  %.not86 = icmp eq i32 %184, 0
-  br i1 %.not86, label %185, label %dom_parse_decode_encode_finish.exit
+166:                                              ; preds = %lxb_encoding_encode_finish.exit.i, %164
+  %167 = call i32 @lxb_html_document_parse_chunk_end(ptr noundef nonnull %117) #10
+  %.not86 = icmp eq i32 %167, 0
+  br i1 %.not86, label %168, label %dom_parse_decode_encode_finish.exit
 
-185:                                              ; preds = %183
-  %186 = call ptr @php_dom_private_data_create() #10
-  %187 = load i64, ptr %9, align 8, !tbaa !13
-  %188 = and i64 %187, 65536
-  %189 = icmp ne i64 %188, 0
-  %190 = and i64 %187, 2147483648
-  %.not87 = icmp eq i64 %190, 0
-  %191 = call i32 @lexbor_libxml2_bridge_convert_document(ptr noundef nonnull %129, ptr noundef nonnull %19, i1 noundef zeroext %189, i1 noundef zeroext %.not87, ptr noundef %186) #10
-  %192 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !127
-  %194 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %193, ptr noundef nonnull %194) #10
-  switch i32 %191, label %198 [
-    i32 0, label %201
+168:                                              ; preds = %166
+  %169 = call ptr @php_dom_private_data_create() #10
+  %170 = load i64, ptr %9, align 8, !tbaa !13
+  %171 = and i64 %170, 65536
+  %172 = icmp ne i64 %171, 0
+  %173 = and i64 %170, 2147483648
+  %.not87 = icmp eq i64 %173, 0
+  %174 = call i32 @lexbor_libxml2_bridge_convert_document(ptr noundef nonnull %117, ptr noundef nonnull %19, i1 noundef zeroext %172, i1 noundef zeroext %.not87, ptr noundef %169) #10
+  %175 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %176 = load ptr, ptr %175, align 8, !tbaa !126
+  %177 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  call void @lexbor_libxml2_bridge_copy_observations(ptr noundef %176, ptr noundef nonnull %177) #10
+  switch i32 %174, label %181 [
+    i32 0, label %184
     i32 1, label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
-    i32 2, label %195
-    i32 3, label %196
-    i32 4, label %197
+    i32 2, label %178
+    i32 3, label %179
+    i32 4, label %180
   ], !prof !164
 
-195:                                              ; preds = %185
+178:                                              ; preds = %168
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-196:                                              ; preds = %185
+179:                                              ; preds = %168
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-197:                                              ; preds = %185
+180:                                              ; preds = %168
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-198:                                              ; preds = %185
+181:                                              ; preds = %168
   br label %dom_lexbor_libxml2_bridge_status_code_to_string.exit
 
-dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %185, %195, %196, %197, %198
-  %.0.i115 = phi ptr [ @.str.74, %198 ], [ @.str.115, %195 ], [ @.str.116, %196 ], [ @.str.117, %197 ], [ @.str.114, %185 ]
-  %199 = load ptr, ptr %5, align 8, !tbaa !10
-  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i115, ptr noundef %199) #10
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %200, align 8, !tbaa !4
-  br label %265
+dom_lexbor_libxml2_bridge_status_code_to_string.exit: ; preds = %168, %178, %179, %180, %181
+  %.0.i115 = phi ptr [ @.str.74, %181 ], [ @.str.115, %178 ], [ @.str.116, %179 ], [ @.str.117, %180 ], [ @.str.114, %168 ]
+  %182 = load ptr, ptr %5, align 8, !tbaa !10
+  call void (ptr, ptr, ...) @php_libxml_ctx_error(ptr noundef null, ptr noundef nonnull @.str.5, ptr noundef nonnull %.0.i115, ptr noundef %182) #10
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %183, align 8, !tbaa !4
+  br label %248
 
-201:                                              ; preds = %185
-  %202 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %129) #10
-  %203 = load ptr, ptr %19, align 8, !tbaa !131
-  %204 = load i64, ptr %9, align 8, !tbaa !13
-  call fastcc void @dom_post_process_html5_loading(ptr noundef %203, i64 noundef %204, ptr noundef %194)
-  %205 = load ptr, ptr %58, align 8, !tbaa !87
-  %.not89 = icmp eq ptr %205, null
-  br i1 %.not89, label %209, label %206
+184:                                              ; preds = %168
+  %185 = call ptr @lxb_html_document_destroy(ptr noundef nonnull %117) #10
+  %186 = load ptr, ptr %19, align 8, !tbaa !130
+  %187 = load i64, ptr %9, align 8, !tbaa !13
+  call fastcc void @dom_post_process_html5_loading(ptr noundef %186, i64 noundef %187, ptr noundef %177)
+  %188 = load ptr, ptr %51, align 8, !tbaa !86
+  %.not89 = icmp eq ptr %188, null
+  br i1 %.not89, label %192, label %189
 
-206:                                              ; preds = %201
-  %207 = getelementptr inbounds nuw i8, ptr %205, i64 40
-  %208 = load ptr, ptr %207, align 8, !tbaa !132
-  br label %209
+189:                                              ; preds = %184
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 40
+  %191 = load ptr, ptr %190, align 8, !tbaa !131
+  br label %192
 
-209:                                              ; preds = %201, %206
-  %.str.sink = phi ptr [ %208, %206 ], [ @.str, %201 ]
-  %210 = call ptr @xmlStrdup(ptr noundef %.str.sink) #10
-  %211 = load ptr, ptr %19, align 8, !tbaa !131
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 112
-  store ptr %210, ptr %212, align 8, !tbaa !49
-  %213 = getelementptr inbounds nuw i8, ptr %93, i64 64
-  %214 = load ptr, ptr %213, align 8, !tbaa !165
-  %215 = icmp eq ptr %214, @php_plain_files_wrapper
-  %216 = load ptr, ptr %14, align 8
-  %217 = icmp ne ptr %216, null
-  %or.cond = select i1 %215, i1 %217, i1 false
-  br i1 %or.cond, label %218, label %230
+192:                                              ; preds = %184, %189
+  %.str.sink = phi ptr [ %191, %189 ], [ @.str, %184 ]
+  %193 = call ptr @xmlStrdup(ptr noundef %.str.sink) #10
+  %194 = load ptr, ptr %19, align 8, !tbaa !130
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 112
+  store ptr %193, ptr %195, align 8, !tbaa !18
+  %196 = getelementptr inbounds nuw i8, ptr %84, i64 64
+  %197 = load ptr, ptr %196, align 8, !tbaa !165
+  %198 = icmp eq ptr %197, @php_plain_files_wrapper
+  %199 = load ptr, ptr %14, align 8
+  %200 = icmp ne ptr %199, null
+  %or.cond = select i1 %198, i1 %200, i1 false
+  br i1 %or.cond, label %201, label %213
 
-218:                                              ; preds = %209
-  %219 = getelementptr inbounds nuw i8, ptr %216, i64 24
-  %220 = call ptr @xmlPathToURI(ptr noundef nonnull %219) #10
-  %.not90 = icmp eq ptr %220, null
-  br i1 %.not90, label %dom_parse_decode_encode_finish.exit, label %221, !prof !48
+201:                                              ; preds = %192
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %203 = call ptr @xmlPathToURI(ptr noundef nonnull %202) #10
+  %.not90 = icmp eq ptr %203, null
+  br i1 %.not90, label %dom_parse_decode_encode_finish.exit, label %204, !prof !17
 
-221:                                              ; preds = %218
-  %222 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #11
-  %.not91 = icmp eq i32 %222, 0
-  br i1 %.not91, label %.thread134, label %223
+204:                                              ; preds = %201
+  %205 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(7) @.str.11, i64 noundef 6) #11
+  %.not91 = icmp eq i32 %205, 0
+  br i1 %.not91, label %.thread134, label %206
 
-223:                                              ; preds = %221
-  %224 = call ptr @xmlStrdup(ptr noundef nonnull @.str.12) #10
-  %.not92 = icmp eq ptr %224, null
-  br i1 %.not92, label %dom_parse_decode_encode_finish.exit.sink.split, label %225, !prof !48
+206:                                              ; preds = %204
+  %207 = call ptr @xmlStrdup(ptr noundef nonnull @.str.12) #10
+  %.not92 = icmp eq ptr %207, null
+  br i1 %.not92, label %dom_parse_decode_encode_finish.exit.sink.split, label %208, !prof !17
 
-225:                                              ; preds = %223
-  %226 = call ptr @xmlStrcat(ptr noundef nonnull %224, ptr noundef nonnull %220) #10
-  %.not93 = icmp eq ptr %226, null
-  %227 = load ptr, ptr @xmlFree, align 8, !tbaa !174
-  br i1 %.not93, label %228, label %229, !prof !48
+208:                                              ; preds = %206
+  %209 = call ptr @xmlStrcat(ptr noundef nonnull %207, ptr noundef nonnull %203) #10
+  %.not93 = icmp eq ptr %209, null
+  %210 = load ptr, ptr @xmlFree, align 8, !tbaa !174
+  br i1 %.not93, label %211, label %212, !prof !17
 
-228:                                              ; preds = %225
-  call void %227(ptr noundef nonnull %224) #10
+211:                                              ; preds = %208
+  call void %210(ptr noundef nonnull %207) #10
   br label %dom_parse_decode_encode_finish.exit.sink.split
 
-229:                                              ; preds = %225
-  call void %227(ptr noundef nonnull %220) #10
+212:                                              ; preds = %208
+  call void %210(ptr noundef nonnull %203) #10
   br label %.thread134
 
-230:                                              ; preds = %209
-  %231 = load ptr, ptr %5, align 8, !tbaa !10
-  %232 = call ptr @xmlStrdup(ptr noundef %231) #10
+213:                                              ; preds = %192
+  %214 = load ptr, ptr %5, align 8, !tbaa !10
+  %215 = call ptr @xmlStrdup(ptr noundef %214) #10
   br label %.thread134
 
-.thread134:                                       ; preds = %221, %229, %230
-  %.sink = phi ptr [ %226, %229 ], [ %232, %230 ], [ %220, %221 ]
-  %233 = load ptr, ptr %19, align 8, !tbaa !131
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 136
-  store ptr %.sink, ptr %234, align 8, !tbaa !175
-  %235 = load ptr, ptr %14, align 8, !tbaa !161
-  %.not94 = icmp eq ptr %235, null
-  br i1 %.not94, label %zend_string_release_ex.exit98, label %236
+.thread134:                                       ; preds = %204, %212, %213
+  %.sink = phi ptr [ %209, %212 ], [ %215, %213 ], [ %203, %204 ]
+  %216 = load ptr, ptr %19, align 8, !tbaa !130
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 136
+  store ptr %.sink, ptr %217, align 8, !tbaa !175
+  %218 = load ptr, ptr %14, align 8, !tbaa !160
+  %.not94 = icmp eq ptr %218, null
+  br i1 %.not94, label %zend_string_release_ex.exit98, label %219
 
-236:                                              ; preds = %.thread134
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 4
-  %238 = load i32, ptr %237, align 4, !tbaa !4
-  %239 = and i32 %238, 64
-  %.not.i97 = icmp eq i32 %239, 0
-  br i1 %.not.i97, label %240, label %zend_string_release_ex.exit98
+219:                                              ; preds = %.thread134
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 4
+  %221 = load i32, ptr %220, align 4, !tbaa !4
+  %222 = and i32 %221, 64
+  %.not.i97 = icmp eq i32 %222, 0
+  br i1 %.not.i97, label %223, label %zend_string_release_ex.exit98
 
-240:                                              ; preds = %236
-  %241 = load i32, ptr %235, align 4, !tbaa !7
-  %242 = icmp ne i32 %241, 0
-  call void @llvm.assume(i1 %242)
-  %243 = add i32 %241, -1
-  store i32 %243, ptr %235, align 4, !tbaa !7
-  %244 = icmp eq i32 %243, 0
-  br i1 %244, label %245, label %zend_string_release_ex.exit98
+223:                                              ; preds = %219
+  %224 = load i32, ptr %218, align 4, !tbaa !7
+  %225 = icmp ne i32 %224, 0
+  call void @llvm.assume(i1 %225)
+  %226 = add i32 %224, -1
+  store i32 %226, ptr %218, align 4, !tbaa !7
+  %227 = icmp eq i32 %226, 0
+  br i1 %227, label %228, label %zend_string_release_ex.exit98
 
-245:                                              ; preds = %240
-  call void @_efree(ptr noundef nonnull %235) #10
+228:                                              ; preds = %223
+  call void @_efree(ptr noundef nonnull %218) #10
   br label %zend_string_release_ex.exit98
 
-zend_string_release_ex.exit98:                    ; preds = %245, %240, %236, %.thread134
-  %246 = call i32 @_php_stream_free(ptr noundef nonnull %93, i32 noundef 3) #10
-  %247 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !56
-  %248 = load ptr, ptr %19, align 8, !tbaa !131
-  %249 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %247, ptr noundef %248, ptr noundef null) #10
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  %251 = load ptr, ptr %250, align 8, !tbaa !57
-  call void @dom_set_xml_class(ptr noundef %251) #10
-  %252 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %253 = load i32, ptr %252, align 4, !tbaa !133
-  %254 = load ptr, ptr %250, align 8, !tbaa !57
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 44
-  %256 = trunc i32 %253 to i16
-  %257 = load i16, ptr %255, align 4
-  %258 = shl i16 %256, 8
-  %259 = and i16 %257, 255
-  %260 = or disjoint i16 %259, %258
-  store i16 %260, ptr %255, align 4
-  %261 = call ptr @php_dom_libxml_private_data_header(ptr noundef %186) #10
-  %262 = load ptr, ptr %250, align 8, !tbaa !57
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
-  store ptr %261, ptr %263, align 8, !tbaa !62
+zend_string_release_ex.exit98:                    ; preds = %228, %223, %219, %.thread134
+  %229 = call i32 @_php_stream_free(ptr noundef nonnull %84, i32 noundef 3) #10
+  %230 = load ptr, ptr @dom_html_document_class_entry, align 8, !tbaa !25
+  %231 = load ptr, ptr %19, align 8, !tbaa !130
+  %232 = call ptr @php_dom_instantiate_object_helper(ptr noundef %1, ptr noundef %230, ptr noundef %231, ptr noundef null) #10
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %234 = load ptr, ptr %233, align 8, !tbaa !27
+  call void @dom_set_xml_class(ptr noundef %234) #10
+  %235 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %236 = load i32, ptr %235, align 4, !tbaa !132
+  %237 = load ptr, ptr %233, align 8, !tbaa !27
+  %238 = getelementptr inbounds nuw i8, ptr %237, i64 44
+  %239 = trunc i32 %236 to i16
+  %240 = load i16, ptr %238, align 4
+  %241 = shl i16 %239, 8
+  %242 = and i16 %240, 255
+  %243 = or disjoint i16 %242, %241
+  store i16 %243, ptr %238, align 4
+  %244 = call ptr @php_dom_libxml_private_data_header(ptr noundef %169) #10
+  %245 = load ptr, ptr %233, align 8, !tbaa !27
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
+  store ptr %244, ptr %246, align 8, !tbaa !33
   br label %zend_string_release_ex.exit100
 
-dom_parse_decode_encode_finish.exit.sink.split:   ; preds = %223, %228
-  %264 = load ptr, ptr @xmlFree, align 8, !tbaa !174
-  call void %264(ptr noundef nonnull %220) #10
+dom_parse_decode_encode_finish.exit.sink.split:   ; preds = %206, %211
+  %247 = load ptr, ptr @xmlFree, align 8, !tbaa !174
+  call void %247(ptr noundef nonnull %203) #10
   br label %dom_parse_decode_encode_finish.exit
 
-dom_parse_decode_encode_finish.exit:              ; preds = %141, %dom_parse_decode_encode_finish.exit.sink.split, %218, %181, %183, %131, %zend_string_release_ex.exit
-  %.0 = phi ptr [ null, %zend_string_release_ex.exit ], [ null, %131 ], [ null, %183 ], [ null, %181 ], [ %186, %218 ], [ %186, %dom_parse_decode_encode_finish.exit.sink.split ], [ null, %141 ]
+dom_parse_decode_encode_finish.exit:              ; preds = %129, %dom_parse_decode_encode_finish.exit.sink.split, %201, %164, %166, %119, %zend_string_release_ex.exit
+  %.0 = phi ptr [ null, %zend_string_release_ex.exit ], [ null, %119 ], [ null, %166 ], [ null, %164 ], [ %169, %201 ], [ %169, %dom_parse_decode_encode_finish.exit.sink.split ], [ null, %129 ]
   call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
-  br label %265
+  br label %248
 
-265:                                              ; preds = %dom_parse_decode_encode_finish.exit, %dom_lexbor_libxml2_bridge_status_code_to_string.exit
-  %.1 = phi ptr [ %.0, %dom_parse_decode_encode_finish.exit ], [ %186, %dom_lexbor_libxml2_bridge_status_code_to_string.exit ]
+248:                                              ; preds = %dom_parse_decode_encode_finish.exit, %dom_lexbor_libxml2_bridge_status_code_to_string.exit
+  %.1 = phi ptr [ %.0, %dom_parse_decode_encode_finish.exit ], [ %169, %dom_lexbor_libxml2_bridge_status_code_to_string.exit ]
   %.not95 = icmp eq ptr %.1, null
-  br i1 %.not95, label %267, label %266
+  br i1 %.not95, label %250, label %249
 
-266:                                              ; preds = %265
+249:                                              ; preds = %248
   call void @php_dom_private_data_destroy(ptr noundef nonnull %.1) #10
-  br label %267
+  br label %250
 
-267:                                              ; preds = %266, %265
-  %268 = call ptr @lxb_html_document_destroy(ptr noundef %129) #10
-  %269 = call i32 @_php_stream_free(ptr noundef nonnull %93, i32 noundef 3) #10
-  %270 = load ptr, ptr %14, align 8, !tbaa !161
-  %.not96 = icmp eq ptr %270, null
-  br i1 %.not96, label %zend_string_release_ex.exit100, label %271
+250:                                              ; preds = %249, %248
+  %251 = call ptr @lxb_html_document_destroy(ptr noundef %117) #10
+  %252 = call i32 @_php_stream_free(ptr noundef nonnull %84, i32 noundef 3) #10
+  %253 = load ptr, ptr %14, align 8, !tbaa !160
+  %.not96 = icmp eq ptr %253, null
+  br i1 %.not96, label %zend_string_release_ex.exit100, label %254
 
-271:                                              ; preds = %267
-  %272 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  %273 = load i32, ptr %272, align 4, !tbaa !4
-  %274 = and i32 %273, 64
-  %.not.i99 = icmp eq i32 %274, 0
-  br i1 %.not.i99, label %275, label %zend_string_release_ex.exit100
+254:                                              ; preds = %250
+  %255 = getelementptr inbounds nuw i8, ptr %253, i64 4
+  %256 = load i32, ptr %255, align 4, !tbaa !4
+  %257 = and i32 %256, 64
+  %.not.i99 = icmp eq i32 %257, 0
+  br i1 %.not.i99, label %258, label %zend_string_release_ex.exit100
 
-275:                                              ; preds = %271
-  %276 = load i32, ptr %270, align 4, !tbaa !7
-  %277 = icmp ne i32 %276, 0
-  call void @llvm.assume(i1 %277)
-  %278 = add i32 %276, -1
-  store i32 %278, ptr %270, align 4, !tbaa !7
-  %279 = icmp eq i32 %278, 0
-  br i1 %279, label %280, label %zend_string_release_ex.exit100
+258:                                              ; preds = %254
+  %259 = load i32, ptr %253, align 4, !tbaa !7
+  %260 = icmp ne i32 %259, 0
+  call void @llvm.assume(i1 %260)
+  %261 = add i32 %259, -1
+  store i32 %261, ptr %253, align 4, !tbaa !7
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %263, label %zend_string_release_ex.exit100
 
-280:                                              ; preds = %275
-  call void @_efree(ptr noundef nonnull %270) #10
+263:                                              ; preds = %258
+  call void @_efree(ptr noundef nonnull %253) #10
   br label %zend_string_release_ex.exit100
 
-zend_string_release_ex.exit100:                   ; preds = %280, %275, %271, %zend_string_release_ex.exit98, %267, %100
+zend_string_release_ex.exit100:                   ; preds = %87, %85, %263, %258, %254, %zend_string_release_ex.exit98, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %281
+  br label %264
 
-281:                                              ; preds = %.thread, %zend_string_release_ex.exit100
+264:                                              ; preds = %.thread, %zend_string_release_ex.exit100
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %282
+  br label %265
 
-282:                                              ; preds = %281, %36, %30, %24
+265:                                              ; preds = %2, %264, %31, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2227,88 +2160,76 @@ define hidden void @zim_Dom_HTMLDocument_saveHtmlFile(ptr noundef readonly captu
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.13, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %14
+  br i1 %10, label %45, label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %13 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %13)
-  br label %52
+  %12 = load i64, ptr %3, align 8, !tbaa !13
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %14, label %15
 
-14:                                               ; preds = %2
-  %15 = load i64, ptr %3, align 8, !tbaa !13
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %20
-
-17:                                               ; preds = %14
+14:                                               ; preds = %11
   call void @zend_argument_must_not_be_empty_error(i32 noundef 1) #10
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %19 = icmp ne ptr %18, null
-  call void @llvm.assume(i1 %19)
-  br label %52
+  br label %45
 
-20:                                               ; preds = %14
-  %21 = load ptr, ptr %4, align 8, !tbaa !10
-  %22 = call ptr @php_libxml_get_stream_context() #10
-  %23 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %21, ptr noundef nonnull @.str.14, i32 noundef 8, ptr noundef null, ptr noundef %22) #10
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %24, label %26
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %4, align 8, !tbaa !10
+  %17 = call ptr @php_libxml_get_stream_context() #10
+  %18 = call ptr @_php_stream_open_wrapper_ex(ptr noundef %16, ptr noundef nonnull @.str.14, i32 noundef 8, ptr noundef null, ptr noundef %17) #10
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %19, label %21
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %25, align 8, !tbaa !4
-  br label %52
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 2, ptr %20, align 8, !tbaa !4
+  br label %45
 
-26:                                               ; preds = %20
-  %27 = load ptr, ptr %6, align 8, !tbaa !4
-  %28 = getelementptr inbounds i8, ptr %27, i64 -24
-  %29 = load ptr, ptr %28, align 8, !tbaa !176
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %39, !prof !48
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %6, align 8, !tbaa !4
+  %23 = getelementptr inbounds i8, ptr %22, i64 -24
+  %24 = load ptr, ptr %23, align 8, !tbaa !176
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %26, label %32, !prof !17
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !177
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !178
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %36) #10
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %38 = icmp ne ptr %37, null
-  call void @llvm.assume(i1 %38)
-  br label %52
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %28 = load ptr, ptr %27, align 8, !tbaa !177
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !178
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %31) #10
+  br label %45
 
-39:                                               ; preds = %26
-  %40 = load ptr, ptr %29, align 8, !tbaa !189
+32:                                               ; preds = %21
+  %33 = load ptr, ptr %24, align 8, !tbaa !189
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %23, ptr %41, align 8, !tbaa !191
-  %42 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @dom_write_output_stream, ptr %42, align 8, !tbaa !193
-  %43 = getelementptr i8, ptr %40, i64 112
-  %.val = load ptr, ptr %43, align 8, !tbaa !49
-  %44 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr noundef nonnull %28, ptr %.val, ptr noundef %40)
-  %.not20 = icmp eq i32 %44, 0
-  br i1 %.not20, label %47, label %45, !prof !101
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %18, ptr %34, align 8, !tbaa !191
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr @dom_write_output_stream, ptr %35, align 8, !tbaa !193
+  %36 = getelementptr i8, ptr %33, i64 112
+  %.val = load ptr, ptr %36, align 8, !tbaa !18
+  %37 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr noundef nonnull %23, ptr %.val, ptr noundef %33)
+  %.not20 = icmp eq i32 %37, 0
+  br i1 %.not20, label %40, label %38, !prof !100
 
-45:                                               ; preds = %39
-  %46 = call i32 @_php_stream_free(ptr noundef nonnull %23, i32 noundef 3) #10
-  br label %50
+38:                                               ; preds = %32
+  %39 = call i32 @_php_stream_free(ptr noundef nonnull %18, i32 noundef 3) #10
+  br label %43
 
-47:                                               ; preds = %39
-  %48 = call i64 @_php_stream_tell(ptr noundef nonnull %23) #10
-  %49 = call i32 @_php_stream_free(ptr noundef nonnull %23, i32 noundef 3) #10
-  store i64 %48, ptr %1, align 8, !tbaa !4
-  br label %50
+40:                                               ; preds = %32
+  %41 = call i64 @_php_stream_tell(ptr noundef nonnull %18) #10
+  %42 = call i32 @_php_stream_free(ptr noundef nonnull %18, i32 noundef 3) #10
+  store i64 %41, ptr %1, align 8, !tbaa !4
+  br label %43
 
-50:                                               ; preds = %47, %45
-  %.sink = phi i32 [ 4, %47 ], [ 2, %45 ]
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink, ptr %51, align 8, !tbaa !4
+43:                                               ; preds = %40, %38
+  %.sink = phi i32 [ 4, %40 ], [ 2, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %44, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %52
+  br label %45
 
-52:                                               ; preds = %24, %31, %50, %17, %11
+45:                                               ; preds = %2, %19, %26, %43, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -2353,7 +2274,7 @@ lxb_encoding_data_by_name.exit.thread:            ; preds = %3, %13
 
 lxb_encoding_data_by_name.exit:                   ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !46
+  %17 = load ptr, ptr %16, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2365,10 +2286,10 @@ lxb_encoding_data_by_name.exit:                   ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %21, align 8, !tbaa !89
+  store ptr %6, ptr %21, align 8, !tbaa !88
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 4096, ptr %22, align 8, !tbaa !90
-  store ptr %17, ptr %4, align 8, !tbaa !91
+  store i64 4096, ptr %22, align 8, !tbaa !89
+  store ptr %17, ptr %4, align 8, !tbaa !90
   br label %lxb_encoding_encode_init.exit
 
 lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_by_name.exit.thread, %lxb_encoding_data_by_name.exit, %19
@@ -2376,23 +2297,23 @@ lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_b
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %23, i8 0, i64 56, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %24, align 8, !tbaa !94
+  store ptr %7, ptr %24, align 8, !tbaa !93
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 4096, ptr %25, align 8, !tbaa !95
-  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %5, align 8, !tbaa !96
-  %26 = load i32, ptr %.0.i2, align 8, !tbaa !120
+  store i64 4096, ptr %25, align 8, !tbaa !94
+  store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %5, align 8, !tbaa !95
+  %26 = load i32, ptr %.0.i2, align 8, !tbaa !119
   %27 = icmp eq i32 %26, 27
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.str.112..str.121 = select i1 %27, ptr @.str.112, ptr @.str.121
   %. = select i1 %27, i64 3, i64 1
-  store ptr %.str.112..str.121, ptr %28, align 8, !tbaa !92
-  store i64 %., ptr %29, align 8, !tbaa !93
-  store i32 65533, ptr %8, align 4, !tbaa !135
+  store ptr %.str.112..str.121, ptr %28, align 8, !tbaa !91
+  store i64 %., ptr %29, align 8, !tbaa !92
+  store i32 65533, ptr %8, align 4, !tbaa !134
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %8, ptr %30, align 8, !tbaa !97
+  store ptr %8, ptr %30, align 8, !tbaa !96
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 1, ptr %31, align 8, !tbaa !98
+  store i64 1, ptr %31, align 8, !tbaa !97
   store ptr %.0.i2, ptr %0, align 8, !tbaa !194
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @lxb_encoding_res_map, i64 1296), ptr %32, align 8, !tbaa !195
@@ -2413,24 +2334,24 @@ lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_b
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %0, ptr %38, align 8, !tbaa !204
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !57, !nonnull !122, !noundef !122
+  %40 = load ptr, ptr %39, align 8, !tbaa !27, !nonnull !121, !noundef !121
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !62
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %42, ptr %43, align 8, !tbaa !205
   %44 = call i32 @dom_html5_serialize_outer(ptr noundef nonnull %9, ptr noundef %2) #10
   %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %45, label %94, !prof !101
+  br i1 %.not, label %45, label %94, !prof !100
 
 45:                                               ; preds = %lxb_encoding_encode_init.exit
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %47 = load i32, ptr %46, align 4, !tbaa !119
+  %47 = load i32, ptr %46, align 4, !tbaa !118
   %.not.i = icmp eq i32 %47, 0
   br i1 %.not.i, label %lxb_encoding_decode_finish.exitthread-pre-split, label %48
 
 48:                                               ; preds = %45
-  %49 = load ptr, ptr %5, align 8, !tbaa !96
-  %50 = load i32, ptr %49, align 8, !tbaa !120
+  %49 = load ptr, ptr %5, align 8, !tbaa !95
+  %50 = load i32, ptr %49, align 8, !tbaa !119
   %51 = icmp eq i32 %50, 8
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %53 = load i32, ptr %52, align 4
@@ -2439,30 +2360,30 @@ lxb_encoding_encode_init.exit:                    ; preds = %lxb_encoding_data_b
   br i1 %or.cond10, label %lxb_encoding_decode_finish.exitthread-pre-split, label %55
 
 55:                                               ; preds = %48
-  %56 = load ptr, ptr %30, align 8, !tbaa !97
+  %56 = load ptr, ptr %30, align 8, !tbaa !96
   %57 = icmp eq ptr %56, null
   br i1 %57, label %lxb_encoding_decode_finish.exitthread-pre-split, label %58
 
 58:                                               ; preds = %55
-  %59 = load i64, ptr %31, align 8, !tbaa !98
-  %60 = load i64, ptr %23, align 8, !tbaa !123
+  %59 = load i64, ptr %31, align 8, !tbaa !97
+  %60 = load i64, ptr %23, align 8, !tbaa !122
   %61 = add i64 %60, %59
-  %62 = load i64, ptr %25, align 8, !tbaa !95
+  %62 = load i64, ptr %25, align 8, !tbaa !94
   %63 = icmp ugt i64 %61, %62
   br i1 %63, label %lxb_encoding_decode_finish.exit, label %lxb_encoding_decode_buf_add_to.exit.i
 
 lxb_encoding_decode_buf_add_to.exit.i:            ; preds = %58
-  %64 = load ptr, ptr %24, align 8, !tbaa !94
+  %64 = load ptr, ptr %24, align 8, !tbaa !93
   %65 = getelementptr inbounds nuw i32, ptr %64, i64 %60
   %66 = shl i64 %59, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr nonnull readonly align 4 %56, i64 %66, i1 false)
-  %67 = load i64, ptr %23, align 8, !tbaa !123
+  %67 = load i64, ptr %23, align 8, !tbaa !122
   %68 = add i64 %67, %59
-  store i64 %68, ptr %23, align 8, !tbaa !123
+  store i64 %68, ptr %23, align 8, !tbaa !122
   br label %lxb_encoding_decode_finish.exit
 
 lxb_encoding_decode_finish.exitthread-pre-split:  ; preds = %48, %55, %45
-  %.val.pr = load i64, ptr %23, align 8, !tbaa !123
+  %.val.pr = load i64, ptr %23, align 8, !tbaa !122
   br label %lxb_encoding_decode_finish.exit
 
 lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode_finish.exitthread-pre-split, %58, %lxb_encoding_decode_buf_add_to.exit.i
@@ -2472,9 +2393,9 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
 
 69:                                               ; preds = %lxb_encoding_decode_finish.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %7, ptr %10, align 8, !tbaa !124
+  store ptr %7, ptr %10, align 8, !tbaa !123
   %70 = getelementptr inbounds nuw i8, ptr %.0.i2, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !125
+  %71 = load ptr, ptr %70, align 8, !tbaa !124
   %72 = getelementptr inbounds nuw i32, ptr %7, i64 %.val
   %73 = call i32 %71(ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef nonnull %72) #10
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2482,15 +2403,15 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load ptr, ptr %76, align 8, !tbaa !191
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val29 = load i64, ptr %78, align 8, !tbaa !126
+  %.val29 = load i64, ptr %78, align 8, !tbaa !125
   %79 = call i32 %75(ptr noundef %77, ptr noundef nonnull %6, i64 noundef %.val29) #10
   %.not25 = icmp eq i32 %79, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br i1 %.not25, label %80, label %94
 
 80:                                               ; preds = %69, %lxb_encoding_decode_finish.exit
-  %81 = load ptr, ptr %4, align 8, !tbaa !91
-  %82 = load i32, ptr %81, align 8, !tbaa !120
+  %81 = load ptr, ptr %4, align 8, !tbaa !90
+  %82 = load i32, ptr %81, align 8, !tbaa !119
   %83 = icmp eq i32 %82, 8
   br i1 %83, label %84, label %lxb_encoding_encode_finish.exit
 
@@ -2500,7 +2421,7 @@ lxb_encoding_decode_finish.exit:                  ; preds = %lxb_encoding_decode
 
 lxb_encoding_encode_finish.exit:                  ; preds = %80, %84
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val30 = load i64, ptr %86, align 8, !tbaa !126
+  %.val30 = load i64, ptr %86, align 8, !tbaa !125
   %.not26 = icmp eq i64 %.val30, 0
   br i1 %.not26, label %93, label %87
 
@@ -2511,7 +2432,7 @@ lxb_encoding_encode_finish.exit:                  ; preds = %80, %84
   %91 = load ptr, ptr %90, align 8, !tbaa !191
   %92 = call i32 %89(ptr noundef %91, ptr noundef nonnull %6, i64 noundef %.val30) #10
   %.not27 = icmp eq i32 %92, 0
-  br i1 %.not27, label %93, label %94, !prof !101
+  br i1 %.not27, label %93, label %94, !prof !100
 
 93:                                               ; preds = %87, %lxb_encoding_encode_finish.exit
   br label %94
@@ -2537,197 +2458,180 @@ define hidden void @zim_Dom_HTMLDocument_saveHtml(ptr noundef readonly captures(
   store ptr null, ptr %3, align 8, !tbaa !206
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !4
-  %8 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !56
+  %8 = load ptr, ptr @dom_modern_node_class_entry, align 8, !tbaa !25
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.16, ptr noundef nonnull %3, ptr noundef %8) #10
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %11, label %14
+  br i1 %10, label %99, label %11
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %13 = icmp ne ptr %12, null
-  call void @llvm.assume(i1 %13)
-  br label %109
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !4
+  %14 = getelementptr inbounds i8, ptr %13, i64 -24
+  %15 = load ptr, ptr %14, align 8, !tbaa !176
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %23, !prof !17
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !4
-  %17 = getelementptr inbounds i8, ptr %16, i64 -24
-  %18 = load ptr, ptr %17, align 8, !tbaa !176
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %28, !prof !48
+17:                                               ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !177
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !178
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %22) #10
+  br label %99
 
-20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !177
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !178
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %25) #10
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %27 = icmp ne ptr %26, null
-  call void @llvm.assume(i1 %27)
-  br label %109
+23:                                               ; preds = %11
+  %24 = load ptr, ptr %15, align 8, !tbaa !189
+  %25 = load ptr, ptr %3, align 8, !tbaa !206
+  %.not = icmp eq ptr %25, null
+  br i1 %.not, label %42, label %26
 
-28:                                               ; preds = %14
-  %29 = load ptr, ptr %18, align 8, !tbaa !189
-  %30 = load ptr, ptr %3, align 8, !tbaa !206
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %51, label %31
+26:                                               ; preds = %23
+  %27 = load ptr, ptr %25, align 8, !tbaa !4
+  %28 = getelementptr inbounds i8, ptr %27, i64 -24
+  %29 = load ptr, ptr %28, align 8, !tbaa !176
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %31, label %37, !prof !17
 
-31:                                               ; preds = %28
-  %32 = load ptr, ptr %30, align 8, !tbaa !4
-  %33 = getelementptr inbounds i8, ptr %32, i64 -24
-  %34 = load ptr, ptr %33, align 8, !tbaa !176
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %44, !prof !48
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !177
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !178
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %36) #10
+  br label %99
 
-36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !177
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !178
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.15, ptr noundef nonnull %41) #10
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %43 = icmp ne ptr %42, null
-  call void @llvm.assume(i1 %43)
-  br label %109
+37:                                               ; preds = %26
+  %38 = load ptr, ptr %29, align 8, !tbaa !189
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %40 = load ptr, ptr %39, align 8, !tbaa !207
+  %.not22 = icmp eq ptr %40, %24
+  br i1 %.not22, label %42, label %41
 
-44:                                               ; preds = %31
-  %45 = load ptr, ptr %34, align 8, !tbaa !189
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !207
-  %.not22 = icmp eq ptr %47, %29
-  br i1 %.not22, label %51, label %48
-
-48:                                               ; preds = %44
+41:                                               ; preds = %37
   call void @php_dom_throw_error(i32 noundef 4, i1 noundef zeroext true) #10
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !15
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
-  br label %109
+  br label %99
 
-51:                                               ; preds = %28, %44
-  %.0 = phi ptr [ %45, %44 ], [ %29, %28 ]
+42:                                               ; preds = %23, %37
+  %.0 = phi ptr [ %38, %37 ], [ %24, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %4, ptr %52, align 8, !tbaa !191
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @dom_write_output_smart_str, ptr %53, align 8, !tbaa !193
-  %54 = getelementptr i8, ptr %29, i64 112
-  %.val = load ptr, ptr %54, align 8, !tbaa !49
-  %55 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr noundef nonnull %17, ptr %.val, ptr noundef %.0)
-  %56 = icmp eq i32 %55, 0
-  call void @llvm.assume(i1 %56)
-  %57 = load ptr, ptr %4, align 8, !tbaa !208
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %102, label %smart_str_0.exit
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %4, ptr %43, align 8, !tbaa !191
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr @dom_write_output_smart_str, ptr %44, align 8, !tbaa !193
+  %45 = getelementptr i8, ptr %24, i64 112
+  %.val = load ptr, ptr %45, align 8, !tbaa !18
+  %46 = call fastcc i32 @dom_common_save(ptr noundef %5, ptr noundef nonnull %14, ptr %.val, ptr noundef %.0)
+  %47 = load ptr, ptr %4, align 8, !tbaa !208
+  %.not.i = icmp eq ptr %47, null
+  br i1 %.not.i, label %92, label %smart_str_0.exit
 
-smart_str_0.exit:                                 ; preds = %51
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %60 = load i64, ptr %59, align 8, !tbaa !162
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %60
-  store i8 0, ptr %61, align 1, !tbaa !4
-  %62 = load ptr, ptr %4, align 8, !tbaa !208
-  %.not.i25 = icmp eq ptr %62, null
-  br i1 %.not.i25, label %smart_str_trim_to_size_ex.exit, label %63
+smart_str_0.exit:                                 ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = load i64, ptr %49, align 8, !tbaa !162
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %50
+  store i8 0, ptr %51, align 1, !tbaa !4
+  %52 = load ptr, ptr %4, align 8, !tbaa !208
+  %.not.i25 = icmp eq ptr %52, null
+  br i1 %.not.i25, label %smart_str_trim_to_size_ex.exit, label %53
 
-63:                                               ; preds = %smart_str_0.exit
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !210
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !162
-  %68 = icmp ugt i64 %65, %67
-  br i1 %68, label %69, label %smart_str_trim_to_size_ex.exit
+53:                                               ; preds = %smart_str_0.exit
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %55 = load i64, ptr %54, align 8, !tbaa !210
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %57 = load i64, ptr %56, align 8, !tbaa !162
+  %58 = icmp ugt i64 %55, %57
+  br i1 %58, label %59, label %smart_str_trim_to_size_ex.exit
 
-69:                                               ; preds = %63
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !4
-  %72 = and i32 %71, 64
-  %.not.i26 = icmp eq i32 %72, 0
-  br i1 %.not.i26, label %73, label %zend_string_alloc.exit
+59:                                               ; preds = %53
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !4
+  %62 = and i32 %61, 64
+  %.not.i26 = icmp eq i32 %62, 0
+  br i1 %.not.i26, label %63, label %zend_string_alloc.exit
 
-73:                                               ; preds = %69
-  %74 = load i32, ptr %62, align 4, !tbaa !7
-  %75 = icmp eq i32 %74, 1
-  br i1 %75, label %76, label %zend_string_alloc.exit, !prof !101
+63:                                               ; preds = %59
+  %64 = load i32, ptr %52, align 4, !tbaa !7
+  %65 = icmp eq i32 %64, 1
+  br i1 %65, label %66, label %zend_string_alloc.exit, !prof !100
 
-76:                                               ; preds = %73
-  %77 = and i64 %67, -8
-  %78 = add i64 %77, 32
-  %79 = call ptr @_erealloc(ptr noundef nonnull %62, i64 noundef %78) #12
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store i64 %67, ptr %80, align 8, !tbaa !162
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store i64 0, ptr %81, align 8, !tbaa !211
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !4
-  %84 = and i32 %83, -513
-  store i32 %84, ptr %82, align 4, !tbaa !4
+66:                                               ; preds = %63
+  %67 = and i64 %57, -8
+  %68 = add i64 %67, 32
+  %69 = call ptr @_erealloc(ptr noundef nonnull %52, i64 noundef %68) #12
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store i64 %57, ptr %70, align 8, !tbaa !162
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i64 0, ptr %71, align 8, !tbaa !211
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !4
+  %74 = and i32 %73, -513
+  store i32 %74, ptr %72, align 4, !tbaa !4
   br label %zend_string_realloc.exit
 
-zend_string_alloc.exit:                           ; preds = %69, %73
-  %85 = and i64 %67, -8
-  %86 = add i64 %85, 32
-  %87 = call noalias ptr @_emalloc(i64 noundef %86) #13
-  store i32 1, ptr %87, align 4, !tbaa !7
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  store i32 22, ptr %88, align 4, !tbaa !4
-  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  store i64 0, ptr %89, align 8, !tbaa !211
-  %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store i64 %67, ptr %90, align 8, !tbaa !162
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %92 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %93 = load i64, ptr %66, align 8, !tbaa !162
-  %..i = call i64 @llvm.umin.i64(i64 %67, i64 %93)
-  %94 = add nuw i64 %..i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %91, ptr noundef nonnull align 8 dereferenceable(1) %92, i64 %94, i1 false)
-  %95 = load i32, ptr %70, align 4, !tbaa !4
-  %96 = and i32 %95, 64
-  %.not24.i = icmp eq i32 %96, 0
-  br i1 %.not24.i, label %97, label %zend_string_realloc.exit
+zend_string_alloc.exit:                           ; preds = %59, %63
+  %75 = and i64 %57, -8
+  %76 = add i64 %75, 32
+  %77 = call noalias ptr @_emalloc(i64 noundef %76) #13
+  store i32 1, ptr %77, align 4, !tbaa !7
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  store i32 22, ptr %78, align 4, !tbaa !4
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i64 0, ptr %79, align 8, !tbaa !211
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  store i64 %57, ptr %80, align 8, !tbaa !162
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %83 = load i64, ptr %56, align 8, !tbaa !162
+  %..i = call i64 @llvm.umin.i64(i64 %57, i64 %83)
+  %84 = add nuw i64 %..i, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %81, ptr noundef nonnull align 8 dereferenceable(1) %82, i64 %84, i1 false)
+  %85 = load i32, ptr %60, align 4, !tbaa !4
+  %86 = and i32 %85, 64
+  %.not24.i = icmp eq i32 %86, 0
+  br i1 %.not24.i, label %87, label %zend_string_realloc.exit
 
-97:                                               ; preds = %zend_string_alloc.exit
-  %98 = load i32, ptr %62, align 4, !tbaa !7
-  %99 = icmp ne i32 %98, 0
-  call void @llvm.assume(i1 %99)
-  %100 = add i32 %98, -1
-  store i32 %100, ptr %62, align 4, !tbaa !7
+87:                                               ; preds = %zend_string_alloc.exit
+  %88 = load i32, ptr %52, align 4, !tbaa !7
+  %89 = icmp ne i32 %88, 0
+  call void @llvm.assume(i1 %89)
+  %90 = add i32 %88, -1
+  store i32 %90, ptr %52, align 4, !tbaa !7
   br label %zend_string_realloc.exit
 
-zend_string_realloc.exit:                         ; preds = %76, %zend_string_alloc.exit, %97
-  %.0.i27 = phi ptr [ %79, %76 ], [ %87, %97 ], [ %87, %zend_string_alloc.exit ]
-  store i64 %67, ptr %64, align 8, !tbaa !210
+zend_string_realloc.exit:                         ; preds = %66, %zend_string_alloc.exit, %87
+  %.0.i27 = phi ptr [ %69, %66 ], [ %77, %87 ], [ %77, %zend_string_alloc.exit ]
+  store i64 %57, ptr %54, align 8, !tbaa !210
   br label %smart_str_trim_to_size_ex.exit
 
-smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %63, %zend_string_realloc.exit
-  %101 = phi ptr [ null, %smart_str_0.exit ], [ %62, %63 ], [ %.0.i27, %zend_string_realloc.exit ]
+smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %53, %zend_string_realloc.exit
+  %91 = phi ptr [ null, %smart_str_0.exit ], [ %52, %53 ], [ %.0.i27, %zend_string_realloc.exit ]
   store ptr null, ptr %4, align 8, !tbaa !208
   br label %smart_str_extract_ex.exit
 
-102:                                              ; preds = %51
-  %103 = load ptr, ptr @zend_empty_string, align 8, !tbaa !161
+92:                                               ; preds = %42
+  %93 = load ptr, ptr @zend_empty_string, align 8, !tbaa !160
   br label %smart_str_extract_ex.exit
 
-smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_size_ex.exit, %102
-  %.0.i = phi ptr [ %101, %smart_str_trim_to_size_ex.exit ], [ %103, %102 ]
+smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_size_ex.exit, %92
+  %.0.i = phi ptr [ %91, %smart_str_trim_to_size_ex.exit ], [ %93, %92 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !4
-  %104 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %105 = load i32, ptr %104, align 4, !tbaa !4
-  %106 = and i32 %105, 64
-  %.not23 = icmp eq i32 %106, 0
-  %107 = select i1 %.not23, i32 262, i32 6
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %107, ptr %108, align 8, !tbaa !4
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %95 = load i32, ptr %94, align 4, !tbaa !4
+  %96 = and i32 %95, 64
+  %.not23 = icmp eq i32 %96, 0
+  %97 = select i1 %.not23, i32 262, i32 6
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %97, ptr %98, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %109
+  br label %99
 
-109:                                              ; preds = %smart_str_extract_ex.exit, %48, %36, %20, %11
+99:                                               ; preds = %2, %smart_str_extract_ex.exit, %41, %31, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -2739,7 +2643,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !208
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %11, label %5, !prof !48
+  br i1 %.not.i, label %11, label %5, !prof !17
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2748,7 +2652,7 @@ define internal noundef i32 @dom_write_output_smart_str(ptr noundef %0, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !210
   %.not12.i = icmp ult i64 %8, %10
-  br i1 %.not12.i, label %smart_str_alloc.exit, label %11, !prof !101
+  br i1 %.not12.i, label %smart_str_alloc.exit, label %11, !prof !100
 
 11:                                               ; preds = %5, %3
   %.0.i = phi i64 [ %2, %3 ], [ %8, %5 ]
@@ -2775,7 +2679,7 @@ smart_str_alloc.exit:                             ; preds = %5, %11
 define hidden range(i32 -1, 1) i32 @dom_html_document_encoding_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !48
+  br i1 %4, label %5, label %6, !prof !17
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -2796,19 +2700,19 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_encoding_write(ptr noundef
 
 lxb_encoding_data_by_name.exit:                   ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !46
+  %16 = load ptr, ptr %15, align 8, !tbaa !15
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %lxb_encoding_data_by_name.exit.thread, label %17
 
 17:                                               ; preds = %lxb_encoding_data_by_name.exit
   %18 = load ptr, ptr @xmlFree, align 8, !tbaa !174
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %20 = load ptr, ptr %19, align 8, !tbaa !49
+  %20 = load ptr, ptr %19, align 8, !tbaa !18
   tail call void %18(ptr noundef %20) #10
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !132
+  %22 = load ptr, ptr %21, align 8, !tbaa !131
   %23 = tail call ptr @xmlStrdup(ptr noundef %22) #10
-  store ptr %23, ptr %19, align 8, !tbaa !49
+  store ptr %23, ptr %19, align 8, !tbaa !18
   br label %24
 
 lxb_encoding_data_by_name.exit.thread:            ; preds = %11, %6, %lxb_encoding_data_by_name.exit
@@ -2828,7 +2732,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 define hidden range(i32 -1, 1) i32 @dom_html_document_element_read_helper(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %7, !prof !48
+  br i1 %5, label %6, label %7, !prof !17
 
 6:                                                ; preds = %3
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -2846,21 +2750,21 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_element_read_helper(ptr no
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !156
+  %15 = load ptr, ptr %14, align 8, !tbaa !155
   %16 = tail call i32 @xmlStrEqual(ptr noundef %15, ptr noundef nonnull @.str.118) #10
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %dom_html_document_element_read_raw.exit, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.016.i = load ptr, ptr %18, align 8, !tbaa !151
+  %.016.i = load ptr, ptr %18, align 8, !tbaa !150
   %.not1517.i = icmp eq ptr %.016.i, null
   br i1 %.not1517.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %29
   %.018.i = phi ptr [ %.0.i, %29 ], [ %.016.i, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !152
+  %20 = load i32, ptr %19, align 8, !tbaa !151
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %29
 
@@ -2871,13 +2775,13 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_element_read_helper(ptr no
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !156
+  %27 = load ptr, ptr %26, align 8, !tbaa !155
   %28 = tail call zeroext i1 %2(ptr noundef %27) #10
   br i1 %28, label %dom_html_document_element_read_raw.exit, label %29
 
 29:                                               ; preds = %25, %22, %.lr.ph.i
   %30 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
-  %.0.i = load ptr, ptr %30, align 8, !tbaa !151
+  %.0.i = load ptr, ptr %30, align 8, !tbaa !150
   %.not15.i = icmp eq ptr %.0.i, null
   br i1 %.not15.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i
 
@@ -2919,7 +2823,7 @@ define internal zeroext i1 @dom_accept_body_name(ptr noundef %0) #0 {
 define hidden range(i32 -1, 1) i32 @dom_html_document_head_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !48
+  br i1 %4, label %5, label %6, !prof !17
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -2937,21 +2841,21 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_head_read(ptr noundef %0, 
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !156
+  %14 = load ptr, ptr %13, align 8, !tbaa !155
   %15 = tail call i32 @xmlStrEqual(ptr noundef %14, ptr noundef nonnull @.str.118) #10
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %dom_html_document_element_read_raw.exit.i, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.016.i.i = load ptr, ptr %17, align 8, !tbaa !151
+  %.016.i.i = load ptr, ptr %17, align 8, !tbaa !150
   %.not1517.i.i = icmp eq ptr %.016.i.i, null
   br i1 %.not1517.i.i, label %dom_html_document_element_read_raw.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %28
   %.018.i.i = phi ptr [ %.0.i.i, %28 ], [ %.016.i.i, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !152
+  %19 = load i32, ptr %18, align 8, !tbaa !151
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %28
 
@@ -2962,14 +2866,14 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_head_read(ptr noundef %0, 
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !156
+  %26 = load ptr, ptr %25, align 8, !tbaa !155
   %27 = tail call i32 @xmlStrEqual(ptr noundef %26, ptr noundef nonnull @.str.119) #10
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %28, label %dom_html_document_element_read_raw.exit.i
 
 28:                                               ; preds = %24, %21, %.lr.ph.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 48
-  %.0.i.i = load ptr, ptr %29, align 8, !tbaa !151
+  %.0.i.i = load ptr, ptr %29, align 8, !tbaa !150
   %.not15.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not15.i.i, label %dom_html_document_element_read_raw.exit.i, label %.lr.ph.i.i
 
@@ -2987,7 +2891,7 @@ dom_html_document_element_read_helper.exit:       ; preds = %5, %dom_html_docume
 define hidden range(i32 -1, 1) i32 @dom_html_document_body_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !48
+  br i1 %4, label %5, label %6, !prof !17
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -3009,7 +2913,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_body_write(ptr noundef %0,
 13:                                               ; preds = %9
   %14 = load ptr, ptr %12, align 8, !tbaa !189
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !156
+  %16 = load ptr, ptr %15, align 8, !tbaa !155
   %17 = tail call i32 @xmlStrEqual(ptr noundef %16, ptr noundef nonnull @.str.120) #10
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %dom_accept_body_name.exit, label %dom_accept_body_name.exit.thread
@@ -3031,21 +2935,21 @@ dom_accept_body_name.exit.thread:                 ; preds = %13, %dom_accept_bod
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !156
+  %26 = load ptr, ptr %25, align 8, !tbaa !155
   %27 = tail call i32 @xmlStrEqual(ptr noundef %26, ptr noundef nonnull @.str.118) #10
   %.not.i42 = icmp eq i32 %27, 0
   br i1 %.not.i42, label %dom_html_document_element_read_raw.exit, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.016.i = load ptr, ptr %29, align 8, !tbaa !151
+  %.016.i = load ptr, ptr %29, align 8, !tbaa !150
   %.not1517.i = icmp eq ptr %.016.i, null
   br i1 %.not1517.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %41
   %.018.i = phi ptr [ %.0.i, %41 ], [ %.016.i, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !152
+  %31 = load i32, ptr %30, align 8, !tbaa !151
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %41
 
@@ -3056,7 +2960,7 @@ dom_accept_body_name.exit.thread:                 ; preds = %13, %dom_accept_bod
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !156
+  %38 = load ptr, ptr %37, align 8, !tbaa !155
   %39 = tail call i32 @xmlStrEqual(ptr noundef %38, ptr noundef nonnull @.str.120) #10
   %.not.i43 = icmp eq i32 %39, 0
   br i1 %.not.i43, label %dom_accept_body_name.exit44, label %dom_html_document_element_read_raw.exit
@@ -3068,7 +2972,7 @@ dom_accept_body_name.exit44:                      ; preds = %36
 
 41:                                               ; preds = %dom_accept_body_name.exit44, %33, %.lr.ph.i
   %42 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
-  %.0.i = load ptr, ptr %42, align 8, !tbaa !151
+  %.0.i = load ptr, ptr %42, align 8, !tbaa !150
   %.not15.i = icmp eq ptr %.0.i, null
   br i1 %.not15.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i
 
@@ -3135,7 +3039,7 @@ declare ptr @xmlAddChild(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !48
+  br i1 %4, label %5, label %6, !prof !17
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -3144,7 +3048,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
 6:                                                ; preds = %2
   %7 = tail call ptr @xmlDocGetRootElement(ptr noundef nonnull %3) #10
   %8 = icmp eq ptr %7, null
-  %9 = load ptr, ptr @zend_empty_string, align 8, !tbaa !161
+  %9 = load ptr, ptr @zend_empty_string, align 8, !tbaa !160
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %6
@@ -3160,21 +3064,21 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !156
+  %17 = load ptr, ptr %16, align 8, !tbaa !155
   %18 = tail call i32 @xmlStrEqual(ptr noundef %17, ptr noundef nonnull @.str.20) #10
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.08.i = load ptr, ptr %20, align 8, !tbaa !151
+  %.08.i = load ptr, ptr %20, align 8, !tbaa !150
   %.not9.i = icmp eq ptr %.08.i, null
   br i1 %.not9.i, label %dom_get_svg_title_element.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %31
   %.010.i = phi ptr [ %.0.i, %31 ], [ %.08.i, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !152
+  %22 = load i32, ptr %21, align 8, !tbaa !151
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %31
 
@@ -3185,14 +3089,14 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !156
+  %29 = load ptr, ptr %28, align 8, !tbaa !155
   %30 = tail call i32 @xmlStrEqual(ptr noundef %29, ptr noundef nonnull @.str.22) #10
   %.not7.i = icmp eq i32 %30, 0
   br i1 %.not7.i, label %31, label %dom_get_svg_title_element.exit.thread.sink.split
 
 31:                                               ; preds = %27, %24, %.lr.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %.010.i, i64 48
-  %.0.i = load ptr, ptr %32, align 8, !tbaa !151
+  %.0.i = load ptr, ptr %32, align 8, !tbaa !150
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %dom_get_svg_title_element.exit.thread, label %.lr.ph.i
 
@@ -3205,7 +3109,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
 .lr.ph.i32:                                       ; preds = %33, %.lr.ph.i32.backedge
   %.02.i = phi ptr [ %.02.i.be, %.lr.ph.i32.backedge ], [ %.val, %33 ]
   %35 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !152
+  %36 = load i32, ptr %35, align 8, !tbaa !151
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %38, label %.thread.i
 
@@ -3216,19 +3120,19 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_read(ptr noundef %0,
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !156
+  %43 = load ptr, ptr %42, align 8, !tbaa !155
   %44 = tail call i32 @xmlStrEqual(ptr noundef %43, ptr noundef nonnull @.str.22) #10
   %.not7.i34 = icmp eq i32 %44, 0
   br i1 %.not7.i34, label %45, label %dom_get_svg_title_element.exit.thread.sink.split
 
 45:                                               ; preds = %41, %38
-  %.pr.i = load i32, ptr %35, align 8, !tbaa !152
+  %.pr.i = load i32, ptr %35, align 8, !tbaa !151
   %46 = icmp eq i32 %.pr.i, 1
   br i1 %46, label %47, label %.thread.i
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !158
+  %49 = load ptr, ptr %48, align 8, !tbaa !157
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %.thread.i, label %.lr.ph.i32.backedge
 
@@ -3288,7 +3192,7 @@ define internal fastcc ptr @dom_get_child_text_content(ptr noundef nonnull reado
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.014 = load ptr, ptr %3, align 8, !tbaa !151
+  %.014 = load ptr, ptr %3, align 8, !tbaa !150
   %.not15 = icmp eq ptr %.014, null
   br i1 %.not15, label %._crit_edge.thread, label %.lr.ph
 
@@ -3300,7 +3204,7 @@ define internal fastcc ptr @dom_get_child_text_content(ptr noundef nonnull reado
   %6 = phi ptr [ null, %.lr.ph ], [ %27, %26 ]
   %.016 = phi ptr [ %.014, %.lr.ph ], [ %.0, %26 ]
   %7 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !152
+  %8 = load i32, ptr %7, align 8, !tbaa !151
   %.off = add i32 %8, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %9, label %26
@@ -3314,7 +3218,7 @@ define internal fastcc ptr @dom_get_child_text_content(ptr noundef nonnull reado
 12:                                               ; preds = %9
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #11
   %.not.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i, label %19, label %14, !prof !48
+  br i1 %.not.i.i, label %19, label %14, !prof !17
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3322,7 +3226,7 @@ define internal fastcc ptr @dom_get_child_text_content(ptr noundef nonnull reado
   %17 = add i64 %16, %13
   %18 = load i64, ptr %4, align 8, !tbaa !210
   %.not12.i.i = icmp ult i64 %17, %18
-  br i1 %.not12.i.i, label %smart_str_appends.exit, label %19, !prof !101
+  br i1 %.not12.i.i, label %smart_str_appends.exit, label %19, !prof !100
 
 19:                                               ; preds = %14, %12
   %.0.i.i = phi i64 [ %13, %12 ], [ %17, %14 ]
@@ -3347,7 +3251,7 @@ smart_str_appends.exit:                           ; preds = %14, %19
 26:                                               ; preds = %5, %smart_str_appends.exit, %9
   %27 = phi ptr [ %6, %5 ], [ %24, %smart_str_appends.exit ], [ %6, %9 ]
   %28 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %.0 = load ptr, ptr %28, align 8, !tbaa !151
+  %.0 = load ptr, ptr %28, align 8, !tbaa !150
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %5
 
@@ -3383,7 +3287,7 @@ smart_str_0.exit:                                 ; preds = %._crit_edge
 44:                                               ; preds = %40
   %45 = load i32, ptr %33, align 4, !tbaa !7
   %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %zend_string_alloc.exit, !prof !101
+  br i1 %46, label %47, label %zend_string_alloc.exit, !prof !100
 
 47:                                               ; preds = %44
   %48 = and i64 %38, -8
@@ -3430,7 +3334,7 @@ zend_string_alloc.exit:                           ; preds = %40, %44
   br label %smart_str_extract_ex.exit
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
-  %72 = load ptr, ptr @zend_empty_string, align 8, !tbaa !161
+  %72 = load ptr, ptr @zend_empty_string, align 8, !tbaa !160
   br label %smart_str_extract_ex.exit
 
 smart_str_extract_ex.exit:                        ; preds = %34, %smart_str_0.exit, %47, %zend_string_alloc.exit, %68, %._crit_edge.thread
@@ -3445,7 +3349,7 @@ declare ptr @dom_strip_and_collapse_ascii_whitespace(ptr noundef) local_unnamed_
 define hidden range(i32 -1, 1) i32 @dom_html_document_title_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #10
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %6, !prof !48
+  br i1 %4, label %5, label %6, !prof !17
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -3463,21 +3367,21 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_write(ptr noundef %0
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !156
+  %14 = load ptr, ptr %13, align 8, !tbaa !155
   %15 = tail call i32 @xmlStrEqual(ptr noundef %14, ptr noundef nonnull @.str.20) #10
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %67, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.08.i = load ptr, ptr %17, align 8, !tbaa !151
+  %.08.i = load ptr, ptr %17, align 8, !tbaa !150
   %.not9.i = icmp eq ptr %.08.i, null
   br i1 %.not9.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %28
   %.010.i = phi ptr [ %.0.i, %28 ], [ %.08.i, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !152
+  %19 = load i32, ptr %18, align 8, !tbaa !151
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %28
 
@@ -3488,14 +3392,14 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_write(ptr noundef %0
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !156
+  %26 = load ptr, ptr %25, align 8, !tbaa !155
   %27 = tail call i32 @xmlStrEqual(ptr noundef %26, ptr noundef nonnull @.str.22) #10
   %.not7.i = icmp eq i32 %27, 0
   br i1 %.not7.i, label %28, label %.critedge
 
 28:                                               ; preds = %24, %21, %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %.010.i, i64 48
-  %.0.i = load ptr, ptr %29, align 8, !tbaa !151
+  %.0.i = load ptr, ptr %29, align 8, !tbaa !150
   %.not.i73 = icmp eq ptr %.0.i, null
   br i1 %.not.i73, label %.loopexit, label %.lr.ph.i
 
@@ -3521,7 +3425,7 @@ define hidden range(i32 -1, 1) i32 @dom_html_document_title_write(ptr noundef %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %40, ptr noundef nonnull align 1 dereferenceable(26) @.str.21, i64 26, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 50
   store i8 0, ptr %41, align 2, !tbaa !4
-  %42 = load ptr, ptr @zend_empty_string, align 8, !tbaa !161
+  %42 = load ptr, ptr @zend_empty_string, align 8, !tbaa !160
   %43 = tail call ptr @php_dom_libxml_ns_mapper_get_ns(ptr noundef %35, ptr noundef %42, ptr noundef nonnull %36) #10
   %44 = load i32, ptr %37, align 4, !tbaa !4
   %45 = and i32 %44, 64
@@ -3545,14 +3449,14 @@ zend_string_release_ex.exit:                      ; preds = %51, %46, %34, %.loo
   %.062 = phi ptr [ %31, %.loopexit ], [ %43, %34 ], [ %43, %46 ], [ %43, %51 ]
   %52 = tail call ptr @xmlNewDocNode(ptr noundef nonnull %3, ptr noundef %.062, ptr noundef nonnull @.str.22, ptr noundef null) #10
   %.not72 = icmp eq ptr %52, null
-  br i1 %.not72, label %.thread, label %53, !prof !48
+  br i1 %.not72, label %.thread, label %53, !prof !17
 
 .thread:                                          ; preds = %zend_string_release_ex.exit
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
   br label %.thread86
 
 53:                                               ; preds = %zend_string_release_ex.exit
-  %54 = load ptr, ptr %17, align 8, !tbaa !158
+  %54 = load ptr, ptr %17, align 8, !tbaa !157
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %58
 
@@ -3569,7 +3473,7 @@ zend_string_release_ex.exit:                      ; preds = %51, %46, %34, %.loo
   br label %61
 
 61:                                               ; preds = %56, %58
-  store ptr %52, ptr %17, align 8, !tbaa !158
+  store ptr %52, ptr %17, align 8, !tbaa !157
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 40
   store ptr %7, ptr %62, align 8, !tbaa !217
   br label %.critedge
@@ -3597,7 +3501,7 @@ zend_string_release_ex.exit:                      ; preds = %51, %46, %34, %.loo
 .lr.ph.i74:                                       ; preds = %70, %.lr.ph.i74.backedge
   %.02.i = phi ptr [ %.02.i.be, %.lr.ph.i74.backedge ], [ %.val, %70 ]
   %72 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !152
+  %73 = load i32, ptr %72, align 8, !tbaa !151
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %75, label %.thread.i
 
@@ -3608,19 +3512,19 @@ zend_string_release_ex.exit:                      ; preds = %51, %46, %34, %.loo
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !156
+  %80 = load ptr, ptr %79, align 8, !tbaa !155
   %81 = tail call i32 @xmlStrEqual(ptr noundef %80, ptr noundef nonnull @.str.22) #10
   %.not7.i76 = icmp eq i32 %81, 0
   br i1 %.not7.i76, label %82, label %dom_get_title_element.exit
 
 82:                                               ; preds = %78, %75
-  %.pr.i = load i32, ptr %72, align 8, !tbaa !152
+  %.pr.i = load i32, ptr %72, align 8, !tbaa !151
   %83 = icmp eq i32 %.pr.i, 1
   br i1 %83, label %84, label %.thread.i
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.02.i, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !158
+  %86 = load ptr, ptr %85, align 8, !tbaa !157
   %.not.i.i = icmp eq ptr %86, null
   br i1 %.not.i.i, label %.thread.i, label %.lr.ph.i74.backedge
 
@@ -3660,21 +3564,21 @@ dom_get_title_element.exit:                       ; preds = %78, %.preheader.i, 
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !156
+  %103 = load ptr, ptr %102, align 8, !tbaa !155
   %104 = tail call i32 @xmlStrEqual(ptr noundef %103, ptr noundef nonnull @.str.118) #10
   %.not.i77 = icmp eq i32 %104, 0
   br i1 %.not.i77, label %dom_html_document_element_read_raw.exit, label %105
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %.016.i = load ptr, ptr %106, align 8, !tbaa !151
+  %.016.i = load ptr, ptr %106, align 8, !tbaa !150
   %.not1517.i = icmp eq ptr %.016.i, null
   br i1 %.not1517.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i78
 
 .lr.ph.i78:                                       ; preds = %105, %118
   %.018.i = phi ptr [ %.0.i79, %118 ], [ %.016.i, %105 ]
   %107 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  %108 = load i32, ptr %107, align 8, !tbaa !152
+  %108 = load i32, ptr %107, align 8, !tbaa !151
   %109 = icmp eq i32 %108, 1
   br i1 %109, label %110, label %118
 
@@ -3685,7 +3589,7 @@ dom_get_title_element.exit:                       ; preds = %78, %.preheader.i, 
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  %115 = load ptr, ptr %114, align 8, !tbaa !156
+  %115 = load ptr, ptr %114, align 8, !tbaa !155
   %116 = tail call i32 @xmlStrEqual(ptr noundef %115, ptr noundef nonnull @.str.119) #10
   %.not89 = icmp eq i32 %116, 0
   br i1 %.not89, label %118, label %dom_html_document_element_read_raw.exit.thread
@@ -3696,7 +3600,7 @@ dom_html_document_element_read_raw.exit.thread:   ; preds = %113
 
 118:                                              ; preds = %113, %110, %.lr.ph.i78
   %119 = getelementptr inbounds nuw i8, ptr %.018.i, i64 48
-  %.0.i79 = load ptr, ptr %119, align 8, !tbaa !151
+  %.0.i79 = load ptr, ptr %119, align 8, !tbaa !150
   %.not15.i = icmp eq ptr %.0.i79, null
   br i1 %.not15.i, label %dom_html_document_element_read_raw.exit, label %.lr.ph.i78
 
@@ -3709,7 +3613,7 @@ dom_html_document_element_read_raw.exit:          ; preds = %118, %dom_get_title
   %123 = tail call ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef %122) #10
   %124 = tail call ptr @xmlNewDocNode(ptr noundef nonnull %3, ptr noundef %123, ptr noundef nonnull @.str.22, ptr noundef null) #10
   %.not70 = icmp eq ptr %124, null
-  br i1 %.not70, label %.thread85, label %125, !prof !48
+  br i1 %.not70, label %.thread85, label %125, !prof !17
 
 .thread85:                                        ; preds = %121
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #10
@@ -3762,38 +3666,38 @@ declare signext i8 @lxb_encoding_encode_utf_8_single(ptr noundef, ptr noundef, p
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef nonnull %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !79
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %5, ptr %11, align 8, !tbaa !134
+  store i64 %5, ptr %11, align 8, !tbaa !133
   %12 = tail call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef %4, i64 noundef %3) #10
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %50, !prof !101
+  br i1 %.not, label %13, label %50, !prof !100
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %0, align 8, !tbaa !148
+  %14 = load ptr, ptr %0, align 8, !tbaa !147
   %.not22 = icmp eq ptr %14, null
   br i1 %.not22, label %15, label %18
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !149
+  %17 = load ptr, ptr %16, align 8, !tbaa !148
   %.not23 = icmp eq ptr %17, null
   br i1 %.not23, label %45, label %18
 
 18:                                               ; preds = %15, %13
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %20 = load i64, ptr %19, align 8, !tbaa !72
+  %20 = load i64, ptr %19, align 8, !tbaa !44
   tail call void @lexbor_libxml2_bridge_report_errors(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %4, i64 noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %22 = load i64, ptr %11, align 8, !tbaa !134
+  %22 = load i64, ptr %11, align 8, !tbaa !133
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %5, i64 %22)
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %24 = load i64, ptr %23, align 8, !tbaa !75
-  %25 = load i64, ptr %21, align 8, !tbaa !74
+  %24 = load i64, ptr %23, align 8, !tbaa !47
+  %25 = load i64, ptr %21, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !76
+  %27 = load i64, ptr %26, align 8, !tbaa !48
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !99
+  %29 = load ptr, ptr %28, align 8, !tbaa !98
   %.not.i = icmp eq ptr %29, null
   %30 = icmp ult i64 %27, %spec.select.i
   br i1 %.not.i, label %.preheader.i, label %.preheader46.i
@@ -3806,7 +3710,7 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
 
 .lr.ph56.i:                                       ; preds = %.preheader.i
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !100
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
   br label %39
 
 .lr.ph.i:                                         ; preds = %.preheader46.i, %.lr.ph.i
@@ -3814,7 +3718,7 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
   %.03249.i = phi i64 [ %.133.i, %.lr.ph.i ], [ %25, %.preheader46.i ]
   %.03648.i = phi i64 [ %.137.i, %.lr.ph.i ], [ %24, %.preheader46.i ]
   %33 = getelementptr inbounds nuw i32, ptr %29, i64 %.03150.i
-  %34 = load i32, ptr %33, align 4, !tbaa !135
+  %34 = load i32, ptr %33, align 4, !tbaa !134
   %35 = icmp eq i32 %34, 10
   %36 = add i64 %.03648.i, 1
   %.137.i = select i1 %35, i64 1, i64 %36
@@ -3844,17 +3748,17 @@ define internal fastcc noundef zeroext i1 @dom_process_parse_chunk(ptr noundef n
 dom_find_line_and_column_using_cache.exit:        ; preds = %.lr.ph.i, %39, %.preheader46.i, %.preheader.i
   %.238.i = phi i64 [ %24, %.preheader.i ], [ %24, %.preheader46.i ], [ %.440.i, %39 ], [ %.137.i, %.lr.ph.i ]
   %.234.i = phi i64 [ %25, %.preheader.i ], [ %25, %.preheader46.i ], [ %.4.i, %39 ], [ %.133.i, %.lr.ph.i ]
-  store i64 %.238.i, ptr %23, align 8, !tbaa !75
-  store i64 %.234.i, ptr %21, align 8, !tbaa !74
+  store i64 %.238.i, ptr %23, align 8, !tbaa !47
+  store i64 %.234.i, ptr %21, align 8, !tbaa !46
   br label %45
 
 45:                                               ; preds = %dom_find_line_and_column_using_cache.exit, %15
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %47 = load i64, ptr %46, align 8, !tbaa !72
+  %47 = load i64, ptr %46, align 8, !tbaa !44
   %48 = add i64 %47, %5
-  store i64 %48, ptr %46, align 8, !tbaa !72
+  store i64 %48, ptr %46, align 8, !tbaa !44
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store i64 0, ptr %49, align 8, !tbaa !150
+  store i64 0, ptr %49, align 8, !tbaa !149
   br label %50
 
 50:                                               ; preds = %8, %45
@@ -3890,7 +3794,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !197
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store i32 0, ptr %7, align 4, !tbaa !119
+  store i32 0, ptr %7, align 4, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
@@ -3908,7 +3812,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   %13 = load ptr, ptr %5, align 8, !tbaa !197
   %14 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %8) #10
   %15 = icmp ugt i32 %14, 1114111
-  br i1 %15, label %16, label %._crit_edge47, !prof !48
+  br i1 %15, label %16, label %._crit_edge47, !prof !17
 
 ._crit_edge47:                                    ; preds = %11
   %.pre = load ptr, ptr %4, align 8, !tbaa !10
@@ -3922,7 +3826,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   %21 = sub i64 %19, %20
   %22 = call i32 %17(ptr noundef %18, ptr noundef %.02544, i64 noundef %21) #10
   %.not34 = icmp eq i32 %22, 0
-  br i1 %.not34, label %23, label %.thread, !prof !101
+  br i1 %.not34, label %23, label %.thread, !prof !100
 
 23:                                               ; preds = %16
   %24 = icmp eq i32 %14, 3145727
@@ -3934,7 +3838,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   call void @llvm.assume(i1 %27)
   %28 = load ptr, ptr %5, align 8, !tbaa !197
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 60
-  store i32 14, ptr %29, align 4, !tbaa !119
+  store i32 14, ptr %29, align 4, !tbaa !118
   br label %.thread
 
 30:                                               ; preds = %23
@@ -3942,7 +3846,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   %32 = load ptr, ptr %10, align 8, !tbaa !191
   %33 = call i32 %31(ptr noundef %32, ptr noundef nonnull @.str.112, i64 noundef 3) #10
   %.not35 = icmp eq i32 %33, 0
-  br i1 %.not35, label %34, label %.thread, !prof !101
+  br i1 %.not35, label %34, label %.thread, !prof !100
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %4, align 8, !tbaa !10
@@ -3968,7 +3872,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len_utf8_output(
   %45 = sub i64 %43, %44
   %46 = call i32 %40(ptr noundef %42, ptr noundef %.227, i64 noundef %45) #10
   %.not33 = icmp eq i32 %46, 0
-  br i1 %.not33, label %._crit_edge.thread, label %.thread, !prof !101
+  br i1 %.not33, label %._crit_edge.thread, label %.thread, !prof !100
 
 ._crit_edge.thread:                               ; preds = %3, %38, %._crit_edge
   br label %.thread
@@ -3986,7 +3890,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !197
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store i32 0, ptr %7, align 4, !tbaa !119
+  store i32 0, ptr %7, align 4, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %4
@@ -4004,7 +3908,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   %13 = load ptr, ptr %5, align 8, !tbaa !197
   %14 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %8) #10
   %15 = icmp ugt i32 %14, 1114111
-  br i1 %15, label %16, label %._crit_edge47.i, !prof !48
+  br i1 %15, label %16, label %._crit_edge47.i, !prof !17
 
 ._crit_edge47.i:                                  ; preds = %11
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !10
@@ -4018,7 +3922,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   %21 = sub i64 %19, %20
   %22 = call i32 %17(ptr noundef %18, ptr noundef %.02544.i, i64 noundef %21) #10
   %.not34.i = icmp eq i32 %22, 0
-  br i1 %.not34.i, label %23, label %dom_saveHTML_write_string_len_utf8_output.exit, !prof !101
+  br i1 %.not34.i, label %23, label %dom_saveHTML_write_string_len_utf8_output.exit, !prof !100
 
 23:                                               ; preds = %16
   %24 = icmp eq i32 %14, 3145727
@@ -4030,7 +3934,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   call void @llvm.assume(i1 %27)
   %28 = load ptr, ptr %5, align 8, !tbaa !197
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 60
-  store i32 14, ptr %29, align 4, !tbaa !119
+  store i32 14, ptr %29, align 4, !tbaa !118
   br label %dom_saveHTML_write_string_len_utf8_output.exit
 
 30:                                               ; preds = %23
@@ -4038,7 +3942,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   %32 = load ptr, ptr %10, align 8, !tbaa !191
   %33 = call i32 %31(ptr noundef %32, ptr noundef nonnull @.str.112, i64 noundef 3) #10
   %.not35.i = icmp eq i32 %33, 0
-  br i1 %.not35.i, label %34, label %dom_saveHTML_write_string_len_utf8_output.exit, !prof !101
+  br i1 %.not35.i, label %34, label %dom_saveHTML_write_string_len_utf8_output.exit, !prof !100
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %3, align 8, !tbaa !10
@@ -4062,7 +3966,7 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_utf8_output(ptr 
   %43 = sub i64 %41, %42
   %44 = call i32 %39(ptr noundef %40, ptr noundef %.227.i, i64 noundef %43) #10
   %.not33.i = icmp eq i32 %44, 0
-  br i1 %.not33.i, label %._crit_edge.thread.i, label %dom_saveHTML_write_string_len_utf8_output.exit, !prof !101
+  br i1 %.not33.i, label %._crit_edge.thread.i, label %dom_saveHTML_write_string_len_utf8_output.exit, !prof !100
 
 ._crit_edge.thread.i:                             ; preds = %38, %._crit_edge.i, %2
   br label %dom_saveHTML_write_string_len_utf8_output.exit
@@ -4094,10 +3998,10 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef 
   %15 = call i32 @lxb_encoding_decode_utf_8(ptr noundef %14, ptr noundef nonnull %4, ptr noundef %6) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %8, align 8, !tbaa !198
-  store ptr %16, ptr %5, align 8, !tbaa !124
+  store ptr %16, ptr %5, align 8, !tbaa !123
   %17 = load ptr, ptr %7, align 8, !tbaa !197
   %18 = getelementptr i8, ptr %17, i64 24
-  %.val = load i64, ptr %18, align 8, !tbaa !123
+  %.val = load i64, ptr %18, align 8, !tbaa !122
   %19 = getelementptr inbounds nuw i32, ptr %16, i64 %.val
   %.pre21 = load ptr, ptr %9, align 8, !tbaa !196
   br label %20
@@ -4106,29 +4010,29 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string_len(ptr noundef 
   %21 = phi ptr [ %33, %32 ], [ %.pre21, %13 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !194
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !125
+  %24 = load ptr, ptr %23, align 8, !tbaa !124
   %25 = call i32 %24(ptr noundef %21, ptr noundef nonnull %5, ptr noundef %19) #10
   %26 = load ptr, ptr %10, align 8, !tbaa !193
   %27 = load ptr, ptr %11, align 8, !tbaa !191
   %28 = load ptr, ptr %12, align 8, !tbaa !199
   %29 = load ptr, ptr %9, align 8, !tbaa !196
   %30 = getelementptr i8, ptr %29, i64 24
-  %.val20 = load i64, ptr %30, align 8, !tbaa !126
+  %.val20 = load i64, ptr %30, align 8, !tbaa !125
   %31 = call i32 %26(ptr noundef %27, ptr noundef %28, i64 noundef %.val20) #10
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %32, label %.critedge, !prof !101
+  br i1 %.not, label %32, label %.critedge, !prof !100
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %9, align 8, !tbaa !196
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store i64 0, ptr %34, align 8, !tbaa !126
+  store i64 0, ptr %34, align 8, !tbaa !125
   %35 = icmp eq i32 %25, 15
   br i1 %35, label %20, label %36
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %7, align 8, !tbaa !197
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store i64 0, ptr %38, align 8, !tbaa !123
+  store i64 0, ptr %38, align 8, !tbaa !122
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = icmp eq i32 %15, 15
   br i1 %39, label %13, label %.loopexit
@@ -4165,10 +4069,10 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef read
   %15 = call i32 @lxb_encoding_decode_utf_8(ptr noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %6) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = load ptr, ptr %8, align 8, !tbaa !198
-  store ptr %16, ptr %4, align 8, !tbaa !124
+  store ptr %16, ptr %4, align 8, !tbaa !123
   %17 = load ptr, ptr %7, align 8, !tbaa !197
   %18 = getelementptr i8, ptr %17, i64 24
-  %.val.i = load i64, ptr %18, align 8, !tbaa !123
+  %.val.i = load i64, ptr %18, align 8, !tbaa !122
   %19 = getelementptr inbounds nuw i32, ptr %16, i64 %.val.i
   %.pre21.i = load ptr, ptr %9, align 8, !tbaa !196
   br label %20
@@ -4177,29 +4081,29 @@ define internal range(i32 -1, 1) i32 @dom_saveHTML_write_string(ptr noundef read
   %21 = phi ptr [ %33, %32 ], [ %.pre21.i, %13 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !194
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !125
+  %24 = load ptr, ptr %23, align 8, !tbaa !124
   %25 = call i32 %24(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %19) #10
   %26 = load ptr, ptr %10, align 8, !tbaa !193
   %27 = load ptr, ptr %11, align 8, !tbaa !191
   %28 = load ptr, ptr %12, align 8, !tbaa !199
   %29 = load ptr, ptr %9, align 8, !tbaa !196
   %30 = getelementptr i8, ptr %29, i64 24
-  %.val20.i = load i64, ptr %30, align 8, !tbaa !126
+  %.val20.i = load i64, ptr %30, align 8, !tbaa !125
   %31 = call i32 %26(ptr noundef %27, ptr noundef %28, i64 noundef %.val20.i) #10
   %.not.i = icmp eq i32 %31, 0
-  br i1 %.not.i, label %32, label %.critedge.i, !prof !101
+  br i1 %.not.i, label %32, label %.critedge.i, !prof !100
 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %9, align 8, !tbaa !196
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store i64 0, ptr %34, align 8, !tbaa !126
+  store i64 0, ptr %34, align 8, !tbaa !125
   %35 = icmp eq i32 %25, 15
   br i1 %35, label %20, label %36
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %7, align 8, !tbaa !197
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store i64 0, ptr %38, align 8, !tbaa !123
+  store i64 0, ptr %38, align 8, !tbaa !122
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %39 = icmp eq i32 %15, 15
   br i1 %39, label %13, label %dom_saveHTML_write_string_len.exit
@@ -4273,158 +4177,158 @@ attributes #13 = { nounwind allocsize(0) }
 !12 = !{!"any pointer", !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !5, i64 0}
-!15 = !{!16, !33, i64 960}
-!16 = !{!"_zend_executor_globals", !17, i64 0, !17, i64 16, !5, i64 32, !18, i64 288, !18, i64 296, !19, i64 304, !19, i64 360, !20, i64 416, !9, i64 424, !21, i64 428, !17, i64 432, !9, i64 448, !22, i64 456, !22, i64 464, !22, i64 472, !23, i64 480, !23, i64 488, !24, i64 496, !14, i64 504, !25, i64 512, !26, i64 520, !9, i64 528, !25, i64 536, !9, i64 544, !14, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !21, i64 572, !21, i64 573, !27, i64 574, !27, i64 575, !22, i64 576, !14, i64 584, !12, i64 592, !12, i64 600, !19, i64 608, !19, i64 664, !9, i64 720, !21, i64 724, !17, i64 728, !17, i64 744, !28, i64 760, !28, i64 784, !28, i64 808, !26, i64 832, !9, i64 840, !9, i64 844, !14, i64 848, !22, i64 856, !22, i64 864, !29, i64 872, !30, i64 880, !32, i64 904, !33, i64 960, !33, i64 968, !34, i64 976, !5, i64 984, !35, i64 1080, !21, i64 1088, !5, i64 1089, !14, i64 1096, !9, i64 1104, !9, i64 1108, !36, i64 1112, !5, i64 1120, !12, i64 1376, !5, i64 1384, !37, i64 1640, !19, i64 1672, !14, i64 1728, !38, i64 1736, !39, i64 1760, !39, i64 1768, !40, i64 1776, !14, i64 1784, !21, i64 1792, !9, i64 1796, !41, i64 1800, !42, i64 1808, !14, i64 1816, !43, i64 1824, !14, i64 1840, !14, i64 1848, !44, i64 1856, !5, i64 1936}
-!17 = !{!"_zval_struct", !5, i64 0, !5, i64 8, !5, i64 12}
-!18 = !{!"p2 _ZTS11_zend_array", !12, i64 0}
-!19 = !{!"_zend_array", !8, i64 0, !5, i64 8, !9, i64 12, !5, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !14, i64 40, !12, i64 48}
-!20 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
-!21 = !{!"_Bool", !5, i64 0}
-!22 = !{!"p1 _ZTS11_zend_array", !12, i64 0}
-!23 = !{!"p1 _ZTS12_zval_struct", !12, i64 0}
-!24 = !{!"p1 _ZTS14_zend_vm_stack", !12, i64 0}
-!25 = !{!"p1 _ZTS18_zend_execute_data", !12, i64 0}
+!15 = !{!16, !12, i64 8}
+!16 = !{!"", !11, i64 0, !12, i64 8, !14, i64 16, !14, i64 24}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!19, !11, i64 112}
+!19 = !{!"_xmlDoc", !12, i64 0, !9, i64 8, !11, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !21, i64 64, !9, i64 72, !9, i64 76, !22, i64 80, !22, i64 88, !23, i64 96, !11, i64 104, !11, i64 112, !12, i64 120, !12, i64 128, !11, i64 136, !9, i64 144, !24, i64 152, !12, i64 160, !9, i64 168, !9, i64 172}
+!20 = !{!"p1 _ZTS8_xmlNode", !12, i64 0}
+!21 = !{!"p1 _ZTS7_xmlDoc", !12, i64 0}
+!22 = !{!"p1 _ZTS7_xmlDtd", !12, i64 0}
+!23 = !{!"p1 _ZTS6_xmlNs", !12, i64 0}
+!24 = !{!"p1 _ZTS8_xmlDict", !12, i64 0}
+!25 = !{!26, !26, i64 0}
 !26 = !{!"p1 _ZTS17_zend_class_entry", !12, i64 0}
-!27 = !{!"zend_atomic_bool_s", !5, i64 0}
-!28 = !{!"_zend_stack", !9, i64 0, !9, i64 4, !9, i64 8, !12, i64 16}
-!29 = !{!"p1 _ZTS15_zend_ini_entry", !12, i64 0}
-!30 = !{!"_zend_objects_store", !31, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!31 = !{!"p2 _ZTS12_zend_object", !12, i64 0}
-!32 = !{!"_zend_lazy_objects_store", !19, i64 0}
-!33 = !{!"p1 _ZTS12_zend_object", !12, i64 0}
-!34 = !{!"p1 _ZTS8_zend_op", !12, i64 0}
-!35 = !{!"p1 _ZTS18_zend_module_entry", !12, i64 0}
-!36 = !{!"p1 _ZTS18_HashTableIterator", !12, i64 0}
-!37 = !{!"_zend_op", !12, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !9, i64 20, !9, i64 24, !5, i64 28, !5, i64 29, !5, i64 30, !5, i64 31}
-!38 = !{!"", !23, i64 0, !23, i64 8, !23, i64 16}
-!39 = !{!"p1 _ZTS19_zend_fiber_context", !12, i64 0}
-!40 = !{!"p1 _ZTS11_zend_fiber", !12, i64 0}
-!41 = !{!"p2 _ZTS16_zend_error_info", !12, i64 0}
-!42 = !{!"p1 _ZTS12_zend_string", !12, i64 0}
-!43 = !{!"_zend_call_stack", !12, i64 0, !14, i64 8}
-!44 = !{!"_zend_strtod_state", !5, i64 0, !45, i64 64, !11, i64 72}
-!45 = !{!"p1 _ZTS19_zend_strtod_bigint", !12, i64 0}
-!46 = !{!47, !12, i64 8}
-!47 = !{!"", !11, i64 0, !12, i64 8, !14, i64 16, !14, i64 24}
-!48 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!49 = !{!50, !11, i64 112}
-!50 = !{!"_xmlDoc", !12, i64 0, !9, i64 8, !11, i64 16, !51, i64 24, !51, i64 32, !51, i64 40, !51, i64 48, !51, i64 56, !52, i64 64, !9, i64 72, !9, i64 76, !53, i64 80, !53, i64 88, !54, i64 96, !11, i64 104, !11, i64 112, !12, i64 120, !12, i64 128, !11, i64 136, !9, i64 144, !55, i64 152, !12, i64 160, !9, i64 168, !9, i64 172}
-!51 = !{!"p1 _ZTS8_xmlNode", !12, i64 0}
-!52 = !{!"p1 _ZTS7_xmlDoc", !12, i64 0}
-!53 = !{!"p1 _ZTS7_xmlDtd", !12, i64 0}
-!54 = !{!"p1 _ZTS6_xmlNs", !12, i64 0}
-!55 = !{!"p1 _ZTS8_xmlDict", !12, i64 0}
-!56 = !{!26, !26, i64 0}
-!57 = !{!58, !59, i64 8}
-!58 = !{!"_dom_object", !12, i64 0, !59, i64 8, !22, i64 16, !60, i64 24}
-!59 = !{!"p1 _ZTS19_php_libxml_ref_obj", !12, i64 0}
-!60 = !{!"_zend_object", !8, i64 0, !9, i64 8, !9, i64 12, !26, i64 16, !61, i64 24, !22, i64 32, !5, i64 40}
-!61 = !{!"p1 _ZTS21_zend_object_handlers", !12, i64 0}
-!62 = !{!63, !66, i64 24}
-!63 = !{!"_php_libxml_ref_obj", !12, i64 0, !64, i64 8, !65, i64 16, !66, i64 24, !67, i64 32, !9, i64 40, !9, i64 44, !9, i64 45}
-!64 = !{!"p1 _ZTS17_libxml_doc_props", !12, i64 0}
-!65 = !{!"", !14, i64 0}
-!66 = !{!"p1 _ZTS30php_libxml_private_data_header", !12, i64 0}
-!67 = !{!"p1 _ZTS28php_libxml_document_handlers", !12, i64 0}
-!68 = !{!69, !11, i64 0}
-!69 = !{!"dom_lexbor_libxml2_bridge_application_data", !11, i64 0, !70, i64 8, !11, i64 16, !14, i64 24, !14, i64 32, !71, i64 40, !21, i64 64}
-!70 = !{!"p1 int", !12, i64 0}
-!71 = !{!"dom_line_column_cache", !14, i64 0, !14, i64 8, !14, i64 16}
-!72 = !{!69, !14, i64 32}
-!73 = !{!69, !21, i64 64}
-!74 = !{!71, !14, i64 0}
-!75 = !{!71, !14, i64 8}
-!76 = !{!71, !14, i64 16}
-!77 = !{!16, !9, i64 424}
-!78 = !{!16, !9, i64 720}
-!79 = !{!80, !12, i64 24}
-!80 = !{!"lexbor_libxml2_bridge_parse_context", !12, i64 0, !12, i64 8, !81, i64 16, !12, i64 24}
-!81 = !{!"lexbor_libxml2_bridge_extracted_observations", !21, i64 0, !21, i64 1, !21, i64 2, !9, i64 4}
-!82 = !{!83, !85, i64 144}
-!83 = !{!"dom_decoding_encoding_ctx", !21, i64 0, !84, i64 8, !86, i64 64, !85, i64 144, !85, i64 152, !5, i64 160, !5, i64 4256}
-!84 = !{!"", !85, i64 0, !11, i64 8, !14, i64 16, !14, i64 24, !11, i64 32, !14, i64 40, !9, i64 48}
-!85 = !{!"p1 _ZTS17lxb_encoding_data", !12, i64 0}
-!86 = !{!"", !85, i64 0, !70, i64 8, !14, i64 16, !14, i64 24, !70, i64 32, !14, i64 40, !9, i64 48, !9, i64 52, !21, i64 56, !21, i64 57, !9, i64 60, !5, i64 64}
-!87 = !{!83, !85, i64 152}
-!88 = !{!83, !21, i64 0}
-!89 = !{!84, !11, i64 8}
-!90 = !{!84, !14, i64 16}
-!91 = !{!84, !85, i64 0}
-!92 = !{!84, !11, i64 32}
-!93 = !{!84, !14, i64 40}
-!94 = !{!86, !70, i64 8}
-!95 = !{!86, !14, i64 16}
-!96 = !{!86, !85, i64 0}
-!97 = !{!86, !70, i64 32}
-!98 = !{!86, !14, i64 40}
-!99 = !{!69, !70, i64 8}
-!100 = !{!69, !11, i64 16}
-!101 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!102 = !{!103, !12, i64 232}
-!103 = !{!"lxb_html_document", !104, i64 0, !12, i64 256, !112, i64 264, !113, i64 272, !114, i64 280, !21, i64 344, !12, i64 352, !9, i64 360, !9, i64 364}
-!104 = !{!"lxb_dom_document", !105, i64 0, !9, i64 104, !9, i64 108, !109, i64 112, !110, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !111, i64 200, !111, i64 208, !111, i64 216, !111, i64 224, !12, i64 232, !12, i64 240, !21, i64 248, !21, i64 249, !21, i64 250}
-!105 = !{!"lxb_dom_node", !106, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !107, i64 32, !108, i64 40, !108, i64 48, !108, i64 56, !108, i64 64, !108, i64 72, !12, i64 80, !9, i64 88, !14, i64 96}
-!106 = !{!"lxb_dom_event_target", !12, i64 0}
-!107 = !{!"p1 _ZTS16lxb_dom_document", !12, i64 0}
-!108 = !{!"p1 _ZTS12lxb_dom_node", !12, i64 0}
-!109 = !{!"p1 _ZTS21lxb_dom_document_type", !12, i64 0}
-!110 = !{!"p1 _ZTS15lxb_dom_element", !12, i64 0}
-!111 = !{!"p1 _ZTS11lexbor_hash", !12, i64 0}
-!112 = !{!"p1 _ZTS21lxb_html_head_element", !12, i64 0}
-!113 = !{!"p1 _ZTS21lxb_html_body_element", !12, i64 0}
-!114 = !{!"", !115, i64 0, !116, i64 8, !117, i64 16, !118, i64 24, !12, i64 32, !12, i64 40, !111, i64 48, !14, i64 56}
-!115 = !{!"p1 _ZTS14lxb_css_memory", !12, i64 0}
-!116 = !{!"p1 _ZTS17lxb_css_selectors", !12, i64 0}
-!117 = !{!"p1 _ZTS14lxb_css_parser", !12, i64 0}
-!118 = !{!"p1 _ZTS10lexbor_avl", !12, i64 0}
-!119 = !{!86, !9, i64 60}
-!120 = !{!121, !9, i64 0}
-!121 = !{!"lxb_encoding_data", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !11, i64 40}
-!122 = !{}
-!123 = !{!86, !14, i64 24}
-!124 = !{!70, !70, i64 0}
-!125 = !{!121, !12, i64 8}
-!126 = !{!84, !14, i64 24}
-!127 = !{!128, !130, i64 8}
-!128 = !{!"", !129, i64 0, !130, i64 8, !130, i64 16, !108, i64 24, !108, i64 32, !9, i64 40, !9, i64 44, !14, i64 48}
-!129 = !{!"p1 _ZTS18lxb_html_tokenizer", !12, i64 0}
-!130 = !{!"p1 _ZTS13lxb_html_tree", !12, i64 0}
-!131 = !{!52, !52, i64 0}
-!132 = !{!121, !11, i64 40}
-!133 = !{!80, !9, i64 20}
-!134 = !{!69, !14, i64 24}
-!135 = !{!9, !9, i64 0}
-!136 = !{!137, !9, i64 8}
-!137 = !{!"", !11, i64 0, !9, i64 8}
-!138 = !{i8 0, i8 2}
-!139 = !{!140, !9, i64 0}
-!140 = !{!"", !9, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
-!141 = !{!142, !14, i64 16}
-!142 = !{!"", !11, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
-!143 = !{!144, !11, i64 0}
-!144 = !{!"", !11, i64 0, !11, i64 8}
-!145 = !{!144, !11, i64 8}
-!146 = !{!83, !9, i64 124}
-!147 = !{!121, !12, i64 16}
-!148 = !{!80, !12, i64 0}
-!149 = !{!80, !12, i64 8}
-!150 = !{!69, !14, i64 56}
-!151 = !{!51, !51, i64 0}
-!152 = !{!153, !9, i64 8}
-!153 = !{!"_xmlNode", !12, i64 0, !9, i64 8, !11, i64 16, !51, i64 24, !51, i64 32, !51, i64 40, !51, i64 48, !51, i64 56, !52, i64 64, !54, i64 72, !11, i64 80, !154, i64 88, !54, i64 96, !12, i64 104, !155, i64 112, !155, i64 114}
-!154 = !{!"p1 _ZTS8_xmlAttr", !12, i64 0}
-!155 = !{!"short", !5, i64 0}
-!156 = !{!153, !11, i64 16}
-!157 = !{!81, !21, i64 1}
-!158 = !{!153, !51, i64 24}
-!159 = !{!81, !21, i64 2}
-!160 = !{!81, !21, i64 0}
-!161 = !{!42, !42, i64 0}
+!27 = !{!28, !29, i64 8}
+!28 = !{!"_dom_object", !12, i64 0, !29, i64 8, !30, i64 16, !31, i64 24}
+!29 = !{!"p1 _ZTS19_php_libxml_ref_obj", !12, i64 0}
+!30 = !{!"p1 _ZTS11_zend_array", !12, i64 0}
+!31 = !{!"_zend_object", !8, i64 0, !9, i64 8, !9, i64 12, !26, i64 16, !32, i64 24, !30, i64 32, !5, i64 40}
+!32 = !{!"p1 _ZTS21_zend_object_handlers", !12, i64 0}
+!33 = !{!34, !37, i64 24}
+!34 = !{!"_php_libxml_ref_obj", !12, i64 0, !35, i64 8, !36, i64 16, !37, i64 24, !38, i64 32, !9, i64 40, !9, i64 44, !9, i64 45}
+!35 = !{!"p1 _ZTS17_libxml_doc_props", !12, i64 0}
+!36 = !{!"", !14, i64 0}
+!37 = !{!"p1 _ZTS30php_libxml_private_data_header", !12, i64 0}
+!38 = !{!"p1 _ZTS28php_libxml_document_handlers", !12, i64 0}
+!39 = !{!40, !11, i64 0}
+!40 = !{!"dom_lexbor_libxml2_bridge_application_data", !11, i64 0, !41, i64 8, !11, i64 16, !14, i64 24, !14, i64 32, !42, i64 40, !43, i64 64}
+!41 = !{!"p1 int", !12, i64 0}
+!42 = !{!"dom_line_column_cache", !14, i64 0, !14, i64 8, !14, i64 16}
+!43 = !{!"_Bool", !5, i64 0}
+!44 = !{!40, !14, i64 32}
+!45 = !{!40, !43, i64 64}
+!46 = !{!42, !14, i64 0}
+!47 = !{!42, !14, i64 8}
+!48 = !{!42, !14, i64 16}
+!49 = !{!50, !9, i64 424}
+!50 = !{!"_zend_executor_globals", !51, i64 0, !51, i64 16, !5, i64 32, !52, i64 288, !52, i64 296, !53, i64 304, !53, i64 360, !54, i64 416, !9, i64 424, !43, i64 428, !51, i64 432, !9, i64 448, !30, i64 456, !30, i64 464, !30, i64 472, !55, i64 480, !55, i64 488, !56, i64 496, !14, i64 504, !57, i64 512, !26, i64 520, !9, i64 528, !57, i64 536, !9, i64 544, !14, i64 552, !9, i64 560, !9, i64 564, !9, i64 568, !43, i64 572, !43, i64 573, !58, i64 574, !58, i64 575, !30, i64 576, !14, i64 584, !12, i64 592, !12, i64 600, !53, i64 608, !53, i64 664, !9, i64 720, !43, i64 724, !51, i64 728, !51, i64 744, !59, i64 760, !59, i64 784, !59, i64 808, !26, i64 832, !9, i64 840, !9, i64 844, !14, i64 848, !30, i64 856, !30, i64 864, !60, i64 872, !61, i64 880, !63, i64 904, !64, i64 960, !64, i64 968, !65, i64 976, !5, i64 984, !66, i64 1080, !43, i64 1088, !5, i64 1089, !14, i64 1096, !9, i64 1104, !9, i64 1108, !67, i64 1112, !5, i64 1120, !12, i64 1376, !5, i64 1384, !68, i64 1640, !53, i64 1672, !14, i64 1728, !69, i64 1736, !70, i64 1760, !70, i64 1768, !71, i64 1776, !14, i64 1784, !43, i64 1792, !9, i64 1796, !72, i64 1800, !73, i64 1808, !14, i64 1816, !74, i64 1824, !14, i64 1840, !14, i64 1848, !75, i64 1856, !5, i64 1936}
+!51 = !{!"_zval_struct", !5, i64 0, !5, i64 8, !5, i64 12}
+!52 = !{!"p2 _ZTS11_zend_array", !12, i64 0}
+!53 = !{!"_zend_array", !8, i64 0, !5, i64 8, !9, i64 12, !5, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !14, i64 40, !12, i64 48}
+!54 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
+!55 = !{!"p1 _ZTS12_zval_struct", !12, i64 0}
+!56 = !{!"p1 _ZTS14_zend_vm_stack", !12, i64 0}
+!57 = !{!"p1 _ZTS18_zend_execute_data", !12, i64 0}
+!58 = !{!"zend_atomic_bool_s", !5, i64 0}
+!59 = !{!"_zend_stack", !9, i64 0, !9, i64 4, !9, i64 8, !12, i64 16}
+!60 = !{!"p1 _ZTS15_zend_ini_entry", !12, i64 0}
+!61 = !{!"_zend_objects_store", !62, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!62 = !{!"p2 _ZTS12_zend_object", !12, i64 0}
+!63 = !{!"_zend_lazy_objects_store", !53, i64 0}
+!64 = !{!"p1 _ZTS12_zend_object", !12, i64 0}
+!65 = !{!"p1 _ZTS8_zend_op", !12, i64 0}
+!66 = !{!"p1 _ZTS18_zend_module_entry", !12, i64 0}
+!67 = !{!"p1 _ZTS18_HashTableIterator", !12, i64 0}
+!68 = !{!"_zend_op", !12, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !9, i64 20, !9, i64 24, !5, i64 28, !5, i64 29, !5, i64 30, !5, i64 31}
+!69 = !{!"", !55, i64 0, !55, i64 8, !55, i64 16}
+!70 = !{!"p1 _ZTS19_zend_fiber_context", !12, i64 0}
+!71 = !{!"p1 _ZTS11_zend_fiber", !12, i64 0}
+!72 = !{!"p2 _ZTS16_zend_error_info", !12, i64 0}
+!73 = !{!"p1 _ZTS12_zend_string", !12, i64 0}
+!74 = !{!"_zend_call_stack", !12, i64 0, !14, i64 8}
+!75 = !{!"_zend_strtod_state", !5, i64 0, !76, i64 64, !11, i64 72}
+!76 = !{!"p1 _ZTS19_zend_strtod_bigint", !12, i64 0}
+!77 = !{!50, !9, i64 720}
+!78 = !{!79, !12, i64 24}
+!79 = !{!"lexbor_libxml2_bridge_parse_context", !12, i64 0, !12, i64 8, !80, i64 16, !12, i64 24}
+!80 = !{!"lexbor_libxml2_bridge_extracted_observations", !43, i64 0, !43, i64 1, !43, i64 2, !9, i64 4}
+!81 = !{!82, !84, i64 144}
+!82 = !{!"dom_decoding_encoding_ctx", !43, i64 0, !83, i64 8, !85, i64 64, !84, i64 144, !84, i64 152, !5, i64 160, !5, i64 4256}
+!83 = !{!"", !84, i64 0, !11, i64 8, !14, i64 16, !14, i64 24, !11, i64 32, !14, i64 40, !9, i64 48}
+!84 = !{!"p1 _ZTS17lxb_encoding_data", !12, i64 0}
+!85 = !{!"", !84, i64 0, !41, i64 8, !14, i64 16, !14, i64 24, !41, i64 32, !14, i64 40, !9, i64 48, !9, i64 52, !43, i64 56, !43, i64 57, !9, i64 60, !5, i64 64}
+!86 = !{!82, !84, i64 152}
+!87 = !{!82, !43, i64 0}
+!88 = !{!83, !11, i64 8}
+!89 = !{!83, !14, i64 16}
+!90 = !{!83, !84, i64 0}
+!91 = !{!83, !11, i64 32}
+!92 = !{!83, !14, i64 40}
+!93 = !{!85, !41, i64 8}
+!94 = !{!85, !14, i64 16}
+!95 = !{!85, !84, i64 0}
+!96 = !{!85, !41, i64 32}
+!97 = !{!85, !14, i64 40}
+!98 = !{!40, !41, i64 8}
+!99 = !{!40, !11, i64 16}
+!100 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!101 = !{!102, !12, i64 232}
+!102 = !{!"lxb_html_document", !103, i64 0, !12, i64 256, !111, i64 264, !112, i64 272, !113, i64 280, !43, i64 344, !12, i64 352, !9, i64 360, !9, i64 364}
+!103 = !{!"lxb_dom_document", !104, i64 0, !9, i64 104, !9, i64 108, !108, i64 112, !109, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !110, i64 200, !110, i64 208, !110, i64 216, !110, i64 224, !12, i64 232, !12, i64 240, !43, i64 248, !43, i64 249, !43, i64 250}
+!104 = !{!"lxb_dom_node", !105, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !106, i64 32, !107, i64 40, !107, i64 48, !107, i64 56, !107, i64 64, !107, i64 72, !12, i64 80, !9, i64 88, !14, i64 96}
+!105 = !{!"lxb_dom_event_target", !12, i64 0}
+!106 = !{!"p1 _ZTS16lxb_dom_document", !12, i64 0}
+!107 = !{!"p1 _ZTS12lxb_dom_node", !12, i64 0}
+!108 = !{!"p1 _ZTS21lxb_dom_document_type", !12, i64 0}
+!109 = !{!"p1 _ZTS15lxb_dom_element", !12, i64 0}
+!110 = !{!"p1 _ZTS11lexbor_hash", !12, i64 0}
+!111 = !{!"p1 _ZTS21lxb_html_head_element", !12, i64 0}
+!112 = !{!"p1 _ZTS21lxb_html_body_element", !12, i64 0}
+!113 = !{!"", !114, i64 0, !115, i64 8, !116, i64 16, !117, i64 24, !12, i64 32, !12, i64 40, !110, i64 48, !14, i64 56}
+!114 = !{!"p1 _ZTS14lxb_css_memory", !12, i64 0}
+!115 = !{!"p1 _ZTS17lxb_css_selectors", !12, i64 0}
+!116 = !{!"p1 _ZTS14lxb_css_parser", !12, i64 0}
+!117 = !{!"p1 _ZTS10lexbor_avl", !12, i64 0}
+!118 = !{!85, !9, i64 60}
+!119 = !{!120, !9, i64 0}
+!120 = !{!"lxb_encoding_data", !9, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !11, i64 40}
+!121 = !{}
+!122 = !{!85, !14, i64 24}
+!123 = !{!41, !41, i64 0}
+!124 = !{!120, !12, i64 8}
+!125 = !{!83, !14, i64 24}
+!126 = !{!127, !129, i64 8}
+!127 = !{!"", !128, i64 0, !129, i64 8, !129, i64 16, !107, i64 24, !107, i64 32, !9, i64 40, !9, i64 44, !14, i64 48}
+!128 = !{!"p1 _ZTS18lxb_html_tokenizer", !12, i64 0}
+!129 = !{!"p1 _ZTS13lxb_html_tree", !12, i64 0}
+!130 = !{!21, !21, i64 0}
+!131 = !{!120, !11, i64 40}
+!132 = !{!79, !9, i64 20}
+!133 = !{!40, !14, i64 24}
+!134 = !{!9, !9, i64 0}
+!135 = !{!136, !9, i64 8}
+!136 = !{!"", !11, i64 0, !9, i64 8}
+!137 = !{i8 0, i8 2}
+!138 = !{!139, !9, i64 0}
+!139 = !{!"", !9, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
+!140 = !{!141, !14, i64 16}
+!141 = !{!"", !11, i64 0, !14, i64 8, !14, i64 16, !14, i64 24}
+!142 = !{!143, !11, i64 0}
+!143 = !{!"", !11, i64 0, !11, i64 8}
+!144 = !{!143, !11, i64 8}
+!145 = !{!82, !9, i64 124}
+!146 = !{!120, !12, i64 16}
+!147 = !{!79, !12, i64 0}
+!148 = !{!79, !12, i64 8}
+!149 = !{!40, !14, i64 56}
+!150 = !{!20, !20, i64 0}
+!151 = !{!152, !9, i64 8}
+!152 = !{!"_xmlNode", !12, i64 0, !9, i64 8, !11, i64 16, !20, i64 24, !20, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !21, i64 64, !23, i64 72, !11, i64 80, !153, i64 88, !23, i64 96, !12, i64 104, !154, i64 112, !154, i64 114}
+!153 = !{!"p1 _ZTS8_xmlAttr", !12, i64 0}
+!154 = !{!"short", !5, i64 0}
+!155 = !{!152, !11, i64 16}
+!156 = !{!80, !43, i64 1}
+!157 = !{!152, !20, i64 24}
+!158 = !{!80, !43, i64 2}
+!159 = !{!80, !43, i64 0}
+!160 = !{!73, !73, i64 0}
+!161 = !{!50, !64, i64 960}
 !162 = !{!163, !14, i64 16}
 !163 = !{!"_zend_string", !8, i64 0, !14, i64 8, !14, i64 16, !5, i64 24}
 !164 = !{!"branch_weights", i32 1, i32 10000, i32 1, i32 1, i32 1, i32 1}
 !165 = !{!166, !171, i64 64}
-!166 = !{!"_php_stream", !167, i64 0, !12, i64 8, !168, i64 16, !168, i64 40, !171, i64 64, !12, i64 72, !17, i64 80, !155, i64 96, !155, i64 96, !155, i64 96, !155, i64 96, !155, i64 96, !155, i64 96, !155, i64 97, !5, i64 98, !9, i64 116, !172, i64 120, !173, i64 128, !11, i64 136, !172, i64 144, !14, i64 152, !11, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !170, i64 200}
+!166 = !{!"_php_stream", !167, i64 0, !12, i64 8, !168, i64 16, !168, i64 40, !171, i64 64, !12, i64 72, !51, i64 80, !154, i64 96, !154, i64 96, !154, i64 96, !154, i64 96, !154, i64 96, !154, i64 96, !154, i64 97, !5, i64 98, !9, i64 116, !172, i64 120, !173, i64 128, !11, i64 136, !172, i64 144, !14, i64 152, !11, i64 160, !14, i64 168, !14, i64 176, !14, i64 184, !14, i64 192, !170, i64 200}
 !167 = !{!"p1 _ZTS15_php_stream_ops", !12, i64 0}
 !168 = !{!"_php_stream_filter_chain", !169, i64 0, !169, i64 8, !170, i64 16}
 !169 = !{!"p1 _ZTS18_php_stream_filter", !12, i64 0}
@@ -4433,11 +4337,11 @@ attributes #13 = { nounwind allocsize(0) }
 !172 = !{!"p1 _ZTS14_zend_resource", !12, i64 0}
 !173 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
 !174 = !{!12, !12, i64 0}
-!175 = !{!50, !11, i64 136}
-!176 = !{!58, !12, i64 0}
-!177 = !{!58, !26, i64 40}
-!178 = !{!179, !42, i64 8}
-!179 = !{!"_zend_class_entry", !5, i64 0, !42, i64 8, !5, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !23, i64 40, !23, i64 48, !23, i64 56, !19, i64 64, !19, i64 120, !19, i64 176, !180, i64 232, !181, i64 240, !182, i64 248, !183, i64 256, !183, i64 264, !183, i64 272, !183, i64 280, !183, i64 288, !183, i64 296, !183, i64 304, !183, i64 312, !183, i64 320, !183, i64 328, !183, i64 336, !183, i64 344, !183, i64 352, !61, i64 360, !184, i64 368, !185, i64 376, !5, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !9, i64 436, !5, i64 440, !186, i64 448, !187, i64 456, !188, i64 464, !22, i64 472, !9, i64 480, !22, i64 488, !42, i64 496, !5, i64 504}
+!175 = !{!19, !11, i64 136}
+!176 = !{!28, !12, i64 0}
+!177 = !{!28, !26, i64 40}
+!178 = !{!179, !73, i64 8}
+!179 = !{!"_zend_class_entry", !5, i64 0, !73, i64 8, !5, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !55, i64 40, !55, i64 48, !55, i64 56, !53, i64 64, !53, i64 120, !53, i64 176, !180, i64 232, !181, i64 240, !182, i64 248, !183, i64 256, !183, i64 264, !183, i64 272, !183, i64 280, !183, i64 288, !183, i64 296, !183, i64 304, !183, i64 312, !183, i64 320, !183, i64 328, !183, i64 336, !183, i64 344, !183, i64 352, !32, i64 360, !184, i64 368, !185, i64 376, !5, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !9, i64 436, !5, i64 440, !186, i64 448, !187, i64 456, !188, i64 464, !30, i64 472, !9, i64 480, !30, i64 488, !73, i64 496, !5, i64 504}
 !180 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
 !181 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
 !182 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
@@ -4447,16 +4351,16 @@ attributes #13 = { nounwind allocsize(0) }
 !186 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
 !187 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
 !188 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
-!189 = !{!190, !51, i64 0}
-!190 = !{!"_php_libxml_node_ptr", !51, i64 0, !9, i64 8, !12, i64 16}
+!189 = !{!190, !20, i64 0}
+!190 = !{!"_php_libxml_node_ptr", !20, i64 0, !9, i64 8, !12, i64 16}
 !191 = !{!192, !12, i64 48}
-!192 = !{!"dom_output_ctx", !85, i64 0, !85, i64 8, !12, i64 16, !12, i64 24, !70, i64 32, !11, i64 40, !12, i64 48, !12, i64 56}
+!192 = !{!"dom_output_ctx", !84, i64 0, !84, i64 8, !12, i64 16, !12, i64 24, !41, i64 32, !11, i64 40, !12, i64 48, !12, i64 56}
 !193 = !{!192, !12, i64 56}
-!194 = !{!192, !85, i64 0}
-!195 = !{!192, !85, i64 8}
+!194 = !{!192, !84, i64 0}
+!195 = !{!192, !84, i64 8}
 !196 = !{!192, !12, i64 16}
 !197 = !{!192, !12, i64 24}
-!198 = !{!192, !70, i64 32}
+!198 = !{!192, !41, i64 32}
 !199 = !{!192, !11, i64 40}
 !200 = !{!201, !12, i64 8}
 !201 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16, !202, i64 24}
@@ -4464,21 +4368,21 @@ attributes #13 = { nounwind allocsize(0) }
 !203 = !{!201, !12, i64 0}
 !204 = !{!201, !12, i64 16}
 !205 = !{!201, !202, i64 24}
-!206 = !{!23, !23, i64 0}
-!207 = !{!153, !52, i64 64}
-!208 = !{!209, !42, i64 0}
-!209 = !{!"", !42, i64 0, !14, i64 8}
+!206 = !{!55, !55, i64 0}
+!207 = !{!152, !21, i64 64}
+!208 = !{!209, !73, i64 0}
+!209 = !{!"", !73, i64 0, !14, i64 8}
 !210 = !{!209, !14, i64 8}
 !211 = !{!163, !14, i64 8}
 !212 = !{!213, !213, i64 0}
 !213 = !{!"p1 _ZTS22php_dom_ns_magic_token", !12, i64 0}
-!214 = !{!153, !12, i64 0}
-!215 = !{!50, !51, i64 24}
-!216 = !{!153, !51, i64 48}
-!217 = !{!153, !51, i64 40}
-!218 = !{!153, !11, i64 80}
-!219 = !{!153, !54, i64 72}
+!214 = !{!152, !12, i64 0}
+!215 = !{!19, !20, i64 24}
+!216 = !{!152, !20, i64 48}
+!217 = !{!152, !20, i64 40}
+!218 = !{!152, !11, i64 80}
+!219 = !{!152, !23, i64 72}
 !220 = !{!221, !11, i64 24}
-!221 = !{!"_xmlNs", !54, i64 0, !9, i64 8, !11, i64 16, !11, i64 24, !12, i64 32, !52, i64 40}
-!222 = !{!153, !51, i64 32}
-!223 = !{!153, !51, i64 56}
+!221 = !{!"_xmlNs", !23, i64 0, !9, i64 8, !11, i64 16, !11, i64 24, !12, i64 32, !21, i64 40}
+!222 = !{!152, !20, i64 32}
+!223 = !{!152, !20, i64 56}

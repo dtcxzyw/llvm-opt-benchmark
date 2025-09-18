@@ -24,7 +24,7 @@ define dso_local i64 @lower(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -64,9 +64,9 @@ define dso_local i64 @lower(ptr noundef readonly captures(none) %0) local_unname
   %30 = select i1 %.not, ptr %29, ptr %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = tail call ptr @str_tolower(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #8
-  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #8
-  tail call void @pfree(ptr noundef %33) #8
+  %33 = tail call ptr @str_tolower(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #7
+  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #7
+  tail call void @pfree(ptr noundef %33) #7
   %35 = ptrtoint ptr %34 to i64
   ret i64 %35
 }
@@ -84,7 +84,7 @@ define dso_local i64 @upper(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -124,9 +124,9 @@ define dso_local i64 @upper(ptr noundef readonly captures(none) %0) local_unname
   %30 = select i1 %.not, ptr %29, ptr %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = tail call ptr @str_toupper(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #8
-  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #8
-  tail call void @pfree(ptr noundef %33) #8
+  %33 = tail call ptr @str_toupper(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #7
+  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #7
+  tail call void @pfree(ptr noundef %33) #7
   %35 = ptrtoint ptr %34 to i64
   ret i64 %35
 }
@@ -138,7 +138,7 @@ define dso_local i64 @initcap(ptr noundef readonly captures(none) %0) local_unna
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -178,9 +178,9 @@ define dso_local i64 @initcap(ptr noundef readonly captures(none) %0) local_unna
   %30 = select i1 %.not, ptr %29, ptr %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = tail call ptr @str_initcap(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #8
-  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #8
-  tail call void @pfree(ptr noundef %33) #8
+  %33 = tail call ptr @str_initcap(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #7
+  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #7
+  tail call void @pfree(ptr noundef %33) #7
   %35 = ptrtoint ptr %34 to i64
   ret i64 %35
 }
@@ -192,7 +192,7 @@ define dso_local i64 @casefold(ptr noundef readonly captures(none) %0) local_unn
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -232,9 +232,9 @@ define dso_local i64 @casefold(ptr noundef readonly captures(none) %0) local_unn
   %30 = select i1 %.not, ptr %29, ptr %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = tail call ptr @str_casefold(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #8
-  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #8
-  tail call void @pfree(ptr noundef %33) #8
+  %33 = tail call ptr @str_casefold(ptr noundef nonnull %30, i64 noundef %28, i32 noundef %32) #7
+  %34 = tail call ptr @cstring_to_text(ptr noundef %33) #7
+  tail call void @pfree(ptr noundef %33) #7
   %35 = ptrtoint ptr %34 to i64
   ret i64 %35
 }
@@ -246,14 +246,14 @@ define dso_local i64 @lpad(ptr noundef readonly captures(none) %0) local_unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #8
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #7
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %13 = load i8, ptr %5, align 1
   %14 = zext i8 %13 to i32
@@ -328,11 +328,11 @@ define dso_local i64 @lpad(ptr noundef readonly captures(none) %0) local_unnamed
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %58 = select i1 %.not81, ptr %57, ptr %56
-  %59 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %58, i32 noundef %spec.store.select1) #8
+  %59 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %58, i32 noundef %spec.store.select1) #7
   %spec.select = tail call i32 @llvm.smin.i32(i32 %59, i32 %spec.store.select)
   %60 = icmp slt i32 %54, 1
   %.0 = select i1 %60, i32 %spec.select, i32 %spec.store.select
-  %61 = tail call i32 @pg_database_encoding_max_length() #8
+  %61 = tail call i32 @pg_database_encoding_max_length() #7
   %62 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %61, i32 %.0)
   %63 = extractvalue { i32, i1 } %62, 1
   br i1 %63, label %70, label %64, !prof !4
@@ -347,16 +347,15 @@ define dso_local i64 @lpad(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %or.cond91, label %70, label %74, !prof !5
 
 70:                                               ; preds = %64, %53
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 @errcode(i32 noundef 261) #8
-  %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__func__.lpad) #8
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %72 = tail call i32 @errcode(i32 noundef 261) #7
+  %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 206, ptr noundef nonnull @__func__.lpad) #7
   unreachable
 
 74:                                               ; preds = %64
   %75 = zext nneg i32 %68 to i64
-  %76 = tail call ptr @palloc(i64 noundef %75) #8
+  %76 = tail call ptr @palloc(i64 noundef %75) #7
   %77 = sub i32 %.0, %spec.select
   %78 = load i8, ptr %12, align 1
   %79 = and i8 %78, 1
@@ -374,7 +373,7 @@ define dso_local i64 @lpad(ptr noundef readonly captures(none) %0) local_unnamed
   %.07094 = phi ptr [ %87, %.lr.ph ], [ %83, %74 ]
   %.07293 = phi ptr [ %spec.select89, %.lr.ph ], [ %80, %74 ]
   %84 = add i32 %.06995, -1
-  %85 = tail call i32 @pg_mblen(ptr noundef %.07293) #8
+  %85 = tail call i32 @pg_mblen(ptr noundef %.07293) #7
   %86 = sext i32 %85 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.07094, ptr align 1 %.07293, i64 %86, i1 false)
   %87 = getelementptr inbounds i8, ptr %.07094, i64 %86
@@ -401,7 +400,7 @@ define dso_local i64 @lpad(ptr noundef readonly captures(none) %0) local_unnamed
   %.198 = phi i32 [ %93, %.lr.ph101 ], [ %spec.select, %.lr.ph101.preheader ]
   %.17197 = phi ptr [ %96, %.lr.ph101 ], [ %.070.lcssa, %.lr.ph101.preheader ]
   %93 = add i32 %.198, -1
-  %94 = tail call i32 @pg_mblen(ptr noundef %.06799) #8
+  %94 = tail call i32 @pg_mblen(ptr noundef %.06799) #7
   %95 = sext i32 %94 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.17197, ptr align 1 %.06799, i64 %95, i1 false)
   %96 = getelementptr inbounds i8, ptr %.17197, i64 %95
@@ -445,14 +444,14 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #8
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #7
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %13 = load i8, ptr %5, align 1
   %14 = zext i8 %13 to i32
@@ -527,11 +526,11 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %58 = select i1 %.not81, ptr %57, ptr %56
-  %59 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %58, i32 noundef %spec.store.select1) #8
+  %59 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %58, i32 noundef %spec.store.select1) #7
   %spec.select = tail call i32 @llvm.smin.i32(i32 %59, i32 %spec.store.select)
   %60 = icmp slt i32 %54, 1
   %.0 = select i1 %60, i32 %spec.select, i32 %spec.store.select
-  %61 = tail call i32 @pg_database_encoding_max_length() #8
+  %61 = tail call i32 @pg_database_encoding_max_length() #7
   %62 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %61, i32 %.0)
   %63 = extractvalue { i32, i1 } %62, 1
   br i1 %63, label %70, label %64, !prof !4
@@ -546,16 +545,15 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %or.cond91, label %70, label %74, !prof !5
 
 70:                                               ; preds = %64, %53
-  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %71)
-  %72 = tail call i32 @errcode(i32 noundef 261) #8
-  %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 304, ptr noundef nonnull @__func__.rpad) #8
+  %71 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %72 = tail call i32 @errcode(i32 noundef 261) #7
+  %73 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 304, ptr noundef nonnull @__func__.rpad) #7
   unreachable
 
 74:                                               ; preds = %64
   %75 = zext nneg i32 %68 to i64
-  %76 = tail call ptr @palloc(i64 noundef %75) #8
+  %76 = tail call ptr @palloc(i64 noundef %75) #7
   %77 = sub i32 %.0, %spec.select
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %.not8392 = icmp eq i32 %spec.select, 0
@@ -573,7 +571,7 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
   %.194 = phi i32 [ %82, %.lr.ph ], [ %spec.select, %.lr.ph.preheader ]
   %.07093 = phi ptr [ %85, %.lr.ph ], [ %78, %.lr.ph.preheader ]
   %82 = add i32 %.194, -1
-  %83 = tail call i32 @pg_mblen(ptr noundef %.06795) #8
+  %83 = tail call i32 @pg_mblen(ptr noundef %.06795) #7
   %84 = sext i32 %83 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.07093, ptr align 1 %.06795, i64 %84, i1 false)
   %85 = getelementptr inbounds i8, ptr %.07093, i64 %84
@@ -598,7 +596,7 @@ define dso_local i64 @rpad(ptr noundef readonly captures(none) %0) local_unnamed
   %.17198 = phi ptr [ %95, %.lr.ph101 ], [ %.070.lcssa, %._crit_edge ]
   %.07297 = phi ptr [ %spec.select89, %.lr.ph101 ], [ %89, %._crit_edge ]
   %92 = add i32 %.06999, -1
-  %93 = tail call i32 @pg_mblen(ptr noundef %.07297) #8
+  %93 = tail call i32 @pg_mblen(ptr noundef %.07297) #7
   %94 = sext i32 %93 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.17198, ptr align 1 %.07297, i64 %94, i1 false)
   %95 = getelementptr inbounds i8, ptr %.17198, i64 %94
@@ -624,11 +622,11 @@ define dso_local i64 @btrim(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -712,16 +710,16 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond, label %9, label %.thread178
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @pg_database_encoding_max_length() #8
+  %10 = tail call i32 @pg_database_encoding_max_length() #7
   %11 = icmp sgt i32 %10, 1
   br i1 %11, label %.lr.ph.preheader, label %83
 
 .lr.ph.preheader:                                 ; preds = %9
   %12 = zext nneg i32 %1 to i64
   %13 = shl nuw nsw i64 %12, 3
-  %14 = tail call ptr @palloc(i64 noundef %13) #8
+  %14 = tail call ptr @palloc(i64 noundef %13) #7
   %15 = shl nuw nsw i64 %12, 2
-  %16 = tail call ptr @palloc(i64 noundef %15) #8
+  %16 = tail call ptr @palloc(i64 noundef %15) #7
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -731,7 +729,7 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %17 = sext i32 %.0149216 to i64
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
   store ptr %.0141217, ptr %18, align 8
-  %19 = tail call i32 @pg_mblen(ptr noundef %.0141217) #8
+  %19 = tail call i32 @pg_mblen(ptr noundef %.0141217) #7
   %20 = getelementptr inbounds i32, ptr %16, i64 %17
   store i32 %19, ptr %20, align 4
   %21 = add i32 %.0149216, 1
@@ -744,9 +742,9 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
 .lr.ph224.preheader:                              ; preds = %.lr.ph
   %26 = zext nneg i32 %3 to i64
   %27 = shl nuw nsw i64 %26, 3
-  %28 = tail call ptr @palloc(i64 noundef %27) #8
+  %28 = tail call ptr @palloc(i64 noundef %27) #7
   %29 = shl nuw nsw i64 %26, 2
-  %30 = tail call ptr @palloc(i64 noundef %29) #8
+  %30 = tail call ptr @palloc(i64 noundef %29) #7
   br label %.lr.ph224
 
 .lr.ph224:                                        ; preds = %.lr.ph224.preheader, %.lr.ph224
@@ -756,7 +754,7 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
   %31 = sext i32 %.0148220 to i64
   %32 = getelementptr inbounds ptr, ptr %28, i64 %31
   store ptr %.1142221, ptr %32, align 8
-  %33 = tail call i32 @pg_mblen(ptr noundef %.1142221) #8
+  %33 = tail call i32 @pg_mblen(ptr noundef %.1142221) #7
   %34 = getelementptr inbounds i32, ptr %30, i64 %31
   store i32 %33, ptr %34, align 4
   %35 = add i32 %.0148220, 1
@@ -878,10 +876,10 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
 .thread165:                                       ; preds = %57, %81, %80, %.loopexit
   %.1171 = phi ptr [ %.1, %.loopexit ], [ %.1, %80 ], [ %.1, %81 ], [ %58, %57 ]
   %.3136 = phi i32 [ %.1134, %.loopexit ], [ %.4137.us, %80 ], [ %82, %81 ], [ %59, %57 ]
-  tail call void @pfree(ptr noundef %14) #8
-  tail call void @pfree(ptr noundef %16) #8
-  tail call void @pfree(ptr noundef %28) #8
-  tail call void @pfree(ptr noundef nonnull %30) #8
+  tail call void @pfree(ptr noundef %14) #7
+  tail call void @pfree(ptr noundef %16) #7
+  tail call void @pfree(ptr noundef %28) #7
+  tail call void @pfree(ptr noundef nonnull %30) #7
   br label %.thread178
 
 83:                                               ; preds = %9
@@ -959,7 +957,7 @@ define internal fastcc ptr @dotrim(ptr noundef %0, i32 noundef %1, ptr noundef %
 .thread178:                                       ; preds = %91, %103, %.thread178.loopexit, %.thread165, %.loopexit190, %6
   %.0133 = phi i32 [ %.3136, %.thread165 ], [ %.5138, %.loopexit190 ], [ %1, %6 ], [ %104, %.thread178.loopexit ], [ 0, %103 ], [ 0, %91 ]
   %.0 = phi ptr [ %.1171, %.thread165 ], [ %.3, %.loopexit190 ], [ %0, %6 ], [ %.3, %.thread178.loopexit ], [ %.3, %103 ], [ %scevgep, %91 ]
-  %105 = tail call ptr @cstring_to_text_with_len(ptr noundef %.0, i32 noundef %.0133) #8
+  %105 = tail call ptr @cstring_to_text_with_len(ptr noundef %.0, i32 noundef %.0133) #7
   ret ptr %105
 }
 
@@ -968,7 +966,7 @@ define dso_local i64 @btrim1(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -1014,11 +1012,11 @@ define dso_local noundef i64 @byteatrim(ptr noundef readonly captures(none) %0) 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = tail call fastcc ptr @dobyteatrim(ptr noundef %5, ptr noundef %9, i1 noundef zeroext true, i1 noundef zeroext true)
   %11 = ptrtoint ptr %10 to i64
   ret i64 %11
@@ -1180,7 +1178,7 @@ define internal fastcc noundef ptr @dobyteatrim(ptr noundef readonly captures(re
   %.2 = phi i32 [ %.068, %.thread ], [ %.3, %73 ], [ 0, %78 ], [ 0, %68 ]
   %80 = add nuw i32 %.2, 4
   %81 = sext i32 %80 to i64
-  %82 = tail call ptr @palloc(i64 noundef %81) #8
+  %82 = tail call ptr @palloc(i64 noundef %81) #7
   %83 = shl i32 %80, 2
   store i32 %83, ptr %82, align 4
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -1198,11 +1196,11 @@ define dso_local noundef i64 @bytealtrim(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = tail call fastcc ptr @dobyteatrim(ptr noundef %5, ptr noundef %9, i1 noundef zeroext true, i1 noundef zeroext false)
   %11 = ptrtoint ptr %10 to i64
   ret i64 %11
@@ -1213,11 +1211,11 @@ define dso_local noundef i64 @byteartrim(ptr noundef readonly captures(none) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = tail call fastcc ptr @dobyteatrim(ptr noundef %5, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext true)
   %11 = ptrtoint ptr %10 to i64
   ret i64 %11
@@ -1228,11 +1226,11 @@ define dso_local i64 @ltrim(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -1313,7 +1311,7 @@ define dso_local i64 @ltrim1(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -1359,11 +1357,11 @@ define dso_local i64 @rtrim(ptr noundef readonly captures(none) %0) local_unname
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
   %12 = and i32 %11, 1
@@ -1444,7 +1442,7 @@ define dso_local i64 @rtrim1(ptr noundef readonly captures(none) %0) local_unnam
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 1
@@ -1490,15 +1488,15 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
+  %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   %12 = inttoptr i64 %11 to ptr
-  %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef %12) #8
+  %13 = tail call ptr @pg_detoast_datum_packed(ptr noundef %12) #7
   %14 = load i8, ptr %5, align 1
   %15 = zext i8 %14 to i32
   %16 = icmp eq i8 %14, 1
@@ -1618,7 +1616,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 %.v112
   %83 = sext i32 %.fr to i64
   %84 = getelementptr inbounds i8, ptr %82, i64 %83
-  %85 = tail call i32 @pg_database_encoding_max_length() #8
+  %85 = tail call i32 @pg_database_encoding_max_length() #7
   %86 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %85, i32 %34)
   %87 = extractvalue { i32, i1 } %86, 1
   br i1 %87, label %94, label %88, !prof !4
@@ -1633,16 +1631,15 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   br i1 %or.cond, label %94, label %98, !prof !5
 
 94:                                               ; preds = %88, %79
-  %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %95)
-  %96 = tail call i32 @errcode(i32 noundef 261) #8
-  %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @__func__.translate) #8
+  %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %96 = tail call i32 @errcode(i32 noundef 261) #7
+  %97 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @__func__.translate) #7
   unreachable
 
 98:                                               ; preds = %88
   %99 = zext nneg i32 %92 to i64
-  %100 = tail call ptr @palloc(i64 noundef %99) #8
+  %100 = tail call ptr @palloc(i64 noundef %99) #7
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = icmp sgt i32 %.fr137, 0
   br i1 %102, label %.split.us, label %.critedge
@@ -1656,7 +1653,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %.093132.us.us = phi ptr [ %115, %.preheader.us.us ], [ %36, %.split.us ]
   %.094131.us.us = phi ptr [ %.296.us.us, %.preheader.us.us ], [ %101, %.split.us ]
   %.097130.us.us = phi i32 [ %116, %.preheader.us.us ], [ %34, %.split.us ]
-  %103 = tail call i32 @pg_mblen(ptr noundef %.093132.us.us) #8
+  %103 = tail call i32 @pg_mblen(ptr noundef %.093132.us.us) #7
   %104 = sext i32 %103 to i64
   br label %105
 
@@ -1664,7 +1661,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %.090122.us.us = phi i32 [ 0, %.lr.ph.us.us ], [ %113, %112 ]
   %106 = sext i32 %.090122.us.us to i64
   %107 = getelementptr inbounds i8, ptr %59, i64 %106
-  %108 = tail call i32 @pg_mblen(ptr noundef nonnull %107) #8
+  %108 = tail call i32 @pg_mblen(ptr noundef nonnull %107) #7
   %109 = icmp eq i32 %108, %103
   br i1 %109, label %110, label %112
 
@@ -1699,7 +1696,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %.093132.us = phi ptr [ %139, %138 ], [ %36, %.split.us ]
   %.094131.us = phi ptr [ %.296.us, %138 ], [ %101, %.split.us ]
   %.097130.us = phi i32 [ %140, %138 ], [ %34, %.split.us ]
-  %121 = tail call i32 @pg_mblen(ptr noundef %.093132.us) #8
+  %121 = tail call i32 @pg_mblen(ptr noundef %.093132.us) #7
   %122 = sext i32 %121 to i64
   br label %123
 
@@ -1708,7 +1705,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %.090122.us = phi i32 [ 0, %.lr.ph.us ], [ %132, %130 ]
   %124 = sext i32 %.090122.us to i64
   %125 = getelementptr inbounds i8, ptr %59, i64 %124
-  %126 = tail call i32 @pg_mblen(ptr noundef nonnull %125) #8
+  %126 = tail call i32 @pg_mblen(ptr noundef nonnull %125) #7
   %127 = icmp eq i32 %126, %121
   br i1 %127, label %128, label %130
 
@@ -1728,7 +1725,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
 
 ._crit_edge.us.thread:                            ; preds = %.preheader.us, %._crit_edge.us
   %.0.lcssa.us152 = phi ptr [ %144, %._crit_edge.us ], [ %82, %.preheader.us ]
-  %134 = tail call i32 @pg_mblen(ptr noundef %.0.lcssa.us152) #8
+  %134 = tail call i32 @pg_mblen(ptr noundef %.0.lcssa.us152) #7
   %135 = sext i32 %134 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.094131.us, ptr align 1 %.0.lcssa.us152, i64 %135, i1 false)
   %136 = getelementptr inbounds i8, ptr %.094131.us, i64 %135
@@ -1747,7 +1744,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
 .lr.ph128.us:                                     ; preds = %.preheader.us, %.lr.ph128.us
   %.0127.us = phi ptr [ %144, %.lr.ph128.us ], [ %82, %.preheader.us ]
   %.1126.us = phi i32 [ %145, %.lr.ph128.us ], [ 0, %.preheader.us ]
-  %142 = tail call i32 @pg_mblen(ptr noundef %.0127.us) #8
+  %142 = tail call i32 @pg_mblen(ptr noundef %.0127.us) #7
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i8, ptr %.0127.us, i64 %143
   %145 = add nuw nsw i32 %.1126.us, 1
@@ -1772,7 +1769,7 @@ define dso_local i64 @translate(ptr noundef readonly captures(none) %0) local_un
   %.093132 = phi ptr [ %155, %.critedge ], [ %36, %98 ]
   %.094131 = phi ptr [ %153, %.critedge ], [ %101, %98 ]
   %.097130 = phi i32 [ %156, %.critedge ], [ %34, %98 ]
-  %151 = tail call i32 @pg_mblen(ptr noundef %.093132) #8
+  %151 = tail call i32 @pg_mblen(ptr noundef %.093132) #7
   %152 = sext i32 %151 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.094131, ptr align 1 %.093132, i64 %152, i1 false)
   %153 = getelementptr inbounds i8, ptr %.094131, i64 %152
@@ -1800,8 +1797,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ascii(ptr noundef reado
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
-  %6 = tail call i32 @GetDatabaseEncoding() #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
+  %6 = tail call i32 @GetDatabaseEncoding() #7
   %7 = load i8, ptr %5, align 1
   %8 = zext i8 %7 to i32
   %9 = icmp eq i8 %7, 1
@@ -1881,7 +1878,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ascii(ptr noundef reado
   br label %59
 
 49:                                               ; preds = %32, %.thread
-  %50 = tail call i32 @pg_encoding_max_length(i32 noundef %6) #8
+  %50 = tail call i32 @pg_encoding_max_length(i32 noundef %6) #7
   %51 = icmp sgt i32 %50, 1
   %.pre = load i8, ptr %30, align 1
   %52 = icmp slt i8 %.pre, 0
@@ -1889,11 +1886,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ascii(ptr noundef reado
   br i1 %or.cond, label %53, label %57
 
 53:                                               ; preds = %49
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 @errcode(i32 noundef 261) #8
-  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 992, ptr noundef nonnull @__func__.ascii) #8
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %55 = tail call i32 @errcode(i32 noundef 261) #7
+  %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 992, ptr noundef nonnull @__func__.ascii) #7
   unreachable
 
 57:                                               ; preds = %49
@@ -1914,16 +1910,15 @@ define dso_local noundef i64 @chr(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call i32 @GetDatabaseEncoding() #8
+  %5 = tail call i32 @GetDatabaseEncoding() #7
   %6 = icmp slt i32 %4, 0
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 @errcode(i32 noundef 50856066) #8
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @__func__.chr) #8
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %9 = tail call i32 @errcode(i32 noundef 50856066) #7
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1036, ptr noundef nonnull @__func__.chr) #7
   unreachable
 
 11:                                               ; preds = %1
@@ -1931,11 +1926,10 @@ define dso_local noundef i64 @chr(ptr noundef readonly captures(none) %0) local_
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 261) #8
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.chr) #8
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %15 = tail call i32 @errcode(i32 noundef 261) #7
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1040, ptr noundef nonnull @__func__.chr) #7
   unreachable
 
 17:                                               ; preds = %11
@@ -1949,11 +1943,10 @@ define dso_local noundef i64 @chr(ptr noundef readonly captures(none) %0) local_
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %23)
-  %24 = tail call i32 @errcode(i32 noundef 261) #8
-  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1059, ptr noundef nonnull @__func__.chr) #8
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %24 = tail call i32 @errcode(i32 noundef 261) #7
+  %25 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1059, ptr noundef nonnull @__func__.chr) #7
   unreachable
 
 26:                                               ; preds = %20
@@ -1963,7 +1956,7 @@ define dso_local noundef i64 @chr(ptr noundef readonly captures(none) %0) local_
   %.051 = select i1 %27, i32 4, i32 %.55
   %29 = add nuw nsw i32 %.051, 4
   %30 = zext nneg i32 %29 to i64
-  %31 = tail call ptr @palloc(i64 noundef %30) #8
+  %31 = tail call ptr @palloc(i64 noundef %30) #7
   %32 = shl nuw nsw i32 %29, 2
   store i32 %32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -2031,19 +2024,18 @@ define dso_local noundef i64 @chr(ptr noundef readonly captures(none) %0) local_
   br label %77
 
 77:                                               ; preds = %47, %60, %35
-  %78 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %33, i32 noundef %.051) #8
+  %78 = tail call zeroext i1 @pg_utf8_islegal(ptr noundef nonnull %33, i32 noundef %.051) #7
   br i1 %78, label %95, label %79
 
 79:                                               ; preds = %77
-  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %80)
-  %81 = tail call i32 @errcode(i32 noundef 261) #8
-  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1100, ptr noundef nonnull @__func__.chr) #8
+  %80 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %81 = tail call i32 @errcode(i32 noundef 261) #7
+  %82 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1100, ptr noundef nonnull @__func__.chr) #7
   unreachable
 
 83:                                               ; preds = %17
-  %84 = tail call i32 @pg_encoding_max_length(i32 noundef %5) #8
+  %84 = tail call i32 @pg_encoding_max_length(i32 noundef %5) #7
   %85 = icmp sgt i32 %84, 1
   %86 = icmp samesign ult i32 %4, 256
   %not. = xor i1 %19, true
@@ -2051,15 +2043,14 @@ define dso_local noundef i64 @chr(ptr noundef readonly captures(none) %0) local_
   br i1 %or.cond56, label %91, label %87
 
 87:                                               ; preds = %83
-  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %88)
-  %89 = tail call i32 @errcode(i32 noundef 261) #8
-  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %4) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1112, ptr noundef nonnull @__func__.chr) #8
+  %88 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %89 = tail call i32 @errcode(i32 noundef 261) #7
+  %90 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, i32 noundef %4) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1112, ptr noundef nonnull @__func__.chr) #7
   unreachable
 
 91:                                               ; preds = %83
-  %92 = tail call ptr @palloc(i64 noundef 5) #8
+  %92 = tail call ptr @palloc(i64 noundef 5) #7
   store i32 20, ptr %92, align 4
   %93 = trunc i64 %3 to i8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -2079,7 +2070,7 @@ define dso_local noundef i64 @repeat(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
+  %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
@@ -2131,16 +2122,15 @@ define dso_local noundef i64 @repeat(ptr noundef readonly captures(none) %0) loc
   br i1 %or.cond33, label %38, label %42, !prof !5
 
 38:                                               ; preds = %32, %28
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 @errcode(i32 noundef 261) #8
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1158, ptr noundef nonnull @__func__.repeat) #8
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %40 = tail call i32 @errcode(i32 noundef 261) #7
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1158, ptr noundef nonnull @__func__.repeat) #7
   unreachable
 
 42:                                               ; preds = %32
   %43 = zext nneg i32 %36 to i64
-  %44 = tail call ptr @palloc(i64 noundef %43) #8
+  %44 = tail call ptr @palloc(i64 noundef %43) #7
   %45 = shl nuw i32 %36, 2
   store i32 %45, ptr %44, align 4
   %46 = load i8, ptr %5, align 1
@@ -2166,7 +2156,7 @@ define dso_local noundef i64 @repeat(ptr noundef readonly captures(none) %0) loc
   br i1 %.not29, label %56, label %55, !prof !23
 
 55:                                               ; preds = %52
-  tail call void @ProcessInterrupts() #8
+  tail call void @ProcessInterrupts() #7
   br label %56
 
 56:                                               ; preds = %52, %55
@@ -2189,28 +2179,24 @@ declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #4
 
 declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

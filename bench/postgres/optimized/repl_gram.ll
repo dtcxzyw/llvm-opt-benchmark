@@ -94,7 +94,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %spec.store.select = call i64 @llvm.smin.i64(i64 %19, i64 10000)
   %20 = mul i64 %spec.store.select, 9
   %21 = add i64 %20, 7
-  %22 = call ptr @palloc(i64 noundef %21) #8
+  %22 = call ptr @palloc(i64 noundef %21) #7
   %.not314.not = icmp eq ptr %22, null
   br i1 %.not314.not, label %330, label %23
 
@@ -109,7 +109,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br i1 %.not315, label %29, label %28
 
 28:                                               ; preds = %23
-  call void @pfree(ptr noundef %.0268) #8
+  call void @pfree(ptr noundef %.0268) #7
   br label %29
 
 29:                                               ; preds = %23, %28
@@ -142,7 +142,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
-  %44 = call i32 @replication_yylex(ptr noundef nonnull %3, ptr noundef %1) #8
+  %44 = call i32 @replication_yylex(ptr noundef nonnull %3, ptr noundef %1) #7
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -279,12 +279,12 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 82:                                               ; preds = %72
-  %83 = call noundef ptr @palloc0(i64 noundef 4) #8
+  %83 = call noundef ptr @palloc0(i64 noundef 4) #7
   store i32 447, ptr %83, align 4
   br label %304
 
 84:                                               ; preds = %72
-  %85 = call noundef ptr @palloc0(i64 noundef 16) #8
+  %85 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 453, ptr %85, align 4
   %86 = load ptr, ptr %.2288, align 8
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -292,7 +292,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 88:                                               ; preds = %72
-  %89 = call noundef ptr @palloc0(i64 noundef 16) #8
+  %89 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 158, ptr %89, align 4
   %90 = load ptr, ptr %.2288, align 8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -307,11 +307,11 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %95 = getelementptr inbounds i8, ptr %.2288, i64 -16
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %.2288, align 8
-  %98 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str, ptr noundef %96, ptr noundef %97) #8
+  %98 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str, ptr noundef %96, ptr noundef %97) #7
   br label %304
 
 99:                                               ; preds = %72
-  %100 = call noundef ptr @palloc0(i64 noundef 16) #8
+  %100 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 448, ptr %100, align 4
   %101 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %102 = load ptr, ptr %101, align 8
@@ -320,12 +320,12 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 104:                                              ; preds = %72
-  %105 = call noundef ptr @palloc0(i64 noundef 16) #8
+  %105 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 448, ptr %105, align 4
   br label %304
 
 106:                                              ; preds = %72
-  %107 = call noundef ptr @palloc0(i64 noundef 48) #8
+  %107 = call noundef ptr @palloc0(i64 noundef 48) #7
   store i32 449, ptr %107, align 4
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store i32 0, ptr %108, align 8
@@ -343,7 +343,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 117:                                              ; preds = %72
-  %118 = call noundef ptr @palloc0(i64 noundef 48) #8
+  %118 = call noundef ptr @palloc0(i64 noundef 48) #7
   store i32 449, ptr %118, align 4
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i32 1, ptr %119, align 8
@@ -377,39 +377,39 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %137 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %138 = load ptr, ptr %137, align 8
   %139 = load ptr, ptr %.2288, align 8
-  %140 = call ptr @lappend(ptr noundef %138, ptr noundef %139) #8
+  %140 = call ptr @lappend(ptr noundef %138, ptr noundef %139) #7
   br label %304
 
 141:                                              ; preds = %72, %72, %72, %72
   br label %304
 
 142:                                              ; preds = %72
-  %143 = call ptr @makeString(ptr noundef nonnull @.str.2) #8
-  %144 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %143, i32 noundef -1) #8
+  %143 = call ptr @makeString(ptr noundef nonnull @.str.2) #7
+  %144 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %143, i32 noundef -1) #7
   br label %304
 
 145:                                              ; preds = %72
-  %146 = call ptr @makeString(ptr noundef nonnull @.str.3) #8
-  %147 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %146, i32 noundef -1) #8
+  %146 = call ptr @makeString(ptr noundef nonnull @.str.3) #7
+  %147 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %146, i32 noundef -1) #7
   br label %304
 
 148:                                              ; preds = %72
-  %149 = call ptr @makeString(ptr noundef nonnull @.str.4) #8
-  %150 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %149, i32 noundef -1) #8
+  %149 = call ptr @makeString(ptr noundef nonnull @.str.4) #7
+  %150 = call ptr @makeDefElem(ptr noundef nonnull @.str.1, ptr noundef %149, i32 noundef -1) #7
   br label %304
 
 151:                                              ; preds = %72
-  %152 = call ptr @makeBoolean(i1 noundef zeroext true) #8
-  %153 = call ptr @makeDefElem(ptr noundef nonnull @.str.5, ptr noundef %152, i32 noundef -1) #8
+  %152 = call ptr @makeBoolean(i1 noundef zeroext true) #7
+  %153 = call ptr @makeDefElem(ptr noundef nonnull @.str.5, ptr noundef %152, i32 noundef -1) #7
   br label %304
 
 154:                                              ; preds = %72
-  %155 = call ptr @makeBoolean(i1 noundef zeroext true) #8
-  %156 = call ptr @makeDefElem(ptr noundef nonnull @.str.6, ptr noundef %155, i32 noundef -1) #8
+  %155 = call ptr @makeBoolean(i1 noundef zeroext true) #7
+  %156 = call ptr @makeDefElem(ptr noundef nonnull @.str.6, ptr noundef %155, i32 noundef -1) #7
   br label %304
 
 157:                                              ; preds = %72
-  %158 = call noundef ptr @palloc0(i64 noundef 24) #8
+  %158 = call noundef ptr @palloc0(i64 noundef 24) #7
   store i32 450, ptr %158, align 4
   %159 = load ptr, ptr %.2288, align 8
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -419,7 +419,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 162:                                              ; preds = %72
-  %163 = call noundef ptr @palloc0(i64 noundef 24) #8
+  %163 = call noundef ptr @palloc0(i64 noundef 24) #7
   store i32 450, ptr %163, align 4
   %164 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %165 = load ptr, ptr %164, align 8
@@ -430,7 +430,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 168:                                              ; preds = %72
-  %169 = call noundef ptr @palloc0(i64 noundef 24) #8
+  %169 = call noundef ptr @palloc0(i64 noundef 24) #7
   store i32 451, ptr %169, align 4
   %170 = getelementptr inbounds i8, ptr %.2288, i64 -24
   %171 = load ptr, ptr %170, align 8
@@ -443,7 +443,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 176:                                              ; preds = %72
-  %177 = call noundef ptr @palloc0(i64 noundef 40) #8
+  %177 = call noundef ptr @palloc0(i64 noundef 40) #7
   store i32 452, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   store i32 0, ptr %178, align 4
@@ -461,7 +461,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 187:                                              ; preds = %72
-  %188 = call noundef ptr @palloc0(i64 noundef 40) #8
+  %188 = call noundef ptr @palloc0(i64 noundef 40) #7
   store i32 452, ptr %188, align 4
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   store i32 1, ptr %189, align 4
@@ -484,16 +484,15 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br i1 %200, label %201, label %206
 
 201:                                              ; preds = %198
-  %202 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %202)
-  %203 = call i32 @errcode(i32 noundef 16801924) #8
+  %202 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %203 = call i32 @errcode(i32 noundef 16801924) #7
   %204 = load i32, ptr %.2288, align 8
-  %205 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %204) #8
-  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 322, ptr noundef nonnull @__func__.replication_yyparse) #8
+  %205 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %204) #7
+  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 322, ptr noundef nonnull @__func__.replication_yyparse) #7
   unreachable
 
 206:                                              ; preds = %198
-  %207 = call noundef ptr @palloc0(i64 noundef 8) #8
+  %207 = call noundef ptr @palloc0(i64 noundef 8) #7
   store i32 454, ptr %207, align 4
   %208 = load i32, ptr %.2288, align 8
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 4
@@ -501,7 +500,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %304
 
 210:                                              ; preds = %72
-  %211 = call noundef ptr @palloc0(i64 noundef 4) #8
+  %211 = call noundef ptr @palloc0(i64 noundef 4) #7
   store i32 455, ptr %211, align 4
   br label %304
 
@@ -528,12 +527,11 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br i1 %222, label %223, label %228
 
 223:                                              ; preds = %220
-  %224 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  call void @llvm.assume(i1 %224)
-  %225 = call i32 @errcode(i32 noundef 16801924) #8
+  %224 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %225 = call i32 @errcode(i32 noundef 16801924) #7
   %226 = load i32, ptr %.2288, align 8
-  %227 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %226) #8
-  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 363, ptr noundef nonnull @__func__.replication_yyparse) #8
+  %227 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, i32 noundef %226) #7
+  call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 363, ptr noundef nonnull @__func__.replication_yyparse) #7
   unreachable
 
 228:                                              ; preds = %220
@@ -557,67 +555,67 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 237:                                              ; preds = %72
   %238 = load ptr, ptr %.2288, align 8
-  %239 = call ptr @list_make1_impl(i32 noundef 1, ptr %238) #8
+  %239 = call ptr @list_make1_impl(i32 noundef 1, ptr %238) #7
   br label %304
 
 240:                                              ; preds = %72
   %241 = getelementptr inbounds i8, ptr %.2288, i64 -16
   %242 = load ptr, ptr %241, align 8
   %243 = load ptr, ptr %.2288, align 8
-  %244 = call ptr @lappend(ptr noundef %242, ptr noundef %243) #8
+  %244 = call ptr @lappend(ptr noundef %242, ptr noundef %243) #7
   br label %304
 
 245:                                              ; preds = %72
   %246 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %247 = load ptr, ptr %246, align 8
   %248 = load ptr, ptr %.2288, align 8
-  %249 = call ptr @makeDefElem(ptr noundef %247, ptr noundef %248, i32 noundef -1) #8
+  %249 = call ptr @makeDefElem(ptr noundef %247, ptr noundef %248, i32 noundef -1) #7
   br label %304
 
 250:                                              ; preds = %72
   %251 = load ptr, ptr %.2288, align 8
-  %252 = call ptr @makeString(ptr noundef %251) #8
+  %252 = call ptr @makeString(ptr noundef %251) #7
   br label %304
 
 253:                                              ; preds = %72
   %254 = getelementptr inbounds i8, ptr %.2288, i64 -16
   %255 = load ptr, ptr %254, align 8
   %256 = load ptr, ptr %.2288, align 8
-  %257 = call ptr @lappend(ptr noundef %255, ptr noundef %256) #8
+  %257 = call ptr @lappend(ptr noundef %255, ptr noundef %256) #7
   br label %304
 
 258:                                              ; preds = %72
   %259 = load ptr, ptr %.2288, align 8
-  %260 = call ptr @list_make1_impl(i32 noundef 1, ptr %259) #8
+  %260 = call ptr @list_make1_impl(i32 noundef 1, ptr %259) #7
   br label %304
 
 261:                                              ; preds = %72
   %262 = load ptr, ptr %.2288, align 8
-  %263 = call ptr @makeDefElem(ptr noundef %262, ptr noundef null, i32 noundef -1) #8
+  %263 = call ptr @makeDefElem(ptr noundef %262, ptr noundef null, i32 noundef -1) #7
   br label %304
 
 264:                                              ; preds = %72
   %265 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %266 = load ptr, ptr %265, align 8
   %267 = load ptr, ptr %.2288, align 8
-  %268 = call ptr @makeString(ptr noundef %267) #8
-  %269 = call ptr @makeDefElem(ptr noundef %266, ptr noundef %268, i32 noundef -1) #8
+  %268 = call ptr @makeString(ptr noundef %267) #7
+  %269 = call ptr @makeDefElem(ptr noundef %266, ptr noundef %268, i32 noundef -1) #7
   br label %304
 
 270:                                              ; preds = %72
   %271 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %.2288, align 8
-  %274 = call ptr @makeString(ptr noundef %273) #8
-  %275 = call ptr @makeDefElem(ptr noundef %272, ptr noundef %274, i32 noundef -1) #8
+  %274 = call ptr @makeString(ptr noundef %273) #7
+  %275 = call ptr @makeDefElem(ptr noundef %272, ptr noundef %274, i32 noundef -1) #7
   br label %304
 
 276:                                              ; preds = %72
   %277 = getelementptr inbounds i8, ptr %.2288, i64 -8
   %278 = load ptr, ptr %277, align 8
   %279 = load i32, ptr %.2288, align 8
-  %280 = call ptr @makeInteger(i32 noundef %279) #8
-  %281 = call ptr @makeDefElem(ptr noundef %278, ptr noundef %280, i32 noundef -1) #8
+  %280 = call ptr @makeInteger(i32 noundef %279) #7
+  %281 = call ptr @makeDefElem(ptr noundef %278, ptr noundef %280, i32 noundef -1) #7
   br label %304
 
 282:                                              ; preds = %72
@@ -725,11 +723,11 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br label %6
 
 329:                                              ; preds = %68
-  call void @replication_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.27) #10
+  call void @replication_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.27) #9
   unreachable
 
 330:                                              ; preds = %12, %18
-  call void @replication_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.30) #10
+  call void @replication_yyerror(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.30) #9
   unreachable
 
 .thread359:                                       ; preds = %.thread336, %29, %47
@@ -739,7 +737,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   br i1 %.not322, label %332, label %331
 
 331:                                              ; preds = %.thread359
-  call void @pfree(ptr noundef %.5273357) #8
+  call void @pfree(ptr noundef %.5273357) #7
   br label %332
 
 332:                                              ; preds = %.thread359, %331
@@ -792,11 +790,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #7
+declare i64 @llvm.smin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -804,11 +799,10 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
-attributes #10 = { noreturn nounwind }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
+attributes #9 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

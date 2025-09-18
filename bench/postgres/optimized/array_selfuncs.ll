@@ -18,7 +18,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
   %11 = alloca %struct.AttStatsSlot, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @examine_variable(ptr noundef %0, ptr noundef %2, i32 noundef %6, ptr noundef nonnull %8) #10
+  call void @examine_variable(ptr noundef %0, ptr noundef %2, i32 noundef %6, ptr noundef nonnull %8) #9
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -33,7 +33,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %19 = load ptr, ptr %18, align 8
-  call void %19(ptr noundef nonnull %16) #10
+  call void %19(ptr noundef nonnull %16) #9
   br label %112
 
 20:                                               ; preds = %7
@@ -50,7 +50,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %28 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef nonnull %25) #10
+  call void %28(ptr noundef nonnull %25) #9
   br label %112
 
 29:                                               ; preds = %20
@@ -68,14 +68,14 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull %35) #10
+  call void %38(ptr noundef nonnull %35) #9
   br label %112
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %9, align 8
-  %42 = call ptr @lookup_type_cache(i32 noundef %3, i32 noundef 64) #10
+  %42 = call ptr @lookup_type_cache(i32 noundef %3, i32 noundef 64) #9
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 128
   %44 = load i32, ptr %43, align 8
   %.not38 = icmp eq i32 %44, 0
@@ -90,7 +90,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef nonnull %47) #10
+  call void %50(ptr noundef nonnull %47) #9
   br label %112
 
 51:                                               ; preds = %39
@@ -101,7 +101,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
   br i1 %.not40, label %101, label %55
 
 55:                                               ; preds = %51
-  %56 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %44) #10
+  %56 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %8, i32 noundef %44) #9
   br i1 %56, label %57, label %101
 
 57:                                               ; preds = %55
@@ -114,7 +114,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
   %61 = load i8, ptr %60, align 2
   %62 = zext i8 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 %62
-  %64 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %10, ptr noundef %58, i32 noundef 4, i32 noundef 0, i32 noundef 3) #10
+  %64 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %10, ptr noundef %58, i32 noundef 4, i32 noundef 0, i32 noundef 3) #9
   br i1 %64, label %65, label %92
 
 65:                                               ; preds = %57
@@ -122,7 +122,7 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %53, align 8
-  %68 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %11, ptr noundef %67, i32 noundef 5, i32 noundef 0, i32 noundef 2) #10
+  %68 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %11, ptr noundef %67, i32 noundef 5, i32 noundef 0, i32 noundef 2) #9
   br i1 %68, label %..thread_crit_edge, label %69
 
 ..thread_crit_edge:                               ; preds = %66
@@ -165,8 +165,8 @@ define dso_local double @scalararraysel_containment(ptr noundef %0, ptr noundef 
 
 91:                                               ; preds = %.thread, %70
   %.030 = phi double [ %79, %70 ], [ %90, %.thread ]
-  call void @free_attstatsslot(ptr noundef nonnull %11) #10
-  call void @free_attstatsslot(ptr noundef nonnull %10) #10
+  call void @free_attstatsslot(ptr noundef nonnull %11) #9
+  call void @free_attstatsslot(ptr noundef nonnull %10) #9
   br label %95
 
 92:                                               ; preds = %57
@@ -202,7 +202,7 @@ mcelem_array_contain_overlap_selec.exit:          ; preds = %mcelem_array_contai
 103:                                              ; preds = %mcelem_array_contain_overlap_selec.exit
   %104 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull %102) #10
+  call void %105(ptr noundef nonnull %102) #9
   br label %106
 
 106:                                              ; preds = %103, %mcelem_array_contain_overlap_selec.exit
@@ -314,7 +314,7 @@ floor_log2.exit:                                  ; preds = %18, %20
   %47 = load i64, ptr %46, align 8
   %48 = load i64, ptr %45, align 8
   %49 = load i32, ptr %40, align 4
-  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %49, i64 noundef %47, i64 noundef %48) #10
+  %50 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %49, i64 noundef %47, i64 noundef %48) #9
   %51 = and i64 %50, 4294967295
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %86, label %53
@@ -334,7 +334,7 @@ floor_log2.exit:                                  ; preds = %18, %20
   %59 = getelementptr inbounds i64, ptr %0, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = load i32, ptr %40, align 4
-  %62 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %61, i64 noundef %60, i64 noundef %55) #10
+  %62 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %61, i64 noundef %60, i64 noundef %55) #9
   %63 = trunc i64 %62 to i32
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %find_next_mcelem.exit.us, label %65
@@ -406,7 +406,7 @@ find_next_mcelem.exit.us.thread:                  ; preds = %65, %53, %find_next
   %90 = load i64, ptr %89, align 8
   %91 = load i64, ptr %88, align 8
   %92 = load i32, ptr %40, align 4
-  %93 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %92, i64 noundef %90, i64 noundef %91) #10
+  %93 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %92, i64 noundef %90, i64 noundef %91) #9
   %94 = and i64 %93, 4294967295
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %127, label %.preheader
@@ -426,7 +426,7 @@ find_next_mcelem.exit.us.thread:                  ; preds = %65, %53, %find_next
   %101 = load i64, ptr %100, align 8
   %102 = load i64, ptr %97, align 8
   %103 = load i32, ptr %40, align 4
-  %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %103, i64 noundef %101, i64 noundef %102) #10
+  %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %39, i32 noundef %103, i64 noundef %101, i64 noundef %102) #9
   %105 = trunc i64 %104 to i32
   %106 = icmp slt i32 %105, 0
   br i1 %106, label %107, label %find_next_mcelem.exit
@@ -519,7 +519,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %26 = load float, ptr %25, align 4
   %27 = sext i32 %5 to i64
   %28 = shl nsw i64 %27, 2
-  %29 = tail call ptr @palloc(i64 noundef %28) #10
+  %29 = tail call ptr @palloc(i64 noundef %28) #9
   %30 = icmp sgt i32 %5, 0
   br i1 %30, label %.lr.ph206, label %.preheader
 
@@ -560,7 +560,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %42 = load i64, ptr %41, align 8
   %43 = load i64, ptr %40, align 8
   %44 = load i32, ptr %32, align 4
-  %45 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %31, i32 noundef %44, i64 noundef %42, i64 noundef %43) #10
+  %45 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %31, i32 noundef %44, i64 noundef %42, i64 noundef %43) #9
   %46 = and i64 %45, 4294967295
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %80, label %48
@@ -582,7 +582,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr %50, align 8
   %56 = load i32, ptr %32, align 4
-  %57 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %31, i32 noundef %56, i64 noundef %54, i64 noundef %55) #10
+  %57 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %31, i32 noundef %56, i64 noundef %54, i64 noundef %55) #9
   %58 = trunc i64 %57 to i32
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %62, label %.thread
@@ -657,7 +657,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %.6128.lcssa = phi float [ %.0122.lcssa, %.preheader ], [ %85, %.lr.ph214 ]
   %86 = fneg float %.6128.lcssa
   %87 = fpext float %86 to double
-  %88 = tail call double @exp(double noundef %87) #10
+  %88 = tail call double @exp(double noundef %87) #9
   %89 = fpext float %.5134.lcssa to double
   %90 = fmul double %88, %89
   %91 = fptrunc double %90 to float
@@ -675,12 +675,12 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %99 = sitofp i32 %1 to double
   %100 = fmul double %99, 4.000000e+02
   %101 = tail call double @llvm.fmuladd.f64(double %99, double %99, double %100)
-  %102 = tail call double @sqrt(double noundef %101) #10
+  %102 = tail call double @sqrt(double noundef %101) #9
   %103 = fsub double %102, %99
   %104 = fmul double %103, 5.000000e-01
   %105 = fptosi double %104 to i32
   %106 = sext i32 %.0119.lcssa to i64
-  tail call void @pg_qsort(ptr noundef %29, i64 noundef %106, i64 noundef 4, ptr noundef nonnull @float_compare_desc) #10
+  tail call void @pg_qsort(ptr noundef %29, i64 noundef %106, i64 noundef 4, ptr noundef nonnull @float_compare_desc) #9
   br label %107
 
 107:                                              ; preds = %98, %94, %._crit_edge
@@ -688,8 +688,8 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
   %108 = add i32 %.2121, 1
   %109 = sext i32 %108 to i64
   %110 = shl nsw i64 %109, 2
-  %111 = tail call ptr @palloc(i64 noundef %110) #10
-  %112 = tail call ptr @palloc(i64 noundef %110) #10
+  %111 = tail call ptr @palloc(i64 noundef %110) #9
+  %112 = tail call ptr @palloc(i64 noundef %110) #9
   store float 1.000000e+00, ptr %111, align 4
   %.not72.i = icmp slt i32 %.2121, 1
   br i1 %.not72.i, label %calc_distr.exit, label %.lr.ph77.preheader.i
@@ -756,9 +756,9 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
 calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
   %.064.lcssa.i = phi ptr [ %112, %107 ], [ %.05875.i, %._crit_edge.i ]
   %.058.lcssa.i = phi ptr [ %111, %107 ], [ %.06473.i, %._crit_edge.i ]
-  tail call void @pfree(ptr noundef %.064.lcssa.i) #10
-  %134 = tail call ptr @palloc(i64 noundef %110) #10
-  %135 = tail call ptr @palloc(i64 noundef %110) #10
+  tail call void @pfree(ptr noundef %.064.lcssa.i) #9
+  %134 = tail call ptr @palloc(i64 noundef %110) #9
+  %135 = tail call ptr @palloc(i64 noundef %110) #9
   store float 1.000000e+00, ptr %134, align 4
   %.not72.i148 = icmp slt i32 %1, 1
   br i1 %.not72.i148, label %._crit_edge78.i, label %.lr.ph77.preheader.i149
@@ -841,7 +841,7 @@ calc_distr.exit:                                  ; preds = %._crit_edge.i, %107
   br i1 %162, label %cdce.call, label %calc_distr.exit170, !prof !13
 
 cdce.call:                                        ; preds = %._crit_edge83.thread.i
-  %163 = tail call double @exp(double noundef %87) #10
+  %163 = tail call double @exp(double noundef %87) #9
   br label %calc_distr.exit170
 
 .preheader.preheader.i:                           ; preds = %.preheader70.i
@@ -849,7 +849,7 @@ cdce.call:                                        ; preds = %._crit_edge83.threa
   %164 = zext nneg i32 %smax98.i to i64
   %165 = shl nuw nsw i64 %164, 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %.064.lcssa.i160, i8 0, i64 %165, i1 false)
-  %166 = tail call double @exp(double noundef %87) #10
+  %166 = tail call double @exp(double noundef %87) #9
   %167 = fptrunc double %166 to float
   br label %.preheader.i
 
@@ -891,8 +891,8 @@ cdce.call:                                        ; preds = %._crit_edge83.threa
 calc_distr.exit170:                               ; preds = %._crit_edge87.i, %cdce.call, %._crit_edge83.thread.i, %._crit_edge78.i
   %.165.i = phi ptr [ %.064.lcssa.i160, %._crit_edge78.i ], [ %.058.lcssa.i161, %._crit_edge83.thread.i ], [ %.058.lcssa.i161, %cdce.call ], [ %.058.lcssa.i161, %._crit_edge87.i ]
   %.159.i = phi ptr [ %.058.lcssa.i161, %._crit_edge78.i ], [ %.064.lcssa.i160, %._crit_edge83.thread.i ], [ %.064.lcssa.i160, %cdce.call ], [ %.064.lcssa.i160, %._crit_edge87.i ]
-  tail call void @pfree(ptr noundef %.165.i) #10
-  %182 = tail call ptr @palloc(i64 noundef %110) #10
+  tail call void @pfree(ptr noundef %.165.i) #9
+  %182 = tail call ptr @palloc(i64 noundef %110) #9
   %183 = add nsw i32 %7, -2
   %184 = uitofp nneg i32 %183 to float
   %185 = fdiv float 1.000000e+00, %184
@@ -1022,10 +1022,10 @@ calc_distr.exit170:                               ; preds = %._crit_edge87.i, %c
 
 ._crit_edge221:                                   ; preds = %235, %calc_distr.exit170
   %.0135.lcssa = phi float [ 0.000000e+00, %calc_distr.exit170 ], [ %.1136, %235 ]
-  tail call void @pfree(ptr noundef %.058.lcssa.i) #10
-  tail call void @pfree(ptr noundef %.159.i) #10
-  tail call void @pfree(ptr noundef %182) #10
-  tail call void @pfree(ptr noundef %29) #10
+  tail call void @pfree(ptr noundef %.058.lcssa.i) #9
+  tail call void @pfree(ptr noundef %.159.i) #9
+  tail call void @pfree(ptr noundef %182) #9
+  tail call void @pfree(ptr noundef %29) #9
   %236 = fsub float 1.000000e+00, %22
   %237 = fmul float %236, %.0135.lcssa
   %238 = fcmp olt float %237, 0.000000e+00
@@ -1072,7 +1072,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = call zeroext i1 @get_restriction_variable(ptr noundef %9, ptr noundef %15, i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %19 = call zeroext i1 @get_restriction_variable(ptr noundef %9, ptr noundef %15, i32 noundef %18, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %1
@@ -1095,7 +1095,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull %29) #10
+  call void %32(ptr noundef nonnull %29) #9
   br label %33
 
 33:                                               ; preds = %30, %27
@@ -1118,7 +1118,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull %42) #10
+  call void %45(ptr noundef nonnull %42) #9
   br label %133
 
 46:                                               ; preds = %36
@@ -1139,14 +1139,14 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
   %.020 = phi i32 [ %12, %46 ], [ %spec.store.select, %51 ], [ 2752, %49 ]
   %54 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %55 = load i32, ptr %54, align 4
-  %56 = call i32 @get_base_element_type(i32 noundef %55) #10
+  %56 = call i32 @get_base_element_type(i32 noundef %55) #9
   %.not26 = icmp eq i32 %56, 0
   br i1 %.not26, label %118, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %59 = load i32, ptr %58, align 8
-  %60 = call i32 @get_base_element_type(i32 noundef %59) #10
+  %60 = call i32 @get_base_element_type(i32 noundef %59) #9
   %61 = icmp eq i32 %56, %60
   br i1 %61, label %62, label %118
 
@@ -1154,7 +1154,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
   %63 = load ptr, ptr %5, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i64, ptr %64, align 8
-  %66 = call ptr @lookup_type_cache(i32 noundef range(i32 1, 0) %56, i32 noundef 64) #10
+  %66 = call ptr @lookup_type_cache(i32 noundef range(i32 1, 0) %56, i32 noundef 64) #9
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
   %68 = load i32, ptr %67, align 8
   %.not.i = icmp eq i32 %68, 0
@@ -1167,7 +1167,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
 
 72:                                               ; preds = %62
   %73 = inttoptr i64 %65 to ptr
-  %74 = call ptr @pg_detoast_datum(ptr noundef %73) #10
+  %74 = call ptr @pg_detoast_datum(ptr noundef %73) #9
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %76 = load ptr, ptr %75, align 8
   %.not28.i = icmp eq ptr %76, null
@@ -1175,7 +1175,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
 
 77:                                               ; preds = %72
   %78 = load i32, ptr %67, align 8
-  %79 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %4, i32 noundef %78) #10
+  %79 = call zeroext i1 @statistic_proc_security_check(ptr noundef nonnull %4, i32 noundef %78) #9
   br i1 %79, label %80, label %113
 
 80:                                               ; preds = %77
@@ -1188,7 +1188,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
   %84 = load i8, ptr %83, align 2
   %85 = zext i8 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %85
-  %87 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef %81, i32 noundef 4, i32 noundef 0, i32 noundef 3) #10
+  %87 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef %81, i32 noundef 4, i32 noundef 0, i32 noundef 3) #9
   br i1 %87, label %88, label %105
 
 88:                                               ; preds = %80
@@ -1197,7 +1197,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
 
 89:                                               ; preds = %88
   %90 = load ptr, ptr %75, align 8
-  %91 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef %90, i32 noundef 5, i32 noundef 0, i32 noundef 2) #10
+  %91 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %3, ptr noundef %90, i32 noundef 5, i32 noundef 0, i32 noundef 2) #9
   br i1 %91, label %._crit_edge.i, label %92
 
 ._crit_edge.i:                                    ; preds = %89
@@ -1223,8 +1223,8 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %103 = load i32, ptr %102, align 8
   %104 = call fastcc double @mcelem_array_selec(ptr noundef %74, ptr noundef nonnull %66, ptr noundef %97, i32 noundef %99, ptr noundef %101, i32 noundef %103, ptr noundef %95, i32 noundef %94, i32 noundef %.020)
-  call void @free_attstatsslot(ptr noundef nonnull %3) #10
-  call void @free_attstatsslot(ptr noundef nonnull %2) #10
+  call void @free_attstatsslot(ptr noundef nonnull %3) #9
+  call void @free_attstatsslot(ptr noundef nonnull %2) #9
   br label %107
 
 105:                                              ; preds = %80
@@ -1253,7 +1253,7 @@ define dso_local i64 @arraycontsel(ptr noundef readonly captures(none) %0) local
   br i1 %.not30.i, label %calc_arraycontsel.exit, label %117
 
 117:                                              ; preds = %115
-  call void @pfree(ptr noundef %74) #10
+  call void @pfree(ptr noundef %74) #9
   br label %calc_arraycontsel.exit
 
 118:                                              ; preds = %57, %53
@@ -1271,7 +1271,7 @@ calc_arraycontsel.exit:                           ; preds = %117, %115, %69, %11
 123:                                              ; preds = %calc_arraycontsel.exit
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull %122) #10
+  call void %125(ptr noundef nonnull %122) #9
   br label %126
 
 126:                                              ; preds = %calc_arraycontsel.exit, %123
@@ -1331,7 +1331,7 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
   %19 = trunc nuw i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %21 = load i8, ptr %20, align 1
-  call void @deconstruct_array(ptr noundef %0, i32 noundef %13, i32 noundef %16, i1 noundef zeroext %19, i8 noundef signext %21, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #10
+  call void @deconstruct_array(ptr noundef %0, i32 noundef %13, i32 noundef %16, i1 noundef zeroext %19, i8 noundef signext %21, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %10) #9
   %22 = load i32, ptr %10, align 4
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -1376,7 +1376,7 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
   %.038.lcssa52 = phi i32 [ %.1, %._crit_edge ], [ 0, %9 ]
   %37 = load ptr, ptr %11, align 8
   %38 = sext i32 %.038.lcssa52 to i64
-  call void @qsort_arg(ptr noundef %37, i64 noundef %38, i64 noundef 8, ptr noundef nonnull @element_compare, ptr noundef nonnull %1) #10
+  call void @qsort_arg(ptr noundef %37, i64 noundef %38, i64 noundef 8, ptr noundef nonnull @element_compare, ptr noundef nonnull %1) #9
   %39 = and i32 %8, -2
   %or.cond3 = icmp eq i32 %39, 2750
   br i1 %or.cond3, label %40, label %43
@@ -1396,18 +1396,17 @@ define internal fastcc double @mcelem_array_selec(ptr noundef %0, ptr noundef %1
   br label %51
 
 48:                                               ; preds = %43
-  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %49)
-  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %8) #10
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__func__.mcelem_array_selec) #10
+  %49 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  %50 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %8) #9
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 494, ptr noundef nonnull @__func__.mcelem_array_selec) #9
   unreachable
 
 51:                                               ; preds = %40, %45, %._crit_edge
   %.042 = phi double [ 0.000000e+00, %._crit_edge ], [ %42, %40 ], [ %47, %45 ]
   %52 = load ptr, ptr %11, align 8
-  call void @pfree(ptr noundef %52) #10
+  call void @pfree(ptr noundef %52) #9
   %53 = load ptr, ptr %12, align 8
-  call void @pfree(ptr noundef %53) #10
+  call void @pfree(ptr noundef %53) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1427,7 +1426,7 @@ define internal i32 @element_compare(ptr noundef readonly captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %8, i64 noundef %4, i64 noundef %5) #10
+  %9 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %8, i64 noundef %4, i64 noundef %5) #9
   %10 = trunc i64 %9 to i32
   ret i32 %10
 }
@@ -1474,14 +1473,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1491,10 +1487,9 @@ attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

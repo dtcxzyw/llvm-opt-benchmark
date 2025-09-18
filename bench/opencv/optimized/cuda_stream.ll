@@ -29,7 +29,7 @@ $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_col
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6StreamC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13throw_no_cudav() #11
+  invoke fastcc void @_ZL13throw_no_cudav() #10
           to label %2 unwind label %3
 
 2:                                                ; preds = %1
@@ -57,11 +57,11 @@ define void @_ZN2cv4cuda6StreamC2Ev(ptr noundef nonnull align 8 captures(none) d
   %14 = load ptr, ptr %6, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   %17 = load ptr, ptr %6, align 8, !tbaa !13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 20:                                               ; preds = %7
@@ -84,7 +84,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %24, %22
   br i1 %26, label %27, label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !17
 
 27:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %3, %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %27
@@ -111,7 +111,7 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #1 personality p
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   store i8 0, ptr %6, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %0)
-  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.1, i32 noundef 106) #11
+  invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -216, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @__func__._ZL13throw_no_cudav, ptr noundef nonnull @.str.1, i32 noundef 106) #10
           to label %7 unwind label %8
 
 7:                                                ; preds = %.noexc.i
@@ -122,19 +122,13 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #1 personality p
           cleanup
   %10 = load ptr, ptr %1, align 8, !tbaa !23
   %11 = icmp eq ptr %10, %2
-  br i1 %11, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %8
-  %12 = load i64, ptr %5, align 8, !tbaa !25
-  %13 = icmp ult i64 %12, 16
-  call void @llvm.assume(i1 %13)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %8
-  call void @_ZdlPv(ptr noundef %10) #13
+  call void @_ZdlPv(ptr noundef %10) #12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   resume { ptr, i32 } %9
 }
@@ -144,7 +138,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6StreamC2ERKNS_3PtrINS0_6GpuMat9AllocatorEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13throw_no_cudav() #11
+  invoke fastcc void @_ZL13throw_no_cudav() #10
           to label %3 unwind label %4
 
 3:                                                ; preds = %2
@@ -172,11 +166,11 @@ define void @_ZN2cv4cuda6StreamC2ERKNS_3PtrINS0_6GpuMat9AllocatorEEE(ptr noundef
   %15 = load ptr, ptr %7, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   %18 = load ptr, ptr %7, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 21:                                               ; preds = %8
@@ -199,7 +193,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %25, %23
   br i1 %27, label %28, label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !17
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %4, %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %28
@@ -209,7 +203,7 @@ _ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6StreamC2Em(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13throw_no_cudav() #11
+  invoke fastcc void @_ZL13throw_no_cudav() #10
           to label %3 unwind label %4
 
 3:                                                ; preds = %2
@@ -237,11 +231,11 @@ define void @_ZN2cv4cuda6StreamC2Em(ptr noundef nonnull align 8 captures(none) d
   %15 = load ptr, ptr %7, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   %18 = load ptr, ptr %7, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 21:                                               ; preds = %8
@@ -264,7 +258,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %25, %23
   br i1 %27, label %28, label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !17
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %4, %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %28
@@ -273,31 +267,31 @@ _ZNSt12__shared_ptrIN2cv4cuda6Stream4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda6Stream15queryIfCompleteEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6Stream17waitForCompletionEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6Stream9waitEventERKNS0_5EventE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda6Stream19enqueueHostCallbackEPFviPvES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noalias noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv4cuda6Stream4NullEv() local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
@@ -313,26 +307,26 @@ define { i64, i64 } @_ZNK2cv4cuda6StreamcvMS1_KFvvEEv(ptr noundef nonnull readno
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda10wrapStreamEm(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::Stream") align 8 captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda18setBufferPoolUsageEb(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda19setBufferPoolConfigEimi(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda10BufferPoolC2ERNS0_6StreamE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13throw_no_cudav() #11
+  invoke fastcc void @_ZL13throw_no_cudav() #10
           to label %3 unwind label %4
 
 3:                                                ; preds = %2
@@ -360,11 +354,11 @@ define void @_ZN2cv4cuda10BufferPoolC2ERNS0_6StreamE(ptr noundef nonnull align 8
   %15 = load ptr, ptr %7, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   %18 = load ptr, ptr %7, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6GpuMat9AllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 21:                                               ; preds = %8
@@ -387,7 +381,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %25, %23
   br i1 %27, label %28, label %_ZNSt12__shared_ptrIN2cv4cuda6GpuMat9AllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !17
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda6GpuMat9AllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv4cuda6GpuMat9AllocatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %4, %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %28
@@ -396,14 +390,14 @@ _ZNSt12__shared_ptrIN2cv4cuda6GpuMat9AllocatorELN9__gnu_cxx12_Lock_policyE2EED2E
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda10BufferPool9getBufferEiii(ptr dead_on_unwind noalias readnone sret(%"class.cv::cuda::GpuMat") align 8 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda5EventC2ENS1_11CreateFlagsE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13throw_no_cudav() #11
+  invoke fastcc void @_ZL13throw_no_cudav() #10
           to label %3 unwind label %4
 
 3:                                                ; preds = %2
@@ -431,11 +425,11 @@ define void @_ZN2cv4cuda5EventC2ENS1_11CreateFlagsE(ptr noundef nonnull align 8 
   %15 = load ptr, ptr %7, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   %18 = load ptr, ptr %7, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda5Event4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 21:                                               ; preds = %8
@@ -458,7 +452,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %25, %23
   br i1 %27, label %28, label %_ZNSt12__shared_ptrIN2cv4cuda5Event4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !17
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZNSt12__shared_ptrIN2cv4cuda5Event4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN2cv4cuda5Event4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %4, %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %28
@@ -467,25 +461,25 @@ _ZNSt12__shared_ptrIN2cv4cuda5Event4ImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda5Event6recordERNS0_6StreamE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef zeroext i1 @_ZNK2cv4cuda5Event15queryIfCompleteEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN2cv4cuda5Event17waitForCompletionEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
 define noundef float @_ZN2cv4cuda5Event11elapsedTimeERKS1_S3_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  tail call fastcc void @_ZL13throw_no_cudav() #11
+  tail call fastcc void @_ZL13throw_no_cudav() #10
   unreachable
 }
 
@@ -505,7 +499,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %2 = load ptr, ptr %0, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !15
   %.not.i = icmp eq i8 %6, 0
@@ -530,7 +524,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i: ; preds = %10, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i, %13
@@ -543,11 +537,8 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
@@ -558,11 +549,10 @@ attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { noreturn }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

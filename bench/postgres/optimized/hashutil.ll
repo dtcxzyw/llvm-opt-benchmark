@@ -30,11 +30,11 @@ define dso_local noundef zeroext i1 @_hash_checkqual(ptr noundef readnone captur
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @_hash_datum2hashkey(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #8
+  %3 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
-  %7 = tail call i64 @FunctionCall1Coll(ptr noundef %3, i32 noundef %6, i64 noundef %1) #8
+  %7 = tail call i64 @FunctionCall1Coll(ptr noundef %3, i32 noundef %6, i64 noundef %1) #7
   %8 = trunc i64 %7 to i32
   ret i32 %8
 }
@@ -48,25 +48,24 @@ define dso_local i32 @_hash_datum2hashkey_type(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
-  %7 = tail call i32 @get_opfamily_proc(i32 noundef %6, i32 noundef %2, i32 noundef %2, i16 noundef signext 1) #8
+  %7 = tail call i32 @get_opfamily_proc(i32 noundef %6, i32 noundef %2, i32 noundef %2, i16 noundef signext 1) #7
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %9)
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef 1, i32 noundef %2, i32 noundef %2, ptr noundef nonnull %12) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 115, ptr noundef nonnull @__func__._hash_datum2hashkey_type) #8
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef 1, i32 noundef %2, i32 noundef %2, ptr noundef nonnull %12) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 115, ptr noundef nonnull @__func__._hash_datum2hashkey_type) #7
   unreachable
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
-  %18 = tail call i64 @OidFunctionCall1Coll(i32 noundef %7, i32 noundef %17, i64 noundef %1) #8
+  %18 = tail call i64 @OidFunctionCall1Coll(i32 noundef %7, i32 noundef %17, i64 noundef %1) #7
   %19 = trunc i64 %18 to i32
   ret i32 %19
 }
@@ -169,16 +168,15 @@ BufferGetPage.exit:                               ; preds = %5, %11
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %BufferGetPage.exit
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %21 = tail call i32 @errcode(i32 noundef 33557032) #7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
-  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %24, i32 noundef %25) #8
-  %27 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__func__._hash_checkpage) #8
+  %25 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #7
+  %26 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %24, i32 noundef %25) #7
+  %27 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 226, ptr noundef nonnull @__func__._hash_checkpage) #7
   unreachable
 
 28:                                               ; preds = %BufferGetPage.exit
@@ -192,16 +190,15 @@ BufferGetPage.exit:                               ; preds = %5, %11
   br i1 %.not, label %42, label %33
 
 33:                                               ; preds = %28
-  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %34)
-  %35 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %34 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %35 = tail call i32 @errcode(i32 noundef 33557032) #7
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
-  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %38, i32 noundef %39) #8
-  %41 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__._hash_checkpage) #8
+  %39 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #7
+  %40 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %38, i32 noundef %39) #7
+  %41 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__._hash_checkpage) #7
   unreachable
 
 42:                                               ; preds = %28
@@ -219,16 +216,15 @@ BufferGetPage.exit:                               ; preds = %5, %11
   br i1 %50, label %51, label %60
 
 51:                                               ; preds = %43
-  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %52)
-  %53 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %52 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %53 = tail call i32 @errcode(i32 noundef 33557032) #7
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #8
-  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %56, i32 noundef %57) #8
-  %59 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__._hash_checkpage) #8
+  %57 = tail call i32 @BufferGetBlockNumber(i32 noundef %1) #7
+  %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %56, i32 noundef %57) #7
+  %59 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__._hash_checkpage) #7
   unreachable
 
 60:                                               ; preds = %43
@@ -242,14 +238,13 @@ BufferGetPage.exit:                               ; preds = %5, %11
   br i1 %.not21, label %72, label %65
 
 65:                                               ; preds = %62
-  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %66)
-  %67 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %66 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %67 = tail call i32 @errcode(i32 noundef 33557032) #7
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %70) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__._hash_checkpage) #8
+  %71 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %70) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 263, ptr noundef nonnull @__func__._hash_checkpage) #7
   unreachable
 
 72:                                               ; preds = %62
@@ -259,15 +254,14 @@ BufferGetPage.exit:                               ; preds = %5, %11
   br i1 %.not22, label %83, label %75
 
 75:                                               ; preds = %72
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %76)
-  %77 = tail call i32 @errcode(i32 noundef 33557032) #8
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %77 = tail call i32 @errcode(i32 noundef 33557032) #7
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %80) #8
-  %82 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 270, ptr noundef nonnull @__func__._hash_checkpage) #8
+  %81 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %80) #7
+  %82 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.3) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 270, ptr noundef nonnull @__func__._hash_checkpage) #7
   unreachable
 
 83:                                               ; preds = %42, %72, %60
@@ -284,7 +278,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @hashoptions(i64 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
-  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 8, i64 noundef 8, ptr noundef nonnull @hashoptions.tab, i32 noundef 1) #8
+  %3 = tail call ptr @build_reloptions(i64 noundef %0, i1 noundef zeroext %1, i32 noundef 8, i64 noundef 8, ptr noundef nonnull @hashoptions.tab, i32 noundef 1) #7
   ret ptr %3
 }
 
@@ -309,11 +303,11 @@ define dso_local noundef zeroext i1 @_hash_convert_tuple(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %1, align 8
-  %10 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #8
+  %10 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext 1, i16 noundef zeroext 1) #7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
-  %14 = tail call i64 @FunctionCall1Coll(ptr noundef %10, i32 noundef %13, i64 noundef %9) #8
+  %14 = tail call i64 @FunctionCall1Coll(ptr noundef %10, i32 noundef %13, i64 noundef %9) #7
   %15 = and i64 %14, 4294967295
   store i64 %15, ptr %3, align 8
   store i8 0, ptr %4, align 1
@@ -431,7 +425,7 @@ define dso_local i32 @_hash_get_oldblock_from_newbucket(ptr noundef %0, i32 noun
   %notmask = shl nsw i32 -1, %4
   %5 = xor i32 %notmask, -1
   %6 = and i32 %1, %5
-  %7 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #8
+  %7 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #7
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %15
 
@@ -483,7 +477,7 @@ _hash_spareindex.exit:                            ; preds = %21, %25
   %37 = phi i32 [ %35, %_hash_spareindex.exit ], [ 0, %BufferGetPage.exit ]
   %38 = add nuw i32 %6, 1
   %39 = add i32 %38, %37
-  tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %7) #8
+  tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %7) #7
   ret i32 %39
 }
 
@@ -493,7 +487,7 @@ declare void @_hash_relbuf(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @_hash_get_newblock_from_oldbucket(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #8
+  %3 = tail call i32 @_hash_getbuf(ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 8) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %11
 
@@ -559,7 +553,7 @@ _hash_spareindex.exit:                            ; preds = %27, %34
 
 BufferGetPage.exit._crit_edge:                    ; preds = %BufferGetPage.exit, %_hash_spareindex.exit
   %46 = phi i32 [ %45, %_hash_spareindex.exit ], [ 1, %BufferGetPage.exit ]
-  tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %3) #8
+  tail call void @_hash_relbuf(ptr noundef %0, i32 noundef %3) #7
   ret i32 %46
 }
 
@@ -590,13 +584,13 @@ define dso_local void @_hash_kill_items(ptr noundef readonly captures(none) %0) 
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %1
-  tail call void @LockBuffer(i32 noundef %9, i32 noundef 1) #8
+  tail call void @LockBuffer(i32 noundef %9, i32 noundef 1) #7
   br label %16
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load i32, ptr %13, align 4
-  %15 = tail call i32 @_hash_getbuf(ptr noundef %5, i32 noundef %14, i32 noundef 1, i32 noundef 1) #8
+  %15 = tail call i32 @_hash_getbuf(ptr noundef %5, i32 noundef %14, i32 noundef 1, i32 noundef 1) #7
   br label %16
 
 16:                                               ; preds = %12, %11
@@ -674,7 +668,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %56 = and i32 %.val50, 32767
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %57
-  %59 = tail call zeroext i1 @ItemPointerEquals(ptr noundef %58, ptr noundef nonnull %49) #8
+  %59 = tail call zeroext i1 @ItemPointerEquals(ptr noundef %58, ptr noundef nonnull %49) #7
   br i1 %59, label %.loopexit.thread, label %52
 
 .loopexit:                                        ; preds = %52, %44
@@ -699,7 +693,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   %64 = load i16, ptr %63, align 4
   %65 = or i16 %64, 128
   store i16 %65, ptr %63, align 4
-  tail call void @MarkBufferDirtyHint(i32 noundef %.043, i1 noundef zeroext true) #8
+  tail call void @MarkBufferDirtyHint(i32 noundef %.043, i1 noundef zeroext true) #7
   br label %.critedge
 
 .critedge:                                        ; preds = %BufferGetPage.exit, %._crit_edge.thread, %._crit_edge
@@ -711,11 +705,11 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br i1 %or.cond, label %70, label %71
 
 70:                                               ; preds = %.critedge
-  tail call void @LockBuffer(i32 noundef %68, i32 noundef 0) #8
+  tail call void @LockBuffer(i32 noundef %68, i32 noundef 0) #7
   br label %72
 
 71:                                               ; preds = %.critedge
-  tail call void @_hash_relbuf(ptr noundef %5, i32 noundef %.043) #8
+  tail call void @_hash_relbuf(ptr noundef %5, i32 noundef %.043) #7
   br label %72
 
 72:                                               ; preds = %71, %70
@@ -731,9 +725,6 @@ declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -741,9 +732,8 @@ attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

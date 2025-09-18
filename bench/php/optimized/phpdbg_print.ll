@@ -257,7 +257,7 @@ define hidden noundef i32 @phpdbg_do_print_class(ptr noundef readonly captures(n
   %8 = call i32 @phpdbg_safe_class_lookup(ptr noundef %4, i32 noundef %7, ptr noundef nonnull %2) #11
   %9 = icmp eq i32 %8, 0
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  br i1 %9, label %11, label %48
+  br i1 %9, label %11, label %45
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %2, align 8, !tbaa !88
@@ -292,37 +292,32 @@ define hidden noundef i32 @phpdbg_do_print_class(ptr noundef readonly captures(n
   %36 = zext i32 %35 to i64
   %.idx = shl nuw nsw i64 %36, 5
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  %39 = load i32, ptr %38, align 8, !tbaa !61
-  %40 = and i32 %39, 4
-  %.not16 = icmp eq i32 %40, 0
-  call void @llvm.assume(i1 %.not16)
   %.not1718 = icmp eq i32 %35, 0
   br i1 %.not1718, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %31, %46
-  %.019 = phi ptr [ %47, %46 ], [ %33, %31 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.019, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !61
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %46, label %44, !prof !104
+.lr.ph:                                           ; preds = %31, %43
+  %.019 = phi ptr [ %44, %43 ], [ %33, %31 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.019, i64 8
+  %39 = load i8, ptr %38, align 8, !tbaa !61
+  %40 = icmp eq i8 %39, 0
+  br i1 %40, label %43, label %41, !prof !104
 
-44:                                               ; preds = %.lr.ph
-  %45 = load ptr, ptr %.019, align 8, !tbaa !61
-  call fastcc void @phpdbg_print_function_helper(ptr noundef %45)
-  br label %46
+41:                                               ; preds = %.lr.ph
+  %42 = load ptr, ptr %.019, align 8, !tbaa !61
+  call fastcc void @phpdbg_print_function_helper(ptr noundef %42)
+  br label %43
 
-46:                                               ; preds = %.lr.ph, %44
-  %47 = getelementptr inbounds nuw i8, ptr %.019, i64 32
-  %.not17 = icmp eq ptr %47, %37
+43:                                               ; preds = %.lr.ph, %41
+  %44 = getelementptr inbounds nuw i8, ptr %.019, i64 32
+  %.not17 = icmp eq ptr %44, %37
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
-48:                                               ; preds = %1
-  %49 = load ptr, ptr %3, align 8, !tbaa !83
-  %50 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.27, ptr noundef %49) #11
+45:                                               ; preds = %1
+  %46 = load ptr, ptr %3, align 8, !tbaa !83
+  %47 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %10, ptr noundef nonnull @.str.27, ptr noundef %46) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %46, %31, %11, %48
+.loopexit:                                        ; preds = %43, %31, %11, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 0
 }
@@ -946,88 +941,79 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr noundef readonly captur
   %26 = zext i32 %25 to i64
   %.idx = shl nuw nsw i64 %26, 5
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %29 = load i32, ptr %28, align 8, !tbaa !61
-  %30 = and i32 %29, 4
-  %.not35 = icmp eq i32 %30, 0
-  tail call void @llvm.assume(i1 %.not35)
   %.not3639 = icmp eq i32 %25, 0
   br i1 %.not3639, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %46
-  %.041 = phi i8 [ %.1, %46 ], [ 1, %17 ]
-  %.03240 = phi ptr [ %47, %46 ], [ %23, %17 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.03240, i64 8
-  %32 = load i8, ptr %31, align 8, !tbaa !61
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %46, label %34, !prof !104
+.lr.ph:                                           ; preds = %17, %43
+  %.041 = phi i8 [ %.1, %43 ], [ 1, %17 ]
+  %.03240 = phi ptr [ %44, %43 ], [ %23, %17 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.03240, i64 8
+  %29 = load i8, ptr %28, align 8, !tbaa !61
+  %30 = icmp eq i8 %29, 0
+  br i1 %30, label %43, label %31, !prof !104
 
-34:                                               ; preds = %.lr.ph
-  %35 = load ptr, ptr %.03240, align 8, !tbaa !61
-  %36 = trunc nuw i8 %.041 to i1
-  br i1 %36, label %40, label %37
+31:                                               ; preds = %.lr.ph
+  %32 = load ptr, ptr %.03240, align 8, !tbaa !61
+  %33 = trunc nuw i8 %.041 to i1
+  br i1 %33, label %37, label %34
 
-37:                                               ; preds = %34
+34:                                               ; preds = %31
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %36 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %35, ptr noundef nonnull @.str.49) #11
+  br label %37
+
+37:                                               ; preds = %31, %34
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %39 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %38, ptr noundef nonnull @.str.49) #11
-  br label %40
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !61
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %42 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %38, ptr noundef nonnull @.str.50, ptr noundef nonnull %41) #11
+  br label %43
 
-40:                                               ; preds = %34, %37
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !61
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %41, ptr noundef nonnull @.str.50, ptr noundef nonnull %44) #11
-  br label %46
-
-46:                                               ; preds = %.lr.ph, %40
-  %.1 = phi i8 [ 0, %40 ], [ %.041, %.lr.ph ]
-  %47 = getelementptr inbounds nuw i8, ptr %.03240, i64 32
-  %.not36 = icmp eq ptr %47, %27
+43:                                               ; preds = %.lr.ph, %37
+  %.1 = phi i8 [ 0, %37 ], [ %.041, %.lr.ph ]
+  %44 = getelementptr inbounds nuw i8, ptr %.03240, i64 32
+  %.not36 = icmp eq ptr %44, %27
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %46
-  %48 = trunc nuw i8 %.1 to i1
-  br i1 %48, label %._crit_edge.thread, label %51
+._crit_edge:                                      ; preds = %43
+  %45 = trunc nuw i8 %.1 to i1
+  br i1 %45, label %._crit_edge.thread, label %48
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %50 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %49, ptr noundef nonnull @.str.51) #11
-  br label %51
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %47 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %46, ptr noundef nonnull @.str.51) #11
+  br label %48
 
-51:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %52 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %53 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %52, ptr noundef nonnull @.str.37) #11
-  %54 = load ptr, ptr %22, align 8, !tbaa !61
-  %55 = load i32, ptr %24, align 8, !tbaa !103
-  %56 = zext i32 %55 to i64
-  %.idx46 = shl nuw nsw i64 %56, 5
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx46
-  %58 = load i32, ptr %28, align 8, !tbaa !61
-  %59 = and i32 %58, 4
-  %.not37 = icmp eq i32 %59, 0
-  tail call void @llvm.assume(i1 %.not37)
-  %.not3842 = icmp eq i32 %55, 0
+48:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %50 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %49, ptr noundef nonnull @.str.37) #11
+  %51 = load ptr, ptr %22, align 8, !tbaa !61
+  %52 = load i32, ptr %24, align 8, !tbaa !103
+  %53 = zext i32 %52 to i64
+  %.idx46 = shl nuw nsw i64 %53, 5
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx46
+  %.not3842 = icmp eq i32 %52, 0
   br i1 %.not3842, label %.loopexit, label %.lr.ph45
 
-.lr.ph45:                                         ; preds = %51, %65
-  %.03143 = phi ptr [ %66, %65 ], [ %54, %51 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.03143, i64 8
-  %61 = load i8, ptr %60, align 8, !tbaa !61
-  %62 = icmp eq i8 %61, 0
-  br i1 %62, label %65, label %63, !prof !104
+.lr.ph45:                                         ; preds = %48, %60
+  %.03143 = phi ptr [ %61, %60 ], [ %51, %48 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.03143, i64 8
+  %56 = load i8, ptr %55, align 8, !tbaa !61
+  %57 = icmp eq i8 %56, 0
+  br i1 %57, label %60, label %58, !prof !104
 
-63:                                               ; preds = %.lr.ph45
-  %64 = load ptr, ptr %.03143, align 8, !tbaa !61
-  tail call fastcc void @phpdbg_print_function_helper(ptr noundef %64)
-  br label %65
+58:                                               ; preds = %.lr.ph45
+  %59 = load ptr, ptr %.03143, align 8, !tbaa !61
+  tail call fastcc void @phpdbg_print_function_helper(ptr noundef %59)
+  br label %60
 
-65:                                               ; preds = %.lr.ph45, %63
-  %66 = getelementptr inbounds nuw i8, ptr %.03143, i64 32
-  %.not38 = icmp eq ptr %66, %57
+60:                                               ; preds = %.lr.ph45, %58
+  %61 = getelementptr inbounds nuw i8, ptr %.03143, i64 32
+  %.not38 = icmp eq ptr %61, %54
   br i1 %.not38, label %.loopexit, label %.lr.ph45
 
-.loopexit:                                        ; preds = %65, %51, %1
+.loopexit:                                        ; preds = %60, %48, %1
   ret void
 }
 
@@ -1045,13 +1031,13 @@ define hidden void @phpdbg_print_opcodes(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %1
   %7 = load i8, ptr %0, align 1, !tbaa !61
   %8 = icmp eq i8 %7, 42
-  br i1 %8, label %9, label %68
+  br i1 %8, label %9, label %62
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !61
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %68
+  br i1 %12, label %13, label %62
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1360), align 8, !tbaa !38
@@ -1064,155 +1050,145 @@ define hidden void @phpdbg_print_opcodes(ptr noundef %0) local_unnamed_addr #0 {
   %20 = zext i32 %19 to i64
   %.idx = shl nuw nsw i64 %20, 5
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !61
-  %24 = and i32 %23, 4
-  %.not = icmp eq i32 %24, 0
-  tail call void @llvm.assume(i1 %.not)
   %.not4247 = icmp eq i32 %19, 0
   br i1 %.not4247, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %phpdbg_print_opcodes_function.exit
-  %.048 = phi ptr [ %45, %phpdbg_print_opcodes_function.exit ], [ %17, %13 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.048, i64 8
-  %26 = load i8, ptr %25, align 8, !tbaa !61
-  %27 = icmp eq i8 %26, 0
-  br i1 %27, label %phpdbg_print_opcodes_function.exit, label %28, !prof !104
+  %.048 = phi ptr [ %42, %phpdbg_print_opcodes_function.exit ], [ %17, %13 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %23 = load i8, ptr %22, align 8, !tbaa !61
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %phpdbg_print_opcodes_function.exit, label %25, !prof !104
 
-28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr %.048, align 8, !tbaa !61
-  %30 = load i8, ptr %29, align 8, !tbaa !61
-  %31 = icmp eq i8 %30, 2
-  br i1 %31, label %32, label %phpdbg_print_opcodes_function.exit
+25:                                               ; preds = %.lr.ph
+  %26 = load ptr, ptr %.048, align 8, !tbaa !61
+  %27 = load i8, ptr %26, align 8, !tbaa !61
+  %28 = icmp eq i8 %27, 2
+  br i1 %28, label %29, label %phpdbg_print_opcodes_function.exit
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %.048, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !135
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !110
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8, !tbaa !111
-  %39 = tail call ptr @zend_hash_str_find(ptr noundef %38, ptr noundef nonnull %35, i64 noundef %37) #11
-  %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %40, label %43
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %.048, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !135
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %34 = load i64, ptr %33, align 8, !tbaa !110
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8, !tbaa !111
+  %36 = tail call ptr @zend_hash_str_find(ptr noundef %35, ptr noundef nonnull %32, i64 noundef %34) #11
+  %.not.i.i = icmp eq ptr %36, null
+  br i1 %.not.i.i, label %37, label %40
 
-40:                                               ; preds = %32
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %42 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %41, ptr noundef nonnull @.str.35, ptr noundef nonnull %35) #11
+37:                                               ; preds = %29
+  %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %39 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %38, ptr noundef nonnull @.str.35, ptr noundef nonnull %32) #11
   br label %phpdbg_print_opcodes_function.exit
 
-43:                                               ; preds = %32
-  %44 = load ptr, ptr %39, align 8, !tbaa !61, !nonnull !58, !noundef !58
-  tail call fastcc void @phpdbg_print_function_helper(ptr noundef nonnull %44)
+40:                                               ; preds = %29
+  %41 = load ptr, ptr %36, align 8, !tbaa !61, !nonnull !58, !noundef !58
+  tail call fastcc void @phpdbg_print_function_helper(ptr noundef nonnull %41)
   br label %phpdbg_print_opcodes_function.exit
 
-phpdbg_print_opcodes_function.exit:               ; preds = %43, %40, %28, %.lr.ph
-  %45 = getelementptr inbounds nuw i8, ptr %.048, i64 32
-  %.not42 = icmp eq ptr %45, %21
+phpdbg_print_opcodes_function.exit:               ; preds = %40, %37, %25, %.lr.ph
+  %42 = getelementptr inbounds nuw i8, ptr %.048, i64 32
+  %.not42 = icmp eq ptr %42, %21
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %phpdbg_print_opcodes_function.exit, %13
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8, !tbaa !137
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !61
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %50 = load i32, ptr %49, align 8, !tbaa !103
-  %51 = zext i32 %50 to i64
-  %.idx53 = shl nuw nsw i64 %51, 5
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx53
-  %53 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %54 = load i32, ptr %53, align 8, !tbaa !61
-  %55 = and i32 %54, 4
-  %.not43 = icmp eq i32 %55, 0
-  tail call void @llvm.assume(i1 %.not43)
-  %.not4449 = icmp eq i32 %50, 0
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8, !tbaa !137
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !61
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %47 = load i32, ptr %46, align 8, !tbaa !103
+  %48 = zext i32 %47 to i64
+  %.idx53 = shl nuw nsw i64 %48, 5
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx53
+  %.not4449 = icmp eq i32 %47, 0
   br i1 %.not4449, label %.loopexit, label %.lr.ph52
 
-.lr.ph52:                                         ; preds = %._crit_edge, %66
-  %.03950 = phi ptr [ %67, %66 ], [ %48, %._crit_edge ]
-  %56 = getelementptr inbounds nuw i8, ptr %.03950, i64 8
-  %57 = load i8, ptr %56, align 8, !tbaa !61
-  %58 = icmp eq i8 %57, 0
-  br i1 %58, label %66, label %59, !prof !104
+.lr.ph52:                                         ; preds = %._crit_edge, %60
+  %.03950 = phi ptr [ %61, %60 ], [ %45, %._crit_edge ]
+  %50 = getelementptr inbounds nuw i8, ptr %.03950, i64 8
+  %51 = load i8, ptr %50, align 8, !tbaa !61
+  %52 = icmp eq i8 %51, 0
+  br i1 %52, label %60, label %53, !prof !104
 
-59:                                               ; preds = %.lr.ph52
-  %60 = load ptr, ptr %.03950, align 8, !tbaa !61
-  %61 = load i8, ptr %60, align 8, !tbaa !89
-  %62 = icmp eq i8 %61, 2
-  br i1 %62, label %63, label %66
+53:                                               ; preds = %.lr.ph52
+  %54 = load ptr, ptr %.03950, align 8, !tbaa !61
+  %55 = load i8, ptr %54, align 8, !tbaa !89
+  %56 = icmp eq i8 %55, 2
+  br i1 %56, label %57, label %60
 
-63:                                               ; preds = %59
-  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %65 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %64, ptr noundef nonnull @.str.37) #11
-  tail call fastcc void @phpdbg_print_opcodes_ce(ptr noundef nonnull %60)
-  br label %66
+57:                                               ; preds = %53
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %59 = tail call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %58, ptr noundef nonnull @.str.37) #11
+  tail call fastcc void @phpdbg_print_opcodes_ce(ptr noundef nonnull %54)
+  br label %60
 
-66:                                               ; preds = %59, %63, %.lr.ph52
-  %67 = getelementptr inbounds nuw i8, ptr %.03950, i64 32
-  %.not44 = icmp eq ptr %67, %52
+60:                                               ; preds = %53, %57, %.lr.ph52
+  %61 = getelementptr inbounds nuw i8, ptr %.03950, i64 32
+  %.not44 = icmp eq ptr %61, %49
   br i1 %.not44, label %.loopexit, label %.lr.ph52
 
-68:                                               ; preds = %9, %6
-  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
-  %70 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %0, i64 noundef %69) #11
-  %71 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) @.str.38) #13
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %82
+62:                                               ; preds = %9, %6
+  %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
+  %64 = tail call ptr @zend_str_tolower_dup(ptr noundef nonnull %0, i64 noundef %63) #11
+  %65 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) @.str.38) #13
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %67, label %76
 
-73:                                               ; preds = %68
-  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #13
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8, !tbaa !111
-  %76 = tail call ptr @zend_hash_str_find(ptr noundef %75, ptr noundef nonnull %70, i64 noundef %74) #11
-  %.not.i.i45 = icmp eq ptr %76, null
-  br i1 %.not.i.i45, label %77, label %80
+67:                                               ; preds = %62
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #13
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 456), align 8, !tbaa !111
+  %70 = tail call ptr @zend_hash_str_find(ptr noundef %69, ptr noundef nonnull %64, i64 noundef %68) #11
+  %.not.i.i45 = icmp eq ptr %70, null
+  br i1 %.not.i.i45, label %71, label %74
 
-77:                                               ; preds = %73
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %79 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %78, ptr noundef nonnull @.str.35, ptr noundef nonnull %70) #11
+71:                                               ; preds = %67
+  %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %73 = tail call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %72, ptr noundef nonnull @.str.35, ptr noundef nonnull %64) #11
   br label %phpdbg_print_opcodes_function.exit46
 
-80:                                               ; preds = %73
-  %81 = load ptr, ptr %76, align 8, !tbaa !61, !nonnull !58, !noundef !58
-  tail call fastcc void @phpdbg_print_function_helper(ptr noundef nonnull %81)
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %70, align 8, !tbaa !61, !nonnull !58, !noundef !58
+  tail call fastcc void @phpdbg_print_function_helper(ptr noundef nonnull %75)
   br label %phpdbg_print_opcodes_function.exit46
 
-82:                                               ; preds = %68
-  %83 = tail call ptr @strtok(ptr noundef nonnull %70, ptr noundef nonnull @.str.38) #11
-  %84 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.38) #11
-  %85 = icmp eq ptr %84, null
-  br i1 %85, label %86, label %95
+76:                                               ; preds = %62
+  %77 = tail call ptr @strtok(ptr noundef nonnull %64, ptr noundef nonnull @.str.38) #11
+  %78 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.38) #11
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %80, label %89
 
-86:                                               ; preds = %82
+80:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #13
-  %88 = trunc i64 %87 to i32
-  %89 = call i32 @phpdbg_safe_class_lookup(ptr noundef nonnull %83, i32 noundef %88, ptr noundef nonnull %2) #11
-  %.not.i = icmp eq i32 %89, 0
-  br i1 %.not.i, label %93, label %90
+  %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #13
+  %82 = trunc i64 %81 to i32
+  %83 = call i32 @phpdbg_safe_class_lookup(ptr noundef nonnull %77, i32 noundef %82, ptr noundef nonnull %2) #11
+  %.not.i = icmp eq i32 %83, 0
+  br i1 %.not.i, label %87, label %84
 
-90:                                               ; preds = %86
-  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
-  %92 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %91, ptr noundef nonnull @.str.27, ptr noundef nonnull %83) #11
+84:                                               ; preds = %80
+  %85 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
+  %86 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %85, ptr noundef nonnull @.str.27, ptr noundef nonnull %77) #11
   br label %phpdbg_print_opcodes_class.exit
 
-93:                                               ; preds = %86
-  %94 = load ptr, ptr %2, align 8, !tbaa !88
-  call fastcc void @phpdbg_print_opcodes_ce(ptr noundef %94)
+87:                                               ; preds = %80
+  %88 = load ptr, ptr %2, align 8, !tbaa !88
+  call fastcc void @phpdbg_print_opcodes_ce(ptr noundef %88)
   br label %phpdbg_print_opcodes_class.exit
 
-phpdbg_print_opcodes_class.exit:                  ; preds = %90, %93
+phpdbg_print_opcodes_class.exit:                  ; preds = %84, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %phpdbg_print_opcodes_function.exit46
 
-95:                                               ; preds = %82
-  tail call void @phpdbg_print_opcodes_method(ptr noundef %83, ptr noundef nonnull %84)
+89:                                               ; preds = %76
+  tail call void @phpdbg_print_opcodes_method(ptr noundef %77, ptr noundef nonnull %78)
   br label %phpdbg_print_opcodes_function.exit46
 
-phpdbg_print_opcodes_function.exit46:             ; preds = %80, %77, %phpdbg_print_opcodes_class.exit, %95
-  call void @_efree(ptr noundef nonnull %70) #11
+phpdbg_print_opcodes_function.exit46:             ; preds = %74, %71, %phpdbg_print_opcodes_class.exit, %89
+  call void @_efree(ptr noundef nonnull %64) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %66, %._crit_edge, %phpdbg_print_opcodes_function.exit46, %4
+.loopexit:                                        ; preds = %60, %._crit_edge, %phpdbg_print_opcodes_function.exit46, %4
   ret void
 }
 

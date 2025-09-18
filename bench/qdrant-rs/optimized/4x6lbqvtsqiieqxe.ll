@@ -173,12 +173,9 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN77_$LT$common..defaul
 
 _ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE.exit: ; preds = %1, %7
   %8 = load ptr, ptr %4, align 8, !nonnull !7, !align !42, !noundef !7
-  %9 = load i64, ptr %8, align 8, !range !46, !noundef !7
-  %10 = icmp ne i64 %9, 0
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  ret ptr %11
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  ret ptr %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -188,25 +185,21 @@ define void @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$lazy_static
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", ptr %4, align 8
-  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16) acquire, align 8, !noalias !47
+  %5 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16) acquire, align 8, !noalias !46
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0da44dc4cec4468cE.exit", label %7
 
 7:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !47
-  store ptr %4, ptr %3, align 8, !noalias !47
-  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !47
-  store ptr %3, ptr %2, align 8, !noalias !47
+  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !46
+  store ptr %4, ptr %3, align 8, !noalias !46
+  call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !46
+  store ptr %3, ptr %2, align 8, !noalias !46
   call void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E(ptr noundef nonnull align 4 getelementptr inbounds nuw (i8, ptr @"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h586e3e9400ebdea2E", i64 16), i1 noundef zeroext false, ptr noalias noundef nonnull align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2e3be23e0a2f7be1ddaeadb6f174a148.14)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !47
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !46
+  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !46
   br label %"_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0da44dc4cec4468cE.exit"
 
 "_ZN77_$LT$common..defaults..POOL_KEEP_LIMIT$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0da44dc4cec4468cE.exit": ; preds = %1, %7
-  %8 = load ptr, ptr %4, align 8, !nonnull !7, !align !42, !noundef !7
-  %9 = load i64, ptr %8, align 8, !range !46, !noundef !7
-  %10 = icmp ne i64 %9, 0
-  call void @llvm.assume(i1 %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -217,20 +210,17 @@ declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, 
 ; Function Attrs: cold nonlazybind uwtable
 declare hidden void @_ZN3std10sys_common4once5futex4Once4call17h77a8a08035c8bad9E(ptr noundef nonnull align 4, i1 noundef zeroext, ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #8
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #9
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #12
+declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -241,10 +231,9 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #6 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}
@@ -295,7 +284,6 @@ attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 !43 = !{!44}
 !44 = distinct !{!44, !45, !"_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE: argument 0"}
 !45 = distinct !{!45, !"_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE"}
-!46 = !{i64 0, i64 2}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE: argument 0"}
-!49 = distinct !{!49, !"_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE: argument 0"}
+!48 = distinct !{!48, !"_ZN3std4sync4once4Once9call_once17h7627a5435cc978bcE"}

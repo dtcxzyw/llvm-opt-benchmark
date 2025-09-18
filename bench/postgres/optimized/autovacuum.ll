@@ -170,19 +170,19 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %2
-  call void @MemoryContextDelete(ptr noundef nonnull %8) #18
+  call void @MemoryContextDelete(ptr noundef nonnull %8) #17
   store ptr null, ptr @PostmasterContext, align 8
   br label %10
 
 10:                                               ; preds = %9, %2
   store i32 3, ptr @MyBackendType, align 4
-  call void @init_ps_display(ptr noundef null) #18
-  %11 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
+  call void @init_ps_display(ptr noundef null) #17
+  %11 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
-  %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 384, ptr noundef nonnull @__func__.AutoVacLauncherMain) #18
+  %13 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 384, ptr noundef nonnull @__func__.AutoVacLauncherMain) #17
   br label %14
 
 14:                                               ; preds = %12, %10
@@ -193,28 +193,28 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
 16:                                               ; preds = %14
   %17 = sext i32 %15 to i64
   %18 = mul nsw i64 %17, 1000000
-  call void @pg_usleep(i64 noundef %18) #18
+  call void @pg_usleep(i64 noundef %18) #17
   br label %19
 
 19:                                               ; preds = %16, %14
-  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #18
-  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @StatementCancelHandler) #18
-  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @SignalHandlerForShutdownRequest) #18
-  call void @InitializeTimeouts() #18
-  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #18
-  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull @avl_sigusr2_handler) #18
-  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull @FloatExceptionHandler) #18
-  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #18
-  call void @InitProcess() #18
-  call void @BaseInit() #18
-  call void @InitPostgres(ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null) #18
+  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #17
+  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @StatementCancelHandler) #17
+  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @SignalHandlerForShutdownRequest) #17
+  call void @InitializeTimeouts() #17
+  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
+  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #17
+  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull @avl_sigusr2_handler) #17
+  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull @FloatExceptionHandler) #17
+  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #17
+  call void @InitProcess() #17
+  call void @BaseInit() #17
+  call void @InitPostgres(ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null) #17
   store i32 2, ptr @Mode, align 4
   %20 = load ptr, ptr @TopMemoryContext, align 8
-  %21 = call ptr @AllocSetContextCreateInternal(ptr noundef %20, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
+  %21 = call ptr @AllocSetContextCreateInternal(ptr noundef %20, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
   store ptr %21, ptr @AutovacMemCxt, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
-  %22 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 1) #19
+  %22 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 1) #18
   %.not18 = icmp eq i32 %22, 0
   br i1 %.not18, label %37, label %23
 
@@ -223,32 +223,32 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   %24 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %25 = add i32 %24, 1
   store volatile i32 %25, ptr @InterruptHoldoffCount, align 4
-  call void @disable_all_timeouts(i1 noundef zeroext false) #18
+  call void @disable_all_timeouts(i1 noundef zeroext false) #17
   store volatile i32 0, ptr @QueryCancelPending, align 4
-  call void @EmitErrorReport() #18
-  call void @AbortCurrentTransaction() #18
-  call void @LWLockReleaseAll() #18
+  call void @EmitErrorReport() #17
+  call void @AbortCurrentTransaction() #17
+  call void @LWLockReleaseAll() #17
   %26 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %26, align 4
-  call void @UnlockBuffers() #18
+  call void @UnlockBuffers() #17
   %27 = load ptr, ptr @AuxProcessResourceOwner, align 8
   %.not19 = icmp eq ptr %27, null
   br i1 %.not19, label %29, label %28
 
 28:                                               ; preds = %23
-  call void @ReleaseAuxProcessResources(i1 noundef zeroext false) #18
+  call void @ReleaseAuxProcessResources(i1 noundef zeroext false) #17
   br label %29
 
 29:                                               ; preds = %28, %23
-  call void @AtEOXact_Buffers(i1 noundef zeroext false) #18
-  call void @AtEOXact_SMgr() #18
-  call void @AtEOXact_Files(i1 noundef zeroext false) #18
-  call void @AtEOXact_HashTables(i1 noundef zeroext false) #18
+  call void @AtEOXact_Buffers(i1 noundef zeroext false) #17
+  call void @AtEOXact_SMgr() #17
+  call void @AtEOXact_Files(i1 noundef zeroext false) #17
+  call void @AtEOXact_HashTables(i1 noundef zeroext false) #17
   %30 = load ptr, ptr @AutovacMemCxt, align 8
   store ptr %30, ptr @CurrentMemoryContext, align 8
-  call void @FlushErrorState() #18
+  call void @FlushErrorState() #17
   %31 = load ptr, ptr @AutovacMemCxt, align 8
-  call void @MemoryContextReset(ptr noundef %31) #18
+  call void @MemoryContextReset(ptr noundef %31) #17
   store ptr null, ptr @DatabaseListCxt, align 8
   store ptr @DatabaseList, ptr @DatabaseList, align 8
   store ptr @DatabaseList, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
@@ -260,24 +260,24 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   br i1 %.not20, label %36, label %35
 
 35:                                               ; preds = %29
-  call fastcc void @AutoVacLauncherShutdown() #20
+  call fastcc void @AutoVacLauncherShutdown() #19
   unreachable
 
 36:                                               ; preds = %29
-  call void @pg_usleep(i64 noundef 1000000) #18
+  call void @pg_usleep(i64 noundef 1000000) #17
   br label %37
 
 37:                                               ; preds = %36, %19
   store ptr %7, ptr @PG_exception_stack, align 8
-  %38 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 5, i32 noundef 10) #18
+  %38 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 5, i32 noundef 10) #17
   %39 = load i8, ptr @autovacuum_start_daemon, align 1, !range !4, !noundef !5
   %40 = trunc nuw i8 %39 to i1
   %41 = load i8, ptr @pgstat_track_counts, align 1, !range !4
@@ -295,7 +295,7 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   br label %47
 
 47:                                               ; preds = %45, %43
-  call void @proc_exit(i32 noundef 0) #21
+  call void @proc_exit(i32 noundef 0) #20
   unreachable
 
 48:                                               ; preds = %37
@@ -332,13 +332,13 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   br i1 %spec.select.i.i, label %75, label %67
 
 67:                                               ; preds = %63
-  %68 = call i64 @GetCurrentTimestamp() #18
+  %68 = call i64 @GetCurrentTimestamp() #17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %69 = load ptr, ptr @DatabaseList, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 -16
   %71 = load i64, ptr %70, align 8
-  call void @TimestampDifference(i64 noundef %68, i64 noundef %71, ptr noundef nonnull %5, ptr noundef nonnull %6) #18
+  call void @TimestampDifference(i64 noundef %68, i64 noundef %71, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %72 = load i64, ptr %5, align 8
   %73 = load i32, ptr %6, align 4
   %74 = sext i32 %73 to i64
@@ -378,13 +378,13 @@ define dso_local void @AutoVacLauncherMain(ptr noundef readnone captures(none) %
   br i1 %spec.select.i.i.i, label %98, label %89
 
 89:                                               ; preds = %85
-  %90 = call i64 @GetCurrentTimestamp() #18
+  %90 = call i64 @GetCurrentTimestamp() #17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %91 = load ptr, ptr @DatabaseList, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 -16
   %93 = load i64, ptr %92, align 8
-  call void @TimestampDifference(i64 noundef %90, i64 noundef %93, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
+  call void @TimestampDifference(i64 noundef %90, i64 noundef %93, ptr noundef nonnull %3, ptr noundef nonnull %4) #17
   %94 = load i64, ptr %3, align 8
   %95 = load i32, ptr %4, align 4
   %96 = zext i32 %95 to i64
@@ -437,15 +437,15 @@ launcher_determine_sleep.exit:                    ; preds = %108, %.thread26.i, 
   %111 = sdiv i32 %.lhs.trunc, 1000
   %.sext = sext i32 %111 to i64
   %112 = add i64 %110, %.sext
-  %113 = call i32 @WaitLatch(ptr noundef %109, i32 noundef 41, i64 noundef %112, i32 noundef 83886081) #18
+  %113 = call i32 @WaitLatch(ptr noundef %109, i32 noundef 41, i64 noundef %112, i32 noundef 83886081) #17
   %114 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %114) #18
+  call void @ResetLatch(ptr noundef %114) #17
   %115 = load volatile i32, ptr @ShutdownRequestPending, align 4
   %.not.i = icmp eq i32 %115, 0
   br i1 %.not.i, label %117, label %116
 
 116:                                              ; preds = %launcher_determine_sleep.exit
-  call fastcc void @AutoVacLauncherShutdown() #20
+  call fastcc void @AutoVacLauncherShutdown() #19
   unreachable
 
 117:                                              ; preds = %launcher_determine_sleep.exit
@@ -456,7 +456,7 @@ launcher_determine_sleep.exit:                    ; preds = %108, %.thread26.i, 
 119:                                              ; preds = %117
   %120 = load i32, ptr @autovacuum_max_workers, align 4
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2) #18
+  call void @ProcessConfigFile(i32 noundef 2) #17
   %121 = load i8, ptr @autovacuum_start_daemon, align 1, !range !4, !noundef !5
   %122 = trunc nuw i8 %121 to i1
   %123 = load i8, ptr @pgstat_track_counts, align 1, !range !4
@@ -465,7 +465,7 @@ launcher_determine_sleep.exit:                    ; preds = %108, %.thread26.i, 
   br i1 %or.cond.i.i, label %126, label %125
 
 125:                                              ; preds = %119
-  call fastcc void @AutoVacLauncherShutdown() #20
+  call fastcc void @AutoVacLauncherShutdown() #19
   unreachable
 
 126:                                              ; preds = %119
@@ -477,17 +477,17 @@ launcher_determine_sleep.exit:                    ; preds = %108, %.thread26.i, 
   br i1 %or.cond.i29, label %130, label %check_av_worker_gucs.exit.i
 
 130:                                              ; preds = %126
-  %131 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %131 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %131, label %132, label %check_av_worker_gucs.exit.i
 
 132:                                              ; preds = %130
-  %133 = call i32 @errcode(i32 noundef 50856066) #18
+  %133 = call i32 @errcode(i32 noundef 50856066) #17
   %134 = load i32, ptr @autovacuum_max_workers, align 4
   %135 = load i32, ptr @autovacuum_worker_slots, align 4
-  %136 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %134, i32 noundef %135) #18
+  %136 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %134, i32 noundef %135) #17
   %137 = load i32, ptr @autovacuum_worker_slots, align 4
-  %138 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55, i32 noundef %137) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3411, ptr noundef nonnull @__func__.check_av_worker_gucs) #18
+  %138 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55, i32 noundef %137) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3411, ptr noundef nonnull @__func__.check_av_worker_gucs) #17
   br label %check_av_worker_gucs.exit.i
 
 check_av_worker_gucs.exit.i:                      ; preds = %132, %130, %126
@@ -500,7 +500,7 @@ check_av_worker_gucs.exit.i:                      ; preds = %132, %130, %126
   br i1 %.not3.i, label %142, label %141
 
 141:                                              ; preds = %139
-  call void @ProcessProcSignalBarrier() #18
+  call void @ProcessProcSignalBarrier() #17
   br label %142
 
 142:                                              ; preds = %141, %139
@@ -509,11 +509,11 @@ check_av_worker_gucs.exit.i:                      ; preds = %132, %130, %126
   br i1 %.not4.i, label %HandleAutoVacLauncherInterrupts.exit, label %144
 
 144:                                              ; preds = %142
-  call void @ProcessLogMemoryContextInterrupt() #18
+  call void @ProcessLogMemoryContextInterrupt() #17
   br label %HandleAutoVacLauncherInterrupts.exit
 
 HandleAutoVacLauncherInterrupts.exit:             ; preds = %142, %144
-  call void @ProcessCatchupInterrupt() #18
+  call void @ProcessCatchupInterrupt() #17
   %145 = load volatile i32, ptr @got_SIGUSR2, align 4
   %.not23 = icmp eq i32 %145, 0
   br i1 %.not23, label %179, label %146
@@ -529,7 +529,7 @@ HandleAutoVacLauncherInterrupts.exit:             ; preds = %142, %144
 150:                                              ; preds = %146
   %151 = load ptr, ptr @MainLWLockArray, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2816
-  %153 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %152, i32 noundef 0) #18
+  %153 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %152, i32 noundef 0) #17
   %154 = load ptr, ptr @AutoVacuumShmem, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store i32 0, ptr %155, align 4
@@ -578,7 +578,7 @@ HandleAutoVacLauncherInterrupts.exit:             ; preds = %142, %144
 autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %172
   %173 = load ptr, ptr @MainLWLockArray, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %174) #18
+  call void @LWLockRelease(ptr noundef nonnull %174) #17
   %.pre = load ptr, ptr @AutoVacuumShmem, align 8
   br label %175
 
@@ -590,15 +590,15 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %172
 
 178:                                              ; preds = %175
   store i32 0, ptr %176, align 8
-  call void @pg_usleep(i64 noundef 1000000) #18
-  call void @SendPostmasterSignal(i32 noundef 4) #18
+  call void @pg_usleep(i64 noundef 1000000) #17
+  call void @SendPostmasterSignal(i32 noundef 4) #17
   br label %launch_worker.exit, !llvm.loop !8
 
 179:                                              ; preds = %175, %HandleAutoVacLauncherInterrupts.exit
-  %180 = call i64 @GetCurrentTimestamp() #18
+  %180 = call i64 @GetCurrentTimestamp() #17
   %181 = load ptr, ptr @MainLWLockArray, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 2816
-  %183 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %182, i32 noundef 1) #18
+  %183 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %182, i32 noundef 1) #17
   %184 = load ptr, ptr @AutoVacuumShmem, align 8
   %185 = getelementptr i8, ptr %184, i64 32
   %.val.i31 = load i32, ptr %185, align 8
@@ -618,16 +618,16 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %172
   %196 = mul i32 %195, 1000
   %197 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %198 = load i64, ptr %197, align 8
-  %199 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %198, i64 noundef %180, i32 noundef %196) #18
+  %199 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %198, i64 noundef %180, i32 noundef %196) #17
   %200 = load ptr, ptr @MainLWLockArray, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %201) #18
+  call void @LWLockRelease(ptr noundef nonnull %201) #17
   br i1 %199, label %202, label %launch_worker.exit, !llvm.loop !8
 
 202:                                              ; preds = %193
   %203 = load ptr, ptr @MainLWLockArray, align 8
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 2816
-  %205 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %204, i32 noundef 0) #18
+  %205 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %204, i32 noundef 0) #17
   %206 = load ptr, ptr @AutoVacuumShmem, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 56
   %208 = load ptr, ptr %207, align 8
@@ -663,18 +663,18 @@ dclist_push_head.exit:                            ; preds = %209, %216
   %222 = add i32 %221, 1
   store i32 %222, ptr %220, align 8
   store ptr null, ptr %207, align 8
-  %223 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %223 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %223, label %224, label %226
 
 224:                                              ; preds = %dclist_push_head.exit
-  %225 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.AutoVacLauncherMain) #18
+  %225 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 691, ptr noundef nonnull @__func__.AutoVacLauncherMain) #17
   br label %226
 
 226:                                              ; preds = %dclist_push_head.exit, %224, %202, %179
   %227 = load ptr, ptr @MainLWLockArray, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %228) #18
+  call void @LWLockRelease(ptr noundef nonnull %228) #17
   br i1 %190, label %229, label %launch_worker.exit, !llvm.loop !8
 
 229:                                              ; preds = %226
@@ -753,7 +753,7 @@ select.unfold._crit_edge.i:                       ; preds = %dlist_move_head.exi
   %262 = load ptr, ptr @DatabaseList, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 -16
   %264 = load i64, ptr %263, align 8
-  %265 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %264, i64 noundef %180, i32 noundef 0) #18
+  %265 = call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %264, i64 noundef %180, i32 noundef 0) #17
   br i1 %265, label %266, label %launch_worker.exit
 
 266:                                              ; preds = %261
@@ -827,7 +827,7 @@ launch_worker.exit:                               ; preds = %193, %select.unfold
   br i1 %.not22, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %launch_worker.exit, %48
-  call fastcc void @AutoVacLauncherShutdown() #20
+  call fastcc void @AutoVacLauncherShutdown() #19
   unreachable
 }
 
@@ -862,7 +862,7 @@ declare void @procsignal_sigusr1_handler(i32 noundef) #1
 define internal void @avl_sigusr2_handler(i32 %0) #3 {
   store volatile i32 1, ptr @got_SIGUSR2, align 4
   %2 = load ptr, ptr @MyLatch, align 8
-  tail call void @SetLatch(ptr noundef %2) #18
+  tail call void @SetLatch(ptr noundef %2) #17
   ret void
 }
 
@@ -906,19 +906,19 @@ declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @AutoVacLauncherShutdown() unnamed_addr #0 {
-  %1 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
+  %1 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
   br i1 %1, label %2, label %4
 
 2:                                                ; preds = %0
-  %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.AutoVacLauncherShutdown) #18
+  %3 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 793, ptr noundef nonnull @__func__.AutoVacLauncherShutdown) #17
   br label %4
 
 4:                                                ; preds = %0, %2
   %5 = load ptr, ptr @AutoVacuumShmem, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 8
-  tail call void @proc_exit(i32 noundef 0) #21
+  tail call void @proc_exit(i32 noundef 0) #20
   unreachable
 }
 
@@ -941,7 +941,7 @@ define dso_local zeroext i1 @AutoVacuumingActive() local_unnamed_addr #7 {
 define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 2816
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #18
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #17
   %4 = load ptr, ptr @AutoVacuumShmem, align 8
   %5 = getelementptr i8, ptr %4, i64 32
   %.val.i = load i32, ptr %5, align 8
@@ -952,16 +952,16 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %10 = icmp sgt i32 %.val.i, %9
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2816
-  tail call void @LWLockRelease(ptr noundef nonnull %12) #18
+  tail call void @LWLockRelease(ptr noundef nonnull %12) #17
   br i1 %10, label %13, label %122
 
 13:                                               ; preds = %0
   %14 = load ptr, ptr @CurrentMemoryContext, align 8
-  %15 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %14, ptr noundef nonnull @.str.33, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
+  %15 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %14, ptr noundef nonnull @.str.33, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
   %16 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %15, ptr @CurrentMemoryContext, align 8
   %17 = tail call fastcc ptr @get_database_list()
-  %18 = tail call i64 @ReadNextFullTransactionId() #18
+  %18 = tail call i64 @ReadNextFullTransactionId() #17
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr @recentXid, align 4
   %20 = load i32, ptr @autovacuum_freeze_max_age, align 4
@@ -969,13 +969,13 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %22 = icmp ult i32 %21, 3
   %23 = add nsw i32 %21, -3
   %spec.select = select i1 %22, i32 %23, i32 %21
-  %24 = tail call i32 @ReadNextMultiXactId() #18
+  %24 = tail call i32 @ReadNextMultiXactId() #17
   store i32 %24, ptr @recentMulti, align 4
-  %25 = tail call i32 @MultiXactMemberFreezeThreshold() #18
+  %25 = tail call i32 @MultiXactMemberFreezeThreshold() #17
   %26 = sub i32 %24, %25
   %27 = icmp eq i32 %24, %25
   %.060 = select i1 %27, i32 -1, i32 %26
-  %28 = tail call i64 @GetCurrentTimestamp() #18
+  %28 = tail call i64 @GetCurrentTimestamp() #17
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.thread113, label %.lr.ph99
@@ -997,7 +997,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
-  %38 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %37, i32 noundef %spec.select) #18
+  %38 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %37, i32 noundef %spec.select) #17
   br i1 %38, label %39, label %47
 
 .critedge:                                        ; preds = %92, %.lr.ph99
@@ -1014,7 +1014,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %42 = load i32, ptr %36, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.06496120, i64 16
   %44 = load i32, ptr %43, align 8
-  %45 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %42, i32 noundef %44) #18
+  %45 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %42, i32 noundef %44) #17
   br i1 %45, label %46, label %92
 
 46:                                               ; preds = %41, %39
@@ -1026,7 +1026,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %50 = load i32, ptr %49, align 4
-  %51 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %50, i32 noundef %.060) #18
+  %51 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %50, i32 noundef %.060) #17
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %48
@@ -1037,7 +1037,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
   %55 = load i32, ptr %49, align 4
   %56 = getelementptr inbounds nuw i8, ptr %.06496120, i64 20
   %57 = load i32, ptr %56, align 4
-  %58 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %55, i32 noundef %57) #18
+  %58 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %55, i32 noundef %57) #17
   br i1 %58, label %59, label %92
 
 59:                                               ; preds = %54, %52
@@ -1048,7 +1048,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
 
 61:                                               ; preds = %60
   %62 = load i32, ptr %35, align 8
-  %63 = tail call ptr @pgstat_fetch_stat_dbentry(i32 noundef %62) #18
+  %63 = tail call ptr @pgstat_fetch_stat_dbentry(i32 noundef %62) #17
   %64 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %63, ptr %64, align 8
   %.not81 = icmp eq ptr %63, null
@@ -1075,14 +1075,14 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #3 {
 72:                                               ; preds = %68
   %73 = getelementptr inbounds i8, ptr %.sroa.0.093, i64 -16
   %74 = load i64, ptr %73, align 8
-  %75 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %74, i64 noundef %28, i32 noundef 0) #18
+  %75 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %74, i64 noundef %28, i32 noundef 0) #17
   br i1 %75, label %.critedge90, label %.thread
 
 .thread:                                          ; preds = %72
   %76 = load i64, ptr %73, align 8
   %77 = load i32, ptr @autovacuum_naptime, align 4
   %78 = mul i32 %77, 1000
-  %79 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %28, i64 noundef %76, i32 noundef %78) #18
+  %79 = tail call zeroext i1 @TimestampDifferenceExceeds(i64 noundef %28, i64 noundef %76, i32 noundef %78) #17
   br i1 %79, label %.critedge90, label %92
 
 select.unfold:                                    ; preds = %68
@@ -1122,7 +1122,7 @@ select.unfold:                                    ; preds = %68
 96:                                               ; preds = %.critedge
   %97 = load ptr, ptr @MainLWLockArray, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2816
-  %99 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %98, i32 noundef 0) #18
+  %99 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %98, i32 noundef 0) #17
   %100 = load ptr, ptr @AutoVacuumShmem, align 8
   %101 = getelementptr i8, ptr %100, i64 24
   %.val.i85 = load ptr, ptr %101, align 8
@@ -1142,7 +1142,7 @@ select.unfold:                                    ; preds = %68
   store i32 %110, ptr %111, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.val.i85, i64 24
   store ptr null, ptr %112, align 8
-  %113 = tail call i64 @GetCurrentTimestamp() #18
+  %113 = tail call i64 @GetCurrentTimestamp() #17
   %114 = getelementptr inbounds nuw i8, ptr %.val.i85, i64 32
   store i64 %113, ptr %114, align 8
   %115 = load ptr, ptr @AutoVacuumShmem, align 8
@@ -1150,8 +1150,8 @@ select.unfold:                                    ; preds = %68
   store ptr %.val.i85, ptr %116, align 8
   %117 = load ptr, ptr @MainLWLockArray, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2816
-  tail call void @LWLockRelease(ptr noundef nonnull %118) #18
-  tail call void @SendPostmasterSignal(i32 noundef 4) #18
+  tail call void @LWLockRelease(ptr noundef nonnull %118) #17
+  tail call void @SendPostmasterSignal(i32 noundef 4) #17
   %119 = load i32, ptr %.06496.lcssa, align 8
   br label %.thread113
 
@@ -1165,7 +1165,7 @@ select.unfold:                                    ; preds = %68
 .thread113:                                       ; preds = %13, %120, %121, %96
   %.071 = phi i32 [ %119, %96 ], [ 0, %121 ], [ 0, %120 ], [ 0, %13 ]
   store ptr %16, ptr @CurrentMemoryContext, align 8
-  tail call void @MemoryContextDelete(ptr noundef %15) #18
+  tail call void @MemoryContextDelete(ptr noundef %15) #17
   br label %122
 
 122:                                              ; preds = %0, %.thread113
@@ -1186,8 +1186,8 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
   store i32 %0, ptr %2, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr @AutovacMemCxt, align 8
-  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str.29, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
-  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str.30, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
+  %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str.29, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
+  %9 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %8, ptr noundef nonnull @.str.30, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
   %10 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1196,17 +1196,17 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
   store i64 40, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %9, ptr %13, align 8
-  %14 = call ptr @hash_create(ptr noundef nonnull @.str.31, i64 noundef 20, ptr noundef nonnull %3, i32 noundef 1064) #18
+  %14 = call ptr @hash_create(ptr noundef nonnull @.str.31, i64 noundef 20, ptr noundef nonnull %3, i32 noundef 1064) #17
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %1
-  %16 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %0) #18
+  %16 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %0) #17
   %.not65 = icmp eq ptr %16, null
   br i1 %.not65, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %2, i32 noundef 1, ptr noundef null) #18
+  %18 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %2, i32 noundef 1, ptr noundef null) #17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 0, ptr %19, align 8
   br label %20
@@ -1225,12 +1225,12 @@ define internal fastcc void @rebuild_database_list(i32 noundef %0) unnamed_addr 
   %22 = getelementptr inbounds i8, ptr %.sroa.027.074, i64 -24
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load i32, ptr %22, align 8
-  %24 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %23) #18
+  %24 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %23) #17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull %4) #18
+  %27 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %22, i32 noundef 1, ptr noundef nonnull %4) #17
   %28 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %select.unfold, label %30
@@ -1270,7 +1270,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %43 = load i32, ptr %42, align 8
-  %44 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %43) #18
+  %44 = call ptr @pgstat_fetch_stat_dbentry(i32 noundef %43) #17
   %45 = icmp eq ptr %44, null
   br i1 %45, label %54, label %47
 
@@ -1283,7 +1283,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   br i1 %46, label %58, label %88
 
 47:                                               ; preds = %.lr.ph85
-  %48 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %42, i32 noundef 1, ptr noundef nonnull %5) #18
+  %48 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %42, i32 noundef 1, ptr noundef nonnull %5) #17
   %49 = load i8, ptr %5, align 1, !range !4, !noundef !5
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %54, label %51
@@ -1307,9 +1307,9 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %59 = zext nneg i32 %.5.lcssa to i64
   %60 = mul nuw nsw i64 %59, 40
-  %61 = call ptr @palloc(i64 noundef %60) #18
-  call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %14) #18
-  %62 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
+  %61 = call ptr @palloc(i64 noundef %60) #17
+  call void @hash_seq_init(ptr noundef nonnull %6, ptr noundef %14) #17
+  %62 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
   %.not7087 = icmp eq ptr %62, null
   br i1 %.not7087, label %.lr.ph93, label %.lr.ph89
 
@@ -1320,14 +1320,14 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %65 = sext i32 %.088 to i64
   %66 = getelementptr inbounds %struct.avl_dbase, ptr %61, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
-  %67 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
+  %67 = call ptr @hash_seq_search(ptr noundef nonnull %6) #17
   %.not70 = icmp eq ptr %67, null
   br i1 %.not70, label %.lr.ph93, label %.lr.ph89, !llvm.loop !12
 
 .lr.ph93:                                         ; preds = %.lr.ph89, %58
-  call void @pg_qsort(ptr noundef %61, i64 noundef %59, i64 noundef 40, ptr noundef nonnull @db_comparator) #18
+  call void @pg_qsort(ptr noundef %61, i64 noundef %59, i64 noundef 40, ptr noundef nonnull @db_comparator) #17
   %68 = load i32, ptr @autovacuum_naptime, align 4
-  %69 = call i64 @GetCurrentTimestamp() #18
+  %69 = call i64 @GetCurrentTimestamp() #17
   %70 = sitofp i32 %68 to double
   %71 = fmul double %70, 1.000000e+03
   %72 = uitofp nneg i32 %.5.lcssa to double
@@ -1377,11 +1377,11 @@ dlist_push_head.exit:                             ; preds = %78, %85
   br i1 %.not71, label %91, label %90
 
 90:                                               ; preds = %88
-  call void @MemoryContextDelete(ptr noundef nonnull %89) #18
+  call void @MemoryContextDelete(ptr noundef nonnull %89) #17
   br label %91
 
 91:                                               ; preds = %90, %88
-  call void @MemoryContextDelete(ptr noundef %9) #18
+  call void @MemoryContextDelete(ptr noundef %9) #17
   store ptr %8, ptr @DatabaseListCxt, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1421,25 +1421,25 @@ define dso_local void @AutoVacWorkerMain(ptr noundef readnone captures(none) %0,
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  call void @MemoryContextDelete(ptr noundef nonnull %5) #18
+  call void @MemoryContextDelete(ptr noundef nonnull %5) #17
   store ptr null, ptr @PostmasterContext, align 8
   br label %7
 
 7:                                                ; preds = %6, %2
   store i32 4, ptr @MyBackendType, align 4
-  call void @init_ps_display(ptr noundef null) #18
-  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #18
-  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @StatementCancelHandler) #18
-  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #18
-  call void @InitializeTimeouts() #18
-  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #18
-  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
-  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull @FloatExceptionHandler) #18
-  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #18
-  call void @InitProcess() #18
-  call void @BaseInit() #18
-  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 1) #19
+  call void @init_ps_display(ptr noundef null) #17
+  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull @SignalHandlerForConfigReload) #17
+  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull @StatementCancelHandler) #17
+  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @die) #17
+  call void @InitializeTimeouts() #17
+  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
+  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull @procsignal_sigusr1_handler) #17
+  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
+  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull @FloatExceptionHandler) #17
+  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #17
+  call void @InitProcess() #17
+  call void @BaseInit() #17
+  %8 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 1) #18
   %.not7 = icmp eq i32 %8, 0
   br i1 %.not7, label %12, label %9
 
@@ -1448,33 +1448,33 @@ define dso_local void @AutoVacWorkerMain(ptr noundef readnone captures(none) %0,
   %10 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %11 = add i32 %10, 1
   store volatile i32 %11, ptr @InterruptHoldoffCount, align 4
-  call void @EmitErrorReport() #18
-  call void @proc_exit(i32 noundef 0) #21
+  call void @EmitErrorReport() #17
+  call void @proc_exit(i32 noundef 0) #20
   unreachable
 
 12:                                               ; preds = %7
   store ptr %3, ptr @PG_exception_stack, align 8
-  %13 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #18
-  call void @SetConfigOption(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 5, i32 noundef 10) #18
+  %13 = call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.8, i32 noundef 5, i32 noundef 10) #17
+  call void @SetConfigOption(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef 5, i32 noundef 10) #17
   %14 = load i32, ptr @synchronous_commit, align 4
   %15 = icmp sgt i32 %14, 1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %12
-  call void @SetConfigOption(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 5, i32 noundef 10) #18
+  call void @SetConfigOption(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 5, i32 noundef 10) #17
   br label %17
 
 17:                                               ; preds = %16, %12
-  call void @SetConfigOption(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 5, i32 noundef 10) #18
+  call void @SetConfigOption(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 5, i32 noundef 10) #17
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2816
-  %20 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 0) #18
+  %20 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %19, i32 noundef 0) #17
   %21 = load ptr, ptr @AutoVacuumShmem, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
@@ -1508,8 +1508,8 @@ dlist_push_head.exit:                             ; preds = %24, %33
   store ptr null, ptr %22, align 8
   %36 = load ptr, ptr @MainLWLockArray, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %37) #18
-  call void @on_shmem_exit(ptr noundef nonnull @FreeWorkerInfo, i64 noundef 0) #18
+  call void @LWLockRelease(ptr noundef nonnull %37) #17
+  call void @on_shmem_exit(ptr noundef nonnull @FreeWorkerInfo, i64 noundef 0) #17
   %38 = load ptr, ptr @AutoVacuumShmem, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
@@ -1517,22 +1517,22 @@ dlist_push_head.exit:                             ; preds = %24, %33
   br i1 %.not9, label %49, label %41
 
 41:                                               ; preds = %dlist_push_head.exit
-  %42 = call i32 @kill(i32 noundef %40, i32 noundef 12) #18
+  %42 = call i32 @kill(i32 noundef %40, i32 noundef 12) #17
   br label %49
 
 43:                                               ; preds = %17
-  %44 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %44 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %43
-  %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1547, ptr noundef nonnull @__func__.AutoVacWorkerMain) #18
+  %46 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1547, ptr noundef nonnull @__func__.AutoVacWorkerMain) #17
   br label %.thread
 
 .thread:                                          ; preds = %43, %45
   %47 = load ptr, ptr @MainLWLockArray, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %48) #18
+  call void @LWLockRelease(ptr noundef nonnull %48) #17
   br label %64
 
 49:                                               ; preds = %dlist_push_head.exit, %41
@@ -1541,17 +1541,17 @@ dlist_push_head.exit:                             ; preds = %24, %33
 
 50:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @pgstat_report_autovac(i32 noundef %26) #18
-  call void @InitPostgres(ptr noundef null, i32 noundef %26, ptr noundef null, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %4) #18
+  call void @pgstat_report_autovac(i32 noundef %26) #17
+  call void @InitPostgres(ptr noundef null, i32 noundef %26, ptr noundef null, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %4) #17
   store i32 2, ptr @Mode, align 4
-  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
-  call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %51) #18
-  %52 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
+  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #21
+  call void @set_ps_display_with_len(ptr noundef nonnull %4, i64 noundef %51) #17
+  %52 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #17
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %50
-  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef nonnull %4) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1580, ptr noundef nonnull @__func__.AutoVacWorkerMain) #18
+  %54 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20, ptr noundef nonnull %4) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1580, ptr noundef nonnull @__func__.AutoVacWorkerMain) #17
   br label %55
 
 55:                                               ; preds = %53, %50
@@ -1562,21 +1562,21 @@ dlist_push_head.exit:                             ; preds = %24, %33
 57:                                               ; preds = %55
   %58 = sext i32 %56 to i64
   %59 = mul nsw i64 %58, 1000000
-  call void @pg_usleep(i64 noundef %59) #18
+  call void @pg_usleep(i64 noundef %59) #17
   br label %60
 
 60:                                               ; preds = %57, %55
-  %61 = call i64 @ReadNextFullTransactionId() #18
+  %61 = call i64 @ReadNextFullTransactionId() #17
   %62 = trunc i64 %61 to i32
   store i32 %62, ptr @recentXid, align 4
-  %63 = call i32 @ReadNextMultiXactId() #18
+  %63 = call i32 @ReadNextMultiXactId() #17
   store i32 %63, ptr @recentMulti, align 4
   call fastcc void @do_autovacuum()
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
 64:                                               ; preds = %.thread, %60, %49
-  call void @proc_exit(i32 noundef 0) #21
+  call void @proc_exit(i32 noundef 0) #20
   unreachable
 }
 
@@ -1593,7 +1593,7 @@ define internal void @FreeWorkerInfo(i32 %0, i64 %1) #3 {
 4:                                                ; preds = %2
   %5 = load ptr, ptr @MainLWLockArray, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2816
-  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #18
+  %7 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %6, i32 noundef 0) #17
   %8 = load ptr, ptr @AutoVacuumShmem, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
@@ -1611,7 +1611,7 @@ define internal void @FreeWorkerInfo(i32 %0, i64 %1) #3 {
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
   store volatile i8 0, ptr %19, align 8
   %20 = load ptr, ptr @AutoVacuumShmem, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1643,7 +1643,7 @@ dclist_push_head.exit:                            ; preds = %4, %26
   store i32 1, ptr %33, align 4
   %34 = load ptr, ptr @MainLWLockArray, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2816
-  tail call void @LWLockRelease(ptr noundef nonnull %35) #18
+  tail call void @LWLockRelease(ptr noundef nonnull %35) #17
   br label %36
 
 36:                                               ; preds = %dclist_push_head.exit, %2
@@ -1683,23 +1683,22 @@ define internal fastcc void @do_autovacuum() unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = load ptr, ptr @TopMemoryContext, align 8
-  %22 = call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef nonnull @.str.34, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
+  %22 = call ptr @AllocSetContextCreateInternal(ptr noundef %21, ptr noundef nonnull @.str.34, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
   store ptr %22, ptr @AutovacMemCxt, align 8
   store ptr %22, ptr @CurrentMemoryContext, align 8
-  call void @StartTransactionCommand() #18
-  %23 = call i32 @MultiXactMemberFreezeThreshold() #18
+  call void @StartTransactionCommand() #17
+  %23 = call i32 @MultiXactMemberFreezeThreshold() #17
   %24 = load i32, ptr @MyDatabaseId, align 4
   %25 = zext i32 %24 to i64
-  %26 = call ptr @SearchSysCache1(i32 noundef 21, i64 noundef %25) #18
+  %26 = call ptr @SearchSysCache1(i32 noundef 21, i64 noundef %25) #17
   %.not191 = icmp eq ptr %26, null
   br i1 %.not191, label %27, label %31
 
 27:                                               ; preds = %0
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  call void @llvm.assume(i1 %28)
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
   %29 = load i32, ptr @MyDatabaseId, align 4
-  %30 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %29) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1935, ptr noundef nonnull @__func__.do_autovacuum) #18
+  %30 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %29) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1935, ptr noundef nonnull @__func__.do_autovacuum) #17
   unreachable
 
 31:                                               ; preds = %0
@@ -1739,20 +1738,20 @@ define internal fastcc void @do_autovacuum() unnamed_addr #3 {
 50:                                               ; preds = %45, %44
   %storemerge = phi i32 [ %49, %45 ], [ 0, %44 ]
   store i32 %storemerge, ptr @default_multixact_freeze_table_age, align 4
-  call void @ReleaseSysCache(ptr noundef nonnull %26) #18
+  call void @ReleaseSysCache(ptr noundef nonnull %26) #17
   %51 = load ptr, ptr @AutovacMemCxt, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
-  %52 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #18
+  %52 = call ptr @table_open(i32 noundef 1259, i32 noundef 1) #17
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = call ptr @CreateTupleDescCopy(ptr noundef %54) #18
+  %55 = call ptr @CreateTupleDescCopy(ptr noundef %54) #17
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 4, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 104, ptr %57, align 8
-  %58 = call ptr @hash_create(ptr noundef nonnull @.str.37, i64 noundef 100, ptr noundef nonnull %7, i32 noundef 40) #18
-  %59 = call ptr @table_beginscan_catalog(ptr noundef %52, i32 noundef 0, ptr noundef null) #18
-  %60 = call ptr @heap_getnext(ptr noundef %59, i32 noundef 1) #18
+  %58 = call ptr @hash_create(ptr noundef nonnull @.str.37, i64 noundef 100, ptr noundef nonnull %7, i32 noundef 40) #17
+  %59 = call ptr @table_beginscan_catalog(ptr noundef %52, i32 noundef 0, ptr noundef null) #17
+  %60 = call ptr @heap_getnext(ptr noundef %59, i32 noundef 1) #17
   %.not192248 = icmp eq ptr %60, null
   br i1 %.not192248, label %._crit_edge, label %.lr.ph
 
@@ -1786,24 +1785,24 @@ define internal fastcc void @do_autovacuum() unnamed_addr #3 {
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 68
   %76 = load i32, ptr %75, align 4
-  %77 = call i32 @checkTempNamespaceStatus(i32 noundef %76) #18
+  %77 = call i32 @checkTempNamespaceStatus(i32 noundef %76) #17
   %78 = icmp eq i32 %77, 1
   br i1 %78, label %79, label %110, !llvm.loop !15
 
 79:                                               ; preds = %74
-  %80 = call ptr @lappend_oid(ptr noundef %.0158249, i32 noundef %70) #18
+  %80 = call ptr @lappend_oid(ptr noundef %.0158249, i32 noundef %70) #17
   br label %110, !llvm.loop !15
 
 81:                                               ; preds = %69
-  %82 = call ptr @extractRelOptions(ptr noundef nonnull %61, ptr noundef %55, ptr noundef null) #18
+  %82 = call ptr @extractRelOptions(ptr noundef nonnull %61, ptr noundef %55, ptr noundef null) #17
   %83 = icmp eq ptr %82, null
   br i1 %83, label %extract_autovac_opts.exit, label %84
 
 84:                                               ; preds = %81
-  %85 = call ptr @palloc(i64 noundef 88) #18
+  %85 = call ptr @palloc(i64 noundef 88) #17
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %85, ptr noundef nonnull align 8 dereferenceable(88) %86, i64 88, i1 false)
-  call void @pfree(ptr noundef nonnull %82) #18
+  call void @pfree(ptr noundef nonnull %82) #17
   br label %extract_autovac_opts.exit
 
 extract_autovac_opts.exit:                        ; preds = %81, %84
@@ -1811,7 +1810,7 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   %87 = getelementptr inbounds nuw i8, ptr %66, i64 113
   %88 = load i8, ptr %87, align 1, !range !4, !noundef !5
   %89 = trunc nuw i8 %88 to i1
-  %90 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %89, i32 noundef %70) #18
+  %90 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %89, i32 noundef %70) #17
   call fastcc void @relation_needs_vacanalyze(i32 noundef %70, ptr noundef %.0.i, ptr noundef nonnull %66, ptr noundef %90, i32 noundef %23, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %91 = load i8, ptr %10, align 1, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
@@ -1821,7 +1820,7 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   br i1 %or.cond, label %95, label %97
 
 95:                                               ; preds = %extract_autovac_opts.exit
-  %96 = call ptr @lappend_oid(ptr noundef %.0250, i32 noundef %70) #18
+  %96 = call ptr @lappend_oid(ptr noundef %.0250, i32 noundef %70) #17
   br label %97
 
 97:                                               ; preds = %extract_autovac_opts.exit, %95
@@ -1833,7 +1832,7 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
 
 100:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %101 = call ptr @hash_search(ptr noundef %58, ptr noundef nonnull %98, i32 noundef 1, ptr noundef nonnull %13) #18
+  %101 = call ptr @hash_search(ptr noundef %58, ptr noundef nonnull %98, i32 noundef 1, ptr noundef nonnull %13) #17
   %102 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %109, label %104
@@ -1862,7 +1861,7 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %111 = call ptr @heap_getnext(ptr noundef %59, i32 noundef 1) #18
+  %111 = call ptr @heap_getnext(ptr noundef %59, i32 noundef 1) #17
   %.not192 = icmp eq ptr %111, null
   br i1 %.not192, label %._crit_edge, label %.lr.ph
 
@@ -1874,10 +1873,10 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
-  call void %116(ptr noundef nonnull %59) #18
-  call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 17, i16 noundef zeroext 3, i32 noundef 61, i64 noundef 116) #18
-  %117 = call ptr @table_beginscan_catalog(ptr noundef %52, i32 noundef 1, ptr noundef nonnull %9) #18
-  %118 = call ptr @heap_getnext(ptr noundef %117, i32 noundef 1) #18
+  call void %116(ptr noundef nonnull %59) #17
+  call void @ScanKeyInit(ptr noundef nonnull %9, i16 noundef signext 17, i16 noundef zeroext 3, i32 noundef 61, i64 noundef 116) #17
+  %117 = call ptr @table_beginscan_catalog(ptr noundef %52, i32 noundef 1, ptr noundef nonnull %9) #17
+  %118 = call ptr @heap_getnext(ptr noundef %117, i32 noundef 1) #17
   %.not193252 = icmp eq ptr %118, null
   br i1 %.not193252, label %._crit_edge256, label %.lr.ph255
 
@@ -1902,20 +1901,20 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
 128:                                              ; preds = %.lr.ph255
   %129 = load i32, ptr %124, align 4
   store i32 %129, ptr %14, align 4
-  %130 = call ptr @extractRelOptions(ptr noundef nonnull %119, ptr noundef %55, ptr noundef null) #18
+  %130 = call ptr @extractRelOptions(ptr noundef nonnull %119, ptr noundef %55, ptr noundef null) #17
   %131 = icmp eq ptr %130, null
   br i1 %131, label %134, label %extract_autovac_opts.exit230
 
 extract_autovac_opts.exit230:                     ; preds = %128
-  %132 = call ptr @palloc(i64 noundef 88) #18
+  %132 = call ptr @palloc(i64 noundef 88) #17
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %132, ptr noundef nonnull align 8 dereferenceable(88) %133, i64 88, i1 false)
-  call void @pfree(ptr noundef nonnull %130) #18
+  call void @pfree(ptr noundef nonnull %130) #17
   br label %144
 
 134:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %135 = call ptr @hash_search(ptr noundef %58, ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %18) #18
+  %135 = call ptr @hash_search(ptr noundef %58, ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull %18) #17
   %136 = load i8, ptr %18, align 1, !range !4, !noundef !5
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %143
@@ -1939,7 +1938,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %146 = load i8, ptr %145, align 1, !range !4, !noundef !5
   %147 = trunc nuw i8 %146 to i1
   %148 = load i32, ptr %14, align 4
-  %149 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %147, i32 noundef %148) #18
+  %149 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %147, i32 noundef %148) #17
   %150 = load i32, ptr %14, align 4
   call fastcc void @relation_needs_vacanalyze(i32 noundef %150, ptr noundef %.0171, ptr noundef nonnull %124, ptr noundef %149, i32 noundef %23, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   %151 = load i8, ptr %15, align 1, !range !4, !noundef !5
@@ -1948,7 +1947,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
 
 153:                                              ; preds = %144
   %154 = load i32, ptr %14, align 4
-  %155 = call ptr @lappend_oid(ptr noundef %.3253, i32 noundef %154) #18
+  %155 = call ptr @lappend_oid(ptr noundef %.3253, i32 noundef %154) #17
   br label %156
 
 156:                                              ; preds = %144, %153, %.lr.ph255
@@ -1957,7 +1956,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %157 = call ptr @heap_getnext(ptr noundef %117, i32 noundef 1) #18
+  %157 = call ptr @heap_getnext(ptr noundef %117, i32 noundef 1) #17
   %.not193 = icmp eq ptr %157, null
   br i1 %.not193, label %._crit_edge256, label %.lr.ph255
 
@@ -1968,8 +1967,8 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull %117) #18
-  call void @table_close(ptr noundef %52, i32 noundef 1) #18
+  call void %162(ptr noundef nonnull %117) #17
+  call void @table_close(ptr noundef %52, i32 noundef 1) #17
   %163 = getelementptr inbounds nuw i8, ptr %.0158.lcssa, i64 4
   %.not194 = icmp eq ptr %.0158.lcssa, null
   br i1 %.not194, label %._crit_edge261, label %.lr.ph260
@@ -1997,9 +1996,9 @@ extract_autovac_opts.exit230:                     ; preds = %128
 ._crit_edge261:                                   ; preds = %222, %.lr.ph260, %._crit_edge256
   store volatile ptr null, ptr %8, align 8
   %173 = load i32, ptr @VacuumBufferUsageLimit, align 4
-  %174 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %173) #18
+  %174 = call ptr @GetAccessStrategyWithSize(i32 noundef 3, i32 noundef %173) #17
   %175 = load ptr, ptr @AutovacMemCxt, align 8
-  %176 = call ptr @AllocSetContextCreateInternal(ptr noundef %175, ptr noundef nonnull @.str.39, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
+  %176 = call ptr @AllocSetContextCreateInternal(ptr noundef %175, ptr noundef nonnull @.str.39, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
   store ptr %176, ptr @PortalContext, align 8
   %177 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 4
   %.not196 = icmp eq ptr %.3.lcssa, null
@@ -2013,21 +2012,21 @@ extract_autovac_opts.exit230:                     ; preds = %128
   br i1 %181, label %.critedge222, label %._crit_edge280
 
 182:                                              ; preds = %.critedge
-  call void @ProcessInterrupts() #18
+  call void @ProcessInterrupts() #17
   br label %183
 
 183:                                              ; preds = %182, %.critedge
-  %184 = call zeroext i1 @ConditionalLockRelationOid(i32 noundef %171, i32 noundef 8) #18
+  %184 = call zeroext i1 @ConditionalLockRelationOid(i32 noundef %171, i32 noundef 8) #17
   br i1 %184, label %185, label %222
 
 185:                                              ; preds = %183
   %186 = zext i32 %171 to i64
-  %187 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %186, i64 noundef 0, i64 noundef 0, i64 noundef 0) #18
+  %187 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %186, i64 noundef 0, i64 noundef 0, i64 noundef 0) #17
   %.not215 = icmp eq ptr %187, null
   br i1 %.not215, label %188, label %189
 
 188:                                              ; preds = %185
-  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #18
+  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #17
   br label %222
 
 189:                                              ; preds = %185
@@ -2051,50 +2050,50 @@ extract_autovac_opts.exit230:                     ; preds = %128
   br i1 %200, label %202, label %201
 
 201:                                              ; preds = %189, %197
-  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #18
+  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #17
   br label %222
 
 202:                                              ; preds = %197
   %203 = getelementptr inbounds nuw i8, ptr %194, i64 68
   %204 = load i32, ptr %203, align 4
-  %205 = call i32 @checkTempNamespaceStatus(i32 noundef %204) #18
+  %205 = call i32 @checkTempNamespaceStatus(i32 noundef %204) #17
   %.not216 = icmp eq i32 %205, 1
   br i1 %.not216, label %207, label %206
 
 206:                                              ; preds = %202
-  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #18
+  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #17
   br label %222
 
 207:                                              ; preds = %202
   %208 = load i32, ptr %203, align 4
-  %209 = call zeroext i1 @ConditionalLockDatabaseObject(i32 noundef 2615, i32 noundef %208, i16 noundef zeroext 0, i32 noundef 1) #18
+  %209 = call zeroext i1 @ConditionalLockDatabaseObject(i32 noundef 2615, i32 noundef %208, i16 noundef zeroext 0, i32 noundef 1) #17
   br i1 %209, label %211, label %210
 
 210:                                              ; preds = %207
-  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #18
+  call void @UnlockRelationOid(i32 noundef %171, i32 noundef 8) #17
   br label %222
 
 211:                                              ; preds = %207
-  %212 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
+  %212 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #17
   br i1 %212, label %213, label %220
 
 213:                                              ; preds = %211
   %214 = load i32, ptr @MyDatabaseId, align 4
-  %215 = call ptr @get_database_name(i32 noundef %214) #18
+  %215 = call ptr @get_database_name(i32 noundef %214) #17
   %216 = load i32, ptr %203, align 4
-  %217 = call ptr @get_namespace_name(i32 noundef %216) #18
+  %217 = call ptr @get_namespace_name(i32 noundef %216) #17
   %218 = getelementptr inbounds nuw i8, ptr %194, i64 4
-  %219 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %215, ptr noundef %217, ptr noundef nonnull %218) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @__func__.do_autovacuum) #18
+  %219 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.38, ptr noundef %215, ptr noundef %217, ptr noundef nonnull %218) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @__func__.do_autovacuum) #17
   br label %220
 
 220:                                              ; preds = %213, %211
   store i32 1259, ptr %19, align 4
   store i32 %171, ptr %165, align 4
   store i32 0, ptr %166, align 4
-  call void @performDeletion(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 21) #18
-  call void @CommitTransactionCommand() #18
-  call void @StartTransactionCommand() #18
+  call void @performDeletion(ptr noundef nonnull %19, i32 noundef 1, i32 noundef 21) #17
+  call void @CommitTransactionCommand() #17
+  call void @StartTransactionCommand() #17
   %221 = load ptr, ptr @AutovacMemCxt, align 8
   store ptr %221, ptr @CurrentMemoryContext, align 8
   br label %222
@@ -2130,12 +2129,12 @@ extract_autovac_opts.exit230:                     ; preds = %128
   store volatile ptr null, ptr %8, align 8
   %232 = load ptr, ptr @MainLWLockArray, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 2816
-  %234 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %233, i32 noundef 0) #18
+  %234 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %233, i32 noundef 0) #17
   %.pre295 = load ptr, ptr @AutoVacuumShmem, align 8
   br label %540
 
 235:                                              ; preds = %.critedge222
-  call void @ProcessInterrupts() #18
+  call void @ProcessInterrupts() #17
   br label %236
 
 236:                                              ; preds = %235, %.critedge222
@@ -2145,12 +2144,12 @@ extract_autovac_opts.exit230:                     ; preds = %128
 
 238:                                              ; preds = %236
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2) #18
+  call void @ProcessConfigFile(i32 noundef 2) #17
   br label %239
 
 239:                                              ; preds = %238, %236
   %240 = zext i32 %228 to i64
-  %241 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %240) #18
+  %241 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %240) #17
   %.not203 = icmp eq ptr %241, null
   br i1 %.not203, label %536, label %242
 
@@ -2163,13 +2162,13 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %247 = getelementptr inbounds nuw i8, ptr %.val228, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 113
   %249 = load i8, ptr %248, align 1, !range !4, !noundef !5
-  call void @ReleaseSysCache(ptr noundef nonnull %241) #18
+  call void @ReleaseSysCache(ptr noundef nonnull %241) #17
   %250 = load ptr, ptr @MainLWLockArray, align 8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 2944
-  %252 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %251, i32 noundef 0) #18
+  %252 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %251, i32 noundef 0) #17
   %253 = load ptr, ptr @MainLWLockArray, align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 2816
-  %255 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %254, i32 noundef 1) #18
+  %255 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %254, i32 noundef 1) #17
   %256 = load ptr, ptr @AutoVacuumShmem, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 40
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 48
@@ -2182,7 +2181,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
 ._crit_edge269.thread:                            ; preds = %242
   %260 = load ptr, ptr @MainLWLockArray, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %261) #18
+  call void @LWLockRelease(ptr noundef nonnull %261) #17
   br label %284
 
 .lr.ph268:                                        ; preds = %242
@@ -2224,13 +2223,13 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %.3167 = phi i1 [ %.0164276323, %.thread ], [ true, %273 ]
   %279 = load ptr, ptr @MainLWLockArray, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %280) #18
+  call void @LWLockRelease(ptr noundef nonnull %280) #17
   br i1 %.1174, label %281, label %284
 
 281:                                              ; preds = %._crit_edge269
   %282 = load ptr, ptr @MainLWLockArray, align 8
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 2944
-  call void @LWLockRelease(ptr noundef nonnull %283) #18
+  call void @LWLockRelease(ptr noundef nonnull %283) #17
   br label %536
 
 284:                                              ; preds = %._crit_edge269.thread, %._crit_edge269
@@ -2242,7 +2241,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   store i8 %249, ptr %287, align 1
   %288 = load ptr, ptr @MainLWLockArray, align 8
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 2944
-  call void @LWLockRelease(ptr noundef nonnull %289) #18
+  call void @LWLockRelease(ptr noundef nonnull %289) #17
   %290 = load ptr, ptr @AutovacMemCxt, align 8
   store ptr %290, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2250,7 +2249,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %291 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %240, i64 noundef 0, i64 noundef 0, i64 noundef 0) #18
+  %291 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %240, i64 noundef 0, i64 noundef 0, i64 noundef 0) #17
   %.not.i = icmp eq ptr %291, null
   br i1 %.not.i, label %table_recheck_autovac.exit.thread, label %292
 
@@ -2261,15 +2260,15 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %295 = load i8, ptr %294, align 2
   %296 = zext i8 %295 to i64
   %297 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %296
-  %298 = call ptr @extractRelOptions(ptr noundef nonnull %291, ptr noundef %55, ptr noundef null) #18
+  %298 = call ptr @extractRelOptions(ptr noundef nonnull %291, ptr noundef %55, ptr noundef null) #17
   %299 = icmp eq ptr %298, null
   br i1 %299, label %extract_autovac_opts.exit.i, label %extract_autovac_opts.exit.thread.i
 
 extract_autovac_opts.exit.thread.i:               ; preds = %292
-  %300 = call ptr @palloc(i64 noundef 88) #18
+  %300 = call ptr @palloc(i64 noundef 88) #17
   %301 = getelementptr inbounds nuw i8, ptr %298, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %300, ptr noundef nonnull align 8 dereferenceable(88) %301, i64 88, i1 false)
-  call void @pfree(ptr noundef nonnull %298) #18
+  call void @pfree(ptr noundef nonnull %298) #17
   %302 = getelementptr inbounds nuw i8, ptr %297, i64 115
   br label %recheck_relation_needs_vacanalyze.exit.i
 
@@ -2282,7 +2281,7 @@ extract_autovac_opts.exit.i:                      ; preds = %292
 
 306:                                              ; preds = %extract_autovac_opts.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %307 = call ptr @hash_search(ptr noundef nonnull %58, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %6) #18
+  %307 = call ptr @hash_search(ptr noundef nonnull %58, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull %6) #17
   %308 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %309 = trunc nuw i8 %308 to i1
   br i1 %309, label %310, label %315
@@ -2308,7 +2307,7 @@ recheck_relation_needs_vacanalyze.exit.i:         ; preds = %315, %extract_autov
   %318 = getelementptr inbounds nuw i8, ptr %297, i64 113
   %319 = load i8, ptr %318, align 1, !range !4, !noundef !5
   %320 = trunc nuw i8 %319 to i1
-  %321 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %320, i32 noundef %316) #18
+  %321 = call ptr @pgstat_fetch_stat_tabentry_ext(i1 noundef zeroext %320, i32 noundef %316) #17
   call fastcc void @relation_needs_vacanalyze(i32 noundef %316, ptr noundef readonly %.069.i, ptr noundef nonnull %297, ptr noundef %321, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %322 = load i8, ptr %317, align 1
   %323 = icmp eq i8 %322, 116
@@ -2321,7 +2320,7 @@ recheck_relation_needs_vacanalyze.exit.i:         ; preds = %315, %extract_autov
   br i1 %or.cond5.i, label %328, label %table_recheck_autovac.exit.thread245
 
 table_recheck_autovac.exit.thread245:             ; preds = %recheck_relation_needs_vacanalyze.exit.i
-  call void @heap_freetuple(ptr noundef nonnull %291) #18
+  call void @heap_freetuple(ptr noundef nonnull %291) #17
   br label %table_recheck_autovac.exit.thread
 
 328:                                              ; preds = %recheck_relation_needs_vacanalyze.exit.i
@@ -2375,7 +2374,7 @@ table_recheck_autovac.exit.thread245:             ; preds = %recheck_relation_ne
   %363 = phi i32 [ %357, %354 ], [ %spec.select92.i, %.thread.i ]
   %364 = phi i32 [ %358, %354 ], [ %346, %.thread.i ]
   %365 = phi i32 [ %359, %354 ], [ %352, %.thread.i ]
-  %366 = call ptr @palloc(i64 noundef 104) #18
+  %366 = call ptr @palloc(i64 noundef 104) #17
   %367 = load i32, ptr %2, align 4
   store i32 %367, ptr %366, align 8
   %368 = load i8, ptr %318, align 1, !range !4, !noundef !5
@@ -2453,7 +2452,7 @@ table_recheck_autovac.exit.thread:                ; preds = %284, %table_recheck
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %408 = load ptr, ptr @MainLWLockArray, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 2944
-  %410 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %409, i32 noundef 0) #18
+  %410 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %409, i32 noundef 0) #17
   %411 = load ptr, ptr @MyWorkerInfo, align 8
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 20
   store i32 0, ptr %412, align 4
@@ -2461,14 +2460,14 @@ table_recheck_autovac.exit.thread:                ; preds = %284, %table_recheck
   store i8 0, ptr %413, align 1
   %414 = load ptr, ptr @MainLWLockArray, align 8
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 2944
-  call void @LWLockRelease(ptr noundef nonnull %415) #18
+  call void @LWLockRelease(ptr noundef nonnull %415) #17
   br label %536
 
 416:                                              ; preds = %404, %394, %.thread91.i
   %417 = phi i8 [ 0, %394 ], [ %407, %404 ], [ 1, %.thread91.i ]
   %418 = getelementptr inbounds nuw i8, ptr %366, i64 76
   store i8 %417, ptr %418, align 4
-  call void @heap_freetuple(ptr noundef nonnull %291) #18
+  call void @heap_freetuple(ptr noundef nonnull %291) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2486,18 +2485,18 @@ table_recheck_autovac.exit.thread:                ; preds = %284, %table_recheck
   br i1 %424, label %427, label %429
 
 427:                                              ; preds = %416
-  %428 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %426, i8 1, ptr nonnull elementtype(i8) %426) #18, !srcloc !19
+  %428 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %426, i8 1, ptr nonnull elementtype(i8) %426) #17, !srcloc !19
   br label %430
 
 429:                                              ; preds = %416
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
   store volatile i8 0, ptr %426, align 1
   br label %430
 
 430:                                              ; preds = %429, %427
   %431 = load ptr, ptr @MainLWLockArray, align 8
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 2816
-  %433 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %432, i32 noundef 1) #18
+  %433 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %432, i32 noundef 1) #17
   %434 = load ptr, ptr @AutoVacuumShmem, align 8
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 5184
   %436 = load volatile i32, ptr %435, align 4
@@ -2544,21 +2543,21 @@ table_recheck_autovac.exit.thread:                ; preds = %284, %table_recheck
 autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %451
   %452 = load ptr, ptr @MainLWLockArray, align 8
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %453) #18
+  call void @LWLockRelease(ptr noundef nonnull %453) #17
   call void @VacuumUpdateCosts()
   %454 = load ptr, ptr @PortalContext, align 8
-  call void @MemoryContextReset(ptr noundef %454) #18
+  call void @MemoryContextReset(ptr noundef %454) #17
   %455 = load i32, ptr %366, align 8
-  %456 = call ptr @get_rel_name(i32 noundef %455) #18
+  %456 = call ptr @get_rel_name(i32 noundef %455) #17
   %457 = getelementptr inbounds nuw i8, ptr %366, i64 80
   store ptr %456, ptr %457, align 8
   %458 = load i32, ptr %366, align 8
-  %459 = call i32 @get_rel_namespace(i32 noundef %458) #18
-  %460 = call ptr @get_namespace_name(i32 noundef %459) #18
+  %459 = call i32 @get_rel_namespace(i32 noundef %458) #17
+  %460 = call ptr @get_namespace_name(i32 noundef %459) #17
   %461 = getelementptr inbounds nuw i8, ptr %366, i64 88
   store ptr %460, ptr %461, align 8
   %462 = load i32, ptr @MyDatabaseId, align 4
-  %463 = call ptr @get_database_name(i32 noundef %462) #18
+  %463 = call ptr @get_database_name(i32 noundef %462) #17
   %464 = getelementptr inbounds nuw i8, ptr %366, i64 96
   store ptr %463, ptr %464, align 8
   %465 = load ptr, ptr %457, align 8
@@ -2576,7 +2575,7 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %451
   %469 = load ptr, ptr @PG_exception_stack, align 8
   %470 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %471 = call i32 @__sigsetjmp(ptr noundef nonnull %20, i32 noundef 0) #19
+  %471 = call i32 @__sigsetjmp(ptr noundef nonnull %20, i32 noundef 0) #18
   %472 = icmp eq i32 %471, 0
   br i1 %472, label %473, label %501
 
@@ -2594,15 +2593,15 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %451
   %478 = and i32 %475, 2
   %.not6.i.i = icmp eq i32 %478, 0
   %479 = select i1 %.not6.i.i, ptr @.str.4, ptr @.str.46
-  %480 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 184, ptr noundef nonnull @.str.45, ptr noundef nonnull %479) #18
+  %480 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 184, ptr noundef nonnull @.str.45, ptr noundef nonnull %479) #17
   br label %autovacuum_do_vac_analyze.exit
 
 481:                                              ; preds = %473
-  %482 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 184, ptr noundef nonnull @.str.47) #18
+  %482 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 184, ptr noundef nonnull @.str.47) #17
   br label %autovacuum_do_vac_analyze.exit
 
 autovacuum_do_vac_analyze.exit:                   ; preds = %477, %481
-  %483 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
+  %483 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #21
   %sext.i.i = shl i64 %483, 32
   %484 = ashr exact i64 %sext.i.i, 32
   %485 = getelementptr inbounds i8, ptr %1, i64 %484
@@ -2613,20 +2612,20 @@ autovacuum_do_vac_analyze.exit:                   ; preds = %477, %481
   %489 = load i8, ptr %386, align 4, !range !4, !noundef !5
   %490 = trunc nuw i8 %489 to i1
   %491 = select i1 %490, ptr @.str.49, ptr @.str.4
-  %492 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %485, i64 noundef %486, ptr noundef nonnull @.str.48, ptr noundef %487, ptr noundef %488, ptr noundef nonnull %491) #18
-  call void @SetCurrentStatementStartTimestamp() #18
-  call void @pgstat_report_activity(i32 noundef 2, ptr noundef nonnull %1) #18
+  %492 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %485, i64 noundef %486, ptr noundef nonnull @.str.48, ptr noundef %487, ptr noundef %488, ptr noundef nonnull %491) #17
+  call void @SetCurrentStatementStartTimestamp() #17
+  call void @pgstat_report_activity(i32 noundef 2, ptr noundef nonnull %1) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %493 = load ptr, ptr %461, align 8
   %494 = load ptr, ptr %457, align 8
-  %495 = call ptr @makeRangeVar(ptr noundef %493, ptr noundef %494, i32 noundef -1) #18
+  %495 = call ptr @makeRangeVar(ptr noundef %493, ptr noundef %494, i32 noundef -1) #17
   %496 = load i32, ptr %366, align 8
-  %497 = call ptr @makeVacuumRelation(ptr noundef %495, i32 noundef %496, ptr noundef null) #18
-  %498 = call ptr @list_make1_impl(i32 noundef 1, ptr %497) #18
+  %497 = call ptr @makeVacuumRelation(ptr noundef %495, i32 noundef %496, ptr noundef null) #17
+  %498 = call ptr @list_make1_impl(i32 noundef 1, ptr %497) #17
   %499 = load ptr, ptr @CurrentMemoryContext, align 8
-  %500 = call ptr @AllocSetContextCreateInternal(ptr noundef %499, ptr noundef nonnull @.str.44, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #18
-  call void @vacuum(ptr noundef %498, ptr noundef nonnull %378, ptr noundef %174, ptr noundef %500, i1 noundef zeroext true) #18
-  call void @MemoryContextDelete(ptr noundef %500) #18
+  %500 = call ptr @AllocSetContextCreateInternal(ptr noundef %499, ptr noundef nonnull @.str.44, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #17
+  call void @vacuum(ptr noundef %498, ptr noundef nonnull %378, ptr noundef %174, ptr noundef %500, i1 noundef zeroext true) #17
+  call void @MemoryContextDelete(ptr noundef %500) #17
   store volatile i32 0, ptr @QueryCancelPending, align 4
   br label %514
 
@@ -2639,18 +2638,18 @@ autovacuum_do_vac_analyze.exit:                   ; preds = %477, %481
   %504 = load i32, ptr %378, align 8
   %505 = and i32 %504, 1
   %.not210 = icmp eq i32 %505, 0
-  %506 = call i32 @set_errcontext_domain(ptr noundef null) #18
+  %506 = call i32 @set_errcontext_domain(ptr noundef null) #17
   %507 = load ptr, ptr %464, align 8
   %508 = load ptr, ptr %461, align 8
   %509 = load ptr, ptr %457, align 8
   %.str.41..str.40 = select i1 %.not210, ptr @.str.41, ptr @.str.40
-  %510 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull %.str.41..str.40, ptr noundef %507, ptr noundef %508, ptr noundef %509) #18
-  call void @EmitErrorReport() #18
-  call void @AbortOutOfAnyTransaction() #18
-  call void @FlushErrorState() #18
+  %510 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull %.str.41..str.40, ptr noundef %507, ptr noundef %508, ptr noundef %509) #17
+  call void @EmitErrorReport() #17
+  call void @AbortOutOfAnyTransaction() #17
+  call void @FlushErrorState() #17
   %511 = load ptr, ptr @PortalContext, align 8
-  call void @MemoryContextReset(ptr noundef %511) #18
-  call void @StartTransactionCommand() #18
+  call void @MemoryContextReset(ptr noundef %511) #17
+  call void @StartTransactionCommand() #17
   %512 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %513 = add i32 %512, -1
   store volatile i32 %513, ptr @InterruptHoldoffCount, align 4
@@ -2672,7 +2671,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   br i1 %.not211, label %518, label %517
 
 517:                                              ; preds = %thread-pre-split
-  call void @pfree(ptr noundef nonnull %516) #18
+  call void @pfree(ptr noundef nonnull %516) #17
   br label %518
 
 518:                                              ; preds = %517, %thread-pre-split
@@ -2681,7 +2680,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   br i1 %.not212, label %521, label %520
 
 520:                                              ; preds = %518
-  call void @pfree(ptr noundef nonnull %519) #18
+  call void @pfree(ptr noundef nonnull %519) #17
   br label %521
 
 521:                                              ; preds = %520, %518
@@ -2690,14 +2689,14 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   br i1 %.not213, label %524, label %523
 
 523:                                              ; preds = %521
-  call void @pfree(ptr noundef nonnull %522) #18
+  call void @pfree(ptr noundef nonnull %522) #17
   br label %524
 
 524:                                              ; preds = %523, %521
-  call void @pfree(ptr noundef nonnull %366) #18
+  call void @pfree(ptr noundef nonnull %366) #17
   %525 = load ptr, ptr @MainLWLockArray, align 8
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 2944
-  %527 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %526, i32 noundef 0) #18
+  %527 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %526, i32 noundef 0) #17
   %528 = load ptr, ptr @MyWorkerInfo, align 8
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 20
   store i32 0, ptr %529, align 4
@@ -2705,10 +2704,10 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   store i8 0, ptr %530, align 1
   %531 = load ptr, ptr @MainLWLockArray, align 8
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 2944
-  call void @LWLockRelease(ptr noundef nonnull %532) #18
+  call void @LWLockRelease(ptr noundef nonnull %532) #17
   %533 = load ptr, ptr @MyWorkerInfo, align 8
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 40
-  %535 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %534, i8 1, ptr nonnull elementtype(i8) %534) #18, !srcloc !19
+  %535 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %534, i8 1, ptr nonnull elementtype(i8) %534) #17, !srcloc !19
   br label %536
 
 536:                                              ; preds = %239, %524, %table_recheck_autovac.exit.thread, %281
@@ -2747,14 +2746,14 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   store i8 1, ptr %548, align 1
   %556 = load ptr, ptr @MainLWLockArray, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %557) #18
+  call void @LWLockRelease(ptr noundef nonnull %557) #17
   call fastcc void @perform_work_item(ptr noundef nonnull %543)
   %558 = load volatile i32, ptr @InterruptPending, align 4
   %.not199 = icmp eq i32 %558, 0
   br i1 %.not199, label %560, label %559, !prof !17
 
 559:                                              ; preds = %555
-  call void @ProcessInterrupts() #18
+  call void @ProcessInterrupts() #17
   br label %560
 
 560:                                              ; preds = %559, %555
@@ -2764,14 +2763,14 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
 
 562:                                              ; preds = %560
   store volatile i32 0, ptr @ConfigReloadPending, align 4
-  call void @ProcessConfigFile(i32 noundef 2) #18
+  call void @ProcessConfigFile(i32 noundef 2) #17
   call void @VacuumUpdateCosts()
   br label %563
 
 563:                                              ; preds = %562, %560
   %564 = load ptr, ptr @MainLWLockArray, align 8
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 2816
-  %566 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %565, i32 noundef 0) #18
+  %566 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %565, i32 noundef 0) #17
   store i8 0, ptr %548, align 1
   store i8 0, ptr %544, align 4
   %.pre = load ptr, ptr @AutoVacuumShmem, align 8
@@ -2786,15 +2785,15 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
 569:                                              ; preds = %567
   %570 = load ptr, ptr @MainLWLockArray, align 8
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 2816
-  call void @LWLockRelease(ptr noundef nonnull %571) #18
+  call void @LWLockRelease(ptr noundef nonnull %571) #17
   br i1 %.0161.lcssa, label %573, label %572
 
 572:                                              ; preds = %569
-  call void @vac_update_datfrozenxid() #18
+  call void @vac_update_datfrozenxid() #17
   br label %573
 
 573:                                              ; preds = %569, %572
-  call void @CommitTransactionCommand() #18
+  call void @CommitTransactionCommand() #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2847,10 +2846,9 @@ define dso_local void @VacuumUpdateCosts() local_unnamed_addr #3 {
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__func__.AutoVacuumUpdateCostLimit) #18
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__func__.AutoVacuumUpdateCostLimit) #17
   unreachable
 
 28:                                               ; preds = %20
@@ -2893,13 +2891,13 @@ AutoVacuumUpdateCostLimit.exit:                   ; preds = %AutoVacuumUpdateCos
   br i1 %.not, label %69, label %41
 
 41:                                               ; preds = %40
-  %42 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 13) #18
+  %42 = tail call zeroext i1 @message_level_is_interesting(i32 noundef 13) #17
   br i1 %42, label %43, label %69
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 2816
-  %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %45, i32 noundef 1) #18
+  %46 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %45, i32 noundef 1) #17
   %47 = load ptr, ptr @MyWorkerInfo, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
@@ -2907,8 +2905,8 @@ AutoVacuumUpdateCostLimit.exit:                   ; preds = %AutoVacuumUpdateCos
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr @MainLWLockArray, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 2816
-  tail call void @LWLockRelease(ptr noundef nonnull %53) #18
-  %54 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #18
+  tail call void @LWLockRelease(ptr noundef nonnull %53) #17
+  %54 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
   br i1 %54, label %55, label %69
 
 55:                                               ; preds = %43
@@ -2924,8 +2922,8 @@ AutoVacuumUpdateCostLimit.exit:                   ; preds = %AutoVacuumUpdateCos
   %65 = load i8, ptr @VacuumFailsafeActive, align 1, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
   %67 = select i1 %66, ptr @.str.23, ptr @.str.22
-  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %49, i32 noundef %51, ptr noundef nonnull %60, i32 noundef %61, double noundef %62, ptr noundef nonnull %64, ptr noundef nonnull %67) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1708, ptr noundef nonnull @__func__.VacuumUpdateCosts) #18
+  %68 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.21, i32 noundef %49, i32 noundef %51, ptr noundef nonnull %60, i32 noundef %61, double noundef %62, ptr noundef nonnull %64, ptr noundef nonnull %67) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1708, ptr noundef nonnull @__func__.VacuumUpdateCosts) #17
   br label %69
 
 69:                                               ; preds = %43, %55, %41, %40
@@ -2962,10 +2960,9 @@ define dso_local void @AutoVacuumUpdateCostLimit() local_unnamed_addr #3 {
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__func__.AutoVacuumUpdateCostLimit) #18
+  %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #22
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.24) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1752, ptr noundef nonnull @__func__.AutoVacuumUpdateCostLimit) #17
   unreachable
 
 20:                                               ; preds = %12
@@ -2988,7 +2985,7 @@ declare zeroext i1 @message_level_is_interesting(i32 noundef) local_unnamed_addr
 define dso_local noundef zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2816
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #18
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #17
   %7 = load ptr, ptr @AutoVacuumShmem, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   br label %10
@@ -3025,7 +3022,7 @@ define dso_local noundef zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 n
   %22 = xor i1 %14, true
   %23 = load ptr, ptr @MainLWLockArray, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2816
-  tail call void @LWLockRelease(ptr noundef nonnull %24) #18
+  tail call void @LWLockRelease(ptr noundef nonnull %24) #17
   ret i1 %22
 }
 
@@ -3041,13 +3038,13 @@ define dso_local void @autovac_init() local_unnamed_addr #3 {
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %7 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %7, label %8, label %check_av_worker_gucs.exit
 
 8:                                                ; preds = %6
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #18
-  %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.26) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3286, ptr noundef nonnull @__func__.autovac_init) #18
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #17
+  %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.26) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3286, ptr noundef nonnull @__func__.autovac_init) #17
   br label %check_av_worker_gucs.exit
 
 11:                                               ; preds = %3
@@ -3057,17 +3054,17 @@ define dso_local void @autovac_init() local_unnamed_addr #3 {
   br i1 %14, label %15, label %check_av_worker_gucs.exit
 
 15:                                               ; preds = %11
-  %16 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %16 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %16, label %17, label %check_av_worker_gucs.exit
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @errcode(i32 noundef 50856066) #18
+  %18 = tail call i32 @errcode(i32 noundef 50856066) #17
   %19 = load i32, ptr @autovacuum_max_workers, align 4
   %20 = load i32, ptr @autovacuum_worker_slots, align 4
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %19, i32 noundef %20) #18
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, i32 noundef %19, i32 noundef %20) #17
   %22 = load i32, ptr @autovacuum_worker_slots, align 4
-  %23 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55, i32 noundef %22) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3411, ptr noundef nonnull @__func__.check_av_worker_gucs) #18
+  %23 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55, i32 noundef %22) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3411, ptr noundef nonnull @__func__.check_av_worker_gucs) #17
   br label %check_av_worker_gucs.exit
 
 check_av_worker_gucs.exit:                        ; preds = %17, %15, %11, %6, %8, %0
@@ -3080,8 +3077,8 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 define dso_local i64 @AutoVacuumShmemSize() local_unnamed_addr #3 {
   %1 = load i32, ptr @autovacuum_worker_slots, align 4
   %2 = sext i32 %1 to i64
-  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 48) #18
-  %4 = tail call i64 @add_size(i64 noundef 5192, i64 noundef %3) #18
+  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 48) #17
+  %4 = tail call i64 @add_size(i64 noundef 5192, i64 noundef %3) #17
   ret i64 %4
 }
 
@@ -3095,9 +3092,9 @@ define dso_local void @AutoVacuumShmemInit() local_unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @autovacuum_worker_slots, align 4
   %3 = sext i32 %2 to i64
-  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 48) #18
-  %5 = tail call i64 @add_size(i64 noundef 5192, i64 noundef %4) #18
-  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.27, i64 noundef %5, ptr noundef nonnull %1) #18
+  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 48) #17
+  %5 = tail call i64 @add_size(i64 noundef 5192, i64 noundef %4) #17
+  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.27, i64 noundef %5, ptr noundef nonnull %1) #17
   store ptr %6, ptr @AutoVacuumShmem, align 8
   %7 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
@@ -3151,7 +3148,7 @@ dclist_push_head.exit:                            ; preds = %.lr.ph, %26
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 8
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !14
   store volatile i8 0, ptr %33, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr @autovacuum_worker_slots, align 4
@@ -3214,10 +3211,10 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_database_list() unnamed_addr #3 {
   %1 = load ptr, ptr @CurrentMemoryContext, align 8
-  tail call void @StartTransactionCommand() #18
-  %2 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 1) #18
-  %3 = tail call ptr @table_beginscan_catalog(ptr noundef %2, i32 noundef 0, ptr noundef null) #18
-  %4 = tail call ptr @heap_getnext(ptr noundef %3, i32 noundef 1) #18
+  tail call void @StartTransactionCommand() #17
+  %2 = tail call ptr @table_open(i32 noundef 1262, i32 noundef 1) #17
+  %3 = tail call ptr @table_beginscan_catalog(ptr noundef %2, i32 noundef 0, ptr noundef null) #17
+  %4 = tail call ptr @heap_getnext(ptr noundef %3, i32 noundef 1) #17
   %.not23 = icmp eq ptr %4, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -3230,27 +3227,27 @@ define internal fastcc ptr @get_database_list() unnamed_addr #3 {
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 %9
-  %11 = tail call zeroext i1 @database_is_invalid_form(ptr noundef %10) #18
+  %11 = tail call zeroext i1 @database_is_invalid_form(ptr noundef %10) #17
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %.lr.ph
-  %13 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #18
+  %13 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
   br i1 %13, label %14, label %32, !llvm.loop !23
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %15) #18
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1840, ptr noundef nonnull @__func__.get_database_list) #18
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %15) #17
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1840, ptr noundef nonnull @__func__.get_database_list) #17
   br label %32, !llvm.loop !23
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %1, ptr @CurrentMemoryContext, align 8
-  %19 = tail call ptr @palloc(i64 noundef 32) #18
+  %19 = tail call ptr @palloc(i64 noundef 32) #17
   %20 = load i32, ptr %10, align 4
   store i32 %20, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %22 = tail call ptr @pstrdup(ptr noundef nonnull %21) #18
+  %22 = tail call ptr @pstrdup(ptr noundef nonnull %21) #17
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 84
@@ -3263,13 +3260,13 @@ define internal fastcc ptr @get_database_list() unnamed_addr #3 {
   store i32 %28, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr null, ptr %30, align 8
-  %31 = tail call ptr @lappend(ptr noundef %.024, ptr noundef nonnull %19) #18
+  %31 = tail call ptr @lappend(ptr noundef %.024, ptr noundef nonnull %19) #17
   store ptr %18, ptr @CurrentMemoryContext, align 8
   br label %32
 
 32:                                               ; preds = %12, %14, %17
   %.1 = phi ptr [ %31, %17 ], [ %.024, %14 ], [ %.024, %12 ]
-  %33 = tail call ptr @heap_getnext(ptr noundef %3, i32 noundef 1) #18
+  %33 = tail call ptr @heap_getnext(ptr noundef %3, i32 noundef 1) #17
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3280,9 +3277,9 @@ define internal fastcc ptr @get_database_list() unnamed_addr #3 {
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef nonnull %3) #18
-  tail call void @table_close(ptr noundef %2, i32 noundef 1) #18
-  tail call void @CommitTransactionCommand() #18
+  tail call void %38(ptr noundef nonnull %3) #17
+  tail call void @table_close(ptr noundef %2, i32 noundef 1) #17
+  tail call void @CommitTransactionCommand() #17
   store ptr %1, ptr @CurrentMemoryContext, align 8
   ret ptr %.0.lcssa
 }
@@ -3445,7 +3442,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   %75 = icmp ult i32 %74, 3
   %76 = add nsw i32 %74, -3
   %spec.select = select i1 %75, i32 %76, i32 %74
-  %77 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %70, i32 noundef %spec.select) #18
+  %77 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %70, i32 noundef %spec.select) #17
   br i1 %77, label %.thread153, label %.thread152
 
 .thread153:                                       ; preds = %72
@@ -3463,7 +3460,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   %82 = icmp eq i32 %81, %59
   %83 = sub i32 %81, %59
   %spec.select133 = select i1 %82, i32 -1, i32 %83
-  %84 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %79, i32 noundef %spec.select133) #18
+  %84 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %79, i32 noundef %spec.select133) #17
   br label %85
 
 85:                                               ; preds = %.thread152, %80
@@ -3526,7 +3523,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   %118 = sitofp i32 %60 to float
   %119 = tail call float @llvm.fmuladd.f32(float %66, float %.0103, float %118)
   %120 = icmp sgt i32 %61, -1
-  %121 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #18
+  %121 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #17
   br i1 %120, label %122, label %132
 
 122:                                              ; preds = %115
@@ -3540,7 +3537,7 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   %128 = fpext float %117 to double
   %129 = fpext float %106 to double
   %130 = fpext float %119 to double
-  %131 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, ptr noundef nonnull %124, double noundef %125, double noundef %126, double noundef %127, double noundef %128, double noundef %129, double noundef %130) #18
+  %131 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.42, ptr noundef nonnull %124, double noundef %125, double noundef %126, double noundef %127, double noundef %128, double noundef %129, double noundef %130) #17
   br label %.sink.split
 
 132:                                              ; preds = %115
@@ -3552,12 +3549,12 @@ define internal fastcc void @relation_needs_vacanalyze(i32 noundef %0, ptr nound
   %136 = fpext float %.0105 to double
   %137 = fpext float %106 to double
   %138 = fpext float %119 to double
-  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, ptr noundef nonnull %134, double noundef %135, double noundef %136, double noundef %137, double noundef %138) #18
+  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.43, ptr noundef nonnull %134, double noundef %135, double noundef %136, double noundef %137, double noundef %138) #17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %123, %133
   %.sink = phi i32 [ 3083, %133 ], [ 3079, %123 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.relation_needs_vacanalyze) #18
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.relation_needs_vacanalyze) #17
   br label %140
 
 140:                                              ; preds = %.sink.split, %132, %122
@@ -3626,12 +3623,12 @@ define internal fastcc void @perform_work_item(ptr noundef readonly captures(non
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = call ptr @get_rel_name(i32 noundef %6) #18
+  %7 = call ptr @get_rel_name(i32 noundef %6) #17
   %8 = load i32, ptr %5, align 4
-  %9 = call i32 @get_rel_namespace(i32 noundef %8) #18
-  %10 = call ptr @get_namespace_name(i32 noundef %9) #18
+  %9 = call i32 @get_rel_namespace(i32 noundef %8) #17
+  %10 = call ptr @get_namespace_name(i32 noundef %9) #17
   %11 = load i32, ptr @MyDatabaseId, align 4
-  %12 = call ptr @get_database_name(i32 noundef %11) #18
+  %12 = call ptr @get_database_name(i32 noundef %11) #17
   %13 = icmp ne ptr %7, null
   %14 = icmp ne ptr %10, null
   %or.cond = select i1 %13, i1 %14, i1 false
@@ -3647,18 +3644,18 @@ define internal fastcc void @perform_work_item(ptr noundef readonly captures(non
   br i1 %cond.i, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 184, ptr noundef nonnull @.str.52) #18
+  %19 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 184, ptr noundef nonnull @.str.52) #17
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 4
   %.not.i = icmp eq i32 %23, -1
   br i1 %.not.i, label %26, label %24
 
 24:                                               ; preds = %20
-  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 14, ptr noundef nonnull @.str.53, i32 noundef %23) #18
+  %25 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 14, ptr noundef nonnull @.str.53, i32 noundef %23) #17
   br label %autovac_report_workitem.exit
 
 26:                                               ; preds = %20
@@ -3671,17 +3668,17 @@ autovac_report_workitem.exit:                     ; preds = %24, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 %27
   %sext6.i = sub i64 790273982464, %sext.i
   %29 = ashr exact i64 %sext6.i, 32
-  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef nonnull @.str.48, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %3) #18
-  call void @SetCurrentStatementStartTimestamp() #18
-  call void @pgstat_report_activity(i32 noundef 2, ptr noundef nonnull %2) #18
+  %30 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef %29, ptr noundef nonnull @.str.48, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %3) #17
+  call void @SetCurrentStatementStartTimestamp() #17
+  call void @pgstat_report_activity(i32 noundef 2, ptr noundef nonnull %2) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %31 = load ptr, ptr @PortalContext, align 8
-  call void @MemoryContextReset(ptr noundef %31) #18
+  call void @MemoryContextReset(ptr noundef %31) #17
   %32 = load ptr, ptr @PG_exception_stack, align 8
   %33 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %34 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #19
+  %34 = call i32 @__sigsetjmp(ptr noundef nonnull %4, i32 noundef 0) #18
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %51
 
@@ -3698,17 +3695,17 @@ autovac_report_workitem.exit:                     ; preds = %24, %26
   %41 = zext i32 %40 to i64
   %42 = load i32, ptr %22, align 4
   %43 = zext i32 %42 to i64
-  %44 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @brin_summarize_range, i32 noundef 0, i64 noundef %41, i64 noundef %43) #18
+  %44 = call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @brin_summarize_range, i32 noundef 0, i64 noundef %41, i64 noundef %43) #17
   br label %50
 
 45:                                               ; preds = %36
-  %46 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #18
+  %46 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %45
   %48 = load i32, ptr %0, align 4
-  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %48) #18
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2629, ptr noundef nonnull @__func__.perform_work_item) #18
+  %49 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %48) #17
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2629, ptr noundef nonnull @__func__.perform_work_item) #17
   br label %50
 
 50:                                               ; preds = %45, %47, %39
@@ -3721,14 +3718,14 @@ autovac_report_workitem.exit:                     ; preds = %24, %26
   %52 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %53 = add i32 %52, 1
   store volatile i32 %53, ptr @InterruptHoldoffCount, align 4
-  %54 = call i32 @set_errcontext_domain(ptr noundef null) #18
-  %55 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.51, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %7) #18
-  call void @EmitErrorReport() #18
-  call void @AbortOutOfAnyTransaction() #18
-  call void @FlushErrorState() #18
+  %54 = call i32 @set_errcontext_domain(ptr noundef null) #17
+  %55 = call i32 (ptr, ...) @errcontext_msg(ptr noundef nonnull @.str.51, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %7) #17
+  call void @EmitErrorReport() #17
+  call void @AbortOutOfAnyTransaction() #17
+  call void @FlushErrorState() #17
   %56 = load ptr, ptr @PortalContext, align 8
-  call void @MemoryContextReset(ptr noundef %56) #18
-  call void @StartTransactionCommand() #18
+  call void @MemoryContextReset(ptr noundef %56) #17
+  call void @StartTransactionCommand() #17
   %57 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %58 = add i32 %57, -1
   store volatile i32 %58, ptr @InterruptHoldoffCount, align 4
@@ -3746,21 +3743,21 @@ autovac_report_workitem.exit:                     ; preds = %24, %26
   br i1 %15, label %61, label %62
 
 61:                                               ; preds = %.thread, %60
-  call void @pfree(ptr noundef nonnull %12) #18
+  call void @pfree(ptr noundef nonnull %12) #17
   br label %62
 
 62:                                               ; preds = %61, %60
   br i1 %14, label %63, label %64
 
 63:                                               ; preds = %62
-  call void @pfree(ptr noundef nonnull %10) #18
+  call void @pfree(ptr noundef nonnull %10) #17
   br label %64
 
 64:                                               ; preds = %63, %62
   br i1 %13, label %65, label %66
 
 65:                                               ; preds = %64
-  call void @pfree(ptr noundef nonnull %7) #18
+  call void @pfree(ptr noundef nonnull %7) #17
   br label %66
 
 66:                                               ; preds = %65, %64
@@ -3804,20 +3801,17 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #16
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #17
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
+declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32, i32) #17
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3835,14 +3829,13 @@ attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind returns_twice }
-attributes #20 = { noreturn }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { nounwind willreturn memory(read) }
-attributes #23 = { cold nounwind }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind returns_twice }
+attributes #19 = { noreturn }
+attributes #20 = { noreturn nounwind }
+attributes #21 = { nounwind willreturn memory(read) }
+attributes #22 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

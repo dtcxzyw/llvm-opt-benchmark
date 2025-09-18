@@ -205,78 +205,74 @@ define hidden void @zif_stream_wrapper_register(ptr noundef readonly captures(no
   %7 = load i32, ptr %6, align 4, !tbaa !22
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %9 = icmp eq i32 %8, -1
-  br i1 %9, label %10, label %13
+  br i1 %9, label %49, label %10
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
-  %12 = icmp ne ptr %11, null
-  call void @llvm.assume(i1 %12)
-  br label %53
+  %11 = call noalias dereferenceable_or_null(48) ptr @_ecalloc(i64 noundef 1, i64 noundef 48) #13
+  %12 = load ptr, ptr %4, align 8, !tbaa !20
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store ptr %12, ptr %13, align 8, !tbaa !23
+  %14 = load ptr, ptr %3, align 8, !tbaa !24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %17 = load i64, ptr %16, align 8, !tbaa !26
+  %18 = call noalias ptr @_estrndup(ptr noundef nonnull %15, i64 noundef %17) #12
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %18, ptr %19, align 8, !tbaa !13
+  store ptr @user_stream_wops, ptr %11, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr %11, ptr %20, align 8, !tbaa !29
+  %21 = load i64, ptr %5, align 8, !tbaa !21
+  %22 = trunc i64 %21 to i32
+  %23 = and i32 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i32 %23, ptr %24, align 8, !tbaa !30
+  %25 = load i32, ptr @le_protocols, align 4, !tbaa !4
+  %26 = call ptr @zend_register_resource(ptr noundef nonnull %11, i32 noundef %25) #12
+  %27 = load ptr, ptr %3, align 8, !tbaa !24
+  %28 = call i32 @php_register_url_stream_wrapper_volatile(ptr noundef %27, ptr noundef nonnull %11) #12
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %32
 
-13:                                               ; preds = %2
-  %14 = call noalias dereferenceable_or_null(48) ptr @_ecalloc(i64 noundef 1, i64 noundef 48) #13
-  %15 = load ptr, ptr %4, align 8, !tbaa !20
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %15, ptr %16, align 8, !tbaa !53
-  %17 = load ptr, ptr %3, align 8, !tbaa !54
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !55
-  %21 = call noalias ptr @_estrndup(ptr noundef nonnull %18, i64 noundef %20) #12
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %21, ptr %22, align 8, !tbaa !13
-  store ptr @user_stream_wops, ptr %14, align 8, !tbaa !57
-  %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %14, ptr %23, align 8, !tbaa !58
-  %24 = load i64, ptr %5, align 8, !tbaa !21
-  %25 = trunc i64 %24 to i32
-  %26 = and i32 %25, 1
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 %26, ptr %27, align 8, !tbaa !59
-  %28 = load i32, ptr @le_protocols, align 4, !tbaa !4
-  %29 = call ptr @zend_register_resource(ptr noundef nonnull %14, i32 noundef %28) #12
-  %30 = load ptr, ptr %3, align 8, !tbaa !54
-  %31 = call i32 @php_register_url_stream_wrapper_volatile(ptr noundef %30, ptr noundef nonnull %14) #12
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %36
+30:                                               ; preds = %10
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store ptr %26, ptr %31, align 8, !tbaa !31
+  br label %.sink.split
 
-33:                                               ; preds = %13
-  %34 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %29, ptr %34, align 8, !tbaa !60
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %35, align 8, !tbaa !22
-  br label %53
+32:                                               ; preds = %10
+  %33 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
+  %34 = load ptr, ptr %3, align 8, !tbaa !24
+  %35 = call ptr @zend_hash_find(ptr noundef %33, ptr noundef %34) #12
+  %.not = icmp eq ptr %35, null
+  br i1 %.not, label %39, label %36
 
-36:                                               ; preds = %13
-  %37 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
-  %38 = load ptr, ptr %3, align 8, !tbaa !54
-  %39 = call ptr @zend_hash_find(ptr noundef %37, ptr noundef %38) #12
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %43, label %40
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %3, align 8, !tbaa !24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %38) #12
+  br label %46
 
-40:                                               ; preds = %36
-  %41 = load ptr, ptr %3, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.2, ptr noundef nonnull %42) #12
-  br label %50
+39:                                               ; preds = %32
+  %40 = load ptr, ptr %13, align 8, !tbaa !23
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load ptr, ptr %3, align 8, !tbaa !24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %43, ptr noundef nonnull %45) #12
+  br label %46
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %16, align 8, !tbaa !53
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !61
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load ptr, ptr %3, align 8, !tbaa !54
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef nonnull %47, ptr noundef nonnull %49) #12
-  br label %50
+46:                                               ; preds = %39, %36
+  %47 = call i32 @zend_list_delete(ptr noundef %26) #12
+  br label %.sink.split
 
-50:                                               ; preds = %43, %40
-  %51 = call i32 @zend_list_delete(ptr noundef %29) #12
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %52, align 8, !tbaa !22
-  br label %53
+.sink.split:                                      ; preds = %30, %46
+  %.sink = phi i32 [ 2, %46 ], [ 3, %30 ]
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %48, align 8, !tbaa !22
+  br label %49
 
-53:                                               ; preds = %50, %33, %10
+49:                                               ; preds = %.sink.split, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -311,59 +307,52 @@ define hidden void @zif_stream_wrapper_unregister(ptr noundef readonly captures(
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #12
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %8, label %11
+  br i1 %7, label %29, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
-  br label %34
+  %9 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
+  %10 = load ptr, ptr %3, align 8, !tbaa !24
+  %11 = call ptr @zend_hash_find(ptr noundef %9, ptr noundef %10) #12
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %zend_hash_find_ptr.exit, label %12
 
-11:                                               ; preds = %2
-  %12 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
-  %13 = load ptr, ptr %3, align 8, !tbaa !54
-  %14 = call ptr @zend_hash_find(ptr noundef %12, ptr noundef %13) #12
-  %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %zend_hash_find_ptr.exit, label %15
-
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %14, align 8, !tbaa !22, !nonnull !73, !noundef !73
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %11, align 8, !tbaa !22, !nonnull !47, !noundef !47
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %11, %15
-  %.0.i = phi ptr [ %16, %15 ], [ null, %11 ]
-  %17 = load ptr, ptr %3, align 8, !tbaa !54
-  %18 = call i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef %17) #12
-  %19 = icmp eq i32 %18, -1
-  br i1 %19, label %20, label %24
+zend_hash_find_ptr.exit:                          ; preds = %8, %12
+  %.0.i = phi ptr [ %13, %12 ], [ null, %8 ]
+  %14 = load ptr, ptr %3, align 8, !tbaa !24
+  %15 = call i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef %14) #12
+  %16 = icmp eq i32 %15, -1
+  br i1 %16, label %17, label %20
+
+17:                                               ; preds = %zend_hash_find_ptr.exit
+  %18 = load ptr, ptr %3, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef nonnull %19) #12
+  br label %.sink.split
 
 20:                                               ; preds = %zend_hash_find_ptr.exit
-  %21 = load ptr, ptr %3, align 8, !tbaa !54
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5, ptr noundef nonnull %22) #12
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %23, align 8, !tbaa !22
-  br label %34
+  %21 = icmp ne ptr %.0.i, null
+  call void @llvm.assume(i1 %21)
+  %22 = load ptr, ptr %.0.i, align 8, !tbaa !48
+  %23 = icmp eq ptr %22, @user_stream_wops
+  br i1 %23, label %24, label %.sink.split
 
-24:                                               ; preds = %zend_hash_find_ptr.exit
-  %25 = icmp ne ptr %.0.i, null
-  call void @llvm.assume(i1 %25)
-  %26 = load ptr, ptr %.0.i, align 8, !tbaa !74
-  %27 = icmp eq ptr %26, @user_stream_wops
-  br i1 %27, label %28, label %32
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
+  %27 = call i32 @zend_list_delete(ptr noundef %26) #12
+  br label %.sink.split
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !60
-  %31 = call i32 @zend_list_delete(ptr noundef %30) #12
-  br label %32
+.sink.split:                                      ; preds = %20, %24, %17
+  %.sink = phi i32 [ 2, %17 ], [ 3, %24 ], [ 3, %20 ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %28, align 8, !tbaa !22
+  br label %29
 
-32:                                               ; preds = %28, %24
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %33, align 8, !tbaa !22
-  br label %34
-
-34:                                               ; preds = %20, %32, %8
+29:                                               ; preds = %.sink.split, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -378,76 +367,65 @@ define hidden void @zif_stream_wrapper_restore(ptr noundef readonly captures(non
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %5, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #12
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %8, label %11
+  br i1 %7, label %36, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
-  %10 = icmp ne ptr %9, null
-  call void @llvm.assume(i1 %10)
-  br label %43
+  %9 = call ptr @php_stream_get_url_stream_wrappers_hash_global() #12
+  %10 = load ptr, ptr %3, align 8, !tbaa !24
+  %11 = call ptr @zend_hash_find(ptr noundef %9, ptr noundef %10) #12
+  %.not.i12 = icmp eq ptr %11, null
+  br i1 %.not.i12, label %12, label %15
 
-11:                                               ; preds = %2
-  %12 = call ptr @php_stream_get_url_stream_wrappers_hash_global() #12
-  %13 = load ptr, ptr %3, align 8, !tbaa !54
-  %14 = call ptr @zend_hash_find(ptr noundef %12, ptr noundef %13) #12
-  %.not.i12 = icmp eq ptr %14, null
-  br i1 %.not.i12, label %15, label %19
+12:                                               ; preds = %8
+  %13 = load ptr, ptr %3, align 8, !tbaa !24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #12
+  br label %.sink.split
 
-15:                                               ; preds = %11
-  %16 = load ptr, ptr %3, align 8, !tbaa !54
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull %17) #12
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %18, align 8, !tbaa !22
-  br label %43
+15:                                               ; preds = %8
+  %16 = load ptr, ptr %11, align 8, !tbaa !22, !nonnull !47, !noundef !47
+  %17 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
+  %18 = icmp eq ptr %17, %9
+  br i1 %18, label %24, label %19
 
-19:                                               ; preds = %11
-  %20 = load ptr, ptr %14, align 8, !tbaa !22, !nonnull !73, !noundef !73
-  %21 = call ptr @_php_stream_get_url_stream_wrappers_hash() #12
-  %22 = icmp eq ptr %21, %12
-  br i1 %22, label %28, label %23
-
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %3, align 8, !tbaa !54
-  %25 = call ptr @zend_hash_find(ptr noundef %21, ptr noundef %24) #12
-  %.not.i = icmp eq ptr %25, null
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %3, align 8, !tbaa !24
+  %21 = call ptr @zend_hash_find(ptr noundef %17, ptr noundef %20) #12
+  %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %zend_hash_find_ptr.exit.thread, label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %23
-  %26 = load ptr, ptr %25, align 8, !tbaa !22, !nonnull !73, !noundef !73
-  %27 = icmp eq ptr %26, %20
-  br i1 %27, label %28, label %zend_hash_find_ptr.exit.thread
+zend_hash_find_ptr.exit:                          ; preds = %19
+  %22 = load ptr, ptr %21, align 8, !tbaa !22, !nonnull !47, !noundef !47
+  %23 = icmp eq ptr %22, %16
+  br i1 %23, label %24, label %zend_hash_find_ptr.exit.thread
 
-28:                                               ; preds = %zend_hash_find_ptr.exit, %19
-  %29 = load ptr, ptr %3, align 8, !tbaa !54
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.7, ptr noundef nonnull %30) #12
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %31, align 8, !tbaa !22
-  br label %43
+24:                                               ; preds = %zend_hash_find_ptr.exit, %15
+  %25 = load ptr, ptr %3, align 8, !tbaa !24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8, ptr noundef nonnull @.str.7, ptr noundef nonnull %26) #12
+  br label %.sink.split
 
-zend_hash_find_ptr.exit.thread:                   ; preds = %23, %zend_hash_find_ptr.exit
-  %32 = load ptr, ptr %3, align 8, !tbaa !54
-  %33 = call i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef %32) #12
-  %34 = load ptr, ptr %3, align 8, !tbaa !54
-  %35 = call i32 @php_register_url_stream_wrapper_volatile(ptr noundef %34, ptr noundef nonnull %20) #12
-  %36 = icmp eq i32 %35, -1
-  br i1 %36, label %37, label %41
+zend_hash_find_ptr.exit.thread:                   ; preds = %19, %zend_hash_find_ptr.exit
+  %27 = load ptr, ptr %3, align 8, !tbaa !24
+  %28 = call i32 @php_unregister_url_stream_wrapper_volatile(ptr noundef %27) #12
+  %29 = load ptr, ptr %3, align 8, !tbaa !24
+  %30 = call i32 @php_register_url_stream_wrapper_volatile(ptr noundef %29, ptr noundef nonnull %16) #12
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %.sink.split
 
-37:                                               ; preds = %zend_hash_find_ptr.exit.thread
-  %38 = load ptr, ptr %3, align 8, !tbaa !54
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %39) #12
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %40, align 8, !tbaa !22
-  br label %43
+32:                                               ; preds = %zend_hash_find_ptr.exit.thread
+  %33 = load ptr, ptr %3, align 8, !tbaa !24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %34) #12
+  br label %.sink.split
 
-41:                                               ; preds = %zend_hash_find_ptr.exit.thread
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 3, ptr %42, align 8, !tbaa !22
-  br label %43
+.sink.split:                                      ; preds = %zend_hash_find_ptr.exit.thread, %12, %24, %32
+  %.sink = phi i32 [ 2, %32 ], [ 3, %24 ], [ 2, %12 ], [ 3, %zend_hash_find_ptr.exit.thread ]
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %35, align 8, !tbaa !22
+  br label %36
 
-43:                                               ; preds = %41, %37, %28, %15, %8
+36:                                               ; preds = %.sink.split, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -463,16 +441,16 @@ zend_string_alloc.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %8 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %8, align 4, !tbaa !84
+  store i32 1, ptr %8, align 4, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 22, ptr %9, align 4, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %10, align 8, !tbaa !85
+  store i64 0, ptr %10, align 8, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 12, ptr %11, align 8, !tbaa !55
+  store i64 12, ptr %11, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 1 dereferenceable(12) @.str.67, i64 12, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
@@ -483,13 +461,13 @@ zend_string_alloc.exit:
   %15 = and i64 %2, -8
   %16 = add i64 %15, 32
   %17 = tail call noalias ptr @_emalloc(i64 noundef %16) #14
-  store i32 1, ptr %17, align 4, !tbaa !84
+  store i32 1, ptr %17, align 4, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 22, ptr %18, align 4, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !85
+  store i64 0, ptr %19, align 8, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %2, ptr %20, align 8, !tbaa !55
+  store i64 %2, ptr %20, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %1, i64 %2, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %2
@@ -502,7 +480,7 @@ zend_string_alloc.exit:
   %25 = call i32 @zend_call_method_if_exists(ptr noundef %.val, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %5) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %3) #12
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !61
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %51
 
@@ -521,9 +499,9 @@ zend_string_alloc.exit:
 32:                                               ; preds = %29, %27
   %33 = load ptr, ptr %7, align 8, !tbaa !86
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !53
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !61
+  %37 = load ptr, ptr %36, align 8, !tbaa !32
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.68, ptr noundef nonnull %38) #12
   br label %.thread
@@ -539,9 +517,9 @@ zend_string_alloc.exit:
 43:                                               ; preds = %39
   %44 = load ptr, ptr %7, align 8, !tbaa !86
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !53
+  %46 = load ptr, ptr %45, align 8, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !61
+  %48 = load ptr, ptr %47, align 8, !tbaa !32
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = sub nuw nsw i64 %40, %2
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.69, ptr noundef nonnull %49, i64 noundef %50, i64 noundef %40, i64 noundef %2) #12
@@ -569,15 +547,15 @@ define internal i64 @php_userstreamop_read(ptr noundef captures(none) %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %9, align 4, !tbaa !84
+  store i32 1, ptr %9, align 4, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 22, ptr %10, align 4, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !85
+  store i64 0, ptr %11, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 11, ptr %12, align 8, !tbaa !55
+  store i64 11, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, ptr noundef nonnull align 1 dereferenceable(11) @.str.70, i64 11, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 35
@@ -593,7 +571,7 @@ define internal i64 @php_userstreamop_read(ptr noundef captures(none) %0, ptr no
   %18 = call i32 @zend_call_method_if_exists(ptr noundef %.val, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #12
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !61
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %79
 
@@ -604,9 +582,9 @@ define internal i64 @php_userstreamop_read(ptr noundef captures(none) %0, ptr no
 22:                                               ; preds = %20
   %23 = load ptr, ptr %8, align 8, !tbaa !86
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !53
+  %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !61
+  %27 = load ptr, ptr %26, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.71, ptr noundef nonnull %28) #12
   br label %79
@@ -630,7 +608,7 @@ try_convert_to_string.exit:                       ; preds = %29
 try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to_string.exit
   %34 = load ptr, ptr %5, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !55
+  %36 = load i64, ptr %35, align 8, !tbaa !26
   %.not36 = icmp eq i64 %36, 0
   br i1 %.not36, label %50, label %37
 
@@ -641,9 +619,9 @@ try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to
 39:                                               ; preds = %37
   %40 = load ptr, ptr %8, align 8, !tbaa !86
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !53
+  %42 = load ptr, ptr %41, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !61
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = sub nuw i64 %36, %2
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef nonnull %45, i64 noundef %46, i64 noundef %36, i64 noundef %2) #12
@@ -662,13 +640,13 @@ try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #12
   store i32 0, ptr %30, align 8, !tbaa !22
   %51 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %51, align 4, !tbaa !84
+  store i32 1, ptr %51, align 4, !tbaa !59
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 22, ptr %52, align 4, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 0, ptr %53, align 8, !tbaa !85
+  store i64 0, ptr %53, align 8, !tbaa !60
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i64 10, ptr %54, align 8, !tbaa !55
+  store i64 10, ptr %54, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %55, ptr noundef nonnull align 1 dereferenceable(10) @.str.73, i64 10, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 34
@@ -678,7 +656,7 @@ try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to
   %.val40 = load ptr, ptr %17, align 8, !tbaa !22
   %57 = call i32 @zend_call_method_if_exists(ptr noundef %.val40, ptr noundef nonnull %51, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #12
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !61
   %.not37 = icmp eq ptr %58, null
   br i1 %.not37, label %63, label %59
 
@@ -707,9 +685,9 @@ try_convert_to_string.exit.thread:                ; preds = %29, %try_convert_to
 68:                                               ; preds = %63
   %69 = load ptr, ptr %8, align 8, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !53
+  %71 = load ptr, ptr %70, align 8, !tbaa !23
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !61
+  %73 = load ptr, ptr %72, align 8, !tbaa !32
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.74, ptr noundef nonnull %74) #12
   br label %.sink.split
@@ -740,15 +718,15 @@ define internal noundef i32 @php_userstreamop_close(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %7, align 4, !tbaa !84
+  store i32 1, ptr %7, align 4, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 22, ptr %8, align 4, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !85
+  store i64 0, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 12, ptr %10, align 8, !tbaa !55
+  store i64 12, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 1 dereferenceable(12) @.str.75, i64 12, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -777,15 +755,15 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_flush(ptr noundef readonl
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !75
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %6, align 4, !tbaa !84
+  store i32 1, ptr %6, align 4, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 22, ptr %7, align 4, !tbaa !22
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %8, align 8, !tbaa !85
+  store i64 0, ptr %8, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 12, ptr %9, align 8, !tbaa !55
+  store i64 12, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 1 dereferenceable(12) @.str.76, i64 12, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -827,16 +805,16 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_seek(ptr noundef captures
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %10, align 4, !tbaa !84
+  store i32 1, ptr %10, align 4, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4, !tbaa !22
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %12, align 8, !tbaa !85
+  store i64 0, ptr %12, align 8, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 11, ptr %13, align 8, !tbaa !55
+  store i64 11, ptr %13, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %14, ptr noundef nonnull align 1 dereferenceable(11) @.str.77, i64 11, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 35
@@ -884,13 +862,13 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_seek(ptr noundef captures
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #12
   store i32 0, ptr %28, align 8, !tbaa !22
   %33 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %33, align 4, !tbaa !84
+  store i32 1, ptr %33, align 4, !tbaa !59
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 22, ptr %34, align 4, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i64 0, ptr %35, align 8, !tbaa !85
+  store i64 0, ptr %35, align 8, !tbaa !60
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i64 11, ptr %36, align 8, !tbaa !55
+  store i64 11, ptr %36, align 8, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %37, ptr noundef nonnull align 1 dereferenceable(11) @.str.78, i64 11, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 35
@@ -917,9 +895,9 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_seek(ptr noundef captures
 45:                                               ; preds = %32
   %46 = load ptr, ptr %9, align 8, !tbaa !86
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !53
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !61
+  %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.79, ptr noundef nonnull %51) #12
   br label %52
@@ -945,19 +923,19 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly captures(address
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct._zval_struct], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %2, null
   %9 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %9, align 4, !tbaa !84
+  store i32 1, ptr %9, align 4, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 22, ptr %10, align 4, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !85
+  store i64 0, ptr %11, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 11, ptr %12, align 8, !tbaa !55
+  store i64 11, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, ptr noundef nonnull align 1 dereferenceable(11) @.str.80, i64 11, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 35
@@ -982,9 +960,9 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly captures(address
 21:                                               ; preds = %20
   %22 = load ptr, ptr %8, align 8, !tbaa !86
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !61
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.81, ptr noundef nonnull %27) #12
   br label %54
@@ -1006,9 +984,9 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly captures(address
 35:                                               ; preds = %34
   %36 = load ptr, ptr %8, align 8, !tbaa !86
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !53
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !61
+  %40 = load ptr, ptr %39, align 8, !tbaa !32
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.83, ptr noundef nonnull %41) #12
   br label %54
@@ -1023,9 +1001,9 @@ define internal i32 @php_userstreamop_cast(ptr noundef readonly captures(address
 45:                                               ; preds = %44
   %46 = load ptr, ptr %8, align 8, !tbaa !86
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !53
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !61
+  %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.84, ptr noundef nonnull %51) #12
   br label %54
@@ -1052,15 +1030,15 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %7, align 4, !tbaa !84
+  store i32 1, ptr %7, align 4, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 22, ptr %8, align 4, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !85
+  store i64 0, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 11, ptr %10, align 8, !tbaa !55
+  store i64 11, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %11, ptr noundef nonnull align 1 dereferenceable(11) @.str.85, i64 11, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 35
@@ -1089,9 +1067,9 @@ define internal range(i32 -1, 1) i32 @php_userstreamop_stat(ptr noundef readonly
 21:                                               ; preds = %2
   %22 = load ptr, ptr %6, align 8, !tbaa !86
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !61
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.86, ptr noundef nonnull %27) #12
   br label %28
@@ -1113,7 +1091,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %1, label %150 [
     i32 12, label %10
@@ -1127,13 +1105,13 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 
 10:                                               ; preds = %4
   %11 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %11, align 4, !tbaa !84
+  store i32 1, ptr %11, align 4, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 22, ptr %12, align 4, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %13, align 8, !tbaa !85
+  store i64 0, ptr %13, align 8, !tbaa !60
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 10, ptr %14, align 8, !tbaa !55
+  store i64 10, ptr %14, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %15, ptr noundef nonnull align 1 dereferenceable(10) @.str.73, i64 10, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 34
@@ -1162,9 +1140,9 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 28:                                               ; preds = %21, %10
   %29 = load ptr, ptr %9, align 8, !tbaa !86
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !53
+  %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !61
+  %33 = load ptr, ptr %32, align 8, !tbaa !32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.74, ptr noundef nonnull %34) #12
   br label %35
@@ -1209,13 +1187,13 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 
 46:                                               ; preds = %.sink.split, %40
   %47 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %47, align 4, !tbaa !84
+  store i32 1, ptr %47, align 4, !tbaa !59
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 22, ptr %48, align 4, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 0, ptr %49, align 8, !tbaa !85
+  store i64 0, ptr %49, align 8, !tbaa !60
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i64 11, ptr %50, align 8, !tbaa !55
+  store i64 11, ptr %50, align 8, !tbaa !26
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %51, ptr noundef nonnull align 1 dereferenceable(11) @.str.87, i64 11, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 35
@@ -1250,9 +1228,9 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 65:                                               ; preds = %63
   %66 = load ptr, ptr %9, align 8, !tbaa !86
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !53
+  %68 = load ptr, ptr %67, align 8, !tbaa !23
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !61
+  %70 = load ptr, ptr %69, align 8, !tbaa !32
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.88, ptr noundef nonnull %71) #12
   br label %72
@@ -1265,13 +1243,13 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 
 73:                                               ; preds = %4
   %74 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %74, align 4, !tbaa !84
+  store i32 1, ptr %74, align 4, !tbaa !59
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 22, ptr %75, align 4, !tbaa !22
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 0, ptr %76, align 8, !tbaa !85
+  store i64 0, ptr %76, align 8, !tbaa !60
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i64 15, ptr %77, align 8, !tbaa !55
+  store i64 15, ptr %77, align 8, !tbaa !26
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %78, ptr noundef nonnull align 1 dereferenceable(15) @.str.89, i64 15, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 39
@@ -1324,9 +1302,9 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 99:                                               ; preds = %93
   %100 = load ptr, ptr %9, align 8, !tbaa !86
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
-  %102 = load ptr, ptr %101, align 8, !tbaa !53
+  %102 = load ptr, ptr %101, align 8, !tbaa !23
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !61
+  %104 = load ptr, ptr %103, align 8, !tbaa !32
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.90, ptr noundef nonnull %105) #12
   br label %113
@@ -1334,9 +1312,9 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 106:                                              ; preds = %93, %88
   %107 = load ptr, ptr %9, align 8, !tbaa !86
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !53
+  %109 = load ptr, ptr %108, align 8, !tbaa !23
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !61
+  %111 = load ptr, ptr %110, align 8, !tbaa !32
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.91, ptr noundef nonnull %112) #12
   br label %113
@@ -1349,13 +1327,13 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr noundef re
 
 114:                                              ; preds = %4, %4, %4, %4
   %115 = tail call noalias ptr @_emalloc_48() #12
-  store i32 1, ptr %115, align 4, !tbaa !84
+  store i32 1, ptr %115, align 4, !tbaa !59
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 22, ptr %116, align 4, !tbaa !22
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store i64 0, ptr %117, align 8, !tbaa !85
+  store i64 0, ptr %117, align 8, !tbaa !60
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store i64 17, ptr %118, align 8, !tbaa !55
+  store i64 17, ptr %118, align 8, !tbaa !26
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %119, ptr noundef nonnull align 1 dereferenceable(17) @.str.92, i64 17, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 41
@@ -1426,9 +1404,9 @@ default.unreachable:                              ; preds = %114
 140:                                              ; preds = %136
   %141 = load ptr, ptr %9, align 8, !tbaa !86
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  %143 = load ptr, ptr %142, align 8, !tbaa !53
+  %143 = load ptr, ptr %142, align 8, !tbaa !23
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load ptr, ptr %144, align 8, !tbaa !61
+  %145 = load ptr, ptr %144, align 8, !tbaa !32
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.93, ptr noundef nonnull %146) #12
   br label %149
@@ -1468,19 +1446,19 @@ define internal range(i64 -1, 4098) i64 @php_userstreamop_readdir(ptr noundef re
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !49
   %.not = icmp eq i64 %2, 4097
   br i1 %.not, label %8, label %37
 
 8:                                                ; preds = %3
   %9 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %9, align 4, !tbaa !84
+  store i32 1, ptr %9, align 4, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 22, ptr %10, align 4, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !85
+  store i64 0, ptr %11, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 11, ptr %12, align 8, !tbaa !55
+  store i64 11, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %13, ptr noundef nonnull align 1 dereferenceable(11) @.str.94, i64 11, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 35
@@ -1512,7 +1490,7 @@ define internal range(i64 -1, 4098) i64 @php_userstreamop_readdir(ptr noundef re
 22:                                               ; preds = %18, %21
   %23 = load ptr, ptr %5, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !55
+  %25 = load i64, ptr %24, align 8, !tbaa !26
   %. = call i64 @llvm.umin.i64(i64 %25, i64 4095)
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %26, i64 %., i1 false)
@@ -1525,9 +1503,9 @@ define internal range(i64 -1, 4098) i64 @php_userstreamop_readdir(ptr noundef re
 29:                                               ; preds = %8
   %30 = load ptr, ptr %7, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !53
+  %32 = load ptr, ptr %31, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.95, ptr noundef nonnull %35) #12
   br label %36
@@ -1552,15 +1530,15 @@ define internal noundef i32 @php_userstreamop_closedir(ptr noundef readonly capt
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %7, align 4, !tbaa !84
+  store i32 1, ptr %7, align 4, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 22, ptr %8, align 4, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %9, align 8, !tbaa !85
+  store i64 0, ptr %9, align 8, !tbaa !60
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 12, ptr %10, align 8, !tbaa !55
+  store i64 12, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef nonnull align 1 dereferenceable(12) @.str.96, i64 12, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 36
@@ -1589,15 +1567,15 @@ define internal noundef i32 @php_userstreamop_rewinddir(ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %8 = load ptr, ptr %7, align 8, !tbaa !49
   %9 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %9, align 4, !tbaa !84
+  store i32 1, ptr %9, align 4, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 22, ptr %10, align 4, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !85
+  store i64 0, ptr %11, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 13, ptr %12, align 8, !tbaa !55
+  store i64 13, ptr %12, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str.97, i64 13, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 37
@@ -1645,9 +1623,9 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
 
 18:                                               ; preds = %14, %6
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 48), align 8, !tbaa !93
-  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 580), align 4, !tbaa !98, !range !103, !noundef !73
+  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 580), align 4, !tbaa !98, !range !103, !noundef !47
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !59
+  %21 = load i32, ptr %20, align 8, !tbaa !30
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %29
 
@@ -1667,10 +1645,10 @@ define internal ptr @user_wrapper_opener(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = call noalias ptr @_emalloc_24() #12
   store ptr %12, ptr %30, align 8, !tbaa !86
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %32 = load ptr, ptr %31, align 8, !tbaa !60
-  %33 = load i32, ptr %32, align 4, !tbaa !84
+  %32 = load ptr, ptr %31, align 8, !tbaa !31
+  %33 = load i32, ptr %32, align 4, !tbaa !59
   %34 = add i32 %33, 1
-  store i32 %34, ptr %32, align 4, !tbaa !84
+  store i32 %34, ptr %32, align 4, !tbaa !59
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call fastcc void @user_stream_create_object(ptr noundef nonnull %12, ptr noundef %5, ptr noundef nonnull %35)
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -1689,13 +1667,13 @@ zend_string_alloc.exit83:                         ; preds = %29
   %41 = and i64 %40, -8
   %42 = add i64 %41, 32
   %43 = call noalias ptr @_emalloc(i64 noundef %42) #14
-  store i32 1, ptr %43, align 4, !tbaa !84
+  store i32 1, ptr %43, align 4, !tbaa !59
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 22, ptr %44, align 4, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 0, ptr %45, align 8, !tbaa !85
+  store i64 0, ptr %45, align 8, !tbaa !60
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i64 %40, ptr %46, align 8, !tbaa !55
+  store i64 %40, ptr %46, align 8, !tbaa !26
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 1 %1, i64 %40, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %40
@@ -1708,13 +1686,13 @@ zend_string_alloc.exit83:                         ; preds = %29
   %52 = and i64 %51, -8
   %53 = add i64 %52, 32
   %54 = call noalias ptr @_emalloc(i64 noundef %53) #14
-  store i32 1, ptr %54, align 4, !tbaa !84
+  store i32 1, ptr %54, align 4, !tbaa !59
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 22, ptr %55, align 4, !tbaa !22
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i64 0, ptr %56, align 8, !tbaa !85
+  store i64 0, ptr %56, align 8, !tbaa !60
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i64 %51, ptr %57, align 8, !tbaa !55
+  store i64 %51, ptr %57, align 8, !tbaa !26
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %58, ptr nonnull align 1 %2, i64 %51, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %51
@@ -1728,7 +1706,7 @@ zend_string_alloc.exit83:                         ; preds = %29
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 4, ptr %63, align 8, !tbaa !22
   %64 = call noalias ptr @_emalloc_32() #12
-  store i32 1, ptr %64, align 4, !tbaa !84
+  store i32 1, ptr %64, align 4, !tbaa !59
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 26, ptr %65, align 4, !tbaa !22
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -1744,13 +1722,13 @@ zend_string_alloc.exit83:                         ; preds = %29
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 778, ptr %72, align 8, !tbaa !22
   %73 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %73, align 4, !tbaa !84
+  store i32 1, ptr %73, align 4, !tbaa !59
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 22, ptr %74, align 4, !tbaa !22
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i64 0, ptr %75, align 8, !tbaa !85
+  store i64 0, ptr %75, align 8, !tbaa !60
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i64 11, ptr %76, align 8, !tbaa !55
+  store i64 11, ptr %76, align 8, !tbaa !26
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %77, ptr noundef nonnull align 1 dereferenceable(11) @.str.35, i64 11, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 35
@@ -1812,13 +1790,13 @@ zend_string_alloc.exit83:                         ; preds = %29
   br i1 %.not.i, label %107, label %zend_string_copy.exit
 
 107:                                              ; preds = %101
-  %108 = load i32, ptr %103, align 4, !tbaa !84
+  %108 = load i32, ptr %103, align 4, !tbaa !59
   %109 = add i32 %108, 1
-  store i32 %109, ptr %103, align 4, !tbaa !84
+  store i32 %109, ptr %103, align 4, !tbaa !59
   br label %zend_string_copy.exit
 
 zend_string_copy.exit:                            ; preds = %101, %107
-  store ptr %103, ptr %4, align 8, !tbaa !54
+  store ptr %103, ptr %4, align 8, !tbaa !24
   br label %110
 
 110:                                              ; preds = %91, %95, %zend_string_copy.exit
@@ -1833,24 +1811,24 @@ zend_string_copy.exit:                            ; preds = %101, %107
   br i1 %.not82, label %.thread, label %116
 
 116:                                              ; preds = %110
-  %117 = load i32, ptr %112, align 4, !tbaa !84
+  %117 = load i32, ptr %112, align 4, !tbaa !59
   %118 = add i32 %117, 1
-  store i32 %118, ptr %112, align 4, !tbaa !84
+  store i32 %118, ptr %112, align 4, !tbaa !59
   br label %.thread
 
 119:                                              ; preds = %89, %83
   %120 = load ptr, ptr %30, align 8, !tbaa !86
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !53
+  %122 = load ptr, ptr %121, align 8, !tbaa !23
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !61
+  %124 = load ptr, ptr %123, align 8, !tbaa !32
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef nonnull %0, i32 noundef %3, ptr noundef nonnull @.str.37, ptr noundef nonnull %125) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %35) #12
   store i32 0, ptr %36, align 8, !tbaa !22
   %126 = load ptr, ptr %30, align 8, !tbaa !86
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 40
-  %128 = load ptr, ptr %127, align 8, !tbaa !60
+  %128 = load ptr, ptr %127, align 8, !tbaa !31
   %129 = call i32 @zend_list_delete(ptr noundef %128) #12
   call void @_efree(ptr noundef nonnull %30) #12
   br label %.thread
@@ -1880,7 +1858,7 @@ define internal noundef i32 @user_wrapper_close(ptr noundef readonly captures(no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !92
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = tail call i32 @zend_list_delete(ptr noundef %6) #12
   ret i32 0
 }
@@ -1908,13 +1886,13 @@ zend_string_alloc.exit:                           ; preds = %5
   %16 = and i64 %15, -8
   %17 = add i64 %16, 32
   %18 = call noalias ptr @_emalloc(i64 noundef %17) #14
-  store i32 1, ptr %18, align 4, !tbaa !84
+  store i32 1, ptr %18, align 4, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 22, ptr %19, align 4, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !85
+  store i64 0, ptr %20, align 8, !tbaa !60
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %15, ptr %21, align 8, !tbaa !55
+  store i64 %15, ptr %21, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %1, i64 %15, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %15
@@ -1928,13 +1906,13 @@ zend_string_alloc.exit:                           ; preds = %5
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 4, ptr %27, align 8, !tbaa !22
   %28 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %28, align 4, !tbaa !84
+  store i32 1, ptr %28, align 4, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 22, ptr %29, align 4, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 0, ptr %30, align 8, !tbaa !85
+  store i64 0, ptr %30, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i64 8, ptr %31, align 8, !tbaa !55
+  store i64 8, ptr %31, align 8, !tbaa !26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i64 8386112020011577973, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -1961,9 +1939,9 @@ zend_string_alloc.exit:                           ; preds = %5
 
 41:                                               ; preds = %zend_string_alloc.exit
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !53
+  %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !61
+  %45 = load ptr, ptr %44, align 8, !tbaa !32
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.40, ptr noundef nonnull %46) #12
   br label %47
@@ -2014,10 +1992,10 @@ define internal ptr @user_wrapper_opendir(ptr noundef %0, ptr noundef %1, ptr no
   %18 = tail call noalias ptr @_emalloc_24() #12
   store ptr %11, ptr %18, align 8, !tbaa !86
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !60
-  %21 = load i32, ptr %20, align 4, !tbaa !84
+  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %21 = load i32, ptr %20, align 4, !tbaa !59
   %22 = add i32 %21, 1
-  store i32 %22, ptr %20, align 4, !tbaa !84
+  store i32 %22, ptr %20, align 4, !tbaa !59
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   tail call fastcc void @user_stream_create_object(ptr noundef %11, ptr noundef %5, ptr noundef nonnull %23)
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -2035,13 +2013,13 @@ zend_string_alloc.exit:                           ; preds = %17
   %29 = and i64 %28, -8
   %30 = add i64 %29, 32
   %31 = tail call noalias ptr @_emalloc(i64 noundef %30) #14
-  store i32 1, ptr %31, align 4, !tbaa !84
+  store i32 1, ptr %31, align 4, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 22, ptr %32, align 4, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 0, ptr %33, align 8, !tbaa !85
+  store i64 0, ptr %33, align 8, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %28, ptr %34, align 8, !tbaa !55
+  store i64 %28, ptr %34, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 1 %1, i64 %28, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %28
@@ -2055,13 +2033,13 @@ zend_string_alloc.exit:                           ; preds = %17
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 4, ptr %40, align 8, !tbaa !22
   %41 = tail call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %41, align 4, !tbaa !84
+  store i32 1, ptr %41, align 4, !tbaa !59
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 22, ptr %42, align 4, !tbaa !22
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 0, ptr %43, align 8, !tbaa !85
+  store i64 0, ptr %43, align 8, !tbaa !60
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i64 11, ptr %44, align 8, !tbaa !55
+  store i64 11, ptr %44, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %45, ptr noundef nonnull align 1 dereferenceable(11) @.str.54, i64 11, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 35
@@ -2095,24 +2073,24 @@ zend_string_alloc.exit:                           ; preds = %17
   br i1 %.not53, label %.thread, label %61
 
 61:                                               ; preds = %54
-  %62 = load i32, ptr %57, align 4, !tbaa !84
+  %62 = load i32, ptr %57, align 4, !tbaa !59
   %63 = add i32 %62, 1
-  store i32 %63, ptr %57, align 4, !tbaa !84
+  store i32 %63, ptr %57, align 4, !tbaa !59
   br label %.thread
 
 64:                                               ; preds = %52, %zend_string_alloc.exit
   %65 = load ptr, ptr %18, align 8, !tbaa !86
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !53
+  %67 = load ptr, ptr %66, align 8, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !61
+  %69 = load ptr, ptr %68, align 8, !tbaa !32
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef nonnull %0, i32 noundef %3, ptr noundef nonnull @.str.55, ptr noundef nonnull %70) #12
   call void @zval_ptr_dtor(ptr noundef nonnull %23) #12
   store i32 0, ptr %24, align 8, !tbaa !22
   %71 = load ptr, ptr %18, align 8, !tbaa !86
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %73 = load ptr, ptr %72, align 8, !tbaa !60
+  %73 = load ptr, ptr %72, align 8, !tbaa !31
   %74 = call i32 @zend_list_delete(ptr noundef %73) #12
   call void @_efree(ptr noundef nonnull %18) #12
   br label %.thread
@@ -2157,13 +2135,13 @@ zend_string_alloc.exit:                           ; preds = %4
   %15 = and i64 %14, -8
   %16 = add i64 %15, 32
   %17 = call noalias ptr @_emalloc(i64 noundef %16) #14
-  store i32 1, ptr %17, align 4, !tbaa !84
+  store i32 1, ptr %17, align 4, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 22, ptr %18, align 4, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !85
+  store i64 0, ptr %19, align 8, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %14, ptr %20, align 8, !tbaa !55
+  store i64 %14, ptr %20, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 1 %1, i64 %14, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
@@ -2172,13 +2150,13 @@ zend_string_alloc.exit:                           ; preds = %4
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 262, ptr %23, align 8, !tbaa !22
   %24 = call noalias ptr @_emalloc_32() #12
-  store i32 1, ptr %24, align 4, !tbaa !84
+  store i32 1, ptr %24, align 4, !tbaa !59
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 22, ptr %25, align 4, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 0, ptr %26, align 8, !tbaa !85
+  store i64 0, ptr %26, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 6, ptr %27, align 8, !tbaa !55
+  store i64 6, ptr %27, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %28, ptr noundef nonnull align 1 dereferenceable(6) @.str.56, i64 6, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 30
@@ -2207,9 +2185,9 @@ zend_string_alloc.exit:                           ; preds = %4
 
 39:                                               ; preds = %zend_string_alloc.exit
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
+  %41 = load ptr, ptr %40, align 8, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !61
+  %43 = load ptr, ptr %42, align 8, !tbaa !32
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.57, ptr noundef nonnull %44) #12
   br label %45
@@ -2254,13 +2232,13 @@ zend_string_alloc.exit26:                         ; preds = %5
   %16 = and i64 %15, -8
   %17 = add i64 %16, 32
   %18 = call noalias ptr @_emalloc(i64 noundef %17) #14
-  store i32 1, ptr %18, align 4, !tbaa !84
+  store i32 1, ptr %18, align 4, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 22, ptr %19, align 4, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !85
+  store i64 0, ptr %20, align 8, !tbaa !60
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %15, ptr %21, align 8, !tbaa !55
+  store i64 %15, ptr %21, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %1, i64 %15, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %15
@@ -2273,13 +2251,13 @@ zend_string_alloc.exit26:                         ; preds = %5
   %27 = and i64 %26, -8
   %28 = add i64 %27, 32
   %29 = call noalias ptr @_emalloc(i64 noundef %28) #14
-  store i32 1, ptr %29, align 4, !tbaa !84
+  store i32 1, ptr %29, align 4, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 22, ptr %30, align 4, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 0, ptr %31, align 8, !tbaa !85
+  store i64 0, ptr %31, align 8, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i64 %26, ptr %32, align 8, !tbaa !55
+  store i64 %26, ptr %32, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %2, i64 %26, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %26
@@ -2288,13 +2266,13 @@ zend_string_alloc.exit26:                         ; preds = %5
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 262, ptr %35, align 8, !tbaa !22
   %36 = call noalias ptr @_emalloc_32() #12
-  store i32 1, ptr %36, align 4, !tbaa !84
+  store i32 1, ptr %36, align 4, !tbaa !59
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 22, ptr %37, align 4, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 0, ptr %38, align 8, !tbaa !85
+  store i64 0, ptr %38, align 8, !tbaa !60
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i64 6, ptr %39, align 8, !tbaa !55
+  store i64 6, ptr %39, align 8, !tbaa !26
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %40, ptr noundef nonnull align 1 dereferenceable(6) @.str.58, i64 6, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 30
@@ -2323,9 +2301,9 @@ zend_string_alloc.exit26:                         ; preds = %5
 
 51:                                               ; preds = %zend_string_alloc.exit26
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %53 = load ptr, ptr %52, align 8, !tbaa !53
+  %53 = load ptr, ptr %52, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !61
+  %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.59, ptr noundef nonnull %56) #12
   br label %57
@@ -2371,13 +2349,13 @@ zend_string_alloc.exit:                           ; preds = %5
   %16 = and i64 %15, -8
   %17 = add i64 %16, 32
   %18 = call noalias ptr @_emalloc(i64 noundef %17) #14
-  store i32 1, ptr %18, align 4, !tbaa !84
+  store i32 1, ptr %18, align 4, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 22, ptr %19, align 4, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !85
+  store i64 0, ptr %20, align 8, !tbaa !60
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %15, ptr %21, align 8, !tbaa !55
+  store i64 %15, ptr %21, align 8, !tbaa !26
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr nonnull align 1 %1, i64 %15, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %15
@@ -2396,13 +2374,13 @@ zend_string_alloc.exit:                           ; preds = %5
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %30, align 8, !tbaa !22
   %31 = call noalias ptr @_emalloc_32() #12
-  store i32 1, ptr %31, align 4, !tbaa !84
+  store i32 1, ptr %31, align 4, !tbaa !59
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 22, ptr %32, align 4, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 0, ptr %33, align 8, !tbaa !85
+  store i64 0, ptr %33, align 8, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 5, ptr %34, align 8, !tbaa !55
+  store i64 5, ptr %34, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %35, ptr noundef nonnull align 1 dereferenceable(5) @.str.60, i64 5, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 29
@@ -2431,9 +2409,9 @@ zend_string_alloc.exit:                           ; preds = %5
 
 46:                                               ; preds = %zend_string_alloc.exit
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !53
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !61
+  %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.61, ptr noundef nonnull %51) #12
   br label %52
@@ -2480,13 +2458,13 @@ zend_string_alloc.exit:                           ; preds = %4
   %15 = and i64 %14, -8
   %16 = add i64 %15, 32
   %17 = call noalias ptr @_emalloc(i64 noundef %16) #14
-  store i32 1, ptr %17, align 4, !tbaa !84
+  store i32 1, ptr %17, align 4, !tbaa !59
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 22, ptr %18, align 4, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !85
+  store i64 0, ptr %19, align 8, !tbaa !60
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %14, ptr %20, align 8, !tbaa !55
+  store i64 %14, ptr %20, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 1 %1, i64 %14, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %14
@@ -2500,13 +2478,13 @@ zend_string_alloc.exit:                           ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 4, ptr %26, align 8, !tbaa !22
   %27 = call noalias ptr @_emalloc_32() #12
-  store i32 1, ptr %27, align 4, !tbaa !84
+  store i32 1, ptr %27, align 4, !tbaa !59
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 22, ptr %28, align 4, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i64 0, ptr %29, align 8, !tbaa !85
+  store i64 0, ptr %29, align 8, !tbaa !60
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 5, ptr %30, align 8, !tbaa !55
+  store i64 5, ptr %30, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %31, ptr noundef nonnull align 1 dereferenceable(5) @.str.62, i64 5, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 29
@@ -2535,9 +2513,9 @@ zend_string_alloc.exit:                           ; preds = %4
 
 42:                                               ; preds = %zend_string_alloc.exit
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %44 = load ptr, ptr %43, align 8, !tbaa !53
+  %44 = load ptr, ptr %43, align 8, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !61
+  %46 = load ptr, ptr %45, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.63, ptr noundef nonnull %47) #12
   br label %48
@@ -2612,13 +2590,13 @@ zend_string_alloc.exit43:                         ; preds = %5, %5
   %26 = and i64 %25, -8
   %27 = add i64 %26, 32
   %28 = tail call noalias ptr @_emalloc(i64 noundef %27) #14
-  store i32 1, ptr %28, align 4, !tbaa !84
+  store i32 1, ptr %28, align 4, !tbaa !59
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 22, ptr %29, align 4, !tbaa !22
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i64 0, ptr %30, align 8, !tbaa !85
+  store i64 0, ptr %30, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i64 %25, ptr %31, align 8, !tbaa !55
+  store i64 %25, ptr %31, align 8, !tbaa !26
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 1 %3, i64 %25, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %25
@@ -2644,13 +2622,13 @@ zend_string_alloc.exit:                           ; preds = %36
   %41 = and i64 %40, -8
   %42 = add i64 %41, 32
   %43 = call noalias ptr @_emalloc(i64 noundef %42) #14
-  store i32 1, ptr %43, align 4, !tbaa !84
+  store i32 1, ptr %43, align 4, !tbaa !59
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 22, ptr %44, align 4, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 0, ptr %45, align 8, !tbaa !85
+  store i64 0, ptr %45, align 8, !tbaa !60
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i64 %40, ptr %46, align 8, !tbaa !55
+  store i64 %40, ptr %46, align 8, !tbaa !26
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 1 %1, i64 %40, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %40
@@ -2664,13 +2642,13 @@ zend_string_alloc.exit:                           ; preds = %36
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 4, ptr %52, align 8, !tbaa !22
   %53 = call noalias ptr @_emalloc_40() #12
-  store i32 1, ptr %53, align 4, !tbaa !84
+  store i32 1, ptr %53, align 4, !tbaa !59
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 22, ptr %54, align 4, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 0, ptr %55, align 8, !tbaa !85
+  store i64 0, ptr %55, align 8, !tbaa !60
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i64 15, ptr %56, align 8, !tbaa !55
+  store i64 15, ptr %56, align 8, !tbaa !26
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %57, ptr noundef nonnull align 1 dereferenceable(15) @.str.65, i64 15, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 39
@@ -2699,9 +2677,9 @@ zend_string_alloc.exit:                           ; preds = %36
 
 68:                                               ; preds = %zend_string_alloc.exit
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !53
+  %70 = load ptr, ptr %69, align 8, !tbaa !23
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !61
+  %72 = load ptr, ptr %71, align 8, !tbaa !32
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.66, ptr noundef nonnull %73) #12
   br label %74
@@ -2736,7 +2714,7 @@ declare noalias ptr @_emalloc_24() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @user_stream_create_object(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !108
   %8 = and i32 %7, 83
@@ -2765,9 +2743,9 @@ define internal fastcc void @user_stream_create_object(ptr noundef readonly capt
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !109
-  %20 = load i32, ptr %19, align 4, !tbaa !84
+  %20 = load i32, ptr %19, align 4, !tbaa !59
   %21 = add i32 %20, 1
-  store i32 %21, ptr %19, align 4, !tbaa !84
+  store i32 %21, ptr %19, align 4, !tbaa !59
   tail call void @add_property_resource_ex(ptr noundef %2, ptr noundef nonnull @.str.38, i64 noundef 7, ptr noundef nonnull %19) #12
   br label %23
 
@@ -2776,7 +2754,7 @@ define internal fastcc void @user_stream_create_object(ptr noundef readonly capt
   br label %23
 
 23:                                               ; preds = %22, %17
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !23
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !61
   %.not17 = icmp eq ptr %24, null
   br i1 %.not17, label %27, label %25
 
@@ -2787,7 +2765,7 @@ define internal fastcc void @user_stream_create_object(ptr noundef readonly capt
   br label %35
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %4, align 8, !tbaa !53
+  %28 = load ptr, ptr %4, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 256
   %30 = load ptr, ptr %29, align 8, !tbaa !112
   %.not18 = icmp eq ptr %30, null
@@ -3269,98 +3247,98 @@ attributes #17 = { noreturn nounwind }
 !20 = !{!18, !18, i64 0}
 !21 = !{!11, !11, i64 0}
 !22 = !{!6, !6, i64 0}
-!23 = !{!24, !40, i64 960}
-!24 = !{!"_zend_executor_globals", !25, i64 0, !25, i64 16, !6, i64 32, !26, i64 288, !26, i64 296, !27, i64 304, !27, i64 360, !28, i64 416, !5, i64 424, !29, i64 428, !25, i64 432, !5, i64 448, !30, i64 456, !30, i64 464, !30, i64 472, !31, i64 480, !31, i64 488, !32, i64 496, !11, i64 504, !33, i64 512, !18, i64 520, !5, i64 528, !33, i64 536, !5, i64 544, !11, i64 552, !5, i64 560, !5, i64 564, !5, i64 568, !29, i64 572, !29, i64 573, !34, i64 574, !34, i64 575, !30, i64 576, !11, i64 584, !12, i64 592, !12, i64 600, !27, i64 608, !27, i64 664, !5, i64 720, !29, i64 724, !25, i64 728, !25, i64 744, !35, i64 760, !35, i64 784, !35, i64 808, !18, i64 832, !5, i64 840, !5, i64 844, !11, i64 848, !30, i64 856, !30, i64 864, !36, i64 872, !37, i64 880, !39, i64 904, !40, i64 960, !40, i64 968, !41, i64 976, !6, i64 984, !42, i64 1080, !29, i64 1088, !6, i64 1089, !11, i64 1096, !5, i64 1104, !5, i64 1108, !43, i64 1112, !6, i64 1120, !12, i64 1376, !6, i64 1384, !44, i64 1640, !27, i64 1672, !11, i64 1728, !45, i64 1736, !46, i64 1760, !46, i64 1768, !47, i64 1776, !11, i64 1784, !29, i64 1792, !5, i64 1796, !48, i64 1800, !49, i64 1808, !11, i64 1816, !50, i64 1824, !11, i64 1840, !11, i64 1848, !51, i64 1856, !6, i64 1936}
-!25 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
-!26 = !{!"p2 _ZTS11_zend_array", !12, i64 0}
-!27 = !{!"_zend_array", !10, i64 0, !6, i64 8, !5, i64 12, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !11, i64 40, !12, i64 48}
-!28 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
-!29 = !{!"_Bool", !6, i64 0}
-!30 = !{!"p1 _ZTS11_zend_array", !12, i64 0}
-!31 = !{!"p1 _ZTS12_zval_struct", !12, i64 0}
-!32 = !{!"p1 _ZTS14_zend_vm_stack", !12, i64 0}
-!33 = !{!"p1 _ZTS18_zend_execute_data", !12, i64 0}
-!34 = !{!"zend_atomic_bool_s", !6, i64 0}
-!35 = !{!"_zend_stack", !5, i64 0, !5, i64 4, !5, i64 8, !12, i64 16}
-!36 = !{!"p1 _ZTS15_zend_ini_entry", !12, i64 0}
-!37 = !{!"_zend_objects_store", !38, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!38 = !{!"p2 _ZTS12_zend_object", !12, i64 0}
-!39 = !{!"_zend_lazy_objects_store", !27, i64 0}
-!40 = !{!"p1 _ZTS12_zend_object", !12, i64 0}
-!41 = !{!"p1 _ZTS8_zend_op", !12, i64 0}
-!42 = !{!"p1 _ZTS18_zend_module_entry", !12, i64 0}
-!43 = !{!"p1 _ZTS18_HashTableIterator", !12, i64 0}
-!44 = !{!"_zend_op", !12, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !5, i64 20, !5, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!45 = !{!"", !31, i64 0, !31, i64 8, !31, i64 16}
-!46 = !{!"p1 _ZTS19_zend_fiber_context", !12, i64 0}
-!47 = !{!"p1 _ZTS11_zend_fiber", !12, i64 0}
-!48 = !{!"p2 _ZTS16_zend_error_info", !12, i64 0}
-!49 = !{!"p1 _ZTS12_zend_string", !12, i64 0}
-!50 = !{!"_zend_call_stack", !12, i64 0, !11, i64 8}
-!51 = !{!"_zend_strtod_state", !6, i64 0, !52, i64 64, !17, i64 72}
-!52 = !{!"p1 _ZTS19_zend_strtod_bigint", !12, i64 0}
-!53 = !{!14, !18, i64 32}
-!54 = !{!49, !49, i64 0}
-!55 = !{!56, !11, i64 16}
-!56 = !{!"_zend_string", !10, i64 0, !11, i64 8, !11, i64 16, !6, i64 24}
-!57 = !{!14, !16, i64 0}
-!58 = !{!14, !12, i64 8}
-!59 = !{!14, !5, i64 16}
-!60 = !{!14, !19, i64 40}
-!61 = !{!62, !49, i64 8}
-!62 = !{!"_zend_class_entry", !6, i64 0, !49, i64 8, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !31, i64 40, !31, i64 48, !31, i64 56, !27, i64 64, !27, i64 120, !27, i64 176, !63, i64 232, !64, i64 240, !65, i64 248, !66, i64 256, !66, i64 264, !66, i64 272, !66, i64 280, !66, i64 288, !66, i64 296, !66, i64 304, !66, i64 312, !66, i64 320, !66, i64 328, !66, i64 336, !66, i64 344, !66, i64 352, !67, i64 360, !68, i64 368, !69, i64 376, !6, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !5, i64 436, !6, i64 440, !70, i64 448, !71, i64 456, !72, i64 464, !30, i64 472, !5, i64 480, !30, i64 488, !49, i64 496, !6, i64 504}
-!63 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
-!64 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
-!65 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
-!66 = !{!"p1 _ZTS14_zend_function", !12, i64 0}
-!67 = !{!"p1 _ZTS21_zend_object_handlers", !12, i64 0}
-!68 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !12, i64 0}
-!69 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !12, i64 0}
-!70 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
-!71 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
-!72 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
-!73 = !{}
-!74 = !{!15, !16, i64 0}
-!75 = !{!76, !12, i64 8}
-!76 = !{!"_php_stream", !77, i64 0, !12, i64 8, !78, i64 16, !78, i64 40, !81, i64 64, !12, i64 72, !25, i64 80, !82, i64 96, !82, i64 96, !82, i64 96, !82, i64 96, !82, i64 96, !82, i64 96, !82, i64 97, !6, i64 98, !5, i64 116, !19, i64 120, !83, i64 128, !17, i64 136, !19, i64 144, !11, i64 152, !17, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !80, i64 200}
-!77 = !{!"p1 _ZTS15_php_stream_ops", !12, i64 0}
-!78 = !{!"_php_stream_filter_chain", !79, i64 0, !79, i64 8, !80, i64 16}
-!79 = !{!"p1 _ZTS18_php_stream_filter", !12, i64 0}
-!80 = !{!"p1 _ZTS11_php_stream", !12, i64 0}
-!81 = !{!"p1 _ZTS19_php_stream_wrapper", !12, i64 0}
-!82 = !{!"short", !6, i64 0}
-!83 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!84 = !{!10, !5, i64 0}
-!85 = !{!56, !11, i64 8}
+!23 = !{!14, !18, i64 32}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS12_zend_string", !12, i64 0}
+!26 = !{!27, !11, i64 16}
+!27 = !{!"_zend_string", !10, i64 0, !11, i64 8, !11, i64 16, !6, i64 24}
+!28 = !{!14, !16, i64 0}
+!29 = !{!14, !12, i64 8}
+!30 = !{!14, !5, i64 16}
+!31 = !{!14, !19, i64 40}
+!32 = !{!33, !25, i64 8}
+!33 = !{!"_zend_class_entry", !6, i64 0, !25, i64 8, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !34, i64 40, !34, i64 48, !34, i64 56, !35, i64 64, !35, i64 120, !35, i64 176, !36, i64 232, !37, i64 240, !38, i64 248, !39, i64 256, !39, i64 264, !39, i64 272, !39, i64 280, !39, i64 288, !39, i64 296, !39, i64 304, !39, i64 312, !39, i64 320, !39, i64 328, !39, i64 336, !39, i64 344, !39, i64 352, !40, i64 360, !41, i64 368, !42, i64 376, !6, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !5, i64 424, !5, i64 428, !5, i64 432, !5, i64 436, !6, i64 440, !43, i64 448, !44, i64 456, !45, i64 464, !46, i64 472, !5, i64 480, !46, i64 488, !25, i64 496, !6, i64 504}
+!34 = !{!"p1 _ZTS12_zval_struct", !12, i64 0}
+!35 = !{!"_zend_array", !10, i64 0, !6, i64 8, !5, i64 12, !6, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !11, i64 40, !12, i64 48}
+!36 = !{!"p1 _ZTS24_zend_class_mutable_data", !12, i64 0}
+!37 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !12, i64 0}
+!38 = !{!"p2 _ZTS19_zend_property_info", !12, i64 0}
+!39 = !{!"p1 _ZTS14_zend_function", !12, i64 0}
+!40 = !{!"p1 _ZTS21_zend_object_handlers", !12, i64 0}
+!41 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !12, i64 0}
+!42 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !12, i64 0}
+!43 = !{!"p1 _ZTS16_zend_class_name", !12, i64 0}
+!44 = !{!"p2 _ZTS17_zend_trait_alias", !12, i64 0}
+!45 = !{!"p2 _ZTS22_zend_trait_precedence", !12, i64 0}
+!46 = !{!"p1 _ZTS11_zend_array", !12, i64 0}
+!47 = !{}
+!48 = !{!15, !16, i64 0}
+!49 = !{!50, !12, i64 8}
+!50 = !{!"_php_stream", !51, i64 0, !12, i64 8, !52, i64 16, !52, i64 40, !55, i64 64, !12, i64 72, !56, i64 80, !57, i64 96, !57, i64 96, !57, i64 96, !57, i64 96, !57, i64 96, !57, i64 96, !57, i64 97, !6, i64 98, !5, i64 116, !19, i64 120, !58, i64 128, !17, i64 136, !19, i64 144, !11, i64 152, !17, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !54, i64 200}
+!51 = !{!"p1 _ZTS15_php_stream_ops", !12, i64 0}
+!52 = !{!"_php_stream_filter_chain", !53, i64 0, !53, i64 8, !54, i64 16}
+!53 = !{!"p1 _ZTS18_php_stream_filter", !12, i64 0}
+!54 = !{!"p1 _ZTS11_php_stream", !12, i64 0}
+!55 = !{!"p1 _ZTS19_php_stream_wrapper", !12, i64 0}
+!56 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
+!57 = !{!"short", !6, i64 0}
+!58 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!59 = !{!10, !5, i64 0}
+!60 = !{!27, !11, i64 8}
+!61 = !{!62, !74, i64 960}
+!62 = !{!"_zend_executor_globals", !56, i64 0, !56, i64 16, !6, i64 32, !63, i64 288, !63, i64 296, !35, i64 304, !35, i64 360, !64, i64 416, !5, i64 424, !65, i64 428, !56, i64 432, !5, i64 448, !46, i64 456, !46, i64 464, !46, i64 472, !34, i64 480, !34, i64 488, !66, i64 496, !11, i64 504, !67, i64 512, !18, i64 520, !5, i64 528, !67, i64 536, !5, i64 544, !11, i64 552, !5, i64 560, !5, i64 564, !5, i64 568, !65, i64 572, !65, i64 573, !68, i64 574, !68, i64 575, !46, i64 576, !11, i64 584, !12, i64 592, !12, i64 600, !35, i64 608, !35, i64 664, !5, i64 720, !65, i64 724, !56, i64 728, !56, i64 744, !69, i64 760, !69, i64 784, !69, i64 808, !18, i64 832, !5, i64 840, !5, i64 844, !11, i64 848, !46, i64 856, !46, i64 864, !70, i64 872, !71, i64 880, !73, i64 904, !74, i64 960, !74, i64 968, !75, i64 976, !6, i64 984, !76, i64 1080, !65, i64 1088, !6, i64 1089, !11, i64 1096, !5, i64 1104, !5, i64 1108, !77, i64 1112, !6, i64 1120, !12, i64 1376, !6, i64 1384, !78, i64 1640, !35, i64 1672, !11, i64 1728, !79, i64 1736, !80, i64 1760, !80, i64 1768, !81, i64 1776, !11, i64 1784, !65, i64 1792, !5, i64 1796, !82, i64 1800, !25, i64 1808, !11, i64 1816, !83, i64 1824, !11, i64 1840, !11, i64 1848, !84, i64 1856, !6, i64 1936}
+!63 = !{!"p2 _ZTS11_zend_array", !12, i64 0}
+!64 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
+!65 = !{!"_Bool", !6, i64 0}
+!66 = !{!"p1 _ZTS14_zend_vm_stack", !12, i64 0}
+!67 = !{!"p1 _ZTS18_zend_execute_data", !12, i64 0}
+!68 = !{!"zend_atomic_bool_s", !6, i64 0}
+!69 = !{!"_zend_stack", !5, i64 0, !5, i64 4, !5, i64 8, !12, i64 16}
+!70 = !{!"p1 _ZTS15_zend_ini_entry", !12, i64 0}
+!71 = !{!"_zend_objects_store", !72, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!72 = !{!"p2 _ZTS12_zend_object", !12, i64 0}
+!73 = !{!"_zend_lazy_objects_store", !35, i64 0}
+!74 = !{!"p1 _ZTS12_zend_object", !12, i64 0}
+!75 = !{!"p1 _ZTS8_zend_op", !12, i64 0}
+!76 = !{!"p1 _ZTS18_zend_module_entry", !12, i64 0}
+!77 = !{!"p1 _ZTS18_HashTableIterator", !12, i64 0}
+!78 = !{!"_zend_op", !12, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !5, i64 20, !5, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!79 = !{!"", !34, i64 0, !34, i64 8, !34, i64 16}
+!80 = !{!"p1 _ZTS19_zend_fiber_context", !12, i64 0}
+!81 = !{!"p1 _ZTS11_zend_fiber", !12, i64 0}
+!82 = !{!"p2 _ZTS16_zend_error_info", !12, i64 0}
+!83 = !{!"_zend_call_stack", !12, i64 0, !11, i64 8}
+!84 = !{!"_zend_strtod_state", !6, i64 0, !85, i64 64, !17, i64 72}
+!85 = !{!"p1 _ZTS19_zend_strtod_bigint", !12, i64 0}
 !86 = !{!87, !88, i64 0}
-!87 = !{!"_php_userstream_data", !88, i64 0, !25, i64 8}
+!87 = !{!"_php_userstream_data", !88, i64 0, !56, i64 8}
 !88 = !{!"p1 _ZTS23php_user_stream_wrapper", !12, i64 0}
-!89 = !{!76, !5, i64 116}
+!89 = !{!50, !5, i64 116}
 !90 = !{!91, !6, i64 4096}
 !91 = !{!"_php_stream_dirent", !6, i64 0, !6, i64 4096}
 !92 = !{!15, !12, i64 8}
 !93 = !{!94, !17, i64 48}
-!94 = !{!"", !5, i64 0, !11, i64 8, !29, i64 16, !11, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !95, i64 56, !30, i64 64, !30, i64 72, !30, i64 80, !5, i64 88, !96, i64 96, !17, i64 128, !11, i64 136}
+!94 = !{!"", !5, i64 0, !11, i64 8, !65, i64 16, !11, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !95, i64 56, !46, i64 64, !46, i64 72, !46, i64 80, !5, i64 88, !96, i64 96, !17, i64 128, !11, i64 136}
 !95 = !{!"p1 _ZTS19_php_stream_context", !12, i64 0}
 !96 = !{!"hostent", !17, i64 0, !97, i64 8, !5, i64 16, !5, i64 20, !97, i64 24}
 !97 = !{!"p2 omnipotent char", !12, i64 0}
-!98 = !{!99, !29, i64 580}
-!99 = !{!"_php_core_globals", !11, i64 0, !29, i64 8, !29, i64 9, !6, i64 10, !29, i64 11, !29, i64 12, !29, i64 13, !29, i64 14, !29, i64 15, !17, i64 16, !17, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !29, i64 96, !17, i64 104, !17, i64 112, !17, i64 120, !17, i64 128, !11, i64 136, !17, i64 144, !17, i64 152, !17, i64 160, !17, i64 168, !17, i64 176, !17, i64 184, !17, i64 192, !100, i64 200, !17, i64 216, !27, i64 224, !82, i64 280, !29, i64 282, !6, i64 283, !101, i64 288, !6, i64 344, !29, i64 440, !29, i64 441, !29, i64 442, !29, i64 443, !29, i64 444, !17, i64 448, !17, i64 456, !11, i64 464, !6, i64 472, !29, i64 480, !29, i64 481, !29, i64 482, !29, i64 483, !29, i64 484, !29, i64 485, !5, i64 488, !5, i64 492, !49, i64 496, !49, i64 504, !17, i64 512, !17, i64 520, !11, i64 528, !11, i64 536, !17, i64 544, !11, i64 552, !17, i64 560, !17, i64 568, !29, i64 576, !29, i64 577, !29, i64 578, !29, i64 579, !29, i64 580, !29, i64 581, !11, i64 584, !17, i64 592, !11, i64 600, !11, i64 608}
+!98 = !{!99, !65, i64 580}
+!99 = !{!"_php_core_globals", !11, i64 0, !65, i64 8, !65, i64 9, !6, i64 10, !65, i64 11, !65, i64 12, !65, i64 13, !65, i64 14, !65, i64 15, !17, i64 16, !17, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !65, i64 96, !17, i64 104, !17, i64 112, !17, i64 120, !17, i64 128, !11, i64 136, !17, i64 144, !17, i64 152, !17, i64 160, !17, i64 168, !17, i64 176, !17, i64 184, !17, i64 192, !100, i64 200, !17, i64 216, !35, i64 224, !57, i64 280, !65, i64 282, !6, i64 283, !101, i64 288, !6, i64 344, !65, i64 440, !65, i64 441, !65, i64 442, !65, i64 443, !65, i64 444, !17, i64 448, !17, i64 456, !11, i64 464, !6, i64 472, !65, i64 480, !65, i64 481, !65, i64 482, !65, i64 483, !65, i64 484, !65, i64 485, !5, i64 488, !5, i64 492, !25, i64 496, !25, i64 504, !17, i64 512, !17, i64 520, !11, i64 528, !11, i64 536, !17, i64 544, !11, i64 552, !17, i64 560, !17, i64 568, !65, i64 576, !65, i64 577, !65, i64 578, !65, i64 579, !65, i64 580, !65, i64 581, !11, i64 584, !17, i64 592, !11, i64 600, !11, i64 608}
 !100 = !{!"_arg_separators", !17, i64 0, !17, i64 8}
 !101 = !{!"_zend_llist", !102, i64 0, !102, i64 8, !11, i64 16, !11, i64 24, !12, i64 32, !6, i64 40, !102, i64 48}
 !102 = !{!"p1 _ZTS19_zend_llist_element", !12, i64 0}
 !103 = !{i8 0, i8 2}
-!104 = !{!24, !28, i64 416}
+!104 = !{!62, !64, i64 416}
 !105 = !{!106, !11, i64 8}
 !106 = !{!"utimbuf", !11, i64 0, !11, i64 8}
 !107 = !{!106, !11, i64 0}
-!108 = !{!62, !5, i64 28}
+!108 = !{!33, !5, i64 28}
 !109 = !{!110, !19, i64 24}
-!110 = !{!"_php_stream_context", !111, i64 0, !25, i64 8, !19, i64 24}
+!110 = !{!"_php_stream_context", !111, i64 0, !56, i64 8, !19, i64 24}
 !111 = !{!"p1 _ZTS20_php_stream_notifier", !12, i64 0}
-!112 = !{!62, !66, i64 256}
+!112 = !{!33, !39, i64 256}
 !113 = !{!114, !18, i64 16}
-!114 = !{!"_zend_object", !10, i64 0, !5, i64 8, !5, i64 12, !18, i64 16, !67, i64 24, !30, i64 32, !6, i64 40}
+!114 = !{!"_zend_object", !10, i64 0, !5, i64 8, !5, i64 12, !18, i64 16, !40, i64 24, !46, i64 32, !6, i64 40}
 !115 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !116 = !{!117, !11, i64 0}
 !117 = !{!"_php_stream_statbuf", !118, i64 0}

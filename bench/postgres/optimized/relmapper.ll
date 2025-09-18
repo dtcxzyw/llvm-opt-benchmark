@@ -318,29 +318,29 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
 6:                                                ; preds = %4
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 3200
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 1) #12
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 1) #11
   br label %10
 
 10:                                               ; preds = %6, %4
-  %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %1, ptr noundef nonnull @.str.12) #12
-  %12 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #12
+  %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %1, ptr noundef nonnull @.str.12) #11
+  %12 = call i32 @OpenTransientFile(ptr noundef nonnull %5, i32 noundef 0) #11
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %10
-  %15 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %15 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = call i32 @errcode_for_file_access() #12
-  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 819, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %17 = call i32 @errcode_for_file_access() #11
+  %18 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 819, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %19
 
 19:                                               ; preds = %14, %16, %10
   %20 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772196, ptr %20, align 4
-  %21 = call i64 @read(i32 noundef %12, ptr noundef %0, i64 noundef 524) #12
+  %21 = call i64 @read(i32 noundef %12, ptr noundef %0, i64 noundef 524) #11
   %22 = trunc i64 %21 to i32
   %sext.mask = and i64 %21, 4294967295
   %.not = icmp eq i64 %sext.mask, 524
@@ -348,45 +348,45 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
 
 23:                                               ; preds = %19
   %24 = icmp slt i32 %22, 0
-  %25 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %25 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %24, label %26, label %30
 
 26:                                               ; preds = %23
   br i1 %25, label %27, label %.sink.split
 
 27:                                               ; preds = %26
-  %28 = call i32 @errcode_for_file_access() #12
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #12
+  %28 = call i32 @errcode_for_file_access() #11
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %5) #11
   br label %.sink.split.sink.split
 
 30:                                               ; preds = %23
   br i1 %25, label %31, label %.sink.split
 
 31:                                               ; preds = %30
-  %32 = call i32 @errcode(i32 noundef 16779816) #12
-  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i32 noundef %22, i64 noundef 524) #12
+  %32 = call i32 @errcode(i32 noundef 16779816) #11
+  %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %5, i32 noundef %22, i64 noundef 524) #11
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %27, %31
   %.sink = phi i32 [ 834, %31 ], [ 829, %27 ]
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.read_relmap_file) #12
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %30, %.sink.split.sink.split, %19
   %34 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %34, align 4
-  %35 = call i32 @CloseTransientFile(i32 noundef %12) #12
+  %35 = call i32 @CloseTransientFile(i32 noundef %12) #11
   %.not78 = icmp eq i32 %35, 0
   br i1 %.not78, label %41, label %36
 
 36:                                               ; preds = %.sink.split
-  %37 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %37 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = call i32 @errcode_for_file_access() #12
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 842, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %39 = call i32 @errcode_for_file_access() #11
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 842, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %41
 
 41:                                               ; preds = %36, %38, %.sink.split
@@ -395,7 +395,7 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
 42:                                               ; preds = %41
   %43 = load ptr, ptr @MainLWLockArray, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 3200
-  call void @LWLockRelease(ptr noundef nonnull %44) #12
+  call void @LWLockRelease(ptr noundef nonnull %44) #11
   br label %45
 
 45:                                               ; preds = %42, %41
@@ -410,17 +410,17 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
   br i1 %or.cond, label %50, label %54
 
 50:                                               ; preds = %47, %45
-  %51 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %51 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %50
-  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 853, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %53 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 853, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %54
 
 54:                                               ; preds = %50, %52, %47
   %55 = load ptr, ptr @pg_comp_crc32c, align 8
-  %56 = call i32 %55(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #12
+  %56 = call i32 %55(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #11
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, %56
@@ -428,12 +428,12 @@ define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1
   br i1 %60, label %65, label %61
 
 61:                                               ; preds = %54
-  %62 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #12
+  %62 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #11
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 863, ptr noundef nonnull @__func__.read_relmap_file) #12
+  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 863, ptr noundef nonnull @__func__.read_relmap_file) #11
   br label %65
 
 65:                                               ; preds = %61, %63, %54
@@ -448,11 +448,11 @@ define dso_local void @RelationMapCopy(i32 noundef %0, i32 noundef %1, ptr nound
   call fastcc void @read_relmap_file(ptr noundef nonnull %5, ptr noundef %2, i1 noundef zeroext false, i32 noundef 21)
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3200
-  %8 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #12
+  %8 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 0) #11
   call fastcc void @write_relmap_file(ptr noundef nonnull %5, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %0, i32 noundef %1, ptr noundef %3)
   %9 = load ptr, ptr @MainLWLockArray, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 3200
-  call void @LWLockRelease(ptr noundef nonnull %10) #12
+  call void @LWLockRelease(ptr noundef nonnull %10) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -473,42 +473,40 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   br i1 %or.cond, label %13, label %16
 
 13:                                               ; preds = %7
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 910, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.19) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 910, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 16:                                               ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 -1, ptr %17, align 4
   %18 = load ptr, ptr @pg_comp_crc32c, align 8
-  %19 = tail call i32 %18(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #12
+  %19 = tail call i32 %18(i32 noundef -1, ptr noundef nonnull %0, i64 noundef 520) #11
   %20 = xor i32 %19, -1
   store i32 %20, ptr %17, align 4
-  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.12) #12
-  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.20) #12
-  %23 = call i32 @OpenTransientFile(ptr noundef nonnull %9, i32 noundef 577) #12
+  %21 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.12) #11
+  %22 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.11, ptr noundef %6, ptr noundef nonnull @.str.20) #11
+  %23 = call i32 @OpenTransientFile(ptr noundef nonnull %9, i32 noundef 577) #11
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %16
-  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %26)
-  %27 = call i32 @errcode_for_file_access() #12
-  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %9) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 936, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %26 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %27 = call i32 @errcode_for_file_access() #11
+  %28 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %9) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 936, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 29:                                               ; preds = %16
   %30 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772198, ptr %30, align 4
-  %31 = call i64 @write(i32 noundef %23, ptr noundef nonnull %0, i64 noundef 524) #12
+  %31 = call i64 @write(i32 noundef %23, ptr noundef nonnull %0, i64 noundef 524) #11
   %.not = icmp eq i64 %31, 524
   br i1 %.not, label %41, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call ptr @__errno_location() #14
+  %33 = tail call ptr @__errno_location() #13
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %37
@@ -518,26 +516,24 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   br label %37
 
 37:                                               ; preds = %36, %32
-  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %38)
-  %39 = call i32 @errcode_for_file_access() #12
-  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %9) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 948, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %39 = call i32 @errcode_for_file_access() #11
+  %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %9) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 948, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 41:                                               ; preds = %29
   %42 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %42, align 4
-  %43 = call i32 @CloseTransientFile(i32 noundef %23) #12
+  %43 = call i32 @CloseTransientFile(i32 noundef %23) #11
   %.not32 = icmp eq i32 %43, 0
   br i1 %.not32, label %48, label %44
 
 44:                                               ; preds = %41
-  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  call void @llvm.assume(i1 %45)
-  %46 = call i32 @errcode_for_file_access() #12
-  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #12
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 957, ptr noundef nonnull @__func__.write_relmap_file) #12
+  %45 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %46 = call i32 @errcode_for_file_access() #11
+  %47 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #11
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 957, ptr noundef nonnull @__func__.write_relmap_file) #11
   unreachable
 
 48:                                               ; preds = %41
@@ -553,24 +549,24 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   store i32 %5, ptr %52, align 4
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 524, ptr %53, align 4
-  call void @XLogBeginInsert() #12
-  call void @XLogRegisterData(ptr noundef nonnull %10, i32 noundef 12) #12
-  call void @XLogRegisterData(ptr noundef nonnull %0, i32 noundef 524) #12
-  %54 = call i64 @XLogInsert(i8 noundef zeroext 7, i8 noundef zeroext 0) #12
-  call void @XLogFlush(i64 noundef %54) #12
+  call void @XLogBeginInsert() #11
+  call void @XLogRegisterData(ptr noundef nonnull %10, i32 noundef 12) #11
+  call void @XLogRegisterData(ptr noundef nonnull %0, i32 noundef 524) #11
+  %54 = call i64 @XLogInsert(i8 noundef zeroext 7, i8 noundef zeroext 0) #11
+  call void @XLogFlush(i64 noundef %54) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %55
 
 55:                                               ; preds = %49, %48
   %56 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772197, ptr %56, align 4
-  %57 = call i32 @durable_rename(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 21) #12
+  %57 = call i32 @durable_rename(ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 21) #11
   %58 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %58, align 4
   br i1 %2, label %59, label %60
 
 59:                                               ; preds = %55
-  call void @CacheInvalidateRelmap(i32 noundef %4) #12
+  call void @CacheInvalidateRelmap(i32 noundef %4) #11
   br label %60
 
 60:                                               ; preds = %59, %55
@@ -593,7 +589,7 @@ define internal fastcc void @write_relmap_file(ptr noundef initializes((0, 4)) %
   %64 = getelementptr %struct.RelMapping, ptr %0, i64 %indvars.iv
   %65 = getelementptr i8, ptr %64, i64 12
   %66 = load i32, ptr %65, align 4
-  call void @RelationPreserveStorage(i64 %.sroa.01.4.insert.insert, i32 %66, i1 noundef zeroext false) #12
+  call void @RelationPreserveStorage(i64 %.sroa.01.4.insert.insert, i32 %66, i1 noundef zeroext false) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %11, align 4
   %68 = sext i32 %67 to i64
@@ -628,26 +624,24 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   br label %22
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @GetCurrentTransactionNestLevel() #12
+  %9 = tail call i32 @GetCurrentTransactionNestLevel() #11
   %10 = icmp sgt i32 %9, 1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @__func__.RelationMapUpdateMap) #12
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 348, ptr noundef nonnull @__func__.RelationMapUpdateMap) #11
   unreachable
 
 14:                                               ; preds = %8
-  %15 = tail call zeroext i1 @IsInParallelMode() #12
+  %15 = tail call zeroext i1 @IsInParallelMode() #11
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.RelationMapUpdateMap) #12
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 351, ptr noundef nonnull @__func__.RelationMapUpdateMap) #11
   unreachable
 
 19:                                               ; preds = %14
@@ -696,10 +690,9 @@ define dso_local void @RelationMapUpdateMap(i32 noundef %0, i32 noundef %1, i1 n
   br i1 %35, label %36, label %._crit_edge.i.thread
 
 36:                                               ; preds = %._crit_edge.i
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #12
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 ._crit_edge.i.thread:                             ; preds = %22, %._crit_edge.i
@@ -764,10 +757,9 @@ define dso_local void @RelationMapRemoveMapping(i32 noundef %0) local_unnamed_ad
   ret void
 
 ._crit_edge:                                      ; preds = %4, %1
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 454, ptr noundef nonnull @__func__.RelationMapRemoveMapping) #12
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %0) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 454, ptr noundef nonnull @__func__.RelationMapRemoveMapping) #11
   unreachable
 }
 
@@ -894,10 +886,9 @@ apply_map_update.exit.us.i:                       ; preds = %22, %._crit_edge.i.
   br i1 %exitcond.not, label %merge_map_updates.exit, label %.lr.ph.split.us.i, !llvm.loop !17
 
 .split.us.i:                                      ; preds = %._crit_edge.i.us.i
-  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %26)
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #12
+  %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 merge_map_updates.exit:                           ; preds = %apply_map_update.exit.us.i, %2
@@ -972,10 +963,9 @@ apply_map_update.exit.us.i7:                      ; preds = %50, %._crit_edge.i.
   br i1 %exitcond22.not, label %merge_map_updates.exit16, label %.lr.ph.split.us.i4, !llvm.loop !17
 
 .split.us.i15:                                    ; preds = %._crit_edge.i.us.i14
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #12
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 merge_map_updates.exit16:                         ; preds = %apply_map_update.exit.us.i7, %30
@@ -1029,7 +1019,7 @@ define internal fastcc void @perform_relmap_update(i1 noundef zeroext %0, ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3200
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #12
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 0) #11
   br i1 %0, label %7, label %8
 
 7:                                                ; preds = %2
@@ -1158,17 +1148,15 @@ apply_map_update.exit.us21.i:                     ; preds = %47
 
 ._crit_edge.i.i:                                  ; preds = %51, %._crit_edge.i.loopexit25.i
   %.lcssa9.i = phi i32 [ %.pre41.i, %._crit_edge.i.loopexit25.i ], [ %44, %51 ]
-  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %54)
-  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %.lcssa9.i) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.apply_map_update) #12
+  %54 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %55 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %.lcssa9.i) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 401, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 .split.us.i:                                      ; preds = %._crit_edge.i.us.i
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #12
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %57 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 403, ptr noundef nonnull @__func__.apply_map_update) #11
   unreachable
 
 merge_map_updates.exit:                           ; preds = %apply_map_update.exit.us21.i, %apply_map_update.exit.us.i, %10
@@ -1192,7 +1180,7 @@ merge_map_updates.exit:                           ; preds = %apply_map_update.ex
 66:                                               ; preds = %65, %64
   %67 = load ptr, ptr @MainLWLockArray, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 3200
-  call void @LWLockRelease(ptr noundef nonnull %68) #12
+  call void @LWLockRelease(ptr noundef nonnull %68) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1213,11 +1201,10 @@ define dso_local void @AtPrepare_RelationMap() local_unnamed_addr #1 {
   br i1 %or.cond5, label %9, label %13
 
 9:                                                ; preds = %0
-  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %10)
-  %11 = tail call i32 @errcode(i32 noundef 1088) #12
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 596, ptr noundef nonnull @__func__.AtPrepare_RelationMap) #12
+  %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %11 = tail call i32 @errcode(i32 noundef 1088) #11
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 596, ptr noundef nonnull @__func__.AtPrepare_RelationMap) #11
   unreachable
 
 13:                                               ; preds = %0
@@ -1232,10 +1219,10 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 define dso_local void @CheckPointRelationMap() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 3200
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #12
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 1) #11
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3200
-  tail call void @LWLockRelease(ptr noundef nonnull %5) #12
+  tail call void @LWLockRelease(ptr noundef nonnull %5) #11
   ret void
 }
 
@@ -1243,7 +1230,7 @@ define dso_local void @CheckPointRelationMap() local_unnamed_addr #1 {
 define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #1 {
   %1 = load ptr, ptr @MainLWLockArray, align 8
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 3200
-  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #12
+  %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #11
   tail call fastcc void @write_relmap_file(ptr noundef nonnull @shared_map, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, i32 noundef 1664, ptr noundef nonnull @.str.5)
   %4 = load i32, ptr @MyDatabaseId, align 4
   %5 = load i32, ptr @MyDatabaseTableSpace, align 4
@@ -1251,7 +1238,7 @@ define dso_local void @RelationMapFinishBootstrap() local_unnamed_addr #1 {
   tail call fastcc void @write_relmap_file(ptr noundef nonnull @local_map, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %4, i32 noundef %5, ptr noundef %6)
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 3200
-  tail call void @LWLockRelease(ptr noundef nonnull %8) #12
+  tail call void @LWLockRelease(ptr noundef nonnull %8) #11
   ret void
 }
 
@@ -1326,10 +1313,9 @@ define dso_local void @RestoreRelationMap(ptr noundef readonly captures(none) %0
   br i1 %or.cond5, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.RestoreRelationMap) #12
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 749, ptr noundef nonnull @__func__.RestoreRelationMap) #11
   unreachable
 
 13:                                               ; preds = %1
@@ -1360,11 +1346,10 @@ define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local
   br i1 %.not, label %18, label %14
 
 14:                                               ; preds = %9
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %15)
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #12
   %16 = load i32, ptr %12, align 4
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %16) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @__func__.relmap_redo) #12
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %16) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1111, ptr noundef nonnull @__func__.relmap_redo) #11
   unreachable
 
 18:                                               ; preds = %9
@@ -1373,26 +1358,25 @@ define dso_local void @relmap_redo(ptr noundef readonly captures(none) %0) local
   %20 = load i32, ptr %11, align 4
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %22 = load i32, ptr %21, align 4
-  %23 = tail call ptr @GetDatabasePath(i32 noundef %20, i32 noundef %22) #12
+  %23 = tail call ptr @GetDatabasePath(i32 noundef %20, i32 noundef %22) #11
   %24 = load ptr, ptr @MainLWLockArray, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 3200
-  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %25, i32 noundef 0) #12
+  %26 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %25, i32 noundef 0) #11
   %27 = load i32, ptr %11, align 4
   %28 = load i32, ptr %21, align 4
   call fastcc void @write_relmap_file(ptr noundef nonnull %2, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %27, i32 noundef %28, ptr noundef %23)
   %29 = load ptr, ptr @MainLWLockArray, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 3200
-  call void @LWLockRelease(ptr noundef nonnull %30) #12
-  call void @pfree(ptr noundef %23) #12
+  call void @LWLockRelease(ptr noundef nonnull %30) #11
+  call void @pfree(ptr noundef %23) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
 31:                                               ; preds = %1
   %32 = zext i8 %7 to i32
-  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %32) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.relmap_redo) #12
+  %33 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #12
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %32) #11
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.relmap_redo) #11
   unreachable
 }
 
@@ -1437,9 +1421,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #10
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #11
-
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1451,10 +1432,9 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

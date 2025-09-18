@@ -28702,12 +28702,10 @@ define noundef range(i32 2, 1) i32 @_ZN5proto4View8panel_id17h6c0af967ee382bdfE(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
 define void @_ZN5proto4View12set_panel_id17h0d02e8e91a2a3198E(ptr noalias noundef writeonly align 8 captures(none) dereferenceable(320) initializes((272, 280)) %0, i32 noundef %1) unnamed_addr #7 {
-  %3 = icmp eq i32 %1, 0
-  tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store i32 0, ptr %5, align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i32 1, ptr %3, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  store i32 0, ptr %4, align 4
   ret void
 }
 
@@ -39906,8 +39904,6 @@ define noundef i32 @"_ZN57_$LT$proto..PanelId$u20$as$u20$core..default..Default$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
 define noundef i32 @"_ZN5proto75_$LT$impl$u20$core..convert..From$LT$proto..PanelId$GT$$u20$for$u20$i32$GT$4from17h75408a33d029cab7E"(i32 noundef %0) unnamed_addr #8 {
-  %2 = icmp eq i32 %0, 0
-  tail call void @llvm.assume(i1 %2)
   ret i32 0
 }
 

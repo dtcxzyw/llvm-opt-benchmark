@@ -31,7 +31,7 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = call zeroext i1 @get_restriction_variable(ptr noundef %8, ptr noundef %11, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
+  %15 = call zeroext i1 @get_restriction_variable(ptr noundef %8, ptr noundef %11, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   br i1 %15, label %16, label %126
 
 16:                                               ; preds = %1
@@ -49,7 +49,7 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8
-  call void %25(ptr noundef nonnull %22) #8
+  call void %25(ptr noundef nonnull %22) #7
   br label %126
 
 26:                                               ; preds = %16
@@ -67,7 +67,7 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef nonnull %32) #8
+  call void %35(ptr noundef nonnull %32) #7
   br label %126
 
 36:                                               ; preds = %26
@@ -99,7 +99,7 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
   %52 = load i8, ptr %51, align 2
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %53
-  %55 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %.val, i32 noundef 4, i32 noundef 0, i32 noundef 3) #8
+  %55 = call zeroext i1 @get_attstatsslot(ptr noundef nonnull %2, ptr noundef nonnull %.val, i32 noundef 4, i32 noundef 0, i32 noundef 3) #7
   br i1 %55, label %56, label %95
 
 56:                                               ; preds = %49
@@ -127,7 +127,7 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
 73:                                               ; preds = %56
   %74 = sext i32 %60 to i64
   %75 = shl nsw i64 %74, 4
-  %76 = call ptr @palloc(i64 noundef %75) #8
+  %76 = call ptr @palloc(i64 noundef %75) #7
   %77 = icmp sgt i32 %60, 0
   br i1 %77, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
@@ -161,12 +161,12 @@ define dso_local i64 @tsmatchsel(ptr noundef readonly captures(none) %0) local_u
   %92 = mul nsw i64 %91, 12
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 %92
   %94 = call fastcc double @tsquery_opr_selec(ptr noundef nonnull %89, ptr noundef nonnull %93, ptr noundef %76, i32 noundef %60, float noundef %88)
-  call void @pfree(ptr noundef %76) #8
+  call void @pfree(ptr noundef %76) #7
   br label %mcelem_tsquery_selec.exit.i
 
 mcelem_tsquery_selec.exit.i:                      ; preds = %._crit_edge.i.i, %66
   %.027.i.i = phi double [ %72, %66 ], [ %94, %._crit_edge.i.i ]
-  call void @free_attstatsslot(ptr noundef nonnull %2) #8
+  call void @free_attstatsslot(ptr noundef nonnull %2) #7
   br label %102
 
 95:                                               ; preds = %49
@@ -206,7 +206,7 @@ tsquerysel.exit:                                  ; preds = %108, %102, %40, %36
 116:                                              ; preds = %tsquerysel.exit
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull %115) #8
+  call void %118(ptr noundef nonnull %115) #7
   br label %119
 
 119:                                              ; preds = %tsquerysel.exit, %116
@@ -246,7 +246,7 @@ declare void @free_attstatsslot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #0 {
-  tail call void @check_stack_depth() #8
+  tail call void @check_stack_depth() #7
   %6 = load i8, ptr %0, align 4
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %138
@@ -322,7 +322,7 @@ define internal fastcc double @tsquery_opr_selec(ptr noundef %0, ptr noundef %1,
   %.not124 = icmp eq i8 %47, 0
   %.v = select i1 %.not124, i64 4, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %24, i64 %.v
-  %49 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %48, i64 noundef %21) #9
+  %49 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %48, i64 noundef %21) #8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %59
 
@@ -459,7 +459,7 @@ compare_lexeme_textfreq.exit:                     ; preds = %121
   %.not23.i = icmp eq i8 %123, 0
   %.v.i = select i1 %.not23.i, i64 4, i64 1
   %124 = getelementptr inbounds nuw i8, ptr %98, i64 %.v.i
-  %125 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %124, i64 noundef %90) #9
+  %125 = tail call i32 @strncmp(ptr noundef %13, ptr noundef nonnull %124, i64 noundef %90) #8
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %compare_lexeme_textfreq.exit.thread, label %127
 
@@ -531,12 +531,11 @@ compare_lexeme_textfreq.exit.thread:              ; preds = %121, %.thread138, %
   br label %170
 
 165:                                              ; preds = %138
-  %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  tail call void @llvm.assume(i1 %166)
+  %166 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   %167 = load i8, ptr %139, align 1
   %168 = sext i8 %167 to i32
-  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %168) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__func__.tsquery_opr_selec) #8
+  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %168) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 415, ptr noundef nonnull @__func__.tsquery_opr_selec) #7
   unreachable
 
 170:                                              ; preds = %134, %76, %.thread147, %.thread145, %141, %145, %154
@@ -581,9 +580,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -591,10 +587,9 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
-attributes #10 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

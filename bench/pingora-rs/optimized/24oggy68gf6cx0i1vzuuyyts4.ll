@@ -951,7 +951,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h47a5b4ed04511231E(ptr no
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 5632
   br label %85
 
-85:                                               ; preds = %1115, %.lr.ph
+85:                                               ; preds = %1113, %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -3423,7 +3423,7 @@ default.unreachable:                              ; preds = %.loopexit
 1102:                                             ; preds = %.loopexit
   %.mask = and i64 %.pre-phi, -4294967296
   %switch = icmp eq i64 %.mask, 150323855360
-  br i1 %switch, label %1115, label %.loopexit158.sink.split
+  br i1 %switch, label %1113, label %.loopexit158.sink.split
 
 .thread2049:                                      ; preds = %1096
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !19
@@ -3433,24 +3433,21 @@ default.unreachable:                              ; preds = %.loopexit
 1103:                                             ; preds = %.loopexit
   %.mask157 = and i64 %.pre-phi, -4294967296
   %1104 = icmp eq i64 %.mask157, 17179869184
-  br i1 %1104, label %1115, label %.loopexit158.sink.split
+  br i1 %1104, label %1113, label %.loopexit158.sink.split
 
 1105:                                             ; preds = %.loopexit
   %1106 = getelementptr inbounds nuw i8, ptr %.sroa.4.1.in.i.i, i64 16
   %1107 = load i8, ptr %1106, align 8, !range !306, !noundef !7
   %1108 = icmp eq i8 %1107, 35
-  br i1 %1108, label %1115, label %.loopexit158.sink.split
+  br i1 %1108, label %1113, label %.loopexit158.sink.split
 
 1109:                                             ; preds = %.loopexit
-  %1110 = getelementptr i8, ptr %.sroa.4.1.in.i.i, i64 -1
-  %1111 = icmp ne ptr %1110, null
-  call void @llvm.assume(i1 %1111)
-  %1112 = getelementptr i8, ptr %.sroa.4.1.in.i.i, i64 15
-  %1113 = load i8, ptr %1112, align 8, !range !306, !noundef !7
-  %1114 = icmp eq i8 %1113, 35
-  br i1 %1114, label %1115, label %.loopexit158.sink.split
+  %1110 = getelementptr i8, ptr %.sroa.4.1.in.i.i, i64 15
+  %1111 = load i8, ptr %1110, align 8, !range !306, !noundef !7
+  %1112 = icmp eq i8 %1111, 35
+  br i1 %1112, label %1113, label %.loopexit158.sink.split
 
-1115:                                             ; preds = %1105, %1103, %1109, %1102
+1113:                                             ; preds = %1105, %1103, %1109, %1102
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %83)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %85
@@ -3639,15 +3636,12 @@ switch.lookup:                                    ; preds = %0
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit
 
 48:                                               ; preds = %0
-  %49 = getelementptr i8, ptr %.0.val, i64 -1
-  %50 = icmp ne ptr %49, null
-  tail call void @llvm.assume(i1 %50)
-  %51 = getelementptr i8, ptr %.0.val, i64 15
-  %52 = load i8, ptr %51, align 8, !range !306, !noundef !7
+  %49 = getelementptr i8, ptr %.0.val, i64 15
+  %50 = load i8, ptr %49, align 8, !range !306, !noundef !7
   br label %_ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit
 
 _ZN3std3sys3pal4unix17decode_error_kind17hc9782acab9a3508eE.exit: ; preds = %switch.lookup, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %5, %48, %45
-  %.sroa.0.0 = phi i8 [ %47, %45 ], [ %52, %48 ], [ 41, %43 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 39, %41 ], [ 1, %42 ], [ 13, %44 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
+  %.sroa.0.0 = phi i8 [ %47, %45 ], [ %50, %48 ], [ 41, %43 ], [ 8, %8 ], [ 9, %9 ], [ 28, %10 ], [ 6, %11 ], [ 2, %12 ], [ 3, %13 ], [ 30, %14 ], [ 26, %15 ], [ 12, %16 ], [ 27, %17 ], [ 4, %18 ], [ 35, %19 ], [ 20, %20 ], [ 15, %21 ], [ 18, %22 ], [ 0, %23 ], [ 38, %24 ], [ 24, %25 ], [ 36, %26 ], [ 32, %27 ], [ 33, %28 ], [ 10, %29 ], [ 5, %30 ], [ 7, %31 ], [ 14, %32 ], [ 16, %33 ], [ 11, %34 ], [ 17, %35 ], [ 25, %36 ], [ 19, %37 ], [ 22, %38 ], [ 29, %39 ], [ 31, %40 ], [ 39, %41 ], [ 1, %42 ], [ 13, %44 ], [ 34, %5 ], [ %switch.idx.cast, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 

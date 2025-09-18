@@ -25414,35 +25414,32 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   resume { ptr, i32 } %11
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h480ccfedc79c306cE.llvm.7452288157325931747.exit": ; preds = %.noexc.i
-  %15 = extractvalue { ptr, ptr } %6, 1
-  %16 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %19, ptr %20, align 8
-  %21 = icmp eq ptr %19, null
-  br i1 %21, label %22, label %23
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !noundef !4
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %17, ptr %18, align 8
+  %19 = icmp eq ptr %17, null
+  br i1 %19, label %20, label %21
 
-22:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h480ccfedc79c306cE.llvm.7452288157325931747.exit"
+20:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h480ccfedc79c306cE.llvm.7452288157325931747.exit"
   store ptr %7, ptr %0, align 8
-  br label %25
+  br label %23
 
-23:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h480ccfedc79c306cE.llvm.7452288157325931747.exit"
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %7, ptr %24, align 8
-  br label %25
+21:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h480ccfedc79c306cE.llvm.7452288157325931747.exit"
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %7, ptr %22, align 8
+  br label %23
 
-25:                                               ; preds = %23, %22
-  store ptr %7, ptr %18, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %26, align 8
+23:                                               ; preds = %21, %20
+  store ptr %7, ptr %16, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !4
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
   ret void
 }
 
@@ -25485,35 +25482,32 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   resume { ptr, i32 } %11
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h55917ec11df394f0E.llvm.7452288157325931747.exit": ; preds = %.noexc.i
-  %15 = extractvalue { ptr, ptr } %6, 1
-  %16 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %19, ptr %20, align 8
-  %21 = icmp eq ptr %19, null
-  br i1 %21, label %22, label %23
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr null, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !noundef !4
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %17, ptr %18, align 8
+  %19 = icmp eq ptr %17, null
+  br i1 %19, label %20, label %21
 
-22:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h55917ec11df394f0E.llvm.7452288157325931747.exit"
+20:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h55917ec11df394f0E.llvm.7452288157325931747.exit"
   store ptr %7, ptr %0, align 8
-  br label %25
+  br label %23
 
-23:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h55917ec11df394f0E.llvm.7452288157325931747.exit"
-  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %7, ptr %24, align 8
-  br label %25
+21:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h55917ec11df394f0E.llvm.7452288157325931747.exit"
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %7, ptr %22, align 8
+  br label %23
 
-25:                                               ; preds = %23, %22
-  store ptr %7, ptr %18, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i64, ptr %26, align 8, !noundef !4
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %26, align 8
+23:                                               ; preds = %21, %20
+  store ptr %7, ptr %16, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load i64, ptr %24, align 8, !noundef !4
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8
   ret void
 }
 
@@ -36881,22 +36875,19 @@ define hidden { ptr, ptr } @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h480ccfed
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..collections..linked_list..Node$LT$alloc..vec..Vec$LT$$LP$$RP$$GT$$GT$$GT$17h832244e08e7d00d0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #40
-          to label %14 unwind label %12
+          to label %12 unwind label %10
 
 9:                                                ; preds = %.noexc
-  %10 = extractvalue { ptr, ptr } %3, 1
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   ret { ptr, ptr } %3
 
-12:                                               ; preds = %7
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable
 
-14:                                               ; preds = %7
+12:                                               ; preds = %7
   resume { ptr, i32 } %8
 }
 
@@ -36921,22 +36912,19 @@ define hidden { ptr, ptr } @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h55917ec1
   %8 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..collections..linked_list..Node$LT$alloc..vec..Vec$LT$wasmtime..compile..CompileOutput$GT$$GT$$GT$17h429680e2b1497957E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) #40
-          to label %14 unwind label %12
+          to label %12 unwind label %10
 
 9:                                                ; preds = %.noexc
-  %10 = extractvalue { ptr, ptr } %3, 1
-  %11 = icmp ne ptr %10, null
-  tail call void @llvm.assume(i1 %11)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   ret { ptr, ptr } %3
 
-12:                                               ; preds = %7
-  %13 = landingpad { ptr, i32 }
+10:                                               ; preds = %7
+  %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable
 
-14:                                               ; preds = %7
+12:                                               ; preds = %7
   resume { ptr, i32 } %8
 }
 

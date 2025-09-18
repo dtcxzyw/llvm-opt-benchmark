@@ -4935,9 +4935,6 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deseri
 
 4:                                                ; preds = %1
   %5 = tail call { i64, ptr } @"_ZN89_$LT$gpui..text_system..font_features..FontFeatures$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0a1c53f1f9ad04cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %0)
-  %6 = extractvalue { i64, ptr } %5, 1
-  %7 = icmp ne ptr %6, null
-  tail call void @llvm.assume(i1 %7)
   br label %"_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$18deserialize_option17he4c725798556536aE.exit"
 
 "_ZN10serde_json5value2de82_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$$RF$serde_json..value..Value$GT$18deserialize_option17he4c725798556536aE.exit": ; preds = %1, %4

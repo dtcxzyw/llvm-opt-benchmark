@@ -3354,7 +3354,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %106, %125, %128
 
 _ZN4llvm5APIntD2Ev.exit71:                        ; preds = %_ZN4llvm5APIntD2Ev.exit, %132, %135
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %259
+  br label %244
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %94, %_ZNK5clang4Type13isBooleanTypeEv.exit
   %136 = icmp ugt i64 %3, %5
@@ -3372,13 +3372,13 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %94, %_ZNK5clang4Typ
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 304
   %145 = load ptr, ptr %144, align 8
   %146 = tail call noundef ptr %145(ptr noundef nonnull align 8 dereferenceable(8) %139, i32 noundef %141, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  br label %259
+  br label %244
 
 147:                                              ; preds = %137
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 312
   %149 = load ptr, ptr %148, align 8
   %150 = tail call noundef ptr %149(ptr noundef nonnull align 8 dereferenceable(8) %139, i32 noundef %141, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  br label %259
+  br label %244
 
 151:                                              ; preds = %_ZNK5clang4Type13isBooleanTypeEv.exit.thread
   %152 = icmp ult i64 %3, %5
@@ -3392,11 +3392,11 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %94, %_ZNK5clang4Typ
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 320
   %159 = load ptr, ptr %158, align 8
   %160 = tail call noundef ptr %159(ptr noundef nonnull align 8 dereferenceable(8) %154, i32 noundef %156, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %1) #19
-  br label %259
+  br label %244
 
 161:                                              ; preds = %151
   %162 = load ptr, ptr %1, align 8, !tbaa !111
-  br label %259
+  br label %244
 
 163:                                              ; preds = %90
   %164 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %67) #19
@@ -3422,11 +3422,11 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread:     ; preds = %94, %_ZNK5clang4Typ
   %175 = load ptr, ptr %174, align 8
   %176 = call noundef ptr %175(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %11) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %259
+  br label %244
 
 177:                                              ; preds = %168
   %178 = load ptr, ptr %1, align 8, !tbaa !111
-  br label %259
+  br label %244
 
 179:                                              ; preds = %165, %163
   %180 = load ptr, ptr %14, align 16, !tbaa !168
@@ -3491,12 +3491,11 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   %216 = load ptr, ptr %215, align 8
   %217 = call noundef ptr %216(ptr noundef nonnull align 8 dereferenceable(8) %213, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %12) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %259
+  br label %244
 
 218:                                              ; preds = %190, %198, %204, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84
   %219 = load ptr, ptr %14, align 16, !tbaa !168
   %220 = tail call noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %219) #19
-  tail call void @llvm.assume(i1 %220)
   %221 = load ptr, ptr %76, align 16, !tbaa !168
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %.sroa.0.0.copyload.i.i.i.i89 = load i64, ptr %222, align 8, !tbaa !137
@@ -3505,65 +3504,38 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit84: ; preds = %179
   %225 = load ptr, ptr %224, align 16, !tbaa !168
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   %227 = load i8, ptr %226, align 16
-  %228 = icmp ne i8 %227, 13
   %.not.not22.i90 = icmp eq ptr %225, null
-  %.not.not.i91 = or i1 %.not.not22.i90, %228
-  br i1 %.not.not.i91, label %234, label %229
+  %228 = icmp ne i8 %227, 46
+  %.not12.not.i94 = or i1 %.not.not22.i90, %228
+  br i1 %.not12.not.i94, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97, label %229
 
 229:                                              ; preds = %218
-  %230 = load i32, ptr %226, align 16
-  %231 = lshr i32 %230, 19
-  %232 = and i32 %231, 511
-  %233 = add nsw i32 %232, -435
-  %spec.select.i92 = icmp ult i32 %233, 20
-  br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
-
-234:                                              ; preds = %218
-  %235 = icmp ne i8 %227, 46
-  %.not12.not.i94 = or i1 %.not.not22.i90, %235
-  br i1 %.not12.not.i94, label %244, label %236
-
-236:                                              ; preds = %234
-  %237 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %225) #19
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 74
-  %239 = load i8, ptr %238, align 2
-  %240 = and i8 %239, 1
-  %241 = icmp ne i8 %240, 0
-  %242 = getelementptr inbounds nuw i8, ptr %237, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i95 = load i64, ptr %242, align 8
-  %.not.i.i.i.i.i96 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i95, 7
-  %243 = select i1 %241, i1 true, i1 %.not.i.i.i.i.i96
+  %230 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %225) #19
   %.pre = load ptr, ptr %76, align 16, !tbaa !168
   br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
 
-244:                                              ; preds = %234
-  %245 = icmp eq i8 %227, 10
-  br label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
+_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97: ; preds = %218, %229
+  %231 = phi ptr [ %.pre, %229 ], [ %221, %218 ]
+  %232 = tail call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %231) #19
+  %233 = load ptr, ptr %0, align 8, !tbaa !66
+  %234 = trunc i64 %3 to i32
+  %235 = load ptr, ptr %233, align 8, !tbaa !8
+  br i1 %232, label %236, label %240
 
-_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97: ; preds = %229, %236, %244
-  %246 = phi ptr [ %221, %244 ], [ %.pre, %236 ], [ %221, %229 ]
-  %.1.i93 = phi i1 [ %245, %244 ], [ %243, %236 ], [ %spec.select.i92, %229 ]
-  tail call void @llvm.assume(i1 %.1.i93)
-  %247 = tail call noundef zeroext i1 @_ZNK5clang4Type32isSignedIntegerOrEnumerationTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %246) #19
-  %248 = load ptr, ptr %0, align 8, !tbaa !66
-  %249 = trunc i64 %3 to i32
-  %250 = load ptr, ptr %248, align 8, !tbaa !8
-  br i1 %247, label %251, label %255
+236:                                              ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
+  %237 = getelementptr inbounds nuw i8, ptr %235, i64 544
+  %238 = load ptr, ptr %237, align 8
+  %239 = tail call noundef ptr %238(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %234) #19
+  br label %244
 
-251:                                              ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
-  %252 = getelementptr inbounds nuw i8, ptr %250, i64 544
-  %253 = load ptr, ptr %252, align 8
-  %254 = tail call noundef ptr %253(ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %249) #19
-  br label %259
+240:                                              ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
+  %241 = getelementptr inbounds nuw i8, ptr %235, i64 552
+  %242 = load ptr, ptr %241, align 8
+  %243 = tail call noundef ptr %242(ptr noundef nonnull align 8 dereferenceable(8) %233, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %234) #19
+  br label %244
 
-255:                                              ; preds = %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit97
-  %256 = getelementptr inbounds nuw i8, ptr %250, i64 552
-  %257 = load ptr, ptr %256, align 8
-  %258 = tail call noundef ptr %257(ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %249) #19
-  br label %259
-
-259:                                              ; preds = %251, %255, %143, %147, %207, %177, %169, %161, %153, %_ZN4llvm5APIntD2Ev.exit71
-  %.0 = phi ptr [ %121, %_ZN4llvm5APIntD2Ev.exit71 ], [ %160, %153 ], [ %162, %161 ], [ %176, %169 ], [ %178, %177 ], [ %217, %207 ], [ %146, %143 ], [ %150, %147 ], [ %254, %251 ], [ %258, %255 ]
+244:                                              ; preds = %236, %240, %143, %147, %207, %177, %169, %161, %153, %_ZN4llvm5APIntD2Ev.exit71
+  %.0 = phi ptr [ %121, %_ZN4llvm5APIntD2Ev.exit71 ], [ %160, %153 ], [ %162, %161 ], [ %176, %169 ], [ %178, %177 ], [ %217, %207 ], [ %146, %143 ], [ %150, %147 ], [ %239, %236 ], [ %243, %240 ]
   ret ptr %.0
 }
 

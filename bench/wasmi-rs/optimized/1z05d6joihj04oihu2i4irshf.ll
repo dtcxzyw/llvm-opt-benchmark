@@ -643,14 +643,11 @@ _ZN4core3str7pattern14small_slice_eq17h93367e4799060334E.exit: ; preds = %39, %.
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN51_$LT$wast..wat..Wat$u20$as$u20$core..fmt..Debug$GT$3fmt17h47397c53f68ff9adE"(ptr noalias noundef readonly align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i64, ptr %0, align 8, !range !11, !noundef !9
-  %5 = icmp ne i64 %4, 2
-  tail call void @llvm.assume(i1 %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
-  %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.26ce689dd3b6e10a87f9f2a88b1cf23d.33, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.26ce689dd3b6e10a87f9f2a88b1cf23d.32)
+  %4 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.26ce689dd3b6e10a87f9f2a88b1cf23d.33, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.26ce689dd3b6e10a87f9f2a88b1cf23d.32)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %6
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

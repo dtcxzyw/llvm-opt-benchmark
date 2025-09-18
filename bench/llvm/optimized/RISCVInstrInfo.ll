@@ -2677,7 +2677,7 @@ _ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadataD2Ev.exit, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %626
+  br label %622
 
 .thread:                                          ; preds = %64, %79, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit
   %111 = load ptr, ptr @_ZN4llvm5RISCV14GPRF16RegClassE, align 8, !tbaa !335
@@ -2780,7 +2780,7 @@ _ZN4llvm10MIMetadataD2Ev.exit214:                 ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit216:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit214, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %626
+  br label %622
 
 .thread465:                                       ; preds = %.thread, %124, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i201, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit204
   %155 = load ptr, ptr @_ZN4llvm5RISCV14GPRF32RegClassE, align 8, !tbaa !335
@@ -2883,7 +2883,7 @@ _ZN4llvm10MIMetadataD2Ev.exit233:                 ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit235:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit233, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %626
+  br label %622
 
 .thread471:                                       ; preds = %.thread465, %168, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i220, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit223
   %199 = load ptr, ptr @_ZN4llvm5RISCV15GPRPairRegClassE, align 8, !tbaa !335
@@ -3059,7 +3059,7 @@ _ZN4llvm10MIMetadataD2Ev.exit264:                 ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit266:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit264, %263
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %626
+  br label %622
 
 264:                                              ; preds = %9
   br i1 %63, label %.thread479, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit310.thread
@@ -3200,7 +3200,7 @@ _ZN4llvm10MIMetadataD2Ev.exit278:                 ; preds = %_ZN4llvm9StringRefC
 
 _ZN4llvm8DebugLocD2Ev.exit280:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit278, %330
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %626
+  br label %622
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit, %279, %.thread479, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit271
   br i1 %or.cond.i, label %331, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit310.thread
@@ -3329,7 +3329,7 @@ _ZN4llvm10MIMetadataD2Ev.exit301:                 ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit303:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit301, %385
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %626
+  br label %622
 
 .thread489:                                       ; preds = %331, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i284, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit287
   %386 = load ptr, ptr @_ZN4llvm5RISCV13FPR32RegClassE, align 8, !tbaa !335
@@ -3424,7 +3424,7 @@ _ZN4llvm10MIMetadataD2Ev.exit316:                 ; preds = %_ZN4llvm10MIMetadat
 _ZN4llvm8DebugLocD2Ev.exit318:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit316, %425
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %626
+  br label %622
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit310.thread: ; preds = %264, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit.thread, %.thread489, %_ZNK4llvm15MCRegisterClass8containsENS_10MCRegisterE.exit.i.i307, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit310
   %426 = tail call noundef zeroext i1 @_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(64) @_ZN4llvm5RISCV13FPR64RegClassE, i32 %4, i32 %5)
@@ -3489,7 +3489,7 @@ _ZN4llvm10MIMetadataD2Ev.exit324:                 ; preds = %_ZN4llvm10MIMetadat
 _ZN4llvm8DebugLocD2Ev.exit326:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit324, %446
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %626
+  br label %622
 
 447:                                              ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterES1_.exit310.thread
   br i1 %61, label %448, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371.thread
@@ -3601,7 +3601,7 @@ _ZN4llvm10MIMetadataD2Ev.exit338:                 ; preds = %_ZN4llvm10MIMetadat
 _ZN4llvm8DebugLocD2Ev.exit340:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit338, %495
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %626
+  br label %622
 
 .thread503:                                       ; preds = %..thread503_crit_edge, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit329, %463, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit332
   %496 = phi ptr [ %.pre, %..thread503_crit_edge ], [ %.pre550, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit329 ], [ %.pre550, %463 ], [ %.pre550, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit332 ]
@@ -3701,7 +3701,7 @@ _ZN4llvm10MIMetadataD2Ev.exit352:                 ; preds = %_ZN4llvm10MIMetadat
 _ZN4llvm8DebugLocD2Ev.exit354:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit352, %538
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br label %626
+  br label %622
 
 .thread510:                                       ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit343, %509, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit346, %.thread503
   %539 = load ptr, ptr @_ZN4llvm5RISCV13FPR64RegClassE, align 8, !tbaa !335
@@ -3801,7 +3801,7 @@ _ZN4llvm10MIMetadataD2Ev.exit366:                 ; preds = %_ZN4llvm10MIMetadat
 _ZN4llvm8DebugLocD2Ev.exit368:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit366, %581
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  br label %626
+  br label %622
 
 .thread517:                                       ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit357, %552, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit360, %.thread510
   br i1 %.not.i.i342, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371, label %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371.thread
@@ -3896,19 +3896,14 @@ _ZN4llvm10MIMetadataD2Ev.exit380:                 ; preds = %_ZN4llvm10MIMetadat
 _ZN4llvm8DebugLocD2Ev.exit382:                    ; preds = %_ZN4llvm10MIMetadataD2Ev.exit380, %620
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  br label %626
+  br label %622
 
 _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371.thread: ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371, %591, %447, %.thread517, %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit374
   %621 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo28getCommonMinimalPhysRegClassENS_10MCRegisterES1_NS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %59, i32 %5, i32 %4, i16 1) #27
-  %622 = getelementptr inbounds nuw i8, ptr %621, i64 34
-  %623 = load i8, ptr %622, align 2, !tbaa !243
-  %624 = and i8 %623, 1
-  %625 = icmp ne i8 %624, 0
-  tail call void @llvm.assume(i1 %625)
   tail call void @_ZNK4llvm14RISCVInstrInfo17copyPhysRegVectorERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocENS_10MCRegisterES9_bPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 %4, i32 %5, i1 noundef zeroext %6, ptr noundef %621)
-  br label %626
+  br label %622
 
-626:                                              ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371.thread, %_ZN4llvm8DebugLocD2Ev.exit382, %_ZN4llvm8DebugLocD2Ev.exit368, %_ZN4llvm8DebugLocD2Ev.exit354, %_ZN4llvm8DebugLocD2Ev.exit340, %_ZN4llvm8DebugLocD2Ev.exit326, %_ZN4llvm8DebugLocD2Ev.exit318, %_ZN4llvm8DebugLocD2Ev.exit303, %_ZN4llvm8DebugLocD2Ev.exit280, %_ZN4llvm8DebugLocD2Ev.exit266, %_ZN4llvm8DebugLocD2Ev.exit235, %_ZN4llvm8DebugLocD2Ev.exit216, %_ZN4llvm8DebugLocD2Ev.exit
+622:                                              ; preds = %_ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit371.thread, %_ZN4llvm8DebugLocD2Ev.exit382, %_ZN4llvm8DebugLocD2Ev.exit368, %_ZN4llvm8DebugLocD2Ev.exit354, %_ZN4llvm8DebugLocD2Ev.exit340, %_ZN4llvm8DebugLocD2Ev.exit326, %_ZN4llvm8DebugLocD2Ev.exit318, %_ZN4llvm8DebugLocD2Ev.exit303, %_ZN4llvm8DebugLocD2Ev.exit280, %_ZN4llvm8DebugLocD2Ev.exit266, %_ZN4llvm8DebugLocD2Ev.exit235, %_ZN4llvm8DebugLocD2Ev.exit216, %_ZN4llvm8DebugLocD2Ev.exit
   ret void
 }
 
@@ -20362,21 +20357,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit32:               ; preds = %119, %117, %_ZN4llv
   %125 = load ptr, ptr %7, align 8, !tbaa !932
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %127 = icmp eq ptr %125, %126
-  br i1 %127, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %124
-  %128 = load i64, ptr %9, align 8, !tbaa !930
-  %129 = icmp ult i64 %128, 16
-  call void @llvm.assume(i1 %129)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  br i1 %127, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %124
-  %130 = load i64, ptr %126, align 8, !tbaa !30
-  %131 = add i64 %130, 1
-  call void @_ZdlPvm(ptr noundef %125, i64 noundef %131) #32
+  %128 = load i64, ptr %126, align 8, !tbaa !30
+  %129 = add i64 %128, 1
+  call void @_ZdlPvm(ptr noundef %125, i64 noundef %129) #32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

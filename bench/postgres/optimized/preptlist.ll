@@ -43,16 +43,15 @@ define dso_local void @preprocess_targetlist(ptr noundef %0) local_unnamed_addr 
   br i1 %.not161, label %22, label %19
 
 19:                                               ; preds = %11
-  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %20)
-  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.preprocess_targetlist) #7
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 88, ptr noundef nonnull @__func__.preprocess_targetlist) #6
   unreachable
 
 22:                                               ; preds = %11
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %24 = load i32, ptr %23, align 4
-  %25 = tail call ptr @table_open(i32 noundef %24, i32 noundef 0) #7
+  %25 = tail call ptr @table_open(i32 noundef %24, i32 noundef 0) #6
   br label %26
 
 26:                                               ; preds = %1, %22
@@ -96,7 +95,7 @@ define dso_local void @preprocess_targetlist(ptr noundef %0) local_unnamed_addr 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load i16, ptr %42, align 8
   %44 = sext i16 %43 to i32
-  %45 = tail call ptr @lappend_int(ptr noundef %.01721.i, i32 noundef %44) #7
+  %45 = tail call ptr @lappend_int(ptr noundef %.01721.i, i32 noundef %44) #6
   br label %46
 
 46:                                               ; preds = %41, %.lr.ph24.i
@@ -133,7 +132,7 @@ extract_update_targetlist_colnos.exit:            ; preds = %46, %30, %.lr.ph.i
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store ptr %28, ptr %60, align 8
-  tail call void @add_row_identity_columns(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull %.0, ptr noundef %.0145) #7
+  tail call void @add_row_identity_columns(ptr noundef nonnull %0, i32 noundef %6, ptr noundef nonnull %.0, ptr noundef %.0145) #6
   %61 = load ptr, ptr %60, align 8
   br i1 %54, label %63, label %.critedge183
 
@@ -171,7 +170,7 @@ extract_update_targetlist_colnos.exit:            ; preds = %46, %30, %.lr.ph.i
   %.3.lcssa = phi ptr [ %.1213, %63 ], [ %.1213, %.lr.ph224 ], [ %.4.lcssa, %.critedge181 ]
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @pull_var_clause(ptr noundef %76, i32 noundef 16) #7
+  %77 = tail call ptr @pull_var_clause(ptr noundef %76, i32 noundef 16) #6
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %.not164 = icmp eq ptr %77, null
   br i1 %.not164, label %.critedge183, label %.lr.ph230
@@ -218,7 +217,7 @@ extract_update_targetlist_colnos.exit:            ; preds = %46, %30, %.lr.ph.i
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %101 = load i16, ptr %100, align 8
   %102 = sext i16 %101 to i32
-  %103 = tail call ptr @lappend_int(ptr noundef %.01721.i195, i32 noundef %102) #7
+  %103 = tail call ptr @lappend_int(ptr noundef %.01721.i195, i32 noundef %102) #6
   br label %104
 
 104:                                              ; preds = %99, %.lr.ph24.i192
@@ -243,8 +242,8 @@ extract_update_targetlist_colnos.exit198:         ; preds = %104, %86, %.lr.ph.i
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %115 = load ptr, ptr %114, align 8
-  %116 = tail call ptr @list_concat_copy(ptr noundef %113, ptr noundef %115) #7
-  %117 = tail call ptr @pull_var_clause(ptr noundef %116, i32 noundef 16) #7
+  %116 = tail call ptr @list_concat_copy(ptr noundef %113, ptr noundef %115) #6
+  %117 = tail call ptr @pull_var_clause(ptr noundef %116, i32 noundef 16) #6
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %.not177 = icmp eq ptr %117, null
   br i1 %.not177, label %.critedge181, label %.lr.ph
@@ -267,7 +266,7 @@ extract_update_targetlist_colnos.exit198:         ; preds = %104, %86, %.lr.ph.i
 
 .critedge181:                                     ; preds = %145, %.lr.ph, %111
   %.4.lcssa = phi ptr [ %.3223284, %111 ], [ %.3223284, %.lr.ph ], [ %.5, %145 ]
-  tail call void @list_free(ptr noundef %117) #7
+  tail call void @list_free(ptr noundef %117) #6
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259283, 1
   %127 = load i32, ptr %66, align 4
   %128 = sext i32 %127 to i64
@@ -281,7 +280,7 @@ extract_update_targetlist_colnos.exit198:         ; preds = %104, %86, %.lr.ph.i
   br i1 %133, label %145, label %134
 
 134:                                              ; preds = %130, %.lr.ph221
-  %135 = tail call ptr @tlist_member(ptr noundef nonnull %124, ptr noundef %.4215219) #7
+  %135 = tail call ptr @tlist_member(ptr noundef nonnull %124, ptr noundef %.4215219) #6
   %.not179 = icmp eq ptr %135, null
   br i1 %.not179, label %136, label %145
 
@@ -298,8 +297,8 @@ extract_update_targetlist_colnos.exit198:         ; preds = %104, %86, %.lr.ph.i
 
 list_length.exit:                                 ; preds = %136, %137
   %142 = phi i16 [ %141, %137 ], [ 1, %136 ]
-  %143 = tail call ptr @makeTargetEntry(ptr noundef nonnull %124, i16 noundef signext %142, ptr noundef null, i1 noundef zeroext true) #7
-  %144 = tail call ptr @lappend(ptr noundef %.4215219, ptr noundef %143) #7
+  %143 = tail call ptr @makeTargetEntry(ptr noundef nonnull %124, i16 noundef signext %142, ptr noundef null, i1 noundef zeroext true) #6
+  %144 = tail call ptr @lappend(ptr noundef %.4215219, ptr noundef %143) #6
   br label %145
 
 145:                                              ; preds = %134, %130, %list_length.exit
@@ -327,7 +326,7 @@ list_length.exit:                                 ; preds = %136, %137
   br i1 %157, label %169, label %158
 
 158:                                              ; preds = %154, %.lr.ph238
-  %159 = tail call ptr @tlist_member(ptr noundef nonnull %151, ptr noundef %.6229236) #7
+  %159 = tail call ptr @tlist_member(ptr noundef nonnull %151, ptr noundef %.6229236) #6
   %.not176 = icmp eq ptr %159, null
   br i1 %.not176, label %160, label %169
 
@@ -344,8 +343,8 @@ list_length.exit:                                 ; preds = %136, %137
 
 list_length.exit201:                              ; preds = %160, %161
   %166 = phi i16 [ %165, %161 ], [ 1, %160 ]
-  %167 = tail call ptr @makeTargetEntry(ptr noundef nonnull %151, i16 noundef signext %166, ptr noundef null, i1 noundef zeroext true) #7
-  %168 = tail call ptr @lappend(ptr noundef %.6229236, ptr noundef %167) #7
+  %167 = tail call ptr @makeTargetEntry(ptr noundef nonnull %151, i16 noundef signext %166, ptr noundef null, i1 noundef zeroext true) #6
+  %168 = tail call ptr @lappend(ptr noundef %.6229236, ptr noundef %167) #6
   br label %169
 
 169:                                              ; preds = %158, %154, %list_length.exit201
@@ -400,10 +399,10 @@ list_length.exit201:                              ; preds = %160, %161
   br i1 %.not174, label %207, label %193
 
 193:                                              ; preds = %189
-  %194 = call ptr @makeVar(i32 noundef %184, i16 noundef signext -1, i32 noundef 27, i32 noundef -1, i32 noundef 0, i32 noundef 0) #7
+  %194 = call ptr @makeVar(i32 noundef %184, i16 noundef signext -1, i32 noundef 27, i32 noundef -1, i32 noundef 0, i32 noundef 0) #6
   %195 = getelementptr inbounds nuw i8, ptr %182, i64 12
   %196 = load i32, ptr %195, align 4
-  %197 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %196) #7
+  %197 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.2, i32 noundef %196) #6
   %.not.i202 = icmp eq ptr %.8241287, null
   br i1 %.not.i202, label %list_length.exit203, label %198
 
@@ -416,9 +415,9 @@ list_length.exit201:                              ; preds = %160, %161
 
 list_length.exit203:                              ; preds = %193, %198
   %203 = phi i16 [ %202, %198 ], [ 1, %193 ]
-  %204 = call ptr @pstrdup(ptr noundef nonnull %2) #7
-  %205 = call ptr @makeTargetEntry(ptr noundef %194, i16 noundef signext %203, ptr noundef %204, i1 noundef zeroext true) #7
-  %206 = call ptr @lappend(ptr noundef %.8241287, ptr noundef %205) #7
+  %204 = call ptr @pstrdup(ptr noundef nonnull %2) #6
+  %205 = call ptr @makeTargetEntry(ptr noundef %194, i16 noundef signext %203, ptr noundef %204, i1 noundef zeroext true) #6
+  %206 = call ptr @lappend(ptr noundef %.8241287, ptr noundef %205) #6
   %.pre = load i32, ptr %190, align 4
   br label %207
 
@@ -436,10 +435,10 @@ list_length.exit203:                              ; preds = %193, %198
   %213 = sext i32 %212 to i64
   %214 = getelementptr inbounds %union.ListCell, ptr %.val188, i64 %213
   %215 = load ptr, ptr %214, align 8
-  %216 = call ptr @makeWholeRowVar(ptr noundef %215, i32 noundef %211, i32 noundef 0, i1 noundef zeroext false) #7
+  %216 = call ptr @makeWholeRowVar(ptr noundef %215, i32 noundef %211, i32 noundef 0, i1 noundef zeroext false) #6
   %217 = getelementptr inbounds nuw i8, ptr %182, i64 12
   %218 = load i32, ptr %217, align 4
-  %219 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %218) #7
+  %219 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %218) #6
   %.not.i204 = icmp eq ptr %.10, null
   br i1 %.not.i204, label %list_length.exit205, label %220
 
@@ -452,9 +451,9 @@ list_length.exit203:                              ; preds = %193, %198
 
 list_length.exit205:                              ; preds = %210, %220
   %225 = phi i16 [ %224, %220 ], [ 1, %210 ]
-  %226 = call ptr @pstrdup(ptr noundef nonnull %2) #7
-  %227 = call ptr @makeTargetEntry(ptr noundef %216, i16 noundef signext %225, ptr noundef %226, i1 noundef zeroext true) #7
-  %228 = call ptr @lappend(ptr noundef %.10, ptr noundef %227) #7
+  %226 = call ptr @pstrdup(ptr noundef nonnull %2) #6
+  %227 = call ptr @makeTargetEntry(ptr noundef %216, i16 noundef signext %225, ptr noundef %226, i1 noundef zeroext true) #6
+  %228 = call ptr @lappend(ptr noundef %.10, ptr noundef %227) #6
   br label %229
 
 229:                                              ; preds = %list_length.exit205, %207
@@ -466,10 +465,10 @@ list_length.exit205:                              ; preds = %210, %220
 
 233:                                              ; preds = %229
   %234 = load i32, ptr %183, align 4
-  %235 = call ptr @makeVar(i32 noundef %234, i16 noundef signext -6, i32 noundef 26, i32 noundef -1, i32 noundef 0, i32 noundef 0) #7
+  %235 = call ptr @makeVar(i32 noundef %234, i16 noundef signext -6, i32 noundef 26, i32 noundef -1, i32 noundef 0, i32 noundef 0) #6
   %236 = getelementptr inbounds nuw i8, ptr %182, i64 12
   %237 = load i32, ptr %236, align 4
-  %238 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %237) #7
+  %238 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %237) #6
   %.not.i206 = icmp eq ptr %.11, null
   br i1 %.not.i206, label %list_length.exit207, label %239
 
@@ -482,9 +481,9 @@ list_length.exit205:                              ; preds = %210, %220
 
 list_length.exit207:                              ; preds = %233, %239
   %244 = phi i16 [ %243, %239 ], [ 1, %233 ]
-  %245 = call ptr @pstrdup(ptr noundef nonnull %2) #7
-  %246 = call ptr @makeTargetEntry(ptr noundef %235, i16 noundef signext %244, ptr noundef %245, i1 noundef zeroext true) #7
-  %247 = call ptr @lappend(ptr noundef %.11, ptr noundef %246) #7
+  %245 = call ptr @pstrdup(ptr noundef nonnull %2) #6
+  %246 = call ptr @makeTargetEntry(ptr noundef %235, i16 noundef signext %244, ptr noundef %245, i1 noundef zeroext true) #6
+  %247 = call ptr @lappend(ptr noundef %.11, ptr noundef %246) #6
   br label %248
 
 248:                                              ; preds = %229, %list_length.exit207, %.lr.ph288
@@ -508,7 +507,7 @@ list_length.exit209:                              ; preds = %252
   br i1 %256, label %257, label %list_length.exit209.thread
 
 257:                                              ; preds = %list_length.exit209
-  %258 = call ptr @pull_var_clause(ptr noundef nonnull %188, i32 noundef 26) #7
+  %258 = call ptr @pull_var_clause(ptr noundef nonnull %188, i32 noundef 26) #6
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %.not169 = icmp eq ptr %258, null
   br i1 %.not169, label %.critedge187, label %.lr.ph248
@@ -531,7 +530,7 @@ list_length.exit209:                              ; preds = %252
 
 .critedge187:                                     ; preds = %283, %.lr.ph248, %257
   %.14.lcssa = phi ptr [ %.8.lcssa, %257 ], [ %.8.lcssa, %.lr.ph248 ], [ %.15, %283 ]
-  call void @list_free(ptr noundef %258) #7
+  call void @list_free(ptr noundef %258) #6
   br label %list_length.exit209.thread
 
 268:                                              ; preds = %.lr.ph256
@@ -541,7 +540,7 @@ list_length.exit209:                              ; preds = %252
   br i1 %271, label %283, label %272
 
 272:                                              ; preds = %268, %.lr.ph256
-  %273 = call ptr @tlist_member(ptr noundef nonnull %265, ptr noundef %.14247254) #7
+  %273 = call ptr @tlist_member(ptr noundef nonnull %265, ptr noundef %.14247254) #6
   %.not172 = icmp eq ptr %273, null
   br i1 %.not172, label %274, label %283
 
@@ -558,8 +557,8 @@ list_length.exit209:                              ; preds = %252
 
 list_length.exit211:                              ; preds = %274, %275
   %280 = phi i16 [ %279, %275 ], [ 1, %274 ]
-  %281 = call ptr @makeTargetEntry(ptr noundef nonnull %265, i16 noundef signext %280, ptr noundef null, i1 noundef zeroext true) #7
-  %282 = call ptr @lappend(ptr noundef %.14247254, ptr noundef %281) #7
+  %281 = call ptr @makeTargetEntry(ptr noundef nonnull %265, i16 noundef signext %280, ptr noundef null, i1 noundef zeroext true) #6
+  %282 = call ptr @lappend(ptr noundef %.14247254, ptr noundef %281) #6
   br label %283
 
 283:                                              ; preds = %272, %268, %list_length.exit211
@@ -578,7 +577,7 @@ list_length.exit209.thread:                       ; preds = %252, %.critedge187,
   br i1 %.not171, label %289, label %288
 
 288:                                              ; preds = %list_length.exit209.thread
-  call void @table_close(ptr noundef nonnull %.0145, i32 noundef 0) #7
+  call void @table_close(ptr noundef nonnull %.0145, i32 noundef 0) #6
   br label %289
 
 289:                                              ; preds = %288, %list_length.exit209.thread
@@ -689,31 +688,31 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
   %53 = getelementptr i8, ptr %24, i64 6
   %54 = load i8, ptr %53, align 2, !range !4, !noundef !5
   %55 = trunc nuw i8 %54 to i1
-  %56 = tail call ptr @coerce_null_to_domain(i32 noundef %46, i32 noundef %47, i32 noundef %49, i32 noundef %52, i1 noundef zeroext %55) #7
+  %56 = tail call ptr @coerce_null_to_domain(i32 noundef %46, i32 noundef %47, i32 noundef %49, i32 noundef %52, i1 noundef zeroext %55) #6
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 7
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %44
-  %60 = tail call ptr @eval_const_expressions(ptr noundef %0, ptr noundef nonnull %56) #7
+  %60 = tail call ptr @eval_const_expressions(ptr noundef %0, ptr noundef nonnull %56) #6
   br label %63
 
 61:                                               ; preds = %40
-  %62 = tail call ptr @makeConst(i32 noundef 23, i32 noundef -1, i32 noundef 0, i32 noundef 4, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext true) #7
+  %62 = tail call ptr @makeConst(i32 noundef 23, i32 noundef -1, i32 noundef 0, i32 noundef 4, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext true) #6
   br label %63
 
 63:                                               ; preds = %44, %59, %61
   %.043 = phi ptr [ %62, %61 ], [ %56, %44 ], [ %60, %59 ]
   %64 = trunc i64 %indvars.iv to i16
   %65 = getelementptr i8, ptr %24, i64 -72
-  %66 = tail call ptr @pstrdup(ptr noundef nonnull %65) #7
-  %67 = tail call ptr @makeTargetEntry(ptr noundef %.043, i16 noundef signext %64, ptr noundef %66, i1 noundef zeroext false) #7
+  %66 = tail call ptr @pstrdup(ptr noundef nonnull %65) #6
+  %67 = tail call ptr @makeTargetEntry(ptr noundef %.043, i16 noundef signext %64, ptr noundef %66, i1 noundef zeroext false) #6
   br label %68
 
 68:                                               ; preds = %35, %63
   %.14861 = phi ptr [ %.04766, %63 ], [ %..i, %35 ]
   %.2 = phi ptr [ %67, %63 ], [ %26, %35 ]
-  %69 = tail call ptr @lappend(ptr noundef %.04467, ptr noundef %.2) #7
+  %69 = tail call ptr @lappend(ptr noundef %.04467, ptr noundef %.2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %select.unfold.preheader, label %18, !llvm.loop !6
@@ -729,10 +728,9 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
   br i1 %74, label %78, label %75
 
 75:                                               ; preds = %70
-  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %76)
-  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.expand_insert_targetlist) #7
+  %76 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %77 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 481, ptr noundef nonnull @__func__.expand_insert_targetlist) #6
   unreachable
 
 78:                                               ; preds = %70
@@ -743,7 +741,7 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
   br i1 %.not53, label %select.unfold, label %82
 
 82:                                               ; preds = %78
-  %83 = tail call ptr @flatCopyTargetEntry(ptr noundef nonnull %71) #7
+  %83 = tail call ptr @flatCopyTargetEntry(ptr noundef nonnull %71) #6
   %84 = trunc i32 %.15171 to i16
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i16 %84, ptr %85, align 8
@@ -751,7 +749,7 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
 
 select.unfold:                                    ; preds = %82, %78
   %.0 = phi ptr [ %83, %82 ], [ %71, %78 ]
-  %86 = tail call ptr @lappend(ptr noundef %.173, ptr noundef nonnull %.0) #7
+  %86 = tail call ptr @lappend(ptr noundef %.173, ptr noundef nonnull %.0) #6
   %87 = add i32 %.15171, 1
   %.val56 = load i32, ptr %16, align 4
   %.val57 = load ptr, ptr %17, align 8
@@ -798,7 +796,7 @@ define dso_local ptr @extract_update_targetlist_colnos(ptr noundef readonly capt
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = load i16, ptr %13, align 8
   %15 = sext i16 %14 to i32
-  %16 = tail call ptr @lappend_int(ptr noundef %.01721, i32 noundef %15) #7
+  %16 = tail call ptr @lappend_int(ptr noundef %.01721, i32 noundef %15) #6
   br label %17
 
 17:                                               ; preds = %12, %.lr.ph24
@@ -889,17 +887,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { cold nounwind }
-attributes #7 = { nounwind }
+attributes #5 = { cold nounwind }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

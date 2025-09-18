@@ -49,9 +49,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) local_unnamed_addr #0 {
-  tail call void @InvalidateCatalogSnapshot() #7
-  tail call void @ResetCatalogCachesExt(i1 noundef zeroext %0) #7
-  tail call void @RelationCacheInvalidate(i1 noundef zeroext %0) #7
+  tail call void @InvalidateCatalogSnapshot() #6
+  tail call void @ResetCatalogCachesExt(i1 noundef zeroext %0) #6
+  tail call void @RelationCacheInvalidate(i1 noundef zeroext %0) #6
   %2 = load i32, ptr @syscache_callback_count, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %.preheader
@@ -70,7 +70,7 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) loc
   %10 = load i64, ptr %9, align 8
   %11 = load i16, ptr %6, align 8
   %12 = sext i16 %11 to i32
-  tail call void %8(i64 noundef %10, i32 noundef %12, i32 noundef 0) #7
+  tail call void %8(i64 noundef %10, i32 noundef %12, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr @syscache_callback_count, align 4
   %14 = sext i32 %13 to i64
@@ -83,7 +83,7 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) loc
   %17 = load ptr, ptr %16, align 16
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8
-  tail call void %17(i64 noundef %19, i32 noundef 0) #7
+  tail call void %17(i64 noundef %19, i32 noundef 0) #6
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %20 = load i32, ptr @relcache_callback_count, align 4
   %21 = sext i32 %20 to i64
@@ -116,12 +116,12 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %or.cond, label %10, label %CallSyscacheCallbacks.exit
 
 10:                                               ; preds = %4
-  tail call void @InvalidateCatalogSnapshot() #7
+  tail call void @InvalidateCatalogSnapshot() #6
   %11 = load i8, ptr %0, align 4
   %12 = sext i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 4
-  tail call void @SysCacheInvalidate(i32 noundef %12, i32 noundef %14) #7
+  tail call void @SysCacheInvalidate(i32 noundef %12, i32 noundef %14) #6
   %15 = load i8, ptr %0, align 4
   %16 = sext i8 %15 to i32
   %17 = load i32, ptr %13, align 4
@@ -129,10 +129,9 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %or.cond.i, label %18, label %21
 
 18:                                               ; preds = %10
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %16) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1773, ptr noundef nonnull @__func__.CallSyscacheCallbacks) #7
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %16) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1773, ptr noundef nonnull @__func__.CallSyscacheCallbacks) #6
   unreachable
 
 21:                                               ; preds = %10
@@ -152,7 +151,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load i64, ptr %29, align 8
-  tail call void %28(i64 noundef %30, i32 noundef %16, i32 noundef %17) #7
+  tail call void %28(i64 noundef %30, i32 noundef %16, i32 noundef %17) #6
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %.0.in.in.i = load i16, ptr %31, align 2
   %32 = icmp sgt i16 %.0.in.in.i, 0
@@ -177,10 +176,10 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %or.cond39, label %40, label %CallSyscacheCallbacks.exit
 
 40:                                               ; preds = %34
-  tail call void @InvalidateCatalogSnapshot() #7
+  tail call void @InvalidateCatalogSnapshot() #6
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i32, ptr %41, align 4
-  tail call void @CatalogCacheFlushCatalog(i32 noundef %42) #7
+  tail call void @CatalogCacheFlushCatalog(i32 noundef %42) #6
   br label %CallSyscacheCallbacks.exit
 
 43:                                               ; preds = %33
@@ -199,11 +198,11 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %49
-  tail call void @RelationCacheInvalidate(i1 noundef zeroext false) #7
+  tail call void @RelationCacheInvalidate(i1 noundef zeroext false) #6
   br label %55
 
 54:                                               ; preds = %49
-  tail call void @RelationCacheInvalidateEntry(i32 noundef %51) #7
+  tail call void @RelationCacheInvalidateEntry(i32 noundef %51) #6
   br label %55
 
 55:                                               ; preds = %54, %53
@@ -218,7 +217,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 8
   %62 = load i32, ptr %50, align 4
-  tail call void %59(i64 noundef %61, i32 noundef %62) #7
+  tail call void %59(i64 noundef %61, i32 noundef %62) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr @relcache_callback_count, align 4
   %64 = sext i32 %63 to i64
@@ -242,7 +241,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   %.sroa.4.12.insert.ext = or disjoint i64 %.masked, %74
   %.sroa.4.12.insert.shift = shl nuw i64 %.sroa.4.12.insert.ext, 32
   %.sroa.4.12.insert.insert = or disjoint i64 %.sroa.4.12.insert.shift, %.sroa.4.0.insert.ext
-  tail call void @smgrreleaserellocator(i64 %.sroa.0.0.copyload, i64 %.sroa.4.12.insert.insert) #7
+  tail call void @smgrreleaserellocator(i64 %.sroa.0.0.copyload, i64 %.sroa.4.12.insert.insert) #6
   br label %CallSyscacheCallbacks.exit
 
 75:                                               ; preds = %33
@@ -252,7 +251,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %75
-  tail call void @RelationMapInvalidate(i1 noundef zeroext true) #7
+  tail call void @RelationMapInvalidate(i1 noundef zeroext true) #6
   br label %CallSyscacheCallbacks.exit
 
 80:                                               ; preds = %75
@@ -261,7 +260,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %82, label %83, label %CallSyscacheCallbacks.exit
 
 83:                                               ; preds = %80
-  tail call void @RelationMapInvalidate(i1 noundef zeroext false) #7
+  tail call void @RelationMapInvalidate(i1 noundef zeroext false) #6
   br label %CallSyscacheCallbacks.exit
 
 84:                                               ; preds = %33
@@ -271,7 +270,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %84
-  tail call void @InvalidateCatalogSnapshot() #7
+  tail call void @InvalidateCatalogSnapshot() #6
   br label %CallSyscacheCallbacks.exit
 
 89:                                               ; preds = %84
@@ -280,16 +279,15 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   br i1 %91, label %92, label %CallSyscacheCallbacks.exit
 
 92:                                               ; preds = %89
-  tail call void @InvalidateCatalogSnapshot() #7
+  tail call void @InvalidateCatalogSnapshot() #6
   br label %CallSyscacheCallbacks.exit
 
 93:                                               ; preds = %33
-  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %94)
+  %94 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
   %95 = load i8, ptr %0, align 4
   %96 = sext i8 %95 to i32
-  %97 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %96) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 835, ptr noundef nonnull @__func__.LocalExecuteInvalidationMessage) #7
+  %97 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %96) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 835, ptr noundef nonnull @__func__.LocalExecuteInvalidationMessage) #6
   unreachable
 
 CallSyscacheCallbacks.exit:                       ; preds = %.lr.ph, %.lr.ph.i, %55, %21, %43, %34, %4, %40, %66, %89, %92, %88, %79, %83, %80
@@ -304,10 +302,9 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
   br i1 %or.cond, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %4)
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1773, ptr noundef nonnull @__func__.CallSyscacheCallbacks) #7
+  %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1773, ptr noundef nonnull @__func__.CallSyscacheCallbacks) #6
   unreachable
 
 6:                                                ; preds = %2
@@ -327,7 +324,7 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8
-  tail call void %13(i64 noundef %15, i32 noundef %0, i32 noundef %1) #7
+  tail call void %13(i64 noundef %15, i32 noundef %0, i32 noundef %1) #6
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %.0.in.in = load i16, ptr %16, align 2
   %17 = icmp sgt i16 %.0.in.in, 0
@@ -359,9 +356,9 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InvalidateSystemCaches() #0 {
-  tail call void @InvalidateCatalogSnapshot() #7
-  tail call void @ResetCatalogCachesExt(i1 noundef zeroext false) #7
-  tail call void @RelationCacheInvalidate(i1 noundef zeroext false) #7
+  tail call void @InvalidateCatalogSnapshot() #6
+  tail call void @ResetCatalogCachesExt(i1 noundef zeroext false) #6
+  tail call void @RelationCacheInvalidate(i1 noundef zeroext false) #6
   %1 = load i32, ptr @syscache_callback_count, align 4
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %.lr.ph.i, label %.preheader.i
@@ -380,7 +377,7 @@ define dso_local void @InvalidateSystemCaches() #0 {
   %9 = load i64, ptr %8, align 8
   %10 = load i16, ptr %5, align 8
   %11 = sext i16 %10 to i32
-  tail call void %7(i64 noundef %9, i32 noundef %11, i32 noundef 0) #7
+  tail call void %7(i64 noundef %9, i32 noundef %11, i32 noundef 0) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr @syscache_callback_count, align 4
   %13 = sext i32 %12 to i64
@@ -393,7 +390,7 @@ define dso_local void @InvalidateSystemCaches() #0 {
   %16 = load ptr, ptr %15, align 16
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8
-  tail call void %16(i64 noundef %18, i32 noundef 0) #7
+  tail call void %16(i64 noundef %18, i32 noundef 0) #6
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %19 = load i32, ptr @relcache_callback_count, align 4
   %20 = sext i32 %19 to i64
@@ -406,7 +403,7 @@ InvalidateSystemCachesExtended.exit:              ; preds = %.lr.ph14.i, %.prehe
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AcceptInvalidationMessages() local_unnamed_addr #0 {
-  tail call void @ReceiveSharedInvalidMessages(ptr noundef nonnull @LocalExecuteInvalidationMessage, ptr noundef nonnull @InvalidateSystemCaches) #7
+  tail call void @ReceiveSharedInvalidMessages(ptr noundef nonnull @LocalExecuteInvalidationMessage, ptr noundef nonnull @InvalidateSystemCaches) #6
   ret void
 }
 
@@ -488,7 +485,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
-  tail call void @RelationCacheInitFilePreInvalidate() #7
+  tail call void @RelationCacheInitFilePreInvalidate() #6
   %.pre = load ptr, ptr @transInvalInfo, align 8
   br label %10
 
@@ -515,7 +512,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
   %24 = load ptr, ptr @InvalMessageArrays.0, align 16
   %25 = sext i32 %20 to i64
   %26 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %24, i64 %25
-  tail call void @SendSharedInvalidMessages(ptr noundef %26, i32 noundef %21) #7
+  tail call void @SendSharedInvalidMessages(ptr noundef %26, i32 noundef %21) #6
   %.pre1 = load i32, ptr %18, align 4
   br label %27
 
@@ -531,7 +528,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
   %34 = load ptr, ptr @InvalMessageArrays.2, align 16
   %35 = sext i32 %30 to i64
   %36 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %34, i64 %35
-  tail call void @SendSharedInvalidMessages(ptr noundef %36, i32 noundef %31) #7
+  tail call void @SendSharedInvalidMessages(ptr noundef %36, i32 noundef %31) #6
   br label %ProcessInvalidationMessagesMulti.exit
 
 ProcessInvalidationMessagesMulti.exit:            ; preds = %27, %33
@@ -542,7 +539,7 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %27, %33
   br i1 %40, label %41, label %ProcessInvalidationMessages.exit
 
 41:                                               ; preds = %ProcessInvalidationMessagesMulti.exit
-  tail call void @RelationCacheInitFilePostInvalidate() #7
+  tail call void @RelationCacheInitFilePostInvalidate() #6
   br label %ProcessInvalidationMessages.exit
 
 42:                                               ; preds = %4
@@ -637,7 +634,7 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef writeonly
   %31 = load ptr, ptr @CurTransactionContext, align 8
   %32 = sext i32 %30 to i64
   %33 = shl nsw i64 %32, 4
-  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %31, i64 noundef %33) #7
+  %34 = tail call ptr @MemoryContextAlloc(ptr noundef %31, i64 noundef %33) #6
   store ptr %34, ptr %0, align 8
   %35 = load ptr, ptr @transInvalInfo, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
@@ -756,7 +753,7 @@ define dso_local range(i32 0, -1) i32 @inplaceGetInvalidationMessages(ptr nounde
   %18 = sub i32 %16, %17
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 4
-  %21 = tail call ptr @palloc(i64 noundef %20) #7
+  %21 = tail call ptr @palloc(i64 noundef %20) #6
   store ptr %21, ptr %0, align 8
   %22 = load ptr, ptr @inplaceInvalInfo, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -810,25 +807,25 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #7
+  %8 = tail call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #6
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
   %10 = select i1 %2, ptr @.str.3, ptr @.str.4
-  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %1, ptr noundef nonnull %10) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1071, ptr noundef nonnull @__func__.ProcessCommittedInvalidationMessages) #7
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %1, ptr noundef nonnull %10) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1071, ptr noundef nonnull @__func__.ProcessCommittedInvalidationMessages) #6
   br label %12
 
 12:                                               ; preds = %7, %9
   br i1 %2, label %13, label %.critedge13
 
 13:                                               ; preds = %12
-  %14 = tail call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #7
+  %14 = tail call zeroext i1 @errstart(i32 noundef 11, ptr noundef null) #6
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %3) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.ProcessCommittedInvalidationMessages) #7
+  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %3) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1075, ptr noundef nonnull @__func__.ProcessCommittedInvalidationMessages) #6
   br label %17
 
 17:                                               ; preds = %13, %15
@@ -836,25 +833,25 @@ define dso_local void @ProcessCommittedInvalidationMessages(ptr noundef %0, i32 
   br i1 %.not, label %.critedge, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call ptr @GetDatabasePath(i32 noundef %3, i32 noundef %4) #7
+  %19 = tail call ptr @GetDatabasePath(i32 noundef %3, i32 noundef %4) #6
   store ptr %19, ptr @DatabasePath, align 8
-  tail call void @RelationCacheInitFilePreInvalidate() #7
+  tail call void @RelationCacheInitFilePreInvalidate() #6
   %20 = load ptr, ptr @DatabasePath, align 8
-  tail call void @pfree(ptr noundef %20) #7
+  tail call void @pfree(ptr noundef %20) #6
   store ptr null, ptr @DatabasePath, align 8
   br label %21
 
 .critedge:                                        ; preds = %17
-  tail call void @RelationCacheInitFilePreInvalidate() #7
+  tail call void @RelationCacheInitFilePreInvalidate() #6
   br label %21
 
 21:                                               ; preds = %18, %.critedge
-  tail call void @SendSharedInvalidMessages(ptr noundef %0, i32 noundef %1) #7
-  tail call void @RelationCacheInitFilePostInvalidate() #7
+  tail call void @SendSharedInvalidMessages(ptr noundef %0, i32 noundef %1) #6
+  tail call void @RelationCacheInitFilePostInvalidate() #6
   br label %22
 
 .critedge13:                                      ; preds = %12
-  tail call void @SendSharedInvalidMessages(ptr noundef %0, i32 noundef %1) #7
+  tail call void @SendSharedInvalidMessages(ptr noundef %0, i32 noundef %1) #6
   br label %22
 
 22:                                               ; preds = %.critedge13, %5, %21
@@ -884,7 +881,7 @@ define dso_local void @PreInplace_Inval() local_unnamed_addr #0 {
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void @RelationCacheInitFilePreInvalidate() #7
+  tail call void @RelationCacheInitFilePreInvalidate() #6
   br label %7
 
 7:                                                ; preds = %6, %2, %0
@@ -909,7 +906,7 @@ define dso_local void @AtInplace_Inval() local_unnamed_addr #0 {
   %10 = load ptr, ptr @InvalMessageArrays.0, align 16
   %11 = sext i32 %6 to i64
   %12 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %10, i64 %11
-  tail call void @SendSharedInvalidMessages(ptr noundef %12, i32 noundef %7) #7
+  tail call void @SendSharedInvalidMessages(ptr noundef %12, i32 noundef %7) #6
   br label %13
 
 13:                                               ; preds = %9, %3
@@ -925,7 +922,7 @@ define dso_local void @AtInplace_Inval() local_unnamed_addr #0 {
   %21 = load ptr, ptr @InvalMessageArrays.2, align 16
   %22 = sext i32 %17 to i64
   %23 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %21, i64 %22
-  tail call void @SendSharedInvalidMessages(ptr noundef %23, i32 noundef %18) #7
+  tail call void @SendSharedInvalidMessages(ptr noundef %23, i32 noundef %18) #6
   br label %ProcessInvalidationMessagesMulti.exit
 
 ProcessInvalidationMessagesMulti.exit:            ; preds = %13, %20
@@ -936,7 +933,7 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %13, %20
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %ProcessInvalidationMessagesMulti.exit
-  tail call void @RelationCacheInitFilePostInvalidate() #7
+  tail call void @RelationCacheInitFilePostInvalidate() #6
   br label %29
 
 29:                                               ; preds = %28, %ProcessInvalidationMessagesMulti.exit
@@ -967,7 +964,7 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
   br i1 %5, label %100, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @GetCurrentTransactionNestLevel() #7
+  %7 = tail call i32 @GetCurrentTransactionNestLevel() #6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, %7
@@ -1111,7 +1108,7 @@ CommandEndInvalidationMessages.exit:              ; preds = %11, %33
 79:                                               ; preds = %76, %53
   %80 = load ptr, ptr %42, align 8
   store ptr %80, ptr @transInvalInfo, align 8
-  tail call void @pfree(ptr noundef nonnull %4) #7
+  tail call void @pfree(ptr noundef nonnull %4) #6
   br label %100
 
 81:                                               ; preds = %10
@@ -1162,7 +1159,7 @@ ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %99 = load ptr, ptr %98, align 8
   store ptr %99, ptr @transInvalInfo, align 8
-  tail call void @pfree(ptr noundef nonnull %4) #7
+  tail call void @pfree(ptr noundef nonnull %4) #6
   br label %100
 
 100:                                              ; preds = %79, %ProcessInvalidationMessages.exit, %6, %3, %50
@@ -1272,8 +1269,8 @@ define dso_local void @LogLogicalInvalidations() local_unnamed_addr #0 {
 
 16:                                               ; preds = %4
   store i32 %14, ptr %1, align 4
-  tail call void @XLogBeginInsert() #7
-  call void @XLogRegisterData(ptr noundef nonnull %1, i32 noundef 4) #7
+  tail call void @XLogBeginInsert() #6
+  call void @XLogRegisterData(ptr noundef nonnull %1, i32 noundef 4) #6
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %2, align 4
   %19 = sub i32 %17, %18
@@ -1285,7 +1282,7 @@ define dso_local void @LogLogicalInvalidations() local_unnamed_addr #0 {
   %23 = sext i32 %18 to i64
   %24 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %22, i64 %23
   %25 = shl i32 %19, 4
-  call void @XLogRegisterData(ptr noundef %24, i32 noundef %25) #7
+  call void @XLogRegisterData(ptr noundef %24, i32 noundef %25) #6
   br label %26
 
 26:                                               ; preds = %21, %16
@@ -1300,11 +1297,11 @@ define dso_local void @LogLogicalInvalidations() local_unnamed_addr #0 {
   %33 = sext i32 %28 to i64
   %34 = getelementptr inbounds %union.SharedInvalidationMessage, ptr %32, i64 %33
   %35 = shl i32 %29, 4
-  call void @XLogRegisterData(ptr noundef %34, i32 noundef %35) #7
+  call void @XLogRegisterData(ptr noundef %34, i32 noundef %35) #6
   br label %36
 
 36:                                               ; preds = %31, %26
-  %37 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 96) #7
+  %37 = call i64 @XLogInsert(i8 noundef zeroext 1, i8 noundef zeroext 96) #6
   br label %38
 
 38:                                               ; preds = %4, %36, %0
@@ -1325,22 +1322,22 @@ define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr 
   br i1 %6, label %.critedge, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call zeroext i1 @IsCatalogRelation(ptr noundef %0) #7
+  %8 = tail call zeroext i1 @IsCatalogRelation(ptr noundef %0) #6
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %7
-  %10 = tail call zeroext i1 @IsToastRelation(ptr noundef %0) #7
+  %10 = tail call zeroext i1 @IsToastRelation(ptr noundef %0) #6
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr %3() #7, !callees !13
+  %12 = tail call ptr %3() #6, !callees !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
-  %15 = tail call zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef %14) #7
+  %15 = tail call zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef %14) #6
   br i1 %15, label %16, label %50
 
 16:                                               ; preds = %11
-  %17 = tail call zeroext i1 @IsSharedRelation(i32 noundef %14) #7
+  %17 = tail call zeroext i1 @IsSharedRelation(i32 noundef %14) #6
   %18 = load i32, ptr @MyDatabaseId, align 4
   %19 = select i1 %17, i32 0, i32 %18
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1385,14 +1382,14 @@ define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr 
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @TopTransactionContext, align 8
-  %39 = tail call ptr @MemoryContextAlloc(ptr noundef %38, i64 noundef 512) #7
+  %39 = tail call ptr @MemoryContextAlloc(ptr noundef %38, i64 noundef 512) #6
   br label %.sink.split.i.i.i
 
 40:                                               ; preds = %35
   %41 = shl i32 %34, 1
   %42 = sext i32 %41 to i64
   %43 = shl nsw i64 %42, 4
-  %44 = tail call ptr @repalloc(ptr noundef nonnull %24, i64 noundef %43) #7
+  %44 = tail call ptr @repalloc(ptr noundef nonnull %24, i64 noundef %43) #6
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %40, %37
@@ -1417,7 +1414,7 @@ AddInvalidationMessage.exit.i.i:                  ; preds = %.sink.split.i.i.i, 
   br label %RegisterSnapshotInvalidation.exit
 
 50:                                               ; preds = %11
-  tail call void @PrepareToInvalidateCacheTuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @RegisterCatcacheInvalidation, ptr noundef %12) #7
+  tail call void @PrepareToInvalidateCacheTuple(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @RegisterCatcacheInvalidation, ptr noundef %12) #6
   br label %RegisterSnapshotInvalidation.exit
 
 RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidationMessage.exit.i.i, %50
@@ -1506,7 +1503,7 @@ define internal ptr @PrepareInvalidationState() #0 {
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
-  %5 = tail call i32 @GetCurrentTransactionNestLevel() #7
+  %5 = tail call i32 @GetCurrentTransactionNestLevel() #6
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %9
 
@@ -1516,11 +1513,11 @@ define internal ptr @PrepareInvalidationState() #0 {
 
 9:                                                ; preds = %2, %0
   %10 = load ptr, ptr @TopTransactionContext, align 8
-  %11 = tail call ptr @MemoryContextAllocZero(ptr noundef %10, i64 noundef 56) #7
+  %11 = tail call ptr @MemoryContextAllocZero(ptr noundef %10, i64 noundef 56) #6
   %12 = load ptr, ptr @transInvalInfo, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %12, ptr %13, align 8
-  %14 = tail call i32 @GetCurrentTransactionNestLevel() #7
+  %14 = tail call i32 @GetCurrentTransactionNestLevel() #6
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store i32 %14, ptr %15, align 8
   %16 = load ptr, ptr @transInvalInfo, align 8
@@ -1541,10 +1538,9 @@ define internal ptr @PrepareInvalidationState() #0 {
   br i1 %.not18, label %29, label %26
 
 26:                                               ; preds = %17
-  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %27)
-  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 664, ptr noundef nonnull @__func__.PrepareInvalidationState) #7
+  %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %28 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 664, ptr noundef nonnull @__func__.PrepareInvalidationState) #6
   unreachable
 
 29:                                               ; preds = %17
@@ -1590,7 +1586,7 @@ define dso_local void @CacheInvalidateHeapTupleInplace(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @PrepareInplaceInvalidationState() #0 {
-  %1 = tail call ptr @palloc0(i64 noundef 20) #7
+  %1 = tail call ptr @palloc0(i64 noundef 20) #6
   %2 = load ptr, ptr @transInvalInfo, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
@@ -1623,7 +1619,7 @@ define internal ptr @PrepareInplaceInvalidationState() #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateCatalog(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #7
+  %2 = tail call zeroext i1 @IsSharedRelation(i32 noundef %0) #6
   %3 = load i32, ptr @MyDatabaseId, align 4
   %4 = tail call ptr @PrepareInvalidationState()
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1639,14 +1635,14 @@ define dso_local void @CacheInvalidateCatalog(i32 noundef %0) local_unnamed_addr
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @TopTransactionContext, align 8
-  %12 = tail call ptr @MemoryContextAlloc(ptr noundef %11, i64 noundef 512) #7
+  %12 = tail call ptr @MemoryContextAlloc(ptr noundef %11, i64 noundef 512) #6
   br label %.sink.split.i.i.i
 
 13:                                               ; preds = %8
   %14 = shl i32 %7, 1
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 4
-  %17 = tail call ptr @repalloc(ptr noundef nonnull %.pre.i.i.i, i64 noundef %16) #7
+  %17 = tail call ptr @repalloc(ptr noundef nonnull %.pre.i.i.i, i64 noundef %16) #6
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %13, %10
@@ -1736,14 +1732,14 @@ define internal fastcc void @RegisterRelcacheInvalidation(ptr noundef captures(n
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr @TopTransactionContext, align 8
-  %24 = tail call ptr @MemoryContextAlloc(ptr noundef %23, i64 noundef 512) #7
+  %24 = tail call ptr @MemoryContextAlloc(ptr noundef %23, i64 noundef 512) #6
   br label %.sink.split.i.i
 
 25:                                               ; preds = %20
   %26 = shl i32 %19, 1
   %27 = sext i32 %26 to i64
   %28 = shl nsw i64 %27, 4
-  %29 = tail call ptr @repalloc(ptr noundef nonnull %8, i64 noundef %28) #7
+  %29 = tail call ptr @repalloc(ptr noundef nonnull %8, i64 noundef %28) #6
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %25, %22
@@ -1768,12 +1764,12 @@ AddInvalidationMessage.exit.i:                    ; preds = %.sink.split.i.i, %.
   br label %AddRelcacheInvalidationMessage.exit
 
 AddRelcacheInvalidationMessage.exit:              ; preds = %14, %AddInvalidationMessage.exit.i
-  %35 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #7
+  %35 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #6
   %36 = icmp eq i32 %2, 0
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %AddRelcacheInvalidationMessage.exit
-  %38 = tail call zeroext i1 @RelationIdIsInInitFile(i32 noundef %2) #7
+  %38 = tail call zeroext i1 @RelationIdIsInInitFile(i32 noundef %2) #6
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37, %AddRelcacheInvalidationMessage.exit
@@ -1814,15 +1810,14 @@ define dso_local void @CacheInvalidateRelcacheByTuple(ptr noundef readonly captu
 ; Function Attrs: nounwind uwtable
 define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = zext i32 %0 to i64
-  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #7
+  %3 = tail call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %2) #6
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1618, ptr noundef nonnull @__func__.CacheInvalidateRelcacheByRelid) #7
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %0) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1618, ptr noundef nonnull @__func__.CacheInvalidateRelcacheByRelid) #6
   unreachable
 
 7:                                                ; preds = %1
@@ -1840,7 +1835,7 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) local_unna
   %.0.i = select i1 %16, i32 0, i32 %17
   %18 = tail call ptr @PrepareInvalidationState()
   tail call fastcc void @RegisterRelcacheInvalidation(ptr noundef %18, i32 noundef %.0.i, i32 noundef %13)
-  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #7
+  tail call void @ReleaseSysCache(ptr noundef nonnull %3) #6
   ret void
 }
 
@@ -1866,7 +1861,7 @@ define dso_local void @CacheInvalidateSmgr(i64 %0, i64 %1) local_unnamed_addr #0
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.sroa.2.0.extract.trunc = trunc i64 %1 to i32
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 4
-  call void @SendSharedInvalidMessages(ptr noundef nonnull %3, i32 noundef 1) #7
+  call void @SendSharedInvalidMessages(ptr noundef nonnull %3, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1878,7 +1873,7 @@ define dso_local void @CacheInvalidateRelmap(i32 noundef %0) local_unnamed_addr 
   store i8 -4, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %0, ptr %3, align 4
-  call void @SendSharedInvalidMessages(ptr noundef nonnull %2, i32 noundef 1) #7
+  call void @SendSharedInvalidMessages(ptr noundef nonnull %2, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -1889,10 +1884,9 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %3
-  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %5)
-  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1712, ptr noundef nonnull @__func__.CacheRegisterSyscacheCallback) #7
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  %6 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %0) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1712, ptr noundef nonnull @__func__.CacheRegisterSyscacheCallback) #6
   unreachable
 
 7:                                                ; preds = %3
@@ -1901,10 +1895,9 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1714, ptr noundef nonnull @__func__.CacheRegisterSyscacheCallback) #7
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1714, ptr noundef nonnull @__func__.CacheRegisterSyscacheCallback) #6
   unreachable
 
 13:                                               ; preds = %7
@@ -1963,10 +1956,9 @@ define dso_local void @CacheRegisterRelcacheCallback(ptr noundef %0, i64 noundef
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1753, ptr noundef nonnull @__func__.CacheRegisterRelcacheCallback) #7
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #7
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.10) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1753, ptr noundef nonnull @__func__.CacheRegisterRelcacheCallback) #6
   unreachable
 
 8:                                                ; preds = %2
@@ -2009,14 +2001,14 @@ define internal void @RegisterCatcacheInvalidation(i32 noundef %0, i32 noundef %
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @TopTransactionContext, align 8
-  %12 = tail call ptr @MemoryContextAlloc(ptr noundef %11, i64 noundef 512) #7
+  %12 = tail call ptr @MemoryContextAlloc(ptr noundef %11, i64 noundef 512) #6
   br label %.sink.split.i.i
 
 13:                                               ; preds = %8
   %14 = shl i32 %7, 1
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 4
-  %17 = tail call ptr @repalloc(ptr noundef nonnull %.pre.i.i, i64 noundef %16) #7
+  %17 = tail call ptr @repalloc(ptr noundef nonnull %.pre.i.i, i64 noundef %16) #6
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %13, %10
@@ -2058,18 +2050,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -987,10 +987,10 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   %70 = load i64, ptr %69, align 8, !noalias !101, !noundef !16
   br label %73
 
-71:                                               ; preds = %.invoke198, %.invoke, %.noexc123, %211, %149, %94, %58, %164
+71:                                               ; preds = %.invoke198, %.invoke, %.noexc123, %210, %149, %94, %58, %164
   %72 = landingpad { ptr, i32 }
           cleanup
-  br label %226
+  br label %225
 
 73:                                               ; preds = %64, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i", %48
   %.pn11.i = phi ptr [ %50, %48 ], [ %57, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0fa0dd358988f99eE.exit.i" ], [ %68, %64 ]
@@ -1260,18 +1260,15 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   %176 = load i64, ptr %175, align 8, !alias.scope !133, !noalias !136, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !138
   invoke void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h5dde0a2ddb097b49E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull %172, i64 noundef %176, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
-          to label %.noexc117 unwind label %213
+          to label %.noexc117 unwind label %212
 
 .noexc117:                                        ; preds = %174
   %177 = load i64, ptr %7, align 8, !range !72, !noalias !138, !noundef !16
   %trunc.i = trunc nuw i64 %177 to i1
-  br i1 %trunc.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread168", label %201
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread168": ; preds = %.noexc117
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !138
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread"
+  br i1 %trunc.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread", label %201
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread": ; preds = %171, %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread168", %169
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit.thread": ; preds = %.noexc117, %171, %169
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %storemerge, ptr %6, align 8, !noalias !139
@@ -1340,83 +1337,78 @@ define void @_ZN8xml5ever12tree_builder12NamespaceMap9insert_ns17h5098def742e58d
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit"
 
 201:                                              ; preds = %.noexc117
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.28.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !138
-  %202 = icmp ult i64 %.sroa.28.0.copyload.i, 11
-  call void @llvm.assume(i1 %202)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !138
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.2d761147f564fc5e5908894cf75d1065.23, ptr %.sroa.414.0..sroa_idx, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 25, ptr %.sroa.515.0..sroa_idx, align 8
-  %203 = icmp ne i64 %170, 0
-  %204 = and i64 %170, 3
-  %205 = icmp eq i64 %204, 0
-  %or.cond.i = and i1 %203, %205
-  br i1 %or.cond.i, label %206, label %.thread176
+  %202 = icmp ne i64 %170, 0
+  %203 = and i64 %170, 3
+  %204 = icmp eq i64 %203, 0
+  %or.cond.i = and i1 %202, %204
+  br i1 %or.cond.i, label %205, label %.thread176
 
-206:                                              ; preds = %201
-  %207 = inttoptr i64 %170 to ptr
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %209 = atomicrmw sub ptr %208, i64 1 seq_cst, align 8
-  %210 = icmp eq i64 %209, 1
-  br i1 %210, label %211, label %.thread176
+205:                                              ; preds = %201
+  %206 = inttoptr i64 %170 to ptr
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %208 = atomicrmw sub ptr %207, i64 1 seq_cst, align 8
+  %209 = icmp eq i64 %208, 1
+  br i1 %209, label %210, label %.thread176
 
-211:                                              ; preds = %206
-  %212 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE)
+210:                                              ; preds = %205
+  %211 = invoke noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE)
           to label %.noexc123 unwind label %71
 
-.noexc123:                                        ; preds = %211
-  invoke void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %212, ptr noundef nonnull %207)
+.noexc123:                                        ; preds = %210
+  invoke void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %211, ptr noundef nonnull %206)
           to label %.thread176 unwind label %71
 
-.thread176:                                       ; preds = %206, %201, %.noexc123
+.thread176:                                       ; preds = %205, %201, %.noexc123
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge
 
-213:                                              ; preds = %174
+212:                                              ; preds = %174
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..PrefixStaticSet$GT$$GT$$GT$17h7bae43038dc2dbb2E"(i64 %170) #13
-          to label %226 unwind label %214
+          to label %225 unwind label %213
 
-214:                                              ; preds = %213, %226
-  %215 = landingpad { ptr, i32 }
+213:                                              ; preds = %212, %225
+  %214 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #14
   unreachable
 
 .critedge:                                        ; preds = %.thread176, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6427c581168fc73cE.exit75.thread", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6427c581168fc73cE.exit102.thread", %127, %131
-  %216 = icmp ne i64 %storemerge, 0
-  %217 = and i64 %storemerge, 3
-  %218 = icmp eq i64 %217, 0
-  %or.cond.i125 = and i1 %216, %218
-  br i1 %or.cond.i125, label %219, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit"
+  %215 = icmp ne i64 %storemerge, 0
+  %216 = and i64 %storemerge, 3
+  %217 = icmp eq i64 %216, 0
+  %or.cond.i125 = and i1 %215, %217
+  br i1 %or.cond.i125, label %218, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit"
 
-219:                                              ; preds = %.critedge
-  %220 = inttoptr i64 %storemerge to ptr
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  %222 = atomicrmw sub ptr %221, i64 1 seq_cst, align 8
-  %223 = icmp eq i64 %222, 1
-  br i1 %223, label %224, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit"
+218:                                              ; preds = %.critedge
+  %219 = inttoptr i64 %storemerge to ptr
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
+  %221 = atomicrmw sub ptr %220, i64 1 seq_cst, align 8
+  %222 = icmp eq i64 %221, 1
+  br i1 %222, label %223, label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit"
 
-224:                                              ; preds = %219
-  %225 = call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE), !noalias !145
-  call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %225, ptr noundef nonnull %220), !noalias !145
+223:                                              ; preds = %218
+  %224 = call noundef align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hdf9bf768b69355c3E"(ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, ptr noundef nonnull align 8 @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE), !noalias !145
+  call void @_ZN12string_cache11dynamic_set3Set6remove17h355379461556d4f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %224, ptr noundef nonnull %219), !noalias !145
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit"
 
-"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit": ; preds = %224, %219, %.critedge, %200, %29
+"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E.exit": ; preds = %223, %218, %.critedge, %200, %29
   ret void
 
-.body.thread:                                     ; preds = %182, %226
-  %.pn146 = phi { ptr, i32 } [ %.pn.ph, %226 ], [ %183, %182 ]
+.body.thread:                                     ; preds = %182, %225
+  %.pn146 = phi { ptr, i32 } [ %.pn.ph, %225 ], [ %183, %182 ]
   resume { ptr, i32 } %.pn146
 
-226:                                              ; preds = %71, %213
-  %.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %213 ], [ %72, %71 ]
+225:                                              ; preds = %71, %212
+  %.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %212 ], [ %72, %71 ]
   invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$string_cache..atom..Atom$LT$markup5ever..NamespaceStaticSet$GT$$GT$$GT$17h202c196bc3f765b9E"(i64 %storemerge) #13
-          to label %.body.thread unwind label %214
+          to label %.body.thread unwind label %213
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

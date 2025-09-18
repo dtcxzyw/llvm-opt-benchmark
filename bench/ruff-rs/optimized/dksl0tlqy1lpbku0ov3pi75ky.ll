@@ -68378,9 +68378,6 @@ define hidden { ptr, i64 } @"_ZN83_$LT$$RF$T$u20$as$u20$salsa..interned..Lookup$
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3235
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h6d507af71c9f853bE"(i64 noundef %7, ptr noundef nonnull %11, i64 noundef %1), !noalias !3235
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 }
 
@@ -68406,9 +68403,6 @@ define hidden { ptr, i64 } @"_ZN83_$LT$$RF$T$u20$as$u20$salsa..interned..Lookup$
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3240
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull readonly align 1 %0, i64 %1, i1 false)
   %12 = tail call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8into_box17h6d507af71c9f853bE"(i64 noundef %7, ptr noundef nonnull %11, i64 noundef %1), !noalias !3240
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %14)
   ret { ptr, i64 } %12
 }
 

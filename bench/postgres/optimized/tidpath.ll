@@ -31,8 +31,8 @@ define dso_local noundef zeroext i1 @create_tidscan_paths(ptr noundef %0, ptr no
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @create_tidscan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %13) #6
-  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %14) #6
+  %14 = tail call ptr @create_tidscan_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %13) #5
+  tail call void @add_path(ptr noundef nonnull %1, ptr noundef %14) #5
   br i1 %10, label %.thread, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11
@@ -82,7 +82,7 @@ IsTidRangeClause.exit.i:                          ; preds = %.lr.ph25.i
   br i1 %or.cond5.i.i, label %37, label %IsTidRangeClause.exit.thread.i
 
 37:                                               ; preds = %IsTidRangeClause.exit.i
-  %38 = tail call ptr @lappend(ptr noundef %.0131923.i, ptr noundef nonnull %30) #6
+  %38 = tail call ptr @lappend(ptr noundef %.0131923.i, ptr noundef nonnull %30) #5
   br label %IsTidRangeClause.exit.thread.i
 
 IsTidRangeClause.exit.thread.i:                   ; preds = %37, %IsTidRangeClause.exit.i, %.lr.ph25.i
@@ -100,8 +100,8 @@ TidRangeQualFromRestrictInfoList.exit:            ; preds = %IsTidRangeClause.ex
 42:                                               ; preds = %TidRangeQualFromRestrictInfoList.exit
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call ptr @create_tidrangescan_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1.i, ptr noundef %44) #6
-  tail call void @add_path(ptr noundef %1, ptr noundef %45) #6
+  %45 = tail call ptr @create_tidrangescan_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1.i, ptr noundef %44) #5
+  tail call void @add_path(ptr noundef %1, ptr noundef %45) #5
   br label %TidRangeQualFromRestrictInfoList.exit.thread
 
 TidRangeQualFromRestrictInfoList.exit.thread:     ; preds = %.lr.ph.i, %.preheader.i, %18, %42, %TidRangeQualFromRestrictInfoList.exit
@@ -113,7 +113,7 @@ TidRangeQualFromRestrictInfoList.exit.thread:     ; preds = %.lr.ph.i, %.prehead
 49:                                               ; preds = %TidRangeQualFromRestrictInfoList.exit.thread
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @ec_member_matches_ctid, ptr noundef null, ptr noundef %51) #6
+  %52 = tail call ptr @generate_implied_equalities_for_column(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @ec_member_matches_ctid, ptr noundef null, ptr noundef %51) #5
   tail call fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52)
   br label %53
 
@@ -151,7 +151,7 @@ define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noun
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv147170
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %13) #6
+  %14 = tail call zeroext i1 @restriction_is_or_clause(ptr noundef %13) #5
   br i1 %14, label %15, label %59
 
 15:                                               ; preds = %.lr.ph173
@@ -199,10 +199,9 @@ is_andclause.exit:                                ; preds = %27
   br i1 %38, label %.split, label %41
 
 .split:                                           ; preds = %33
-  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %39)
-  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__.TidQualFromRestrictInfoList) #6
+  %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %40 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 318, ptr noundef nonnull @__func__.TidQualFromRestrictInfoList) #5
   unreachable
 
 41:                                               ; preds = %33
@@ -214,7 +213,7 @@ is_andclause.exit.thread:                         ; preds = %.lr.ph129, %27, %is
   br i1 %42, label %43, label %.critedge.thread
 
 43:                                               ; preds = %is_andclause.exit.thread
-  %44 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %26) #6
+  %44 = tail call ptr @list_make1_impl(i32 noundef 1, ptr %26) #5
   br label %45
 
 45:                                               ; preds = %43, %41
@@ -223,7 +222,7 @@ is_andclause.exit.thread:                         ; preds = %.lr.ph129, %27, %is
   br i1 %.not78, label %.critedge.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call ptr @list_concat(ptr noundef %.069123127, ptr noundef nonnull %.064) #6
+  %47 = tail call ptr @list_concat(ptr noundef %.069123127, ptr noundef nonnull %.064) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load i32, ptr %20, align 4
   %49 = sext i32 %48 to i64
@@ -297,7 +296,7 @@ IsCurrentOfClause.exit.thread:                    ; preds = %61, %63, %IsCurrent
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge, %74
   %.lcssa162.sink = phi ptr [ %13, %74 ], [ %.055135.lcssa, %._crit_edge ]
-  %75 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %.lcssa162.sink) #6
+  %75 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %.lcssa162.sink) #5
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %4, %._crit_edge
@@ -390,7 +389,7 @@ define internal fastcc void @BuildParameterizedTidPaths(ptr noundef %0, ptr noun
   ret void
 
 16:                                               ; preds = %.lr.ph30
-  %17 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %12, ptr noundef %1) #6
+  %17 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %12, ptr noundef %1) #5
   br i1 %17, label %18, label %IsTidEqualClause.exit.thread
 
 18:                                               ; preds = %16
@@ -406,19 +405,19 @@ IsTidEqualClause.exit:                            ; preds = %18
   br i1 %24, label %25, label %IsTidEqualClause.exit.thread
 
 25:                                               ; preds = %IsTidEqualClause.exit
-  %26 = tail call zeroext i1 @join_clause_is_movable_to(ptr noundef nonnull %12, ptr noundef %1) #6
+  %26 = tail call zeroext i1 @join_clause_is_movable_to(ptr noundef nonnull %12, ptr noundef %1) #5
   br i1 %26, label %27, label %IsTidEqualClause.exit.thread
 
 27:                                               ; preds = %25
-  %28 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12) #6
+  %28 = tail call ptr @list_make1_impl(i32 noundef 1, ptr nonnull %12) #5
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %6, align 8
-  %32 = tail call ptr @bms_union(ptr noundef %30, ptr noundef %31) #6
+  %32 = tail call ptr @bms_union(ptr noundef %30, ptr noundef %31) #5
   %33 = load i32, ptr %7, align 8
-  %34 = tail call ptr @bms_del_member(ptr noundef %32, i32 noundef %33) #6
-  %35 = tail call ptr @create_tidscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %28, ptr noundef %34) #6
-  tail call void @add_path(ptr noundef %1, ptr noundef %35) #6
+  %34 = tail call ptr @bms_del_member(ptr noundef %32, i32 noundef %33) #5
+  %35 = tail call ptr @create_tidscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %28, ptr noundef %34) #5
+  tail call void @add_path(ptr noundef %1, ptr noundef %35) #5
   br label %IsTidEqualClause.exit.thread
 
 IsTidEqualClause.exit.thread:                     ; preds = %18, %25, %.lr.ph30, %16, %IsTidEqualClause.exit, %27
@@ -446,7 +445,7 @@ define internal fastcc zeroext i1 @RestrictInfoIsTidQual(ptr noundef %0, ptr nou
   br i1 %6, label %IsCurrentOfClause.exit, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %1, ptr noundef %2) #6
+  %8 = tail call zeroext i1 @restriction_is_securely_promotable(ptr noundef nonnull %1, ptr noundef %2) #5
   br i1 %8, label %9, label %IsCurrentOfClause.exit
 
 9:                                                ; preds = %7
@@ -532,12 +531,12 @@ IsTidEqualClause.exit.thread.thread:              ; preds = %IsTidEqualClause.ex
   br i1 %57, label %58, label %IsTidEqualAnyClause.exit.thread
 
 58:                                               ; preds = %54
-  %59 = tail call ptr @pull_varnos(ptr noundef %0, ptr noundef %32) #6
-  %60 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %59) #6
+  %59 = tail call ptr @pull_varnos(ptr noundef %0, ptr noundef %32) #5
+  %60 = tail call zeroext i1 @bms_is_member(i32 noundef %46, ptr noundef %59) #5
   br i1 %60, label %IsTidEqualAnyClause.exit.thread, label %IsTidEqualAnyClause.exit
 
 IsTidEqualAnyClause.exit:                         ; preds = %58
-  %61 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %32) #6
+  %61 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %32) #5
   br i1 %61, label %IsTidEqualAnyClause.exit.thread, label %IsCurrentOfClause.exit
 
 IsTidEqualAnyClause.exit.thread:                  ; preds = %54, %50, %44, %40, %36, %26, %33, %58, %22, %19, %IsTidEqualAnyClause.exit
@@ -708,11 +707,11 @@ IsCTIDVar.exit34:                                 ; preds = %72, %IsCTIDVar.exit
 75:                                               ; preds = %IsCTIDVar.exit34
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %77 = load i32, ptr %76, align 8
-  %78 = tail call zeroext i1 @bms_is_member(i32 noundef %77, ptr noundef %.1) #6
+  %78 = tail call zeroext i1 @bms_is_member(i32 noundef %77, ptr noundef %.1) #5
   br i1 %78, label %is_opclause.exit.thread, label %79
 
 79:                                               ; preds = %75
-  %80 = tail call zeroext i1 @contain_volatile_functions(ptr noundef nonnull %.125) #6
+  %80 = tail call zeroext i1 @contain_volatile_functions(ptr noundef nonnull %.125) #5
   %not. = xor i1 %80, true
   br label %is_opclause.exit.thread
 
@@ -741,17 +740,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

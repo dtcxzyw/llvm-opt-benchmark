@@ -788,7 +788,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !noundef !4
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %23, label %7
+  br i1 %6, label %19, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -802,55 +802,47 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %17 = load ptr, ptr %16, align 8, !invariant.load !4, !nonnull !4
   %18 = tail call { ptr, ptr } %17(ptr noundef align 1 %15, ptr noalias noundef align 8 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
-  %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = extractvalue { ptr, ptr } %18, 1
-  %21 = icmp ne ptr %19, null
-  %22 = icmp ne ptr %20, null
-  br label %35
+  br label %31
 
-23:                                               ; preds = %3
+19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %2, ptr %4, align 8, !noalias !159
-  %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %25 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #20
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit"
+  %20 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %21 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #20
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit"
 
-27:                                               ; preds = %23
+23:                                               ; preds = %19
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 8) #21
-          to label %.noexc unwind label %28
+          to label %.noexc unwind label %24
 
-.noexc:                                           ; preds = %27
+.noexc:                                           ; preds = %23
   unreachable
 
-28:                                               ; preds = %27
-  %29 = landingpad { ptr, i32 }
+24:                                               ; preds = %23
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$actix_multipart..form..json..JsonFieldError$GT$17hff1694e12e140d5fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #22
-          to label %32 unwind label %30
+          to label %28 unwind label %26
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+26:                                               ; preds = %24
+  %27 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-32:                                               ; preds = %28
-  resume { ptr, i32 } %29
+28:                                               ; preds = %24
+  resume { ptr, i32 } %25
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit": ; preds = %23
-  store ptr %2, ptr %25, align 8
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit": ; preds = %19
+  store ptr %2, ptr %21, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %33 = insertvalue { ptr, ptr } poison, ptr %25, 0
-  %34 = insertvalue { ptr, ptr } %33, ptr @anon.9536fa9df9a5f210434f3342f71a6d78.40, 1
-  br label %35
+  %29 = insertvalue { ptr, ptr } poison, ptr %21, 0
+  %30 = insertvalue { ptr, ptr } %29, ptr @anon.9536fa9df9a5f210434f3342f71a6d78.40, 1
+  br label %31
 
-35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit", %7
-  %.sroa.3.0 = phi i1 [ %22, %7 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
-  %.sroa.0.0 = phi i1 [ %21, %7 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
-  %.merged = phi { ptr, ptr } [ %18, %7 ], [ %34, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
-  tail call void @llvm.assume(i1 %.sroa.0.0)
-  tail call void @llvm.assume(i1 %.sroa.3.0)
+31:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit", %7
+  %.merged = phi { ptr, ptr } [ %18, %7 ], [ %30, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
   ret { ptr, ptr } %.merged
 }
 

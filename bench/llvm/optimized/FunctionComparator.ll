@@ -1971,67 +1971,61 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44: ; preds = %36, %_ZNK4llvm8Cal
   %.not3169 = icmp eq i32 %51, 0
   br i1 %.not3169, label %.thread, label %.lr.ph
 
-52:                                               ; preds = %91
+52:                                               ; preds = %87
   %53 = add nuw i32 %.02970, 1
   %.not31 = icmp eq i32 %53, %51
   br i1 %.not31, label %.thread, label %.lr.ph, !llvm.loop !92
 
 .lr.ph:                                           ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44, %52
   %.02970 = phi i32 [ %53, %52 ], [ 0, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44 ]
-  %54 = load i32, ptr %4, align 4, !noalias !93
-  %55 = icmp slt i32 %54, 0
-  tail call void @llvm.assume(i1 %55)
-  %56 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #18, !noalias !93
-  %57 = extractvalue { ptr, i64 } %56, 0
-  %58 = zext i32 %.02970 to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %57, i64 %58
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load i32, ptr %60, align 8, !tbaa !96, !noalias !99
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %64 = load i32, ptr %63, align 4, !tbaa !102, !noalias !99
-  %65 = zext i32 %64 to i64
-  %66 = sub nsw i64 %65, %62
-  %67 = load ptr, ptr %59, align 8, !tbaa !103, !noalias !99
-  %68 = load i32, ptr %20, align 4, !noalias !104
-  %69 = icmp slt i32 %68, 0
-  tail call void @llvm.assume(i1 %69)
-  %70 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18, !noalias !104
-  %71 = extractvalue { ptr, i64 } %70, 0
-  %72 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %71, i64 %58
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load i32, ptr %73, align 8, !tbaa !96, !noalias !107
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  %77 = load i32, ptr %76, align 4, !tbaa !102, !noalias !107
-  %78 = zext i32 %77 to i64
-  %79 = sub nsw i64 %78, %75
-  %80 = load ptr, ptr %72, align 8, !tbaa !103, !noalias !107
-  %81 = load i64, ptr %67, align 8, !tbaa !110
-  %82 = load i64, ptr %80, align 8, !tbaa !110
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %82, i64 %81)
-  %83 = icmp eq i64 %.sroa.speculated.i, 0
-  br i1 %83, label %.thread.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
+  %54 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #18, !noalias !93
+  %55 = extractvalue { ptr, i64 } %54, 0
+  %56 = zext i32 %.02970 to i64
+  %57 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !96, !noalias !99
+  %60 = zext i32 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !102, !noalias !99
+  %63 = zext i32 %62 to i64
+  %64 = sub nsw i64 %63, %60
+  %65 = load ptr, ptr %57, align 8, !tbaa !103, !noalias !99
+  %66 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %2) #18, !noalias !104
+  %67 = extractvalue { ptr, i64 } %66, 0
+  %68 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %67, i64 %56
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load i32, ptr %69, align 8, !tbaa !96, !noalias !107
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 12
+  %73 = load i32, ptr %72, align 4, !tbaa !102, !noalias !107
+  %74 = zext i32 %73 to i64
+  %75 = sub nsw i64 %74, %71
+  %76 = load ptr, ptr %68, align 8, !tbaa !103, !noalias !107
+  %77 = load i64, ptr %65, align 8, !tbaa !110
+  %78 = load i64, ptr %76, align 8, !tbaa !110
+  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %78, i64 %77)
+  %79 = icmp eq i64 %.sroa.speculated.i, 0
+  br i1 %79, label %.thread.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %.lr.ph
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %86 = tail call i32 @memcmp(ptr noundef nonnull %85, ptr noundef nonnull %84, i64 noundef %.sroa.speculated.i) #17
-  %.fr.i = freeze i32 %86
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %82 = tail call i32 @memcmp(ptr noundef nonnull %81, ptr noundef nonnull %80, i64 noundef %.sroa.speculated.i) #17
+  %.fr.i = freeze i32 %82
   %.not.not.i = icmp eq i32 %.fr.i, 0
   br i1 %.not.not.i, label %.thread.i, label %.thread.loopexit.split.loop.exit
 
 .thread.i:                                        ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i, %.lr.ph
-  %87 = icmp eq i64 %81, %82
-  br i1 %87, label %91, label %88
+  %83 = icmp eq i64 %77, %78
+  br i1 %83, label %87, label %84
 
-88:                                               ; preds = %.thread.i
-  %89 = icmp ult i64 %81, %82
-  %90 = select i1 %89, i32 -1, i32 1
+84:                                               ; preds = %.thread.i
+  %85 = icmp ult i64 %77, %78
+  %86 = select i1 %85, i32 -1, i32 1
   br label %.thread
 
-91:                                               ; preds = %.thread.i
-  %.not33 = icmp eq i64 %66, %79
+87:                                               ; preds = %.thread.i
+  %.not33 = icmp eq i64 %64, %75
   br i1 %.not33, label %52, label %.thread.loopexit.split.loop.exit64
 
 .thread.loopexit.split.loop.exit:                 ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i
@@ -2039,12 +2033,12 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i: ; preds = %.lr.ph
   %spec.select.i.le = select i1 %.inv.i.le, i32 1, i32 -1
   br label %.thread
 
-.thread.loopexit.split.loop.exit64:               ; preds = %91
-  %.0.i51.le = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %66, i64 %79)
+.thread.loopexit.split.loop.exit64:               ; preds = %87
+  %.0.i51.le = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %64, i64 %75)
   br label %.thread
 
-.thread:                                          ; preds = %52, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit64, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44, %88, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit39
-  %.1 = phi i32 [ %.0.i, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit39 ], [ %90, %88 ], [ %spec.select.i.le, %.thread.loopexit.split.loop.exit ], [ %.0.i51.le, %.thread.loopexit.split.loop.exit64 ], [ 0, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44 ], [ 0, %52 ]
+.thread:                                          ; preds = %52, %.thread.loopexit.split.loop.exit, %.thread.loopexit.split.loop.exit64, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44, %84, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit39
+  %.1 = phi i32 [ %.0.i, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit39 ], [ %86, %84 ], [ %spec.select.i.le, %.thread.loopexit.split.loop.exit ], [ %.0.i51.le, %.thread.loopexit.split.loop.exit64 ], [ 0, %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit44 ], [ 0, %52 ]
   ret i32 %.1
 }
 
@@ -3621,8 +3615,6 @@ _ZNK4llvm8Function7arg_endEv.exit:                ; preds = %_ZNK4llvm8Function9
   %.035123 = phi ptr [ %112, %.lr.ph ], [ %99, %_ZNK4llvm8Function7arg_endEv.exit ]
   %.036122 = phi ptr [ %111, %.lr.ph ], [ %92, %_ZNK4llvm8Function7arg_endEv.exit ]
   %110 = tail call noundef i32 @_ZNK4llvm18FunctionComparator9cmpValuesEPKNS_5ValueES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %.036122, ptr noundef %.035123)
-  %.not59 = icmp eq i32 %110, 0
-  tail call void @llvm.assume(i1 %.not59)
   %111 = getelementptr inbounds nuw i8, ptr %.036122, i64 40
   %112 = getelementptr inbounds nuw i8, ptr %.035123, i64 40
   %.not58 = icmp eq ptr %111, %109

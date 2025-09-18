@@ -1170,75 +1170,67 @@ define { ptr, ptr } @_ZN13pingora_error5Error10root_cause17h7dfed7f8f2db2a9cE(pt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !align !3, !noundef !4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !align !5
   %7 = tail call fastcc { ptr, ptr } @"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$17h2b412aa8db491010E"(ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(80) %6)
-  %8 = extractvalue { ptr, ptr } %7, 1
-  %9 = icmp ne ptr %8, null
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf74ede2d7c55014fE.exit"
 
-10:                                               ; preds = %1
-  %11 = insertvalue { ptr, ptr } poison, ptr %0, 0
-  %12 = insertvalue { ptr, ptr } %11, ptr @anon.a99296e2dd0582ef488a8e726aa7441c.50, 1
+8:                                                ; preds = %1
+  %9 = insertvalue { ptr, ptr } poison, ptr %0, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr @anon.a99296e2dd0582ef488a8e726aa7441c.50, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf74ede2d7c55014fE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hf74ede2d7c55014fE.exit": ; preds = %4, %10
-  %.sroa.33.0.i = phi i1 [ %9, %4 ], [ true, %10 ]
-  %.merged.i = phi { ptr, ptr } [ %7, %4 ], [ %12, %10 ]
-  tail call void @llvm.assume(i1 %.sroa.33.0.i)
+"_ZN4core6option15Option$LT$T$GT$6map_or17hf74ede2d7c55014fE.exit": ; preds = %4, %8
+  %.merged.i = phi { ptr, ptr } [ %7, %4 ], [ %10, %8 ]
   ret { ptr, ptr } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc { ptr, ptr } @"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$17h2b412aa8db491010E"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  br label %tailrecurse
+
+tailrecurse:                                      ; preds = %13, %2
+  %.tr = phi ptr [ %0, %2 ], [ %12, %13 ]
+  %.tr2 = phi ptr [ %1, %2 ], [ %15, %13 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.tr2, i64 56
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %0)
+  %4 = tail call { i64, i64 } %.val(ptr noundef nonnull align 1 %.tr)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = icmp ne i64 %5, 1676633303882502928
   %7 = extractvalue { i64, i64 } %4, 1
   %8 = icmp ne i64 %7, 8418528769774083692
   %.sroa.0.0.i.not = select i1 %6, i1 true, i1 %8
-  br i1 %.sroa.0.0.i.not, label %22, label %9
+  br i1 %.sroa.0.0.i.not, label %19, label %9
 
-9:                                                ; preds = %2
+9:                                                ; preds = %tailrecurse
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %10 = load ptr, ptr %0, align 8, !alias.scope !71, !noalias !74, !nonnull !4, !align !5, !noundef !4
+  %10 = load ptr, ptr %.tr, align 8, !alias.scope !71, !noalias !74, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !77), !noalias !74
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !alias.scope !77, !noalias !80, !align !3, !noundef !4
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %19, label %13
+  br i1 %.not.i.i, label %16, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %15 = load ptr, ptr %14, align 8, !alias.scope !77, !noalias !80, !nonnull !4, !align !5
-  %16 = tail call fastcc { ptr, ptr } @"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$17h2b412aa8db491010E"(ptr noundef nonnull align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(80) %15), !noalias !81
-  %17 = extractvalue { ptr, ptr } %16, 1
-  %18 = icmp ne ptr %17, null
-  br label %"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf1f3525f4cb47f88E.exit"
+  br label %tailrecurse
 
-19:                                               ; preds = %9
-  %20 = insertvalue { ptr, ptr } poison, ptr %10, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr @anon.a99296e2dd0582ef488a8e726aa7441c.50, 1
-  br label %"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf1f3525f4cb47f88E.exit"
-
-"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf1f3525f4cb47f88E.exit": ; preds = %13, %19
-  %.sroa.33.0.i.i.i = phi i1 [ %18, %13 ], [ true, %19 ]
-  %.merged.i.i.i = phi { ptr, ptr } [ %16, %13 ], [ %21, %19 ]
-  tail call void @llvm.assume(i1 %.sroa.33.0.i.i.i), !noalias !74
+16:                                               ; preds = %9
+  %17 = insertvalue { ptr, ptr } poison, ptr %10, 0
+  %18 = insertvalue { ptr, ptr } %17, ptr @anon.a99296e2dd0582ef488a8e726aa7441c.50, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8780f706d1a177c6E.exit"
 
-22:                                               ; preds = %2
-  %23 = insertvalue { ptr, ptr } poison, ptr %0, 0
-  %24 = insertvalue { ptr, ptr } %23, ptr %1, 1
+19:                                               ; preds = %tailrecurse
+  %20 = insertvalue { ptr, ptr } poison, ptr %.tr, 0
+  %21 = insertvalue { ptr, ptr } %20, ptr %.tr2, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h8780f706d1a177c6E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h8780f706d1a177c6E.exit": ; preds = %"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf1f3525f4cb47f88E.exit", %22
-  %.merged.i = phi { ptr, ptr } [ %.merged.i.i.i, %"_ZN13pingora_error5Error10root_cause28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf1f3525f4cb47f88E.exit" ], [ %24, %22 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h8780f706d1a177c6E.exit": ; preds = %16, %19
+  %.merged.i = phi { ptr, ptr } [ %21, %19 ], [ %18, %16 ]
   ret { ptr, ptr } %.merged.i
 }
 
@@ -1663,4 +1655,3 @@ attributes #13 = { noreturn }
 !78 = distinct !{!78, !79, !"_ZN13pingora_error5Error10root_cause17h7dfed7f8f2db2a9cE: argument 0"}
 !79 = distinct !{!79, !"_ZN13pingora_error5Error10root_cause17h7dfed7f8f2db2a9cE"}
 !80 = !{!72, !75}
-!81 = !{!78, !72, !75}

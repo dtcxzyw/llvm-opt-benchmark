@@ -40,11 +40,10 @@ define dso_local i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext %1, i32 no
   br i1 %.not24, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 130) #9
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.datumGetSize) #9
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %15 = tail call i32 @errcode(i32 noundef 130) #8
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef nonnull @__func__.datumGetSize) #8
   unreachable
 
 17:                                               ; preds = %11
@@ -87,24 +86,22 @@ define dso_local i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext %1, i32 no
   br i1 %.not, label %39, label %43
 
 39:                                               ; preds = %38
-  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %40)
-  %41 = tail call i32 @errcode(i32 noundef 130) #9
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 102, ptr noundef nonnull @__func__.datumGetSize) #9
+  %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %41 = tail call i32 @errcode(i32 noundef 130) #8
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 102, ptr noundef nonnull @__func__.datumGetSize) #8
   unreachable
 
 43:                                               ; preds = %38
   %44 = inttoptr i64 %0 to ptr
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #10
+  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #9
   %46 = add i64 %45, 1
   br label %50
 
 47:                                               ; preds = %10
-  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %48)
-  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.datumGetSize) #9
+  %48 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %49 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %2) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 108, ptr noundef nonnull @__func__.datumGetSize) #8
   unreachable
 
 50:                                               ; preds = %21, %35, %8, %43, %4
@@ -148,10 +145,10 @@ define dso_local i64 @datumCopy(i64 noundef %0, i1 noundef zeroext %1, i32 nound
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @DatumGetEOHP(i64 noundef %0) #9
-  %17 = tail call i64 @EOH_get_flat_size(ptr noundef %16) #9
-  %18 = tail call ptr @palloc(i64 noundef %17) #9
-  tail call void @EOH_flatten_into(ptr noundef %16, ptr noundef %18, i64 noundef %17) #9
+  %16 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %17 = tail call i64 @EOH_get_flat_size(ptr noundef %16) #8
+  %18 = tail call ptr @palloc(i64 noundef %17) #8
+  tail call void @EOH_flatten_into(ptr noundef %16, ptr noundef %18, i64 noundef %17) #8
   %19 = ptrtoint ptr %18 to i64
   br label %45
 
@@ -185,14 +182,14 @@ define dso_local i64 @datumCopy(i64 noundef %0, i1 noundef zeroext %1, i32 nound
 
 36:                                               ; preds = %33, %20
   %37 = phi i64 [ %24, %20 ], [ %35, %33 ]
-  %38 = tail call ptr @palloc(i64 noundef %37) #9
+  %38 = tail call ptr @palloc(i64 noundef %37) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull align 1 %7, i64 %37, i1 false)
   %39 = ptrtoint ptr %38 to i64
   br label %45
 
 40:                                               ; preds = %4
   %41 = tail call i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext false, i32 noundef %2)
-  %42 = tail call ptr @palloc(i64 noundef %41) #9
+  %42 = tail call ptr @palloc(i64 noundef %41) #8
   %43 = inttoptr i64 %0 to ptr
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 1 %43, i64 %41, i1 false)
   %44 = ptrtoint ptr %42 to i64
@@ -234,7 +231,7 @@ define dso_local i64 @datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i32 n
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr @CurrentMemoryContext, align 8
-  %15 = tail call i64 @TransferExpandedObject(i64 noundef %0, ptr noundef %14) #9
+  %15 = tail call i64 @TransferExpandedObject(i64 noundef %0, ptr noundef %14) #8
   br label %18
 
 16:                                               ; preds = %9, %5, %3
@@ -301,16 +298,16 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   ]
 
 15:                                               ; preds = %14
-  %16 = tail call i64 @toast_raw_datum_size(i64 noundef %0) #9
-  %17 = tail call i64 @toast_raw_datum_size(i64 noundef %1) #9
+  %16 = tail call i64 @toast_raw_datum_size(i64 noundef %0) #8
+  %17 = tail call i64 @toast_raw_datum_size(i64 noundef %1) #8
   %.not49 = icmp eq i64 %16, %17
   br i1 %.not49, label %18, label %.critedge
 
 18:                                               ; preds = %15
   %19 = inttoptr i64 %0 to ptr
-  %20 = tail call ptr @pg_detoast_datum_packed(ptr noundef %19) #9
+  %20 = tail call ptr @pg_detoast_datum_packed(ptr noundef %19) #8
   %21 = inttoptr i64 %1 to ptr
-  %22 = tail call ptr @pg_detoast_datum_packed(ptr noundef %21) #9
+  %22 = tail call ptr @pg_detoast_datum_packed(ptr noundef %21) #8
   %23 = load i8, ptr %20, align 1
   %24 = and i8 %23, 1
   %.not50 = icmp eq i8 %24, 0
@@ -328,7 +325,7 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   br i1 %.not54, label %32, label %31
 
 31:                                               ; preds = %18
-  tail call void @pfree(ptr noundef nonnull %20) #9
+  tail call void @pfree(ptr noundef nonnull %20) #8
   br label %32
 
 32:                                               ; preds = %31, %18
@@ -336,14 +333,14 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   br i1 %.not55, label %.critedge, label %33
 
 33:                                               ; preds = %32
-  tail call void @pfree(ptr noundef nonnull %22) #9
+  tail call void @pfree(ptr noundef nonnull %22) #8
   br label %.critedge
 
 34:                                               ; preds = %14
   %35 = inttoptr i64 %0 to ptr
   %36 = inttoptr i64 %1 to ptr
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #10
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #10
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #9
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #9
   %.not = icmp eq i64 %37, %38
   br i1 %.not, label %39, label %.critedge
 
@@ -354,10 +351,9 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   br label %.critedge
 
 42:                                               ; preds = %14
-  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %43)
-  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %3) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.datum_image_eq) #9
+  %43 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %44 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %3) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 323, ptr noundef nonnull @__func__.datum_image_eq) #8
   unreachable
 
 .critedge:                                        ; preds = %34, %5, %9, %15, %33, %32, %39
@@ -378,7 +374,7 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
   br i1 %1, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef 8) #9
+  %6 = call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef 8) #8
   br label %33
 
 7:                                                ; preds = %3
@@ -387,7 +383,7 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
 
 9:                                                ; preds = %7
   %10 = inttoptr i64 %0 to ptr
-  %11 = tail call i32 @hash_bytes(ptr noundef %10, i32 noundef %2) #9
+  %11 = tail call i32 @hash_bytes(ptr noundef %10, i32 noundef %2) #8
   br label %33
 
 12:                                               ; preds = %7
@@ -397,9 +393,9 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
   ]
 
 13:                                               ; preds = %12
-  %14 = tail call i64 @toast_raw_datum_size(i64 noundef %0) #9
+  %14 = tail call i64 @toast_raw_datum_size(i64 noundef %0) #8
   %15 = inttoptr i64 %0 to ptr
-  %16 = tail call ptr @pg_detoast_datum_packed(ptr noundef %15) #9
+  %16 = tail call ptr @pg_detoast_datum_packed(ptr noundef %15) #8
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 1
   %.not = icmp eq i8 %18, 0
@@ -407,27 +403,26 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.v
   %20 = trunc i64 %14 to i32
   %21 = add i32 %20, -4
-  %22 = tail call i32 @hash_bytes(ptr noundef nonnull %19, i32 noundef %21) #9
+  %22 = tail call i32 @hash_bytes(ptr noundef nonnull %19, i32 noundef %21) #8
   %.not17 = icmp eq ptr %16, %15
   br i1 %.not17, label %33, label %23
 
 23:                                               ; preds = %13
-  tail call void @pfree(ptr noundef nonnull %16) #9
+  tail call void @pfree(ptr noundef nonnull %16) #8
   br label %33
 
 24:                                               ; preds = %12
   %25 = inttoptr i64 %0 to ptr
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #10
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #9
   %27 = trunc i64 %26 to i32
   %28 = add i32 %27, 1
-  %29 = tail call i32 @hash_bytes(ptr noundef nonnull %25, i32 noundef %28) #9
+  %29 = tail call i32 @hash_bytes(ptr noundef nonnull %25, i32 noundef %28) #8
   br label %33
 
 30:                                               ; preds = %12
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %31)
-  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %2) #9
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 372, ptr noundef nonnull @__func__.datum_image_hash) #9
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %32 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %2) #8
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 372, ptr noundef nonnull @__func__.datum_image_hash) #8
   unreachable
 
 33:                                               ; preds = %13, %23, %9, %24, %5
@@ -466,8 +461,8 @@ define dso_local i64 @datumEstimateSpace(i64 noundef %0, i1 noundef zeroext %1, 
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %11
-  %17 = tail call ptr @DatumGetEOHP(i64 noundef %0) #9
-  %18 = tail call i64 @EOH_get_flat_size(ptr noundef %17) #9
+  %17 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %18 = tail call i64 @EOH_get_flat_size(ptr noundef %17) #8
   %19 = add i64 %18, 4
   br label %23
 
@@ -528,8 +523,8 @@ define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 
   br label %50
 
 29:                                               ; preds = %13
-  %30 = tail call ptr @DatumGetEOHP(i64 noundef %0) #9
-  %31 = tail call i64 @EOH_get_flat_size(ptr noundef %30) #9
+  %30 = tail call ptr @DatumGetEOHP(i64 noundef %0) #8
+  %31 = tail call i64 @EOH_get_flat_size(ptr noundef %30) #8
   %32 = trunc i64 %31 to i32
   %33 = load ptr, ptr %4, align 8
   store i32 %32, ptr %33, align 1
@@ -542,14 +537,14 @@ define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 
 36:                                               ; preds = %29
   %sext = shl i64 %31, 32
   %37 = ashr exact i64 %sext, 32
-  %38 = tail call ptr @palloc(i64 noundef %37) #9
-  tail call void @EOH_flatten_into(ptr noundef nonnull %30, ptr noundef %38, i64 noundef %37) #9
+  %38 = tail call ptr @palloc(i64 noundef %37) #8
+  tail call void @EOH_flatten_into(ptr noundef nonnull %30, ptr noundef %38, i64 noundef %37) #8
   %39 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %38, i64 %37, i1 false)
   %40 = load ptr, ptr %4, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 %37
   store ptr %41, ptr %4, align 8
-  tail call void @pfree(ptr noundef %38) #9
+  tail call void @pfree(ptr noundef %38) #8
   br label %50
 
 42:                                               ; preds = %.thread38, %29
@@ -602,7 +597,7 @@ define dso_local i64 @datumRestore(ptr noundef captures(none) %0, ptr noundef wr
 
 12:                                               ; preds = %7
   %13 = sext i32 %.0.copyload2 to i64
-  %14 = tail call ptr @palloc(i64 noundef %13) #9
+  %14 = tail call ptr @palloc(i64 noundef %13) #8
   %15 = load ptr, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %15, i64 %13, i1 false)
   %16 = load ptr, ptr %0, align 8
@@ -616,11 +611,8 @@ define dso_local i64 @datumRestore(ptr noundef captures(none) %0, ptr noundef wr
   ret i64 %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -628,11 +620,10 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #8 = { cold nounwind }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { cold nounwind }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

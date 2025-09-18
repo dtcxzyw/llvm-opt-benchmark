@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr @palloc0(i64 noundef 312) #6
+  %6 = tail call noundef ptr @palloc0(i64 noundef 312) #5
   store i32 435, ptr %6, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %7, align 8
@@ -33,14 +33,14 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @ExecLockRows, ptr %9, align 8
-  tail call void @ExecInitResultTypeTL(ptr noundef nonnull %6) #6
-  %10 = tail call ptr @ExecInitNode(ptr noundef %5, ptr noundef %1, i32 noundef %2) #6
+  tail call void @ExecInitResultTypeTL(ptr noundef nonnull %6) #5
+  %10 = tail call ptr @ExecInitNode(ptr noundef %5, ptr noundef %1, i32 noundef %2) #5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 199
   store i8 1, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 195
-  %14 = tail call ptr @ExecGetResultSlotOps(ptr noundef %10, ptr noundef nonnull %13) #6
+  %14 = tail call ptr @ExecGetResultSlotOps(ptr noundef %10, ptr noundef nonnull %13) #5
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store ptr %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 136
@@ -77,21 +77,21 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %34 = load i32, ptr %33, align 8
-  tail call void @EvalPlanQualInit(ptr noundef nonnull %32, ptr noundef %1, ptr noundef %5, ptr noundef %.0.lcssa, i32 noundef %34, ptr noundef null) #6
+  tail call void @EvalPlanQualInit(ptr noundef nonnull %32, ptr noundef %1, ptr noundef %5, ptr noundef %.0.lcssa, i32 noundef %34, ptr noundef null) #5
   ret ptr %6
 
 35:                                               ; preds = %.lr.ph51
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %22, align 8
-  %39 = tail call zeroext i1 @bms_is_member(i32 noundef %37, ptr noundef %38) #6
+  %39 = tail call zeroext i1 @bms_is_member(i32 noundef %37, ptr noundef %38) #5
   br i1 %39, label %40, label %53
 
 40:                                               ; preds = %35
   %41 = load i32, ptr %36, align 4
-  %42 = tail call ptr @ExecFindRowMark(ptr noundef nonnull %1, i32 noundef %41, i1 noundef zeroext false) #6
+  %42 = tail call ptr @ExecFindRowMark(ptr noundef nonnull %1, i32 noundef %41, i1 noundef zeroext false) #5
   %43 = load ptr, ptr %23, align 8
-  %44 = tail call ptr @ExecBuildAuxRowMark(ptr noundef %42, ptr noundef %43) #6
+  %44 = tail call ptr @ExecBuildAuxRowMark(ptr noundef %42, ptr noundef %43) #5
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = icmp ult i32 %46, 4
@@ -99,12 +99,12 @@ define dso_local noundef ptr @ExecInitLockRows(ptr noundef %0, ptr noundef %1, i
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %17, align 8
-  %50 = tail call ptr @lappend(ptr noundef %49, ptr noundef %44) #6
+  %50 = tail call ptr @lappend(ptr noundef %49, ptr noundef %44) #5
   store ptr %50, ptr %17, align 8
   br label %53
 
 51:                                               ; preds = %40
-  %52 = tail call ptr @lappend(ptr noundef %.04549, ptr noundef %44) #6
+  %52 = tail call ptr @lappend(ptr noundef %.04549, ptr noundef %44) #5
   br label %53
 
 53:                                               ; preds = %48, %51, %.lr.ph51, %35
@@ -126,7 +126,7 @@ define internal ptr @ExecLockRows(ptr noundef %0) #0 {
   br i1 %.not, label %7, label %6, !prof !6
 
 6:                                                ; preds = %1
-  tail call void @ProcessInterrupts() #6
+  tail call void @ProcessInterrupts() #5
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -150,12 +150,12 @@ define internal ptr @ExecLockRows(ptr noundef %0) #0 {
   br i1 %.not.i, label %ExecProcNode.exit, label %21
 
 21:                                               ; preds = %.backedge
-  call void @ExecReScan(ptr noundef nonnull %11) #6
+  call void @ExecReScan(ptr noundef nonnull %11) #5
   br label %ExecProcNode.exit
 
 ExecProcNode.exit:                                ; preds = %.backedge, %21
   %22 = load ptr, ptr %13, align 8
-  %23 = call ptr %22(ptr noundef nonnull %11) #6
+  %23 = call ptr %22(ptr noundef nonnull %11) #5
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
 
@@ -167,7 +167,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   br i1 %.not81, label %30, label %29
 
 29:                                               ; preds = %25, %ExecProcNode.exit
-  call void @EvalPlanQualEnd(ptr noundef nonnull %15) #6
+  call void @EvalPlanQualEnd(ptr noundef nonnull %15) #5
   br label %.loopexit
 
 30:                                               ; preds = %25
@@ -197,12 +197,12 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %45 = load i32, ptr %44, align 4
-  %46 = call ptr @EvalPlanQualSlot(ptr noundef nonnull %15, ptr noundef %43, i32 noundef %45) #6
+  %46 = call ptr @EvalPlanQualSlot(ptr noundef nonnull %15, ptr noundef %43, i32 noundef %45) #5
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
-  call void %50(ptr noundef %46) #6
+  call void %50(ptr noundef %46) #5
   %51 = load i32, ptr %44, align 4
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %53 = load i32, ptr %52, align 8
@@ -218,7 +218,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   br i1 %59, label %slot_getsomeattrs.exit.i.i, label %ExecGetJunkAttribute.exit
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %54
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef range(i32 -32767, 32768) %57) #6
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef range(i32 -32767, 32768) %57) #5
   br label %ExecGetJunkAttribute.exit
 
 ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeattrs.exit.i.i
@@ -231,10 +231,9 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %ExecGetJunkAttribute.exit
-  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %67)
-  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 102, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %67 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %68 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 102, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 69:                                               ; preds = %ExecGetJunkAttribute.exit
@@ -269,7 +268,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   br i1 %86, label %slot_getsomeattrs.exit.i.i90, label %ExecGetJunkAttribute.exit91
 
 slot_getsomeattrs.exit.i.i90:                     ; preds = %.thread
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef range(i32 -32767, 32768) %84) #6
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %23, i32 noundef range(i32 -32767, 32768) %84) #5
   br label %ExecGetJunkAttribute.exit91
 
 ExecGetJunkAttribute.exit91:                      ; preds = %.thread, %slot_getsomeattrs.exit.i.i90
@@ -285,10 +284,9 @@ ExecGetJunkAttribute.exit91:                      ; preds = %.thread, %slot_gets
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %ExecGetJunkAttribute.exit91
-  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %97)
-  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %97 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %98 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 122, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 99:                                               ; preds = %ExecGetJunkAttribute.exit91
@@ -303,26 +301,25 @@ ExecGetJunkAttribute.exit91:                      ; preds = %.thread, %slot_gets
 106:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1
-  %107 = call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %100, i1 noundef zeroext false) #6
+  %107 = call ptr @GetFdwRoutineForRelation(ptr noundef nonnull %100, i1 noundef zeroext false) #5
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 216
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %106
-  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %112)
-  %113 = call i32 @errcode(i32 noundef 1088) #6
+  %112 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %113 = call i32 @errcode(i32 noundef 1088) #5
   %114 = load ptr, ptr %42, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 56
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %117) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %117) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 136, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 119:                                              ; preds = %106
-  call void %109(ptr noundef %9, ptr noundef nonnull %42, i64 noundef %94, ptr noundef nonnull %46, ptr noundef nonnull %4) #6
+  call void %109(ptr noundef %9, ptr noundef nonnull %42, i64 noundef %94, ptr noundef nonnull %46, ptr noundef nonnull %4) #5
   %120 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %121 = load i16, ptr %120, align 4
   %122 = and i16 %121, 2
@@ -342,10 +339,9 @@ ExecGetJunkAttribute.exit91:                      ; preds = %.thread, %slot_gets
   br i1 %127, label %switch.lookup, label %128
 
 128:                                              ; preds = %123
-  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %129)
-  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %129 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %130 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 176, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 switch.lookup:                                    ; preds = %123
@@ -361,7 +357,7 @@ switch.lookup:                                    ; preds = %123
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 208
   %140 = load ptr, ptr %139, align 8
-  %141 = call i32 %140(ptr noundef nonnull %100, ptr noundef nonnull %2, ptr noundef %133, ptr noundef nonnull %46, i32 noundef %134, i32 noundef range(i32 0, 4) %switch.offset, i32 noundef %136, i8 noundef zeroext range(i8 1, 4) %spec.select88, ptr noundef nonnull %3) #6
+  %141 = call i32 %140(ptr noundef nonnull %100, ptr noundef nonnull %2, ptr noundef %133, ptr noundef nonnull %46, i32 noundef %134, i32 noundef range(i32 0, 4) %switch.offset, i32 noundef %136, i8 noundef zeroext range(i8 1, 4) %spec.select88, ptr noundef nonnull %3) #5
   switch i32 %141, label %165 [
     i32 6, label %.backedge.sink.split
     i32 2, label %.backedge.sink.split
@@ -382,19 +378,18 @@ switch.lookup:                                    ; preds = %123
 146:                                              ; preds = %switch.lookup
   %147 = load i32, ptr @XactIsoLevel, align 4
   %148 = icmp sgt i32 %147, 1
-  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %149)
+  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   br i1 %148, label %150, label %153
 
 150:                                              ; preds = %146
-  %151 = call i32 @errcode(i32 noundef 16777220) #6
-  %152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %151 = call i32 @errcode(i32 noundef 16777220) #5
+  %152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 228, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 153:                                              ; preds = %146
-  %154 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 3) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 230, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %154 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, i32 noundef 3) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 230, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 155:                                              ; preds = %switch.lookup
@@ -403,25 +398,22 @@ switch.lookup:                                    ; preds = %123
   br i1 %157, label %158, label %.backedge.sink.split
 
 158:                                              ; preds = %155
-  %159 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %159)
-  %160 = call i32 @errcode(i32 noundef 16777220) #6
-  %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %159 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %160 = call i32 @errcode(i32 noundef 16777220) #5
+  %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 162:                                              ; preds = %switch.lookup
-  %163 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %163)
-  %164 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %163 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %164 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 242, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 165:                                              ; preds = %switch.lookup
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %166)
-  %167 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %141) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.ExecLockRows) #6
+  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %167 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %141) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 247, ptr noundef nonnull @__func__.ExecLockRows) #5
   unreachable
 
 168:                                              ; preds = %119
@@ -445,9 +437,9 @@ switch.lookup:                                    ; preds = %123
   br i1 %.2101, label %174, label %.loopexit
 
 174:                                              ; preds = %._crit_edge
-  call void @EvalPlanQualBegin(ptr noundef nonnull %15) #6
+  call void @EvalPlanQualBegin(ptr noundef nonnull %15) #5
   store ptr %23, ptr %19, align 8
-  %175 = call ptr @EvalPlanQualNext(ptr noundef nonnull %15) #6
+  %175 = call ptr @EvalPlanQualNext(ptr noundef nonnull %15) #5
   %176 = icmp eq ptr %175, null
   br i1 %176, label %.backedge.backedge, label %177
 
@@ -490,10 +482,10 @@ declare void @EvalPlanQualInit(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndLockRows(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @EvalPlanQualEnd(ptr noundef nonnull %2) #6
+  tail call void @EvalPlanQualEnd(ptr noundef nonnull %2) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  tail call void @ExecEndNode(ptr noundef %4) #6
+  tail call void @ExecEndNode(ptr noundef %4) #5
   ret void
 }
 
@@ -511,7 +503,7 @@ define dso_local void @ExecReScanLockRows(ptr noundef readonly captures(none) %0
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %1
-  tail call void @ExecReScan(ptr noundef nonnull %3) #6
+  tail call void @ExecReScan(ptr noundef nonnull %3) #5
   br label %8
 
 8:                                                ; preds = %7, %1
@@ -554,17 +546,13 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

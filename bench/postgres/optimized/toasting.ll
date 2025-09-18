@@ -26,32 +26,32 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AlterTableCreateToastTable(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @table_open(i32 noundef %0, i32 noundef %2) #6
+  %4 = tail call ptr @table_open(i32 noundef %0, i32 noundef %2) #5
   %5 = tail call fastcc zeroext i1 @create_toast_table(ptr noundef %4, i32 noundef 0, i32 noundef 0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext true, i32 noundef 0)
-  tail call void @table_close(ptr noundef %4, i32 noundef 0) #6
+  tail call void @table_close(ptr noundef %4, i32 noundef 0) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @NewHeapCreateToastTable(i32 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call ptr @table_open(i32 noundef %0, i32 noundef %2) #6
+  %5 = tail call ptr @table_open(i32 noundef %0, i32 noundef %2) #5
   %6 = tail call fastcc zeroext i1 @create_toast_table(ptr noundef %5, i32 noundef 0, i32 noundef 0, i64 noundef %1, i32 noundef %2, i1 noundef zeroext false, i32 noundef %3)
-  tail call void @table_close(ptr noundef %5, i32 noundef 0) #6
+  tail call void @table_close(ptr noundef %5, i32 noundef 0) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @NewRelationCreateToastTable(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @table_open(i32 noundef %0, i32 noundef 8) #6
+  %3 = tail call ptr @table_open(i32 noundef %0, i32 noundef 8) #5
   %4 = tail call fastcc zeroext i1 @create_toast_table(ptr noundef %3, i32 noundef 0, i32 noundef 0, i64 noundef %1, i32 noundef 8, i1 noundef zeroext false, i32 noundef 0)
-  tail call void @table_close(ptr noundef %3, i32 noundef 0) #6
+  tail call void @table_close(ptr noundef %3, i32 noundef 0) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BootstrapToastTable(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %0, i32 noundef -1) #6
-  %5 = tail call ptr @table_openrv(ptr noundef %4, i32 noundef 8) #6
+  %4 = tail call ptr @makeRangeVar(ptr noundef null, ptr noundef %0, i32 noundef -1) #5
+  %5 = tail call ptr @table_openrv(ptr noundef %4, i32 noundef 8) #5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 115
@@ -62,10 +62,9 @@ define dso_local void @BootstrapToastTable(ptr noundef %0, i32 noundef %1, i32 n
   ]
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %0) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 107, ptr noundef nonnull @__func__.BootstrapToastTable) #6
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %0) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 107, ptr noundef nonnull @__func__.BootstrapToastTable) #5
   unreachable
 
 13:                                               ; preds = %3, %3
@@ -73,14 +72,13 @@ define dso_local void @BootstrapToastTable(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef %0) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__.BootstrapToastTable) #6
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %17 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, ptr noundef %0) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__.BootstrapToastTable) #5
   unreachable
 
 18:                                               ; preds = %13
-  tail call void @table_close(ptr noundef nonnull %5, i32 noundef 0) #6
+  tail call void @table_close(ptr noundef nonnull %5, i32 noundef 0) #5
   ret void
 }
 
@@ -145,7 +143,7 @@ define internal fastcc noundef zeroext i1 @create_toast_table(ptr noundef %0, i3
   br i1 %or.cond.not.i, label %needs_toast_table.exit.thread, label %37
 
 37:                                               ; preds = %31
-  %38 = tail call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #6
+  %38 = tail call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #5
   %39 = load i32, ptr @Mode, align 4
   %40 = icmp ne i32 %39, 0
   %or.cond4.not.i = select i1 %38, i1 %40, i1 false
@@ -156,7 +154,7 @@ needs_toast_table.exit:                           ; preds = %37
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 304
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call zeroext i1 %44(ptr noundef nonnull %0) #6
+  %45 = tail call zeroext i1 %44(ptr noundef nonnull %0) #5
   br i1 %45, label %48, label %needs_toast_table.exit.thread
 
 46:                                               ; preds = %24
@@ -170,19 +168,18 @@ needs_toast_table.exit:                           ; preds = %37
   br i1 %or.cond, label %50, label %53
 
 50:                                               ; preds = %48
-  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  tail call void @llvm.assume(i1 %51)
-  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #6
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.create_toast_table) #6
+  %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3) #5
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 193, ptr noundef nonnull @__func__.create_toast_table) #5
   unreachable
 
 53:                                               ; preds = %48
-  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 64, ptr noundef nonnull @.str.4, i32 noundef %19) #6
-  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %19) #6
-  %56 = call ptr @CreateTemplateTupleDesc(i32 noundef 3) #6
-  call void @TupleDescInitEntry(ptr noundef %56, i16 noundef signext 1, ptr noundef nonnull @.str.6, i32 noundef 26, i32 noundef -1, i32 noundef 0) #6
-  call void @TupleDescInitEntry(ptr noundef %56, i16 noundef signext 2, ptr noundef nonnull @.str.7, i32 noundef 23, i32 noundef -1, i32 noundef 0) #6
-  call void @TupleDescInitEntry(ptr noundef %56, i16 noundef signext 3, ptr noundef nonnull @.str.8, i32 noundef 17, i32 noundef -1, i32 noundef 0) #6
+  %54 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 64, ptr noundef nonnull @.str.4, i32 noundef %19) #5
+  %55 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 64, ptr noundef nonnull @.str.5, i32 noundef %19) #5
+  %56 = call ptr @CreateTemplateTupleDesc(i32 noundef 3) #5
+  call void @TupleDescInitEntry(ptr noundef %56, i16 noundef signext 1, ptr noundef nonnull @.str.6, i32 noundef 26, i32 noundef -1, i32 noundef 0) #5
+  call void @TupleDescInitEntry(ptr noundef %56, i16 noundef signext 2, ptr noundef nonnull @.str.7, i32 noundef 23, i32 noundef -1, i32 noundef 0) #5
+  call void @TupleDescInitEntry(ptr noundef %56, i16 noundef signext 3, ptr noundef nonnull @.str.8, i32 noundef 17, i32 noundef -1, i32 noundef 0) #5
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 4
@@ -210,11 +207,11 @@ needs_toast_table.exit:                           ; preds = %37
   %75 = load ptr, ptr %20, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 68
   %77 = load i32, ptr %76, align 4
-  %78 = call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %77) #6
+  %78 = call zeroext i1 @isTempOrTempToastNamespace(i32 noundef %77) #5
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %53
-  %80 = call i32 @GetTempToastNamespace() #6
+  %80 = call i32 @GetTempToastNamespace() #5
   br label %81
 
 81:                                               ; preds = %53, %79
@@ -249,14 +246,14 @@ needs_toast_table.exit:                           ; preds = %37
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 312
   %101 = load ptr, ptr %100, align 8
-  %102 = call i32 %101(ptr noundef nonnull %0) #6
+  %102 = call i32 %101(ptr noundef nonnull %0) #5
   %103 = load ptr, ptr %20, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 114
   %105 = load i8, ptr %104, align 2
-  %106 = call i32 @heap_create_with_catalog(ptr noundef nonnull %9, i32 noundef %.076, i32 noundef %95, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %97, i32 noundef %102, ptr noundef nonnull %56, ptr noundef null, i8 noundef signext 116, i8 noundef signext %105, i1 noundef zeroext %85, i1 noundef zeroext %93, i32 noundef 0, i64 noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef null) #6
-  call void @CommandCounterIncrement() #6
-  %107 = call ptr @table_open(i32 noundef %106, i32 noundef 5) #6
-  %108 = call noundef ptr @palloc0(i64 noundef 200) #6
+  %106 = call i32 @heap_create_with_catalog(ptr noundef nonnull %9, i32 noundef %.076, i32 noundef %95, i32 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %97, i32 noundef %102, ptr noundef nonnull %56, ptr noundef null, i8 noundef signext 116, i8 noundef signext %105, i1 noundef zeroext %85, i1 noundef zeroext %93, i32 noundef 0, i64 noundef %3, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %6, ptr noundef null) #5
+  call void @CommandCounterIncrement() #5
+  %107 = call ptr @table_open(i32 noundef %106, i32 noundef 5) #5
+  %108 = call noundef ptr @palloc0(i64 noundef 200) #5
   store i32 380, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 2, ptr %109, align 4
@@ -294,29 +291,28 @@ needs_toast_table.exit:                           ; preds = %37
   store i16 0, ptr %13, align 2
   %125 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 0, ptr %125, align 2
-  %126 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull @.str.6, ptr nonnull @.str.7) #6
+  %126 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull @.str.6, ptr nonnull @.str.7) #5
   %127 = load ptr, ptr %20, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 92
   %129 = load i32, ptr %128, align 4
-  %130 = call i32 @index_create(ptr noundef %107, ptr noundef nonnull %10, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %108, ptr noundef %126, i32 noundef 403, i32 noundef %129, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, i16 noundef zeroext 1, i16 noundef zeroext 0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #6
-  call void @table_close(ptr noundef %107, i32 noundef 0) #6
-  %131 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #6
+  %130 = call i32 @index_create(ptr noundef %107, ptr noundef nonnull %10, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %108, ptr noundef %126, i32 noundef 403, i32 noundef %129, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, i16 noundef zeroext 1, i16 noundef zeroext 0, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null) #5
+  call void @table_close(ptr noundef %107, i32 noundef 0) #5
+  %131 = call ptr @table_open(i32 noundef 1259, i32 noundef 3) #5
   %132 = load i32, ptr @Mode, align 4
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %148, label %134
 
 134:                                              ; preds = %92
   %135 = zext i32 %19 to i64
-  %136 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %135, i64 noundef 0, i64 noundef 0, i64 noundef 0) #6
+  %136 = call ptr @SearchSysCacheCopy(i32 noundef 57, i64 noundef %135, i64 noundef 0, i64 noundef 0, i64 noundef 0) #5
   store ptr %136, ptr %8, align 8
   %.not81 = icmp eq ptr %136, null
   br i1 %.not81, label %137, label %140
 
 137:                                              ; preds = %134
-  %138 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %138)
-  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %19) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.create_toast_table) #6
+  %138 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %139 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %19) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 342, ptr noundef nonnull @__func__.create_toast_table) #5
   unreachable
 
 140:                                              ; preds = %134
@@ -329,24 +325,23 @@ needs_toast_table.exit:                           ; preds = %37
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 108
   store i32 %106, ptr %146, align 4
   %147 = getelementptr inbounds nuw i8, ptr %136, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %131, ptr noundef nonnull %147, ptr noundef nonnull %136) #6
+  call void @CatalogTupleUpdate(ptr noundef %131, ptr noundef nonnull %147, ptr noundef nonnull %136) #5
   br label %163
 
 148:                                              ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %149 = zext i32 %19 to i64
-  call void @ScanKeyInit(ptr noundef nonnull %16, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %149) #6
-  call void @systable_inplace_update_begin(ptr noundef %131, i32 noundef 2662, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %16, ptr noundef nonnull %8, ptr noundef nonnull %17) #6
+  call void @ScanKeyInit(ptr noundef nonnull %16, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %149) #5
+  call void @systable_inplace_update_begin(ptr noundef %131, i32 noundef 2662, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %16, ptr noundef nonnull %8, ptr noundef nonnull %17) #5
   %150 = load ptr, ptr %8, align 8
   %.not82 = icmp eq ptr %150, null
   br i1 %.not82, label %151, label %154
 
 151:                                              ; preds = %148
-  %152 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %152)
-  %153 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %19) #6
-  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.create_toast_table) #6
+  %152 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
+  %153 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.9, i32 noundef %19) #5
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 362, ptr noundef nonnull @__func__.create_toast_table) #5
   unreachable
 
 154:                                              ; preds = %148
@@ -360,7 +355,7 @@ needs_toast_table.exit:                           ; preds = %37
   store i32 %106, ptr %160, align 4
   %161 = load ptr, ptr %17, align 8
   %162 = load ptr, ptr %8, align 8
-  call void @systable_inplace_update_finish(ptr noundef %161, ptr noundef %162) #6
+  call void @systable_inplace_update_finish(ptr noundef %161, ptr noundef %162) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.pre = load ptr, ptr %8, align 8
@@ -368,8 +363,8 @@ needs_toast_table.exit:                           ; preds = %37
 
 163:                                              ; preds = %154, %140
   %164 = phi ptr [ %.pre, %154 ], [ %136, %140 ]
-  call void @heap_freetuple(ptr noundef %164) #6
-  call void @table_close(ptr noundef %131, i32 noundef 3) #6
+  call void @heap_freetuple(ptr noundef %164) #5
+  call void @table_close(ptr noundef %131, i32 noundef 3) #5
   %165 = load i32, ptr @Mode, align 4
   %166 = icmp eq i32 %165, 0
   br i1 %166, label %172, label %167
@@ -385,11 +380,11 @@ needs_toast_table.exit:                           ; preds = %37
   store i32 %106, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %171, align 4
-  call void @recordDependencyOn(ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef 105) #6
+  call void @recordDependencyOn(ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef 105) #5
   br label %172
 
 172:                                              ; preds = %167, %163
-  call void @CommandCounterIncrement() #6
+  call void @CommandCounterIncrement() #5
   br label %needs_toast_table.exit.thread
 
 needs_toast_table.exit.thread:                    ; preds = %37, %31, %27, %46, %needs_toast_table.exit, %7, %172
@@ -451,20 +446,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
-attributes #7 = { cold nounwind }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { nounwind }
+attributes #6 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

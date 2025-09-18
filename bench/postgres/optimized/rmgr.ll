@@ -243,7 +243,7 @@ define dso_local void @RmgrStartup() local_unnamed_addr #1 {
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void %7() #8
+  tail call void %7() #7
   br label %9
 
 9:                                                ; preds = %5, %8, %2
@@ -273,7 +273,7 @@ define dso_local void @RmgrCleanup() local_unnamed_addr #1 {
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void %7() #8
+  tail call void %7() #7
   br label %9
 
 9:                                                ; preds = %5, %8, %2
@@ -284,12 +284,11 @@ define dso_local void @RmgrCleanup() local_unnamed_addr #1 {
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define dso_local void @RmgrNotFound(i8 noundef zeroext %0) local_unnamed_addr #2 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %2)
+  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %3 = zext i8 %0 to i32
-  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %3) #8
-  %5 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 94, ptr noundef nonnull @__func__.RmgrNotFound) #8
+  %4 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, i32 noundef %3) #7
+  %5 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.23) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 94, ptr noundef nonnull @__func__.RmgrNotFound) #7
   unreachable
 }
 
@@ -316,11 +315,10 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5, %2
-  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %8)
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #8
-  %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.26) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 111, ptr noundef nonnull @__func__.RegisterCustomRmgr) #8
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25) #7
+  %10 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.26) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 111, ptr noundef nonnull @__func__.RegisterCustomRmgr) #7
   unreachable
 
 11:                                               ; preds = %5
@@ -329,11 +327,10 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, i32 noundef %12) #8
-  %17 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.28, i32 noundef 128, i32 noundef 255) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 116, ptr noundef nonnull @__func__.RegisterCustomRmgr) #8
+  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.27, i32 noundef %12) #7
+  %17 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.28, i32 noundef 128, i32 noundef 255) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 116, ptr noundef nonnull @__func__.RegisterCustomRmgr) #7
   unreachable
 
 18:                                               ; preds = %11
@@ -342,12 +339,11 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %22)
+  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %23 = load ptr, ptr %1, align 8
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %23, i32 noundef %12) #8
-  %25 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 121, ptr noundef nonnull @__func__.RegisterCustomRmgr) #8
+  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %23, i32 noundef %12) #7
+  %25 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.30) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 121, ptr noundef nonnull @__func__.RegisterCustomRmgr) #7
   unreachable
 
 26:                                               ; preds = %18
@@ -358,18 +354,17 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
   br i1 %.not, label %.preheader, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %31)
+  %31 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %32 = load ptr, ptr %1, align 8
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %32, i32 noundef %12) #8
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %32, i32 noundef %12) #7
   %34 = load ptr, ptr %28, align 16
-  %35 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.31, ptr noundef %34) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 127, ptr noundef nonnull @__func__.RegisterCustomRmgr) #8
+  %35 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.31, ptr noundef %34) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 127, ptr noundef nonnull @__func__.RegisterCustomRmgr) #7
   unreachable
 
 36:                                               ; preds = %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %37 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #8
+  %37 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #7
   br i1 %37, label %50, label %53
 
 .preheader:                                       ; preds = %26, %49
@@ -381,18 +376,17 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
 
 40:                                               ; preds = %.preheader
   %41 = load ptr, ptr %1, align 8
-  %42 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %39, ptr noundef %41) #8
+  %42 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %39, ptr noundef %41) #7
   %.not22 = icmp eq i32 %42, 0
   br i1 %.not22, label %43, label %49
 
 43:                                               ; preds = %40
   %44 = trunc nuw nsw i64 %indvars.iv to i32
-  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %45)
+  %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   %46 = load ptr, ptr %1, align 8
-  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %46, i32 noundef %12) #8
-  %48 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, i32 noundef %44) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 138, ptr noundef nonnull @__func__.RegisterCustomRmgr) #8
+  %47 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %46, i32 noundef %12) #7
+  %48 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32, i32 noundef %44) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 138, ptr noundef nonnull @__func__.RegisterCustomRmgr) #7
   unreachable
 
 49:                                               ; preds = %40, %.preheader
@@ -402,8 +396,8 @@ define dso_local void @RegisterCustomRmgr(i8 noundef zeroext %0, ptr noundef rea
 
 50:                                               ; preds = %36
   %51 = load ptr, ptr %1, align 8
-  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %51, i32 noundef %12) #8
-  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 145, ptr noundef nonnull @__func__.RegisterCustomRmgr) #8
+  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.33, ptr noundef %51, i32 noundef %12) #7
+  tail call void @errfinish(ptr noundef nonnull @.str.24, i32 noundef 145, ptr noundef nonnull @__func__.RegisterCustomRmgr) #7
   br label %53
 
 53:                                               ; preds = %36, %50
@@ -426,7 +420,7 @@ define dso_local noundef i64 @pg_get_wal_resource_managers(ptr noundef %0) local
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false)
-  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #8
+  tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -447,7 +441,7 @@ define dso_local noundef i64 @pg_get_wal_resource_managers(ptr noundef %0) local
 
 GetRmgr.exit:                                     ; preds = %11
   store i64 %indvars.iv, ptr %2, align 16
-  %14 = call ptr @cstring_to_text(ptr noundef nonnull %13) #8
+  %14 = call ptr @cstring_to_text(ptr noundef nonnull %13) #7
   %15 = ptrtoint ptr %14 to i64
   store i64 %15, ptr %6, align 8
   %16 = icmp samesign ult i64 %indvars.iv, 22
@@ -455,7 +449,7 @@ GetRmgr.exit:                                     ; preds = %11
   store i64 %17, ptr %7, align 16
   %18 = load ptr, ptr %8, align 8
   %19 = load ptr, ptr %9, align 8
-  call void @tuplestore_putvalues(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3) #8
+  call void @tuplestore_putvalues(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3) #7
   br label %20
 
 20:                                               ; preds = %11, %GetRmgr.exit
@@ -479,9 +473,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
-
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -489,9 +480,8 @@ attributes #3 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -4843,27 +4843,23 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$std..sync..poison..PoisonError$LT$T
 define hidden { ptr, i64 } @"_ZN77_$LT$alloc..borrow..Cow$LT$T$GT$$u20$as$u20$core..convert..AsRef$LT$T$GT$$GT$6as_ref17h150293336bb804a7E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !28, !noundef !6
   %.not = icmp eq i64 %2, -9223372036854775808
-  br i1 %.not, label %7, label %3
+  br i1 %.not, label %5, label %3
 
 3:                                                ; preds = %1
   %4 = tail call { ptr, i64 } @"_ZN5alloc5slice98_$LT$impl$u20$core..borrow..Borrow$LT$$u5b$T$u5d$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A$GT$$GT$6borrow17hb4586f281ee6e7bcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %5 = extractvalue { ptr, i64 } %4, 0
-  %6 = icmp ne ptr %5, null
-  br label %14
+  br label %12
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !8, !noundef !6
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !noundef !6
-  %12 = insertvalue { ptr, i64 } poison, ptr %9, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %11, 1
-  br label %14
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !nonnull !6, !align !8, !noundef !6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !6
+  %10 = insertvalue { ptr, i64 } poison, ptr %7, 0
+  %11 = insertvalue { ptr, i64 } %10, i64 %9, 1
+  br label %12
 
-14:                                               ; preds = %7, %3
-  %.sroa.0.0 = phi i1 [ %6, %3 ], [ true, %7 ]
-  %.merged = phi { ptr, i64 } [ %4, %3 ], [ %13, %7 ]
-  tail call void @llvm.assume(i1 %.sroa.0.0)
+12:                                               ; preds = %5, %3
+  %.merged = phi { ptr, i64 } [ %4, %3 ], [ %11, %5 ]
   ret { ptr, i64 } %.merged
 }
 

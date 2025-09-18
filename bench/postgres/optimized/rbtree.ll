@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rbt_create(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = tail call ptr @palloc(i64 noundef 56) #7
+  %7 = tail call ptr @palloc(i64 noundef 56) #6
   store ptr @sentinel, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %0, ptr %8, align 8
@@ -44,7 +44,7 @@ define dso_local noundef ptr @rbt_find(ptr noundef readonly captures(none) %0, p
   %.01322 = phi ptr [ %.01320, %.lr.ph ], [ %.013, %9 ]
   %6 = load ptr, ptr %3, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01322, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.01322, ptr noundef %7) #6
   %.not17 = icmp eq i32 %8, 0
   br i1 %.not17, label %.thread, label %9
 
@@ -77,7 +77,7 @@ define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr
   %.01728.us = phi ptr [ %.219.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.02029.us, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.02029.us, ptr noundef %7) #6
   %9 = icmp slt i32 %8, 0
   %.222.in.v.us = select i1 %9, i64 8, i64 16
   %.222.in.us = getelementptr inbounds nuw i8, ptr %.02029.us, i64 %.222.in.v.us
@@ -91,7 +91,7 @@ define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr
   %.01728 = phi ptr [ %.219, %14 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.02029, ptr noundef %11) #7
+  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.02029, ptr noundef %11) #6
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %14
 
@@ -125,7 +125,7 @@ define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr 
   %.01728.us = phi ptr [ %.219.us, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
-  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.02029.us, ptr noundef %7) #7
+  %8 = tail call i32 %6(ptr noundef %1, ptr noundef %.02029.us, ptr noundef %7) #6
   %9 = icmp sgt i32 %8, 0
   %.222.in.v.us = select i1 %9, i64 16, i64 8
   %.222.in.us = getelementptr inbounds nuw i8, ptr %.02029.us, i64 %.222.in.v.us
@@ -139,7 +139,7 @@ define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr 
   %.01728 = phi ptr [ %.219, %14 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
-  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.02029, ptr noundef %11) #7
+  %12 = tail call i32 %10(ptr noundef %1, ptr noundef %.02029, ptr noundef %11) #6
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.thread, label %14
 
@@ -192,7 +192,7 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   %.04149 = phi ptr [ %.04147, %.lr.ph ], [ %.041, %15 ]
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = tail call i32 %7(ptr noundef %1, ptr noundef %.04149, ptr noundef %8) #7
+  %9 = tail call i32 %7(ptr noundef %1, ptr noundef %.04149, ptr noundef %8) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -200,7 +200,7 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %5, align 8
-  tail call void %13(ptr noundef %.04149, ptr noundef %1, ptr noundef %14) #7
+  tail call void %13(ptr noundef %.04149, ptr noundef %1, ptr noundef %14) #6
   store i8 0, ptr %2, align 1
   br label %173
 
@@ -224,7 +224,7 @@ define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noun
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr %19(ptr noundef %21) #7
+  %22 = tail call ptr %19(ptr noundef %21) #6
   store i8 1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr @sentinel, ptr %23, align 8
@@ -1181,7 +1181,7 @@ rbt_delete_fixup.exit.i:                          ; preds = %rbt_rotate_left.exi
 229:                                              ; preds = %226
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %231 = load ptr, ptr %230, align 8
-  tail call void %228(ptr noundef nonnull %.067.i, ptr noundef %231) #7
+  tail call void %228(ptr noundef nonnull %.067.i, ptr noundef %231) #6
   br label %rbt_delete_node.exit
 
 rbt_delete_node.exit:                             ; preds = %2, %226, %229
@@ -1207,10 +1207,9 @@ define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr nou
   br label %13
 
 10:                                               ; preds = %3
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__func__.rbt_begin_iterate) #7
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  %12 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %1) #6
+  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 818, ptr noundef nonnull @__func__.rbt_begin_iterate) #6
   unreachable
 
 13:                                               ; preds = %3, %9
@@ -1353,7 +1352,7 @@ define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr %7(ptr noundef nonnull %0) #7
+  %8 = tail call ptr %7(ptr noundef nonnull %0) #6
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -1364,18 +1363,14 @@ define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #6
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #7 = { nounwind }
-attributes #8 = { cold nounwind }
+attributes #6 = { nounwind }
+attributes #7 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

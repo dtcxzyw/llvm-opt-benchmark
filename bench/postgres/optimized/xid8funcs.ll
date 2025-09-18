@@ -28,8 +28,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_current_xact_id(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  tail call void @PreventCommandDuringRecovery(ptr noundef nonnull @.str) #11
-  %2 = tail call i64 @GetTopFullTransactionId() #11
+  tail call void @PreventCommandDuringRecovery(ptr noundef nonnull @.str) #10
+  %2 = tail call i64 @GetTopFullTransactionId() #10
   ret i64 %2
 }
 
@@ -39,7 +39,7 @@ declare i64 @GetTopFullTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_current_xact_id_if_assigned(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @GetTopFullTransactionIdIfAny() #11
+  %2 = tail call i64 @GetTopFullTransactionIdIfAny() #10
   %3 = and i64 %2, 4294967295
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %6
@@ -58,16 +58,15 @@ declare i64 @GetTopFullTransactionIdIfAny() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_current_snapshot(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @ReadNextFullTransactionId() #11
-  %3 = tail call ptr @GetActiveSnapshot() #11
+  %2 = tail call i64 @ReadNextFullTransactionId() #10
+  %3 = tail call ptr @GetActiveSnapshot() #10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 380, ptr noundef nonnull @__func__.pg_current_snapshot) #11
+  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %7 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.1) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 380, ptr noundef nonnull @__func__.pg_current_snapshot) #10
   unreachable
 
 8:                                                ; preds = %1
@@ -76,7 +75,7 @@ define dso_local i64 @pg_current_snapshot(ptr noundef readnone captures(none) %0
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 3
   %13 = add nuw nsw i64 %12, 24
-  %14 = tail call ptr @palloc(i64 noundef %13) #11
+  %14 = tail call ptr @palloc(i64 noundef %13) #10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
@@ -193,7 +192,7 @@ FullTransactionIdFromAllowableAt.exit30:          ; preds = %62, %67
 
 71:                                               ; preds = %._crit_edge
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  tail call void @pg_qsort(ptr noundef nonnull %72, i64 noundef %11, i64 noundef 8, ptr noundef nonnull @cmp_fxid) #11
+  tail call void @pg_qsort(ptr noundef nonnull %72, i64 noundef %11, i64 noundef 8, ptr noundef nonnull @cmp_fxid) #10
   %73 = load i32, ptr %49, align 4
   %74 = zext i32 %73 to i64
   %75 = icmp ult i32 %73, 2
@@ -274,7 +273,7 @@ define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %10 = call i64 @strtoul(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 10) #11
+  %10 = call i64 @strtoul(ptr noundef %7, ptr noundef nonnull %4, i32 noundef 10) #10
   %11 = load ptr, ptr %4, align 8
   %12 = load i8, ptr %11, align 1
   %.not.i = icmp eq i8 %12, 58
@@ -282,7 +281,7 @@ define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none)
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %15 = call i64 @strtoul(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 10) #11
+  %15 = call i64 @strtoul(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 10) #10
   %16 = load ptr, ptr %4, align 8
   %17 = load i8, ptr %16, align 1
   %.not40.i = icmp eq i8 %17, 58
@@ -307,8 +306,8 @@ define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none)
   store i64 %15, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %28, align 4
-  %29 = tail call ptr @makeStringInfo() #11
-  call void @appendBinaryStringInfo(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 24) #11
+  %29 = tail call ptr @makeStringInfo() #10
+  call void @appendBinaryStringInfo(ptr noundef %29, ptr noundef nonnull %3, i32 noundef 24) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = load i8, ptr %25, align 1
   %.not4152.i = icmp eq i8 %30, 0
@@ -317,7 +316,7 @@ define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none)
 .lr.ph.i:                                         ; preds = %24, %44
   %.03554.i = phi ptr [ %45, %44 ], [ %25, %24 ]
   %.sroa.015.053.i = phi i64 [ %31, %44 ], [ 0, %24 ]
-  %31 = call i64 @strtoul(ptr noundef nonnull %.03554.i, ptr noundef nonnull %4, i32 noundef 10) #11
+  %31 = call i64 @strtoul(ptr noundef nonnull %.03554.i, ptr noundef nonnull %4, i32 noundef 10) #10
   %32 = load ptr, ptr %4, align 8
   %33 = icmp ult i64 %31, %10
   %.not42.i = icmp uge i64 %31, %15
@@ -338,7 +337,7 @@ define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none)
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
-  call void @appendBinaryStringInfo(ptr noundef nonnull %29, ptr noundef nonnull %2, i32 noundef 8) #11
+  call void @appendBinaryStringInfo(ptr noundef nonnull %29, ptr noundef nonnull %2, i32 noundef 8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %42
 
@@ -362,18 +361,18 @@ define dso_local noundef i64 @pg_snapshot_in(ptr noundef readonly captures(none)
   %50 = shl i32 %49, 2
   store i32 %50, ptr %47, align 4
   store ptr null, ptr %29, align 8
-  call void @pfree(ptr noundef nonnull %29) #11
+  call void @pfree(ptr noundef nonnull %29) #10
   %51 = ptrtoint ptr %47 to i64
   br label %parse_snapshot.exit
 
 .loopexit.i:                                      ; preds = %42, %.lr.ph.i, %18, %13, %1
-  %52 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #11
+  %52 = call zeroext i1 @errsave_start(ptr noundef %9, ptr noundef null) #10
   br i1 %52, label %53, label %parse_snapshot.exit
 
 53:                                               ; preds = %.loopexit.i
-  %54 = call i32 @errcode(i32 noundef 33685634) #11
-  %55 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %7) #11
-  call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 324, ptr noundef nonnull @__func__.parse_snapshot) #11
+  %54 = call i32 @errcode(i32 noundef 33685634) #10
+  %55 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef %7) #10
+  call void @errsave_finish(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef 324, ptr noundef nonnull @__func__.parse_snapshot) #10
   br label %parse_snapshot.exit
 
 parse_snapshot.exit:                              ; preds = %._crit_edge.i, %.loopexit.i, %53
@@ -388,15 +387,15 @@ define dso_local i64 @pg_snapshot_out(ptr noundef readonly captures(none) %0) lo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #11
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @initStringInfo(ptr noundef nonnull %2) #11
+  call void @initStringInfo(ptr noundef nonnull %2) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, i64 noundef %8) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, i64 noundef %8) #10
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, i64 noundef %10) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.3, i64 noundef %10) #10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %12 = load i32, ptr %11, align 4
   %.not9 = icmp eq i32 %12, 0
@@ -412,13 +411,13 @@ define dso_local i64 @pg_snapshot_out(ptr noundef readonly captures(none) %0) lo
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %14
-  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #11
+  call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 44) #10
   br label %16
 
 16:                                               ; preds = %15, %14
   %17 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef %18) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.4, i64 noundef %18) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %11, align 4
   %20 = zext i32 %19 to i64
@@ -445,13 +444,13 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #11
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #10
   %6 = icmp ugt i32 %5, 134217724
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %1
-  %8 = tail call i64 @pq_getmsgint64(ptr noundef %4) #11
-  %9 = tail call i64 @pq_getmsgint64(ptr noundef %4) #11
+  %8 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
+  %9 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
   %10 = and i64 %8, 4294967295
   %11 = icmp eq i64 %10, 0
   %12 = and i64 %9, 4294967295
@@ -465,7 +464,7 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   %16 = shl nuw nsw i32 %5, 3
   %narrow = add nuw nsw i32 %16, 24
   %17 = zext nneg i32 %narrow to i64
-  %18 = tail call ptr @palloc(i64 noundef %17) #11
+  %18 = tail call ptr @palloc(i64 noundef %17) #10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %8, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -481,7 +480,7 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   %.sroa.030.066 = phi i64 [ 0, %.lr.ph ], [ %.sroa.030.1.ph, %35 ]
   %.04465 = phi i32 [ %5, %.lr.ph ], [ %.1.ph, %35 ]
   %.04564 = phi i32 [ 0, %.lr.ph ], [ %.146.ph, %35 ]
-  %23 = tail call i64 @pq_getmsgint64(ptr noundef %4) #11
+  %23 = tail call i64 @pq_getmsgint64(ptr noundef %4) #10
   %24 = icmp ult i64 %23, %.sroa.030.066
   %25 = icmp ult i64 %23, %8
   %or.cond52 = select i1 %24, i1 true, i1 %25
@@ -512,11 +511,10 @@ define dso_local i64 @pg_snapshot_recv(ptr noundef readonly captures(none) %0) l
   br i1 %36, label %22, label %._crit_edge, !llvm.loop !10
 
 .loopexit:                                        ; preds = %22, %7, %1
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 @errcode(i32 noundef 50462850) #11
-  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.pg_snapshot_recv) #11
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %38 = tail call i32 @errcode(i32 noundef 50462850) #10
+  %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.pg_snapshot_recv) #10
   unreachable
 
 ._crit_edge:                                      ; preds = %35, %15
@@ -544,12 +542,12 @@ define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) l
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #11
+  %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @pq_begintypsend(ptr noundef nonnull %2) #11
+  call void @pq_begintypsend(ptr noundef nonnull %2) #10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #11
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %9 = call i32 @llvm.bswap.i32(i32 %8)
   %10 = load ptr, ptr %2, align 8, !alias.scope !11
@@ -562,7 +560,7 @@ define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) l
   store i32 %15, ptr %11, align 8, !alias.scope !11
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %16, align 8
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #11
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %18 = call i64 @llvm.bswap.i64(i64 %17)
   %19 = load ptr, ptr %2, align 8, !alias.scope !14
@@ -574,7 +572,7 @@ define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) l
   store i32 %23, ptr %11, align 8, !alias.scope !14
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = load i64, ptr %24, align 8
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #11
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %26 = call i64 @llvm.bswap.i64(i64 %25)
   %27 = load ptr, ptr %2, align 8, !alias.scope !17
@@ -596,7 +594,7 @@ define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) l
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = getelementptr inbounds nuw %struct.FullTransactionId, ptr %33, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #11
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 8) #10
   call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %37 = call i64 @llvm.bswap.i64(i64 %36)
   %38 = load ptr, ptr %2, align 8, !alias.scope !20
@@ -613,7 +611,7 @@ define dso_local i64 @pg_snapshot_send(ptr noundef readonly captures(none) %0) l
   br i1 %45, label %34, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %34, %1
-  %46 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #11
+  %46 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #10
   %47 = ptrtoint ptr %46 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %47
@@ -630,7 +628,7 @@ define dso_local range(i64 0, 2) i64 @pg_visible_in_snapshot(ptr noundef readonl
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = inttoptr i64 %5 to ptr
-  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #11
+  %7 = tail call ptr @pg_detoast_datum(ptr noundef %6) #10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %3, %9
@@ -708,7 +706,7 @@ define dso_local i64 @pg_snapshot_xmin(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   ret i64 %7
@@ -719,7 +717,7 @@ define dso_local i64 @pg_snapshot_xmax(ptr noundef readonly captures(none) %0) l
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #11
+  %5 = tail call ptr @pg_detoast_datum(ptr noundef %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8
   ret i64 %7
@@ -737,14 +735,14 @@ define dso_local i64 @pg_snapshot_xip(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #11
-  %11 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #11
+  %10 = tail call ptr @pg_detoast_datum(ptr noundef %9) #10
+  %11 = tail call ptr @init_MultiFuncCall(ptr noundef nonnull %0) #10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %10, align 4
   %15 = lshr i32 %14, 2
   %16 = zext nneg i32 %15 to i64
-  %17 = tail call ptr @MemoryContextAlloc(ptr noundef %13, i64 noundef %16) #11
+  %17 = tail call ptr @MemoryContextAlloc(ptr noundef %13, i64 noundef %16) #10
   %18 = load i32, ptr %10, align 4
   %19 = lshr i32 %18, 2
   %20 = zext nneg i32 %19 to i64
@@ -754,7 +752,7 @@ define dso_local i64 @pg_snapshot_xip(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %6, %1
-  %23 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #11
+  %23 = tail call ptr @per_MultiFuncCall(ptr noundef nonnull %0) #10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr %23, align 8
@@ -777,7 +775,7 @@ define dso_local i64 @pg_snapshot_xip(ptr noundef %0) local_unnamed_addr #0 {
   br label %43
 
 38:                                               ; preds = %22
-  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %23) #11
+  tail call void @end_MultiFuncCall(ptr noundef nonnull %0, ptr noundef nonnull %23) #10
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -805,9 +803,9 @@ define dso_local i64 @pg_xact_status(ptr noundef captures(none) %0) local_unname
   %3 = load i64, ptr %2, align 8
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5632
-  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #11
+  %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %5, i32 noundef 1) #10
   %7 = trunc i64 %3 to i32
-  %8 = tail call i64 @ReadNextFullTransactionId() #11
+  %8 = tail call i64 @ReadNextFullTransactionId() #10
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %TransactionIdInRecentPast.exit.thread8, label %9
 
@@ -820,11 +818,10 @@ define dso_local i64 @pg_xact_status(ptr noundef captures(none) %0) local_unname
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 @errcode(i32 noundef 50856066) #11
-  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i64 noundef %3) #11
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 121, ptr noundef nonnull @__func__.TransactionIdInRecentPast) #11
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %15 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %16 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, i64 noundef %3) #10
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 121, ptr noundef nonnull @__func__.TransactionIdInRecentPast) #10
   unreachable
 
 17:                                               ; preds = %11
@@ -862,18 +859,18 @@ TransactionIdInRecentPast.exit:                   ; preds = %22, %31
   br i1 %.not, label %TransactionIdInRecentPast.exit.thread8, label %TransactionIdInRecentPast.exit.thread
 
 TransactionIdInRecentPast.exit.thread:            ; preds = %9, %TransactionIdInRecentPast.exit
-  %35 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %7) #11
+  %35 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %7) #10
   br i1 %35, label %41, label %36
 
 36:                                               ; preds = %TransactionIdInRecentPast.exit.thread
-  %37 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %7) #11
+  %37 = tail call zeroext i1 @TransactionIdDidCommit(i32 noundef %7) #10
   %.str.7..str.8 = select i1 %37, ptr @.str.7, ptr @.str.8
   br label %41
 
 TransactionIdInRecentPast.exit.thread8:           ; preds = %1, %TransactionIdInRecentPast.exit
   %38 = load ptr, ptr @MainLWLockArray, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 5632
-  tail call void @LWLockRelease(ptr noundef nonnull %39) #11
+  tail call void @LWLockRelease(ptr noundef nonnull %39) #10
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %40, align 4
   br label %46
@@ -882,8 +879,8 @@ TransactionIdInRecentPast.exit.thread8:           ; preds = %1, %TransactionIdIn
   %.04 = phi ptr [ @.str.6, %TransactionIdInRecentPast.exit.thread ], [ %.str.7..str.8, %36 ]
   %42 = load ptr, ptr @MainLWLockArray, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 5632
-  tail call void @LWLockRelease(ptr noundef nonnull %43) #11
-  %44 = tail call ptr @cstring_to_text(ptr noundef nonnull %.04) #11
+  tail call void @LWLockRelease(ptr noundef nonnull %43) #10
+  %44 = tail call ptr @cstring_to_text(ptr noundef nonnull %.04) #10
   %45 = ptrtoint ptr %44 to i64
   br label %46
 
@@ -939,14 +936,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #9
+declare range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -956,11 +950,10 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { cold nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #10 = { nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

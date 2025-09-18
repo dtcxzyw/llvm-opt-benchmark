@@ -116,11 +116,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8new_fifo17h8e63
 .noexc.i.i:                                       ; preds = %8
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = icmp eq i64 %10, -9223372036854775807
-  br i1 %11, label %.noexc._crit_edge.i.i, label %12
-
-.noexc._crit_edge.i.i:                            ; preds = %.noexc.i.i
-  %.sroa.53.0.copyload.pre.i.i = load i64, ptr %5, align 8, !alias.scope !16, !noalias !15
-  br label %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
+  br i1 %11, label %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit", label %12
 
 12:                                               ; preds = %.noexc.i.i
   %13 = extractvalue { i64, i64 } %9, 1
@@ -130,8 +126,8 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8new_fifo17h8e63
 .noexc7.i.i:                                      ; preds = %12
   unreachable
 
-common.resume:                                    ; preds = %31, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %32, %31 ]
+common.resume:                                    ; preds = %30, %14
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %12, %8
@@ -146,69 +142,66 @@ common.resume:                                    ; preds = %31, %14
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #30
   unreachable
 
-"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit": ; preds = %1, %.noexc._crit_edge.i.i
-  %.sroa.53.0.copyload.i.i = phi i64 [ %.sroa.53.0.copyload.pre.i.i, %.noexc._crit_edge.i.i ], [ %6, %1 ]
+"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit": ; preds = %.noexc.i.i, %1
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.42.0.copyload.i.i = load ptr, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !16, !noalias !15, !nonnull !4, !noundef !4
-  %18 = icmp ult i64 %.sroa.53.0.copyload.i.i, 576460752303423488
-  call void @llvm.assume(i1 %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %20 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 16, i64 noundef range(i64 1, -9223372036854775807) 8) #27
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
+  %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %19 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 16, i64 noundef range(i64 1, -9223372036854775807) 8) #27
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
 
-22:                                               ; preds = %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
+21:                                               ; preds = %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
   call void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 8, i64 noundef 16) #28
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit: ; preds = %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
-  store ptr %.sroa.42.0.copyload.i.i, ptr %20, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 64, ptr %23, align 8
-  %24 = ptrtoint ptr %20 to i64
+  store ptr %.sroa.42.0.copyload.i.i, ptr %19, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 64, ptr %22, align 8
+  %23 = ptrtoint ptr %19 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 128
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i64 %24, ptr %26, align 128
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store i64 %23, ptr %25, align 128
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.44.0..sroa_idx, i8 0, i64 16, i1 false)
-  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !17
-  %28 = call noalias noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 384, i64 noundef range(i64 1, -9223372036854775807) 128) #27, !noalias !17
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf5534043d28bf430E.llvm.7085529575423241642.exit"
+  %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !17
+  %27 = call noalias noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 384, i64 noundef range(i64 1, -9223372036854775807) 128) #27, !noalias !17
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf5534043d28bf430E.llvm.7085529575423241642.exit"
 
-30:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
+29:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 128, i64 noundef 384) #28
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %30
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %29
   unreachable
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfcec3714a04bb95cE.llvm.14648455939613165642"(ptr noalias noundef nonnull align 128 dereferenceable(256) %26)
-          to label %common.resume unwind label %33
+  invoke void @"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfcec3714a04bb95cE.llvm.14648455939613165642"(ptr noalias noundef nonnull align 128 dereferenceable(256) %25)
+          to label %common.resume unwind label %32
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #30
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf5534043d28bf430E.llvm.7085529575423241642.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %28, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %27, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %28, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.42.0.copyload.i.i, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 64, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %37, align 8
+  store ptr %27, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.42.0.copyload.i.i, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 64, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %36, align 8
   ret void
 }
 
@@ -231,11 +224,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8new_lifo17hdb60
 .noexc.i.i:                                       ; preds = %8
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = icmp eq i64 %10, -9223372036854775807
-  br i1 %11, label %.noexc._crit_edge.i.i, label %12
-
-.noexc._crit_edge.i.i:                            ; preds = %.noexc.i.i
-  %.sroa.53.0.copyload.pre.i.i = load i64, ptr %5, align 8, !alias.scope !29, !noalias !28
-  br label %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
+  br i1 %11, label %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit", label %12
 
 12:                                               ; preds = %.noexc.i.i
   %13 = extractvalue { i64, i64 } %9, 1
@@ -245,8 +234,8 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$8new_lifo17hdb60
 .noexc7.i.i:                                      ; preds = %12
   unreachable
 
-common.resume:                                    ; preds = %31, %14
-  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %32, %31 ]
+common.resume:                                    ; preds = %30, %14
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %31, %30 ]
   resume { ptr, i32 } %common.resume.op
 
 14:                                               ; preds = %12, %8
@@ -261,69 +250,66 @@ common.resume:                                    ; preds = %31, %14
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #30
   unreachable
 
-"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit": ; preds = %1, %.noexc._crit_edge.i.i
-  %.sroa.53.0.copyload.i.i = phi i64 [ %.sroa.53.0.copyload.pre.i.i, %.noexc._crit_edge.i.i ], [ %6, %1 ]
+"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit": ; preds = %.noexc.i.i, %1
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.42.0.copyload.i.i = load ptr, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !29, !noalias !28, !nonnull !4, !noundef !4
-  %18 = icmp ult i64 %.sroa.53.0.copyload.i.i, 576460752303423488
-  call void @llvm.assume(i1 %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %19 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %20 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 16, i64 noundef range(i64 1, -9223372036854775807) 8) #27
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
+  %18 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %19 = call noalias noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 16, i64 noundef range(i64 1, -9223372036854775807) 8) #27
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %21, label %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
 
-22:                                               ; preds = %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
+21:                                               ; preds = %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
   call void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 8, i64 noundef 16) #28
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit: ; preds = %"_ZN5alloc5boxed4iter117_$LT$impl$u20$core..iter..traits..collect..FromIterator$LT$I$GT$$u20$for$u20$alloc..boxed..Box$LT$$u5b$I$u5d$$GT$$GT$9from_iter17hcb88da2474fd9230E.exit"
-  store ptr %.sroa.42.0.copyload.i.i, ptr %20, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 64, ptr %23, align 8
-  %24 = ptrtoint ptr %20 to i64
+  store ptr %.sroa.42.0.copyload.i.i, ptr %19, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 64, ptr %22, align 8
+  %23 = ptrtoint ptr %19 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 1, ptr %3, align 128
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i64 %24, ptr %26, align 128
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store i64 %23, ptr %25, align 128
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 256
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %.sroa.44.0..sroa_idx, i8 0, i64 16, i1 false)
-  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !30
-  %28 = call noalias noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 384, i64 noundef range(i64 1, -9223372036854775807) 128) #27, !noalias !30
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf5534043d28bf430E.llvm.7085529575423241642.exit"
+  %26 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !30
+  %27 = call noalias noundef align 128 dereferenceable_or_null(384) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 384, i64 noundef range(i64 1, -9223372036854775807) 128) #27, !noalias !30
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf5534043d28bf430E.llvm.7085529575423241642.exit"
 
-30:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
+29:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
   invoke void @_ZN5alloc5alloc18handle_alloc_error17he572ac0a571405f2E(i64 noundef 128, i64 noundef 384) #28
-          to label %.noexc unwind label %31
+          to label %.noexc unwind label %30
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %29
   unreachable
 
-31:                                               ; preds = %30
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfcec3714a04bb95cE.llvm.14648455939613165642"(ptr noalias noundef nonnull align 128 dereferenceable(256) %26)
-          to label %common.resume unwind label %33
+  invoke void @"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hfcec3714a04bb95cE.llvm.14648455939613165642"(ptr noalias noundef nonnull align 128 dereferenceable(256) %25)
+          to label %common.resume unwind label %32
 
-33:                                               ; preds = %31
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #30
   unreachable
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hf5534043d28bf430E.llvm.7085529575423241642.exit": ; preds = %_ZN5alloc5alloc15exchange_malloc17h2c8a02dcfd7e37fdE.llvm.7085529575423241642.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %28, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(384) %27, ptr noundef nonnull align 128 dereferenceable(384) %3, i64 384, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  store ptr %28, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.42.0.copyload.i.i, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 64, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %37, align 8
+  store ptr %27, ptr %0, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.42.0.copyload.i.i, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 64, ptr %35, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %36, align 8
   ret void
 }
 

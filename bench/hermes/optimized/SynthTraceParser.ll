@@ -3234,7 +3234,6 @@ _ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JS
   %31 = load ptr, ptr %hiddenClass_.i, align 8
   %keys_.i.i.i176 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %32 = load i64, ptr %31, align 8
-  %add.ptr.i.i.i177 = getelementptr inbounds ptr, ptr %keys_.i.i.i176, i64 %32
   %sub.ptr.rhs.cast.i.i.i.i.i.i178 = ptrtoint ptr %keys_.i.i.i176 to i64
   %cmp11.i.i.i.i179 = icmp sgt i64 %32, 0
   br i1 %cmp11.i.i.i.i179, label %while.body.i.i.i.i197, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180
@@ -3283,53 +3282,39 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
 
 _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180.loopexit, %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueES4_.exit
   %sub.ptr.lhs.cast.i.i193.pre-phi = phi i64 [ %.pre2325, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i.i178, %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueES4_.exit ]
-  %__first.addr.0.lcssa.i.i.i.i181 = phi ptr [ %__first.addr.1.i.i.i.i222, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180.loopexit ], [ %keys_.i.i.i176, %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueES4_.exit ]
-  %cmp.not.i.i182 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i181, %add.ptr.i.i.i177
-  call void @llvm.assume(i1 %cmp.not.i.i182)
-  %36 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i181, align 8
-  %value_.i.i.i184 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %37 = load ptr, ptr %value_.i.i.i184, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i185 = load ptr, ptr %37, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i186 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i187 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i186, align 8
-  %cmp.i.i.i188 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i187, 4
-  call void @llvm.assume(i1 %cmp.i.i.i188)
-  %bcmp.i.i191 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i185, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
-  %38 = icmp eq i32 %bcmp.i.i191, 0
-  call void @llvm.assume(i1 %38)
   %sub.ptr.sub.i.i194 = sub i64 %sub.ptr.lhs.cast.i.i193.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i178
   %add.ptr.i.i1.i195 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %arrayidx.i196 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i194
-  %39 = load ptr, ptr %arrayidx.i196, align 8
-  %value_.i = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %40 = load ptr, ptr %value_.i, align 8
-  %41 = load ptr, ptr %40, align 8
-  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %41) #17
+  %36 = load ptr, ptr %arrayidx.i196, align 8
+  %value_.i = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %37 = load ptr, ptr %value_.i, align 8
+  %38 = load ptr, ptr %37, align 8
+  %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %38) #17
   %call12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook6hermes7tracingrsERSiRNS1_10SynthTrace10RecordTypeE(ptr noundef nonnull align 8 dereferenceable(16) %ss, ptr noundef nonnull align 4 dereferenceable(4) %kind) #17
-  %42 = load ptr, ptr %hiddenClass_.i, align 8
-  %keys_.i.i.i228 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %43 = load i64, ptr %42, align 8
-  %add.ptr.i.i.i229 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %43
+  %39 = load ptr, ptr %hiddenClass_.i, align 8
+  %keys_.i.i.i228 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %40 = load i64, ptr %39, align 8
+  %add.ptr.i.i.i229 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %40
   %sub.ptr.rhs.cast.i.i.i.i.i.i230 = ptrtoint ptr %keys_.i.i.i228 to i64
-  %cmp11.i.i.i.i231 = icmp sgt i64 %43, 0
+  %cmp11.i.i.i.i231 = icmp sgt i64 %40, 0
   br i1 %cmp11.i.i.i.i231, label %while.body.i.i.i.i249, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i232
 
 while.body.i.i.i.i249:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i269
   %__first.addr.013.i.i.i.i250 = phi ptr [ %__first.addr.1.i.i.i.i274, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i269 ], [ %keys_.i.i.i228, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180 ]
-  %__len.012.i.i.i.i251 = phi i64 [ %__len.1.i.i.i.i273, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i269 ], [ %43, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180 ]
+  %__len.012.i.i.i.i251 = phi i64 [ %__len.1.i.i.i.i273, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i269 ], [ %40, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i180 ]
   %shr.i.i.i.i252 = lshr i64 %__len.012.i.i.i.i251, 1
   %add.ptr.i.i.i.i.i.i255 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i250, i64 %shr.i.i.i.i252
-  %44 = load ptr, ptr %add.ptr.i.i.i.i.i.i255, align 8
-  %value_.i.i.i.i.i.i.i258 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %45 = load ptr, ptr %value_.i.i.i.i.i.i.i258, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i259 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %41 = load ptr, ptr %add.ptr.i.i.i.i.i.i255, align 8
+  %value_.i.i.i.i.i.i.i258 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %42 = load ptr, ptr %value_.i.i.i.i.i.i.i258, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i259 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i260 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i259, align 8
   %cmp.i.i.i.i.i.i.i.i.i262 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i260, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i262, label %if.end.i.i.i.i.i.i.i.i276, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i263
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i263: ; preds = %while.body.i.i.i.i249
   %.sroa.speculated.i.i.i.i.i.i.i261 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i260, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i264 = load ptr, ptr %45, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i264 = load ptr, ptr %42, align 8
   %call.i.i.i.i.i.i.i.i.i265 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i264, ptr noundef nonnull @.str.12, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i261) #20
   %tobool.i.not.i.i.i.i.i.i.i266 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i265, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i266, label %if.end.i.i.i.i.i.i.i.i276, label %if.then.i.i.i.i.i.i.i.i267
@@ -3345,8 +3330,8 @@ if.end.i.i.i.i.i.i.i.i276:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i269: ; preds = %if.end.i.i.i.i.i.i.i.i276, %if.then.i.i.i.i.i.i.i.i267
   %retval.i.0.i.i.i.i.i.i.i270 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i268, %if.then.i.i.i.i.i.i.i.i267 ], [ %cmp12.i.i.i.i.i.i.i.i277, %if.end.i.i.i.i.i.i.i.i276 ]
   %incdec.ptr.i.i.i.i271 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i255, i64 8
-  %46 = xor i64 %shr.i.i.i.i252, -1
-  %sub2.i.i.i.i272 = add nsw i64 %__len.012.i.i.i.i251, %46
+  %43 = xor i64 %shr.i.i.i.i252, -1
+  %sub2.i.i.i.i272 = add nsw i64 %__len.012.i.i.i.i251, %43
   %__len.1.i.i.i.i273 = select i1 %retval.i.0.i.i.i.i.i.i.i270, i64 %sub2.i.i.i.i272, i64 %shr.i.i.i.i252
   %__first.addr.1.i.i.i.i274 = select i1 %retval.i.0.i.i.i.i.i.i.i270, ptr %incdec.ptr.i.i.i.i271, ptr %__first.addr.013.i.i.i.i250
   %cmp.i.i.i.i275 = icmp sgt i64 %__len.1.i.i.i.i273, 0
@@ -3358,32 +3343,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i234, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i.i235
 
 land.lhs.true.i.i235:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i232
-  %47 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i233, align 8
-  %value_.i.i.i236 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %48 = load ptr, ptr %value_.i.i.i236, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i238 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %44 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i233, align 8
+  %value_.i.i.i236 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %45 = load ptr, ptr %value_.i.i.i236, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i238 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i239 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i238, align 8
   %cmp.i.i.i240 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i239, 5
   br i1 %cmp.i.i.i240, label %land.rhs.i.i.i242, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 land.rhs.i.i.i242:                                ; preds = %land.lhs.true.i.i235
-  %agg.tmp4.sroa.0.0.copyload.i.i237 = load ptr, ptr %48, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i237 = load ptr, ptr %45, align 8
   %bcmp.i.i243 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i237, ptr noundef nonnull dereferenceable(5) @.str.12, i64 5)
-  %49 = icmp eq i32 %bcmp.i.i243, 0
-  br i1 %49, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit278, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
+  %46 = icmp eq i32 %bcmp.i.i243, 0
+  br i1 %46, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit278, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit278: ; preds = %land.rhs.i.i.i242
   %sub.ptr.lhs.cast.i.i245 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i233 to i64
   %sub.ptr.sub.i.i246 = sub i64 %sub.ptr.lhs.cast.i.i245, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i248 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i246
-  %50 = load ptr, ptr %arrayidx.i248, align 8
-  %tobool.not.i279 = icmp eq ptr %50, null
+  %47 = load ptr, ptr %arrayidx.i248, align 8
+  %tobool.not.i279 = icmp eq ptr %47, null
   br i1 %tobool.not.i279, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit278
-  %51 = load i32, ptr %50, align 4
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %51, 3
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %50, ptr null
+  %48 = load i32, ptr %47, align 4
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %48, 3
+  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %47, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i232, %land.rhs.i.i.i242, %land.lhs.true.i.i235, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit278, %land.lhs.true.i
@@ -3392,20 +3377,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i302:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i322
   %__first.addr.013.i.i.i.i303 = phi ptr [ %__first.addr.1.i.i.i.i327, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i322 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
-  %__len.012.i.i.i.i304 = phi i64 [ %__len.1.i.i.i.i326, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i322 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
+  %__len.012.i.i.i.i304 = phi i64 [ %__len.1.i.i.i.i326, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i322 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
   %shr.i.i.i.i305 = lshr i64 %__len.012.i.i.i.i304, 1
   %add.ptr.i.i.i.i.i.i308 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i303, i64 %shr.i.i.i.i305
-  %52 = load ptr, ptr %add.ptr.i.i.i.i.i.i308, align 8
-  %value_.i.i.i.i.i.i.i311 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %53 = load ptr, ptr %value_.i.i.i.i.i.i.i311, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i312 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %49 = load ptr, ptr %add.ptr.i.i.i.i.i.i308, align 8
+  %value_.i.i.i.i.i.i.i311 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %50 = load ptr, ptr %value_.i.i.i.i.i.i.i311, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i312 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i313 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i312, align 8
   %cmp.i.i.i.i.i.i.i.i.i315 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i313, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i315, label %if.end.i.i.i.i.i.i.i.i329, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i316
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i316: ; preds = %while.body.i.i.i.i302
   %.sroa.speculated.i.i.i.i.i.i.i314 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i313, i64 12)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i317 = load ptr, ptr %53, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i317 = load ptr, ptr %50, align 8
   %call.i.i.i.i.i.i.i.i.i318 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i317, ptr noundef nonnull @.str.13, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i314) #20
   %tobool.i.not.i.i.i.i.i.i.i319 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i318, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i319, label %if.end.i.i.i.i.i.i.i.i329, label %if.then.i.i.i.i.i.i.i.i320
@@ -3421,8 +3406,8 @@ if.end.i.i.i.i.i.i.i.i329:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i322: ; preds = %if.end.i.i.i.i.i.i.i.i329, %if.then.i.i.i.i.i.i.i.i320
   %retval.i.0.i.i.i.i.i.i.i323 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i321, %if.then.i.i.i.i.i.i.i.i320 ], [ %cmp12.i.i.i.i.i.i.i.i330, %if.end.i.i.i.i.i.i.i.i329 ]
   %incdec.ptr.i.i.i.i324 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i308, i64 8
-  %54 = xor i64 %shr.i.i.i.i305, -1
-  %sub2.i.i.i.i325 = add nsw i64 %__len.012.i.i.i.i304, %54
+  %51 = xor i64 %shr.i.i.i.i305, -1
+  %sub2.i.i.i.i325 = add nsw i64 %__len.012.i.i.i.i304, %51
   %__len.1.i.i.i.i326 = select i1 %retval.i.0.i.i.i.i.i.i.i323, i64 %sub2.i.i.i.i325, i64 %shr.i.i.i.i305
   %__first.addr.1.i.i.i.i327 = select i1 %retval.i.0.i.i.i.i.i.i.i323, ptr %incdec.ptr.i.i.i.i324, ptr %__first.addr.013.i.i.i.i303
   %cmp.i.i.i.i328 = icmp sgt i64 %__len.1.i.i.i.i326, 0
@@ -3434,32 +3419,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i287, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337, label %land.lhs.true.i.i288
 
 land.lhs.true.i.i288:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i285
-  %55 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i286, align 8
-  %value_.i.i.i289 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %56 = load ptr, ptr %value_.i.i.i289, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i291 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %52 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i286, align 8
+  %value_.i.i.i289 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %53 = load ptr, ptr %value_.i.i.i289, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i291 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i292 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i291, align 8
   %cmp.i.i.i293 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i292, 12
   br i1 %cmp.i.i.i293, label %land.rhs.i.i.i295, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337
 
 land.rhs.i.i.i295:                                ; preds = %land.lhs.true.i.i288
-  %agg.tmp4.sroa.0.0.copyload.i.i290 = load ptr, ptr %56, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i290 = load ptr, ptr %53, align 8
   %bcmp.i.i296 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %agg.tmp4.sroa.0.0.copyload.i.i290, ptr noundef nonnull dereferenceable(12) @.str.13, i64 12)
-  %57 = icmp eq i32 %bcmp.i.i296, 0
-  br i1 %57, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit331, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337
+  %54 = icmp eq i32 %bcmp.i.i296, 0
+  br i1 %54, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit331, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit331: ; preds = %land.rhs.i.i.i295
   %sub.ptr.lhs.cast.i.i298 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i286 to i64
   %sub.ptr.sub.i.i299 = sub i64 %sub.ptr.lhs.cast.i.i298, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i301 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i299
-  %58 = load ptr, ptr %arrayidx.i301, align 8
-  %tobool.not.i332 = icmp eq ptr %58, null
+  %55 = load ptr, ptr %arrayidx.i301, align 8
+  %tobool.not.i332 = icmp eq ptr %55, null
   br i1 %tobool.not.i332, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337, label %land.lhs.true.i333
 
 land.lhs.true.i333:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit331
-  %59 = load i32, ptr %58, align 4
-  %cmp.i.i.i.i.i.i.i334 = icmp eq i32 %59, 3
-  %spec.select.i335 = select i1 %cmp.i.i.i.i.i.i.i334, ptr %58, ptr null
+  %56 = load i32, ptr %55, align 4
+  %cmp.i.i.i.i.i.i.i334 = icmp eq i32 %56, 3
+  %spec.select.i335 = select i1 %cmp.i.i.i.i.i.i.i334, ptr %55, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i285, %land.rhs.i.i.i295, %land.lhs.true.i.i288, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit331, %land.lhs.true.i333
@@ -3468,20 +3453,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i360:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i380
   %__first.addr.013.i.i.i.i361 = phi ptr [ %__first.addr.1.i.i.i.i385, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i380 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337 ]
-  %__len.012.i.i.i.i362 = phi i64 [ %__len.1.i.i.i.i384, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i380 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337 ]
+  %__len.012.i.i.i.i362 = phi i64 [ %__len.1.i.i.i.i384, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i380 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit337 ]
   %shr.i.i.i.i363 = lshr i64 %__len.012.i.i.i.i362, 1
   %add.ptr.i.i.i.i.i.i366 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i361, i64 %shr.i.i.i.i363
-  %60 = load ptr, ptr %add.ptr.i.i.i.i.i.i366, align 8
-  %value_.i.i.i.i.i.i.i369 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %61 = load ptr, ptr %value_.i.i.i.i.i.i.i369, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i370 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %57 = load ptr, ptr %add.ptr.i.i.i.i.i.i366, align 8
+  %value_.i.i.i.i.i.i.i369 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %58 = load ptr, ptr %value_.i.i.i.i.i.i.i369, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i370 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i371 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i370, align 8
   %cmp.i.i.i.i.i.i.i.i.i373 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i371, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i373, label %if.end.i.i.i.i.i.i.i.i387, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i374
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i374: ; preds = %while.body.i.i.i.i360
   %.sroa.speculated.i.i.i.i.i.i.i372 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i371, i64 10)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i375 = load ptr, ptr %61, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i375 = load ptr, ptr %58, align 8
   %call.i.i.i.i.i.i.i.i.i376 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i375, ptr noundef nonnull @.str.14, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i372) #20
   %tobool.i.not.i.i.i.i.i.i.i377 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i376, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i377, label %if.end.i.i.i.i.i.i.i.i387, label %if.then.i.i.i.i.i.i.i.i378
@@ -3497,8 +3482,8 @@ if.end.i.i.i.i.i.i.i.i387:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i380: ; preds = %if.end.i.i.i.i.i.i.i.i387, %if.then.i.i.i.i.i.i.i.i378
   %retval.i.0.i.i.i.i.i.i.i381 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i379, %if.then.i.i.i.i.i.i.i.i378 ], [ %cmp12.i.i.i.i.i.i.i.i388, %if.end.i.i.i.i.i.i.i.i387 ]
   %incdec.ptr.i.i.i.i382 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i366, i64 8
-  %62 = xor i64 %shr.i.i.i.i363, -1
-  %sub2.i.i.i.i383 = add nsw i64 %__len.012.i.i.i.i362, %62
+  %59 = xor i64 %shr.i.i.i.i363, -1
+  %sub2.i.i.i.i383 = add nsw i64 %__len.012.i.i.i.i362, %59
   %__len.1.i.i.i.i384 = select i1 %retval.i.0.i.i.i.i.i.i.i381, i64 %sub2.i.i.i.i383, i64 %shr.i.i.i.i363
   %__first.addr.1.i.i.i.i385 = select i1 %retval.i.0.i.i.i.i.i.i.i381, ptr %incdec.ptr.i.i.i.i382, ptr %__first.addr.013.i.i.i.i361
   %cmp.i.i.i.i386 = icmp sgt i64 %__len.1.i.i.i.i384, 0
@@ -3510,32 +3495,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i345, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395, label %land.lhs.true.i.i346
 
 land.lhs.true.i.i346:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i343
-  %63 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i344, align 8
-  %value_.i.i.i347 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %64 = load ptr, ptr %value_.i.i.i347, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i349 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %60 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i344, align 8
+  %value_.i.i.i347 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %61 = load ptr, ptr %value_.i.i.i347, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i349 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i350 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i349, align 8
   %cmp.i.i.i351 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i350, 10
   br i1 %cmp.i.i.i351, label %land.rhs.i.i.i353, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395
 
 land.rhs.i.i.i353:                                ; preds = %land.lhs.true.i.i346
-  %agg.tmp4.sroa.0.0.copyload.i.i348 = load ptr, ptr %64, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i348 = load ptr, ptr %61, align 8
   %bcmp.i.i354 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %agg.tmp4.sroa.0.0.copyload.i.i348, ptr noundef nonnull dereferenceable(10) @.str.14, i64 10)
-  %65 = icmp eq i32 %bcmp.i.i354, 0
-  br i1 %65, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit389, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395
+  %62 = icmp eq i32 %bcmp.i.i354, 0
+  br i1 %62, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit389, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit389: ; preds = %land.rhs.i.i.i353
   %sub.ptr.lhs.cast.i.i356 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i344 to i64
   %sub.ptr.sub.i.i357 = sub i64 %sub.ptr.lhs.cast.i.i356, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i359 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i357
-  %66 = load ptr, ptr %arrayidx.i359, align 8
-  %tobool.not.i390 = icmp eq ptr %66, null
+  %63 = load ptr, ptr %arrayidx.i359, align 8
+  %tobool.not.i390 = icmp eq ptr %63, null
   br i1 %tobool.not.i390, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395, label %land.lhs.true.i391
 
 land.lhs.true.i391:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit389
-  %67 = load i32, ptr %66, align 4
-  %cmp.i.i.i.i.i.i.i392 = icmp eq i32 %67, 3
-  %spec.select.i393 = select i1 %cmp.i.i.i.i.i.i.i392, ptr %66, ptr null
+  %64 = load i32, ptr %63, align 4
+  %cmp.i.i.i.i.i.i.i392 = icmp eq i32 %64, 3
+  %spec.select.i393 = select i1 %cmp.i.i.i.i.i.i.i392, ptr %63, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i343, %land.rhs.i.i.i353, %land.lhs.true.i.i346, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit389, %land.lhs.true.i391
@@ -3544,20 +3529,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i418:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i438
   %__first.addr.013.i.i.i.i419 = phi ptr [ %__first.addr.1.i.i.i.i443, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i438 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395 ]
-  %__len.012.i.i.i.i420 = phi i64 [ %__len.1.i.i.i.i442, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i438 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395 ]
+  %__len.012.i.i.i.i420 = phi i64 [ %__len.1.i.i.i.i442, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i438 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit395 ]
   %shr.i.i.i.i421 = lshr i64 %__len.012.i.i.i.i420, 1
   %add.ptr.i.i.i.i.i.i424 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i419, i64 %shr.i.i.i.i421
-  %68 = load ptr, ptr %add.ptr.i.i.i.i.i.i424, align 8
-  %value_.i.i.i.i.i.i.i427 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %69 = load ptr, ptr %value_.i.i.i.i.i.i.i427, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i428 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %65 = load ptr, ptr %add.ptr.i.i.i.i.i.i424, align 8
+  %value_.i.i.i.i.i.i.i427 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %66 = load ptr, ptr %value_.i.i.i.i.i.i.i427, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i428 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i429 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i428, align 8
   %cmp.i.i.i.i.i.i.i.i.i431 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i429, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i431, label %if.end.i.i.i.i.i.i.i.i445, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i432
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i432: ; preds = %while.body.i.i.i.i418
   %.sroa.speculated.i.i.i.i.i.i.i430 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i429, i64 6)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i433 = load ptr, ptr %69, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i433 = load ptr, ptr %66, align 8
   %call.i.i.i.i.i.i.i.i.i434 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i433, ptr noundef nonnull @.str.15, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i430) #20
   %tobool.i.not.i.i.i.i.i.i.i435 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i434, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i435, label %if.end.i.i.i.i.i.i.i.i445, label %if.then.i.i.i.i.i.i.i.i436
@@ -3573,8 +3558,8 @@ if.end.i.i.i.i.i.i.i.i445:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i438: ; preds = %if.end.i.i.i.i.i.i.i.i445, %if.then.i.i.i.i.i.i.i.i436
   %retval.i.0.i.i.i.i.i.i.i439 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i437, %if.then.i.i.i.i.i.i.i.i436 ], [ %cmp12.i.i.i.i.i.i.i.i446, %if.end.i.i.i.i.i.i.i.i445 ]
   %incdec.ptr.i.i.i.i440 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i424, i64 8
-  %70 = xor i64 %shr.i.i.i.i421, -1
-  %sub2.i.i.i.i441 = add nsw i64 %__len.012.i.i.i.i420, %70
+  %67 = xor i64 %shr.i.i.i.i421, -1
+  %sub2.i.i.i.i441 = add nsw i64 %__len.012.i.i.i.i420, %67
   %__len.1.i.i.i.i442 = select i1 %retval.i.0.i.i.i.i.i.i.i439, i64 %sub2.i.i.i.i441, i64 %shr.i.i.i.i421
   %__first.addr.1.i.i.i.i443 = select i1 %retval.i.0.i.i.i.i.i.i.i439, ptr %incdec.ptr.i.i.i.i440, ptr %__first.addr.013.i.i.i.i419
   %cmp.i.i.i.i444 = icmp sgt i64 %__len.1.i.i.i.i442, 0
@@ -3586,32 +3571,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i403, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i.i404
 
 land.lhs.true.i.i404:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i401
-  %71 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i402, align 8
-  %value_.i.i.i405 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %72 = load ptr, ptr %value_.i.i.i405, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i407 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %68 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i402, align 8
+  %value_.i.i.i405 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %69 = load ptr, ptr %value_.i.i.i405, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i407 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i408 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i407, align 8
   %cmp.i.i.i409 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i408, 6
   br i1 %cmp.i.i.i409, label %land.rhs.i.i.i411, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 land.rhs.i.i.i411:                                ; preds = %land.lhs.true.i.i404
-  %agg.tmp4.sroa.0.0.copyload.i.i406 = load ptr, ptr %72, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i406 = load ptr, ptr %69, align 8
   %bcmp.i.i412 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i406, ptr noundef nonnull dereferenceable(6) @.str.15, i64 6)
-  %73 = icmp eq i32 %bcmp.i.i412, 0
-  br i1 %73, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit447, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
+  %70 = icmp eq i32 %bcmp.i.i412, 0
+  br i1 %70, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit447, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit447: ; preds = %land.rhs.i.i.i411
   %sub.ptr.lhs.cast.i.i414 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i402 to i64
   %sub.ptr.sub.i.i415 = sub i64 %sub.ptr.lhs.cast.i.i414, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i417 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i415
-  %74 = load ptr, ptr %arrayidx.i417, align 8
-  %tobool.not.i448 = icmp eq ptr %74, null
+  %71 = load ptr, ptr %arrayidx.i417, align 8
+  %tobool.not.i448 = icmp eq ptr %71, null
   br i1 %tobool.not.i448, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i449
 
 land.lhs.true.i449:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit447
-  %75 = load i32, ptr %74, align 4
-  %cmp.i.i.i.i.i.i.i450 = icmp eq i32 %75, 2
-  %spec.select.i451 = select i1 %cmp.i.i.i.i.i.i.i450, ptr %74, ptr null
+  %72 = load i32, ptr %71, align 4
+  %cmp.i.i.i.i.i.i.i450 = icmp eq i32 %72, 2
+  %spec.select.i451 = select i1 %cmp.i.i.i.i.i.i.i450, ptr %71, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i401, %land.rhs.i.i.i411, %land.lhs.true.i.i404, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit447, %land.lhs.true.i449
@@ -3620,20 +3605,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i475:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i495
   %__first.addr.013.i.i.i.i476 = phi ptr [ %__first.addr.1.i.i.i.i500, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i495 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
-  %__len.012.i.i.i.i477 = phi i64 [ %__len.1.i.i.i.i499, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i495 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
+  %__len.012.i.i.i.i477 = phi i64 [ %__len.1.i.i.i.i499, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i495 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
   %shr.i.i.i.i478 = lshr i64 %__len.012.i.i.i.i477, 1
   %add.ptr.i.i.i.i.i.i481 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i476, i64 %shr.i.i.i.i478
-  %76 = load ptr, ptr %add.ptr.i.i.i.i.i.i481, align 8
-  %value_.i.i.i.i.i.i.i484 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %77 = load ptr, ptr %value_.i.i.i.i.i.i.i484, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i485 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %73 = load ptr, ptr %add.ptr.i.i.i.i.i.i481, align 8
+  %value_.i.i.i.i.i.i.i484 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %74 = load ptr, ptr %value_.i.i.i.i.i.i.i484, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i485 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i486 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i485, align 8
   %cmp.i.i.i.i.i.i.i.i.i488 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i486, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i488, label %if.end.i.i.i.i.i.i.i.i502, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i489
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i489: ; preds = %while.body.i.i.i.i475
   %.sroa.speculated.i.i.i.i.i.i.i487 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i486, i64 10)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i490 = load ptr, ptr %77, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i490 = load ptr, ptr %74, align 8
   %call.i.i.i.i.i.i.i.i.i491 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i490, ptr noundef nonnull @.str.16, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i487) #20
   %tobool.i.not.i.i.i.i.i.i.i492 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i491, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i492, label %if.end.i.i.i.i.i.i.i.i502, label %if.then.i.i.i.i.i.i.i.i493
@@ -3649,8 +3634,8 @@ if.end.i.i.i.i.i.i.i.i502:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i495: ; preds = %if.end.i.i.i.i.i.i.i.i502, %if.then.i.i.i.i.i.i.i.i493
   %retval.i.0.i.i.i.i.i.i.i496 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i494, %if.then.i.i.i.i.i.i.i.i493 ], [ %cmp12.i.i.i.i.i.i.i.i503, %if.end.i.i.i.i.i.i.i.i502 ]
   %incdec.ptr.i.i.i.i497 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i481, i64 8
-  %78 = xor i64 %shr.i.i.i.i478, -1
-  %sub2.i.i.i.i498 = add nsw i64 %__len.012.i.i.i.i477, %78
+  %75 = xor i64 %shr.i.i.i.i478, -1
+  %sub2.i.i.i.i498 = add nsw i64 %__len.012.i.i.i.i477, %75
   %__len.1.i.i.i.i499 = select i1 %retval.i.0.i.i.i.i.i.i.i496, i64 %sub2.i.i.i.i498, i64 %shr.i.i.i.i478
   %__first.addr.1.i.i.i.i500 = select i1 %retval.i.0.i.i.i.i.i.i.i496, ptr %incdec.ptr.i.i.i.i497, ptr %__first.addr.013.i.i.i.i476
   %cmp.i.i.i.i501 = icmp sgt i64 %__len.1.i.i.i.i499, 0
@@ -3662,32 +3647,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i460, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510, label %land.lhs.true.i.i461
 
 land.lhs.true.i.i461:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i458
-  %79 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i459, align 8
-  %value_.i.i.i462 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %80 = load ptr, ptr %value_.i.i.i462, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i464 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %76 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i459, align 8
+  %value_.i.i.i462 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  %77 = load ptr, ptr %value_.i.i.i462, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i464 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i465 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i464, align 8
   %cmp.i.i.i466 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i465, 10
   br i1 %cmp.i.i.i466, label %land.rhs.i.i.i468, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510
 
 land.rhs.i.i.i468:                                ; preds = %land.lhs.true.i.i461
-  %agg.tmp4.sroa.0.0.copyload.i.i463 = load ptr, ptr %80, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i463 = load ptr, ptr %77, align 8
   %bcmp.i.i469 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %agg.tmp4.sroa.0.0.copyload.i.i463, ptr noundef nonnull dereferenceable(10) @.str.16, i64 10)
-  %81 = icmp eq i32 %bcmp.i.i469, 0
-  br i1 %81, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit504, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510
+  %78 = icmp eq i32 %bcmp.i.i469, 0
+  br i1 %78, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit504, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit504: ; preds = %land.rhs.i.i.i468
   %sub.ptr.lhs.cast.i.i471 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i459 to i64
   %sub.ptr.sub.i.i472 = sub i64 %sub.ptr.lhs.cast.i.i471, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i474 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i472
-  %82 = load ptr, ptr %arrayidx.i474, align 8
-  %tobool.not.i505 = icmp eq ptr %82, null
+  %79 = load ptr, ptr %arrayidx.i474, align 8
+  %tobool.not.i505 = icmp eq ptr %79, null
   br i1 %tobool.not.i505, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510, label %land.lhs.true.i506
 
 land.lhs.true.i506:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit504
-  %83 = load i32, ptr %82, align 4
-  %cmp.i.i.i.i.i.i.i507 = icmp eq i32 %83, 3
-  %spec.select.i508 = select i1 %cmp.i.i.i.i.i.i.i507, ptr %82, ptr null
+  %80 = load i32, ptr %79, align 4
+  %cmp.i.i.i.i.i.i.i507 = icmp eq i32 %80, 3
+  %spec.select.i508 = select i1 %cmp.i.i.i.i.i.i.i507, ptr %79, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i458, %land.rhs.i.i.i468, %land.lhs.true.i.i461, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit504, %land.lhs.true.i506
@@ -3696,20 +3681,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i533:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i553
   %__first.addr.013.i.i.i.i534 = phi ptr [ %__first.addr.1.i.i.i.i558, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i553 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510 ]
-  %__len.012.i.i.i.i535 = phi i64 [ %__len.1.i.i.i.i557, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i553 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510 ]
+  %__len.012.i.i.i.i535 = phi i64 [ %__len.1.i.i.i.i557, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i553 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit510 ]
   %shr.i.i.i.i536 = lshr i64 %__len.012.i.i.i.i535, 1
   %add.ptr.i.i.i.i.i.i539 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i534, i64 %shr.i.i.i.i536
-  %84 = load ptr, ptr %add.ptr.i.i.i.i.i.i539, align 8
-  %value_.i.i.i.i.i.i.i542 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %85 = load ptr, ptr %value_.i.i.i.i.i.i.i542, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i543 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %81 = load ptr, ptr %add.ptr.i.i.i.i.i.i539, align 8
+  %value_.i.i.i.i.i.i.i542 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %82 = load ptr, ptr %value_.i.i.i.i.i.i.i542, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i543 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i544 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i543, align 8
   %cmp.i.i.i.i.i.i.i.i.i546 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i544, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i546, label %if.end.i.i.i.i.i.i.i.i560, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i547
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i547: ; preds = %while.body.i.i.i.i533
   %.sroa.speculated.i.i.i.i.i.i.i545 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i544, i64 8)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i548 = load ptr, ptr %85, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i548 = load ptr, ptr %82, align 8
   %call.i.i.i.i.i.i.i.i.i549 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i548, ptr noundef nonnull @.str.17, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i545) #20
   %tobool.i.not.i.i.i.i.i.i.i550 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i549, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i550, label %if.end.i.i.i.i.i.i.i.i560, label %if.then.i.i.i.i.i.i.i.i551
@@ -3725,8 +3710,8 @@ if.end.i.i.i.i.i.i.i.i560:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i553: ; preds = %if.end.i.i.i.i.i.i.i.i560, %if.then.i.i.i.i.i.i.i.i551
   %retval.i.0.i.i.i.i.i.i.i554 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i552, %if.then.i.i.i.i.i.i.i.i551 ], [ %cmp12.i.i.i.i.i.i.i.i561, %if.end.i.i.i.i.i.i.i.i560 ]
   %incdec.ptr.i.i.i.i555 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i539, i64 8
-  %86 = xor i64 %shr.i.i.i.i536, -1
-  %sub2.i.i.i.i556 = add nsw i64 %__len.012.i.i.i.i535, %86
+  %83 = xor i64 %shr.i.i.i.i536, -1
+  %sub2.i.i.i.i556 = add nsw i64 %__len.012.i.i.i.i535, %83
   %__len.1.i.i.i.i557 = select i1 %retval.i.0.i.i.i.i.i.i.i554, i64 %sub2.i.i.i.i556, i64 %shr.i.i.i.i536
   %__first.addr.1.i.i.i.i558 = select i1 %retval.i.0.i.i.i.i.i.i.i554, ptr %incdec.ptr.i.i.i.i555, ptr %__first.addr.013.i.i.i.i534
   %cmp.i.i.i.i559 = icmp sgt i64 %__len.1.i.i.i.i557, 0
@@ -3738,32 +3723,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i518, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568, label %land.lhs.true.i.i519
 
 land.lhs.true.i.i519:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i516
-  %87 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i517, align 8
-  %value_.i.i.i520 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %88 = load ptr, ptr %value_.i.i.i520, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i522 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %84 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i517, align 8
+  %value_.i.i.i520 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %85 = load ptr, ptr %value_.i.i.i520, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i522 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i523 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i522, align 8
   %cmp.i.i.i524 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i523, 8
   br i1 %cmp.i.i.i524, label %land.rhs.i.i.i526, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568
 
 land.rhs.i.i.i526:                                ; preds = %land.lhs.true.i.i519
-  %agg.tmp4.sroa.0.0.copyload.i.i521 = load ptr, ptr %88, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i521 = load ptr, ptr %85, align 8
   %bcmp.i.i527 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %agg.tmp4.sroa.0.0.copyload.i.i521, ptr noundef nonnull dereferenceable(8) @.str.17, i64 8)
-  %89 = icmp eq i32 %bcmp.i.i527, 0
-  br i1 %89, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit562, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568
+  %86 = icmp eq i32 %bcmp.i.i527, 0
+  br i1 %86, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit562, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit562: ; preds = %land.rhs.i.i.i526
   %sub.ptr.lhs.cast.i.i529 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i517 to i64
   %sub.ptr.sub.i.i530 = sub i64 %sub.ptr.lhs.cast.i.i529, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i532 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i530
-  %90 = load ptr, ptr %arrayidx.i532, align 8
-  %tobool.not.i563 = icmp eq ptr %90, null
+  %87 = load ptr, ptr %arrayidx.i532, align 8
+  %tobool.not.i563 = icmp eq ptr %87, null
   br i1 %tobool.not.i563, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568, label %land.lhs.true.i564
 
 land.lhs.true.i564:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit562
-  %91 = load i32, ptr %90, align 4
-  %cmp.i.i.i.i.i.i.i565 = icmp eq i32 %91, 2
-  %spec.select.i566 = select i1 %cmp.i.i.i.i.i.i.i565, ptr %90, ptr null
+  %88 = load i32, ptr %87, align 4
+  %cmp.i.i.i.i.i.i.i565 = icmp eq i32 %88, 2
+  %spec.select.i566 = select i1 %cmp.i.i.i.i.i.i.i565, ptr %87, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i516, %land.rhs.i.i.i526, %land.lhs.true.i.i519, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit562, %land.lhs.true.i564
@@ -3772,20 +3757,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i591:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i611
   %__first.addr.013.i.i.i.i592 = phi ptr [ %__first.addr.1.i.i.i.i616, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i611 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568 ]
-  %__len.012.i.i.i.i593 = phi i64 [ %__len.1.i.i.i.i615, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i611 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568 ]
+  %__len.012.i.i.i.i593 = phi i64 [ %__len.1.i.i.i.i615, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i611 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit568 ]
   %shr.i.i.i.i594 = lshr i64 %__len.012.i.i.i.i593, 1
   %add.ptr.i.i.i.i.i.i597 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i592, i64 %shr.i.i.i.i594
-  %92 = load ptr, ptr %add.ptr.i.i.i.i.i.i597, align 8
-  %value_.i.i.i.i.i.i.i600 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %93 = load ptr, ptr %value_.i.i.i.i.i.i.i600, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i601 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %89 = load ptr, ptr %add.ptr.i.i.i.i.i.i597, align 8
+  %value_.i.i.i.i.i.i.i600 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %90 = load ptr, ptr %value_.i.i.i.i.i.i.i600, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i601 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i602 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i601, align 8
   %cmp.i.i.i.i.i.i.i.i.i604 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i602, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i604, label %if.end.i.i.i.i.i.i.i.i618, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i605
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i605: ; preds = %while.body.i.i.i.i591
   %.sroa.speculated.i.i.i.i.i.i.i603 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i602, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i606 = load ptr, ptr %93, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i606 = load ptr, ptr %90, align 8
   %call.i.i.i.i.i.i.i.i.i607 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i606, ptr noundef nonnull @.str.18, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i603) #20
   %tobool.i.not.i.i.i.i.i.i.i608 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i607, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i608, label %if.end.i.i.i.i.i.i.i.i618, label %if.then.i.i.i.i.i.i.i.i609
@@ -3801,8 +3786,8 @@ if.end.i.i.i.i.i.i.i.i618:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i611: ; preds = %if.end.i.i.i.i.i.i.i.i618, %if.then.i.i.i.i.i.i.i.i609
   %retval.i.0.i.i.i.i.i.i.i612 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i610, %if.then.i.i.i.i.i.i.i.i609 ], [ %cmp12.i.i.i.i.i.i.i.i619, %if.end.i.i.i.i.i.i.i.i618 ]
   %incdec.ptr.i.i.i.i613 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i597, i64 8
-  %94 = xor i64 %shr.i.i.i.i594, -1
-  %sub2.i.i.i.i614 = add nsw i64 %__len.012.i.i.i.i593, %94
+  %91 = xor i64 %shr.i.i.i.i594, -1
+  %sub2.i.i.i.i614 = add nsw i64 %__len.012.i.i.i.i593, %91
   %__len.1.i.i.i.i615 = select i1 %retval.i.0.i.i.i.i.i.i.i612, i64 %sub2.i.i.i.i614, i64 %shr.i.i.i.i594
   %__first.addr.1.i.i.i.i616 = select i1 %retval.i.0.i.i.i.i.i.i.i612, ptr %incdec.ptr.i.i.i.i613, ptr %__first.addr.013.i.i.i.i592
   %cmp.i.i.i.i617 = icmp sgt i64 %__len.1.i.i.i.i615, 0
@@ -3814,32 +3799,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i576, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626, label %land.lhs.true.i.i577
 
 land.lhs.true.i.i577:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i574
-  %95 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i575, align 8
-  %value_.i.i.i578 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %96 = load ptr, ptr %value_.i.i.i578, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i580 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %92 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i575, align 8
+  %value_.i.i.i578 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %93 = load ptr, ptr %value_.i.i.i578, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i580 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i581 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i580, align 8
   %cmp.i.i.i582 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i581, 5
   br i1 %cmp.i.i.i582, label %land.rhs.i.i.i584, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626
 
 land.rhs.i.i.i584:                                ; preds = %land.lhs.true.i.i577
-  %agg.tmp4.sroa.0.0.copyload.i.i579 = load ptr, ptr %96, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i579 = load ptr, ptr %93, align 8
   %bcmp.i.i585 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i579, ptr noundef nonnull dereferenceable(5) @.str.18, i64 5)
-  %97 = icmp eq i32 %bcmp.i.i585, 0
-  br i1 %97, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit620, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626
+  %94 = icmp eq i32 %bcmp.i.i585, 0
+  br i1 %94, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit620, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit620: ; preds = %land.rhs.i.i.i584
   %sub.ptr.lhs.cast.i.i587 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i575 to i64
   %sub.ptr.sub.i.i588 = sub i64 %sub.ptr.lhs.cast.i.i587, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i590 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i588
-  %98 = load ptr, ptr %arrayidx.i590, align 8
-  %tobool.not.i621 = icmp eq ptr %98, null
+  %95 = load ptr, ptr %arrayidx.i590, align 8
+  %tobool.not.i621 = icmp eq ptr %95, null
   br i1 %tobool.not.i621, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626, label %land.lhs.true.i622
 
 land.lhs.true.i622:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit620
-  %99 = load i32, ptr %98, align 4
-  %cmp.i.i.i.i.i.i.i623 = icmp eq i32 %99, 2
-  %spec.select.i624 = select i1 %cmp.i.i.i.i.i.i.i623, ptr %98, ptr null
+  %96 = load i32, ptr %95, align 4
+  %cmp.i.i.i.i.i.i.i623 = icmp eq i32 %96, 2
+  %spec.select.i624 = select i1 %cmp.i.i.i.i.i.i.i623, ptr %95, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i574, %land.rhs.i.i.i584, %land.lhs.true.i.i577, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit620, %land.lhs.true.i622
@@ -3848,20 +3833,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i649:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i669
   %__first.addr.013.i.i.i.i650 = phi ptr [ %__first.addr.1.i.i.i.i674, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i669 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626 ]
-  %__len.012.i.i.i.i651 = phi i64 [ %__len.1.i.i.i.i673, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i669 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626 ]
+  %__len.012.i.i.i.i651 = phi i64 [ %__len.1.i.i.i.i673, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i669 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit626 ]
   %shr.i.i.i.i652 = lshr i64 %__len.012.i.i.i.i651, 1
   %add.ptr.i.i.i.i.i.i655 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i650, i64 %shr.i.i.i.i652
-  %100 = load ptr, ptr %add.ptr.i.i.i.i.i.i655, align 8
-  %value_.i.i.i.i.i.i.i658 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %101 = load ptr, ptr %value_.i.i.i.i.i.i.i658, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i659 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %97 = load ptr, ptr %add.ptr.i.i.i.i.i.i655, align 8
+  %value_.i.i.i.i.i.i.i658 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %98 = load ptr, ptr %value_.i.i.i.i.i.i.i658, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i659 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i660 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i659, align 8
   %cmp.i.i.i.i.i.i.i.i.i662 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i660, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i662, label %if.end.i.i.i.i.i.i.i.i676, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i663
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i663: ; preds = %while.body.i.i.i.i649
   %.sroa.speculated.i.i.i.i.i.i.i661 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i660, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i664 = load ptr, ptr %101, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i664 = load ptr, ptr %98, align 8
   %call.i.i.i.i.i.i.i.i.i665 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i664, ptr noundef nonnull @.str.19, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i661) #20
   %tobool.i.not.i.i.i.i.i.i.i666 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i665, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i666, label %if.end.i.i.i.i.i.i.i.i676, label %if.then.i.i.i.i.i.i.i.i667
@@ -3877,8 +3862,8 @@ if.end.i.i.i.i.i.i.i.i676:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i669: ; preds = %if.end.i.i.i.i.i.i.i.i676, %if.then.i.i.i.i.i.i.i.i667
   %retval.i.0.i.i.i.i.i.i.i670 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i668, %if.then.i.i.i.i.i.i.i.i667 ], [ %cmp12.i.i.i.i.i.i.i.i677, %if.end.i.i.i.i.i.i.i.i676 ]
   %incdec.ptr.i.i.i.i671 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i655, i64 8
-  %102 = xor i64 %shr.i.i.i.i652, -1
-  %sub2.i.i.i.i672 = add nsw i64 %__len.012.i.i.i.i651, %102
+  %99 = xor i64 %shr.i.i.i.i652, -1
+  %sub2.i.i.i.i672 = add nsw i64 %__len.012.i.i.i.i651, %99
   %__len.1.i.i.i.i673 = select i1 %retval.i.0.i.i.i.i.i.i.i670, i64 %sub2.i.i.i.i672, i64 %shr.i.i.i.i652
   %__first.addr.1.i.i.i.i674 = select i1 %retval.i.0.i.i.i.i.i.i.i670, ptr %incdec.ptr.i.i.i.i671, ptr %__first.addr.013.i.i.i.i650
   %cmp.i.i.i.i675 = icmp sgt i64 %__len.1.i.i.i.i673, 0
@@ -3890,32 +3875,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i634, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684, label %land.lhs.true.i.i635
 
 land.lhs.true.i.i635:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i632
-  %103 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i633, align 8
-  %value_.i.i.i636 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %104 = load ptr, ptr %value_.i.i.i636, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i638 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %100 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i633, align 8
+  %value_.i.i.i636 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %101 = load ptr, ptr %value_.i.i.i636, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i638 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i639 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i638, align 8
   %cmp.i.i.i640 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i639, 5
   br i1 %cmp.i.i.i640, label %land.rhs.i.i.i642, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684
 
 land.rhs.i.i.i642:                                ; preds = %land.lhs.true.i.i635
-  %agg.tmp4.sroa.0.0.copyload.i.i637 = load ptr, ptr %104, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i637 = load ptr, ptr %101, align 8
   %bcmp.i.i643 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i637, ptr noundef nonnull dereferenceable(5) @.str.19, i64 5)
-  %105 = icmp eq i32 %bcmp.i.i643, 0
-  br i1 %105, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit678, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684
+  %102 = icmp eq i32 %bcmp.i.i643, 0
+  br i1 %102, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit678, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit678: ; preds = %land.rhs.i.i.i642
   %sub.ptr.lhs.cast.i.i645 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i633 to i64
   %sub.ptr.sub.i.i646 = sub i64 %sub.ptr.lhs.cast.i.i645, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i648 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i646
-  %106 = load ptr, ptr %arrayidx.i648, align 8
-  %tobool.not.i679 = icmp eq ptr %106, null
+  %103 = load ptr, ptr %arrayidx.i648, align 8
+  %tobool.not.i679 = icmp eq ptr %103, null
   br i1 %tobool.not.i679, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684, label %land.lhs.true.i680
 
 land.lhs.true.i680:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit678
-  %107 = load i32, ptr %106, align 4
-  %cmp.i.i.i.i.i.i.i681 = icmp eq i32 %107, 3
-  %spec.select.i682 = select i1 %cmp.i.i.i.i.i.i.i681, ptr %106, ptr null
+  %104 = load i32, ptr %103, align 4
+  %cmp.i.i.i.i.i.i.i681 = icmp eq i32 %104, 3
+  %spec.select.i682 = select i1 %cmp.i.i.i.i.i.i.i681, ptr %103, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i632, %land.rhs.i.i.i642, %land.lhs.true.i.i635, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit678, %land.lhs.true.i680
@@ -3924,20 +3909,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i707:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i727
   %__first.addr.013.i.i.i.i708 = phi ptr [ %__first.addr.1.i.i.i.i732, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i727 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684 ]
-  %__len.012.i.i.i.i709 = phi i64 [ %__len.1.i.i.i.i731, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i727 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684 ]
+  %__len.012.i.i.i.i709 = phi i64 [ %__len.1.i.i.i.i731, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i727 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit684 ]
   %shr.i.i.i.i710 = lshr i64 %__len.012.i.i.i.i709, 1
   %add.ptr.i.i.i.i.i.i713 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i708, i64 %shr.i.i.i.i710
-  %108 = load ptr, ptr %add.ptr.i.i.i.i.i.i713, align 8
-  %value_.i.i.i.i.i.i.i716 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %109 = load ptr, ptr %value_.i.i.i.i.i.i.i716, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i717 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %105 = load ptr, ptr %add.ptr.i.i.i.i.i.i713, align 8
+  %value_.i.i.i.i.i.i.i716 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  %106 = load ptr, ptr %value_.i.i.i.i.i.i.i716, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i717 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i718 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i717, align 8
   %cmp.i.i.i.i.i.i.i.i.i720 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i718, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i720, label %if.end.i.i.i.i.i.i.i.i734, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i721
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i721: ; preds = %while.body.i.i.i.i707
   %.sroa.speculated.i.i.i.i.i.i.i719 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i718, i64 4)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i722 = load ptr, ptr %109, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i722 = load ptr, ptr %106, align 8
   %call.i.i.i.i.i.i.i.i.i723 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i722, ptr noundef nonnull @.str.20, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i719) #20
   %tobool.i.not.i.i.i.i.i.i.i724 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i723, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i724, label %if.end.i.i.i.i.i.i.i.i734, label %if.then.i.i.i.i.i.i.i.i725
@@ -3953,8 +3938,8 @@ if.end.i.i.i.i.i.i.i.i734:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i727: ; preds = %if.end.i.i.i.i.i.i.i.i734, %if.then.i.i.i.i.i.i.i.i725
   %retval.i.0.i.i.i.i.i.i.i728 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i726, %if.then.i.i.i.i.i.i.i.i725 ], [ %cmp12.i.i.i.i.i.i.i.i735, %if.end.i.i.i.i.i.i.i.i734 ]
   %incdec.ptr.i.i.i.i729 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i713, i64 8
-  %110 = xor i64 %shr.i.i.i.i710, -1
-  %sub2.i.i.i.i730 = add nsw i64 %__len.012.i.i.i.i709, %110
+  %107 = xor i64 %shr.i.i.i.i710, -1
+  %sub2.i.i.i.i730 = add nsw i64 %__len.012.i.i.i.i709, %107
   %__len.1.i.i.i.i731 = select i1 %retval.i.0.i.i.i.i.i.i.i728, i64 %sub2.i.i.i.i730, i64 %shr.i.i.i.i710
   %__first.addr.1.i.i.i.i732 = select i1 %retval.i.0.i.i.i.i.i.i.i728, ptr %incdec.ptr.i.i.i.i729, ptr %__first.addr.013.i.i.i.i708
   %cmp.i.i.i.i733 = icmp sgt i64 %__len.1.i.i.i.i731, 0
@@ -3966,32 +3951,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i692, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i.i693
 
 land.lhs.true.i.i693:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i690
-  %111 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i691, align 8
-  %value_.i.i.i694 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %112 = load ptr, ptr %value_.i.i.i694, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i696 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %108 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i691, align 8
+  %value_.i.i.i694 = getelementptr inbounds nuw i8, ptr %108, i64 16
+  %109 = load ptr, ptr %value_.i.i.i694, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i696 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i697 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i696, align 8
   %cmp.i.i.i698 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i697, 4
   br i1 %cmp.i.i.i698, label %land.rhs.i.i.i700, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 land.rhs.i.i.i700:                                ; preds = %land.lhs.true.i.i693
-  %agg.tmp4.sroa.0.0.copyload.i.i695 = load ptr, ptr %112, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i695 = load ptr, ptr %109, align 8
   %bcmp.i.i701 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i695, ptr noundef nonnull dereferenceable(4) @.str.20, i64 4)
-  %113 = icmp eq i32 %bcmp.i.i701, 0
-  br i1 %113, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit736, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
+  %110 = icmp eq i32 %bcmp.i.i701, 0
+  br i1 %110, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit736, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit736: ; preds = %land.rhs.i.i.i700
   %sub.ptr.lhs.cast.i.i703 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i691 to i64
   %sub.ptr.sub.i.i704 = sub i64 %sub.ptr.lhs.cast.i.i703, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i706 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i704
-  %114 = load ptr, ptr %arrayidx.i706, align 8
-  %tobool.not.i737 = icmp eq ptr %114, null
+  %111 = load ptr, ptr %arrayidx.i706, align 8
+  %tobool.not.i737 = icmp eq ptr %111, null
   br i1 %tobool.not.i737, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, label %land.lhs.true.i738
 
 land.lhs.true.i738:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit736
-  %115 = load i32, ptr %114, align 4
-  %cmp.i.i.i.i.i.i.i739 = icmp eq i32 %115, 1
-  %spec.select.i740 = select i1 %cmp.i.i.i.i.i.i.i739, ptr %114, ptr null
+  %112 = load i32, ptr %111, align 4
+  %cmp.i.i.i.i.i.i.i739 = icmp eq i32 %112, 1
+  %spec.select.i740 = select i1 %cmp.i.i.i.i.i.i.i739, ptr %111, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i690, %land.rhs.i.i.i700, %land.lhs.true.i.i693, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit736, %land.lhs.true.i738
@@ -4000,20 +3985,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_
 
 while.body.i.i.i.i764:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i784
   %__first.addr.013.i.i.i.i765 = phi ptr [ %__first.addr.1.i.i.i.i789, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i784 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
-  %__len.012.i.i.i.i766 = phi i64 [ %__len.1.i.i.i.i788, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i784 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
+  %__len.012.i.i.i.i766 = phi i64 [ %__len.1.i.i.i.i788, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i784 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser9JSONArrayENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit ]
   %shr.i.i.i.i767 = lshr i64 %__len.012.i.i.i.i766, 1
   %add.ptr.i.i.i.i.i.i770 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i765, i64 %shr.i.i.i.i767
-  %116 = load ptr, ptr %add.ptr.i.i.i.i.i.i770, align 8
-  %value_.i.i.i.i.i.i.i773 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %117 = load ptr, ptr %value_.i.i.i.i.i.i.i773, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i774 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %113 = load ptr, ptr %add.ptr.i.i.i.i.i.i770, align 8
+  %value_.i.i.i.i.i.i.i773 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %114 = load ptr, ptr %value_.i.i.i.i.i.i.i773, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i774 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i775 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i774, align 8
   %cmp.i.i.i.i.i.i.i.i.i777 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i775, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i777, label %if.end.i.i.i.i.i.i.i.i791, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i778
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i778: ; preds = %while.body.i.i.i.i764
   %.sroa.speculated.i.i.i.i.i.i.i776 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i775, i64 7)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i779 = load ptr, ptr %117, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i779 = load ptr, ptr %114, align 8
   %call.i.i.i.i.i.i.i.i.i780 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i779, ptr noundef nonnull @.str.21, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i776) #20
   %tobool.i.not.i.i.i.i.i.i.i781 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i780, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i781, label %if.end.i.i.i.i.i.i.i.i791, label %if.then.i.i.i.i.i.i.i.i782
@@ -4029,8 +4014,8 @@ if.end.i.i.i.i.i.i.i.i791:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i784: ; preds = %if.end.i.i.i.i.i.i.i.i791, %if.then.i.i.i.i.i.i.i.i782
   %retval.i.0.i.i.i.i.i.i.i785 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i783, %if.then.i.i.i.i.i.i.i.i782 ], [ %cmp12.i.i.i.i.i.i.i.i792, %if.end.i.i.i.i.i.i.i.i791 ]
   %incdec.ptr.i.i.i.i786 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i770, i64 8
-  %118 = xor i64 %shr.i.i.i.i767, -1
-  %sub2.i.i.i.i787 = add nsw i64 %__len.012.i.i.i.i766, %118
+  %115 = xor i64 %shr.i.i.i.i767, -1
+  %sub2.i.i.i.i787 = add nsw i64 %__len.012.i.i.i.i766, %115
   %__len.1.i.i.i.i788 = select i1 %retval.i.0.i.i.i.i.i.i.i785, i64 %sub2.i.i.i.i787, i64 %shr.i.i.i.i767
   %__first.addr.1.i.i.i.i789 = select i1 %retval.i.0.i.i.i.i.i.i.i785, ptr %incdec.ptr.i.i.i.i786, ptr %__first.addr.013.i.i.i.i765
   %cmp.i.i.i.i790 = icmp sgt i64 %__len.1.i.i.i.i788, 0
@@ -4042,32 +4027,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i749, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799, label %land.lhs.true.i.i750
 
 land.lhs.true.i.i750:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i747
-  %119 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i748, align 8
-  %value_.i.i.i751 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %120 = load ptr, ptr %value_.i.i.i751, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i753 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %116 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i748, align 8
+  %value_.i.i.i751 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  %117 = load ptr, ptr %value_.i.i.i751, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i753 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i754 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i753, align 8
   %cmp.i.i.i755 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i754, 7
   br i1 %cmp.i.i.i755, label %land.rhs.i.i.i757, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799
 
 land.rhs.i.i.i757:                                ; preds = %land.lhs.true.i.i750
-  %agg.tmp4.sroa.0.0.copyload.i.i752 = load ptr, ptr %120, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i752 = load ptr, ptr %117, align 8
   %bcmp.i.i758 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %agg.tmp4.sroa.0.0.copyload.i.i752, ptr noundef nonnull dereferenceable(7) @.str.21, i64 7)
-  %121 = icmp eq i32 %bcmp.i.i758, 0
-  br i1 %121, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit793, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799
+  %118 = icmp eq i32 %bcmp.i.i758, 0
+  br i1 %118, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit793, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit793: ; preds = %land.rhs.i.i.i757
   %sub.ptr.lhs.cast.i.i760 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i748 to i64
   %sub.ptr.sub.i.i761 = sub i64 %sub.ptr.lhs.cast.i.i760, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i763 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i761
-  %122 = load ptr, ptr %arrayidx.i763, align 8
-  %tobool.not.i794 = icmp eq ptr %122, null
+  %119 = load ptr, ptr %arrayidx.i763, align 8
+  %tobool.not.i794 = icmp eq ptr %119, null
   br i1 %tobool.not.i794, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799, label %land.lhs.true.i795
 
 land.lhs.true.i795:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit793
-  %123 = load i32, ptr %122, align 4
-  %cmp.i.i.i.i.i.i.i796 = icmp eq i32 %123, 2
-  %spec.select.i797 = select i1 %cmp.i.i.i.i.i.i.i796, ptr %122, ptr null
+  %120 = load i32, ptr %119, align 4
+  %cmp.i.i.i.i.i.i.i796 = icmp eq i32 %120, 2
+  %spec.select.i797 = select i1 %cmp.i.i.i.i.i.i.i796, ptr %119, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i747, %land.rhs.i.i.i757, %land.lhs.true.i.i750, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit793, %land.lhs.true.i795
@@ -4076,20 +4061,20 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cas
 
 while.body.i.i.i.i822:                            ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i842
   %__first.addr.013.i.i.i.i823 = phi ptr [ %__first.addr.1.i.i.i.i847, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i842 ], [ %keys_.i.i.i228, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799 ]
-  %__len.012.i.i.i.i824 = phi i64 [ %__len.1.i.i.i.i846, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i842 ], [ %43, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799 ]
+  %__len.012.i.i.i.i824 = phi i64 [ %__len.1.i.i.i.i846, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i842 ], [ %40, %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit799 ]
   %shr.i.i.i.i825 = lshr i64 %__len.012.i.i.i.i824, 1
   %add.ptr.i.i.i.i.i.i828 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i823, i64 %shr.i.i.i.i825
-  %124 = load ptr, ptr %add.ptr.i.i.i.i.i.i828, align 8
-  %value_.i.i.i.i.i.i.i831 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %125 = load ptr, ptr %value_.i.i.i.i.i.i.i831, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i832 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %121 = load ptr, ptr %add.ptr.i.i.i.i.i.i828, align 8
+  %value_.i.i.i.i.i.i.i831 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %122 = load ptr, ptr %value_.i.i.i.i.i.i.i831, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i832 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i833 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i832, align 8
   %cmp.i.i.i.i.i.i.i.i.i835 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i833, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i835, label %if.end.i.i.i.i.i.i.i.i849, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i836
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i836: ; preds = %while.body.i.i.i.i822
   %.sroa.speculated.i.i.i.i.i.i.i834 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i833, i64 6)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i837 = load ptr, ptr %125, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i837 = load ptr, ptr %122, align 8
   %call.i.i.i.i.i.i.i.i.i838 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i837, ptr noundef nonnull @.str.22, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i834) #20
   %tobool.i.not.i.i.i.i.i.i.i839 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i838, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i839, label %if.end.i.i.i.i.i.i.i.i849, label %if.then.i.i.i.i.i.i.i.i840
@@ -4105,8 +4090,8 @@ if.end.i.i.i.i.i.i.i.i849:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i842: ; preds = %if.end.i.i.i.i.i.i.i.i849, %if.then.i.i.i.i.i.i.i.i840
   %retval.i.0.i.i.i.i.i.i.i843 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i841, %if.then.i.i.i.i.i.i.i.i840 ], [ %cmp12.i.i.i.i.i.i.i.i850, %if.end.i.i.i.i.i.i.i.i849 ]
   %incdec.ptr.i.i.i.i844 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i828, i64 8
-  %126 = xor i64 %shr.i.i.i.i825, -1
-  %sub2.i.i.i.i845 = add nsw i64 %__len.012.i.i.i.i824, %126
+  %123 = xor i64 %shr.i.i.i.i825, -1
+  %sub2.i.i.i.i845 = add nsw i64 %__len.012.i.i.i.i824, %123
   %__len.1.i.i.i.i846 = select i1 %retval.i.0.i.i.i.i.i.i.i843, i64 %sub2.i.i.i.i845, i64 %shr.i.i.i.i825
   %__first.addr.1.i.i.i.i847 = select i1 %retval.i.0.i.i.i.i.i.i.i843, ptr %incdec.ptr.i.i.i.i844, ptr %__first.addr.013.i.i.i.i823
   %cmp.i.i.i.i848 = icmp sgt i64 %__len.1.i.i.i.i846, 0
@@ -4118,38 +4103,38 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i807, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857, label %land.lhs.true.i.i808
 
 land.lhs.true.i.i808:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i805
-  %127 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i806, align 8
-  %value_.i.i.i809 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %128 = load ptr, ptr %value_.i.i.i809, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i811 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %124 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i806, align 8
+  %value_.i.i.i809 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %125 = load ptr, ptr %value_.i.i.i809, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i811 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i812 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i811, align 8
   %cmp.i.i.i813 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i812, 6
   br i1 %cmp.i.i.i813, label %land.rhs.i.i.i815, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
 
 land.rhs.i.i.i815:                                ; preds = %land.lhs.true.i.i808
-  %agg.tmp4.sroa.0.0.copyload.i.i810 = load ptr, ptr %128, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i810 = load ptr, ptr %125, align 8
   %bcmp.i.i816 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i810, ptr noundef nonnull dereferenceable(6) @.str.22, i64 6)
-  %129 = icmp eq i32 %bcmp.i.i816, 0
-  br i1 %129, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit851, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
+  %126 = icmp eq i32 %bcmp.i.i816, 0
+  br i1 %126, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit851, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit851: ; preds = %land.rhs.i.i.i815
   %sub.ptr.lhs.cast.i.i818 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i806 to i64
   %sub.ptr.sub.i.i819 = sub i64 %sub.ptr.lhs.cast.i.i818, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i821 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i819
-  %130 = load ptr, ptr %arrayidx.i821, align 8
-  %tobool.not.i852 = icmp eq ptr %130, null
+  %127 = load ptr, ptr %arrayidx.i821, align 8
+  %tobool.not.i852 = icmp eq ptr %127, null
   br i1 %tobool.not.i852, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857, label %land.lhs.true.i853
 
 land.lhs.true.i853:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit851
-  %131 = load i32, ptr %130, align 4
-  %cmp.i.i.i.i.i.i.i854 = icmp eq i32 %131, 2
-  %spec.select.i855 = select i1 %cmp.i.i.i.i.i.i.i854, ptr %130, ptr null
+  %128 = load i32, ptr %127, align 4
+  %cmp.i.i.i.i.i.i.i854 = icmp eq i32 %128, 2
+  %spec.select.i855 = select i1 %cmp.i.i.i.i.i.i.i854, ptr %127, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i805, %land.rhs.i.i.i815, %land.lhs.true.i.i808, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit851, %land.lhs.true.i853
   %cond.i856 = phi ptr [ null, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit851 ], [ %spec.select.i855, %land.lhs.true.i853 ], [ null, %land.lhs.true.i.i808 ], [ null, %land.rhs.i.i.i815 ], [ null, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i805 ]
-  %132 = load i32, ptr %kind, align 4
-  switch i32 %132, label %sw.epilog [
+  %129 = load i32, ptr %kind, align 4
+  switch i32 %129, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb68
     i32 2, label %_ZN4llvh9StringRefC2EPKc.exit530
@@ -4186,30 +4171,30 @@ sw.bb:                                            ; preds = %_ZN4llvh16dyn_cast_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %hash, i8 0, i64 20, i1 false)
   store i8 0, ptr %sourceIsBytecode, align 1
-  %133 = load ptr, ptr %hiddenClass_.i, align 8
-  %keys_.i.i.i859 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %134 = load i64, ptr %133, align 8
-  %add.ptr.i.i.i860 = getelementptr inbounds ptr, ptr %keys_.i.i.i859, i64 %134
+  %130 = load ptr, ptr %hiddenClass_.i, align 8
+  %keys_.i.i.i859 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %131 = load i64, ptr %130, align 8
+  %add.ptr.i.i.i860 = getelementptr inbounds ptr, ptr %keys_.i.i.i859, i64 %131
   %sub.ptr.rhs.cast.i.i.i.i.i.i861 = ptrtoint ptr %keys_.i.i.i859 to i64
-  %cmp11.i.i.i.i862 = icmp sgt i64 %134, 0
+  %cmp11.i.i.i.i862 = icmp sgt i64 %131, 0
   br i1 %cmp11.i.i.i.i862, label %while.body.i.i.i.i880, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863
 
 while.body.i.i.i.i880:                            ; preds = %sw.bb, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i900
   %__first.addr.013.i.i.i.i881 = phi ptr [ %__first.addr.1.i.i.i.i905, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i900 ], [ %keys_.i.i.i859, %sw.bb ]
-  %__len.012.i.i.i.i882 = phi i64 [ %__len.1.i.i.i.i904, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i900 ], [ %134, %sw.bb ]
+  %__len.012.i.i.i.i882 = phi i64 [ %__len.1.i.i.i.i904, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i900 ], [ %131, %sw.bb ]
   %shr.i.i.i.i883 = lshr i64 %__len.012.i.i.i.i882, 1
   %add.ptr.i.i.i.i.i.i886 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i881, i64 %shr.i.i.i.i883
-  %135 = load ptr, ptr %add.ptr.i.i.i.i.i.i886, align 8
-  %value_.i.i.i.i.i.i.i889 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %136 = load ptr, ptr %value_.i.i.i.i.i.i.i889, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i890 = getelementptr inbounds nuw i8, ptr %136, i64 8
+  %132 = load ptr, ptr %add.ptr.i.i.i.i.i.i886, align 8
+  %value_.i.i.i.i.i.i.i889 = getelementptr inbounds nuw i8, ptr %132, i64 16
+  %133 = load ptr, ptr %value_.i.i.i.i.i.i.i889, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i890 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i891 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i890, align 8
   %cmp.i.i.i.i.i.i.i.i.i893 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i891, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i893, label %if.end.i.i.i.i.i.i.i.i907, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i894
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i894: ; preds = %while.body.i.i.i.i880
   %.sroa.speculated.i.i.i.i.i.i.i892 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i891, i64 9)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i895 = load ptr, ptr %136, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i895 = load ptr, ptr %133, align 8
   %call.i.i.i.i.i.i.i.i.i896 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i895, ptr noundef nonnull @.str.23, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i892) #20
   %tobool.i.not.i.i.i.i.i.i.i897 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i896, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i897, label %if.end.i.i.i.i.i.i.i.i907, label %if.then.i.i.i.i.i.i.i.i898
@@ -4225,8 +4210,8 @@ if.end.i.i.i.i.i.i.i.i907:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i900: ; preds = %if.end.i.i.i.i.i.i.i.i907, %if.then.i.i.i.i.i.i.i.i898
   %retval.i.0.i.i.i.i.i.i.i901 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i899, %if.then.i.i.i.i.i.i.i.i898 ], [ %cmp12.i.i.i.i.i.i.i.i908, %if.end.i.i.i.i.i.i.i.i907 ]
   %incdec.ptr.i.i.i.i902 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i886, i64 8
-  %137 = xor i64 %shr.i.i.i.i883, -1
-  %sub2.i.i.i.i903 = add nsw i64 %__len.012.i.i.i.i882, %137
+  %134 = xor i64 %shr.i.i.i.i883, -1
+  %sub2.i.i.i.i903 = add nsw i64 %__len.012.i.i.i.i882, %134
   %__len.1.i.i.i.i904 = select i1 %retval.i.0.i.i.i.i.i.i.i901, i64 %sub2.i.i.i.i903, i64 %shr.i.i.i.i883
   %__first.addr.1.i.i.i.i905 = select i1 %retval.i.0.i.i.i.i.i.i.i901, ptr %incdec.ptr.i.i.i.i902, ptr %__first.addr.013.i.i.i.i881
   %cmp.i.i.i.i906 = icmp sgt i64 %__len.1.i.i.i.i904, 0
@@ -4238,39 +4223,39 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i865, label %_ZN4llvh9StringRefC2EPKc.exit510, label %land.lhs.true.i.i866
 
 land.lhs.true.i.i866:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863
-  %138 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i864, align 8
-  %value_.i.i.i867 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %139 = load ptr, ptr %value_.i.i.i867, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i869 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %135 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i864, align 8
+  %value_.i.i.i867 = getelementptr inbounds nuw i8, ptr %135, i64 16
+  %136 = load ptr, ptr %value_.i.i.i867, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i869 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i870 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i869, align 8
   %cmp.i.i.i871 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i870, 9
   br i1 %cmp.i.i.i871, label %land.rhs.i.i.i873, label %_ZN4llvh9StringRefC2EPKc.exit510
 
 land.rhs.i.i.i873:                                ; preds = %land.lhs.true.i.i866
-  %agg.tmp4.sroa.0.0.copyload.i.i868 = load ptr, ptr %139, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i868 = load ptr, ptr %136, align 8
   %bcmp.i.i874 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %agg.tmp4.sroa.0.0.copyload.i.i868, ptr noundef nonnull dereferenceable(9) @.str.23, i64 9)
-  %140 = icmp eq i32 %bcmp.i.i874, 0
-  br i1 %140, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909, label %_ZN4llvh9StringRefC2EPKc.exit510
+  %137 = icmp eq i32 %bcmp.i.i874, 0
+  br i1 %137, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909, label %_ZN4llvh9StringRefC2EPKc.exit510
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909: ; preds = %land.rhs.i.i.i873
   %sub.ptr.lhs.cast.i.i876 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i864 to i64
   %sub.ptr.sub.i.i877 = sub i64 %sub.ptr.lhs.cast.i.i876, %sub.ptr.rhs.cast.i.i.i.i.i.i861
   %arrayidx.i879 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i877
-  %141 = load ptr, ptr %arrayidx.i879, align 8
-  %tobool.not.i910 = icmp eq ptr %141, null
+  %138 = load ptr, ptr %arrayidx.i879, align 8
+  %tobool.not.i910 = icmp eq ptr %138, null
   br i1 %tobool.not.i910, label %_ZN4llvh9StringRefC2EPKc.exit510, label %land.lhs.true.i911
 
 land.lhs.true.i911:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909
-  %142 = load i32, ptr %141, align 4
-  %cmp.i.i.i.i.i.i.i912 = icmp eq i32 %142, 2
+  %139 = load i32, ptr %138, align 4
+  %cmp.i.i.i.i.i.i.i912 = icmp eq i32 %139, 2
   br i1 %cmp.i.i.i.i.i.i.i912, label %if.then, label %_ZN4llvh9StringRefC2EPKc.exit510
 
 if.then:                                          ; preds = %land.lhs.true.i911
-  %value_.i916 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = load ptr, ptr %value_.i916, align 8
+  %value_.i916 = getelementptr inbounds nuw i8, ptr %138, i64 16
+  %140 = load ptr, ptr %value_.i916, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !24
-  %144 = load ptr, ptr %143, align 8, !noalias !27
-  %tobool.not.i.i = icmp eq ptr %144, null
+  %141 = load ptr, ptr %140, align 8, !noalias !27
+  %tobool.not.i.i = icmp eq ptr %141, null
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i917
 
 if.then.i.i:                                      ; preds = %if.then
@@ -4278,10 +4263,10 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 if.end.i.i917:                                    ; preds = %if.then
-  %Length.i.i = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %145 = load i64, ptr %Length.i.i, align 8, !noalias !27
+  %Length.i.i = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %142 = load i64, ptr %Length.i.i, align 8, !noalias !27
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #17, !noalias !27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull %144, i64 noundef %145, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp49, ptr noundef nonnull %141, i64 noundef %142, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #17
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
@@ -4294,30 +4279,30 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   br label %_ZN4llvh9StringRefC2EPKc.exit510
 
 _ZN4llvh9StringRefC2EPKc.exit510:                 ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863, %land.rhs.i.i.i873, %land.lhs.true.i.i866, %land.lhs.true.i911, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
-  %146 = phi i64 [ %134, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863 ], [ %134, %land.rhs.i.i.i873 ], [ %134, %land.lhs.true.i.i866 ], [ %134, %land.lhs.true.i911 ], [ %134, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909 ], [ %.pre2322, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
-  %147 = phi ptr [ %133, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863 ], [ %133, %land.rhs.i.i.i873 ], [ %133, %land.lhs.true.i.i866 ], [ %133, %land.lhs.true.i911 ], [ %133, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909 ], [ %.pre, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
-  %keys_.i.i.i919 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  %add.ptr.i.i.i920 = getelementptr inbounds ptr, ptr %keys_.i.i.i919, i64 %146
+  %143 = phi i64 [ %131, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863 ], [ %131, %land.rhs.i.i.i873 ], [ %131, %land.lhs.true.i.i866 ], [ %131, %land.lhs.true.i911 ], [ %131, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909 ], [ %.pre2322, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
+  %144 = phi ptr [ %130, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i863 ], [ %130, %land.rhs.i.i.i873 ], [ %130, %land.lhs.true.i.i866 ], [ %130, %land.lhs.true.i911 ], [ %130, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit909 ], [ %.pre, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit ]
+  %keys_.i.i.i919 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %add.ptr.i.i.i920 = getelementptr inbounds ptr, ptr %keys_.i.i.i919, i64 %143
   %sub.ptr.rhs.cast.i.i.i.i.i.i921 = ptrtoint ptr %keys_.i.i.i919 to i64
-  %cmp11.i.i.i.i922 = icmp sgt i64 %146, 0
+  %cmp11.i.i.i.i922 = icmp sgt i64 %143, 0
   br i1 %cmp11.i.i.i.i922, label %while.body.i.i.i.i940, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923
 
 while.body.i.i.i.i940:                            ; preds = %_ZN4llvh9StringRefC2EPKc.exit510, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i960
   %__first.addr.013.i.i.i.i941 = phi ptr [ %__first.addr.1.i.i.i.i965, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i960 ], [ %keys_.i.i.i919, %_ZN4llvh9StringRefC2EPKc.exit510 ]
-  %__len.012.i.i.i.i942 = phi i64 [ %__len.1.i.i.i.i964, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i960 ], [ %146, %_ZN4llvh9StringRefC2EPKc.exit510 ]
+  %__len.012.i.i.i.i942 = phi i64 [ %__len.1.i.i.i.i964, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i960 ], [ %143, %_ZN4llvh9StringRefC2EPKc.exit510 ]
   %shr.i.i.i.i943 = lshr i64 %__len.012.i.i.i.i942, 1
   %add.ptr.i.i.i.i.i.i946 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i941, i64 %shr.i.i.i.i943
-  %148 = load ptr, ptr %add.ptr.i.i.i.i.i.i946, align 8
-  %value_.i.i.i.i.i.i.i949 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %149 = load ptr, ptr %value_.i.i.i.i.i.i.i949, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i950 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %145 = load ptr, ptr %add.ptr.i.i.i.i.i.i946, align 8
+  %value_.i.i.i.i.i.i.i949 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  %146 = load ptr, ptr %value_.i.i.i.i.i.i.i949, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i950 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i951 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i950, align 8
   %cmp.i.i.i.i.i.i.i.i.i953 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i951, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i953, label %if.end.i.i.i.i.i.i.i.i967, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i954
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i954: ; preds = %while.body.i.i.i.i940
   %.sroa.speculated.i.i.i.i.i.i.i952 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i951, i64 10)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i955 = load ptr, ptr %149, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i955 = load ptr, ptr %146, align 8
   %call.i.i.i.i.i.i.i.i.i956 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i955, ptr noundef nonnull @.str.24, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i952) #20
   %tobool.i.not.i.i.i.i.i.i.i957 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i956, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i957, label %if.end.i.i.i.i.i.i.i.i967, label %if.then.i.i.i.i.i.i.i.i958
@@ -4333,8 +4318,8 @@ if.end.i.i.i.i.i.i.i.i967:                        ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i960: ; preds = %if.end.i.i.i.i.i.i.i.i967, %if.then.i.i.i.i.i.i.i.i958
   %retval.i.0.i.i.i.i.i.i.i961 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i959, %if.then.i.i.i.i.i.i.i.i958 ], [ %cmp12.i.i.i.i.i.i.i.i968, %if.end.i.i.i.i.i.i.i.i967 ]
   %incdec.ptr.i.i.i.i962 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i946, i64 8
-  %150 = xor i64 %shr.i.i.i.i943, -1
-  %sub2.i.i.i.i963 = add nsw i64 %__len.012.i.i.i.i942, %150
+  %147 = xor i64 %shr.i.i.i.i943, -1
+  %sub2.i.i.i.i963 = add nsw i64 %__len.012.i.i.i.i942, %147
   %__len.1.i.i.i.i964 = select i1 %retval.i.0.i.i.i.i.i.i.i961, i64 %sub2.i.i.i.i963, i64 %shr.i.i.i.i943
   %__first.addr.1.i.i.i.i965 = select i1 %retval.i.0.i.i.i.i.i.i.i961, ptr %incdec.ptr.i.i.i.i962, ptr %__first.addr.013.i.i.i.i941
   %cmp.i.i.i.i966 = icmp sgt i64 %__len.1.i.i.i.i964, 0
@@ -4346,38 +4331,38 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i925, label %_ZN4llvh9StringRefC2EPKc.exit520, label %land.lhs.true.i.i926
 
 land.lhs.true.i.i926:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923
-  %151 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i924, align 8
-  %value_.i.i.i927 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %152 = load ptr, ptr %value_.i.i.i927, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i929 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %148 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i924, align 8
+  %value_.i.i.i927 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %149 = load ptr, ptr %value_.i.i.i927, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i929 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i930 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i929, align 8
   %cmp.i.i.i931 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i930, 10
   br i1 %cmp.i.i.i931, label %land.rhs.i.i.i933, label %_ZN4llvh9StringRefC2EPKc.exit520
 
 land.rhs.i.i.i933:                                ; preds = %land.lhs.true.i.i926
-  %agg.tmp4.sroa.0.0.copyload.i.i928 = load ptr, ptr %152, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i928 = load ptr, ptr %149, align 8
   %bcmp.i.i934 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %agg.tmp4.sroa.0.0.copyload.i.i928, ptr noundef nonnull dereferenceable(10) @.str.24, i64 10)
-  %153 = icmp eq i32 %bcmp.i.i934, 0
-  br i1 %153, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969, label %_ZN4llvh9StringRefC2EPKc.exit520
+  %150 = icmp eq i32 %bcmp.i.i934, 0
+  br i1 %150, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969, label %_ZN4llvh9StringRefC2EPKc.exit520
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969: ; preds = %land.rhs.i.i.i933
   %sub.ptr.lhs.cast.i.i936 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i924 to i64
   %sub.ptr.sub.i.i937 = sub i64 %sub.ptr.lhs.cast.i.i936, %sub.ptr.rhs.cast.i.i.i.i.i.i921
   %arrayidx.i939 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i937
-  %154 = load ptr, ptr %arrayidx.i939, align 8
-  %tobool.not.i970 = icmp eq ptr %154, null
+  %151 = load ptr, ptr %arrayidx.i939, align 8
+  %tobool.not.i970 = icmp eq ptr %151, null
   br i1 %tobool.not.i970, label %_ZN4llvh9StringRefC2EPKc.exit520, label %land.lhs.true.i971
 
 land.lhs.true.i971:                               ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969
-  %155 = load i32, ptr %154, align 4
-  %cmp.i.i.i.i.i.i.i972 = icmp eq i32 %155, 2
+  %152 = load i32, ptr %151, align 4
+  %cmp.i.i.i.i.i.i.i972 = icmp eq i32 %152, 2
   br i1 %cmp.i.i.i.i.i.i.i972, label %if.then56, label %_ZN4llvh9StringRefC2EPKc.exit520
 
 if.then56:                                        ; preds = %land.lhs.true.i971
-  %value_.i976 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %156 = load ptr, ptr %value_.i976, align 8
-  %agg.tmp58.sroa.0.0.copyload = load ptr, ptr %156, align 8
-  %agg.tmp58.sroa.2.0.call59.sroa_idx = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %value_.i976 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load ptr, ptr %value_.i976, align 8
+  %agg.tmp58.sroa.0.0.copyload = load ptr, ptr %153, align 8
+  %agg.tmp58.sroa.2.0.call59.sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 8
   %agg.tmp58.sroa.2.0.copyload = load i64, ptr %agg.tmp58.sroa.2.0.call59.sroa_idx, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !30)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %ref.tmp57, i8 0, i64 20, i1 false), !alias.scope !30
@@ -4393,8 +4378,8 @@ for.body.i:                                       ; preds = %if.then56, %for.bod
   %mul5.i = shl nuw nsw i64 %i.04.i, 1
   %add.ptr.i979 = getelementptr inbounds nuw i8, ptr %agg.tmp58.sroa.0.0.copyload, i64 %mul5.i
   %call6.i = call { double, i8 } @_ZN6hermes17parseIntWithRadixILb0EN4llvh9StringRefEEENS_8OptValueIdEET0_i(ptr %add.ptr.i979, i64 2, i32 noundef 16), !noalias !30
-  %157 = extractvalue { double, i8 } %call6.i, 0
-  %conv.i = fptoui double %157 to i8
+  %154 = extractvalue { double, i8 } %call6.i, 0
+  %conv.i = fptoui double %154 to i8
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp57, i64 %i.04.i
   store i8 %conv.i, ptr %arrayidx.i.i.i, align 1, !alias.scope !30
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -4408,30 +4393,30 @@ _ZN8facebook6hermes7tracing12_GLOBAL__N_120parseHashStrAsNumberEN4llvh9StringRef
   br label %_ZN4llvh9StringRefC2EPKc.exit520
 
 _ZN4llvh9StringRefC2EPKc.exit520:                 ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923, %land.rhs.i.i.i933, %land.lhs.true.i.i926, %land.lhs.true.i971, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969, %_ZN8facebook6hermes7tracing12_GLOBAL__N_120parseHashStrAsNumberEN4llvh9StringRefE.exit
-  %158 = phi i64 [ %146, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923 ], [ %146, %land.rhs.i.i.i933 ], [ %146, %land.lhs.true.i.i926 ], [ %146, %land.lhs.true.i971 ], [ %146, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969 ], [ %.pre2324, %_ZN8facebook6hermes7tracing12_GLOBAL__N_120parseHashStrAsNumberEN4llvh9StringRefE.exit ]
-  %159 = phi ptr [ %147, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923 ], [ %147, %land.rhs.i.i.i933 ], [ %147, %land.lhs.true.i.i926 ], [ %147, %land.lhs.true.i971 ], [ %147, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969 ], [ %.pre2323, %_ZN8facebook6hermes7tracing12_GLOBAL__N_120parseHashStrAsNumberEN4llvh9StringRefE.exit ]
-  %keys_.i.i.i981 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %add.ptr.i.i.i982 = getelementptr inbounds ptr, ptr %keys_.i.i.i981, i64 %158
+  %155 = phi i64 [ %143, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923 ], [ %143, %land.rhs.i.i.i933 ], [ %143, %land.lhs.true.i.i926 ], [ %143, %land.lhs.true.i971 ], [ %143, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969 ], [ %.pre2324, %_ZN8facebook6hermes7tracing12_GLOBAL__N_120parseHashStrAsNumberEN4llvh9StringRefE.exit ]
+  %156 = phi ptr [ %144, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i923 ], [ %144, %land.rhs.i.i.i933 ], [ %144, %land.lhs.true.i.i926 ], [ %144, %land.lhs.true.i971 ], [ %144, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit969 ], [ %.pre2323, %_ZN8facebook6hermes7tracing12_GLOBAL__N_120parseHashStrAsNumberEN4llvh9StringRefE.exit ]
+  %keys_.i.i.i981 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %add.ptr.i.i.i982 = getelementptr inbounds ptr, ptr %keys_.i.i.i981, i64 %155
   %sub.ptr.rhs.cast.i.i.i.i.i.i983 = ptrtoint ptr %keys_.i.i.i981 to i64
-  %cmp11.i.i.i.i984 = icmp sgt i64 %158, 0
+  %cmp11.i.i.i.i984 = icmp sgt i64 %155, 0
   br i1 %cmp11.i.i.i.i984, label %while.body.i.i.i.i1002, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i985
 
 while.body.i.i.i.i1002:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit520, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1022
   %__first.addr.013.i.i.i.i1003 = phi ptr [ %__first.addr.1.i.i.i.i1027, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1022 ], [ %keys_.i.i.i981, %_ZN4llvh9StringRefC2EPKc.exit520 ]
-  %__len.012.i.i.i.i1004 = phi i64 [ %__len.1.i.i.i.i1026, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1022 ], [ %158, %_ZN4llvh9StringRefC2EPKc.exit520 ]
+  %__len.012.i.i.i.i1004 = phi i64 [ %__len.1.i.i.i.i1026, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1022 ], [ %155, %_ZN4llvh9StringRefC2EPKc.exit520 ]
   %shr.i.i.i.i1005 = lshr i64 %__len.012.i.i.i.i1004, 1
   %add.ptr.i.i.i.i.i.i1008 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1003, i64 %shr.i.i.i.i1005
-  %160 = load ptr, ptr %add.ptr.i.i.i.i.i.i1008, align 8
-  %value_.i.i.i.i.i.i.i1011 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %161 = load ptr, ptr %value_.i.i.i.i.i.i.i1011, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1012 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %157 = load ptr, ptr %add.ptr.i.i.i.i.i.i1008, align 8
+  %value_.i.i.i.i.i.i.i1011 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %158 = load ptr, ptr %value_.i.i.i.i.i.i.i1011, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1012 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1013 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1012, align 8
   %cmp.i.i.i.i.i.i.i.i.i1015 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1013, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1015, label %if.end.i.i.i.i.i.i.i.i1029, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1016
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1016: ; preds = %while.body.i.i.i.i1002
   %.sroa.speculated.i.i.i.i.i.i.i1014 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1013, i64 16)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1017 = load ptr, ptr %161, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1017 = load ptr, ptr %158, align 8
   %call.i.i.i.i.i.i.i.i.i1018 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1017, ptr noundef nonnull @.str.25, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1014) #20
   %tobool.i.not.i.i.i.i.i.i.i1019 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1018, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1019, label %if.end.i.i.i.i.i.i.i.i1029, label %if.then.i.i.i.i.i.i.i.i1020
@@ -4447,8 +4432,8 @@ if.end.i.i.i.i.i.i.i.i1029:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1022: ; preds = %if.end.i.i.i.i.i.i.i.i1029, %if.then.i.i.i.i.i.i.i.i1020
   %retval.i.0.i.i.i.i.i.i.i1023 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1021, %if.then.i.i.i.i.i.i.i.i1020 ], [ %cmp12.i.i.i.i.i.i.i.i1030, %if.end.i.i.i.i.i.i.i.i1029 ]
   %incdec.ptr.i.i.i.i1024 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1008, i64 8
-  %162 = xor i64 %shr.i.i.i.i1005, -1
-  %sub2.i.i.i.i1025 = add nsw i64 %__len.012.i.i.i.i1004, %162
+  %159 = xor i64 %shr.i.i.i.i1005, -1
+  %sub2.i.i.i.i1025 = add nsw i64 %__len.012.i.i.i.i1004, %159
   %__len.1.i.i.i.i1026 = select i1 %retval.i.0.i.i.i.i.i.i.i1023, i64 %sub2.i.i.i.i1025, i64 %shr.i.i.i.i1005
   %__first.addr.1.i.i.i.i1027 = select i1 %retval.i.0.i.i.i.i.i.i.i1023, ptr %incdec.ptr.i.i.i.i1024, ptr %__first.addr.013.i.i.i.i1003
   %cmp.i.i.i.i1028 = icmp sgt i64 %__len.1.i.i.i.i1026, 0
@@ -4460,37 +4445,37 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i987, label %if.end67, label %land.lhs.true.i.i988
 
 land.lhs.true.i.i988:                             ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i985
-  %163 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i986, align 8
-  %value_.i.i.i989 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %164 = load ptr, ptr %value_.i.i.i989, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i991 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %160 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i986, align 8
+  %value_.i.i.i989 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %161 = load ptr, ptr %value_.i.i.i989, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i991 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i992 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i991, align 8
   %cmp.i.i.i993 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i992, 16
   br i1 %cmp.i.i.i993, label %land.rhs.i.i.i995, label %if.end67
 
 land.rhs.i.i.i995:                                ; preds = %land.lhs.true.i.i988
-  %agg.tmp4.sroa.0.0.copyload.i.i990 = load ptr, ptr %164, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i990 = load ptr, ptr %161, align 8
   %bcmp.i.i996 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %agg.tmp4.sroa.0.0.copyload.i.i990, ptr noundef nonnull dereferenceable(16) @.str.25, i64 16)
-  %165 = icmp eq i32 %bcmp.i.i996, 0
-  br i1 %165, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1031, label %if.end67
+  %162 = icmp eq i32 %bcmp.i.i996, 0
+  br i1 %162, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1031, label %if.end67
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1031: ; preds = %land.rhs.i.i.i995
   %sub.ptr.lhs.cast.i.i998 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i986 to i64
   %sub.ptr.sub.i.i999 = sub i64 %sub.ptr.lhs.cast.i.i998, %sub.ptr.rhs.cast.i.i.i.i.i.i983
   %arrayidx.i1001 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i999
-  %166 = load ptr, ptr %arrayidx.i1001, align 8
-  %tobool.not.i1032 = icmp eq ptr %166, null
+  %163 = load ptr, ptr %arrayidx.i1001, align 8
+  %tobool.not.i1032 = icmp eq ptr %163, null
   br i1 %tobool.not.i1032, label %if.end67, label %land.lhs.true.i1033
 
 land.lhs.true.i1033:                              ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1031
-  %167 = load i32, ptr %166, align 4
-  %cmp.i.i.i.i.i.i.i1034 = icmp eq i32 %167, 4
+  %164 = load i32, ptr %163, align 4
+  %cmp.i.i.i.i.i.i.i1034 = icmp eq i32 %164, 4
   br i1 %cmp.i.i.i.i.i.i.i1034, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %land.lhs.true.i1033
-  %value_.i1037 = getelementptr inbounds nuw i8, ptr %166, i64 4
-  %168 = load i8, ptr %value_.i1037, align 4
-  %frombool = and i8 %168, 1
+  %value_.i1037 = getelementptr inbounds nuw i8, ptr %163, i64 4
+  %165 = load i8, ptr %value_.i1037, align 4
+  %frombool = and i8 %165, 1
   store i8 %frombool, ptr %sourceIsBytecode, align 1
   br label %if.end67
 
@@ -4501,12 +4486,12 @@ if.end67:                                         ; preds = %_ZSt11lower_boundIP
 
 sw.bb68:                                          ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1038 = getelementptr inbounds nuw i8, ptr %cond.i856, i64 16
-  %169 = load ptr, ptr %value_.i1038, align 8
-  %170 = load ptr, ptr %169, align 8
+  %166 = load ptr, ptr %value_.i1038, align 8
+  %167 = load ptr, ptr %166, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #17
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #17
-  %cmp.i1039 = icmp eq ptr %170, null
+  %cmp.i1039 = icmp eq ptr %167, null
   br i1 %cmp.i1039, label %if.then.i1042, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
 
 if.then.i1042:                                    ; preds = %sw.bb68
@@ -4514,14 +4499,14 @@ if.then.i1042:                                    ; preds = %sw.bb68
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %sw.bb68
-  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %170) #17
-  %add.ptr.i1041 = getelementptr inbounds i8, ptr %170, i64 %call.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70, ptr noundef nonnull %170, ptr noundef nonnull %add.ptr.i1041)
+  %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %167) #17
+  %add.ptr.i1041 = getelementptr inbounds i8, ptr %167, i64 %call.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70, ptr noundef nonnull %167, ptr noundef nonnull %add.ptr.i1041)
   %call73 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #17
-  %171 = extractvalue { i32, i64 } %call73, 0
-  store i32 %171, ptr %ref.tmp69, align 8
-  %172 = extractvalue { i32, i64 } %call73, 1
-  store i64 %172, ptr %18, align 8
+  %168 = extractvalue { i32, i64 } %call73, 0
+  store i32 %168, ptr %ref.tmp69, align 8
+  %169 = extractvalue { i32, i64 } %call73, 1
+  store i64 %169, ptr %18, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_15EndExecJSRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp69)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp72) #17
@@ -4532,20 +4517,20 @@ _ZN4llvh9StringRefC2EPKc.exit530:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1065:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit530, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1085
   %__first.addr.013.i.i.i.i1066 = phi ptr [ %__first.addr.1.i.i.i.i1090, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1085 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit530 ]
-  %__len.012.i.i.i.i1067 = phi i64 [ %__len.1.i.i.i.i1089, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1085 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit530 ]
+  %__len.012.i.i.i.i1067 = phi i64 [ %__len.1.i.i.i.i1089, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1085 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit530 ]
   %shr.i.i.i.i1068 = lshr i64 %__len.012.i.i.i.i1067, 1
   %add.ptr.i.i.i.i.i.i1071 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1066, i64 %shr.i.i.i.i1068
-  %173 = load ptr, ptr %add.ptr.i.i.i.i.i.i1071, align 8
-  %value_.i.i.i.i.i.i.i1074 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %174 = load ptr, ptr %value_.i.i.i.i.i.i.i1074, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1075 = getelementptr inbounds nuw i8, ptr %174, i64 8
+  %170 = load ptr, ptr %add.ptr.i.i.i.i.i.i1071, align 8
+  %value_.i.i.i.i.i.i.i1074 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %171 = load ptr, ptr %value_.i.i.i.i.i.i.i1074, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1075 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1076 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1075, align 8
   %cmp.i.i.i.i.i.i.i.i.i1078 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1076, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1078, label %if.end.i.i.i.i.i.i.i.i1092, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1079
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1079: ; preds = %while.body.i.i.i.i1065
   %.sroa.speculated.i.i.i.i.i.i.i1077 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1076, i64 3)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1080 = load ptr, ptr %174, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1080 = load ptr, ptr %171, align 8
   %call.i.i.i.i.i.i.i.i.i1081 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1080, ptr noundef nonnull @.str.26, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1077) #20
   %tobool.i.not.i.i.i.i.i.i.i1082 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1081, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1082, label %if.end.i.i.i.i.i.i.i.i1092, label %if.then.i.i.i.i.i.i.i.i1083
@@ -4561,8 +4546,8 @@ if.end.i.i.i.i.i.i.i.i1092:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1085: ; preds = %if.end.i.i.i.i.i.i.i.i1092, %if.then.i.i.i.i.i.i.i.i1083
   %retval.i.0.i.i.i.i.i.i.i1086 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1084, %if.then.i.i.i.i.i.i.i.i1083 ], [ %cmp12.i.i.i.i.i.i.i.i1093, %if.end.i.i.i.i.i.i.i.i1092 ]
   %incdec.ptr.i.i.i.i1087 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1071, i64 8
-  %175 = xor i64 %shr.i.i.i.i1068, -1
-  %sub2.i.i.i.i1088 = add nsw i64 %__len.012.i.i.i.i1067, %175
+  %172 = xor i64 %shr.i.i.i.i1068, -1
+  %sub2.i.i.i.i1088 = add nsw i64 %__len.012.i.i.i.i1067, %172
   %__len.1.i.i.i.i1089 = select i1 %retval.i.0.i.i.i.i.i.i.i1086, i64 %sub2.i.i.i.i1088, i64 %shr.i.i.i.i1068
   %__first.addr.1.i.i.i.i1090 = select i1 %retval.i.0.i.i.i.i.i.i.i1086, ptr %incdec.ptr.i.i.i.i1087, ptr %__first.addr.013.i.i.i.i1066
   %cmp.i.i.i.i1091 = icmp sgt i64 %__len.1.i.i.i.i1089, 0
@@ -4577,31 +4562,20 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i1049 = phi ptr [ %__first.addr.1.i.i.i.i1090, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1048.loopexit ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit530 ]
   %cmp.not.i.i1050 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i1049, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i1050)
-  %176 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1049, align 8
-  %value_.i.i.i1052 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %177 = load ptr, ptr %value_.i.i.i1052, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i1053 = load ptr, ptr %177, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1054 = getelementptr inbounds nuw i8, ptr %177, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i1055 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1054, align 8
-  %cmp.i.i.i1056 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1055, 3
-  call void @llvm.assume(i1 %cmp.i.i.i1056)
-  %bcmp.i.i1059 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %agg.tmp4.sroa.0.0.copyload.i.i1053, ptr noundef nonnull dereferenceable(3) @.str.26, i64 3)
-  %178 = icmp eq i32 %bcmp.i.i1059, 0
-  call void @llvm.assume(i1 %178)
   %sub.ptr.sub.i.i1062 = sub i64 %sub.ptr.lhs.cast.i.i1061.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1064 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1062
-  %179 = load ptr, ptr %arrayidx.i1064, align 8
-  %value_.i1095 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %180 = load ptr, ptr %value_.i1095, align 8
-  %181 = load ptr, ptr %180, align 8
-  store ptr %181, ptr %ref.tmp75, align 8
+  %173 = load ptr, ptr %arrayidx.i1064, align 8
+  %value_.i1095 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %174 = load ptr, ptr %value_.i1095, align 8
+  %175 = load ptr, ptr %174, align 8
+  store ptr %175, ptr %ref.tmp75, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_12MarkerRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEPKcEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp75)
   br label %sw.epilog
 
 sw.bb80:                                          ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1096 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %182 = load double, ptr %value_.i1096, align 8
-  store double %182, ptr %ref.tmp81, align 8
+  %176 = load double, ptr %value_.i1096, align 8
+  store double %176, ptr %ref.tmp81, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateObjectRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp81)
   br label %sw.epilog
 
@@ -4610,20 +4584,20 @@ _ZN4llvh9StringRefC2EPKc.exit540:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1119:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit540, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1139
   %__first.addr.013.i.i.i.i1120 = phi ptr [ %__first.addr.1.i.i.i.i1144, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1139 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit540 ]
-  %__len.012.i.i.i.i1121 = phi i64 [ %__len.1.i.i.i.i1143, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1139 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit540 ]
+  %__len.012.i.i.i.i1121 = phi i64 [ %__len.1.i.i.i.i1143, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1139 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit540 ]
   %shr.i.i.i.i1122 = lshr i64 %__len.012.i.i.i.i1121, 1
   %add.ptr.i.i.i.i.i.i1125 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1120, i64 %shr.i.i.i.i1122
-  %183 = load ptr, ptr %add.ptr.i.i.i.i.i.i1125, align 8
-  %value_.i.i.i.i.i.i.i1128 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %184 = load ptr, ptr %value_.i.i.i.i.i.i.i1128, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1129 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %177 = load ptr, ptr %add.ptr.i.i.i.i.i.i1125, align 8
+  %value_.i.i.i.i.i.i.i1128 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %178 = load ptr, ptr %value_.i.i.i.i.i.i.i1128, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1129 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1130 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1129, align 8
   %cmp.i.i.i.i.i.i.i.i.i1132 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1130, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1132, label %if.end.i.i.i.i.i.i.i.i1146, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1133
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1133: ; preds = %while.body.i.i.i.i1119
   %.sroa.speculated.i.i.i.i.i.i.i1131 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1130, i64 17)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1134 = load ptr, ptr %184, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1134 = load ptr, ptr %178, align 8
   %call.i.i.i.i.i.i.i.i.i1135 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1134, ptr noundef nonnull @.str.27, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1131) #20
   %tobool.i.not.i.i.i.i.i.i.i1136 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1135, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1136, label %if.end.i.i.i.i.i.i.i.i1146, label %if.then.i.i.i.i.i.i.i.i1137
@@ -4639,8 +4613,8 @@ if.end.i.i.i.i.i.i.i.i1146:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1139: ; preds = %if.end.i.i.i.i.i.i.i.i1146, %if.then.i.i.i.i.i.i.i.i1137
   %retval.i.0.i.i.i.i.i.i.i1140 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1138, %if.then.i.i.i.i.i.i.i.i1137 ], [ %cmp12.i.i.i.i.i.i.i.i1147, %if.end.i.i.i.i.i.i.i.i1146 ]
   %incdec.ptr.i.i.i.i1141 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1125, i64 8
-  %185 = xor i64 %shr.i.i.i.i1122, -1
-  %sub2.i.i.i.i1142 = add nsw i64 %__len.012.i.i.i.i1121, %185
+  %179 = xor i64 %shr.i.i.i.i1122, -1
+  %sub2.i.i.i.i1142 = add nsw i64 %__len.012.i.i.i.i1121, %179
   %__len.1.i.i.i.i1143 = select i1 %retval.i.0.i.i.i.i.i.i.i1140, i64 %sub2.i.i.i.i1142, i64 %shr.i.i.i.i1122
   %__first.addr.1.i.i.i.i1144 = select i1 %retval.i.0.i.i.i.i.i.i.i1140, ptr %incdec.ptr.i.i.i.i1141, ptr %__first.addr.013.i.i.i.i1120
   %cmp.i.i.i.i1145 = icmp sgt i64 %__len.1.i.i.i.i1143, 0
@@ -4652,26 +4626,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1104, label %if.then.i1153, label %land.lhs.true.i.i1105
 
 land.lhs.true.i.i1105:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1102
-  %186 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1103, align 8
-  %value_.i.i.i1106 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %187 = load ptr, ptr %value_.i.i.i1106, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1108 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %180 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1103, align 8
+  %value_.i.i.i1106 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %181 = load ptr, ptr %value_.i.i.i1106, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1108 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1109 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1108, align 8
   %cmp.i.i.i1110 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1109, 17
   br i1 %cmp.i.i.i1110, label %land.rhs.i.i.i1112, label %if.then.i1153
 
 land.rhs.i.i.i1112:                               ; preds = %land.lhs.true.i.i1105
-  %agg.tmp4.sroa.0.0.copyload.i.i1107 = load ptr, ptr %187, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1107 = load ptr, ptr %181, align 8
   %bcmp.i.i1113 = call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %agg.tmp4.sroa.0.0.copyload.i.i1107, ptr noundef nonnull dereferenceable(17) @.str.27, i64 17)
-  %188 = icmp eq i32 %bcmp.i.i1113, 0
-  br i1 %188, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1148, label %if.then.i1153
+  %182 = icmp eq i32 %bcmp.i.i1113, 0
+  br i1 %182, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1148, label %if.then.i1153
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1148: ; preds = %land.rhs.i.i.i1112
   %sub.ptr.lhs.cast.i.i1115 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1103 to i64
   %sub.ptr.sub.i.i1116 = sub i64 %sub.ptr.lhs.cast.i.i1115, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1118 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1116
-  %189 = load ptr, ptr %arrayidx.i1118, align 8
-  %tobool.not.i1149 = icmp eq ptr %189, null
+  %183 = load ptr, ptr %arrayidx.i1118, align 8
+  %tobool.not.i1149 = icmp eq ptr %183, null
   br i1 %tobool.not.i1149, label %if.then.i1153, label %if.end.i1150
 
 if.then.i1153:                                    ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1102, %land.rhs.i.i.i1112, %land.lhs.true.i.i1105, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1148
@@ -4679,8 +4653,8 @@ if.then.i1153:                                    ; preds = %_ZSt11lower_boundIP
   unreachable
 
 if.end.i1150:                                     ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1148
-  %190 = load i32, ptr %189, align 4
-  %cmp.not.i1151 = icmp eq i32 %190, 3
+  %184 = load i32, ptr %183, align 4
+  %cmp.not.i1151 = icmp eq i32 %184, 3
   br i1 %cmp.not.i1151, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsIiEET_PKN6hermes6parser9JSONValueE.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i1150
@@ -4688,9 +4662,9 @@ if.then1.i:                                       ; preds = %if.end.i1150
   unreachable
 
 _ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsIiEET_PKN6hermes6parser9JSONValueE.exit: ; preds = %if.end.i1150
-  %value_.i.i = getelementptr inbounds nuw i8, ptr %189, i64 16
-  %191 = load double, ptr %value_.i.i, align 8
-  %conv.i1152 = fptosi double %191 to i32
+  %value_.i.i = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %185 = load double, ptr %value_.i.i, align 8
+  %conv.i1152 = fptosi double %185 to i32
   store i32 %conv.i1152, ptr %maxMicrotasksHint, align 4
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_21DrainMicrotasksRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERiEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 4 dereferenceable(4) %maxMicrotasksHint)
   br label %sw.epilog
@@ -4700,20 +4674,20 @@ _ZN4llvh9StringRefC2EPKc.exit550:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1176:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit550, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1196
   %__first.addr.013.i.i.i.i1177 = phi ptr [ %__first.addr.1.i.i.i.i1201, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1196 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit550 ]
-  %__len.012.i.i.i.i1178 = phi i64 [ %__len.1.i.i.i.i1200, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1196 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit550 ]
+  %__len.012.i.i.i.i1178 = phi i64 [ %__len.1.i.i.i.i1200, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1196 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit550 ]
   %shr.i.i.i.i1179 = lshr i64 %__len.012.i.i.i.i1178, 1
   %add.ptr.i.i.i.i.i.i1182 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1177, i64 %shr.i.i.i.i1179
-  %192 = load ptr, ptr %add.ptr.i.i.i.i.i.i1182, align 8
-  %value_.i.i.i.i.i.i.i1185 = getelementptr inbounds nuw i8, ptr %192, i64 16
-  %193 = load ptr, ptr %value_.i.i.i.i.i.i.i1185, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1186 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %186 = load ptr, ptr %add.ptr.i.i.i.i.i.i1182, align 8
+  %value_.i.i.i.i.i.i.i1185 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %187 = load ptr, ptr %value_.i.i.i.i.i.i.i1185, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1186 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1187 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1186, align 8
   %cmp.i.i.i.i.i.i.i.i.i1189 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1187, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1189, label %if.end.i.i.i.i.i.i.i.i1203, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1190
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1190: ; preds = %while.body.i.i.i.i1176
   %.sroa.speculated.i.i.i.i.i.i.i1188 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1187, i64 6)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1191 = load ptr, ptr %193, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1191 = load ptr, ptr %187, align 8
   %call.i.i.i.i.i.i.i.i.i1192 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1191, ptr noundef nonnull @.str.28, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1188) #20
   %tobool.i.not.i.i.i.i.i.i.i1193 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1192, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1193, label %if.end.i.i.i.i.i.i.i.i1203, label %if.then.i.i.i.i.i.i.i.i1194
@@ -4729,8 +4703,8 @@ if.end.i.i.i.i.i.i.i.i1203:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1196: ; preds = %if.end.i.i.i.i.i.i.i.i1203, %if.then.i.i.i.i.i.i.i.i1194
   %retval.i.0.i.i.i.i.i.i.i1197 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1195, %if.then.i.i.i.i.i.i.i.i1194 ], [ %cmp12.i.i.i.i.i.i.i.i1204, %if.end.i.i.i.i.i.i.i.i1203 ]
   %incdec.ptr.i.i.i.i1198 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1182, i64 8
-  %194 = xor i64 %shr.i.i.i.i1179, -1
-  %sub2.i.i.i.i1199 = add nsw i64 %__len.012.i.i.i.i1178, %194
+  %188 = xor i64 %shr.i.i.i.i1179, -1
+  %sub2.i.i.i.i1199 = add nsw i64 %__len.012.i.i.i.i1178, %188
   %__len.1.i.i.i.i1200 = select i1 %retval.i.0.i.i.i.i.i.i.i1197, i64 %sub2.i.i.i.i1199, i64 %shr.i.i.i.i1179
   %__first.addr.1.i.i.i.i1201 = select i1 %retval.i.0.i.i.i.i.i.i.i1197, ptr %incdec.ptr.i.i.i.i1198, ptr %__first.addr.013.i.i.i.i1177
   %cmp.i.i.i.i1202 = icmp sgt i64 %__len.1.i.i.i.i1200, 0
@@ -4745,33 +4719,22 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i1160 = phi ptr [ %__first.addr.1.i.i.i.i1201, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1159.loopexit ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit550 ]
   %cmp.not.i.i1161 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i1160, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i1161)
-  %195 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1160, align 8
-  %value_.i.i.i1163 = getelementptr inbounds nuw i8, ptr %195, i64 16
-  %196 = load ptr, ptr %value_.i.i.i1163, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i1164 = load ptr, ptr %196, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1165 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i1166 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1165, align 8
-  %cmp.i.i.i1167 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1166, 6
-  call void @llvm.assume(i1 %cmp.i.i.i1167)
-  %bcmp.i.i1170 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i1164, ptr noundef nonnull dereferenceable(6) @.str.28, i64 6)
-  %197 = icmp eq i32 %bcmp.i.i1170, 0
-  call void @llvm.assume(i1 %197)
   %sub.ptr.sub.i.i1173 = sub i64 %sub.ptr.lhs.cast.i.i1172.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1175 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1173
-  %198 = load ptr, ptr %arrayidx.i1175, align 8
+  %189 = load ptr, ptr %arrayidx.i1175, align 8
   store i32 1, ptr %creationMethod, align 4
-  %value_.i1208 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %199 = load ptr, ptr %value_.i1208, align 8
-  %agg.tmp91.sroa.2.0.call92.sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %value_.i1208 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %190 = load ptr, ptr %value_.i1208, align 8
+  %agg.tmp91.sroa.2.0.call92.sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 8
   %agg.tmp91.sroa.2.0.copyload = load i64, ptr %agg.tmp91.sroa.2.0.call92.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp91.sroa.2.0.copyload, 9
   br i1 %cmp.i, label %if.end.i791, label %if.end96
 
 if.end.i791:                                      ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1159
-  %agg.tmp91.sroa.0.0.copyload = load ptr, ptr %199, align 8
+  %agg.tmp91.sroa.0.0.copyload = load ptr, ptr %190, align 8
   %bcmp167 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %agg.tmp91.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(9) @.str.29, i64 9)
-  %200 = icmp eq i32 %bcmp167, 0
-  br i1 %200, label %if.then95, label %if.end96
+  %191 = icmp eq i32 %bcmp167, 0
+  br i1 %191, label %if.then95, label %if.end96
 
 if.then95:                                        ; preds = %if.end.i791
   store i32 0, ptr %creationMethod, align 4
@@ -4779,29 +4742,29 @@ if.then95:                                        ; preds = %if.end.i791
 
 if.end96:                                         ; preds = %if.end.i791, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1159, %if.then95
   %value_.i1209 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %201 = load double, ptr %value_.i1209, align 8
-  store double %201, ptr %ref.tmp97, align 8
-  %202 = load i64, ptr %42, align 8
-  %add.ptr.i.i.i1212 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %202
-  %cmp11.i.i.i.i1214 = icmp sgt i64 %202, 0
+  %192 = load double, ptr %value_.i1209, align 8
+  store double %192, ptr %ref.tmp97, align 8
+  %193 = load i64, ptr %39, align 8
+  %add.ptr.i.i.i1212 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %193
+  %cmp11.i.i.i.i1214 = icmp sgt i64 %193, 0
   br i1 %cmp11.i.i.i.i1214, label %while.body.i.i.i.i1232, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1215
 
 while.body.i.i.i.i1232:                           ; preds = %if.end96, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1252
   %__first.addr.013.i.i.i.i1233 = phi ptr [ %__first.addr.1.i.i.i.i1257, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1252 ], [ %keys_.i.i.i228, %if.end96 ]
-  %__len.012.i.i.i.i1234 = phi i64 [ %__len.1.i.i.i.i1256, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1252 ], [ %202, %if.end96 ]
+  %__len.012.i.i.i.i1234 = phi i64 [ %__len.1.i.i.i.i1256, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1252 ], [ %193, %if.end96 ]
   %shr.i.i.i.i1235 = lshr i64 %__len.012.i.i.i.i1234, 1
   %add.ptr.i.i.i.i.i.i1238 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1233, i64 %shr.i.i.i.i1235
-  %203 = load ptr, ptr %add.ptr.i.i.i.i.i.i1238, align 8
-  %value_.i.i.i.i.i.i.i1241 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  %204 = load ptr, ptr %value_.i.i.i.i.i.i.i1241, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1242 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  %194 = load ptr, ptr %add.ptr.i.i.i.i.i.i1238, align 8
+  %value_.i.i.i.i.i.i.i1241 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  %195 = load ptr, ptr %value_.i.i.i.i.i.i.i1241, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1242 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1243 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1242, align 8
   %cmp.i.i.i.i.i.i.i.i.i1245 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1243, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1245, label %if.end.i.i.i.i.i.i.i.i1259, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1246
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1246: ; preds = %while.body.i.i.i.i1232
   %.sroa.speculated.i.i.i.i.i.i.i1244 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1243, i64 4)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1247 = load ptr, ptr %204, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1247 = load ptr, ptr %195, align 8
   %call.i.i.i.i.i.i.i.i.i1248 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1247, ptr noundef nonnull @.str.30, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1244) #20
   %tobool.i.not.i.i.i.i.i.i.i1249 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1248, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1249, label %if.end.i.i.i.i.i.i.i.i1259, label %if.then.i.i.i.i.i.i.i.i1250
@@ -4817,8 +4780,8 @@ if.end.i.i.i.i.i.i.i.i1259:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1252: ; preds = %if.end.i.i.i.i.i.i.i.i1259, %if.then.i.i.i.i.i.i.i.i1250
   %retval.i.0.i.i.i.i.i.i.i1253 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1251, %if.then.i.i.i.i.i.i.i.i1250 ], [ %cmp12.i.i.i.i.i.i.i.i1260, %if.end.i.i.i.i.i.i.i.i1259 ]
   %incdec.ptr.i.i.i.i1254 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1238, i64 8
-  %205 = xor i64 %shr.i.i.i.i1235, -1
-  %sub2.i.i.i.i1255 = add nsw i64 %__len.012.i.i.i.i1234, %205
+  %196 = xor i64 %shr.i.i.i.i1235, -1
+  %sub2.i.i.i.i1255 = add nsw i64 %__len.012.i.i.i.i1234, %196
   %__len.1.i.i.i.i1256 = select i1 %retval.i.0.i.i.i.i.i.i.i1253, i64 %sub2.i.i.i.i1255, i64 %shr.i.i.i.i1235
   %__first.addr.1.i.i.i.i1257 = select i1 %retval.i.0.i.i.i.i.i.i.i1253, ptr %incdec.ptr.i.i.i.i1254, ptr %__first.addr.013.i.i.i.i1233
   %cmp.i.i.i.i1258 = icmp sgt i64 %__len.1.i.i.i.i1256, 0
@@ -4830,26 +4793,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1217, label %if.then.i1265, label %land.lhs.true.i.i1218
 
 land.lhs.true.i.i1218:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1215
-  %206 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1216, align 8
-  %value_.i.i.i1219 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %207 = load ptr, ptr %value_.i.i.i1219, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1221 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %197 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1216, align 8
+  %value_.i.i.i1219 = getelementptr inbounds nuw i8, ptr %197, i64 16
+  %198 = load ptr, ptr %value_.i.i.i1219, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1221 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1222 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1221, align 8
   %cmp.i.i.i1223 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1222, 4
   br i1 %cmp.i.i.i1223, label %land.rhs.i.i.i1225, label %if.then.i1265
 
 land.rhs.i.i.i1225:                               ; preds = %land.lhs.true.i.i1218
-  %agg.tmp4.sroa.0.0.copyload.i.i1220 = load ptr, ptr %207, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1220 = load ptr, ptr %198, align 8
   %bcmp.i.i1226 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %agg.tmp4.sroa.0.0.copyload.i.i1220, ptr noundef nonnull dereferenceable(4) @.str.30, i64 4)
-  %208 = icmp eq i32 %bcmp.i.i1226, 0
-  br i1 %208, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1261, label %if.then.i1265
+  %199 = icmp eq i32 %bcmp.i.i1226, 0
+  br i1 %199, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1261, label %if.then.i1265
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1261: ; preds = %land.rhs.i.i.i1225
   %sub.ptr.lhs.cast.i.i1228 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1216 to i64
   %sub.ptr.sub.i.i1229 = sub i64 %sub.ptr.lhs.cast.i.i1228, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1231 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1229
-  %209 = load ptr, ptr %arrayidx.i1231, align 8
-  %tobool.not.i1262 = icmp eq ptr %209, null
+  %200 = load ptr, ptr %arrayidx.i1231, align 8
+  %tobool.not.i1262 = icmp eq ptr %200, null
   br i1 %tobool.not.i1262, label %if.then.i1265, label %if.end.i1263
 
 if.then.i1265:                                    ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1215, %land.rhs.i.i.i1225, %land.lhs.true.i.i1218, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1261
@@ -4857,8 +4820,8 @@ if.then.i1265:                                    ; preds = %_ZSt11lower_boundIP
   unreachable
 
 if.end.i1263:                                     ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1261
-  %210 = load i32, ptr %209, align 4
-  %cmp.i.i.i.i.i.i.i.not.i = icmp eq i32 %210, 2
+  %201 = load i32, ptr %200, align 4
+  %cmp.i.i.i.i.i.i.i.not.i = icmp eq i32 %201, 2
   br i1 %cmp.i.i.i.i.i.i.i.not.i, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_118jsonStringToUint64EPKN6hermes6parser9JSONValueE.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i1263
@@ -4866,10 +4829,10 @@ if.then2.i:                                       ; preds = %if.end.i1263
   unreachable
 
 _ZN8facebook6hermes7tracing12_GLOBAL__N_118jsonStringToUint64EPKN6hermes6parser9JSONValueE.exit: ; preds = %if.end.i1263
-  %value_.i.i1264 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  %211 = load ptr, ptr %value_.i.i1264, align 8
-  %212 = load ptr, ptr %211, align 8
-  %call5.i = call noundef i64 @strtoull(ptr noundef captures(none) %212, ptr noundef null, i32 noundef 10) #17
+  %value_.i.i1264 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  %202 = load ptr, ptr %value_.i.i1264, align 8
+  %203 = load ptr, ptr %202, align 8
+  %call5.i = call noundef i64 @strtoull(ptr noundef captures(none) %203, ptr noundef null, i32 noundef 10) #17
   store i64 %call5.i, ptr %ref.tmp99, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateBigIntRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdRNS4_6MethodEmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp97, ptr noundef nonnull align 4 dereferenceable(4) %creationMethod, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99)
   br label %sw.epilog
@@ -4879,20 +4842,20 @@ _ZN4llvh9StringRefC2EPKc.exit580:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1288:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit580, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1308
   %__first.addr.013.i.i.i.i1289 = phi ptr [ %__first.addr.1.i.i.i.i1313, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1308 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit580 ]
-  %__len.012.i.i.i.i1290 = phi i64 [ %__len.1.i.i.i.i1312, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1308 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit580 ]
+  %__len.012.i.i.i.i1290 = phi i64 [ %__len.1.i.i.i.i1312, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1308 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit580 ]
   %shr.i.i.i.i1291 = lshr i64 %__len.012.i.i.i.i1290, 1
   %add.ptr.i.i.i.i.i.i1294 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1289, i64 %shr.i.i.i.i1291
-  %213 = load ptr, ptr %add.ptr.i.i.i.i.i.i1294, align 8
-  %value_.i.i.i.i.i.i.i1297 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %214 = load ptr, ptr %value_.i.i.i.i.i.i.i1297, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1298 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %204 = load ptr, ptr %add.ptr.i.i.i.i.i.i1294, align 8
+  %value_.i.i.i.i.i.i.i1297 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  %205 = load ptr, ptr %value_.i.i.i.i.i.i.i1297, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1298 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1299 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1298, align 8
   %cmp.i.i.i.i.i.i.i.i.i1301 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1299, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1301, label %if.end.i.i.i.i.i.i.i.i1315, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1302
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1302: ; preds = %while.body.i.i.i.i1288
   %.sroa.speculated.i.i.i.i.i.i.i1300 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1299, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1303 = load ptr, ptr %214, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1303 = load ptr, ptr %205, align 8
   %call.i.i.i.i.i.i.i.i.i1304 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1303, ptr noundef nonnull @.str.31, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1300) #20
   %tobool.i.not.i.i.i.i.i.i.i1305 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1304, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1305, label %if.end.i.i.i.i.i.i.i.i1315, label %if.then.i.i.i.i.i.i.i.i1306
@@ -4908,8 +4871,8 @@ if.end.i.i.i.i.i.i.i.i1315:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1308: ; preds = %if.end.i.i.i.i.i.i.i.i1315, %if.then.i.i.i.i.i.i.i.i1306
   %retval.i.0.i.i.i.i.i.i.i1309 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1307, %if.then.i.i.i.i.i.i.i.i1306 ], [ %cmp12.i.i.i.i.i.i.i.i1316, %if.end.i.i.i.i.i.i.i.i1315 ]
   %incdec.ptr.i.i.i.i1310 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1294, i64 8
-  %215 = xor i64 %shr.i.i.i.i1291, -1
-  %sub2.i.i.i.i1311 = add nsw i64 %__len.012.i.i.i.i1290, %215
+  %206 = xor i64 %shr.i.i.i.i1291, -1
+  %sub2.i.i.i.i1311 = add nsw i64 %__len.012.i.i.i.i1290, %206
   %__len.1.i.i.i.i1312 = select i1 %retval.i.0.i.i.i.i.i.i.i1309, i64 %sub2.i.i.i.i1311, i64 %shr.i.i.i.i1291
   %__first.addr.1.i.i.i.i1313 = select i1 %retval.i.0.i.i.i.i.i.i.i1309, ptr %incdec.ptr.i.i.i.i1310, ptr %__first.addr.013.i.i.i.i1289
   %cmp.i.i.i.i1314 = icmp sgt i64 %__len.1.i.i.i.i1312, 0
@@ -4924,38 +4887,27 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i1272 = phi ptr [ %__first.addr.1.i.i.i.i1313, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1271.loopexit ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit580 ]
   %cmp.not.i.i1273 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i1272, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i1273)
-  %216 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1272, align 8
-  %value_.i.i.i1275 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  %217 = load ptr, ptr %value_.i.i.i1275, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i1276 = load ptr, ptr %217, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1277 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i1278 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1277, align 8
-  %cmp.i.i.i1279 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1278, 5
-  call void @llvm.assume(i1 %cmp.i.i.i1279)
-  %bcmp.i.i1282 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i1276, ptr noundef nonnull dereferenceable(5) @.str.31, i64 5)
-  %218 = icmp eq i32 %bcmp.i.i1282, 0
-  call void @llvm.assume(i1 %218)
   %sub.ptr.sub.i.i1285 = sub i64 %sub.ptr.lhs.cast.i.i1284.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1287 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1285
-  %219 = load ptr, ptr %arrayidx.i1287, align 8
+  %207 = load ptr, ptr %arrayidx.i1287, align 8
   br i1 %cmp11.i.i.i.i231, label %while.body.i.i.i.i1342, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1325
 
 while.body.i.i.i.i1342:                           ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1271, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1362
   %__first.addr.013.i.i.i.i1343 = phi ptr [ %__first.addr.1.i.i.i.i1367, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1362 ], [ %keys_.i.i.i228, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1271 ]
-  %__len.012.i.i.i.i1344 = phi i64 [ %__len.1.i.i.i.i1366, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1362 ], [ %43, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1271 ]
+  %__len.012.i.i.i.i1344 = phi i64 [ %__len.1.i.i.i.i1366, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1362 ], [ %40, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1271 ]
   %shr.i.i.i.i1345 = lshr i64 %__len.012.i.i.i.i1344, 1
   %add.ptr.i.i.i.i.i.i1348 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1343, i64 %shr.i.i.i.i1345
-  %220 = load ptr, ptr %add.ptr.i.i.i.i.i.i1348, align 8
-  %value_.i.i.i.i.i.i.i1351 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  %221 = load ptr, ptr %value_.i.i.i.i.i.i.i1351, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1352 = getelementptr inbounds nuw i8, ptr %221, i64 8
+  %208 = load ptr, ptr %add.ptr.i.i.i.i.i.i1348, align 8
+  %value_.i.i.i.i.i.i.i1351 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  %209 = load ptr, ptr %value_.i.i.i.i.i.i.i1351, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1352 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1353 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1352, align 8
   %cmp.i.i.i.i.i.i.i.i.i1355 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1353, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1355, label %if.end.i.i.i.i.i.i.i.i1369, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1356
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1356: ; preds = %while.body.i.i.i.i1342
   %.sroa.speculated.i.i.i.i.i.i.i1354 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1353, i64 8)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1357 = load ptr, ptr %221, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1357 = load ptr, ptr %209, align 8
   %call.i.i.i.i.i.i.i.i.i1358 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1357, ptr noundef nonnull @.str.32, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1354) #20
   %tobool.i.not.i.i.i.i.i.i.i1359 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1358, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1359, label %if.end.i.i.i.i.i.i.i.i1369, label %if.then.i.i.i.i.i.i.i.i1360
@@ -4971,8 +4923,8 @@ if.end.i.i.i.i.i.i.i.i1369:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1362: ; preds = %if.end.i.i.i.i.i.i.i.i1369, %if.then.i.i.i.i.i.i.i.i1360
   %retval.i.0.i.i.i.i.i.i.i1363 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1361, %if.then.i.i.i.i.i.i.i.i1360 ], [ %cmp12.i.i.i.i.i.i.i.i1370, %if.end.i.i.i.i.i.i.i.i1369 ]
   %incdec.ptr.i.i.i.i1364 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1348, i64 8
-  %222 = xor i64 %shr.i.i.i.i1345, -1
-  %sub2.i.i.i.i1365 = add nsw i64 %__len.012.i.i.i.i1344, %222
+  %210 = xor i64 %shr.i.i.i.i1345, -1
+  %sub2.i.i.i.i1365 = add nsw i64 %__len.012.i.i.i.i1344, %210
   %__len.1.i.i.i.i1366 = select i1 %retval.i.0.i.i.i.i.i.i.i1363, i64 %sub2.i.i.i.i1365, i64 %shr.i.i.i.i1345
   %__first.addr.1.i.i.i.i1367 = select i1 %retval.i.0.i.i.i.i.i.i.i1363, ptr %incdec.ptr.i.i.i.i1364, ptr %__first.addr.013.i.i.i.i1343
   %cmp.i.i.i.i1368 = icmp sgt i64 %__len.1.i.i.i.i1366, 0
@@ -4987,47 +4939,36 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i1326 = phi ptr [ %__first.addr.1.i.i.i.i1367, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1325.loopexit ], [ %keys_.i.i.i228, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1271 ]
   %cmp.not.i.i1327 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i1326, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i1327)
-  %223 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1326, align 8
-  %value_.i.i.i1329 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  %224 = load ptr, ptr %value_.i.i.i1329, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i1330 = load ptr, ptr %224, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1331 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i1332 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1331, align 8
-  %cmp.i.i.i1333 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1332, 8
-  call void @llvm.assume(i1 %cmp.i.i.i1333)
-  %bcmp.i.i1336 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %agg.tmp4.sroa.0.0.copyload.i.i1330, ptr noundef nonnull dereferenceable(8) @.str.32, i64 8)
-  %225 = icmp eq i32 %bcmp.i.i1336, 0
-  call void @llvm.assume(i1 %225)
   %sub.ptr.sub.i.i1339 = sub i64 %sub.ptr.lhs.cast.i.i1338.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1341 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1339
-  %226 = load ptr, ptr %arrayidx.i1341, align 8
-  %value_.i1374 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %227 = load double, ptr %value_.i1374, align 8
-  store double %227, ptr %ref.tmp110, align 8
-  %value_.i1375 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  %228 = load double, ptr %value_.i1375, align 8
-  store double %228, ptr %ref.tmp112, align 8
-  %229 = load i64, ptr %42, align 8
-  %add.ptr.i.i.i1378 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %229
-  %cmp11.i.i.i.i1380 = icmp sgt i64 %229, 0
+  %211 = load ptr, ptr %arrayidx.i1341, align 8
+  %value_.i1374 = getelementptr inbounds nuw i8, ptr %207, i64 16
+  %212 = load double, ptr %value_.i1374, align 8
+  store double %212, ptr %ref.tmp110, align 8
+  %value_.i1375 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  %213 = load double, ptr %value_.i1375, align 8
+  store double %213, ptr %ref.tmp112, align 8
+  %214 = load i64, ptr %39, align 8
+  %add.ptr.i.i.i1378 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %214
+  %cmp11.i.i.i.i1380 = icmp sgt i64 %214, 0
   br i1 %cmp11.i.i.i.i1380, label %while.body.i.i.i.i1398, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1381
 
 while.body.i.i.i.i1398:                           ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1325, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1418
   %__first.addr.013.i.i.i.i1399 = phi ptr [ %__first.addr.1.i.i.i.i1423, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1418 ], [ %keys_.i.i.i228, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1325 ]
-  %__len.012.i.i.i.i1400 = phi i64 [ %__len.1.i.i.i.i1422, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1418 ], [ %229, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1325 ]
+  %__len.012.i.i.i.i1400 = phi i64 [ %__len.1.i.i.i.i1422, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1418 ], [ %214, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1325 ]
   %shr.i.i.i.i1401 = lshr i64 %__len.012.i.i.i.i1400, 1
   %add.ptr.i.i.i.i.i.i1404 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1399, i64 %shr.i.i.i.i1401
-  %230 = load ptr, ptr %add.ptr.i.i.i.i.i.i1404, align 8
-  %value_.i.i.i.i.i.i.i1407 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %231 = load ptr, ptr %value_.i.i.i.i.i.i.i1407, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1408 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %215 = load ptr, ptr %add.ptr.i.i.i.i.i.i1404, align 8
+  %value_.i.i.i.i.i.i.i1407 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %216 = load ptr, ptr %value_.i.i.i.i.i.i.i1407, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1408 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1409 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1408, align 8
   %cmp.i.i.i.i.i.i.i.i.i1411 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1409, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1411, label %if.end.i.i.i.i.i.i.i.i1425, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1412
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1412: ; preds = %while.body.i.i.i.i1398
   %.sroa.speculated.i.i.i.i.i.i.i1410 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1409, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1413 = load ptr, ptr %231, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1413 = load ptr, ptr %216, align 8
   %call.i.i.i.i.i.i.i.i.i1414 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1413, ptr noundef nonnull @.str.33, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1410) #20
   %tobool.i.not.i.i.i.i.i.i.i1415 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1414, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1415, label %if.end.i.i.i.i.i.i.i.i1425, label %if.then.i.i.i.i.i.i.i.i1416
@@ -5043,8 +4984,8 @@ if.end.i.i.i.i.i.i.i.i1425:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1418: ; preds = %if.end.i.i.i.i.i.i.i.i1425, %if.then.i.i.i.i.i.i.i.i1416
   %retval.i.0.i.i.i.i.i.i.i1419 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1417, %if.then.i.i.i.i.i.i.i.i1416 ], [ %cmp12.i.i.i.i.i.i.i.i1426, %if.end.i.i.i.i.i.i.i.i1425 ]
   %incdec.ptr.i.i.i.i1420 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1404, i64 8
-  %232 = xor i64 %shr.i.i.i.i1401, -1
-  %sub2.i.i.i.i1421 = add nsw i64 %__len.012.i.i.i.i1400, %232
+  %217 = xor i64 %shr.i.i.i.i1401, -1
+  %sub2.i.i.i.i1421 = add nsw i64 %__len.012.i.i.i.i1400, %217
   %__len.1.i.i.i.i1422 = select i1 %retval.i.0.i.i.i.i.i.i.i1419, i64 %sub2.i.i.i.i1421, i64 %shr.i.i.i.i1401
   %__first.addr.1.i.i.i.i1423 = select i1 %retval.i.0.i.i.i.i.i.i.i1419, ptr %incdec.ptr.i.i.i.i1420, ptr %__first.addr.013.i.i.i.i1399
   %cmp.i.i.i.i1424 = icmp sgt i64 %__len.1.i.i.i.i1422, 0
@@ -5056,26 +4997,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1383, label %if.then.i1434, label %land.lhs.true.i.i1384
 
 land.lhs.true.i.i1384:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1381
-  %233 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1382, align 8
-  %value_.i.i.i1385 = getelementptr inbounds nuw i8, ptr %233, i64 16
-  %234 = load ptr, ptr %value_.i.i.i1385, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1387 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %218 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1382, align 8
+  %value_.i.i.i1385 = getelementptr inbounds nuw i8, ptr %218, i64 16
+  %219 = load ptr, ptr %value_.i.i.i1385, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1387 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1388 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1387, align 8
   %cmp.i.i.i1389 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1388, 5
   br i1 %cmp.i.i.i1389, label %land.rhs.i.i.i1391, label %if.then.i1434
 
 land.rhs.i.i.i1391:                               ; preds = %land.lhs.true.i.i1384
-  %agg.tmp4.sroa.0.0.copyload.i.i1386 = load ptr, ptr %234, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1386 = load ptr, ptr %219, align 8
   %bcmp.i.i1392 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i1386, ptr noundef nonnull dereferenceable(5) @.str.33, i64 5)
-  %235 = icmp eq i32 %bcmp.i.i1392, 0
-  br i1 %235, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1427, label %if.then.i1434
+  %220 = icmp eq i32 %bcmp.i.i1392, 0
+  br i1 %220, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1427, label %if.then.i1434
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1427: ; preds = %land.rhs.i.i.i1391
   %sub.ptr.lhs.cast.i.i1394 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1382 to i64
   %sub.ptr.sub.i.i1395 = sub i64 %sub.ptr.lhs.cast.i.i1394, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1397 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1395
-  %236 = load ptr, ptr %arrayidx.i1397, align 8
-  %tobool.not.i1428 = icmp eq ptr %236, null
+  %221 = load ptr, ptr %arrayidx.i1397, align 8
+  %tobool.not.i1428 = icmp eq ptr %221, null
   br i1 %tobool.not.i1428, label %if.then.i1434, label %if.end.i1429
 
 if.then.i1434:                                    ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1381, %land.rhs.i.i.i1391, %land.lhs.true.i.i1384, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1427
@@ -5083,8 +5024,8 @@ if.then.i1434:                                    ; preds = %_ZSt11lower_boundIP
   unreachable
 
 if.end.i1429:                                     ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1427
-  %237 = load i32, ptr %236, align 4
-  %cmp.not.i1430 = icmp eq i32 %237, 3
+  %222 = load i32, ptr %221, align 4
+  %cmp.not.i1430 = icmp eq i32 %222, 3
   br i1 %cmp.not.i1430, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsIiEET_PKN6hermes6parser9JSONValueE.exit1435, label %if.then1.i1431
 
 if.then1.i1431:                                   ; preds = %if.end.i1429
@@ -5092,9 +5033,9 @@ if.then1.i1431:                                   ; preds = %if.end.i1429
   unreachable
 
 _ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsIiEET_PKN6hermes6parser9JSONValueE.exit1435: ; preds = %if.end.i1429
-  %value_.i.i1432 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  %238 = load double, ptr %value_.i.i1432, align 8
-  %conv.i1433 = fptosi double %238 to i32
+  %value_.i.i1432 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  %223 = load double, ptr %value_.i.i1432, align 8
+  %conv.i1433 = fptosi double %223 to i32
   store i32 %conv.i1433, ptr %ref.tmp114, align 4
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20BigIntToStringRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEddiEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp112, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp114)
   br label %sw.epilog
@@ -5104,20 +5045,20 @@ _ZN4llvh9StringRefC2EPKc.exit610:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1458:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit610, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1478
   %__first.addr.013.i.i.i.i1459 = phi ptr [ %__first.addr.1.i.i.i.i1483, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1478 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit610 ]
-  %__len.012.i.i.i.i1460 = phi i64 [ %__len.1.i.i.i.i1482, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1478 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit610 ]
+  %__len.012.i.i.i.i1460 = phi i64 [ %__len.1.i.i.i.i1482, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1478 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit610 ]
   %shr.i.i.i.i1461 = lshr i64 %__len.012.i.i.i.i1460, 1
   %add.ptr.i.i.i.i.i.i1464 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1459, i64 %shr.i.i.i.i1461
-  %239 = load ptr, ptr %add.ptr.i.i.i.i.i.i1464, align 8
-  %value_.i.i.i.i.i.i.i1467 = getelementptr inbounds nuw i8, ptr %239, i64 16
-  %240 = load ptr, ptr %value_.i.i.i.i.i.i.i1467, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1468 = getelementptr inbounds nuw i8, ptr %240, i64 8
+  %224 = load ptr, ptr %add.ptr.i.i.i.i.i.i1464, align 8
+  %value_.i.i.i.i.i.i.i1467 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  %225 = load ptr, ptr %value_.i.i.i.i.i.i.i1467, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1468 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1469 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1468, align 8
   %cmp.i.i.i.i.i.i.i.i.i1471 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1469, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1471, label %if.end.i.i.i.i.i.i.i.i1485, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1472
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1472: ; preds = %while.body.i.i.i.i1458
   %.sroa.speculated.i.i.i.i.i.i.i1470 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1469, i64 8)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1473 = load ptr, ptr %240, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1473 = load ptr, ptr %225, align 8
   %call.i.i.i.i.i.i.i.i.i1474 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1473, ptr noundef nonnull @.str.34, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1470) #20
   %tobool.i.not.i.i.i.i.i.i.i1475 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1474, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1475, label %if.end.i.i.i.i.i.i.i.i1485, label %if.then.i.i.i.i.i.i.i.i1476
@@ -5133,8 +5074,8 @@ if.end.i.i.i.i.i.i.i.i1485:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1478: ; preds = %if.end.i.i.i.i.i.i.i.i1485, %if.then.i.i.i.i.i.i.i.i1476
   %retval.i.0.i.i.i.i.i.i.i1479 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1477, %if.then.i.i.i.i.i.i.i.i1476 ], [ %cmp12.i.i.i.i.i.i.i.i1486, %if.end.i.i.i.i.i.i.i.i1485 ]
   %incdec.ptr.i.i.i.i1480 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1464, i64 8
-  %241 = xor i64 %shr.i.i.i.i1461, -1
-  %sub2.i.i.i.i1481 = add nsw i64 %__len.012.i.i.i.i1460, %241
+  %226 = xor i64 %shr.i.i.i.i1461, -1
+  %sub2.i.i.i.i1481 = add nsw i64 %__len.012.i.i.i.i1460, %226
   %__len.1.i.i.i.i1482 = select i1 %retval.i.0.i.i.i.i.i.i.i1479, i64 %sub2.i.i.i.i1481, i64 %shr.i.i.i.i1461
   %__first.addr.1.i.i.i.i1483 = select i1 %retval.i.0.i.i.i.i.i.i.i1479, ptr %incdec.ptr.i.i.i.i1480, ptr %__first.addr.013.i.i.i.i1459
   %cmp.i.i.i.i1484 = icmp sgt i64 %__len.1.i.i.i.i1482, 0
@@ -5149,53 +5090,42 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i1442 = phi ptr [ %__first.addr.1.i.i.i.i1483, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1441.loopexit ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit610 ]
   %cmp.not.i.i1443 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i1442, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i1443)
-  %242 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1442, align 8
-  %value_.i.i.i1445 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %243 = load ptr, ptr %value_.i.i.i1445, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i1446 = load ptr, ptr %243, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1447 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i1448 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1447, align 8
-  %cmp.i.i.i1449 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1448, 8
-  call void @llvm.assume(i1 %cmp.i.i.i1449)
-  %bcmp.i.i1452 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %agg.tmp4.sroa.0.0.copyload.i.i1446, ptr noundef nonnull dereferenceable(8) @.str.34, i64 8)
-  %244 = icmp eq i32 %bcmp.i.i1452, 0
-  call void @llvm.assume(i1 %244)
   %sub.ptr.sub.i.i1455 = sub i64 %sub.ptr.lhs.cast.i.i1454.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1457 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1455
-  %245 = load ptr, ptr %arrayidx.i1457, align 8, !nonnull !34, !noundef !34
-  %value_.i1494 = getelementptr inbounds nuw i8, ptr %245, i64 16
-  %246 = load ptr, ptr %value_.i1494, align 8
-  %agg.tmp122.sroa.2.0.call123.sroa_idx = getelementptr inbounds nuw i8, ptr %246, i64 8
+  %227 = load ptr, ptr %arrayidx.i1457, align 8, !nonnull !34, !noundef !34
+  %value_.i1494 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  %228 = load ptr, ptr %value_.i1494, align 8
+  %agg.tmp122.sroa.2.0.call123.sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 8
   %agg.tmp122.sroa.2.0.copyload = load i64, ptr %agg.tmp122.sroa.2.0.call123.sroa_idx, align 8
   %cmp.i758 = icmp eq i64 %agg.tmp122.sroa.2.0.copyload, 5
   br i1 %cmp.i758, label %if.end.i782, label %_ZN4llvh9StringRefC2EPKc.exit630
 
 if.end.i782:                                      ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1441
-  %agg.tmp122.sroa.0.0.copyload = load ptr, ptr %246, align 8
+  %agg.tmp122.sroa.0.0.copyload = load ptr, ptr %228, align 8
   %bcmp166 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp122.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.35, i64 5)
-  %247 = icmp eq i32 %bcmp166, 0
+  %229 = icmp eq i32 %bcmp166, 0
   br label %_ZN4llvh9StringRefC2EPKc.exit630
 
 _ZN4llvh9StringRefC2EPKc.exit630:                 ; preds = %if.end.i782, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1441
-  %isAscii.0 = phi i1 [ false, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1441 ], [ %247, %if.end.i782 ]
+  %isAscii.0 = phi i1 [ false, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1441 ], [ %229, %if.end.i782 ]
   br i1 %cmp11.i.i.i.i231, label %while.body.i.i.i.i1517, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1500
 
 while.body.i.i.i.i1517:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit630, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1537
   %__first.addr.013.i.i.i.i1518 = phi ptr [ %__first.addr.1.i.i.i.i1542, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1537 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit630 ]
-  %__len.012.i.i.i.i1519 = phi i64 [ %__len.1.i.i.i.i1541, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1537 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit630 ]
+  %__len.012.i.i.i.i1519 = phi i64 [ %__len.1.i.i.i.i1541, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1537 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit630 ]
   %shr.i.i.i.i1520 = lshr i64 %__len.012.i.i.i.i1519, 1
   %add.ptr.i.i.i.i.i.i1523 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1518, i64 %shr.i.i.i.i1520
-  %248 = load ptr, ptr %add.ptr.i.i.i.i.i.i1523, align 8
-  %value_.i.i.i.i.i.i.i1526 = getelementptr inbounds nuw i8, ptr %248, i64 16
-  %249 = load ptr, ptr %value_.i.i.i.i.i.i.i1526, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1527 = getelementptr inbounds nuw i8, ptr %249, i64 8
+  %230 = load ptr, ptr %add.ptr.i.i.i.i.i.i1523, align 8
+  %value_.i.i.i.i.i.i.i1526 = getelementptr inbounds nuw i8, ptr %230, i64 16
+  %231 = load ptr, ptr %value_.i.i.i.i.i.i.i1526, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1527 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1528 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1527, align 8
   %cmp.i.i.i.i.i.i.i.i.i1530 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1528, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1530, label %if.end.i.i.i.i.i.i.i.i1544, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1531
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1531: ; preds = %while.body.i.i.i.i1517
   %.sroa.speculated.i.i.i.i.i.i.i1529 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1528, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1532 = load ptr, ptr %249, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1532 = load ptr, ptr %231, align 8
   %call.i.i.i.i.i.i.i.i.i1533 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1532, ptr noundef nonnull @.str.36, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1529) #20
   %tobool.i.not.i.i.i.i.i.i.i1534 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1533, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1534, label %if.end.i.i.i.i.i.i.i.i1544, label %if.then.i.i.i.i.i.i.i.i1535
@@ -5211,8 +5141,8 @@ if.end.i.i.i.i.i.i.i.i1544:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1537: ; preds = %if.end.i.i.i.i.i.i.i.i1544, %if.then.i.i.i.i.i.i.i.i1535
   %retval.i.0.i.i.i.i.i.i.i1538 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1536, %if.then.i.i.i.i.i.i.i.i1535 ], [ %cmp12.i.i.i.i.i.i.i.i1545, %if.end.i.i.i.i.i.i.i.i1544 ]
   %incdec.ptr.i.i.i.i1539 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1523, i64 8
-  %250 = xor i64 %shr.i.i.i.i1520, -1
-  %sub2.i.i.i.i1540 = add nsw i64 %__len.012.i.i.i.i1519, %250
+  %232 = xor i64 %shr.i.i.i.i1520, -1
+  %sub2.i.i.i.i1540 = add nsw i64 %__len.012.i.i.i.i1519, %232
   %__len.1.i.i.i.i1541 = select i1 %retval.i.0.i.i.i.i.i.i.i1538, i64 %sub2.i.i.i.i1540, i64 %shr.i.i.i.i1520
   %__first.addr.1.i.i.i.i1542 = select i1 %retval.i.0.i.i.i.i.i.i.i1538, ptr %incdec.ptr.i.i.i.i1539, ptr %__first.addr.013.i.i.i.i1518
   %cmp.i.i.i.i1543 = icmp sgt i64 %__len.1.i.i.i.i1541, 0
@@ -5224,60 +5154,60 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1502, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552, label %land.lhs.true.i.i1503
 
 land.lhs.true.i.i1503:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1500
-  %251 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1501, align 8
-  %value_.i.i.i1504 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  %252 = load ptr, ptr %value_.i.i.i1504, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1506 = getelementptr inbounds nuw i8, ptr %252, i64 8
+  %233 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1501, align 8
+  %value_.i.i.i1504 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %234 = load ptr, ptr %value_.i.i.i1504, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1506 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1507 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1506, align 8
   %cmp.i.i.i1508 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1507, 5
   br i1 %cmp.i.i.i1508, label %land.rhs.i.i.i1510, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552
 
 land.rhs.i.i.i1510:                               ; preds = %land.lhs.true.i.i1503
-  %agg.tmp4.sroa.0.0.copyload.i.i1505 = load ptr, ptr %252, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1505 = load ptr, ptr %234, align 8
   %bcmp.i.i1511 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i1505, ptr noundef nonnull dereferenceable(5) @.str.36, i64 5)
-  %253 = icmp eq i32 %bcmp.i.i1511, 0
-  br i1 %253, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1546, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552
+  %235 = icmp eq i32 %bcmp.i.i1511, 0
+  br i1 %235, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1546, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1546: ; preds = %land.rhs.i.i.i1510
   %sub.ptr.lhs.cast.i.i1513 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1501 to i64
   %sub.ptr.sub.i.i1514 = sub i64 %sub.ptr.lhs.cast.i.i1513, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1516 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1514
-  %254 = load ptr, ptr %arrayidx.i1516, align 8
-  %tobool.not.i1547 = icmp eq ptr %254, null
+  %236 = load ptr, ptr %arrayidx.i1516, align 8
+  %tobool.not.i1547 = icmp eq ptr %236, null
   br i1 %tobool.not.i1547, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552, label %land.lhs.true.i1548
 
 land.lhs.true.i1548:                              ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1546
-  %255 = load i32, ptr %254, align 4
-  %cmp.i.i.i.i.i.i.i1549 = icmp eq i32 %255, 2
-  %spec.select.i1550 = select i1 %cmp.i.i.i.i.i.i.i1549, ptr %254, ptr null
+  %237 = load i32, ptr %236, align 4
+  %cmp.i.i.i.i.i.i.i1549 = icmp eq i32 %237, 2
+  %spec.select.i1550 = select i1 %cmp.i.i.i.i.i.i.i1549, ptr %236, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1500, %land.rhs.i.i.i1510, %land.lhs.true.i.i1503, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1546, %land.lhs.true.i1548
   %cond.i1551 = phi ptr [ null, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1546 ], [ %spec.select.i1550, %land.lhs.true.i1548 ], [ null, %land.lhs.true.i.i1503 ], [ null, %land.rhs.i.i.i1510 ], [ null, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1500 ]
   %value_.i1553 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %256 = load double, ptr %value_.i1553, align 8
+  %238 = load double, ptr %value_.i1553, align 8
   %value_.i1554 = getelementptr inbounds nuw i8, ptr %cond.i1551, i64 16
   br i1 %isAscii.0, label %if.then133, label %if.else142
 
 if.then133:                                       ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552
-  store double %256, ptr %ref.tmp134, align 8
-  %257 = load ptr, ptr %value_.i1554, align 8
-  %258 = load ptr, ptr %257, align 8
-  store ptr %258, ptr %ref.tmp136, align 8
-  %Length.i806 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %259 = load i64, ptr %Length.i806, align 8
-  store i64 %259, ptr %ref.tmp139, align 8
+  store double %238, ptr %ref.tmp134, align 8
+  %239 = load ptr, ptr %value_.i1554, align 8
+  %240 = load ptr, ptr %239, align 8
+  store ptr %240, ptr %ref.tmp136, align 8
+  %Length.i806 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %241 = load i64, ptr %Length.i806, align 8
+  store i64 %241, ptr %ref.tmp139, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateStringRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdPKcmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp134, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp139)
   br label %sw.epilog
 
 if.else142:                                       ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1552
-  store double %256, ptr %ref.tmp143, align 8
-  %260 = load ptr, ptr %value_.i1554, align 8
-  %261 = load ptr, ptr %260, align 8
-  store ptr %261, ptr %ref.tmp145, align 8
-  %Length.i803 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %262 = load i64, ptr %Length.i803, align 8
-  store i64 %262, ptr %ref.tmp148, align 8
+  store double %238, ptr %ref.tmp143, align 8
+  %242 = load ptr, ptr %value_.i1554, align 8
+  %243 = load ptr, ptr %242, align 8
+  store ptr %243, ptr %ref.tmp145, align 8
+  %Length.i803 = getelementptr inbounds nuw i8, ptr %242, i64 8
+  %244 = load i64, ptr %Length.i803, align 8
+  store i64 %244, ptr %ref.tmp148, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CreateStringRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdPKhmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp145, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp148)
   br label %sw.epilog
 
@@ -5286,20 +5216,20 @@ _ZN4llvh9StringRefC2EPKc.exit640:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1581:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit640, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1601
   %__first.addr.013.i.i.i.i1582 = phi ptr [ %__first.addr.1.i.i.i.i1606, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1601 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit640 ]
-  %__len.012.i.i.i.i1583 = phi i64 [ %__len.1.i.i.i.i1605, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1601 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit640 ]
+  %__len.012.i.i.i.i1583 = phi i64 [ %__len.1.i.i.i.i1605, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1601 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit640 ]
   %shr.i.i.i.i1584 = lshr i64 %__len.012.i.i.i.i1583, 1
   %add.ptr.i.i.i.i.i.i1587 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1582, i64 %shr.i.i.i.i1584
-  %263 = load ptr, ptr %add.ptr.i.i.i.i.i.i1587, align 8
-  %value_.i.i.i.i.i.i.i1590 = getelementptr inbounds nuw i8, ptr %263, i64 16
-  %264 = load ptr, ptr %value_.i.i.i.i.i.i.i1590, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1591 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %245 = load ptr, ptr %add.ptr.i.i.i.i.i.i1587, align 8
+  %value_.i.i.i.i.i.i.i1590 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %246 = load ptr, ptr %value_.i.i.i.i.i.i.i1590, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1591 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1592 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1591, align 8
   %cmp.i.i.i.i.i.i.i.i.i1594 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1592, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1594, label %if.end.i.i.i.i.i.i.i.i1608, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1595
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1595: ; preds = %while.body.i.i.i.i1581
   %.sroa.speculated.i.i.i.i.i.i.i1593 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1592, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1596 = load ptr, ptr %264, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1596 = load ptr, ptr %246, align 8
   %call.i.i.i.i.i.i.i.i.i1597 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1596, ptr noundef nonnull @.str.12, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1593) #20
   %tobool.i.not.i.i.i.i.i.i.i1598 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1597, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1598, label %if.end.i.i.i.i.i.i.i.i1608, label %if.then.i.i.i.i.i.i.i.i1599
@@ -5315,8 +5245,8 @@ if.end.i.i.i.i.i.i.i.i1608:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1601: ; preds = %if.end.i.i.i.i.i.i.i.i1608, %if.then.i.i.i.i.i.i.i.i1599
   %retval.i.0.i.i.i.i.i.i.i1602 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1600, %if.then.i.i.i.i.i.i.i.i1599 ], [ %cmp12.i.i.i.i.i.i.i.i1609, %if.end.i.i.i.i.i.i.i.i1608 ]
   %incdec.ptr.i.i.i.i1603 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1587, i64 8
-  %265 = xor i64 %shr.i.i.i.i1584, -1
-  %sub2.i.i.i.i1604 = add nsw i64 %__len.012.i.i.i.i1583, %265
+  %247 = xor i64 %shr.i.i.i.i1584, -1
+  %sub2.i.i.i.i1604 = add nsw i64 %__len.012.i.i.i.i1583, %247
   %__len.1.i.i.i.i1605 = select i1 %retval.i.0.i.i.i.i.i.i.i1602, i64 %sub2.i.i.i.i1604, i64 %shr.i.i.i.i1584
   %__first.addr.1.i.i.i.i1606 = select i1 %retval.i.0.i.i.i.i.i.i.i1602, ptr %incdec.ptr.i.i.i.i1603, ptr %__first.addr.013.i.i.i.i1582
   %cmp.i.i.i.i1607 = icmp sgt i64 %__len.1.i.i.i.i1605, 0
@@ -5328,32 +5258,32 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1566, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616, label %land.lhs.true.i.i1567
 
 land.lhs.true.i.i1567:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1564
-  %266 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1565, align 8
-  %value_.i.i.i1568 = getelementptr inbounds nuw i8, ptr %266, i64 16
-  %267 = load ptr, ptr %value_.i.i.i1568, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1570 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %248 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1565, align 8
+  %value_.i.i.i1568 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  %249 = load ptr, ptr %value_.i.i.i1568, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1570 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1571 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1570, align 8
   %cmp.i.i.i1572 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1571, 5
   br i1 %cmp.i.i.i1572, label %land.rhs.i.i.i1574, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616
 
 land.rhs.i.i.i1574:                               ; preds = %land.lhs.true.i.i1567
-  %agg.tmp4.sroa.0.0.copyload.i.i1569 = load ptr, ptr %267, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1569 = load ptr, ptr %249, align 8
   %bcmp.i.i1575 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i1569, ptr noundef nonnull dereferenceable(5) @.str.12, i64 5)
-  %268 = icmp eq i32 %bcmp.i.i1575, 0
-  br i1 %268, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1610, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616
+  %250 = icmp eq i32 %bcmp.i.i1575, 0
+  br i1 %250, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1610, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1610: ; preds = %land.rhs.i.i.i1574
   %sub.ptr.lhs.cast.i.i1577 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1565 to i64
   %sub.ptr.sub.i.i1578 = sub i64 %sub.ptr.lhs.cast.i.i1577, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1580 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1578
-  %269 = load ptr, ptr %arrayidx.i1580, align 8
-  %tobool.not.i1611 = icmp eq ptr %269, null
+  %251 = load ptr, ptr %arrayidx.i1580, align 8
+  %tobool.not.i1611 = icmp eq ptr %251, null
   br i1 %tobool.not.i1611, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616, label %land.lhs.true.i1612
 
 land.lhs.true.i1612:                              ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1610
-  %270 = load i32, ptr %269, align 4
-  %cmp.i.i.i.i.i.i.i1613 = icmp eq i32 %270, 3
-  %spec.select.i1614 = select i1 %cmp.i.i.i.i.i.i.i1613, ptr %269, ptr null
+  %252 = load i32, ptr %251, align 4
+  %cmp.i.i.i.i.i.i.i1613 = icmp eq i32 %252, 3
+  %spec.select.i1614 = select i1 %cmp.i.i.i.i.i.i.i1613, ptr %251, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1564, %land.rhs.i.i.i1574, %land.lhs.true.i.i1567, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1610, %land.lhs.true.i1612
@@ -5363,15 +5293,15 @@ _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cas
 
 if.then157:                                       ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONNumberENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1616
   %value_.i1617 = getelementptr inbounds nuw i8, ptr %cond.i1615, i64 16
-  %271 = load double, ptr %value_.i1617, align 8
-  store double %271, ptr %ref.tmp158, align 8
+  %253 = load double, ptr %value_.i1617, align 8
+  store double %253, ptr %ref.tmp158, align 8
   %value_.i1618 = getelementptr inbounds nuw i8, ptr %cond.i625, i64 16
-  %272 = load ptr, ptr %value_.i1618, align 8
-  %273 = load ptr, ptr %272, align 8
+  %254 = load ptr, ptr %value_.i1618, align 8
+  %255 = load ptr, ptr %254, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp163) #17
   %call.i1619 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161, ptr noundef %call.i1619, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp163) #17
-  %cmp.i1620 = icmp eq ptr %273, null
+  %cmp.i1620 = icmp eq ptr %255, null
   br i1 %cmp.i1620, label %if.then.i1624, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1625
 
 if.then.i1624:                                    ; preds = %if.then157
@@ -5379,14 +5309,14 @@ if.then.i1624:                                    ; preds = %if.then157
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1625: ; preds = %if.then157
-  %call.i.i1622 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %273) #17
-  %add.ptr.i1623 = getelementptr inbounds i8, ptr %273, i64 %call.i.i1622
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161, ptr noundef nonnull %273, ptr noundef nonnull %add.ptr.i1623)
+  %call.i.i1622 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %255) #17
+  %add.ptr.i1623 = getelementptr inbounds i8, ptr %255, i64 %call.i.i1622
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161, ptr noundef nonnull %255, ptr noundef nonnull %add.ptr.i1623)
   %call164 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161) #17
-  %274 = extractvalue { i32, i64 } %call164, 0
-  store i32 %274, ptr %ref.tmp160, align 8
-  %275 = extractvalue { i32, i64 } %call164, 1
-  store i64 %275, ptr %17, align 8
+  %256 = extractvalue { i32, i64 } %call164, 0
+  store i32 %256, ptr %ref.tmp160, align 8
+  %257 = extractvalue { i32, i64 } %call164, 1
+  store i64 %257, ptr %17, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp160)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp163) #17
@@ -5397,20 +5327,20 @@ _ZN4llvh9StringRefC2EPKc.exit650:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1648:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit650, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1668
   %__first.addr.013.i.i.i.i1649 = phi ptr [ %__first.addr.1.i.i.i.i1673, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1668 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit650 ]
-  %__len.012.i.i.i.i1650 = phi i64 [ %__len.1.i.i.i.i1672, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1668 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit650 ]
+  %__len.012.i.i.i.i1650 = phi i64 [ %__len.1.i.i.i.i1672, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1668 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit650 ]
   %shr.i.i.i.i1651 = lshr i64 %__len.012.i.i.i.i1650, 1
   %add.ptr.i.i.i.i.i.i1654 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1649, i64 %shr.i.i.i.i1651
-  %276 = load ptr, ptr %add.ptr.i.i.i.i.i.i1654, align 8
-  %value_.i.i.i.i.i.i.i1657 = getelementptr inbounds nuw i8, ptr %276, i64 16
-  %277 = load ptr, ptr %value_.i.i.i.i.i.i.i1657, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1658 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  %258 = load ptr, ptr %add.ptr.i.i.i.i.i.i1654, align 8
+  %value_.i.i.i.i.i.i.i1657 = getelementptr inbounds nuw i8, ptr %258, i64 16
+  %259 = load ptr, ptr %value_.i.i.i.i.i.i.i1657, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1658 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1659 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1658, align 8
   %cmp.i.i.i.i.i.i.i.i.i1661 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1659, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1661, label %if.end.i.i.i.i.i.i.i.i1675, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1662
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1662: ; preds = %while.body.i.i.i.i1648
   %.sroa.speculated.i.i.i.i.i.i.i1660 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1659, i64 8)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1663 = load ptr, ptr %277, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1663 = load ptr, ptr %259, align 8
   %call.i.i.i.i.i.i.i.i.i1664 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1663, ptr noundef nonnull @.str.34, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1660) #20
   %tobool.i.not.i.i.i.i.i.i.i1665 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1664, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1665, label %if.end.i.i.i.i.i.i.i.i1675, label %if.then.i.i.i.i.i.i.i.i1666
@@ -5426,8 +5356,8 @@ if.end.i.i.i.i.i.i.i.i1675:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1668: ; preds = %if.end.i.i.i.i.i.i.i.i1675, %if.then.i.i.i.i.i.i.i.i1666
   %retval.i.0.i.i.i.i.i.i.i1669 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1667, %if.then.i.i.i.i.i.i.i.i1666 ], [ %cmp12.i.i.i.i.i.i.i.i1676, %if.end.i.i.i.i.i.i.i.i1675 ]
   %incdec.ptr.i.i.i.i1670 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1654, i64 8
-  %278 = xor i64 %shr.i.i.i.i1651, -1
-  %sub2.i.i.i.i1671 = add nsw i64 %__len.012.i.i.i.i1650, %278
+  %260 = xor i64 %shr.i.i.i.i1651, -1
+  %sub2.i.i.i.i1671 = add nsw i64 %__len.012.i.i.i.i1650, %260
   %__len.1.i.i.i.i1672 = select i1 %retval.i.0.i.i.i.i.i.i.i1669, i64 %sub2.i.i.i.i1671, i64 %shr.i.i.i.i1651
   %__first.addr.1.i.i.i.i1673 = select i1 %retval.i.0.i.i.i.i.i.i.i1669, ptr %incdec.ptr.i.i.i.i1670, ptr %__first.addr.013.i.i.i.i1649
   %cmp.i.i.i.i1674 = icmp sgt i64 %__len.1.i.i.i.i1672, 0
@@ -5442,53 +5372,42 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i1632 = phi ptr [ %__first.addr.1.i.i.i.i1673, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1631.loopexit ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit650 ]
   %cmp.not.i.i1633 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i1632, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i1633)
-  %279 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1632, align 8
-  %value_.i.i.i1635 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  %280 = load ptr, ptr %value_.i.i.i1635, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i1636 = load ptr, ptr %280, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1637 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i1638 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1637, align 8
-  %cmp.i.i.i1639 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1638, 8
-  call void @llvm.assume(i1 %cmp.i.i.i1639)
-  %bcmp.i.i1642 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %agg.tmp4.sroa.0.0.copyload.i.i1636, ptr noundef nonnull dereferenceable(8) @.str.34, i64 8)
-  %281 = icmp eq i32 %bcmp.i.i1642, 0
-  call void @llvm.assume(i1 %281)
   %sub.ptr.sub.i.i1645 = sub i64 %sub.ptr.lhs.cast.i.i1644.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1647 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1645
-  %282 = load ptr, ptr %arrayidx.i1647, align 8, !nonnull !34, !noundef !34
-  %value_.i1684 = getelementptr inbounds nuw i8, ptr %282, i64 16
-  %283 = load ptr, ptr %value_.i1684, align 8
-  %agg.tmp171.sroa.2.0.call172.sroa_idx = getelementptr inbounds nuw i8, ptr %283, i64 8
+  %261 = load ptr, ptr %arrayidx.i1647, align 8, !nonnull !34, !noundef !34
+  %value_.i1684 = getelementptr inbounds nuw i8, ptr %261, i64 16
+  %262 = load ptr, ptr %value_.i1684, align 8
+  %agg.tmp171.sroa.2.0.call172.sroa_idx = getelementptr inbounds nuw i8, ptr %262, i64 8
   %agg.tmp171.sroa.2.0.copyload = load i64, ptr %agg.tmp171.sroa.2.0.call172.sroa_idx, align 8
   %cmp.i769 = icmp eq i64 %agg.tmp171.sroa.2.0.copyload, 5
   br i1 %cmp.i769, label %if.end.i, label %_ZN4llvh9StringRefC2EPKc.exit670
 
 if.end.i:                                         ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1631
-  %agg.tmp171.sroa.0.0.copyload = load ptr, ptr %283, align 8
+  %agg.tmp171.sroa.0.0.copyload = load ptr, ptr %262, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp171.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.35, i64 5)
-  %284 = icmp eq i32 %bcmp, 0
+  %263 = icmp eq i32 %bcmp, 0
   br label %_ZN4llvh9StringRefC2EPKc.exit670
 
 _ZN4llvh9StringRefC2EPKc.exit670:                 ; preds = %if.end.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1631
-  %isAscii170.0 = phi i1 [ false, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1631 ], [ %284, %if.end.i ]
+  %isAscii170.0 = phi i1 [ false, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1631 ], [ %263, %if.end.i ]
   br i1 %cmp11.i.i.i.i231, label %while.body.i.i.i.i1707, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1690
 
 while.body.i.i.i.i1707:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit670, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1727
   %__first.addr.013.i.i.i.i1708 = phi ptr [ %__first.addr.1.i.i.i.i1732, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1727 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit670 ]
-  %__len.012.i.i.i.i1709 = phi i64 [ %__len.1.i.i.i.i1731, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1727 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit670 ]
+  %__len.012.i.i.i.i1709 = phi i64 [ %__len.1.i.i.i.i1731, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1727 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit670 ]
   %shr.i.i.i.i1710 = lshr i64 %__len.012.i.i.i.i1709, 1
   %add.ptr.i.i.i.i.i.i1713 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1708, i64 %shr.i.i.i.i1710
-  %285 = load ptr, ptr %add.ptr.i.i.i.i.i.i1713, align 8
-  %value_.i.i.i.i.i.i.i1716 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %286 = load ptr, ptr %value_.i.i.i.i.i.i.i1716, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1717 = getelementptr inbounds nuw i8, ptr %286, i64 8
+  %264 = load ptr, ptr %add.ptr.i.i.i.i.i.i1713, align 8
+  %value_.i.i.i.i.i.i.i1716 = getelementptr inbounds nuw i8, ptr %264, i64 16
+  %265 = load ptr, ptr %value_.i.i.i.i.i.i.i1716, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1717 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1718 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1717, align 8
   %cmp.i.i.i.i.i.i.i.i.i1720 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1718, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1720, label %if.end.i.i.i.i.i.i.i.i1734, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1721
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1721: ; preds = %while.body.i.i.i.i1707
   %.sroa.speculated.i.i.i.i.i.i.i1719 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1718, i64 5)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1722 = load ptr, ptr %286, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1722 = load ptr, ptr %265, align 8
   %call.i.i.i.i.i.i.i.i.i1723 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1722, ptr noundef nonnull @.str.36, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1719) #20
   %tobool.i.not.i.i.i.i.i.i.i1724 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1723, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1724, label %if.end.i.i.i.i.i.i.i.i1734, label %if.then.i.i.i.i.i.i.i.i1725
@@ -5504,8 +5423,8 @@ if.end.i.i.i.i.i.i.i.i1734:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1727: ; preds = %if.end.i.i.i.i.i.i.i.i1734, %if.then.i.i.i.i.i.i.i.i1725
   %retval.i.0.i.i.i.i.i.i.i1728 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1726, %if.then.i.i.i.i.i.i.i.i1725 ], [ %cmp12.i.i.i.i.i.i.i.i1735, %if.end.i.i.i.i.i.i.i.i1734 ]
   %incdec.ptr.i.i.i.i1729 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1713, i64 8
-  %287 = xor i64 %shr.i.i.i.i1710, -1
-  %sub2.i.i.i.i1730 = add nsw i64 %__len.012.i.i.i.i1709, %287
+  %266 = xor i64 %shr.i.i.i.i1710, -1
+  %sub2.i.i.i.i1730 = add nsw i64 %__len.012.i.i.i.i1709, %266
   %__len.1.i.i.i.i1731 = select i1 %retval.i.0.i.i.i.i.i.i.i1728, i64 %sub2.i.i.i.i1730, i64 %shr.i.i.i.i1710
   %__first.addr.1.i.i.i.i1732 = select i1 %retval.i.0.i.i.i.i.i.i.i1728, ptr %incdec.ptr.i.i.i.i1729, ptr %__first.addr.013.i.i.i.i1708
   %cmp.i.i.i.i1733 = icmp sgt i64 %__len.1.i.i.i.i1731, 0
@@ -5517,67 +5436,67 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1692, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742, label %land.lhs.true.i.i1693
 
 land.lhs.true.i.i1693:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1690
-  %288 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1691, align 8
-  %value_.i.i.i1694 = getelementptr inbounds nuw i8, ptr %288, i64 16
-  %289 = load ptr, ptr %value_.i.i.i1694, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1696 = getelementptr inbounds nuw i8, ptr %289, i64 8
+  %267 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1691, align 8
+  %value_.i.i.i1694 = getelementptr inbounds nuw i8, ptr %267, i64 16
+  %268 = load ptr, ptr %value_.i.i.i1694, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1696 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1697 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1696, align 8
   %cmp.i.i.i1698 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1697, 5
   br i1 %cmp.i.i.i1698, label %land.rhs.i.i.i1700, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742
 
 land.rhs.i.i.i1700:                               ; preds = %land.lhs.true.i.i1693
-  %agg.tmp4.sroa.0.0.copyload.i.i1695 = load ptr, ptr %289, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1695 = load ptr, ptr %268, align 8
   %bcmp.i.i1701 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %agg.tmp4.sroa.0.0.copyload.i.i1695, ptr noundef nonnull dereferenceable(5) @.str.36, i64 5)
-  %290 = icmp eq i32 %bcmp.i.i1701, 0
-  br i1 %290, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1736, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742
+  %269 = icmp eq i32 %bcmp.i.i1701, 0
+  br i1 %269, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1736, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1736: ; preds = %land.rhs.i.i.i1700
   %sub.ptr.lhs.cast.i.i1703 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1691 to i64
   %sub.ptr.sub.i.i1704 = sub i64 %sub.ptr.lhs.cast.i.i1703, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1706 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1704
-  %291 = load ptr, ptr %arrayidx.i1706, align 8
-  %tobool.not.i1737 = icmp eq ptr %291, null
+  %270 = load ptr, ptr %arrayidx.i1706, align 8
+  %tobool.not.i1737 = icmp eq ptr %270, null
   br i1 %tobool.not.i1737, label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742, label %land.lhs.true.i1738
 
 land.lhs.true.i1738:                              ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1736
-  %292 = load i32, ptr %291, align 4
-  %cmp.i.i.i.i.i.i.i1739 = icmp eq i32 %292, 2
-  %spec.select.i1740 = select i1 %cmp.i.i.i.i.i.i.i1739, ptr %291, ptr null
+  %271 = load i32, ptr %270, align 4
+  %cmp.i.i.i.i.i.i.i1739 = icmp eq i32 %271, 2
+  %spec.select.i1740 = select i1 %cmp.i.i.i.i.i.i.i1739, ptr %270, ptr null
   br label %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742
 
 _ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1690, %land.rhs.i.i.i1700, %land.lhs.true.i.i1693, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1736, %land.lhs.true.i1738
   %cond.i1741 = phi ptr [ null, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1736 ], [ %spec.select.i1740, %land.lhs.true.i1738 ], [ null, %land.lhs.true.i.i1693 ], [ null, %land.rhs.i.i.i1700 ], [ null, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1690 ]
   %value_.i1743 = getelementptr inbounds nuw i8, ptr %cond.i1615, i64 16
-  %293 = load double, ptr %value_.i1743, align 8
+  %272 = load double, ptr %value_.i1743, align 8
   %value_.i1744 = getelementptr inbounds nuw i8, ptr %cond.i1741, i64 16
   br i1 %isAscii170.0, label %if.then183, label %if.else192
 
 if.then183:                                       ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742
-  store double %293, ptr %ref.tmp184, align 8
-  %294 = load ptr, ptr %value_.i1744, align 8
-  %295 = load ptr, ptr %294, align 8
-  store ptr %295, ptr %ref.tmp186, align 8
-  %Length.i800 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %296 = load i64, ptr %Length.i800, align 8
-  store i64 %296, ptr %ref.tmp189, align 8
+  store double %272, ptr %ref.tmp184, align 8
+  %273 = load ptr, ptr %value_.i1744, align 8
+  %274 = load ptr, ptr %273, align 8
+  store ptr %274, ptr %ref.tmp186, align 8
+  %Length.i800 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  %275 = load i64, ptr %Length.i800, align 8
+  store i64 %275, ptr %ref.tmp189, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdPKcmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp184, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp186, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp189)
   br label %sw.epilog
 
 if.else192:                                       ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit1742
-  store double %293, ptr %ref.tmp193, align 8
-  %297 = load ptr, ptr %value_.i1744, align 8
-  %298 = load ptr, ptr %297, align 8
-  store ptr %298, ptr %ref.tmp195, align 8
-  %Length.i797 = getelementptr inbounds nuw i8, ptr %297, i64 8
-  %299 = load i64, ptr %Length.i797, align 8
-  store i64 %299, ptr %ref.tmp198, align 8
+  store double %272, ptr %ref.tmp193, align 8
+  %276 = load ptr, ptr %value_.i1744, align 8
+  %277 = load ptr, ptr %276, align 8
+  store ptr %277, ptr %ref.tmp195, align 8
+  %Length.i797 = getelementptr inbounds nuw i8, ptr %276, i64 8
+  %278 = load i64, ptr %Length.i797, align 8
+  store i64 %278, ptr %ref.tmp198, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreatePropNameIDRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdPKhmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp193, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp195, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp198)
   br label %sw.epilog
 
 sw.bb203:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1749 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %300 = load double, ptr %value_.i1749, align 8
-  store double %300, ptr %ref.tmp204, align 8
+  %279 = load double, ptr %value_.i1749, align 8
+  store double %279, ptr %ref.tmp204, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22CreateHostObjectRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp204)
   br label %sw.epilog
 
@@ -5587,20 +5506,20 @@ sw.bb206:                                         ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i1772:                           ; preds = %sw.bb206, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1792
   %__first.addr.013.i.i.i.i1773 = phi ptr [ %__first.addr.1.i.i.i.i1797, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1792 ], [ %keys_.i.i.i228, %sw.bb206 ]
-  %__len.012.i.i.i.i1774 = phi i64 [ %__len.1.i.i.i.i1796, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1792 ], [ %43, %sw.bb206 ]
+  %__len.012.i.i.i.i1774 = phi i64 [ %__len.1.i.i.i.i1796, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1792 ], [ %40, %sw.bb206 ]
   %shr.i.i.i.i1775 = lshr i64 %__len.012.i.i.i.i1774, 1
   %add.ptr.i.i.i.i.i.i1778 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1773, i64 %shr.i.i.i.i1775
-  %301 = load ptr, ptr %add.ptr.i.i.i.i.i.i1778, align 8
-  %value_.i.i.i.i.i.i.i1781 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  %302 = load ptr, ptr %value_.i.i.i.i.i.i.i1781, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1782 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  %280 = load ptr, ptr %add.ptr.i.i.i.i.i.i1778, align 8
+  %value_.i.i.i.i.i.i.i1781 = getelementptr inbounds nuw i8, ptr %280, i64 16
+  %281 = load ptr, ptr %value_.i.i.i.i.i.i.i1781, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1782 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1783 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1782, align 8
   %cmp.i.i.i.i.i.i.i.i.i1785 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1783, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1785, label %if.end.i.i.i.i.i.i.i.i1799, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1786
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1786: ; preds = %while.body.i.i.i.i1772
   %.sroa.speculated.i.i.i.i.i.i.i1784 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1783, i64 14)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1787 = load ptr, ptr %302, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1787 = load ptr, ptr %281, align 8
   %call.i.i.i.i.i.i.i.i.i1788 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1787, ptr noundef nonnull @.str.37, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1784) #20
   %tobool.i.not.i.i.i.i.i.i.i1789 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1788, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1789, label %if.end.i.i.i.i.i.i.i.i1799, label %if.then.i.i.i.i.i.i.i.i1790
@@ -5616,8 +5535,8 @@ if.end.i.i.i.i.i.i.i.i1799:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1792: ; preds = %if.end.i.i.i.i.i.i.i.i1799, %if.then.i.i.i.i.i.i.i.i1790
   %retval.i.0.i.i.i.i.i.i.i1793 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1791, %if.then.i.i.i.i.i.i.i.i1790 ], [ %cmp12.i.i.i.i.i.i.i.i1800, %if.end.i.i.i.i.i.i.i.i1799 ]
   %incdec.ptr.i.i.i.i1794 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1778, i64 8
-  %303 = xor i64 %shr.i.i.i.i1775, -1
-  %sub2.i.i.i.i1795 = add nsw i64 %__len.012.i.i.i.i1774, %303
+  %282 = xor i64 %shr.i.i.i.i1775, -1
+  %sub2.i.i.i.i1795 = add nsw i64 %__len.012.i.i.i.i1774, %282
   %__len.1.i.i.i.i1796 = select i1 %retval.i.0.i.i.i.i.i.i.i1793, i64 %sub2.i.i.i.i1795, i64 %shr.i.i.i.i1775
   %__first.addr.1.i.i.i.i1797 = select i1 %retval.i.0.i.i.i.i.i.i.i1793, ptr %incdec.ptr.i.i.i.i1794, ptr %__first.addr.013.i.i.i.i1773
   %cmp.i.i.i.i1798 = icmp sgt i64 %__len.1.i.i.i.i1796, 0
@@ -5629,66 +5548,66 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1757, label %if.end213, label %land.lhs.true.i.i1758
 
 land.lhs.true.i.i1758:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1755
-  %304 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1756, align 8
-  %value_.i.i.i1759 = getelementptr inbounds nuw i8, ptr %304, i64 16
-  %305 = load ptr, ptr %value_.i.i.i1759, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1761 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  %283 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1756, align 8
+  %value_.i.i.i1759 = getelementptr inbounds nuw i8, ptr %283, i64 16
+  %284 = load ptr, ptr %value_.i.i.i1759, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1761 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1762 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1761, align 8
   %cmp.i.i.i1763 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1762, 14
   br i1 %cmp.i.i.i1763, label %land.rhs.i.i.i1765, label %if.end213
 
 land.rhs.i.i.i1765:                               ; preds = %land.lhs.true.i.i1758
-  %agg.tmp4.sroa.0.0.copyload.i.i1760 = load ptr, ptr %305, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1760 = load ptr, ptr %284, align 8
   %bcmp.i.i1766 = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %agg.tmp4.sroa.0.0.copyload.i.i1760, ptr noundef nonnull dereferenceable(14) @.str.37, i64 14)
-  %306 = icmp eq i32 %bcmp.i.i1766, 0
-  br i1 %306, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1801, label %if.end213
+  %285 = icmp eq i32 %bcmp.i.i1766, 0
+  br i1 %285, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1801, label %if.end213
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1801: ; preds = %land.rhs.i.i.i1765
   %sub.ptr.lhs.cast.i.i1768 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1756 to i64
   %sub.ptr.sub.i.i1769 = sub i64 %sub.ptr.lhs.cast.i.i1768, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1771 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1769
-  %307 = load ptr, ptr %arrayidx.i1771, align 8
-  %tobool.not.i1802 = icmp eq ptr %307, null
+  %286 = load ptr, ptr %arrayidx.i1771, align 8
+  %tobool.not.i1802 = icmp eq ptr %286, null
   br i1 %tobool.not.i1802, label %if.end213, label %land.lhs.true.i1803
 
 land.lhs.true.i1803:                              ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1801
-  %308 = load i32, ptr %307, align 4
-  %cmp.i.i.i.i.i.i.i1804 = icmp eq i32 %308, 3
+  %287 = load i32, ptr %286, align 4
+  %cmp.i.i.i.i.i.i.i1804 = icmp eq i32 %287, 3
   br i1 %cmp.i.i.i.i.i.i.i1804, label %if.then211, label %if.end213
 
 if.then211:                                       ; preds = %land.lhs.true.i1803
-  %value_.i1808 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  %309 = load double, ptr %value_.i1808, align 8
-  %conv = fptoui double %309 to i32
+  %value_.i1808 = getelementptr inbounds nuw i8, ptr %286, i64 16
+  %288 = load double, ptr %value_.i1808, align 8
+  %conv = fptoui double %288 to i32
   store i32 %conv, ptr %paramCount, align 4
   br label %if.end213
 
 if.end213:                                        ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1755, %land.rhs.i.i.i1765, %land.lhs.true.i.i1758, %land.lhs.true.i1803, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1801, %if.then211
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %functionName) #17
-  %310 = load ptr, ptr %hiddenClass_.i, align 8
-  %keys_.i.i.i1810 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %311 = load i64, ptr %310, align 8
-  %add.ptr.i.i.i1811 = getelementptr inbounds ptr, ptr %keys_.i.i.i1810, i64 %311
+  %289 = load ptr, ptr %hiddenClass_.i, align 8
+  %keys_.i.i.i1810 = getelementptr inbounds nuw i8, ptr %289, i64 8
+  %290 = load i64, ptr %289, align 8
+  %add.ptr.i.i.i1811 = getelementptr inbounds ptr, ptr %keys_.i.i.i1810, i64 %290
   %sub.ptr.rhs.cast.i.i.i.i.i.i1812 = ptrtoint ptr %keys_.i.i.i1810 to i64
-  %cmp11.i.i.i.i1813 = icmp sgt i64 %311, 0
+  %cmp11.i.i.i.i1813 = icmp sgt i64 %290, 0
   br i1 %cmp11.i.i.i.i1813, label %while.body.i.i.i.i1831, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1814
 
 while.body.i.i.i.i1831:                           ; preds = %if.end213, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1851
   %__first.addr.013.i.i.i.i1832 = phi ptr [ %__first.addr.1.i.i.i.i1856, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1851 ], [ %keys_.i.i.i1810, %if.end213 ]
-  %__len.012.i.i.i.i1833 = phi i64 [ %__len.1.i.i.i.i1855, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1851 ], [ %311, %if.end213 ]
+  %__len.012.i.i.i.i1833 = phi i64 [ %__len.1.i.i.i.i1855, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1851 ], [ %290, %if.end213 ]
   %shr.i.i.i.i1834 = lshr i64 %__len.012.i.i.i.i1833, 1
   %add.ptr.i.i.i.i.i.i1837 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1832, i64 %shr.i.i.i.i1834
-  %312 = load ptr, ptr %add.ptr.i.i.i.i.i.i1837, align 8
-  %value_.i.i.i.i.i.i.i1840 = getelementptr inbounds nuw i8, ptr %312, i64 16
-  %313 = load ptr, ptr %value_.i.i.i.i.i.i.i1840, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1841 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %291 = load ptr, ptr %add.ptr.i.i.i.i.i.i1837, align 8
+  %value_.i.i.i.i.i.i.i1840 = getelementptr inbounds nuw i8, ptr %291, i64 16
+  %292 = load ptr, ptr %value_.i.i.i.i.i.i.i1840, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1841 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1842 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1841, align 8
   %cmp.i.i.i.i.i.i.i.i.i1844 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1842, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1844, label %if.end.i.i.i.i.i.i.i.i1858, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1845
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1845: ; preds = %while.body.i.i.i.i1831
   %.sroa.speculated.i.i.i.i.i.i.i1843 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1842, i64 12)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1846 = load ptr, ptr %313, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1846 = load ptr, ptr %292, align 8
   %call.i.i.i.i.i.i.i.i.i1847 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1846, ptr noundef nonnull @.str.38, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1843) #20
   %tobool.i.not.i.i.i.i.i.i.i1848 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1847, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1848, label %if.end.i.i.i.i.i.i.i.i1858, label %if.then.i.i.i.i.i.i.i.i1849
@@ -5704,8 +5623,8 @@ if.end.i.i.i.i.i.i.i.i1858:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1851: ; preds = %if.end.i.i.i.i.i.i.i.i1858, %if.then.i.i.i.i.i.i.i.i1849
   %retval.i.0.i.i.i.i.i.i.i1852 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1850, %if.then.i.i.i.i.i.i.i.i1849 ], [ %cmp12.i.i.i.i.i.i.i.i1859, %if.end.i.i.i.i.i.i.i.i1858 ]
   %incdec.ptr.i.i.i.i1853 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1837, i64 8
-  %314 = xor i64 %shr.i.i.i.i1834, -1
-  %sub2.i.i.i.i1854 = add nsw i64 %__len.012.i.i.i.i1833, %314
+  %293 = xor i64 %shr.i.i.i.i1834, -1
+  %sub2.i.i.i.i1854 = add nsw i64 %__len.012.i.i.i.i1833, %293
   %__len.1.i.i.i.i1855 = select i1 %retval.i.0.i.i.i.i.i.i.i1852, i64 %sub2.i.i.i.i1854, i64 %shr.i.i.i.i1834
   %__first.addr.1.i.i.i.i1856 = select i1 %retval.i.0.i.i.i.i.i.i.i1852, ptr %incdec.ptr.i.i.i.i1853, ptr %__first.addr.013.i.i.i.i1832
   %cmp.i.i.i.i1857 = icmp sgt i64 %__len.1.i.i.i.i1855, 0
@@ -5717,39 +5636,39 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1816, label %if.end222, label %land.lhs.true.i.i1817
 
 land.lhs.true.i.i1817:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1814
-  %315 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1815, align 8
-  %value_.i.i.i1818 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  %316 = load ptr, ptr %value_.i.i.i1818, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1820 = getelementptr inbounds nuw i8, ptr %316, i64 8
+  %294 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1815, align 8
+  %value_.i.i.i1818 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %295 = load ptr, ptr %value_.i.i.i1818, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1820 = getelementptr inbounds nuw i8, ptr %295, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1821 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1820, align 8
   %cmp.i.i.i1822 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1821, 12
   br i1 %cmp.i.i.i1822, label %land.rhs.i.i.i1824, label %if.end222
 
 land.rhs.i.i.i1824:                               ; preds = %land.lhs.true.i.i1817
-  %agg.tmp4.sroa.0.0.copyload.i.i1819 = load ptr, ptr %316, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1819 = load ptr, ptr %295, align 8
   %bcmp.i.i1825 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %agg.tmp4.sroa.0.0.copyload.i.i1819, ptr noundef nonnull dereferenceable(12) @.str.38, i64 12)
-  %317 = icmp eq i32 %bcmp.i.i1825, 0
-  br i1 %317, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1860, label %if.end222
+  %296 = icmp eq i32 %bcmp.i.i1825, 0
+  br i1 %296, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1860, label %if.end222
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1860: ; preds = %land.rhs.i.i.i1824
   %sub.ptr.lhs.cast.i.i1827 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1815 to i64
   %sub.ptr.sub.i.i1828 = sub i64 %sub.ptr.lhs.cast.i.i1827, %sub.ptr.rhs.cast.i.i.i.i.i.i1812
   %arrayidx.i1830 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1828
-  %318 = load ptr, ptr %arrayidx.i1830, align 8
-  %tobool.not.i1861 = icmp eq ptr %318, null
+  %297 = load ptr, ptr %arrayidx.i1830, align 8
+  %tobool.not.i1861 = icmp eq ptr %297, null
   br i1 %tobool.not.i1861, label %if.end222, label %land.lhs.true.i1862
 
 land.lhs.true.i1862:                              ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1860
-  %319 = load i32, ptr %318, align 4
-  %cmp.i.i.i.i.i.i.i1863 = icmp eq i32 %319, 2
+  %298 = load i32, ptr %297, align 4
+  %cmp.i.i.i.i.i.i.i1863 = icmp eq i32 %298, 2
   br i1 %cmp.i.i.i.i.i.i.i1863, label %if.then218, label %if.end222
 
 if.then218:                                       ; preds = %land.lhs.true.i1862
-  %value_.i1867 = getelementptr inbounds nuw i8, ptr %318, i64 16
-  %320 = load ptr, ptr %value_.i1867, align 8
+  %value_.i1867 = getelementptr inbounds nuw i8, ptr %297, i64 16
+  %299 = load ptr, ptr %value_.i1867, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1868), !noalias !35
-  %321 = load ptr, ptr %320, align 8, !noalias !38
-  %tobool.not.i.i1869 = icmp eq ptr %321, null
+  %300 = load ptr, ptr %299, align 8, !noalias !38
+  %tobool.not.i.i1869 = icmp eq ptr %300, null
   br i1 %tobool.not.i.i1869, label %if.then.i.i1872, label %if.end.i.i1870
 
 if.then.i.i1872:                                  ; preds = %if.then218
@@ -5757,10 +5676,10 @@ if.then.i.i1872:                                  ; preds = %if.then218
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1873
 
 if.end.i.i1870:                                   ; preds = %if.then218
-  %Length.i.i1871 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  %322 = load i64, ptr %Length.i.i1871, align 8, !noalias !38
+  %Length.i.i1871 = getelementptr inbounds nuw i8, ptr %299, i64 8
+  %301 = load i64, ptr %Length.i.i1871, align 8, !noalias !38
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1868) #17, !noalias !38
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219, ptr noundef nonnull %321, i64 noundef %322, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1868) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219, ptr noundef nonnull %300, i64 noundef %301, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1868) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1868) #17
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1873
 
@@ -5772,24 +5691,24 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 if.end222:                                        ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1814, %land.rhs.i.i.i1824, %land.lhs.true.i.i1817, %land.lhs.true.i1862, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1860, %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1873
   %value_.i1874 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %323 = load double, ptr %value_.i1874, align 8
-  store double %323, ptr %ref.tmp223, align 8
+  %302 = load double, ptr %value_.i1874, align 8
+  store double %302, ptr %ref.tmp223, align 8
   %value_.i1875 = getelementptr inbounds nuw i8, ptr %cond.i509, i64 16
-  %324 = load double, ptr %value_.i1875, align 8
-  store double %324, ptr %ref.tmp225, align 8
+  %303 = load double, ptr %value_.i1875, align 8
+  store double %303, ptr %ref.tmp225, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_24CreateHostFunctionRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEddRjEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp223, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp225, ptr noundef nonnull align 4 dereferenceable(4) %paramCount)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %functionName) #17
   br label %sw.epilog
 
 sw.bb227:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1876 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %325 = load double, ptr %value_.i1876, align 8
-  store double %325, ptr %ref.tmp228, align 8
+  %304 = load double, ptr %value_.i1876, align 8
+  store double %304, ptr %ref.tmp228, align 8
   %value_.i1877 = getelementptr inbounds nuw i8, ptr %cond.i452, i64 16
-  %326 = load ptr, ptr %value_.i1877, align 8
+  %305 = load ptr, ptr %value_.i1877, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1878), !noalias !41
-  %327 = load ptr, ptr %326, align 8, !noalias !44
-  %tobool.not.i.i1879 = icmp eq ptr %327, null
+  %306 = load ptr, ptr %305, align 8, !noalias !44
+  %tobool.not.i.i1879 = icmp eq ptr %306, null
   br i1 %tobool.not.i.i1879, label %if.then.i.i1882, label %if.end.i.i1880
 
 if.then.i.i1882:                                  ; preds = %sw.bb227
@@ -5797,27 +5716,27 @@ if.then.i.i1882:                                  ; preds = %sw.bb227
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1883
 
 if.end.i.i1880:                                   ; preds = %sw.bb227
-  %Length.i.i1881 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  %328 = load i64, ptr %Length.i.i1881, align 8, !noalias !44
+  %Length.i.i1881 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  %307 = load i64, ptr %Length.i.i1881, align 8, !noalias !44
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1878) #17, !noalias !44
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231, ptr noundef nonnull %327, i64 noundef %328, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1878) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231, ptr noundef nonnull %306, i64 noundef %307, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1878) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1878) #17
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1883
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1883: ; preds = %if.then.i.i1882, %if.end.i.i1880
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1878), !noalias !41
   %call233 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231) #17
-  %329 = extractvalue { i32, i64 } %call233, 0
-  store i32 %329, ptr %ref.tmp230, align 8
-  %330 = extractvalue { i32, i64 } %call233, 1
-  store i64 %330, ptr %15, align 8
+  %308 = extractvalue { i32, i64 } %call233, 0
+  store i32 %308, ptr %ref.tmp230, align 8
+  %309 = extractvalue { i32, i64 } %call233, 1
+  store i64 %309, ptr %15, align 8
   %value_.i1884 = getelementptr inbounds nuw i8, ptr %cond.i625, i64 16
-  %331 = load ptr, ptr %value_.i1884, align 8
-  %332 = load ptr, ptr %331, align 8
+  %310 = load ptr, ptr %value_.i1884, align 8
+  %311 = load ptr, ptr %310, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #17
   %call.i1885 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef %call.i1885, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #17
-  %cmp.i1886 = icmp eq ptr %332, null
+  %cmp.i1886 = icmp eq ptr %311, null
   br i1 %cmp.i1886, label %if.then.i1890, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1891
 
 if.then.i1890:                                    ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1883
@@ -5825,14 +5744,14 @@ if.then.i1890:                                    ; preds = %_ZNK4llvh9StringRef
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1891: ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1883
-  %call.i.i1888 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %332) #17
-  %add.ptr.i1889 = getelementptr inbounds i8, ptr %332, i64 %call.i.i1888
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef nonnull %332, ptr noundef nonnull %add.ptr.i1889)
+  %call.i.i1888 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %311) #17
+  %add.ptr.i1889 = getelementptr inbounds i8, ptr %311, i64 %call.i.i1888
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef nonnull %311, ptr noundef nonnull %add.ptr.i1889)
   %call238 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #17
-  %333 = extractvalue { i32, i64 } %call238, 0
-  store i32 %333, ptr %ref.tmp234, align 8
-  %334 = extractvalue { i32, i64 } %call238, 1
-  store i64 %334, ptr %16, align 8
+  %312 = extractvalue { i32, i64 } %call238, 0
+  store i32 %312, ptr %ref.tmp234, align 8
+  %313 = extractvalue { i32, i64 } %call238, 1
+  store i64 %313, ptr %16, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17GetPropertyRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESB_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp228, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp230, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp234)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp237) #17
@@ -5841,13 +5760,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1891: 
 
 sw.bb239:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1892 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %335 = load double, ptr %value_.i1892, align 8
-  store double %335, ptr %ref.tmp240, align 8
+  %314 = load double, ptr %value_.i1892, align 8
+  store double %314, ptr %ref.tmp240, align 8
   %value_.i1893 = getelementptr inbounds nuw i8, ptr %cond.i452, i64 16
-  %336 = load ptr, ptr %value_.i1893, align 8
+  %315 = load ptr, ptr %value_.i1893, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1894), !noalias !47
-  %337 = load ptr, ptr %336, align 8, !noalias !50
-  %tobool.not.i.i1895 = icmp eq ptr %337, null
+  %316 = load ptr, ptr %315, align 8, !noalias !50
+  %tobool.not.i.i1895 = icmp eq ptr %316, null
   br i1 %tobool.not.i.i1895, label %if.then.i.i1898, label %if.end.i.i1896
 
 if.then.i.i1898:                                  ; preds = %sw.bb239
@@ -5855,27 +5774,27 @@ if.then.i.i1898:                                  ; preds = %sw.bb239
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1899
 
 if.end.i.i1896:                                   ; preds = %sw.bb239
-  %Length.i.i1897 = getelementptr inbounds nuw i8, ptr %336, i64 8
-  %338 = load i64, ptr %Length.i.i1897, align 8, !noalias !50
+  %Length.i.i1897 = getelementptr inbounds nuw i8, ptr %315, i64 8
+  %317 = load i64, ptr %Length.i.i1897, align 8, !noalias !50
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1894) #17, !noalias !50
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243, ptr noundef nonnull %337, i64 noundef %338, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1894) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243, ptr noundef nonnull %316, i64 noundef %317, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1894) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1894) #17
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1899
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1899: ; preds = %if.then.i.i1898, %if.end.i.i1896
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1894), !noalias !47
   %call245 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp243) #17
-  %339 = extractvalue { i32, i64 } %call245, 0
-  store i32 %339, ptr %ref.tmp242, align 8
-  %340 = extractvalue { i32, i64 } %call245, 1
-  store i64 %340, ptr %13, align 8
+  %318 = extractvalue { i32, i64 } %call245, 0
+  store i32 %318, ptr %ref.tmp242, align 8
+  %319 = extractvalue { i32, i64 } %call245, 1
+  store i64 %319, ptr %13, align 8
   %value_.i1900 = getelementptr inbounds nuw i8, ptr %cond.i625, i64 16
-  %341 = load ptr, ptr %value_.i1900, align 8
-  %342 = load ptr, ptr %341, align 8
+  %320 = load ptr, ptr %value_.i1900, align 8
+  %321 = load ptr, ptr %320, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp249) #17
   %call.i1901 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247, ptr noundef %call.i1901, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp249) #17
-  %cmp.i1902 = icmp eq ptr %342, null
+  %cmp.i1902 = icmp eq ptr %321, null
   br i1 %cmp.i1902, label %if.then.i1906, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1907
 
 if.then.i1906:                                    ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1899
@@ -5883,14 +5802,14 @@ if.then.i1906:                                    ; preds = %_ZNK4llvh9StringRef
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1907: ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1899
-  %call.i.i1904 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %342) #17
-  %add.ptr.i1905 = getelementptr inbounds i8, ptr %342, i64 %call.i.i1904
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247, ptr noundef nonnull %342, ptr noundef nonnull %add.ptr.i1905)
+  %call.i.i1904 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %321) #17
+  %add.ptr.i1905 = getelementptr inbounds i8, ptr %321, i64 %call.i.i1904
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247, ptr noundef nonnull %321, ptr noundef nonnull %add.ptr.i1905)
   %call250 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #17
-  %343 = extractvalue { i32, i64 } %call250, 0
-  store i32 %343, ptr %ref.tmp246, align 8
-  %344 = extractvalue { i32, i64 } %call250, 1
-  store i64 %344, ptr %14, align 8
+  %322 = extractvalue { i32, i64 } %call250, 0
+  store i32 %322, ptr %ref.tmp246, align 8
+  %323 = extractvalue { i32, i64 } %call250, 1
+  store i64 %323, ptr %14, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17SetPropertyRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESB_EEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp240, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp242, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp246)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp247) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp249) #17
@@ -5899,13 +5818,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit1907: 
 
 sw.bb251:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1908 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %345 = load double, ptr %value_.i1908, align 8
-  store double %345, ptr %ref.tmp252, align 8
+  %324 = load double, ptr %value_.i1908, align 8
+  store double %324, ptr %ref.tmp252, align 8
   %value_.i1909 = getelementptr inbounds nuw i8, ptr %cond.i452, i64 16
-  %346 = load ptr, ptr %value_.i1909, align 8
+  %325 = load ptr, ptr %value_.i1909, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1910), !noalias !53
-  %347 = load ptr, ptr %346, align 8, !noalias !56
-  %tobool.not.i.i1911 = icmp eq ptr %347, null
+  %326 = load ptr, ptr %325, align 8, !noalias !56
+  %tobool.not.i.i1911 = icmp eq ptr %326, null
   br i1 %tobool.not.i.i1911, label %if.then.i.i1914, label %if.end.i.i1912
 
 if.then.i.i1914:                                  ; preds = %sw.bb251
@@ -5913,49 +5832,49 @@ if.then.i.i1914:                                  ; preds = %sw.bb251
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1915
 
 if.end.i.i1912:                                   ; preds = %sw.bb251
-  %Length.i.i1913 = getelementptr inbounds nuw i8, ptr %346, i64 8
-  %348 = load i64, ptr %Length.i.i1913, align 8, !noalias !56
+  %Length.i.i1913 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  %327 = load i64, ptr %Length.i.i1913, align 8, !noalias !56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1910) #17, !noalias !56
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255, ptr noundef nonnull %347, i64 noundef %348, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1910) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255, ptr noundef nonnull %326, i64 noundef %327, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1910) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i1910) #17
   br label %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1915
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit1915: ; preds = %if.then.i.i1914, %if.end.i.i1912
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i1910), !noalias !53
   %call257 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #17
-  %349 = extractvalue { i32, i64 } %call257, 0
-  store i32 %349, ptr %ref.tmp254, align 8
-  %350 = extractvalue { i32, i64 } %call257, 1
-  store i64 %350, ptr %12, align 8
+  %328 = extractvalue { i32, i64 } %call257, 0
+  store i32 %328, ptr %ref.tmp254, align 8
+  %329 = extractvalue { i32, i64 } %call257, 1
+  store i64 %329, ptr %12, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17HasPropertyRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp252, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp254)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255) #17
   br label %sw.epilog
 
 sw.bb258:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1916 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %351 = load double, ptr %value_.i1916, align 8
-  store double %351, ptr %ref.tmp259, align 8
-  %352 = load i64, ptr %42, align 8
-  %add.ptr.i.i.i1919 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %352
-  %cmp11.i.i.i.i1921 = icmp sgt i64 %352, 0
+  %330 = load double, ptr %value_.i1916, align 8
+  store double %330, ptr %ref.tmp259, align 8
+  %331 = load i64, ptr %39, align 8
+  %add.ptr.i.i.i1919 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %331
+  %cmp11.i.i.i.i1921 = icmp sgt i64 %331, 0
   br i1 %cmp11.i.i.i.i1921, label %while.body.i.i.i.i1939, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1922
 
 while.body.i.i.i.i1939:                           ; preds = %sw.bb258, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1959
   %__first.addr.013.i.i.i.i1940 = phi ptr [ %__first.addr.1.i.i.i.i1964, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1959 ], [ %keys_.i.i.i228, %sw.bb258 ]
-  %__len.012.i.i.i.i1941 = phi i64 [ %__len.1.i.i.i.i1963, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1959 ], [ %352, %sw.bb258 ]
+  %__len.012.i.i.i.i1941 = phi i64 [ %__len.1.i.i.i.i1963, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1959 ], [ %331, %sw.bb258 ]
   %shr.i.i.i.i1942 = lshr i64 %__len.012.i.i.i.i1941, 1
   %add.ptr.i.i.i.i.i.i1945 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i1940, i64 %shr.i.i.i.i1942
-  %353 = load ptr, ptr %add.ptr.i.i.i.i.i.i1945, align 8
-  %value_.i.i.i.i.i.i.i1948 = getelementptr inbounds nuw i8, ptr %353, i64 16
-  %354 = load ptr, ptr %value_.i.i.i.i.i.i.i1948, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1949 = getelementptr inbounds nuw i8, ptr %354, i64 8
+  %332 = load ptr, ptr %add.ptr.i.i.i.i.i.i1945, align 8
+  %value_.i.i.i.i.i.i.i1948 = getelementptr inbounds nuw i8, ptr %332, i64 16
+  %333 = load ptr, ptr %value_.i.i.i.i.i.i.i1948, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1949 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1950 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i1949, align 8
   %cmp.i.i.i.i.i.i.i.i.i1952 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1950, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i1952, label %if.end.i.i.i.i.i.i.i.i1966, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1953
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i1953: ; preds = %while.body.i.i.i.i1939
   %.sroa.speculated.i.i.i.i.i.i.i1951 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i1950, i64 11)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1954 = load ptr, ptr %354, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1954 = load ptr, ptr %333, align 8
   %call.i.i.i.i.i.i.i.i.i1955 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i1954, ptr noundef nonnull @.str.39, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i1951) #20
   %tobool.i.not.i.i.i.i.i.i.i1956 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i1955, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i1956, label %if.end.i.i.i.i.i.i.i.i1966, label %if.then.i.i.i.i.i.i.i.i1957
@@ -5971,8 +5890,8 @@ if.end.i.i.i.i.i.i.i.i1966:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i1959: ; preds = %if.end.i.i.i.i.i.i.i.i1966, %if.then.i.i.i.i.i.i.i.i1957
   %retval.i.0.i.i.i.i.i.i.i1960 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i1958, %if.then.i.i.i.i.i.i.i.i1957 ], [ %cmp12.i.i.i.i.i.i.i.i1967, %if.end.i.i.i.i.i.i.i.i1966 ]
   %incdec.ptr.i.i.i.i1961 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i1945, i64 8
-  %355 = xor i64 %shr.i.i.i.i1942, -1
-  %sub2.i.i.i.i1962 = add nsw i64 %__len.012.i.i.i.i1941, %355
+  %334 = xor i64 %shr.i.i.i.i1942, -1
+  %sub2.i.i.i.i1962 = add nsw i64 %__len.012.i.i.i.i1941, %334
   %__len.1.i.i.i.i1963 = select i1 %retval.i.0.i.i.i.i.i.i.i1960, i64 %sub2.i.i.i.i1962, i64 %shr.i.i.i.i1942
   %__first.addr.1.i.i.i.i1964 = select i1 %retval.i.0.i.i.i.i.i.i.i1960, ptr %incdec.ptr.i.i.i.i1961, ptr %__first.addr.013.i.i.i.i1940
   %cmp.i.i.i.i1965 = icmp sgt i64 %__len.1.i.i.i.i1963, 0
@@ -5984,26 +5903,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1924, label %if.then.i1975, label %land.lhs.true.i.i1925
 
 land.lhs.true.i.i1925:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1922
-  %356 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1923, align 8
-  %value_.i.i.i1926 = getelementptr inbounds nuw i8, ptr %356, i64 16
-  %357 = load ptr, ptr %value_.i.i.i1926, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1928 = getelementptr inbounds nuw i8, ptr %357, i64 8
+  %335 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1923, align 8
+  %value_.i.i.i1926 = getelementptr inbounds nuw i8, ptr %335, i64 16
+  %336 = load ptr, ptr %value_.i.i.i1926, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1928 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1929 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1928, align 8
   %cmp.i.i.i1930 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1929, 11
   br i1 %cmp.i.i.i1930, label %land.rhs.i.i.i1932, label %if.then.i1975
 
 land.rhs.i.i.i1932:                               ; preds = %land.lhs.true.i.i1925
-  %agg.tmp4.sroa.0.0.copyload.i.i1927 = load ptr, ptr %357, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1927 = load ptr, ptr %336, align 8
   %bcmp.i.i1933 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %agg.tmp4.sroa.0.0.copyload.i.i1927, ptr noundef nonnull dereferenceable(11) @.str.39, i64 11)
-  %358 = icmp eq i32 %bcmp.i.i1933, 0
-  br i1 %358, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1968, label %if.then.i1975
+  %337 = icmp eq i32 %bcmp.i.i1933, 0
+  br i1 %337, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1968, label %if.then.i1975
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1968: ; preds = %land.rhs.i.i.i1932
   %sub.ptr.lhs.cast.i.i1935 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1923 to i64
   %sub.ptr.sub.i.i1936 = sub i64 %sub.ptr.lhs.cast.i.i1935, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1938 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1936
-  %359 = load ptr, ptr %arrayidx.i1938, align 8
-  %tobool.not.i1969 = icmp eq ptr %359, null
+  %338 = load ptr, ptr %arrayidx.i1938, align 8
+  %tobool.not.i1969 = icmp eq ptr %338, null
   br i1 %tobool.not.i1969, label %if.then.i1975, label %if.end.i1970
 
 if.then.i1975:                                    ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1922, %land.rhs.i.i.i1932, %land.lhs.true.i.i1925, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1968
@@ -6011,8 +5930,8 @@ if.then.i1975:                                    ; preds = %_ZSt11lower_boundIP
   unreachable
 
 if.end.i1970:                                     ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit1968
-  %360 = load i32, ptr %359, align 4
-  %cmp.not.i1971 = icmp eq i32 %360, 3
+  %339 = load i32, ptr %338, align 4
+  %cmp.not.i1971 = icmp eq i32 %339, 3
   br i1 %cmp.not.i1971, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueE.exit, label %if.then1.i1972
 
 if.then1.i1972:                                   ; preds = %if.end.i1970
@@ -6020,38 +5939,38 @@ if.then1.i1972:                                   ; preds = %if.end.i1970
   unreachable
 
 _ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueE.exit: ; preds = %if.end.i1970
-  %value_.i.i1973 = getelementptr inbounds nuw i8, ptr %359, i64 16
-  %361 = load double, ptr %value_.i.i1973, align 8
-  %conv.i1974 = fptoui double %361 to i64
+  %value_.i.i1973 = getelementptr inbounds nuw i8, ptr %338, i64 16
+  %340 = load double, ptr %value_.i.i1973, align 8
+  %conv.i1974 = fptoui double %340 to i64
   store i64 %conv.i1974, ptr %ref.tmp261, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22GetPropertyNamesRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp259, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp261)
   br label %sw.epilog
 
 sw.bb265:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i1976 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %362 = load double, ptr %value_.i1976, align 8
-  store double %362, ptr %ref.tmp266, align 8
-  %363 = load i64, ptr %42, align 8
-  %add.ptr.i.i.i1979 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %363
-  %cmp11.i.i.i.i1981 = icmp sgt i64 %363, 0
+  %341 = load double, ptr %value_.i1976, align 8
+  store double %341, ptr %ref.tmp266, align 8
+  %342 = load i64, ptr %39, align 8
+  %add.ptr.i.i.i1979 = getelementptr inbounds ptr, ptr %keys_.i.i.i228, i64 %342
+  %cmp11.i.i.i.i1981 = icmp sgt i64 %342, 0
   br i1 %cmp11.i.i.i.i1981, label %while.body.i.i.i.i1999, label %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1982
 
 while.body.i.i.i.i1999:                           ; preds = %sw.bb265, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2019
   %__first.addr.013.i.i.i.i2000 = phi ptr [ %__first.addr.1.i.i.i.i2024, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2019 ], [ %keys_.i.i.i228, %sw.bb265 ]
-  %__len.012.i.i.i.i2001 = phi i64 [ %__len.1.i.i.i.i2023, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2019 ], [ %363, %sw.bb265 ]
+  %__len.012.i.i.i.i2001 = phi i64 [ %__len.1.i.i.i.i2023, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2019 ], [ %342, %sw.bb265 ]
   %shr.i.i.i.i2002 = lshr i64 %__len.012.i.i.i.i2001, 1
   %add.ptr.i.i.i.i.i.i2005 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i2000, i64 %shr.i.i.i.i2002
-  %364 = load ptr, ptr %add.ptr.i.i.i.i.i.i2005, align 8
-  %value_.i.i.i.i.i.i.i2008 = getelementptr inbounds nuw i8, ptr %364, i64 16
-  %365 = load ptr, ptr %value_.i.i.i.i.i.i.i2008, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2009 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %343 = load ptr, ptr %add.ptr.i.i.i.i.i.i2005, align 8
+  %value_.i.i.i.i.i.i.i2008 = getelementptr inbounds nuw i8, ptr %343, i64 16
+  %344 = load ptr, ptr %value_.i.i.i.i.i.i.i2008, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2009 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2010 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2009, align 8
   %cmp.i.i.i.i.i.i.i.i.i2012 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2010, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i2012, label %if.end.i.i.i.i.i.i.i.i2026, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2013
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2013: ; preds = %while.body.i.i.i.i1999
   %.sroa.speculated.i.i.i.i.i.i.i2011 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2010, i64 6)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2014 = load ptr, ptr %365, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2014 = load ptr, ptr %344, align 8
   %call.i.i.i.i.i.i.i.i.i2015 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2014, ptr noundef nonnull @.str.40, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2011) #20
   %tobool.i.not.i.i.i.i.i.i.i2016 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i2015, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i2016, label %if.end.i.i.i.i.i.i.i.i2026, label %if.then.i.i.i.i.i.i.i.i2017
@@ -6067,8 +5986,8 @@ if.end.i.i.i.i.i.i.i.i2026:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2019: ; preds = %if.end.i.i.i.i.i.i.i.i2026, %if.then.i.i.i.i.i.i.i.i2017
   %retval.i.0.i.i.i.i.i.i.i2020 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i2018, %if.then.i.i.i.i.i.i.i.i2017 ], [ %cmp12.i.i.i.i.i.i.i.i2027, %if.end.i.i.i.i.i.i.i.i2026 ]
   %incdec.ptr.i.i.i.i2021 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i2005, i64 8
-  %366 = xor i64 %shr.i.i.i.i2002, -1
-  %sub2.i.i.i.i2022 = add nsw i64 %__len.012.i.i.i.i2001, %366
+  %345 = xor i64 %shr.i.i.i.i2002, -1
+  %sub2.i.i.i.i2022 = add nsw i64 %__len.012.i.i.i.i2001, %345
   %__len.1.i.i.i.i2023 = select i1 %retval.i.0.i.i.i.i.i.i.i2020, i64 %sub2.i.i.i.i2022, i64 %shr.i.i.i.i2002
   %__first.addr.1.i.i.i.i2024 = select i1 %retval.i.0.i.i.i.i.i.i.i2020, ptr %incdec.ptr.i.i.i.i2021, ptr %__first.addr.013.i.i.i.i2000
   %cmp.i.i.i.i2025 = icmp sgt i64 %__len.1.i.i.i.i2023, 0
@@ -6080,26 +5999,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i1984, label %if.then.i2035, label %land.lhs.true.i.i1985
 
 land.lhs.true.i.i1985:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1982
-  %367 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1983, align 8
-  %value_.i.i.i1986 = getelementptr inbounds nuw i8, ptr %367, i64 16
-  %368 = load ptr, ptr %value_.i.i.i1986, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1988 = getelementptr inbounds nuw i8, ptr %368, i64 8
+  %346 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i1983, align 8
+  %value_.i.i.i1986 = getelementptr inbounds nuw i8, ptr %346, i64 16
+  %347 = load ptr, ptr %value_.i.i.i1986, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1988 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i1989 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i1988, align 8
   %cmp.i.i.i1990 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i1989, 6
   br i1 %cmp.i.i.i1990, label %land.rhs.i.i.i1992, label %if.then.i2035
 
 land.rhs.i.i.i1992:                               ; preds = %land.lhs.true.i.i1985
-  %agg.tmp4.sroa.0.0.copyload.i.i1987 = load ptr, ptr %368, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i1987 = load ptr, ptr %347, align 8
   %bcmp.i.i1993 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i1987, ptr noundef nonnull dereferenceable(6) @.str.40, i64 6)
-  %369 = icmp eq i32 %bcmp.i.i1993, 0
-  br i1 %369, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2028, label %if.then.i2035
+  %348 = icmp eq i32 %bcmp.i.i1993, 0
+  br i1 %348, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2028, label %if.then.i2035
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2028: ; preds = %land.rhs.i.i.i1992
   %sub.ptr.lhs.cast.i.i1995 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i1983 to i64
   %sub.ptr.sub.i.i1996 = sub i64 %sub.ptr.lhs.cast.i.i1995, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i1998 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i1996
-  %370 = load ptr, ptr %arrayidx.i1998, align 8
-  %tobool.not.i2029 = icmp eq ptr %370, null
+  %349 = load ptr, ptr %arrayidx.i1998, align 8
+  %tobool.not.i2029 = icmp eq ptr %349, null
   br i1 %tobool.not.i2029, label %if.then.i2035, label %if.end.i2030
 
 if.then.i2035:                                    ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i1982, %land.rhs.i.i.i1992, %land.lhs.true.i.i1985, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2028
@@ -6107,8 +6026,8 @@ if.then.i2035:                                    ; preds = %_ZSt11lower_boundIP
   unreachable
 
 if.end.i2030:                                     ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2028
-  %371 = load i32, ptr %370, align 4
-  %cmp.not.i2031 = icmp eq i32 %371, 3
+  %350 = load i32, ptr %349, align 4
+  %cmp.not.i2031 = icmp eq i32 %350, 3
   br i1 %cmp.not.i2031, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueE.exit2036, label %if.then1.i2032
 
 if.then1.i2032:                                   ; preds = %if.end.i2030
@@ -6116,27 +6035,27 @@ if.then1.i2032:                                   ; preds = %if.end.i2030
   unreachable
 
 _ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueE.exit2036: ; preds = %if.end.i2030
-  %value_.i.i2033 = getelementptr inbounds nuw i8, ptr %370, i64 16
-  %372 = load double, ptr %value_.i.i2033, align 8
-  %conv.i2034 = fptoui double %372 to i64
+  %value_.i.i2033 = getelementptr inbounds nuw i8, ptr %349, i64 16
+  %351 = load double, ptr %value_.i.i2033, align 8
+  %conv.i2034 = fptoui double %351 to i64
   store i64 %conv.i2034, ptr %ref.tmp268, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_17CreateArrayRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp266, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp268)
   br label %sw.epilog
 
 sw.bb272:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2037 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %373 = load double, ptr %value_.i2037, align 8
-  store double %373, ptr %ref.tmp273, align 8
+  %352 = load double, ptr %value_.i2037, align 8
+  store double %352, ptr %ref.tmp273, align 8
   %value_.i2038 = getelementptr inbounds nuw i8, ptr %cond.i683, i64 16
-  %374 = load double, ptr %value_.i2038, align 8
-  store double %374, ptr %ref.tmp275, align 8
+  %353 = load double, ptr %value_.i2038, align 8
+  store double %353, ptr %ref.tmp275, align 8
   %value_.i2039 = getelementptr inbounds nuw i8, ptr %cond.i625, i64 16
-  %375 = load ptr, ptr %value_.i2039, align 8
-  %376 = load ptr, ptr %375, align 8
+  %354 = load ptr, ptr %value_.i2039, align 8
+  %355 = load ptr, ptr %354, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp280) #17
   %call.i2040 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef %call.i2040, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp280) #17
-  %cmp.i2041 = icmp eq ptr %376, null
+  %cmp.i2041 = icmp eq ptr %355, null
   br i1 %cmp.i2041, label %if.then.i2045, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2046
 
 if.then.i2045:                                    ; preds = %sw.bb272
@@ -6144,14 +6063,14 @@ if.then.i2045:                                    ; preds = %sw.bb272
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2046: ; preds = %sw.bb272
-  %call.i.i2043 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %376) #17
-  %add.ptr.i2044 = getelementptr inbounds i8, ptr %376, i64 %call.i.i2043
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef nonnull %376, ptr noundef nonnull %add.ptr.i2044)
+  %call.i.i2043 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %355) #17
+  %add.ptr.i2044 = getelementptr inbounds i8, ptr %355, i64 %call.i.i2043
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278, ptr noundef nonnull %355, ptr noundef nonnull %add.ptr.i2044)
   %call281 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278) #17
-  %377 = extractvalue { i32, i64 } %call281, 0
-  store i32 %377, ptr %ref.tmp277, align 8
-  %378 = extractvalue { i32, i64 } %call281, 1
-  store i64 %378, ptr %11, align 8
+  %356 = extractvalue { i32, i64 } %call281, 0
+  store i32 %356, ptr %ref.tmp277, align 8
+  %357 = extractvalue { i32, i64 } %call281, 1
+  store i64 %357, ptr %11, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_15ArrayReadRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEddNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp275, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp277)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp278) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp280) #17
@@ -6159,18 +6078,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2046: 
 
 sw.bb282:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2047 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %379 = load double, ptr %value_.i2047, align 8
-  store double %379, ptr %ref.tmp283, align 8
+  %358 = load double, ptr %value_.i2047, align 8
+  store double %358, ptr %ref.tmp283, align 8
   %value_.i2048 = getelementptr inbounds nuw i8, ptr %cond.i683, i64 16
-  %380 = load double, ptr %value_.i2048, align 8
-  store double %380, ptr %ref.tmp285, align 8
+  %359 = load double, ptr %value_.i2048, align 8
+  store double %359, ptr %ref.tmp285, align 8
   %value_.i2049 = getelementptr inbounds nuw i8, ptr %cond.i625, i64 16
-  %381 = load ptr, ptr %value_.i2049, align 8
-  %382 = load ptr, ptr %381, align 8
+  %360 = load ptr, ptr %value_.i2049, align 8
+  %361 = load ptr, ptr %360, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp290) #17
   %call.i2050 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288, ptr noundef %call.i2050, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp290) #17
-  %cmp.i2051 = icmp eq ptr %382, null
+  %cmp.i2051 = icmp eq ptr %361, null
   br i1 %cmp.i2051, label %if.then.i2055, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2056
 
 if.then.i2055:                                    ; preds = %sw.bb282
@@ -6178,14 +6097,14 @@ if.then.i2055:                                    ; preds = %sw.bb282
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2056: ; preds = %sw.bb282
-  %call.i.i2053 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %382) #17
-  %add.ptr.i2054 = getelementptr inbounds i8, ptr %382, i64 %call.i.i2053
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288, ptr noundef nonnull %382, ptr noundef nonnull %add.ptr.i2054)
+  %call.i.i2053 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %361) #17
+  %add.ptr.i2054 = getelementptr inbounds i8, ptr %361, i64 %call.i.i2053
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288, ptr noundef nonnull %361, ptr noundef nonnull %add.ptr.i2054)
   %call291 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288) #17
-  %383 = extractvalue { i32, i64 } %call291, 0
-  store i32 %383, ptr %ref.tmp287, align 8
-  %384 = extractvalue { i32, i64 } %call291, 1
-  store i64 %384, ptr %10, align 8
+  %362 = extractvalue { i32, i64 } %call291, 0
+  store i32 %362, ptr %ref.tmp287, align 8
+  %363 = extractvalue { i32, i64 } %call291, 1
+  store i64 %363, ptr %10, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_16ArrayWriteRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEddNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp283, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp285, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp287)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp288) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp290) #17
@@ -6193,15 +6112,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2056: 
 
 sw.bb292:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2057 = getelementptr inbounds nuw i8, ptr %cond.i394, i64 16
-  %385 = load double, ptr %value_.i2057, align 8
-  store double %385, ptr %ref.tmp293, align 8
+  %364 = load double, ptr %value_.i2057, align 8
+  store double %364, ptr %ref.tmp293, align 8
   %value_.i2058 = getelementptr inbounds nuw i8, ptr %cond.i798, i64 16
-  %386 = load ptr, ptr %value_.i2058, align 8
-  %387 = load ptr, ptr %386, align 8
+  %365 = load ptr, ptr %value_.i2058, align 8
+  %366 = load ptr, ptr %365, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp298) #17
   %call.i2059 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296, ptr noundef %call.i2059, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp298) #17
-  %cmp.i2060 = icmp eq ptr %387, null
+  %cmp.i2060 = icmp eq ptr %366, null
   br i1 %cmp.i2060, label %if.then.i2064, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2065
 
 if.then.i2064:                                    ; preds = %sw.bb292
@@ -6209,22 +6128,22 @@ if.then.i2064:                                    ; preds = %sw.bb292
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2065: ; preds = %sw.bb292
-  %call.i.i2062 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %387) #17
-  %add.ptr.i2063 = getelementptr inbounds i8, ptr %387, i64 %call.i.i2062
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296, ptr noundef nonnull %387, ptr noundef nonnull %add.ptr.i2063)
+  %call.i.i2062 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %366) #17
+  %add.ptr.i2063 = getelementptr inbounds i8, ptr %366, i64 %call.i.i2062
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296, ptr noundef nonnull %366, ptr noundef nonnull %add.ptr.i2063)
   %call299 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp296) #17
-  %388 = extractvalue { i32, i64 } %call299, 0
-  store i32 %388, ptr %ref.tmp295, align 8
-  %389 = extractvalue { i32, i64 } %call299, 1
-  store i64 %389, ptr %9, align 8
+  %367 = extractvalue { i32, i64 } %call299, 0
+  store i32 %367, ptr %ref.tmp295, align 8
+  %368 = extractvalue { i32, i64 } %call299, 1
+  store i64 %368, ptr %9, align 8
   call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias align 8 %ref.tmp300, ptr noundef %cond.i741)
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20CallFromNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESt6vectorISB_SaISB_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp293, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp295, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp300)
-  %390 = load ptr, ptr %ref.tmp300, align 8
-  %tobool.not.i.i.i = icmp eq ptr %390, null
+  %369 = load ptr, ptr %ref.tmp300, align 8
+  %tobool.not.i.i.i = icmp eq ptr %369, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2065
-  call void @_ZdlPv(ptr noundef nonnull %390) #19
+  call void @_ZdlPv(ptr noundef nonnull %369) #19
   br label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2065, %if.then.i.i.i
@@ -6234,15 +6153,15 @@ _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit
 
 sw.bb301:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2066 = getelementptr inbounds nuw i8, ptr %cond.i394, i64 16
-  %391 = load double, ptr %value_.i2066, align 8
-  store double %391, ptr %ref.tmp302, align 8
+  %370 = load double, ptr %value_.i2066, align 8
+  store double %370, ptr %ref.tmp302, align 8
   %value_.i2067 = getelementptr inbounds nuw i8, ptr %cond.i798, i64 16
-  %392 = load ptr, ptr %value_.i2067, align 8
-  %393 = load ptr, ptr %392, align 8
+  %371 = load ptr, ptr %value_.i2067, align 8
+  %372 = load ptr, ptr %371, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp307) #17
   %call.i2068 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305, ptr noundef %call.i2068, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp307) #17
-  %cmp.i2069 = icmp eq ptr %393, null
+  %cmp.i2069 = icmp eq ptr %372, null
   br i1 %cmp.i2069, label %if.then.i2073, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2074
 
 if.then.i2073:                                    ; preds = %sw.bb301
@@ -6250,22 +6169,22 @@ if.then.i2073:                                    ; preds = %sw.bb301
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2074: ; preds = %sw.bb301
-  %call.i.i2071 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %393) #17
-  %add.ptr.i2072 = getelementptr inbounds i8, ptr %393, i64 %call.i.i2071
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305, ptr noundef nonnull %393, ptr noundef nonnull %add.ptr.i2072)
+  %call.i.i2071 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %372) #17
+  %add.ptr.i2072 = getelementptr inbounds i8, ptr %372, i64 %call.i.i2071
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305, ptr noundef nonnull %372, ptr noundef nonnull %add.ptr.i2072)
   %call308 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp305) #17
-  %394 = extractvalue { i32, i64 } %call308, 0
-  store i32 %394, ptr %ref.tmp304, align 8
-  %395 = extractvalue { i32, i64 } %call308, 1
-  store i64 %395, ptr %8, align 8
+  %373 = extractvalue { i32, i64 } %call308, 0
+  store i32 %373, ptr %ref.tmp304, align 8
+  %374 = extractvalue { i32, i64 } %call308, 1
+  store i64 %374, ptr %8, align 8
   call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias align 8 %ref.tmp309, ptr noundef %cond.i741)
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_25ConstructFromNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESt6vectorISB_SaISB_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp302, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp304, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp309)
-  %396 = load ptr, ptr %ref.tmp309, align 8
-  %tobool.not.i.i.i2075 = icmp eq ptr %396, null
+  %375 = load ptr, ptr %ref.tmp309, align 8
+  %tobool.not.i.i.i2075 = icmp eq ptr %375, null
   br i1 %tobool.not.i.i.i2075, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit2077, label %if.then.i.i.i2076
 
 if.then.i.i.i2076:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2074
-  call void @_ZdlPv(ptr noundef nonnull %396) #19
+  call void @_ZdlPv(ptr noundef nonnull %375) #19
   br label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit2077
 
 _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit2077: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2074, %if.then.i.i.i2076
@@ -6275,12 +6194,12 @@ _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit
 
 sw.bb310:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2078 = getelementptr inbounds nuw i8, ptr %cond.i856, i64 16
-  %397 = load ptr, ptr %value_.i2078, align 8
-  %398 = load ptr, ptr %397, align 8
+  %376 = load ptr, ptr %value_.i2078, align 8
+  %377 = load ptr, ptr %376, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp314) #17
   %call.i2079 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp312) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp312, ptr noundef %call.i2079, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp314) #17
-  %cmp.i2080 = icmp eq ptr %398, null
+  %cmp.i2080 = icmp eq ptr %377, null
   br i1 %cmp.i2080, label %if.then.i2084, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2085
 
 if.then.i2084:                                    ; preds = %sw.bb310
@@ -6288,14 +6207,14 @@ if.then.i2084:                                    ; preds = %sw.bb310
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2085: ; preds = %sw.bb310
-  %call.i.i2082 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %398) #17
-  %add.ptr.i2083 = getelementptr inbounds i8, ptr %398, i64 %call.i.i2082
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp312, ptr noundef nonnull %398, ptr noundef nonnull %add.ptr.i2083)
+  %call.i.i2082 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %377) #17
+  %add.ptr.i2083 = getelementptr inbounds i8, ptr %377, i64 %call.i.i2082
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp312, ptr noundef nonnull %377, ptr noundef nonnull %add.ptr.i2083)
   %call315 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp312) #17
-  %399 = extractvalue { i32, i64 } %call315, 0
-  store i32 %399, ptr %ref.tmp311, align 8
-  %400 = extractvalue { i32, i64 } %call315, 1
-  store i64 %400, ptr %7, align 8
+  %378 = extractvalue { i32, i64 } %call315, 0
+  store i32 %378, ptr %ref.tmp311, align 8
+  %379 = extractvalue { i32, i64 } %call315, 1
+  store i64 %379, ptr %7, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_22ReturnFromNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp311)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp312) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp314) #17
@@ -6303,12 +6222,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2085: 
 
 sw.bb316:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2086 = getelementptr inbounds nuw i8, ptr %cond.i856, i64 16
-  %401 = load ptr, ptr %value_.i2086, align 8
-  %402 = load ptr, ptr %401, align 8
+  %380 = load ptr, ptr %value_.i2086, align 8
+  %381 = load ptr, ptr %380, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp320) #17
   %call.i2087 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318, ptr noundef %call.i2087, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp320) #17
-  %cmp.i2088 = icmp eq ptr %402, null
+  %cmp.i2088 = icmp eq ptr %381, null
   br i1 %cmp.i2088, label %if.then.i2092, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2093
 
 if.then.i2092:                                    ; preds = %sw.bb316
@@ -6316,14 +6235,14 @@ if.then.i2092:                                    ; preds = %sw.bb316
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2093: ; preds = %sw.bb316
-  %call.i.i2090 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %402) #17
-  %add.ptr.i2091 = getelementptr inbounds i8, ptr %402, i64 %call.i.i2090
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318, ptr noundef nonnull %402, ptr noundef nonnull %add.ptr.i2091)
+  %call.i.i2090 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %381) #17
+  %add.ptr.i2091 = getelementptr inbounds i8, ptr %381, i64 %call.i.i2090
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318, ptr noundef nonnull %381, ptr noundef nonnull %add.ptr.i2091)
   %call321 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318) #17
-  %403 = extractvalue { i32, i64 } %call321, 0
-  store i32 %403, ptr %ref.tmp317, align 8
-  %404 = extractvalue { i32, i64 } %call321, 1
-  store i64 %404, ptr %6, align 8
+  %382 = extractvalue { i32, i64 } %call321, 0
+  store i32 %382, ptr %ref.tmp317, align 8
+  %383 = extractvalue { i32, i64 } %call321, 1
+  store i64 %383, ptr %6, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20ReturnToNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp317)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp320) #17
@@ -6331,15 +6250,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2093: 
 
 sw.bb322:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2094 = getelementptr inbounds nuw i8, ptr %cond.i394, i64 16
-  %405 = load double, ptr %value_.i2094, align 8
-  store double %405, ptr %ref.tmp323, align 8
+  %384 = load double, ptr %value_.i2094, align 8
+  store double %384, ptr %ref.tmp323, align 8
   %value_.i2095 = getelementptr inbounds nuw i8, ptr %cond.i798, i64 16
-  %406 = load ptr, ptr %value_.i2095, align 8
-  %407 = load ptr, ptr %406, align 8
+  %385 = load ptr, ptr %value_.i2095, align 8
+  %386 = load ptr, ptr %385, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp328) #17
   %call.i2096 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326, ptr noundef %call.i2096, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp328) #17
-  %cmp.i2097 = icmp eq ptr %407, null
+  %cmp.i2097 = icmp eq ptr %386, null
   br i1 %cmp.i2097, label %if.then.i2101, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2102
 
 if.then.i2101:                                    ; preds = %sw.bb322
@@ -6347,22 +6266,22 @@ if.then.i2101:                                    ; preds = %sw.bb322
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2102: ; preds = %sw.bb322
-  %call.i.i2099 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %407) #17
-  %add.ptr.i2100 = getelementptr inbounds i8, ptr %407, i64 %call.i.i2099
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326, ptr noundef nonnull %407, ptr noundef nonnull %add.ptr.i2100)
+  %call.i.i2099 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %386) #17
+  %add.ptr.i2100 = getelementptr inbounds i8, ptr %386, i64 %call.i.i2099
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326, ptr noundef nonnull %386, ptr noundef nonnull %add.ptr.i2100)
   %call329 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp326) #17
-  %408 = extractvalue { i32, i64 } %call329, 0
-  store i32 %408, ptr %ref.tmp325, align 8
-  %409 = extractvalue { i32, i64 } %call329, 1
-  store i64 %409, ptr %5, align 8
+  %387 = extractvalue { i32, i64 } %call329, 0
+  store i32 %387, ptr %ref.tmp325, align 8
+  %388 = extractvalue { i32, i64 } %call329, 1
+  store i64 %388, ptr %5, align 8
   call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias align 8 %ref.tmp330, ptr noundef %cond.i741)
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CallToNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESt6vectorISB_SaISB_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp323, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp330)
-  %410 = load ptr, ptr %ref.tmp330, align 8
-  %tobool.not.i.i.i2103 = icmp eq ptr %410, null
+  %389 = load ptr, ptr %ref.tmp330, align 8
+  %tobool.not.i.i.i2103 = icmp eq ptr %389, null
   br i1 %tobool.not.i.i.i2103, label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit2105, label %if.then.i.i.i2104
 
 if.then.i.i.i2104:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2102
-  call void @_ZdlPv(ptr noundef nonnull %410) #19
+  call void @_ZdlPv(ptr noundef nonnull %389) #19
   br label %_ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit2105
 
 _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit2105: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2102, %if.then.i.i.i2104
@@ -6372,26 +6291,26 @@ _ZNSt6vectorIN8facebook6hermes7tracing10SynthTrace10TraceValueESaIS4_EED2Ev.exit
 
 sw.bb331:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2106 = getelementptr inbounds nuw i8, ptr %cond.i336, i64 16
-  %411 = load double, ptr %value_.i2106, align 8
-  store double %411, ptr %ref.tmp332, align 8
+  %390 = load double, ptr %value_.i2106, align 8
+  store double %390, ptr %ref.tmp332, align 8
   %value_.i2107 = getelementptr inbounds nuw i8, ptr %cond.i509, i64 16
-  %412 = load double, ptr %value_.i2107, align 8
-  store double %412, ptr %ref.tmp334, align 8
+  %391 = load double, ptr %value_.i2107, align 8
+  store double %391, ptr %ref.tmp334, align 8
   %value_.i2108 = getelementptr inbounds nuw i8, ptr %cond.i567, i64 16
-  %413 = load ptr, ptr %value_.i2108, align 8
-  %414 = load ptr, ptr %413, align 8
-  store ptr %414, ptr %ref.tmp336, align 8
+  %392 = load ptr, ptr %value_.i2108, align 8
+  %393 = load ptr, ptr %392, align 8
+  store ptr %393, ptr %ref.tmp336, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_23GetPropertyNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEddPKcEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp332, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp334, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp336)
   br label %sw.epilog
 
 sw.bb338:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2109 = getelementptr inbounds nuw i8, ptr %cond.i856, i64 16
-  %415 = load ptr, ptr %value_.i2109, align 8
-  %416 = load ptr, ptr %415, align 8
+  %394 = load ptr, ptr %value_.i2109, align 8
+  %395 = load ptr, ptr %394, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp342) #17
   %call.i2110 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340, ptr noundef %call.i2110, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp342) #17
-  %cmp.i2111 = icmp eq ptr %416, null
+  %cmp.i2111 = icmp eq ptr %395, null
   br i1 %cmp.i2111, label %if.then.i2115, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2116
 
 if.then.i2115:                                    ; preds = %sw.bb338
@@ -6399,14 +6318,14 @@ if.then.i2115:                                    ; preds = %sw.bb338
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2116: ; preds = %sw.bb338
-  %call.i.i2113 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %416) #17
-  %add.ptr.i2114 = getelementptr inbounds i8, ptr %416, i64 %call.i.i2113
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340, ptr noundef nonnull %416, ptr noundef nonnull %add.ptr.i2114)
+  %call.i.i2113 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %395) #17
+  %add.ptr.i2114 = getelementptr inbounds i8, ptr %395, i64 %call.i.i2113
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340, ptr noundef nonnull %395, ptr noundef nonnull %add.ptr.i2114)
   %call343 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340) #17
-  %417 = extractvalue { i32, i64 } %call343, 0
-  store i32 %417, ptr %ref.tmp339, align 8
-  %418 = extractvalue { i32, i64 } %call343, 1
-  store i64 %418, ptr %4, align 8
+  %396 = extractvalue { i32, i64 } %call343, 0
+  store i32 %396, ptr %ref.tmp339, align 8
+  %397 = extractvalue { i32, i64 } %call343, 1
+  store i64 %397, ptr %4, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_29GetPropertyNativeReturnRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp339)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp340) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp342) #17
@@ -6414,22 +6333,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2116: 
 
 sw.bb344:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2117 = getelementptr inbounds nuw i8, ptr %cond.i336, i64 16
-  %419 = load double, ptr %value_.i2117, align 8
-  store double %419, ptr %ref.tmp345, align 8
+  %398 = load double, ptr %value_.i2117, align 8
+  store double %398, ptr %ref.tmp345, align 8
   %value_.i2118 = getelementptr inbounds nuw i8, ptr %cond.i509, i64 16
-  %420 = load double, ptr %value_.i2118, align 8
-  store double %420, ptr %ref.tmp347, align 8
+  %399 = load double, ptr %value_.i2118, align 8
+  store double %399, ptr %ref.tmp347, align 8
   %value_.i2119 = getelementptr inbounds nuw i8, ptr %cond.i567, i64 16
-  %421 = load ptr, ptr %value_.i2119, align 8
-  %422 = load ptr, ptr %421, align 8
-  store ptr %422, ptr %ref.tmp349, align 8
+  %400 = load ptr, ptr %value_.i2119, align 8
+  %401 = load ptr, ptr %400, align 8
+  store ptr %401, ptr %ref.tmp349, align 8
   %value_.i2120 = getelementptr inbounds nuw i8, ptr %cond.i625, i64 16
-  %423 = load ptr, ptr %value_.i2120, align 8
-  %424 = load ptr, ptr %423, align 8
+  %402 = load ptr, ptr %value_.i2120, align 8
+  %403 = load ptr, ptr %402, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp354) #17
   %call.i2121 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp352) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp352, ptr noundef %call.i2121, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp354) #17
-  %cmp.i2122 = icmp eq ptr %424, null
+  %cmp.i2122 = icmp eq ptr %403, null
   br i1 %cmp.i2122, label %if.then.i2126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2127
 
 if.then.i2126:                                    ; preds = %sw.bb344
@@ -6437,14 +6356,14 @@ if.then.i2126:                                    ; preds = %sw.bb344
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2127: ; preds = %sw.bb344
-  %call.i.i2124 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %424) #17
-  %add.ptr.i2125 = getelementptr inbounds i8, ptr %424, i64 %call.i.i2124
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp352, ptr noundef nonnull %424, ptr noundef nonnull %add.ptr.i2125)
+  %call.i.i2124 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %403) #17
+  %add.ptr.i2125 = getelementptr inbounds i8, ptr %403, i64 %call.i.i2124
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp352, ptr noundef nonnull %403, ptr noundef nonnull %add.ptr.i2125)
   %call355 = call { i32, i64 } @_ZN8facebook6hermes7tracing10SynthTrace6decodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp352) #17
-  %425 = extractvalue { i32, i64 } %call355, 0
-  store i32 %425, ptr %ref.tmp351, align 8
-  %426 = extractvalue { i32, i64 } %call355, 1
-  store i64 %426, ptr %3, align 8
+  %404 = extractvalue { i32, i64 } %call355, 0
+  store i32 %404, ptr %ref.tmp351, align 8
+  %405 = extractvalue { i32, i64 } %call355, 1
+  store i64 %405, ptr %3, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_23SetPropertyNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEddPKcNS2_10TraceValueEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp345, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp347, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp349, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp351)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp352) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp354) #17
@@ -6456,8 +6375,8 @@ sw.bb356:                                         ; preds = %_ZN4llvh16dyn_cast_
 
 sw.bb357:                                         ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
   %value_.i2128 = getelementptr inbounds nuw i8, ptr %cond.i336, i64 16
-  %427 = load double, ptr %value_.i2128, align 8
-  store double %427, ptr %ref.tmp358, align 8
+  %406 = load double, ptr %value_.i2128, align 8
+  store double %406, ptr %ref.tmp358, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_28GetNativePropertyNamesRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp358)
   br label %sw.epilog
 
@@ -6466,20 +6385,20 @@ _ZN4llvh9StringRefC2EPKc.exit720:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i2151:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit720, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2171
   %__first.addr.013.i.i.i.i2152 = phi ptr [ %__first.addr.1.i.i.i.i2176, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2171 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit720 ]
-  %__len.012.i.i.i.i2153 = phi i64 [ %__len.1.i.i.i.i2175, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2171 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit720 ]
+  %__len.012.i.i.i.i2153 = phi i64 [ %__len.1.i.i.i.i2175, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2171 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit720 ]
   %shr.i.i.i.i2154 = lshr i64 %__len.012.i.i.i.i2153, 1
   %add.ptr.i.i.i.i.i.i2157 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i2152, i64 %shr.i.i.i.i2154
-  %428 = load ptr, ptr %add.ptr.i.i.i.i.i.i2157, align 8
-  %value_.i.i.i.i.i.i.i2160 = getelementptr inbounds nuw i8, ptr %428, i64 16
-  %429 = load ptr, ptr %value_.i.i.i.i.i.i.i2160, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2161 = getelementptr inbounds nuw i8, ptr %429, i64 8
+  %407 = load ptr, ptr %add.ptr.i.i.i.i.i.i2157, align 8
+  %value_.i.i.i.i.i.i.i2160 = getelementptr inbounds nuw i8, ptr %407, i64 16
+  %408 = load ptr, ptr %value_.i.i.i.i.i.i.i2160, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2161 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2162 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2161, align 8
   %cmp.i.i.i.i.i.i.i.i.i2164 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2162, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i2164, label %if.end.i.i.i.i.i.i.i.i2178, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2165
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2165: ; preds = %while.body.i.i.i.i2151
   %.sroa.speculated.i.i.i.i.i.i.i2163 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2162, i64 10)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2166 = load ptr, ptr %429, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2166 = load ptr, ptr %408, align 8
   %call.i.i.i.i.i.i.i.i.i2167 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2166, ptr noundef nonnull @.str.41, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2163) #20
   %tobool.i.not.i.i.i.i.i.i.i2168 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i2167, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i2168, label %if.end.i.i.i.i.i.i.i.i2178, label %if.then.i.i.i.i.i.i.i.i2169
@@ -6495,8 +6414,8 @@ if.end.i.i.i.i.i.i.i.i2178:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2171: ; preds = %if.end.i.i.i.i.i.i.i.i2178, %if.then.i.i.i.i.i.i.i.i2169
   %retval.i.0.i.i.i.i.i.i.i2172 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i2170, %if.then.i.i.i.i.i.i.i.i2169 ], [ %cmp12.i.i.i.i.i.i.i.i2179, %if.end.i.i.i.i.i.i.i.i2178 ]
   %incdec.ptr.i.i.i.i2173 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i2157, i64 8
-  %430 = xor i64 %shr.i.i.i.i2154, -1
-  %sub2.i.i.i.i2174 = add nsw i64 %__len.012.i.i.i.i2153, %430
+  %409 = xor i64 %shr.i.i.i.i2154, -1
+  %sub2.i.i.i.i2174 = add nsw i64 %__len.012.i.i.i.i2153, %409
   %__len.1.i.i.i.i2175 = select i1 %retval.i.0.i.i.i.i.i.i.i2172, i64 %sub2.i.i.i.i2174, i64 %shr.i.i.i.i2154
   %__first.addr.1.i.i.i.i2176 = select i1 %retval.i.0.i.i.i.i.i.i.i2172, ptr %incdec.ptr.i.i.i.i2173, ptr %__first.addr.013.i.i.i.i2152
   %cmp.i.i.i.i2177 = icmp sgt i64 %__len.1.i.i.i.i2175, 0
@@ -6511,37 +6430,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   %__first.addr.0.lcssa.i.i.i.i2135 = phi ptr [ %__first.addr.1.i.i.i.i2176, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2134.loopexit ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit720 ]
   %cmp.not.i.i2136 = icmp ne ptr %__first.addr.0.lcssa.i.i.i.i2135, %add.ptr.i.i.i229
   call void @llvm.assume(i1 %cmp.not.i.i2136)
-  %431 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i2135, align 8
-  %value_.i.i.i2138 = getelementptr inbounds nuw i8, ptr %431, i64 16
-  %432 = load ptr, ptr %value_.i.i.i2138, align 8
-  %agg.tmp4.sroa.0.0.copyload.i.i2139 = load ptr, ptr %432, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i2140 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  %agg.tmp4.sroa.2.0.copyload.i.i2141 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i2140, align 8
-  %cmp.i.i.i2142 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i2141, 10
-  call void @llvm.assume(i1 %cmp.i.i.i2142)
-  %bcmp.i.i2145 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %agg.tmp4.sroa.0.0.copyload.i.i2139, ptr noundef nonnull dereferenceable(10) @.str.41, i64 10)
-  %433 = icmp eq i32 %bcmp.i.i2145, 0
-  call void @llvm.assume(i1 %433)
   %sub.ptr.sub.i.i2148 = sub i64 %sub.ptr.lhs.cast.i.i2147.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i2150 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i2148
-  %434 = load ptr, ptr %arrayidx.i2150, align 8
+  %410 = load ptr, ptr %arrayidx.i2150, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp361, i8 0, i64 24, i1 false), !alias.scope !59
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %434, i64 16
-  %size_.i.i = getelementptr inbounds nuw i8, ptr %434, i64 8
-  %435 = load i64, ptr %size_.i.i, align 8, !noalias !59
-  %add.ptr.i.idx.i = shl nsw i64 %435, 3
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %410, i64 16
+  %size_.i.i = getelementptr inbounds nuw i8, ptr %410, i64 8
+  %411 = load i64, ptr %size_.i.i, align 8, !noalias !59
+  %add.ptr.i.idx.i = shl nsw i64 %411, 3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %add.ptr.i.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i2181), !noalias !59
-  %cmp.not3.i.i = icmp eq i64 %435, 0
+  %cmp.not3.i.i = icmp eq i64 %411, 0
   br i1 %cmp.not3.i.i, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2134, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i
   %__first.addr.04.i.i = phi ptr [ %incdec.ptr.i.i, %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i ], [ %add.ptr.i.i.i.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2134 ]
-  %436 = load ptr, ptr %__first.addr.04.i.i, align 8, !noalias !59
+  %412 = load ptr, ptr %__first.addr.04.i.i, align 8, !noalias !59
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !59
-  %437 = load i32, ptr %436, align 4, !noalias !62
-  %cmp.not.i.i.i = icmp eq i32 %437, 2
+  %413 = load i32, ptr %412, align 4, !noalias !62
+  %cmp.not.i.i.i = icmp eq i32 %413, 2
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i2182
 
 if.then.i.i.i2182:                                ; preds = %for.body.i.i
@@ -6549,13 +6457,13 @@ if.then.i.i.i2182:                                ; preds = %for.body.i.i
   unreachable
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i
-  %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %436, i64 16
-  %438 = load ptr, ptr %value_.i.i.i.i, align 8, !noalias !62
-  %439 = load ptr, ptr %438, align 8, !noalias !62
+  %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %412, i64 16
+  %414 = load ptr, ptr %value_.i.i.i.i, align 8, !noalias !62
+  %415 = load ptr, ptr %414, align 8, !noalias !62
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #17, !noalias !62
   %call.i.i.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181, ptr noundef %call.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #17
-  %cmp.i.i.i.i2183 = icmp eq ptr %439, null
+  %cmp.i.i.i.i2183 = icmp eq ptr %415, null
   br i1 %cmp.i.i.i.i2183, label %if.then.i.i.i.i, label %_ZZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayEENKUlPKNSF_9JSONValueEE_clB5cxx11ESK_.exit.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
@@ -6563,25 +6471,25 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i.i.i
   unreachable
 
 _ZZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayEENKUlPKNSF_9JSONValueEE_clB5cxx11ESK_.exit.i.i: ; preds = %if.end.i.i.i
-  %call.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %439) #17
-  %add.ptr.i.i.i3.i = getelementptr inbounds i8, ptr %439, i64 %call.i.i.i.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181, ptr noundef nonnull %439, ptr noundef nonnull %add.ptr.i.i.i3.i)
+  %call.i.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %415) #17
+  %add.ptr.i.i.i3.i = getelementptr inbounds i8, ptr %415, i64 %call.i.i.i.i.i
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181, ptr noundef nonnull %415, ptr noundef nonnull %add.ptr.i.i.i3.i)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i), !noalias !59
-  %440 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !59
-  %441 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !59
-  %cmp.not.i.i.i.i.i = icmp eq ptr %440, %441
+  %416 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !59
+  %417 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !alias.scope !59
+  %cmp.not.i.i.i.i.i = icmp eq ptr %416, %417
   br i1 %cmp.not.i.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayEENKUlPKNSF_9JSONValueEE_clB5cxx11ESK_.exit.i.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %440, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181) #17
-  %442 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !59
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %442, i64 32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %416, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181) #17
+  %418 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !59
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %418, i64 32
   store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !alias.scope !59
   br label %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %_ZZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayEENKUlPKNSF_9JSONValueEE_clB5cxx11ESK_.exit.i.i
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp361, ptr %440, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp361, ptr %416, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i2181)
   br label %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i
 
 _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i: ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -6593,16 +6501,16 @@ _ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traits
 _ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit: ; preds = %_ZNSt20back_insert_iteratorISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEaSEOS6_.exit.i.i, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2134
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i2181), !noalias !59
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_34GetNativePropertyNamesReturnRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp361)
-  %443 = load ptr, ptr %ref.tmp361, align 8
-  %444 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
-  %cmp.not3.i.i.i.i = icmp eq ptr %443, %444
+  %419 = load ptr, ptr %ref.tmp361, align 8
+  %420 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
+  %cmp.not3.i.i.i.i = icmp eq ptr %419, %420
   br i1 %cmp.not3.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit, %for.body.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2185, %for.body.i.i.i.i ], [ %443, %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i2185, %for.body.i.i.i.i ], [ %419, %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #17
   %incdec.ptr.i.i.i.i2185 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i2185, %444
+  %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i2185, %420
   br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !66
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %for.body.i.i.i.i
@@ -6610,12 +6518,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit
-  %445 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %443, %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit ]
-  %tobool.not.i.i.i2186 = icmp eq ptr %445, null
+  %421 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %419, %_ZN8facebook6hermes7tracing12_GLOBAL__N_116getListOfStringsISt6vectorEET_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEPN6hermes6parser9JSONArrayE.exit ]
+  %tobool.not.i.i.i2186 = icmp eq ptr %421, null
   br i1 %tobool.not.i.i.i2186, label %sw.epilog, label %if.then.i.i.i2187
 
 if.then.i.i.i2187:                                ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %445) #19
+  call void @_ZdlPv(ptr noundef nonnull %421) #19
   br label %sw.epilog
 
 _ZN4llvh9StringRefC2EPKc.exit730:                 ; preds = %_ZN4llvh16dyn_cast_or_nullIN6hermes6parser10JSONStringENS2_9JSONValueEEENS_10cast_rettyIT_PT0_E8ret_typeES8_.exit857
@@ -6623,20 +6531,20 @@ _ZN4llvh9StringRefC2EPKc.exit730:                 ; preds = %_ZN4llvh16dyn_cast_
 
 while.body.i.i.i.i2211:                           ; preds = %_ZN4llvh9StringRefC2EPKc.exit730, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2231
   %__first.addr.013.i.i.i.i2212 = phi ptr [ %__first.addr.1.i.i.i.i2236, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2231 ], [ %keys_.i.i.i228, %_ZN4llvh9StringRefC2EPKc.exit730 ]
-  %__len.012.i.i.i.i2213 = phi i64 [ %__len.1.i.i.i.i2235, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2231 ], [ %43, %_ZN4llvh9StringRefC2EPKc.exit730 ]
+  %__len.012.i.i.i.i2213 = phi i64 [ %__len.1.i.i.i.i2235, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2231 ], [ %40, %_ZN4llvh9StringRefC2EPKc.exit730 ]
   %shr.i.i.i.i2214 = lshr i64 %__len.012.i.i.i.i2213, 1
   %add.ptr.i.i.i.i.i.i2217 = getelementptr inbounds nuw ptr, ptr %__first.addr.013.i.i.i.i2212, i64 %shr.i.i.i.i2214
-  %446 = load ptr, ptr %add.ptr.i.i.i.i.i.i2217, align 8
-  %value_.i.i.i.i.i.i.i2220 = getelementptr inbounds nuw i8, ptr %446, i64 16
-  %447 = load ptr, ptr %value_.i.i.i.i.i.i.i2220, align 8
-  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2221 = getelementptr inbounds nuw i8, ptr %447, i64 8
+  %422 = load ptr, ptr %add.ptr.i.i.i.i.i.i2217, align 8
+  %value_.i.i.i.i.i.i.i2220 = getelementptr inbounds nuw i8, ptr %422, i64 16
+  %423 = load ptr, ptr %value_.i.i.i.i.i.i.i2220, align 8
+  %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2221 = getelementptr inbounds nuw i8, ptr %423, i64 8
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2222 = load i64, ptr %agg.tmp.sroa.2.0.call.sroa_idx.i.i.i.i.i.i2221, align 8
   %cmp.i.i.i.i.i.i.i.i.i2224 = icmp eq i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2222, 0
   br i1 %cmp.i.i.i.i.i.i.i.i.i2224, label %if.end.i.i.i.i.i.i.i.i2238, label %_ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2225
 
 _ZN4llvh9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i2225: ; preds = %while.body.i.i.i.i2211
   %.sroa.speculated.i.i.i.i.i.i.i2223 = call i64 @llvm.umin.i64(i64 %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i2222, i64 6)
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2226 = load ptr, ptr %447, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2226 = load ptr, ptr %423, align 8
   %call.i.i.i.i.i.i.i.i.i2227 = call i32 @memcmp(ptr noundef %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i2226, ptr noundef nonnull @.str.42, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i2223) #20
   %tobool.i.not.i.i.i.i.i.i.i2228 = icmp eq i32 %call.i.i.i.i.i.i.i.i.i2227, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i2228, label %if.end.i.i.i.i.i.i.i.i2238, label %if.then.i.i.i.i.i.i.i.i2229
@@ -6652,8 +6560,8 @@ if.end.i.i.i.i.i.i.i.i2238:                       ; preds = %_ZN4llvh9StringRef1
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6hermes6parser15JSONHiddenClass14NameComparatorEEclIPKPNS3_10JSONStringEKN4llvh9StringRefEEEbT_RT0_.exit.i.i.i.i2231: ; preds = %if.end.i.i.i.i.i.i.i.i2238, %if.then.i.i.i.i.i.i.i.i2229
   %retval.i.0.i.i.i.i.i.i.i2232 = phi i1 [ %cmp.i.inv.i.i.i.i.i.i.i2230, %if.then.i.i.i.i.i.i.i.i2229 ], [ %cmp12.i.i.i.i.i.i.i.i2239, %if.end.i.i.i.i.i.i.i.i2238 ]
   %incdec.ptr.i.i.i.i2233 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i2217, i64 8
-  %448 = xor i64 %shr.i.i.i.i2214, -1
-  %sub2.i.i.i.i2234 = add nsw i64 %__len.012.i.i.i.i2213, %448
+  %424 = xor i64 %shr.i.i.i.i2214, -1
+  %sub2.i.i.i.i2234 = add nsw i64 %__len.012.i.i.i.i2213, %424
   %__len.1.i.i.i.i2235 = select i1 %retval.i.0.i.i.i.i.i.i.i2232, i64 %sub2.i.i.i.i2234, i64 %shr.i.i.i.i2214
   %__first.addr.1.i.i.i.i2236 = select i1 %retval.i.0.i.i.i.i.i.i.i2232, ptr %incdec.ptr.i.i.i.i2233, ptr %__first.addr.013.i.i.i.i2212
   %cmp.i.i.i.i2237 = icmp sgt i64 %__len.1.i.i.i.i2235, 0
@@ -6665,26 +6573,26 @@ _ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHidd
   br i1 %cmp.not.i.i2195, label %if.then.i2247, label %land.lhs.true.i.i2196
 
 land.lhs.true.i.i2196:                            ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2193
-  %449 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i2194, align 8
-  %value_.i.i.i2197 = getelementptr inbounds nuw i8, ptr %449, i64 16
-  %450 = load ptr, ptr %value_.i.i.i2197, align 8
-  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i2199 = getelementptr inbounds nuw i8, ptr %450, i64 8
+  %425 = load ptr, ptr %__first.addr.0.lcssa.i.i.i.i2194, align 8
+  %value_.i.i.i2197 = getelementptr inbounds nuw i8, ptr %425, i64 16
+  %426 = load ptr, ptr %value_.i.i.i2197, align 8
+  %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i2199 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %agg.tmp4.sroa.2.0.copyload.i.i2200 = load i64, ptr %agg.tmp4.sroa.2.0.call5.sroa_idx.i.i2199, align 8
   %cmp.i.i.i2201 = icmp eq i64 %agg.tmp4.sroa.2.0.copyload.i.i2200, 6
   br i1 %cmp.i.i.i2201, label %land.rhs.i.i.i2203, label %if.then.i2247
 
 land.rhs.i.i.i2203:                               ; preds = %land.lhs.true.i.i2196
-  %agg.tmp4.sroa.0.0.copyload.i.i2198 = load ptr, ptr %450, align 8
+  %agg.tmp4.sroa.0.0.copyload.i.i2198 = load ptr, ptr %426, align 8
   %bcmp.i.i2205 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp4.sroa.0.0.copyload.i.i2198, ptr noundef nonnull dereferenceable(6) @.str.42, i64 6)
-  %451 = icmp eq i32 %bcmp.i.i2205, 0
-  br i1 %451, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2240, label %if.then.i2247
+  %427 = icmp eq i32 %bcmp.i.i2205, 0
+  br i1 %427, label %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2240, label %if.then.i2247
 
 _ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2240: ; preds = %land.rhs.i.i.i2203
   %sub.ptr.lhs.cast.i.i2207 = ptrtoint ptr %__first.addr.0.lcssa.i.i.i.i2194 to i64
   %sub.ptr.sub.i.i2208 = sub i64 %sub.ptr.lhs.cast.i.i2207, %sub.ptr.rhs.cast.i.i.i.i.i.i230
   %arrayidx.i2210 = getelementptr inbounds i8, ptr %add.ptr.i.i1.i195, i64 %sub.ptr.sub.i.i2208
-  %452 = load ptr, ptr %arrayidx.i2210, align 8
-  %tobool.not.i2241 = icmp eq ptr %452, null
+  %428 = load ptr, ptr %arrayidx.i2210, align 8
+  %tobool.not.i2241 = icmp eq ptr %428, null
   br i1 %tobool.not.i2241, label %if.then.i2247, label %if.end.i2242
 
 if.then.i2247:                                    ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i2193, %land.rhs.i.i.i2203, %land.lhs.true.i.i2196, %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2240
@@ -6692,8 +6600,8 @@ if.then.i2247:                                    ; preds = %_ZSt11lower_boundIP
   unreachable
 
 if.end.i2242:                                     ; preds = %_ZNK6hermes6parser10JSONObject3getEN4llvh9StringRefE.exit2240
-  %453 = load i32, ptr %452, align 4
-  %cmp.not.i2243 = icmp eq i32 %453, 3
+  %429 = load i32, ptr %428, align 4
+  %cmp.not.i2243 = icmp eq i32 %429, 3
   br i1 %cmp.not.i2243, label %_ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueE.exit2248, label %if.then1.i2244
 
 if.then1.i2244:                                   ; preds = %if.end.i2242
@@ -6701,13 +6609,13 @@ if.then1.i2244:                                   ; preds = %if.end.i2242
   unreachable
 
 _ZN8facebook6hermes7tracing12_GLOBAL__N_111getNumberAsImEET_PKN6hermes6parser9JSONValueE.exit2248: ; preds = %if.end.i2242
-  %value_.i.i2245 = getelementptr inbounds nuw i8, ptr %452, i64 16
-  %454 = load double, ptr %value_.i.i2245, align 8
-  %conv.i2246 = fptoui double %454 to i64
+  %value_.i.i2245 = getelementptr inbounds nuw i8, ptr %428, i64 16
+  %430 = load double, ptr %value_.i.i2245, align 8
+  %conv.i2246 = fptoui double %430 to i64
   store i64 %conv.i2246, ptr %amount, align 8
   %value_.i2249 = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
-  %455 = load double, ptr %value_.i2249, align 8
-  store double %455, ptr %ref.tmp369, align 8
+  %431 = load double, ptr %value_.i2249, align 8
+  store double %431, ptr %ref.tmp369, align 8
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_31SetExternalMemoryPressureRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdRmEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp369, ptr noundef nonnull align 8 dereferenceable(8) %amount)
   br label %sw.epilog
 

@@ -79,8 +79,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @BackgroundWorkerShmemSize() local_unnamed_addr #0 {
   %1 = load i32, ptr @max_worker_processes, align 4
   %2 = sext i32 %1 to i64
-  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 1488) #14
-  %4 = tail call i64 @add_size(i64 noundef 16, i64 noundef %3) #14
+  %3 = tail call i64 @mul_size(i64 noundef %2, i64 noundef 1488) #13
+  %4 = tail call i64 @add_size(i64 noundef 16, i64 noundef %3) #13
   ret i64 %4
 }
 
@@ -94,9 +94,9 @@ define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %2 = load i32, ptr @max_worker_processes, align 4
   %3 = sext i32 %2 to i64
-  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 1488) #14
-  %5 = tail call i64 @add_size(i64 noundef 16, i64 noundef %4) #14
-  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #14
+  %4 = tail call i64 @mul_size(i64 noundef %3, i64 noundef 1488) #13
+  %5 = tail call i64 @add_size(i64 noundef 16, i64 noundef %4) #13
+  %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str, i64 noundef %5, ptr noundef nonnull %1) #13
   store ptr %6, ptr @BackgroundWorkerData, align 8
   %7 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
@@ -191,14 +191,14 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
   br i1 %5, label %.lr.ph, label %ReportBackgroundWorkerPID.exit
 
 6:                                                ; preds = %1
-  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %7 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %7, label %8, label %ReportBackgroundWorkerPID.exit
 
 8:                                                ; preds = %6
   %9 = load i32, ptr @max_worker_processes, align 4
   %10 = load ptr, ptr @BackgroundWorkerData, align 8
   %11 = load i32, ptr %10, align 8
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %11) #14
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %11) #13
   br label %ReportBackgroundWorkerPID.exit.sink.split
 
 .lr.ph:                                           ; preds = %.preheader, %121
@@ -211,7 +211,7 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
   br i1 %17, label %18, label %121
 
 18:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
   %.not.i = icmp eq ptr %19, null
   %.not111518.i = icmp eq ptr %19, @BackgroundWorkerList
@@ -252,7 +252,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   br i1 %.not60, label %38, label %36
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @kill(i32 noundef %35, i32 noundef 15) #14
+  %37 = tail call i32 @kill(i32 noundef %35, i32 noundef 15) #13
   br label %121
 
 38:                                               ; preds = %33
@@ -267,7 +267,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   br i1 %.not.i61, label %121, label %45
 
 45:                                               ; preds = %38
-  %46 = tail call i32 @kill(i32 noundef %44, i32 noundef 10) #14
+  %46 = tail call i32 @kill(i32 noundef %44, i32 noundef 10) #13
   br label %121
 
 .loopexit:                                        ; preds = %select.unfold.i, %18
@@ -303,42 +303,42 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
 60:                                               ; preds = %55, %49
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %61, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   store i8 0, ptr %15, align 8
   %.not59 = icmp eq i32 %51, 0
   br i1 %.not59, label %121, label %62
 
 62:                                               ; preds = %60
-  %63 = tail call i32 @kill(i32 noundef %51, i32 noundef 10) #14
+  %63 = tail call i32 @kill(i32 noundef %51, i32 noundef 10) #13
   br label %121
 
 64:                                               ; preds = %47
   %65 = load ptr, ptr @PostmasterContext, align 8
-  %66 = tail call ptr @MemoryContextAllocExtended(ptr noundef %65, i64 noundef 1512, i32 noundef 6) #14
+  %66 = tail call ptr @MemoryContextAllocExtended(ptr noundef %65, i64 noundef 1512, i32 noundef 6) #13
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %73
 
 68:                                               ; preds = %64
-  %69 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %69 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %69, label %70, label %ReportBackgroundWorkerPID.exit
 
 70:                                               ; preds = %68
-  %71 = tail call i32 @errcode(i32 noundef 8389) #14
-  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
+  %71 = tail call i32 @errcode(i32 noundef 8389) #13
+  %72 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #13
   br label %ReportBackgroundWorkerPID.exit.sink.split
 
 73:                                               ; preds = %64
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %66, ptr noundef nonnull %74, i64 noundef 96) #14
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %66, ptr noundef nonnull %74, i64 noundef 96) #13
   %75 = getelementptr inbounds nuw i8, ptr %66, i64 96
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %75, ptr noundef nonnull %76, i64 noundef 96) #14
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %75, ptr noundef nonnull %76, i64 noundef 96) #13
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 204
   %78 = getelementptr inbounds nuw i8, ptr %15, i64 220
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %77, ptr noundef nonnull %78, i64 noundef 1024) #14
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %77, ptr noundef nonnull %78, i64 noundef 1024) #13
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 1228
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 1244
-  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %79, ptr noundef nonnull %80, i64 noundef 96) #14
+  tail call void @ascii_safe_strlcpy(ptr noundef nonnull %79, ptr noundef nonnull %80, i64 noundef 96) #13
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %82 = load i32, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 192
@@ -362,17 +362,17 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %96 = load i32, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %66, i64 1464
   store i32 %96, ptr %97, align 8
-  %98 = tail call zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %96) #14
+  %98 = tail call zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef %96) #13
   br i1 %98, label %105, label %99
 
 99:                                               ; preds = %73
-  %100 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %100 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %99
   %102 = load i32, ptr %97, align 8
-  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %102) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #14
+  %103 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %102) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 399, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #13
   br label %104
 
 104:                                              ; preds = %101, %99
@@ -389,12 +389,12 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   store i32 %109, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %66, i64 1492
   store i8 0, ptr %110, align 4
-  %111 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %111 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %105
-  %113 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef nonnull %66) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 412, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #14
+  %113 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef nonnull %66) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 412, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #13
   br label %114
 
 114:                                              ; preds = %112, %105
@@ -425,7 +425,7 @@ dlist_push_head.exit:                             ; preds = %114, %118
 
 ReportBackgroundWorkerPID.exit.sink.split:        ; preds = %8, %70
   %.sink = phi i32 [ 355, %70 ], [ 262, %8 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #14
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef %.sink, ptr noundef nonnull @__func__.BackgroundWorkerStateChange) #13
   br label %ReportBackgroundWorkerPID.exit
 
 ReportBackgroundWorkerPID.exit:                   ; preds = %121, %ReportBackgroundWorkerPID.exit.sink.split, %.preheader, %68, %6
@@ -461,7 +461,7 @@ define dso_local void @ReportBackgroundWorkerPID(ptr noundef readonly captures(n
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call i32 @kill(i32 noundef %11, i32 noundef 10) #14
+  %13 = tail call i32 @kill(i32 noundef %11, i32 noundef 10) #13
   br label %14
 
 14:                                               ; preds = %12, %1
@@ -500,14 +500,14 @@ define dso_local void @ForgetBackgroundWorker(ptr noundef %0) local_unnamed_addr
   br label %15
 
 15:                                               ; preds = %11, %1
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   store i8 0, ptr %7, align 8
-  %16 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %16 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #13
   br label %19
 
 19:                                               ; preds = %17, %15
@@ -519,7 +519,7 @@ define dso_local void @ForgetBackgroundWorker(ptr noundef %0) local_unnamed_addr
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %20, align 8
   store ptr %25, ptr %22, align 8
-  tail call void @pfree(ptr noundef nonnull %0) #14
+  tail call void @pfree(ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -568,14 +568,14 @@ define dso_local void @ReportBackgroundWorkerExit(ptr noundef %0) local_unnamed_
   br label %31
 
 31:                                               ; preds = %27, %19
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   store i8 0, ptr %23, align 8
-  %32 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %32 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %32, label %33, label %ForgetBackgroundWorker.exit
 
 33:                                               ; preds = %31
-  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
+  %34 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #13
   br label %ForgetBackgroundWorker.exit
 
 ForgetBackgroundWorker.exit:                      ; preds = %31, %33
@@ -587,7 +587,7 @@ ForgetBackgroundWorker.exit:                      ; preds = %31, %33
   store ptr %37, ptr %39, align 8
   %40 = load ptr, ptr %35, align 8
   store ptr %40, ptr %37, align 8
-  tail call void @pfree(ptr noundef nonnull %0) #14
+  tail call void @pfree(ptr noundef nonnull %0) #13
   br label %41
 
 41:                                               ; preds = %ForgetBackgroundWorker.exit, %15
@@ -595,7 +595,7 @@ ForgetBackgroundWorker.exit:                      ; preds = %31, %33
   br i1 %.not, label %44, label %42
 
 42:                                               ; preds = %41
-  %43 = tail call i32 @kill(i32 noundef %11, i32 noundef 10) #14
+  %43 = tail call i32 @kill(i32 noundef %11, i32 noundef 10) #13
   br label %44
 
 44:                                               ; preds = %42, %41
@@ -681,14 +681,14 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   br label %24
 
 24:                                               ; preds = %20, %14
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   store i8 0, ptr %16, align 8
-  %25 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %25 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %25, label %26, label %ForgetBackgroundWorker.exit
 
 26:                                               ; preds = %24
-  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
+  %27 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #13
   br label %ForgetBackgroundWorker.exit
 
 ForgetBackgroundWorker.exit:                      ; preds = %24, %26
@@ -698,8 +698,8 @@ ForgetBackgroundWorker.exit:                      ; preds = %24, %26
   store ptr %28, ptr %30, align 8
   %31 = load ptr, ptr %.sroa.0.018, align 8
   store ptr %31, ptr %28, align 8
-  tail call void @pfree(ptr noundef nonnull %3) #14
-  %32 = tail call i32 @kill(i32 noundef %13, i32 noundef 10) #14
+  tail call void @pfree(ptr noundef nonnull %3) #13
+  %32 = tail call i32 @kill(i32 noundef %13, i32 noundef 10) #13
   %.pre = load ptr, ptr @BackgroundWorkerData, align 8
   br label %select.unfold
 
@@ -751,14 +751,14 @@ define dso_local void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %16, %5
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !13
   store i8 0, ptr %12, align 8
-  %21 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %21 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %21, label %22, label %ForgetBackgroundWorker.exit
 
 22:                                               ; preds = %20
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #14
+  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 449, ptr noundef nonnull @__func__.ForgetBackgroundWorker) #13
   br label %ForgetBackgroundWorker.exit
 
 ForgetBackgroundWorker.exit:                      ; preds = %20, %22
@@ -768,7 +768,7 @@ ForgetBackgroundWorker.exit:                      ; preds = %20, %22
   store ptr %24, ptr %26, align 8
   %27 = load ptr, ptr %.sroa.0.014, align 8
   store ptr %27, ptr %24, align 8
-  tail call void @pfree(ptr noundef nonnull %6) #14
+  tail call void @pfree(ptr noundef nonnull %6) #13
   br label %select.unfold
 
 28:                                               ; preds = %.lr.ph
@@ -794,29 +794,28 @@ define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(addres
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  call void @llvm.assume(i1 %6)
-  %7 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #14
-  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 724, ptr noundef nonnull @__func__.BackgroundWorkerMain) #14
+  %6 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %7 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7) #13
+  call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 724, ptr noundef nonnull @__func__.BackgroundWorkerMain) #13
   unreachable
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @TopMemoryContext, align 8
-  %10 = call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef 1472) #14
+  %10 = call ptr @MemoryContextAlloc(ptr noundef %9, i64 noundef 1472) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %10, ptr noundef nonnull align 1 dereferenceable(1472) %0, i64 1472, i1 false)
   %11 = load ptr, ptr @PostmasterContext, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %8
-  call void @MemoryContextDelete(ptr noundef nonnull %11) #14
+  call void @MemoryContextDelete(ptr noundef nonnull %11) #13
   store ptr null, ptr @PostmasterContext, align 8
   br label %13
 
 13:                                               ; preds = %12, %8
   store ptr %10, ptr @MyBgworkerEntry, align 8
   store i32 5, ptr @MyBackendType, align 4
-  call void @init_ps_display(ptr noundef nonnull %10) #14
+  call void @init_ps_display(ptr noundef nonnull %10) #13
   %14 = load i32, ptr @PostAuthDelay, align 4
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %16, label %19
@@ -824,7 +823,7 @@ define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(addres
 16:                                               ; preds = %13
   %17 = zext nneg i32 %14 to i64
   %18 = mul nuw nsw i64 %17, 1000000
-  call void @pg_usleep(i64 noundef %18) #14
+  call void @pg_usleep(i64 noundef %18) #13
   br label %19
 
 19:                                               ; preds = %16, %13
@@ -835,16 +834,16 @@ define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(addres
   %.StatementCancelHandler = select i1 %.not12, ptr inttoptr (i64 1 to ptr), ptr @StatementCancelHandler
   %.procsignal_sigusr1_handler = select i1 %.not12, ptr inttoptr (i64 1 to ptr), ptr @procsignal_sigusr1_handler
   %.FloatExceptionHandler = select i1 %.not12, ptr inttoptr (i64 1 to ptr), ptr @FloatExceptionHandler
-  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull %.StatementCancelHandler) #14
-  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull %.procsignal_sigusr1_handler) #14
-  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull %.FloatExceptionHandler) #14
-  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @bgworker_die) #14
-  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
-  call void @InitializeTimeouts() #14
-  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
-  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
-  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #14
-  %23 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 1) #16
+  call void @pqsignal_be(i32 noundef 2, ptr noundef nonnull %.StatementCancelHandler) #13
+  call void @pqsignal_be(i32 noundef 10, ptr noundef nonnull %.procsignal_sigusr1_handler) #13
+  call void @pqsignal_be(i32 noundef 8, ptr noundef nonnull %.FloatExceptionHandler) #13
+  call void @pqsignal_be(i32 noundef 15, ptr noundef nonnull @bgworker_die) #13
+  call void @pqsignal_be(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
+  call void @InitializeTimeouts() #13
+  call void @pqsignal_be(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
+  call void @pqsignal_be(i32 noundef 12, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
+  call void @pqsignal_be(i32 noundef 17, ptr noundef null) #13
+  %23 = call i32 @__sigsetjmp(ptr noundef nonnull %3, i32 noundef 1) #15
   %.not13 = icmp eq i32 %23, 0
   br i1 %.not13, label %27, label %24
 
@@ -854,21 +853,21 @@ define dso_local void @BackgroundWorkerMain(ptr noundef readonly captures(addres
   %26 = add i32 %25, 1
   store volatile i32 %26, ptr @InterruptHoldoffCount, align 4
   call void @BackgroundWorkerUnblockSignals()
-  call void @EmitErrorReport() #14
-  call void @proc_exit(i32 noundef 1) #17
+  call void @EmitErrorReport() #13
+  call void @proc_exit(i32 noundef 1) #16
   unreachable
 
 27:                                               ; preds = %19
   store ptr %3, ptr @PG_exception_stack, align 8
-  call void @InitProcess() #14
-  call void @BaseInit() #14
+  call void @InitProcess() #13
+  call void @BaseInit() #13
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 204
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 1228
   %30 = call fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef nonnull %28, ptr noundef nonnull %29)
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 1328
   %32 = load i64, ptr %31, align 8
-  call void %30(i64 noundef %32) #14
-  call void @proc_exit(i32 noundef 0) #17
+  call void %30(i64 noundef %32) #13
+  call void @proc_exit(i32 noundef 0) #16
   unreachable
 }
 
@@ -891,14 +890,13 @@ declare void @FloatExceptionHandler(i32 noundef) #7
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal void @bgworker_die(i32 %0) #8 {
-  %2 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef null) #14
-  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %3)
-  %4 = tail call i32 @errcode(i32 noundef 16908741) #14
+  %2 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef null) #13
+  %3 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %4 = tail call i32 @errcode(i32 noundef 16908741) #13
   %5 = load ptr, ptr @MyBgworkerEntry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %6) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 710, ptr noundef nonnull @__func__.bgworker_die) #14
+  %7 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %6) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 710, ptr noundef nonnull @__func__.bgworker_die) #13
   unreachable
 }
 
@@ -909,7 +907,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerUnblockSignals() local_unnamed_addr #0 {
-  %1 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #14
+  %1 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @UnBlockSig, ptr noundef null) #13
   ret void
 }
 
@@ -924,7 +922,7 @@ declare void @BaseInit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.24) #18
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.24) #17
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.preheader, label %16
 
@@ -937,7 +935,7 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
   %6 = getelementptr inbounds nuw %struct.anon, ptr @InternalBGWorkers, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16
-  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #18
+  %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %5
 
@@ -947,14 +945,13 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
   br label %18
 
 13:                                               ; preds = %5
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1354, ptr noundef nonnull @__func__.LookupBackgroundWorkerFunction) #14
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1354, ptr noundef nonnull @__func__.LookupBackgroundWorkerFunction) #13
   unreachable
 
 16:                                               ; preds = %2
-  %17 = tail call ptr @load_external_function(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #14
+  %17 = tail call ptr @load_external_function(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #13
   br label %18
 
 18:                                               ; preds = %10, %16
@@ -972,26 +969,24 @@ define dso_local void @BackgroundWorkerInitializeConnection(ptr noundef %0, ptr 
   br i1 %.not8, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 261) #14
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 868, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnection) #14
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %10 = tail call i32 @errcode(i32 noundef 261) #13
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 868, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnection) #13
   unreachable
 
 12:                                               ; preds = %3
   %13 = shl i32 %2, 1
   %.1 = and i32 %13, 6
-  tail call void @InitPostgres(ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, ptr noundef null) #14
+  tail call void @InitPostgres(ptr noundef %0, i32 noundef 0, ptr noundef %1, i32 noundef 0, i32 noundef %.1, ptr noundef null) #13
   %14 = load i32, ptr @Mode, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 878, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnection) #14
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 878, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnection) #13
   unreachable
 
 19:                                               ; preds = %12
@@ -1011,26 +1006,24 @@ define dso_local void @BackgroundWorkerInitializeConnectionByOid(i32 noundef %0,
   br i1 %.not8, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 @errcode(i32 noundef 261) #14
-  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 902, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnectionByOid) #14
+  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #14
+  %10 = tail call i32 @errcode(i32 noundef 261) #13
+  %11 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 902, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnectionByOid) #13
   unreachable
 
 12:                                               ; preds = %3
   %13 = shl i32 %2, 1
   %.1 = and i32 %13, 6
-  tail call void @InitPostgres(ptr noundef null, i32 noundef %0, ptr noundef null, i32 noundef %1, i32 noundef %.1, ptr noundef null) #14
+  tail call void @InitPostgres(ptr noundef null, i32 noundef %0, ptr noundef null, i32 noundef %1, i32 noundef %.1, ptr noundef null) #13
   %14 = load i32, ptr @Mode, align 4
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 912, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnectionByOid) #14
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %18 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.9) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 912, ptr noundef nonnull @__func__.BackgroundWorkerInitializeConnectionByOid) #13
   unreachable
 
 19:                                               ; preds = %12
@@ -1040,7 +1033,7 @@ define dso_local void @BackgroundWorkerInitializeConnectionByOid(i32 noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerBlockSignals() local_unnamed_addr #0 {
-  %1 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef null) #14
+  %1 = tail call i32 @sigprocmask(i32 noundef 2, ptr noundef nonnull @BlockSig, ptr noundef null) #13
   ret void
 }
 
@@ -1063,13 +1056,13 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
   br i1 %8, label %66, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %10, label %11, label %66
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @errcode(i32 noundef 1088) #14
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 966, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
+  %12 = tail call i32 @errcode(i32 noundef 1088) #13
+  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.10, ptr noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 966, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #13
   br label %66
 
 14:                                               ; preds = %1
@@ -1078,19 +1071,18 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
   br i1 %.not14, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 976, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
+  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %18 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11, ptr noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 976, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #13
   unreachable
 
 19:                                               ; preds = %14
-  %20 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
+  %20 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #13
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 979, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
+  %22 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, ptr noundef %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 979, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #13
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -1104,13 +1096,13 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
   br i1 %.not15, label %33, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %29 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %29, label %30, label %66
 
 30:                                               ; preds = %28
-  %31 = tail call i32 @errcode(i32 noundef 1088) #14
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 989, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
+  %31 = tail call i32 @errcode(i32 noundef 1088) #13
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 989, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #13
   br label %66
 
 33:                                               ; preds = %25
@@ -1122,33 +1114,33 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %33
-  %39 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %39 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %39, label %40, label %66
 
 40:                                               ; preds = %38
-  %41 = tail call i32 @errcode(i32 noundef 16581) #14
-  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #14
+  %41 = tail call i32 @errcode(i32 noundef 16581) #13
+  %42 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13) #13
   %43 = load i32, ptr @max_worker_processes, align 4
   %44 = sext i32 %43 to i64
-  %45 = tail call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %44, i32 noundef %43) #14
-  %46 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
+  %45 = tail call i32 (ptr, ptr, i64, ...) @errdetail_plural(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i64 noundef %44, i32 noundef %43) #13
+  %46 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1008, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #13
   br label %66
 
 47:                                               ; preds = %33
   %48 = load ptr, ptr @PostmasterContext, align 8
-  %49 = tail call ptr @MemoryContextAllocExtended(ptr noundef %48, i64 noundef 1512, i32 noundef 2) #14
+  %49 = tail call ptr @MemoryContextAllocExtended(ptr noundef %48, i64 noundef 1512, i32 noundef 2) #13
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47
-  %52 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #14
+  %52 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
   br i1 %52, label %53, label %66
 
 53:                                               ; preds = %51
-  %54 = tail call i32 @errcode(i32 noundef 8389) #14
-  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1022, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #14
+  %54 = tail call i32 @errcode(i32 noundef 8389) #13
+  %55 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1022, ptr noundef nonnull @__func__.RegisterBackgroundWorker) #13
   br label %66
 
 56:                                               ; preds = %47
@@ -1190,13 +1182,13 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #14
+  %7 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
   br i1 %7, label %8, label %43
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @errcode(i32 noundef 50856066) #14
-  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 646, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #14
+  %9 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 646, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #13
   br label %43
 
 11:                                               ; preds = %2
@@ -1211,13 +1203,13 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #14
+  %18 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
   br i1 %18, label %19, label %43
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @errcode(i32 noundef 50856066) #14
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 657, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #14
+  %20 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 657, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #13
   br label %43
 
 22:                                               ; preds = %13, %11
@@ -1228,13 +1220,13 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   br i1 %or.cond61, label %26, label %31
 
 26:                                               ; preds = %22
-  %27 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #14
+  %27 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
   br i1 %27, label %28, label %43
 
 28:                                               ; preds = %26
-  %29 = tail call i32 @errcode(i32 noundef 50856066) #14
-  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 671, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #14
+  %29 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %30 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 671, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #13
   br label %43
 
 31:                                               ; preds = %22
@@ -1245,13 +1237,13 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   br i1 %or.cond62, label %38, label %33
 
 33:                                               ; preds = %31
-  %34 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #14
+  %34 = tail call zeroext i1 @errstart(i32 noundef %1, ptr noundef null) #13
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %33
-  %36 = tail call i32 @errcode(i32 noundef 50856066) #14
-  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #14
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 686, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #14
+  %36 = tail call i32 @errcode(i32 noundef 50856066) #13
+  %37 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %0) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 686, ptr noundef nonnull @__func__.SanityCheckBackgroundWorker) #13
   br label %43
 
 38:                                               ; preds = %31
@@ -1261,7 +1253,7 @@ define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr nound
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %0) #14
+  %42 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %0) #13
   br label %43
 
 43:                                               ; preds = %33, %35, %26, %28, %17, %19, %6, %8, %38, %41
@@ -1290,7 +1282,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   %.not = icmp eq i32 %10, 0
   %11 = load ptr, ptr @MainLWLockArray, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4224
-  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 0) #14
+  %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %12, i32 noundef 0) #13
   %.pre = load ptr, ptr @BackgroundWorkerData, align 8
   br i1 %.not, label %24, label %14
 
@@ -1307,7 +1299,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
 21:                                               ; preds = %14
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %23) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %23) #13
   br label %.thread45
 
 24:                                               ; preds = %14, %7
@@ -1349,12 +1341,12 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   br label %.thread40
 
 .thread40:                                        ; preds = %40, %32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
   store i8 1, ptr %29, align 8
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %45) #14
-  tail call void @SendPostmasterSignal(i32 noundef 5) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %45) #13
+  tail call void @SendPostmasterSignal(i32 noundef 5) #13
   %.not48 = icmp eq ptr %1, null
   br i1 %.not48, label %.thread45, label %49
 
@@ -1366,11 +1358,11 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
 ._crit_edge:                                      ; preds = %46, %24
   %47 = load ptr, ptr @MainLWLockArray, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %48) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %48) #13
   br label %.thread45
 
 49:                                               ; preds = %.thread40
-  %50 = tail call ptr @palloc(i64 noundef 16) #14
+  %50 = tail call ptr @palloc(i64 noundef 16) #13
   store ptr %50, ptr %1, align 8
   store i32 %33, ptr %50, align 8
   %51 = load ptr, ptr %1, align 8
@@ -1400,7 +1392,7 @@ define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonl
   %7 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %4, i64 %6
   %8 = load ptr, ptr @MainLWLockArray, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4224
-  %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #14
+  %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 1) #13
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1416,7 +1408,7 @@ define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonl
 .thread:                                          ; preds = %15, %2
   %18 = load ptr, ptr @MainLWLockArray, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %19) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %19) #13
   br label %27
 
 20:                                               ; preds = %15
@@ -1424,7 +1416,7 @@ define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonl
   %22 = load i32, ptr %21, align 4
   %23 = load ptr, ptr @MainLWLockArray, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %24) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %24) #13
   switch i32 %22, label %26 [
     i32 0, label %27
     i32 -1, label %25
@@ -1453,7 +1445,7 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
   br i1 %.not, label %7, label %6, !prof !20
 
 6:                                                ; preds = %4
-  tail call void @ProcessInterrupts() #14
+  tail call void @ProcessInterrupts() #13
   br label %7
 
 7:                                                ; preds = %6, %4
@@ -1464,7 +1456,7 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
   %12 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %9, i64 %11
   %13 = load ptr, ptr @MainLWLockArray, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4224
-  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 1) #14
+  %15 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %14, i32 noundef 1) #13
   %16 = load i64, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %18 = load i64, ptr %17, align 8
@@ -1479,7 +1471,7 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
 .thread.i:                                        ; preds = %19, %7
   %22 = load ptr, ptr @MainLWLockArray, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %23) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %23) #13
   br label %GetBackgroundWorkerPid.exit.thread
 
 24:                                               ; preds = %19
@@ -1487,7 +1479,7 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
   %26 = load i32, ptr %25, align 4
   %27 = load ptr, ptr @MainLWLockArray, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %28) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %28) #13
   switch i32 %26, label %29 [
     i32 0, label %GetBackgroundWorkerPid.exit.thread
     i32 -1, label %GetBackgroundWorkerPid.exit
@@ -1499,14 +1491,14 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
 
 GetBackgroundWorkerPid.exit:                      ; preds = %24
   %30 = load ptr, ptr @MyLatch, align 8
-  %31 = tail call i32 @WaitLatch(ptr noundef %30, i32 noundef 17, i64 noundef 0, i32 noundef 134217734) #14
+  %31 = tail call i32 @WaitLatch(ptr noundef %30, i32 noundef 17, i64 noundef 0, i32 noundef 134217734) #13
   %32 = and i32 %31, 16
   %.not9 = icmp eq i32 %32, 0
   br i1 %.not9, label %33, label %GetBackgroundWorkerPid.exit.thread
 
 33:                                               ; preds = %GetBackgroundWorkerPid.exit
   %34 = load ptr, ptr @MyLatch, align 8
-  tail call void @ResetLatch(ptr noundef %34) #14
+  tail call void @ResetLatch(ptr noundef %34) #13
   br label %4
 
 GetBackgroundWorkerPid.exit.thread:               ; preds = %24, %GetBackgroundWorkerPid.exit, %.thread.i, %29
@@ -1531,7 +1523,7 @@ define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nounde
   br i1 %.not, label %6, label %5, !prof !20
 
 5:                                                ; preds = %3
-  tail call void @ProcessInterrupts() #14
+  tail call void @ProcessInterrupts() #13
   br label %6
 
 6:                                                ; preds = %5, %3
@@ -1542,7 +1534,7 @@ define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nounde
   %11 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %8, i64 %10
   %12 = load ptr, ptr @MainLWLockArray, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4224
-  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 1) #14
+  %14 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %13, i32 noundef 1) #13
   %15 = load i64, ptr %2, align 8
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i64, ptr %16, align 8
@@ -1557,7 +1549,7 @@ define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nounde
 .thread.i:                                        ; preds = %18, %6
   %21 = load ptr, ptr @MainLWLockArray, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %22) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %22) #13
   br label %GetBackgroundWorkerPid.exit.thread
 
 23:                                               ; preds = %18
@@ -1565,20 +1557,20 @@ define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nounde
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr @MainLWLockArray, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %27) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %27) #13
   %cond = icmp eq i32 %25, 0
   br i1 %cond, label %GetBackgroundWorkerPid.exit.thread, label %GetBackgroundWorkerPid.exit
 
 GetBackgroundWorkerPid.exit:                      ; preds = %23
   %28 = load ptr, ptr @MyLatch, align 8
-  %29 = tail call i32 @WaitLatch(ptr noundef %28, i32 noundef 17, i64 noundef 0, i32 noundef 134217733) #14
+  %29 = tail call i32 @WaitLatch(ptr noundef %28, i32 noundef 17, i64 noundef 0, i32 noundef 134217733) #13
   %30 = and i32 %29, 16
   %.not6 = icmp eq i32 %30, 0
   br i1 %.not6, label %31, label %GetBackgroundWorkerPid.exit.thread
 
 31:                                               ; preds = %GetBackgroundWorkerPid.exit
   %32 = load ptr, ptr @MyLatch, align 8
-  tail call void @ResetLatch(ptr noundef %32) #14
+  tail call void @ResetLatch(ptr noundef %32) #13
   br label %3
 
 GetBackgroundWorkerPid.exit.thread:               ; preds = %23, %GetBackgroundWorkerPid.exit, %.thread.i
@@ -1595,7 +1587,7 @@ define dso_local void @TerminateBackgroundWorker(ptr noundef readonly captures(n
   %6 = getelementptr inbounds %struct.BackgroundWorkerSlot, ptr %3, i64 %5
   %7 = load ptr, ptr @MainLWLockArray, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4224
-  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #14
+  %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %8, i32 noundef 0) #13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1608,14 +1600,14 @@ define dso_local void @TerminateBackgroundWorker(ptr noundef readonly captures(n
   store i8 1, ptr %16, align 1
   %17 = load ptr, ptr @MainLWLockArray, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %18) #14
-  tail call void @SendPostmasterSignal(i32 noundef 5) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %18) #13
+  tail call void @SendPostmasterSignal(i32 noundef 5) #13
   br label %21
 
 .critedge:                                        ; preds = %1
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %20) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %20) #13
   br label %21
 
 21:                                               ; preds = %.critedge, %15
@@ -1626,7 +1618,7 @@ define dso_local void @TerminateBackgroundWorker(ptr noundef readonly captures(n
 define dso_local noundef ptr @GetBackgroundWorkerTypeByPid(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4224
-  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 1) #14
+  %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 1) #13
   %5 = load ptr, ptr @BackgroundWorkerData, align 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
@@ -1654,14 +1646,14 @@ define dso_local noundef ptr @GetBackgroundWorkerTypeByPid(i32 noundef %0) local
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @GetBackgroundWorkerTypeByPid.result, ptr noundef nonnull dereferenceable(1) %17) #14
+  %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @GetBackgroundWorkerTypeByPid.result, ptr noundef nonnull dereferenceable(1) %17) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %9, %1, %16
   %GetBackgroundWorkerTypeByPid.result. = phi ptr [ @GetBackgroundWorkerTypeByPid.result, %16 ], [ null, %1 ], [ null, %9 ]
   %19 = load ptr, ptr @MainLWLockArray, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4224
-  tail call void @LWLockRelease(ptr noundef nonnull %20) #14
+  tail call void @LWLockRelease(ptr noundef nonnull %20) #13
   ret ptr %GetBackgroundWorkerTypeByPid.result.
 }
 
@@ -1689,9 +1681,6 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #12
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #12
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -1705,12 +1694,11 @@ attributes #9 = { nounwind returns_twice "no-trapping-math"="true" "stack-protec
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { cold nounwind }
-attributes #16 = { nounwind returns_twice }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { cold nounwind }
+attributes #15 = { nounwind returns_twice }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

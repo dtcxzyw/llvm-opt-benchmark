@@ -1367,8 +1367,6 @@ entry:
 define linkonce_odr void @_ZN8facebook5velox11VectorSerde11deserializeEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_7RowTypeEEPS7_INS0_9RowVectorEEiPKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %source, ptr noundef %pool, ptr noundef %type, ptr noundef %result, i32 noundef %resultOffset, ptr noundef %options) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.2", align 8
-  %cmp = icmp eq i32 %resultOffset, 0
-  tail call void @llvm.assume(i1 %cmp)
   %0 = load ptr, ptr %type, align 8
   store ptr %0, ptr %agg.tmp, align 8
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8

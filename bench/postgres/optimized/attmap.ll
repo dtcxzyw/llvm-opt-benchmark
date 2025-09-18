@@ -19,12 +19,12 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @make_attrmap(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @palloc0(i64 noundef 16) #5
+  %2 = tail call ptr @palloc0(i64 noundef 16) #4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %0, ptr %3, align 8
   %4 = sext i32 %0 to i64
   %5 = shl nsw i64 %4, 1
-  %6 = tail call ptr @palloc0(i64 noundef %5) #5
+  %6 = tail call ptr @palloc0(i64 noundef %5) #4
   store ptr %6, ptr %2, align 8
   ret ptr %2
 }
@@ -34,8 +34,8 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @free_attrmap(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  tail call void @pfree(ptr noundef %2) #5
-  tail call void @pfree(ptr noundef nonnull %0) #5
+  tail call void @pfree(ptr noundef %2) #4
+  tail call void @pfree(ptr noundef nonnull %0) #4
   ret void
 }
 
@@ -44,12 +44,12 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
-  %5 = tail call ptr @palloc0(i64 noundef 16) #5
+  %5 = tail call ptr @palloc0(i64 noundef 16) #4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %4, ptr %6, align 8
   %7 = sext i32 %4 to i64
   %8 = shl nsw i64 %7, 1
-  %9 = tail call ptr @palloc0(i64 noundef %8) #5
+  %9 = tail call ptr @palloc0(i64 noundef %8) #4
   store ptr %9, ptr %5, align 8
   %10 = icmp sgt i32 %4, 0
   br i1 %10, label %.lr.ph85.preheader, label %.preheader
@@ -136,17 +136,16 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 
 54:                                               ; preds = %49, %44
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 68
-  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %56)
-  %57 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %2) #5
+  %56 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %57 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %58 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %2) #4
   %59 = load i32, ptr %55, align 4
   %60 = getelementptr inbounds nuw i8, ptr %40, i64 76
   %61 = load i32, ptr %60, align 4
-  %62 = tail call ptr @format_type_with_typemod(i32 noundef %59, i32 noundef %61) #5
-  %63 = tail call ptr @format_type_with_typemod(i32 noundef %29, i32 noundef %31) #5
-  %64 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, ptr noundef %62, ptr noundef %63, i32 noundef %27) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.build_attrmap_by_position) #5
+  %62 = tail call ptr @format_type_with_typemod(i32 noundef %59, i32 noundef %61) #4
+  %63 = tail call ptr @format_type_with_typemod(i32 noundef %29, i32 noundef %31) #4
+  %64 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, ptr noundef %62, ptr noundef %63, i32 noundef %27) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 126, ptr noundef nonnull @__func__.build_attrmap_by_position) #4
   unreachable
 
 65:                                               ; preds = %49
@@ -206,12 +205,11 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   br i1 %.355.lcssa, label %87, label %82
 
 82:                                               ; preds = %._crit_edge
-  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %83)
-  %84 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %2) #5
-  %86 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3, i32 noundef %.3.lcssa, i32 noundef %.063.lcssa) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 151, ptr noundef nonnull @__func__.build_attrmap_by_position) #5
+  %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %84 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %85 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, ptr noundef %2) #4
+  %86 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.3, i32 noundef %.3.lcssa, i32 noundef %.063.lcssa) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 151, ptr noundef nonnull @__func__.build_attrmap_by_position) #4
   unreachable
 
 87:                                               ; preds = %._crit_edge
@@ -278,8 +276,8 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !10
 
 check_attrmap_match.exit:                         ; preds = %121, %.preheader.i
-  tail call void @pfree(ptr noundef %11) #5
-  tail call void @pfree(ptr noundef nonnull %5) #5
+  tail call void @pfree(ptr noundef %11) #4
+  tail call void @pfree(ptr noundef nonnull %5) #4
   br label %check_attrmap_match.exit.thread
 
 check_attrmap_match.exit.thread:                  ; preds = %102, %105, %109, %115, %.lr.ph.i, %87, %check_attrmap_match.exit
@@ -305,12 +303,12 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %0, align 8
   %.fr64 = freeze i32 %5
-  %6 = tail call ptr @palloc0(i64 noundef 16) #5
+  %6 = tail call ptr @palloc0(i64 noundef 16) #4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %4, ptr %7, align 8
   %8 = sext i32 %4 to i64
   %9 = shl nsw i64 %8, 1
-  %10 = tail call ptr @palloc0(i64 noundef %9) #5
+  %10 = tail call ptr @palloc0(i64 noundef %9) #4
   store ptr %10, ptr %6, align 8
   %11 = icmp sgt i32 %4, 0
   br i1 %11, label %.lr.ph57, label %._crit_edge
@@ -365,7 +363,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %40) #7
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %40) #6
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %54
 
@@ -444,7 +442,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %85) #7
+  %86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(1) %85) #6
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %88, label %101
 
@@ -516,18 +514,17 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 
 .split.us:                                        ; preds = %91, %88, %46, %43
   %.us-phi = phi ptr [ %22, %43 ], [ %22, %46 ], [ %67, %88 ], [ %67, %91 ]
-  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %117)
-  %118 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #5
+  %117 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %118 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #4
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %121 = load i32, ptr %120, align 4
-  %122 = tail call ptr @format_type_be(i32 noundef %121) #5
+  %122 = tail call ptr @format_type_be(i32 noundef %121) #4
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %124 = load i32, ptr %123, align 4
-  %125 = tail call ptr @format_type_be(i32 noundef %124) #5
-  %126 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, ptr noundef nonnull %.us-phi, ptr noundef %122, ptr noundef %125) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 237, ptr noundef nonnull @__func__.build_attrmap_by_name) #5
+  %125 = tail call ptr @format_type_be(i32 noundef %124) #4
+  %126 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, ptr noundef nonnull %.us-phi, ptr noundef %122, ptr noundef %125) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 237, ptr noundef nonnull @__func__.build_attrmap_by_name) #4
   unreachable
 
 .split59:                                         ; preds = %.loopexit
@@ -536,18 +533,17 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 
 .split59.us:                                      ; preds = %..loopexit_crit_edge.us, %.split59
   %.us-phi60 = phi ptr [ %127, %.split59 ], [ %67, %..loopexit_crit_edge.us ]
-  %128 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
-  tail call void @llvm.assume(i1 %128)
-  %129 = tail call i32 @errcode(i32 noundef 67141764) #5
-  %130 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #5
+  %128 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
+  %129 = tail call i32 @errcode(i32 noundef 67141764) #4
+  %130 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #4
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %132 = load i32, ptr %131, align 4
-  %133 = tail call ptr @format_type_be(i32 noundef %132) #5
+  %133 = tail call ptr @format_type_be(i32 noundef %132) #4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %135 = load i32, ptr %134, align 4
-  %136 = tail call ptr @format_type_be(i32 noundef %135) #5
-  %137 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6, ptr noundef nonnull %.us-phi60, ptr noundef %133, ptr noundef %136) #5
-  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.build_attrmap_by_name) #5
+  %136 = tail call ptr @format_type_be(i32 noundef %135) #4
+  %137 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.6, ptr noundef nonnull %.us-phi60, ptr noundef %133, ptr noundef %136) #4
+  tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 249, ptr noundef nonnull @__func__.build_attrmap_by_name) #4
   unreachable
 
 138:                                              ; preds = %.loopexit, %.lr.ph57.split.split
@@ -640,8 +636,8 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
 
 check_attrmap_match.exit:                         ; preds = %41, %.preheader.i.check_attrmap_match.exit_crit_edge
   %42 = phi ptr [ %.pre, %.preheader.i.check_attrmap_match.exit_crit_edge ], [ %17, %41 ]
-  tail call void @pfree(ptr noundef %42) #5
-  tail call void @pfree(ptr noundef nonnull %4) #5
+  tail call void @pfree(ptr noundef %42) #4
+  tail call void @pfree(ptr noundef nonnull %4) #4
   br label %check_attrmap_match.exit.thread
 
 check_attrmap_match.exit.thread:                  ; preds = %22, %25, %29, %35, %.lr.ph.i, %3, %check_attrmap_match.exit
@@ -649,17 +645,13 @@ check_attrmap_match.exit.thread:                  ; preds = %22, %25, %29, %35, 
   ret ptr %.0
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #5 = { nounwind }
-attributes #6 = { cold nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #4 = { nounwind }
+attributes #5 = { cold nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
